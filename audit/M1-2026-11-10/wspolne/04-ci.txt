@@ -1,0 +1,72 @@
+$ bash -c pnpm run ci
+
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr
+
+
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+
+Scope: 9 of 10 workspace projects
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck: Done
+packages/jezyki typecheck: Done
+packages/content-schema typecheck: Done
+packages/poker-core typecheck: Done
+packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/preflop-solver typecheck$ tsc -p tsconfig.json
+tools/preflop-solver typecheck: Done
+packages/domena typecheck: Done
+packages/postep typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/content-build typecheck$ tsc -p tsconfig.json
+tools/content-build typecheck: Done
+packages/postep typecheck: Done
+apps/mobile typecheck$ tsc --noEmit
+apps/mobile typecheck: Done
+
+> szkola-pokera@ test /home/user/Szkola_pokera
+> pnpm -r --if-present test
+
+Scope: 9 of 10 workspace projects
+packages/jezyki test$ vitest run
+packages/poker-core test$ vitest run
+packages/srs test$ vitest run
+packages/srs test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/srs
+packages/poker-core test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/poker-core
+packages/jezyki test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/jezyki
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/srs test:    Start at  10:49:47
+packages/srs test:    Duration  572ms (transform 45%, tests 30%, import 13%, setup 11%, worker 2%)
+packages/srs test: Done
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/jezyki test:    Start at  10:49:47
+packages/jezyki test:    Duration  968ms (tests 55%, transform 26%, import 16%, worker 2%)
+packages/jezyki test: Done
+packages/poker-core test:  Test Files  11 passed (11)
+packages/poker-core test:       Tests  155 passed (155)
+packages/poker-core test:    Start at  10:49:47
+packages/poker-core test:    Duration  7.04s (tests 40%, import 39%, transform 17%, setup 3%, worker 1%)
+packages/poker-core test:      Import  49 modules were evaluated 240 times · 4.56s total, 39% of tracked time
+packages/poker-core test:              ~917ms faster with isolate: false — shared modules are evaluated once per worker instead of once per file
+packages/poker-core test:              learn more: https://vitest.dev/guide/improving-performance#test-isolation
+packages/poker-core test: Done
+packages/domena test$ vitest run
+tools/preflop-solver test$ vitest run
+tools/preflop-solver test:  RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+packages/domena test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/domena
+packages/domena test: (node:3173) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/domena test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/domena test: (node:3167) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/domena test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/domena test:  Test Files  22 passed (22)
+packages/domena test:       Tests  314 passed (314)
+packages/domena test:    Start at  10:49:54
+packages/domena test:    Duration  9.00s (tests 62%, transform 21%, import 11%, setup 5%, worker 1%)
+packages/domena test:     Isolate  22 workers spawned · ~238ms startup each (spawn + environment, per file)
+packages/domena test:              at least ~1.51s faster with isolate: false — reuses workers across files instead of one per file
+packages/domena test: Done

@@ -142,3 +142,1358 @@ apps/mobile test: PASS src/features/ustawienia/__tests__/ustawieniaAplikacji-08.
 apps/mobile test: PASS src/features/stol/__tests__/uklad-08.test.ts
 apps/mobile test: PASS src/data/__tests__/postepExpo-08.test.ts
 apps/mobile test: PASS src/components/__tests__/Stol-08.test.tsx
+apps/mobile test: PASS src/__tests__/sesja-render-08.test.tsx
+apps/mobile test:   ● Console
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test: PASS src/platform/__tests__/dziennik-08.test.tsx
+apps/mobile test: PASS src/features/dane/__tests__/dane.test.tsx
+apps/mobile test:   ● Console
+apps/mobile test:     console.error
+apps/mobile test:       An update to EkranDanych inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       49 |   };
+apps/mobile test:       50 |   const zapisz = async () => {
+apps/mobile test:     > 51 |     ustawZajety(true);
+apps/mobile test:          |     ^
+apps/mobile test:       52 |     const w = await dane.zapiszImport().catch(() => 'blad_zapisu' as const);
+apps/mobile test:       53 |     ustawZajety(false);
+apps/mobile test:       54 |     ustawKomunikat(w === 'gotowe' ? 'zaimportowano' : 'blad_zapisu');
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchSetStateInternal (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:7016:13)
+apps/mobile test:       at dispatchSetState (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6973:7)
+apps/mobile test:       at ustawZajety (src/features/dane/EkranDanych.tsx:51:5)
+apps/mobile test:       at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+apps/mobile test:       at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+apps/mobile test:       at ../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+apps/mobile test:       at ../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+apps/mobile test:       at apply (src/features/dane/EkranDanych.tsx:50:15)
+apps/mobile test:       at Object.zapisz [as onPress] (src/features/dane/EkranDanych.tsx:68:83)
+apps/mobile test:       at Object.<anonymous> (src/features/dane/__tests__/dane.test.tsx:80:40)
+apps/mobile test:       at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+apps/mobile test:       at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+apps/mobile test: PASS src/theme/__tests__/skalowanie-08.test.tsx
+apps/mobile test: PASS src/features/session/__tests__/content.test.ts
+apps/mobile test: PASS src/features/dostepnosc/__tests__/announce-08.test.tsx
+apps/mobile test:   ● Console
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test: PASS src/data/tresc/__tests__/plikiExpo.test.ts
+apps/mobile test: PASS src/features/drills/__tests__/teksty-jezyk-09.test.ts
+apps/mobile test: PASS src/features/ocena-poziomu/__tests__/powitanie-ocena.test.tsx
+apps/mobile test: PASS src/features/ustawienia/__tests__/przypomnienie-08.test.ts
+apps/mobile test: PASS src/features/start/__tests__/wejscieStartu-08.test.ts
+apps/mobile test: PASS src/state/__tests__/dostep-08.test.ts
+apps/mobile test: PASS src/features/stol/__tests__/PanelDecyzji-08.test.tsx
+apps/mobile test:   ● Console
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test: PASS src/features/ustawienia/__tests__/ustawienia.test.tsx
+apps/mobile test: PASS src/features/ustawienia/__tests__/trasaUstawien-08.test.tsx
+apps/mobile test: PASS src/features/dzis/__tests__/widok-08.test.ts
+apps/mobile test: PASS src/features/start/__tests__/start.test.tsx
+apps/mobile test: PASS src/features/opinie/__tests__/opinie.test.tsx
+apps/mobile test: PASS src/features/advancement/__tests__/contentChange.test.ts
+apps/mobile test: PASS src/components/__tests__/teksty-08.test.tsx
+apps/mobile test: PASS src/platform/__tests__/pliki-08.test.ts
+apps/mobile test: PASS src/features/ustawienia/__tests__/pelnyDostep-08.test.tsx
+apps/mobile test: PASS src/features/help/__tests__/pomoc.test.tsx
+apps/mobile test: PASS src/components/__tests__/PasekStrategii-08.test.tsx
+apps/mobile test:   ● Console
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test:     console.error
+apps/mobile test:       An update to Animated(View) inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at dispatchReducerAction (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6963:13)
+apps/mobile test:       at Object.scheduleUpdate [as current] (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:128:20)
+apps/mobile test:       at AnimatedProps._callback (../../node_modules/react-native/src/private/animated/createAnimatedPropsHook.js:68:36)
+apps/mobile test:       at AnimatedProps._callback [as update] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js:238:10)
+apps/mobile test:       at update (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:31)
+apps/mobile test:           at Set.forEach (<anonymous>)
+apps/mobile test:       at forEach (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:66:10)
+apps/mobile test:       at AnimatedValue.flushValue [as _updateValue] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:310:7)
+apps/mobile test:       at TimingAnimation._updateValue [as _onUpdate] (../../node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js:270:14)
+apps/mobile test:       at TimingAnimation._onUpdate [as onUpdate] (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:167:10)
+apps/mobile test:       at onUpdate (../../node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js:142:67)
+apps/mobile test:       at Timeout.callback [as _onTimeout] (../../node_modules/@react-native/jest-preset/jest/setup.js:61:31)
+apps/mobile test: PASS src/features/session/__tests__/odtworzenie-08.test.ts
+apps/mobile test: PASS src/platform/__tests__/powiadomienia-08.test.ts
+apps/mobile test: PASS src/data/tresc/__tests__/useTresc-09.test.tsx
+apps/mobile test: PASS src/features/session/__tests__/praktyka-08.test.ts
+apps/mobile test: PASS src/i18n/__tests__/konfiguracja.test.ts
+apps/mobile test: PASS src/features/glossary/__tests__/definicje-08.test.ts
+apps/mobile test: PASS src/features/stol/__tests__/pasek-08.test.ts
+apps/mobile test: PASS src/i18n/__tests__/przeglad-pelny-wys-09.test.ts
+apps/mobile test: PASS src/theme/__tests__/motyw-08.test.ts
+apps/mobile test: PASS src/i18n/__tests__/jezyk-ko-it-vi-09.test.ts
+apps/mobile test: PASS src/features/glossary/__tests__/GlossaryScreen.test.tsx
+apps/mobile test:   ● Console
+apps/mobile test:     console.error
+apps/mobile test:       An update to GlossaryScreen inside a test was not wrapped in act(...).
+apps/mobile test:       
+apps/mobile test:       When testing, code that causes React state updates should be wrapped into act(...):
+apps/mobile test:       
+apps/mobile test:       act(() => {
+apps/mobile test:         /* fire events that update state */
+apps/mobile test:       });
+apps/mobile test:       /* assert on the output */
+apps/mobile test:       
+apps/mobile test:       This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+apps/mobile test:       38 | export async function ustawJezyk(ustawienie: UstawienieJezyka): Promise<Jezyk> {
+apps/mobile test:       39 |   const j = jezykDlaUstawienia(ustawienie, tagiSystemu());
+apps/mobile test:     > 40 |   await i18n.changeLanguage(j);
+apps/mobile test:          |              ^
+apps/mobile test:       41 |   return j;
+apps/mobile test:       42 | }
+apps/mobile test:       43 |
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17864:19
+apps/mobile test:       at runWithFiberInDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:2663:13)
+apps/mobile test:       at warnIfUpdatesNotWrappedWithActDEV (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:17863:9)
+apps/mobile test:       at scheduleUpdateOnFiber (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:15445:11)
+apps/mobile test:       at forceStoreRerender (../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6163:24)
+apps/mobile test:       at ../../node_modules/react-reconciler/cjs/react-reconciler.development.js:6148:11
+apps/mobile test:       at wrappedCallback (../../node_modules/react-i18next/dist/commonjs/useTranslation.js:61:7)
+apps/mobile test:       at ../../node_modules/i18next/dist/cjs/i18next.js:287:11
+apps/mobile test:           at Array.forEach (<anonymous>)
+apps/mobile test:       at I18n.emit (../../node_modules/i18next/dist/cjs/i18next.js:285:14)
+apps/mobile test:       at done (../../node_modules/i18next/dist/cjs/i18next.js:2026:16)
+apps/mobile test:       at ../../node_modules/i18next/dist/cjs/i18next.js:2047:9
+apps/mobile test:       at I18n.loadResources (../../node_modules/i18next/dist/cjs/i18next.js:1946:7)
+apps/mobile test:       at setLng (../../node_modules/i18next/dist/cjs/i18next.js:2046:12)
+apps/mobile test:       at I18n.changeLanguage (../../node_modules/i18next/dist/cjs/i18next.js:2059:7)
+apps/mobile test:       at changeLanguage (src/i18n/index.ts:40:14)
+apps/mobile test:       at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+apps/mobile test:       at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+apps/mobile test:       at ../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+apps/mobile test:       at ../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+apps/mobile test:       at apply (src/i18n/index.ts:38:33)
+apps/mobile test:       at Object.<anonymous> (src/features/glossary/__tests__/GlossaryScreen.test.tsx:40:23)
+apps/mobile test:       at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+apps/mobile test:       at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+apps/mobile test:       at ../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+apps/mobile test:       at Object.<anonymous> (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+apps/mobile test: PASS src/features/help/__tests__/HelpScreen.test.tsx
+apps/mobile test: PASS src/features/opinie/__tests__/prosbaOOcene-08.test.ts
+apps/mobile test: PASS src/platform/__tests__/ochronaTla-08.test.ts
+apps/mobile test: PASS src/components/__tests__/RuleCard.test.tsx
+apps/mobile test: PASS src/i18n/__tests__/jezyk-pt-09.test.ts
+apps/mobile test: PASS src/features/stol/__tests__/ukladRzedow-08.test.ts
+apps/mobile test: PASS src/features/session/__tests__/haptyka-08.test.ts
+apps/mobile test: PASS src/features/glossary/__tests__/glossary.test.ts
+apps/mobile test: PASS src/features/ocena-poziomu/__tests__/PierwszeUruchomienie-jezyk-09.test.tsx
+apps/mobile test: PASS src/features/zakup/__tests__/anulowanie-08.test.tsx
+apps/mobile test: PASS src/i18n/__tests__/jezyk-de-es-09.test.ts
+apps/mobile test: PASS src/features/advancement/__tests__/areas.test.ts
+apps/mobile test: PASS src/__tests__/adr0011-08.test.ts
+apps/mobile test: PASS src/features/session/__tests__/odtworzenie-tresc-08.test.ts
+apps/mobile test: PASS src/features/ocena/__tests__/stopien-oceny.test.tsx
+apps/mobile test: PASS src/theme/__tests__/kroje-08.test.ts
+apps/mobile test: PASS src/features/advancement/__tests__/historia.test.ts
+apps/mobile test: PASS src/features/kurs/__tests__/faktyKursu-08.test.ts
+apps/mobile test: PASS src/data/tresc/__tests__/jezykStartu-08.test.tsx
+apps/mobile test: PASS src/state/__tests__/settings-08.test.ts
+apps/mobile test: PASS src/features/session/__tests__/contentDbName.test.ts
+apps/mobile test: PASS src/i18n/__tests__/jezyk-4-09.test.ts
+apps/mobile test: PASS src/data/__tests__/usunPostep-08.test.ts
+apps/mobile test: PASS src/features/ocena-poziomu/__tests__/ocenaPoziomu-tresc-08.test.ts
+apps/mobile test: PASS src/features/stol/__tests__/skala-08.test.ts
+apps/mobile test: PASS src/features/kurs/__tests__/podsumowania-08.test.ts
+apps/mobile test: PASS src/data/tresc/__tests__/useTresc-start-08.test.tsx
+apps/mobile test: PASS src/components/__tests__/GranicaBledu-08.test.tsx
+apps/mobile test: PASS src/data/tresc/__tests__/startEkranu-08.test.ts
+apps/mobile test: PASS src/features/glossary/__tests__/nazwy-lokalne-09.test.ts
+apps/mobile test: PASS src/features/dzis/__tests__/BlokLekcji-08.test.tsx
+apps/mobile test: PASS src/__tests__/sesja-ekran-08.test.ts
+apps/mobile test: PASS src/i18n/__tests__/zakup-tekst-10.test.ts
+apps/mobile test: PASS src/components/__tests__/tableWidths.test.ts
+apps/mobile test: PASS src/components/__tests__/SkalaStopni-08.test.tsx
+apps/mobile test: PASS src/platform/__tests__/zegar-08.test.ts
+apps/mobile test: PASS src/i18n/__tests__/jezyk-en-09.test.ts
+apps/mobile test: PASS src/i18n/__tests__/powtorki-nazwa-08.test.ts
+apps/mobile test: PASS src/components/__tests__/PlayingCard-08.test.tsx
+apps/mobile test: PASS src/theme/__tests__/kroje-cjk-09.test.ts
+apps/mobile test: PASS src/features/drills/__tests__/ocena-schematu-08.test.ts
+apps/mobile test: Test Suites: 89 passed, 89 total
+apps/mobile test: Tests:       608 passed, 608 total
+apps/mobile test: Snapshots:   0 total
+apps/mobile test: Time:        31.57 s
+apps/mobile test: Ran all test suites.
+apps/mobile test: Done
+KOD WYJŚCIA: 0
