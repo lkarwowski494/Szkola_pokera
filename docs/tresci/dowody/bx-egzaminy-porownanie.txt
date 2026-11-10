@@ -1,0 +1,7 @@
+# BX: porównanie przed/po (baza 70fdf40 → 3ca5f67), komenda: node docs/tresci/narzedzia/bx-porownaj-egzamin.mjs 70fdf40 content/pl/exams/m12.yaml m12.exam.q1:0 m12.exam.q2:0 m12.exam.q3:0 m12.exam.q8:0
+content/pl/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pl/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pl/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pl/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+kod wyjścia: 0
