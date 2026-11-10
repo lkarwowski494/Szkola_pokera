@@ -1,0 +1,11 @@
+# BX: kontrola przed poprawką (baza 70fdf40), komenda: node docs/tresci/narzedzia/bx-porownaj-egzamin.mjs 70fdf40 content/pl/exams/m12.yaml m12.exam.q1:0 m12.exam.q2:0 m12.exam.q3:0 m12.exam.q8:0
+content/pl/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why BEZ ZMIAN
+content/pl/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why BEZ ZMIAN
+content/pl/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why BEZ ZMIAN
+content/pl/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why BEZ ZMIAN
+BŁĄD m12.exam.q1:0 (l.9): pierwsze zdanie why to rachunek, nie sens: „Oczekujesz {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exa”
+BŁĄD m12.exam.q2:0 (l.18): pierwsze zdanie why to rachunek, nie sens: „Błąd winrate to SD ÷ √(bloki) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-block”
+BŁĄD m12.exam.q3:0 (l.27): pierwsze zdanie why to rachunek, nie sens: „Bloki = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:”
+BŁĄD m12.exam.q8:0 (l.73): pierwsze zdanie why to rachunek, nie sens: „Wykładnik: 2 × winrate × bankroll ÷ SD² = {{n:ror.two}} × {{n:dd.wr-lo”
+niezgodności: 4
+kod wyjścia: 1
