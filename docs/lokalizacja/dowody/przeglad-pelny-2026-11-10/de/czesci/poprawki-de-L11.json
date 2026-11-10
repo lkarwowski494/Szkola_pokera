@@ -1,0 +1,173 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "- { text: \"Konform\", correct: true, why: \"Ja: Eine Aktion",
+    "nowy": "- { text: \"Übereinstimmend\", correct: true, why: \"Ja: Eine Aktion",
+    "waga": "ŚR",
+    "powod": "m13-l1:36 (text): nazwa oceny „Zgodna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "der Fälle spielt, ist konform.",
+    "nowy": "der Fälle spielt, ist übereinstimmend.",
+    "waga": "ŚR",
+    "powod": "m13-l1:36 (why): nazwa oceny „zgodna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "- { text: \"Konform\", correct: true, why: \"Ja: Ein {{t:call}}",
+    "nowy": "- { text: \"Übereinstimmend\", correct: true, why: \"Ja: Ein {{t:call}}",
+    "waga": "ŚR",
+    "powod": "m13-l1:45 (text): nazwa oceny „Zgodna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "die Schwelle für konform ({{n:range.mixed.low}})",
+    "nowy": "die Schwelle für übereinstimmend ({{n:range.mixed.low}})",
+    "waga": "ŚR",
+    "powod": "m13-l1:45 (why): nazwa oceny „zgodna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "text: \"Zulässig\", why: \"Zulässig ist eine Aktion",
+    "nowy": "text: \"Vertretbar\", why: \"Vertretbar ist eine Aktion",
+    "waga": "ŚR",
+    "powod": "m13-l1:46 (text i początek why): nazwa oceny „Dopuszczalna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "die Schwelle für konform.\" }",
+    "nowy": "die Schwelle für übereinstimmend.\" }",
+    "waga": "ŚR",
+    "powod": "m13-l1:46 (why, koniec): nazwa oceny „zgodna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "text: \"Konform\", why: \"Die Aktion ist gut",
+    "nowy": "text: \"Übereinstimmend\", why: \"Die Aktion ist gut",
+    "waga": "ŚR",
+    "powod": "m13-l1:55 (text): nazwa oceny „Zgodna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "zählt der Bericht als konform.",
+    "nowy": "zählt der Bericht als übereinstimmend.",
+    "waga": "ŚR",
+    "powod": "m13-l1:64: nazwa oceny „zgodne”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "- **Konform**:",
+    "nowy": "- **Übereinstimmend**:",
+    "waga": "ŚR",
+    "powod": "m13-l1:90: lista stopni oceny, „Zgodna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "- **Zulässig**:",
+    "nowy": "- **Vertretbar**:",
+    "waga": "ŚR",
+    "powod": "m13-l1:91: lista stopni oceny, „Dopuszczalna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "Spielzug als zulässig,",
+    "nowy": "Spielzug als vertretbar,",
+    "waga": "ŚR",
+    "powod": "m13-l1:101: nazwa oceny „dopuszczalne”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l1-raport.md",
+    "stary": "- **Zeit abgelaufen**:",
+    "nowy": "- **Zeit überschritten**:",
+    "waga": "ŚR",
+    "powod": "m13-l1:95: lista stopni oceny, „Przekroczony czas”: w raporcie etykieta werdyktu to „Zeit überschritten” (de.json game.report.verdicts.timeout)",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l2-powtorki.md",
+    "stary": "Eine zulässige Entscheidung ist kein Fehler",
+    "nowy": "Eine vertretbare Entscheidung ist kein Fehler",
+    "waga": "ŚR",
+    "powod": "m13-l2:33: nazwa oceny „Dopuszczalna”: słownik interfejsu de.json ma „Übereinstimmend” (grade.zgodne, game.report.verdicts.compliant) i „Vertretbar” (grade.dopuszczalne, verdicts.acceptable); lekcja opisuje te etykiety inną nazwą",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l2-powtorki.md",
+    "stary": "Korrekte und zulässige Entscheidungen",
+    "nowy": "Übereinstimmende und vertretbare Entscheidungen",
+    "waga": "ŚR",
+    "powod": "m13-l2:34: „Zgodne i dopuszczalne”: trzecia nazwa oceny „zgodna” („Korrekte”); de.json game.report.good = „Übereinstimmende und vertretbare Entscheidungen”",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l2-powtorki.md",
+    "stary": "Deine Herzen passen",
+    "nowy": "Deine Herzkarten passen",
+    "waga": "NISKIE",
+    "powod": "m13-l2:24: „twoje kiery”: kolor karty to „Herz”/„Herzkarten”, „Herzen” to serca",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l2-powtorki.md",
+    "stary": ":::note Woher diese Regeln kommen",
+    "nowy": ":::note Woher diese Regeln stammen",
+    "waga": "NISKIE",
+    "powod": "m13-l2:95: nagłówek notki „Skąd te zasady” w m13-l1 i m13-l3 brzmi „Woher diese Regeln stammen”; ujednolicenie w module",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m13-l3-przeglad.md",
+    "stary": "bestätigt sie auch die realistische Annahme",
+    "nowy": "wird sie auch von der realistischen Annahme bestätigt",
+    "waga": "ŚR",
+    "powod": "m13-l3:60: „założenie realistyczne też ją potwierdzi”: szyk dopuszcza odczytanie odwrotne (decyzja potwierdza założenie)",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m0-l1-uklady.md",
+    "stary": "**2 {{t:hole-cards|Handkarten}}**",
+    "nowy": "**2 {{t:hole-cards|Hole Cards}}**",
+    "waga": "ŚR",
+    "powod": "m0-l1:81: termin hole-cards wg terms-nazwy.yaml to „Hole Cards” (tak też w reszcie korpusu i w ćwiczeniu słownictwa); klucz znacznika bez zmian",
+    "grupa": "de-L11"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m0-l1-uklady.md",
+    "stary": "deine {{t:hole-cards|Handkarten}} nichts beitragen",
+    "nowy": "deine {{t:hole-cards|Hole Cards}} nichts beitragen",
+    "waga": "ŚR",
+    "powod": "m0-l1:104: termin hole-cards wg terms-nazwy.yaml to „Hole Cards”; klucz znacznika bez zmian",
+    "grupa": "de-L11"
+  }
+]
