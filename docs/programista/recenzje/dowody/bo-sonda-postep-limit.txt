@@ -1,0 +1,75 @@
+$ npx vitest run --root packages/postep test/sonda-bo.test.ts --silent=false --reporter=verbose  (worktree @49654a6, plik sondy poza repo)
+import { afterEach, describe, expect, it } from 'vitest';
+import { czyPowtorkaWariantu, KONFIGURACJA, mozeStartowac, startAktywnosci } from '../../domena/src';
+import { odczytajOdciski, zapiszOdcisk, type ZapisOdcisku } from '../src';
+import { T0 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { przygotuj, sprzatnij } from './wspolne';
+afterEach(sprzatnij);
+const zapis = (o: Partial<ZapisOdcisku> & { odcisk: string }) => ({ szablonId: 's01', poziom: 'latwy' as const, ziarno: 1, terazMs: T0, ...o });
+const OKNO = KONFIGURACJA.WARIANTY_HISTORIA_OKNO;
+describe('sonda BO: postep', () => {
+  it('S1: 25 zapisów równoległych (bez await), zegar malejący: kolejność = kolejność wywołań, okno 20 najnowszych', async () => {
+    const { port } = await przygotuj('pusta');
+    const w = await Promise.all(Array.from({ length: 25 }, (_, i) => zapiszOdcisk(port, zapis({ odcisk: `o${String(i).padStart(2, '0')}`, ziarno: i, terazMs: T0 - i * 1000 }))));
+    expect(w.every((x) => x.ok)).toBe(true);
+    const r = await odczytajOdciski(port, 's01', 'latwy');
+    if (!r.ok) throw new Error('odczyt');
+    console.log('S1', JSON.stringify(r.wartosc.map((o) => [o.odcisk, o.zagranoMs - T0])));
+    expect(r.wartosc.map((o) => o.odcisk)).toEqual(Array.from({ length: 20 }, (_, i) => `o${String(i + 5).padStart(2, '0')}`));
+  });
+  it('S2: powtórka starszego wpisu (UPSERT) przy cofniętym zegarze trafia na koniec i jest „ostatnim” dla czyPowtorkaWariantu', async () => {
+    const { port } = await przygotuj('pusta');
+    for (let i = 0; i < 5; i++) await zapiszOdcisk(port, zapis({ odcisk: `o${i}`, terazMs: T0 + i }));
+    await zapiszOdcisk(port, zapis({ odcisk: 'o1', ziarno: 9, terazMs: T0 - 86_400_000 }));
+    const r = await odczytajOdciski(port, 's01', 'latwy');
+    if (!r.ok) throw new Error('odczyt');
+    console.log('S2', JSON.stringify(r.wartosc.map((o) => [o.odcisk, o.zagranoMs - T0])));
+    expect(r.wartosc.at(-1)?.odcisk).toBe('o1');
+    expect(czyPowtorkaWariantu({ historia: r.wartosc, odcisk: 'o1' })).toBe(true);
+  });
+  it('S3: błąd w transakcji (CHECK ziarno < 0) nie zmienia historii', async () => {
+    const { port } = await przygotuj('pusta');
+    for (let i = 0; i < OKNO; i++) await zapiszOdcisk(port, zapis({ odcisk: `o${i}`, terazMs: T0 + i }));
+    const przed = await odczytajOdciski(port, 's01', 'latwy');
+    const w = await zapiszOdcisk(port, zapis({ odcisk: 'zly', ziarno: -1, terazMs: T0 - 5 }));
+    console.log('S3', JSON.stringify(w));
+    expect(w.ok).toBe(false);
+    expect(await odczytajOdciski(port, 's01', 'latwy')).toEqual(przed);
+  });
+  it('S4: kolejność wywołań w kroku F: zapis odcisku nowego wariantu PRZED sprawdzeniem limitu → nowy wariant liczony jako powtórka (poza limitem)', async () => {
+    const { port } = await przygotuj('pusta');
+    await zapiszOdcisk(port, zapis({ odcisk: 'stary', terazMs: T0 }));
+    await zapiszOdcisk(port, zapis({ odcisk: 'NOWY', terazMs: T0 + 1 }));
+    const r = await odczytajOdciski(port, 's01', 'latwy');
+    if (!r.ok) throw new Error('odczyt');
+    const wyczerpany = { bezLimitu: false as const, pozostalo: 0, odnowienieMs: 0 };
+    const m = mozeStartowac('scenariusz', false, wyczerpany, { historia: r.wartosc, odcisk: 'NOWY' });
+    console.log('S4', JSON.stringify(m));
+    expect(m).toEqual({ start: true, zLimitu: false });
+  });
+  it('S5: startAktywnosci (ścieżka startu domeny) nie przyjmuje wariantu: powtórka scenariusza przy wyczerpanym limicie → limit_wyczerpany', () => {
+    const wyczerpany = { bezLimitu: false as const, pozostalo: 0, odnowienieMs: 0 };
+    const plan = { liczbaKrokow: 1, trescId: 'sc', decyzje: [[{ akcja: 'call', ocena: 'poprawne', dalej: 'koniec' }, { akcja: 'fold', ocena: 'bledne', dalej: 'koniec' }]] } as never;
+    const w = startAktywnosci({ rodzaj: 'scenariusz', pierwszePodejscieTestu: false, limit: wyczerpany, plan, teraz: T0, dzienLokalny: '2026-11-10', strefa: 'UTC' });
+    console.log('S5', JSON.stringify(w));
+  });
+});
+======
+stdout | test/sonda-bo.test.ts > sonda BO: postep > S1: 25 zapisów równoległych (bez await), zegar malejący: kolejność = kolejność wywołań, okno 20 najnowszych
+S1 [["o05",5],["o06",6],["o07",7],["o08",8],["o09",9],["o10",10],["o11",11],["o12",12],["o13",13],["o14",14],["o15",15],["o16",16],["o17",17],["o18",18],["o19",19],["o20",20],["o21",21],["o22",22],["o23",23],["o24",24]]
+stdout | test/sonda-bo.test.ts > sonda BO: postep > S2: powtórka starszego wpisu (UPSERT) przy cofniętym zegarze trafia na koniec i jest „ostatnim” dla czyPowtorkaWariantu
+S2 [["o0",0],["o2",2],["o3",3],["o4",4],["o1",5]]
+ ✓ test/sonda-bo.test.ts > sonda BO: postep > S1: 25 zapisów równoległych (bez await), zegar malejący: kolejność = kolejność wywołań, okno 20 najnowszych 72ms
+stdout | test/sonda-bo.test.ts > sonda BO: postep > S3: błąd w transakcji (CHECK ziarno < 0) nie zmienia historii
+S3 {"ok":false,"powod":"zapis_nieudany"}
+stdout | test/sonda-bo.test.ts > sonda BO: postep > S4: kolejność wywołań w kroku F: zapis odcisku nowego wariantu PRZED sprawdzeniem limitu → nowy wariant liczony jako powtórka (poza limitem)
+S4 {"start":true,"zLimitu":false}
+stdout | test/sonda-bo.test.ts > sonda BO: postep > S5: startAktywnosci (ścieżka startu domeny) nie przyjmuje wariantu: powtórka scenariusza przy wyczerpanym limicie → limit_wyczerpany
+S5 {"ok":false,"powod":"limit_wyczerpany"}
+ ✓ test/sonda-bo.test.ts > sonda BO: postep > S2: powtórka starszego wpisu (UPSERT) przy cofniętym zegarze trafia na koniec i jest „ostatnim” dla czyPowtorkaWariantu 27ms
+ ✓ test/sonda-bo.test.ts > sonda BO: postep > S3: błąd w transakcji (CHECK ziarno < 0) nie zmienia historii 26ms
+ ✓ test/sonda-bo.test.ts > sonda BO: postep > S4: kolejność wywołań w kroku F: zapis odcisku nowego wariantu PRZED sprawdzeniem limitu → nowy wariant liczony jako powtórka (poza limitem) 17ms
+ ✓ test/sonda-bo.test.ts > sonda BO: postep > S5: startAktywnosci (ścieżka startu domeny) nie przyjmuje wariantu: powtórka scenariusza przy wyczerpanym limicie → limit_wyczerpany 1ms
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+KOD WYJŚCIA: 0

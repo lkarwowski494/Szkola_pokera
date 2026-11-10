@@ -1,0 +1,4 @@
+$ git diff 8b5db83..49654a6 | grep -nE "BEGIN [A-Z ]*PRIVATE|AKIA|sk-[A-Za-z0-9]{20}|AIza|api_?key|ghp_|github_pat_"
+KOD WYJŚCIA grep: 1 (1 = brak trafień)
+$ git diff --name-only 8b5db83..49654a6 | grep -E "\.(env|p8|p12|pem|key|jks|keystore|mobileprovision)$"
+KOD WYJŚCIA grep: 1

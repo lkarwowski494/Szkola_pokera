@@ -1,0 +1,46 @@
+$ pnpm run ci   (gałąź sesja-bo-recenzja @ 49654a6, Linux, Node v22.23.4, pnpm 10.28.0; pełny log 254 KB w scratchpadzie sesji BO, tu liczby i koniec)
+
+## Liczby testów (grep "Test Files|Tests ")
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  177 passed (177)
+packages/domena test:  Test Files  23 passed (23)
+packages/domena test:       Tests  332 passed (332)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  17 passed (17)
+packages/postep test:       Tests  136 passed (136)
+tools/content-build test:  Test Files  18 passed (18)
+tools/content-build test:       Tests  199 passed (199)
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+
+## Ostatnie 25 linii
+
+
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 141 reguł, 162 terminów.
+(node:3057) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+
+wpisy: 1055, bez twierdzeń: 139, wymagane: 1134, brak pokrycia: 0
+status: {"potwierdzone":999,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":700,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1047,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.vpip.high, n:hud.opps.look, n:hud.opps.sure, n:study.beginner, n:study.winner, n:study.min, n:var.wr.typical.high, n:cbet.range.small.low, n:cbet.range.small.high, n:cbet.range.big.low, n:cbet.range.big.high, n:xr.mult.example, n:xr.mult.low, n:cbet.oop.a94.check, n:hud.hands.3bet.high, n:hud.hands.3bet.low, n:hud.hands.random, n:hud.hands.rough.high, n:hud.vpip.reg.high, n:m11.depth.15, n:m11.m.red, n:mda.all.fcb, n:mda.period.months, n:mda.rec.def, n:mda.rec.def.wr, n:mda.rec.f3b, n:mda.rec.pfr, n:mda.rec.vpip, n:mda.rec.wr, n:mda.rec.wsd, n:mda.rec.wtsd, n:mda.reg.def.high, n:mda.reg.def.low, n:mda.reg.def.wr, n:mda.reg.f3b, n:mda.reg.pfr, n:mda.reg.vpip, n:mda.reg.wr, n:mda.reg.wsd, n:mda.reg.wtsd, n:rake.micro.high, n:rake.nl500.high, n:rake.nl500.low, n:rake.pop.nl10.loss, n:rake.pop.nl100.loss, n:rake.pop.nl500.loss, n:rake.pop.reg.hands, n:rake.pop.reg.postrake, n:rake.pop.reg.prerake, n:hud.hands.3bet.overall.low, n:rake.pop.reg.prerake.raw, n:rake.pop.reg.postrake.raw, t:preflop, t:out-of-position, t:late-position, t:outs, t:draw, t:gutshot, t:backdoor, t:pot-odds, t:implied-odds, t:equity, t:combo, t:range, t:suited, t:offsuit, t:pocket-pair, t:limp, t:isolation, t:rainbow, t:two-tone, t:monotone, t:second-pair, t:overpair, t:c-bet, t:range-advantage, t:nuts-advantage, t:polarized, t:value-bet, t:bluff, t:blocker, t:bluff-catcher, t:probe-bet, t:donk-bet, t:overbet, t:mdf, t:tilt, t:winrate, t:downswing, t:session, t:standard-deviation, t:risk-of-ruin, t:mental-game, t:shove, t:bubble, t:bubble-factor, t:fold-equity, t:chip-ev, t:final-table, t:nash-equilibrium, t:overcall, t:stack-off, t:exploit, t:vpip, t:wtsd, t:nit, t:tag, t:lag, t:calling-station, t:maniac, t:rake, t:rake-cap)
+krytyczne: 56
+0 błędów, 0 uwag
+KOD WYJŚCIA: 0

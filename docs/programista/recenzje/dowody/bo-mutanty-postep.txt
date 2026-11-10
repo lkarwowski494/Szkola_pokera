@@ -1,0 +1,21 @@
+$ ręczne mutanty packages/postep/src/wariantyHistoria.ts:21-27 (worktree @49654a6), test: packages/postep/test/wariantyHistoria-532.test.ts
+== mutant: M1 >= → >
+      Tests  24 passed (24)
+== mutant: M2 +1 → +0
+      Tests  24 passed (24)
+== mutant: M3 zagranoMs → terazMs (stan sprzed poprawki)
+     × 08-programista-003: zapis przy cofniętym zegarze trafia na koniec listy i nie wypada z okna (kolejność zapisu, nie zegara) 40ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 23 passed (24)
+== mutant: M4 MAX bez filtra poziomu
+      Tests  24 passed (24)
+== mutant: M5 MAX z całej tabeli
+      Tests  24 passed (24)
+== mutant: M1 >= → > (sonda S2 z dowody/bo-sonda-postep-limit.txt)
+      Tests  1 passed | 4 skipped (5)
+== mutant: M2 +1 → +0 (sonda S2 z dowody/bo-sonda-postep-limit.txt)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected 'o4' to be 'o1' // Object.is equality
+Expected: "o1"
+Received: "o4"
+      Tests  1 failed | 4 skipped (5)

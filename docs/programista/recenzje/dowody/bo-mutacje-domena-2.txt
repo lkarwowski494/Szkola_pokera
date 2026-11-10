@@ -1,0 +1,32 @@
+$ pnpm exec stryker run stryker.bo.json  (przebieg 2: concurrency 1, timeoutMS 60000; przebieg 1 z concurrency 4 dał 52 timeouty — niewiarygodny)
+{
+  "testRunner": "command",
+  "commandRunner": { "command": "pnpm --filter @szkola/domena test" },
+  "mutate": ["packages/domena/src/limit.ts:22-34", "packages/domena/src/wariant.ts:47-54"],
+  "coverageAnalysis": "off", "inPlace": true, "concurrency": 1, "timeoutMS": 60000,
+  "reporters": ["clear-text"]
+}
+[32m17:22:08 (14212) INFO ProjectReader[39m Found 2 of 2613 file(s) to be mutated.
+[32m17:22:08 (14212) INFO Instrumenter[39m Instrumented 2 source file(s) with 53 mutant(s)
+[32m17:22:09 (14212) INFO ConcurrencyTokenProvider[39m Creating 1 test runner process(es).
+[32m17:22:09 (14212) INFO Sandbox[39m In place mode is enabled, Stryker will be overriding YOUR files. Find your backup at: .stryker-tmp/backup-Cl4e1p
+[32m17:22:09 (14212) INFO DryRunExecutor[39m Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+[32m17:22:16 (14212) INFO DryRunExecutor[39m Initial test run succeeded. Ran 1 tests in 6 seconds (net 6430 ms, overhead 1 ms).
+All tests
+  ✓ All tests (killed 52)
+[Survived] ConditionalExpression
+packages/domena/src/limit.ts:29:59
+-       rodzaj === 'lekcja' || rodzaj === 'ocena_poziomu' || (rodzaj === 'test_modulu' && pierwszePodejscieTestu) || (rodzaj === 'scenariusz' && wariant !== undefined && czyPowtorkaWariantu(wariant));
++       rodzaj === 'lekcja' || rodzaj === 'ocena_poziomu' || (true && pierwszePodejscieTestu) || (rodzaj === 'scenariusz' && wariant !== undefined && czyPowtorkaWariantu(wariant));
+Ran 1.00 tests per mutant on average.
+------------|------------------|----------|-----------|------------|----------|----------|
+            | % Mutation score |          |           |            |          |          |
+File        |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+------------|--------|---------|----------|-----------|------------|----------|----------|
+All files   |  98.11 |   98.11 |       52 |         0 |          1 |        0 |        0 |
+ limit.ts   |  97.73 |   97.73 |       43 |         0 |          1 |        0 |        0 |
+ wariant.ts | 100.00 |  100.00 |        9 |         0 |          0 |        0 |        0 |
+------------|--------|---------|----------|-----------|------------|----------|----------|
+[32m17:28:10 (14212) INFO MutationTestExecutor[39m Done in 6 minutes and 1 second.
+[32m17:28:10 (14212) INFO Sandbox[39m Resetting your original files from .stryker-tmp/backup-Cl4e1p.
+KOD WYJŚCIA: 0

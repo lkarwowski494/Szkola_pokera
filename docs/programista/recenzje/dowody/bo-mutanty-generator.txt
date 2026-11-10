@@ -1,0 +1,16 @@
+$ ręczne mutanty packages/poker-core/src/scenario-gen.ts (worktree @49654a6); testy: scenario-gen-decyzja-niezmienna, scenario-znaczniki, scenario-gen (filtr -t podany przy mutancie)
+0
+== mutant: K1 bez filtra expected (stan sprzed poprawki)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  4 failed | 3 passed | 15 skipped (22)
+== mutant: K2 expected[i] → expected[0]
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 5 passed | 16 skipped (22)
+== mutant: K3 bez kontroli liczby expected
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 21 skipped (22)
+== mutant: K4 bez błędu nieznanego znacznika
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 3 passed | 18 skipped (22)
+== mutant: K5 decide > → >= (oczekiwany równoważny: margines > 0 wyklucza remis)
+      Tests  6 passed | 16 skipped (22)

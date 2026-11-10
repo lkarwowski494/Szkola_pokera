@@ -1,0 +1,28 @@
+$ pnpm exec stryker run stryker.bo.json  (worktree @49654a6; mutate: limit.ts:22-34, wariant.ts:47-54; testy @szkola/domena)
+{
+  "testRunner": "command",
+  "commandRunner": { "command": "pnpm --filter @szkola/domena test" },
+  "mutate": ["packages/domena/src/limit.ts:22-34", "packages/domena/src/wariant.ts:47-54"],
+  "coverageAnalysis": "off", "inPlace": true, "concurrency": 4,
+  "reporters": ["clear-text"]
+}
+[32m17:18:13 (3347) INFO ProjectReader[39m Found 2 of 2613 file(s) to be mutated.
+[32m17:18:13 (3347) INFO Instrumenter[39m Instrumented 2 source file(s) with 53 mutant(s)
+[32m17:18:14 (3347) INFO ConcurrencyTokenProvider[39m Creating 4 test runner process(es).
+[32m17:18:14 (3347) INFO Sandbox[39m In place mode is enabled, Stryker will be overriding YOUR files. Find your backup at: .stryker-tmp/backup-ycYg48
+[32m17:18:15 (3347) INFO DryRunExecutor[39m Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+[32m17:18:22 (3347) INFO DryRunExecutor[39m Initial test run succeeded. Ran 1 tests in 7 seconds (net 7251 ms, overhead 1 ms).
+All tests
+  ✓ All tests (killed 1)
+Ran 0.02 tests per mutant on average.
+------------|------------------|----------|-----------|------------|----------|----------|
+            | % Mutation score |          |           |            |          |          |
+File        |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+------------|--------|---------|----------|-----------|------------|----------|----------|
+All files   | 100.00 |  100.00 |        1 |        52 |          0 |        0 |        0 |
+ limit.ts   | 100.00 |  100.00 |        0 |        44 |          0 |        0 |        0 |
+ wariant.ts | 100.00 |  100.00 |        1 |         8 |          0 |        0 |        0 |
+------------|--------|---------|----------|-----------|------------|----------|----------|
+[32m17:21:57 (3347) INFO MutationTestExecutor[39m Done in 3 minutes and 44 seconds.
+[32m17:21:57 (3347) INFO Sandbox[39m Resetting your original files from .stryker-tmp/backup-ycYg48.
+KOD WYJŚCIA: 0

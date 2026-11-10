@@ -1,0 +1,57 @@
+$ npx vitest run --root tools/content-build test/sonda-bo.test.ts --silent=false --reporter=verbose  (worktree @49654a6, plik sondy poza repo)
+import { describe, expect, it } from 'vitest';
+import { ScenarioTemplate } from '@szkola/content-schema';
+import { BET_FRACTIONS, fillVariantMarkers, generateVariant, type GeneratorTemplate } from '@szkola/poker-core';
+import { checkScenarioTemplate, type ScenarioCheckContext } from '../src/scenariusze';
+const ctx: ScenarioCheckContext = { ruleLevels: new Map([['R-M2-001', 'math']]), numberKeys: new Set(['outs.flush']), moduleIds: new Set(['m2']) };
+const B = { draws: ['flush', 'oesd', 'gutshot'], marginMin: 0.02, marginMax: null, reject: ['rywal-ma-out-gracza', 'stol-sparowany'], expected: ['fold'] };
+const ok = 'Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}. Pasujesz.';
+const baza = (call: string, fold = ok) => ({ id: 'sc-x', module: 'm2', situation: 'X.', table: '6max', positions: { hero: 'BB', villain: 'BTN' }, stackBb: 100,
+  levels: ['latwy'], bounds: { latwy: { ...B, marginMin: 0.1 } },
+  decisions: [{ street: 'flop', kind: 'draw-call', pots: [20, 40], fractions: [0.25, 0.5, 1], villain: 'bet', rule: 'R-M2-001',
+    actions: [{ action: 'call', explanation: call }, { action: 'fold', explanation: fold }] }] });
+const W = { reka: 'A♥ K♥', stol: 'Q♥ 7♥ 2♣', pozycja: 'BB', rywal: 'BTN' };
+describe('sonda BO: content-build i generator', () => {
+  it('G1: znacznik z kreską {{w:reka|x}} przechodzi walidację budowania i zostaje surowy po fillVariantMarkers', () => {
+    const txt = 'Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}. Sprawdzasz, bo {{w:reka|kolor}} ma szansę.';
+    const e = checkScenarioTemplate(ScenarioTemplate.parse(baza(txt)), 'sc-x.yaml', ctx);
+    console.log('G1 bledy:', JSON.stringify(e));
+    console.log('G1 tekst:', fillVariantMarkers(txt, W));
+  });
+  it('G2: liczba z kropką w kluczu ({{n:outs.flush}}) przed znacznikami w pierwszym zdaniu → fałszywy błąd „zdanie sytuacji”', () => {
+    const txt = 'Z {{n:outs.flush}} outami masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}. Sprawdzasz.';
+    console.log('G2 bledy:', JSON.stringify(checkScenarioTemplate(ScenarioTemplate.parse(baza(txt)), 'sc-x.yaml', ctx)));
+  });
+  it('G3: zdanie w języku bez kropki ASCII (ja: 。): znaczniki w drugim zdaniu nie dają błędu', () => {
+    const txt = 'ベットされました。{{w:reka}} {{w:pozycja}} {{w:stol}} でコール。';
+    console.log('G3 bledy:', JSON.stringify(checkScenarioTemplate(ScenarioTemplate.parse(baza(txt, txt)), 'sc-x.yaml', ctx)));
+  });
+  it('G4: łatwy „call” przy standardowych ułamkach BET_FRACTIONS (0,25…2) — osiągalny?', () => {
+    const t: GeneratorTemplate = { id: 'g4', levels: { latwy: { ...B, marginMin: 0.1, expected: ['call'] } as never }, decisions: [{ street: 'flop', pots: [20, 40, 60, 100], fractions: BET_FRACTIONS }] };
+    let wynik: string;
+    try { generateVariant(t, 'latwy', 1); wynik = 'wariant powstał'; } catch (e) { wynik = 'błąd: ' + (e as Error).message; }
+    console.log('G4', wynik);
+    const t2: GeneratorTemplate = { ...t, levels: { latwy: { ...B, marginMin: 0.1, expected: ['fold'] } as never } };
+    const ul = new Map<number, number>();
+    for (let s = 1; s <= 2000; s++) { const f = generateVariant(t2, 'latwy', s).decisions[0]!.fraction; ul.set(f, (ul.get(f) ?? 0) + 1); }
+    console.log('G4 łatwy fold: rozkład ułamków zakładu', JSON.stringify([...ul].sort((a, b) => a[0] - b[0])));
+  }, 120_000);
+});
+======
+stdout | test/sonda-bo.test.ts > sonda BO: content-build i generator > G1: znacznik z kreską {{w:reka|x}} przechodzi walidację budowania i zostaje surowy po fillVariantMarkers
+G1 bledy: []
+G1 tekst: Masz A♥ K♥ na BB, na stole Q♥ 7♥ 2♣. Sprawdzasz, bo {{w:reka|kolor}} ma szansę.
+stdout | test/sonda-bo.test.ts > sonda BO: content-build i generator > G2: liczba z kropką w kluczu ({{n:outs.flush}}) przed znacznikami w pierwszym zdaniu → fałszywy błąd „zdanie sytuacji”
+G2 bledy: ["szablon sc-x: punkt decyzji 1: akcja call: zdanie sytuacji (pierwsze) musi mieć znaczniki wariantu {{w:reka}}, {{w:stol}}, {{w:pozycja}}, żeby pokazywało karty i pozycję z wylosowanego wariantu"]
+stdout | test/sonda-bo.test.ts > sonda BO: content-build i generator > G3: zdanie w języku bez kropki ASCII (ja: 。): znaczniki w drugim zdaniu nie dają błędu
+G3 bledy: []
+stdout | test/sonda-bo.test.ts > sonda BO: content-build i generator > G4: łatwy „call” przy standardowych ułamkach BET_FRACTIONS (0,25…2) — osiągalny?
+G4 błąd: g4: 1000 odrzuceń z rzędu na poziomie latwy
+G4 łatwy fold: rozkład ułamków zakładu [[0.3333333333333333,187],[0.5,198],[0.6666666666666666,256],[0.75,341],[1,355],[1.5,323],[2,340]]
+ ✓ test/sonda-bo.test.ts > sonda BO: content-build i generator > G1: znacznik z kreską {{w:reka|x}} przechodzi walidację budowania i zostaje surowy po fillVariantMarkers 13ms
+ ✓ test/sonda-bo.test.ts > sonda BO: content-build i generator > G2: liczba z kropką w kluczu ({{n:outs.flush}}) przed znacznikami w pierwszym zdaniu → fałszywy błąd „zdanie sytuacji” 1ms
+ ✓ test/sonda-bo.test.ts > sonda BO: content-build i generator > G3: zdanie w języku bez kropki ASCII (ja: 。): znaczniki w drugim zdaniu nie dają błędu 2ms
+ ✓ test/sonda-bo.test.ts > sonda BO: content-build i generator > G4: łatwy „call” przy standardowych ułamkach BET_FRACTIONS (0,25…2) — osiągalny? 513ms
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+KOD WYJŚCIA: 0
