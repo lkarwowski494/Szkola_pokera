@@ -1,5 +1,5 @@
 // BR-SZB-001 (D-533): format szablonu scenariusza i jego walidacja w budowaniu treści; szablony tu to fikcje testowe, nie treść.
-import { cpSync, mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, mkdtempSync, readdirSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -128,9 +128,11 @@ describe('compileContent z szablonami scenariuszy', () => {
     const root = mkdtempSync(join(tmpdir(), 'scen-'));
     try {
       cpSync(contentDir, join(root, 'content'), { recursive: true });
+      // fikstura bez szablonów z prawdziwej treści (od sesji BS content/*/scenarios istnieje): test sprawdza tylko szablony z `pliki`
+      for (const j of readdirSync(join(root, 'content'))) rmSync(join(root, 'content', j, 'scenarios'), { recursive: true, force: true });
       symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
       symlinkSync(join(contentDir, '..', 'docs'), join(root, 'docs'));
-      mkdirSync(join(root, 'content/pl/scenarios'), { recursive: true });
+      if (Object.keys(pliki).length) mkdirSync(join(root, 'content/pl/scenarios'), { recursive: true });
       for (const [n, y] of Object.entries(pliki)) writeFileSync(join(root, 'content/pl/scenarios', n), y);
       return compileContent(join(root, 'content'));
     } finally {
@@ -149,6 +151,6 @@ describe('compileContent z szablonami scenariuszy', () => {
     expect(() => zTreścią({ 'sc-test-draw.yaml': yaml(zly) })).toThrow(/sc-test-draw.*punkt decyzji 1/);
   }, 120_000);
   it('bez katalogu scenarios treść nie ma pola scenarios (hash bez zmian do czasu pierwszych szablonów)', () => {
-    expect('scenarios' in compileContent(contentDir)).toBe(false);
+    expect('scenarios' in zTreścią({})).toBe(false);
   }, 120_000);
 });
