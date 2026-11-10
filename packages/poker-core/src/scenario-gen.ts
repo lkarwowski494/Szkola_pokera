@@ -40,7 +40,21 @@ export interface CbetCaseSpec {
   street: 'flop';
   rule: string;
 }
-export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec;
+/** F3: rozmiar jako akcja; liczba bb z parametrów reguły (ctx.sizeRules), nie z generatora. */
+export interface SizeSpotSpec {
+  kind: 'size-spot';
+  street: 'preflop';
+  check: 'open-size' | 'three-bet-size' | 'no-limp';
+  rule: string;
+  sb?: boolean;
+  openBb?: number;
+}
+export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec;
+/** Reguła rozmiaru z treści (EvalRule): rodzaj sprawdzenia i parametry z rozwiązanymi liczbami. */
+export interface SizeRuleData {
+  id: string;
+  check: { kind: string; params: Readonly<Record<string, number | string>> };
+}
 
 /** Akcje punktu cbet-case (bet-small/bet-big to rozmiar c-betu małym/dużym, grading.ts `chosen`). */
 export type CbetCaseAction = 'check' | 'bet-small' | 'bet-big';
@@ -66,6 +80,8 @@ export interface GeneratorContext {
   thresholds: { mixedMin: number; mixedLow: number };
   /** F2: przypadki c-betu z reguł cbet-case (kolejność jak w treści; pierwszy pasujący po teksturze, jak grading.ts). */
   cbetCases?: readonly CbetCaseData[];
+  /** F3: reguły open-size, three-bet-size i no-limp (parametry rozmiarów). */
+  sizeRules?: readonly SizeRuleData[];
 }
 export interface LevelBounds {
   draws: readonly DrawKind[];
@@ -130,7 +146,16 @@ export interface CbetCaseVariantDecision {
   /** Klasa ręki gracza względem flopu (classifyHolding.cls). */
   holding: HoldingClass;
 }
-export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision;
+export interface SizeSpotVariantDecision {
+  point: 'size-spot';
+  street: 'preflop';
+  check: 'open-size' | 'three-bet-size' | 'no-limp';
+  rule: string;
+  /** Akcje do wyboru; `bb` to całkowity rozmiar podbicia (null: limp). */
+  options: { action: 'raise' | 'raise-small' | 'raise-big' | 'limp'; bb: number | null }[];
+  correct: 'raise';
+}
+export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -153,6 +178,10 @@ export const MAX_CONSECUTIVE_REJECTIONS = 5000; // BR-GEN-003 mówi 1000; po odr
 /** Martwe blindy w puli przed flopem (SB 0,5 + BB 1): wkład gracza preflop ≈ (pula − 1,5) ÷ 2 (F5, linia all-in; jak test szablony-bs). */
 const MARTWE_BLINDY_BB = 1.5;
 const IDENTITY: readonly number[] = [0, 1, 2, 3];
+/** F3: złe rozmiary do wyboru jako ułamek rozmiaru standardowego (0,8 ≥ min-raise dla otwarć 2,5–3 bb i 3-betów; 1,6 mieści się w stosie 100 bb); odległość od standardu > 0,05 bb (near, grading.ts). D-695. */
+export const SIZE_SMALL_FACTOR = 0.8;
+export const SIZE_BIG_FACTOR = 1.6;
+const round1 = (x: number) => Math.round(x * 10) / 10;
 /** Nazwy planu z przypadku c-betu (CbetAction z content-schema) → akcje punktu cbet-case. */
 const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'check', small: 'bet-small', big: 'bet-big' };
 
@@ -186,12 +215,12 @@ export function variantFingerprint(templateId: string, level: ScenarioLevel, her
 function validateTemplate(t: GeneratorTemplate): void {
   const all = t.decisions;
   const ranges = all.filter((x) => x.kind === 'range-spot');
-  const d = all.filter((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case');
+  const d = all.filter((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case' && x.kind !== 'size-spot');
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0]!.kind !== 'range-spot')) throw new TemplateError(`${t.id}: punkt range-spot jest najwyżej jeden i pierwszy`);
-  const cbets = all.filter((x) => x.kind === 'cbet-case');
-  if (cbets.length > 1 || (cbets.length === 1 && (d.length > 0 || all[all.length - 1]!.kind !== 'cbet-case'))) {
-    throw new TemplateError(`${t.id}: punkt cbet-case jest najwyżej jeden, ostatni i bez punktów draw-call`);
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot');
+  if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
+    throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
   }
   if (d.length > 0) {
     // decyzje draw-call: flop, turn (decyzja od turnu) albo flop i turn
@@ -270,6 +299,33 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   let previousOuts: readonly Card[] = [];
   for (const [i, spec] of t.decisions.entries()) {
     if (spec.kind === 'range-spot') continue;
+    if (spec.kind === 'size-spot') {
+      if (!ctx?.sizeRules) throw new TemplateError(`${t.id}: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)`);
+      const rule = ctx.sizeRules.find((r) => r.id === spec.rule);
+      if (!rule || rule.check.kind !== spec.check) throw new TemplateError(`${t.id}: reguła ${spec.rule} nie jest regułą ${spec.check}`);
+      const num = (v: number | string | undefined, what: string): number => {
+        if (typeof v !== 'number' || !Number.isFinite(v) || v <= 0) throw new TemplateError(`${t.id}: reguła ${spec.rule}: brak parametru ${what}`);
+        return v;
+      };
+      let standard: number;
+      if (spec.check === 'open-size') standard = num(rule.check.params[spec.sb ? 'openSb' : 'open'], spec.sb ? 'openSb' : 'open');
+      else if (spec.check === 'three-bet-size') {
+        if (spec.openBb === undefined) throw new TemplateError(`${t.id}: three-bet-size wymaga openBb`);
+        standard = round1(num(rule.check.params.mult, 'mult') * spec.openBb);
+      } else {
+        // no-limp: oceniana jest sama akcja; podbicie o standardowy rozmiar otwarcia z reguły open-size
+        const open = ctx.sizeRules.find((r) => r.check.kind === 'open-size');
+        if (!open) throw new TemplateError(`${t.id}: no-limp wymaga reguły open-size w kontekście`);
+        standard = num(open.check.params[spec.sb ? 'openSb' : 'open'], 'open');
+      }
+      const mozliwe = { raise: standard, 'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR), limp: null } as const;
+      points.push({
+        point: 'size-spot', street: 'preflop', check: spec.check, rule: spec.rule,
+        options: (spec.check === 'no-limp' ? (['raise', 'limp'] as const) : (['raise', 'raise-small', 'raise-big'] as const)).map((a) => ({ action: a, bb: mozliwe[a] })),
+        correct: 'raise',
+      });
+      continue;
+    }
     if (spec.kind === 'cbet-case') {
       if (!ctx?.cbetCases) throw new TemplateError(`${t.id}: punkt cbet-case wymaga przypadków c-betu (GeneratorContext.cbetCases)`);
       // jak grading.ts `cbet-case`: pierwszy przypadek pasujący do tekstury; liczy się tylko, gdy wskazuje regułę punktu
@@ -315,7 +371,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     previousOuts = spot.draw.all;
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
-  const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case');
+  const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case' && x.kind !== 'size-spot');
   const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'cbet-case') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) };
 }

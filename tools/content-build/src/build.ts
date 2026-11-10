@@ -399,6 +399,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   // przypadki c-betu z reguł cbet-case (te same dla wszystkich reguł jednego zadania c-btn; każdy wskazuje swoją regułę w polu rule)
   // (przy różnych zadaniach: suma bez powtórzeń, w kolejności reguł)
   const cbetCases = [...new Map(evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()];
+  const sizeRules = evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind));
   for (const { file, template } of scenarioFiles) {
     fileCtx = `${tekst}/scenarios/${file}`;
     const errs = checkScenarioTemplate(template, file, {
@@ -407,10 +408,11 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
       moduleIds,
       spots: new Map(ranges.map((r) => [r.id, r.actions.map((a) => a.label)])),
       cbetCases,
+      sizeRules,
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
-    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds, cbetCases }));
+    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds, cbetCases, sizeRules }));
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {
       const gdzie = `${template.id}#${i + 1}`;

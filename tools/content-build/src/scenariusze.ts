@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type GeneratorTemplate, type RangeSpotData, type ScenarioLevel } from '@szkola/poker-core';
+import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type RangeSpotData, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -15,6 +15,8 @@ export interface ScenarioCheckContext {
   spots?: ReadonlyMap<string, readonly string[]>;
   /** Przypadki c-betu z reguł cbet-case (F2); bez nich punkty cbet-case są błędem. */
   cbetCases?: readonly CbetCaseData[];
+  /** Reguły rozmiaru (open-size, three-bet-size, no-limp) z parametrami (F3); bez nich punkty size-spot są błędem. */
+  sizeRules?: readonly SizeRuleData[];
 }
 /** Akcje punktu cbet-case ↔ plan z przypadku c-betu (CbetAction z content-schema). */
 const CBET_AKCJE = { check: 'check', small: 'bet-small', big: 'bet-big' } as const;
@@ -91,6 +93,24 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (ex !== undefined && !d.actions.some((a) => a.action === ex)) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie ma wyjaśnienia (BR-OCE-002)`);
         if (ex !== undefined && przypadki.length > 0 && !mozliwe.has(ex as 'check')) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie wynika z żadnego przypadku reguły ${d.rule} (są: ${[...mozliwe].join(', ')})`);
         if (b.flop === undefined) e.push(`${p} poziom ${l}: punkt cbet-case wymaga filtra flop (przypadek c-betu zależy od tekstury)`);
+      }
+    } else if (d.kind === 'size-spot') {
+      const r = ctx.sizeRules?.find((x) => x.id === d.rule);
+      if (!r || r.check.kind !== d.check) e.push(`${p} reguła ${d.rule} nie jest regułą ${d.check} (rozmiar liczy się z jej parametrów)`);
+      if (d.check === 'three-bet-size' && d.openBb === undefined) e.push(`${p} three-bet-size wymaga openBb (otwarcie rywala w bb)`);
+      if (d.check !== 'three-bet-size' && d.openBb !== undefined) e.push(`${p} openBb tylko dla three-bet-size`);
+      if (d.sb !== undefined && d.check === 'three-bet-size') e.push(`${p} sb tylko dla open-size i no-limp`);
+      if (d.sb === true && t.positions.hero !== 'SB') e.push(`${p} sb: true wymaga pozycji gracza SB, jest ${t.positions.hero}`);
+      if (d.sb !== true && d.check !== 'three-bet-size' && t.positions.hero === 'SB') e.push(`${p} gracz z SB wymaga sb: true (rozmiar openSb)`);
+      const akcje = d.actions.map((a) => a.action);
+      if (new Set(akcje).size !== akcje.length) e.push(`${p} akcja powtórzona`);
+      if (d.check === 'no-limp' ? akcje.slice().sort().join(',') !== 'limp,raise' : !(akcje.includes('raise') && akcje.every((a) => a !== 'limp'))) {
+        e.push(d.check === 'no-limp' ? `${p} no-limp: akcje to raise i limp, każda z wyjaśnieniem` : `${p} ${d.check}: akcje to raise oraz raise-small i/albo raise-big (limp tylko dla no-limp)`);
+      }
+      if (d.check !== 'no-limp' && akcje.includes('limp')) e.push(`${p} limp tylko dla no-limp`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && ex !== 'raise') e.push(`${p} poziom ${l}: oczekiwana akcja size-spot to raise (standardowy rozmiar), jest ${ex}`);
       }
     } else if (d.kind === 'draw-call') {
       const akcje = d.actions.map((a) => a.action).sort().join(',');

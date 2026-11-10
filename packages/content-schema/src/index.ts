@@ -576,7 +576,27 @@ export const ScenarioCbetCaseDecision = z
   })
   .strict();
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision]);
+/**
+ * F3: rozmiar jako akcja (grading.ts: open-size, three-bet-size, no-limp). Liczba bb pochodzi z parametrów reguły `rule`
+ * (nie z generatora): open-size = open albo openSb (`sb`), three-bet-size = mult × `openBb`; no-limp nie ma rozmiaru.
+ * Poprawna akcja to zawsze `raise` (standardowy rozmiar); `raise-small`/`raise-big` to złe rozmiary, `limp` to dopłacenie blinda.
+ */
+export const ScenarioSizeSpotDecision = z
+  .object({
+    street: z.literal('preflop'),
+    kind: z.literal('size-spot'),
+    check: z.enum(['open-size', 'three-bet-size', 'no-limp']),
+    rule: id,
+    calc: z.never().optional(),
+    /** open-size: gracz jest w małym blindzie (rozmiar openSb). */
+    sb: z.boolean().optional(),
+    /** three-bet-size: rozmiar otwarcia rywala w bb. */
+    openBb: z.number().positive().optional(),
+    actions: z.array(z.object({ action: z.enum(['raise', 'raise-small', 'raise-big', 'limp']), explanation: z.string().min(1) }).strict()).min(2).max(4),
+  })
+  .strict();
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z
