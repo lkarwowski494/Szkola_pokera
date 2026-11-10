@@ -1,0 +1,389 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+    "stary": "trong {{t:range|phạm vi bài}} {{t:open|mở pot}} của bạn (AK",
+    "nowy": "trong {{t:range|dải bài}} {{t:open|mở pot}} của bạn (AK",
+    "waga": "ŚR",
+    "powod": "m7-l1:16: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+    "stary": "Nó có lợi vì hợp với {{t:range|phạm vi bài}}",
+    "nowy": "Nó có lợi vì hợp với {{t:range|dải bài}}",
+    "waga": "ŚR",
+    "powod": "m7-l1:28: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+    "stary": "Lá này hợp với {{t:range|phạm vi bài}} của đối thủ",
+    "nowy": "Lá này hợp với {{t:range|dải bài}} của đối thủ",
+    "waga": "ŚR",
+    "powod": "m7-l1:37: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+    "stary": "lá A hợp với {{t:range|phạm vi bài}}",
+    "nowy": "lá A hợp với {{t:range|dải bài}}",
+    "waga": "ŚR",
+    "powod": "m7-l1:46: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+    "stary": "{{t:range|Phạm vi bài}} của đối thủ mạnh lên",
+    "nowy": "{{t:range|Dải bài}} của đối thủ mạnh lên",
+    "waga": "ŚR",
+    "powod": "m7-l1:111: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l2-polaryzacja.md",
+    "stary": "đối thủ trả quá đắt nhiều",
+    "nowy": "đối thủ trả giá quá đắt rõ rệt",
+    "waga": "NISKIE",
+    "powod": "m7-l2:90: niegramatyczne „trả quá đắt nhiều” (pl: „płaci dużo za drogo”); forma jak w m7-l2:135",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "cơ hội ra {{t:flush}} trước river",
+    "nowy": "cơ hội ra {{t:flush}} cho đến river",
+    "waga": "ŚR",
+    "powod": "m7-l3:13: pl „do rivera” (łącznie z riverem); „trước river” = „przed riverem”, co sugeruje szansę bez karty river",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "mọi lá đầm và mọi lá bảy, tức {{n:outs.oesd}} lá. Đầm cơ và bảy cơ",
+    "nowy": "mọi lá Q và mọi lá 7, tức {{n:outs.oesd}} lá. Q cơ và 7 cơ",
+    "waga": "NISKIE",
+    "powod": "m7-l3:32: nazwy kart: wszędzie indziej w przejrzanych plikach „Q”, „J”, „lá 7” (np. m7-l3:85 „Q hoặc J cơ”); tu potoczne „đầm”, „bảy”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "phía sau cùng một tay bài sẽ trả tiền",
+    "nowy": "phía sau và có một tay bài sẽ trả tiền",
+    "waga": "ŚR",
+    "powod": "m7-l3:67: dwuznaczne „cùng một tay bài” (= „ta sama ręka”); pl: „ma za sobą … i rękę, która zapłaci”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "(A cơ nằm trên {{t:board|bàn}}",
+    "nowy": "(A cơ nằm trên {{t:board|bài chung}}",
+    "waga": "ŚR",
+    "powod": "m7-l3:66: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "lá cơ thứ ba trên {{t:board|bàn}}. Ngoài ra",
+    "nowy": "lá cơ thứ ba trên {{t:board|bài chung}}. Ngoài ra",
+    "waga": "ŚR",
+    "powod": "m7-l3:86: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "trên {{t:board|bàn}} có A và K",
+    "nowy": "trên {{t:board|bài chung}} có A và K",
+    "waga": "ŚR",
+    "powod": "m7-l3:87: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "lá cơ thứ ba trên {{t:board|bàn}}).",
+    "nowy": "lá cơ thứ ba trên {{t:board|bài chung}}).",
+    "waga": "ŚR",
+    "powod": "m7-l3:141: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "có thể xuất hiện trên {{t:board|bàn}}",
+    "nowy": "có thể xuất hiện trên {{t:board|bài chung}}",
+    "waga": "ŚR",
+    "powod": "m7-l3:143: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+    "stary": "“Kế hoạch ván bài”",
+    "nowy": "“Lên kế hoạch cho ván bài”",
+    "waga": "ŚR",
+    "powod": "m7-l3:134: tytuł modułu M9 w content/vi/modules.yaml to „Lên kế hoạch cho ván bài”; odwołanie ma podawać tytuł, który użytkownik widzi",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+    "stary": "{{t:texture|Kết cấu}} có ý nghĩa",
+    "nowy": "{{t:texture|Kết cấu}} có vai trò quan trọng",
+    "waga": "NISKIE",
+    "powod": "m7-l4:38: pl „ma znaczenie” = jest ważna; „có ý nghĩa” = „ma sens/znaczenie semantyczne”, niezręczne",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+    "stary": "Button thường có lá K hoặc tay tốt hơn sẽ không",
+    "nowy": "Button có nhiều khả năng hơn đang cầm lá K hoặc tay tốt hơn, những tay sẽ không",
+    "waga": "ŚR",
+    "powod": "m7-l4:78: pl „częściej ma króla” (porównanie z c-betem); „thường có” = „zwykle ma”, mocniejsze niż źródło",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+    "stary": "và sám cô sẽ trả tiền",
+    "nowy": "và set sẽ trả tiền",
+    "waga": "ŚR",
+    "powod": "m7-l4:98: pl „sety”; terms-nazwy.yaml: set = „set” („sám cô” odrzucone nawet dla three-of-a-kind = „bộ ba”); w pozostałych plikach „set”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+    "stary": "tay không có out thường xuyên hơn trên flop",
+    "nowy": "tay không có out thường xuyên hơn so với trên flop",
+    "waga": "NISKIE",
+    "powod": "m7-l4:106: pl „częściej niż na flopie”; bez „so với” zdanie da się odczytać „częściej na flopie”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+    "stary": "hẹp hơn và mạnh hơn trên flop",
+    "nowy": "hẹp hơn và mạnh hơn so với trên flop",
+    "waga": "NISKIE",
+    "powod": "m7-l4:136: pl „niż na flopie”; bez „so với” dwuznaczne (por. m7-l4:118, gdzie jest „so với trên flop”)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "mà {{t:big-blind}} đã {{t:call|theo}} flop đều",
+    "nowy": "mà {{t:big-blind}} đã dùng để {{t:call|theo}} flop đều",
+    "waga": "NISKIE",
+    "powod": "exams/m7:11: q1: pl „para, którą BB sprawdził flop” (narzędnik); w vi brak „dùng để”, zdanie kuleje",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "các tay có 10 trở lên",
+    "nowy": "các tay có lá 10 và các tay mạnh hơn",
+    "waga": "ŚR",
+    "powod": "exams/m7:30: q3: pl „zapłaci dziesiątkami i lepszymi (rękami)”; „có 10 trở lên” można odczytać jako „z kartą 10 lub wyższą”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "Sám cô và {{t:two-pair}}",
+    "nowy": "Set và {{t:two-pair}}",
+    "waga": "ŚR",
+    "powod": "exams/m7:47: q5: pl „Sety”; terms-nazwy.yaml: set = „set”; lekcje m7-l2 używają „set”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "{{t:flush-draw|Draw thùng}}",
+    "nowy": "{{t:flush-draw|Bài chờ thùng}}",
+    "waga": "NISKIE",
+    "powod": "exams/m7:48: q5: nazwa terminu flush-draw w terms-nazwy.yaml i w lekcjach M7 to „bài chờ thùng”",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "với cú bet thứ hai",
+    "nowy": "với cú cược thứ hai",
+    "waga": "ŚR",
+    "powod": "exams/m7:30: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "\"Bet để lấy",
+    "nowy": "\"Cược để lấy",
+    "waga": "ŚR",
+    "powod": "exams/m7:31: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "Bet bằng tay trung bình",
+    "nowy": "Cược bằng tay trung bình",
+    "waga": "ŚR",
+    "powod": "exams/m7:31: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "\"Bet lớn để bảo vệ",
+    "nowy": "\"Cược lớn để bảo vệ",
+    "waga": "ŚR",
+    "powod": "exams/m7:32: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "Bet lớn với {{t:pair|đôi}}",
+    "nowy": "Cược lớn với {{t:pair|đôi}}",
+    "waga": "ŚR",
+    "powod": "exams/m7:32: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "Ngưỡng là bet ÷ ({{t:pot}} + bet)",
+    "nowy": "Ngưỡng là cược ÷ ({{t:pot}} + cược)",
+    "waga": "ŚR",
+    "powod": "exams/m7:39: q4: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "bạn bet 3/4",
+    "nowy": "bạn cược 3/4",
+    "waga": "ŚR",
+    "powod": "exams/m7:44: q5: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "nên bet với kích thước lớn",
+    "nowy": "nên cược với kích thước lớn",
+    "waga": "ŚR",
+    "powod": "exams/m7:47: q5: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "nên bet cùng kích thước lớn",
+    "nowy": "nên cược cùng kích thước lớn",
+    "waga": "ŚR",
+    "powod": "exams/m7:48: q5: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "\"Bet {{n:exam.m7.bet.three-quarters}}\"",
+    "nowy": "\"Cược {{n:exam.m7.bet.three-quarters}}\"",
+    "waga": "ŚR",
+    "powod": "exams/m7:56: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "với cú bet 3/4",
+    "nowy": "với cú cược 3/4",
+    "waga": "ŚR",
+    "powod": "exams/m7:56: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "\"Bet {{n:exam.m7.bet.quarter}}\"",
+    "nowy": "\"Cược {{n:exam.m7.bet.quarter}}\"",
+    "waga": "ŚR",
+    "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "với cú bet 1/4",
+    "nowy": "với cú cược 1/4",
+    "waga": "ŚR",
+    "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "Bet nhỏ cho đối thủ",
+    "nowy": "Cược nhỏ cho đối thủ",
+    "waga": "ŚR",
+    "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "Hãy bet lớn",
+    "nowy": "Hãy cược lớn",
+    "waga": "ŚR",
+    "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "Với {{t:two-pair}}, bạn bet",
+    "nowy": "Với {{t:two-pair}}, bạn cược",
+    "waga": "ŚR",
+    "powod": "exams/m7:58: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "\"Bet (probe bet)\"",
+    "nowy": "\"Cược (probe bet)\"",
+    "waga": "ŚR",
+    "powod": "exams/m7:83: q9: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "bạn tự bet với",
+    "nowy": "bạn tự cược với",
+    "waga": "ŚR",
+    "powod": "exams/m7:84: q9: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m7.yaml",
+    "stary": "các cú bet của Button",
+    "nowy": "các cú cược của Button",
+    "waga": "ŚR",
+    "powod": "exams/m7:93: q10: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+    "grupa": "vi-L5"
+  }
+]

@@ -1,0 +1,3143 @@
+[
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "{{t:straight-draw|Straight Draw}}",
+  "nowy": "{{t:straight-draw|Straight-Draw}}",
+  "waga": "NISKIE",
+  "powod": "R-M5-001 if (linia 334): pisownia formy terminu niezgodna z terms-nazwy.yaml (straight-draw: „Straight-Draw”, z łącznikiem); klucz bez zmian.",
+  "grupa": "de-R1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "auch einen {{t:overbet|Overbet}}",
+  "nowy": "auch eine {{t:overbet|Overbet}}",
+  "waga": "NISKIE",
+  "powod": "R-M5-007 then (linia 384): rodzaj gramatyczny; terms-nazwy.yaml podaje overbet jako rodzaj żeński (jak „die Bet”), więc „eine Overbet”.",
+  "grupa": "de-R1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "(in seinem Beispiel 2,4x)",
+  "nowy": "(in ihrem Beispiel 2,4x)",
+  "waga": "NISKIE",
+  "powod": "R-M4-011 source (linia 300): zaimek odnosi się do „Trainingsseite” (rodzaj żeński), więc „in ihrem Beispiel”; kalka polskiego „w jego przykładzie” (serwis).",
+  "grupa": "de-R1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "die Trefferchance auf den Karten",
+  "nowy": "die Trefferchance mit den Karten",
+  "waga": "NISKIE",
+  "powod": "R-M2-005 if (linia 112): kalka polskiego „na kartach”; po niemiecku szansa trafienia „mit den Karten, die du für diesen Preis siehst”.",
+  "grupa": "de-R1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "foldest du öfter als {{n:alpha.bet-third}}",
+  "nowy": "{{t:fold|foldest}} du öfter als {{n:alpha.bet-third}}",
+  "waga": "WYS",
+  "powod": "R-M6-001 because (446): zgubiony znacznik {{t:fold|…}} (pl: {{t:fold|pasujesz}}); poprawka przywraca znacznik",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "foldet dein Gegner eine schlechtere Hand, gewinnst du denselben",
+  "nowy": "{{t:fold|foldet}} dein Gegner eine schlechtere Hand, gewinnst du denselben",
+  "waga": "WYS",
+  "powod": "R-M8-001 because (647): zgubiony znacznik {{t:fold|…}} (pl: {{t:fold|pasuje}}); poprawka przywraca znacznik",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "(hoher {{t:spr|SPR}})",
+  "nowy": "(hohe {{t:spr|SPR}})",
+  "waga": "ŚR",
+  "powod": "R-M7-009 then (603): SPR w terms-nazwy ma rodzaj żeński (die SPR); w pliku rodzaj mieszany",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "bei niedrigem {{t:spr|SPR}} sind keine da",
+  "nowy": "bei niedriger {{t:spr|SPR}} sind keine da",
+  "waga": "ŚR",
+  "powod": "R-M7-009 because (604): rodzaj SPR (żeński wg terms-nazwy)",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "du berechnest den {{t:spr|SPR}} auf dem Flop",
+  "nowy": "du berechnest die {{t:spr|SPR}} auf dem Flop",
+  "waga": "ŚR",
+  "powod": "R-M9-001 if (744): rodzaj SPR (żeński wg terms-nazwy)",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "je niedriger der {{t:spr|SPR}}, desto besser",
+  "nowy": "je niedriger die {{t:spr|SPR}}, desto besser",
+  "waga": "ŚR",
+  "powod": "R-M9-002 because (754): rodzaj SPR; w tej samej regule then ma „bei einer SPR”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "if: \"der {{t:spr|SPR}} auf dem Flop ist niedriger als",
+  "nowy": "if: \"die {{t:spr|SPR}} auf dem Flop ist niedriger als",
+  "waga": "ŚR",
+  "powod": "R-M9-003 if (760): rodzaj SPR; because tej samej reguły ma „bei einer SPR”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "je höher der {{t:spr|SPR}}, desto mehr",
+  "nowy": "je höher die {{t:spr|SPR}}, desto mehr",
+  "waga": "ŚR",
+  "powod": "R-M9-010 because (818): rodzaj SPR; to samo zdanie dalej ma „bei einer SPR”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "{{t:flush-draw|Flush Draw}}, Draw zur",
+  "nowy": "{{t:flush-draw|Flush-Draw}}, Draw zur",
+  "waga": "NISKIE",
+  "powod": "R-M7-002 then (545): pisownia terminu wg terms-nazwy „Flush-Draw”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "dein Gegner kann einen {{t:flush-draw|Flush Draw}} haben",
+  "nowy": "dein Gegner kann einen {{t:flush-draw|Flush-Draw}} haben",
+  "waga": "NISKIE",
+  "powod": "R-M7-006 if (576): pisownia terminu wg terms-nazwy „Flush-Draw”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "bei einem Flush Draw und einem Einsatz von",
+  "nowy": "bei einem Flush-Draw und einem Einsatz von",
+  "waga": "NISKIE",
+  "powod": "R-M7-008 because (595): pisownia terminu wg terms-nazwy „Flush-Draw”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "ein {{t:flush-draw|Flush Draw}} ist nicht angekommen",
+  "nowy": "ein {{t:flush-draw|Flush-Draw}} ist nicht angekommen",
+  "waga": "NISKIE",
+  "powod": "R-M8-008 if (701): pisownia terminu wg terms-nazwy „Flush-Draw”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "du wählst eine große Größe, z. B. 3/4",
+  "nowy": "du wählst eine große Einsatzgröße, z. B. 3/4",
+  "waga": "NISKIE",
+  "powod": "R-M7-005 then (569): niezręczne „große Größe”; „Einsatzgröße” jak w R-M8-005",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "ein {{t:flush|Flush}} sind etwa {{n:odds.flush.turn-river}}",
+  "nowy": "für einen {{t:flush|Flush}} sind das etwa {{n:odds.flush.turn-river}}",
+  "waga": "NISKIE",
+  "powod": "R-M7-007 then (585): niegramatyczne „ein Flush sind etwa X %”; mowa o szansie na kolor",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "ein Value Bet gewinnt mehr als die Hälfte der Male, wenn er gecallt wird",
+  "nowy": "eine Value Bet gewinnt mehr als die Hälfte der Male, wenn sie gecallt wird",
+  "waga": "NISKIE",
+  "powod": "R-M8-001 source (649): rodzaj „Bet” żeński (terms-nazwy: value-bet r. f; w pliku „eine C-Bet”, „eine Probe Bet”)",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "beschreiben so passive Freizeitspieler",
+  "nowy": "beschreiben auf diese Weise passive Freizeitspieler",
+  "waga": "NISKIE",
+  "powod": "R-M6-004 population (472): „so passive” czyta się jako „tak pasywnych”; pl: „opisują tak [w ten sposób] pasywnych graczy”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "mehr der stärksten Hände ({{t:nuts-advantage|Nuts-Vorteil}})",
+  "nowy": "mehr von den stärksten Händen ({{t:nuts-advantage|Nuts-Vorteil}})",
+  "waga": "NISKIE",
+  "powod": "R-M6-009 because (511): niezręczny dopełniacz „mehr der stärksten Hände”",
+  "grupa": "de-R2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "foldet dein Gegner selten, spielen",
+  "nowy": "{{t:fold|foldet}} dein Gegner selten, spielen",
+  "waga": "WYS",
+  "powod": "R-M10-011 because: zgubiony znacznik {{t:fold|…}} przy „gdy rywal {{t:fold|pasuje}} rzadko” (pl ma dwa znaczniki fold w because, de jeden); poprawka przywraca znacznik",
+  "grupa": "de-R3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "ein {{t:fold|Fold}} nach einem {{t:raise|Raise}} zu viele",
+  "nowy": "ein {{t:fold|Fold}} nach einem {{t:raise|Raise}} deines Gegners zu viele",
+  "waga": "ŚR",
+  "powod": "R-M11-001 because: pl rozróżnia własne „podbicie” i „fold po przebiciu” (rywala); de „ein Raise und ein Fold nach einem Raise” jest dwuznaczne, doprecyzowanie czyje przebicie",
+  "grupa": "de-R3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "robust gegen einen Lesefehler",
+  "nowy": "robust gegen einen falschen Read",
+  "waga": "ŚR",
+  "powod": "R-M13-008 because: „błąd odczytu” (rywala) oddany jako „Lesefehler” (błąd czytania tekstu); w lekcjach M10 de używa „Read”",
+  "grupa": "de-R3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "das dich ausscheiden lassen kann",
+  "nowy": "das dich aus dem Turnier werfen kann",
+  "waga": "NISKIE",
+  "powod": "R-M11-009 if: niezręczna konstrukcja „ausscheiden lassen” dla „może cię wyeliminować”",
+  "grupa": "de-R3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "nach einer {{t:session|Session}} willst du",
+  "nowy": "nach einer einzigen {{t:session|Session}} willst du",
+  "waga": "NISKIE",
+  "powod": "R-M13-004 if: „po jednej sesji” — „nach einer Session” czyta się jak rodzajnik nieokreślony, gubi „jednej”",
+  "grupa": "de-R3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m1-l1-przebieg.md",
+  "stary": "sub: \"Blinds, Straßen und",
+  "nowy": "sub: \"Blinds, Streets und",
+  "waga": "ŚR",
+  "powod": "m1-l1:6 sub: pl „ulice” (streets) oddane jako „Straßen”; w tym korpusie „Straße” to nazwa układu (strit, terms-nazwy: straight), a ulica to „Street” (terms-nazwy: street) — dwuznaczne w podtytule lekcji.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m1-l1-przebieg.md",
+  "stary": "**{{t:side-pot|Nebenpot}}**, um den",
+  "nowy": "**{{t:side-pot|Nebenpot}}** (Side Pot), um den",
+  "waga": "ŚR",
+  "powod": "m1-l1:96: pominięty nawias „(side pot)” ze źródła; przyjęta nazwa terminu w terms-nazwy to „Side Pot”, więc bez nawiasu czytelnik nie połączy „Nebenpot” z nazwą w słowniku.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m1-l1-przebieg.md",
+  "stary": "Du bietest nicht mehr weiter mit",
+  "nowy": "Du setzt danach nicht mehr",
+  "waga": "NISKIE",
+  "powod": "m1-l1:96: „mitbieten” to słownictwo aukcji/licytacji brydżowej, w pokerze nienaturalne; pl „dalej już nie licytujesz”.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m3-l2-rece-startowe.md",
+  "stary": "Wie viele {{t:combo|Kombos}} es gibt",
+  "nowy": "Wie viele {{t:combo|Kombinationen}} es gibt",
+  "waga": "ŚR",
+  "powod": "m3-l2:58: termin combo — terms-nazwy: „Kombination”; w m0-l1 i m5 „Kombinationen”, tu „Kombos” (niespójny termin).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m3-l2-rece-startowe.md",
+  "stary": "{{n:combos.total}} {{t:combo|Kombos}}",
+  "nowy": "{{n:combos.total}} {{t:combo|Kombinationen}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: termin combo — terms-nazwy: „Kombination”; niespójne „Kombos”.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m3-l2-rece-startowe.md",
+  "stary": "{{n:combos.pair}} {{t:combo|Kombos}}",
+  "nowy": "{{n:combos.pair}} {{t:combo|Kombinationen}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: termin combo — terms-nazwy: „Kombination”; niespójne „Kombos”.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "ähnlich weit wie der Button",
+  "nowy": "ähnlich breit wie der Button",
+  "waga": "NISKIE",
+  "powod": "m3-l3:77: „szeroko” w m3-l1 i dalej to „breit”; tu „weit” (niespójne).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "{{t:straight|Straights}} genauso oft",
+  "nowy": "{{t:straight|Straßen}} genauso oft",
+  "waga": "ŚR",
+  "powod": "m3.exam.q8 (m3.yaml:77) why: strit w całym przejrzanym zakresie i w terms-nazwy to „Straße”; tu „Straights” (niespójny termin).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "eine {{t:straight|Straight}}",
+  "nowy": "eine {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.q8 (m3.yaml:79) text: „Straight” zamiast przyjętego „Straße” (niespójny termin).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "{{t:straight|Straights}} hängen",
+  "nowy": "{{t:straight|Straßen}} hängen",
+  "waga": "ŚR",
+  "powod": "m3.exam.q8 (m3.yaml:79) why: „Straights” zamiast przyjętego „Straßen” (niespójny termin).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "{{n:pf.rfi.utg.high}} Hände)",
+  "nowy": "{{n:pf.rfi.utg.high}} der Hände)",
+  "waga": "NISKIE",
+  "powod": "m3.exam.q2 (m3.yaml:21) why: liczby to procenty, „ca. 15 %–18 % Hände” jest niegramatyczne; w lekcjach m3 „der Hände”.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "{{n:pf.rfi.btn.high}} Hände.",
+  "nowy": "{{n:pf.rfi.btn.high}} der Hände.",
+  "waga": "NISKIE",
+  "powod": "m3.exam.q5 (m3.yaml:49) why: procent + „Hände” bez dopełniacza; w lekcjach m3 „der Hände”.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "{{n:pf.rfi.sb.high}} Hände.",
+  "nowy": "{{n:pf.rfi.sb.high}} der Hände.",
+  "waga": "NISKIE",
+  "powod": "m3.exam.q6 (m3.yaml:59) why: procent + „Hände” bez dopełniacza; w lekcjach m3 „der Hände”.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "du weiter als aus dem",
+  "nowy": "du breiter als aus dem",
+  "waga": "ŚR",
+  "powod": "m3.exam.q4 (m3.yaml:40) why: „eröffnest du weiter als” czyta się też jako „otwierasz dalej/nadal”; pl „szerzej”, w m3-l1 konsekwentnie „breiter”.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "die {{t:range}} ist weiter.",
+  "nowy": "die {{t:range}} ist breiter.",
+  "waga": "NISKIE",
+  "powod": "m3.exam.q4 (m3.yaml:41) why: „szerszy” = „breiter” jak w lekcjach m3 (spójność).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "{{t:open|eröffnest}} du weit, ca.",
+  "nowy": "{{t:open|eröffnest}} du breit, ca.",
+  "waga": "NISKIE",
+  "powod": "m3.exam.q6 (m3.yaml:59) why: „szeroko” = „breit” jak w lekcjach m3 (spójność).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "text: \"Auf den {{t:big-blind|Big Blind}} ergänzen\"",
+  "nowy": "text: \"Zum {{t:big-blind|Big Blind}} komplettieren\"",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61) text: dopłacenie z małego blinda w m1-l1 i m3-l3 to „komplettieren”; „ergänzen” nie jest używane w pokerze i jest niespójne.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "Mit dem Ergänzen gibst du",
+  "nowy": "Mit dem Komplettieren gibst du",
+  "waga": "NISKIE",
+  "powod": "m3.exam.q6 (m3.yaml:61) why: jak wyżej, „Komplettieren” zamiast „Ergänzen” (spójność z m3-l3:77).",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m3.yaml",
+  "stary": "Färbe die Hände ein, mit",
+  "nowy": "Male die Hände an, mit",
+  "waga": "NISKIE",
+  "powod": "m3.exam p-co (m3.yaml:95) prompt: to samo polecenie „Pomaluj ręce” w m3-l3:35 i :41 brzmi „Male die Hände an”; ujednolicenie.",
+  "grupa": "de-L1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l1-3bet.md",
+  "stary": "(hauptsächlich aus sehr starken",
+  "nowy": "(hauptsächlich bestehend aus sehr starken",
+  "waga": "NISKIE",
+  "powod": "m4-l1:97: brak imiesłowu (pl „złożonym głównie z”); nawias bez czasownika jest eliptyczny obok „(von den stärksten Händen abwärts aufgebaut)”",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+  "stary": "Gesuitete Hände",
+  "nowy": "Suited Hände",
+  "waga": "ŚR",
+  "powod": "m4-l2:73: termin „suited” (terms-nazwy: suited; l1, l3, l4 piszą „suited”), tu „gesuitet”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+  "stary": "und gesuitete {{t:connectors|Connectors}}. Mittlere",
+  "nowy": "und suited {{t:connectors|Connectors}}. Mittlere",
+  "waga": "ŚR",
+  "powod": "m4-l2:92: termin „suited” (terms-nazwy: suited; l1, l3, l4 piszą „suited”), tu „gesuitet”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+  "stary": "sowie gesuitete {{t:connectors|Connectors}}",
+  "nowy": "sowie suited {{t:connectors|Connectors}}",
+  "waga": "ŚR",
+  "powod": "m4-l2:92: termin „suited” (terms-nazwy: suited; l1, l3, l4 piszą „suited”), tu „gesuitet”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+  "stary": "Du verlierst Wert",
+  "nowy": "Du verlierst Value",
+  "waga": "NISKIE",
+  "powod": "m4-l2:46: pl „wartość” = termin value (terms-nazwy: Value; l3:58 „weder Value”, egzamin q9 „verschenkt Value”); „Wert” niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l3-wobec-3betu.md",
+  "stary": "{{t:initiative|Initiative}} und Wert",
+  "nowy": "{{t:initiative|Initiative}} und Value",
+  "waga": "NISKIE",
+  "powod": "m4-l3:37: pl „wartość” = termin value (terms-nazwy: Value); „Wert” niespójne z resztą",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l3-wobec-3betu.md",
+  "stary": "{{t:straight|Straights}}",
+  "nowy": "{{t:straight|Straßen}}",
+  "waga": "ŚR",
+  "powod": "m4-l3:46: termin straight: terms-nazwy „Straße”, l1 „eine Straße”; tu „Straight”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m4-l3-wobec-3betu.md",
+  "stary": "einen {{t:straight|Straight}}",
+  "nowy": "eine {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m4-l3:112: termin straight: terms-nazwy „Straße”, l1 „eine Straße”; tu „Straight”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Die größere Größe",
+  "nowy": "Die größere Size",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:12: niezręczne powtórzenie „größere Größe”; l1:26 w tym samym zdaniu ma „Die größere Size”",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "also {{t:raise|erhöhst}} du auf etwa",
+  "nowy": "also {{t:raise|raist}} du auf etwa",
+  "waga": "ŚR",
+  "powod": "egzamin m4:12: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "{{t:raise|erhöhst}} du auf {{n:pf.3bet.oop-total}}",
+  "nowy": "{{t:raise|raist}} du auf {{n:pf.3bet.oop-total}}",
+  "waga": "ŚR",
+  "powod": "egzamin m4:13: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "noch {{t:raise|erhöhen}}",
+  "nowy": "noch {{t:raise|raisen}}",
+  "waga": "ŚR",
+  "powod": "egzamin m4:14: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "{{t:raise|erhöht}} er weniger",
+  "nowy": "{{t:raise|raist}} er kleiner",
+  "waga": "ŚR",
+  "powod": "egzamin m4:53: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie (l2:92 „raist du kleiner”)",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "der Button hat auf {{n:pf.3bet.ip-total}} {{t:raise|erhöht}}",
+  "nowy": "der Button hat auf {{n:pf.3bet.ip-total}} {{t:raise|geraist}}",
+  "waga": "ŚR",
+  "powod": "egzamin m4:68: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "{{n:pf.3bet.oop-total}} {{t:raise|erhöht}}",
+  "nowy": "{{n:pf.3bet.oop-total}} {{t:raise|geraist}}",
+  "waga": "ŚR",
+  "powod": "egzamin m4:78: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "der {{t:cutoff|CO}} hat auf {{n:pf.3bet.ip-total}} {{t:raise|erhöht}}",
+  "nowy": "der {{t:cutoff|CO}} hat auf {{n:pf.3bet.ip-total}} {{t:raise|geraist}}",
+  "waga": "ŚR",
+  "powod": "egzamin m4:88: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "{{t:raise|erhöhst}} du? Gib",
+  "nowy": "{{t:raise|raist}} du? Gib",
+  "waga": "ŚR",
+  "powod": "egzamin m4:98: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "{{n:exam.m4.iso.three}} {{t:raise|erhöhen}}",
+  "nowy": "{{n:exam.m4.iso.three}} {{t:raise|raisen}}",
+  "waga": "ŚR",
+  "powod": "egzamin m4:109: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Limper {{t:raise|erhöhst}} du vor allem",
+  "nowy": "Limper {{t:raise|raist}} du vor allem",
+  "waga": "ŚR",
+  "powod": "egzamin m4:109: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "{{n:pf.iso.one-limper}} {{t:raise|erhöhen}}",
+  "nowy": "{{n:pf.iso.one-limper}} {{t:raise|raisen}}",
+  "waga": "ŚR",
+  "powod": "egzamin m4:110: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "A9 in verschiedenen Farben",
+  "nowy": "A9 offsuit",
+  "waga": "ŚR",
+  "powod": "egzamin m4:33: termin „offsuit” (terms-nazwy; lekcje m4: „offsuit”, zapis rąk AJo–A9o), tu opisowo „in verschiedenen Farben”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Asse in verschiedenen Farben (AJo–A9o)",
+  "nowy": "Offsuit-Asse (AJo–A9o)",
+  "waga": "ŚR",
+  "powod": "egzamin m4:33: termin „offsuit” (terms-nazwy; lekcje m4: „offsuit”, zapis rąk AJo–A9o), tu opisowo „in verschiedenen Farben”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "AT in verschiedenen Farben ist",
+  "nowy": "AT offsuit ist",
+  "waga": "ŚR",
+  "powod": "egzamin m4:71: termin „offsuit” (terms-nazwy; lekcje m4: „offsuit”, zapis rąk AJo–A9o), tu opisowo „in verschiedenen Farben”: niespójne",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Ein 3-Bet gibt dir",
+  "nowy": "Eine 3-Bet gibt dir",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:23: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "ein typisches 3-Bet",
+  "nowy": "eine typische 3-Bet",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:29: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "und ein 3-Bet mit ihnen verträgt ein 4-Bet schlecht",
+  "nowy": "und eine 3-Bet mit ihnen verträgt eine 4-Bet schlecht",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:34: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "also beträgt das 3-Bet etwa",
+  "nowy": "also beträgt die 3-Bet etwa",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:52: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "ist ein 3-Bet gegen eine",
+  "nowy": "ist eine 3-Bet gegen eine",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:54: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Du bekommst ein 3-Bet von",
+  "nowy": "Du bekommst eine 3-Bet von",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:59: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "würde das 3-Bet des Gegners",
+  "nowy": "würde die 3-Bet des Gegners",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:61: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "du gegen ein 3-Bet.",
+  "nowy": "du gegen eine 3-Bet.",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:71: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Ein 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. ATo",
+  "nowy": "Eine 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. ATo",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:73: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Ein 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. 99",
+  "nowy": "Eine 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. 99",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:83: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "beträgt das 4-Bet etwa",
+  "nowy": "beträgt die 4-Bet etwa",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:91: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "des 3-Bets: ",
+  "nowy": "der 3-Bet: ",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:91: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "ein normales 4-Bet bezahlen",
+  "nowy": "eine normale 4-Bet bezahlen",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:93: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "Nach einem 4-Bet von etwa",
+  "nowy": "Nach einer 4-Bet von etwa",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:93: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m4.yaml",
+  "stary": "des 3-Bets bringst",
+  "nowy": "der 3-Bet bringst",
+  "waga": "NISKIE",
+  "powod": "egzamin m4:93: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+  "grupa": "de-L2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l1-tekstury.md",
+  "stary": "Der Flop ist {{t:monotone|einfarbig}}:",
+  "nowy": "Der Flop ist {{t:monotone|monoton}}:",
+  "waga": "ŚR",
+  "powod": "m5.l1.q-monotone prompt: termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l1-tekstury.md",
+  "stary": "Auf einem {{t:monotone|einfarbigen}} kann",
+  "nowy": "Auf einem {{t:monotone|monotonen}} kann",
+  "waga": "ŚR",
+  "powod": "m5.l1.q-monotone opcja 3 why: termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l1-tekstury.md",
+  "stary": "**{{t:monotone|einfarbiger}}**",
+  "nowy": "**{{t:monotone|monotoner}}**",
+  "waga": "ŚR",
+  "powod": "m5-l1 sekcja Farben (definicja): termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l1-tekstury.md",
+  "stary": "Ein {{t:monotone|einfarbiger}} Flop ist immer",
+  "nowy": "Ein {{t:monotone|monotoner}} Flop ist immer",
+  "waga": "ŚR",
+  "powod": "m5-l1 akapit o K72 two-tone: termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l2-przewagi.md",
+  "stary": "vor dem Flop {{t:raise|geraist}}, und seine breite",
+  "nowy": "vor dem Flop geraist, und seine breite",
+  "waga": "NISKIE",
+  "powod": "m5.l2.q-k72 opcja 1 why: nadmiarowy znacznik t:raise, źródło pl ma tu „przebiłby” bez znacznika (poprawka usuwa dodany znacznik)",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l2-przewagi.md",
+  "stary": "die stärksten, die er {{t:raise|geraist}} hätte",
+  "nowy": "die stärksten, die er geraist hätte",
+  "waga": "NISKIE",
+  "powod": "m5.l2.q-capped opcja 2 why: nadmiarowy znacznik t:raise, źródło pl ma „przebiłby” bez znacznika (poprawka usuwa dodany znacznik)",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l2-przewagi.md",
+  "stary": "Über eine große Größe entscheidet",
+  "nowy": "Über eine große Bet-Größe entscheidet",
+  "waga": "NISKIE",
+  "powod": "m5.l2.q-kinds opcja 2 why: niezręczne „große/größere Größe”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l2-przewagi.md",
+  "stary": "kannst du mit einer größeren Größe betten",
+  "nowy": "kannst du größer betten",
+  "waga": "NISKIE",
+  "powod": "m5-l2 sekcja Nuts-Vorteil: niezręczne „große/größere Größe”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "(in der App meist mittlere)",
+  "nowy": "(in der App meist mittelnasse)",
+  "waga": "ŚR",
+  "powod": "m5-l3 akapit „Achtung”: pl „pośrednich” to kategoria mokrości, w m5-l1 nazwana „mittelnass”; „mittlere” oznacza w m5-l1 wysokość flopa (mittlerer Flop = walet/dziesiątka), więc zmienia odniesienie",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Die größere Größe aus dem vorigen Abschnitt",
+  "nowy": "Die größere Bet-Größe aus dem vorigen Abschnitt",
+  "waga": "NISKIE",
+  "powod": "m5-l3 akapit „Achtung”: niezręczne „große/größere Größe”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "(fortsetzende {{t:bet|Bet}})",
+  "nowy": "(Continuation {{t:bet|Bet}})",
+  "waga": "NISKIE",
+  "powod": "m5-l3 pierwszy akapit: rozwinięcie skrótu C-Bet to po niemiecku „Continuation Bet”; „fortsetzende Bet” jest kalką nieużywaną w języku",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l4-bez-pozycji.md",
+  "stary": "und {{t:connected|connected}}",
+  "nowy": "und {{t:connected|verbunden}}",
+  "waga": "ŚR",
+  "powod": "m5.l4.q-oop-plan prompt: forma angielska; terms-nazwy.yaml i reszta modułu (także why tej samej odpowiedzi) mają „verbunden”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l4-bez-pozycji.md",
+  "stary": "öfter {{t:two-pair|Two Pair}} oder eine {{t:straight|Straight}} hat",
+  "nowy": "öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} hat",
+  "waga": "ŚR",
+  "powod": "m5.l4.c-review why.check: terminy two-pair i straight; terms-nazwy.yaml oraz ten sam tekst w m5.l3.c-btn mają „zwei Paare” i „Straße”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l4-bez-pozycji.md",
+  "stary": "öfter {{t:two-pair|Two Pair}} oder eine {{t:straight|Straight}} getroffen",
+  "nowy": "öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} getroffen",
+  "waga": "ŚR",
+  "powod": "m5.l4.c-review why.big: terminy two-pair i straight; terms-nazwy.yaml oraz ten sam tekst w m5.l3.c-btn mają „zwei Paare” i „Straße”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "{{t:two-pair|Two Pair}}",
+  "nowy": "{{t:two-pair|zwei Paare}}",
+  "waga": "ŚR",
+  "powod": "m5.exam.q2 prompt: termin two-pair; terms-nazwy.yaml i lekcje m5-l2, m5-l3 mają „zwei Paare”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "{{t:out-of-position|Ohne Position}} gegen einen Spieler",
+  "nowy": "{{t:out-of-position|Out of Position}} gegen einen Spieler",
+  "waga": "ŚR",
+  "powod": "m5.exam.q7 prompt: termin out-of-position: terms-nazwy.yaml i m5-l4 mają „out of Position”, egzamin „ohne Position”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "{{t:out-of-position|ohne Position}} gibt",
+  "nowy": "{{t:out-of-position|out of Position}} gibt",
+  "waga": "ŚR",
+  "powod": "m5.exam.q7 opcja 1 why: termin out-of-position: terms-nazwy.yaml i m5-l4 mają „out of Position”, egzamin „ohne Position”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "Nein: {{t:out-of-position|Ohne Position}}",
+  "nowy": "Nein: {{t:out-of-position|Out of Position}}",
+  "waga": "ŚR",
+  "powod": "m5.exam.q7 opcja 3 why: termin out-of-position: terms-nazwy.yaml i m5-l4 mają „out of Position”, egzamin „ohne Position”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "weil ein großer {{t:bet|Bet}} viel",
+  "nowy": "weil eine große {{t:bet|Bet}} viel",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q3 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "damit dieser {{t:bet|Bet}} bei null",
+  "nowy": "damit diese {{t:bet|Bet}} bei null",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q5 prompt: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "für einen kleinen C-Bet",
+  "nowy": "für eine kleine C-Bet",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q5 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "Ein größerer Bet riskiert mehr, also muss er öfter",
+  "nowy": "Eine größere Bet riskiert mehr, also muss sie öfter",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q5 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "Rentabilitätsschwelle des Bets",
+  "nowy": "Rentabilitätsschwelle der Bet",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q5 opcja 3 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "du seinen {{t:bet|Bet}} oder",
+  "nowy": "du seine {{t:bet|Bet}} oder",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q7 opcja 1 text: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "auf jeden {{t:bet|Bet}}",
+  "nowy": "auf jede {{t:bet|Bet}}",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q7 opcja 2 text: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "mit jedem {{t:bet|Bet}} gewinnen",
+  "nowy": "mit jeder {{t:bet|Bet}} gewinnen",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q7 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "{{t:call|callen}} den {{t:bet|Bet}} des Gegners",
+  "nowy": "{{t:call|callen}} die {{t:bet|Bet}} des Gegners",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q7 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "zuerst auf den C-Bet?",
+  "nowy": "zuerst auf die C-Bet?",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q8 prompt: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "Deinen {{t:bet|Bet}}",
+  "nowy": "Deine {{t:bet|Bet}}",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q9 opcja 1 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "Ein kleiner {{t:bet|Bet}} gibt",
+  "nowy": "Eine kleine {{t:bet|Bet}} gibt",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q9 opcja 3 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "„großer Bet“",
+  "nowy": "„große Bet“",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q10 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski (w m5-l3 to samo zdanie: „große Bet“)",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "Ein Bet in Höhe",
+  "nowy": "Eine Bet in Höhe",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q10 opcja 3 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m5.yaml",
+  "stary": "Wenn du c-bettest, mit welcher Größe?",
+  "nowy": "Wenn du überhaupt c-bettest, mit welcher Größe?",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q10 prompt: pl „Gdy już c-betujesz” (jeśli w ogóle); przekład gubi „już”",
+  "grupa": "de-L3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "Bei einem Bet in Höhe",
+  "nowy": "Bei einer Bet in Höhe",
+  "waga": "NISKIE",
+  "powod": "m6-l1:22: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "Je größer der Bet, desto",
+  "nowy": "Je größer die Bet, desto",
+  "waga": "NISKIE",
+  "powod": "m6-l1:38: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "bei einem Bet von 3/4",
+  "nowy": "bei einer Bet von 3/4",
+  "waga": "NISKIE",
+  "powod": "m6-l1:54: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "Ein größerer Bet riskiert",
+  "nowy": "Eine größere Bet riskiert",
+  "waga": "NISKIE",
+  "powod": "m6-l1:64: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "einen C-Bet von 1/3",
+  "nowy": "eine C-Bet von 1/3",
+  "waga": "NISKIE",
+  "powod": "m6-l1:79: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "auf einen kleinen C-Bet",
+  "nowy": "auf eine kleine C-Bet",
+  "waga": "NISKIE",
+  "powod": "m6-l1:82: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "Du riskierst den Bet, um",
+  "nowy": "Du riskierst die Bet, um",
+  "waga": "NISKIE",
+  "powod": "m6-l1:100: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+  "stary": "Bei einem Bet von 1/3",
+  "nowy": "Bei einer Bet von 1/3",
+  "waga": "NISKIE",
+  "powod": "m6-l1:128: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "am Flop einen C-Bet von 1/4",
+  "nowy": "am Flop eine C-Bet von 1/4",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q3 prompt (m6.yaml:24): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Bei einem C-Bet von 1/4",
+  "nowy": "Bei einer C-Bet von 1/4",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q3 (m6.yaml:27): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Gegen einen kleinen C-Bet hast du",
+  "nowy": "Gegen eine kleine C-Bet hast du",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q3 (m6.yaml:28): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Gegen einen größeren Bet",
+  "nowy": "Gegen eine größere Bet",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q5 (m6.yaml:47): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Ein größerer Bet bedeutet",
+  "nowy": "Eine größere Bet bedeutet",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q5 (m6.yaml:49): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "einen C-Bet von 1/3 {{t:pot|Pot}}. Du hast",
+  "nowy": "eine C-Bet von 1/3 {{t:pot|Pot}}. Du hast",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q6 prompt (m6.yaml:54): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Gegen einen kleinen C-Bet brauchst",
+  "nowy": "Gegen eine kleine C-Bet brauchst",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q6 (m6.yaml:57): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Gegen einen kleinen C-Bet wird",
+  "nowy": "Gegen eine kleine C-Bet wird",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q6 (m6.yaml:58): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "einen C-Bet von 3/4",
+  "nowy": "eine C-Bet von 3/4",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q7 prompt (m6.yaml:64): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Gegen einen großen C-Bet {{t:call|callst}}",
+  "nowy": "Gegen eine große C-Bet {{t:call|callst}}",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q7 (m6.yaml:67): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "gegen einen großen C-Bet meist",
+  "nowy": "gegen eine große C-Bet meist",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q7 (m6.yaml:68): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "einen C-Bet von 1/3 {{t:pot|Pot}}. Welche",
+  "nowy": "eine C-Bet von 1/3 {{t:pot|Pot}}. Welche",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q8 prompt (m6.yaml:73): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "einen kleinen C-Bet von",
+  "nowy": "eine kleine C-Bet von",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q9 prompt (m6.yaml:83): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "des C-Bets",
+  "nowy": "der C-Bet",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q9 prompt (m6.yaml:83): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Gegen einen kleinen C-Bet {{t:raise|raist}}",
+  "nowy": "Gegen eine kleine C-Bet {{t:raise|raist}}",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q9 explanation (m6.yaml:86): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:flush-draw|Flush Draw}} oder {{t:straight|Straight}}-Draw",
+  "nowy": "{{t:flush-draw|Flush-Draw}} oder {{t:straight|Straßen}}-Draw",
+  "waga": "ŚR",
+  "powod": "m6-l3:27: niespójny termin — straight w terms-nazwy de to „Straße” (tak w m6-l2 i egzaminie m6), tu „Straight”; przy okazji pisownia „Flush-Draw” jak w terms-nazwy",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "Karten für eine {{t:straight|Straight}}",
+  "nowy": "Karten für eine {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m6-l3:28: niespójny termin — „Straße” (terms-nazwy, m6-l2, egzamin), tu „Straight”",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "Auch gut: Die {{t:straight|Straight}}",
+  "nowy": "Auch gut: Die {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m6-l3:73: niespójny termin — „Straße” (terms-nazwy, m6-l2, egzamin), tu „Straight”",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "triffst du die {{t:straight|Straight}}",
+  "nowy": "triffst du die {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m6-l3:74: niespójny termin — „Straße” (terms-nazwy, m6-l2, egzamin), tu „Straight”",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:straight|Straights}}",
+  "nowy": "{{t:straight|Straßen}}",
+  "waga": "ŚR",
+  "powod": "m6-l3:130: niespójny termin — „Straßen” (terms-nazwy, egzamin m6 q10), tu „Straights”",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "hältst du sie im Spiel",
+  "nowy": "hältst du seine Bluffs im Spiel",
+  "waga": "ŚR",
+  "powod": "m6-l3:82: dwuznaczny zaimek — „sie” czyta się jako rękę (podmiot „Sie schlägt…”), a źródło mówi o blefach Buttona („trzymasz je w grze”)",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "einen {{t:flush-draw|Flush Draw}};",
+  "nowy": "einen {{t:flush-draw|Flush-Draw}};",
+  "waga": "NISKIE",
+  "powod": "m6-l3:92: pisownia terminu — w terms-nazwy de i w m6-l2 „Flush-Draw” z łącznikiem",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:straight-draw|Straight Draw}}",
+  "nowy": "{{t:straight-draw|Straight-Draw}}",
+  "waga": "NISKIE",
+  "powod": "m6-l3:92: pisownia terminu — w terms-nazwy de „Straight-Draw” z łącznikiem (złożenie „Backdoor-Straight Draw” jest też błędne ortograficznie)",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "Voller {{t:pot|Pot}}",
+  "nowy": "Ganzer {{t:pot|Pot}}",
+  "waga": "NISKIE",
+  "powod": "m6-l3:103: „Cała pula” w m6-l1 i m6-l2 to „Ganzer Pot”; tu „Voller Pot” — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "mehrmals so groß sein wie die C-Bet",
+  "nowy": "ein Mehrfaches der C-Bet betragen",
+  "waga": "NISKIE",
+  "powod": "m6-l3:52: niezręczne „mehrmals so groß” (źródło: kilka razy większe niż c-bet)",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l3-check-raise.md",
+  "stary": "zahlen dich vor allem",
+  "nowy": "bezahlen dich vor allem",
+  "waga": "NISKIE",
+  "powod": "m6-l3:83: błąd rekcji — „jemanden zahlen”; poprawnie „bezahlen dich” (tak w m6-l1:92 „bezahlt … bessere Hände”)",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l2-sprawdzenie.md",
+  "stary": "zahlen dich hauptsächlich",
+  "nowy": "bezahlen dich hauptsächlich",
+  "waga": "NISKIE",
+  "powod": "m6-l2:46: błąd rekcji — „jemanden zahlen”; poprawnie „bezahlen dich”",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m6-l2-sprawdzenie.md",
+  "stary": "ein Bezugspunkt für",
+  "nowy": "ein Richtwert für",
+  "waga": "NISKIE",
+  "powod": "m6-l2:85: „punkt odniesienia” (MDF) w m6-l1 i egzaminie m6 to „Richtwert”; tu „Bezugspunkt” — niespójność",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "Ass als höchste Karte schlägt",
+  "nowy": "Ein Ass als höchste Karte schlägt",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q6 (m6.yaml:57): brak rodzajnika (w prompt: „ein Ass als höchste Karte”)",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "wird Ass als höchste Karte",
+  "nowy": "wird ein Ass als höchste Karte",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q6 (m6.yaml:58): brak rodzajnika",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m6.yaml",
+  "stary": "why: \"Ass als höchste Karte ohne",
+  "nowy": "why: \"Ein Ass als höchste Karte ohne",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q8 (m6.yaml:78): brak rodzajnika",
+  "grupa": "de-L4"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l1-druga-beczka.md",
+  "stary": "nimmst eine Gratiskarte",
+  "nowy": "nimmst eine Freikarte",
+  "waga": "NISKIE",
+  "powod": "m7-l1:36: „darmowa karta” w pozostałych plikach modułu i korpusie to „Freikarte” (11×), „Gratiskarte” tylko tutaj.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l1-druga-beczka.md",
+  "stary": "die {{t:value|Value}}-Hände des Gegners blocken",
+  "nowy": "die Value-Hände des Gegners blocken",
+  "waga": "ŚR",
+  "powod": "m7-l1:137: nadmiarowy znacznik {{t:value}} — źródło pl ma w tym miejscu zwykły tekst („blokują wartość rywala”); usunięcie nadmiarowego znacznika.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+  "stary": "der {{t:aggressor}} von vor dem Flop keinen",
+  "nowy": "der Preflop-{{t:aggressor}} keinen",
+  "waga": "NISKIE",
+  "powod": "m7-l4:16: „der Aggressor von vor dem Flop” to niezręczna kalka; naturalnie „der Preflop-Aggressor”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+  "stary": "der {{t:aggressor}} von vor dem Flop auf dem Flop",
+  "nowy": "der Preflop-{{t:aggressor}} auf dem Flop",
+  "waga": "NISKIE",
+  "powod": "m7-l4:122: „der Aggressor von vor dem Flop auf dem Flop” to niezręczna kalka; naturalnie „der Preflop-Aggressor”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+  "stary": "setzen würde, also hat er nach einem {{t:check}} weniger davon",
+  "nowy": "setzen würde und nach einem {{t:check}} deshalb weniger davon hat",
+  "waga": "NISKIE",
+  "powod": "m7-l4:26: „Weil …, also hat er …” to niegramatyczna konstrukcja (zdanie podrzędne bez dokończenia); sens bez zmian.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+  "stary": "auf einer Blank-Karte zu",
+  "nowy": "auf einer leeren Karte zu",
+  "waga": "NISKIE",
+  "powod": "m7-l4:96: „pusta karta” zdefiniowana w m7-l1:124 jako „leere Karte”; „Blank-Karte” tylko tutaj.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+  "stary": "du verteidigst weiter, weil",
+  "nowy": "du verteidigst breiter, weil",
+  "waga": "ŚR",
+  "powod": "m7-l4:108: źródło „bronisz szerzej”; „verteidigst weiter” czyta się jako „bronisz dalej/nadal”; w lekcji przeciwieństwem „enger” jest „breit” („breite Verteidigung”).",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+  "stary": "übers Erwischen von {{t:bluff|Bluffs}}",
+  "nowy": "übers Fangen von {{t:bluff|Bluffs}}",
+  "waga": "NISKIE",
+  "powod": "m7-l4:116: odesłanie do lekcji M8 „łapanie blefów”, której tytuł de to „Bluffs fangen”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:open|geöffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}",
+  "nowy": "{{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q1 prompt: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:open|geöffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Zwei",
+  "nowy": "{{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Zwei",
+  "waga": "ŚR",
+  "powod": "m7.exam.q2 prompt: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:open|geöffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Fünf",
+  "nowy": "{{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Fünf",
+  "waga": "ŚR",
+  "powod": "m7.exam.q3 prompt: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "fürs {{t:open|Öffnen}}",
+  "nowy": "fürs {{t:open|Eröffnen}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q1 why [[Kh]]: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "T7 und 75 eine {{t:straight|Straight}}",
+  "nowy": "T7 und 75 eine {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q1 why [[8c]]: {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "87 und 43 eine {{t:straight|Straight}}",
+  "nowy": "87 und 43 eine {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q1 why [[5s]]: {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "gibt ihr eine {{t:straight|Straight}}",
+  "nowy": "gibt ihr eine {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q2 why [[8c 7c]]: {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "zur {{t:straight|Straight}}",
+  "nowy": "zur {{t:straight|Straße}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q8 why (outs.oesd): {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:straight-draw|Straight Draw}}",
+  "nowy": "{{t:straight-draw|Straight-Draw}}",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q8 why (outs.gutshot): pisownia wg terms-nazwy.yaml „Straight-Draw”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "98 und 86 {{t:two-pair|Two Pair}}",
+  "nowy": "98 und 86 {{t:two-pair|zwei Paare}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q1 why [[8c]]: {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "Sets und {{t:two-pair|Two Pair}}",
+  "nowy": "Sets und {{t:two-pair|zwei Paare}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q5 opcja 2: {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "Du hast {{t:two-pair|Two Pair}}",
+  "nowy": "Du hast {{t:two-pair|zwei Paare}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q6 prompt: {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "Mit {{t:two-pair|Two Pair}} setzt du",
+  "nowy": "Mit {{t:two-pair|zwei Paaren}} setzt du",
+  "waga": "ŚR",
+  "powod": "m7.exam.q6 why (check): {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "einen {{t:flush-draw|Flush Draw}} und einen Gutshot",
+  "nowy": "einen {{t:flush-draw|Flush-Draw}} und einen Gutshot",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q2 why [[Qh Jh]]: pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:flush-draw|Flush Draws}}",
+  "nowy": "{{t:flush-draw|Flush-Draws}}",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q5 opcja 3: pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "einen {{t:flush-draw|Flush Draw}} haben",
+  "nowy": "einen {{t:flush-draw|Flush-Draw}} haben",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q6 prompt: pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "für einen {{t:flush-draw|Flush Draw}}",
+  "nowy": "für einen {{t:flush-draw|Flush-Draw}}",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q6 why (check): pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "Du hast {{t:second-pair|zweites Paar}} mit Ass",
+  "nowy": "Du hast {{t:second-pair|Second Pair}} mit Ass",
+  "waga": "ŚR",
+  "powod": "m7.exam.q3 prompt: {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:second-pair|Zweites Paar}}",
+  "nowy": "{{t:second-pair|Second Pair}}",
+  "waga": "ŚR",
+  "powod": "m7.exam.q3 why (check): {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:second-pair|zweites Paar}}\", correct",
+  "nowy": "{{t:second-pair|Second Pair}}\", correct",
+  "waga": "ŚR",
+  "powod": "m7.exam.q5 opcja 1: {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "{{t:second-pair|zweites Paar}} und einen Gutshot",
+  "nowy": "{{t:second-pair|Second Pair}} und einen Gutshot",
+  "waga": "ŚR",
+  "powod": "m7.exam.q9 prompt: {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "also setzen sie mit derselben großen Size wie starke Hände",
+  "nowy": "also setzen sie genauso groß wie starke Hände",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q5 why opcja 3: „rozmiar” w lekcjach m7 to „Größe”/„groß” („Richtige Aktion, falsche Größe” w m7-l1 i m7-l2); „Size” tylko w egzaminie.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "falsche Size",
+  "nowy": "falsche Größe",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q6 why (sizeError): „rozmiar” w lekcjach m7 to „Größe”/„groß” („Richtige Aktion, falsche Größe” w m7-l1 i m7-l2); „Size” tylko w egzaminie.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "und einer größeren Size als die C-Bet",
+  "nowy": "und größer als die C-Bet",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q10 why (fold): „rozmiar” w lekcjach m7 to „Größe”/„groß” („Richtige Aktion, falsche Größe” w m7-l1 i m7-l2); „Size” tylko w egzaminie.",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m7.yaml",
+  "stary": "weder eine Hand {{t:value|auf Value}} noch",
+  "nowy": "weder eine {{t:value|Value}}-Hand noch",
+  "waga": "NISKIE",
+  "powod": "m7.exam.q10 why (raise): „eine Hand auf Value” to kalka „ręka dla wartości”; naturalnie „Value-Hand” (tak w m7-l2:16).",
+  "grupa": "de-L5"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l1-value.md",
+  "stary": "folden schlechtere Hände meist",
+  "nowy": "{{t:fold|folden}} schlechtere Hände meist",
+  "waga": "WYS",
+  "powod": "m8-l1:17 (q-why-bet, opcja 3, why): zgubiony znacznik {{t:fold|…}} (pl: „gorsze ręce zwykle {{t:fold|pasują}}”); poprawka przywraca znacznik.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l1-value.md",
+  "stary": "{{t:street|Streets}} gecallt hat",
+  "nowy": "{{t:street|Streets}} {{t:call|gecallt}} hat",
+  "waga": "WYS",
+  "powod": "m8-l1:50 (q-top-pair-top-kicker, why): zgubiony znacznik {{t:call|…}} (pl: „{{t:call|sprawdził}} dwie {{t:street|ulice}}”); poprawka przywraca znacznik.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l1-value.md",
+  "stary": "Wenn du aus {{t:position|Position}} bettest",
+  "nowy": "Wenn du in {{t:position|Position}} bettest",
+  "waga": "ŚR",
+  "powod": "m8-l1:107: „z pozycji” = mając pozycję; „aus Position” to kalka, dwuznaczna (czytelna jak „out of position”); w tej samej lekcji „in Position”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l1-value.md",
+  "stary": "geht er aus {{t:position|Position}} selten",
+  "nowy": "geht er in {{t:position|Position}} selten",
+  "waga": "ŚR",
+  "powod": "m8-l1:131: jak wyżej, „z pozycji” → „in Position”, nie „aus Position”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l1-value.md",
+  "stary": "Dein {{t:flush-draw|Flush Draw}}",
+  "nowy": "Dein {{t:flush-draw|Flush-Draw}}",
+  "waga": "NISKIE",
+  "powod": "m8-l1:96: pisownia terminu wg terms-nazwy.yaml i m8-l3/l4: „Flush-Draw”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l1-value.md",
+  "stary": "manchmal zahlt Ass-high, aber",
+  "nowy": "manchmal zahlt Ass-hoch, aber",
+  "waga": "NISKIE",
+  "powod": "m8-l1:71: niespójne „Ass-high” wobec „Ass-hoch” w m8-l3 (ta sama nazwa układu).",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l1-value.md",
+  "stary": "manchmal zahlt Ass-high, das",
+  "nowy": "manchmal zahlt Ass-hoch, das",
+  "waga": "NISKIE",
+  "powod": "m8-l1:121: niespójne „Ass-high” wobec „Ass-hoch” w m8-l3.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "**Bluffcatcher**",
+  "nowy": "**Bluff-Catcher**",
+  "waga": "ŚR",
+  "powod": "m8-l2:109: pisownia terminu niespójna z m8-l4 i egzaminem („Bluff-Catcher”).",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "der Bluffcatcher deines",
+  "nowy": "der Bluff-Catcher deines",
+  "waga": "ŚR",
+  "powod": "m8-l2:113: pisownia terminu niespójna z m8-l4 i egzaminem („Bluff-Catcher”).",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Ein Bluffcatcher gewinnt",
+  "nowy": "Ein Bluff-Catcher gewinnt",
+  "waga": "ŚR",
+  "powod": "m8-l2:119: pisownia terminu niespójna z m8-l4 i egzaminem („Bluff-Catcher”).",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "{{n:bluff.ex.range}} {{t:combo|Combos}}",
+  "nowy": "{{n:bluff.ex.range}} {{t:combo|Kombinationen}}",
+  "waga": "ŚR",
+  "powod": "m8-l2:90 (q-combos, prompt): termin combo wg terms-nazwy.yaml to „Kombination”; tak w m8-l3 i egzaminie.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "{{n:bluff.ex.value}} {{t:combo|Combos}}",
+  "nowy": "{{n:bluff.ex.value}} {{t:combo|Kombinationen}}",
+  "waga": "ŚR",
+  "powod": "m8-l2:92 (q-combos, why): termin combo wg terms-nazwy.yaml to „Kombination”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "So viele {{t:combo|Combos}} sind",
+  "nowy": "So viele {{t:combo|Kombinationen}} sind",
+  "waga": "ŚR",
+  "powod": "m8-l2:94 (q-combos, opcja 3, why): termin combo wg terms-nazwy.yaml to „Kombination”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "{{t:straight|Straight}} oder hohe Karten ohne Chance\", correct",
+  "nowy": "{{t:straight|Straße}} oder hohe Karten ohne Chance\", correct",
+  "waga": "ŚR",
+  "powod": "m8-l2:101 (q-which-hands): termin straight wg terms-nazwy.yaml to „Straße”; tak w m8-l1 i egzaminie.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "{{t:straight|Straight}} oder hohe Karten ohne Chance (verpasste",
+  "nowy": "{{t:straight|Straße}} oder hohe Karten ohne Chance (verpasste",
+  "waga": "ŚR",
+  "powod": "m8-l2:139: termin straight wg terms-nazwy.yaml to „Straße”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "{{t:exploit|Exploits}} bei Microstakes",
+  "nowy": "{{t:exploit|Exploits}} auf den Mikrolimits",
+  "waga": "ŚR",
+  "powod": "m8-l2:142: „mikrostawki” w korpusie de to „Mikrolimits” (18×; terms-nazwy stakes: „Limit”); „Microstakes” występuje tylko tu.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Jeder dritte Bet ist ein {{t:bluff}}: Dann",
+  "nowy": "Jede dritte Bet ist ein {{t:bluff}}: Dann",
+  "waga": "NISKIE",
+  "powod": "m8-l2:15: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Ein kleinerer Bet gibt",
+  "nowy": "Eine kleinere Bet gibt",
+  "waga": "NISKIE",
+  "powod": "m8-l2:22: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "weniger {{t:bluff|Bluffs}} als bei einem Bet",
+  "nowy": "weniger {{t:bluff|Bluffs}} als bei einer Bet",
+  "waga": "NISKIE",
+  "powod": "m8-l2:22: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Ein {{t:overbet|Overbet}}, also ein {{t:bet|Bet}}, der größer ist",
+  "nowy": "Eine {{t:overbet|Overbet}}, also eine {{t:bet|Bet}}, die größer ist",
+  "waga": "NISKIE",
+  "powod": "m8-l2:38: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module. Overbet także r. żeński wg terms-nazwy.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "So hoch ist der Anteil der {{t:bluff|Bluffs}} bei einem Bet",
+  "nowy": "So hoch ist der Anteil der {{t:bluff|Bluffs}} bei einer Bet",
+  "waga": "NISKIE",
+  "powod": "m8-l2:40: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Bei einem Bet von",
+  "nowy": "Bei einer Bet von",
+  "waga": "NISKIE",
+  "powod": "m8-l2:40: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Bei welchem Bet",
+  "nowy": "Bei welcher Bet",
+  "waga": "NISKIE",
+  "powod": "m8-l2:45: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Ein größerer Bet gibt deinem Gegner einen schlechteren Preis, deshalb",
+  "nowy": "Eine größere Bet gibt deinem Gegner einen schlechteren Preis, deshalb",
+  "waga": "NISKIE",
+  "powod": "m8-l2:47: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Ein kleiner Bet gibt",
+  "nowy": "Eine kleine Bet gibt",
+  "waga": "NISKIE",
+  "powod": "m8-l2:48: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Jeder dritte Bet ist ein {{t:bluff}}, damit",
+  "nowy": "Jede dritte Bet ist ein {{t:bluff}}, damit",
+  "waga": "NISKIE",
+  "powod": "m8-l2:56: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Bei einem Bet über den ganzen {{t:pot|Pot}}: ",
+  "nowy": "Bei einer Bet über den ganzen {{t:pot|Pot}}: ",
+  "waga": "NISKIE",
+  "powod": "m8-l2:119: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "also ist jeder dritte Bet",
+  "nowy": "also ist jede dritte Bet",
+  "waga": "NISKIE",
+  "powod": "m8-l2:119: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "## Größerer Bet, mehr",
+  "nowy": "## Größere Bet, mehr",
+  "waga": "NISKIE",
+  "powod": "m8-l2:121: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Ein größerer Bet gibt deinem Gegner einen schlechteren Preis, daher",
+  "nowy": "Eine größere Bet gibt deinem Gegner einen schlechteren Preis, daher",
+  "waga": "NISKIE",
+  "powod": "m8-l2:131: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Ein kleiner Bet verträgt",
+  "nowy": "Eine kleine Bet verträgt",
+  "waga": "NISKIE",
+  "powod": "m8-l2:131: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "Bei einem Bet über den ganzen {{t:pot|Pot}} braucht",
+  "nowy": "Bei einer Bet über den ganzen {{t:pot|Pot}} braucht",
+  "waga": "NISKIE",
+  "powod": "m8-l2:135: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+  "stary": "steht ein zusätzlicher Bet",
+  "nowy": "steht eine zusätzliche Bet",
+  "waga": "NISKIE",
+  "powod": "m8-l2:135: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l3-blokery.md",
+  "stary": "Ein kleiner Bet, der einen großen Bet des Gegners",
+  "nowy": "Eine kleine Bet, die eine große Bet des Gegners",
+  "waga": "NISKIE",
+  "powod": "m8-l3:17 (q-what-blocker, opcja 3, text): Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l3-blokery.md",
+  "stary": "ein sogenannter Blocking Bet",
+  "nowy": "eine sogenannte Blocking Bet",
+  "waga": "NISKIE",
+  "powod": "m8-l3:17 (q-what-blocker, opcja 3, why): Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m8-l3-blokery.md",
+  "stary": "auf deinen Bet {{t:fold|folden}}",
+  "nowy": "auf deine Bet {{t:fold|folden}}",
+  "waga": "NISKIE",
+  "powod": "m8-l3:58: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "{{t:call|callen}} deinen Bet",
+  "nowy": "{{t:call|callen}} deine Bet",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q1 prompt: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "Der Bet gewinnt",
+  "nowy": "Die Bet gewinnt",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q1 opcja 1 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "auf einen Bet. Unter",
+  "nowy": "auf eine Bet. Unter",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q1 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "Ein Bet „zur",
+  "nowy": "Eine Bet „zur",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q1 opcja 3 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "Einen kleinen Bet {{t:call|callen}} auch",
+  "nowy": "Eine kleine Bet {{t:call|callen}} auch",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q2 opcja 1 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "Auf einen Bet in Höhe",
+  "nowy": "Auf eine Bet in Höhe",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q2 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "zu schwach für einen Bet ist",
+  "nowy": "zu schwach für eine Bet ist",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q2 opcja 3 text: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "die einen kleinen Bet bezahlen",
+  "nowy": "die eine kleine Bet bezahlen",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q2 opcja 3 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "So viele wären es bei einem Bet",
+  "nowy": "So viele wären es bei einer Bet",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q4 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "Bei einem kleineren Bet",
+  "nowy": "Bei einer kleineren Bet",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q4 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "auf einen Bet. Zahlen",
+  "nowy": "auf eine Bet. Zahlen",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q10 opcja 1 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "Auch einen kleinen Bet",
+  "nowy": "Auch eine kleine Bet",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q10 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "Ein Bet macht aus",
+  "nowy": "Eine Bet macht aus",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q10 opcja 3 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "die verpassten {{t:flush-draw|Flush Draws}} nicht",
+  "nowy": "die verpassten {{t:flush-draw|Flush-Draws}} nicht",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q9 opcja 1 why: pisownia terminu wg terms-nazwy.yaml i m8-l3/l4: „Flush-Draw”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "der verpassten {{t:flush-draw|Flush Draws}}, also",
+  "nowy": "der verpassten {{t:flush-draw|Flush-Draws}}, also",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q9 opcja 2 why: pisownia terminu wg terms-nazwy.yaml i m8-l3/l4: „Flush-Draw”.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m8.yaml",
+  "stary": "und König hoch gewinnt",
+  "nowy": "und König-hoch gewinnt",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q5 opcja 1 why: pisownia niespójna z „Ass-hoch” w m8-l3.",
+  "grupa": "de-L6"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l1-spr.md",
+  "stary": "{{t:call|callst}} den All-in des Gegners",
+  "nowy": "{{t:call|callst}} das All-in des Gegners",
+  "waga": "NISKIE",
+  "powod": "m9-l1:83 (q-zone, text): rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "liegt der {{t:spr}} bei ca.",
+  "nowy": "liegt die {{t:spr}} bei ca.",
+  "waga": "ŚR",
+  "powod": "m9-l3:48 (q-srp-geo, why): rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "Ein niedrigerer {{t:spr}} als",
+  "nowy": "Eine niedrigere {{t:spr}} als",
+  "waga": "ŚR",
+  "powod": "m9-l3:67 (q-3bet-oop, why): rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "gehe am River All-in",
+  "nowy": "gehe am River all-in",
+  "waga": "NISKIE",
+  "powod": "m9-l3:59 (q-3bet-ip, text): pisownia przysłówkowa „all-in gehen” małą literą jak w pozostałych miejscach modułu",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "| {{t:open}} und {{t:call}} |",
+  "nowy": "| {{t:open|Eröffnung}} und {{t:call}} |",
+  "waga": "NISKIE",
+  "powod": "m9-l3:117 (tabela): źródło ma formę „Otwarcie”; ta sama komórka w tabeli m9-l1:123 to „Eröffnung”, tu bez formy wychodzi „Open”; klucz bez zmian",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "ein einzelner {{t:bet}} den",
+  "nowy": "eine einzelne {{t:bet}} den",
+  "waga": "ŚR",
+  "powod": "m9-l4:17 (q-set, why): rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski („ein einzelner Bet”)",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "dass der erste {{t:bet}} zum",
+  "nowy": "dass die erste {{t:bet}} zum",
+  "waga": "ŚR",
+  "powod": "m9-l4:66 (q-plan-first, why): rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski („der erste Bet”)",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "ist bei hohem {{t:spr}} sinnvoll",
+  "nowy": "ist bei hoher {{t:spr}} sinnvoll",
+  "waga": "ŚR",
+  "powod": "m9-l4:48 (q-tp-4bet, why): rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "bei niedrigem {{t:spr}}:**",
+  "nowy": "bei niedriger {{t:spr}}:**",
+  "waga": "ŚR",
+  "powod": "m9-l4:112: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "bei hohem {{t:spr}}:**",
+  "nowy": "bei hoher {{t:spr}}:**",
+  "waga": "ŚR",
+  "powod": "m9-l4:113: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "der mehrmals so groß ist wie der {{t:pot}}",
+  "nowy": "der um ein Mehrfaches größer ist als der {{t:pot}}",
+  "waga": "NISKIE",
+  "powod": "m9-l4:58 (q-line-3bet, why): „mehrmals so groß” to niezręczna kalka „kilka razy większym”; w m9-l3:59 ten sam sens „um ein Vielfaches größer”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "Setzt du die geometrische Größe von ca.",
+  "nowy": "Setzt du mit geometrischem Sizing von ca.",
+  "waga": "ŚR",
+  "powod": "m9-l4:72 (q-geo-tp, prompt): niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "Richtig: Die geometrische Größe dient",
+  "nowy": "Richtig: Geometrisches Sizing dient",
+  "waga": "ŚR",
+  "powod": "m9-l4:75 (q-geo-tp, why): niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "Die geometrische Größe passt zu",
+  "nowy": "Geometrisches Sizing passt zu",
+  "waga": "ŚR",
+  "powod": "m9-l4:76 (q-geo-tp, why): niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "Du setzt ab dem Flop die geometrische Größe (",
+  "nowy": "Du setzt ab dem Flop mit geometrischem Sizing (",
+  "waga": "ŚR",
+  "powod": "m9-l4:111: niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Wie hoch ist der {{t:spr|SPR}}?",
+  "nowy": "Wie hoch ist die {{t:spr|SPR}}?",
+  "waga": "ŚR",
+  "powod": "m9.exam.q1 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Umgekehrt: Der {{t:spr|SPR}} ist der Stack",
+  "nowy": "Umgekehrt: Die {{t:spr|SPR}} ist der Stack",
+  "waga": "ŚR",
+  "powod": "m9.exam.q1 opcja 3 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Der {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Welche",
+  "nowy": "Die {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Welche",
+  "waga": "ŚR",
+  "powod": "m9.exam.q2 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "laut den Zonen für den {{t:spr|SPR}}",
+  "nowy": "laut den Zonen für die {{t:spr|SPR}}",
+  "waga": "ŚR",
+  "powod": "m9.exam.q2 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Je niedriger der {{t:spr|SPR}}",
+  "nowy": "Je niedriger die {{t:spr|SPR}}",
+  "waga": "ŚR",
+  "powod": "m9.exam.q3 explanation: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "bei so niedrigem {{t:spr|SPR}}",
+  "nowy": "bei so niedriger {{t:spr|SPR}}",
+  "waga": "ŚR",
+  "powod": "m9.exam.q4 opcja 1 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Der {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Du willst",
+  "nowy": "Die {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Du willst",
+  "waga": "ŚR",
+  "powod": "m9.exam.q5 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Der {{t:spr|SPR}} auf dem Flop ist höher",
+  "nowy": "Die {{t:spr|SPR}} auf dem Flop ist höher",
+  "waga": "ŚR",
+  "powod": "m9.exam.q9 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "der Zonen für den {{t:spr|SPR}})",
+  "nowy": "der Zonen für die {{t:spr|SPR}})",
+  "waga": "ŚR",
+  "powod": "m9.exam.q9 opcja 1 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Je höher der {{t:spr|SPR}}",
+  "nowy": "Je höher die {{t:spr|SPR}}",
+  "waga": "ŚR",
+  "powod": "m9.exam.q9 opcja 3 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie (w tej samej opcji text ma „eine hohe SPR”)",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "aber den All-in deines Gegners",
+  "nowy": "aber das All-in deines Gegners",
+  "waga": "NISKIE",
+  "powod": "m9.exam.q2 prompt: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Gegen den All-in deines Gegners",
+  "nowy": "Gegen das All-in deines Gegners",
+  "waga": "NISKIE",
+  "powod": "m9.exam.q4 opcja 1 why: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "um den All-in zu",
+  "nowy": "um das All-in zu",
+  "waga": "NISKIE",
+  "powod": "m9.exam.q4 opcja 2 why: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "einen guten Preis für den All-in gibt",
+  "nowy": "einen guten Preis für das All-in gibt",
+  "waga": "NISKIE",
+  "powod": "m9.exam.q9 opcja 3 text: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "der Preis für den All-in und",
+  "nowy": "der Preis für das All-in und",
+  "waga": "NISKIE",
+  "powod": "m9.exam.q9 opcja 3 why: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Du überlegst einen Bet über",
+  "nowy": "Du überlegst eine Bet über",
+  "waga": "ŚR",
+  "powod": "m9.exam.q4 prompt: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Nach deinem Bet reichen",
+  "nowy": "Nach deiner Bet reichen",
+  "waga": "ŚR",
+  "powod": "m9.exam.q4 opcja 2 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "auf jeden Bet",
+  "nowy": "auf jede Bet",
+  "waga": "ŚR",
+  "powod": "m9.exam.q4 opcja 3 text: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "auf einen Bet gibt",
+  "nowy": "auf eine Bet gibt",
+  "waga": "ŚR",
+  "powod": "m9.exam.q4 opcja 3 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Ein Bet in Höhe",
+  "nowy": "Eine Bet in Höhe",
+  "waga": "ŚR",
+  "powod": "m9.exam.q5 opcja 1 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "ein zweiter solcher Bet",
+  "nowy": "eine zweite solche Bet",
+  "waga": "ŚR",
+  "powod": "m9.exam.q5 opcja 1 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "muss jeder {{t:bet|Bet}} größer",
+  "nowy": "muss jede {{t:bet|Bet}} größer",
+  "waga": "ŚR",
+  "powod": "m9.exam.q5 opcja 2 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Nach dem dritten {{t:bet|Bet}}",
+  "nowy": "Nach der dritten {{t:bet|Bet}}",
+  "waga": "ŚR",
+  "powod": "m9.exam.q6 opcja 2 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "einen oder zwei {{t:bet|Bets}}",
+  "nowy": "eine oder zwei {{t:bet|Bets}}",
+  "waga": "ŚR",
+  "powod": "m9.exam.q6 opcja 3 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "{{t:two-pair|Two Pair}} mit den zwei höchsten",
+  "nowy": "{{t:two-pair|Zwei Paare}} mit den zwei höchsten",
+  "waga": "ŚR",
+  "powod": "m9.exam.q2 opcja 3 text: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Hohes {{t:two-pair|Two Pair}} reicht sogar",
+  "nowy": "Hohe {{t:two-pair|zwei Paare}} reichen sogar",
+  "waga": "ŚR",
+  "powod": "m9.exam.q2 opcja 3 why: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "ist es eine Hand für den ganzen Stack, keine Grenzhand",
+  "nowy": "ist das eine Hand für den ganzen Stack, keine Grenzhand",
+  "waga": "NISKIE",
+  "powod": "m9.exam.q2 opcja 3 why: zgoda z liczbą mnogą po zmianie „Two Pair” na „zwei Paare” (stosować razem z poprawką poprzedniego zdania)",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "hohes {{t:two-pair|Two Pair}}. Nach",
+  "nowy": "hohe {{t:two-pair|zwei Paare}}. Nach",
+  "waga": "ŚR",
+  "powod": "m9.exam.q6 opcja 2 why: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Du hast hohes {{t:two-pair|Two Pair}}.",
+  "nowy": "Du hast hohe {{t:two-pair|zwei Paare}}.",
+  "waga": "ŚR",
+  "powod": "m9.exam.q9 prompt: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Ja: Hohes {{t:two-pair|Two Pair}} spielt immer",
+  "nowy": "Ja: Hohe {{t:two-pair|zwei Paare}} spielen immer",
+  "waga": "ŚR",
+  "powod": "m9.exam.q9 opcja 2 text: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Hohes {{t:two-pair|Two Pair}} reicht meist",
+  "nowy": "Hohe {{t:two-pair|zwei Paare}} reichen meist",
+  "waga": "ŚR",
+  "powod": "m9.exam.q9 opcja 2 why: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "Die geometrische Größe berechnest du",
+  "nowy": "Das geometrische Sizing berechnest du",
+  "waga": "ŚR",
+  "powod": "m9.exam.q5 opcja 3 why: niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m9.yaml",
+  "stary": "wählst du die geometrische Größe schon",
+  "nowy": "wählst du das geometrische Sizing schon",
+  "waga": "ŚR",
+  "powod": "m9.exam.q8 opcja 1 why: niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+  "grupa": "de-L7"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+  "stary": "aus Online-Micro-Stakes (NL25)",
+  "nowy": "aus Online-Mikrolimits (NL25)",
+  "waga": "NISKIE",
+  "powod": "m10-l2:29 prompt: „mikrostawki” w m10-l3 i m10-l4 to „Mikrolimits” (stakes = Limit); tu jedyny raz „Micro-Stakes”.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+  "stary": "Pocket-{{t:pair|Paaren}}",
+  "nowy": "Pocket {{t:pair|Pairs}}",
+  "waga": "NISKIE",
+  "powod": "m10-l2:41 why: hybryda „Pocket-Paaren”; przyjęta nazwa to „Pocket Pair”.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+  "stary": "einer großen Online-Plattform, NL25 6-max",
+  "nowy": "eines großen Online-Pokerraums, NL25 6-max",
+  "waga": "ŚR",
+  "powod": "m10-l2:116: „sala” to w m10-l1, m10-l4 i egzaminie „Pokerraum” (28×); tu „Online-Plattform” — niespójny termin.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+  "stary": "| Fold auf 3-Bet |",
+  "nowy": "| Fold to 3-Bet |",
+  "waga": "ŚR",
+  "powod": "m10-l2:121 tabela: nazwa statystyki wszędzie indziej (m10-l1, m10-l3, egzamin) to „Fold to 3-Bet”.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+  "stary": "lässt ihn mit sehr starken Händen betten und",
+  "nowy": "lässt ihn betten, wenn du eine sehr starke Hand hast, und",
+  "waga": "ŚR",
+  "powod": "m10-l2:139: dwuznaczne — po niemiecku czyta się, jakby to maniak miał bardzo silne ręce; pl: z bardzo silnymi rękami (twoimi) pozwalasz mu betować.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+  "stary": "(eine große Online-Plattform, NL25–NL100",
+  "nowy": "(ein großer Online-Pokerraum, NL25–NL100",
+  "waga": "ŚR",
+  "powod": "m10-l2:142 note: „sala” = „Pokerraum” jak w pozostałych plikach modułu.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Nur mit einer großen Größe, weil",
+  "nowy": "Nur mit einer großen Bet, weil",
+  "waga": "NISKIE",
+  "powod": "m10-l3:51 text: niezręczne „großen Größe” (pl: „Tylko dużym rozmiarem”).",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Trainer in zwei Lernmaterialien",
+  "nowy": "Trainer in zwei Trainingsmaterialien",
+  "waga": "NISKIE",
+  "powod": "m10-l3:122: „materiały szkoleniowe” to w m10-l1 i m10-l2 „Trainingsmaterialien”; ujednolicenie.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "(ein großer Online-Anbieter,",
+  "nowy": "(ein großer Online-Pokerraum,",
+  "waga": "ŚR",
+  "powod": "m10-l3:129 note: „sala” = „Pokerraum” jak w pozostałych plikach modułu (trzeci wariant: Online-Anbieter).",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Empfehlungen aus zwei Lernmaterialien",
+  "nowy": "Empfehlungen aus zwei Trainingsmaterialien",
+  "waga": "NISKIE",
+  "powod": "m10-l3:129 note: „materiały szkoleniowe” = „Trainingsmaterialien” jak w m10-l1 i m10-l2.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m10-l4-rake.md",
+  "stary": ": ein Mehrfaches weniger, als er",
+  "nowy": ": um ein Mehrfaches weniger, als er",
+  "waga": "NISKIE",
+  "powod": "m10-l4:102: „ein Mehrfaches weniger” jest niegramatyczne; poprawnie „um ein Mehrfaches weniger”.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "eine Pflichtzahlung ist",
+  "nowy": "ein Pflichteinsatz ist",
+  "waga": "NISKIE",
+  "powod": "m10.exam.q1 opcja 2 text: w m10-l1 „wpłata obowiązkowa” to „Pflichteinsatz”; ujednolicenie.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "also eine freiwillige Zahlung, die",
+  "nowy": "also ein freiwilliger Einsatz, der",
+  "waga": "NISKIE",
+  "powod": "m10.exam.q1 opcja 2 why: w m10-l1 „dobrowolna wpłata” to „freiwilliger Einsatz”; ujednolicenie.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "freiwillige Einzahlungen",
+  "nowy": "freiwillige Einsätze",
+  "waga": "ŚR",
+  "powod": "m10.exam.q1 opcja 4 why: „Einzahlung” to po niemiecku wpłata na konto (depozyt), nie żetony włożone do puli; w m10-l1 „freiwillige Einsätze”.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "-mal einen C-Bet bekommen",
+  "nowy": "-mal eine C-Bet bekommen",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q2 prompt.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "und einem 3-Bet entsteht",
+  "nowy": "und einer 3-Bet entsteht",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q3 opcja 1 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "auf einen 3-Bet selten",
+  "nowy": "auf eine 3-Bet selten",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q4 opcja 3 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "in Richtung eines Bets",
+  "nowy": "in Richtung einer Bet",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q6 opcja 3 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Welcher C-Bet ohne Hand",
+  "nowy": "Welche C-Bet ohne Hand",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 prompt.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Nur der kleine, 1/3",
+  "nowy": "Nur die kleine, 1/3",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 text.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Ein C-Bet von 1/3",
+  "nowy": "Eine C-Bet von 1/3",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "break-even, einer von 3/4",
+  "nowy": "break-even, eine von 3/4",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "reicht nur für den kleinen",
+  "nowy": "reicht nur für die kleine",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Ein großer C-Bet riskiert",
+  "nowy": "Eine große C-Bet riskiert",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 2 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Nur der große, weil er stärker",
+  "nowy": "Nur die große, weil sie stärker",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 3 text.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "auf einen großen Bet öfter",
+  "nowy": "auf eine große Bet öfter",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 3 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "verliert ein großer C-Bet ohne Hand, weil er",
+  "nowy": "verliert eine große C-Bet ohne Hand, weil sie",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 3 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Keiner, weil der Gegner",
+  "nowy": "Keine, weil der Gegner",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 4 text.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Für einen C-Bet von 1/3",
+  "nowy": "Für eine C-Bet von 1/3",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 4 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "auf den 3-Bet; gegen ihn",
+  "nowy": "auf die 3-Bet; gegen ihn",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q8 opcja 1 text.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m10.yaml",
+  "stary": "Ein 3-Bet auf",
+  "nowy": "Eine 3-Bet auf",
+  "waga": "ŚR",
+  "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q8 opcja 1 why.",
+  "grupa": "de-L8"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m11-l1-push-fold.md",
+  "stary": "auf etwa {{n:m11.push.15}} Hände enger",
+  "nowy": "auf etwa {{n:m11.push.15}} der Hände enger",
+  "waga": "ŚR",
+  "powod": "m11-l1:63 (q-k2o, why): liczba to procent („45 %”), więc „45 % Hände” jest niegramatyczne; pl „ok. … rąk” (dopełniacz) = „der Hände”, jak w m11-l2 i egzaminie m11.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m11-l1-push-fold.md",
+  "stary": "{{n:m11.push.10-ante}} Händen.",
+  "nowy": "{{n:m11.push.10-ante}} der Hände.",
+  "waga": "ŚR",
+  "powod": "m11-l1:91 (q-ante, why): po procencie „Händen” niegramatyczne („bei etwa 71–72 % Händen”); ma być „der Hände”.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m11-l1-push-fold.md",
+  "stary": "mit etwa {{n:m11.push.15}} Händen All-in",
+  "nowy": "mit etwa {{n:m11.push.15}} der Hände All-in",
+  "waga": "ŚR",
+  "powod": "m11-l1:152: po procencie „Händen” niegramatyczne („mit etwa 45 % Händen”); ma być „der Hände”.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m11-l1-push-fold.md",
+  "stary": "mit etwa {{n:m11.3max.push.btn}} Händen All-in",
+  "nowy": "mit etwa {{n:m11.3max.push.btn}} der Hände All-in",
+  "waga": "ŚR",
+  "powod": "m11-l1:156: po procencie „Händen” niegramatyczne; ma być „der Hände”.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m11-l1-push-fold.md",
+  "stary": "{{n:m11.push.10-ante}} Hände (der Solver",
+  "nowy": "{{n:m11.push.10-ante}} der Hände (der Solver",
+  "waga": "ŚR",
+  "powod": "m11-l1:174: po procencie „Hände” niegramatyczne („auf etwa 71–72 % Hände”); ma być „der Hände”.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m13.yaml",
+  "stary": "einen {{t:flush-draw|Flush Draw}} und einen",
+  "nowy": "einen {{t:flush-draw|Flush-Draw}} und einen",
+  "waga": "NISKIE",
+  "powod": "m13.exam.q5 (opcja 1, why): terms-nazwy.yaml de: flush-draw = „Flush-Draw” (z łącznikiem); ujednolicenie pisowni.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m13.yaml",
+  "stary": "der {{t:flush-draw|Flush Draw}} ist weg",
+  "nowy": "der {{t:flush-draw|Flush-Draw}} ist weg",
+  "waga": "NISKIE",
+  "powod": "m13.exam.q5 (opcja 2, why): terms-nazwy.yaml de: flush-draw = „Flush-Draw”; ujednolicenie pisowni.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m13.yaml",
+  "stary": "keinen {{t:flush-draw|Flush Draw}} mehr",
+  "nowy": "keinen {{t:flush-draw|Flush-Draw}} mehr",
+  "waga": "NISKIE",
+  "powod": "m13.exam.q5 (opcja 3, why): terms-nazwy.yaml de: flush-draw = „Flush-Draw”; ujednolicenie pisowni.",
+  "grupa": "de-L9"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m12-l4-bankroll.md",
+  "stary": "„Verantwortungsvolles Spielen“ am Ende dieser Lektion.",
+  "nowy": "„Verantwortungsvolles Spielen“.",
+  "waga": "ŚR",
+  "powod": "m12-l4:102 (m12.l4.q-warning-sign, treść krytyczna): źródło ma tylko „skorzystaj z kontaktów z karty o odpowiedzialnej grze”; przekład dodaje „am Ende dieser Lektion”, czego nie ma w pl ani en i co jest mylące, gdy pytanie pojawia się poza lekcją (powtórki).",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m12.yaml",
+  "stary": "text: \"Ungerechtigkeits-Tilt\"",
+  "nowy": "text: \"Tilt aus Ungerechtigkeit\"",
+  "waga": "ŚR",
+  "powod": "exams/m12:55 (q6): nazwa typu tiltu niespójna z lekcją m12-l3 („Tilt aus Ungerechtigkeit”) i z poprawną odpowiedzią w tym samym pytaniu („Tilt aus …”); inna forma błędnych odpowiedzi zdradza poprawną.",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m12.yaml",
+  "stary": "text: \"Fehler-Tilt\"",
+  "nowy": "text: \"Tilt aus Fehlern\"",
+  "waga": "ŚR",
+  "powod": "exams/m12:56 (q6): nazwa typu tiltu niespójna z lekcją m12-l3 („Tilt aus Fehlern”) i z formą poprawnej odpowiedzi.",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m12.yaml",
+  "stary": "why: \"Fehler-Tilt ist Ärger",
+  "nowy": "why: \"Tilt aus Fehlern ist Ärger",
+  "waga": "ŚR",
+  "powod": "exams/m12:56 (q6, why): ta sama niespójna nazwa typu tiltu w uzasadnieniu; w lekcji m12-l3 „Tilt aus Fehlern”.",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m12.yaml",
+  "stary": "text: \"Rache-Tilt\"",
+  "nowy": "text: \"Tilt aus Rache\"",
+  "waga": "ŚR",
+  "powod": "exams/m12:57 (q6): nazwa typu tiltu niespójna z lekcją m12-l3 („Tilt aus Rache”) i z formą poprawnej odpowiedzi.",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m12.yaml",
+  "stary": "bewertest du im Hand-Review",
+  "nowy": "bewertest du in der Handanalyse",
+  "waga": "ŚR",
+  "powod": "exams/m12:36 (q4): „przegląd rozdań” w lekcjach m12-l2:67 i :69 to „Handanalyse”; w egzaminie to samo pojęcie nazwane „Hand-Review” (niespójny termin).",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m12.yaml",
+  "stary": "weder dem Glück noch dir selbst",
+  "nowy": "weder dem Schicksal noch dir selbst",
+  "waga": "NISKIE",
+  "powod": "exams/m12:54 (q6, why): „nie winisz losu” – „dem Glück die Schuld geben” jest niezręczne; lekcja m12-l3:16 i :43 oddaje „los” jako „Schicksal”.",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{n:var.hands.k}} Tausend Hände",
+  "nowy": "{{n:var.hands.k}} Tsd. Hände",
+  "waga": "NISKIE",
+  "powod": "m12-l2:68: jedyne miejsce z „Tausend” zamiast przyjętego wszędzie skrótu „Tsd.” (pl „tys.”).",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m12-l3-tilt.md",
+  "stary": "an der Spitze am Ende leicht wieder verloren",
+  "nowy": "an der Spitze hinten leicht wieder verloren",
+  "waga": "NISKIE",
+  "powod": "m12-l3:88: „postęp z przodu łatwo traci się z tyłu” – „am Ende” czyta się tu jako „w końcu”, a nie „z tyłu” (gąsienica); „hinten” oddaje obraz jednoznacznie.",
+  "grupa": "de-L10"
+ },
+ {
+  "jezyk": "de",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "Entscheiden üben, ohne Einsatz",
+  "nowy": "Entscheiden üben ohne Echtgeld",
+  "waga": "ŚR",
+  "powod": "de-DE subtitle: „ohne Einsatz” jest dwuznaczne (Einsatz = stawka, ale też „zaangażowanie, wysiłek”: „ćwicz decyzje bez wysiłku”); pl „bez gry o stawki”, en „no real money”. Zamiennik ma 30 znaków (limit 30) i jest spójny z „Kein Echtgeldspiel” w promotionalText.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "Entscheidungen in vier Stufen bewertet",
+  "nowy": "Entscheidungen in vier Stufen bewertet: übereinstimmend, vertretbar, Ungenauigkeit, Fehler",
+  "waga": "ŚR",
+  "powod": "de-DE description, sekcja ÜBEN: pominięte nazwy czterech stopni oceny (pl „zgodna, dopuszczalna, niedokładność, błąd”, en „correct, acceptable, inaccuracy, mistake”); nazwy jak w słowniku aplikacji (grade.*).",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "Tagesserie und ein Fortschrittswert",
+  "nowy": "Tagesserie und ein Leistungsindex",
+  "waga": "NISKIE",
+  "powod": "de-DE description, sekcja WIEDERHOLUNG UND FORTSCHRITT: „wskaźnik zaawansowania” w aplikacji to „Leistungsindex” (advancement.title); jedna nazwa na jedno pojęcie.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "{{t:risk-premium|Risikoprämie}}",
+  "nowy": "{{t:risk-premium|Risk Premium}}",
+  "waga": "ŚR",
+  "powod": "drill.icm.foldRightChips (de.json:724): przyjęta nazwa terminu risk-premium to „Risk Premium” (terms-nazwy.yaml; rodzaj żeński, więc „die Risk Premium” zostaje); „Risikoprämie” to druga nazwa tego samego pojęcia.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "{{t:combo|Kombos}}",
+  "nowy": "{{t:combo|Kombinationen}}",
+  "waga": "ŚR",
+  "powod": "drill.paint.explanation (de.json:656): przyjęta nazwa terminu combo to „Kombination” (terms-nazwy.yaml, w treści Kombinationen ×27); „Kombos” niespójne.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "Die Kombination ist dieselbe",
+  "nowy": "Die Handkategorie ist dieselbe",
+  "waga": "ŚR",
+  "powod": "drill.whoWins.reason.kicker (de.json:685): pl „Układ jest ten sam” (ta sama kategoria układu); „Kombination” jest w de zajęta przez termin combo (kombinacja kart własnych), więc zdanie jest dwuznaczne.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "{{diff}} Pp.",
+  "nowy": "{{diff}} Prozentpunkte",
+  "waga": "NISKIE",
+  "powod": "drill.numeric.diffPp (de.json:662): „Pp.” nie jest przyjętym niemieckim skrótem punktów procentowych; pełne słowo jest jednoznaczne.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "deines Apple-Accounts (Abonnements)",
+  "nowy": "deines Apple Accounts (Abonnements)",
+  "waga": "NISKIE",
+  "powod": "purchase.cancelInfo (de.json:56): nazwa własna Apple po niemiecku to „Apple Account” bez łącznika; tak też w opisie sklepu de-DE („deines Apple Accounts”).",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "auf diesem Apple-Account keine",
+  "nowy": "auf diesem Apple Account keine",
+  "waga": "NISKIE",
+  "powod": "purchase.noPurchases (de.json:61): „Apple Account” bez łącznika, spójnie z purchase.cancelInfo i opisem sklepu.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "Das Zählen solcher Combos zeigt, wie viele einer bestimmten Hand wirklich in einer Range sind.",
+  "nowy": "Das Zählen solcher Kombinationen zeigt, wie viele Kombinationen einer bestimmten Hand wirklich in einer Range sind.",
+  "waga": "ŚR",
+  "powod": "terms-def.yaml:60 (combo): definicja używa „Combos”, a przyjęta nazwa terminu w terms-nazwy.yaml to „Kombination”; do tego „wie viele einer bestimmten Hand” jest niegramatyczne (brak rzeczownika).",
+  "grupa": "de-T1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "bei der kein Spieler gewinnt, wenn nur er allein seine Strategie ändert",
+  "nowy": "bei der sich kein Spieler verbessern kann, indem nur er allein seine Strategie ändert",
+  "waga": "ŚR",
+  "powod": "terms-def.yaml:144 (nash-equilibrium): pl „żaden gracz nie zyska”; „kein Spieler gewinnt” czyta się jako „żaden gracz nie wygrywa” (dwuznaczność).",
+  "grupa": "de-T1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "wie der Bet oder Raise des Gegners beträgt",
+  "nowy": "wie die Bet oder der Raise des Gegners beträgt",
+  "waga": "NISKIE",
+  "powod": "terms-def.yaml:16 (call): rodzaj „Bet” – w terms-nazwy.yaml i w pozostałych definicjach żeński (die Bet, einer 3-Bet, einer C-Bet), tu męski „der Bet”.",
+  "grupa": "de-T1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "vom Spieler out of position, nachdem",
+  "nowy": "vom Spieler out of Position, nachdem",
+  "waga": "NISKIE",
+  "powod": "terms-def.yaml:104 (probe-bet): pisownia nazwy terminu out-of-position według terms-nazwy.yaml: „out of Position”.",
+  "grupa": "de-T1"
+ }
+]

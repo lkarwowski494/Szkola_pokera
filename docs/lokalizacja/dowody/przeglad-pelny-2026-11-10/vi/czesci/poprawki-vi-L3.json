@@ -1,0 +1,299 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "Cược bằng cả pot rủi ro",
+    "nowy": "Cược bằng cả {{t:pot|pot}} rủi ro",
+    "waga": "WYS",
+    "powod": "m5.exam.q10 opcja 3 why: zgubiony znacznik — źródło ma „Bet wielkości {{t:pot|puli}}”, przekład ma gołe „pot”; poprawka przywraca znacznik t:pot",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "{{t:small-blind|mù nhỏ}}",
+    "nowy": "{{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m5.exam.q1 prompt: niespójny termin — nazwa w terms-nazwy.yaml to „small blind”, a obok {{t:big-blind}} daje „big blind”",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "{{t:big-blind|Mù lớn}} thường",
+    "nowy": "{{t:big-blind|Big blind}} thường",
+    "waga": "ŚR",
+    "powod": "m5.exam.q1 opcja 1 why: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "{{t:big-blind|Mù lớn}}, vì họ",
+    "nowy": "{{t:big-blind|Big blind}}, vì họ",
+    "waga": "ŚR",
+    "powod": "m5.exam.q1 opcja 2 text: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "của {{t:big-blind|mù lớn}}",
+    "nowy": "của {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m5.exam.q2 opcja 1 why: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "sau {{t:big-blind|mù lớn}}",
+    "nowy": "sau {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m5.exam.q6 opcja 3 why: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "hai vị trí mù {{t:fold|bỏ bài}}",
+    "nowy": "hai blind {{t:fold|bỏ bài}}",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q6 opcja 1 text: „blindy” w m5-l4 (te same sytuacje) to „hai blind”; „vị trí mù” to trzeci wariant nazwy blindów w module",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": "Các tay {{t:bluff|tháu cáy}} không có",
+    "nowy": "Các tay {{t:bluff|bluff}} không có",
+    "waga": "ŚR",
+    "powod": "m5.exam.q8 opcja 1 text: niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna (w why tej samej opcji stoi {{t:bluff}})",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m5.yaml",
+    "stary": ". {{t:big-blind}} phải {{t:fold|bỏ bài}}",
+    "nowy": ". {{t:big-blind|Big blind}} phải {{t:fold|bỏ bài}}",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q5 prompt: znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "{{t:big-blind|mù lớn}}, người ở đây",
+    "nowy": "{{t:big-blind|big blind}}, người ở đây",
+    "waga": "ŚR",
+    "powod": "m5-l3:38 (c-btn, przypadek 3, why.check): niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+    "stary": "{{t:big-blind|Mù lớn}} {{t:check|xem bài}}",
+    "nowy": "{{t:big-blind|Big blind}} {{t:check|xem bài}}",
+    "waga": "ŚR",
+    "powod": "m5-l4:53 (q-multi-value prompt): niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+    "stary": "{{t:bluff|cú tháu cáy}} phải vượt qua cả hai",
+    "nowy": "{{t:bluff|cú bluff}} phải vượt qua cả hai",
+    "waga": "ŚR",
+    "powod": "m5-l4:47 (q-multi opcja 2 why): niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+    "stary": "Một {{t:bluff|cú tháu cáy}} lớn",
+    "nowy": "Một {{t:bluff|cú bluff}} lớn",
+    "waga": "ŚR",
+    "powod": "m5-l4:48 (q-multi opcja 3 why): niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+    "stary": "{{t:bluff|Cú tháu cáy}} phải vượt qua tất cả",
+    "nowy": "{{t:bluff|Cú bluff}} phải vượt qua tất cả",
+    "waga": "ŚR",
+    "powod": "m5-l4:103: niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+    "stary": "từ bỏ các {{t:bluff|cú tháu cáy}}",
+    "nowy": "từ bỏ các {{t:bluff|cú bluff}}",
+    "waga": "ŚR",
+    "powod": "m5-l4:103: niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+    "stary": "{{t:connectors|bài liền}}",
+    "nowy": "{{t:connectors|bài liên tiếp}}",
+    "waga": "NISKIE",
+    "powod": "m5-l4:16 (q-oop-plan opcja 1 why): niespójny termin — m5-l2 i egzamin m5 mają „bài liên tiếp” dla konektorów",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "{{t:draw|draw}} nào",
+    "nowy": "{{t:draw|bài chờ}} nào",
+    "waga": "ŚR",
+    "powod": "m5-l1:47 (q-dry opcja 1 text): niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "cho biết về {{t:draw|draw}}, chứ",
+    "nowy": "cho biết về {{t:draw|bài chờ}}, chứ",
+    "waga": "ŚR",
+    "powod": "m5-l1:48 (q-dry opcja 2 why): niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "chưa ai có {{t:flush-draw|draw thùng}}",
+    "nowy": "chưa ai có {{t:flush-draw|bài chờ thùng}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:66: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia (w tym samym akapicie {{t:flush-draw}} = „bài chờ thùng”)",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "ví dụ JT có draw đó",
+    "nowy": "ví dụ JT có bài chờ đó",
+    "waga": "ŚR",
+    "powod": "m5-l1:74: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "dù chỉ {{t:straight-draw|draw sảnh}}",
+    "nowy": "dù chỉ {{t:straight-draw|bài chờ sảnh}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:76: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "cho {{t:draw|draw}} và các tay bài mạnh",
+    "nowy": "cho {{t:draw|bài chờ}} và các tay bài mạnh",
+    "waga": "ŚR",
+    "powod": "m5-l1:80: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "{{t:draw|draw}} hở hai đầu",
+    "nowy": "{{t:draw|bài chờ}} hở hai đầu",
+    "waga": "ŚR",
+    "powod": "m5-l1:101: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "với một {{t:flush-draw|draw thùng}}",
+    "nowy": "với một {{t:flush-draw|bài chờ thùng}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:103: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "cũng không có {{t:straight-draw|draw sảnh}}",
+    "nowy": "cũng không có {{t:straight-draw|bài chờ sảnh}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:103: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "{{t:straight}} đã hoàn thành có trọng số",
+    "nowy": "{{t:straight|Sảnh}} đã hoàn thành có trọng số",
+    "waga": "NISKIE",
+    "powod": "m5-l1:101: znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l1-tekstury.md",
+    "stary": "có nên bet hay không",
+    "nowy": "có nên cược hay không",
+    "waga": "NISKIE",
+    "powod": "m5-l1:58: jedyne w module „bet” jako czasownik; wszędzie indziej „cược” (nazwa terminu bet = „cược”)",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l2-przewagi.md",
+    "stary": "đồng chất và các tay có lá 6 hoặc lá 7. Bạn",
+    "nowy": "cùng chất và các tay có lá 6 hoặc lá 7. Bạn",
+    "waga": "ŚR",
+    "powod": "m5-l2:26 (q-765 opcja 1 why): „konektory w kolorze” = suited; terms-nazwy: suited = „cùng chất”, a „đồng chất” to nazwa monotone (flop jednokolorowy) używana w m5-l1",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l2-przewagi.md",
+    "stary": "đồng chất và các tay có lá 6 hoặc lá 7, nên",
+    "nowy": "cùng chất và các tay có lá 6 hoặc lá 7, nên",
+    "waga": "ŚR",
+    "powod": "m5-l2:88: „konektory w kolorze” = suited; terms-nazwy: suited = „cùng chất”, a „đồng chất” to nazwa monotone używana w m5-l1",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l2-przewagi.md",
+    "stary": "lệnh {{t:open}} của bạn",
+    "nowy": "lượt {{t:open}} của bạn",
+    "waga": "NISKIE",
+    "powod": "m5-l2:33 (q-capped prompt): „lệnh mở cược” („rozkaz/zlecenie”) brzmi nienaturalnie dla „twoje otwarcie”; „lượt mở cược” jest formą używaną w korpusie",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l2-przewagi.md",
+    "stary": ". {{t:range}} của bạn với tư cách",
+    "nowy": ". {{t:range|Dải bài}} của bạn với tư cách",
+    "waga": "NISKIE",
+    "powod": "m5-l2:73 (q-miss-means opcja 3 why): znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą; „Dải bài” jak w pozostałych formach tej lekcji",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": ". {{t:bet}} nhỏ đơn giản là",
+    "nowy": ". {{t:bet|Cược}} nhỏ đơn giản là",
+    "waga": "NISKIE",
+    "powod": "m5-l3:103 (q-alpha opcja 2 why): znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą",
+    "grupa": "vi-L3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "được đánh dấu là heuristic",
+    "nowy": "được đánh dấu là quy tắc kinh nghiệm",
+    "waga": "NISKIE",
+    "powod": "m5-l3:133: „heurystyki” — m5-l4:106 oddaje to samo słowo jako „quy tắc kinh nghiệm”; angielskie „heuristic” jest tu niespójne i mniej zrozumiałe",
+    "grupa": "vi-L3"
+  }
+]
