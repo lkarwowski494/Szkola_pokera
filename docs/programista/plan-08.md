@@ -1278,3 +1278,19 @@ Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę r
 **Czerwone:** brak. **Otwarte:** flow E2E CJK; zrzuty 320 pt / AX5 dla ja i fr; NISKIE z przeglądów AE/AK/AL; `terms-nazwy` [DO USTALENIA] (ko 25, it 52, vi 48 + 22 z D-392); zh-Hant limp 溜入; notatki recenzenta ASC (czekają na W-04).
 
 **Kroki właściciela:** (1) pytanie zbiorcze (weta, zakres 1.0, tryb decyzji i pułapy kosztu, `site/`, build do testów); (2) fakty W-04 (e-mail wsparcia, administrator), W-05 (Apple ID aplikacji), W-07 (dane sprzedawcy JP); (3) znaki towarowe „pokergym” / „poker gym” w USPTO, EUIPO, WIPO przed zapisem nazwy w ASC (D-378, D-382); (4) telefon: `docs/lokalizacja/lista-telefonu-4.md`, `lista-telefonu-de-es.md`, `lista-telefonu-ko-it-vi.md`, K6 en — po buildzie TestFlight.
+
+## Sesja AX — zrozumiałość polskich pytań oceny poziomu (2026-11-10, rola 06 fix, KO-027; D-485–D-487)
+Polecenie: `docs/koordynacja/polecenia/AX.md` @ 8aa18d1; start `sesja-ax-pytania` @ 40e5cef (zgodny); scalona robocza @ 128a089 (AV).
+
+| Krok | Dowód | Decyzja |
+|---|---|---|
+| 1. Pula oceny: 8 stałych pytań | `docs/tresci/dowody-ax/pula-przed.md` | — |
+| 2. Przegląd pl: początkujący (11 WYS / 28 ŚR / 15 NIS), średniozaawansowany (3 WYS) | `przeglad-poczatkujacy.md`, `przeglad-sredniozaawansowany.md` | — |
+| 3. Brzmienie pl 7 pytań | `diff-pl.patch`, `pula-po-pl.md` | D-485 |
+| 4. Przekłady 11 języków, recenzja autor ≠ recenzent | `przeklady/` (propozycje, recenzje, nalozenie.txt) | D-486 |
+| 6. m5.q2 jednoznaczność | `m5-q2/` (rachunek) — OTWARTE | D-487 |
+
+### Zostaje
+- Rola 04/08: `table.yourPosition` (`pl.json:577`) — same skróty UTG/SB/BTN/BB (przekazane przez koordynatora do sesji kodu).
+- Rola 06: m5.q2 + `because` R-M5-004 (D-487); utrwalone formuły „Dopłacam do dużego blinda” (m3-l1:27, :37; exams/m3.yaml q5, q6) i „Nikt jeszcze nie wszedł do gry” (m3-l2:22) — rekomendacja: ujednolicić z D-485 przy następnej poprawce M3 (lekcja uczy terminu, więc pilność niska).
+- Dokument 13 na Drive: wpis w `docs/tresci/dowody-ax/wpis-dokument-13.md` (konektor bez edycji — krok koordynatora/właściciela).
