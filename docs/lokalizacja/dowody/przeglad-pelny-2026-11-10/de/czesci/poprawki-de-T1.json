@@ -1,0 +1,38 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/terms-def.yaml",
+    "stary": "Das Zählen solcher Combos zeigt, wie viele einer bestimmten Hand wirklich in einer Range sind.",
+    "nowy": "Das Zählen solcher Kombinationen zeigt, wie viele Kombinationen einer bestimmten Hand wirklich in einer Range sind.",
+    "waga": "ŚR",
+    "powod": "terms-def.yaml:60 (combo): definicja używa „Combos”, a przyjęta nazwa terminu w terms-nazwy.yaml to „Kombination”; do tego „wie viele einer bestimmten Hand” jest niegramatyczne (brak rzeczownika).",
+    "grupa": "de-T1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/terms-def.yaml",
+    "stary": "bei der kein Spieler gewinnt, wenn nur er allein seine Strategie ändert",
+    "nowy": "bei der sich kein Spieler verbessern kann, indem nur er allein seine Strategie ändert",
+    "waga": "ŚR",
+    "powod": "terms-def.yaml:144 (nash-equilibrium): pl „żaden gracz nie zyska”; „kein Spieler gewinnt” czyta się jako „żaden gracz nie wygrywa” (dwuznaczność).",
+    "grupa": "de-T1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/terms-def.yaml",
+    "stary": "wie der Bet oder Raise des Gegners beträgt",
+    "nowy": "wie die Bet oder der Raise des Gegners beträgt",
+    "waga": "NISKIE",
+    "powod": "terms-def.yaml:16 (call): rodzaj „Bet” – w terms-nazwy.yaml i w pozostałych definicjach żeński (die Bet, einer 3-Bet, einer C-Bet), tu męski „der Bet”.",
+    "grupa": "de-T1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/terms-def.yaml",
+    "stary": "vom Spieler out of position, nachdem",
+    "nowy": "vom Spieler out of Position, nachdem",
+    "waga": "NISKIE",
+    "powod": "terms-def.yaml:104 (probe-bet): pisownia nazwy terminu out-of-position według terms-nazwy.yaml: „out of Position”.",
+    "grupa": "de-T1"
+  }
+]

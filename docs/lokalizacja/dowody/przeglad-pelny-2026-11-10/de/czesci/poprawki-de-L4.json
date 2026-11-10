@@ -1,0 +1,353 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "Bei einem Bet in Höhe",
+    "nowy": "Bei einer Bet in Höhe",
+    "waga": "NISKIE",
+    "powod": "m6-l1:22: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "Je größer der Bet, desto",
+    "nowy": "Je größer die Bet, desto",
+    "waga": "NISKIE",
+    "powod": "m6-l1:38: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "bei einem Bet von 3/4",
+    "nowy": "bei einer Bet von 3/4",
+    "waga": "NISKIE",
+    "powod": "m6-l1:54: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "Ein größerer Bet riskiert",
+    "nowy": "Eine größere Bet riskiert",
+    "waga": "NISKIE",
+    "powod": "m6-l1:64: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "einen C-Bet von 1/3",
+    "nowy": "eine C-Bet von 1/3",
+    "waga": "NISKIE",
+    "powod": "m6-l1:79: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "auf einen kleinen C-Bet",
+    "nowy": "auf eine kleine C-Bet",
+    "waga": "NISKIE",
+    "powod": "m6-l1:82: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "Du riskierst den Bet, um",
+    "nowy": "Du riskierst die Bet, um",
+    "waga": "NISKIE",
+    "powod": "m6-l1:100: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l1-mdf-alpha.md",
+    "stary": "Bei einem Bet von 1/3",
+    "nowy": "Bei einer Bet von 1/3",
+    "waga": "NISKIE",
+    "powod": "m6-l1:128: rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "am Flop einen C-Bet von 1/4",
+    "nowy": "am Flop eine C-Bet von 1/4",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q3 prompt (m6.yaml:24): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Bei einem C-Bet von 1/4",
+    "nowy": "Bei einer C-Bet von 1/4",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q3 (m6.yaml:27): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Gegen einen kleinen C-Bet hast du",
+    "nowy": "Gegen eine kleine C-Bet hast du",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q3 (m6.yaml:28): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Gegen einen größeren Bet",
+    "nowy": "Gegen eine größere Bet",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q5 (m6.yaml:47): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Ein größerer Bet bedeutet",
+    "nowy": "Eine größere Bet bedeutet",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q5 (m6.yaml:49): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "einen C-Bet von 1/3 {{t:pot|Pot}}. Du hast",
+    "nowy": "eine C-Bet von 1/3 {{t:pot|Pot}}. Du hast",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q6 prompt (m6.yaml:54): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Gegen einen kleinen C-Bet brauchst",
+    "nowy": "Gegen eine kleine C-Bet brauchst",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q6 (m6.yaml:57): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Gegen einen kleinen C-Bet wird",
+    "nowy": "Gegen eine kleine C-Bet wird",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q6 (m6.yaml:58): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "einen C-Bet von 3/4",
+    "nowy": "eine C-Bet von 3/4",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q7 prompt (m6.yaml:64): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Gegen einen großen C-Bet {{t:call|callst}}",
+    "nowy": "Gegen eine große C-Bet {{t:call|callst}}",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q7 (m6.yaml:67): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "gegen einen großen C-Bet meist",
+    "nowy": "gegen eine große C-Bet meist",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q7 (m6.yaml:68): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "einen C-Bet von 1/3 {{t:pot|Pot}}. Welche",
+    "nowy": "eine C-Bet von 1/3 {{t:pot|Pot}}. Welche",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q8 prompt (m6.yaml:73): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "einen kleinen C-Bet von",
+    "nowy": "eine kleine C-Bet von",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q9 prompt (m6.yaml:83): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "des C-Bets",
+    "nowy": "der C-Bet",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q9 prompt (m6.yaml:83): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Gegen einen kleinen C-Bet {{t:raise|raist}}",
+    "nowy": "Gegen eine kleine C-Bet {{t:raise|raist}}",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q9 explanation (m6.yaml:86): rodzaj: Bet/C-Bet w terms-nazwy de jest r. żeńskiego (die Bet), tak też w m6-l2, m6-l3 i rules.yaml; tu rodzaj męski — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "{{t:flush-draw|Flush Draw}} oder {{t:straight|Straight}}-Draw",
+    "nowy": "{{t:flush-draw|Flush-Draw}} oder {{t:straight|Straßen}}-Draw",
+    "waga": "ŚR",
+    "powod": "m6-l3:27: niespójny termin — straight w terms-nazwy de to „Straße” (tak w m6-l2 i egzaminie m6), tu „Straight”; przy okazji pisownia „Flush-Draw” jak w terms-nazwy",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "Karten für eine {{t:straight|Straight}}",
+    "nowy": "Karten für eine {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m6-l3:28: niespójny termin — „Straße” (terms-nazwy, m6-l2, egzamin), tu „Straight”",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "Auch gut: Die {{t:straight|Straight}}",
+    "nowy": "Auch gut: Die {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m6-l3:73: niespójny termin — „Straße” (terms-nazwy, m6-l2, egzamin), tu „Straight”",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "triffst du die {{t:straight|Straight}}",
+    "nowy": "triffst du die {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m6-l3:74: niespójny termin — „Straße” (terms-nazwy, m6-l2, egzamin), tu „Straight”",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "{{t:straight|Straights}}",
+    "nowy": "{{t:straight|Straßen}}",
+    "waga": "ŚR",
+    "powod": "m6-l3:130: niespójny termin — „Straßen” (terms-nazwy, egzamin m6 q10), tu „Straights”",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "hältst du sie im Spiel",
+    "nowy": "hältst du seine Bluffs im Spiel",
+    "waga": "ŚR",
+    "powod": "m6-l3:82: dwuznaczny zaimek — „sie” czyta się jako rękę (podmiot „Sie schlägt…”), a źródło mówi o blefach Buttona („trzymasz je w grze”)",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "einen {{t:flush-draw|Flush Draw}};",
+    "nowy": "einen {{t:flush-draw|Flush-Draw}};",
+    "waga": "NISKIE",
+    "powod": "m6-l3:92: pisownia terminu — w terms-nazwy de i w m6-l2 „Flush-Draw” z łącznikiem",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "{{t:straight-draw|Straight Draw}}",
+    "nowy": "{{t:straight-draw|Straight-Draw}}",
+    "waga": "NISKIE",
+    "powod": "m6-l3:92: pisownia terminu — w terms-nazwy de „Straight-Draw” z łącznikiem (złożenie „Backdoor-Straight Draw” jest też błędne ortograficznie)",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "Voller {{t:pot|Pot}}",
+    "nowy": "Ganzer {{t:pot|Pot}}",
+    "waga": "NISKIE",
+    "powod": "m6-l3:103: „Cała pula” w m6-l1 i m6-l2 to „Ganzer Pot”; tu „Voller Pot” — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "mehrmals so groß sein wie die C-Bet",
+    "nowy": "ein Mehrfaches der C-Bet betragen",
+    "waga": "NISKIE",
+    "powod": "m6-l3:52: niezręczne „mehrmals so groß” (źródło: kilka razy większe niż c-bet)",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l3-check-raise.md",
+    "stary": "zahlen dich vor allem",
+    "nowy": "bezahlen dich vor allem",
+    "waga": "NISKIE",
+    "powod": "m6-l3:83: błąd rekcji — „jemanden zahlen”; poprawnie „bezahlen dich” (tak w m6-l1:92 „bezahlt … bessere Hände”)",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l2-sprawdzenie.md",
+    "stary": "zahlen dich hauptsächlich",
+    "nowy": "bezahlen dich hauptsächlich",
+    "waga": "NISKIE",
+    "powod": "m6-l2:46: błąd rekcji — „jemanden zahlen”; poprawnie „bezahlen dich”",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m6-l2-sprawdzenie.md",
+    "stary": "ein Bezugspunkt für",
+    "nowy": "ein Richtwert für",
+    "waga": "NISKIE",
+    "powod": "m6-l2:85: „punkt odniesienia” (MDF) w m6-l1 i egzaminie m6 to „Richtwert”; tu „Bezugspunkt” — niespójność",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "Ass als höchste Karte schlägt",
+    "nowy": "Ein Ass als höchste Karte schlägt",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q6 (m6.yaml:57): brak rodzajnika (w prompt: „ein Ass als höchste Karte”)",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "wird Ass als höchste Karte",
+    "nowy": "wird ein Ass als höchste Karte",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q6 (m6.yaml:58): brak rodzajnika",
+    "grupa": "de-L4"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m6.yaml",
+    "stary": "why: \"Ass als höchste Karte ohne",
+    "nowy": "why: \"Ein Ass als höchste Karte ohne",
+    "waga": "NISKIE",
+    "powod": "m6.exam.q8 (m6.yaml:78): brak rodzajnika",
+    "grupa": "de-L4"
+  }
+]

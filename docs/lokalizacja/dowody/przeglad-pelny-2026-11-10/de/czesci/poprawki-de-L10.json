@@ -1,0 +1,83 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m12-l4-bankroll.md",
+    "stary": "„Verantwortungsvolles Spielen“ am Ende dieser Lektion.",
+    "nowy": "„Verantwortungsvolles Spielen“.",
+    "waga": "ŚR",
+    "powod": "m12-l4:102 (m12.l4.q-warning-sign, treść krytyczna): źródło ma tylko „skorzystaj z kontaktów z karty o odpowiedzialnej grze”; przekład dodaje „am Ende dieser Lektion”, czego nie ma w pl ani en i co jest mylące, gdy pytanie pojawia się poza lekcją (powtórki).",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m12.yaml",
+    "stary": "text: \"Ungerechtigkeits-Tilt\"",
+    "nowy": "text: \"Tilt aus Ungerechtigkeit\"",
+    "waga": "ŚR",
+    "powod": "exams/m12:55 (q6): nazwa typu tiltu niespójna z lekcją m12-l3 („Tilt aus Ungerechtigkeit”) i z poprawną odpowiedzią w tym samym pytaniu („Tilt aus …”); inna forma błędnych odpowiedzi zdradza poprawną.",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m12.yaml",
+    "stary": "text: \"Fehler-Tilt\"",
+    "nowy": "text: \"Tilt aus Fehlern\"",
+    "waga": "ŚR",
+    "powod": "exams/m12:56 (q6): nazwa typu tiltu niespójna z lekcją m12-l3 („Tilt aus Fehlern”) i z formą poprawnej odpowiedzi.",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m12.yaml",
+    "stary": "why: \"Fehler-Tilt ist Ärger",
+    "nowy": "why: \"Tilt aus Fehlern ist Ärger",
+    "waga": "ŚR",
+    "powod": "exams/m12:56 (q6, why): ta sama niespójna nazwa typu tiltu w uzasadnieniu; w lekcji m12-l3 „Tilt aus Fehlern”.",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m12.yaml",
+    "stary": "text: \"Rache-Tilt\"",
+    "nowy": "text: \"Tilt aus Rache\"",
+    "waga": "ŚR",
+    "powod": "exams/m12:57 (q6): nazwa typu tiltu niespójna z lekcją m12-l3 („Tilt aus Rache”) i z formą poprawnej odpowiedzi.",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m12.yaml",
+    "stary": "bewertest du im Hand-Review",
+    "nowy": "bewertest du in der Handanalyse",
+    "waga": "ŚR",
+    "powod": "exams/m12:36 (q4): „przegląd rozdań” w lekcjach m12-l2:67 i :69 to „Handanalyse”; w egzaminie to samo pojęcie nazwane „Hand-Review” (niespójny termin).",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m12.yaml",
+    "stary": "weder dem Glück noch dir selbst",
+    "nowy": "weder dem Schicksal noch dir selbst",
+    "waga": "NISKIE",
+    "powod": "exams/m12:54 (q6, why): „nie winisz losu” – „dem Glück die Schuld geben” jest niezręczne; lekcja m12-l3:16 i :43 oddaje „los” jako „Schicksal”.",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{n:var.hands.k}} Tausend Hände",
+    "nowy": "{{n:var.hands.k}} Tsd. Hände",
+    "waga": "NISKIE",
+    "powod": "m12-l2:68: jedyne miejsce z „Tausend” zamiast przyjętego wszędzie skrótu „Tsd.” (pl „tys.”).",
+    "grupa": "de-L10"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m12-l3-tilt.md",
+    "stary": "an der Spitze am Ende leicht wieder verloren",
+    "nowy": "an der Spitze hinten leicht wieder verloren",
+    "waga": "NISKIE",
+    "powod": "m12-l3:88: „postęp z przodu łatwo traci się z tyłu” – „am Ende” czyta się tu jako „w końcu”, a nie „z tyłu” (gąsienica); „hinten” oddaje obraz jednoznacznie.",
+    "grupa": "de-L10"
+  }
+]

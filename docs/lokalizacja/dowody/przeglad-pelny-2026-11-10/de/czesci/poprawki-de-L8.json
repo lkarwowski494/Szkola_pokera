@@ -1,0 +1,281 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+    "stary": "aus Online-Micro-Stakes (NL25)",
+    "nowy": "aus Online-Mikrolimits (NL25)",
+    "waga": "NISKIE",
+    "powod": "m10-l2:29 prompt: „mikrostawki” w m10-l3 i m10-l4 to „Mikrolimits” (stakes = Limit); tu jedyny raz „Micro-Stakes”.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+    "stary": "Pocket-{{t:pair|Paaren}}",
+    "nowy": "Pocket {{t:pair|Pairs}}",
+    "waga": "NISKIE",
+    "powod": "m10-l2:41 why: hybryda „Pocket-Paaren”; przyjęta nazwa to „Pocket Pair”.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+    "stary": "einer großen Online-Plattform, NL25 6-max",
+    "nowy": "eines großen Online-Pokerraums, NL25 6-max",
+    "waga": "ŚR",
+    "powod": "m10-l2:116: „sala” to w m10-l1, m10-l4 i egzaminie „Pokerraum” (28×); tu „Online-Plattform” — niespójny termin.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+    "stary": "| Fold auf 3-Bet |",
+    "nowy": "| Fold to 3-Bet |",
+    "waga": "ŚR",
+    "powod": "m10-l2:121 tabela: nazwa statystyki wszędzie indziej (m10-l1, m10-l3, egzamin) to „Fold to 3-Bet”.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+    "stary": "lässt ihn mit sehr starken Händen betten und",
+    "nowy": "lässt ihn betten, wenn du eine sehr starke Hand hast, und",
+    "waga": "ŚR",
+    "powod": "m10-l2:139: dwuznaczne — po niemiecku czyta się, jakby to maniak miał bardzo silne ręce; pl: z bardzo silnymi rękami (twoimi) pozwalasz mu betować.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l2-typy-graczy.md",
+    "stary": "(eine große Online-Plattform, NL25–NL100",
+    "nowy": "(ein großer Online-Pokerraum, NL25–NL100",
+    "waga": "ŚR",
+    "powod": "m10-l2:142 note: „sala” = „Pokerraum” jak w pozostałych plikach modułu.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "Nur mit einer großen Größe, weil",
+    "nowy": "Nur mit einer großen Bet, weil",
+    "waga": "NISKIE",
+    "powod": "m10-l3:51 text: niezręczne „großen Größe” (pl: „Tylko dużym rozmiarem”).",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "Trainer in zwei Lernmaterialien",
+    "nowy": "Trainer in zwei Trainingsmaterialien",
+    "waga": "NISKIE",
+    "powod": "m10-l3:122: „materiały szkoleniowe” to w m10-l1 i m10-l2 „Trainingsmaterialien”; ujednolicenie.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "(ein großer Online-Anbieter,",
+    "nowy": "(ein großer Online-Pokerraum,",
+    "waga": "ŚR",
+    "powod": "m10-l3:129 note: „sala” = „Pokerraum” jak w pozostałych plikach modułu (trzeci wariant: Online-Anbieter).",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "Empfehlungen aus zwei Lernmaterialien",
+    "nowy": "Empfehlungen aus zwei Trainingsmaterialien",
+    "waga": "NISKIE",
+    "powod": "m10-l3:129 note: „materiały szkoleniowe” = „Trainingsmaterialien” jak w m10-l1 i m10-l2.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m10-l4-rake.md",
+    "stary": ": ein Mehrfaches weniger, als er",
+    "nowy": ": um ein Mehrfaches weniger, als er",
+    "waga": "NISKIE",
+    "powod": "m10-l4:102: „ein Mehrfaches weniger” jest niegramatyczne; poprawnie „um ein Mehrfaches weniger”.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "eine Pflichtzahlung ist",
+    "nowy": "ein Pflichteinsatz ist",
+    "waga": "NISKIE",
+    "powod": "m10.exam.q1 opcja 2 text: w m10-l1 „wpłata obowiązkowa” to „Pflichteinsatz”; ujednolicenie.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "also eine freiwillige Zahlung, die",
+    "nowy": "also ein freiwilliger Einsatz, der",
+    "waga": "NISKIE",
+    "powod": "m10.exam.q1 opcja 2 why: w m10-l1 „dobrowolna wpłata” to „freiwilliger Einsatz”; ujednolicenie.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "freiwillige Einzahlungen",
+    "nowy": "freiwillige Einsätze",
+    "waga": "ŚR",
+    "powod": "m10.exam.q1 opcja 4 why: „Einzahlung” to po niemiecku wpłata na konto (depozyt), nie żetony włożone do puli; w m10-l1 „freiwillige Einsätze”.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "-mal einen C-Bet bekommen",
+    "nowy": "-mal eine C-Bet bekommen",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q2 prompt.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "und einem 3-Bet entsteht",
+    "nowy": "und einer 3-Bet entsteht",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q3 opcja 1 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "auf einen 3-Bet selten",
+    "nowy": "auf eine 3-Bet selten",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q4 opcja 3 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "in Richtung eines Bets",
+    "nowy": "in Richtung einer Bet",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q6 opcja 3 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Welcher C-Bet ohne Hand",
+    "nowy": "Welche C-Bet ohne Hand",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 prompt.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Nur der kleine, 1/3",
+    "nowy": "Nur die kleine, 1/3",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 text.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Ein C-Bet von 1/3",
+    "nowy": "Eine C-Bet von 1/3",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "break-even, einer von 3/4",
+    "nowy": "break-even, eine von 3/4",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "reicht nur für den kleinen",
+    "nowy": "reicht nur für die kleine",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 1 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Ein großer C-Bet riskiert",
+    "nowy": "Eine große C-Bet riskiert",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 2 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Nur der große, weil er stärker",
+    "nowy": "Nur die große, weil sie stärker",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 3 text.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "auf einen großen Bet öfter",
+    "nowy": "auf eine große Bet öfter",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 3 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "verliert ein großer C-Bet ohne Hand, weil er",
+    "nowy": "verliert eine große C-Bet ohne Hand, weil sie",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 3 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Keiner, weil der Gegner",
+    "nowy": "Keine, weil der Gegner",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 4 text.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Für einen C-Bet von 1/3",
+    "nowy": "Für eine C-Bet von 1/3",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q7 opcja 4 why.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "auf den 3-Bet; gegen ihn",
+    "nowy": "auf die 3-Bet; gegen ihn",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q8 opcja 1 text.",
+    "grupa": "de-L8"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m10.yaml",
+    "stary": "Ein 3-Bet auf",
+    "nowy": "Eine 3-Bet auf",
+    "waga": "ŚR",
+    "powod": "Rodzaj: „Bet/C-Bet/3-Bet” jest w terms-nazwy.yaml i we wszystkich lekcjach m10 rodzaju żeńskiego (die Bet, eine C-Bet, eine 3-Bet); egzamin używa męskiego. m10.exam.q8 opcja 1 why.",
+    "grupa": "de-L8"
+  }
+]

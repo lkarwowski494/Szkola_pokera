@@ -1,0 +1,434 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l1-spr.md",
+    "stary": "{{t:call|callst}} den All-in des Gegners",
+    "nowy": "{{t:call|callst}} das All-in des Gegners",
+    "waga": "NISKIE",
+    "powod": "m9-l1:83 (q-zone, text): rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "liegt der {{t:spr}} bei ca.",
+    "nowy": "liegt die {{t:spr}} bei ca.",
+    "waga": "ŚR",
+    "powod": "m9-l3:48 (q-srp-geo, why): rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "Ein niedrigerer {{t:spr}} als",
+    "nowy": "Eine niedrigere {{t:spr}} als",
+    "waga": "ŚR",
+    "powod": "m9-l3:67 (q-3bet-oop, why): rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "gehe am River All-in",
+    "nowy": "gehe am River all-in",
+    "waga": "NISKIE",
+    "powod": "m9-l3:59 (q-3bet-ip, text): pisownia przysłówkowa „all-in gehen” małą literą jak w pozostałych miejscach modułu",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "| {{t:open}} und {{t:call}} |",
+    "nowy": "| {{t:open|Eröffnung}} und {{t:call}} |",
+    "waga": "NISKIE",
+    "powod": "m9-l3:117 (tabela): źródło ma formę „Otwarcie”; ta sama komórka w tabeli m9-l1:123 to „Eröffnung”, tu bez formy wychodzi „Open”; klucz bez zmian",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "ein einzelner {{t:bet}} den",
+    "nowy": "eine einzelne {{t:bet}} den",
+    "waga": "ŚR",
+    "powod": "m9-l4:17 (q-set, why): rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski („ein einzelner Bet”)",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "dass der erste {{t:bet}} zum",
+    "nowy": "dass die erste {{t:bet}} zum",
+    "waga": "ŚR",
+    "powod": "m9-l4:66 (q-plan-first, why): rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski („der erste Bet”)",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "ist bei hohem {{t:spr}} sinnvoll",
+    "nowy": "ist bei hoher {{t:spr}} sinnvoll",
+    "waga": "ŚR",
+    "powod": "m9-l4:48 (q-tp-4bet, why): rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "bei niedrigem {{t:spr}}:**",
+    "nowy": "bei niedriger {{t:spr}}:**",
+    "waga": "ŚR",
+    "powod": "m9-l4:112: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "bei hohem {{t:spr}}:**",
+    "nowy": "bei hoher {{t:spr}}:**",
+    "waga": "ŚR",
+    "powod": "m9-l4:113: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "der mehrmals so groß ist wie der {{t:pot}}",
+    "nowy": "der um ein Mehrfaches größer ist als der {{t:pot}}",
+    "waga": "NISKIE",
+    "powod": "m9-l4:58 (q-line-3bet, why): „mehrmals so groß” to niezręczna kalka „kilka razy większym”; w m9-l3:59 ten sam sens „um ein Vielfaches größer”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "Setzt du die geometrische Größe von ca.",
+    "nowy": "Setzt du mit geometrischem Sizing von ca.",
+    "waga": "ŚR",
+    "powod": "m9-l4:72 (q-geo-tp, prompt): niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "Richtig: Die geometrische Größe dient",
+    "nowy": "Richtig: Geometrisches Sizing dient",
+    "waga": "ŚR",
+    "powod": "m9-l4:75 (q-geo-tp, why): niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "Die geometrische Größe passt zu",
+    "nowy": "Geometrisches Sizing passt zu",
+    "waga": "ŚR",
+    "powod": "m9-l4:76 (q-geo-tp, why): niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "Du setzt ab dem Flop die geometrische Größe (",
+    "nowy": "Du setzt ab dem Flop mit geometrischem Sizing (",
+    "waga": "ŚR",
+    "powod": "m9-l4:111: niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Wie hoch ist der {{t:spr|SPR}}?",
+    "nowy": "Wie hoch ist die {{t:spr|SPR}}?",
+    "waga": "ŚR",
+    "powod": "m9.exam.q1 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Umgekehrt: Der {{t:spr|SPR}} ist der Stack",
+    "nowy": "Umgekehrt: Die {{t:spr|SPR}} ist der Stack",
+    "waga": "ŚR",
+    "powod": "m9.exam.q1 opcja 3 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Der {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Welche",
+    "nowy": "Die {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Welche",
+    "waga": "ŚR",
+    "powod": "m9.exam.q2 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "laut den Zonen für den {{t:spr|SPR}}",
+    "nowy": "laut den Zonen für die {{t:spr|SPR}}",
+    "waga": "ŚR",
+    "powod": "m9.exam.q2 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Je niedriger der {{t:spr|SPR}}",
+    "nowy": "Je niedriger die {{t:spr|SPR}}",
+    "waga": "ŚR",
+    "powod": "m9.exam.q3 explanation: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "bei so niedrigem {{t:spr|SPR}}",
+    "nowy": "bei so niedriger {{t:spr|SPR}}",
+    "waga": "ŚR",
+    "powod": "m9.exam.q4 opcja 1 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Der {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Du willst",
+    "nowy": "Die {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Du willst",
+    "waga": "ŚR",
+    "powod": "m9.exam.q5 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Der {{t:spr|SPR}} auf dem Flop ist höher",
+    "nowy": "Die {{t:spr|SPR}} auf dem Flop ist höher",
+    "waga": "ŚR",
+    "powod": "m9.exam.q9 prompt: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "der Zonen für den {{t:spr|SPR}})",
+    "nowy": "der Zonen für die {{t:spr|SPR}})",
+    "waga": "ŚR",
+    "powod": "m9.exam.q9 opcja 1 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Je höher der {{t:spr|SPR}}",
+    "nowy": "Je höher die {{t:spr|SPR}}",
+    "waga": "ŚR",
+    "powod": "m9.exam.q9 opcja 3 why: rodzaj: SPR jest w terms-nazwy.yaml i w lekcjach m9-l1/l2 rodzaju żeńskiego (die SPR); tu rodzaj męski, niespójnie (w tej samej opcji text ma „eine hohe SPR”)",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "aber den All-in deines Gegners",
+    "nowy": "aber das All-in deines Gegners",
+    "waga": "NISKIE",
+    "powod": "m9.exam.q2 prompt: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Gegen den All-in deines Gegners",
+    "nowy": "Gegen das All-in deines Gegners",
+    "waga": "NISKIE",
+    "powod": "m9.exam.q4 opcja 1 why: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "um den All-in zu",
+    "nowy": "um das All-in zu",
+    "waga": "NISKIE",
+    "powod": "m9.exam.q4 opcja 2 why: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "einen guten Preis für den All-in gibt",
+    "nowy": "einen guten Preis für das All-in gibt",
+    "waga": "NISKIE",
+    "powod": "m9.exam.q9 opcja 3 text: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "der Preis für den All-in und",
+    "nowy": "der Preis für das All-in und",
+    "waga": "NISKIE",
+    "powod": "m9.exam.q9 opcja 3 why: rodzaj: All-in jest w terms-nazwy.yaml i w lekcjach rodzaju nijakiego (das All-in); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Du überlegst einen Bet über",
+    "nowy": "Du überlegst eine Bet über",
+    "waga": "ŚR",
+    "powod": "m9.exam.q4 prompt: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Nach deinem Bet reichen",
+    "nowy": "Nach deiner Bet reichen",
+    "waga": "ŚR",
+    "powod": "m9.exam.q4 opcja 2 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "auf jeden Bet",
+    "nowy": "auf jede Bet",
+    "waga": "ŚR",
+    "powod": "m9.exam.q4 opcja 3 text: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "auf einen Bet gibt",
+    "nowy": "auf eine Bet gibt",
+    "waga": "ŚR",
+    "powod": "m9.exam.q4 opcja 3 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Ein Bet in Höhe",
+    "nowy": "Eine Bet in Höhe",
+    "waga": "ŚR",
+    "powod": "m9.exam.q5 opcja 1 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "ein zweiter solcher Bet",
+    "nowy": "eine zweite solche Bet",
+    "waga": "ŚR",
+    "powod": "m9.exam.q5 opcja 1 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "muss jeder {{t:bet|Bet}} größer",
+    "nowy": "muss jede {{t:bet|Bet}} größer",
+    "waga": "ŚR",
+    "powod": "m9.exam.q5 opcja 2 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Nach dem dritten {{t:bet|Bet}}",
+    "nowy": "Nach der dritten {{t:bet|Bet}}",
+    "waga": "ŚR",
+    "powod": "m9.exam.q6 opcja 2 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "einen oder zwei {{t:bet|Bets}}",
+    "nowy": "eine oder zwei {{t:bet|Bets}}",
+    "waga": "ŚR",
+    "powod": "m9.exam.q6 opcja 3 why: rodzaj: Bet jest w terms-nazwy.yaml i w lekcjach rodzaju żeńskiego (die Bet); tu męski",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "{{t:two-pair|Two Pair}} mit den zwei höchsten",
+    "nowy": "{{t:two-pair|Zwei Paare}} mit den zwei höchsten",
+    "waga": "ŚR",
+    "powod": "m9.exam.q2 opcja 3 text: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Hohes {{t:two-pair|Two Pair}} reicht sogar",
+    "nowy": "Hohe {{t:two-pair|zwei Paare}} reichen sogar",
+    "waga": "ŚR",
+    "powod": "m9.exam.q2 opcja 3 why: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "ist es eine Hand für den ganzen Stack, keine Grenzhand",
+    "nowy": "ist das eine Hand für den ganzen Stack, keine Grenzhand",
+    "waga": "NISKIE",
+    "powod": "m9.exam.q2 opcja 3 why: zgoda z liczbą mnogą po zmianie „Two Pair” na „zwei Paare” (stosować razem z poprawką poprzedniego zdania)",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "hohes {{t:two-pair|Two Pair}}. Nach",
+    "nowy": "hohe {{t:two-pair|zwei Paare}}. Nach",
+    "waga": "ŚR",
+    "powod": "m9.exam.q6 opcja 2 why: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Du hast hohes {{t:two-pair|Two Pair}}.",
+    "nowy": "Du hast hohe {{t:two-pair|zwei Paare}}.",
+    "waga": "ŚR",
+    "powod": "m9.exam.q9 prompt: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Ja: Hohes {{t:two-pair|Two Pair}} spielt immer",
+    "nowy": "Ja: Hohe {{t:two-pair|zwei Paare}} spielen immer",
+    "waga": "ŚR",
+    "powod": "m9.exam.q9 opcja 2 text: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Hohes {{t:two-pair|Two Pair}} reicht meist",
+    "nowy": "Hohe {{t:two-pair|zwei Paare}} reichen meist",
+    "waga": "ŚR",
+    "powod": "m9.exam.q9 opcja 2 why: niespójny termin: two-pair to w terms-nazwy.yaml i w lekcjach m9 „zwei Paare”, w egzaminie „Two Pair”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "Die geometrische Größe berechnest du",
+    "nowy": "Das geometrische Sizing berechnest du",
+    "waga": "ŚR",
+    "powod": "m9.exam.q5 opcja 3 why: niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+    "grupa": "de-L7"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m9.yaml",
+    "stary": "wählst du die geometrische Größe schon",
+    "nowy": "wählst du das geometrische Sizing schon",
+    "waga": "ŚR",
+    "powod": "m9.exam.q8 opcja 1 why: niespójny termin: „rozmiar geometryczny” to w m9-l3 (tytuł, treść) i m9-l2 „geometrisches Sizing”, tu „geometrische Größe”",
+    "grupa": "de-L7"
+  }
+]

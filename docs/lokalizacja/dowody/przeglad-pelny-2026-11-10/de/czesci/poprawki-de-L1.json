@@ -1,0 +1,173 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m1-l1-przebieg.md",
+    "stary": "sub: \"Blinds, Straßen und",
+    "nowy": "sub: \"Blinds, Streets und",
+    "waga": "ŚR",
+    "powod": "m1-l1:6 sub: pl „ulice” (streets) oddane jako „Straßen”; w tym korpusie „Straße” to nazwa układu (strit, terms-nazwy: straight), a ulica to „Street” (terms-nazwy: street) — dwuznaczne w podtytule lekcji.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m1-l1-przebieg.md",
+    "stary": "**{{t:side-pot|Nebenpot}}**, um den",
+    "nowy": "**{{t:side-pot|Nebenpot}}** (Side Pot), um den",
+    "waga": "ŚR",
+    "powod": "m1-l1:96: pominięty nawias „(side pot)” ze źródła; przyjęta nazwa terminu w terms-nazwy to „Side Pot”, więc bez nawiasu czytelnik nie połączy „Nebenpot” z nazwą w słowniku.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m1-l1-przebieg.md",
+    "stary": "Du bietest nicht mehr weiter mit",
+    "nowy": "Du setzt danach nicht mehr",
+    "waga": "NISKIE",
+    "powod": "m1-l1:96: „mitbieten” to słownictwo aukcji/licytacji brydżowej, w pokerze nienaturalne; pl „dalej już nie licytujesz”.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m3-l2-rece-startowe.md",
+    "stary": "Wie viele {{t:combo|Kombos}} es gibt",
+    "nowy": "Wie viele {{t:combo|Kombinationen}} es gibt",
+    "waga": "ŚR",
+    "powod": "m3-l2:58: termin combo — terms-nazwy: „Kombination”; w m0-l1 i m5 „Kombinationen”, tu „Kombos” (niespójny termin).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m3-l2-rece-startowe.md",
+    "stary": "{{n:combos.total}} {{t:combo|Kombos}}",
+    "nowy": "{{n:combos.total}} {{t:combo|Kombinationen}}",
+    "waga": "ŚR",
+    "powod": "m3-l2:59: termin combo — terms-nazwy: „Kombination”; niespójne „Kombos”.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m3-l2-rece-startowe.md",
+    "stary": "{{n:combos.pair}} {{t:combo|Kombos}}",
+    "nowy": "{{n:combos.pair}} {{t:combo|Kombinationen}}",
+    "waga": "ŚR",
+    "powod": "m3-l2:59: termin combo — terms-nazwy: „Kombination”; niespójne „Kombos”.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "ähnlich weit wie der Button",
+    "nowy": "ähnlich breit wie der Button",
+    "waga": "NISKIE",
+    "powod": "m3-l3:77: „szeroko” w m3-l1 i dalej to „breit”; tu „weit” (niespójne).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "{{t:straight|Straights}} genauso oft",
+    "nowy": "{{t:straight|Straßen}} genauso oft",
+    "waga": "ŚR",
+    "powod": "m3.exam.q8 (m3.yaml:77) why: strit w całym przejrzanym zakresie i w terms-nazwy to „Straße”; tu „Straights” (niespójny termin).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "eine {{t:straight|Straight}}",
+    "nowy": "eine {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m3.exam.q8 (m3.yaml:79) text: „Straight” zamiast przyjętego „Straße” (niespójny termin).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "{{t:straight|Straights}} hängen",
+    "nowy": "{{t:straight|Straßen}} hängen",
+    "waga": "ŚR",
+    "powod": "m3.exam.q8 (m3.yaml:79) why: „Straights” zamiast przyjętego „Straßen” (niespójny termin).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "{{n:pf.rfi.utg.high}} Hände)",
+    "nowy": "{{n:pf.rfi.utg.high}} der Hände)",
+    "waga": "NISKIE",
+    "powod": "m3.exam.q2 (m3.yaml:21) why: liczby to procenty, „ca. 15 %–18 % Hände” jest niegramatyczne; w lekcjach m3 „der Hände”.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "{{n:pf.rfi.btn.high}} Hände.",
+    "nowy": "{{n:pf.rfi.btn.high}} der Hände.",
+    "waga": "NISKIE",
+    "powod": "m3.exam.q5 (m3.yaml:49) why: procent + „Hände” bez dopełniacza; w lekcjach m3 „der Hände”.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "{{n:pf.rfi.sb.high}} Hände.",
+    "nowy": "{{n:pf.rfi.sb.high}} der Hände.",
+    "waga": "NISKIE",
+    "powod": "m3.exam.q6 (m3.yaml:59) why: procent + „Hände” bez dopełniacza; w lekcjach m3 „der Hände”.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "du weiter als aus dem",
+    "nowy": "du breiter als aus dem",
+    "waga": "ŚR",
+    "powod": "m3.exam.q4 (m3.yaml:40) why: „eröffnest du weiter als” czyta się też jako „otwierasz dalej/nadal”; pl „szerzej”, w m3-l1 konsekwentnie „breiter”.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "die {{t:range}} ist weiter.",
+    "nowy": "die {{t:range}} ist breiter.",
+    "waga": "NISKIE",
+    "powod": "m3.exam.q4 (m3.yaml:41) why: „szerszy” = „breiter” jak w lekcjach m3 (spójność).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "{{t:open|eröffnest}} du weit, ca.",
+    "nowy": "{{t:open|eröffnest}} du breit, ca.",
+    "waga": "NISKIE",
+    "powod": "m3.exam.q6 (m3.yaml:59) why: „szeroko” = „breit” jak w lekcjach m3 (spójność).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "text: \"Auf den {{t:big-blind|Big Blind}} ergänzen\"",
+    "nowy": "text: \"Zum {{t:big-blind|Big Blind}} komplettieren\"",
+    "waga": "ŚR",
+    "powod": "m3.exam.q6 (m3.yaml:61) text: dopłacenie z małego blinda w m1-l1 i m3-l3 to „komplettieren”; „ergänzen” nie jest używane w pokerze i jest niespójne.",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "Mit dem Ergänzen gibst du",
+    "nowy": "Mit dem Komplettieren gibst du",
+    "waga": "NISKIE",
+    "powod": "m3.exam.q6 (m3.yaml:61) why: jak wyżej, „Komplettieren” zamiast „Ergänzen” (spójność z m3-l3:77).",
+    "grupa": "de-L1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m3.yaml",
+    "stary": "Färbe die Hände ein, mit",
+    "nowy": "Male die Hände an, mit",
+    "waga": "NISKIE",
+    "powod": "m3.exam p-co (m3.yaml:95) prompt: to samo polecenie „Pomaluj ręce” w m3-l3:35 i :41 brzmi „Male die Hände an”; ujednolicenie.",
+    "grupa": "de-L1"
+  }
+]
