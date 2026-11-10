@@ -357,11 +357,11 @@
   module: m5
   if: "프리플롭에 {{t:open|오픈}}했고, 플롭이 낮으며 {{t:connected|커넥티드}}이거나 {{t:semi-connected|세미 커넥티드}}일 때(예: 7-6-5)"
   then: "높은 플롭보다 C벳을 덜 하고, 많은 핸드로 {{t:check|체크}}합니다"
-  because: "{{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 작은 {{t:pair|페어}}를 많이 방어하므로 {{t:two-pair|투 페어}}나 {{t:straight|스트레이트}}를 더 자주 가집니다: {{t:nuts-advantage|넛 우위}}는 상대에게 있습니다"
+  because: "{{t:big-blind|빅 블라인드}}는 {{t:connectors|커넥터}}와 작은 카드로 된 핸드를 많이 방어하는데, 이 핸드들은 낮은 플롭에 맞고 당신의 높은 카드는 빗나갔습니다; {{t:connected|커넥티드}} 플롭에서는 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}도 있으므로 당신에게는 보통 {{t:nuts-advantage|넛 우위}}가 없습니다"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "조합론: 버튼은 55–77 페어를 모두 오픈하고 빅 블라인드는 이를 콜하므로, 셋의 수는 양쪽이 비슷합니다; 상용 솔버 사이트, Bullying the Blinds(654r에서 버튼은 레인지의 절반 이상을 체크; “Even on 654r… BB has less than 52% equity”)"
-  sources: [{ kind: solver-pub }, { kind: math }]
+  source: "상용 솔버 사이트, Flop Heuristics: IP C-Betting in Cash Games(https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/, BTN vs BB: “a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.”; “flopped straights often being in the BB’s range”; “Size down and bet less on flops that complete straights and flushes in your opponent’s range”); 상용 솔버 사이트, Flop Heuristics: IP C-Betting in MTTs(https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/; 다른 스팟: BTN vs SB, 40bb; 커넥티드 플롭에서 “the raiser generally does not have a nuts advantage”; 단순화: 캐시 게임 기사에 맞춰 캐시 게임의 BTN vs BB에 방향성으로 옮겨 적용); 상용 솔버 사이트, Bullying the Blinds(https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/, 20bb, 654r: “BB’s advantage at the top end”, 버튼은 레인지의 절반 이상을 체크); 교육 사이트, 3 Concepts That Should Shape Your Postflop Strategy(“the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
+  sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
   if: "내 {{t:range|레인지}}에 가장 강한 핸드가 상대보다 훨씬 많을 때({{t:nuts-advantage|넛 우위}})"
@@ -508,9 +508,9 @@
   module: m6
   if: "C벳이 작거나, 플롭이 낮고 {{t:connected|커넥티드}}일 때(예: 7-6-5)"
   then: "체크레이즈를 더 자주 합니다. 레이저에게 유리한 높은 플롭(예: K-J-T, A-A-K)과 큰 C벳에 대해서는 덜 합니다"
-  because: "낮은 플롭에서는 {{t:big-blind|빅 블라인드}}가 가장 강한 족보를 더 많이 가지고({{t:nuts-advantage|넛 우위}}), 작은 C벳은 {{t:raise|레이즈}}할 싼 기회를 줍니다"
+  because: "낮고 {{t:connected|커넥티드한}} 플롭에서는 {{t:big-blind|빅 블라인드}}의 {{t:range|레인지}}에 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 있고 버튼에게는 보통 {{t:nuts-advantage|넛 우위}}가 없습니다; 작은 C벳은 {{t:raise|레이즈}}할 싼 기회를 줍니다"
   level: heuristic
-  source: "교육 사이트, How to Check-Raise Like a High Stakes Juggernaut(레이즈하지 말아야 할 플롭: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; 체크레이즈 비율은 팟 33% 베팅 상대 12.65%, 66% 베팅 상대 8.66%); 상용 솔버 사이트(“The larger the BTN bets, the less BB raises”)"
+  source: "교육 사이트, How to Check-Raise Like a High Stakes Juggernaut(레이즈하지 말아야 할 플롭: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; 체크레이즈 비율은 팟 33% 베팅 상대 12.65%, 66% 베팅 상대 8.66%); 상용 솔버 사이트(“The larger the BTN bets, the less BB raises”); 상용 솔버 사이트, Flop Heuristics: IP C-Betting in Cash Games(“flopped straights often being in the BB’s range”)"
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M6-010
   module: m6

@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Yes: a low flop with cards close together favors the {{t:big-blind}}, who more often has {{t:two-pair}} or a {{t:straight}} here. You c-bet less often than on high flops: many hands {{t:check}}, and it's mainly strong hands and strong {{t:draw|draws}} that bet."
-          small: "Too often: on a low flop with cards close together, it's the {{t:big-blind}} who has the {{t:nuts-advantage}}. Frequent c-bets, even small ones, give them the chance to {{t:raise}} after {{t:check|checking}} first (check-raise) with their strongest hands."
-          big: "Too often and too expensive: the {{t:big-blind}} has more often hit {{t:two-pair}} or a {{t:straight}} here. A frequent big c-bet risks a lot when you yourself usually have only high cards."
+          check: "Yes: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}: they defend many small-card hands, and your high cards missed here. On a {{t:connected}} flop they also have {{t:straight|straights}} and {{t:two-pair|two pair}}, so you usually don't have a {{t:nuts-advantage}}. You c-bet less often than on high flops: many hands {{t:check}}, and it's mainly strong hands and strong {{t:draw|draws}} that bet."
+          small: "Too often: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}, and on a {{t:connected}} flop you usually don't have a {{t:nuts-advantage}}. Frequent c-bets, even small ones, give the {{t:big-blind}} the chance to {{t:raise}} after {{t:check|checking}} first (check-raise) with their strongest hands."
+          big: "Too often and too expensive: this flop hits the {{t:big-blind}}'s {{t:range}}, and on a {{t:connected}} flop they also have {{t:straight|straights}} and {{t:two-pair|two pair}}. A frequent big c-bet risks a lot when you yourself usually have only high cards."
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ Note: “{{t:wet}}” doesn't mean “big bet”. In the app, a {{t:monotone}} f
 
 ## Low with cards close together: you {{t:check}} more often
 
-On [[7s 6h 5d]] it's the {{t:big-blind}} who more often has {{t:two-pair}} or a {{t:straight}} (lesson on advantages). The same goes for other low {{t:connected}} and {{t:semi-connected}} flops. You c-bet less often than on high flops: many hands {{t:check}}, and it's mainly very strong hands and strong {{t:draw|draws}} that bet.
+On [[7s 6h 5d]] the {{t:big-blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in their {{t:range}}, and you don't have a {{t:nuts-advantage}} (lesson on advantages). The same usually goes for other low {{t:connected}} flops. On a low {{t:semi-connected}} flop there's no {{t:straight}} yet, but the flop still hits the small-card hands the {{t:big-blind}} defends a lot, and your high cards missed. You c-bet less often than on high flops: many hands {{t:check}}, and it's mainly very strong hands and strong {{t:draw|draws}} that bet.
 
 ## How often your opponent must {{t:fold}}
 

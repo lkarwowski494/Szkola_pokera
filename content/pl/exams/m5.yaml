@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "{{t:open|Otworzyłeś}} grę z Buttona, a gracz na {{t:big-blind|dużym blindzie}} {{t:call|sprawdził}}. Na którym z tych flopów (pierwszych trzech {{t:community-cards|kart wspólnych}}) ten gracz częściej niż ty ma {{t:two-pair}} albo {{t:straight|strita}}?"
+    prompt: "{{t:open|Otworzyłeś}} grę z Buttona, a gracz na {{t:big-blind|dużym blindzie}} {{t:call|sprawdził}}. Na którym z tych flopów (pierwszych trzech {{t:community-cards|kart wspólnych}}) nie masz {{t:nuts-advantage|przewagi nutsów}}, czyli wyraźnie więcej najsilniejszych rąk niż rywal?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}." }
-      - { text: "[[Kd Td 3s]]", why: "Nie: wysoki flop sprzyja {{t:open|otwierającemu}}. Masz więcej króli z dobrym kickerem, KT i wysokich {{t:pair|par}}." }
-      - { text: "[[Ah Ad 7c]]", why: "Nie: na flopie z {{t:pair|parą}} asów więcej asów masz ty, bo {{t:big-blind}} najsilniejsze asy {{t:raise|przebija}} przed flopem. {{t:straight|Strita}} nikt tu nie ma." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo, więc {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu także on. Twoje wysokie karty tu chybiły, więc zwykle najsilniejszych rąk nie masz wyraźnie więcej." }
+      - { text: "[[Kd Td 3s]]", why: "Nie: flop z dwiema wysokimi kartami daje {{t:nuts-advantage|przewagę nutsów}} {{t:open|otwierającemu}}. Masz tu więcej najsilniejszych rąk, np. KK, bo {{t:big-blind}} większość KK {{t:raise|przebija}} przed flopem." }
+      - { text: "[[Ah Qd 7c]]", why: "Nie: na flopie z asem i damą to ty masz więcej najsilniejszych rąk, np. AA i AQ, bo {{t:big-blind}} najsilniejsze asy zwykle {{t:raise|przebija}} przed flopem." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。翻牌：[[7s 6h 5d]]。誰在這裡更常拿到非常強的牌（{{t:two-pair}}或{{t:straight}}）？"
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。翻牌：[[7s 6h 5d]]。你在這裡有{{t:nuts-advantage|堅果優勢}}嗎？也就是最強的牌明顯比對手多？"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "{{t:big-blind|大盲}}", correct: true, why: "對：{{t:big-blind}}會防守很多同花{{t:connectors|連張}}，以及帶 6 或 7 的牌。你在按鈕位則有更多在這裡沒中的高牌。這就是{{t:big-blind|大盲}}的{{t:nuts-advantage}}。" }
-      - { text: "你，從按鈕位{{t:open|開池}}的人", why: "不對：你的{{t:range}}裡滿是高牌。你有更多{{t:overpair|超對}}（比{{t:board|公共牌}}上每張牌都大的{{t:pocket-pair|口袋對}}，例如 TT、JJ），但{{t:two-pair|兩對}}和{{t:straight|順子}}較少；暗三條（用{{t:pocket-pair|口袋對}}組成的三條）你們兩人差不多多。" }
-      - { text: "兩人一樣常", why: "不對：{{t:range|範圍}}的組成不同。{{t:big-blind|大盲}}寬鬆的防守裡有很多小牌，而你的{{t:range}}裡多是高牌。" }
+      - { text: "沒有：{{t:big-blind}}在這裡也有{{t:straight|順子}}和{{t:two-pair|兩對}}", correct: true, why: "對：{{t:big-blind}}會防守很多同花{{t:connectors|連張}}，以及帶 6 或 7 的牌，這些牌在這裡會擊中{{t:straight|順子}}和{{t:two-pair|兩對}}。你的高牌在這裡沒中，所以你的最強牌並沒有明顯比較多。" }
+      - { text: "有，因為你翻牌前{{t:open|開池}}了", why: "不對：{{t:open|開池}}讓你在高張翻牌上有優勢。在低張、{{t:connected|連張}}的翻牌上，你的高牌沒中，而對手的{{t:range}}在這裡會擊中{{t:straight|順子}}和{{t:two-pair|兩對}}。" }
+      - { text: "有，因為你有更多高{{t:pair|對子}}", why: "不對：你有更多{{t:overpair|超對}}（比{{t:board|公共牌}}上每張牌都大的{{t:pocket-pair|口袋對}}，例如 TT、JJ），但在這種翻牌上{{t:overpair}}不屬於最強的牌：它會輸給{{t:straight|順子}}、暗三條和{{t:two-pair|兩對}}。" }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ drills:
 
 當你的牌在某個翻牌上平均比對手的牌強，你就有{{t:range-advantage|範圍優勢}}。在 [[Ks 7d 2c]] 上，從按鈕位{{t:open|開池}}之後，是你有更多帶好踢腳的 K 和更多高{{t:pair|對子}}。{{t:big-blind|大盲}}在這裡有很多沒中的牌。
 
-在低張、{{t:connected|連張}}的翻牌上，例如 [[7s 6h 5d]]，{{t:range-advantage}}幾乎消失，反而是{{t:big-blind}}更常拿到最強的牌：他會防守很多同花{{t:connectors|連張}}以及帶 6 或 7 的牌，所以更常有{{t:two-pair}}或{{t:straight|順子}}。
+在低張、{{t:connected|連張}}的翻牌上，例如 [[7s 6h 5d]]，{{t:range-advantage}}幾乎消失。{{t:big-blind|大盲}}會防守很多同花{{t:connectors|連張}}以及帶 6 或 7 的牌，這些牌在這裡會擊中{{t:straight|順子}}和{{t:two-pair|兩對}}，而你的高牌沒中。
 
 ## {{t:nuts-advantage|堅果優勢}}
 

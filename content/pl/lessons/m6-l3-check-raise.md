@@ -13,7 +13,7 @@ drills:
     prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie {{t:check|czekasz}}, Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Co robisz?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dwie pary}} na niskim, {{t:connected|połączonym}} flopie to ręka {{t:value|dla wartości}}. Na takich flopach {{t:big-blind}} ma więcej najsilniejszych układów niż Button. {{t:raise|Przebiciem}} budujesz {{t:pot|pulę}} i każesz płacić {{t:pair|parom}} i {{t:draw|drawom}}." }
+      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dwie pary}} na niskim, {{t:connected|połączonym}} flopie to ręka {{t:value|dla wartości}}. Na takich flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button zwykle nie ma {{t:nuts-advantage|przewagi nutsów}}. {{t:raise|Przebiciem}} budujesz {{t:pot|pulę}} i każesz płacić {{t:pair|parom}} i {{t:draw|drawom}}." }
       - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Też dobre: na bardzo {{t:connected|połączonym}} flopie część {{t:two-pair|dwóch par}} solver tylko {{t:call|sprawdza}}. Check-raise częściej buduje {{t:pot|pulę}} i chroni rękę." }
       - { text: "{{t:fold|Pasuję}}", why: "{{t:two-pair|Dwie pary}} to jedna z najsilniejszych rąk na tym flopie. {{t:fold|Pas}} to duży błąd." }
   - kind: choice
@@ -127,7 +127,7 @@ Check-raise robisz z dwóch powodów:
 ## Kiedy częściej
 
 - **Wobec małego c-betu.** {{t:raise|Przebicie}} jest tanie, a Button {{t:bet|stawia}} mały c-bet szerokim {{t:range|zakresem}}. Wobec dużego c-betu {{t:raise|przebijasz}} rzadziej i węziej: głównie sety i {{t:two-pair}}, mniej {{t:bluff|blefów}}.
-- **Na niskich, {{t:connected|połączonych}} flopach** (np. [[7h 6d 5s]]). {{t:big-blind|Duży blind}} broni wielu niskich rąk, więc zwykle ma tu więcej {{t:two-pair|dwóch par}} i {{t:straight|stritów}} niż Button, czyli {{t:nuts-advantage|przewagę nutsów}}.
+- **Na niskich, {{t:connected|połączonych}} flopach** (np. [[7h 6d 5s]]). {{t:big-blind|Duży blind}} broni wielu niskich rąk, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc Button zwykle nie ma tu {{t:nuts-advantage|przewagi nutsów}}.
 - **Rzadziej na wysokich flopach dobrych dla Buttona**, np. K-J-T albo A-A-K: tam to on ma więcej najsilniejszych rąk.
 
 ## Jaki rozmiar

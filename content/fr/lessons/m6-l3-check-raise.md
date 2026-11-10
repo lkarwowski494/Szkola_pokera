@@ -13,7 +13,7 @@ drills:
     prompt: "Vous défendez la {{t:big-blind|grosse blinde}} contre l'{{t:open|ouverture}} du Bouton. Au flop, vous {{t:check|checkez}}, et le Bouton {{t:bet|mise}} 1/3 du {{t:pot}} en c-bet. Que faites-vous ?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "Une {{t:two-pair|double paire}} sur un flop bas et {{t:connected|connecté}} est une main à jouer {{t:value|pour la value}}. Sur ces flops, la {{t:big-blind|grosse blinde}} a plus de combinaisons très fortes que le Bouton. En {{t:raise|relançant}}, vous construisez le {{t:pot}} et faites payer les {{t:pair|paires}} et les {{t:draw|tirages}}." }
+      - { text: "Check-raise", correct: true, why: "Une {{t:two-pair|double paire}} sur un flop bas et {{t:connected|connecté}} est une main à jouer {{t:value|pour la value}}. Sur ces flops, la {{t:big-blind|grosse blinde}} a dans sa {{t:range|range}} des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et le Bouton n'a généralement pas l'{{t:nuts-advantage|avantage de nuts}}. En {{t:raise|relançant}}, vous construisez le {{t:pot}} et faites payer les {{t:pair|paires}} et les {{t:draw|tirages}}." }
       - { text: "{{t:call|Suivre}}", correct: true, why: "Bien aussi : sur un flop très {{t:connected|connecté}}, le solveur se contente de {{t:call|suivre}} avec une partie des {{t:two-pair|doubles paires}}. Le check-raise construit plus souvent le {{t:pot}} et protège la main." }
       - { text: "{{t:fold|Se coucher}}", why: "Une {{t:two-pair|double paire}} est l'une des mains les plus fortes sur ce flop. {{t:fold|Se coucher}} est une grosse erreur." }
   - kind: choice
@@ -127,7 +127,7 @@ Avec les mains moyennes, par exemple une {{t:top-pair|top paire}} avec un kicker
 ## Quand plus souvent
 
 - **Face à un petit c-bet.** La {{t:raise|relance}} coûte peu, et le Bouton {{t:bet|mise}} petit avec une {{t:range|range}} large. Face à un gros c-bet, vous {{t:raise|relancez}} moins souvent et plus serré : surtout des sets et des {{t:two-pair|doubles paires}}, moins de {{t:bluff|bluffs}}.
-- **Sur les flops bas et {{t:connected|connectés}}** (p. ex. [[7h 6d 5s]]). La {{t:big-blind|grosse blinde}} défend beaucoup de mains basses, elle a donc généralement ici plus de {{t:two-pair|doubles paires}} et de {{t:straight|quintes}} que le Bouton, c'est-à-dire l'{{t:nuts-advantage|avantage de nuts}}.
+- **Sur les flops bas et {{t:connected|connectés}}** (p. ex. [[7h 6d 5s]]). La {{t:big-blind|grosse blinde}} défend beaucoup de mains basses, qui touchent ici des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, donc le Bouton n'a généralement pas ici l'{{t:nuts-advantage|avantage de nuts}}.
 - **Moins souvent sur les flops hauts favorables au Bouton**, p. ex. K-J-T ou A-A-K : là, c'est lui qui a le plus de mains très fortes.
 
 ## Quelle taille

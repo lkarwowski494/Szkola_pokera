@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "あなたはボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。フロップ：[[7s 6h 5d]]。ここで非常に強いハンド（{{t:two-pair}}または{{t:straight}}）を持っていることが多いのはどちらですか？"
+    prompt: "あなたはボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。フロップ：[[7s 6h 5d]]。ここであなたに{{t:nuts-advantage|ナッツアドバンテージ}}はありますか？つまり、最も強いハンドを相手よりはっきり多く持っていますか？"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "{{t:big-blind|ビッグブラインド}}", correct: true, why: "はい。{{t:big-blind}}はスーテッドの{{t:connectors|コネクター}}や、6か7を含むハンドを多くディフェンスします。ボタンのあなたには、ここで外れた高いカードが多くあります。これが{{t:big-blind|ビッグブラインド}}の{{t:nuts-advantage}}です。" }
-      - { text: "ボタンから{{t:open|オープン}}したあなた", why: "いいえ。あなたの{{t:range}}は高いカードでいっぱいです。{{t:overpair|オーバーペア}}（TT、JJなど、{{t:board|ボード}}のどのカードよりも高い{{t:pocket-pair|ポケットペア}}）は多いですが、{{t:two-pair|ツーペア}}と{{t:straight|ストレート}}は少なく、セット（{{t:pocket-pair|ポケットペア}}によるスリーカード）の数は両者とも同程度です。" }
-      - { text: "両者とも同じ頻度", why: "いいえ。{{t:range|レンジ}}は構成が違います。{{t:big-blind|ビッグブラインド}}の広いディフェンスには小さいカードが多く、あなたの{{t:range}}には高いカードが多くあります。" }
+      - { text: "いいえ：ここでは{{t:big-blind}}も{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}を持っています", correct: true, why: "そのとおりです。{{t:big-blind}}はスーテッドの{{t:connectors|コネクター}}や、6か7を含むハンドを多くディフェンスし、それらはここで{{t:straight|ストレート}}や{{t:two-pair|ツーペア}}になります。あなたの高いカードはここで外れているので、最も強いハンドをはっきり多く持ってはいません。" }
+      - { text: "はい、フロップ前に{{t:open|オープン}}したからです", why: "いいえ。{{t:open|オープン}}したことで、高いフロップではあなたにアドバンテージがあります。低くて{{t:connected|コネクテッド}}なフロップではあなたの高いカードは外れ、相手の{{t:range}}はここで{{t:straight|ストレート}}や{{t:two-pair|ツーペア}}に当たります。" }
+      - { text: "はい、高い{{t:pair|ペア}}を多く持っているからです", why: "いいえ。{{t:overpair|オーバーペア}}（TT、JJなど、{{t:board|ボード}}のどのカードよりも高い{{t:pocket-pair|ポケットペア}}）はあなたのほうが多いですが、このようなフロップでは{{t:overpair}}は最も強いハンドに入りません。{{t:straight|ストレート}}、セット、{{t:two-pair|ツーペア}}に負けます。" }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ drills:
 
 あるフロップで、あなたのハンドが平均して相手のハンドより強いとき、あなたには{{t:range-advantage|レンジアドバンテージ}}があります。ボタンからの{{t:open|オープン}}後の[[Ks 7d 2c]]では、良いキッカーのキングや高い{{t:pair|ペア}}を多く持っているのはあなたです。{{t:big-blind|ビッグブラインド}}は、ここで外れたハンドを多く持っています。
 
-[[7s 6h 5d]]のような低くて{{t:connected|コネクテッド}}なフロップでは、{{t:range-advantage}}はほぼ消え、最も強いハンドを持っていることが多いのは{{t:big-blind}}です。スーテッドの{{t:connectors|コネクター}}や、6か7を含むハンドを多くディフェンスするので、{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多くなります。
+[[7s 6h 5d]]のような低くて{{t:connected|コネクテッド}}なフロップでは、{{t:range-advantage}}はほぼ消えます。{{t:big-blind|ビッグブラインド}}はスーテッドの{{t:connectors|コネクター}}や、6か7を含むハンドを多くディフェンスし、それらはここで{{t:straight|ストレート}}や{{t:two-pair|ツーペア}}になります。一方、あなたの高いカードは外れています。
 
 ## {{t:nuts-advantage|ナッツアドバンテージ}}
 

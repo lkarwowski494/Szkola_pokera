@@ -1,0 +1,85 @@
+BŁĄD content/de/rules.yaml:360 (because): „der {{t:big-blind|Big Blind}} verteidigt viele {{t:connectors|Connectors}} und Hände mit kleinen Karten, die hier {{t:st”
+BŁĄD content/de/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten trifft die {{t:range|Range}} des {{t:big-blind|Big Blinds}}: ”
+BŁĄD content/de/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Zu oft: Auf einem niedrigen Flop mit nah beieinanderliegenden Karten hast du keinen {{t:nuts-advantage|Nuts-Vorteil}}.”
+BŁĄD content/de/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Zu oft und zu teuer: Der {{t:big-blind}} hat hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} in seiner {{t:ran”
+BŁĄD content/de/lessons/m5-l4-bez-pozycji.md:90 (check): „Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten trifft die {{t:range|Range}} des {{t:big-blind|Big Blinds}}: ”
+BŁĄD content/de/lessons/m5-l4-bez-pozycji.md:91 (small): „Zu oft: Auf einem niedrigen Flop mit nah beieinanderliegenden Karten hast du keinen {{t:nuts-advantage|Nuts-Vorteil}}.”
+BŁĄD content/de/lessons/m5-l4-bez-pozycji.md:92 (big): „Zu oft und zu teuer: Der {{t:big-blind|Big Blind}} hat hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} in sein”
+BŁĄD content/en/rules.yaml:360 (because): „the {{t:big-blind|big blind}} defends many {{t:connectors}} and small-card hands, which hit {{t:straight|straights}} and”
+BŁĄD content/en/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Yes: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}: they have {{t:straight|straights}} and”
+BŁĄD content/en/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Too often: on a low flop with cards close together, you don't have a {{t:nuts-advantage}}.”
+BŁĄD content/en/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Too often and too expensive: the {{t:big-blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in their {{t:r”
+BŁĄD content/en/lessons/m5-l4-bez-pozycji.md:90 (check): „Yes: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}: they have {{t:straight|straights}} and”
+BŁĄD content/en/lessons/m5-l4-bez-pozycji.md:91 (small): „Too often: on a low flop with cards close together, you don't have a {{t:nuts-advantage}}.”
+BŁĄD content/en/lessons/m5-l4-bez-pozycji.md:92 (big): „Too often and too expensive: the {{t:big-blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in their {{t:r”
+BŁĄD content/es/rules.yaml:360 (because): „la {{t:big-blind|ciega grande}} defiende muchos {{t:connectors|conectores}} y manos con cartas pequeñas, que aquí ligan ”
+BŁĄD content/es/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Sí: un flop bajo con cartas cercanas entre sí conecta con el {{t:range|rango}} de la {{t:big-blind|ciega grande}}: tiene”
+BŁĄD content/es/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Demasiado a menudo: en un flop bajo con cartas cercanas entre sí no tienes {{t:nuts-advantage|ventaja de nuts}}.”
+BŁĄD content/es/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Demasiado a menudo y demasiado caro: la {{t:big-blind|ciega grande}} tiene aquí en su {{t:range|rango}} {{t:straight|esc”
+BŁĄD content/es/lessons/m5-l4-bez-pozycji.md:90 (check): „Sí: un flop bajo con cartas cercanas entre sí conecta con el {{t:range|rango}} de la {{t:big-blind|ciega grande}}: tiene”
+BŁĄD content/es/lessons/m5-l4-bez-pozycji.md:91 (small): „Demasiado a menudo: en un flop bajo con cartas cercanas entre sí no tienes {{t:nuts-advantage|ventaja de nuts}}.”
+BŁĄD content/es/lessons/m5-l4-bez-pozycji.md:92 (big): „Demasiado a menudo y demasiado caro: la {{t:big-blind|ciega grande}} tiene aquí en su {{t:range|rango}} {{t:straight|esc”
+BŁĄD content/fr/rules.yaml:360 (because): „la {{t:big-blind|grosse blinde}} défend beaucoup de {{t:connectors|connecteurs}} et de mains à petites cartes, qui touch”
+BŁĄD content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Oui : un flop bas aux cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}} : elle a ici des {{”
+BŁĄD content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Trop souvent : sur un flop bas aux cartes proches, vous n'avez pas l'{{t:nuts-advantage|avantage de nuts}}.”
+BŁĄD content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Trop souvent et trop cher : la {{t:big-blind|grosse blinde}} a ici dans sa {{t:range|range}} des {{t:straight|quintes}} ”
+BŁĄD content/fr/lessons/m5-l4-bez-pozycji.md:90 (check): „Oui : un flop bas avec des cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}} : elle a ici d”
+BŁĄD content/fr/lessons/m5-l4-bez-pozycji.md:91 (small): „Trop souvent : sur un flop bas avec des cartes proches, vous n'avez pas l'{{t:nuts-advantage|avantage de nuts}}.”
+BŁĄD content/fr/lessons/m5-l4-bez-pozycji.md:92 (big): „Trop souvent et trop cher : la {{t:big-blind|grosse blinde}} a ici dans sa {{t:range|range}} des {{t:straight|quintes}} ”
+BŁĄD content/it/rules.yaml:360 (because): „il {{t:big-blind|big blind}} difende molti {{t:connectors|connettori}} e mani con carte piccole, che qui fanno {{t:strai”
+BŁĄD content/it/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Sì: un flop basso con carte vicine tra loro colpisce il {{t:range}} del {{t:big-blind|big blind}}: qui ha {{t:straight|s”
+BŁĄD content/it/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Troppo spesso: su un flop basso con carte vicine tra loro non hai il {{t:nuts-advantage|vantaggio di nuts}}.”
+BŁĄD content/it/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Troppo spesso e troppo caro: qui il {{t:big-blind}} ha nel suo {{t:range}} {{t:straight|scale}} e {{t:two-pair|doppie co”
+BŁĄD content/it/lessons/m5-l4-bez-pozycji.md:90 (check): „Sì: un flop basso con carte vicine tra loro colpisce il {{t:range}} del {{t:big-blind|big blind}}: qui ha {{t:straight|s”
+BŁĄD content/it/lessons/m5-l4-bez-pozycji.md:91 (small): „Troppo spesso: su un flop basso con carte vicine tra loro non hai il {{t:nuts-advantage|vantaggio di nuts}}.”
+BŁĄD content/it/lessons/m5-l4-bez-pozycji.md:92 (big): „Troppo spesso e troppo cara: il {{t:big-blind}} qui ha nel suo {{t:range}} {{t:straight|scale}} e {{t:two-pair|doppie co”
+BŁĄD content/ja/rules.yaml:360 (because): „{{t:big-blind}}は多くの{{t:connectors|コネクター}}や小さいカードのハンドでディフェンスし、それらはここで{{t:straight|ストレート}}や{{t:two-pair|ツーペア}}になり、あなたの高いカー”
+BŁĄD content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „ここでは相手に{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}があり、あなたには{{t:nuts-advantage|ナッツアドバンテージ}}がありません。”
+BŁĄD content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „頻度が高すぎます：カード同士が近い低いフロップでは、あなたには{{t:nuts-advantage|ナッツアドバンテージ}}がありません。”
+BŁĄD content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „頻度が高すぎ、コストも大きすぎます：ここでは{{t:big-blind}}の{{t:range|レンジ}}に{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}があります。”
+BŁĄD content/ja/lessons/m5-l4-bez-pozycji.md:90 (check): „ここでは相手に{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}があり、あなたには{{t:nuts-advantage|ナッツアドバンテージ}}がありません。”
+BŁĄD content/ja/lessons/m5-l4-bez-pozycji.md:91 (small): „カード同士が近い低いフロップでは、あなたには{{t:nuts-advantage|ナッツアドバンテージ}}がありません。”
+BŁĄD content/ja/lessons/m5-l4-bez-pozycji.md:92 (big): „ここでは{{t:big-blind}}の{{t:range|レンジ}}に{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}があります。”
+BŁĄD content/ko/rules.yaml:360 (because): „{{t:big-blind|빅 블라인드}}는 {{t:connectors|커넥터}}와 작은 카드로 된 핸드를 많이 방어하는데, 이 핸드들은 여기서 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}”
+BŁĄD content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „여기서 빅 블라인드에게는 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 있고, 당신에게는 {{t:nuts-advantage|넛 우위}}가 없습니다.”
+BŁĄD content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „카드가 서로 가까운 낮은 플롭에서는 당신에게 {{t:nuts-advantage|넛 우위}}가 없습니다.”
+BŁĄD content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „여기서 {{t:big-blind|빅 블라인드}}의 {{t:range|레인지}}에는 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 있습니다.”
+BŁĄD content/ko/lessons/m5-l4-bez-pozycji.md:90 (check): „여기서 빅 블라인드에게는 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 있고, 당신에게는 {{t:nuts-advantage|넛 우위}}가 없습니다.”
+BŁĄD content/ko/lessons/m5-l4-bez-pozycji.md:91 (small): „카드가 서로 가까운 낮은 플롭에서는 당신에게 {{t:nuts-advantage|넛 우위}}가 없습니다.”
+BŁĄD content/ko/lessons/m5-l4-bez-pozycji.md:92 (big): „여기서 {{t:big-blind}}의 {{t:range|레인지}}에는 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 있습니다.”
+BŁĄD content/pl/rules.yaml:360 (because): „{{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które trafiają tu {{t:straight|strity}} ”
+BŁĄD content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: ma tu {{t:straight|stri”
+BŁĄD content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Za często: na niskim flopie z kartami blisko siebie nie masz {{t:nuts-advantage|przewagi nutsów}}.”
+BŁĄD content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Za często i za drogo: {{t:big-blind}} ma tu w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}.”
+BŁĄD content/pl/lessons/m5-l4-bez-pozycji.md:90 (check): „Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: ma tu {{t:straight|stri”
+BŁĄD content/pl/lessons/m5-l4-bez-pozycji.md:91 (small): „Za często: na niskim flopie z kartami blisko siebie nie masz {{t:nuts-advantage|przewagi nutsów}}.”
+BŁĄD content/pl/lessons/m5-l4-bez-pozycji.md:92 (big): „Za często i za drogo: {{t:big-blind}} ma tu w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}.”
+BŁĄD content/pt/rules.yaml:360 (because): „o {{t:big-blind|big blind}} defende muitos {{t:connectors|conectores}} e mãos com cartas pequenas, que aqui fazem {{t:st”
+BŁĄD content/pt/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Sim: um flop baixo com cartas próximas acerta no {{t:range|range}} do {{t:big-blind}}: ele tem aqui {{t:straight|sequênc”
+BŁĄD content/pt/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Demasiadas vezes: num flop baixo com cartas próximas, não tem {{t:nuts-advantage|vantagem de nuts}}.”
+BŁĄD content/pt/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Demasiadas vezes e demasiado caro: o {{t:big-blind}} tem aqui no {{t:range|range}} {{t:straight|sequências}} e {{t:two-p”
+BŁĄD content/pt/lessons/m5-l4-bez-pozycji.md:90 (check): „Sim: um flop baixo com cartas próximas acerta no {{t:range|range}} do {{t:big-blind}}: ele tem aqui {{t:straight|sequênc”
+BŁĄD content/pt/lessons/m5-l4-bez-pozycji.md:91 (small): „Demasiado frequente: num flop baixo com cartas próximas, não tem {{t:nuts-advantage|vantagem de nuts}}.”
+BŁĄD content/pt/lessons/m5-l4-bez-pozycji.md:92 (big): „Demasiado frequente e demasiado caro: o {{t:big-blind}} tem aqui no {{t:range|range}} {{t:straight|sequências}} e {{t:tw”
+BŁĄD content/pt-BR/rules.yaml:360 (because): „o {{t:big-blind}} defende muitos {{t:connectors|conectores}} e mãos com cartas baixas, que aqui fazem {{t:straight|sequê”
+BŁĄD content/pt-BR/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Isso: um flop baixo com cartas próximas acerta o {{t:range|range}} do {{t:big-blind}}: ele tem aqui {{t:straight|sequênc”
+BŁĄD content/pt-BR/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Frequente demais: em um flop baixo com cartas próximas, você não tem {{t:nuts-advantage|vantagem de nuts}}.”
+BŁĄD content/pt-BR/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Frequente e caro demais: o {{t:big-blind}} tem aqui no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois p”
+BŁĄD content/pt-BR/lessons/m5-l4-bez-pozycji.md:90 (check): „Sim: um flop baixo com cartas próximas acerta o {{t:range|range}} do {{t:big-blind}}: ele tem aqui {{t:straight|sequênci”
+BŁĄD content/pt-BR/lessons/m5-l4-bez-pozycji.md:91 (small): „Frequente demais: em um flop baixo com cartas próximas, você não tem {{t:nuts-advantage|vantagem de nuts}}.”
+BŁĄD content/pt-BR/lessons/m5-l4-bez-pozycji.md:92 (big): „Frequente e caro demais: o {{t:big-blind}} tem aqui no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois p”
+BŁĄD content/vi/rules.yaml:360 (because): „{{t:big-blind|big blind}} phòng thủ với nhiều {{t:connectors|connector}} và các tay có lá nhỏ, những tay này trúng {{t:s”
+BŁĄD content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „Đúng: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind|big blind}}: họ có {{t:straight|sảnh}} và ”
+BŁĄD content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „Quá thường xuyên: trên flop thấp với các lá gần nhau, bạn không có {{t:nuts-advantage|lợi thế nuts}}.”
+BŁĄD content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „Quá thường xuyên và quá đắt: {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}} ở ”
+BŁĄD content/vi/lessons/m5-l4-bez-pozycji.md:90 (check): „Đúng: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind}}: họ có {{t:straight|sảnh}} và {{t:two-pa”
+BŁĄD content/vi/lessons/m5-l4-bez-pozycji.md:91 (small): „Quá thường xuyên: trên flop thấp với các lá gần nhau, bạn không có {{t:nuts-advantage|lợi thế nuts}}.”
+BŁĄD content/vi/lessons/m5-l4-bez-pozycji.md:92 (big): „Quá thường xuyên và quá đắt: {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}} ở ”
+BŁĄD content/zh-Hant/rules.yaml:360 (because): „{{t:big-blind|大盲}}會防守很多{{t:connectors|連張}}和小牌手牌，這些牌在這裡會擊中{{t:straight|順子}}和{{t:two-pair|兩對}}，而你的高牌沒中：你沒有{{t:nuts-advanta”
+BŁĄD content/zh-Hant/lessons/m5-l3-czestotliwosc-rozmiar.md:38 (check): „對：牌張相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}：他在這裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而你沒有{{t:nuts-advantage|堅果優勢}}。”
+BŁĄD content/zh-Hant/lessons/m5-l3-czestotliwosc-rozmiar.md:39 (small): „太常了：在牌張相近的低牌翻牌上，你沒有{{t:nuts-advantage|堅果優勢}}。”
+BŁĄD content/zh-Hant/lessons/m5-l3-czestotliwosc-rozmiar.md:40 (big): „太常也太貴：{{t:big-blind|大盲}}在這裡的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}。”
+BŁĄD content/zh-Hant/lessons/m5-l4-bez-pozycji.md:90 (check): „對：牌點相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}：他在這裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而你沒有{{t:nuts-advantage|堅果優勢}}。”
+BŁĄD content/zh-Hant/lessons/m5-l4-bez-pozycji.md:91 (small): „太頻繁：在牌點相近的低牌翻牌上，你沒有{{t:nuts-advantage|堅果優勢}}。”
+BŁĄD content/zh-Hant/lessons/m5-l4-bez-pozycji.md:92 (big): „太頻繁也太貴：{{t:big-blind}}在這裡的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}。”
+12 języków, 156 tekstów, 84 naruszeń

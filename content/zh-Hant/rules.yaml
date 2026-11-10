@@ -357,11 +357,11 @@
   module: m5
   if: "你翻前{{t:open|開池}}，而翻牌是低牌且{{t:connected|連張}}或{{t:semi-connected|半連張}}，例如 7-6-5"
   then: "你 c-bet 的頻率比在高牌翻牌時低，很多手牌{{t:check|過牌}}"
-  because: "{{t:big-blind|大盲}}會防守很多同花色{{t:connectors|連張}}和小{{t:pair|對子}}，所以更常有{{t:two-pair|兩對}}或{{t:straight|順子}}：{{t:nuts-advantage|堅果優勢}}在他那邊"
+  because: "{{t:big-blind|大盲}}會防守很多{{t:connectors|連張}}和小牌手牌，這些牌會擊中低牌翻牌，而你的高牌沒中；在{{t:connected|連張}}翻牌上他還有{{t:straight|順子}}和{{t:two-pair|兩對}}，所以你通常沒有{{t:nuts-advantage|堅果優勢}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "組合計算：按鈕位用所有 55–77 的對子開池，大盲也會跟注這些對子，所以雙方的暗三數量差不多；商業求解器網站，Bullying the Blinds（在 654r 上按鈕位過牌超過一半的範圍；「Even on 654r… BB has less than 52% equity」）"
-  sources: [{ kind: solver-pub }, { kind: math }]
+  source: "商業求解器網站，Flop Heuristics: IP C-Betting in Cash Games（https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/，BTN vs BB：「a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.」；「flopped straights often being in the BB’s range」；「Size down and bet less on flops that complete straights and flushes in your opponent’s range」）；商業求解器網站，Flop Heuristics: IP C-Betting in MTTs（https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/；不同的情境：BTN vs SB，40bb；在連張翻牌上「the raiser generally does not have a nuts advantage」；簡化：依照現金局那篇文章，按方向套用到現金局的 BTN vs BB）；商業求解器網站，Bullying the Blinds（https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/，20bb，654r：「BB’s advantage at the top end」，按鈕位過牌超過一半的範圍）；訓練網站，3 Concepts That Should Shape Your Postflop Strategy（「the Big Blind will often have the nut advantage」，https://upswingpoker.com/nut-range-positional-advantage/）"
+  sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
   if: "你的{{t:range|範圍}}中最強的手牌比對手多很多（{{t:nuts-advantage|堅果優勢}}）"
@@ -508,9 +508,9 @@
   module: m6
   if: "c-bet 很小，或翻牌是低牌且{{t:connected|連張}}（例如 7-6-5）"
   then: "你更常過牌加注；在對加注者有利的高牌翻牌（例如 K-J-T、A-A-K）上，以及面對大額 c-bet 時，則較少"
-  because: "在低牌翻牌上，{{t:big-blind|大盲}}擁有較多最強的牌型（{{t:nuts-advantage|堅果優勢}}），而小額 c-bet 提供便宜的{{t:raise|加注}}機會"
+  because: "在低張、{{t:connected|連張}}的翻牌上，{{t:big-blind|大盲}}的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而按鈕位通常沒有{{t:nuts-advantage|堅果優勢}}；小額 c-bet 提供便宜的{{t:raise|加注}}機會"
   level: heuristic
-  source: "訓練網站，How to Check-Raise Like a High Stakes Juggernaut（不該加注的翻牌：K♣J♥T♠、Q♥J♦T♠、A♥A♠K♥；面對 33% 底池過牌加注 12.65%，面對 66% 底池 8.66%）；商業求解器網站（「The larger the BTN bets, the less BB raises」）"
+  source: "訓練網站，How to Check-Raise Like a High Stakes Juggernaut（不該加注的翻牌：K♣J♥T♠、Q♥J♦T♠、A♥A♠K♥；面對 33% 底池過牌加注 12.65%，面對 66% 底池 8.66%）；商業求解器網站（「The larger the BTN bets, the less BB raises」）；商業求解器網站，Flop Heuristics: IP C-Betting in Cash Games（「flopped straights often being in the BB’s range」）"
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M6-010
   module: m6

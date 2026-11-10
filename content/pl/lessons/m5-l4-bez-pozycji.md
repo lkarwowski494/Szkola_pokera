@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
-          small: "Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę nutsów}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
-          big: "Za często i za drogo: {{t:big-blind}} częściej trafił tu {{t:two-pair}} albo {{t:straight|strita}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
+          check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: broni on wielu rąk z małymi kartami, a twoje wysokie karty tu chybiły. Na flopie {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
+          small: "Za często: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
+          big: "Za często i za drogo: ten flop trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
     count: 3
 ---
 Do tej pory grałeś {{t:in-position}} przeciw jednemu rywalowi. {{t:out-of-position|Bez pozycji}} i przeciw kilku graczom c-betujesz rzadziej.

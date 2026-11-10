@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}}. Flop: [[7s 6h 5d]]. Wer hat hier öfter eine sehr starke Hand ({{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}})?"
+    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}}. Flop: [[7s 6h 5d]]. Hast du hier einen {{t:nuts-advantage|Nuts-Vorteil}}, also deutlich mehr der stärksten Hände als dein Gegner?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "Der {{t:big-blind|Big Blind}}", correct: true, why: "Ja: Der {{t:big-blind}} verteidigt viele gleichfarbige {{t:connectors|Connectors}} und Hände mit einer Sechs oder Sieben. Du hast vom Button mehr hohe Karten, die hier nichts getroffen haben. Das ist der {{t:nuts-advantage|Nuts-Vorteil}} des {{t:big-blind|Big Blinds}}." }
-      - { text: "Du, als {{t:open|Eröffner}} vom Button", why: "Nein: Deine {{t:range|Range}} ist voller hoher Karten. Du hast mehr {{t:overpair|Overpairs}} ({{t:pocket-pair|Pocket Pairs}}, die höher sind als jede Karte auf dem {{t:board|Board}}, z. B. TT, JJ), aber weniger {{t:two-pair|zwei Paare}} und {{t:straight|Straßen}}; Sets (Drillinge mit einem {{t:pocket-pair|Pocket Pair}}) habt ihr ähnlich viele." }
-      - { text: "Beide gleich oft", why: "Nein: Die {{t:range|Ranges}} sind unterschiedlich zusammengesetzt. Die breite Verteidigung des {{t:big-blind|Big Blinds}} hat viele kleine Karten, deine {{t:range|Range}} hohe." }
+      - { text: "Nein: {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} hat hier auch der {{t:big-blind|Big Blind}}", correct: true, why: "Richtig: Der {{t:big-blind}} verteidigt viele gleichfarbige {{t:connectors|Connectors}} und Hände mit einer Sechs oder Sieben, die hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} treffen. Deine hohen Karten haben hier nichts getroffen, also hast du nicht deutlich mehr der stärksten Hände." }
+      - { text: "Ja, weil du vor dem Flop {{t:open|eröffnet}} hast", why: "Nein: Die {{t:open|Eröffnung}} gibt dir einen Vorteil auf hohen Flops. Auf einem niedrigen, {{t:connected|verbundenen}} Flop haben deine hohen Karten verfehlt, und die {{t:range|Range}} des Gegners trifft hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}}." }
+      - { text: "Ja, weil du mehr hohe {{t:pair|Paare}} hast", why: "Nein: Du hast mehr {{t:overpair|Overpairs}} ({{t:pocket-pair|Pocket Pairs}}, die höher sind als jede Karte auf dem {{t:board|Board}}, z. B. TT, JJ), aber auf so einem Flop gehört ein {{t:overpair|Overpair}} nicht zu den stärksten Händen: Es verliert gegen eine {{t:straight|Straße}}, ein Set und {{t:two-pair|zwei Paare}}." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ Vor dem Flop sehen die {{t:range|Ranges}} der Spieler unterschiedlich aus. Der {
 
 Du hast den {{t:range-advantage|Range-Vorteil}}, wenn deine Hände auf einem bestimmten Flop im Schnitt stärker sind als die Hände deines Gegners. Auf [[Ks 7d 2c]] nach einer {{t:open|Eröffnung}} vom Button hast du mehr Könige mit gutem Kicker und mehr hohe {{t:pair|Paare}}. Der {{t:big-blind|Big Blind}} hat hier viele Hände, die nichts getroffen haben.
 
-Auf einem niedrigen, {{t:connected|verbundenen}} Flop, z. B. [[7s 6h 5d]], verschwindet der {{t:range-advantage|Range-Vorteil}} fast, und die stärksten Hände hat öfter der {{t:big-blind}}: Er verteidigt viele gleichfarbige {{t:connectors|Connectors}} und Hände mit einer Sechs oder Sieben, also hat er öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}}.
+Auf einem niedrigen, {{t:connected|verbundenen}} Flop, z. B. [[7s 6h 5d]], verschwindet der {{t:range-advantage|Range-Vorteil}} fast. Der {{t:big-blind|Big Blind}} verteidigt viele gleichfarbige {{t:connectors|Connectors}} und Hände mit einer Sechs oder Sieben, die hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} treffen, und deine hohen Karten haben verfehlt.
 
 ## {{t:nuts-advantage|Nuts-Vorteil}}
 

@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, et le joueur en {{t:big-blind|grosse blinde}} a {{t:call|payé}}. Sur lequel de ces flops (les trois premières {{t:community-cards|cartes communes}}) ce joueur a-t-il plus souvent que vous une {{t:two-pair}} ou une {{t:straight|quinte}} ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, et le joueur en {{t:big-blind|grosse blinde}} a {{t:call|payé}}. Sur lequel de ces flops (les trois premières {{t:community-cards|cartes communes}}) n'avez-vous pas l'{{t:nuts-advantage|avantage de nuts}}, c'est-à-dire nettement plus de mains parmi les plus fortes que l'adversaire ?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Oui : un flop bas et {{t:connected}} touche les {{t:connectors|connecteurs}} et les mains à petites cartes, que la {{t:big-blind}} défend beaucoup. Depuis le Bouton, vous avez plus de cartes hautes, qui ont raté ici. C'est un {{t:nuts-advantage}} pour la {{t:big-blind|grosse blinde}}." }
-      - { text: "[[Kd Td 3s]]", why: "Non : un flop haut favorise l'{{t:open|ouvreur}}. Vous avez plus de rois avec un bon kicker, de KT et de {{t:pair|paires}} hautes." }
-      - { text: "[[Ah Ad 7c]]", why: "Non : sur un flop avec une {{t:pair|paire}} d'as, c'est vous qui avez plus d'as, car la {{t:big-blind}} {{t:raise|relance}} ses as les plus forts avant le flop. Personne n'a de {{t:straight|quinte}} ici." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Oui : un flop bas et {{t:connected}} touche les {{t:connectors|connecteurs}} et les mains à petites cartes, que la {{t:big-blind}} défend beaucoup, donc elle aussi a ici des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}. Vos cartes hautes ont raté ici, donc vous n'avez généralement pas nettement plus de mains parmi les plus fortes." }
+      - { text: "[[Kd Td 3s]]", why: "Non : un flop avec deux cartes hautes donne l'{{t:nuts-advantage|avantage de nuts}} à l'{{t:open|ouvreur}}. Vous avez ici plus de mains parmi les plus fortes, p. ex. KK, car la {{t:big-blind}} {{t:raise|relance}} la plupart de ses KK avant le flop." }
+      - { text: "[[Ah Qd 7c]]", why: "Non : sur un flop avec un as et une dame, c'est vous qui avez plus de mains parmi les plus fortes, p. ex. AA et AQ, car la {{t:big-blind}} {{t:raise|relance}} généralement ses as les plus forts avant le flop." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

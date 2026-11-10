@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind|빅 블라인드}}에 있는 플레이어가 {{t:call|콜했습니다}}. 다음 중 어느 플롭(처음 깔리는 {{t:community-cards|커뮤니티 카드}} 3장)에서 그 플레이어가 당신보다 {{t:two-pair}}나 {{t:straight|스트레이트}}를 더 자주 가지고 있습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind|빅 블라인드}}에 있는 플레이어가 {{t:call|콜했습니다}}. 다음 중 어느 플롭(처음 깔리는 {{t:community-cards|커뮤니티 카드}} 3장)에서 당신에게 {{t:nuts-advantage|넛 우위}}가 없습니까? 즉, 어느 플롭에서 가장 강한 핸드를 상대보다 뚜렷하게 더 많이 가지고 있지 않습니까?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "맞습니다. 낮고 {{t:connected|커넥티드한}} 플롭은 {{t:connectors|커넥터}}와 작은 카드로 된 핸드에 맞는데, {{t:big-blind}}는 이런 핸드로 많이 방어합니다. 버튼에서 오픈한 당신에게는 높은 카드가 더 많고, 여기서는 빗나갔습니다. 이것이 {{t:big-blind|빅 블라인드}}의 {{t:nuts-advantage}}입니다." }
-      - { text: "[[Kd Td 3s]]", why: "아닙니다. 높은 플롭은 {{t:open|오픈한 플레이어}}에게 유리합니다. 당신에게는 좋은 키커의 킹, KT, 높은 {{t:pair|페어}}가 더 많습니다." }
-      - { text: "[[Ah Ad 7c]]", why: "아닙니다. 에이스 {{t:pair|페어}}가 깔린 플롭에서는 당신이 에이스를 더 많이 가지고 있습니다. {{t:big-blind}}가 가장 강한 에이스를 플롭 전에 {{t:raise|레이즈하기}} 때문입니다. 여기서는 아무도 {{t:straight|스트레이트}}를 가지고 있지 않습니다." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "맞습니다. 낮고 {{t:connected|커넥티드한}} 플롭은 {{t:connectors|커넥터}}와 작은 카드로 된 핸드에 맞는데, {{t:big-blind}}는 이런 핸드로 많이 방어하므로 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}는 상대도 가지고 있습니다. 당신의 높은 카드는 여기서 빗나갔으므로, 보통 가장 강한 핸드를 뚜렷하게 더 많이 가지고 있지 않습니다." }
+      - { text: "[[Kd Td 3s]]", why: "아닙니다. 높은 카드가 두 장 깔린 플롭은 {{t:open|오픈한 플레이어}}에게 {{t:nuts-advantage|넛 우위}}를 줍니다. {{t:big-blind}}는 KK 대부분을 플롭 전에 {{t:raise|레이즈하므로}}, 여기서는 KK 같은 가장 강한 핸드를 당신이 더 많이 가지고 있습니다." }
+      - { text: "[[Ah Qd 7c]]", why: "아닙니다. 에이스와 퀸이 깔린 플롭에서는 AA와 AQ 같은 가장 강한 핸드를 당신이 더 많이 가지고 있습니다. {{t:big-blind}}가 가장 강한 에이스를 보통 플롭 전에 {{t:raise|레이즈하기}} 때문입니다." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

@@ -13,7 +13,7 @@ drills:
     prompt: "Bạn bảo vệ {{t:big-blind}} trước lần {{t:open|mở pot}} của Button. Trên flop, bạn {{t:check}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot}}. Bạn làm gì?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Hai đôi}} trên flop thấp, {{t:connected|liên kết}} là bài để chơi {{t:value|lấy giá trị}}. Trên những flop như vậy, {{t:big-blind}} có nhiều tổ hợp mạnh nhất hơn Button. Khi {{t:raise|tố}}, bạn xây {{t:pot}} và buộc các {{t:pair|đôi}} và {{t:draw|bài chờ}} phải trả tiền." }
+      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Hai đôi}} trên flop thấp, {{t:connected|liên kết}} là bài để chơi {{t:value|lấy giá trị}}. Trên những flop như vậy, {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}}, còn Button thường không có {{t:nuts-advantage|lợi thế nuts}}. Khi {{t:raise|tố}}, bạn xây {{t:pot}} và buộc các {{t:pair|đôi}} và {{t:draw|bài chờ}} phải trả tiền." }
       - { text: "{{t:call|Theo}}", correct: true, why: "Cũng tốt: trên flop rất {{t:connected|liên kết}}, solver chỉ {{t:call|theo}} với một phần {{t:two-pair|hai đôi}}. Check-raise xây {{t:pot}} và bảo vệ bài thường xuyên hơn." }
       - { text: "{{t:fold|Bỏ bài}}", why: "{{t:two-pair|Hai đôi}} là một trong những bài mạnh nhất trên flop này. {{t:fold|Bỏ bài}} là sai lầm lớn." }
   - kind: choice
@@ -127,7 +127,7 @@ Với bài trung bình, ví dụ {{t:top-pair|đôi cao nhất}} với kicker y�
 ## Khi nào thường xuyên hơn
 
 - **Trước c-bet nhỏ.** {{t:raise|Tố}} rẻ, và Button {{t:bet|cược}} c-bet nhỏ với {{t:range}} rộng. Trước c-bet lớn, bạn {{t:raise|tố}} ít hơn và hẹp hơn: chủ yếu set và {{t:two-pair}}, ít {{t:bluff}} hơn.
-- **Trên flop thấp, {{t:connected|liên kết}}** (ví dụ [[7h 6d 5s]]). {{t:big-blind|Big blind}} bảo vệ nhiều bài thấp, nên ở đây thường có nhiều {{t:two-pair}} và {{t:straight|sảnh}} hơn Button, tức là có {{t:nuts-advantage}}.
+- **Trên flop thấp, {{t:connected|liên kết}}** (ví dụ [[7h 6d 5s]]). {{t:big-blind|Big blind}} bảo vệ nhiều bài thấp, những bài này trúng {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} ở đây, nên Button thường không có {{t:nuts-advantage|lợi thế nuts}}.
 - **Ít hơn trên flop cao có lợi cho Button**, ví dụ K-J-T hoặc A-A-K: ở đó chính Button có nhiều bài mạnh nhất hơn.
 
 ## Kích thước bao nhiêu
