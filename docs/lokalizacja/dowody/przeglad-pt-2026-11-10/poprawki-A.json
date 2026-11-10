@@ -1,0 +1,20 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m12-l4-bankroll.md",
+    "stary": "Descer antes de chegar a metade do bankroll não é um erro, mas descer depois já é.",
+    "nowy": "Descer antes de o bankroll chegar à metade não é um erro, mas descer só depois disso já é um erro.",
+    "waga": "ŚREDNIE",
+    "powod": "Granica „najpóźniej przy połowie”: eliptyczne „mas descer depois já é” bez orzecznika (przekład zwrotny oznaczył DWUZNACZNE); dopisane „um erro” i punkt odniesienia, poprawione „a metade” → „à metade”.",
+    "grupa": "A"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/rules.yaml",
+    "stary": "mesmo os melhores {{n:skill.pct}} dos jogadores só ficam à frente dos piores {{n:skill.pct}} em cerca de {{n:skill.ahead}} dos casos após cerca de {{n:skill.hands}} mãos",
+    "nowy": "mesmo os melhores {{n:skill.pct}} dos jogadores só ao fim de cerca de {{n:skill.hands}} mãos ficam à frente dos piores {{n:skill.pct}} em cerca de {{n:skill.ahead}} dos casos",
+    "waga": "ŚREDNIE",
+    "powod": "Oryginał: „dopiero po ok. N rękach” (granica: przewaga pojawia się najwcześniej po N rękach); w pt „só” przylega do odsetka („tylko w ok. 75% przypadków po N rozdaniach”), granica minimalnej próby słabnie. Kierunek wniosku reguły zachowany.",
+    "grupa": "A"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "Calcula o preço, a equity contra a {{t:range|gama de mãos}} do adversário",
+    "nowy": "Calcula o preço, a equity contra o {{t:range|range}} do adversário",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w całym pt dominuje „range” (68 wystąpień w m4, m6, m7, m11); „gama de mãos” występuje tylko w m12. Jedna nazwa na jedno pojęcie.",
+    "grupa": "L6"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "Calcule o preço e a equity contra a {{t:range|gama de mãos}} do adversário",
+    "nowy": "Calcule o preço e a equity contra o {{t:range|range}} do adversário",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range jak wyżej: lekcja odsyła do M2 i M6, gdzie pt używa „range”; „gama de mãos” tylko w m12.",
+    "grupa": "L6"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m12-l4-bankroll.md",
+    "stary": "Isso é tilt por desespero.",
+    "nowy": "Isso é tilt de desespero.",
+    "waga": "ŚREDNIE",
+    "powod": "Nazwa typu tiltu niespójna z lekcją m12-l3 (tabela siedmiu typów i ćwiczenia: „tilt de desespero”); pl w obu miejscach „tilt z desperacji”.",
+    "grupa": "L6"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m12-l4-bankroll.md",
+    "stary": "Mais ou menos metade-metade",
+    "nowy": "Mais ou menos meio a meio",
+    "waga": "NISKIE",
+    "powod": "„pół na pół” to w pt-PT naturalnie „meio a meio”; „metade-metade” brzmi nienaturalnie. Sens bez zmian.",
+    "grupa": "L6"
+  }
+]

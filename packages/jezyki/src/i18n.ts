@@ -1,4 +1,5 @@
-import i18next, { type InitOptions, type i18n } from 'i18next';
+import i18next, { type InitOptions, type ThirdPartyModule, type i18n } from 'i18next';
+import { znacznikIntl } from './formaty';
 import { jestJezykiem, jezykZTagu, lancuchTresci, type Jezyk } from './jezyki';
 
 /** Słowniki zagnieżdżone w formacie i18next v4 (`klucz_one`, `klucz_few`, …), język → drzewo tekstów. */
@@ -36,9 +37,23 @@ export function opcjeI18next(slowniki: Slowniki, jezyk: Jezyk, opcje: OpcjeI18n 
   };
 }
 
+/**
+ * Reguła liczby mnogiej według `znacznikIntl` (D-405): i18next tworzy `Intl.PluralRules` z kodu języka, a „pt” w CLDR to wariant
+ * brazylijski (0 → „one”); w aplikacji „pt” = pt-PT (0 → „other”). Moduł `3rdParty` jest inicjowany po utworzeniu usług
+ * i18next, więc podmiana obejmuje każdy `t()` z `count`. Test: `test/pt-pt-09.test.ts`.
+ */
+export const regulyLiczbyMnogiej: ThirdPartyModule = {
+  type: '3rdParty',
+  init(instancja: i18n) {
+    const r = instancja.services.pluralResolver as unknown as { getRule(kod: string, o?: object): unknown };
+    const oryginal = r.getRule.bind(r);
+    r.getRule = (kod, o) => oryginal(jestJezykiem(kod) ? znacznikIntl(kod) : kod, o);
+  },
+};
+
 /** Osobna instancja (testy, `content-build`); aplikacja używa globalnej instancji z `react-i18next`. */
 export async function utworzI18n(slowniki: Slowniki, jezyk: Jezyk, opcje: OpcjeI18n = {}): Promise<i18n> {
-  const instancja = i18next.createInstance();
+  const instancja = i18next.createInstance().use(regulyLiczbyMnogiej);
   await instancja.init(opcjeI18next(slowniki, jezyk, opcje));
   return instancja;
 }

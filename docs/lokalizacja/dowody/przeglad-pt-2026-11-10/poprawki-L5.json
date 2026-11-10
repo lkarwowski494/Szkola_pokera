@@ -1,0 +1,407 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "O adversário não precisa de {{t:fold|desistir}} e perde fold equity.",
+    "nowy": "O adversário não precisa de {{t:fold|desistir}}, e a sua jogada perde a fold equity.",
+    "waga": "WYSOKIE",
+    "powod": "PL „Rywal nie musi pasować, a ty tracisz fold equity”: w pt podmiotem „perde” staje się adversário (zmieniony sens: kto traci fold equity).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "O adversário sabe que não vai {{t:fold|desistir}}, por isso não tem nada a temer.",
+    "nowy": "Como não vai {{t:fold|desistir}} e o adversário sabe-o, ele não tem nada a temer.",
+    "waga": "WYSOKIE",
+    "powod": "PL „Rywal wie, że nie spasujesz”: w pt „sabe que não vai desistir” czyta się jako rywal nie spasuje (zmieniony sens).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l1-statystyki.md",
+    "stary": "Aqui ninguém {{t:raise|aumentou}} e limitou-se a {{t:check|passar}}.",
+    "nowy": "Aqui ninguém {{t:raise|aumentou}}; quanto a si, limitou-se a {{t:check|passar}}.",
+    "waga": "ŚREDNIE",
+    "powod": "PL „a ty tylko czekałeś”: w pt podmiot „limitou-se” niejasny (czyta się jako „ninguém”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "jogador vencedor típico nos {{t:stakes|níveis}} baixos?\"",
+    "nowy": "jogador vencedor típico nos {{t:stakes|limites}} baixos?\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: w pt dominuje „limite” (45×); „níveis” tylko w m10-l4.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "para bb/100, nos microníveis obtém-se",
+    "nowy": "para bb/100, nos microlimites obtém-se",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: w pt „microlimites” (m7, m8, m12); ujednolicenie.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "O {{t:rake}} nos microníveis é de cerca",
+    "nowy": "O {{t:rake}} nos microlimites é de cerca",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: ujednolicenie do „microlimites”.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "várias vezes menor ({{n:rake.nl500.low}}–{{n:rake.nl500.high}}) do que nos microníveis?",
+    "nowy": "várias vezes menor ({{n:rake.nl500.low}}–{{n:rake.nl500.high}}) do que nos microlimites?",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: ujednolicenie do „microlimites”.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "Nos microníveis, o limite corresponde",
+    "nowy": "Nos microlimites, o limite corresponde",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: ujednolicenie do „microlimites”.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "que nos {{t:stakes|níveis}} altos corta",
+    "nowy": "que nos {{t:stakes|limites}} altos corta",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: „limite” jak w reszcie pt.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "Nos microníveis, os {{t:pot|potes}} raramente",
+    "nowy": "Nos microlimites, os {{t:pot|potes}} raramente",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: ujednolicenie do „microlimites”.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "| {{t:stakes|Nível}} (6-max,",
+    "nowy": "| {{t:stakes|Limite}} (6-max,",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: „limite” jak w reszcie pt.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "Um jogador vencedor típico nos {{t:stakes|níveis}} baixos tem",
+    "nowy": "Um jogador vencedor típico nos {{t:stakes|limites}} baixos tem",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: „limite” jak w reszcie pt.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l4-rake.md",
+    "stary": "Nos {{t:stakes|níveis}} mais altos, o mesmo limite",
+    "nowy": "Nos {{t:stakes|limites}} mais altos, o mesmo limite",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: „limite” jak w reszcie pt.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "população dos micro-limites online (NL25)",
+    "nowy": "população dos microlimites online (NL25)",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: pisownia jak w m7, m8, m12 („microlimites”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "Segundo dados da população de micro stakes online (NL25)",
+    "nowy": "Segundo dados da população dos microlimites online (NL25)",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: angielskie „micro stakes” niespójne z „microlimites” w pt.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "Os jogadores da população de micro stakes online (NL25)",
+    "nowy": "Os jogadores da população dos microlimites online (NL25)",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: ujednolicenie do „microlimites”.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "Dados da população de micro stakes online (NL25):",
+    "nowy": "Dados da população dos microlimites online (NL25):",
+    "waga": "ŚREDNIE",
+    "powod": "Mikrostawki: ujednolicenie do „microlimites”.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{n:hud.ex.reg.hands}} mãos). {{t:check|Faz check}}. O que faz com {{t:top-pair|par máximo}} e o segundo melhor kicker?",
+    "nowy": "{{n:hud.ex.reg.hands}} mãos). {{t:check|Passa}}. O que faz com {{t:top-pair|par de topo}} e o segundo melhor kicker?",
+    "waga": "ŚREDNIE",
+    "powod": "Termin check: w pt dominuje „passar/passa/Passo” (≈140×), także w m10-l1 i m10-l3; „faz check” tylko w m10-l2. Top pair: „par de topo” (dominujące w pt, 34×) zamiast „par máximo”.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "{ text: \"{{t:check|Faço check}} para não dar",
+    "nowy": "{ text: \"{{t:check|Passo}} para não dar",
+    "waga": "ŚREDNIE",
+    "powod": "Termin check: w pt dominuje „passar/passa/Passo” (≈140×), także w m10-l1 i m10-l3; „faz check” tylko w m10-l2.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "no flop e no turn. {{t:check|Faz check}}. O que faz?\"",
+    "nowy": "no flop e no turn. {{t:check|Passa}}. O que faz?\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin check: w pt dominuje „passar/passa/Passo” (≈140×), także w m10-l1 i m10-l3; „faz check” tylko w m10-l2.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "{ text: \"{{t:check|Faço check}} e abdico",
+    "nowy": "{ text: \"{{t:check|Passo}} e abdico",
+    "waga": "ŚREDNIE",
+    "powod": "Termin check: w pt dominuje „passar/passa/Passo” (≈140×), także w m10-l1 i m10-l3; „faz check” tylko w m10-l2.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "e ele {{t:check|faz check}}. O que faz?\"",
+    "nowy": "e ele {{t:check|passa}}. O que faz?\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin check: w pt dominuje „passar/passa/Passo” (≈140×), także w m10-l1 i m10-l3; „faz check” tylko w m10-l2.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "{ text: \"{{t:check|Faço check}}: {{t:bluff|fazer bluff}}",
+    "nowy": "{ text: \"{{t:check|Passo}}: {{t:bluff|fazer bluff}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin check: w pt dominuje „passar/passa/Passo” (≈140×), także w m10-l1 i m10-l3; „faz check” tylko w m10-l2.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "\"Com {{t:top-pair|par máximo}} isto não é",
+    "nowy": "\"Com {{t:top-pair|par de topo}} isto não é",
+    "waga": "ŚREDNIE",
+    "powod": "Top pair: „par de topo” jak w reszcie pt (34×); „par máximo” tylko w m10-l2 i 3 innych lekcjach.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "O que faz com {{t:top-pair|par máximo}} e kicker fraco?",
+    "nowy": "O que faz com {{t:top-pair|par de topo}} e kicker fraco?",
+    "waga": "ŚREDNIE",
+    "powod": "Top pair: „par de topo” jak w reszcie pt (34×); „par máximo” tylko w m10-l2 i 3 innych lekcjach.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "O {{t:pair|par}} máximo ganha aos seus",
+    "nowy": "O {{t:pair|par}} de topo ganha aos seus",
+    "waga": "NISKIE",
+    "powod": "Top pair: „par de topo” jak w reszcie pt (34×); „par máximo” tylko w m10-l2 i 3 innych lekcjach.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "p. ex. {{t:top-pair|par máximo}} com um kicker",
+    "nowy": "p. ex. {{t:top-pair|par de topo}} com um kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Top pair: „par de topo” jak w reszcie pt (34×); „par máximo” tylko w m10-l2 i 3 innych lekcjach.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m10-l2-typy-graczy.md",
+    "stary": "Quando ele está no blind, rouba-o com mais frequência",
+    "nowy": "Quando ele está no blind, rouba os blinds com mais frequência",
+    "waga": "NISKIE",
+    "powod": "PL „kradniesz częściej” (blindy); „rouba-o” = okradasz jego, nienaturalne.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "É preciso ir all-in com uma {{t:range|gama}} mais larga.",
+    "nowy": "É preciso ir all-in com um {{t:range|range}} mais largo.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "por isso a {{t:range|gama}} de all-in estreita-se",
+    "nowy": "por isso o {{t:range|range}} de all-in estreita-se",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "ou um ás na {{t:range|gama}} de {{t:call|pagamento}}",
+    "nowy": "ou um ás no {{t:range|range}} de {{t:call|pagamento}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "\"All-in, porque quanto mais fundo o stack, mais largo\", why: \"Pelo contrário: quanto mais fundo o stack, mais estreita a {{t:range|gama}} de all-in. O {{t:shove|push}} mais largo",
+    "nowy": "\"All-in, porque quanto mais profundo o stack, mais largo\", why: \"Pelo contrário: quanto mais profundo o stack, mais estreito o {{t:range|range}} de all-in. O {{t:shove|shove}} mais largo",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”). Shove: „shove” jak w m11-l2, m11-l3 i glosariuszu (nazwa ang. shove). „fundo” → „profundo” jak w m11-l2.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "Como muda a {{t:range|gama}} de all-in?",
+    "nowy": "Como muda o {{t:range|range}} de all-in?",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "## Quanto mais curto o stack, mais larga a gama",
+    "nowy": "## Quanto mais curto o stack, mais largo o range",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "quanto mais adversários atrás de si, mais estreita a gama",
+    "nowy": "quanto mais adversários atrás de si, mais estreito o range",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "## O ante alarga a {{t:range|gama}}",
+    "nowy": "## O ante alarga o {{t:range|range}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "Nesta estrutura, a {{t:range|gama}} aumenta",
+    "nowy": "Nesta estrutura, o {{t:range|range}} aumenta",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "com cada mão que joga, faz {{t:shove|push}}, ou seja",
+    "nowy": "com cada mão que joga, faz {{t:shove|shove}}, ou seja",
+    "waga": "ŚREDNIE",
+    "powod": "Shove: „faz shove” jak w m11-l2, m11-l3 (6×) i nazwa ang. z glosariusza; nazwa strategii „push/fold” zostaje.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l1-push-fold.md",
+    "stary": "{{t:call|paga}} com uma gama mais larga",
+    "nowy": "{{t:call|paga}} com um range mais largo",
+    "waga": "NISKIE",
+    "powod": "Termin range: w pt dominuje „range” (≈80×, w tym m10, m11-l2, m13); „gama” tylko w m11-l1. Rodzaj męski („o range”).",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m13-l2-powtorki.md",
+    "stary": "Continua a ter um {{t:flush-draw|flush draw}} com ás",
+    "nowy": "Continua a ter um {{t:flush-draw|projeto de cor}} com ás",
+    "waga": "ŚREDNIE",
+    "powod": "Flush draw: w pt „projeto de cor” (≈20×); „flush draw” tylko tu.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m13-l2-powtorki.md",
+    "stary": "e o {{t:flush-draw|flush draw}} desapareceu",
+    "nowy": "e o {{t:flush-draw|projeto de cor}} desapareceu",
+    "waga": "ŚREDNIE",
+    "powod": "Flush draw: „projeto de cor” jak w reszcie pt.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m13-l2-powtorki.md",
+    "stary": "cada combinação e cada {{t:draw|draw}}.",
+    "nowy": "cada combinação e cada {{t:draw|projeto}}.",
+    "waga": "ŚREDNIE",
+    "powod": "Draw: w pt „projeto” (≈90×, także m10-l3); „draw” tylko w m13-l2.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m13-l2-powtorki.md",
+    "stary": "nem de nenhum {{t:draw|draw}}, porque",
+    "nowy": "nem de nenhum {{t:draw|projeto}}, porque",
+    "waga": "ŚREDNIE",
+    "powod": "Draw: „projeto” jak w reszcie pt.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m11-l3-icm.md",
+    "stary": "e o senhor {{t:cover|cobre}} esse jogador",
+    "nowy": "e {{t:cover|cobre}} esse jogador",
+    "waga": "NISKIE",
+    "powod": "Przewodnik głosu: forma 3. os. bez zaimka jak w całym tekście; „o senhor” tylko tu.",
+    "grupa": "L5"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m13-l3-przeglad.md",
+    "stary": "A aplicação revê por si as mãos dos jogos contra bots.",
+    "nowy": "A aplicação revê em seu lugar as mãos dos jogos contra bots.",
+    "waga": "NISKIE",
+    "powod": "PL „za ciebie”; „revê por si” czyta się też jako „sama z siebie”.",
+    "grupa": "L5"
+  }
+]

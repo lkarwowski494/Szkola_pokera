@@ -1,0 +1,59 @@
+[Z1] prompt: "Turn. Ma Pan czysty {{t:flush-draw|flush draw}}[flush draw] ({{n:outs.flush}} outów), {{t:pot|pote}}[pula] wynosi {{n:ex.pot}}, a przeciwnik {{t:bet|aposta}}[stawia/zakłada] {{n:ex.bet.quarter}}. {{t:call|Paga}}[Płaci/sprawdza] Pan, {{t:flush|flush}}[kolor] nie wchodzi i traci Pan {{n:ex.bet.quarter}}. Jak ocenia Pan {{t:call|call}}[sprawdzenie]?"
+
+[Z2] - { text: "Było złe, bo {{t:flush|flush}}[kolor] nie wszedł", why: "{{t:flush|flush}}[kolor] wchodzi tylko w około {{n:odds.flush.turn-river}} przypadków, więc chybienie było najbardziej prawdopodobnym wynikiem. Ocenia [Pan] / oceniaj decyzję po cenie, a cena była dobra." }
+DWUZNACZNE: „Avalia a decisão pelo preço” może być 3. os. trybu oznajmującego („ocenia Pan decyzję”) albo trybem rozkazującym w formie „tu” („oceniaj”); w innych miejscach (Z8 „Calcule”, Z9 „Escreva”) użyto formy grzecznościowej „você”, więc rejestr jest niespójny.
+
+[Z3] - { text: "Byłoby dobre tylko, gdyby {{t:flush|flush}}[kolor] wszedł", why: "To jest definicja oceniania po wyniku. Ta sama decyzja nie zmienia jakości w zależności od karty, która wyszła potem." }
+
+[Z4] prompt: "Turn. Czysty {{t:flush-draw|Flush draw}}[flush draw], {{t:pot|pote}}[pula] wynosi {{n:ex.pot}}, a przeciwnik {{t:bet|aposta}}[stawia] całą {{t:pot|pote}}[pulę]: {{n:ex.bet.pot}}. {{t:call|Paga}}[Płaci/sprawdza] Pan i {{t:flush|flush}}[kolor] wchodzi na riverze. Jak ocenia Pan {{t:call|call}}[sprawdzenie]?"
+
+[Z5] - { text: "Było dobre, bo {{t:flush|flush}}[kolor] jest najlepszą ręką", why: "Siła ręki po trafieniu nie zmienia ceny. Liczy się porównanie: {{n:odds.flush.turn-river}} prawdopodobieństwa wobec {{n:eq.bet-pot}} potrzebnych." }
+
+[Z6] - { text: "Czy przy informacji, którą Pan miał, decyzja miała dodatnie {{t:expected-value|EV}}[EV]?", correct: true, why: "To jedyne pytanie, które odróżnia błąd od pecha. Oblicza [Pan] / oblicz cenę, equity przeciw {{t:range|range}}[zakresowi] przeciwnika i to, co wiedział Pan w chwili decyzji." }
+DWUZNACZNE: „Calcula o preço” — 3. os. oznajmującego („oblicza Pan”) albo rozkaźnik „tu” („oblicz”); niespójne z grzecznościowym „Calcule” w Z8.
+
+[Z7] Pójście all-in z {{t:pair|par}}[parą] asów przeciw {{t:pair|par}}[parze] króli jest najlepszą możliwą decyzją, a mimo to przegrywa w około **{{n:res.kk-wins}}** przypadków. Z drugiej strony {{t:call|call}}[sprawdzenie] z {{t:flush-draw|flush draw}}[flush draw] za całą {{t:pot|pote}}[pulę] na turnie jest złe (potrzebuje {{n:eq.bet-pot}}, ma około {{n:odds.flush.turn-river}}), a mimo to wygrywa mniej więcej raz na pięć.
+
+[Z8] 2. Proszę obliczyć cenę i equity przeciw {{t:range|range}}[zakresowi] przeciwnika (M2, M6).
+
+[Z9] Każdy wpada w tilt trochę inaczej. Proszę zapisać swój **profil tiltu**: co go wyzwala, co Pan myśli i czuje w tej chwili, co Pan robi przy stole (np. {{t:call|paga}}[sprawdza] zbyt szerokim zakresem, {{t:raise|aumenta}}[podbija] z zemsty). Im lepiej Pan zna swoje sygnały, tym wcześniej je Pan wykryje.
+
+[Z10] - { text: "Przechodzi [Pan] / przejdź na wyższy {{t:stakes|limite}}[limit], żeby szybciej odrobić", why: "To jest tilt desperacji. Wyższy {{t:stakes|limite}}[limit] przy mniejszym bankrollu w {{t:buy-in|buy-ins}}[buy-inach] gwałtownie zwiększa {{t:risk-of-ruin|risco de ruína}}[ryzyko ruiny]." }
+
+[Z11] - { text: "Schodzi [Pan] / zejdź z {{t:stakes|limite}}[limitu] natychmiast", correct: true, why: "To też dobra decyzja: niektóre źródła radzą zejść zaraz po przegraniu {{n:dd.bi.small}} {{t:buy-in|buy-ins}}[buy-inów]. Zejście, zanim bankroll dojdzie do połowy, nie jest błędem, ale zejście dopiero po tym już jest błędem." }
+DWUZNACZNE: „descer só depois disso já é um erro” — „po tym” może znaczyć „później niż w chwili dojścia do połowy” (zamierzone) albo „po dojściu do połowy” (co czyta się jak błąd także zejścia dokładnie przy połowie lub tuż po niej, sprzecznie z regułą schodzenia przy połowie, Z22/Z25).
+
+[Z12] - { text: "Mniej więcej pół na pół, ale nigdy mniej niż {{n:study.min}} nauki", correct: true, why: "Także gdy Pan wygrywa, ideał to około {{n:study.winner}} nauki, a minimum to {{n:study.min}}." }
+
+[Z13] - { text: "Nie: przedział {{n:var.conf95}} wynosi około ± {{n:exam.m12.style.ci}}; ocenia [Pan] / oceniaj nowe zagrania w przeglądzie rąk", correct: true, why: "Błąd winrate'u po {{n:exam.m12.style.blocks}} blokach wynosi {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, więc przedział to ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Taki wynik mieści się zarówno w lepszym, jak i w gorszym stylu. O strategii decyduje się przez przegląd decyzji." }
+DWUZNACZNE: „avalia as novas jogadas” — oznajmujący („ocenia Pan”) albo rozkaźnik „tu”; „O erro do winrate” bez „padrão” — „błąd” zamiast jednoznacznego „błąd standardowy”.
+
+[Z14] prompt: "Turn. Ma Pan czysty {{t:flush-draw}}[flush draw], a {{t:pot|pote}}[pula] wynosi {{n:ex.pot}}. Przeciwnik idzie all-in za {{n:ex.bet.half}} i nie da się już wygrać nic więcej. {{t:call|Paga}}[Płaci/sprawdza] Pan, {{t:flush}}[kolor] wchodzi na riverze i wygrywa Pan. Jak ocenia Pan {{t:call}}[sprawdzenie]?"
+
+[Z15] - { text: "Tilt nienawiści do przegrywania", correct: true, why: "Wyzwalaczem jest sama przegrana, nawet gdy wie Pan, że to {{t:variance}}[wariancja]. Nie obwinia Pan szczęścia, siebie ani przeciwnika." }
+
+[Z16] - { text: "Tilt niesprawiedliwości", why: "Ten typ wyzwala poczucie, że poker jest niesprawiedliwy: bad beaty, coolery, przeciwnicy trafiający na riverze. Tutaj wie Pan, że wszystko przebiegło normalnie, a irytację wywołuje u Pana sama przegrana." }
+
+[Z17] - { text: "Tilt błędu", why: "Tilt błędu to irytacja własnymi błędami. Tutaj wie Pan, że zagrał dobrze." }
+
+[Z18] prompt: "Po przegraniu trzech dużych {{t:pot|potes}}[pul] nie potrafi Pan już ocenić, czy Pana ostatni {{t:call}}[sprawdzenie] był dobry, i myśli Pan o przejściu na wyższy {{t:stakes|limite}}[limit], żeby szybciej odrobić straty. Co Pan robi?"
+
+[Z19] - { text: "Biorę kilka głębokich oddechów i dalej gram na wyższym {{t:stakes|limite}}[limicie]", why: "Oddychanie pomaga przy pierwszych sygnałach tiltu, póki jeszcze myśli Pan jasno. Tutaj tilt już urósł, a wyższy {{t:stakes|limite}}[limit] tylko zwiększa straty." }
+
+[Z20] - { text: "Dalej gram na tym samym {{t:stakes|limite}}[limicie], ale tylko silnymi rękami", why: "Gdy nie potrafi Pan już spokojnie oceniać decyzji, dalsza gra to gra na swoim najgorszym poziomie (C-game), niezależnie od rąk, które Pan wybiera. Kończy [Pan] / zakończ {{t:session|sessão}}[sesję]." }
+DWUZNACZNE: „Termina a sessão.” — oznajmujący („kończy Pan sesję”) albo rozkaźnik „tu” („zakończ sesję”).
+
+[Z21] prompt: "Wygrywa Pan {{n:dd.wr-low}} przy {{t:standard-deviation|desvio-padrão}}[odchyleniu standardowym] {{n:var.sd}} i ma {{n:exam.m12.ror.bi}} {{t:buy-in|buy-ins}}[buy-inów] ({{n:exam.m12.ror.bb}}). Jakie jest ryzyko utraty całego bankrolla, jeśli nigdy nie zejdzie Pan z {{t:stakes|limite}}[limitu]?"
+
+[Z22] - { text: "Schodzę o jeden {{t:stakes|limite}}[limit]", correct: true, why: "Próg zejścia to połowa ustalonej liczby {{t:buy-in|buy-ins}}[buy-inów]: przy {{n:br.bi.beginner}} jest to {{n:exam.m12.md.half}}. Ma Pan {{n:exam.m12.md.now}}, czyli mniej. Na {{t:stakes|limite}}[limicie] dwa razy niższym ten sam bankroll znów odpowiada prawie pełnej liczbie {{t:buy-in|buy-ins}}[buy-inów] tego limitu. To ogólna wskazówka; jeśli gra przestanie być pod kontrolą, proszę zajrzeć na ekran «Pomoc»." }
+
+[Z23] - { text: "Zostaję i gram więcej, żeby odrobić straty", why: "Próba odrobienia strat to sygnał ostrzegawczy, a nie plan. Bankroll spadł poniżej progu {{n:exam.m12.md.half}}, więc schodzi Pan / zejdź o jeden {{t:stakes|limite}}[limit]." }
+DWUZNACZNE: „pelo que desce um limite” — oznajmujący („więc schodzi Pan”) albo rozkaźnik „tu” („więc zejdź”).
+
+[Z24] because: "nawet najlepsze {{n:skill.pct}} graczy dopiero po około {{n:skill.hands}} rękach są przed najgorszymi {{n:skill.pct}} w około {{n:skill.ahead}} przypadków, a mniejsze różnice umiejętności wymagają dużo więcej rąk"
+
+[Z25] then: "schodzi [Pan] o jeden {{t:stakes|limite}}[limit] najpóźniej w tym momencie i wraca wyżej dopiero wtedy, gdy ma pełny bankroll w {{t:buy-in|buy-ins}}[buy-inach] wyższego {{t:stakes|limite}}[limitu]"
+
+[Z26] then: "na początku poświęca [Pan] około {{n:study.beginner}} czasu na naukę; gdy już wygrywa na swoim {{t:stakes|limite}}[limicie], około {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}"
+
+[Z27] because: "na początku ma [Pan] najwięcej do nadrobienia, a gdy już wygrywa na swoim {{t:stakes|limite}}[limicie], może grać więcej"

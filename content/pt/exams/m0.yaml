@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "O adversário tem um {{t:three-of-a-kind|trio}} de ases e a sua mão é uma {{t:straight|sequência}} até ao valete. Quem ganha?"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "A sua mão", correct: true, why: "As suas cinco cartas são J-10-9-8-7, ou seja, uma {{t:straight}}. A {{t:straight|sequência}} está acima do {{t:three-of-a-kind|trio}} no ranking, por isso a altura das cartas do adversário não importa." }
+      - { text: "O adversário, porque tem ases", why: "Os ases só contam quando a combinação é a mesma. Aqui as combinações são diferentes: a {{t:straight}} bate o {{t:three-of-a-kind|trio}}." }
+      - { text: "{{t:split-pot|Divisão do pote}}", why: "Combinações diferentes não empatam. Ganha a que está mais acima no ranking." }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Tem uma {{t:four-of-a-kind|quadra}} de noves e o adversário tem um {{t:full-house|full house}} de reis. Quem ganha?"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "A sua mão", correct: true, why: "A {{t:four-of-a-kind|quadra}} está em 3.º lugar no ranking e o {{t:full-house}} em 4.º. Os reis do adversário não ajudam, porque as combinações são diferentes." }
+      - { text: "O adversário, porque os reis são mais altos do que os noves", why: "A altura das cartas só se compara quando a combinação é a mesma. A {{t:four-of-a-kind|quadra}} bate sempre o {{t:full-house|full house}}." }
+      - { text: "{{t:split-pot|Divisão do pote}}, porque ambos usam a {{t:board|mesa}}", why: "Ambos usam as {{t:community-cards|cartas comunitárias}}, mas cada um forma cinco cartas diferentes: a sua mão é uma {{t:four-of-a-kind|quadra}}, a do adversário um {{t:full-house|full house}}." }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "O adversário tem um {{t:pair|par}} de ases e a sua mão tem {{t:two-pair}}: setes e duques. Quem ganha?"
+    options:
+      - { text: "A sua mão", correct: true, why: "{{t:two-pair|Dois pares}} estão acima de um {{t:pair|par}} no ranking, mesmo quando são baixos. Primeiro compara-se a categoria da combinação." }
+      - { text: "O adversário, porque os ases são os mais altos", why: "Um {{t:pair|par}} de ases continua a ser apenas um {{t:pair}}. A altura só decide quando a combinação é a mesma." }
+      - { text: "Depende do kicker", why: "O kicker só conta quando o núcleo da combinação é idêntico. Aqui as combinações são diferentes." }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ambos têm {{t:two-pair}}: damas e oitos da {{t:board|mesa}}. Quem ganha?"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "A sua mão", correct: true, why: "O núcleo da combinação é o mesmo (damas e oitos), por isso decide a quinta carta. O seu ás bate o rei do adversário." }
+      - { text: "O adversário", why: "O adversário tem um rei como quinta carta e a sua mão tem um ás. O ás é mais alto." }
+      - { text: "{{t:split-pot|Divisão do pote}}", why: "Só haveria divisão com cinco cartas idênticas. Aqui as quintas cartas são diferentes: ás contra rei." }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ambos têm um {{t:pair|par}} de reis e um ás. A sua segunda carta (4) é mais alta do que a segunda carta do adversário (3). Quem ganha?"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|Divisão do pote}}", correct: true, why: "As melhores cinco cartas de ambos os jogadores são K-K-A-Q-J. O 4 e o 3 não cabem nessas cinco cartas, por isso não mudam nada." }
+      - { text: "A sua mão, porque o 4 é mais alto do que o 3", why: "O kicker só conta quando entra nas 5 melhores cartas. Aqui a dama e o valete vêm da {{t:board}}, por isso o seu quatro é a sexta carta." }
+      - { text: "O adversário", why: "O adversário tem as mesmas cinco cartas que a sua mão: K-K-A-Q-J." }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ambos têm uma {{t:straight|sequência}}. Quem ganha?"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "O adversário", correct: true, why: "A sua {{t:straight}} é A-2-3-4-5, ou seja, a {{t:wheel}}, a {{t:straight}} mais baixa: aqui o ás conta como um. O adversário tem 3-4-5-6-7, por isso a {{t:straight}} dele é mais alta." }
+      - { text: "A sua mão, porque tem um ás", why: "Na {{t:straight|sequência}} do ás ao cinco, o ás é a carta mais baixa. Com a mesma combinação, ganha a {{t:straight}} mais alta: o 7 bate o 5." }
+      - { text: "{{t:split-pot|Divisão do pote}}", why: "Ambos têm uma {{t:straight|sequência}}, mas de alturas diferentes. Só haveria divisão com cinco cartas idênticas." }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ambos têm um {{t:flush|flush}} de copas com um ás na {{t:board|mesa}}. Quem ganha?"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "A sua mão", correct: true, why: "Os {{t:flush|flushes}} comparam-se a partir da carta mais alta. O ás é comum e a segunda carta é o seu rei contra a dama do adversário." }
+      - { text: "O adversário, porque tem duas cartas altas", why: "Conta, por ordem, a carta mais alta que é diferente. O seu rei bate a dama, por isso as restantes cartas não importam." }
+      - { text: "{{t:split-pot|Divisão do pote}}", why: "As cinco cartas são diferentes: A-K-9-4-3 e A-Q-J-9-3." }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Na {{t:board|mesa}} está um {{t:full-house}}: três ases e dois reis. Tem um {{t:pair|par}} de damas. Quem ganha?"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|Divisão do pote}}", correct: true, why: "As melhores cinco cartas de ambos os jogadores são A-A-A-K-K da {{t:board|mesa}}. As suas damas dariam um {{t:full-house|full house}} mais fraco (ases com damas), por isso não entram nas cinco cartas." }
+      - { text: "A sua mão, porque tem um {{t:pair|par}} de damas", why: "Ases com damas são mais fracos do que ases com reis, que estão na {{t:board|mesa}}. Por isso joga com a {{t:board|mesa}}, tal como o adversário." }
+      - { text: "O adversário", why: "O adversário também joga com as cinco cartas da {{t:board|mesa}}. As cartas dele não acrescentam nada, tal como as suas." }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Na {{t:board|mesa}} está uma {{t:straight}} do nove ao rei. Quem ganha?"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "A sua mão", correct: true, why: "O seu ás prolonga a {{t:straight|sequência}} até A-K-Q-J-10. O adversário joga com as cinco cartas da {{t:board|mesa}} (K-Q-J-10-9) e as suas são mais altas." }
+      - { text: "{{t:split-pot|Divisão do pote}}", why: "Só há divisão quando as melhores cinco cartas de ambos os jogadores estão na {{t:board|mesa}}. A sua mão tem cinco cartas melhores graças ao ás." }
+      - { text: "O adversário, porque tem um {{t:pair|par}}", why: "Um {{t:pair|par}} de três é mais fraco do que a {{t:straight}} da {{t:board|mesa}}, por isso o adversário joga com a {{t:board|mesa}}." }

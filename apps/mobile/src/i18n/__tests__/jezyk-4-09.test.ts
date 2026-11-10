@@ -2,7 +2,7 @@ import i18n, { jezykDlaUstawienia, ustawJezyk } from '../index';
 import { WYDANE } from '../slowniki';
 
 // Wydanie ja, zh-Hant, pt-BR, fr (plan-ja-zh-Hant §6, plan-pt-BR-fr §5; wzór K3 en): wybór z języka telefonu, ustawienie
-// ręczne, zmiana bez restartu; D-373: pt w innym regionie niż BR → pt-BR, dopóki pt nie jest wydany.
+// ręczne, zmiana bez restartu; D-373 (pt-PT → pt-BR) zastąpione przez D-405: pt jest wydany, pt-PT → pt (sesja AT).
 describe('wydanie ja, zh-Hant, pt-BR, fr', () => {
   it('cztery języki w wydaniu obok pl i en (kolejne wydania dopisują się obok, AK: de, es)', () => {
     expect(WYDANE).toEqual(expect.arrayContaining(['en', 'fr', 'ja', 'pl', 'pt-BR', 'zh-Hant']));
@@ -12,10 +12,10 @@ describe('wydanie ja, zh-Hant, pt-BR, fr', () => {
     for (const t of ['zh-Hant-TW', 'zh-TW', 'zh-HK']) expect(jezykDlaUstawienia('auto', [t])).toBe('zh-Hant');
     expect(jezykDlaUstawienia('auto', ['zh-Hans-CN'])).toBe('en');
   });
-  it('telefon: pt-BR i pt → pt-BR; pt-PT → pt-BR (D-373); fr-FR, fr-CA → fr', () => {
+  it('telefon: pt-BR i pt → pt-BR; pt-PT → pt (D-405); fr-FR, fr-CA → fr', () => {
     expect(jezykDlaUstawienia('auto', ['pt-BR'])).toBe('pt-BR');
     expect(jezykDlaUstawienia('auto', ['pt'])).toBe('pt-BR');
-    expect(jezykDlaUstawienia('auto', ['pt-PT'])).toBe('pt-BR');
+    expect(jezykDlaUstawienia('auto', ['pt-PT'])).toBe('pt');
     expect(jezykDlaUstawienia('auto', ['fr-FR'])).toBe('fr');
     expect(jezykDlaUstawienia('auto', ['fr-CA'])).toBe('fr');
   });

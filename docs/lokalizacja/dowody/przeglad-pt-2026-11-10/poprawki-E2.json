@@ -1,0 +1,344 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "cada {{t:pair|par}} com que o {{t:big-blind}} pagou o flop",
+    "nowy": "cada {{t:pair|par}} com que o {{t:big-blind}} {{t:call|pagou}} o flop",
+    "waga": "ŚREDNIE",
+    "powod": "Brak znacznika {{t:call}}, który jest w źródle pl. (q1, odp. Kh)",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "e depois de pagar o flop o adversário tem menos delas",
+    "nowy": "e depois de {{t:call|pagar}} o flop o adversário tem menos delas",
+    "waga": "ŚREDNIE",
+    "powod": "Brak znacznika {{t:call}}, który jest w źródle pl. (q3, „Aposto por valor”)",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "Sim: tem um {{t:flush-draw|draw de flush}} e um gutshot",
+    "nowy": "Sim: tem um {{t:flush-draw|projeto de cor}} e um gutshot",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush-draw: w pt dominuje „projeto de cor” (m8, m13, lekcje: 36×), tu „draw de flush”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "{{t:flush-draw|Draws de flush}}",
+    "nowy": "{{t:flush-draw|Projetos de cor}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush-draw: w pt dominuje „projeto de cor” (m8, m13, lekcje: 36×), tu „draw de flush”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "pode ter um {{t:flush-draw|draw de flush}}",
+    "nowy": "pode ter um {{t:flush-draw|projeto de cor}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush-draw: w pt dominuje „projeto de cor” (m8, m13, lekcje: 36×), tu „draw de flush”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "presente para um {{t:flush-draw|draw de flush}}",
+    "nowy": "presente para um {{t:flush-draw|projeto de cor}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush-draw: w pt dominuje „projeto de cor” (m8, m13, lekcje: 36×), tu „draw de flush”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "{{t:straight-draw|draw de sequência}}",
+    "nowy": "{{t:straight-draw|projeto de sequência}}",
+    "waga": "ŚREDNIE",
+    "powod": "Spójność z draw = „projeto” (152× w pt) i flush-draw = „projeto de cor”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m7.yaml",
+    "stary": "pagará com dezes e melhor.",
+    "nowy": "pagará com dezes e mãos melhores.",
+    "waga": "NISKIE",
+    "powod": "pl „dziesiątkami i lepszymi” (rękami); „e melhor” niejasne.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m8.yaml",
+    "stary": "{{t:check|Fazendo check}}, chega",
+    "nowy": "{{t:check|Ao fazer check}}, chega",
+    "waga": "NISKIE",
+    "powod": "Ta sama konstrukcja co w m7 („Ao fazer check”); unika gerundium.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "{{t:top-pair|Par máximo}} com um bom kicker",
+    "nowy": "{{t:top-pair|Par de topo}} com um bom kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt „par de topo” (m8 i lekcje: 75×), tu „par máximo”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "na qual o {{t:top-pair|par máximo}} é",
+    "nowy": "na qual o {{t:top-pair|par de topo}} é",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt „par de topo” (m8 i lekcje: 75×), tu „par máximo”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "para três {{t:street|streets}}:",
+    "nowy": "para três {{t:street|rondas}}:",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt dominuje „ronda(s)”/„rondas de valor” (≈80×; m10 też „rondas”), tu „streets”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "Para duas {{t:street|streets}}, cada",
+    "nowy": "Para duas {{t:street|rondas}}, cada",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt dominuje „ronda(s)”/„rondas de valor” (≈80×; m10 też „rondas”), tu „streets”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "número de {{t:street|streets}} =",
+    "nowy": "número de {{t:street|rondas}} =",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt dominuje „ronda(s)”/„rondas de valor” (≈80×; m10 też „rondas”), tu „streets”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "para as {{t:street|streets}} seguintes",
+    "nowy": "para as {{t:street|rondas}} seguintes",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt dominuje „ronda(s)”/„rondas de valor” (≈80×; m10 też „rondas”), tu „streets”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "Quantas {{t:value|streets de valor}} aguenta",
+    "nowy": "Quantas {{t:value|rondas de valor}} aguenta",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt dominuje „ronda(s)”/„rondas de valor” (≈80×; m10 też „rondas”), tu „streets”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "Três {{t:value|streets de valor}} aguentam",
+    "nowy": "Três {{t:value|rondas de valor}} aguentam",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt dominuje „ronda(s)”/„rondas de valor” (≈80×; m10 też „rondas”), tu „streets”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m9.yaml",
+    "stary": "para três {{t:value|streets de valor}} e quer",
+    "nowy": "para três {{t:value|rondas de valor}} e quer",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt dominuje „ronda(s)”/„rondas de valor” (≈80×; m10 też „rondas”), tu „streets”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m10.yaml",
+    "stary": "O fold to 3-bet tem muitas vezes menos e precisa",
+    "nowy": "O fold to 3-bet tem várias vezes menos oportunidades e precisa",
+    "waga": "ŚREDNIE",
+    "powod": "pl „ma ich wielokrotnie mniej” (okazji); „muitas vezes menos” czyta się jako „często mniej” i brak podmiotu „oportunidades”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m11.yaml",
+    "stary": "com um {{t:short-stack|stack curto}} são precisamente",
+    "nowy": "com um {{t:short-stack|short stack}} são precisamente",
+    "waga": "ŚREDNIE",
+    "powod": "Termin short-stack: w pt „short stack” (lekcje m11), tu „stack curto”/„stack”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m11.yaml",
+    "stary": "Mesmo com um {{t:short-stack|stack}} tão curto e um bom preço",
+    "nowy": "Mesmo com um {{t:short-stack|short stack}} assim e um bom preço",
+    "waga": "ŚREDNIE",
+    "powod": "Termin short-stack: w pt „short stack” (lekcje m11), tu „stack curto”/„stack”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m11.yaml",
+    "stary": "Um {{t:short-stack|stack curto}} alarga",
+    "nowy": "Um {{t:short-stack|short stack}} alarga",
+    "waga": "ŚREDNIE",
+    "powod": "Termin short-stack: w pt „short stack” (lekcje m11), tu „stack curto”/„stack”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "\"Tilt por odiar perder\"",
+    "nowy": "\"Tilt de ódio a perder\"",
+    "waga": "ŚREDNIE",
+    "powod": "Nazwy typów tiltu niezgodne z lekcją m12-l3 („Tilt de injustiça/de erro/de ódio a perder”), a pytanie odsyła do „classificação da lição”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "\"Tilt por injustiça\"",
+    "nowy": "\"Tilt de injustiça\"",
+    "waga": "ŚREDNIE",
+    "powod": "Nazwy typów tiltu niezgodne z lekcją m12-l3 („Tilt de injustiça/de erro/de ódio a perder”), a pytanie odsyła do „classificação da lição”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "\"Tilt por erro\", why: \"O tilt por erro é",
+    "nowy": "\"Tilt de erro\", why: \"O tilt de erro é",
+    "waga": "ŚREDNIE",
+    "powod": "Nazwy typów tiltu niezgodne z lekcją m12-l3 („Tilt de injustiça/de erro/de ódio a perder”), a pytanie odsyła do „classificação da lição”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "subir para um {{t:stakes|nível}} mais alto",
+    "nowy": "subir para um {{t:stakes|limite}} mais alto",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "continuo a jogar num {{t:stakes|nível}} mais alto",
+    "nowy": "continuo a jogar num {{t:stakes|limite}} mais alto",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "e um {{t:stakes|nível}} mais alto só aumenta",
+    "nowy": "e um {{t:stakes|limite}} mais alto só aumenta",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "Continuo a jogar no mesmo {{t:stakes|nível}}",
+    "nowy": "Continuo a jogar no mesmo {{t:stakes|limite}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "se nunca descer de {{t:stakes|nível}}?",
+    "nowy": "se nunca descer de {{t:stakes|limite}}?",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "Desço um {{t:stakes|nível}}",
+    "nowy": "Desço um {{t:stakes|limite}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "Num {{t:stakes|nível}} duas vezes mais baixo",
+    "nowy": "Num {{t:stakes|limite}} duas vezes mais baixo",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "{{t:buy-in|buy-ins}} desse nível.",
+    "nowy": "{{t:buy-in|buy-ins}} desse limite.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "pelo que desce um {{t:stakes|nível}}.",
+    "nowy": "pelo que desce um {{t:stakes|limite}}.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin stakes: lekcja m12-l4 i reszta pt używają „limite” (50×; te same zdania: „descer de limite”, „Desce um limite”); „nível” koliduje tu z „pior nível de jogo (C-game)”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "é de ± cerca de {{n:exam.m12.style.ci}}",
+    "nowy": "é de cerca de ± {{n:exam.m12.style.ci}}",
+    "waga": "NISKIE",
+    "powod": "Szyk: „cerca de ± X” jak w why tej samej pozycji.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "A respiração ajuda aos primeiros sinais",
+    "nowy": "A respiração ajuda nos primeiros sinais",
+    "waga": "NISKIE",
+    "powod": "Rząd: „ajudar nos primeiros sinais”.",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m12.yaml",
+    "stary": "Faz {{t:call|call}}, o {{t:flush}}",
+    "nowy": "{{t:call|Paga}}, o {{t:flush}}",
+    "waga": "NISKIE",
+    "powod": "pl „Sprawdzasz”; w pt czasownik call = „pagar” (reszta plików).",
+    "grupa": "E2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m13.yaml",
+    "stary": "após uma c-bet",
+    "nowy": "após um c-bet",
+    "waga": "NISKIE",
+    "powod": "Rodzaj: w m7, m10 i większości pt „um/o c-bet” (110× vs 54×).",
+    "grupa": "E2"
+  }
+]

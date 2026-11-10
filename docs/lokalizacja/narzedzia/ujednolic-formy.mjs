@@ -84,7 +84,93 @@ const wFold = (klucz, mapa) => ({
   zamien: (m, forma) => { const n = mapa[forma.toLowerCase()]; return n ? `{{t:${klucz}|${wielka(forma, n)}}}` : m; },
 });
 
+// pt (pt-PT, sesja AT, 2026-11-10, D-406/D-408): zmiana terminu ze zmianą rodzaju — rodzajniki i zaimki dzierżawcze
+// bezpośrednio przed terminem (do 3 słów, np. „todas as suas cores”) i przymiotnik bezpośrednio po nim („baixa”, „mais alta”)
+// dostają rodzaj nowego terminu. Reszta zdania (orzecznik, zaimki) — przegląd zmienionych wierszy w świeżym kontekście.
+const PT_ZM = { // żeński → męski
+  a: 'o', as: 'os', uma: 'um', umas: 'uns', da: 'do', das: 'dos', na: 'no', nas: 'nos', 'à': 'ao', 'às': 'aos',
+  pela: 'pelo', pelas: 'pelos', numa: 'num', nenhuma: 'nenhum', sua: 'seu', suas: 'seus', esta: 'este', essa: 'esse',
+  estas: 'estes', essas: 'esses', desta: 'deste', dessa: 'desse', nesta: 'neste', nessa: 'nesse', outra: 'outro',
+  outras: 'outros', toda: 'todo', todas: 'todos', 'única': 'único', 'própria': 'próprio',
+};
+const PT_ZM_P = { // przymiotnik po terminie, żeński → męski
+  baixa: 'baixo', baixas: 'baixos', alta: 'alto', altas: 'altos', feita: 'feito', feitas: 'feitos', falhada: 'falhado',
+  falhadas: 'falhados', completa: 'completo', completas: 'completos', 'máxima': 'máximo', pequena: 'pequeno',
+  pequenas: 'pequenos', barata: 'barato', apostada: 'apostado',
+};
+const PT_MZ = { // męski → żeński (board → mesa)
+  o: 'a', os: 'as', um: 'uma', do: 'da', dos: 'das', no: 'na', nos: 'nas', ao: 'à', pelo: 'pela', num: 'numa',
+  nenhum: 'nenhuma', seu: 'sua', este: 'esta', esse: 'essa', deste: 'desta', desse: 'dessa', neste: 'nesta', outro: 'outra',
+  todo: 'toda', 'único': 'única',
+};
+const PT_MZ_P = { seco: 'seca', molhado: 'molhada', alto: 'alta', baixo: 'baixa', emparelhado: 'emparelhada',
+};
+const wMapie = (mapa, s) => { const n = mapa[s.toLowerCase()]; return n ? wielka(s, n) : s; };
+const ptRodzaj = (termin, nowy, mapa, mapaP, opis) => {
+  const alt = (m) => Object.keys(m).sort((a, b) => b.length - a.length).join('|');
+  const det = alt(mapa), prz = alt(mapaP);
+  return {
+    opis,
+    // (det det det )(melhor )TERMIN( mais)( przymiotnik) — przymiotnik także w znaczniku {{t:dry|seco}}.
+    re: new RegExp(`(?<![\\p{L}\\w-])((?:(?:${det}) ){0,3})((?:melhor|pior) )?(${termin})(?![\\p{L}\\w-])((?: mais)? (?:\\{\\{t:[\\w-]+\\|)?(?:${prz})(?=[^\\p{L}\\w-]|$))?`, 'giu'),
+    zamien: (m, dety, pre, t, ogon) => {
+      const d = dety ? dety.trim().split(' ').map((x) => wMapie(mapa, x)).join(' ') + ' ' : '';
+      const o = ogon ? ogon.replace(/(\p{L}+)$/u, (x) => wMapie(mapaP, x)) : '';
+      return `${d}${pre ?? ''}${nowy(t)}${o}`;
+    },
+  };
+};
+const ptFlush = (t) => {
+  const tag = /^\{\{t:flush\|(\w+)\}\}$/i.exec(t);
+  const w = tag ? tag[1] : t;
+  const n = wielka(w, /es$/i.test(w) ? 'flushes' : 'flush');
+  return tag ? `{{t:flush|${n}}}` : n;
+};
+
 const REGULY = {
+  pt: [
+    // flush-draw (formy w znaczniku) → flush draw
+    tag('flush-draw', 'projeto de cor', 'flush draw'), tag('flush-draw', 'Projeto de cor', 'Flush draw'),
+    tag('flush-draw', 'projetos de cor', 'flush draws'), tag('flush-draw', 'Projetos de cor', 'Flush draws'),
+    tag('flush-draw', 'projeto de flush', 'flush draw'), tag('flush-draw', 'draw de flush', 'flush draw'),
+    tag('flush-draw', 'draws de flush', 'flush draws'),
+    lit('{{t:draw|projeto}} de {{t:flush|cor}}', '{{t:flush-draw|flush draw}}'),
+    // tekst wolny: projeto de cor/flush → flush draw, projeto de sequência → draw de sequência, projeto(s) → draw(s)
+    slowo('projetos de (?:cor|flush)', 'flush draws'), slowo('projeto de (?:cor|flush)', 'flush draw'),
+    slowo('Projeto de sequência', 'Draw de sequência'), slowo('projetos? de sequência', 'draw de sequência'),
+    tag('straight-draw', 'projeto de sequência', 'draw de sequência'),
+    tag('draw', 'projeto', 'draw'), tag('draw', 'Projeto', 'Draw'), tag('draw', 'projetos', 'draws'), tag('draw', 'Projetos', 'Draws'),
+    slowo('projetos', 'draws'), slowo('Projetos', 'Draws'), slowo('projeto', 'draw'), slowo('Projeto', 'Draw'),
+    // przed kropką kończącą zdanie (slowo jej nie przepuszcza; terms-def rainbow, outs, calling-station)
+    lit('tem draw de flush.', 'tem flush draw.'), lit('tem projeto de flush.', 'tem flush draw.'),
+    lit('completando um projeto.', 'completando um draw.'), lit('ou projetos.', 'ou draws.'),
+    // flush: cor (ż.) → flush (m.) ze zgodą rodzaju; w znaczniku i w tekście wolnym (znaczenie układu)
+    ptRodzaj('\\{\\{t:flush\\|(?:cor|cores|Cor|Cores)\\}\\}', ptFlush, PT_ZM, PT_ZM_P, 'pt flush cor → flush (rodzaj)'),
+    ptRodzaj('cor|cores|Cor|Cores', ptFlush, PT_ZM, PT_ZM_P, 'pt cor → flush (tekst, rodzaj)'),
+    // c-bet: rodzaj męski (większość korpusu 111 : 43)
+    ptRodzaj('c-bets?', (t) => t, PT_ZM, PT_ZM_P, 'pt a c-bet → o c-bet'),
+    // board → mesa (m. → ż.)
+    ptRodzaj('\\{\\{t:board\\|board\\}\\}', () => '{{t:board|mesa}}', PT_MZ, PT_MZ_P, 'pt board → mesa (rodzaj)'),
+    // top pair
+    tag('top-pair', 'par de topo', 'top pair'), tag('top-pair', 'Par de topo', 'Top pair'),
+    tag('top-pair', 'pares de topo', 'top pairs'), tag('top-pair', 'Pares de topo', 'Top pairs'),
+    // check: fazer check → passar
+    ...[['fazer', 'passar'], ['faz', 'passa'], ['faço', 'passo'], ['fazem', 'passam'], ['feito', 'passado'], ['fez', 'passou'],
+      ['fizer', 'passar'], ['fizeram', 'passaram'], ['fazendo', 'passando'], ['fizesse', 'passasse'], ['farem', 'passarem']]
+      .flatMap(([z, n]) => [tag('check', `${z} check`, n), tag('check', `${wielka('X', z)} check`, wielka('X', n)),
+        slowo(`${z} check(?!-)`, n, `pt ${z} check → ${n} (tekst)`), slowo(`${wielka('X', z)} check(?!-)`, wielka('X', n), `pt ${z} check → ${n} (tekst)`)]),
+    lit('Ao fazer check', 'Ao passar'),
+    // shove: push → shove (znacznik); „push/fold” w tekście wolnym zostaje (nazwa strategii, D-408)
+    tag('shove', 'push', 'shove'),
+    // stakes, street, range
+    tag('stakes', 'nível', 'limite'),
+    tag('street', 'street', 'ronda'), tag('street', 'streets', 'rondas'), tag('street', 'Street', 'Ronda'),
+    lit('Blinds, streets e jogadas', 'Blinds, rondas e jogadas'), lit('Blinds, streets, ações', 'Blinds, rondas, ações'),
+    lit('para três streets', 'para três rondas'), lit('nas streets seguintes', 'nas rondas seguintes'),
+    lit('início de uma street', 'início de uma ronda'),
+    tag('value', 'streets de valor', 'rondas de valor'),
+    slowo('leque', 'range'), slowo('leques', 'ranges'),
+  ],
   fr: [
     tag('big-blind', 'grosse blind', 'grosse blinde'),
     tag('big-blind', 'La grosse blind', 'La grosse blinde'),

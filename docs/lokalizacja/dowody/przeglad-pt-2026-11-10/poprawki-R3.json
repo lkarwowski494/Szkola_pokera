@@ -1,0 +1,29 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/modules.yaml",
+    "stary": "title: \"Pré-flop perante ação\"",
+    "nowy": "title: \"Preflop perante ação\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: w lekcjach i w terms-def pt wyłącznie „preflop” (124 wystąpienia); „pré-flop” tylko tutaj i w polach source.",
+    "grupa": "R3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/modules.yaml",
+    "stary": "sub: \"MDF, call, check-raise\"",
+    "nowy": "sub: \"MDF, pagamento, check-raise\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: call w całym pt = pagar/pagamento (pl „sprawdzenie”); tytuł lekcji m6 „Pagar ou desistir”.",
+    "grupa": "R3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/modules.yaml",
+    "stary": "title: \"Exploração dos micro stakes\"",
+    "nowy": "title: \"Exploração nos microlimites\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: korpus pt ma „microlimites” 15× (m3, m7, m8, m10, m12) wobec „micro stakes”/„microstakes” 4×; pl „mikrostawki”.",
+    "grupa": "R3"
+  }
+]
