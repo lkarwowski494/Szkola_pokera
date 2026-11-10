@@ -23,7 +23,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Flop: [[7s 6h 5d]]. Czy masz tu {{t:nuts-advantage|przewagę nutsów}}, czyli wyraźnie więcej najsilniejszych rąk niż rywal?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}", correct: true, why: "Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej." }
+      - { text: "Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}", correct: true, why: "Dobrze: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej." }
       - { text: "Tak, bo {{t:open|otworzyłeś}} przed flopem", why: "Nie: {{t:open|otwarcie}} daje ci przewagę na wysokich flopach. Na niskim, {{t:connected|połączonym}} flopie twoje wysokie karty chybiły, a {{t:range}} rywala trafia tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}." }
       - { text: "Tak, bo masz więcej wysokich {{t:pair|par}}", why: "Nie: masz więcej {{t:overpair|overpar}} ({{t:pocket-pair|pocket par}} wyższych od każdej karty na {{t:board|stole}}, np. TT, JJ), ale na takim flopie {{t:overpair}} nie należy do najsilniejszych rąk: przegrywa ze {{t:straight|stritem}}, setem i {{t:two-pair|dwiema parami}}." }
   - kind: choice

@@ -91,6 +91,6 @@ drills:
     prompt: "Du verteidigst den {{t:big-blind}} gegen ein {{t:open|Open}} vom Button. Auf welchem Flop machst du am häufigsten einen Check-Raise?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "Ja: Auf einem niedrigen, {{t:connected|verbundenen}} Flop hat der {{t:big-blind}} mehr der stärksten Hände ({{t:two-pair}}, {{t:straight|Straßen}}) als der Button, also macht er hier öfter einen Check-Raise." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Ja: Auf einem niedrigen, {{t:connected|verbundenen}} Flop hat der {{t:big-blind}} {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} in seiner {{t:range|Range}}, und der Button hat keinen {{t:nuts-advantage|Nuts-Vorteil}}, also machst du hier öfter einen Check-Raise." }
       - { text: "[[Ks Qd Jh]]", why: "Ein hoher Flop mit nah beieinanderliegenden Karten trifft die {{t:range|Range}} des Buttons gut (AK, AQ, KQ, hohe {{t:pair|Paare}}). Hier machst du seltener einen Check-Raise." }
       - { text: "[[Ah Ad Qc]]", why: "Auf einem Flop mit einem {{t:pair|Paar}} Assen hat häufiger der Button die stärksten Hände, der mit vielen Assen {{t:open|eröffnet}} hat. Hier machst du selten einen Check-Raise." }

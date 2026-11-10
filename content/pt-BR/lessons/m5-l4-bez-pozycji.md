@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Sim: um flop baixo com cartas próximas favorece o {{t:big-blind}}, que aqui tem {{t:two-pair}} ou {{t:straight|sequência}} com mais frequência. Você dá c-bet com menos frequência do que em flops altos: muitas mãos dão {{t:check}}, e apostam principalmente as mãos fortes e os {{t:draw|draws}} fortes."
-          small: "Frequente demais: em um flop baixo com cartas próximas, quem tem a {{t:nuts-advantage|vantagem de nuts}} é o {{t:big-blind}}. C-bets frequentes, mesmo pequenos, dão a ele a chance de {{t:raise|aumentar}} (check-raise) com as mãos mais fortes."
-          big: "Frequente e caro demais: o {{t:big-blind}} acertou {{t:two-pair}} ou {{t:straight|sequência}} aqui com mais frequência. Um c-bet grande e frequente arrisca muito quando você mesmo geralmente tem só cartas altas."
+          check: "Sim: um flop baixo com cartas próximas acerta o {{t:range|range}} do {{t:big-blind}}: ele tem aqui {{t:straight|sequências}} e {{t:two-pair|dois pares}}, e você não tem {{t:nuts-advantage|vantagem de nuts}}. Você dá c-bet com menos frequência do que em flops altos: muitas mãos dão {{t:check}}, e apostam principalmente as mãos fortes e os {{t:draw|draws}} fortes."
+          small: "Frequente demais: em um flop baixo com cartas próximas, você não tem {{t:nuts-advantage|vantagem de nuts}}. C-bets frequentes, mesmo pequenos, dão ao {{t:big-blind}} a chance de {{t:raise|aumentar}} (check-raise) com as mãos mais fortes."
+          big: "Frequente e caro demais: o {{t:big-blind}} tem aqui no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois pares}}. Um c-bet grande e frequente arrisca muito quando você mesmo geralmente tem só cartas altas."
     count: 3
 ---
 Até agora você jogou {{t:in-position}} contra um adversário. {{t:out-of-position|Fora de posição}} e contra vários jogadores, você dá c-bet com menos frequência.

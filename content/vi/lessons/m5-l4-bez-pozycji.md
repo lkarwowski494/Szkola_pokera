@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Đúng: flop thấp với các lá gần nhau có lợi cho {{t:big-blind}}, người ở đây thường có {{t:two-pair|hai đôi}} hoặc {{t:straight|sảnh}} hơn. Bạn c-bet ít hơn so với trên flop cao: nhiều tay bài {{t:check|xem bài}}, còn cược chủ yếu là các tay mạnh và {{t:draw|bài chờ}} mạnh."
-          small: "Quá thường xuyên: trên flop thấp với các lá gần nhau, chính {{t:big-blind}} có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho họ cơ hội {{t:raise|tố}} (check-raise) với các tay mạnh nhất."
-          big: "Quá thường xuyên và quá đắt: {{t:big-blind}} ở đây thường trúng {{t:two-pair|hai đôi}} hoặc {{t:straight|sảnh}} hơn. C-bet lớn thường xuyên có rủi ro cao khi bản thân bạn thường chỉ có bài cao."
+          check: "Đúng: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind}}: họ có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} ở đây, còn bạn không có {{t:nuts-advantage|lợi thế nuts}}. Bạn c-bet ít hơn so với trên flop cao: nhiều tay bài {{t:check|xem bài}}, còn cược chủ yếu là các tay mạnh và {{t:draw|bài chờ}} mạnh."
+          small: "Quá thường xuyên: trên flop thấp với các lá gần nhau, bạn không có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho {{t:big-blind}} cơ hội {{t:raise|tố}} (check-raise) với các tay mạnh nhất."
+          big: "Quá thường xuyên và quá đắt: {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}} ở đây. C-bet lớn thường xuyên có rủi ro cao khi bản thân bạn thường chỉ có bài cao."
     count: 3
 ---
 Cho đến giờ bạn đã chơi khi {{t:in-position}} với một đối thủ. Khi {{t:out-of-position|không có vị trí}} và khi đấu nhiều người chơi, bạn c-bet ít hơn.

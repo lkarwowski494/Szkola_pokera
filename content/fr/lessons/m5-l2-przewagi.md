@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Flop : [[7s 6h 5d]]. Qui a le plus souvent une main très forte ici ({{t:two-pair|double paire}} ou {{t:straight|quinte}}) ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Flop : [[7s 6h 5d]]. Avez-vous ici l'{{t:nuts-advantage|avantage de nuts}}, c'est-à-dire nettement plus de mains parmi les plus fortes que l'adversaire ?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "La {{t:big-blind|grosse blinde}}", correct: true, why: "Oui : la {{t:big-blind|grosse blinde}} défend beaucoup de {{t:connectors|connecteurs}} assortis et de mains avec un six ou un sept. Depuis le Bouton, vous avez plus de cartes hautes qui ont raté ici. C'est l'{{t:nuts-advantage|avantage de nuts}} de la {{t:big-blind|grosse blinde}}." }
-      - { text: "Vous, qui avez {{t:open|ouvert}} depuis le Bouton", why: "Non : votre {{t:range|range}} est pleine de cartes hautes. Vous avez plus d'{{t:overpair|overpaires}} ({{t:pocket-pair|paires servies}} plus hautes que chaque carte du {{t:board|board}}, p. ex. TT, JJ), mais moins de {{t:two-pair|doubles paires}} et de {{t:straight|quintes}} ; vous avez à peu près autant de sets (brelans avec une {{t:pocket-pair|paire servie}}) l'un que l'autre." }
-      - { text: "Tous les deux aussi souvent", why: "Non : les {{t:range|ranges}} diffèrent par leur composition. La défense large de la {{t:big-blind|grosse blinde}} contient beaucoup de petites cartes, et votre {{t:range|range}} des cartes hautes." }
+      - { text: "Non : la {{t:big-blind|grosse blinde}} a ici aussi des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}", correct: true, why: "Exact : la {{t:big-blind|grosse blinde}} défend beaucoup de {{t:connectors|connecteurs}} assortis et de mains avec un six ou un sept, qui touchent ici des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}. Vos cartes hautes ont raté ici, donc vous n'avez pas nettement plus de mains parmi les plus fortes." }
+      - { text: "Oui, car vous avez {{t:open|ouvert}} avant le flop", why: "Non : l'{{t:open|ouverture}} vous donne un avantage sur les flops hauts. Sur un flop bas et {{t:connected|connecté}}, vos cartes hautes ont raté, et la {{t:range|range}} de l'adversaire touche ici des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}." }
+      - { text: "Oui, car vous avez plus de {{t:pair|paires}} hautes", why: "Non : vous avez plus d'{{t:overpair|overpaires}} ({{t:pocket-pair|paires servies}} plus hautes que chaque carte du {{t:board|board}}, p. ex. TT, JJ), mais sur un tel flop, une {{t:overpair|overpaire}} ne fait pas partie des mains les plus fortes : elle perd contre une {{t:straight|quinte}}, un set et une {{t:two-pair|double paire}}." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ Avant le flop, les {{t:range|ranges}} des joueurs sont différentes. Le joueur q
 
 Vous avez l'{{t:range-advantage|avantage de range}} quand, sur un flop donné, vos mains sont en moyenne plus fortes que celles de l'adversaire. Sur [[Ks 7d 2c]], après une {{t:open|ouverture}} depuis le Bouton, c'est vous qui avez le plus de rois avec un bon kicker et le plus de {{t:pair|paires}} hautes. La {{t:big-blind|grosse blinde}} a ici beaucoup de mains qui ont raté.
 
-Sur un flop bas et {{t:connected|connecté}}, p. ex. [[7s 6h 5d]], l'{{t:range-advantage|avantage de range}} disparaît presque, et c'est la {{t:big-blind|grosse blinde}} qui a le plus souvent les mains les plus fortes : elle défend beaucoup de {{t:connectors|connecteurs}} assortis et de mains avec un six ou un sept, et a donc plus souvent une {{t:two-pair|double paire}} ou une {{t:straight|quinte}}.
+Sur un flop bas et {{t:connected|connecté}}, p. ex. [[7s 6h 5d]], l'{{t:range-advantage|avantage de range}} disparaît presque. La {{t:big-blind|grosse blinde}} défend beaucoup de {{t:connectors|connecteurs}} assortis et de mains avec un six ou un sept, qui touchent ici des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et vos cartes hautes ont raté.
 
 ## {{t:nuts-advantage|Avantage de nuts}}
 

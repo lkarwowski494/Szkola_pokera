@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Você {{t:open|abriu}} do Button, e o jogador no {{t:big-blind|big blind}} {{t:call|pagou}}. Em qual destes flops (as três primeiras {{t:community-cards|cartas comunitárias}}) esse jogador tem {{t:two-pair|dois pares}} ou {{t:straight|sequência}} com mais frequência que você?"
+    prompt: "Você {{t:open|abriu}} do Button, e o jogador no {{t:big-blind|big blind}} {{t:call|pagou}}. Em qual destes flops (as três primeiras {{t:community-cards|cartas comunitárias}}) você não tem {{t:nuts-advantage|vantagem de nuts}}, ou seja, claramente mais das mãos mais fortes que o adversário?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Sim: um flop baixo e {{t:connected|conectado}} acerta {{t:connectors|conectores}} e mãos com cartas baixas, que o {{t:big-blind}} defende muito. Você, do Button, tem mais cartas altas, que erraram aqui. Isso é {{t:nuts-advantage|vantagem de nuts}} do {{t:big-blind|big blind}}." }
-      - { text: "[[Kd Td 3s]]", why: "Não: um flop alto favorece quem {{t:open|abriu}}. Você tem mais reis com bom kicker, KT e {{t:pair|pares}} altos." }
-      - { text: "[[Ah Ad 7c]]", why: "Não: num flop com {{t:pair|par}} de ases, quem tem mais ases é você, porque o {{t:big-blind}} {{t:raise|aumenta}} com os ases mais fortes antes do flop. Ninguém tem {{t:straight|sequência}} aqui." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Sim: um flop baixo e {{t:connected|conectado}} acerta {{t:connectors|conectores}} e mãos com cartas baixas, que o {{t:big-blind}} defende muito, então ele também tem aqui {{t:straight|sequências}} e {{t:two-pair|dois pares}}. Suas cartas altas erraram aqui, então você não tem claramente mais das mãos mais fortes." }
+      - { text: "[[Kd Td 3s]]", why: "Não: um flop com duas cartas altas dá {{t:nuts-advantage|vantagem de nuts}} a quem {{t:open|abriu}}. Aqui você tem mais das mãos mais fortes, ex.: KK e KT, porque o {{t:big-blind}} {{t:raise|aumenta}} a maioria dos KK antes do flop." }
+      - { text: "[[Ah Qd 7c]]", why: "Não: num flop com ás e dama, quem tem mais das mãos mais fortes é você, ex.: AA e AQ, porque o {{t:big-blind}} costuma {{t:raise|aumentar}} com os ases mais fortes antes do flop." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

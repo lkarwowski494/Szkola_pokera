@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "對：牌張相近的低牌翻牌對{{t:big-blind|大盲}}有利，他在這裡更常有{{t:two-pair|兩對}}或{{t:straight|順子}}。你 C-bet 的頻率比高牌翻牌低：很多牌{{t:check|過牌}}，下注的主要是強牌和強{{t:draw|聽牌}}。"
-          small: "太常了：在牌張相近的低牌翻牌上，擁有{{t:nuts-advantage|堅果優勢}}的是{{t:big-blind|大盲}}。頻繁的 C-bet 即使是小注，也讓他有機會用最強的牌先{{t:check|過牌}}再{{t:raise|加注}}（check-raise）。"
-          big: "太常也太貴：{{t:big-blind|大盲}}在這裡更常擊中{{t:two-pair|兩對}}或{{t:straight|順子}}。你自己通常只有高牌時，頻繁的大 C-bet 風險很高。"
+          check: "對：牌張相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}：他在這裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而你沒有{{t:nuts-advantage|堅果優勢}}。你 C-bet 的頻率比高牌翻牌低：很多牌{{t:check|過牌}}，下注的主要是強牌和強{{t:draw|聽牌}}。"
+          small: "太常了：在牌張相近的低牌翻牌上，你沒有{{t:nuts-advantage|堅果優勢}}。頻繁的 C-bet 即使是小注，也讓{{t:big-blind|大盲}}有機會用最強的牌先{{t:check|過牌}}再{{t:raise|加注}}（check-raise）。"
+          big: "太常也太貴：{{t:big-blind|大盲}}在這裡的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}。你自己通常只有高牌時，頻繁的大 C-bet 風險很高。"
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ C-bet（持續{{t:bet|下注}}）是翻牌前最後一個{{t:raise|加注}}的�
 
 ## 牌張相近的低牌翻牌：較常{{t:check|過牌}}
 
-在 [[7s 6h 5d]] 上，更常有{{t:two-pair|兩對}}或{{t:straight|順子}}的是{{t:big-blind|大盲}}（見關於優勢的課程）。其他{{t:connected|連張}}和{{t:semi-connected|半連張}}的低牌翻牌也一樣。你 C-bet 的頻率比高牌翻牌低：很多牌{{t:check|過牌}}，下注的主要是非常強的牌和強{{t:draw|聽牌}}。
+在 [[7s 6h 5d]] 上，{{t:big-blind|大盲}}的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而你沒有{{t:nuts-advantage|堅果優勢}}（見關於優勢的課程）。其他{{t:connected|連張}}和{{t:semi-connected|半連張}}的低牌翻牌也一樣。你 C-bet 的頻率比高牌翻牌低：很多牌{{t:check|過牌}}，下注的主要是非常強的牌和強{{t:draw|聽牌}}。
 
 ## 對手要{{t:fold|棄牌}}多少才夠
 

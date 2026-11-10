@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Você {{t:open|abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}}. Flop: [[7s 6h 5d]]. Quem tem aqui com mais frequência uma mão muito forte ({{t:two-pair}} ou {{t:straight|sequência}})?"
+    prompt: "Você {{t:open|abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}}. Flop: [[7s 6h 5d]]. Você tem aqui {{t:nuts-advantage|vantagem de nuts}}, ou seja, claramente mais das mãos mais fortes que o adversário?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "O {{t:big-blind}}", correct: true, why: "Sim: o {{t:big-blind}} defende muitos {{t:connectors|conectores}} do mesmo naipe e mãos com seis ou sete. Você, no Button, tem mais cartas altas que erraram aqui. Essa é a {{t:nuts-advantage}} do {{t:big-blind}}." }
-      - { text: "Você, que {{t:open|abriu}} do Button", why: "Não: o seu {{t:range}} está cheio de cartas altas. Você tem mais {{t:overpair|overpairs}} ({{t:pocket-pair|pares de mão}} maiores que qualquer carta da {{t:board|mesa}}, ex.: TT, JJ), mas menos {{t:two-pair|dois pares}} e {{t:straight|sequências}}; sets (trincas com {{t:pocket-pair|par de mão}}) vocês dois têm em número parecido." }
-      - { text: "Os dois com a mesma frequência", why: "Não: os {{t:range|ranges}} têm composições diferentes. A defesa ampla do {{t:big-blind}} tem muitas cartas baixas, e o seu {{t:range}}, cartas altas." }
+      - { text: "Não: o {{t:big-blind}} também tem aqui {{t:straight|sequências}} e {{t:two-pair|dois pares}}", correct: true, why: "Isso: o {{t:big-blind}} defende muitos {{t:connectors|conectores}} do mesmo naipe e mãos com seis ou sete, que aqui fazem {{t:straight|sequências}} e {{t:two-pair|dois pares}}. Suas cartas altas erraram aqui, então você não tem claramente mais das mãos mais fortes." }
+      - { text: "Sim, porque você {{t:open|abriu}} antes do flop", why: "Não: a {{t:open|abertura}} te dá vantagem em flops altos. Em um flop baixo e {{t:connected|conectado}}, suas cartas altas erraram, e o {{t:range}} do adversário acerta aqui {{t:straight|sequências}} e {{t:two-pair|dois pares}}." }
+      - { text: "Sim, porque você tem mais {{t:pair|pares}} altos", why: "Não: você tem mais {{t:overpair|overpairs}} ({{t:pocket-pair|pares de mão}} maiores que qualquer carta da {{t:board|mesa}}, ex.: TT, JJ), mas num flop assim um {{t:overpair}} não está entre as mãos mais fortes: perde para {{t:straight|sequência}}, set e {{t:two-pair|dois pares}}." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ Antes do flop, os {{t:range|ranges}} dos jogadores são diferentes. Quem {{t:ope
 
 Você tem a {{t:range-advantage|vantagem de range}} quando, em um determinado flop, as suas mãos são, em média, mais fortes que as do adversário. Em [[Ks 7d 2c]], depois de uma {{t:open|abertura}} do Button, é você quem tem mais reis com bom kicker e mais {{t:pair|pares}} altos. O {{t:big-blind}} tem aqui muitas mãos que erraram.
 
-Em um flop baixo e {{t:connected|conectado}}, ex.: [[7s 6h 5d]], a {{t:range-advantage}} quase desaparece, e quem tem as mãos mais fortes com mais frequência é o {{t:big-blind}}: ele defende muitos {{t:connectors|conectores}} do mesmo naipe e mãos com seis ou sete, então tem mais vezes {{t:two-pair}} ou {{t:straight|sequência}}.
+Em um flop baixo e {{t:connected|conectado}}, ex.: [[7s 6h 5d]], a {{t:range-advantage}} quase desaparece. O {{t:big-blind|big blind}} defende muitos {{t:connectors|conectores}} do mesmo naipe e mãos com seis ou sete, que aqui fazem {{t:straight|sequências}} e {{t:two-pair|dois pares}}, e suas cartas altas erraram.
 
 ## {{t:nuts-advantage|Vantagem de nuts}}
 

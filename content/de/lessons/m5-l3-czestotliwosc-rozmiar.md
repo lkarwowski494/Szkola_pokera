@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten begünstigt den {{t:big-blind}}, der hier öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} hat. Du c-bettest seltener als auf hohen Flops: Viele Hände {{t:check|checken}}, und es betten vor allem starke Hände und starke {{t:draw|Draws}}."
-          small: "Zu oft: Auf einem niedrigen Flop mit nah beieinanderliegenden Karten hat der {{t:big-blind}} den {{t:nuts-advantage|Nuts-Vorteil}}. Häufige C-Bets, selbst kleine, geben ihm die Gelegenheit, mit seinen stärksten Händen nach vorherigem {{t:check|Checken}} zu {{t:raise|raisen}} (Check-Raise)."
-          big: "Zu oft und zu teuer: Der {{t:big-blind}} hat hier öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} getroffen. Eine häufige große C-Bet riskiert viel, wenn du selbst meist nur hohe Karten hast."
+          check: "Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten trifft die {{t:range|Range}} des {{t:big-blind|Big Blinds}}: Er hat hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}}, und du hast keinen {{t:nuts-advantage|Nuts-Vorteil}}. Du c-bettest seltener als auf hohen Flops: Viele Hände {{t:check|checken}}, und es betten vor allem starke Hände und starke {{t:draw|Draws}}."
+          small: "Zu oft: Auf einem niedrigen Flop mit nah beieinanderliegenden Karten hast du keinen {{t:nuts-advantage|Nuts-Vorteil}}. Häufige C-Bets, selbst kleine, geben dem {{t:big-blind|Big Blind}} die Gelegenheit, mit seinen stärksten Händen nach vorherigem {{t:check|Checken}} zu {{t:raise|raisen}} (Check-Raise)."
+          big: "Zu oft und zu teuer: Der {{t:big-blind}} hat hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} in seiner {{t:range|Range}}. Eine häufige große C-Bet riskiert viel, wenn du selbst meist nur hohe Karten hast."
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ Achtung: „{{t:wet|nass}}“ heißt nicht „große Bet“. Ein {{t:monotone|mo
 
 ## Niedrig mit nah beieinanderliegenden Karten: Du {{t:check|checkst}} öfter
 
-Auf [[7s 6h 5d]] hat der {{t:big-blind}} öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} (Lektion über Vorteile). Ähnlich ist es auf anderen niedrigen {{t:connected|verbundenen}} und {{t:semi-connected|halb verbundenen}} Flops. Du c-bettest seltener als auf hohen Flops: Viele Hände {{t:check|checken}}, und es betten vor allem sehr starke Hände und starke {{t:draw|Draws}}.
+Auf [[7s 6h 5d]] hat der {{t:big-blind}} {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} in seiner {{t:range|Range}}, und du hast keinen {{t:nuts-advantage|Nuts-Vorteil}} (Lektion über Vorteile). Ähnlich ist es auf anderen niedrigen {{t:connected|verbundenen}} und {{t:semi-connected|halb verbundenen}} Flops. Du c-bettest seltener als auf hohen Flops: Viele Hände {{t:check|checken}}, und es betten vor allem sehr starke Hände und starke {{t:draw|Draws}}.
 
 ## Wie oft dein Gegner {{t:fold|folden}} muss
 

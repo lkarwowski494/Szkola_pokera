@@ -91,6 +91,6 @@ drills:
     prompt: "Bạn bảo vệ {{t:big-blind}} trước {{t:open|lượt mở}} của Button. Trên flop nào bạn check-raise thường xuyên nhất?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "Đúng: trên flop thấp, {{t:connected|liên kết}}, {{t:big-blind}} có nhiều tổ hợp mạnh nhất ({{t:two-pair|hai đôi}}, {{t:straight|sảnh}}) hơn Button, nên ở đây big blind check-raise thường xuyên hơn." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Đúng: trên flop thấp, {{t:connected|liên kết}}, {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}}, còn Button không có {{t:nuts-advantage|lợi thế nuts}}, nên ở đây bạn check-raise thường xuyên hơn." }
       - { text: "[[Ks Qd Jh]]", why: "Flop cao với các lá gần nhau trúng tốt {{t:range}} của Button (AK, AQ, KQ, các {{t:pair|đôi}} cao). Ở đây bạn check-raise ít hơn." }
       - { text: "[[Ah Ad Qc]]", why: "Trên flop có {{t:pair|đôi}} A, Button, người đã {{t:open|mở}} với nhiều lá A, có các tay mạnh nhất thường xuyên hơn. Ở đây bạn hiếm khi check-raise." }

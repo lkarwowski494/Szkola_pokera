@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Du hast vom Button {{t:open|eröffnet}}, der Spieler im {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}. Auf welchem dieser Flops (die ersten drei {{t:community-cards|Gemeinschaftskarten}}) hat dieser Spieler häufiger als du {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}}?"
+    prompt: "Du hast vom Button {{t:open|eröffnet}}, der Spieler im {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}. Auf welchem dieser Flops (die ersten drei {{t:community-cards|Gemeinschaftskarten}}) hast du keinen {{t:nuts-advantage|Nuts-Vorteil}}, also nicht deutlich mehr der stärksten Hände als dein Gegner?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Ja: Ein niedriger, {{t:connected|verbundener}} Flop trifft {{t:connectors|Connectors}} und Hände mit kleinen Karten, von denen der {{t:big-blind|Big Blind}} viele verteidigt. Du hast vom Button mehr hohe Karten, die hier verfehlt haben. Das ist ein {{t:nuts-advantage|Nuts-Vorteil}} des {{t:big-blind|Big Blinds}}." }
-      - { text: "[[Kd Td 3s]]", why: "Nein: Ein hoher Flop begünstigt den {{t:open|Eröffner}}. Du hast mehr Könige mit gutem Kicker, KT und hohe {{t:pair|Paare}}." }
-      - { text: "[[Ah Ad 7c]]", why: "Nein: Auf einem Flop mit einem {{t:pair|Paar}} Asse hast du mehr Asse, weil der {{t:big-blind|Big Blind}} die stärksten Asse vor dem Flop {{t:raise|raist}}. Eine {{t:straight|Straße}} hat hier niemand." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Ja: Ein niedriger, {{t:connected|verbundener}} Flop trifft {{t:connectors|Connectors}} und Hände mit kleinen Karten, von denen der {{t:big-blind|Big Blind}} viele verteidigt, also hat auch er hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}}. Deine hohen Karten haben hier verfehlt, also hast du nicht deutlich mehr der stärksten Hände." }
+      - { text: "[[Kd Td 3s]]", why: "Nein: Ein Flop mit zwei hohen Karten gibt dem {{t:open|Eröffner}} den {{t:nuts-advantage|Nuts-Vorteil}}. Du hast hier mehr der stärksten Hände, z. B. KK und KT, weil der {{t:big-blind|Big Blind}} die meisten KK vor dem Flop {{t:raise|raist}}." }
+      - { text: "[[Ah Qd 7c]]", why: "Nein: Auf einem Flop mit Ass und Dame hast du mehr der stärksten Hände, z. B. AA und AQ, weil der {{t:big-blind|Big Blind}} die stärksten Asse vor dem Flop meist {{t:raise|raist}}." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

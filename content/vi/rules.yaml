@@ -357,11 +357,11 @@
   module: m5
   if: "bạn đã {{t:open|mở}} trước flop, và flop thấp, {{t:connected|liên kết}} hoặc {{t:semi-connected|bán liên kết}}, ví dụ 7-6-5"
   then: "bạn c-bet ít thường xuyên hơn so với flop cao, và nhiều tay {{t:check|xem bài}}"
-  because: "{{t:big-blind|big blind}} phòng thủ với nhiều {{t:connectors|connector}} đồng chất và {{t:pair|đôi}} nhỏ, nên thường có {{t:two-pair|hai đôi}} hoặc {{t:straight|sảnh}} hơn: chính họ có {{t:nuts-advantage|lợi thế nuts}}"
+  because: "{{t:big-blind|big blind}} phòng thủ với nhiều {{t:connectors|connector}} và các tay có lá nhỏ, những tay này trúng {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} ở đây, còn các lá cao của bạn đã trượt: bạn không có {{t:nuts-advantage|lợi thế nuts}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "tổ hợp: Button mở tất cả các đôi 55–77, và mù lớn theo với chúng, nên cả hai có số set tương đương; trang của một solver thương mại, Bullying the Blinds (trên 654r Button xem bài với hơn một nửa range; “Even on 654r… BB has less than 52% equity”)"
-  sources: [{ kind: solver-pub }, { kind: math }]
+  source: "trang của một solver thương mại, Flop Heuristics: IP C-Betting in Cash Games (BTN vs BB: “flopped straights often being in the BB’s range”; “Size down and bet less on flops that complete straights and flushes in your opponent’s range”); trang của một solver thương mại, Flop Heuristics: IP C-Betting in MTTs (trên các flop liên kết “the raiser generally does not have a nuts advantage”); trang của một solver thương mại, Bullying the Blinds (20bb, 654r: “BB’s advantage at the top end”, Button xem bài với hơn một nửa range); trang đào tạo, 3 Concepts That Should Shape Your Postflop Strategy (“the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
+  sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
   if: "trong {{t:range|range}} của bạn có nhiều tay mạnh nhất hơn hẳn đối thủ ({{t:nuts-advantage|lợi thế nuts}})"
@@ -508,9 +508,9 @@
   module: m6
   if: "c-bet nhỏ hoặc flop thấp và {{t:connected|liên kết}} (ví dụ 7-6-5)"
   then: "bạn check-raise thường hơn; trên các flop cao có lợi cho người tố trước flop (ví dụ K-J-T, A-A-K) và trước c-bet lớn thì ít hơn"
-  because: "trên flop thấp, {{t:big-blind|big blind}} có nhiều tay mạnh nhất hơn ({{t:nuts-advantage|lợi thế nuts}}), và c-bet nhỏ tạo cơ hội rẻ để {{t:raise|tố}}"
+  because: "trên flop thấp, {{t:connected|liên kết}}, {{t:big-blind|big blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}}, còn Button không có {{t:nuts-advantage|lợi thế nuts}}; c-bet nhỏ tạo cơ hội rẻ để {{t:raise|tố}}"
   level: heuristic
-  source: "trang đào tạo, How to Check-Raise Like a High Stakes Juggernaut (các flop không nên tố: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% trước 33% và 8,66% trước 66% pot); trang của một solver thương mại (“The larger the BTN bets, the less BB raises”)"
+  source: "trang đào tạo, How to Check-Raise Like a High Stakes Juggernaut (các flop không nên tố: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% trước 33% và 8,66% trước 66% pot); trang của một solver thương mại (“The larger the BTN bets, the less BB raises”); trang của một solver thương mại, Flop Heuristics: IP C-Betting in Cash Games (“flopped straights often being in the BB’s range”)"
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M6-010
   module: m6

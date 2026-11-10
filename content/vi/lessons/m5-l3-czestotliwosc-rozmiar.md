@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Đúng: flop thấp với các lá gần nhau có lợi cho {{t:big-blind|big blind}}, người ở đây thường có {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn. Bạn c-bet ít hơn so với trên flop cao: nhiều tay {{t:check|xem bài}}, còn chủ yếu các tay mạnh và {{t:draw|bài chờ}} mạnh mới cược."
-          small: "Quá thường xuyên: trên flop thấp với các lá gần nhau, chính {{t:big-blind}} mới có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho họ cơ hội {{t:raise|tố}} sau khi đã {{t:check|xem bài}} trước (check-raise) bằng những tay mạnh nhất."
-          big: "Quá thường xuyên và quá đắt: {{t:big-blind}} ở đây thường trúng {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn. C-bet lớn thường xuyên rủi ro nhiều khi chính bạn thường chỉ có lá cao."
+          check: "Đúng: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind|big blind}}: họ có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} ở đây, còn bạn không có {{t:nuts-advantage|lợi thế nuts}}. Bạn c-bet ít hơn so với trên flop cao: nhiều tay {{t:check|xem bài}}, còn chủ yếu các tay mạnh và {{t:draw|bài chờ}} mạnh mới cược."
+          small: "Quá thường xuyên: trên flop thấp với các lá gần nhau, bạn không có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho {{t:big-blind}} cơ hội {{t:raise|tố}} sau khi đã {{t:check|xem bài}} trước (check-raise) bằng những tay mạnh nhất."
+          big: "Quá thường xuyên và quá đắt: {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}} ở đây. C-bet lớn thường xuyên rủi ro nhiều khi chính bạn thường chỉ có lá cao."
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ Lưu ý: “{{t:wet}}” không có nghĩa là “cược lớn”. Trong ứng 
 
 ## Flop thấp với các lá gần nhau: bạn {{t:check|xem bài}} thường xuyên hơn
 
-Trên [[7s 6h 5d]], chính {{t:big-blind}} mới thường có {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn (bài học về lợi thế). Tương tự trên các flop thấp {{t:connected|liên kết}} và {{t:semi-connected|bán liên kết}} khác. Bạn c-bet ít hơn so với trên flop cao: nhiều tay {{t:check|xem bài}}, còn chủ yếu các tay rất mạnh và {{t:draw|bài chờ}} mạnh mới cược.
+Trên [[7s 6h 5d]], {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}}, còn bạn không có {{t:nuts-advantage|lợi thế nuts}} (bài học về lợi thế). Tương tự trên các flop thấp {{t:connected|liên kết}} và {{t:semi-connected|bán liên kết}} khác. Bạn c-bet ít hơn so với trên flop cao: nhiều tay {{t:check|xem bài}}, còn chủ yếu các tay rất mạnh và {{t:draw|bài chờ}} mạnh mới cược.
 
 ## Đối thủ phải {{t:fold|bỏ bài}} bao nhiêu
 

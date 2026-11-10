@@ -39,7 +39,7 @@
   "plik": "lessons/m5-l2-przewagi.md",
   "linia": 26,
   "pl_stare": "      - { text: \"{{t:big-blind|Duży blind}}\", correct: true, why: \"Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}.\" }",
-  "pl_nowe": "      - { text: \"Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}\", correct: true, why: \"Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej.\" }"
+  "pl_nowe": "      - { text: \"Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}\", correct: true, why: \"Dobrze: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej.\" }"
  },
  {
   "plik": "lessons/m5-l2-przewagi.md",

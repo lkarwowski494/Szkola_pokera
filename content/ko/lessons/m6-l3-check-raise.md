@@ -13,7 +13,7 @@ drills:
     prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind|빅 블라인드}}를 방어합니다. 플롭에서 {{t:check|체크하자}} 버튼이 {{t:pot|팟}}의 1/3 크기로 C벳을 {{t:bet|벳합니다}}. 어떻게 하시겠습니까?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "체크레이즈", correct: true, why: "낮고 {{t:connected|커넥티드한}} 플롭의 {{t:two-pair|투 페어}}는 {{t:value|밸류}} 핸드입니다. 이런 플롭에서는 {{t:big-blind|빅 블라인드}}가 버튼보다 가장 강한 조합을 더 많이 가집니다. {{t:raise|레이즈}}로 {{t:pot|팟}}을 키우고 {{t:pair|페어}}와 {{t:draw|드로우}}가 돈을 내게 만듭니다." }
+      - { text: "체크레이즈", correct: true, why: "낮고 {{t:connected|커넥티드한}} 플롭의 {{t:two-pair|투 페어}}는 {{t:value|밸류}} 핸드입니다. 이런 플롭에서는 {{t:big-blind|빅 블라인드}}의 {{t:range|레인지}}에 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 있고, 버튼에게는 {{t:nuts-advantage|넛 우위}}가 없습니다. {{t:raise|레이즈}}로 {{t:pot|팟}}을 키우고 {{t:pair|페어}}와 {{t:draw|드로우}}가 돈을 내게 만듭니다." }
       - { text: "{{t:call|콜}}", correct: true, why: "이것도 좋습니다. 매우 {{t:connected|커넥티드한}} 플롭에서는 솔버가 {{t:two-pair|투 페어}}의 일부를 {{t:call|콜}}만 합니다. 체크레이즈가 더 자주 {{t:pot|팟}}을 키우고 핸드를 보호합니다." }
       - { text: "{{t:fold|폴드}}", why: "{{t:two-pair|투 페어}}는 이 플롭에서 가장 강한 핸드 중 하나입니다. {{t:fold|폴드}}는 큰 실수입니다." }
   - kind: choice
@@ -127,7 +127,7 @@ drills:
 ## 더 자주 할 때
 
 - **작은 C벳에 맞설 때.** {{t:raise|레이즈}} 비용이 싸고, 버튼은 넓은 {{t:range|레인지}}로 작은 C벳을 {{t:bet|벳합니다}}. 큰 C벳에는 더 드물고 좁게 {{t:raise|레이즈합니다}}. 주로 셋과 {{t:two-pair|투 페어}}이고, {{t:bluff|블러프}}는 더 적습니다.
-- **낮고 {{t:connected|커넥티드한}} 플롭에서** (예: [[7h 6d 5s]]). {{t:big-blind|빅 블라인드}}는 낮은 핸드를 많이 방어하므로, 보통 여기서 버튼보다 {{t:two-pair|투 페어}}와 {{t:straight|스트레이트}}가 더 많습니다. 즉 {{t:nuts-advantage|넛 우위}}가 있습니다.
+- **낮고 {{t:connected|커넥티드한}} 플롭에서** (예: [[7h 6d 5s]]). {{t:big-blind|빅 블라인드}}는 낮은 핸드를 많이 방어하는데, 이 핸드들은 여기서 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 되므로 여기서는 버튼에게 {{t:nuts-advantage|넛 우위}}가 없습니다.
 - **버튼에게 유리한 높은 플롭에서는 덜 자주**, 예: K-J-T 또는 A-A-K. 그곳에서는 버튼이 가장 강한 핸드를 더 많이 가집니다.
 
 ## 사이즈

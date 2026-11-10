@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "You {{t:open|opened}} from the Button, the {{t:big-blind}} {{t:call|called}}. Flop: [[7s 6h 5d]]. Who more often has a very strong hand here ({{t:two-pair}} or a {{t:straight}})?"
+    prompt: "You {{t:open|opened}} from the Button, the {{t:big-blind}} {{t:call|called}}. Flop: [[7s 6h 5d]]. Do you have a {{t:nuts-advantage}} here, meaning clearly more of the strongest hands than your opponent?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "The {{t:big-blind}}", correct: true, why: "Yes: the {{t:big-blind}} defends many suited {{t:connectors}} and hands with a six or a seven. From the Button you have more high cards that missed here. This is the {{t:big-blind}}'s {{t:nuts-advantage}}." }
-      - { text: "You, the {{t:open|opener}} from the Button", why: "No: your {{t:range}} is full of high cards. You have more {{t:overpair|overpairs}} ({{t:pocket-pair|pocket pairs}} higher than every card on the {{t:board}}, e.g. TT, JJ), but fewer {{t:two-pair|two pairs}} and {{t:straight|straights}}; you both have a similar number of sets (three of a kind with a {{t:pocket-pair}})." }
-      - { text: "Both equally often", why: "No: the {{t:range|ranges}} differ in makeup. The {{t:big-blind}}'s wide defense has many small cards, and your {{t:range}} has high ones." }
+      - { text: "No: the {{t:big-blind}} also has {{t:straight|straights}} and {{t:two-pair|two pair}} here", correct: true, why: "Right: the {{t:big-blind}} defends many suited {{t:connectors}} and hands with a six or a seven, which hit {{t:straight|straights}} and {{t:two-pair|two pair}} here. Your high cards missed here, so you don't have clearly more of the strongest hands." }
+      - { text: "Yes, because you {{t:open|opened}} before the flop", why: "No: {{t:open|opening}} gives you an advantage on high flops. On a low, {{t:connected}} flop your high cards missed, and your opponent's {{t:range}} hits {{t:straight|straights}} and {{t:two-pair|two pair}} here." }
+      - { text: "Yes, because you have more high {{t:pair|pairs}}", why: "No: you have more {{t:overpair|overpairs}} ({{t:pocket-pair|pocket pairs}} higher than every card on the {{t:board}}, e.g. TT, JJ), but on a flop like this an {{t:overpair}} is not one of the strongest hands: it loses to a {{t:straight}}, a set and {{t:two-pair|two pair}}." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ Before the flop, the players' {{t:range|ranges}} look different. The {{t:open|op
 
 You have the {{t:range-advantage}} when, on a given flop, your hands are on average stronger than your opponent's hands. On [[Ks 7d 2c]] after an {{t:open}} from the Button, you are the one with more kings with a good kicker and more high {{t:pair|pairs}}. The {{t:big-blind}} has many hands here that missed.
 
-On a low, {{t:connected}} flop, e.g. [[7s 6h 5d]], the {{t:range-advantage}} almost disappears, and the {{t:big-blind}} more often has the strongest hands: they defend many suited {{t:connectors}} and hands with a six or a seven, so they more often have {{t:two-pair}} or a {{t:straight}}.
+On a low, {{t:connected}} flop, e.g. [[7s 6h 5d]], the {{t:range-advantage}} almost disappears. The {{t:big-blind|big blind}} defends many suited {{t:connectors}} and hands with a six or a seven, which hit {{t:straight|straights}} and {{t:two-pair|two pair}} here, and your high cards missed.
 
 ## {{t:nuts-advantage|Nuts advantage}}
 

@@ -91,6 +91,6 @@ drills:
     prompt: "你在{{t:big-blind}}防守按鈕位的{{t:open|開池}}。你在哪個翻牌最常過牌加注？"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "對：在低張、{{t:connected|連張}}的翻牌上，{{t:big-blind}}比按鈕位擁有更多最強牌型（{{t:two-pair}}、{{t:straight|順子}}），所以這裡更常過牌加注。" }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "對：在低張、{{t:connected|連張}}的翻牌上，{{t:big-blind}}的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而按鈕位沒有{{t:nuts-advantage|堅果優勢}}，所以你在這裡更常過牌加注。" }
       - { text: "[[Ks Qd Jh]]", why: "牌面高且牌張彼此相近的翻牌，很容易擊中按鈕位的{{t:range}}（AK、AQ、KQ、高{{t:pair|對子}}）。這裡你較少過牌加注。" }
       - { text: "[[Ah Ad Qc]]", why: "在有{{t:pair|一對}} A 的翻牌上，用很多 A {{t:open|開池}}的按鈕位更常握有最強的牌。這裡你很少過牌加注。" }

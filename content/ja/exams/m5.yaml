@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind|ビッグブラインド}}のプレイヤーが{{t:call|コール}}しました。次のうち、そのプレイヤーのほうがあなたより{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多いフロップ（最初の3枚の{{t:community-cards|コミュニティカード}}）はどれですか？"
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind|ビッグブラインド}}のプレイヤーが{{t:call|コール}}しました。次のフロップ（最初の3枚の{{t:community-cards|コミュニティカード}}）のうち、あなたに{{t:nuts-advantage|ナッツアドバンテージ}}がない、つまり最も強いハンドを相手よりはっきり多くは持っていないのはどれですか？"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "そのとおりです。低くて{{t:connected}}なフロップは、{{t:big-blind}}が多くディフェンスする{{t:connectors|コネクター}}や小さいカードのハンドに当たります。ボタンからのあなたは高いカードが多く、それらはここで外れています。これは{{t:big-blind|ビッグブラインド}}の{{t:nuts-advantage}}です。" }
-      - { text: "[[Kd Td 3s]]", why: "いいえ。高いフロップは{{t:open|オープンした側}}に有利です。あなたには良いキッカーのキング、KT、高い{{t:pair|ペア}}が多くあります。" }
-      - { text: "[[Ah Ad 7c]]", why: "いいえ。エースの{{t:pair|ペア}}があるフロップでは、{{t:big-blind}}が最も強いエースをフロップ前に{{t:raise|レイズ}}するので、エースを多く持つのはあなたです。ここで{{t:straight|ストレート}}を持つ人はいません。" }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "そのとおりです。低くて{{t:connected}}なフロップは、{{t:big-blind}}が多くディフェンスする{{t:connectors|コネクター}}や小さいカードのハンドに当たるので、{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}は相手も持っています。あなたの高いカードはここで外れているので、最も強いハンドをはっきり多く持ってはいません。" }
+      - { text: "[[Kd Td 3s]]", why: "いいえ。高いカードが二枚あるフロップは、{{t:open|オープンした側}}に{{t:nuts-advantage|ナッツアドバンテージ}}を与えます。{{t:big-blind}}はKKの大半をフロップ前に{{t:raise|レイズ}}するので、ここではKKやKTなど、最も強いハンドをあなたのほうが多く持っています。" }
+      - { text: "[[Ah Qd 7c]]", why: "いいえ。エースとクイーンがあるフロップでは、AAやAQなど最も強いハンドを多く持つのはあなたです。{{t:big-blind}}は最も強いエースをたいていフロップ前に{{t:raise|レイズ}}するからです。" }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

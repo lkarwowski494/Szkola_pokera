@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Has {{t:open|abierto}} desde el Button y la {{t:big-blind}} ha {{t:call|igualado}}. Flop: [[7s 6h 5d]]. ¿Quién tiene aquí con más frecuencia una mano muy fuerte ({{t:two-pair}} o {{t:straight}})?"
+    prompt: "Has {{t:open|abierto}} desde el Button y la {{t:big-blind}} ha {{t:call|igualado}}. Flop: [[7s 6h 5d]]. ¿Tienes aquí {{t:nuts-advantage|ventaja de nuts}}, es decir, claramente más manos de las más fuertes que tu rival?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "La {{t:big-blind|ciega grande}}", correct: true, why: "Sí: la {{t:big-blind}} defiende muchos {{t:connectors|conectores}} del mismo palo y manos con un seis o un siete. Tú, desde el Button, tienes más cartas altas que aquí han fallado. Es la {{t:nuts-advantage}} de la {{t:big-blind|ciega grande}}." }
-      - { text: "Tú, que has {{t:open|abierto}} desde el Button", why: "No: tu {{t:range}} está lleno de cartas altas. Tienes más {{t:overpair|overpairs}} ({{t:pocket-pair|parejas de mano}} más altas que cualquier carta de la {{t:board|mesa}}, p. ej., TT, JJ), pero menos {{t:two-pair|dobles parejas}} y {{t:straight|escaleras}}; de sets (tríos con {{t:pocket-pair|pareja de mano}}) tenéis una cantidad parecida." }
-      - { text: "Los dos con la misma frecuencia", why: "No: los {{t:range|rangos}} tienen una composición distinta. La defensa amplia de la {{t:big-blind|ciega grande}} tiene muchas cartas bajas, y tu {{t:range}}, altas." }
+      - { text: "No: la {{t:big-blind}} también tiene aquí {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}", correct: true, why: "Correcto: la {{t:big-blind}} defiende muchos {{t:connectors|conectores}} del mismo palo y manos con un seis o un siete, que aquí ligan {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}. Tus cartas altas han fallado aquí, así que no tienes claramente más manos de las más fuertes." }
+      - { text: "Sí, porque has {{t:open|abierto}} antes del flop", why: "No: la {{t:open|apertura}} te da ventaja en los flops altos. En un flop bajo y {{t:connected|conectado}}, tus cartas altas han fallado, y el {{t:range}} del rival liga aquí {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}." }
+      - { text: "Sí, porque tienes más {{t:pair|parejas}} altas", why: "No: tienes más {{t:overpair|overpairs}} ({{t:pocket-pair|parejas de mano}} más altas que cualquier carta de la {{t:board|mesa}}, p. ej., TT, JJ), pero en un flop así una {{t:overpair}} no está entre las manos más fuertes: pierde contra una {{t:straight|escalera}}, un set y una {{t:two-pair|doble pareja}}." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ Antes del flop, los {{t:range|rangos}} de los jugadores son distintos. Quien {{t
 
 Tienes {{t:range-advantage|ventaja de rango}} cuando, en un flop concreto, tus manos son de media más fuertes que las del rival. En [[Ks 7d 2c]], tras una {{t:open|apertura}} desde el Button, eres tú quien tiene más reyes con buen kicker y más {{t:pair|parejas}} altas. La {{t:big-blind|ciega grande}} tiene aquí muchas manos que han fallado.
 
-En un flop bajo y {{t:connected|conectado}}, p. ej., [[7s 6h 5d]], la {{t:range-advantage}} casi desaparece, y es la {{t:big-blind}} quien tiene más a menudo las manos más fuertes: defiende muchos {{t:connectors|conectores}} del mismo palo y manos con un seis o un siete, así que tiene más a menudo {{t:two-pair}} o {{t:straight|escalera}}.
+En un flop bajo y {{t:connected|conectado}}, p. ej., [[7s 6h 5d]], la {{t:range-advantage}} casi desaparece. La {{t:big-blind|ciega grande}} defiende muchos {{t:connectors|conectores}} del mismo palo y manos con un seis o un siete, que aquí ligan {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, y tus cartas altas han fallado.
 
 ## {{t:nuts-advantage|Ventaja de nuts}}
 

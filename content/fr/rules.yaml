@@ -357,11 +357,11 @@
   module: m5
   if: "vous avez {{t:open|ouvert}} avant le flop, et le flop est bas et {{t:connected|connecté}} ou {{t:semi-connected|semi-connecté}}, p. ex. 7-6-5"
   then: "vous c-bettez moins souvent que sur les flops hauts, et beaucoup de mains {{t:check|checkent}}"
-  because: "la {{t:big-blind|grosse blinde}} défend beaucoup de {{t:connectors|connecteurs}} assortis et de petites {{t:pair|paires}}, donc elle a plus souvent une {{t:two-pair|double paire}} ou une {{t:straight|quinte}} : c'est elle qui a l'{{t:nuts-advantage|avantage de nuts}}"
+  because: "la {{t:big-blind|grosse blinde}} défend beaucoup de {{t:connectors|connecteurs}} et de mains à petites cartes, qui touchent ici des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et vos cartes hautes ont raté : vous n'avez pas l'{{t:nuts-advantage|avantage de nuts}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "combinatoire : le Bouton ouvre toutes les paires 55–77, et la grosse blinde les suit, donc les deux ont à peu près autant de sets ; site de solveur commercial, Bullying the Blinds (sur 654r, le Bouton checke plus de la moitié de sa range ; « Even on 654r… BB has less than 52% equity »)"
-  sources: [{ kind: solver-pub }, { kind: math }]
+  source: "site de solveur commercial, Flop Heuristics: IP C-Betting in Cash Games (BTN vs BB : « flopped straights often being in the BB’s range » ; « Size down and bet less on flops that complete straights and flushes in your opponent’s range ») ; site de solveur commercial, Flop Heuristics: IP C-Betting in MTTs (sur les flops connectés, « the raiser generally does not have a nuts advantage ») ; site de solveur commercial, Bullying the Blinds (20bb, 654r : « BB’s advantage at the top end », le Bouton checke plus de la moitié de sa range) ; site de formation, 3 Concepts That Should Shape Your Postflop Strategy (« the Big Blind will often have the nut advantage », https://upswingpoker.com/nut-range-positional-advantage/)"
+  sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
   if: "votre {{t:range|range}} contient beaucoup plus de mains très fortes que celle de l'adversaire ({{t:nuts-advantage|avantage de nuts}})"
@@ -508,9 +508,9 @@
   module: m6
   if: "le c-bet est petit, ou le flop est bas et {{t:connected|connecté}} (p. ex. 7-6-5)"
   then: "vous faites check-raise plus souvent ; sur les flops hauts favorables au relanceur (p. ex. K-J-T, A-A-K) et face aux gros c-bets, moins souvent"
-  because: "sur les flops bas, la {{t:big-blind|grosse blinde}} a davantage de mains très fortes ({{t:nuts-advantage|avantage de nuts}}), et un petit c-bet offre une occasion bon marché de {{t:raise|relancer}}"
+  because: "sur les flops bas et {{t:connected|connectés}}, la {{t:big-blind|grosse blinde}} a dans sa {{t:range|range}} des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et le Bouton n'a pas l'{{t:nuts-advantage|avantage de nuts}} ; un petit c-bet offre une occasion bon marché de {{t:raise|relancer}}"
   level: heuristic
-  source: "site de formation, How to Check-Raise Like a High Stakes Juggernaut (flops sur lesquels ne pas relancer : K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥ ; check-raise 12,65% face à 33% et 8,66% face à 66% du pot) ; site de solveur commercial (« The larger the BTN bets, the less BB raises »)"
+  source: "site de formation, How to Check-Raise Like a High Stakes Juggernaut (flops sur lesquels ne pas relancer : K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥ ; check-raise 12,65% face à 33% et 8,66% face à 66% du pot) ; site de solveur commercial (« The larger the BTN bets, the less BB raises ») ; site de solveur commercial, Flop Heuristics: IP C-Betting in Cash Games (« flopped straights often being in the BB’s range »)"
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M6-010
   module: m6
