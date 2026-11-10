@@ -109,7 +109,7 @@
   sources: [{ kind: math }]
 - id: R-M2-005
   module: m2
-  if: "equity của bạn nhỏ hơn equity cần thiết (với {{t:draw|draw}}: cơ hội trúng trên những lá bạn sẽ được xem với giá này)"
+  if: "equity của bạn nhỏ hơn equity cần thiết (với {{t:draw|bài chờ}}: cơ hội trúng trên những lá bạn sẽ được xem với giá này)"
   then: "bạn {{t:fold|bỏ bài}} (khi không có lý lẽ bổ sung, ví dụ implied odds)"
   because: "mỗi lần {{t:call|theo}} như vậy đều mất tiền về lâu dài"
   level: math
@@ -120,7 +120,7 @@
 - id: R-M3-001
   module: m3
   if: "bạn ở Button và mọi người trước bạn đều đã {{t:fold|bỏ bài}}"
-  then: "bạn {{t:open|mở}} rộng nhất trong tất cả các {{t:position|vị trí}} trước các vị trí mù; chỉ {{t:small-blind|mù nhỏ}} {{t:open|mở}} rộng tương tự"
+  then: "bạn {{t:open|mở}} rộng nhất trong tất cả các {{t:position|vị trí}} trước các vị trí mù; chỉ {{t:small-blind|small blind}} {{t:open|mở}} rộng tương tự"
   because: "từ flop trở đi bạn hành động cuối cùng, và sau bạn chỉ còn hai người ở vị trí mù"
   level: gto
   source: "trang bảng solver, 6-max 100bb NL500 (https://beyondgto.com/ranges/btn-open-6max-100bb, https://beyondgto.com/ranges/sb-open-6max-100bb): BTN 42%, SB 44%; trang đào tạo, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): SB rộng hơn Button một chút, 40–50%; trang bảng preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): BTN 40–45%, SB 39–47% (tài liệu 12, D2)"
@@ -146,7 +146,7 @@
 - id: R-M3-004
   module: m3
   if: "bạn là người đầu tiên vào ván"
-  then: "bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}, chứ không chỉ bỏ thêm cho bằng tiền mù (limp); từ {{t:small-blind|mù nhỏ}} đây là cách đơn giản hóa: một số lời giải solver limp một phần tay bài"
+  then: "bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}, chứ không chỉ bỏ thêm cho bằng tiền mù (limp); từ {{t:small-blind|small blind}} đây là cách đơn giản hóa: một số lời giải solver limp một phần tay bài"
   because: "{{t:raise|tố}} có thể giành tiền mù ngay và cho bạn {{t:initiative|thế chủ động}}; limp từ bỏ cả hai điều đó"
   level: heuristic
   check: { kind: no-limp, players: [6, 9], stackBb: [100] }
@@ -172,8 +172,8 @@
 - id: R-M3-007
   module: m3
   if: "bạn là người đầu tiên vào ván bằng một lần {{t:raise|tố}}"
-  then: "bạn {{t:raise|tố}} lên {{n:pf.open-size}} từ mọi {{t:position|vị trí}}, còn từ {{t:small-blind|mù nhỏ}} lên {{n:pf.open-size-sb}} (đơn giản hóa)"
-  because: "một kích thước cược cho mọi {{t:position|vị trí}} đơn giản và không để lộ sức mạnh tay bài; từ {{t:small-blind|mù nhỏ}} bạn chơi {{t:out-of-position|không có vị trí}}, nên bạn {{t:raise|tố}} nhiều hơn một chút"
+  then: "bạn {{t:raise|tố}} lên {{n:pf.open-size}} từ mọi {{t:position|vị trí}}, còn từ {{t:small-blind|small blind}} lên {{n:pf.open-size-sb}} (đơn giản hóa)"
+  because: "một kích thước cược cho mọi {{t:position|vị trí}} đơn giản và không để lộ sức mạnh tay bài; từ {{t:small-blind|small blind}} bạn chơi {{t:out-of-position|không có vị trí}}, nên bạn {{t:raise|tố}} nhiều hơn một chút"
   level: heuristic
   check: { kind: open-size, players: [6, 9], stackBb: [100], params: { open: "n:pf.open-size", openSb: "n:pf.open-size-sb" } }
   source: "trang bảng preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): “the standard open size is 2.5bb from all positions … 3bb from the small blind”; trang của một solver thương mại, Range Morphology (https://blog.gtowizard.com/preflop-range-morphology/): UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb (đơn giản hóa, tài liệu 12, D8)"
@@ -188,9 +188,9 @@
   sources: [{ kind: training, url: "https://pokerpro.tools/preflop/3-bet-ranges" }, { kind: training, url: "https://www.preflopwizard.app/blog/poker-utg-strategy" }]
 - id: R-M3-009
   module: m3
-  if: "mọi người đã {{t:fold|bỏ bài}} tới bạn ở {{t:small-blind|mù nhỏ}}"
-  then: "bạn {{t:open|mở}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài, bằng cách {{t:raise|tố}} lên {{n:pf.open-size-sb}} hoặc {{t:fold|bỏ bài}} (đơn giản hóa: một số lời giải solver limp một phần tay bài từ {{t:small-blind|mù nhỏ}})"
-  because: "bạn chỉ còn đấu với {{t:big-blind|mù lớn}}; sau flop bạn hành động trước, nên bạn {{t:open|mở}} rộng gần bằng từ Button, chứ không rộng hơn nhiều"
+  if: "mọi người đã {{t:fold|bỏ bài}} tới bạn ở {{t:small-blind|small blind}}"
+  then: "bạn {{t:open|mở}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài, bằng cách {{t:raise|tố}} lên {{n:pf.open-size-sb}} hoặc {{t:fold|bỏ bài}} (đơn giản hóa: một số lời giải solver limp một phần tay bài từ {{t:small-blind|small blind}})"
+  because: "bạn chỉ còn đấu với {{t:big-blind|big blind}}; sau flop bạn hành động trước, nên bạn {{t:open|mở}} rộng gần bằng từ Button, chứ không rộng hơn nhiều"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.sb, nine.rfi.sb] }
   source: "trang bảng solver, SB open 6-max 100bb NL500 (https://beyondgto.com/ranges/sb-open-6max-100bb): khoảng 44%, raise-or-fold; trang đào tạo, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; trang bảng preflop (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; khoảng 40–45% là phần chung của các chiến lược không limp (tài liệu 12, D3). Đơn giản hóa raise-or-fold (D-144): trang đào tạo có bảng solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics): “The small blind raises (3bb) 33.1% : completes (limps) 20.5%”"
@@ -226,16 +226,16 @@
   sources: [{ kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: solver-app }]
 - id: R-M4-003
   module: m4
-  if: "bạn ở {{t:small-blind|mù nhỏ}}, và {{t:cutoff|CO}} hoặc Button đã {{t:open|mở}}"
+  if: "bạn ở {{t:small-blind|small blind}}, và {{t:cutoff|CO}} hoặc Button đã {{t:open|mở}}"
   then: "bạn gần như không {{t:call|theo}}: bạn 3-bet hoặc {{t:fold|bỏ bài}} (trước {{t:cutoff|CO}} đây là đơn giản hóa: lời giải được công bố tính tình huống trước Button); trước Button bạn 3-bet phần trên của {{t:range|range}} (khoảng {{n:pf.3bet-freq.sb-vs-btn}} số tay bài, trong đó có 77+ (55 và 66 thường xuyên), AJo+, KQo, A5s, A4s, T9s), còn lại bạn {{t:fold|bỏ bài}}"
-  because: "sau khi {{t:call|theo}} từ {{t:small-blind|mù nhỏ}} bạn chơi {{t:out-of-position|không có vị trí}}, và {{t:big-blind|mù lớn}} sau bạn vẫn có thể {{t:raise|tố}}; 3-bet cho bạn {{t:initiative|thế chủ động}} và cơ hội giành {{t:pot|pot}} ngay"
+  because: "sau khi {{t:call|theo}} từ {{t:small-blind|small blind}} bạn chơi {{t:out-of-position|không có vị trí}}, và {{t:big-blind|big blind}} sau bạn vẫn có thể {{t:raise|tố}}; 3-bet cho bạn {{t:initiative|thế chủ động}} và cơ hội giành {{t:pot|pot}} ngay"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.sb-vs-btn, nine.vs-open.sb-vs-btn] }
   source: "trang bảng solver, SB vs BTN (https://beyondgto.com/defense/sb-vs-btn), NL500, 100bb: “GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet”, 55 3-bet 57%, 66 62%; trang của một solver thương mại, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: “the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”, khái quát cho mù nhỏ: “As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy.”; trang đào tạo, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): “3-bet-or-fold strategies from every position except the Big Blind” (tài liệu 10, quyết định B-045: nội dung R-M4-015 được gộp vào R-M4-003; con số 14% từ hình đồ họa được thay bằng văn bản đã đọc, E1)"
   sources: [{ kind: solver-pub, url: "https://beyondgto.com/defense/sb-vs-btn" }, { kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
 - id: R-M4-004
   module: m4
-  if: "bạn ở {{t:big-blind|mù lớn}}, Button đã {{t:open|mở}} {{n:pf.open-size}}, và {{t:small-blind|mù nhỏ}} đã {{t:fold|bỏ bài}}"
+  if: "bạn ở {{t:big-blind|big blind}}, Button đã {{t:open|mở}} {{n:pf.open-size}}, và {{t:small-blind|small blind}} đã {{t:fold|bỏ bài}}"
   then: "bạn phòng thủ rộng, vì để {{t:call|theo}} bạn chỉ cần khoảng {{n:eq.bb-vs-btn-open}} equity"
   because: "bạn chỉ bỏ thêm ít vào một {{t:pot|pot}} lớn; các lời giải solver được công bố phòng thủ khoảng {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}} số tay bài ở đây"
   level: heuristic
@@ -253,9 +253,9 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/" }, { kind: solver-pub, url: "https://beyondgto.com/defense/btn-vs-co" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://gtogecko.com/blog/gto-preflop-strategy" }, { kind: training }]
 - id: R-M4-006
   module: m4
-  if: "từ {{t:big-blind|mù lớn}} bạn {{t:raise|tố}} lần {{t:open|mở}} của Button"
+  if: "từ {{t:big-blind|big blind}} bạn {{t:raise|tố}} lần {{t:open|mở}} của Button"
   then: "bạn 3-bet các tay mạnh nhất (TT+, AQ+, AJs+) cùng các {{t:bluff|bluff}} từ đáy {{t:range|range}} {{t:call|theo}}: A5s, đôi khi A4s, và {{t:connectors|connector}} đồng chất; các {{t:pair|đôi}} trung bình và nhỏ, KQo cùng các át khác chất (AJo–A9o) thường bạn {{t:call|theo}}"
-  because: "từ {{t:big-blind|mù lớn}} bạn {{t:call|theo}} rẻ và khép lại hành động, nên tay trung bình kiếm được nhiều hơn khi {{t:call|theo}}, còn 3-bet bạn để dành cho những tay muốn {{t:pot|pot}} lớn và những {{t:bluff|bluff}} chơi tốt sau khi bị {{t:call|theo}} (át đồng chất chặn AA và AK)"
+  because: "từ {{t:big-blind|big blind}} bạn {{t:call|theo}} rẻ và khép lại hành động, nên tay trung bình kiếm được nhiều hơn khi {{t:call|theo}}, còn 3-bet bạn để dành cho những tay muốn {{t:pot|pot}} lớn và những {{t:bluff|bluff}} chơi tốt sau khi bị {{t:call|theo}} (át đồng chất chặn AA và AK)"
   level: gto
   source: "trang của một solver thương mại, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, BB vs BTN: “TT+, AJs+, and AQo+ are 3-bet purely”, bluff “near the bottom of our calling range”; trang bảng solver, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn): “A5s · 3-bet 100%”. Quy tắc chỉ áp dụng cho lần mở của Button (D-144): trước mù nhỏ, các nguồn bậc 2 không thống nhất về bluff (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics: “A5s calls 96% of the time rather than turning into a three-bet bluff”; https://beyondgto.com/defense/bb-vs-sb: “A5s · 3-bet 4% · call 96%”; trang của một solver thương mại, Range Morphology, https://blog.gtowizard.com/preflop-range-morphology/: bluff từ tận đáy range), nên bài học chỉ nói rằng trước mù nhỏ bạn 3-bet chủ yếu để lấy giá trị, còn A5s và connector đồng chất thường theo; trường dạy poker công bố kết quả solver, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide) và Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players), NL200 và NL50 GG; trang đào tạo, Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics), các bảng của trang này; trang đào tạo, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/), các bảng solver của trang này. Đơn giản hóa: thành phần phụ thuộc vào rake và mức 3-bet; 99, KQo và AJo đôi khi được chơi trộn (tài liệu 10, quyết định B-045)"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: solver-pub, url: "https://beyondgto.com/defense/bb-vs-btn" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
@@ -295,13 +295,13 @@
   module: m4
   if: "bạn 4-bet"
   then: "bạn {{t:raise|tố}} lên khoảng {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} mức 3-bet khi {{t:in-position|có vị trí}} và {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} khi {{t:out-of-position|không có vị trí}}"
-  because: "sau khi 4-bet như vậy bị {{t:call|theo}}, trong stack còn khoảng {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} lần lượng tiền trong {{t:pot|pot}} (khi {{t:in-position|có vị trí}}, ví dụ 4-bet từ Button trước 3-bet của {{t:small-blind|mù nhỏ}} lên {{n:pf.3bet.oop-total}}: khoảng {{n:spr.4bet.high}}–{{n:spr.4bet}}; khi {{t:out-of-position|không có vị trí}}, ví dụ 4-bet từ {{t:cutoff|CO}} trước 3-bet của Button lên {{n:pf.3bet.ip-total}}: khoảng {{n:spr.4bet.oop}}), nên tay tốt dễ dàng đưa phần còn lại vào"
+  because: "sau khi 4-bet như vậy bị {{t:call|theo}}, trong stack còn khoảng {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} lần lượng tiền trong {{t:pot|pot}} (khi {{t:in-position|có vị trí}}, ví dụ 4-bet từ Button trước 3-bet của {{t:small-blind|small blind}} lên {{n:pf.3bet.oop-total}}: khoảng {{n:spr.4bet.high}}–{{n:spr.4bet}}; khi {{t:out-of-position|không có vị trí}}, ví dụ 4-bet từ {{t:cutoff|CO}} trước 3-bet của Button lên {{n:pf.3bet.ip-total}}: khoảng {{n:spr.4bet.oop}}), nên tay tốt dễ dàng đưa phần còn lại vào"
   level: heuristic
   source: "trường dạy poker công bố kết quả solver, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200: CO không có vị trí 4-bet lên 17,2bb, tức 2,3 lần mức 3-bet lên 7,5bb; trang đào tạo, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): 2,2–2,5x khi có vị trí, 2,5–3x khi không có vị trí (trong ví dụ của trang là 2,4x); SPR từ tính toán (tài liệu 12 M4–M6, D-06)"
   sources: [{ kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: math }]
 - id: R-M4-012
   module: m4
-  if: "trước bạn, một hoặc vài người chơi chỉ bỏ thêm cho bằng {{t:big-blind|mù lớn}} (limp)"
+  if: "trước bạn, một hoặc vài người chơi chỉ bỏ thêm cho bằng {{t:big-blind|big blind}} (limp)"
   then: "bạn {{t:raise|tố}} lên {{n:pf.iso.base}} cộng {{n:pf.iso.per-limper}} cho mỗi người limp, khi {{t:out-of-position|không có vị trí}} thêm {{n:pf.iso.oop-extra}}"
   because: "lần {{t:raise|tố}} nhỏ hơn cho người limp giá quá tốt và không lấy được ván bài khỏi tay họ"
   level: heuristic
@@ -318,7 +318,7 @@
   sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/poker-iso-raise-strategy" }, { kind: training, url: "https://www.pokernews.com/strategy/three-ways-to-respond-versus-a-table-full-of-limpers-26839.htm" }]
 - id: R-M4-014
   module: m4
-  if: "bạn ở {{t:big-blind|mù lớn}}, và {{t:small-blind|mù nhỏ}} đã {{t:open|mở}} {{n:pf.open-size-sb}}"
+  if: "bạn ở {{t:big-blind|big blind}}, và {{t:small-blind|small blind}} đã {{t:open|mở}} {{n:pf.open-size-sb}}"
   then: "bạn phòng thủ rộng, hơn một nửa số tay bài, dù để {{t:call|theo}} bạn cần khoảng {{n:eq.bb-vs-sb-open}} equity; mức 3-bet khoảng {{n:pf.3bet.size-ip}} mức {{t:open|mở}}"
   because: "sau flop bạn có {{t:position|vị trí}}, nên hiện thực hóa được nhiều equity hơn; lời giải solver được công bố phòng thủ khoảng {{n:pf.bb-def.vs-sb.pub}} số tay bài ở đây"
   level: heuristic
@@ -332,7 +332,7 @@
 - id: R-M5-001
   module: m5
   if: "flop đạt dưới {{n:tex.threshold.medium}} điểm {{t:wetness|độ ướt}}: {{t:straight|sảnh}} có thể thành theo nhiều cách (với ít nhất hai bộ hai hạng bài) được {{n:tex.points.straight.made}} điểm, {{t:straight|sảnh}} có thể thành theo một cách {{n:tex.points.straight.made-one}}, chỉ có {{t:straight-draw|draw sảnh}} {{n:tex.points.straight.draw}}, hai lá cùng chất {{n:tex.points.suits.two-tone}}, ba lá cùng chất {{n:tex.points.suits.monotone}}"
-  then: "đó là flop {{t:dry|khô}}: có ít {{t:draw|draw}}, và chưa ai có {{t:straight|sảnh}} hay {{t:flush|thùng}} thành sẵn"
+  then: "đó là flop {{t:dry|khô}}: có ít {{t:draw|bài chờ}}, và chưa ai có {{t:straight|sảnh}} hay {{t:flush|thùng}} thành sẵn"
   because: "các lá tiếp theo hiếm khi thay đổi người dẫn, nên tay tốt nhất ở flop thường vẫn là tốt nhất"
   level: rules
   source: "định nghĩa kết cấu trong ứng dụng (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); khái niệm flop khô: trang đào tạo, Sizing Your C-Bets; trang đào tạo, What Is a Continuation Bet; ví dụ flop khô: trang đào tạo (K72r, A94r), trang đào tạo (AA6r); ranh giới khô/trung bình là quy ước của ứng dụng"
@@ -340,16 +340,16 @@
 - id: R-M5-002
   module: m5
   if: "flop đạt ít nhất {{n:tex.threshold.wet}} điểm {{t:wetness|độ ướt}} (tính điểm như trong định nghĩa flop {{t:dry|khô}})"
-  then: "đó là flop {{t:wet|ướt}}: đối thủ thường có {{t:draw|draw}}, và đôi khi đã có {{t:straight|sảnh}} hoặc {{t:flush|thùng}}"
+  then: "đó là flop {{t:wet|ướt}}: đối thủ thường có {{t:draw|bài chờ}}, và đôi khi đã có {{t:straight|sảnh}} hoặc {{t:flush|thùng}}"
   because: "các lá tiếp theo thường thay đổi người dẫn, nên tay đang tốt nhất kém an toàn hơn"
   level: rules
   source: "định nghĩa kết cấu trong ứng dụng (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); khái niệm flop ướt: trang đào tạo, Sizing Your C-Bets; trang đào tạo, What Is a Continuation Bet; ví dụ flop ướt: trang đào tạo (987, QJT), trang đào tạo, Bet Sizing Strategy: 8 Rules (T954, https://upswingpoker.com/bet-size-strategy-tips-rules/); ranh giới trung bình/ướt là quy ước của ứng dụng"
   sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: training }]
 - id: R-M5-003
   module: m5
-  if: "bạn đã {{t:open|mở}} trước flop, {{t:big-blind|mù lớn}} đã {{t:call|theo}}, và trên flop có lá A hoặc K"
+  if: "bạn đã {{t:open|mở}} trước flop, {{t:big-blind|big blind}} đã {{t:call|theo}}, và trên flop có lá A hoặc K"
   then: "bạn có {{t:range-advantage|lợi thế range}}: trung bình các tay bài của bạn mạnh hơn của đối thủ"
-  because: "{{t:big-blind|mù lớn}} {{t:raise|tố}} phần lớn AA, KK và AK trước flop, nên khi chỉ {{t:call|theo}} họ có rất ít những tay này, còn bạn có tất cả"
+  because: "{{t:big-blind|big blind}} {{t:raise|tố}} phần lớn AA, KK và AK trước flop, nên khi chỉ {{t:call|theo}} họ có rất ít những tay này, còn bạn có tất cả"
   level: heuristic
   source: "trang của một solver thương mại, Range advantage (bảng thuật ngữ); trang của một solver thương mại, The Turn Probe Bet (“BB lacks the stronger Ace-highs because they would have 3-bet with them preflop”)"
   sources: [{ kind: solver-pub }]
@@ -357,7 +357,7 @@
   module: m5
   if: "bạn đã {{t:open|mở}} trước flop, và flop thấp, {{t:connected|liên kết}} hoặc {{t:semi-connected|bán liên kết}}, ví dụ 7-6-5"
   then: "bạn c-bet ít thường xuyên hơn so với flop cao, và nhiều tay {{t:check|xem bài}}"
-  because: "{{t:big-blind|mù lớn}} phòng thủ với nhiều {{t:connectors|connector}} đồng chất và {{t:pair|đôi}} nhỏ, nên thường có {{t:two-pair|hai đôi}} hoặc {{t:straight|sảnh}} hơn: chính họ có {{t:nuts-advantage|lợi thế nuts}}"
+  because: "{{t:big-blind|big blind}} phòng thủ với nhiều {{t:connectors|connector}} đồng chất và {{t:pair|đôi}} nhỏ, nên thường có {{t:two-pair|hai đôi}} hoặc {{t:straight|sảnh}} hơn: chính họ có {{t:nuts-advantage|lợi thế nuts}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
   source: "tổ hợp: Button mở tất cả các đôi 55–77, và mù lớn theo với chúng, nên cả hai có số set tương đương; trang của một solver thương mại, Bullying the Blinds (trên 654r Button xem bài với hơn một nửa range; “Even on 654r… BB has less than 52% equity”)"
@@ -389,9 +389,9 @@
   sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-008
   module: m5
-  if: "là {{t:aggressor|người tấn công}} preflop, bạn có {{t:position|vị trí}}, và flop cho đối thủ nhiều {{t:draw|draw}}, nhưng chưa thể có {{t:straight|sảnh}}, ví dụ K-J-7 {{t:two-tone|hai chất}}"
-  then: "bạn c-bet ít thường xuyên hơn nhưng với mức lớn hơn, ví dụ {{n:cbet.size.big}} {{t:pot|pot}}; tay trung bình không có {{t:draw|draw}} thường {{t:check|xem bài}} hơn; khi đã có thể có {{t:straight|sảnh}}, ví dụ J-T-8, solver cược mức nhỏ hơn"
-  because: "các {{t:draw|draw}} của đối thủ có nhiều equity, nên {{t:bet|cược}} lớn bắt họ trả đắt cho lá tiếp theo"
+  if: "là {{t:aggressor|người tấn công}} preflop, bạn có {{t:position|vị trí}}, và flop cho đối thủ nhiều {{t:draw|bài chờ}}, nhưng chưa thể có {{t:straight|sảnh}}, ví dụ K-J-7 {{t:two-tone|hai chất}}"
+  then: "bạn c-bet ít thường xuyên hơn nhưng với mức lớn hơn, ví dụ {{n:cbet.size.big}} {{t:pot|pot}}; tay trung bình không có {{t:draw|bài chờ}} thường {{t:check|xem bài}} hơn; khi đã có thể có {{t:straight|sảnh}}, ví dụ J-T-8, solver cược mức nhỏ hơn"
+  because: "các {{t:draw|bài chờ}} của đối thủ có nhiều equity, nên {{t:bet|cược}} lớn bắt họ trả đắt cho lá tiếp theo"
   level: heuristic
   source: "trang của một solver thương mại, Flop Heuristics: IP C-Betting in Cash Games (“increased use of the 66% pot bet size, but decreased overall betting frequency”); trang đào tạo, Bet Sizing Strategy: 8 Rules (55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/); trang đào tạo, Picking the Proper C-Bet Sizing on Ace-High Boards (2/3 pot)"
   sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: solver-pub }, { kind: training }]
@@ -399,7 +399,7 @@
   module: m5
   if: "là {{t:aggressor|người tấn công}} preflop, bạn có {{t:position|vị trí}}, và flop {{t:paired|có đôi}}, ví dụ Q-Q-6"
   then: "bạn c-bet thường xuyên và nhỏ"
-  because: "bạn có {{t:range-advantage|lợi thế range}}, và trên flop {{t:paired|có đôi}} khó có {{t:draw|draw}}, nên đối thủ không có {{t:pair|đôi}} hiếm khi {{t:call|theo}} được ngay cả một {{t:bet|cược}} nhỏ; {{t:bet|cược}} lớn không đáng, vì ai trong hai người cũng có thể có {{t:three-of-a-kind|bộ ba}}"
+  because: "bạn có {{t:range-advantage|lợi thế range}}, và trên flop {{t:paired|có đôi}} khó có {{t:draw|bài chờ}}, nên đối thủ không có {{t:pair|đôi}} hiếm khi {{t:call|theo}} được ngay cả một {{t:bet|cược}} nhỏ; {{t:bet|cược}} lớn không đáng, vì ai trong hai người cũng có thể có {{t:three-of-a-kind|bộ ba}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
   source: "trang của một solver thương mại, Flop Heuristics: IP C-Betting in Cash Games (“Paired flops are bet significantly more often… only be bet for small sizing… reduced nut advantage from trips being in both player's ranges”; “On paired boards, it's also much harder to have a draw”)"
@@ -431,7 +431,7 @@
 - id: R-M5-013
   module: m5
   if: "ở flop bạn có hai đối thủ trở lên"
-  then: "bạn c-bet ít thường xuyên hơn nhiều, chủ yếu với tay mạnh và {{t:draw|draw}} mạnh; bạn ít {{t:bluff|bluff}}, và khi cược thì cược nhỏ"
+  then: "bạn c-bet ít thường xuyên hơn nhiều, chủ yếu với tay mạnh và {{t:draw|bài chờ}} mạnh; bạn ít {{t:bluff|bluff}}, và khi cược thì cược nhỏ"
   because: "mỗi đối thủ thêm làm tăng khả năng có người trúng: hai tay không có {{t:pair|đôi}} cùng trượt chỉ trong khoảng {{n:flop.miss.two}} trường hợp"
   level: heuristic
   source: "trang đào tạo, Multiway Pots in Poker; trang đào tạo, C-Betting in Multiway Pots (“Check even pocket kings… the solver checks its entire range”; “around a quarter to a third of pot”); tính toán chính xác: C(36,3)/C(48,3)"
@@ -482,25 +482,25 @@
   sources: [{ kind: math }]
 - id: R-M6-006
   module: m6
-  if: "ở {{t:big-blind|mù lớn}}, bạn gặp c-bet nhỏ (khoảng 1/3 {{t:pot|pot}})"
-  then: "bạn tiếp tục với gần như mọi {{t:pair|đôi}}, các {{t:draw|draw}}, lá cao có thêm {{t:draw|draw}} phụ (backdoor) và thường cả át là lá cao nhất; bạn {{t:fold|bỏ bài}} với các tay yếu nhất không có {{t:pair|đôi}} và không có {{t:draw|draw}}"
+  if: "ở {{t:big-blind|big blind}}, bạn gặp c-bet nhỏ (khoảng 1/3 {{t:pot|pot}})"
+  then: "bạn tiếp tục với gần như mọi {{t:pair|đôi}}, các {{t:draw|bài chờ}}, lá cao có thêm {{t:draw|bài chờ}} phụ (backdoor) và thường cả át là lá cao nhất; bạn {{t:fold|bỏ bài}} với các tay yếu nhất không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}}"
   because: "bạn chỉ cần khoảng {{n:eq.bet-third}} equity, và những tay này hoặc đã thắng {{t:bluff|bluff}}, hoặc có thể cải thiện"
   level: heuristic
   source: "trang đào tạo, Defending the BB on High Card Boards (solver: “we will continue with pretty much all pairs including the underpairs and even A-high hands”)"
   sources: [{ kind: training }]
 - id: R-M6-007
   module: m6
-  if: "bạn có hai lá cao không có {{t:pair|đôi}} và không có {{t:draw|draw}}, còn c-bet lớn (3/4 {{t:pot|pot}} trở lên)"
+  if: "bạn có hai lá cao không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}}, còn c-bet lớn (3/4 {{t:pot|pot}} trở lên)"
   then: "thường bạn {{t:fold|bỏ bài}} (tuy nhiên trên các flop {{t:dry|khô}} có K, solver vẫn {{t:call|theo}} nhiều tay có át)"
-  because: "khi {{t:out-of-position|không có vị trí}} tay như vậy hiếm khi đi đến showdown, còn {{t:pair|đôi}} tạo từ lá cao thường vẫn thua; bạn {{t:call|theo}} chủ yếu khi có thêm {{t:draw|draw}}, tốt nhất là tới {{t:flush|thùng}} cao nhất"
+  because: "khi {{t:out-of-position|không có vị trí}} tay như vậy hiếm khi đi đến showdown, còn {{t:pair|đôi}} tạo từ lá cao thường vẫn thua; bạn {{t:call|theo}} chủ yếu khi có thêm {{t:draw|bài chờ}}, tốt nhất là tới {{t:flush|thùng}} cao nhất"
   level: heuristic
   source: "trang đào tạo, When to Call With Ace-High (J42, 66%: “the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); trang đào tạo, Defending the BB on High Card Boards (K84: solver theo với một phần tay có át ngay cả trước 2/3 pot)"
   sources: [{ kind: training }, { kind: training }]
 - id: R-M6-008
   module: m6
   if: "bạn muốn check-raise ở flop"
-  then: "bạn làm điều đó chủ yếu với các tay mạnh nhất ({{t:two-pair|hai đôi}}, set) và {{t:draw|draw}} ({{t:flush|thùng}}, {{t:oesd|OESD}}); các {{t:pair|đôi}} trung bình thường bạn {{t:call|theo}} (đơn giản hóa: trước c-bet nhỏ, solver cũng {{t:raise|tố}} một phần {{t:top-pair|đôi cao nhất}} và {{t:pair|đôi}} yếu để bảo vệ)"
-  because: "sau check-raise, tay kém hơn thường {{t:fold|bỏ bài}}, còn tay tốt hơn trả tiền, nên {{t:pair|đôi}} trung bình hiếm khi được lợi; {{t:draw|draw}} có hai đường thắng: đối thủ {{t:fold|bỏ bài}} hoặc trúng bài"
+  then: "bạn làm điều đó chủ yếu với các tay mạnh nhất ({{t:two-pair|hai đôi}}, set) và {{t:draw|bài chờ}} ({{t:flush|thùng}}, {{t:oesd|OESD}}); các {{t:pair|đôi}} trung bình thường bạn {{t:call|theo}} (đơn giản hóa: trước c-bet nhỏ, solver cũng {{t:raise|tố}} một phần {{t:top-pair|đôi cao nhất}} và {{t:pair|đôi}} yếu để bảo vệ)"
+  because: "sau check-raise, tay kém hơn thường {{t:fold|bỏ bài}}, còn tay tốt hơn trả tiền, nên {{t:pair|đôi}} trung bình hiếm khi được lợi; {{t:draw|bài chờ}} có hai đường thắng: đối thủ {{t:fold|bỏ bài}} hoặc trúng bài"
   level: heuristic
   source: "trang đào tạo, 5 Winning Check-Raising Strategies (solver “check-raise all sorts of top pairs versus small bets”); trang đào tạo (bảng solver) (set và draw để check-raise; đôi yếu để bảo vệ)"
   sources: [{ kind: training }]
@@ -508,7 +508,7 @@
   module: m6
   if: "c-bet nhỏ hoặc flop thấp và {{t:connected|liên kết}} (ví dụ 7-6-5)"
   then: "bạn check-raise thường hơn; trên các flop cao có lợi cho người tố trước flop (ví dụ K-J-T, A-A-K) và trước c-bet lớn thì ít hơn"
-  because: "trên flop thấp, {{t:big-blind|mù lớn}} có nhiều tay mạnh nhất hơn ({{t:nuts-advantage|lợi thế nuts}}), và c-bet nhỏ tạo cơ hội rẻ để {{t:raise|tố}}"
+  because: "trên flop thấp, {{t:big-blind|big blind}} có nhiều tay mạnh nhất hơn ({{t:nuts-advantage|lợi thế nuts}}), và c-bet nhỏ tạo cơ hội rẻ để {{t:raise|tố}}"
   level: heuristic
   source: "trang đào tạo, How to Check-Raise Like a High Stakes Juggernaut (các flop không nên tố: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% trước 33% và 8,66% trước 66% pot); trang của một solver thương mại (“The larger the BTN bets, the less BB raises”)"
   sources: [{ kind: solver-pub }, { kind: training }]
@@ -516,15 +516,15 @@
   module: m6
   if: "bạn check-raise ở flop"
   then: "bạn {{t:raise|tố}} lên khoảng {{n:xr.mult.low}}–{{n:xr.mult.example}} mức c-bet, c-bet càng nhỏ thì bội số càng lớn; không tố tối thiểu"
-  because: "với check-raise lên {{n:xr.mult.example}} mức c-bet, Button cần khoảng {{n:eq.vs-xr.example}} equity để {{t:call|theo}}, còn ở {{n:xr.too-small.mult}} mức c-bet chỉ cần {{n:eq.vs-xr.too-small}}; với giá rẻ như vậy họ sẽ trả bằng mọi {{t:draw|draw}}"
+  because: "với check-raise lên {{n:xr.mult.example}} mức c-bet, Button cần khoảng {{n:eq.vs-xr.example}} equity để {{t:call|theo}}, còn ở {{n:xr.too-small.mult}} mức c-bet chỉ cần {{n:eq.vs-xr.too-small}}; với giá rẻ như vậy họ sẽ trả bằng mọi {{t:draw|bài chờ}}"
   level: heuristic
   source: "tính giá: khoản theo/(pot sau khi tố + khoản theo); trang đào tạo, Level-Up Podcast ep. 1 (Blackwood): 4,5x trước c-bet nhỏ, 3,2x trước c-bet lớn (https://upswingpoker.com/podcast/ep1-check-raise/); hướng khớp với trang của một solver thương mại: cược càng nhỏ, bội số càng lớn"
   sources: [{ kind: training, url: "https://upswingpoker.com/podcast/ep1-check-raise/" }, { kind: solver-pub }, { kind: math }]
 - id: R-M6-011
   module: m6
   if: "bạn cân nhắc check-raise như một {{t:bluff|bluff}} hoặc {{t:semi-bluff|semi-bluff}}"
-  then: "bạn chọn chủ yếu các {{t:draw|draw}} mạnh; đối thủ càng ít {{t:fold|bỏ bài}}, càng ít {{t:bluff|bluff}} như vậy, còn khi họ gần như không {{t:fold|bỏ bài}}, bạn check-raise chủ yếu để lấy {{t:value|giá trị}}"
-  because: "{{t:bluff|bluff}} chỉ có lãi khi đối thủ {{t:fold|bỏ bài}} thường hơn alpha (R-M6-002); {{t:draw|draw}} mạnh còn thắng khi trúng bài, nên mất ít nhất khi đối thủ ít {{t:fold|bỏ bài}}"
+  then: "bạn chọn chủ yếu các {{t:draw|bài chờ}} mạnh; đối thủ càng ít {{t:fold|bỏ bài}}, càng ít {{t:bluff|bluff}} như vậy, còn khi họ gần như không {{t:fold|bỏ bài}}, bạn check-raise chủ yếu để lấy {{t:value|giá trị}}"
+  because: "{{t:bluff|bluff}} chỉ có lãi khi đối thủ {{t:fold|bỏ bài}} thường hơn alpha (R-M6-002); {{t:draw|bài chờ}} mạnh còn thắng khi trúng bài, nên mất ít nhất khi đối thủ ít {{t:fold|bỏ bài}}"
   level: heuristic
   source: "kết luận từ alpha (R-M6-002): bluff cần đối thủ bỏ bài; trang đào tạo, 5 Winning Check-Raising Strategies (“tighten your bluffing range to include only strong draws”)"
   sources: [{ kind: training }, { kind: math }]
@@ -565,7 +565,7 @@
   sources: [{ kind: math }]
 - id: R-M7-005
   module: m7
-  if: "bạn cược ở turn với {{t:range|range}} {{t:polarized|phân cực}} (tay rất mạnh và {{t:semi-bluff|semi-bluff}} có {{t:draw|draw}}, không có tay trung bình)"
+  if: "bạn cược ở turn với {{t:range|range}} {{t:polarized|phân cực}} (tay rất mạnh và {{t:semi-bluff|semi-bluff}} có {{t:draw|bài chờ}}, không có tay trung bình)"
   then: "bạn chọn mức lớn, ví dụ 3/4 {{t:pot|pot}}, còn tay trung bình {{t:check|xem bài}}"
   because: "tay mạnh muốn xây {{t:pot|pot}} trước river, {{t:bluff|bluff}} cần đối thủ {{t:fold|bỏ bài}}, còn tay trung bình không được lợi từ {{t:pot|pot}} lớn"
   level: heuristic
@@ -574,14 +574,14 @@
 - id: R-M7-006
   module: m7
   if: "bạn có tay mạnh ở turn, và đối thủ có thể có {{t:flush-draw|draw thùng}}"
-  then: "bạn cược lớn: với cược 3/4 {{t:pot|pot}}, {{t:draw|draw}} cần {{n:eq.bet-three-quarters}} equity, mà nó chỉ có khoảng {{n:odds.flush.turn-river}}"
-  because: "với cược 1/4 {{t:pot|pot}}, họ chỉ cần {{n:eq.bet-quarter}}, nên cược nhỏ cho {{t:draw|draw}} giá tốt"
+  then: "bạn cược lớn: với cược 3/4 {{t:pot|pot}}, {{t:draw|bài chờ}} cần {{n:eq.bet-three-quarters}} equity, mà nó chỉ có khoảng {{n:odds.flush.turn-river}}"
+  because: "với cược 1/4 {{t:pot|pot}}, họ chỉ cần {{n:eq.bet-quarter}}, nên cược nhỏ cho {{t:draw|bài chờ}} giá tốt"
   level: math
   source: "tính toán: equity cần thiết = cược/(pot+2·cược), cơ hội = out ÷ số lá chưa biết; hướng (tay mạnh nhưng dễ bị vượt thì cược lớn): trang đào tạo, How Much Should You Bet on Connected Boards?"
   sources: [{ kind: training }, { kind: math }]
 - id: R-M7-007
   module: m7
-  if: "bạn có {{t:draw|draw}} ở turn"
+  if: "bạn có {{t:draw|bài chờ}} ở turn"
   then: "bạn tính cơ hội cho một lá: {{t:flush|thùng}} là khoảng {{n:odds.flush.turn-river}}, không phải {{n:odds.flush.flop-river}} như từ flop đến river"
   because: "đến river chỉ còn một lá, nên cơ hội nhỏ hơn khoảng một nửa so với khi tính từ flop cho hai lá"
   level: math
@@ -590,7 +590,7 @@
   sources: [{ kind: math }]
 - id: R-M7-008
   module: m7
-  if: "ở turn giá cho {{t:draw|draw}} quá cao (bạn có ít equity hơn mức cần)"
+  if: "ở turn giá cho {{t:draw|bài chờ}} quá cao (bạn có ít equity hơn mức cần)"
   then: "bạn chỉ {{t:call|theo}} khi sau khi trúng bạn sẽ thắng tổng cộng ít nhất khoản theo × (số lá trượt ÷ số out); phần vượt quá {{t:pot|pot}} là implied odds"
   because: "khi đó tiền thắng lúc trúng bù được tiền mất lúc trượt; với draw thùng và cược {{n:io.flush.bet}} vào {{t:pot|pot}} {{n:ex.third.pot}}, đó là {{n:io.flush.extra}} ngoài {{t:pot|pot}}"
   level: math
@@ -600,14 +600,14 @@
 - id: R-M7-009
   module: m7
   if: "bạn trông vào implied odds"
-  then: "bạn chỉ tin vào chúng khi đối thủ còn đủ {{t:chips|chip}} ({{t:spr|SPR}} cao), {{t:draw|draw}} của bạn hướng tới tay tốt nhất, và việc trúng bài không lộ liễu"
+  then: "bạn chỉ tin vào chúng khi đối thủ còn đủ {{t:chips|chip}} ({{t:spr|SPR}} cao), {{t:draw|bài chờ}} của bạn hướng tới tay tốt nhất, và việc trúng bài không lộ liễu"
   because: "số {{t:chips|chip}} thêm đó vẫn phải do đối thủ trả cho bạn; khi {{t:spr|SPR}} thấp thì không còn gì để lấy, còn trúng bài lộ liễu (ví dụ lá cơ thứ ba trên {{t:board|board}}) làm họ chùn tay"
   level: heuristic
   source: "huấn luyện viên có trang đào tạo, Implied Odds Calculator; trang đào tạo, Implied Odds"
   sources: [{ kind: training }, { kind: training }]
 - id: R-M7-010
   module: m7
-  if: "bạn có {{t:draw|draw}} tới {{t:flush|thùng}} thấp, hoặc tới {{t:straight|sảnh}} khi trên {{t:board|board}} có thể ra {{t:flush|thùng}}"
+  if: "bạn có {{t:draw|bài chờ}} tới {{t:flush|thùng}} thấp, hoặc tới {{t:straight|sảnh}} khi trên {{t:board|board}} có thể ra {{t:flush|thùng}}"
   then: "bạn {{t:call|theo}} thận trọng hơn và tính ít out hơn"
   because: "khi trúng, đôi khi bạn vẫn thua tay tốt hơn và lúc đó bạn trả nhiều nhất (reverse implied odds)"
   level: heuristic
@@ -615,7 +615,7 @@
   sources: [{ kind: training }, { kind: training }]
 - id: R-M7-011
   module: m7
-  if: "bạn phòng thủ {{t:big-blind|mù lớn}}, và Button sau khi {{t:open|mở}} đã không c-bet ở flop (đã {{t:check|xem bài}})"
+  if: "bạn phòng thủ {{t:big-blind|big blind}}, và Button sau khi {{t:open|mở}} đã không c-bet ở flop (đã {{t:check|xem bài}})"
   then: "ở turn bạn tự cược thường hơn (probe bet), nhất là trên board thấp; trên board có A hoặc K thì ít hơn"
   because: "Button sẽ cược với nhiều tay mạnh, nên sau khi {{t:check|xem bài}} họ có ít tay mạnh hơn; tuy nhiên trên board cao, {{t:range-advantage|lợi thế range}} vẫn nghiêng về phía họ"
   level: heuristic
@@ -624,16 +624,16 @@
 - id: R-M7-012
   module: m7
   if: "bạn {{t:bet|cược}} thăm dò (probe bet) ở turn"
-  then: "bạn cược với các {{t:pair|đôi}} muốn được trả tiền và cần bảo vệ, cùng các {{t:draw|draw}} mạnh; tay không có {{t:pair|đôi}} và không có out thì {{t:check|xem bài}}"
-  because: "các {{t:pair|đôi}} kiếm lời từ tay kém hơn của Button và không cho họ lá miễn phí, {{t:draw|draw}} thắng theo hai cách, còn tay trống không được gì"
+  then: "bạn cược với các {{t:pair|đôi}} muốn được trả tiền và cần bảo vệ, cùng các {{t:draw|bài chờ}} mạnh; tay không có {{t:pair|đôi}} và không có out thì {{t:check|xem bài}}"
+  because: "các {{t:pair|đôi}} kiếm lời từ tay kém hơn của Button và không cho họ lá miễn phí, {{t:draw|bài chờ}} thắng theo hai cách, còn tay trống không được gì"
   level: heuristic
   source: "trang của một solver thương mại, The Turn Probe Bet; trang đào tạo, Turn Probe (Kanu7); trang đào tạo, Probe Betting Explained"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M7-013
   module: m7
   if: "bạn đã {{t:call|theo}} c-bet ở flop, và đối thủ cược lần nữa ở turn"
-  then: "bạn phòng thủ hẹp hơn so với ở flop: {{t:draw|draw}} chỉ {{t:call|theo}} khi có giá tốt hoặc implied odds, còn tay không có out và các {{t:pair|đôi}} yếu nhất {{t:fold|bỏ bài}}"
-  because: "đối thủ {{t:bet|cược}} {{t:second-barrel|second barrel}} với {{t:range|range}} hẹp hơn c-bet và thường với mức lớn hơn, còn {{t:draw|draw}} chỉ còn một lá"
+  then: "bạn phòng thủ hẹp hơn so với ở flop: {{t:draw|bài chờ}} chỉ {{t:call|theo}} khi có giá tốt hoặc implied odds, còn tay không có out và các {{t:pair|đôi}} yếu nhất {{t:fold|bỏ bài}}"
+  because: "đối thủ {{t:bet|cược}} {{t:second-barrel|second barrel}} với {{t:range|range}} hẹp hơn c-bet và thường với mức lớn hơn, còn {{t:draw|bài chờ}} chỉ còn một lá"
   level: heuristic
   source: "trang đào tạo, What the Best Poker Pros Already Know About Playing vs. Double Barrels"
   sources: [{ kind: training }]
@@ -683,7 +683,7 @@
 - id: R-M8-006
   module: m8
   if: "bạn chọn những tay để {{t:bluff|bluff}} ở river"
-  then: "bạn {{t:bluff|bluff}} với những tay yếu nhất không thắng được ở showdown (ví dụ {{t:draw|draw}} tới {{t:straight|sảnh}} bị trượt hoặc lá cao không có cơ hội); tay có giá trị showdown thì {{t:check|xem bài}}"
+  then: "bạn {{t:bluff|bluff}} với những tay yếu nhất không thắng được ở showdown (ví dụ {{t:draw|bài chờ}} tới {{t:straight|sảnh}} bị trượt hoặc lá cao không có cơ hội); tay có giá trị showdown thì {{t:check|xem bài}}"
   because: "{{t:bluff|bluff}} với tay thường thắng sau khi {{t:check|xem bài}} là bỏ đi chiến thắng đó; tay không có cơ hội chẳng mất gì khi {{t:bluff|bluff}} thất bại"
   level: heuristic
   source: "trang của một solver thương mại, We're At The River. Our Hand Can't Win. Now What?; trang đào tạo, Polarized vs Linear Ranges"
@@ -700,7 +700,7 @@
   module: m8
   if: "{{t:flush-draw|draw thùng}} không vào, và bạn đang chọn {{t:bluff|bluff}}"
   then: "khi có lựa chọn {{t:bluff|bluff}}, bạn ưu tiên {{t:bluff|bluff}} không có lá thuộc chất đó"
-  because: "đối thủ sẽ {{t:fold|bỏ bài}} các {{t:draw|draw}} bị trượt; lá thuộc chất đó trong tay bạn làm giảm số tay họ sẽ bỏ"
+  because: "đối thủ sẽ {{t:fold|bỏ bài}} các {{t:draw|bài chờ}} bị trượt; lá thuộc chất đó trong tay bạn làm giảm số tay họ sẽ bỏ"
   level: heuristic
   source: "trang đào tạo, What is Unblocking in Poker; trang của một solver thương mại, Blockers & Unblockers: The Secret to Picking Great Bluffs"
   sources: [{ kind: solver-pub }, { kind: training }]
@@ -723,7 +723,7 @@
 - id: R-M8-011
   module: m8
   if: "bạn chọn những bluff-catcher để {{t:call|theo}} cược ở river"
-  then: "bạn ưu tiên tay có lá chặn các tay mạnh của đối thủ và không có lá chặn {{t:bluff|bluff}} của họ (ví dụ không có lá thuộc chất của {{t:draw|draw}} bị trượt)"
+  then: "bạn ưu tiên tay có lá chặn các tay mạnh của đối thủ và không có lá chặn {{t:bluff|bluff}} của họ (ví dụ không có lá thuộc chất của {{t:draw|bài chờ}} bị trượt)"
   because: "khi bạn chặn giá trị của họ, trong {{t:range|range}} cược còn lại nhiều {{t:bluff|bluff}} hơn; khi bạn chặn {{t:bluff|bluff}} của họ, còn lại nhiều tay giá trị hơn"
   level: heuristic
   source: "trang của một solver thương mại, Understanding Blockers; trang đào tạo; trang đào tạo, Bluff Catching Strategy"
@@ -1051,7 +1051,7 @@
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/short-stack-strategy-2/" }, { kind: training, url: "https://upswingpoker.com/push-fold-tournament-strategy-charts/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/short-stacked-play-in-mtts/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments" }]
 - id: R-M11-002
   module: m11
-  if: "bạn chơi push/fold từ {{t:small-blind|mù nhỏ}} với {{t:big-blind|mù lớn}}"
+  if: "bạn chơi push/fold từ {{t:small-blind|small blind}} với {{t:big-blind|big blind}}"
   then: "stack càng ngắn, bạn càng {{t:shove|push}} all-in nhiều tay: ở {{n:m11.depth.15}} khoảng {{n:m11.push.15}} số tay, ở {{n:m11.depth.10}} khoảng {{n:m11.push.10}}, ở {{n:m11.depth.5}} khoảng {{n:m11.nash.push.5}}–{{n:m11.push.5}}"
   because: "với stack ngắn hơn, bạn mạo hiểm ít hơn so với tiền mù bạn giành được khi đối thủ {{t:fold|bỏ bài}}, còn đối thủ phải {{t:call|theo}} rộng hơn"
   level: gto
@@ -1083,7 +1083,7 @@
   sources: [{ kind: reference, url: "https://en.wikipedia.org/wiki/M-ratio" }, { kind: training, url: "https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/" }]
 - id: R-M11-006
   module: m11
-  if: "từ {{t:big-blind|mù lớn}} bạn {{t:call|theo}} all-in của {{t:small-blind|mù nhỏ}} với stack S (không ante)"
+  if: "từ {{t:big-blind|big blind}} bạn {{t:call|theo}} all-in của {{t:small-blind|small blind}} với stack S (không ante)"
   then: "bạn cần equity (S − {{n:pf.blind.bb}}) ÷ 2S: ở {{n:m11.depth.10}} là {{n:m11.call.10.eq}}, ở {{n:m11.depth.5}} là {{n:m11.call.5.eq}}, ở {{n:m11.depth.15}} là {{n:m11.call.15.eq}}"
   because: "tiền mù đã nằm trong {{t:pot|pot}}, nên bạn bỏ thêm S − {{n:pf.blind.bb}}, còn {{t:pot|pot}} sau khi {{t:call|theo}} là 2S"
   level: math
@@ -1124,7 +1124,7 @@
 - id: R-M11-011
   module: m11
   if: "bạn chơi push/fold, và sau bạn còn nhiều người chơi hơn có thể {{t:call|theo}}"
-  then: "bạn {{t:shove|push}} all-in hẹp hơn: với ba người chơi và {{n:m11.depth.3max}}, Button khoảng {{n:m11.3max.push.btn}} số tay, còn {{t:small-blind|mù nhỏ}} sau khi Button bỏ bài khoảng {{n:m11.3max.push.sb}}"
+  then: "bạn {{t:shove|push}} all-in hẹp hơn: với ba người chơi và {{n:m11.depth.3max}}, Button khoảng {{n:m11.3max.push.btn}} số tay, còn {{t:small-blind|small blind}} sau khi Button bỏ bài khoảng {{n:m11.3max.push.sb}}"
   because: "mỗi người chơi thêm là thêm một cơ hội có ai đó cầm tay mạnh, nên việc tất cả cùng {{t:fold|bỏ bài}} hiếm hơn"
   level: gto
   source: "solver push/fold của dự án (content/ranges/pushfold.json, ba người chơi); khớp với Ganzfried và Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), bảng 2, single hand: “Button jam … 0.355”, “SB jam after fold … 0.633” (tần suất các nút khớp trong phạm vi 1,2 điểm phần trăm, báo cáo M11)"
@@ -1132,7 +1132,7 @@
 - id: R-M11-012
   module: m11
   if: "bạn {{t:call|theo}} all-in, và sau bạn vẫn còn người chơi hoặc đã có người {{t:call|theo}}"
-  then: "bạn {{t:call|theo}} hẹp hơn: với ba người chơi và {{n:m11.depth.3max}}, {{t:small-blind|mù nhỏ}} {{t:call|theo}} all-in của Button với khoảng {{n:m11.3max.call.sb}} số tay, {{t:big-blind|mù lớn}} (khi {{t:small-blind|SB}} đã {{t:fold|bỏ bài}}) khoảng {{n:m11.3max.call.bb}}, còn khi đã có hai người all-in thì chỉ khoảng {{n:m11.3max.call.bb-two}}, dù giá giảm xuống {{n:m11.3max.bb-two.eq}}"
+  then: "bạn {{t:call|theo}} hẹp hơn: với ba người chơi và {{n:m11.depth.3max}}, {{t:small-blind|small blind}} {{t:call|theo}} all-in của Button với khoảng {{n:m11.3max.call.sb}} số tay, {{t:big-blind|big blind}} (khi {{t:small-blind|SB}} đã {{t:fold|bỏ bài}}) khoảng {{n:m11.3max.call.bb}}, còn khi đã có hai người all-in thì chỉ khoảng {{n:m11.3max.call.bb-two}}, dù giá giảm xuống {{n:m11.3max.bb-two.eq}}"
   because: "người chơi sau bạn có thể có tay mạnh và tham gia, còn trước hai {{t:range|range}}, equity của tay bạn giảm nhanh; giá của {{t:small-blind|SB}} và {{t:big-blind|BB}} chênh nhau ít, nên khác biệt chủ yếu đến từ người chơi sau bạn"
   level: gto
   source: "solver push/fold của dự án (pushfold.json, ba người chơi); khớp với Ganzfried và Sandholm, AAMAS 2008, bảng 2, single hand: “SB jam after jam … 0.234”, “BB jam after jam/fold … 0.308”, “BB jam after jam/jam … 0.197”"
@@ -1161,7 +1161,7 @@
   module: m13
   if: "bạn đổi chất của mọi lá bài bằng một phép hoán đổi (ví dụ cơ thành bích, bích thành cơ)"
   then: "quyết định đúng không thay đổi"
-  because: "sức mạnh của tay bài và {{t:draw|draw}} phụ thuộc vào việc các chất có trùng nhau hay không, chứ không phụ thuộc vào đó là chất nào; vì vậy phần ôn tập từ ván chơi hiển thị cùng tình huống với các chất khác"
+  because: "sức mạnh của tay bài và {{t:draw|bài chờ}} phụ thuộc vào việc các chất có trùng nhau hay không, chứ không phụ thuộc vào đó là chất nào; vì vậy phần ôn tập từ ván chơi hiển thị cùng tình huống với các chất khác"
   level: math
   source: "tính toán: thứ hạng tay bài không phân biệt chất (luật Texas Hold'em), và hoán vị chất giữ nguyên việc những lá nào cùng chất; được kiểm tra trong poker-core bằng kiểm thử thuộc tính (tài liệu 02, tài liệu 14, 5.6)"
   sources: [{ kind: math }]

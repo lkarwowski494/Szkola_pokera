@@ -40,7 +40,7 @@ drills:
     spot: rfi.utg
     prompt: "Bạn là người hành động đầu tiên ({{t:utg}}). Hãy tô những tay bài mà bạn dùng để {{t:open|mở cược}}."
 ---
-{{t:range|Dải bài}} {{t:open|mở cược}} là danh sách những tay bài mà bạn {{t:raise|tố}} khi tất cả người trước bạn đều đã {{t:fold|bỏ bài}}. Các bảng lưới dưới đây do solver preflop của ứng dụng này tính cho lối chơi ở bàn 6 người với stack {{n:format.stack}}.
+{{t:range|Range}} {{t:open|mở cược}} là danh sách những tay bài mà bạn {{t:raise|tố}} khi tất cả người trước bạn đều đã {{t:fold|bỏ bài}}. Các bảng lưới dưới đây do solver preflop của ứng dụng này tính cho lối chơi ở bàn 6 người với stack {{n:format.stack}}.
 
 ## Cách đọc bảng lưới
 
@@ -62,7 +62,7 @@ rfi.hj
 rfi.co
 ```
 
-Với mỗi {{t:position|vị trí}} gần Button hơn, {{t:range|dải bài}} lại rộng hơn: {{t:hijack|HJ}} {{t:open|mở cược}} với {{n:solver.rfi.hj}}, còn {{t:cutoff|CO}} đã lên tới {{n:solver.rfi.co}} số tay bài.
+Với mỗi {{t:position|vị trí}} gần Button hơn, {{t:range|range}} lại rộng hơn: {{t:hijack|HJ}} {{t:open|mở cược}} với {{n:solver.rfi.hj}}, còn {{t:cutoff|CO}} đã lên tới {{n:solver.rfi.co}} số tay bài.
 
 ```range
 rfi.btn
@@ -77,11 +77,11 @@ rfi.sb
 {{t:small-blind|Small blind}} chỉ còn chơi với {{t:big-blind|big blind}}, nên {{t:open|mở cược}} rộng gần như Button: khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài, dù sau flop phải hành động trước. Ở {{t:stakes|mức cược}} micro, từ {{t:small-blind|small blind}} bạn hoặc {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}, không bù thêm cho đủ {{t:big-blind|big blind}}: {{t:rake|phí rake}} thu từ {{t:pot|pot}} làm giảm lợi nhuận của việc bù thêm. Đây là cách đơn giản hóa: một số lời giải của solver có bù thêm với một phần tay bài từ {{t:small-blind|small blind}}. Solver của ứng dụng {{t:open|mở cược}} từ vị trí này với {{n:solver.rfi.sb}} số tay bài, tức là nằm trong khoảng mà các nguồn đưa ra.
 
 :::note Ở bàn 9 người
-Ở bàn 9 người, trước {{t:hijack|HJ}} còn có thêm ba {{t:position|vị trí}}: {{t:utg}}, {{t:utg|UTG}}+1 và {{t:utg|UTG}}+2, tiếp theo là LJ. Khi đó, sau {{t:utg}} có tám người chơi, nên từ {{t:utg}}, {{t:utg|UTG}}+1 và {{t:utg|UTG}}+2 bạn {{t:open|mở cược}} hẹp hơn so với từ {{t:utg}} ở bàn 6 người: sau bạn có nhiều người chơi hơn. Khi ba người chơi này {{t:fold|bỏ bài}}, LJ chơi như {{t:utg}} ở bàn 6 người, còn các {{t:position|vị trí}} phía sau chơi giống như trong các bảng lưới ở trên. Với các {{t:position|vị trí}} đầu ở bàn 9 người, chúng tôi chỉ đưa ra hướng chung: chúng tôi chưa đối chiếu các con số và thành phần của những {{t:range|dải bài}} này với các lời giải solver đã được công bố.
+Ở bàn 9 người, trước {{t:hijack|HJ}} còn có thêm ba {{t:position|vị trí}}: {{t:utg}}, {{t:utg|UTG}}+1 và {{t:utg|UTG}}+2, tiếp theo là LJ. Khi đó, sau {{t:utg}} có tám người chơi, nên từ {{t:utg}}, {{t:utg|UTG}}+1 và {{t:utg|UTG}}+2 bạn {{t:open|mở cược}} hẹp hơn so với từ {{t:utg}} ở bàn 6 người: sau bạn có nhiều người chơi hơn. Khi ba người chơi này {{t:fold|bỏ bài}}, LJ chơi như {{t:utg}} ở bàn 6 người, còn các {{t:position|vị trí}} phía sau chơi giống như trong các bảng lưới ở trên. Với các {{t:position|vị trí}} đầu ở bàn 9 người, chúng tôi chỉ đưa ra hướng chung: chúng tôi chưa đối chiếu các con số và thành phần của những {{t:range|range}} này với các lời giải solver đã được công bố.
 :::
 
 :::note Cách ghi nhớ
-Đừng học thuộc lòng {{n:combos.kinds}} ô. Hãy nhớ các ranh giới: những {{t:pair|đôi}} nào, những quân át cùng chất nào, và các tay bài khác chất bắt đầu từ lá bài nào. Các bài tập dưới đây sẽ chia những tay bài ở ranh giới của {{t:range|dải bài}} thường xuyên hơn.
+Đừng học thuộc lòng {{n:combos.kinds}} ô. Hãy nhớ các ranh giới: những {{t:pair|đôi}} nào, những quân át cùng chất nào, và các tay bài khác chất bắt đầu từ lá bài nào. Các bài tập dưới đây sẽ chia những tay bài ở ranh giới của {{t:range|range}} thường xuyên hơn.
 :::
 
-Những {{t:range|dải bài}} này đến từ một mô hình đơn giản hóa lối chơi sau flop, vì vậy ở hơn chục tay bài nằm ở ranh giới của {{t:range|dải bài}}, chúng khác với các bảng chuyên nghiệp, khi theo hướng này, khi theo hướng kia. Chủ yếu là các tay bài cùng chất có khoảng trống (ví dụ 75s, 97s) và các tay bài khác chất yếu (ví dụ A4o, K7o). Bài tập không chấm điểm những tay bài này.
+Những {{t:range|range}} này đến từ một mô hình đơn giản hóa lối chơi sau flop, vì vậy ở hơn chục tay bài nằm ở ranh giới của {{t:range|range}}, chúng khác với các bảng chuyên nghiệp, khi theo hướng này, khi theo hướng kia. Chủ yếu là các tay bài cùng chất có khoảng trống (ví dụ 75s, 97s) và các tay bài khác chất yếu (ví dụ A4o, K7o). Bài tập không chấm điểm những tay bài này.

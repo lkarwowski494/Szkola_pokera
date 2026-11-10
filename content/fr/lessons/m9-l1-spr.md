@@ -10,7 +10,7 @@ drills:
     id: m9.l1.q-srp
     family: m9.spr
     rules: [R-M9-001]
-    prompt: "{{t:open|Vous avez ouvert}} depuis le Button à {{n:pf.open-size}}, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}, stacks de {{n:format.stack}}. Au flop, le {{t:pot}} contient {{n:bb.pot-after.vs-btn}}, et il vous reste {{n:spr.srp.stack}} derrière. Quel est le {{t:spr}} ?"
+    prompt: "{{t:open|Vous avez ouvert}} depuis le Bouton à {{n:pf.open-size}}, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}, stacks de {{n:format.stack}}. Au flop, le {{t:pot}} contient {{n:bb.pot-after.vs-btn}}, et il vous reste {{n:spr.srp.stack}} derrière. Quel est le {{t:spr}} ?"
     table: { position: BTN }
     options:
       - { text: "Environ {{n:spr.srp}}", correct: true, why: "{{n:spr.srp.stack}} ÷ {{n:bb.pot-after.vs-btn}} ≈ {{n:spr.srp}}. Le stack derrière le {{t:pot}} est plus de dix fois plus grand que le {{t:pot}} : c'est un {{t:spr}} typique après une {{t:open|ouverture}} {{t:call|suivie}}." }
@@ -20,7 +20,7 @@ drills:
     id: m9.l1.q-3bet-ip
     family: m9.spr
     rules: [R-M9-001]
-    prompt: "Le {{t:cutoff|CO}} a {{t:open|ouvert}} à {{n:pf.open-size}}, vous avez {{t:raise|relancé}} (3-bet) depuis le Button à {{n:pf.3bet.ip-total}}, le {{t:cutoff|CO}} a {{t:call|suivi}}, les blindes {{t:fold|se sont couchées}}. Au flop, le {{t:pot}} contient {{n:vs3bet.pot-after}}, et il vous reste {{n:spr.3bet-ip.stack}} derrière. Quel est le {{t:spr}} ?"
+    prompt: "Le {{t:cutoff|CO}} a {{t:open|ouvert}} à {{n:pf.open-size}}, vous avez {{t:raise|relancé}} (3-bet) depuis le Bouton à {{n:pf.3bet.ip-total}}, le {{t:cutoff|CO}} a {{t:call|suivi}}, les blindes {{t:fold|se sont couchées}}. Au flop, le {{t:pot}} contient {{n:vs3bet.pot-after}}, et il vous reste {{n:spr.3bet-ip.stack}} derrière. Quel est le {{t:spr}} ?"
     table: { position: BTN }
     options:
       - { text: "Environ {{n:spr.3bet-ip}}", correct: true, why: "{{n:spr.3bet-ip.stack}} ÷ {{n:vs3bet.pot-after}} ≈ {{n:spr.3bet-ip}}. Après un 3-bet, le {{t:pot}} est trois fois plus grand qu'après une {{t:open|ouverture}} normale, donc le {{t:spr}} passe d'environ {{n:spr.srp}} à environ {{n:spr.3bet-ip}}." }
@@ -30,7 +30,7 @@ drills:
     id: m9.l1.q-3bet-oop
     family: m9.spr
     rules: [R-M9-001]
-    prompt: "Le Button a {{t:open|ouvert}}, vous avez {{t:raise|relancé}} (3-bet) depuis la {{t:big-blind|grosse blinde}} à {{n:pf.3bet.oop-total}}, le Button a {{t:call|suivi}}. Au flop, le {{t:pot}} contient {{n:spr.3bet-oop.pot}}, il vous reste {{n:spr.3bet-oop.stack}} derrière. Quel est le {{t:spr}} ?"
+    prompt: "Le Bouton a {{t:open|ouvert}}, vous avez {{t:raise|relancé}} (3-bet) depuis la {{t:big-blind|grosse blinde}} à {{n:pf.3bet.oop-total}}, le Bouton a {{t:call|suivi}}. Au flop, le {{t:pot}} contient {{n:spr.3bet-oop.pot}}, il vous reste {{n:spr.3bet-oop.stack}} derrière. Quel est le {{t:spr}} ?"
     table: { position: BB }
     options:
       - { text: "Environ {{n:spr.3bet-oop}}", correct: true, why: "{{n:spr.3bet-oop.stack}} ÷ {{n:spr.3bet-oop.pot}} ≈ {{n:spr.3bet-oop}}. {{t:out-of-position|Hors de position}}, le 3-bet est plus gros, donc le {{t:pot}} grossit davantage et le {{t:spr}} est plus bas qu'après un 3-bet {{t:in-position|en position}} ({{n:spr.3bet-ip}})." }
@@ -42,7 +42,7 @@ drills:
     rules: [R-M9-001]
     prompt: "Stacks de {{n:format.stack}}. Dans quel {{t:pot}} le {{t:spr}} au flop est-il le plus bas ?"
     options:
-      - { text: "Dans un {{t:pot}} après un 4-bet {{t:call|suivi}}", correct: true, why: "Oui : quand le Button 4-bette à {{n:pf.4bet.example.low}} sur le 3-bet de la {{t:small-blind|petite blinde}}, que la {{t:small-blind|petite blinde}} {{t:call|suit}} et que la {{t:big-blind|grosse blinde}} {{t:fold|s'est couchée}}, le {{t:pot}} contient {{n:spr.4bet.pot}}, avec seulement {{n:spr.4bet.stack}} derrière. Le {{t:spr}} est d'environ {{n:spr.4bet}}." }
+      - { text: "Dans un {{t:pot}} après un 4-bet {{t:call|suivi}}", correct: true, why: "Oui : quand le Bouton 4-bette à {{n:pf.4bet.example.low}} sur le 3-bet de la {{t:small-blind|petite blinde}}, que la {{t:small-blind|petite blinde}} {{t:call|suit}} et que la {{t:big-blind|grosse blinde}} {{t:fold|s'est couchée}}, le {{t:pot}} contient {{n:spr.4bet.pot}}, avec seulement {{n:spr.4bet.stack}} derrière. Le {{t:spr}} est d'environ {{n:spr.4bet}}." }
       - { text: "Dans un {{t:pot}} après un 3-bet {{t:call|suivi}}", why: "Après un 3-bet, le {{t:spr}} est d'environ {{n:spr.3bet-ip}} {{t:in-position|en position}} et d'environ {{n:spr.3bet-oop}} {{t:out-of-position|hors de position}}. Un 4-bet le fait baisser encore plus : à environ {{n:spr.4bet}}." }
       - { text: "Dans un {{t:pot}} à une seule relance", why: "C'est l'inverse : ici, le {{t:spr}} est le plus élevé, environ {{n:spr.srp}}, car le {{t:pot}} au flop est petit." }
   - kind: choice
@@ -58,7 +58,7 @@ drills:
     id: m9.l1.q-effective
     family: m9.spr
     rules: [R-M9-001]
-    prompt: "{{t:open|Vous avez ouvert}} depuis le Button à {{n:pf.open-size}}, vous avez {{n:format.stack}}. La {{t:big-blind|grosse blinde}} n'a que {{n:spr.short.stack}} et {{t:call|suit}}. {{t:pot|Pot}} au flop : {{n:bb.pot-after.vs-btn}}. Quel est le {{t:spr}} ?"
+    prompt: "{{t:open|Vous avez ouvert}} depuis le Bouton à {{n:pf.open-size}}, vous avez {{n:format.stack}}. La {{t:big-blind|grosse blinde}} n'a que {{n:spr.short.stack}} et {{t:call|suit}}. {{t:pot|Pot}} au flop : {{n:bb.pot-after.vs-btn}}. Quel est le {{t:spr}} ?"
     table: { position: BTN }
     options:
       - { text: "Environ {{n:spr.short}}", correct: true, why: "Vous calculez à partir du {{t:effective-stack|stack effectif}}, c'est-à-dire le plus petit des deux : il reste {{n:spr.short.behind}} à l'adversaire, donc {{n:spr.short.behind}} ÷ {{n:bb.pot-after.vs-btn}} ≈ {{n:spr.short}}. Au-delà de ce qui est déjà dans le {{t:pot}}, chacun de vous peut encore mettre au maximum {{n:spr.short.behind}}." }
@@ -77,7 +77,7 @@ drills:
     id: m9.l1.q-zone
     family: m9.spr-zone
     rules: [R-M9-010]
-    prompt: "Vous avez {{t:raise|relancé}} depuis le Button (3-bet), le {{t:cutoff|CO}} a {{t:call|suivi}}. Le {{t:spr}} au flop est d'environ {{n:spr.3bet-ip}}. Vous avez touché {{t:top-pair|top paire}} avec un bon kicker. Comment traitez-vous cette main ?"
+    prompt: "Vous avez {{t:raise|relancé}} depuis le Bouton (3-bet), le {{t:cutoff|CO}} a {{t:call|suivi}}. Le {{t:spr}} au flop est d'environ {{n:spr.3bet-ip}}. Vous avez touché {{t:top-pair|top paire}} avec un bon kicker. Comment traitez-vous cette main ?"
     table: { position: BTN }
     options:
       - { text: "Comme une main limite : vous la jouez pour la {{t:value|valeur}}, mais vous ne {{t:call|suivez}} pas toujours l'all-in de l'adversaire", correct: true, why: "Un {{t:spr}} d'environ {{n:spr.3bet-ip}} se situe dans la zone de {{n:spr.zone.low}} à {{n:spr.zone.mid}}, où la {{t:top-pair|top paire}} est une main limite. La décision de jouer tout le stack dépend du jeu de l'adversaire et de l'aspect du {{t:board}}." }
@@ -112,7 +112,7 @@ SPR = stack effectif ÷ pot au flop
 
 Le {{t:effective-stack|stack effectif}} est le plus petit des deux stacks, sans compter ce qui est déjà dans le {{t:pot}}. C'est le maximum que chaque joueur peut encore ajouter au {{t:pot}} : au-delà du {{t:pot}}, vous ne pouvez pas gagner plus que le {{t:effective-stack|stack effectif}} à l'adversaire, et c'est le maximum que vous pouvez encore perdre.
 
-Exemple : {{t:open|vous avez ouvert}} depuis le Button à {{n:pf.open-size}}, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Le {{t:pot}} au flop est de {{n:bb.pot-after.vs-btn}}, il vous reste {{n:spr.srp.stack}} derrière. {{t:spr}} = {{n:spr.srp.stack}} ÷ {{n:bb.pot-after.vs-btn}} ≈ **{{n:spr.srp}}**.
+Exemple : {{t:open|vous avez ouvert}} depuis le Bouton à {{n:pf.open-size}}, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Le {{t:pot}} au flop est de {{n:bb.pot-after.vs-btn}}, il vous reste {{n:spr.srp.stack}} derrière. {{t:spr}} = {{n:spr.srp.stack}} ÷ {{n:bb.pot-after.vs-btn}} ≈ **{{n:spr.srp}}**.
 
 ## Le préflop fixe le {{t:spr}}
 
@@ -123,7 +123,7 @@ Chaque {{t:raise|relance}} avant le flop multiplie le {{t:pot}} plusieurs fois, 
 | {{t:open|Ouverture}} {{t:call|suivie}} | {{n:bb.pot-after.vs-btn}} | {{n:spr.srp.stack}} | {{n:spr.srp}} |
 | 3-bet {{t:in-position|en position}} {{t:call|suivi}} | {{n:vs3bet.pot-after}} | {{n:spr.3bet-ip.stack}} | {{n:spr.3bet-ip}} |
 | 3-bet depuis la {{t:big-blind|grosse blinde}} {{t:call|suivi}} | {{n:spr.3bet-oop.pot}} | {{n:spr.3bet-oop.stack}} | {{n:spr.3bet-oop}} |
-| 4-bet du Button sur le 3-bet de la {{t:small-blind|petite blinde}}, {{t:call|suivi}} | {{n:spr.4bet.pot}} | {{n:spr.4bet.stack}} | {{n:spr.4bet}} |
+| 4-bet du Bouton sur le 3-bet de la {{t:small-blind|petite blinde}}, {{t:call|suivi}} | {{n:spr.4bet.pot}} | {{n:spr.4bet.stack}} | {{n:spr.4bet}} |
 
 ## Zones de {{t:spr}}
 
@@ -145,5 +145,5 @@ Quand l'adversaire fait all-in pour tout son stack, vous ajoutez votre stack pou
 Plus le {{t:spr}} est bas, moins il reste d'argent à jouer et plus il est facile de mettre tout son stack. Plus il est élevé, plus il reste de {{t:street|streets}} et de {{t:bet|mises}} avant que le stack n'arrive dans le {{t:pot}}.
 
 :::note D'où viennent ces chiffres
-Les {{t:pot|pots}} et les stacks viennent des tailles du module sur le jeu avant le flop ({{t:open|ouverture}} {{n:pf.open-size}}, 3-bet à {{n:pf.3bet.ip-total}} ou {{n:pf.3bet.oop-total}}, 4-bet à {{n:pf.4bet.example.low}}). Le {{t:pot}} après 4-bet est un scénario : le Button 4-bette le 3-bet de la {{t:small-blind|petite blinde}}, la {{t:small-blind|petite blinde}} {{t:call|suit}}, et la {{t:big-blind|grosse blinde}} {{t:fold|s'est couchée}}, sa blinde restant dans le {{t:pot}}. Une autre taille donne un {{t:spr}} un peu différent, mais l'ordre est toujours le même : plus il y a de {{t:raise|relances}} avant le flop, plus le {{t:spr}} est bas.
+Les {{t:pot|pots}} et les stacks viennent des tailles du module sur le jeu avant le flop ({{t:open|ouverture}} {{n:pf.open-size}}, 3-bet à {{n:pf.3bet.ip-total}} ou {{n:pf.3bet.oop-total}}, 4-bet à {{n:pf.4bet.example.low}}). Le {{t:pot}} après 4-bet est un scénario : le Bouton 4-bette le 3-bet de la {{t:small-blind|petite blinde}}, la {{t:small-blind|petite blinde}} {{t:call|suit}}, et la {{t:big-blind|grosse blinde}} {{t:fold|s'est couchée}}, sa blinde restant dans le {{t:pot}}. Une autre taille donne un {{t:spr}} un peu différent, mais l'ordre est toujours le même : plus il y a de {{t:raise|relances}} avant le flop, plus le {{t:spr}} est bas.
 :::

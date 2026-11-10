@@ -22,7 +22,7 @@ drills:
     prompt: "Mọi người trước bạn đều đã {{t:fold|bỏ bài}}. Bạn làm gì?"
     table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "K9 khác chất nằm ngoài {{t:range|dải bài}} {{t:open|mở}} từ {{t:utg}}, tức là ngoài danh sách các tay bài bạn {{t:open|mở}} từ {{t:position|vị trí}} này. Phía sau bạn còn năm người chơi và thường có ai đó cầm lá K với kicker tốt hơn." }
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "K9 khác chất nằm ngoài {{t:range|range}} {{t:open|mở}} từ {{t:utg}}, tức là ngoài danh sách các tay bài bạn {{t:open|mở}} từ {{t:position|vị trí}} này. Phía sau bạn còn năm người chơi và thường có ai đó cầm lá K với kicker tốt hơn." }
       - { text: "{{t:raise|Tố}}", why: "Từ {{t:utg}}, bạn chỉ {{t:open|mở}} khoảng {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} số tay bài. K9o dễ trúng lá K rồi thua KQ hoặc AK." }
       - { text: "Bỏ thêm cho bằng {{t:big-blind|big blind}}", why: "Chỉ bỏ thêm cho bằng (limp) từ {{t:utg}} là một thói quen kém. Hoặc tay bài đáng để {{t:raise|tố}}, hoặc bạn {{t:fold|bỏ bài}}." }
   - kind: choice
@@ -61,7 +61,7 @@ Nút dealer (**{{t:button|BTN}}**, Button) di chuyển sau mỗi ván. Nó quy�
 | {{t:utg}} | Đầu tiên ở preflop | khoảng {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} số tay bài |
 | {{t:hijack|HJ}}, {{t:cutoff|CO}} | Sau {{t:utg}}; {{t:cutoff|CO}} ngay trước Button | ngày càng rộng hơn |
 | {{t:button|BTN}} | Cuối cùng từ flop trở đi | khoảng {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} số tay bài |
-| {{t:small-blind|SB}}, {{t:big-blind|BB}} | Cuối cùng ở preflop, đầu tiên từ flop trở đi | {{t:small-blind|SB}} {{t:open|mở}} khi mọi người đều {{t:fold|bỏ bài}} (bài học về {{t:range|dải bài}}); bảo vệ blind ở mô-đun M4 |
+| {{t:small-blind|SB}}, {{t:big-blind|BB}} | Cuối cùng ở preflop, đầu tiên từ flop trở đi | {{t:small-blind|SB}} {{t:open|mở}} khi mọi người đều {{t:fold|bỏ bài}} (bài học về {{t:range|range}}); bảo vệ blind ở mô-đun M4 |
 
 **{{t:hijack|HJ}}** (Hijack) ngồi sau {{t:utg}}, cách Button hai chỗ về phía trước, còn **{{t:cutoff|CO}}** (Cutoff) ngồi ngay trước Button. Đây là các {{t:position|vị trí}} giữa: phía sau họ có ít người chơi hơn so với {{t:utg}}, nên bạn {{t:open|mở}} từ đây rộng hơn, nhưng vẫn hẹp hơn so với từ Button.
 

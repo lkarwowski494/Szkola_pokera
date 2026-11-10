@@ -44,7 +44,7 @@ drills:
     id: m8.l1.q-top-pair-top-kicker
     family: m8.value.spot
     rules: [R-M8-001]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Vous avez misé au flop et au turn, et vous avez reçu un {{t:call|call}} à chaque fois. River, la {{t:big-blind|grosse blinde}} {{t:check|checke}}. Que faites-vous ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Vous avez misé au flop et au turn, et vous avez reçu un {{t:call|call}} à chaque fois. River, la {{t:big-blind|grosse blinde}} {{t:check|checke}}. Que faites-vous ?"
     table: { hand: "Ah Kd", board: "Ks 9c 4d 2h 7s", position: BTN }
     options:
       - { text: "Je mise {{t:value|pour la value}}", correct: true, why: "{{t:top-pair|Top paire}} avec le meilleur kicker. Un adversaire qui a {{t:call|suivi}} deux {{t:street|streets}} a beaucoup de rois plus faibles (KQ, KJ, KT) et de neuf, et il y avait peu de {{t:draw|tirages}} sur ce {{t:board|board}}. Les mains moins bonnes paieront bien plus souvent que les meilleures ({{t:two-pair|double paire}}, sets). En général, une {{t:top-pair|top paire}} supporte deux {{t:value|streets de value}} (M9) ; ici, une troisième, car l'adversaire paie avec des rois plus faibles." }
@@ -54,7 +54,7 @@ drills:
     id: m8.l1.q-second-pair
     family: m8.value.check
     rules: [R-M8-002]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Au flop, vous avez fait un c-bet et reçu un {{t:call|call}} ; au turn, vous avez {{t:check|checké}} tous les deux. River, la {{t:big-blind|grosse blinde}} {{t:check|checke}}. Que faites-vous ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Au flop, vous avez fait un c-bet et reçu un {{t:call|call}} ; au turn, vous avez {{t:check|checké}} tous les deux. River, la {{t:big-blind|grosse blinde}} {{t:check|checke}}. Que faites-vous ?"
     table: { hand: "Tc 9c", board: "Kd Th 5s 3c 2d", position: BTN }
     options:
       - { text: "Je {{t:check|checke}}", correct: true, why: "Une {{t:second-pair|deuxième paire}} avec un kicker faible bat les {{t:draw|tirages}} ratés et les {{t:pair|paires}} plus faibles, mais ces mains {{t:fold|se coucheront}} face à une mise. Ce sont surtout les rois et les meilleurs dix qui paieront. Vous {{t:check|checkez}} et voyez le showdown gratuitement." }
@@ -64,7 +64,7 @@ drills:
     id: m8.l1.q-who-calls
     family: m8.value.concept
     rules: [R-M8-001, R-M8-003]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Au flop, vous avez fait un c-bet et reçu un {{t:call|call}} ; au turn, vous avez {{t:check|checké}} tous les deux. River, la {{t:big-blind|grosse blinde}} {{t:check|checke}}. Vous avez une {{t:top-pair|top paire}} avec un kicker dix. Quelles mains paieront une petite mise tout en étant moins bonnes que la vôtre ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Au flop, vous avez fait un c-bet et reçu un {{t:call|call}} ; au turn, vous avez {{t:check|checké}} tous les deux. River, la {{t:big-blind|grosse blinde}} {{t:check|checke}}. Vous avez une {{t:top-pair|top paire}} avec un kicker dix. Quelles mains paieront une petite mise tout en étant moins bonnes que la vôtre ?"
     table: { hand: "Qd Td", board: "Qs 8h 4c 3d 2s", position: BTN }
     options:
       - { text: "Les huit, les quatre et les dames avec un kicker plus faible", correct: true, why: "Ces mains ont suivi au flop et ont une {{t:pair|paire}}, donc elles paieront souvent une petite mise. Vous perdez contre une dame avec un meilleur kicker, les {{t:two-pair|doubles paires}}, les sets et les {{t:straight|quintes}} (A5, 65), mais il y a plus de {{t:call|calls}} de mains moins bonnes." }

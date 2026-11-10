@@ -61,7 +61,7 @@ drills:
     id: m9.l3.q-3bet-oop
     family: m9.geo-size
     rules: [R-M9-006]
-    prompt: "{{t:pot|Hũ}} sau khi bạn 3-bet từ {{t:big-blind|mù lớn}}, {{t:spr}} khoảng {{n:spr.3bet-oop}}. Bạn muốn đưa toàn bộ stack vào cho đến river bằng các {{t:bet|cược}} đều nhau. Mỗi {{t:street|vòng cược}} cược bao nhiêu phần {{t:pot|hũ}}?"
+    prompt: "{{t:pot|Hũ}} sau khi bạn 3-bet từ {{t:big-blind|big blind}}, {{t:spr}} khoảng {{n:spr.3bet-oop}}. Bạn muốn đưa toàn bộ stack vào cho đến river bằng các {{t:bet|cược}} đều nhau. Mỗi {{t:street|vòng cược}} cược bao nhiêu phần {{t:pot|hũ}}?"
     table: { position: BB }
     options:
       - { text: "Khoảng {{n:geo.3bet-oop.3}} {{t:pot|hũ}}", correct: true, why: "Đúng: với {{t:spr}} khoảng {{n:spr.3bet-oop}}, (1 + 2f) mũ ba = 1 + 2·{{n:spr.3bet-oop}}, nên f ≈ {{n:geo.3bet-oop.3}}. {{t:spr}} thấp hơn so với sau 3-bet {{t:in-position|có vị trí}}, nên kích cỡ cũng nhỏ hơn." }
@@ -116,7 +116,7 @@ Ví dụ: với {{t:spr}} {{n:geo.half.spr}}, ba {{t:bet|cược}} nửa {{t:pot
 |---|---|---|---|
 | {{t:open|Tố mở}} và {{t:call|theo}} | {{n:spr.srp}} | {{n:geo.srp.3}} {{t:pot|hũ}} | – |
 | 3-bet {{t:in-position|có vị trí}} | {{n:spr.3bet-ip}} | {{n:geo.3bet-ip.3}} {{t:pot|hũ}} | – |
-| 3-bet từ {{t:big-blind|mù lớn}} | {{n:spr.3bet-oop}} | {{n:geo.3bet-oop.3}} {{t:pot|hũ}} | – |
+| 3-bet từ {{t:big-blind|big blind}} | {{n:spr.3bet-oop}} | {{n:geo.3bet-oop.3}} {{t:pot|hũ}} | – |
 | 4-bet | {{n:spr.4bet}} | {{n:geo.4bet.3}} {{t:pot|hũ}} | {{n:geo.4bet.2}} {{t:pot|hũ}} |
 
 Trong {{t:pot|hũ}} 3-bet {{t:in-position|có vị trí}}, đó là các {{t:bet|cược}} {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}} và {{n:geo.3bet-ip.river}}, tổng cộng {{n:geo.3bet-ip.total}}, tức toàn bộ stack.

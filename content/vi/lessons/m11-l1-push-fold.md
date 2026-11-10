@@ -39,7 +39,7 @@ drills:
     options:
       - { text: "{{t:red-zone|Vùng đỏ}}: chỉ all-in hoặc {{t:fold}}, tốt nhất là vào đầu tiên", correct: true, why: "Với M khoảng {{n:m11.m.red}} trở xuống, bạn chỉ còn all-in hoặc {{t:fold}}. Vào đầu tiên cho bạn cơ hội để mọi người đều {{t:fold|bỏ bài}}." }
       - { text: "{{t:green-zone|Vùng xanh}}: bạn chơi bình thường", why: "{{t:green-zone|Vùng xanh}}, nơi stack cho phép bạn chơi thoải mái, chỉ bắt đầu từ M khoảng {{n:m11.m.green}}. Với M khoảng {{n:m11.m.example}}, stack đủ cho {{n:m11.m.example}} vòng." }
-      - { text: "Chờ đôi A, vì dù sao bạn vẫn còn thời gian", why: "Với M khoảng {{n:m11.m.example}}, các blind sẽ ăn hết stack trước khi bạn chờ được một tay bài mạnh. Bạn cần all-in với {{t:range|dải bài}} rộng hơn." }
+      - { text: "Chờ đôi A, vì dù sao bạn vẫn còn thời gian", why: "Với M khoảng {{n:m11.m.example}}, các blind sẽ ăn hết stack trước khi bạn chờ được một tay bài mạnh. Bạn cần all-in với {{t:range|range}} rộng hơn." }
   - kind: generated
     id: m11.l1.g-push
     family: m11.push.sb
@@ -61,7 +61,7 @@ drills:
     table: { hand: "Kd 2c", position: SB }
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Ở mức {{n:m11.depth.15}}, bạn mạo hiểm nhiều hơn so với các blind, nên {{t:range}} all-in thu hẹp từ khoảng {{n:m11.push.10}} xuống khoảng {{n:m11.push.15}} tay. K2o rơi ra khỏi dải đó." }
-      - { text: "All-in, vì K là lá bài mạnh", why: "Ở mức {{n:m11.depth.15}}, K2o quá thường xuyên gặp K mạnh hơn hoặc A trong {{t:range|dải bài}} {{t:call|theo}}. Solver chọn {{t:fold|bỏ bài}} với tay này." }
+      - { text: "All-in, vì K là lá bài mạnh", why: "Ở mức {{n:m11.depth.15}}, K2o quá thường xuyên gặp K mạnh hơn hoặc A trong {{t:range|range}} {{t:call|theo}}. Solver chọn {{t:fold|bỏ bài}} với tay này." }
       - { text: "All-in, vì stack càng sâu thì càng rộng", why: "Ngược lại: stack càng sâu, {{t:range}} all-in càng hẹp. Bạn {{t:shove|đẩy all-in}} rộng nhất khi {{t:short-stack|stack ngắn}} chỉ còn rất ít." }
   - kind: choice
     id: m11.l1.q-fold-equity
@@ -171,7 +171,7 @@ All-in thắng khi đối thủ {{t:fold|bỏ bài}}, hoặc khi đối thủ {{
 
 ## Ante mở rộng {{t:range}}
 
-Ante là {{t:chips}} bổ sung trong {{t:pot|pot}} trước khi chia bài. Với {{t:bb-ante}}, {{t:big-blind}} đặt ante {{n:m11.ante}}, nên all-in giành được {{n:m11.push.10.win-ante}} thay vì {{n:m11.push.10.win}}, trong khi rủi ro vẫn như cũ. Trong cấu trúc này, {{t:range|dải bài}} tăng từ khoảng {{n:m11.push.10}} lên khoảng {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} tay (solver của ứng dụng và một phép tính cân bằng độc lập chênh nhau một phần nhỏ của một điểm).
+Ante là {{t:chips}} bổ sung trong {{t:pot|pot}} trước khi chia bài. Với {{t:bb-ante}}, {{t:big-blind}} đặt ante {{n:m11.ante}}, nên all-in giành được {{n:m11.push.10.win-ante}} thay vì {{n:m11.push.10.win}}, trong khi rủi ro vẫn như cũ. Trong cấu trúc này, {{t:range|range}} tăng từ khoảng {{n:m11.push.10}} lên khoảng {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} tay (solver của ứng dụng và một phép tính cân bằng độc lập chênh nhau một phần nhỏ của một điểm).
 
 ```range
 push.sb-10-ante

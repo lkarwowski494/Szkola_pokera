@@ -10,7 +10,7 @@ drills:
     id: m9.l4.q-set
     family: m9.plan-streets
     rules: [R-M9-008]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button et la {{t:big-blind}} a {{t:call|suivi}}. Vous avez touché un set sur un flop {{t:dry|sec}}. Combien de {{t:value|streets de valeur}} cette main peut-elle supporter ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton et la {{t:big-blind}} a {{t:call|suivi}}. Vous avez touché un set sur un flop {{t:dry|sec}}. Combien de {{t:value|streets de valeur}} cette main peut-elle supporter ?"
     table: { hand: "7c 7d", board: "Ks 7h 2c", position: BTN }
     options:
       - { text: "Trois", correct: true, why: "Un set sur un flop {{t:dry|sec}} est presque toujours la meilleure main. À chaque {{t:street|street}}, les mains plus faibles de l'adversaire (p. ex. un roi, un sept, une {{t:pair}}) peuvent encore payer, donc vous prévoyez de {{t:bet|miser}} au flop, au turn et à la river." }
@@ -20,7 +20,7 @@ drills:
     id: m9.l4.q-tptk-srp
     family: m9.plan-streets
     rules: [R-M9-008, R-M9-005]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|suivi}}, {{t:spr}} d'environ {{n:spr.srp}}. Vous avez la {{t:top-pair|top paire}} avec le meilleur kicker. Quel plan ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|suivi}}, {{t:spr}} d'environ {{n:spr.srp}}. Vous avez la {{t:top-pair|top paire}} avec le meilleur kicker. Quel plan ?"
     table: { hand: "Ad Kc", board: "Kh 8s 3d", position: BTN }
     options:
       - { text: "Généralement deux {{t:value|streets de valeur}}, sans prévoir de jouer tout le stack", correct: true, why: "Oui : les rois et les huit plus faibles paient généralement une ou deux {{t:bet|mises}}. Quand il y a beaucoup d'argent dans le {{t:pot|pot}}, ce sont surtout des mains meilleures qu'une seule {{t:pair|paire}} qui paient. Avec un {{t:spr}} d'environ {{n:spr.srp}}, tout le stack n'entrerait qu'avec des {{t:bet|mises}} plus grosses que le {{t:pot}}." }
@@ -30,7 +30,7 @@ drills:
     id: m9.l4.q-middle-pair
     family: m9.plan-streets
     rules: [R-M9-008]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|suivi}}. Vous avez une {{t:pair|paire}} intermédiaire. Combien de {{t:value|streets de valeur}} cette main peut-elle supporter ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|suivi}}. Vous avez une {{t:pair|paire}} intermédiaire. Combien de {{t:value|streets de valeur}} cette main peut-elle supporter ?"
     table: { hand: "9c 8c", board: "Kh 8s 3d", position: BTN }
     options:
       - { text: "Une ou aucune : arriver au showdown suffit souvent", correct: true, why: "Oui : la {{t:pair}} intermédiaire bat les {{t:bluff|bluffs}} et les {{t:pair|paires}} plus faibles, mais les mains plus faibles qui paieront plusieurs {{t:bet|mises}} sont rares. Le plan : au plus une petite {{t:bet}}, ou {{t:check}} puis {{t:call}}." }

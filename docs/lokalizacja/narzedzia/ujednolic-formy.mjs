@@ -94,6 +94,9 @@ const REGULY = {
     slowo('une blind(?!e)', 'une blinde', 'une blind → une blinde (tekst)'),
     slowo('limpers', 'limpeurs'), slowo('Limpers', 'Limpeurs'),
     slowo('solvers', 'solveurs'), slowo('Solvers', 'Solveurs'), slowo('solver', 'solveur'), slowo('Solver', 'Solveur'),
+    // sesja AU (D-440, kierunek = nazwa z terms-nazwy.yaml; pełny przegląd 2026-11-10): Bouton (po rodzajniku), showdown.
+    { opis: 'fr Button → Bouton (po rodzajniku)', re: /(?<=\b(?:le|Le|au|Au|du|Du) )Button\b/g, zamien: () => 'Bouton' },
+    lit("à l'abattage", 'au showdown'), tag('showdown', 'Abattage', 'Showdown'),
   ],
   'pt-BR': [
     tag('top-pair', 'par mais alto', 'top pair'), tag('top-pair', 'Par mais alto', 'Top pair'),
@@ -123,6 +126,8 @@ const REGULY = {
     lit('hohes {{t:two-pair}}', 'hohe {{t:two-pair|zwei Paare}}'),
     slowo('shoven', 'pushen'), slowo('shovst', 'pushst'), slowo('shovt', 'pusht'), slowo('Shover', 'Pusher'),
     lit('Der Big Blind checkt am River', 'Der {{t:big-blind|Big Blind}} checkt am River'),
+    // sesja AU (D-440): Straight → Straße (ten sam rodzaj żeński; „Two Pair” zostaje: zmiana wymaga zgody liczby w zdaniu).
+    tag('straight', 'Straight', 'Straße'),
   ],
   // es (sesja AK, D-393): call „igualar” (E3/E1, forma UI), czasowniki w znaczniku; rzeczowniki po rodzajniku bez zmian.
   // wet „húmedo”, paired „emparejado” (terms-nazwy-es), top pair „pareja mayor” (D-389).
@@ -158,6 +163,8 @@ const REGULY = {
     lit('la tua {{t:call}}', 'il tuo {{t:call}}'), lit('la {{t:call}}', 'il {{t:call}}'), lit('una {{t:call}}', 'un {{t:call}}'),
     slowoK('micro limiti', 'microlimiti'), slowoK('Micro limiti', 'Microlimiti'),
     slowoK('bui', 'blind'),
+    // sesja AU (D-430): maniaco → maniac (nazwa z terms-nazwy.yaml).
+    tag('maniac', 'maniaco', 'maniac'), slowoK('maniaco', 'maniac'),
   ],
   // vi (sesja AL, D-394; D-387/D-388): open „mở cược”, ręka „tay bài” (tylko 6 miejsc w znaczeniu ręki —
   // „bộ bài” = talia zostaje), „mô-đun”, m8-l3:55 zgubiony znacznik big blind.
@@ -166,6 +173,13 @@ const REGULY = {
     lit('bộ bài mạnh', 'tay bài mạnh'), lit('của bộ bài giống', 'của tay bài giống'), lit('các bộ bài bằng nhau', 'các tay bài bằng nhau'),
     slowoK('học phần', 'mô-đun'), slowoK('Học phần', 'Mô-đun'),
     lit('bích không thành. Big blind check', 'bích không thành. {{t:big-blind|Big blind}} check'),
+    // sesja AU (D-440, kierunek = terms-nazwy.yaml): big/small blind, bluff, range, draw → bài chờ. „xem bài”/check, „hũ”/pot,
+    // board i street zostają (otwarte w README przeglądu).
+    tag('big-blind', 'mù lớn', 'big blind'), tag('big-blind', 'Mù lớn', 'Big blind'),
+    tag('small-blind', 'mù nhỏ', 'small blind'), tag('small-blind', 'Mù nhỏ', 'Small blind'),
+    tag('bluff', 'tháu cáy', 'bluff'), tag('bluff', 'cú tháu cáy', 'cú bluff'), tag('bluff', 'Cú tháu cáy', 'Cú bluff'), tag('bluff', 'Tháu cáy', 'Bluff'),
+    tag('range', 'dải bài', 'range'), tag('range', 'Dải bài', 'Range'),
+    tag('draw', 'draw', 'bài chờ'), tag('draw', 'Draw', 'Bài chờ'),
   ],
 };
 const EQUITY_WIERSZ = { 'zh-Hant': '權益', ja: 'エクイティ' };

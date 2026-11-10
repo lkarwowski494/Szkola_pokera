@@ -3,7 +3,7 @@ id: m10.l2
 module: m10
 order: 2
 title: "Tipi di giocatori"
-sub: "Nit, reg, giocatore passivo, maniaco"
+sub: "Nit, reg, giocatore passivo, maniac"
 rules: [R-M10-004, R-M10-005, R-M10-006, R-M10-007, R-M10-008]
 drills:
   - kind: generated
@@ -75,7 +75,7 @@ drills:
     family: m10.types.adjust
     rules: [R-M10-008]
     table: { hand: "Kc 9c", board: "Kd 7s 4h 2c Qh" }
-    prompt: "L'avversario è un {{t:maniac|maniaco}}: {{t:vpip}} {{n:hud.ex.maniac.vpip}}, {{t:pfr}} {{n:hud.ex.maniac.pfr}} dopo {{n:hud.ex.reg.hands}} mani. Ha puntato a ogni {{t:street}}, al river {{t:bet|punta}} tutto il {{t:pot|piatto}}. Che cosa fai con {{t:top-pair|top pair}} e un kicker debole?"
+    prompt: "L'avversario è un {{t:maniac|maniac}}: {{t:vpip}} {{n:hud.ex.maniac.vpip}}, {{t:pfr}} {{n:hud.ex.maniac.pfr}} dopo {{n:hud.ex.reg.hands}} mani. Ha puntato a ogni {{t:street}}, al river {{t:bet|punta}} tutto il {{t:pot|piatto}}. Che cosa fai con {{t:top-pair|top pair}} e un kicker debole?"
     options:
       - { text: "{{t:call|Chiamo}}", correct: true, why: "Contro un giocatore che {{t:bluff|bluffa}} più che nella strategia di base, le mani al limite della {{t:call|chiamata}} rendono. La {{t:pair|coppia}} massima batte i suoi {{t:bluff}} e parte delle sue mani di valore." }
       - { text: "{{t:fold|Foldo}}, perché una puntata di tutto il {{t:pot|piatto}} indica una mano forte", why: "Da un giocatore che gioca quasi ogni mano con un {{t:raise|rilancio}} e punta a ogni {{t:street}}, una puntata grande contiene molti {{t:bluff}}. {{t:fold|Foldando}}, lo paghi per il fatto di essere aggressivo." }
@@ -84,7 +84,7 @@ drills:
     id: m10.l2.q-maniac-bluff
     family: m10.types.adjust
     rules: [R-M10-008]
-    prompt: "Giochi contro un {{t:maniac|maniaco}}. Al turn hai una mano debole senza possibilità di migliorare, e lui {{t:check|fa check}}. Che cosa fai?"
+    prompt: "Giochi contro un {{t:maniac|maniac}}. Al turn hai una mano debole senza possibilità di migliorare, e lui {{t:check|fa check}}. Che cosa fai?"
     options:
       - { text: "{{t:check|Faccio check}}: {{t:bluff|bluffare}} un {{t:maniac|maniac}} raramente funziona", correct: true, why: "Il {{t:maniac|maniac}} raramente {{t:fold|folda}} e spesso {{t:raise|rilancia}}. Con lui guadagni {{t:call|chiamando}} con mani più forti, non con i {{t:bluff}}." }
       - { text: "Punto, perché il {{t:check}} di un {{t:maniac|maniac}} indica debolezza", why: "Può darsi, ma il {{t:maniac|maniac}} spesso {{t:raise|rilancia}} con qualsiasi mano. Il {{t:bluff}} ha bisogno di {{t:fold}}, e lui ne concede pochi." }
@@ -107,7 +107,7 @@ Il tipo lo leggi dal {{t:vpip}} e dalla differenza {{t:vpip}} − {{t:pfr}} (6-m
 | {{t:nit|Nit}} | fino a circa {{n:hud.vpip.nit-max}} | piccola | gioca troppo poche mani |
 | {{t:regular|Regular}} ({{t:tag}}, {{t:lag}}) | circa {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} | piccola | vicino alla base |
 | {{t:recreational|giocatore ricreativo}} passivo | da circa {{n:hud.vpip.loose}} | oltre {{n:hud.gap.passive}} punti | troppe mani, {{t:call|chiama}} troppo spesso |
-| {{t:maniac|maniaco}} | da circa {{n:hud.vpip.loose}} | fino a circa {{n:hud.gap.aggressive}} punti | troppe mani, {{t:raise|rilancia}} troppo spesso |
+| {{t:maniac|maniac}} | da circa {{n:hud.vpip.loose}} | fino a circa {{n:hud.gap.aggressive}} punti | troppe mani, {{t:raise|rilancia}} troppo spesso |
 
 Un giocatore passivo con una differenza grande si chiama anche {{t:calling-station}}. Tra i tipi ci sono zone di transizione (ad es. un {{t:vpip}} tra il dieci e il venti per cento, oppure un giocatore loose con una differenza di pochi punti): lì non assegni un tipo, ma guardi le statistiche successive.
 
@@ -132,11 +132,11 @@ La strategia di base del modulo 8 non cambia: punti {{t:value|per valore}} quand
 - punti {{t:value|per valore}} più mani, anche più sottili, ad es. {{t:top-pair|top pair}} con un kicker più debole su tre {{t:street}};
 - {{t:bluff|bluffi}} più di rado, soprattutto al river: mancano i {{t:fold}} grazie ai quali il {{t:bluff}} dovrebbe rendere.
 
-## {{t:nit|Nit}} e {{t:maniac|maniaco}}
+## {{t:nit|Nit}} e {{t:maniac|maniac}}
 
 **Il {{t:nit}}** gioca solo mani forti. Quando {{t:raise|rilancia}} o fa 3-bet, le mani nella parte bassa del tuo {{t:range}} di {{t:call|chiamata}} sono più spesso dominate, quindi le {{t:fold|foldi}} più spesso che nella strategia di base del modulo 4. Quando è sul blind, rubi più spesso, perché difende raramente.
 
-**Il {{t:maniac|maniaco}}** gioca molte mani e quasi tutte le {{t:raise|rilancia}}. Le sue puntate contengono più {{t:bluff}} che nella strategia di base, quindi le mani al limite della {{t:call|chiamata}} le {{t:call|chiami}}, con mani molto forti lo lasci puntare, e tu non {{t:bluff|bluffi}}: raramente {{t:fold|folda}}.
+**Il {{t:maniac|maniac}}** gioca molte mani e quasi tutte le {{t:raise|rilancia}}. Le sue puntate contengono più {{t:bluff}} che nella strategia di base, quindi le mani al limite della {{t:call|chiamata}} le {{t:call|chiami}}, con mani molto forti lo lasci puntare, e tu non {{t:bluff|bluffi}}: raramente {{t:fold|folda}}.
 
 :::note Da dove vengono queste soglie
 Le soglie dei tipi sono convenzioni dei coach (due materiali didattici, cash game online 6-max): prendiamo la parte comune oppure un intervallo che copre entrambe le fonti. I dati sulla popolazione provengono da un database pubblico di statistiche (una grande sala online, NL25–NL100, tutte le mani dei {{n:mda.period.months}} mesi prima di ottobre 2026; il sito non indica il numero di mani). La lettura del tipo per il {{t:nit}} e il {{t:maniac|maniac}} si basa sulle statistiche del singolo avversario, non sui dati dell'intera popolazione, quindi richiede un campione.

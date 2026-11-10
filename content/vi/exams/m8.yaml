@@ -44,7 +44,7 @@ drills:
     table: { board: "Qs Tc 6d 3h 2s", position: BTN }
     options:
       - { text: "[[Kc Jc]]", correct: true, why: "Đúng: {{t:oesd|OESD}} không thành, và chỉ có K là lá cao nhất thì gần như không bao giờ thắng ở showdown. Tay không có cơ hội chẳng mất gì khi {{t:bluff}} thất bại." }
-      - { text: "[[Ts 9s]]", why: "{{t:second-pair|Đôi thứ hai}} thắng sau khi {{t:check|check}} trước các {{t:draw|draw}} trượt và các tay yếu hơn. Nếu {{t:bluff|bluff}}, bạn sẽ đánh mất phần thắng đó." }
+      - { text: "[[Ts 9s]]", why: "{{t:second-pair|Đôi thứ hai}} thắng sau khi {{t:check|check}} trước các {{t:draw|bài chờ}} trượt và các tay yếu hơn. Nếu {{t:bluff|bluff}}, bạn sẽ đánh mất phần thắng đó." }
       - { text: "[[Qd 8d]]", why: "{{t:top-pair|Đôi cao nhất}} có giá trị showdown. Bạn không {{t:bluff|bluff}} bằng tay thường thắng sau khi {{t:check|check}}." }
   - kind: choice
     id: m8.exam.q6
@@ -88,6 +88,6 @@ drills:
     prompt: "Bạn {{t:open|mở}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop: c-bet và {{t:call}}; trên turn cả hai cùng {{t:check|check}}. River, {{t:big-blind}} {{t:check|check}}. Bạn có {{t:pair|đôi}} 6. Bạn làm gì?"
     table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
     options:
-      - { text: "{{t:check|Check}}", correct: true, why: "Đúng: {{t:pair|đôi}} 6 thắng các {{t:draw|draw}} trượt và bài lá cao, nhưng những tay này sẽ {{t:fold|bỏ bài}} trước cược. Người trả tiền chủ yếu là các tay có J, 8 và K. Khi {{t:check|check}}, bạn vào showdown miễn phí." }
+      - { text: "{{t:check|Check}}", correct: true, why: "Đúng: {{t:pair|đôi}} 6 thắng các {{t:draw|bài chờ}} trượt và bài lá cao, nhưng những tay này sẽ {{t:fold|bỏ bài}} trước cược. Người trả tiền chủ yếu là các tay có J, 8 và K. Khi {{t:check|check}}, bạn vào showdown miễn phí." }
       - { text: "Cược nhỏ {{t:value|lấy giá trị}}", why: "Cược nhỏ cũng chủ yếu bị các {{t:pair|đôi}} mạnh hơn {{t:call|theo}}. Tay yếu hơn của đối thủ ở đây chủ yếu là tay không có {{t:pair|đôi}} và các {{t:pair|đôi}} yếu nhất, và chúng hiếm khi trả tiền." }
       - { text: "Cược lớn để đối thủ {{t:fold|bỏ}} {{t:pair|đôi}} mạnh hơn", why: "Cược biến tay có giá trị showdown thành {{t:bluff}}. Bạn {{t:bluff|bluff}} bằng tay không có cơ hội, còn tay này thường thắng sau khi {{t:check|check}}." }

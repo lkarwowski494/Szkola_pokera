@@ -18,8 +18,8 @@ drills:
     prompt: "Bạn hành động đầu tiên ở preflop, chưa ai vào ván. Bạn làm gì?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Tố}}", correct: true, why: "AT khác chất nằm trong {{t:range|dải bài}} {{t:open|mở cược}} từ {{t:utg}} (khoảng {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} tay bài). Solver của ứng dụng luôn chơi tay này ở đây." }
-      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt. Từ {{t:utg}} bạn chơi hẹp, nhưng AT vẫn nằm trong {{t:range|dải bài}}." }
+      - { text: "{{t:raise|Tố}}", correct: true, why: "AT khác chất nằm trong {{t:range|range}} {{t:open|mở cược}} từ {{t:utg}} (khoảng {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} tay bài). Solver của ứng dụng luôn chơi tay này ở đây." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt. Từ {{t:utg}} bạn chơi hẹp, nhưng AT vẫn nằm trong {{t:range|range}}." }
       - { text: "Bù cho bằng {{t:big-blind|big blind}}", why: "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind ngay lập tức." }
   - kind: choice
     id: m3.exam.q3
@@ -29,7 +29,7 @@ drills:
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Sau bạn vẫn còn bốn người chơi. A9 khác chất thường bắt được át với kicker yếu hơn AT, AJ hay AQ của đối thủ. Solver của ứng dụng luôn {{t:fold|bỏ}} tay này ở {{t:hijack|HJ}}." }
-      - { text: "{{t:raise|Tố}}", why: "Lá át rất hấp dẫn, nhưng ở {{t:hijack|HJ}} bạn {{t:open|mở cược}} hẹp hơn ở {{t:cutoff|CO}} và Button. A9o chỉ bắt đầu nằm trong {{t:range|dải bài}} của {{t:cutoff|CO}}." }
+      - { text: "{{t:raise|Tố}}", why: "Lá át rất hấp dẫn, nhưng ở {{t:hijack|HJ}} bạn {{t:open|mở cược}} hẹp hơn ở {{t:cutoff|CO}} và Button. A9o chỉ bắt đầu nằm trong {{t:range|range}} của {{t:cutoff|CO}}." }
   - kind: choice
     id: m3.exam.q4
     family: m3.rfi.late
@@ -86,7 +86,7 @@ drills:
     options:
       - { text: "{{t:raise|Tố}} lại (3-bet)", correct: true, why: "KK là một trong những tay mạnh nhất và chiếm ưu thế trước phần lớn các tay mà {{t:utg}} dùng để {{t:open|mở cược}}. 3-bet giúp xây {{t:pot|pot}} và thường khiến bạn chỉ còn đấu với một đối thủ." }
       - { text: "Chỉ {{t:call|theo}}", why: "Đôi khi được chơi để đánh lừa, nhưng theo nguyên tắc chung, bạn bỏ lỡ giá trị và để các blind vào ván với giá rẻ." }
-      - { text: "{{t:fold|Bỏ bài}}, vì {{t:utg}} có {{t:range}} mạnh", why: "{{t:range|Dải bài}} của {{t:utg}} hẹp, nhưng KK vẫn chiếm ưu thế rõ rệt trước nó." }
+      - { text: "{{t:fold|Bỏ bài}}, vì {{t:utg}} có {{t:range}} mạnh", why: "{{t:range|Range}} của {{t:utg}} hẹp, nhưng KK vẫn chiếm ưu thế rõ rệt trước nó." }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

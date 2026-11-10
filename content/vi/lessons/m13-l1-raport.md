@@ -94,7 +94,7 @@ xác suất thua = 1 − equity
 - **Không đánh giá**: ứng dụng không có quy tắc kiểm chứng được cho quyết định này. Điều này không có nghĩa là “tốt”.
 - **Quá thời gian**: khi bật giới hạn thời gian, ứng dụng đã chơi thay bạn. Quyết định như vậy không được tính vào đánh giá, nhưng sẽ quay lại trong phần ôn tập.
 
-Ở đầu báo cáo có con số “Đã đánh giá X trên Y quyết định”. Sau flop, nhiều quyết định không được đánh giá, vì phần lớn quy tắc ở turn và river nói về tần suất của toàn bộ {{t:range|dải bài}}, chứ không phải về một tay bài.
+Ở đầu báo cáo có con số “Đã đánh giá X trên Y quyết định”. Sau flop, nhiều quyết định không được đánh giá, vì phần lớn quy tắc ở turn và river nói về tần suất của toàn bộ {{t:range|range}}, chứ không phải về một tay bài.
 
 ## {{t:mixed-hand|Tay bài trộn}}
 

@@ -54,8 +54,8 @@ drills:
     prompt: "Ở {{n:m11.depth.10}}, solver all-in từ {{t:small-blind|small blind}} với bảy và sáu cùng chất (76s). Bạn có tay bài này ở {{t:big-blind|big blind}} và chính {{t:small-blind|small blind}} đã all-in. Bạn làm gì?"
     table: { hand: "7s 6s", position: BB }
     options:
-      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "All-in với 76s có lãi chủ yếu nhờ đối thủ {{t:fold|bỏ bài}}. Khi {{t:call|theo}}, bạn chỉ thắng ở showdown, mà còn phải đấu với {{t:range|dải bài}} all-in có nhiều lá cao và {{t:pair|đôi}}. Solver {{t:fold|bỏ}} tay bài này." }
-      - { text: "{{t:call|Theo}}, vì từ {{t:small-blind|small blind}} tôi cũng sẽ all-in với nó", why: "{{t:call|Theo}} là một tình huống khác: bạn không có fold equity, còn {{t:range|dải bài}} của đối thủ mạnh hơn bài ngẫu nhiên. Để {{t:call|theo}}, bạn cần tay bài mạnh hơn." }
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "All-in với 76s có lãi chủ yếu nhờ đối thủ {{t:fold|bỏ bài}}. Khi {{t:call|theo}}, bạn chỉ thắng ở showdown, mà còn phải đấu với {{t:range|range}} all-in có nhiều lá cao và {{t:pair|đôi}}. Solver {{t:fold|bỏ}} tay bài này." }
+      - { text: "{{t:call|Theo}}, vì từ {{t:small-blind|small blind}} tôi cũng sẽ all-in với nó", why: "{{t:call|Theo}} là một tình huống khác: bạn không có fold equity, còn {{t:range|range}} của đối thủ mạnh hơn bài ngẫu nhiên. Để {{t:call|theo}}, bạn cần tay bài mạnh hơn." }
       - { text: "{{t:call|Theo}}, vì tay bài cùng chất phát triển tốt", why: "Sau all-in không còn vòng chơi nào để tay bài phát triển. Chỉ equity đến showdown là quan trọng." }
   - kind: choice
     id: m11.l2.q-22
@@ -64,18 +64,18 @@ drills:
     prompt: "{{t:big-blind|Big blind}}, {{t:small-blind|small blind}} đã all-in. Bạn có {{t:pair|đôi}} hai. Ở {{n:m11.depth.10}}, solver {{t:call|theo}}. Còn ở {{n:m11.depth.15}} thì sao?"
     table: { hand: "2d 2c", position: BB }
     options:
-      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Ở {{n:m11.depth.15}}, giá tăng lên {{n:m11.call.15.eq}}, còn {{t:range|dải bài}} all-in hẹp hơn (khoảng {{n:m11.push.15}} tay bài), nên {{t:pair|đôi}} hai gặp {{t:pair|đôi}} cao hơn thường xuyên hơn. {{t:range|Dải bài}} {{t:call|theo}} giảm từ khoảng {{n:m11.call.10}} xuống khoảng {{n:m11.call.15}} tay bài." }
-      - { text: "{{t:call|Theo}}, vì {{t:pair|đôi}} luôn là cửa trên", why: "{{t:pair|Đôi}} hai gặp hai lá cao hơn gần như là tung đồng xu, còn gặp bất kỳ {{t:pair|đôi}} nào cao hơn thì rõ ràng là cửa dưới. Với stack sâu hơn, đối thủ {{t:shove|đẩy all-in}} ít tay yếu hơn, nên các {{t:pair|đôi}} chiếm phần lớn hơn trong {{t:range|dải bài}} của họ." }
-      - { text: "{{t:call|Theo}}, vì stack càng sâu thì càng rộng", why: "Ngược lại: stack càng sâu, {{t:call|theo}} càng tốn kém và {{t:range|dải bài}} {{t:call|theo}} càng hẹp." }
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Ở {{n:m11.depth.15}}, giá tăng lên {{n:m11.call.15.eq}}, còn {{t:range|range}} all-in hẹp hơn (khoảng {{n:m11.push.15}} tay bài), nên {{t:pair|đôi}} hai gặp {{t:pair|đôi}} cao hơn thường xuyên hơn. {{t:range|Range}} {{t:call|theo}} giảm từ khoảng {{n:m11.call.10}} xuống khoảng {{n:m11.call.15}} tay bài." }
+      - { text: "{{t:call|Theo}}, vì {{t:pair|đôi}} luôn là cửa trên", why: "{{t:pair|Đôi}} hai gặp hai lá cao hơn gần như là tung đồng xu, còn gặp bất kỳ {{t:pair|đôi}} nào cao hơn thì rõ ràng là cửa dưới. Với stack sâu hơn, đối thủ {{t:shove|đẩy all-in}} ít tay yếu hơn, nên các {{t:pair|đôi}} chiếm phần lớn hơn trong {{t:range|range}} của họ." }
+      - { text: "{{t:call|Theo}}, vì stack càng sâu thì càng rộng", why: "Ngược lại: stack càng sâu, {{t:call|theo}} càng tốn kém và {{t:range|range}} {{t:call|theo}} càng hẹp." }
   - kind: choice
     id: m11.l2.q-why-tighter
     family: m11.call.gap
     rules: [R-M11-007]
     prompt: "Ở {{n:m11.depth.10}}, {{t:small-blind|small blind}} all-in với khoảng {{n:m11.push.10}} tay bài, còn {{t:big-blind|big blind}} chỉ {{t:call|theo}} với khoảng {{n:m11.call.10}}. Vì sao?"
     options:
-      - { text: "Người theo không có fold equity và phải đấu với {{t:range|dải bài}} mạnh hơn bài ngẫu nhiên", correct: true, why: "All-in còn thắng cả khi đối thủ {{t:fold|bỏ bài}}. {{t:call|Theo}} chỉ thắng ở showdown, mà còn phải đấu với những tay bài đã qua chọn lọc. Từ đó có quy tắc cũ: để {{t:call|theo}}, bạn cần tay bài tốt hơn so với khi all-in trước." }
+      - { text: "Người theo không có fold equity và phải đấu với {{t:range|range}} mạnh hơn bài ngẫu nhiên", correct: true, why: "All-in còn thắng cả khi đối thủ {{t:fold|bỏ bài}}. {{t:call|Theo}} chỉ thắng ở showdown, mà còn phải đấu với những tay bài đã qua chọn lọc. Từ đó có quy tắc cũ: để {{t:call|theo}}, bạn cần tay bài tốt hơn so với khi all-in trước." }
       - { text: "{{t:big-blind|Big blind}} phải trả nhiều hơn", why: "Cả hai đều mạo hiểm cùng một stack, còn {{t:big-blind|BB}} đã có blind của mình trong {{t:pot|pot}}, nên thậm chí bỏ thêm ít hơn." }
-      - { text: "Solver sai", why: "Đây là trạng thái cân bằng của trò chơi all-in hoặc {{t:fold|bỏ bài}}: không người chơi nào có thể kiếm thêm lời chỉ bằng cách thay đổi {{t:range|dải bài}} của riêng mình. Sự khác biệt đến từ fold equity." }
+      - { text: "Solver sai", why: "Đây là trạng thái cân bằng của trò chơi all-in hoặc {{t:fold|bỏ bài}}: không người chơi nào có thể kiếm thêm lời chỉ bằng cách thay đổi {{t:range|range}} của riêng mình. Sự khác biệt đến từ fold equity." }
   - kind: choice
     id: m11.l2.q-ante
     family: m11.call.price
@@ -107,11 +107,11 @@ drills:
     prompt: "Ba người chơi, mỗi stack là {{n:m11.depth.3max}}. Button đã all-in, {{t:small-blind|small blind}} đã {{t:call|theo}}. Ở {{t:big-blind|big blind}}, bạn chỉ cần {{n:m11.3max.bb-two.eq}} equity. Bạn có {{t:call|theo}} rộng hơn so với khi chỉ có Button all-in không?"
     table: { position: BB }
     options:
-      - { text: "Không, chặt hơn", correct: true, why: "Giá tốt hơn, nhưng bạn đấu với hai {{t:range|dải bài}}, trong đó có người theo đang cầm tay bài mạnh. Ở đây solver {{t:call|theo}} với khoảng {{n:m11.3max.call.bb-two}} tay bài, còn khi chỉ có Button all-in thì khoảng {{n:m11.3max.call.bb}}." }
+      - { text: "Không, chặt hơn", correct: true, why: "Giá tốt hơn, nhưng bạn đấu với hai {{t:range|range}}, trong đó có người theo đang cầm tay bài mạnh. Ở đây solver {{t:call|theo}} với khoảng {{n:m11.3max.call.bb-two}} tay bài, còn khi chỉ có Button all-in thì khoảng {{n:m11.3max.call.bb}}." }
       - { text: "Có, vì giá tốt hơn nhiều", why: "Giá tốt hơn là chưa đủ: khi đấu với hai đối thủ, equity của các tay yếu hơn giảm nhanh. Solver chỉ {{t:call|theo}} với khoảng {{n:m11.3max.call.bb-two}} tay bài." }
-      - { text: "Như nhau, vì chỉ tay bài của bạn là quan trọng", why: "Điều quan trọng là equity so với tay bài của các đối thủ. Người theo all-in của Button có {{t:range|dải bài}} mạnh hơn Button, nên bạn {{t:call|theo}} chặt hơn." }
+      - { text: "Như nhau, vì chỉ tay bài của bạn là quan trọng", why: "Điều quan trọng là equity so với tay bài của các đối thủ. Người theo all-in của Button có {{t:range|range}} mạnh hơn Button, nên bạn {{t:call|theo}} chặt hơn." }
 ---
-Khi đối thủ all-in còn bạn ở {{t:big-blind|big blind}}, quyết định có hình thức đơn giản: bạn {{t:call|theo}} hoặc {{t:fold|bỏ bài}}. Sau khi {{t:call|theo}} không còn vòng chơi nào nữa, nên chỉ giá và equity của bạn so với {{t:range|dải bài}} all-in là quan trọng.
+Khi đối thủ all-in còn bạn ở {{t:big-blind|big blind}}, quyết định có hình thức đơn giản: bạn {{t:call|theo}} hoặc {{t:fold|bỏ bài}}. Sau khi {{t:call|theo}} không còn vòng chơi nào nữa, nên chỉ giá và equity của bạn so với {{t:range|range}} all-in là quan trọng.
 
 ## Giá để {{t:call|theo}}
 
@@ -137,7 +137,7 @@ Khi all-in trước, bạn còn thắng cả khi đối thủ {{t:fold|bỏ bài
 call.bb-10
 ```
 
-Ở {{n:m11.depth.10}}, {{t:small-blind|small blind}} all-in với khoảng {{n:m11.push.10}} tay bài, còn {{t:big-blind|big blind}} {{t:call|theo}} với khoảng {{n:m11.call.10}}. Những tay như [[7s 6s]] bạn {{t:shove|đẩy all-in}} từ {{t:small-blind|small blind}}, nhưng lại {{t:fold|bỏ}} khi gặp all-in: không có fold equity, chúng có quá ít equity trước các lá cao và {{t:pair|đôi}}. Để so sánh, bảng của một trang huấn luyện đưa ra {{t:range|dải bài}} {{t:call|theo}} ở {{n:m11.depth.10}} là {{n:m11.ext.call.10}}.
+Ở {{n:m11.depth.10}}, {{t:small-blind|small blind}} all-in với khoảng {{n:m11.push.10}} tay bài, còn {{t:big-blind|big blind}} {{t:call|theo}} với khoảng {{n:m11.call.10}}. Những tay như [[7s 6s]] bạn {{t:shove|đẩy all-in}} từ {{t:small-blind|small blind}}, nhưng lại {{t:fold|bỏ}} khi gặp all-in: không có fold equity, chúng có quá ít equity trước các lá cao và {{t:pair|đôi}}. Để so sánh, bảng của một trang huấn luyện đưa ra {{t:range|range}} {{t:call|theo}} ở {{n:m11.depth.10}} là {{n:m11.ext.call.10}}.
 
 ```range
 call.bb-15
@@ -147,7 +147,7 @@ call.bb-15
 call.bb-5
 ```
 
-Stack sâu hơn nghĩa là {{t:call|theo}} đắt hơn và {{t:range|dải bài}} all-in của đối thủ hẹp hơn, nên bạn {{t:call|theo}} ít hơn: khoảng {{n:m11.call.15}} ở {{n:m11.depth.15}}, còn ở {{n:m11.depth.5}} thì lên tới khoảng {{n:m11.call.5}}.
+Stack sâu hơn nghĩa là {{t:call|theo}} đắt hơn và {{t:range|range}} all-in của đối thủ hẹp hơn, nên bạn {{t:call|theo}} ít hơn: khoảng {{n:m11.call.15}} ở {{n:m11.depth.15}}, còn ở {{n:m11.depth.5}} thì lên tới khoảng {{n:m11.call.5}}.
 
 ## Khi sau bạn vẫn còn người chơi
 
@@ -157,7 +157,7 @@ Với ba người chơi và mỗi stack là {{n:m11.depth.3max}}, {{t:small-blin
 call.sb-vs-btn-3max
 ```
 
-Khi đã có hai người all-in, giá giảm xuống {{n:m11.3max.bb-two.eq}}, nhưng {{t:big-blind|big blind}} vẫn chỉ {{t:call|theo}} với khoảng {{n:m11.3max.call.bb-two}} tay bài. Khi đấu với hai {{t:range|dải bài}}, trong đó một người đã {{t:call|theo}} all-in, các tay yếu hơn mất equity rất nhanh.
+Khi đã có hai người all-in, giá giảm xuống {{n:m11.3max.bb-two.eq}}, nhưng {{t:big-blind|big blind}} vẫn chỉ {{t:call|theo}} với khoảng {{n:m11.3max.call.bb-two}} tay bài. Khi đấu với hai {{t:range|range}}, trong đó một người đã {{t:call|theo}} all-in, các tay yếu hơn mất equity rất nhanh.
 
 ```range
 call.bb-vs-two-3max
@@ -171,6 +171,6 @@ Ante vẫn nằm trong {{t:pot|pot}}, nên với cùng số tiền bỏ thêm, b
 call.bb-10-ante
 ```
 
-:::note {{t:range|Dải bài}} trong bài học này
+:::note {{t:range|Range}} trong bài học này
 Các lưới áp dụng cho ván hai người: {{t:small-blind|small blind}} đấu với {{t:big-blind|big blind}} khi mọi người khác đã {{t:fold|bỏ bài}}, và tính theo {{t:chips|chip}}, không phải tiền. Khi trong {{t:tournament|giải đấu}} {{t:payout|tiền thưởng}} trở nên quan trọng, bạn {{t:call|theo}} còn chặt hơn nữa (bài học tiếp theo).
 :::

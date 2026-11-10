@@ -14,7 +14,7 @@ drills:
     id: m8.exam.q2
     family: m8.value.size
     rules: [R-M8-003]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|suivi}}. Au flop, c-bet et {{t:call}} ; au turn, vous avez tous les deux {{t:check|checké}}. À la river, la {{t:big-blind}} {{t:check|checke}}. Vous avez une {{t:top-pair|top paire}} avec un neuf et estimez battre un peu plus de la moitié des mains qui paieront. Que faites-vous ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|suivi}}. Au flop, c-bet et {{t:call}} ; au turn, vous avez tous les deux {{t:check|checké}}. À la river, la {{t:big-blind}} {{t:check|checke}}. Vous avez une {{t:top-pair|top paire}} avec un neuf et estimez battre un peu plus de la moitié des mains qui paieront. Que faites-vous ?"
     table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
     options:
       - { text: "Miser env. 1/3 du {{t:pot|pot}}", correct: true, why: "Oui : c'est de la thin value. Les sept, les quatre et les valets plus faibles {{t:call|suivront}} aussi une petite mise, donc parmi les {{t:call|calls}} il reste plus de mains moins bonnes que de meilleures." }
@@ -40,7 +40,7 @@ drills:
     id: m8.exam.q5
     family: m8.bluff.hands
     rules: [R-M8-006]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|suivi}} et {{t:check|checke}} à la river. Avec laquelle de ces mains vaut-il mieux {{t:bluff|bluffer}} ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|suivi}} et {{t:check|checke}} à la river. Avec laquelle de ces mains vaut-il mieux {{t:bluff|bluffer}} ?"
     table: { board: "Qs Tc 6d 3h 2s", position: BTN }
     options:
       - { text: "[[Kc Jc]]", correct: true, why: "Oui : le {{t:oesd|tirage par les deux bouts}} n'est pas rentré, et le roi seul comme carte haute ne gagne presque jamais au showdown. Une main sans chance ne perd rien quand le {{t:bluff}} échoue." }
@@ -76,16 +76,16 @@ drills:
     id: m8.exam.q9
     family: m8.catch.blockers
     rules: [R-M8-011]
-    prompt: "Vous défendez la {{t:big-blind}}. Les cœurs ne sont pas rentrés, et la river a donné une {{t:straight}} aux mains T7 et 75. Vous {{t:check|checkez}}, et le Button {{t:bet|mise}} tout le {{t:pot|pot}}. Vous avez une {{t:top-pair|top paire}} avec un kicker faible. Avec laquelle de ces mains le {{t:call}} est-il meilleur ?"
+    prompt: "Vous défendez la {{t:big-blind}}. Les cœurs ne sont pas rentrés, et la river a donné une {{t:straight}} aux mains T7 et 75. Vous {{t:check|checkez}}, et le Bouton {{t:bet|mise}} tout le {{t:pot|pot}}. Vous avez une {{t:top-pair|top paire}} avec un kicker faible. Avec laquelle de ces mains le {{t:call}} est-il meilleur ?"
     table: { board: "Kh 9h 6c 2s 8d", position: BB }
     options:
-      - { text: "[[Kc 7c]]", correct: true, why: "Oui : le sept bloque les deux nouvelles {{t:straight|quintes}} (T7 et 75), soit une partie de la value du Button, et sans cœur vous ne bloquez pas les {{t:flush-draw|tirages couleur}} manqués, ses principaux {{t:bluff|bluffs}}. Il reste plus de {{t:bluff|bluffs}} dans ses mises." }
-      - { text: "[[Ks 3h]]", why: "La carte [[3h]] bloque une partie des {{t:flush-draw|tirages couleur}} manqués, c'est-à-dire des {{t:bluff|bluffs}} du Button, et cette main ne bloque aucune {{t:straight|quinte}}. Il reste plus de value dans ses mises." }
+      - { text: "[[Kc 7c]]", correct: true, why: "Oui : le sept bloque les deux nouvelles {{t:straight|quintes}} (T7 et 75), soit une partie de la value du Bouton, et sans cœur vous ne bloquez pas les {{t:flush-draw|tirages couleur}} manqués, ses principaux {{t:bluff|bluffs}}. Il reste plus de {{t:bluff|bluffs}} dans ses mises." }
+      - { text: "[[Ks 3h]]", why: "La carte [[3h]] bloque une partie des {{t:flush-draw|tirages couleur}} manqués, c'est-à-dire des {{t:bluff|bluffs}} du Bouton, et cette main ne bloque aucune {{t:straight|quinte}}. Il reste plus de value dans ses mises." }
   - kind: choice
     id: m8.exam.q10
     family: m8.value.check
     rules: [R-M8-002]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|suivi}}. Au flop, c-bet et {{t:call}} ; au turn, vous avez tous les deux {{t:check|checké}}. À la river, la {{t:big-blind}} {{t:check|checke}}. Vous avez une {{t:pair|paire}} de six. Que faites-vous ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|suivi}}. Au flop, c-bet et {{t:call}} ; au turn, vous avez tous les deux {{t:check|checké}}. À la river, la {{t:big-blind}} {{t:check|checke}}. Vous avez une {{t:pair|paire}} de six. Que faites-vous ?"
     table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
     options:
       - { text: "Je {{t:check|checke}}", correct: true, why: "Oui : la {{t:pair|paire}} de six bat les {{t:draw|tirages}} manqués et les cartes hautes, mais ces mains {{t:fold|se coucheront}} face à une mise. Ce sont surtout les valets, les huit et les rois qui paieront. En {{t:check|checkant}}, vous allez au showdown gratuitement." }

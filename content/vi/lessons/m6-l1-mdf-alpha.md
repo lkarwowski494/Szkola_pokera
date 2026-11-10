@@ -10,7 +10,7 @@ drills:
     id: m6.l1.n-mdf-third
     family: m6.mdf
     rules: [R-M6-001]
-    prompt: "River. {{t:pot|Pot}} đang có {{n:ex.third.pot}}, đối thủ {{t:bet|cược}} {{n:ex.third.bet}}. Bạn phải bảo vệ ({{t:call|theo}} hoặc {{t:raise|tố}}) ít nhất bao nhiêu phần {{t:range|dải bài}} để {{t:bluff|cú bluff}} không có cơ hội thắng của họ không tự động có lãi? Hãy nhập số phần trăm."
+    prompt: "River. {{t:pot|Pot}} đang có {{n:ex.third.pot}}, đối thủ {{t:bet|cược}} {{n:ex.third.bet}}. Bạn phải bảo vệ ({{t:call|theo}} hoặc {{t:raise|tố}}) ít nhất bao nhiêu phần {{t:range|range}} để {{t:bluff|cú bluff}} không có cơ hội thắng của họ không tự động có lãi? Hãy nhập số phần trăm."
     answer: mdf.bet-third
     explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + cược) = {{n:ex.third.pot}} ÷ {{n:ex.third.pot-after-bet}} = {{n:mdf.bet-third}}. Đối thủ mạo hiểm {{n:ex.third.bet}} để thắng {{n:ex.third.pot}}, nên {{t:bluff|cú bluff}} của họ có lãi khi bạn {{t:fold|bỏ bài}} thường xuyên hơn {{n:alpha.bet-third}}."
   - kind: numeric
@@ -26,16 +26,16 @@ drills:
     rules: [R-M6-001]
     prompt: "River. {{t:pot|Pot}} đang có {{n:ex.pot}}, đối thủ {{t:bet|cược}} nửa {{t:pot|pot}}: {{n:ex.bet.half}}. {{t:mdf}} là bao nhiêu?"
     options:
-      - { text: "{{n:mdf.bet-half}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.half}}) = {{n:mdf.bet-half}}. Đó là phần {{t:range|dải bài}} bạn bảo vệ để {{t:bluff|cú bluff}} không có cơ hội thắng không có lãi." }
+      - { text: "{{n:mdf.bet-half}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.half}}) = {{n:mdf.bet-half}}. Đó là phần {{t:range|range}} bạn bảo vệ để {{t:bluff|cú bluff}} không có cơ hội thắng không có lãi." }
       - { text: "{{n:alpha.bet-half}}", why: "Đó là alpha: {{t:bluff|cú bluff}} của đối thủ phải thành công thường xuyên đến mức nào. {{t:mdf}} là phần còn lại, tức {{n:mdf.bet-half}}." }
-      - { text: "{{n:eq.bet-half}}", why: "Đó là equity cần có để {{t:call|theo}} với một tay bài (từ M2). {{t:mdf}} cho biết bạn bảo vệ bao nhiêu phần trong toàn bộ {{t:range|dải bài}}." }
+      - { text: "{{n:eq.bet-half}}", why: "Đó là equity cần có để {{t:call|theo}} với một tay bài (từ M2). {{t:mdf}} cho biết bạn bảo vệ bao nhiêu phần trong toàn bộ {{t:range|range}}." }
   - kind: choice
     id: m6.l1.q-mdf-overbet
     family: m6.mdf
     rules: [R-M6-001]
     prompt: "River. {{t:pot|Pot}} đang có {{n:ex.pot}}, đối thủ {{t:bet|cược}} nhiều hơn {{t:pot|pot}}: {{n:ex.bet.overbet}}. {{t:mdf}} là bao nhiêu?"
     options:
-      - { text: "{{n:mdf.bet-overbet}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}}) = {{n:mdf.bet-overbet}}. Mức cược càng lớn, phần {{t:range|dải bài}} bạn phải bảo vệ càng nhỏ." }
+      - { text: "{{n:mdf.bet-overbet}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}}) = {{n:mdf.bet-overbet}}. Mức cược càng lớn, phần {{t:range|range}} bạn phải bảo vệ càng nhỏ." }
       - { text: "{{n:alpha.bet-overbet}}", why: "Đó là alpha: {{t:bluff|cú bluff}} {{n:ex.bet.overbet}} phải thành công thường xuyên chừng ấy. Bạn bảo vệ phần còn lại, tức {{n:mdf.bet-overbet}}." }
       - { text: "{{n:eq.bet-overbet}}", why: "Đó là equity cần có để {{t:call|theo}}: {{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}). Con số khác, câu hỏi khác." }
   - kind: numeric
@@ -69,9 +69,9 @@ drills:
     rules: [R-M6-001]
     prompt: "River, đối thủ {{t:bet|cược}} 1/3 {{t:pot|pot}}. {{t:mdf}} là {{n:mdf.bet-third}}, còn để {{t:call|theo}} bạn cần {{n:eq.bet-third}} equity. Làm sao dung hòa hai con số này?"
     options:
-      - { text: "{{t:mdf}} áp dụng cho toàn bộ {{t:range|dải bài}}, equity cho một tay bài", correct: true, why: "{{t:mdf}} cho biết bạn bảo vệ bao nhiêu phần trong tất cả các tay bài của mình để đối thủ không thể {{t:bluff}} với bất kỳ lá bài nào. Equity cần có cho biết {{t:call|theo}} với một tay bài cụ thể có lãi hay không trước những tay bài mà đối thủ thực sự dùng để {{t:bet|cược}}." }
+      - { text: "{{t:mdf}} áp dụng cho toàn bộ {{t:range|range}}, equity cho một tay bài", correct: true, why: "{{t:mdf}} cho biết bạn bảo vệ bao nhiêu phần trong tất cả các tay bài của mình để đối thủ không thể {{t:bluff}} với bất kỳ lá bài nào. Equity cần có cho biết {{t:call|theo}} với một tay bài cụ thể có lãi hay không trước những tay bài mà đối thủ thực sự dùng để {{t:bet|cược}}." }
       - { text: "Một trong hai bị tính sai", why: "Cả hai đều đúng: {{n:ex.third.pot}} ÷ {{n:ex.third.pot-after-bet}} = {{n:mdf.bet-third}} và {{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}. Chúng trả lời các câu hỏi khác nhau." }
-      - { text: "Bạn {{t:call|theo}} khi có ít nhất {{n:mdf.bet-third}} equity", why: "Nhầm lẫn khái niệm. Để {{t:call|theo}}, {{n:eq.bet-third}} equity là đủ. {{n:mdf.bet-third}} là một phần của {{t:range|dải bài}}, không phải cơ hội thắng của một tay bài." }
+      - { text: "Bạn {{t:call|theo}} khi có ít nhất {{n:mdf.bet-third}} equity", why: "Nhầm lẫn khái niệm. Để {{t:call|theo}}, {{n:eq.bet-third}} equity là đủ. {{n:mdf.bet-third}} là một phần của {{t:range|range}}, không phải cơ hội thắng của một tay bài." }
   - kind: choice
     id: m6.l1.q-flop-mdf
     family: m6.mdf-concept
@@ -93,7 +93,7 @@ drills:
       - { text: "{{t:call|Theo}}, vì {{t:mdf}} bảo phải bảo vệ {{n:mdf.bet-pot}}", why: "{{t:mdf}} bảo vệ bạn trước người chơi {{t:bluff}} đủ thường xuyên. Người chơi này không làm vậy, nên bám theo {{t:mdf}} là dâng tiền cho họ." }
       - { text: "{{t:raise|Tố}} all-in", why: "Tay bài mạnh hơn sẽ trả tiền, tay yếu hơn sẽ {{t:fold|bỏ bài}}. {{t:pair|Đôi}} với kicker yếu không phải tay bài để {{t:raise|tố}}." }
 ---
-Khi đối thủ {{t:bet|cược}}, bạn không chỉ hỏi “tay bài này có thể thắng không”. Bạn còn nhìn vào tất cả các tay bài bạn có thể có trong tình huống này, tức {{t:range|dải bài}} của mình. Hai con số cho biết nên bảo vệ bao nhiêu trong số đó và {{t:bluff|cú bluff}} của đối thủ phải thành công thường xuyên đến mức nào.
+Khi đối thủ {{t:bet|cược}}, bạn không chỉ hỏi “tay bài này có thể thắng không”. Bạn còn nhìn vào tất cả các tay bài bạn có thể có trong tình huống này, tức {{t:range|range}} của mình. Hai con số cho biết nên bảo vệ bao nhiêu trong số đó và {{t:bluff|cú bluff}} của đối thủ phải thành công thường xuyên đến mức nào.
 
 ## Alpha: {{t:bluff|cú bluff}} phải thành công thường xuyên đến mức nào
 
@@ -125,7 +125,7 @@ Ví dụ trên river: {{t:pot|pot}} đang có {{n:ex.third.pot}}, đối thủ {
 
 ## {{t:mdf}} không phải equity cần có
 
-Equity cần có từ M2 áp dụng cho **một tay bài**: {{t:call|theo}} với nó có lãi hay không. {{t:mdf}} áp dụng cho **toàn bộ {{t:range|dải bài}}**: bạn bảo vệ bao nhiêu phần trong đó. Trước mức cược 1/3 {{t:pot|pot}} trên river, {{t:mdf}} gợi ý bảo vệ khoảng {{n:mdf.bet-third}} số tay bài, còn từng lần {{t:call|theo}} riêng lẻ có lãi khi tay bài thắng ít nhất {{n:eq.bet-third}} số lần.
+Equity cần có từ M2 áp dụng cho **một tay bài**: {{t:call|theo}} với nó có lãi hay không. {{t:mdf}} áp dụng cho **toàn bộ {{t:range|range}}**: bạn bảo vệ bao nhiêu phần trong đó. Trước mức cược 1/3 {{t:pot|pot}} trên river, {{t:mdf}} gợi ý bảo vệ khoảng {{n:mdf.bet-third}} số tay bài, còn từng lần {{t:call|theo}} riêng lẻ có lãi khi tay bài thắng ít nhất {{n:eq.bet-third}} số lần.
 
 ## Trên flop khi {{t:out-of-position|không có vị trí}}, bạn bảo vệ ít hơn
 

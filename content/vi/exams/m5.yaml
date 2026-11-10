@@ -9,9 +9,9 @@ drills:
     prompt: "Bạn {{t:open|mở cược}} từ {{t:cutoff|CO}}, Button và {{t:small-blind|small blind}} {{t:fold|bỏ bài}}, {{t:big-blind}} {{t:call|theo}}. Flop: [[Ac Jd 5h]]. Ai có {{t:range-advantage|lợi thế dải bài}}?"
     table: { position: CO, board: "Ac Jd 5h" }
     options:
-      - { text: "Bạn, người {{t:open|mở cược}}", correct: true, why: "Đúng: trên flop có lá A, {{t:range|dải bài}} của bạn có đủ mọi AA, AK và AJ. {{t:big-blind|Big blind}} thường {{t:raise|tố}} những tay A mạnh nhất trước flop (3-bet), nên khi chỉ {{t:call|theo}}, họ có rất ít những tay này." }
+      - { text: "Bạn, người {{t:open|mở cược}}", correct: true, why: "Đúng: trên flop có lá A, {{t:range|range}} của bạn có đủ mọi AA, AK và AJ. {{t:big-blind|Big blind}} thường {{t:raise|tố}} những tay A mạnh nhất trước flop (3-bet), nên khi chỉ {{t:call|theo}}, họ có rất ít những tay này." }
       - { text: "{{t:big-blind|Big blind}}, vì họ bảo vệ nhiều tay A", why: "Họ bảo vệ nhiều tay A, nhưng là tay A yếu (vd. A5, A8). Những tay A mạnh nhất họ chơi bằng 3-bet, nên trung bình các tay của họ ở đây yếu hơn của bạn." }
-      - { text: "Không ai: lá A tác động đến cả hai {{t:range|dải bài}} như nhau", why: "Lá A trên {{t:board|bài chung}} tác động đến cả hai {{t:range|dải bài}}, nhưng không như nhau: dải bài của bạn có nhiều tay A mạnh hơn, vì {{t:big-blind}} đã {{t:raise|tố}} những tay A tốt nhất trước flop." }
+      - { text: "Không ai: lá A tác động đến cả hai {{t:range|range}} như nhau", why: "Lá A trên {{t:board|bài chung}} tác động đến cả hai {{t:range|range}}, nhưng không như nhau: dải bài của bạn có nhiều tay A mạnh hơn, vì {{t:big-blind}} đã {{t:raise|tố}} những tay A tốt nhất trước flop." }
   - kind: choice
     id: m5.exam.q2
     family: m5.advantage.who
@@ -67,7 +67,7 @@ drills:
     options:
       - { text: "Bạn không từ bỏ tay bài: sau khi {{t:check|xem bài}}, bạn sẽ {{t:call|theo}} {{t:bet}} của họ hoặc check-raise", correct: true, why: "Đúng: {{t:check|xem bài}} khi {{t:out-of-position}} không có nghĩa là nhường {{t:pot|pot}}. Tay mạnh bạn tiếp tục chơi bằng cách {{t:call|theo}} hoặc check-raise, còn {{t:range}} của đối thủ đã {{t:call|theo}} khi có {{t:position|vị trí}} thường sẽ tự {{t:bet|cược}}." }
       - { text: "Sau khi {{t:check|xem bài}}, bạn {{t:fold|bỏ bài}} trước mọi {{t:bet}}", why: "Không: khi đó đối thủ sẽ thắng {{t:pot|pot}} với mọi {{t:bet|cược}}. Nhiều tay {{t:check|xem bài}} sẽ {{t:call|theo}} {{t:bet}} của đối thủ." }
-      - { text: "Bạn chỉ {{t:check|xem bài}} với tay không có {{t:pair|đôi}}", why: "Không: khi {{t:out-of-position}}, bạn thường {{t:check|xem bài}} với toàn bộ {{t:range|dải bài}}, kể cả tay mạnh. Nếu chỉ tay yếu mới {{t:check|xem bài}}, đối thủ sẽ dễ dàng khai thác điều đó." }
+      - { text: "Bạn chỉ {{t:check|xem bài}} với tay không có {{t:pair|đôi}}", why: "Không: khi {{t:out-of-position}}, bạn thường {{t:check|xem bài}} với toàn bộ {{t:range|range}}, kể cả tay mạnh. Nếu chỉ tay yếu mới {{t:check|xem bài}}, đối thủ sẽ dễ dàng khai thác điều đó." }
   - kind: choice
     id: m5.exam.q8
     family: m5.cbet.multi

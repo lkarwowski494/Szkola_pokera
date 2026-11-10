@@ -55,7 +55,7 @@ drills:
     prompt: "{{t:flush-draw|Draw thùng}} bích không thành. {{t:big-blind|Big blind}} check trên river. Cả hai tay đều chỉ có Q với 8. Nên bluff bằng tay nào?"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
-      - { text: "[[Qd 8c]]", correct: true, why: "Không có lá bích, bạn không chặn các {{t:draw|draw}} hụt của đối thủ, mà đó là những tay sẽ {{t:fold|bỏ bài}} trước cược của bạn. Các lá còn lại của hai tay giống nhau." }
+      - { text: "[[Qd 8c]]", correct: true, why: "Không có lá bích, bạn không chặn các {{t:draw|bài chờ}} hụt của đối thủ, mà đó là những tay sẽ {{t:fold|bỏ bài}} trước cược của bạn. Các lá còn lại của hai tay giống nhau." }
       - { text: "[[Qd 8s]]", why: "Lá 8 bích chặn một phần các {{t:flush-draw|draw thùng}} hụt (vd. [[8s 7s]]) mà đối thủ lẽ ra sẽ {{t:fold|bỏ}}. Đối thủ còn lại tương đối nhiều tay bài sẽ trả tiền hơn." }
       - { text: "Không khác gì", why: "Khác biệt nằm ở chất của lá 8. Lá bích trong tay bạn lấy đi của đối thủ một phần các tay bài sẽ bỏ." }
   - kind: choice
@@ -65,7 +65,7 @@ drills:
     prompt: "Cùng tình huống: bích không về, {{t:big-blind}} {{t:check|check}}. Bạn có một trong hai tay bài. Bạn {{t:bluff|bluff}} với tay nào, và {{t:check|check}} với tay nào?"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
-      - { text: "{{t:bluff|Bluff}} với [[Qc Jd]], {{t:check|check}} với [[9c 8c]]", correct: true, why: "{{t:pair|Đôi}} 9 thắng các {{t:draw|draw}} hụt sau khi {{t:check|check}}. Q-J thua gần như mọi tay bài, nên chỉ có {{t:bluff|bluff}} mới thắng được {{t:pot|pot}}." }
+      - { text: "{{t:bluff|Bluff}} với [[Qc Jd]], {{t:check|check}} với [[9c 8c]]", correct: true, why: "{{t:pair|Đôi}} 9 thắng các {{t:draw|bài chờ}} hụt sau khi {{t:check|check}}. Q-J thua gần như mọi tay bài, nên chỉ có {{t:bluff|bluff}} mới thắng được {{t:pot|pot}}." }
       - { text: "{{t:bluff|Bluff}} với [[9c 8c]], {{t:check|check}} với [[Qc Jd]]", why: "Ngược lại. {{t:bluff|Bluff}} bằng {{t:pair|đôi}} 9 là bỏ đi chiến thắng ở showdown, còn {{t:check}} với Q-J là nhường {{t:pot|pot}} mà không chiến đấu." }
       - { text: "{{t:bluff|Bluff}} với cả hai", why: "{{t:pair|Đôi}} 9 không cần {{t:bluff|bluff}}: nó thắng nhiều tay bài sau khi {{t:check|check}}. Bạn {{t:bluff|bluff}} bằng những tay không có giá trị showdown." }
   - kind: choice
@@ -75,7 +75,7 @@ drills:
     prompt: "Bạn chọn một {{t:bluff}} trên river trong số các tay bài không có giá trị showdown. Lá bài nào trong tay giúp ích nhiều nhất?"
     options:
       - { text: "Lá bài thuộc các tay mà đối thủ sẽ trả tiền", correct: true, why: "Bạn chặn giá trị của đối thủ: đối thủ có ít tay mạnh hơn, nên thường xuyên hơn chỉ còn lại tay bài phải bỏ." }
-      - { text: "Lá bài cùng chất với {{t:draw|draw}} hụt", why: "Lá đó chặn những tay đối thủ sẽ {{t:fold|bỏ}}. Khi đó {{t:bluff|bluff}} thành công ít hơn." }
+      - { text: "Lá bài cùng chất với {{t:draw|bài chờ}} hụt", why: "Lá đó chặn những tay đối thủ sẽ {{t:fold|bỏ}}. Khi đó {{t:bluff|bluff}} thành công ít hơn." }
       - { text: "Lá cao nhất, bất kể bàn", why: "Lá cao cho một chút sức mạnh ở showdown, nhưng không cho biết gì về những gì bạn chặn. Hãy xem những tay nào của đối thủ sẽ trả tiền." }
   - kind: choice
     id: m8.l3.q-blocker-not-enough
@@ -107,7 +107,7 @@ Một {{t:bluff}} tốt có một lá thuộc các tay mà đối thủ sẽ **{
 
 ## Đừng chặn những tay đối thủ sẽ {{t:fold|bỏ}}
 
-Khi {{t:flush-draw}} **không thành**, đối thủ sẽ {{t:fold|bỏ}} các {{t:draw|draw}} hụt của mình. Nếu bạn có một lá cùng chất đó, đối thủ có ít tay như vậy hơn, nên {{t:bluff}} của bạn sẽ thường xuyên gặp phải tay bài trả tiền hơn. Giữa hai {{t:bluff|bluff}} tương tự nhau, bạn chọn tay không có lá nào cùng chất với {{t:draw|draw}} hụt.
+Khi {{t:flush-draw}} **không thành**, đối thủ sẽ {{t:fold|bỏ}} các {{t:draw|bài chờ}} hụt của mình. Nếu bạn có một lá cùng chất đó, đối thủ có ít tay như vậy hơn, nên {{t:bluff}} của bạn sẽ thường xuyên gặp phải tay bài trả tiền hơn. Giữa hai {{t:bluff|bluff}} tương tự nhau, bạn chọn tay không có lá nào cùng chất với {{t:draw|bài chờ}} hụt.
 
 ## Sức mạnh showdown trước tiên
 

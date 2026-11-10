@@ -20,7 +20,7 @@
   module: m0
   if: "zwei Spieler haben unterschiedliche Hände"
   then: "es gewinnt die Hand, die im Ranking höher steht, egal wie hoch die Karten sind"
-  because: "das Hand-Ranking entscheidet vor der Höhe der Karten; ein {{t:flush|Flush}} schlägt immer eine {{t:straight|Straight}}, ein {{t:full-house|Full House}} schlägt immer einen {{t:flush|Flush}}"
+  because: "das Hand-Ranking entscheidet vor der Höhe der Karten; ein {{t:flush|Flush}} schlägt immer eine {{t:straight|Straße}}, ein {{t:full-house|Full House}} schlägt immer einen {{t:flush|Flush}}"
   level: rules
   source: "Texas-Hold'em-Regeln: vom kalifornischen Glücksspielregulierer genehmigtes Casino-Regelwerk (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: „The ranking of hands for Texas Hold'em, in order from highest to lowest rank, shall be“; vom Regulierer genehmigtes Poker-Regelwerk eines Casinos in Perth (RAG/551) (https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf), 10.1; ergänzend: List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands) (Dokument 12 M0–M3)"
   sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf" }, { kind: reference, url: "https://en.wikipedia.org/wiki/List_of_poker_hands" }]
@@ -331,8 +331,8 @@
 # (dokument 12 M4–M6); bez częstotliwości w procentach.
 - id: R-M5-001
   module: m5
-  if: "der Flop erreicht weniger als {{n:tex.threshold.medium}} Punkte für {{t:wetness|Nässe}}: eine auf mehrere Arten mögliche {{t:straight|Straight}} (mit mindestens zwei Kombinationen aus zwei Rängen) gibt {{n:tex.points.straight.made}} Pkt., eine auf eine Art mögliche {{t:straight|Straight}} {{n:tex.points.straight.made-one}}, ein reiner {{t:straight-draw|Straight-Draw}} {{n:tex.points.straight.draw}}, zwei Karten einer Farbe {{n:tex.points.suits.two-tone}}, drei einer Farbe {{n:tex.points.suits.monotone}}"
-  then: "es ist ein {{t:dry|trockener}} Flop: es gibt wenige {{t:draw|Draws}}, und eine fertige {{t:straight|Straight}} oder einen {{t:flush|Flush}} hat noch niemand"
+  if: "der Flop erreicht weniger als {{n:tex.threshold.medium}} Punkte für {{t:wetness|Nässe}}: eine auf mehrere Arten mögliche {{t:straight|Straße}} (mit mindestens zwei Kombinationen aus zwei Rängen) gibt {{n:tex.points.straight.made}} Pkt., eine auf eine Art mögliche {{t:straight|Straße}} {{n:tex.points.straight.made-one}}, ein reiner {{t:straight-draw|Straight-Draw}} {{n:tex.points.straight.draw}}, zwei Karten einer Farbe {{n:tex.points.suits.two-tone}}, drei einer Farbe {{n:tex.points.suits.monotone}}"
+  then: "es ist ein {{t:dry|trockener}} Flop: es gibt wenige {{t:draw|Draws}}, und eine fertige {{t:straight|Straße}} oder einen {{t:flush|Flush}} hat noch niemand"
   because: "die nächsten Karten ändern selten, wer vorn liegt, also bleibt die beste Hand auf dem Flop meist die beste"
   level: rules
   source: "Texturdefinition der App (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); Begriff des trockenen Flops: Trainingsseite, Sizing Your C-Bets; Trainingsseite, What Is a Continuation Bet; Beispiele trockener Flops: Trainingsseite (K72r, A94r), Trainingsseite (AA6r); die Grenze trocken/mittel ist eine Konvention der App"
@@ -340,7 +340,7 @@
 - id: R-M5-002
   module: m5
   if: "der Flop erreicht mindestens {{n:tex.threshold.wet}} Punkte für {{t:wetness|Nässe}} (Punkte wie in der Definition des {{t:dry|trockenen}} Flops)"
-  then: "es ist ein {{t:wet|nasser}} Flop: dein Gegner hat oft {{t:draw|Draws}} und manchmal schon eine {{t:straight|Straight}} oder einen {{t:flush|Flush}}"
+  then: "es ist ein {{t:wet|nasser}} Flop: dein Gegner hat oft {{t:draw|Draws}} und manchmal schon eine {{t:straight|Straße}} oder einen {{t:flush|Flush}}"
   because: "die nächsten Karten ändern oft, wer vorn liegt, also ist die jetzt beste Hand weniger sicher"
   level: rules
   source: "Texturdefinition der App (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); Begriff des nassen Flops: Trainingsseite, Sizing Your C-Bets; Trainingsseite, What Is a Continuation Bet; Beispiele nasser Flops: Trainingsseite (987, QJT), Trainingsseite, Bet Sizing Strategy: 8 Rules (T954, https://upswingpoker.com/bet-size-strategy-tips-rules/); die Grenze mittel/nass ist eine Konvention der App"
@@ -357,7 +357,7 @@
   module: m5
   if: "du hast vor dem Flop {{t:open|eröffnet}}, und der Flop ist niedrig und {{t:connected|verbunden}} oder {{t:semi-connected|halb verbunden}}, z. B. 7-6-5"
   then: "du c-bettest seltener als auf hohen Flops, und viele Hände {{t:check|checken}}"
-  because: "der {{t:big-blind|Big Blind}} verteidigt viele gleichfarbige {{t:connectors|Connectors}} und kleine {{t:pair|Paare}}, also hat er öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straight}}: er hat den {{t:nuts-advantage|Nuts-Vorteil}}"
+  because: "der {{t:big-blind|Big Blind}} verteidigt viele gleichfarbige {{t:connectors|Connectors}} und kleine {{t:pair|Paare}}, also hat er öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}}: er hat den {{t:nuts-advantage|Nuts-Vorteil}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
   source: "Kombinatorik: der Button eröffnet alle Paare 55–77, und der Big Blind callt sie, also haben beide ähnlich viele Sets; Seite eines kommerziellen Solvers, Bullying the Blinds (auf 654r checkt der Button mehr als die Hälfte seiner Range; „Even on 654r… BB has less than 52% equity“)"
@@ -389,8 +389,8 @@
   sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-008
   module: m5
-  if: "als {{t:aggressor|Aggressor}} preflop hast du {{t:position|Position}}, und der Flop gibt deinem Gegner viele {{t:draw|Draws}}, aber eine {{t:straight|Straight}} ist noch nicht möglich, z. B. K-J-7 {{t:two-tone|zweifarbig}}"
-  then: "du c-bettest seltener, aber größer, z. B. {{n:cbet.size.big}} des {{t:pot|Pots}}; mittlere Hände ohne {{t:draw|Draw}} {{t:check|checken}} öfter; ist eine {{t:straight|Straight}} schon möglich, z. B. J-T-8, setzen Solver kleiner"
+  if: "als {{t:aggressor|Aggressor}} preflop hast du {{t:position|Position}}, und der Flop gibt deinem Gegner viele {{t:draw|Draws}}, aber eine {{t:straight|Straße}} ist noch nicht möglich, z. B. K-J-7 {{t:two-tone|zweifarbig}}"
+  then: "du c-bettest seltener, aber größer, z. B. {{n:cbet.size.big}} des {{t:pot|Pots}}; mittlere Hände ohne {{t:draw|Draw}} {{t:check|checken}} öfter; ist eine {{t:straight|Straße}} schon möglich, z. B. J-T-8, setzen Solver kleiner"
   because: "die {{t:draw|Draws}} deines Gegners haben viel Equity, also lässt ein großer {{t:bet|Einsatz}} sie für die nächste Karte teuer bezahlen"
   level: heuristic
   source: "Seite eines kommerziellen Solvers, Flop Heuristics: IP C-Betting in Cash Games („increased use of the 66% pot bet size, but decreased overall betting frequency“); Trainingsseite, Bet Sizing Strategy: 8 Rules (55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/); Trainingsseite, Picking the Proper C-Bet Sizing on Ace-High Boards (2/3 Pot)"
@@ -542,7 +542,7 @@
 - id: R-M7-002
   module: m7
   if: "du {{t:bluff|bluffst}} am Turn mit einem {{t:second-barrel|Second Barrel}}"
-  then: "du {{t:bluff|bluffst}} meist mit Händen mit Outs ({{t:flush-draw|Flush-Draw}}, Draw zur {{t:straight|Straight}}, Gutshot mit hoher Karte), wenn dein Gegner eher {{t:fold|foldet}} oder {{t:call|callt}}; kann er {{t:raise|raisen}}, {{t:bluff|blufft}} der Solver auch mit Händen ohne Outs (Vereinfachung: die Wahl hängt davon ab, wie dein Gegner reagiert)"
+  then: "du {{t:bluff|bluffst}} meist mit Händen mit Outs ({{t:flush-draw|Flush-Draw}}, Draw zur {{t:straight|Straße}}, Gutshot mit hoher Karte), wenn dein Gegner eher {{t:fold|foldet}} oder {{t:call|callt}}; kann er {{t:raise|raisen}}, {{t:bluff|blufft}} der Solver auch mit Händen ohne Outs (Vereinfachung: die Wahl hängt davon ab, wie dein Gegner reagiert)"
   because: "ein {{t:semi-bluff|Semi-Bluff}} gewinnt auf zwei Arten: wenn dein Gegner {{t:fold|foldet}} oder wenn du am River triffst; ein {{t:bluff|Bluff}} ohne Outs hat nur den ersten Weg (Stacks etwa {{n:format.stack}})"
   level: heuristic
   source: "Seite eines kommerziellen Solvers, From Gutshots to Airballs: Choosing Your Bluffs; Trainer mit Trainingsseite, The Double Barrel Checklist; Trainingsseite, When to Double Barrel the Turn as a Bluff (bei etwa 100bb)"
@@ -607,7 +607,7 @@
   sources: [{ kind: training }, { kind: training }]
 - id: R-M7-010
   module: m7
-  if: "du hast einen {{t:draw|Draw}} zu einem niedrigen {{t:flush|Flush}} oder zu einer {{t:straight|Straight}}, während auf dem {{t:board|Board}} ein {{t:flush|Flush}} kommen kann"
+  if: "du hast einen {{t:draw|Draw}} zu einem niedrigen {{t:flush|Flush}} oder zu einer {{t:straight|Straße}}, während auf dem {{t:board|Board}} ein {{t:flush|Flush}} kommen kann"
   then: "du {{t:call|callst}} vorsichtiger und zählst weniger Outs"
   because: "auch mit Treffer verlierst du manchmal gegen eine bessere Hand und zahlst dann am meisten (umgekehrte Implied Odds)"
   level: heuristic
@@ -683,7 +683,7 @@
 - id: R-M8-006
   module: m8
   if: "du wählst, mit welchen Händen du auf dem River {{t:bluff|bluffst}}"
-  then: "du {{t:bluff|bluffst}} mit den schwächsten Händen, die beim Showdown nicht gewinnen (z. B. verpassten {{t:draw|Draws}} zur {{t:straight|Straight}} oder hohen Karten ohne Chance); Hände mit Showdown-Value {{t:check|checken}}"
+  then: "du {{t:bluff|bluffst}} mit den schwächsten Händen, die beim Showdown nicht gewinnen (z. B. verpassten {{t:draw|Draws}} zur {{t:straight|Straße}} oder hohen Karten ohne Chance); Hände mit Showdown-Value {{t:check|checken}}"
   because: "ein {{t:bluff|Bluff}} mit einer Hand, die nach einem {{t:check|Check}} oft gewinnt, gibt diesen Gewinn auf; eine Hand ohne Chance verliert nichts, wenn der {{t:bluff|Bluff}} nicht klappt"
   level: heuristic
   source: "Seite eines kommerziellen Solvers, We're At The River. Our Hand Can't Win. Now What?; Trainingsseite, Polarized vs Linear Ranges"
@@ -798,7 +798,7 @@
 - id: R-M9-008
   module: m9
   if: "vor deinem {{t:bet|Einsatz}} auf dem Flop planst du die Hand"
-  then: "du schätzt, wie viele {{t:value|Value-Streets}} die Hand verträgt (die Zahl der {{t:street|Streets}} ist eine Vereinfachung): eine sehr starke Hand (Set, {{t:straight|Straight}}, hohe {{t:two-pair|zwei Paare}}) drei, {{t:top-pair|Top Pair}} mit gutem Kicker oder ein {{t:overpair|Overpair}} meist zwei, eine dritte dann, wenn dein Gegner mit schwächeren Händen zahlt; ein schwächeres {{t:pair|Paar}} eine oder keine"
+  then: "du schätzt, wie viele {{t:value|Value-Streets}} die Hand verträgt (die Zahl der {{t:street|Streets}} ist eine Vereinfachung): eine sehr starke Hand (Set, {{t:straight|Straße}}, hohe {{t:two-pair|zwei Paare}}) drei, {{t:top-pair|Top Pair}} mit gutem Kicker oder ein {{t:overpair|Overpair}} meist zwei, eine dritte dann, wenn dein Gegner mit schwächeren Händen zahlt; ein schwächeres {{t:pair|Paar}} eine oder keine"
   because: "mit jeder {{t:street|Street}} {{t:fold|folden}} die schlechteren Hände deines Gegners, und im {{t:pot|Pot}} bleiben vor allem Hände, die besser sind als deine"
   level: heuristic
   source: "Synthese: Trainingsseite, When to Check Top Pair (https://upswingpoker.com/when-to-check-top-pair/): „In single raised pots, the stack-to-pot ratio (SPR) is too high to comfortably get 3 streets of value with many top pair hands.“; Seite eines kommerziellen Solvers, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): „All top pairs and all nut flush draws are now indifferent between calling and folding“ (SPR 16); Seite eines kommerziellen Solvers, Pot Geometry (https://blog.gtowizard.com/pot-geometry/): „Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage.“; Zahl der Streets je Hand, einschließlich eines schwächeren Paars: Vereinfachung der App (D-149)"
@@ -814,7 +814,7 @@
 - id: R-M9-010
   module: m9
   if: "du planst, ob du mit einer bestimmten Hand um den ganzen Stack spielst"
-  then: "du schaust auf die Zone der {{t:spr|SPR}} (Vereinfachung): unter etwa {{n:spr.zone.low}} reicht meist {{t:top-pair|Top Pair}}, von {{n:spr.zone.low}} bis {{n:spr.zone.mid}} ist {{t:top-pair|Top Pair}} eine Grenzhand, von {{n:spr.zone.mid}} bis {{n:spr.zone.deep}} brauchst du meist hohe {{t:two-pair|zwei Paare}} oder besser, und über {{n:spr.zone.deep}} ein Set, eine {{t:straight|Straight}} oder eine bessere Hand"
+  then: "du schaust auf die Zone der {{t:spr|SPR}} (Vereinfachung): unter etwa {{n:spr.zone.low}} reicht meist {{t:top-pair|Top Pair}}, von {{n:spr.zone.low}} bis {{n:spr.zone.mid}} ist {{t:top-pair|Top Pair}} eine Grenzhand, von {{n:spr.zone.mid}} bis {{n:spr.zone.deep}} brauchst du meist hohe {{t:two-pair|zwei Paare}} oder besser, und über {{n:spr.zone.deep}} ein Set, eine {{t:straight|Straße}} oder eine bessere Hand"
   because: "je höher die {{t:spr|SPR}}, desto mehr {{t:bet|Einsätze}} braucht es, um den ganzen Stack einzuzahlen, und bis zum Ende zahlt dein Gegner vor allem mit starken Händen; bei einer {{t:spr|SPR}} von {{n:spr.zone.deep}} geht der ganze Stack erst nach drei {{t:bet|Einsätzen}} in {{t:pot|Pot}}-Größe hinein"
   level: heuristic
   source: "Trainer mit Trainingsseite, SPR Strategy (https://www.splitsuit.com/spr-poker-strategy): „less than 3 is an auto-stack off with top pair or better, between 3-6 is situational and based upon villain/board texture, and more than 6 SPR isn't a default stack-off“; Seite eines kommerziellen Solvers, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): „at this higher SPR, stacking off with top pair starts to get a bit dicey“; Zone 6–13: Schnittmenge zweier Trainingsseiten: SPR (https://www.thepokerbank.com/strategy/concepts/spr/): „Medium SPR = 7 - 16“, „Good hands for medium SPRs.“, „Top two pair. Sets.“; Poker SPR (https://pokercoaching.com/blog/poker-spr/): „High SPR (8+): Deep stacks favor hands that make nutted combinations (sets, straights, flushes) over one-pair holdings.“; Schwelle 13: Berechnung (1+2·1)^3 = 1+2·13 sowie Flynn, Mehta, Miller, Professional No-Limit Hold'em über eine Nachrichtenseite (https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm): „if you're heads-up and the stack-to-pot ratio is 13 going to the flop, you and your opponent can each make exactly three pot-sized bets“; Zonengrenzen: Vereinfachung der App (D-149)"

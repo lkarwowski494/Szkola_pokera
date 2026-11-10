@@ -15,7 +15,7 @@ drills:
     options:
       - { text: "{{n:eq.bet-third}}", correct: true, why: "Bạn bỏ thêm {{n:ex.third.bet}} vào {{t:pot|pot}}, mà sau khi bạn {{t:call|theo}} sẽ có {{n:ex.third.total}}: {{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}. C-bet nhỏ cho mức giá rất tốt." }
       - { text: "{{n:alpha.bet-third}}", why: "Đó là alpha: {{t:bluff|bluff}} của Button phải thành công thường xuyên đến mức nào. Ở mẫu số của equity cần thiết, hãy cộng cả khoản {{t:call|theo}} của bạn." }
-      - { text: "{{n:mdf.bet-third}}", why: "Đó là {{t:mdf|MDF}}, tức một phần {{t:range|dải bài}}, chứ không phải equity của một tay bài. Hơn nữa, trên flop khi {{t:out-of-position|không có vị trí}}, bạn phòng thủ ít hơn {{t:mdf|MDF}} một chút." }
+      - { text: "{{n:mdf.bet-third}}", why: "Đó là {{t:mdf|MDF}}, tức một phần {{t:range|range}}, chứ không phải equity của một tay bài. Hơn nữa, trên flop khi {{t:out-of-position|không có vị trí}}, bạn phòng thủ ít hơn {{t:mdf|MDF}} một chút." }
   - kind: numeric
     id: m6.l2.n-price-three-quarters
     family: m6.flop.price
@@ -31,14 +31,14 @@ drills:
     prompt: "Cùng một tay bài trên cùng một flop. Một lần Button {{t:bet|cược}} 1/3 {{t:pot|pot}}, lần khác cả {{t:pot|pot}}. Cách phòng thủ của bạn thay đổi thế nào?"
     table: { position: BB }
     options:
-      - { text: "Trước cược bằng cả {{t:pot|pot}}, bạn phòng thủ bằng {{t:range|dải bài}} hẹp hơn", correct: true, why: "Cược lớn hơn nghĩa là giá tệ hơn: equity cần thiết tăng từ {{n:eq.bet-third}} lên {{n:eq.bet-pot}}, còn {{t:mdf|MDF}} giảm từ {{n:mdf.bet-third}} xuống {{n:mdf.bet-pot}}. Những tay yếu nhất từng theo cược nhỏ, giờ bạn {{t:fold|bỏ}}." }
+      - { text: "Trước cược bằng cả {{t:pot|pot}}, bạn phòng thủ bằng {{t:range|range}} hẹp hơn", correct: true, why: "Cược lớn hơn nghĩa là giá tệ hơn: equity cần thiết tăng từ {{n:eq.bet-third}} lên {{n:eq.bet-pot}}, còn {{t:mdf|MDF}} giảm từ {{n:mdf.bet-third}} xuống {{n:mdf.bet-pot}}. Những tay yếu nhất từng theo cược nhỏ, giờ bạn {{t:fold|bỏ}}." }
       - { text: "Bạn phòng thủ như cũ, vì vẫn là tay bài đó", why: "Tay bài giống nhau, nhưng giá khác. Trước cược bằng {{t:pot|pot}}, bạn cần {{n:eq.bet-pot}} equity thay vì {{n:eq.bet-third}}." }
-      - { text: "Trước cược bằng cả {{t:pot|pot}}, bạn phòng thủ rộng hơn, vì cược lớn là {{t:bluff|bluff}} thường xuyên hơn", why: "Không có quy tắc như vậy. Cược lớn thường nghĩa là {{t:range|dải bài}} {{t:polarized|phân cực}} (tay rất mạnh và {{t:bluff|bluff}}), và dù sao cũng là giá tệ hơn cho bạn." }
+      - { text: "Trước cược bằng cả {{t:pot|pot}}, bạn phòng thủ rộng hơn, vì cược lớn là {{t:bluff|bluff}} thường xuyên hơn", why: "Không có quy tắc như vậy. Cược lớn thường nghĩa là {{t:range|range}} {{t:polarized|phân cực}} (tay rất mạnh và {{t:bluff|bluff}}), và dù sao cũng là giá tệ hơn cho bạn." }
   - kind: choice
     id: m6.l2.q-middle-pair
     family: m6.flop.call
     rules: [R-M6-006]
-    prompt: "Bạn phòng thủ ở {{t:big-blind|mù lớn}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
+    prompt: "Bạn phòng thủ ở {{t:big-blind|big blind}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
     table: { hand: "7h 6h", board: "Kc 7d 2s", position: BB }
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "{{t:pair|Đôi}} giữa thắng mọi {{t:bluff|bluff}} của Button (tay không có {{t:pair|đôi}}), và bạn chỉ cần {{n:eq.bet-third}} equity để {{t:call|theo}}. Phòng thủ tiêu chuẩn." }
@@ -48,7 +48,7 @@ drills:
     id: m6.l2.q-bare-overcards
     family: m6.flop.fold
     rules: [R-M6-007]
-    prompt: "Bạn phòng thủ ở {{t:big-blind|mù lớn}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 3/4 {{t:pot|pot}}. Bạn làm gì?"
+    prompt: "Bạn phòng thủ ở {{t:big-blind|big blind}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 3/4 {{t:pot|pot}}. Bạn làm gì?"
     table: { hand: "Qd Jc", board: "7s 4h 2s", position: BB }
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn không có {{t:pair|đôi}} lẫn {{t:draw|bài chờ}} (không có lá bích nào, còn {{t:straight|sảnh}} thì còn xa). Trước c-bet lớn, bạn cần {{n:eq.bet-three-quarters}} equity, và khi {{t:out-of-position|không có vị trí}}, bạn hiếm khi đi đến showdown chỉ với bài cao. {{t:pair|Đôi}} đầm hoặc bồi cũng không phải lúc nào cũng thắng." }
@@ -58,7 +58,7 @@ drills:
     id: m6.l2.q-backdoor
     family: m6.flop.call
     rules: [R-M6-006]
-    prompt: "Bạn phòng thủ ở {{t:big-blind|mù lớn}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
+    prompt: "Bạn phòng thủ ở {{t:big-blind|big blind}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
     table: { hand: "Qs Js", board: "7s 4h 2d", position: BB }
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "Hai lá cao cộng thêm {{t:flush-draw|bài chờ thùng}} phụ (backdoor: ba lá bích, bạn cần bích ở cả turn lẫn river). Ở mức giá {{n:eq.bet-third}}, như vậy là đủ để {{t:call|theo}}." }
@@ -68,7 +68,7 @@ drills:
     id: m6.l2.q-gutshot-overcard
     family: m6.flop.call
     rules: [R-M6-006]
-    prompt: "Bạn phòng thủ ở {{t:big-blind|mù lớn}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
+    prompt: "Bạn phòng thủ ở {{t:big-blind|big blind}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "Bạn có gutshot tới {{t:straight|sảnh}} (cần lá đầm) và lá già cao hơn bài trên bàn. {{t:call|Theo}} là mua một lá: bạn trúng gutshot ở turn khoảng {{n:odds.gutshot.flop-turn}}, còn lá già thêm vài out để thành {{t:top-pair|đôi cao nhất}}. Cộng lại vẫn thấp hơn mức giá {{n:eq.bet-third}}, nhưng khi trúng {{t:straight|sảnh}} bạn sẽ thắng nhiều hơn (implied odds), và riêng lá già đôi khi thắng được {{t:bluff|bluff}} của Button. Trước c-bet nhỏ, như vậy là đủ để {{t:call|theo}}." }
@@ -78,11 +78,11 @@ drills:
     id: m6.l2.q-air-ak
     family: m6.flop.fold
     rules: [R-M6-006, R-M6-003]
-    prompt: "Bạn phòng thủ ở {{t:big-blind|mù lớn}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
+    prompt: "Bạn phòng thủ ở {{t:big-blind|big blind}} trước {{t:open|lượt mở cược}} của Button. Trên flop bạn {{t:check|xem bài}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot|pot}}. Bạn làm gì?"
     table: { hand: "Jd 9c", board: "Ah Ks 4s", position: BB }
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn không có {{t:pair|đôi}} lẫn {{t:flush-draw|bài chờ thùng}}; bạn chỉ có {{t:straight-draw|bài chờ sảnh}} phụ yếu (cần hai lá cụ thể), và không lá nào của bạn cao hơn bài trên bàn. Trên flop có át và già, Button có nhiều tay mạnh. Giá thì tốt, nhưng tay này gần như không bao giờ hiện thực hóa được nó." }
-      - { text: "{{t:call|Theo}}, vì {{t:mdf|MDF}} là {{n:mdf.bet-third}}", why: "{{t:mdf|MDF}} là điểm tham chiếu cho cả {{t:range|dải bài}}, chứ không phải lý do để trả tiền bằng những tay yếu nhất. Trên flop khi {{t:out-of-position|không có vị trí}}, bạn có thể phòng thủ ít hơn {{t:mdf|MDF}} một chút." }
+      - { text: "{{t:call|Theo}}, vì {{t:mdf|MDF}} là {{n:mdf.bet-third}}", why: "{{t:mdf|MDF}} là điểm tham chiếu cho cả {{t:range|range}}, chứ không phải lý do để trả tiền bằng những tay yếu nhất. Trên flop khi {{t:out-of-position|không có vị trí}}, bạn có thể phòng thủ ít hơn {{t:mdf|MDF}} một chút." }
       - { text: "Check-raise", why: "Trên flop có át và già, {{t:range-advantage|lợi thế dải bài}} thuộc về Button, còn bạn không có {{t:draw|bài chờ}} nào cho con đường thứ hai để thắng." }
   - kind: choice
     id: m6.l2.q-realize
@@ -95,7 +95,7 @@ drills:
       - { text: "Vì Button trên flop luôn có tay mạnh", why: "Button {{t:open|mở cược}} và c-bet rộng, kể cả bằng {{t:bluff|bluff}}. Vấn đề là {{t:position|vị trí}} của bạn, chứ không phải sức mạnh của họ." }
       - { text: "Vì cần tiết kiệm {{t:chips|chip}} cho cơ hội tốt hơn", why: "Điều quan trọng là {{t:expected-value|giá trị kỳ vọng}} của từng quyết định, chứ không phải tiết kiệm {{t:chips|chip}}." }
 ---
-Ở M5, bạn đã chơi c-bet với vai trò {{t:aggressor|người tấn công}}. Giờ bạn ngồi ở phía bên kia: bạn phòng thủ ở {{t:big-blind|mù lớn}}, xem bài trên flop, và Button {{t:bet|cược}} c-bet. Hãy nhớ từ M5: c-bet là {{t:bet|cược}} của người chơi đã {{t:raise|tố}} preflop, và {{t:range-advantage|lợi thế dải bài}} phụ thuộc vào {{t:texture|kết cấu}} của flop.
+Ở M5, bạn đã chơi c-bet với vai trò {{t:aggressor|người tấn công}}. Giờ bạn ngồi ở phía bên kia: bạn phòng thủ ở {{t:big-blind|big blind}}, xem bài trên flop, và Button {{t:bet|cược}} c-bet. Hãy nhớ từ M5: c-bet là {{t:bet|cược}} của người chơi đã {{t:raise|tố}} preflop, và {{t:range-advantage|lợi thế dải bài}} phụ thuộc vào {{t:texture|kết cấu}} của flop.
 
 ## Giá của c-bet
 

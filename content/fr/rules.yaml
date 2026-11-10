@@ -492,7 +492,7 @@
   module: m6
   if: "vous avez deux hautes cartes sans {{t:pair|paire}} et sans {{t:draw|tirage}}, et le c-bet est gros (3/4 du {{t:pot|pot}} ou plus)"
   then: "vous vous {{t:fold|couchez}} généralement (sur les flops {{t:dry|secs}} avec un roi, le solveur {{t:call|suit}} toutefois avec beaucoup de mains contenant un as)"
-  because: "{{t:out-of-position|hors de position}}, une telle main arrive rarement à l'abattage, et une {{t:pair|paire}} faite avec une haute carte perd souvent malgré tout ; vous {{t:call|suivez}} plutôt quand vous avez un {{t:draw|tirage}} supplémentaire, idéalement à la {{t:flush|couleur}} max"
+  because: "{{t:out-of-position|hors de position}}, une telle main arrive rarement au showdown, et une {{t:pair|paire}} faite avec une haute carte perd souvent malgré tout ; vous {{t:call|suivez}} plutôt quand vous avez un {{t:draw|tirage}} supplémentaire, idéalement à la {{t:flush|couleur}} max"
   level: heuristic
   source: "site de formation, When to Call With Ace-High (J42, 66% : « the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw ») ; site de formation, Defending the BB on High Card Boards (K84 : le solveur suit avec une partie des as, même face à 2/3 du pot)"
   sources: [{ kind: training }, { kind: training }]
@@ -551,7 +551,7 @@
   module: m7
   if: "au turn, vous avez une main moyenne (p. ex. une {{t:second-pair|deuxième paire}} ou une {{t:top-pair|top paire}} avec un kicker faible), et l'adversaire a déjà {{t:call|suivi}} un c-bet"
   then: "vous {{t:check|checkez}} plus souvent au lieu de miser une deuxième fois"
-  because: "après avoir {{t:call|suivi}} au flop, l'adversaire a une {{t:range|range}} plus forte qu'avant : face à une mise, il se {{t:fold|couchera}} avec les mains plus faibles et paiera avec les meilleures ; en {{t:check|checkant}}, vous gardez le {{t:pot|pot}} petit et allez à l'abattage"
+  because: "après avoir {{t:call|suivi}} au flop, l'adversaire a une {{t:range|range}} plus forte qu'avant : face à une mise, il se {{t:fold|couchera}} avec les mains plus faibles et paiera avec les meilleures ; en {{t:check|checkant}}, vous gardez le {{t:pot|pot}} petit et allez au showdown"
   level: heuristic
   source: "site de solveur commercial (Brokos), Principles of Turn Strategy ; site de formation, Poker Basics: Polarised Ranges ; site de solveur commercial, Poker: The Battle for Information"
   sources: [{ kind: solver-pub }, { kind: training }]
@@ -651,8 +651,8 @@
 - id: R-M8-002
   module: m8
   if: "à la river, {{t:in-position|en position}}, vous avez une main moyenne, et les mains plus faibles de l'adversaire ne paieront pas une mise"
-  then: "vous {{t:check|checkez}} et allez à l'abattage gratuitement"
-  because: "après une mise, les mains plus faibles se {{t:fold|couchent}}, et les meilleures paient (ou {{t:raise|relancent}}), donc la mise transforme une main qui a de la valeur à l'abattage en {{t:bluff|bluff}}"
+  then: "vous {{t:check|checkez}} et allez au showdown gratuitement"
+  because: "après une mise, les mains plus faibles se {{t:fold|couchent}}, et les meilleures paient (ou {{t:raise|relancent}}), donc la mise transforme une main qui a de la valeur au showdown en {{t:bluff|bluff}}"
   level: heuristic
   source: "conclusion tirée de R-M8-001 ; site de solveur commercial, Mastering Thin Value Bets in Checked-Down Pots ; site de formation, River ; site de formation, Polarized vs Merged Ranges"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }, { kind: math }]
@@ -683,14 +683,14 @@
 - id: R-M8-006
   module: m8
   if: "vous choisissez avec quelles mains {{t:bluff|bluffer}} à la river"
-  then: "vous {{t:bluff|bluffez}} avec les mains les plus faibles, qui ne gagneront pas à l'abattage (p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des hautes cartes sans chance) ; les mains qui ont de la valeur à l'abattage {{t:check|checkent}}"
+  then: "vous {{t:bluff|bluffez}} avec les mains les plus faibles, qui ne gagneront pas au showdown (p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des hautes cartes sans chance) ; les mains qui ont de la valeur au showdown {{t:check|checkent}}"
   because: "un {{t:bluff|bluff}} avec une main qui gagne souvent après un {{t:check|check}} sacrifie ce gain ; une main sans chance ne perd rien quand le {{t:bluff|bluff}} échoue"
   level: heuristic
   source: "site de solveur commercial, We're At The River. Our Hand Can't Win. Now What? ; site de formation, Polarized vs Linear Ranges"
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M8-007
   module: m8
-  if: "vous choisissez un {{t:bluff|bluff}} parmi les mains sans valeur à l'abattage"
+  if: "vous choisissez un {{t:bluff|bluff}} parmi les mains sans valeur au showdown"
   then: "vous choisissez une main avec une carte qui bloque les mains fortes de l'adversaire, celles avec lesquelles il paiera (p. ex. l'as de la couleur quand il y a trois cartes d'une même couleur sur le {{t:board|board}})"
   because: "quand vous tenez une carte de ses mains les plus fortes, l'adversaire en a moins de {{t:combo|combinaisons}}, donc il lui reste plus souvent une main à jeter"
   level: heuristic
@@ -868,7 +868,7 @@
   module: m10
   if: "vous jouez contre un {{t:recreational|joueur récréatif}} passif ({{t:vpip|VPIP}} à partir d'environ {{n:hud.vpip.loose}}, écart {{t:vpip|VPIP}} − {{t:pfr|PFR}} de plus de {{n:hud.gap.passive}} points)"
   then: "vous misez {{t:value|pour la valeur}} avec plus de mains, y compris plus fines, et vous {{t:bluff|bluffez}} moins souvent que dans la base du module 8, surtout à la river"
-  because: "un tel joueur va plus souvent à l'abattage et y perd plus souvent, c'est-à-dire qu'il {{t:call|suit}} avec des mains plus faibles : une plus grande part de ses {{t:call|calls}} sont des mains plus faibles que la vôtre (seuil de value bet du module 8), et un {{t:bluff|bluff}} ne rapporte que si l'adversaire se {{t:fold|couche}} plus souvent que l'{{t:alpha|alpha}}"
+  because: "un tel joueur va plus souvent au showdown et y perd plus souvent, c'est-à-dire qu'il {{t:call|suit}} avec des mains plus faibles : une plus grande part de ses {{t:call|calls}} sont des mains plus faibles que la vôtre (seuil de value bet du module 8), et un {{t:bluff|bluff}} ne rapporte que si l'adversaire se {{t:fold|couche}} plus souvent que l'{{t:alpha|alpha}}"
   level: exploit
   population: "joueurs récréatifs sur un grand site en ligne, NL25–NL100 6-max (selon la définition de la base : VPIP > 40, résultat < −20bb/100) : WTSD 32% contre 28% chez les réguliers, abattages gagnés 46% contre 57%, résultat −47bb/100 ; toutes les mains des 12 mois précédant le 5 octobre 2026 (analyse d'une base de mains de la population, nombre de mains non indiqué)"
   source: "site d'analyse d'une base de mains de la population (https://bluffaces.com/calculators/mda/), filtres : grand site en ligne NL25/NL50/NL100 6-max, Recreationals et Regulars (mda.rec.*, mda.reg.*), nombre de mains non indiqué ; site de formation, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/) : un WTSD élevé « instantly tells you to bluff them less and value bet them more across all betting streets, especially on the river. » ; site de formation, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide) : « >30% → Calling station. Value bet thinly, never bluff river. » (nous n'enseignons pas ce seuil de WTSD : le site de formation indique « In most cases, your WTSD% should be around 30 », et dans les données de l'analyse de la base de mains, les réguliers ont 28% et les joueurs récréatifs 32% ; D-M10-07) ; seuil de value bet R-M8-001 et alpha du module 6 inchangés (D-M10-06)"
@@ -1068,7 +1068,7 @@
 - id: R-M11-004
   module: m11
   if: "vous partez all-in en premier"
-  then: "vous gagnez de deux façons : l'adversaire se {{t:fold|couche}} et vous ramassez le {{t:pot|pot}}, ou il {{t:call|suit}} et vous gagnez à l'abattage ; une main sans aucune chance aurait toutefois besoin d'{{t:fold|abandons}} dans plus de {{n:m11.push.10.alpha}} des cas (à {{n:m11.depth.10}}, sans ante)"
+  then: "vous gagnez de deux façons : l'adversaire se {{t:fold|couche}} et vous ramassez le {{t:pot|pot}}, ou il {{t:call|suit}} et vous gagnez au showdown ; une main sans aucune chance aurait toutefois besoin d'{{t:fold|abandons}} dans plus de {{n:m11.push.10.alpha}} des cas (à {{n:m11.depth.10}}, sans ante)"
   because: "vous risquez {{n:m11.push.10.risk}} pour gagner {{n:m11.push.10.win}} de blindes ; c'est pourquoi comptent à la fois la fold equity et l'équité de votre main quand l'adversaire {{t:call|suit}}"
   level: math
   source: "calcul : alpha = risque ÷ (pot + risque) (M6) ; fold equity : glossaire d'un site de solveur commercial (https://gtowizard.com/en/glossary/) : « Fold equity The amount of value a player will win by making another player fold. »"
@@ -1093,7 +1093,7 @@
   module: m11
   if: "l'adversaire a fait all-in, et vous décidez si vous {{t:call|suivez}}"
   then: "vous {{t:call|suivez}} avec une {{t:range|range}} plus serrée que celle avec laquelle vous {{t:shove|pusheriez}} vous-même : à {{n:m11.depth.10}}, la {{t:big-blind|BB}} {{t:call|suit}} avec environ {{n:m11.call.10}} des mains, alors que la {{t:small-blind|SB}} {{t:shove|pushe}} environ {{n:m11.push.10}}"
-  because: "celui qui suit ne gagne qu'à l'abattage, et contre une {{t:range|range}} déjà plus forte qu'une main aléatoire ; celui qui {{t:shove|pushe}} gagne aussi quand l'adversaire se {{t:fold|couche}}"
+  because: "celui qui suit ne gagne qu'au showdown, et contre une {{t:range|range}} déjà plus forte qu'une main aléatoire ; celui qui {{t:shove|pushe}} gagne aussi quand l'adversaire se {{t:fold|couche}}"
   level: gto
   source: "solveur push/fold du projet (pushfold.json) ; site de formation, Push Fold Charts (https://pokercoaching.com/push-fold-charts/) : « Calling ranges are tighter than shoving ranges » ; site de formation, The Gap Concept (https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/) : « you need a better hand to call a raise with than you would need to open a pot with a raise » (Sklansky)"
   sources: [{ kind: training, url: "https://pokercoaching.com/push-fold-charts/" }, { kind: training, url: "https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/" }, { kind: solver-app }]

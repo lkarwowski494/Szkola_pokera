@@ -59,8 +59,8 @@ drills:
     prompt: "Bạn {{t:open|mở pot}} từ {{t:cutoff|CO}}. Ở Button là một {{t:nit}}: {{t:vpip}} {{n:hud.ex.nit.vpip}}, {{t:pfr}} {{n:hud.ex.nit.pfr}}, {{n:hud.ex.reg.hands}} tay. Anh ta 3-bet bạn. Bạn làm gì với AJo?"
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Người chơi ít tay như vậy chủ yếu 3-bet bằng những tay mạnh nhất: AQ, AK và các {{t:pair|đôi}} cao, vốn áp đảo AJ. Trước anh ta, bạn {{t:fold|bỏ bài}} thường xuyên hơn so với chiến lược nền ở mô-đun 4." }
-      - { text: "{{t:call|Theo}}, vì AJ là tay mạnh", why: "AJ mạnh trước một {{t:range|dải bài}} rộng. Trước cú 3-bet của người chơi có {{t:vpip}} {{n:hud.ex.nit.vpip}}, AJ thường bị áp đảo và không có {{t:position|vị trí}}." }
-      - { text: "4-bet", why: "4-bet AJ trước {{t:nit|nit}} là đấu với một {{t:range|dải bài}} áp đảo nó và hiếm khi {{t:fold|bỏ bài}}. Đây không phải {{t:value}}, cũng không phải {{t:bluff}} tốt." }
+      - { text: "{{t:call|Theo}}, vì AJ là tay mạnh", why: "AJ mạnh trước một {{t:range|range}} rộng. Trước cú 3-bet của người chơi có {{t:vpip}} {{n:hud.ex.nit.vpip}}, AJ thường bị áp đảo và không có {{t:position|vị trí}}." }
+      - { text: "4-bet", why: "4-bet AJ trước {{t:nit|nit}} là đấu với một {{t:range|range}} áp đảo nó và hiếm khi {{t:fold|bỏ bài}}. Đây không phải {{t:value}}, cũng không phải {{t:bluff}} tốt." }
   - kind: choice
     id: m10.l2.q-nit-steal
     family: m10.types.adjust
@@ -134,7 +134,7 @@ Chiến lược nền ở mô-đun 8 không đổi: bạn cược {{t:value|lấ
 
 ## {{t:nit|Nit}} và {{t:maniac|maniac}}
 
-**{{t:nit|Nit}}** chỉ chơi tay mạnh. Khi anh ta {{t:raise|tố}} hoặc 3-bet, các tay ở phần dưới {{t:range|dải bài}} {{t:call|theo}} của bạn bị áp đảo thường xuyên hơn, nên bạn {{t:fold|bỏ bài}} với chúng thường xuyên hơn so với chiến lược nền ở mô-đun 4. Khi anh ta ở blind, bạn cướp blind thường xuyên hơn, vì anh ta hiếm khi bảo vệ.
+**{{t:nit|Nit}}** chỉ chơi tay mạnh. Khi anh ta {{t:raise|tố}} hoặc 3-bet, các tay ở phần dưới {{t:range|range}} {{t:call|theo}} của bạn bị áp đảo thường xuyên hơn, nên bạn {{t:fold|bỏ bài}} với chúng thường xuyên hơn so với chiến lược nền ở mô-đun 4. Khi anh ta ở blind, bạn cướp blind thường xuyên hơn, vì anh ta hiếm khi bảo vệ.
 
 **{{t:maniac|Maniac}}** chơi nhiều tay và gần như tay nào cũng {{t:raise|tố}}. Các cú cược của anh ta chứa nhiều {{t:bluff|cú bluff}} hơn chiến lược nền, nên bạn {{t:call|theo}} với các tay sát ngưỡng {{t:call|theo}}, để anh ta cược khi bạn có tay rất mạnh, và bản thân không {{t:bluff|bluff}}: anh ta hiếm khi {{t:fold|bỏ bài}}.
 

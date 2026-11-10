@@ -1,0 +1,401 @@
+# Ujednolicenie form (D-391) — zapisane
+
+Zamian: 384; wierszy w treści krytycznej m12: 0.
+
+## m12 (ponowna kontrola (a))
+
+## 勝率 bez zmiany (inne znaczenie albo brak equity w en)
+- zh-Hant rules.yaml:873 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m10-l2-typy-graczy.md:123 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m3-l2-rece-startowe.md:37 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l3-implied-odds.md:68 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l4-probe-obrona.md:77 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l4-probe-obrona.md:87 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l4-probe-obrona.md:96 勝率 ×1 bez zmiany (en: equity ×0)
+- ja rules.yaml:873 勝率 ×1 bez zmiany (en: equity ×0)
+
+## Zamiany
+- fr lessons/m3-l1-pozycja.md:15 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:32 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:35 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:46 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:55 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:62 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:66 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:66 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m3-l1-pozycja.md:66 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:13 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:16 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:17 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:18 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:32 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:35 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:35 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:35 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:43 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:43 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:53 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:72 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:99 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m5-l4-bez-pozycji.md:99 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m8-l1-value.md:47 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m8-l1-value.md:57 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m8-l1-value.md:67 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:13 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:23 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:33 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:33 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:45 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:61 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:80 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:115 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:126 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l1-spr.md:148 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l4-plan-trzech-ulic.md:13 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l4-plan-trzech-ulic.md:23 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr lessons/m9-l4-plan-trzech-ulic.md:33 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:9 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:11 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:11 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:12 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:12 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:13 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:32 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:40 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:49 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m3.yaml:50 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:9 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:19 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:22 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:47 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:59 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:59 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:60 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:75 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:85 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m5.yaml:95 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m8.yaml:17 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m8.yaml:43 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m8.yaml:79 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m8.yaml:82 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m8.yaml:83 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr exams/m8.yaml:88 fr Button → Bouton (po rodzajniku): «Button» → «Bouton»
+- fr rules.yaml:495 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:554 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:654 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:655 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:686 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:686 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:693 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:871 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:1071 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- fr rules.yaml:1096 à l'abattage → au showdown: «à l'abattage» → «au showdown»
+- de rules.yaml:23 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:334 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:334 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:335 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:343 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:360 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:392 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:393 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:545 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:610 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:686 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:801 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- de rules.yaml:817 {{t:straight|Straight}} → Straße: «{{t:straight|Straight}}» → «{{t:straight|Straße}}»
+- it lessons/m10-l2-typy-graczy.md:6 maniaco → maniac: «maniaco» → «maniac»
+- it lessons/m10-l2-typy-graczy.md:78 {{t:maniac|maniaco}} → maniac: «{{t:maniac|maniaco}}» → «{{t:maniac|maniac}}»
+- it lessons/m10-l2-typy-graczy.md:87 {{t:maniac|maniaco}} → maniac: «{{t:maniac|maniaco}}» → «{{t:maniac|maniac}}»
+- it lessons/m10-l2-typy-graczy.md:110 {{t:maniac|maniaco}} → maniac: «{{t:maniac|maniaco}}» → «{{t:maniac|maniac}}»
+- it lessons/m10-l2-typy-graczy.md:135 {{t:maniac|maniaco}} → maniac: «{{t:maniac|maniaco}}» → «{{t:maniac|maniac}}»
+- it lessons/m10-l2-typy-graczy.md:139 {{t:maniac|maniaco}} → maniac: «{{t:maniac|maniaco}}» → «{{t:maniac|maniac}}»
+- vi lessons/m10-l2-typy-graczy.md:62 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m10-l2-typy-graczy.md:63 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m10-l2-typy-graczy.md:137 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l1-push-fold.md:42 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l1-push-fold.md:64 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l1-push-fold.md:174 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:57 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:58 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:67 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:67 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m11-l2-sprawdzanie.md:68 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:69 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:76 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:78 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:110 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:112 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:114 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:140 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:150 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:160 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m11-l2-sprawdzanie.md:174 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m13-l1-raport.md:97 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l1-pozycja.md:25 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l1-pozycja.md:64 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l2-rece-startowe.md:62 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l2-rece-startowe.md:62 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l3-zakresy-otwarc.md:43 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m3-l3-zakresy-otwarc.md:65 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l3-zakresy-otwarc.md:80 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l3-zakresy-otwarc.md:84 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l3-zakresy-otwarc.md:87 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m3-l3-zakresy-otwarc.md:87 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:16 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:18 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:18 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:28 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:36 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:38 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:52 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:52 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m5-l2-przewagi.md:71 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:73 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m5-l2-przewagi.md:82 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:82 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l2-przewagi.md:92 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l4-bez-pozycji.md:17 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l4-bez-pozycji.md:35 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l4-bez-pozycji.md:99 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l4-bez-pozycji.md:99 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l4-bez-pozycji.md:99 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m5-l4-bez-pozycji.md:99 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:13 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:29 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:31 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:38 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:72 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:74 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:96 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l1-mdf-alpha.md:128 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l2-sprawdzenie.md:18 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l2-sprawdzenie.md:34 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l2-sprawdzenie.md:36 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l2-sprawdzenie.md:41 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m6-l2-sprawdzenie.md:51 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m6-l2-sprawdzenie.md:61 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m6-l2-sprawdzenie.md:71 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m6-l2-sprawdzenie.md:81 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m6-l2-sprawdzenie.md:85 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m6-l2-sprawdzenie.md:98 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l1-druga-beczka.md:16 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l1-druga-beczka.md:28 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l1-druga-beczka.md:37 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l1-druga-beczka.md:46 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l1-druga-beczka.md:111 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:13 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:15 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:16 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:17 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:17 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:17 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:17 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:22 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:26 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:26 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:27 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:35 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:36 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:41 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l2-polaryzacja.md:51 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l2-polaryzacja.md:54 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:61 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l2-polaryzacja.md:65 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:106 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:106 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:106 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:108 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:113 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:113 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:113 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:119 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:121 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m7-l2-polaryzacja.md:121 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l2-polaryzacja.md:138 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l2-polaryzacja.md:138 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l3-implied-odds.md:77 {{t:bluff|Tháu cáy}} → Bluff: «{{t:bluff|Tháu cáy}}» → «{{t:bluff|Bluff}}»
+- vi lessons/m7-l4-probe-obrona.md:13 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:26 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:33 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:36 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:43 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:46 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:47 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:53 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:63 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:66 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:73 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:78 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:83 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:93 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m7-l4-probe-obrona.md:96 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:106 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:108 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m7-l4-probe-obrona.md:122 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi lessons/m7-l4-probe-obrona.md:136 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m8-l2-ile-blefow.md:101 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi lessons/m8-l2-ile-blefow.md:139 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi lessons/m8-l3-blokery.md:58 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi lessons/m8-l3-blokery.md:68 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi lessons/m8-l3-blokery.md:78 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi lessons/m8-l3-blokery.md:110 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi lessons/m8-l3-blokery.md:110 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi lessons/m8-l4-bluff-catching.md:13 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m8-l4-bluff-catching.md:16 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:16 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:16 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:18 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:18 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:23 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:25 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:25 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:30 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:33 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:33 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:34 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:34 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:39 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:41 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:41 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:42 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:43 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:48 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:50 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:50 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:51 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:51 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:52 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:52 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:60 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:60 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:60 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m8-l4-bluff-catching.md:61 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:62 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:70 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:80 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:81 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:82 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:82 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:89 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:89 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:89 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:89 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:90 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m8-l4-bluff-catching.md:91 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:98 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:98 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:99 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:102 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:104 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:106 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:106 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:108 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:114 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:114 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:118 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:118 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi lessons/m8-l4-bluff-catching.md:122 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:124 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:128 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:128 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:132 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:134 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:135 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:135 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:135 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m8-l4-bluff-catching.md:135 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi lessons/m9-l3-rozmiar-geometryczny.md:64 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi lessons/m9-l3-rozmiar-geometryczny.md:119 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi exams/m13.yaml:78 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m13.yaml:80 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m3.yaml:21 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m3.yaml:22 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m3.yaml:32 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m3.yaml:89 {{t:range|Dải bài}} → Range: «{{t:range|Dải bài}}» → «{{t:range|Range}}»
+- vi exams/m5.yaml:12 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m5.yaml:14 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m5.yaml:14 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m5.yaml:70 {{t:range|dải bài}} → range: «{{t:range|dải bài}}» → «{{t:range|range}}»
+- vi exams/m6.yaml:10 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:15 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi exams/m6.yaml:15 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:17 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:19 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:27 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:34 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi exams/m6.yaml:37 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi exams/m6.yaml:37 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:38 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi exams/m6.yaml:48 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:57 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m6.yaml:78 {{t:bluff|cú tháu cáy}} → cú bluff: «{{t:bluff|cú tháu cáy}}» → «{{t:bluff|cú bluff}}»
+- vi exams/m7.yaml:18 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi exams/m7.yaml:22 {{t:bluff|Tháu cáy}} → Bluff: «{{t:bluff|Tháu cáy}}» → «{{t:bluff|Bluff}}»
+- vi exams/m7.yaml:37 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi exams/m7.yaml:95 {{t:bluff|tháu cáy}} → bluff: «{{t:bluff|tháu cáy}}» → «{{t:bluff|bluff}}»
+- vi exams/m8.yaml:47 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi exams/m8.yaml:91 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:112 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:123 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:149 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:175 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:176 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:191 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:192 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:193 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:229 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:231 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:231 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:238 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:238 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:256 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:258 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:298 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:304 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:321 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:321 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:335 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:343 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:350 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:352 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:360 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:392 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:393 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:394 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:402 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:434 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:485 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:486 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:486 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:486 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:493 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:495 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:502 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:503 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:511 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:519 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:526 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:527 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:568 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:577 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:578 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:584 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:593 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:603 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:610 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:618 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:627 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:628 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:635 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:636 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:686 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:703 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:726 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»
+- vi rules.yaml:1054 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:1054 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:1086 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:1086 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:1127 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:1135 {{t:big-blind|mù lớn}} → big blind: «{{t:big-blind|mù lớn}}» → «{{t:big-blind|big blind}}»
+- vi rules.yaml:1135 {{t:small-blind|mù nhỏ}} → small blind: «{{t:small-blind|mù nhỏ}}» → «{{t:small-blind|small blind}}»
+- vi rules.yaml:1164 {{t:draw|draw}} → bài chờ: «{{t:draw|draw}}» → «{{t:draw|bài chờ}}»

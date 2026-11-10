@@ -75,9 +75,9 @@ drills:
     id: m13.exam.q9
     family: m13.review-how
     rules: [R-M13-008]
-    prompt: "Bạn đang xem lại một lần {{t:call|theo}} ở river. Với giả định lạc quan về {{t:range|dải bài}} của đối thủ (nhiều {{t:bluff|bluff}}), việc {{t:call|theo}} có lãi; với giả định bi quan thì lỗ. Tiếp theo thế nào?"
+    prompt: "Bạn đang xem lại một lần {{t:call|theo}} ở river. Với giả định lạc quan về {{t:range|range}} của đối thủ (nhiều {{t:bluff|bluff}}), việc {{t:call|theo}} có lãi; với giả định bi quan thì lỗ. Tiếp theo thế nào?"
     options:
-      - { text: "Tôi ước tính {{t:range|dải bài}} thực tế: đánh giá phụ thuộc vào nó", correct: true, why: "Các giả định cực đoan vạch ra khoảng mà thực tế nằm trong đó. Khi quyết định tốt theo giả định này nhưng tệ theo giả định kia, giả định thực tế sẽ quyết định." }
+      - { text: "Tôi ước tính {{t:range|range}} thực tế: đánh giá phụ thuộc vào nó", correct: true, why: "Các giả định cực đoan vạch ra khoảng mà thực tế nằm trong đó. Khi quyết định tốt theo giả định này nhưng tệ theo giả định kia, giả định thực tế sẽ quyết định." }
       - { text: "Tôi coi việc {{t:call|theo}} là tốt, vì nó tốt theo giả định lạc quan", why: "Giả định lạc quan chỉ là một đầu của khoảng. Vì theo giả định bi quan việc {{t:call|theo}} bị lỗ, đánh giá phụ thuộc vào cách đối thủ thực sự chơi." }
       - { text: "Tôi coi việc {{t:call|theo}} là lỗi, vì nó lỗ theo giả định bi quan", why: "Quyết định tốt theo giả định bi quan thì vững trước việc đọc sai, nhưng quyết định tệ theo giả định đó không nhất thiết là lỗi. Giả định thực tế sẽ quyết định." }
   - kind: choice

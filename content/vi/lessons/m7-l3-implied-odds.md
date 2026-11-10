@@ -74,7 +74,7 @@ drills:
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Gutshot cho khoảng {{n:odds.gutshot.turn-river}}, còn bạn cần {{n:eq.bet-half}}. Implied odds không giúp được: ngay cả khi đối thủ đặt hết {{n:io.gut.stack}}, số đó cũng không bù được {{n:io.gut.extra}} còn thiếu." }
       - { text: "{{t:call|Theo}}, vì có implied odds", why: "Implied odds là số {{t:chips}} mà đối thủ còn có thể trả cho bạn. Đối thủ chỉ có {{n:io.gut.stack}}, còn bạn cần {{n:io.gut.extra}}." }
-      - { text: "{{t:raise|Tố}} all-in", why: "{{t:bluff|Tháu cáy}} all-in với {{n:outs.gutshot}} out là mạo hiểm tất cả. Đối thủ đã {{t:bet|cược}} nửa {{t:pot|pot}} với stack nhỏ như vậy thường sẽ không {{t:fold|bỏ bài}} nữa." }
+      - { text: "{{t:raise|Tố}} all-in", why: "{{t:bluff|Bluff}} all-in với {{n:outs.gutshot}} out là mạo hiểm tất cả. Đối thủ đã {{t:bet|cược}} nửa {{t:pot|pot}} với stack nhỏ như vậy thường sẽ không {{t:fold|bỏ bài}} nữa." }
   - kind: choice
     id: m7.l3.q-reverse
     family: m7.implied.when

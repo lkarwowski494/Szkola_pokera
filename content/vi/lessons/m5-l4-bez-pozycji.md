@@ -14,7 +14,7 @@ drills:
     table: { position: CO, board: "Jd 9s 8c" }
     options:
       - { text: "{{t:check|Xem bài}} thường xuyên hơn so với khi {{t:in-position}}", correct: true, why: "Đúng: Button {{t:call|theo}} khi có {{t:position|vị trí}}, nên họ có {{t:range}} mạnh, còn flop trung bình và {{t:connected}} trúng tốt các {{t:pair|đôi}} và {{t:connectors|bài liên tiếp}} của họ. Khi {{t:out-of-position|không có vị trí}}, bạn {{t:check|xem bài}} ở đây rất thường xuyên, kể cả với tay bài mạnh." }
-      - { text: "C-bet thường xuyên và nhỏ, như khi ở Button", why: "Đó là kế hoạch khi {{t:in-position}} trên flop {{t:dry|khô}}, cao. Ở đây bạn không có {{t:position|vị trí}}, và flop không có lợi cho {{t:range|dải bài}} của bạn." }
+      - { text: "C-bet thường xuyên và nhỏ, như khi ở Button", why: "Đó là kế hoạch khi {{t:in-position}} trên flop {{t:dry|khô}}, cao. Ở đây bạn không có {{t:position|vị trí}}, và flop không có lợi cho {{t:range|range}} của bạn." }
       - { text: "C-bet với mọi tay bài để không mất {{t:initiative|thế chủ động}}", why: "{{t:initiative|Thế chủ động}} tự nó không giúp bạn thắng: {{t:range}} của Button ở đây mạnh, và sau mỗi {{t:bet|lần cược}}, bạn cũng hành động trước ở turn và river." }
   - kind: choice
     id: m5.l4.q-oop-why
@@ -32,7 +32,7 @@ drills:
     prompt: "Bạn {{t:open|mở pot}} từ {{t:cutoff|CO}}, Button {{t:call|theo}}, hai blind {{t:fold|bỏ bài}}. Bạn có {{t:top-pair|đôi cao nhất}} với kicker tốt nhất trên flop {{t:dry|khô}}. Bạn hành động trước. Bạn làm gì?"
     table: { hand: "Ah Kc", position: CO, board: "As 9h 4c" }
     options:
-      - { text: "{{t:check|Xem bài}} (để {{t:call|theo}} {{t:bet|cược}} của Button)", correct: true, why: "Đúng: Button {{t:call|theo}} khi có {{t:position|vị trí}}, nên {{t:range}} của họ mạnh, và trên flop này solver khi {{t:out-of-position}} {{t:check|xem bài}} với gần như toàn bộ {{t:range|dải bài}}, kể cả {{t:top-pair|đôi cao nhất}} với kicker tốt nhất. Sau khi {{t:check|xem bài}}, bạn {{t:call|theo}} {{t:bet|cược}} của Button." }
+      - { text: "{{t:check|Xem bài}} (để {{t:call|theo}} {{t:bet|cược}} của Button)", correct: true, why: "Đúng: Button {{t:call|theo}} khi có {{t:position|vị trí}}, nên {{t:range}} của họ mạnh, và trên flop này solver khi {{t:out-of-position}} {{t:check|xem bài}} với gần như toàn bộ {{t:range|range}}, kể cả {{t:top-pair|đôi cao nhất}} với kicker tốt nhất. Sau khi {{t:check|xem bài}}, bạn {{t:call|theo}} {{t:bet|cược}} của Button." }
       - { text: "C-bet {{n:cbet.size.small}} {{t:pot}}", why: "Quá thường xuyên: trong tình huống này solver cược ít hơn {{n:cbet.oop.a94.bet}} số lần. Bạn chơi {{t:top-pair|đôi cao nhất}} với kicker tốt nhất bằng cách {{t:check|xem bài}} rồi {{t:call|theo}}." }
       - { text: "C-bet {{n:cbet.size.big}} {{t:pot}}", why: "Quá thường xuyên: trong tình huống này solver cược ít hơn {{n:cbet.oop.a94.bet}} số lần. Bạn chơi {{t:top-pair|đôi cao nhất}} với kicker tốt nhất bằng cách {{t:check|xem bài}} rồi {{t:call|theo}}." }
       - { text: "{{t:fold|Bỏ bài}}", why: "Chưa ai {{t:bet|cược}}, nên {{t:fold}} chẳng được gì: bạn có thể {{t:check|xem bài}} miễn phí (quy tắc từ mô-đun 1). Bạn chơi tay bài này bằng cách {{t:check|xem bài}} rồi {{t:call|theo}}." }
@@ -96,7 +96,7 @@ Cho đến giờ bạn đã chơi khi {{t:in-position}} với một đối thủ
 
 ## {{t:out-of-position|Không có vị trí}}
 
-Khi bạn {{t:open|mở pot}} từ {{t:cutoff|CO}} và Button {{t:call|theo}}, sau flop bạn hành động trước ở mỗi {{t:street|vòng cược}}. Đồng thời {{t:range|dải bài}} của Button lại mạnh: họ đã {{t:fold|bỏ}} các tay yếu và {{t:raise|tố}} với một phần các tay mạnh nhất, nên còn lại các tay trung bình và khá. Một {{t:range|dải bài}} như vậy, không có các tay mạnh nhất và chủ yếu gồm các tay trung bình, là {{t:condensed|dải bài cô đặc}}. Vì thế khi {{t:out-of-position}}, bạn {{t:check|xem bài}} thường xuyên hơn nhiều, thường với toàn bộ {{t:range|dải bài}}, kể cả với tay bài mạnh: bạn sẽ chơi chúng bằng cách {{t:call|theo}} hoặc check-raise. Bạn cược chủ yếu trên những flop rất có lợi cho {{t:range|dải bài}} của bạn, ví dụ K-Q-6. {{t:check|Xem bài}} khi {{t:out-of-position}} không có nghĩa là từ bỏ tay bài: nhiều tay trong số đó sẽ {{t:call|theo}} {{t:bet|cược}} của đối thủ.
+Khi bạn {{t:open|mở pot}} từ {{t:cutoff|CO}} và Button {{t:call|theo}}, sau flop bạn hành động trước ở mỗi {{t:street|vòng cược}}. Đồng thời {{t:range|range}} của Button lại mạnh: họ đã {{t:fold|bỏ}} các tay yếu và {{t:raise|tố}} với một phần các tay mạnh nhất, nên còn lại các tay trung bình và khá. Một {{t:range|range}} như vậy, không có các tay mạnh nhất và chủ yếu gồm các tay trung bình, là {{t:condensed|dải bài cô đặc}}. Vì thế khi {{t:out-of-position}}, bạn {{t:check|xem bài}} thường xuyên hơn nhiều, thường với toàn bộ {{t:range|range}}, kể cả với tay bài mạnh: bạn sẽ chơi chúng bằng cách {{t:call|theo}} hoặc check-raise. Bạn cược chủ yếu trên những flop rất có lợi cho {{t:range|range}} của bạn, ví dụ K-Q-6. {{t:check|Xem bài}} khi {{t:out-of-position}} không có nghĩa là từ bỏ tay bài: nhiều tay trong số đó sẽ {{t:call|theo}} {{t:bet|cược}} của đối thủ.
 
 ## Khi đấu nhiều đối thủ
 

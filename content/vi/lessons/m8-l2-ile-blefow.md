@@ -98,7 +98,7 @@ drills:
     rules: [R-M8-006]
     prompt: "Ở river, bạn cần một vài {{t:bluff|bluff}} cho các lần cược cả {{t:pot|pot}}. Bạn chọn những tay bài nào?"
     options:
-      - { text: "Những tay yếu nhất, ví dụ {{t:draw|draw}} {{t:straight|sảnh}} bị trượt hoặc bài cao không có cơ hội", correct: true, why: "Tay bài không có cơ hội ở showdown không mất gì khi {{t:bluff}} thất bại: sau khi {{t:check}} nó cũng sẽ thua. Vì vậy chính nó là tay đi {{t:bluff}}." }
+      - { text: "Những tay yếu nhất, ví dụ {{t:draw|bài chờ}} {{t:straight|sảnh}} bị trượt hoặc bài cao không có cơ hội", correct: true, why: "Tay bài không có cơ hội ở showdown không mất gì khi {{t:bluff}} thất bại: sau khi {{t:check}} nó cũng sẽ thua. Vì vậy chính nó là tay đi {{t:bluff}}." }
       - { text: "Các {{t:pair|đôi}} trung bình", why: "Một {{t:pair|đôi}} trung bình thường thắng sau khi {{t:check}}. Khi bạn {{t:bluff}} bằng nó, các tay yếu hơn {{t:fold|bỏ bài}}, còn các tay mạnh hơn trả tiền: bạn đánh mất chiến thắng ở showdown." }
       - { text: "Tay nào cũng được, miễn là tỉ lệ đúng", why: "Tỉ lệ chưa phải là tất cả. {{t:bluff|Bluff}} bằng tay bài lẽ ra thắng ở showdown tốn kém hơn {{t:bluff}} bằng tay bài không có cơ hội." }
 ---
@@ -136,7 +136,7 @@ Alpha từ M6 = cược ÷ ({{t:pot}} + cược) cho biết đối thủ phải 
 
 ## {{t:bluff|Bluff}} bằng gì
 
-Để {{t:bluff}}, bạn chọn **những tay bài yếu nhất**, ví dụ {{t:draw|draw}} {{t:straight|sảnh}} bị trượt hoặc bài cao không có cơ hội (về {{t:flush|thùng}} bị trượt, xem bài học về {{t:blocker|blocker}}): sau khi {{t:check}} chúng cũng sẽ thua, nên một {{t:bluff}} thất bại không lấy mất gì của chúng. Những tay bài có giá trị ở showdown thì {{t:check}}.
+Để {{t:bluff}}, bạn chọn **những tay bài yếu nhất**, ví dụ {{t:draw|bài chờ}} {{t:straight|sảnh}} bị trượt hoặc bài cao không có cơ hội (về {{t:flush|thùng}} bị trượt, xem bài học về {{t:blocker|blocker}}): sau khi {{t:check}} chúng cũng sẽ thua, nên một {{t:bluff}} thất bại không lấy mất gì của chúng. Những tay bài có giá trị ở showdown thì {{t:check}}.
 
 :::note Đây là điểm cân bằng, không phải công thức cho mọi đối thủ
 Các tỉ lệ này bảo vệ bạn trước đối thủ chơi tốt. Với từng người chơi cụ thể, bạn có thể đi lệch khỏi chúng; điều này có trong mô-đun về {{t:exploit|khai thác}} ở microstakes (M10). Công thức tỉ lệ {{t:bluff|bluff}} là phép tính trong một mô hình đơn giản hóa: {{t:range}} {{t:polarized}} đấu với tay bài bắt {{t:bluff|bluff}} (mô hình đơn giản từ lý thuyết trò chơi). Lời khuyên {{t:bluff}} bằng những tay bài yếu nhất đến từ tài liệu đào tạo và các phân tích solver.

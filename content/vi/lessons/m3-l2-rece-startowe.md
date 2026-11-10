@@ -59,4 +59,4 @@ Người mới chơi mất phần lớn tiền vì chơi quá nhiều tay bài y
 Tổng cộng có {{n:combos.total}} {{t:combo|tổ hợp}} bài khởi đầu, nhưng chỉ có {{n:combos.kinds}} loại: {{n:combos.kinds.pair}} {{t:pair|đôi}}, {{n:combos.kinds.suited}} tay bài cùng chất và {{n:combos.kinds.offsuit}} tay bài khác chất. Mỗi {{t:pair}} có {{n:combos.pair}} {{t:combo|tổ hợp}}, tay bài cùng chất có {{n:combos.suited}}, còn tay bài khác chất có {{n:combos.offsuit}}. Vì vậy AK khác chất xuất hiện thường xuyên gấp ba lần AK cùng chất.
 :::
 
-Các nhóm trên là cách đơn giản hóa để bạn bắt đầu. Bạn sẽ học các {{t:range|dải bài}} {{t:open|mở}} chính xác cho từng {{t:position|vị trí}}, trên lưới {{t:range|dải bài}}, trong bài học tiếp theo.
+Các nhóm trên là cách đơn giản hóa để bạn bắt đầu. Bạn sẽ học các {{t:range|range}} {{t:open|mở}} chính xác cho từng {{t:position|vị trí}}, trên lưới {{t:range|range}}, trong bài học tiếp theo.

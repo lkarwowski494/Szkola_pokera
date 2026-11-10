@@ -6,11 +6,11 @@ drills:
     id: m3.exam.q1
     family: m3.position
     rules: [R-M3-001]
-    prompt: "Le Button {{t:open|a ouvert}}, la {{t:small-blind}} {{t:fold|s'est couchée}} et la {{t:big-blind}} {{t:call|a suivi}}. Qui parle en premier au flop ?"
+    prompt: "Le Bouton {{t:open|a ouvert}}, la {{t:small-blind}} {{t:fold|s'est couchée}} et la {{t:big-blind}} {{t:call|a suivi}}. Qui parle en premier au flop ?"
     options:
-      - { text: "{{t:big-blind|La grosse blinde}}", correct: true, why: "À partir du flop, les blindes parlent en premier et le Button en dernier. C'est pourquoi le Button a ici la {{t:position}}, et la {{t:big-blind}} joue {{t:out-of-position}}." }
-      - { text: "Le Button, car il {{t:open|a ouvert}}", why: "L'ordre de parole dépend de la place à la table, et non de celui qui {{t:open|a ouvert}}. À partir du flop, le Button parle toujours en dernier." }
-      - { text: "Celui qui a parlé en dernier préflop", why: "Préflop, les blindes parlent en dernier, mais à partir du flop, en premier. C'est pour cela que la {{t:position}} du Button est la meilleure." }
+      - { text: "{{t:big-blind|La grosse blinde}}", correct: true, why: "À partir du flop, les blindes parlent en premier et le Bouton en dernier. C'est pourquoi le Bouton a ici la {{t:position}}, et la {{t:big-blind}} joue {{t:out-of-position}}." }
+      - { text: "Le Bouton, car il {{t:open|a ouvert}}", why: "L'ordre de parole dépend de la place à la table, et non de celui qui {{t:open|a ouvert}}. À partir du flop, le Bouton parle toujours en dernier." }
+      - { text: "Celui qui a parlé en dernier préflop", why: "Préflop, les blindes parlent en dernier, mais à partir du flop, en premier. C'est pour cela que la {{t:position}} du Bouton est la meilleure." }
   - kind: choice
     id: m3.exam.q2
     family: m3.open-early
@@ -29,7 +29,7 @@ drills:
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|Je me couche}}", correct: true, why: "Il reste encore quatre joueurs derrière vous. A9 dépareillé touche souvent un as avec un kicker plus faible que les AT, AJ ou AQ adverses. Avec cette main, le solveur de l'application {{t:fold|se couche}} toujours depuis le {{t:hijack|HJ}}." }
-      - { text: "{{t:raise|Je relance}}", why: "L'as est tentant, mais depuis le {{t:hijack|HJ}}, vous {{t:open|ouvrez}} plus étroit que depuis le {{t:cutoff|CO}} et le Button. A9o n'entre que dans la {{t:range}} du {{t:cutoff|CO}}." }
+      - { text: "{{t:raise|Je relance}}", why: "L'as est tentant, mais depuis le {{t:hijack|HJ}}, vous {{t:open|ouvrez}} plus étroit que depuis le {{t:cutoff|CO}} et le Bouton. A9o n'entre que dans la {{t:range}} du {{t:cutoff|CO}}." }
   - kind: choice
     id: m3.exam.q4
     family: m3.rfi.late
@@ -37,7 +37,7 @@ drills:
     prompt: "Tous les joueurs avant vous {{t:fold|se sont couchés}}. Que faites-vous ?"
     table: { hand: "Ah 9d", position: CO }
     options:
-      - { text: "{{t:raise|Je relance}}", correct: true, why: "Il ne reste derrière vous que le Button et les blindes, donc vous {{t:open|ouvrez}} plus large que depuis le {{t:hijack|HJ}}. Le solveur de l'application joue ici A9o presque toujours." }
+      - { text: "{{t:raise|Je relance}}", correct: true, why: "Il ne reste derrière vous que le Bouton et les blindes, donc vous {{t:open|ouvrez}} plus large que depuis le {{t:hijack|HJ}}. Le solveur de l'application joue ici A9o presque toujours." }
       - { text: "{{t:fold|Je me couche}}", why: "C'est ainsi que vous jouez cette main depuis le {{t:hijack|HJ}}. Depuis le {{t:cutoff|CO}}, il y a un joueur de moins derrière vous et la {{t:range}} est plus large." }
   - kind: choice
     id: m3.exam.q5
@@ -46,8 +46,8 @@ drills:
     prompt: "Tout le monde {{t:fold|s'est couché}} jusqu'à vous. Que faites-vous ?"
     table: { hand: "Jd 9c", position: BTN }
     options:
-      - { text: "{{t:raise|Je relance}}", correct: true, why: "Au Button, vous {{t:open|ouvrez}} env. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains. Il ne reste que les blindes, et après le flop vous avez la {{t:position}}, donc J9 dépareillé passe." }
-      - { text: "{{t:fold|Je me couche}}", why: "Depuis le {{t:cutoff|CO}}, le solveur joue rarement cette main, mais au Button, toujours. Face aux seules blindes, c'est trop serré." }
+      - { text: "{{t:raise|Je relance}}", correct: true, why: "Au Bouton, vous {{t:open|ouvrez}} env. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains. Il ne reste que les blindes, et après le flop vous avez la {{t:position}}, donc J9 dépareillé passe." }
+      - { text: "{{t:fold|Je me couche}}", why: "Depuis le {{t:cutoff|CO}}, le solveur joue rarement cette main, mais au Bouton, toujours. Face aux seules blindes, c'est trop serré." }
       - { text: "Je complète la {{t:big-blind|grosse blinde}}", why: "Le limp cède l'{{t:initiative}}. Une {{t:raise|relance}} remporte souvent les blindes tout de suite." }
   - kind: choice
     id: m3.exam.q6
