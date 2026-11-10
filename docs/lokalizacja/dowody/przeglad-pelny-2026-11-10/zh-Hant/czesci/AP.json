@@ -1,0 +1,1262 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m10.yaml",
+  "linia": 43,
+  "stary": "{{t:set|三條}}，對",
+  "nowy": "{{t:set|暗三條}}，對",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 9,
+  "stary": "的說法：solver 對部分牌",
+  "nowy": "的說法：求解器對部分牌",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 11,
+  "stary": "text: \"平跟（limp），便宜看翻牌\", why: \"平跟無法讓你立刻",
+  "nowy": "text: \"溜入，便宜看翻牌\", why: \"溜入無法讓你立刻",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-4: limp = 溜入 (nazwa z terms-nazwy, forma lekcji m3-l1, m4-l4, m10, m11 po poprawkach L6/L7 i egzaminu m4 po poprawkach E1); 平跟 jest dwuznaczne z flat call. pl „Limp, żeby tanio zobaczyć flop … Limp nie daje szansy wygrania puli od razu”; zgodnie z lekcją m11-l1:17 po poprawkach L7. Dopisek „（limp）” zbędny po definicji w m3-l1 i m4-l4.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 48,
+  "stary": "{{t:call|跟注}}。」solver 怎麼說？",
+  "nowy": "{{t:call|跟注}}。」求解器怎麼說？",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 51,
+  "stary": "則沒有。solver 約用 {{n:m11.call.5}} 的牌{{t:call|跟注}}，而約{{t:shove|推}} {{n:m11.nash.push.5}}–{{n:m11.push.5}}（下限來自獨立的均衡計算，上限來自本 App 的 solver）。\" ",
+  "nowy": "則沒有。求解器約用 {{n:m11.call.5}} 的牌{{t:call|跟注}}，而約{{t:shove|推}} {{n:m11.nash.push.5}}–{{n:m11.push.5}}（下限來自獨立的均衡計算，上限來自本 App 的求解器）。\" ",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 52,
+  "stary": "一手牌。solver {{t:call|跟注}}",
+  "nowy": "一手牌。求解器{{t:call|跟注}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 57,
+  "stary": "（分別為{{t:prize-pool|獎池}}的 {{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。籌碼量：{{n:exam.m11.bf.s1}}、你的 {{n:exam.m11.bf.s2}}、全下的對手 {{n:exam.m11.bf.s3}}，以及 {{n:exam.m11.bf.s4}}。依 {{t:icm}}，你{{t:call|跟注}}後若輸會損失{{t:prize-pool|獎池}}的 {{n:exam.m11.bf.loss}}",
+  "nowy": "（分別為{{t:prize-pool|獎金池}}的 {{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。籌碼量：{{n:exam.m11.bf.s1}}、你的 {{n:exam.m11.bf.s2}}、全下的對手 {{n:exam.m11.bf.s3}}，以及 {{n:exam.m11.bf.s4}}。依 {{t:icm}}，你{{t:call|跟注}}後若輸會損失{{t:prize-pool|獎金池}}的 {{n:exam.m11.bf.loss}}",
+  "waga": "NISKIE",
+  "powod": "Ujednolicenie AP: forma znacznika prize-pool = 獎金池 (nazwa z terms-nazwy; pozostałe 獎池 poprawiają U1 i S1). Liczba znaczników bez zmian: pl ma w tym zdaniu także dwa razy {{t:prize-pool|puli nagród}}, więc to nie zdublowanie.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 26,
+  "stary": "的情況下採用的動作才算一致。{{n:exam.m13.solver.rare}}",
+  "nowy": "的情況下採用的行動才算吻合。{{n:exam.m13.solver.rare}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-11: akcja = 行動 (przewaga w korpusie: 行動 99 w treści + 11 w interfejsie wobec 動作 30 + 1; nazwa w raporcie i lekcji m13-l1); pl „akcja”. Zastępuje wpis E2: zawiera jego zmianę 一致 → 吻合 (nazwa werdyktu jak w interfejsie) i dodatkowo 動作 → 行動.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 27,
+  "stary": "不採用的動作。{{n:exam.m13.solver.rare}}",
+  "nowy": "不採用的行動。{{n:exam.m13.solver.rare}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-11: akcja = 行動 (przewaga w korpusie: 行動 99 w treści + 11 w interfejsie wobec 動作 30 + 1; nazwa w raporcie i lekcji m13-l1); pl „akcja”. To samo zdanie o werdykcie co w l. 26 (jedna forma w obrębie egzaminu m13).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 34,
+  "stary": "於門檻的動作算作不精",
+  "nowy": "於門檻的行動算作不精",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-11: akcja = 行動 (przewaga w korpusie: 行動 99 w treści + 11 w interfejsie wobec 動作 30 + 1; nazwa w raporcie i lekcji m13-l1); pl „akcja”. To samo zdanie o werdykcie co w l. 26 (jedna forma w obrębie egzaminu m13).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 35,
+  "stary": "不採用的動作。這裡求",
+  "nowy": "不採用的行動。這裡求",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-11: akcja = 行動 (przewaga w korpusie: 行動 99 w treści + 11 w interfejsie wobec 動作 30 + 1; nazwa w raporcie i lekcji m13-l1); pl „akcja”. To samo zdanie o werdykcie co w l. 26 (jedna forma w obrębie egzaminu m13).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 36,
+  "stary": "下採用的動作才算可接",
+  "nowy": "下採用的行動才算可接",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-11: akcja = 行動 (przewaga w korpusie: 行動 99 w treści + 11 w interfejsie wobec 動作 30 + 1; nazwa w raporcie i lekcji m13-l1); pl „akcja”. To samo zdanie o werdykcie co w l. 26 (jedna forma w obrębie egzaminu m13).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m3.yaml",
+  "linia": 23,
+  "stary": "text: \"平跟{{t:big-blind|大盲}}\", why: \"第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。平跟會交出{{t:initiative|主動權}}",
+  "nowy": "text: \"補齊{{t:big-blind|大盲}}\", why: \"第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。溜入會交出{{t:initiative|主動權}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-4: limp = 溜入 (nazwa z terms-nazwy, forma lekcji m3-l1, m4-l4, m10, m11 po poprawkach L6/L7 i egzaminu m4 po poprawkach E1); 平跟 jest dwuznaczne z flat call. Opcja: pl „Dopłacam do dużego blinda” (opis, bez słowa limp) → 補齊{{t:big-blind|大盲}}, tak samo jak ta opcja w lekcji m3-l1:27, 37; uzasadnienie: pl „Limp oddaje inicjatywę” → 溜入.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m3.yaml",
+  "linia": 51,
+  "stary": "text: \"平跟{{t:big-blind|大盲}}\", why: \"平跟會交出{{t:initiative|主動權}}",
+  "nowy": "text: \"補齊{{t:big-blind|大盲}}\", why: \"溜入會交出{{t:initiative|主動權}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-4: limp = 溜入 (nazwa z terms-nazwy, forma lekcji m3-l1, m4-l4, m10, m11 po poprawkach L6/L7 i egzaminu m4 po poprawkach E1); 平跟 jest dwuznaczne z flat call. Opcja: pl „Dopłacam do dużego blinda” → 補齊{{t:big-blind|大盲}} (jak w lekcji m3-l1:27, 37); uzasadnienie: pl „Limp oddaje inicjatywę” → 溜入.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m3.yaml",
+  "linia": 61,
+  "stary": "text: \"平跟{{t:big-blind|大盲}}\", why: \"第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}（在{{t:small-blind|小盲}}這是簡化：有些求解器的解法在這裡會平跟部分手牌）。平跟會交出{{t:initiative|主動權}}",
+  "nowy": "text: \"補齊{{t:big-blind|大盲}}\", why: \"第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}（在{{t:small-blind|小盲}}這是簡化：有些求解器的解法在這裡會用部分手牌溜入）。溜入會交出{{t:initiative|主動權}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-4: limp = 溜入 (nazwa z terms-nazwy, forma lekcji m3-l1, m4-l4, m10, m11 po poprawkach L6/L7 i egzaminu m4 po poprawkach E1); 平跟 jest dwuznaczne z flat call. Opcja: pl „Dopłacam do dużego blinda” → 補齊{{t:big-blind|大盲}} (jak w lekcji m3-l1); pl „niektóre rozwiązania solverów część rąk tu dopłacają” → „會用部分手牌溜入” (jak rules.yaml:149); pl „Dopłata oddaje inicjatywę” → 溜入.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 14,
+  "stary": "\"{{t:board|公牌}}上的 A",
+  "nowy": "\"{{t:board|牌面}}上的 A",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-9: board = 牌面, community cards = 公共牌. pl „As na {{t:board|stole}} działa na oba zakresy” — mowa o boardzie (klucz board), więc forma 牌面; 公牌 nie jest formą nazwy. Zastępuje wpis E1 (公共牌).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 59,
+  "stary": "牌後你在每一{{t:street|輪}}都要先行",
+  "nowy": "牌後你在每條{{t:street|街}}都要先行",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-6: „na każdej ulicy” w jednej postaci 每條{{t:street|街}} — forma przeważająca w korpusie (23 wystąpienia wobec 每一{{t:street|街}} 5, 每一{{t:street|條街}} 2, 每一條{{t:street|街}} 2); pl „na każdej {{t:street|ulicy}}”. Forma 輪 to nazwa betting-round (下注輪), jak w powodzie wykluczonej poprawki części. Zastępuje wpis E1.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 22,
+  "stary": "已公開的 solver 範例中，",
+  "nowy": "已公開的求解器範例中，",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 33,
+  "stary": "會虧損。solver 的結果：",
+  "nowy": "會虧損。求解器的結果：",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 58,
+  "stary": "牌也沒有 outs，這種{{t:bluff|詐唬}}",
+  "nowy": "牌也沒有補牌，這種{{t:bluff|詐唬}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 75,
+  "stary": "根據線上微注級別（NL2",
+  "nowy": "根據線上微級別（NL2",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 99,
+  "stary": "已公開的 solver 範例中（",
+  "nowy": "已公開的求解器範例中（",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 111,
+  "stary": "線上微注級別（NL25）族群的玩家，面對翻牌 c-bet 平均有{{n:mda.all.fcb}}會{{t:fold|棄牌}}。這不一定是錯誤：solver 在翻牌{{t:out-of-position|無位置}}",
+  "nowy": "線上微級別（NL25）族群的玩家，面對翻牌 c-bet 平均有{{n:mda.all.fcb}}會{{t:fold|棄牌}}。這不一定是錯誤：求解器在翻牌{{t:out-of-position|無位置}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona. Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 115,
+  "stary": "）。線上微注級別（NL2",
+  "nowy": "）。線上微級別（NL2",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 129,
+  "stary": "手策略的 solver 分析（solver 的解，不",
+  "nowy": "手策略的求解器分析（求解器的解，不",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 152,
+  "stary": "為比較，某個教學網站的表格在 {{n:m11.depth.10}}",
+  "nowy": "為比較，某個訓練網站的表格在 {{n:m11.depth.10}}",
+  "waga": "NISKIE",
+  "powod": "Ujednolicenie AP: serwis szkoleniowy = 訓練網站 (jak w polach source reguł i w m11-l2:140); pl „serwisu szkoleniowego”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l1-wariancja.md",
+  "linia": 74,
+  "stary": "{{n:dd.wr-low}}（微注級別贏錢玩家",
+  "nowy": "{{n:dd.wr-low}}（微級別贏錢玩家",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l1-wariancja.md",
+  "linia": 93,
+  "stary": "\"這是微注級別贏錢玩家",
+  "nowy": "\"這是微級別贏錢玩家",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l1-wariancja.md",
+  "linia": 100,
+  "stary": "{{t:big-blind|大盲注}}計算。微注級別的贏錢玩",
+  "nowy": "{{t:big-blind|大盲注}}計算。微級別的贏錢玩",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 34,
+  "stary": "局面中，solver 對你的手",
+  "nowy": "局面中，求解器對你的手",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 36,
+  "stary": "{ text: \"一致\", correct: true, why: \"對：solver 在至少 ",
+  "nowy": "{ text: \"吻合\", correct: true, why: \"對：求解器在至少 ",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”. Poprawka połączona: zawiera też bez zmian zmianę części L7 („{ text: \"一致\", correct: true, why: \"對：solver” → „{ text: \"吻合\", correct: true, why: \"對：solver”: pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 38,
+  "stary": "個局面有 solver 結果，所",
+  "nowy": "個局面有求解器結果，所",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 47,
+  "stary": "錯誤是指 solver 完全不採",
+  "nowy": "錯誤是指求解器完全不採",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 52,
+  "stary": "\"在 solver 會打 3",
+  "nowy": "\"在求解器會打 3",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 63,
+  "stary": "，也沒有 solver 結果\",",
+  "nowy": "，也沒有求解器結果\",",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 65,
+  "stary": "件規則或 solver 局面的決",
+  "nowy": "件規則或求解器局面的決",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 74,
+  "stary": "用規則或 solver 評分的決",
+  "nowy": "用規則或求解器評分的決",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 90,
+  "stary": "行動，或 solver 在至少 ",
+  "nowy": "行動，或求解器在至少 ",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 91,
+  "stary": "受**：solver 很少採取",
+  "nowy": "受**：求解器很少採取",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 92,
+  "stary": "錯誤，或 solver 會採取、",
+  "nowy": "錯誤，或求解器會採取、",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 93,
+  "stary": "行動，或 solver 完全不採",
+  "nowy": "行動，或求解器完全不採",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 101,
+  "stary": "當 solver 對你的手牌有兩種打法時，兩者都正確。均衡理論用無差異原則解釋這一點：玩家只會混合具有相同{{t:expected-value|期望值}}的打法。因此報告不會因為你選了其中一種而扣分；當 solver 至少在 ",
+  "nowy": "當求解器對你的手牌有兩種打法時，兩者都正確。均衡理論用無差異原則解釋這一點：玩家只會混合具有相同{{t:expected-value|期望值}}的打法。因此報告不會因為你選了其中一種而扣分；當求解器至少在 ",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 108,
+  "stary": "稱：對照 solver 評估自己",
+  "nowy": "稱：對照求解器評估自己",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l3-przeglad.md",
+  "linia": 80,
+  "stary": "這手牌：每一{{t:street|輪}}的{{t:position|位置}}",
+  "nowy": "這手牌：每條{{t:street|街}}的{{t:position|位置}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-6: „na każdej ulicy” w jednej postaci 每條{{t:street|街}} — forma przeważająca w korpusie (23 wystąpienia wobec 每一{{t:street|街}} 5, 每一{{t:street|條街}} 2, 每一條{{t:street|街}} 2); pl „na każdej {{t:street|ulicy}}”. Forma 輪 to nazwa betting-round (下注輪), jak w powodzie wykluczonej poprawki części. Zastępuje wpis L7.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m2-l1-outy.md",
+  "linia": 44,
+  "stary": "張牌時（all-in），才有",
+  "nowy": "張牌時（全下），才有",
+  "waga": "NISKIE",
+  "powod": "Ujednolicenie AP: all-in = 全下 (nazwa z terms-nazwy; 256 wystąpień); łacińskie „all-in” zostaje tylko w objaśnieniu m1-l1:96; pl „all-in”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m2-l1-outy.md",
+  "linia": 55,
+  "stary": "，也就是 all-in 時，才有",
+  "nowy": "，也就是全下時，才有",
+  "waga": "NISKIE",
+  "powod": "Ujednolicenie AP: all-in = 全下 (nazwa z terms-nazwy; 256 wystąpień); łacińskie „all-in” zostaje tylko w objaśnieniu m1-l1:96; pl „all-in”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m2-l1-outy.md",
+  "linia": 123,
+  "stary": "河牌（all-in） | ",
+  "nowy": "河牌（全下） | ",
+  "waga": "NISKIE",
+  "powod": "Ujednolicenie AP: all-in = 全下 (nazwa z terms-nazwy; 256 wystąpień); łacińskie „all-in” zostaje tylko w objaśnieniu m1-l1:96; pl „all-in”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m2-l1-outy.md",
+  "linia": 131,
+  "stary": "就是有人 all-in 時，才用",
+  "nowy": "就是有人全下時，才用",
+  "waga": "NISKIE",
+  "powod": "Ujednolicenie AP: all-in = 全下 (nazwa z terms-nazwy; 256 wystąpień); łacińskie „all-in” zostaje tylko w objaśnieniu m1-l1:96; pl „all-in”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l1-pozycja.md",
+  "linia": 37,
+  "stary": "\"Limp 會交出{{t:initiative|主動權}}",
+  "nowy": "\"溜入會交出{{t:initiative|主動權}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-4: limp = 溜入 (nazwa z terms-nazwy, forma lekcji m3-l1, m4-l4, m10, m11 po poprawkach L6/L7 i egzaminu m4 po poprawkach E1); 平跟 jest dwuznaczne z flat call. pl „Limp oddaje inicjatywę”; łacińskie „Limp” na początku zdania zastąpione nazwą (objaśnienie „（limp）” jest w l. 27 i w definicji l. 69).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l1-pozycja.md",
+  "linia": 69,
+  "stary": "做法：在 solver 的解中，",
+  "nowy": "做法：在求解器的解中，",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l4-limperzy.md",
+  "linia": 61,
+  "stary": "），所以微注級別的溜入玩",
+  "nowy": "），所以微級別的溜入玩",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l1-tekstury.md",
+  "linia": 47,
+  "stary": "對手通常補牌（outs）很少：只有幾",
+  "nowy": "對手通常補牌很少：只有幾",
+  "waga": "NISKIE",
+  "powod": "Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”. pl „ma zwykle mało outów” — bez dopisku; termin wprowadzony w module 2, łaciński dopisek „（outs）” usunięty.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 35,
+  "stary": "翻牌上，solver 在{{t:out-of-position}}",
+  "nowy": "翻牌上，求解器在{{t:out-of-position}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 36,
+  "stary": "{{n:cbet.size.small}}\", why: \"太頻繁：在這個局面中，solver 下注的比例不到 {{n:cbet.oop.a94.bet}}",
+  "nowy": "{{n:cbet.size.small}}\", why: \"太頻繁：在這個局面中，求解器下注的比例不到 {{n:cbet.oop.a94.bet}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 37,
+  "stary": "{{n:cbet.size.big}}\", why: \"太頻繁：在這個局面中，solver 下注的比例不到 {{n:cbet.oop.a94.bet}}",
+  "nowy": "{{n:cbet.size.big}}\", why: \"太頻繁：在這個局面中，求解器下注的比例不到 {{n:cbet.oop.a94.bet}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 56,
+  "stary": "{{t:pot|底池}}中，solver 非常常{{t:check|過牌}}",
+  "nowy": "{{t:pot|底池}}中，求解器非常常{{t:check|過牌}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 57,
+  "stary": "翻牌上，solver 即使拿著",
+  "nowy": "翻牌上，求解器即使拿著",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 106,
+  "stary": "已發表的 solver 結果（{{t:out-of-position}}",
+  "nowy": "已發表的求解器結果（{{t:out-of-position}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l1-mdf-alpha.md",
+  "linia": 132,
+  "stary": "例子中，solver 的平均防",
+  "nowy": "例子中，求解器的平均防",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 16,
+  "stary": "強牌型比莊位多。用{{t:raise|加注}}",
+  "nowy": "強牌型比按鈕位多。用{{t:raise|加注}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 17,
+  "stary": "翻牌上，solver 拿部分{{t:two-pair|兩對}}",
+  "nowy": "翻牌上，求解器拿部分{{t:two-pair|兩對}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 23,
+  "stary": " prompt: \"{{t:pot|底池}}有 {{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}} 作為 c-bet。你有",
+  "nowy": " prompt: \"{{t:pot|底池}}有 {{n:ex.third.pot}}，按鈕位{{t:bet|下注}} {{n:ex.third.bet}} 作為 c-bet。你有",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 26,
+  "stary": "{{n:xr.mult.example}}。莊位要再補 ",
+  "nowy": "{{n:xr.mult.example}}。按鈕位要再補 ",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 27,
+  "stary": "寸太小：莊位只需再補",
+  "nowy": "寸太小：按鈕位只需再補",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 33,
+  "stary": " prompt: \"{{t:pot|底池}}有 {{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}} 作為 c-bet。你過",
+  "nowy": " prompt: \"{{t:pot|底池}}有 {{n:ex.third.pot}}，按鈕位{{t:bet|下注}} {{n:ex.third.bet}} 作為 c-bet。你過",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 41,
+  "stary": "{{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}}，你{{t:raise|加注}}到 {{n:xr.example}}。莊位需要百分",
+  "nowy": "{{n:ex.third.pot}}，按鈕位{{t:bet|下注}} {{n:ex.third.bet}}，你{{t:raise|加注}}到 {{n:xr.example}}。按鈕位需要百分",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 44,
+  "stary": "\"莊位要補 {{n:xr.example}}",
+  "nowy": "\"按鈕位要補 {{n:xr.example}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 49,
+  "stary": "{{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}}，你只{{t:raise|加注}}到 {{n:xr.too-small}}。莊位需要多少",
+  "nowy": "{{n:ex.third.pot}}，按鈕位{{t:bet|下注}} {{n:ex.third.bet}}，你只{{t:raise|加注}}到 {{n:xr.too-small}}。按鈕位需要多少",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 54,
+  "stary": "要算的是莊位的價格：",
+  "nowy": "要算的是按鈕位的價格：",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 62,
+  "stary": "{{t:semi-bluff|半詐唬}}：莊位{{t:fold|棄牌}}",
+  "nowy": "{{t:semi-bluff|半詐唬}}：按鈕位{{t:fold|棄牌}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 82,
+  "stary": "它贏得了莊位的{{t:bluff|詐唬}}",
+  "nowy": "它贏得了按鈕位的{{t:bluff|詐唬}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 83,
+  "stary": "加注，是 solver 面對小 ",
+  "nowy": "加注，是求解器面對小 ",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 93,
+  "stary": "{{t:draw|聽牌}}，而莊位在這裡有",
+  "nowy": "{{t:draw|聽牌}}，而按鈕位在這裡有",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 94,
+  "stary": "也會輸給莊位會繼續付",
+  "nowy": "也會輸給按鈕位會繼續付",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 102,
+  "stary": "機會，而莊位會用很寬",
+  "nowy": "機會，而按鈕位會用很寬",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 103,
+  "stary": "高，而且莊位的{{t:range|範圍}}",
+  "nowy": "高，而且按鈕位的{{t:range|範圍}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 116,
+  "stary": "少了它，莊位幾乎任何",
+  "nowy": "少了它，按鈕位幾乎任何",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 123,
+  "stary": "種贏法：莊位{{t:fold|棄牌}}",
+  "nowy": "種贏法：按鈕位{{t:fold|棄牌}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 125,
+  "stary": "{{t:raise|加注}}之後，莊位較差的牌更常{{t:fold|棄牌}}，較好的牌則會付錢。這是簡化說法：面對小 c-bet，solver 也會為了保護而{{t:raise|加注}}部分{{t:top-pair|頂對}}和弱{{t:pair|對子}}。反過來，在非常{{t:connected|相連}}的翻牌上，solver 拿{{t:two-pair|兩對}}",
+  "nowy": "{{t:raise|加注}}之後，按鈕位較差的牌更常{{t:fold|棄牌}}，較好的牌則會付錢。這是簡化說法：面對小 c-bet，求解器也會為了保護而{{t:raise|加注}}部分{{t:top-pair|頂對}}和弱{{t:pair|對子}}。反過來，在非常{{t:connected|相連}}的翻牌上，求解器拿{{t:two-pair|兩對}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”. Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 129,
+  "stary": "便宜，而莊位用很寬的",
+  "nowy": "便宜，而按鈕位用很寬的",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 130,
+  "stary": "裡通常比莊位有更多{{t:two-pair|兩對}}",
+  "nowy": "裡通常比按鈕位有更多{{t:two-pair|兩對}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 131,
+  "stary": "**在對莊位有利的高",
+  "nowy": "**在對按鈕位有利的高",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 135,
+  "stary": "{{n:xr.example}}：莊位要補 {{n:xr.example.extra}}",
+  "nowy": "{{n:xr.example}}：按鈕位要補 {{n:xr.example.extra}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: Button = 按鈕位 (335 wystąpień w 36 plikach; 莊位 tylko w tej lekcji); pl „Button”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 48,
+  "stary": "以：你有 outs，而且能免費看到河牌，所以{{t:check}}不是錯誤。在一個已公開的 solver 範例中，",
+  "nowy": "以：你有補牌，而且能免費看到河牌，所以{{t:check}}不是錯誤。在一個已公開的求解器範例中，",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”. Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 65,
+  "stary": "張 outs。所以{{t:semi-bluff}}比沒有 outs 的{{t:bluff|詐唬}}",
+  "nowy": "張補牌。所以{{t:semi-bluff}}比沒有補牌的{{t:bluff|詐唬}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 66,
+  "stary": "了\", why: \"沒有 outs 的{{t:bluff|詐唬}}",
+  "nowy": "了\", why: \"沒有補牌的{{t:bluff|詐唬}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 95,
+  "stary": "，而沒有 outs 的牌和中",
+  "nowy": "，而沒有補牌的牌和中",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 103,
+  "stary": "{{n:alpha.bet-three-quarters}}。有 outs 時，你需",
+  "nowy": "{{n:alpha.bet-three-quarters}}。有補牌時，你需",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 128,
+  "stary": "{{t:pair|對子}}也沒有 outs 的牌，你比較常放棄，因為它們只能靠對手棄牌贏，除非它們阻擋了對手會拿來付錢的牌。當對手可能用{{t:raise|加注}}回應時，solver 也會用沒有 outs 的牌{{t:bluff|詐唬}}",
+  "nowy": "{{t:pair|對子}}也沒有補牌的牌，你比較常放棄，因為它們只能靠對手棄牌贏，除非它們阻擋了對手會拿來付錢的牌。當對手可能用{{t:raise|加注}}回應時，求解器也會用沒有補牌的牌{{t:bluff|詐唬}}",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”. Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 137,
+  "stary": "{{t:second-barrel|第二槍}}、用有 outs 而非沒有 outs 的牌{{t:bluff|詐唬}}、中等牌{{t:check|過牌}}）是來自教學資料和 solver 分析的經驗法則，適用於約 {{n:format.stack}} 的籌碼深度。這是一種簡化：當沒有 outs 的牌能阻擋對手的價值牌，或對手可能用{{t:raise|加注}}回應時，solver 也會用其中一部分牌{{t:bluff|詐唬}}。這個 App 不提供以百分比表示的下注頻率，因為這類數字取決於 solver 結果中的",
+  "nowy": "{{t:second-barrel|第二槍}}、用有補牌而非沒有補牌的牌{{t:bluff|詐唬}}、中等牌{{t:check|過牌}}）是來自教學資料和求解器分析的經驗法則，適用於約 {{n:format.stack}} 的籌碼深度。這是一種簡化：當沒有補牌的牌能阻擋對手的價值牌，或對手可能用{{t:raise|加注}}回應時，求解器也會用其中一部分牌{{t:bluff|詐唬}}。這個 App 不提供以百分比表示的下注頻率，因為這類數字取決於求解器結果中的",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”. Ujednolicenie AP: outs = 補牌 (nazwa z terms-nazwy; 86 wystąpień); łacińskie „outs” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „outy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 15,
+  "stary": "\"暗三、{{t:two-pair}}",
+  "nowy": "\"暗三條、{{t:two-pair}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 22,
+  "stary": "小注：從暗三到弱{{t:pair|對子}}",
+  "nowy": "小注：從暗三條到弱{{t:pair|對子}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 27,
+  "stary": "圍。你連暗三也下注了",
+  "nowy": "圍。你連暗三條也下注了",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 41,
+  "stary": "{{t:check|過牌}}。你有暗三。你怎麼",
+  "nowy": "{{t:check|過牌}}。你有暗三條。你怎麼",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 44,
+  "stary": "對上你的暗三，他的機",
+  "nowy": "對上你的暗三條，他的機",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 46,
+  "stary": "{{t:board|公共牌}}上，暗三要下注。",
+  "nowy": "{{t:board|公共牌}}上，暗三條要下注。",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 78,
+  "stary": "牌。你有暗三，只往 ",
+  "nowy": "牌。你有暗三條，只往 ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 111,
+  "stary": "強的牌（暗三、{{t:two-pair}}",
+  "nowy": "強的牌（暗三條、{{t:two-pair}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l3-implied-odds.md",
+  "linia": 13,
+  "stary": "翻牌時，你到河牌前約有 {{n:odds.flush.flop-river}}",
+  "nowy": "翻牌時，你到河牌為止約有 {{n:odds.flush.flop-river}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-2: „do rivera” (włącznie z riverem) = 到河牌為止 (forma z m2-l1, m9-l3, exams/m2 i interfejsu); „在河牌前” znaczy „przed riverem”. pl „Na flopie miałeś ok. … szans na kolor do rivera” (szansa z dwiema kartami, turn i river).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l4-probe-obrona.md",
+  "linia": 28,
+  "stary": "\"不對：每一{{t:street|輪}}按鈕位都",
+  "nowy": "\"不對：每條{{t:street|街}}按鈕位都",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-6: „na każdej ulicy” w jednej postaci 每條{{t:street|街}} — forma przeważająca w korpusie (23 wystąpienia wobec 每一{{t:street|街}} 5, 每一{{t:street|條街}} 2, 每一條{{t:street|街}} 2); pl „na każdej {{t:street|ulicy}}”. Forma 輪 to nazwa betting-round (下注輪), jak w powodzie wykluczonej poprawki części. Zastępuje wpis L4.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 50,
+  "stary": "{{t:two-pair}}、三條）。通常",
+  "nowy": "{{t:two-pair}}、暗三條）。通常",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 51,
+  "stary": "手可能有三條\", w",
+  "nowy": "手可能有暗三條\", w",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 70,
+  "stary": "{{t:two-pair|兩對}}、三條和{{t:straight|順子}}",
+  "nowy": "{{t:two-pair|兩對}}、暗三條和{{t:straight|順子}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 81,
+  "stary": "{{t:two-pair}}和三條。這樣大",
+  "nowy": "{{t:two-pair}}和暗三條。這樣大",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l2-ile-blefow.md",
+  "linia": 142,
+  "stary": "部分會在微注級別{{t:exploit|剝削}}",
+  "nowy": "部分會在微級別{{t:exploit|剝削}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-5: mikrostawki = 微級別 (tytuł modułu 10, terms-def „微級別”, reguły R-M10, poprawka L4 m7-l4:145); pl „mikrostawki”. Forma 微注級別 ujednolicona.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l3-blokery.md",
+  "linia": 117,
+  "stary": "學資料和 solver 分析。當其他{{t:bluff|詐唬}}不夠時，solver 也會用沒",
+  "nowy": "學資料和求解器分析。當其他{{t:bluff|詐唬}}不夠時，求解器也會用沒",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 30,
+  "stary": "{{t:two-pair|兩對}}和三條。\" }",
+  "nowy": "{{t:two-pair|兩對}}和暗三條。\" }",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 59,
+  "stary": "{{t:two-pair}}或三條。不過在",
+  "nowy": "{{t:two-pair}}或暗三條。不過在",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 69,
+  "stary": "{{t:two-pair}}、三條或更好的",
+  "nowy": "{{t:two-pair}}、暗三條或更好的",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 110,
+  "stary": "{{n:spr.srp}}。要在河牌前把整個籌碼量打進去，每條{{t:street|街}}",
+  "nowy": "{{n:spr.srp}}。要到河牌為止把整個籌碼量打進去，每條{{t:street|街}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-2: „do rivera” (włącznie z riverem) = 到河牌為止 (forma z m2-l1, m9-l3, exams/m2 i interfejsu); „在河牌前” znaczy „przed riverem”. pl „Żeby wpłacić cały stack do rivera, trzeba by betować … na każdej ulicy”. Zastępuje wpis L5 („在河牌結束前”).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 113,
+  "stary": "已發表的 solver 分析（{{t:spr}}約 {{n:spr.commit}} 時，所有{{t:top-pair}}和更好的牌都會打整個籌碼量）。高{{t:spr}}時對一個{{t:pair|對子}}保持謹慎，則有教學資料和 solver 分析佐證",
+  "nowy": "已發表的求解器分析（{{t:spr}}約 {{n:spr.commit}} 時，所有{{t:top-pair}}和更好的牌都會打整個籌碼量）。高{{t:spr}}時對一個{{t:pair|對子}}保持謹慎，則有教學資料和求解器分析佐證",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP: solver = 求解器 (204 wystąpienia w treści + 23 w interfejsie); łacińskie „solver” w tekście wyświetlanym zastąpione, spacje przy znakach CJK zdjęte; pl „solver”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 502,
+  "stary": "{{t:two-pair|兩對}}、暗三）和{{t:draw|聽牌}}",
+  "nowy": "{{t:two-pair|兩對}}、暗三條）和{{t:draw|聽牌}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 801,
+  "stary": "強的牌（暗三、{{t:straight|順子}}",
+  "nowy": "強的牌（暗三條、{{t:straight|順子}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 817,
+  "stary": "時則需要暗三、{{t:straight|順子}}",
+  "nowy": "時則需要暗三條、{{t:straight|順子}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP S-7: set = 暗三條 (nazwa w terms-nazwy wg poprawki S1; forma większości tekstu, 30 wystąpień); pl „set”. 三條 zostaje tylko dla three-of-a-kind.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 21,
+  "stary": "check-raise: null  # chec",
+  "nowy": "check-raise: \"過牌加注\"  # chec",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). check-raise = 過牌加注 (過牌加注 58 w tekście wyświetlanym wobec 7 łacińskich „check-raise”).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 27,
+  "stary": "board: \"公共牌\"  # board; bez",
+  "nowy": "board: \"牌面\"  # board; bez",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP S-9: board = 牌面, community cards = 公共牌. Nazwa terminu board = 牌面 (druga co do częstości forma znacznika, 40×, i nazwa w definicjach); rozdziela hasła board i community-cards (oba miały „公共牌”). Skutek: znaczniki {{t:board}} bez formy (exams/m0:51, exams/m7:83, m0-l1:81, m9-l1:83) wyświetlą 牌面, np. m0-l1:81 „牌面上會發出 5 張公共牌” zamiast „公共牌上會發出 5 張公共牌”. Komentarz po # bez zmian. DO POTWIERDZENIA przez sesję nadrzędną: zmiana nazwy nie była wymieniona wprost w rozstrzygnięciu S-9.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 33,
+  "stary": "stack: null  # stac",
+  "nowy": "stack: \"籌碼量\"  # stac",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). stack = 籌碼量 (籌碼量 77 + UI 1 wobec 2 łacińskich „stack”).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 49,
+  "stary": "button: \"BTN\"  # button; bez",
+  "nowy": "button: \"按鈕位\"  # button; bez",
+  "waga": "ŚR",
+  "powod": "Ujednolicenie AP (T-5): nazwa button = 按鈕位 — forma używana w tekście (335 wystąpień, 0 znaczników bez formy; trzy {{t:button|BTN}} w m3-l1 zostają jako forma skrótowa).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 56,
+  "stary": "backdoor: null  # back",
+  "nowy": "backdoor: \"後門\"  # back",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). backdoor = 後門 (後門 12 wobec 1 łacińskiego „backdoor”).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 57,
+  "stary": "pot-odds: null  # pot ",
+  "nowy": "pot-odds: \"底池賠率\"  # pot ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). pot-odds = 底池賠率 (底池賠率 8, łacińskie „pot odds” 0).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 103,
+  "stary": "bluff-catcher: null  # bluf",
+  "nowy": "bluff-catcher: \"抓詐唬牌\"  # bluf",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). bluff-catcher = 抓詐唬牌 (抓詐唬牌 35 wobec 3 łacińskich dopisków „bluff catcher”).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 116,
+  "stary": "tilt: null  # tilt",
+  "nowy": "tilt: \"上頭\"  # tilt",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). tilt = 上頭 (上頭 56 w treści; S-8: tilt = 上頭; łacińskie „tilt” 2, z czego rules.yaml:995 usuwa poprawka R4).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 123,
+  "stary": "mental-game: null  # ment",
+  "nowy": "mental-game: \"心態\"  # ment",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). mental-game = 心態 (心態 w tytule modułu 12, w m13-l1:80 i w interfejsie; łacińskie „mental game” 0. Jedyny znacznik bez formy, m12-l3:94, wyświetli „你在心態（也就是處理上頭、情緒和專注力）上下的功夫”).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 135,
+  "stary": "ante: null  # ante",
+  "nowy": "ante: \"前注\"  # ante",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). ante = 前注 (前注 43 wobec 1 łacińskiego „ante”).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 137,
+  "stary": "fold-equity: null  # fold",
+  "nowy": "fold-equity: \"棄牌權益\"  # fold",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). fold-equity = 棄牌權益 (棄牌權益 7 (+4 po poprawkach L7), łacińskie „fold equity” 0).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 148,
+  "stary": "heads-up: null  # head",
+  "nowy": "heads-up: \"單挑\"  # head",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (T-12): termin z null ma w treści stałą chińską nazwę; wpisana jako nazwa w terms-nazwy (komentarz po # bez zmian). heads-up = 單挑 (單挑 4 w tekście wyświetlanym, łacińskie „heads-up” 0).",
+  "grupa": "AP"
+ }
+]
