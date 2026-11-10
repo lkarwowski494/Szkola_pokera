@@ -74,7 +74,12 @@ describe('schemat', () => {
 
 /** Pełna kompilacja pl (z generatorem) raz na plik testu: bramka generatora zostaje, bez powtarzania ~20 s. */
 let pelna: ReturnType<typeof compileContent> | undefined;
-const skompilowana = () => (pelna ??= compileContent(contentDir));
+const czasyKontroli = new Map<string, number>();
+const skompilowana = () => (pelna ??= compileContent(contentDir, 'pl', { naCzasKontroliSzablonu: (id, ms) => czasyKontroli.set(id, ms) }));
+
+/** Szablony, których kontrola generatora przekracza budżet (ms); budżet ok. 4,5× najwolniejszy pomiar CH (9,8 s) ze względu na wolniejsze runnery CI. */
+export const BUDZET_KONTROLI_SZABLONU_MS = 45_000;
+export const ponadBudzet = (czasy: ReadonlyMap<string, number>, budzetMs: number): string[] => [...czasy].filter(([, ms]) => ms > budzetMs).map(([id]) => id);
 
 describe('treść projektu', () => {
   it('kompiluje się bez błędów i bez liczb wpisanych ręcznie', () => {
@@ -88,9 +93,19 @@ describe('treść projektu', () => {
   it('wyłączenie kontroli generatora nie zmienia wyniku kompilacji (tylko pomija kontrolę)', () => {
     expect(compileContent(contentDir, 'pl', { kontrolaGeneratora: false }).hash).toBe(skompilowana().hash);
   }, 120_000);
+  // Hash nie zależy od kontroli generatora (ona tylko dodaje błędy), więc dwie niezależne kompilacje bez niej sprawdzają tę samą asercję w kilka sekund (CL, D-766).
   it('jest deterministyczna (ten sam hash)', () => {
-    expect(skompilowana().hash).toBe(compileContent(contentDir).hash); // pierwsza z pamięci, druga świeża: dwie niezależne kompilacje
-  }, 120_000); // dwie pełne kompilacje (z generatorem szablonów) przekraczają 30 s na wolnej maszynie (BU, 2026-11-10)
+    const a = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
+    expect(compileContent(contentDir, 'pl', { kontrolaGeneratora: false }).hash).toBe(a.hash);
+  }, 30_000);
+  it('kontrola generatora mieści się w budżecie czasu na szablon', () => {
+    skompilowana();
+    expect(czasyKontroli.size).toBeGreaterThan(0);
+    expect(ponadBudzet(czasyKontroli, BUDZET_KONTROLI_SZABLONU_MS)).toEqual([]);
+  }, 120_000);
+  it('budżet czasu wykrywa spowolniony szablon', () => {
+    expect(ponadBudzet(new Map([['sc-a', 1_000], ['sc-b', 60_000]]), BUDZET_KONTROLI_SZABLONU_MS)).toEqual(['sc-b']);
+  });
 });
 
 describe('pula egzaminacyjna (content/pl/exams)', () => {

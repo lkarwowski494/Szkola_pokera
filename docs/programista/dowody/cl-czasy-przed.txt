@@ -1,0 +1,4 @@
+ ✓ test/build.test.ts > treść projektu > kompiluje się bez błędów i bez liczb wpisanych ręcznie 0ms
+ ✓ test/build.test.ts > treść projektu > wyłączenie kontroli generatora nie zmienia wyniku kompilacji (tylko pomija kontrolę) 998ms
+ ✓ test/build.test.ts > treść projektu > jest deterministyczna (ten sam hash) 21484ms
+      Tests  40 passed (40)

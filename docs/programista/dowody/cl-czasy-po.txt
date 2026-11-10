@@ -1,0 +1,6 @@
+ ✓ test/build.test.ts > treść projektu > kompiluje się bez błędów i bez liczb wpisanych ręcznie 0ms
+ ✓ test/build.test.ts > treść projektu > wyłączenie kontroli generatora nie zmienia wyniku kompilacji (tylko pomija kontrolę) 918ms
+ ✓ test/build.test.ts > treść projektu > jest deterministyczna (ten sam hash) 1879ms
+ ✓ test/build.test.ts > treść projektu > kontrola generatora mieści się w budżecie czasu na szablon 1ms
+ ✓ test/build.test.ts > treść projektu > budżet czasu wykrywa spowolniony szablon 0ms
+      Tests  42 passed (42)
