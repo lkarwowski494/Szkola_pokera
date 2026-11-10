@@ -1,0 +1,73 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Vor der {{t:bet|Bet}} deines Gegners liegen {{n:exam.m2.half.pot}} {{t:chips|Chips}} im {{t:pot|Pot}}. Dein Gegner {{t:bet|setzt}} {{n:exam.m2.half.bet}}. Welche Chance, den {{t:pot|Pot}} zu gewinnen ({{t:equity|Equity}}), brauchst du mindestens, um zu {{t:call|callen}}?",
+  "uwaga": "„damit du callen kannst” suggeriert, dass Callen sonst nicht erlaubt ist (callen kann man immer); „brauchst du mindestens, um zu callen” trifft pl „potrzebujesz co najmniej, żeby sprawdzić”. Reszta bez zmian."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Am Tisch sitzen sechs Spieler, die Karten wurden gerade ausgeteilt. Du entscheidest als Erster: Vor dir war noch niemand an der Reihe. Was tust du?",
+  "uwaga": "„vor dir hat noch niemand gespielt” klingt unnatürlich (spielen = eine Hand spielen); „war noch niemand an der Reihe” ist für Anfänger klar. Sens bez zmian."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl (limp = samo sprawdzenie BB); klucze zgodne. Wymaga zgodnej zmiany tekstu opcji 2 (nowa pozycja niżej)."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Der {{t:cutoff|CO}} hat mit einem {{t:raise|Raise}} auf {{n:pf.open-size}} {{t:open|eröffnet}}, der Button hat {{t:fold|gefoldet}}. Du sitzt im {{t:small-blind|Small Blind}} und willst noch einmal {{t:raise|erhöhen}} (eine {{t:3-bet|3-Bet}}). Auf wie viel {{t:raise|raist}} du?",
+  "uwaga": "Tekst dobry; „erhöhen” oznaczone jako raise (pl oznacza trzy formy przebicia; „erhöhen” w de m1 już jest {{t:raise|…}}), „eine 3-Bet” (r. f wg terms-nazwy)."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl; naturalne; formy zgodne z terms-nazwy (Big Blind, Gemeinschaftskarten, zwei Paare, Straße)."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Du sitzt im {{t:big-blind|Big Blind}}, es ist der Flop. Vor der {{t:bet|Bet}} liegen {{n:exam.m6.pot}} {{t:chips|Chips}} im {{t:pot|Pot}}. Der Button {{t:bet|setzt}} in einer Hand {{n:exam.m6.bet.quarter}} und in einer anderen {{n:exam.m6.bet.three-quarters}}. Welche Chance, den {{t:pot|Pot}} zu gewinnen ({{t:equity|Equity}}), brauchst du in jeder dieser Hände mindestens, um zu {{t:call|callen}}?",
+  "uwaga": "Jak m2.q5: „damit du callen kannst” → „um zu callen”. Reszta bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "River, die letzte {{t:betting-round|Setzrunde}}. Dein Gegner {{t:check|checkt}}. Nimm an, dass er auf deine {{t:bet|Bet}} nur noch {{t:call|callen}} oder {{t:fold|folden}} kann. In seiner {{t:range|Range}} (den Händen, die er haben könnte) sind {{n:exam.m8.range.worse}} Hände, die schlechter sind als deine, aber nur {{n:exam.m8.call.worse}} davon {{t:call|callen}} deine {{t:bet|Bet}}. Außerdem wird sie von {{n:exam.m8.call.better}} Händen {{t:call|gecallt}}, die besser sind als deine. {{t:bet|Bettest}} du?",
+  "uwaga": "„die er haben kann” → „haben könnte” (naturalniej); „Außerdem callen 4 Hände” bez dopełnienia — teraz jasno, że chodzi o twoją Bet; dodane znaczniki bet/call jak w pl (4× bet, 3× call)."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:0.text",
+  "werdykt": "POPRAWKA",
+  "stare": "{{t:raise|Raisen}}",
+  "nowe_ostateczne": "Den {{t:big-blind|Big Blind}} {{t:raise|raisen}}",
+  "uwaga": "NOWE (autor nie zmienił). Ten sam problem co pl (WYSOKA: „Przebijam” bez przedmiotu — nie ma czego przebijać); pl: „Przebijam duży blind”."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "POPRAWKA",
+  "stare": "Den {{t:big-blind|Big Blind}} bezahlen",
+  "nowe_ostateczne": "Den {{t:big-blind|Big Blind}} {{t:call|callen}}",
+  "uwaga": "NOWE (autor nie zmienił). pl: {{t:call|Sprawdzam}} duży blind. „bezahlen” nie łączy się z nowym wyjaśnieniem („Nur den Big Blind zu callen ist ein Limp”); brak znacznika call."
+ },
+ {
+  "id": "m1.exam.q2",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "stare": "Ein Gegner vor dir hat {{t:bet|gesetzt}}. Welchen Zug kannst du jetzt nicht machen?",
+  "nowe_ostateczne": "Dein Gegner hat {{t:bet|gesetzt}}, und jetzt bist du dran. Welchen dieser Züge kannst du nicht machen?",
+  "uwaga": "NOWE (autor nie zmienił). Ten sam problem co pl (przegląd: „przed tobą” — czas czy miejsce, ŚREDNIA): „Ein Gegner vor dir” jest tak samo dwuznaczne (vor dir = siedzi przed tobą?). Brzmienie jak nowy pl („i teraz twoja kolej”, „z tych ruchów”)."
+ }
+]

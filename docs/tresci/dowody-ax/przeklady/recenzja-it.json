@@ -1,0 +1,65 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Prima della {{t:bet|puntata}} dell'avversario, nel {{t:pot|piatto}} ci sono {{n:exam.m2.half.pot}} {{t:chips|fiches}}. L'avversario {{t:bet|punta}} {{n:exam.m2.half.bet}}. Qual è la probabilità minima di vincere il {{t:pot|piatto}} ({{t:equity|equity}}) che ti serve per {{t:call|chiamare}}?",
+  "uwaga": "Sens poprawny; „Di quale probabilità minima … hai bisogno” jest sztywne — „Qual è la probabilità minima … che ti serve” brzmi naturalnie."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Al tavolo siete in sei e le carte sono appena state distribuite. Decidi per primo: prima di te nessuno ha ancora fatto una mossa. Cosa fai?",
+  "uwaga": "„nessuno ha ancora giocato” sugeruje rozegranie ręki; „fatto una mossa” jasne dla początkującego. Sens bez zmian."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl; klucze zgodne. Wymaga zgodnej zmiany tekstu opcji 2 („Pago” → „Chiamo”, nowa pozycja niżej)."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Il {{t:cutoff|CO}} ha {{t:open|aperto}} {{t:raise|rilanciando}} a {{n:pf.open-size}}, il Button ha {{t:fold|foldato}}. Sei in {{t:small-blind|small blind}} e vuoi {{t:raise|rilanciare}} di nuovo ({{t:3-bet|3-bet}}). A quanto {{t:raise|rilanci}}?",
+  "uwaga": "Tekst dobry; dodane znaczniki raise przy „rilanciando” i „rilanciare” (pl oznacza wszystkie trzy formy)."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl; naturalne; formy zgodne z terms-nazwy (big blind, carte comuni, doppia coppia, scala)."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Sei in {{t:big-blind|big blind}} e siete al flop. Prima della {{t:bet|puntata}}, nel {{t:pot|piatto}} ci sono {{n:exam.m6.pot}} {{t:chips|fiches}}. Il Button {{t:bet|punta}} {{n:exam.m6.bet.quarter}} in una mano e {{n:exam.m6.bet.three-quarters}} in un'altra. In ciascuna di queste mani, qual è la probabilità minima di vincere il {{t:pot|piatto}} ({{t:equity|equity}}) che ti serve per {{t:call|chiamare}}?",
+  "uwaga": "„ed è il flop” → „e siete al flop” (naturalniej); pytanie jak w m2.q5. Sens i liczby bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "River, l'ultimo {{t:betting-round|giro di puntate}}. L'avversario {{t:check|fa check}}. Supponi che sulla tua {{t:bet|puntata}} possa solo {{t:call|chiamare}} o {{t:fold|foldare}}. Nel suo {{t:range|range}} (le mani che potrebbe avere) ci sono {{n:exam.m8.range.worse}} mani peggiori della tua, ma solo {{n:exam.m8.call.worse}} di queste {{t:call|chiameranno}} la tua {{t:bet|puntata}}. La {{t:call|chiameranno}} anche {{n:exam.m8.call.better}} mani migliori della tua. {{t:bet|Punti}}?",
+  "uwaga": "„contro la tua puntata” → „sulla tua puntata” (idiomatycznie), „può avere” → „potrebbe avere”; dodane znaczniki bet/call jak w pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:0.text",
+  "werdykt": "POPRAWKA",
+  "stare": "{{t:raise|Rilancio}}",
+  "nowe_ostateczne": "{{t:raise|Rilancio}} sul {{t:big-blind|big blind}}",
+  "uwaga": "NOWE (autor nie zmienił). Ten sam problem co pl (WYSOKA: „Przebijam” — nie ma czego przebijać); pl: „Przebijam duży blind”."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "POPRAWKA",
+  "stare": "Pago il {{t:big-blind|big blind}}",
+  "nowe_ostateczne": "{{t:call|Chiamo}} il {{t:big-blind|big blind}}",
+  "uwaga": "NOWE (autor nie zmienił). pl: {{t:call|Sprawdzam}} duży blind; „Pago” nie łączy się z nowym wyjaśnieniem („Limitarsi a chiamare il big blind è un limp”); forma „Chiamo” z terms-nazwy."
+ }
+]

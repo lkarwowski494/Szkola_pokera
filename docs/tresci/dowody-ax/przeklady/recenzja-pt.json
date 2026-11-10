@@ -1,0 +1,66 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Sens nowego pl; pt-PT, rejestr formalny (3. os.); klucze = pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„Estão seis jogadores à mesa… antes de si, ainda ninguém jogou” — naturalne pt-PT, zgodne z pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„Pago o big blind” — call nazwany; klucze = pl. Zmiana tylko w bloku q2."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Limp objaśniony; klucze = pl; pt-PT („hipótese”, „de imediato”)."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; zbiór kluczy = pl."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; „do que si” pt-PT; klucze = pl."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; klucze = pl; n: bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "River, a última {{t:betting-round|ronda de apostas}}. O adversário {{t:check|passa}}. Suponha que, perante a sua {{t:bet|aposta}}, ele só possa {{t:call|pagar}} ou {{t:fold|desistir}}. No {{t:range|range}} dele (as mãos que pode ter) há {{n:exam.m8.range.worse}} mãos piores do que a sua, mas apenas {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Também vão pagá-la {{n:exam.m8.call.better}} mãos melhores do que a sua. Aposta?",
+  "uwaga": "Jedyna zmiana: „só pode” → „só possa” — „Suponha que” przy hipotezie wymaga conjuntivo w rejestrze formalnym pt-PT (pt-BR ma już „possa”). Reszta jak u autora: sens, klucze i n: = pl."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "option:0.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„Certo:” zamiast „Sim:” przy poprawnej odpowiedzi „Não” — jak „Dobrze:” w pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:0.text",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "{{t:raise|Aumento}} o {{t:big-blind|big blind}}",
+  "uwaga": "Nowe pole (autor go pominął): w nowym pl opcja poprawna ma te same klucze co opcja 2 ({{t:raise}} + {{t:big-blind}}: „Przebijam duży blind” / „Sprawdzam duży blind”). Bez dopełnienia krótsza poprawna opcja odstaje od dłuższego dystraktora i klucze pola rozjeżdżają się z pl. W zestawieniu z opcją 2 dopełnienie czyta się jednoznacznie jako ruch, nie zmiana stawki blindów.",
+  "stare": "{{t:raise|Aumento}}",
+  "plik": "content/pt/exams/m3.yaml"
+ }
+]

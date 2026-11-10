@@ -1,0 +1,58 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Sens nowego pl; klucze = pl (forma equity „équité” = terms-nazwy); spacja nierozdzielająca przed ? obecna (U+00A0)."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; U+00A0 przed : i ?. „personne n'a encore joué” zrozumiałe dla początkującego."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "Je {{t:call|paie}} la {{t:big-blind|grosse blinde}}",
+  "uwaga": "„Je suis la grosse blinde” czyta się najpierw jako „jestem dużym blindem” (être), zwłaszcza że pozycję w tym kursie opisuje „être à la grosse blinde”; dwuznaczność w opcji testowej. „payer la grosse blinde” to standardowy fr opis limpu, forma „payer” dla call już używana (m5: {{t:call|payé}}). Klucze call,big-blind = pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "En premier, vous {{t:raise|relancez}} ou vous {{t:fold|vous couchez}}. Se contenter de {{t:call|payer}} la {{t:big-blind|grosse blinde}}, c'est faire un {{t:limp|limp}} : vous cédez l'{{t:initiative}} et la chance de remporter les blindes tout de suite.",
+  "uwaga": "Spójność z poprawioną opcją 2 („payer”, nie „suivre”); „Se contenter de…, c'est…” zamiast „Vous contenter de…” (bezokolicznik w funkcji podmiotu brzmi naturalniej w formie zwrotnej ogólnej). U+00A0 przed : zachowana. Klucze raise,fold,call,big-blind,limp,initiative = pl."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„a ouvert en relançant à …”, „relancer une nouvelle fois (3-bet)”, „À combien relancez-vous ?” — naturalne, klucze = pl, U+00A0 przed ?."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; „le joueur en grosse blinde” naturalne w fr pokerowym (gdzie indziej „à la grosse blinde”, oba poprawne). Klucze = pl."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; klucze = pl; n: bez zmian; U+00A0 przed ?."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„Supposez que … il ne puisse que …” poprawny subjonctif; „tour d'enchères” = terms-nazwy; „4 mains meilleures” jednoznaczne. Klucze = pl."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "option:0.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„Exact :” zamiast „Oui :” przy poprawnej odpowiedzi „Non” — jak „Dobrze:” w pl; U+00A0 zachowana."
+ }
+]

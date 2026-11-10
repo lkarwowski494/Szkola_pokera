@@ -1,0 +1,70 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl (pula przed zakładem, żetony, equity opisane jako szansa na wygranie puli); naturalne; klucze t/n zgodne z pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "There are six players at the table, and the cards have just been dealt. You're the first to decide: no one has made a move yet. What do you do?",
+  "uwaga": "„nobody before you has played yet” brzmi nienaturalnie i „played” sugeruje rozegranie ręki; „made a move” jest jasne dla początkującego. Sens bez zmian."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "When you're the first to decide, you {{t:raise}} or {{t:fold}}. Just {{t:call|calling}} the {{t:big-blind|big blind}} is a {{t:limp}}: it gives up the {{t:initiative}} and the chance to win the blinds right away.",
+  "uwaga": "Brakował klucz call (pl: {{t:call|sprawdzenie}}); „first in” to żargon, ujednolicone z nowym pytaniem („first to decide”)."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "The {{t:cutoff|CO}} {{t:open|opened}} by {{t:raise|raising}} to {{n:pf.open-size}}, and the Button {{t:fold|folded}}. You're in the {{t:small-blind}} and want to {{t:raise}} again (a {{t:3-bet|3-bet}}). How much do you {{t:raise}} to?",
+  "uwaga": "Tekst dobry; dodane znaczniki raise przy „raising” i „raise again” (pl oznacza wszystkie trzy formy przebicia)."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl (gracz na big blindzie, flop = trzy pierwsze karty wspólne); naturalne; klucze zgodne."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl (pozycja BB, pula przed zakładem, opis equity); naturalne; klucze i liczby zgodne."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "River, the last {{t:betting-round|betting round}}. Your opponent {{t:check|checks}}. Assume that if you {{t:bet}}, they can only {{t:call}} or {{t:fold}}. Their {{t:range}} (the hands they could have) contains {{n:exam.m8.range.worse}} hands worse than yours, but only {{n:exam.m8.call.worse}} of them will {{t:call}} your {{t:bet}}. Your {{t:bet}} will also be {{t:call|called}} by {{n:exam.m8.call.better}} hands better than yours. Do you {{t:bet}}?",
+  "uwaga": "Propozycja zaczynała zdanie od liczby („4 hands better…”) i miała niezręczne „against your bet”; brakowało znaczników bet/call przy „your bet”, „call it”, „Do you bet” (pl oznacza 4× bet, 3× call). Sens i liczby bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "option:0.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„Yes:” przy poprawnej odpowiedzi „No” mylił; „Right:” jak pl „Dobrze:”."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:0.text",
+  "werdykt": "POPRAWKA",
+  "stare": "{{t:raise|Raise}}",
+  "nowe_ostateczne": "{{t:raise|Raise}} the {{t:big-blind|big blind}}",
+  "uwaga": "NOWE (autor nie zmienił). Ten sam problem co pl (przegląd początkującego, WYSOKA: „Przebijam” — nie ma czego przebijać; pl zmienione na „Przebijam duży blind”). Gołe „Raise” obok „Call the big blind” jest asymetryczne."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "POPRAWKA",
+  "stare": "Call the {{t:big-blind|big blind}}",
+  "nowe_ostateczne": "{{t:call|Call}} the {{t:big-blind|big blind}}",
+  "uwaga": "NOWE (autor nie zmienił). pl: {{t:call|Sprawdzam}} {{t:big-blind|duży blind}} — w en brak znacznika call; tekst bez zmian."
+ }
+]

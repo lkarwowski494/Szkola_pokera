@@ -1,0 +1,59 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Sens nowego pl (pula przed zakładem, żetony, equity jako szansa na wygranie puli), bez podpowiedzi. Klucze t: bet,pot,chips,bet,pot,equity,call = pl; n: bez zmian. Naturalne."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał — zgodne z pl, bez żargonu. „Hay seis jugadores” neutralne dla es-ES i es-419."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Call dużego blinda nazwany wprost; klucze call,big-blind = pl. Zmiana tylko w bloku q2 (ten sam tekst w q5/q6)."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Limp objaśniony jako samo sprawdzenie dużego blinda; klucze raise,fold,call,big-blind,limp,initiative = pl."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Otwarcie jako przebicie do X, 3-bet jako ponowne przebicie, pytanie o rozmiar. Zbiór kluczy = pl (raise oznaczony raz, pl trzykrotnie — dopuszczalne). „el Button” jak dotychczas w tym pliku."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Gracz na dużym blindzie i flop objaśniony; klucze open,big-blind,call,community-cards,two-pair,straight = pl; formy zgodne z terms-nazwy."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Pozycja (duży blind), pula przed zakładem w żetonach, opis equity; klucze = pl; n: bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Założenie call/fold, zakres objaśniony, „4 manos mejores” jednoznaczne; zbiór kluczy (betting-round,check,bet,call,fold,range) = pl; usunięty raise jak w pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:0.text",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "{{t:raise|Subo}} la {{t:big-blind|ciega grande}}",
+  "uwaga": "Nowe pole (autor go pominął): w nowym pl opcja poprawna ma te same klucze co opcja 2 ({{t:raise}} + {{t:big-blind}}: „Przebijam duży blind” / „Sprawdzam duży blind”). Bez dopełnienia krótsza poprawna opcja odstaje od dłuższego dystraktora i klucze pola rozjeżdżają się z pl. W zestawieniu z opcją 2 dopełnienie czyta się jednoznacznie jako ruch, nie zmiana stawki blindów.",
+  "stare": "{{t:raise|Subo}}",
+  "plik": "content/es/exams/m3.yaml"
+ }
+]

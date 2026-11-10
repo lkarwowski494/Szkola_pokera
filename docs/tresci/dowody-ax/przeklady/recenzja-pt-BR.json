@@ -1,0 +1,62 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Sens nowego pl; naturalne pt-BR („De qual chance mínima… você precisa”); klucze = pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; szyk „ninguém jogou antes de você ainda” potoczny, ale poprawny w pt-BR."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Limp objaśniony („dar limp” — naturalne pt-BR); klucze = pl."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; zbiór kluczy = pl."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; klucze = pl."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl; klucze = pl; n: bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl, „Suponha que … ele só possa” poprawne; klucze = pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "{{t:call|Pago}} o {{t:big-blind|big blind}}",
+  "uwaga": "Nowe pole (autor go pominął): w pl opcja 2 ma {{t:call}} + {{t:big-blind}}; w pt-BR brakowało tagu call („Pago o {{t:big-blind}}”), a nowe why tłumaczy limp właśnie przez „pagar o big blind”. Tekst widoczny bez zmian; dodany tylko tag call (i forma big-blind jawnie, jak w pt).",
+  "stare": "Pago o {{t:big-blind}}",
+  "plik": "content/pt-BR/exams/m3.yaml"
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:0.text",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "{{t:raise|Aumento}} o {{t:big-blind|big blind}}",
+  "uwaga": "Nowe pole (autor go pominął): w nowym pl opcja poprawna ma te same klucze co opcja 2 ({{t:raise}} + {{t:big-blind}}: „Przebijam duży blind” / „Sprawdzam duży blind”). Bez dopełnienia krótsza poprawna opcja odstaje od dłuższego dystraktora i klucze pola rozjeżdżają się z pl. W zestawieniu z opcją 2 dopełnienie czyta się jednoznacznie jako ruch, nie zmiana stawki blindów.",
+  "stare": "{{t:raise|Aumento}}",
+  "plik": "content/pt-BR/exams/m3.yaml"
+ }
+]
