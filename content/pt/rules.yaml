@@ -216,7 +216,7 @@
 - id: R-M3-012
   module: m3
   if: "tem uma carta alta com uma segunda carta mais fraca (p. ex. K5 ou A7), e um adversário pode ter a mesma carta alta com um {{t:kicker}} melhor"
-  then: "se ambos fizerem {{t:pair|par}} com essa carta, o adversário com o {{t:kicker}} melhor ganha (a sua mão está dominada); duas cartas altas funcionam ao contrário: um {{t:kicker}} alto bate mãos mais fracas com a mesma carta"
+  then: "se ambos fizerem {{t:pair|par}} com essa carta, o adversário com o {{t:kicker}} melhor ganha (a sua mão está dominada); duas cartas altas funcionam ao contrário: um {{t:kicker}} alto bate mãos mais fracas com a mesma carta (simplificação: deixam-se de fora as cartas da {{t:board|mesa}}, que podem fazer o {{t:kicker}} não contar e o {{t:pot|pote}} ser dividido)"
   because: "com o mesmo {{t:pair|par}} decide o {{t:kicker}}, por isso antes do flop, quando as duas mãos são de naipes diferentes, uma mão dominada ganha menos vezes do que a mão que a domina; uma mão dominada do mesmo naipe (suited) às vezes fica mais ou menos empatada com ela (p. ex., A2s contra A3o); por isso é difícil de jogar (simplificação: a fonte de treino diz isto sobre a defesa contra um 3-bet)"
   level: heuristic
   source: "regras: o kicker decide com o mesmo núcleo de mão (R-M0-002); cálculo: equity da mão dominada abaixo de metade em cada confronto; glossário de póquer (https://www.pokerskill.com/poker-glossary/dominated-hand/); site de treino (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
@@ -1173,7 +1173,7 @@
 - id: R-M11-013
   module: m11
   if: "todos os jogadores no {{t:pot|pote}} estão all-in antes do flop"
-  then: "já não há {{t:bet|apostas}}: a mão decide-se depois das {{t:community-cards}}, e se ninguém tiver {{t:pair|par}} ou melhor, ganha a carta mais alta"
+  then: "já não há {{t:bet|apostas}}: a mão decide-se depois das {{t:community-cards}}, e se ninguém tiver {{t:pair|par}} ou melhor, ganha a carta mais alta (simplificação: se as cinco melhores cartas estiverem todas na {{t:board|mesa}}, {{t:split-pot|o pote é dividido}})"
   because: "sem mais {{t:bet|apostas}} ninguém pode {{t:fold|desistir}}, por isso só conta o ranking das mãos; só com cartas altas decide a mais alta"
   level: rules
   source: "regras do Texas Hold'em: regulamento aprovado pelo regulador da Califórnia (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; regras de torneio da Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), regra 17 Face Up for All-Ins"

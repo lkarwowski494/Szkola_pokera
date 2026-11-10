@@ -216,7 +216,7 @@
 - id: R-M3-012
   module: m3
   if: "you have a high card with a weaker second card (e.g. K5 or A7), and an opponent may hold the same high card with a better {{t:kicker}}"
-  then: "when you both make a {{t:pair}} with that card, the opponent with the better {{t:kicker}} beats you (your hand is dominated); two high cards work the other way: a high {{t:kicker}} beats weaker hands with the same card"
+  then: "when you both make a {{t:pair}} with that card, the opponent with the better {{t:kicker}} beats you (your hand is dominated); two high cards work the other way: a high {{t:kicker}} beats weaker hands with the same card (simplification: this leaves out the {{t:board}} cards, which can make the {{t:kicker}} irrelevant and the {{t:pot}} split)"
   because: "with the same {{t:pair}} the {{t:kicker}} decides, so before the flop, when both hands are offsuit, a dominated hand wins less often than the hand that dominates it; a suited dominated hand can be roughly even with it (e.g. A2s against A3o); this makes such a hand hard to play (simplification: the training source says this about defending against a 3-bet)"
   level: heuristic
   source: "rules: the kicker decides with the same hand core (R-M0-002); calculation: equity of a dominated hand against the same high card with a higher kicker, below one half in every pairing; poker glossary (https://www.pokerskill.com/poker-glossary/dominated-hand/); training site, Facing a 3-Bet (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
@@ -1173,7 +1173,7 @@
 - id: R-M11-013
   module: m11
   if: "all players in the {{t:pot}} are all-in before the flop"
-  then: "there are no more {{t:bet|bets}}: the hand is decided by the made hand once the {{t:community-cards}} are dealt, and if nobody has a {{t:pair}} or better, the higher card wins"
+  then: "there are no more {{t:bet|bets}}: the hand is decided by the made hand once the {{t:community-cards}} are dealt, and if nobody has a {{t:pair}} or better, the higher card wins (simplification: if the best five cards are all on the {{t:board}}, the {{t:split-pot|pot is split}})"
   because: "with no further {{t:bet|bets}} nobody can {{t:fold}} anymore, so only the hand ranking counts; with high cards only, the highest decides"
   level: rules
   source: "Texas Hold'em rules: California-approved card room rules (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: High Card; Poker TDA tournament rules (https://www.pokertda.com/view-poker-tda-rules/), Rule 17 Face Up for All-Ins: “All hands will be tabled without delay once a player is all-in and all betting action by all other players in the hand is complete.”"

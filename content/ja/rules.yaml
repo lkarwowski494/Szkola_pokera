@@ -216,7 +216,7 @@
 - id: R-M3-012
   module: m3
   if: "高いカードと弱い2枚目（例：K5やA7）を持っていて、相手が同じ高いカードとより良い{{t:kicker}}を持っている可能性がある場合"
-  then: "二人ともそのカードで{{t:pair|ペア}}になると、より良い{{t:kicker}}を持つ相手が勝ちます（あなたのハンドはドミネートされています）。高いカード2枚なら逆に、高い{{t:kicker}}が同じカードを持つ弱いハンドに勝ちます"
+  then: "二人ともそのカードで{{t:pair|ペア}}になると、より良い{{t:kicker}}を持つ相手が勝ちます（あなたのハンドはドミネートされています）。高いカード2枚なら逆に、高い{{t:kicker}}が同じカードを持つ弱いハンドに勝ちます（単純化：{{t:board|ボード}}のカードは考慮していません。ボード次第で{{t:kicker}}が関係なくなり、{{t:pot|ポット}}が分割されることもあります）"
   because: "同じ{{t:pair|ペア}}なら{{t:kicker}}で決まるので、フロップ前、両方のハンドが異なるスートなら、ドミネートされたハンドはそれをドミネートするハンドより勝つ回数が少なくなります。ドミネートされたハンドが同じスート（スーテッド）なら、ほぼ互角になることもあります（例：A2s対A3o）。このため、プレイが難しくなります（単純化：トレーニング資料は3ベットへの対応についてこう述べています）"
   level: heuristic
   source: "ルール：同じ役ならキッカーで決まる（R-M0-002）。計算：ドミネートされたハンドのエクイティはどの組み合わせでも半分未満。ポーカー用語集（https://www.pokerskill.com/poker-glossary/dominated-hand/）、トレーニングサイト（https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/）"
@@ -1173,7 +1173,7 @@
 - id: R-M11-013
   module: m11
   if: "{{t:pot|ポット}}にいる全員がフロップ前にオールインしている場合"
-  then: "もう{{t:bet|ベット}}はありません。{{t:community-cards}}が配られた後の役で決まり、誰も{{t:pair|ペア}}以上を持っていなければ高いカードが勝ちます"
+  then: "もう{{t:bet|ベット}}はありません。{{t:community-cards}}が配られた後の役で決まり、誰も{{t:pair|ペア}}以上を持っていなければ高いカードが勝ちます（単純化：最も強い5枚がすべて{{t:board|ボード}}にあれば、{{t:split-pot|スプリットポット}}になります）"
   because: "これ以上{{t:bet|ベット}}がないので誰も{{t:fold|フォールド}}できず、役の順位だけが意味を持ちます。ハイカード同士なら最も高いカードで決まります"
   level: rules
   source: "テキサスホールデムのルール：カリフォルニア州規制当局承認のカードルーム規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf）、High Card；Poker TDA トーナメントルール（https://www.pokertda.com/view-poker-tda-rules/）、ルール17 Face Up for All-Ins"

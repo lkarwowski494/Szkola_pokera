@@ -216,7 +216,7 @@
 - id: R-M3-012
   module: m3
   if: "bạn có một lá cao với lá thứ hai yếu hơn (ví dụ K5 hoặc A7), và đối thủ có thể có cùng lá cao đó với {{t:kicker}} tốt hơn"
-  then: "khi cả hai cùng bắt {{t:pair|đôi}} bằng lá đó, đối thủ có {{t:kicker}} tốt hơn thắng bạn (tay bạn bị áp đảo); hai lá cao thì ngược lại: {{t:kicker}} cao thắng các tay yếu hơn có cùng lá đó"
+  then: "khi cả hai cùng bắt {{t:pair|đôi}} bằng lá đó, đối thủ có {{t:kicker}} tốt hơn thắng bạn (tay bạn bị áp đảo); hai lá cao thì ngược lại: {{t:kicker}} cao thắng các tay yếu hơn có cùng lá đó (đơn giản hóa: bỏ qua các lá trên {{t:board|board}}, vốn có thể khiến {{t:kicker}} không còn tác dụng và {{t:pot|pot}} bị chia)"
   because: "khi cùng {{t:pair|đôi}}, {{t:kicker}} quyết định, nên trước flop, khi cả hai tay đều khác chất, tay bị áp đảo thắng ít hơn tay áp đảo nó; tay bị áp đảo đồng chất (suited) đôi khi gần như ngang ngửa với nó (ví dụ A2s gặp A3o); vì vậy tay này khó chơi (đơn giản hóa: nguồn đào tạo nói điều này về việc phòng thủ trước 3-bet)"
   level: heuristic
   source: "luật: kicker quyết định khi cùng bộ bài (R-M0-002); tính toán: equity của tay bị áp đảo dưới một nửa trong mọi cặp đấu; từ điển poker (https://www.pokerskill.com/poker-glossary/dominated-hand/); trang đào tạo (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
@@ -1173,7 +1173,7 @@
 - id: R-M11-013
   module: m11
   if: "tất cả người chơi trong {{t:pot|pot}} đều all-in trước flop"
-  then: "không còn {{t:bet|cược}} nữa: ván bài được quyết định sau khi chia {{t:community-cards}}, và nếu không ai có {{t:pair|đôi}} trở lên, lá cao hơn thắng"
+  then: "không còn {{t:bet|cược}} nữa: ván bài được quyết định sau khi chia {{t:community-cards}}, và nếu không ai có {{t:pair|đôi}} trở lên, lá cao hơn thắng (đơn giản hóa: nếu năm lá tốt nhất đều nằm trên {{t:board|board}}, thì {{t:split-pot|chia pot}})"
   because: "không còn {{t:bet|cược}} nên không ai có thể {{t:fold|bỏ bài}}, chỉ thứ hạng bài còn quan trọng; nếu chỉ có lá cao thì lá cao nhất quyết định"
   level: rules
   source: "luật Texas Hold'em: quy định phòng bài được cơ quan quản lý California phê duyệt (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; luật giải đấu Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), luật 17 Face Up for All-Ins"

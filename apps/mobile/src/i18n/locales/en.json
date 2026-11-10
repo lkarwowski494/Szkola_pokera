@@ -725,12 +725,12 @@
       },
       "hand": {
         "pair": "You have a {{t:pair}}, a made hand before the flop: a hand without a {{t:pair}} needs help from the {{t:community-cards}} to beat it.",
-        "high": "Both cards are high: when you hit a {{t:pair}}, it is a high one, and your other card is a high {{t:kicker}} that beats weaker hands with the same card.",
+        "high": "Both cards are high: when you hit a {{t:pair}}, it is a high one, and your other card is a high {{t:kicker}} that usually beats weaker hands with the same card.",
         "suited": "Your cards are suited: that is an extra way to win with a {{t:flush}}.",
         "connected_one": "Your cards are close together: they can make a {{t:straight}} together in {{count}} way.",
         "connected_other": "Your cards are close together: they can make a {{t:straight}} together in {{count}} ways.",
-        "highAllIn": "In an all-in there are no more {{t:bet|bets}} after the flop: if nobody has a {{t:pair}} or better, the higher card wins, and your higher card is {{rank}}.",
-        "dominated": "When you make a {{t:pair}} with your higher card ({{rank}}), an opponent with the same card and a better {{t:kicker}} beats you: this hand is dominated.",
+        "highAllIn": "In an all-in there are no more {{t:bet|bets}} after the flop: if nobody has a {{t:pair}} or better, the higher card usually wins, and your higher card is {{rank}}.",
+        "dominated": "When you make a {{t:pair}} with your higher card ({{rank}}), an opponent with the same card and a better {{t:kicker}} usually beats you: this hand is dominated.",
         "overcards": "Both cards are low: in {{pct}} of flops ({{often}}) at least one card higher than both of yours comes, and an opponent who pairs it has a higher {{t:pair}} than any pair from your cards.",
         "overcardsPair": "Your {{t:pair}} is low: in {{pct}} of flops ({{often}}) at least one higher card comes, and an opponent who pairs it has a higher {{t:pair}}."
       },

@@ -738,13 +738,13 @@
       },
       "hand": {
         "pair": "Tem um {{t:pair|par}}, uma mão já feita antes do flop: uma mão sem {{t:pair|par}} precisa da ajuda das {{t:community-cards}} para o bater.",
-        "high": "As duas cartas são altas: se fizer {{t:pair|par}}, será alto, e a outra carta é um {{t:kicker}} alto que bate mãos mais fracas com a mesma carta.",
+        "high": "As duas cartas são altas: se fizer {{t:pair|par}}, será alto, e a outra carta é um {{t:kicker}} alto que normalmente bate mãos mais fracas com a mesma carta.",
         "suited": "As suas cartas são do mesmo naipe: é um caminho extra para ganhar com um {{t:flush|flush}}.",
         "connected_one": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneira.",
         "connected_many": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneiras.",
         "connected_other": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneiras.",
-        "highAllIn": "Num all-in já não há {{t:bet|apostas}} depois do flop: se ninguém tiver {{t:pair|par}} ou melhor, ganha a carta mais alta, e a sua carta mais alta é {{rank}}.",
-        "dominated": "Se fizer {{t:pair|par}} com a sua carta mais alta ({{rank}}), um adversário com a mesma carta e um {{t:kicker}} melhor ganha-lhe: é uma mão dominada.",
+        "highAllIn": "Num all-in já não há {{t:bet|apostas}} depois do flop: se ninguém tiver {{t:pair|par}} ou melhor, normalmente ganha a carta mais alta, e a sua carta mais alta é {{rank}}.",
+        "dominated": "Se fizer {{t:pair|par}} com a sua carta mais alta ({{rank}}), um adversário com a mesma carta e um {{t:kicker}} melhor normalmente ganha-lhe: é uma mão dominada.",
         "overcards": "As duas cartas são baixas: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta do que as suas, e o adversário que a acertar tem um {{t:pair|par}} mais alto do que qualquer par com as suas cartas.",
         "overcardsPair": "O seu {{t:pair|par}} é baixo: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta, e o adversário que a acertar tem um {{t:pair|par}} mais alto."
       },

@@ -216,7 +216,7 @@
 - id: R-M3-012
   module: m3
   if: "hai una carta alta con una seconda carta più debole (es. K5 o A7), e un avversario può avere la stessa carta alta con un {{t:kicker}} migliore"
-  then: "se fate entrambi {{t:pair|coppia}} con quella carta, l'avversario con il {{t:kicker}} migliore ti batte (la tua mano è dominata); due carte alte funzionano al contrario: un {{t:kicker}} alto batte le mani più deboli con la stessa carta"
+  then: "se fate entrambi {{t:pair|coppia}} con quella carta, l'avversario con il {{t:kicker}} migliore ti batte (la tua mano è dominata); due carte alte funzionano al contrario: un {{t:kicker}} alto batte le mani più deboli con la stessa carta (semplificazione: si tralasciano le carte del {{t:board|board}}, per cui il {{t:kicker}} può non contare e il {{t:pot|piatto}} viene diviso)"
   because: "con la stessa {{t:pair|coppia}} decide il {{t:kicker}}, quindi prima del flop, quando entrambe le mani sono di semi diversi, una mano dominata vince meno spesso della mano che la domina; una mano dominata dello stesso seme (suited) a volte è più o meno alla pari con essa (ad es. A2s contro A3o); per questo è difficile da giocare (semplificazione: la fonte formativa lo dice sulla difesa contro un 3-bet)"
   level: heuristic
   source: "regole: il kicker decide a parità di nucleo della mano (R-M0-002); calcolo: equity della mano dominata sotto la metà in ogni accoppiamento; glossario di poker (https://www.pokerskill.com/poker-glossary/dominated-hand/); sito di formazione (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
@@ -1173,7 +1173,7 @@
 - id: R-M11-013
   module: m11
   if: "tutti i giocatori nel {{t:pot|piatto}} sono all-in prima del flop"
-  then: "non ci sono più {{t:bet|puntate}}: la mano si decide dopo le {{t:community-cards}}, e se nessuno ha {{t:pair|coppia}} o meglio, vince la carta più alta"
+  then: "non ci sono più {{t:bet|puntate}}: la mano si decide dopo le {{t:community-cards}}, e se nessuno ha {{t:pair|coppia}} o meglio, vince la carta più alta (semplificazione: se le cinque carte migliori sono tutte sul {{t:board|board}}, il {{t:split-pot|piatto viene diviso}})"
   because: "senza altre {{t:bet|puntate}} nessuno può più {{t:fold|foldare}}, quindi conta solo la classifica delle mani; con sole carte alte decide la più alta"
   level: rules
   source: "regole del Texas Hold'em: regolamento approvato dal regolatore californiano (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; regole dei tornei Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), regola 17 Face Up for All-Ins"

@@ -216,7 +216,7 @@
 - id: R-M3-012
   module: m3
   if: "du hast eine hohe Karte mit einer schwächeren zweiten Karte (z. B. K5 oder A7), und ein Gegner kann dieselbe hohe Karte mit einem besseren {{t:kicker}} haben"
-  then: "wenn ihr beide mit dieser Karte ein {{t:pair|Paar}} trefft, schlägt dich der Gegner mit dem besseren {{t:kicker}} (deine Hand ist dominiert); zwei hohe Karten wirken umgekehrt: ein hoher {{t:kicker}} schlägt schwächere Hände mit derselben Karte"
+  then: "wenn ihr beide mit dieser Karte ein {{t:pair|Paar}} trefft, schlägt dich der Gegner mit dem besseren {{t:kicker}} (deine Hand ist dominiert); zwei hohe Karten wirken umgekehrt: ein hoher {{t:kicker}} schlägt schwächere Hände mit derselben Karte (Vereinfachung: die Karten auf dem {{t:board|Board}} bleiben außen vor; durch sie kann der {{t:kicker}} keine Rolle spielen und der {{t:pot|Pot}} geteilt werden)"
   because: "beim selben {{t:pair|Paar}} entscheidet der {{t:kicker}}, also gewinnt eine dominierte Hand vor dem Flop, wenn beide Hände verschiedenfarbig sind, seltener als die Hand, die sie dominiert; eine gleichfarbige (suited) dominierte Hand liegt mit ihr manchmal etwa gleichauf (z. B. A2s gegen A3o); deshalb ist sie schwer zu spielen (Vereinfachung: die Trainingsquelle sagt das über die Verteidigung gegen eine 3-Bet)"
   level: heuristic
   source: "Regeln: der Kicker entscheidet beim selben Kern der Hand (R-M0-002); Berechnung: Equity der dominierten Hand unter einhalb in jeder Paarung; Poker-Glossar (https://www.pokerskill.com/poker-glossary/dominated-hand/); Trainingsseite (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
@@ -1173,7 +1173,7 @@
 - id: R-M11-013
   module: m11
   if: "alle Spieler im {{t:pot|Pot}} sind vor dem Flop all-in"
-  then: "es gibt keine {{t:bet|Einsätze}} mehr: die Hand entscheidet sich nach dem Austeilen der {{t:community-cards}}, und hat niemand ein {{t:pair|Paar}} oder Besseres, gewinnt die höhere Karte"
+  then: "es gibt keine {{t:bet|Einsätze}} mehr: die Hand entscheidet sich nach dem Austeilen der {{t:community-cards}}, und hat niemand ein {{t:pair|Paar}} oder Besseres, gewinnt die höhere Karte (Vereinfachung: liegen die besten fünf Karten alle auf dem {{t:board|Board}}, gibt es einen {{t:split-pot|Split Pot}})"
   because: "ohne weitere {{t:bet|Einsätze}} kann niemand mehr {{t:fold|folden}}, also zählt nur die Rangfolge der Hände; bei reinen hohen Karten entscheidet die höchste"
   level: rules
   source: "Texas-Hold'em-Regeln: vom kalifornischen Regulator genehmigte Kartenraumregeln (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; Turnierregeln der Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), Regel 17 Face Up for All-Ins"

@@ -738,13 +738,13 @@
       },
       "hand": {
         "pair": "Vous avez une {{t:pair|paire}}, une main déjà faite avant le flop : une main sans {{t:pair|paire}} a besoin des {{t:community-cards}} pour la battre.",
-        "high": "Les deux cartes sont hautes : si vous touchez une {{t:pair|paire}}, elle sera haute, et votre autre carte est un {{t:kicker}} élevé qui bat les mains plus faibles avec la même carte.",
+        "high": "Les deux cartes sont hautes : si vous touchez une {{t:pair|paire}}, elle sera haute, et votre autre carte est un {{t:kicker}} élevé qui bat généralement les mains plus faibles avec la même carte.",
         "suited": "Vos cartes sont de la même couleur : c'est une façon de plus de gagner avec une {{t:flush|couleur}}.",
         "connected_one": "Vos cartes sont proches l'une de l'autre : ensemble, elles peuvent former une {{t:straight|quinte}} de {{count}} façon.",
         "connected_many": "Vos cartes sont proches l'une de l'autre : ensemble, elles peuvent former une {{t:straight|quinte}} de {{count}} façons.",
         "connected_other": "Vos cartes sont proches l'une de l'autre : ensemble, elles peuvent former une {{t:straight|quinte}} de {{count}} façons.",
-        "highAllIn": "À tapis, il n'y a plus de {{t:bet|mises}} après le flop : si personne n'a de {{t:pair|paire}} ou mieux, la carte la plus haute gagne, et votre carte la plus haute est {{rank}}.",
-        "dominated": "Si vous touchez une {{t:pair|paire}} avec votre carte la plus haute ({{rank}}), un adversaire avec la même carte et un meilleur {{t:kicker}} vous bat : c'est une main dominée.",
+        "highAllIn": "À tapis, il n'y a plus de {{t:bet|mises}} après le flop : si personne n'a de {{t:pair|paire}} ou mieux, la carte la plus haute gagne généralement, et votre carte la plus haute est {{rank}}.",
+        "dominated": "Si vous touchez une {{t:pair|paire}} avec votre carte la plus haute ({{rank}}), un adversaire avec la même carte et un meilleur {{t:kicker}} vous bat généralement : c'est une main dominée.",
         "overcards": "Les deux cartes sont basses : sur {{pct}} des flops ({{often}}), au moins une carte plus haute que les vôtres tombe, et l'adversaire qui la touche a une {{t:pair|paire}} plus haute que toute paire faite avec vos cartes.",
         "overcardsPair": "Votre {{t:pair|paire}} est basse : sur {{pct}} des flops ({{often}}), au moins une carte plus haute tombe, et l'adversaire qui la touche a une {{t:pair|paire}} plus haute."
       },

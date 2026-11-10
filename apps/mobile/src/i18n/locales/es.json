@@ -738,13 +738,13 @@
       },
       "hand": {
         "pair": "Tienes una {{t:pair|pareja}}, una mano hecha ya antes del flop: una mano sin {{t:pair|pareja}} necesita ayuda de las {{t:community-cards}} para ganarle.",
-        "high": "Las dos cartas son altas: si ligas {{t:pair|pareja}}, será alta, y tu otra carta es un {{t:kicker}} alto que gana a las manos más débiles con la misma carta.",
+        "high": "Las dos cartas son altas: si ligas {{t:pair|pareja}}, será alta, y tu otra carta es un {{t:kicker}} alto que normalmente gana a las manos más débiles con la misma carta.",
         "suited": "Tus cartas son del mismo palo: es una vía extra para ganar con {{t:flush|color}}.",
         "connected_one": "Tus cartas están cerca entre sí: juntas pueden formar {{t:straight|escalera}} de {{count}} manera.",
         "connected_many": "Tus cartas están cerca entre sí: juntas pueden formar {{t:straight|escalera}} de {{count}} maneras.",
         "connected_other": "Tus cartas están cerca entre sí: juntas pueden formar {{t:straight|escalera}} de {{count}} maneras.",
-        "highAllIn": "En un all-in ya no hay más {{t:bet|apuestas}} tras el flop: si nadie tiene {{t:pair|pareja}} o algo mejor, gana la carta más alta, y tu carta más alta es {{rank}}.",
-        "dominated": "Si ligas {{t:pair|pareja}} con tu carta más alta ({{rank}}), un rival con la misma carta y mejor {{t:kicker}} te gana: es una mano dominada.",
+        "highAllIn": "En un all-in ya no hay más {{t:bet|apuestas}} tras el flop: si nadie tiene {{t:pair|pareja}} o algo mejor, normalmente gana la carta más alta, y tu carta más alta es {{rank}}.",
+        "dominated": "Si ligas {{t:pair|pareja}} con tu carta más alta ({{rank}}), un rival con la misma carta y mejor {{t:kicker}} normalmente te gana: es una mano dominada.",
         "overcards": "Las dos cartas son bajas: en el {{pct}} de los flops ({{often}}) sale al menos una carta más alta que las tuyas, y el rival que la ligue tendrá una {{t:pair|pareja}} más alta que cualquier pareja con tus cartas.",
         "overcardsPair": "Tu {{t:pair|pareja}} es baja: en el {{pct}} de los flops ({{often}}) sale al menos una carta más alta, y el rival que la ligue tendrá una {{t:pair|pareja}} más alta."
       },

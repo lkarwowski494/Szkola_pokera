@@ -15519,7 +15519,7 @@
   "id": "R-M3-012",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "masz wysoką kartę ze słabszą drugą kartą (np. K5 albo A7), a rywal może mieć tę samą wysoką kartę z lepszym kickerem → gdy obaj traficie parę z tej karty, rywal z lepszym kickerem cię bije (twoja ręka jest zdominowana); dwie wysokie karty działają odwrotnie: wysoki kicker bije słabsze ręce z tą samą kartą, bo przy tej samej parze decyduje kicker, więc przed flopem, gdy obie ręce są w różnych kolorach, ręka zdominowana wygrywa z ręką, która ją dominuje, rzadziej niż ona; ręka zdominowana w kolorze bywa z nią mniej więcej na równi (np. A2s wobec A3o); przez to taką rękę trudno rozgrywać (uproszczenie: źródło szkoleniowe mówi to o obronie przed 3-betem)",
+  "twierdzenie": "masz wysoką kartę ze słabszą drugą kartą (np. K5 albo A7), a rywal może mieć tę samą wysoką kartę z lepszym kickerem → gdy obaj traficie parę z tej karty, rywal z lepszym kickerem cię bije (twoja ręka jest zdominowana); dwie wysokie karty działają odwrotnie: wysoki kicker bije słabsze ręce z tą samą kartą (uproszczenie: pomijamy karty stołu, przez które kicker może nie grać, a pula zostaje podzielona), bo przy tej samej parze decyduje kicker, więc przed flopem, gdy obie ręce są w różnych kolorach, ręka zdominowana wygrywa z ręką, która ją dominuje, rzadziej niż ona; ręka zdominowana w kolorze bywa z nią mniej więcej na równi (np. A2s wobec A3o); przez to taką rękę trudno rozgrywać (uproszczenie: źródło szkoleniowe mówi to o obronie przed 3-betem)",
   "zrodla": [
    {
     "adres": "rachunek: equity ręki zdominowanej (ta sama wysoka karta 10–A, niższy kicker, różne kolory) wobec ręki dominującej, Monte Carlo",
@@ -15551,7 +15551,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": "źródło szkoleniowe mówi o obronie przed 3-betem; aplikacja używa pojęcia dominacji przy otwarciach i push/fold jako powodu słabości ręki poza zakresem solvera (kierunek zgodny z decyzją solvera, szczebel 2); uproszczenie nazwane w because",
+  "uproszczenie": "źródło szkoleniowe mówi o obronie przed 3-betem; aplikacja używa pojęcia dominacji przy otwarciach i push/fold jako powodu słabości ręki poza zakresem solvera (kierunek zgodny z decyzją solvera, szczebel 2); uproszczenie nazwane w because | sesja BQ 06-tresci-005: pominięte karty stołu (porównuje się pięć kart: OAG, High Card; gdy grają karty stołu, pula jest dzielona), uproszczenie nazwane w then; teksty powodów mówią „zwykle”",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -15624,7 +15624,7 @@
   "id": "R-M11-013",
   "rodzaj": "regula",
   "level": "rules",
-  "twierdzenie": "wszyscy gracze w puli są all-in przed flopem → nie ma już zakładów: rozdanie rozstrzyga sam układ po wyłożeniu kart wspólnych, a gdy nikt nie ma pary ani lepszego układu, wygrywa wyższa karta, bo bez dalszych zakładów nikt nie może już spasować, więc liczy się tylko ranking układów; przy samych wysokich kartach decyduje najwyższa",
+  "twierdzenie": "wszyscy gracze w puli są all-in przed flopem → nie ma już zakładów: rozdanie rozstrzyga sam układ po wyłożeniu kart wspólnych, a gdy nikt nie ma pary ani lepszego układu, wygrywa wyższa karta (uproszczenie: gdy najlepsze pięć kart leży na stole, pula jest dzielona), bo bez dalszych zakładów nikt nie może już spasować, więc liczy się tylko ranking układów; przy samych wysokich kartach decyduje najwyższa",
   "zrodla": [
    {
     "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
@@ -15642,7 +15642,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "sesja BQ 06-tresci-005: pominięte karty stołu (porównuje się pięć kart: OAG, High Card; gdy grają karty stołu, pula jest dzielona), uproszczenie nazwane w then; teksty powodów mówią „zwykle”",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,

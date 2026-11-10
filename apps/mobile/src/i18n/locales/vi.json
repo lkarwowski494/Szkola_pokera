@@ -712,11 +712,11 @@
       },
       "hand": {
         "pair": "Bạn có một {{t:pair|đôi}}, tức là bài đã thành ngay trước flop: tay không có {{t:pair|đôi}} cần {{t:community-cards}} giúp mới thắng được.",
-        "high": "Cả hai lá đều cao: khi bạn bắt được {{t:pair|đôi}}, đó sẽ là đôi cao, và lá còn lại là {{t:kicker}} cao, thắng các tay yếu hơn có cùng lá đó.",
+        "high": "Cả hai lá đều cao: khi bạn bắt được {{t:pair|đôi}}, đó sẽ là đôi cao, và lá còn lại là {{t:kicker}} cao, thường thắng các tay yếu hơn có cùng lá đó.",
         "suited": "Hai lá của bạn cùng chất: đó là thêm một đường thắng bằng {{t:flush|thùng}}.",
         "connected_other": "Hai lá của bạn gần nhau: chúng có thể cùng tạo {{t:straight|sảnh}} theo {{count}} cách.",
-        "highAllIn": "Khi all-in, sau flop không còn {{t:bet|cược}} nữa: nếu không ai có {{t:pair|đôi}} trở lên, lá cao hơn thắng, và lá cao hơn của bạn là {{rank}}.",
-        "dominated": "Khi bạn bắt {{t:pair|đôi}} bằng lá cao hơn ({{rank}}), đối thủ có cùng lá đó và {{t:kicker}} tốt hơn sẽ thắng bạn: đây là tay bị áp đảo (dominated).",
+        "highAllIn": "Khi all-in, sau flop không còn {{t:bet|cược}} nữa: nếu không ai có {{t:pair|đôi}} trở lên, lá cao hơn thường thắng, và lá cao hơn của bạn là {{rank}}.",
+        "dominated": "Khi bạn bắt {{t:pair|đôi}} bằng lá cao hơn ({{rank}}), đối thủ có cùng lá đó và {{t:kicker}} tốt hơn thường sẽ thắng bạn: đây là tay bị áp đảo (dominated).",
         "overcards": "Cả hai lá đều thấp: ở {{pct}} số flop ({{often}}) có ít nhất một lá cao hơn cả hai lá của bạn, và đối thủ bắt được lá đó có {{t:pair|đôi}} cao hơn mọi đôi từ bài của bạn.",
         "overcardsPair": "{{t:pair|Đôi}} của bạn thấp: ở {{pct}} số flop ({{often}}) có ít nhất một lá cao hơn, và đối thủ bắt được lá đó có {{t:pair|đôi}} cao hơn."
       },

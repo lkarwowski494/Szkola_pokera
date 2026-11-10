@@ -751,14 +751,14 @@
       },
       "hand": {
         "pair": "Masz {{t:pair|parę}}, czyli gotowy układ już przed flopem: ręka bez {{t:pair|pary}}, żeby ją pobić, potrzebuje pomocy {{t:community-cards|kart wspólnych}}.",
-        "high": "Obie karty są wysokie: gdy trafisz {{t:pair|parę}}, będzie wysoka, a druga karta to wysoki {{t:kicker}}, który bije słabsze ręce z tą samą kartą.",
+        "high": "Obie karty są wysokie: gdy trafisz {{t:pair|parę}}, będzie wysoka, a druga karta to wysoki {{t:kicker}}, który zwykle bije słabsze ręce z tą samą kartą.",
         "suited": "Karty są w jednym kolorze: to dodatkowa droga do wygranej przez {{t:flush}}.",
         "connected_one": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposób.",
         "connected_few": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposoby.",
         "connected_many": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposobów.",
         "connected_other": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposobu.",
-        "highAllIn": "Przy all-in nie ma już {{t:bet|zakładów}} po flopie: gdy nikt nie ma {{t:pair|pary}} ani lepszego układu, wygrywa wyższa karta, a twoja wyższa karta to {{rank}}.",
-        "dominated": "Gdy trafisz {{t:pair|parę}} z wyższej karty ({{rank}}), rywal z tą samą kartą i lepszym {{t:kicker|kickerem}} cię bije: to ręka zdominowana.",
+        "highAllIn": "Przy all-in nie ma już {{t:bet|zakładów}} po flopie: gdy nikt nie ma {{t:pair|pary}} ani lepszego układu, zwykle wygrywa wyższa karta, a twoja wyższa karta to {{rank}}.",
+        "dominated": "Gdy trafisz {{t:pair|parę}} z wyższej karty ({{rank}}), rywal z tą samą kartą i lepszym {{t:kicker|kickerem}} zwykle cię bije: to ręka zdominowana.",
         "overcards": "Obie karty są niskie: na flopie w {{pct}} przypadków ({{often}}) pada co najmniej jedna karta wyższa od obu twoich, a rywal, który ją trafi, ma {{t:pair|parę}} wyższą niż {{t:pair|para}} z twoich kart.",
         "overcardsPair": "Twoja {{t:pair|para}} jest niska: na flopie w {{pct}} przypadków ({{often}}) pada co najmniej jedna wyższa karta, a rywal, który ją trafi, ma wyższą {{t:pair|parę}}."
       },

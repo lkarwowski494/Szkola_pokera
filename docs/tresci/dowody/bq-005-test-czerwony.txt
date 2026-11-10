@@ -1,0 +1,75 @@
+FAIL src/features/drills/__tests__/bq-uproszczenie-005.test.ts
+  06-tresci-005 (BQ): uproszczenie „karty stołu” nazwane
+    ✕ reguły pl nazywają uproszczenie (3 ms)
+    ✕ R-M11-013 then w każdym języku ma dopisek w nawiasie (wcześniej bez nawiasu) (4 ms)
+    ✕ teksty powodów pl mówią „zwykle” (1 ms)
+
+  ● 06-tresci-005 (BQ): uproszczenie „karty stołu” nazwane › reguły pl nazywają uproszczenie
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "(uproszczenie: pomijamy karty stołu"
+    Received string:    "gdy obaj traficie {{t:pair|parę}} z tej karty, rywal z lepszym {{t:kicker|kickerem}} cię bije (twoja ręka jest zdominowana); dwie wysokie karty działają odwrotnie: wysoki {{t:kicker}} bije słabsze ręce z tą samą kartą"
+
+      19 | describe('06-tresci-005 (BQ): uproszczenie „karty stołu” nazwane', () => {
+      20 |   it('reguły pl nazywają uproszczenie', () => {
+    > 21 |     expect(pole('pl', 'R-M3-012', 'then')).toContain('(uproszczenie: pomijamy karty stołu');
+         |                                            ^
+      22 |     expect(pole('pl', 'R-M11-013', 'then')).toContain('(uproszczenie: gdy najlepsze pięć kart leży na stole, pula jest dzielona)');
+      23 |   });
+      24 |
+
+      at Object.toContain (src/features/drills/__tests__/bq-uproszczenie-005.test.ts:21:44)
+
+  ● 06-tresci-005 (BQ): uproszczenie „karty stołu” nazwane › R-M11-013 then w każdym języku ma dopisek w nawiasie (wcześniej bez nawiasu)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "de",
+    -   true,
+    +   false,
+      ]
+
+      25 |   it('R-M11-013 then w każdym języku ma dopisek w nawiasie (wcześniej bez nawiasu)', () => {
+      26 |     expect(JEZYKI.length).toBe(12);
+    > 27 |     for (const l of JEZYKI) expect([l, /[(（]/.test(pole(l, 'R-M11-013', 'then'))]).toEqual([l, true]);
+         |                                                                                    ^
+      28 |   });
+      29 |
+      30 |   it('teksty powodów pl mówią „zwykle”', () => {
+
+      at Object.toEqual (src/features/drills/__tests__/bq-uproszczenie-005.test.ts:27:84)
+
+  ● 06-tresci-005 (BQ): uproszczenie „karty stołu” nazwane › teksty powodów pl mówią „zwykle”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "high",
+    -   true,
+    +   false,
+      ]
+
+      30 |   it('teksty powodów pl mówią „zwykle”', () => {
+      31 |     const h = pl.drill.range.hand;
+    > 32 |     for (const k of ['high', 'dominated', 'highAllIn'] as const) expect([k, h[k].includes('zwykle')]).toEqual([k, true]);
+         |                                                                                                       ^
+      33 |   });
+      34 | });
+      35 |
+
+      at Object.toEqual (src/features/drills/__tests__/bq-uproszczenie-005.test.ts:32:103)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        0.815 s
+Ran all test suites matching /src\/features\/drills\/__tests__\/bq-uproszczenie-005.test.ts/i.
+kod 1

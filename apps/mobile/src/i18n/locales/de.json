@@ -725,12 +725,12 @@
       },
       "hand": {
         "pair": "Du hast ein {{t:pair|Paar}}, also schon vor dem Flop eine fertige Hand: Eine Hand ohne {{t:pair|Paar}} braucht die {{t:community-cards}}, um es zu schlagen.",
-        "high": "Beide Karten sind hoch: Triffst du ein {{t:pair|Paar}}, ist es hoch, und deine andere Karte ist ein hoher {{t:kicker}}, der schwächere Hände mit derselben Karte schlägt.",
+        "high": "Beide Karten sind hoch: Triffst du ein {{t:pair|Paar}}, ist es hoch, und deine andere Karte ist ein hoher {{t:kicker}}, der schwächere Hände mit derselben Karte meist schlägt.",
         "suited": "Deine Karten haben dieselbe Farbe: Das ist ein zusätzlicher Weg, mit einem {{t:flush|Flush}} zu gewinnen.",
         "connected_one": "Deine Karten liegen nah beieinander: Zusammen können sie auf {{count}} Art eine {{t:straight|Straße}} bilden.",
         "connected_other": "Deine Karten liegen nah beieinander: Zusammen können sie auf {{count}} Arten eine {{t:straight|Straße}} bilden.",
-        "highAllIn": "Beim All-in gibt es nach dem Flop keine {{t:bet|Einsätze}} mehr: Hat niemand ein {{t:pair|Paar}} oder Besseres, gewinnt die höhere Karte, und deine höhere Karte ist {{rank}}.",
-        "dominated": "Triffst du ein {{t:pair|Paar}} mit deiner höheren Karte ({{rank}}), schlägt dich ein Gegner mit derselben Karte und einem besseren {{t:kicker}}: Diese Hand ist dominiert.",
+        "highAllIn": "Beim All-in gibt es nach dem Flop keine {{t:bet|Einsätze}} mehr: Hat niemand ein {{t:pair|Paar}} oder Besseres, gewinnt meist die höhere Karte, und deine höhere Karte ist {{rank}}.",
+        "dominated": "Triffst du ein {{t:pair|Paar}} mit deiner höheren Karte ({{rank}}), schlägt dich meist ein Gegner mit derselben Karte und einem besseren {{t:kicker}}: Diese Hand ist dominiert.",
         "overcards": "Beide Karten sind niedrig: Auf {{pct}} der Flops ({{often}}) kommt mindestens eine Karte, die höher ist als deine beiden, und ein Gegner, der sie trifft, hat ein höheres {{t:pair|Paar}} als jedes Paar aus deinen Karten.",
         "overcardsPair": "Dein {{t:pair|Paar}} ist niedrig: Auf {{pct}} der Flops ({{often}}) kommt mindestens eine höhere Karte, und ein Gegner, der sie trifft, hat ein höheres {{t:pair|Paar}}."
       },
