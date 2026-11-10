@@ -22,6 +22,66 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/exams/m10.yaml",
+  "linia": 17,
+  "stary": "대는 c-bet을 {{n:exam.m10.se.n}}번 받았고 그중 {{n:exam.m10.se.p}}에서 {{t:fold|폴드}}했습니다. 상대의 폴드 투 c-bet 표준",
+  "nowy": "대는 C벳을 {{n:exam.m10.se.n}}번 받았고 그중 {{n:exam.m10.se.p}}에서 {{t:fold|폴드}}했습니다. 상대의 폴드 투 C벳 표준",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 19,
+  "stary": "받은 c-bet)를 셉니다. 약 {{n:var.conf95}} 신뢰도로 실제 폴드 투 c-bet은 ±",
+  "nowy": "받은 C벳)를 셉니다. 약 {{n:var.conf95}} 신뢰도로 실제 폴드 투 C벳은 ±",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 24,
+  "stary": " 투 3-bet은 {{n:exam.m10.mid.f3b}}",
+  "nowy": " 투 3벳은 {{n:exam.m10.mid.f3b}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 26,
+  "stary": " 투 3-bet은 아직 우연입니다\", correct: true, why: \"{{t:vpip}}와 {{t:pfr}}은 약 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}핸드 후에 읽을 수 있지만, 폴드 투 3-bet은 약 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}핸드가 지나야 읽을 수 있습니다. 그 기회는 {{t:open|오픈}}과 3-bet이 나",
+  "nowy": " 투 3벳은 아직 우연입니다\", correct: true, why: \"{{t:vpip}}와 {{t:pfr}}은 약 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}핸드 후에 읽을 수 있지만, 폴드 투 3벳은 약 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}핸드가 지나야 읽을 수 있습니다. 그 기회는 {{t:open|오픈}}과 3벳이 나",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 27,
+  "stary": " 투 3-bet은 기",
+  "nowy": " 투 3벳은 기",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 29,
+  "stary": " 투 3-bet만입니다\", why: \"작은 표본에서 나온 극단적인 숫자는 리드보다 우연인 경우가 더 많습니다. 신뢰도는 기회의 수로 정해지며, 여기서는 폴드 투 3-bet의 기",
+  "nowy": " 투 3벳만입니다\", why: \"작은 표본에서 나온 극단적인 숫자는 리드보다 우연인 경우가 더 많습니다. 신뢰도는 기회의 수로 정해지며, 여기서는 폴드 투 3벳의 기",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
   "linia": 34,
   "stary": "{{t:nit|닛}}({{t:vpip}}",
   "nowy": "{{t:nit|니트}}({{t:vpip}}",
@@ -52,12 +112,112 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/exams/m10.yaml",
+  "linia": 38,
+  "stary": "}로 3-bet합니다\", why: \"상대의 {{t:open|오픈}} {{t:range|레인지}}는 대부분 가장 강한 핸드이고, 그런 핸드는 3-bet에 좀",
+  "nowy": "}로 3벳합니다\", why: \"상대의 {{t:open|오픈}} {{t:range|레인지}}는 대부분 가장 강한 핸드이고, 그런 핸드는 3벳에 좀",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 61,
+  "stary": " 투 c-bet은 {{n:exam.m10.fcb}}입니다. 플롭을 맞히지 못했고 {{t:draw|드로우}}도 없습니다. 핸드 없이 하는 c-bet 중 ",
+  "nowy": " 투 C벳은 {{n:exam.m10.fcb}}입니다. 플롭을 맞히지 못했고 {{t:draw|드로우}}도 없습니다. 핸드 없이 하는 C벳 중 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
   "linia": 63,
   "stary": "모든 사이즈와 테이블을 합친 값",
   "nowy": "모든 사이즈와 보드를 합친 값",
   "waga": "ŚR",
   "powod": "pl „Fold to c-bet łączy wszystkie rozmiary i stoły”: „stół” to w źródle termin board (karty wspólne), nie miejsce gry; lekcja m10-l3 mówi „rozmiary i flopy”, a reguła ko (rules.yaml, ta sama fraza) ma „모든 사이즈와 보드”. „테이블” (stoły do gry) zmienia sens uwagi.",
   "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 63,
+  "stary": "작은 c-bet만\", correct: true, why: \"{{t:pot|팟}}의 1/3 c-bet은 {{n:alpha.cbet.small}} {{t:fold|폴드}}에서 본전이고, {{t:pot|팟}}의 3/4 c-bet은 {{n:alpha.cbet.big}}에서야 본전입니다. {{n:exam.m10.fcb}}는 작은 c-bet에만 충분합니다. 폴드 투 c-bet은 ",
+  "nowy": "작은 C벳만\", correct: true, why: \"{{t:pot|팟}}의 1/3 C벳은 {{n:alpha.cbet.small}} {{t:fold|폴드}}에서 본전이고, {{t:pot|팟}}의 3/4 C벳은 {{n:alpha.cbet.big}}에서야 본전입니다. {{n:exam.m10.fcb}}는 작은 C벳에만 충분합니다. 폴드 투 C벳은 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 64,
+  "stary": "\"큰 c-bet은 더",
+  "nowy": "\"큰 C벳은 더",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 65,
+  "stary": " 큰 c-bet만\", why: \"{{t:hud|HUD}}의 폴드 투 c-bet은 상대가 큰 베팅에 더 자주 {{t:fold|폴드}}한다는 것을 알려 주지 않습니다. {{n:exam.m10.fcb}} {{t:fold|폴드}}에서는 핸드 없는 큰 c-bet이 손",
+  "nowy": " 큰 C벳만\", why: \"{{t:hud|HUD}}의 폴드 투 C벳은 상대가 큰 베팅에 더 자주 {{t:fold|폴드}}한다는 것을 알려 주지 않습니다. {{n:exam.m10.fcb}} {{t:fold|폴드}}에서는 핸드 없는 큰 C벳이 손",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 66,
+  "stary": "/3 c-bet에서는",
+  "nowy": "/3 C벳에서는",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 71,
+  "stary": " 투 3-bet은 {{n:exam.m10.f3b.low}}입니다. 상대가 {{t:cutoff|CO}}에서 {{t:open|오픈}}하고, 당신은 버튼에서 기본 전략상 {{t:bluff}}로 3-bet하는 ",
+  "nowy": " 투 3벳은 {{n:exam.m10.f3b.low}}입니다. 상대가 {{t:cutoff|CO}}에서 {{t:open|오픈}}하고, 당신은 버튼에서 기본 전략상 {{t:bluff}}로 3벳하는 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 73,
+  "stary": "로는 3-bet하지 않고, 이 상대에게는 주로 강한 핸드로 3-bet합니다\", correct: true, why: \"{{n:pf.3bet.ip-total}}까지의 3-bet은 {{n:alpha.vs-3bet-ip-size}}",
+  "nowy": "로는 3벳하지 않고, 이 상대에게는 주로 강한 핸드로 3벳합니다\", correct: true, why: \"{{n:pf.3bet.ip-total}}까지의 3벳은 {{n:alpha.vs-3bet-ip-size}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 74,
+  "stary": "자주 3-bet합니다",
+  "nowy": "자주 3벳합니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 75,
+  "stary": " 투 3-bet은 아직 믿을 수 없습니다\", why: \"{{n:exam.m10.long.hands}}핸드 후에는 믿을 수 있습니다. 폴드 투 3-bet은 약",
+  "nowy": " 투 3벳은 아직 믿을 수 없습니다\", why: \"{{n:exam.m10.long.hands}}핸드 후에는 믿을 수 있습니다. 폴드 투 3벳은 약",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -72,12 +232,132 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/exams/m11.yaml",
+  "linia": 67,
+  "stary": ": \"{{t:payout|상금 지급}}이 있는 {{t:tournament|토너먼트}}",
+  "nowy": ": \"{{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S8b): payout = „상금” (terms-nazwy.yaml); pl „w turnieju z {{t:payout|wypłatami}}”. Forma „상금 지급” zamieniona na „상금” + „구조가 있는”, tak samo jak poprawki L7 w m11-l3-icm.md:71, 161.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m11.yaml",
   "linia": 73,
   "stary": "당신은 평균 스택입니다",
   "nowy": "당신은 중간 스택입니다",
   "waga": "ŚR",
   "powod": "pl „Masz średni stack” = stack średniej wielkości (między dużym a krótkim), nie średnia arytmetyczna żetonów („평균 스택” to odrębne pojęcie turniejowe). Reszta przekładu ko ma „중간 스택” (6×).",
   "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 7,
+  "stary": "으로 {{n:exam.m12.hands.k}}천 핸드(10",
+  "nowy": "으로 {{n:exam.m12.hands.k}},000핸드(10",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 10,
+  "stary": "다. {{n:exam.m12.hands.k}}천 핸드 후 ",
+  "nowy": "다. {{n:exam.m12.hands.k}},000핸드 후 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 16,
+  "stary": ": \"{{n:exam.m12.hands.k}}천 핸드 후 ",
+  "nowy": ": \"{{n:exam.m12.hands.k}},000핸드 후 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 18,
+  "stary": "}. {{n:exam.m12.hands.k}}천 핸드 후에",
+  "nowy": "}. {{n:exam.m12.hands.k}},000핸드 후에",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 19,
+  "stary": ": \"{{n:exam.m12.hands.k}}천 핸드는 윈",
+  "nowy": ": \"{{n:exam.m12.hands.k}},000핸드는 윈",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 20,
+  "stary": ": \"{{n:exam.m12.hands.k}}천 핸드로는 ",
+  "nowy": ": \"{{n:exam.m12.hands.k}},000핸드로는 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 27,
+  "stary": "\"약 {{n:exam.m12.need.hands.k}}천 핸드\", correct: true, why: \"블록 수 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, 즉 약 {{n:exam.m12.need.hands.k}}천 핸드입니다",
+  "nowy": "\"약 {{n:exam.m12.need.hands.k}},000핸드\", correct: true, why: \"블록 수 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, 즉 약 {{n:exam.m12.need.hands.k}},000핸드입니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 28,
+  "stary": "\"약 {{n:var.need.hands.k}}천 핸드, {{t:standard-deviation|표준편차}}가 {{n:var.sd}}일 때와 같습니다\", why: \"{{t:standard-deviation|표준편차}}는 공식에서 제곱되므로 {{n:var.sd}} 대신 {{n:var.sd.high}}이면 확실히 더 많은 핸드가 필요합니다. 약 {{n:exam.m12.need.hands.k}}천 핸드입니다",
+  "nowy": "\"약 {{n:var.need.hands.k}},000핸드, {{t:standard-deviation|표준편차}}가 {{n:var.sd}}일 때와 같습니다\", why: \"{{t:standard-deviation|표준편차}}는 공식에서 제곱되므로 {{n:var.sd}} 대신 {{n:var.sd.high}}이면 확실히 더 많은 핸드가 필요합니다. 약 {{n:exam.m12.need.hands.k}},000핸드입니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 34,
+  "stary": "꿨고 {{n:exam.m12.style.hands.k}}천 핸드 후 ",
+  "nowy": "꿨고 {{n:exam.m12.style.hands.k}},000핸드 후 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 37,
+  "stary": ": \"{{n:exam.m12.style.hands.k}}천 핸드에서 ",
+  "nowy": ": \"{{n:exam.m12.style.hands.k}},000핸드에서 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 38,
+  "stary": "전히 {{n:exam.m12.style.hands.k}}천 핸드에 기",
+  "nowy": "전히 {{n:exam.m12.style.hands.k}},000핸드에 기",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -108,6 +388,26 @@
   "waga": "ŚR",
   "powod": "Treść krytyczna, nazwa typu tiltu. pl „Tilt z błędu”; lekcja ko m12-l3 i uzasadnienie tej samej opcji mają „실수 틸트”. Ujednolicenie nazwy.",
   "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m13.yaml",
+  "linia": 23,
+  "stary": "다. 리포트는 이",
+  "nowy": "다. 보고서는 이",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m13.yaml",
+  "linia": 34,
+  "stary": "다. 리포트는 기",
+  "nowy": "다. 보고서는 기",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -232,6 +532,26 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/exams/m5.yaml",
+  "linia": 47,
+  "stary": "}를 C-벳합니다",
+  "nowy": "}를 C벳합니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 51,
+  "stary": "작은 C-벳({{t:pot|팟}}",
+  "nowy": "작은 C벳({{t:pot|팟}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
   "linia": 57,
   "stary": "C-벳을 가장 드물게 하는",
   "nowy": "C벳을 가장 드물게 하는",
@@ -248,6 +568,56 @@
   "waga": "ŚR",
   "powod": "pl: „c-bet”; terms-nazwy: c-bet = „C벳” (tak w lekcjach m5-l4, m6-l3 i w rules). Tu inny zapis; przykład poprawki, pełna lista w uwagach („Do ujednolicenia skryptem”).",
   "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 75,
+  "stary": "부터 C-벳을 포",
+  "nowy": "부터 C벳을 포",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 80,
+  "stary": "같이 C-벳합니다\", why: \"아닙니다. 상대가 한 명 늘 때마다 누군가 플롭에 맞았을 확률이 커집니다. 두 명을 상대로는 C-벳을 훨",
+  "nowy": "같이 C벳합니다\", why: \"아닙니다. 상대가 한 명 늘 때마다 누군가 플롭에 맞았을 확률이 커집니다. 두 명을 상대로는 C벳을 훨",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 89,
+  "stary": "{{n:cbet.size.big}} C-벳\", ",
+  "nowy": "{{n:cbet.size.big}} C벳\", ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 90,
+  "stary": "{{n:cbet.size.small}} C-벳\", ",
+  "nowy": "{{n:cbet.size.small}} C벳\", ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 95,
+  "stary": "다. C-벳을 한",
+  "nowy": "다. C벳을 한",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -272,6 +642,26 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/exams/m6.yaml",
+  "linia": 24,
+  "stary": "/4 크기 c-bet으로 {{t:bet|벳합니다}}. 동",
+  "nowy": "/4 크기 C벳으로 {{t:bet|벳합니다}}. 동",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 27,
+  "stary": "작은 c-bet에 대량으로 {{t:fold|폴드하지는}} 않습니다\", correct: true, why: \"맞습니다: {{t:pot|팟}}의 1/4 c-bet에서 ",
+  "nowy": "작은 C벳에 대량으로 {{t:fold|폴드하지는}} 않습니다\", correct: true, why: \"맞습니다: {{t:pot|팟}}의 1/4 C벳에서 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
   "linia": 28,
   "stary": "작은 c-bet에는 어차피",
   "nowy": "작은 C벳에는 어차피",
@@ -292,12 +682,132 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/exams/m6.yaml",
+  "linia": 54,
+  "stary": "/3 크기 c-bet으로 {{t:bet|벳합니다}}. {{t:draw|드로우}}",
+  "nowy": "/3 크기 C벳으로 {{t:bet|벳합니다}}. {{t:draw|드로우}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 57,
+  "stary": "작은 c-bet에는 약",
+  "nowy": "작은 C벳에는 약",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 58,
+  "stary": "합니다: 작은 c-bet에는 ",
+  "nowy": "합니다: 작은 C벳에는 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 64,
+  "stary": "/4 크기 c-bet으로 {{t:bet|벳합니다}}. 다",
+  "nowy": "/4 크기 C벳으로 {{t:bet|벳합니다}}. 다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 67,
+  "stary": "없는 하이 카드 두 장이지만, 다이아몬드 AJ에는 가장 높은 {{t:flush|플러시}}를 향한 {{t:flush-draw}}(백도어)가 추가로 있습니다: {{t:board|보드}}에 다이아몬드가 한 장 있으므로 다이아몬드 두 장이 더 필요합니다. 큰 c-bet에는 ",
+  "nowy": "없는 높은 카드 두 장이지만, 다이아몬드 AJ에는 가장 높은 {{t:flush|플러시}}를 향한 {{t:flush-draw}}(백도어)가 추가로 있습니다: {{t:board|보드}}에 다이아몬드가 한 장 있으므로 다이아몬드 두 장이 더 필요합니다. 큰 C벳에는 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S1): „wysokie karty” = „높은 카드”; „하이카드” tylko jako nazwa układu (high-card). pl: „dwie wysokie karty” — mowa o dwóch wysokich kartach w ręce, nie o układzie; zastępuje wpis E1 (który zmieniał na „하이카드”). Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 68,
+  "stary": "없는 하이 카드 두 장은 큰 c-bet에 보",
+  "nowy": "없는 높은 카드 두 장은 큰 C벳에 보",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S1): „wysokie karty” = „높은 카드”; „하이카드” tylko jako nazwa układu (high-card). pl: „dwie wysokie karty” — mowa o dwóch wysokich kartach w ręce, nie o układzie; zastępuje wpis E1 (który zmieniał na „하이카드”). Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 73,
+  "stary": "/3 크기 c-bet으로 {{t:bet|벳합니다}}. 다",
+  "nowy": "/3 크기 C벳으로 {{t:bet|벳합니다}}. 다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
   "linia": 76,
   "stary": "거셧(9)",
   "nowy": "거트샷(9)",
   "waga": "ŚR",
   "powod": "pl: „gutshot (dziewiątka)”; terms-nazwy: gutshot = „거트샷”; „거셧” to literówka (nie występuje nigdzie indziej).",
   "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 83,
+  "stary": "작은 c-bet으로 {{t:bet|벳합니다}}. c-bet의 {{n:xr.mult.example}}",
+  "nowy": "작은 C벳으로 {{t:bet|벳합니다}}. C벳의 {{n:xr.mult.example}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 86,
+  "stary": "작은 c-bet에는 {{n:xr.mult.low}}",
+  "nowy": "작은 C벳에는 {{n:xr.mult.low}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 8,
+  "stary": "에서 c-bet으로 ",
+  "nowy": "에서 C벳으로 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 18,
+  "stary": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 c-bet을 {{t:call|콜}}했습니다. 턴은 2",
+  "nowy": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 C벳을 {{t:call|콜}}했습니다. 턴은 2",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 27,
+  "stary": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 c-bet을 {{t:call|콜}}했습니다. 턴은 5",
+  "nowy": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 C벳을 {{t:call|콜}}했습니다. 턴은 5",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -321,6 +831,36 @@
  },
  {
   "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 90,
+  "stary": " c-bet을 {{t:call|콜}}했습니다. 턴은 6",
+  "nowy": " C벳을 {{t:call|콜}}했습니다. 턴은 6",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 93,
+  "stary": "튼은 c-bet보다 ",
+  "nowy": "튼은 C벳보다 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 17,
+  "stary": "mpt: \"버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 c-bet과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 9",
+  "nowy": "mpt: \"버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 C벳과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 9",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
   "cel": "content/ko/exams/m8.yaml",
   "linia": 20,
   "stary": "이것은 thin value입니다",
@@ -338,6 +878,16 @@
   "waga": "ŚR",
   "powod": "Jak wyżej: „thin value” → „씬 밸류” (zapis używany w lekcjach ko).",
   "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 88,
+  "stary": "mpt: \"버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 c-bet과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 6",
+  "nowy": "mpt: \"버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 C벳과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 6",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -562,12 +1112,232 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 40,
+  "stary": "}에 c-bet으로 ",
+  "nowy": "}에 C벳으로 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 42,
+  "stary": "어도 c-bet이 수",
+  "nowy": "어도 C벳이 수",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 47,
+  "stary": "/3 c-bet을 하",
+  "nowy": "/3 C벳을 하",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
   "linia": 49,
   "stary": "모든 사이즈와 테이블을 합친",
   "nowy": "모든 사이즈와 보드를 합친",
   "waga": "ŚR",
   "powod": "pl „Fold to c-bet łączy wszystkie rozmiary i stoły”: „stół” to w źródle board (karty wspólne; w treści lekcji to samo zdanie: „wszystkie rozmiary i flopy”), a „테이블” znaczy stół do gry; ma być „보드”.",
   "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 49,
+  "stary": "므로 c-bet이 즉시 수익을 냅니다\", correct: true, why: \"{{t:pot|팟}}의 1/3 c-bet은 {{t:fold|폴드}} {{n:alpha.cbet.small}}에서 본전입니다. 상대는 훨씬 더 자주 {{t:fold|폴드}}하므로, 핸드의 에퀴티를 계산하기 전에 이미 c-bet이 수",
+  "nowy": "므로 C벳이 즉시 수익을 냅니다\", correct: true, why: \"{{t:pot|팟}}의 1/3 C벳은 {{t:fold|폴드}} {{n:alpha.cbet.small}}에서 본전입니다. 상대는 훨씬 더 자주 {{t:fold|폴드}}하므로, 핸드의 에퀴티를 계산하기 전에 이미 C벳이 수",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 50,
+  "stary": "하면 c-bet은 어",
+  "nowy": "하면 C벳은 어",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 51,
+  "stary": "작은 c-bet이 더",
+  "nowy": "작은 C벳이 더",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 56,
+  "stary": "/4 c-bet을 고",
+  "nowy": "/4 C벳을 고",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 58,
+  "stary": " 큰 c-bet에 필요한 것보다 덜 자주 {{t:fold|폴드}}합니다\", correct: true, why: \"{{t:pot|팟}}의 3/4 c-bet은 {{t:fold|폴드}}",
+  "nowy": " 큰 C벳에 필요한 것보다 덜 자주 {{t:fold|폴드}}합니다\", correct: true, why: \"{{t:pot|팟}}의 3/4 C벳은 {{t:fold|폴드}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 59,
+  "stary": ": \"c-bet은 표준이므로 베팅합니다\", why: \"핸드 없는 c-bet은 상",
+  "nowy": ": \"C벳은 표준이므로 베팅합니다\", why: \"핸드 없는 C벳은 상",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 66,
+  "stary": "때로 3-bet {{t:bluff|블러프}}",
+  "nowy": "때로 3벳 {{t:bluff|블러프}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 68,
+  "stary": "}로 3-bet하고, A5s는 {{t:bluff|블러프}}로 3-bet하지 않습니다\", correct: true, why: \"3-bet에 드물게 {{t:fold|폴드}}하는 플레이어는 더 약한 핸드로 자주 {{t:call|콜}}하므로, 더 강한 핸드가 3-bet으로 수익을 냅니다. 3-bet {{t:bluff|블러프}}",
+  "nowy": "}로 3벳하고, A5s는 {{t:bluff|블러프}}로 3벳하지 않습니다\", correct: true, why: \"3벳에 드물게 {{t:fold|폴드}}하는 플레이어는 더 약한 핸드로 자주 {{t:call|콜}}하므로, 더 강한 핸드가 3벳으로 수익을 냅니다. 3벳 {{t:bluff|블러프}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 69,
+  "stary": "s를 3-bet합니다. {{t:blocker|블로커}}가 있는 {{t:bluff}}는 좋은 3-bet이기 ",
+  "nowy": "s를 3벳합니다. {{t:blocker|블로커}}가 있는 {{t:bluff}}는 좋은 3벳이기 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 70,
+  "stary": "드로 3-bet에 {{t:call|콜}}하는 플레이어를 상대로는, KJs로 3-bet하면 ",
+  "nowy": "드로 3벳에 {{t:call|콜}}하는 플레이어를 상대로는, KJs로 3벳하면 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 75,
+  "stary": "}는 3-bet에 {{n:mda.reg.f3b}}, {{t:recreational|레크리에이션 플레이어}}는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}합니다. {{n:pf.3bet.ip-total}}까지의 {{t:position|포지션}} 3-bet은 {{t:fold|폴드}}",
+  "nowy": "}는 3벳에 {{n:mda.reg.f3b}}, {{t:recreational|레크리에이션 플레이어}}는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}합니다. {{n:pf.3bet.ip-total}}까지의 {{t:position|포지션}} 3벳은 {{t:fold|폴드}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 77,
+  "stary": "없이 3-bet하고, {{t:regular|레귤러}}에게는 {{t:bluff|블러프}}를 남기되 에퀴티가 있는 핸드로만 합니다\", correct: true, why: \"어느 그룹도 핸드 없는 3-bet이 수익을 낼 만큼 자주 {{t:fold|폴드}}하지 않습니다. 기본 전략의 3-bet {{t:bluff|블러프}}는 플롭 이후 에퀴티와 {{t:fold|폴드}}로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 주로 에퀴티가 남으므로 {{t:linear|리니어}} {{t:range|레인지}}로 3-bet합니다",
+  "nowy": "없이 3벳하고, {{t:regular|레귤러}}에게는 {{t:bluff|블러프}}를 남기되 에퀴티가 있는 핸드로만 합니다\", correct: true, why: \"어느 그룹도 핸드 없는 3벳이 수익을 낼 만큼 자주 {{t:fold|폴드}}하지 않습니다. 기본 전략의 3벳 {{t:bluff|블러프}}는 플롭 이후 에퀴티와 {{t:fold|폴드}}로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 주로 에퀴티가 남으므로 {{t:linear|리니어}} {{t:range|레인지}}로 3벳합니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 78,
+  "stary": "드로 3-bet합니다\", why: \"여기서 {{n:alpha.vs-3bet-ip-size}}보다 자주 {{t:fold|폴드}}하는 사람은 없습니다. 모든 핸드로 3-bet하면 ",
+  "nowy": "드로 3벳합니다\", why: \"여기서 {{n:alpha.vs-3bet-ip-size}}보다 자주 {{t:fold|폴드}}하는 사람은 없습니다. 모든 핸드로 3벳하면 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 79,
+  "stary": "게는 3-bet을 완전히 그만둡니다\", why: \"반대입니다. 더 약한 핸드로 3-bet에 {{t:call|콜}}하는 플레이어는 당신의 강한 핸드에 돈을 지불합니다. 3-bet을 포기하는 것이 아니라 3-bet의 구",
+  "nowy": "게는 3벳을 완전히 그만둡니다\", why: \"반대입니다. 더 약한 핸드로 3벳에 {{t:call|콜}}하는 플레이어는 당신의 강한 핸드에 돈을 지불합니다. 3벳을 포기하는 것이 아니라 3벳의 구",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 109,
+  "stary": "/3 c-bet이면 ",
+  "nowy": "/3 C벳이면 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 111,
+  "stary": "플롭 c-bet에 평균 {{n:mda.all.fcb}} 비율로 {{t:fold|폴드}}합니다. 이것이 반드시 실수는 아닙니다. 솔버도 플롭에서 {{t:out-of-position}}일 때는 {{t:mdf}}가 가리키는 것보다 더 자주 {{t:fold|폴드}}합니다(모듈 6). 그래서 모집단 평균이 기준점보다 높다는 것만으로는 핸드 없는 c-bet이 정",
+  "nowy": "플롭 C벳에 평균 {{n:mda.all.fcb}} 비율로 {{t:fold|폴드}}합니다. 이것이 반드시 실수는 아닙니다. 솔버도 플롭에서 {{t:out-of-position}}일 때는 {{t:mdf}}가 가리키는 것보다 더 자주 {{t:fold|폴드}}합니다(모듈 6). 그래서 모집단 평균이 기준점보다 높다는 것만으로는 핸드 없는 C벳이 정",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 113,
+  "stary": "하는 3-bet",
+  "nowy": "하는 3벳",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 115,
+  "stary": "{{t:position|포지션}} 3-bet은 상",
+  "nowy": "{{t:position|포지션}} 3벳은 상",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 122,
+  "stary": "에서 3-bet {{t:bluff|블러프}}는 {{t:fold|폴드}}와 플롭 이후 에퀴티로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 {{t:fold|폴드}}가 거의 없는 대신, 그 플레이어는 더 약한 핸드로 {{t:call|콜}}합니다. 그래서 이 플레이어에게는 {{t:linear|리니어}} {{t:range|레인지}}로 3-bet합니다",
+  "nowy": "에서 3벳 {{t:bluff|블러프}}는 {{t:fold|폴드}}와 플롭 이후 에퀴티로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 {{t:fold|폴드}}가 거의 없는 대신, 그 플레이어는 더 약한 핸드로 {{t:call|콜}}합니다. 그래서 이 플레이어에게는 {{t:linear|리니어}} {{t:range|레인지}}로 3벳합니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): 3-bet = „3벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński „3-bet” zamieniony na nazwę terminu; pl „3-bet”. Partykuły bez zmian.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -691,13 +1461,263 @@
  },
  {
   "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 13,
+  "stary": "으로 {{n:var.hands.k}}k 핸드를 플",
+  "nowy": "으로 {{n:var.hands.k}},000핸드를 플",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 15,
+  "stary": ": \"{{n:var.hands.k}}k 핸드는 1",
+  "nowy": ": \"{{n:var.hands.k}},000핸드는 1",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 20,
+  "stary": "다. {{n:var.hands.k}}k 핸드(10",
+  "nowy": "다. {{n:var.hands.k}},000핸드(10",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 29,
+  "stary": "다. {{n:var.hands.k}}k 핸드 후 ",
+  "nowy": "다. {{n:var.hands.k}},000핸드 후 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 31,
+  "stary": "라도 {{n:var.hands.k}}k 핸드 후 ",
+  "nowy": "라도 {{n:var.hands.k}},000핸드 후 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 38,
+  "stary": "}로 {{n:var.hands.k}}k 핸드(10",
+  "nowy": "}로 {{n:var.hands.k}},000핸드(10",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 45,
+  "stary": ": \"{{n:var.hands.k}}k 핸드 후 결",
+  "nowy": ": \"{{n:var.hands.k}},000핸드 후 결",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 47,
+  "stary": "}. {{n:var.hands.k}}k 핸드 후에",
+  "nowy": "}. {{n:var.hands.k}},000핸드 후에",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 48,
+  "stary": ": \"{{n:var.hands.k}}k 핸드는 많",
+  "nowy": ": \"{{n:var.hands.k}},000핸드는 많",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 56,
+  "stary": "\"약 {{n:var.need.hands.k}}k\", correct: true, why: \"블록 = ({{n:var.z95}} × {{n:var.sd}} ÷ {{n:var.target}})² = {{n:var.need.ratio}}² ≈ {{n:var.need.blocks}}. 즉 약 {{n:var.need.hands.k}}k 핸드입니다",
+  "nowy": "\"약 {{n:var.need.hands.k}},000핸드\", correct: true, why: \"블록 = ({{n:var.z95}} × {{n:var.sd}} ÷ {{n:var.target}})² = {{n:var.need.ratio}}² ≈ {{n:var.need.blocks}}. 즉 약 {{n:var.need.hands.k}},000핸드입니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 57,
+  "stary": "\"약 {{n:var.hands.k}}k\", why: \"{{n:var.hands.k}}k 핸드 후 오차는 약 ± {{n:var.ci.wr}}입니다. 이를 ± {{n:var.target}}로 줄이려면 약 {{n:var.need.hands.k}}k 핸드가 필",
+  "nowy": "\"약 {{n:var.hands.k}},000핸드\", why: \"{{n:var.hands.k}},000핸드 후 오차는 약 ± {{n:var.ci.wr}}입니다. 이를 ± {{n:var.target}}로 줄이려면 약 {{n:var.need.hands.k}},000핸드가 필",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 58,
+  "stary": " 약 {{n:var.need.hands.k}}k입니다",
+  "nowy": " 약 {{n:var.need.hands.k}},000입니다",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 63,
+  "stary": "다. {{n:var.hands.k}}k 핸드 동안",
+  "nowy": "다. {{n:var.hands.k}},000핸드 동안",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 65,
+  "stary": "으로 {{n:var.hands.k}}k 핸드를 시",
+  "nowy": "으로 {{n:var.hands.k}},000핸드를 시",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 66,
+  "stary": "본인 {{n:dd.hands.short.k}}k 핸드의 수치입니다. {{n:var.hands.k}}k 핸드에서는",
+  "nowy": "본인 {{n:dd.hands.short.k}},000핸드의 수치입니다. {{n:var.hands.k}},000핸드에서는",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 67,
+  "stary": "어가 {{n:var.hands.k}}k 핸드를 마",
+  "nowy": "어가 {{n:var.hands.k}},000핸드를 마",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 72,
+  "stary": "}, {{n:var.hands.k}}k 핸드. 한",
+  "nowy": "}, {{n:var.hands.k}},000핸드. 한",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 76,
+  "stary": "어도 {{n:var.hands.k}}k 핸드 표본",
+  "nowy": "어도 {{n:var.hands.k}},000핸드 표본",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 83,
+  "stary": ": \"{{n:var.hands.k}}k 핸드 동안",
+  "nowy": ": \"{{n:var.hands.k}},000핸드 동안",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 84,
+  "stary": "게도 {{n:var.hands.k}}k 핸드 표본",
+  "nowy": "게도 {{n:var.hands.k}},000핸드 표본",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 94,
+  "stary": "니라 {{n:var.hands.k}}k 핸드 후 ",
+  "nowy": "니라 {{n:var.hands.k}},000핸드 후 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 114,
+  "stary": "}, {{n:var.hands.k}}k 핸드, 즉 {{n:var.blocks}}블록입니다. 기대 결과는 {{n:var.exp.bb}}, 즉 {{t:buy-in|바이인}} {{n:var.exp.bi}}개입니다. 결과의 {{t:standard-deviation|표준편차}}는 {{n:var.sd}} × {{n:var.sqrt-blocks}} ≈ {{n:var.sd.result.bb}}, 즉 약 {{n:var.sd.result.bi}} {{t:buy-in|바이인}}입니다. {{n:var.conf95}} 신뢰도로 결과는 약 **{{n:var.ci.low.bi}}~{{n:var.ci.high.bi}} {{t:buy-in|바이인}}** 사이가 됩니다. 기대 결과는 0보다 약 {{n:var.z.lose}} {{t:standard-deviation|표준편차}} 위에 있으므로, {{n:var.hands.k}}k 핸드 후 ",
+  "nowy": "}, {{n:var.hands.k}},000핸드, 즉 {{n:var.blocks}}블록입니다. 기대 결과는 {{n:var.exp.bb}}, 즉 {{t:buy-in|바이인}} {{n:var.exp.bi}}개입니다. 결과의 {{t:standard-deviation|표준편차}}는 {{n:var.sd}} × {{n:var.sqrt-blocks}} ≈ {{n:var.sd.result.bb}}, 즉 약 {{n:var.sd.result.bi}} {{t:buy-in|바이인}}입니다. {{n:var.conf95}} 신뢰도로 결과는 약 **{{n:var.ci.low.bi}}~{{n:var.ci.high.bi}} {{t:buy-in|바이인}}** 사이가 됩니다. 기대 결과는 0보다 약 {{n:var.z.lose}} {{t:standard-deviation|표준편차}} 위에 있으므로, {{n:var.hands.k}},000핸드 후 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 125,
+  "stary": "{{n:var.hands.k}}k 핸드 후 오차는 약 {{n:var.se.wr}}이므로, {{n:var.conf95}} 구간은 ± {{n:var.ci.wr}}입니다. 이때 {{n:var.wr.ex}}라는 결과는 실제 윈레이트가 약 {{n:var.wr.ci.low}}~{{n:var.wr.ci.high}} 사이 어딘가에 있다는 뜻일 뿐입니다. ± {{n:var.target}} 정확도로 윈레이트를 알려면 약 **{{n:var.need.hands.k}}k 핸드**가",
+  "nowy": "{{n:var.hands.k}},000핸드 후 오차는 약 {{n:var.se.wr}}이므로, {{n:var.conf95}} 구간은 ± {{n:var.ci.wr}}입니다. 이때 {{n:var.wr.ex}}라는 결과는 실제 윈레이트가 약 {{n:var.wr.ci.low}}~{{n:var.wr.ci.high}} 사이 어딘가에 있다는 뜻일 뿐입니다. ± {{n:var.target}} 정확도로 윈레이트를 알려면 약 **{{n:var.need.hands.k}},000핸드**가",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 131,
+  "stary": " | {{n:dd.hands.short.k}}k 핸드 | {{n:var.hands.k}}k 핸드 | {{n:dd.wr-low}}일 때 {{n:var.hands.k}}k 핸드 |",
+  "nowy": " | {{n:dd.hands.short.k}},000핸드 | {{n:var.hands.k}},000핸드 | {{n:dd.wr-low}}일 때 {{n:var.hands.k}},000핸드 |",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 137,
+  "stary": "정해 {{n:var.hands.k}}k 핸드씩 수",
+  "nowy": "정해 {{n:var.hands.k}},000핸드씩 수",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
   "cel": "content/ko/lessons/m12-l2-decyzja-wynik.md",
   "linia": 68,
-  "stary": "{{n:var.hands.k}}천 핸드도",
-  "nowy": "{{n:var.hands.k}}k 핸드도",
+  "stary": "서는 {{n:var.hands.k}}천 핸드도 약",
+  "nowy": "서는 {{n:var.hands.k}},000핸드도 약",
   "waga": "ŚR",
-  "powod": "pl: „nawet {{n:var.hands.k}} tys. rąk”. „100천 핸드” to nienaturalny zapis liczby po koreańsku i niezgodny z resztą modułu (lekcje m12-l1 i m12-l4 mają wszędzie „{{n:var.hands.k}}k 핸드”); ujednolicenie do „k 핸드”.",
-  "grupa": "L8"
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -708,6 +1728,16 @@
   "waga": "ŚR",
   "powod": "pl: „To tilt z desperacji” — nazwa typu tiltu z lekcji m12-l3, gdzie ko ma konsekwentnie „절박함 틸트” (tabela i ćwiczenia). Jedna nazwa na jedno pojęcie.",
   "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 58,
+  "stary": "}은 {{n:var.hands.k}}k 핸드 동안",
+  "nowy": "}은 {{n:var.hands.k}},000핸드 동안",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S4): „tys. rąk” zapisywane jednolicie „{{n:klucz}},000핸드”, jak w rules.yaml (R-M12); wartość klucza wyświetla się jako liczba całkowita (decimals domyślnie 0), więc zapis jest poprawny; pl „{{n:…}} tys. rąk”. Liczba i sens bez zmian.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -732,12 +1762,92 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 34,
+  "stary": "다. 리포트는 이를",
+  "nowy": "다. 보고서는 이를",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 37,
+  "stary": "다. 리포트는 둘",
+  "nowy": "다. 보고서는 둘",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 54,
+  "stary": "만, 리포트는 사",
+  "nowy": "만, 보고서는 사",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
   "linia": 61,
   "stary": "결정 30개 중 14개 평가됨",
   "nowy": "결정 30개 중 14개 평가",
   "waga": "ŚR",
   "powod": "pl cytuje napis z ekranu „Oceniono 14 z 30 decyzji”; w interfejsie ko (play.report.rated) napis brzmi „결정 {{all}}개 중 {{rated}}개 평가”. Cytat ma być taki jak na ekranie.",
   "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 61,
+  "stary": ": \"리포트: “",
+  "nowy": ": \"보고서: “",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 63,
+  "stary": "다. 리포트는 그",
+  "nowy": "다. 보고서는 그",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 64,
+  "stary": "문에 리포트에 표시되지 않습니다\", why: \"아닙니다. 리포트는 좋",
+  "nowy": "문에 보고서에 표시되지 않습니다\", why: \"아닙니다. 보고서는 좋",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 70,
+  "stary": "만, 리포트에는 ",
+  "nowy": "만, 보고서에는 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 73,
+  "stary": "래서 리포트는 결",
+  "nowy": "래서 보고서는 결",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -752,6 +1862,26 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 76,
+  "stary": "서는 리포트를 읽",
+  "nowy": "서는 보고서를 읽",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 80,
+  "stary": "다. 리포트는 이 ",
+  "nowy": "다. 보고서는 이 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
   "linia": 97,
   "stary": "결정 Y개 중 X개 평가됨",
   "nowy": "결정 Y개 중 X개 평가",
@@ -762,12 +1892,42 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 97,
+  "stary": "리포트 맨 위",
+  "nowy": "보고서 맨 위",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 101,
+  "stary": "래서 리포트는 둘",
+  "nowy": "래서 보고서는 둘",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
   "linia": 105,
   "stary": "결과는 리포트 맨 아래에",
   "nowy": "결과는 보고서 맨 아래에",
   "waga": "ŚR",
   "powod": "pl: „na dole raportu”; w interfejsie ko „보고서”, w lekcji „리포트”.",
   "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 31,
+  "stary": ": \"리포트의 어",
+  "nowy": ": \"보고서의 어",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -832,12 +1992,42 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 73,
+  "stary": "리포트의 모",
+  "nowy": "보고서의 모",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
   "linia": 89,
   "stary": "{{t:open|오픈}}한 후의 c-bet입니다",
   "nowy": "{{t:open|오픈}}한 후의 C벳입니다",
   "waga": "ŚR",
   "powod": "pl: „c-bet po otwarciu z Buttona”; terms-nazwy ko: c-bet = „C벳”. Resztka angielskiego zapisu.",
   "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 89,
+  "stary": ". 리포트에서 ",
+  "nowy": ". 보고서에서 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 93,
+  "stary": "리포트는 여",
+  "nowy": "보고서는 여",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1342,6 +2532,46 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 16,
+  "stary": "}, c-bet은 평",
+  "nowy": "}, C벳은 평",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 17,
+  "stary": "작게 c-bet: {{t:pot|팟}}",
+  "nowy": "작게 C벳: {{t:pot|팟}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 18,
+  "stary": "크게 c-bet: {{t:pot|팟}}",
+  "nowy": "크게 C벳: {{t:pot|팟}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 38,
+  "stary": "합니다. 높은 플롭보다 c-bet을 덜 자주 합니다. 많",
+  "nowy": "합니다. 높은 플롭보다 C벳을 덜 자주 합니다. 많",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
   "linia": 39,
   "stary": "기회(check-raise)를",
   "nowy": "기회(체크레이즈)를",
@@ -1362,12 +2592,62 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 39,
+  "stary": "잦은 c-bet은 상",
+  "nowy": "잦은 C벳은 상",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 40,
+  "stary": " 큰 c-bet은 많",
+  "nowy": " 큰 C벳은 많",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 49,
+  "stary": "  - { text: \"C-bet {{n:cbet.btn.small}} ({{t:pot|팟}}의 {{n:cbet.size.small}})\", c",
+  "nowy": "  - { text: \"C벳 {{n:cbet.btn.small}} ({{t:pot|팟}}의 {{n:cbet.size.small}})\", c",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 50,
+  "stary": "  - { text: \"C-bet {{n:cbet.btn.big}} ({{t:pot|팟}}의 {{n:cbet.size.big}})\", s",
+  "nowy": "  - { text: \"C벳 {{n:cbet.btn.big}} ({{t:pot|팟}}의 {{n:cbet.size.big}})\", s",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
   "linia": 56,
   "stary": "잭 세트를",
   "nowy": "잭 셋을",
   "waga": "ŚR",
   "powod": "terms-nazwy ko: set = „셋” (pl „seta waletów”); „세트” występuje tylko w tej lekcji, reszta przekładu (np. m6-l3) pisze „셋”.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 59,
+  "stary": "  - { text: \"C-bet {{n:cbet.btn.big}} ({{t:pot|팟}}의 {{n:cbet.size.big}})\", c",
+  "nowy": "  - { text: \"C벳 {{n:cbet.btn.big}} ({{t:pot|팟}}의 {{n:cbet.size.big}})\", c",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1382,12 +2662,82 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 60,
+  "stary": "  - { text: \"C-bet {{n:cbet.btn.small}} ({{t:pot|팟}}의 {{n:cbet.size.small}})\", s",
+  "nowy": "  - { text: \"C벳 {{n:cbet.btn.small}} ({{t:pot|팟}}의 {{n:cbet.size.small}})\", s",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 69,
+  "stary": "\"자주, 작게 c-bet\", corre",
+  "nowy": "\"자주, 작게 C벳\", corre",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 70,
+  "stary": "크게 c-bet\", s",
+  "nowy": "크게 C벳\", s",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
   "linia": 79,
   "stary": "당신의 {{t:nuts-advantage|너츠 우위}}는",
   "nowy": "당신의 {{t:nuts-advantage|넛 우위}}는",
   "waga": "ŚR",
   "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „twoja {{t:nuts-advantage}}”); forma „너츠 우위” niezgodna z nazwą.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 79,
+  "stary": " 자주, 작게 c-bet\", corre",
+  "nowy": " 자주, 작게 C벳\", corre",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 80,
+  "stary": "크게 c-bet\", w",
+  "nowy": "크게 C벳\", w",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 88,
+  "stary": "플롭을 맞추지 못하므로, 작은 c-bet이 그토록 자주 이득이 됩니다.\"",
+  "nowy": "플롭을 맞추지 못하므로, 작은 C벳이 그토록 자주 이득이 됩니다.\"",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 100,
+  "stary": "{{n:cbet.size.small}} c-bet이 {{t:pot|팟}}의 {{n:cbet.size.big}} c-bet보다 ",
+  "nowy": "{{n:cbet.size.small}} C벳이 {{t:pot|팟}}의 {{n:cbet.size.big}} C벳보다 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1402,12 +2752,32 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 106,
+  "stary": "C-bet(컨티",
+  "nowy": "C벳(컨티",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
   "linia": 112,
   "stary": "{{t:overbet|오버베팅}}",
   "nowy": "{{t:overbet|오버벳}}",
   "waga": "ŚR",
   "powod": "terms-nazwy ko: overbet = „오버벳” (pl „overbetu”); forma „오버베팅” niezgodna z nazwą.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 112,
+  "stary": "작은 c-bet은 {{t:pot|팟}}의 약 {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}}, 큰 c-bet은 약",
+  "nowy": "작은 C벳은 {{t:pot|팟}}의 약 {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}}, 큰 C벳은 약",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1448,6 +2818,26 @@
   "waga": "ŚR",
   "powod": "terms-nazwy ko: wet = „웻” (pl „najbardziej mokrych flopach”); forma „웨트한” niezgodna z nazwą.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 126,
+  "stary": "입니다. 높은 플롭보다 c-bet을 덜 자주 합니다. 많",
+  "nowy": "입니다. 높은 플롭보다 C벳을 덜 자주 합니다. 많",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 130,
+  "stary": "로 플롭을 맞추지 못하므로, 작은 c-bet이 그토록 자주 이득이 됩니다.",
+  "nowy": "로 플롭을 맞추지 못하므로, 작은 C벳이 그토록 자주 이득이 됩니다.",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1501,6 +2891,26 @@
  },
  {
   "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l1-mdf-alpha.md",
+  "linia": 82,
+  "stary": ", 작은 c-bet에 대량으",
+  "nowy": ", 작은 C벳에 대량으",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l1-mdf-alpha.md",
+  "linia": 132,
+  "stary": "고 작은 c-bet에 대량으",
+  "nowy": "고 작은 C벳에 대량으",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
   "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
   "linia": 6,
   "stary": "sub: \"포지션 없이 c-bet 방어하기\"",
@@ -1508,6 +2918,46 @@
   "waga": "ŚR",
   "powod": "terms-nazwy ko: c-bet = „C벳” (pl „Obrona przed c-betem bez pozycji”); angielskie „c-bet” w podtytule ko. Przykład mechanizmu z uwag.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 13,
+  "stary": "{{n:ex.third.bet}} 크기의 c-bet을 {{t:bet|베팅}}합니다.",
+  "nowy": "{{n:ex.third.bet}} 크기의 C벳을 {{t:bet|베팅}}합니다.",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 16,
+  "stary": "}. 작은 c-bet은 아주 좋",
+  "nowy": "}. 작은 C벳은 아주 좋",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 23,
+  "stary": "{{n:ex.bet.three-quarters}} 크기의 c-bet을 {{t:bet|베팅}}합니다.",
+  "nowy": "{{n:ex.bet.three-quarters}} 크기의 C벳을 {{t:bet|베팅}}합니다.",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 26,
+  "stary": "크기 c-bet에 맞",
+  "nowy": "크기 C벳에 맞",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1522,6 +2972,76 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 45,
+  "stary": "작은 c-bet에는 {{t:pair|페어}}",
+  "nowy": "작은 C벳에는 {{t:pair|페어}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 46,
+  "stary": "작은 c-bet에 대해",
+  "nowy": "작은 C벳에 대해",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 51,
+  "stary": "4 크기 c-bet을 {{t:bet|베팅}}합니",
+  "nowy": "4 크기 C벳을 {{t:bet|베팅}}합니",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 54,
+  "stary": " 큰 c-bet에는 ",
+  "nowy": " 큰 C벳에는 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 66,
+  "stary": "작은 c-bet에 비",
+  "nowy": "작은 C벳에 비",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 74,
+  "stary": "작은 c-bet에는 이",
+  "nowy": "작은 C벳에는 이",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 75,
+  "stary": "작은 c-bet에는 {{t:draw|드로우}}",
+  "nowy": "작은 C벳에는 {{t:draw|드로우}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
   "linia": 94,
   "stary": "{{t:out-of-position|포지션 없이}} 플레이하면 턴과",
   "nowy": "{{t:out-of-position|아웃 오브 포지션}}에서는 턴과",
@@ -1532,12 +3052,62 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 95,
+  "stary": "넓게 c-bet하며,",
+  "nowy": "넓게 C벳하며,",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 98,
+  "stary": "로서 c-bet을 했습니다. 이제는 반대편에 앉아 있습니다: {{t:big-blind|빅 블라인드}}를 방어하고, 플롭에서 체크하며, 버튼이 c-bet을 {{t:bet|베팅}}합니다. M5에서 배운 내용을 기억하세요: c-bet은 프",
+  "nowy": "로서 C벳을 했습니다. 이제는 반대편에 앉아 있습니다: {{t:big-blind|빅 블라인드}}를 방어하고, 플롭에서 체크하며, 버튼이 C벳을 {{t:bet|베팅}}합니다. M5에서 배운 내용을 기억하세요: C벳은 프",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
   "linia": 100,
   "stary": "## c-bet의 가격",
   "nowy": "## C벳의 가격",
   "waga": "ŚR",
   "powod": "terms-nazwy ko: c-bet = „C벳” (pl „## Cena c-betu”); angielskie „c-bet” w nagłówku ko. Przykład mechanizmu z uwag.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 102,
+  "stary": "작은 c-bet은 아주 좋은 가격을 주고, 큰 c-bet은 눈",
+  "nowy": "작은 C벳은 아주 좋은 가격을 주고, 큰 C벳은 눈",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 104,
+  "stary": "튼의 c-bet | ",
+  "nowy": "튼의 C벳 | ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 112,
+  "stary": "작은 c-bet에 대량",
+  "nowy": "작은 C벳에 대량",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1571,23 +3141,93 @@
  },
  {
   "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 120,
+  "stary": "작은 c-bet(약 ",
+  "nowy": "작은 C벳(약 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 127,
+  "stary": "작은 c-bet의 가",
+  "nowy": "작은 C벳의 가",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 132,
+  "stary": "- c-bet이 클",
+  "nowy": "- C벳이 클",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 134,
+  "stary": "c-bet이 커",
+  "nowy": "C벳이 커",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 26,
+  "stary": "우와 {{t:oesd|OESD}}는 이",
+  "nowy": "우와 {{t:oesd|양방향 스트레이트 드로우}}는 이",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S3): oesd = „양방향 스트레이트 드로우” (terms-nazwy.yaml); skrót „OESD” tylko tam, gdzie pl ma formę „{{t:oesd|OESD}}”. Tu pl ma „{{t:oesd}}” bez formy, więc forma znacznika = pełna nazwa (jak poprawka R2 w rules.yaml:502). Partykuła bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
   "cel": "content/ko/lessons/m6-l3-check-raise.md",
   "linia": 41,
-  "stary": "{{t:bet|벳했고}}, {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}",
-  "nowy": "{{t:bet|벳했고}}, 당신은 {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}",
+  "stary": "만큼 {{t:bet|벳했고}}, {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}. 버",
+  "nowy": "만큼 {{t:bet|벳했고}}, 내가 {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}. 버",
   "waga": "ŚR",
-  "powod": "pl „Button postawił …, a ty przebiłeś do …”: w ko brak podmiotu drugiego zdania, więc czyta się, że to Button przebił. Dodany podmiot „당신은”.",
-  "grupa": "L3"
+  "powod": "Rozstrzygnięcie AP (S6): pl „Button postawił …, a ty przebiłeś do …” — w ko brak podmiotu drugiego zdania, więc czyta się, że przebił Button (znalezisko L3). Dodany podmiot „내가” zamiast „당신은” z wpisu L3: plik m6-l3 zwraca się do czytelnika przez „내가/나는” (np. l. 123), 0× „당신”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m6-l3-check-raise.md",
   "linia": 49,
-  "stary": "{{t:bet|벳했고}}, {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}",
-  "nowy": "{{t:bet|벳했고}}, 당신은 {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}",
+  "stary": "만큼 {{t:bet|벳했고}}, {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}. 버",
+  "nowy": "만큼 {{t:bet|벳했고}}, 내가 {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}. 버",
   "waga": "ŚR",
-  "powod": "pl „Button postawił …, a ty przebiłeś tylko do …”: w ko brak podmiotu drugiego zdania, więc czyta się, że to Button przebił. Dodany podmiot „당신은”.",
-  "grupa": "L3"
+  "powod": "Rozstrzygnięcie AP (S6): pl „Button postawił …, a ty przebiłeś tylko do …” — w ko brak podmiotu drugiego zdania, więc czyta się, że przebił Button (znalezisko L3). Dodany podmiot „내가” zamiast „당신은” z wpisu L3: plik m6-l3 zwraca się do czytelnika przez „내가/나는” (np. l. 123), 0× „당신”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 93,
+  "stary": "우, {{t:oesd|OESD}})로 ",
+  "nowy": "우, {{t:oesd|양방향 스트레이트 드로우}})로 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S3): oesd = „양방향 스트레이트 드로우” (terms-nazwy.yaml); skrót „OESD” tylko tam, gdzie pl ma formę „{{t:oesd|OESD}}”. Tu pl ma „{{t:oesd}}” bez formy, więc forma znacznika = pełna nazwa (jak poprawka R2 w rules.yaml:502). Partykuła bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 123,
+  "stary": "우, {{t:oesd|OESD}})가 ",
+  "nowy": "우, {{t:oesd|양방향 스트레이트 드로우}})가 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (S3): oesd = „양방향 스트레이트 드로우” (terms-nazwy.yaml); skrót „OESD” tylko tam, gdzie pl ma formę „{{t:oesd|OESD}}”. Tu pl ma „{{t:oesd}}” bez formy, więc forma znacznika = pełna nazwa (jak poprawka R2 w rules.yaml:502). Partykuła bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1598,6 +3238,36 @@
   "waga": "ŚR",
   "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „czyli przewagę nutsów”); forma „넛 어드밴티지” niezgodna z nazwą.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 13,
+  "stary": "] 플롭에서 c-bet을 {{t:bet|베팅했고}} 상대가",
+  "nowy": "] 플롭에서 C벳을 {{t:bet|베팅했고}} 상대가",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 33,
+  "stary": ". 플롭에서 c-bet을 {{t:bet|베팅했고}} 상대가",
+  "nowy": ". 플롭에서 C벳을 {{t:bet|베팅했고}} 상대가",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 43,
+  "stary": " {{t:big-blind}}가 플롭 c-bet을 {{t:call|콜했습니다}}. 턴은 에",
+  "nowy": " {{t:big-blind}}가 플롭 C벳을 {{t:call|콜했습니다}}. 턴은 에",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -1642,6 +3312,16 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 110,
+  "stary": "다: c-bet에는 ",
+  "nowy": "다: C벳에는 ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
   "linia": 114,
   "stary": "플롭 c-bet, {{t:call}}, 그다음",
   "nowy": "플롭 C벳, {{t:call}}, 그다음",
@@ -1658,6 +3338,36 @@
   "waga": "ŚR",
   "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
   "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 41,
+  "stary": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 c-bet을 {{t:call|콜}}했습니다. 턴은 2",
+  "nowy": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 C벳을 {{t:call|콜}}했습니다. 턴은 2",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 51,
+  "stary": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 c-bet을 {{t:call|콜}}했습니다. 턴은 3",
+  "nowy": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 C벳을 {{t:call|콜}}했습니다. 턴은 3",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 61,
+  "stary": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 c-bet을 {{t:call|콜}}했습니다. 턴은 5",
+  "nowy": "}했고, {{t:big-blind|빅 블라인드}}가 플롭 C벳을 {{t:call|콜}}했습니다. 턴은 5",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): c-bet = „C벳” (terms-nazwy.yaml, interfejs ko); zapis łaciński albo z łącznikiem („c-bet”, „C-bet”, „C-벳”) zamieniony na nazwę terminu; pl „c-bet”. Partykuły bez zmian (obie formy kończą się spółgłoską).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -2072,22 +3782,22 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/rules.yaml",
+  "linia": 1155,
+  "stary": " 때 리포트는 그",
+  "nowy": " 때 보고서는 그",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie nazw): raport z gry = „보고서” — tak nazywa się ekran w interfejsie ko (play.report.title „세션 보고서”, play.toReport „보고서”); pl „raport”. Partykuły bez zmian (obie formy kończą się samogłoską).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
   "linia": 1164,
   "stary": "그래서 게임 복기는 같은 상황을 다른 무늬로 보여 줍니다",
   "nowy": "그래서 실전 복습은 같은 상황을 다른 무늬로 보여 줍니다",
   "waga": "ŚR",
   "powod": "pl: „dlatego powtórka z gry pokazuje tę samą sytuację w innych kolorach” — chodzi o funkcję aplikacji (karty powtórek z gry), którą lekcja m13-l2 w ko nazywa „실전 복습” / „복습”; „복기” to przegląd/analiza rozdania, czyli inne pojęcie (w tym module osobne: przegląd rozdań). Jedna nazwa na jedno pojęcie.",
   "grupa": "R4"
- },
- {
-  "jezyk": "ko",
-  "cel": "docs/sklep/aso/metadane-fala2.json",
-  "linia": 23,
-  "stary": "결정마다 평가와 해설, 베팅 없음",
-  "nowy": "결정마다 평가와 해설, 판돈 없음",
-  "waga": "ŚR",
-  "powod": "Treść krytyczna (brak hazardu) w podtytule. pl: „Nauka pokera bez gry o stawki”, en „no real money”. „베팅 없음” = „bez betów/zakładów”, a bet (베팅/벳) jest w aplikacji uczonym zagraniem; „판돈 없음” = bez stawek. Długość bez zmian (18 znaków, limit 30). Podtytuł to decyzja ASO, do akceptacji roli sklepu.",
-  "grupa": "U1"
  },
  {
   "jezyk": "ko",
@@ -2177,16 +3887,6 @@
   "nowy": "{{n:alpha.cbet.big}}가 필요하기",
   "waga": "NISKIE",
   "powod": "Partykuła po procencie: „43%가 필요하기”, nie „43%이”. Sens bez zmian.",
-  "grupa": "E2"
- },
- {
-  "jezyk": "ko",
-  "cel": "content/ko/exams/m12.yaml",
-  "linia": 18,
-  "stary": "약 {{n:exam.m12.wr.ci.low}}와 약",
-  "nowy": "약 {{n:exam.m12.wr.ci.low}}과 약",
-  "waga": "NISKIE",
-  "powod": "Partykuła po jednostce „bb/100” (czytane …백, wygłos spółgłoskowy): w tym samym pliku jest „{{n:exam.m12.style.wr}}은” (l. 37), więc konsekwentnie „과”, nie „와”. Sens bez zmian.",
   "grupa": "E2"
  },
  {
@@ -2293,30 +3993,10 @@
   "jezyk": "ko",
   "cel": "content/ko/exams/m6.yaml",
   "linia": 67,
-  "stary": "하이 카드 두 장이지만",
-  "nowy": "하이카드 두 장이지만",
-  "waga": "NISKIE",
-  "powod": "pl: „dwie wysokie karty”; lekcja m6-l2 (ko) i terms-nazwy piszą łącznie „하이카드”; tu „하이 카드”.",
-  "grupa": "E1"
- },
- {
-  "jezyk": "ko",
-  "cel": "content/ko/exams/m6.yaml",
-  "linia": 67,
   "stary": "오히려 이런 핸드로",
   "nowy": "바로 이런 핸드로",
   "waga": "NISKIE",
   "powod": "pl: „sprawdzasz raczej właśnie taką ręką”; „오히려” znaczy „wręcz przeciwnie/na odwrót” i sugeruje kontrast, którego w pl nie ma; „바로 이런 핸드로” = „właśnie taką ręką”.",
-  "grupa": "E1"
- },
- {
-  "jezyk": "ko",
-  "cel": "content/ko/exams/m6.yaml",
-  "linia": 68,
-  "stary": "하이 카드 두 장은",
-  "nowy": "하이카드 두 장은",
-  "waga": "NISKIE",
-  "powod": "pl: „dwie wysokie karty”; lekcja m6-l2 (ko) i terms-nazwy piszą łącznie „하이카드”; tu „하이 카드”.",
   "grupa": "E1"
  },
  {
@@ -2601,6 +4281,26 @@
  },
  {
   "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l3-przeglad.md",
+  "linia": 76,
+  "stary": "쿨러와 배드 빗에는 시간",
+  "nowy": "쿨러와 배드 비트에는 시간",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (S8c): bad beat = „배드 비트” — brak hasła w terms-nazwy, forma przeważająca w korpusie (9× wobec 3× „배드 빗”; m12-l3, exams/m13; exams/m12:55 poprawia E2); pl „bad beat”. Po nazwie nie stoi partykuła zależna od wygłosu.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l3-przeglad.md",
+  "linia": 87,
+  "stary": "지, 쿨러와 배드 빗, 첫 반응",
+  "nowy": "지, 쿨러와 배드 비트, 첫 반응",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (S8c): bad beat = „배드 비트” — brak hasła w terms-nazwy, forma przeważająca w korpusie (9× wobec 3× „배드 빗”; m12-l3, exams/m13; exams/m12:55 poprawia E2); pl „bad beat”. Po nazwie nie stoi partykuła zależna od wygłosu.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
   "cel": "content/ko/lessons/m3-l2-rece-startowe.md",
   "linia": 47,
   "stary": "{{t:initiative}}를 쥐고",
@@ -2693,11 +4393,11 @@
   "jezyk": "ko",
   "cel": "content/ko/lessons/m6-l3-check-raise.md",
   "linia": 54,
-  "stary": "직접 C벳에 {{t:call|콜할}} 때",
-  "nowy": "당신이 C벳에 {{t:call|콜할}} 때",
+  "stary": ": \"직접 C벳에 {{t:call|콜할}} 때 필요",
+  "nowy": ": \"내가 C벳에 {{t:call|콜할}} 때 필요",
   "waga": "NISKIE",
-  "powod": "pl „Tyle potrzebowałeś ty, żeby sprawdzić c-bet”: „직접” (bezpośrednio/osobiście) nie oddaje jasno przeciwstawienia ty – Button; „당신이” mówi to wprost.",
-  "grupa": "L3"
+  "powod": "Rozstrzygnięcie AP (S6): pl „Tyle potrzebowałeś ty, żeby sprawdzić c-bet” — „직접” nie oddaje przeciwstawienia ty – Button (znalezisko L3); „내가” zamiast „당신이” z wpisu L3, bo plik m6-l3 używa „내가/나는”, 0× „당신”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
@@ -2862,6 +4562,136 @@
  {
   "jezyk": "ko",
   "cel": "content/ko/rules.yaml",
+  "linia": 126,
+  "stary": "50%; 프리플랍 차트 사이트,",
+  "nowy": "50%; 프리플롭 차트 사이트,",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 135,
+  "stary": "n-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; 프리플랍 차트 사이트, 6-max charts (https://www.preflopwizard.app/blo",
+  "nowy": "n-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; 프리플롭 차트 사이트, 6-max charts (https://www.preflopwizard.app/blo",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 144,
+  "stary": "약 42%; 프리플랍 차트 사이트, ",
+  "nowy": "약 42%; 프리플롭 차트 사이트, ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 170,
+  "stary": "o-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; 프리플랍 차트 사이트, 6-max charts (https://www.preflopwizard.app/blo",
+  "nowy": "o-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; 프리플롭 차트 사이트, 6-max charts (https://www.preflopwizard.app/blo",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 179,
+  "stary": "urce: \"프리플랍 차트 사이트, 6",
+  "nowy": "urce: \"프리플롭 차트 사이트, 6",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 187,
+  "stary": "); 프리플랍 차트 사",
+  "nowy": "); 프리플롭 차트 사",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 196,
+  "stary": "50%; 프리플랍 차트 사이트 ",
+  "nowy": "50%; 프리플롭 차트 사이트 ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 206,
+  "stary": " 프리플랍 솔버, 9인 테이블 100bb (ADR-20; 문서 10, “최종 N9a 측정”: N1–N4 부분 검증, NashConv 0.0094bb. UTG–UTG+2 구성은 미검증이고 빈도는 2단계 검증이 없으므로(D-153), 이 규칙은 솔버 수치 없이 방향만 제시합니다. heuristic 수준, D-144). 4단계 9-max 차트들의 공통 구간과 일치: UTG 약 9–13%, UTG+1 약 11–14% (프리플랍 차트 사이트, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; 두 번째 프리플랍 차트",
+  "nowy": " 프리플롭 솔버, 9인 테이블 100bb (ADR-20; 문서 10, “최종 N9a 측정”: N1–N4 부분 검증, NashConv 0.0094bb. UTG–UTG+2 구성은 미검증이고 빈도는 2단계 검증이 없으므로(D-153), 이 규칙은 솔버 수치 없이 방향만 제시합니다. heuristic 수준, D-144). 4단계 9-max 차트들의 공통 구간과 일치: UTG 약 9–13%, UTG+1 약 11–14% (프리플롭 차트 사이트, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; 두 번째 프리플롭 차트",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 243,
+  "stary": "”; 프로젝트의 프리플랍 솔버(ADR-20)",
+  "nowy": "”; 프로젝트의 프리플롭 솔버(ADR-20)",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 252,
+  "stary": ", 프리플랍 차트 ",
+  "nowy": ", 프리플롭 차트 ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 309,
+  "stary": "”; 프리플랍 차트 사",
+  "nowy": "”; 프리플롭 차트 사",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 317,
+  "stary": "urce: \"프리플랍 차트 사이트, I",
+  "nowy": "urce: \"프리플롭 차트 사이트, I",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 326,
+  "stary": "산; 프로젝트의 프리플랍 솔버(ADR-20)",
+  "nowy": "산; 프로젝트의 프리플롭 솔버(ADR-20)",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (ujednolicenie pisowni): preflop = „프리플롭”, flop = „플롭” (terms-nazwy.yaml, interfejs ko; pisownia normatywna), także w polu source reguły — to opis źródła po koreańsku, nie tytuł cudzej publikacji; pl „przed flopem / flop”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
   "linia": 338,
   "stary": "드라이 플랍의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 드라이 플랍 예시",
   "nowy": "드라이 플롭의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 드라이 플롭 예시",
@@ -2968,6 +4798,16 @@
   "waga": "NISKIE",
   "powod": "Pisownia „플랍” niezgodna z terms-nazwy (flop: „플롭”) i z resztą tego fragmentu (wszędzie „플롭”); pl „pula na flopie”.",
   "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 839,
+  "stary": "수의 제곱근에 비례해서만 줄어",
+  "nowy": "수의 제곱근에 반비례해서만 줄어",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (S8a): pl „błąd takiej średniej maleje dopiero z pierwiastkiem z liczby okazji” — błąd jest odwrotnie proporcjonalny do pierwiastka, więc „반비례”, nie „비례” (jak poprawki L8 m12-l1:49, 118 i R4 rules.yaml:973); „-만” (pl „dopiero”) zachowane.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ko",
