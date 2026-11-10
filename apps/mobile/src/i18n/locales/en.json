@@ -33,7 +33,8 @@
     "limitTile": "Free tomorrow",
     "limitReached": "Daily limit used. Your next free activity is tomorrow; lessons work without a limit.",
     "afterFirstLesson": "After your first lesson",
-    "afterFirstLessonM2": "After your first lesson in module 2"
+    "afterFirstLessonM2": "After your first lesson in module 2",
+    "courseDoneTitle": "Course completed"
   },
   "lessons": {
     "title": "Lessons",

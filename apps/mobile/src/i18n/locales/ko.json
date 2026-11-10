@@ -31,7 +31,8 @@
     "limitTile": "내일 무료",
     "limitReached": "일일 한도를 모두 사용했어요. 다음 무료 활동은 내일이며, 레슨은 한도 없이 이용할 수 있어요.",
     "afterFirstLesson": "첫 레슨 이후",
-    "afterFirstLessonM2": "모듈 2의 첫 레슨 이후"
+    "afterFirstLessonM2": "모듈 2의 첫 레슨 이후",
+    "courseDoneTitle": "코스 완료"
   },
   "lessons": {
     "title": "레슨",

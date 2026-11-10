@@ -7,6 +7,7 @@
  */
 import '@/i18n';
 import i18n from 'i18next';
+import * as RN from 'react-native';
 import { StyleSheet } from 'react-native';
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react-native';
 import { zapiszPowtorke } from '@szkola/postep';
@@ -148,6 +149,22 @@ describe('„Dziś”: stany kafelków (BR-MENU-001, limit BR-LIM-001; menu-i-ze
     expect(mockPush).toHaveBeenLastCalledWith('/purchase');
   });
 
+  it('kurs ukończony (08-programista-003): kafelek „Kurs ukończony” na suknie z opisem, bez przycisku lekcji', async () => {
+    const p = await portTestowy();
+    const ins = p.db.prepare('INSERT INTO postep_lekcji (lekcja_id, teoria_przeczytana, miejsce, ukonczono_ms, zmieniono_ms) VALUES (?, 1, ?, 1, 1)');
+    for (const l of sqlite.prepare('SELECT id FROM lessons').all() as { id: string }[]) ins.run(l.id, '{}');
+    await render(
+      <PostepKontekst.Provider value={p.port}>
+        <TodayScreen />
+      </PostepKontekst.Provider>,
+    );
+    const kafel = await screen.findByLabelText(`${t('today.courseDoneTitle')}. ${t('today.courseDone')}`);
+    expect(kafel.props.testID).toBe('dzis-kurs-ukonczony');
+    expect(screen.queryByTestId('dzis-lekcja')).toBeNull();
+    expect(screen.getByText(t('today.courseDoneTitle'))).toBeTruthy();
+    expect(elementyBezRoliLubNazwy()).toEqual([]);
+  });
+
   it('Pro: bez stanu limitu mimo zużycia', async () => {
     useDostep.setState({ pro: true });
     const p = await portTestowy();
@@ -195,6 +212,22 @@ describe('„Postęp” (KO-045)', () => {
     expect(karta.props.accessibilityRole).toBe('button');
     await act(async () => fireEvent.press(karta));
     expect(mockPush).toHaveBeenCalledWith('/advancement');
+  });
+  it.each([
+    [1, 'row', true],
+    [3.1, 'column', false],
+  ])('karta przy skali tekstu %s: układ %s, szewron: %s (08-programista-004, wariant AX5 z projektu)', async (skala, kierunek, szewron) => {
+    const przed = RN.Dimensions.get('window');
+    RN.Dimensions.set({ window: { width: 390, height: 844, scale: 3, fontScale: skala } });
+    try {
+      await otworz(ProgressScreen);
+      const karta = await screen.findByLabelText(new RegExp(`^${t('advancement.title')}: `));
+      const st = StyleSheet.flatten(karta.props.style as Parameters<typeof StyleSheet.flatten>[0]) as { flexDirection?: string };
+      expect(st.flexDirection).toBe(kierunek);
+      expect(within(karta).queryByText('›') !== null).toBe(szewron);
+    } finally {
+      RN.Dimensions.set({ window: przed });
+    }
   });
 });
 

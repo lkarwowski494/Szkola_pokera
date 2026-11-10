@@ -28,3 +28,10 @@ CI: `pnpm run ci` kod 0 po poprawce: `dowody/bi-ci-po-k11.log` (apps/mobile 713 
 - Do sprawdzenia na urządzeniu: czy ekran startu powtórek ma „Zacznij” przy pustej kolejce (flow 02); NativeTabs ikona `capsule` (SF) dla Dziś; kafelki AX5 (1 kolumna od skali 1,3, łamanie wyrazów D-122); kontrast zębatki.
 - Lista zrzutów do zrobienia: `dzis` 390 jasny/ciemny, 320 AX5, `lekcje` 390, `postep` 390 ciemny, `scenariusze` 390 — porównać z `docs/design/wzorce-zrzuty/menu/koncowy-*.png`.
 - Rozbieżność z makietą (do 04): ikona Dziś w pasku to SF `capsule` (makieta: owal), `md="today"` na Androidzie.
+
+## Poprawki po recenzji BL (4ad6dc2; polecenie koordynatora 2026-11-10 16:29)
+- 001 WYS: flowy 02, 03, 04 → `id: dzis-lekcja`; test BL `tests/narzedzia/e2e-flowy.test.mjs` (cherry-pick c6697d7): czerwony 1 fail, zielony 10 pass.
+- 003 ŚR: `BlokKursUkonczony` (test `menu-bi.test.tsx`, czerwony → zielony). Nowy klucz `today.courseDoneTitle` (12 języków, do przeglądu 09).
+- 004 ŚR: `AdvancementCard` pionowo od skali 1,3 (test `menu-bi.test.tsx`, dwa przypadki: 1,0 i 3,1; czerwony 3,1 → zielony).
+- 002 ŚR — ZNALEZISKO DLA ROLI 04 (bez zmian w kodzie): kafelek Powtórki przy pustej kolejce („Po pierwszej lekcji”/„Brak na dziś”) prowadzi przez ekran startu (licznik; przy wyczerpanym limicie „Pełny dostęp”) do pustej kolejki. Projekt nie opisuje tego stuknięcia. Opcje do decyzji 04: (a) sesja powtórek przy 0 kart pomija ekran startu i pokazuje od razu pusty stan z następnym terminem; (b) kafelek w tych stanach nieaktywny (`accessibilityState.disabled`). Rekomendacja recenzji: (a). Flow 02 zakłada dziś ścieżkę przez „Zacznij”.
+- Do backlogu (NIS, bez zmian): 005 (tekst modułu z `max(2, moduł startu)`, przy kroku F), 006 (etykiety czytnika przez klucze z parametrami), 007 (kafelki bez linii stanu przed odczytem/po błędzie), 008 (asercja kolejności karty na Postępie), 009 (przegląd 09: 18 kluczy), 010 (martwe klucze i18n).

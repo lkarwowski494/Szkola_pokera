@@ -35,7 +35,8 @@
     "limitTile": "Grátis amanhã",
     "limitReached": "Limite diário atingido. A próxima atividade grátis é amanhã; as lições não têm limite.",
     "afterFirstLesson": "Depois da primeira lição",
-    "afterFirstLessonM2": "Depois da primeira lição do módulo 2"
+    "afterFirstLessonM2": "Depois da primeira lição do módulo 2",
+    "courseDoneTitle": "Curso concluído"
   },
   "lessons": {
     "title": "Lições",

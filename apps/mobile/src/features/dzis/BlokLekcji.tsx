@@ -45,3 +45,25 @@ export default function BlokLekcji({ blok, onOtworz }: { blok: BlokNastepnejLekc
     </Pressable>
   );
 }
+
+/**
+ * Stan „kurs ukończony” (menu-i-zebatka.md „Stany”, makieta `menu.html` .sukno-kafel): ten sam element firmowy co BlokLekcji
+ * (ramka i sukno), tytuł i opis, bez przycisku — nie ma lekcji do otwarcia. Czytnik: jeden element „{tytuł}. {opis}”.
+ */
+export function BlokKursUkonczony() {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  return (
+    <View
+      testID="dzis-kurs-ukonczony"
+      accessible
+      accessibilityLabel={`${t('today.courseDoneTitle')}. ${t('today.courseDone')}`}
+      style={{ backgroundColor: tk.frame, borderRadius: promien.sukno, padding: odstep.s }}
+    >
+      <View style={{ backgroundColor: tk.felt1, borderRadius: promien.sukno - odstep.s, padding: odstep.l, gap: odstep.xs }}>
+        <Text style={[styl.tytul, { color: tk.onFelt }]}>{t('today.courseDoneTitle')}</Text>
+        <Text style={[styl.przypis, { color: tk.onFeltMuted }]}>{t('today.courseDone')}</Text>
+      </View>
+    </View>
+  );
+}

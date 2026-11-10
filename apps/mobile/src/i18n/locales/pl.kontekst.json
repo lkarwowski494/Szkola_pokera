@@ -716,5 +716,6 @@
   "today.limitTile": "Stan kafelków Sesja ćwiczeń i Scenariusze po wyczerpaniu dziennego limitu (obwódka kreskowana jako drugi kanał). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
   "today.limitReached": "Stopka pod kafelkami po wyczerpaniu limitu (BR-LIM-001; nazwa „dzienny limit”, D-111). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
   "today.afterFirstLesson": "Stan kafelka Powtórki u nowego użytkownika: co go odblokuje. Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
-  "today.afterFirstLessonM2": "Stan kafelka Scenariusze do czasu pierwszej lekcji modułu 2 (BR-MENU-001). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]"
+  "today.afterFirstLessonM2": "Stan kafelka Scenariusze do czasu pierwszej lekcji modułu 2 (BR-MENU-001). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.courseDoneTitle": "Tytuł kafelka na suknie, gdy wszystkie lekcje są ukończone (nad today.courseDone). Użyty w: features/dzis/BlokLekcji.tsx. [BI, 2026-11-10]"
 }

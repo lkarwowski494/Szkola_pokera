@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { BladOdczytu } from '@/components/BladOdczytu';
 import { Ikona } from '@/components/Ikona';
-import { Muted, Screen } from '@/components/ui';
+import { Screen } from '@/components/ui';
 import { getLessonSummaries, getModules } from '@/data/content/repo';
 import { useOdczytPostepu } from '@/data/postep';
 import { useBazaTresci } from '@/data/tresc/kontekst';
-import BlokLekcji from '@/features/dzis/BlokLekcji';
+import BlokLekcji, { BlokKursUkonczony } from '@/features/dzis/BlokLekcji';
 import Kafel from '@/features/dzis/Kafel';
 import { liczbaKolumnKafli, nastepnaNaDzis, stanKafli } from '@/features/dzis/widok';
 import { czytajFaktyKursu } from '@/features/kurs/faktyKursu';
@@ -72,7 +72,7 @@ export default function TodayScreen() {
       {blok ? (
         <BlokLekcji blok={blok} onOtworz={(id) => router.push({ pathname: '/lesson/[id]', params: { id } })} />
       ) : odczyt.stan === 'ok' ? (
-        <Muted>{t('today.courseDone')}</Muted>
+        <BlokKursUkonczony />
       ) : null}
       <View style={styles.kafle}>
         <Kafel

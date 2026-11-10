@@ -31,7 +31,8 @@
     "limitTile": "Miễn phí vào ngày mai",
     "limitReached": "Đã dùng hết giới hạn hằng ngày. Hoạt động miễn phí tiếp theo là ngày mai; bài học không bị giới hạn.",
     "afterFirstLesson": "Sau bài học đầu tiên",
-    "afterFirstLessonM2": "Sau bài học đầu tiên của chương 2"
+    "afterFirstLessonM2": "Sau bài học đầu tiên của chương 2",
+    "courseDoneTitle": "Đã hoàn thành khóa học"
   },
   "lessons": {
     "title": "Bài học",
