@@ -1,0 +1,42 @@
+{
+ "B jasny: stan kafelka (muted, 0,4) na kafelku": [
+  "#A8B0C4",
+  "#F2F4F9"
+ ],
+ "B jasny: tytuł kafelka (ink, 0,4) na kafelku": [
+  "#9096A6",
+  "#F2F4F9"
+ ],
+ "A jasny: naglowek/tresc ink na bg": [
+  "#0A1430",
+  "#E9EDF5"
+ ],
+ "A jasny: opis muted na bg": [
+  "#46557A",
+  "#E9EDF5"
+ ],
+ "C jasny: stan kafelka muted na surface": [
+  "#46557A",
+  "#FFFFFF"
+ ],
+ "B ciemny: stan kafelka (muted, 0,4) na kafelku": [
+  "#4C5773",
+  "#0E193A"
+ ],
+ "B ciemny: tytuł kafelka (ink, 0,4) na kafelku": [
+  "#676B78",
+  "#0E193A"
+ ],
+ "A ciemny: naglowek/tresc ink na bg": [
+  "#F2EEE3",
+  "#0A1430"
+ ],
+ "A ciemny: opis muted na bg": [
+  "#B0BCD8",
+  "#0A1430"
+ ],
+ "C ciemny: stan kafelka muted na surface": [
+  "#B0BCD8",
+  "#13214A"
+ ]
+}
