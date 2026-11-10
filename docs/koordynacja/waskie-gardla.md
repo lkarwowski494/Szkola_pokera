@@ -1,0 +1,10 @@
+# Wąskie gardła
+
+| WG | Objaw | Pomiar | Przyczyna | Działanie | Ryzyko | Stan |
+|---|---|---|---|---|---|---|
+| WG-01 | Kolizje numerów decyzji D-NNN między sesjami | noc 09→10: 4 razy (AE/koordynator D-377–379, AG/AF D-382, AH/AI+AJ D-388–389 dwukrotnie); każda = commit przenumerowania | sesje równoległe biorą „max+1” | pule numerów w poleceniu (M9 E1 pkt 2) | bez zmian kontroli | do wdrożenia od AM |
+| WG-02 | E2E iOS ~40–55 min na push kodu, kolejka maszyn macOS | 7 przebiegów nocy po 41–54 min; 42708200850 czekał 10 min w kolejce i został anulowany | jeden przebieg na push; build 22–24 min | grupować push kodu; push w kolejce zamiast czekać (22:13) | bez zmian kontroli | obserwacja |
+| WG-03 | CI z pushu kodu anulowane przez późniejszy push docs | ≥ 4 razy (e67157a, d3d6fe9, 6afa34d, 2e39589) | grupa współbieżności CI anuluje starszy push | gałąź stanu `koordynacja` + `[skip ci]` (M9) — wpisy stanu nie dotykają gałęzi roboczej | bez zmian kontroli | rozwiązane migracją |
+| WG-04 | Workflowy ASC uruchomione z `main` padają | 2 razy (42699812656, 42702503780) | skrypty tylko na gałęzi roboczej (D-342) | zawsze ref gałęzi roboczej (instrukcja dla właściciela) | bez zmian | obejście |
+| WG-05 | `add_repo prompts` odrzucany przez klasyfikator w sesjach podrzędnych | ≥ 5 sesji (Z, AC, AE, AF, AJ, AK) → rola z planów (wyjątek D-381) | dostęp do prywatnej biblioteki | M9: koordynator składa prompt i wkleja go po `=== PROMPT ROLI ===` | sesje miały niepełną rolę | rozwiązane migracją |
+| WG-06 | Szacunek kosztu przekładu API zaniżony | D-358: 40,63 vs szac. ≈ 31 (×1,31); D-375: 53,92 vs ≈ 40,2 (×1,34) | wyjście dłuższe niż założenie | mnożnik ×1,35 do szacunków `--szacuj` | bez zmian | stosować |
