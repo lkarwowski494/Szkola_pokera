@@ -36,3 +36,19 @@ export function wybierzWariant(szablon: GeneratorTemplate, poziom: ScenarioLevel
   if (!ostatni) throw new Error('wybierzWariant: brak prób');
   return ostatni;
 }
+
+export interface StartWariantu {
+  /** Historia szablonu na poziomie, od najstarszego do najnowszego (jak `odczytajOdciski`). */
+  historia: readonly WpisHistorii[];
+  /** Odcisk wariantu, który użytkownik właśnie startuje. */
+  odcisk: string;
+}
+/**
+ * Powtórka wariantu (KO-043, D-558): startowany odcisk jest równy odciskowi ostatnio zapisanego wariantu szablonu na poziomie
+ * („Zagraj jeszcze raz to samo rozdanie”). Rozpoznaje domena z historii, nie interfejs; odcisk to to, po czym użytkownik
+ * rozpoznaje „to samo rozdanie” (D-552). Starszy wpis niż ostatni to nowe rozdanie (limit liczy nowe warianty).
+ */
+export function czyPowtorkaWariantu(s: StartWariantu): boolean {
+  const ostatni = s.historia[s.historia.length - 1];
+  return ostatni !== undefined && ostatni.odcisk === s.odcisk;
+}

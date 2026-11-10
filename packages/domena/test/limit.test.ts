@@ -1,7 +1,7 @@
 // Testy akceptacyjne limitu dnia (BR-LIM-001, -003, -005; ADR 0007 „Potwierdzenie”; K-05). Oczekiwane wartości:
 // parametr LIMIT_AKTYWNOSCI_DZIENNIE z konfiguracji (D-107) i data w strefie z Intl (tests/narzedzia/czas.ts), nie z kodu aplikacji.
 import { describe, expect, it } from 'vitest';
-import { KONFIGURACJA as K, limitDnia, mozeStartowac, type Limit, type RodzajAktywnosci } from '../src';
+import { czyPowtorkaWariantu, KONFIGURACJA as K, limitDnia, mozeStartowac, type Limit, type RodzajAktywnosci } from '../src';
 import { dzienW, nastepnyDzien, poczatekDnia, przejsciaCzasu } from '../../../tests/narzedzia/czas';
 import { lataTestowe, STREFY_TESTOWE } from '../../../tests/narzedzia/strefy';
 
@@ -74,20 +74,32 @@ describe('ADR 0007 „Potwierdzenie”: Pro i nowy dzień', () => {
   });
 });
 
-describe('KO-043: „Zagraj jeszcze raz to samo rozdanie” nie zużywa dziennego limitu', () => {
+// 08-programista-002: powtórkę wariantu rozpoznaje domena z historii (odcisk ostatnio zapisanego wariantu), nie flaga od wywołującego.
+const HIST = [{ odcisk: 'sz|latwy|AK0/Q1/7', ziarno: 11 }, { odcisk: 'sz|latwy|JT0/952/', ziarno: 22 }];
+const TEN_SAM = { historia: HIST, odcisk: 'sz|latwy|JT0/952/' };
+const INNY = { historia: HIST, odcisk: 'sz|latwy|88/K42/' };
+
+describe('KO-043: „Zagraj jeszcze raz to samo rozdanie” nie zużywa dziennego limitu (powtórka z historii)', () => {
+  it('czyPowtorkaWariantu: odcisk równy ostatniemu w historii → powtórka; inny, starszy albo pusta historia → nie', () => {
+    expect(czyPowtorkaWariantu(TEN_SAM)).toBe(true);
+    expect(czyPowtorkaWariantu(INNY)).toBe(false);
+    expect(czyPowtorkaWariantu({ historia: HIST, odcisk: 'sz|latwy|AK0/Q1/7' })).toBe(false); // starszy niż ostatni: nowe rozdanie
+    expect(czyPowtorkaWariantu({ historia: [], odcisk: 'sz|latwy|AK0/Q1/7' })).toBe(false);
+  });
   it('powtórka wariantu scenariusza startuje przy wyczerpanym limicie i nie idzie z limitu', () => {
-    expect(mozeStartowac('scenariusz', false, WYCZERPANY, true)).toEqual({ start: true, zLimitu: false });
+    expect(mozeStartowac('scenariusz', false, WYCZERPANY, TEN_SAM)).toEqual({ start: true, zLimitu: false });
   });
   it('powtórka przy dostępnym limicie też nie zużywa limitu', () => {
-    expect(mozeStartowac('scenariusz', false, JEDNA, true)).toEqual({ start: true, zLimitu: false });
+    expect(mozeStartowac('scenariusz', false, JEDNA, TEN_SAM)).toEqual({ start: true, zLimitu: false });
   });
-  it('nowy wariant scenariusza (nie powtórka) nadal idzie z limitu i jest blokowany po jego wyczerpaniu', () => {
-    expect(mozeStartowac('scenariusz', false, JEDNA, false)).toEqual({ start: true, zLimitu: true });
+  it('nowy wariant scenariusza (inny odcisk) idzie z limitu i jest blokowany po jego wyczerpaniu; brak informacji o wariancie = nowy', () => {
+    expect(mozeStartowac('scenariusz', false, JEDNA, INNY)).toEqual({ start: true, zLimitu: true });
+    expect(mozeStartowac('scenariusz', false, WYCZERPANY, INNY)).toEqual({ start: false, powod: 'limit_wyczerpany' });
     expect(mozeStartowac('scenariusz', false, WYCZERPANY)).toEqual({ start: false, powod: 'limit_wyczerpany' });
   });
-  it('znacznik powtórki nie zmienia innych rodzajów aktywności', () => {
+  it('wariant z historii nie zmienia innych rodzajów aktywności', () => {
     for (const rodzaj of ['sesja', 'powtorki'] as const) {
-      expect(mozeStartowac(rodzaj, false, WYCZERPANY, true)).toEqual({ start: false, powod: 'limit_wyczerpany' });
+      expect(mozeStartowac(rodzaj, false, WYCZERPANY, TEN_SAM)).toEqual({ start: false, powod: 'limit_wyczerpany' });
     }
   });
 });
