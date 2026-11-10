@@ -1,0 +1,162 @@
+{
+ ":root zębatka/ikona kafelka ink na bg (3)": [
+  "#0A1430",
+  "#E9EDF5",
+  3
+ ],
+ ":root ikona kafelka ink na surface (3)": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ ":root status kafelka muted na surface": [
+  "#46557A",
+  "#FFFFFF",
+  4.5
+ ],
+ ":root plakietka bg na ink": [
+  "#E9EDF5",
+  "#0A1430",
+  4.5
+ ],
+ ":root obwódka limitu muted na bg (3)": [
+  "#46557A",
+  "#E9EDF5",
+  3
+ ],
+ ":root granica kafelka W2: sukno na bg (informacyjnie)": [
+  "#174A36",
+  "#E9EDF5",
+  1
+ ],
+ ":root granica kafelka: surface na bg (informacyjnie)": [
+  "#FFFFFF",
+  "#E9EDF5",
+  1
+ ],
+ ":root ramka sukna frame na bg (ozdoba, informacyjnie)": [
+  "#0A1430",
+  "#E9EDF5",
+  1
+ ],
+ "[data-theme=\"dark\"] zębatka/ikona kafelka ink na bg (3)": [
+  "#F2EEE3",
+  "#0A1430",
+  3
+ ],
+ "[data-theme=\"dark\"] ikona kafelka ink na surface (3)": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ],
+ "[data-theme=\"dark\"] status kafelka muted na surface": [
+  "#B0BCD8",
+  "#13214A",
+  4.5
+ ],
+ "[data-theme=\"dark\"] plakietka bg na ink": [
+  "#0A1430",
+  "#F2EEE3",
+  4.5
+ ],
+ "[data-theme=\"dark\"] obwódka limitu muted na bg (3)": [
+  "#B0BCD8",
+  "#0A1430",
+  3
+ ],
+ "[data-theme=\"dark\"] granica kafelka W2: sukno na bg (informacyjnie)": [
+  "#103426",
+  "#0A1430",
+  1
+ ],
+ "[data-theme=\"dark\"] granica kafelka: surface na bg (informacyjnie)": [
+  "#13214A",
+  "#0A1430",
+  1
+ ],
+ "[data-theme=\"dark\"] ramka sukna frame na bg (ozdoba, informacyjnie)": [
+  "#1E3466",
+  "#0A1430",
+  1
+ ],
+ "[data-kontrast=\"wiekszy\"] zębatka/ikona kafelka ink na bg (3)": [
+  "#0A1430",
+  "#E9EDF5",
+  3
+ ],
+ "[data-kontrast=\"wiekszy\"] ikona kafelka ink na surface (3)": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ "[data-kontrast=\"wiekszy\"] status kafelka muted na surface": [
+  "#2C3A5E",
+  "#FFFFFF",
+  4.5
+ ],
+ "[data-kontrast=\"wiekszy\"] plakietka bg na ink": [
+  "#E9EDF5",
+  "#0A1430",
+  4.5
+ ],
+ "[data-kontrast=\"wiekszy\"] obwódka limitu muted na bg (3)": [
+  "#2C3A5E",
+  "#E9EDF5",
+  3
+ ],
+ "[data-kontrast=\"wiekszy\"] granica kafelka W2: sukno na bg (informacyjnie)": [
+  "#123D2C",
+  "#E9EDF5",
+  1
+ ],
+ "[data-kontrast=\"wiekszy\"] granica kafelka: surface na bg (informacyjnie)": [
+  "#FFFFFF",
+  "#E9EDF5",
+  1
+ ],
+ "[data-kontrast=\"wiekszy\"] ramka sukna frame na bg (ozdoba, informacyjnie)": [
+  "#0A1430",
+  "#E9EDF5",
+  1
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] zębatka/ikona kafelka ink na bg (3)": [
+  "#F2EEE3",
+  "#0A1430",
+  3
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] ikona kafelka ink na surface (3)": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] status kafelka muted na surface": [
+  "#D5DCEC",
+  "#13214A",
+  4.5
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] plakietka bg na ink": [
+  "#0A1430",
+  "#F2EEE3",
+  4.5
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] obwódka limitu muted na bg (3)": [
+  "#D5DCEC",
+  "#0A1430",
+  3
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] granica kafelka W2: sukno na bg (informacyjnie)": [
+  "#0C2A1E",
+  "#0A1430",
+  1
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] granica kafelka: surface na bg (informacyjnie)": [
+  "#13214A",
+  "#0A1430",
+  1
+ ],
+ "[data-theme=\"dark\"][data-kontrast=\"wiekszy\"] ramka sukna frame na bg (ozdoba, informacyjnie)": [
+  "#3A55A0",
+  "#0A1430",
+  1
+ ]
+}

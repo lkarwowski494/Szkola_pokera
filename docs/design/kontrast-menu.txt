@@ -1,0 +1,34 @@
+# node narzedzia/kontrast.mjs narzedzia/kontrast-menu.json — 2026-11-10; próg 1 = informacyjnie (granicę kafelka-przycisku wyznacza tekst etykiety; WCAG 1.4.11 nie wymaga obwódki kontrolki)
+OK   15.49:1 (min 3) :root zębatka/ikona kafelka ink na bg (3) #0A1430 na #E9EDF5
+OK   18.17:1 (min 3) :root ikona kafelka ink na surface (3) #0A1430 na #FFFFFF
+OK   7.39:1 (min 4.5) :root status kafelka muted na surface #46557A na #FFFFFF
+OK   15.49:1 (min 4.5) :root plakietka bg na ink #E9EDF5 na #0A1430
+OK   6.30:1 (min 3) :root obwódka limitu muted na bg (3) #46557A na #E9EDF5
+OK   8.65:1 (min 1) :root granica kafelka W2: sukno na bg (informacyjnie) #174A36 na #E9EDF5
+OK   1.17:1 (min 1) :root granica kafelka: surface na bg (informacyjnie) #FFFFFF na #E9EDF5
+OK   15.49:1 (min 1) :root ramka sukna frame na bg (ozdoba, informacyjnie) #0A1430 na #E9EDF5
+OK   15.67:1 (min 3) [data-theme="dark"] zębatka/ikona kafelka ink na bg (3) #F2EEE3 na #0A1430
+OK   13.48:1 (min 3) [data-theme="dark"] ikona kafelka ink na surface (3) #F2EEE3 na #13214A
+OK   8.21:1 (min 4.5) [data-theme="dark"] status kafelka muted na surface #B0BCD8 na #13214A
+OK   15.67:1 (min 4.5) [data-theme="dark"] plakietka bg na ink #0A1430 na #F2EEE3
+OK   9.55:1 (min 3) [data-theme="dark"] obwódka limitu muted na bg (3) #B0BCD8 na #0A1430
+OK   1.33:1 (min 1) [data-theme="dark"] granica kafelka W2: sukno na bg (informacyjnie) #103426 na #0A1430
+OK   1.16:1 (min 1) [data-theme="dark"] granica kafelka: surface na bg (informacyjnie) #13214A na #0A1430
+OK   1.50:1 (min 1) [data-theme="dark"] ramka sukna frame na bg (ozdoba, informacyjnie) #1E3466 na #0A1430
+OK   15.49:1 (min 3) [data-kontrast="wiekszy"] zębatka/ikona kafelka ink na bg (3) #0A1430 na #E9EDF5
+OK   18.17:1 (min 3) [data-kontrast="wiekszy"] ikona kafelka ink na surface (3) #0A1430 na #FFFFFF
+OK   11.21:1 (min 4.5) [data-kontrast="wiekszy"] status kafelka muted na surface #2C3A5E na #FFFFFF
+OK   15.49:1 (min 4.5) [data-kontrast="wiekszy"] plakietka bg na ink #E9EDF5 na #0A1430
+OK   9.55:1 (min 3) [data-kontrast="wiekszy"] obwódka limitu muted na bg (3) #2C3A5E na #E9EDF5
+OK   10.35:1 (min 1) [data-kontrast="wiekszy"] granica kafelka W2: sukno na bg (informacyjnie) #123D2C na #E9EDF5
+OK   1.17:1 (min 1) [data-kontrast="wiekszy"] granica kafelka: surface na bg (informacyjnie) #FFFFFF na #E9EDF5
+OK   15.49:1 (min 1) [data-kontrast="wiekszy"] ramka sukna frame na bg (ozdoba, informacyjnie) #0A1430 na #E9EDF5
+OK   15.67:1 (min 3) [data-theme="dark"][data-kontrast="wiekszy"] zębatka/ikona kafelka ink na bg (3) #F2EEE3 na #0A1430
+OK   13.48:1 (min 3) [data-theme="dark"][data-kontrast="wiekszy"] ikona kafelka ink na surface (3) #F2EEE3 na #13214A
+OK   11.37:1 (min 4.5) [data-theme="dark"][data-kontrast="wiekszy"] status kafelka muted na surface #D5DCEC na #13214A
+OK   15.67:1 (min 4.5) [data-theme="dark"][data-kontrast="wiekszy"] plakietka bg na ink #0A1430 na #F2EEE3
+OK   13.22:1 (min 3) [data-theme="dark"][data-kontrast="wiekszy"] obwódka limitu muted na bg (3) #D5DCEC na #0A1430
+OK   1.18:1 (min 1) [data-theme="dark"][data-kontrast="wiekszy"] granica kafelka W2: sukno na bg (informacyjnie) #0C2A1E na #0A1430
+OK   1.16:1 (min 1) [data-theme="dark"][data-kontrast="wiekszy"] granica kafelka: surface na bg (informacyjnie) #13214A na #0A1430
+OK   2.58:1 (min 1) [data-theme="dark"][data-kontrast="wiekszy"] ramka sukna frame na bg (ozdoba, informacyjnie) #3A55A0 na #0A1430
+kod=0

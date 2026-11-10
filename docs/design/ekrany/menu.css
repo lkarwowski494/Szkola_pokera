@@ -1,0 +1,63 @@
+/* Sesja BE (rola 04): menu kafelkowe (KO-041) i zębatka (KO-036). Uzupełnia e3.css; kolory wyłącznie z tokeny.css. */
+
+/* Zębatka: rysunek 24 pt, kreska 2 pt, przycisk 44×44 pt; kolor `ink` (element interfejsu, WCAG 1.4.11 ≥ 3:1 do `bg`) */
+.nav .zebatka { width: 44px; height: 44px; margin-right: -10px; display: inline-flex; align-items: center; justify-content: center; border-radius: 22px; }
+.nav .zebatka svg { width: 24px; height: 24px; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.nav .zebatka.pokaz-cel { outline: 1.5px dashed var(--muted); }
+.nav .zebatka-przed { font-size: 17px; color: var(--ink); text-decoration: none; padding: 0 2px; font-family: 'DejaVu Sans', var(--tresc); font-weight: 400; }
+
+/* Kafelki: siatka 2 kolumn; od dużego tekstu jedna kolumna (min. szerokość rośnie z --dt-tresc) */
+.kafle { margin: 16px 16px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(136px * var(--dt-tresc))), 1fr)); gap: 12px; }
+.kafel { min-height: 112px; background: var(--surface); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; color: var(--ink); text-decoration: none; line-height: 1.25; }
+.kafel.szeroki { grid-column: 1 / -1; min-height: 0; }
+.kafel .ik { width: 28px; height: 28px; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 8px; flex: none; }
+.kafel b { font-size: var(--t-tresc); font-weight: 600; }
+.kafel span { font-size: var(--t-przypis); color: var(--muted); }
+/* Limit: tekst zamiast koloru („Darmowa jutro”), obwódka kreskowana jako drugi kanał (nic tylko kolorem) */
+.kafel.zablokowany { background: transparent; border: 1.5px dashed var(--separator-strong, var(--muted)); }
+
+/* W2: „Kontynuuj” jako szeroki kafelek na suknie (element firmowy zostaje, mniejszy) */
+.kafel.sukno-kafel { background: radial-gradient(80% 140% at 50% 0%, var(--felt1), var(--felt2)); border: 8px solid var(--frame); border-radius: 22px; color: var(--on-felt); padding: 14px 16px 16px; }
+.kafel.sukno-kafel span { color: var(--on-felt-muted); }
+.kafel.sukno-kafel b.tytul { font-size: var(--t-tytul); line-height: 1.15; }
+.kafel.sukno-kafel .mini-przycisk { margin-top: 12px; align-self: stretch; min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: var(--card); color: var(--card-ink); font-style: normal; font-weight: 600; font-size: var(--t-tresc); text-align: center; padding: 8px 12px; }
+
+/* W1 „Kurs ukończony” na suknie */
+.lekcja.koniec h2 { margin-top: 0; }
+.lekcja.koniec p { margin-top: 4px; }
+
+/* Plakietka liczby powtórek na zakładce (W1) */
+.zakladki .zk { position: relative; display: inline-flex; }
+.zakladki .zk .ik { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.zakladki .zk em { position: absolute; top: -4px; right: -12px; min-width: 20px; height: 20px; border-radius: 10px; padding: 0 5px; background: var(--ink); color: var(--bg); font-style: normal; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; font-feature-settings: 'tnum'; }
+
+/* Ekran „Lekcje” */
+.postep-lekcji { margin-top: 4px; }
+.pasek-postepu { margin: 8px 20px 16px; height: 6px; border-radius: 3px; background: var(--separator); overflow: hidden; }
+.pasek-postepu i { display: block; height: 100%; background: var(--ink); }
+.grupa.moduly > a, .grupa.moduly .modul > a { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 12px 16px; color: var(--ink); text-decoration: none; font-size: var(--t-tresc); line-height: 1.3; }
+.grupa.moduly .modul > a { border-bottom: 1px solid var(--separator); }
+.grupa.moduly b { font-weight: 600; }
+.strzalka { color: var(--muted); font-size: var(--t-tresc); margin-left: auto; }
+.lista > a { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 16px 10px 24px; color: var(--ink); text-decoration: none; font-size: var(--t-tresc); line-height: 1.3; }
+.lista > a + a { border-top: 1px solid var(--separator); }
+.kropka { width: 26px; height: 26px; flex: none; border-radius: 13px; border: 2px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+.kropka.done { background: var(--primary-bg); color: var(--primary-ink); border-color: var(--primary-bg); }
+.kropka.started { border-style: dashed; }
+.kropka.egz { border-style: dotted; }
+.przyklad { color: var(--muted); font-size: var(--t-drobny); }
+
+/* Duży tekst (AX5 w makiecie: --dt-tresc 3.1): mniej marginesów, żeby wyrazy mieściły się w wierszu (D-122) */
+@container style(--dt-tresc: 3.1) {
+  .lekcja { margin: 12px 8px 0; padding: 4px; }
+  .lekcja .sukno { padding: 12px 10px; }
+  .kafle { margin: 12px 8px 0; gap: 8px; }
+  .kafel { padding: 12px 10px; }
+  .kafel.sukno-kafel { border-width: 4px; padding: 10px; }
+  .grupa { margin: 0 8px; }
+  .grupa.moduly > a, .grupa.moduly .modul > a { padding: 10px; }
+  .lista > a { padding: 10px; }
+  .duzy-tytul { padding: 4px 12px 0; }
+  .przypis, .etykieta { margin-left: 12px; margin-right: 12px; }
+  .limit-link { margin: 0 12px; }
+}

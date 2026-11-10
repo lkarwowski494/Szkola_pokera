@@ -14,5 +14,8 @@ Aktualizacja: 2026-11-10 · gałąź `sesja-be-projekt` @ 00b0566 (start zgodny 
 - A2 menu: 2 warianty układu (siatka kafelków vs „jedna duża akcja + kafelki”), ekran „Lekcje”, stany (nowy, w trakcie, wszystko zrobione, limit), 320/390, AX5, 12 języków, opis VoiceOver; raport z rekomendacją.
 - B po SHA z BD.
 
+## Część A (wykonana 2026-11-10)
+- Zębatka D-540, menu W1/W2 D-541 (rek. W1), ekran „Lekcje” D-542; specyfikacja `docs/design/menu-i-zebatka.md`, zrzuty `docs/design/wzorce-zrzuty/menu/`.
+
 ## Następny krok
-Czekam na odpowiedź koordynatora po E0; potem A1+A2.
+Czekam na wybór W1/W2 (właściciel przez koordynatora) i SHA przekazania BD; potem część B.
