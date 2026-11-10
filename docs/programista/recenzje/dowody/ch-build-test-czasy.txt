@@ -1,0 +1,7 @@
+# komenda: (tools/content-build) npx vitest run test/build.test.ts --reporter=verbose (sam plik, bez równoległych pakietów)
+ ✓ test/build.test.ts > treść projektu > kompiluje się bez błędów i bez liczb wpisanych ręcznie 19934ms
+ ✓ test/build.test.ts > treść projektu > jest deterministyczna (ten sam hash) 39125ms
+ ✓ test/build.test.ts > terminy PL ↔ EN (content/terms.yaml) > prawdziwa treść: każdy termin ma źródło z adresem, ćwiczenie słownictwa ma w obszarze co najmniej 4 terminy 19867ms
+      Tests  39 passed (39)
+   Duration  138.93s (tests 71%, import 28%)
+exit 0

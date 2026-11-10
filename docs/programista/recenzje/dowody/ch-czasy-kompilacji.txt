@@ -1,0 +1,11 @@
+# komenda: <repo>/node_modules/.bin/tsx czas.mts <repo> (3 x compileContent(content, 'pl')), po jednym naraz, nproc=4
+/tmp/claude-0/-home-user-Szkola-pokera/ce1cd964-6bb3-558b-bf6f-52c816993d0e/scratchpad/wt-70fdf40 ms: 1251 809 745 hash a9eab1b7a4
+exit 0
+/tmp/claude-0/-home-user-Szkola-pokera/ce1cd964-6bb3-558b-bf6f-52c816993d0e/scratchpad/wt-866744e ms: 15606 16185 15835 hash f8f7d0affa
+exit 0
+/tmp/claude-0/-home-user-Szkola-pokera/ce1cd964-6bb3-558b-bf6f-52c816993d0e/scratchpad/wt-6a5ca17 ms: 23944 24297 24239 hash e55d28eefd
+exit 0
+/tmp/claude-0/-home-user-Szkola-pokera/ce1cd964-6bb3-558b-bf6f-52c816993d0e/scratchpad/wt-87e51ad ms: 15710 15294 15246 hash f8f7d0affa
+exit 0
+/home/user/Szkola_pokera ms: 24423 23850 24305 hash e55d28eefd
+exit 0

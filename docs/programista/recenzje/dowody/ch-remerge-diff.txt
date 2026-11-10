@@ -1,0 +1,219 @@
+# komenda: for m in 687ef5d 87e51ad 96ce106 61d9318: git log -1 --format='%h parents %p'; git show --remerge-diff --format= <m> -- ':!*.db'
+== 687ef5d parents 70fdf40 713314b Scalenie sesja-bt-ekran do gałęzi roboczej (CD)
+== 87e51ad parents 687ef5d 866744e Scalenie sesja-bs-szablony do gałęzi roboczej (CD)
+== 96ce106 parents 87e51ad 6a5ca17 Scalenie sesja-bu-format do gałęzi roboczej (CD)
+diff --git a/apps/mobile/src/data/content/tresc.generated.ts b/apps/mobile/src/data/content/tresc.generated.ts
+remerge CONFLICT (content): Merge conflict in apps/mobile/src/data/content/tresc.generated.ts
+index 8e7832e..c052bb3 100644
+--- a/apps/mobile/src/data/content/tresc.generated.ts
++++ b/apps/mobile/src/data/content/tresc.generated.ts
+@@ -1,82 +1,41 @@
+ // Wygenerowane przez content-build (pnpm content:build). Nie edytuj ręcznie.
+ /* eslint-disable @typescript-eslint/no-require-imports */
+-<<<<<<< 87e51ad (Scalenie sesja-bs-szablony do gałęzi roboczej (CD))
+-export const WERSJA_TRESCI = 'c21da5cfc7';
++export const WERSJA_TRESCI = 'd8a27dfd52';
+ /** Plik treści na język (ADR 0005, D-229): nazwa w paczce i zasób Metro. */
+ export const PLIKI_TRESCI: Readonly<Record<string, { plik: string; zasob: number }>> = {
+-  'pl': { plik: 'tresc-c21da5cfc7-pl.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-pl.db') as number },
+-  'en': { plik: 'tresc-c21da5cfc7-en.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-en.db') as number },
+-  'bg': { plik: 'tresc-c21da5cfc7-bg.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-bg.db') as number },
+-  'cs': { plik: 'tresc-c21da5cfc7-cs.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-cs.db') as number },
+-  'da': { plik: 'tresc-c21da5cfc7-da.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-da.db') as number },
+-  'de': { plik: 'tresc-c21da5cfc7-de.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-de.db') as number },
+-  'el': { plik: 'tresc-c21da5cfc7-el.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-el.db') as number },
+-  'es': { plik: 'tresc-c21da5cfc7-es.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-es.db') as number },
+-  'es-419': { plik: 'tresc-c21da5cfc7-es-419.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-es-419.db') as number },
+-  'et': { plik: 'tresc-c21da5cfc7-et.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-et.db') as number },
+-  'fi': { plik: 'tresc-c21da5cfc7-fi.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-fi.db') as number },
+-  'fr': { plik: 'tresc-c21da5cfc7-fr.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-fr.db') as number },
+-  'hr': { plik: 'tresc-c21da5cfc7-hr.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-hr.db') as number },
+-  'hu': { plik: 'tresc-c21da5cfc7-hu.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-hu.db') as number },
+-  'id': { plik: 'tresc-c21da5cfc7-id.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-id.db') as number },
+-  'it': { plik: 'tresc-c21da5cfc7-it.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-it.db') as number },
+-  'ja': { plik: 'tresc-c21da5cfc7-ja.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-ja.db') as number },
+-  'ko': { plik: 'tresc-c21da5cfc7-ko.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-ko.db') as number },
+-  'lt': { plik: 'tresc-c21da5cfc7-lt.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-lt.db') as number },
+-  'lv': { plik: 'tresc-c21da5cfc7-lv.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-lv.db') as number },
+-  'ms': { plik: 'tresc-c21da5cfc7-ms.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-ms.db') as number },
+-  'nb': { plik: 'tresc-c21da5cfc7-nb.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-nb.db') as number },
+-  'nl': { plik: 'tresc-c21da5cfc7-nl.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-nl.db') as number },
+-  'pt': { plik: 'tresc-c21da5cfc7-pt.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-pt.db') as number },
+-  'pt-BR': { plik: 'tresc-c21da5cfc7-pt-BR.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-pt-BR.db') as number },
+-  'ro': { plik: 'tresc-c21da5cfc7-ro.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-ro.db') as number },
+-  'ru': { plik: 'tresc-c21da5cfc7-ru.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-ru.db') as number },
+-  'sk': { plik: 'tresc-c21da5cfc7-sk.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-sk.db') as number },
+-  'sl': { plik: 'tresc-c21da5cfc7-sl.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-sl.db') as number },
+-  'sr': { plik: 'tresc-c21da5cfc7-sr.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-sr.db') as number },
+-  'sv': { plik: 'tresc-c21da5cfc7-sv.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-sv.db') as number },
+-  'tr': { plik: 'tresc-c21da5cfc7-tr.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-tr.db') as number },
+-  'uk': { plik: 'tresc-c21da5cfc7-uk.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-uk.db') as number },
+-  'vi': { plik: 'tresc-c21da5cfc7-vi.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-vi.db') as number },
+-  'zh-Hant': { plik: 'tresc-c21da5cfc7-zh-Hant.db', zasob: require('../../../assets/content/tresc-c21da5cfc7-zh-Hant.db') as number },
+-=======
+-export const WERSJA_TRESCI = '6de68b7798';
+-/** Plik treści na język (ADR 0005, D-229): nazwa w paczce i zasób Metro. */
+-export const PLIKI_TRESCI: Readonly<Record<string, { plik: string; zasob: number }>> = {
+-  'pl': { plik: 'tresc-6de68b7798-pl.db', zasob: require('../../../assets/content/tresc-6de68b7798-pl.db') as number },
+-  'en': { plik: 'tresc-6de68b7798-en.db', zasob: require('../../../assets/content/tresc-6de68b7798-en.db') as number },
+-  'bg': { plik: 'tresc-6de68b7798-bg.db', zasob: require('../../../assets/content/tresc-6de68b7798-bg.db') as number },
+-  'cs': { plik: 'tresc-6de68b7798-cs.db', zasob: require('../../../assets/content/tresc-6de68b7798-cs.db') as number },
+-  'da': { plik: 'tresc-6de68b7798-da.db', zasob: require('../../../assets/content/tresc-6de68b7798-da.db') as number },
+-  'de': { plik: 'tresc-6de68b7798-de.db', zasob: require('../../../assets/content/tresc-6de68b7798-de.db') as number },
+-  'el': { plik: 'tresc-6de68b7798-el.db', zasob: require('../../../assets/content/tresc-6de68b7798-el.db') as number },
+-  'es': { plik: 'tresc-6de68b7798-es.db', zasob: require('../../../assets/content/tresc-6de68b7798-es.db') as number },
+-  'es-419': { plik: 'tresc-6de68b7798-es-419.db', zasob: require('../../../assets/content/tresc-6de68b7798-es-419.db') as number },
+-  'et': { plik: 'tresc-6de68b7798-et.db', zasob: require('../../../assets/content/tresc-6de68b7798-et.db') as number },
+-  'fi': { plik: 'tresc-6de68b7798-fi.db', zasob: require('../../../assets/content/tresc-6de68b7798-fi.db') as number },
+-  'fr': { plik: 'tresc-6de68b7798-fr.db', zasob: require('../../../assets/content/tresc-6de68b7798-fr.db') as number },
+-  'hr': { plik: 'tresc-6de68b7798-hr.db', zasob: require('../../../assets/content/tresc-6de68b7798-hr.db') as number },
+-  'hu': { plik: 'tresc-6de68b7798-hu.db', zasob: require('../../../assets/content/tresc-6de68b7798-hu.db') as number },
+-  'id': { plik: 'tresc-6de68b7798-id.db', zasob: require('../../../assets/content/tresc-6de68b7798-id.db') as number },
+-  'it': { plik: 'tresc-6de68b7798-it.db', zasob: require('../../../assets/content/tresc-6de68b7798-it.db') as number },
+-  'ja': { plik: 'tresc-6de68b7798-ja.db', zasob: require('../../../assets/content/tresc-6de68b7798-ja.db') as number },
+-  'ko': { plik: 'tresc-6de68b7798-ko.db', zasob: require('../../../assets/content/tresc-6de68b7798-ko.db') as number },
+-  'lt': { plik: 'tresc-6de68b7798-lt.db', zasob: require('../../../assets/content/tresc-6de68b7798-lt.db') as number },
+-  'lv': { plik: 'tresc-6de68b7798-lv.db', zasob: require('../../../assets/content/tresc-6de68b7798-lv.db') as number },
+-  'ms': { plik: 'tresc-6de68b7798-ms.db', zasob: require('../../../assets/content/tresc-6de68b7798-ms.db') as number },
+-  'nb': { plik: 'tresc-6de68b7798-nb.db', zasob: require('../../../assets/content/tresc-6de68b7798-nb.db') as number },
+-  'nl': { plik: 'tresc-6de68b7798-nl.db', zasob: require('../../../assets/content/tresc-6de68b7798-nl.db') as number },
+-  'pt': { plik: 'tresc-6de68b7798-pt.db', zasob: require('../../../assets/content/tresc-6de68b7798-pt.db') as number },
+-  'pt-BR': { plik: 'tresc-6de68b7798-pt-BR.db', zasob: require('../../../assets/content/tresc-6de68b7798-pt-BR.db') as number },
+-  'ro': { plik: 'tresc-6de68b7798-ro.db', zasob: require('../../../assets/content/tresc-6de68b7798-ro.db') as number },
+-  'ru': { plik: 'tresc-6de68b7798-ru.db', zasob: require('../../../assets/content/tresc-6de68b7798-ru.db') as number },
+-  'sk': { plik: 'tresc-6de68b7798-sk.db', zasob: require('../../../assets/content/tresc-6de68b7798-sk.db') as number },
+-  'sl': { plik: 'tresc-6de68b7798-sl.db', zasob: require('../../../assets/content/tresc-6de68b7798-sl.db') as number },
+-  'sr': { plik: 'tresc-6de68b7798-sr.db', zasob: require('../../../assets/content/tresc-6de68b7798-sr.db') as number },
+-  'sv': { plik: 'tresc-6de68b7798-sv.db', zasob: require('../../../assets/content/tresc-6de68b7798-sv.db') as number },
+-  'tr': { plik: 'tresc-6de68b7798-tr.db', zasob: require('../../../assets/content/tresc-6de68b7798-tr.db') as number },
+-  'uk': { plik: 'tresc-6de68b7798-uk.db', zasob: require('../../../assets/content/tresc-6de68b7798-uk.db') as number },
+-  'vi': { plik: 'tresc-6de68b7798-vi.db', zasob: require('../../../assets/content/tresc-6de68b7798-vi.db') as number },
+-  'zh-Hant': { plik: 'tresc-6de68b7798-zh-Hant.db', zasob: require('../../../assets/content/tresc-6de68b7798-zh-Hant.db') as number },
+->>>>>>> 6a5ca17 (BU 08-programista: dowód CI 15e2717 (kod 0))
++  'pl': { plik: 'tresc-d8a27dfd52-pl.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-pl.db') as number },
++  'en': { plik: 'tresc-d8a27dfd52-en.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-en.db') as number },
++  'bg': { plik: 'tresc-d8a27dfd52-bg.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-bg.db') as number },
++  'cs': { plik: 'tresc-d8a27dfd52-cs.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-cs.db') as number },
++  'da': { plik: 'tresc-d8a27dfd52-da.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-da.db') as number },
++  'de': { plik: 'tresc-d8a27dfd52-de.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-de.db') as number },
++  'el': { plik: 'tresc-d8a27dfd52-el.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-el.db') as number },
++  'es': { plik: 'tresc-d8a27dfd52-es.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-es.db') as number },
++  'es-419': { plik: 'tresc-d8a27dfd52-es-419.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-es-419.db') as number },
++  'et': { plik: 'tresc-d8a27dfd52-et.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-et.db') as number },
++  'fi': { plik: 'tresc-d8a27dfd52-fi.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-fi.db') as number },
++  'fr': { plik: 'tresc-d8a27dfd52-fr.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-fr.db') as number },
++  'hr': { plik: 'tresc-d8a27dfd52-hr.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-hr.db') as number },
++  'hu': { plik: 'tresc-d8a27dfd52-hu.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-hu.db') as number },
++  'id': { plik: 'tresc-d8a27dfd52-id.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-id.db') as number },
++  'it': { plik: 'tresc-d8a27dfd52-it.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-it.db') as number },
++  'ja': { plik: 'tresc-d8a27dfd52-ja.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-ja.db') as number },
++  'ko': { plik: 'tresc-d8a27dfd52-ko.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-ko.db') as number },
++  'lt': { plik: 'tresc-d8a27dfd52-lt.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-lt.db') as number },
++  'lv': { plik: 'tresc-d8a27dfd52-lv.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-lv.db') as number },
++  'ms': { plik: 'tresc-d8a27dfd52-ms.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-ms.db') as number },
++  'nb': { plik: 'tresc-d8a27dfd52-nb.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-nb.db') as number },
++  'nl': { plik: 'tresc-d8a27dfd52-nl.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-nl.db') as number },
++  'pt': { plik: 'tresc-d8a27dfd52-pt.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-pt.db') as number },
++  'pt-BR': { plik: 'tresc-d8a27dfd52-pt-BR.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-pt-BR.db') as number },
++  'ro': { plik: 'tresc-d8a27dfd52-ro.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-ro.db') as number },
++  'ru': { plik: 'tresc-d8a27dfd52-ru.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-ru.db') as number },
++  'sk': { plik: 'tresc-d8a27dfd52-sk.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-sk.db') as number },
++  'sl': { plik: 'tresc-d8a27dfd52-sl.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-sl.db') as number },
++  'sr': { plik: 'tresc-d8a27dfd52-sr.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-sr.db') as number },
++  'sv': { plik: 'tresc-d8a27dfd52-sv.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-sv.db') as number },
++  'tr': { plik: 'tresc-d8a27dfd52-tr.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-tr.db') as number },
++  'uk': { plik: 'tresc-d8a27dfd52-uk.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-uk.db') as number },
++  'vi': { plik: 'tresc-d8a27dfd52-vi.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-vi.db') as number },
++  'zh-Hant': { plik: 'tresc-d8a27dfd52-zh-Hant.db', zasob: require('../../../assets/content/tresc-d8a27dfd52-zh-Hant.db') as number },
+ };
+diff --git a/tools/content-build/test/build.test.ts b/tools/content-build/test/build.test.ts
+remerge CONFLICT (content): Merge conflict in tools/content-build/test/build.test.ts
+index 65a6d70..0690dce 100644
+--- a/tools/content-build/test/build.test.ts
++++ b/tools/content-build/test/build.test.ts
+@@ -83,7 +83,7 @@ describe('treść projektu', () => {
+   // dwie pełne kompilacje treści; przy rosnącej treści i obciążonym runnerze domyślne 5 s bywało za mało
+   it('jest deterministyczna (ten sam hash)', () => {
+     expect(compileContent(contentDir).hash).toBe(compileContent(contentDir).hash);
+-  }, 120_000); // dwie pełne kompilacje (z generatorem szablonów) przekraczają 30 s na wolnej maszynie (BU, 2026-11-10)
++  }, 30_000);
+ });
+ 
+ describe('pula egzaminacyjna (content/pl/exams)', () => {
+@@ -367,11 +367,7 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
+       if (d.kind !== 'generated') continue;
+       expect(c.terms.filter((t) => t.area === d.params.area && vocabEligible(t)).length).toBeGreaterThanOrEqual(VOCAB_MIN_TERMS);
+     }
+-<<<<<<< 87e51ad (Scalenie sesja-bs-szablony do gałęzi roboczej (CD))
+   }, 120_000); // compileContent pl z kontrolą generatora szablonów (D-555) trwa ok. 10 s (sesja BS)
+-=======
+-}, 120_000); // pełna kompilacja treści: wolna maszyna przekracza domyślne 5 s (BU, 2026-11-10)
+->>>>>>> 6a5ca17 (BU 08-programista: dowód CI 15e2717 (kod 0))
+ });
+ 
+ describe('plik bazy treści', () => {
+diff --git a/tools/content-build/test/liczby-jezyk-08.test.ts b/tools/content-build/test/liczby-jezyk-08.test.ts
+remerge CONFLICT (content): Merge conflict in tools/content-build/test/liczby-jezyk-08.test.ts
+index 44dbb6c..57c0fb4 100644
+--- a/tools/content-build/test/liczby-jezyk-08.test.ts
++++ b/tools/content-build/test/liczby-jezyk-08.test.ts
+@@ -68,9 +68,5 @@ describe('JAK-F07-02: liczby w treści według języka bazy', () => {
+       return n.display !== dawnyFormatPl(n.value, e.unit, e.decimals);
+     }).map((n) => ({ key: n.key, display: n.display }));
+     expect(rozne).toEqual([]);
+-<<<<<<< 87e51ad (Scalenie sesja-bs-szablony do gałęzi roboczej (CD))
+   }, 120_000); // compileContent pl z kontrolą generatora szablonów (D-555) trwa ok. 10 s (sesja BS)
+-=======
+-  }, 120_000); // pełna kompilacja treści: wolna maszyna przekracza domyślne 5 s (BU, 2026-11-10)
+->>>>>>> 6a5ca17 (BU 08-programista: dowód CI 15e2717 (kod 0))
+ });
+diff --git a/tools/content-build/test/szablon-scenariusza-bf.test.ts b/tools/content-build/test/szablon-scenariusza-bf.test.ts
+remerge CONFLICT (content): Merge conflict in tools/content-build/test/szablon-scenariusza-bf.test.ts
+index c7364dc..ad4027f 100644
+--- a/tools/content-build/test/szablon-scenariusza-bf.test.ts
++++ b/tools/content-build/test/szablon-scenariusza-bf.test.ts
+@@ -124,7 +124,6 @@ describe('walidacja szablonu w budowaniu', () => {
+ });
+ 
+ describe('compileContent z szablonami scenariuszy', () => {
+-  // Izolacja od prawdziwych szablonów w content/ (od BS są tam sc-01, sc-02, sc-19): kopia treści zaczyna bez katalogu scenarios.
+   const zTreścią = (pliki: Record<string, string>) => {
+     const root = mkdtempSync(join(tmpdir(), 'scen-'));
+     try {
+@@ -133,13 +132,7 @@ describe('compileContent z szablonami scenariuszy', () => {
+       for (const j of readdirSync(join(root, 'content'), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name)) rmSync(join(root, 'content', j, 'scenarios'), { recursive: true, force: true });
+       symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
+       symlinkSync(join(contentDir, '..', 'docs'), join(root, 'docs'));
+-<<<<<<< 87e51ad (Scalenie sesja-bs-szablony do gałęzi roboczej (CD))
+       if (Object.keys(pliki).length) mkdirSync(join(root, 'content/pl/scenarios'), { recursive: true });
+-=======
+-      rmSync(join(root, 'content/pl/scenarios'), { recursive: true, force: true });
+-      rmSync(join(root, 'content/en/scenarios'), { recursive: true, force: true });
+-      mkdirSync(join(root, 'content/pl/scenarios'), { recursive: true });
+->>>>>>> 6a5ca17 (BU 08-programista: dowód CI 15e2717 (kod 0))
+       for (const [n, y] of Object.entries(pliki)) writeFileSync(join(root, 'content/pl/scenarios', n), y);
+       return compileContent(join(root, 'content'));
+     } finally {
+@@ -157,21 +150,7 @@ describe('compileContent z szablonami scenariuszy', () => {
+     const zly = kopia((b) => { delete (b.decisions[0] as { rule?: string }).rule; });
+     expect(() => zTreścią({ 'sc-test-draw.yaml': yaml(zly) })).toThrow(/sc-test-draw.*punkt decyzji 1/);
+   }, 120_000);
+-<<<<<<< 87e51ad (Scalenie sesja-bs-szablony do gałęzi roboczej (CD))
+   it('bez katalogu scenarios treść nie ma pola scenarios (hash bez zmian do czasu pierwszych szablonów)', () => {
+     expect('scenarios' in zTreścią({})).toBe(false);
+-=======
+-  it('bez katalogu scenarios treść nie ma pola scenarios (hash bez zmian, gdy treść nie ma szablonów)', () => {
+-    const root = mkdtempSync(join(tmpdir(), 'scen-'));
+-    try {
+-      cpSync(contentDir, join(root, 'content'), { recursive: true });
+-      symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
+-      symlinkSync(join(contentDir, '..', 'docs'), join(root, 'docs'));
+-      for (const j of ['pl', 'en']) rmSync(join(root, 'content', j, 'scenarios'), { recursive: true, force: true });
+-      expect('scenarios' in compileContent(join(root, 'content'))).toBe(false);
+-    } finally {
+-      rmSync(root, { recursive: true, force: true });
+-    }
+->>>>>>> 6a5ca17 (BU 08-programista: dowód CI 15e2717 (kod 0))
+   }, 120_000);
+ });
+== 61d9318 parents 96ce106 b5325bb Scalenie sesja-by-powtorki do gałęzi roboczej (CD)

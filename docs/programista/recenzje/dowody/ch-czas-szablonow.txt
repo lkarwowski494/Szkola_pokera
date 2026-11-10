@@ -1,0 +1,4 @@
+# komenda: tsx czas-szablon.mts <repo> (checkScenarioGenerator na szablon, HEAD 07b04fb)
+sc-01 latwy,sredni,trudny 9786 ms 0 błędów
+sc-02 latwy,sredni 5156 ms 0 błędów
+sc-19 latwy,sredni 7756 ms 0 błędów

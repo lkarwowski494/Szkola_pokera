@@ -1,0 +1,22 @@
+# komenda: pnpm run ci @ 07b04fb (stan wyjściowy, przed testem odtwarzającym)
+packages/srs test:  Test Files  3 passed (3)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/domena test:  Test Files  24 passed (24)
+tools/preflop-solver test:  Test Files  9 passed (9)
+packages/postep test:  Test Files  18 passed (18)
+tools/content-build test:  Test Files  25 passed (25)
+apps/mobile test: Tests:       818 passed, 818 total
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 108 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 128 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 152 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 159 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+# Subtest: każdy workflow parsuje się bez błędów
+ok 170 - każdy workflow parsuje się bez błędów
+ Test Files  6 passed (6)
+0 błędów, 0 uwag
+EXIT 0
