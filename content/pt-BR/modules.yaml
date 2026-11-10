@@ -2,7 +2,7 @@
 - { id: m1, order: 1, title: "Como uma mão se desenrola", sub: "Blinds, ruas, ações", phase: mvp }
 - { id: m2, order: 2, title: "Matemática básica", sub: "Outs, chances, pot odds", phase: mvp }
 - { id: m3, order: 3, title: "Posição e abertura", sub: "Quem age por último e o que abrir", phase: mvp }
-- { id: m4, order: 4, title: "Pré-flop diante de ação", sub: "3-bet, defesa, limpers", phase: mvp }
+- { id: m4, order: 4, title: "Preflop diante de ação", sub: "3-bet, defesa, limpers", phase: mvp }
 - { id: m5, order: 5, title: "Flop: c-bet", sub: "Texturas e tamanhos", phase: f2 }
 - { id: m6, order: 6, title: "Flop: defesa", sub: "MDF, call, check-raise", phase: f2 }
 - { id: m7, order: 7, title: "Turn", sub: "Second barrel e draws", phase: f2 }

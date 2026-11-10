@@ -43,7 +43,7 @@ drills:
     options:
       - { text: "{{t:call|Call}}", correct: true, why: "Ein mittleres {{t:pair|Paar}} schlägt alle {{t:bluff|Bluffs}} des Buttons (Hände ohne {{t:pair|Paar}}), und für einen {{t:call|Call}} brauchst du nur {{n:eq.bet-third}} Equity. Eine Standard-Verteidigung." }
       - { text: "{{t:fold|Fold}}", why: "Zu tight. Gegen eine kleine C-Bet {{t:fold|foldest}} du die schwächsten Hände ohne {{t:pair|Paar}} und ohne {{t:draw}}, nicht ein {{t:pair|Paar}}." }
-      - { text: "Check-Raise", why: "Meist {{t:call|callst}} du. Nach einem {{t:raise}} zahlen dich hauptsächlich bessere Hände und {{t:draw|Draws}}; ein Check-Raise mit so einer Hand ist gegen kleine C-Bets ein seltener Solver-Spielzug." }
+      - { text: "Check-Raise", why: "Meist {{t:call|callst}} du. Nach einem {{t:raise}} bezahlen dich hauptsächlich bessere Hände und {{t:draw|Draws}}; ein Check-Raise mit so einer Hand ist gegen kleine C-Bets ein seltener Solver-Spielzug." }
   - kind: choice
     id: m6.l2.q-bare-overcards
     family: m6.flop.fold
@@ -82,7 +82,7 @@ drills:
     table: { hand: "Jd 9c", board: "Ah Ks 4s", position: BB }
     options:
       - { text: "{{t:fold|Fold}}", correct: true, why: "Du hast weder ein {{t:pair|Paar}} noch einen {{t:flush-draw}}; du hast nur einen schwachen zusätzlichen {{t:straight-draw}} (du brauchst zwei bestimmte Karten), und keine deiner Karten ist höher als das Board. Auf einem Flop mit Ass und König hat der Button viele starke Hände. Der Preis ist gut, aber diese Hand realisiert ihn fast nie." }
-      - { text: "{{t:call|Call}}, weil die {{t:mdf}} {{n:mdf.bet-third}} beträgt", why: "Die {{t:mdf}} ist ein Bezugspunkt für die ganze {{t:range|Range}}, kein Grund, mit den schwächsten Händen zu zahlen. Auf dem Flop {{t:out-of-position}} kannst du etwas weniger als die {{t:mdf}} verteidigen." }
+      - { text: "{{t:call|Call}}, weil die {{t:mdf}} {{n:mdf.bet-third}} beträgt", why: "Die {{t:mdf}} ist ein Richtwert für die ganze {{t:range|Range}}, kein Grund, mit den schwächsten Händen zu zahlen. Auf dem Flop {{t:out-of-position}} kannst du etwas weniger als die {{t:mdf}} verteidigen." }
       - { text: "Check-Raise", why: "Auf einem Flop mit Ass und König liegt der {{t:range-advantage}} beim Button, und du hast keinen {{t:draw}}, der dir einen zweiten Weg zum Gewinn gäbe." }
   - kind: choice
     id: m6.l2.q-realize

@@ -109,7 +109,7 @@
   sources: [{ kind: math }]
 - id: R-M2-005
   module: m2
-  if: "deine Equity ist kleiner als die benötigte Equity (bei einem {{t:draw|Draw}}: die Trefferchance auf den Karten, die du für diesen Preis siehst)"
+  if: "deine Equity ist kleiner als die benötigte Equity (bei einem {{t:draw|Draw}}: die Trefferchance mit den Karten, die du für diesen Preis siehst)"
   then: "du {{t:fold|foldest}} (ohne zusätzliche Argumente, z. B. Implied Odds)"
   because: "jeder solche {{t:call|Call}} verliert auf lange Sicht Geld"
   level: math
@@ -297,7 +297,7 @@
   then: "du {{t:raise|raist}} auf etwa {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} der 3-Bet {{t:in-position|in Position}} und {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} {{t:out-of-position|out of Position}}"
   because: "nach einem {{t:call|Call}} einer solchen 4-Bet bleibt in den Stacks etwa {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} mal so viel, wie im {{t:pot|Pot}} liegt ({{t:in-position|in Position}}, z. B. 4-Bet vom Button gegen eine 3-Bet des {{t:small-blind|Small Blinds}} auf {{n:pf.3bet.oop-total}}: etwa {{n:spr.4bet.high}}–{{n:spr.4bet}}; {{t:out-of-position|out of Position}}, z. B. 4-Bet aus dem {{t:cutoff|CO}} gegen eine 3-Bet des Buttons auf {{n:pf.3bet.ip-total}}: etwa {{n:spr.4bet.oop}}), also zahlen gute Hände den Rest leicht ein"
   level: heuristic
-  source: "Schule, die Solver-Ergebnisse veröffentlicht, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), Solver NL200: CO out of Position 4-bettet auf 17,2bb, also 2,3-mal eine 3-Bet auf 7,5bb; Trainingsseite, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): 2,2–2,5x in Position, 2,5–3x out of Position (in seinem Beispiel 2,4x); SPR aus der Berechnung (Dokument 12 M4–M6, D-06)"
+  source: "Schule, die Solver-Ergebnisse veröffentlicht, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), Solver NL200: CO out of Position 4-bettet auf 17,2bb, also 2,3-mal eine 3-Bet auf 7,5bb; Trainingsseite, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): 2,2–2,5x in Position, 2,5–3x out of Position (in ihrem Beispiel 2,4x); SPR aus der Berechnung (Dokument 12 M4–M6, D-06)"
   sources: [{ kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: math }]
 - id: R-M4-012
   module: m4
@@ -331,7 +331,7 @@
 # (dokument 12 M4–M6); bez częstotliwości w procentach.
 - id: R-M5-001
   module: m5
-  if: "der Flop erreicht weniger als {{n:tex.threshold.medium}} Punkte für {{t:wetness|Nässe}}: eine auf mehrere Arten mögliche {{t:straight|Straight}} (mit mindestens zwei Kombinationen aus zwei Rängen) gibt {{n:tex.points.straight.made}} Pkt., eine auf eine Art mögliche {{t:straight|Straight}} {{n:tex.points.straight.made-one}}, ein reiner {{t:straight-draw|Straight Draw}} {{n:tex.points.straight.draw}}, zwei Karten einer Farbe {{n:tex.points.suits.two-tone}}, drei einer Farbe {{n:tex.points.suits.monotone}}"
+  if: "der Flop erreicht weniger als {{n:tex.threshold.medium}} Punkte für {{t:wetness|Nässe}}: eine auf mehrere Arten mögliche {{t:straight|Straight}} (mit mindestens zwei Kombinationen aus zwei Rängen) gibt {{n:tex.points.straight.made}} Pkt., eine auf eine Art mögliche {{t:straight|Straight}} {{n:tex.points.straight.made-one}}, ein reiner {{t:straight-draw|Straight-Draw}} {{n:tex.points.straight.draw}}, zwei Karten einer Farbe {{n:tex.points.suits.two-tone}}, drei einer Farbe {{n:tex.points.suits.monotone}}"
   then: "es ist ein {{t:dry|trockener}} Flop: es gibt wenige {{t:draw|Draws}}, und eine fertige {{t:straight|Straight}} oder einen {{t:flush|Flush}} hat noch niemand"
   because: "die nächsten Karten ändern selten, wer vorn liegt, also bleibt die beste Hand auf dem Flop meist die beste"
   level: rules
@@ -381,7 +381,7 @@
 - id: R-M5-007
   module: m5
   if: "als {{t:aggressor|Aggressor}} preflop hast du {{t:position|Position}}, und der Flop ist {{t:dry|trocken}} und hoch, z. B. K-7-2 in drei Farben"
-  then: "du c-bettest oft und klein, etwa {{n:cbet.size.small}} des {{t:pot|Pots}} (Vereinfachung: auf solchen Flops nutzt der Solver auch einen {{t:overbet|Overbet}})"
+  then: "du c-bettest oft und klein, etwa {{n:cbet.size.small}} des {{t:pot|Pots}} (Vereinfachung: auf solchen Flops nutzt der Solver auch eine {{t:overbet|Overbet}})"
   because: "du hast einen {{t:range-advantage|Range-Vorteil}}, und die schwachen Hände deines Gegners haben kaum Chancen: ein kleiner {{t:bet|Einsatz}} reicht, damit er sie {{t:fold|foldet}}, und schlechtere {{t:pair|Paare}} {{t:call|callen}} ihn trotzdem"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
@@ -469,7 +469,7 @@
   then: "du {{t:fold|foldest}} öfter, als die {{t:mdf|MDF}} angibt, auch mit mittleren {{t:pair|Paaren}}"
   because: "die {{t:mdf|MDF}} setzt voraus, dass dein Gegner oft genug {{t:bluff|blufft}}; fehlen {{t:bluff|Bluffs}}, bezahlt ein {{t:call|Call}} mit einer schwächeren Hand vor allem bessere Hände"
   level: exploit
-  population: "ein konkreter, am Tisch beobachteter Spieler; keine Daten zur Population (Stichprobe, Limits, Pokerraum), daher geht die Regel nicht davon aus, dass eine ganze Spielergruppe selten blufft; Trainer zweier Trainingsseiten beschreiben so passive Freizeitspieler (die zum Vergnügen spielen, meist schwächer als Stammspieler) auf niedrigen Limits, ohne Zahlen aus einer Handdatenbank"
+  population: "ein konkreter, am Tisch beobachteter Spieler; keine Daten zur Population (Stichprobe, Limits, Pokerraum), daher geht die Regel nicht davon aus, dass eine ganze Spielergruppe selten blufft; Trainer zweier Trainingsseiten beschreiben auf diese Weise passive Freizeitspieler (die zum Vergnügen spielen, meist schwächer als Stammspieler) auf niedrigen Limits, ohne Zahlen aus einer Handdatenbank"
   source: "Trainingsseite, Bluff Catching: When to Call and When to Let It Go (https://deepfold.co/en/blog/bluff-catching-principles: passive Freizeitspieler bluffen nicht mit großen Einsätzen auf dem River); Trainingsseite, MDF in Poker: Why Most Players Misuse It (https://pokercoaching.com/blog/mdf-poker: „In low-stakes games, most players will bluff way less“)"
   sources: [{ kind: training, url: "https://deepfold.co/en/blog/bluff-catching-principles" }, { kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }]
 - id: R-M6-005
@@ -508,7 +508,7 @@
   module: m6
   if: "die C-Bet ist klein, oder der Flop ist niedrig und {{t:connected|verbunden}} (z. B. 7-6-5)"
   then: "du machst öfter einen Check-Raise; auf hohen Flops, die gut für den Raiser sind (z. B. K-J-T, A-A-K), und gegen große C-Bets seltener"
-  because: "auf niedrigen Flops hat der {{t:big-blind|Big Blind}} mehr der stärksten Hände ({{t:nuts-advantage|Nuts-Vorteil}}), und eine kleine C-Bet gibt eine günstige Gelegenheit zum {{t:raise|Raisen}}"
+  because: "auf niedrigen Flops hat der {{t:big-blind|Big Blind}} mehr von den stärksten Händen ({{t:nuts-advantage|Nuts-Vorteil}}), und eine kleine C-Bet gibt eine günstige Gelegenheit zum {{t:raise|Raisen}}"
   level: heuristic
   source: "Trainingsseite, How to Check-Raise Like a High Stakes Juggernaut (Flops, auf denen man nicht raisen sollte: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; Check-Raise 12,65% gegen 33% und 8,66% gegen 66% Pot); Seite eines kommerziellen Solvers („The larger the BTN bets, the less BB raises“)"
   sources: [{ kind: solver-pub }, { kind: training }]
@@ -542,7 +542,7 @@
 - id: R-M7-002
   module: m7
   if: "du {{t:bluff|bluffst}} am Turn mit einem {{t:second-barrel|Second Barrel}}"
-  then: "du {{t:bluff|bluffst}} meist mit Händen mit Outs ({{t:flush-draw|Flush Draw}}, Draw zur {{t:straight|Straight}}, Gutshot mit hoher Karte), wenn dein Gegner eher {{t:fold|foldet}} oder {{t:call|callt}}; kann er {{t:raise|raisen}}, {{t:bluff|blufft}} der Solver auch mit Händen ohne Outs (Vereinfachung: die Wahl hängt davon ab, wie dein Gegner reagiert)"
+  then: "du {{t:bluff|bluffst}} meist mit Händen mit Outs ({{t:flush-draw|Flush-Draw}}, Draw zur {{t:straight|Straight}}, Gutshot mit hoher Karte), wenn dein Gegner eher {{t:fold|foldet}} oder {{t:call|callt}}; kann er {{t:raise|raisen}}, {{t:bluff|blufft}} der Solver auch mit Händen ohne Outs (Vereinfachung: die Wahl hängt davon ab, wie dein Gegner reagiert)"
   because: "ein {{t:semi-bluff|Semi-Bluff}} gewinnt auf zwei Arten: wenn dein Gegner {{t:fold|foldet}} oder wenn du am River triffst; ein {{t:bluff|Bluff}} ohne Outs hat nur den ersten Weg (Stacks etwa {{n:format.stack}})"
   level: heuristic
   source: "Seite eines kommerziellen Solvers, From Gutshots to Airballs: Choosing Your Bluffs; Trainer mit Trainingsseite, The Double Barrel Checklist; Trainingsseite, When to Double Barrel the Turn as a Bluff (bei etwa 100bb)"
@@ -566,14 +566,14 @@
 - id: R-M7-005
   module: m7
   if: "du setzt am Turn mit einer {{t:polarized|polarisierten}} {{t:range|Range}} (sehr starke Hände und {{t:semi-bluff|Semi-Bluffs}} mit {{t:draw|Draw}}, ohne mittlere Hände)"
-  then: "du wählst eine große Größe, z. B. 3/4 des {{t:pot|Pots}}, und mittlere Hände {{t:check|checken}}"
+  then: "du wählst eine große Einsatzgröße, z. B. 3/4 des {{t:pot|Pots}}, und mittlere Hände {{t:check|checken}}"
   because: "starke Hände wollen vor dem River den {{t:pot|Pot}} aufbauen, {{t:bluff|Bluffs}} brauchen {{t:fold|Folds}}, und mittlere Hände gewinnen nichts durch einen großen {{t:pot|Pot}}"
   level: heuristic
   source: "Trainingsseite, Polarized vs Merged Ranges (Definitionen); Trainingsseite, Polarised Ranges; Seite eines kommerziellen Solvers, The Worst Turn Card"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M7-006
   module: m7
-  if: "du hast am Turn eine starke Hand, und dein Gegner kann einen {{t:flush-draw|Flush Draw}} haben"
+  if: "du hast am Turn eine starke Hand, und dein Gegner kann einen {{t:flush-draw|Flush-Draw}} haben"
   then: "du setzt groß: bei einem Einsatz von 3/4 des {{t:pot|Pots}} braucht der {{t:draw|Draw}} {{n:eq.bet-three-quarters}} Equity und hat etwa {{n:odds.flush.turn-river}}"
   because: "bei einem Einsatz von 1/4 des {{t:pot|Pots}} würden ihm {{n:eq.bet-quarter}} reichen, also gibt ein kleiner Einsatz dem {{t:draw|Draw}} einen guten Preis"
   level: math
@@ -582,7 +582,7 @@
 - id: R-M7-007
   module: m7
   if: "du hast am Turn einen {{t:draw|Draw}}"
-  then: "du rechnest die Chance für eine Karte: ein {{t:flush|Flush}} sind etwa {{n:odds.flush.turn-river}}, nicht {{n:odds.flush.flop-river}} wie vom Flop bis zum River"
+  then: "du rechnest die Chance für eine Karte: für einen {{t:flush|Flush}} sind das etwa {{n:odds.flush.turn-river}}, nicht {{n:odds.flush.flop-river}} wie vom Flop bis zum River"
   because: "bis zum River bleibt eine Karte, also ist die Chance ungefähr halb so groß wie vom Flop aus für zwei Karten gerechnet"
   level: math
   check: { kind: draw-price, streets: [turn] }
@@ -592,7 +592,7 @@
   module: m7
   if: "am Turn ist der Preis für einen {{t:draw|Draw}} zu hoch (du hast weniger Equity, als du brauchst)"
   then: "du {{t:call|callst}} nur, wenn du nach einem Treffer insgesamt mindestens Nachzahlung × (Nicht-Treffer-Karten ÷ Outs) gewinnst; der Teil über den {{t:pot|Pot}} hinaus sind die Implied Odds"
-  because: "dann decken die Gewinne bei Treffern die Verluste bei Fehlschlägen; bei einem Flush Draw und einem Einsatz von {{n:io.flush.bet}} in einen {{t:pot|Pot}} von {{n:ex.third.pot}} sind das {{n:io.flush.extra}} über den {{t:pot|Pot}} hinaus"
+  because: "dann decken die Gewinne bei Treffern die Verluste bei Fehlschlägen; bei einem Flush-Draw und einem Einsatz von {{n:io.flush.bet}} in einen {{t:pot|Pot}} von {{n:ex.third.pot}} sind das {{n:io.flush.extra}} über den {{t:pot|Pot}} hinaus"
   level: math
   check: { kind: implied-odds, streets: [flop, turn], params: { sprMin: "n:spr.zone.mid" } }
   source: "EV-Berechnung: Equity × (Pot + zusätzlicher Gewinn) = (1 − Equity) × Nachzahlung"
@@ -600,8 +600,8 @@
 - id: R-M7-009
   module: m7
   if: "du zählst auf Implied Odds"
-  then: "du glaubst nur dann an sie, wenn dein Gegner noch genug {{t:chips|Chips}} hinter sich hat (hoher {{t:spr|SPR}}), du einen {{t:draw|Draw}} zur besten Hand hast und der Treffer nicht auffällt"
-  because: "die zusätzlichen {{t:chips|Chips}} muss dein Gegner dir noch zahlen; bei niedrigem {{t:spr|SPR}} sind keine da, und ein sichtbarer Treffer (z. B. das dritte Herz auf dem {{t:board|Board}}) schreckt ihn ab"
+  then: "du glaubst nur dann an sie, wenn dein Gegner noch genug {{t:chips|Chips}} hinter sich hat (hohe {{t:spr|SPR}}), du einen {{t:draw|Draw}} zur besten Hand hast und der Treffer nicht auffällt"
+  because: "die zusätzlichen {{t:chips|Chips}} muss dein Gegner dir noch zahlen; bei niedriger {{t:spr|SPR}} sind keine da, und ein sichtbarer Treffer (z. B. das dritte Herz auf dem {{t:board|Board}}) schreckt ihn ab"
   level: heuristic
   source: "Trainer mit Trainingsseite, Implied Odds Calculator; Trainingsseite, Implied Odds"
   sources: [{ kind: training }, { kind: training }]
@@ -646,7 +646,7 @@
   then: "du setzt, wenn mehr als {{n:value.threshold}} der Hände, die {{t:call|callen}}, schlechter sind als deine; du zählst nur Hände, die bezahlen, nicht alle Hände deines Gegners"
   because: "jeder {{t:call|Call}} mit einer schlechteren Hand gewinnt einen Einsatz, und jeder {{t:call|Call}} mit einer besseren verliert einen Einsatz; {{t:fold|foldet}} dein Gegner eine schlechtere Hand, gewinnst du denselben {{t:pot|Pot}}, den du nach einem {{t:check|Check}} gewonnen hättest"
   level: math
-  source: "Berechnung: Erwartungswert des Setzens gegenüber dem Checken (Lehrplan M8: ein Value Bet gewinnt mehr als die Hälfte der Male, wenn er gecallt wird)"
+  source: "Berechnung: Erwartungswert des Setzens gegenüber dem Checken (Lehrplan M8: eine Value Bet gewinnt mehr als die Hälfte der Male, wenn sie gecallt wird)"
   sources: [{ kind: math }]
 - id: R-M8-002
   module: m8
@@ -698,7 +698,7 @@
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M8-008
   module: m8
-  if: "ein {{t:flush-draw|Flush Draw}} ist nicht angekommen, und du wählst einen {{t:bluff|Bluff}}"
+  if: "ein {{t:flush-draw|Flush-Draw}} ist nicht angekommen, und du wählst einen {{t:bluff|Bluff}}"
   then: "hast du die Wahl zwischen {{t:bluff|Bluffs}}, bevorzugst du einen {{t:bluff|Bluff}} ohne Karten dieser Farbe"
   because: "verpasste {{t:draw|Draws}} {{t:fold|foldet}} dein Gegner; eine Karte ihrer Farbe in deiner Hand verringert die Zahl seiner Hände, die er folden wird"
   level: heuristic
@@ -741,7 +741,7 @@
 # (uproszczenia nazwane w lekcjach). Źródła przeczytane i potwierdzone w dokumencie 12 (decyzje D18–D22).
 - id: R-M9-001
   module: m9
-  if: "du berechnest den {{t:spr|SPR}} auf dem Flop"
+  if: "du berechnest die {{t:spr|SPR}} auf dem Flop"
   then: "du teilst den {{t:effective-stack|effektiven Stack}} (den kleineren der beiden, ohne das, was schon im {{t:pot|Pot}} liegt) durch den {{t:pot|Pot}}; nach einer {{t:open|Eröffnung}} und einem {{t:call|Call}} sind das etwa {{n:spr.srp}}, nach einer 3-Bet {{t:in-position|in Position}} etwa {{n:spr.3bet-ip}}, nach einer 4-Bet etwa {{n:spr.4bet}}"
   because: "jeder {{t:raise|Raise}} vor dem Flop vergrößert den {{t:pot|Pot}} um ein Mehrfaches, während der Stack dahinter viel langsamer schrumpft"
   level: math
@@ -751,13 +751,13 @@
   module: m9
   if: "dein Gegner geht auf dem Flop mit seinem ganzen Stack All-in"
   then: "zum {{t:call|Callen}} brauchst du Stack ÷ ({{t:pot|Pot}} + 2·Stack) Equity: bei einer {{t:spr|SPR}} von {{n:spr.commit}} sind das {{n:eq.jam.spr2}}, bei einer {{t:spr|SPR}} von {{n:spr.srp}} schon {{n:eq.jam.srp}}"
-  because: "du zahlst den ganzen Stack nach, um den {{t:pot|Pot}} und den Stack deines Gegners zu gewinnen; je niedriger der {{t:spr|SPR}}, desto besser der Preis, den du bekommst"
+  because: "du zahlst den ganzen Stack nach, um den {{t:pot|Pot}} und den Stack deines Gegners zu gewinnen; je niedriger die {{t:spr|SPR}}, desto besser der Preis, den du bekommst"
   level: math
   source: "Berechnung: benötigte Equity = Nachzahlung/(Pot + 2·Nachzahlung)"
   sources: [{ kind: math }]
 - id: R-M9-003
   module: m9
-  if: "der {{t:spr|SPR}} auf dem Flop ist niedriger als etwa {{n:spr.zone.low}} (z. B. {{n:spr.commit}}), und du hast {{t:top-pair|Top Pair}} oder eine bessere Hand"
+  if: "die {{t:spr|SPR}} auf dem Flop ist niedriger als etwa {{n:spr.zone.low}} (z. B. {{n:spr.commit}}), und du hast {{t:top-pair|Top Pair}} oder eine bessere Hand"
   then: "du spielst um den ganzen Stack: du setzt oder {{t:call|callst}} mit dem Plan, alles einzuzahlen, und {{t:fold|foldest}} gegen ein All-in meist nicht"
   because: "bei einer {{t:spr|SPR}} von {{n:spr.commit}} brauchst du gegen ein All-in höchstens etwa {{n:eq.jam.spr2}} Equity, und zwei {{t:bet|Einsätze}} von je etwa {{n:geo.spr2.2}} des {{t:pot|Pots}} bringen den ganzen Stack hinein; {{t:top-pair|Top Pair}} verträgt meist zwei {{t:value|Value-Streets}}"
   level: heuristic
@@ -815,7 +815,7 @@
   module: m9
   if: "du planst, ob du mit einer bestimmten Hand um den ganzen Stack spielst"
   then: "du schaust auf die Zone der {{t:spr|SPR}} (Vereinfachung): unter etwa {{n:spr.zone.low}} reicht meist {{t:top-pair|Top Pair}}, von {{n:spr.zone.low}} bis {{n:spr.zone.mid}} ist {{t:top-pair|Top Pair}} eine Grenzhand, von {{n:spr.zone.mid}} bis {{n:spr.zone.deep}} brauchst du meist hohe {{t:two-pair|zwei Paare}} oder besser, und über {{n:spr.zone.deep}} ein Set, eine {{t:straight|Straight}} oder eine bessere Hand"
-  because: "je höher der {{t:spr|SPR}}, desto mehr {{t:bet|Einsätze}} braucht es, um den ganzen Stack einzuzahlen, und bis zum Ende zahlt dein Gegner vor allem mit starken Händen; bei einer {{t:spr|SPR}} von {{n:spr.zone.deep}} geht der ganze Stack erst nach drei {{t:bet|Einsätzen}} in {{t:pot|Pot}}-Größe hinein"
+  because: "je höher die {{t:spr|SPR}}, desto mehr {{t:bet|Einsätze}} braucht es, um den ganzen Stack einzuzahlen, und bis zum Ende zahlt dein Gegner vor allem mit starken Händen; bei einer {{t:spr|SPR}} von {{n:spr.zone.deep}} geht der ganze Stack erst nach drei {{t:bet|Einsätzen}} in {{t:pot|Pot}}-Größe hinein"
   level: heuristic
   source: "Trainer mit Trainingsseite, SPR Strategy (https://www.splitsuit.com/spr-poker-strategy): „less than 3 is an auto-stack off with top pair or better, between 3-6 is situational and based upon villain/board texture, and more than 6 SPR isn't a default stack-off“; Seite eines kommerziellen Solvers, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): „at this higher SPR, stacking off with top pair starts to get a bit dicey“; Zone 6–13: Schnittmenge zweier Trainingsseiten: SPR (https://www.thepokerbank.com/strategy/concepts/spr/): „Medium SPR = 7 - 16“, „Good hands for medium SPRs.“, „Top two pair. Sets.“; Poker SPR (https://pokercoaching.com/blog/poker-spr/): „High SPR (8+): Deep stacks favor hands that make nutted combinations (sets, straights, flushes) over one-pair holdings.“; Schwelle 13: Berechnung (1+2·1)^3 = 1+2·13 sowie Flynn, Mehta, Miller, Professional No-Limit Hold'em über eine Nachrichtenseite (https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm): „if you're heads-up and the stack-to-pot ratio is 13 going to the flop, you and your opponent can each make exactly three pot-sized bets“; Zonengrenzen: Vereinfachung der App (D-149)"
   sources: [{ kind: training, url: "https://www.splitsuit.com/spr-poker-strategy" }, { kind: solver-pub, url: "https://blog.gtowizard.com/stack-to-pot-ratio/" }, { kind: training, url: "https://www.thepokerbank.com/strategy/concepts/spr/" }, { kind: training, url: "https://pokercoaching.com/blog/poker-spr/" }, { kind: math }, { kind: book, url: "https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm" }]
@@ -1045,7 +1045,7 @@
   module: m11
   if: "du hast in einem {{t:tournament|Turnier}} etwa {{n:m11.thr.pushfold}} oder weniger, und alle vor dir haben {{t:fold|gefoldet}}"
   then: "du spielst All-in oder {{t:fold|Fold}} (Push/Fold); zwischen {{n:m11.thr.pushfold}} und {{n:m11.thr.upper}} ist Push/Fold die Hauptmethode für schwächere und mittlere Hände, und über etwa {{n:m11.thr.raise}} machst du meist einen ganz normalen Raise"
-  because: "mit einem {{t:short-stack|Short Stack}} geben ein Raise und ein {{t:fold|Fold}} nach einem {{t:raise|Raise}} zu viele {{t:chips|Chips}} her, während ein All-in die meisten {{t:fold|Folds}} deines Gegners herausholt; das ist eine Vereinfachung: Solver mit mehr Aktionsoptionen limpen einen Teil der Hände oder raisen minimal"
+  because: "mit einem {{t:short-stack|Short Stack}} geben ein Raise und ein {{t:fold|Fold}} nach einem {{t:raise|Raise}} deines Gegners zu viele {{t:chips|Chips}} her, während ein All-in die meisten {{t:fold|Folds}} deines Gegners herausholt; das ist eine Vereinfachung: Solver mit mehr Aktionsoptionen limpen einen Teil der Hände oder raisen minimal"
   level: heuristic
   source: "Trainingsseite, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): „At 10 big blinds or fewer, it is almost entirely push/fold“, „This approach simplifies decision-making and maximizes fold equity“, „At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings“; Trainingsseite, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): „around 15 big blinds (bb) or fewer“, „larger than 20bb … Raising First In“; Seite eines kommerziellen Solvers, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): „The standard advice for a 10bb stack is to play an all-in or fold strategy“; Vereinfachung: Trainingsseite (dieselbe Seite): „the all-in or fold binary was grossly suboptimal“; Schule, die Solver-Ergebnisse veröffentlicht, Heads-up 10bb (https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments): „61.1% limp, 28.8% all-in, 10.1% fold“"
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/short-stack-strategy-2/" }, { kind: training, url: "https://upswingpoker.com/push-fold-tournament-strategy-charts/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/short-stacked-play-in-mtts/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments" }]
@@ -1107,7 +1107,7 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11
-  if: "in einem {{t:tournament|Turnier}} mit {{t:icm|ICM}} {{t:call|callst}} du ein All-in, das dich ausscheiden lassen kann"
+  if: "in einem {{t:tournament|Turnier}} mit {{t:icm|ICM}} {{t:call|callst}} du ein All-in, das dich aus dem Turnier werfen kann"
   then: "du brauchst eine Equity von BF ÷ (BF + 1), wobei der Bubble Factor BF = Equity-Verlust bei einer Niederlage ÷ Gewinn bei einem Sieg; im Beispiel aus der Lektion {{n:m11.bf.req}} statt {{n:m11.bf.req-chips}} in {{t:chips|Chips}}"
   because: "in einem {{t:tournament|Turnier}} mit {{t:payout|Auszahlungen}} kostet eine Niederlage mehr Geld, als ein Sieg einbringt, also muss ein {{t:call|Call}} öfter gewinnen als im Spiel um {{t:chips|Chips}}"
   level: math
@@ -1167,7 +1167,7 @@
   sources: [{ kind: math }]
 - id: R-M13-004
   module: m13
-  if: "nach einer {{t:session|Session}} willst du deine Häufigkeiten beurteilen (z. B. wie oft du ins Spiel einsteigst oder auf eine 3-Bet {{t:fold|foldest}})"
+  if: "nach einer einzigen {{t:session|Session}} willst du deine Häufigkeiten beurteilen (z. B. wie oft du ins Spiel einsteigst oder auf eine 3-Bet {{t:fold|foldest}})"
   then: "du ziehst keine Schlüsse: du zählst Gelegenheiten, nicht Hände; eine Statistik schaust du dir ab etwa {{n:hud.opps.look}} Gelegenheiten an, Sicherheit gewinnst du bei etwa {{n:hud.opps.sure}}"
   because: "selbst {{t:vpip|VPIP}} lässt sich erst nach etwa {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} Händen lesen (wie in M10), und eine seltene Situation kommt in einer {{t:session|Session}} nur ein paar Mal vor"
   level: heuristic
@@ -1201,7 +1201,7 @@
   module: m13
   if: "du weißt nicht, wie dein Gegner spielt, und überprüfst eine Entscheidung gegen seinen {{t:bet|Einsatz}}"
   then: "du bewertest sie unter einer optimistischen, einer pessimistischen und einer realistischen Annahme über seine {{t:range|Range}}; ist die Entscheidung selbst unter der pessimistischen gut, musst du nicht weiterrechnen"
-  because: "die extremen Annahmen stecken den Bereich ab, in dem die Wirklichkeit liegt, also ist eine Entscheidung, die unter beiden gut ist, robust gegen einen Lesefehler"
+  because: "die extremen Annahmen stecken den Bereich ab, in dem die Wirklichkeit liegt, also ist eine Entscheidung, die unter beiden gut ist, robust gegen einen falschen Read"
   level: heuristic
   source: "Trainingsseite, 6 Steps to Analyze a Poker Hand (https://upswingpoker.com/analyze-poker-hand-techniques/): „The Optimist The Pessimist The Realist“; „I pick the extremes first, because they shape the polar ends of the spectrum.“; „When the Pessimist gets such a favorable result, I don’t bother analyzing the hand through the Realist’s eyes, because it will also be favorable.“"
   sources: [{ kind: training, url: "https://upswingpoker.com/analyze-poker-hand-techniques/" }]

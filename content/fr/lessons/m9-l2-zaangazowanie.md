@@ -62,7 +62,7 @@ drills:
     id: m9.l2.q-tp-srp
     family: m9.commit-plan
     rules: [R-M9-005]
-    prompt: "{{t:pot|Pot}} avec une seule relance, stacks de {{n:format.stack}}, {{t:spr}} d'environ {{n:spr.srp}}. Vous avez touché la {{t:top-pair|top paire}} avec un bon kicker. Comment traitez-vous cette main ?"
+    prompt: "{{t:pot|Pot}} à une seule relance, stacks de {{n:format.stack}}, {{t:spr}} d'environ {{n:spr.srp}}. Vous avez touché la {{t:top-pair|top paire}} avec un bon kicker. Comment traitez-vous cette main ?"
     table: { hand: "Kh Qc", board: "Ks 7d 2c", position: BTN }
     options:
       - { text: "Comme une main de valeur, mais généralement pas pour tout le stack", correct: true, why: "Oui : avec un {{t:spr}} d'environ {{n:spr.srp}}, tout le stack n'entre qu'après plusieurs {{t:bet|mises}} plus grosses que le {{t:pot}}. Un adversaire qui met autant a rarement une main plus faible qu'une seule {{t:pair|paire}}." }
@@ -107,7 +107,7 @@ Le calcul ne fixe cependant pas de seuil précis. Que la {{t:top-pair|top paire}
 
 ## {{t:spr}} élevé : une seule {{t:pair|paire}}, plus prudemment
 
-Dans un {{t:pot}} avec une seule relance, le {{t:spr}} est d'environ {{n:spr.srp}}. Pour mettre tout le stack d'ici la river, il faudrait miser plus que le {{t:pot}} sur chaque {{t:street}} (leçon sur la taille géométrique). Un adversaire qui met autant d'argent a rarement une main plus faible qu'une seule {{t:pair|paire}}. C'est pourquoi, avec une seule {{t:pair|paire}} dans un tel {{t:pot}}, vous jouez pour la valeur, mais ne prévoyez généralement pas de jouer tout votre stack.
+Dans un {{t:pot}} à une seule relance, le {{t:spr}} est d'environ {{n:spr.srp}}. Pour mettre tout le stack d'ici la river, il faudrait miser plus que le {{t:pot}} sur chaque {{t:street}} (leçon sur la taille géométrique). Un adversaire qui met autant d'argent a rarement une main plus faible qu'une seule {{t:pair|paire}}. C'est pourquoi, avec une seule {{t:pair|paire}} dans un tel {{t:pot}}, vous jouez pour la valeur, mais ne prévoyez généralement pas de jouer tout votre stack.
 
 :::note D'où viennent ces règles
 Le seuil d'environ {{n:spr.zone.low}} provient de supports de formation et d'une analyse de solveur publiée (avec un {{t:spr}} d'environ {{n:spr.commit}}, toute {{t:top-pair|top paire}} et toute main meilleure jouent le stack). La prudence avec une seule {{t:pair|paire}} à {{t:spr}} élevé est confirmée par des supports de formation et des analyses de solveurs. Les chiffres de prix et de tailles de cette leçon relèvent des mathématiques pures.

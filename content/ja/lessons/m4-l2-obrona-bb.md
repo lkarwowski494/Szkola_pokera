@@ -10,7 +10,7 @@ drills:
     id: m4.l2.n-price-btn
     family: m4.bb.price
     rules: [R-M4-004]
-    prompt: "ボタンが{{n:pf.open-size}}に{{t:open|オープン}}し、{{t:small-blind}}は{{t:fold|フォールド}}しました。{{t:big-blind}}で{{t:call}}が利益になるには、エクイティが何パーセント必要ですか（フロップ以降のプレーは考慮しません）？数値を入力してください。"
+    prompt: "ボタンが{{n:pf.open-size}}に{{t:open|オープン}}し、{{t:small-blind}}は{{t:fold|フォールド}}しました。{{t:big-blind}}で{{t:call}}が利益になるには、エクイティが何パーセント必要ですか（フロップ以降のプレイは考慮しません）？数値を入力してください。"
     table: { position: BB }
     answer: eq.bb-vs-btn-open
     explanation: "{{n:bb.call.vs-btn}}を追加で支払い、{{t:call}}後の{{t:pot}}は{{n:bb.pot-after.vs-btn}}になります。{{n:bb.call.vs-btn}} ÷ {{n:bb.pot-after.vs-btn}}で約{{n:eq.bb-vs-btn-open}}です。半分が必要になるのは、{{t:pot}}に相手の{{t:bet}}しかない場合だけです。{{t:pot}}にあるブラインドが価格を改善します。"
@@ -31,7 +31,7 @@ drills:
     prompt: "{{t:big-blind}}で、ボタンの{{t:range}}に対して約{{n:eq.bb-vs-btn-open}}のエクイティがあるハンドをすべて{{t:call}}しないのはなぜですか？"
     table: { position: BB }
     options:
-      - { text: "{{t:out-of-position}}ではエクイティをすべて実現できないから", correct: true, why: "エクイティは、{{t:bet}}なしで最後までプレーした場合の勝つ確率です。{{t:out-of-position}}ではショーダウン前にハンドを{{t:fold}}することが多いため、弱いオフスートのハンドはエクイティが示すほど実現できません。" }
+      - { text: "{{t:out-of-position}}ではエクイティをすべて実現できないから", correct: true, why: "エクイティは、{{t:bet}}なしで最後までプレイした場合の勝つ確率です。{{t:out-of-position}}ではショーダウン前にハンドを{{t:fold}}することが多いため、弱いオフスートのハンドはエクイティが示すほど実現できません。" }
       - { text: "ボタンは常に強いハンドを持っているから", why: "ボタンは非常に広く{{t:open}}するため、{{t:big-blind|BB}}のディフェンスは広くなります。" }
       - { text: "{{t:chips}}を節約する必要があるから", why: "重要なのは{{t:expected-value}}であり、{{t:chips}}の節約ではありません。" }
   - kind: choice
@@ -43,7 +43,7 @@ drills:
     options:
       - { text: "{{n:pf.3bet.oop-total}}に3ベット", correct: true, why: "QQは{{t:value}}のためのハンドです。{{t:out-of-position}}では{{t:open}}の約{{n:pf.3bet.size-oop}}に{{t:raise}}し、ボタンが{{t:in-position}}で安く{{t:call}}できないようにします。" }
       - { text: "{{n:pf.3bet.ip-total}}に3ベット", sizeError: true, why: "良いアクションですが、これは{{t:in-position}}のプレイヤー向けのサイズです（{{t:open}}の{{n:pf.3bet.size-ip}}）。{{t:out-of-position}}ではより大きく、{{n:pf.3bet.oop-total}}まで{{t:raise}}します。" }
-      - { text: "{{t:call|コール}}", why: "バリューを失います。QQではフロップ前に{{t:pot}}を大きくしたいのであって、{{t:out-of-position}}で小さな{{t:pot}}をプレーしたいわけではありません。" }
+      - { text: "{{t:call|コール}}", why: "バリューを失います。QQではフロップ前に{{t:pot}}を大きくしたいのであって、{{t:out-of-position}}で小さな{{t:pot}}をプレイしたいわけではありません。" }
       - { text: "{{t:fold|フォールド}}", why: "QQはプリフロップで最強クラスのハンドの一つです。{{t:fold}}は大きなミスです。" }
   - kind: generated
     id: m4.l2.g-btn

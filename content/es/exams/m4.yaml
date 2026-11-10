@@ -11,7 +11,7 @@ drills:
     options:
       - { text: "A {{n:pf.3bet.oop-total}}", correct: true, why: "Después del flop hablarás primero, así que {{t:raise|subes}} a alrededor de {{n:pf.3bet.size-oop}} la {{t:open|apertura}}. Un tamaño mayor le impide al {{t:cutoff|CO}} {{t:call|igualar}} barato {{t:in-position}}." }
       - { text: "A {{n:pf.3bet.ip-total}}", sizeError: true, why: "Buena acción, pero ese es el tamaño para un jugador {{t:in-position}} ({{n:pf.3bet.size-ip}} la {{t:open|apertura}}). Desde la {{t:small-blind|ciega pequeña}} {{t:raise|subes}} a {{n:pf.3bet.oop-total}}." }
-      - { text: "Solo {{t:call|pago}}", why: "Desde la {{t:small-blind|ciega pequeña}} contra el {{t:cutoff|CO}} casi nunca {{t:call|igualas}}: jugarías {{t:out-of-position}}, y la {{t:big-blind}} detrás de ti todavía puede {{t:raise|subir}}." }
+      - { text: "Solo {{t:call|igualo}}", why: "Desde la {{t:small-blind|ciega pequeña}} contra el {{t:cutoff|CO}} casi nunca {{t:call|igualas}}: jugarías {{t:out-of-position}}, y la {{t:big-blind}} detrás de ti todavía puede {{t:raise|subir}}." }
   - kind: choice
     id: m4.exam.q2
     family: m4.sb.vs-open
@@ -30,8 +30,8 @@ drills:
     table: { position: BB }
     options:
       - { text: "JJ", correct: true, why: "Desde la {{t:big-blind|ciega grande}} haces 3-bet con tus manos más fuertes (TT+, AQ+, AJs+). JJ quiere un {{t:pot|bote}} grande." }
-      - { text: "A9 de distinto palo", why: "Los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo los {{t:call|igualas}}: entras barato y cierras la acción." }
-      - { text: "66", why: "Las {{t:pair|parejas}} medianas y pequeñas en la {{t:big-blind|ciega grande}} normalmente las {{t:call|igualas}}. Ganan dinero después del flop, y un 3-bet con ellas aguanta mal un 4-bet." }
+      - { text: "A9 de distinto palo", why: "Con los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo {{t:call|igualas}}: entras barato y cierras la acción." }
+      - { text: "66", why: "Con las {{t:pair|parejas}} medianas y pequeñas en la {{t:big-blind|ciega grande}} normalmente {{t:call|igualas}}. Ganan dinero después del flop, y un 3-bet con ellas aguanta mal un 4-bet." }
   - kind: choice
     id: m4.exam.q4
     family: m4.bb.price

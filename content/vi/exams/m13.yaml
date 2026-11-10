@@ -22,9 +22,9 @@ drills:
     rules: [R-M13-002]
     prompt: "Solver chơi tay bài của bạn bằng {{t:raise|tố}} trong {{n:exam.m13.solver.main}} trường hợp và {{t:fold|bỏ bài}} trong {{n:exam.m13.solver.rare}}. Bạn đã {{t:fold|bỏ bài}}. Báo cáo sẽ đánh giá thế nào?"
     options:
-      - { text: "Chấp nhận được", correct: true, why: "Solver {{t:fold|bỏ bài}} trong {{n:exam.m13.solver.rare}} trường hợp: ít nhất {{n:range.mixed.min}}, nhưng ít hơn {{n:range.mixed.low}}. Đây là lối chơi ít gặp hơn của một {{t:mixed-hand|tay bài hỗn hợp}}, nên không phải lỗi mà là quyết định chấp nhận được." }
-      - { text: "Khớp", why: "Hành động khớp là hành động solver chơi trong ít nhất {{n:range.mixed.low}} trường hợp. {{t:fold|Bỏ bài}} ở mức {{n:exam.m13.solver.rare}} hiếm hơn." }
-      - { text: "Lỗi", why: "Lỗi là hành động solver hoàn toàn không chơi. {{t:fold|Bỏ bài}} ở mức {{n:exam.m13.solver.rare}} là lối chơi ít gặp hơn của {{t:mixed-hand|tay bài hỗn hợp}}, nên cả hai lối chơi đều đúng." }
+      - { text: "Chấp nhận được", correct: true, why: "Solver {{t:fold|bỏ bài}} trong {{n:exam.m13.solver.rare}} trường hợp: ít nhất {{n:range.mixed.min}}, nhưng ít hơn {{n:range.mixed.low}}. Đây là lối chơi ít gặp hơn của một {{t:mixed-hand|tay bài trộn}}, nên không phải lỗi mà là quyết định chấp nhận được." }
+      - { text: "Phù hợp", why: "Hành động phù hợp là hành động solver chơi trong ít nhất {{n:range.mixed.low}} trường hợp. {{t:fold|Bỏ bài}} ở mức {{n:exam.m13.solver.rare}} hiếm hơn." }
+      - { text: "Sai lầm", why: "Sai lầm là hành động solver hoàn toàn không chơi. {{t:fold|Bỏ bài}} ở mức {{n:exam.m13.solver.rare}} là lối chơi ít gặp hơn của {{t:mixed-hand|tay bài trộn}}, nên cả hai lối chơi đều đúng." }
   - kind: choice
     id: m13.exam.q4
     family: m13.verdicts
@@ -32,7 +32,7 @@ drills:
     prompt: "Solver {{t:fold|bỏ bài}} với tay bài của bạn trong {{n:exam.m13.solver.main2}} trường hợp và {{t:call|theo}} trong {{n:exam.m13.solver.tiny}}. Bạn đã {{t:call|theo}}. Phán quyết là gì?"
     options:
       - { text: "Thiếu chính xác", correct: true, why: "{{t:call|Theo}} trong {{n:exam.m13.solver.tiny}} trường hợp là ít hơn {{n:range.mixed.min}}. Báo cáo tính hành động dưới ngưỡng là thiếu chính xác, tức như lỗi: đây là ngưỡng của ứng dụng, không phải lý thuyết." }
-      - { text: "Lỗi", why: "Lỗi là hành động solver hoàn toàn không chơi. Ở đây solver {{t:call|theo}} trong {{n:exam.m13.solver.tiny}} trường hợp." }
+      - { text: "Sai lầm", why: "Sai lầm là hành động solver hoàn toàn không chơi. Ở đây solver {{t:call|theo}} trong {{n:exam.m13.solver.tiny}} trường hợp." }
       - { text: "Chấp nhận được, vì solver đôi khi cũng {{t:call|theo}}", why: "Hành động chấp nhận được là hành động được chơi trong ít nhất {{n:range.mixed.min}} trường hợp. {{n:exam.m13.solver.tiny}} là quá ít." }
       - { text: "Không đánh giá", why: "“Không đánh giá” là kết quả dành cho quyết định mà ứng dụng không có quy tắc cũng như kết quả solver. Ở đây có kết quả solver." }
   - kind: choice
@@ -48,7 +48,7 @@ drills:
     id: m13.exam.q6
     family: m13.sample
     rules: [R-M13-004]
-    prompt: "Trong một tuần, bạn có {{n:exam.m13.opps}} cơ hội bảo vệ {{t:big-blind|mù lớn}} trước {{t:open|lượt mở}} từ Button. Bạn có thể nói gì về tần suất bảo vệ của mình?"
+    prompt: "Trong một tuần, bạn có {{n:exam.m13.opps}} cơ hội bảo vệ {{t:big-blind|big blind}} trước {{t:open|lượt mở}} từ Button. Bạn có thể nói gì về tần suất bảo vệ của mình?"
     options:
       - { text: "Tôi đã có thể xem xét nó, nhưng chưa chắc chắn", correct: true, why: "Bạn đếm cơ hội, không phải số ván. Bạn bắt đầu xem chỉ số từ khoảng {{n:hud.opps.look}} cơ hội, và trở nên chắc chắn ở khoảng {{n:hud.opps.sure}}. {{n:exam.m13.opps}} là tín hiệu ban đầu, không phải kết luận." }
       - { text: "Tôi đã biết mình bảo vệ thường xuyên thế nào", why: "{{n:exam.m13.opps}} cơ hội vẫn ít hơn khoảng {{n:hud.opps.sure}} cơ hội mà ở đó bạn trở nên chắc chắn." }
@@ -75,7 +75,7 @@ drills:
     id: m13.exam.q9
     family: m13.review-how
     rules: [R-M13-008]
-    prompt: "Bạn đang xem lại một lần {{t:call|theo}} ở river. Với giả định lạc quan về {{t:range|dải bài}} của đối thủ (nhiều {{t:bluff|tháu cáy}}), việc {{t:call|theo}} có lãi; với giả định bi quan thì lỗ. Tiếp theo thế nào?"
+    prompt: "Bạn đang xem lại một lần {{t:call|theo}} ở river. Với giả định lạc quan về {{t:range|dải bài}} của đối thủ (nhiều {{t:bluff|bluff}}), việc {{t:call|theo}} có lãi; với giả định bi quan thì lỗ. Tiếp theo thế nào?"
     options:
       - { text: "Tôi ước tính {{t:range|dải bài}} thực tế: đánh giá phụ thuộc vào nó", correct: true, why: "Các giả định cực đoan vạch ra khoảng mà thực tế nằm trong đó. Khi quyết định tốt theo giả định này nhưng tệ theo giả định kia, giả định thực tế sẽ quyết định." }
       - { text: "Tôi coi việc {{t:call|theo}} là tốt, vì nó tốt theo giả định lạc quan", why: "Giả định lạc quan chỉ là một đầu của khoảng. Vì theo giả định bi quan việc {{t:call|theo}} bị lỗ, đánh giá phụ thuộc vào cách đối thủ thực sự chơi." }

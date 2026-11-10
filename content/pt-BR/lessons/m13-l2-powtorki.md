@@ -31,7 +31,7 @@ drills:
     prompt: "Quais decisões do relatório vão para as revisões como cartões?"
     options:
       - { text: "Erros, imprecisões e decisões tomadas depois de estourar o tempo", correct: true, why: "Isso. Uma decisão aceitável não é um erro, então não gera cartão. A mesma regra com a mesma classe de mão no mesmo spot gera um cartão, e não vários." }
-      - { text: "Todas as decisões avaliadas", why: "Decisões corretas e aceitáveis não precisam de correção, e as revisões servem para treinar o que deu errado." }
+      - { text: "Todas as decisões avaliadas", why: "Decisões alinhadas e aceitáveis não precisam de correção, e as revisões servem para treinar o que deu errado." }
       - { text: "Só os erros, sem as imprecisões", why: "Uma imprecisão (por exemplo, a ação certa com o tamanho errado) conta como erro, então também volta nas revisões." }
   - kind: choice
     id: m13.l2.q-family

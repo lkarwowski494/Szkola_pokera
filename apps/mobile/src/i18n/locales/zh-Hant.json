@@ -229,7 +229,7 @@
         "book": "撲克理論書籍",
         "study": "科學研究",
         "reference": "百科全書",
-        "training": "教學網站",
+        "training": "訓練網站",
         "population": "玩家群體資料"
       },
       "many": {
@@ -240,7 +240,7 @@
         "book": "撲克理論書籍",
         "study": "科學研究",
         "reference": "百科全書",
-        "training": "教學網站",
+        "training": "訓練網站",
         "population": "玩家群體資料"
       }
     },
@@ -339,7 +339,7 @@
   "play": {
     "title": "實戰",
     "entry": "實戰",
-    "entryHint": "與電腦對手對打，沒有提示。每個決策會在{{t:session|牌局}}結束後評分。",
+    "entryHint": "與電腦對手對打，沒有提示。每個決策會在{{t:session|場次}}結束後評分。",
     "mode": "模式",
     "free": "自由對戰",
     "freeHint": "包含所有情況，就像真正的牌局。",
@@ -394,7 +394,7 @@
     },
     "handOf": "第 {{n}} 手，共 {{total}} 手",
     "end": "結束",
-    "endConfirm": "要結束{{t:session|牌局}}嗎？報告會涵蓋已打完的手牌。",
+    "endConfirm": "要結束{{t:session|場次}}嗎？報告會涵蓋已打完的手牌。",
     "endYes": "結束",
     "cancel": "繼續玩",
     "you": "你",
@@ -434,7 +434,7 @@
       "river": "{{t:river|河牌}}"
     },
     "report": {
-      "title": "{{t:session|牌局}}報告",
+      "title": "{{t:session|場次}}報告",
       "rated": "已評分 {{rated}}/{{all}} 個決策",
       "ratedHint": "App 只評分有可驗證規則或求解器結果的決策。沒有評分的決策不代表「正確」。",
       "verdicts": {
@@ -702,7 +702,7 @@
       "you": "你",
       "player": "玩家 {{letter}}",
       "stack": "{{name}} {{chips}}",
-      "table": "{{players}} 位玩家，前 {{paid}} 名有獎金（{{t:prize-pool|獎池}}的 {{payouts}}）。籌碼量：{{stacks}}。",
+      "table": "{{players}} 位玩家，前 {{paid}} 名有獎金（{{t:prize-pool|獎金池}}的 {{payouts}}）。籌碼量：{{stacks}}。",
       "callPrompt": "{{t:bubble|泡沫}}：{{table}}{{villain}} 全下，你們之間有 {{atRisk}} {{t:chips|籌碼}}在爭奪。你的手牌對他的{{t:range|範圍}}有 {{equity}} 權益。忽略盲注。你會怎麼做？",
       "callRight": "對。{{equity}} 高於{{t:icm}}所需的 {{required}}。",
       "callWrong": "不對。根據{{t:icm}}，你需要 {{required}} 權益，而你有 {{equity}}。",
@@ -710,18 +710,18 @@
       "foldRight": "對。根據{{t:icm}}，你需要 {{required}} 權益，而你只有 {{equity}}。",
       "foldRightChips": "對。根據{{t:icm}}，你需要 {{required}} 權益，而你只有 {{equity}}。如果是以{{t:chips|籌碼}}計的遊戲，這會是{{t:call|跟注}}：這正是{{t:risk-premium|風險溢價}}。",
       "foldWrong": "不對。{{equity}} 權益就夠了：根據{{t:icm}}，門檻是 {{required}}。",
-      "callExplanation": "你在{{t:prize-pool|獎池}}中的權益：現在 {{now}}，贏了之後 {{win}}，輸了之後 {{lose}}。泡沫因子（bubble factor）= 損失 ÷ 收益 = {{loss}} ÷ {{gain}} ≈ {{bf}}，所以你需要 BF ÷ (BF + 1) ≈ {{required}} 權益。如果是以{{t:chips|籌碼}}計的遊戲，{{requiredChips}} 就夠了。",
-      "equityPrompt": "{{table}}根據{{t:icm}}，你的籌碼值多少（占{{t:prize-pool|獎池}}的比例）？",
+      "callExplanation": "你在{{t:prize-pool|獎金池}}中的權益：現在 {{now}}，贏了之後 {{win}}，輸了之後 {{lose}}。泡沫因子（bubble factor）= 損失 ÷ 收益 = {{loss}} ÷ {{gain}} ≈ {{bf}}，所以你需要 BF ÷ (BF + 1) ≈ {{required}} 權益。如果是以{{t:chips|籌碼}}計的遊戲，{{requiredChips}} 就夠了。",
+      "equityPrompt": "{{table}}根據{{t:icm}}，你的籌碼值多少（占{{t:prize-pool|獎金池}}的比例）？",
       "equityRight": "對。這是各名次的總和：獲得該名次的機率 × 該名次的{{t:payout|獎金}}。",
       "equityChips": "不對。這是你在{{t:chips|籌碼}}中的占比。在有{{t:payout|獎金}}分配的{{t:tournament|錦標賽}}中，{{t:chips|籌碼}}不會一比一換算成錢。",
       "equityFirstOnly": "不對。這只是第 1 名的機率 × 第 1 名的{{t:payout|獎金}}。還要加上其他有獎金名次的機率。",
-      "equityExplanationMore": "第 1 名的機率是你的籌碼 ÷ 全部{{t:chips|籌碼}}（{{share}}）；之後的名次用同樣方式在剩下的玩家中計算。合計為{{t:prize-pool|獎池}}的 {{icm}}，高於你在{{t:chips|籌碼}}中的占比。",
-      "equityExplanationLess": "第 1 名的機率是你的籌碼 ÷ 全部{{t:chips|籌碼}}（{{share}}）；之後的名次用同樣方式在剩下的玩家中計算。合計為{{t:prize-pool|獎池}}的 {{icm}}，低於你在{{t:chips|籌碼}}中的占比。"
+      "equityExplanationMore": "第 1 名的機率是你的籌碼 ÷ 全部{{t:chips|籌碼}}（{{share}}）；之後的名次用同樣方式在剩下的玩家中計算。合計為{{t:prize-pool|獎金池}}的 {{icm}}，高於你在{{t:chips|籌碼}}中的占比。",
+      "equityExplanationLess": "第 1 名的機率是你的籌碼 ÷ 全部{{t:chips|籌碼}}（{{share}}）；之後的名次用同樣方式在剩下的玩家中計算。合計為{{t:prize-pool|獎金池}}的 {{icm}}，低於你在{{t:chips|籌碼}}中的占比。"
     },
     "playerType": {
       "name": {
         "nit": "岩石型玩家",
-        "regular": "{{t:regular|常客}}",
+        "regular": "{{t:regular|常規玩家}}",
         "passive": "被動的{{t:recreational|娛樂玩家}}",
         "maniac": "{{t:maniac|瘋子}}",
         "unknown": "手數太少，無法判斷"
@@ -736,7 +736,7 @@
       "fact": {
         "unknown": "少於 {{minHands}} 手時，統計數據是隨機的；這裡是 {{hands}}。",
         "nit": "岩石型玩家玩的牌最多占 {{nitMax}}%（{{t:vpip}}）；這位玩家玩 {{vpip}}%。",
-        "regular": "{{t:regular|常客}}玩約 {{low}}–{{high}}% 的牌，{{t:vpip}} − {{t:pfr}} 差距最多 {{gapMax}}；這裡是 {{vpip}}%，差距 {{gap}}。",
+        "regular": "{{t:regular|常規玩家}}玩約 {{low}}–{{high}}% 的牌，{{t:vpip}} − {{t:pfr}} 差距最多 {{gapMax}}；這裡是 {{vpip}}%，差距 {{gap}}。",
         "passive": "被動的鬆型玩家玩 {{loose}}% 以上的牌，{{t:vpip}} − {{t:pfr}} 差距超過 {{gapMin}}；這裡是 {{vpip}}%，差距 {{gap}}。",
         "maniac": "{{t:maniac|瘋子}}玩 {{loose}}% 以上的牌，{{t:vpip}} − {{t:pfr}} 差距最多 {{gapMax}}；這裡是 {{vpip}}%，差距 {{gap}}。"
       },
@@ -824,7 +824,7 @@
           "paired": "{{t:paired|成對}}翻牌有兩張或三張點數相同的牌；這時用玩家的兩張牌不可能組成{{t:straight|順子}}，但有時可能有{{t:straight-draw|順子聽牌}}",
           "connected": "{{t:connected|連張}}翻牌有三個不同點數落在五個連續點數之內，所以現在就可能有{{t:straight|順子}}（A 也可當作 1）",
           "semiConnected": "{{t:semi-connected|半連張}}翻牌有兩個點數落在五個連續點數之內，但不到三個：還沒有{{t:straight|順子}}，但已經可能有{{t:straight-draw|順子聽牌}}（兩頭順或卡順）",
-          "disconnected": "{{t:disconnected|不連張}}翻牌的點數相距很遠，沒有任何兩個落在五個連續點數之內，所以沒有人連{{t:straight-draw|順子聽牌}}都有"
+          "disconnected": "{{t:disconnected|不連張}}翻牌的點數相距很遠，沒有任何兩個落在五個連續點數之內，所以任何人連{{t:straight-draw|順子聽牌}}都沒有"
         },
         "wetness": {
           "dry": "{{t:dry|乾燥}}翻牌的{{t:draw|聽牌}}很少。{{scale}}",

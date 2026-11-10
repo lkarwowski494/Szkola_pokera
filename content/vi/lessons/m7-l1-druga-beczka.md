@@ -13,7 +13,7 @@ drills:
     prompt: "Bạn {{t:open|mở pot}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop [[Jd 7c 3s]], bạn {{t:bet|đặt}} c-bet và đối thủ {{t:call|theo}}. Lá turn nào giúp {{t:second-barrel}} của bạn nhiều nhất?"
     table: { position: BTN, board: "Jd 7c 3s" }
     options:
-      - { text: "[[As]]", correct: true, why: "Đúng: lá A trúng nhiều tay trong {{t:range|phạm vi bài}} {{t:open|mở pot}} của bạn (AK, AQ, AJ), còn {{t:big-blind}} {{t:call|theo}} flop chủ yếu bằng {{t:pair|đôi}} và {{t:draw|bài chờ}}. Mỗi {{t:pair}} của họ đều tụt xuống một bậc." }
+      - { text: "[[As]]", correct: true, why: "Đúng: lá A trúng nhiều tay trong {{t:range|dải bài}} {{t:open|mở pot}} của bạn (AK, AQ, AJ), còn {{t:big-blind}} {{t:call|theo}} flop chủ yếu bằng {{t:pair|đôi}} và {{t:draw|bài chờ}}. Mỗi {{t:pair}} của họ đều tụt xuống một bậc." }
       - { text: "[[8h]]", why: "Không: lá 8 nối với flop. Nó tạo {{t:straight|sảnh}} cho T9 và {{t:two-pair}} cho 87, những tay mà {{t:big-blind}} bảo vệ rất nhiều. Lá này có lợi cho họ hơn." }
       - { text: "[[3h]]", why: "Không phải tệ nhất, nhưng ít thay đổi: lá này hiếm khi cải thiện {{t:range}} của bạn, còn đối thủ có {{t:pair|đôi}} vẫn có {{t:pair|đôi}}. Lá A mang lại cho {{t:second-barrel}} của bạn nhiều hơn hẳn." }
   - kind: choice
@@ -25,7 +25,7 @@ drills:
     options:
       - { text: "Nó trúng AK và AQ của bạn, còn {{t:pair}} của đối thủ trở thành {{t:pair|đôi}} thứ hai hoặc thứ ba", correct: true, why: "Đúng: lá cao trúng {{t:range}} của người {{t:open|mở pot}} thường xuyên hơn, còn đối thủ đã {{t:call|theo}} flop bằng {{t:pair|đôi}} J hoặc đôi 7 giờ có tay yếu hơn so với {{t:board|bài chung}}." }
       - { text: "Vì gặp lá A thì đối thủ luôn {{t:fold|bỏ bài}}", why: "Không phải luôn: đối thủ có A hoặc có set sẽ trả tiền. Lá A tăng khả năng {{t:fold}}, nhưng không đảm bảo điều gì." }
-      - { text: "Vì lá A hoàn thành {{t:draw|bài chờ}} của đối thủ", why: "Không: trên {{t:board|bài chung}} này, lá A không hoàn thành {{t:flush|thùng}} hay {{t:straight|sảnh}} nào mà đối thủ có thể có. Nó có lợi vì hợp với {{t:range|phạm vi bài}} của bạn." }
+      - { text: "Vì lá A hoàn thành {{t:draw|bài chờ}} của đối thủ", why: "Không: trên {{t:board|bài chung}} này, lá A không hoàn thành {{t:flush|thùng}} hay {{t:straight|sảnh}} nào mà đối thủ có thể có. Nó có lợi vì hợp với {{t:range|dải bài}} của bạn." }
   - kind: choice
     id: m7.l1.q-bad-card
     family: m7.barrel.card
@@ -34,7 +34,7 @@ drills:
     table: { hand: "Ad Qc", position: BTN, board: "9h 6c 2d 7s" }
     options:
       - { text: "{{t:check|Xem bài}}", correct: true, why: "Lá 7 trên {{t:board|bài chung}} có 9 và 6 tạo {{t:straight|sảnh}} cho T8 và 85, và {{t:two-pair}} cho 76 và 97, đều là những tay mà {{t:big-blind}} bảo vệ. Bạn không có {{t:pair|đôi}} hay {{t:draw|bài chờ}}. Bạn bỏ ý định {{t:bluff}} và nhận lá bài miễn phí." }
-      - { text: "Cược {{n:ex.bet.three-quarters}}", why: "Lá này hợp với {{t:range|phạm vi bài}} của đối thủ, không phải của bạn, và bạn không có out để thành tay mạnh. Hãy đánh {{t:second-barrel}} bằng {{t:bluff}} trên những lá giúp bạn và với những tay có thể cải thiện." }
+      - { text: "Cược {{n:ex.bet.three-quarters}}", why: "Lá này hợp với {{t:range|dải bài}} của đối thủ, không phải của bạn, và bạn không có out để thành tay mạnh. Hãy đánh {{t:second-barrel}} bằng {{t:bluff}} trên những lá giúp bạn và với những tay có thể cải thiện." }
       - { text: "Cược {{n:ex.bet.pot}}", why: "Một cú {{t:bluff}} lớn trên lá có lợi cho đối thủ là rất rủi ro: họ phải {{t:fold|bỏ bài}} nhiều hơn {{n:alpha.bet-pot}} số lần, mà sau khi {{t:call|theo}} flop họ có nhiều {{t:pair|đôi}} và {{t:draw|bài chờ}}." }
   - kind: choice
     id: m7.l1.q-gutshot-ace
@@ -43,7 +43,7 @@ drills:
     prompt: "Bạn {{t:open|mở pot}} từ Button, {{t:big-blind}} {{t:call|theo}} c-bet của bạn trên flop. Turn là lá A. Trong {{t:pot|pot}} có {{n:ex.pot}}, đối thủ {{t:check|xem bài}}. Bạn làm gì?"
     table: { hand: "Kh Qh", position: BTN, board: "Jd 7c 3s As" }
     options:
-      - { text: "Cược {{n:ex.bet.three-quarters}}", correct: true, why: "Một {{t:second-barrel}} tốt: lá A hợp với {{t:range|phạm vi bài}} của bạn, và bạn có gutshot ra {{t:straight|sảnh}} (lá 10). Khi đối thủ {{t:fold|bỏ}} {{t:pair|đôi}}, bạn thắng ngay, còn khi họ {{t:call|theo}}, bạn vẫn có thể trúng." }
+      - { text: "Cược {{n:ex.bet.three-quarters}}", correct: true, why: "Một {{t:second-barrel}} tốt: lá A hợp với {{t:range|dải bài}} của bạn, và bạn có gutshot ra {{t:straight|sảnh}} (lá 10). Khi đối thủ {{t:fold|bỏ}} {{t:pair|đôi}}, bạn thắng ngay, còn khi họ {{t:call|theo}}, bạn vẫn có thể trúng." }
       - { text: "Cược {{n:ex.bet.quarter}}", sizeError: true, why: "Hành động đúng, kích cỡ sai: cược rẻ như vậy thì đối thủ sẽ {{t:call|theo}} với bất kỳ {{t:pair|đôi}} nào, mà cú {{t:bluff}} này kiếm lời chủ yếu nhờ {{t:fold|bỏ bài}}. Trên lá giúp bạn, hãy cược lớn, giống như với tay mạnh." }
       - { text: "{{t:check|Xem bài}}", correct: true, why: "Cũng tốt: bạn có out và sẽ được xem river miễn phí, nên {{t:check}} không phải là sai lầm. Trong một ví dụ solver đã công bố, gutshot ra {{t:straight|sảnh}} cao nhất đã {{t:check|xem bài}} ở turn. Cả hai cách chơi đều đúng." }
   - kind: choice
@@ -108,7 +108,7 @@ drills:
     prompt: "Vì sao sau khi {{t:call|theo}} c-bet, {{t:range}} của đối thủ ở turn mạnh hơn ở flop?"
     options:
       - { text: "Vì họ đã {{t:fold|bỏ}} những tay yếu nhất ở flop", correct: true, why: "Đúng: trước c-bet, những tay không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}} sẽ {{t:fold|bỏ bài}}. Còn lại là {{t:pair|đôi}} và {{t:draw|bài chờ}}, nên {{t:second-barrel}} gặp {{t:range}} mạnh hơn cú cược đầu tiên." }
-      - { text: "Vì turn luôn giúp họ", why: "Không: turn là ngẫu nhiên và đôi khi giúp bạn (ví dụ lá A). {{t:range|Phạm vi bài}} của đối thủ mạnh lên nhờ chính quyết định của họ ở flop." }
+      - { text: "Vì turn luôn giúp họ", why: "Không: turn là ngẫu nhiên và đôi khi giúp bạn (ví dụ lá A). {{t:range|Dải bài}} của đối thủ mạnh lên nhờ chính quyết định của họ ở flop." }
       - { text: "Không phải vậy, họ có cùng {{t:range}} như trước flop", why: "Mỗi quyết định đều lọc bớt một số tay. Ai đã {{t:call|theo}} {{t:bet|cược}} thường đã trúng gì đó hoặc có {{t:draw|bài chờ}}." }
 ---
 {{t:second-barrel}} là {{t:bet|cú cược}} thứ hai của người chơi đã {{t:raise|tố}} trước flop: c-bet ở flop, {{t:call}}, rồi cược ở turn. Ở turn, bạn không chỉ hỏi “mình có tay bài không”, mà còn hỏi “lá này giúp mình hay giúp đối thủ”.

@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Circa {{n:odds.flush.turn-river}}", correct: true, why: "Sì: resta una sola carta. {{n:outs.flush}} out su {{n:cards.unseen.turn}} carte non viste danno {{n:odds.flush.turn-river}}, più o meno metà della probabilità del flop." }
       - { text: "Sempre circa {{n:odds.flush.flop-river}}, perché gli out sono gli stessi", why: "Gli out sono gli stessi, ma restano meno carte da scoprire. {{n:odds.flush.flop-river}} conta due carte, mentre al turn ne resta una." }
-      - { text: "Non si può calcolare senza una calcolatrice", why: "Si può: con la regola del 2 e del 4 del M2. Una carta, quindi out × 2: circa {{n:odds.flush.rule-turn}}. Esattamente {{n:odds.flush.turn-river}}." }
+      - { text: "Non si può calcolare senza una calcolatrice", why: "Si può: con la regola del 2 e del 4 dell'M2. Una carta, quindi out × 2: circa {{n:odds.flush.rule-turn}}. Esattamente {{n:odds.flush.turn-river}}." }
   - kind: generated
     id: m7.l3.g-outs-turn
     family: m7.draw.odds
@@ -51,7 +51,7 @@ drills:
     id: m7.l3.q-implied-oesd
     family: m7.implied.math
     rules: [R-M7-008]
-    prompt: "Turn. Il {{t:pot|piatto}} è di {{n:io.oesd.pot}}, l'avversario {{t:bet|punta}} {{n:io.oesd.bet}}. Hai un {{t:oesd|progetto di scala bilaterale}}: {{n:outs.oesd}} out, {{n:miss.oesd.turn}} carte che non chiudono. Quanto devi vincere in più al river, quando chiudi?"
+    prompt: "Turn. Il {{t:pot|piatto}} è di {{n:io.oesd.pot}}, l'avversario {{t:bet|punta}} {{n:io.oesd.bet}}. Hai un {{t:oesd|OESD}}: {{n:outs.oesd}} out, {{n:miss.oesd.turn}} carte che non chiudono. Quanto devi vincere in più al river, quando chiudi?"
     options:
       - { text: "Circa {{n:io.oesd.extra}}", correct: true, why: "Ogni volta che chiudi devi incassare {{n:io.oesd.bet}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:io.oesd.need}}. Il {{t:pot|piatto}} contiene {{n:io.oesd.pot-after-bet}}, quindi mancano {{n:io.oesd.extra}}." }
       - { text: "Circa {{n:io.oesd.need}}", why: "Questo è quanto devi vincere in totale ogni volta che chiudi. Una parte è già nel {{t:pot|piatto}} ({{n:io.oesd.pot-after-bet}}), quindi in più mancano {{n:io.oesd.extra}}." }
@@ -106,7 +106,7 @@ drills:
 ---
 Al turn resta ormai una sola carta. La probabilità del tuo {{t:draw|progetto}} si riduce più o meno della metà, e il prezzo della carta successiva di solito sale. Per questo al turn conti con più precisione e ti fai una nuova domanda: quanto posso vincere dopo, se chiudo?
 
-## Una carta alla fine
+## Manca una sola carta
 
 | {{t:draw|Progetto}} | Out | Flop → river | Turn → river |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Al turn resta ormai una sola carta. La probabilità del tuo {{t:draw|progetto}} 
 | Gutshot | {{n:outs.gutshot}} | {{n:odds.gutshot.flop-river}} | {{n:odds.gutshot.turn-river}} |
 | {{t:flush|Colore}} + {{t:straight|scala}} bilaterale | {{n:outs.combo}} | – | {{n:odds.combo.turn-river}} |
 
-Con la regola del 2 e del 4 del M2 moltiplichi gli out per 2. Quando due {{t:draw|progetti}} hanno carte in comune, le conti una volta sola.
+Con la regola del 2 e del 4 dell'M2 moltiplichi gli out per 2. Quando due {{t:draw|progetti}} hanno carte in comune, le conti una volta sola.
 
 ## Implied odds
 

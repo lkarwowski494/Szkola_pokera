@@ -2,7 +2,7 @@
 id: m8.l4
 module: m8
 order: 4
-title: "Pagar faroles"
+title: "Cazar faroles"
 sub: "Con qué manos igualar en el river"
 rules: [R-M8-010, R-M8-011, R-M8-012, R-M6-001]
 drills:
@@ -108,7 +108,7 @@ Un bluff-catcher gana exactamente cuando el rival {{t:bluff|va de farol}}. Por e
 | Apuesta del rival | Equity necesaria ({{t:bluff|faroles}} como mínimo) |
 |---|---|
 | 1/3 del {{t:pot|bote}} | {{n:eq.bet-third}} |
-| 1/2 {{t:pot|bote}} | {{n:eq.bet-half}} |
+| 1/2 del {{t:pot|bote}} | {{n:eq.bet-half}} |
 | {{t:pot|Bote}} entero | {{n:eq.bet-pot}} |
 
 Cuando el rival {{t:bluff|va de farol}} exactamente en la proporción de la lección anterior ({{n:bluff.share.bet-pot}} con una apuesta del {{t:pot|bote}} entero), {{t:call|igualar}} queda a cero. Cuando {{t:bluff|va de farol}} más a menudo, {{t:call|igualas}}; cuando menos, {{t:fold|te retiras}}. Las cifras no incluyen el rake; el rake sube un poco la equity necesaria.

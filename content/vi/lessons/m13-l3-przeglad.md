@@ -77,7 +77,7 @@ Bạn không dành nhiều thời gian cho cooler và bad beat. Cooler là ván 
 
 ## Xem lại một quyết định thế nào
 
-1. Ghi lại ván bài: {{t:position|vị trí}}, stack, các hành động và mức cược ở mỗi {{t:street|vòng cược}}.
+1. Ghi lại ván bài: {{t:position|vị trí}}, stack, các hành động và kích cỡ cược ở mỗi {{t:street|vòng cược}}.
 2. Ghi lại phản ứng đầu tiên: quyết định có vẻ dễ hay khó.
 3. Tính toán: giá, {{t:equity}} và những gì bạn biết vào lúc quyết định.
 4. Kiểm tra quyết định với ba giả định về {{t:range|range}} của đối thủ: lạc quan, bi quan và thực tế. Nếu quyết định tốt ngay cả với giả định bi quan, bạn có thể dừng.

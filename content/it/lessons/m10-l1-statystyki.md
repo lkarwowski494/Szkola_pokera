@@ -74,7 +74,7 @@ drills:
     prompt: "Quale statistica ha bisogno di più mani per essere affidabile?"
     options:
       - { text: "Fold to 3-bet", correct: true, why: "L'occasione per il fold to 3-bet si presenta solo quando l'avversario ha {{t:open|aperto}} e ha ricevuto un 3-bet, cioè di rado. Per questo ti servono circa {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} mani invece di {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}." }
-      - { text: "{{t:vpip}}", why: "Il {{t:vpip}} ha un'occasione in ogni mano, quindi si stabilizza più in fretta: dopo circa {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} mani." }
+      - { text: "{{t:vpip}}", why: "Il {{t:vpip}} ha un'occasione in ogni mano, quindi si stabilizza più in fretta di tutte: dopo circa {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} mani." }
       - { text: "{{t:pfr}}", why: "Il {{t:pfr}}, come il {{t:vpip}}, ha un'occasione in ogni mano in cui il giocatore può {{t:raise|rilanciare}}, quindi si stabilizza in fretta." }
   - kind: choice
     id: m10.l1.q-hud-ban
@@ -84,9 +84,9 @@ drills:
     options:
       - { text: "Gioco senza {{t:hud}} e dopo la {{t:session|sessione}} rivedo il mio database di mani e gli appunti sugli avversari abituali", correct: true, why: "Il regolamento della sala è vincolante: con un programma vietato rischi la chiusura dell'account. Le statistiche della tua cronologia di mani puoi rivederle dopo il gioco, e alcune sale mostrano statistiche proprie al tavolo." }
       - { text: "Uso l'{{t:hud}} nonostante il divieto, perché dà un vantaggio", why: "Se violi il regolamento, la sala può chiudere l'account e trattenere i fondi. Il vantaggio non ne vale la pena." }
-      - { text: "Rinuncio allo {{t:exploit|sfruttamento}}, perché senza {{t:hud}} non si può fare", why: "Si può: anche le letture ricavate dalla revisione delle mani dopo la {{t:session|sessione}} e i dati sulla popolazione del tuo {{t:stakes|limite}} mostrano in che direzione allontanarti dalla base." }
+      - { text: "Rinuncio all'{{t:exploit|exploit}}, perché senza {{t:hud}} non si può fare", why: "Si può: anche le letture ricavate dalla revisione delle mani dopo la {{t:session|sessione}} e i dati sulla popolazione del tuo {{t:stakes|limite}} mostrano in che direzione allontanarti dalla base." }
 ---
-Lo {{t:exploit|sfruttamento}} è un allontanamento dalla base dei moduli 3–9 nella direzione dell'errore dell'avversario. Per sapere in che direzione allontanarti, ti servono dati. Online li fornisce l'{{t:hud}}: un programma che registra le mani e mostra le statistiche di ogni avversario al tavolo.
+L'{{t:exploit|exploit}} è un allontanamento dalla base dei moduli 3–9 nella direzione dell'errore dell'avversario. Per sapere in che direzione allontanarti, ti servono dati. Online li fornisce l'{{t:hud}}: un programma che registra le mani e mostra le statistiche di ogni avversario al tavolo.
 
 ## {{t:vpip}} e {{t:pfr}}
 

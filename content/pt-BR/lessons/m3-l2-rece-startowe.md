@@ -46,13 +46,13 @@ drills:
       - { text: "{{t:fold|Desisto}}", why: "No Button, esta mão é boa demais para {{t:fold|desistir}}." }
       - { text: "{{t:call|Pago}}", why: "É melhor {{t:raise|aumentar}}: você tem a chance de levar os blinds na hora e joga com a {{t:initiative|iniciativa}}." }
 ---
-Os iniciantes perdem a maior parte do dinheiro jogando mãos fracas demais. Uma boa seleção de mãos iniciais é o jeito mais rápido de parar de perder.
+Os iniciantes perdem a maior parte do dinheiro jogando um número excessivo de mãos fracas. Uma boa seleção de mãos iniciais é o jeito mais rápido de parar de perder.
 
 ## Grupos de mãos
 
 - **Mais fortes**: [[As Ah]], [[Ks Kh]], [[Qs Qh]] e AK do mesmo naipe e de naipes diferentes, por exemplo [[As Ks]] e [[As Kd]]. Você {{t:raise|aumenta}} e, quando alguém {{t:raise|aumentou}} antes de você, normalmente {{t:raise|aumenta}} de novo (3-bet) {{t:value|por valor}}, ou seja, para que o adversário {{t:call|pague}} com uma mão mais fraca.
 - **Fortes**: JJ, TT, AQ, AJ do mesmo naipe, KQ do mesmo naipe.
-- **Especulativas**: {{t:pair|pares}} baixos e cartas consecutivas do mesmo naipe, por exemplo [[7h 6h]]. Boas em {{t:late-position|posição tardia}}.
+- **Especulativas**: {{t:pair|pares}} baixos e cartas consecutivas do mesmo naipe, por exemplo [[7h 6h]]. Boas em {{t:late-position|posição final}}.
 - **Fracas**: desconectadas, baixas, de naipes diferentes, por exemplo [[9c 3d]]. {{t:fold|Desista}}.
 
 :::note Quantos {{t:combo|combos}} existem

@@ -10,7 +10,7 @@ drills:
     id: m7.l3.q-turn-odds
     family: m7.draw.odds
     rules: [R-M7-007]
-    prompt: "翻牌時，你到河牌前約有 {{n:odds.flush.flop-river}} 的機會做成{{t:flush}}。轉牌沒幫上忙。現在機率是多少？"
+    prompt: "翻牌時，你到河牌為止約有 {{n:odds.flush.flop-river}} 的機會做成{{t:flush}}。轉牌沒幫上忙。現在機率是多少？"
     options:
       - { text: "約 {{n:odds.flush.turn-river}}", correct: true, why: "對：只剩一張牌。{{n:cards.unseen.turn}} 張未知牌中有 {{n:outs.flush}} 張補牌，也就是 {{n:odds.flush.turn-river}}，大約是翻牌時機率的一半。" }
       - { text: "仍約 {{n:odds.flush.flop-river}}，因為補牌數一樣", why: "補牌數一樣，但待發的牌變少了。{{n:odds.flush.flop-river}} 算的是兩張牌，而到了轉牌只剩一張。" }

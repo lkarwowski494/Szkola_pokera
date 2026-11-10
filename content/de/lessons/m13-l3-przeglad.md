@@ -57,7 +57,7 @@ drills:
     rules: [R-M13-008]
     prompt: "Du analysierst einen {{t:call|Call}} am River. Selbst bei einer pessimistischen Annahme über die {{t:range|Range}} des Gegners (wenige {{t:bluff|Bluffs}}) hast du genug {{t:equity|Equity}}. Wie geht es weiter?"
     options:
-      - { text: "Ich kann aufhören: Die Entscheidung ist bei jeder vernünftigen Annahme gut", correct: true, why: "Ja: Die extremen Annahmen stecken den Bereich ab. Wenn die Entscheidung sogar bei der pessimistischen gut ist, bestätigt sie auch die realistische Annahme." }
+      - { text: "Ich kann aufhören: Die Entscheidung ist bei jeder vernünftigen Annahme gut", correct: true, why: "Ja: Die extremen Annahmen stecken den Bereich ab. Wenn die Entscheidung sogar bei der pessimistischen gut ist, wird sie auch von der realistischen Annahme bestätigt." }
       - { text: "Ich muss noch den realistischen Fall berechnen", why: "Musst du nicht: Die realistische Annahme liegt zwischen den Extremen, und da beide zum selben Schluss führen, ändert sich das Ergebnis nicht." }
       - { text: "Ich wechsle zur optimistischen Annahme, weil die pessimistische übertrieben ist", why: "Du beginnst mit den Extremen, um den Bereich abzustecken. Wenn schon die pessimistische ein gutes Ergebnis liefert, dann die optimistische erst recht." }
 ---

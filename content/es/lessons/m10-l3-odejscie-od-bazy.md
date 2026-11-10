@@ -100,7 +100,7 @@ Basta con poco. En un ejemplo de solver publicado (el botón apuesta en el river
 
 ## El {{t:bluff|farol}} medido con un umbral
 
-Si un {{t:bluff|farol}} sin mano es rentable te lo dice el {{t:alpha|alfa}} del módulo 6:
+Si un {{t:bluff|farol}} sin mano es rentable te lo dice el {{t:alpha|alpha}} del módulo 6:
 
 ```formula
 Un {{t:bluff|farol}} gana cuando el rival se {{t:fold|retira}} más a menudo que: apuesta ÷ (bote + apuesta)
@@ -126,5 +126,5 @@ En la base, los {{t:bluff|faroles}} de 3-bet viven de las {{t:fold|retiradas}} y
 Cuanto menor es la muestra, mayor es el error de la estadística (lección 1). Con una muestra pequeña, solo desplazas las manos límite y solo en la dirección de la lectura. Una desviación grande, con todo el {{t:range|rango}}, solo tiene sentido con una muestra grande y un error claro del rival. Desviarse de la base es en sí mismo un error que un buen rival puede aprovechar.
 
 :::note Fuentes
-El principio de las {{t:mixed-hand|manos mixtas}} procede de un análisis de solver publicado con la estrategia del rival bloqueada (una solución de solver, no datos de población). Los umbrales de {{t:alpha|alfa}} son aritmética. El fold to 3-bet y el fold to c-bet de la población proceden de una base de datos pública de estadísticas (una gran sala online, NL25–NL100, {{n:mda.period.months}} meses antes de octubre de 2026). El límite de fold to 3-bet y el principio «muestra pequeña, desviación pequeña» son recomendaciones de dos materiales formativos.
+El principio de las {{t:mixed-hand|manos mixtas}} procede de un análisis de solver publicado con la estrategia del rival bloqueada (una solución de solver, no datos de población). Los umbrales de {{t:alpha|alpha}} son aritmética. El fold to 3-bet y el fold to c-bet de la población proceden de una base de datos pública de estadísticas (una gran sala online, NL25–NL100, los {{n:mda.period.months}} meses anteriores a octubre de 2026). El límite de fold to 3-bet y el principio «muestra pequeña, desviación pequeña» son recomendaciones de dos materiales formativos.
 :::

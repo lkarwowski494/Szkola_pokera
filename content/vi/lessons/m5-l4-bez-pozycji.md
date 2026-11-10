@@ -13,7 +13,7 @@ drills:
     prompt: "Bạn {{t:open|mở pot}} từ {{t:cutoff|CO}}, Button {{t:call|theo}}, hai blind {{t:fold|bỏ bài}}. Flop ở mức trung bình và {{t:connected}}. Bạn hành động trước. Kế hoạch nào đúng ở đây?"
     table: { position: CO, board: "Jd 9s 8c" }
     options:
-      - { text: "{{t:check|Xem bài}} thường xuyên hơn so với khi {{t:in-position}}", correct: true, why: "Đúng: Button {{t:call|theo}} khi có {{t:position|vị trí}}, nên họ có {{t:range}} mạnh, còn flop trung bình và {{t:connected}} trúng tốt các {{t:pair|đôi}} và {{t:connectors|bài liền}} của họ. Khi {{t:out-of-position|không có vị trí}}, bạn {{t:check|xem bài}} ở đây rất thường xuyên, kể cả với tay bài mạnh." }
+      - { text: "{{t:check|Xem bài}} thường xuyên hơn so với khi {{t:in-position}}", correct: true, why: "Đúng: Button {{t:call|theo}} khi có {{t:position|vị trí}}, nên họ có {{t:range}} mạnh, còn flop trung bình và {{t:connected}} trúng tốt các {{t:pair|đôi}} và {{t:connectors|bài liên tiếp}} của họ. Khi {{t:out-of-position|không có vị trí}}, bạn {{t:check|xem bài}} ở đây rất thường xuyên, kể cả với tay bài mạnh." }
       - { text: "C-bet thường xuyên và nhỏ, như khi ở Button", why: "Đó là kế hoạch khi {{t:in-position}} trên flop {{t:dry|khô}}, cao. Ở đây bạn không có {{t:position|vị trí}}, và flop không có lợi cho {{t:range|dải bài}} của bạn." }
       - { text: "C-bet với mọi tay bài để không mất {{t:initiative|thế chủ động}}", why: "{{t:initiative|Thế chủ động}} tự nó không giúp bạn thắng: {{t:range}} của Button ở đây mạnh, và sau mỗi {{t:bet|lần cược}}, bạn cũng hành động trước ở turn và river." }
   - kind: choice
@@ -44,13 +44,13 @@ drills:
     table: { hand: "Ad Qc", position: CO, board: "9h 7h 4s" }
     options:
       - { text: "{{t:check|Xem bài}}", correct: true, why: "Đúng: khi đấu hai đối thủ, tay bài không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}} hiếm khi thắng {{t:pot}} bằng một {{t:bet|lần cược}}. Nhiều khả năng hơn là một trong hai người đã trúng flop này." }
-      - { text: "C-bet nhỏ, như khi đấu một đối một", why: "Khi đấu hai đối thủ, {{t:bluff|cú tháu cáy}} phải vượt qua cả hai, và việc cả hai cùng trượt hiếm hơn nhiều so với chỉ một người." }
-      - { text: "C-bet lớn để đẩy cả hai ra", why: "Một {{t:bluff|cú tháu cáy}} lớn khi đấu hai đối thủ có rủi ro cao, còn khả năng cả hai {{t:fold|bỏ bài}} là nhỏ. Trên flop này họ có nhiều {{t:pair|đôi}} và {{t:draw|bài chờ}}." }
+      - { text: "C-bet nhỏ, như khi đấu một đối một", why: "Khi đấu hai đối thủ, {{t:bluff|cú bluff}} phải vượt qua cả hai, và việc cả hai cùng trượt hiếm hơn nhiều so với chỉ một người." }
+      - { text: "C-bet lớn để đẩy cả hai ra", why: "Một {{t:bluff|cú bluff}} lớn khi đấu hai đối thủ có rủi ro cao, còn khả năng cả hai {{t:fold|bỏ bài}} là nhỏ. Trên flop này họ có nhiều {{t:pair|đôi}} và {{t:draw|bài chờ}}." }
   - kind: choice
     id: m5.l4.q-multi-value
     family: m5.cbet.multi
     rules: [R-M5-013]
-    prompt: "Bạn {{t:open|mở pot}} từ {{t:cutoff|CO}}, Button và {{t:big-blind}} {{t:call|theo}}. {{t:big-blind|Mù lớn}} {{t:check|xem bài}}. Bạn có {{t:top-pair|đôi cao nhất}} với kicker tốt. Bạn làm gì?"
+    prompt: "Bạn {{t:open|mở pot}} từ {{t:cutoff|CO}}, Button và {{t:big-blind}} {{t:call|theo}}. {{t:big-blind|Big blind}} {{t:check|xem bài}}. Bạn có {{t:top-pair|đôi cao nhất}} với kicker tốt. Bạn làm gì?"
     table: { hand: "Kd Qd", position: CO, board: "Ks 8c 3h" }
     options:
       - { text: "{{t:check|Xem bài}}", correct: true, why: "Đúng: trong {{t:pot}} nhiều người trên flop {{t:dry|khô}}, solver {{t:check|xem bài}} rất thường xuyên, kể cả với tay bài rất mạnh, vì hai người {{t:call|theo}} cộng lại thường đã trúng flop hơn." }
@@ -100,7 +100,7 @@ Khi bạn {{t:open|mở pot}} từ {{t:cutoff|CO}} và Button {{t:call|theo}}, s
 
 ## Khi đấu nhiều đối thủ
 
-Mỗi đối thủ thêm vào là thêm một khả năng có người đã trúng flop. Một tay bài không có {{t:pair|đôi}} trượt flop khoảng {{n:flop.miss.unpaired}} số lần, nhưng hai tay cùng trượt thì chỉ còn khoảng {{n:flop.miss.two}}. {{t:bluff|Cú tháu cáy}} phải vượt qua tất cả mọi người, nên khi đấu nhiều đối thủ, bạn chủ yếu từ bỏ các {{t:bluff|cú tháu cáy}}. Bạn cược ít khi và nhỏ, chủ yếu trên những flop trúng tốt {{t:range}} của bạn; trên flop {{t:dry|khô}}, bạn thường {{t:check|xem bài}} kể cả với tay bài rất mạnh.
+Mỗi đối thủ thêm vào là thêm một khả năng có người đã trúng flop. Một tay bài không có {{t:pair|đôi}} trượt flop khoảng {{n:flop.miss.unpaired}} số lần, nhưng hai tay cùng trượt thì chỉ còn khoảng {{n:flop.miss.two}}. {{t:bluff|Cú bluff}} phải vượt qua tất cả mọi người, nên khi đấu nhiều đối thủ, bạn chủ yếu từ bỏ các {{t:bluff|cú bluff}}. Bạn cược ít khi và nhỏ, chủ yếu trên những flop trúng tốt {{t:range}} của bạn; trên flop {{t:dry|khô}}, bạn thường {{t:check|xem bài}} kể cả với tay bài rất mạnh.
 
 :::note Nguồn gốc của các quy tắc này
 Các quy tắc trong bài học này lấy từ kết quả solver đã công bố (c-bet khi {{t:out-of-position}}, c-bet trên flop có lá A và trong {{t:pot}} nhiều người) và từ tài liệu đào tạo ({{t:pot}} nhiều người). Đây là các quy tắc kinh nghiệm: ứng dụng không đưa ra tần suất bằng phần trăm. Khả năng hai tay bài cùng trượt là phép tính chính xác cho hai tay bài có bốn hạng bài khác nhau; phép tính này bỏ qua bài của bạn, giống như con số cho một tay bài.

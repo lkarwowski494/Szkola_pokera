@@ -32,7 +32,7 @@ drills:
     table: { position: BB }
     options:
       - { text: "面對整個{{t:pot|底池}}的下注，你用較窄的{{t:range|範圍}}防守", correct: true, why: "下注越大，價格越差：所需權益從 {{n:eq.bet-third}} 升到 {{n:eq.bet-pot}}，{{t:mdf}}則從 {{n:mdf.bet-third}} 降到 {{n:mdf.bet-pot}}。原本跟小額下注的最弱手牌，現在你要{{t:fold|棄牌}}。" }
-      - { text: "防守方式一樣，因為是同一手牌", why: "手牌一樣，但價格不同。面對底池大小的下注，你需要 {{n:eq.bet-pot}} 的權益，而不是 {{n:eq.bet-third}}。" }
+      - { text: "防守方式一樣，因為是同一手牌", why: "手牌一樣，但價格不同。面對{{t:pot|底池}}大小的下注，你需要 {{n:eq.bet-pot}} 的權益，而不是 {{n:eq.bet-third}}。" }
       - { text: "面對整個{{t:pot|底池}}的下注，你防守更寬，因為大額下注更常是{{t:bluff|詐唬}}", why: "沒有這種規則。大額下注通常代表{{t:polarized|兩極化}}的{{t:range|範圍}}（非常強的牌和{{t:bluff|詐唬}}），無論如何對你來說價格都比較差。" }
   - kind: choice
     id: m6.l2.q-middle-pair
@@ -131,4 +131,4 @@ drills:
 - 沒有{{t:pair|對子}}、沒有{{t:draw|聽牌}}，也沒有 A 或比牌面大的牌；在有 A 的翻牌上，你會{{t:fold|棄掉}}更多這類牌，
 - 持續下注很大時，通常也棄掉沒有{{t:draw|聽牌}}的兩張高牌（不過在 K 為最大牌的{{t:dry|乾燥}}翻牌上，求解器會用許多帶 A 的牌{{t:call|跟注}}）；你比較會在有後門{{t:draw|聽牌}}時{{t:call|跟注}}，最好是聽最大的{{t:flush|同花}}。
 
-持續下注越大，次弱的手牌就會從{{t:call|跟注}}轉為棄牌。
+持續下注越大，就有越多最弱的手牌從{{t:call|跟注}}轉為棄牌。

@@ -32,7 +32,7 @@ drills:
     table: { position: BB }
     options:
       - { text: "Contro il {{t:pot|piatto}} intero difendi con un {{t:range|range}} più stretto", correct: true, why: "Una puntata più grande significa un prezzo peggiore: l'equity necessaria sale da {{n:eq.bet-third}} a {{n:eq.bet-pot}}, e la {{t:mdf}} scende da {{n:mdf.bet-third}} a {{n:mdf.bet-pot}}. Le mani più deboli che chiamavano la puntata piccola ora le {{t:fold|foldi}}." }
-      - { text: "Difendi allo stesso modo, perché è la stessa mano", why: "La mano è la stessa, ma il prezzo è diverso. Contro una puntata grande quanto il {{t:pot|piatto}} ti serve {{n:eq.bet-pot}} di equity invece di {{n:eq.bet-third}}." }
+      - { text: "Difendi allo stesso modo, perché è la stessa mano", why: "La mano è la stessa, ma il prezzo è diverso. Contro una puntata grande quanto il {{t:pot|piatto}} ti serve il {{n:eq.bet-pot}} di equity invece del {{n:eq.bet-third}}." }
       - { text: "Contro il {{t:pot|piatto}} intero difendi più largo, perché una puntata grande è più spesso un {{t:bluff}}", why: "Non esiste una regola simile. Una puntata grande di solito indica un {{t:range}} {{t:polarized}} (mani molto forti e {{t:bluff|bluff}}), e in ogni caso un prezzo peggiore per te." }
   - kind: choice
     id: m6.l2.q-middle-pair
@@ -41,7 +41,7 @@ drills:
     prompt: "Difendi il {{t:big-blind}} contro l'{{t:open|apertura}} del Button. Al flop {{t:check|fai check}}, il Button {{t:bet|punta}} un c-bet di 1/3 del {{t:pot|piatto}}. Cosa fai?"
     table: { hand: "7h 6h", board: "Kc 7d 2s", position: BB }
     options:
-      - { text: "{{t:call|Chiamo}}", correct: true, why: "La {{t:pair}} media batte tutti i {{t:bluff|bluff}} del Button (mani senza {{t:pair|coppia}}), e per {{t:call|chiamare}} ti serve solo {{n:eq.bet-third}} di equity. Una difesa standard." }
+      - { text: "{{t:call|Chiamo}}", correct: true, why: "La {{t:pair}} media batte tutti i {{t:bluff|bluff}} del Button (mani senza {{t:pair|coppia}}), e per {{t:call|chiamare}} ti serve solo il {{n:eq.bet-third}} di equity. Una difesa standard." }
       - { text: "{{t:fold|Foldo}}", why: "Troppo stretto. Contro un c-bet piccolo {{t:fold|foldi}} le mani più deboli senza {{t:pair|coppia}} e senza {{t:draw|progetto}}, non una {{t:pair|coppia}}." }
       - { text: "Check-raise", why: "Di solito {{t:call|chiami}}. Dopo un {{t:raise|rilancio}} ti pagano soprattutto mani migliori e {{t:draw|progetti}}; il check-raise con una mano così è una giocata rara del solver contro i c-bet piccoli." }
   - kind: choice
@@ -51,7 +51,7 @@ drills:
     prompt: "Difendi il {{t:big-blind}} contro l'{{t:open|apertura}} del Button. Al flop {{t:check|fai check}}, il Button {{t:bet|punta}} un c-bet di 3/4 del {{t:pot|piatto}}. Cosa fai?"
     table: { hand: "Qd Jc", board: "7s 4h 2s", position: BB }
     options:
-      - { text: "{{t:fold|Foldo}}", correct: true, why: "Non hai né {{t:pair|coppia}} né {{t:draw|progetto}} (nessuna carta di picche, e la {{t:straight}} è lontana). Contro un c-bet grande ti serve {{n:eq.bet-three-quarters}} di equity, e {{t:out-of-position}} arriverai raramente allo showdown con sole carte alte. Neanche una {{t:pair|coppia}} di donne o di fanti vincerà sempre." }
+      - { text: "{{t:fold|Foldo}}", correct: true, why: "Non hai né {{t:pair|coppia}} né {{t:draw|progetto}} (nessuna carta di picche, e la {{t:straight}} è lontana). Contro un c-bet grande ti serve il {{n:eq.bet-three-quarters}} di equity, e {{t:out-of-position}} arriverai raramente allo showdown con sole carte alte. Neanche una {{t:pair|coppia}} di donne o di fanti vincerà sempre." }
       - { text: "{{t:call|Chiamo}}", why: "È allettante, perché donna e fante sono più alti del board. Ma le sole carte alte non bastano a questo prezzo: al turn spesso affronterai un'altra puntata e {{t:fold|folderai}}." }
       - { text: "Check-raise", why: "Per il {{t:bluff|bluff}} sono più adatte le mani con un {{t:draw|progetto}}, che hanno una seconda strada per vincere. Questa mano non ne ha nessuna." }
   - kind: choice
@@ -71,7 +71,7 @@ drills:
     prompt: "Difendi il {{t:big-blind}} contro l'{{t:open|apertura}} del Button. Al flop {{t:check|fai check}}, il Button {{t:bet|punta}} un c-bet di 1/3 del {{t:pot|piatto}}. Cosa fai?"
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
-      - { text: "{{t:call|Chiamo}}", correct: true, why: "Hai un gutshot alla {{t:straight|scala}} (donna) e un re più alto del board. La {{t:call|chiamata}} compra una carta: chiudi il gutshot al turn in circa il {{n:odds.gutshot.flop-turn}} dei casi, e il re aggiunge alcuni out per la {{t:top-pair|coppia massima}}. Insieme è meno del prezzo di {{n:eq.bet-third}}, ma se chiudi la {{t:straight|scala}} vincerai di più (implied odds), e il re da solo a volte batte i {{t:bluff|bluff}} del Button. Contro un c-bet piccolo basta per {{t:call|chiamare}}." }
+      - { text: "{{t:call|Chiamo}}", correct: true, why: "Hai un gutshot alla {{t:straight|scala}} (donna) e un re più alto del board. La {{t:call|chiamata}} compra una carta: chiudi il gutshot al turn in circa l'{{n:odds.gutshot.flop-turn}} dei casi, e il re aggiunge alcuni out per la {{t:top-pair|top pair}}. Insieme è meno del prezzo di {{n:eq.bet-third}}, ma se chiudi la {{t:straight|scala}} vincerai di più (implied odds), e il re da solo a volte batte i {{t:bluff|bluff}} del Button. Contro un c-bet piccolo basta per {{t:call|chiamare}}." }
       - { text: "{{t:fold|Foldo}}", why: "Troppo stretto: un {{t:draw}} più una carta alta è abbastanza contro un c-bet piccolo." }
       - { text: "Check-raise all-in", why: "Rischi tutto lo stack con una mano che ancora non ha niente. Con questa dimensione fai uscire le mani più deboli, e pagano solo quelle migliori." }
   - kind: choice
@@ -119,7 +119,7 @@ L'equity è la probabilità di vincere giocando fino alla fine senza ulteriori {
 
 Contro un c-bet piccolo (circa 1/3 del {{t:pot|piatto}}) continui:
 
-- con quasi ogni {{t:pair|coppia}}, anche media e bassa,
+- con quasi ogni {{t:pair|coppia}}, anche la media e la più bassa,
 - con {{t:flush-draw|progetti di colore}} e di {{t:straight|scala}}, anche con un gutshot con una carta alta,
 - con carte alte con un {{t:draw|progetto}} aggiuntivo (backdoor), ad es. tre carte dello stesso seme,
 - di solito anche con l'asso come carta più alta.
@@ -129,6 +129,6 @@ Ricorda da M2: il {{t:call}} di una {{t:bet|puntata}} al flop compra una carta, 
 ## Con cosa {{t:fold|foldi}}
 
 - le mani senza {{t:pair|coppia}} e senza {{t:draw|progetto}} che non hanno né un asso né carte più alte del board; sui flop con l'asso ne {{t:fold|foldi}} di più,
-- di solito due carte alte senza {{t:draw|progetto}}, quando il c-bet è grande (sui flop {{t:dry|asciutti}} con il re, però, il solver {{t:call|chiama}} con molte mani con un asso); {{t:call|chiami}} piuttosto quando hai un {{t:draw}} aggiuntivo, meglio se al {{t:flush|colore}} massimo.
+- di solito due carte alte senza {{t:draw|progetto}}, quando il c-bet è grande (sui flop {{t:dry|secchi}} con il re, però, il solver {{t:call|chiama}} con molte mani con un asso); {{t:call|chiami}} piuttosto quando hai un {{t:draw}} aggiuntivo, meglio se al {{t:flush|colore}} massimo.
 
 Quando il c-bet cresce, le mani più deboli successive passano dalla {{t:call|chiamata}} al fold.

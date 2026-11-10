@@ -85,7 +85,7 @@ Au Texas Hold'em, vous recevez **2 {{t:hole-cards|cartes privatives}}**, et **5 
 | | Combinaison | Exemple |
 |---|---|---|
 | 1 | {{t:royal-flush|Quinte flush royale}} | [[As Ks Qs Js Ts]] |
-| 2 | {{t:straight-flush|Quinte flush}} : {{t:straight|quinte}} dans une seule couleur | [[9h 8h 7h 6h 5h]] |
+| 2 | {{t:straight-flush|Quinte flush}} : {{t:straight-flush|quinte dans une seule couleur}} | [[9h 8h 7h 6h 5h]] |
 | 3 | {{t:four-of-a-kind|Carré}} | [[Qs Qh Qd Qc 4s]] |
 | 4 | {{t:full-house|Full}} : {{t:three-of-a-kind|brelan}} et {{t:pair|paire}} | [[Ks Kd Kc 7h 7s]] |
 | 5 | {{t:flush|Couleur}} | [[Ad Jd 8d 6d 2d]] |

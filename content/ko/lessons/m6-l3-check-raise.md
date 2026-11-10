@@ -23,7 +23,7 @@ drills:
     prompt: "{{t:pot|팟}}은 {{n:ex.third.pot}}입니다. 버튼이 {{n:ex.third.bet}} 크기로 C벳을 {{t:bet|벳합니다}}. 셋을 가지고 있어 체크레이즈를 하려고 합니다. 얼마까지 {{t:raise|레이즈하시겠습니까}}?"
     table: { hand: "4s 4d", board: "Qc 9h 4h", position: BB }
     options:
-      - { text: "{{n:xr.example}}까지", correct: true, why: "C벳의 {{n:xr.mult.example}} 크기입니다. 버튼은 {{n:xr.example.extra}}만큼 더 내야 하고 약 {{n:eq.vs-xr.example}}의 에퀴티가 필요합니다. 더 약한 {{t:pair|페어}}와 약한 {{t:draw|드로우}}(거트샷)는 가격이 맞지 않고, {{t:flush|플러시}} 드로우와 {{t:oesd|OESD}}는 이제 큰 {{t:pot|팟}}에 돈을 내게 됩니다." }
+      - { text: "{{n:xr.example}}까지", correct: true, why: "C벳의 {{n:xr.mult.example}} 크기입니다. 버튼은 {{n:xr.example.extra}}만큼 더 내야 하고 약 {{n:eq.vs-xr.example}}의 에퀴티가 필요합니다. 더 약한 {{t:pair|페어}}와 약한 {{t:draw|드로우}}(거트샷)는 가격이 맞지 않고, {{t:flush|플러시}} 드로우와 {{t:oesd|양방향 스트레이트 드로우}}는 이제 큰 {{t:pot|팟}}에 돈을 내게 됩니다." }
       - { text: "{{n:xr.too-small}}까지", sizeError: true, why: "액션은 맞지만 사이즈가 너무 작습니다. 버튼은 {{n:xr.too-small.extra}}만큼만 더 내면 되고 약 {{n:eq.vs-xr.too-small}}의 에퀴티가 필요합니다. 모든 {{t:flush-draw|플러시 드로우}}나 {{t:straight|스트레이트}} 드로우가 거의 공짜로 따라옵니다." }
       - { text: "{{t:call|콜}}", why: "하트 두 장과 {{t:straight|스트레이트}}로 이어지는 카드가 깔린 플롭에서는 밸류와 보호를 잃습니다. 많은 턴 카드가 액션을 멈추게 하거나 핸드를 역전합니다. 셋은 지금 바로 {{t:pot|팟}}을 키우고 싶은 핸드입니다." }
   - kind: numeric
@@ -38,7 +38,7 @@ drills:
     id: m6.l3.n-price-vs-xr
     family: m6.xr.size
     rules: [R-M6-010]
-    prompt: "{{t:pot|팟}}이 {{n:ex.third.pot}}인 상황에서 버튼이 {{n:ex.third.bet}}만큼 {{t:bet|벳했고}}, {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}. 버튼이 {{t:call|콜하려면}} 에퀴티가 몇 퍼센트 필요합니까? 숫자를 입력하세요."
+    prompt: "{{t:pot|팟}}이 {{n:ex.third.pot}}인 상황에서 버튼이 {{n:ex.third.bet}}만큼 {{t:bet|벳했고}}, 내가 {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}. 버튼이 {{t:call|콜하려면}} 에퀴티가 몇 퍼센트 필요합니까? 숫자를 입력하세요."
     table: { position: BB }
     answer: eq.vs-xr.example
     explanation: "버튼은 {{n:xr.example}} − {{n:ex.third.bet}} = {{n:xr.example.extra}}만큼 더 냅니다. 그 시점의 {{t:pot|팟}}은 {{n:xr.example.pot-after}}이고, 버튼이 {{t:call|콜하면}} {{n:xr.example.extra}}만큼 더 커집니다. {{n:xr.example.extra}} ÷ ({{n:xr.example.pot-after}} + {{n:xr.example.extra}}) = {{n:eq.vs-xr.example}}."
@@ -46,12 +46,12 @@ drills:
     id: m6.l3.q-price-small-xr
     family: m6.xr.size
     rules: [R-M6-010]
-    prompt: "{{t:pot|팟}}이 {{n:ex.third.pot}}인 상황에서 버튼이 {{n:ex.third.bet}}만큼 {{t:bet|벳했고}}, {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}. 버튼이 {{t:call|콜하려면}} 에퀴티가 얼마나 필요합니까?"
+    prompt: "{{t:pot|팟}}이 {{n:ex.third.pot}}인 상황에서 버튼이 {{n:ex.third.bet}}만큼 {{t:bet|벳했고}}, 내가 {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}. 버튼이 {{t:call|콜하려면}} 에퀴티가 얼마나 필요합니까?"
     table: { position: BB }
     options:
       - { text: "약 {{n:eq.vs-xr.too-small}}", correct: true, why: "{{t:pot|팟}} {{n:xr.too-small.pot-after}}에 {{n:xr.too-small.extra}}만큼 더 냅니다: {{n:xr.too-small.extra}} ÷ ({{n:xr.too-small.pot-after}} + {{n:xr.too-small.extra}}) = {{n:eq.vs-xr.too-small}}. 이렇게 싸면 거의 모든 핸드로 콜하므로, {{t:raise|레이즈}}는 C벳보다 몇 배 커야 합니다." }
       - { text: "약 {{n:eq.vs-xr.example}}", why: "{{n:xr.example}}까지의 {{t:raise|레이즈}}에 필요한 에퀴티입니다. {{n:xr.too-small}}까지라면 {{n:xr.too-small.extra}}만큼만 더 내면 됩니다." }
-      - { text: "약 {{n:eq.bet-third}}", why: "직접 C벳에 {{t:call|콜할}} 때 필요했던 에퀴티입니다. 체크레이즈 후에는 버튼의 가격을 계산합니다. 버튼은 {{t:pot|팟}} {{n:xr.too-small.pot-after}}에 {{n:xr.too-small.extra}}만큼 더 냅니다." }
+      - { text: "약 {{n:eq.bet-third}}", why: "내가 C벳에 {{t:call|콜할}} 때 필요했던 에퀴티입니다. 체크레이즈 후에는 버튼의 가격을 계산합니다. 버튼은 {{t:pot|팟}} {{n:xr.too-small.pot-after}}에 {{n:xr.too-small.extra}}만큼 더 냅니다." }
   - kind: choice
     id: m6.l3.q-nut-flush-draw
     family: m6.xr.semibluff
@@ -90,7 +90,7 @@ drills:
     table: { hand: "6s 5s", board: "Ad Kc 8h", position: BB }
     options:
       - { text: "{{t:fold|폴드}}", correct: true, why: "{{t:pair|페어}}도 {{t:flush-draw|플러시 드로우}}도 없습니다. 약한 백도어 {{t:straight-draw|스트레이트 드로우}}(특정 카드 두 장이 필요)만 있고, 보드보다 높은 카드도 없습니다. 에이스가 있는 플롭에서는 이런 핸드를 더 많이 {{t:fold|폴드합니다}}." }
-      - { text: "{{t:bluff|블러프}}로 체크레이즈", why: "체크레이즈 {{t:bluff|블러프}}는 주로 맞혔을 때도 이기는 {{t:draw|드로우}}({{t:flush|플러시}} 드로우, {{t:oesd|OESD}})로 합니다. 이 핸드는 약한 백도어 {{t:draw|드로우}}뿐이고, 버튼은 여기서 {{t:fold|폴드하지}} 않을 에이스와 킹을 많이 가지고 있습니다." }
+      - { text: "{{t:bluff|블러프}}로 체크레이즈", why: "체크레이즈 {{t:bluff|블러프}}는 주로 맞혔을 때도 이기는 {{t:draw|드로우}}({{t:flush|플러시}} 드로우, {{t:oesd|양방향 스트레이트 드로우}})로 합니다. 이 핸드는 약한 백도어 {{t:draw|드로우}}뿐이고, 버튼은 여기서 {{t:fold|폴드하지}} 않을 에이스와 킹을 많이 가지고 있습니다." }
       - { text: "{{t:call|콜}}", why: "가격은 좋지만 이 핸드는 거의 아무것도 맞히지 못합니다. 6이나 5 {{t:pair|페어}}조차 버튼이 계속 돈을 낼 대부분의 핸드에 집니다." }
   - kind: choice
     id: m6.l3.q-when-more
@@ -120,14 +120,14 @@ drills:
 체크레이즈를 하는 이유는 두 가지입니다.
 
 - **{{t:value|밸류}}를 위해**: 매우 강한 핸드({{t:two-pair|투 페어}}, 셋)로 {{t:pot|팟}}을 키우고 싶을 때,
-- **{{t:semi-bluff|세미 블러프}}로**: 두 가지 방식으로 이기는 {{t:draw|드로우}}({{t:flush|플러시}} 드로우, {{t:oesd|OESD}})가 있을 때. 버튼이 {{t:fold|폴드하거나}} 내가 맞히면 이깁니다.
+- **{{t:semi-bluff|세미 블러프}}로**: 두 가지 방식으로 이기는 {{t:draw|드로우}}({{t:flush|플러시}} 드로우, {{t:oesd|양방향 스트레이트 드로우}})가 있을 때. 버튼이 {{t:fold|폴드하거나}} 내가 맞히면 이깁니다.
 
-키커가 약한 {{t:top-pair|탑 페어}} 같은 중간 핸드는 보통 {{t:call|콜합니다}}. {{t:raise|레이즈}}하면 버튼의 더 약한 핸드는 더 자주 {{t:fold|폴드하고}}, 더 강한 핸드는 돈을 냅니다. 이는 단순화한 설명입니다. 작은 C벳에는 솔버도 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}로 {{t:raise|레이즈합니다}}. 반대로 매우 {{t:connected|커넥티드한}} 플롭에서 {{t:two-pair|투 페어}}는 솔버가 {{t:call|콜}}만 하는 경우가 많습니다.
+키커가 약한 {{t:top-pair|탑 페어}} 같은 중간 핸드는 보통 {{t:call|콜합니다}}. {{t:raise|레이즈}}하면 버튼의 더 약한 핸드는 더 자주 {{t:fold|폴드하고}}, 더 강한 핸드는 돈을 냅니다. 이는 단순화한 설명입니다. 작은 C벳에는 솔버가 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}로도 {{t:raise|레이즈합니다}}. 반대로 매우 {{t:connected|커넥티드한}} 플롭에서 {{t:two-pair|투 페어}}는 솔버가 {{t:call|콜}}만 하는 경우가 많습니다.
 
 ## 더 자주 할 때
 
 - **작은 C벳에 맞설 때.** {{t:raise|레이즈}} 비용이 싸고, 버튼은 넓은 {{t:range|레인지}}로 작은 C벳을 {{t:bet|벳합니다}}. 큰 C벳에는 더 드물고 좁게 {{t:raise|레이즈합니다}}. 주로 셋과 {{t:two-pair|투 페어}}이고, {{t:bluff|블러프}}는 더 적습니다.
-- **낮고 {{t:connected|커넥티드한}} 플롭에서** (예: [[7h 6d 5s]]). {{t:big-blind|빅 블라인드}}는 낮은 핸드를 많이 방어하므로, 보통 여기서 버튼보다 {{t:two-pair|투 페어}}와 {{t:straight|스트레이트}}가 더 많습니다. 즉 {{t:nuts-advantage|넛 어드밴티지}}가 있습니다.
+- **낮고 {{t:connected|커넥티드한}} 플롭에서** (예: [[7h 6d 5s]]). {{t:big-blind|빅 블라인드}}는 낮은 핸드를 많이 방어하므로, 보통 여기서 버튼보다 {{t:two-pair|투 페어}}와 {{t:straight|스트레이트}}가 더 많습니다. 즉 {{t:nuts-advantage|넛 우위}}가 있습니다.
 - **버튼에게 유리한 높은 플롭에서는 덜 자주**, 예: K-J-T 또는 A-A-K. 그곳에서는 버튼이 가장 강한 핸드를 더 많이 가집니다.
 
 ## 사이즈

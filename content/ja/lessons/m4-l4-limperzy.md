@@ -43,9 +43,9 @@ drills:
     prompt: "あなたより前のプレイヤー1人が{{t:big-blind}}にコールしただけです（リンプ）。あなたはボタンです。どうしますか？"
     table: { hand: "Ad Jc", position: BTN }
     options:
-      - { text: "{{n:pf.iso.one-limper}}まで{{t:raise|レイズ}}", correct: true, why: "AJは{{t:isolation|アイソレーション}}に向いたハンドです。弱いプレイヤーがリンプする多くのハンドを支配しており、フロップ以降は{{t:position|ポジション}}もあります。サイズは{{n:pf.iso.base}}に、リンパー1人につき{{n:pf.iso.per-limper}}を加えます。" }
+      - { text: "{{n:pf.iso.one-limper}}まで{{t:raise|レイズ}}", correct: true, why: "AJは{{t:isolation|アイソレーション}}に向いたハンドです。弱いプレイヤーがリンプする多くのハンドをドミネートしており、フロップ以降は{{t:position|ポジション}}もあります。サイズは{{n:pf.iso.base}}に、リンパー1人につき{{n:pf.iso.per-limper}}を加えます。" }
       - { text: "{{n:pf.min-raise}}まで{{t:raise|レイズ}}", sizeError: true, why: "アクションは正しいですが、最小の{{t:raise}}はリンパーに非常に良い価格を与えるため、相手はほとんど{{t:fold|フォールド}}せず、1対1の勝負になりません。{{n:pf.iso.one-limper}}まで{{t:raise|レイズ}}します。" }
-      - { text: "コール", why: "{{t:initiative|イニシアチブ}}を手放し、ブラインドを安く参加させてしまいます。リンパーを支配するハンドなら、{{t:pot|ポット}}を大きくしたいところです。" }
+      - { text: "コール", why: "{{t:initiative|イニシアチブ}}を手放し、ブラインドを安く参加させてしまいます。リンパーをドミネートするハンドなら、{{t:pot|ポット}}を大きくしたいところです。" }
       - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。リンパー1人に対して、ボタンは約{{n:pf.iso.btn.low}}～{{n:pf.iso.btn.high}}のハンドで{{t:isolation|アイソレーション}}を行い、AJは余裕でその中に入ります。" }
   - kind: choice
     id: m4.l4.q-many

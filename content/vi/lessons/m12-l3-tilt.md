@@ -10,10 +10,10 @@ drills:
     id: m12.l3.q-type-injustice
     family: m12.tilt-type
     rules: [R-M12-006]
-    prompt: "Lần thứ ba trong một giờ, đối thủ trúng một lá river cứu họ. Bạn cảm thấy ván bài thật bất công và như có ai đó cố tình chơi xấu bạn. Theo cách phân loại trong bài học này, đây là kiểu tilt nào?"
+    prompt: "Lần thứ ba trong một giờ, đối thủ trúng một lá river cứu họ. Bạn cảm thấy trò chơi này thật bất công và như có ai đó cố tình chơi xấu bạn. Theo cách phân loại trong bài học này, đây là kiểu tilt nào?"
     options:
       - { text: "Tilt vì bất công", correct: true, why: "Bad beat, cooler và việc đối thủ trúng bài ở river tạo cảm giác rằng poker thật bất công. Đây là yếu tố kích hoạt điển hình của tilt vì bất công." }
-      - { text: "Tilt vì mắc lỗi", why: "Tilt vì mắc lỗi liên quan đến sai lầm của chính bạn. Ở đây bạn tức giận vì vận may, chứ không phải vì quyết định của mình." }
+      - { text: "Tilt vì mắc lỗi", why: "Tilt vì mắc lỗi liên quan đến sai lầm của chính bạn. Ở đây bạn tức giận vì may rủi, chứ không phải vì quyết định của mình." }
       - { text: "Tilt vì tuyệt vọng", why: "Tuyệt vọng là nhu cầu mạnh mẽ muốn gỡ lại ({{t:session|phiên chơi}} kéo dài, {{t:stakes|mức cược}} cao hơn). Còn ở đây, lúc này vấn đề là cảm giác bị đối xử bất công." }
   - kind: choice
     id: m12.l3.q-type-revenge
@@ -32,7 +32,7 @@ drills:
     options:
       - { text: "Tilt vì tuyệt vọng", correct: true, why: "Nhu cầu gỡ lại dẫn đến những {{t:session|phiên chơi}} rất dài, cố ép hành động và nhảy vọt lên {{t:stakes|mức cược}} cao hơn. Đó là tín hiệu để dừng chơi." }
       - { text: "Tilt vì ghét thua", why: "Gần đúng, nhưng ở đây còn có thêm kế hoạch gỡ lại khoản thua bằng {{t:stakes|mức cược}} cao hơn và chơi lâu hơn. Đó là đặc điểm của tuyệt vọng." }
-      - { text: "Một kế hoạch hợp lý, vì {{t:stakes}} cao hơn sẽ gỡ lại khoản thua nhanh hơn", why: "{{t:stakes}} cao hơn cũng làm tăng biến động, trong khi bạn lại đang ra quyết định trong trạng thái tồi. Lên mức cao hơn sau khi thua chính là điều ngược lại với việc quản lý {{t:bankroll|bankroll}} thận trọng (bài học về bankroll và rủi ro)." }
+      - { text: "Một kế hoạch hợp lý, vì {{t:stakes}} cao hơn sẽ gỡ lại khoản thua nhanh hơn", why: "{{t:stakes|Mức cược}} cao hơn cũng làm tăng biến động, trong khi bạn lại đang ra quyết định trong trạng thái tồi. Lên mức cao hơn sau khi thua chính là điều ngược lại với việc quản lý {{t:bankroll|bankroll}} thận trọng (bài học về bankroll và rủi ro)." }
   - kind: choice
     id: m12.l3.q-type-mistake
     family: m12.tilt-type
@@ -40,7 +40,7 @@ drills:
     prompt: "Bạn đã {{t:fold|bỏ}} tay bài tốt nhất và từ lúc đó không thể ngừng nghĩ về nó. Bạn tức giận với bản thân và chơi ngày càng tệ. Đây là kiểu tilt nào?"
     options:
       - { text: "Tilt vì mắc lỗi", correct: true, why: "Tức giận với sai lầm của chính mình là tilt vì mắc lỗi. Nguồn gốc thường là kỳ vọng phi thực tế rằng trong khi học bạn sẽ không mắc sai lầm." }
-      - { text: "Tilt vì bất công", why: "Ở đây bạn không đổ lỗi cho vận may mà cho chính mình. Đó là tilt vì mắc lỗi." }
+      - { text: "Tilt vì bất công", why: "Ở đây bạn không đổ lỗi cho may rủi mà cho chính mình. Đó là tilt vì mắc lỗi." }
       - { text: "Tilt vì trả thù", why: "Trả thù nhắm vào đối thủ. Ở đây cơn giận liên quan đến quyết định của bạn." }
   - kind: choice
     id: m12.l3.q-type-entitlement
@@ -68,7 +68,7 @@ drills:
     options:
       - { text: "Kết thúc {{t:session|phiên chơi}}", correct: true, why: "Đây là những tín hiệu cho thấy bạn không còn lấy lại được suy nghĩ sáng suốt. Khi đó mục tiêu là dừng lại càng sớm càng tốt, chứ không phải thắng lại số tiền." }
       - { text: "Tiếp tục chơi, nhưng chỉ những tay bài tốt nhất", why: "Trong trạng thái này rất khó giữ quyết tâm, vì cảm xúc đưa ra quyết định thay bạn. Dừng lại thì an toàn hơn." }
-      - { text: "Tăng {{t:stakes|mức cược}} để gỡ lại nhanh hơn", why: "Đó chính là tilt vì tuyệt vọng ở dạng thuần túy nhất. {{t:stakes}} cao hơn đi cùng những quyết định tệ hơn sẽ khiến bạn thua nhanh hơn." }
+      - { text: "Tăng {{t:stakes|mức cược}} để gỡ lại nhanh hơn", why: "Đó chính là tilt vì tuyệt vọng ở dạng thuần túy nhất. {{t:stakes|Mức cược}} cao hơn đi cùng những quyết định tệ hơn sẽ khiến bạn thua nhanh hơn." }
   - kind: choice
     id: m12.l3.q-profile
     family: m12.tilt-response

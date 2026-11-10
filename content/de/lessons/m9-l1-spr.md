@@ -80,7 +80,7 @@ drills:
     prompt: "Du hast vom Button {{t:raise|geraist}} (3-Bet), der {{t:cutoff|CO}} hat {{t:call|gecallt}}. Die {{t:spr}} auf dem Flop liegt bei ca. {{n:spr.3bet-ip}}. Du hast {{t:top-pair}} mit gutem Kicker getroffen. Wie behandelst du diese Hand?"
     table: { position: BTN }
     options:
-      - { text: "Als Grenzhand: Du spielst sie auf {{t:value}}, {{t:call|callst}} den All-in des Gegners aber nicht immer", correct: true, why: "Eine {{t:spr}} von ca. {{n:spr.3bet-ip}} liegt in der Zone von {{n:spr.zone.low}} bis {{n:spr.zone.mid}}, in der {{t:top-pair}} eine Grenzhand ist. Ob du um den ganzen Stack spielst, hängt davon ab, wie dein Gegner spielt und wie das {{t:board}} aussieht." }
+      - { text: "Als Grenzhand: Du spielst sie auf {{t:value}}, {{t:call|callst}} das All-in des Gegners aber nicht immer", correct: true, why: "Eine {{t:spr}} von ca. {{n:spr.3bet-ip}} liegt in der Zone von {{n:spr.zone.low}} bis {{n:spr.zone.mid}}, in der {{t:top-pair}} eine Grenzhand ist. Ob du um den ganzen Stack spielst, hängt davon ab, wie dein Gegner spielt und wie das {{t:board}} aussieht." }
       - { text: "Du spielst immer um den ganzen Stack", why: "Das gilt meist erst bei einer {{t:spr}} unter ca. {{n:spr.zone.low}}, z. B. nach einer 4-Bet (ca. {{n:spr.4bet}}). Bei einer {{t:spr}} von ca. {{n:spr.3bet-ip}} braucht es mehr {{t:bet|Bets}} bis zum All-in, und bis zum Ende zahlen vor allem stärkere Hände." }
       - { text: "Du spielst vorsichtig wie bei einer sehr hohen {{t:spr}}", why: "So vorsichtig spielst du {{t:top-pair}} oberhalb von ca. {{n:spr.zone.deep}}, z. B. in einem {{t:pot}} mit nur einem Raise (ca. {{n:spr.srp}}). Nach einer 3-Bet ist die {{t:spr}} viel niedriger." }
   - kind: numeric

@@ -99,7 +99,7 @@ Ein Vergleich der Rake-Tabellen rechnet sie anhand der Verteilung der {{t:pot|Po
 | NL2–NL25 | ca. {{n:rake.micro.low}}–{{n:rake.micro.high}} |
 | NL500 | ca. {{n:rake.nl500.low}}–{{n:rake.nl500.high}} |
 
-Ein typischer Gewinnspieler auf niedrigen {{t:stakes|Limits}} hat eine Winrate von {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}} (Modul 12): ein Mehrfaches weniger, als er an den Pokerraum zahlt. Auf höheren {{t:stakes|Limits}} ist dasselbe Cap in Dollar nur ein Bruchteil eines bb, also sinkt der {{t:rake}} in bb/100.
+Ein typischer Gewinnspieler auf niedrigen {{t:stakes|Limits}} hat eine Winrate von {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}} (Modul 12): um ein Mehrfaches weniger, als er an den Pokerraum zahlt. Auf höheren {{t:stakes|Limits}} ist dasselbe Cap in Dollar nur ein Bruchteil eines bb, also sinkt der {{t:rake}} in bb/100.
 
 Die Daten zur Spielerpopulation sagen dasselbe. In einem Bericht über die Population (6-max-Cashgame, NL10–NL500) verliert jeder Spieler im Schnitt {{n:rake.pop.nl10.loss}} bei NL10, {{n:rake.pop.nl100.loss}} bei NL100 und {{n:rake.pop.nl500.loss}} bei NL500. Unter den NL100-Spielern mit mindestens {{n:rake.pop.reg.hands}} Händen gewinnen laut Schätzung des Autors (bayessche Korrektur) ca. {{n:rake.pop.reg.prerake}} vor Abzug des Rakes und ca. {{n:rake.pop.reg.postrake}} nach dem Abzug (in den Rohdaten {{n:rake.pop.reg.prerake.raw}} und {{n:rake.pop.reg.postrake.raw}}).
 

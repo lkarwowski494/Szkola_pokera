@@ -35,7 +35,7 @@ drills:
     id: m5.exam.q4
     family: m5.math.miss
     rules: [R-M5-006, R-M5-013]
-    prompt: "Una mano senza {{t:pair|coppia}} manca il flop in circa {{n:flop.miss.unpaired}} dei casi, e due insieme in circa {{n:flop.miss.two}}. Quanto spesso mancano il flop insieme tre mani così (sei valori diversi)?"
+    prompt: "Una mano senza {{t:pair|coppia}} manca il flop in circa il {{n:flop.miss.unpaired}} dei casi, e due insieme in circa il {{n:flop.miss.two}}. Quanto spesso mancano il flop insieme tre mani così (sei valori diversi)?"
     options:
       - { text: "Circa {{n:exam.m5.miss.three}}", correct: true, why: "Sì: le carte che le accoppiano sono {{n:exam.m5.pair.outs.three}} su {{n:exam.m5.unseen.three}} sconosciute (escluse le tue carte). La probabilità che nessuna delle {{n:cards.board.flop}} carte del flop sia tra queste è circa {{n:exam.m5.miss.three}}. Contro tre avversari un {{t:bluff}} raramente passa contro tutti." }
       - { text: "Circa {{n:flop.miss.two}}, come per due", why: "No: un terzo avversario significa altre {{n:pair.outs.unpaired}} carte che possono accoppiarlo. La probabilità che manchino tutti diminuisce con ogni giocatore." }
@@ -47,9 +47,9 @@ drills:
     prompt: "Hai {{t:open|aperto}} dal Button, il {{t:big-blind}} {{t:call|ha chiamato}}. Nel {{t:pot|piatto}} sul flop ci sono {{n:bb.pot-after.vs-btn}}. Fai c-bet di {{n:cbet.btn.big}} con una mano senza speranze. Quanto spesso il {{t:big-blind}} deve {{t:fold|foldare}} perché questa {{t:bet|puntata}} vada in pari?"
     table: { position: BTN }
     options:
-      - { text: "Più spesso che in {{n:alpha.cbet.big}} dei casi", correct: true, why: "Sì: {{n:cbet.btn.big}} corrisponde a {{n:cbet.size.big}} del {{t:pot|piatto}}, e la soglia dipende solo dal rapporto tra puntata e {{t:pot|piatto}}: puntata ÷ ({{t:pot|piatto}} + puntata) = {{n:alpha.cbet.big}}. La stessa che con il {{t:pot|piatto}} in {{t:chips|fiches}}." }
-      - { text: "Più spesso che in {{n:alpha.cbet.small}} dei casi", why: "È la soglia per un c-bet piccolo ({{n:cbet.size.small}} del {{t:pot|piatto}}, cioè {{n:cbet.btn.small}}). Una puntata più grande rischia di più, quindi deve funzionare più spesso: {{n:alpha.cbet.big}}." }
-      - { text: "Più spesso che in {{n:flop.miss.unpaired}} dei casi", why: "È la probabilità che una mano senza {{t:pair|coppia}} non colpisca il flop, non la soglia di convenienza della puntata. La soglia è puntata ÷ ({{t:pot|piatto}} + puntata) = {{n:alpha.cbet.big}}." }
+      - { text: "Più spesso che nel {{n:alpha.cbet.big}} dei casi", correct: true, why: "Sì: {{n:cbet.btn.big}} corrisponde a {{n:cbet.size.big}} del {{t:pot|piatto}}, e la soglia dipende solo dal rapporto tra puntata e {{t:pot|piatto}}: puntata ÷ ({{t:pot|piatto}} + puntata) = {{n:alpha.cbet.big}}. La stessa che con il {{t:pot|piatto}} in {{t:chips|fiches}}." }
+      - { text: "Più spesso che nel {{n:alpha.cbet.small}} dei casi", why: "È la soglia per un c-bet piccolo ({{n:cbet.size.small}} del {{t:pot|piatto}}, cioè {{n:cbet.btn.small}}). Una puntata più grande rischia di più, quindi deve funzionare più spesso: {{n:alpha.cbet.big}}." }
+      - { text: "Più spesso che nel {{n:flop.miss.unpaired}} dei casi", why: "È la probabilità che una mano senza {{t:pair|coppia}} non colpisca il flop, non la soglia di convenienza della puntata. La soglia è puntata ÷ ({{t:pot|piatto}} + puntata) = {{n:alpha.cbet.big}}." }
   - kind: choice
     id: m5.exam.q6
     family: m5.cbet.oop
@@ -75,7 +75,7 @@ drills:
     prompt: "Hai {{t:open|aperto}} dall'{{t:hijack|HJ}}, {{t:call|hanno chiamato}} il Button e il {{t:big-blind}}. Contro due avversari, con quali mani rinunci per prime al c-bet?"
     table: { position: HJ }
     options:
-      - { text: "Con i {{t:bluff}} senza {{t:pair|coppia}} e senza {{t:draw|progetto}}", correct: true, why: "Sì: un {{t:bluff}} deve passare contro entrambi gli avversari, e due mani senza {{t:pair|coppia}} mancano il flop insieme solo in circa {{n:flop.miss.two}} dei casi. Punti raramente, soprattutto con mani forti e {{t:draw|progetti}} forti." }
+      - { text: "Con i {{t:bluff}} senza {{t:pair|coppia}} e senza {{t:draw|progetto}}", correct: true, why: "Sì: un {{t:bluff}} deve passare contro entrambi gli avversari, e due mani senza {{t:pair|coppia}} mancano il flop insieme solo in circa il {{n:flop.miss.two}} dei casi. Punti raramente, soprattutto con mani forti e {{t:draw|progetti}} forti." }
       - { text: "Con i {{t:draw|progetti}} forti", why: "No: i {{t:draw|progetti}} forti sono tra le mani che contro più avversari a volte puntano ancora, perché vincono anche quando chiudono." }
       - { text: "Con nessuna: fai c-bet come contro un solo avversario", why: "No: ogni avversario in più aumenta la probabilità che qualcuno abbia colpito il flop. Contro due fai c-bet molto più raramente." }
   - kind: choice

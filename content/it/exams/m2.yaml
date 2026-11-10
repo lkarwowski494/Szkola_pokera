@@ -9,7 +9,7 @@ drills:
     table: { hand: "Ad Tc", board: "Kd 8d 3d" }
     options:
       - { text: "{{n:outs.flush}}", correct: true, why: "Conta quante carte del seme vedi in totale: 1 in mano e 3 sul {{t:board|board}}, in tutto {{n:draw.flush.seen}}. Restano {{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}} carte di quadri." }
-      - { text: "{{n:outs.oesd}}", why: "Questi sono gli out di un {{t:oesd|progetto di scala bilaterale}}. Per il {{t:flush|colore}} ti serve una delle {{n:outs.flush}} carte di quadri rimaste." }
+      - { text: "{{n:outs.oesd}}", why: "Questi sono gli out di un {{t:oesd|OESD}}. Per il {{t:flush|colore}} ti serve una delle {{n:outs.flush}} carte di quadri rimaste." }
       - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}} sono tutte le carte di quadri del mazzo, ma {{n:draw.flush.seen}} le vedi già." }
   - kind: choice
     id: m2.exam.q2
@@ -33,7 +33,7 @@ drills:
     id: m2.exam.q3
     family: m2.odds
     rules: [R-M2-002]
-    prompt: "Flop. L'avversario è all-in e tu hai un {{t:oesd|progetto di scala bilaterale}} ({{n:outs.oesd}} out). Se {{t:call|chiami}}, che probabilità hai di centrare entro il river?"
+    prompt: "Flop. L'avversario è all-in e tu hai un {{t:oesd|OESD}} ({{n:outs.oesd}} out). Se {{t:call|chiami}}, che probabilità hai di centrare entro il river?"
     options:
       - { text: "Circa {{n:odds.oesd.flop-river}}", correct: true, why: "L'avversario è all-in, quindi vedrai turn e river senza altre {{t:bet|puntate}}. Conti due carte: l'approssimazione della regola è {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, il valore esatto è {{n:odds.oesd.flop-river}}." }
       - { text: "Circa {{n:odds.oesd.flop-turn}}", why: "Questa è la probabilità sul solo turn. Con un all-in vedrai anche il river." }
@@ -42,7 +42,7 @@ drills:
     id: m2.exam.q4
     family: m2.odds
     rules: [R-M2-002]
-    prompt: "Flop. Hai un {{t:oesd|progetto di scala bilaterale}} e l'avversario {{t:bet|punta}} metà {{t:pot|piatto}}. Gli stack sono profondi. Quale probabilità di centrare confronti con il prezzo?"
+    prompt: "Flop. Hai un {{t:oesd|OESD}} e l'avversario {{t:bet|punta}} metà {{t:pot|piatto}}. Gli stack sono profondi. Quale probabilità di centrare confronti con il prezzo?"
     table: { hand: "Qh Jc", board: "Td 9s 3c" }
     options:
       - { text: "Circa {{n:odds.oesd.flop-turn}}, solo al turn", correct: true, why: "La {{t:call|chiamata}} compra una carta. Al turn l'avversario può {{t:bet|puntare}} di nuovo, quindi conti una carta: l'approssimazione della regola è {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, il valore esatto è {{n:outs.oesd}} su {{n:cards.unseen.flop}}, cioè {{n:odds.oesd.flop-turn}}." }
@@ -83,7 +83,7 @@ drills:
     id: m2.exam.q7
     family: m2.draw-call
     rules: [R-M2-005]
-    prompt: "Turn. Hai un {{t:oesd|progetto di scala bilaterale}}. Il {{t:pot|piatto}} è di {{n:exam.m2.third.pot}}, l'avversario {{t:bet|punta}} {{n:exam.m2.third.bet}}. Conta solo il prezzo e la probabilità di centrare. Cosa fai?"
+    prompt: "Turn. Hai un {{t:oesd|OESD}}. Il {{t:pot|piatto}} è di {{n:exam.m2.third.pot}}, l'avversario {{t:bet|punta}} {{n:exam.m2.third.bet}}. Conta solo il prezzo e la probabilità di centrare. Cosa fai?"
     table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
     options:
       - { text: "{{t:fold|Foldo}}", correct: true, why: "Ti serve {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}. La {{t:straight|scala}} te la danno {{n:outs.oesd}} out, cioè {{n:outs.oesd}} su {{n:cards.unseen.turn}}: circa {{n:odds.oesd.turn-river}}. Anche una piccola {{t:bet|puntata}} qui è troppo cara." }

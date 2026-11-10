@@ -14,18 +14,18 @@ drills:
     rules: [R-M6-002]
     prompt: "리버입니다. {{t:pot|팟}}은 {{n:exam.m6.pot}}입니다. 승산 없는 핸드로 {{n:exam.m6.bet.quarter}}만큼 {{t:bluff|블러프합니다}}. 이 {{t:bluff}}가 본전이 되려면 상대가 얼마나 자주 {{t:fold|폴드해야}} 합니까?"
     options:
-      - { text: "{{n:exam.m6.alpha.quarter}}보다 더 자주", correct: true, why: "맞습니다: alpha = 벳 ÷ ({{t:pot}} + 벳) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}. 작은 {{t:bluff}}는 위험이 적어서 드문 {{t:fold|폴드}}만으로도 충분합니다." }
-      - { text: "{{n:exam.m6.mdf.quarter}}보다 더 자주", why: "그것은 {{t:mdf}}입니다: 상대가 방어해야 하는 {{t:range|레인지}}의 비율입니다. alpha는 전체에서 이를 뺀 나머지로, {{n:exam.m6.alpha.quarter}}입니다." }
+      - { text: "{{n:exam.m6.alpha.quarter}}보다 더 자주", correct: true, why: "맞습니다: 알파 = 벳 ÷ ({{t:pot}} + 벳) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}. 작은 {{t:bluff}}는 위험이 적어서 드문 {{t:fold|폴드}}만으로도 충분합니다." }
+      - { text: "{{n:exam.m6.mdf.quarter}}보다 더 자주", why: "그것은 {{t:mdf}}입니다: 상대가 방어해야 하는 {{t:range|레인지}}의 비율입니다. 알파는 전체에서 이를 뺀 나머지로, {{n:exam.m6.alpha.quarter}}입니다." }
       - { text: "{{n:eq.bet-quarter}}보다 더 자주", why: "그것은 상대가 {{t:call|콜하는}} 데 필요한 에퀴티입니다. 분모에 상대의 {{t:call}}까지 들어갑니다. {{t:bluff|블러프}}의 기준값은 벳 ÷ ({{t:pot}} + 벳) = {{n:exam.m6.alpha.quarter}}입니다." }
   - kind: choice
     id: m6.exam.q3
     family: m6.mdf-concept
     rules: [R-M6-003]
-    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. 버튼이 플롭에서 {{t:pot|팟}}의 1/4 크기 c-bet으로 {{t:bet|벳합니다}}. 동료는 “{{t:mdf}}는 기준점일 뿐”이라며 여기서 핸드의 절반 이상을 {{t:fold|폴드합니다}}. 무엇이 잘못되었습니까?"
+    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. 버튼이 플롭에서 {{t:pot|팟}}의 1/4 크기 C벳으로 {{t:bet|벳합니다}}. 동료는 “{{t:mdf}}는 기준점일 뿐”이라며 여기서 핸드의 절반 이상을 {{t:fold|폴드합니다}}. 무엇이 잘못되었습니까?"
     table: { position: BB }
     options:
-      - { text: "플롭에서는 {{t:mdf}}보다 조금 덜 방어해도 되지만, 작은 c-bet에 대량으로 {{t:fold|폴드하지는}} 않습니다", correct: true, why: "맞습니다: {{t:pot|팟}}의 1/4 c-bet에서 {{t:mdf}}는 {{n:exam.m6.mdf.quarter}}입니다. 플롭에서 {{t:out-of-position}}일 때는 버튼의 {{t:bluff|블러프}}에도 아직 에퀴티가 있으므로 조금 덜 방어해도 되지만, 핸드의 절반 이상을 {{t:fold}}하면 버튼에게 {{t:pot|팟}}을 헐값에 넘겨주는 셈입니다." }
-      - { text: "잘못된 것이 없습니다: 플롭에서는 {{t:mdf}}가 전혀 적용되지 않습니다", why: "플롭에서 {{t:mdf}}는 기준점입니다: 조금 덜 방어할 수는 있어도, 마음대로 덜 방어할 수는 없습니다. 작은 c-bet에는 어차피 에퀴티가 충분한 핸드가 많습니다." }
+      - { text: "플롭에서는 {{t:mdf}}보다 조금 덜 방어해도 되지만, 작은 C벳에 대량으로 {{t:fold|폴드하지는}} 않습니다", correct: true, why: "맞습니다: {{t:pot|팟}}의 1/4 C벳에서 {{t:mdf}}는 {{n:exam.m6.mdf.quarter}}입니다. 플롭에서 {{t:out-of-position}}일 때는 버튼의 {{t:bluff|블러프}}에도 아직 에퀴티가 있으므로 조금 덜 방어해도 되지만, 핸드의 절반 이상을 {{t:fold}}하면 버튼에게 {{t:pot|팟}}을 헐값에 넘겨주는 셈입니다." }
+      - { text: "잘못된 것이 없습니다: 플롭에서는 {{t:mdf}}가 전혀 적용되지 않습니다", why: "플롭에서 {{t:mdf}}는 기준점입니다: 조금 덜 방어할 수는 있어도, 마음대로 덜 방어할 수는 없습니다. 작은 C벳에는 어차피 에퀴티가 충분한 핸드가 많습니다." }
       - { text: "플롭에서는 {{t:mdf}}보다 더 많이 방어해야 합니다", why: "반대입니다: 플롭에서 {{t:out-of-position}}일 때는 약한 핸드의 에퀴티를 모두 실현하지 못하므로 조금 덜 방어해도 됩니다. 동료의 실수는 지나치게 많이 {{t:fold|폴드한다는}} 점입니다." }
   - kind: choice
     id: m6.exam.q4
@@ -45,45 +45,45 @@ drills:
     table: { position: BB }
     options:
       - { text: "각각 약 {{n:eq.bet-quarter}}, {{n:eq.bet-three-quarters}}", correct: true, why: "맞습니다: 벳 ÷ ({{t:pot}} + 2·벳). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, 그리고 {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. 벳이 클수록 더 좁은 {{t:range|레인지}}로 방어합니다." }
-      - { text: "각각 약 {{n:exam.m6.alpha.quarter}}, {{n:eq.bet-three-quarters}}", why: "첫 번째 숫자는 alpha(벳 ÷ ({{t:pot}} + 벳)), 즉 버튼의 {{t:bluff|블러프}} 기준값입니다. {{t:call|콜}} 가격에는 자신의 {{t:call}}도 더해야 합니다: {{n:eq.bet-quarter}}." }
+      - { text: "각각 약 {{n:exam.m6.alpha.quarter}}, {{n:eq.bet-three-quarters}}", why: "첫 번째 숫자는 알파(벳 ÷ ({{t:pot}} + 벳)), 즉 버튼의 {{t:bluff|블러프}} 기준값입니다. {{t:call|콜}} 가격에는 자신의 {{t:call}}도 더해야 합니다: {{n:eq.bet-quarter}}." }
       - { text: "같은 {{t:pot}}이므로 두 경우 모두 같습니다", why: "아닙니다: 가격은 벳 크기에 따라 달라집니다. 벳이 클수록 가격이 나빠집니다: {{n:eq.bet-quarter}} 대신 {{n:eq.bet-three-quarters}}입니다." }
   - kind: choice
     id: m6.exam.q6
     family: m6.flop.call
     rules: [R-M6-006]
-    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. 플롭에서 {{t:check|체크하자}} 버튼이 {{t:pot|팟}}의 1/3 크기 c-bet으로 {{t:bet|벳합니다}}. {{t:draw|드로우}} 없는 에이스 하이입니다. 어떻게 하시겠습니까?"
+    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. 플롭에서 {{t:check|체크하자}} 버튼이 {{t:pot|팟}}의 1/3 크기 C벳으로 {{t:bet|벳합니다}}. {{t:draw|드로우}} 없는 에이스 하이입니다. 어떻게 하시겠습니까?"
     table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
     options:
-      - { text: "{{t:call|콜합니다}}", correct: true, why: "맞습니다: 작은 c-bet에는 약 {{n:eq.bet-third}}의 에퀴티만 있으면 됩니다. 에이스 하이는 버튼의 {{t:bluff|블러프}} 일부를 이기고 {{t:pair|페어}}를 만들 수도 있으므로 보통 방어합니다. {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 가장 약한 핸드는 {{t:fold|폴드합니다}}." }
-      - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다: 작은 c-bet에는 에이스 하이가 보통 방어됩니다. {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 더 약한 핸드를 {{t:fold|폴드합니다}}." }
+      - { text: "{{t:call|콜합니다}}", correct: true, why: "맞습니다: 작은 C벳에는 약 {{n:eq.bet-third}}의 에퀴티만 있으면 됩니다. 에이스 하이는 버튼의 {{t:bluff|블러프}} 일부를 이기고 {{t:pair|페어}}를 만들 수도 있으므로 보통 방어합니다. {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 가장 약한 핸드는 {{t:fold|폴드합니다}}." }
+      - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다: 작은 C벳에는 에이스 하이는 보통 방어합니다. {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 더 약한 핸드를 {{t:fold|폴드합니다}}." }
       - { text: "체크레이즈", why: "체크레이즈는 주로 가장 강한 핸드와 {{t:draw|드로우}}로 합니다. 이 핸드에는 밸류도, 두 번째 승리 경로가 되어 줄 {{t:draw|드로우}}도 없습니다." }
   - kind: choice
     id: m6.exam.q7
     family: m6.flop.fold
     rules: [R-M6-007]
-    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. [[8c 4d 2h]] 플롭에서 {{t:check|체크하자}} 버튼이 {{t:pot|팟}}의 3/4 크기 c-bet으로 {{t:bet|벳합니다}}. 다음 중 어느 핸드로 {{t:call}}하는 것이 더 합리적입니까?"
+    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. [[8c 4d 2h]] 플롭에서 {{t:check|체크하자}} 버튼이 {{t:pot|팟}}의 3/4 크기 C벳으로 {{t:bet|벳합니다}}. 다음 중 어느 핸드로 {{t:call}}하는 것이 더 합리적입니까?"
     table: { board: "8c 4d 2h", position: BB }
     options:
-      - { text: "[[Ad Jd]]", correct: true, why: "맞습니다: 두 핸드 모두 {{t:pair|페어}} 없는 하이 카드 두 장이지만, 다이아몬드 AJ에는 가장 높은 {{t:flush|플러시}}를 향한 {{t:flush-draw}}(백도어)가 추가로 있습니다: {{t:board|보드}}에 다이아몬드가 한 장 있으므로 다이아몬드 두 장이 더 필요합니다. 큰 c-bet에는 오히려 이런 핸드로 {{t:call|콜합니다}}." }
-      - { text: "[[Ks Qs]]", why: "스페이드 KQ에는 여기서 아무 {{t:draw|드로우}}도 없습니다: {{t:board|보드}}에 스페이드가 없고, {{t:straight|스트레이트}}까지는 너무 멉니다. {{t:draw|드로우}} 없는 하이 카드 두 장은 큰 c-bet에 보통 {{t:fold|폴드합니다}}." }
+      - { text: "[[Ad Jd]]", correct: true, why: "맞습니다: 두 핸드 모두 {{t:pair|페어}} 없는 높은 카드 두 장이지만, 다이아몬드 AJ에는 가장 높은 {{t:flush|플러시}}를 향한 {{t:flush-draw}}(백도어)가 추가로 있습니다: {{t:board|보드}}에 다이아몬드가 한 장 있으므로 다이아몬드 두 장이 더 필요합니다. 큰 C벳에는 바로 이런 핸드로 {{t:call|콜합니다}}." }
+      - { text: "[[Ks Qs]]", why: "스페이드 KQ에는 여기서 아무 {{t:draw|드로우}}도 없습니다: {{t:board|보드}}에 스페이드가 없고, {{t:straight|스트레이트}}까지는 너무 멉니다. {{t:draw|드로우}} 없는 높은 카드 두 장은 큰 C벳에 보통 {{t:fold|폴드합니다}}." }
   - kind: choice
     id: m6.exam.q8
     family: m6.xr.semibluff
     rules: [R-M6-008]
-    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. [[Jh 8c 4h]] 플롭에서 {{t:check|체크하자}} 버튼이 {{t:pot|팟}}의 1/3 크기 c-bet으로 {{t:bet|벳합니다}}. 다음 중 체크레이즈하기에 가장 좋은 핸드는 무엇입니까?"
+    prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. [[Jh 8c 4h]] 플롭에서 {{t:check|체크하자}} 버튼이 {{t:pot|팟}}의 1/3 크기 C벳으로 {{t:bet|벳합니다}}. 다음 중 체크레이즈하기에 가장 좋은 핸드는 무엇입니까?"
     table: { board: "Jh 8c 4h", position: BB }
     options:
-      - { text: "[[Qh Th]]", correct: true, why: "맞습니다: {{t:flush-draw}}와 거셧(9)은 강한 {{t:draw}}입니다. 체크레이즈는 버튼이 {{t:fold|폴드하면}} 이기고, 버튼이 돈을 내더라도 여전히 아웃이 많습니다." }
+      - { text: "[[Qh Th]]", correct: true, why: "맞습니다: {{t:flush-draw}}와 거트샷(9)은 강한 {{t:draw}}입니다. 체크레이즈는 버튼이 {{t:fold|폴드하면}} 이기고, 버튼이 돈을 내더라도 여전히 아웃이 많습니다." }
       - { text: "[[Jd 5d]]", why: "약한 키커의 {{t:top-pair|탑 페어}}는 {{t:call|콜할}} 핸드입니다. 체크레이즈 후에는 더 약한 핸드는 보통 {{t:fold|폴드하고}} 더 강한 핸드는 돈을 냅니다." }
       - { text: "[[As 3c]]", why: "{{t:draw|드로우}} 없는 에이스 하이에는 두 번째 승리 경로가 없습니다. {{t:bluff}}로서의 체크레이즈는 주로 {{t:draw|드로우}}로 합니다." }
   - kind: numeric
     id: m6.exam.q9
     family: m6.xr.size
     rules: [R-M6-010]
-    prompt: "플롭입니다. {{t:pot|팟}}은 {{n:exam.m6.pot}}입니다. 버튼이 {{n:exam.m6.bet.quarter}}만큼 작은 c-bet으로 {{t:bet|벳합니다}}. c-bet의 {{n:xr.mult.example}} 크기로 체크레이즈합니다. 얼마로 {{t:raise|레이즈합니까}}? {{t:chips|칩}} 수를 입력하세요."
+    prompt: "플롭입니다. {{t:pot|팟}}은 {{n:exam.m6.pot}}입니다. 버튼이 {{n:exam.m6.bet.quarter}}만큼 작은 C벳으로 {{t:bet|벳합니다}}. C벳의 {{n:xr.mult.example}} 크기로 체크레이즈합니다. 얼마로 {{t:raise|레이즈합니까}}? {{t:chips|칩}} 수를 입력하세요."
     table: { position: BB }
     answer: exam.m6.xr
-    explanation: "{{n:exam.m6.bet.quarter}} × {{n:xr.mult.example}} = {{n:exam.m6.xr}}. 작은 c-bet에는 {{n:xr.mult.low}}–{{n:xr.mult.example}} 범위의 상단에 가깝게 {{t:raise|레이즈합니다}}: 최소 체크레이즈는 버튼에게 매우 좋은 가격을 주게 됩니다."
+    explanation: "{{n:exam.m6.bet.quarter}} × {{n:xr.mult.example}} = {{n:exam.m6.xr}}. 작은 C벳에는 {{n:xr.mult.low}}–{{n:xr.mult.example}} 범위의 상단에 가깝게 {{t:raise|레이즈합니다}}: 최소 체크레이즈는 버튼에게 매우 좋은 가격을 주게 됩니다."
   - kind: choice
     id: m6.exam.q10
     family: m6.xr.when

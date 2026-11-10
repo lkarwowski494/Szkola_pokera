@@ -504,7 +504,7 @@
         "nutsYes": "vous avez un {{t:draw|tirage}} vers la meilleure main",
         "nutsNo": "vous n'avez pas de {{t:draw|tirage}} vers la meilleure main",
         "freeCheck": "Vous pouviez {{t:check|checker}} gratuitement.",
-        "limp": "Vous avez ouvert le coup en vous contentant de payer la blinde ({{t:limp|limp}}).",
+        "limp": "Vous êtes entré le premier dans le coup en payant seulement la blinde ({{t:limp|limp}}).",
         "timeoutCheck": "Temps écoulé : l'app a {{t:check|checké}} à votre place.",
         "timeoutFold": "Temps écoulé : l'app s'est {{t:fold|couchée}} à votre place."
       }
@@ -830,16 +830,16 @@
         "wetness": {
           "dry": "{{t:dry|Sec}}",
           "medium": "Intermédiaire",
-          "wet": "{{t:wet|Humide}}"
+          "wet": "{{t:wet|Wet}}"
         }
       },
       "axis": {
         "height": "Hauteur",
         "suits": "Couleurs",
         "ranks": "Rangs",
-        "wetness": "{{t:dry|Sec}} ou {{t:wet|humide}}"
+        "wetness": "{{t:dry|Sec}} ou {{t:wet|wet}}"
       },
-      "scale": "On compte les points : {{t:straight|quinte}} possible de plusieurs façons (avec au moins deux combinaisons de deux rangs) {{made}}, {{t:straight|quinte}} possible d'une seule façon {{madeOne}}, seulement un {{t:straight-draw|tirage quinte}} {{draw}} ; flop {{t:two-tone|bicolore}} {{twoTone}}, {{t:monotone|monocolore}} {{monotone}}. {{t:dry|Sec}}, c'est 0–{{dryMax}}, intermédiaire {{medium}}, {{t:wet|humide}} {{wet}} et plus",
+      "scale": "On compte les points : {{t:straight|quinte}} possible de plusieurs façons (avec au moins deux combinaisons de deux rangs) {{made}}, {{t:straight|quinte}} possible d'une seule façon {{madeOne}}, seulement un {{t:straight-draw|tirage quinte}} {{draw}} ; flop {{t:two-tone|bicolore}} {{twoTone}}, {{t:monotone|monocolore}} {{monotone}}. {{t:dry|Sec}}, c'est 0–{{dryMax}}, intermédiaire {{medium}}, {{t:wet|wet}} {{wet}} et plus",
       "range": "{{from}}–{{to}}",
       "def": {
         "height": {
@@ -861,7 +861,7 @@
         "wetness": {
           "dry": "un flop {{t:dry|sec}} donne peu de {{t:draw|tirages}}. {{scale}}",
           "medium": "un flop intermédiaire donne quelques {{t:draw|tirages}}. {{scale}}",
-          "wet": "un flop {{t:wet|humide}} donne beaucoup de {{t:draw|tirages}} ou des {{t:straight|quintes}} déjà faites. {{scale}}"
+          "wet": "un flop {{t:wet|wet}} donne beaucoup de {{t:draw|tirages}} ou des {{t:straight|quintes}} déjà faites. {{scale}}"
         }
       },
       "suitCount": {
@@ -890,7 +890,7 @@
         "height": "Quelle est la hauteur de ce flop ?",
         "suits": "Combien de couleurs ce flop a-t-il ?",
         "ranks": "Ce flop est-il {{t:paired|pairé}}, {{t:connected|connecté}}, {{t:semi-connected|semi-connecté}} ou {{t:disconnected|déconnecté}} ?",
-        "wetness": "Ce flop est-il {{t:dry|sec}}, intermédiaire ou {{t:wet|humide}} ?",
+        "wetness": "Ce flop est-il {{t:dry|sec}}, intermédiaire ou {{t:wet|wet}} ?",
         "many": "Évaluez la {{t:texture|texture}} du flop sur chaque ligne."
       },
       "whyRight": "Oui : {{def}}. {{fact}}",

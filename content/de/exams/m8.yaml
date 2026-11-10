@@ -5,11 +5,11 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River, dein Gegner {{t:check|checkt}} und kann dich nicht {{t:raise|raisen}}. In seiner {{t:range|Range}} sind {{n:exam.m8.range.worse}} Hände, die schlechter sind als deine, aber nur {{n:exam.m8.call.worse}} davon {{t:call|callen}} deinen Bet. Er zahlt außerdem {{n:exam.m8.call.better}}-mal mit einer besseren Hand. Bettest du?"
+    prompt: "River, dein Gegner {{t:check|checkt}} und kann dich nicht {{t:raise|raisen}}. In seiner {{t:range|Range}} sind {{n:exam.m8.range.worse}} Hände, die schlechter sind als deine, aber nur {{n:exam.m8.call.worse}} davon {{t:call|callen}} deine Bet. Er zahlt außerdem {{n:exam.m8.call.better}}-mal mit einer besseren Hand. Bettest du?"
     options:
-      - { text: "Nein, ich {{t:check|checke}}", correct: true, why: "Richtig: Zähl nur die Hände, die zahlen. Der Bet gewinnt {{n:exam.m8.call.worse}}-mal und verliert {{n:exam.m8.call.better}}-mal, verliert also netto {{n:exam.m8.net.loss}} Bet. Schlechtere Hände, die {{t:fold|folden}}, hätten nach einem {{t:check|Check}} ohnehin gegen dich verloren." }
-      - { text: "Ja, weil es mehr schlechtere als bessere Hände gibt", why: "Dein Gegner hat {{n:exam.m8.range.worse}} schlechtere Hände, aber die meisten davon {{t:fold|folden}} auf einen Bet. Unter den Händen, die zahlen, sind die besseren in der Überzahl ({{n:exam.m8.call.better}} gegenüber {{n:exam.m8.call.worse}})." }
-      - { text: "Ja, um herauszufinden, wo ich stehe", why: "Ein Bet „zur Information“ bezahlt bessere Hände, und schlechtere {{t:fold|folden}}. Dieselbe Information bekommst du nach einem {{t:check|Check}} kostenlos, beim Showdown." }
+      - { text: "Nein, ich {{t:check|checke}}", correct: true, why: "Richtig: Zähl nur die Hände, die zahlen. Die Bet gewinnt {{n:exam.m8.call.worse}}-mal und verliert {{n:exam.m8.call.better}}-mal, verliert also netto {{n:exam.m8.net.loss}} Bet. Schlechtere Hände, die {{t:fold|folden}}, hätten nach einem {{t:check|Check}} ohnehin gegen dich verloren." }
+      - { text: "Ja, weil es mehr schlechtere als bessere Hände gibt", why: "Dein Gegner hat {{n:exam.m8.range.worse}} schlechtere Hände, aber die meisten davon {{t:fold|folden}} auf eine Bet. Unter den Händen, die zahlen, sind die besseren in der Überzahl ({{n:exam.m8.call.better}} gegenüber {{n:exam.m8.call.worse}})." }
+      - { text: "Ja, um herauszufinden, wo ich stehe", why: "Eine Bet „zur Information“ bezahlt bessere Hände, und schlechtere {{t:fold|folden}}. Dieselbe Information bekommst du nach einem {{t:check|Check}} kostenlos, beim Showdown." }
   - kind: choice
     id: m8.exam.q2
     family: m8.value.size
@@ -17,9 +17,9 @@ drills:
     prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}}. Am Flop C-Bet und {{t:call}}, am Turn habt ihr beide {{t:check|gecheckt}}. River, der {{t:big-blind}} {{t:check|checkt}}. Du hast {{t:top-pair|Top Pair}} mit einer Neun und schätzt, dass du knapp mehr als die Hälfte der Hände schlägst, die zahlen. Was machst du?"
     table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
     options:
-      - { text: "Bet von etwa 1/3 des {{t:pot|Pots}}", correct: true, why: "Richtig: Das ist Thin Value. Einen kleinen Bet {{t:call|callen}} auch Siebener, Vierer und schwächere Buben, daher bleiben unter den {{t:call|Calls}} mehr schlechtere als bessere Hände." }
-      - { text: "Bet über den ganzen {{t:pot|Pot}}", sizeError: true, why: "Richtige Aktion, falsche Größe: Auf einen Bet in Höhe des {{t:pot|Pots}} {{t:fold|folden}} Siebener und Vierer, und zahlen werden vor allem bessere Buben und stärkere Hände. Thin Value bettest du kleiner, meist etwa 1/4–1/2 des {{t:pot|Pots}}." }
-      - { text: "Ich {{t:check|checke}}, weil die Hand zu schwach für einen Bet ist", why: "Du verlierst Value: Du schlägst mehr als die Hälfte der Hände, die einen kleinen Bet bezahlen. Wähl einfach eine kleinere Größe." }
+      - { text: "Bet von etwa 1/3 des {{t:pot|Pots}}", correct: true, why: "Richtig: Das ist Thin Value. Eine kleine Bet {{t:call|callen}} auch Siebener, Vierer und schwächere Buben, daher bleiben unter den {{t:call|Calls}} mehr schlechtere als bessere Hände." }
+      - { text: "Bet über den ganzen {{t:pot|Pot}}", sizeError: true, why: "Richtige Aktion, falsche Größe: Auf eine Bet in Höhe des {{t:pot|Pots}} {{t:fold|folden}} Siebener und Vierer, und zahlen werden vor allem bessere Buben und stärkere Hände. Thin Value bettest du kleiner, meist etwa 1/4–1/2 des {{t:pot|Pots}}." }
+      - { text: "Ich {{t:check|checke}}, weil die Hand zu schwach für eine Bet ist", why: "Du verlierst Value: Du schlägst mehr als die Hälfte der Hände, die eine kleine Bet bezahlen. Wähl einfach eine kleinere Größe." }
   - kind: numeric
     id: m8.exam.q3
     family: m8.bluff.share
@@ -34,7 +34,7 @@ drills:
     prompt: "River. Im {{t:pot|Pot}} sind {{n:exam.m8.pot}}, du bettest {{n:exam.m8.bet}} mit einer {{t:range|Range}} aus {{n:exam.m8.range}} {{t:combo|Kombinationen}}: Value-Händen und {{t:bluff|Bluffs}}. Der Anteil der {{t:bluff|Bluffs}} im Gleichgewicht beträgt {{n:exam.m8.share}}. Wie viele {{t:combo|Kombinationen}} sind {{t:bluff|Bluffs}}?"
     options:
       - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Richtig: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|Bluffs}} und {{n:exam.m8.value-combos}} {{t:combo|Kombinationen}} {{t:value|für Value}}." }
-      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "So viele wären es bei einem Bet über den ganzen {{t:pot|Pot}} (Anteil {{n:bluff.share.bet-pot}}). Bei einem kleineren Bet gibt es weniger {{t:bluff|Bluffs}}: {{n:exam.m8.share}}." }
+      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "So viele wären es bei einer Bet über den ganzen {{t:pot|Pot}} (Anteil {{n:bluff.share.bet-pot}}). Bei einer kleineren Bet gibt es weniger {{t:bluff|Bluffs}}: {{n:exam.m8.share}}." }
       - { text: "{{n:exam.m8.value-combos}}", why: "Das ist die Zahl der {{t:combo|Kombinationen}} {{t:value|für Value}}. {{t:bluff|Bluffs}} sind der kleinere Teil: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
   - kind: choice
     id: m8.exam.q5
@@ -43,7 +43,7 @@ drills:
     prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}} und {{t:check|checkt}} am River. Mit welcher dieser Hände {{t:bluff|bluffst}} du am besten?"
     table: { board: "Qs Tc 6d 3h 2s", position: BTN }
     options:
-      - { text: "[[Kc Jc]]", correct: true, why: "Richtig: Der {{t:oesd|OESD}} ist nicht angekommen, und König hoch gewinnt beim Showdown fast nie. Eine Hand ohne Chance verliert nichts, wenn der {{t:bluff}} scheitert." }
+      - { text: "[[Kc Jc]]", correct: true, why: "Richtig: Der {{t:oesd|OESD}} ist nicht angekommen, und König-hoch gewinnt beim Showdown fast nie. Eine Hand ohne Chance verliert nichts, wenn der {{t:bluff}} scheitert." }
       - { text: "[[Ts 9s]]", why: "{{t:second-pair|Second Pair}} gewinnt nach einem {{t:check|Check}} gegen verpasste {{t:draw|Draws}} und schwächere Hände. Mit einem {{t:bluff|Bluff}} würdest du diesen Gewinn hergeben." }
       - { text: "[[Qd 8d]]", why: "{{t:top-pair|Top Pair}} hat Showdown-Value. Du {{t:bluff|bluffst}} nicht mit einer Hand, die nach einem {{t:check|Check}} oft gewinnt." }
   - kind: choice
@@ -79,8 +79,8 @@ drills:
     prompt: "Du verteidigst den {{t:big-blind}}. Die Herzen sind nicht angekommen, und der River hat T7 und 75 eine {{t:straight|Straße}} gebracht. Du {{t:check|checkst}}, und der Button {{t:bet|bettet}} den ganzen {{t:pot|Pot}}. Du hast {{t:top-pair|Top Pair}} mit einem schwachen Kicker. Mit welcher dieser Hände ist ein {{t:call}} besser?"
     table: { board: "Kh 9h 6c 2s 8d", position: BB }
     options:
-      - { text: "[[Kc 7c]]", correct: true, why: "Richtig: Die Sieben blockt beide neuen {{t:straight|Straßen}} (T7 und 75), also einen Teil des Values des Buttons, und ohne Herz blockst du die verpassten {{t:flush-draw|Flush Draws}} nicht, seine wichtigsten {{t:bluff|Bluffs}}. In seinen Bets bleiben mehr {{t:bluff|Bluffs}}." }
-      - { text: "[[Ks 3h]]", why: "Die [[3h]] blockt einen Teil der verpassten {{t:flush-draw|Flush Draws}}, also der {{t:bluff|Bluffs}} des Buttons, und diese Hand blockt keine {{t:straight|Straße}}. In seinen Bets bleibt mehr Value." }
+      - { text: "[[Kc 7c]]", correct: true, why: "Richtig: Die Sieben blockt beide neuen {{t:straight|Straßen}} (T7 und 75), also einen Teil des Values des Buttons, und ohne Herz blockst du die verpassten {{t:flush-draw|Flush-Draws}} nicht, seine wichtigsten {{t:bluff|Bluffs}}. In seinen Bets bleiben mehr {{t:bluff|Bluffs}}." }
+      - { text: "[[Ks 3h]]", why: "Die [[3h]] blockt einen Teil der verpassten {{t:flush-draw|Flush-Draws}}, also der {{t:bluff|Bluffs}} des Buttons, und diese Hand blockt keine {{t:straight|Straße}}. In seinen Bets bleibt mehr Value." }
   - kind: choice
     id: m8.exam.q10
     family: m8.value.check
@@ -88,6 +88,6 @@ drills:
     prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}}. Am Flop C-Bet und {{t:call}}, am Turn habt ihr beide {{t:check|gecheckt}}. River, der {{t:big-blind}} {{t:check|checkt}}. Du hast ein {{t:pair|Paar}} Sechsen. Was machst du?"
     table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
     options:
-      - { text: "Ich {{t:check|checke}}", correct: true, why: "Richtig: Ein {{t:pair|Paar}} Sechsen schlägt verpasste {{t:draw|Draws}} und hohe Karten, aber diese Hände {{t:fold|folden}} auf einen Bet. Zahlen werden vor allem Buben, Achter und Könige. Wenn du {{t:check|checkst}}, gehst du kostenlos zum Showdown." }
-      - { text: "Ich bette klein {{t:value|auf Value}}", why: "Auch einen kleinen Bet {{t:call|callen}} vor allem bessere {{t:pair|Paare}}. Die schlechteren Hände deines Gegners sind hier vor allem Hände ohne {{t:pair|Paar}} und die schwächsten {{t:pair|Paare}}, und die zahlen selten." }
-      - { text: "Ich bette groß, damit der Gegner ein besseres {{t:pair|Paar}} {{t:fold|foldet}}", why: "Ein Bet macht aus einer Hand mit Showdown-Value einen {{t:bluff}}. Du {{t:bluff|bluffst}} mit Händen ohne Chance, und diese Hand gewinnt nach einem {{t:check|Check}} oft." }
+      - { text: "Ich {{t:check|checke}}", correct: true, why: "Richtig: Ein {{t:pair|Paar}} Sechsen schlägt verpasste {{t:draw|Draws}} und hohe Karten, aber diese Hände {{t:fold|folden}} auf eine Bet. Zahlen werden vor allem Buben, Achter und Könige. Wenn du {{t:check|checkst}}, gehst du kostenlos zum Showdown." }
+      - { text: "Ich bette klein {{t:value|auf Value}}", why: "Auch eine kleine Bet {{t:call|callen}} vor allem bessere {{t:pair|Paare}}. Die schlechteren Hände deines Gegners sind hier vor allem Hände ohne {{t:pair|Paar}} und die schwächsten {{t:pair|Paare}}, und die zahlen selten." }
+      - { text: "Ich bette groß, damit der Gegner ein besseres {{t:pair|Paar}} {{t:fold|foldet}}", why: "Eine Bet macht aus einer Hand mit Showdown-Value einen {{t:bluff}}. Du {{t:bluff|bluffst}} mit Händen ohne Chance, und diese Hand gewinnt nach einem {{t:check|Check}} oft." }

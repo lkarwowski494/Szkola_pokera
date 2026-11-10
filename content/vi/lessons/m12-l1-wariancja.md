@@ -80,7 +80,7 @@ drills:
     rules: [R-M12-002]
     prompt: "Đã một tháng nay bạn đang âm {{n:dd.bi.small}} {{t:buy-in|buy-in}}. Điều này cho thấy gì?"
     options:
-      - { text: "Bản thân {{t:downswing}} không chứng minh điều gì; bạn xem lại các quyết định trong những ván đã thua", correct: true, why: "{{t:downswing|Downswing}} {{n:dd.bi.small}} {{t:buy-in|buy-in}} trong {{n:var.hands.k}} nghìn tay xảy đến với gần như mọi người chơi thắng từ {{n:dd.wr-low}} đến {{n:var.wr.ex}} (mô phỏng với SD {{n:var.sd}}). Việc bạn chơi tốt hay không được thể hiện qua việc xem lại quyết định, chứ không phải chỉ qua kết quả." }
+      - { text: "Bản thân {{t:downswing}} không chứng minh điều gì; bạn xem lại các quyết định trong những ván đã thua", correct: true, why: "{{t:downswing|Downswing}} {{n:dd.bi.small}} {{t:buy-in|buy-in}} trong {{n:var.hands.k}} nghìn tay xảy đến với gần như mọi người chơi thắng từ {{n:dd.wr-low}} đến {{n:var.wr.ex}} (mô phỏng với SD {{n:var.sd}}). Việc bạn chơi tốt hay không được thể hiện qua việc xem lại quyết định, chứ không phải qua bản thân kết quả." }
       - { text: "Bạn đang chơi tệ và phải thay đổi toàn bộ lối chơi", why: "{{t:downswing|Downswing}} cỡ này xảy ra với người chơi thắng {{n:var.wr.ex}} (SD {{n:var.sd}}) ở khoảng {{n:dd.p.small.100k}} số mẫu {{n:var.hands.k}} nghìn tay. Thay đổi lối chơi chỉ vì kết quả là phản ứng với nhiễu." }
       - { text: "Chắc chắn bạn chỉ xui, không cần xem lại gì cả", why: "{{t:downswing|Downswing}} cũng có thể do sai lầm. Kết quả không phân biệt được xui với sai lầm, nhưng việc xem lại ván bài thì có thể." }
   - kind: choice

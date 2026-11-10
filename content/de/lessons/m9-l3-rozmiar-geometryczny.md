@@ -45,7 +45,7 @@ drills:
     prompt: "{{t:pot|Pot}} mit einem Raise, {{t:spr}} ca. {{n:spr.srp}}. Welche gleichbleibende {{t:bet}}-Größe auf Flop, Turn und River bringt den ganzen Stack ein?"
     options:
       - { text: "Ca. {{n:geo.srp.3}} {{t:pot}}, also mehr als der ganze {{t:pot}}", correct: true, why: "Ja: Selbst drei {{t:bet|Bets}} in Höhe des {{t:pot|Pots}} bringen nur {{n:srp.potbet.total}} von einem Stack von {{n:spr.srp.stack}} ein. Der ganze Stack geht erst bei ca. {{n:geo.srp.3}} {{t:pot}} auf jeder {{t:street}} rein." }
-      - { text: "Ca. {{n:geo.3bet-ip.3}} {{t:pot}}", why: "Das reicht in einem 3-Bet-{{t:pot}} ({{t:spr}} ca. {{n:spr.3bet-ip}}). In einem {{t:pot}} mit einem Raise liegt der {{t:spr}} bei ca. {{n:spr.srp}}, also müssen die {{t:bet|Bets}} größer als der {{t:pot}} sein." }
+      - { text: "Ca. {{n:geo.3bet-ip.3}} {{t:pot}}", why: "Das reicht in einem 3-Bet-{{t:pot}} ({{t:spr}} ca. {{n:spr.3bet-ip}}). In einem {{t:pot}} mit einem Raise liegt die {{t:spr}} bei ca. {{n:spr.srp}}, also müssen die {{t:bet|Bets}} größer als der {{t:pot}} sein." }
       - { text: "Ca. {{n:cbet.size.small}} {{t:pot}}", why: "Drei solche {{t:bet|Bets}} bringen nur einen kleinen Teil des Stacks ein. Bei {{t:spr}} ca. {{n:spr.srp}} brauchst du ca. {{n:geo.srp.3}} {{t:pot}} auf jeder {{t:street}}." }
   - kind: choice
     id: m9.l3.q-3bet-ip
@@ -56,7 +56,7 @@ drills:
     options:
       - { text: "Ca. {{n:geo.3bet-ip.3}} {{t:pot}} ({{n:geo.3bet-ip.flop}})", correct: true, why: "Ja: (1 + 2f) hoch drei = 1 + 2·{{n:spr.3bet-ip}} ergibt f ≈ {{n:geo.3bet-ip.3}}. {{t:bet|Bets}} von {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}} und {{n:geo.3bet-ip.river}} ergeben zusammen {{n:geo.3bet-ip.total}}, also den ganzen Stack." }
       - { text: "{{n:cbet.size.small}} {{t:pot}} ({{n:g3b.third.flop}})", sizeError: true, why: "Richtige Aktion, falsche Größe: Drei {{t:bet|Bets}} über je 1/3 {{t:pot}} bringen nur ca. {{n:g3b.third.total}} von {{n:spr.3bet-ip.stack}} ein. Für den Plan „ganzer Stack bis zum River“ brauchst du ca. {{n:geo.3bet-ip.3}} {{t:pot}}." }
-      - { text: "Ich {{t:check|checke}} und gehe am River All-in", why: "Ein All-in über {{n:spr.3bet-ip.stack}} am River in einen {{t:pot}} von {{n:vs3bet.pot-after}} ist eine {{t:bet}}, die um ein Vielfaches größer ist als der {{t:pot}}: Dein Gegner bezahlt sie nur mit einer sehr starken Hand. Gleich große {{t:bet|Bets}} auf drei {{t:street|Streets}} geben ihm die Chance, nach und nach Geld einzuzahlen." }
+      - { text: "Ich {{t:check|checke}} und gehe am River all-in", why: "Ein All-in über {{n:spr.3bet-ip.stack}} am River in einen {{t:pot}} von {{n:vs3bet.pot-after}} ist eine {{t:bet}}, die um ein Vielfaches größer ist als der {{t:pot}}: Dein Gegner bezahlt sie nur mit einer sehr starken Hand. Gleich große {{t:bet|Bets}} auf drei {{t:street|Streets}} geben ihm die Chance, nach und nach Geld einzuzahlen." }
   - kind: choice
     id: m9.l3.q-3bet-oop
     family: m9.geo-size
@@ -64,7 +64,7 @@ drills:
     prompt: "{{t:pot|Pot}} nach deiner 3-Bet aus dem {{t:big-blind}}, {{t:spr}} ca. {{n:spr.3bet-oop}}. Du willst bis zum River mit gleich großen {{t:bet|Bets}} den ganzen Stack einzahlen. Welcher Anteil des {{t:pot|Pots}} auf jeder {{t:street}}?"
     table: { position: BB }
     options:
-      - { text: "Ca. {{n:geo.3bet-oop.3}} {{t:pot}}", correct: true, why: "Ja: Bei {{t:spr}} ca. {{n:spr.3bet-oop}} gilt (1 + 2f) hoch drei = 1 + 2·{{n:spr.3bet-oop}}, also f ≈ {{n:geo.3bet-oop.3}}. Ein niedrigerer {{t:spr}} als nach einer 3-Bet {{t:in-position}}, also auch eine kleinere Größe." }
+      - { text: "Ca. {{n:geo.3bet-oop.3}} {{t:pot}}", correct: true, why: "Ja: Bei {{t:spr}} ca. {{n:spr.3bet-oop}} gilt (1 + 2f) hoch drei = 1 + 2·{{n:spr.3bet-oop}}, also f ≈ {{n:geo.3bet-oop.3}}. Eine niedrigere {{t:spr}} als nach einer 3-Bet {{t:in-position}}, also auch eine kleinere Größe." }
       - { text: "Ca. {{n:geo.3bet-ip.3}} {{t:pot}}", sizeError: true, why: "Nah dran, aber das ist die Größe für {{t:spr}} ca. {{n:spr.3bet-ip}}. Bei {{t:spr}} ca. {{n:spr.3bet-oop}} reichen ca. {{n:geo.3bet-oop.3}} {{t:pot}}, und bei größeren {{t:bet|Bets}} fehlt dir am River der Stack für eine volle {{t:bet}}." }
       - { text: "Ca. {{n:geo.4bet.3}} {{t:pot}}", sizeError: true, why: "Das reicht nach einer 4-Bet ({{t:spr}} ca. {{n:spr.4bet}}). Bei {{t:spr}} ca. {{n:spr.3bet-oop}} lassen drei solche {{t:bet|Bets}} einen großen Teil des Stacks übrig." }
   - kind: choice
@@ -114,7 +114,7 @@ Beispiel: Bei {{t:spr}} {{n:geo.half.spr}} bringen drei {{t:bet|Bets}} über den
 
 | {{t:pot}} | {{t:spr}} | Drei {{t:street|Streets}} | Zwei {{t:street|Streets}} |
 |---|---|---|---|
-| {{t:open}} und {{t:call}} | {{n:spr.srp}} | {{n:geo.srp.3}} {{t:pot}} | – |
+| {{t:open|Eröffnung}} und {{t:call}} | {{n:spr.srp}} | {{n:geo.srp.3}} {{t:pot}} | – |
 | 3-Bet {{t:in-position}} | {{n:spr.3bet-ip}} | {{n:geo.3bet-ip.3}} {{t:pot}} | – |
 | 3-Bet aus dem {{t:big-blind}} | {{n:spr.3bet-oop}} | {{n:geo.3bet-oop.3}} {{t:pot}} | – |
 | 4-Bet | {{n:spr.4bet}} | {{n:geo.4bet.3}} {{t:pot}} | {{n:geo.4bet.2}} {{t:pot}} |

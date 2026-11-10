@@ -60,7 +60,7 @@ drills:
     prompt: "{{t:small-blind|Ciega pequeña}}, todos se han {{t:fold|retirado}} y tienes K2o. Con {{n:m11.depth.10}}, el solver va all-in con esta mano. ¿Y con {{n:m11.depth.15}}?"
     table: { hand: "Kd 2c", position: SB }
     options:
-      - { text: "Se {{t:fold|retira}}", correct: true, why: "Con {{n:m11.depth.15}} arriesgas más en relación con las ciegas, así que el {{t:range|rango}} de all-in se estrecha de unas {{n:m11.push.10}} a unas {{n:m11.push.15}} manos. K2o se queda fuera." }
+      - { text: "Se {{t:fold|retira}}", correct: true, why: "Con {{n:m11.depth.15}} arriesgas más en relación con las ciegas, así que el {{t:range|rango}} de all-in se estrecha de aprox. el {{n:m11.push.10}} a aprox. el {{n:m11.push.15}} de las manos. K2o se queda fuera." }
       - { text: "All-in, porque el rey es una carta fuerte", why: "Con {{n:m11.depth.15}}, K2o se encuentra demasiado a menudo con un rey mejor o un as en el {{t:range|rango}} de {{t:call|pago}}. El solver la {{t:fold|tira}}." }
       - { text: "All-in, porque cuanto más profundo el stack, más amplio", why: "Al revés: cuanto más profundo el stack, más estrecho el {{t:range|rango}} de all-in. Haces {{t:shove|push}} con más manos con un {{t:short-stack|stack muy corto}}." }
   - kind: choice
@@ -88,8 +88,8 @@ drills:
     prompt: "El mismo stack de {{n:m11.depth.10}} en la {{t:small-blind|ciega pequeña}}, pero se juega con {{t:bb-ante|ante de ciega grande}}: la {{t:big-blind|ciega grande}} ha puesto un ante de {{n:m11.ante}}. ¿Cómo cambia el {{t:range|rango}} de all-in?"
     options:
       - { text: "Crece: aprox. {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} en lugar de {{n:m11.push.10}}", correct: true, why: "El ante aumenta el {{t:pot|bote}} que te llevas cuando el rival se {{t:fold|retira}}: {{n:m11.push.10.win-ante}} en lugar de {{n:m11.push.10.win}}. Una mano sin opciones ya solo necesita más del {{n:m11.push.10.alpha-ante}} de {{t:fold|retiradas}}, así que son rentables más all-ins." }
-      - { text: "Se reduce, porque el rival tiene más en el {{t:pot|bote}} y {{t:call|igualará}} más a menudo", why: "Es cierto que el rival {{t:call|iguala}} con más manos, pero pesa más el {{t:pot|bote}} mayor que puedes ganar. El equilibrio está en unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} manos." }
-      - { text: "No cambia", why: "El ante cambia la relación entre riesgo y recompensa. Sin ante, unas {{n:m11.push.10}}; con ante, unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}." }
+      - { text: "Se reduce, porque el rival tiene más en el {{t:pot|bote}} y {{t:call|igualará}} más a menudo", why: "Es cierto que el rival {{t:call|iguala}} con más manos, pero pesa más el {{t:pot|bote}} mayor que puedes ganar. El equilibrio está en aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} de las manos." }
+      - { text: "No cambia", why: "El ante cambia la relación entre riesgo y recompensa. Sin ante, aprox. el {{n:m11.push.10}}; con ante, aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}." }
   - kind: generated
     id: m11.l1.g-push-ante
     family: m11.ante
@@ -149,11 +149,11 @@ push.sb-10
 push.sb-5
 ```
 
-Con {{n:m11.depth.15}} vas all-in con unas {{n:m11.push.15}} manos; con {{n:m11.depth.10}}, con unas {{n:m11.push.10}}, y con {{n:m11.depth.5}}, ya con unas {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Cuanto menos arriesgas en relación con las ciegas, más manos son rentables. Como comparación, una tabla de una web de formación da {{n:m11.ext.push.10}} con {{n:m11.depth.10}}; la diferencia está dentro de la tolerancia de validación del solver y la tendencia es la misma.
+Con {{n:m11.depth.15}} vas all-in con aprox. el {{n:m11.push.15}} de las manos; con {{n:m11.depth.10}}, con aprox. el {{n:m11.push.10}}, y con {{n:m11.depth.5}}, ya con aprox. el {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Cuanto menos arriesgas en relación con las ciegas, más manos son rentables. Como comparación, una tabla de una web de formación da {{n:m11.ext.push.10}} con {{n:m11.depth.10}}; la diferencia está dentro de la tolerancia de validación del solver y la tendencia es la misma.
 
 ## Tres jugadores: cuantos más rivales detrás, más estrecho
 
-Cuando juegas desde el Button, detrás de ti quedan dos jugadores, no uno. Cualquiera de ellos puede tener una mano fuerte, así que las {{t:fold|retiradas}} de ambos son menos frecuentes. Con tres jugadores y stacks de {{n:m11.depth.3max}} cada uno, el Button va all-in con unas {{n:m11.3max.push.btn}} manos, y la {{t:small-blind|ciega pequeña}}, cuando el Button se ha {{t:fold|retirado}}, con unas {{n:m11.3max.push.sb}}.
+Cuando juegas desde el Button, detrás de ti quedan dos jugadores, no uno. Cualquiera de ellos puede tener una mano fuerte, así que las {{t:fold|retiradas}} de ambos son menos frecuentes. Con tres jugadores y stacks de {{n:m11.depth.3max}} cada uno, el Button va all-in con aprox. el {{n:m11.3max.push.btn}} de las manos, y la {{t:small-blind|ciega pequeña}}, cuando el Button se ha {{t:fold|retirado}}, con aprox. el {{n:m11.3max.push.sb}}.
 
 ```range
 push.btn-3max
@@ -171,7 +171,7 @@ El all-in gana cuando el rival se {{t:fold|retira}}, o cuando {{t:call|iguala}} 
 
 ## El ante amplía el {{t:range|rango}}
 
-El ante son {{t:chips|fichas}} adicionales en el {{t:pot|bote}} antes del reparto. Con {{t:bb-ante|ante de ciega grande}}, la {{t:big-blind|ciega grande}} pone un ante de {{n:m11.ante}}, así que el all-in se lleva {{n:m11.push.10.win-ante}} en lugar de {{n:m11.push.10.win}}, y el riesgo sigue siendo el mismo. En esta estructura, el {{t:range|rango}} crece de unas {{n:m11.push.10}} a unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} manos (el solver de la app y un cálculo de equilibrio independiente difieren en una fracción de punto).
+El ante son {{t:chips|fichas}} adicionales en el {{t:pot|bote}} antes del reparto. Con {{t:bb-ante|ante de ciega grande}}, la {{t:big-blind|ciega grande}} pone un ante de {{n:m11.ante}}, así que el all-in se lleva {{n:m11.push.10.win-ante}} en lugar de {{n:m11.push.10.win}}, y el riesgo sigue siendo el mismo. En esta estructura, el {{t:range|rango}} crece de aprox. el {{n:m11.push.10}} a aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} de las manos (el solver de la app y un cálculo de equilibrio independiente difieren en una fracción de punto).
 
 ```range
 push.sb-10-ante

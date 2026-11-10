@@ -26,7 +26,7 @@ drills:
     id: m11.l3.n-equity
     family: m11.icm.equity
     rules: [R-M11-008]
-    prompt: "{{t:payout|페이아웃}}: 1위는 {{t:prize-pool|상금 풀}}의 {{n:m11.icm.a.p1}}, 2위는 {{n:m11.icm.a.p2}}입니다. 스택은 {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}}, {{n:m11.icm.a.s3}}입니다. {{t:icm}}에 따르면 가장 작은 스택의 가치는 얼마입니까({{t:prize-pool|상금 풀}} 대비 퍼센트)? 숫자를 입력하세요."
+    prompt: "{{t:payout|상금}}: 1위는 {{t:prize-pool|상금 풀}}의 {{n:m11.icm.a.p1}}, 2위는 {{n:m11.icm.a.p2}}입니다. 스택은 {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}}, {{n:m11.icm.a.s3}}입니다. {{t:icm}}에 따르면 가장 작은 스택의 가치는 얼마입니까({{t:prize-pool|상금 풀}} 대비 퍼센트)? 숫자를 입력하세요."
     answer: m11.icm.a.eq3
     explanation: "1위 확률 {{n:m11.icm.a.chips3}}, 2위 확률 {{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} ≈ {{n:m11.icm.a.second3}}. 에퀴티 = {{n:m11.icm.a.chips3}} × {{n:m11.icm.a.p1}} + {{n:m11.icm.a.second3}} × {{n:m11.icm.a.p2}} ≈ {{n:m11.icm.a.eq3}}. 보유한 {{t:chips|칩}} 비율 {{n:m11.icm.a.chips3}}보다 많습니다."
   - kind: choice
@@ -36,7 +36,7 @@ drills:
     prompt: "큰 스택이 가진 {{t:chips|칩}}은 게임 내 전체 칩의 {{n:m11.icm.a.chips1}}입니다. {{t:icm}}에 따르면 돈으로는 얼마의 가치가 있습니까?"
     options:
       - { text: "{{n:m11.icm.a.eq1}}, 즉 {{t:chips|칩}} 비율보다 적습니다", correct: true, why: "큰 스택은 모든 {{t:chips}}을 딸 가능성이 있지만, 받을 수 있는 것은 최대 {{t:prize-pool|상금 풀}}의 {{n:m11.icm.a.p1}}입니다. 그래서 선두의 {{t:chips}}은 비율보다 가치가 낮고, {{t:short-stack|숏 스택}}의 칩은 가치가 더 높습니다({{n:m11.icm.a.eq3}})." }
-      - { text: "{{n:m11.icm.a.chips1}}, {{t:chips|칩}} 비율과 같습니다", why: "우승자가 {{t:prize-pool|상금 풀}} 전체를 가져간다면 그렇습니다. {{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}} {{t:payout|페이아웃}}에서는 큰 스택의 {{t:chips|칩}} 하나하나의 가치가 더 낮습니다: {{n:m11.icm.a.eq1}}." }
+      - { text: "{{n:m11.icm.a.chips1}}, {{t:chips|칩}} 비율과 같습니다", why: "우승자가 {{t:prize-pool|상금 풀}} 전체를 가져간다면 그렇습니다. {{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}} {{t:payout|상금}} 구조에서는 큰 스택의 {{t:chips|칩}} 하나하나의 가치가 더 낮습니다: {{n:m11.icm.a.eq1}}." }
       - { text: "{{n:m11.icm.a.p1}}, 거의 확실히 우승하기 때문입니다", why: "1위 확률은 {{n:m11.icm.a.chips1}}뿐이고, 나머지 {{t:tournament-equity|토너먼트 에퀴티}}는 2위에서 나옵니다. 합계 {{n:m11.icm.a.eq1}}입니다." }
   - kind: numeric
     id: m11.l3.n-bf
@@ -68,7 +68,7 @@ drills:
     prompt: "{{t:bubble|버블}}, 레슨의 예시입니다. 당신의 핸드는 상대의 올인 {{t:range|레인지}}에 대해 약 {{n:m11.bf.example-eq}} 에퀴티를 가집니다. {{t:chips}} 기준 게임이라면 {{n:m11.bf.req-chips}}만 있으면 되므로 {{t:call|콜}}이 이득이었을 것입니다. 여기서는 어떻게 하겠습니까?"
     options:
       - { text: "{{t:fold|폴드합니다}}", correct: true, why: "{{t:icm}}에 따르면 여기서는 {{n:m11.bf.req}} 에퀴티가 필요합니다. 그보다 덜 자주 이기는 핸드는 {{t:chips|칩}}으로는 이득이라도 돈을 잃습니다." }
-      - { text: "{{t:call|콜합니다}}. {{t:chips|칩}}으로는 이득이니까요", why: "{{t:payout|페이아웃}}이 있는 {{t:tournament|토너먼트}}에서는 {{t:chips}}이 아니라 돈이 중요합니다. 지면 잃는 것은 {{t:prize-pool|상금 풀}}의 {{n:m11.bf.loss}}이고, 이겨도 얻는 것은 {{n:m11.bf.gain}}뿐입니다." }
+      - { text: "{{t:call|콜합니다}}. {{t:chips|칩}}으로는 이득이니까요", why: "{{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 {{t:chips}}이 아니라 돈이 중요합니다. 지면 잃는 것은 {{t:prize-pool|상금 풀}}의 {{n:m11.bf.loss}}이고, 이겨도 얻는 것은 {{n:m11.bf.gain}}뿐입니다." }
       - { text: "{{t:call|콜합니다}}. 절반 넘게 이기니까요", why: "{{n:m11.bf.example-eq}} 에퀴티의 핸드는 절반보다 자주 이기지만, 여기서는 여전히 너무 약합니다: 기준선은 {{n:m11.bf.req}}입니다." }
   - kind: choice
     id: m11.l3.q-covering
@@ -158,7 +158,7 @@ drills:
 
 결과는 **{{n:m11.bf.req}}**입니다. {{t:chips}} 기준 게임에서는 거는 칩({{n:m11.bf.s3}})과 따는 칩({{n:m11.bf.s3}})이 같으므로 {{n:m11.bf.req-chips}}만 있어도 충분했을 것입니다. 그 차이({{n:m11.bf.premium}})가 **{{t:risk-premium}}**입니다.
 
-같은 방향은 스택이 같은 세 플레이어에 대해 발표된 균형(2008년 연구 논문)에서도 보입니다: 버튼과 {{t:small-blind}}가 이미 올인한 상황에서 {{t:big-blind}}는 단일 핸드 게임에서는 {{n:m11.jamfold3.overcall.single}}의 핸드로 {{t:call|콜하지만}}, {{t:payout|페이아웃}}이 있는 {{t:tournament|토너먼트}}에서는 {{n:m11.jamfold3.overcall.tourn}}만으로, 즉 최상위 {{t:pocket-pair|포켓 페어}}와 AKs만으로 콜합니다.
+같은 방향은 스택이 같은 세 플레이어에 대해 발표된 균형(2008년 연구 논문)에서도 보입니다: 버튼과 {{t:small-blind}}가 이미 올인한 상황에서 {{t:big-blind}}는 단일 핸드 게임에서는 {{n:m11.jamfold3.overcall.single}}의 핸드로 {{t:call|콜하지만}}, {{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 {{n:m11.jamfold3.overcall.tourn}}만으로, 즉 최상위 {{t:pocket-pair|포켓 페어}}와 AKs만으로 콜합니다.
 
 :::note 누가 타이트하게 {{t:call|콜하는가}}
 {{t:bubble|버블}}이나 {{t:final-table|파이널 테이블}}(가장 큰 상금을 놓고 겨루는 {{t:tournament|토너먼트}}의 마지막 테이블)에 있는 중간 스택은 {{t:chips}} 기준 게임보다 훨씬 타이트하게 올인에 {{t:call|콜합니다}}. 상대를 {{t:cover|커버하는}} 큰 스택은 위험이 적어 이를 활용할 수 있습니다: 상대가 {{t:fold|폴드해야}} 하므로 더 넓게 {{t:shove|푸시할}} 수 있습니다. 버블 팩터는 테이블의 모든 스택에 따라 달라지므로 테이블에서 계산하는 것이 아니라, 감각을 기르기 위해 예시로 연습합니다.

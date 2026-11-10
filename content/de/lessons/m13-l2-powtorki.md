@@ -21,7 +21,7 @@ drills:
     rules: [R-M13-003]
     prompt: "Welche dieser Änderungen erhält die Entscheidung aus dieser Situation NICHT: K♥ Q♥ auf dem {{t:board|Board}} J♥ 8♥ 3♠?"
     options:
-      - { text: "K♥ Q♥ auf dem {{t:board|Board}} J♠ 8♠ 3♥", correct: true, why: "Hier wurden die Farben nur auf dem {{t:board|Board}} getauscht: Deine Herzen passen nicht mehr zum {{t:board|Board}}, und der {{t:flush-draw|Flush-Draw}} ist weg. Das ist schon eine andere Situation." }
+      - { text: "K♥ Q♥ auf dem {{t:board|Board}} J♠ 8♠ 3♥", correct: true, why: "Hier wurden die Farben nur auf dem {{t:board|Board}} getauscht: Deine Herzkarten passen nicht mehr zum {{t:board|Board}}, und der {{t:flush-draw|Flush-Draw}} ist weg. Das ist schon eine andere Situation." }
       - { text: "K♠ Q♠ auf dem {{t:board|Board}} J♠ 8♠ 3♥", why: "Das ist ein einziger Tausch für alle Karten (Herz ↔ Pik), also ist die Entscheidung dieselbe." }
       - { text: "K♦ Q♦ auf dem {{t:board|Board}} J♦ 8♦ 3♠", why: "Das ist ein einziger Tausch (Herz → Karo) für alle Karten, also ist die Entscheidung dieselbe." }
   - kind: choice
@@ -30,8 +30,8 @@ drills:
     rules: []
     prompt: "Welche Entscheidungen aus dem Bericht kommen als Karten in die Wiederholungen?"
     options:
-      - { text: "Fehler, Ungenauigkeiten und Entscheidungen nach abgelaufener Zeit", correct: true, why: "Ja. Eine zulässige Entscheidung ist kein Fehler, also entsteht daraus keine Karte. Dieselbe Regel mit derselben Handklasse im selben Spot ergibt eine Karte, nicht mehrere." }
-      - { text: "Alle bewerteten Entscheidungen", why: "Korrekte und zulässige Entscheidungen müssen nicht verbessert werden, und die Wiederholungen sollen üben, was schiefgelaufen ist." }
+      - { text: "Fehler, Ungenauigkeiten und Entscheidungen nach abgelaufener Zeit", correct: true, why: "Ja. Eine vertretbare Entscheidung ist kein Fehler, also entsteht daraus keine Karte. Dieselbe Regel mit derselben Handklasse im selben Spot ergibt eine Karte, nicht mehrere." }
+      - { text: "Alle bewerteten Entscheidungen", why: "Übereinstimmende und vertretbare Entscheidungen müssen nicht verbessert werden, und die Wiederholungen sollen üben, was schiefgelaufen ist." }
       - { text: "Nur Fehler, ohne Ungenauigkeiten", why: "Eine Ungenauigkeit (z. B. richtige Aktion, falsche Größe) zählt wie ein Fehler, kommt also auch in den Wiederholungen zurück." }
   - kind: choice
     id: m13.l2.q-family
@@ -92,6 +92,6 @@ Ein Spielbereich ist ein Modul des Kurses. Er wird freigeschaltet, wenn du alle 
 
 Der Bericht zeigt deine Frequenzen nicht, z. B. wie oft du mitspielst. Selbst {{t:vpip}} liest man erst nach ca. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} Händen, und seltene Situationen kommen in einer {{t:session|Session}} nur ein paar Mal vor. Ein Trainer rät, Gelegenheiten zu zählen, nicht Hände: Er schaut sich eine Statistik bei ca. {{n:hud.opps.look}} Gelegenheiten an und ist sich bei ca. {{n:hud.opps.sure}} sicher.
 
-:::note Woher diese Regeln kommen
+:::note Woher diese Regeln stammen
 Der Farbtausch ist exakte Rechnung: Die Rangfolge der Hände unterscheidet keine Farben. Stichproben an Händen wie im Modul zum {{t:exploit|Exploit}} (zwei Trainingsmaterialien); Zahl der Gelegenheiten: ein Trainingsmaterial zur Stichprobengröße für Statistiken im {{t:hud|HUD}}. Die Schwellen für Wiederholungen sind Einstellungen der App, ohne Quelle.
 :::

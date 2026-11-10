@@ -8,9 +8,9 @@ drills:
     rules: [R-M3-001]
     prompt: "Button {{t:open|mở cược}}, {{t:small-blind}} {{t:fold|bỏ bài}}, còn {{t:big-blind}} {{t:call|theo}}. Ai hành động đầu tiên ở flop?"
     options:
-      - { text: "{{t:big-blind|Mù lớn}}", correct: true, why: "Từ flop trở đi, các mù hành động trước, còn Button hành động sau cùng. Vì vậy ở đây Button có {{t:position|vị trí}}, còn {{t:big-blind}} chơi {{t:out-of-position}}." }
+      - { text: "{{t:big-blind|Big blind}}", correct: true, why: "Từ flop trở đi, các blind hành động trước, còn Button hành động sau cùng. Vì vậy ở đây Button có {{t:position|vị trí}}, còn {{t:big-blind}} chơi {{t:out-of-position}}." }
       - { text: "Button, vì đã {{t:open|mở cược}}", why: "Thứ tự hành động phụ thuộc vào chỗ ngồi tại bàn, chứ không phụ thuộc vào ai đã {{t:open|mở cược}}. Từ flop trở đi, Button luôn hành động sau cùng." }
-      - { text: "Người hành động sau cùng ở preflop", why: "Ở preflop, các mù hành động sau cùng, nhưng từ flop trở đi thì hành động trước. Đó là lý do {{t:position}} của Button là tốt nhất." }
+      - { text: "Người hành động sau cùng ở preflop", why: "Ở preflop, các blind hành động sau cùng, nhưng từ flop trở đi thì hành động trước. Đó là lý do {{t:position}} của Button là tốt nhất." }
   - kind: choice
     id: m3.exam.q2
     family: m3.open-early
@@ -20,7 +20,7 @@ drills:
     options:
       - { text: "{{t:raise|Tố}}", correct: true, why: "AT khác chất nằm trong {{t:range|dải bài}} {{t:open|mở cược}} từ {{t:utg}} (khoảng {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} tay bài). Solver của ứng dụng luôn chơi tay này ở đây." }
       - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt. Từ {{t:utg}} bạn chơi hẹp, nhưng AT vẫn nằm trong {{t:range|dải bài}}." }
-      - { text: "Bù cho bằng {{t:big-blind|mù lớn}}", why: "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn tiền mù ngay lập tức." }
+      - { text: "Bù cho bằng {{t:big-blind|big blind}}", why: "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind ngay lập tức." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
@@ -37,7 +37,7 @@ drills:
     prompt: "Tất cả người trước bạn đều {{t:fold|bỏ bài}}. Bạn làm gì?"
     table: { hand: "Ah 9d", position: CO }
     options:
-      - { text: "{{t:raise|Tố}}", correct: true, why: "Sau bạn chỉ còn Button và các mù, nên bạn {{t:open|mở cược}} rộng hơn ở {{t:hijack|HJ}}. Solver của ứng dụng gần như luôn chơi A9o ở đây." }
+      - { text: "{{t:raise|Tố}}", correct: true, why: "Sau bạn chỉ còn Button và các blind, nên bạn {{t:open|mở cược}} rộng hơn ở {{t:hijack|HJ}}. Solver của ứng dụng gần như luôn chơi A9o ở đây." }
       - { text: "{{t:fold|Bỏ bài}}", why: "Đó là cách bạn chơi tay này ở {{t:hijack|HJ}}. Ở {{t:cutoff|CO}}, sau bạn ít hơn một người chơi và {{t:range}} rộng hơn." }
   - kind: choice
     id: m3.exam.q5
@@ -46,20 +46,20 @@ drills:
     prompt: "Tất cả đều {{t:fold|bỏ bài}} đến lượt bạn. Bạn làm gì?"
     table: { hand: "Jd 9c", position: BTN }
     options:
-      - { text: "{{t:raise|Tố}}", correct: true, why: "Ở Button bạn {{t:open|mở cược}} khoảng {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} tay bài. Chỉ còn lại các mù, và sau flop bạn có {{t:position|vị trí}}, nên J9 khác chất vẫn đủ điều kiện." }
-      - { text: "{{t:fold|Bỏ bài}}", why: "Ở {{t:cutoff|CO}} solver hiếm khi chơi tay này, nhưng ở Button thì luôn chơi. Khi chỉ còn các mù, như vậy là quá chặt." }
-      - { text: "Bù cho bằng {{t:big-blind|mù lớn}}", why: "Limp làm mất {{t:initiative|thế chủ động}}. {{t:raise|Tố}} thường ăn tiền mù ngay lập tức." }
+      - { text: "{{t:raise|Tố}}", correct: true, why: "Ở Button bạn {{t:open|mở cược}} khoảng {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} tay bài. Chỉ còn lại các blind, và sau flop bạn có {{t:position|vị trí}}, nên J9 khác chất vẫn đủ điều kiện." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "Ở {{t:cutoff|CO}} solver hiếm khi chơi tay này, nhưng ở Button thì luôn chơi. Khi chỉ còn các blind, như vậy là quá chặt." }
+      - { text: "Bù cho bằng {{t:big-blind|big blind}}", why: "Limp làm mất {{t:initiative|thế chủ động}}. {{t:raise|Tố}} thường ăn các blind ngay lập tức." }
   - kind: choice
     id: m3.exam.q6
     family: m3.rfi.sb
     rules: [R-M3-004, R-M3-007, R-M3-009]
-    prompt: "Tất cả đều {{t:fold|bỏ bài}} đến lượt bạn ở {{t:small-blind|mù nhỏ}}. Bạn làm gì?"
+    prompt: "Tất cả đều {{t:fold|bỏ bài}} đến lượt bạn ở {{t:small-blind|small blind}}. Bạn làm gì?"
     table: { hand: "Td 8c", position: SB }
     options:
-      - { text: "{{t:raise|Tố}} lên {{n:pf.open-size-sb}}", correct: true, why: "Giờ bạn chỉ còn đấu với {{t:big-blind|mù lớn}}, nên bạn {{t:open|mở cược}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} tay bài. Sau flop bạn hành động đầu tiên, vì vậy ở {{t:small-blind|mù nhỏ}} bạn {{t:raise|tố}} lớn hơn một chút so với các {{t:position|vị trí}} khác." }
-      - { text: "{{t:raise|Tố}} lên {{n:pf.open-size}}", sizeError: true, why: "Hành động đúng, sai kích cỡ: {{n:pf.open-size}} là mức {{t:open}} từ các {{t:position|vị trí}} còn lại. Ở {{t:small-blind|mù nhỏ}} bạn chơi {{t:out-of-position}}, nên bạn {{t:raise|tố}} lên {{n:pf.open-size-sb}}." }
-      - { text: "Bù cho bằng {{t:big-blind|mù lớn}}", why: "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}} (ở {{t:small-blind|mù nhỏ}} đây là cách đơn giản hóa: một số lời giải của solver bù cho bằng mức mù với một phần tay bài ở đây). Việc bù làm mất {{t:initiative|thế chủ động}} và cơ hội ăn tiền mù ngay lập tức." }
-      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: khi chỉ có một đối thủ, solver của ứng dụng luôn chơi T8o ở {{t:small-blind|mù nhỏ}}." }
+      - { text: "{{t:raise|Tố}} lên {{n:pf.open-size-sb}}", correct: true, why: "Giờ bạn chỉ còn đấu với {{t:big-blind|big blind}}, nên bạn {{t:open|mở cược}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} tay bài. Sau flop bạn hành động đầu tiên, vì vậy ở {{t:small-blind|small blind}} bạn {{t:raise|tố}} lớn hơn một chút so với các {{t:position|vị trí}} khác." }
+      - { text: "{{t:raise|Tố}} lên {{n:pf.open-size}}", sizeError: true, why: "Hành động đúng, sai kích cỡ: {{n:pf.open-size}} là mức {{t:open}} từ các {{t:position|vị trí}} còn lại. Ở {{t:small-blind|small blind}} bạn chơi {{t:out-of-position}}, nên bạn {{t:raise|tố}} lên {{n:pf.open-size-sb}}." }
+      - { text: "Bù cho bằng {{t:big-blind|big blind}}", why: "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}} (ở {{t:small-blind|small blind}} đây là cách đơn giản hóa: một số lời giải của solver bù cho bằng mức blind với một phần tay bài ở đây). Việc bù làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind ngay lập tức." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: khi chỉ có một đối thủ, solver của ứng dụng luôn chơi T8o ở {{t:small-blind|small blind}}." }
   - kind: numeric
     id: m3.exam.n1
     family: m3.open-early
@@ -67,14 +67,14 @@ drills:
     prompt: "Tất cả người trước bạn đều {{t:fold|bỏ bài}}, bạn ở {{t:hijack|HJ}} và {{t:open|mở cược}}. Bạn {{t:raise|tố}} lên bao nhiêu bb? Hãy nhập một số."
     table: { hand: "Kh Qh", position: HJ }
     answer: pf.open-size
-    explanation: "Bạn {{t:open|mở cược}} lên {{n:pf.open-size}} từ mọi {{t:position|vị trí}} trừ {{t:small-blind|mù nhỏ}} (ở đó là {{n:pf.open-size-sb}}). Một kích cỡ duy nhất thì đơn giản và không để lộ sức mạnh tay bài. Đây là cách đơn giản hóa: từ {{t:early-position|các vị trí đầu}}, solver {{t:open|mở cược}} nhỏ hơn một chút."
+    explanation: "Bạn {{t:open|mở cược}} lên {{n:pf.open-size}} từ mọi {{t:position|vị trí}} trừ {{t:small-blind|small blind}} (ở đó là {{n:pf.open-size-sb}}). Một kích cỡ duy nhất thì đơn giản và không để lộ sức mạnh tay bài. Đây là cách đơn giản hóa: từ {{t:early-position|các vị trí đầu}}, solver {{t:open|mở cược}} nhỏ hơn một chút."
   - kind: choice
     id: m3.exam.q7
     family: m3.suited
     rules: [R-M3-005]
-    prompt: "Vì sao T9 đồng chất chơi tốt hơn T9 khác chất?"
+    prompt: "Vì sao T9 cùng chất chơi tốt hơn T9 khác chất?"
     options:
-      - { text: "Có thêm một cách để thắng nhờ {{t:flush}}", correct: true, why: "Thứ hạng lá bài như nhau, nên bạn ra {{t:pair|đôi}} và {{t:straight|sảnh}} như nhau. Tay đồng chất còn có thêm cơ hội ra {{t:flush|thùng}}." }
+      - { text: "Có thêm một cách để thắng nhờ {{t:flush}}", correct: true, why: "Thứ hạng lá bài như nhau, nên bạn ra {{t:pair|đôi}} và {{t:straight|sảnh}} như nhau. Tay cùng chất còn có thêm cơ hội ra {{t:flush|thùng}}." }
       - { text: "Ra {{t:pair|đôi}} thường hơn", why: "Cơ hội ra {{t:pair|đôi}} phụ thuộc vào thứ hạng lá bài, mà thứ hạng thì như nhau." }
       - { text: "Ra {{t:straight|sảnh}} thường hơn", why: "{{t:straight|Sảnh}} phụ thuộc vào thứ hạng lá bài, chứ không phụ thuộc vào việc các lá có cùng chất hay không." }
   - kind: choice
@@ -85,7 +85,7 @@ drills:
     table: { hand: "Ks Kd", position: BTN }
     options:
       - { text: "{{t:raise|Tố}} lại (3-bet)", correct: true, why: "KK là một trong những tay mạnh nhất và chiếm ưu thế trước phần lớn các tay mà {{t:utg}} dùng để {{t:open|mở cược}}. 3-bet giúp xây {{t:pot|pot}} và thường khiến bạn chỉ còn đấu với một đối thủ." }
-      - { text: "Chỉ {{t:call|theo}}", why: "Đôi khi được chơi để đánh lừa, nhưng theo nguyên tắc chung, bạn bỏ lỡ giá trị và để các mù vào ván với giá rẻ." }
+      - { text: "Chỉ {{t:call|theo}}", why: "Đôi khi được chơi để đánh lừa, nhưng theo nguyên tắc chung, bạn bỏ lỡ giá trị và để các blind vào ván với giá rẻ." }
       - { text: "{{t:fold|Bỏ bài}}, vì {{t:utg}} có {{t:range}} mạnh", why: "{{t:range|Dải bài}} của {{t:utg}} hẹp, nhưng KK vẫn chiếm ưu thế rõ rệt trước nó." }
   - kind: paint
     id: m3.exam.p-co

@@ -51,17 +51,17 @@ drills:
     id: m9.l3.q-3bet-ip
     family: m9.geo-size
     rules: [R-M9-006]
-    prompt: "{{t:pot|Hũ}} 3-bet, bạn có {{t:position|vị trí}}, {{t:spr}} khoảng {{n:spr.3bet-ip}}. Bạn có bài rất mạnh và muốn đưa toàn bộ stack vào trước river bằng các {{t:bet|cược}} đều nhau. Ở flop bạn cược bao nhiêu?"
+    prompt: "{{t:pot|Hũ}} 3-bet, bạn có {{t:position|vị trí}}, {{t:spr}} khoảng {{n:spr.3bet-ip}}. Bạn có bài rất mạnh và muốn đưa toàn bộ stack vào cho đến river bằng các {{t:bet|cược}} đều nhau. Ở flop bạn cược bao nhiêu?"
     table: { hand: "9c 9d", board: "9s 6h 2c", position: BTN }
     options:
       - { text: "Khoảng {{n:geo.3bet-ip.3}} {{t:pot|hũ}} ({{n:geo.3bet-ip.flop}})", correct: true, why: "Đúng: (1 + 2f) mũ ba = 1 + 2·{{n:spr.3bet-ip}} cho f ≈ {{n:geo.3bet-ip.3}}. Các {{t:bet|cược}} {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}} và {{n:geo.3bet-ip.river}} cộng lại là {{n:geo.3bet-ip.total}}, tức toàn bộ stack." }
-      - { text: "{{n:cbet.size.small}} {{t:pot|hũ}} ({{n:g3b.third.flop}})", sizeError: true, why: "Hành động đúng, kích cỡ sai: ba {{t:bet|cược}} 1/3 {{t:pot|hũ}} chỉ đưa vào khoảng {{n:g3b.third.total}} trên {{n:spr.3bet-ip.stack}}. Kế hoạch “toàn bộ stack vào trước river” cần khoảng {{n:geo.3bet-ip.3}} {{t:pot|hũ}}." }
+      - { text: "{{n:cbet.size.small}} {{t:pot|hũ}} ({{n:g3b.third.flop}})", sizeError: true, why: "Hành động đúng, kích cỡ sai: ba {{t:bet|cược}} 1/3 {{t:pot|hũ}} chỉ đưa vào khoảng {{n:g3b.third.total}} trên {{n:spr.3bet-ip.stack}}. Kế hoạch “toàn bộ stack vào cho đến river” cần khoảng {{n:geo.3bet-ip.3}} {{t:pot|hũ}}." }
       - { text: "{{t:check|Xem bài}}, rồi all-in ở river", why: "All-in {{n:spr.3bet-ip.stack}} vào {{t:pot|hũ}} {{n:vs3bet.pot-after}} ở river là một {{t:bet|cược}} lớn hơn {{t:pot|hũ}} nhiều lần: đối thủ chỉ trả bằng bài rất mạnh. Các {{t:bet|cược}} đều nhau trên ba {{t:street|vòng cược}} cho đối thủ cơ hội bỏ tiền vào từng chút một." }
   - kind: choice
     id: m9.l3.q-3bet-oop
     family: m9.geo-size
     rules: [R-M9-006]
-    prompt: "{{t:pot|Hũ}} sau khi bạn 3-bet từ {{t:big-blind|mù lớn}}, {{t:spr}} khoảng {{n:spr.3bet-oop}}. Bạn muốn đưa toàn bộ stack vào trước river bằng các {{t:bet|cược}} đều nhau. Mỗi {{t:street|vòng cược}} cược bao nhiêu phần {{t:pot|hũ}}?"
+    prompt: "{{t:pot|Hũ}} sau khi bạn 3-bet từ {{t:big-blind|mù lớn}}, {{t:spr}} khoảng {{n:spr.3bet-oop}}. Bạn muốn đưa toàn bộ stack vào cho đến river bằng các {{t:bet|cược}} đều nhau. Mỗi {{t:street|vòng cược}} cược bao nhiêu phần {{t:pot|hũ}}?"
     table: { position: BB }
     options:
       - { text: "Khoảng {{n:geo.3bet-oop.3}} {{t:pot|hũ}}", correct: true, why: "Đúng: với {{t:spr}} khoảng {{n:spr.3bet-oop}}, (1 + 2f) mũ ba = 1 + 2·{{n:spr.3bet-oop}}, nên f ≈ {{n:geo.3bet-oop.3}}. {{t:spr}} thấp hơn so với sau 3-bet {{t:in-position|có vị trí}}, nên kích cỡ cũng nhỏ hơn." }
@@ -126,5 +126,5 @@ Trong {{t:pot|hũ}} 3-bet {{t:in-position|có vị trí}}, đó là các {{t:bet
 Với {{t:spr}} khoảng {{n:spr.srp}}, ba {{t:bet|cược}} nửa {{t:pot|hũ}} chỉ đưa vào {{n:srp.half.total}}, còn ba {{t:bet|cược}} bằng cả {{t:pot|hũ}} đưa vào {{n:srp.potbet.total}} trên stack {{n:spr.srp.stack}}. Toàn bộ stack chỉ vào hết khi các {{t:bet|cược}} lớn hơn {{t:pot|hũ}}. Vì vậy, trong {{t:pot|hũ}} như thế, việc chơi cho cả stack chủ yếu xảy ra với bài rất mạnh.
 
 :::note Khi nào điều này hữu ích
-Kích cỡ cược hình học hữu ích khi bạn muốn đưa toàn bộ stack vào trước river, tức là khi có bài rất mạnh. Không phải bài nào cũng muốn chơi cho cả stack: một bài chịu được bao nhiêu {{t:value|vòng cược lấy giá trị}} là chủ đề của bài học tiếp theo. Công thức chỉ là toán học thuần túy. Các mô-đun trước đưa ra kích cỡ phù hợp với {{t:texture|kết cấu}} flop; kích cỡ cược hình học là điểm tham chiếu cho kế hoạch chơi cả stack.
+Kích cỡ cược hình học hữu ích khi bạn muốn đưa toàn bộ stack vào cho đến river, tức là khi có bài rất mạnh. Không phải bài nào cũng muốn chơi cho cả stack: một bài chịu được bao nhiêu {{t:value|vòng cược lấy giá trị}} là chủ đề của bài học tiếp theo. Công thức chỉ là toán học thuần túy. Các mô-đun trước đưa ra kích cỡ phù hợp với {{t:texture|kết cấu}} flop; kích cỡ cược hình học là điểm tham chiếu cho kế hoạch chơi cả stack.
 :::

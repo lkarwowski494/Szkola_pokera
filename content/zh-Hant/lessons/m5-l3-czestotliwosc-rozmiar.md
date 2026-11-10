@@ -127,7 +127,7 @@ C-bet（持續{{t:bet|下注}}）是翻牌前最後一個{{t:raise|加注}}的�
 
 ## 對手要{{t:fold|棄牌}}多少才夠
 
-沒有任何牌力的{{t:bet|下注}}，在對手{{t:fold|棄牌}}的比例達到 下注 ÷（{{t:pot|底池}} + 下注）時打平。下{{t:pot|底池}}的 {{n:cbet.size.small}} 時是 {{n:alpha.cbet.small}}，下{{t:pot|底池}}的 {{n:cbet.size.big}} 時就要 {{n:alpha.cbet.big}}。沒成對的手牌約有 {{n:flop.miss.unpaired}} 的情況沒中翻牌，所以小 C-bet 才會這麼常有利可圖。
+沒有任何牌力的{{t:bet|下注}}，在對手{{t:fold|棄牌}}的比例達到 下注 ÷（{{t:pot|底池}} + 下注）時打平。下{{t:pot|底池}}的 {{n:cbet.size.small}} 時是 {{n:alpha.cbet.small}}，下{{t:pot|底池}}的 {{n:cbet.size.big}} 時就要 {{n:alpha.cbet.big}}。沒有{{t:pair|對子}}的手牌約有 {{n:flop.miss.unpaired}} 的情況沒中翻牌，所以小 C-bet 才會這麼常有利可圖。
 
 :::note 這些原則從哪裡來
 這些方向（{{t:dry|乾燥}}翻牌：下小注、常下注；{{t:draw|聽牌}}很多但還沒成{{t:straight|順子}}：下大一點、下注較少；{{t:straight|順子}}已經可能成立：下小一點；{{t:paired|成對}}：下小注；{{t:monotone|單色}}：下注較少、下小注）是來自教學資料和已發表求解器結果的一般原則，標示為經驗法則。{{t:pot|底池}}的 {{n:cbet.size.small}} 和 {{n:cbet.size.big}} 這兩種尺寸，是取自上面所列範圍的例子（關於下注尺寸的教學資料；已發表的求解器結果）。本 App 不以百分比說明多常下注，因為這類數字來自求解器的結果。

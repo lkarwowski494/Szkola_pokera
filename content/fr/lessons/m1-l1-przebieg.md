@@ -93,5 +93,5 @@ Si quelqu'un a {{t:bet|misé}}, vous pouvez vous {{t:fold|coucher}}, {{t:call|su
 :::
 
 :::note All-in et {{t:side-pot|pot secondaire}}
-Vous ne pouvez pas {{t:bet|miser}} plus que ce que vous avez devant vous. Quand vous mettez tous vos {{t:chips|jetons}}, vous êtes **all-in** : vous ne participez plus aux enchères, et les {{t:community-cards|cartes communes}} restantes sont distribuées jusqu'au bout. Contre chaque adversaire, vous pouvez gagner au maximum ce que vous avez vous-même mis. Si les autres continuent à jouer pour plus, l'excédent va dans un **{{t:side-pot|pot secondaire}}**, que seuls eux se disputent.
+Vous ne pouvez pas {{t:bet|miser}} plus que ce que vous avez devant vous. Quand vous mettez tous vos {{t:chips|jetons}}, vous êtes **all-in** : vous ne participez plus aux enchères, et les {{t:community-cards|cartes communes}} restantes sont distribuées jusqu'au bout. Contre chaque adversaire, vous pouvez gagner au maximum ce que vous avez vous-même mis. Si les autres continuent à jouer pour plus, l'excédent va dans un **{{t:side-pot|pot secondaire}}** (side pot), qu'eux seuls se disputent.
 :::

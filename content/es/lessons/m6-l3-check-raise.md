@@ -14,7 +14,7 @@ drills:
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
       - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dobles parejas}} en un flop bajo y {{t:connected|conectado}} es una mano {{t:value|de valor}}. En flops así, la {{t:big-blind|ciega grande}} tiene más manos de las más fuertes que el botón. Al {{t:raise|subir}} construyes el {{t:pot|bote}} y haces pagar a las {{t:pair|parejas}} y a los {{t:draw|proyectos}}." }
-      - { text: "{{t:call|Igualo}}", correct: true, why: "También es buena: en un flop muy {{t:connected|conectado}}, el solver solo {{t:call|iguala}} con parte de las {{t:two-pair|dobles parejas}}. El check-raise construye el {{t:pot|bote}} y protege la mano con más frecuencia." }
+      - { text: "{{t:call|Igualo}}", correct: true, why: "También es buena: en un flop muy {{t:connected|conectado}}, con parte de las {{t:two-pair|dobles parejas}} el solver se limita a {{t:call|igualar}}. El check-raise construye el {{t:pot|bote}} y protege la mano con más frecuencia." }
       - { text: "{{t:fold|Me retiro}}", why: "{{t:two-pair|Dobles parejas}} es una de las manos más fuertes en este flop. {{t:fold|Retirarse}} es un gran error." }
   - kind: choice
     id: m6.l3.q-set-size
@@ -41,7 +41,7 @@ drills:
     prompt: "En el {{t:pot|bote}} había {{n:ex.third.pot}}, el botón {{t:bet|apostó}} {{n:ex.third.bet}} y tú {{t:raise|subiste}} a {{n:xr.example}}. ¿Qué porcentaje de equity necesita el botón para {{t:call|igualar}}? Escribe el número."
     table: { position: BB }
     answer: eq.vs-xr.example
-    explanation: "El botón pone {{n:xr.example}} − {{n:ex.third.bet}} = {{n:xr.example.extra}} más. En el {{t:pot|bote}} hay entonces {{n:xr.example.pot-after}} y, tras su {{t:call|pago}}, {{n:xr.example.extra}} más. {{n:xr.example.extra}} ÷ ({{n:xr.example.pot-after}} + {{n:xr.example.extra}}) = {{n:eq.vs-xr.example}}."
+    explanation: "El botón pone {{n:xr.example}} − {{n:ex.third.bet}} = {{n:xr.example.extra}} más. En el {{t:pot|bote}} hay entonces {{n:xr.example.pot-after}} y, tras su {{t:call|igualada}}, {{n:xr.example.extra}} más. {{n:xr.example.extra}} ÷ ({{n:xr.example.pot-after}} + {{n:xr.example.extra}}) = {{n:eq.vs-xr.example}}."
   - kind: choice
     id: m6.l3.q-price-small-xr
     family: m6.xr.size
@@ -70,7 +70,7 @@ drills:
     table: { hand: "9s 8s", board: "7d 6c 2h", position: BB }
     options:
       - { text: "Check-raise", correct: true, why: "Un {{t:oesd|proyecto de escalera abierta}} ({{n:outs.oesd}} outs) frente a un c-bet pequeño, que te da una ocasión barata de {{t:raise|subir}}. {{t:raise|Subiendo}} puedes ganar de inmediato y, si te {{t:call|igualan}}, aún puedes ligar." }
-      - { text: "{{t:call|Igualo}}", correct: true, why: "También es buena: ligas la {{t:straight|escalera}} en el turn aprox. el {{n:odds.oesd.flop-turn}} de las veces, algo menos que el precio de {{n:eq.bet-third}}, pero si la ligas ganarás más (implied odds) y, si nadie {{t:bet|apuesta}} en el turn, también verás el river gratis. Parte de los {{t:draw|proyectos}} fuertes los {{t:call|igualas}}, para que tus {{t:call|pagos}} no sean todos débiles." }
+      - { text: "{{t:call|Igualo}}", correct: true, why: "También es buena: ligas la {{t:straight|escalera}} en el turn aprox. el {{n:odds.oesd.flop-turn}} de las veces, algo menos que el precio de {{n:eq.bet-third}}, pero si la ligas ganarás más (implied odds) y, si nadie {{t:bet|apuesta}} en el turn, también verás el river gratis. Parte de los {{t:draw|proyectos}} fuertes los {{t:call|igualas}}, para que tus {{t:call|igualadas}} no sean todas débiles." }
       - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado: con {{n:outs.oesd}} outs ligas la {{t:straight|escalera}} en el turn aprox. el {{n:odds.oesd.flop-turn}} de las veces, no mucho menos que el precio de {{n:eq.bet-third}}; el resto lo aportan las implied odds y la opción de ver un river gratis. Además, puedes hacer check-raise." }
   - kind: choice
     id: m6.l3.q-top-pair-weak
@@ -109,11 +109,11 @@ drills:
     prompt: "Juegas contra un botón que en el flop casi nunca {{t:fold|se retira}}. {{t:bet|Apuesta}} un c-bet de 1/3 del {{t:pot|bote}}. ¿Qué haces?"
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
-      - { text: "{{t:call|Igualo}}", correct: true, why: "Un gutshot con carta alta es un buen {{t:call|pago}} con un precio de {{n:eq.bet-third}}. El check-raise de {{t:bluff|farol}} gana dinero con las {{t:fold|retiradas}}, y este rival casi no {{t:fold|se retira}}, así que la {{t:raise|subida}} pierde su principal ventaja." }
+      - { text: "{{t:call|Igualo}}", correct: true, why: "Un gutshot con carta alta es una buena {{t:call|igualada}} con un precio de {{n:eq.bet-third}}. El check-raise de {{t:bluff|farol}} gana dinero con las {{t:fold|retiradas}}, y este rival casi no {{t:fold|se retira}}, así que la {{t:raise|subida}} pierde su principal ventaja." }
       - { text: "Check-raise", why: "Los {{t:bluff|faroles}} con check-raise los haces sobre todo con {{t:draw|proyectos}} fuertes, y un gutshot no es uno de ellos. Además, el {{t:bluff|farol}} gana dinero con las {{t:fold|retiradas}}, y este rival casi no {{t:fold|se retira}}: contra él {{t:raise|subes}} sobre todo {{t:value|por valor}}." }
       - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado: un {{t:draw|proyecto}} con carta alta se defiende con un precio tan bueno, juegues contra quien juegues." }
 ---
-Hacer check-raise es {{t:check|pasar}} y después {{t:raise|subir}} la {{t:bet|apuesta}} del rival. Desde la {{t:big-blind|ciega grande}} es un arma importante frente a los c-bets (casi siempre eliges de todos modos entre {{t:call|igualar}} y {{t:fold|retirarte}}): sin ella, el botón podría hacer c-bet barato con casi cualquier mano.
+Hacer check-raise es {{t:check|pasar}} y después {{t:raise|subir}} la {{t:bet|apuesta}} del rival. Desde la {{t:big-blind|ciega grande}} es un arma importante frente a los c-bets (la mayoría de las veces eliges de todos modos entre {{t:call|igualar}} y {{t:fold|retirarte}}): sin ella, el botón podría hacer c-bet barato con casi cualquier mano.
 
 ## Por qué {{t:raise|subir}}
 
@@ -135,5 +135,5 @@ Con manos medias, como {{t:top-pair|pareja mayor}} con kicker débil, normalment
 El tamaño del check-raise lo calculas a partir del c-bet. Ejemplo: en el {{t:pot|bote}} hay {{n:ex.third.pot}} y el c-bet es de {{n:ex.third.bet}}. Un check-raise a {{n:xr.mult.example}} el c-bet es una {{t:raise|subida}} a {{n:xr.example}}: el botón pone {{n:xr.example.extra}} más y necesita aprox. **{{n:eq.vs-xr.example}}** de equity. Una {{t:raise|subida}} solo a {{n:xr.too-small}} le da un precio de aprox. **{{n:eq.vs-xr.too-small}}**: pagará con casi cualquier mano que tenga algún {{t:draw|proyecto}}. Por eso {{t:raise|subes}} a aprox. {{n:xr.mult.low}}–{{n:xr.mult.example}} el c-bet, más cuanto menor sea el c-bet, y no al mínimo.
 
 :::note Un rival que no {{t:fold|se retira}}
-El {{t:bluff|farol}} con check-raise gana dinero con las {{t:fold|retiradas}} (recuerda el alfa de la primera lección). Frente a un jugador que en el flop casi nunca {{t:fold|se retira}}, {{t:raise|subes}} sobre todo {{t:value|por valor}} y guardas los {{t:bluff|faroles}} para los {{t:draw|proyectos}} más fuertes.
+El {{t:bluff|farol}} con check-raise gana dinero con las {{t:fold|retiradas}} (recuerda el alpha de la primera lección). Frente a un jugador que en el flop casi nunca {{t:fold|se retira}}, {{t:raise|subes}} sobre todo {{t:value|por valor}} y guardas los {{t:bluff|faroles}} para los {{t:draw|proyectos}} más fuertes.
 :::

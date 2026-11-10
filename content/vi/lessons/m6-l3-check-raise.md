@@ -13,7 +13,7 @@ drills:
     prompt: "Bạn bảo vệ {{t:big-blind}} trước lần {{t:open|mở pot}} của Button. Trên flop, bạn {{t:check}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot}}. Bạn làm gì?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Hai đôi}} trên flop thấp, {{t:connected|liên kết}} là bài để chơi {{t:value|lấy giá trị}}. Trên những flop như vậy, {{t:big-blind}} có nhiều tổ hợp mạnh nhất hơn Button. Khi {{t:raise|tố}}, bạn xây {{t:pot}} và buộc các {{t:pair|đôi}} và {{t:draw|draw}} phải trả tiền." }
+      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Hai đôi}} trên flop thấp, {{t:connected|liên kết}} là bài để chơi {{t:value|lấy giá trị}}. Trên những flop như vậy, {{t:big-blind}} có nhiều tổ hợp mạnh nhất hơn Button. Khi {{t:raise|tố}}, bạn xây {{t:pot}} và buộc các {{t:pair|đôi}} và {{t:draw|bài chờ}} phải trả tiền." }
       - { text: "{{t:call|Theo}}", correct: true, why: "Cũng tốt: trên flop rất {{t:connected|liên kết}}, solver chỉ {{t:call|theo}} với một phần {{t:two-pair|hai đôi}}. Check-raise xây {{t:pot}} và bảo vệ bài thường xuyên hơn." }
       - { text: "{{t:fold|Bỏ bài}}", why: "{{t:two-pair|Hai đôi}} là một trong những bài mạnh nhất trên flop này. {{t:fold|Bỏ bài}} là sai lầm lớn." }
   - kind: choice
@@ -23,8 +23,8 @@ drills:
     prompt: "{{t:pot|Pot}} có {{n:ex.third.pot}}, Button {{t:bet|cược}} c-bet {{n:ex.third.bet}}. Bạn có set và muốn check-raise. Bạn {{t:raise|tố}} lên bao nhiêu?"
     table: { hand: "4s 4d", board: "Qc 9h 4h", position: BB }
     options:
-      - { text: "Lên {{n:xr.example}}", correct: true, why: "Đó là {{n:xr.mult.example}} c-bet. Button phải bỏ thêm {{n:xr.example.extra}} và cần khoảng {{n:eq.vs-xr.example}} equity: các {{t:pair|đôi}} yếu hơn và {{t:draw|draw}} yếu (gutshot) không có giá tốt, còn draw {{t:flush|thùng}} và {{t:oesd}} sẽ trả tiền vào {{t:pot}} đã lớn." }
-      - { text: "Lên {{n:xr.too-small}}", sizeError: true, why: "Hành động đúng, nhưng kích thước quá nhỏ: Button chỉ bỏ thêm {{n:xr.too-small.extra}} và cần khoảng {{n:eq.vs-xr.too-small}} equity. Mọi {{t:flush-draw|draw thùng}} hay draw {{t:straight|sảnh}} đều sẽ trả tiền gần như miễn phí." }
+      - { text: "Lên {{n:xr.example}}", correct: true, why: "Đó là {{n:xr.mult.example}} c-bet. Button phải bỏ thêm {{n:xr.example.extra}} và cần khoảng {{n:eq.vs-xr.example}} equity: các {{t:pair|đôi}} yếu hơn và {{t:draw|bài chờ}} yếu (gutshot) không có giá tốt, còn bài chờ {{t:flush|thùng}} và {{t:oesd}} sẽ trả tiền vào {{t:pot}} đã lớn." }
+      - { text: "Lên {{n:xr.too-small}}", sizeError: true, why: "Hành động đúng, nhưng kích thước quá nhỏ: Button chỉ bỏ thêm {{n:xr.too-small.extra}} và cần khoảng {{n:eq.vs-xr.too-small}} equity. Mọi {{t:flush-draw|bài chờ thùng}} hay bài chờ {{t:straight|sảnh}} đều sẽ trả tiền gần như miễn phí." }
       - { text: "{{t:call|Theo}}", why: "Trên flop có hai lá cơ và các lá tạo {{t:straight|sảnh}}, bạn mất giá trị và sự bảo vệ: nhiều lá turn sẽ làm dừng hành động hoặc đánh bại bài của bạn. Set muốn xây {{t:pot}} ngay." }
   - kind: numeric
     id: m6.l3.n-size
@@ -59,8 +59,8 @@ drills:
     prompt: "Bạn bảo vệ {{t:big-blind}} trước lần {{t:open|mở pot}} của Button. Trên flop, bạn {{t:check}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot}}. Bạn làm gì?"
     table: { hand: "Ah 5h", board: "Kh 8h 3c", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "{{t:draw|Draw}} đến {{t:flush|thùng}} mạnh nhất là một {{t:semi-bluff}} tốt: bạn thắng khi Button {{t:fold|bỏ bài}}, còn khi Button trả tiền, bạn vẫn có {{n:outs.flush}} out (khoảng {{n:odds.flush.flop-turn}} ở turn)." }
-      - { text: "{{t:call|Theo}}", correct: true, why: "Cũng tốt: bạn trúng {{t:flush|thùng}} ở turn khoảng {{n:odds.flush.flop-turn}}, gần bằng mức giá {{n:eq.bet-third}}, và khi trúng {{t:flush|thùng}} mạnh nhất, bạn thắng thêm (implied odds). Bạn chơi các {{t:draw|draw}} mạnh theo cả hai cách để check-raise của bạn không chỉ gồm bài mạnh." }
+      - { text: "Check-raise", correct: true, why: "{{t:draw|Bài chờ}} đến {{t:flush|thùng}} mạnh nhất là một {{t:semi-bluff}} tốt: bạn thắng khi Button {{t:fold|bỏ bài}}, còn khi Button trả tiền, bạn vẫn có {{n:outs.flush}} out (khoảng {{n:odds.flush.flop-turn}} ở turn)." }
+      - { text: "{{t:call|Theo}}", correct: true, why: "Cũng tốt: bạn trúng {{t:flush|thùng}} ở turn khoảng {{n:odds.flush.flop-turn}}, gần bằng mức giá {{n:eq.bet-third}}, và khi trúng {{t:flush|thùng}} mạnh nhất, bạn thắng thêm (implied odds). Bạn chơi các {{t:draw|bài chờ}} mạnh theo cả hai cách để check-raise của bạn không chỉ gồm bài mạnh." }
       - { text: "{{t:fold|Bỏ bài}}", why: "Sai lầm lớn: với {{n:outs.flush}} out, bạn trúng {{t:flush|thùng}} mạnh nhất ở turn khoảng {{n:odds.flush.flop-turn}}, gần bằng mức giá {{n:eq.bet-third}}, và khi trúng, bạn thắng thêm (implied odds). Ngoài ra, bạn có thể check-raise." }
   - kind: choice
     id: m6.l3.q-oesd
@@ -70,7 +70,7 @@ drills:
     table: { hand: "9s 8s", board: "7d 6c 2h", position: BB }
     options:
       - { text: "Check-raise", correct: true, why: "{{t:oesd|OESD}} ({{n:outs.oesd}} out) trước c-bet nhỏ, tạo cơ hội rẻ để {{t:raise|tố}}. Khi {{t:raise|tố}}, bạn có thể thắng ngay, còn nếu bị {{t:call|theo}}, bạn vẫn có thể trúng." }
-      - { text: "{{t:call|Theo}}", correct: true, why: "Cũng tốt: bạn trúng {{t:straight|sảnh}} ở turn khoảng {{n:odds.oesd.flop-turn}}, thấp hơn một chút so với mức giá {{n:eq.bet-third}}, nhưng khi trúng, bạn thắng thêm (implied odds), và nếu không ai {{t:bet|cược}} ở turn, bạn còn được xem river miễn phí. Bạn {{t:call|theo}} với một phần {{t:draw|draw}} mạnh để các lần {{t:call|theo}} của bạn không toàn là bài yếu." }
+      - { text: "{{t:call|Theo}}", correct: true, why: "Cũng tốt: bạn trúng {{t:straight|sảnh}} ở turn khoảng {{n:odds.oesd.flop-turn}}, thấp hơn một chút so với mức giá {{n:eq.bet-third}}, nhưng khi trúng, bạn thắng thêm (implied odds), và nếu không ai {{t:bet|cược}} ở turn, bạn còn được xem river miễn phí. Bạn {{t:call|theo}} với một phần {{t:draw|bài chờ}} mạnh để các lần {{t:call|theo}} của bạn không toàn là bài yếu." }
       - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: với {{n:outs.oesd}} out, bạn trúng {{t:straight|sảnh}} ở turn khoảng {{n:odds.oesd.flop-turn}}, không thấp hơn nhiều so với mức giá {{n:eq.bet-third}}; phần còn lại đến từ implied odds và cơ hội xem river miễn phí. Ngoài ra, bạn có thể check-raise." }
   - kind: choice
     id: m6.l3.q-top-pair-weak
@@ -80,7 +80,7 @@ drills:
     table: { hand: "Kd 9c", board: "Ks 7d 2c", position: BB }
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "{{t:top-pair|Đôi cao nhất}} với kicker yếu là bài để {{t:call|theo}}. Nó thắng các {{t:bluff}} của Button, và khi {{t:call|theo}}, bạn giữ chúng lại trong ván." }
-      - { text: "Check-raise", why: "Thường thì bạn {{t:call|theo}}. Sau khi bạn {{t:raise|tố}}, người trả tiền cho bạn chủ yếu là bài mạnh hơn và {{t:draw|draw}}; check-raise với bài như vậy là lối chơi hiếm của solver trước c-bet nhỏ." }
+      - { text: "Check-raise", why: "Thường thì bạn {{t:call|theo}}. Sau khi bạn {{t:raise|tố}}, người trả tiền cho bạn chủ yếu là bài mạnh hơn và {{t:draw|bài chờ}}; check-raise với bài như vậy là lối chơi hiếm của solver trước c-bet nhỏ." }
       - { text: "{{t:fold|Bỏ bài}}", why: "{{t:top-pair|Đôi cao nhất}} trước c-bet nhỏ chắc chắn là quá mạnh để {{t:fold|bỏ bài}}." }
   - kind: choice
     id: m6.l3.q-ace-high-board
@@ -89,8 +89,8 @@ drills:
     prompt: "Bạn bảo vệ {{t:big-blind}} trước lần {{t:open|mở pot}} của Button. Trên flop, bạn {{t:check}}, Button {{t:bet|cược}} c-bet 1/3 {{t:pot}}. Bạn làm gì?"
     table: { hand: "6s 5s", board: "Ad Kc 8h", position: BB }
     options:
-      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn không có {{t:pair|đôi}} cũng không có {{t:flush-draw|draw thùng}}; bạn chỉ có {{t:straight-draw|draw sảnh}} backdoor yếu (cần hai lá cụ thể), và không lá nào của bạn cao hơn bài trên bàn. Trên flop có át, bạn {{t:fold|bỏ}} nhiều bài như vậy hơn." }
-      - { text: "Check-raise như một {{t:bluff}}", why: "Bạn {{t:bluff}} bằng check-raise chủ yếu với các {{t:draw|draw}} (draw {{t:flush|thùng}}, {{t:oesd}}) cũng thắng khi trúng. Bài này chỉ có {{t:draw}} backdoor yếu, và ở đây Button có nhiều át và K sẽ không {{t:fold|bỏ bài}}." }
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn không có {{t:pair|đôi}} cũng không có {{t:flush-draw|bài chờ thùng}}; bạn chỉ có {{t:straight-draw|bài chờ sảnh}} backdoor yếu (cần hai lá cụ thể), và không lá nào của bạn cao hơn bài trên bàn. Trên flop có át, bạn {{t:fold|bỏ}} nhiều bài như vậy hơn." }
+      - { text: "Check-raise như một {{t:bluff}}", why: "Bạn {{t:bluff}} bằng check-raise chủ yếu với các {{t:draw|bài chờ}} (bài chờ {{t:flush|thùng}}, {{t:oesd}}) cũng thắng khi trúng. Bài này chỉ có {{t:draw}} backdoor yếu, và ở đây Button có nhiều át và K sẽ không {{t:fold|bỏ bài}}." }
       - { text: "{{t:call|Theo}}", why: "Giá tốt, nhưng bài này gần như không trúng được gì: ngay cả {{t:pair|đôi}} 6 hay đôi 5 cũng thua phần lớn bài mà Button sẽ tiếp tục trả tiền." }
   - kind: choice
     id: m6.l3.q-when-more
@@ -110,7 +110,7 @@ drills:
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "Gutshot có lá cao là một lần {{t:call|theo}} tốt với mức giá {{n:eq.bet-third}}. {{t:bluff|Bluff}} bằng check-raise kiếm tiền từ các lần {{t:fold|bỏ bài}}, mà đối thủ này hầu như không {{t:fold|bỏ bài}}, nên {{t:raise|lần tố}} mất đi ưu điểm chính." }
-      - { text: "Check-raise", why: "Bạn {{t:bluff}} bằng check-raise chủ yếu với các {{t:draw|draw}} mạnh, và gutshot không thuộc nhóm đó. Ngoài ra, {{t:bluff}} kiếm tiền từ các lần {{t:fold|bỏ bài}}, mà đối thủ này hầu như không {{t:fold|bỏ bài}}: trước đối thủ này, bạn {{t:raise|tố}} chủ yếu để {{t:value|lấy giá trị}}." }
+      - { text: "Check-raise", why: "Bạn {{t:bluff}} bằng check-raise chủ yếu với các {{t:draw|bài chờ}} mạnh, và gutshot không thuộc nhóm đó. Ngoài ra, {{t:bluff}} kiếm tiền từ các lần {{t:fold|bỏ bài}}, mà đối thủ này hầu như không {{t:fold|bỏ bài}}: trước đối thủ này, bạn {{t:raise|tố}} chủ yếu để {{t:value|lấy giá trị}}." }
       - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: {{t:draw}} có lá cao với mức giá tốt như vậy là đáng giữ, bất kể bạn chơi với ai." }
 ---
 Check-raise là {{t:check}} rồi {{t:raise|tố}} {{t:bet|cược}} của đối thủ. Từ {{t:big-blind}}, đây là vũ khí quan trọng trước c-bet (phần lớn thời gian bạn vẫn chọn giữa {{t:call|theo}} và {{t:fold|bỏ bài}}): không có nó, Button có thể c-bet rẻ với gần như mọi bài.
@@ -120,9 +120,9 @@ Check-raise là {{t:check}} rồi {{t:raise|tố}} {{t:bet|cược}} của đố
 Bạn check-raise vì hai lý do:
 
 - **{{t:value|lấy giá trị}}**: bạn có bài rất mạnh ({{t:two-pair}}, set) và muốn xây {{t:pot}},
-- **như một {{t:semi-bluff}}**: bạn có {{t:draw}} (draw {{t:flush|thùng}}, {{t:oesd}}) thắng theo hai cách: khi Button {{t:fold|bỏ bài}} hoặc khi bạn trúng.
+- **như một {{t:semi-bluff}}**: bạn có {{t:draw}} (bài chờ {{t:flush|thùng}}, {{t:oesd}}) thắng theo hai cách: khi Button {{t:fold|bỏ bài}} hoặc khi bạn trúng.
 
-Với bài trung bình, ví dụ {{t:top-pair}} với kicker yếu, bạn thường {{t:call|theo}}: sau khi bạn {{t:raise|tố}}, bài yếu hơn của Button sẽ {{t:fold|bỏ}} thường xuyên hơn, còn bài mạnh hơn sẽ trả tiền. Đây là cách đơn giản hóa: trước c-bet nhỏ, solver cũng {{t:raise|tố}} với một phần {{t:top-pair|đôi cao nhất}} và {{t:pair|đôi}} yếu để bảo vệ. Ngược lại, với {{t:two-pair}} trên flop rất {{t:connected|liên kết}}, solver thường chỉ {{t:call|theo}}.
+Với bài trung bình, ví dụ {{t:top-pair|đôi cao nhất}} với kicker yếu, bạn thường {{t:call|theo}}: sau khi bạn {{t:raise|tố}}, bài yếu hơn của Button sẽ {{t:fold|bỏ}} thường xuyên hơn, còn bài mạnh hơn sẽ trả tiền. Đây là cách đơn giản hóa: trước c-bet nhỏ, solver cũng {{t:raise|tố}} với một phần {{t:top-pair|đôi cao nhất}} và {{t:pair|đôi}} yếu để bảo vệ. Ngược lại, với {{t:two-pair}} trên flop rất {{t:connected|liên kết}}, solver thường chỉ {{t:call|theo}}.
 
 ## Khi nào thường xuyên hơn
 
@@ -135,5 +135,5 @@ Với bài trung bình, ví dụ {{t:top-pair}} với kicker yếu, bạn thư�
 Kích thước check-raise tính theo c-bet. Ví dụ: {{t:pot}} có {{n:ex.third.pot}}, c-bet {{n:ex.third.bet}}. Check-raise lên {{n:xr.mult.example}} c-bet là {{t:raise|tố}} lên {{n:xr.example}}: Button bỏ thêm {{n:xr.example.extra}} và cần khoảng **{{n:eq.vs-xr.example}}** equity. {{t:raise|Tố}} chỉ lên {{n:xr.too-small}} cho Button mức giá khoảng **{{n:eq.vs-xr.too-small}}**: Button sẽ trả tiền với gần như mọi bài có bất kỳ {{t:draw}} nào. Vì vậy bạn {{t:raise|tố}} khoảng {{n:xr.mult.low}}–{{n:xr.mult.example}} c-bet, c-bet càng nhỏ thì tố càng nhiều, chứ không tố tối thiểu.
 
 :::note Đối thủ không {{t:fold|bỏ bài}}
-{{t:bluff|Bluff}} bằng check-raise kiếm tiền từ các lần {{t:fold|bỏ bài}} (hãy nhớ lại alpha từ bài học đầu tiên). Trước người chơi gần như không bao giờ {{t:fold|bỏ bài}} trên flop, bạn {{t:raise|tố}} chủ yếu để {{t:value|lấy giá trị}}, và để dành {{t:bluff}} cho các {{t:draw|draw}} mạnh nhất.
+{{t:bluff|Bluff}} bằng check-raise kiếm tiền từ các lần {{t:fold|bỏ bài}} (hãy nhớ lại alpha từ bài học đầu tiên). Trước người chơi gần như không bao giờ {{t:fold|bỏ bài}} trên flop, bạn {{t:raise|tố}} chủ yếu để {{t:value|lấy giá trị}}, và để dành {{t:bluff}} cho các {{t:draw|bài chờ}} mạnh nhất.
 :::

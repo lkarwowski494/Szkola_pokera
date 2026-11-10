@@ -24,7 +24,7 @@ entries:
     country: '*'
     kind: gambling
     name: 'Gambling Therapy (Gordon Moody)'
-    info: '도박의 영향을 받는 누구에게나 무료 실질적 조언과 정서적 지원을 온라인으로 제공합니다. 비밀이 보장됩니다.'
+    info: '도박의 영향을 받는 누구에게나 실질적인 조언과 정서적 지원을 온라인으로 무료 제공합니다. 비밀이 보장됩니다.'
     links:
       - label: 'Gambling Therapy'
         url: https://www.gamblingtherapy.org/

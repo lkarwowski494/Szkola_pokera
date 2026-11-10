@@ -20,7 +20,7 @@ drills:
     id: m11.exam.q3
     family: m11.fold-equity
     rules: [R-M11-004]
-    prompt: "{{t:small-blind|Small blind}}, {{n:exam.m11.fe.depth}}, không có ante, tất cả đã {{t:fold|bỏ bài}}. {{t:big-blind}} phải {{t:fold|bỏ bài}} thường xuyên đến mức nào để all-in với một tay bài hoàn toàn không có cơ hội hòa vốn?"
+    prompt: "{{t:small-blind|Small blind}}, {{n:exam.m11.fe.depth}}, không có ante, tất cả đã {{t:fold|bỏ bài}}. {{t:big-blind}} phải {{t:fold|bỏ bài}} thường xuyên đến mức nào để all-in với một tay bài hoàn toàn không có cơ hội thắng đạt mức hòa vốn?"
     options:
       - { text: "Hơn {{n:exam.m11.fe.alpha}} số lần", correct: true, why: "Bạn bỏ thêm {{n:exam.m11.fe.risk}} để thắng {{n:m11.push.10.win}} blind: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. Đối thủ không {{t:fold|bỏ bài}} thường xuyên như vậy, nên all-in cũng cần equity khi đối thủ {{t:call|theo}}." }
       - { text: "Hơn một nửa số lần", why: "Bạn mạo hiểm nhiều hơn hẳn so với phần thắng: {{n:exam.m11.fe.risk}} so với {{n:m11.push.10.win}}. Ngưỡng là rủi ro ÷ (phần thắng + rủi ro), tức khoảng {{n:exam.m11.fe.alpha}}." }
@@ -29,7 +29,7 @@ drills:
     id: m11.exam.q4
     family: m11.ante
     rules: [R-M11-003, R-M11-004]
-    prompt: "Vẫn stack {{n:exam.m11.fe.depth}} ở {{t:small-blind|small blind}}, nhưng {{t:big-blind}} đã đặt ante {{n:m11.ante}}. Giờ đối thủ phải {{t:fold|bỏ bài}} thường xuyên đến mức nào để all-in với tay bài không có cơ hội hòa vốn?"
+    prompt: "Vẫn stack {{n:exam.m11.fe.depth}} ở {{t:small-blind|small blind}}, nhưng {{t:big-blind}} đã đặt ante {{n:m11.ante}}. Giờ đối thủ phải {{t:fold|bỏ bài}} thường xuyên đến mức nào để all-in với tay bài không có cơ hội thắng đạt mức hòa vốn?"
     options:
       - { text: "Hơn {{n:exam.m11.fe.alpha-ante}} số lần, nên bạn {{t:shove|đẩy all-in}} nhiều tay bài hơn", correct: true, why: "Ante làm {{t:pot|pot}} mà bạn giành được khi đối thủ {{t:fold|bỏ bài}} lớn hơn: {{n:m11.push.10.win-ante}} thay vì {{n:m11.push.10.win}}, còn rủi ro vẫn như cũ ({{n:exam.m11.fe.risk}}). {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}} thay vì {{n:exam.m11.fe.alpha}}." }
       - { text: "Như khi không có ante: hơn {{n:exam.m11.fe.alpha}}", why: "Ante nằm trong {{t:pot|pot}} và bạn giành được nó khi đối thủ {{t:fold|bỏ bài}}. Phần thưởng lớn hơn với cùng mức rủi ro hạ ngưỡng xuống khoảng {{n:exam.m11.fe.alpha-ante}}." }
@@ -54,7 +54,7 @@ drills:
     id: m11.exam.q7
     family: m11.bf
     rules: [R-M11-009, R-M11-008]
-    prompt: "{{t:bubble|Bubble}}: bốn người chơi, trả thưởng ba vị trí ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} {{t:prize-pool|quỹ giải thưởng}}). Stack: {{n:exam.m11.bf.s1}}, của bạn {{n:exam.m11.bf.s2}}, đối thủ all-in {{n:exam.m11.bf.s3}} và {{n:exam.m11.bf.s4}}. Theo {{t:icm}}, nếu {{t:call|theo}} và thua, bạn mất {{n:exam.m11.bf.loss}} {{t:prize-pool|quỹ giải thưởng}}, còn nếu thắng, bạn được thêm {{n:exam.m11.bf.gain}}. Bubble factor bằng bao nhiêu? Hãy nhập một số với hai chữ số thập phân."
+    prompt: "{{t:bubble|Bubble}}: bốn người chơi, trả thưởng ba vị trí ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} {{t:prize-pool|tổng giải thưởng}}). Stack: {{n:exam.m11.bf.s1}}, của bạn {{n:exam.m11.bf.s2}}, đối thủ all-in {{n:exam.m11.bf.s3}} và {{n:exam.m11.bf.s4}}. Theo {{t:icm}}, nếu {{t:call|theo}} và thua, bạn mất {{n:exam.m11.bf.loss}} {{t:prize-pool|tổng giải thưởng}}, còn nếu thắng, bạn được thêm {{n:exam.m11.bf.gain}}. Bubble factor bằng bao nhiêu? Hãy nhập một số với hai chữ số thập phân."
     answer: exam.m11.bf.value
     explanation: "Bubble factor = phần mất ÷ phần được = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Equity hiện tại của bạn là {{n:exam.m11.bf.eq.now}}, sau khi thắng là {{n:exam.m11.bf.eq.win}}, sau khi thua là {{n:exam.m11.bf.eq.lose}}: thua mất nhiều hơn so với thắng được thêm. {{t:icm}} không tính đến {{t:position|vị trí}} hay kỹ năng của người chơi, nên cách định giá này chỉ là gần đúng."
   - kind: choice

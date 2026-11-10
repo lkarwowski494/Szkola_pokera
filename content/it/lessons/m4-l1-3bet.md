@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "A5 dello stesso seme", correct: true, why: "Blocca AA e AK dell'avversario, e dopo un {{t:call|call}} può chiudere un {{t:flush|colore}} o una {{t:straight|scala}}. È un tipico {{t:bluff|bluff}} dalla parte bassa del {{t:range|range}} di {{t:call|call}}: dal {{t:big-blind|big blind}} fai 3-bet con le mani più forti più {{t:bluff|bluff}} come questo." }
       - { text: "K7 di semi diversi", why: "Con questa mano ti difendi con un {{t:call|call}}. Come 3-bet non blocca niente di importante e gioca male quando l'avversario {{t:call|chiama}}." }
-      - { text: "{{t:pair|Coppia}} 22", why: "Le {{t:pair|coppie}} più piccole si difendono con un {{t:call|call}}: guadagnano quando chiudono un set (un {{t:three-of-a-kind|tris}} con una {{t:pocket-pair|pocket pair}}, cioè una {{t:pair|coppia}} formata dalle due {{t:hole-cards|carte coperte}}), e un 3-bet con queste mani regge male un 4-bet." }
+      - { text: "{{t:pair|Coppia}} 22", why: "Le {{t:pair|coppie}} più piccole si difendono con un {{t:call|call}}: guadagnano quando chiudono un set (un {{t:three-of-a-kind|tris}} con una {{t:pocket-pair|coppia servita}}, cioè una {{t:pair|coppia}} formata dalle due {{t:hole-cards|carte personali}}), e un 3-bet con queste mani regge male un 4-bet." }
   - kind: generated
     id: m4.l1.g-btn
     family: m4.vsopen.btn-vs-co
@@ -76,7 +76,7 @@ Quando qualcuno prima di te {{t:open|ha aperto}}, hai tre possibilità: {{t:fold
 
 ## La {{t:position|posizione}} decide se {{t:call|chiamare}}
 
-Secondo le soluzioni dei solver pubblicate, il Button contro un'{{t:open|apertura}} dal {{t:cutoff|CO}} di solito fa 3-bet con circa {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} delle mani e {{t:call|chiama}} solo con circa {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Contro un'{{t:open|apertura}} da {{t:utg|UTG}} (in questa soluzione minima, a {{n:pf.open-size.solver-utg}}) i {{t:call|call}} sono già un po' più numerosi dei 3-bet: circa {{n:pf.call-freq.btn-vs-utg}} contro {{n:pf.3bet-freq.btn-vs-utg}}. Il {{t:range|range}} di {{t:utg|UTG}} è forte, quindi un 3-bet riceve più spesso un 4-bet e vince meno spesso il {{t:pot|piatto}} subito.
+Secondo le soluzioni dei solver pubblicate, il Button contro un'{{t:open|apertura}} dal {{t:cutoff|CO}} di solito fa 3-bet con circa {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} delle mani e {{t:call|chiama}} solo con circa {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Contro un'{{t:open|apertura}} da {{t:utg|UTG}} (che in questa soluzione è minima, a {{n:pf.open-size.solver-utg}}) i {{t:call|call}} sono già un po' più numerosi dei 3-bet: circa {{n:pf.call-freq.btn-vs-utg}} contro {{n:pf.3bet-freq.btn-vs-utg}}. Il {{t:range|range}} di {{t:utg|UTG}} è forte, quindi un 3-bet riceve più spesso un 4-bet e vince meno spesso il {{t:pot|piatto}} subito.
 
 ```range
 vs-open.btn-vs-co

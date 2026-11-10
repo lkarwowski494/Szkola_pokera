@@ -108,7 +108,7 @@ Un **out** è una carta che migliora la tua mano rendendola probabilmente vincen
 ## {{t:draw|Progetti}} tipici
 
 - **{{t:flush-draw|Progetto di colore}}** ({{n:draw.flush.seen}} carte dello stesso seme, ne manca una per il {{t:flush|colore}}): **{{n:outs.flush}} out**. Un seme ha {{n:cards.per-suit}} carte, {{n:draw.flush.seen}} le vedi.
-- **{{t:oesd|Progetto di scala bilaterale}}**, ad es. [[8c 9d]] sul {{t:board|board}} [[6s 7h Kd]]: **{{n:outs.oesd}} out**, cioè quattro cinque e quattro dieci.
+- **{{t:oesd|OESD}}**, ad es. [[8c 9d]] sul {{t:board|board}} [[6s 7h Kd]]: **{{n:outs.oesd}} out**, cioè quattro cinque e quattro dieci.
 - **Buco nella {{t:straight|scala}} (gutshot)**, ad es. 5-6-8-9 senza il sette: **{{n:outs.gutshot}} out**.
 
 ## La regola del 2 e del 4
@@ -123,12 +123,12 @@ probabilità ≈ out × 4   (due carte, solo se le vedi entrambe senza altre pun
 | {{t:draw|Progetto}} | Out | Flop → turn | Flop → river (all-in) | Turn → river |
 |---|---|---|---|---|
 | {{t:flush|Colore}} | {{n:outs.flush}} | {{n:odds.flush.flop-turn}} | {{n:odds.flush.flop-river}} | {{n:odds.flush.turn-river}} |
-| {{t:oesd|Progetto di scala bilaterale}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-turn}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
+| {{t:oesd|OESD}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-turn}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
 | Gutshot | {{n:outs.gutshot}} | {{n:odds.gutshot.flop-turn}} | {{n:odds.gutshot.flop-river}} | {{n:odds.gutshot.turn-river}} |
 
 ## Una carta o due?
 
-Quando l'avversario {{t:bet|punta}} al flop, il tuo {{t:call}} compra solo una carta: il turn. Al turn l'avversario può {{t:bet|puntare}} di nuovo e il river lo pagherai a parte. Per questo, davanti a una {{t:bet|puntata}} al flop, calcoli la probabilità per la **carta successiva** (× 2): per il {{t:flush|colore}} sono {{n:outs.flush}} su {{n:cards.unseen.flop}}, cioè circa {{n:odds.flush.flop-turn}}. La probabilità **entro il river** (× 4, per il {{t:flush|colore}} circa {{n:odds.flush.flop-river}}) la usi solo quando sei sicuro di vedere entrambe le carte senza altre {{t:bet|puntate}}, cioè quando qualcuno è all-in.
+Quando l'avversario {{t:bet|punta}} al flop, la tua {{t:call|chiamata}} compra solo una carta: il turn. Al turn l'avversario può {{t:bet|puntare}} di nuovo e il river lo pagherai a parte. Per questo, davanti a una {{t:bet|puntata}} al flop, calcoli la probabilità per la **carta successiva** (× 2): per il {{t:flush|colore}} sono {{n:outs.flush}} su {{n:cards.unseen.flop}}, cioè circa {{n:odds.flush.flop-turn}}. La probabilità **entro il river** (× 4, per il {{t:flush|colore}} circa {{n:odds.flush.flop-river}}) la usi solo quando sei sicuro di vedere entrambe le carte senza altre {{t:bet|puntate}}, cioè quando qualcuno è all-in.
 
 :::note Da dove vengono questi numeri
 Al turn non conosci {{n:cards.unseen.turn}} carte ({{n:cards.deck}} meno le tue {{n:cards.hole}} e le {{n:cards.board.turn}} sul {{t:board|board}}). La probabilità di chiudere il {{t:flush|colore}} è {{n:outs.flush}} su {{n:cards.unseen.turn}}. La regola del 2 e del 4 sbaglia al massimo di circa {{n:rule24.error.max.pp}} punti percentuali, finché gli out non sono più di {{n:rule24.outs.max}}.

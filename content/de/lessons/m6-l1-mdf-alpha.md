@@ -19,7 +19,7 @@ drills:
     rules: [R-M6-001]
     prompt: "River. Im {{t:pot|Pot}} sind {{n:ex.pot}}, dein Gegner {{t:bet|setzt}} den ganzen {{t:pot|Pot}}: {{n:ex.bet.pot}}. Wie hoch ist die {{t:mdf}}? Gib die Zahl in Prozent ein."
     answer: mdf.bet-pot
-    explanation: "{{t:mdf}} = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}}) = {{n:mdf.bet-pot}}. Bei einem Bet in Höhe des {{t:pot|Pots}} riskiert ein {{t:bluff|Bluff}} so viel, wie er gewinnen kann, also reicht es, wenn du in jedem zweiten Fall {{t:fold|foldest}}, damit er bei null herauskommt."
+    explanation: "{{t:mdf}} = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}}) = {{n:mdf.bet-pot}}. Bei einer Bet in Höhe des {{t:pot|Pots}} riskiert ein {{t:bluff|Bluff}} so viel, wie er gewinnen kann, also reicht es, wenn du in jedem zweiten Fall {{t:fold|foldest}}, damit er bei null herauskommt."
   - kind: choice
     id: m6.l1.q-mdf-half
     family: m6.mdf
@@ -35,7 +35,7 @@ drills:
     rules: [R-M6-001]
     prompt: "River. Im {{t:pot|Pot}} sind {{n:ex.pot}}, dein Gegner {{t:bet|setzt}} mehr als den {{t:pot|Pot}}: {{n:ex.bet.overbet}}. Wie hoch ist die {{t:mdf}}?"
     options:
-      - { text: "{{n:mdf.bet-overbet}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}}) = {{n:mdf.bet-overbet}}. Je größer der Bet, desto kleiner der Anteil deiner {{t:range|Range}}, den du verteidigen musst." }
+      - { text: "{{n:mdf.bet-overbet}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}}) = {{n:mdf.bet-overbet}}. Je größer die Bet, desto kleiner der Anteil deiner {{t:range|Range}}, den du verteidigen musst." }
       - { text: "{{n:alpha.bet-overbet}}", why: "Das ist Alpha: So oft muss ein {{t:bluff|Bluff}} über {{n:ex.bet.overbet}} funktionieren. Du verteidigst den Rest, also {{n:mdf.bet-overbet}}." }
       - { text: "{{n:eq.bet-overbet}}", why: "Das ist die Equity, die du zum {{t:call|Callen}} brauchst: {{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}). Andere Zahl, andere Frage." }
   - kind: numeric
@@ -51,7 +51,7 @@ drills:
     rules: [R-M6-002]
     prompt: "River. Du {{t:bluff|bluffst}}: Im {{t:pot|Pot}} sind {{n:ex.pot}}, du {{t:bet|setzt}} {{n:ex.bet.three-quarters}}. Wie oft muss dein Gegner {{t:fold|folden}}, damit sich der {{t:bluff|Bluff}} lohnt?"
     options:
-      - { text: "Öfter als {{n:alpha.bet-three-quarters}}", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:alpha.bet-three-quarters}}. So hoch ist Alpha bei einem Bet von 3/4 {{t:pot|Pot}}." }
+      - { text: "Öfter als {{n:alpha.bet-three-quarters}}", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:alpha.bet-three-quarters}}. So hoch ist Alpha bei einer Bet von 3/4 {{t:pot|Pot}}." }
       - { text: "Öfter als {{n:mdf.bet-three-quarters}}", why: "Das ist die {{t:mdf}}, also wie viel dein Gegner verteidigen sollte. Alpha ist der Anteil, den er {{t:fold|folden}} kann, bevor dein {{t:bluff|Bluff}} Gewinn macht: {{n:alpha.bet-three-quarters}}." }
       - { text: "Öfter als {{n:eq.bet-three-quarters}}", why: "Das ist die Equity, die dein Gegner zum {{t:call|Callen}} braucht. Die Schwelle für den {{t:bluff|Bluff}} berechnest du ohne seinen {{t:call|Call}} im Nenner: {{n:alpha.bet-three-quarters}}." }
   - kind: choice
@@ -61,7 +61,7 @@ drills:
     prompt: "Im {{t:pot|Pot}} sind {{n:ex.pot}}. Welcher chancenlose {{t:bluff|Bluff}} braucht seltener einen {{t:fold|Fold}} deines Gegners: einer über {{n:ex.bet.quarter}} oder einer über {{n:ex.bet.pot}}?"
     options:
       - { text: "Über {{n:ex.bet.quarter}}: Es reichen über {{n:alpha.bet-quarter}} {{t:fold|Folds}}", correct: true, why: "Ein kleiner {{t:bluff|Bluff}} riskiert wenig: {{n:ex.bet.quarter}} ÷ ({{n:ex.pot}} + {{n:ex.bet.quarter}}) = {{n:alpha.bet-quarter}}. Ein {{t:bluff|Bluff}} über den ganzen {{t:pot|Pot}} braucht über {{n:alpha.bet-pot}} {{t:fold|Folds}}." }
-      - { text: "Über {{n:ex.bet.pot}}: Es reichen über {{n:alpha.bet-quarter}} {{t:fold|Folds}}", why: "Umgekehrt. Ein größerer Bet riskiert mehr, also muss dein Gegner öfter {{t:fold|folden}}: beim ganzen {{t:pot|Pot}} über {{n:alpha.bet-pot}}." }
+      - { text: "Über {{n:ex.bet.pot}}: Es reichen über {{n:alpha.bet-quarter}} {{t:fold|Folds}}", why: "Umgekehrt. Eine größere Bet riskiert mehr, also muss dein Gegner öfter {{t:fold|folden}}: beim ganzen {{t:pot|Pot}} über {{n:alpha.bet-pot}}." }
       - { text: "Beide brauchen gleich viel", why: "Alpha hängt von der Größe ab: {{n:alpha.bet-quarter}} bei {{n:ex.bet.quarter}}, {{n:alpha.bet-pot}} bei {{n:ex.bet.pot}}." }
   - kind: choice
     id: m6.l1.q-mdf-vs-equity
@@ -76,10 +76,10 @@ drills:
     id: m6.l1.q-flop-mdf
     family: m6.mdf-concept
     rules: [R-M6-003]
-    prompt: "Flop. Du verteidigst den {{t:big-blind|Big Blind}}, der Button {{t:bet|setzt}} einen C-Bet von 1/3 {{t:pot|Pot}}. Die {{t:mdf}} beträgt {{n:mdf.bet-third}}. Musst du wirklich so viele Hände verteidigen?"
+    prompt: "Flop. Du verteidigst den {{t:big-blind|Big Blind}}, der Button {{t:bet|setzt}} eine C-Bet von 1/3 {{t:pot|Pot}}. Die {{t:mdf}} beträgt {{n:mdf.bet-third}}. Musst du wirklich so viele Hände verteidigen?"
     table: { position: BB }
     options:
-      - { text: "Nein, du kannst etwas weniger verteidigen", correct: true, why: "Die {{t:mdf}} geht von einem {{t:bluff|Bluff}} ganz ohne Chancen aus. Auf dem Flop haben die {{t:bluff|Bluffs}} des Buttons noch Equity ({{t:draw|Draws}}, hohe Karten), und {{t:out-of-position|ohne Position}} realisierst du nicht die ganze Equity deiner schwachen Hände. Deshalb kannst du etwas weniger als die {{t:mdf}} verteidigen, aber auf einen kleinen C-Bet {{t:fold|foldest}} du nicht massenhaft." }
+      - { text: "Nein, du kannst etwas weniger verteidigen", correct: true, why: "Die {{t:mdf}} geht von einem {{t:bluff|Bluff}} ganz ohne Chancen aus. Auf dem Flop haben die {{t:bluff|Bluffs}} des Buttons noch Equity ({{t:draw|Draws}}, hohe Karten), und {{t:out-of-position|ohne Position}} realisierst du nicht die ganze Equity deiner schwachen Hände. Deshalb kannst du etwas weniger als die {{t:mdf}} verteidigen, aber auf eine kleine C-Bet {{t:fold|foldest}} du nicht massenhaft." }
       - { text: "Ja, sonst macht der Button mit jeder Hand Gewinn", why: "Am River wäre das so. Auf dem Flop {{t:bluff|blufft}} der Button nicht mit einer chancenlosen Hand: Auch wenn du {{t:call|callst}}, kann er noch treffen. Die {{t:mdf}} ist ein Richtwert, keine Pflicht." }
       - { text: "Nein, du verteidigst mehr, weil es erst der Flop ist", why: "Umgekehrt. Die kommenden {{t:street|Streets}} wirken zugunsten des Setzenden {{t:in-position|in Position}}, also verteidigst du weniger, nicht mehr." }
   - kind: choice
@@ -97,7 +97,7 @@ Wenn dein Gegner {{t:bet|setzt}}, fragst du nicht nur: „Kann diese Hand gewinn
 
 ## Alpha: wie oft ein {{t:bluff|Bluff}} funktionieren muss
 
-Ein chancenloser {{t:bluff|Bluff}} gewinnt nur, wenn dein Gegner {{t:fold|foldet}}. Du riskierst den Bet, um den {{t:pot|Pot}} zu gewinnen.
+Ein chancenloser {{t:bluff|Bluff}} gewinnt nur, wenn dein Gegner {{t:fold|foldet}}. Du riskierst die Bet, um den {{t:pot|Pot}} zu gewinnen.
 
 ```formula
 alpha = Bet ÷ (Pot + Bet)
@@ -125,7 +125,7 @@ Beispiel vom River: Im {{t:pot|Pot}} sind {{n:ex.third.pot}}, dein Gegner {{t:be
 
 ## {{t:mdf}} ist nicht die benötigte Equity
 
-Die benötigte Equity aus M2 betrifft **eine einzelne Hand**: ob sich ein {{t:call|Call}} mit ihr lohnt. Die {{t:mdf}} betrifft **die gesamte {{t:range|Range}}**: welchen Anteil davon du verteidigst. Bei einem Bet von 1/3 {{t:pot|Pot}} am River legt dir die {{t:mdf}} nahe, etwa {{n:mdf.bet-third}} deiner Hände zu verteidigen, während sich ein einzelner {{t:call|Call}} lohnt, wenn die Hand in mindestens {{n:eq.bet-third}} der Fälle gewinnt.
+Die benötigte Equity aus M2 betrifft **eine einzelne Hand**: ob sich ein {{t:call|Call}} mit ihr lohnt. Die {{t:mdf}} betrifft **die gesamte {{t:range|Range}}**: welchen Anteil davon du verteidigst. Bei einer Bet von 1/3 {{t:pot|Pot}} am River legt dir die {{t:mdf}} nahe, etwa {{n:mdf.bet-third}} deiner Hände zu verteidigen, während sich ein einzelner {{t:call|Call}} lohnt, wenn die Hand in mindestens {{n:eq.bet-third}} der Fälle gewinnt.
 
 ## Auf dem Flop {{t:out-of-position|ohne Position}} verteidigst du weniger
 

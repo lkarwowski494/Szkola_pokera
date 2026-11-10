@@ -51,7 +51,7 @@ drills:
     id: m7.l3.q-implied-oesd
     family: m7.implied.math
     rules: [R-M7-008]
-    prompt: "ターン。{{t:pot|ポット}}は{{n:io.oesd.pot}}で、相手が{{n:io.oesd.bet}}を{{t:bet|ベット}}します。あなたは{{t:oesd|オープンエンド・ストレートドロー}}で、アウツは{{n:outs.oesd}}枚、外れるカードは{{n:miss.oesd.turn}}枚です。完成したとき、リバーで追加でいくら勝つ必要がありますか？"
+    prompt: "ターン。{{t:pot|ポット}}は{{n:io.oesd.pot}}で、相手が{{n:io.oesd.bet}}を{{t:bet|ベット}}します。あなたは{{t:oesd|OESD}}で、アウツは{{n:outs.oesd}}枚、外れるカードは{{n:miss.oesd.turn}}枚です。完成したとき、リバーで追加でいくら勝つ必要がありますか？"
     options:
       - { text: "約{{n:io.oesd.extra}}", correct: true, why: "完成するたびに{{n:io.oesd.bet}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:io.oesd.need}}を得る必要があります。{{t:pot|ポット}}には{{n:io.oesd.pot-after-bet}}あるので、不足分は{{n:io.oesd.extra}}です。" }
       - { text: "約{{n:io.oesd.need}}", why: "それは完成するたびに合計で勝つ必要がある額です。その一部はすでに{{t:pot|ポット}}にある（{{n:io.oesd.pot-after-bet}}）ので、追加の不足分は{{n:io.oesd.extra}}です。" }
@@ -131,7 +131,7 @@ M2の2と4のルールでは、アウツに2を掛けます。2つの{{t:draw|�
 
 ## {{t:spr|SPR}}：相手にどれだけ{{t:chips|チップ}}が残っているか
 
-{{t:spr|SPR}}（スタック対{{t:pot|ポット}}比）は、{{t:effective-stack|エフェクティブスタック}}、つまり2人のうち小さいほうのスタックを、その{{t:street|ストリート}}開始時の{{t:pot|ポット}}で割ったものです。{{t:spr|SPR}}はどの{{t:street|ストリート}}でも計算できます。ここではターンで計算します。{{t:pot|ポット}}が{{n:ex.pot}}でスタックが{{n:spr.stack.high}}なら{{t:spr|SPR}}は{{n:spr.high}}で、相手にはまだ{{t:pot|ポット}}数個分が残っています。スタックが{{n:spr.stack.low}}なら、わずか{{n:spr.low}}です。インプライドオッズは、相手の手元に残っている{{t:chips|チップ}}より大きくはなりません。{{t:spr|SPR}}が低いときは、ほぼポットオッズだけが重要です。{{t:spr|SPR}}について詳しくは、フロップの{{t:spr|SPR}}に基づいてハンドを計画する「ハンドの計画」モジュール（M9）で扱います。
+{{t:spr|SPR}}（スタック対{{t:pot|ポット}}比）は、{{t:effective-stack|エフェクティブスタック}}、つまり2人のうち小さいほうのスタックを、その{{t:street|ストリート}}開始時の{{t:pot|ポット}}で割ったものです。{{t:spr|SPR}}はどの{{t:street|ストリート}}でも計算できます。ここではターンで計算します。{{t:pot|ポット}}が{{n:ex.pot}}でスタックが{{n:spr.stack.high}}なら{{t:spr|SPR}}は{{n:spr.high}}で、相手にはまだ{{t:pot|ポット}}数個分が残っています。スタックが{{n:spr.stack.low}}なら、わずか{{n:spr.low}}です。インプライドオッズは、相手の手元に残っている{{t:chips|チップ}}より大きくはなりません。{{t:spr|SPR}}が低いときは、ほぼポットオッズだけが重要です。{{t:spr|SPR}}について詳しくは、フロップの{{t:spr|SPR}}に基づいてハンドを計画する「ハンドのプラン」モジュール（M9）で扱います。
 
 ## インプライドオッズが本物になるとき
 

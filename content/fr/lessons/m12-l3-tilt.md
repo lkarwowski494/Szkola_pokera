@@ -19,7 +19,7 @@ drills:
     id: m12.l3.q-type-revenge
     family: m12.tilt-type
     rules: [R-M12-006]
-    prompt: "Le même adversaire relance sur vos blinds pour la quatrième fois d'affilée. Vous décidez que la prochaine fois, vous {{t:raise|relancerez}} contre lui avec n'importe quelle main, pour lui montrer. De quel type de tilt s'agit-il ?"
+    prompt: "Le même adversaire relance sur vos blindes pour la quatrième fois d'affilée. Vous décidez que la prochaine fois, vous {{t:raise|relancerez}} contre lui avec n'importe quelle main, pour lui montrer. De quel type de tilt s'agit-il ?"
     options:
       - { text: "Tilt de vengeance", correct: true, why: "Le manque de respect, l'agressivité constante de l'adversaire et l'envie de « lui montrer » sont des déclencheurs du tilt de vengeance. C'est le désir de revanche qui commence à décider, et non le calcul." }
       - { text: "Tilt du sentiment que la victoire vous est due", why: "Ce type vient de la conviction que vous méritez de gagner parce que vous êtes meilleur. Ici, il s'agit de prendre sa revanche sur un adversaire précis." }
@@ -75,7 +75,7 @@ drills:
     rules: [R-M12-006]
     prompt: "Vous voulez repérer le tilt plus tôt. Par quoi commencez-vous ?"
     options:
-      - { text: "Par rédiger votre profil : ce qui vous déclenche, ce que vous pensez et ressentez, comment votre jeu change", correct: true, why: "Chaque joueur tilte un peu différemment et pour des raisons différentes. Le profil permet de reconnaître les signaux avant que le tilt ne grandisse : on ne peut pas contrôler ce qu'on ne comprend pas." }
+      - { text: "Par rédiger votre profil : ce qui déclenche votre tilt, ce que vous pensez et ressentez, comment votre jeu change", correct: true, why: "Chaque joueur tilte un peu différemment et pour des raisons différentes. Le profil permet de reconnaître les signaux avant que le tilt ne grandisse : on ne peut pas contrôler ce qu'on ne comprend pas." }
       - { text: "Par jouer à des {{t:stakes|limites}} plus élevées pour vous endurcir", why: "Plus de pression n'apprend pas à reconnaître le tilt. Vous devez d'abord savoir à quoi il ressemble chez vous." }
       - { text: "Par éviter tous les adversaires qui vous énervent", why: "On ne peut pas éviter les déclencheurs, car il y aura toujours des bad beats et des adversaires agressifs. Le but est de reconnaître votre réaction et d'y répondre." }
   - kind: choice
@@ -127,8 +127,8 @@ Quand le tilt grandit, il coupe la capacité de réfléchir. C'est pourquoi vous
 
 ## A-game et C-game
 
-Votre jeu a un écart : de votre meilleur jeu (A-game) à votre pire jeu (C-game). Le progrès ressemble au déplacement d'une chenille : un pas en avant à l'avant, quand votre meilleur jeu s'améliore, et un pas à l'arrière, quand votre pire jeu devient moins catastrophique. C'est le C-game qui coûte le plus, alors commencez par lui.
+Votre niveau de jeu varie : de votre meilleur jeu (A-game) à votre pire jeu (C-game). Le progrès ressemble au déplacement d'une chenille : un pas en avant à l'avant, quand votre meilleur jeu s'améliore, et un pas à l'arrière, quand votre pire jeu devient moins catastrophique. C'est le C-game qui coûte le plus, alors commencez par lui.
 
 :::note Quand c'est plus que du tilt
-Si vous jouez plus longtemps que prévu, cherchez à vous refaire ou jouez avec de l'argent que vous ne pouvez pas vous permettre de perdre, lisez la fiche sur le jeu responsable dans la leçon sur la bankroll.
+Si vous jouez plus longtemps que prévu, cherchez à vous refaire ou jouez avec de l'argent que vous ne pouvez pas vous permettre de perdre, lisez l'encadré « Jeu responsable » dans la leçon sur la bankroll.
 :::

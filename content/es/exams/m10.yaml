@@ -77,6 +77,6 @@ drills:
     id: m10.exam.q9
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "En el {{t:pot|bote}} hay {{n:ex.pot}} y el rival {{t:bet|apuesta}} el {{t:pot|bote}} entero: {{n:ex.bet.pot}}. La sala se queda con un {{n:rake.ex.pct}} del {{t:pot|bote}} y el {{t:rake-cap|límite}} queda fuera de alcance. ¿Cuánta equity necesitas para {{t:call|igualar}}? Escribe un porcentaje."
+    prompt: "En el {{t:pot|bote}} hay {{n:ex.pot}} y el rival {{t:bet|apuesta}} el {{t:pot|bote}} entero: {{n:ex.bet.pot}}. La sala se queda con un {{n:rake.ex.pct}} del {{t:pot|bote}} y el {{t:rake-cap|tope}} queda fuera de alcance. ¿Cuánta equity necesitas para {{t:call|igualar}}? Escribe un porcentaje."
     answer: exam.m10.rake.eq
     explanation: "El {{t:pot|bote}} tras el {{t:call|pago}} es de {{n:exam.m10.rake.total}}, y tras descontar el {{t:rake|rake}}, de {{n:exam.m10.rake.after}}. Pones {{n:ex.bet.pot}}: {{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}} en lugar de {{n:eq.bet-pot}} sin {{t:rake|rake}}."

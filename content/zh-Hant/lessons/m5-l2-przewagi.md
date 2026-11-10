@@ -70,7 +70,7 @@ drills:
     options:
       - { text: "對手常常什麼都沒有，所以即使是小額{{t:bet}}也常能直接贏下{{t:pot|底池}}", correct: true, why: "對：這是持續下注的基礎。沒中不一定代表會{{t:fold}}（對手可能有{{t:draw}}或高牌），但他的{{t:range|範圍}}裡弱牌很多。" }
       - { text: "對手剛好會在 {{n:flop.miss.unpaired}} 的情況下{{t:fold|棄牌}}", why: "不對：沒有{{t:pair|對子}}的對手有時會帶著{{t:draw|聽牌}}或高牌{{t:call|跟注}}，有時手上本來就有{{t:pair|對子}}。這只是翻牌沒中他的頻率的近似值。" }
-      - { text: "你也一樣常沒中，所以持續下注沒有意義", why: "不對：你也常沒中，但對手不知道是什麼時候。你作為{{t:aggressor|主動方}}（翻牌前最後一個{{t:raise|加注}}的玩家），{{t:range}}在很多翻牌上更強，而對手{{t:fold|棄牌}}時，{{t:bet}}就能贏下{{t:pot|底池}}。" }
+      - { text: "你也一樣常沒中，所以持續下注沒有意義", why: "不對：你也常沒中，但對手不知道是什麼時候。你作為{{t:aggressor|進攻者}}（翻牌前最後一個{{t:raise|加注}}的玩家），{{t:range}}在很多翻牌上更強，而對手{{t:fold|棄牌}}時，{{t:bet}}就能贏下{{t:pot|底池}}。" }
   - kind: numeric
     id: m5.l2.n-hit
     family: m5.math.miss
@@ -85,7 +85,7 @@ drills:
 
 當你的牌在某個翻牌上平均比對手的牌強，你就有{{t:range-advantage|範圍優勢}}。在 [[Ks 7d 2c]] 上，從按鈕位{{t:open|開池}}之後，是你有更多帶好踢腳的 K 和更多高{{t:pair|對子}}。{{t:big-blind|大盲}}在這裡有很多沒中的牌。
 
-在低張、{{t:connected|連接}}的翻牌上，例如 [[7s 6h 5d]]，{{t:range-advantage}}幾乎消失，反而是{{t:big-blind}}更常拿到最強的牌：他會防守很多同花{{t:connectors|連張}}以及帶 6 或 7 的牌，所以更常有{{t:two-pair}}或{{t:straight|順子}}。
+在低張、{{t:connected|連張}}的翻牌上，例如 [[7s 6h 5d]]，{{t:range-advantage}}幾乎消失，反而是{{t:big-blind}}更常拿到最強的牌：他會防守很多同花{{t:connectors|連張}}以及帶 6 或 7 的牌，所以更常有{{t:two-pair}}或{{t:straight|順子}}。
 
 ## {{t:nuts-advantage|堅果優勢}}
 

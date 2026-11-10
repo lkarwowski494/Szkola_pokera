@@ -1,0 +1,19 @@
+{
+ "plik": "docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/es/poprawki-es.json",
+ "nalozone": 121,
+ "pominiete": [],
+ "sklep": 1,
+ "odfiltrowane": 1,
+ "pliki": 40,
+ "sklepPoprawki": [
+  {
+   "jezyk": "es",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "stary": "un índice de progreso",
+   "nowy": "un indicador de nivel",
+   "waga": "NISKIE",
+   "powod": "es-U-04 nazwa funkcji jak w aplikacji: advancement.title = „Indicador de nivel”",
+   "grupa": "es-U"
+  }
+ ]
+}

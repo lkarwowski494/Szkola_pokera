@@ -23,9 +23,9 @@ drills:
     prompt: "Combien d'outs avez-vous pour la {{t:straight|quinte}} ?"
     table: { hand: "8c 9d", board: "6s 7h Kd" }
     options:
-      - { text: "{{n:outs.oesd}}", correct: true, why: "Vous avez 6-7-8-9. Chaque cinq et chaque dix vous donnent la {{t:straight|quinte}} : {{n:draw.oesd.ranks}} hauteurs × {{n:cards.suits}} couleurs = {{n:outs.oesd}} cartes." }
+      - { text: "{{n:outs.oesd}}", correct: true, why: "Vous avez 6-7-8-9. Chaque cinq et chaque dix vous donnent la {{t:straight|quinte}} : {{n:draw.oesd.ranks}} rangs × {{n:cards.suits}} couleurs = {{n:outs.oesd}} cartes." }
       - { text: "{{n:outs.gutshot}}", why: "C'est ce que vous auriez avec une seule carte manquante au milieu (gutshot). Ici, la {{t:straight}} est ouverte des deux côtés." }
-      - { text: "{{n:draw.oesd.ranks}}", why: "Deux hauteurs de cartes (le cinq et le dix), mais chacune existe en quatre couleurs." }
+      - { text: "{{n:draw.oesd.ranks}}", why: "Deux rangs de cartes (le cinq et le dix), mais chacune existe en quatre couleurs." }
   - kind: choice
     id: m2.l1.q3
     family: m2.odds

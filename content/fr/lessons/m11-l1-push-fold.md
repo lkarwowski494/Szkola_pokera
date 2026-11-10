@@ -60,7 +60,7 @@ drills:
     prompt: "{{t:small-blind|Petite blinde}}, tout le monde {{t:fold|s'est couché}}, vous avez K2o. À {{n:m11.depth.10}}, le solveur part all-in avec cette main. Et à {{n:m11.depth.15}} ?"
     table: { hand: "Kd 2c", position: SB }
     options:
-      - { text: "{{t:fold|Se coucher}}", correct: true, why: "À {{n:m11.depth.15}}, vous risquez davantage par rapport aux blindes, donc la {{t:range}} d'all-in se resserre d'environ {{n:m11.push.10}} à environ {{n:m11.push.15}} mains. K2o en sort." }
+      - { text: "{{t:fold|Se coucher}}", correct: true, why: "À {{n:m11.depth.15}}, vous risquez davantage par rapport aux blindes, donc la {{t:range}} d'all-in se resserre d'environ {{n:m11.push.10}} à environ {{n:m11.push.15}} des mains. K2o en sort." }
       - { text: "All-in, car le roi est une carte forte", why: "À {{n:m11.depth.15}}, K2o tombe trop souvent sur un meilleur roi ou un as dans la {{t:range|range}} avec laquelle l'adversaire {{t:call|suit}}. Le solveur la {{t:fold|couche}}." }
       - { text: "All-in, car plus le stack est profond, plus on joue large", why: "C'est l'inverse : plus le stack est profond, plus la {{t:range}} d'all-in est serrée. C'est avec un {{t:short-stack|short stack}} très court que vous faites {{t:shove|push}} le plus large." }
   - kind: choice
@@ -69,9 +69,9 @@ drills:
     rules: [R-M11-004]
     prompt: "{{t:small-blind|Petite blinde}}, {{n:m11.depth.10}}, sans ante. Combien de fois sur cent la {{t:big-blind}} devrait-elle {{t:fold|se coucher}} pour qu'un all-in avec une main sans aucune chance ne perde ni ne gagne rien ?"
     options:
-      - { text: "Plus de {{n:m11.push.10.alpha}}", correct: true, why: "Vous risquez {{n:m11.push.10.risk}} pour gagner {{n:m11.push.10.win}} : {{n:m11.push.10.risk}} ÷ ({{n:m11.push.10.win}} + {{n:m11.push.10.risk}}) font environ {{n:m11.push.10.alpha}}. L'adversaire ne {{t:fold|se couche}} pas aussi souvent, donc l'all-in n'est rentable qu'avec une main qui a aussi de l'equity quand l'adversaire {{t:call|suit}}." }
+      - { text: "Plus de {{n:m11.push.10.alpha}}", correct: true, why: "Vous risquez {{n:m11.push.10.risk}} pour gagner {{n:m11.push.10.win}} : {{n:m11.push.10.risk}} ÷ ({{n:m11.push.10.win}} + {{n:m11.push.10.risk}}) font environ {{n:m11.push.10.alpha}}. L'adversaire ne {{t:fold|se couche}} pas aussi souvent, donc l'all-in n'est rentable qu'avec une main qui a aussi de l'équité quand l'adversaire {{t:call|suit}}." }
       - { text: "Plus de la moitié", why: "La moitié suffirait si vous risquiez autant que vous pouvez gagner. Ici, vous risquez {{n:m11.push.10.risk}} et ne gagnez que {{n:m11.push.10.win}} blindes." }
-      - { text: "Il suffit qu'il {{t:fold|se couche}} de temps en temps", why: "Chaque {{t:call}} coûte tout son stack à une main sans chance. Sans equity, il vous faut que l'adversaire {{t:fold|se couche}} très souvent : plus de {{n:m11.push.10.alpha}}." }
+      - { text: "Il suffit qu'elle {{t:fold|se couche}} de temps en temps", why: "Chaque {{t:call}} coûte tout son stack à une main sans chance. Sans équité, il vous faut que l'adversaire {{t:fold|se couche}} très souvent : plus de {{n:m11.push.10.alpha}}." }
   - kind: choice
     id: m11.l1.q-two-ways
     family: m11.fold-equity
@@ -79,7 +79,7 @@ drills:
     prompt: "Pourquoi, avec un {{t:short-stack|short stack}}, préférez-vous partir all-in en premier plutôt que d'attendre qu'un autre joueur parte all-in, puis de {{t:call|suivre}} ?"
     options:
       - { text: "Parce que l'all-in gagne de deux façons", correct: true, why: "En entrant en premier, vous remportez le {{t:pot|pot}} quand tout le monde {{t:fold|se couche}}, ou vous gagnez au showdown. En {{t:call|suivant}}, vous ne gagnez qu'au showdown." }
-      - { text: "Parce que l'all-in a toujours plus d'equity", why: "L'equity d'une main ne dépend pas de qui est entré en premier. La différence, c'est que l'all-in donne à l'adversaire une chance de {{t:fold|se coucher}}." }
+      - { text: "Parce que l'all-in a toujours plus d'équité", why: "L'équité d'une main ne dépend pas de qui est entré en premier. La différence, c'est que l'all-in donne à l'adversaire une chance de {{t:fold|se coucher}}." }
       - { text: "Parce qu'il est interdit de {{t:call|suivre}} un all-in", why: "Vous avez le droit de {{t:call|suivre}}, mais pour {{t:call|suivre}}, il vous faut une main plus forte (leçon sur l'action de {{t:call|suivre}})." }
   - kind: choice
     id: m11.l1.q-ante
@@ -88,7 +88,7 @@ drills:
     prompt: "Même stack de {{n:m11.depth.10}} en {{t:small-blind|petite blinde}}, mais la partie se joue avec {{t:bb-ante}} : la {{t:big-blind}} a payé une ante de {{n:m11.ante}}. Comment la {{t:range}} d'all-in change-t-elle ?"
     options:
       - { text: "Elle s'élargit : environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} au lieu de {{n:m11.push.10}}", correct: true, why: "L'ante augmente le {{t:pot|pot}} que vous remportez quand l'adversaire {{t:fold|se couche}} : {{n:m11.push.10.win-ante}} au lieu de {{n:m11.push.10.win}}. Une main sans chance n'a plus besoin que l'adversaire {{t:fold|se couche}} que dans plus de {{n:m11.push.10.alpha-ante}} des cas, donc davantage d'all-in sont rentables." }
-      - { text: "Elle se resserre, car l'adversaire a plus dans le {{t:pot|pot}} et {{t:call|suivra}} plus souvent", why: "L'adversaire {{t:call|suit}} effectivement plus large, mais le {{t:pot}} plus gros à remporter l'emporte. L'équilibre se situe à environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} mains." }
+      - { text: "Elle se resserre, car l'adversaire a plus dans le {{t:pot|pot}} et {{t:call|suivra}} plus souvent", why: "L'adversaire {{t:call|suit}} effectivement plus large, mais le {{t:pot}} plus gros à remporter l'emporte. L'équilibre se situe à environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} des mains." }
       - { text: "Elle ne change pas", why: "L'ante modifie le rapport entre risque et gain. Sans ante, environ {{n:m11.push.10}} ; avec ante, environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}." }
   - kind: generated
     id: m11.l1.g-push-ante
@@ -149,11 +149,11 @@ push.sb-10
 push.sb-5
 ```
 
-À {{n:m11.depth.15}}, vous partez all-in avec environ {{n:m11.push.15}} mains, à {{n:m11.depth.10}} avec environ {{n:m11.push.10}}, et à {{n:m11.depth.5}} déjà avec environ {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Moins vous risquez par rapport aux blindes, plus il y a de mains rentables. À titre de comparaison, le tableau d'un site de formation indique {{n:m11.ext.push.10}} à {{n:m11.depth.10}} ; l'écart reste dans la tolérance de validation du solveur, et la tendance est la même.
+À {{n:m11.depth.15}}, vous partez all-in avec environ {{n:m11.push.15}} des mains, à {{n:m11.depth.10}} avec environ {{n:m11.push.10}}, et à {{n:m11.depth.5}} déjà avec environ {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Moins vous risquez par rapport aux blindes, plus il y a de mains rentables. À titre de comparaison, le tableau d'un site de formation indique {{n:m11.ext.push.10}} à {{n:m11.depth.10}} ; l'écart reste dans la tolérance de validation du solveur, et la tendance est la même.
 
 ## Trois joueurs : plus il y a d'adversaires derrière vous, plus c'est serré
 
-Quand vous jouez depuis le Button, il reste deux joueurs derrière vous, et non un seul. Chacun d'eux peut avoir une main forte, donc il est plus rare que les deux {{t:fold|se couchent}}. À trois joueurs avec des stacks de {{n:m11.depth.3max}} chacun, le Button part all-in avec environ {{n:m11.3max.push.btn}} mains, et la {{t:small-blind}}, quand le Button {{t:fold|s'est couché}}, avec environ {{n:m11.3max.push.sb}}.
+Quand vous jouez depuis le Bouton, il reste deux joueurs derrière vous, et non un seul. Chacun d'eux peut avoir une main forte, donc il est plus rare que les deux {{t:fold|se couchent}}. À trois joueurs avec des stacks de {{n:m11.depth.3max}} chacun, le Bouton part all-in avec environ {{n:m11.3max.push.btn}} des mains, et la {{t:small-blind}}, quand le Bouton {{t:fold|s'est couché}}, avec environ {{n:m11.3max.push.sb}}.
 
 ```range
 push.btn-3max
@@ -163,15 +163,15 @@ push.btn-3max
 push.sb-3max
 ```
 
-Nous avons vérifié ces deux grilles par rapport à un résultat d'équilibre publié pour la même situation (article scientifique de 2008 : Button {{n:m11.jamfold3.btn}}). Les quelques mains pour lesquelles les résultats diffèrent ne figurent pas dans les exercices.
+Nous avons vérifié ces deux grilles par rapport à un résultat d'équilibre publié pour la même situation (article scientifique de 2008 : Bouton {{n:m11.jamfold3.btn}}). Les quelques mains pour lesquelles les résultats diffèrent ne figurent pas dans les exercices.
 
 ## Deux façons de gagner
 
-Un all-in gagne quand l'adversaire {{t:fold|se couche}}, ou quand il {{t:call|suit}} et perd au showdown. Le {{t:fold}} de l'adversaire suffit rarement à lui seul : à {{n:m11.depth.10}}, vous risquez {{n:m11.push.10.risk}} pour remporter {{n:m11.push.10.win}} blindes, donc une main sans chance aurait besoin que l'adversaire {{t:fold|se couche}} dans plus de {{n:m11.push.10.alpha}} des cas. C'est pourquoi la fold equity compte, tout comme l'equity de votre main quand l'adversaire {{t:call|suit}}.
+Un all-in gagne quand l'adversaire {{t:fold|se couche}}, ou quand il {{t:call|suit}} et perd au showdown. Le {{t:fold}} de l'adversaire suffit rarement à lui seul : à {{n:m11.depth.10}}, vous risquez {{n:m11.push.10.risk}} pour remporter {{n:m11.push.10.win}} blindes, donc une main sans chance aurait besoin que l'adversaire {{t:fold|se couche}} dans plus de {{n:m11.push.10.alpha}} des cas. C'est pourquoi la fold equity compte, tout comme l'équité de votre main quand l'adversaire {{t:call|suit}}.
 
 ## L'ante élargit la {{t:range}}
 
-L'ante, ce sont des {{t:chips}} supplémentaires dans le {{t:pot|pot}} avant la donne. Avec {{t:bb-ante}}, la {{t:big-blind}} paie une ante de {{n:m11.ante}}, donc un all-in remporte {{n:m11.push.10.win-ante}} au lieu de {{n:m11.push.10.win}}, alors que le risque reste le même. Dans cette structure, la {{t:range|range}} passe d'environ {{n:m11.push.10}} à environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} mains (le solveur de l'application et un calcul d'équilibre indépendant diffèrent d'une fraction de point).
+L'ante, ce sont des {{t:chips}} supplémentaires dans le {{t:pot|pot}} avant la donne. Avec {{t:bb-ante}}, la {{t:big-blind}} paie une ante de {{n:m11.ante}}, donc un all-in remporte {{n:m11.push.10.win-ante}} au lieu de {{n:m11.push.10.win}}, alors que le risque reste le même. Dans cette structure, la {{t:range|range}} passe d'environ {{n:m11.push.10}} à environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} des mains (le solveur de l'application et un calcul d'équilibre indépendant diffèrent d'une fraction de point).
 
 ```range
 push.sb-10-ante

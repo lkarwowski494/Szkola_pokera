@@ -134,7 +134,7 @@ Las zonas de {{t:spr}} las calculas con el {{t:spr}} del flop. Cuanto más alto 
 | por debajo de {{n:spr.zone.low}} | {{t:top-pair|Pareja mayor}} o mejor |
 | de {{n:spr.zone.low}} a {{n:spr.zone.mid}} | La {{t:top-pair|pareja mayor}} es una mano límite |
 | de {{n:spr.zone.mid}} a {{n:spr.zone.deep}} | {{t:two-pair|Doble pareja}} alta o mejor |
-| por encima de {{n:spr.zone.deep}} | Trío (set), {{t:straight|escalera}} o mejor |
+| por encima de {{n:spr.zone.deep}} | Set, {{t:straight|escalera}} o mejor |
 
 Tras una {{t:open|apertura}} y un {{t:call|call}} ({{t:spr}} de aprox. {{n:spr.srp}}) estás en la zona más alta; tras un 3-bet (aprox. {{n:spr.3bet-ip}}), en la zona donde la {{t:top-pair|pareja mayor}} es límite, y tras un 4-bet (aprox. {{n:spr.4bet}}), en la más baja. Los umbrales son una simplificación. Las fuentes dividen las zonas de forma distinta, pero coinciden en que por debajo de aprox. {{n:spr.zone.low}} la {{t:top-pair|pareja mayor}} se juega el stack y que, con un {{t:spr}} más alto, una sola {{t:pair|pareja}} lo hace cada vez menos. El límite de {{n:spr.zone.mid}} es una convención adoptada en la aplicación. El umbral de {{n:spr.zone.deep}} sale de las cuentas: con un {{t:spr}} de {{n:spr.zone.deep}}, tres {{t:bet|apuestas}} del tamaño del {{t:pot|bote}} te llevan al all-in.
 

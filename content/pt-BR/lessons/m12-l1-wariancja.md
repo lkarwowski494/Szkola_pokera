@@ -71,7 +71,7 @@ drills:
     rules: [R-M12-002]
     prompt: "Dois jogadores, {{t:standard-deviation|desvio}} de {{n:var.sd}}, {{n:var.hands.k}} mil mãos. Um ganha {{n:var.wr.ex}}, o outro {{n:dd.wr-low}}. Com que frequência cada um deles terá um {{t:downswing}} de {{n:dd.bi.big}} {{t:buy-in|buy-ins}}?"
     options:
-      - { text: "O primeiro em cerca de {{n:dd.p.big.100k}}, o segundo em cerca de {{n:dd.p.big.100k.wr-low}} dos casos", correct: true, why: "Um winrate menor puxa o resultado para cima com menos força, então os {{t:downswing|downswings}} são mais profundos e mais frequentes. Com {{n:dd.wr-low}}, típico de jogadores vencedores nos micro stakes, um {{t:downswing}} de {{n:dd.bi.big}} {{t:buy-in|buy-ins}} acontece em mais da metade das amostras." }
+      - { text: "O primeiro em cerca de {{n:dd.p.big.100k}}, o segundo em cerca de {{n:dd.p.big.100k.wr-low}} dos casos", correct: true, why: "Um winrate menor puxa o resultado para cima com menos força, então os {{t:downswing|downswings}} são mais profundos e mais frequentes. Com {{n:dd.wr-low}}, típico de jogadores vencedores nos microlimites, um {{t:downswing}} de {{n:dd.bi.big}} {{t:buy-in|buy-ins}} acontece em mais da metade das amostras." }
       - { text: "Os dois com a mesma frequência, porque o {{t:standard-deviation|desvio}} é o mesmo", why: "O {{t:standard-deviation|desvio}} determina as oscilações, mas o winrate determina a rapidez com que o resultado se afasta delas. Com {{n:dd.wr-low}}, um {{t:downswing}} de {{n:dd.bi.big}} {{t:buy-in|buy-ins}} acontece em cerca de {{n:dd.p.big.100k.wr-low}} das amostras; com {{n:var.wr.ex}}, em cerca de {{n:dd.p.big.100k}}." }
       - { text: "Nenhum: um {{t:downswing}} de {{n:dd.bi.big}} {{t:buy-in|buy-ins}} só acontece com jogadores perdedores", why: "Falso. Mesmo um jogador de {{n:var.wr.ex}} passa por um em cerca de {{n:dd.p.big.100k}} das amostras de {{n:var.hands.k}} mil mãos." }
   - kind: choice
@@ -90,14 +90,14 @@ drills:
     prompt: "Que {{t:standard-deviation|desvio padrão}} é típico no cash game 6-max de No-Limit Hold'em?"
     options:
       - { text: "Cerca de {{n:var.sd.low}}–{{n:var.sd.high}}", correct: true, why: "É o que informam as calculadoras de {{t:variance|variância}}. O valor típico mais adotado é de cerca de {{n:var.sd}}. Um estilo agressivo dá um {{t:standard-deviation|desvio}} maior." }
-      - { text: "Cerca de {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}", why: "Esse é o winrate típico de jogadores vencedores nos micro stakes. O {{t:standard-deviation|desvio}} é dezenas de vezes maior que o winrate, e por isso os resultados oscilam tanto." }
+      - { text: "Cerca de {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}", why: "Esse é o winrate típico de jogadores vencedores nos microlimites. O {{t:standard-deviation|desvio}} é dezenas de vezes maior que o winrate, e por isso os resultados oscilam tanto." }
       - { text: "Cerca de {{n:var.sd.result.bi}} {{t:buy-in|buy-ins}} a cada 100 mãos", why: "Esse é o {{t:standard-deviation|desvio}} do resultado após {{n:var.hands.k}} mil mãos, e não a cada 100 mãos." }
 ---
 Seu resultado no pôquer é a soma de duas coisas: o quanto você joga bem e a sorte. Os dois componentes podem ser medidos. O winrate diz quanto você ganha em média, e o {{t:standard-deviation|desvio padrão}}, o quanto o resultado oscila em torno dessa média.
 
 ## Dois números em bb/100
 
-**Winrate** é o lucro médio a cada 100 mãos, em {{t:big-blind|big blinds}}. Jogadores vencedores nos micro stakes costumam ter {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}.
+**Winrate** é o lucro médio a cada 100 mãos, em {{t:big-blind|big blinds}}. Jogadores vencedores nos microlimites costumam ter {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}.
 
 **{{t:standard-deviation|Desvio padrão}} (SD)** é a dispersão típica do resultado a cada 100 mãos. No cash game 6-max, costuma ficar em {{n:var.sd.low}}–{{n:var.sd.high}}, e o valor típico adotado é {{n:var.sd}}. O {{t:standard-deviation|desvio}} é dezenas de vezes maior que o winrate, então o resultado de uma {{t:session|sessão}}, ou mesmo de um mês, diz muito pouco.
 

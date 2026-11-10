@@ -71,11 +71,11 @@ drills:
     id: m10.l4.q-bb-minraise
     family: m10.rake.preflop
     rules: [R-M10-014]
-    prompt: "Trong cùng các lời giải solver đó, {{t:big-blind}} {{t:call|theo}} min-raise trong trò chơi có rake chỉ ở khoảng {{n:rake.solver.bb-minraise}} số trường hợp mà nó {{t:call|theo}} khi không có rake. Điều này có ý nghĩa gì với bạn khi ở {{t:big-blind|mù lớn}}?"
+    prompt: "Trong cùng các lời giải solver đó, {{t:big-blind}} {{t:call|theo}} min-raise trong trò chơi có rake chỉ ở khoảng {{n:rake.solver.bb-minraise}} số trường hợp mà nó {{t:call|theo}} khi không có rake. Điều này có ý nghĩa gì với bạn khi ở {{t:big-blind|big blind}}?"
     options:
       - { text: "Tôi vẫn phòng thủ nhiều tay bài, nhưng hẹp hơn so với các bảng tính không có rake", correct: true, why: "{{t:big-blind}} vẫn phòng thủ thường xuyên vì đã có {{t:chips|chip}} trong {{t:pot|pot}} và là người đóng hành động. Tuy nhiên, {{t:rake}} cắt bỏ những lượt {{t:call|theo}} yếu nhất, nên các bảng không tính rake là quá rộng đối với bạn." }
-      - { text: "Tôi thôi phòng thủ {{t:big-blind|mù lớn}} bằng cách {{t:call|theo}}", why: "Không: theo tác giả, việc {{t:call|theo}} từ các vị trí blind vẫn là phần quan trọng của chiến lược cả khi có rake. Thứ thay đổi là độ rộng phòng thủ, không phải việc có phòng thủ hay không." }
-      - { text: "Tôi phòng thủ rộng như cũ, vì ở {{t:big-blind|mù lớn}} thì {{t:rake}} không ảnh hưởng", why: "Có ảnh hưởng: {{t:pot}} sau khi {{t:call|theo}} đi tới flop và trả {{t:rake}}. Vì vậy solver {{t:call|theo}} từ {{t:big-blind|mù lớn}} ít hơn." }
+      - { text: "Tôi thôi phòng thủ {{t:big-blind|big blind}} bằng cách {{t:call|theo}}", why: "Không: theo tác giả, việc {{t:call|theo}} từ các vị trí blind vẫn là phần quan trọng của chiến lược cả khi có rake. Thứ thay đổi là độ rộng phòng thủ, không phải việc có phòng thủ hay không." }
+      - { text: "Tôi phòng thủ rộng như cũ, vì ở {{t:big-blind|big blind}} thì {{t:rake}} không ảnh hưởng", why: "Có ảnh hưởng: {{t:pot}} sau khi {{t:call|theo}} đi tới flop và trả {{t:rake}}. Vì vậy solver {{t:call|theo}} từ {{t:big-blind|big blind}} ít hơn." }
   - kind: choice
     id: m10.l4.q-gg-3bet
     family: m10.rake.preflop
@@ -120,7 +120,7 @@ Cược {{n:ex.bet.half}} vào {{t:pot|pot}} {{n:ex.pot}}: không có rake bạn
 - người chơi {{t:position|có vị trí}} trước một lượt {{t:open|mở}} chơi ít tay bài hơn khoảng {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}}; bị thiệt chủ yếu là lượt {{t:call|theo}}, còn số lần 3-bet tăng nhẹ;
 - {{t:big-blind}} {{t:call|theo}} min-raise chỉ ở khoảng {{n:rake.solver.bb-minraise}} số trường hợp so với khi không có rake, dù việc phòng thủ từ các vị trí blind vẫn dựa trên {{t:call|theo}}.
 
-Cũng vì lý do này, ở mô-đun 3, từ {{t:small-blind|mù nhỏ}} bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}, không bù thêm cho bằng {{t:big-blind|mù lớn}}. Một số phòng cũng thu {{t:rake}} từ các {{t:pot|pot}} 3-bet kết thúc trước flop; ở đó, 3-bet không được miễn rake.
+Cũng vì lý do này, ở mô-đun 3, từ {{t:small-blind|small blind}} bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}, không bù thêm cho bằng {{t:big-blind|big blind}}. Một số phòng cũng thu {{t:rake}} từ các {{t:pot|pot}} 3-bet kết thúc trước flop; ở đó, 3-bet không được miễn rake.
 
 :::note Nguồn
 Mức rake: bài so sánh rake của các phòng online năm 2026 (biểu phí của hai phòng lớn nhất quy đổi sang bb/100, truy cập ngày 5 tháng 10 năm 2026); các phòng khác có số liệu khác. Khoản lỗ của cộng đồng người chơi: một báo cáo độc lập về cộng đồng người chơi (cash NLHE 6-max, các phòng có cơ sở dữ liệu theo dõi ván bài, người chơi có ít nhất 100 ván; tác giả không nêu tên phòng và khoảng thời gian). Ảnh hưởng của rake đến lối chơi trước flop: một bài viết đã công bố về kích cỡ tố trước flop, lời giải solver cho stack {{n:rake.solver.depth}}; tác giả viết rằng các kết luận phần lớn áp dụng được cho các thể thức khác, nên với stack {{n:format.stack}} đây là một cách đơn giản hóa. Ngưỡng equity là kết quả tính toán.

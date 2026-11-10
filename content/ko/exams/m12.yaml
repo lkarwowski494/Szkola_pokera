@@ -4,43 +4,43 @@ drills:
     id: m12.exam.q1
     family: m12.result-range
     rules: [R-M12-001]
-    prompt: "평균 윈레이트는 {{n:var.wr.typical.high}}, {{t:standard-deviation|표준편차}}는 {{n:var.sd}}이고, 앞으로 {{n:exam.m12.hands.k}}천 핸드(100핸드 블록 {{n:exam.m12.blocks}}개)를 플레이합니다. 약 {{n:var.conf95}} 신뢰도로 결과는 어떤 범위에 들어갑니까?"
+    prompt: "평균 윈레이트는 {{n:var.wr.typical.high}}, {{t:standard-deviation|표준편차}}는 {{n:var.sd}}이고, 앞으로 {{n:exam.m12.hands.k}},000핸드(100핸드 블록 {{n:exam.m12.blocks}}개)를 플레이합니다. 약 {{n:var.conf95}} 신뢰도로 결과는 어떤 범위에 들어갑니까?"
     options:
       - { text: "약 {{n:exam.m12.ci.low.bi}}~약 {{n:exam.m12.ci.high.bi}} {{t:buy-in|바이인}}", correct: true, why: "기대 결과는 {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}, 즉 {{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}입니다. 결과의 {{t:standard-deviation|표준편차}}는 {{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}, 즉 약 {{n:exam.m12.sd.bi}} {{t:buy-in|바이인}}입니다. 범위: {{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}." }
-      - { text: "정확히 {{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}", why: "{{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}은 기대 결과, 즉 평균입니다. {{n:exam.m12.hands.k}}천 핸드 후 결과의 {{t:standard-deviation|표준편차}}는 약 {{n:exam.m12.sd.bi}} {{t:buy-in|바이인}}이므로 실제 결과는 평균과 크게 다를 수 있습니다." }
+      - { text: "정확히 {{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}", why: "{{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}은 기대 결과, 즉 평균입니다. {{n:exam.m12.hands.k}},000핸드 후 결과의 {{t:standard-deviation|표준편차}}는 약 {{n:exam.m12.sd.bi}} {{t:buy-in|바이인}}이므로 실제 결과는 평균과 크게 다를 수 있습니다." }
       - { text: "약 {{n:exam.m12.exp.bi}}~약 {{n:exam.m12.ci.high.bi}} {{t:buy-in|바이인}}: 이기는 플레이어는 마이너스로 끝나지 않습니다", why: "이기는 플레이어도 마이너스로 끝날 수 있습니다. 이 조건에서 범위의 하한은 약 {{n:exam.m12.ci.low.bi}} {{t:buy-in|바이인}}입니다." }
   - kind: choice
     id: m12.exam.q2
     family: m12.winrate-sample
     rules: [R-M12-001]
-    prompt: "{{n:exam.m12.hands.k}}천 핸드 후 윈레이트는 {{n:var.wr.typical.high}}, {{t:standard-deviation|표준편차}}는 {{n:var.sd}}입니다. 진짜 윈레이트에 대해 무엇을 알 수 있습니까?"
+    prompt: "{{n:exam.m12.hands.k}},000핸드 후 윈레이트는 {{n:var.wr.typical.high}}, {{t:standard-deviation|표준편차}}는 {{n:var.sd}}입니다. 진짜 윈레이트에 대해 무엇을 알 수 있습니까?"
     options:
-      - { text: "약 {{n:var.conf95}} 신뢰도로 약 {{n:exam.m12.wr.ci.low}}와 약 {{n:exam.m12.wr.ci.high}} 사이에 있습니다", correct: true, why: "윈레이트의 오차는 SD ÷ √(블록 수) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}입니다. 범위: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}. {{n:exam.m12.hands.k}}천 핸드 후에는 이기고 있는지조차 알 수 없습니다." }
-      - { text: "큰 표본에서 결과가 플러스이므로 이기고 있다는 것", why: "{{n:exam.m12.hands.k}}천 핸드는 윈레이트를 판단하기에 작은 표본입니다. {{n:var.conf95}} 범위는 약 {{n:exam.m12.wr.ci.low}}에서 약 {{n:exam.m12.wr.ci.high}}까지이므로 지는 플레이도 포함합니다." }
-      - { text: "표본이 크므로 {{n:var.wr.typical.high}}에 매우 가깝다는 것", why: "{{n:exam.m12.hands.k}}천 핸드로는 그렇게 좁은 범위를 얻을 수 없습니다. 계산하면 {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}입니다." }
+      - { text: "약 {{n:var.conf95}} 신뢰도로 약 {{n:exam.m12.wr.ci.low}}와 약 {{n:exam.m12.wr.ci.high}} 사이에 있습니다", correct: true, why: "윈레이트의 오차는 SD ÷ √(블록 수) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}입니다. 범위: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}. {{n:exam.m12.hands.k}},000핸드 후에는 이기고 있는지조차 알 수 없습니다." }
+      - { text: "큰 표본에서 결과가 플러스이므로 이기고 있다는 것", why: "{{n:exam.m12.hands.k}},000핸드는 윈레이트를 판단하기에 작은 표본입니다. {{n:var.conf95}} 범위는 약 {{n:exam.m12.wr.ci.low}}에서 약 {{n:exam.m12.wr.ci.high}}까지이므로 지는 플레이도 포함합니다." }
+      - { text: "표본이 크므로 {{n:var.wr.typical.high}}에 매우 가깝다는 것", why: "{{n:exam.m12.hands.k}},000핸드로는 그렇게 좁은 범위를 얻을 수 없습니다. 계산하면 {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}입니다." }
   - kind: choice
     id: m12.exam.q3
     family: m12.winrate-sample
     rules: [R-M12-003]
     prompt: "공격적으로 플레이하며 {{t:standard-deviation|표준편차}}는 {{n:var.sd.high}}입니다. {{n:var.conf95}} 신뢰도로 윈레이트를 ± {{n:var.target}} 정확도로 알고 싶습니다. 몇 핸드가 필요합니까?"
     options:
-      - { text: "약 {{n:exam.m12.need.hands.k}}천 핸드", correct: true, why: "블록 수 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, 즉 약 {{n:exam.m12.need.hands.k}}천 핸드입니다. {{t:standard-deviation|표준편차}}가 높을수록 훨씬 큰 표본이 필요합니다." }
-      - { text: "약 {{n:var.need.hands.k}}천 핸드, {{t:standard-deviation|표준편차}}가 {{n:var.sd}}일 때와 같습니다", why: "{{t:standard-deviation|표준편차}}는 공식에서 제곱되므로 {{n:var.sd}} 대신 {{n:var.sd.high}}이면 확실히 더 많은 핸드가 필요합니다. 약 {{n:exam.m12.need.hands.k}}천 핸드입니다." }
+      - { text: "약 {{n:exam.m12.need.hands.k}},000핸드", correct: true, why: "블록 수 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, 즉 약 {{n:exam.m12.need.hands.k}},000핸드입니다. {{t:standard-deviation|표준편차}}가 높을수록 훨씬 큰 표본이 필요합니다." }
+      - { text: "약 {{n:var.need.hands.k}},000핸드, {{t:standard-deviation|표준편차}}가 {{n:var.sd}}일 때와 같습니다", why: "{{t:standard-deviation|표준편차}}는 공식에서 제곱되므로 {{n:var.sd}} 대신 {{n:var.sd.high}}이면 확실히 더 많은 핸드가 필요합니다. 약 {{n:exam.m12.need.hands.k}},000핸드입니다." }
       - { text: "수만 핸드면 충분합니다", why: "오차는 핸드 수의 제곱근에 비례해서만 줄어듭니다. {{n:var.sd.high}}이고 정확도가 ± {{n:var.target}}이면 100핸드 블록이 약 {{n:exam.m12.need.blocks}}개 필요합니다." }
   - kind: choice
     id: m12.exam.q4
     family: m12.sample-size
     rules: [R-M12-005, R-M12-001]
-    prompt: "플레이 스타일을 바꿨고 {{n:exam.m12.style.hands.k}}천 핸드 후 결과는 {{n:exam.m12.style.wr}}입니다. {{t:standard-deviation|표준편차}}는 {{n:var.sd}}입니다. 이것이 새 스타일이 더 낫다는 증거입니까?"
+    prompt: "플레이 스타일을 바꿨고 {{n:exam.m12.style.hands.k}},000핸드 후 결과는 {{n:exam.m12.style.wr}}입니다. {{t:standard-deviation|표준편차}}는 {{n:var.sd}}입니다. 이것이 새 스타일이 더 낫다는 증거입니까?"
     options:
       - { text: "아닙니다. {{n:var.conf95}} 범위는 약 ± {{n:exam.m12.style.ci}}입니다. 새 플레이는 핸드 리뷰로 평가합니다", correct: true, why: "{{n:exam.m12.style.blocks}}블록 후 윈레이트의 오차는 {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}이므로 범위는 ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}입니다. 이런 결과는 더 나은 스타일에서도, 더 나쁜 스타일에서도 나올 수 있습니다. 전략은 결정을 리뷰해서 판단합니다." }
-      - { text: "그렇습니다. {{n:exam.m12.style.wr}}은 일반적인 윈레이트보다 훨씬 높습니다", why: "{{n:exam.m12.style.hands.k}}천 핸드에서 {{n:var.conf95}} 범위는 약 ± {{n:exam.m12.style.ci}}입니다. 작은 표본의 높은 결과는 대부분 {{t:variance}}입니다." }
-      - { text: "대부분의 {{t:session|세션}}에서 이겼다면 그렇습니다", why: "이긴 {{t:session|세션}}의 수는 같은 결과를 여러 조각으로 나눈 것일 뿐입니다. 여전히 {{n:exam.m12.style.hands.k}}천 핸드에 기반하며 결정이 더 나은지는 알려 주지 않습니다." }
+      - { text: "그렇습니다. {{n:exam.m12.style.wr}}은 일반적인 윈레이트보다 훨씬 높습니다", why: "{{n:exam.m12.style.hands.k}},000핸드에서 {{n:var.conf95}} 범위는 약 ± {{n:exam.m12.style.ci}}입니다. 작은 표본의 높은 결과는 대부분 {{t:variance}}입니다." }
+      - { text: "대부분의 {{t:session|세션}}에서 이겼다면 그렇습니다", why: "이긴 {{t:session|세션}}의 수는 같은 결과를 여러 조각으로 나눈 것일 뿐입니다. 여전히 {{n:exam.m12.style.hands.k}},000핸드에 기반하며 결정이 더 나은지는 알려 주지 않습니다." }
   - kind: choice
     id: m12.exam.q5
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "턴입니다. 깨끗한 {{t:flush-draw}}가 있고 {{t:pot|팟}}은 {{n:ex.pot}}입니다. 상대가 {{n:ex.bet.half}}로 올인했고 더 이상 얻을 수 있는 칩은 없습니다. {{t:call|콜}}했고 리버에 {{t:flush}}가 완성되어 이겼습니다. 이 {{t:call}}을 어떻게 평가합니까?"
+    prompt: "턴입니다. 깨끗한 {{t:flush-draw}}가 있고 {{t:pot|팟}}은 {{n:ex.pot}}입니다. 상대가 {{n:ex.bet.half}}으로 올인했고 더 이상 얻을 수 있는 칩은 없습니다. {{t:call|콜}}했고 리버에 {{t:flush}}가 완성되어 이겼습니다. 이 {{t:call}}을 어떻게 평가합니까?"
     options:
       - { text: "이겼지만 나쁜 결정이었습니다", correct: true, why: "필요한 에퀴티는 {{n:eq.bet-half}}였고, {{t:flush-draw}}가 리버에 완성되는 경우는 약 {{n:odds.flush.turn-river}}입니다. 상대가 올인했으므로 이후에 추가로 받을 칩은 없습니다. 여러 번 반복하면 이런 {{t:call}}은 손해입니다." }
       - { text: "{{t:pot|팟}}을 이겼으므로 좋은 결정이었습니다", why: "한 핸드의 결과는 가격을 바꾸지 않습니다. 평가는 당시 가진 정보에서의 결정에 대한 것입니다. 필요한 {{n:eq.bet-half}}에 비해 에퀴티는 {{n:odds.flush.turn-river}}였습니다." }
@@ -51,9 +51,9 @@ drills:
     rules: [R-M12-006]
     prompt: "큰 {{t:pot|팟}}을 잃었습니다. 잘 플레이했고 {{t:variance}} 때문이라는 것을 알며, 상대도 올바르게 플레이했습니다. 그런데도 진 것 자체가 너무 화가 나서 집중할 수 없습니다. 틸트 강의의 분류에 따르면 어떤 유형의 틸트입니까?"
     options:
-      - { text: "지는 것을 싫어해서 생기는 틸트", correct: true, why: "{{t:variance}} 때문임을 알면서도 진 것 자체가 계기입니다. 운도, 자신도, 상대도 탓하지 않습니다." }
-      - { text: "불공정함 때문에 생기는 틸트", why: "이 유형은 포커가 불공정하다는 느낌에서 시작됩니다. 배드 빗, 쿨러, 상대가 리버에 맞히는 경우 등입니다. 여기서는 모든 일이 정상적으로 진행되었음을 알고 있고, 화가 나는 것은 진 것 자체입니다." }
-      - { text: "실수 때문에 생기는 틸트", why: "실수 틸트는 자신의 실수에 대한 분노입니다. 여기서는 잘 플레이했다는 것을 알고 있습니다." }
+      - { text: "패배 혐오 틸트", correct: true, why: "{{t:variance}} 때문임을 알면서도 진 것 자체가 계기입니다. 운도, 자신도, 상대도 탓하지 않습니다." }
+      - { text: "불공정 틸트", why: "이 유형은 포커가 불공정하다는 느낌에서 시작됩니다. 배드 비트, 쿨러, 상대가 리버에 맞히는 경우 등입니다. 여기서는 모든 일이 정상적으로 진행되었음을 알고 있고, 화가 나는 것은 진 것 자체입니다." }
+      - { text: "실수 틸트", why: "실수 틸트는 자신의 실수에 대한 분노입니다. 여기서는 잘 플레이했다는 것을 알고 있습니다." }
       - { text: "복수 틸트", why: "복수는 상대를 향합니다. 예를 들어 무례한 행동을 당한 후입니다. 여기서는 상대가 올바르게 플레이했고 분노의 원인이 아닙니다." }
   - kind: choice
     id: m12.exam.q7
@@ -77,10 +77,10 @@ drills:
     id: m12.exam.q9
     family: m12.move-down
     rules: [R-M12-011]
-    prompt: "뱅크롤을 {{n:br.bi.beginner}} {{t:buy-in|바이인}}으로 정했습니다. {{t:downswing|다운스윙}} 후 {{n:exam.m12.md.now}}이 남았습니다. 어떻게 합니까?"
+    prompt: "뱅크롤을 {{n:br.bi.beginner}} {{t:buy-in|바이인}}으로 정했습니다. {{t:downswing|다운스윙}} 후 {{n:exam.m12.md.now}}가 남았습니다. 어떻게 합니까?"
     options:
-      - { text: "{{t:stakes|스테이크}}를 한 단계 내립니다", correct: true, why: "내려가는 기준은 정해 둔 {{t:buy-in|바이인}} 수의 절반입니다. {{n:br.bi.beginner}}이면 {{n:exam.m12.md.half}}입니다. 남은 것은 {{n:exam.m12.md.now}}으로 그보다 적습니다. 두 배 낮은 {{t:stakes|스테이크}}에서는 같은 뱅크롤이 다시 그 스테이크의 {{t:buy-in|바이인}} 수를 거의 채웁니다. 이것은 일반적인 안내입니다. 플레이가 통제되지 않는다면 '도움말' 화면을 확인하세요." }
-      - { text: "{{n:exam.m12.md.now}}이 기준 {{n:br.bi.move-down}}보다 많으므로 그대로 있습니다", why: "기준 {{n:br.bi.move-down}}은 {{n:br.bi.base}} {{t:buy-in|바이인}} 뱅크롤의 절반입니다. 기준은 직접 정한 뱅크롤로 계산합니다. {{n:br.bi.beginner}}으로 정했으므로 늦어도 {{n:exam.m12.md.half}}에서 내려갑니다." }
+      - { text: "{{t:stakes|스테이크}}를 한 단계 내립니다", correct: true, why: "내려가는 기준은 정해 둔 {{t:buy-in|바이인}} 수의 절반입니다. {{n:br.bi.beginner}}이면 {{n:exam.m12.md.half}}입니다. 남은 것은 {{n:exam.m12.md.now}}로 그보다 적습니다. 두 배 낮은 {{t:stakes|스테이크}}에서는 같은 뱅크롤이 다시 그 스테이크의 {{t:buy-in|바이인}} 수를 거의 채웁니다. 이것은 일반적인 안내입니다. 플레이가 통제되지 않는다면 '도움말' 화면을 확인하세요." }
+      - { text: "{{n:exam.m12.md.now}}가 기준 {{n:br.bi.move-down}}보다 많으므로 그대로 있습니다", why: "기준 {{n:br.bi.move-down}}는 {{n:br.bi.base}} {{t:buy-in|바이인}} 뱅크롤의 절반입니다. 기준은 직접 정한 뱅크롤로 계산합니다. {{n:br.bi.beginner}}으로 정했으므로 늦어도 {{n:exam.m12.md.half}}에서 내려갑니다." }
       - { text: "그대로 있고 손실을 만회하려고 더 많이 플레이합니다", why: "손실을 만회하려는 것은 계획이 아니라 경고 신호입니다. 뱅크롤이 기준 {{n:exam.m12.md.half}} 아래로 떨어졌으므로 {{t:stakes|스테이크}}를 내립니다." }
   - kind: choice
     id: m12.exam.q10

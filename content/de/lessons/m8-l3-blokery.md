@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Eine Karte in deiner Hand, durch die dein Gegner weniger {{t:combo|Kombinationen}} einer bestimmten Hand hat", correct: true, why: "Eine Karte, die du hältst, kann dein Gegner nicht haben. Wenn du ein Ass hast, hat dein Gegner weniger Asse: weniger {{t:pair|Paare}} aus Assen, weniger AK, weniger Flushes mit dem Ass." }
       - { text: "Eine Karte auf dem {{t:board|Board}}, die einen {{t:draw|Draw}} kaputt macht", why: "So sagt man umgangssprachlich manchmal über Karten auf dem {{t:board|Board}}, aber ein {{t:blocker|Blocker}} in diesem Sinn ist eine Karte in deiner Hand. Die Karten auf dem {{t:board|Board}} sehen beide Spieler." }
-      - { text: "Ein kleiner Bet, der einen großen Bet des Gegners verhindern soll", why: "Das ist ein sogenannter Blocking Bet, etwas anderes. Ein {{t:blocker|Blocker}} ist eine Karte in deiner Hand, die die Zahl der {{t:combo|Kombinationen}} deines Gegners verringert." }
+      - { text: "Eine kleine Bet, die eine große Bet des Gegners verhindern soll", why: "Das ist eine sogenannte Blocking Bet, etwas anderes. Ein {{t:blocker|Blocker}} ist eine Karte in deiner Hand, die die Zahl der {{t:combo|Kombinationen}} deines Gegners verringert." }
   - kind: numeric
     id: m8.l3.n-ak-one
     family: m8.blockers.combos
@@ -55,7 +55,7 @@ drills:
     prompt: "Der {{t:flush-draw|Flush-Draw}} in Pik ist nicht angekommen. Der {{t:big-blind|Big Blind}} checkt am River. Beide Hände haben nur Dame-Acht. Mit welcher bluffst du besser?"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
-      - { text: "[[Qd 8c]]", correct: true, why: "Ohne Pik blockst du keine verpassten {{t:draw|Draws}} des Gegners, und das sind Hände, die auf deinen Bet {{t:fold|folden}}. Die übrigen Karten beider Hände sind gleich." }
+      - { text: "[[Qd 8c]]", correct: true, why: "Ohne Pik blockst du keine verpassten {{t:draw|Draws}} des Gegners, und das sind Hände, die auf deine Bet {{t:fold|folden}}. Die übrigen Karten beider Hände sind gleich." }
       - { text: "[[Qd 8s]]", why: "Die Pik-Acht blockt einen Teil der verpassten {{t:flush-draw|Flush-Draws}} (z. B. [[8s 7s]]), mit denen der Gegner {{t:fold|folden}} würde. Ihm bleiben relativ mehr Hände, mit denen er zahlt." }
       - { text: "Kein Unterschied", why: "Der Unterschied liegt in der Farbe der Acht. Ein Pik in deiner Hand nimmt dem Gegner einen Teil der Hände, die er folden würde." }
   - kind: choice

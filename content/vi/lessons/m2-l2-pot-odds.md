@@ -94,5 +94,5 @@ Ví dụ: {{t:pot|pot}} có {{n:ex.pot}}, đối thủ {{t:bet|cược}} {{n:ex.
 | Một phần tư {{t:pot|pot}} | {{n:eq.bet-quarter}} |
 
 :::note Quyết định
-Nếu equity của bạn lớn hơn mức cần có, bạn {{t:call|theo}}. Nếu nhỏ hơn, bạn {{t:fold|bỏ bài}}. Điều này suy ra từ {{t:expected-value|giá trị kỳ vọng}}: {{t:expected-value|EV}} của {{t:call|việc theo}} = equity × {{t:pot}} sau khi bạn {{t:call|theo}} − {{t:call}}, và giá trị này âm khi và chỉ khi equity nhỏ hơn mức cần có. Chỉ một phép tính này đã loại bỏ phần lớn các sai lầm tốn kém của người mới. Tạm thời bạn bỏ qua {{t:implied-odds}}, tức số {{t:chips|chip}} bạn kỳ vọng thắng thêm sau đó trong ván nếu hoàn thành tay bài của mình; chúng sẽ quay lại trong các mô-đun sau.
+Nếu equity của bạn lớn hơn mức cần có, bạn {{t:call|theo}}. Nếu nhỏ hơn, bạn {{t:fold|bỏ bài}}. Điều này suy ra từ {{t:expected-value|giá trị kỳ vọng}}: {{t:expected-value|EV}} của {{t:call|việc theo}} = equity × {{t:pot}} sau khi bạn {{t:call|theo}} − {{t:call|tiền theo}}, và giá trị này âm khi và chỉ khi equity nhỏ hơn mức cần có. Chỉ một phép tính này đã loại bỏ phần lớn các sai lầm tốn kém của người mới. Tạm thời bạn bỏ qua {{t:implied-odds}}, tức số {{t:chips|chip}} bạn kỳ vọng thắng thêm sau đó trong ván nếu hoàn thành tay bài của mình; chúng sẽ quay lại trong các mô-đun sau.
 :::

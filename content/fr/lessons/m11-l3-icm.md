@@ -77,7 +77,7 @@ drills:
     prompt: "{{t:bubble|Bulle}} du {{t:tournament|tournoi}}. Vous avez le plus gros stack de la table et vous {{t:cover|couvrez}} tout le monde. Le stack moyen se couche très souvent face à vous. Qu'en déduire ?"
     options:
       - { text: "Vous pouvez {{t:shove|faire tapis}} plus large, car les adversaires {{t:call|suivent}} serré", correct: true, why: "En {{t:call|suivant}}, le stack moyen risque d'être éliminé juste avant les prix, il lui faut donc beaucoup d'équité. Vous, en cas de défaite, ne perdez qu'une partie de votre stack. Les adversaires {{t:call|suivent}} serré, donc vous remportez plus souvent le {{t:pot|pot}} sans combat." }
-      - { text: "Vous jouez plus serré pour ne pas perdre la tête", why: "Le leader prend le moins de risques à la table. Jouer serré lui fait abandonner son principal avantage : la pression sur les stacks moyens." }
+      - { text: "Vous jouez plus serré pour ne pas perdre la première place", why: "C'est le leader qui risque le moins à la table. Jouer serré lui fait abandonner son principal avantage : la pression sur les stacks moyens." }
       - { text: "Rien, car l'{{t:icm}} ne concerne que les {{t:short-stack|short stacks}}", why: "L'{{t:icm}} concerne tout le monde : il change l'équité dont chacun a besoin pour {{t:call|suivre}}, et cela dépend de toute la répartition des stacks." }
   - kind: generated
     id: m11.l3.g-icm-equity
@@ -158,7 +158,7 @@ Ici, {{n:m11.bf.loss}} ÷ {{n:m11.bf.gain}} = **{{n:m11.bf.value}}**. L'applicat
 
 On obtient **{{n:m11.bf.req}}**. Dans une partie aux {{t:chips|jetons}}, vous risquez {{n:m11.bf.s3}} pour gagner {{n:m11.bf.s3}}, donc {{n:m11.bf.req-chips}} suffirait. La différence, {{n:m11.bf.premium}}, est la **{{t:risk-premium|prime de risque}}**.
 
-La même tendance apparaît dans un équilibre publié pour trois joueurs à stacks égaux (article scientifique de 2008) : quand le bouton et la {{t:small-blind|petite blinde}} sont déjà all-in, la {{t:big-blind|grosse blinde}} {{t:call|suit}} avec {{n:m11.jamfold3.overcall.single}} des mains dans une donne isolée, mais dans un {{t:tournament|tournoi}} avec des {{t:payout|paiements}} seulement avec {{n:m11.jamfold3.overcall.tourn}}, soit uniquement les {{t:pocket-pair|paires servies}} les plus hautes et AKs.
+La même tendance apparaît dans un équilibre publié pour trois joueurs à stacks égaux (article scientifique de 2008) : quand le Bouton et la {{t:small-blind|petite blinde}} sont déjà all-in, la {{t:big-blind|grosse blinde}} {{t:call|suit}} avec {{n:m11.jamfold3.overcall.single}} des mains dans une donne isolée, mais dans un {{t:tournament|tournoi}} avec des {{t:payout|paiements}} seulement avec {{n:m11.jamfold3.overcall.tourn}}, soit uniquement les {{t:pocket-pair|paires servies}} les plus hautes et AKs.
 
 :::note Qui {{t:call|suit}} serré
 Un stack moyen dans la {{t:bubble|bulle}} ou en {{t:final-table|table finale}} (la dernière table d'un {{t:tournament|tournoi}}, où se jouent les prix les plus élevés) {{t:call|suit}} les all-in de façon bien plus serrée que dans une partie aux {{t:chips|jetons}}. Un gros stack qui {{t:cover|couvre}} ses adversaires risque moins et peut en profiter : {{t:shove|faire tapis}} plus large, car les adversaires doivent {{t:fold|se coucher}}. Le bubble factor dépend de tous les stacks de la table : on ne le calcule donc pas à la table, on s'entraîne sur des exemples pour développer son intuition.

@@ -40,9 +40,9 @@ drills:
     id: m10.exam.q5
     family: m10.types.adjust
     rules: [R-M10-008]
-    prompt: "L'avversario è un {{t:maniac|maniaco}}: {{t:vpip}} {{n:exam.m10.maniac.vpip}}, {{t:pfr}} {{n:exam.m10.maniac.pfr}}, {{n:exam.m10.long.hands}} mani. Hai fatto {{t:set|set}} al flop e l'avversario {{t:bet|punta}}. Cosa fai?"
+    prompt: "L'avversario è un {{t:maniac|maniac}}: {{t:vpip}} {{n:exam.m10.maniac.vpip}}, {{t:pfr}} {{n:exam.m10.maniac.pfr}}, {{n:exam.m10.long.hands}} mani. Hai fatto {{t:set|set}} al flop e l'avversario {{t:bet|punta}}. Cosa fai?"
     options:
-      - { text: "{{t:call|Chiamo}} e lo lascio continuare a puntare", correct: true, why: "Con una mano molto forte lasci puntare il {{t:maniac|maniaco}}: le sue puntate contengono molti {{t:bluff|bluff}} e mani deboli, e il {{t:call}} le tiene in gioco per le {{t:street|street}} successive." }
+      - { text: "{{t:call|Chiamo}} e lo lascio continuare a puntare", correct: true, why: "Con una mano molto forte lasci puntare il {{t:maniac|maniac}}: le sue puntate contengono molti {{t:bluff|bluff}} e mani deboli, e il {{t:call}} le tiene in gioco per le {{t:street|street}} successive." }
       - { text: "{{t:raise|Rilancio}} subito il più possibile", why: "Il {{t:raise|rilancio}} fa sì che i suoi {{t:bluff|bluff}} e le sue mani deboli {{t:fold|foldino}} prima di mettere altro nel piatto. Contro un giocatore che punta da solo guadagni di più lasciandoglielo fare." }
       - { text: "{{t:fold|Foldo}}, perché un {{t:pfr}} alto significa mani forti", why: "Un {{t:pfr}} alto con un {{t:vpip}} così alto significa che {{t:raise|rilancia}} con quasi ogni mano, non che ha mani forti. Il {{t:set}} qui è una delle mani migliori." }
   - kind: choice
@@ -58,7 +58,7 @@ drills:
     id: m10.exam.q7
     family: m10.base.alpha
     rules: [R-M10-010]
-    prompt: "L'avversario ha fold to c-bet {{n:exam.m10.fcb}} dopo {{n:exam.m10.long.hands}} mani. Hai mancato il flop e non hai un {{t:draw|draw}}. Quale c-bet senza mano è subito profittevole?"
+    prompt: "L'avversario ha fold to c-bet {{n:exam.m10.fcb}} dopo {{n:exam.m10.long.hands}} mani. Hai mancato il flop e non hai un {{t:draw|progetto}}. Quale c-bet senza mano è subito profittevole?"
     options:
       - { text: "Solo quello piccolo, da 1/3 del {{t:pot|piatto}}", correct: true, why: "Un c-bet da 1/3 del {{t:pot|piatto}} va in pari al {{n:alpha.cbet.small}} di {{t:fold|fold}}, mentre uno da 3/4 del {{t:pot|piatto}} solo al {{n:alpha.cbet.big}}. Il {{n:exam.m10.fcb}} basta solo per quello piccolo. Il fold to c-bet unisce tutte le dimensioni e tutti i tavoli, quindi è un'approssimazione." }
       - { text: "Entrambi, perché l'avversario {{t:fold|folda}} spesso", why: "Un c-bet grande rischia di più e richiede oltre il {{n:alpha.cbet.big}} di {{t:fold|fold}}. L'avversario {{t:fold|folda}} nel {{n:exam.m10.fcb}} dei casi, cioè troppo raramente." }
@@ -77,6 +77,6 @@ drills:
     id: m10.exam.q9
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "Il {{t:pot|piatto}} contiene {{n:ex.pot}} e l'avversario {{t:bet|punta}} tutto il {{t:pot|piatto}}: {{n:ex.bet.pot}}. La sala trattiene il {{n:rake.ex.pct}} del {{t:pot|piatto}} e il {{t:rake-cap|rake cap}} è fuori portata. Quanta equity ti serve per {{t:call|chiamare}}? Inserisci una percentuale."
+    prompt: "Il {{t:pot|piatto}} contiene {{n:ex.pot}} e l'avversario {{t:bet|punta}} tutto il {{t:pot|piatto}}: {{n:ex.bet.pot}}. La sala trattiene il {{n:rake.ex.pct}} del {{t:pot|piatto}} e il {{t:rake-cap|tetto del rake}} è fuori portata. Quanta equity ti serve per {{t:call|chiamare}}? Inserisci una percentuale."
     answer: exam.m10.rake.eq
     explanation: "Il {{t:pot|piatto}} dopo la {{t:call|chiamata}} è di {{n:exam.m10.rake.total}}, e di {{n:exam.m10.rake.after}} dopo aver tolto il {{t:rake|rake}}. Metti {{n:ex.bet.pot}}: {{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}} invece di {{n:eq.bet-pot}} senza {{t:rake|rake}}."

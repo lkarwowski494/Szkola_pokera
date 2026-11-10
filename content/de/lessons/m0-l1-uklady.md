@@ -78,7 +78,7 @@ drills:
     params: { area: hands, dir: both }
     count: 4
 ---
-Beim Texas Hold'em bekommst du **2 {{t:hole-cards|Handkarten}}**, und auf das {{t:board|Board}} kommen **5 {{t:community-cards|Gemeinschaftskarten}}**. Aus diesen 7 Karten bildest du die beste Hand aus **5**. Die stärkere Hand gewinnt den ganzen {{t:pot|Pot}}.
+Beim Texas Hold'em bekommst du **2 {{t:hole-cards|Hole Cards}}**, und auf das {{t:board|Board}} kommen **5 {{t:community-cards|Gemeinschaftskarten}}**. Aus diesen 7 Karten bildest du die beste Hand aus **5**. Die stärkere Hand gewinnt den ganzen {{t:pot|Pot}}.
 
 ## Ranking von der stärksten Hand an
 
@@ -101,4 +101,4 @@ Zuerst vergleicht man den Rang der Hand: Ein {{t:three-of-a-kind|Drilling}} schl
 
 Das Ass kann die niedrigste Karte einer {{t:straight|Straße}} sein: [[5h 4s 3c 2d Ah]] ist die niedrigste {{t:straight|Straße}}, das sogenannte {{t:wheel|Wheel}}.
 
-Wenn deine beste Hand nur aus den {{t:community-cards|Gemeinschaftskarten}} besteht und deine {{t:hole-cards|Handkarten}} nichts beitragen, spricht man davon, {{t:playing-the-board|das Board zu spielen}}: Bestenfalls {{t:split-pot|teilt ihr den Pot}}.
+Wenn deine beste Hand nur aus den {{t:community-cards|Gemeinschaftskarten}} besteht und deine {{t:hole-cards|Hole Cards}} nichts beitragen, spricht man davon, {{t:playing-the-board|das Board zu spielen}}: Bestenfalls {{t:split-pot|teilt ihr den Pot}}.

@@ -15,7 +15,7 @@ drills:
     rules: [R-M11-005]
     prompt: "Tienes {{n:exam.m11.m.stack}} {{t:chips|fichas}}. Las ciegas son {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}} y la {{t:big-blind|ciega grande}} pone además un ante de {{n:exam.m11.m.ante}}. ¿Cuánto vale tu M? Escribe un número con un decimal."
     answer: exam.m11.m.value
-    explanation: "Una vuelta cuesta {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}, así que M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}. Está muy por debajo de aprox. {{n:m11.m.red}}: ya solo juegas all-in o {{t:fold|retirarte}} e intentas entrar el primero en el {{t:pot|bote}}."
+    explanation: "Una vuelta cuesta {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}, así que M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}. Está muy por debajo de aprox. {{n:m11.m.red}}: ya solo vas all-in o {{t:fold|te retiras}} e intentas entrar el primero en el {{t:pot|bote}}."
   - kind: choice
     id: m11.exam.q3
     family: m11.fold-equity

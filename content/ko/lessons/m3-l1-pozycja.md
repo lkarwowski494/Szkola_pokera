@@ -34,7 +34,7 @@ drills:
     options:
       - { text: "{{t:raise|레이즈}}합니다", correct: true, why: "블라인드만 남았고, 플롭 이후에는 {{t:position|포지션}}을 가집니다. 버튼에서는 핸드의 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}를 {{t:open|오픈}}하며, K9o는 여기에 포함됩니다." }
       - { text: "{{t:fold|폴드}}합니다", why: "너무 신중합니다. 블라인드만 상대한다면 이 핸드는 충분히 좋고, {{t:position}}이 가치를 더해 줍니다." }
-      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "림프는 {{t:initiative|이니셔티브}}를 내줍니다. {{t:raise|레이즈}}는 블라인드를 바로 가져오는 경우가 많습니다." }
+      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "림프는 {{t:initiative|주도권}}을 내줍니다. {{t:raise|레이즈}}는 블라인드를 바로 가져오는 경우가 많습니다." }
   - kind: choice
     id: m3.l1.q4
     family: m3.position
@@ -66,5 +66,5 @@ drills:
 **{{t:hijack|HJ}}**(Hijack)는 {{t:utg}} 다음, 버튼보다 두 자리 앞에 앉고, **{{t:cutoff|CO}}**(Cutoff)는 버튼 바로 앞에 앉습니다. 이들은 중간 {{t:position|포지션}}입니다. 뒤에 있는 플레이어가 {{t:utg}}보다 적으므로 이 자리에서는 더 넓게 {{t:open|오픈}}하지만, 버튼보다는 여전히 좁게 오픈합니다.
 
 :::note {{t:open|오픈}} 사이즈
-모든 {{t:position|포지션}}에서 {{n:pf.open-size}}로 {{t:raise|레이즈}}해 {{t:open|오픈}}하고, {{t:small-blind|스몰 블라인드}}에서는 {{n:pf.open-size-sb}}로 오픈합니다. 이는 단순화한 것입니다. 솔버 솔루션에서는 {{t:early-position|얼리 포지션}}의 {{t:open|오픈}}이 조금 더 작지만(예: {{t:utg}}에서 {{n:pf.open-size.solver-utg}}, {{t:cutoff|CO}}에서 {{n:pf.open-size.solver-co}}), 한 가지 사이즈가 배우기 더 쉽습니다. 처음으로 참여할 때는 블라인드 금액만 내지 않습니다(이것이 {{t:limp}}, 즉 {{t:big-blind|빅 블라인드}}에 단순히 {{t:call|콜}}해서 참여하는 것입니다). {{t:raise}}는 {{t:pot|팟}}을 바로 가져올 수 있고 {{t:initiative|이니셔티브}}를 줍니다. 마지막으로 {{t:raise|레이즈}}한 플레이어가 보통 다음 {{t:bet|베팅}}을 하기 때문입니다.
+모든 {{t:position|포지션}}에서 {{n:pf.open-size}}로 {{t:raise|레이즈}}해 {{t:open|오픈}}하고, {{t:small-blind|스몰 블라인드}}에서는 {{n:pf.open-size-sb}}로 오픈합니다. 이는 단순화한 것입니다. 솔버 솔루션에서는 {{t:early-position|얼리 포지션}}의 {{t:open|오픈}}이 조금 더 작지만(예: {{t:utg}}에서 {{n:pf.open-size.solver-utg}}, {{t:cutoff|CO}}에서 {{n:pf.open-size.solver-co}}), 한 가지 사이즈가 배우기 더 쉽습니다. 처음으로 참여할 때는 블라인드 금액만 내지 않습니다(이것이 {{t:limp}}, 즉 {{t:big-blind|빅 블라인드}}에 단순히 {{t:call|콜}}해서 참여하는 것입니다). {{t:raise}}는 {{t:pot|팟}}을 바로 가져올 수 있고 {{t:initiative|주도권}}을 줍니다. 마지막으로 {{t:raise|레이즈}}한 플레이어가 보통 다음 {{t:bet|베팅}}을 하기 때문입니다.
 :::

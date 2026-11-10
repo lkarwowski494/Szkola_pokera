@@ -43,7 +43,7 @@ drills:
     options:
       - { text: "3-Bet auf {{n:pf.3bet.oop-total}}", correct: true, why: "QQ ist eine {{t:value|Value}}-Hand. {{t:out-of-position|Ohne Position}} {{t:raise|raist}} du auf etwa {{n:pf.3bet.size-oop}} des {{t:open|Opens}}, damit der Button nicht billig {{t:in-position|in Position}} {{t:call|callt}}." }
       - { text: "3-Bet auf {{n:pf.3bet.ip-total}}", sizeError: true, why: "Gute Aktion, aber das ist die Größe für einen Spieler {{t:in-position|in Position}} ({{n:pf.3bet.size-ip}} des {{t:open|Opens}}). {{t:out-of-position|Ohne Position}} {{t:raise|raist}} du höher: auf {{n:pf.3bet.oop-total}}." }
-      - { text: "{{t:call|Callen}}", why: "Du verlierst Wert: Mit QQ willst du den {{t:pot|Pot}} vor dem Flop aufbauen, statt einen kleinen {{t:pot|Pot}} {{t:out-of-position|ohne Position}} zu spielen." }
+      - { text: "{{t:call|Callen}}", why: "Du verlierst Value: Mit QQ willst du den {{t:pot|Pot}} vor dem Flop aufbauen, statt einen kleinen {{t:pot|Pot}} {{t:out-of-position|ohne Position}} zu spielen." }
       - { text: "{{t:fold|Folden}}", why: "QQ gehört preflop zu den besten Händen. Ein {{t:fold|Fold}} ist ein großer Fehler." }
   - kind: generated
     id: m4.l2.g-btn
@@ -70,7 +70,7 @@ Der {{t:big-blind|Big Blind}} hat schon einen ganzen Blind im {{t:pot|Pot}}, dah
 
 ## Der Preis ist nicht alles
 
-Equity sagt dir, wie oft du gewinnst, wenn ihr beide ohne weitere {{t:bet|Einsätze}} zum Showdown kommt. {{t:out-of-position|Ohne Position}} wirst du nach dem Flop oft {{t:fold|folden}}, deshalb realisieren schwache Offsuit-Hände weniger als ihre Equity. Gesuitete Hände, {{t:connectors|Connectors}} und mittlere {{t:pair|Paare}} realisieren mehr, deshalb verteidigst du mit ihnen im Raster eher.
+Equity sagt dir, wie oft du gewinnst, wenn ihr beide ohne weitere {{t:bet|Einsätze}} zum Showdown kommt. {{t:out-of-position|Ohne Position}} wirst du nach dem Flop oft {{t:fold|folden}}, deshalb realisieren schwache Offsuit-Hände weniger als ihre Equity. Suited Hände, {{t:connectors|Connectors}} und mittlere {{t:pair|Paare}} realisieren mehr, deshalb verteidigst du mit ihnen im Raster eher.
 
 ```range
 vs-open.bb-vs-btn
@@ -89,5 +89,5 @@ vs-open.bb-vs-sb
 Eine veröffentlichte Solver-Lösung verteidigt hier etwa {{n:pf.bb-def.vs-sb.pub}} der Hände. Der Solver der App, aus dem das Raster stammt, verteidigt hier enger als die veröffentlichte Lösung.
 
 :::note Wie du aus dem {{t:big-blind|Big Blind}} {{t:raise|raist}}
-Die Raster zeigen, womit du verteidigst, nicht wie: 3-Bet und {{t:call|Call}} sind zusammengefasst, weil sich die Zusammensetzung der 3-Bets aus dem {{t:big-blind|Big Blind}} im Solver der App von veröffentlichten Ergebnissen anderer Solver unterscheidet. Gegen den Button beträgt eine 3-Bet aus dem {{t:big-blind|Big Blind}} etwa {{n:pf.3bet.size-oop}} des {{t:open|Opens}}. Du 3-bettest die stärksten Hände (TT+, AQ+, AJs+) plus {{t:bluff|Bluffs}} vom unteren Ende deiner {{t:range|Range}} zum {{t:call|Callen}}: A5s, manchmal A4s, und gesuitete {{t:connectors|Connectors}}. Mittlere und kleine {{t:pair|Paare}}, KQo und Offsuit-Asse {{t:call|callst}} du meist. Gegen den {{t:small-blind|Small Blind}} hast du {{t:position|Position}}, daher {{t:raise|raist}} du kleiner, auf etwa {{n:pf.3bet.size-ip}} des {{t:open|Opens}}. Dann 3-bettest du vor allem für {{t:value|Value}} (TT+, AJs+, einen Teil von AQo und KQ), und A5s sowie gesuitete {{t:connectors|Connectors}} {{t:call|callst}} du meist.
+Die Raster zeigen, womit du verteidigst, nicht wie: 3-Bet und {{t:call|Call}} sind zusammengefasst, weil sich die Zusammensetzung der 3-Bets aus dem {{t:big-blind|Big Blind}} im Solver der App von veröffentlichten Ergebnissen anderer Solver unterscheidet. Gegen den Button beträgt eine 3-Bet aus dem {{t:big-blind|Big Blind}} etwa {{n:pf.3bet.size-oop}} des {{t:open|Opens}}. Du 3-bettest die stärksten Hände (TT+, AQ+, AJs+) plus {{t:bluff|Bluffs}} vom unteren Ende deiner {{t:range|Range}} zum {{t:call|Callen}}: A5s, manchmal A4s, und suited {{t:connectors|Connectors}}. Mittlere und kleine {{t:pair|Paare}}, KQo und Offsuit-Asse {{t:call|callst}} du meist. Gegen den {{t:small-blind|Small Blind}} hast du {{t:position|Position}}, daher {{t:raise|raist}} du kleiner, auf etwa {{n:pf.3bet.size-ip}} des {{t:open|Opens}}. Dann 3-bettest du vor allem für {{t:value|Value}} (TT+, AJs+, einen Teil von AQo und KQ), und A5s sowie suited {{t:connectors|Connectors}} {{t:call|callst}} du meist.
 :::

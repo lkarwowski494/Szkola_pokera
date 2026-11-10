@@ -10,7 +10,7 @@ drills:
     id: m4.l2.n-price-btn
     family: m4.bb.price
     rules: [R-M4-004]
-    prompt: "按鈕位{{t:open|開池}}到{{n:pf.open-size}}，{{t:small-blind}}{{t:fold|棄牌}}。你在{{t:big-blind|大盲}}需要多少百分比的 equity，{{t:call}}才有利可圖（不考慮翻牌後的打法）？請輸入數字。"
+    prompt: "按鈕位{{t:open|開池}}到{{n:pf.open-size}}，{{t:small-blind}}{{t:fold|棄牌}}。你在{{t:big-blind|大盲}}需要多少百分比的權益，{{t:call}}才有利可圖（不考慮翻牌後的打法）？請輸入數字。"
     table: { position: BB }
     answer: eq.bb-vs-btn-open
     explanation: "你要再補{{n:bb.call.vs-btn}}進{{t:pot|底池}}，{{t:call|跟注}}後底池共有{{n:bb.pot-after.vs-btn}}：{{n:bb.call.vs-btn}} ÷ {{n:bb.pot-after.vs-btn}}約為{{n:eq.bb-vs-btn-open}}。只有當{{t:pot|底池}}裡只有對手的{{t:bet}}時，你才需要一半；{{t:pot|底池}}裡的盲注讓你的價格更好。"
@@ -18,20 +18,20 @@ drills:
     id: m4.l2.q-price-sb
     family: m4.bb.price
     rules: [R-M4-014]
-    prompt: "{{t:small-blind|小盲}}{{t:open|開池}}到{{n:pf.open-size-sb}}。你在{{t:big-blind|大盲}}需要多少 equity 才能{{t:call|跟注}}？"
+    prompt: "{{t:small-blind|小盲}}{{t:open|開池}}到{{n:pf.open-size-sb}}。你在{{t:big-blind|大盲}}需要多少權益才能{{t:call|跟注}}？"
     table: { position: BB }
     options:
       - { text: "約{{n:eq.bb-vs-sb-open}}", correct: true, why: "你要再補{{n:bb.call.vs-sb}}進{{t:pot|底池}}，{{t:call|跟注}}後底池共有{{n:bb.pot-after.vs-sb}}：約為{{n:eq.bb-vs-sb-open}}。價格比面對按鈕位時差，但翻牌後你有{{t:position|位置}}。" }
       - { text: "約{{n:eq.bb-vs-btn-open}}", why: "這是面對按鈕位{{t:open|開池}}到{{n:pf.open-size}}時的價格。{{t:small-blind|小盲}}{{t:open|開池}}的尺寸更大，所以你要付更多。" }
-      - { text: "約一半", why: "只有當{{t:pot|底池}}裡只有對手的{{t:bet}}時，你才需要一半的 equity。這裡底池裡還有盲注，所以價格更好。" }
+      - { text: "約一半", why: "只有當{{t:pot|底池}}裡只有對手的{{t:bet}}時，你才需要一半的權益。這裡底池裡還有盲注，所以價格更好。" }
   - kind: choice
     id: m4.l2.q-realize
     family: m4.bb.realize
     rules: [R-M4-004]
-    prompt: "為什麼你在{{t:big-blind|大盲}}不會用每一手對按鈕位{{t:range|範圍}}有約{{n:eq.bb-vs-btn-open}} equity 的牌{{t:call|跟注}}？"
+    prompt: "為什麼你在{{t:big-blind|大盲}}不會用每一手對按鈕位{{t:range|範圍}}有約{{n:eq.bb-vs-btn-open}}權益的牌{{t:call|跟注}}？"
     table: { position: BB }
     options:
-      - { text: "因為{{t:out-of-position}}時你無法實現全部 equity", correct: true, why: "Equity 是在沒有任何{{t:bet|下注}}、一路打到底時的獲勝機率。{{t:out-of-position|沒有位置}}時，你常會在攤牌前{{t:fold|棄牌}}，所以不同花的弱牌實現的比 equity 顯示的少。" }
+      - { text: "因為{{t:out-of-position}}時你無法實現全部權益", correct: true, why: "權益是在沒有任何{{t:bet|下注}}、一路打到底時的獲勝機率。{{t:out-of-position|沒有位置}}時，你常會在攤牌前{{t:fold|棄牌}}，所以不同花的弱牌實現的比權益顯示的少。" }
       - { text: "因為按鈕位總是拿著強牌", why: "按鈕位{{t:open|開池}}非常寬，所以{{t:big-blind|BB}}的防守也很寬。" }
       - { text: "因為要省下{{t:chips}}", why: "重要的是{{t:expected-value}}，而不是省下{{t:chips|籌碼}}。" }
   - kind: choice
@@ -66,11 +66,11 @@ drills:
     spot: vs-open.bb-vs-btn
     prompt: "按鈕位{{t:open|開池}}到{{n:pf.open-size}}，{{t:small-blind}}{{t:fold|棄牌}}。請塗出你用來防守{{t:big-blind}}的牌（{{t:call|跟注}}或 3-bet）。"
 ---
-{{t:big-blind|大盲}}已經有一整個盲注在{{t:pot|底池}}裡，所以面對{{t:open|開池}}時只需再補一點。當按鈕位{{t:open|開池}}到{{n:pf.open-size}}、{{t:small-blind}}{{t:fold|棄牌}}時，你只需要約{{n:eq.bb-vs-btn-open}}的 equity 就能{{t:call|跟注}}。因此{{t:big-blind}}是所有{{t:position|位置}}中防守最寬的。
+{{t:big-blind|大盲}}已經有一整個盲注在{{t:pot|底池}}裡，所以面對{{t:open|開池}}時只需再補一點。當按鈕位{{t:open|開池}}到{{n:pf.open-size}}、{{t:small-blind}}{{t:fold|棄牌}}時，你只需要約{{n:eq.bb-vs-btn-open}}的權益就能{{t:call|跟注}}。因此{{t:big-blind}}是所有{{t:position|位置}}中防守最寬的。
 
 ## 價格不是一切
 
-Equity 告訴你：如果雙方在沒有進一步{{t:bet|下注}}的情況下打到攤牌，你多常獲勝。{{t:out-of-position|沒有位置}}時，你常會在翻牌後{{t:fold|棄牌}}，所以不同花的弱牌實現的比它們的 equity 少。同花牌、{{t:connectors|連張}}和中等{{t:pair|對子}}實現得更多，所以網格中更願意用它們防守。
+權益告訴你：如果雙方在沒有進一步{{t:bet|下注}}的情況下打到攤牌，你多常獲勝。{{t:out-of-position|沒有位置}}時，你常會在翻牌後{{t:fold|棄牌}}，所以不同花的弱牌實現的比它們的權益少。同花牌、{{t:connectors|連張}}和中等{{t:pair|對子}}實現得更多，所以網格中更願意用它們防守。
 
 ```range
 vs-open.bb-vs-btn
@@ -80,7 +80,7 @@ vs-open.bb-vs-btn
 
 ## 面對{{t:small-blind|小盲}}
 
-{{t:small-blind|小盲}}用更大的尺寸{{t:open|開池}}，到{{n:pf.open-size-sb}}，所以你需要約{{n:eq.bb-vs-sb-open}}的 equity 才能{{t:call|跟注}}。價格比較差，但翻牌後你有{{t:position|位置}}，所以仍然防守得很寬：超過一半的牌。
+{{t:small-blind|小盲}}用更大的尺寸{{t:open|開池}}，到{{n:pf.open-size-sb}}，所以你需要約{{n:eq.bb-vs-sb-open}}的權益才能{{t:call|跟注}}。價格比較差，但翻牌後你有{{t:position|位置}}，所以仍然防守得很寬：超過一半的牌。
 
 ```range
 vs-open.bb-vs-sb

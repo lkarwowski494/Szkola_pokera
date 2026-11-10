@@ -84,7 +84,7 @@ Trong Texas Hold'em, bạn nhận **2 {{t:hole-cards|lá bài tẩy}}**, và **5
 
 | | Tay bài | Ví dụ |
 |---|---|---|
-| 1 | {{t:royal-flush|Thùng phá sảnh hoàng gia}} | [[As Ks Qs Js Ts]] |
+| 1 | {{t:royal-flush|Sảnh rồng}} | [[As Ks Qs Js Ts]] |
 | 2 | {{t:straight-flush|Thùng phá sảnh}}: {{t:straight-flush|sảnh cùng chất}} | [[9h 8h 7h 6h 5h]] |
 | 3 | {{t:four-of-a-kind|Tứ quý}} | [[Qs Qh Qd Qc 4s]] |
 | 4 | {{t:full-house|Cù lũ}}: {{t:three-of-a-kind}} và {{t:pair}} | [[Ks Kd Kc 7h 7s]] |

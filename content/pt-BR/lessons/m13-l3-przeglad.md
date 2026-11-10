@@ -30,7 +30,7 @@ drills:
     rules: [R-M13-006]
     prompt: "Qual destas mãos menos vale a pena analisar por muito tempo?"
     options:
-      - { text: "Um set perdeu para um set maior em uma {{t:board|mesa}} {{t:dry|seca}}; os dois colocaram o stack inteiro", correct: true, why: "Isso: é um cooler. Nenhum jogador sensato {{t:fold|largaria}} um set aqui. Coolers acontecem com todo mundo e ensinam pouco." }
+      - { text: "Um set perdeu para um set maior em uma {{t:board|mesa}} {{t:dry|seca}}; os dois colocaram o stack inteiro", correct: true, why: "Isso: é um cooler. Nenhum jogador sensato {{t:fold|desistiria}} de um set aqui. Coolers acontecem com todo mundo e ensinam pouco." }
       - { text: "Um {{t:pot|pote}} grande perdido em que, no river, você não sabia se devia {{t:call|pagar}}", why: "Essa é uma boa candidata à revisão: {{t:pot|pote}} grande e decisão difícil." }
       - { text: "Um {{t:pot|pote}} médio em que o adversário jogou melhor que você e você se sentiu perdido", why: "Vale a pena revisar mãos assim: você sentiu que algo deu errado, e vale ver o quê." }
   - kind: choice
@@ -73,7 +73,7 @@ Durante o jogo, você só marca as mãos que pareceram interessantes, difíceis 
 - Mãos em que você não sabia o que fazer ou sentiu que o adversário jogou melhor que você.
 - As vitórias também: um erro que deu certo custa a mesma coisa (veja a lição sobre decisão e resultado).
 
-Não gaste muito tempo com coolers e bad beats. Cooler é uma mão em que duas mãos fortes se encontram e nenhuma poderia, de forma sensata, {{t:fold|largar}}, por exemplo, um set contra um set maior. Mãos assim acontecem com todo mundo e ensinam pouco.
+Não gaste muito tempo com coolers e bad beats. Cooler é uma mão em que duas mãos fortes se encontram e nenhuma poderia, de forma sensata, {{t:fold|desistir}}, por exemplo, um set contra um set maior. Mãos assim acontecem com todo mundo e ensinam pouco.
 
 ## Como revisar uma decisão
 

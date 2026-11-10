@@ -23,18 +23,18 @@ drills:
     prompt: "求解器在 {{n:exam.m13.solver.main}} 的情況下以{{t:raise|加注}}打你這手牌，在 {{n:exam.m13.solver.rare}} 的情況下{{t:fold|棄牌}}。你{{t:fold|棄牌}}了。報告會怎麼評價？"
     options:
       - { text: "可接受", correct: true, why: "求解器在 {{n:exam.m13.solver.rare}} 的情況下{{t:fold|棄牌}}：至少 {{n:range.mixed.min}}，但低於 {{n:range.mixed.low}}。這是{{t:mixed-hand|混合手牌}}中較少採用的打法，所以不是錯誤，而是可接受的決策。" }
-      - { text: "一致", why: "求解器在至少 {{n:range.mixed.low}} 的情況下採用的動作才算一致。{{n:exam.m13.solver.rare}} 的{{t:fold|棄牌}}頻率較低。" }
-      - { text: "錯誤", why: "錯誤是求解器完全不採用的動作。{{n:exam.m13.solver.rare}} 的{{t:fold|棄牌}}是{{t:mixed-hand|混合手牌}}中較少採用的打法，所以兩種打法都正確。" }
+      - { text: "吻合", why: "求解器在至少 {{n:range.mixed.low}} 的情況下採用的行動才算吻合。{{n:exam.m13.solver.rare}} 的{{t:fold|棄牌}}頻率較低。" }
+      - { text: "錯誤", why: "錯誤是求解器完全不採用的行動。{{n:exam.m13.solver.rare}} 的{{t:fold|棄牌}}是{{t:mixed-hand|混合手牌}}中較少採用的打法，所以兩種打法都正確。" }
   - kind: choice
     id: m13.exam.q4
     family: m13.verdicts
     rules: [R-M13-002]
     prompt: "求解器在 {{n:exam.m13.solver.main2}} 的情況下以你這手牌{{t:fold|棄牌}}，在 {{n:exam.m13.solver.tiny}} 的情況下{{t:call|跟注}}。你{{t:call|跟注}}了。評價是什麼？"
     options:
-      - { text: "不精確", correct: true, why: "在 {{n:exam.m13.solver.tiny}} 的情況下{{t:call|跟注}}，低於 {{n:range.mixed.min}}。報告把低於門檻的動作算作不精確，等同錯誤：這是 App 的門檻，不是理論。" }
-      - { text: "錯誤", why: "錯誤是求解器完全不採用的動作。這裡求解器在 {{n:exam.m13.solver.tiny}} 的情況下會{{t:call|跟注}}。" }
-      - { text: "可接受，因為求解器有時也會{{t:call|跟注}}", why: "至少在 {{n:range.mixed.min}} 的情況下採用的動作才算可接受。{{n:exam.m13.solver.tiny}} 太低了。" }
-      - { text: "不評分", why: "當 App 既沒有規則也沒有求解器結果時，決策才會得到「不評分」。這裡有求解器結果。" }
+      - { text: "不精確", correct: true, why: "在 {{n:exam.m13.solver.tiny}} 的情況下{{t:call|跟注}}，低於 {{n:range.mixed.min}}。報告把低於門檻的行動算作不精確，等同錯誤：這是 App 的門檻，不是理論。" }
+      - { text: "錯誤", why: "錯誤是求解器完全不採用的行動。這裡求解器在 {{n:exam.m13.solver.tiny}} 的情況下會{{t:call|跟注}}。" }
+      - { text: "可接受，因為求解器有時也會{{t:call|跟注}}", why: "至少在 {{n:range.mixed.min}} 的情況下採用的行動才算可接受。{{n:exam.m13.solver.tiny}} 太低了。" }
+      - { text: "未評分", why: "當 App 既沒有規則也沒有求解器結果時，決策才會得到「未評分」。這裡有求解器結果。" }
   - kind: choice
     id: m13.exam.q5
     family: m13.suit-swap
@@ -84,7 +84,7 @@ drills:
     id: m13.exam.q10
     family: m13.review-how
     rules: [R-M13-007]
-    prompt: "一位朋友複盤時會直接計算 equity 和價格，不先記下自己的第一反應。他錯失了什麼？"
+    prompt: "一位朋友複盤時會直接計算權益和價格，不先記下自己的第一反應。他錯失了什麼？"
     options:
       - { text: "他看不出直覺在哪些決策上誤導了他", correct: true, why: "第一反應與計算結果之間的差距，能顯示直覺在哪裡出錯，並隨時間改善直覺。沒有記下反應，就看不到這個差距。" }
       - { text: "什麼都沒錯失：只有計算結果重要", why: "計算只評價單一決策。把第一反應和計算結果比較，才能看出直覺在哪裡誤導你，並隨時間改善直覺。" }

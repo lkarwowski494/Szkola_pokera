@@ -23,8 +23,8 @@ drills:
     prompt: "Nel {{t:pot|piatto}} ci sono {{n:ex.third.pot}}, il Button {{t:bet|punta}} un c-bet di {{n:ex.third.bet}}. Hai un set e vuoi fare check-raise. A quanto {{t:raise|rilanci}}?"
     table: { hand: "4s 4d", board: "Qc 9h 4h", position: BB }
     options:
-      - { text: "A {{n:xr.example}}", correct: true, why: "È {{n:xr.mult.example}} il c-bet. Il Button deve aggiungere {{n:xr.example.extra}} e gli serve circa il {{n:eq.vs-xr.example}} di equity: le {{t:pair|coppie}} peggiori e i {{t:draw|progetti}} deboli (gutshot) non hanno il prezzo, mentre i progetti di {{t:flush|colore}} e i {{t:oesd|progetti di scala bilaterali}} pagheranno già in un {{t:pot|piatto}} grande." }
-      - { text: "A {{n:xr.too-small}}", sizeError: true, why: "Azione giusta, ma taglia troppo piccola: il Button aggiunge solo {{n:xr.too-small.extra}} e gli serve circa il {{n:eq.vs-xr.too-small}} di equity. Qualsiasi {{t:flush-draw|progetto di colore}} o di {{t:straight|scala}} pagherà quasi gratis." }
+      - { text: "A {{n:xr.example}}", correct: true, why: "È {{n:xr.mult.example}} il c-bet. Il Button deve aggiungere {{n:xr.example.extra}} e gli serve circa il {{n:eq.vs-xr.example}} di equity: le {{t:pair|coppie}} peggiori e i {{t:draw|progetti}} deboli (gutshot) non hanno il prezzo, mentre i progetti di {{t:flush|colore}} e gli {{t:oesd|OESD}} pagheranno già in un {{t:pot|piatto}} grande." }
+      - { text: "A {{n:xr.too-small}}", sizeError: true, why: "Azione giusta, ma taglia troppo piccola: il Button aggiunge solo {{n:xr.too-small.extra}} e gli serve circa l'{{n:eq.vs-xr.too-small}} di equity. Qualsiasi {{t:flush-draw|progetto di colore}} o di {{t:straight|scala}} pagherà quasi gratis." }
       - { text: "{{t:call|Chiamo}}", why: "Su un flop con due cuori e carte da {{t:straight|scala}} perdi valore e protezione: molte carte al turn fermeranno l'azione o batteranno la tua mano. Il set vuole costruire il {{t:pot|piatto}} subito." }
   - kind: numeric
     id: m6.l3.n-size
@@ -69,7 +69,7 @@ drills:
     prompt: "Difendi il {{t:big-blind|big blind}} contro l'{{t:open|apertura}} del Button. Al flop fai {{t:check}}, il Button {{t:bet|punta}} un c-bet da 1/3 del {{t:pot|piatto}}. Cosa fai?"
     table: { hand: "9s 8s", board: "7d 6c 2h", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "Un {{t:oesd|progetto di scala bilaterale}} ({{n:outs.oesd}} out) contro un c-bet piccolo, che ti dà un'occasione economica per {{t:raise|rilanciare}}. {{t:raise|Rilanciando}} puoi vincere subito, e se ricevi una {{t:call|chiamata}} puoi ancora chiudere." }
+      - { text: "Check-raise", correct: true, why: "Un {{t:oesd|OESD}} ({{n:outs.oesd}} out) contro un c-bet piccolo, che ti dà un'occasione economica per {{t:raise|rilanciare}}. {{t:raise|Rilanciando}} puoi vincere subito, e se ricevi una {{t:call|chiamata}} puoi ancora chiudere." }
       - { text: "{{t:call|Chiamo}}", correct: true, why: "Va bene anche questo: chiudi la {{t:straight|scala}} al turn circa nel {{n:odds.oesd.flop-turn}} dei casi, un po' meno del prezzo di {{n:eq.bet-third}}, ma quando chiudi vinci di più (implied odds), e se al turn nessuno {{t:bet|punta}} vedi anche il river gratis. Con una parte dei {{t:draw|progetti}} forti {{t:call|chiami}}, così le tue {{t:call|chiamate}} non sono tutte deboli." }
       - { text: "{{t:fold|Foldo}}", why: "Troppo stretto: con {{n:outs.oesd}} out chiudi la {{t:straight|scala}} al turn circa nel {{n:odds.oesd.flop-turn}} dei casi, non molto meno del prezzo di {{n:eq.bet-third}}; il resto lo danno le implied odds e la possibilità di un river gratis. In più puoi fare check-raise." }
   - kind: choice
@@ -79,9 +79,9 @@ drills:
     prompt: "Difendi il {{t:big-blind|big blind}} contro l'{{t:open|apertura}} del Button. Al flop fai {{t:check}}, il Button {{t:bet|punta}} un c-bet da 1/3 del {{t:pot|piatto}}. Cosa fai?"
     table: { hand: "Kd 9c", board: "Ks 7d 2c", position: BB }
     options:
-      - { text: "{{t:call|Chiamo}}", correct: true, why: "La {{t:top-pair|coppia massima}} con un kicker debole è una mano da {{t:call|chiamata}}. Batte i {{t:bluff}} del Button, e {{t:call|chiamando}} li tieni in gioco." }
+      - { text: "{{t:call|Chiamo}}", correct: true, why: "La {{t:top-pair|top pair}} con un kicker debole è una mano da {{t:call|chiamata}}. Batte i {{t:bluff}} del Button, e {{t:call|chiamando}} li tieni in gioco." }
       - { text: "Check-raise", why: "Di solito {{t:call|chiami}}. Dopo un {{t:raise|rilancio}} ti pagano soprattutto mani migliori e {{t:draw|progetti}}; il check-raise con una mano così è una giocata rara del solver contro c-bet piccoli." }
-      - { text: "{{t:fold|Foldo}}", why: "La {{t:top-pair|coppia massima}} contro un c-bet piccolo è decisamente troppo per {{t:fold|foldare}}." }
+      - { text: "{{t:fold|Foldo}}", why: "La {{t:top-pair|top pair}} contro un c-bet piccolo è decisamente troppo per {{t:fold|foldare}}." }
   - kind: choice
     id: m6.l3.q-ace-high-board
     family: m6.xr.board
@@ -90,7 +90,7 @@ drills:
     table: { hand: "6s 5s", board: "Ad Kc 8h", position: BB }
     options:
       - { text: "{{t:fold|Foldo}}", correct: true, why: "Non hai né una {{t:pair|coppia}} né un {{t:flush-draw|progetto di colore}}; hai solo un debole {{t:straight-draw|progetto di scala}} backdoor (ti servono due carte precise), e nessuna delle tue carte è più alta del board. Sui flop con l'asso {{t:fold|foldi}} più mani come questa." }
-      - { text: "Check-raise come {{t:bluff}}", why: "I {{t:bluff}} in check-raise li fai soprattutto con {{t:draw|progetti}} ({{t:flush|colore}}, {{t:oesd|scala bilaterale}}) che vincono anche quando chiudono. Questa mano ha solo un debole {{t:draw|progetto}} backdoor, e qui il Button ha molti assi e re che non {{t:fold|folderanno}}." }
+      - { text: "Check-raise come {{t:bluff}}", why: "I {{t:bluff}} in check-raise li fai soprattutto con {{t:draw|progetti}} ({{t:flush|colore}}, {{t:oesd|OESD}}) che vincono anche quando chiudono. Questa mano ha solo un debole {{t:draw|progetto}} backdoor, e qui il Button ha molti assi e re che non {{t:fold|folderanno}}." }
       - { text: "{{t:call|Chiamo}}", why: "Il prezzo è buono, ma questa mano non chiuderà quasi nulla: anche una {{t:pair|coppia}} di sei o di cinque perde con la maggior parte delle mani con cui il Button continuerà a pagare." }
   - kind: choice
     id: m6.l3.q-when-more
@@ -120,9 +120,9 @@ Il check-raise è un {{t:check}} seguito da un {{t:raise|rilancio}} sulla {{t:be
 Fai check-raise per due motivi:
 
 - **{{t:value|per valore}}**: hai una mano molto forte ({{t:two-pair|doppia coppia}}, set) e vuoi costruire il {{t:pot|piatto}},
-- **come {{t:semi-bluff}}**: hai un {{t:draw|progetto}} ({{t:flush|colore}}, {{t:oesd|scala bilaterale}}) che vince in due modi: quando il Button {{t:fold|folda}} o quando chiudi.
+- **come {{t:semi-bluff}}**: hai un {{t:draw|progetto}} ({{t:flush|colore}}, {{t:oesd|OESD}}) che vince in due modi: quando il Button {{t:fold|folda}} o quando chiudi.
 
-Con le mani medie, ad esempio la {{t:top-pair|coppia massima}} con un kicker debole, di solito {{t:call|chiami}}: dopo un {{t:raise|rilancio}} le mani peggiori del Button {{t:fold|foldano}} più spesso, mentre quelle migliori pagano. È una semplificazione: contro c-bet piccoli il solver {{t:raise|rilancia}} anche una parte delle {{t:top-pair|coppie massime}} e delle {{t:pair|coppie}} deboli per protezione. Al contrario, con la {{t:two-pair|doppia coppia}} su un flop molto {{t:connected|connesso}} il solver spesso si limita a {{t:call|chiamare}}.
+Con le mani medie, ad esempio la {{t:top-pair|top pair}} con un kicker debole, di solito {{t:call|chiami}}: dopo un {{t:raise|rilancio}} le mani peggiori del Button {{t:fold|foldano}} più spesso, mentre quelle migliori pagano. È una semplificazione: contro c-bet piccoli il solver {{t:raise|rilancia}} anche una parte delle {{t:top-pair|top pair}} e delle {{t:pair|coppie}} deboli per protezione. Al contrario, con la {{t:two-pair|doppia coppia}} su un flop molto {{t:connected|connesso}} il solver spesso si limita a {{t:call|chiamare}}.
 
 ## Quando più spesso
 

@@ -23,7 +23,7 @@ drills:
     table: { hand: "Kc 9d", position: UTG }
     options:
       - { text: "{{t:fold|Foldo}}", correct: true, why: "K9 di semi diversi è fuori dal {{t:range}} di {{t:open|apertura}} da {{t:utg}}, cioè dalla lista di mani con cui {{t:open|apri}} da questa {{t:position|posizione}}. Dietro di te ci sono cinque giocatori e spesso qualcuno ha un re con un kicker migliore." }
-      - { text: "{{t:raise|Rilancio}}", why: "Da {{t:utg}} {{t:open|apri}} solo circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} delle mani. K9o chiude facilmente un re e perde contro KQ o AK." }
+      - { text: "{{t:raise|Rilancio}}", why: "Da {{t:utg}} {{t:open|apri}} solo circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} delle mani. K9o centra facilmente un re e perde contro KQ o AK." }
       - { text: "Pareggio il {{t:big-blind|big blind}}", why: "Limitarsi a pareggiare (limp) da {{t:utg}} è una cattiva abitudine. O la mano vale un {{t:raise|rilancio}}, o {{t:fold|foldi}}." }
   - kind: choice
     id: m3.l1.q3

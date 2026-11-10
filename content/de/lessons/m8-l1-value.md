@@ -68,7 +68,7 @@ drills:
     table: { hand: "Qd Td", board: "Qs 8h 4c 3d 2s", position: BTN }
     options:
       - { text: "Achten, Vieren und Damen mit schwächerem Kicker", correct: true, why: "Diese Hände haben den Flop gecallt und haben ein {{t:pair|Paar}}, also zahlen sie oft eine kleine Bet. Du verlierst gegen eine Dame mit besserem Kicker, {{t:two-pair|Two Pair}}, Sets und {{t:straight|Straßen}} (A5, 65), aber es gibt mehr schlechtere {{t:call|Calls}}." }
-      - { text: "Hände ohne {{t:pair|Paar}}", why: "Eine Hand ohne {{t:pair|Paar}} zahlt selten eine Bet am River; manchmal zahlt Ass-high, aber schlechtere {{t:pair|Paare}} gibt es hier viel mehr." }
+      - { text: "Hände ohne {{t:pair|Paar}}", why: "Eine Hand ohne {{t:pair|Paar}} zahlt selten eine Bet am River; manchmal zahlt Ass-hoch, aber schlechtere {{t:pair|Paare}} gibt es hier viel mehr." }
       - { text: "Keine, es zahlen nur bessere Hände", why: "Zu vorsichtig: Der {{t:big-blind|Big Blind}} verteidigt viele {{t:pair|Paare}} unterhalb der Dame. Nach dem {{t:check|Check}} am Turn enthält seine {{t:range|Range}} reichlich davon." }
   - kind: choice
     id: m8.l1.q-thin-size
@@ -93,7 +93,7 @@ drills:
     id: m8.l1.q-busted-draw
     family: m8.value.concept
     rules: [R-M8-001]
-    prompt: "Dein {{t:flush-draw|Flush Draw}} ist nicht angekommen. Am River überlegst du eine Bet. Was für eine Bet wäre das?"
+    prompt: "Dein {{t:flush-draw|Flush-Draw}} ist nicht angekommen. Am River überlegst du eine Bet. Was für eine Bet wäre das?"
     table: { hand: "Qs Js", board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
       - { text: "Ein {{t:bluff|Bluff}}", correct: true, why: "Deine höchste Karte ist nur die Dame. Keine Hand, die dich {{t:call|callt}}, ist schlechter, also kann die Bet nur gewinnen, wenn der Gegner {{t:fold|foldet}}. Das ist ein {{t:bluff|Bluff}} (die Auswahl von {{t:bluff|Bluffs}} kommt in späteren Lektionen)." }
@@ -104,7 +104,7 @@ Am River liegen alle Karten schon auf dem {{t:board|Board}}. Niemand trifft mehr
 
 ## Die Schwelle: mehr als die Hälfte der {{t:call|Calls}}
 
-Wenn du aus {{t:position|Position}} bettest und der Gegner nur {{t:call|callen}} oder {{t:fold|folden}} kann, zählst du nur die Hände, mit denen er zahlt:
+Wenn du in {{t:position|Position}} bettest und der Gegner nur {{t:call|callen}} oder {{t:fold|folden}} kann, zählst du nur die Hände, mit denen er zahlt:
 
 ```formula
 Value-Bet: schlechtere Calls > bessere Calls
@@ -118,7 +118,7 @@ Beispiel: Von {{n:value.ex.calls}} {{t:call|Calls}} kommen {{n:value.ex.many}} v
 
 Du fragst nicht „Habe ich eine gute Hand?“, sondern „Womit zahlt der Gegner?“. Dabei hilft es, seine {{t:range|Range}} durchzugehen:
 
-- Hände ohne {{t:pair|Paar}} zahlen selten; manchmal zahlt Ass-high, das {{t:bluff|Bluffs}} schlägt,
+- Hände ohne {{t:pair|Paar}} zahlen selten; manchmal zahlt Ass-hoch, das {{t:bluff|Bluffs}} schlägt,
 - niedrigere {{t:pair|Paare}} und schwächere Kicker zahlen oft eine kleine Bet,
 - bessere Hände zahlen immer und {{t:raise|raisen}} manchmal.
 
@@ -128,7 +128,7 @@ Wenn der Gegner dich {{t:raise|raisen}} kann und du dann {{t:fold|folden}} müss
 
 Thin Value (dünner Value) ist eine Bet mit einer Hand, die knapp mehr als die Hälfte der {{t:call|Calls}} schlägt, z. B. {{t:top-pair|Top Pair}} mit mittlerem Kicker. Diese Bet machst du **kleiner** als mit einer starken Hand, meist etwa 1/4–1/2 {{t:pot|Pot}}: Eine kleine Bet zahlen auch schwächere {{t:pair|Paare}}, auf eine große {{t:fold|folden}} sie, und es bleiben nur bessere Hände.
 
-Das ist eine Vereinfachung: Ohne Check-Raise-Risiko bettet ein Solver Thin Value sogar mit etwa 1/4 {{t:pot|Pot}}, mit diesem Risiko geht er aus {{t:position|Position}} selten unter 1/2 {{t:pot|Pot}}.
+Das ist eine Vereinfachung: Ohne Check-Raise-Risiko bettet ein Solver Thin Value sogar mit etwa 1/4 {{t:pot|Pot}}, mit diesem Risiko geht er in {{t:position|Position}} selten unter 1/2 {{t:pot|Pot}}.
 
 ## Eine mittlere Hand {{t:check|checkt}}
 

@@ -28,10 +28,10 @@ drills:
     id: m0.l1.q3
     family: m0.ranking
     rules: [R-M0-001]
-    prompt: "어느 쪽이 더 강합니까: {{t:two-pair|투페어}}입니까, {{t:three-of-a-kind|트리플}}입니까?"
+    prompt: "어느 쪽이 더 강합니까: {{t:two-pair|투 페어}}입니까, {{t:three-of-a-kind|트리플}}입니까?"
     options:
-      - { text: "{{t:three-of-a-kind|트리플}}", correct: true, why: "{{t:three-of-a-kind|트리플}}은 7위, {{t:two-pair|투페어}}는 8위입니다. {{t:two-pair|투페어}}가 카드가 더 많아 “보여서” 헷갈리기 쉽습니다." }
-      - { text: "{{t:two-pair|투페어}}", why: "{{t:two-pair|투페어}}는 {{t:three-of-a-kind|트리플}}보다 한 단계 아래입니다." }
+      - { text: "{{t:three-of-a-kind|트리플}}", correct: true, why: "{{t:three-of-a-kind|트리플}}은 7위, {{t:two-pair|투 페어}}는 8위입니다. {{t:two-pair|투 페어}}가 카드가 더 많아 “보여서” 헷갈리기 쉽습니다." }
+      - { text: "{{t:two-pair|투 페어}}", why: "{{t:two-pair|투 페어}}는 {{t:three-of-a-kind|트리플}}보다 한 단계 아래입니다." }
   - kind: choice
     id: m0.l1.q4
     family: m0.kicker
@@ -91,12 +91,12 @@ drills:
 | 5 | {{t:flush|플러시}} | [[Ad Jd 8d 6d 2d]] |
 | 6 | {{t:straight|스트레이트}} (연속된 5장) | [[Tc 9d 8s 7h 6c]] |
 | 7 | {{t:three-of-a-kind|트리플}} | [[8s 8h 8d Kc 3s]] |
-| 8 | {{t:two-pair|투페어}} | [[Jh Jc 5s 5d Ac]] |
+| 8 | {{t:two-pair|투 페어}} | [[Jh Jc 5s 5d Ac]] |
 | 9 | {{t:pair|페어}} | [[9c 9d Ah 7s 4c]] |
 | 10 | {{t:high-card|하이카드}} | [[Ac Qd 9s 6h 3c]] |
 
 :::note 키커
-먼저 핸드의 순위를 비교합니다: {{t:three-of-a-kind|트리플}}은 {{t:two-pair|투페어}}를 이깁니다. 같은 핸드라면 그 높이가 결정합니다: 킹 {{t:pair|페어}}는 퀸 {{t:pair|페어}}를 이기고, {{t:pair|페어}}가 두 개일 때는 높은 {{t:pair|페어}}부터 비교합니다. 핸드의 핵심이 똑같을 때만(같은 {{t:pair|페어}}, {{t:three-of-a-kind|트리플}} 또는 같은 {{t:two-pair|투페어}}) 나머지 카드, 즉 키커가 결정합니다: 가장 높은 키커부터 보고, 같으면 그다음 키커를 봅니다. 가장 좋은 5장에 들어간 키커만 셉니다. 양쪽의 5장이 똑같으면 {{t:split-pot|스플릿 팟}}이 됩니다.
+먼저 핸드의 순위를 비교합니다: {{t:three-of-a-kind|트리플}}은 {{t:two-pair|투 페어}}를 이깁니다. 같은 핸드라면 그 높이가 결정합니다: 킹 {{t:pair|페어}}는 퀸 {{t:pair|페어}}를 이기고, {{t:pair|페어}}가 두 개일 때는 높은 {{t:pair|페어}}부터 비교합니다. 핸드의 핵심이 똑같을 때만(같은 {{t:pair|페어}}, {{t:three-of-a-kind|트리플}} 또는 같은 {{t:two-pair|투 페어}}) 나머지 카드, 즉 키커가 결정합니다: 가장 높은 키커부터 보고, 같으면 그다음 키커를 봅니다. 가장 좋은 5장에 들어간 키커만 셉니다. 양쪽의 5장이 똑같으면 {{t:split-pot|스플릿 팟}}이 됩니다.
 :::
 
 에이스는 {{t:straight|스트레이트}}의 가장 낮은 카드가 될 수도 있습니다: [[5h 4s 3c 2d Ah]]는 가장 낮은 {{t:straight|스트레이트}}로, {{t:wheel|휠}}이라고 부릅니다.

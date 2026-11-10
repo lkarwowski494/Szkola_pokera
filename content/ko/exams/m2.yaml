@@ -51,7 +51,7 @@ drills:
     id: m2.exam.n2
     family: m2.odds
     rules: [R-M2-002]
-    prompt: "턴. 거트샷({{n:outs.gutshot}}아웃)이 있습니다. 2와 4 규칙으로 계산하면 리버에서 맞힐 확률은 몇 퍼센트입니까? 숫자를 입력하세요."
+    prompt: "턴. 거트샷({{n:outs.gutshot}}아웃)이 있습니다. 2와 4의 법칙으로 계산하면 리버에서 맞힐 확률은 몇 퍼센트입니까? 숫자를 입력하세요."
     answer: odds.gutshot.rule-turn
     explanation: "카드가 한 장 남았으므로 2를 곱합니다: {{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}}(근사치). 정확히는 {{n:cards.unseen.turn}}장 중 {{n:outs.gutshot}}장, 즉 {{n:odds.gutshot.turn-river}}입니다."
   - kind: choice

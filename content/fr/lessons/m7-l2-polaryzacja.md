@@ -33,7 +33,7 @@ drills:
     options:
       - { text: "Parce que les mains moins bonnes {{t:fold|se coucheront}} et que les meilleures paieront", correct: true, why: "Oui : une grosse mise avec une {{t:pair|paire}} moyenne ne rapporte que si une main moins bonne paie, or ces mains {{t:fold|se couchent}} généralement face à une grosse mise. Il ne reste pour {{t:call|suivre}} que les mains qui vous battent." }
       - { text: "Parce qu'une grosse mise est toujours un {{t:bluff}}", why: "Non : les mains les plus fortes {{t:bet|misent}} gros aussi. Le problème d'une {{t:pair|paire}} moyenne, c'est de savoir qui va la payer." }
-      - { text: "Parce qu'une {{t:pair|paire}} moyenne ne peut pas gagner", why: "Si, elle peut : elle bat les {{t:bluff|bluffs}} et les {{t:pair|paires}} moins bonnes. C'est pourquoi elle {{t:check|checke}} et va à l'abattage à moindre coût." }
+      - { text: "Parce qu'une {{t:pair|paire}} moyenne ne peut pas gagner", why: "Si, elle peut : elle bat les {{t:bluff|bluffs}} et les {{t:pair|paires}} moins bonnes. C'est pourquoi elle {{t:check|checke}} et va au showdown à moindre coût." }
   - kind: choice
     id: m7.l2.q-set-wet
     family: m7.polar.size
@@ -61,7 +61,7 @@ drills:
     prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} votre c-bet au flop. Le turn est un cinq. Il y a {{n:ex.pot}} dans le {{t:pot}}, l'adversaire {{t:check|checke}}. Que faites-vous ?"
     table: { hand: "Kh 9c", position: BTN, board: "Ks 7d 2c 5h" }
     options:
-      - { text: "Je {{t:check|checke}}", correct: true, why: "Une {{t:top-pair|top paire}} avec un kicker faible est une main moyenne. Face à une grosse mise, ce sont surtout de meilleurs rois qui paieront (AK, KQ, KJ), et les mains moins bonnes {{t:fold|se coucheront}}. En {{t:check|checkant}}, vous allez à l'abattage à moindre coût." }
+      - { text: "Je {{t:check|checke}}", correct: true, why: "Une {{t:top-pair|top paire}} avec un kicker faible est une main moyenne. Face à une grosse mise, ce sont surtout de meilleurs rois qui paieront (AK, KQ, KJ), et les mains moins bonnes {{t:fold|se coucheront}}. En {{t:check|checkant}}, vous allez au showdown à moindre coût." }
       - { text: "Je mise {{n:ex.bet.three-quarters}}", why: "La grosse mise convient à une {{t:range}} {{t:polarized|polarisée}}. Avec cette main, vous êtes surtout payé par des mains qui vous battent." }
       - { text: "Je mise {{n:ex.bet.pot}}", why: "Un {{t:pot}} encore plus gros avec une main de force moyenne : les mains moins bonnes {{t:fold|se coucheront}} presque toujours, et les meilleures paieront." }
   - kind: numeric
@@ -107,10 +107,10 @@ Au flop, vous avez souvent misé petit avec presque toute votre {{t:range}}. Au 
 
 ## Deux types de {{t:range}}
 
-- **{{t:linear|Linéaire}} :** vous misez des mains les plus fortes vers le bas, moyennes comprises. Généralement avec une petite taille, p. ex. un c-bet de {{n:cbet.size.small}} du {{t:pot}} sur [[Ks 7d 2c]].
+- **{{t:linear|Linéaire}} :** vous misez en partant des mains les plus fortes vers le bas, moyennes comprises. Généralement avec une petite taille, p. ex. un c-bet de {{n:cbet.size.small}} du {{t:pot}} sur [[Ks 7d 2c]].
 - **{{t:polarized|Polarisée}} :** les deux pôles misent, les mains très fortes (sets, {{t:two-pair|doubles paires}}, {{t:straight|quintes}}, couleurs) et les {{t:semi-bluff|semi-bluffs}} ({{t:draw|tirages}}). Elle ne contient pas de mains moyennes.
 
-En général, une {{t:range}} {{t:polarized|polarisée}}, ce sont des mains très fortes et des {{t:bluff|bluffs}}. Au turn, les {{t:bluff|bluffs}} sont généralement des {{t:semi-bluff|semi-bluffs}}, et à la river (M8), des mains sans chance à l'abattage.
+En général, une {{t:range}} {{t:polarized|polarisée}}, ce sont des mains très fortes et des {{t:bluff|bluffs}}. Au turn, les {{t:bluff|bluffs}} sont généralement des {{t:semi-bluff|semi-bluffs}}, et à la river (M8), des mains sans chance au showdown.
 
 ## Pourquoi polariser au turn
 

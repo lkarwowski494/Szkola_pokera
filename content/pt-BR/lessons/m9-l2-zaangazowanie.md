@@ -93,7 +93,7 @@ Exemplo: {{t:spr}} {{n:spr.commit}}, o {{t:pot|pote}} tem {{n:ex.pot}}, e os sta
 
 ## Não planeje {{t:bet|apostar}} e {{t:fold|desistir}}
 
-Se depois da sua {{t:bet|aposta}} sobraria no seu stack menos do que o {{t:pot|pote}} terá depois que ela for {{t:call|paga}}, {{t:bet|apostar}} e {{t:fold|desistir}} diante do all-in normalmente não faz sentido: para {{t:call|pagar}} o all-in, você precisa então de menos equity do que para {{t:call|pagar}} uma {{t:bet|aposta}} do tamanho do {{t:pot|pote}} ({{n:eq.bet-pot}}). Você tem dois caminhos sensatos: jogar pelo stack inteiro (apostar ou ir all-in) ou {{t:check|passar}}.
+Se depois da sua {{t:bet|aposta}} sobrar no seu stack menos do que o {{t:pot|pote}} terá depois que ela for {{t:call|paga}}, {{t:bet|apostar}} e {{t:fold|desistir}} diante do all-in normalmente não faz sentido: para {{t:call|pagar}} o all-in, você precisa então de menos equity do que para {{t:call|pagar}} uma {{t:bet|aposta}} do tamanho do {{t:pot|pote}} ({{n:eq.bet-pot}}). Você tem dois caminhos sensatos: jogar pelo stack inteiro (apostar ou ir all-in) ou {{t:check|passar}}.
 
 ## {{t:spr}} baixo: o {{t:top-pair|top pair}} joga pelo stack
 

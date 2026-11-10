@@ -81,7 +81,7 @@ drills:
     table: { position: BTN }
     options:
       - { text: "ボーダーラインのハンドとして：{{t:value|バリュー}}目的でプレイするが、相手のオールインに必ず{{t:call|コール}}するわけではない", correct: true, why: "約{{n:spr.3bet-ip}}の{{t:spr}}は{{n:spr.zone.low}}～{{n:spr.zone.mid}}のゾーンにあり、そこでは{{t:top-pair}}はボーダーラインのハンドです。スタック全体を懸けるかどうかは、相手のプレイと{{t:board}}の状況で決まります。" }
-      - { text: "常にスタック全体を懸けてプレイする", why: "通常そうなるのは{{t:spr}}が約{{n:spr.zone.low}}未満のとき、例えば4ベット後（約{{n:spr.4bet}}）です。{{t:spr}}が約{{n:spr.3bet-ip}}ではオールインまでにより多くの{{t:bet|ベット}}が必要で、最後まで払ってくるのは主に強いハンドです。" }
+      - { text: "常にスタック全体を懸けてプレイする", why: "通常そうなるのは{{t:spr}}が約{{n:spr.zone.low}}未満のとき、例えば4ベット後（約{{n:spr.4bet}}）です。{{t:spr}}が約{{n:spr.3bet-ip}}ではオールインまでにより多くの{{t:bet|ベット}}が必要で、最後まで払ってくるのは主により強いハンドです。" }
       - { text: "非常に高い{{t:spr}}のときのように慎重にプレイする", why: "{{t:top-pair|トップペア}}をそこまで慎重にプレイするのは約{{n:spr.zone.deep}}超のとき、例えばレイズが1回の{{t:pot|ポット}}（約{{n:spr.srp}}）です。3ベット後の{{t:spr}}はずっと低くなります。" }
   - kind: numeric
     id: m9.l1.n-jam-spr2

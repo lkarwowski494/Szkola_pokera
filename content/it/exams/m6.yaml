@@ -31,7 +31,7 @@ drills:
     id: m6.exam.q4
     family: m6.exploit
     rules: [R-M6-004]
-    prompt: "Micro stakes. Un {{t:recreational|giocatore ricreativo}} passivo, che {{t:bluff|bluffa}} di rado, {{t:bet|punta}} 3/4 di {{t:pot|piatto}} al river. Hai una {{t:pair|coppia}} di donne e sul {{t:board}} ci sono un asso e un re. Cosa fai?"
+    prompt: "Microlimiti. Un {{t:recreational|giocatore ricreativo}} passivo, che {{t:bluff|bluffa}} di rado, {{t:bet|punta}} 3/4 di {{t:pot|piatto}} al river. Hai una {{t:pair|coppia}} di donne e sul {{t:board}} ci sono un asso e un re. Cosa fai?"
     table: { hand: "Qd Qc", board: "Ah Jd 7c 4s Ks" }
     options:
       - { text: "{{t:fold|Foldo}}", correct: true, why: "Sì: la tua {{t:pair|coppia}} è più bassa dell'asso e del re sul {{t:board}}, quindi batte soprattutto i {{t:bluff|bluff}}. Questo giocatore {{t:bluff|bluffa}} di rado, quindi contro di lui {{t:fold|foldi}} più spesso di quanto indichi l'{{t:mdf}}." }
@@ -54,7 +54,7 @@ drills:
     prompt: "Difendi il {{t:big-blind}} contro un'{{t:open|apertura}} del Button. Al flop {{t:check|fai check}} e il Button {{t:bet|punta}} una c-bet da 1/3 di {{t:pot|piatto}}. Hai l'asso come carta più alta, senza {{t:draw|progetto}}. Cosa fai?"
     table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
     options:
-      - { text: "{{t:call|Chiamo}}", correct: true, why: "Sì: contro una c-bet piccola ti serve solo circa {{n:eq.bet-third}} di equity. L'asso come carta più alta batte una parte dei {{t:bluff|bluff}} del Button e può chiudere una {{t:pair|coppia}}, quindi di solito lo difendi. {{t:fold|Foldi}} le mani più deboli senza {{t:pair|coppia}} e senza {{t:draw|progetto}}." }
+      - { text: "{{t:call|Chiamo}}", correct: true, why: "Sì: contro una c-bet piccola ti serve solo circa {{n:eq.bet-third}} di equity. L'asso come carta più alta batte una parte dei {{t:bluff|bluff}} del Button e può fare {{t:pair|coppia}}, quindi di solito lo difendi. {{t:fold|Foldi}} le mani più deboli senza {{t:pair|coppia}} e senza {{t:draw|progetto}}." }
       - { text: "{{t:fold|Foldo}}", why: "Troppo stretto: contro una c-bet piccola l'asso come carta più alta di solito si difende. {{t:fold|Foldi}} le mani più deboli senza {{t:pair|coppia}} e senza {{t:draw|progetto}}." }
       - { text: "Check-raise", why: "Il check-raise lo fai soprattutto con le mani più forti e con i {{t:draw|progetti}}. Questa mano non ha né valore né un {{t:draw|progetto}} che le dia una seconda via per vincere." }
   - kind: choice
@@ -74,7 +74,7 @@ drills:
     table: { board: "Jh 8c 4h", position: BB }
     options:
       - { text: "[[Qh Th]]", correct: true, why: "Sì: {{t:flush-draw|progetto di colore}} e gutshot (il nove) formano un {{t:draw|progetto}} forte. Il check-raise vince quando il Button {{t:fold|folda}}, e se paga hai ancora molti out." }
-      - { text: "[[Jd 5d]]", why: "La {{t:top-pair|coppia massima}} con un kicker debole è una mano da {{t:call|chiamata}}. Dopo un check-raise le mani peggiori di solito {{t:fold|foldano}} e quelle migliori pagano." }
+      - { text: "[[Jd 5d]]", why: "La {{t:top-pair|top pair}} con un kicker debole è una mano da {{t:call|chiamata}}. Dopo un check-raise le mani peggiori di solito {{t:fold|foldano}} e quelle migliori pagano." }
       - { text: "[[As 3c]]", why: "L'asso come carta più alta senza {{t:draw|progetto}} non ha una seconda via per vincere. Il check-raise come {{t:bluff}} lo fai soprattutto con i {{t:draw|progetti}}." }
   - kind: numeric
     id: m6.exam.q9

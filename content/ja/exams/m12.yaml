@@ -26,7 +26,7 @@ drills:
     options:
       - { text: "約{{n:exam.m12.need.hands.k}}千ハンド", correct: true, why: "ブロック数 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}、つまり約{{n:exam.m12.need.hands.k}}千ハンドです。{{t:standard-deviation|標準偏差}}が高いほど、はるかに大きなサンプルが必要です。" }
       - { text: "約{{n:var.need.hands.k}}千ハンド。{{t:standard-deviation|標準偏差}}が{{n:var.sd}}のときと同じ", why: "式の中で{{t:standard-deviation|標準偏差}}は2乗されているので、{{n:var.sd}}ではなく{{n:var.sd.high}}なら、明らかに多くのハンドが必要です。約{{n:exam.m12.need.hands.k}}千ハンドです。" }
-      - { text: "数万ハンドで十分", why: "誤差はハンド数の平方根に比例してしか小さくなりません。{{n:var.sd.high}}で± {{n:var.target}}の精度なら、100ハンドのブロックが約{{n:exam.m12.need.blocks}}個必要です。" }
+      - { text: "数万ハンドで十分", why: "誤差はハンド数の平方根に反比例してしか小さくなりません。{{n:var.sd.high}}で± {{n:var.target}}の精度なら、100ハンドのブロックが約{{n:exam.m12.need.blocks}}個必要です。" }
   - kind: choice
     id: m12.exam.q4
     family: m12.sample-size
@@ -59,7 +59,7 @@ drills:
     id: m12.exam.q7
     family: m12.tilt-response
     rules: [R-M12-007]
-    prompt: "大きな{{t:pot|ポット}}を3回続けて失い、直前の{{t:call|コール}}が良かったかどうかもう判断できません。損失を早く取り戻すために、上の{{t:stakes|ステークス}}に移ろうかと考えています。どうしますか？"
+    prompt: "大きな{{t:pot|ポット}}を3回失い、直前の{{t:call|コール}}が良かったかどうかもう判断できません。損失を早く取り戻すために、上の{{t:stakes|ステークス}}に移ろうかと考えています。どうしますか？"
     options:
       - { text: "{{t:session|セッション}}を終える", correct: true, why: "落ち着いて判断を評価できないことと、取り返したいという気持ちは、すでに最悪のレベル（Cゲーム）でプレイしているサインです。目標は、さらに失う前に早めにやめることです。" }
       - { text: "何回か深呼吸して、上の{{t:stakes|ステークス}}でプレイを続ける", why: "深呼吸は、まだはっきり考えられるティルトの初期サインのときに役立ちます。ここではティルトがすでに大きくなっていて、上の{{t:stakes|ステークス}}は損失を増やすだけです。" }

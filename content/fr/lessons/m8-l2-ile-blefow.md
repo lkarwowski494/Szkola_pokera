@@ -98,7 +98,7 @@ drills:
     rules: [R-M8-006]
     prompt: "À la river, il vous faut quelques {{t:bluff|bluffs}} pour vos mises du {{t:pot}} entier. Quelles mains choisissez-vous ?"
     options:
-      - { text: "Les plus faibles, p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des mains hauteur sans chance", correct: true, why: "Une main sans chance au showdown ne perd rien quand le {{t:bluff}} échoue : après un {{t:check}}, elle aurait perdu de toute façon. C'est pourquoi c'est elle qui {{t:bluff|bluffe}}." }
+      - { text: "Les plus faibles, p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des cartes hautes sans chance", correct: true, why: "Une main sans chance au showdown ne perd rien quand le {{t:bluff}} échoue : après un {{t:check}}, elle aurait perdu de toute façon. C'est pourquoi c'est elle qui {{t:bluff|bluffe}}." }
       - { text: "Les {{t:pair|paires}} moyennes", why: "Une {{t:pair|paire}} moyenne gagne souvent après un {{t:check}}. Si vous {{t:bluff|bluffez}} avec, les mains moins bonnes {{t:fold|se couchent}} et les meilleures paient : vous renoncez à un gain au showdown." }
       - { text: "N'importe lesquelles, tant que la proportion est respectée", why: "La proportion ne fait pas tout. Un {{t:bluff}} avec une main qui gagnerait au showdown coûte plus cher qu'un {{t:bluff}} avec une main sans chance." }
 ---
@@ -123,7 +123,7 @@ C'est la même formule que celle de l'équité nécessaire pour {{t:call|suivre}
 | Mise | Part des {{t:bluff|bluffs}} | Alpha (du M6) |
 |---|---|---|
 | 1/3 du {{t:pot}} | {{n:bluff.share.bet-third}} | {{n:alpha.bet-third}} |
-| 1/2 {{t:pot}} | {{n:bluff.share.bet-half}} | {{n:alpha.bet-half}} |
+| 1/2 du {{t:pot}} | {{n:bluff.share.bet-half}} | {{n:alpha.bet-half}} |
 | 3/4 du {{t:pot}} | {{n:bluff.share.bet-three-quarters}} | {{n:alpha.bet-three-quarters}} |
 | {{t:pot|Pot}} entier | {{n:bluff.share.bet-pot}} | {{n:alpha.bet-pot}} |
 | 1,5 {{t:pot}} | {{n:bluff.share.bet-overbet}} | {{n:alpha.bet-overbet}} |
@@ -136,7 +136,7 @@ L'alpha du M6 = mise ÷ ({{t:pot}} + mise) indique à quelle fréquence l'advers
 
 ## Avec quoi {{t:bluff|bluffer}}
 
-Pour vos {{t:bluff|bluffs}}, vous choisissez vos **mains les plus faibles**, p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des mains hauteur sans chance (les {{t:flush|couleurs}} ratées sont traitées dans la leçon sur les {{t:blocker|bloqueurs}}) : après un {{t:check}}, elles perdraient de toute façon, donc un {{t:bluff}} raté ne leur enlève rien. Les mains qui ont de la valeur au showdown {{t:check|checkent}}.
+Pour vos {{t:bluff|bluffs}}, vous choisissez vos **mains les plus faibles**, p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des cartes hautes sans chance (les {{t:flush|couleurs}} ratées sont traitées dans la leçon sur les {{t:blocker|bloqueurs}}) : après un {{t:check}}, elles perdraient de toute façon, donc un {{t:bluff}} raté ne leur enlève rien. Les mains qui ont de la valeur au showdown {{t:check|checkent}}.
 
 :::note C'est un point d'équilibre, pas une recette pour chaque adversaire
 Ces proportions vous protègent contre un adversaire qui joue bien. Face à des joueurs précis, vous pouvez vous en écarter ; c'est l'objet du module sur l'{{t:exploit|exploitation}} aux micro-limites (M10). La formule de la part des {{t:bluff|bluffs}} est un calcul dans un modèle simplifié : une {{t:range}} {{t:polarized|polarisée}} contre une main qui attrape les {{t:bluff|bluffs}} (modèle jouet issu de la théorie des jeux). La recommandation de {{t:bluff|bluffer}} avec les mains les plus faibles provient de supports de formation et d'analyses de solveurs.

@@ -52,7 +52,7 @@ drills:
     id: m8.l3.q-missed-flush
     family: m8.blockers.bluff
     rules: [R-M8-008]
-    prompt: "スペードの{{t:flush-draw|フラッシュドロー}}は外れました。ビッグブラインドはリバーでチェックしました。どちらのハンドもクイーンとエイトだけです。どちらでブラフするほうが良いですか？"
+    prompt: "スペードの{{t:flush-draw|フラッシュドロー}}は外れました。{{t:big-blind|ビッグブラインド}}はリバーでチェックしました。どちらのハンドもクイーンとエイトだけです。どちらでブラフするほうが良いですか？"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
       - { text: "[[Qd 8c]]", correct: true, why: "スペードがないので、相手の外れた{{t:draw|ドロー}}をブロックしません。それらはあなたのベットに{{t:fold|フォールド}}するハンドです。両ハンドのそれ以外のカードは同じです。" }

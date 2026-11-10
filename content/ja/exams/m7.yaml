@@ -41,7 +41,7 @@ drills:
     id: m7.exam.q5
     family: m7.polar.concept
     rules: [R-M7-005]
-    prompt: "ターンで、{{t:polarized|ポラライズ}}した{{t:range|レンジ}}でポットの3/4をベットします。そのとき、あなたの{{t:range|レンジ}}のうちどのハンドが{{t:check|チェック}}しますか？"
+    prompt: "ターンで、{{t:polarized|ポラライズ}}した{{t:range|レンジ}}で{{t:pot|ポット}}の3/4をベットします。そのとき、あなたの{{t:range|レンジ}}のうちどのハンドが{{t:check|チェック}}しますか？"
     options:
       - { text: "中程度のハンド（例：{{t:second-pair|セカンドペア}}）", correct: true, why: "正解です。{{t:polarized}}{{t:range}}は、非常に強いハンドと{{t:semi-bluff|セミブラフ}}でできています。中程度のハンドは大きな{{t:pot|ポット}}から得るものがないので、{{t:check|チェック}}してショーダウンを目指します。" }
       - { text: "セットと{{t:two-pair}}", why: "これは{{t:range|レンジ}}の上側の極です。リバーの前に{{t:pot|ポット}}を大きくしたいので、大きなサイズでベットします。" }
@@ -72,7 +72,7 @@ drills:
     options:
       - { text: "{{n:exam.m7.oesd.clean}}", correct: true, why: "正解です。{{n:outs.oesd}}枚のアウツのうち2枚（[[Jd]]と[[6d]]）は、{{t:board|ボード}}に3枚目のダイヤを落とします。そのとき、ダイヤ2枚を持つ相手は{{t:flush}}になり、あなたはヒットしても負け、しかも最も多く支払います。残るクリーンなアウツは{{n:exam.m7.oesd.clean}}枚です。" }
       - { text: "{{n:outs.oesd}}", why: "これは{{t:straight|ストレート}}になるアウツのすべてですが、そのうち2枚は{{t:flush}}の可能性を作ります。{{t:board|ボード}}で{{t:flush|フラッシュ}}が完成しうるときは、アウツを少なめに数えます。" }
-      - { text: "{{n:outs.gutshot}}", why: "これはガットショットのアウツの数です。あなたは両側が開いた{{t:straight-draw}}を持っていて、引くのはダイヤの2枚だけです。" }
+      - { text: "{{n:outs.gutshot}}", why: "これはガットショットのアウツの数です。あなたは両側が開いた{{t:straight-draw}}を持っていて、差し引くのはダイヤの2枚だけです。" }
   - kind: choice
     id: m7.exam.q9
     family: m7.probe.play

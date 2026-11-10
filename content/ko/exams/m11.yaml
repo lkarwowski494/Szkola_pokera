@@ -64,13 +64,13 @@ drills:
     prompt: "같은 상황: 버블 팩터 {{n:exam.m11.bf.value}}. {{t:chips|칩}} 기준 게임이라면 {{t:call|콜}}에 {{n:exam.m11.bf.req-chips}}의 에퀴티면 충분합니다. {{t:icm}} 기준으로는 얼마나 필요합니까?"
     options:
       - { text: "약 {{n:exam.m11.bf.req}}", correct: true, why: "필요 에퀴티 = BF ÷ (BF + 1) = 손실 ÷ (손실 + 이득) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. {{n:exam.m11.bf.req-chips}}와의 차이가 {{t:risk-premium|리스크 프리미엄}}입니다." }
-      - { text: "{{n:exam.m11.bf.req-chips}}, {{t:chips|칩}} 기준과 같음", why: "{{t:payout|상금 지급}}이 있는 {{t:tournament|토너먼트}}에서는 질 때 잃는 돈이 이길 때 얻는 돈보다 많으므로 {{t:call}}은 더 자주 이겨야 합니다: 약 {{n:exam.m11.bf.req}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, {{t:chips|칩}} 기준과 같음", why: "{{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 질 때 잃는 돈이 이길 때 얻는 돈보다 많으므로 {{t:call}}은 더 자주 이겨야 합니다: 약 {{n:exam.m11.bf.req}}." }
       - { text: "{{n:exam.m11.bf.req-chips}}보다 적음. {{t:bubble|버블}}이 상대에게 {{t:bluff|블러프}}를 강요하기 때문", why: "버블 팩터가 1보다 크면 필요 에퀴티는 항상 {{t:chips|칩}} 기준 가격보다 높아집니다. 여기서는 약 {{n:exam.m11.bf.req}}까지 높아집니다." }
   - kind: choice
     id: m11.exam.q9
     family: m11.icm.call
     rules: [R-M11-010]
-    prompt: "{{t:tournament|토너먼트}}의 {{t:bubble|버블}}입니다. 당신은 평균 스택입니다. 당신을 {{t:cover|커버}}하는 테이블의 가장 큰 스택이 올인합니다. {{t:chips}} 기준 게임과 비교해 어떻게 {{t:call|콜}}합니까?"
+    prompt: "{{t:tournament|토너먼트}}의 {{t:bubble|버블}}입니다. 당신은 중간 스택입니다. 당신을 {{t:cover|커버}}하는 테이블의 가장 큰 스택이 올인합니다. {{t:chips}} 기준 게임과 비교해 어떻게 {{t:call|콜}}합니까?"
     options:
       - { text: "확실히 더 타이트하게", correct: true, why: "지면 상금 직전에 탈락하고, 이길 때 얻는 것은 질 때 잃는 것보다 적습니다: 따는 {{t:chips}}은 잃는 칩보다 가치가 낮습니다. 그래서 {{t:chips}} 기준 게임보다 확실히 더 많은 에퀴티가 필요합니다." }
       - { text: "더 넓게. 큰 스택이 많은 핸드를 {{t:shove|푸시}}하기 때문", why: "큰 스택은 실제로 더 넓게 {{t:shove|푸시}}할 수 있지만, 그 이유는 바로 당신이 타이트하게 {{t:call|콜}}해야 하기 때문입니다. {{t:risk-premium|리스크 프리미엄}}이 당신의 요구 조건을 높입니다." }

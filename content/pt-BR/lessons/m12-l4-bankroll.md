@@ -48,7 +48,7 @@ drills:
     options:
       - { text: "Desce um {{t:stakes|limite}}", correct: true, why: "Você caiu abaixo da metade do bankroll planejado ({{n:br.bi.move-down}}). Com essa quantidade de {{t:buy-in|buy-ins}}, o risco de perder o resto é várias vezes maior do que com {{n:br.bi.base}} (com winrate de {{n:var.wr.typical.high}} e SD {{n:var.sd}}). Num {{t:stakes|limite}} duas vezes menor, o mesmo bankroll volta a ser quase o número completo de {{t:buy-in|buy-ins}} desse limite." }
       - { text: "Continua jogando, porque é só {{t:variance|variância}}", why: "É verdade que provavelmente é {{t:variance|variância}}, mas é justamente contra ela que descer de {{t:stakes|limite}} protege. Com {{n:br.ex.below}} {{t:buy-in|buy-ins}}, outro {{t:downswing}} pode levar tudo." }
-      - { text: "Sobe para um {{t:stakes|limite}} mais alto para recuperar mais rápido", why: "Isso é tilt de desespero. Um {{t:stakes|limite}} mais alto com um bankroll menor em {{t:buy-in|buy-ins}} aumenta drasticamente o {{t:risk-of-ruin|risco de ruína}}." }
+      - { text: "Sobe para um {{t:stakes|limite}} mais alto para recuperar mais rápido", why: "Isso é tilt por desespero. Um {{t:stakes|limite}} mais alto com um bankroll menor em {{t:buy-in|buy-ins}} aumenta drasticamente o {{t:risk-of-ruin|risco de ruína}}." }
   - kind: choice
     id: m12.l4.q-stay
     family: m12.move-down

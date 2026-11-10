@@ -254,7 +254,7 @@
 - id: R-M4-006
   module: m4
   if: "{{t:big-blind|ビッグブラインド}}から、ボタンの{{t:open}}に{{t:raise|レイズ}}する場合"
-  then: "最強ハンド（TT+、AQ+、AJs+）に加えて、{{t:call|コール}}する{{t:range|レンジ}}の下の方から{{t:bluff|ブラフ}}を3ベットします：A5s、ときにA4s、スーテッドの{{t:connectors|コネクター}}。中くらいと小さい{{t:pair|ペア}}、KQo、オフスーツのエース（AJo–A9o）はふつう{{t:call|コール}}します"
+  then: "最強ハンド（TT+、AQ+、AJs+）に加えて、{{t:call|コール}}する{{t:range|レンジ}}の下の方から{{t:bluff|ブラフ}}を3ベットします：A5s、ときにA4s、スーテッドの{{t:connectors|コネクター}}。中くらいと小さい{{t:pair|ペア}}、KQo、オフスートのエース（AJo–A9o）はふつう{{t:call|コール}}します"
   because: "{{t:big-blind|ビッグブラインド}}からは安く{{t:call|コール}}でき、アクションも締めくくれるので、中くらいのハンドは{{t:call|コール}}したほうが多く稼げるからです。3ベットは大きな{{t:pot|ポット}}を望むハンドと、{{t:call|コール}}されてもうまくプレイできる{{t:bluff|ブラフ}}に回します（スーテッドのエースはAAとAKをブロックします）"
   level: gto
   source: "商用ソルバーのサイト、Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/)、NL500、BB vs BTN：「TT+, AJs+, and AQo+ are 3-bet purely」、ブラフは「near the bottom of our calling range」；ソルバーチャートのサイト、BB vs BTN (https://beyondgto.com/defense/bb-vs-btn)：「A5s · 3-bet 100%」。このルールはボタンのオープンにだけ当てはまる (D-144)：スモールブラインドに対しては第2段階の情報源の間でブラフについて意見が分かれる (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics: 「A5s calls 96% of the time rather than turning into a three-bet bluff」；https://beyondgto.com/defense/bb-vs-sb: 「A5s · 3-bet 4% · call 96%」；商用ソルバーのサイト、Range Morphology、https://blog.gtowizard.com/preflop-range-morphology/: レンジの最下部からのブラフ) ため、レッスンではスモールブラインドに対しては主にバリューで3ベットし、A5sとスーテッドコネクターはふつうコールするとだけ述べる；ソルバー結果を公開しているスクール、What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide) と Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players)、NL200 と NL50 GG；トレーニングサイト、Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics)、同サイトのチャート；トレーニングサイト、3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/)、同サイトのソルバーチャート。単純化：構成はレーキと3ベットのサイズによって変わる；99、KQo、AJoはミックスになることがある (ドキュメント10、決定B-045)"
@@ -270,8 +270,8 @@
 - id: R-M4-008
   module: m4
   if: "3ベットを受け、フロップ後は{{t:out-of-position}}になる場合"
-  then: "主にスーテッドのハイカード、強いスーテッドのエース、中くらいと高い{{t:pair|ペア}}、一部のスーテッドの{{t:connectors|コネクター}}で{{t:call|コール}}します。弱いオフスーツのハンド（KJo、ATo、QTo）は{{t:fold|フォールド}}します"
-  because: "オフスーツのハンドはドミネートされていることが多く、{{t:out-of-position}}では{{t:equity-realization|エクイティ実現}}の効率が悪いからです"
+  then: "主にスーテッドのハイカード、強いスーテッドのエース、中くらいと高い{{t:pair|ペア}}、一部のスーテッドの{{t:connectors|コネクター}}で{{t:call|コール}}します。弱いオフスートのハンド（KJo、ATo、QTo）は{{t:fold|フォールド}}します"
+  because: "オフスートのハンドはドミネートされていることが多く、{{t:out-of-position}}では{{t:equity-realization|エクイティ実現}}の効率が悪いからです"
   level: heuristic
   source: "トレーニングサイト、The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)、CO vs BTNの3ベット：「Call QQ, JJ, TT, 99, 88, AQs, AJs, KQs, KJs, QJs, JTs, T9s, 77, 66 Fold Marginal offsuit broadways」；簡易トレーニングチャートのサイト (https://pailiku.com/charts/co-vs-btn-3bet)：「Call JJ-77, AQs-ATs, AKs, KQs-KJs, QJs, JTs, T9s, 98s, 87s, 76s, 65s」；トレーニングサイト、How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)：「calling with fewer suited connectors, suited gappers and offsuit broadway hands」"
   sources: [{ kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
@@ -355,7 +355,7 @@
   sources: [{ kind: solver-pub }]
 - id: R-M5-004
   module: m5
-  if: "プリフロップで{{t:open|オープン}}し、フロップが低くて{{t:connected|コネクト}}または{{t:semi-connected|セミコネクト}}している場合（例：7-6-5）"
+  if: "プリフロップで{{t:open|オープン}}し、フロップが低くて{{t:connected|コネクテッド}}または{{t:semi-connected|セミコネクテッド}}である場合（例：7-6-5）"
   then: "高いフロップより低い頻度でCベットし、多くのハンドで{{t:check|チェック}}します"
   because: "{{t:big-blind}}は多くのスーテッドの{{t:connectors|コネクター}}や小さい{{t:pair|ペア}}でディフェンスするので、{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多いからです：{{t:nuts-advantage|ナッツアドバンテージ}}は相手にあります"
   level: heuristic
@@ -424,7 +424,7 @@
   module: m5
   if: "プリフロップで{{t:open|オープン}}し、相手が{{t:position|ポジション}}のある状態で{{t:call|コール}}した場合（例：あなたの{{t:cutoff|CO}}からの{{t:open|オープン}}にボタンが）"
   then: "{{t:in-position}}のときより低い頻度でCベットし、良いハンドでも、より多く{{t:check|チェック}}します"
-  because: "{{t:position|ポジション}}のある状態で{{t:call|コール}}したプレイヤーの{{t:range}}は{{t:condensed|コンデンス}}されているからです：弱いハンドは{{t:fold|フォールド}}し、最強ハンドの一部は{{t:raise|レイズ}}していたので、残っているのは主に中くらいのハンドと良いハンドです。さらに、フロップ後はどの{{t:street|ストリート}}でもあなたが先にアクションします"
+  because: "{{t:position|ポジション}}のある状態で{{t:call|コール}}したプレイヤーの{{t:range}}は{{t:condensed|コンデンスド}}だからです：弱いハンドは{{t:fold|フォールド}}し、最強ハンドの一部は{{t:raise|レイズ}}していたので、残っているのは主に中くらいのハンドと良いハンドです。さらに、フロップ後はどの{{t:street|ストリート}}でもあなたが先にアクションします"
   level: heuristic
   source: "商用ソルバーのサイト、C-Betting As the OOP Preflop Raiser (UTG vs BTNのCベット28%；「Even a hand like top pair top kicker is preferred to be played as a check-call」)；トレーニングサイト、C-Betting On Ace-High Boards (CO vs BTN、A94r：「we will check over 96% of the time」)"
   sources: [{ kind: solver-pub }, { kind: training }]
@@ -506,7 +506,7 @@
   sources: [{ kind: training }]
 - id: R-M6-009
   module: m6
-  if: "Cベットが小さい、またはフロップが低くて{{t:connected|コネクト}}している場合（例：7-6-5）"
+  if: "Cベットが小さい、またはフロップが低くて{{t:connected|コネクテッド}}である場合（例：7-6-5）"
   then: "チェックレイズの頻度を上げます。レイザーに有利な高いフロップ（例：K-J-T、A-A-K）や、大きなCベットに対しては頻度を下げます"
   because: "低いフロップでは{{t:big-blind}}のほうが最強の役を多く持ち（{{t:nuts-advantage}}）、小さなCベットは安く{{t:raise|レイズ}}するチャンスになるからです"
   level: heuristic
@@ -646,7 +646,7 @@
   then: "{{t:call|コール}}してくるハンドの{{n:value.threshold}}超があなたより弱いハンドなら、ベットします。数えるのは払ってくるハンドだけで、相手のハンド全部ではありません"
   because: "弱いハンドからの{{t:call}}はそれぞれベット1つ分の勝ち、強いハンドからの{{t:call}}はそれぞれベット1つ分の負けになるからです。相手が弱いハンドで{{t:fold|フォールド}}すれば、{{t:check|チェック}}した場合と同じ{{t:pot|ポット}}を獲得します"
   level: math
-  source: "計算：チェックと比べたベットの期待値 (M8のカリキュラム：バリューベットとは、コールされたときに半分以上勝つベット)"
+  source: "計算：チェックと比べたベットの期待値 (M8のカリキュラム：バリューベットとは、コールされたときに半分を超えて勝つベット)"
   sources: [{ kind: math }]
 - id: R-M8-002
   module: m8
@@ -836,7 +836,7 @@
   module: m10
   if: "相手のスタッツがn回の機会に基づいている場合"
   then: "その標準誤差は√(p × (1 − p) ÷ n)です：{{n:hud.se.ex.n}}ハンドで{{t:vpip}}が{{n:hud.se.ex.p}}なら約{{n:hud.se.ex}}なので、本当の{{t:vpip}}は約{{n:var.conf95}}の確からしさで{{n:hud.ci.ex.low}}から{{n:hud.ci.ex.high}}の間にあります"
-  because: "各ハンドは相手の戦略からのランダムなサンプルで、その平均の誤差は、機会の数の平方根に比例してしか小さくならないからです。モジュール12のウィンレートの誤差と同じです"
+  because: "各ハンドは相手の戦略からのランダムなサンプルで、その平均の誤差は、機会の数の平方根に反比例してしか小さくならないからです。モジュール12のウィンレートの誤差と同じです"
   level: math
   source: "計算：二項分布における割合の標準誤差 √(p(1 − p) ÷ n)、および±1.96誤差の区間 (numbers.yaml、キー hud.se.*、hud.ci.*)"
   sources: [{ kind: math }]
@@ -944,7 +944,7 @@
   module: m10
   if: "{{t:rake|レーキ}}のあるゲームで必要エクイティを計算する場合"
   then: "コール額を、{{t:call|コール}}後の{{t:pot|ポット}}から{{t:rake}}を引いた額で割ります：{{t:pot|ポット}}の半分のベットで{{t:rake|レーキ}}が{{n:rake.ex.pct}}なら、{{n:eq.bet-half}}ではなく{{n:eq.bet-half.rake}}が必要です"
-  because: "獲得できるのは{{t:rake|レーキ}}を引いた{{t:pot|ポット}}ですが、払うのは全額だからです。マイクロステークスでは{{t:pot|ポット}}が{{t:rake-cap|レーキキャップ}}に届くことはまれなので、割合が重要になります"
+  because: "獲得できるのは{{t:rake|レーキ}}を引いた{{t:pot|ポット}}ですが、払うのは全額だからです。マイクロステークスでは{{t:pot|ポット}}が{{t:rake-cap|レーキ上限}}に届くことはまれなので、割合が重要になります"
   level: math
   source: "計算：コール額 ÷ (コール後のポット × (1 − レーキ)) (numbers.yaml eq.bet-half.rake)；ポーカー計算ツールのサイト、Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/)：「At microstakes, percentage drives the cost because pots rarely hit the cap.」"
   sources: [{ kind: training, url: "https://www.primedope.com/online-poker-rake-comparison-rake-calculator/" }, { kind: math }]
@@ -970,7 +970,7 @@
   module: m12
   if: "本当はどれだけ勝っているのか知りたい場合"
   then: "数十万ハンドを集めます：{{n:var.conf95}}の確からしさで±{{n:var.target}}の精度を得るには、約{{n:var.need.hands.k}}kハンドが必要です"
-  because: "推定誤差はハンド数の平方根に比例してしか小さくならないからです：必要な100ハンドのブロック数 = ({{n:var.z95}} × SD ÷ 精度)²"
+  because: "推定誤差はハンド数の平方根に反比例して小さくなるからです：必要な100ハンドのブロック数 = ({{n:var.z95}} × SD ÷ 精度)²"
   level: math
   source: "計算：(1.96 × 80 ÷ 2)² ブロック；ドキュメント08の桁 (約61万5千ハンド) と一致"
   sources: [{ kind: math }]
@@ -978,7 +978,7 @@
   module: m12
   if: "ハンドの後で自分のプレイを評価する場合"
   then: "勝ったかどうかではなく、判断（値段、エクイティ、そのとき持っていた情報）について問います"
-  because: "良い判断でも定期的に負けるからです：AAでKKに対してオールインしても約{{n:res.kk-wins}}は負けます。それでも人は、そうすべきでないとわかっていても、結果で判断を評価してしまいます"
+  because: "良い判断でも一定の割合で負けるからです：AAでKKに対してオールインしても約{{n:res.kk-wins}}は負けます。それでも人は、そうすべきでないとわかっていても、結果で判断を評価してしまいます"
   level: heuristic
   source: "Baron と Hershey (1988)、Outcome bias in decision evaluation、J Pers Soc Psychol 54(4)；Annie Duke の「resulting」について (Masters in Business、Ritholtz 2018)；AA–KKのエクイティ：正確な計算 (ドキュメント08)"
   sources: [{ kind: math }, { kind: book }, { kind: study }]
@@ -993,7 +993,7 @@
 - id: R-M12-006
   module: m12
   if: "自分のプロファイルにあるティルトの最初のサイン（例：バッドビート後の怒り、相手を懲らしめたい気持ち）に気づいた場合"
-  then: "すぐに対応します：深呼吸と、これは{{t:variance}}か学ぶべきミスだと思い出させる、用意しておいた一言です"
+  then: "すぐに対応します：深呼吸と、なぜこれが{{t:variance}}か学ぶべきミスなのかを思い出させる、用意しておいた一言です"
   because: "ティルトが大きくなると明晰に考えられなくなり、そうなるともうコントロールできないからです"
   level: heuristic
   source: "Tendler、ニュースサイトでのインタビュー (2014) (「When tilt becomes too intense, it shuts down your ability to think」、「you must begin correcting tilt when it's small」)；Tendler と Carter、The Mental Game of Poker (2011)、「injecting logic」のテクニック"
@@ -1033,7 +1033,7 @@
 - id: R-M12-012
   module: m12
   if: "ポーカーの時間配分を計画する場合"
-  then: "最初は時間の約{{n:study.beginner}}を勉強に充てます。自分の{{t:stakes|ステークス}}で勝てるようになったら約{{n:study.winner}}にしますが、{{n:study.min}}を下回ることはありません"
+  then: "最初は時間の約{{n:study.beginner}}を勉強に充てます。自分の{{t:stakes|ステークス}}で勝てるようになったら約{{n:study.winner}}にしますが、決して{{n:study.min}}を下回らないようにします"
   because: "最初は追いつくべきことが最も多く、自分の{{t:stakes|ステークス}}で勝てるようになれば、もっとプレイできるからです"
   level: heuristic
   source: "トレーニングサイト、What should your study-to-play ratio be (Dara O'Kearney の記事)：「New players have so much catching up to do」；「Once you are beating the games you are in you can start to reduce the study and increase the grinding」"
@@ -1045,7 +1045,7 @@
   module: m11
   if: "{{t:tournament|トーナメント}}で約{{n:m11.thr.pushfold}}以下しかなく、前の全員が{{t:fold|フォールド}}した場合"
   then: "オールインか{{t:fold}}でプレイします（プッシュ/フォールド）。{{n:m11.thr.pushfold}}から{{n:m11.thr.upper}}の間では、プッシュ/フォールドが弱いハンドと中くらいのハンドの主な方法で、約{{n:m11.thr.raise}}を超えるとふつうは通常のレイズをします"
-  because: "{{t:short-stack|ショートスタック}}では、レイズしてから{{t:raise|レイズ}}に{{t:fold}}すると{{t:chips|チップ}}を失いすぎ、オールインなら相手から最も多くの{{t:fold|フォールド}}を引き出せるからです。これは単純化で、より多くのアクションを選べるソルバーは一部のハンドをリンプやミニマムレイズにします"
+  because: "{{t:short-stack|ショートスタック}}では、レイズしてから相手の{{t:raise|レイズ}}に{{t:fold}}すると{{t:chips|チップ}}を失いすぎ、オールインなら相手から最も多くの{{t:fold|フォールド}}を引き出せるからです。これは単純化で、より多くのアクションを選べるソルバーは一部のハンドをリンプやミニマムレイズにします"
   level: heuristic
   source: "トレーニングサイト、Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/)：「At 10 big blinds or fewer, it is almost entirely push/fold」、「This approach simplifies decision-making and maximizes fold equity」、「At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings」；トレーニングサイト、Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/)：「around 15 big blinds (bb) or fewer」、「larger than 20bb … Raising First In」；商用ソルバーのサイト、Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/)：「The standard advice for a 10bb stack is to play an all-in or fold strategy」；単純化：トレーニングサイト (同じページ)：「the all-in or fold binary was grossly suboptimal」；ソルバー結果を公開しているスクール、ヘッズアップ10bb (https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments)：「61.1% limp, 28.8% all-in, 10.1% fold」"
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/short-stack-strategy-2/" }, { kind: training, url: "https://upswingpoker.com/push-fold-tournament-strategy-charts/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/short-stacked-play-in-mtts/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments" }]
@@ -1144,7 +1144,7 @@
 - id: R-M13-001
   module: m13
   if: "相手より大きい{{t:equity}}を持っていたのに、オールインで負けた場合"
-  then: "このハンドを理由に戦略を変えません：{{t:equity}}がeなら、そのようなハンドの平均1 − eで負けます。たとえば{{n:m13.eq.example}}なら約{{n:m13.lose.example}}、つまり{{n:m13.ten}}回に{{n:m13.lose.of-ten}}回です"
+  then: "このハンドを理由に戦略を変えません：{{t:equity}}がeなら、そのようなハンドのうち平均して1 − eの割合で負けます。たとえば{{n:m13.eq.example}}なら約{{n:m13.lose.example}}、つまり{{n:m13.ten}}回に{{n:m13.lose.of-ten}}回です"
   because: "{{t:equity}}は同じ状況を何度も繰り返したときの勝ちの割合で、負けもその計算の範囲内だからです"
   level: math
   source: "計算：P(負け) = 1 − エクイティ (スプリットポットの場合はその分少ない)"
@@ -1161,7 +1161,7 @@
   module: m13
   if: "すべてのカードのスートを1つの入れ替えで替えた場合（例：ハートをスペードに、スペードをハートに）"
   then: "正しい判断は変わりません"
-  because: "ハンドや{{t:draw|ドロー}}の強さは、スートが一致しているかどうかで決まり、どのスートかでは決まらないからです。そのため、プレイからの復習では同じ状況を別のスートで見せます"
+  because: "ハンドや{{t:draw|ドロー}}の強さは、スートが一致しているかどうかで決まり、どのスートかでは決まらないからです。そのため、実戦の復習では同じ状況を別のスートで見せます"
   level: math
   source: "計算：役のランキングはスートを区別せず (テキサスホールデムのルール)、スートの置換はどのカードが同じスートかを保つ；poker-coreでプロパティテストにより確認 (ドキュメント02、ドキュメント14、5.6)"
   sources: [{ kind: math }]

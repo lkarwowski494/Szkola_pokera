@@ -1,0 +1,37 @@
+{
+ "plik": "docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/de/poprawki-de.json",
+ "nalozone": 360,
+ "pominiete": [],
+ "sklep": 3,
+ "odfiltrowane": 5,
+ "pliki": 45,
+ "sklepPoprawki": [
+  {
+   "jezyk": "de",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "stary": "Entscheiden üben, ohne Einsatz",
+   "nowy": "Entscheiden üben ohne Echtgeld",
+   "waga": "ŚR",
+   "powod": "de-DE subtitle: „ohne Einsatz” jest dwuznaczne (Einsatz = stawka, ale też „zaangażowanie, wysiłek”: „ćwicz decyzje bez wysiłku”); pl „bez gry o stawki”, en „no real money”. Zamiennik ma 30 znaków (limit 30) i jest spójny z „Kein Echtgeldspiel” w promotionalText.",
+   "grupa": "de-U1"
+  },
+  {
+   "jezyk": "de",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "stary": "Entscheidungen in vier Stufen bewertet",
+   "nowy": "Entscheidungen in vier Stufen bewertet: übereinstimmend, vertretbar, Ungenauigkeit, Fehler",
+   "waga": "ŚR",
+   "powod": "de-DE description, sekcja ÜBEN: pominięte nazwy czterech stopni oceny (pl „zgodna, dopuszczalna, niedokładność, błąd”, en „correct, acceptable, inaccuracy, mistake”); nazwy jak w słowniku aplikacji (grade.*).",
+   "grupa": "de-U1"
+  },
+  {
+   "jezyk": "de",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "stary": "Tagesserie und ein Fortschrittswert",
+   "nowy": "Tagesserie und ein Leistungsindex",
+   "waga": "NISKIE",
+   "powod": "de-DE description, sekcja WIEDERHOLUNG UND FORTSCHRITT: „wskaźnik zaawansowania” w aplikacji to „Leistungsindex” (advancement.title); jedna nazwa na jedno pojęcie.",
+   "grupa": "de-U1"
+  }
+ ]
+}

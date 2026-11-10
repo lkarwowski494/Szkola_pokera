@@ -48,7 +48,7 @@ drills:
     options:
       - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} du {{t:pot|pot}})", correct: true, why: "Oui : {{t:top-pair|top paire}} (une {{t:pair|paire}} avec la carte la plus haute du {{t:board|board}}) sur un flop {{t:dry|sec}}. Une petite {{t:bet|mise}} sera {{t:call|suivie}} par les sept, les deux et les rois plus faibles, et l'adversaire n'a presque aucun {{t:draw|tirage}}." }
       - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} du {{t:pot|pot}})", sizeError: true, why: "Bonne action, mauvaise taille : sur un flop {{t:dry|sec}}, l'adversaire n'a pas de {{t:draw|tirages}}, et les mains qui ont raté se {{t:fold|coucheront}} aussi face à une petite {{t:bet|mise}}. Une {{t:bet|mise}} plus grosse fera {{t:fold|coucher}} à peu près les mêmes mains, mais risque davantage. Misez environ {{n:cbet.size.small}} du {{t:pot|pot}}." }
-      - { text: "Je {{t:check|checke}}", why: "Vous perdez de la valeur : l'adversaire a beaucoup de {{t:pair|paires}} plus faibles et de mains hauteur as qui paieraient une petite {{t:bet|mise}}. Sur un flop {{t:dry|sec}} avec une {{t:top-pair|top paire}}, vous misez." }
+      - { text: "Je {{t:check|checke}}", why: "Vous perdez de la valeur : l'adversaire a beaucoup de {{t:pair|paires}} plus faibles et de mains avec un as qui paieraient une petite {{t:bet|mise}}. Sur un flop {{t:dry|sec}} avec une {{t:top-pair|top paire}}, vous misez." }
   - kind: choice
     id: m5.l3.q-set-wet
     family: m5.cbet.size
@@ -73,11 +73,11 @@ drills:
     id: m5.l3.q-mono
     family: m5.cbet.texture
     rules: [R-M5-010]
-    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}}. Le flop est {{t:monotone|monochrome}}. Quel plan convient ?"
+    prompt: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}}. Le flop est {{t:monotone|monocolore}}. Quel plan convient ?"
     table: { position: BTN, board: "Kh 8h 3h" }
     options:
       - { text: "C-bet moins souvent que d'habitude et petit", correct: true, why: "Oui : chacun des joueurs peut déjà avoir une {{t:flush|couleur}}, donc votre {{t:nuts-advantage|avantage de nuts}} est plus faible que sur un flop haut ordinaire. Vous misez moins souvent et petit, pour ne pas construire un gros {{t:pot|pot}} contre une couleur." }
-      - { text: "C-bet souvent et gros pour que les {{t:draw|tirages}} paient", why: "Sur un flop {{t:monotone|monochrome}}, un gros {{t:pot|pot}} est dangereux : l'adversaire peut avoir une {{t:flush|couleur}} déjà faite, et vos mains sans cœur résistent mal." }
+      - { text: "C-bet souvent et gros pour que les {{t:draw|tirages}} paient", why: "Sur un flop {{t:monotone|monocolore}}, un gros {{t:pot|pot}} est dangereux : l'adversaire peut avoir une {{t:flush|couleur}} déjà faite, et vos mains sans cœur résistent mal." }
       - { text: "Je {{t:check|checke}} toujours", why: "Trop prudent : un flop haut vous reste favorable, et une partie des mains (p. ex. avec un cœur haut) misent volontiers petit." }
   - kind: numeric
     id: m5.l3.n-alpha-small
@@ -115,11 +115,11 @@ Un petit c-bet typique fait environ {{n:cbet.range.small.low}}–{{n:cbet.range.
 
 Sur un flop comme [[Kh Jh 7c]], l'adversaire a beaucoup de {{t:flush-draw|tirages couleur}} et de tirages {{t:straight|quinte}}, mais une {{t:straight|quinte}} n'est pas encore possible. Les mains fortes et les gros {{t:draw|tirages}} misent avec une taille plus grande, p. ex. {{n:cbet.size.big}} du {{t:pot|pot}}, pour que les {{t:draw|tirages}} paient cher la carte suivante. Les mains moyennes sans {{t:draw|tirage}} {{t:check|checkent}} plus souvent. Quand une {{t:straight|quinte}} est déjà possible, p. ex. sur [[Jh Th 8c]], l'adversaire peut l'avoir, donc les solveurs y misent avec une taille plus petite.
 
-## {{t:paired|Pairé}} et {{t:monotone|monochrome}}
+## {{t:paired|Pairé}} et {{t:monotone|monocolore}}
 
-Sur un flop {{t:paired|pairé}}, p. ex. [[Qd Qs 6h]], vous avez l'{{t:range-advantage|avantage de range}}, et un {{t:draw|tirage}} est rare, donc un adversaire sans {{t:pair|paire}} peut rarement {{t:call|suivre}}. Vous misez souvent et petit : une grosse {{t:bet|mise}} n'est pas rentable, car chacun de vous peut avoir un {{t:three-of-a-kind|brelan}}. Sur un flop {{t:monotone|monochrome}}, p. ex. [[Kh 8h 3h]], n'importe qui peut déjà avoir une {{t:flush|couleur}}, donc vous misez moins souvent que d'habitude et petit.
+Sur un flop {{t:paired|pairé}}, p. ex. [[Qd Qs 6h]], vous avez l'{{t:range-advantage|avantage de range}}, et un {{t:draw|tirage}} est rare, donc un adversaire sans {{t:pair|paire}} peut rarement {{t:call|suivre}}. Vous misez souvent et petit : une grosse {{t:bet|mise}} n'est pas rentable, car chacun de vous peut avoir un {{t:three-of-a-kind|brelan}}. Sur un flop {{t:monotone|monocolore}}, p. ex. [[Kh 8h 3h]], n'importe qui peut déjà avoir une {{t:flush|couleur}}, donc vous misez moins souvent que d'habitude et petit.
 
-Attention : « {{t:wet|wet}} » ne veut pas dire « grosse mise ». Dans l'application, un flop {{t:monotone|monochrome}} est toujours {{t:wet|wet}}, et pourtant le solveur y mise rarement et avec une petite taille (résultats de solveurs publiés). La taille augmente avec l'{{t:wetness|humidité}} seulement jusqu'à un certain point : sur les flops les plus {{t:wet|wet}}, comme [[Qd 8d 7d]], elle diminue de nouveau. La taille plus grande de la section précédente concerne les flops avec beaucoup de {{t:draw|tirages}} sur lesquels une {{t:straight|quinte}} n'est pas encore possible (dans l'application, généralement intermédiaires).
+Attention : « {{t:wet|wet}} » ne veut pas dire « grosse mise ». Dans l'application, un flop {{t:monotone|monocolore}} est toujours {{t:wet|wet}}, et pourtant le solveur y mise rarement et avec une petite taille (résultats de solveurs publiés). La taille augmente avec l'{{t:wetness|humidité}} seulement jusqu'à un certain point : sur les flops les plus {{t:wet|wet}}, comme [[Qd 8d 7d]], elle diminue de nouveau. La taille plus grande de la section précédente concerne les flops avec beaucoup de {{t:draw|tirages}} sur lesquels une {{t:straight|quinte}} n'est pas encore possible (dans l'application, généralement intermédiaires).
 
 ## Bas aux cartes proches : vous {{t:check|checkez}} plus souvent
 
@@ -130,5 +130,5 @@ Sur [[7s 6h 5d]], c'est la {{t:big-blind|grosse blinde}} qui a plus souvent une 
 Une {{t:bet|mise}} sans aucune main est à l'équilibre lorsque l'adversaire se {{t:fold|couche}} dans mise ÷ ({{t:pot|pot}} + mise) des cas. À {{n:cbet.size.small}} du {{t:pot|pot}}, cela fait {{n:alpha.cbet.small}} ; à {{n:cbet.size.big}} du {{t:pot|pot}}, déjà {{n:alpha.cbet.big}}. Une main sans {{t:pair|paire}} rate le flop dans environ {{n:flop.miss.unpaired}} des cas, c'est pourquoi un petit c-bet est si souvent rentable.
 
 :::note D'où viennent ces règles
-Les orientations (flop {{t:dry|sec}} : petit et souvent ; beaucoup de {{t:draw|tirages}} sans {{t:straight|quinte}} faite : plus gros et moins souvent ; {{t:straight|quinte}} déjà possible : plus petit ; {{t:paired|pairé}} : petit ; {{t:monotone|monochrome}} : moins souvent et petit) sont des règles générales tirées de supports de formation et de résultats de solveurs publiés, signalées comme heuristiques. Les tailles {{n:cbet.size.small}} et {{n:cbet.size.big}} du {{t:pot|pot}} sont des exemples tirés des fourchettes indiquées plus haut (supports de formation sur la taille des mises ; résultats de solveurs publiés). L'application n'indique pas à quelle fréquence miser en pourcentage, car ces chiffres proviennent de résultats de solvers.
+Les orientations (flop {{t:dry|sec}} : petit et souvent ; beaucoup de {{t:draw|tirages}} sans {{t:straight|quinte}} faite : plus gros et moins souvent ; {{t:straight|quinte}} déjà possible : plus petit ; {{t:paired|pairé}} : petit ; {{t:monotone|monocolore}} : moins souvent et petit) sont des règles générales tirées de supports de formation et de résultats de solveurs publiés, signalées comme heuristiques. Les tailles {{n:cbet.size.small}} et {{n:cbet.size.big}} du {{t:pot|pot}} sont des exemples tirés des fourchettes indiquées plus haut (supports de formation sur la taille des mises ; résultats de solveurs publiés). L'application n'indique pas à quelle fréquence miser en pourcentage, car ces chiffres proviennent de résultats de solveurs.
 :::

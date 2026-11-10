@@ -84,7 +84,7 @@ drills:
     table: { hand: "Kh Kc", position: BTN }
     options:
       - { text: "A aprox. {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}", correct: true, why: "{{t:in-position|En posición}}, el 4-bet es de aprox. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} el 3-bet. Si la {{t:small-blind}} {{t:call|iguala}}, en el {{t:pot|bote}} hay aprox. {{n:spr.4bet.pot}}–{{n:spr.4bet.high.pot}} (con la {{t:big-blind|ciega grande}} muerta), y en los stacks quedan aprox. {{n:spr.4bet.high}}–{{n:spr.4bet}} veces lo que hay en el {{t:pot|bote}}." }
-      - { text: "A {{n:pf.4bet.too-small}}", why: "Demasiado poco: le das al rival un precio muy bueno para {{t:call}} {{t:out-of-position}}." }
+      - { text: "A {{n:pf.4bet.too-small}}", why: "Demasiado poco: le das al rival un precio muy bueno para {{t:call|igualar}} {{t:out-of-position}}." }
       - { text: "All-in por {{n:format.stack}}", why: "Con stacks de {{n:format.stack}}, el all-in hace que el rival tire las manos más débiles con las que pagaría el 4-bet. Ganas menos." }
 ---
 El 3-bet es la respuesta del rival a tu {{t:open}}. Tienes tres opciones: {{t:fold|te retiras}}, {{t:call|igualas}} o {{t:raise|vuelves a subir}}, es decir, haces 4-bet.

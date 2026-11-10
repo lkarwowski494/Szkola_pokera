@@ -10,5 +10,5 @@
 - { id: m9, order: 9, title: "一手牌的規劃", sub: "SPR 與三條街的下注尺寸", phase: f2 }
 - { id: m10, order: 10, title: "剝削微級別牌局", sub: "玩家類型與玩家群體的常見錯誤", phase: f3 }
 - { id: m11, order: 11, title: "錦標賽與短籌碼", sub: "Push/fold 與 ICM", phase: f4, recommended: false }
-- { id: m12, order: 12, title: "心態與資金管理", sub: "波動與上頭", phase: f4 }
+- { id: m12, order: 12, title: "心態與資金管理", sub: "變異數與上頭", phase: f4 }
 - { id: m13, order: 13, title: "檢討自己的牌局", sub: "手牌複盤與漏洞", phase: f4 }

@@ -484,7 +484,7 @@
       "source": "Fonte: {{source}}",
       "lesson": "Vai alla lezione",
       "replay": "Svolgimento della mano",
-      "cards": "Carte di ripasso: {{n}} nuove situazioni dagli errori.",
+      "cards": "Schede di ripasso: {{n}} nuove situazioni dagli errori.",
       "result": "Risultato in {{t:chips|fiches}}: {{bb}}bb",
       "variance": "Qualche decina di mani è troppo poco perché il risultato dica qualcosa sul tuo gioco; conta la valutazione delle decisioni.",
       "again": "Gioca l'area “{{area}}”",
@@ -856,7 +856,7 @@
           "paired": "un flop {{t:paired}} ha due o tre carte dello stesso valore; una {{t:straight}} con le due carte del giocatore è allora impossibile, anche se un {{t:straight-draw}} a volte è possibile",
           "connected": "un flop {{t:connected}} ha tre valori diversi entro cinque consecutivi, quindi la {{t:straight}} è possibile già ora (l'asso conta anche come uno)",
           "semiConnected": "un flop {{t:semi-connected|semi-connesso}} ha due valori entro cinque consecutivi, ma non tre: la {{t:straight|scala}} non c'è ancora, ma un {{t:straight-draw}} (bilaterale o gutshot) è già possibile",
-          "disconnected": "un flop {{t:disconnected}} ha valori così distanti che nessuna coppia rientra in cinque consecutivi, quindi nessuno ha neanche un {{t:straight-draw|progetto di scala}}"
+          "disconnected": "un flop {{t:disconnected}} ha valori così distanti che non ce ne sono due entro cinque consecutivi, quindi nessuno ha neanche un {{t:straight-draw|progetto di scala}}"
         },
         "wetness": {
           "dry": "un flop {{t:dry}} dà pochi {{t:draw|progetti}}. {{scale}}",
@@ -874,7 +874,7 @@
         "pairedDraw": "Qui due carte hanno lo stesso valore; un {{t:straight-draw}} si ha ad es. con {{example}}.",
         "paired": "Qui due carte hanno lo stesso valore.",
         "semiConnected": "Qui la {{t:straight|scala}} non c'è ancora, ma un {{t:straight-draw}} si ha ad es. con {{example}}.",
-        "disconnected": "Qui nessuna coppia di carte del giocatore dà neanche un {{t:straight-draw|progetto di scala}}."
+        "disconnected": "Qui nessuna combinazione di due carte del giocatore dà neanche un {{t:straight-draw|progetto di scala}}."
       },
       "draws": {
         "rainbow": "non c'è un {{t:flush-draw|progetto di colore}} (tre semi diversi)",

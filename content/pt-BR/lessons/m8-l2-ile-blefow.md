@@ -123,7 +123,7 @@ proporção de blefes = aposta ÷ (pote + 2·aposta)
 | Aposta | Proporção de {{t:bluff|blefes}} | Alpha (do M6) |
 |---|---|---|
 | 1/3 do {{t:pot|pote}} | {{n:bluff.share.bet-third}} | {{n:alpha.bet-third}} |
-| 1/2 {{t:pot|pote}} | {{n:bluff.share.bet-half}} | {{n:alpha.bet-half}} |
+| 1/2 do {{t:pot|pote}} | {{n:bluff.share.bet-half}} | {{n:alpha.bet-half}} |
 | 3/4 do {{t:pot|pote}} | {{n:bluff.share.bet-three-quarters}} | {{n:alpha.bet-three-quarters}} |
 | {{t:pot|Pote}} inteiro | {{n:bluff.share.bet-pot}} | {{n:alpha.bet-pot}} |
 | 1,5 {{t:pot|pote}} | {{n:bluff.share.bet-overbet}} | {{n:alpha.bet-overbet}} |
@@ -136,7 +136,7 @@ O alpha do M6 = aposta ÷ ({{t:pot}} + aposta) diz com que frequência o advers�
 
 ## Com que {{t:bluff|blefar}}
 
-Para os {{t:bluff|blefes}}, você escolhe as **mãos mais fracas**, por exemplo, {{t:draw|projetos}} de {{t:straight|sequência}} perdidos ou cartas altas sem chances (os {{t:flush|flushes}} perdidos ficam para a lição sobre {{t:blocker|blockers}}): depois do {{t:check}}, elas perderiam de qualquer jeito, então um {{t:bluff}} fracassado não tira nada delas. Mãos com valor de showdown dão {{t:check}}.
+Para os {{t:bluff|blefes}}, você escolhe as **mãos mais fracas**, por exemplo, {{t:draw|projetos}} de {{t:straight|sequência}} perdidos ou cartas altas sem chances (os {{t:flush|flushes}} perdidos ficam para a lição sobre {{t:blocker|bloqueadores}}): depois do {{t:check}}, elas perderiam de qualquer jeito, então um {{t:bluff}} fracassado não tira nada delas. Mãos com valor de showdown dão {{t:check}}.
 
 :::note Este é um ponto de equilíbrio, não uma receita para qualquer adversário
 Essas proporções protegem você contra um adversário que joga bem. Contra jogadores específicos, você pode se afastar delas; isso é tratado no módulo sobre {{t:exploit|exploração}} nos microlimites (M10). A fórmula da proporção de {{t:bluff|blefes}} é um cálculo num modelo simplificado: um {{t:range}} {{t:polarized}} contra uma mão que pega {{t:bluff|blefes}} (um modelo de brinquedo da teoria dos jogos). A recomendação de {{t:bluff|blefar}} com as mãos mais fracas vem de materiais de treinamento e de análises de solvers.

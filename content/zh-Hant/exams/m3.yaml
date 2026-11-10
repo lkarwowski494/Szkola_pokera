@@ -20,7 +20,7 @@ drills:
     options:
       - { text: "{{t:raise|加注}}", correct: true, why: "不同花 AT 在{{t:utg}}的{{t:open|開池}}{{t:range|範圍}}內（約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 手牌）。App 的求解器在這裡一律會打這手牌。" }
       - { text: "{{t:fold|棄牌}}", why: "太緊了。在{{t:utg}}你要打得窄，但 AT 仍在{{t:range|範圍}}內。" }
-      - { text: "平跟{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。平跟會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
+      - { text: "補齊{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。溜入會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
@@ -48,7 +48,7 @@ drills:
     options:
       - { text: "{{t:raise|加注}}", correct: true, why: "在按鈕位你約{{t:open|開池}} {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} 手牌。只剩盲注位，翻牌後你又有{{t:position|位置}}，所以不同花 J9 也在範圍內。" }
       - { text: "{{t:fold|棄牌}}", why: "在{{t:cutoff|CO}}求解器很少打這手牌，但在按鈕位一律會打。只面對盲注位，這樣太緊了。" }
-      - { text: "平跟{{t:big-blind|大盲}}", why: "平跟會交出{{t:initiative|主動權}}。{{t:raise|加注}}常常能立刻拿下盲注。" }
+      - { text: "補齊{{t:big-blind|大盲}}", why: "溜入會交出{{t:initiative|主動權}}。{{t:raise|加注}}常常能立刻拿下盲注。" }
   - kind: choice
     id: m3.exam.q6
     family: m3.rfi.sb
@@ -58,7 +58,7 @@ drills:
     options:
       - { text: "{{t:raise|加注}}到 {{n:pf.open-size-sb}}", correct: true, why: "現在你只對上{{t:big-blind|大盲}}，所以你{{t:open|開池}}很寬，約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 手牌。翻牌後你先行動，所以在{{t:small-blind|小盲}}你{{t:raise|加注}}的尺寸比其他{{t:position|位置}}稍大。" }
       - { text: "{{t:raise|加注}}到 {{n:pf.open-size}}", sizeError: true, why: "行動對了，尺寸錯了：{{n:pf.open-size}} 是其他{{t:position|位置}}的{{t:open}}尺寸。在{{t:small-blind|小盲}}你處於{{t:out-of-position}}，所以要{{t:raise|加注}}到 {{n:pf.open-size-sb}}。" }
-      - { text: "平跟{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}（在{{t:small-blind|小盲}}這是簡化：有些求解器的解法在這裡會平跟部分手牌）。平跟會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
+      - { text: "補齊{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}（在{{t:small-blind|小盲}}這是簡化：有些求解器的解法在這裡會用部分手牌溜入）。溜入會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
       - { text: "{{t:fold|棄牌}}", why: "太緊了：只面對一位對手時，App 的求解器在{{t:small-blind|小盲}}一律會打 T8o。" }
   - kind: numeric
     id: m3.exam.n1

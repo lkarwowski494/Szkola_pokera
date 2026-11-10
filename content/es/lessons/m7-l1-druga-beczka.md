@@ -111,7 +111,7 @@ drills:
       - { text: "Porque el turn siempre le ayuda", why: "No: el turn es aleatorio y a veces te ayuda a ti (p. ej., un as). Lo que refuerza el {{t:range|rango}} del rival es su propia decisión en el flop." }
       - { text: "No lo es, tiene el mismo {{t:range|rango}} que antes del flop", why: "Cada decisión filtra parte de las manos. Quien {{t:call|iguala}} una {{t:bet|apuesta}} suele haber ligado algo o tener {{t:draw|proyecto}}." }
 ---
-Un {{t:second-barrel|segundo barril}} es la segunda {{t:bet|apuesta}} del jugador que {{t:raise|subió}} antes del flop: c-bet en el flop, el rival {{t:call|iguala}} y después apuesta en el turn. En el turn no solo te preguntas «¿tengo mano?», sino también «¿esta carta me ayuda a mí o al rival?».
+Un {{t:second-barrel|segundo barril}} es la segunda {{t:bet|apuesta}} del jugador que {{t:raise|subió}} antes del flop: c-bet en el flop, el rival {{t:call|iguala}} y después otra apuesta en el turn. En el turn no solo te preguntas «¿tengo mano?», sino también «¿esta carta me ayuda a mí o al rival?».
 
 ## El rival {{t:call|igualó}}, así que es más fuerte
 
@@ -134,5 +134,5 @@ Un {{t:bluff|farol}} sin opciones llega al punto de equilibrio cuando el rival s
 La {{t:second-pair|segunda pareja}} o la {{t:top-pair|pareja mayor}} con kicker débil gana a los {{t:bluff|faroles}}, pero pierde contra {{t:pair|parejas}} mejores. Ante una segunda apuesta, las manos peores se {{t:fold|retirarán}} y las mejores pagarán. {{t:check|Pasas}}, mantienes el {{t:pot|bote}} pequeño y llegas al showdown.
 
 :::note De dónde salen estas reglas
-Las orientaciones generales (las cartas altas suelen favorecer el {{t:second-barrel|segundo barril}}, {{t:bluff|faroles}} con outs en lugar de sin outs, las manos medias {{t:check|pasan}}) son heurísticas de materiales de formación y análisis de solvers. Se aplican a stacks de aprox. {{n:format.stack}}. Es una simplificación: el solver también {{t:bluff|va de farol}} con parte de las manos sin outs cuando bloquean el {{t:value|valor}} del rival o cuando el rival puede responder con una {{t:raise|subida}}. La app no indica con qué frecuencia apostar en porcentajes, porque esas cifras dependen de la mano concreta en los resultados de los solvers.
+Las orientaciones generales (las cartas altas suelen favorecer el {{t:second-barrel|segundo barril}}, {{t:bluff|faroles}} con outs en lugar de sin outs, las manos medias {{t:check|pasan}}) son heurísticas de materiales de formación y análisis de solvers. Se aplican a stacks de aprox. {{n:format.stack}}. Es una simplificación: el solver también {{t:bluff|va de farol}} con parte de las manos sin outs cuando bloquean el valor del rival o cuando el rival puede responder con una {{t:raise|subida}}. La app no indica con qué frecuencia apostar en porcentajes, porque esas cifras dependen de la mano concreta en los resultados de los solvers.
 :::

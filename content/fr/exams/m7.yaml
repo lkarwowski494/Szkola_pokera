@@ -53,7 +53,7 @@ drills:
     prompt: "Turn. Vous avez une {{t:two-pair|double paire}}, et l'adversaire peut avoir un {{t:flush-draw|tirage couleur}} (env. {{n:odds.flush.turn-river}} à la river). Il y a {{n:exam.m7.pot}} dans le {{t:pot}}, l'adversaire {{t:check|checke}}. Que faites-vous ?"
     table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
     options:
-      - { text: "Je mise {{n:exam.m7.bet.three-quarters}}", correct: true, why: "Oui : face à une mise de 3/4 du {{t:pot}}, un {{t:draw|tirage}} a besoin de {{n:eq.bet-three-quarters}} d'equity, et il en a env. {{n:odds.flush.turn-river}}. Il paie trop cher, et vous construisez le {{t:pot}} avec une main forte." }
+      - { text: "Je mise {{n:exam.m7.bet.three-quarters}}", correct: true, why: "Oui : face à une mise de 3/4 du {{t:pot}}, un {{t:draw|tirage}} a besoin de {{n:eq.bet-three-quarters}} d'équité, et il en a env. {{n:odds.flush.turn-river}}. Il paie trop cher, et vous construisez le {{t:pot}} avec une main forte." }
       - { text: "Je mise {{n:exam.m7.bet.quarter}}", sizeError: true, why: "Bonne action, mauvaise taille : face à une mise de 1/4 du {{t:pot}}, un {{t:draw|tirage}} n'a besoin que de {{n:eq.bet-quarter}}, moins que ses env. {{n:odds.flush.turn-river}}. Une petite mise lui donne un bon prix. Misez gros." }
       - { text: "Je {{t:check|checke}}", why: "Une carte gratuite est un cadeau pour un {{t:flush-draw|tirage couleur}}, et vous perdez la valeur de votre main forte. Avec une {{t:two-pair|double paire}}, vous misez." }
   - kind: numeric

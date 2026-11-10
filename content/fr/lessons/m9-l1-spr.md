@@ -87,14 +87,14 @@ drills:
     id: m9.l1.n-jam-spr2
     family: m9.spr-price
     rules: [R-M9-002]
-    prompt: "Flop. Le {{t:pot}} contient {{n:ex.pot}}, l'adversaire fait all-in pour {{n:commit.stack}} ({{t:spr}} {{n:spr.commit}}). De combien d'equity avez-vous besoin pour {{t:call|suivre}} ? Saisissez le nombre en pourcentage."
+    prompt: "Flop. Le {{t:pot}} contient {{n:ex.pot}}, l'adversaire fait all-in pour {{n:commit.stack}} ({{t:spr}} {{n:spr.commit}}). De combien d'équité avez-vous besoin pour {{t:call|suivre}} ? Saisissez le nombre en pourcentage."
     answer: eq.jam.spr2
-    explanation: "Vous ajoutez {{n:commit.stack}}, et une fois que vous avez {{t:call|suivi}}, le {{t:pot}} s'élève à {{n:ex.pot}} + {{n:commit.stack}} + {{n:commit.stack}}. Equity nécessaire = {{n:commit.stack}} ÷ ({{n:ex.pot}} + 2·{{n:commit.stack}}) = {{n:eq.jam.spr2}}."
+    explanation: "Vous ajoutez {{n:commit.stack}}, et une fois que vous avez {{t:call|suivi}}, le {{t:pot}} s'élève à {{n:ex.pot}} + {{n:commit.stack}} + {{n:commit.stack}}. Équité nécessaire = {{n:commit.stack}} ÷ ({{n:ex.pot}} + 2·{{n:commit.stack}}) = {{n:eq.jam.spr2}}."
   - kind: choice
     id: m9.l1.q-jam-price
     family: m9.spr-price
     rules: [R-M9-002]
-    prompt: "Au flop, l'adversaire fait all-in pour tout son stack ({{n:format.stack}} au début du coup). Dans quel {{t:pot}} avez-vous besoin du moins d'equity pour {{t:call|suivre}} ?"
+    prompt: "Au flop, l'adversaire fait all-in pour tout son stack ({{n:format.stack}} au début du coup). Dans quel {{t:pot}} vous faut-il le moins d'équité pour {{t:call|suivre}} ?"
     options:
       - { text: "Après un 4-bet : environ {{n:eq.jam.4bet}}", correct: true, why: "Avec un {{t:spr}} d'environ {{n:spr.4bet}}, vous ajoutez {{n:spr.4bet.stack}} pour gagner le {{t:pot}} de {{n:spr.4bet.pot}} et le stack de l'adversaire. Plus le {{t:spr}} est bas, meilleur est le prix." }
       - { text: "Après un 3-bet : environ {{n:eq.jam.3bet-ip}}", why: "Après un 3-bet {{t:in-position|en position}}, il vous faut environ {{n:eq.jam.3bet-ip}}. Après un 4-bet, le {{t:pot}} est plus gros par rapport au stack, donc environ {{n:eq.jam.4bet}} suffit." }
@@ -140,7 +140,7 @@ Après une {{t:open|ouverture}} {{t:call|suivie}} ({{t:spr}} d'environ {{n:spr.s
 
 ## {{t:spr}} bas : meilleur prix sur un all-in
 
-Quand l'adversaire fait all-in pour tout son stack, vous ajoutez votre stack pour gagner le {{t:pot}} et son stack. Equity nécessaire = stack ÷ ({{t:pot}} + 2·stack). Avec un {{t:spr}} de {{n:spr.commit}}, cela donne {{n:eq.jam.spr2}} ; après un 4-bet, environ {{n:eq.jam.4bet}} ; après un 3-bet, environ {{n:eq.jam.3bet-ip}} ; et dans un {{t:pot}} à une seule relance, déjà environ {{n:eq.jam.srp}}.
+Quand l'adversaire fait all-in pour tout son stack, vous ajoutez votre stack pour gagner le {{t:pot}} et son stack. Équité nécessaire = stack ÷ ({{t:pot}} + 2·stack). Avec un {{t:spr}} de {{n:spr.commit}}, cela donne {{n:eq.jam.spr2}} ; après un 4-bet, environ {{n:eq.jam.4bet}} ; après un 3-bet, environ {{n:eq.jam.3bet-ip}} ; et dans un {{t:pot}} à une seule relance, déjà environ {{n:eq.jam.srp}}.
 
 Plus le {{t:spr}} est bas, moins il reste d'argent à jouer et plus il est facile de mettre tout son stack. Plus il est élevé, plus il reste de {{t:street|streets}} et de {{t:bet|mises}} avant que le stack n'arrive dans le {{t:pot}}.
 

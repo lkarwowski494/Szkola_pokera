@@ -1,0 +1,37 @@
+{
+ "plik": "docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/it/poprawki-it.json",
+ "nalozone": 288,
+ "pominiete": [],
+ "sklep": 3,
+ "odfiltrowane": 0,
+ "pliki": 50,
+ "sklepPoprawki": [
+  {
+   "jezyk": "it",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "stary": "dalle regole e dalla scala dei punti fino alla strategia",
+   "nowy": "dalle regole e dalla classifica delle combinazioni fino alla strategia",
+   "waga": "NISKIE",
+   "powod": "it-U-04 opis sklepu niespójny z aplikacją: układy = „combinazioni” (modules.yaml m0, it.json „classifica delle combinazioni”); „scala” w aplikacji = strit",
+   "grupa": "it-U"
+  },
+  {
+   "jezyk": "it",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "stary": "Moduli in ordine: regole e punti, come si svolge",
+   "nowy": "Moduli in ordine: regole e combinazioni, come si svolge",
+   "waga": "NISKIE",
+   "powod": "it-U-05 nazwa modułu w aplikacji: „Regole e combinazioni” (content/it/modules.yaml:1)",
+   "grupa": "it-U"
+  },
+  {
+   "jezyk": "it",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "stary": "serie di giorni e un indice di avanzamento",
+   "nowy": "serie di giorni e un indice di livello",
+   "waga": "NISKIE",
+   "powod": "it-U-06 nazwa w aplikacji: „Indice di livello” (it.json advancement.title)",
+   "grupa": "it-U"
+  }
+ ]
+}

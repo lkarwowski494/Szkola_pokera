@@ -74,7 +74,7 @@ drills:
     rules: [R-M8-007, R-M8-008]
     prompt: "Vous choisissez un {{t:bluff|bluff}} à la river parmi des mains sans valeur au showdown. Quelle carte de votre main aide le plus ?"
     options:
-      - { text: "Une carte des mains avec lesquelles l'adversaire paiera", correct: true, why: "Vous bloquez sa valeur : il a moins de mains fortes, donc il lui reste plus souvent une main avec laquelle se coucher." }
+      - { text: "Une carte des mains avec lesquelles l'adversaire paiera", correct: true, why: "Vous bloquez sa value : il a moins de mains fortes, donc il lui reste plus souvent une main avec laquelle se coucher." }
       - { text: "Une carte de la couleur du {{t:draw|tirage}} manqué", why: "Elle bloque des mains avec lesquelles l'adversaire {{t:fold|se couchera}}. Le {{t:bluff|bluff}} fonctionne alors moins souvent." }
       - { text: "La carte la plus haute, quel que soit le board", why: "Une carte haute donne un peu de force au showdown, mais ne dit rien de ce que vous bloquez. Regardez quelles mains de l'adversaire paieront." }
   - kind: choice
@@ -86,7 +86,7 @@ drills:
     options:
       - { text: "Je {{t:check|checke}}", correct: true, why: "Après un {{t:check|check}}, une {{t:pair|paire}} de neuf bat beaucoup de mains de l'adversaire sans {{t:pair|paire}}. Un {{t:blocker|bloqueur}} ne transforme pas une main qui a de la valeur au showdown en bon {{t:bluff|bluff}} : vous choisissez d'abord les mains sans chance, et seulement ensuite vous regardez les {{t:blocker|bloqueurs}}." }
       - { text: "Je mise en {{t:bluff|bluff}}, car j'ai l'as de cœur", why: "L'as de cœur est un bon {{t:blocker|bloqueur}}, mais avec une {{t:pair|paire}} de neuf, vous perdez en {{t:bluff|bluffant}} : les mains plus faibles {{t:fold|se coucheraient}} de toute façon, et les couleurs et les rois paieront." }
-      - { text: "Je mise {{t:value|pour la valeur}}", why: "Qui paiera avec une main plus faible ? Sur un {{t:board|board}} où une couleur est possible, les mains plus faibles qu'une {{t:pair|paire}} de neuf {{t:fold|se coucheront}} presque toujours." }
+      - { text: "Je mise {{t:value|pour la value}}", why: "Qui paiera avec une main plus faible ? Sur un {{t:board|board}} où une couleur est possible, les mains plus faibles qu'une {{t:pair|paire}} de neuf {{t:fold|se coucheront}} presque toujours." }
 ---
 Dans la leçon précédente, vous avez établi combien de {{t:bluff|bluffs}} il vous faut et que vous {{t:bluff|bluffez}} avec des mains sans chance au showdown. Souvent, ces mains sont plus nombreuses que nécessaire. C'est alors que les **{{t:blocker|bloqueurs}}** tranchent.
 

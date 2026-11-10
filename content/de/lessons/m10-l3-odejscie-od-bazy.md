@@ -48,7 +48,7 @@ drills:
     options:
       - { text: "Ja: Der Gegner {{t:fold|foldet}} öfter als {{n:alpha.cbet.small}}, also verdient die C-Bet sofort", correct: true, why: "Eine C-Bet von 1/3 {{t:pot}} ist bei {{n:alpha.cbet.small}} {{t:fold|Folds}} break-even. Der Gegner {{t:fold|foldet}} viel öfter, also verdient die C-Bet, bevor du die Equity deiner Hand mitrechnest. Fold to C-Bet fasst alle Größen und Tische zusammen, es ist also eine Näherung." }
       - { text: "Nein: Ohne Hand bettest du nicht", why: "Ein {{t:bluff}} braucht keine Hand, er braucht {{t:fold|Folds}}. Wenn der Gegner öfter {{t:fold|foldet}} als {{n:alpha.cbet.small}}, verdient die C-Bet mit jeder Hand." }
-      - { text: "Nur mit einer großen Größe, weil eine kleine keine Hände vertreibt", why: "Eine größere Bet braucht mehr {{t:fold|Folds}}: bei 3/4 {{t:pot}} ganze {{n:alpha.cbet.big}}. Wenn der Gegner ohnehin oft {{t:fold|foldet}}, schafft das eine kleine C-Bet günstiger." }
+      - { text: "Nur mit einer großen Bet, weil eine kleine keine Hände vertreibt", why: "Eine größere Bet braucht mehr {{t:fold|Folds}}: bei 3/4 {{t:pot}} ganze {{n:alpha.cbet.big}}. Wenn der Gegner ohnehin oft {{t:fold|foldet}}, schafft das eine kleine C-Bet günstiger." }
   - kind: choice
     id: m10.l3.q-alpha-low
     family: m10.base.alpha
@@ -119,12 +119,12 @@ Eine 3-Bet in {{t:position}} auf {{n:pf.3bet.ip-total}} verdient ganz ohne Hand 
 | {{t:regular|Regs}} | {{n:mda.reg.f3b}} |
 | {{t:recreational|Freizeitspieler}} | {{n:mda.rec.f3b}} |
 
-In der Basis leben 3-Bet-{{t:bluff|Bluffs}} von {{t:fold|Folds}} und von Equity nach dem Flop. Gegen einen Spieler, der in {{n:mda.rec.f3b}} der Fälle {{t:fold|foldet}}, gibt es kaum {{t:fold|Folds}}, dafür {{t:call|callt}} er mit schwächeren Händen. Deshalb 3-bettest du ihn mit einer {{t:linear|linearen}} {{t:range}}: mehr starke Hände {{t:value|auf Value}}, fast ohne {{t:bluff|Bluffs}}. Trainer in zwei Lernmaterialien setzen diese Grenze bei Fold to 3-Bet von etwa {{n:hud.f3b.low}}.
+In der Basis leben 3-Bet-{{t:bluff|Bluffs}} von {{t:fold|Folds}} und von Equity nach dem Flop. Gegen einen Spieler, der in {{n:mda.rec.f3b}} der Fälle {{t:fold|foldet}}, gibt es kaum {{t:fold|Folds}}, dafür {{t:call|callt}} er mit schwächeren Händen. Deshalb 3-bettest du ihn mit einer {{t:linear|linearen}} {{t:range}}: mehr starke Hände {{t:value|auf Value}}, fast ohne {{t:bluff|Bluffs}}. Trainer in zwei Trainingsmaterialien setzen diese Grenze bei Fold to 3-Bet von etwa {{n:hud.f3b.low}}.
 
 ## Kleine Stichprobe, kleine Abweichung
 
 Je kleiner die Stichprobe, desto größer der Fehler der Statistik (Lektion 1). Bei einer kleinen Stichprobe verschiebst du nur Grenzhände und nur in Richtung des Reads. Eine große Abweichung mit der ganzen {{t:range}} ergibt erst bei einer großen Stichprobe und einem deutlichen Fehler des Gegners Sinn. Das Abweichen von der Basis ist selbst ein Fehler, den ein guter Gegner ausnutzen kann.
 
 :::note Quellen
-Das Prinzip der {{t:mixed-hand|gemischten Hände}} stammt aus einer veröffentlichten Solver-Analyse mit fixierter Strategie des Gegners (eine Solver-Lösung, keine Populationsdaten). Die {{t:alpha}}-Schwellen sind Rechnung. Fold to 3-Bet und Fold to C-Bet der Population stammen aus einer öffentlichen Statistikdatenbank (ein großer Online-Anbieter, NL25–NL100, {{n:mda.period.months}} Monate vor Oktober 2026). Die Grenze bei Fold to 3-Bet und das Prinzip „kleine Stichprobe, kleine Abweichung“ sind Empfehlungen aus zwei Lernmaterialien.
+Das Prinzip der {{t:mixed-hand|gemischten Hände}} stammt aus einer veröffentlichten Solver-Analyse mit fixierter Strategie des Gegners (eine Solver-Lösung, keine Populationsdaten). Die {{t:alpha}}-Schwellen sind Rechnung. Fold to 3-Bet und Fold to C-Bet der Population stammen aus einer öffentlichen Statistikdatenbank (ein großer Online-Pokerraum, NL25–NL100, {{n:mda.period.months}} Monate vor Oktober 2026). Die Grenze bei Fold to 3-Bet und das Prinzip „kleine Stichprobe, kleine Abweichung“ sind Empfehlungen aus zwei Trainingsmaterialien.
 :::

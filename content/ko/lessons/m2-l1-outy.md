@@ -108,7 +108,7 @@ drills:
 ## 흔한 {{t:draw|드로우}}
 
 - **{{t:flush-draw|플러시 드로우}}**(같은 무늬 {{n:draw.flush.seen}}장, {{t:flush|플러시}}까지 한 장 부족): **아웃 {{n:outs.flush}}개**. 한 무늬는 {{n:cards.per-suit}}장이고, 그중 {{n:draw.flush.seen}}장이 보입니다.
-- **{{t:oesd|오픈엔디드 스트레이트 드로우}}**, 예: [[6s 7h Kd]] {{t:board|보드}}에서 [[8c 9d]]: **아웃 {{n:outs.oesd}}개**, 즉 5 네 장과 10 네 장입니다.
+- **{{t:oesd|양방향 스트레이트 드로우}}**, 예: [[6s 7h Kd]] {{t:board|보드}}에서 [[8c 9d]]: **아웃 {{n:outs.oesd}}개**, 즉 5 네 장과 10 네 장입니다.
 - **{{t:straight|스트레이트}} 가운데가 빈 경우(거트샷)**, 예: 7이 없는 5-6-8-9: **아웃 {{n:outs.gutshot}}개**.
 
 ## 2와 4의 법칙
@@ -123,7 +123,7 @@ drills:
 | {{t:draw|드로우}} | 아웃 | 플롭 → 턴 | 플롭 → 리버(올인) | 턴 → 리버 |
 |---|---|---|---|---|
 | {{t:flush|플러시}} | {{n:outs.flush}} | {{n:odds.flush.flop-turn}} | {{n:odds.flush.flop-river}} | {{n:odds.flush.turn-river}} |
-| {{t:oesd|오픈엔디드 스트레이트 드로우}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-turn}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
+| {{t:oesd|양방향 스트레이트 드로우}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-turn}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
 | 거트샷 | {{n:outs.gutshot}} | {{n:odds.gutshot.flop-turn}} | {{n:odds.gutshot.flop-river}} | {{n:odds.gutshot.turn-river}} |
 
 ## 한 장인가, 두 장인가?

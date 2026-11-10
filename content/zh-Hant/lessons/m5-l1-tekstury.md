@@ -44,7 +44,7 @@ drills:
     prompt: "你拿到 [[Ac Kd]]，翻牌是 [[Ks 7d 2c]]。為什麼在這種翻牌上，帶好踢腳的{{t:pair|一對}}比在{{t:wet|濕潤}}翻牌上更安全？"
     table: { hand: "Ac Kd", board: "Ks 7d 2c" }
     options:
-      - { text: "因為對手沒有任何{{t:draw|聽牌}}，所以後面的牌很少改變誰領先", correct: true, why: "對：翻牌是{{t:rainbow|彩虹}}面，也不可能有{{t:straight|順子}}。現在落後的對手通常補牌（outs）很少：只有幾張牌能讓他做成{{t:three-of-a-kind|三條}}或{{t:two-pair|兩對}}；沒有{{t:pair|一對}}的話，則需要連續兩張好牌。" }
+      - { text: "因為對手沒有任何{{t:draw|聽牌}}，所以後面的牌很少改變誰領先", correct: true, why: "對：翻牌是{{t:rainbow|彩虹}}面，也不可能有{{t:straight|順子}}。現在落後的對手通常補牌很少：只有幾張牌能讓他做成{{t:three-of-a-kind|三條}}或{{t:two-pair|兩對}}；沒有{{t:pair|一對}}的話，則需要連續兩張好牌。" }
       - { text: "因為在{{t:dry|乾燥}}翻牌上對手一定會{{t:fold|棄牌}}", why: "不對：手上有 7、2 或較弱 K 的對手可能會{{t:call|跟注}}。{{t:dry|乾燥}}翻牌說明的是{{t:draw|聽牌}}的情況，而不是對手會不會{{t:fold|棄牌}}。" }
       - { text: "因為{{t:pair|一對}} K 一定能贏到河牌", why: "不對：對手現在可能已經有 set（暗三條）或{{t:two-pair|兩對}}。{{t:dry|乾燥}}翻牌只是降低有人追上你的風險。" }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar board
@@ -55,7 +55,7 @@ drills:
     params: { area: board, dir: both }
     count: 4
 ---
-翻牌後，每位玩家已經看到自己七張牌中的五張。{{t:board|公共牌}}上的三張牌和玩家手牌的契合程度，稱為翻牌的{{t:texture|牌面結構}}。{{t:texture|牌面結構}}決定誰比較常擊中，以及是否值得下注。在學習 c-bet（翻牌前{{t:raise|加注}}後，在翻牌圈的{{t:bet|下注}}）之前，先學會從四個面向解讀翻牌。
+翻牌後，每位玩家已經看到自己七張牌中的五張。{{t:board|公共牌}}上的三張牌和玩家手牌的契合程度，稱為翻牌的{{t:texture|牌面結構}}。{{t:texture|牌面結構}}決定誰比較常擊中，以及是否值得下注。在學習持續下注（c-bet，也就是翻牌前{{t:raise|加注}}後，在翻牌圈的{{t:bet|下注}}）之前，先學會從四個面向解讀翻牌。
 
 ## 高低
 

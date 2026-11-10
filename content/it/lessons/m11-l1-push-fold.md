@@ -28,7 +28,7 @@ drills:
     id: m11.l1.n-m
     family: m11.m
     rules: [R-M11-005]
-    prompt: "Hai {{n:m11.m.stack}} {{t:chips|fiche}}. I blind sono {{n:m11.m.sb}}/{{n:m11.m.bb}} e il {{t:big-blind}} versa anche un ante di {{n:m11.m.ante}}. Quanto vale il tuo M?"
+    prompt: "Hai {{n:m11.m.stack}} {{t:chips|fiches}}. I blind sono {{n:m11.m.sb}}/{{n:m11.m.bb}} e il {{t:big-blind}} versa anche un ante di {{n:m11.m.ante}}. Quanto vale il tuo M?"
     answer: m11.m.value
     explanation: "M = stack ÷ ({{t:small-blind}} + {{t:big-blind}} + ante) = {{n:m11.m.stack}} ÷ {{n:m11.m.orbit}} = {{n:m11.m.value}}. È il numero di giri che superi senza giocare. In {{t:big-blind|big blind}} sono {{n:m11.m.bbs}}, ma M conta anche l'ante."
   - kind: choice
@@ -60,7 +60,7 @@ drills:
     prompt: "{{t:small-blind|Small blind}}, tutti hanno {{t:fold|foldato}}, hai K2o. Con {{n:m11.depth.10}} il solver va all-in con questa mano. E con {{n:m11.depth.15}}?"
     table: { hand: "Kd 2c", position: SB }
     options:
-      - { text: "{{t:fold|Fold}}", correct: true, why: "Con {{n:m11.depth.15}} rischi di più rispetto ai blind, quindi il {{t:range}} di all-in si restringe da circa {{n:m11.push.10}} a circa {{n:m11.push.15}} mani. K2o ne resta fuori." }
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Con {{n:m11.depth.15}} rischi di più rispetto ai blind, quindi il {{t:range}} di all-in si restringe da circa il {{n:m11.push.10}} a circa il {{n:m11.push.15}} delle mani. K2o ne resta fuori." }
       - { text: "All-in, perché il re è una carta forte", why: "Con {{n:m11.depth.15}} K2o trova troppo spesso un re migliore o un asso nel {{t:range}} di {{t:call|chiamata}}. Il solver la {{t:fold|folda}}." }
       - { text: "All-in, perché più lo stack è profondo, più si gioca largo", why: "Al contrario: più lo stack è profondo, più è stretto il {{t:range}} di all-in. Il {{t:shove|push}} più largo lo fai con uno {{t:short-stack|short stack}} molto corto." }
   - kind: choice
@@ -69,9 +69,9 @@ drills:
     rules: [R-M11-004]
     prompt: "{{t:small-blind|Small blind}}, {{n:m11.depth.10}}, senza ante. Quante volte su cento il {{t:big-blind}} dovrebbe {{t:fold|foldare}} perché un all-in con una mano senza alcuna possibilità vada in pareggio?"
     options:
-      - { text: "Più di {{n:m11.push.10.alpha}}", correct: true, why: "Rischi {{n:m11.push.10.risk}} per vincere {{n:m11.push.10.win}}: {{n:m11.push.10.risk}} ÷ ({{n:m11.push.10.win}} + {{n:m11.push.10.risk}}) fa circa {{n:m11.push.10.alpha}}. L'avversario non {{t:fold|folda}} così spesso, quindi l'all-in conviene solo con una mano che abbia anche equity quando l'avversario {{t:call|chiama}}." }
+      - { text: "Più del {{n:m11.push.10.alpha}}", correct: true, why: "Rischi {{n:m11.push.10.risk}} per vincere {{n:m11.push.10.win}}: {{n:m11.push.10.risk}} ÷ ({{n:m11.push.10.win}} + {{n:m11.push.10.risk}}) fa circa il {{n:m11.push.10.alpha}}. L'avversario non {{t:fold|folda}} così spesso, quindi l'all-in conviene solo con una mano che abbia anche equity quando l'avversario {{t:call|chiama}}." }
       - { text: "Più della metà", why: "La metà basterebbe se rischiassi quanto puoi vincere. Qui rischi {{n:m11.push.10.risk}} e vinci solo {{n:m11.push.10.win}} blind." }
-      - { text: "Basta che a volte {{t:fold|foldi}}", why: "Ogni {{t:call|chiamata}} costa a una mano senza possibilità l'intero stack. Senza equity ti servono {{t:fold}} molto frequenti: più di {{n:m11.push.10.alpha}}." }
+      - { text: "Basta che a volte {{t:fold|foldi}}", why: "Ogni {{t:call|chiamata}} costa a una mano senza possibilità l'intero stack. Senza equity ti servono {{t:fold}} molto frequenti: più del {{n:m11.push.10.alpha}}." }
   - kind: choice
     id: m11.l1.q-two-ways
     family: m11.fold-equity
@@ -87,9 +87,9 @@ drills:
     rules: [R-M11-003]
     prompt: "Stesso stack di {{n:m11.depth.10}} in {{t:small-blind}}, ma si gioca con il {{t:bb-ante}}: il {{t:big-blind}} ha versato un ante di {{n:m11.ante}}. Come cambia il {{t:range}} di all-in?"
     options:
-      - { text: "Si allarga: circa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} invece di {{n:m11.push.10}}", correct: true, why: "L'ante aumenta il {{t:pot|piatto}} che vinci quando l'avversario {{t:fold|folda}}: {{n:m11.push.10.win-ante}} invece di {{n:m11.push.10.win}}. A una mano senza possibilità ora servono solo più di {{n:m11.push.10.alpha-ante}} {{t:fold}}, quindi conviene fare più all-in." }
-      - { text: "Si restringe, perché l'avversario ha di più nel {{t:pot|piatto}} e {{t:call|chiamerà}} più spesso", why: "L'avversario in effetti {{t:call|chiama}} più largo, ma il {{t:pot|piatto}} più grande da vincere pesa di più. L'equilibrio è di circa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} mani." }
-      - { text: "Non cambia", why: "L'ante cambia il rapporto tra rischio e ricompensa. Senza ante circa {{n:m11.push.10}}, con ante circa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}." }
+      - { text: "Si allarga: circa il {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} invece del {{n:m11.push.10}}", correct: true, why: "L'ante aumenta il {{t:pot|piatto}} che vinci quando l'avversario {{t:fold|folda}}: {{n:m11.push.10.win-ante}} invece di {{n:m11.push.10.win}}. A una mano senza possibilità ora serve solo più del {{n:m11.push.10.alpha-ante}} di {{t:fold}}, quindi conviene fare più all-in." }
+      - { text: "Si restringe, perché l'avversario ha di più nel {{t:pot|piatto}} e {{t:call|chiamerà}} più spesso", why: "L'avversario in effetti {{t:call|chiama}} più largo, ma il {{t:pot|piatto}} più grande da vincere pesa di più. L'equilibrio è di circa il {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} delle mani." }
+      - { text: "Non cambia", why: "L'ante cambia il rapporto tra rischio e ricompensa. Senza ante circa il {{n:m11.push.10}}, con ante circa il {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}." }
   - kind: generated
     id: m11.l1.g-push-ante
     family: m11.ante
@@ -131,7 +131,7 @@ Un diffuso modello da torneo misura lo {{t:short-stack|short stack}} in un altro
 M = stack ÷ (small blind + big blind + ante)
 ```
 
-Esempio: hai {{n:m11.m.stack}} {{t:chips|fiche}}, blind {{n:m11.m.sb}}/{{n:m11.m.bb}}, {{t:bb-ante}} {{n:m11.m.ante}}. M = {{n:m11.m.stack}} ÷ {{n:m11.m.orbit}} = **{{n:m11.m.value}}**. In {{t:big-blind|big blind}} sono {{n:m11.m.bbs}}, ma M tiene conto anche dell'ante. Con un M di circa {{n:m11.m.red}} o meno ({{t:red-zone|zona rossa}}) ti restano ormai solo all-in o {{t:fold}}.
+Esempio: hai {{n:m11.m.stack}} {{t:chips|fiches}}, blind {{n:m11.m.sb}}/{{n:m11.m.bb}}, {{t:bb-ante}} {{n:m11.m.ante}}. M = {{n:m11.m.stack}} ÷ {{n:m11.m.orbit}} = **{{n:m11.m.value}}**. In {{t:big-blind|big blind}} sono {{n:m11.m.bbs}}, ma M tiene conto anche dell'ante. Con un M di circa {{n:m11.m.red}} o meno ({{t:red-zone|zona rossa}}) ti restano ormai solo all-in o {{t:fold}}.
 
 ## Più lo stack è corto, più si gioca largo
 
@@ -149,11 +149,11 @@ push.sb-10
 push.sb-5
 ```
 
-Con {{n:m11.depth.15}} vai all-in con circa {{n:m11.push.15}} mani, con {{n:m11.depth.10}} con circa {{n:m11.push.10}}, e con {{n:m11.depth.5}} ormai con circa {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Meno rischi rispetto ai blind, più mani diventano redditizie. Per confronto, la tabella di un sito di formazione indica {{n:m11.ext.push.10}} con {{n:m11.depth.10}}; la differenza rientra nella tolleranza di validazione del solver e la direzione è la stessa.
+Con {{n:m11.depth.15}} vai all-in con circa il {{n:m11.push.15}} delle mani, con {{n:m11.depth.10}} con circa il {{n:m11.push.10}}, e con {{n:m11.depth.5}} ormai con circa il {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Meno rischi rispetto ai blind, più mani diventano redditizie. Per confronto, la tabella di un sito di formazione indica il {{n:m11.ext.push.10}} con {{n:m11.depth.10}}; la differenza rientra nella tolleranza di validazione del solver e la direzione è la stessa.
 
 ## Tre giocatori: più avversari hai dietro, più stretto
 
-Quando giochi dal Button, dietro di te ci sono ancora due giocatori, non uno. Ognuno di loro può avere una mano forte, quindi che {{t:fold|foldino}} entrambi succede più di rado. Con tre giocatori e stack di {{n:m11.depth.3max}} ciascuno, il Button va all-in con circa {{n:m11.3max.push.btn}} mani, e lo {{t:small-blind}}, quando il Button ha {{t:fold|foldato}}, con circa {{n:m11.3max.push.sb}}.
+Quando giochi dal Button, dietro di te ci sono ancora due giocatori, non uno. Ognuno di loro può avere una mano forte, quindi che {{t:fold|foldino}} entrambi succede più di rado. Con tre giocatori e stack di {{n:m11.depth.3max}} ciascuno, il Button va all-in con circa il {{n:m11.3max.push.btn}} delle mani, e lo {{t:small-blind}}, quando il Button ha {{t:fold|foldato}}, con circa il {{n:m11.3max.push.sb}}.
 
 ```range
 push.btn-3max
@@ -167,11 +167,11 @@ Abbiamo confrontato queste due griglie con un risultato di equilibrio pubblicato
 
 ## Due modi per vincere
 
-L'all-in vince quando l'avversario {{t:fold|folda}}, oppure quando {{t:call|chiama}} e perde allo showdown. Il solo {{t:fold}} dell'avversario raramente basta: con {{n:m11.depth.10}} rischi {{n:m11.push.10.risk}} per vincere {{n:m11.push.10.win}} blind, quindi una mano senza possibilità avrebbe bisogno di {{t:fold}} in più di {{n:m11.push.10.alpha}} dei casi. Per questo contano sia la fold equity sia l'equity della mano quando l'avversario {{t:call|chiama}}.
+L'all-in vince quando l'avversario {{t:fold|folda}}, oppure quando {{t:call|chiama}} e perde allo showdown. Il solo {{t:fold}} dell'avversario raramente basta: con {{n:m11.depth.10}} rischi {{n:m11.push.10.risk}} per vincere {{n:m11.push.10.win}} blind, quindi una mano senza possibilità avrebbe bisogno di {{t:fold}} in più del {{n:m11.push.10.alpha}} dei casi. Per questo contano sia la fold equity sia l'equity della mano quando l'avversario {{t:call|chiama}}.
 
 ## L'ante allarga il {{t:range}}
 
-L'ante sono {{t:chips|fiche}} in più nel {{t:pot|piatto}} prima della distribuzione delle carte. Con il {{t:bb-ante}} il {{t:big-blind}} versa un ante di {{n:m11.ante}}, quindi l'all-in vince {{n:m11.push.10.win-ante}} invece di {{n:m11.push.10.win}}, mentre il rischio resta lo stesso. In questa struttura il {{t:range}} si allarga da circa {{n:m11.push.10}} a circa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} mani (il solver dell'app e un calcolo di equilibrio indipendente differiscono di una frazione di punto).
+L'ante sono {{t:chips|fiches}} in più nel {{t:pot|piatto}} prima della distribuzione delle carte. Con il {{t:bb-ante}} il {{t:big-blind}} versa un ante di {{n:m11.ante}}, quindi l'all-in vince {{n:m11.push.10.win-ante}} invece di {{n:m11.push.10.win}}, mentre il rischio resta lo stesso. In questa struttura il {{t:range}} si allarga da circa il {{n:m11.push.10}} a circa il {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} delle mani (il solver dell'app e un calcolo di equilibrio indipendente differiscono di una frazione di punto).
 
 ```range
 push.sb-10-ante

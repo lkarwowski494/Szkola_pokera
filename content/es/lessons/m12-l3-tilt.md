@@ -30,7 +30,7 @@ drills:
     rules: [R-M12-007]
     prompt: "Vas perdiendo y piensas: «Una hora más, y si no sale, subo a un {{t:stakes|límite}} más alto y lo recupero todo de golpe». ¿Qué tipo de tilt es?"
     options:
-      - { text: "Tilt por desesperación", correct: true, why: "La necesidad de recuperar lo perdido lleva a {{t:session|sesiones}} muy largas, a forzar la acción y a saltos de {{t:stakes|límite}}. Es la señal para dejar de jugar." }
+      - { text: "Tilt por desesperación", correct: true, why: "La necesidad de recuperar lo perdido lleva a {{t:session|sesiones}} muy largas, a forzar la acción y a saltos a {{t:stakes|límites}} más altos. Es la señal para dejar de jugar." }
       - { text: "Tilt por odio a perder", why: "Se acerca, pero aquí se suma el plan de recuperar las pérdidas con un {{t:stakes|límite}} más alto y jugando más tiempo. Esos son rasgos de la desesperación." }
       - { text: "Un plan sensato, porque un {{t:stakes|límite}} más alto recuperará antes las pérdidas", why: "Un {{t:stakes|límite}} más alto también aumenta las oscilaciones, y tomas decisiones en mal estado. Subir después de perder es justo lo contrario de una gestión prudente del {{t:bankroll}} (lección sobre bankroll y riesgo)." }
   - kind: choice
@@ -97,7 +97,7 @@ drills:
       - { text: "Miras el resultado de la última semana", why: "Una semana de resultados es sobre todo {{t:variance|varianza}} (lección sobre la {{t:variance|varianza}}). La calidad de tu juego en los peores días dice más." }
       - { text: "Comparas tu mejor {{t:session|sesión}} con la peor", why: "Esa comparación solo muestra la dispersión, no el progreso. Compara tu peor juego con tu peor juego anterior." }
 ---
-El tilt es la pérdida de control bajo el efecto de emociones negativas, normalmente después de bad beats o de una larga racha de pérdidas. Acaba en malas decisiones y en pérdidas mucho mayores de lo habitual. No es algo raro: en un estudio por encuesta, {{n:tilt.severe}} de los jugadores admitió haber sufrido un tilt fuerte al menos una vez en los últimos seis meses.
+El tilt es la pérdida de control bajo el efecto de emociones negativas, normalmente después de bad beats o de una larga racha de pérdidas. Acaba en malas decisiones y en pérdidas mucho mayores de lo habitual. No es algo raro: en un estudio por encuesta, el {{n:tilt.severe}} de los jugadores admitió haber sufrido un tilt fuerte al menos una vez en los últimos seis meses.
 
 ## Siete tipos de tilt
 

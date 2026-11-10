@@ -63,7 +63,7 @@ drills:
     prompt: "Turn. Le {{t:pot}} contient {{n:ex.third.pot}}, votre adversaire {{t:bet|mise}} {{n:io.flush.bet}}. Il vous reste encore {{n:io.flush.stack}} chacun, et votre adversaire paie volontiers avec une {{t:pair|paire}} d'as. Que faites-vous ?"
     table: { hand: "Kh Jh", position: BB, board: "Ah 8h 3c 2s" }
     options:
-      - { text: "{{t:call|Suivre}}", correct: true, why: "Le prix seul ne suffit pas ({{n:io.flush.eq}} contre environ {{n:odds.flush.turn-river}}), mais si vous touchez, il suffit de gagner encore {{n:io.flush.extra}}. Vous avez un {{t:draw|tirage}} à la meilleure {{t:flush|couleur}} (l'as de cœur est sur le {{t:board|tableau}}, donc la {{t:flush|couleur}} au roi est la plus haute), votre adversaire a beaucoup de {{t:chips|jetons}} derrière lui, et un joueur avec une {{t:pair|paire}} d'as paiera souvent une telle mise à la river. Votre touche sera visible (un troisième cœur), mais un adversaire avec une {{t:pair|paire}} d'as paiera souvent quand même ; c'est pourquoi les implied odds sont ici plus faibles qu'avec une touche cachée." }
+      - { text: "{{t:call|Suivre}}", correct: true, why: "Le prix seul ne suffit pas ({{n:io.flush.eq}} contre environ {{n:odds.flush.turn-river}}), mais si vous touchez, il suffit de gagner encore {{n:io.flush.extra}}. Vous avez un {{t:draw|tirage}} à la meilleure {{t:flush|couleur}} (l'as de cœur est sur le {{t:board|board}}, donc la {{t:flush|couleur}} au roi est la plus haute), votre adversaire a beaucoup de {{t:chips|jetons}} derrière lui, et un joueur avec une {{t:pair|paire}} d'as paiera souvent une telle mise à la river. Votre touche sera visible (un troisième cœur), mais un adversaire avec une {{t:pair|paire}} d'as paiera souvent quand même ; c'est pourquoi les implied odds sont ici plus faibles qu'avec une touche cachée." }
       - { text: "{{t:fold|Se coucher}}, car {{n:odds.flush.turn-river}}, c'est moins que {{n:io.flush.eq}}", why: "Les pot odds disent « {{t:fold|se coucher}} », mais vous oubliez les implied odds. Il ne manque que {{n:io.flush.extra}}, et votre adversaire a {{n:io.flush.stack}} derrière lui et une main qui paiera." }
       - { text: "{{t:raise|Relancer}} à tapis", why: "Un adversaire avec une {{t:pair|paire}} d'as va plutôt {{t:call|suivre}}, et vous n'avez alors qu'environ {{n:odds.flush.turn-river}}. Mieux vaut voir la river à bas prix et gagner davantage quand vous touchez." }
   - kind: choice
@@ -83,8 +83,8 @@ drills:
     table: { hand: "6h 5h", position: BB, board: "Ah Kh 9c 2d" }
     options:
       - { text: "{{t:fold|Se coucher}}", correct: true, why: "Il vous faut {{n:eq.bet-pot}}, et vous avez environ {{n:odds.flush.turn-river}}. De plus, votre {{t:flush|couleur}} est basse : quand un cœur tombe, un adversaire avec la dame ou le valet de cœur a une meilleure {{t:flush|couleur}}, et c'est là que vous perdez le plus (implied odds inversées)." }
-      - { text: "{{t:call|Suivre}}, grâce aux implied odds", why: "Les implied odds sont faibles ici : une {{t:flush|couleur}} touchée peut perdre contre une plus haute, et tout le monde voit un troisième cœur sur le {{t:board|tableau}}. Il manque aussi beaucoup : le prix est de {{n:eq.bet-pot}}." }
-      - { text: "{{t:raise|Relancer}}", why: "Un adversaire prudent qui {{t:bet|mise}} tout le {{t:pot}} sur un {{t:board|tableau}} avec un as et un roi va rarement {{t:fold|se coucher}}. Vous risquez beaucoup avec une main qui peut perdre même en touchant." }
+      - { text: "{{t:call|Suivre}}, grâce aux implied odds", why: "Les implied odds sont faibles ici : une {{t:flush|couleur}} touchée peut perdre contre une plus haute, et tout le monde voit un troisième cœur sur le {{t:board|board}}. Il manque aussi beaucoup : le prix est de {{n:eq.bet-pot}}." }
+      - { text: "{{t:raise|Relancer}}", why: "Un adversaire prudent qui {{t:bet|mise}} tout le {{t:pot}} sur un {{t:board|board}} avec un as et un roi va rarement {{t:fold|se coucher}}. Vous risquez beaucoup avec une main qui peut perdre même en touchant." }
   - kind: choice
     id: m7.l3.q-when-implied
     family: m7.implied.when
@@ -131,17 +131,17 @@ Ici : {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = **{{n:i
 
 ## {{t:spr}} : combien de {{t:chips|jetons}} votre adversaire a derrière lui
 
-Le {{t:spr}} (rapport tapis/{{t:pot}}) est le {{t:effective-stack|tapis effectif}}, c'est-à-dire le plus petit des deux, divisé par le {{t:pot}} au début du {{t:street|tour d'enchères}}. Vous pouvez calculer le {{t:spr}} à chaque {{t:street|tour d'enchères}} ; ici, vous le calculez au turn. Avec un {{t:pot}} de {{n:ex.pot}} et un tapis de {{n:spr.stack.high}}, le {{t:spr}} vaut {{n:spr.high}} : votre adversaire a donc encore plusieurs {{t:pot|pots}} derrière lui ; avec un tapis de {{n:spr.stack.low}}, il ne vaut que {{n:spr.low}}. Les implied odds ne peuvent pas dépasser les {{t:chips|jetons}} que votre adversaire a encore devant lui. Avec un {{t:spr}} faible, ce sont presque exclusivement les pot odds qui comptent. Pour en savoir plus sur le {{t:spr}}, voir le module « Planifier la main » (M9), qui planifie la main en fonction du {{t:spr}} au flop.
+Le {{t:spr}} (rapport tapis/{{t:pot}}) est le {{t:effective-stack|tapis effectif}}, c'est-à-dire le plus petit des deux, divisé par le {{t:pot}} au début de la {{t:street|street}}. Vous pouvez calculer le {{t:spr}} à chaque {{t:street|street}} ; ici, vous le calculez au turn. Avec un {{t:pot}} de {{n:ex.pot}} et un tapis de {{n:spr.stack.high}}, le {{t:spr}} vaut {{n:spr.high}} : votre adversaire a donc encore plusieurs {{t:pot|pots}} derrière lui ; avec un tapis de {{n:spr.stack.low}}, il ne vaut que {{n:spr.low}}. Les implied odds ne peuvent pas dépasser les {{t:chips|jetons}} que votre adversaire a encore devant lui. Avec un {{t:spr}} faible, ce sont presque exclusivement les pot odds qui comptent. Pour en savoir plus sur le {{t:spr}}, voir le module « Plan de la main » (M9), qui planifie la main en fonction du {{t:spr}} au flop.
 
 ## Quand les implied odds sont réelles
 
 - vous avez un {{t:draw|tirage}} à la **meilleure main** (la {{t:flush|couleur}} la plus haute possible, généralement à l'as),
 - votre adversaire a une **main forte** avec laquelle il paiera,
 - votre adversaire a **beaucoup de {{t:chips|jetons}}** derrière lui ({{t:spr}} élevé),
-- votre touche **ne saute pas aux yeux** (p. ex. un gutshot est moins visible qu'un troisième cœur sur le {{t:board|tableau}}).
+- votre touche **ne saute pas aux yeux** (p. ex. un gutshot est moins visible qu'un troisième cœur sur le {{t:board|board}}).
 
-Les implied odds inversées jouent contre vous : quand vous avez un {{t:draw|tirage}} à une {{t:flush|couleur}} basse, ou à une {{t:straight|quinte}} alors qu'une {{t:flush|couleur}} peut tomber sur le {{t:board|tableau}}, parfois vous touchez et perdez quand même, et dans un gros {{t:pot}}.
+Les implied odds inversées jouent contre vous : quand vous avez un {{t:draw|tirage}} à une {{t:flush|couleur}} basse, ou à une {{t:straight|quinte}} alors qu'une {{t:flush|couleur}} peut tomber sur le {{t:board|board}}, parfois vous touchez et perdez quand même, et dans un gros {{t:pot}}.
 
 :::note D'où viennent ces règles
-Le calcul des implied odds est un calcul exact fondé sur la {{t:expected-value|valeur espérée}}. Les conditions dans lesquelles les implied odds sont réelles, ainsi que les implied odds inversées, sont des heuristiques issues de supports de formation.
+Le calcul des implied odds est un calcul exact fondé sur l'{{t:expected-value|espérance de gain}}. Les conditions dans lesquelles les implied odds sont réelles, ainsi que les implied odds inversées, sont des heuristiques issues de supports de formation.
 :::

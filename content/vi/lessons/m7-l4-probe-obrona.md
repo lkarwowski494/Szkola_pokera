@@ -35,7 +35,7 @@ drills:
     options:
       - { text: "[[8c 5d 2s 3h]]", correct: true, why: "Đúng: các lá thấp trúng dải phòng thủ rộng của {{t:big-blind|mù lớn}} thường xuyên hơn ({{t:pair|đôi}} nhỏ, {{t:connectors|bài liên tiếp}}), còn Button sau khi {{t:check|check}} hiếm khi có tay mạnh ở đây." }
       - { text: "[[Ac Kd 8h Js]]", why: "Trên {{t:board|bài chung}} cao, Button có {{t:range-advantage|lợi thế dải bài}}: nhiều lá A và K của họ đã trúng. Ở đây bạn {{t:bet|đặt}} probe bet ít hơn." }
-      - { text: "Thường xuyên như nhau ở cả hai", why: "{{t:texture|Kết cấu}} có ý nghĩa, giống như với c-bet ở M5: trên bài chung thấp bạn cược thường xuyên hơn, trên bài chung cao ít hơn." }
+      - { text: "Thường xuyên như nhau ở cả hai", why: "{{t:texture|Kết cấu}} có vai trò quan trọng, giống như với c-bet ở M5: trên bài chung thấp bạn cược thường xuyên hơn, trên bài chung cao ít hơn." }
   - kind: choice
     id: m7.l4.q-probe-oesd
     family: m7.probe.play
@@ -75,7 +75,7 @@ drills:
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn chỉ có gutshot (lá J): khoảng {{n:odds.gutshot.turn-river}} trên river, trong khi bạn cần {{n:eq.bet-three-quarters}}. Không có {{t:pair|đôi}} và chỉ còn một lá bài, tay này không phòng thủ được trước {{t:second-barrel}}." }
       - { text: "{{t:call|Theo}}", why: "Giá cao gấp mấy lần cơ hội của bạn: {{n:eq.bet-three-quarters}} so với khoảng {{n:odds.gutshot.turn-river}}. Implied odds không bù được chênh lệch như vậy." }
-      - { text: "Check-raise", why: "{{t:second-barrel}} là {{t:range|dải bài}} mạnh hơn c-bet: Button thường có lá K hoặc tay tốt hơn sẽ không {{t:fold|bỏ bài}}. Với {{n:outs.gutshot}} out, đây là một {{t:bluff}} đắt giá." }
+      - { text: "Check-raise", why: "{{t:second-barrel}} là {{t:range|dải bài}} mạnh hơn c-bet: Button có nhiều khả năng hơn đang cầm lá K hoặc tay tốt hơn, những tay sẽ không {{t:fold|bỏ bài}}. Với {{n:outs.gutshot}} out, đây là một {{t:bluff}} đắt giá." }
   - kind: choice
     id: m7.l4.q-def-oesd-small
     family: m7.defend.turn
@@ -95,7 +95,7 @@ drills:
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "{{t:top-pair|Đôi cao nhất}} quá mạnh để {{t:fold|bỏ bài}} trước một lá bài trống: nó thắng các {{t:semi-bluff}} và các lá K yếu hơn. Bạn cần {{n:eq.bet-three-quarters}}, và trước {{t:range|dải bài}} {{t:second-barrel}}, một {{t:pair|đôi}} như vậy thường có đủ mức đó." }
       - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt. {{t:second-barrel}} mạnh hơn c-bet, nhưng Button cũng {{t:bet|cược}} nó bằng {{t:draw}} và {{t:bluff}}. {{t:top-pair|Đôi cao nhất}} thắng tất cả." }
-      - { text: "{{t:raise|Tố}}", why: "Sau khi bạn {{t:raise|tố}}, các tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn các lá K tốt hơn và sám cô sẽ trả tiền. {{t:top-pair|Đôi cao nhất}} với kicker trung bình không phải tay bài để {{t:raise|tố}}." }
+      - { text: "{{t:raise|Tố}}", why: "Sau khi bạn {{t:raise|tố}}, các tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn các lá K tốt hơn và set sẽ trả tiền. {{t:top-pair|Đôi cao nhất}} với kicker trung bình không phải tay bài để {{t:raise|tố}}." }
   - kind: choice
     id: m7.l4.q-def-why
     family: m7.defend.concept
@@ -103,7 +103,7 @@ drills:
     prompt: "Vì sao trước {{t:second-barrel}} bạn phòng thủ hẹp hơn so với trước c-bet trên flop?"
     table: { position: BB }
     options:
-      - { text: "Vì đối thủ {{t:bet|đặt}} {{t:second-barrel}} bằng {{t:range|dải bài}} hẹp hơn và thường với mức cược lớn hơn, còn {{t:draw}} chỉ còn một lá bài", correct: true, why: "Đúng: đối thủ bỏ một phần {{t:bluff}} trên turn, cược lớn hơn làm giảm {{t:mdf}} (với 3/4 {{t:pot}} là {{n:mdf.bet-three-quarters}}), và các {{t:draw}} của bạn mất một nửa cơ hội. Bạn {{t:fold|bỏ}} các {{t:pair|đôi}} yếu và tay không có out thường xuyên hơn trên flop." }
+      - { text: "Vì đối thủ {{t:bet|đặt}} {{t:second-barrel}} bằng {{t:range|dải bài}} hẹp hơn và thường với mức cược lớn hơn, còn {{t:draw}} chỉ còn một lá bài", correct: true, why: "Đúng: đối thủ bỏ một phần {{t:bluff}} trên turn, cược lớn hơn làm giảm {{t:mdf}} (với 3/4 {{t:pot}} là {{n:mdf.bet-three-quarters}}), và các {{t:draw}} của bạn mất một nửa cơ hội. Bạn {{t:fold|bỏ}} các {{t:pair|đôi}} yếu và tay không có out thường xuyên hơn so với trên flop." }
       - { text: "Vì trên turn cần tiết kiệm {{t:chips|chip}}", why: "Điều quan trọng là {{t:expected-value}} của mỗi quyết định, không phải tiết kiệm. Bạn phòng thủ hẹp hơn vì đối thủ cược bằng tay mạnh hơn." }
       - { text: "Không, bạn phòng thủ rộng hơn vì đã bỏ vào nhiều {{t:chips|chip}}", why: "Số chip bạn đã bỏ vào không quay lại. Bạn quyết định dựa trên giá hiện tại và độ mạnh của {{t:range|dải bài}} đối thủ." }
   - kind: numeric
@@ -133,7 +133,7 @@ Tay bài không có {{t:pair|đôi}} và không có out thì {{t:check|check}}.
 
 ## Phòng thủ trước {{t:second-barrel}}
 
-Khi bạn đã {{t:call|theo}} c-bet và Button cược lần thứ hai, {{t:range|dải bài}} của họ hẹp hơn và mạnh hơn trên flop: họ đã bỏ một phần {{t:bluff}}. Các {{t:draw}} của bạn chỉ còn một lá bài. Vì vậy:
+Khi bạn đã {{t:call|theo}} c-bet và Button cược lần thứ hai, {{t:range|dải bài}} của họ hẹp hơn và mạnh hơn so với trên flop: họ đã bỏ một phần {{t:bluff}}. Các {{t:draw}} của bạn chỉ còn một lá bài. Vì vậy:
 
 - {{t:draw}} chỉ {{t:call|theo}} khi giá tốt hoặc có implied odds (bài học trước),
 - tay không có out và các {{t:pair|đôi}} yếu nhất {{t:fold|bỏ bài}} thường xuyên hơn,

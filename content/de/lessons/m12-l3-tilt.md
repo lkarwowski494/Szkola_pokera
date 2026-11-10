@@ -85,7 +85,7 @@ drills:
     prompt: "Dein Spiel hat gute und schlechte Tage. Wo liegt der schnellste dauerhafte Fortschritt?"
     options:
       - { text: "In der Verbesserung deines schlechtesten Spiels (C-Game)", correct: true, why: "Fortschritt ähnelt der Bewegung einer Raupe: ein Schritt nach vorn an der Spitze (ein besseres A-Game) und einer am Ende (ein weniger katastrophales C-Game). Wenn du die schlimmsten Fehler beseitigst, wird außerdem Aufmerksamkeit frei, um Neues zu lernen." }
-      - { text: "Nur im Feilen an deinem besten Spiel (A-Game)", why: "Das A-Game ist wichtig, aber das C-Game kostet am meisten. Ohne Verbesserung deiner schlechtesten Tage geht der Fortschritt an der Spitze am Ende leicht wieder verloren." }
+      - { text: "Nur im Feilen an deinem besten Spiel (A-Game)", why: "Das A-Game ist wichtig, aber das C-Game kostet am meisten. Ohne Verbesserung deiner schlechtesten Tage geht der Fortschritt an der Spitze hinten leicht wieder verloren." }
       - { text: "Nirgends, Form ist Glückssache", why: "Die Formschwankung lässt sich verringern: Spieler, die Tilt gut kontrollieren, haben eine engere Verteilung ihres Spielniveaus (Übersichtsarbeit von 2020)." }
   - kind: choice
     id: m12.l3.q-compare

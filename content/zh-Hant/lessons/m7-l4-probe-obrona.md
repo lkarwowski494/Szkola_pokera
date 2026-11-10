@@ -25,7 +25,7 @@ drills:
     options:
       - { text: "因為按鈕位拿很多強牌都會下注，所以{{t:check|過牌}}後他的強牌比較少", correct: true, why: "對：強牌通常會打 C-bet。按鈕位{{t:check|過牌}}後的{{t:range|範圍}}有較多中等牌和弱牌，你可以用{{t:bet|下注}}攻擊它。" }
       - { text: "因為{{t:check}}一定代表按鈕位什麼都沒有", why: "不一定：按鈕位有時會拿強牌{{t:check|過牌}}來設陷阱抓你。不過這種強牌比他下注時少。" }
-      - { text: "因為轉牌時是你有{{t:position|位置}}", why: "不對：每一{{t:street|輪}}按鈕位都在你之後行動。探測{{t:bet|下注}}是在{{t:out-of-position}}時做的。" }
+      - { text: "因為轉牌時是你有{{t:position|位置}}", why: "不對：每條{{t:street|街}}按鈕位都在你之後行動。探測{{t:bet|下注}}是在{{t:out-of-position}}時做的。" }
   - kind: choice
     id: m7.l4.q-probe-board
     family: m7.probe.concept
@@ -63,7 +63,7 @@ drills:
     prompt: "你在{{t:big-blind}}防守按鈕位的{{t:open|開池}}。翻牌時你們都{{t:check|過牌}}了。轉牌是 J。你先行動。你怎麼做？"
     table: { hand: "6d 4c", position: BB, board: "Ac Kd 8h Js" }
     options:
-      - { text: "{{t:check|過牌}}", correct: true, why: "你沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}，而高{{t:board}}有利於按鈕位的{{t:range|範圍}}。在這種{{t:board|牌面}}上沒有補牌的探測下注，只有在按鈕位{{t:fold|棄牌}}時才會贏，而他在這裡有很多 A、K 和 J。" }
+      - { text: "{{t:check|過牌}}", correct: true, why: "你沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}，而高牌{{t:board|牌面}}有利於按鈕位的{{t:range|範圍}}。在這種{{t:board|牌面}}上沒有補牌的探測下注，只有在按鈕位{{t:fold|棄牌}}時才會贏，而他在這裡有很多 A、K 和 J。" }
       - { text: "下注（探測下注）", why: "探測{{t:bet|下注}}比較常用在低牌面，以及有{{t:pair|對子}}或補牌的手牌。這裡你兩者都沒有。" }
       - { text: "{{t:fold|棄牌}}", why: "你可以免費{{t:check|過牌}}，所以{{t:fold}}沒有任何好處（第 1 單元的規則）。" }
   - kind: choice
@@ -93,7 +93,7 @@ drills:
     prompt: "你在{{t:big-blind}}防守。你在翻牌{{t:call|跟注}}了按鈕位的 C-bet。轉牌是 5，你{{t:check|過牌}}，按鈕位在 {{n:ex.pot}} 的{{t:pot|底池}}中{{t:bet|下注}} {{n:ex.bet.three-quarters}}。你怎麼做？"
     table: { hand: "Kd Tc", position: BB, board: "Ks 7d 2c 5h" }
     options:
-      - { text: "{{t:call|跟注}}", correct: true, why: "{{t:top-pair|頂對}}太強，不該在空白牌上{{t:fold|棄牌}}：它能贏{{t:semi-bluff|半詐唬}}和較弱的 K。你需要 {{n:eq.bet-three-quarters}}，而對上{{t:second-barrel|第二槍}}的{{t:range|範圍}}，這種{{t:pair}}通常有這麼多勝率。" }
+      - { text: "{{t:call|跟注}}", correct: true, why: "{{t:top-pair|頂對}}太強，不該在空白牌上{{t:fold|棄牌}}：它能贏{{t:semi-bluff|半詐唬}}和較弱的 K。你需要 {{n:eq.bet-three-quarters}}，而對上{{t:second-barrel|第二槍}}的{{t:range|範圍}}，這種{{t:pair}}通常有這麼多權益。" }
       - { text: "{{t:fold|棄牌}}", why: "太緊了。{{t:second-barrel|第二槍}}比 C-bet 強，但按鈕位也會用{{t:draw|聽牌}}和{{t:bluff|詐唬}}來{{t:bet|下注}}。{{t:top-pair|頂對}}全都贏。" }
       - { text: "{{t:raise|加注}}", why: "{{t:raise|加注}}之後，較差的牌會{{t:fold|棄牌}}，而更好的 K 和暗三條會付錢。中等踢腳的{{t:top-pair|頂對}}不是適合{{t:raise|加注}}的牌。" }
   - kind: choice
@@ -142,5 +142,5 @@ drills:
 {{t:mdf}}仍是參考基準：面對 3/4 {{t:pot|底池}}的下注時是 {{n:mdf.bet-three-quarters}}。在一個已發表的轉牌範例中，求解器平均防守接近這個數值；{{t:out-of-position}}時，你有時會防守得少一些。當對手{{t:bluff|詐唬}}的頻率低於{{t:mdf}}的假設時，你也會防守得少一些。
 
 :::note 這些規則從哪來
-探測下注和對抗{{t:second-barrel|第二槍}}的防守規則，是來自教學資料和求解器分析的經驗法則。轉牌防守接近{{t:mdf}}，是由一個已發表的求解器範例呈現的。App 不提供百分比頻率，因為不同來源依牌面而有差異。關於微注玩家用哪些牌{{t:bet|下注}}探測的數據，需要有描述族群的來源（樣本、{{t:stakes|級別}}、平台），所以這裡不列出。
+探測下注和對抗{{t:second-barrel|第二槍}}的防守規則，是來自教學資料和求解器分析的經驗法則。轉牌防守接近{{t:mdf}}，是由一個已發表的求解器範例呈現的。App 不提供百分比頻率，因為不同來源依牌面而有差異。關於微級別玩家用哪些牌{{t:bet|下注}}探測的數據，需要有描述族群的來源（樣本、{{t:stakes|級別}}、平台），所以這裡不列出。
 :::

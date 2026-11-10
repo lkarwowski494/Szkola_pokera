@@ -99,13 +99,13 @@ drills:
 | NL2–NL25 | 約 {{n:rake.micro.low}}–{{n:rake.micro.high}} |
 | NL500 | 約 {{n:rake.nl500.low}}–{{n:rake.nl500.high}} |
 
-低{{t:stakes|級別}}的典型贏家贏率是 {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}（第 12 單元）：比他付給平台的少好幾倍。在較高{{t:stakes|級別}}，同樣以美元計的上限還不到 1 bb，所以以 bb/100 計的{{t:rake}}會下降。
+低{{t:stakes|級別}}的典型贏家贏率是 {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}（第 12 模組）：比他付給平台的少好幾倍。在較高{{t:stakes|級別}}，同樣以美元計的上限還不到 1 bb，所以以 bb/100 計的{{t:rake}}會下降。
 
 玩家群體資料也顯示同樣的結果。在一份玩家群體報告中（6-max 現金局，NL10–NL500），每位玩家平均在 NL10 輸 {{n:rake.pop.nl10.loss}}、在 NL100 輸 {{n:rake.pop.nl100.loss}}、在 NL500 輸 {{n:rake.pop.nl500.loss}}。根據作者的估計（貝氏校正），在至少有 {{n:rake.pop.reg.hands}} 手牌的 NL100 玩家中，約 {{n:rake.pop.reg.prerake}} 在扣除抽水前是贏的，扣除後約為 {{n:rake.pop.reg.postrake}}（原始資料中為 {{n:rake.pop.reg.prerake.raw}} 和 {{n:rake.pop.reg.postrake.raw}}）。
 
 ## 含抽水的{{t:call|跟注}}門檻
 
-你贏得的是扣除{{t:rake}}後的{{t:pot|底池}}，付出的卻是全額。第 2 單元的所需權益因此提高：
+你贏得的是扣除{{t:rake}}後的{{t:pot|底池}}，付出的卻是全額。第 2 模組的所需權益因此提高：
 
 ```formula
 所需權益 = 補注金額 ÷ ({{t:call|跟注}}後的{{t:pot}} × (1 − {{t:rake}}))
@@ -120,7 +120,7 @@ drills:
 - 有{{t:position|位置}}的玩家面對{{t:open|開池}}時少玩約 {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} 的牌；吃虧的主要是{{t:call|跟注}}，3-bet 則稍微增加；
 - {{t:big-blind}}面對最小加注，在不含抽水時會{{t:call|跟注}}的情況中，只有約 {{n:rake.solver.bb-minraise}} 仍然{{t:call|跟注}}，不過盲注位的防守仍以{{t:call|跟注}}為主。
 
-基於同樣的理由，第 3 單元中你在{{t:small-blind|小盲}}{{t:raise|加注}}或{{t:fold|棄牌}}，不補齊到{{t:big-blind|大盲}}。有些平台對翻牌前就結束的 3-bet {{t:pot|底池}}也收取{{t:rake}}；在那裡，3-bet 並不免抽水。
+基於同樣的理由，第 3 模組中你在{{t:small-blind|小盲}}{{t:raise|加注}}或{{t:fold|棄牌}}，不補齊到{{t:big-blind|大盲}}。有些平台對翻牌前就結束的 3-bet {{t:pot|底池}}也收取{{t:rake}}；在那裡，3-bet 並不免抽水。
 
 :::note 資料來源
 抽水水準：2026 年線上平台抽水比較（兩家最大平台的抽水規則換算成 bb/100，2026 年 10 月 5 日查閱）；其他平台的數字不同。玩家群體損失：一份獨立的玩家群體報告（6-max NLHE 現金局，使用手牌追蹤資料庫的平台，至少有 100 手牌的玩家；作者未說明是哪些平台及期間）。抽水對翻牌前打法的影響：一篇已發表的翻牌前加注尺度文章，{{n:rake.solver.depth}} 籌碼深度的求解器解；作者表示結論大致適用於其他賽制，因此用於 {{n:format.stack}} 籌碼深度屬於簡化。權益門檻是計算結果。

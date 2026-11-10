@@ -72,7 +72,7 @@ drills:
     id: m10.l3.q-3bet-data
     family: m10.base.3bet
     rules: [R-M10-011]
-    prompt: "Segundo dados da população de micro stakes online (NL25), os {{t:regular|regulares}} {{t:fold|desistem}} diante de 3-bet em {{n:mda.reg.f3b}} das vezes, e os {{t:recreational|jogadores recreativos}}, em {{n:mda.rec.f3b}}. Um 3-bet {{t:position|em posição}} para {{n:pf.3bet.ip-total}} lucra sem mão com mais de {{n:alpha.vs-3bet-ip-size}} de {{t:fold|desistências}}. O que se conclui disso?"
+    prompt: "Segundo dados da população de microlimites online (NL25), os {{t:regular|regulares}} {{t:fold|desistem}} diante de 3-bet em {{n:mda.reg.f3b}} das vezes, e os {{t:recreational|jogadores recreativos}}, em {{n:mda.rec.f3b}}. Um 3-bet {{t:position|em posição}} para {{n:pf.3bet.ip-total}} lucra sem mão com mais de {{n:alpha.vs-3bet-ip-size}} de {{t:fold|desistências}}. O que se conclui disso?"
     options:
       - { text: "Contra {{t:recreational|jogadores recreativos}}, você dá 3-bet quase sem {{t:bluff|blefes}}; contra {{t:regular|regulares}}, os {{t:bluff|blefes}} ficam, mas só com mãos que têm equity", correct: true, why: "Nenhum grupo {{t:fold|desiste}} com tanta frequência que o 3-bet lucre sem mão. Na base, os {{t:bluff|blefes}} de 3-bet vivem da equity pós-flop e das {{t:fold|desistências}}; contra um jogador que {{t:fold|desiste}} em {{n:mda.rec.f3b}}, sobra principalmente a equity, então você dá 3-bet com um {{t:range|range}} {{t:linear|linear}}." }
       - { text: "Você dá 3-bet em todo mundo com qualquer mão, porque todos {{t:fold|desistem}} muito", why: "Ninguém aqui {{t:fold|desiste}} mais vezes do que {{n:alpha.vs-3bet-ip-size}}. Dar 3-bet com qualquer mão daria prejuízo." }
@@ -108,11 +108,11 @@ Um {{t:bluff|blefe}} lucra quando o rival {{t:fold|desiste}} mais vezes do que: 
 
 Com um c-bet de 1/3 do {{t:pot|pote}}, isso dá {{n:alpha.cbet.small}}; com 3/4 do {{t:pot|pote}}, {{n:alpha.cbet.big}}. O fold to c-bet do {{t:hud|HUD}} mostra se o rival está acima ou abaixo desse limiar. É uma aproximação: a estatística junta todos os tamanhos e flops, e sua mão costuma ter ainda um pouco de equity. Em um flop que acerta o {{t:range|range}} do rival, ele {{t:fold|desiste}} menos do que a média.
 
-Os jogadores da população de micro stakes online (NL25) {{t:fold|desistem}} diante de c-bet no flop, em média, em {{n:mda.all.fcb}} das vezes. Isso não é necessariamente um erro: o solver {{t:out-of-position|fora de posição}} no flop também {{t:fold|desiste}} mais do que indica o {{t:mdf|MDF}} (módulo 6). Por isso, a média da população acima do limiar não justifica, por si só, um c-bet sem mão; você precisa de uma leitura do rival específico ou de um flop que não acerte o {{t:range|range}} dele.
+Os jogadores da população de microlimites online (NL25) {{t:fold|desistem}} diante de c-bet no flop, em média, em {{n:mda.all.fcb}} das vezes. Isso não é necessariamente um erro: o solver {{t:out-of-position|fora de posição}} no flop também {{t:fold|desiste}} mais do que indica o {{t:mdf|MDF}} (módulo 6). Por isso, a média da população acima do limiar não justifica, por si só, um c-bet sem mão; você precisa de uma leitura do rival específico ou de um flop que não acerte o {{t:range|range}} dele.
 
 ## 3-bet contra um jogador que não {{t:fold|desiste}}
 
-Um 3-bet {{t:position|em posição}} para {{n:pf.3bet.ip-total}} só lucra sem mão nenhuma quando o rival {{t:fold|desiste}} mais vezes do que {{n:alpha.vs-3bet-ip-size}} (módulo 4). Dados da população de micro stakes online (NL25):
+Um 3-bet {{t:position|em posição}} para {{n:pf.3bet.ip-total}} só lucra sem mão nenhuma quando o rival {{t:fold|desiste}} mais vezes do que {{n:alpha.vs-3bet-ip-size}} (módulo 4). Dados da população de microlimites online (NL25):
 
 | Grupo | Fold to 3-bet |
 |---|---|

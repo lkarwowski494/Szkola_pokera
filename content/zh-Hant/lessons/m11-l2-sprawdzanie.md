@@ -55,7 +55,7 @@ drills:
     table: { hand: "7s 6s", position: BB }
     options:
       - { text: "{{t:fold|棄牌}}", correct: true, why: "用 76s 全下之所以有利，主要是靠對手{{t:fold|棄牌}}。{{t:call|跟注}}時，你只能在攤牌時獲勝，而且面對的是有很多高牌和{{t:pair|對子}}的全下{{t:range|範圍}}。求解器會{{t:fold|棄掉}}這手牌。" }
-      - { text: "{{t:call|跟注}}，因為我在{{t:small-blind|小盲}}位也會用它全下", why: "{{t:call|跟注}}是另一種情況：你沒有棄牌收益，而對手的{{t:range|範圍}}比隨機牌更強。{{t:call|跟注}}需要更強的手牌。" }
+      - { text: "{{t:call|跟注}}，因為我在{{t:small-blind|小盲}}位也會用它全下", why: "{{t:call|跟注}}是另一種情況：你沒有棄牌權益，而對手的{{t:range|範圍}}比隨機牌更強。{{t:call|跟注}}需要更強的手牌。" }
       - { text: "{{t:call|跟注}}，因為同花牌發展性好", why: "全下之後就沒有後續行動，手牌沒有機會發展。只看到攤牌為止的權益。" }
   - kind: choice
     id: m11.l2.q-22
@@ -73,9 +73,9 @@ drills:
     rules: [R-M11-007]
     prompt: "在 {{n:m11.depth.10}} 時，{{t:small-blind|小盲}}用約 {{n:m11.push.10}} 的手牌全下，但{{t:big-blind|大盲}}只用約 {{n:m11.call.10}} {{t:call|跟注}}。為什麼？"
     options:
-      - { text: "跟注者沒有棄牌收益，而且面對的是比隨機牌更強的{{t:range|範圍}}", correct: true, why: "全下在對手{{t:fold|棄牌}}時也能獲勝。{{t:call|跟注}}只能在攤牌時獲勝，而且面對的是已經篩選過的手牌。所以有一條老規則：{{t:call|跟注}}需要的手牌要比率先全下更好。" }
+      - { text: "跟注者沒有棄牌權益，而且面對的是比隨機牌更強的{{t:range|範圍}}", correct: true, why: "全下在對手{{t:fold|棄牌}}時也能獲勝。{{t:call|跟注}}只能在攤牌時獲勝，而且面對的是已經篩選過的手牌。所以有一條老規則：{{t:call|跟注}}需要的手牌要比率先全下更好。" }
       - { text: "{{t:big-blind|大盲}}要付更多", why: "雙方冒的是同樣的籌碼，而{{t:big-blind|BB}}的盲注已經在{{t:pot|底池}}裡，所以他要補的反而更少。" }
-      - { text: "求解器算錯了", why: "這是「全下或{{t:fold|棄牌}}」遊戲的均衡：任何玩家只改變自己的{{t:range|範圍}}都無法獲利。差別來自棄牌收益。" }
+      - { text: "求解器算錯了", why: "這是「全下或{{t:fold|棄牌}}」遊戲的均衡：任何玩家只改變自己的{{t:range|範圍}}都無法獲利。差別來自棄牌權益。" }
   - kind: choice
     id: m11.l2.q-ante
     family: m11.call.price
@@ -137,7 +137,7 @@ drills:
 call.bb-10
 ```
 
-在 {{n:m11.depth.10}} 時，{{t:small-blind|小盲}}用約 {{n:m11.push.10}} 的手牌全下，而{{t:big-blind|大盲}}用約 {{n:m11.call.10}} {{t:call|跟注}}。像 [[7s 6s]] 這樣的手牌，你在{{t:small-blind|小盲}}位會{{t:shove|推全下}}，但面對全下時要{{t:fold|棄掉}}：沒有棄牌收益，它們對上高牌和{{t:pair|對子}}的權益太低。作為比較，某訓練網站的表格在 {{n:m11.depth.10}} 時給出的{{t:call|跟注}}{{t:range|範圍}}是 {{n:m11.ext.call.10}}。
+在 {{n:m11.depth.10}} 時，{{t:small-blind|小盲}}用約 {{n:m11.push.10}} 的手牌全下，而{{t:big-blind|大盲}}用約 {{n:m11.call.10}} {{t:call|跟注}}。像 [[7s 6s]] 這樣的手牌，你在{{t:small-blind|小盲}}位會{{t:shove|推全下}}，但面對全下時要{{t:fold|棄掉}}：沒有棄牌權益，它們對上高牌和{{t:pair|對子}}的權益太低。作為比較，某訓練網站的表格在 {{n:m11.depth.10}} 時給出的{{t:call|跟注}}{{t:range|範圍}}是 {{n:m11.ext.call.10}}。
 
 ```range
 call.bb-15

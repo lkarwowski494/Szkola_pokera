@@ -15,7 +15,7 @@ drills:
     prompt: "River. Le {{t:pot|pot}} est de {{n:exam.m6.pot}}. Vous {{t:bluff|bluffez}} avec une main sans aucune chance en misant {{n:exam.m6.bet.quarter}}. À quelle fréquence votre adversaire doit-il se {{t:fold|coucher}} pour que ce {{t:bluff|bluff}} atteigne le seuil de rentabilité ?"
     options:
       - { text: "Plus souvent que dans {{n:exam.m6.alpha.quarter}} des cas", correct: true, why: "Oui : alpha = mise ÷ ({{t:pot|pot}} + mise) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}. Un petit {{t:bluff|bluff}} risque peu, il lui suffit donc que l’adversaire se {{t:fold|couche}} rarement." }
-      - { text: "Plus souvent que dans {{n:exam.m6.mdf.quarter}} des cas", why: "Ça, c’est la {{t:mdf}} : la part de la {{t:range|range}} que l’adversaire devrait défendre. L’alpha, c’est le reste jusqu’au total : {{n:exam.m6.alpha.quarter}}." }
+      - { text: "Plus souvent que dans {{n:exam.m6.mdf.quarter}} des cas", why: "Ça, c’est la {{t:mdf}} : la part de la {{t:range|range}} que l’adversaire devrait défendre. L’alpha en est le complément : {{n:exam.m6.alpha.quarter}}." }
       - { text: "Plus souvent que dans {{n:eq.bet-quarter}} des cas", why: "Ça, c’est l’équité dont l’adversaire a besoin pour {{t:call|suivre}} ; le dénominateur contient aussi son {{t:call|call}}. Le seuil pour un {{t:bluff|bluff}} est mise ÷ ({{t:pot|pot}} + mise) = {{n:exam.m6.alpha.quarter}}." }
   - kind: choice
     id: m6.exam.q3
@@ -25,7 +25,7 @@ drills:
     table: { position: BB }
     options:
       - { text: "Au flop, vous pouvez défendre un peu moins que la {{t:mdf}}, mais vous ne vous {{t:fold|couchez}} pas massivement face aux petits c-bets", correct: true, why: "Oui : face à un c-bet de 1/4 du {{t:pot|pot}}, la {{t:mdf}} est de {{n:exam.m6.mdf.quarter}}. Au flop, {{t:out-of-position|hors position}}, vous pouvez défendre un peu moins, car les {{t:bluff|bluffs}} du Bouton ont encore de l’équité, mais se {{t:fold|coucher}} avec plus de la moitié des mains lui offre le {{t:pot|pot}} pour presque rien." }
-      - { text: "Rien : au flop, la {{t:mdf}} ne s’applique pas du tout", why: "Au flop, la {{t:mdf}} est un point de repère : vous pouvez défendre un peu moins, pas autant moins que vous voulez. Face à un petit c-bet, vous avez de toute façon beaucoup de mains avec assez d’équité." }
+      - { text: "Rien : au flop, la {{t:mdf}} ne s’applique pas du tout", why: "Au flop, la {{t:mdf}} est un point de repère : vous pouvez défendre un peu moins, mais pas aussi peu que vous le voulez. Face à un petit c-bet, vous avez de toute façon beaucoup de mains avec assez d’équité." }
       - { text: "Au flop, il faut défendre plus que la {{t:mdf}}", why: "C’est l’inverse : au flop, {{t:out-of-position|hors position}}, vous pouvez défendre un peu moins, car vous ne réaliserez pas toute l’équité des mains faibles. L’erreur de votre ami, c’est qu’il se {{t:fold|couche}} beaucoup trop." }
   - kind: choice
     id: m6.exam.q4
@@ -51,11 +51,11 @@ drills:
     id: m6.exam.q6
     family: m6.flop.call
     rules: [R-M6-006]
-    prompt: "Vous défendez la {{t:big-blind|grosse blinde}} contre une {{t:open|ouverture}} du Bouton. Au flop, vous {{t:check|checkez}}, et le Bouton {{t:bet|mise}} 1/3 du {{t:pot|pot}} en c-bet. Vous avez As hauteur, sans {{t:draw|tirage}}. Que faites-vous ?"
+    prompt: "Vous défendez la {{t:big-blind|grosse blinde}} contre une {{t:open|ouverture}} du Bouton. Au flop, vous {{t:check|checkez}}, et le Bouton {{t:bet|mise}} 1/3 du {{t:pot|pot}} en c-bet. Vous avez une hauteur As, sans {{t:draw|tirage}}. Que faites-vous ?"
     table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
     options:
-      - { text: "Je {{t:call|suis}}", correct: true, why: "Oui : face à un petit c-bet, il vous faut seulement env. {{n:eq.bet-third}} d’équité. As hauteur bat une partie des {{t:bluff|bluffs}} du Bouton et peut toucher une {{t:pair|paire}}, donc vous le défendez généralement. Vous vous {{t:fold|couchez}} avec les mains les plus faibles, sans {{t:pair|paire}} ni {{t:draw|tirage}}." }
-      - { text: "Je me {{t:fold|couche}}", why: "Trop serré : face à un petit c-bet, As hauteur se défend généralement. Vous vous {{t:fold|couchez}} avec des mains plus faibles, sans {{t:pair|paire}} ni {{t:draw|tirage}}." }
+      - { text: "Je {{t:call|suis}}", correct: true, why: "Oui : face à un petit c-bet, il vous faut seulement env. {{n:eq.bet-third}} d’équité. Une hauteur As bat une partie des {{t:bluff|bluffs}} du Bouton et peut toucher une {{t:pair|paire}}, donc vous la défendez généralement. Vous vous {{t:fold|couchez}} avec les mains les plus faibles, sans {{t:pair|paire}} ni {{t:draw|tirage}}." }
+      - { text: "Je me {{t:fold|couche}}", why: "Trop serré : face à un petit c-bet, une hauteur As se défend généralement. Vous vous {{t:fold|couchez}} avec des mains plus faibles, sans {{t:pair|paire}} ni {{t:draw|tirage}}." }
       - { text: "Check-raise", why: "Vous faites un check-raise surtout avec vos mains les plus fortes et vos {{t:draw|tirages}}. Cette main n’a ni valeur, ni {{t:draw|tirage}} qui lui donnerait une deuxième façon de gagner." }
   - kind: choice
     id: m6.exam.q7
@@ -75,7 +75,7 @@ drills:
     options:
       - { text: "[[Qh Th]]", correct: true, why: "Oui : un {{t:flush-draw|tirage couleur}} plus un gutshot (le neuf), c’est un {{t:draw|tirage}} fort. Le check-raise gagne quand le Bouton se {{t:fold|couche}}, et s’il paie, vous avez encore de nombreux outs." }
       - { text: "[[Jd 5d]]", why: "Une {{t:top-pair|top paire}} avec un kicker faible est une main pour {{t:call|suivre}}. Après un check-raise, les mains moins bonnes se {{t:fold|couchent}} généralement et les meilleures paient." }
-      - { text: "[[As 3c]]", why: "As hauteur sans {{t:draw|tirage}} n’a pas de deuxième façon de gagner. Vous faites un check-raise en {{t:bluff|bluff}} surtout avec des {{t:draw|tirages}}." }
+      - { text: "[[As 3c]]", why: "Une hauteur As sans {{t:draw|tirage}} n’a pas de deuxième façon de gagner. Vous faites un check-raise en {{t:bluff|bluff}} surtout avec des {{t:draw|tirages}}." }
   - kind: numeric
     id: m6.exam.q9
     family: m6.xr.size
@@ -91,6 +91,6 @@ drills:
     prompt: "Vous défendez la {{t:big-blind|grosse blinde}} contre une {{t:open|ouverture}} du Bouton. Sur quel flop faites-vous le plus souvent un check-raise ?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "Oui : sur un flop bas et {{t:connected|connecté}}, la {{t:big-blind|grosse blinde}} a plus de mains très fortes ({{t:two-pair|deux paires}}, {{t:straight|quintes}}) que le Bouton, donc elle y fait plus souvent un check-raise." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Oui : sur un flop bas et {{t:connected|connecté}}, la {{t:big-blind|grosse blinde}} a plus de mains très fortes ({{t:two-pair|doubles paires}}, {{t:straight|quintes}}) que le Bouton, donc elle y fait plus souvent un check-raise." }
       - { text: "[[Ks Qd Jh]]", why: "Un flop haut avec des cartes proches les unes des autres touche bien la {{t:range|range}} du Bouton (AK, AQ, KQ, {{t:pair|paires}} hautes). Ici, vous faites moins souvent un check-raise." }
       - { text: "[[Ah Ad Qc]]", why: "Sur un flop avec une {{t:pair|paire}} d’as, c’est plus souvent le Bouton, qui a {{t:open|ouvert}} avec beaucoup d’as, qui a les mains les plus fortes. Vous faites rarement un check-raise ici." }

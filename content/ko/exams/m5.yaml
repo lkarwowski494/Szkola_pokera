@@ -19,17 +19,17 @@ drills:
     prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 다음 중 어느 플롭에서 {{t:big-blind}}가 당신보다 {{t:two-pair}}나 {{t:straight|스트레이트}}를 더 자주 가지고 있습니까?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "맞습니다. 낮고 {{t:connected}} 플롭은 {{t:connectors|커넥터}}와 작은 카드로 된 핸드에 맞는데, {{t:big-blind}}는 이런 핸드로 많이 방어합니다. 버튼에서 오픈한 당신에게는 높은 카드가 더 많고, 여기서는 빗나갔습니다. 이것이 {{t:big-blind|빅 블라인드}}의 {{t:nuts-advantage}}입니다." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "맞습니다. 낮고 {{t:connected|커넥티드한}} 플롭은 {{t:connectors|커넥터}}와 작은 카드로 된 핸드에 맞는데, {{t:big-blind}}는 이런 핸드로 많이 방어합니다. 버튼에서 오픈한 당신에게는 높은 카드가 더 많고, 여기서는 빗나갔습니다. 이것이 {{t:big-blind|빅 블라인드}}의 {{t:nuts-advantage}}입니다." }
       - { text: "[[Kd Td 3s]]", why: "아닙니다. 높은 플롭은 {{t:open|오픈한 플레이어}}에게 유리합니다. 당신에게는 좋은 키커의 킹, KT, 높은 {{t:pair|페어}}가 더 많습니다." }
       - { text: "[[Ah Ad 7c]]", why: "아닙니다. 에이스 {{t:pair|페어}}가 깔린 플롭에서는 당신이 에이스를 더 많이 가지고 있습니다. {{t:big-blind}}가 가장 강한 에이스를 플롭 전에 {{t:raise|레이즈하기}} 때문입니다. 여기서는 아무도 {{t:straight|스트레이트}}를 가지고 있지 않습니다." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why
     rules: [R-M5-005]
-    prompt: "플롭에서 두 가지 우위를 평가합니다: {{t:range-advantage|레인지 우위}}와 {{t:nuts-advantage|너츠 우위}}. 그중 얼마나 크게 베팅할지 알려 주는 것은 무엇입니까?"
+    prompt: "플롭에서 두 가지 우위를 평가합니다: {{t:range-advantage|레인지 우위}}와 {{t:nuts-advantage|넛 우위}}. 그중 얼마나 크게 베팅할지 알려 주는 것은 무엇입니까?"
     options:
-      - { text: "{{t:nuts-advantage|너츠 우위}}", correct: true, why: "맞습니다. 상대보다 가장 강한 핸드가 훨씬 많으면 더 좋은 핸드를 만나는 일이 드물기 때문에 더 큰 사이즈로 베팅할 수 있습니다. {{t:range-advantage|레인지 우위}}는 얼마나 자주 베팅할지 알려 줍니다." }
-      - { text: "{{t:range-advantage|레인지 우위}}", why: "아닙니다. {{t:range-advantage}}는 자주 베팅할 수 있다는 것을 알려 줍니다. {{t:nuts-advantage|너츠 우위}}가 없으면 작게 베팅합니다. 큰 {{t:bet}}은 상대의 가장 강한 핸드를 상대로 큰 위험을 지기 때문입니다." }
+      - { text: "{{t:nuts-advantage|넛 우위}}", correct: true, why: "맞습니다. 상대보다 가장 강한 핸드가 훨씬 많으면 더 좋은 핸드를 만나는 일이 드물기 때문에 더 큰 사이즈로 베팅할 수 있습니다. {{t:range-advantage|레인지 우위}}는 얼마나 자주 베팅할지 알려 줍니다." }
+      - { text: "{{t:range-advantage|레인지 우위}}", why: "아닙니다. {{t:range-advantage}}는 자주 베팅할 수 있다는 것을 알려 줍니다. {{t:nuts-advantage|넛 우위}}가 없으면 작게 베팅합니다. 큰 {{t:bet}}은 상대의 가장 강한 핸드를 상대로 큰 위험을 지기 때문입니다." }
       - { text: "둘 다 아닙니다: 사이즈는 당신의 핸드에만 달려 있습니다", why: "상대는 당신의 핸드를 보지 못하고 {{t:range}}만 봅니다. 사이즈는 당신의 여러 핸드에 동시에 맞도록 고르며, 이를 결정하는 것이 우위입니다." }
   - kind: choice
     id: m5.exam.q4
@@ -44,20 +44,20 @@ drills:
     id: m5.exam.q5
     family: m5.math.alpha
     rules: [R-M5-011]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭의 {{t:pot|팟}}은 {{n:bb.pot-after.vs-btn}}입니다. 이길 가능성이 없는 핸드로 {{n:cbet.btn.big}}를 C-벳합니다. 이 {{t:bet}}이 본전이 되려면 {{t:big-blind}}가 얼마나 자주 {{t:fold|폴드해야}} 합니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭의 {{t:pot|팟}}은 {{n:bb.pot-after.vs-btn}}입니다. 이길 가능성이 없는 핸드로 {{n:cbet.btn.big}}를 C벳합니다. 이 {{t:bet}}이 본전이 되려면 {{t:big-blind}}가 얼마나 자주 {{t:fold|폴드해야}} 합니까?"
     table: { position: BTN }
     options:
       - { text: "{{n:alpha.cbet.big}}보다 자주", correct: true, why: "맞습니다. {{n:cbet.btn.big}}는 {{t:pot|팟}}의 {{n:cbet.size.big}}이고, 기준점은 베팅과 {{t:pot|팟}}의 비율에만 달려 있습니다: 베팅 ÷ ({{t:pot}} + 베팅) = {{n:alpha.cbet.big}}. {{t:pot|팟}}을 {{t:chips|칩}}으로 셀 때와 같습니다." }
-      - { text: "{{n:alpha.cbet.small}}보다 자주", why: "이것은 작은 C-벳({{t:pot|팟}}의 {{n:cbet.size.small}}, 즉 {{n:cbet.btn.small}})의 기준점입니다. 더 큰 베팅은 위험이 더 크므로 더 자주 통해야 합니다: {{n:alpha.cbet.big}}." }
+      - { text: "{{n:alpha.cbet.small}}보다 자주", why: "이것은 작은 C벳({{t:pot|팟}}의 {{n:cbet.size.small}}, 즉 {{n:cbet.btn.small}})의 기준점입니다. 더 큰 베팅은 위험이 더 크므로 더 자주 통해야 합니다: {{n:alpha.cbet.big}}." }
       - { text: "{{n:flop.miss.unpaired}}보다 자주", why: "이것은 {{t:pair|페어}}가 아닌 핸드가 플롭에 맞지 않을 확률이지, 베팅의 손익분기 기준점이 아닙니다. 기준점은 베팅 ÷ ({{t:pot}} + 베팅) = {{n:alpha.cbet.big}}입니다." }
   - kind: choice
     id: m5.exam.q6
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "다음 중 {{t:open|오픈한 플레이어}}로서 C-벳을 가장 드물게 하는 상황은 어느 것입니까?"
+    prompt: "다음 중 {{t:open|오픈한 플레이어}}로서 C벳을 가장 드물게 하는 상황은 어느 것입니까?"
     options:
       - { text: "{{t:hijack|HJ}}에서 {{t:open|오픈했고}}, 버튼이 {{t:call|콜했으며}}, 블라인드는 {{t:fold|폴드했습니다}}", correct: true, why: "맞습니다. 버튼은 {{t:position|포지션}}을 가진 채 {{t:call|콜했으므로}} 그의 {{t:range}}는 강합니다(약한 핸드는 {{t:fold|폴드했고}}, 가장 강한 핸드 일부는 {{t:raise|레이즈했습니다}}). 게다가 플롭 이후 모든 {{t:street|스트리트}}에서 당신이 먼저 행동합니다." }
-      - { text: "버튼에서 {{t:open|오픈했고}}, {{t:big-blind}}가 {{t:call|콜했습니다}}", why: "여기서는 당신에게 {{t:position|포지션}}이 있고, {{t:big-blind}}는 약한 핸드를 많이 포함해 넓게 방어합니다. C-벳을 가장 자주 하는 구도입니다." }
+      - { text: "버튼에서 {{t:open|오픈했고}}, {{t:big-blind}}가 {{t:call|콜했습니다}}", why: "여기서는 당신에게 {{t:position|포지션}}이 있고, {{t:big-blind}}는 약한 핸드를 많이 포함해 넓게 방어합니다. C벳을 가장 자주 하는 구도입니다." }
       - { text: "{{t:cutoff|CO}}에서 {{t:open|오픈했고}}, {{t:big-blind}}가 {{t:call|콜했습니다}}", why: "여기서도 플롭 이후 {{t:big-blind|빅 블라인드}} 다음에 행동하므로 {{t:position|포지션}}이 있고, 그의 넓은 방어에는 약한 핸드가 많습니다." }
   - kind: choice
     id: m5.exam.q7
@@ -72,12 +72,12 @@ drills:
     id: m5.exam.q8
     family: m5.cbet.multi
     rules: [R-M5-013]
-    prompt: "{{t:hijack|HJ}}에서 {{t:open|오픈했고}}, 버튼과 {{t:big-blind}}가 {{t:call|콜했습니다}}. 상대 두 명을 상대로 어떤 핸드부터 C-벳을 포기합니까?"
+    prompt: "{{t:hijack|HJ}}에서 {{t:open|오픈했고}}, 버튼과 {{t:big-blind}}가 {{t:call|콜했습니다}}. 상대 두 명을 상대로 어떤 핸드부터 C벳을 포기합니까?"
     table: { position: HJ }
     options:
       - { text: "{{t:pair|페어}}도 {{t:draw|드로우}}도 없는 {{t:bluff|블러프}}", correct: true, why: "맞습니다. {{t:bluff}}는 두 상대를 모두 통과해야 하는데, {{t:pair|페어}}가 아닌 두 핸드가 동시에 빗나갈 확률은 약 {{n:flop.miss.two}}에 불과합니다. 베팅은 드물게, 주로 강한 핸드와 강한 {{t:draw|드로우}}로 합니다." }
       - { text: "강한 {{t:draw|드로우}}", why: "아닙니다. 강한 {{t:draw|드로우}}는 맞으면 이기기도 하므로, 여러 상대를 상대로도 여전히 가끔 베팅하는 핸드에 속합니다." }
-      - { text: "없습니다: 한 명을 상대할 때와 똑같이 C-벳합니다", why: "아닙니다. 상대가 한 명 늘 때마다 누군가 플롭에 맞았을 확률이 커집니다. 두 명을 상대로는 C-벳을 훨씬 드물게 합니다." }
+      - { text: "없습니다: 한 명을 상대할 때와 똑같이 C벳합니다", why: "아닙니다. 상대가 한 명 늘 때마다 누군가 플롭에 맞았을 확률이 커집니다. 두 명을 상대로는 C벳을 훨씬 드물게 합니다." }
   - kind: choice
     id: m5.exam.q9
     family: m5.cbet.size
@@ -86,13 +86,13 @@ drills:
     table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
     options:
       - { text: "{{t:check|체크합니다}}", correct: true, why: "맞습니다. {{t:wet|웻}} 플롭에서는 베팅을 덜 자주 하며, 주로 강한 핸드와 강한 {{t:draw|드로우}}로 합니다. {{t:draw|드로우}}가 없는 가장 낮은 {{t:pair}}는 기껏해야 중간 핸드입니다: {{t:bet}}을 {{t:call|콜하는}} 것은 주로 더 좋은 핸드와, 이 핸드를 상대로 에퀴티가 많은 {{t:draw|드로우}}입니다." }
-      - { text: "{{t:pot|팟}}의 {{n:cbet.size.big}} C-벳", why: "{{t:wet|웻}} 플롭에서 큰 사이즈는 강한 핸드와 강한 {{t:draw|드로우}}를 위한 것입니다. 가장 낮은 {{t:pair|페어}}로는 당신을 자주 이기거나 에퀴티가 많은 핸드를 상대로 큰 {{t:pot|팟}}을 만들게 됩니다." }
-      - { text: "{{t:pot|팟}}의 {{n:cbet.size.small}} C-벳", why: "{{t:wet|웻}} 플롭에서 {{t:draw|드로우}}가 없는 중간 핸드는 더 자주 {{t:check|체크합니다}}. 작은 {{t:bet}}은 {{t:draw|드로우}}에게 싼 카드를 주고, 더 약한 핸드는 어차피 거의 돈을 내지 않습니다." }
+      - { text: "{{t:pot|팟}}의 {{n:cbet.size.big}} C벳", why: "{{t:wet|웻}} 플롭에서 큰 사이즈는 강한 핸드와 강한 {{t:draw|드로우}}를 위한 것입니다. 가장 낮은 {{t:pair|페어}}로는 당신을 자주 이기거나 에퀴티가 많은 핸드를 상대로 큰 {{t:pot|팟}}을 만들게 됩니다." }
+      - { text: "{{t:pot|팟}}의 {{n:cbet.size.small}} C벳", why: "{{t:wet|웻}} 플롭에서 {{t:draw|드로우}}가 없는 중간 핸드는 더 자주 {{t:check|체크합니다}}. 작은 {{t:bet}}은 {{t:draw|드로우}}에게 싼 카드를 주고, 더 약한 핸드는 어차피 거의 돈을 내지 않습니다." }
   - kind: choice
     id: m5.exam.q10
     family: m5.cbet.texture
     rules: [R-M5-010]
-    prompt: "버튼에서 {{t:open|오픈했고}}, {{t:big-blind}}가 {{t:call|콜한}} 뒤 {{t:check|체크합니다}}. 플롭이 {{t:monotone}}이므로 앱의 점수 기준으로는 {{t:wet}}입니다. C-벳을 한다면 어떤 사이즈로 합니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}}, {{t:big-blind}}가 {{t:call|콜한}} 뒤 {{t:check|체크합니다}}. 플롭이 {{t:monotone}}이므로 앱의 점수 기준으로는 {{t:wet}}입니다. C벳을 한다면 어떤 사이즈로 합니까?"
     table: { position: BTN, board: "Jd 7d 2d" }
     options:
       - { text: "작게", correct: true, why: "맞습니다. 어느 플레이어든 이미 {{t:flush}}를 가지고 있을 수 있으므로 당신의 {{t:nuts-advantage}}는 더 작습니다. {{t:monotone|모노톤}} 플롭에서는 플러시를 상대로 큰 {{t:pot|팟}}을 만들지 않도록 평소보다 덜 자주, 작은 사이즈로 베팅합니다." }

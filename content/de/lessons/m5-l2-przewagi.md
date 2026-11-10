@@ -13,7 +13,7 @@ drills:
     prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}}. Flop: [[Ks 7d 2c]]. Wer hat den {{t:range-advantage|Range-Vorteil}}?"
     table: { position: BTN, board: "Ks 7d 2c" }
     options:
-      - { text: "Du, als {{t:open|Eröffner}} vom Button", correct: true, why: "Ja: In deiner {{t:range|Range}} sind alle KK, AK und KQ. Der {{t:big-blind|Big Blind}} hätte die stärksten davon vor dem Flop {{t:raise|geraist}}, und seine breite Verteidigung besteht größtenteils aus Händen, die hier nichts getroffen haben." }
+      - { text: "Du, als {{t:open|Eröffner}} vom Button", correct: true, why: "Ja: In deiner {{t:range|Range}} sind alle KK, AK und KQ. Der {{t:big-blind|Big Blind}} hätte die stärksten davon vor dem Flop geraist, und seine breite Verteidigung besteht größtenteils aus Händen, die hier nichts getroffen haben." }
       - { text: "Der {{t:big-blind|Big Blind}}", why: "Nein: Der {{t:big-blind}} hat mehr schwache Hände, weil er breit verteidigt hat. Einen König mit gutem Kicker hat er seltener als du." }
       - { text: "Niemand, der Flop ist zufällig", why: "Der Flop ist zufällig, aber die {{t:range|Ranges}} sind es nicht. Derselbe Flop passt besser zu der {{t:range|Range}}, in der mehr hohe Karten sind." }
   - kind: choice
@@ -34,7 +34,7 @@ drills:
     table: { position: BTN, board: "Ad 8s 3c" }
     options:
       - { text: "Weil er mit diesen Händen vor dem Flop meistens {{t:raise|raist}} (3-Bet)", correct: true, why: "Ja: Seine stärksten Hände spielt der {{t:big-blind}} mit einer 3-Bet, also hat seine {{t:range|Range}} nach einem bloßen {{t:call|Call}} wenige der besten Hände. Du hast sie alle in deiner {{t:range|Range}}." }
-      - { text: "Weil der {{t:big-blind}} nie Asse spielt", why: "Nein: Der {{t:big-blind}} verteidigt viele Asse, z. B. A5 oder A9. Ihm fehlen vor allem die stärksten, die er {{t:raise|geraist}} hätte." }
+      - { text: "Weil der {{t:big-blind}} nie Asse spielt", why: "Nein: Der {{t:big-blind}} verteidigt viele Asse, z. B. A5 oder A9. Ihm fehlen vor allem die stärksten, die er geraist hätte." }
       - { text: "Weil schon ein Ass auf dem Flop liegt", why: "Das Ass auf dem {{t:board|Board}} verringert die Zahl der {{t:combo|Kombinationen}} mit einem Ass in beiden {{t:range|Ranges}}, schafft aber keinen Unterschied zwischen ihnen. Der Unterschied entsteht durch die Entscheidungen vor dem Flop." }
   - kind: choice
     id: m5.l2.q-kinds
@@ -43,7 +43,7 @@ drills:
     prompt: "Du hast den {{t:range-advantage|Range-Vorteil}}, aber dein Gegner hat genauso viele der stärksten Hände wie du. Mit welcher Größe bettest du eher?"
     options:
       - { text: "Klein, und das oft", correct: true, why: "Ja: Der {{t:range-advantage|Range-Vorteil}} sagt, dass du oft betten kannst. Ohne {{t:nuts-advantage|Nuts-Vorteil}} riskiert eine große {{t:bet|Bet}} viel gegen die stärksten Hände deines Gegners, und schwächere Hände {{t:fold|folden}} ohnehin schon auf eine kleine." }
-      - { text: "Groß, weil du den Vorteil hast", why: "Nein: Über eine große Größe entscheidet der {{t:nuts-advantage|Nuts-Vorteil}}, also mehr der stärksten Hände. Den hast du hier nicht." }
+      - { text: "Groß, weil du den Vorteil hast", why: "Nein: Über eine große Bet-Größe entscheidet der {{t:nuts-advantage|Nuts-Vorteil}}, also mehr der stärksten Hände. Den hast du hier nicht." }
       - { text: "Ich {{t:check|checke}} immer", why: "Zu vorsichtig: Der {{t:range-advantage|Range-Vorteil}} ist ein Grund, oft zu betten, nur klein." }
   - kind: choice
     id: m5.l2.q-nuts
@@ -89,7 +89,7 @@ Auf einem niedrigen, {{t:connected|verbundenen}} Flop, z. B. [[7s 6h 5d]], versc
 
 ## {{t:nuts-advantage|Nuts-Vorteil}}
 
-Der {{t:nuts-advantage|Nuts-Vorteil}} bedeutet mehr der stärksten Hände („{{t:nuts|Nuts}}“) in der {{t:range|Range}}. Der {{t:range-advantage|Range-Vorteil}} sagt dir, wie oft du betten kannst. Der {{t:nuts-advantage|Nuts-Vorteil}} sagt dir, wie groß: Wenn du viel mehr der stärksten Hände hast als dein Gegner, kannst du mit einer größeren Größe betten. Wenn du nur den {{t:range-advantage|Range-Vorteil}} hast, bettest du klein.
+Der {{t:nuts-advantage|Nuts-Vorteil}} bedeutet mehr der stärksten Hände („{{t:nuts|Nuts}}“) in der {{t:range|Range}}. Der {{t:range-advantage|Range-Vorteil}} sagt dir, wie oft du betten kannst. Der {{t:nuts-advantage|Nuts-Vorteil}} sagt dir, wie groß: Wenn du viel mehr der stärksten Hände hast als dein Gegner, kannst du größer betten. Wenn du nur den {{t:range-advantage|Range-Vorteil}} hast, bettest du klein.
 
 ## Der Gegner trifft meistens nichts
 

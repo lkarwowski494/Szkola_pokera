@@ -61,7 +61,7 @@ drills:
 Limp là vào ván bài chỉ bằng cách theo {{t:big-blind|big blind}}. Người chơi chuyên nghiệp hiếm khi limp đầu tiên (quy tắc từ mô-đun 3), nên người limp ở micro stakes thường là người chơi yếu hơn. {{t:raise|Tố}} người limp được gọi là {{t:isolation|tố cô lập}}: bạn muốn đấu tay đôi với họ, tốt nhất là khi {{t:in-position}}.
 
 :::note Các quy tắc này từ đâu ra
-Solver của ứng dụng không chơi limp, nên bài học này dựa trên tài liệu đào tạo. Các quy tắc được đánh dấu là kinh nghiệm thực hành (heuristic).
+Solver của ứng dụng không chơi limp, nên bài học này dựa trên tài liệu đào tạo. Các quy tắc được đánh dấu là quy tắc kinh nghiệm (heuristic).
 :::
 
 ## Mức {{t:isolation|tố cô lập}}

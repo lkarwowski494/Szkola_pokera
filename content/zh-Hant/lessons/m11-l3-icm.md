@@ -158,7 +158,7 @@ drills:
 
 結果是 **{{n:m11.bf.req}}**。在以{{t:chips|籌碼}}計價的遊戲中，你冒險投入 {{n:m11.bf.s3}} 來贏 {{n:m11.bf.s3}}，所以 {{n:m11.bf.req-chips}} 就夠了。兩者的差距 {{n:m11.bf.premium}}，就是**{{t:risk-premium|風險溢價}}**。
 
-已發表的三人等籌碼均衡解（2008 年的研究論文）也呈現同樣的方向：當 Button 和{{t:small-blind|小盲}}都已全下時，{{t:big-blind|大盲}}在單手牌局中會用 {{n:m11.jamfold3.overcall.single}} 的手牌{{t:call|跟注}}，但在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中只用 {{n:m11.jamfold3.overcall.tourn}}，也就是只有最高的{{t:pocket-pair|口袋對}}和 AKs。
+已發表的三人等籌碼均衡解（2008 年的研究論文）也呈現同樣的方向：當按鈕位和{{t:small-blind|小盲}}都已全下時，{{t:big-blind|大盲}}在單手牌局中會用 {{n:m11.jamfold3.overcall.single}} 的手牌{{t:call|跟注}}，但在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中只用 {{n:m11.jamfold3.overcall.tourn}}，也就是只有最高的{{t:pocket-pair|口袋對}}和 AKs。
 
 :::note 誰{{t:call|跟注}}很緊
 在{{t:bubble|泡沫}}階段或{{t:final-table|決賽桌}}（{{t:tournament|錦標賽}}的最後一桌，爭奪最高獎金的地方），中籌碼{{t:call|跟注}}全下會比在以{{t:chips|籌碼}}計價的遊戲中緊得多。{{t:cover|覆蓋}}對手的大籌碼風險較小，可以利用這一點：更寬地{{t:shove|推全下}}，因為對手不得不{{t:fold|棄牌}}。泡沫係數取決於桌上所有人的籌碼量，所以不是在牌桌上當場計算，而是透過例子練習，培養出感覺。

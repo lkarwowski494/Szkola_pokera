@@ -26,7 +26,7 @@ drills:
     id: m12.l2.q-draw-good
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "Turn. Bạn có {{t:flush-draw|draw thùng}} sạch ({{n:outs.flush}} out), {{t:pot|pot}} là {{n:ex.pot}}, đối thủ {{t:bet|cược}} {{n:ex.bet.quarter}}. Bạn {{t:call|theo}}, {{t:flush|thùng}} không về và bạn mất {{n:ex.bet.quarter}}. Bạn đánh giá lần {{t:call|theo}} này thế nào?"
+    prompt: "Turn. Bạn có {{t:flush-draw|bài chờ thùng}} sạch ({{n:outs.flush}} out), {{t:pot|pot}} là {{n:ex.pot}}, đối thủ {{t:bet|cược}} {{n:ex.bet.quarter}}. Bạn {{t:call|theo}}, {{t:flush|thùng}} không về và bạn mất {{n:ex.bet.quarter}}. Bạn đánh giá lần {{t:call|theo}} này thế nào?"
     options:
       - { text: "Đó là lựa chọn tốt", correct: true, why: "Bạn cần {{n:eq.bet-quarter}} equity và có khoảng {{n:odds.flush.turn-river}}. Lần {{t:call|theo}} như vậy kiếm được tiền về lâu dài, dù thua trong phần lớn các ván riêng lẻ." }
       - { text: "Đó là lựa chọn tệ, vì {{t:flush|thùng}} không về", why: "{{t:flush|Thùng}} chỉ về trong khoảng {{n:odds.flush.turn-river}} trường hợp, nên trượt là kết quả có khả năng xảy ra nhất. Bạn đánh giá quyết định theo giá, và giá lúc đó là tốt." }
@@ -35,7 +35,7 @@ drills:
     id: m12.l2.q-draw-bad
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "Turn. {{t:flush-draw|Draw thùng}} sạch, {{t:pot|pot}} là {{n:ex.pot}}, đối thủ {{t:bet|cược}} bằng cả {{t:pot|pot}}: {{n:ex.bet.pot}}. Bạn {{t:call|theo}} và {{t:flush|thùng}} về trên river. Bạn đánh giá lần {{t:call|theo}} này thế nào?"
+    prompt: "Turn. {{t:flush-draw|Bài chờ thùng}} sạch, {{t:pot|pot}} là {{n:ex.pot}}, đối thủ {{t:bet|cược}} bằng cả {{t:pot|pot}}: {{n:ex.bet.pot}}. Bạn {{t:call|theo}} và {{t:flush|thùng}} về trên river. Bạn đánh giá lần {{t:call|theo}} này thế nào?"
     options:
       - { text: "Đó là lựa chọn tệ, dù đã thắng", correct: true, why: "Bạn cần {{n:eq.bet-pot}} equity và có khoảng {{n:odds.flush.turn-river}}. Lần này bạn thắng, nhưng qua nhiều lần lặp lại, lần {{t:call|theo}} như vậy sẽ lỗ." }
       - { text: "Đó là lựa chọn tốt, vì bạn đã thắng {{t:pot|pot}}", why: "Thắng không làm quyết định tốt hơn. Với giá {{n:eq.bet-pot}} và cơ hội khoảng {{n:odds.flush.turn-river}}, lần {{t:call|theo}} này lỗ về lâu dài." }
@@ -46,7 +46,7 @@ drills:
     rules: [R-M12-004]
     prompt: "Bạn đang phân tích một ván bài đã thua. Câu hỏi nào quan trọng nhất?"
     options:
-      - { text: "Với thông tin mình có, quyết định đó có {{t:expected-value|EV}} dương không?", correct: true, why: "Đây là câu hỏi duy nhất phân biệt sai lầm với xui xẻo. Bạn tính giá, equity so với {{t:range|phạm vi bài}} của đối thủ và những gì bạn biết tại thời điểm quyết định." }
+      - { text: "Với thông tin mình có, quyết định đó có {{t:expected-value|EV}} dương không?", correct: true, why: "Đây là câu hỏi duy nhất phân biệt sai lầm với xui xẻo. Bạn tính giá, equity so với {{t:range|range}} của đối thủ và những gì bạn biết tại thời điểm quyết định." }
       - { text: "Đối thủ sẽ nhận lá bài nào nếu mình {{t:fold|bỏ bài}}?", why: "Lá bài trong tương lai không thay đổi chất lượng quyết định. Chỉ những gì bạn biết lúc đó mới quan trọng." }
       - { text: "Mình đã thua bao nhiêu trong ván này?", why: "Mức thua cho biết về {{t:pot|pot}}, không phải về quyết định. Thua lớn có thể đến từ quyết định tốt, thua nhỏ có thể đến từ sai lầm." }
   - kind: choice
@@ -64,7 +64,7 @@ drills:
     rules: [R-M12-005]
     prompt: "Trong ba {{t:session|phiên}}, bạn chơi hung hăng hơn thường lệ và đã thắng. Đó có phải bằng chứng rằng lối chơi mới tốt hơn không?"
     options:
-      - { text: "Không, ba {{t:session|phiên}} là quá ít; bạn đánh giá các nước đi mới khi xem lại ván bài", correct: true, why: "Ngay cả chênh lệch kỹ năng rất lớn ({{n:skill.pct}} giỏi nhất so với {{n:skill.pct}} yếu nhất) cũng chỉ dẫn trước trong khoảng {{n:skill.ahead}} trường hợp sau khoảng {{n:skill.hands}} tay bài. Khác biệt giữa hai lối chơi của bạn nhỏ hơn nhiều." }
+      - { text: "Không, ba {{t:session|phiên}} là quá ít; bạn đánh giá các nước đi mới khi xem lại ván bài", correct: true, why: "Ngay cả chênh lệch kỹ năng rất lớn ({{n:skill.pct}} giỏi nhất so với {{n:skill.pct}} yếu nhất) cũng phải sau khoảng {{n:skill.hands}} tay bài mới dẫn trước trong khoảng {{n:skill.ahead}} trường hợp. Khác biệt giữa hai lối chơi của bạn nhỏ hơn nhiều." }
       - { text: "Có, kết quả cho thấy điều gì hiệu quả", why: "Kết quả của vài {{t:session|phiên}} chủ yếu là nhiễu. Với {{t:standard-deviation|độ lệch chuẩn}} khoảng {{n:var.sd}}, ngay cả {{n:var.hands.k}} nghìn tay bài vẫn để lại sai số khoảng ± {{n:var.ci.wr}}." }
       - { text: "Có, nếu bạn thắng nhiều hơn thường lệ", why: "Thắng lớn hơn từ một mẫu nhỏ thì vẫn là mẫu nhỏ. Bạn đánh giá nước đi bằng tính toán và bằng việc xem lại ván bài." }
   - kind: choice
@@ -82,7 +82,7 @@ drills:
     rules: [R-M12-004]
     prompt: "Bạn thắng một {{t:session|phiên}} nhờ hai lần theo với giá không tốt nhưng trúng trên river. Bạn làm gì sau {{t:session|phiên}} đó?"
     options:
-      - { text: "Ghi lại những lần {{t:call|theo}} đó như những sai lầm cần sửa", correct: true, why: "Thắng không thay đổi giá. Nếu lần {{t:call|theo}} đòi hỏi nhiều equity hơn bạn có, đó là sai lầm, ngay cả khi nó mang lại lợi." }
+      - { text: "Ghi lại những lần {{t:call|theo}} đó như những sai lầm cần sửa", correct: true, why: "Thắng không thay đổi giá. Nếu lần {{t:call|theo}} đòi hỏi nhiều equity hơn bạn có, đó là sai lầm, ngay cả khi nó mang lại lợi nhuận." }
       - { text: "Không làm gì, {{t:session|phiên}} đó đã thắng", why: "Sai lầm trong các {{t:session|phiên}} thắng cũng tốn kém như vậy, chỉ là khó nhận ra hơn. Chỉ phân tích các ván thua sẽ bỏ sót một nửa số sai lầm." }
       - { text: "Kết luận rằng bạn đọc đối thủ tốt hơn những gì tính toán cho thấy", why: "Hai lần trúng là quá ít để rút ra kết luận về khả năng đọc đối thủ. Lời giải thích đơn giản nhất là {{t:variance|phương sai}}." }
 ---
@@ -94,7 +94,7 @@ Người chơi gọi điều này là *resulting*: bạn cho rằng chất lư�
 
 ## Quyết định tốt cũng thua
 
-All-in với {{t:pair|đôi}} A trước {{t:pair|đôi}} K là quyết định tốt nhất có thể, nhưng vẫn thua trong khoảng **{{n:res.kk-wins}}** trường hợp. Ngược lại, {{t:call|theo}} với {{t:flush-draw|draw thùng}} một cược bằng cả {{t:pot|pot}} trên turn là tệ (bạn cần {{n:eq.bet-pot}}, bạn có khoảng {{n:odds.flush.turn-river}}), nhưng vẫn thắng khoảng một lần trong năm.
+All-in với {{t:pair|đôi}} A trước {{t:pair|đôi}} K là quyết định tốt nhất có thể, nhưng vẫn thua trong khoảng **{{n:res.kk-wins}}** trường hợp. Ngược lại, {{t:call|theo}} một cược bằng cả {{t:pot|pot}} trên turn với {{t:flush-draw|bài chờ thùng}} là tệ (bạn cần {{n:eq.bet-pot}}, bạn có khoảng {{n:odds.flush.turn-river}}), nhưng cứ khoảng năm lần thì vẫn thắng một lần.
 
 ```formula
 chất lượng quyết định = EV dựa trên thông tin bạn có tại thời điểm quyết định
@@ -103,9 +103,9 @@ chất lượng quyết định = EV dựa trên thông tin bạn có tại th�
 ## Cách phân tích một ván bài
 
 1. Che kết quả đi. Chỉ đánh giá những gì bạn biết tại thời điểm quyết định.
-2. Tính giá và equity so với {{t:range|phạm vi bài}} của đối thủ (M2, M6).
+2. Tính giá và equity so với {{t:range|range}} của đối thủ (M2, M6).
 3. Kiểm tra xem nước đi có khớp với các quy tắc trong khóa học không.
-4. Hãy phân tích cả các ván thắng: những sai lầm mang lại lợi cũng tốn kém như vậy.
+4. Hãy phân tích cả các ván thắng: những sai lầm mang lại lợi nhuận cũng tốn kém như vậy.
 
 ## Khi nào kết quả bắt đầu có ý nghĩa
 

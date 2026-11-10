@@ -61,9 +61,9 @@ drills:
     prompt: "버튼에서 {{n:pf.open-size}}까지 {{t:open|오픈했고}}, 당신의 스택은 {{n:format.stack}}입니다. {{t:big-blind|빅 블라인드}}의 스택은 {{n:spr.short.stack}}뿐이고, 그가 {{t:call|콜합니다}}. 플롭의 {{t:pot|팟}}: {{n:bb.pot-after.vs-btn}}. {{t:spr}}은 얼마입니까?"
     table: { position: BTN }
     options:
-      - { text: "약 {{n:spr.short}}", correct: true, why: "{{t:effective-stack|이펙티브 스택}}, 즉 두 스택 중 작은 쪽으로 계산합니다: 상대의 남은 스택이 {{n:spr.short.behind}}뿐이므로 {{n:spr.short.behind}} ÷ {{n:bb.pot-after.vs-btn}} ≈ {{n:spr.short}}입니다. 이미 {{t:pot|팟}}에 들어간 것 외에, 두 사람 모두 최대 {{n:spr.short.behind}}까지만 더 넣을 수 있습니다." }
+      - { text: "약 {{n:spr.short}}", correct: true, why: "{{t:effective-stack|유효 스택}}, 즉 두 스택 중 작은 쪽으로 계산합니다: 상대의 남은 스택이 {{n:spr.short.behind}}뿐이므로 {{n:spr.short.behind}} ÷ {{n:bb.pot-after.vs-btn}} ≈ {{n:spr.short}}입니다. 이미 {{t:pot|팟}}에 들어간 것 외에, 두 사람 모두 최대 {{n:spr.short.behind}}까지만 더 넣을 수 있습니다." }
       - { text: "약 {{n:spr.srp}}", why: "상대의 스택도 {{n:format.stack}}일 때의 값입니다. 두 사람은 더 작은 스택만큼만 걸고 플레이할 수 있으므로, {{t:spr}}은 약 {{n:spr.short}}입니다." }
-      - { text: "스택이 서로 달라서 계산할 수 없다", why: "계산할 수 있습니다: 더 작은 스택(이펙티브 스택)을 사용합니다. 상대의 남은 스택이 {{n:spr.short.behind}}뿐이므로 {{t:spr}} ≈ {{n:spr.short}}입니다." }
+      - { text: "스택이 서로 달라서 계산할 수 없다", why: "계산할 수 있습니다: 더 작은 스택(유효 스택)을 사용합니다. 상대의 남은 스택이 {{n:spr.short.behind}}뿐이므로 {{t:spr}} ≈ {{n:spr.short}}입니다." }
   - kind: choice
     id: m9.l1.q-when
     family: m9.spr
@@ -107,10 +107,10 @@ drills:
 {{t:spr}}(영어: stack-to-pot ratio)은 {{t:street|스트리트}}가 시작될 때 {{t:pot|팟}} 대비 스택의 비율입니다. 어느 {{t:street|스트리트}}에서나 계산할 수 있지만(M7에서는 턴에서 계산했습니다), 핸드 계획에는 누군가 {{t:bet|베팅}}을 {{t:bet|하기}} 전 플롭의 {{t:spr}}을 사용합니다.
 
 ```formula
-SPR = 이펙티브 스택 ÷ 플롭의 팟
+SPR = 유효 스택 ÷ 플롭의 팟
 ```
 
-{{t:effective-stack|이펙티브 스택}}은 두 스택 중 작은 쪽이며, 이미 {{t:pot|팟}}에 들어간 금액은 제외합니다. 이것이 각 플레이어가 {{t:pot|팟}}에 더 넣을 수 있는 최대 금액입니다: {{t:pot|팟}} 외에 상대에게서 {{t:effective-stack}}보다 많이 얻을 수 없고, 더 잃을 수 있는 최대 금액도 그만큼입니다.
+{{t:effective-stack|유효 스택}}은 두 스택 중 작은 쪽이며, 이미 {{t:pot|팟}}에 들어간 금액은 제외합니다. 이것이 각 플레이어가 {{t:pot|팟}}에 더 넣을 수 있는 최대 금액입니다: {{t:pot|팟}} 외에 상대에게서 {{t:effective-stack}}보다 많이 얻을 수 없고, 더 잃을 수 있는 최대 금액도 그만큼입니다.
 
 예: 버튼에서 {{n:pf.open-size}}까지 {{t:open|오픈했고}}, {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭의 {{t:pot|팟}}은 {{n:bb.pot-after.vs-btn}}, 당신의 남은 스택은 {{n:spr.srp.stack}}입니다. {{t:spr}} = {{n:spr.srp.stack}} ÷ {{n:bb.pot-after.vs-btn}} ≈ **{{n:spr.srp}}**.
 
@@ -127,7 +127,7 @@ SPR = 이펙티브 스택 ÷ 플롭의 팟
 
 ## {{t:spr}} 구간
 
-{{t:spr}} 구간은 플롭의 {{t:spr}}으로 판단합니다. {{t:spr}}이 높을수록 스택 전체를 걸고 플레이하는 데 더 강한 핸드가 필요합니다:
+{{t:spr}} 구간은 플롭의 {{t:spr}}로 판단합니다. {{t:spr}}이 높을수록 스택 전체를 걸고 플레이하는 데 더 강한 핸드가 필요합니다:
 
 | {{t:spr}} | 보통 스택 전체를 걸고 플레이하는 핸드 |
 |---|---|

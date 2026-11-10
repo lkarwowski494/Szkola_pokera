@@ -23,7 +23,7 @@ drills:
     options:
       - { text: "Cerca de {{n:eq.bb-vs-sb-open}}", correct: true, why: "Você completa {{n:bb.call.vs-sb}} em um {{t:pot|pote}} que, depois de você {{t:call|pagar}}, tem {{n:bb.pot-after.vs-sb}}: isso dá cerca de {{n:eq.bb-vs-sb-open}}. O preço é pior do que contra o Button, mas, em compensação, depois do flop você tem {{t:position|posição}}." }
       - { text: "Cerca de {{n:eq.bb-vs-btn-open}}", why: "Esse é o preço contra uma {{t:open|abertura}} do Button para {{n:pf.open-size}}. O {{t:small-blind|small blind}} {{t:open|abre}} com um tamanho maior, então você paga mais." }
-      - { text: "Cerca de metade", why: "Você precisaria de metade da equity se no {{t:pot|pote}} houvesse só a {{t:bet|aposta}} do adversário. Aqui ele também tem os blinds, então o preço é melhor." }
+      - { text: "Cerca de metade", why: "Você precisaria de metade da equity se no {{t:pot|pote}} houvesse só a {{t:bet|aposta}} do adversário. Aqui o pote também tem os blinds, então o preço é melhor." }
   - kind: choice
     id: m4.l2.q-realize
     family: m4.bb.realize
@@ -66,11 +66,11 @@ drills:
     spot: vs-open.bb-vs-btn
     prompt: "O Button {{t:open|abriu}} para {{n:pf.open-size}}, o {{t:small-blind}} {{t:fold|desistiu}}. Pinte as mãos com que você defende o {{t:big-blind}} ({{t:call|pagando}} ou dando 3-bet)."
 ---
-O {{t:big-blind|big blind}} já tem um blind inteiro no {{t:pot|pote}}, então completa pouco diante de uma {{t:open|abertura}}. Quando o Button {{t:open|abre}} para {{n:pf.open-size}} e o {{t:small-blind}} {{t:fold|desiste}}, você precisa de apenas cerca de {{n:eq.bb-vs-btn-open}} de equity para {{t:call|pagar}}. Por isso o {{t:big-blind}} é a que defende de forma mais ampla entre todas as {{t:position|posições}}.
+O {{t:big-blind|big blind}} já tem um blind inteiro no {{t:pot|pote}}, então completa pouco diante de uma {{t:open|abertura}}. Quando o Button {{t:open|abre}} para {{n:pf.open-size}} e o {{t:small-blind}} {{t:fold|desiste}}, você precisa de apenas cerca de {{n:eq.bb-vs-btn-open}} de equity para {{t:call|pagar}}. Por isso o {{t:big-blind}} é quem defende de forma mais ampla entre todas as {{t:position|posições}}.
 
 ## O preço não é tudo
 
-A equity diz com que frequência você vence se os dois chegarem ao showdown sem mais {{t:bet|apostas}}. {{t:out-of-position|Fora de posição}}, você muitas vezes vai {{t:fold|desistir}} depois do flop, então mãos fracas de naipes diferentes realizam menos do que a sua equity. Mãos do mesmo naipe, {{t:connectors|conectores}} e {{t:pair|pares}} médios realizam mais, por isso, na grade, você defende com elas mais prontamente.
+A equity diz com que frequência você vence se os dois chegarem ao showdown sem mais {{t:bet|apostas}}. {{t:out-of-position|Fora de posição}}, você muitas vezes vai {{t:fold|desistir}} depois do flop, então mãos fracas de naipes diferentes realizam menos do que a equity delas. Mãos do mesmo naipe, {{t:connectors|conectores}} e {{t:pair|pares}} médios realizam mais, por isso, na grade, você defende com eles mais prontamente.
 
 ```range
 vs-open.bb-vs-btn

@@ -10,7 +10,7 @@ drills:
     id: m5.l4.q-oop-plan
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "Du hast aus dem {{t:cutoff|CO}} {{t:open|eröffnet}}, der Button hat {{t:call|gecallt}}, die Blinds haben {{t:fold|gefoldet}}. Der Flop ist mittelhoch und {{t:connected|connected}}. Du bist zuerst dran. Welcher Plan ist hier richtig?"
+    prompt: "Du hast aus dem {{t:cutoff|CO}} {{t:open|eröffnet}}, der Button hat {{t:call|gecallt}}, die Blinds haben {{t:fold|gefoldet}}. Der Flop ist mittelhoch und {{t:connected|verbunden}}. Du bist zuerst dran. Welcher Plan ist hier richtig?"
     table: { position: CO, board: "Jd 9s 8c" }
     options:
       - { text: "{{t:check|Ich checke}} öfter als {{t:in-position}}", correct: true, why: "Ja: Der Button hat mit {{t:position|Position}} {{t:call|gecallt}}, also hat er eine starke {{t:range|Range}}, und ein mittelhoher, {{t:connected|verbundener}} Flop trifft seine {{t:pair|Paare}} und {{t:connectors|Connectors}} gut. {{t:out-of-position|Out of Position}} {{t:check|checkst}} du hier sehr oft, auch mit starken Händen." }
@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten begünstigt den {{t:big-blind|Big Blind}}, der hier öfter {{t:two-pair|Two Pair}} oder eine {{t:straight|Straight}} hat. Du spielst seltener C-Bets als auf hohen Flops: Viele Hände {{t:check|checken}}, gesetzt wird vor allem mit starken Händen und starken {{t:draw|Draws}}."
+          check: "Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten begünstigt den {{t:big-blind|Big Blind}}, der hier öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} hat. Du spielst seltener C-Bets als auf hohen Flops: Viele Hände {{t:check|checken}}, gesetzt wird vor allem mit starken Händen und starken {{t:draw|Draws}}."
           small: "Zu oft: Auf einem niedrigen Flop mit nah beieinanderliegenden Karten hat der {{t:big-blind|Big Blind}} den {{t:nuts-advantage|Nuts-Vorteil}}. Häufige C-Bets, selbst kleine, geben ihm die Gelegenheit zum {{t:raise|Raise}} (Check-Raise) mit seinen stärksten Händen."
-          big: "Zu oft und zu teuer: Der {{t:big-blind|Big Blind}} hat hier öfter {{t:two-pair|Two Pair}} oder eine {{t:straight|Straight}} getroffen. Eine häufige große C-Bet riskiert viel, wenn du selbst meist nur hohe Karten hast."
+          big: "Zu oft und zu teuer: Der {{t:big-blind|Big Blind}} hat hier öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} getroffen. Eine häufige große C-Bet riskiert viel, wenn du selbst meist nur hohe Karten hast."
     count: 3
 ---
 Bisher hast du {{t:in-position}} gegen einen Gegner gespielt. {{t:out-of-position|Out of Position}} und gegen mehrere Spieler spielst du seltener C-Bets.

@@ -21,7 +21,7 @@ drills:
     rules: [R-M10-013]
     prompt: "Dans un rapport sur la population en cash game 6-max, chaque joueur de NL100 perd en moyenne {{n:rake.pop.nl100.loss}}. D'où vient cette perte ?"
     options:
-      - { text: "C'est le {{t:rake}} : sans lui, les joueurs seraient ensemble à l'équilibre", correct: true, why: "Les joueurs jouent les uns contre les autres : ce que l'un gagne, l'autre le perd. En moyenne, tous ne perdent que ce que prend le site. L'auteur : « your biggest villain is the house »." }
+      - { text: "C'est le {{t:rake}} : sans lui, les joueurs termineraient ensemble à zéro", correct: true, why: "Les joueurs jouent les uns contre les autres : ce que l'un gagne, l'autre le perd. En moyenne, tous ne perdent que ce que prend le site. L'auteur : « your biggest villain is the house »." }
       - { text: "Du fait que la plupart des joueurs jouent mal", why: "Le mauvais jeu transfère l'argent des joueurs plus faibles vers les meilleurs, mais ne change pas la moyenne. Seul le {{t:rake}} fait baisser la moyenne." }
       - { text: "De la {{t:variance}} : sur un échantillon plus grand, on arrivera à zéro", why: "La {{t:variance}}, c'est-à-dire la dispersion des résultats autour de l'{{t:expected-value|espérance de gain}}, agit sur les résultats des joueurs individuels dans les deux sens. La moyenne de toute la population est négative, car tout le monde paie le {{t:rake}}." }
   - kind: choice
@@ -46,25 +46,25 @@ drills:
     id: m10.l4.n-eq-rake
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "Le {{t:pot}} contient {{n:ex.pot}}, votre adversaire {{t:bet|mise}} {{n:ex.bet.half}}. Le site prélève {{n:rake.ex.pct}} du {{t:pot}}, sans {{t:rake-cap|plafond}} à portée. De combien d'equity avez-vous besoin pour {{t:call|suivre}} ? Saisissez un pourcentage."
+    prompt: "Le {{t:pot}} contient {{n:ex.pot}}, votre adversaire {{t:bet|mise}} {{n:ex.bet.half}}. Le site prélève {{n:rake.ex.pct}} du {{t:pot}}, sans {{t:rake-cap|plafond}} à portée. De combien d'équité avez-vous besoin pour {{t:call|suivre}} ? Saisissez un pourcentage."
     answer: eq.bet-half.rake
     explanation: "Si vous {{t:call|suivez}}, le {{t:pot}} contient {{n:ex.half.total}}, et il reste {{n:rake.ex.pot-after}} après le rake. Vous payez {{n:ex.bet.half}}, il vous faut donc {{n:ex.bet.half}} ÷ {{n:rake.ex.pot-after}} ≈ {{n:eq.bet-half.rake}} au lieu de {{n:eq.bet-half}} sans rake."
   - kind: choice
     id: m10.l4.q-eq-rake-why
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "Sans {{t:rake}}, {{t:call|suivre}} une mise d'un demi-{{t:pot}} demande {{n:eq.bet-half}} d'equity. Combien en faut-il avec un {{t:rake}} de {{n:rake.ex.pct}} ?"
+    prompt: "Sans {{t:rake}}, {{t:call|suivre}} une mise d'un demi-{{t:pot}} demande {{n:eq.bet-half}} d'équité. Combien en faut-il avec un {{t:rake}} de {{n:rake.ex.pct}} ?"
     options:
       - { text: "Un peu plus : env. {{n:eq.bet-half.rake}}", correct: true, why: "Vous gagnez le {{t:pot}} diminué du {{t:rake}}, mais vous payez le montant entier. Une main juste au-dessus du seuil sans rake peut déjà être en dessous avec rake." }
       - { text: "Autant, car les deux joueurs paient le {{t:rake}}", why: "Le {{t:rake}} est déduit du {{t:pot}} que vous gagnez, pas du montant que vous payez. Le seuil monte à env. {{n:eq.bet-half.rake}}." }
-      - { text: "Moins, car le {{t:pot}} est plus gros", why: "Après rake, le {{t:pot}} est plus petit, et non plus gros : il vous faut donc plus d'equity, env. {{n:eq.bet-half.rake}}." }
+      - { text: "Moins, car le {{t:pot}} est plus gros", why: "Après rake, le {{t:pot}} est plus petit, et non plus gros : il vous faut donc plus d'équité, env. {{n:eq.bet-half.rake}}." }
   - kind: choice
     id: m10.l4.q-flat-raked
     family: m10.rake.preflop
     rules: [R-M10-014]
     prompt: "Vous jouez sur un site qui ne prélève le {{t:rake}} que sur les {{t:pot|pots}} qui atteignent le flop. Quelqu'un avant vous {{t:open|ouvre}}, et vous êtes en {{t:position}} avec une main pour laquelle {{t:call|suivre}} serait limite sans rake. Que change le {{t:rake}} ?"
     options:
-      - { text: "{{t:call|Suivre}} moins souvent : avec les mains limites pour {{t:call|suivre}}, {{t:fold|se coucher}} ou 3-bet plus souvent", correct: true, why: "Dans les solutions de solveur publiées avec rake, les joueurs en {{t:position}} face à une {{t:open|ouverture}} jouent env. {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} de mains en moins. C'est le fait de {{t:call|suivre}} lui-même qui perd, car un {{t:pot}} après le flop paie le {{t:rake}}, alors qu'un {{t:pot}} gagné par un 3-bet avant le flop ne le paie pas." }
+      - { text: "{{t:call|Suivre}} moins souvent : avec les mains limites pour {{t:call|suivre}}, {{t:fold|se coucher}} ou 3-better plus souvent", correct: true, why: "Dans les solutions de solveur publiées avec rake, les joueurs en {{t:position}} face à une {{t:open|ouverture}} jouent env. {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} de mains en moins. C'est le fait de {{t:call|suivre}} lui-même qui perd, car un {{t:pot}} après le flop paie le {{t:rake}}, alors qu'un {{t:pot}} gagné par un 3-bet avant le flop ne le paie pas." }
       - { text: "Rien : le {{t:rake}} ne concerne que le jeu après le flop", why: "C'est précisément pour cela qu'il change la décision avant le flop : {{t:call|suivre}} mène au flop et au rake, alors que 3-better ou {{t:fold|se coucher}} met souvent fin au coup sans rake." }
       - { text: "{{t:call|Suivre}} plus souvent, car les {{t:pot|pots}} après le flop sont gros", why: "C'est l'inverse : le {{t:rake}} prend une part justement de ces {{t:pot|pots}}. Le solveur avec rake {{t:call|suit}} nettement moins souvent." }
   - kind: choice
@@ -86,7 +86,7 @@ drills:
       - { text: "Rien, car le {{t:rake}} sur un 3-bet est négligeable", why: "On ne peut pas le savoir sans faire le calcul pour un site donné. La seule certitude, c'est que le 3-bet n'est plus exempt de rake." }
       - { text: "Sur un tel site, il faut toujours {{t:call|suivre}} au lieu de 3-better", why: "{{t:call|Suivre}} mène au flop et paie le {{t:rake}}, comme avant. La seule différence, c'est que le 3-bet paie aussi." }
 ---
-Le {{t:rake}} est la commission que le site prélève sur le {{t:pot}}. Les joueurs jouent les uns contre les autres : sans {{t:rake}}, ils seraient donc ensemble à l'équilibre. Avec le rake, le joueur moyen perd exactement ce que prend le site, et un joueur gagnant doit battre ses adversaires de plus que le montant du {{t:rake}}.
+Le {{t:rake}} est la commission que le site prélève sur le {{t:pot}}. Les joueurs jouent les uns contre les autres : sans {{t:rake}}, ils termineraient donc ensemble à zéro. Avec le rake, le joueur moyen perd exactement ce que prend le site, et un joueur gagnant doit battre ses adversaires de plus que le montant du {{t:rake}}.
 
 ## Ce que cela coûte
 
@@ -105,10 +105,10 @@ Les données de population disent la même chose. Dans le rapport sur la populat
 
 ## Le seuil pour {{t:call|suivre}} avec rake
 
-Vous gagnez le {{t:pot}} diminué du {{t:rake}}, mais vous payez le montant entier. L'equity nécessaire du module 2 augmente :
+Vous gagnez le {{t:pot}} diminué du {{t:rake}}, mais vous payez le montant entier. L'équité nécessaire du module 2 augmente :
 
 ```formula
-equity nécessaire = montant à payer ÷ ({{t:pot}} après avoir {{t:call|suivi}} × (1 − {{t:rake}}))
+équité nécessaire = montant à payer ÷ ({{t:pot}} après avoir {{t:call|suivi}} × (1 − {{t:rake}}))
 ```
 
 Mise de {{n:ex.bet.half}} dans un {{t:pot}} de {{n:ex.pot}} : sans rake, il vous faut {{n:eq.bet-half}} ; avec un rake de {{n:rake.ex.pct}}, {{n:eq.bet-half.rake}}. La différence est faible sur un seul coup, mais elle s'applique à chaque {{t:pot}} après le flop.
@@ -123,5 +123,5 @@ Sur de nombreux sites, le {{t:rake}} n'est prélevé que sur les {{t:pot|pots}} 
 Pour la même raison, au module 3, depuis la {{t:small-blind|petite blinde}}, vous {{t:raise|relancez}} ou vous vous {{t:fold|couchez}}, sans compléter jusqu'à la {{t:big-blind|grosse blinde}}. Certains sites prélèvent aussi le {{t:rake}} sur les {{t:pot|pots}} 3-betés qui se terminent avant le flop ; là, le 3-bet n'en est pas exempt.
 
 :::note Sources
-Niveau du rake : comparaison du rake des sites en ligne de 2026 (grilles des deux plus grands sites converties en bb/100, consultée le 5 octobre 2026) ; d'autres sites ont d'autres chiffres. Perte de la population : rapport indépendant sur la population (cash NLHE 6-max, sites avec bases de suivi des mains, joueurs ayant au moins 100 mains ; l'auteur ne précise ni les sites ni la période). Effet du rake sur le jeu avant le flop : article publié sur les tailles de relance avant le flop, solutions de solveur pour des tapis de {{n:rake.solver.depth}} ; l'auteur écrit que les conclusions se transposent en grande partie à d'autres formats, donc pour un tapis de {{n:format.stack}}, c'est une simplification. Le seuil d'equity est un calcul.
+Niveau du rake : comparaison du rake des sites en ligne de 2026 (grilles des deux plus grands sites converties en bb/100, consultée le 5 octobre 2026) ; d'autres sites ont d'autres chiffres. Perte de la population : rapport indépendant sur la population (cash NLHE 6-max, sites avec bases de suivi des mains, joueurs ayant au moins 100 mains ; l'auteur ne précise ni les sites ni la période). Effet du rake sur le jeu avant le flop : article publié sur les tailles de relance avant le flop, solutions de solveur pour des stacks de {{n:rake.solver.depth}} ; l'auteur écrit que les conclusions se transposent en grande partie à d'autres formats, donc pour un stack de {{n:format.stack}}, c'est une simplification. Le seuil d'équité est un calcul.
 :::

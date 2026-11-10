@@ -254,7 +254,7 @@
 - id: R-M4-006
   module: m4
   if: "do {{t:big-blind|big blind}} você {{t:raise|aumenta}} uma {{t:open|abertura}} do Button"
-  then: "você dá 3-bet com as mãos mais fortes (TT+, AQ+, AJs+) mais {{t:bluff|blefes}} da parte de baixo do seu {{t:range}} de {{t:call}}: A5s, às vezes A4s, e {{t:connectors|conectores}} do mesmo naipe; {{t:pair|pares}} médios e pequenos, KQo e ases de naipes diferentes (AJo–A9o) você normalmente {{t:call|paga}}"
+  then: "você dá 3-bet com as mãos mais fortes (TT+, AQ+, AJs+) mais {{t:bluff|blefes}} da parte de baixo do seu {{t:range}} de {{t:call}}: A5s, às vezes A4s, e {{t:connectors|conectores}} do mesmo naipe; com {{t:pair|pares}} médios e pequenos, KQo e ases de naipes diferentes (AJo–A9o) você normalmente {{t:call|paga}}"
   because: "do {{t:big-blind|big blind}} você {{t:call|paga}} barato e fecha a ação, então mãos médias ganham mais depois do {{t:call}}, e você deixa o 3-bet para mãos que querem um {{t:pot|pote}} grande e para {{t:bluff|blefes}} que jogam bem depois de um {{t:call}} (ases do mesmo naipe bloqueiam AA e AK)"
   level: gto
   source: "site de solver comercial, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, BB vs BTN: “TT+, AJs+, and AQo+ are 3-bet purely”, blefes “near the bottom of our calling range”; site com tabelas de solver, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn): “A5s · 3-bet 100%”. A regra vale só para a abertura do Button (D-144): contra o small blind, as fontes de nível 2 não concordam sobre os blefes (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics: “A5s calls 96% of the time rather than turning into a three-bet bluff”; https://beyondgto.com/defense/bb-vs-sb: “A5s · 3-bet 4% · call 96%”; site de solver comercial, Range Morphology, https://blog.gtowizard.com/preflop-range-morphology/: blefes da parte mais baixa do range), então a lição diz só que contra o small blind você dá 3-bet principalmente por valor e normalmente paga com A5s e conectores do mesmo naipe; escola que publica resultados de solver, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide) e Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players), NL200 e NL50 GG; site de treinamento, Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics), tabelas desse site; site de treinamento, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/), tabelas de solver desse site. Simplificação: a composição depende do rake e do tamanho do 3-bet; 99, KQo e AJo às vezes são mistas (documento 10, resolução B-045)"
@@ -263,7 +263,7 @@
   module: m4
   if: "você leva um 3-bet de um jogador que vai ter {{t:position|posição}} depois do flop"
   then: "você {{t:fold|desiste}} de cerca de {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} das suas {{t:open|aberturas}}, {{t:call|paga}} com cerca de {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}} e dá 4-bet com cerca de {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}"
-  because: "se você desistir com mais frequência que {{n:alpha.vs-3bet-ip-size}}, o adversário lucra dando 3-bet com qualquer mão, então você {{t:fold|desiste}} logo abaixo desse limite"
+  because: "se você desistir com mais frequência que {{n:alpha.vs-3bet-ip-size}}, o adversário lucra dando 3-bet com qualquer mão, então você {{t:fold|desiste}} logo abaixo desse limiar"
   level: heuristic
   source: "intervalo próximo das fontes, com o limite superior de folds logo abaixo do limite calculado (ADR-24): escola que publica resultados de solver, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO contra 3-bet do Button para 7,5bb: fold 63,7%, call 17,2%, 4-bet 19,1%; site com tabelas de treinamento simplificadas, tabelas de treinamento simplificadas (https://pailiku.com/charts/co-vs-btn-3bet), convertidas para o range de abertura do CO: cerca de 66/23/11; HUD cerca de 55% de folds; site de treinamento 50–55/30–40/5–8 (nível 4, diverge); limite a partir do cálculo (documento 12 M4–M6, D-04)"
   sources: [{ kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }, { kind: training }, { kind: math }]
@@ -389,7 +389,7 @@
   sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-008
   module: m5
-  if: "como {{t:aggressor|agressor}} pré-flop você tem {{t:position|posição}}, e o flop dá ao adversário muitos {{t:draw|draws}}, mas uma {{t:straight|sequência}} ainda não é possível, por exemplo K-J-7 {{t:two-tone|de dois naipes}}"
+  if: "como {{t:aggressor|agressor}} pré-flop você tem {{t:position|posição}}, e o flop dá ao adversário muitos {{t:draw|draws}}, mas uma {{t:straight|sequência}} ainda não é possível, por exemplo K-J-7 {{t:two-tone|bicolor}}"
   then: "você dá c-bet com menos frequência, mas com tamanho maior, por exemplo {{n:cbet.size.big}} do {{t:pot|pote}}; mãos médias sem {{t:draw}} {{t:check|dão check}} com mais frequência; quando uma {{t:straight|sequência}} já é possível, por exemplo J-T-8, os solvers apostam um tamanho menor"
   because: "os {{t:draw|draws}} do adversário têm muita equity, então uma {{t:bet|aposta}} grande faz ele pagar caro pela próxima carta"
   level: heuristic
@@ -399,7 +399,7 @@
   module: m5
   if: "como {{t:aggressor|agressor}} pré-flop você tem {{t:position|posição}}, e o flop é {{t:paired|pareado}}, por exemplo Q-Q-6"
   then: "você dá c-bet com frequência e pequeno"
-  because: "você tem {{t:range-advantage|vantagem de range}}, e num flop {{t:paired|pareado}} é difícil ter um {{t:draw}}, então um adversário sem {{t:pair|par}} raramente consegue {{t:call|pagar}} nem uma {{t:bet|aposta}} pequena; uma {{t:bet|aposta}} grande não compensa, porque qualquer um de vocês pode ter {{t:three-of-a-kind|trinca}}"
+  because: "você tem {{t:range-advantage|vantagem de range}}, e num flop {{t:paired|pareado}} é difícil ter um {{t:draw}}, então um adversário sem {{t:pair|par}} raramente consegue {{t:call|pagar}} até mesmo uma {{t:bet|aposta}} pequena; uma {{t:bet|aposta}} grande não compensa, porque qualquer um de vocês pode ter {{t:three-of-a-kind|trinca}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
   source: "site de solver comercial, Flop Heuristics: IP C-Betting in Cash Games (“Paired flops are bet significantly more often… only be bet for small sizing… reduced nut advantage from trips being in both player's ranges”; “On paired boards, it's also much harder to have a draw”)"
@@ -416,7 +416,7 @@
   module: m5
   if: "você dá c-bet sem nenhuma mão, contando só com a {{t:fold|desistência}} do adversário"
   then: "com uma {{t:bet|aposta}} de {{n:cbet.size.small}} do {{t:pot|pote}}, o adversário precisa {{t:fold|desistir}} em mais de {{n:alpha.cbet.small}} dos casos, e com {{n:cbet.size.big}} do {{t:pot|pote}}, em mais de {{n:alpha.cbet.big}}"
-  because: "você arrisca a aposta para ganhar o {{t:pot|pote}}: o limite é aposta ÷ ({{t:pot|pote}} + aposta)"
+  because: "você arrisca a aposta para ganhar o {{t:pot|pote}}: o limiar é aposta ÷ ({{t:pot|pote}} + aposta)"
   level: math
   source: "cálculo: alpha = aposta / (pote + aposta)"
   sources: [{ kind: math }]
@@ -465,7 +465,7 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/mdf-alpha" }, { kind: training, url: "https://upswingpoker.com/vs-double-barrels-turn/" }]
 - id: R-M6-004
   module: m6
-  if: "um jogador que, pelo que você observou, raramente {{t:bluff|blefa}} {{t:bet|aposta}} alto no river"
+  if: "quem {{t:bet|aposta}} alto no river é um jogador que, pelo que você observou, raramente {{t:bluff|blefa}}"
   then: "você {{t:fold|desiste}} mais do que o {{t:mdf}} indica, também com {{t:pair|pares}} médios"
   because: "o {{t:mdf}} supõe que o adversário {{t:bluff|blefa}} com frequência suficiente; quando faltam {{t:bluff|blefes}}, o {{t:call}} com uma mão mais fraca paga principalmente mãos melhores"
   level: exploit
@@ -499,7 +499,7 @@
 - id: R-M6-008
   module: m6
   if: "você quer dar check-raise no flop"
-  then: "você faz isso principalmente com as mãos mais fortes ({{t:two-pair|dois pares}}, sets) e com {{t:draw|draws}} ({{t:flush}}, {{t:oesd}}); {{t:pair|pares}} médios você normalmente {{t:call|paga}} (simplificação: contra c-bets pequenos o solver também {{t:raise|aumenta}} com parte dos {{t:top-pair|top pairs}} e dos {{t:pair|pares}} fracos, para proteção)"
+  then: "você faz isso principalmente com as mãos mais fortes ({{t:two-pair|dois pares}}, sets) e com {{t:draw|draws}} ({{t:flush}}, {{t:oesd}}); com {{t:pair|pares}} médios você normalmente {{t:call|paga}} (simplificação: contra c-bets pequenos o solver também {{t:raise|aumenta}} com parte dos {{t:top-pair|top pairs}} e dos {{t:pair|pares}} fracos, para proteção)"
   because: "depois de um check-raise, as mãos piores normalmente {{t:fold|desistem}}, e as melhores pagam, então um {{t:pair|par}} médio raramente ganha com isso; um {{t:draw}} tem dois caminhos para vencer: a {{t:fold|desistência}} do adversário ou acertar"
   level: heuristic
   source: "site de treinamento, 5 Winning Check-Raising Strategies (solvers “check-raise all sorts of top pairs versus small bets”); site de treinamento (tabelas de solver) (sets e draws como check-raise; pares fracos para proteção)"
@@ -524,7 +524,7 @@
   module: m6
   if: "você pensa em dar check-raise como {{t:bluff|blefe}} ou {{t:semi-bluff|semiblefe}}"
   then: "você escolhe para isso principalmente {{t:draw|draws}} fortes; quanto menos o adversário {{t:fold|desiste}}, menos {{t:bluff|blefes}} assim, e quando ele quase nunca {{t:fold|desiste}}, você dá check-raise principalmente {{t:value|por valor}}"
-  because: "o {{t:bluff|blefe}} só lucra quando o adversário {{t:fold|desiste}} com mais frequência que alpha (R-M6-002); um {{t:draw}} forte também vence quando acerta, então perde menos quando faltam {{t:fold|desistências}}"
+  because: "o {{t:bluff|blefe}} só lucra quando o adversário {{t:fold|desiste}} com mais frequência que alpha (R-M6-002); um {{t:draw}} forte também vence quando acerta, então é o que menos perde quando faltam {{t:fold|desistências}}"
   level: heuristic
   source: "conclusão a partir de alpha (R-M6-002): o blefe precisa de folds do adversário; site de treinamento, 5 Winning Check-Raising Strategies (“tighten your bluffing range to include only strong draws”)"
   sources: [{ kind: training }, { kind: math }]
@@ -559,7 +559,7 @@
   module: m7
   if: "você {{t:bluff|blefa}} no turn com uma mão que sozinha quase nunca vai vencer"
   then: "com aposta de 3/4 do {{t:pot|pote}}, o adversário precisa {{t:fold|desistir}} em mais de {{n:alpha.bet-three-quarters}} dos casos; com aposta de meio {{t:pot|pote}}, em mais de {{n:alpha.bet-half}}"
-  because: "você arrisca a aposta para ganhar o {{t:pot|pote}}: o limite é aposta ÷ ({{t:pot|pote}} + aposta); os outs que você tem baixam esse limite"
+  because: "você arrisca a aposta para ganhar o {{t:pot|pote}}: o limiar é aposta ÷ ({{t:pot|pote}} + aposta); os outs que você tem baixam esse limiar"
   level: math
   source: "cálculo: alpha = aposta/(pote+aposta)"
   sources: [{ kind: math }]
@@ -633,7 +633,7 @@
   module: m7
   if: "você {{t:call|pagou}} um c-bet no flop, e o adversário aposta de novo no turn"
   then: "você defende mais fechado que no flop: {{t:draw|draws}} só {{t:call|pagam}} com bom preço ou com implied odds, e mãos sem outs e os {{t:pair|pares}} mais fracos {{t:fold|desistem}}"
-  because: "o adversário {{t:bet|aposta}} o {{t:second-barrel}} com um {{t:range}} mais estreito que o do c-bet e normalmente com tamanho maior, e os {{t:draw|draws}} já só têm uma carta"
+  because: "o adversário {{t:bet|aposta}} o {{t:second-barrel}} com um {{t:range}} mais fechado que o do c-bet e normalmente com tamanho maior, e os {{t:draw|draws}} já só têm uma carta"
   level: heuristic
   source: "site de treinamento, What the Best Poker Pros Already Know About Playing vs. Double Barrels"
   sources: [{ kind: training }]
@@ -1002,7 +1002,7 @@
   module: m12
   if: "depois de uma série de derrotas você já não consegue avaliar decisões com calma (por exemplo só pensa em recuperar o que perdeu ou joga mãos de que normalmente {{t:fold|desiste}})"
   then: "você encerra a {{t:session|sessão}}"
-  because: "continuar jogando nesse estado é jogar no seu pior nível (C-game), e o objetivo é parar antes, antes de perder a capacidade de pensar com clareza"
+  because: "continuar jogando nesse estado é jogar no seu pior nível (C-game), e o objetivo é parar mais cedo, antes de perder a capacidade de pensar com clareza"
   level: heuristic
   source: "Tendler e Carter, The Mental Game of Poker (2011), trecho “Inchworm” (trecho publicado online): “quit sooner when it's no longer possible to recover a solid thought process”"
   sources: [{ kind: book }]
@@ -1109,7 +1109,7 @@
   module: m11
   if: "num {{t:tournament|torneio}} com {{t:icm}} você {{t:call|paga}} um all-in que pode eliminar você"
   then: "você precisa de equity de BF ÷ (BF + 1), em que o bubble factor BF = equity perdida ao perder ÷ equity ganha ao vencer; no exemplo da lição, {{n:m11.bf.req}} em vez de {{n:m11.bf.req-chips}} em {{t:chips|fichas}}"
-  because: "num {{t:tournament|torneio}} com {{t:payout|premiação}}, perder custa mais dinheiro do que vencer acrescenta, então o {{t:call}} precisa vencer mais vezes do que num jogo por {{t:chips|fichas}}"
+  because: "num {{t:tournament|torneio}} com {{t:payout|prêmios}}, perder custa mais dinheiro do que vencer acrescenta, então o {{t:call}} precisa vencer mais vezes do que num jogo por {{t:chips|fichas}}"
   level: math
   source: "cálculo de ICM (numbers.yaml, chaves m11.bf.*); site de solver comercial, What Is the Bubble Factor (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/): “$EV lost when you lose / $EV gained when you win = Bubble Factor”, “Required Equity = Bubble Factor / (Bubble Factor + 1)”"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/" }, { kind: math }]
@@ -1125,7 +1125,7 @@
   module: m11
   if: "você joga push/fold, e atrás de você restam mais jogadores que podem {{t:call|pagar}}"
   then: "você {{t:shove|dá shove}} all-in mais fechado: com três jogadores e {{n:m11.depth.3max}}, o Button com cerca de {{n:m11.3max.push.btn}} das mãos, e o {{t:small-blind}}, depois do fold do Button, com cerca de {{n:m11.3max.push.sb}}"
-  because: "cada jogador a mais é uma chance extra de alguém acordar com uma mão forte, então o fold de todos acontece menos vezes"
+  because: "cada jogador a mais é uma chance extra de alguém acordar com uma mão forte, então o {{t:fold}} de todos acontece menos vezes"
   level: gto
   source: "solver de push/fold do projeto (content/ranges/pushfold.json, três jogadores); compatível com Ganzfried e Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), tabela 2, single hand: “Button jam … 0.355”, “SB jam after fold … 0.633” (frequências dos nós compatíveis dentro de 1,2 p.p., relatório M11)"
   sources: [{ kind: study, url: "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf" }, { kind: solver-app }]

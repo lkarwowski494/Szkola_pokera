@@ -1,0 +1,50 @@
+{
+ "plik": "docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/ko/poprawki-ko.json",
+ "nalozone": 481,
+ "pominiete": [],
+ "sklep": 4,
+ "odfiltrowane": 0,
+ "pliki": 55,
+ "sklepPoprawki": [
+  {
+   "jezyk": "ko",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "linia": 26,
+   "stary": "베팅도, 딸 수 있는 칩도, 실제 돈을 거는 게임도 없습니다.",
+   "nowy": "판돈도, 딸 수 있는 칩도, 실제 돈을 거는 게임도 없습니다.",
+   "waga": "ŚR",
+   "powod": "Treść krytyczna (brak hazardu). pl: „w aplikacji nie ma stawek, żetonów do wygrania ani gry na pieniądze” (en „no stakes”). „베팅” to w tej aplikacji nazwa zagrania bet (terms-nazwy bet: 베팅, przyciski 벳), więc „베팅도 없습니다” = „nie ma betów” mówi coś innego niż pl i przeczy treści aplikacji; „판돈” = stawki pieniężne.",
+   "grupa": "U1"
+  },
+  {
+   "jezyk": "ko",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "linia": 26,
+   "stary": "수학(아웃츠, 오즈, 팟 오즈)",
+   "nowy": "수학(아웃, 오즈, 팟 오즈)",
+   "waga": "ŚR",
+   "powod": "Termin: pl „outy”; terms-nazwy ko outs = „아웃” (komentarz: „아웃츠 — poprawka do 아웃”), interfejs używa „아웃”.",
+   "grupa": "U1"
+  },
+  {
+   "jezyk": "ko",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "linia": 26,
+   "stary": "프리플랍, 플랍, 턴, 리버",
+   "nowy": "프리플롭, 플롭, 턴, 리버",
+   "waga": "ŚR",
+   "powod": "Termin: terms-nazwy ko preflop = „프리플롭”, flop = „플롭”; cały interfejs używa „플롭/프리플롭”. Opis sklepu ma inną pisownię niż aplikacja (pl: „gra przed flopem, flop”). Słów kluczowych (프리플랍, wyszukiwanie) nie zmieniam.",
+   "grupa": "U1"
+  },
+  {
+   "jezyk": "ko",
+   "cel": "docs/sklep/aso/metadane-fala2.json",
+   "linia": 26,
+   "stary": "• 결정을 네 단계로 평가\\n",
+   "nowy": "• 결정을 네 단계로 평가: 일치, 허용, 부정확, 실수\\n",
+   "waga": "ŚR",
+   "powod": "Pominięty szczegół: pl „Decyzje z oceną w czterech stopniach: zgodna, dopuszczalna, niedokładność, błąd”. Nazwy stopni jak w interfejsie ko (grade.*: 일치, 허용, 부정확, 실수).",
+   "grupa": "U1"
+  }
+ ]
+}

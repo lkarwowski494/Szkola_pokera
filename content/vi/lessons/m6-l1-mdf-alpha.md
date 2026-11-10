@@ -69,9 +69,9 @@ drills:
     rules: [R-M6-001]
     prompt: "River, đối thủ {{t:bet|cược}} 1/3 {{t:pot|pot}}. {{t:mdf}} là {{n:mdf.bet-third}}, còn để {{t:call|theo}} bạn cần {{n:eq.bet-third}} equity. Làm sao dung hòa hai con số này?"
     options:
-      - { text: "{{t:mdf}} áp dụng cho toàn bộ {{t:range|dải bài}}, equity cho một tay bài", correct: true, why: "{{t:mdf}} cho biết bạn bảo vệ bao nhiêu phần trong tất cả các tay bài của mình để đối thủ không thể {{t:bluff}} với bất kỳ lá bài nào. Equity cần có cho biết {{t:call|theo}} với một tay bài cụ thể có lãi hay không trước những gì đối thủ thực sự {{t:bet|cược}}." }
+      - { text: "{{t:mdf}} áp dụng cho toàn bộ {{t:range|dải bài}}, equity cho một tay bài", correct: true, why: "{{t:mdf}} cho biết bạn bảo vệ bao nhiêu phần trong tất cả các tay bài của mình để đối thủ không thể {{t:bluff}} với bất kỳ lá bài nào. Equity cần có cho biết {{t:call|theo}} với một tay bài cụ thể có lãi hay không trước những tay bài mà đối thủ thực sự dùng để {{t:bet|cược}}." }
       - { text: "Một trong hai bị tính sai", why: "Cả hai đều đúng: {{n:ex.third.pot}} ÷ {{n:ex.third.pot-after-bet}} = {{n:mdf.bet-third}} và {{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}. Chúng trả lời các câu hỏi khác nhau." }
-      - { text: "Bạn {{t:call|theo}} khi có ít nhất {{n:mdf.bet-third}} equity", why: "Nhầm lẫn khái niệm. Để {{t:call|theo}}, {{n:eq.bet-third}} equity là đủ. {{n:mdf.bet-third}} là một phần của {{t:range|dải bài}}, không phải cơ hội của một tay bài." }
+      - { text: "Bạn {{t:call|theo}} khi có ít nhất {{n:mdf.bet-third}} equity", why: "Nhầm lẫn khái niệm. Để {{t:call|theo}}, {{n:eq.bet-third}} equity là đủ. {{n:mdf.bet-third}} là một phần của {{t:range|dải bài}}, không phải cơ hội thắng của một tay bài." }
   - kind: choice
     id: m6.l1.q-flop-mdf
     family: m6.mdf-concept
@@ -132,5 +132,5 @@ Equity cần có từ M2 áp dụng cho **một tay bài**: {{t:call|theo}} vớ
 {{t:mdf}} giả định {{t:bluff|cú bluff}} của đối thủ hoàn toàn không có cơ hội thắng. Điều này gần đúng nhất trên river, nơi {{t:draw|bài chờ}} không còn cải thiện được nữa. Trên flop, các {{t:bluff|cú bluff}} vẫn còn equity: {{t:draw|bài chờ}} và lá cao có thể cải thiện. Thêm vào đó, khi {{t:out-of-position|không có vị trí}}, bạn sẽ không hiện thực hóa hết equity của các tay bài yếu. Vì vậy trên flop khi {{t:out-of-position|không có vị trí}}, bạn có thể bảo vệ ít hơn {{t:mdf}} (trên những flop bất lợi cho người bảo vệ thì ít hơn rõ rệt) và coi nó là điểm tham chiếu, không phải nghĩa vụ; tuy vậy, bạn không {{t:fold|bỏ bài}} hàng loạt trước các c-bet nhỏ. Trong một ví dụ trên turn, solver bảo vệ trung bình gần mức {{t:mdf}}.
 
 :::note Khi đối thủ hiếm khi {{t:bluff}}
-{{t:mdf}} bảo vệ bạn trước người chơi {{t:bluff}} đủ thường xuyên. Nếu qua quan sát bạn biết một người chơi cụ thể {{t:bluff}} bằng các mức cược lớn trên river quá hiếm, thì trước người đó bạn {{t:fold|bỏ bài}} thường xuyên hơn mức {{t:mdf}} gợi ý: {{t:call|theo}} với {{t:pair|đôi}} yếu hơn chủ yếu là trả tiền cho tay bài mạnh hơn. Đó là {{t:exploit|khai thác}}, không phải chiến lược áp dụng với mọi người (xem thêm ở mô-đun 10).
+{{t:mdf}} bảo vệ bạn trước người chơi {{t:bluff}} đủ thường xuyên. Nếu qua quan sát bạn biết một người chơi cụ thể {{t:bluff}} bằng các mức cược lớn trên river quá ít, thì trước người đó bạn {{t:fold|bỏ bài}} thường xuyên hơn mức {{t:mdf}} gợi ý: {{t:call|theo}} với {{t:pair|đôi}} yếu hơn chủ yếu là trả tiền cho tay bài mạnh hơn. Đó là {{t:exploit|khai thác}}, không phải chiến lược áp dụng với mọi người (xem thêm ở mô-đun 10).
 :::

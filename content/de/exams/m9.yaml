@@ -5,46 +5,46 @@ drills:
     id: m9.exam.q1
     family: m9.spr
     rules: [R-M9-001]
-    prompt: "Auf dem Flop sind {{n:exam.m9.pot}} im {{t:pot|Pot}}. Du hast noch {{n:exam.m9.stack.you}} hinter dir, dein Gegner {{n:exam.m9.stack.opp}}. Wie hoch ist der {{t:spr|SPR}}?"
+    prompt: "Auf dem Flop sind {{n:exam.m9.pot}} im {{t:pot|Pot}}. Du hast noch {{n:exam.m9.stack.you}} hinter dir, dein Gegner {{n:exam.m9.stack.opp}}. Wie hoch ist die {{t:spr|SPR}}?"
     options:
       - { text: "{{n:exam.m9.spr}}", correct: true, why: "Ja: Du rechnest mit dem {{t:effective-stack|effektiven Stack}}, also dem kleineren der beiden: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}. Mehr, als dein Gegner hat, kannst du in dieser Hand weder gewinnen noch verlieren." }
       - { text: "{{n:exam.m9.spr.wrong}}", why: "Das ist dein Stack ÷ {{t:pot|Pot}}. Dein Gegner hat weniger, also können in der Hand höchstens {{n:exam.m9.stack.opp}} in die Mitte gehen: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}." }
-      - { text: "{{n:exam.m9.spr.inverted}}", why: "Umgekehrt: Der {{t:spr|SPR}} ist der Stack geteilt durch den {{t:pot|Pot}}, nicht der {{t:pot|Pot}} geteilt durch den Stack." }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "Umgekehrt: Die {{t:spr|SPR}} ist der Stack geteilt durch den {{t:pot|Pot}}, nicht der {{t:pot|Pot}} geteilt durch den Stack." }
   - kind: choice
     id: m9.exam.q2
     family: m9.spr-zone
     rules: [R-M9-010]
-    prompt: "Der {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Welche dieser Hände ist laut den Zonen für den {{t:spr|SPR}} eine Grenzhand: Du spielst sie auf {{t:value|Value}}, aber den All-in deines Gegners {{t:call|callst}} du nicht immer?"
+    prompt: "Die {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Welche dieser Hände ist laut den Zonen für die {{t:spr|SPR}} eine Grenzhand: Du spielst sie auf {{t:value|Value}}, aber das All-in deines Gegners {{t:call|callst}} du nicht immer?"
     options:
       - { text: "{{t:top-pair|Top Pair}} mit gutem Kicker", correct: true, why: "Ja: {{n:exam.m9.spr}} liegt in der Zone von {{n:spr.zone.low}} bis {{n:spr.zone.mid}}, in der {{t:top-pair|Top Pair}} eine Grenzhand ist (das ist eine Vereinfachung). Unter {{n:spr.zone.low}} würde es meist um den ganzen Stack spielen." }
       - { text: "Set", why: "Ein Set spielt sogar bei einer {{t:spr|SPR}} über {{n:spr.zone.deep}} um den ganzen Stack. Bei einer {{t:spr|SPR}} von {{n:exam.m9.spr}} ist es klar eine Hand für den ganzen Stack." }
-      - { text: "{{t:two-pair|Two Pair}} mit den zwei höchsten Karten des {{t:board|Boards}}", why: "Hohes {{t:two-pair|Two Pair}} reicht sogar in der Zone von {{n:spr.zone.mid}} bis {{n:spr.zone.deep}}, um um den Stack zu spielen. Bei einer {{t:spr|SPR}} von {{n:exam.m9.spr}} ist es eine Hand für den ganzen Stack, keine Grenzhand." }
+      - { text: "{{t:two-pair|Zwei Paare}} mit den zwei höchsten Karten des {{t:board|Boards}}", why: "Hohe {{t:two-pair|zwei Paare}} reichen sogar in der Zone von {{n:spr.zone.mid}} bis {{n:spr.zone.deep}}, um um den Stack zu spielen. Bei einer {{t:spr|SPR}} von {{n:exam.m9.spr}} ist das eine Hand für den ganzen Stack, keine Grenzhand." }
   - kind: numeric
     id: m9.exam.q3
     family: m9.spr-price
     rules: [R-M9-002]
     prompt: "Flop. Im {{t:pot|Pot}} sind {{n:exam.m9.pot}}, dein Gegner geht für {{n:exam.m9.stack.opp}} all-in ({{t:spr|SPR}} {{n:exam.m9.spr}}). Wie viel Equity brauchst du für einen {{t:call|Call}}? Gib die Zahl in Prozent ein."
     answer: exam.m9.eq.jam
-    explanation: "Du zahlst {{n:exam.m9.stack.opp}}, um den {{t:pot|Pot}} und den Stack deines Gegners zu gewinnen: {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. Je niedriger der {{t:spr|SPR}}, desto besser der Preis."
+    explanation: "Du zahlst {{n:exam.m9.stack.opp}}, um den {{t:pot|Pot}} und den Stack deines Gegners zu gewinnen: {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. Je niedriger die {{t:spr|SPR}}, desto besser der Preis."
   - kind: choice
     id: m9.exam.q4
     family: m9.commit-plan
     rules: [R-M9-004, R-M9-003]
-    prompt: "Flop, {{t:spr|SPR}} {{n:spr.low}}: Im {{t:pot|Pot}} sind {{n:ex.pot}}, beide Stacks betragen {{n:spr.stack.low}}. Du hast ein {{t:overpair|Overpair}}. Du überlegst einen Bet über den halben {{t:pot|Pot}} ({{n:ex.bet.half}}), danach bleiben dir {{n:exam.m9.low.left}}. Welcher Plan?"
+    prompt: "Flop, {{t:spr|SPR}} {{n:spr.low}}: Im {{t:pot|Pot}} sind {{n:ex.pot}}, beide Stacks betragen {{n:spr.stack.low}}. Du hast ein {{t:overpair|Overpair}}. Du überlegst eine Bet über den halben {{t:pot|Pot}} ({{n:ex.bet.half}}), danach bleiben dir {{n:exam.m9.low.left}}. Welcher Plan?"
     table: { hand: "Qh Qc", board: "Jd 7s 3c" }
     options:
-      - { text: "Bet mit dem Plan, um den ganzen Stack zu spielen", correct: true, why: "Ja: Nach Bet und {{t:call|Call}} wären {{n:ex.half.total}} im {{t:pot|Pot}}, mehr als die {{n:exam.m9.low.left}}, die dir im Stack bleiben. Gegen den All-in deines Gegners bräuchtest du nur {{n:exam.m9.eq.low-after-half}} Equity, und ein {{t:overpair|Overpair}} spielt bei so niedrigem {{t:spr|SPR}} um den ganzen Stack." }
-      - { text: "Bet {{n:ex.bet.half}} und {{t:fold|folden}}, wenn dein Gegner all-in geht", why: "Bet und {{t:fold|Fold}} ergibt hier keinen Sinn: Nach deinem Bet reichen {{n:exam.m9.eq.low-after-half}} Equity, um den All-in zu {{t:call|callen}}. Entweder spielst du um den ganzen Stack, oder du {{t:check|checkst}}." }
-      - { text: "Ich {{t:check|checke}} und {{t:fold|folde}} auf jeden Bet", why: "Ein {{t:overpair|Overpair}} ist bei einer {{t:spr|SPR}} unter {{n:spr.zone.low}} eine Hand für den ganzen Stack. Ein {{t:fold|Fold}} auf einen Bet gibt den {{t:pot|Pot}} mit einer sehr starken Hand auf." }
+      - { text: "Bet mit dem Plan, um den ganzen Stack zu spielen", correct: true, why: "Ja: Nach Bet und {{t:call|Call}} wären {{n:ex.half.total}} im {{t:pot|Pot}}, mehr als die {{n:exam.m9.low.left}}, die dir im Stack bleiben. Gegen das All-in deines Gegners bräuchtest du nur {{n:exam.m9.eq.low-after-half}} Equity, und ein {{t:overpair|Overpair}} spielt bei so niedriger {{t:spr|SPR}} um den ganzen Stack." }
+      - { text: "Bet {{n:ex.bet.half}} und {{t:fold|folden}}, wenn dein Gegner all-in geht", why: "Bet und {{t:fold|Fold}} ergibt hier keinen Sinn: Nach deiner Bet reichen {{n:exam.m9.eq.low-after-half}} Equity, um das All-in zu {{t:call|callen}}. Entweder spielst du um den ganzen Stack, oder du {{t:check|checkst}}." }
+      - { text: "Ich {{t:check|checke}} und {{t:fold|folde}} auf jede Bet", why: "Ein {{t:overpair|Overpair}} ist bei einer {{t:spr|SPR}} unter {{n:spr.zone.low}} eine Hand für den ganzen Stack. Ein {{t:fold|Fold}} auf eine Bet gibt den {{t:pot|Pot}} mit einer sehr starken Hand auf." }
   - kind: choice
     id: m9.exam.q5
     family: m9.geo-size
     rules: [R-M9-006]
-    prompt: "Der {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Du willst deinen ganzen Stack mit zwei gleich großen {{t:bet|Bets}} in die Mitte bringen: auf dem Flop und auf dem Turn. Welchen Anteil des {{t:pot|Pots}} bettest du?"
+    prompt: "Die {{t:spr|SPR}} auf dem Flop beträgt {{n:exam.m9.spr}}. Du willst deinen ganzen Stack mit zwei gleich großen {{t:bet|Bets}} in die Mitte bringen: auf dem Flop und auf dem Turn. Welchen Anteil des {{t:pot|Pots}} bettest du?"
     options:
-      - { text: "Ca. {{n:exam.m9.geo.two}} des {{t:pot|Pots}}", correct: true, why: "Ja: (1 + 2f) zum Quadrat = 1 + 2·{{n:exam.m9.spr}}, also 1 + 2f = 3 und f = {{n:exam.m9.geo.two}}. Ein Bet in Höhe des {{t:pot|Pots}} und ein {{t:call|Call}} verdreifachen den {{t:pot|Pot}}, und ein zweiter solcher Bet auf dem Turn ist all-in." }
-      - { text: "Ca. {{n:exam.m9.geo.three}} des {{t:pot|Pots}}", why: "Das ist die Größe für drei {{t:street|Streets}}: (1 + 2f) hoch drei = 1 + 2·{{n:exam.m9.spr}}. Für zwei {{t:street|Streets}} muss jeder {{t:bet|Bet}} größer sein." }
-      - { text: "Ca. {{n:cbet.size.small}} des {{t:pot|Pots}}", why: "Zwei {{t:bet|Bets}} von je 1/3 des {{t:pot|Pots}} bringen nur einen kleinen Teil des Stacks in die Mitte. Die geometrische Größe berechnest du mit der Formel (1 + 2f) hoch Anzahl der {{t:street|Streets}} = 1 + 2·{{t:spr|SPR}}." }
+      - { text: "Ca. {{n:exam.m9.geo.two}} des {{t:pot|Pots}}", correct: true, why: "Ja: (1 + 2f) zum Quadrat = 1 + 2·{{n:exam.m9.spr}}, also 1 + 2f = 3 und f = {{n:exam.m9.geo.two}}. Eine Bet in Höhe des {{t:pot|Pots}} und ein {{t:call|Call}} verdreifachen den {{t:pot|Pot}}, und eine zweite solche Bet auf dem Turn ist all-in." }
+      - { text: "Ca. {{n:exam.m9.geo.three}} des {{t:pot|Pots}}", why: "Das ist die Größe für drei {{t:street|Streets}}: (1 + 2f) hoch drei = 1 + 2·{{n:exam.m9.spr}}. Für zwei {{t:street|Streets}} muss jede {{t:bet|Bet}} größer sein." }
+      - { text: "Ca. {{n:cbet.size.small}} des {{t:pot|Pots}}", why: "Zwei {{t:bet|Bets}} von je 1/3 des {{t:pot|Pots}} bringen nur einen kleinen Teil des Stacks in die Mitte. Das geometrische Sizing berechnest du mit der Formel (1 + 2f) hoch Anzahl der {{t:street|Streets}} = 1 + 2·{{t:spr|SPR}}." }
   - kind: choice
     id: m9.exam.q6
     family: m9.plan-streets
@@ -53,8 +53,8 @@ drills:
     table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
     options:
       - { text: "Meist zwei, eine dritte dann, wenn dein Gegner mit schwächeren Händen bezahlt", correct: true, why: "Ja: Neunen, Fünfen und schwächere {{t:pair|Paare}} bezahlen ein {{t:overpair|Overpair}}, aber mit jeder {{t:street|Street}} {{t:fold|folden}} schlechtere Hände, und im {{t:pot|Pot}} bleiben vor allem bessere." }
-      - { text: "Drei, immer", why: "Drei {{t:value|Value-Streets}} halten in der Regel sehr starke Hände aus: Sets, {{t:straight|Straßen}}, hohes {{t:two-pair|Two Pair}}. Nach dem dritten {{t:bet|Bet}} bezahlt ein {{t:overpair|Overpair}} aus Buben oft bessere Hände." }
-      - { text: "Keine: Du {{t:check|checkst}} bis zum Showdown", why: "Zu vorsichtig: Auf einem {{t:dry|trockenen}} Flop schlägt ein {{t:overpair|Overpair}} viele Hände, die einen oder zwei {{t:bet|Bets}} bezahlen." }
+      - { text: "Drei, immer", why: "Drei {{t:value|Value-Streets}} halten in der Regel sehr starke Hände aus: Sets, {{t:straight|Straßen}}, hohe {{t:two-pair|zwei Paare}}. Nach der dritten {{t:bet|Bet}} bezahlt ein {{t:overpair|Overpair}} aus Buben oft bessere Hände." }
+      - { text: "Keine: Du {{t:check|checkst}} bis zum Showdown", why: "Zu vorsichtig: Auf einem {{t:dry|trockenen}} Flop schlägt ein {{t:overpair|Overpair}} viele Hände, die eine oder zwei {{t:bet|Bets}} bezahlen." }
   - kind: choice
     id: m9.exam.q7
     family: m9.geo-srp
@@ -72,15 +72,15 @@ drills:
     prompt: "Ein {{t:pot|Pot}} nach 3-Bet, du hast {{t:position|Position}}, {{t:spr|SPR}} ca. {{n:spr.3bet-ip}}. Du hast eine Hand für drei {{t:value|Value-Streets}} und willst deinen ganzen Stack in die Mitte bringen. Ein Freund rät zu kleinen Bets von je 1/3 des {{t:pot|Pots}} auf jeder {{t:street|Street}}. Was passiert, wenn dein Gegner dreimal {{t:call|callt}}?"
     table: { position: BTN }
     options:
-      - { text: "Du bringst nur ca. {{n:g3b.third.total}} von deinem Stack von {{n:spr.3bet-ip.stack}} in die Mitte", correct: true, why: "Ja: Kleine Bets lassen nur einen kleinen {{t:pot|Pot}} für die späteren {{t:street|Streets}}. Der ganze Stack geht bei ca. {{n:geo.3bet-ip.3}} des {{t:pot|Pots}} auf jeder {{t:street|Street}} in die Mitte, deshalb wählst du die geometrische Größe schon auf dem Flop." }
+      - { text: "Du bringst nur ca. {{n:g3b.third.total}} von deinem Stack von {{n:spr.3bet-ip.stack}} in die Mitte", correct: true, why: "Ja: Kleine Bets lassen nur einen kleinen {{t:pot|Pot}} für die späteren {{t:street|Streets}}. Der ganze Stack geht bei ca. {{n:geo.3bet-ip.3}} des {{t:pot|Pots}} auf jeder {{t:street|Street}} in die Mitte, deshalb wählst du das geometrische Sizing schon auf dem Flop." }
       - { text: "Am River ist der ganze Stack im {{t:pot|Pot}}", why: "Nein: Drei Bets von je 1/3 des {{t:pot|Pots}} bringen nur ca. {{n:g3b.third.total}} in die Mitte. Der Großteil des Stacks ({{n:spr.3bet-ip.stack}}) bleibt draußen." }
       - { text: "Du bringst den ganzen Stack schon auf dem Turn in die Mitte", why: "Umgekehrt: Kleine Bets wachsen langsam, weil der {{t:pot|Pot}} durch Multiplikation wächst. Erst eine Größe von ca. {{n:geo.3bet-ip.3}} des {{t:pot|Pots}} bringt den ganzen Stack in die Mitte, und zwar am River." }
   - kind: choice
     id: m9.exam.q9
     family: m9.spr-zone
     rules: [R-M9-010]
-    prompt: "Sehr tiefe Stacks: Der {{t:spr|SPR}} auf dem Flop ist höher als {{n:spr.zone.deep}}. Du hast hohes {{t:two-pair|Two Pair}}. Planst du, um den ganzen Stack zu spielen?"
+    prompt: "Sehr tiefe Stacks: Die {{t:spr|SPR}} auf dem Flop ist höher als {{n:spr.zone.deep}}. Du hast hohe {{t:two-pair|zwei Paare}}. Planst du, um den ganzen Stack zu spielen?"
     options:
-      - { text: "Meist nicht: Bei so einer {{t:spr|SPR}} brauchst du für den ganzen Stack ein Set, eine {{t:straight|Straße}} oder eine bessere Hand", correct: true, why: "Ja: Über {{n:spr.zone.deep}} geht der ganze Stack erst nach mehr als drei {{t:bet|Bets}} in Höhe des {{t:pot|Pots}} in die Mitte, und bis zum Ende bezahlt dein Gegner vor allem mit sehr starken Händen (das ist eine Vereinfachung der Zonen für den {{t:spr|SPR}})." }
-      - { text: "Ja: Hohes {{t:two-pair|Two Pair}} spielt immer um den Stack", why: "Hohes {{t:two-pair|Two Pair}} reicht meist in der Zone von {{n:spr.zone.mid}} bis {{n:spr.zone.deep}}. Darüber hat ein Gegner, der den ganzen Stack in die Mitte bringt, oft ein Set oder besser." }
-      - { text: "Ja, weil eine hohe {{t:spr|SPR}} einen guten Preis für den All-in gibt", why: "Umgekehrt: Je höher der {{t:spr|SPR}}, desto schlechter der Preis für den All-in und desto stärker muss deine Hand sein, um um den ganzen Stack zu spielen." }
+      - { text: "Meist nicht: Bei so einer {{t:spr|SPR}} brauchst du für den ganzen Stack ein Set, eine {{t:straight|Straße}} oder eine bessere Hand", correct: true, why: "Ja: Über {{n:spr.zone.deep}} geht der ganze Stack erst nach mehr als drei {{t:bet|Bets}} in Höhe des {{t:pot|Pots}} in die Mitte, und bis zum Ende bezahlt dein Gegner vor allem mit sehr starken Händen (das ist eine Vereinfachung der Zonen für die {{t:spr|SPR}})." }
+      - { text: "Ja: Hohe {{t:two-pair|zwei Paare}} spielen immer um den Stack", why: "Hohe {{t:two-pair|zwei Paare}} reichen meist in der Zone von {{n:spr.zone.mid}} bis {{n:spr.zone.deep}}. Darüber hat ein Gegner, der den ganzen Stack in die Mitte bringt, oft ein Set oder besser." }
+      - { text: "Ja, weil eine hohe {{t:spr|SPR}} einen guten Preis für das All-in gibt", why: "Umgekehrt: Je höher die {{t:spr|SPR}}, desto schlechter der Preis für das All-in und desto stärker muss deine Hand sein, um um den ganzen Stack zu spielen." }

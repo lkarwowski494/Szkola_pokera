@@ -42,9 +42,9 @@ drills:
     prompt: "Tout le monde s'est {{t:fold|couché}} jusqu'à vous. Que faites-vous ?"
     table: { hand: "Qs Js", position: BTN }
     options:
-      - { text: "{{t:raise|Je relance}}", correct: true, why: "QJ assortis est une très bonne main pour attaquer les blinds en {{t:position|position}} : elle touche des {{t:straight|quintes}}, des couleurs et des {{t:pair|paires}} hautes." }
+      - { text: "{{t:raise|Je relance}}", correct: true, why: "QJ assortis est une très bonne main pour attaquer les blindes en {{t:position|position}} : elle touche des {{t:straight|quintes}}, des couleurs et des {{t:pair|paires}} hautes." }
       - { text: "{{t:fold|Je me couche}}", why: "Au Bouton, cette main est trop bonne pour être {{t:fold|couchée}}." }
-      - { text: "{{t:call|Je suis}}", why: "Mieux vaut {{t:raise|relancer}} : vous avez une chance de remporter les blinds tout de suite et vous jouez avec l'{{t:initiative|initiative}}." }
+      - { text: "{{t:call|Je suis}}", why: "Mieux vaut {{t:raise|relancer}} : vous avez une chance de remporter les blindes tout de suite et vous jouez avec l'{{t:initiative|initiative}}." }
 ---
 Les débutants perdent la plus grande partie de leur argent en jouant trop de mains faibles. Bien choisir ses mains de départ est le moyen le plus rapide d'arrêter de perdre.
 

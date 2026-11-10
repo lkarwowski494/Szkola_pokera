@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "A5 do mesmo naipe", correct: true, why: "Bloqueia AA e AK do adversário e, se ele {{t:call|pagar}}, tem chance de fazer {{t:flush}} e {{t:straight|sequência}}. É um {{t:bluff|blefe}} típico da parte de baixo do seu {{t:range}} de {{t:call|pagamento}}: do {{t:big-blind}}, você dá 3-bet com as mãos mais fortes mais {{t:bluff|blefes}} como este." }
       - { text: "K7 de naipes diferentes", why: "Com essa mão você se defende {{t:call|pagando}}. Como 3-bet, não bloqueia nada importante e joga mal quando o adversário {{t:call|paga}}." }
-      - { text: "{{t:pair|Par}} 22", why: "Os {{t:pair|pares}} mais baixos se defendem {{t:call|pagando}}: lucram quando acertam um set ({{t:three-of-a-kind|trinca}} com um {{t:pocket-pair|par na mão}}, ou seja, um {{t:pair|par}} formado pelas duas {{t:hole-cards|cartas fechadas}}), e um 3-bet com eles lida mal com um 4-bet." }
+      - { text: "{{t:pair|Par}} 22", why: "Os {{t:pair|pares}} mais baixos se defendem {{t:call|pagando}}: lucram quando acertam um set ({{t:three-of-a-kind|trinca}} com um {{t:pocket-pair|par de mão}}, ou seja, um {{t:pair|par}} formado pelas duas {{t:hole-cards|cartas fechadas}}), e um 3-bet com eles lida mal com um 4-bet." }
   - kind: generated
     id: m4.l1.g-btn
     family: m4.vsopen.btn-vs-co

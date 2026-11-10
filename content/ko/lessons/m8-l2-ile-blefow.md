@@ -35,7 +35,7 @@ drills:
     rules: [R-M8-004, R-M8-005]
     prompt: "리버입니다. {{t:pot|팟}}은 {{n:ex.pot}}입니다. {{t:pot|팟}}보다 많이 벳합니다: {{n:ex.bet.overbet}}. 균형 상태에서 당신의 벳 중 {{t:bluff|블러프}}의 비율은 얼마입니까?"
     options:
-      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. {{t:overbet|오버벳}}, 즉 {{t:pot|팟}} 전체보다 큰 {{t:bet|벳}}은 상대에게 가장 나쁜 가격을 주므로 {{t:bluff|블러프}}를 가장 많이 넣을 수 있지만, 그래도 절반보다는 적습니다." }
+      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. {{t:overbet|오버벳}}, 즉 {{t:pot|팟}} 전체보다 큰 {{t:bet|베팅}}은 상대에게 가장 나쁜 가격을 주므로 {{t:bluff|블러프}}를 가장 많이 넣을 수 있지만, 그래도 절반보다는 적습니다." }
       - { text: "{{n:alpha.bet-overbet}}", why: "이 크기에 대한 알파입니다. 단일 {{t:bluff|블러프}}가 이득이 되려면 상대가 얼마나 자주 {{t:fold|폴드}}해야 하는지를 나타냅니다. {{t:range|레인지}}에서 {{t:bluff|블러프}}의 비율은 {{n:bluff.share.bet-overbet}}입니다." }
       - { text: "{{n:bluff.share.bet-pot}}", why: "이것은 {{t:pot|팟}} 전체 벳에서의 {{t:bluff|블러프}} 비율입니다. {{n:ex.bet.overbet}} 벳에서는 더 많습니다: {{n:bluff.share.bet-overbet}}." }
   - kind: choice
@@ -69,7 +69,7 @@ drills:
     id: m8.l2.q-too-many
     family: m8.bluff.balance
     rules: [R-M8-004]
-    prompt: "리버에서 {{t:pot|팟}} 전체를 벳하는데, 당신의 벳 중 {{t:bluff|블러프}}가 {{n:bluff.share.bet-pot}}이 아니라 절반입니다. 주의 깊은 상대는 무엇을 할 수 있습니까?"
+    prompt: "리버에서 {{t:pot|팟}} 전체를 벳하는데, 당신의 벳 중 {{t:bluff|블러프}}가 {{n:bluff.share.bet-pot}}가 아니라 절반입니다. 주의 깊은 상대는 무엇을 할 수 있습니까?"
     options:
       - { text: "{{t:bluff|블러프}}를 잡는 약한 핸드로도 더 자주 {{t:call|콜}}합니다", correct: true, why: "상대의 {{t:call|콜}}은 절반의 경우에 이기지만, 필요한 것은 {{n:eq.bet-pot}}뿐입니다. 더 많이 지불할수록 밸류에 잃는 것보다 당신의 {{t:bluff|블러프}}로 버는 것이 더 많습니다." }
       - { text: "더 자주 {{t:fold|폴드}}합니다", why: "폴드하면 {{t:bluff|블러프}}를 가진 당신에게 {{t:pot|팟}}을 내줍니다. {{t:bluff|블러프}}가 너무 많으면 상대는 {{t:call|콜}}해서 이익을 봅니다." }

@@ -3,7 +3,7 @@ id: m10.l2
 module: m10
 order: 2
 title: "玩家類型"
-sub: "岩石玩家、常客、被動玩家、瘋子"
+sub: "岩石型玩家、常規玩家、被動玩家、瘋子"
 rules: [R-M10-004, R-M10-005, R-M10-006, R-M10-007, R-M10-008]
 drills:
   - kind: generated
@@ -19,7 +19,7 @@ drills:
     rules: [R-M10-004]
     prompt: "經過{{n:hud.ex.reg.hands}}手牌後，對手的{{t:vpip}}是{{n:hud.ex.passive.vpip}}、{{t:pfr}}是{{n:hud.ex.passive.pfr}}。這說明他翻牌前怎麼打？"
     options:
-      - { text: "他很被動：大多數牌只{{t:call|跟注}}或平跟", correct: true, why: "{{t:vpip}} − {{t:pfr}}的差距是{{n:hud.ex.passive.gap}}點，超過{{n:hud.gap.passive}}的門檻。他玩的牌相當多，但大多數都沒有{{t:raise|加注}}就投入{{t:pot|底池}}。" }
+      - { text: "他很被動：大多數牌只{{t:call|跟注}}或溜入", correct: true, why: "{{t:vpip}} − {{t:pfr}}的差距是{{n:hud.ex.passive.gap}}點，超過{{n:hud.gap.passive}}的門檻。他玩的牌相當多，但大多數都沒有{{t:raise|加注}}就投入{{t:pot|底池}}。" }
       - { text: "他很兇，因為他玩很多牌", why: "玩牌數量（{{t:vpip}}）說明他打得多鬆，而不是多兇。攻擊性要看{{t:pfr}}以及兩者的差距。" }
       - { text: "他是{{t:nit}}", why: "{{t:nit}}最多只玩約{{n:hud.vpip.nit-max}}的牌；這位玩家明顯玩得更多。" }
   - kind: choice
@@ -38,7 +38,7 @@ drills:
     table: { hand: "Kh Qd", board: "Ks 8h 4c 2d 7s" }
     prompt: "河牌。你在翻牌和轉牌都下注，對手都{{t:call|跟注}}。對手是被動的{{t:recreational|娛樂玩家}}（{{t:vpip}} {{n:mda.rec.vpip}}、{{t:pfr}} {{n:mda.rec.pfr}}、{{n:hud.ex.reg.hands}}手牌）。他{{t:check|過牌}}。你拿著{{t:top-pair|頂對}}加第二大踢腳，怎麼打？"
     options:
-      - { text: "下注{{t:value|拿價值}}", correct: true, why: "這類玩家會用較弱的K、8和口袋{{t:pair|對子}}一路{{t:call|跟注}}到底。他的{{t:call|跟注}}有一半以上是比你差的牌，所以下注能賺錢（第8單元的門檻）。" }
+      - { text: "下注{{t:value|拿價值}}", correct: true, why: "這類玩家會用較弱的K、8和口袋{{t:pair|對子}}一路{{t:call|跟注}}到底。他的{{t:call|跟注}}有一半以上是比你差的牌，所以下注能賺錢（第8模組的門檻）。" }
       - { text: "{{t:check|過牌}}，以免撞上更好的牌", why: "面對會用較弱的牌{{t:call|跟注}}的玩家，{{t:check}}等於放棄價值。更好的牌有時會付錢，但較差的牌{{t:call|跟注}}的次數更多。" }
       - { text: "下注整個{{t:pot|底池}}，當作{{t:bluff}}", why: "拿著{{t:top-pair|頂對}}，這不是{{t:bluff}}：會{{t:call|跟注}}的牌中有很多你都贏。這個下注是{{t:value|為了價值}}。" }
   - kind: choice
@@ -49,7 +49,7 @@ drills:
     prompt: "河牌，{{t:straight-draw}}沒中。對手是被動的{{t:recreational|娛樂玩家}}（{{t:wtsd}} {{n:mda.rec.wtsd}}），翻牌和轉牌都{{t:call|跟注}}。他{{t:check|過牌}}。你怎麼打？"
     options:
       - { text: "{{t:check|過牌}}，放棄{{t:pot|底池}}", correct: true, why: "只有當對手{{t:fold|棄牌}}的頻率高於你下注的{{t:alpha}}時，{{t:bluff}}才會賺錢。{{t:call|跟注}}了兩條{{t:street|街}}、又常打到攤牌的玩家，河牌很少{{t:fold|棄牌}}。" }
-      - { text: "下大注，因為我在攤牌時沒有價值", why: "在基準策略（第8單元）中，這種{{t:bluff}}有時是好選擇，但面對這位玩家，{{t:fold|棄牌}}不夠多：{{t:bluff|詐唬}}會虧錢。" }
+      - { text: "下大注，因為我在攤牌時沒有價值", why: "在基準策略（第8模組）中，這種{{t:bluff}}有時是好選擇，但面對這位玩家，{{t:fold|棄牌}}不夠多：{{t:bluff|詐唬}}會虧錢。" }
       - { text: "下小注，讓{{t:bluff}}便宜一點", why: "較小的下注需要的{{t:fold|棄牌}}較少，但{{t:call|跟注}}了兩條{{t:street|街}}的牌，通常也會{{t:call|跟注}}小注。不如放棄{{t:pot|底池}}。" }
   - kind: choice
     id: m10.l2.q-nit-3bet
@@ -58,7 +58,7 @@ drills:
     table: { hand: "Ad Jc", position: "CO" }
     prompt: "你在{{t:cutoff|CO}}{{t:open|開池}}。按鈕位坐著一位{{t:nit}}：{{t:vpip}} {{n:hud.ex.nit.vpip}}、{{t:pfr}} {{n:hud.ex.nit.pfr}}、{{n:hud.ex.reg.hands}}手牌。他對你3-bet。你拿AJo怎麼打？"
     options:
-      - { text: "{{t:fold|棄牌}}", correct: true, why: "玩牌這麼少的人，3-bet主要用最強的牌：AQ、AK和高{{t:pair|對子}}，這些牌都壓制AJ。面對他，你要比第4單元的基準策略更常{{t:fold|棄牌}}。" }
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "玩牌這麼少的人，3-bet主要用最強的牌：AQ、AK和高{{t:pair|對子}}，這些牌都壓制AJ。面對他，你要比第4模組的基準策略更常{{t:fold|棄牌}}。" }
       - { text: "{{t:call|跟注}}，因為AJ是強牌", why: "AJ面對寬的{{t:range|範圍}}是強牌。面對{{t:vpip}} {{n:hud.ex.nit.vpip}}的玩家的3-bet，它常被壓制，而且沒有{{t:position|位置}}。" }
       - { text: "4-bet", why: "對{{t:nit|岩石型玩家}}用AJ 4-bet，是在對抗一個壓制它、又很少{{t:fold|棄牌}}的{{t:range|範圍}}。這既不是{{t:value}}，也不是好的{{t:bluff}}。" }
   - kind: choice
@@ -77,7 +77,7 @@ drills:
     table: { hand: "Kc 9c", board: "Kd 7s 4h 2c Qh" }
     prompt: "對手是{{t:maniac|瘋子}}：{{n:hud.ex.reg.hands}}手牌後{{t:vpip}} {{n:hud.ex.maniac.vpip}}、{{t:pfr}} {{n:hud.ex.maniac.pfr}}。他每條{{t:street|街}}都下注，河牌{{t:bet|下注}}整個{{t:pot|底池}}。你拿{{t:top-pair|頂對}}加弱踢腳，怎麼打？"
     options:
-      - { text: "{{t:call|跟注}}", correct: true, why: "面對詐唬比基準策略更多的玩家，處於{{t:call|跟注}}邊緣的牌能賺錢。最大的{{t:pair}}能贏他的{{t:bluff|詐唬}}和部分價值牌。" }
+      - { text: "{{t:call|跟注}}", correct: true, why: "面對{{t:bluff|詐唬}}比基準策略更多的玩家，處於{{t:call|跟注}}邊緣的牌能賺錢。最大的{{t:pair}}能贏他的{{t:bluff|詐唬}}和部分價值牌。" }
       - { text: "{{t:fold|棄牌}}，因為下注整個{{t:pot|底池}}代表強牌", why: "一位幾乎每手牌都以{{t:raise|加注}}入池、每條{{t:street|街}}都下注的玩家，大注裡會有很多{{t:bluff|詐唬}}。{{t:fold|棄牌}}等於因為他打得兇而付錢給他。" }
       - { text: "{{t:raise|加注}}全下", why: "{{t:raise|加注}}會讓{{t:bluff|詐唬}}牌{{t:fold|棄牌}}，而更好的牌會{{t:call|跟注}}。拿著抓{{t:bluff|詐唬}}的牌，{{t:call}}就夠了。" }
   - kind: choice
@@ -113,7 +113,7 @@ drills:
 
 ## 玩家群體資料怎麼說
 
-一個公開的統計資料庫提供某個大型線上平台玩家的平均統計，NL25 6-max，涵蓋過去{{n:mda.period.months}}個月的所有牌局。其中{{t:regular|常規玩家}}是{{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}}且勝率高於{{n:mda.reg.def.wr}}的玩家，{{t:recreational|娛樂玩家}}則是{{t:vpip}}超過{{n:mda.rec.def}}且勝率低於{{n:mda.rec.def.wr}}的玩家：
+一個公開的統計資料庫提供某個大型線上平台玩家的平均統計，NL25 6-max，涵蓋過去{{n:mda.period.months}}個月的所有牌局。其中{{t:regular|常規玩家}}是{{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}}且贏率高於{{n:mda.reg.def.wr}}的玩家，{{t:recreational|娛樂玩家}}則是{{t:vpip}}超過{{n:mda.rec.def}}且贏率低於{{n:mda.rec.def.wr}}的玩家：
 
 | 統計 | {{t:regular|常規玩家}} | {{t:recreational|娛樂玩家}} |
 |---|---|---|
@@ -121,20 +121,20 @@ drills:
 | 面對3-bet棄牌 | {{n:mda.reg.f3b}} | {{n:mda.rec.f3b}} |
 | {{t:wtsd}} | {{n:mda.reg.wtsd}} | {{n:mda.rec.wtsd}} |
 | 贏下的攤牌 | {{n:mda.reg.wsd}} | {{n:mda.rec.wsd}} |
-| 勝率 | {{n:mda.reg.wr}} | {{n:mda.rec.wr}} |
+| 贏率 | {{n:mda.reg.wr}} | {{n:mda.rec.wr}} |
 
 {{t:recreational|娛樂玩家}}的{{t:vpip}} − {{t:pfr}}差距是{{n:mda.rec.gap.pp}}點，也就是說他們很被動。他們更常打到攤牌，也更少贏：他們用較弱的牌{{t:call|跟注}}。他們也很少在面對3-bet時{{t:fold|棄牌}}。在NL50和NL100，數字幾乎一樣。
 
 ## 被動的{{t:recreational|娛樂玩家}}
 
-第8單元的基準策略不變：當會{{t:call|跟注}}的牌中有一半以上比你差時，你下注{{t:value|拿價值}}；當對手{{t:fold|棄牌}}的頻率高於{{t:alpha}}時，{{t:bluff}}能賺錢。改變的是對手：他會用更多較弱的牌{{t:call|跟注}}。因此：
+第8模組的基準策略不變：當會{{t:call|跟注}}的牌中有一半以上比你差時，你下注{{t:value|拿價值}}；當對手{{t:fold|棄牌}}的頻率高於{{t:alpha}}時，{{t:bluff}}能賺錢。改變的是對手：他會用更多較弱的牌{{t:call|跟注}}。因此：
 
 - 你用更多牌下注{{t:value|拿價值}}，包括更薄的價值，例如拿{{t:top-pair|頂對}}加較弱踢腳打三條{{t:street|街}}；
 - 你更少{{t:bluff|詐唬}}，尤其是在河牌：{{t:bluff}}要賺錢所需的{{t:fold|棄牌}}並不存在。
 
 ## {{t:nit|岩石型玩家}}和{{t:maniac|瘋子}}
 
-**{{t:nit|岩石型玩家}}**只玩強牌。當他{{t:raise|加注}}或3-bet時，你{{t:call|跟注}}{{t:range|範圍}}底部的牌更常被壓制，所以你要比第4單元的基準策略更常用這些牌{{t:fold|棄牌}}。當他在盲注位時，你要更常偷盲，因為他很少防守。
+**{{t:nit|岩石型玩家}}**只玩強牌。當他{{t:raise|加注}}或3-bet時，你{{t:call|跟注}}{{t:range|範圍}}底部的牌更常被壓制，所以你要比第4模組的基準策略更常用這些牌{{t:fold|棄牌}}。當他在盲注位時，你要更常偷盲，因為他很少防守。
 
 **{{t:maniac|瘋子}}**玩很多牌，而且幾乎每手都{{t:raise|加注}}。他的下注比基準策略含有更多{{t:bluff|詐唬}}，所以處於{{t:call|跟注}}邊緣的牌你要{{t:call|跟注}}，拿非常強的牌時讓他下注，自己則不{{t:bluff|詐唬}}：他很少{{t:fold|棄牌}}。
 

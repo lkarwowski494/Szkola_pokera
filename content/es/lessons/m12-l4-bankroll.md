@@ -55,7 +55,7 @@ drills:
     rules: [R-M12-011, R-M12-002]
     prompt: "Empezaste en este {{t:stakes|límite}} con {{n:br.bi.base}} {{t:buy-in|buy-ins}} y has perdido {{n:dd.bi.small}}. Ahora tienes {{n:br.ex.after-dd}}. ¿Qué haces?"
     options:
-      - { text: "Te quedas en el {{t:stakes|límite}} y revisas tus decisiones en las manos perdidas", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|buy-ins}} siguen siendo más que el umbral de bajada más tardío, {{n:br.bi.move-down}}. En una simulación, un {{t:downswing}} así le ocurre a aprox. {{n:dd.p.small.100k}} de los jugadores que ganan {{n:var.wr.ex}} en {{n:var.hands.k}} mil manos, y revisar las manos permite comprobar si no se debe a errores." }
+      - { text: "Te quedas en el {{t:stakes|límite}} y revisas tus decisiones en las manos perdidas", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|buy-ins}} siguen siendo más que el umbral de bajada más tardío, {{n:br.bi.move-down}}. En una simulación, un {{t:downswing}} así le ocurre a aprox. el {{n:dd.p.small.100k}} de los jugadores que ganan {{n:var.wr.ex}} en {{n:var.hands.k}} mil manos, y revisar las manos permite comprobar si no se debe a errores." }
       - { text: "Bajas de {{t:stakes|límite}} enseguida", correct: true, why: "También es una buena decisión: algunas fuentes recomiendan bajar ya tras perder {{n:dd.bi.small}} {{t:buy-in|buy-ins}}. Bajar antes de llegar a la mitad del bankroll no es un error; hacerlo más tarde, sí." }
       - { text: "Añades {{t:buy-in|buy-ins}} de fuera para volver a tener {{n:br.bi.base}}", why: "Recargar tras cada {{t:downswing}} desvirtúa el sentido del bankroll como tope de riesgo. Fijas el umbral de antemano y lo respetas." }
   - kind: choice
@@ -74,7 +74,7 @@ drills:
     prompt: "Un jugador pierde de media en su {{t:stakes|límite}}, pero tiene un bankroll enorme. ¿De qué le sirve?"
     options:
       - { text: "Solo retrasa la pérdida", correct: true, why: "Con un winrate negativo, el resultado baja de media, así que tarde o temprano perderá el bankroll, sea cual sea su tamaño. El bankroll protege de la {{t:variance|varianza}}, no del mal juego." }
-      - { text: "Lo protege de la bancarrota", why: "La fórmula del riesgo solo funciona con un winrate positivo. Un jugador perdedor perderá el bankroll con total seguridad, solo que más despacio cuanto mayor sea el bankroll." }
+      - { text: "Lo protege de la ruina", why: "La fórmula del riesgo solo funciona con un winrate positivo. Un jugador perdedor perderá el bankroll con total seguridad, solo que más despacio cuanto mayor sea el bankroll." }
       - { text: "Le permite jugar en {{t:stakes|límites}} más altos", why: "Un {{t:stakes|límite}} más alto con un winrate negativo solo acelera la pérdida." }
   - kind: choice
     id: m12.l4.q-study-beginner
@@ -82,7 +82,7 @@ drills:
     rules: [R-M12-012]
     prompt: "Acabas de empezar. ¿Cómo repartes el tiempo entre estudiar y jugar?"
     options:
-      - { text: "Aprox. {{n:study.beginner}} de estudio", correct: true, why: "Al principio es cuando más tienes que recuperar, así que predomina el estudio." }
+      - { text: "Aprox. {{n:study.beginner}} de estudio", correct: true, why: "Al principio es cuando más te queda por aprender, así que predomina el estudio." }
       - { text: "Aprox. {{n:study.min}} de estudio", why: "Es el mínimo para un jugador que ya gana. Al principio, el estudio debería predominar." }
       - { text: "Solo jugar; el aprendizaje llegará con la experiencia", why: "El resultado de la partida es un feedback pobre (lección sobre decisión y resultado). Estudiar con explicaciones y analizar manos enseña más rápido." }
   - kind: choice
@@ -92,7 +92,7 @@ drills:
     prompt: "Ya ganas en tu {{t:stakes|límite}}. ¿Cómo repartes el tiempo?"
     options:
       - { text: "Más o menos mitad y mitad, pero nunca menos de {{n:study.min}} de estudio", correct: true, why: "También cuando ganas, lo ideal es aprox. {{n:study.winner}} de estudio, y el mínimo es {{n:study.min}}." }
-      - { text: "Solo jugar, ya que ganas", why: "Aunque ganes, no bajas de {{n:study.min}} del tiempo dedicado al estudio." }
+      - { text: "Solo jugar, ya que ganas", why: "Aunque ganes, no dedicas al estudio menos del {{n:study.min}} del tiempo." }
       - { text: "Aprox. {{n:study.beginner}} de estudio, como al principio", why: "Puedes, si te preparas para {{t:stakes|límites}} más altos. Si simplemente ganas en el tuyo, basta con aprox. {{n:study.winner}}." }
   - kind: choice
     id: m12.l4.q-warning-sign
@@ -110,7 +110,7 @@ drills:
     params: { area: mental, dir: both }
     count: 4
 ---
-El bankroll es toda la reserva destinada exclusivamente a jugar al póquer. En esta lección lo cuentas en **{{t:buy-in|buy-ins}}**, no en dinero: un {{t:buy-in}} es un stack completo de {{n:format.stack}} en el {{t:stakes|límite}} en el que juegas.
+El bankroll es toda la reserva destinada exclusivamente a jugar al póker. En esta lección lo cuentas en **{{t:buy-in|buy-ins}}**, no en dinero: un {{t:buy-in}} es un stack completo de {{n:format.stack}} en el {{t:stakes|límite}} en el que juegas.
 
 ## {{t:risk-of-ruin|Riesgo de ruina}}
 
@@ -138,7 +138,7 @@ Fija el umbral de antemano: bajas un {{t:stakes|límite}} como muy tarde cuando 
 
 ## Estudio y juego
 
-Al principio dedicas aprox. {{n:study.beginner}} del tiempo al estudio y el resto, a jugar. Cuando ganas en tu {{t:stakes|límite}}, lo ideal es aprox. {{n:study.winner}}, pero nunca menos de {{n:study.min}} de estudio.
+Al principio dedicas aprox. el {{n:study.beginner}} del tiempo al estudio y el resto, a jugar. Cuando ganas en tu {{t:stakes|límite}}, lo ideal es aprox. {{n:study.winner}}, pero nunca menos de {{n:study.min}} de estudio.
 
 :::note Juego responsable
 Algunas señales de que el juego deja de estar bajo control: juegas más tiempo del que habías previsto; después de perder, vuelves para recuperar las pérdidas; juegas con dinero que no puedes permitirte perder o pides prestado para jugar; juegas para huir de tus preocupaciones; ocultas el juego a tus seres queridos.

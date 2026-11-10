@@ -62,7 +62,7 @@ drills:
     table: { hand: "Qs Js", board: "7s 4h 2d", position: BB }
     options:
       - { text: "{{t:call|Igualo}}", correct: true, why: "Dos cartas altas más un {{t:flush-draw|proyecto de color}} adicional (backdoor: tres picas; necesitas pica en el turn y en el river). Con un precio de {{n:eq.bet-third}}, basta para {{t:call|igualar}}." }
-      - { text: "Check-raise", why: "Normalmente no. El check-raise lo haces sobre todo con las manos más fuertes y {{t:draw|proyectos}} ({{t:flush|color}}, {{t:oesd|proyecto abierto de escalera}}). Un {{t:flush-draw|proyecto de color}} adicional es débil: cuando el Button paga, normalmente te quedas solo con cartas altas. Esta mano la {{t:call|igualas}}." }
+      - { text: "Check-raise", why: "Normalmente no. El check-raise lo haces sobre todo con las manos más fuertes y {{t:draw|proyectos}} ({{t:flush|color}}, {{t:oesd|proyecto de escalera abierta}}). Un {{t:flush-draw|proyecto de color}} adicional es débil: cuando el Button paga, normalmente te quedas solo con cartas altas. Esta mano la {{t:call|igualas}}." }
       - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado frente a un c-bet pequeño. El {{t:draw|proyecto}} adicional y dos cartas altas dan suficiente equity con un precio de {{n:eq.bet-third}}." }
   - kind: choice
     id: m6.l2.q-gutshot-overcard
@@ -122,7 +122,7 @@ Frente a un c-bet pequeño (aprox. 1/3 del {{t:pot|bote}}) continúas con:
 - casi cualquier {{t:pair|pareja}}, también la media y la mínima,
 - {{t:flush-draw|proyectos de color}} y de {{t:straight|escalera}}, también un gutshot con carta alta,
 - cartas altas con un {{t:draw|proyecto}} adicional (backdoor), p. ej. tres cartas del mismo palo,
-- normalmente también con as como carta más alta.
+- normalmente también as como carta más alta.
 
 Recuerda de M2: {{t:call|igualar}} una {{t:bet|apuesta}} en el flop te compra una carta, así que comparas el {{t:draw|proyecto}} con tu probabilidad en el turn. Esa probabilidad a veces es algo menor que el precio de un c-bet pequeño. Aun así, {{t:call|igualar}} compensa cuando, si ligas, ganarás más de lo que hay ahora en el {{t:pot|bote}} (las llamadas implied odds, que calcularás en M7), o cuando la mano a veces gana sin ligar, p. ej. gracias a una carta alta.
 

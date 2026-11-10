@@ -77,7 +77,7 @@ Un flop **{{t:disconnected|sconnesso}}** ha carte così distanti che nessuna com
 
 ## {{t:dry|Secco}} o {{t:wet|bagnato}}
 
-Contiamo i punti di {{t:wetness|umidità}}, cioè quanto il flop favorisce i {{t:draw|progetti}} e le mani forti a colore e a {{t:straight|scala}}:
+Contiamo i punti di {{t:wetness|bagnatura}}, cioè quanto il flop favorisce i {{t:draw|progetti}} e le mani forti a colore e a {{t:straight|scala}}:
 
 - {{t:straight|scala}} già possibile in più modi, cioè con almeno due diverse combinazioni di due valori in mano (su [[9h 8d 7c]] la fanno JT, T6 e 65): {{n:tex.points.straight.made}} pt,
 - {{t:straight|scala}} possibile in un solo modo (su [[Ah Kd Tc]] la fa solo QJ, su [[Ah 4d 2c]] solo 53): {{n:tex.points.straight.made-one}} pt,
@@ -98,7 +98,7 @@ Un flop **{{t:dry|secco}}** ha meno di {{n:tex.threshold.medium}} pt, uno **{{t:
 | [[9h 8d 7c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.made}} | {{n:tex.ex.987}} | {{t:wet|bagnato}} |
 | [[Jh Th 8c]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.made}} | {{n:tex.ex.jt8}} | {{t:wet|bagnato}} |
 
-Una {{t:straight|scala}} fatta pesa più di un semplice {{t:draw|progetto}}, perché cambia i rapporti di forza già adesso. Una {{t:straight|scala}} possibile in più modi pesa più di una {{t:straight|scala}} possibile in un solo modo: su [[9h 8d 7c]] molte mani hanno {{t:straight|scala}} o un {{t:oesd|progetto di scala bilaterale}}, mentre su [[Ah Kd Tc]] la {{t:straight|scala}} la fa solo QJ e nessuno ha un {{t:draw|progetto}} bilaterale. Per questo A-K-T di tre semi è intermedio, anche se è {{t:connected|connesso}}.
+Una {{t:straight|scala}} fatta pesa più di un semplice {{t:draw|progetto}}, perché cambia i rapporti di forza già adesso. Una {{t:straight|scala}} possibile in più modi pesa più di una {{t:straight|scala}} possibile in un solo modo: su [[9h 8d 7c]] molte mani hanno {{t:straight|scala}} o un {{t:oesd|OESD}}, mentre su [[Ah Kd Tc]] la {{t:straight|scala}} la fa solo QJ e nessuno ha un {{t:draw|progetto}} bilaterale. Per questo A-K-T di tre semi è intermedio, anche se è {{t:connected|connesso}}.
 
 Il flop {{t:two-tone|bicolore}} [[Kh 7h 2c]] è un flop {{t:dry|secco}} con un {{t:flush-draw|progetto di colore}}: non ci sono né {{t:straight|scala}} né {{t:straight-draw|progetto di scala}}. Un flop {{t:monotone|monocolore}} è sempre {{t:wet|bagnato}}: su [[Kh 8h 3h]] hanno {{t:flush|colore}} o {{t:flush-draw|progetto di colore}} più mani di quante abbiano {{t:straight|scala}} o {{t:oesd|progetto di scala bilaterale}} su [[9h 8d 7c]].
 

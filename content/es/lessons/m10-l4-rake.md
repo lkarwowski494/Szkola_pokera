@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Varias veces mayor: aprox. {{n:rake.micro.low}}–{{n:rake.micro.high}} frente a {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}", correct: true, why: "Al convertir las tablas de rake de las salas a bb/100, en microlímites sale aprox. {{n:rake.micro.low}}–{{n:rake.micro.high}}. Un jugador ganador tiene que superar a sus rivales por más de lo que supone el {{t:rake}}, y solo el excedente es su winrate." }
       - { text: "Más o menos igual", why: "El {{t:rake}} en microlímites es de aprox. {{n:rake.micro.low}}–{{n:rake.micro.high}}, y el winrate típico, de {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}. La diferencia es de varias veces." }
-      - { text: "Insignificante, porque la sala solo se queda con unos pocos por ciento del {{t:pot|bote}}", why: "Unos pocos por ciento de cada {{t:pot|bote}} tras el flop suman aprox. {{n:rake.micro.low}}–{{n:rake.micro.high}}. Es más de lo que gana un jugador ganador típico." }
+      - { text: "Insignificante, porque la sala solo se queda con un pequeño porcentaje del {{t:pot|bote}}", why: "Un pequeño porcentaje de cada {{t:pot|bote}} tras el flop suma aprox. {{n:rake.micro.low}}–{{n:rake.micro.high}}. Es más de lo que gana un jugador ganador típico." }
   - kind: choice
     id: m10.l4.q-population-loss
     family: m10.rake.cost

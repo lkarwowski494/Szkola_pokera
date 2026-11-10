@@ -86,7 +86,7 @@ drills:
     rules: [R-M8-002]
     prompt: "Un amico dice: «Al river con una {{t:pair|coppia}} media punto per capire a che punto sono». Che cosa non va in questa idea?"
     options:
-      - { text: "Le mani peggiori {{t:fold|foldano}} e quelle migliori pagano", correct: true, why: "Dopo una puntata così, le mani che batti {{t:fold|foldano}}, mentre quelle contro cui perdi pagano o {{t:raise|rilanciano}}. L'informazione la ottieni gratis facendo {{t:check}}, perché, giocando in {{t:position|posizione}}, l'avversario mostrerà le carte allo showdown." }
+      - { text: "Le mani peggiori {{t:fold|foldano}} e quelle migliori pagano", correct: true, why: "Dopo una puntata così, le mani che batti {{t:fold|foldano}}, mentre quelle contro cui perdi pagano o {{t:raise|rilanciano}}. L'informazione la ottieni gratis facendo {{t:check}}, perché sei in {{t:position|posizione}} e l'avversario mostrerà le carte allo showdown." }
       - { text: "Niente, è un buon modo per ottenere informazioni", why: "Qui l'informazione costa una puntata che di solito perdi. Dopo il {{t:check}} vedrai la mano dell'avversario senza pagare altro." }
       - { text: "La puntata dovrebbe essere più grande", why: "Una puntata più grande peggiora le cose: ancora più mani peggiori {{t:fold|folderanno}}, e quelle migliori continueranno a pagare." }
   - kind: choice

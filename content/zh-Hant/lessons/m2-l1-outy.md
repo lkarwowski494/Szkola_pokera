@@ -41,7 +41,7 @@ drills:
     rules: [R-M2-002]
     prompt: "翻牌時你有 gutshot（{{n:outs.gutshot}} 張補牌）。到河牌為止中牌的機率是多少？"
     options:
-      - { text: "約 {{n:odds.gutshot.flop-river}}", correct: true, why: "{{n:outs.gutshot}} × 4 = {{n:odds.gutshot.rule-flop}}（近似值）。精確值是 {{n:odds.gutshot.flop-river}}。不過只有在你不必再面對任何{{t:bet|下注}}就能看到兩張牌時（all-in），才有這個機率。對手在翻牌{{t:bet|下注}}時，你只為一張牌付錢：此時機率約 {{n:odds.gutshot.flop-turn}}。" }
+      - { text: "約 {{n:odds.gutshot.flop-river}}", correct: true, why: "{{n:outs.gutshot}} × 4 = {{n:odds.gutshot.rule-flop}}（近似值）。精確值是 {{n:odds.gutshot.flop-river}}。不過只有在你不必再面對任何{{t:bet|下注}}就能看到兩張牌時（全下），才有這個機率。對手在翻牌{{t:bet|下注}}時，你只為一張牌付錢：此時機率約 {{n:odds.gutshot.flop-turn}}。" }
       - { text: "約 {{n:odds.gutshot.rule-turn}}", why: "這是一張牌時的近似機率（{{n:outs.gutshot}} × 2）。題目問的是兩張牌：轉牌和河牌。" }
       - { text: "約 {{n:odds.oesd.flop-river}}", why: "這是有 {{n:outs.oesd}} 張補牌時的機率。gutshot 只有 {{n:outs.gutshot}} 張。" }
   - kind: choice
@@ -52,7 +52,7 @@ drills:
     table: { hand: "Ah 5h", board: "Kh 8h 3c" }
     options:
       - { text: "約 {{n:odds.flush.flop-turn}}，轉牌的機率", correct: true, why: "{{t:call|跟注}}只買到一張牌。到了轉牌，對手可能再次{{t:bet|下注}}，河牌你得另外付錢。{{n:cards.unseen.flop}} 張中的 {{n:outs.flush}} 張約為 {{n:odds.flush.flop-turn}}。" }
-      - { text: "約 {{n:odds.flush.flop-river}}，到河牌的機率", why: "只有在你確定不必再面對任何{{t:bet|下注}}就能看到兩張牌時，也就是 all-in 時，才有這個機率。面對翻牌的一般{{t:bet}}，你只買到一張牌。" }
+      - { text: "約 {{n:odds.flush.flop-river}}，到河牌的機率", why: "只有在你確定不必再面對任何{{t:bet|下注}}就能看到兩張牌時，也就是全下時，才有這個機率。面對翻牌的一般{{t:bet}}，你只買到一張牌。" }
   - kind: generated
     id: m2.l1.g1
     family: m2.outs.flush
@@ -120,7 +120,7 @@ drills:
 機率 ≈ 補牌 × 4   （兩張牌，僅限你不必再面對下注就能看到兩張時）
 ```
 
-| {{t:draw|聽牌}} | 補牌 | 翻牌 → 轉牌 | 翻牌 → 河牌（all-in） | 轉牌 → 河牌 |
+| {{t:draw|聽牌}} | 補牌 | 翻牌 → 轉牌 | 翻牌 → 河牌（全下） | 轉牌 → 河牌 |
 |---|---|---|---|---|
 | {{t:flush|同花}} | {{n:outs.flush}} | {{n:odds.flush.flop-turn}} | {{n:odds.flush.flop-river}} | {{n:odds.flush.turn-river}} |
 | {{t:oesd|兩頭順子聽牌}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-turn}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
@@ -128,7 +128,7 @@ drills:
 
 ## 一張牌還是兩張？
 
-對手在翻牌{{t:bet|下注}}時，你的{{t:call}}只買到一張牌：轉牌。到了轉牌，對手可能再次{{t:bet|下注}}，河牌你得另外付錢。所以面對翻牌的{{t:bet|下注}}，你要算的是**下一張牌**的機率（× 2）：{{t:flush|同花}}是 {{n:cards.unseen.flop}} 張中的 {{n:outs.flush}} 張，約 {{n:odds.flush.flop-turn}}。只有在你確定不必再面對任何{{t:bet|下注}}就能看到兩張牌時，也就是有人 all-in 時，才用**到河牌**的機率（× 4，{{t:flush|同花}}約 {{n:odds.flush.flop-river}}）。
+對手在翻牌{{t:bet|下注}}時，你的{{t:call}}只買到一張牌：轉牌。到了轉牌，對手可能再次{{t:bet|下注}}，河牌你得另外付錢。所以面對翻牌的{{t:bet|下注}}，你要算的是**下一張牌**的機率（× 2）：{{t:flush|同花}}是 {{n:cards.unseen.flop}} 張中的 {{n:outs.flush}} 張，約 {{n:odds.flush.flop-turn}}。只有在你確定不必再面對任何{{t:bet|下注}}就能看到兩張牌時，也就是有人全下時，才用**到河牌**的機率（× 4，{{t:flush|同花}}約 {{n:odds.flush.flop-river}}）。
 
 :::note 這些數字從哪來
 在轉牌時，有 {{n:cards.unseen.turn}} 張牌你不知道（{{n:cards.deck}} 張減去你的 {{n:cards.hole}} 張和{{t:board|公共牌}}上的 {{n:cards.board.turn}} 張）。成{{t:flush|同花}}的機率是 {{n:cards.unseen.turn}} 張中的 {{n:outs.flush}} 張。只要補牌不超過 {{n:rule24.outs.max}} 張，2 與 4 法則的誤差最多約 {{n:rule24.error.max.pp}} 個百分點。

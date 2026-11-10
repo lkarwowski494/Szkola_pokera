@@ -42,7 +42,7 @@ drills:
     prompt: "所有人都{{t:fold|棄牌}}到你。你會怎麼做？"
     table: { hand: "Qs Js", position: BTN }
     options:
-      - { text: "{{t:raise|加注}}", correct: true, why: "同花色 QJ 是在有{{t:position|位置}}時攻擊盲注的好牌：能成{{t:straight|順子}}、同花和高{{t:pair|對子}}。" }
+      - { text: "{{t:raise|加注}}", correct: true, why: "同花色 QJ 是在有{{t:position|位置}}時攻擊盲注的很好的牌：能成{{t:straight|順子}}、同花和高{{t:pair|對子}}。" }
       - { text: "{{t:fold|棄牌}}", why: "在按鈕位，這手牌好到不該{{t:fold}}。" }
       - { text: "{{t:call|跟注}}", why: "最好{{t:raise|加注}}：你有機會立刻拿下盲注，並帶著{{t:initiative|主動權}}打牌。" }
 ---

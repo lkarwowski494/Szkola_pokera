@@ -65,7 +65,7 @@ drills:
     prompt: "Durante tres {{t:session|sesiones}} has jugado más agresivo de lo habitual y has ganado. ¿Es una prueba de que el nuevo estilo es mejor?"
     options:
       - { text: "No, tres {{t:session|sesiones}} son muy pocas; las jugadas nuevas las valoras en la revisión de manos", correct: true, why: "Incluso una diferencia de habilidad enorme (el mejor {{n:skill.pct}} frente al peor {{n:skill.pct}}) solo se pone por delante en alrededor del {{n:skill.ahead}} de los casos tras unas {{n:skill.hands}} manos. La diferencia entre tus dos estilos es mucho menor." }
-      - { text: "Sí, el resultado muestra lo que funciona", why: "El resultado de unas pocas {{t:session|sesiones}} es sobre todo ruido. Con una {{t:standard-deviation|desviación típica}} de alrededor de {{n:var.sd}}, incluso {{n:var.hands.k}} mil manos dejan un error de alrededor de ± {{n:var.ci.wr}}." }
+      - { text: "Sí, el resultado muestra lo que funciona", why: "El resultado de unas pocas {{t:session|sesiones}} es sobre todo ruido. Con una {{t:standard-deviation|desviación estándar}} de alrededor de {{n:var.sd}}, incluso {{n:var.hands.k}} mil manos dejan un error de alrededor de ± {{n:var.ci.wr}}." }
       - { text: "Sí, si has ganado más de lo habitual", why: "Una ganancia mayor con una muestra pequeña sigue siendo una muestra pequeña. Las jugadas se valoran con los números y la revisión de manos." }
   - kind: choice
     id: m12.l2.q-skill-hands
@@ -74,7 +74,7 @@ drills:
     prompt: "Un estudio de millones de manos online mostró cuándo la habilidad empieza a pesar más que la suerte. ¿Qué se midió exactamente?"
     options:
       - { text: "El mejor {{n:skill.pct}} de los jugadores supera al peor {{n:skill.pct}} en alrededor del {{n:skill.ahead}} de los casos tras unas {{n:skill.hands}} manos", correct: true, why: "Así lo definen los autores del estudio (2015). Es una comparación entre grupos extremos: con diferencias de habilidad menores hacen falta muchas más manos." }
-      - { text: "Tras unas {{n:skill.hands}} manos, todo buen jugador va ganando", why: "El estudio compara grupos extremos de jugadores; no dice cuándo un buen jugador concreto irá ganando. Eso depende del winrate y de la {{t:standard-deviation|desviación típica}} (lección sobre la {{t:variance|varianza}})." }
+      - { text: "Tras unas {{n:skill.hands}} manos, todo buen jugador va ganando", why: "El estudio compara grupos extremos de jugadores; no dice cuándo un buen jugador concreto irá ganando. Eso depende del winrate y de la {{t:standard-deviation|desviación estándar}} (lección sobre la {{t:variance|varianza}})." }
       - { text: "Tras unas {{n:skill.hands}} manos, la suerte deja de importar", why: "La suerte siempre importa. El estudio solo dice cuándo la ventaja de los mejores sobre los peores empieza a ganar en la mayoría de las comparaciones." }
   - kind: choice
     id: m12.l2.q-good-session

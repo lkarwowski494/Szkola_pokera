@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "약 {{n:odds.flush.turn-river}}", correct: true, why: "맞습니다. 남은 카드는 한 장입니다. 보이지 않는 카드 {{n:cards.unseen.turn}}장 중 아웃 {{n:outs.flush}}장이면 {{n:odds.flush.turn-river}}이며, 플롭에서의 확률의 대략 절반입니다." }
       - { text: "아웃 수가 같으므로 여전히 약 {{n:odds.flush.flop-river}}", why: "아웃 수는 같지만 공개될 카드가 줄었습니다. {{n:odds.flush.flop-river}}의 확률은 카드 두 장을 기준으로 한 것이고, 턴에서는 한 장만 남았습니다." }
-      - { text: "계산기 없이는 계산할 수 없습니다", why: "계산할 수 있습니다. M2의 2와 4 규칙을 쓰세요. 카드가 한 장이므로 아웃 × 2, 대략 {{n:odds.flush.rule-turn}}입니다. 정확히는 {{n:odds.flush.turn-river}}입니다." }
+      - { text: "계산기 없이는 계산할 수 없습니다", why: "계산할 수 있습니다. M2의 2와 4의 법칙을 쓰세요. 카드가 한 장이므로 아웃 × 2, 대략 {{n:odds.flush.rule-turn}}입니다. 정확히는 {{n:odds.flush.turn-river}}입니다." }
   - kind: generated
     id: m7.l3.g-outs-turn
     family: m7.draw.odds
@@ -51,7 +51,7 @@ drills:
     id: m7.l3.q-implied-oesd
     family: m7.implied.math
     rules: [R-M7-008]
-    prompt: "턴입니다. {{t:pot|팟}}은 {{n:io.oesd.pot}}이고, 상대가 {{n:io.oesd.bet}} {{t:bet|베팅합니다}}. {{t:oesd|오픈엔디드 스트레이트 드로우}}입니다: 아웃 {{n:outs.oesd}}장, 빗나가는 카드 {{n:miss.oesd.turn}}장. 적중했을 때 리버에서 추가로 얼마나 더 이겨야 합니까?"
+    prompt: "턴입니다. {{t:pot|팟}}은 {{n:io.oesd.pot}}이고, 상대가 {{n:io.oesd.bet}} {{t:bet|베팅합니다}}. {{t:oesd|양방향 스트레이트 드로우}}입니다: 아웃 {{n:outs.oesd}}장, 빗나가는 카드 {{n:miss.oesd.turn}}장. 적중했을 때 리버에서 추가로 얼마나 더 이겨야 합니까?"
     options:
       - { text: "약 {{n:io.oesd.extra}}", correct: true, why: "적중 한 번마다 벌어야 하는 금액은 {{n:io.oesd.bet}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:io.oesd.need}}입니다. {{t:pot|팟}}에 있는 금액은 {{n:io.oesd.pot-after-bet}}이므로 부족한 금액은 {{n:io.oesd.extra}}입니다." }
       - { text: "약 {{n:io.oesd.need}}", why: "그것은 적중할 때마다 총 벌어야 하는 금액입니다. 그중 일부({{n:io.oesd.pot-after-bet}})는 이미 {{t:pot|팟}}에 있으므로 추가로 부족한 금액은 {{n:io.oesd.extra}}입니다." }
@@ -74,7 +74,7 @@ drills:
     options:
       - { text: "{{t:fold|폴드합니다}}", correct: true, why: "거트샷의 확률은 약 {{n:odds.gutshot.turn-river}}이고, 필요한 확률은 {{n:eq.bet-half}}입니다. 임플라이드 오즈도 도움이 되지 않습니다. 상대가 남은 {{n:io.gut.stack}} 전부를 넣어도 부족한 {{n:io.gut.extra}}만큼을 채우지 못합니다." }
       - { text: "임플라이드 오즈가 있으므로 {{t:call|콜합니다}}", why: "임플라이드 오즈는 상대가 앞으로 더 지불할 수 있는 {{t:chips|칩}}입니다. 상대에게는 {{n:io.gut.stack}}뿐인데, 필요한 금액은 {{n:io.gut.extra}}입니다." }
-      - { text: "올인 {{t:raise|레이즈합니다}}", why: "아웃 {{n:outs.gutshot}}장으로 하는 올인 {{t:bluff|블러프}}는 모든 것을 겁니다. 이렇게 적은 스택으로 {{t:pot|팟}}의 절반을 {{t:bet|베팅한}} 상대는 이미 {{t:fold|폴드하지}} 않는 경우가 많습니다." }
+      - { text: "올인 {{t:raise|레이즈합니다}}", why: "아웃 {{n:outs.gutshot}}장으로 하는 올인 {{t:bluff|블러프}}는 모든 것을 겁니다. 이렇게 적은 스택으로 {{t:pot|팟}}의 절반을 {{t:bet|베팅한}} 상대는 더는 {{t:fold|폴드하지}} 않는 경우가 많습니다." }
   - kind: choice
     id: m7.l3.q-reverse
     family: m7.implied.when
@@ -111,11 +111,11 @@ drills:
 | {{t:draw|드로우}} | 아웃 | 플롭 → 리버 | 턴 → 리버 |
 |---|---|---|---|
 | {{t:flush|플러시}} | {{n:outs.flush}} | {{n:odds.flush.flop-river}} | {{n:odds.flush.turn-river}} |
-| 오픈엔디드 {{t:straight|스트레이트}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
+| 양방향 {{t:straight|스트레이트}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
 | 거트샷 | {{n:outs.gutshot}} | {{n:odds.gutshot.flop-river}} | {{n:odds.gutshot.turn-river}} |
-| {{t:flush|플러시}} + 오픈엔디드 {{t:straight|스트레이트}} | {{n:outs.combo}} | – | {{n:odds.combo.turn-river}} |
+| {{t:flush|플러시}} + 양방향 {{t:straight|스트레이트}} | {{n:outs.combo}} | – | {{n:odds.combo.turn-river}} |
 
-M2의 2와 4 규칙을 쓰면 아웃에 2를 곱합니다. 두 {{t:draw|드로우}}에 겹치는 카드가 있으면 그 카드는 한 번만 셉니다.
+M2의 2와 4의 법칙을 쓰면 아웃에 2를 곱합니다. 두 {{t:draw|드로우}}에 겹치는 카드가 있으면 그 카드는 한 번만 셉니다.
 
 ## 임플라이드 오즈
 

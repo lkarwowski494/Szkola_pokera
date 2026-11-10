@@ -28,11 +28,11 @@ drills:
     id: m10.l4.q-reg-prerake
     family: m10.rake.cost
     rules: [R-M10-013]
-    prompt: "Secondo una stima dell'autore degli stessi dati (con correzione bayesiana), tra i giocatori con almeno {{n:rake.pop.reg.hands}} mani circa {{n:rake.pop.reg.prerake}} vince prima della detrazione del {{t:rake}}. Quanti vincono dopo averlo detratto?"
+    prompt: "Secondo una stima dell'autore degli stessi dati (con correzione bayesiana), tra i giocatori con almeno {{n:rake.pop.reg.hands}} mani circa il {{n:rake.pop.reg.prerake}} vince prima della detrazione del {{t:rake}}. Quanti vincono dopo averlo detratto?"
     options:
-      - { text: "Circa {{n:rake.pop.reg.postrake}}", correct: true, why: "Il {{t:rake}} si porta via quasi metà dei vincenti: circa {{n:rake.pop.reg.prerake}} prima del rake, circa {{n:rake.pop.reg.postrake}} dopo. Per questo il winrate lo calcoli sempre al netto del rake." }
-      - { text: "Quasi altrettanti, circa {{n:rake.pop.reg.prerake}}", why: "Se il {{t:rake}} fosse piccolo, sarebbe così. Con un rake di qualche bb/100, molti giocatori vincenti prima del rake scendono sotto zero." }
-      - { text: "Quasi nessuno", why: "Esagerato: circa {{n:rake.pop.reg.postrake}} di questo gruppo vince ancora. Il {{t:rake}} è un grosso ostacolo, ma non chiude la strada alla vittoria." }
+      - { text: "Circa il {{n:rake.pop.reg.postrake}}", correct: true, why: "Il {{t:rake}} si porta via quasi metà dei vincenti: circa il {{n:rake.pop.reg.prerake}} prima del rake, circa il {{n:rake.pop.reg.postrake}} dopo. Per questo il winrate lo calcoli sempre al netto del rake." }
+      - { text: "Quasi altrettanti, circa il {{n:rake.pop.reg.prerake}}", why: "Se il {{t:rake}} fosse piccolo, sarebbe così. Con un rake di qualche bb/100, molti giocatori vincenti prima del rake scendono sotto zero." }
+      - { text: "Quasi nessuno", why: "Esagerato: circa il {{n:rake.pop.reg.postrake}} di questo gruppo vince ancora. Il {{t:rake}} è un grosso ostacolo, ma non chiude la strada alla vittoria." }
   - kind: choice
     id: m10.l4.q-higher-stakes
     family: m10.rake.cost
@@ -40,7 +40,7 @@ drills:
     prompt: "Perché a NL500 il {{t:rake}} in bb/100 è diverse volte più piccolo ({{n:rake.nl500.low}}–{{n:rake.nl500.high}}) che ai microlimiti?"
     options:
       - { text: "Perché i {{t:pot|piatti}} più grandi raggiungono più spesso il {{t:rake-cap|tetto del rake}}, che lì in bb è piccolo", correct: true, why: "La sala prende una percentuale del {{t:pot|piatto}}, ma non più di un tetto in dollari. Ai microlimiti il tetto vale molti bb e i {{t:pot|piatti}} lo raggiungono di rado, quindi paghi la percentuale piena. A NL500 lo stesso tetto è una frazione di bb." }
-      - { text: "Perché a NL500 la sala prende una percentuale più bassa", why: "La percentuale è spesso simile (circa {{n:rake.ex.pct}}). La differenza la fa il {{t:rake-cap|tetto del rake}}, che ai {{t:stakes|limiti}} alti taglia la commissione sui {{t:pot|piatti}} grandi." }
+      - { text: "Perché a NL500 la sala prende una percentuale più bassa", why: "La percentuale è spesso simile (circa il {{n:rake.ex.pct}}). La differenza la fa il {{t:rake-cap|tetto del rake}}, che ai {{t:stakes|limiti}} alti taglia la commissione sui {{t:pot|piatti}} grandi." }
       - { text: "Perché a NL500 si giocano meno mani all'ora", why: "bb/100 misura il {{t:rake}} ogni 100 mani, quindi il ritmo di gioco non lo cambia. Lo cambia il {{t:rake-cap|tetto del rake}} espresso in bb." }
   - kind: numeric
     id: m10.l4.n-eq-rake
@@ -53,27 +53,27 @@ drills:
     id: m10.l4.q-eq-rake-why
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "Senza {{t:rake}}, una {{t:call|chiamata}} contro un bet di metà {{t:pot|piatto}} richiede il {{n:eq.bet-half}} di equity. Quanta ne richiede con un {{t:rake}} del {{n:rake.ex.pct}}?"
+    prompt: "Senza {{t:rake}}, una {{t:call|chiamata}} contro una puntata di metà {{t:pot|piatto}} richiede il {{n:eq.bet-half}} di equity. Quanta ne richiede con un {{t:rake}} del {{n:rake.ex.pct}}?"
     options:
-      - { text: "Un po' di più: circa {{n:eq.bet-half.rake}}", correct: true, why: "Vinci il {{t:pot|piatto}} meno il {{t:rake}}, ma metti l'intera somma. Una mano appena sopra la soglia senza rake può essere già sotto la soglia con il rake." }
-      - { text: "La stessa, perché il {{t:rake}} lo pagano entrambi i giocatori", why: "Il {{t:rake}} si sottrae dal {{t:pot|piatto}} che vinci, non dalla somma che aggiungi. La soglia sale a circa {{n:eq.bet-half.rake}}." }
-      - { text: "Meno, perché il {{t:pot|piatto}} è più grande", why: "Il {{t:pot|piatto}} dopo il rake è più piccolo, non più grande, quindi ti serve più equity: circa {{n:eq.bet-half.rake}}." }
+      - { text: "Un po' di più: circa il {{n:eq.bet-half.rake}}", correct: true, why: "Vinci il {{t:pot|piatto}} meno il {{t:rake}}, ma metti l'intera somma. Una mano appena sopra la soglia senza rake può essere già sotto la soglia con il rake." }
+      - { text: "La stessa, perché il {{t:rake}} lo pagano entrambi i giocatori", why: "Il {{t:rake}} si sottrae dal {{t:pot|piatto}} che vinci, non dalla somma che aggiungi. La soglia sale a circa il {{n:eq.bet-half.rake}}." }
+      - { text: "Meno, perché il {{t:pot|piatto}} è più grande", why: "Il {{t:pot|piatto}} dopo il rake è più piccolo, non più grande, quindi ti serve più equity: circa il {{n:eq.bet-half.rake}}." }
   - kind: choice
     id: m10.l4.q-flat-raked
     family: m10.rake.preflop
     rules: [R-M10-014]
     prompt: "Giochi in una sala che preleva il {{t:rake}} solo dai {{t:pot|piatti}} che arrivano al flop. Qualcuno prima di te {{t:open|apre}}, tu sei in {{t:position|posizione}} con una mano che senza rake sarebbe al limite della {{t:call|chiamata}}. Cosa cambia il {{t:rake}}?"
     options:
-      - { text: "{{t:call|Chiamo}} meno spesso: le mani al limite della {{t:call|chiamata}} più spesso le {{t:fold|foldo}} o le 3-betto", correct: true, why: "Nelle soluzioni pubblicate di un solver con rake, i giocatori in {{t:position|posizione}} contro un'{{t:open|apertura}} giocano circa {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} mani in meno. Ci perde proprio la {{t:call|chiamata}}, perché il {{t:pot|piatto}} dopo il flop paga il {{t:rake}}, mentre il {{t:pot|piatto}} vinto con un 3-bet prima del flop no." }
+      - { text: "{{t:call|Chiamo}} meno spesso: le mani al limite della {{t:call|chiamata}} più spesso le {{t:fold|foldo}} o le 3-betto", correct: true, why: "Nelle soluzioni pubblicate di un solver con rake, i giocatori in {{t:position|posizione}} contro un'{{t:open|apertura}} giocano circa il {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} di mani in meno. Ci perde proprio la {{t:call|chiamata}}, perché il {{t:pot|piatto}} dopo il flop paga il {{t:rake}}, mentre il {{t:pot|piatto}} vinto con un 3-bet prima del flop no." }
       - { text: "Niente: il {{t:rake}} riguarda solo il gioco dopo il flop", why: "Proprio per questo cambia la decisione prima del flop: la {{t:call|chiamata}} porta al flop e al rake, mentre un 3-bet o un {{t:fold}} spesso chiudono la mano senza." }
       - { text: "{{t:call|Chiamo}} più spesso, perché i {{t:pot|piatti}} dopo il flop sono grandi", why: "Al contrario: il {{t:rake}} prende una parte proprio di quei {{t:pot|piatti}}. Il solver con rake {{t:call|chiama}} nettamente meno spesso." }
   - kind: choice
     id: m10.l4.q-bb-minraise
     family: m10.rake.preflop
     rules: [R-M10-014]
-    prompt: "Nelle stesse soluzioni del solver, il {{t:big-blind}} {{t:call|chiama}} un min-raise in un gioco con rake solo in circa {{n:rake.solver.bb-minraise}} dei casi in cui lo {{t:call|chiama}} senza rake. Cosa significa per te in {{t:big-blind}}?"
+    prompt: "Nelle stesse soluzioni del solver, il {{t:big-blind}} {{t:call|chiama}} un min-raise in un gioco con rake solo in circa il {{n:rake.solver.bb-minraise}} dei casi in cui lo {{t:call|chiama}} senza rake. Cosa significa per te in {{t:big-blind}}?"
     options:
-      - { text: "Difendo ancora molte mani, ma più stretto che nelle tabelle calcolate senza rake", correct: true, why: "Il {{t:big-blind}} difende ancora spesso, perché ha già delle {{t:chips|chip}} nel {{t:pot|piatto}} e chiude l'azione. Il {{t:rake}} però taglia le {{t:call|chiamate}} più deboli, quindi le tabelle senza rake per te sono troppo larghe." }
+      - { text: "Difendo ancora molte mani, ma più stretto che nelle tabelle calcolate senza rake", correct: true, why: "Il {{t:big-blind}} difende ancora spesso, perché ha già delle {{t:chips|fiches}} nel {{t:pot|piatto}} e chiude l'azione. Il {{t:rake}} però taglia le {{t:call|chiamate}} più deboli, quindi le tabelle senza rake per te sono troppo larghe." }
       - { text: "Smetto di difendere il {{t:big-blind}} con la {{t:call|chiamata}}", why: "No: secondo l'autore la {{t:call|chiamata}} dai blind resta una parte importante della strategia anche con il rake. Cambia l'ampiezza della difesa, non la sua esistenza." }
       - { text: "Difendo altrettanto largo, perché dal {{t:big-blind}} il {{t:rake}} non conta", why: "Conta: il {{t:pot|piatto}} dopo la {{t:call|chiamata}} arriva al flop e paga il {{t:rake}}. Per questo il solver {{t:call|chiama}} dal {{t:big-blind}} meno spesso." }
   - kind: choice
@@ -101,7 +101,7 @@ Un confronto tra le tabelle delle sale le converte in bb/100 sulla distribuzione
 
 Un tipico giocatore vincente ai {{t:stakes|limiti}} bassi ha un winrate di {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}} (modulo 12): diverse volte meno di quanto paga alla sala. Ai {{t:stakes|limiti}} più alti lo stesso tetto in dollari è una frazione di bb, quindi il {{t:rake}} in bb/100 scende.
 
-I dati sulla popolazione dicono lo stesso. In un report sulla popolazione (cash 6-max, NL10–NL500), ogni giocatore perde in media {{n:rake.pop.nl10.loss}} a NL10, {{n:rake.pop.nl100.loss}} a NL100 e {{n:rake.pop.nl500.loss}} a NL500. Tra i giocatori NL100 con almeno {{n:rake.pop.reg.hands}} mani, secondo la stima dell'autore (correzione bayesiana), circa {{n:rake.pop.reg.prerake}} vince prima della detrazione del rake, e dopo la detrazione circa {{n:rake.pop.reg.postrake}} (nei dati grezzi {{n:rake.pop.reg.prerake.raw}} e {{n:rake.pop.reg.postrake.raw}}).
+I dati sulla popolazione dicono lo stesso. In un report sulla popolazione (cash 6-max, NL10–NL500), ogni giocatore perde in media {{n:rake.pop.nl10.loss}} a NL10, {{n:rake.pop.nl100.loss}} a NL100 e {{n:rake.pop.nl500.loss}} a NL500. Tra i giocatori NL100 con almeno {{n:rake.pop.reg.hands}} mani, secondo la stima dell'autore (correzione bayesiana), circa il {{n:rake.pop.reg.prerake}} vince prima della detrazione del rake, e dopo la detrazione circa il {{n:rake.pop.reg.postrake}} (nei dati grezzi il {{n:rake.pop.reg.prerake.raw}} e il {{n:rake.pop.reg.postrake.raw}}).
 
 ## La soglia di {{t:call|chiamata}} con il rake
 
@@ -111,14 +111,14 @@ Vinci il {{t:pot|piatto}} meno il {{t:rake}}, ma metti l'intera somma. L'equity 
 equity necessaria = somma da aggiungere ÷ ({{t:pot|piatto}} dopo la {{t:call|chiamata}} × (1 − {{t:rake}}))
 ```
 
-Bet di {{n:ex.bet.half}} in un {{t:pot|piatto}} di {{n:ex.pot}}: senza rake ti serve il {{n:eq.bet-half}}, con un rake del {{n:rake.ex.pct}} il {{n:eq.bet-half.rake}}. La differenza è piccola in una singola mano, ma riguarda ogni {{t:pot|piatto}} dopo il flop.
+Puntata di {{n:ex.bet.half}} in un {{t:pot|piatto}} di {{n:ex.pot}}: senza rake ti serve il {{n:eq.bet-half}}, con un rake del {{n:rake.ex.pct}} il {{n:eq.bet-half.rake}}. La differenza è piccola in una singola mano, ma riguarda ogni {{t:pot|piatto}} dopo il flop.
 
 ## Cosa cambia il {{t:rake}} prima del flop
 
 In molte sale il {{t:rake}} si preleva solo dai {{t:pot|piatti}} che arrivano al flop («no flop, no drop»). In quel caso il {{t:pot|piatto}} vinto prima del flop ne è esente, mentre il {{t:pot|piatto}} dopo una {{t:call|chiamata}} paga. Nelle soluzioni pubblicate di un solver con rake a NL100:
 
-- i giocatori in {{t:position|posizione}} contro un'{{t:open|apertura}} giocano circa {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} mani in meno; ci perde soprattutto la {{t:call|chiamata}}, e i 3-bet sono un po' di più;
-- il {{t:big-blind}} {{t:call|chiama}} un min-raise solo in circa {{n:rake.solver.bb-minraise}} dei casi in cui lo fa senza rake, anche se la difesa dai blind si basa ancora sulla {{t:call|chiamata}}.
+- i giocatori in {{t:position|posizione}} contro un'{{t:open|apertura}} giocano circa il {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} di mani in meno; ci perde soprattutto la {{t:call|chiamata}}, e i 3-bet sono un po' di più;
+- il {{t:big-blind}} {{t:call|chiama}} un min-raise solo in circa il {{n:rake.solver.bb-minraise}} dei casi in cui lo fa senza rake, anche se la difesa dai blind si basa ancora sulla {{t:call|chiamata}}.
 
 Per lo stesso motivo, nel modulo 3 dallo {{t:small-blind}} {{t:raise|rilanci}} o {{t:fold|foldi}}, senza completare fino al {{t:big-blind}}. Alcune sale prelevano il {{t:rake}} anche dai {{t:pot|piatti}} con 3-bet che finiscono prima del flop; lì il 3-bet non ne è esente.
 

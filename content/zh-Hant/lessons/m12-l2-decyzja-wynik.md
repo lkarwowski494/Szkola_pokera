@@ -19,7 +19,7 @@ drills:
     id: m12.l2.n-kk-wins
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "翻牌前全下時，AA 對上 KK 約有 {{n:pf.aa-vs-kk}} 的情況會贏。即使做了最好的決策，你仍會在百分之多少的情況下輸掉？請輸入數字。"
+    prompt: "翻牌前全下時，AA 對上 KK 約有 {{n:pf.aa-vs-kk}} 的情況會贏。即使做了所能做出的最好決策，你仍會在百分之多少的情況下輸掉？請輸入數字。"
     answer: res.kk-wins
     explanation: "全部減去 {{n:pf.aa-vs-kk}}，約為 {{n:res.kk-wins}}。大約每五到六次，就有一次好的決策以輸牌收場。"
   - kind: choice
@@ -83,7 +83,7 @@ drills:
     prompt: "你靠兩次價格不划算、卻在河牌中牌的跟注，贏了這個{{t:session|場次}}。{{t:session|場次}}結束後你會怎麼做？"
     options:
       - { text: "把這些{{t:call|跟注}}記錄為需要修正的錯誤", correct: true, why: "贏了不會改變價格。如果這次{{t:call|跟注}}需要的權益比你擁有的多，那就是錯誤，即使它帶來了回報。" }
-      - { text: "什麼都不做，這個{{t:session|場次}}贏了", why: "贏的{{t:session|場次}}裡的錯誤一樣代價高昂，只是更難察覺。只檢討輸的{{t:session|場次}}，會漏掉一半的錯誤。" }
+      - { text: "什麼都不做，這個{{t:session|場次}}贏了", why: "贏的{{t:session|場次}}裡的錯誤一樣代價高昂，只是更難察覺。只檢討輸的場次，會漏掉一半的錯誤。" }
       - { text: "認定你看穿對手的能力比計算顯示的更好", why: "兩次中牌太少，不足以推論你看穿對手的能力。最簡單的解釋是{{t:variance|變異數}}。" }
 ---
 撲克給你的回饋常常會騙人。好的決策可能會輸，壞的決策可能會贏。如果你用結果來評判自己的打法，就是在從隨機訊號中學習。
@@ -94,7 +94,7 @@ drills:
 
 ## 好的決策也會輸
 
-拿{{t:pair|一對}} A 對上{{t:pair|一對}} K 全下，是最好的決策，但仍有約 **{{n:res.kk-wins}}** 的情況會輸。另一方面，在轉牌用{{t:flush-draw|同花聽牌}}{{t:call|跟注}}整個{{t:pot|底池}}的下注是差的（你需要 {{n:eq.bet-pot}}，你約有 {{n:odds.flush.turn-river}}），但大約每五次仍會贏一次。
+拿{{t:pair|一對}} A 對上{{t:pair|一對}} K 全下，是所能做出的最好決策，但仍有約 **{{n:res.kk-wins}}** 的情況會輸。另一方面，在轉牌用{{t:flush-draw|同花聽牌}}{{t:call|跟注}}整個{{t:pot|底池}}的下注是差的（你需要 {{n:eq.bet-pot}}，你約有 {{n:odds.flush.turn-river}}），但大約每五次仍會贏一次。
 
 ```formula
 決策品質 = 以你在做決策當下擁有的資訊計算的 EV

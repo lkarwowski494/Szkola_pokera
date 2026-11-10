@@ -26,7 +26,7 @@ drills:
     id: m11.l3.n-equity
     family: m11.icm.equity
     rules: [R-M11-008]
-    prompt: "{{t:payout|ペイアウト}}：1位に{{t:prize-pool|プライズプール}}の{{n:m11.icm.a.p1}}、2位に{{n:m11.icm.a.p2}}。スタックは{{n:m11.icm.a.s1}}、{{n:m11.icm.a.s2}}、{{n:m11.icm.a.s3}}です。{{t:icm}}によると、最も短いスタックの価値は（{{t:prize-pool|プライズプール}}に対するパーセントで）いくらですか？数値を入力してください。"
+    prompt: "{{t:payout|賞金}}：1位に{{t:prize-pool|プライズプール}}の{{n:m11.icm.a.p1}}、2位に{{n:m11.icm.a.p2}}。スタックは{{n:m11.icm.a.s1}}、{{n:m11.icm.a.s2}}、{{n:m11.icm.a.s3}}です。{{t:icm}}によると、最も短いスタックの価値は（{{t:prize-pool|プライズプール}}に対するパーセントで）いくらですか？数値を入力してください。"
     answer: m11.icm.a.eq3
     explanation: "1位の確率は{{n:m11.icm.a.chips3}}、2位は{{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} ≈ {{n:m11.icm.a.second3}}。エクイティ = {{n:m11.icm.a.chips3}} × {{n:m11.icm.a.p1}} + {{n:m11.icm.a.second3}} × {{n:m11.icm.a.p2}} ≈ {{n:m11.icm.a.eq3}}で、{{t:chips|チップ}}の持ち分{{n:m11.icm.a.chips3}}より多くなります。"
   - kind: choice
@@ -36,7 +36,7 @@ drills:
     prompt: "ビッグスタックは場にある{{t:chips|チップ}}の{{n:m11.icm.a.chips1}}を持っています。{{t:icm}}によると、お金としての価値はいくらですか？"
     options:
       - { text: "{{n:m11.icm.a.eq1}}、つまり{{t:chips|チップ}}の持ち分より少ない", correct: true, why: "ビッグスタックはすべての{{t:chips}}を獲得する可能性があっても、得られるのは最大で{{t:prize-pool|プライズプール}}の{{n:m11.icm.a.p1}}です。そのため、リーダーの{{t:chips}}は持ち分より価値が低く、{{t:short-stack|ショートスタック}}の方は高くなります（{{n:m11.icm.a.eq3}}）。" }
-      - { text: "{{n:m11.icm.a.chips1}}、{{t:chips|チップ}}の持ち分と同じ", why: "勝者が{{t:prize-pool|プライズプール}}全体を取るならそうなります。{{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}}の{{t:payout|ペイアウト}}では、ビッグスタックの{{t:chips|チップ}}は1枚ごとの価値が低くなります：{{n:m11.icm.a.eq1}}。" }
+      - { text: "{{n:m11.icm.a.chips1}}、{{t:chips|チップ}}の持ち分と同じ", why: "勝者が{{t:prize-pool|プライズプール}}全体を取るならそうなります。{{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}}の{{t:payout|賞金}}では、ビッグスタックの{{t:chips|チップ}}は1枚ごとの価値が低くなります：{{n:m11.icm.a.eq1}}。" }
       - { text: "{{n:m11.icm.a.p1}}、ほぼ確実に勝つから", why: "1位になる確率は{{n:m11.icm.a.chips1}}しかなく、残りの{{t:tournament-equity|トーナメントエクイティ}}は2位から得ます。合計は{{n:m11.icm.a.eq1}}です。" }
   - kind: numeric
     id: m11.l3.n-bf
@@ -68,7 +68,7 @@ drills:
     prompt: "{{t:bubble|バブル}}、レッスンの例です。あなたのハンドは、相手のオールインの{{t:range|レンジ}}に対して約{{n:m11.bf.example-eq}}のエクイティがあります。{{t:chips}}のゲームなら{{n:m11.bf.req-chips}}で足りるので、{{t:call}}は利益になります。ここではどうしますか？"
     options:
       - { text: "{{t:fold|フォールドする}}", correct: true, why: "{{t:icm}}によると、ここでは{{n:m11.bf.req}}のエクイティが必要です。それより勝つ頻度が低いハンドは、{{t:chips|チップ}}ではプラスでも、お金では損をします。" }
-      - { text: "{{t:call|コールする}}。{{t:chips|チップ}}では利益だから", why: "{{t:payout|ペイアウト}}のある{{t:tournament|トーナメント}}で重要なのはお金で、{{t:chips}}ではありません。負けると{{t:prize-pool|プライズプール}}の{{n:m11.bf.loss}}を失い、勝っても得るのは{{n:m11.bf.gain}}だけです。" }
+      - { text: "{{t:call|コールする}}。{{t:chips|チップ}}では利益だから", why: "{{t:payout|賞金}}のある{{t:tournament|トーナメント}}で重要なのはお金で、{{t:chips}}ではありません。負けると{{t:prize-pool|プライズプール}}の{{n:m11.bf.loss}}を失い、勝っても得るのは{{n:m11.bf.gain}}だけです。" }
       - { text: "{{t:call|コールする}}。半分以上勝てるから", why: "{{n:m11.bf.example-eq}}のハンドは半分より多く勝ちますが、それでもここでは弱すぎます：基準は{{n:m11.bf.req}}です。" }
   - kind: choice
     id: m11.l3.q-covering
@@ -158,7 +158,7 @@ drills:
 
 結果は**{{n:m11.bf.req}}**です。{{t:chips}}のゲームなら{{n:m11.bf.s3}}を賭けて{{n:m11.bf.s3}}を得るので、{{n:m11.bf.req-chips}}で足ります。その差{{n:m11.bf.premium}}が**{{t:risk-premium}}**です。
 
-同じ傾向は、スタックが等しい3人について公開された均衡（2008年の研究論文）にも見られます：ボタンと{{t:small-blind}}がすでにオールインしているとき、{{t:big-blind}}は単一のハンドでは{{n:m11.jamfold3.overcall.single}}のハンドで{{t:call|コール}}しますが、{{t:payout|ペイアウト}}のある{{t:tournament|トーナメント}}では{{n:m11.jamfold3.overcall.tourn}}だけ、つまり最も高い{{t:pocket-pair|ポケットペア}}とAKsだけです。
+同じ傾向は、スタックが等しい3人について公開された均衡（2008年の研究論文）にも見られます：ボタンと{{t:small-blind}}がすでにオールインしているとき、{{t:big-blind}}は単一のハンドでは{{n:m11.jamfold3.overcall.single}}のハンドで{{t:call|コール}}しますが、{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では{{n:m11.jamfold3.overcall.tourn}}だけ、つまり最も高い{{t:pocket-pair|ポケットペア}}とAKsだけです。
 
 :::note 狭く{{t:call|コール}}するのは誰か
 {{t:bubble|バブル}}や{{t:final-table|ファイナルテーブル}}（{{t:tournament|トーナメント}}の最後のテーブルで、最高額の賞金をかけてプレイします）のミドルスタックは、{{t:chips}}のゲームよりもずっと狭くオールインを{{t:call|コール}}します。相手を{{t:cover|カバー}}しているビッグスタックはリスクが小さく、それを利用できます：相手は{{t:fold|フォールド}}せざるを得ないので、より広く{{t:shove|プッシュ}}できます。バブルファクターはテーブルの全スタックに左右されるため、テーブルで計算するのではなく、感覚を養うために例で練習します。

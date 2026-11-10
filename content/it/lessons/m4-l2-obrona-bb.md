@@ -33,7 +33,7 @@ drills:
     options:
       - { text: "Perché {{t:out-of-position}} non realizzi tutta l'equity", correct: true, why: "L'equity è la probabilità di vincere giocando fino alla fine senza {{t:bet|puntate}}. {{t:out-of-position|Fuori posizione}} spesso {{t:fold|folderai}} la mano prima dello showdown, quindi le mani deboli di semi diversi realizzano meno di quanto indichi l'equity." }
       - { text: "Perché il Button ha sempre una mano forte", why: "Il Button {{t:open|apre}} molto largo, per questo la difesa del {{t:big-blind|BB}} è larga." }
-      - { text: "Perché bisogna risparmiare {{t:chips|chip}}", why: "Conta il {{t:expected-value}}, non risparmiare {{t:chips|chip}}." }
+      - { text: "Perché bisogna risparmiare {{t:chips|fiches}}", why: "Conta il {{t:expected-value}}, non risparmiare {{t:chips|fiches}}." }
   - kind: choice
     id: m4.l2.q-qq
     family: m4.bb.3bet-size

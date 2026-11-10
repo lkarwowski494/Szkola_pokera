@@ -44,7 +44,7 @@ drills:
     options:
       - { text: "Piccola, e spesso", correct: true, why: "Sì: il {{t:range-advantage|vantaggio di range}} dice che puoi puntare spesso. Senza {{t:nuts-advantage|vantaggio di nuts}}, una {{t:bet|puntata}} grande rischia molto contro le mani più forti dell'avversario, e le mani più deboli {{t:fold|foldano}} comunque anche su una piccola." }
       - { text: "Grande, perché hai il vantaggio", why: "No: a decidere una dimensione grande è il {{t:nuts-advantage|vantaggio di nuts}}, cioè avere più mani tra le più forti. Qui non ce l'hai." }
-      - { text: "Faccio sempre {{t:check}}", why: "Troppo prudente: il {{t:range-advantage|vantaggio di range}} è un motivo per puntare spesso, solo poco." }
+      - { text: "Faccio sempre {{t:check}}", why: "Troppo prudente: il {{t:range-advantage|vantaggio di range}} è un motivo per puntare spesso, ma poco." }
   - kind: choice
     id: m5.l2.q-nuts
     family: m5.advantage.why
@@ -95,6 +95,6 @@ Il {{t:nuts-advantage|vantaggio di nuts}} significa avere nel tuo {{t:range}} pi
 
 Una mano senza {{t:pair|coppia}}, ad es. [[Jc Td]], non fa {{t:pair|coppia}} sul flop in circa il {{n:flop.miss.unpaired}} dei casi. Delle {{n:cards.unseen.preflop}} carte sconosciute, solo {{n:pair.outs.unpaired}} accoppiano le sue carte. Le fonti indicano spesso circa il {{n:flop.hit.one-pair}}: è la probabilità di esattamente una {{t:pair|coppia}}; contando anche {{t:two-pair}} e {{t:three-of-a-kind}}, si va a segno in circa il {{n:flop.hit.unpaired}} dei casi. Per questo una {{t:bet|puntata}} sul flop spesso vince subito il {{t:pot|piatto}}, anche quando tu non hai preso niente. Mancare il flop non significa sempre {{t:fold}}: l'avversario può avere un {{t:draw|progetto}} o due carte alte.
 
-:::note Da dove vengono questi principi
+:::note Da dove vengono queste regole
 I concetti di {{t:range-advantage|vantaggio di range}} e {{t:nuts-advantage|vantaggio di nuts}} vengono da materiali di teoria dei giochi basati sui risultati dei solver (un glossario dei termini e un articolo sulle dimensioni della c-bet). I numeri di questa lezione sono calcoli esatti dell'app.
 :::

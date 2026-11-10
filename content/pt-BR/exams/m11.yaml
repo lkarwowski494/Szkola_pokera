@@ -64,7 +64,7 @@ drills:
     prompt: "O mesmo spot: bubble factor {{n:exam.m11.bf.value}}. No jogo por {{t:chips|fichas}}, {{n:exam.m11.bf.req-chips}} de equity basta para {{t:call|pagar}}. De quanto você precisa segundo o {{t:icm}}?"
     options:
       - { text: "Cerca de {{n:exam.m11.bf.req}}", correct: true, why: "Equity necessária = BF ÷ (BF + 1) = perda ÷ (perda + ganho) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. A diferença em relação a {{n:exam.m11.bf.req-chips}} é o {{t:risk-premium|prêmio de risco}}." }
-      - { text: "{{n:exam.m11.bf.req-chips}}, igual em {{t:chips|fichas}}", why: "Num {{t:tournament|torneio}} com {{t:payout|pagamentos}}, perder custa mais dinheiro do que ganhar acrescenta, então o {{t:call}} precisa vencer com mais frequência: cerca de {{n:exam.m11.bf.req}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, o mesmo que em {{t:chips|fichas}}", why: "Num {{t:tournament|torneio}} com {{t:payout|pagamentos}}, perder custa mais dinheiro do que ganhar acrescenta, então o {{t:call}} precisa vencer com mais frequência: cerca de {{n:exam.m11.bf.req}}." }
       - { text: "Menos de {{n:exam.m11.bf.req-chips}}, porque a {{t:bubble|bolha}} obriga o adversário a fazer {{t:bluff|blefes}}", why: "Um bubble factor acima de 1 sempre eleva a equity necessária acima do preço em {{t:chips|fichas}}. Aqui, para cerca de {{n:exam.m11.bf.req}}." }
   - kind: choice
     id: m11.exam.q9

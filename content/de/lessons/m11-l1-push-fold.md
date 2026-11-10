@@ -60,7 +60,7 @@ drills:
     prompt: "{{t:small-blind|Small Blind}}, alle haben {{t:fold|gefoldet}}, du hast K2o. Bei {{n:m11.depth.10}} geht der Solver mit dieser Hand All-in. Und bei {{n:m11.depth.15}}?"
     table: { hand: "Kd 2c", position: SB }
     options:
-      - { text: "{{t:fold|Fold}}", correct: true, why: "Bei {{n:m11.depth.15}} riskierst du im Verhältnis zu den Blinds mehr, deshalb wird die All-in-{{t:range|Range}} von etwa {{n:m11.push.10}} auf etwa {{n:m11.push.15}} Hände enger. K2o fällt heraus." }
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Bei {{n:m11.depth.15}} riskierst du im Verhältnis zu den Blinds mehr, deshalb wird die All-in-{{t:range|Range}} von etwa {{n:m11.push.10}} auf etwa {{n:m11.push.15}} der Hände enger. K2o fällt heraus." }
       - { text: "All-in, weil ein König eine starke Karte ist", why: "Bei {{n:m11.depth.15}} trifft K2o zu oft auf einen besseren König oder ein Ass in der {{t:call|Call}}-{{t:range|Range}}. Der Solver {{t:fold|foldet}} sie." }
       - { text: "All-in, denn je tiefer der Stack, desto breiter", why: "Umgekehrt: Je tiefer der Stack, desto enger die All-in-{{t:range|Range}}. Am breitesten {{t:shove|pushst}} du mit einem sehr kleinen {{t:short-stack|Short Stack}}." }
   - kind: choice
@@ -88,7 +88,7 @@ drills:
     prompt: "Derselbe Stack von {{n:m11.depth.10}} im {{t:small-blind|Small Blind}}, aber gespielt wird mit {{t:bb-ante}}: Der {{t:big-blind}} hat ein Ante von {{n:m11.ante}} gezahlt. Wie verändert sich die All-in-{{t:range|Range}}?"
     options:
       - { text: "Sie wächst: etwa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} statt {{n:m11.push.10}}", correct: true, why: "Das Ante vergrößert den {{t:pot|Pot}}, den du gewinnst, wenn der Gegner {{t:fold|foldet}}: {{n:m11.push.10.win-ante}} statt {{n:m11.push.10.win}}. Eine Hand ohne Chancen braucht nur noch mehr als {{n:m11.push.10.alpha-ante}} {{t:fold|Folds}}, also lohnen sich mehr All-ins." }
-      - { text: "Sie schrumpft, weil der Gegner mehr im {{t:pot|Pot}} hat und öfter {{t:call|callt}}", why: "Der Gegner {{t:call|callt}} tatsächlich breiter, aber der größere {{t:pot|Pot}}, den es zu gewinnen gibt, wiegt schwerer. Das Gleichgewicht liegt bei etwa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} Händen." }
+      - { text: "Sie schrumpft, weil der Gegner mehr im {{t:pot|Pot}} hat und öfter {{t:call|callt}}", why: "Der Gegner {{t:call|callt}} tatsächlich breiter, aber der größere {{t:pot|Pot}}, den es zu gewinnen gibt, wiegt schwerer. Das Gleichgewicht liegt bei etwa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} der Hände." }
       - { text: "Sie ändert sich nicht", why: "Das Ante verändert das Verhältnis von Risiko zu Gewinn. Ohne Ante etwa {{n:m11.push.10}}, mit Ante etwa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}." }
   - kind: generated
     id: m11.l1.g-push-ante
@@ -149,11 +149,11 @@ push.sb-10
 push.sb-5
 ```
 
-Bei {{n:m11.depth.15}} gehst du mit etwa {{n:m11.push.15}} Händen All-in, bei {{n:m11.depth.10}} mit etwa {{n:m11.push.10}} und bei {{n:m11.depth.5}} schon mit etwa {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Je weniger du im Verhältnis zu den Blinds riskierst, desto mehr Hände lohnen sich. Zum Vergleich: Eine Tabelle einer Trainingsseite gibt bei {{n:m11.depth.10}} {{n:m11.ext.push.10}} an; der Unterschied liegt innerhalb der Validierungstoleranz des Solvers, die Richtung ist dieselbe.
+Bei {{n:m11.depth.15}} gehst du mit etwa {{n:m11.push.15}} der Hände All-in, bei {{n:m11.depth.10}} mit etwa {{n:m11.push.10}} und bei {{n:m11.depth.5}} schon mit etwa {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Je weniger du im Verhältnis zu den Blinds riskierst, desto mehr Hände lohnen sich. Zum Vergleich: Eine Tabelle einer Trainingsseite gibt bei {{n:m11.depth.10}} {{n:m11.ext.push.10}} an; der Unterschied liegt innerhalb der Validierungstoleranz des Solvers, die Richtung ist dieselbe.
 
 ## Drei Spieler: Je mehr Gegner hinter dir, desto enger
 
-Wenn du vom Button spielst, sitzen hinter dir noch zwei Spieler statt einem. Jeder von ihnen kann eine starke Hand haben, deshalb kommen {{t:fold|Folds}} von beiden seltener vor. Mit drei Spielern und Stacks von je {{n:m11.depth.3max}} geht der Button mit etwa {{n:m11.3max.push.btn}} Händen All-in, der {{t:small-blind|Small Blind}}, wenn der Button {{t:fold|gefoldet}} hat, mit etwa {{n:m11.3max.push.sb}}.
+Wenn du vom Button spielst, sitzen hinter dir noch zwei Spieler statt einem. Jeder von ihnen kann eine starke Hand haben, deshalb kommen {{t:fold|Folds}} von beiden seltener vor. Mit drei Spielern und Stacks von je {{n:m11.depth.3max}} geht der Button mit etwa {{n:m11.3max.push.btn}} der Hände All-in, der {{t:small-blind|Small Blind}}, wenn der Button {{t:fold|gefoldet}} hat, mit etwa {{n:m11.3max.push.sb}}.
 
 ```range
 push.btn-3max
@@ -171,7 +171,7 @@ Ein All-in gewinnt, wenn der Gegner {{t:fold|foldet}} oder wenn er {{t:call|call
 
 ## Das Ante macht die {{t:range|Range}} breiter
 
-Das Ante sind zusätzliche {{t:chips|Chips}} im {{t:pot|Pot}} vor dem Geben. Beim {{t:bb-ante}} zahlt der {{t:big-blind}} ein Ante von {{n:m11.ante}}, also gewinnt ein All-in {{n:m11.push.10.win-ante}} statt {{n:m11.push.10.win}}, während das Risiko gleich bleibt. In dieser Struktur wächst die {{t:range|Range}} von etwa {{n:m11.push.10}} auf etwa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} Hände (der Solver der App und eine unabhängige Gleichgewichtsrechnung weichen um den Bruchteil eines Punktes voneinander ab).
+Das Ante sind zusätzliche {{t:chips|Chips}} im {{t:pot|Pot}} vor dem Geben. Beim {{t:bb-ante}} zahlt der {{t:big-blind}} ein Ante von {{n:m11.ante}}, also gewinnt ein All-in {{n:m11.push.10.win-ante}} statt {{n:m11.push.10.win}}, während das Risiko gleich bleibt. In dieser Struktur wächst die {{t:range|Range}} von etwa {{n:m11.push.10}} auf etwa {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} der Hände (der Solver der App und eine unabhängige Gleichgewichtsrechnung weichen um den Bruchteil eines Punktes voneinander ab).
 
 ```range
 push.sb-10-ante

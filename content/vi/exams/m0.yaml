@@ -78,7 +78,7 @@ drills:
     table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
     options:
       - { text: "{{t:split-pot|Chia pot}}", correct: true, why: "Năm lá tốt nhất của cả hai người chơi là A-A-A-K-K từ {{t:board|bàn}}. Đôi Q của bạn chỉ tạo ra {{t:full-house|cù lũ}} yếu hơn (ba A, đôi Q), nên không lọt vào năm lá." }
-      - { text: "Bạn, vì có {{t:pair|đôi}} Q", why: "Ba A với đôi Q yếu hơn ba A với đôi K đang nằm trên {{t:board|bàn}}. Vì vậy bạn chơi bằng {{t:board|bàn}}, giống như đối thủ." }
+      - { text: "Bạn, vì có {{t:pair|đôi}} Q", why: "Ba A với đôi Q yếu hơn ba A với đôi K đang nằm trên {{t:board|bàn}}. Vì vậy bạn chơi bằng bài trên {{t:board|bàn}}, giống như đối thủ." }
       - { text: "Đối thủ", why: "Đối thủ cũng chơi bằng năm lá trên {{t:board|bàn}}. Bài của đối thủ không thêm được gì, giống như bài của bạn." }
   - kind: choice
     id: m0.exam.q9
@@ -89,4 +89,4 @@ drills:
     options:
       - { text: "Bạn", correct: true, why: "Lá A của bạn kéo dài {{t:straight|sảnh}} thành A-K-Q-J-10. Đối thủ chơi bằng năm lá trên {{t:board|bàn}} (K-Q-J-10-9), còn năm lá của bạn cao hơn." }
       - { text: "{{t:split-pot|Chia pot}}", why: "Chỉ chia pot khi năm lá tốt nhất của cả hai người chơi đều nằm trên {{t:board|bàn}}. Bạn có năm lá tốt hơn nhờ lá A." }
-      - { text: "Đối thủ, vì có {{t:pair|đôi}}", why: "{{t:pair|Đôi}} 3 yếu hơn {{t:straight}} trên {{t:board|bàn}}, nên đối thủ chơi bằng {{t:board|bàn}}." }
+      - { text: "Đối thủ, vì có {{t:pair|đôi}}", why: "{{t:pair|Đôi}} 3 yếu hơn {{t:straight}} trên {{t:board|bàn}}, nên đối thủ chơi bằng bài trên {{t:board|bàn}}." }

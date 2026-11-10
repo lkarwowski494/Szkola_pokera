@@ -33,7 +33,7 @@ drills:
     id: m9.l3.q-srp-half
     family: m9.geo-srp
     rules: [R-M9-007]
-    prompt: "레이즈가 한 번 나온 {{t:pot|팟}}: 플롭 시점에 {{n:bb.pot-after.vs-btn}}, 각자 남은 스택은 {{n:spr.srp.stack}}입니다. 플롭, 턴, 리버에서 하프 {{t:pot|팟}}을 베팅하고, 상대는 항상 {{t:call|콜}}합니다. 총 얼마를 넣게 됩니까?"
+    prompt: "싱글 레이즈 {{t:pot|팟}}: 플롭 시점에 {{n:bb.pot-after.vs-btn}}, 각자 남은 스택은 {{n:spr.srp.stack}}입니다. 플롭, 턴, 리버에서 하프 {{t:pot|팟}}을 베팅하고, 상대는 항상 {{t:call|콜}}합니다. 총 얼마를 넣게 됩니까?"
     options:
       - { text: "{{n:srp.half.total}}", correct: true, why: "{{n:srp.half.flop}} + {{n:srp.half.turn}} + {{n:srp.half.river}} = {{n:srp.half.total}}. 스택 대부분이 {{t:pot|팟}} 밖에 남습니다. {{t:spr}} 약 {{n:spr.srp}}에서 하프 {{t:pot|팟}}은 스택 전부를 걸고 플레이하기에 너무 작습니다." }
       - { text: "{{n:spr.srp.stack}}, 즉 스택 전부", why: "{{t:pot|팟}}은 {{n:srp.half.flop-after}}, {{n:srp.half.turn-after}} 등으로만 커집니다. 하프 {{t:pot|팟}} {{t:bet|베팅}} 세 번으로 들어가는 금액은 총 {{n:srp.half.total}}로, 스택 전부와는 거리가 멉니다." }
@@ -42,10 +42,10 @@ drills:
     id: m9.l3.q-srp-geo
     family: m9.geo-srp
     rules: [R-M9-007]
-    prompt: "레이즈가 한 번 나온 {{t:pot|팟}}, {{t:spr}} 약 {{n:spr.srp}}. 플롭, 턴, 리버에서 어떤 고정 {{t:bet|베팅}} 사이즈를 써야 스택 전부가 들어갑니까?"
+    prompt: "싱글 레이즈 {{t:pot|팟}}, {{t:spr}} 약 {{n:spr.srp}}. 플롭, 턴, 리버에서 어떤 고정 {{t:bet|베팅}} 사이즈를 써야 스택 전부가 들어갑니까?"
     options:
       - { text: "약 {{n:geo.srp.3}} {{t:pot|팟}}, 즉 {{t:pot}} 전체보다 큼", correct: true, why: "맞습니다. {{t:pot|팟}} 크기 {{t:bet|베팅}} 세 번으로도 {{n:spr.srp.stack}} 스택 중 {{n:srp.potbet.total}}만 들어갑니다. 모든 {{t:street|스트리트}}에서 약 {{n:geo.srp.3}} {{t:pot|팟}}이어야 비로소 스택 전부가 들어갑니다." }
-      - { text: "약 {{n:geo.3bet-ip.3}} {{t:pot|팟}}", why: "이 정도는 3벳 {{t:pot|팟}}({{t:spr}} 약 {{n:spr.3bet-ip}})에서 충분합니다. 레이즈가 한 번 나온 {{t:pot|팟}}에서는 {{t:spr}} 값이 약 {{n:spr.srp}}이므로 {{t:bet|베팅}}이 {{t:pot}}보다 커야 합니다." }
+      - { text: "약 {{n:geo.3bet-ip.3}} {{t:pot|팟}}", why: "이 정도는 3벳 {{t:pot|팟}}({{t:spr}} 약 {{n:spr.3bet-ip}})에서 충분합니다. 싱글 레이즈 {{t:pot|팟}}에서는 {{t:spr}} 값이 약 {{n:spr.srp}}이므로 {{t:bet|베팅}}이 {{t:pot}}보다 커야 합니다." }
       - { text: "약 {{n:cbet.size.small}} {{t:pot|팟}}", why: "이런 {{t:bet|베팅}} 세 번으로는 스택의 작은 일부만 들어갑니다. {{t:spr}} 약 {{n:spr.srp}}에서는 모든 {{t:street|스트리트}}에서 약 {{n:geo.srp.3}} {{t:pot|팟}}이 필요합니다." }
   - kind: choice
     id: m9.l3.q-3bet-ip
@@ -98,7 +98,7 @@ drills:
 | 턴 | {{n:ex.pot.after-pot-call}} | {{n:geo.ex.turn}} | {{n:geo.ex.turn-after}} |
 | 리버 | {{n:geo.ex.turn-after}} | {{n:geo.ex.river}} | {{n:geo.ex.river-after}} |
 
-각 플레이어는 {{n:geo.ex.total}}, 즉 {{t:pot|팟}}의 {{n:spr.zone.deep}}배를 넣었습니다. 따라서 {{t:pot|팟}} 크기 {{t:bet|베팅}} 세 번이면 정확히 {{t:spr}} {{n:spr.zone.deep}}에서 올인이 됩니다. 첫 번째 강의에서 본 가장 높은 {{t:spr}} 구간의 기준점이 여기서 나옵니다.
+각 플레이어는 {{n:geo.ex.total}}, 즉 {{t:pot|팟}}의 {{n:spr.zone.deep}}배를 넣었습니다. 따라서 {{t:pot|팟}} 크기 {{t:bet|베팅}} 세 번이면 정확히 {{t:spr}} {{n:spr.zone.deep}}에서 올인이 됩니다. 첫 번째 레슨에서 본 가장 높은 {{t:spr}} 구간의 기준점이 여기서 나옵니다.
 
 ## 공식
 
@@ -121,10 +121,10 @@ drills:
 
 {{t:in-position}} 3벳 {{t:pot|팟}}에서는 {{t:bet|베팅}}이 {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}}, {{n:geo.3bet-ip.river}}로, 합계 {{n:geo.3bet-ip.total}}, 즉 스택 전부입니다.
 
-## 레이즈가 한 번 나온 {{t:pot|팟}}은 깊습니다
+## 싱글 레이즈 {{t:pot|팟}}은 깊습니다
 
 {{t:spr}} 약 {{n:spr.srp}}에서 하프 {{t:pot|팟}} {{t:bet|베팅}} 세 번으로는 {{n:srp.half.total}}만, {{t:pot|팟}} 크기 {{t:bet|베팅}} 세 번으로는 {{n:spr.srp.stack}} 스택 중 {{n:srp.potbet.total}}만 들어갑니다. 스택 전부는 {{t:pot}}보다 큰 {{t:bet|베팅}}으로만 들어갑니다. 그래서 이런 {{t:pot|팟}}에서 스택 전부를 건 승부는 주로 아주 강한 핸드로 일어납니다.
 
 :::note 언제 유용한가
-기하학적 사이즈는 리버까지 스택 전부를 넣고 싶을 때, 즉 아주 강한 핸드일 때 유용합니다. 모든 핸드가 스택 전부를 걸고 싶어 하지는 않습니다. 핸드가 몇 스트리트 분량의 {{t:value|밸류}}를 감당할 수 있는지는 다음 강의에서 다룹니다. 공식은 순수한 수학입니다. 앞선 모듈에서는 플롭 {{t:texture|텍스처}}에 맞춘 사이즈를 제시합니다. 기하학적 사이즈는 스택 전부를 거는 계획의 기준점입니다.
+기하학적 사이즈는 리버까지 스택 전부를 넣고 싶을 때, 즉 아주 강한 핸드일 때 유용합니다. 모든 핸드가 스택 전부를 걸고 싶어 하지는 않습니다. 핸드가 몇 스트리트 분량의 {{t:value|밸류}}를 감당할 수 있는지는 다음 레슨에서 다룹니다. 공식은 순수한 수학입니다. 앞선 모듈에서는 플롭 {{t:texture|텍스처}}에 맞춘 사이즈를 제시합니다. 기하학적 사이즈는 스택 전부를 거는 계획의 기준점입니다.
 :::

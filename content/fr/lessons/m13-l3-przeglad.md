@@ -10,7 +10,7 @@ drills:
     id: m13.l3.q-mark
     family: m13.review-when
     rules: [R-M13-005]
-    prompt: "Pendant une partie en direct, vous tombez sur une main où vous ne savez pas quoi faire. Qu'en faites-vous ensuite ?"
+    prompt: "Pendant une partie en live, vous tombez sur une main où vous ne savez pas quoi faire. Qu'en faites-vous ensuite ?"
     options:
       - { text: "Je la note brièvement et je la revois après la {{t:session|session}}", correct: true, why: "Oui : pendant le jeu, vous vous contentez de marquer la main, et vous l'analysez plus tard, à tête reposée. Un jugement sous le coup de l'émotion est parfois mauvais." }
       - { text: "Je l'analyse tout de suite, tant que je m'en souviens", why: "Une courte note suffit pour ne pas oublier. L'analyse complète, vous la faites plus tard, à tête reposée." }
@@ -61,7 +61,7 @@ drills:
       - { text: "Je dois encore calculer le cas réaliste", why: "Pas besoin : l'hypothèse réaliste se situe entre les extrêmes, et puisque les deux mènent à la même conclusion, le résultat ne changera pas." }
       - { text: "Je passe à une hypothèse optimiste, car la pessimiste est exagérée", why: "Vous commencez par les extrêmes pour délimiter l'intervalle. Si la pessimiste donne un bon résultat, l'optimiste à plus forte raison." }
 ---
-L'application revoit pour vous les mains jouées contre des bots. Les mains jouées en dehors de l'application, vous les revoyez vous-même. Cette leçon rassemble des conseils d'entraîneurs.
+L'application revoit pour vous les mains jouées contre des bots. Les mains jouées en dehors de l'application, vous les revoyez vous-même. Cette leçon rassemble des conseils de coachs.
 
 ## Marquez pendant le jeu, analysez après la {{t:session|session}}
 
@@ -77,12 +77,12 @@ Ne passez pas beaucoup de temps sur les coolers et les bad beats. Un cooler est 
 
 ## Comment revoir une décision
 
-1. Notez la main : les {{t:position|positions}}, les tapis, les actions et les tailles de mise à chaque {{t:street|street}}.
+1. Notez la main : les {{t:position|positions}}, les stacks, les actions et les tailles de mise à chaque {{t:street|street}}.
 2. Notez votre première réaction : la décision vous semble-t-elle facile ou difficile ?
 3. Calculez : le prix, l'{{t:equity|équité}} et ce que vous saviez au moment de la décision.
 4. Vérifiez la décision avec trois hypothèses sur la {{t:range|range}} de l'adversaire : optimiste, pessimiste et réaliste. Si elle est bonne même avec l'hypothèse pessimiste, vous pouvez vous arrêter.
 5. Notez l'écart entre votre première réaction et le calcul. Avec le temps, l'intuition s'améliore.
 
 :::note D'où viennent ces règles
-Trois supports de formation sur la revue des mains : quand et quoi revoir ; les coolers et les bad beats ; la première réaction et les trois hypothèses sur l'adversaire. Ce sont des heuristiques d'entraîneurs, pas des résultats de solver.
+Trois supports de formation sur la revue des mains : quand et quoi revoir ; les coolers et les bad beats ; la première réaction et les trois hypothèses sur l'adversaire. Ce sont des heuristiques de coachs, pas des résultats de solveur.
 :::

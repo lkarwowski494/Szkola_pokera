@@ -26,7 +26,7 @@ drills:
     options:
       - { text: "Circa {{n:exam.m12.need.hands.k}} mila", correct: true, why: "Blocchi = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, cioè circa {{n:exam.m12.need.hands.k}} mila mani. Una {{t:standard-deviation|deviazione standard}} più alta richiede un campione molto più grande." }
       - { text: "Circa {{n:var.need.hands.k}} mila, le stesse che con una {{t:standard-deviation|deviazione standard}} di {{n:var.sd}}", why: "Nella formula la {{t:standard-deviation|deviazione standard}} è al quadrato, quindi con {{n:var.sd.high}} invece di {{n:var.sd}} ti servono decisamente più mani: circa {{n:exam.m12.need.hands.k}} mila." }
-      - { text: "Bastano qualche decina di migliaia di mani", why: "L'errore diminuisce solo con la radice quadrata del numero di mani. Con {{n:var.sd.high}} e una precisione di ± {{n:var.target}} ti servono circa {{n:exam.m12.need.blocks}} blocchi da 100 mani." }
+      - { text: "Basta qualche decina di migliaia di mani", why: "L'errore diminuisce solo con la radice quadrata del numero di mani. Con {{n:var.sd.high}} e una precisione di ± {{n:var.target}} ti servono circa {{n:exam.m12.need.blocks}} blocchi da 100 mani." }
   - kind: choice
     id: m12.exam.q4
     family: m12.sample-size

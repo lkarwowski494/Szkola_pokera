@@ -28,7 +28,7 @@ drills:
     options:
       - { text: "{{n:bluff.share.bet-three-quarters}}", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}) = {{n:bluff.share.bet-three-quarters}}。這個數字和對手{{t:call|跟注}}所需的權益相同。" }
       - { text: "{{n:alpha.bet-three-quarters}}", why: "這是 alpha：一次毫無勝算的{{t:bluff|詐唬}}需要多常成功。{{t:range|範圍}}中的{{t:bluff|詐唬}}佔比，要把兩筆下注都放進分母來算：{{n:bluff.share.bet-three-quarters}}。" }
-      - { text: "{{n:mdf.bet-three-quarters}}", why: "這是{{t:mdf|最低防守頻率}}，也就是對手應該防守多少。你的{{t:bluff|詐唬}}佔比是 {{n:bluff.share.bet-three-quarters}}。" }
+      - { text: "{{n:mdf.bet-three-quarters}}", why: "這是 {{t:mdf}}，也就是對手應該防守多少。你的{{t:bluff|詐唬}}佔比是 {{n:bluff.share.bet-three-quarters}}。" }
   - kind: choice
     id: m8.l2.q-share-overbet
     family: m8.bluff.share
@@ -139,5 +139,5 @@ M6 的 alpha = 下注 ÷ ({{t:pot|底池}} + 下注)，告訴你對手需要多�
 {{t:bluff|詐唬}}時要選**最弱的牌**，例如沒中的{{t:straight|順子}}{{t:draw|聽牌}}或毫無勝算的高牌（沒中的{{t:flush|同花}}會在{{t:blocker|阻擋牌}}那一課說明）：它們{{t:check|過牌}}後反正也會輸，所以{{t:bluff|詐唬}}失敗也不會讓它們損失什麼。有攤牌價值的牌就{{t:check|過牌}}。
 
 :::note 這是均衡點，不是對付每個對手的公式
-這些比例能保護你不被打得好的對手利用。面對特定玩家時，你可以偏離這些比例；這部分會在微注級別{{t:exploit|剝削}}的模組（M10）中說明。{{t:bluff|詐唬}}佔比公式是簡化模型中的計算：{{t:polarized|極化}}{{t:range|範圍}}對上抓詐唬牌（賽局理論中的玩具模型）。用最弱的牌{{t:bluff|詐唬}}的建議，來自教學資料和求解器分析。
+這些比例能保護你不被打得好的對手利用。面對特定玩家時，你可以偏離這些比例；這部分會在微級別{{t:exploit|剝削}}的模組（M10）中說明。{{t:bluff|詐唬}}佔比公式是簡化模型中的計算：{{t:polarized|極化}}{{t:range|範圍}}對上抓詐唬牌（賽局理論中的玩具模型）。用最弱的牌{{t:bluff|詐唬}}的建議，來自教學資料和求解器分析。
 :::

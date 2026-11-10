@@ -48,7 +48,7 @@ drills:
     table: { position: BTN }
     options:
       - { text: "Más de {{n:alpha.cbet.big}} de las veces", correct: true, why: "Sí: {{n:cbet.btn.big}} es {{n:cbet.size.big}} del {{t:pot|bote}}, y el umbral depende solo de la relación entre la apuesta y el {{t:pot|bote}}: apuesta ÷ ({{t:pot|bote}} + apuesta) = {{n:alpha.cbet.big}}. Lo mismo que con el {{t:pot|bote}} en {{t:chips|fichas}}." }
-      - { text: "Más de {{n:alpha.cbet.small}} de las veces", why: "Es el umbral para una c-bet pequeña ({{n:cbet.size.small}} del {{t:pot|bote}}, es decir, {{n:cbet.btn.small}}). Una apuesta mayor arriesga más, así que tiene que funcionar más a menudo: {{n:alpha.cbet.big}}." }
+      - { text: "Más de {{n:alpha.cbet.small}} de las veces", why: "Es el umbral para un c-bet pequeño ({{n:cbet.size.small}} del {{t:pot|bote}}, es decir, {{n:cbet.btn.small}}). Una apuesta mayor arriesga más, así que tiene que funcionar más a menudo: {{n:alpha.cbet.big}}." }
       - { text: "Más de {{n:flop.miss.unpaired}} de las veces", why: "Es la probabilidad de que una mano sin {{t:pair|pareja}} falle el flop, no el umbral de rentabilidad de la apuesta. El umbral es apuesta ÷ ({{t:pot|bote}} + apuesta) = {{n:alpha.cbet.big}}." }
   - kind: choice
     id: m5.exam.q6

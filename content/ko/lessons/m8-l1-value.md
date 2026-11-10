@@ -23,7 +23,7 @@ drills:
     options:
       - { text: "네, {{t:value|밸류}} 벳입니다", correct: true, why: "벳을 {{n:value.ex.many}}번 이기고 {{n:value.ex.few}}번 집니다: 순이익은 {{n:value.ex.net}}벳입니다. {{t:call|콜}} 중 더 약한 핸드가 {{n:value.threshold}} 초과이므로 벳이 {{t:check}}보다 더 많이 법니다." }
       - { text: "아니요, 가끔 더 강한 핸드로 지불하니까요", why: "더 강한 핸드는 항상 일정 비율로 지불합니다. 중요한 것은 더 약한 핸드의 {{t:call|콜}}이 더 강한 핸드의 콜보다 많은지입니다: 여기서는 {{n:value.ex.many}} 대 {{n:value.ex.few}}입니다." }
-      - { text: "상대가 절대 더 강한 핸드를 갖고 있지 않을 때만", why: "그러면 너츠로만 벳하게 되어 많은 밸류를 놓칩니다. {{t:call|콜}} 중 더 약한 핸드가 {{n:value.threshold}} 초과이기만 하면 충분합니다." }
+      - { text: "상대가 절대 더 강한 핸드를 갖고 있지 않을 때만", why: "그러면 넛으로만 벳하게 되어 많은 밸류를 놓칩니다. {{t:call|콜}} 중 더 약한 핸드가 {{n:value.threshold}} 초과이기만 하면 충분합니다." }
   - kind: choice
     id: m8.l1.q-threshold-no
     family: m8.value.threshold
@@ -69,7 +69,7 @@ drills:
     options:
       - { text: "8 페어, 4 페어, 그리고 더 약한 키커의 퀸", correct: true, why: "이 핸드들은 플롭에서 콜했고 {{t:pair|페어}}를 갖고 있으므로 작은 벳에 자주 지불합니다. 더 강한 키커의 퀸, {{t:two-pair|투 페어}}, 셋, {{t:straight|스트레이트}}(A5, 65)에는 지지만, 더 약한 핸드의 {{t:call|콜}}이 더 많습니다." }
       - { text: "{{t:pair|페어}}가 없는 핸드", why: "{{t:pair|페어}}가 없는 핸드는 리버 벳에 좀처럼 지불하지 않습니다. 가끔 에이스 하이가 지불하지만, 여기서는 더 약한 {{t:pair|페어}}가 훨씬 많습니다." }
-      - { text: "없습니다, 더 강한 핸드만 지불합니다", why: "지나치게 신중합니다: {{t:big-blind}}는 퀸보다 낮은 {{t:pair|페어}}를 많이 방어합니다. 턴에서 {{t:check|체크}}된 뒤 상대의 {{t:range}}에는 그런 핸드가 꽤 많습니다." }
+      - { text: "없습니다, 더 강한 핸드만 지불합니다", why: "지나치게 신중합니다: {{t:big-blind}}는 퀸보다 낮은 {{t:pair|페어}}를 많이 방어합니다. 턴에서 {{t:check|체크}}한 뒤 상대의 {{t:range}}에는 그런 핸드가 꽤 많습니다." }
   - kind: choice
     id: m8.l1.q-thin-size
     family: m8.value.size
@@ -112,7 +112,7 @@ drills:
 
 더 약한 핸드의 {{t:call}}은 각각 벳 하나를 이깁니다. 더 강한 핸드의 {{t:call}}은 각각 벳 하나를 잃습니다. 상대가 더 약한 핸드로 {{t:fold|폴드}}하면 {{t:check|체크}}했을 때와 같은 {{t:pot|팟}}을 이깁니다. 그래서 지불하는 핸드 중 **{{n:value.threshold}}** 초과가 당신의 핸드보다 약할 때 벳이 이익을 냅니다.
 
-예: {{t:call|콜}} {{n:value.ex.calls}}번 중 {{n:value.ex.many}}번은 더 약한 핸드, {{n:value.ex.few}}번은 더 강한 핸드입니다. 순이익은 {{n:value.ex.net}}벳입니다. 비율이 반대라면 같은 만큼 잃습니다.
+예: {{t:call|콜}} {{n:value.ex.calls}}번 중 {{n:value.ex.many}}번은 더 약한 핸드, {{n:value.ex.few}}번은 더 강한 핸드입니다. 순이익은 {{n:value.ex.net}}벳입니다. 비율이 반대라면 그만큼 잃습니다.
 
 ## 누가 지불할까
 

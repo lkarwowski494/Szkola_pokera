@@ -496,7 +496,7 @@
         "cbet": "Plan para este flop según la lección: {{best}}. Tu elección: {{chosen}}.",
         "cbetPlans": {
           "check": "{{t:check|pasar}}",
-          "small": "{{t:c-bet|c-bet}} pequeña",
+          "small": "{{t:c-bet|c-bet}} pequeño",
           "big": "{{t:c-bet|c-bet}} grande"
         },
         "draw": "{{t:outs|Outs}}: {{outs}} de {{unseen}} cartas desconocidas, probabilidad de ligar: {{hit}}. {{t:equity|Equity}} necesaria: {{required}}.",
@@ -755,7 +755,7 @@
       "adjust": {
         "nit": "Respetas sus {{t:raise|subidas}} y 3-bets, te {{t:fold|retiras}} más a menudo con manos de la parte baja de tu {{t:range|rango}} y le robas las ciegas más a menudo.",
         "regular": "Juegas cerca de la base de los módulos 3–9 y solo te apartas de ella ante un error claro en sus estadísticas.",
-        "passive": "Más {{t:value-bet|value bets}}, también más finas, y menos {{t:bluff|faroles}}, sobre todo en el river.",
+        "passive": "Más {{t:value-bet|value bets}}, también más finos, y menos {{t:bluff|faroles}}, sobre todo en el river.",
         "maniac": "No le haces {{t:bluff|faroles}}, {{t:call|igualas}} con más manos que cazan {{t:bluff|faroles}} y, con una mano muy fuerte, le dejas apostar.",
         "unknown": "Juegas contra él como contra un jugador desconocido, es decir, según la base, y vas reuniendo más manos."
       },

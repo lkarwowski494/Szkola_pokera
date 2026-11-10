@@ -44,8 +44,8 @@ drills:
     prompt: "Bạn có [[Ac Kd]], và flop là [[Ks 7d 2c]]. Tại sao trên flop như vậy, {{t:pair}} với kicker tốt lại an toàn hơn trên flop {{t:wet|ướt}}?"
     table: { hand: "Ac Kd", board: "Ks 7d 2c" }
     options:
-      - { text: "Vì đối thủ không có {{t:draw|draw}} nào, nên các lá tiếp theo hiếm khi thay đổi người dẫn", correct: true, why: "Đúng: flop là {{t:rainbow}} và không thể có {{t:straight}}. Đối thủ đang thua lúc này thường có ít out: vài lá để có {{t:three-of-a-kind|bộ ba}} hoặc {{t:two-pair}}, còn nếu không có {{t:pair|đôi}} thì cần hai lá tốt liên tiếp." }
-      - { text: "Vì trên flop {{t:dry|khô}}, đối thủ luôn {{t:fold|bỏ bài}}", why: "Sai: đối thủ có con bảy, con hai hoặc K yếu hơn có thể {{t:call|theo}}. Flop {{t:dry|khô}} cho biết về {{t:draw|draw}}, chứ không cho biết đối thủ có {{t:fold|bỏ bài}} hay không." }
+      - { text: "Vì đối thủ không có {{t:draw|bài chờ}} nào, nên các lá tiếp theo hiếm khi thay đổi người dẫn", correct: true, why: "Đúng: flop là {{t:rainbow}} và không thể có {{t:straight}}. Đối thủ đang thua lúc này thường có ít out: vài lá để có {{t:three-of-a-kind|bộ ba}} hoặc {{t:two-pair}}, còn nếu không có {{t:pair|đôi}} thì cần hai lá tốt liên tiếp." }
+      - { text: "Vì trên flop {{t:dry|khô}}, đối thủ luôn {{t:fold|bỏ bài}}", why: "Sai: đối thủ có con bảy, con hai hoặc K yếu hơn có thể {{t:call|theo}}. Flop {{t:dry|khô}} cho biết về {{t:draw|bài chờ}}, chứ không cho biết đối thủ có {{t:fold|bỏ bài}} hay không." }
       - { text: "Vì {{t:pair}} K luôn thắng đến river", why: "Sai: đối thủ có thể đã có set hoặc {{t:two-pair}} ngay bây giờ. Flop {{t:dry|khô}} chỉ giảm nguy cơ bị ai đó đuổi kịp." }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar board
   - kind: generated
@@ -55,7 +55,7 @@ drills:
     params: { area: board, dir: both }
     count: 4
 ---
-Sau flop, mỗi người chơi đã thấy năm trong bảy lá của mình. Cách ba lá trên {{t:board|bàn}} khớp với bài của người chơi được gọi là {{t:texture|kết cấu}} flop. {{t:texture|Kết cấu}} quyết định ai trúng bài thường xuyên hơn và có nên bet hay không. Trước khi học c-bet ({{t:bet|cược}} trên flop sau khi {{t:raise|tố}} trước flop), hãy học cách đọc flop theo bốn trục.
+Sau flop, mỗi người chơi đã thấy năm trong bảy lá của mình. Cách ba lá trên {{t:board|bàn}} khớp với bài của người chơi được gọi là {{t:texture|kết cấu}} flop. {{t:texture|Kết cấu}} quyết định ai trúng bài thường xuyên hơn và có nên cược hay không. Trước khi học c-bet ({{t:bet|cược}} trên flop sau khi {{t:raise|tố}} trước flop), hãy học cách đọc flop theo bốn trục.
 
 ## Độ cao
 
@@ -63,7 +63,7 @@ Ta nhìn vào lá cao nhất. Flop **cao** có lá cao nhất là A, K hoặc Q,
 
 ## Chất
 
-Flop **{{t:rainbow}}** có ba chất khác nhau: chưa ai có {{t:flush-draw|draw thùng}}. Flop **{{t:two-tone}}** có hai lá cùng một chất, ví dụ [[Jh Th 8c]]: hai lá của người chơi thuộc chất đó cho {{t:flush-draw}}. Flop **{{t:monotone}}** có cả ba lá cùng một chất, ví dụ [[Kh 8h 3h]]: {{t:flush}} có thể đã hoàn thành.
+Flop **{{t:rainbow}}** có ba chất khác nhau: chưa ai có {{t:flush-draw|bài chờ thùng}}. Flop **{{t:two-tone}}** có hai lá cùng một chất, ví dụ [[Jh Th 8c]]: hai lá của người chơi thuộc chất đó cho {{t:flush-draw}}. Flop **{{t:monotone}}** có cả ba lá cùng một chất, ví dụ [[Kh 8h 3h]]: {{t:flush}} có thể đã hoàn thành.
 
 ## Hạng
 
@@ -71,13 +71,13 @@ Flop **{{t:paired}}** có hai lá cùng hạng, ví dụ [[Qd Qs 6h]]. Trên flo
 
 Flop **{{t:connected}}** có ba hạng khác nhau nằm trong năm hạng liên tiếp, nên đã có thể có {{t:straight}} ngay bây giờ: trên [[9h 7d 6c]], ví dụ 85 và T8 tạo thành {{t:straight|sảnh}}. Lá A cũng được tính là một, nên [[Ah 5d 3c]] cũng là {{t:connected}}.
 
-Flop **{{t:semi-connected|bán liên kết}}** chỉ có hai lá nằm trong năm hạng liên tiếp. Chưa ai có {{t:straight|sảnh}}, nhưng ai đó có thể có {{t:straight-draw}} (hở hai đầu hoặc gutshot): trên [[Kh Qd 4c]], ví dụ JT có draw đó. Những flop như vậy rất nhiều, vì chỉ cần hai lá gần nhau.
+Flop **{{t:semi-connected|bán liên kết}}** chỉ có hai lá nằm trong năm hạng liên tiếp. Chưa ai có {{t:straight|sảnh}}, nhưng ai đó có thể có {{t:straight-draw}} (hở hai đầu hoặc gutshot): trên [[Kh Qd 4c]], ví dụ JT có bài chờ đó. Những flop như vậy rất nhiều, vì chỉ cần hai lá gần nhau.
 
-Flop **{{t:disconnected}}** có các lá cách xa nhau đến mức không có hai lá nào nằm trong năm hạng liên tiếp, ví dụ [[Ks 8d 3c]]. Ở đây không ai có dù chỉ {{t:straight-draw|draw sảnh}}. Những flop như vậy rất ít.
+Flop **{{t:disconnected}}** có các lá cách xa nhau đến mức không có hai lá nào nằm trong năm hạng liên tiếp, ví dụ [[Ks 8d 3c]]. Ở đây không ai có dù chỉ {{t:straight-draw|bài chờ sảnh}}. Những flop như vậy rất ít.
 
 ## {{t:dry|Khô}} hay {{t:wet}}
 
-Ta tính điểm {{t:wetness|độ ướt}}, tức là mức độ flop tạo điều kiện cho {{t:draw|draw}} và các tay bài mạnh theo chất và theo {{t:straight|sảnh}}:
+Ta tính điểm {{t:wetness|độ ướt}}, tức là mức độ flop tạo điều kiện cho {{t:draw|bài chờ}} và các tay bài mạnh theo chất và theo {{t:straight|sảnh}}:
 
 - {{t:straight}} đã có thể có ngay bây giờ theo nhiều cách, tức là với ít nhất hai tổ hợp khác nhau của hai hạng trên tay (trên [[9h 8d 7c]], JT, T6 và 65 tạo được sảnh): {{n:tex.points.straight.made}} điểm,
 - {{t:straight}} chỉ có thể có theo một cách (trên [[Ah Kd Tc]] chỉ QJ tạo được, trên [[Ah 4d 2c]] chỉ 53): {{n:tex.points.straight.made-one}} điểm,
@@ -98,9 +98,9 @@ Flop **{{t:dry}}** có ít hơn {{n:tex.threshold.medium}} điểm, flop **{{t:w
 | [[9h 8d 7c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.made}} | {{n:tex.ex.987}} | {{t:wet}} |
 | [[Jh Th 8c]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.made}} | {{n:tex.ex.jt8}} | {{t:wet}} |
 
-{{t:straight}} đã hoàn thành có trọng số lớn hơn chỉ một {{t:draw}}, vì nó thay đổi tương quan lực lượng ngay bây giờ. {{t:straight|Sảnh}} có thể có theo nhiều cách có trọng số lớn hơn {{t:straight}} chỉ có thể có theo một cách: trên [[9h 8d 7c]] nhiều tay bài có {{t:straight|sảnh}} hoặc {{t:oesd}}, còn trên [[Ah Kd Tc]] chỉ QJ tạo được {{t:straight|sảnh}} và không ai có {{t:draw|draw}} hở hai đầu. Vì vậy A-K-T ba chất là flop trung gian, dù nó là {{t:connected}}.
+{{t:straight|Sảnh}} đã hoàn thành có trọng số lớn hơn chỉ một {{t:draw}}, vì nó thay đổi tương quan lực lượng ngay bây giờ. {{t:straight|Sảnh}} có thể có theo nhiều cách có trọng số lớn hơn {{t:straight}} chỉ có thể có theo một cách: trên [[9h 8d 7c]] nhiều tay bài có {{t:straight|sảnh}} hoặc {{t:oesd}}, còn trên [[Ah Kd Tc]] chỉ QJ tạo được {{t:straight|sảnh}} và không ai có {{t:draw|bài chờ}} hở hai đầu. Vì vậy A-K-T ba chất là flop trung gian, dù nó là {{t:connected}}.
 
-Flop {{t:two-tone|hai chất}} [[Kh 7h 2c]] là flop {{t:dry}} với một {{t:flush-draw|draw thùng}}: không có {{t:straight|sảnh}} cũng không có {{t:straight-draw|draw sảnh}}. Flop {{t:monotone|đồng chất}} luôn là {{t:wet}}: trên [[Kh 8h 3h]] có nhiều tay bài có {{t:flush}} hoặc {{t:flush-draw}} hơn số tay bài có {{t:straight|sảnh}} hoặc {{t:oesd}} trên [[9h 8d 7c]].
+Flop {{t:two-tone|hai chất}} [[Kh 7h 2c]] là flop {{t:dry}} với một {{t:flush-draw|bài chờ thùng}}: không có {{t:straight|sảnh}} cũng không có {{t:straight-draw|bài chờ sảnh}}. Flop {{t:monotone|đồng chất}} luôn là {{t:wet}}: trên [[Kh 8h 3h]] có nhiều tay bài có {{t:flush}} hoặc {{t:flush-draw}} hơn số tay bài có {{t:straight|sảnh}} hoặc {{t:oesd}} trên [[9h 8d 7c]].
 
 Trên flop {{t:dry|khô}}, người dẫn thường vẫn dẫn đến river. Trên flop {{t:wet|ướt}}, các lá tiếp theo thường thay đổi tương quan lực lượng, nên tay bài mạnh nhất trên flop kém an toàn hơn.
 

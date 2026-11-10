@@ -343,7 +343,7 @@
   then: "c'est un flop {{t:wet|wet}} : l'adversaire a souvent des {{t:draw|tirages}}, et parfois déjà une {{t:straight|quinte}} ou une {{t:flush|couleur}}"
   because: "les cartes suivantes changent souvent le leader, donc la main qui est la meilleure maintenant est moins sûre"
   level: rules
-  source: "définition de la texture dans l'application (poker-core, texture.ts : WETNESS_POINTS, WETNESS_THRESHOLDS) ; notion de flop humide : site de formation, Sizing Your C-Bets ; site de formation, What Is a Continuation Bet ; exemples de flops humides : site de formation (987, QJT), site de formation, Bet Sizing Strategy: 8 Rules (T954, https://upswingpoker.com/bet-size-strategy-tips-rules/) ; la limite intermédiaire/humide est une convention de l'application"
+  source: "définition de la texture dans l'application (poker-core, texture.ts : WETNESS_POINTS, WETNESS_THRESHOLDS) ; notion de flop wet : site de formation, Sizing Your C-Bets ; site de formation, What Is a Continuation Bet ; exemples de flops wet : site de formation (987, QJT), site de formation, Bet Sizing Strategy: 8 Rules (T954, https://upswingpoker.com/bet-size-strategy-tips-rules/) ; la limite intermédiaire/wet est une convention de l'application"
   sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: training }]
 - id: R-M5-003
   module: m5
@@ -410,7 +410,7 @@
   then: "vous c-bettez moins souvent que d'habitude et petit"
   because: "n'importe quel joueur peut déjà avoir une {{t:flush|couleur}}, donc l'{{t:nuts-advantage|avantage de nuts}} de l'{{t:aggressor|agresseur}} diminue, et dans un gros {{t:pot|pot}} la {{t:flush|couleur}} de l'adversaire coûte cher"
   level: heuristic
-  source: "site de solveur commercial, Flop Heuristics: IP C-Betting in Cash Games (« Monotone boards see a drastic decrease in betting frequency and sizing », BTN vs BB, https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/) ; site de solveur commercial, The Mechanics of C-Bet Sizing (« when a very wet board like Q♦8♦7♦ is dealt, the bet sizing comes down again », https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/) : un flop humide ne signifie pas une grosse mise ; site de formation, Monotone Flops (Kanu7, résultats de solveur : « c-betting half the time for a 25-33% pot sizing », https://upswingpoker.com/monotone-flops-kanu7/) ; décision D-39 (document 12 M4–M6, rapport 12a-22)"
+  source: "site de solveur commercial, Flop Heuristics: IP C-Betting in Cash Games (« Monotone boards see a drastic decrease in betting frequency and sizing », BTN vs BB, https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/) ; site de solveur commercial, The Mechanics of C-Bet Sizing (« when a very wet board like Q♦8♦7♦ is dealt, the bet sizing comes down again », https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/) : un flop wet ne signifie pas une grosse mise ; site de formation, Monotone Flops (Kanu7, résultats de solveur : « c-betting half the time for a 25-33% pot sizing », https://upswingpoker.com/monotone-flops-kanu7/) ; décision D-39 (document 12 M4–M6, rapport 12a-22)"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/" }, { kind: training, url: "https://upswingpoker.com/monotone-flops-kanu7/" }]
 - id: R-M5-011
   module: m5
@@ -515,7 +515,7 @@
 - id: R-M6-010
   module: m6
   if: "vous faites check-raise au flop"
-  then: "vous {{t:raise|relancez}} à environ {{n:xr.mult.low}}–{{n:xr.mult.example}} le c-bet, d'autant plus que le c-bet est petit ; pas au minimum"
+  then: "vous {{t:raise|relancez}} à environ {{n:xr.mult.low}}–{{n:xr.mult.example}} le c-bet, d'autant plus gros que le c-bet est petit ; pas au minimum"
   because: "avec un check-raise à {{n:xr.mult.example}} le c-bet, le Bouton a besoin d'environ {{n:eq.vs-xr.example}} d'équité pour {{t:call|suivre}}, et à {{n:xr.too-small.mult}} le c-bet, seulement {{n:eq.vs-xr.too-small}} ; à ce prix-là, il paiera avec n'importe quel {{t:draw|tirage}}"
   level: heuristic
   source: "calcul du prix : montant à payer/(pot après la relance + montant à payer) ; site de formation, Level-Up Podcast ep. 1 (Blackwood) : 4,5x face aux petits c-bets, 3,2x face aux gros (https://upswingpoker.com/podcast/ep1-check-raise/) ; direction cohérente avec un site de solveur commercial : plus la mise est petite, plus le multiple est grand"
@@ -646,7 +646,7 @@
   then: "vous misez quand plus de {{n:value.threshold}} des mains qui {{t:call|suivront}} sont plus faibles que la vôtre ; vous ne comptez que les mains qui paieront, pas toutes les mains de l'adversaire"
   because: "chaque {{t:call|call}} d'une main plus faible gagne une mise, et chaque {{t:call|call}} d'une main meilleure en perd une ; quand l'adversaire se {{t:fold|couche}} avec une main plus faible, vous remportez le même {{t:pot|pot}} que vous auriez remporté après un {{t:check|check}}"
   level: math
-  source: "calcul : espérance de la mise par rapport au check (programme M8 : une value bet gagne plus de la moitié des fois où elle est suivie)"
+  source: "calcul : espérance de la mise par rapport au check (programme M8 : un value bet gagne plus de la moitié des fois où il est suivi)"
   sources: [{ kind: math }]
 - id: R-M8-002
   module: m8
@@ -844,7 +844,7 @@
   module: m10
   if: "vous jugez un adversaire d'après les statistiques du {{t:hud|HUD}}"
   then: "en dessous d'environ {{n:hud.hands.random}} mains, vous les considérez comme aléatoires et jouez contre lui comme contre un inconnu ; le type de joueur apparaît grossièrement après environ {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} mains, le {{t:vpip|VPIP}} et le {{t:pfr|PFR}} se stabilisent après environ {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}, le 3-bet après environ {{n:hud.hands.3bet.overall.low}}–{{n:hud.hands.3bet.high}}, et le fold to 3-bet après environ {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}"
-  because: "le {{t:vpip|VPIP}} gagne une occasion à chaque main, alors que le fold to 3-bet n'en gagne une que lorsque l'adversaire a {{t:open|ouvert}} et reçu un 3-bet, donc sur le même nombre de mains, il a beaucoup moins d'occasions et une erreur plus grande"
+  because: "le {{t:vpip|VPIP}} gagne une occasion à chaque main, alors que le fold to 3-bet n'en gagne une que lorsque l'adversaire a {{t:open|ouvert}} et reçu un 3-bet, donc sur le même nombre de mains, il a plusieurs fois moins d'occasions et une erreur plus grande"
   level: heuristic
   source: "site de formation, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/) : « For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize. », « For 3-bet and fold to 3-bet, closer to 500 hands is the threshold. » ; site de formation, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide) : « Below 30 hands, treat the HUD numbers as random and use hand-observation reads only. », « VPIP / PFR 30-50 hands », « 3-bet % (overall) 100+ hands », « Fold to 3-bet | 200+ hands » ; pour le VPIP et le PFR, deux seuils : type grossier après 30–50 mains et stabilisation après 100–200 (contradiction au même niveau, docs/tresci/e1-m9-m11.md §3.1) ; pour le 3-bet et le fold to 3-bet, des bornes inférieures distinctes tirées du même tableau (100+ et 200+), une borne supérieure commune (D-M10-04 ; E3 2026-11-04)"
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }]
@@ -972,7 +972,7 @@
   then: "vous accumulez des centaines de milliers de mains : une précision de ± {{n:var.target}} avec {{n:var.conf95}} de certitude exige environ {{n:var.need.hands.k}} mille mains"
   because: "l'erreur d'estimation diminue avec la racine carrée du nombre de mains : nombre de blocs de 100 mains nécessaires = ({{n:var.z95}} × SD ÷ précision)²"
   level: math
-  source: "calcul : (1,96 × 80 ÷ 2)² blocs ; cohérent avec l'ordre de grandeur du document 08 (environ 615 mille mains)"
+  source: "calcul : (1,96 × 80 ÷ 2)² blocs ; cohérent avec l'ordre de grandeur du document 08 (environ 615 000 mains)"
   sources: [{ kind: math }]
 - id: R-M12-004
   module: m12
@@ -986,7 +986,7 @@
   module: m12
   if: "le résultat de quelques {{t:session|sessions}} vous pousse à changer de stratégie"
   then: "vous ne la changez qu'après avoir revu vos mains, et non sur la seule base du résultat"
-  because: "même les {{n:skill.pct}} meilleurs joueurs ne devancent les {{n:skill.pct}} plus faibles dans environ {{n:skill.ahead}} des cas qu'après environ {{n:skill.hands}} mains, et des écarts de niveau plus petits demandent beaucoup plus de mains"
+  because: "même les {{n:skill.pct}} de joueurs les plus forts ne devancent les {{n:skill.pct}} les plus faibles dans environ {{n:skill.ahead}} des cas qu'après environ {{n:skill.hands}} mains, et des écarts de niveau plus petits demandent beaucoup plus de mains"
   level: heuristic
   source: "van Loon, van den Assem et van Dolder (2015), Beyond Chance? The Persistence of Performance in Online Poker, PLoS ONE 10(3)"
   sources: [{ kind: study }]
@@ -1060,7 +1060,7 @@
 - id: R-M11-003
   module: m11
   if: "il y a une ante dans le {{t:pot|pot}}"
-  then: "vous {{t:shove|pushez}} all-in plus de mains que sans ante : à {{n:m11.depth.10}} avec une {{t:bb-ante|ante de grosse blinde}} de {{n:m11.ante}}, environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} au lieu de {{n:m11.push.10}}"
+  then: "vous {{t:shove|pushez}} all-in plus de mains que sans ante : à {{n:m11.depth.10}} avec une {{t:bb-ante|big blind ante}} de {{n:m11.ante}}, environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} au lieu de {{n:m11.push.10}}"
   because: "l'ante fait grossir le {{t:pot|pot}} que vous ramassez quand l'adversaire se {{t:fold|couche}}, alors que le risque de l'all-in reste le même"
   level: gto
   source: "solveur push/fold du projet (pushfold.json, variante 10bb-ante : heads-up, big blind ante 1bb) ; validation : docs/tresci/e1b-solver.md (D-153), calcul dans le même modèle (équilibre par fictitious play 71,05%, borne inférieure de l'intervalle dans then) ; direction cohérente avec la littérature : site de formation, Push Fold Charts (https://pokercoaching.com/push-fold-charts/) : « When antes are in play, your preflop shoving range should be wider »"
@@ -1100,7 +1100,7 @@
 - id: R-M11-008
   module: m11
   if: "vous voulez convertir des stacks de tournoi en argent ({{t:icm|ICM}})"
-  then: "probabilité de 1re place = votre stack ÷ l'ensemble des {{t:chips|jetons}} ; la probabilité de 2e place se calcule de la même façon parmi les joueurs restants, pour chaque vainqueur possible ; équité = somme des probabilités × {{t:payout|gains}}"
+  then: "probabilité de 1re place = votre stack ÷ l'ensemble des {{t:chips|jetons}} ; la probabilité de 2e place se calcule de la même façon parmi les joueurs restants, pour chaque vainqueur possible ; équité = somme des probabilités × {{t:payout|paiements}}"
   because: "ce modèle suppose que les joueurs ont le même niveau, donc seuls les stacks décident de l'ordre"
   level: math
   source: "site de solveur commercial, ICM Basics (https://blog.gtowizard.com/icm-basics/) : « The Independent Chip Model assumes all players are equally skilled, and therefore the probability of winning is purely a function of stack sizes », section Limitations of ICM : « ICM doesn’t consider players’ positions. », « ICM ignores blinds increasing. » (lu le 2026-11-09), « divide their chips by the total amount of chips in play », « Assume one of the other players wins, remove their chips from play, and divide our chips by the remaining chips in play » ; calcul sur un exemple de stacks (rapport E1 M9–M11)"
@@ -1109,7 +1109,7 @@
   module: m11
   if: "dans un {{t:tournament|tournoi}} avec {{t:icm|ICM}}, vous {{t:call|suivez}} un all-in qui peut vous éliminer"
   then: "il vous faut une équité de BF ÷ (BF + 1), où le bubble factor BF = perte d'équité en cas de défaite ÷ gain en cas de victoire ; dans l'exemple de la leçon, {{n:m11.bf.req}} au lieu de {{n:m11.bf.req-chips}} en {{t:chips|jetons}}"
-  because: "dans un {{t:tournament|tournoi}} avec des {{t:payout|gains}}, une défaite coûte plus d'argent qu'une victoire n'en rapporte, donc un {{t:call|call}} doit gagner plus souvent que dans une partie où l'on joue des {{t:chips|jetons}}"
+  because: "dans un {{t:tournament|tournoi}} avec des {{t:payout|paiements}}, une défaite coûte plus d'argent qu'une victoire n'en rapporte, donc un {{t:call|call}} doit gagner plus souvent que dans une partie où l'on joue des {{t:chips|jetons}}"
   level: math
   source: "calcul ICM (numbers.yaml, clés m11.bf.*) ; site de solveur commercial, What Is the Bubble Factor (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/) : « $EV lost when you lose / $EV gained when you win = Bubble Factor », « Required Equity = Bubble Factor / (Bubble Factor + 1) »"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/" }, { kind: math }]
@@ -1152,8 +1152,8 @@
 - id: R-M13-002
   module: m13
   if: "le solveur joue votre main dans un spot donné de deux façons ({{t:mixed-hand|main mixte}})"
-  then: "chacun de ces jeux est correct ; le rapport marque le plus rare comme acceptable quand le solveur le joue dans au moins {{n:range.mixed.min}} des cas, mais moins souvent que dans {{n:range.mixed.low}}"
-  because: "à l'équilibre, un joueur ne mélange que des jeux de même {{t:expected-value|espérance de gain}}"
+  then: "chacun de ces coups est correct ; le rapport marque le plus rare comme acceptable quand le solveur le joue dans au moins {{n:range.mixed.min}} des cas, mais moins souvent que dans {{n:range.mixed.low}}"
+  because: "à l'équilibre, un joueur ne mélange que des coups de même {{t:expected-value|espérance de gain}}"
   level: gto
   source: "site de solveur commercial, Principles of GTO (https://blog.gtowizard.com/principles-of-gto/) : « Unexploitable play mixes between two or more options only when these options have the same EV. » ; seuil de coup rare : site de solveur commercial, Measure Performance (https://help.gtowizard.com/measure-performance/) : « Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don’t lose significant EV. » (ADR-26)"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/principles-of-gto/" }]
@@ -1161,14 +1161,14 @@
   module: m13
   if: "vous échangez les couleurs de toutes les cartes selon une même permutation (p. ex. les cœurs en piques, les piques en cœurs)"
   then: "la bonne décision ne change pas"
-  because: "la force des mains et des {{t:draw|tirages}} dépend du fait que les couleurs concordent, et non de quelles couleurs il s'agit ; c'est pourquoi la reprise d'un coup joué montre la même situation avec d'autres couleurs"
+  because: "la force des mains et des {{t:draw|tirages}} dépend du fait que les couleurs concordent, et non de quelles couleurs il s'agit ; c'est pourquoi une révision issue du jeu montre la même situation avec d'autres couleurs"
   level: math
   source: "calcul : le classement des mains ne distingue pas les couleurs (règles du Texas Hold'em), et une permutation des couleurs préserve le fait que certaines cartes partagent une couleur ; vérifié dans poker-core par un test de propriété (document 02, document 14, 5.6)"
   sources: [{ kind: math }]
 - id: R-M13-004
   module: m13
   if: "après une seule {{t:session|session}}, vous voulez évaluer vos fréquences (p. ex. à quelle fréquence vous entrez dans le coup ou vous vous {{t:fold|couchez}} face au 3-bet)"
-  then: "vous ne tirez pas de conclusion : vous comptez les occasions, pas les mains ; vous regardez une statistique à partir d'environ {{n:hud.opps.look}} occasions, et vous gagnez en certitude vers environ {{n:hud.opps.sure}}"
+  then: "vous ne tirez pas de conclusion : vous comptez les occasions, pas les mains ; vous regardez une statistique à partir d'environ {{n:hud.opps.look}} occasions, et vous gagnez en certitude à environ {{n:hud.opps.sure}}"
   because: "même le {{t:vpip|VPIP}} ne se lit qu'après environ {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} mains (comme en M10), et une situation rare ne se présente que quelques fois par {{t:session|session}}"
   level: heuristic
   source: "coach avec un blog de formation, Poker HUD Stats: The Sample Size You Need (https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html) : « For me personally I usually want at least 5 to even bother looking, and 10 to be sure. » ; échantillons de mains comme dans R-M10-003 (site de formation, site de formation)"

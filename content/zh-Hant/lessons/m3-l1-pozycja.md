@@ -34,7 +34,7 @@ drills:
     options:
       - { text: "{{t:raise|加注}}", correct: true, why: "只剩下盲注位，而且翻牌後你有{{t:position|位置}}。在按鈕位你{{t:open|開池}}約 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} 的手牌，K9o 就在其中。" }
       - { text: "{{t:fold|棄牌}}", why: "太保守了。只對上盲注位時，這手牌已經夠好，而且{{t:position}}還會增加它的價值。" }
-      - { text: "補齊{{t:big-blind|大盲}}", why: "Limp 會交出{{t:initiative|主動權}}。{{t:raise|加注}}常常能直接拿下盲注。" }
+      - { text: "補齊{{t:big-blind|大盲}}", why: "溜入會交出{{t:initiative|主動權}}。{{t:raise|加注}}常常能直接拿下盲注。" }
   - kind: choice
     id: m3.l1.q4
     family: m3.position
@@ -66,5 +66,5 @@ drills:
 **{{t:hijack|HJ}}**（Hijack）坐在 {{t:utg}} 之後、按鈕位前兩個座位，**{{t:cutoff|CO}}**（Cutoff）則緊接在按鈕位之前。這些是中間{{t:position|位置}}：後面的玩家比 {{t:utg}} 後面少，所以你從這裡{{t:open|開池}}得更寬，但仍比按鈕位緊。
 
 :::note {{t:open|開池}}尺寸
-你從每個{{t:position|位置}}都以{{t:raise|加注}}到 {{n:pf.open-size}} 來{{t:open|開池}}，從{{t:small-blind|小盲}}則加注到 {{n:pf.open-size-sb}}。這是簡化做法：在 solver 的解中，{{t:early-position|前位}}的{{t:open|開池}}會稍小一些（例如 {{t:utg}} 為 {{n:pf.open-size.solver-utg}}、{{t:cutoff|CO}} 為 {{n:pf.open-size.solver-co}}），但單一尺寸比較容易學。第一個入池時，你不會只補齊盲注（那是 {{t:limp}}，也就是只靠{{t:call|跟注}}{{t:big-blind|大盲}}入池）：{{t:raise}}可以直接贏下{{t:pot|底池}}，並讓你取得{{t:initiative|主動權}}，因為最後{{t:raise|加注}}的人通常會做下一次{{t:bet|下注}}。
+你從每個{{t:position|位置}}都以{{t:raise|加注}}到 {{n:pf.open-size}} 來{{t:open|開池}}，從{{t:small-blind|小盲}}則加注到 {{n:pf.open-size-sb}}。這是簡化做法：在求解器的解中，{{t:early-position|前位}}的{{t:open|開池}}會稍小一些（例如 {{t:utg}} 為 {{n:pf.open-size.solver-utg}}、{{t:cutoff|CO}} 為 {{n:pf.open-size.solver-co}}），但單一尺寸比較容易學。第一個入池時，你不會只補齊盲注（那是{{t:limp}}，也就是只靠{{t:call|跟注}}{{t:big-blind|大盲}}入池）：{{t:raise}}可以直接贏下{{t:pot|底池}}，並讓你取得{{t:initiative|主動權}}，因為最後{{t:raise|加注}}的人通常會做下一次{{t:bet|下注}}。
 :::

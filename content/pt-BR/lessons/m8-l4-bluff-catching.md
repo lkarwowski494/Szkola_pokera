@@ -30,7 +30,7 @@ drills:
     prompt: "River. O adversário {{t:bet|aposta}} meio {{t:pot|pote}}. Você tem um bluff-catcher e estima que os {{t:bluff|blefes}} sejam cerca de {{n:catch.ex.bluffs-low}} das apostas dele. O que você faz?"
     options:
       - { text: "{{t:fold|Desisto}}", correct: true, why: "Você precisa de {{n:eq.bet-half}} de equity, e seu bluff-catcher ganha só em {{n:catch.ex.bluffs-low}} dos casos. {{t:call|Pagar}} dá prejuízo." }
-      - { text: "{{t:call|Pago}}, porque o {{t:mdf|MDF}} é {{n:mdf.bet-half}}", why: "O {{t:mdf|MDF}} protege contra um adversário que {{t:bluff|blefa}} com frequência suficiente. Quando há poucos {{t:bluff|blefes}}, {{t:call|pagar}} com bluff-catchers é entregar dinheiro." }
+      - { text: "{{t:call|Pago}}, porque o {{t:mdf|MDF}} é {{n:mdf.bet-half}}", why: "O {{t:mdf|MDF}} protege contra um adversário que {{t:bluff|blefa}} com frequência suficiente. Quando há {{t:bluff|blefes}} de menos, {{t:call|pagar}} com bluff-catchers é entregar dinheiro." }
       - { text: "{{t:raise|Aumento}}", why: "Sua mão ganha só de {{t:bluff|blefes}}. Depois do {{t:raise|aumento}}, os {{t:bluff|blefes}} {{t:fold|desistem}} e as mãos de {{t:value|valor}} pagam: você perde mais." }
   - kind: choice
     id: m8.l4.q-many-bluffs
@@ -108,7 +108,7 @@ Um bluff-catcher ganha exatamente quando o adversário {{t:bluff|blefa}}. Então
 | Aposta do adversário | Equity necessária ({{t:bluff|blefes}} no mínimo) |
 |---|---|
 | 1/3 do {{t:pot|pote}} | {{n:eq.bet-third}} |
-| 1/2 {{t:pot|pote}} | {{n:eq.bet-half}} |
+| 1/2 do {{t:pot|pote}} | {{n:eq.bet-half}} |
 | {{t:pot|Pote}} inteiro | {{n:eq.bet-pot}} |
 
 Quando o adversário {{t:bluff|blefa}} exatamente na proporção da lição anterior ({{n:bluff.share.bet-pot}} com aposta do {{t:pot|pote}} inteiro), {{t:call|pagar}} empata. Quando ele {{t:bluff|blefa}} com mais frequência, você {{t:call|paga}}; quando com menos, você {{t:fold|desiste}}. Os números não incluem rake; o rake aumenta um pouco a equity necessária.

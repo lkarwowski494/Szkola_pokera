@@ -34,7 +34,7 @@ drills:
     table: { hand: "Ad Qc", position: BTN, board: "9h 6c 2d 7s" }
     options:
       - { text: "{{t:check|過牌}}", correct: true, why: "在有 9 和 6 的{{t:board|公共牌}}上，7 讓 T8 和 85 成{{t:straight|順子}}、讓 76 和 97 成{{t:two-pair}}，這些都是{{t:big-blind}}會防守的手牌。你沒有{{t:pair|對子}}，也沒有{{t:draw|聽牌}}。你放棄{{t:bluff}}，拿一張免費牌。" }
-      - { text: "下注 {{n:ex.bet.three-quarters}}", why: "這張牌符合對手的{{t:range|範圍}}，而不是你的，而且你沒有能變成強牌的 outs。用{{t:bluff|詐唬}}打{{t:second-barrel|第二槍}}，要選在對你有利的牌上，並用能改進的手牌。" }
+      - { text: "下注 {{n:ex.bet.three-quarters}}", why: "這張牌符合對手的{{t:range|範圍}}，而不是你的，而且你沒有能變成強牌的補牌。用{{t:bluff|詐唬}}打{{t:second-barrel|第二槍}}，要選在對你有利的牌上，並用能改進的手牌。" }
       - { text: "下注 {{n:ex.bet.pot}}", why: "在對對手有利的牌上大額{{t:bluff}}風險很高：他必須在超過 {{n:alpha.bet-pot}} 的情況下{{t:fold|棄牌}}，而他在翻牌{{t:call|跟注}}後有很多{{t:pair|對子}}和{{t:draw|聽牌}}。" }
   - kind: choice
     id: m7.l1.q-gutshot-ace
@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "下注 {{n:ex.bet.three-quarters}}", correct: true, why: "好的{{t:second-barrel}}：A 符合你的{{t:range|範圍}}，而且你有聽{{t:straight|順子}}的卡順（缺 10）。對手{{t:fold|棄掉}}{{t:pair|對子}}時，你立刻贏下；他{{t:call|跟注}}時，你仍有機會擊中。" }
       - { text: "下注 {{n:ex.bet.quarter}}", sizeError: true, why: "行動對，尺寸錯：這麼便宜的下注，對手用任何{{t:pair|對子}}都會{{t:call|跟注}}，而這個{{t:bluff}}主要靠對手{{t:fold|棄牌}}獲利。在對你有利的牌上要下大注，就像用強牌時一樣。" }
-      - { text: "{{t:check|過牌}}", correct: true, why: "也可以：你有 outs，而且能免費看到河牌，所以{{t:check}}不是錯誤。在一個已公開的 solver 範例中，聽堅果{{t:straight|順子}}的卡順在轉牌{{t:check|過牌}}。兩種打法都正確。" }
+      - { text: "{{t:check|過牌}}", correct: true, why: "也可以：你有補牌，而且能免費看到河牌，所以{{t:check}}不是錯誤。在一個已公開的求解器範例中，聽堅果{{t:straight|順子}}的卡順在轉牌{{t:check|過牌}}。兩種打法都正確。" }
   - kind: choice
     id: m7.l1.q-air-blank
     family: m7.barrel.bluff
@@ -54,7 +54,7 @@ drills:
     table: { hand: "Qh Jh", position: BTN, board: "Kd 8c 3s 2h" }
     options:
       - { text: "{{t:check|過牌}}", correct: true, why: "你沒有{{t:pair|對子}}，也沒有{{t:draw|聽牌}}：只剩一張牌要發，三張紅心不夠，而{{t:straight|順子}}還差兩張牌。2 什麼都沒改變，而對手在有 K 的{{t:board|公共牌}}上{{t:call|跟注}}了翻牌，所以他常常有{{t:pair|對子}}。你放棄{{t:bluff}}。" }
-      - { text: "下注 {{n:ex.bet.three-quarters}}", why: "沒有 outs 的{{t:bluff|詐唬}}只有在對手{{t:fold|棄牌}}時才會贏。他在翻牌{{t:call|跟注}}後有很多{{t:pair|對子}}（K、8），面對一張無關緊要的 2 不會{{t:fold|棄牌}}。" }
+      - { text: "下注 {{n:ex.bet.three-quarters}}", why: "沒有補牌的{{t:bluff|詐唬}}只有在對手{{t:fold|棄牌}}時才會贏。他在翻牌{{t:call|跟注}}後有很多{{t:pair|對子}}（K、8），面對一張無關緊要的 2 不會{{t:fold|棄牌}}。" }
       - { text: "{{t:fold|棄牌}}", why: "對手{{t:check|過牌}}，所以你可以免費{{t:check|過牌}}（第 1 單元的規則）。{{t:fold|棄牌}}會毫無理由地放棄{{t:pot|底池}}。" }
   - kind: choice
     id: m7.l1.q-semibluff-called
@@ -62,8 +62,8 @@ drills:
     rules: [R-M7-002]
     prompt: "你用{{t:flush-draw|同花聽牌}}{{t:bet|下注}}打{{t:second-barrel|第二槍}}，對手{{t:call|跟注}}。你還有多少機會？"
     options:
-      - { text: "約 {{n:odds.flush.turn-river}} 能在河牌成{{t:flush}}", correct: true, why: "對：這是你贏的第二條路。{{n:cards.unseen.turn}} 張未知的牌中有 {{n:outs.flush}} 張 outs。所以{{t:semi-bluff}}比沒有 outs 的{{t:bluff|詐唬}}好。" }
-      - { text: "沒有了，{{t:bluff}}失敗了", why: "沒有 outs 的{{t:bluff|詐唬}}已經沒有機會了，但你有{{t:draw}}：即使被{{t:call|跟注}}，河牌成{{t:flush}}照樣會贏。" }
+      - { text: "約 {{n:odds.flush.turn-river}} 能在河牌成{{t:flush}}", correct: true, why: "對：這是你贏的第二條路。{{n:cards.unseen.turn}} 張未知的牌中有 {{n:outs.flush}} 張補牌。所以{{t:semi-bluff}}比沒有補牌的{{t:bluff|詐唬}}好。" }
+      - { text: "沒有了，{{t:bluff}}失敗了", why: "沒有補牌的{{t:bluff|詐唬}}已經沒有機會了，但你有{{t:draw}}：即使被{{t:call|跟注}}，河牌成{{t:flush}}照樣會贏。" }
       - { text: "約 {{n:odds.flush.flop-river}}", why: "那是你在翻牌、還有兩張牌要發時的機率。到了轉牌只剩一張：{{n:odds.flush.turn-river}}。" }
   - kind: choice
     id: m7.l1.q-medium-pair
@@ -92,7 +92,7 @@ drills:
     prompt: "在轉牌，你最常用哪些手牌{{t:bet|下注}}打{{t:second-barrel|第二槍}}？"
     options:
       - { text: "強牌和{{t:draw|聽牌}}；中等牌{{t:check|過牌}}", correct: true, why: "對：強牌想被付錢，{{t:draw|聽牌}}有兩種贏法，而中等牌無法從再一次{{t:bet|下注}}中得到好處。" }
-      - { text: "全部都打，以免失去{{t:initiative|主動權}}", why: "{{t:initiative|主動權}}本身不會讓你贏。對手{{t:call|跟注}}了翻牌，所以他的{{t:range}}更強，而沒有 outs 的牌和中等{{t:pair|對子}}會因為不斷下注而虧損。" }
+      - { text: "全部都打，以免失去{{t:initiative|主動權}}", why: "{{t:initiative|主動權}}本身不會讓你贏。對手{{t:call|跟注}}了翻牌，所以他的{{t:range}}更強，而沒有補牌的牌和中等{{t:pair|對子}}會因為不斷下注而虧損。" }
       - { text: "只用最強的牌", why: "那樣的話，你每次下注對手都會棄牌，只有在贏你時才付錢。{{t:draw|聽牌}}是天然的{{t:semi-bluff|半詐唬}}。" }
   - kind: numeric
     id: m7.l1.n-alpha-turn
@@ -100,7 +100,7 @@ drills:
     rules: [R-M7-004]
     prompt: "轉牌。{{t:pot|底池}}有 {{n:ex.pot}}，你用幾乎贏不了的牌{{t:bluff|詐唬}}，{{t:bet|下注}} {{n:ex.bet.three-quarters}}。對手必須多常{{t:fold|棄牌}}，這個{{t:bluff}}才能損益兩平？請輸入百分比數字。"
     answer: alpha.bet-three-quarters
-    explanation: "Alpha = 下注 ÷ ({{t:pot}} + 下注) = {{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:alpha.bet-three-quarters}}。有 outs 時，你需要的{{t:fold|棄牌}}較少，因為被{{t:call|跟注}}的情況中，有一部分你仍會在河牌贏下。"
+    explanation: "Alpha = 下注 ÷ ({{t:pot}} + 下注) = {{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:alpha.bet-three-quarters}}。有補牌時，你需要的{{t:fold|棄牌}}較少，因為被{{t:call|跟注}}的情況中，有一部分你仍會在河牌贏下。"
   - kind: choice
     id: m7.l1.q-filter
     family: m7.barrel.range
@@ -125,7 +125,7 @@ drills:
 
 ## 用什麼牌再下注一次
 
-你用強牌（為了{{t:value|價值}}）和{{t:draw|聽牌}}（作為{{t:semi-bluff}}）下注。{{t:semi-bluff|半詐唬}}有兩種贏法：對手{{t:fold|棄牌}}，或你在河牌擊中。沒有{{t:pair|對子}}也沒有 outs 的牌，你比較常放棄，因為它們只能靠對手棄牌贏，除非它們阻擋了對手會拿來付錢的牌。當對手可能用{{t:raise|加注}}回應時，solver 也會用沒有 outs 的牌{{t:bluff|詐唬}}。
+你用強牌（為了{{t:value|價值}}）和{{t:draw|聽牌}}（作為{{t:semi-bluff}}）下注。{{t:semi-bluff|半詐唬}}有兩種贏法：對手{{t:fold|棄牌}}，或你在河牌擊中。沒有{{t:pair|對子}}也沒有補牌的牌，你比較常放棄，因為它們只能靠對手棄牌贏，除非它們阻擋了對手會拿來付錢的牌。當對手可能用{{t:raise|加注}}回應時，求解器也會用沒有補牌的牌{{t:bluff|詐唬}}。
 
 毫無勝算的{{t:bluff|詐唬}}，在對手以 下注 ÷ ({{t:pot}} + 下注) 的比例{{t:fold|棄牌}}時損益兩平（M6 的 alpha）。下注 3/4 {{t:pot|底池}}時是 {{n:alpha.bet-three-quarters}}，下注半個{{t:pot|底池}}時是 {{n:alpha.bet-half}}。
 
@@ -134,5 +134,5 @@ drills:
 {{t:second-pair|第二對}}或踢腳弱的{{t:top-pair}}能贏{{t:bluff|詐唬}}，但輸給更好的{{t:pair|對子}}。面對第二次下注，較差的牌會{{t:fold|棄牌}}，較好的牌會付錢。你{{t:check|過牌}}，把{{t:pot|底池}}控制得小，並走到攤牌。
 
 :::note 這些規則從哪來
-這些大方向（高牌通常有利於{{t:second-barrel|第二槍}}、用有 outs 而非沒有 outs 的牌{{t:bluff|詐唬}}、中等牌{{t:check|過牌}}）是來自教學資料和 solver 分析的經驗法則，適用於約 {{n:format.stack}} 的籌碼深度。這是一種簡化：當沒有 outs 的牌能阻擋對手的價值牌，或對手可能用{{t:raise|加注}}回應時，solver 也會用其中一部分牌{{t:bluff|詐唬}}。這個 App 不提供以百分比表示的下注頻率，因為這類數字取決於 solver 結果中的具體牌局。
+這些大方向（高牌通常有利於{{t:second-barrel|第二槍}}、用有補牌而非沒有補牌的牌{{t:bluff|詐唬}}、中等牌{{t:check|過牌}}）是來自教學資料和求解器分析的經驗法則，適用於約 {{n:format.stack}} 的籌碼深度。這是一種簡化：當沒有補牌的牌能阻擋對手的價值牌，或對手可能用{{t:raise|加注}}回應時，求解器也會用其中一部分牌{{t:bluff|詐唬}}。這個 App 不提供以百分比表示的下注頻率，因為這類數字取決於求解器結果中的具體牌局。
 :::

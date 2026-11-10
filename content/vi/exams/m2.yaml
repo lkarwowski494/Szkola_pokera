@@ -37,7 +37,7 @@ drills:
     options:
       - { text: "Khoảng {{n:odds.oesd.flop-river}}", correct: true, why: "Đối thủ đã all-in, nên bạn sẽ thấy turn và river mà không còn {{t:bet|cược}} nào nữa. Bạn tính hai lá: ước lượng theo quy tắc là {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, còn con số chính xác là {{n:odds.oesd.flop-river}}." }
       - { text: "Khoảng {{n:odds.oesd.flop-turn}}", why: "Đó là cơ hội chỉ riêng ở turn. Khi có all-in, bạn sẽ thấy cả river." }
-      - { text: "Khoảng {{n:odds.flush.flop-river}}", why: "Đó là cơ hội của {{t:flush-draw|draw thùng}} với {{n:outs.flush}} out. Bạn có {{n:outs.oesd}}." }
+      - { text: "Khoảng {{n:odds.flush.flop-river}}", why: "Đó là cơ hội của {{t:flush-draw|bài chờ thùng}} với {{n:outs.flush}} out. Bạn có {{n:outs.oesd}}." }
   - kind: choice
     id: m2.exam.q4
     family: m2.odds
@@ -74,7 +74,7 @@ drills:
     id: m2.exam.q6
     family: m2.draw-call
     rules: [R-M2-004, R-M2-005]
-    prompt: "Flop. Bạn có {{t:flush-draw|draw thùng}}, stack sâu, và đối thủ {{t:bet|cược}} bằng cả {{t:pot|pot}}. Chỉ tính giá và cơ hội trúng (không tính implied odds). Bạn làm gì?"
+    prompt: "Flop. Bạn có {{t:flush-draw|bài chờ thùng}}, stack sâu, và đối thủ {{t:bet|cược}} bằng cả {{t:pot|pot}}. Chỉ tính giá và cơ hội trúng (không tính implied odds). Bạn làm gì?"
     table: { hand: "Js 6s", board: "Qs 4s 9d" }
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn cần {{n:eq.bet-pot}}. {{t:call|Theo}} chỉ mua được turn, và ở đó bạn trúng với cơ hội khoảng {{n:odds.flush.flop-turn}}. Rõ ràng là không đủ." }
@@ -92,7 +92,7 @@ drills:
     id: m2.exam.q8
     family: m2.draw-call
     rules: [R-M2-003, R-M2-002]
-    prompt: "Flop. Đối thủ all-in với mức nửa {{t:pot|pot}}, còn bạn có {{t:flush-draw|draw thùng}}. Hãy giả sử bạn chỉ thắng khi trúng {{t:flush|thùng}}. Bạn làm gì?"
+    prompt: "Flop. Đối thủ all-in với mức nửa {{t:pot|pot}}, còn bạn có {{t:flush-draw|bài chờ thùng}}. Hãy giả sử bạn chỉ thắng khi trúng {{t:flush|thùng}}. Bạn làm gì?"
     table: { hand: "Kc Tc", board: "8c 3c Jd" }
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "Bạn cần {{n:eq.bet-half}}. Đối thủ đã all-in, nên bạn sẽ thấy turn và river mà không còn {{t:bet|cược}} nào nữa: {{n:outs.flush}} out cho bạn khoảng {{n:odds.flush.flop-river}}. Nhiều hơn mức bạn cần." }

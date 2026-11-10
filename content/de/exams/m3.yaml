@@ -18,7 +18,7 @@ drills:
     prompt: "Du bist preflop als Erster dran, noch niemand ist ins Spiel eingestiegen. Was tust du?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Raisen}}", correct: true, why: "AT ungleichfarbig liegt in der {{t:range|Range}} zum {{t:open|Eröffnen}} von {{t:utg}} (ca. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} Hände). Der Solver der App spielt sie hier immer." }
+      - { text: "{{t:raise|Raisen}}", correct: true, why: "AT ungleichfarbig liegt in der {{t:range|Range}} zum {{t:open|Eröffnen}} von {{t:utg}} (ca. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} der Hände). Der Solver der App spielt sie hier immer." }
       - { text: "{{t:fold|Folden}}", why: "Zu tight. Von {{t:utg}} spielst du eng, aber AT ist noch in der {{t:range|Range}}." }
       - { text: "Den {{t:big-blind|Big Blind}} bezahlen", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du. Mit einem Limp gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
   - kind: choice
@@ -37,8 +37,8 @@ drills:
     prompt: "Alle vor dir haben {{t:fold|gefoldet}}. Was tust du?"
     table: { hand: "Ah 9d", position: CO }
     options:
-      - { text: "{{t:raise|Raisen}}", correct: true, why: "Hinter dir sind nur noch der Button und die Blinds, also {{t:open|eröffnest}} du weiter als aus dem {{t:hijack|HJ}}. Der Solver der App spielt A9o hier fast immer." }
-      - { text: "{{t:fold|Folden}}", why: "So spielst du diese Hand aus dem {{t:hijack|HJ}}. Im {{t:cutoff|CO}} sitzt ein Spieler weniger hinter dir und die {{t:range}} ist weiter." }
+      - { text: "{{t:raise|Raisen}}", correct: true, why: "Hinter dir sind nur noch der Button und die Blinds, also {{t:open|eröffnest}} du breiter als aus dem {{t:hijack|HJ}}. Der Solver der App spielt A9o hier fast immer." }
+      - { text: "{{t:fold|Folden}}", why: "So spielst du diese Hand aus dem {{t:hijack|HJ}}. Im {{t:cutoff|CO}} sitzt ein Spieler weniger hinter dir und die {{t:range}} ist breiter." }
   - kind: choice
     id: m3.exam.q5
     family: m3.open-late
@@ -46,7 +46,7 @@ drills:
     prompt: "Alle haben zu dir {{t:fold|gefoldet}}. Was tust du?"
     table: { hand: "Jd 9c", position: BTN }
     options:
-      - { text: "{{t:raise|Raisen}}", correct: true, why: "Auf dem Button {{t:open|eröffnest}} du ca. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} Hände. Es sind nur noch die Blinds übrig, und nach dem Flop hast du {{t:position|Position}}, also passt J9 ungleichfarbig hinein." }
+      - { text: "{{t:raise|Raisen}}", correct: true, why: "Auf dem Button {{t:open|eröffnest}} du ca. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} der Hände. Es sind nur noch die Blinds übrig, und nach dem Flop hast du {{t:position|Position}}, also passt J9 ungleichfarbig hinein." }
       - { text: "{{t:fold|Folden}}", why: "Aus dem {{t:cutoff|CO}} spielt der Solver diese Hand selten, auf dem Button aber immer. Gegen nur die Blinds ist das zu tight." }
       - { text: "Den {{t:big-blind|Big Blind}} bezahlen", why: "Mit einem Limp gibst du die {{t:initiative|Initiative}} ab. Ein {{t:raise|Raise}} gewinnt die Blinds oft sofort." }
   - kind: choice
@@ -56,9 +56,9 @@ drills:
     prompt: "Alle haben zu dir {{t:fold|gefoldet}}, du sitzt im {{t:small-blind|Small Blind}}. Was tust du?"
     table: { hand: "Td 8c", position: SB }
     options:
-      - { text: "{{t:raise|Raisen}} auf {{n:pf.open-size-sb}}", correct: true, why: "Du spielst nur noch gegen den {{t:big-blind|Big Blind}}, also {{t:open|eröffnest}} du weit, ca. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} Hände. Nach dem Flop bist du zuerst dran, deshalb {{t:raise|raist}} du aus dem {{t:small-blind|Small Blind}} etwas höher als aus anderen {{t:position|Positionen}}." }
+      - { text: "{{t:raise|Raisen}} auf {{n:pf.open-size-sb}}", correct: true, why: "Du spielst nur noch gegen den {{t:big-blind|Big Blind}}, also {{t:open|eröffnest}} du breit, ca. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} der Hände. Nach dem Flop bist du zuerst dran, deshalb {{t:raise|raist}} du aus dem {{t:small-blind|Small Blind}} etwas höher als aus anderen {{t:position|Positionen}}." }
       - { text: "{{t:raise|Raisen}} auf {{n:pf.open-size}}", sizeError: true, why: "Richtige Aktion, falsche Größe: {{n:pf.open-size}} ist die {{t:open|Eröffnung}} aus den übrigen {{t:position|Positionen}}. Aus dem {{t:small-blind|Small Blind}} spielst du {{t:out-of-position}}, also {{t:raise|raist}} du auf {{n:pf.open-size-sb}}." }
-      - { text: "Auf den {{t:big-blind|Big Blind}} ergänzen", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du (aus dem {{t:small-blind|Small Blind}} ist das eine Vereinfachung: Manche Solver-Lösungen limpen hier einen Teil der Hände). Mit dem Ergänzen gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
+      - { text: "Zum {{t:big-blind|Big Blind}} komplettieren", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du (aus dem {{t:small-blind|Small Blind}} ist das eine Vereinfachung: Manche Solver-Lösungen limpen hier einen Teil der Hände). Mit dem Komplettieren gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
       - { text: "{{t:fold|Folden}}", why: "Zu tight: Gegen einen Gegner spielt der Solver der App T8o aus dem {{t:small-blind|Small Blind}} immer." }
   - kind: numeric
     id: m3.exam.n1
@@ -74,9 +74,9 @@ drills:
     rules: [R-M3-005]
     prompt: "Warum spielt sich T9 gleichfarbig besser als T9 ungleichfarbig?"
     options:
-      - { text: "Sie hat mit dem {{t:flush}} einen zusätzlichen Weg zum Gewinn", correct: true, why: "Die Ränge sind gleich, also triffst du {{t:pair|Paare}} und {{t:straight|Straights}} genauso oft. Die gleichfarbige Hand bringt zusätzlich die Chance auf einen {{t:flush|Flush}}." }
+      - { text: "Sie hat mit dem {{t:flush}} einen zusätzlichen Weg zum Gewinn", correct: true, why: "Die Ränge sind gleich, also triffst du {{t:pair|Paare}} und {{t:straight|Straßen}} genauso oft. Die gleichfarbige Hand bringt zusätzlich die Chance auf einen {{t:flush|Flush}}." }
       - { text: "Sie trifft öfter ein {{t:pair|Paar}}", why: "Die Chance auf ein {{t:pair|Paar}} hängt von den Rängen ab, und die sind gleich." }
-      - { text: "Sie trifft öfter eine {{t:straight|Straight}}", why: "{{t:straight|Straights}} hängen von den Rängen der Karten ab, nicht davon, ob die Karten gleichfarbig sind." }
+      - { text: "Sie trifft öfter eine {{t:straight|Straße}}", why: "{{t:straight|Straßen}} hängen von den Rängen der Karten ab, nicht davon, ob die Karten gleichfarbig sind." }
   - kind: choice
     id: m3.exam.q8
     family: m3.premium
@@ -92,4 +92,4 @@ drills:
     family: m3.paint.late
     rules: [R-M3-006]
     spot: rfi.co
-    prompt: "Alle vor dir haben {{t:fold|gefoldet}}, du sitzt im {{t:cutoff|CO}}. Färbe die Hände ein, mit denen du {{t:open|eröffnest}}."
+    prompt: "Alle vor dir haben {{t:fold|gefoldet}}, du sitzt im {{t:cutoff|CO}}. Male die Hände an, mit denen du {{t:open|eröffnest}}."

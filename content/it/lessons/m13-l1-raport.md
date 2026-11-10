@@ -10,14 +10,14 @@ drills:
     id: m13.l1.n-lose
     family: m13.equity-loss
     rules: [R-M13-001]
-    prompt: "Vai all-in con il {{n:m13.eq.example}} di {{t:equity}} e perdi. In quale percentuale di mani di questo tipo perdi nonostante una buona decisione? Inserisci un numero."
+    prompt: "Vai all-in con l'{{n:m13.eq.example}} di {{t:equity}} e perdi. In quale percentuale di mani di questo tipo perdi nonostante una buona decisione? Inserisci un numero."
     answer: m13.lose.example
     explanation: "Perdi in 1 − e delle mani: il totale meno {{n:m13.eq.example}} dà {{n:m13.lose.example}}. Questa sconfitta non dice nulla sulla decisione."
   - kind: numeric
     id: m13.l1.n-of-ten
     family: m13.equity-loss
     rules: [R-M13-001]
-    prompt: "Vai all-in dieci volte con il {{n:m13.eq.example}} di {{t:equity}}. Quante di queste mani perderai in media? Inserisci un numero."
+    prompt: "Vai all-in dieci volte con l'{{n:m13.eq.example}} di {{t:equity}}. Quante di queste mani perderai in media? Inserisci un numero."
     answer: m13.lose.of-ten
     explanation: "{{n:m13.ten}} × {{n:m13.lose.example}} = {{n:m13.lose.of-ten}}. Se perdi due volte di fila, rientra comunque nei conti."
   - kind: numeric
@@ -79,7 +79,7 @@ Il report dopo la {{t:session|sessione}} valuta le tue decisioni, non quanto hai
 
 Nel modulo sul mental game hai imparato il principio: valuti una decisione in base alle informazioni che avevi al momento della decisione, non in base al risultato della mano. Il report lo applica alla lettera: valuta la situazione prima della tua azione, non vede le carte degli avversari né le carte uscite dopo.
 
-Perdere con la mano migliore rientra nei conti. L'{{t:equity|equity}} è la quota di vittorie su molte ripetizioni della stessa situazione. Con il {{n:m13.eq.example}} di {{t:equity}} perdi circa il {{n:m13.lose.example}} delle mani, cioè in media {{n:m13.lose.of-ten}} su {{n:m13.ten}}.
+Perdere con la mano migliore rientra nei conti. L'{{t:equity|equity}} è la quota di vittorie su molte ripetizioni della stessa situazione. Con l'{{n:m13.eq.example}} di {{t:equity}} perdi circa il {{n:m13.lose.example}} delle mani, cioè in media {{n:m13.lose.of-ten}} su {{n:m13.ten}}.
 
 ```formula
 probabilità di perdere = 1 − equity

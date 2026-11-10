@@ -52,7 +52,7 @@ drills:
     prompt: "리버. {{t:bluff|블러프}}합니다: {{t:pot|팟}}은 {{n:ex.pot}}, {{n:ex.bet.three-quarters}} {{t:bet|베팅}}합니다. {{t:bluff|블러프}}가 이익이 되려면 상대가 얼마나 자주 {{t:fold|폴드}}해야 합니까?"
     options:
       - { text: "{{n:alpha.bet-three-quarters}}보다 자주", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:alpha.bet-three-quarters}}. 이것이 {{t:pot|팟}}의 3/4 베팅에 대한 알파입니다." }
-      - { text: "{{n:mdf.bet-three-quarters}}보다 자주", why: "이것은 {{t:mdf|MDF}}, 즉 상대가 방어해야 하는 비율입니다. 알파는 블러프가 이익을 내기 시작하기 전까지 상대가 {{t:fold|폴드}}할 수 있는 비율입니다: {{n:alpha.bet-three-quarters}}." }
+      - { text: "{{n:mdf.bet-three-quarters}}보다 자주", why: "이것은 {{t:mdf|MDF}}, 즉 상대가 방어해야 하는 비율입니다. 알파는 {{t:bluff|블러프}}가 이익을 내기 시작하기 전까지 상대가 {{t:fold|폴드}}할 수 있는 비율입니다: {{n:alpha.bet-three-quarters}}." }
       - { text: "{{n:eq.bet-three-quarters}}보다 자주", why: "이것은 상대가 {{t:call|콜}}하는 데 필요한 에퀴티입니다. {{t:bluff|블러프}}의 기준은 분모에 상대의 {{t:call|콜}}을 넣지 않고 계산합니다: {{n:alpha.bet-three-quarters}}." }
   - kind: choice
     id: m6.l1.q-alpha-compare
@@ -76,10 +76,10 @@ drills:
     id: m6.l1.q-flop-mdf
     family: m6.mdf-concept
     rules: [R-M6-003]
-    prompt: "플롭. {{t:big-blind|빅 블라인드}}를 방어하는 중이고, 버튼이 {{t:pot|팟}}의 1/3 크기 c-bet을 {{t:bet|베팅}}합니다. {{t:mdf|MDF}}는 {{n:mdf.bet-third}}입니다. 그만큼 많은 핸드를 꼭 방어해야 합니까?"
+    prompt: "플롭. {{t:big-blind|빅 블라인드}}를 방어하는 중이고, 버튼이 {{t:pot|팟}}의 1/3 크기 C벳을 {{t:bet|베팅}}합니다. {{t:mdf|MDF}}는 {{n:mdf.bet-third}}입니다. 그만큼 많은 핸드를 꼭 방어해야 합니까?"
     table: { position: BB }
     options:
-      - { text: "아니요, 조금 덜 방어해도 됩니다", correct: true, why: "{{t:mdf|MDF}}는 승산이 전혀 없는 {{t:bluff|블러프}}를 전제로 합니다. 플롭에서 버튼의 {{t:bluff|블러프}}에는 아직 에퀴티가 있고({{t:draw|드로우}}, 높은 카드), {{t:out-of-position|아웃 오브 포지션}}에서는 약한 핸드의 에퀴티를 모두 실현하지 못합니다. 그래서 {{t:mdf|MDF}}보다 조금 덜 방어해도 되지만, 작은 c-bet에 대량으로 {{t:fold|폴드}}하지는 않습니다." }
+      - { text: "아니요, 조금 덜 방어해도 됩니다", correct: true, why: "{{t:mdf|MDF}}는 승산이 전혀 없는 {{t:bluff|블러프}}를 전제로 합니다. 플롭에서 버튼의 {{t:bluff|블러프}}에는 아직 에퀴티가 있고({{t:draw|드로우}}, 높은 카드), {{t:out-of-position|아웃 오브 포지션}}에서는 약한 핸드의 에퀴티를 모두 실현하지 못합니다. 그래서 {{t:mdf|MDF}}보다 조금 덜 방어해도 되지만, 작은 C벳에 대량으로 {{t:fold|폴드}}하지는 않습니다." }
       - { text: "네, 그렇지 않으면 버튼이 어떤 핸드로든 이익을 냅니다", why: "리버라면 그렇습니다. 플롭에서 버튼은 승산 없는 핸드로 {{t:bluff|블러프}}하는 것이 아닙니다: {{t:call|콜}}을 받아도 맞출 수 있습니다. {{t:mdf|MDF}}는 기준점이지 의무가 아닙니다." }
       - { text: "아니요, 아직 플롭이니 더 많이 방어합니다", why: "반대입니다. 남은 {{t:street|스트리트}}는 {{t:in-position|인 포지션}}에서 베팅한 쪽에 유리하므로, 더 많이가 아니라 더 적게 방어합니다." }
   - kind: choice
@@ -129,7 +129,7 @@ M2의 필요 에퀴티는 **한 핸드**에 관한 것입니다: 그 핸드로 {
 
 ## 플롭에서 {{t:out-of-position|아웃 오브 포지션}}이면 덜 방어합니다
 
-{{t:mdf|MDF}}는 상대의 {{t:bluff|블러프}}에 승산이 전혀 없다고 전제합니다. 이것이 사실에 가장 가까운 곳은 {{t:draw|드로우}}가 더 이상 개선되지 않는 리버입니다. 플롭에서는 {{t:bluff|블러프}}에 아직 에퀴티가 있습니다: {{t:draw|드로우}}와 높은 카드는 개선될 수 있습니다. 게다가 {{t:out-of-position|아웃 오브 포지션}}에서는 약한 핸드의 에퀴티를 모두 실현하지 못합니다. 그래서 플롭에서 {{t:out-of-position|아웃 오브 포지션}}이라면 {{t:mdf|MDF}}보다 적게 방어해도 되고(수비 측에 불리한 플롭에서는 확실히 더 적게), 이를 의무가 아닌 기준점으로 삼습니다. 그렇다고 작은 c-bet에 대량으로 {{t:fold|폴드}}하지는 않습니다. 한 턴 예시에서 솔버는 평균적으로 {{t:mdf|MDF}}에 가깝게 방어했습니다.
+{{t:mdf|MDF}}는 상대의 {{t:bluff|블러프}}에 승산이 전혀 없다고 전제합니다. 이것이 사실에 가장 가까운 곳은 {{t:draw|드로우}}가 더 이상 개선되지 않는 리버입니다. 플롭에서는 {{t:bluff|블러프}}에 아직 에퀴티가 있습니다: {{t:draw|드로우}}와 높은 카드는 개선될 수 있습니다. 게다가 {{t:out-of-position|아웃 오브 포지션}}에서는 약한 핸드의 에퀴티를 모두 실현하지 못합니다. 그래서 플롭에서 {{t:out-of-position|아웃 오브 포지션}}이라면 {{t:mdf|MDF}}보다 적게 방어해도 되고(수비 측에 불리한 플롭에서는 확실히 더 적게), 이를 의무가 아닌 기준점으로 삼습니다. 그렇다고 작은 C벳에 대량으로 {{t:fold|폴드}}하지는 않습니다. 한 턴 예시에서 솔버는 평균적으로 {{t:mdf|MDF}}에 가깝게 방어했습니다.
 
 :::note 상대가 {{t:bluff|블러프}}를 거의 하지 않을 때
 {{t:mdf|MDF}}는 충분히 자주 {{t:bluff|블러프}}하는 플레이어로부터 나를 보호합니다. 관찰을 통해 특정 플레이어가 리버의 큰 베팅으로 {{t:bluff|블러프}}하는 일이 너무 드물다는 것을 알고 있다면, 그 플레이어를 상대로는 {{t:mdf|MDF}}가 가리키는 것보다 더 자주 {{t:fold|폴드}}합니다: 약한 {{t:pair|페어}}로 {{t:call|콜}}하면 주로 더 좋은 핸드에 돈을 내주게 됩니다. 이것은 {{t:exploit|익스플로잇}}이지, 모든 상대에게 쓰는 전략이 아닙니다(자세한 내용은 모듈 10에서).

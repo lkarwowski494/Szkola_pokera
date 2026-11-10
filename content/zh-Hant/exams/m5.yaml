@@ -11,7 +11,7 @@ drills:
     options:
       - { text: "你，{{t:open|開池者}}", correct: true, why: "對：在有 A 的翻牌上，你的{{t:range|範圍}}包含所有 AA、AK 和 AJ。{{t:big-blind|大盲}}通常會在翻牌前把最強的 A {{t:raise|加注}}（3-bet），所以只{{t:call|跟注}}時，他手上這類牌很少。" }
       - { text: "{{t:big-blind|大盲}}，因為他防守很多 A", why: "他防守很多 A，但都是弱 A（例如 A5、A8）。最強的 A 他會打 3-bet，所以平均來說，他在這裡的手牌比你弱。" }
-      - { text: "沒有人：A 對兩邊{{t:range|範圍}}的幫助一樣", why: "{{t:board|公牌}}上的 A 會影響兩邊的{{t:range|範圍}}，但程度不同：你的範圍裡有更多強 A，因為{{t:big-blind}}在翻牌前已經把其中最好的{{t:raise|加注}}了。" }
+      - { text: "沒有人：A 對兩邊{{t:range|範圍}}的幫助一樣", why: "{{t:board|牌面}}上的 A 會影響兩邊的{{t:range|範圍}}，但程度不同：你的範圍裡有更多強 A，因為{{t:big-blind}}在翻牌前已經把其中最好的{{t:raise|加注}}了。" }
   - kind: choice
     id: m5.exam.q2
     family: m5.advantage.who
@@ -56,7 +56,7 @@ drills:
     rules: [R-M5-012]
     prompt: "在下列哪種情況中，你作為{{t:open|開池者}} c-bet 的頻率最低？"
     options:
-      - { text: "你從 {{t:hijack|HJ}} {{t:open|開池}}，按鈕位{{t:call|跟注}}，盲注位{{t:fold|棄牌}}", correct: true, why: "對：按鈕位是在有{{t:position|位置}}時{{t:call|跟注}}的，所以他的{{t:range}}很強（弱牌已經{{t:fold|棄牌}}，部分最強的牌則{{t:raise|加注}}了），而翻牌後你在每一{{t:street|輪}}都要先行動。" }
+      - { text: "你從 {{t:hijack|HJ}} {{t:open|開池}}，按鈕位{{t:call|跟注}}，盲注位{{t:fold|棄牌}}", correct: true, why: "對：按鈕位是在有{{t:position|位置}}時{{t:call|跟注}}的，所以他的{{t:range}}很強（弱牌已經{{t:fold|棄牌}}，部分最強的牌則{{t:raise|加注}}了），而翻牌後你在每條{{t:street|街}}都要先行動。" }
       - { text: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}", why: "這裡你有{{t:position|位置}}，而{{t:big-blind}}防守範圍很寬，有很多弱牌。這是你 c-bet 最頻繁的情況。" }
       - { text: "你從 {{t:cutoff|CO}} {{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}", why: "這裡翻牌後你也在{{t:big-blind|大盲}}之後行動，所以你有{{t:position|位置}}，而他寬鬆的防守裡有很多弱牌。" }
   - kind: choice
@@ -85,8 +85,8 @@ drills:
     prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}後{{t:check|過牌}}。翻牌很{{t:wet}}。你有{{t:pair|一對}} 7 帶 A，沒有{{t:draw|聽牌}}。你怎麼做？"
     table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
     options:
-      - { text: "{{t:check|過牌}}", correct: true, why: "對：在{{t:wet|濕潤}}的翻牌上你比較少下注，主要用強牌和強{{t:draw|聽牌}}。沒有{{t:draw|聽牌}}的最小{{t:pair}}頂多算中等牌力：會{{t:call|跟注}}你{{t:bet}}的，主要是更好的牌，以及對它有很多 equity 的{{t:draw|聽牌}}。" }
-      - { text: "C-bet {{t:pot|底池}}的 {{n:cbet.size.big}}", why: "在{{t:wet|濕潤}}翻牌上用大尺寸，是給強牌和強{{t:draw|聽牌}}的。拿最小的{{t:pair|對子}}，你是在對抗常常贏你或有很多 equity 的手牌時做大{{t:pot|底池}}。" }
+      - { text: "{{t:check|過牌}}", correct: true, why: "對：在{{t:wet|濕潤}}的翻牌上你比較少下注，主要用強牌和強{{t:draw|聽牌}}。沒有{{t:draw|聽牌}}的最小{{t:pair}}頂多算中等牌力：會{{t:call|跟注}}你{{t:bet}}的，主要是更好的牌，以及對它有很多權益的{{t:draw|聽牌}}。" }
+      - { text: "C-bet {{t:pot|底池}}的 {{n:cbet.size.big}}", why: "在{{t:wet|濕潤}}翻牌上用大尺寸，是給強牌和強{{t:draw|聽牌}}的。拿最小的{{t:pair|對子}}，你是在對抗常常贏你或有很多權益的手牌時做大{{t:pot|底池}}。" }
       - { text: "C-bet {{t:pot|底池}}的 {{n:cbet.size.small}}", why: "在{{t:wet|濕潤}}翻牌上，沒有{{t:draw|聽牌}}的中等牌更常{{t:check|過牌}}。小額{{t:bet}}會讓{{t:draw|聽牌}}便宜看到下一張牌，而較弱的牌本來就很少付錢。" }
   - kind: choice
     id: m5.exam.q10
@@ -95,6 +95,6 @@ drills:
     prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}後{{t:check|過牌}}。翻牌是{{t:monotone}}，所以依照 App 的評分屬於{{t:wet}}。當你確實要 c-bet 時，用多大的尺寸？"
     table: { position: BTN, board: "Jd 7d 2d" }
     options:
-      - { text: "小", correct: true, why: "對：任何玩家都可能已經有{{t:flush}}，所以你的{{t:nuts-advantage}}較小。在{{t:monotone|單色}}翻牌上，你下注比平常少，而且用小尺寸，避免在對抗同花時做大{{t:pot|底池}}。" }
+      - { text: "小", correct: true, why: "對：任何玩家都可能已經有{{t:flush}}，所以你的{{t:nuts-advantage}}較小。在{{t:monotone|單色}}翻牌上，你下注的頻率比平常低，而且用小尺寸，避免在對抗同花時做大{{t:pot|底池}}。" }
       - { text: "大，因為翻牌很{{t:wet}}", why: "「{{t:wet|濕潤}}」不等於「下大注」。較大的尺寸適用於不是{{t:monotone|單色}}的{{t:wet|濕潤}}翻牌。在{{t:monotone|單色}}翻牌上，大{{t:pot}}很危險，因為對手可能已經做成{{t:flush}}。" }
-      - { text: "整個{{t:pot|底池}}，讓{{t:draw|聽牌}}付出高昂代價", why: "在{{t:monotone|單色}}翻牌上，最大的威脅不是{{t:draw|聽牌}}，而是對手已經做成的同花。底池大小的下注，正是面對它們時風險最大。" }
+      - { text: "整個{{t:pot|底池}}，讓{{t:draw|聽牌}}付出高昂代價", why: "在{{t:monotone|單色}}翻牌上，最大的威脅不是{{t:draw|聽牌}}，而是對手已經做成的同花。{{t:pot|底池}}大小的下注，正是面對它們時風險最大。" }

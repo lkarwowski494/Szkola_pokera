@@ -78,7 +78,7 @@ Errori, imprecisioni e decisioni prese dopo lo scadere del tempo diventano carte
 
 Uno scambio del genere non cambia la forza di nessuna mano né di nessun {{t:draw|progetto}}, perché conta solo se le carte sono dello stesso seme. La decisione corretta quindi è la stessa, e tu impari a riconoscere la situazione invece di memorizzare un'immagine.
 
-La stessa regola con la stessa classe di mano nello stesso spot dà una sola carta, non più carte. Le nuove carte dal gioco entrano nei ripassi entro un limite giornaliero; le altre aspettano i giorni successivi.
+La stessa regola con la stessa classe di mano nello stesso spot dà una sola carta, non più carte. Le nuove carte dal gioco entrano nei ripassi entro il limite giornaliero; le altre aspettano i giorni successivi.
 
 ## Quando un errore si ripete
 
@@ -93,5 +93,5 @@ Un'area di gioco corrisponde a un modulo del corso. Si sblocca dopo aver complet
 Il report non mostra le tue frequenze, ad es. quanto spesso entri in gioco. Anche il {{t:vpip}} si legge dopo circa {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} mani, e le situazioni rare capitano in una {{t:session|sessione}} solo poche volte. Uno dei coach consiglia di contare le occasioni, non le mani: guarda la statistica a circa {{n:hud.opps.look}} occasioni e ne diventa sicuro a circa {{n:hud.opps.sure}}.
 
 :::note Da dove vengono queste regole
-Lo scambio dei semi è un calcolo: la classifica delle combinazioni non distingue i semi. Campioni di mani come nel modulo sullo {{t:exploit|sfruttamento}} (due materiali formativi); numero di occasioni: un materiale formativo sulla dimensione del campione per le statistiche dell'{{t:hud|HUD}}. Le soglie dei ripassi sono impostazioni dell'app, senza fonte.
+Lo scambio dei semi è un calcolo: la classifica delle combinazioni non distingue i semi. Campioni di mani come nel modulo sull'{{t:exploit|exploit}} (due materiali formativi); numero di occasioni: un materiale formativo sulla dimensione del campione per le statistiche dell'{{t:hud|HUD}}. Le soglie dei ripassi sono impostazioni dell'app, senza fonte.
 :::

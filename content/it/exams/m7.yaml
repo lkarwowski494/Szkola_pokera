@@ -60,14 +60,14 @@ drills:
     id: m7.exam.q7
     family: m7.implied.math
     rules: [R-M7-008]
-    prompt: "Turn. Nel {{t:pot|piatto}} ci sono {{n:exam.m7.pot}} e l'avversario {{t:bet|punta}} {{n:exam.m7.bet.half}}. Hai un {{t:oesd|progetto di scala bilaterale}}: {{n:outs.oesd}} out, {{n:miss.oesd.turn}} carte che non chiudono. Quante {{t:chips|fiches}} devi vincere in più al river dopo aver chiuso (oltre al {{t:pot|piatto}} dopo la {{t:bet|puntata}}) perché la {{t:call|chiamata}} vada in pari? Inserisci il numero."
+    prompt: "Turn. Nel {{t:pot|piatto}} ci sono {{n:exam.m7.pot}} e l'avversario {{t:bet|punta}} {{n:exam.m7.bet.half}}. Hai un {{t:oesd|OESD}}: {{n:outs.oesd}} out, {{n:miss.oesd.turn}} carte che non chiudono. Quante {{t:chips|fiches}} devi vincere in più al river dopo aver chiuso (oltre al {{t:pot|piatto}} dopo la {{t:bet|puntata}}) perché la {{t:call|chiamata}} vada in pari? Inserisci il numero."
     answer: exam.m7.io.extra
     explanation: "Quando chiudi devi vincere in totale {{n:exam.m7.bet.half}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:exam.m7.io.need}}. Nel {{t:pot|piatto}} dopo la {{t:bet|puntata}} ci sono {{n:exam.m7.io.pot-after-bet}}, quindi mancano {{n:exam.m7.io.extra}}. Sono le tue implied odds: quanto l'avversario deve ancora pagarti."
   - kind: choice
     id: m7.exam.q8
     family: m7.implied.when
     rules: [R-M7-010]
-    prompt: "Turn. Hai un {{t:oesd|progetto di scala bilaterale}} (fante o sei) e sul {{t:board|board}} ci sono due quadri. Quanti out conti, con prudenza?"
+    prompt: "Turn. Hai un {{t:oesd|OESD}} (fante o sei) e sul {{t:board|board}} ci sono due quadri. Quanti out conti, con prudenza?"
     table: { hand: "9s 8s", board: "Td 7d 2c 3h" }
     options:
       - { text: "{{n:exam.m7.oesd.clean}}", correct: true, why: "Sì: dei {{n:outs.oesd}} out, due ([[Jd]] e [[6d]]) mettono sul {{t:board|board}} il terzo quadri. A quel punto un avversario con due quadri ha {{t:flush|colore}}, e tu, pur avendo chiuso, perdi e paghi il massimo. Restano {{n:exam.m7.oesd.clean}} out puliti." }

@@ -74,7 +74,7 @@ drills:
     rules: [R-M10-011]
     prompt: "Theo dữ liệu từ tập người chơi micro stakes online (NL25), {{t:regular|reg}} {{t:fold|bỏ bài}} trước 3-bet trong {{n:mda.reg.f3b}} trường hợp, còn {{t:recreational|người chơi giải trí}} trong {{n:mda.rec.f3b}}. 3-bet có {{t:position|vị trí}} lên {{n:pf.3bet.ip-total}} có lời khi không có bài nếu đối thủ {{t:fold|bỏ bài}} trên {{n:alpha.vs-3bet-ip-size}}. Từ đó rút ra điều gì?"
     options:
-      - { text: "Trước {{t:recreational|người chơi giải trí}}, bạn 3-bet gần như không có {{t:bluff|bluff}}; trước {{t:regular|reg}}, {{t:bluff|bluff}} vẫn giữ lại, nhưng chỉ với những tay bài có equity", correct: true, why: "Không nhóm nào {{t:fold|bỏ bài}} đủ thường xuyên để 3-bet có lời khi không có bài. Trong chiến lược nền, 3-bet {{t:bluff|bluff}} sống nhờ equity sau flop và nhờ đối thủ {{t:fold|bỏ bài}}; trước người chơi {{t:fold|bỏ bài}} trong {{n:mda.rec.f3b}} trường hợp, chủ yếu chỉ còn lại equity, nên bạn 3-bet bằng {{t:range|dải bài}} {{t:linear|tuyến tính}}." }
+      - { text: "Trước {{t:recreational|người chơi giải trí}}, bạn 3-bet gần như không có {{t:bluff|bluff}}; trước {{t:regular|reg}}, {{t:bluff|bluff}} vẫn giữ lại, nhưng chỉ với những tay bài có equity", correct: true, why: "Không nhóm nào {{t:fold|bỏ bài}} đủ thường xuyên để 3-bet có lời khi không có bài. Trong chiến lược nền, 3-bet {{t:bluff|bluff}} sống nhờ equity sau flop và nhờ đối thủ {{t:fold|bỏ bài}}; trước người chơi {{t:fold|bỏ bài}} trong {{n:mda.rec.f3b}} trường hợp, chủ yếu chỉ còn lại equity, nên bạn 3-bet bằng {{t:range|range}} {{t:linear|tuyến tính}}." }
       - { text: "Bạn 3-bet mọi người bằng bất kỳ tay bài nào, vì ai cũng {{t:fold|bỏ bài}} nhiều", why: "Ở đây không ai {{t:fold|bỏ bài}} thường hơn {{n:alpha.vs-3bet-ip-size}}. 3-bet bằng mọi tay bài sẽ lỗ." }
       - { text: "Trước {{t:recreational|người chơi giải trí}}, bạn ngừng 3-bet hoàn toàn", why: "Ngược lại: người chơi {{t:call|theo}} 3-bet bằng những tay bài yếu hơn sẽ trả tiền cho những tay bài mạnh của bạn. Bạn thay đổi thành phần 3-bet, chứ không bỏ 3-bet." }
   - kind: choice
@@ -119,11 +119,11 @@ Người chơi trong tập micro stakes online (NL25) {{t:fold|bỏ bài}} trư�
 | {{t:regular|Reg}} | {{n:mda.reg.f3b}} |
 | {{t:recreational|Người chơi giải trí}} | {{n:mda.rec.f3b}} |
 
-Trong chiến lược nền, 3-bet {{t:bluff|bluff}} sống nhờ đối thủ {{t:fold|bỏ bài}} và nhờ equity sau flop. Trước người chơi {{t:fold|bỏ bài}} trong {{n:mda.rec.f3b}} trường hợp, gần như không có lần {{t:fold|bỏ bài}} nào, nhưng họ lại {{t:call|theo}} bằng những tay bài yếu hơn. Vì vậy bạn 3-bet họ bằng {{t:range|dải bài}} {{t:linear|tuyến tính}}: nhiều tay bài mạnh hơn để lấy {{t:value|giá trị}}, gần như không có {{t:bluff|bluff}}. Huấn luyện viên trong hai tài liệu đào tạo đặt ranh giới này ở mức fold to 3-bet khoảng {{n:hud.f3b.low}}.
+Trong chiến lược nền, 3-bet {{t:bluff|bluff}} sống nhờ đối thủ {{t:fold|bỏ bài}} và nhờ equity sau flop. Trước người chơi {{t:fold|bỏ bài}} trong {{n:mda.rec.f3b}} trường hợp, gần như không có lần {{t:fold|bỏ bài}} nào, nhưng họ lại {{t:call|theo}} bằng những tay bài yếu hơn. Vì vậy bạn 3-bet họ bằng {{t:range|range}} {{t:linear|tuyến tính}}: thêm nhiều tay bài mạnh để lấy {{t:value|giá trị}}, gần như không có {{t:bluff|bluff}}. Huấn luyện viên trong hai tài liệu đào tạo đặt ranh giới này ở mức fold to 3-bet khoảng {{n:hud.f3b.low}}.
 
 ## Mẫu nhỏ, lệch ít
 
-Mẫu càng nhỏ, sai số của chỉ số càng lớn (bài 1). Với mẫu nhỏ, bạn chỉ dịch những tay bài ranh giới và chỉ theo hướng của nhận định. Lệch xa, với toàn bộ {{t:range|dải bài}}, chỉ có ý nghĩa khi có mẫu lớn và sai lầm rõ ràng của đối thủ. Bản thân việc lệch khỏi chiến lược nền đã là một sai lầm mà đối thủ giỏi có thể khai thác.
+Mẫu càng nhỏ, sai số của chỉ số càng lớn (bài 1). Với mẫu nhỏ, bạn chỉ dịch những tay bài ranh giới và chỉ theo hướng của nhận định. Lệch xa, với toàn bộ {{t:range|range}}, chỉ có ý nghĩa khi có mẫu lớn và sai lầm rõ ràng của đối thủ. Bản thân việc lệch khỏi chiến lược nền đã là một sai lầm mà đối thủ giỏi có thể khai thác.
 
 :::note Nguồn
 Nguyên tắc về {{t:mixed-hand|tay bài trộn}} lấy từ một phân tích solver đã được công bố, với chiến lược của đối thủ bị khóa (lời giải solver, không phải dữ liệu về tập người chơi). Các ngưỡng {{t:alpha}} là phép tính. Fold to 3-bet và fold to c-bet của tập người chơi lấy từ một cơ sở dữ liệu thống kê công khai (một phòng online lớn, NL25–NL100, {{n:mda.period.months}} tháng trước tháng 10 năm 2026). Ranh giới fold to 3-bet và nguyên tắc “mẫu nhỏ, lệch ít” là khuyến nghị từ hai tài liệu đào tạo.

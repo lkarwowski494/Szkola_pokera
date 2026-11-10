@@ -23,7 +23,7 @@ drills:
     prompt: "El solver juega tu mano como {{t:raise|subida}} en el {{n:exam.m13.solver.main}} de los casos y como {{t:fold|fold}} en el {{n:exam.m13.solver.rare}}. Te has {{t:fold|retirado}}. ¿Cómo lo valorará el informe?"
     options:
       - { text: "Aceptable", correct: true, why: "El solver se {{t:fold|retira}} en el {{n:exam.m13.solver.rare}} de los casos: al menos el {{n:range.mixed.min}}, pero con menos frecuencia que el {{n:range.mixed.low}}. Es la jugada menos frecuente de una {{t:mixed-hand|mano mixta}}, así que no es un error, sino una decisión aceptable." }
-      - { text: "Alineada", why: "Alineada es la acción que el solver juega en al menos el {{n:range.mixed.low}} de los casos. El {{t:fold|fold}} en el {{n:exam.m13.solver.rare}} de los casos es menos frecuente." }
+      - { text: "Acorde", why: "Acorde es la acción que el solver juega en al menos el {{n:range.mixed.low}} de los casos. El {{t:fold|fold}} en el {{n:exam.m13.solver.rare}} de los casos es menos frecuente." }
       - { text: "Error", why: "Un error es una acción que el solver no juega nunca. El {{t:fold|fold}} en el {{n:exam.m13.solver.rare}} de los casos es la jugada menos frecuente de una {{t:mixed-hand|mano mixta}}, así que ambas jugadas son correctas." }
   - kind: choice
     id: m13.exam.q4
@@ -34,7 +34,7 @@ drills:
       - { text: "Imprecisión", correct: true, why: "{{t:call|Igualar}} en el {{n:exam.m13.solver.tiny}} de los casos es menos que el {{n:range.mixed.min}}. El informe cuenta una acción por debajo del umbral como imprecisión, es decir, como un error: es un umbral de la aplicación, no de la teoría." }
       - { text: "Error", why: "Un error es una acción que el solver no juega nunca. Aquí el solver {{t:call|iguala}} en el {{n:exam.m13.solver.tiny}} de los casos." }
       - { text: "Aceptable, porque el solver también {{t:call|iguala}} a veces", why: "Aceptable es la acción que se juega en al menos el {{n:range.mixed.min}} de los casos. Un {{n:exam.m13.solver.tiny}} es demasiado poco." }
-      - { text: "Sin valorar", why: "«Sin valorar» es lo que recibe una decisión para la que la aplicación no tiene ni regla ni resultado del solver. Aquí sí hay resultado del solver." }
+      - { text: "Sin evaluar", why: "«Sin evaluar» es lo que recibe una decisión para la que la aplicación no tiene ni regla ni resultado del solver. Aquí sí hay resultado del solver." }
   - kind: choice
     id: m13.exam.q5
     family: m13.suit-swap

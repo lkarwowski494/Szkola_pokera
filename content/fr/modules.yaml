@@ -2,7 +2,7 @@
 - { id: m1, order: 1, title: "Déroulement d'une main", sub: "Blindes, streets, actions", phase: mvp }
 - { id: m2, order: 2, title: "Mathématiques de base", sub: "Outs, probabilités, cotes du pot", phase: mvp }
 - { id: m3, order: 3, title: "Position et ouvertures", sub: "Qui parle en dernier et quoi ouvrir", phase: mvp }
-- { id: m4, order: 4, title: "Préflop face à une action", sub: "3-bet, défense, limpeurs", phase: mvp }
+- { id: m4, order: 4, title: "Preflop face à une action", sub: "3-bet, défense, limpeurs", phase: mvp }
 - { id: m5, order: 5, title: "Flop : c-bet", sub: "Textures et tailles de mise", phase: f2 }
 - { id: m6, order: 6, title: "Flop : défense", sub: "MDF, call, check-raise", phase: f2 }
 - { id: m7, order: 7, title: "Turn", sub: "Second barrel et tirages", phase: f2 }

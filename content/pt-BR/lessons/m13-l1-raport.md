@@ -31,16 +31,16 @@ drills:
     id: m13.l1.q-mixed
     family: m13.verdicts
     rules: [R-M13-002]
-    prompt: "Neste spot, o solver joga sua mão mais ou menos meio a meio: com {{t:raise|raise}} ou com {{t:fold|fold}}. Você deu {{t:fold|fold}}. Como o relatório vai avaliar isso?"
+    prompt: "Neste spot, o solver joga sua mão mais ou menos meio a meio: com {{t:raise|aumento}} ou com {{t:fold|fold}}. Você deu {{t:fold|fold}}. Como o relatório vai avaliar isso?"
     options:
       - { text: "Alinhada", correct: true, why: "Sim: uma ação que o solver joga em pelo menos {{n:range.mixed.low}} dos casos é alinhada. No equilíbrio, o jogador só mistura jogadas com o mesmo {{t:expected-value|valor esperado}}, então as duas estão corretas." }
-      - { text: "Erro, porque era preciso dar {{t:raise|raise}}", why: "Não: numa {{t:mixed-hand|mão mista}}, as duas jogadas têm o mesmo {{t:expected-value|valor esperado}}. O relatório não pune a escolha de uma delas." }
+      - { text: "Erro, porque era preciso {{t:raise|aumentar}}", why: "Não: numa {{t:mixed-hand|mão mista}}, as duas jogadas têm o mesmo {{t:expected-value|valor esperado}}. O relatório não pune a escolha de uma delas." }
       - { text: "Sem avaliação", why: "Não: o spot tem resultado do solver, então a decisão é avaliada. Recebe “sem avaliação” a decisão para a qual o app não tem uma regra verificável." }
   - kind: choice
     id: m13.l1.q-rare
     family: m13.verdicts
     rules: [R-M13-002]
-    prompt: "O solver joga sua mão com {{t:raise|raise}} em cerca de {{n:range.mixed.high}} dos casos e com {{t:call|call}} no restante. Você deu {{t:call|call}}. Qual é o veredito?"
+    prompt: "O solver joga sua mão com {{t:raise|aumento}} em cerca de {{n:range.mixed.high}} dos casos e com {{t:call|call}} no restante. Você deu {{t:call|call}}. Qual é o veredito?"
     options:
       - { text: "Alinhada", correct: true, why: "Sim: o {{t:call}} jogado em cerca de {{n:range.mixed.low}} dos casos não fica abaixo do limite de alinhada ({{n:range.mixed.low}}). É uma {{t:mixed-hand|mão mista}}." }
       - { text: "Aceitável", why: "Aceitável é a ação jogada em pelo menos {{n:range.mixed.min}}, mas com menos frequência do que em {{n:range.mixed.low}} dos casos. Aqui o {{t:call}} chega ao limite de alinhada." }

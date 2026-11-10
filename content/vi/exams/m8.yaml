@@ -17,7 +17,7 @@ drills:
     prompt: "Bạn {{t:open|mở}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop: c-bet và {{t:call}}; trên turn cả hai cùng {{t:check|check}}. River, {{t:big-blind}} {{t:check|check}}. Bạn có {{t:top-pair|đôi cao nhất}} kèm quân 9 và ước tính rằng bạn thắng chỉ hơn một nửa số tay sẽ trả tiền. Bạn làm gì?"
     table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
     options:
-      - { text: "Cược khoảng 1/3 {{t:pot|pot}}", correct: true, why: "Đúng: đây là thin value. Với cược nhỏ, cả các tay có quân 7, quân 4 và J yếu hơn cũng sẽ {{t:call|theo}}, nên trong số các lần {{t:call|theo}} có nhiều tay yếu hơn tay mạnh hơn." }
+      - { text: "Cược khoảng 1/3 {{t:pot|pot}}", correct: true, why: "Đúng: đây là thin value. Với cược nhỏ, cả các tay có quân 7, quân 4 và J yếu hơn cũng sẽ {{t:call|theo}}, nên trong số các lần {{t:call|theo}} tay yếu hơn nhiều hơn tay mạnh hơn." }
       - { text: "Cược bằng cả {{t:pot|pot}}", sizeError: true, why: "Hành động đúng, kích cỡ sai: trước cược bằng {{t:pot|pot}}, các tay có quân 7 và quân 4 sẽ {{t:fold|bỏ bài}}, còn người trả tiền chủ yếu là J mạnh hơn và các tay mạnh hơn. Với thin value, bạn cược nhỏ hơn, thường khoảng 1/4–1/2 {{t:pot|pot}}." }
       - { text: "{{t:check|Check}}, vì tay quá yếu để cược", why: "Bạn mất giá trị: bạn thắng hơn một nửa số tay sẽ trả cho một cược nhỏ. Chỉ cần chọn kích cỡ nhỏ hơn." }
   - kind: numeric

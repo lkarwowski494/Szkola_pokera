@@ -48,7 +48,7 @@ drills:
     options:
       - { text: "降一個{{t:stakes|級別}}", correct: true, why: "你已跌破原定資金的一半（{{n:br.bi.move-down}}）。只剩這麼多{{t:buy-in|買入}}時，輸光剩餘資金的風險比有 {{n:br.bi.base}} 個時高好幾倍（以贏率 {{n:var.wr.typical.high}}、SD {{n:var.sd}} 計算）。在低一半的{{t:stakes|級別}}，同樣的資金又幾乎是該級別完整的{{t:buy-in|買入}}數。" }
       - { text: "繼續打，因為這只是{{t:variance|變異數}}", why: "這很可能確實是{{t:variance|變異數}}，但降{{t:stakes|級別}}正是為了防範它。只剩 {{n:br.ex.below}} 個{{t:buy-in|買入}}時，下一段{{t:downswing|下風期}}就可能讓你輸光。" }
-      - { text: "升到更高的{{t:stakes|級別}}，想更快贏回來", why: "這是出於絕望的上頭。以{{t:buy-in|買入}}計資金變少時還打更高的{{t:stakes|級別}}，會急遽提高{{t:risk-of-ruin|破產風險}}。" }
+      - { text: "升到更高的{{t:stakes|級別}}，想更快贏回來", why: "這是絕望型上頭。以{{t:buy-in|買入}}計資金變少時還打更高的{{t:stakes|級別}}，會急遽提高{{t:risk-of-ruin|破產風險}}。" }
   - kind: choice
     id: m12.l4.q-stay
     family: m12.move-down
@@ -120,7 +120,7 @@ drills:
 RoR = e^(−2 × 贏率 × 資金 ÷ SD²)
 ```
 
-這個公式是在贏率和 SD 固定時的近似值。贏率和 SD 以 bb/100 輸入，資金以 bb 輸入。在{{t:standard-deviation|標準差}}為 {{n:var.sd}} 時：
+這個公式是在贏率和 SD 固定時的近似值。贏率和 SD 以 bb/100 表示，資金以 bb 表示。在{{t:standard-deviation|標準差}}為 {{n:var.sd}} 時：
 
 | 贏率 | {{n:br.bi.move-down}} 個{{t:buy-in|買入}} | {{n:br.bi.base}} 個{{t:buy-in|買入}} | {{n:br.bi.beginner}} 個{{t:buy-in|買入}} |
 |---|---|---|---|

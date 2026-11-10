@@ -1,0 +1,37 @@
+{
+ "plik": "docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/fr/poprawki-fr.json",
+ "nalozone": 411,
+ "pominiete": [],
+ "sklep": 3,
+ "odfiltrowane": 5,
+ "pliki": 54,
+ "sklepPoprawki": [
+  {
+   "jezyk": "fr",
+   "cel": "store/app-store-metadata.json",
+   "stary": "Décisions notées sur quatre niveaux",
+   "nowy": "Décisions notées sur quatre niveaux : conforme, acceptable, imprécision, erreur",
+   "waga": "ŚR",
+   "powod": "fr-FR description, ENTRAÎNEMENT: pominięte wyliczenie czterech stopni oceny (pl: „zgodna, dopuszczalna, niedokładność, błąd”; en-US też je wymienia); nazwy jak w słowniku interfejsu (grade.*)",
+   "grupa": "fr-U1"
+  },
+  {
+   "jezyk": "fr",
+   "cel": "store/app-store-metadata.json",
+   "stary": "indice de progression",
+   "nowy": "indice de niveau",
+   "waga": "NISKIE",
+   "powod": "fr-FR description, RÉVISIONS ET PROGRÈS: „wskaźnik zaawansowania” w aplikacji to „Indice de niveau” (advancement.title); jedna nazwa na jedno pojęcie",
+   "grupa": "fr-U1"
+  },
+  {
+   "jezyk": "fr",
+   "cel": "store/app-store-metadata.json",
+   "stary": "une séance d’entraînement",
+   "nowy": "une séance d’exercices",
+   "waga": "NISKIE",
+   "powod": "fr-FR description, ACCÈS: „sesja ćwiczeń” w aplikacji to „Séance d’exercices” (today.practice, start.title.practice); spójność nazwy aktywności objętej limitem",
+   "grupa": "fr-U1"
+  }
+ ]
+}

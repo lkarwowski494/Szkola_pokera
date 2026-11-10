@@ -33,7 +33,7 @@ drills:
     rules: [R-M12-005, R-M12-001]
     prompt: "Du hast deinen Spielstil geändert und nach {{n:exam.m12.style.hands.k}} Tsd. Händen {{n:exam.m12.style.wr}}. Die {{t:standard-deviation|Standardabweichung}} beträgt {{n:var.sd}}. Ist das ein Beweis, dass der neue Stil besser ist?"
     options:
-      - { text: "Nein: Das {{n:var.conf95}}-Intervall beträgt ± etwa {{n:exam.m12.style.ci}}; neue Spielzüge bewertest du im Hand-Review", correct: true, why: "Der Fehler der Winrate nach {{n:exam.m12.style.blocks}} Blöcken ist {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, also beträgt das Intervall ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Ein solches Ergebnis passt sowohl zu einem besseren als auch zu einem schlechteren Stil. Über die Strategie entscheidet die Analyse der Entscheidungen." }
+      - { text: "Nein: Das {{n:var.conf95}}-Intervall beträgt ± etwa {{n:exam.m12.style.ci}}; neue Spielzüge bewertest du in der Handanalyse", correct: true, why: "Der Fehler der Winrate nach {{n:exam.m12.style.blocks}} Blöcken ist {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, also beträgt das Intervall ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Ein solches Ergebnis passt sowohl zu einem besseren als auch zu einem schlechteren Stil. Über die Strategie entscheidet die Analyse der Entscheidungen." }
       - { text: "Ja: {{n:exam.m12.style.wr}} ist viel mehr als eine typische Winrate", why: "Bei {{n:exam.m12.style.hands.k}} Tsd. Händen beträgt das {{n:var.conf95}}-Intervall etwa ± {{n:exam.m12.style.ci}}. Ein hohes Ergebnis aus einer kleinen Stichprobe ist vor allem {{t:variance|Varianz}}." }
       - { text: "Ja, wenn du die meisten {{t:session|Sessions}} gewonnen hast", why: "Die Zahl gewonnener {{t:session|Sessions}} ist dasselbe Ergebnis, nur in Stücke zerlegt. Sie beruht weiterhin auf {{n:exam.m12.style.hands.k}} Tsd. Händen und sagt nicht, ob deine Entscheidungen besser sind." }
   - kind: choice
@@ -51,10 +51,10 @@ drills:
     rules: [R-M12-006]
     prompt: "Du hast einen großen {{t:pot|Pot}} verloren. Du weißt, dass du gut gespielt hast und dass das {{t:variance|Varianz}} ist, und auch dein Gegner hat korrekt gespielt. Trotzdem ärgert dich schon der Verlust selbst so sehr, dass du dich nicht konzentrieren kannst. Welcher Tilt-Typ ist das laut der Einteilung aus der Lektion über Tilt?"
     options:
-      - { text: "Tilt aus Hass aufs Verlieren", correct: true, why: "Auslöser ist der Verlust selbst, auch wenn du weißt, dass es {{t:variance|Varianz}} ist. Du gibst weder dem Glück noch dir selbst noch dem Gegner die Schuld." }
-      - { text: "Ungerechtigkeits-Tilt", why: "Dieser Typ wird durch das Gefühl ausgelöst, dass Poker ungerecht ist: Bad Beats, Cooler, Treffer des Gegners am River. Hier weißt du, dass alles normal gelaufen ist, und dich ärgert der Verlust selbst." }
-      - { text: "Fehler-Tilt", why: "Fehler-Tilt ist Ärger über eigene Fehler. Hier weißt du, dass du gut gespielt hast." }
-      - { text: "Rache-Tilt", why: "Rache richtet sich gegen einen Gegner, z. B. nach respektlosem Verhalten. Hier hat der Gegner korrekt gespielt und ist nicht der Grund für deinen Ärger." }
+      - { text: "Tilt aus Hass aufs Verlieren", correct: true, why: "Auslöser ist der Verlust selbst, auch wenn du weißt, dass es {{t:variance|Varianz}} ist. Du gibst weder dem Schicksal noch dir selbst noch dem Gegner die Schuld." }
+      - { text: "Tilt aus Ungerechtigkeit", why: "Dieser Typ wird durch das Gefühl ausgelöst, dass Poker ungerecht ist: Bad Beats, Cooler, Treffer des Gegners am River. Hier weißt du, dass alles normal gelaufen ist, und dich ärgert der Verlust selbst." }
+      - { text: "Tilt aus Fehlern", why: "Tilt aus Fehlern ist Ärger über eigene Fehler. Hier weißt du, dass du gut gespielt hast." }
+      - { text: "Tilt aus Rache", why: "Rache richtet sich gegen einen Gegner, z. B. nach respektlosem Verhalten. Hier hat der Gegner korrekt gespielt und ist nicht der Grund für deinen Ärger." }
   - kind: choice
     id: m12.exam.q7
     family: m12.tilt-response

@@ -24,7 +24,7 @@ drills:
     prompt: "{{n:exam.m10.mid.hands}}ハンドの時点で、相手は{{t:vpip}} {{n:exam.m10.mid.vpip}}、{{t:pfr}} {{n:exam.m10.mid.pfr}}、Fold to 3ベット {{n:exam.m10.mid.f3b}}です。このうち、もう判断の根拠にできる数値はどれですか？"
     options:
       - { text: "{{t:vpip}}と{{t:pfr}}。Fold to 3ベットはまだ偶然", correct: true, why: "{{t:vpip}}と{{t:pfr}}は約{{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}ハンドで読めますが、Fold to 3ベットは約{{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}ハンドかかります。その機会は{{t:open|オープン}}と3ベットの後にしか生じないからです。{{n:exam.m10.mid.hands}}ハンドでは、機会はほんの数回です。" }
-      - { text: "3つすべて。サンプルが{{n:hud.hands.vpip.low}}ハンドを超えているから", why: "約{{n:hud.hands.vpip.low}}ハンドという目安は、毎ハンド機会があるスタッツに当てはまります。Fold to 3ベットは機会が何分の一も少なく、約{{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}ハンド必要です。" }
+      - { text: "3つすべて。サンプルが{{n:hud.hands.vpip.low}}ハンドを超えているから", why: "約{{n:hud.hands.vpip.low}}ハンドという目安は、毎ハンド機会があるスタッツに当てはまります。Fold to 3ベットは機会が何倍も少なく、約{{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}ハンド必要です。" }
       - { text: "どれも使えない。千ハンド未満のスタッツは偶然", why: "偶然と言えるのは約{{n:hud.hands.random}}ハンド未満です。{{n:exam.m10.mid.hands}}ハンドなら、{{t:vpip}}と{{t:pfr}}はすでに何かを示しています。" }
       - { text: "Fold to 3ベットだけ。最も極端だから", why: "小さなサンプルの極端な数値は、読みより偶然であることが多いです。信頼性を決めるのは機会の数で、ここではFold to 3ベットの機会が最も少ないです。" }
   - kind: choice
@@ -60,7 +60,7 @@ drills:
     rules: [R-M10-010]
     prompt: "相手は{{n:exam.m10.long.hands}}ハンドの時点でFold to Cベットが{{n:exam.m10.fcb}}です。あなたはフロップに当たらず、{{t:draw|ドロー}}もありません。ハンドなしのCベットで、すぐに利益になるのはどれですか？"
     options:
-      - { text: "小さい1/3{{t:pot|ポット}}だけ", correct: true, why: "1/3{{t:pot|ポット}}のCベットは{{n:alpha.cbet.small}}の{{t:fold|フォールド}}で損益ゼロになり、3/4{{t:pot|ポット}}では{{n:alpha.cbet.big}}が必要です。{{n:exam.m10.fcb}}で足りるのは小さいほうだけです。Fold to Cベットはすべてのサイズとテーブルをまとめた数値なので、これは近似です。" }
+      - { text: "小さい1/3{{t:pot|ポット}}だけ", correct: true, why: "1/3{{t:pot|ポット}}のCベットは{{n:alpha.cbet.small}}の{{t:fold|フォールド}}で損益ゼロになり、3/4{{t:pot|ポット}}では{{n:alpha.cbet.big}}が必要です。{{n:exam.m10.fcb}}で足りるのは小さいほうだけです。Fold to Cベットはすべてのサイズとボードをまとめた数値なので、これは近似です。" }
       - { text: "両方。相手はよく{{t:fold|フォールド}}するから", why: "大きいCベットはリスクが大きく、{{n:alpha.cbet.big}}を超える{{t:fold|フォールド}}が必要です。相手が{{t:fold|フォールド}}するのは{{n:exam.m10.fcb}}で、少なすぎます。" }
       - { text: "大きいほうだけ。より{{t:fold|フォールド}}を強いるから", why: "{{t:hud|HUD}}のFold to Cベットは、大きいベットに対して相手がより多く{{t:fold|フォールド}}することを示していません。{{n:exam.m10.fcb}}の{{t:fold|フォールド}}では、ハンドなしの大きいCベットは{{n:alpha.cbet.big}}が必要なので損をします。" }
       - { text: "どちらでもない。相手が{{t:fold|フォールド}}するのは半分未満だから", why: "境界値は半分ではなく、ベット ÷ ({{t:pot}} + ベット)です。1/3{{t:pot|ポット}}のCベットなら{{n:alpha.cbet.small}}なので、{{n:exam.m10.fcb}}で足ります。" }
@@ -77,6 +77,6 @@ drills:
     id: m10.exam.q9
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "{{t:pot|ポット}}は{{n:ex.pot}}で、相手は{{t:pot|ポット}}全額の{{n:ex.bet.pot}}を{{t:bet|ベット}}しました。ルームは{{t:pot|ポット}}の{{n:rake.ex.pct}}を徴収し、{{t:rake-cap|レーキキャップ}}には届きません。{{t:call|コール}}に必要なエクイティは何%ですか？パーセントを入力してください。"
+    prompt: "{{t:pot|ポット}}は{{n:ex.pot}}で、相手は{{t:pot|ポット}}全額の{{n:ex.bet.pot}}を{{t:bet|ベット}}しました。ルームは{{t:pot|ポット}}の{{n:rake.ex.pct}}を徴収し、{{t:rake-cap|レーキ上限}}には届きません。{{t:call|コール}}に必要なエクイティは何%ですか？パーセントを入力してください。"
     answer: exam.m10.rake.eq
     explanation: "{{t:call|コール}}後の{{t:pot|ポット}}は{{n:exam.m10.rake.total}}で、{{t:rake|レーキ}}を引くと{{n:exam.m10.rake.after}}です。あなたが払うのは{{n:ex.bet.pot}}：{{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}}（{{t:rake|レーキ}}なしなら{{n:eq.bet-pot}}）です。"

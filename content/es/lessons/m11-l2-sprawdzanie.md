@@ -80,7 +80,7 @@ drills:
     id: m11.l2.q-ante
     family: m11.call.price
     rules: [R-M11-006]
-    prompt: "Se juega con {{t:bb-ante|big blind ante}}. Tienes {{n:m11.depth.10}} en la {{t:big-blind|ciega grande}} y has puesto un ante de {{n:m11.ante}}. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿Cuánta equity necesitas para {{t:call|igualar}}?"
+    prompt: "Se juega con {{t:bb-ante|ante de ciega grande}}. Tienes {{n:m11.depth.10}} en la {{t:big-blind|ciega grande}} y has puesto un ante de {{n:m11.ante}}. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿Cuánta equity necesitas para {{t:call|igualar}}?"
     table: { position: BB }
     options:
       - { text: "{{n:m11.call.10-ante.eq}}", correct: true, why: "Pones lo mismo ({{n:m11.call.10.cost}}), pero en el {{t:pot|bote}} también está el ante: tras el {{t:call|pago}}, {{n:m11.call.10-ante.pot}}. {{n:m11.call.10.cost}} ÷ {{n:m11.call.10-ante.pot}} = {{n:m11.call.10-ante.eq}}. Por eso con ante {{t:call|igualas}} más amplio: aprox. {{n:m11.call.10-ante}} de las manos en lugar de {{n:m11.call.10}}." }
@@ -137,7 +137,7 @@ Si vas all-in primero, también ganas cuando el rival {{t:fold|se retira}}. Al {
 call.bb-10
 ```
 
-Con {{n:m11.depth.10}}, la {{t:small-blind|ciega pequeña}} va all-in con aprox. {{n:m11.push.10}} de las manos, y la {{t:big-blind|ciega grande}} {{t:call|iguala}} con aprox. {{n:m11.call.10}}. Manos como [[7s 6s]] las {{t:shove|empujas}} desde la {{t:small-blind|ciega pequeña}}, pero las {{t:fold|tiras}} ante un all-in: sin fold equity tienen muy poca equity contra cartas altas y {{t:pair|parejas}}. Como comparación, una tabla de una web de formación da con {{n:m11.depth.10}} un {{t:range|rango}} de {{t:call|pago}} de {{n:m11.ext.call.10}}.
+Con {{n:m11.depth.10}}, la {{t:small-blind|ciega pequeña}} va all-in con aprox. {{n:m11.push.10}} de las manos, y la {{t:big-blind|ciega grande}} {{t:call|iguala}} con aprox. {{n:m11.call.10}}. Con manos como [[7s 6s]] {{t:shove|haces push}} desde la {{t:small-blind|ciega pequeña}}, pero las {{t:fold|tiras}} ante un all-in: sin fold equity tienen demasiado poca equity contra cartas altas y {{t:pair|parejas}}. Como comparación, una tabla de una web de formación da con {{n:m11.depth.10}} un {{t:range|rango}} de {{t:call|pago}} de {{n:m11.ext.call.10}}.
 
 ```range
 call.bb-15
@@ -165,7 +165,7 @@ call.bb-vs-two-3max
 
 ## Con ante, {{t:call|igualas}} más amplio
 
-El ante se queda en el {{t:pot|bote}}, así que por la misma cantidad ganas más: con {{n:m11.depth.10}} y un {{t:bb-ante|big blind ante}} de {{n:m11.ante}}, necesitas {{n:m11.call.10-ante.eq}} en lugar de {{n:m11.call.10.eq}}. Con ante, el rival también {{t:shove|hace push}} más amplio, así que el solver {{t:call|iguala}} con aprox. {{n:m11.call.10-ante}} de las manos.
+El ante se queda en el {{t:pot|bote}}, así que por la misma cantidad ganas más: con {{n:m11.depth.10}} y un {{t:bb-ante|ante de ciega grande}} de {{n:m11.ante}}, necesitas {{n:m11.call.10-ante.eq}} en lugar de {{n:m11.call.10.eq}}. Con ante, el rival también {{t:shove|hace push}} más amplio, así que el solver {{t:call|iguala}} con aprox. {{n:m11.call.10-ante}} de las manos.
 
 ```range
 call.bb-10-ante

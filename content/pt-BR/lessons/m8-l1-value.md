@@ -12,7 +12,7 @@ drills:
     rules: [R-M8-001]
     prompt: "River: todas as cartas já estão na {{t:board|mesa}}. Por que apostar, afinal?"
     options:
-      - { text: "Para que mãos piores paguem ou mãos melhores {{t:fold|desistam}}", correct: true, why: "No river não há mais cartas por vir, então a aposta tem só dois objetivos: valor (mãos piores pagam) ou {{t:bluff|blefe}} (mãos melhores {{t:fold|desistem}}). Uma aposta que não faz nenhuma das duas coisas só custa caro." }
+      - { text: "Para que mãos piores paguem ou mãos melhores {{t:fold|desistam}}", correct: true, why: "No river não há mais cartas por vir, então a aposta tem só dois objetivos: valor (mãos piores pagam) ou {{t:bluff|blefe}} (mãos melhores {{t:fold|desistem}}). Uma aposta que não faz nenhuma das duas coisas só custa dinheiro." }
       - { text: "Para tirar do rival a chance de completar a mão", why: "Esse é um motivo para apostar no flop e no turn. No river o rival não vai completar mais nada: a mão dele já está definida." }
       - { text: "Para saber se a minha mão é a melhor", why: "Aposta não é pergunta. Quando você aposta com uma mão média, as mãos piores costumam {{t:fold|desistir}} e as melhores pagam, então você “descobre” com o seu próprio dinheiro. Você descobre de graça ao {{t:check|passar}}." }
   - kind: choice
@@ -128,7 +128,7 @@ Quando o rival pode {{t:raise|aumentar}} e você teria que {{t:fold|desistir}} n
 
 Thin value (valor fino) é uma aposta com uma mão que ganha de pouco mais da metade dos {{t:call|pagamentos}}, por exemplo {{t:top-pair|top pair}} com kicker médio. Essa aposta você faz **menor** do que com uma mão forte, geralmente cerca de 1/4–1/2 do {{t:pot|pote}}: uma aposta pequena também é paga por {{t:pair|pares}} mais fracos, mas diante de uma grande eles vão {{t:fold|desistir}} e só vão sobrar mãos melhores.
 
-Isto é uma simplificação: sem risco de check-raise, o solver faz thin value com apostas de até cerca de 1/4 do {{t:pot|pote}}, e com esse risco, com {{t:position|posição}}, raramente fica abaixo de 1/2 do {{t:pot|pote}}.
+Isto é uma simplificação: sem risco de check-raise, o solver faz thin value com apostas de apenas cerca de 1/4 do {{t:pot|pote}}, e com esse risco, com {{t:position|posição}}, raramente fica abaixo de 1/2 do {{t:pot|pote}}.
 
 ## Mão média {{t:check|passa}}
 

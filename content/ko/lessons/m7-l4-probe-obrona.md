@@ -15,7 +15,7 @@ drills:
     options:
       - { text: "프로브 벳", correct: true, why: "맞습니다. 프로브 벳은 프리플롭 {{t:aggressor|어그레서}}가 C벳을 하지 않고 {{t:check|체크}}한 뒤, 턴에서 {{t:out-of-position|아웃 오브 포지션}}에서 하는 {{t:bet|베팅}}입니다." }
       - { text: "C벳", why: "C벳은 프리플롭에서 {{t:raise|레이즈}}한 플레이어가 {{t:bet|베팅}}하는 것입니다. 당신은 {{t:call|콜}}만 했습니다." }
-      - { text: "체크 레이즈", why: "체크 레이즈는 {{t:check|체크}}한 뒤 상대의 {{t:bet|베팅}}에 {{t:raise|레이즈}}하는 것입니다. 여기서는 당신이 먼저 베팅하므로 아무에게도 {{t:raise|레이즈}}하지 않습니다." }
+      - { text: "체크레이즈", why: "체크레이즈는 {{t:check|체크}}한 뒤 상대의 {{t:bet|베팅}}에 {{t:raise|레이즈}}하는 것입니다. 여기서는 당신이 먼저 베팅하므로 아무에게도 {{t:raise|레이즈}}하지 않습니다." }
   - kind: choice
     id: m7.l4.q-probe-why
     family: m7.probe.concept
@@ -75,7 +75,7 @@ drills:
     options:
       - { text: "{{t:fold|폴드}}합니다", correct: true, why: "거트샷(잭)만 있습니다. 리버에서 맞을 확률은 약 {{n:odds.gutshot.turn-river}}인데, 필요한 것은 {{n:eq.bet-three-quarters}}입니다. {{t:pair|페어}}가 없고 남은 카드가 한 장뿐이라 이 핸드로는 {{t:second-barrel|세컨드 배럴}}을 방어할 수 없습니다." }
       - { text: "{{t:call|콜}}합니다", why: "가격이 당신의 확률보다 몇 배나 높습니다. {{n:eq.bet-three-quarters}} 대 약 {{n:odds.gutshot.turn-river}}입니다. 임플라이드 오즈로도 이런 차이는 메워지지 않습니다." }
-      - { text: "체크 레이즈", why: "{{t:second-barrel|세컨드 배럴}}은 C벳보다 강한 {{t:range|레인지}}입니다. 버튼은 {{t:fold|폴드}}하지 않을 킹이나 더 좋은 핸드를 더 자주 가지고 있습니다. 아웃 {{n:outs.gutshot}}개로는 비싼 {{t:bluff|블러프}}입니다." }
+      - { text: "체크레이즈", why: "{{t:second-barrel|세컨드 배럴}}은 C벳보다 강한 {{t:range|레인지}}입니다. 버튼은 {{t:fold|폴드}}하지 않을 킹이나 더 좋은 핸드를 더 자주 가지고 있습니다. 아웃 {{n:outs.gutshot}}개로는 비싼 {{t:bluff|블러프}}입니다." }
   - kind: choice
     id: m7.l4.q-def-oesd-small
     family: m7.defend.turn
@@ -93,7 +93,7 @@ drills:
     prompt: "{{t:big-blind|빅 블라인드}}를 방어하고 있습니다. 플롭에서 버튼의 C벳을 {{t:call|콜}}했습니다. 턴은 5이고, 당신이 {{t:check|체크}}하자 버튼이 {{t:pot|팟}} {{n:ex.pot}}에 {{n:ex.bet.three-quarters}}만큼 {{t:bet|베팅}}합니다. 어떻게 하시겠습니까?"
     table: { hand: "Kd Tc", position: BB, board: "Ks 7d 2c 5h" }
     options:
-      - { text: "{{t:call|콜}}합니다", correct: true, why: "{{t:top-pair|탑 페어}}는 블랭크 카드에서 {{t:fold|폴드}}하기에는 너무 강합니다. {{t:semi-bluff|세미 블러프}}와 더 약한 킹을 이깁니다. 필요한 것은 {{n:eq.bet-three-quarters}}이고, {{t:second-barrel|세컨드 배럴}} {{t:range|레인지}}를 상대로 이런 {{t:pair|페어}}는 보통 그만큼은 됩니다." }
+      - { text: "{{t:call|콜}}합니다", correct: true, why: "{{t:top-pair|탑 페어}}는 빈 카드에서 {{t:fold|폴드}}하기에는 너무 강합니다. {{t:semi-bluff|세미 블러프}}와 더 약한 킹을 이깁니다. 필요한 것은 {{n:eq.bet-three-quarters}}이고, {{t:second-barrel|세컨드 배럴}} {{t:range|레인지}}를 상대로 이런 {{t:pair|페어}}는 보통 그만큼은 됩니다." }
       - { text: "{{t:fold|폴드}}합니다", why: "너무 타이트합니다. {{t:second-barrel|세컨드 배럴}}은 C벳보다 강하지만, 버튼은 {{t:draw|드로우}}와 {{t:bluff|블러프}}로도 {{t:bet|베팅}}합니다. {{t:top-pair|탑 페어}}는 이 모두를 이깁니다." }
       - { text: "{{t:raise|레이즈}}합니다", why: "{{t:raise|레이즈}}하면 더 약한 핸드는 {{t:fold|폴드}}하고, 더 강한 킹과 셋이 돈을 냅니다. 중간 키커의 {{t:top-pair|탑 페어}}는 {{t:raise|레이즈}}할 핸드가 아닙니다." }
   - kind: choice
@@ -104,7 +104,7 @@ drills:
     table: { position: BB }
     options:
       - { text: "상대가 {{t:second-barrel|세컨드 배럴}}을 더 좁은 {{t:range|레인지}}로, 보통 더 큰 사이즈로 {{t:bet|베팅}}하고, {{t:draw|드로우}}에는 남은 카드가 한 장뿐이기 때문에", correct: true, why: "맞습니다. 상대는 턴에서 {{t:bluff|블러프}} 일부를 포기하고, 더 큰 베팅은 {{t:mdf|MDF}}를 낮추며(3/4 {{t:pot|팟}}에서는 {{n:mdf.bet-three-quarters}}), 당신의 {{t:draw|드로우}}는 확률의 절반을 잃습니다. 약한 {{t:pair|페어}}와 아웃 없는 핸드는 플롭보다 더 자주 {{t:fold|폴드}}합니다." }
-      - { text: "턴에서는 {{t:chips|칩}}을 아껴야 하기 때문에", why: "중요한 것은 아끼는 것이 아니라 각 결정의 {{t:expected-value|기대값}}입니다. 상대가 더 강한 핸드로 베팅하기 때문에 더 좁게 방어합니다." }
+      - { text: "턴에서는 {{t:chips|칩}}을 아껴야 하기 때문에", why: "중요한 것은 아끼는 것이 아니라 각 결정의 {{t:expected-value|기댓값}}입니다. 상대가 더 강한 핸드로 베팅하기 때문에 더 좁게 방어합니다." }
       - { text: "아닙니다. 이미 {{t:chips|칩}}을 많이 넣었으므로 더 넓게 방어합니다", why: "이미 넣은 것은 돌아오지 않습니다. 결정은 현재의 가격과 상대 {{t:range|레인지}}의 강도를 바탕으로 내립니다." }
   - kind: numeric
     id: m7.l4.n-mdf-turn

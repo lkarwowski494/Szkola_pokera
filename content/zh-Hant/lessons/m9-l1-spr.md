@@ -104,7 +104,7 @@ drills:
 
 ## 什麼是 {{t:spr}}
 
-{{t:spr}}（英文 stack-to-pot ratio）是某一{{t:street|條街}}開始時，籌碼與{{t:pot|底池}}的比例。每一{{t:street|條街}}都能算（在 M7 你是在轉牌算的），但規劃這手牌時，要用翻牌的 {{t:spr}}，也就是在任何人{{t:bet|下注}}、還沒有{{t:bet}}之前。
+{{t:spr}}（英文 stack-to-pot ratio）是某一{{t:street|條街}}開始時，籌碼與{{t:pot|底池}}的比例。每一{{t:street|條街}}都能算（在 M7 你是在轉牌算的），但規劃這手牌時，要用翻牌的 {{t:spr}}，也就是還沒有人{{t:bet|下注}}之前。
 
 ```formula
 SPR = 有效籌碼 ÷ 翻牌底池

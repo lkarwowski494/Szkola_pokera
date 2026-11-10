@@ -62,7 +62,7 @@ drills:
     rules: [R-M12-002]
     prompt: "Un joueur gagne {{n:var.wr.ex}} avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}}. À quelle fréquence, sur {{n:var.hands.k}} mille mains, connaîtra-t-il un {{t:downswing}} d'au moins {{n:dd.bi.small}} {{t:buy-in|buy-ins}} depuis son point le plus haut ?"
     options:
-      - { text: "Presque toujours, environ {{n:dd.p.small.100k}}", correct: true, why: "Une simulation de {{n:var.hands.k}} mille mains avec ces paramètres produit un tel {{t:downswing}} dans environ {{n:dd.p.small.100k}} des parcours. Un {{t:downswing|downswing}} de {{n:dd.bi.small}} {{t:buy-in|buy-ins}} fait normalement partie du jeu d'un joueur gagnant." }
+      - { text: "Presque toujours, environ {{n:dd.p.small.100k}}", correct: true, why: "Une simulation de {{n:var.hands.k}} mille mains avec ces paramètres produit un tel {{t:downswing}} dans environ {{n:dd.p.small.100k}} des parcours. Un {{t:downswing|downswing}} de {{n:dd.bi.small}} {{t:buy-in|buy-ins}} est une composante normale du jeu d'un joueur gagnant." }
       - { text: "Dans environ {{n:dd.p.small.20k}} des cas", why: "C'est le chiffre pour un échantillon plus court, {{n:dd.hands.short.k}} mille mains. Sur {{n:var.hands.k}} mille mains, les occasions d'un {{t:downswing}} profond sont bien plus nombreuses : environ {{n:dd.p.small.100k}}." }
       - { text: "Rarement, environ {{n:var.p.lose}}", why: "C'est la fréquence, faible, à laquelle un joueur à {{n:var.wr.ex}} termine {{n:var.hands.k}} mille mains dans le rouge. Un {{t:downswing|downswing}} en cours de route, c'est autre chose : il arrive presque toujours." }
   - kind: choice

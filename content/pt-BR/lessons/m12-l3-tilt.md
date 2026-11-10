@@ -130,5 +130,5 @@ Quando o tilt cresce, ele desliga a capacidade de pensar. Por isso, você reage 
 Seu jogo tem uma amplitude: do melhor (A-game) ao pior (C-game). O progresso lembra o movimento de uma lagarta: um passo à frente na parte da frente, quando o melhor jogo fica melhor, e um passo na parte de trás, quando o pior fica menos desastroso. O C-game é o que custa mais caro, por isso você começa por ele.
 
 :::note Quando é mais do que tilt
-Se você joga por mais tempo do que planeja, tenta recuperar as perdas ou joga com dinheiro que não pode perder, leia o cartão sobre jogo responsável na lição sobre bankroll.
+Se você joga por mais tempo do que planeja, tenta recuperar as perdas ou joga com dinheiro que não pode perder, leia o quadro “Jogo responsável” na lição sobre bankroll.
 :::

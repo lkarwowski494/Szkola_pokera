@@ -11,14 +11,14 @@ set: "セット"  # set; bez formy 1; formy: セット×1
 two-pair: "ツーペア"  # two pair; bez formy 41; formy: ツーペア×23
 pair: "ペア"  # pair; bez formy 41; formy: ペア×258, ワンペア×9 [WIELE FORM]
 high-card: "ハイカード"  # high card; bez formy 2; formy: ハイカード×1
-kicker: null  # kicker; bez formy 0; formy: — [DO USTALENIA]
+kicker: "キッカー"  # kicker; bez formy 0; formy: — [DO USTALENIA]
 wheel: null  # wheel; bez formy 2; formy: — [potw. D-392: https://ja.wikipedia.org/wiki/ポーカー・ハンドの一覧 („Wheelとも呼ばれる” — nazwa angielska), odczyt 2026-11-09]
 check: "チェック"  # check; bez formy 15; formy: チェック×272
 bet: "ベット"  # bet; bez formy 109; formy: ベット×314, 置いて×1 [WIELE FORM]
 call: "コール"  # call; bez formy 107; formy: コール×759, コールする×2, コールする側×1, コーラー×1 [WIELE FORM]
 raise: "レイズ"  # raise; bez formy 21; formy: レイズ×297
 fold: "フォールド"  # fold; bez formy 68; formy: フォールド×666, フォールドする×1 [WIELE FORM]
-check-raise: null  # check-raise; bez formy 0; formy: — [DO USTALENIA]
+check-raise: "チェックレイズ"  # check-raise; bez formy 0; formy: — [DO USTALENIA]
 all-in: "オールイン"  # all-in; bez formy 0; formy: オールイン×1
 pot: "ポット"  # pot; bez formy 109; formy: ポット×785
 side-pot: "サイドポット"  # side pot; bez formy 1; formy: サイドポット×1
@@ -30,7 +30,7 @@ hole-cards: "ホールカード"  # hole cards; bez formy 2; formy: ホールカ
 small-blind: "スモールブラインド"  # small blind; bez formy 40; formy: スモールブラインド×90, SB×5 [WIELE FORM]
 big-blind: "ビッグブラインド"  # big blind; bez formy 144; formy: ビッグブラインド×132, BB×6 [WIELE FORM]
 chips: "チップ"  # chips; bez formy 22; formy: チップ×81
-stack: null  # stack; bez formy 0; formy: — [DO USTALENIA]
+stack: "スタック"  # stack; bez formy 0; formy: — [DO USTALENIA]
 street: "ストリート"  # street; bez formy 1; formy: ストリート×80
 betting-round: "ベッティングラウンド"  # betting round; bez formy 2; formy: ベッティングラウンド×6
 preflop: "プリフロップ"  # preflop; bez formy 0; formy: プリフロップ×1
@@ -46,15 +46,15 @@ late-position: "レイトポジション"  # late position; bez formy 0; formy: 
 utg: null  # under the gun; bez formy 36; formy: UTG×11 [SKRÓT UTG]
 hijack: "HJ"  # hijack; bez formy 0; formy: HJ×17
 cutoff: "CO"  # cutoff; bez formy 0; formy: CO×55
-button: "BTN"  # button; bez formy 0; formy: BTN×3
+button: "ボタン"  # button; bez formy 0; formy: BTN×3
 outs: "アウツ"  # out; bez formy 0; formy: アウツ×1
 draw: "ドロー"  # draw; bez formy 24; formy: ドロー×180
 flush-draw: "フラッシュドロー"  # flush draw; bez formy 20; formy: フラッシュドロー×41
 straight-draw: "ストレートドロー"  # straight draw; bez formy 9; formy: ストレートドロー×10
 oesd: null  # open-ended straight draw; bez formy 7; formy: OESD×11, オープンエンド・ストレートドロー×5 [SKRÓT OESD]
-gutshot: null  # gutshot; bez formy 0; formy: — [DO USTALENIA]
-backdoor: null  # backdoor; bez formy 0; formy: — [DO USTALENIA]
-pot-odds: null  # pot odds; bez formy 0; formy: — [DO USTALENIA]
+gutshot: "ガットショット"  # gutshot; bez formy 0; formy: — [DO USTALENIA]
+backdoor: "バックドア"  # backdoor; bez formy 0; formy: — [DO USTALENIA]
+pot-odds: "ポットオッズ"  # pot odds; bez formy 0; formy: — [DO USTALENIA]
 implied-odds: "インプライドオッズ"  # implied odds; bez formy 1; formy: インプライドオッズ×1
 equity: "エクイティ"  # equity; bez formy 17; formy: エクイティ×2
 equity-realization: "エクイティ実現"  # equity realization; bez formy 0; formy: エクイティ実現×4, エクイティを実現×3 [WIELE FORM]
@@ -63,12 +63,12 @@ combo: "コンボ"  # combo; bez formy 0; formy: コンボ×30
 range: "レンジ"  # range; bez formy 54; formy: レンジ×192
 mixed-hand: "ミックスハンド"  # mixing hand; bez formy 2; formy: ミックスハンド×6, 混合ハンド×4 [WIELE FORM]
 open: "オープン"  # open; bez formy 24; formy: オープン×244, オープンした側×2 [WIELE FORM]
-suited: null  # suited; bez formy 0; formy: — [DO USTALENIA]
-offsuit: null  # offsuit; bez formy 0; formy: — [DO USTALENIA]
+suited: "スーテッド"  # suited; bez formy 0; formy: — [DO USTALENIA]
+offsuit: "オフスート"  # offsuit; bez formy 0; formy: — [DO USTALENIA]
 pocket-pair: "ポケットペア"  # pocket pair; bez formy 0; formy: ポケットペア×3
 connectors: "コネクター"  # connectors; bez formy 4; formy: コネクター×20
-3-bet: null  # 3-bet; bez formy 0; formy: — [DO USTALENIA]
-4-bet: null  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
+3-bet: "3ベット"  # 3-bet; bez formy 0; formy: — [DO USTALENIA]
+4-bet: "4ベット"  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
 limp: "リンプ"  # limp; bez formy 1; formy: リンプ×1
 isolation: "アイソレーション"  # isolation raise; bez formy 0; formy: アイソレーション×6, アイソレート×1 [WIELE FORM]
 texture: "テクスチャー"  # texture; bez formy 0; formy: テクスチャー×7, テクスチャ×1 [WIELE FORM]
@@ -80,7 +80,7 @@ monotone: "モノトーン"  # monotone; bez formy 6; formy: モノトーン×13
 paired: "ペアボード"  # paired; bez formy 2; formy: ペアボード×7, ペアの×6, ペア×2 [WIELE FORM]
 connected: "コネクテッド"  # connected; bez formy 5; formy: コネクト×5, コネクトした×5, コネクテッド×4 [AB: J2: jedna forma przymiotnikowa (koneksja tekstur, UI drill.texture)]
 disconnected: "ディスコネクテッド"  # disconnected; bez formy 2; formy: ディスコネクテッド×1, ディスコネクト×1 [WIELE FORM]
-semi-connected: "セミコネクト"  # semi-connected; bez formy 0; formy: セミコネクト×5, セミコネクテッド×2 [WIELE FORM]
+semi-connected: "セミコネクテッド"  # semi-connected; bez formy 0; formy: セミコネクト×5, セミコネクテッド×2 [WIELE FORM]
 wetness: "ウェット度"  # wetness; bez formy 0; formy: ウェット度×4, ウェットさ×1 [WIELE FORM]
 top-pair: "トップペア"  # top pair; bez formy 28; formy: トップペア×57
 second-pair: "セカンドペア"  # second pair; bez formy 0; formy: セカンドペア×9
@@ -100,10 +100,10 @@ value-bet: "バリューベット"  # value bet; bez formy 0; formy: バリュ�
 bluff: "ブラフ"  # bluff; bez formy 72; formy: ブラフ×407
 semi-bluff: "セミブラフ"  # semi-bluff; bez formy 6; formy: セミブラフ×18
 blocker: "ブロッカー"  # blocker; bez formy 0; formy: ブロッカー×22
-bluff-catcher: null  # bluff catcher; bez formy 0; formy: — [DO USTALENIA]
-barrel: null  # barrel; bez formy 0; formy: — [DO USTALENIA]
+bluff-catcher: "ブラフキャッチャー"  # bluff catcher; bez formy 0; formy: — [DO USTALENIA]
+barrel: "バレル"  # barrel; bez formy 0; formy: — [DO USTALENIA]
 second-barrel: "セカンドバレル"  # second barrel; bez formy 3; formy: セカンドバレル×23
-probe-bet: null  # probe bet; bez formy 0; formy: — [DO USTALENIA]
+probe-bet: "プローブベット"  # probe bet; bez formy 0; formy: — [DO USTALENIA]
 donk-bet: null  # donk bet; bez formy 0; formy: — [DO USTALENIA]
 overbet: "オーバーベット"  # overbet; bez formy 0; formy: オーバーベット×3
 effective-stack: "エフェクティブスタック"  # effective stack; bez formy 2; formy: エフェクティブスタック×4
@@ -113,7 +113,7 @@ alpha: "アルファ"  # alpha; bez formy 4; formy: アルファ×2
 variance: "分散"  # variance; bez formy 14; formy: 分散×11, バリアンス×1 [AB: J2, kontrola (a): バリアンス bez przeczytanego źródła; tekst ujednolicić]
 buy-in: "バイイン"  # buy-in; bez formy 2; formy: バイイン×81
 bankroll: "バンクロール"  # bankroll; bez formy 0; formy: バンクロール×1
-tilt: null  # tilt; bez formy 0; formy: — [DO USTALENIA]
+tilt: "ティルト"  # tilt; bez formy 0; formy: — [DO USTALENIA]
 winrate: "ウィンレート"  # win rate; bez formy 1; formy: — [zmiana D-392: https://zero-poker.com/poker-word-winrate/, odczyt 2026-11-09]
 downswing: "ダウンスウィング"  # downswing; bez formy 5; formy: ダウンスウィング×21, ダウンスイング×2 [AB: kontrola (a): ujednolicić ダウンスイング]
 session: "セッション"  # session; bez formy 7; formy: セッション×49
@@ -122,19 +122,19 @@ standard-deviation: "標準偏差"  # standard deviation; bez formy 0; formy: �
 risk-of-ruin: "破産リスク"  # risk of ruin; bez formy 0; formy: 破産リスク×4
 mental-game: "メンタルゲーム"  # mental game; bez formy 1; formy: — [zmiana D-392: https://light-three.com/pokerterms/, odczyt 2026-11-09]
 tournament: "トーナメント"  # tournament; bez formy 1; formy: トーナメント×17
-push-fold: null  # push/fold; bez formy 0; formy: — [DO USTALENIA]
+push-fold: "プッシュ/フォールド"  # push/fold; bez formy 0; formy: — [DO USTALENIA]
 shove: "プッシュ"  # shove; bez formy 0; formy: プッシュ×23, プッシュする側×1 [WIELE FORM]
 icm: null  # Independent Chip Model; bez formy 30; formy: — [SKRÓT ICM]
 bubble: "バブル"  # bubble; bez formy 0; formy: バブル×11
-bubble-factor: null  # bubble factor; bez formy 0; formy: — [DO USTALENIA]
+bubble-factor: "バブルファクター"  # bubble factor; bez formy 0; formy: — [DO USTALENIA]
 cover: "カバー"  # cover; bez formy 0; formy: カバー×5
 risk-premium: "リスクプレミアム"  # risk premium; bez formy 4; formy: リスクプレミアム×4
 m-ratio: null  # M-ratio; bez formy 0; formy: — [DO USTALENIA]
 red-zone: "レッドゾーン"  # red zone; bez formy 1; formy: レッドゾーン×1
 green-zone: "グリーンゾーン"  # green zone; bez formy 0; formy: グリーンゾーン×2
-ante: null  # ante; bez formy 0; formy: — [DO USTALENIA]
+ante: "アンティ"  # ante; bez formy 0; formy: — [DO USTALENIA]
 bb-ante: "ビッグブラインドアンティ"  # big blind ante; bez formy 4; formy: ビッグブラインドアンティ×2
-fold-equity: null  # fold equity; bez formy 0; formy: — [DO USTALENIA]
+fold-equity: "フォールドエクイティ"  # fold equity; bez formy 0; formy: — [DO USTALENIA]
 gap-concept: null  # gap concept; bez formy 0; formy: — [DO USTALENIA]
 chip-ev: null  # chip EV; bez formy 0; formy: — [DO USTALENIA]
 tournament-equity: "トーナメントエクイティ"  # tournament equity; bez formy 0; formy: トーナメントエクイティ×1
@@ -145,7 +145,7 @@ final-table: "ファイナルテーブル"  # final table; bez formy 0; formy: �
 short-stack: "ショートスタック"  # short stack; bez formy 1; formy: ショートスタック×12
 nash-equilibrium: null  # Nash equilibrium; bez formy 0; formy: — [DO USTALENIA]
 overcall: null  # overcall; bez formy 0; formy: — [DO USTALENIA]
-heads-up: null  # heads up; bez formy 0; formy: — [DO USTALENIA]
+heads-up: "ヘッズアップ"  # heads up; bez formy 0; formy: — [DO USTALENIA]
 dead-money: null  # dead money; bez formy 0; formy: — [DO USTALENIA]
 stack-off: null  # stack off; bez formy 0; formy: — [DO USTALENIA]
 exploit: "エクスプロイト"  # exploit; bez formy 0; formy: エクスプロイト×9

@@ -65,7 +65,7 @@ drills:
     prompt: "세 번의 {{t:session|세션}} 동안 평소보다 공격적으로 플레이해서 이겼습니다. 이것이 새 스타일이 더 낫다는 증거입니까?"
     options:
       - { text: "아니요, {{t:session|세션}} 세 번은 너무 적습니다. 새로운 플레이는 핸드 리뷰에서 평가합니다", correct: true, why: "엄청난 실력 차이(상위 {{n:skill.pct}} 대 하위 {{n:skill.pct}})조차 약 {{n:skill.hands}}핸드가 지나서야 약 {{n:skill.ahead}}의 경우 앞서게 됩니다. 두 스타일 사이의 차이는 그보다 훨씬 작습니다." }
-      - { text: "네, 결과가 무엇이 통하는지 보여 줍니다", why: "몇 {{t:session|세션}}의 결과는 대부분 노이즈입니다. 약 {{n:var.sd}}의 {{t:standard-deviation|표준편차}}에서는 {{n:var.hands.k}}천 핸드도 약 ± {{n:var.ci.wr}}의 오차를 남깁니다." }
+      - { text: "네, 결과가 무엇이 통하는지 보여 줍니다", why: "몇 {{t:session|세션}}의 결과는 대부분 노이즈입니다. 약 {{n:var.sd}}의 {{t:standard-deviation|표준편차}}에서는 {{n:var.hands.k}},000핸드도 약 ± {{n:var.ci.wr}}의 오차를 남깁니다." }
       - { text: "네, 평소보다 더 많이 이겼다면요", why: "작은 표본에서 더 크게 이긴 것도 여전히 작은 표본입니다. 플레이는 계산과 핸드 리뷰로 평가합니다." }
   - kind: choice
     id: m12.l2.q-skill-hands

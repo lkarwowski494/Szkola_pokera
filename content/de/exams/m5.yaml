@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}. Auf welchem dieser Flops hat der {{t:big-blind|Big Blind}} häufiger als du {{t:two-pair|Two Pair}} oder eine {{t:straight|Straße}}?"
+    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}. Auf welchem dieser Flops hat der {{t:big-blind|Big Blind}} häufiger als du {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}}?"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "Ja: Ein niedriger, {{t:connected|verbundener}} Flop trifft {{t:connectors|Connectors}} und Hände mit kleinen Karten, von denen der {{t:big-blind|Big Blind}} viele verteidigt. Du hast vom Button mehr hohe Karten, die hier verfehlt haben. Das ist ein {{t:nuts-advantage|Nuts-Vorteil}} des {{t:big-blind|Big Blinds}}." }
@@ -29,7 +29,7 @@ drills:
     prompt: "Auf dem Flop bewertest du zwei Vorteile: den {{t:range-advantage|Range-Vorteil}} und den {{t:nuts-advantage|Nuts-Vorteil}}. Welcher davon zeigt dir, wie viel du setzen solltest?"
     options:
       - { text: "{{t:nuts-advantage|Nuts-Vorteil}}", correct: true, why: "Ja: Wenn du viel mehr der stärksten Hände hast als dein Gegner, triffst du selten auf eine bessere Hand, also kannst du größer setzen. Der {{t:range-advantage|Range-Vorteil}} sagt dir, wie oft du setzt." }
-      - { text: "{{t:range-advantage|Range-Vorteil}}", why: "Nein: Der {{t:range-advantage|Range-Vorteil}} sagt dir, dass du oft setzen kannst. Ohne {{t:nuts-advantage|Nuts-Vorteil}} setzt du klein, weil ein großer {{t:bet|Bet}} viel gegen die stärksten Hände des Gegners riskiert." }
+      - { text: "{{t:range-advantage|Range-Vorteil}}", why: "Nein: Der {{t:range-advantage|Range-Vorteil}} sagt dir, dass du oft setzen kannst. Ohne {{t:nuts-advantage|Nuts-Vorteil}} setzt du klein, weil eine große {{t:bet|Bet}} viel gegen die stärksten Hände des Gegners riskiert." }
       - { text: "Keiner: Die Größe hängt nur von deiner Hand ab", why: "Der Gegner sieht nicht deine Hand, sondern nur deine {{t:range|Range}}. Du wählst die Größe so, dass sie zu vielen deiner Hände gleichzeitig passt, und darüber entscheiden die Vorteile." }
   - kind: choice
     id: m5.exam.q4
@@ -44,12 +44,12 @@ drills:
     id: m5.exam.q5
     family: m5.math.alpha
     rules: [R-M5-011]
-    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}. Im {{t:pot|Pot}} sind auf dem Flop {{n:bb.pot-after.vs-btn}}. Du c-bettest {{n:cbet.btn.big}} mit einer Hand ohne Chance. Wie oft muss der {{t:big-blind|Big Blind}} {{t:fold|folden}}, damit dieser {{t:bet|Bet}} bei null rauskommt?"
+    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}. Im {{t:pot|Pot}} sind auf dem Flop {{n:bb.pot-after.vs-btn}}. Du c-bettest {{n:cbet.btn.big}} mit einer Hand ohne Chance. Wie oft muss der {{t:big-blind|Big Blind}} {{t:fold|folden}}, damit diese {{t:bet|Bet}} bei null rauskommt?"
     table: { position: BTN }
     options:
       - { text: "Öfter als in {{n:alpha.cbet.big}} der Fälle", correct: true, why: "Ja: {{n:cbet.btn.big}} sind {{n:cbet.size.big}} des {{t:pot|Pots}}, und die Schwelle hängt nur vom Verhältnis von Bet zu {{t:pot|Pot}} ab: Bet ÷ ({{t:pot|Pot}} + Bet) = {{n:alpha.cbet.big}}. Genauso viel wie bei einem {{t:pot|Pot}} in {{t:chips|Chips}}." }
-      - { text: "Öfter als in {{n:alpha.cbet.small}} der Fälle", why: "Das ist die Schwelle für einen kleinen C-Bet ({{n:cbet.size.small}} des {{t:pot|Pots}}, also {{n:cbet.btn.small}}). Ein größerer Bet riskiert mehr, also muss er öfter funktionieren: {{n:alpha.cbet.big}}." }
-      - { text: "Öfter als in {{n:flop.miss.unpaired}} der Fälle", why: "Das ist die Chance, dass eine Hand ohne {{t:pair|Paar}} den Flop verfehlt, nicht die Rentabilitätsschwelle des Bets. Die Schwelle ist Bet ÷ ({{t:pot|Pot}} + Bet) = {{n:alpha.cbet.big}}." }
+      - { text: "Öfter als in {{n:alpha.cbet.small}} der Fälle", why: "Das ist die Schwelle für eine kleine C-Bet ({{n:cbet.size.small}} des {{t:pot|Pots}}, also {{n:cbet.btn.small}}). Eine größere Bet riskiert mehr, also muss sie öfter funktionieren: {{n:alpha.cbet.big}}." }
+      - { text: "Öfter als in {{n:flop.miss.unpaired}} der Fälle", why: "Das ist die Chance, dass eine Hand ohne {{t:pair|Paar}} den Flop verfehlt, nicht die Rentabilitätsschwelle der Bet. Die Schwelle ist Bet ÷ ({{t:pot|Pot}} + Bet) = {{n:alpha.cbet.big}}." }
   - kind: choice
     id: m5.exam.q6
     family: m5.cbet.oop
@@ -63,16 +63,16 @@ drills:
     id: m5.exam.q7
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "{{t:out-of-position|Ohne Position}} gegen einen Spieler, der in {{t:position|Position}} {{t:call|gecallt}} hat, {{t:check|checkst}} du oft auch mit einer starken Hand. Was bedeutet das?"
+    prompt: "{{t:out-of-position|Out of Position}} gegen einen Spieler, der in {{t:position|Position}} {{t:call|gecallt}} hat, {{t:check|checkst}} du oft auch mit einer starken Hand. Was bedeutet das?"
     options:
-      - { text: "Du gibst die Hand nicht auf: Nach dem {{t:check|Check}} {{t:call|callst}} du seinen {{t:bet|Bet}} oder machst einen Check-Raise", correct: true, why: "Ja: Ein {{t:check|Check}} {{t:out-of-position|ohne Position}} gibt den {{t:pot|Pot}} nicht ab. Starke Hände spielst du mit einem {{t:call|Call}} oder einem Check-Raise weiter, und die {{t:range|Range}} eines Gegners, der in {{t:position|Position}} {{t:call|gecallt}} hat, wird oft selbst {{t:bet|setzen}}." }
-      - { text: "Nach dem {{t:check|Check}} {{t:fold|foldest}} du auf jeden {{t:bet|Bet}}", why: "Nein: Dann würde der Gegner den {{t:pot|Pot}} mit jedem {{t:bet|Bet}} gewinnen. Viele Hände, die {{t:check|checken}}, {{t:call|callen}} den {{t:bet|Bet}} des Gegners." }
-      - { text: "Du {{t:check|checkst}} nur mit Händen ohne {{t:pair|Paar}}", why: "Nein: {{t:out-of-position|Ohne Position}} {{t:check|checkst}} du oft deine ganze {{t:range|Range}}, auch starke Hände. Würden nur schwache Hände {{t:check|checken}}, könnte der Gegner das leicht ausnutzen." }
+      - { text: "Du gibst die Hand nicht auf: Nach dem {{t:check|Check}} {{t:call|callst}} du seine {{t:bet|Bet}} oder machst einen Check-Raise", correct: true, why: "Ja: Ein {{t:check|Check}} {{t:out-of-position|out of Position}} gibt den {{t:pot|Pot}} nicht ab. Starke Hände spielst du mit einem {{t:call|Call}} oder einem Check-Raise weiter, und die {{t:range|Range}} eines Gegners, der in {{t:position|Position}} {{t:call|gecallt}} hat, wird oft selbst {{t:bet|setzen}}." }
+      - { text: "Nach dem {{t:check|Check}} {{t:fold|foldest}} du auf jede {{t:bet|Bet}}", why: "Nein: Dann würde der Gegner den {{t:pot|Pot}} mit jeder {{t:bet|Bet}} gewinnen. Viele Hände, die {{t:check|checken}}, {{t:call|callen}} die {{t:bet|Bet}} des Gegners." }
+      - { text: "Du {{t:check|checkst}} nur mit Händen ohne {{t:pair|Paar}}", why: "Nein: {{t:out-of-position|Out of Position}} {{t:check|checkst}} du oft deine ganze {{t:range|Range}}, auch starke Hände. Würden nur schwache Hände {{t:check|checken}}, könnte der Gegner das leicht ausnutzen." }
   - kind: choice
     id: m5.exam.q8
     family: m5.cbet.multi
     rules: [R-M5-013]
-    prompt: "Du hast aus dem {{t:hijack|HJ}} {{t:open|eröffnet}}, Button und {{t:big-blind|Big Blind}} haben {{t:call|gecallt}}. Mit welchen Händen verzichtest du gegen zwei Gegner zuerst auf den C-Bet?"
+    prompt: "Du hast aus dem {{t:hijack|HJ}} {{t:open|eröffnet}}, Button und {{t:big-blind|Big Blind}} haben {{t:call|gecallt}}. Mit welchen Händen verzichtest du gegen zwei Gegner zuerst auf die C-Bet?"
     table: { position: HJ }
     options:
       - { text: "Mit {{t:bluff|Bluffs}} ohne {{t:pair|Paar}} und ohne {{t:draw|Draw}}", correct: true, why: "Ja: Ein {{t:bluff|Bluff}} muss an beiden Gegnern vorbeikommen, und zwei Hände ohne {{t:pair|Paar}} verfehlen gleichzeitig nur in etwa {{n:flop.miss.two}} der Fälle. Du setzt selten, vor allem mit starken Händen und starken {{t:draw|Draws}}." }
@@ -85,16 +85,16 @@ drills:
     prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}} und {{t:check|checkt}}. Der Flop ist {{t:wet|nass}}. Du hast ein {{t:pair|Paar}} Siebenen mit Ass, ohne {{t:draw|Draw}}. Was machst du?"
     table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
     options:
-      - { text: "Ich {{t:check|checke}}", correct: true, why: "Ja: Auf einem {{t:wet|nassen}} Flop setzt du seltener, vor allem mit starken Händen und starken {{t:draw|Draws}}. Das niedrigste {{t:pair|Paar}} ohne {{t:draw|Draw}} ist höchstens eine mittlere Hand: Deinen {{t:bet|Bet}} {{t:call|callen}} vor allem bessere Hände und {{t:draw|Draws}}, die viel Equity dagegen haben." }
+      - { text: "Ich {{t:check|checke}}", correct: true, why: "Ja: Auf einem {{t:wet|nassen}} Flop setzt du seltener, vor allem mit starken Händen und starken {{t:draw|Draws}}. Das niedrigste {{t:pair|Paar}} ohne {{t:draw|Draw}} ist höchstens eine mittlere Hand: Deine {{t:bet|Bet}} {{t:call|callen}} vor allem bessere Hände und {{t:draw|Draws}}, die viel Equity dagegen haben." }
       - { text: "C-Bet {{n:cbet.size.big}} des {{t:pot|Pots}}", why: "Eine große Bet-Größe auf einem {{t:wet|nassen}} Flop ist für starke Hände und starke {{t:draw|Draws}}. Mit dem niedrigsten {{t:pair|Paar}} baust du einen großen {{t:pot|Pot}} gegen Hände auf, die dich oft schlagen oder viel Equity haben." }
-      - { text: "C-Bet {{n:cbet.size.small}} des {{t:pot|Pots}}", why: "Auf einem {{t:wet|nassen}} Flop {{t:check|checken}} mittlere Hände ohne {{t:draw|Draw}} häufiger. Ein kleiner {{t:bet|Bet}} gibt {{t:draw|Draws}} eine billige Karte, und schwächere Hände zahlen ohnehin selten." }
+      - { text: "C-Bet {{n:cbet.size.small}} des {{t:pot|Pots}}", why: "Auf einem {{t:wet|nassen}} Flop {{t:check|checken}} mittlere Hände ohne {{t:draw|Draw}} häufiger. Eine kleine {{t:bet|Bet}} gibt {{t:draw|Draws}} eine billige Karte, und schwächere Hände zahlen ohnehin selten." }
   - kind: choice
     id: m5.exam.q10
     family: m5.cbet.texture
     rules: [R-M5-010]
-    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}} und {{t:check|checkt}}. Der Flop ist {{t:monotone|monoton}}, also laut Punktwertung der App {{t:wet|nass}}. Wenn du c-bettest, mit welcher Größe?"
+    prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}} und {{t:check|checkt}}. Der Flop ist {{t:monotone|monoton}}, also laut Punktwertung der App {{t:wet|nass}}. Wenn du überhaupt c-bettest, mit welcher Größe?"
     table: { position: BTN, board: "Jd 7d 2d" }
     options:
       - { text: "Klein", correct: true, why: "Ja: Einen {{t:flush|Flush}} kann schon jeder Spieler haben, also ist dein {{t:nuts-advantage|Nuts-Vorteil}} kleiner. Auf einem {{t:monotone|monotonen}} Flop setzt du seltener als sonst und klein, um keinen großen {{t:pot|Pot}} gegen einen Flush aufzubauen." }
-      - { text: "Groß, weil der Flop {{t:wet|nass}} ist", why: "„{{t:wet|Nass}}“ heißt nicht „großer Bet“. Die größere Bet-Größe gilt für {{t:wet|nasse}} Flops, die nicht {{t:monotone|monoton}} sind. Auf einem {{t:monotone|monotonen}} Flop ist ein großer {{t:pot|Pot}} gefährlich, weil der Gegner einen fertigen {{t:flush|Flush}} haben kann." }
-      - { text: "Den ganzen {{t:pot|Pot}}, damit {{t:draw|Draws}} teuer bezahlen", why: "Auf einem {{t:monotone|monotonen}} Flop sind nicht die {{t:draw|Draws}} am gefährlichsten, sondern fertige Flushes des Gegners. Ein Bet in Höhe des {{t:pot|Pots}} riskiert gerade gegen sie am meisten." }
+      - { text: "Groß, weil der Flop {{t:wet|nass}} ist", why: "„{{t:wet|Nass}}“ heißt nicht „große Bet“. Die größere Bet-Größe gilt für {{t:wet|nasse}} Flops, die nicht {{t:monotone|monoton}} sind. Auf einem {{t:monotone|monotonen}} Flop ist ein großer {{t:pot|Pot}} gefährlich, weil der Gegner einen fertigen {{t:flush|Flush}} haben kann." }
+      - { text: "Den ganzen {{t:pot|Pot}}, damit {{t:draw|Draws}} teuer bezahlen", why: "Auf einem {{t:monotone|monotonen}} Flop sind nicht die {{t:draw|Draws}} am gefährlichsten, sondern fertige Flushes des Gegners. Eine Bet in Höhe des {{t:pot|Pots}} riskiert gerade gegen sie am meisten." }

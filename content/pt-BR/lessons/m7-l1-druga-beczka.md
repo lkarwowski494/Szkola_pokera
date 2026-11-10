@@ -2,7 +2,7 @@
 id: m7.l1
 module: m7
 order: 1
-title: "Segundo barril"
+title: "Second barrel"
 sub: "Quando apostar de novo no turn"
 rules: [R-M7-001, R-M7-002, R-M7-003, R-M7-004]
 drills:
@@ -134,5 +134,5 @@ Um {{t:bluff|blefe}} sem chances fica no zero a zero quando o rival {{t:fold|des
 {{t:second-pair|Segundo par}} ou {{t:top-pair}} com kicker fraco ganha de {{t:bluff|blefes}}, mas perde para {{t:pair|pares}} melhores. Diante de uma segunda aposta, as mãos piores vão {{t:fold|desistir}} e as melhores vão pagar. Você {{t:check|passa}}, mantém o {{t:pot|pote}} pequeno e chega ao showdown.
 
 :::note De onde vêm estas regras
-As direções gerais (cartas altas geralmente favorecem o {{t:second-barrel}}, {{t:bluff|blefes}} com outs em vez de sem outs, mãos médias {{t:check|passam}}) são heurísticas de materiais de treinamento e de análises de solver. Valem para stacks de cerca de {{n:format.stack}}. É uma simplificação: o solver também {{t:bluff|blefa}} com parte das mãos sem outs quando elas bloqueiam o {{t:value|valor}} do rival ou quando o rival pode responder com {{t:raise|aumento}}. O app não informa com que frequência apostar em porcentagens, porque esses números dependem da mão específica nos resultados de solver.
+As direções gerais (cartas altas geralmente favorecem o {{t:second-barrel}}, {{t:bluff|blefes}} com outs em vez de sem outs, mãos médias {{t:check|passam}}) são heurísticas de materiais de treinamento e de análises de solver. Valem para stacks de cerca de {{n:format.stack}}. É uma simplificação: o solver também {{t:bluff|blefa}} com parte das mãos sem outs quando elas bloqueiam o valor do rival ou quando o rival pode responder com {{t:raise|aumento}}. O app não informa com que frequência apostar em porcentagens, porque esses números dependem da mão específica nos resultados de solver.
 :::

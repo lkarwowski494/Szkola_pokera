@@ -18,7 +18,7 @@ drills:
     prompt: "プリフロップで最初にアクションします。まだ誰もゲームに参加していません。どうしますか？"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|レイズ}}", correct: true, why: "オフスーツのATは、{{t:utg}}からの{{t:open|オープン}}{{t:range|レンジ}}（約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}ハンド）に入っています。アプリのソルバーはここで常にこのハンドをプレイします。" }
+      - { text: "{{t:raise|レイズ}}", correct: true, why: "オフスートのATは、{{t:utg}}からの{{t:open|オープン}}{{t:range|レンジ}}（約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}ハンド）に入っています。アプリのソルバーはここで常にこのハンドをプレイします。" }
       - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。{{t:utg}}からは狭くプレイしますが、ATはまだ{{t:range|レンジ}}内です。" }
       - { text: "{{t:big-blind|ビッグブラインド}}の額だけ払う", why: "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。リンプは{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。" }
   - kind: choice
@@ -28,7 +28,7 @@ drills:
     prompt: "{{t:utg}}が{{t:fold|フォールド}}し、次はあなたです。どうしますか？"
     table: { hand: "Ah 9d", position: HJ }
     options:
-      - { text: "{{t:fold|フォールド}}", correct: true, why: "あなたの後ろには、まだ4人のプレイヤーがいます。オフスーツのA9は、エースを引いても相手のAT、AJ、AQよりキッカーが弱いことがよくあります。アプリのソルバーは{{t:hijack|HJ}}から常にこのハンドを{{t:fold|フォールド}}します。" }
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "あなたの後ろには、まだ4人のプレイヤーがいます。オフスートのA9は、エースを引いても相手のAT、AJ、AQよりキッカーが弱いことがよくあります。アプリのソルバーは{{t:hijack|HJ}}から常にこのハンドを{{t:fold|フォールド}}します。" }
       - { text: "{{t:raise|レイズ}}", why: "エースは魅力的ですが、{{t:hijack|HJ}}からは{{t:cutoff|CO}}やボタンよりも狭く{{t:open|オープン}}します。A9oが{{t:range|レンジ}}に入るのは{{t:cutoff|CO}}からです。" }
   - kind: choice
     id: m3.exam.q4
@@ -46,7 +46,7 @@ drills:
     prompt: "全員があなたまで{{t:fold|フォールド}}しました。どうしますか？"
     table: { hand: "Jd 9c", position: BTN }
     options:
-      - { text: "{{t:raise|レイズ}}", correct: true, why: "ボタンでは約{{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}ハンドを{{t:open|オープン}}します。残りはブラインドだけで、フロップ後は{{t:position|ポジション}}があるので、オフスーツのJ9も含まれます。" }
+      - { text: "{{t:raise|レイズ}}", correct: true, why: "ボタンでは約{{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}ハンドを{{t:open|オープン}}します。残りはブラインドだけで、フロップ後は{{t:position|ポジション}}があるので、オフスートのJ9も含まれます。" }
       - { text: "{{t:fold|フォールド}}", why: "{{t:cutoff|CO}}からはソルバーはこのハンドをまれにしかプレイしませんが、ボタンでは常にプレイします。ブラインドだけが相手なら、それはタイトすぎます。" }
       - { text: "{{t:big-blind|ビッグブラインド}}の額だけ払う", why: "リンプは{{t:initiative|イニシアチブ}}を手放します。{{t:raise|レイズ}}すれば、すぐにブラインドを獲得できることがよくあります。" }
   - kind: choice
@@ -67,7 +67,7 @@ drills:
     prompt: "あなたより前の全員が{{t:fold|フォールド}}し、あなたは{{t:hijack|HJ}}で{{t:open|オープン}}します。何bbに{{t:raise|レイズ}}しますか？数字を入力してください。"
     table: { hand: "Kh Qh", position: HJ }
     answer: pf.open-size
-    explanation: "{{t:small-blind|スモールブラインド}}以外のすべての{{t:position|ポジション}}から、{{n:pf.open-size}}に{{t:open|オープン}}します（そこでは{{n:pf.open-size-sb}}）。サイズを1つにすればシンプルで、ハンドの強さも悟られません。これは単純化です。ソルバーは{{t:early-position|アーリーポジション}}からやや小さめに{{t:open|オープン}}します。"
+    explanation: "{{t:small-blind|スモールブラインド}}以外のすべての{{t:position|ポジション}}から、{{n:pf.open-size}}に{{t:open|オープン}}します（スモールブラインドでは{{n:pf.open-size-sb}}）。サイズを1つにすればシンプルで、ハンドの強さも悟られません。これは単純化です。ソルバーは{{t:early-position|アーリーポジション}}からやや小さめに{{t:open|オープン}}します。"
   - kind: choice
     id: m3.exam.q7
     family: m3.suited

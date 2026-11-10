@@ -9,9 +9,9 @@ drills:
     prompt: "Der {{t:cutoff|CO}} hat auf {{n:pf.open-size}} {{t:open|eröffnet}}, der Button hat {{t:fold|gefoldet}}. Du sitzt im {{t:small-blind|Small Blind}} und willst 3-betten. Auf wie viel?"
     table: { hand: "Ad Kd", position: SB }
     options:
-      - { text: "Auf {{n:pf.3bet.oop-total}}", correct: true, why: "Nach dem Flop handelst du zuerst, also {{t:raise|erhöhst}} du auf etwa {{n:pf.3bet.size-oop}} der {{t:open|Eröffnung}}. Die größere Größe nimmt dem {{t:cutoff|CO}} den billigen {{t:call|Call}} {{t:in-position|in Position}}." }
-      - { text: "Auf {{n:pf.3bet.ip-total}}", sizeError: true, why: "Richtige Aktion, aber das ist die Größe für einen Spieler {{t:in-position|in Position}} ({{n:pf.3bet.size-ip}} der {{t:open|Eröffnung}}). Aus dem {{t:small-blind|Small Blind}} {{t:raise|erhöhst}} du auf {{n:pf.3bet.oop-total}}." }
-      - { text: "Nur {{t:call|callen}}", why: "Aus dem {{t:small-blind|Small Blind}} {{t:call|callst}} du gegen den {{t:cutoff|CO}} fast nie: Du würdest {{t:out-of-position|ohne Position}} spielen, und der {{t:big-blind|Big Blind}} hinter dir kann noch {{t:raise|erhöhen}}." }
+      - { text: "Auf {{n:pf.3bet.oop-total}}", correct: true, why: "Nach dem Flop handelst du zuerst, also {{t:raise|raist}} du auf etwa {{n:pf.3bet.size-oop}} der {{t:open|Eröffnung}}. Die größere Size nimmt dem {{t:cutoff|CO}} den billigen {{t:call|Call}} {{t:in-position|in Position}}." }
+      - { text: "Auf {{n:pf.3bet.ip-total}}", sizeError: true, why: "Richtige Aktion, aber das ist die Größe für einen Spieler {{t:in-position|in Position}} ({{n:pf.3bet.size-ip}} der {{t:open|Eröffnung}}). Aus dem {{t:small-blind|Small Blind}} {{t:raise|raist}} du auf {{n:pf.3bet.oop-total}}." }
+      - { text: "Nur {{t:call|callen}}", why: "Aus dem {{t:small-blind|Small Blind}} {{t:call|callst}} du gegen den {{t:cutoff|CO}} fast nie: Du würdest {{t:out-of-position|ohne Position}} spielen, und der {{t:big-blind|Big Blind}} hinter dir kann noch {{t:raise|raisen}}." }
   - kind: choice
     id: m4.exam.q2
     family: m4.sb.vs-open
@@ -20,18 +20,18 @@ drills:
     table: { hand: "8c 8d", position: SB }
     options:
       - { text: "3-Bet", correct: true, why: "Gegen den Button 3-bettest du aus dem {{t:small-blind|Small Blind}} den oberen Teil deiner {{t:range|Range}}, etwa {{n:pf.3bet-freq.sb-vs-btn}} der Hände, und {{t:pair|Paare}} ab 77 gehören dazu." }
-      - { text: "{{t:call|Callen}}", why: "Aus dem {{t:small-blind|Small Blind}} {{t:call|callst}} du gegen den Button fast nie: Du würdest {{t:out-of-position|ohne Position}} spielen, mit dem {{t:big-blind|Big Blind}} im Rücken. Ein 3-Bet gibt dir die {{t:initiative|Initiative}} und die Chance, sofort zu gewinnen." }
+      - { text: "{{t:call|Callen}}", why: "Aus dem {{t:small-blind|Small Blind}} {{t:call|callst}} du gegen den Button fast nie: Du würdest {{t:out-of-position|ohne Position}} spielen, mit dem {{t:big-blind|Big Blind}} im Rücken. Eine 3-Bet gibt dir die {{t:initiative|Initiative}} und die Chance, sofort zu gewinnen." }
       - { text: "{{t:fold|Folden}}", why: "Zu eng: 88 gehört zum oberen Teil der {{t:range|Range}}, mit der du gegen die breite {{t:open|Eröffnung}} des Buttons 3-bettest." }
   - kind: choice
     id: m4.exam.q3
     family: m4.3bet.shape
     rules: [R-M4-006]
-    prompt: "Du sitzt im {{t:big-blind|Big Blind}}, der Button hat {{t:open|eröffnet}}, der {{t:small-blind|Small Blind}} hat {{t:fold|gefoldet}}. Welche dieser Hände ist ein typisches 3-Bet {{t:value|für Value}}?"
+    prompt: "Du sitzt im {{t:big-blind|Big Blind}}, der Button hat {{t:open|eröffnet}}, der {{t:small-blind|Small Blind}} hat {{t:fold|gefoldet}}. Welche dieser Hände ist eine typische 3-Bet {{t:value|für Value}}?"
     table: { position: BB }
     options:
       - { text: "JJ", correct: true, why: "Aus dem {{t:big-blind|Big Blind}} 3-bettest du deine stärksten Hände (TT+, AQ+, AJs+). JJ will einen großen {{t:pot|Pot}}." }
-      - { text: "A9 in verschiedenen Farben", why: "Asse in verschiedenen Farben (AJo–A9o) {{t:call|callst}} du aus dem {{t:big-blind|Big Blind}} meist nur: Du kommst billig rein und schließt die Aktion ab." }
-      - { text: "66", why: "Mittlere und kleine {{t:pair|Paare}} {{t:call|callst}} du aus dem {{t:big-blind|Big Blind}} meist. Sie verdienen nach dem Flop, und ein 3-Bet mit ihnen verträgt ein 4-Bet schlecht." }
+      - { text: "A9 offsuit", why: "Offsuit-Asse (AJo–A9o) {{t:call|callst}} du aus dem {{t:big-blind|Big Blind}} meist nur: Du kommst billig rein und schließt die Aktion ab." }
+      - { text: "66", why: "Mittlere und kleine {{t:pair|Paare}} {{t:call|callst}} du aus dem {{t:big-blind|Big Blind}} meist. Sie verdienen nach dem Flop, und eine 3-Bet mit ihnen verträgt eine 4-Bet schlecht." }
   - kind: choice
     id: m4.exam.q4
     family: m4.bb.price
@@ -49,53 +49,53 @@ drills:
     prompt: "Der {{t:small-blind|Small Blind}} hat auf {{n:pf.open-size-sb}} {{t:open|eröffnet}}. Du hast AA im {{t:big-blind|Big Blind}} und 3-bettest. Auf wie viel?"
     table: { hand: "Ah Ad", position: BB }
     options:
-      - { text: "Auf {{n:exam.m4.bb-vs-sb.3bet}}", correct: true, why: "Gegen den {{t:small-blind|Small Blind}} hast du nach dem Flop {{t:position|Position}}, also beträgt das 3-Bet etwa {{n:pf.3bet.size-ip}} der {{t:open|Eröffnung}}, und bei einer {{t:open|Eröffnung}} auf {{n:pf.open-size-sb}} sind das {{n:exam.m4.bb-vs-sb.3bet}}." }
-      - { text: "Auf {{n:exam.m4.bb-vs-sb.3bet-oop-size}}", sizeError: true, why: "Richtige Aktion, aber {{n:pf.3bet.size-oop}} der {{t:open|Eröffnung}} ist die Größe {{t:out-of-position|ohne Position}}. Gegen den {{t:small-blind|Small Blind}} hat der {{t:big-blind|Big Blind}} {{t:position|Position}}, also {{t:raise|erhöht}} er weniger." }
-      - { text: "Auf {{n:pf.3bet.ip-total}}", sizeError: true, why: "Richtige Aktion, aber {{n:pf.3bet.ip-total}} ist ein 3-Bet gegen eine {{t:open|Eröffnung}} auf {{n:pf.open-size}}. Der {{t:small-blind|Small Blind}} hat auf {{n:pf.open-size-sb}} {{t:open|eröffnet}}, also sind {{n:pf.3bet.size-ip}} der {{t:open|Eröffnung}} {{n:exam.m4.bb-vs-sb.3bet}}." }
+      - { text: "Auf {{n:exam.m4.bb-vs-sb.3bet}}", correct: true, why: "Gegen den {{t:small-blind|Small Blind}} hast du nach dem Flop {{t:position|Position}}, also beträgt die 3-Bet etwa {{n:pf.3bet.size-ip}} der {{t:open|Eröffnung}}, und bei einer {{t:open|Eröffnung}} auf {{n:pf.open-size-sb}} sind das {{n:exam.m4.bb-vs-sb.3bet}}." }
+      - { text: "Auf {{n:exam.m4.bb-vs-sb.3bet-oop-size}}", sizeError: true, why: "Richtige Aktion, aber {{n:pf.3bet.size-oop}} der {{t:open|Eröffnung}} ist die Größe {{t:out-of-position|ohne Position}}. Gegen den {{t:small-blind|Small Blind}} hat der {{t:big-blind|Big Blind}} {{t:position|Position}}, also {{t:raise|raist}} er kleiner." }
+      - { text: "Auf {{n:pf.3bet.ip-total}}", sizeError: true, why: "Richtige Aktion, aber {{n:pf.3bet.ip-total}} ist eine 3-Bet gegen eine {{t:open|Eröffnung}} auf {{n:pf.open-size}}. Der {{t:small-blind|Small Blind}} hat auf {{n:pf.open-size-sb}} {{t:open|eröffnet}}, also sind {{n:pf.3bet.size-ip}} der {{t:open|Eröffnung}} {{n:exam.m4.bb-vs-sb.3bet}}." }
   - kind: choice
     id: m4.exam.q6
     family: m4.vs3bet.math
     rules: [R-M4-007]
-    prompt: "Du bekommst ein 3-Bet von einem Spieler, der nach dem Flop {{t:position|Position}} haben wird. Welchen Anteil deiner {{t:open|Eröffnungen}} {{t:fold|foldest}} du meist?"
+    prompt: "Du bekommst eine 3-Bet von einem Spieler, der nach dem Flop {{t:position|Position}} haben wird. Welchen Anteil deiner {{t:open|Eröffnungen}} {{t:fold|foldest}} du meist?"
     options:
-      - { text: "Etwa {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "Ungefähr so viel {{t:fold|folden}} Solver-Lösungen und Tabellen; die Obergrenze liegt knapp unter der Schwelle von {{n:alpha.vs-3bet-ip-size}}: Würdest du öfter folden, würde das 3-Bet des Gegners mit jeder Hand Gewinn machen." }
+      - { text: "Etwa {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "Ungefähr so viel {{t:fold|folden}} Solver-Lösungen und Tabellen; die Obergrenze liegt knapp unter der Schwelle von {{n:alpha.vs-3bet-ip-size}}: Würdest du öfter folden, würde die 3-Bet des Gegners mit jeder Hand Gewinn machen." }
       - { text: "Fast alle außer AA und KK", why: "Dann verdient der Gegner, wenn er beliebige zwei Karten 3-bettet, weil du deutlich öfter {{t:fold|foldest}} als {{n:alpha.vs-3bet-ip-size}}." }
       - { text: "Weniger als ein Viertel", why: "Zu wenige {{t:fold|Folds}}: Du würdest 3-Bets mit Händen bezahlen, die gegen die {{t:range|Range}} des Gegners verlieren und nach dem Flop schlecht spielen." }
   - kind: choice
     id: m4.exam.q7
     family: m4.vs3bet.oop
     rules: [R-M4-008]
-    prompt: "Du hast aus dem {{t:hijack|HJ}} auf {{n:pf.open-size}} {{t:open|eröffnet}}, der Button hat auf {{n:pf.3bet.ip-total}} {{t:raise|erhöht}}, alle anderen haben {{t:fold|gefoldet}}. Was machst du?"
+    prompt: "Du hast aus dem {{t:hijack|HJ}} auf {{n:pf.open-size}} {{t:open|eröffnet}}, der Button hat auf {{n:pf.3bet.ip-total}} {{t:raise|geraist}}, alle anderen haben {{t:fold|gefoldet}}. Was machst du?"
     table: { hand: "Ah Tc", position: HJ }
     options:
-      - { text: "{{t:fold|Folden}}", correct: true, why: "AT in verschiedenen Farben ist {{t:out-of-position|ohne Position}} oft von AJ, AQ und AK dominiert und {{t:equity-realization|realisiert seine Equity}} nach dem Flop schlecht. Solche Hände {{t:fold|foldest}} du gegen ein 3-Bet." }
+      - { text: "{{t:fold|Folden}}", correct: true, why: "AT offsuit ist {{t:out-of-position|ohne Position}} oft von AJ, AQ und AK dominiert und {{t:equity-realization|realisiert seine Equity}} nach dem Flop schlecht. Solche Hände {{t:fold|foldest}} du gegen eine 3-Bet." }
       - { text: "{{t:call|Callen}}", why: "Das Ass lockt, aber {{t:out-of-position|ohne Position}} {{t:call|callst}} du mit suited Händen und {{t:pair|Paaren}}. ATo trifft zu oft ein Ass mit schwächerem Kicker." }
-      - { text: "4-Bet {{t:value|für Value}}", why: "Ein 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. ATo verliert gegen die meisten Hände, die es {{t:call|callen}}." }
+      - { text: "4-Bet {{t:value|für Value}}", why: "Eine 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. ATo verliert gegen die meisten Hände, die es {{t:call|callen}}." }
   - kind: choice
     id: m4.exam.q8
     family: m4.vs3bet.ip
     rules: [R-M4-009]
-    prompt: "Du hast vom Button auf {{n:pf.open-size}} {{t:open|eröffnet}}, der {{t:small-blind|Small Blind}} hat auf {{n:pf.3bet.oop-total}} {{t:raise|erhöht}}, der {{t:big-blind|Big Blind}} hat {{t:fold|gefoldet}}. Was machst du?"
+    prompt: "Du hast vom Button auf {{n:pf.open-size}} {{t:open|eröffnet}}, der {{t:small-blind|Small Blind}} hat auf {{n:pf.3bet.oop-total}} {{t:raise|geraist}}, der {{t:big-blind|Big Blind}} hat {{t:fold|gefoldet}}. Was machst du?"
     table: { hand: "9s 9h", position: BTN }
     options:
       - { text: "{{t:call|Callen}}", correct: true, why: "{{t:in-position|In Position}} {{t:call|callst}} du breiter, unter anderem mit {{t:pair|Paaren}} von 66 bis TT. 99 spielt sich nach dem Flop gut und {{t:equity-realization|realisiert seine Equity}} leicht." }
       - { text: "{{t:fold|Folden}}", why: "Zu eng: Du {{t:fold|foldest}} die niedrigsten {{t:pair|Paare}}, und 99 gehört zur {{t:range|Range}} für den {{t:call|Call}} {{t:in-position|in Position}}." }
-      - { text: "4-Bet {{t:value|für Value}}", why: "Ein 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. 99 sieht lieber einen Flop." }
+      - { text: "4-Bet {{t:value|für Value}}", why: "Eine 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. 99 sieht lieber einen Flop." }
   - kind: choice
     id: m4.exam.q9
     family: m4.vs3bet.value
     rules: [R-M4-010, R-M4-011]
-    prompt: "Du hast aus dem {{t:hijack|HJ}} auf {{n:pf.open-size}} {{t:open|eröffnet}}, der {{t:cutoff|CO}} hat auf {{n:pf.3bet.ip-total}} {{t:raise|erhöht}}, alle anderen haben {{t:fold|gefoldet}}. Was machst du?"
+    prompt: "Du hast aus dem {{t:hijack|HJ}} auf {{n:pf.open-size}} {{t:open|eröffnet}}, der {{t:cutoff|CO}} hat auf {{n:pf.3bet.ip-total}} {{t:raise|geraist}}, alle anderen haben {{t:fold|gefoldet}}. Was machst du?"
     table: { hand: "As Ac", position: HJ }
     options:
-      - { text: "4-Bet auf etwa {{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}", correct: true, why: "AA 4-bettest du {{t:value|für Value}}. {{t:out-of-position|Ohne Position}} beträgt das 4-Bet etwa {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} des 3-Bets: {{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}, × {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}." }
+      - { text: "4-Bet auf etwa {{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}", correct: true, why: "AA 4-bettest du {{t:value|für Value}}. {{t:out-of-position|Ohne Position}} beträgt die 4-Bet etwa {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} der 3-Bet: {{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}, × {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}." }
       - { text: "{{t:call|Callen}}", why: "AA will den ganzen Stack in die Mitte bringen. Ein {{t:call|Call}} {{t:out-of-position|ohne Position}} verschenkt Value und die {{t:initiative|Initiative}}." }
-      - { text: "All-in für {{n:format.stack}}", why: "Ein All-in vertreibt die schwächeren Hände, mit denen der Gegner ein normales 4-Bet bezahlen würde. Nach einem 4-Bet von etwa {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} des 3-Bets bringst du den Rest des Stacks ohnehin leicht in die Mitte." }
+      - { text: "All-in für {{n:format.stack}}", why: "Ein All-in vertreibt die schwächeren Hände, mit denen der Gegner eine normale 4-Bet bezahlen würde. Nach einer 4-Bet von etwa {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} der 3-Bet bringst du den Rest des Stacks ohnehin leicht in die Mitte." }
   - kind: numeric
     id: m4.exam.n1
     family: m4.iso.size
     rules: [R-M4-012]
-    prompt: "Zwei Spieler limpen, der Button {{t:fold|foldet}}. Du sitzt im {{t:small-blind|Small Blind}} und willst {{t:isolation|isolieren}}. Auf wie viele bb {{t:raise|erhöhst}} du? Gib eine Zahl ein."
+    prompt: "Zwei Spieler limpen, der Button {{t:fold|foldet}}. Du sitzt im {{t:small-blind|Small Blind}} und willst {{t:isolation|isolieren}}. Auf wie viele bb {{t:raise|raist}} du? Gib eine Zahl ein."
     table: { hand: "Qs Qc", position: SB }
     answer: exam.m4.iso.two-oop
     explanation: "Basis {{n:pf.iso.base}}, plus {{n:pf.iso.per-limper}} für jeden der beiden Limper, plus {{n:pf.iso.oop-extra}}, weil du nach dem Flop zuerst handelst: zusammen {{n:exam.m4.iso.two-oop}}."
@@ -106,6 +106,6 @@ drills:
     prompt: "Drei Spieler vor dir haben nur den {{t:big-blind|Big Blind}} bezahlt. Du sitzt im {{t:cutoff|CO}}. Was machst du?"
     table: { hand: "Ad Kh", position: CO }
     options:
-      - { text: "Auf {{n:exam.m4.iso.three}} {{t:raise|erhöhen}}", correct: true, why: "Gegen viele Limper {{t:raise|erhöhst}} du vor allem {{t:value|für Value}}, und AK ist genau so eine Hand. Größe: {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} für jeden der drei Limper." }
-      - { text: "Auf {{n:pf.iso.one-limper}} {{t:raise|erhöhen}}", sizeError: true, why: "Richtige Aktion, aber das ist die Größe gegen einen Limper. Jeder weitere fügt {{n:pf.iso.per-limper}} hinzu, hier also {{n:exam.m4.iso.three}}." }
+      - { text: "Auf {{n:exam.m4.iso.three}} {{t:raise|raisen}}", correct: true, why: "Gegen viele Limper {{t:raise|raist}} du vor allem {{t:value|für Value}}, und AK ist genau so eine Hand. Größe: {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} für jeden der drei Limper." }
+      - { text: "Auf {{n:pf.iso.one-limper}} {{t:raise|raisen}}", sizeError: true, why: "Richtige Aktion, aber das ist die Größe gegen einen Limper. Jeder weitere fügt {{n:pf.iso.per-limper}} hinzu, hier also {{n:exam.m4.iso.three}}." }
       - { text: "Mitlimpen", why: "Mitlimpen passt zu spekulativen Händen. AK will den {{t:pot|Pot}} aufbauen und die Zahl der Gegner verringern." }

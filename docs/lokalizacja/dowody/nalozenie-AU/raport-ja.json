@@ -1,0 +1,50 @@
+{
+ "plik": "docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/ja/poprawki-ja.json",
+ "nalozone": 224,
+ "pominiete": [],
+ "sklep": 4,
+ "odfiltrowane": 1,
+ "pliki": 47,
+ "sklepPoprawki": [
+  {
+   "jezyk": "ja",
+   "cel": "store/app-store-metadata.json",
+   "linia": 29,
+   "stary": "• 判断を4段階で評価\\n",
+   "nowy": "• 判断を4段階で評価：一致、許容、不正確、ミス\\n",
+   "waga": "ŚR",
+   "powod": "Opis sklepu (ja): pl „Decyzje z oceną w czterech stopniach: zgodna, dopuszczalna, niedokładność, błąd” (en: „correct, acceptable, inaccuracy, mistake”). W ja pominięto wyliczenie czterech stopni; dopisane nazwami z interfejsu (grade.*: 一致, 許容, 不正確, ミス).",
+   "grupa": "U1"
+  },
+  {
+   "jezyk": "ja",
+   "cel": "store/app-store-metadata.json",
+   "linia": 29,
+   "stary": "または1回限りの買い切り（無期限）。",
+   "nowy": "または1回限りの購入の永久アクセス。",
+   "waga": "ŚR",
+   "powod": "Opis sklepu (ja): pl „jednorazowy dostęp dożywotni”. W interfejsie produkt nazywa się „永久アクセス” (purchase.plan.lifetime), a zakup „1回限りの購入” (purchase.oneTime); „買い切り（無期限）” to inna nazwa tego samego produktu. Jedna nazwa na pojęcie.",
+   "grupa": "U1"
+  },
+  {
+   "jezyk": "ja",
+   "cel": "store/app-store-metadata.json",
+   "linia": 29,
+   "stary": "四半期または年間のサブスクリプション",
+   "nowy": "3か月または1年のサブスクリプション",
+   "waga": "NISKIE",
+   "powod": "Opis sklepu (ja): pl „subskrypcja kwartalna albo roczna”. W interfejsie plany nazywają się „3か月” i „1年” (purchase.plan.quarter/year); „四半期” brzmi księgowo i różni się od nazwy na ekranie zakupu.",
+   "grupa": "U1"
+  },
+  {
+   "jezyk": "ja",
+   "cel": "store/app-store-metadata.json",
+   "linia": 29,
+   "stary": "上達度スコア",
+   "nowy": "上達スコア",
+   "waga": "NISKIE",
+   "powod": "Opis sklepu (ja): pl „wskaźnik zaawansowania”; w interfejsie ta sama rzecz to „上達スコア” (advancement.title). Ujednolicenie nazwy.",
+   "grupa": "U1"
+  }
+ ]
+}

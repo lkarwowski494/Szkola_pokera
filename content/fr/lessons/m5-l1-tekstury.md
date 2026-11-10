@@ -26,7 +26,7 @@ drills:
     options:
       - { text: "[[9h 7d 6c]]", correct: true, why: "Oui : le neuf, le sept et le six tiennent dans cinq rangs consécutifs. Par exemple, 85 ou T8 font une {{t:straight|quinte}}." }
       - { text: "[[Ks 8d 3c]]", why: "Non : du trois au roi, l'écart est trop grand. Aucune combinaison de deux cartes ne fait ici de {{t:straight|quinte}}." }
-      - { text: "[[Qd Qs 9h]]", why: "Non : le flop est {{t:paired|pairé}}. Avec deux cartes en main et une {{t:pair|paire}} au {{t:board|tableau}}, une {{t:straight|quinte}} est impossible, car une {{t:straight|quinte}} demande cinq rangs différents." }
+      - { text: "[[Qd Qs 9h]]", why: "Non : le flop est {{t:paired|pairé}}. Avec deux cartes en main et une {{t:pair|paire}} sur le {{t:board|board}}, une {{t:straight|quinte}} est impossible, car une {{t:straight|quinte}} demande cinq rangs différents." }
   - kind: choice
     id: m5.l1.q-monotone
     family: m5.texture.facts
@@ -34,8 +34,8 @@ drills:
     prompt: "Le flop est {{t:monotone|monocolore}} : les trois cartes sont de la même couleur. Qu'est-ce que cela signifie ?"
     table: { board: "Kh 8h 3h" }
     options:
-      - { text: "Un joueur avec deux cartes de cette couleur a déjà une {{t:flush|couleur}}", correct: true, why: "Oui : trois cœurs au {{t:board|tableau}} et deux en main font cinq cartes de la même couleur. Un joueur avec un seul cœur a un {{t:flush-draw|tirage couleur}}." }
-      - { text: "Personne ne peut encore avoir de {{t:flush|couleur}}", why: "Non : une {{t:flush|couleur}} demande cinq cartes, et trois sont déjà au {{t:board|tableau}}. Deux en main suffisent." }
+      - { text: "Un joueur avec deux cartes de cette couleur a déjà une {{t:flush|couleur}}", correct: true, why: "Oui : trois cœurs sur le {{t:board|board}} et deux en main font cinq cartes de la même couleur. Un joueur avec un seul cœur a un {{t:flush-draw|tirage couleur}}." }
+      - { text: "Personne ne peut encore avoir de {{t:flush|couleur}}", why: "Non : une {{t:flush|couleur}} demande cinq cartes, et trois sont déjà sur le {{t:board|board}}. Deux en main suffisent." }
       - { text: "Une {{t:flush|couleur}} n'est possible qu'à partir de la turn", why: "Non : c'est le cas sur un flop {{t:two-tone|bicolore}}. Sur un flop {{t:monotone|monocolore}}, une {{t:flush|couleur}} peut déjà être faite." }
   - kind: choice
     id: m5.l1.q-dry
@@ -55,7 +55,7 @@ drills:
     params: { area: board, dir: both }
     count: 4
 ---
-Après le flop, chaque joueur voit déjà cinq de ses sept cartes. La façon dont les trois cartes du {{t:board|tableau}} s'accordent avec les mains des joueurs s'appelle la {{t:texture|texture}} du flop. De la {{t:texture|texture}} dépend qui touche le plus souvent et s'il vaut la peine de miser. Avant d'apprendre le c-bet (une {{t:bet|mise}} au flop après une {{t:raise|relance}} préflop), apprenez à lire le flop selon quatre axes.
+Après le flop, chaque joueur voit déjà cinq de ses sept cartes. La façon dont les trois cartes du {{t:board|board}} s'accordent avec les mains des joueurs s'appelle la {{t:texture|texture}} du flop. De la {{t:texture|texture}} dépend qui touche le plus souvent et s'il vaut la peine de miser. Avant d'apprendre le c-bet (une {{t:bet|mise}} au flop après une {{t:raise|relance}} préflop), apprenez à lire le flop selon quatre axes.
 
 ## Hauteur
 
@@ -71,9 +71,9 @@ Un flop **{{t:paired|pairé}}** a deux cartes du même rang, par ex. [[Qd Qs 6h]
 
 Un flop **{{t:connected|connecté}}** a trois rangs différents compris dans cinq rangs consécutifs, donc une {{t:straight|quinte}} est déjà possible : sur [[9h 7d 6c]], par exemple, 85 et T8 font une {{t:straight|quinte}}. L'as compte aussi comme un un, donc [[Ah 5d 3c]] est aussi {{t:connected|connecté}}.
 
-Un flop **{{t:semi-connected|semi-connecté}}** n'a que deux de ses cartes comprises dans cinq rangs consécutifs. Personne n'a encore de {{t:straight|quinte}}, mais quelqu'un peut avoir un {{t:straight-draw|tirage quinte}} (bilatéral ou ventral) : sur [[Kh Qd 4c]], par exemple, JT en a un. Ces flops sont nombreux, car il suffit de deux cartes proches l'une de l'autre.
+Un flop **{{t:semi-connected|semi-connecté}}** n'a que deux de ses cartes comprises dans cinq rangs consécutifs. Personne n'a encore de {{t:straight|quinte}}, mais quelqu'un peut avoir un {{t:straight-draw|tirage quinte}} (bilatéral ou gutshot) : sur [[Kh Qd 4c]], par exemple, JT en a un. Ces flops sont nombreux, car il suffit de deux cartes proches l'une de l'autre.
 
-Un flop **{{t:disconnected|déconnecté}}** a des cartes si éloignées qu'aucune paire de cartes ne tient dans cinq rangs consécutifs, par ex. [[Ks 8d 3c]]. Personne n'y a même un {{t:straight-draw|tirage quinte}}. Ces flops sont rares.
+Un flop **{{t:disconnected|déconnecté}}** a des cartes si éloignées que deux cartes ne tiennent jamais dans cinq rangs consécutifs, par ex. [[Ks 8d 3c]]. Personne n'y a même un {{t:straight-draw|tirage quinte}}. Ces flops sont rares.
 
 ## {{t:dry|Sec}} ou {{t:wet|wet}}
 

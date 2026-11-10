@@ -10,7 +10,7 @@ drills:
     id: m10.l1.q-vpip-bb
     family: m10.hud.stats
     rules: [R-M10-001]
-    prompt: "你在{{t:big-blind|大盲注}}位置。兩名玩家平跟，你{{t:check|過牌}}看翻牌。這手牌會提高你的 {{t:vpip}} 嗎？"
+    prompt: "你在{{t:big-blind|大盲注}}位置。兩名玩家溜入，你{{t:check|過牌}}看翻牌。這手牌會提高你的 {{t:vpip}} 嗎？"
     options:
       - { text: "不會：你沒有主動投入任何一枚{{t:chips|籌碼}}", correct: true, why: "{{t:vpip}} 只計算翻牌前的主動投入：{{t:call|跟注}}或{{t:raise|加注}}。{{t:big-blind|大盲注}}是強制投入，而{{t:check|過牌}}不花任何成本。" }
       - { text: "會：你玩到翻牌，所以這手牌算有參與", why: "看到翻牌還不夠。只有你在翻牌前自己投入{{t:chips|籌碼}}，{{t:vpip}} 才會上升。" }
@@ -30,9 +30,9 @@ drills:
     rules: [R-M10-001]
     prompt: "對手的 {{t:vpip}} 是 {{n:mda.rec.vpip}}，{{t:pfr}} 是 {{n:mda.rec.pfr}}。他有玩但沒有{{t:raise|加注}}的那些手牌，是怎麼玩的？"
     options:
-      - { text: "{{t:call|跟注}}或平跟：這就是相差的 {{n:mda.rec.gap}} 手牌", correct: true, why: "{{t:vpip}} − {{t:pfr}} = {{n:mda.rec.gap}}。這些手牌他不經{{t:raise|加注}}就放進{{t:pot|底池}}：平跟，或{{t:call|跟注}}別人的{{t:open|開池}}。" }
+      - { text: "{{t:call|跟注}}或溜入：這就是相差的 {{n:mda.rec.gap}} 手牌", correct: true, why: "{{t:vpip}} − {{t:pfr}} = {{n:mda.rec.gap}}。這些手牌他不經{{t:raise|加注}}就放進{{t:pot|底池}}：溜入，或{{t:call|跟注}}別人的{{t:open|開池}}。" }
       - { text: "在翻牌前{{t:fold|棄牌}}", why: "翻牌前棄掉的手牌完全不計入 {{t:vpip}}。{{t:vpip}} − {{t:pfr}} 的差距是沒有{{t:raise|加注}}就參與的手牌。" }
-      - { text: "用{{t:all-in|全下}}來玩", why: "翻牌前全下也是一種{{t:raise|加注}}，所以會提高 {{t:pfr}}。差距是只{{t:call|跟注}}或平跟的手牌。" }
+      - { text: "用{{t:all-in|全下}}來玩", why: "翻牌前全下也是一種{{t:raise|加注}}，所以會提高 {{t:pfr}}。差距是只{{t:call|跟注}}或溜入的手牌。" }
   - kind: numeric
     id: m10.l1.n-se
     family: m10.hud.sample
@@ -66,7 +66,7 @@ drills:
     options:
       - { text: "當作陌生玩家，照基準策略打；繼續累積手牌", correct: true, why: "低於約 {{n:hud.hands.random}} 手牌時，統計數據是隨機的：連續拿到幾手好牌就會出現這樣的 {{t:vpip}}。大約 {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} 手牌後能粗略看出玩家類型，{{t:vpip}} 和 {{t:pfr}} 則約在 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} 手牌後趨於穩定。" }
       - { text: "當作{{t:maniac|瘋子}}：放寬範圍{{t:call|跟注}}", why: "{{t:maniac|瘋子}}，也就是非常鬆又激進的玩家，只是其中一種可能：才 {{n:hud.ex.few.hands}} 手牌，他可能是任何類型。根據偶然結果大範圍{{t:call|跟注}}，一旦對手其實只是普通的{{t:regular|常規玩家}}，也就是打得相當紮實的固定玩家，你就會付出代價。" }
-      - { text: "當作{{t:nit|岩石型玩家}}，因為大多數玩家都是岩石玩家", why: "這你也不知道：{{t:nit|岩石型玩家}}，也就是非常緊的玩家，只是其中一種類型。沒有樣本就沒有判讀，所以你回到基準策略。" }
+      - { text: "當作{{t:nit|岩石型玩家}}，因為大多數玩家都是岩石型玩家", why: "這你也不知道：{{t:nit|岩石型玩家}}，也就是非常緊的玩家，只是其中一種類型。沒有樣本就沒有判讀，所以你回到基準策略。" }
   - kind: choice
     id: m10.l1.q-slow-stat
     family: m10.hud.sample
@@ -95,7 +95,7 @@ drills:
 - **{{t:vpip}}**：玩家在多少百分比的手牌中，於翻牌前主動把{{t:chips|籌碼}}放進{{t:pot|底池}}，也就是{{t:call|跟注}}或{{t:raise|加注}}。盲注不算，因為那是強制的。
 - **{{t:pfr}}**：玩家在多少百分比的手牌中於翻牌前{{t:raise|加注}}：{{t:open|開池}}、3-bet 或 4-bet。
 
-每一次{{t:raise|加注}}也都是主動投入，所以 {{t:pfr}} 永遠不會超過 {{t:vpip}}。{{t:vpip}} − {{t:pfr}} 的差距，就是玩家只{{t:call|跟注}}或平跟的手牌。{{t:vpip}} {{n:mda.rec.vpip}}、{{t:pfr}} {{n:mda.rec.pfr}} 的玩家玩很多手牌，但在所有手牌中有 {{n:mda.rec.gap}} 是不經{{t:raise|加注}}就進入{{t:pot|底池}}。
+每一次{{t:raise|加注}}也都是主動投入，所以 {{t:pfr}} 永遠不會超過 {{t:vpip}}。{{t:vpip}} − {{t:pfr}} 的差距，就是玩家只{{t:call|跟注}}或溜入的手牌。{{t:vpip}} {{n:mda.rec.vpip}}、{{t:pfr}} {{n:mda.rec.pfr}} 的玩家玩很多手牌，但在所有手牌中有 {{n:mda.rec.gap}} 是不經{{t:raise|加注}}就進入{{t:pot|底池}}。
 
 ## 其他統計數據
 
@@ -127,5 +127,5 @@ drills:
 - 3-bet 需要約 {{n:hud.hands.3bet.overall.low}}–{{n:hud.hands.3bet.high}} 手牌，面對 3-bet 棄牌率約 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} 手牌，轉牌和河牌的統計數據需要更多。
 
 :::note 當平台禁止 {{t:hud|HUD}} 時
-有些平台（根據教學資料，也包括低{{t:stakes|級別}}的大型平台）禁止在牌桌上使用 {{t:hud|HUD}} 軟體。這時你可以在{{t:session|場次}}結束後檢視自己的手牌歷史、記錄固定對手的筆記，並利用你所在{{t:stakes|級別}}的玩家群體數據（第 2 課）。樣本門檻來自兩份教學資料，兩者給出的手牌數不同。誤差公式則是計算結果。
+有些平台（根據教學資料，也包括低{{t:stakes|級別}}的大型平台）禁止在牌桌上使用 {{t:hud|HUD}} 軟體。這時你可以在{{t:session|場次}}結束後檢視自己的手牌歷史、記錄固定對手的筆記，並利用你所在{{t:stakes|級別}}的玩家群體數據（第 2 課）。樣本門檻來自兩份教學資料，兩者給出的手牌數不同。誤差公式則是數學計算。
 :::

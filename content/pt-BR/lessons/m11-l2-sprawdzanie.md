@@ -137,7 +137,7 @@ Indo all-in primeiro, você também ganha quando o adversário {{t:fold|desiste}
 call.bb-10
 ```
 
-Com {{n:m11.depth.10}}, o {{t:small-blind|small blind}} vai all-in com cerca de {{n:m11.push.10}} mãos, e o {{t:big-blind|big blind}} {{t:call|paga}} com cerca de {{n:m11.call.10}}. Mãos como [[7s 6s]] você {{t:shove|dá shove}} do {{t:small-blind|small blind}}, mas {{t:fold|desiste}} contra um all-in: sem fold equity, elas têm equity de menos contra cartas altas e {{t:pair|pares}}. Para comparar, a tabela de um site de treinamento dá, com {{n:m11.depth.10}}, um {{t:range|range}} de {{t:call|call}} de {{n:m11.ext.call.10}}.
+Com {{n:m11.depth.10}}, o {{t:small-blind|small blind}} vai all-in com cerca de {{n:m11.push.10}} mãos, e o {{t:big-blind|big blind}} {{t:call|paga}} com cerca de {{n:m11.call.10}}. Com mãos como [[7s 6s]] você {{t:shove|dá shove}} do {{t:small-blind|small blind}}, mas {{t:fold|desiste}} contra um all-in: sem fold equity, elas têm equity de menos contra cartas altas e {{t:pair|pares}}. Para comparar, a tabela de um site de treinamento dá, com {{n:m11.depth.10}}, um {{t:range|range}} de {{t:call|call}} de {{n:m11.ext.call.10}}.
 
 ```range
 call.bb-15
@@ -172,5 +172,5 @@ call.bb-10-ante
 ```
 
 :::note {{t:range|Ranges}} nesta lição
-As grades tratam do jogo entre dois jogadores: o {{t:small-blind|small blind}} contra o {{t:big-blind|big blind}}, quando todos os outros {{t:fold|desistiram}}, e contam {{t:chips|fichas}}, não dinheiro. Quando, num {{t:tournament|torneio}}, as {{t:payout|premiações}} importam, você {{t:call|paga}} ainda mais apertado (próxima lição).
+As grades tratam do jogo entre dois jogadores: o {{t:small-blind|small blind}} contra o {{t:big-blind|big blind}}, quando todos os outros {{t:fold|desistiram}}, e contam {{t:chips|fichas}}, não dinheiro. Quando, num {{t:tournament|torneio}}, os {{t:payout|prêmios}} importam, você {{t:call|paga}} ainda mais apertado (próxima lição).
 :::

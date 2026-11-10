@@ -22,7 +22,7 @@ drills:
     rules: [R-M11-004]
     prompt: "{{t:small-blind|Petite blinde}}, {{n:exam.m11.fe.depth}}, sans ante, tout le monde s'est {{t:fold|couché}}. À quelle fréquence la {{t:big-blind|grosse blinde}} devrait-elle se {{t:fold|coucher}} pour qu'un all-in avec une main sans aucune chance ne fasse ni gain ni perte ?"
     options:
-      - { text: "Plus de {{n:exam.m11.fe.alpha}} du temps", correct: true, why: "Vous mettez {{n:exam.m11.fe.risk}} pour gagner {{n:m11.push.10.win}} blindes : {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. L'adversaire ne se {{t:fold|couche}} pas aussi souvent, donc l'all-in a aussi besoin d'equity pour les cas où l'adversaire {{t:call|suit}}." }
+      - { text: "Plus de {{n:exam.m11.fe.alpha}} du temps", correct: true, why: "Vous mettez {{n:exam.m11.fe.risk}} pour gagner {{n:m11.push.10.win}} blindes : {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. L'adversaire ne se {{t:fold|couche}} pas aussi souvent, donc l'all-in a aussi besoin d'équité pour les cas où l'adversaire {{t:call|suit}}." }
       - { text: "Plus de la moitié du temps", why: "Vous risquez bien plus que vous ne gagnez : {{n:exam.m11.fe.risk}} contre {{n:m11.push.10.win}}. Le seuil est risque ÷ (gain + risque), soit env. {{n:exam.m11.fe.alpha}}." }
       - { text: "Jamais : à {{n:exam.m11.fe.depth}}, l'all-in est toujours rentable", why: "Une main sans chance au showdown ne gagne que lorsque l'adversaire se {{t:fold|couche}}, et il faut que cela arrive dans env. {{n:exam.m11.fe.alpha}} des cas. C'est pourquoi la {{t:range|range}} d'all-in, bien que large, n'inclut pas toutes les mains." }
   - kind: choice
@@ -38,7 +38,7 @@ drills:
     id: m11.exam.q5
     family: m11.call.price
     rules: [R-M11-006]
-    prompt: "Stacks de {{n:exam.m11.call.depth}} chacun, sans ante. Vous êtes en {{t:big-blind|grosse blinde}}, et la {{t:small-blind|petite blinde}} a fait all-in. De quel pourcentage d'equity avez-vous besoin pour que {{t:call|suivre}} soit rentable ? Saisissez un nombre."
+    prompt: "Stacks de {{n:exam.m11.call.depth}} chacun, sans ante. Vous êtes en {{t:big-blind|grosse blinde}}, et la {{t:small-blind|petite blinde}} a fait all-in. De quel pourcentage d'équité avez-vous besoin pour que {{t:call|suivre}} soit rentable ? Saisissez un nombre."
     answer: exam.m11.call.eq
     explanation: "Votre blinde est déjà dans le {{t:pot|pot}}, donc vous ajoutez {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}. Une fois que vous avez {{t:call|suivi}}, le {{t:pot|pot}} contient {{n:exam.m11.call.pot}} : {{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}."
   - kind: choice
@@ -56,23 +56,23 @@ drills:
     rules: [R-M11-009, R-M11-008]
     prompt: "{{t:bubble|Bulle}} : quatre joueurs, trois places payées ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} du {{t:prize-pool|prize pool}}). Stacks : {{n:exam.m11.bf.s1}}, le vôtre {{n:exam.m11.bf.s2}}, l'adversaire à tapis avec {{n:exam.m11.bf.s3}}, et {{n:exam.m11.bf.s4}}. Selon l'{{t:icm}}, si vous {{t:call|suivez}} et perdez, vous perdez {{n:exam.m11.bf.loss}} du {{t:prize-pool|prize pool}}, et si vous gagnez, vous gagnez {{n:exam.m11.bf.gain}}. Quel est le bubble factor ? Saisissez un nombre avec deux décimales."
     answer: exam.m11.bf.value
-    explanation: "Bubble factor = perte ÷ gain = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Votre equity est actuellement de {{n:exam.m11.bf.eq.now}}, de {{n:exam.m11.bf.eq.win}} après une victoire et de {{n:exam.m11.bf.eq.lose}} après une défaite : perdre coûte plus que gagner ne rapporte. L'{{t:icm}} ne tient compte ni de la {{t:position|position}} ni du niveau des joueurs, donc cette évaluation est une approximation."
+    explanation: "Bubble factor = perte ÷ gain = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Votre équité est actuellement de {{n:exam.m11.bf.eq.now}}, de {{n:exam.m11.bf.eq.win}} après une victoire et de {{n:exam.m11.bf.eq.lose}} après une défaite : perdre coûte plus que gagner ne rapporte. L'{{t:icm}} ne tient compte ni de la {{t:position|position}} ni du niveau des joueurs, donc cette évaluation est une approximation."
   - kind: choice
     id: m11.exam.q8
     family: m11.bf
     rules: [R-M11-009]
-    prompt: "Même spot : bubble factor {{n:exam.m11.bf.value}}. En jouant pour les {{t:chips|jetons}}, {{n:exam.m11.bf.req-chips}} d'equity suffit pour {{t:call|suivre}}. De combien avez-vous besoin selon l'{{t:icm}} ?"
+    prompt: "Même spot : bubble factor {{n:exam.m11.bf.value}}. En jouant pour les {{t:chips|jetons}}, {{n:exam.m11.bf.req-chips}} d'équité suffit pour {{t:call|suivre}}. De combien avez-vous besoin selon l'{{t:icm}} ?"
     options:
-      - { text: "Env. {{n:exam.m11.bf.req}}", correct: true, why: "Equity requise = BF ÷ (BF + 1) = perte ÷ (perte + gain) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. L'écart par rapport à {{n:exam.m11.bf.req-chips}} correspond à la {{t:risk-premium|prime de risque}}." }
+      - { text: "Env. {{n:exam.m11.bf.req}}", correct: true, why: "Équité requise = BF ÷ (BF + 1) = perte ÷ (perte + gain) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. L'écart par rapport à {{n:exam.m11.bf.req-chips}} correspond à la {{t:risk-premium|prime de risque}}." }
       - { text: "{{n:exam.m11.bf.req-chips}}, comme en {{t:chips|jetons}}", why: "Dans un {{t:tournament|tournoi}} avec des {{t:payout|paiements}}, perdre coûte plus d'argent que gagner n'en rapporte, donc {{t:call|suivre}} doit gagner plus souvent : env. {{n:exam.m11.bf.req}}." }
-      - { text: "Moins de {{n:exam.m11.bf.req-chips}}, car la {{t:bubble|bulle}} force l'adversaire à {{t:bluff|bluffer}}", why: "Un bubble factor supérieur à 1 élève toujours l'equity requise au-dessus du prix en {{t:chips|jetons}}. Ici, à env. {{n:exam.m11.bf.req}}." }
+      - { text: "Moins de {{n:exam.m11.bf.req-chips}}, car la {{t:bubble|bulle}} force l'adversaire à {{t:bluff|bluffer}}", why: "Un bubble factor supérieur à 1 élève toujours l'équité requise au-dessus du prix en {{t:chips|jetons}}. Ici, à env. {{n:exam.m11.bf.req}}." }
   - kind: choice
     id: m11.exam.q9
     family: m11.icm.call
     rules: [R-M11-010]
     prompt: "{{t:bubble|Bulle}} d'un {{t:tournament|tournoi}}. Vous avez un stack moyen. Le plus gros stack de la table, qui vous {{t:cover|couvre}}, fait all-in. Comment {{t:call|suivez}}-vous par rapport au jeu pour les {{t:chips|jetons}} ?"
     options:
-      - { text: "Nettement plus serré", correct: true, why: "Perdre vous élimine juste avant les prix, et gagner rapporte moins que perdre ne coûte : les {{t:chips|jetons}} gagnés valent moins que les jetons perdus. C'est pourquoi il vous faut nettement plus d'equity qu'en jouant pour les {{t:chips|jetons}}." }
+      - { text: "Nettement plus serré", correct: true, why: "Perdre vous élimine juste avant les prix, et gagner rapporte moins que perdre ne coûte : les {{t:chips|jetons}} gagnés valent moins que les jetons perdus. C'est pourquoi il vous faut nettement plus d'équité qu'en jouant pour les {{t:chips|jetons}}." }
       - { text: "Plus large, car le gros stack {{t:shove|fait tapis}} avec beaucoup de mains", why: "Le gros stack peut effectivement {{t:shove|faire tapis}} plus large, mais justement parce que vous devez {{t:call|suivre}} serré. La {{t:risk-premium|prime de risque}} relève vos exigences." }
       - { text: "Pareil : l'{{t:icm}} ne compte qu'à la {{t:final-table|table finale}}", why: "{{t:call|Suivre}} plus prudemment s'applique aussi bien à la {{t:final-table|table finale}} qu'à la {{t:bubble|bulle}} : ici, c'est de votre survie que dépend le fait de gagner quoi que ce soit." }
   - kind: choice

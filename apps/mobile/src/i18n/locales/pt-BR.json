@@ -79,7 +79,7 @@
     "reminderSection": "Lembrete",
     "reminder": "Lembrete diário",
     "reminderHint": "Uma notificação por dia às {{pora}}. Ao ativar, o celular vai pedir permissão para enviar notificações.",
-    "reminderDenied": "As notificações deste app estão desativadas nas configurações do celular. Ative-as lá para receber o lembrete.",
+    "reminderDenied": "As notificações deste app estão desativadas nos Ajustes do celular. Ative-as lá para receber o lembrete.",
     "reminderFailed": "Não foi possível definir o lembrete. Tente novamente.",
     "general": "Geral",
     "language": "Idioma",
@@ -305,7 +305,7 @@
     "areaLine": "Conhecimento {{k}} · Jogo: {{g}}",
     "gameExplain": "Jogo é a proporção de decisões avaliadas como alinhadas ou aceitáveis entre as últimas {{window}} decisões avaliadas na área, numa mesa de 6 jogadores com stacks de 100bb. O resultado aparece a partir de {{min}} decisões (até {{window}}, como provisório). Em cada área, conhecimento e jogo contam igualmente; o resultado das mãos em {{t:chips|fichas}} não entra no índice.",
     "history": "Histórico",
-    "historyHint": "Uma barra por dia em que você usou o app. Último: {{last}}.",
+    "historyHint": "Uma barra por dia em que você usou o app. Última: {{last}}.",
     "historyEmpty": "O histórico aparecerá após mais dias de estudo."
   },
   "glossary": {
@@ -729,7 +729,7 @@
       "player": "Jogador {{letter}}",
       "stack": "{{name}} {{chips}}",
       "table": "{{players}} jogadores, {{paid}} lugares pagos ({{payouts}} da {{t:prize-pool|premiação}}). Stacks: {{stacks}}.",
-      "callPrompt": "{{t:bubble|Bubble}}: {{table}} {{villain}} vai all-in; estão em jogo {{atRisk}} {{t:chips|fichas}} entre vocês. Sua mão tem {{equity}} de equity contra o {{t:range|range}} dele. Ignoramos os blinds. O que você faz?",
+      "callPrompt": "{{t:bubble|Bolha}}: {{table}} {{villain}} vai all-in; estão em jogo {{atRisk}} {{t:chips|fichas}} entre vocês. Sua mão tem {{equity}} de equity contra o {{t:range|range}} dele. Ignoramos os blinds. O que você faz?",
       "callRight": "Sim. {{equity}} é mais que os {{required}} necessários segundo o {{t:icm}}.",
       "callWrong": "Não. Segundo o {{t:icm}}, você precisa de {{required}} de equity e tem {{equity}}.",
       "callWrongChips": "Não. Segundo o {{t:icm}}, você precisa de {{required}} de equity e tem {{equity}}. Num jogo por {{t:chips|fichas}}, {{t:call|pagar}} compensaria, mas aqui perder custa mais dinheiro do que ganhar acrescenta.",

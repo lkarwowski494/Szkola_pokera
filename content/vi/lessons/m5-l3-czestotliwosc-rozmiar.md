@@ -35,7 +35,7 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Đúng: flop thấp với các lá gần nhau có lợi cho {{t:big-blind|mù lớn}}, người ở đây thường có {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn. Bạn c-bet ít hơn so với trên flop cao: nhiều tay {{t:check|xem bài}}, còn chủ yếu các tay mạnh và {{t:draw|bài chờ}} mạnh mới cược."
+          check: "Đúng: flop thấp với các lá gần nhau có lợi cho {{t:big-blind|big blind}}, người ở đây thường có {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn. Bạn c-bet ít hơn so với trên flop cao: nhiều tay {{t:check|xem bài}}, còn chủ yếu các tay mạnh và {{t:draw|bài chờ}} mạnh mới cược."
           small: "Quá thường xuyên: trên flop thấp với các lá gần nhau, chính {{t:big-blind}} mới có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho họ cơ hội {{t:raise|tố}} sau khi đã {{t:check|xem bài}} trước (check-raise) bằng những tay mạnh nhất."
           big: "Quá thường xuyên và quá đắt: {{t:big-blind}} ở đây thường trúng {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn. C-bet lớn thường xuyên rủi ro nhiều khi chính bạn thường chỉ có lá cao."
     count: 6
@@ -100,7 +100,7 @@ drills:
     prompt: "Vì sao trên flop {{t:dry|khô}}, c-bet {{n:cbet.size.small}} {{t:pot|pot}} với tay không có cơ hội lại có lãi thường xuyên hơn c-bet {{n:cbet.size.big}} {{t:pot|pot}}?"
     options:
       - { text: "Vì {{t:bet}} nhỏ chỉ cần đối thủ bỏ bài trong {{n:alpha.cbet.small}} số trường hợp, còn cược lớn cần {{n:alpha.cbet.big}}", correct: true, why: "Đúng: trên flop {{t:dry|khô}}, những tay yếu nhất của đối thủ (không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}}) {{t:fold|bỏ bài}} trước cả hai kích thước, nên {{t:bet}} nhỏ đạt cùng hiệu quả với chi phí thấp hơn." }
-      - { text: "Vì {{t:bet}} nhỏ luôn khiến đối thủ {{t:fold}}", why: "Không: đối thủ {{t:call|theo}} {{t:bet}} nhỏ với bất kỳ {{t:pair|đôi}} nào. {{t:bet}} nhỏ đơn giản là rủi ro ít hơn, nên cần ít lần {{t:fold|bỏ bài}} hơn." }
+      - { text: "Vì {{t:bet}} nhỏ luôn khiến đối thủ {{t:fold}}", why: "Không: đối thủ {{t:call|theo}} {{t:bet}} nhỏ với bất kỳ {{t:pair|đôi}} nào. {{t:bet|Cược}} nhỏ đơn giản là rủi ro ít hơn, nên cần ít lần {{t:fold|bỏ bài}} hơn." }
       - { text: "Vì {{t:bet}} lớn luôn là sai lầm", why: "Không: trên flop {{t:wet|ướt}} và khi có {{t:nuts-advantage|lợi thế nuts}}, {{t:bet}} lớn đôi khi là tốt nhất. Tuy nhiên, trên flop {{t:dry|khô}} nó không mang lại gì để bù cho rủi ro lớn hơn." }
 ---
 C-bet ({{t:bet}} tiếp tục) là {{t:bet}} ở flop của người chơi đã {{t:raise|tố}} sau cùng trước flop. Trong bài này bạn chơi {{t:in-position}}: bạn đã {{t:open|mở}} từ Button, {{t:big-blind}} đã {{t:call|theo}} và {{t:check|xem bài}} ở flop. {{t:pot|Pot}} ở flop là {{n:bb.pot-after.vs-btn}}. Có hai câu hỏi: cược thường xuyên đến đâu và lớn bao nhiêu.
@@ -130,5 +130,5 @@ Trên [[7s 6h 5d]], chính {{t:big-blind}} mới thường có {{t:two-pair}} ho
 Một {{t:bet|cược}} không có tay bài hòa vốn khi đối thủ {{t:fold|bỏ bài}} trong cược ÷ ({{t:pot}} + cược) số trường hợp. Với {{n:cbet.size.small}} {{t:pot|pot}}, con số đó là {{n:alpha.cbet.small}}, với {{n:cbet.size.big}} {{t:pot|pot}} đã là {{n:alpha.cbet.big}}. Tay không có {{t:pair|đôi}} trượt flop trong khoảng {{n:flop.miss.unpaired}} số trường hợp, vì vậy c-bet nhỏ hay có lãi đến thế.
 
 :::note Các quy tắc này từ đâu ra
-Các hướng chung (flop {{t:dry}}: nhỏ và thường xuyên; nhiều {{t:draw|bài chờ}} mà chưa có {{t:straight|sảnh}} hoàn chỉnh: lớn hơn và ít hơn; {{t:straight}} đã có thể có: nhỏ hơn; {{t:paired}}: nhỏ; {{t:monotone}}: ít hơn và nhỏ) là các nguyên tắc chung từ tài liệu đào tạo và kết quả solver đã công bố, được đánh dấu là heuristic. Các kích thước {{n:cbet.size.small}} và {{n:cbet.size.big}} {{t:pot|pot}} là ví dụ từ các khoảng nêu ở trên (tài liệu đào tạo về kích thước cược; kết quả solver đã công bố). Ứng dụng không đưa ra tần suất cược theo phần trăm, vì những con số như vậy đến từ kết quả solver.
+Các hướng chung (flop {{t:dry}}: nhỏ và thường xuyên; nhiều {{t:draw|bài chờ}} mà chưa có {{t:straight|sảnh}} hoàn chỉnh: lớn hơn và ít hơn; {{t:straight}} đã có thể có: nhỏ hơn; {{t:paired}}: nhỏ; {{t:monotone}}: ít hơn và nhỏ) là các nguyên tắc chung từ tài liệu đào tạo và kết quả solver đã công bố, được đánh dấu là quy tắc kinh nghiệm. Các kích thước {{n:cbet.size.small}} và {{n:cbet.size.big}} {{t:pot|pot}} là ví dụ từ các khoảng nêu ở trên (tài liệu đào tạo về kích thước cược; kết quả solver đã công bố). Ứng dụng không đưa ra tần suất cược theo phần trăm, vì những con số như vậy đến từ kết quả solver.
 :::

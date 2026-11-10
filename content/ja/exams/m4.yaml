@@ -89,7 +89,7 @@ drills:
     table: { hand: "As Ac", position: HJ }
     options:
       - { text: "約{{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}に4ベット", correct: true, why: "AAは{{t:value|バリュー}}で4ベットします。{{t:out-of-position|アウトオブポジション}}では、4ベットは3ベットの約{{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}}です。{{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}、× {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}。" }
-      - { text: "{{t:call|コール}}", why: "AAはスタック全部を入れたいハンドです。{{t:out-of-position}}での{{t:call|コール}}は、{{t:value|バリュー}}と{{t:initiative|イニシアチブ}}を手放します。" }
+      - { text: "{{t:call|コール}}", why: "AAはスタック全部を入れたいハンドです。{{t:out-of-position}}での{{t:call|コール}}は、バリューと{{t:initiative|イニシアチブ}}を手放します。" }
       - { text: "{{n:format.stack}}でオールイン", why: "オールインすると、相手が通常の4ベットならコールしてくる弱いハンドを降ろしてしまいます。3ベットの約{{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}}の4ベットの後でも、残りのスタックは簡単に入れられます。" }
   - kind: numeric
     id: m4.exam.n1

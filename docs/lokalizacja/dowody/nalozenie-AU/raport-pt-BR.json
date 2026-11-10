@@ -1,0 +1,73 @@
+{
+ "plik": "docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/pt-BR/poprawki-pt-BR.json",
+ "nalozone": 105,
+ "pominiete": [],
+ "sklep": 7,
+ "odfiltrowane": 0,
+ "pliki": 37,
+ "sklepPoprawki": [
+  {
+   "jezyk": "pt-BR",
+   "cel": "store/app-store-metadata.json",
+   "stary": "Uma prova de módulo (15 questões)",
+   "nowy": "Um exame do módulo (15 questões)",
+   "waga": "NISKIE",
+   "powod": "pt-BR-U-08 nazwa jak w aplikacji: „Exame do módulo” (pt-BR.json exam.title)",
+   "grupa": "pt-BR-U"
+  },
+  {
+   "jezyk": "pt-BR",
+   "cel": "store/app-store-metadata.json",
+   "stary": "de cada prova de módulo são",
+   "nowy": "de cada exame do módulo são",
+   "waga": "NISKIE",
+   "powod": "pt-BR-U-08 nazwa jak w aplikacji: „Exame do módulo”",
+   "grupa": "pt-BR-U"
+  },
+  {
+   "jezyk": "pt-BR",
+   "cel": "store/app-store-metadata.json",
+   "stary": "uma nova tentativa de prova.",
+   "nowy": "uma nova tentativa de exame.",
+   "waga": "NISKIE",
+   "powod": "pt-BR-U-08 nazwa jak w aplikacji (purchase.unlocks: „novas tentativas de exame”)",
+   "grupa": "pt-BR-U"
+  },
+  {
+   "jezyk": "pt-BR",
+   "cel": "store/app-store-metadata.json",
+   "stary": "um índice de evolução",
+   "nowy": "um índice de nível",
+   "waga": "NISKIE",
+   "powod": "pt-BR-U-09 nazwa jak w aplikacji: „Índice de nível” (advancement.title)",
+   "grupa": "pt-BR-U"
+  },
+  {
+   "jezyk": "pt-BR",
+   "cel": "store/app-store-metadata.json",
+   "stary": "• Aulas com exercícios",
+   "nowy": "• Lições com exercícios",
+   "waga": "NISKIE",
+   "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+   "grupa": "pt-BR-U"
+  },
+  {
+   "jezyk": "pt-BR",
+   "cel": "store/app-store-metadata.json",
+   "stary": "indica sua primeira aula",
+   "nowy": "indica sua primeira lição",
+   "waga": "NISKIE",
+   "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+   "grupa": "pt-BR-U"
+  },
+  {
+   "jezyk": "pt-BR",
+   "cel": "store/app-store-metadata.json",
+   "stary": "ACESSO\\nAs aulas, a avaliação",
+   "nowy": "ACESSO\\nAs lições, a avaliação",
+   "waga": "NISKIE",
+   "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+   "grupa": "pt-BR-U"
+  }
+ ]
+}

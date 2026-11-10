@@ -73,7 +73,7 @@ drills:
     prompt: "Você {{t:open|abriu}} do {{t:cutoff|CO}} para {{n:pf.open-size}}, o Button {{t:raise|aumentou}} para {{n:pf.3bet.ip-total}} e os blinds {{t:fold|desistiram}}. O que você faz?"
     table: { hand: "Ad Jd", position: CO }
     options:
-      - { text: "{{t:call|Pago}}", correct: true, why: "Um às forte do mesmo naipe é a base do {{t:range|range}} de {{t:call|call}}: bloqueia AA e AK e faz flushes e bons {{t:pair|pares}}." }
+      - { text: "{{t:call|Pago}}", correct: true, why: "Um ás forte do mesmo naipe é a base do {{t:range|range}} de {{t:call|call}}: bloqueia AA e AK e faz flushes e bons {{t:pair|pares}}." }
       - { text: "{{t:fold|Desisto}}", why: "Apertado demais: AJs está entre as melhores mãos para defender contra um 3-bet." }
       - { text: "Dou 4-bet {{t:value|por valor}}", why: "AJs é fraco demais para querer jogar pelo stack inteiro. As mãos melhores do Button o dominam." }
   - kind: choice

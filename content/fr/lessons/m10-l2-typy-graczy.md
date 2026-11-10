@@ -56,11 +56,11 @@ drills:
     family: m10.types.adjust
     rules: [R-M10-007]
     table: { hand: "Ad Jc", position: "CO" }
-    prompt: "Vous {{t:open|ouvrez}} depuis le {{t:cutoff|CO}}. Un {{t:nit}} est au Bouton : {{t:vpip}} {{n:hud.ex.nit.vpip}}, {{t:pfr}} {{n:hud.ex.nit.pfr}}, {{n:hud.ex.reg.hands}} mains. Il vous 3-bet. Que faites-vous avec AJo ?"
+    prompt: "Vous {{t:open|ouvrez}} depuis le {{t:cutoff|CO}}. Un {{t:nit}} est au Bouton : {{t:vpip}} {{n:hud.ex.nit.vpip}}, {{t:pfr}} {{n:hud.ex.nit.pfr}}, {{n:hud.ex.reg.hands}} mains. Il vous 3-bette. Que faites-vous avec AJo ?"
     options:
-      - { text: "Je {{t:fold|me couche}}", correct: true, why: "Quelqu’un qui joue si peu de mains 3-bet surtout avec les plus fortes : AQ, AK et les hautes {{t:pair|paires}}, qui dominent AJ. Contre lui, vous {{t:fold|vous couchez}} plus souvent que dans la stratégie de base du module 4." }
+      - { text: "Je {{t:fold|me couche}}", correct: true, why: "Quelqu’un qui joue si peu de mains 3-bette surtout avec les plus fortes : AQ, AK et les hautes {{t:pair|paires}}, qui dominent AJ. Contre lui, vous {{t:fold|vous couchez}} plus souvent que dans la stratégie de base du module 4." }
       - { text: "Je {{t:call|suis}}, parce que AJ est une main forte", why: "AJ est fort contre une {{t:range}} large. Face au 3-bet d’un joueur à {{t:vpip}} {{n:hud.ex.nit.vpip}}, il est souvent dominé et hors de {{t:position}}." }
-      - { text: "Je 4-bet", why: "4-bet AJ contre un {{t:nit}}, c’est jouer contre une {{t:range}} qui le domine et {{t:fold|se couche}} rarement. Ce n’est ni de la {{t:value|valeur}}, ni un bon {{t:bluff}}." }
+      - { text: "Je 4-bette", why: "4-better AJ contre un {{t:nit}}, c’est jouer contre une {{t:range}} qui le domine et {{t:fold|se couche}} rarement. Ce n’est ni de la {{t:value|valeur}}, ni un bon {{t:bluff}}." }
   - kind: choice
     id: m10.l2.q-nit-steal
     family: m10.types.adjust
@@ -88,7 +88,7 @@ drills:
     options:
       - { text: "Je {{t:check|checke}} : {{t:bluff|bluffer}} un {{t:maniac|maniaque}} marche rarement", correct: true, why: "Un {{t:maniac|maniaque}} {{t:fold|se couche}} rarement et {{t:raise|relance}} souvent. Contre lui, vous gagnez de l’argent en {{t:call|suivant}} avec des mains plus fortes, pas en {{t:bluff|bluffant}}." }
       - { text: "Je mise, parce que le {{t:check}} d’un {{t:maniac|maniaque}} signifie de la faiblesse", why: "C’est possible, mais un {{t:maniac|maniaque}} {{t:raise|relance}} souvent avec n’importe quelle main. Un {{t:bluff}} a besoin que l’adversaire {{t:fold|se couche}}, ce qu’il fait rarement." }
-      - { text: "Je mise all-in pour qu’il ne puisse pas {{t:raise|relancer}}", why: "Vous risquez tout votre tapis pour gagner un petit {{t:pot}}, contre un joueur qui {{t:fold|se couche}} rarement. C’est la façon la plus chère de {{t:bluff|bluffer}}." }
+      - { text: "Je mise all-in pour qu’il ne puisse pas {{t:raise|relancer}}", why: "Vous risquez tout votre stack pour gagner un petit {{t:pot}}, contre un joueur qui {{t:fold|se couche}} rarement. C’est la façon la plus chère de {{t:bluff|bluffer}}." }
   - kind: generated
     id: m10.l2.g-vocab-strategy
     family: vocab.strategy
@@ -123,7 +123,7 @@ Une base de statistiques publique donne les statistiques moyennes des joueurs d�
 | Showdowns gagnés | {{n:mda.reg.wsd}} | {{n:mda.rec.wsd}} |
 | Winrate | {{n:mda.reg.wr}} | {{n:mda.rec.wr}} |
 
-Les {{t:recreational|joueurs récréatifs}} ont un écart {{t:vpip}} − {{t:pfr}} de {{n:mda.rec.gap.pp}} points : ils sont donc passifs. Ils vont plus souvent au showdown et le gagnent moins souvent : ils {{t:call|suivent}} avec des mains plus faibles. Ils {{t:fold|se couchent}} aussi rarement face à un 3-bet. En NL50 et NL100, les chiffres sont presque identiques.
+Les {{t:recreational|joueurs récréatifs}} ont un écart {{t:vpip}} − {{t:pfr}} de {{n:mda.rec.gap.pp}} points : ils sont donc passifs. Ils vont plus souvent au showdown et le gagnent moins souvent : ils {{t:call|suivent}} avec des mains plus faibles. De plus, ils {{t:fold|se couchent}} rarement face à un 3-bet. En NL50 et NL100, les chiffres sont presque identiques.
 
 ## Le {{t:recreational|joueur récréatif}} passif
 
@@ -134,7 +134,7 @@ La stratégie de base du module 8 ne change pas : vous misez {{t:value|pour la 
 
 ## Le {{t:nit|nit}} et le {{t:maniac|maniaque}}
 
-**Le {{t:nit|nit}}** ne joue que des mains fortes. Quand il {{t:raise|relance}} ou 3-bet, les mains du bas de la {{t:range}} avec laquelle vous {{t:call|suivez}} sont plus souvent dominées, donc vous vous {{t:fold|couchez}} avec elles plus souvent que dans la stratégie de base du module 4. Quand il est en blinde, vous volez plus souvent, car il défend rarement.
+**Le {{t:nit|nit}}** ne joue que des mains fortes. Quand il {{t:raise|relance}} ou 3-bette, les mains du bas de la {{t:range}} avec laquelle vous {{t:call|suivez}} sont plus souvent dominées, donc vous vous {{t:fold|couchez}} avec elles plus souvent que dans la stratégie de base du module 4. Quand il est en blinde, vous volez plus souvent, car il défend rarement.
 
 **Le {{t:maniac|maniaque}}** joue beaucoup de mains et en {{t:raise|relance}} presque toutes. Ses mises contiennent plus de {{t:bluff|bluffs}} que dans la stratégie de base, donc vous {{t:call|suivez}} avec les mains limites, avec des mains très fortes vous le laissez miser, et vous-même ne {{t:bluff|bluffez}} pas : il {{t:fold|se couche}} rarement.
 

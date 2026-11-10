@@ -31,7 +31,7 @@ drills:
     id: m10.exam.q4
     family: m10.types.adjust
     rules: [R-M10-007]
-    prompt: "一名{{t:nit|岩石型玩家}}（{{t:vpip}} {{n:exam.m10.nit.vpip}}、{{t:pfr}} {{n:exam.m10.nit.pfr}}、{{n:exam.m10.nit.hands}} 手）從{{t:utg|槍口位}}{{t:open|開池}}。你在按鈕位，拿著一手位於{{t:range|範圍}}底部的牌，在模組 4 的基準策略中，你會用這個範圍{{t:call|跟注}}這種{{t:open|開池}}。你怎麼做？"
+    prompt: "一名{{t:nit|岩石型玩家}}（{{t:vpip}} {{n:exam.m10.nit.vpip}}、{{t:pfr}} {{n:exam.m10.nit.pfr}}、{{n:exam.m10.nit.hands}} 手）從{{t:utg|UTG}}{{t:open|開池}}。你在按鈕位，拿著一手位於{{t:range|範圍}}底部的牌，在模組 4 的基準策略中，你會用這個範圍{{t:call|跟注}}這種{{t:open|開池}}。你怎麼做？"
     options:
       - { text: "{{t:fold|棄牌}}", correct: true, why: "玩這麼少手牌的玩家，主要用最強的牌{{t:raise|加注}}。你{{t:call|跟注}}{{t:range|範圍}}底部的牌面對他時更常被壓制，所以你要比基準策略更常{{t:fold|棄掉}}這些牌。" }
       - { text: "像基準策略一樣{{t:call|跟注}}，因為我有{{t:position|位置}}", why: "{{t:position|位置}}救不了被壓制的牌。基準策略假設的是典型的{{t:open|開池}}{{t:range|範圍}}，而這名玩家的{{t:range|範圍}}強得多。" }
@@ -40,7 +40,7 @@ drills:
     id: m10.exam.q5
     family: m10.types.adjust
     rules: [R-M10-008]
-    prompt: "對手是{{t:maniac|瘋子}}：{{t:vpip}} {{n:exam.m10.maniac.vpip}}、{{t:pfr}} {{n:exam.m10.maniac.pfr}}、{{n:exam.m10.long.hands}} 手。你在翻牌中了{{t:set|三條}}，對手{{t:bet|下注}}。你怎麼做？"
+    prompt: "對手是{{t:maniac|瘋子}}：{{t:vpip}} {{n:exam.m10.maniac.vpip}}、{{t:pfr}} {{n:exam.m10.maniac.pfr}}、{{n:exam.m10.long.hands}} 手。你在翻牌中了{{t:set|暗三條}}，對手{{t:bet|下注}}。你怎麼做？"
     options:
       - { text: "{{t:call|跟注}}，讓他繼續下注", correct: true, why: "拿著非常強的牌時，就讓{{t:maniac|瘋子}}下注：他的下注中有大量{{t:bluff|詐唬}}和弱牌，而{{t:call}}能讓這些牌留在牌局中，進入接下來的{{t:street|街}}。" }
       - { text: "立刻{{t:raise|加注}}，加越大越好", why: "{{t:raise|加注}}會讓他的{{t:bluff|詐唬}}和弱牌在投入更多之前就{{t:fold|棄牌}}。面對會主動下注的玩家，讓他自己下注，你賺得更多。" }
@@ -60,7 +60,7 @@ drills:
     rules: [R-M10-010]
     prompt: "{{n:exam.m10.long.hands}} 手後，對手的面對 c-bet 棄牌率為 {{n:exam.m10.fcb}}。你沒打中翻牌，也沒有{{t:draw|聽牌}}。哪種沒牌的 c-bet 能立即獲利？"
     options:
-      - { text: "只有小的，1/3 {{t:pot|底池}}", correct: true, why: "1/3 {{t:pot|底池}}的 c-bet 在 {{n:alpha.cbet.small}} 的{{t:fold|棄牌}}率時損益兩平，3/4 {{t:pot|底池}}則要到 {{n:alpha.cbet.big}}。{{n:exam.m10.fcb}} 只夠小的 c-bet。面對 c-bet 棄牌率混合了所有尺寸與牌桌，所以這只是近似值。" }
+      - { text: "只有小的，1/3 {{t:pot|底池}}", correct: true, why: "1/3 {{t:pot|底池}}的 c-bet 在 {{n:alpha.cbet.small}} 的{{t:fold|棄牌}}率時損益兩平，3/4 {{t:pot|底池}}則要到 {{n:alpha.cbet.big}}。{{n:exam.m10.fcb}} 只夠小的 c-bet。面對 c-bet 棄牌率混合了所有尺寸與牌面，所以這只是近似值。" }
       - { text: "兩種都可以，因為對手常{{t:fold|棄牌}}", why: "大的 c-bet 風險更高，需要超過 {{n:alpha.cbet.big}} 的{{t:fold|棄牌}}率。對手的{{t:fold|棄牌}}率是 {{n:exam.m10.fcb}}，太低了。" }
       - { text: "只有大的，因為更能逼對手{{t:fold|棄牌}}", why: "{{t:hud}}上的面對 c-bet 棄牌率，並不代表對手面對大注時更常{{t:fold|棄牌}}。在 {{n:exam.m10.fcb}} 的{{t:fold|棄牌}}率下，沒牌的大 c-bet 會虧損，因為它需要 {{n:alpha.cbet.big}}。" }
       - { text: "都不行，因為對手{{t:fold|棄牌}}不到一半", why: "門檻不是一半，而是 下注 ÷ （{{t:pot}} + 下注）。1/3 {{t:pot|底池}}的 c-bet 是 {{n:alpha.cbet.small}}，所以 {{n:exam.m10.fcb}} 就夠了。" }

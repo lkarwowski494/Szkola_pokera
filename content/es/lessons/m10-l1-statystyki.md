@@ -53,7 +53,7 @@ drills:
     id: m10.l1.q-f3b-small
     family: m10.hud.sample
     rules: [R-M10-002, R-M10-003]
-    prompt: "Tras unos cientos de manos, un rival ha tenido {{n:hud.se.f3b.n}} ocasiones de responder a un 3-bet y se ha {{t:fold|retirado}} en {{n:hud.se.f3b.p}} de ellas. ¿Qué sabes de su fold to 3-bet?"
+    prompt: "Tras unos cientos de manos, un rival ha tenido {{n:hud.se.f3b.n}} ocasiones de responder a un 3-bet y se ha {{t:fold|retirado}} en el {{n:hud.se.f3b.p}} de ellas. ¿Qué sabes de su fold to 3-bet?"
     options:
       - { text: "Casi nada: con aprox. un {{n:var.conf95}} de confianza, está entre {{n:hud.ci.f3b.low}} y {{n:hud.ci.f3b.high}}", correct: true, why: "Cuentan las ocasiones, no las manos. El error es √({{n:hud.se.f3b.p}} × {{n:hud.se.f3b.q}} ÷ {{n:hud.se.f3b.n}}) ≈ {{n:hud.se.f3b}}, y el intervalo del {{n:var.conf95}} es ± {{n:hud.ci.f3b}}. En ese intervalo cabe tanto un jugador que casi siempre defiende como uno que casi siempre se {{t:fold|retira}}." }
       - { text: "Se {{t:fold|retira}} exactamente en el {{n:hud.se.f3b.p}} de los casos, porque la muestra tiene unos cientos de manos", why: "Unos cientos de manos son solo {{n:hud.se.f3b.n}} ocasiones para esta estadística. El error se calcula a partir de las ocasiones: sale aprox. {{n:hud.se.f3b}}." }

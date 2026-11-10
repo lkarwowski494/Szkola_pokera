@@ -93,4 +93,4 @@ drills:
     options:
       - { text: "[[8d 6c 5h]]", correct: true, why: "Đúng: trên flop thấp, {{t:connected|liên kết}}, {{t:big-blind}} có nhiều tổ hợp mạnh nhất ({{t:two-pair|hai đôi}}, {{t:straight|sảnh}}) hơn Button, nên ở đây big blind check-raise thường xuyên hơn." }
       - { text: "[[Ks Qd Jh]]", why: "Flop cao với các lá gần nhau trúng tốt {{t:range}} của Button (AK, AQ, KQ, các {{t:pair|đôi}} cao). Ở đây bạn check-raise ít hơn." }
-      - { text: "[[Ah Ad Qc]]", why: "Trên flop có {{t:pair|đôi}} A, Button, người đã {{t:open|mở}} với nhiều lá A, thường có các tay mạnh nhất hơn. Ở đây bạn hiếm khi check-raise." }
+      - { text: "[[Ah Ad Qc]]", why: "Trên flop có {{t:pair|đôi}} A, Button, người đã {{t:open|mở}} với nhiều lá A, có các tay mạnh nhất thường xuyên hơn. Ở đây bạn hiếm khi check-raise." }

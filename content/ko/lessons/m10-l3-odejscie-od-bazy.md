@@ -37,46 +37,46 @@ drills:
     id: m10.l3.n-alpha-small
     family: m10.base.alpha
     rules: [R-M10-010]
-    prompt: "핸드가 전혀 없이 {{n:ex.pot}} {{t:pot|팟}}에 c-bet으로 {{n:cbet.ex.small}}를 {{t:bet|베팅}}합니다. 이 {{t:bluff}}가 본전이 되려면 상대가 얼마나 자주 {{t:fold|폴드}}해야 합니까? 퍼센트를 입력하세요."
+    prompt: "핸드가 전혀 없이 {{n:ex.pot}} {{t:pot|팟}}에 C벳으로 {{n:cbet.ex.small}}를 {{t:bet|베팅}}합니다. 이 {{t:bluff}}가 본전이 되려면 상대가 얼마나 자주 {{t:fold|폴드}}해야 합니까? 퍼센트를 입력하세요."
     answer: alpha.cbet.small
-    explanation: "기준점은 베팅 ÷ ({{t:pot}} + 베팅) = {{n:cbet.ex.small}} ÷ ({{n:ex.pot}} + {{n:cbet.ex.small}}) = {{n:alpha.cbet.small}}입니다. fold to c-bet이 이 수치보다 확실히 높은 상대는 충분히 자주 {{t:fold|폴드}}하므로, 핸드가 없어도 c-bet이 수익을 냅니다."
+    explanation: "기준점은 베팅 ÷ ({{t:pot}} + 베팅) = {{n:cbet.ex.small}} ÷ ({{n:ex.pot}} + {{n:cbet.ex.small}}) = {{n:alpha.cbet.small}}입니다. fold to c-bet이 이 수치보다 확실히 높은 상대는 충분히 자주 {{t:fold|폴드}}하므로, 핸드가 없어도 C벳이 수익을 냅니다."
   - kind: choice
     id: m10.l3.q-alpha-hud
     family: m10.base.alpha
     rules: [R-M10-010]
-    prompt: "상대의 fold to c-bet은 {{n:hud.ex.reg.hands}}핸드 기준 {{n:hud.ex.fcb.high}}입니다. {{t:dry|드라이}} 플롭에서 아무것도 맞지 않았습니다. 핸드 없이 {{t:pot|팟}}의 1/3 c-bet을 하면 수익이 납니까?"
+    prompt: "상대의 fold to c-bet은 {{n:hud.ex.reg.hands}}핸드 기준 {{n:hud.ex.fcb.high}}입니다. {{t:dry|드라이}} 플롭에서 아무것도 맞지 않았습니다. 핸드 없이 {{t:pot|팟}}의 1/3 C벳을 하면 수익이 납니까?"
     options:
-      - { text: "예: 상대가 {{n:alpha.cbet.small}}보다 자주 {{t:fold|폴드}}하므로 c-bet이 즉시 수익을 냅니다", correct: true, why: "{{t:pot|팟}}의 1/3 c-bet은 {{t:fold|폴드}} {{n:alpha.cbet.small}}에서 본전입니다. 상대는 훨씬 더 자주 {{t:fold|폴드}}하므로, 핸드의 에퀴티를 계산하기 전에 이미 c-bet이 수익을 냅니다. fold to c-bet은 모든 사이즈와 테이블을 합친 수치이므로 근사치입니다." }
-      - { text: "아니요: 핸드 없이는 베팅하지 않습니다", why: "{{t:bluff}}에 필요한 것은 핸드가 아니라 {{t:fold|폴드}}입니다. 상대가 {{n:alpha.cbet.small}}보다 자주 {{t:fold|폴드}}하면 c-bet은 어떤 핸드로도 수익을 냅니다." }
-      - { text: "큰 사이즈로만 합니다. 작은 사이즈는 핸드를 폴드시키지 못하기 때문입니다", why: "베팅이 클수록 더 많은 {{t:fold|폴드}}가 필요합니다. {{t:pot|팟}}의 3/4이면 무려 {{n:alpha.cbet.big}}입니다. 상대가 어차피 자주 {{t:fold|폴드}}한다면 작은 c-bet이 더 적은 비용으로 같은 일을 합니다." }
+      - { text: "예: 상대가 {{n:alpha.cbet.small}}보다 자주 {{t:fold|폴드}}하므로 C벳이 즉시 수익을 냅니다", correct: true, why: "{{t:pot|팟}}의 1/3 C벳은 {{t:fold|폴드}} {{n:alpha.cbet.small}}에서 본전입니다. 상대는 훨씬 더 자주 {{t:fold|폴드}}하므로, 핸드의 에퀴티를 계산하기 전에 이미 C벳이 수익을 냅니다. fold to c-bet은 모든 사이즈와 보드를 합친 수치이므로 근사치입니다." }
+      - { text: "아니요: 핸드 없이는 베팅하지 않습니다", why: "{{t:bluff}}에 필요한 것은 핸드가 아니라 {{t:fold|폴드}}입니다. 상대가 {{n:alpha.cbet.small}}보다 자주 {{t:fold|폴드}}하면 C벳은 어떤 핸드로도 수익을 냅니다." }
+      - { text: "큰 사이즈로만 합니다. 작은 사이즈는 핸드를 폴드시키지 못하기 때문입니다", why: "베팅이 클수록 더 많은 {{t:fold|폴드}}가 필요합니다. {{t:pot|팟}}의 3/4이면 무려 {{n:alpha.cbet.big}}입니다. 상대가 어차피 자주 {{t:fold|폴드}}한다면 작은 C벳이 더 적은 비용으로 같은 일을 합니다." }
   - kind: choice
     id: m10.l3.q-alpha-low
     family: m10.base.alpha
     rules: [R-M10-010, R-M10-006]
-    prompt: "상대의 fold to c-bet은 {{n:hud.ex.reg.hands}}핸드 기준 {{n:hud.ex.fcb.low}}입니다. 플롭을 맞히지 못했고 {{t:draw|드로우}}도 없습니다. {{t:pot|팟}}의 3/4 c-bet을 고려하고 있습니다. 어떻게 합니까?"
+    prompt: "상대의 fold to c-bet은 {{n:hud.ex.reg.hands}}핸드 기준 {{n:hud.ex.fcb.low}}입니다. 플롭을 맞히지 못했고 {{t:draw|드로우}}도 없습니다. {{t:pot|팟}}의 3/4 C벳을 고려하고 있습니다. 어떻게 합니까?"
     options:
-      - { text: "{{t:check|체크}}합니다: 이 상대는 큰 c-bet에 필요한 것보다 덜 자주 {{t:fold|폴드}}합니다", correct: true, why: "{{t:pot|팟}}의 3/4 c-bet은 {{t:fold|폴드}}가 {{n:alpha.cbet.big}}는 되어야 본전인데, 상대는 {{n:hud.ex.fcb.low}} 비율로 {{t:fold|폴드}}합니다. 핸드도 아웃도 없으면 이런 {{t:bluff}}는 손해입니다." }
-      - { text: "c-bet은 표준이므로 베팅합니다", why: "핸드 없는 c-bet은 상대가 충분히 자주 {{t:fold|폴드}}하거나 핸드에 에퀴티가 있을 때만 좋습니다. 여기에는 둘 다 없습니다." }
+      - { text: "{{t:check|체크}}합니다: 이 상대는 큰 C벳에 필요한 것보다 덜 자주 {{t:fold|폴드}}합니다", correct: true, why: "{{t:pot|팟}}의 3/4 C벳은 {{t:fold|폴드}}가 {{n:alpha.cbet.big}}는 되어야 본전인데, 상대는 {{n:hud.ex.fcb.low}} 비율로 {{t:fold|폴드}}합니다. 핸드도 아웃도 없으면 이런 {{t:bluff}}는 손해입니다." }
+      - { text: "C벳은 표준이므로 베팅합니다", why: "핸드 없는 C벳은 상대가 충분히 자주 {{t:fold|폴드}}하거나 핸드에 에퀴티가 있을 때만 좋습니다. 여기에는 둘 다 없습니다." }
       - { text: "{{t:fold|폴드}}를 강요하려고 올인합니다", why: "베팅이 클수록 더 많은 {{t:fold|폴드}}가 필요합니다. 드물게 {{t:fold|폴드}}하는 상대는 당신이 더 많이 {{t:bet|베팅}}했다고 더 자주 {{t:fold|폴드}}하지 않습니다." }
   - kind: choice
     id: m10.l3.q-3bet-linear
     family: m10.base.3bet
     rules: [R-M10-011]
     table: { hand: "Kh Jh", position: "BTN" }
-    prompt: "fold to 3-bet이 {{n:mda.rec.f3b}}인 {{t:recreational|레크리에이션 플레이어}}가 {{t:cutoff|컷오프}}에서 {{t:open|오픈}}합니다. 당신은 버튼에 있습니다. 기본 전략에서 KJs는 가끔 {{t:call|콜}}하고, A5s는 때때로 3-bet {{t:bluff|블러프}}가 됩니다. 이 플레이어를 상대로 어떻게 플레이합니까?"
+    prompt: "fold to 3-bet이 {{n:mda.rec.f3b}}인 {{t:recreational|레크리에이션 플레이어}}가 {{t:cutoff|컷오프}}에서 {{t:open|오픈}}합니다. 당신은 버튼에 있습니다. 기본 전략에서 KJs는 가끔 {{t:call|콜}}하고, A5s는 때때로 3벳 {{t:bluff|블러프}}가 됩니다. 이 플레이어를 상대로 어떻게 플레이합니까?"
     options:
-      - { text: "KJs는 {{t:value|밸류}}로 3-bet하고, A5s는 {{t:bluff|블러프}}로 3-bet하지 않습니다", correct: true, why: "3-bet에 드물게 {{t:fold|폴드}}하는 플레이어는 더 약한 핸드로 자주 {{t:call|콜}}하므로, 더 강한 핸드가 3-bet으로 수익을 냅니다. 3-bet {{t:bluff|블러프}}는 {{t:fold|폴드}}가 {{n:alpha.vs-3bet-ip-size}}를 넘어야 즉시 수익을 내는데, 이 플레이어는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}합니다." }
-      - { text: "A5s를 3-bet합니다. {{t:blocker|블로커}}가 있는 {{t:bluff}}는 좋은 3-bet이기 때문입니다", why: "기본 전략에서, 즉 약 절반의 경우에 {{t:fold|폴드}}하는 상대에게는 그렇습니다. 이 상대는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하므로, 이 {{t:bluff}}는 거의 항상 약한 핸드로 큰 {{t:pot|팟}}을 플레이하게 됩니다." }
-      - { text: "상대를 쫓아내지 않도록 KJs로 {{t:call|콜}}만 합니다", why: "더 약한 핸드로 3-bet에 {{t:call|콜}}하는 플레이어를 상대로는, KJs로 3-bet하면 더 좋은 핸드와 {{t:position|포지션}}을 가지고 더 큰 {{t:pot|팟}}을 만듭니다. 그냥 {{t:call}}하는 것보다 낫습니다." }
+      - { text: "KJs는 {{t:value|밸류}}로 3벳하고, A5s는 {{t:bluff|블러프}}로 3벳하지 않습니다", correct: true, why: "3벳에 드물게 {{t:fold|폴드}}하는 플레이어는 더 약한 핸드로 자주 {{t:call|콜}}하므로, 더 강한 핸드가 3벳으로 수익을 냅니다. 3벳 {{t:bluff|블러프}}는 {{t:fold|폴드}}가 {{n:alpha.vs-3bet-ip-size}}를 넘어야 즉시 수익을 내는데, 이 플레이어는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}합니다." }
+      - { text: "A5s를 3벳합니다. {{t:blocker|블로커}}가 있는 {{t:bluff}}는 좋은 3벳이기 때문입니다", why: "기본 전략에서, 즉 약 절반의 경우에 {{t:fold|폴드}}하는 상대에게는 그렇습니다. 이 상대는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하므로, 이 {{t:bluff}}는 거의 항상 약한 핸드로 큰 {{t:pot|팟}}을 플레이하게 됩니다." }
+      - { text: "상대를 쫓아내지 않도록 KJs로 {{t:call|콜}}만 합니다", why: "더 약한 핸드로 3벳에 {{t:call|콜}}하는 플레이어를 상대로는, KJs로 3벳하면 더 좋은 핸드와 {{t:position|포지션}}을 가지고 더 큰 {{t:pot|팟}}을 만듭니다. 그냥 {{t:call}}하는 것보다 낫습니다." }
   - kind: choice
     id: m10.l3.q-3bet-data
     family: m10.base.3bet
     rules: [R-M10-011]
-    prompt: "온라인 마이크로 스테이크(NL25) 모집단 데이터에 따르면 {{t:regular|레귤러}}는 3-bet에 {{n:mda.reg.f3b}}, {{t:recreational|레크리에이션 플레이어}}는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}합니다. {{n:pf.3bet.ip-total}}까지의 {{t:position|포지션}} 3-bet은 {{t:fold|폴드}}가 {{n:alpha.vs-3bet-ip-size}}를 넘으면 핸드 없이도 수익을 냅니다. 여기서 무엇을 알 수 있습니까?"
+    prompt: "온라인 마이크로 스테이크(NL25) 모집단 데이터에 따르면 {{t:regular|레귤러}}는 3벳에 {{n:mda.reg.f3b}}, {{t:recreational|레크리에이션 플레이어}}는 {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}합니다. {{n:pf.3bet.ip-total}}까지의 {{t:position|포지션}} 3벳은 {{t:fold|폴드}}가 {{n:alpha.vs-3bet-ip-size}}를 넘으면 핸드 없이도 수익을 냅니다. 여기서 무엇을 알 수 있습니까?"
     options:
-      - { text: "{{t:recreational|레크리에이션 플레이어}}에게는 {{t:bluff|블러프}} 거의 없이 3-bet하고, {{t:regular|레귤러}}에게는 {{t:bluff|블러프}}를 남기되 에퀴티가 있는 핸드로만 합니다", correct: true, why: "어느 그룹도 핸드 없는 3-bet이 수익을 낼 만큼 자주 {{t:fold|폴드}}하지 않습니다. 기본 전략의 3-bet {{t:bluff|블러프}}는 플롭 이후 에퀴티와 {{t:fold|폴드}}로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 주로 에퀴티가 남으므로 {{t:linear|리니어}} {{t:range|레인지}}로 3-bet합니다." }
-      - { text: "모두가 많이 {{t:fold|폴드}}하므로 누구에게나 아무 핸드로 3-bet합니다", why: "여기서 {{n:alpha.vs-3bet-ip-size}}보다 자주 {{t:fold|폴드}}하는 사람은 없습니다. 모든 핸드로 3-bet하면 손해를 봅니다." }
-      - { text: "{{t:recreational|레크리에이션 플레이어}}에게는 3-bet을 완전히 그만둡니다", why: "반대입니다. 더 약한 핸드로 3-bet에 {{t:call|콜}}하는 플레이어는 당신의 강한 핸드에 돈을 지불합니다. 3-bet을 포기하는 것이 아니라 3-bet의 구성을 바꿉니다." }
+      - { text: "{{t:recreational|레크리에이션 플레이어}}에게는 {{t:bluff|블러프}} 거의 없이 3벳하고, {{t:regular|레귤러}}에게는 {{t:bluff|블러프}}를 남기되 에퀴티가 있는 핸드로만 합니다", correct: true, why: "어느 그룹도 핸드 없는 3벳이 수익을 낼 만큼 자주 {{t:fold|폴드}}하지 않습니다. 기본 전략의 3벳 {{t:bluff|블러프}}는 플롭 이후 에퀴티와 {{t:fold|폴드}}로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 주로 에퀴티가 남으므로 {{t:linear|리니어}} {{t:range|레인지}}로 3벳합니다." }
+      - { text: "모두가 많이 {{t:fold|폴드}}하므로 누구에게나 아무 핸드로 3벳합니다", why: "여기서 {{n:alpha.vs-3bet-ip-size}}보다 자주 {{t:fold|폴드}}하는 사람은 없습니다. 모든 핸드로 3벳하면 손해를 봅니다." }
+      - { text: "{{t:recreational|레크리에이션 플레이어}}에게는 3벳을 완전히 그만둡니다", why: "반대입니다. 더 약한 핸드로 3벳에 {{t:call|콜}}하는 플레이어는 당신의 강한 핸드에 돈을 지불합니다. 3벳을 포기하는 것이 아니라 3벳의 구성을 바꿉니다." }
   - kind: choice
     id: m10.l3.q-sample-direction
     family: m10.base.mixed
@@ -106,20 +106,20 @@ drills:
 {{t:bluff}}는 상대가 다음보다 자주 {{t:fold|폴드}}할 때 수익을 냅니다: 베팅 ÷ (팟 + 베팅)
 ```
 
-{{t:pot|팟}}의 1/3 c-bet이면 {{n:alpha.cbet.small}}, {{t:pot|팟}}의 3/4이면 {{n:alpha.cbet.big}}입니다. {{t:hud}}의 fold to c-bet은 상대가 이 기준점보다 위에 있는지 아래에 있는지 보여 줍니다. 이것은 근사치입니다. 이 통계는 모든 사이즈와 플롭을 합친 것이고, 당신의 핸드에는 보통 에퀴티가 조금 더 있습니다. 상대의 {{t:range}}에 맞는 플롭에서는 상대가 평균보다 덜 자주 {{t:fold|폴드}}합니다.
+{{t:pot|팟}}의 1/3 C벳이면 {{n:alpha.cbet.small}}, {{t:pot|팟}}의 3/4이면 {{n:alpha.cbet.big}}입니다. {{t:hud}}의 fold to c-bet은 상대가 이 기준점보다 위에 있는지 아래에 있는지 보여 줍니다. 이것은 근사치입니다. 이 통계는 모든 사이즈와 플롭을 합친 것이고, 당신의 핸드에는 보통 에퀴티도 어느 정도 있습니다. 상대의 {{t:range}}에 맞는 플롭에서는 상대가 평균보다 덜 자주 {{t:fold|폴드}}합니다.
 
-온라인 마이크로 스테이크(NL25) 모집단의 플레이어는 플롭 c-bet에 평균 {{n:mda.all.fcb}} 비율로 {{t:fold|폴드}}합니다. 이것이 반드시 실수는 아닙니다. 솔버도 플롭에서 {{t:out-of-position}}일 때는 {{t:mdf}}가 가리키는 것보다 더 자주 {{t:fold|폴드}}합니다(모듈 6). 그래서 모집단 평균이 기준점보다 높다는 것만으로는 핸드 없는 c-bet이 정당화되지 않습니다. 특정 상대에 대한 리드나, 상대의 {{t:range}}에 맞지 않는 플롭이 필요합니다.
+온라인 마이크로 스테이크(NL25) 모집단의 플레이어는 플롭 C벳에 평균 {{n:mda.all.fcb}} 비율로 {{t:fold|폴드}}합니다. 이것이 반드시 실수는 아닙니다. 솔버도 플롭에서 {{t:out-of-position}}일 때는 {{t:mdf}}가 가리키는 것보다 더 자주 {{t:fold|폴드}}합니다(모듈 6). 그래서 모집단 평균이 기준점보다 높다는 것만으로는 핸드 없는 C벳이 정당화되지 않습니다. 특정 상대에 대한 리드나, 상대의 {{t:range}}에 맞지 않는 플롭이 필요합니다.
 
-## {{t:fold|폴드}}하지 않는 플레이어에게 하는 3-bet
+## {{t:fold|폴드}}하지 않는 플레이어에게 하는 3벳
 
-{{n:pf.3bet.ip-total}}까지의 {{t:position|포지션}} 3-bet은 상대가 {{n:alpha.vs-3bet-ip-size}}보다 자주 {{t:fold|폴드}}할 때 비로소 핸드 없이도 수익을 냅니다(모듈 4). 온라인 마이크로 스테이크(NL25) 모집단 데이터:
+{{n:pf.3bet.ip-total}}까지의 {{t:position|포지션}} 3벳은 상대가 {{n:alpha.vs-3bet-ip-size}}보다 자주 {{t:fold|폴드}}할 때 비로소 핸드 없이도 수익을 냅니다(모듈 4). 온라인 마이크로 스테이크(NL25) 모집단 데이터:
 
 | 그룹 | Fold to 3-bet |
 |---|---|
 | {{t:regular|레귤러}} | {{n:mda.reg.f3b}} |
 | {{t:recreational|레크리에이션 플레이어}} | {{n:mda.rec.f3b}} |
 
-기본 전략에서 3-bet {{t:bluff|블러프}}는 {{t:fold|폴드}}와 플롭 이후 에퀴티로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 {{t:fold|폴드}}가 거의 없는 대신, 그 플레이어는 더 약한 핸드로 {{t:call|콜}}합니다. 그래서 이 플레이어에게는 {{t:linear|리니어}} {{t:range|레인지}}로 3-bet합니다. {{t:value|밸류}}용 강한 핸드를 더 많이 넣고, {{t:bluff|블러프}}는 거의 넣지 않습니다. 두 교육 자료의 코치들은 이 경계를 fold to 3-bet 약 {{n:hud.f3b.low}}로 잡습니다.
+기본 전략에서 3벳 {{t:bluff|블러프}}는 {{t:fold|폴드}}와 플롭 이후 에퀴티로 수익을 냅니다. {{n:mda.rec.f3b}} 비율로 {{t:fold|폴드}}하는 플레이어를 상대로는 {{t:fold|폴드}}가 거의 없는 대신, 그 플레이어는 더 약한 핸드로 {{t:call|콜}}합니다. 그래서 이 플레이어에게는 {{t:linear|리니어}} {{t:range|레인지}}로 3벳합니다. {{t:value|밸류}}용 강한 핸드를 더 많이 넣고, {{t:bluff|블러프}}는 거의 넣지 않습니다. 두 교육 자료의 코치들은 이 경계를 fold to 3-bet 약 {{n:hud.f3b.low}}로 잡습니다.
 
 ## 작은 표본, 작은 이탈
 

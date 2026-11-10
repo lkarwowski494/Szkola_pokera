@@ -6,9 +6,9 @@ drills:
     rules: [R-M11-001]
     prompt: "{{t:tournament|錦標賽}}。你有 {{n:exam.m11.mid.stack}}，前面所有人都已{{t:fold|棄牌}}。你的牌屬於中等：好到不該放棄，卻又弱到不適合在翻牌後繼續打。資料來源建議怎麼打？"
     options:
-      - { text: "全下或{{t:fold}}", correct: true, why: "在 {{n:m11.thr.pushfold}} 到 {{n:m11.thr.upper}} 之間，push/fold 是較弱和中等牌的主要打法。以這種籌碼量全下，最能逼出對手{{t:fold|棄牌}}。這是簡化的說法：solver 對部分牌也會採用其他打法。" }
+      - { text: "全下或{{t:fold}}", correct: true, why: "在 {{n:m11.thr.pushfold}} 到 {{n:m11.thr.upper}} 之間，push/fold 是較弱和中等牌的主要打法。以這種籌碼量全下，最能逼出對手{{t:fold|棄牌}}。這是簡化的說法：求解器對部分牌也會採用其他打法。" }
       - { text: "最小加注，對手全下就{{t:fold}}", why: "在 {{n:exam.m11.mid.stack}} 時，加注後面對{{t:raise|加注}}再{{t:fold}}，等於不戰而交出一大部分籌碼。資料來源建議約從 {{n:m11.thr.raise}} 起再採用一般加注。" }
-      - { text: "平跟（limp），便宜看翻牌", why: "平跟無法讓你立刻贏下{{t:pot|底池}}，而拿著{{t:short-stack|短籌碼}}時，對手的{{t:fold|棄牌}}正是主要的獲利來源。" }
+      - { text: "溜入，便宜看翻牌", why: "溜入無法讓你立刻贏下{{t:pot|底池}}，而拿著{{t:short-stack|短籌碼}}時，對手的{{t:fold|棄牌}}正是主要的獲利來源。" }
   - kind: numeric
     id: m11.exam.q2
     family: m11.m
@@ -45,16 +45,16 @@ drills:
     id: m11.exam.q6
     family: m11.call.gap
     rules: [R-M11-007]
-    prompt: "雙方籌碼各 {{n:m11.depth.5}}，{{t:small-blind}}全下，你在{{t:big-blind|大盲}}。朋友建議：「凡是你自己在{{t:small-blind|小盲}}會{{t:shove|推}}全下的牌，都拿來{{t:call|跟注}}。」solver 怎麼說？"
+    prompt: "雙方籌碼各 {{n:m11.depth.5}}，{{t:small-blind}}全下，你在{{t:big-blind|大盲}}。朋友建議：「凡是你自己在{{t:small-blind|小盲}}會{{t:shove|推}}全下的牌，都拿來{{t:call|跟注}}。」求解器怎麼說？"
     options:
-      - { text: "你的{{t:call|跟注}}範圍較窄：約 {{n:m11.call.5}} 的牌，全下則約 {{n:m11.nash.push.5}}–{{n:m11.push.5}}", correct: true, why: "{{t:call|跟注者}}只能在攤牌時獲勝，而且面對的是已經篩選過的{{t:range|範圍}}。{{t:shove|推全下的人}}在對手{{t:fold|棄牌}}時也能贏。即使籌碼這麼短、價格也好，{{t:call|跟注}}的{{t:range}}仍然較窄。" }
-      - { text: "朋友說得對：{{n:m11.depth.5}} 時兩個{{t:range|範圍}}一樣", why: "{{t:short-stack|短籌碼}}會讓兩個{{t:range|範圍}}都變寬，但不會讓它們相同：全下有棄牌權益，{{t:call}}則沒有。solver 約用 {{n:m11.call.5}} 的牌{{t:call|跟注}}，而約{{t:shove|推}} {{n:m11.nash.push.5}}–{{n:m11.push.5}}（下限來自獨立的均衡計算，上限來自本 App 的 solver）。" }
-      - { text: "你的{{t:call|跟注}}範圍較寬，因為價格很好", why: "{{n:m11.depth.5}} 時的價格確實不錯（{{n:m11.call.5.eq}}），但你面對的是全下的{{t:range|範圍}}，而不是隨機一手牌。solver {{t:call|跟注}}的範圍比{{t:shove|推}}的範圍窄。" }
+      - { text: "你的{{t:call|跟注}}範圍較窄：約 {{n:m11.call.5}} 的牌，全下則約 {{n:m11.nash.push.5}}–{{n:m11.push.5}}", correct: true, why: "{{t:call|跟注者}}只能在攤牌時獲勝，而且面對的是已經篩選過的{{t:range|範圍}}。{{t:shove|推全下的人}}在對手{{t:fold|棄牌}}時也能贏。即使拿著這樣的{{t:short-stack|短籌碼}}、價格也好，{{t:call|跟注}}的{{t:range}}仍然較窄。" }
+      - { text: "朋友說得對：{{n:m11.depth.5}} 時兩個{{t:range|範圍}}一樣", why: "{{t:short-stack|短籌碼}}會讓兩個{{t:range|範圍}}都變寬，但不會讓它們相同：全下有棄牌權益，{{t:call}}則沒有。求解器約用 {{n:m11.call.5}} 的牌{{t:call|跟注}}，而約{{t:shove|推}} {{n:m11.nash.push.5}}–{{n:m11.push.5}}（下限來自獨立的均衡計算，上限來自本 App 的求解器）。" }
+      - { text: "你的{{t:call|跟注}}範圍較寬，因為價格很好", why: "{{n:m11.depth.5}} 時的價格確實不錯（{{n:m11.call.5.eq}}），但你面對的是全下的{{t:range|範圍}}，而不是隨機一手牌。求解器{{t:call|跟注}}的範圍比{{t:shove|推}}的範圍窄。" }
   - kind: numeric
     id: m11.exam.q7
     family: m11.bf
     rules: [R-M11-009, R-M11-008]
-    prompt: "{{t:bubble|泡沫}}：四名玩家，前三名有獎（分別為{{t:prize-pool|獎池}}的 {{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。籌碼量：{{n:exam.m11.bf.s1}}、你的 {{n:exam.m11.bf.s2}}、全下的對手 {{n:exam.m11.bf.s3}}，以及 {{n:exam.m11.bf.s4}}。依 {{t:icm}}，你{{t:call|跟注}}後若輸會損失{{t:prize-pool|獎池}}的 {{n:exam.m11.bf.loss}}，若贏則增加 {{n:exam.m11.bf.gain}}。泡沫因子是多少？請輸入保留兩位小數的數字。"
+    prompt: "{{t:bubble|泡沫}}：四名玩家，前三名有獎（分別為{{t:prize-pool|獎金池}}的 {{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。籌碼量：{{n:exam.m11.bf.s1}}、你的 {{n:exam.m11.bf.s2}}、全下的對手 {{n:exam.m11.bf.s3}}，以及 {{n:exam.m11.bf.s4}}。依 {{t:icm}}，你{{t:call|跟注}}後若輸會損失{{t:prize-pool|獎金池}}的 {{n:exam.m11.bf.loss}}，若贏則增加 {{n:exam.m11.bf.gain}}。泡沫因子是多少？請輸入保留兩位小數的數字。"
     answer: exam.m11.bf.value
     explanation: "泡沫因子 = 損失 ÷ 收益 = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}。你現在的權益是 {{n:exam.m11.bf.eq.now}}，贏了變成 {{n:exam.m11.bf.eq.win}}，輸了變成 {{n:exam.m11.bf.eq.lose}}：輸掉的代價大於贏得的增加。{{t:icm}} 不考慮{{t:position|位置}}或玩家技術，所以這個估值只是近似值。"
   - kind: choice
@@ -65,7 +65,7 @@ drills:
     options:
       - { text: "約 {{n:exam.m11.bf.req}}", correct: true, why: "所需權益 = BF ÷（BF + 1）= 損失 ÷（損失 + 收益）= {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}。與 {{n:exam.m11.bf.req-chips}} 的差距就是{{t:risk-premium|風險溢價}}。" }
       - { text: "{{n:exam.m11.bf.req-chips}}，和用{{t:chips|籌碼}}計算時一樣", why: "在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中，輸掉的錢比贏到的多，所以{{t:call}}必須更常獲勝：約 {{n:exam.m11.bf.req}}。" }
-      - { text: "少於 {{n:exam.m11.bf.req-chips}}，因為{{t:bubble|泡沫}}會逼對手{{t:bluff|詐唬}}", why: "泡沫因子大於 1，所需權益一定會高於以{{t:chips|籌碼}}計算的價格。這裡提高到約 {{n:exam.m11.bf.req}}。" }
+      - { text: "少於 {{n:exam.m11.bf.req-chips}}，因為{{t:bubble|泡沫}}會逼對手{{t:bluff|詐唬}}", why: "泡沫因子大於 1 時，所需權益一定會高於以{{t:chips|籌碼}}計算的價格。這裡提高到約 {{n:exam.m11.bf.req}}。" }
   - kind: choice
     id: m11.exam.q9
     family: m11.icm.call

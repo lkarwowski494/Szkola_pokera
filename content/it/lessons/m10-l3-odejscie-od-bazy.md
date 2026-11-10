@@ -19,7 +19,7 @@ drills:
     id: m10.l3.q-small-shift
     family: m10.base.mixed
     rules: [R-M10-009]
-    prompt: "In un esempio pubblicato di solver, l'avversario al river {{t:bluff|bluffa}} con circa {{n:overbluff.lock}} delle puntate invece di circa {{n:overbluff.base}}. Come cambia la tua risposta alla sua puntata con le mani che catturano i {{t:bluff|bluff}}?"
+    prompt: "In un esempio pubblicato di solver, l'avversario al river {{t:bluff|bluffa}} con circa il {{n:overbluff.lock}} delle puntate invece di circa il {{n:overbluff.base}}. Come cambia la tua risposta alla sua puntata con le mani che catturano i {{t:bluff|bluff}}?"
     options:
       - { text: "Smetti di {{t:fold|foldare}}: le mani che nella base mischiavano ora {{t:call|chiamano}} sempre", correct: true, why: "Tanto è bastato perché, nella soluzione con la strategia dell'avversario bloccata, la difesa passasse alla sola {{t:call|chiamata}}. Le mani indifferenti reagiscono al minimo eccesso di {{t:bluff|bluff}}." }
       - { text: "Quasi niente: pochi punti sono troppo pochi per cambiare qualcosa", why: "Per le mani indifferenti pochi punti sono tanti: in equilibrio {{t:call|chiamata}} e {{t:fold|fold}} danno loro lo stesso risultato, quindi ogni eccesso di {{t:bluff|bluff}} fa pendere la bilancia verso la {{t:call|chiamata}}." }
@@ -44,7 +44,7 @@ drills:
     id: m10.l3.q-alpha-hud
     family: m10.base.alpha
     rules: [R-M10-010]
-    prompt: "L'avversario ha un fold to c-bet del {{n:hud.ex.fcb.high}} su {{n:hud.ex.reg.hands}} mani. Su un flop {{t:dry|asciutto}} non hai preso niente. Conviene una c-bet da 1/3 di {{t:pot|piatto}} senza mano?"
+    prompt: "L'avversario ha un fold to c-bet del {{n:hud.ex.fcb.high}} su {{n:hud.ex.reg.hands}} mani. Su un flop {{t:dry|secco}} non hai preso niente. Conviene una c-bet da 1/3 di {{t:pot|piatto}} senza mano?"
     options:
       - { text: "Sì: l'avversario {{t:fold|folda}} più spesso del {{n:alpha.cbet.small}}, quindi la c-bet guadagna subito", correct: true, why: "Una c-bet da 1/3 di {{t:pot|piatto}} va in pari con il {{n:alpha.cbet.small}} di {{t:fold|fold}}. L'avversario {{t:fold|folda}} molto più spesso, quindi la c-bet guadagna prima ancora che tu conti l'equity della tua mano. Il fold to c-bet unisce tutte le dimensioni e tutti i tavoli, quindi è un'approssimazione." }
       - { text: "No: senza mano non punti", why: "Il {{t:bluff|bluff}} non ha bisogno di una mano, ha bisogno di {{t:fold|fold}}. Quando l'avversario {{t:fold|folda}} più spesso del {{n:alpha.cbet.small}}, la c-bet guadagna con qualsiasi mano." }
@@ -84,7 +84,7 @@ drills:
     prompt: "Dopo {{n:hud.ex.mid.hands}} mani l'avversario sembra loose e passivo, ma il campione è piccolo. Quanto ti allontani dalla base?"
     options:
       - { text: "Un po', nella direzione della lettura e solo con le mani al limite", correct: true, why: "La direzione si vede già in un campione piccolo, ma i numeri hanno un errore grande. Le mani al limite della decisione le sposti verso la lettura, e il resto lo giochi come nella base finché il campione non cresce." }
-      - { text: "Fino in fondo: gioco subito contro di lui con il massimo {{t:exploit|sfruttamento}}", why: "Con un campione piccolo la lettura può essere sbagliata. Una grande deviazione dalla base è essa stessa sfruttabile: la base è la strategia meno vulnerabile allo sfruttamento." }
+      - { text: "Fino in fondo: gioco subito contro di lui con il massimo {{t:exploit|exploit}}", why: "Con un campione piccolo la lettura può essere sbagliata. Una grande deviazione dalla base è essa stessa sfruttabile: la base è la strategia meno vulnerabile allo sfruttamento." }
       - { text: "Per niente, finché non avrò mille mani", why: "Troppo prudente. La direzione della lettura dopo {{n:hud.ex.mid.hands}} mani significa già qualcosa, e puoi spostare le mani al limite a basso costo." }
 ---
 {{t:exploit|Lo sfruttamento}} non sostituisce la base, la sposta. Prima sai come si gioca in equilibrio (moduli 3–9), poi dai dati vedi in quale direzione l'avversario se ne allontana, e sposti il tuo gioco nella stessa direzione. La domanda è: con quali mani e di quanto.
@@ -96,7 +96,7 @@ In equilibrio alcune mani giocano due azioni, ad esempio a volte {{t:call|chiama
 - l'avversario {{t:bluff|bluffa}} troppo spesso: le {{t:mixed-hand|mani miste}} {{t:call|chiamano}} sempre;
 - l'avversario {{t:bluff|bluffa}} troppo raramente: le {{t:mixed-hand|mani miste}} {{t:fold|foldano}} sempre.
 
-Basta poco. In un esempio pubblicato di solver (il Button punta al river dopo la linea bet, {{t:check|check}}, bet), portare i {{t:bluff|bluff}} dell'avversario da circa {{n:overbluff.base}} a circa {{n:overbluff.lock}} ha spostato la difesa del {{t:big-blind|big blind}} sulla sola {{t:call|chiamata}}. Le mani che nella base {{t:fold|foldano}} sempre o proseguono sempre cambiano decisione solo quando l'avversario si allontana molto dall'equilibrio.
+Basta poco. In un esempio pubblicato di solver (il Button punta al river dopo la linea bet, {{t:check|check}}, bet), portare i {{t:bluff|bluff}} dell'avversario da circa il {{n:overbluff.base}} a circa il {{n:overbluff.lock}} ha spostato la difesa del {{t:big-blind|big blind}} sulla sola {{t:call|chiamata}}. Le mani che nella base {{t:fold|foldano}} sempre o proseguono sempre cambiano decisione solo quando l'avversario si allontana molto dall'equilibrio.
 
 ## Il {{t:bluff|bluff}} calcolato con una soglia
 
@@ -119,12 +119,12 @@ Un 3-bet in {{t:position|posizione}} a {{n:pf.3bet.ip-total}} guadagna senza alc
 | {{t:regular|Regular}} | {{n:mda.reg.f3b}} |
 | {{t:recreational|Giocatori ricreativi}} | {{n:mda.rec.f3b}} |
 
-Nella base i 3-bet di {{t:bluff|bluff}} vivono dei {{t:fold|fold}} e dell'equity postflop. Contro un giocatore che {{t:fold|folda}} nel {{n:mda.rec.f3b}} dei casi, i {{t:fold|fold}} quasi non ci sono, in compenso lui {{t:call|chiama}} con mani più deboli. Per questo contro di lui fai 3-bet con un {{t:range|range}} {{t:linear|lineare}}: più mani forti {{t:value|per valore}}, quasi nessun {{t:bluff|bluff}}. In due materiali formativi gli allenatori fissano questo limite a un fold to 3-bet di circa {{n:hud.f3b.low}}.
+Nella base i 3-bet di {{t:bluff|bluff}} vivono dei {{t:fold|fold}} e dell'equity postflop. Contro un giocatore che {{t:fold|folda}} nel {{n:mda.rec.f3b}} dei casi, i {{t:fold|fold}} quasi non ci sono, in compenso lui {{t:call|chiama}} con mani più deboli. Per questo contro di lui fai 3-bet con un {{t:range|range}} {{t:linear|lineare}}: più mani forti {{t:value|per valore}}, quasi nessun {{t:bluff|bluff}}. In due materiali formativi gli allenatori fissano questo limite a un fold to 3-bet di circa il {{n:hud.f3b.low}}.
 
 ## Campione piccolo, deviazione piccola
 
 Più piccolo è il campione, più grande è l'errore della statistica (lezione 1). Con un campione piccolo sposti solo le mani al limite e solo nella direzione della lettura. Una deviazione grande, con tutto il {{t:range|range}}, ha senso solo con un campione grande e un errore evidente dell'avversario. Deviare dalla base è di per sé un errore che un buon avversario può sfruttare.
 
 :::note Fonti
-Il principio delle {{t:mixed-hand|mani miste}} viene da un'analisi di solver pubblicata con la strategia dell'avversario bloccata (una soluzione del solver, non dati sulla popolazione). Le soglie di {{t:alpha|alpha}} sono un calcolo. Il fold to 3-bet e il fold to c-bet della popolazione vengono da un database pubblico di statistiche (una grande room online, NL25–NL100, {{n:mda.period.months}} mesi prima di ottobre 2026). Il limite di fold to 3-bet e il principio «campione piccolo, deviazione piccola» sono raccomandazioni di due materiali formativi.
+Il principio delle {{t:mixed-hand|mani miste}} viene da un'analisi di solver pubblicata con la strategia dell'avversario bloccata (una soluzione del solver, non dati sulla popolazione). Le soglie di {{t:alpha|alpha}} sono un calcolo. Il fold to 3-bet e il fold to c-bet della popolazione vengono da un database pubblico di statistiche (una grande sala online, NL25–NL100, {{n:mda.period.months}} mesi prima di ottobre 2026). Il limite di fold to 3-bet e il principio «campione piccolo, deviazione piccola» sono raccomandazioni di due materiali formativi.
 :::

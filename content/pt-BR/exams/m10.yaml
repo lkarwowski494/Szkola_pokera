@@ -77,6 +77,6 @@ drills:
     id: m10.exam.q9
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "Há {{n:ex.pot}} no {{t:pot|pote}}, e o adversário {{t:bet|aposta}} o {{t:pot|pote}} inteiro: {{n:ex.bet.pot}}. A sala cobra {{n:rake.ex.pct}} do {{t:pot|pote}}, e o {{t:rake-cap|limite}} está fora de alcance. Quanta equity você precisa para {{t:call|pagar}}? Digite uma porcentagem."
+    prompt: "Há {{n:ex.pot}} no {{t:pot|pote}}, e o adversário {{t:bet|aposta}} o {{t:pot|pote}} inteiro: {{n:ex.bet.pot}}. A sala cobra {{n:rake.ex.pct}} do {{t:pot|pote}}, e o {{t:rake-cap|teto}} está fora de alcance. Quanta equity você precisa para {{t:call|pagar}}? Digite uma porcentagem."
     answer: exam.m10.rake.eq
     explanation: "O {{t:pot|pote}} depois do {{t:call|pagamento}} é {{n:exam.m10.rake.total}} e, descontado o {{t:rake|rake}}, {{n:exam.m10.rake.after}}. Você coloca {{n:ex.bet.pot}}: {{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}} em vez de {{n:eq.bet-pot}} sem {{t:rake|rake}}."

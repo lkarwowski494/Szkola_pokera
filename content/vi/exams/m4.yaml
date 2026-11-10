@@ -6,52 +6,52 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "{{t:cutoff|CO}} {{t:open|mở cược}} {{n:pf.open-size}}, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|mù nhỏ}} và muốn 3-bet. Lên bao nhiêu?"
+    prompt: "{{t:cutoff|CO}} {{t:open|mở cược}} {{n:pf.open-size}}, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|small blind}} và muốn 3-bet. Lên bao nhiêu?"
     table: { hand: "Ad Kd", position: SB }
     options:
-      - { text: "Lên {{n:pf.3bet.oop-total}}", correct: true, why: "Sau flop bạn sẽ hành động trước, nên bạn {{t:raise|tố}} khoảng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}}. Mức lớn hơn khiến {{t:cutoff|CO}} không thể {{t:call}} rẻ {{t:in-position}}." }
-      - { text: "Lên {{n:pf.3bet.ip-total}}", sizeError: true, why: "Hành động đúng, nhưng đó là mức dành cho người chơi {{t:in-position}} ({{n:pf.3bet.size-ip}} mức {{t:open|mở cược}}). Từ {{t:small-blind|mù nhỏ}}, bạn {{t:raise|tố}} lên {{n:pf.3bet.oop-total}}." }
-      - { text: "Chỉ {{t:call|theo}}", why: "Từ {{t:small-blind|mù nhỏ}} trước {{t:cutoff|CO}}, bạn gần như không {{t:call|theo}}: bạn sẽ chơi {{t:out-of-position}}, còn {{t:big-blind}} phía sau vẫn có thể {{t:raise|tố}}." }
+      - { text: "Lên {{n:pf.3bet.oop-total}}", correct: true, why: "Sau flop bạn sẽ hành động trước, nên bạn {{t:raise|tố}} khoảng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}}. Mức lớn hơn khiến {{t:cutoff|CO}} không thể {{t:call}} rẻ khi {{t:in-position}}." }
+      - { text: "Lên {{n:pf.3bet.ip-total}}", sizeError: true, why: "Hành động đúng, nhưng đó là mức dành cho người chơi {{t:in-position}} ({{n:pf.3bet.size-ip}} mức {{t:open|mở cược}}). Từ {{t:small-blind|small blind}}, bạn {{t:raise|tố}} lên {{n:pf.3bet.oop-total}}." }
+      - { text: "Chỉ {{t:call|theo}}", why: "Từ {{t:small-blind|small blind}} trước {{t:cutoff|CO}}, bạn gần như không {{t:call|theo}}: bạn sẽ chơi {{t:out-of-position}}, còn {{t:big-blind}} phía sau vẫn có thể {{t:raise|tố}}." }
   - kind: choice
     id: m4.exam.q2
     family: m4.sb.vs-open
     rules: [R-M4-003]
-    prompt: "Button {{t:open|mở cược}} {{n:pf.open-size}}. Bạn ở {{t:small-blind|mù nhỏ}}. Bạn làm gì?"
+    prompt: "Button {{t:open|mở cược}} {{n:pf.open-size}}. Bạn ở {{t:small-blind|small blind}}. Bạn làm gì?"
     table: { hand: "8c 8d", position: SB }
     options:
-      - { text: "3-bet", correct: true, why: "Trước Button, từ {{t:small-blind|mù nhỏ}} bạn 3-bet phần trên của {{t:range|dải bài}}, khoảng {{n:pf.3bet-freq.sb-vs-btn}} số tay bài, và các {{t:pair|đôi}} từ 77 trở lên thuộc phần này." }
-      - { text: "{{t:call|Theo}}", why: "Từ {{t:small-blind|mù nhỏ}} trước Button, bạn gần như không {{t:call|theo}}: bạn sẽ chơi {{t:out-of-position}} với {{t:big-blind|mù lớn}} phía sau. 3-bet mang lại cho bạn {{t:initiative|thế chủ động}} và cơ hội thắng ngay." }
-      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: 88 nằm ở phần trên của {{t:range|dải bài}} mà bạn dùng để 3-bet trước lượt {{t:open|mở cược}} rộng của Button." }
+      - { text: "3-bet", correct: true, why: "Trước Button, từ {{t:small-blind|small blind}} bạn 3-bet phần trên của {{t:range|range}}, khoảng {{n:pf.3bet-freq.sb-vs-btn}} số tay bài, và các {{t:pair|đôi}} từ 77 trở lên thuộc phần này." }
+      - { text: "{{t:call|Theo}}", why: "Từ {{t:small-blind|small blind}} trước Button, bạn gần như không {{t:call|theo}}: bạn sẽ chơi {{t:out-of-position}} với {{t:big-blind|big blind}} phía sau. 3-bet mang lại cho bạn {{t:initiative|thế chủ động}} và cơ hội thắng ngay." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: 88 nằm ở phần trên của {{t:range|range}} mà bạn dùng để 3-bet trước lượt {{t:open|mở cược}} rộng của Button." }
   - kind: choice
     id: m4.exam.q3
     family: m4.3bet.shape
     rules: [R-M4-006]
-    prompt: "Bạn ở {{t:big-blind|mù lớn}}, Button {{t:open|mở cược}}, {{t:small-blind}} {{t:fold|bỏ bài}}. Tay nào sau đây là một 3-bet {{t:value|lấy giá trị}} điển hình?"
+    prompt: "Bạn ở {{t:big-blind|big blind}}, Button {{t:open|mở cược}}, {{t:small-blind}} {{t:fold|bỏ bài}}. Tay nào sau đây là một 3-bet {{t:value|lấy giá trị}} điển hình?"
     table: { position: BB }
     options:
-      - { text: "JJ", correct: true, why: "Từ {{t:big-blind|mù lớn}}, bạn 3-bet các tay mạnh nhất (TT+, AQ+, AJs+). JJ muốn một {{t:pot|pot}} lớn." }
-      - { text: "A9 khác chất", why: "Các tay A khác chất (AJo–A9o) ở {{t:big-blind|mù lớn}} bạn thường chỉ {{t:call|theo}}: bạn vào rẻ và khép lại hành động." }
-      - { text: "66", why: "Các {{t:pair|đôi}} trung bình và nhỏ ở {{t:big-blind|mù lớn}} bạn thường {{t:call|theo}}. Chúng kiếm lời sau flop, còn 3-bet với chúng thì đối phó kém với 4-bet." }
+      - { text: "JJ", correct: true, why: "Từ {{t:big-blind|big blind}}, bạn 3-bet các tay mạnh nhất (TT+, AQ+, AJs+). JJ muốn một {{t:pot|pot}} lớn." }
+      - { text: "A9 khác chất", why: "Các tay A khác chất (AJo–A9o) ở {{t:big-blind|big blind}} bạn thường chỉ {{t:call|theo}}: bạn vào rẻ và khép lại hành động." }
+      - { text: "66", why: "Các {{t:pair|đôi}} trung bình và nhỏ ở {{t:big-blind|big blind}} bạn thường {{t:call|theo}}. Chúng kiếm lời sau flop, còn 3-bet với chúng thì đối phó kém với 4-bet." }
   - kind: choice
     id: m4.exam.q4
     family: m4.bb.price
     rules: [R-M4-004]
-    prompt: "{{t:cutoff|CO}} {{t:open|mở cược}} {{n:pf.open-size}}, Button và {{t:small-blind}} {{t:fold|bỏ bài}}. Ở {{t:big-blind|mù lớn}}, bạn cần bao nhiêu equity để {{t:call|theo}} (không tính lối chơi sau flop)?"
+    prompt: "{{t:cutoff|CO}} {{t:open|mở cược}} {{n:pf.open-size}}, Button và {{t:small-blind}} {{t:fold|bỏ bài}}. Ở {{t:big-blind|big blind}}, bạn cần bao nhiêu equity để {{t:call|theo}} (không tính lối chơi sau flop)?"
     table: { position: BB }
     options:
       - { text: "Khoảng {{n:eq.bb-vs-btn-open}}", correct: true, why: "Giá phụ thuộc vào số tiền, không phụ thuộc vào ai {{t:open|mở cược}}. Bạn bỏ thêm {{n:bb.call.vs-btn}} vào {{t:pot|pot}} mà sau khi bạn {{t:call|theo}} sẽ có {{n:bb.pot-after.vs-btn}}, giống hệt như trước Button." }
       - { text: "Khoảng một nửa", why: "Bạn sẽ cần một nửa nếu trong {{t:pot|pot}} chỉ có {{t:bet}} của đối thủ. Các blind trong {{t:pot|pot}} giúp giá của bạn tốt hơn." }
-      - { text: "Khoảng {{n:eq.bb-vs-sb-open}}", why: "Đó là giá trước lượt {{t:open|mở cược}} {{n:pf.open-size-sb}} của {{t:small-blind|mù nhỏ}}. Ở đây {{t:open}} nhỏ hơn." }
+      - { text: "Khoảng {{n:eq.bb-vs-sb-open}}", why: "Đó là giá trước lượt {{t:open|mở cược}} {{n:pf.open-size-sb}} của {{t:small-blind|small blind}}. Ở đây {{t:open}} nhỏ hơn." }
   - kind: choice
     id: m4.exam.q5
     family: m4.bb.3bet-size
     rules: [R-M4-014]
-    prompt: "{{t:small-blind|Mù nhỏ}} {{t:open|mở cược}} {{n:pf.open-size-sb}}. Bạn có AA ở {{t:big-blind|mù lớn}} và 3-bet. Lên bao nhiêu?"
+    prompt: "{{t:small-blind|Small blind}} {{t:open|mở cược}} {{n:pf.open-size-sb}}. Bạn có AA ở {{t:big-blind|big blind}} và 3-bet. Lên bao nhiêu?"
     table: { hand: "Ah Ad", position: BB }
     options:
-      - { text: "Lên {{n:exam.m4.bb-vs-sb.3bet}}", correct: true, why: "Trước {{t:small-blind|mù nhỏ}}, sau flop bạn có {{t:position|vị trí}}, nên 3-bet khoảng {{n:pf.3bet.size-ip}} mức {{t:open|mở cược}}, và với mức {{t:open|mở cược}} {{n:pf.open-size-sb}} thì đó là {{n:exam.m4.bb-vs-sb.3bet}}." }
-      - { text: "Lên {{n:exam.m4.bb-vs-sb.3bet-oop-size}}", sizeError: true, why: "Hành động đúng, nhưng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}} là mức dành cho người chơi {{t:out-of-position}}. Trước {{t:small-blind|mù nhỏ}}, {{t:big-blind}} có {{t:position|vị trí}}, nên {{t:raise|tố}} ít hơn." }
-      - { text: "Lên {{n:pf.3bet.ip-total}}", sizeError: true, why: "Hành động đúng, nhưng {{n:pf.3bet.ip-total}} là 3-bet trước {{t:open}} {{n:pf.open-size}}. {{t:small-blind|Mù nhỏ}} {{t:open|mở cược}} {{n:pf.open-size-sb}}, nên {{n:pf.3bet.size-ip}} mức {{t:open|mở cược}} là {{n:exam.m4.bb-vs-sb.3bet}}." }
+      - { text: "Lên {{n:exam.m4.bb-vs-sb.3bet}}", correct: true, why: "Trước {{t:small-blind|small blind}}, sau flop bạn có {{t:position|vị trí}}, nên 3-bet khoảng {{n:pf.3bet.size-ip}} mức {{t:open|mở cược}}, và với mức {{t:open|mở cược}} {{n:pf.open-size-sb}} thì đó là {{n:exam.m4.bb-vs-sb.3bet}}." }
+      - { text: "Lên {{n:exam.m4.bb-vs-sb.3bet-oop-size}}", sizeError: true, why: "Hành động đúng, nhưng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}} là mức dành cho người chơi {{t:out-of-position}}. Trước {{t:small-blind|small blind}}, {{t:big-blind}} có {{t:position|vị trí}}, nên {{t:raise|tố}} ít hơn." }
+      - { text: "Lên {{n:pf.3bet.ip-total}}", sizeError: true, why: "Hành động đúng, nhưng {{n:pf.3bet.ip-total}} là 3-bet trước {{t:open}} {{n:pf.open-size}}. {{t:small-blind|Small blind}} {{t:open|mở cược}} {{n:pf.open-size-sb}}, nên {{n:pf.3bet.size-ip}} mức {{t:open|mở cược}} là {{n:exam.m4.bb-vs-sb.3bet}}." }
   - kind: choice
     id: m4.exam.q6
     family: m4.vs3bet.math
@@ -60,7 +60,7 @@ drills:
     options:
       - { text: "Khoảng {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "Các lời giải solver và bảng tra {{t:fold|bỏ bài}} với tần suất xấp xỉ như vậy; giới hạn trên nằm ngay dưới ngưỡng {{n:alpha.vs-3bet-ip-size}}: nếu bỏ bài thường hơn, 3-bet của đối thủ sẽ có lời với mọi tay bài." }
       - { text: "Gần như tất cả, trừ AA và KK", why: "Khi đó đối thủ có lời khi 3-bet với bất kỳ hai lá nào, vì bạn {{t:fold|bỏ bài}} thường hơn nhiều so với {{n:alpha.vs-3bet-ip-size}}." }
-      - { text: "Dưới một phần tư", why: "Quá ít lần {{t:fold|bỏ bài}}: bạn sẽ trả tiền cho các 3-bet bằng những tay thua {{t:range|dải bài}} của đối thủ và chơi kém sau flop." }
+      - { text: "Dưới một phần tư", why: "Quá ít lần {{t:fold|bỏ bài}}: bạn sẽ trả tiền cho các 3-bet bằng những tay thua {{t:range|range}} của đối thủ và chơi kém sau flop." }
   - kind: choice
     id: m4.exam.q7
     family: m4.vs3bet.oop
@@ -79,7 +79,7 @@ drills:
     table: { hand: "9s 9h", position: BTN }
     options:
       - { text: "{{t:call|Theo}}", correct: true, why: "{{t:in-position|Khi có vị trí}}, bạn {{t:call|theo}} rộng hơn, trong đó có các {{t:pair|đôi}} từ 66 đến TT. 99 chơi tốt sau flop và dễ {{t:equity-realization|hiện thực hóa equity}}." }
-      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: bạn {{t:fold|bỏ}} các {{t:pair|đôi}} thấp nhất, còn 99 nằm trong {{t:range|dải bài}} {{t:call|theo}} khi {{t:in-position}}." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt: bạn {{t:fold|bỏ}} các {{t:pair|đôi}} thấp nhất, còn 99 nằm trong {{t:range|range}} {{t:call|theo}} khi {{t:in-position}}." }
       - { text: "4-bet {{t:value|lấy giá trị}}", why: "Để 4-bet {{t:value|lấy giá trị}}, bạn thường chơi AA, KK và AK. 99 muốn xem flop hơn." }
   - kind: choice
     id: m4.exam.q9
@@ -95,7 +95,7 @@ drills:
     id: m4.exam.n1
     family: m4.iso.size
     rules: [R-M4-012]
-    prompt: "Hai người chơi limp, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|mù nhỏ}} và muốn {{t:isolation|cô lập}}. Bạn {{t:raise|tố}} lên bao nhiêu bb? Hãy nhập một số."
+    prompt: "Hai người chơi limp, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|small blind}} và muốn {{t:isolation|cô lập}}. Bạn {{t:raise|tố}} lên bao nhiêu bb? Hãy nhập một số."
     table: { hand: "Qs Qc", position: SB }
     answer: exam.m4.iso.two-oop
     explanation: "Mức cơ bản {{n:pf.iso.base}}, cộng {{n:pf.iso.per-limper}} cho mỗi người trong hai người limp, cộng {{n:pf.iso.oop-extra}} vì sau flop bạn hành động trước: tổng cộng {{n:exam.m4.iso.two-oop}}."

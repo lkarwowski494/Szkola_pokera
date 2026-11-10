@@ -12,24 +12,24 @@ drills:
     rules: [R-M12-004]
     prompt: "Preflop metti dentro tutto lo stack con una {{t:pair|coppia}} di assi, l'avversario {{t:call|chiama}} con una {{t:pair|coppia}} di re. Al river scende un re e perdi. Come valuti la tua decisione?"
     options:
-      - { text: "È stata molto buona", correct: true, why: "AA batte KK in circa {{n:pf.aa-vs-kk}} dei casi. Perdere in circa {{n:res.kk-wins}} dei casi è il costo del gioco, non un errore. Ogni volta fai la stessa cosa." }
-      - { text: "È stata cattiva, dovevi giocare con più cautela", why: "Questo è giudicare in base al risultato. Se la carta del river fosse stata diversa, la stessa decisione sembrerebbe ottima. La decisione dipende da ciò che sapevi prima della carta: circa {{n:pf.aa-vs-kk}} di equity." }
+      - { text: "È stata molto buona", correct: true, why: "AA batte KK in circa l'{{n:pf.aa-vs-kk}} dei casi. Perdere in circa il {{n:res.kk-wins}} dei casi è il costo del gioco, non un errore. Ogni volta fai la stessa cosa." }
+      - { text: "È stata cattiva, dovevi giocare con più cautela", why: "Questo è giudicare in base al risultato. Se la carta del river fosse stata diversa, la stessa decisione sembrerebbe ottima. La decisione dipende da ciò che sapevi prima della carta: circa l'{{n:pf.aa-vs-kk}} di equity." }
       - { text: "Non si può valutare, perché hai perso", why: "Si può: calcoli l'equity nel momento della decisione. Il risultato di una sola mano non aggiunge nulla." }
   - kind: numeric
     id: m12.l2.n-kk-wins
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "AA batte KK all-in preflop in circa {{n:pf.aa-vs-kk}} dei casi. In quale percentuale dei casi perdi nonostante la migliore decisione possibile? Inserisci un numero."
+    prompt: "AA batte KK all-in preflop in circa l'{{n:pf.aa-vs-kk}} dei casi. In quale percentuale dei casi perdi nonostante la migliore decisione possibile? Inserisci un numero."
     answer: res.kk-wins
     explanation: "Il totale meno {{n:pf.aa-vs-kk}} dà circa {{n:res.kk-wins}}. Più o meno una volta su cinque o sei una buona decisione finisce con una sconfitta."
   - kind: choice
     id: m12.l2.q-draw-good
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "Turn. Hai un {{t:flush-draw|progetto di colore}} pulito ({{n:outs.flush}} outs), nel {{t:pot|piatto}} ci sono {{n:ex.pot}}, l'avversario {{t:bet|punta}} {{n:ex.bet.quarter}}. {{t:call|Chiami}}, il {{t:flush|colore}} non entra e perdi {{n:ex.bet.quarter}}. Come valuti la {{t:call|chiamata}}?"
+    prompt: "Turn. Hai un {{t:flush-draw|progetto di colore}} pulito ({{n:outs.flush}} out), nel {{t:pot|piatto}} ci sono {{n:ex.pot}}, l'avversario {{t:bet|punta}} {{n:ex.bet.quarter}}. {{t:call|Chiami}}, il {{t:flush|colore}} non entra e perdi {{n:ex.bet.quarter}}. Come valuti la {{t:call|chiamata}}?"
     options:
-      - { text: "È stata buona", correct: true, why: "Ti serviva {{n:eq.bet-quarter}} di equity e ne avevi circa {{n:odds.flush.turn-river}}. Una {{t:call|chiamata}} così guadagna sul lungo periodo, anche se perde nella maggior parte delle singole mani." }
-      - { text: "È stata cattiva, perché il {{t:flush|colore}} non è entrato", why: "Il {{t:flush|colore}} entra solo in circa {{n:odds.flush.turn-river}} dei casi, quindi mancarlo era il risultato più probabile. Valuti la decisione in base al prezzo, e il prezzo era buono." }
+      - { text: "È stata buona", correct: true, why: "Ti serviva il {{n:eq.bet-quarter}} di equity e ne avevi circa il {{n:odds.flush.turn-river}}. Una {{t:call|chiamata}} così guadagna sul lungo periodo, anche se perde nella maggior parte delle singole mani." }
+      - { text: "È stata cattiva, perché il {{t:flush|colore}} non è entrato", why: "Il {{t:flush|colore}} entra solo in circa il {{n:odds.flush.turn-river}} dei casi, quindi mancarlo era il risultato più probabile. Valuti la decisione in base al prezzo, e il prezzo era buono." }
       - { text: "Buona solo se il {{t:flush|colore}} fosse entrato", why: "Questa è la definizione di giudizio in base al risultato. La stessa decisione non cambia qualità a seconda della carta uscita dopo." }
   - kind: choice
     id: m12.l2.q-draw-bad
@@ -37,9 +37,9 @@ drills:
     rules: [R-M12-004]
     prompt: "Turn. {{t:flush-draw|Progetto di colore}} pulito, nel {{t:pot|piatto}} ci sono {{n:ex.pot}}, l'avversario {{t:bet|punta}} tutto il {{t:pot|piatto}}: {{n:ex.bet.pot}}. {{t:call|Chiami}} e il {{t:flush|colore}} entra al river. Come valuti la {{t:call|chiamata}}?"
     options:
-      - { text: "È stata cattiva, nonostante la vincita", correct: true, why: "Ti serviva {{n:eq.bet-pot}} di equity e ne avevi circa {{n:odds.flush.turn-river}}. Questa volta hai vinto, ma su molte ripetizioni una {{t:call|chiamata}} così perde." }
-      - { text: "È stata buona, perché hai vinto il {{t:pot|piatto}}", why: "La vincita non migliora la decisione. Con un prezzo di {{n:eq.bet-pot}} e una probabilità di circa {{n:odds.flush.turn-river}}, questa {{t:call|chiamata}} perde sul lungo periodo." }
-      - { text: "È stata buona, perché il {{t:flush|colore}} è la mano migliore", why: "La forza della mano dopo aver chiuso il punto non cambia il prezzo. Conta il confronto: hai {{n:odds.flush.turn-river}} di probabilità, te ne servono {{n:eq.bet-pot}}." }
+      - { text: "È stata cattiva, nonostante la vincita", correct: true, why: "Ti serviva il {{n:eq.bet-pot}} di equity e ne avevi circa il {{n:odds.flush.turn-river}}. Questa volta hai vinto, ma su molte ripetizioni una {{t:call|chiamata}} così perde." }
+      - { text: "È stata buona, perché hai vinto il {{t:pot|piatto}}", why: "La vincita non migliora la decisione. Con un prezzo del {{n:eq.bet-pot}} e una probabilità di circa il {{n:odds.flush.turn-river}}, questa {{t:call|chiamata}} perde sul lungo periodo." }
+      - { text: "È stata buona, perché il {{t:flush|colore}} è la mano migliore", why: "La forza della mano dopo aver chiuso il punto non cambia il prezzo. Conta il confronto: hai il {{n:odds.flush.turn-river}} di probabilità, te ne serve il {{n:eq.bet-pot}}." }
   - kind: choice
     id: m12.l2.q-review
     family: m12.decision-review
@@ -64,7 +64,7 @@ drills:
     rules: [R-M12-005]
     prompt: "Per tre {{t:session|sessioni}} hai giocato in modo più aggressivo del solito e hai vinto. È la prova che il nuovo stile è migliore?"
     options:
-      - { text: "No, tre {{t:session|sessioni}} sono troppo poche; valuti le nuove giocate nella revisione delle mani", correct: true, why: "Anche un enorme divario di abilità (il {{n:skill.pct}} più forte contro il {{n:skill.pct}} più debole) passa in vantaggio in circa {{n:skill.ahead}} dei casi solo dopo circa {{n:skill.hands}} mani. La differenza tra i tuoi due stili è molto più piccola." }
+      - { text: "No, tre {{t:session|sessioni}} sono troppo poche; valuti le nuove giocate nella revisione delle mani", correct: true, why: "Anche un enorme divario di abilità (l'{{n:skill.pct}} più forte contro l'{{n:skill.pct}} più debole) passa in vantaggio in circa il {{n:skill.ahead}} dei casi solo dopo circa {{n:skill.hands}} mani. La differenza tra i tuoi due stili è molto più piccola." }
       - { text: "Sì, il risultato mostra cosa funziona", why: "Il risultato di poche {{t:session|sessioni}} è soprattutto rumore. Con una {{t:standard-deviation|deviazione standard}} di circa {{n:var.sd}}, anche {{n:var.hands.k}} mila mani lasciano un errore di circa ± {{n:var.ci.wr}}." }
       - { text: "Sì, se hai vinto più del solito", why: "Una vincita più grande su un piccolo campione resta un piccolo campione. Le giocate le valuti con i calcoli e con la revisione delle mani." }
   - kind: choice
@@ -73,7 +73,7 @@ drills:
     rules: [R-M12-005]
     prompt: "Uno studio su milioni di mani online ha mostrato quando l'abilità inizia a prevalere sulla fortuna. Che cosa è stato misurato esattamente?"
     options:
-      - { text: "Il {{n:skill.pct}} più forte dei giocatori supera il {{n:skill.pct}} più debole in circa {{n:skill.ahead}} dei casi dopo circa {{n:skill.hands}} mani", correct: true, why: "È così che lo definiscono gli autori dello studio (2015). È un confronto tra gruppi estremi: con differenze di abilità minori servono molte più mani." }
+      - { text: "L'{{n:skill.pct}} più forte dei giocatori supera l'{{n:skill.pct}} più debole in circa il {{n:skill.ahead}} dei casi dopo circa {{n:skill.hands}} mani", correct: true, why: "È così che lo definiscono gli autori dello studio (2015). È un confronto tra gruppi estremi: con differenze di abilità minori servono molte più mani." }
       - { text: "Dopo circa {{n:skill.hands}} mani ogni buon giocatore è in attivo", why: "Lo studio confronta gruppi estremi di giocatori, non dice quando un singolo buon giocatore sarà in attivo. Questo dipende dal winrate e dalla {{t:standard-deviation|deviazione standard}} (lezione sulla {{t:variance|varianza}})." }
       - { text: "Dopo circa {{n:skill.hands}} mani la fortuna smette di contare", why: "La fortuna conta sempre. Lo studio dice solo quando il vantaggio dei migliori sui peggiori inizia a vincere nella maggior parte dei confronti." }
   - kind: choice
@@ -94,7 +94,7 @@ I giocatori lo chiamano *resulting*: dai per scontato che la qualità del risult
 
 ## Anche le buone decisioni perdono
 
-Andare all-in con una {{t:pair|coppia}} di assi contro una {{t:pair|coppia}} di re è la migliore decisione possibile, eppure perde in circa **{{n:res.kk-wins}}** dei casi. D'altra parte, una {{t:call|chiamata}} con un {{t:flush-draw|progetto di colore}} per tutto il {{t:pot|piatto}} al turn è sbagliata (ti serve {{n:eq.bet-pot}}, hai circa {{n:odds.flush.turn-river}}), eppure vince più o meno una volta su cinque.
+Andare all-in con una {{t:pair|coppia}} di assi contro una {{t:pair|coppia}} di re è la migliore decisione possibile, eppure perde in circa il **{{n:res.kk-wins}}** dei casi. D'altra parte, una {{t:call|chiamata}} con un {{t:flush-draw|progetto di colore}} per tutto il {{t:pot|piatto}} al turn è sbagliata (ti serve il {{n:eq.bet-pot}}, hai circa il {{n:odds.flush.turn-river}}), eppure vince più o meno una volta su cinque.
 
 ```formula
 qualità della decisione = EV con le informazioni che avevi nel momento della decisione
@@ -109,7 +109,7 @@ qualità della decisione = EV con le informazioni che avevi nel momento della de
 
 ## Quando il risultato inizia a significare qualcosa
 
-In uno studio su circa {{n:skill.sample.m}} milioni di mani online (studio del 2015) l'abilità iniziava a prevalere solo dopo circa **{{n:skill.hands}}** mani. Questo significa che il {{n:skill.pct}} più forte dei giocatori superava il {{n:skill.pct}} più debole in circa {{n:skill.ahead}} dei confronti. Per differenze di abilità minori servono molte volte più mani. Il risultato di poche {{t:session|sessioni}} quindi non ti dice quale stile di gioco sia migliore.
+In uno studio su circa {{n:skill.sample.m}} milioni di mani online (studio del 2015) l'abilità iniziava a prevalere solo dopo circa **{{n:skill.hands}}** mani. Questo significa che l'{{n:skill.pct}} più forte dei giocatori superava l'{{n:skill.pct}} più debole in circa il {{n:skill.ahead}} dei confronti. Per differenze di abilità minori servono molte volte più mani. Il risultato di poche {{t:session|sessioni}} quindi non ti dice quale stile di gioco sia migliore.
 
 :::note La valutazione in questa app
 Per questo l'app valuta le tue decisioni, non il risultato della mano. Quando risultato e decisione non coincidono, fidati dei calcoli.

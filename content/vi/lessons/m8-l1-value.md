@@ -86,7 +86,7 @@ drills:
     rules: [R-M8-002]
     prompt: "Một người bạn nói: “Ở river với {{t:pair|đôi}} trung bình, tôi cược để biết mình đang ở đâu”. Ý tưởng này sai ở chỗ nào?"
     options:
-      - { text: "Tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn tay mạnh hơn sẽ trả tiền", correct: true, why: "Sau một cược như vậy, những tay bạn thắng sẽ {{t:fold|bỏ bài}}, còn những tay bạn thua sẽ trả tiền hoặc {{t:raise|tố}}. Bạn có được thông tin miễn phí bằng cách {{t:check|xem bài}}, vì khi có {{t:position|vị trí}}, đối thủ sẽ lật bài khi showdown." }
+      - { text: "Tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn tay mạnh hơn sẽ trả tiền", correct: true, why: "Sau một cược như vậy, những tay bạn thắng sẽ {{t:fold|bỏ bài}}, còn những tay bạn thua sẽ trả tiền hoặc {{t:raise|tố}}. Bạn có được thông tin miễn phí bằng cách {{t:check|xem bài}}, vì khi bạn có {{t:position|vị trí}}, đối thủ sẽ lật bài khi showdown." }
       - { text: "Không sai gì, đây là cách tốt để lấy thông tin", why: "Ở đây thông tin tốn một cược mà bạn thường thua. Sau khi {{t:check|xem bài}}, bạn sẽ thấy tay của đối thủ mà không phải trả thêm." }
       - { text: "Cược nên lớn hơn", why: "Cược lớn hơn làm mọi việc tệ hơn: càng nhiều tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn tay mạnh hơn vẫn trả tiền." }
   - kind: choice

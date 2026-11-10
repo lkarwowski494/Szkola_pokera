@@ -73,7 +73,7 @@ drills:
     rules: [R-M9-006]
     prompt: "{{t:pot|Pote}} depois de um 4-bet, {{t:spr}} de cerca de {{n:spr.4bet}}. Você quer colocar o stack inteiro em duas {{t:bet|apostas}}: no flop e no turn. Quanto você aposta no flop?"
     options:
-      - { text: "Cerca de {{n:geo.4bet.2}} do {{t:pot|pote}}", correct: true, why: "Sim: para duas {{t:street|ruas}}, (1 + 2f) ao quadrado = 1 + 2·{{n:spr.4bet}}, então f ≈ {{n:geo.4bet.2}}. Depois da {{t:bet|aposta}} e do {{t:call|pagamento}}, sobra exatamente o valor de uma {{t:bet}} igual no turn." }
+      - { text: "Cerca de {{n:geo.4bet.2}} do {{t:pot|pote}}", correct: true, why: "Sim: para duas {{t:street|ruas}}, (1 + 2f) ao quadrado = 1 + 2·{{n:spr.4bet}}, então f ≈ {{n:geo.4bet.2}}. Depois da {{t:bet|aposta}} e do {{t:call}}, sobra exatamente o valor de uma {{t:bet}} igual no turn." }
       - { text: "Cerca de {{n:geo.4bet.3}} do {{t:pot|pote}}", sizeError: true, why: "Esse é o tamanho para três {{t:street|ruas}}. Com duas {{t:bet|apostas}} de {{n:geo.4bet.3}} do {{t:pot|pote}}, parte do stack fica para o river." }
       - { text: "All-in de imediato ({{n:spr.4bet.stack}})", why: "Esse é um plano para uma {{t:street|rua}}, não para duas. Uma {{t:bet|aposta}} de cerca de {{n:spr.4bet}} {{t:pot|potes}} de imediato dá ao rival só uma decisão: {{t:call|pagar}} tudo ou {{t:fold|desistir}}." }
   - kind: choice
@@ -92,7 +92,7 @@ Antes de {{t:bet|apostar}} uma {{t:bet}} no flop, vale saber quanto dinheiro dá
 
 Uma {{t:bet|aposta}} de f do {{t:pot|pote}} e um {{t:call}} multiplicam o {{t:pot|pote}} por (1 + 2f). Com uma {{t:bet|aposta}} do tamanho do {{t:pot|pote}} inteiro, o {{t:pot}} triplica:
 
-| {{t:street|Rua}} | {{t:pot|Pote}} antes da {{t:bet|aposta}} | {{t:bet|Aposta}} ({{t:pot}} inteiro) | {{t:pot|Pote}} depois do {{t:call|pagamento}} |
+| {{t:street|Rua}} | {{t:pot|Pote}} antes da {{t:bet|aposta}} | {{t:bet|Aposta}} ({{t:pot}} inteiro) | {{t:pot|Pote}} depois do {{t:call}} |
 |---|---|---|---|
 | Flop | {{n:ex.pot}} | {{n:ex.bet.pot}} | {{n:ex.pot.after-pot-call}} |
 | Turn | {{n:ex.pot.after-pot-call}} | {{n:geo.ex.turn}} | {{n:geo.ex.turn-after}} |

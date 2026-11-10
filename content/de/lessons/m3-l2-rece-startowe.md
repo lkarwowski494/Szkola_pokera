@@ -55,8 +55,8 @@ Den Großteil ihres Geldes verlieren Anfänger, weil sie zu viele schwache Händ
 - **Spekulative**: kleine {{t:pair|Paare}} und aufeinanderfolgende Karten in einer Farbe, z. B. [[7h 6h]]. Gut in {{t:late-position|später Position}}.
 - **Schwache**: unverbunden, niedrig, in verschiedenen Farben, z. B. [[9c 3d]]. {{t:fold|Folden}}.
 
-:::note Wie viele {{t:combo|Kombos}} es gibt
-Insgesamt gibt es {{n:combos.total}} {{t:combo|Kombos}} von Starthänden, aber nur {{n:combos.kinds}} Arten: {{n:combos.kinds.pair}} {{t:pair|Paare}}, {{n:combos.kinds.suited}} gleichfarbige Hände und {{n:combos.kinds.offsuit}} in verschiedenen Farben. Jedes {{t:pair|Paar}} hat {{n:combos.pair}} {{t:combo|Kombos}}, eine gleichfarbige Hand {{n:combos.suited}} und eine Hand in verschiedenen Farben {{n:combos.offsuit}}. Deshalb kommt AK in verschiedenen Farben dreimal so oft vor wie AK gleichfarbig.
+:::note Wie viele {{t:combo|Kombinationen}} es gibt
+Insgesamt gibt es {{n:combos.total}} {{t:combo|Kombinationen}} von Starthänden, aber nur {{n:combos.kinds}} Arten: {{n:combos.kinds.pair}} {{t:pair|Paare}}, {{n:combos.kinds.suited}} gleichfarbige Hände und {{n:combos.kinds.offsuit}} in verschiedenen Farben. Jedes {{t:pair|Paar}} hat {{n:combos.pair}} {{t:combo|Kombinationen}}, eine gleichfarbige Hand {{n:combos.suited}} und eine Hand in verschiedenen Farben {{n:combos.offsuit}}. Deshalb kommt AK in verschiedenen Farben dreimal so oft vor wie AK gleichfarbig.
 :::
 
 Die Gruppen oben sind eine Vereinfachung für den Einstieg. Die genauen {{t:range|Ranges}} fürs {{t:open|Eröffnen}} auf jeder {{t:position|Position}}, in einem Raster der {{t:range|Ranges}}, lernst du in der nächsten Lektion.

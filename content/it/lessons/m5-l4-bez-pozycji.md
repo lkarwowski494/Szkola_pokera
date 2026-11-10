@@ -29,12 +29,12 @@ drills:
     id: m5.l4.q-oop-strong
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "{{t:open|Hai aperto}} dal {{t:cutoff|CO}}, il Button {{t:call|ha chiamato}}, i blind {{t:fold|hanno fatto fold}}. Hai {{t:top-pair|coppia massima}} con il miglior kicker su un flop {{t:dry|secco}}. Parli per primo. Cosa fai?"
+    prompt: "{{t:open|Hai aperto}} dal {{t:cutoff|CO}}, il Button {{t:call|ha chiamato}}, i blind {{t:fold|hanno fatto fold}}. Hai {{t:top-pair|top pair}} con il miglior kicker su un flop {{t:dry|secco}}. Parli per primo. Cosa fai?"
     table: { hand: "Ah Kc", position: CO, board: "As 9h 4c" }
     options:
-      - { text: "{{t:check|Faccio check}} (per {{t:call|chiamare}} la {{t:bet|puntata}} del Button)", correct: true, why: "Sì: il Button {{t:call|ha chiamato}} in {{t:position|posizione}}, quindi il suo {{t:range}} è forte, e su questo flop il solver {{t:out-of-position}} {{t:check|fa check}} con quasi tutto il {{t:range}}, anche con {{t:top-pair|coppia massima}} e miglior kicker. Dopo il {{t:check}} {{t:call|chiami}} la {{t:bet|puntata}} del Button." }
-      - { text: "C-bet di {{n:cbet.size.small}} del {{t:pot|piatto}}", why: "Troppo spesso: in questa situazione il solver punta in meno di {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|coppia massima}} con il miglior kicker la giochi con {{t:check}} e {{t:call|chiamata}}." }
-      - { text: "C-bet di {{n:cbet.size.big}} del {{t:pot|piatto}}", why: "Troppo spesso: in questa situazione il solver punta in meno di {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|coppia massima}} con il miglior kicker la giochi con {{t:check}} e {{t:call|chiamata}}." }
+      - { text: "{{t:check|Faccio check}} (per {{t:call|chiamare}} la {{t:bet|puntata}} del Button)", correct: true, why: "Sì: il Button {{t:call|ha chiamato}} in {{t:position|posizione}}, quindi il suo {{t:range}} è forte, e su questo flop il solver {{t:out-of-position}} {{t:check|fa check}} con quasi tutto il {{t:range}}, anche con {{t:top-pair|top pair}} e miglior kicker. Dopo il {{t:check}} {{t:call|chiami}} la {{t:bet|puntata}} del Button." }
+      - { text: "C-bet di {{n:cbet.size.small}} del {{t:pot|piatto}}", why: "Troppo spesso: in questa situazione il solver punta in meno del {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|top pair}} con il miglior kicker la giochi con {{t:check}} e {{t:call|chiamata}}." }
+      - { text: "C-bet di {{n:cbet.size.big}} del {{t:pot|piatto}}", why: "Troppo spesso: in questa situazione il solver punta in meno del {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|top pair}} con il miglior kicker la giochi con {{t:check}} e {{t:call|chiamata}}." }
       - { text: "{{t:fold|Fold}}", why: "Nessuno ha ancora {{t:bet|puntato}}, quindi il {{t:fold}} non ti dà nulla: puoi fare {{t:check}} gratis (regola del modulo 1). Questa mano la giochi con {{t:check}} e {{t:call|chiamata}}." }
   - kind: choice
     id: m5.l4.q-multi
@@ -50,7 +50,7 @@ drills:
     id: m5.l4.q-multi-value
     family: m5.cbet.multi
     rules: [R-M5-013]
-    prompt: "{{t:open|Hai aperto}} dal {{t:cutoff|CO}}, il Button e il {{t:big-blind}} {{t:call|hanno chiamato}}. Il {{t:big-blind}} {{t:check|fa check}}. Hai {{t:top-pair|coppia massima}} con un buon kicker. Cosa fai?"
+    prompt: "{{t:open|Hai aperto}} dal {{t:cutoff|CO}}, il Button e il {{t:big-blind}} {{t:call|hanno chiamato}}. Il {{t:big-blind}} {{t:check|fa check}}. Hai {{t:top-pair|top pair}} con un buon kicker. Cosa fai?"
     table: { hand: "Kd Qd", position: CO, board: "Ks 8c 3h" }
     options:
       - { text: "{{t:check|Faccio check}}", correct: true, why: "Sì: in un {{t:pot|piatto}} multiway su un flop {{t:dry|secco}} il solver {{t:check|fa check}} molto spesso, anche con mani molto forti, perché due giocatori che {{t:call|hanno chiamato}}, insieme, hanno preso il flop più spesso." }
@@ -60,9 +60,9 @@ drills:
     id: m5.l4.q-multi-math
     family: m5.cbet.multi
     rules: [R-M5-013, R-M5-006]
-    prompt: "Una mano senza {{t:pair|coppia}} manca il flop in circa {{n:flop.miss.unpaired}} dei casi. Quanto spesso due mani così (quattro valori diversi) lo mancano insieme?"
+    prompt: "Una mano senza {{t:pair|coppia}} manca il flop in circa il {{n:flop.miss.unpaired}} dei casi. Quanto spesso due mani così (quattro valori diversi) lo mancano insieme?"
     options:
-      - { text: "Circa {{n:flop.miss.two}}", correct: true, why: "Sì: calcoli come per una mano sola, solo che le carte che fanno coppia sono di più: {{n:pair.outs.two-hands}} su {{n:cards.unseen.two-hands}} sconosciute (escluse le tue carte). La probabilità che nessuna delle {{n:cards.board.flop}} carte del flop sia tra queste è di circa {{n:flop.miss.two}}: entrambi mancano il flop in meno della metà dei casi." }
+      - { text: "Circa {{n:flop.miss.two}}", correct: true, why: "Sì: calcoli come per una mano sola, solo che le carte che fanno coppia sono di più: {{n:pair.outs.two-hands}} su {{n:cards.unseen.two-hands}} sconosciute (escluse le tue carte). La probabilità che nessuna delle {{n:cards.board.flop}} carte del flop sia tra queste è di circa il {{n:flop.miss.two}}: entrambi mancano il flop in meno della metà dei casi." }
       - { text: "Circa {{n:flop.miss.unpaired}}, come per una sola", why: "No: ogni avversario in più è un'altra possibilità che qualcuno abbia preso il flop. La probabilità che lo manchino tutti cala con ogni giocatore." }
       - { text: "Circa {{n:flop.hit.unpaired}}", why: "È la probabilità che una mano senza {{t:pair|coppia}} faccia {{t:pair|coppia}} al flop. La domanda riguarda il fatto che entrambe lo manchino." }
   - kind: cbet
@@ -100,7 +100,7 @@ Quando {{t:open|apri}} dal {{t:cutoff|CO}} e il Button {{t:call|chiama}}, dopo i
 
 ## Contro più avversari
 
-Ogni avversario in più è un'altra possibilità che qualcuno abbia preso il flop. Una mano senza {{t:pair|coppia}} manca il flop in circa {{n:flop.miss.unpaired}} dei casi, ma due insieme solo in circa {{n:flop.miss.two}}. Il {{t:bluff}} deve passare attraverso tutti, quindi contro più avversari rinunci soprattutto ai {{t:bluff}}. Punti di rado e poco, soprattutto sui flop che colpiscono bene il tuo {{t:range}}; su un flop {{t:dry|secco}} fai spesso {{t:check}} anche con una mano molto forte.
+Ogni avversario in più è un'altra possibilità che qualcuno abbia preso il flop. Una mano senza {{t:pair|coppia}} manca il flop in circa il {{n:flop.miss.unpaired}} dei casi, ma due insieme solo in circa il {{n:flop.miss.two}}. Il {{t:bluff}} deve passare attraverso tutti, quindi contro più avversari rinunci soprattutto ai {{t:bluff}}. Punti di rado e poco, soprattutto sui flop che colpiscono bene il tuo {{t:range}}; su un flop {{t:dry|secco}} fai spesso {{t:check}} anche con una mano molto forte.
 
 :::note Da dove vengono queste regole
 Le regole di questa lezione provengono da risultati pubblicati dei solver (c-bet {{t:out-of-position}}, c-bet su flop con un asso e nel {{t:pot|piatto}} multiway) e da materiali didattici ({{t:pot|piatto}} multiway). Sono euristiche: l'app non indica le frequenze in percentuale. La probabilità che due mani manchino il flop insieme è un calcolo esatto per due mani con quattro valori diversi; esclude le tue carte, come il numero per una mano sola.

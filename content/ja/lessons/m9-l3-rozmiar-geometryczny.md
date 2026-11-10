@@ -42,7 +42,7 @@ drills:
     id: m9.l3.q-srp-geo
     family: m9.geo-srp
     rules: [R-M9-007]
-    prompt: "シングルレイズド{{t:pot|ポット}}、{{t:spr}}約{{n:spr.srp}}。フロップ、ターン、リバーで一定のどの{{t:bet|ベット}}サイズなら、スタック全額が入りますか？"
+    prompt: "シングルレイズド{{t:pot|ポット}}、{{t:spr}}約{{n:spr.srp}}。フロップ、ターン、リバーで毎回同じ{{t:bet|ベット}}サイズにするなら、どのサイズでスタック全額が入りますか？"
     options:
       - { text: "約{{n:geo.srp.3}}{{t:pot|ポット}}、つまり{{t:pot|ポット}}全額より大きい", correct: true, why: "そうです。{{t:pot|ポット}}サイズの{{t:bet|ベット}}3回でも、スタック{{n:spr.srp.stack}}のうち{{n:srp.potbet.total}}しか入りません。スタック全額が入るのは、毎{{t:street|ストリート}}約{{n:geo.srp.3}}{{t:pot|ポット}}のときです。" }
       - { text: "約{{n:geo.3bet-ip.3}}{{t:pot|ポット}}", why: "それで足りるのは3ベット{{t:pot|ポット}}（{{t:spr}}約{{n:spr.3bet-ip}}）です。シングルレイズド{{t:pot|ポット}}では{{t:spr}}は約{{n:spr.srp}}なので、{{t:bet|ベット}}は{{t:pot|ポット}}より大きくなければなりません。" }
@@ -86,7 +86,7 @@ drills:
       - { text: "常に{{t:pot|ポット}}全額の{{t:bet|ベット}}", why: "{{t:pot|ポット}}全額がジオメトリックになるのは、ある1つの{{t:spr}}のときだけです（例：3{{t:street|ストリート}}なら{{n:spr.zone.deep}}）。{{t:spr}}約{{n:spr.3bet-ip}}なら、約{{n:geo.3bet-ip.3}}{{t:pot|ポット}}で足ります。" }
       - { text: "比率がだんだん大きくなる{{t:bet|ベット}}：フロップで小さく、リバーで大きく", why: "金額が増えるのは{{t:pot|ポット}}が増えるからで、{{t:pot|ポット}}に対する比率は毎{{t:street|ストリート}}同じです。3ベット{{t:pot|ポット}}では{{n:geo.3bet-ip.flop}}、{{n:geo.3bet-ip.turn}}、{{n:geo.3bet-ip.river}}で、いずれも約{{n:geo.3bet-ip.3}}{{t:pot|ポット}}です。" }
 ---
-フロップで{{t:bet|ベット}}する前に、リバーまでにいくら入れられるかを知っておくと役立ちます。{{t:bet|ベット}}と{{t:call|コール}}は{{t:pot|ポット}}に一定額を足すのではなく、{{t:pot|ポット}}を何倍にもします。
+フロップで{{t:bet|ベット}}する前に、リバーまでにいくら入れられるかを知っておくと役立ちます。{{t:bet|ベット}}と{{t:call|コール}}は{{t:pot|ポット}}に一定額を足すのではなく、{{t:pot|ポット}}を掛け算で増やします。
 
 ## {{t:pot|ポット}}の増え方
 
@@ -94,9 +94,9 @@ drills:
 
 | {{t:street|ストリート}} | {{t:bet|ベット}}前の{{t:pot|ポット}} | {{t:bet|ベット}}（{{t:pot|ポット}}全額） | {{t:call|コール}}後の{{t:pot|ポット}} |
 |---|---|---|---|
-| Flop | {{n:ex.pot}} | {{n:ex.bet.pot}} | {{n:ex.pot.after-pot-call}} |
-| Turn | {{n:ex.pot.after-pot-call}} | {{n:geo.ex.turn}} | {{n:geo.ex.turn-after}} |
-| River | {{n:geo.ex.turn-after}} | {{n:geo.ex.river}} | {{n:geo.ex.river-after}} |
+| フロップ | {{n:ex.pot}} | {{n:ex.bet.pot}} | {{n:ex.pot.after-pot-call}} |
+| ターン | {{n:ex.pot.after-pot-call}} | {{n:geo.ex.turn}} | {{n:geo.ex.turn-after}} |
+| リバー | {{n:geo.ex.turn-after}} | {{n:geo.ex.river}} | {{n:geo.ex.river-after}} |
 
 各プレイヤーは{{n:geo.ex.total}}、つまり{{n:spr.zone.deep}}{{t:pot|ポット}}分を入れました。つまり、{{t:pot|ポット}}サイズの{{t:bet|ベット}}3回で、ちょうど{{t:spr}} {{n:spr.zone.deep}}のときにオールインになります。これが、最初のレッスンで扱った{{t:spr}}の最も高いゾーンの境目の理由です。
 
@@ -110,7 +110,7 @@ drills:
 
 例：{{t:spr}} {{n:geo.half.spr}}では、ハーフ{{t:pot|ポット}}の{{t:bet|ベット}}3回でスタック全額が入ります。{{t:pot|ポット}}{{n:ex.pot}}のとき、{{n:ex.bet.half}}、{{n:geo.half.turn}}、{{n:geo.half.river}}で合計{{n:geo.half.total}}です。
 
-## よくある{{t:pot|ポット}}のサイズ
+## よくある{{t:pot|ポット}}でのサイズ
 
 | {{t:pot|ポット}} | {{t:spr}} | 3{{t:street|ストリート}} | 2{{t:street|ストリート}} |
 |---|---|---|---|

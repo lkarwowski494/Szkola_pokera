@@ -99,7 +99,7 @@ drills:
     family: m12.responsible
     prompt: "Welches Anzeichen spricht dafür, dass das Spielen außer Kontrolle geraten könnte?"
     options:
-      - { text: "Nach einem Verlust kehrst du ins Spiel zurück, um die Verluste zurückzuholen", correct: true, why: "Verlusten hinterherjagen ist eines der Anzeichen für ein Glücksspielproblem, die in diagnostischen Kriterien genannt werden. Wenn du solche Anzeichen bei dir erkennst, nutze die Kontakte im Hinweis „Verantwortungsvolles Spielen“ am Ende dieser Lektion." }
+      - { text: "Nach einem Verlust kehrst du ins Spiel zurück, um die Verluste zurückzuholen", correct: true, why: "Verlusten hinterherjagen ist eines der Anzeichen für ein Glücksspielproblem, die in diagnostischen Kriterien genannt werden. Wenn du solche Anzeichen bei dir erkennst, nutze die Kontakte im Hinweis „Verantwortungsvolles Spielen“." }
       - { text: "Du analysierst verlorene Hände nach einer {{t:session|Session}}", why: "Das ist eine gesunde Lerngewohnheit. Anzeichen für ein Problem sind u. a. Verlusten hinterherjagen, länger spielen als geplant und mit geliehenem Geld spielen." }
       - { text: "Du beendest die {{t:session|Session}} wie geplant", why: "Das ist gute Kontrolle über dein Spiel. Ein Anzeichen für ein Problem wäre, länger zu spielen als geplant, oder das Bedürfnis, Verluste zurückzuholen." }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar mental

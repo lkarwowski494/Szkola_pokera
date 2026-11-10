@@ -33,7 +33,7 @@ drills:
     rules: [R-M13-002]
     prompt: "Der Solver spielt deine Hand in diesem Spot ungefähr gleich oft als {{t:raise|Raise}} oder als {{t:fold|Fold}}. Du hast {{t:fold|gefoldet}}. Wie bewertet der Bericht das?"
     options:
-      - { text: "Konform", correct: true, why: "Ja: Eine Aktion, die der Solver in mindestens {{n:range.mixed.low}} der Fälle spielt, ist konform. Im Gleichgewicht mischt ein Spieler nur Spielzüge mit demselben {{t:expected-value|Erwartungswert}}, also sind beide korrekt." }
+      - { text: "Übereinstimmend", correct: true, why: "Ja: Eine Aktion, die der Solver in mindestens {{n:range.mixed.low}} der Fälle spielt, ist übereinstimmend. Im Gleichgewicht mischt ein Spieler nur Spielzüge mit demselben {{t:expected-value|Erwartungswert}}, also sind beide korrekt." }
       - { text: "Fehler, denn du hättest {{t:raise|raisen}} müssen", why: "Nein: Bei einer {{t:mixed-hand|gemischten Hand}} haben beide Spielzüge denselben {{t:expected-value|Erwartungswert}}. Der Bericht bestraft dich nicht, wenn du einen davon wählst." }
       - { text: "Ohne Bewertung", why: "Nein: Für den Spot gibt es ein Solver-Ergebnis, also wird die Entscheidung bewertet. „Ohne Bewertung“ bekommt eine Entscheidung, für die die App keine überprüfbare Regel hat." }
   - kind: choice
@@ -42,8 +42,8 @@ drills:
     rules: [R-M13-002]
     prompt: "Der Solver spielt deine Hand in etwa {{n:range.mixed.high}} der Fälle als {{t:raise|Raise}} und in den übrigen als {{t:call|Call}}. Du hast {{t:call|gecallt}}. Wie lautet das Urteil?"
     options:
-      - { text: "Konform", correct: true, why: "Ja: Ein {{t:call}}, der in etwa {{n:range.mixed.low}} der Fälle gespielt wird, fällt nicht unter die Schwelle für konform ({{n:range.mixed.low}}). Das ist eine {{t:mixed-hand|gemischte Hand}}." }
-      - { text: "Zulässig", why: "Zulässig ist eine Aktion, die in mindestens {{n:range.mixed.min}}, aber seltener als in {{n:range.mixed.low}} der Fälle gespielt wird. Hier erreicht der {{t:call}} die Schwelle für konform." }
+      - { text: "Übereinstimmend", correct: true, why: "Ja: Ein {{t:call}}, der in etwa {{n:range.mixed.low}} der Fälle gespielt wird, fällt nicht unter die Schwelle für übereinstimmend ({{n:range.mixed.low}}). Das ist eine {{t:mixed-hand|gemischte Hand}}." }
+      - { text: "Vertretbar", why: "Vertretbar ist eine Aktion, die in mindestens {{n:range.mixed.min}}, aber seltener als in {{n:range.mixed.low}} der Fälle gespielt wird. Hier erreicht der {{t:call}} die Schwelle für übereinstimmend." }
       - { text: "Fehler", why: "Ein Fehler ist eine Aktion, die der Solver gar nicht spielt. Eine Aktion, die seltener als in {{n:range.mixed.min}} der Fälle gespielt wird, ist eine Ungenauigkeit." }
   - kind: choice
     id: m13.l1.q-size
@@ -52,7 +52,7 @@ drills:
     prompt: "In einem Spot, in dem der Solver eine 3-Bet spielt, spielst du eine 3-Bet, aber mit einer anderen Größe, als die Regel empfiehlt. Wie lautet das Urteil?"
     options:
       - { text: "Ungenauigkeit", correct: true, why: "Ja: gute Aktion, falsche Größe. Sie zählt wie ein Fehler und kommt in den Wiederholungen wieder, aber der Bericht zeigt eine eigene Erklärung zur Größe." }
-      - { text: "Konform", why: "Die Aktion ist gut, aber die Größe zählt: Eine zu kleine 3-Bet gibt dem Gegner einen guten Preis, eine zu große riskiert mehr als nötig." }
+      - { text: "Übereinstimmend", why: "Die Aktion ist gut, aber die Größe zählt: Eine zu kleine 3-Bet gibt dem Gegner einen guten Preis, eine zu große riskiert mehr als nötig." }
       - { text: "Fehler", why: "Einen Fehler bekommt eine falsche Aktion. Eine gute Aktion mit falscher Größe ist eine eigene Stufe: eine Ungenauigkeit." }
   - kind: choice
     id: m13.l1.q-unrated
@@ -61,7 +61,7 @@ drills:
     prompt: "Bericht: „14 von 30 Entscheidungen bewertet“. Was bedeuten die übrigen Entscheidungen?"
     options:
       - { text: "Die App hatte für sie weder eine überprüfbare Regel noch ein Solver-Ergebnis", correct: true, why: "Ja: „Ohne Bewertung“ heißt nicht „gut“. Diese Entscheidungen können gut oder schlecht gewesen sein; der Bericht weiß es nicht und sagt das offen." }
-      - { text: "Sie waren gut, deshalb zeigt der Bericht sie nicht an", why: "Nein: Gute Entscheidungen zählt der Bericht als konform. „Ohne Bewertung“ bedeutet, dass eine Bewertung fehlt, und ist kein Lob." }
+      - { text: "Sie waren gut, deshalb zeigt der Bericht sie nicht an", why: "Nein: Gute Entscheidungen zählt der Bericht als übereinstimmend. „Ohne Bewertung“ bedeutet, dass eine Bewertung fehlt, und ist kein Lob." }
       - { text: "Sie waren zu leicht, um sie zu bewerten", why: "Es geht nicht um die Schwierigkeit. Bewertet werden Entscheidungen, für die die App eine Regel mit Bedingung oder einen Solver-Spot hat." }
   - kind: choice
     id: m13.l1.q-result
@@ -87,18 +87,18 @@ Verlustwahrscheinlichkeit = 1 − Equity
 
 ## Bewertungsstufen
 
-- **Konform**: eine Aktion, die die Regel empfiehlt oder die der Solver in mindestens {{n:range.mixed.low}} der Fälle spielt (diese Schwelle ist eine Einstellung der App).
-- **Zulässig**: Der Solver spielt sie selten (mindestens {{n:range.mixed.min}}, aber seltener als {{n:range.mixed.low}}), oder die Regel spricht von einer Häufigkeit („oft“, „seltener“) und du hast die seltenere Option gewählt. Das ist kein Fehler.
+- **Übereinstimmend**: eine Aktion, die die Regel empfiehlt oder die der Solver in mindestens {{n:range.mixed.low}} der Fälle spielt (diese Schwelle ist eine Einstellung der App).
+- **Vertretbar**: Der Solver spielt sie selten (mindestens {{n:range.mixed.min}}, aber seltener als {{n:range.mixed.low}}), oder die Regel spricht von einer Häufigkeit („oft“, „seltener“) und du hast die seltenere Option gewählt. Das ist kein Fehler.
 - **Ungenauigkeit**: gute Aktion, falsche Größe, oder eine Aktion, die der Solver spielt, aber seltener als in {{n:range.mixed.min}} der Fälle. Sie zählt wie ein Fehler: Das ist eine Einstellung der App, keine Theorie.
 - **Fehler**: eine Aktion, die einer kategorisch formulierten Regel widerspricht oder die der Solver gar nicht spielt.
 - **Ohne Bewertung**: Die App hat für diese Entscheidung keine überprüfbare Regel. Das heißt nicht „gut“.
-- **Zeit abgelaufen**: Bei eingeschaltetem Zeitlimit hat die App für dich gespielt. Eine solche Entscheidung zählt nicht zur Bewertung, kommt aber in den Wiederholungen wieder.
+- **Zeit überschritten**: Bei eingeschaltetem Zeitlimit hat die App für dich gespielt. Eine solche Entscheidung zählt nicht zur Bewertung, kommt aber in den Wiederholungen wieder.
 
 Oben im Bericht steht die Zahl „X von Y Entscheidungen bewertet“. Nach dem Flop bleiben viele Entscheidungen ohne Bewertung, weil die meisten Regeln für Turn und River von Häufigkeiten der ganzen {{t:range|Range}} sprechen und nicht von einer einzelnen Hand.
 
 ## {{t:mixed-hand|Gemischte Hand}}
 
-Wenn der Solver deine Hand auf zwei Arten spielt, sind beide korrekt. Die Gleichgewichtstheorie erklärt das mit dem Indifferenzprinzip: Ein Spieler mischt nur Spielzüge, die denselben {{t:expected-value|Erwartungswert}} haben. Deshalb bestraft der Bericht dich nicht, wenn du einen davon wählst, und markiert den selteneren Spielzug als zulässig, wenn der Solver ihn in mindestens {{n:range.mixed.min}} der Fälle spielt; seltener ist eine Ungenauigkeit (Einstellung der App).
+Wenn der Solver deine Hand auf zwei Arten spielt, sind beide korrekt. Die Gleichgewichtstheorie erklärt das mit dem Indifferenzprinzip: Ein Spieler mischt nur Spielzüge, die denselben {{t:expected-value|Erwartungswert}} haben. Deshalb bestraft der Bericht dich nicht, wenn du einen davon wählst, und markiert den selteneren Spielzug als vertretbar, wenn der Solver ihn in mindestens {{n:range.mixed.min}} der Fälle spielt; seltener ist eine Ungenauigkeit (Einstellung der App).
 
 ## Ergebnis in {{t:chips|Chips}}
 

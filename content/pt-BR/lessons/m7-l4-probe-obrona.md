@@ -103,7 +103,7 @@ drills:
     prompt: "Por que contra um {{t:second-barrel|second barrel}} você defende mais apertado do que contra um c-bet no flop?"
     table: { position: BB }
     options:
-      - { text: "Porque o rival {{t:bet|aposta}} o {{t:second-barrel|second barrel}} com um {{t:range|range}} mais estreito e geralmente com um tamanho maior, e os {{t:draw|draws}} já têm só uma carta", correct: true, why: "Sim: o rival abandona parte dos {{t:bluff|blefes}} no turn, uma aposta maior reduz o {{t:mdf|MDF}} (com 3/4 do {{t:pot|pote}}, {{n:mdf.bet-three-quarters}}), e os seus {{t:draw|draws}} perdem metade das chances. Com pares fracos e mãos sem outs, você {{t:fold|desiste}} com mais frequência do que no flop." }
+      - { text: "Porque o rival {{t:bet|aposta}} o {{t:second-barrel|second barrel}} com um {{t:range|range}} mais estreito e geralmente com um tamanho maior, e os {{t:draw|draws}} já têm só uma carta", correct: true, why: "Sim: o rival abandona parte dos {{t:bluff|blefes}} no turn, uma aposta maior reduz o {{t:mdf|MDF}} (com 3/4 do {{t:pot|pote}}, {{n:mdf.bet-three-quarters}}), e os seus {{t:draw|draws}} perdem metade das chances. Com {{t:pair|pares}} fracos e mãos sem outs, você {{t:fold|desiste}} com mais frequência do que no flop." }
       - { text: "Porque no turn é preciso economizar {{t:chips|fichas}}", why: "O que conta é o {{t:expected-value|valor esperado}} de cada decisão, não economizar. Você defende mais apertado porque o rival aposta com mãos mais fortes." }
       - { text: "Não, você defende mais amplo porque já colocou muitas {{t:chips|fichas}}", why: "O que você já colocou não volta. Você decide com base no preço agora e na força do {{t:range|range}} do rival." }
   - kind: numeric

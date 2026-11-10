@@ -107,7 +107,7 @@ Sin embargo, las cuentas no fijan un umbral exacto. Que la {{t:top-pair|pareja m
 
 ## {{t:spr}} alto: con una {{t:pair|pareja}}, más cautela
 
-En un {{t:pot|bote}} con una sola subida, el {{t:spr}} es de aprox. {{n:spr.srp}}. Para meter todo el stack antes del river habría que apostar más que el {{t:pot|bote}} en cada {{t:street|calle}} (lección sobre el tamaño geométrico). Un rival que mete tanto dinero rara vez tiene una mano peor que una {{t:pair|pareja}}. Por eso, con una sola {{t:pair|pareja}} en un {{t:pot|bote}} así juegas por valor, pero normalmente no planeas jugar por todo el stack.
+En un {{t:pot|bote}} con una sola subida, el {{t:spr}} es de aprox. {{n:spr.srp}}. Para meter todo el stack hasta el river habría que apostar más que el {{t:pot|bote}} en cada {{t:street|calle}} (lección sobre el tamaño geométrico). Un rival que mete tanto dinero rara vez tiene una mano peor que una {{t:pair|pareja}}. Por eso, con una sola {{t:pair|pareja}} en un {{t:pot|bote}} así juegas por valor, pero normalmente no planeas jugar por todo el stack.
 
 :::note De dónde salen estas reglas
 El umbral de aprox. {{n:spr.zone.low}} procede de materiales de formación y de un análisis de solver publicado (con un {{t:spr}} de aprox. {{n:spr.commit}}, toda {{t:top-pair|pareja mayor}} y toda mano mejor juega por el stack). La cautela con una sola {{t:pair|pareja}} con un {{t:spr}} alto la confirman materiales de formación y análisis de solvers. Las cifras de precio y de tamaños de esta lección son matemática pura.

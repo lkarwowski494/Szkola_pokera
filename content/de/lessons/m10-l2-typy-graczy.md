@@ -26,7 +26,7 @@ drills:
     id: m10.l2.q-data-passive
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "Laut Populationsdaten aus Online-Micro-Stakes (NL25) kommen {{t:recreational|Freizeitspieler}} in {{n:mda.rec.wtsd}} der Fälle zum Showdown und gewinnen {{n:mda.rec.wsd}} der Showdowns; bei {{t:regular|Regs}} sind es {{n:mda.reg.wtsd}} und {{n:mda.reg.wsd}}. Was folgt daraus?"
+    prompt: "Laut Populationsdaten aus Online-Mikrolimits (NL25) kommen {{t:recreational|Freizeitspieler}} in {{n:mda.rec.wtsd}} der Fälle zum Showdown und gewinnen {{n:mda.rec.wsd}} der Showdowns; bei {{t:regular|Regs}} sind es {{n:mda.reg.wtsd}} und {{n:mda.reg.wsd}}. Was folgt daraus?"
     options:
       - { text: "{{t:recreational|Freizeitspieler}} zahlen öfter bis zum Ende und verlieren öfter: Sie {{t:call|callen}} mit schwächeren Händen", correct: true, why: "Sie kommen öfter zum Showdown und gewinnen ihn seltener, also kommen sie mit schwächeren Händen dorthin. Gegen sie bettest du mehr Hände {{t:value|auf Value}} und {{t:bluff|bluffst}} weniger." }
       - { text: "{{t:recreational|Freizeitspieler}} {{t:bluff|bluffen}} öfter", why: "Diese Zahlen sagen etwas darüber, wie oft sie zum Showdown kommen und womit, nicht über {{t:bluff|Bluffs}}. Sie gewinnen weniger Showdowns, weil sie mit schwächeren Händen {{t:call|callen}}." }
@@ -38,7 +38,7 @@ drills:
     table: { hand: "Kh Qd", board: "Ks 8h 4c 2d 7s" }
     prompt: "River. Du hast Flop und Turn gebettet, dein Gegner hat {{t:call|gecallt}}. Er ist ein passiver {{t:recreational|Freizeitspieler}} ({{t:vpip}} {{n:mda.rec.vpip}}, {{t:pfr}} {{n:mda.rec.pfr}}, {{n:hud.ex.reg.hands}} Hände). Er {{t:check|checkt}}. Was machst du mit {{t:top-pair|Top Pair}} und dem zweitbesten Kicker?"
     options:
-      - { text: "Ich bette {{t:value|auf Value}}", correct: true, why: "So ein Spieler {{t:call|callt}} bis zum Ende mit schwächeren Königen, Achten und Pocket-{{t:pair|Paaren}}. Mehr als die Hälfte seiner {{t:call|Calls}} sind schlechtere Hände als deine, also bringt die Bet Gewinn (Schwelle aus Modul 8)." }
+      - { text: "Ich bette {{t:value|auf Value}}", correct: true, why: "So ein Spieler {{t:call|callt}} bis zum Ende mit schwächeren Königen, Achten und Pocket {{t:pair|Pairs}}. Mehr als die Hälfte seiner {{t:call|Calls}} sind schlechtere Hände als deine, also bringt die Bet Gewinn (Schwelle aus Modul 8)." }
       - { text: "Ich {{t:check|checke}}, um nicht in eine bessere Hand zu laufen", why: "Gegen einen Spieler, der mit schwächeren Händen {{t:call|callt}}, verschenkt ein {{t:check}} Value. Bessere Hände zahlen manchmal, aber {{t:call|Calls}} von schlechteren Händen gibt es mehr." }
       - { text: "Ich bette den ganzen {{t:pot}} als {{t:bluff}}", why: "Mit {{t:top-pair|Top Pair}} ist das kein {{t:bluff}}: Du schlägst viele Hände, die {{t:call|callen}}. Die Bet geht {{t:value|auf Value}}." }
   - kind: choice
@@ -113,12 +113,12 @@ Einen passiven Spieler mit großer Differenz nennt man auch {{t:calling-station}
 
 ## Was die Populationsdaten zeigen
 
-Eine öffentliche Statistikdatenbank liefert die Durchschnittsstats der Spieler einer großen Online-Plattform, NL25 6-max, aus allen Händen der letzten {{n:mda.period.months}} Monate. Als {{t:regular|Regs}} gelten dort Spieler mit {{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}} und einer Winrate über {{n:mda.reg.def.wr}}, als {{t:recreational|Freizeitspieler}} Spieler mit {{t:vpip}} über {{n:mda.rec.def}} und einer Winrate unter {{n:mda.rec.def.wr}}:
+Eine öffentliche Statistikdatenbank liefert die Durchschnittsstats der Spieler eines großen Online-Pokerraums, NL25 6-max, aus allen Händen der letzten {{n:mda.period.months}} Monate. Als {{t:regular|Regs}} gelten dort Spieler mit {{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}} und einer Winrate über {{n:mda.reg.def.wr}}, als {{t:recreational|Freizeitspieler}} Spieler mit {{t:vpip}} über {{n:mda.rec.def}} und einer Winrate unter {{n:mda.rec.def.wr}}:
 
 | Stat | {{t:regular|Regs}} | {{t:recreational|Freizeitspieler}} |
 |---|---|---|
 | {{t:vpip}} / {{t:pfr}} | {{n:mda.reg.vpip}} / {{n:mda.reg.pfr}} | {{n:mda.rec.vpip}} / {{n:mda.rec.pfr}} |
-| Fold auf 3-Bet | {{n:mda.reg.f3b}} | {{n:mda.rec.f3b}} |
+| Fold to 3-Bet | {{n:mda.reg.f3b}} | {{n:mda.rec.f3b}} |
 | {{t:wtsd}} | {{n:mda.reg.wtsd}} | {{n:mda.rec.wtsd}} |
 | Gewonnene Showdowns | {{n:mda.reg.wsd}} | {{n:mda.rec.wsd}} |
 | Winrate | {{n:mda.reg.wr}} | {{n:mda.rec.wr}} |
@@ -136,8 +136,8 @@ Die Basisstrategie aus Modul 8 ändert sich nicht: Du bettest {{t:value|auf Valu
 
 **Der {{t:nit}}** spielt nur starke Hände. Wenn er {{t:raise|raist}} oder 3-bettet, sind die Hände am unteren Ende deiner {{t:call|Calling}}-{{t:range}} öfter dominiert, also {{t:fold|foldest}} du sie öfter als in der Basisstrategie aus Modul 4. Sitzt er im Blind, stiehlst du öfter, weil er selten verteidigt.
 
-**Der {{t:maniac}}** spielt viele Hände und {{t:raise|raist}} fast jede. Seine Bets enthalten mehr {{t:bluff|Bluffs}} als in der Basisstrategie, also {{t:call|callst}} du mit Händen an der Grenze zum {{t:call}}, lässt ihn mit sehr starken Händen betten und {{t:bluff|bluffst}} selbst nicht: Er {{t:fold|foldet}} selten.
+**Der {{t:maniac}}** spielt viele Hände und {{t:raise|raist}} fast jede. Seine Bets enthalten mehr {{t:bluff|Bluffs}} als in der Basisstrategie, also {{t:call|callst}} du mit Händen an der Grenze zum {{t:call}}, lässt ihn betten, wenn du eine sehr starke Hand hast, und {{t:bluff|bluffst}} selbst nicht: Er {{t:fold|foldet}} selten.
 
 :::note Woher diese Schwellen kommen
-Die Schwellen der Typen sind Trainerkonventionen (zwei Trainingsmaterialien, 6-max Online-Cash): Wir nehmen die Schnittmenge oder einen Bereich, der beide Quellen abdeckt. Die Populationsdaten stammen aus einer öffentlichen Statistikdatenbank (eine große Online-Plattform, NL25–NL100, alle Hände aus den {{n:mda.period.months}} Monaten vor Oktober 2026; Handzahlen gibt die Seite nicht an). Einen {{t:nit}} oder {{t:maniac}} erkennst du an den Stats eines konkreten Gegners, nicht an Daten über die ganze Population, deshalb braucht es eine Stichprobe.
+Die Schwellen der Typen sind Trainerkonventionen (zwei Trainingsmaterialien, 6-max Online-Cash): Wir nehmen die Schnittmenge oder einen Bereich, der beide Quellen abdeckt. Die Populationsdaten stammen aus einer öffentlichen Statistikdatenbank (ein großer Online-Pokerraum, NL25–NL100, alle Hände aus den {{n:mda.period.months}} Monaten vor Oktober 2026; Handzahlen gibt die Seite nicht an). Einen {{t:nit}} oder {{t:maniac}} erkennst du an den Stats eines konkreten Gegners, nicht an Daten über die ganze Population, deshalb braucht es eine Stichprobe.
 :::

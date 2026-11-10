@@ -40,20 +40,20 @@ drills:
     id: m12.exam.q5
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "Turn. Bạn có {{t:flush-draw|draw thùng}} sạch, trong {{t:pot|pot}} có {{n:ex.pot}}. Đối thủ all-in {{n:ex.bet.half}}, không thể thắng thêm gì nữa. Bạn {{t:call|theo}}, {{t:flush|thùng}} về ở river và bạn thắng. Bạn đánh giá lần {{t:call|theo}} này thế nào?"
+    prompt: "Turn. Bạn có {{t:flush-draw|bài chờ thùng}} sạch, trong {{t:pot|pot}} có {{n:ex.pot}}. Đối thủ all-in {{n:ex.bet.half}}, không thể thắng thêm gì nữa. Bạn {{t:call|theo}}, {{t:flush|thùng}} về ở river và bạn thắng. Bạn đánh giá lần {{t:call|theo}} này thế nào?"
     options:
-      - { text: "Đó là quyết định sai, dù bạn thắng", correct: true, why: "Bạn cần {{n:eq.bet-half}} equity, còn {{t:flush-draw|draw thùng}} trúng ở river trong khoảng {{n:odds.flush.turn-river}} trường hợp. Đối thủ đã all-in, nên sau đó sẽ không trả thêm cho bạn gì nữa. Qua nhiều lần lặp lại, kiểu {{t:call|theo}} này sẽ lỗ." }
+      - { text: "Đó là quyết định sai, dù bạn thắng", correct: true, why: "Bạn cần {{n:eq.bet-half}} equity, còn {{t:flush-draw|bài chờ thùng}} trúng ở river trong khoảng {{n:odds.flush.turn-river}} trường hợp. Đối thủ đã all-in, nên sau đó sẽ không trả thêm cho bạn gì nữa. Qua nhiều lần lặp lại, kiểu {{t:call|theo}} này sẽ lỗ." }
       - { text: "Đó là quyết định đúng, vì bạn đã thắng {{t:pot|pot}}", why: "Kết quả của một ván không thay đổi giá. Việc đánh giá liên quan đến quyết định dựa trên thông tin bạn có: {{n:odds.flush.turn-river}} equity so với {{n:eq.bet-half}} cần thiết." }
       - { text: "Không thể đánh giá nếu không biết bài của đối thủ", why: "Những gì bạn biết là đủ để đánh giá: đối thủ đã all-in, tay bài của bạn chỉ thắng khi trúng {{t:flush|thùng}}, và giá đòi hỏi {{n:eq.bet-half}}." }
   - kind: choice
     id: m12.exam.q6
     family: m12.tilt-type
     rules: [R-M12-006]
-    prompt: "Bạn vừa thua một {{t:pot|pot}} lớn. Bạn biết mình đã chơi tốt và đó là {{t:variance|phương sai}}, còn đối thủ cũng chơi đúng. Dù vậy, chính việc thua khiến bạn tức giận đến mức không thể tập trung. Theo cách phân loại trong bài học về tilt, đây là loại tilt nào?"
+    prompt: "Bạn vừa thua một {{t:pot|pot}} lớn. Bạn biết mình đã chơi tốt và đó là {{t:variance|phương sai}}, còn đối thủ cũng chơi đúng. Dù vậy, chính việc thua khiến bạn tức giận đến mức không thể tập trung. Theo cách phân loại trong bài học về tilt, đây là kiểu tilt nào?"
     options:
-      - { text: "Tilt vì ghét thua", correct: true, why: "Tác nhân là chính việc thua, ngay cả khi bạn biết đó là {{t:variance|phương sai}}. Bạn không đổ lỗi cho vận may, cho bản thân hay cho đối thủ." }
-      - { text: "Tilt vì bất công", why: "Loại này bị kích hoạt bởi cảm giác poker không công bằng: bad beat, cooler, đối thủ trúng bài ở river. Ở đây bạn biết mọi thứ diễn ra bình thường, và điều khiến bạn tức giận là chính việc thua." }
-      - { text: "Tilt vì sai lầm", why: "Tilt vì sai lầm là sự tức giận với lỗi của chính mình. Ở đây bạn biết mình đã chơi tốt." }
+      - { text: "Tilt vì ghét thua", correct: true, why: "Tác nhân là chính việc thua, ngay cả khi bạn biết đó là {{t:variance|phương sai}}. Bạn không đổ lỗi cho may rủi, cho bản thân hay cho đối thủ." }
+      - { text: "Tilt vì bất công", why: "Kiểu tilt này bị kích hoạt bởi cảm giác poker không công bằng: bad beat, cooler, đối thủ trúng bài ở river. Ở đây bạn biết mọi thứ diễn ra bình thường, và điều khiến bạn tức giận là chính việc thua." }
+      - { text: "Tilt vì mắc lỗi", why: "Tilt vì mắc lỗi là sự tức giận với lỗi của chính mình. Ở đây bạn biết mình đã chơi tốt." }
       - { text: "Tilt vì trả thù", why: "Trả thù nhắm vào đối thủ, ví dụ sau khi bị thiếu tôn trọng. Ở đây đối thủ chơi đúng và không phải là lý do khiến bạn tức giận." }
   - kind: choice
     id: m12.exam.q7

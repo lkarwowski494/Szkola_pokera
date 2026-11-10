@@ -70,7 +70,7 @@ drills:
     table: { hand: "9s 8s", board: "7d 6c 2h", position: BB }
     options:
       - { text: "Check-raise", correct: true, why: "Um {{t:oesd|OESD}} ({{n:outs.oesd}} outs) contra um c-bet pequeno, que dá uma oportunidade barata de {{t:raise|aumentar}}. Com o {{t:raise|aumento}}, você pode ganhar na hora e, se for {{t:call|pago}}, ainda pode acertar." }
-      - { text: "{{t:call|Pago}}", correct: true, why: "Também é bom: você acerta a {{t:straight|sequência}} no turn em cerca de {{n:odds.oesd.flop-turn}} das vezes, um pouco menos que o preço de {{n:eq.bet-third}}, mas, ao acertar, ganha mais (implied odds) e, se ninguém {{t:bet|apostar}} no turn, também verá o river de graça. Parte dos {{t:draw|projetos}} fortes você {{t:call|paga}}, para que seus {{t:call|pagamentos}} não sejam só de mãos fracas." }
+      - { text: "{{t:call|Pago}}", correct: true, why: "Também é bom: você acerta a {{t:straight|sequência}} no turn em cerca de {{n:odds.oesd.flop-turn}} das vezes, um pouco menos que o preço de {{n:eq.bet-third}}, mas, ao acertar, ganha mais (implied odds) e, se ninguém {{t:bet|apostar}} no turn, também verá o river de graça. Com parte dos {{t:draw|projetos}} fortes você {{t:call|paga}}, para que seus {{t:call|pagamentos}} não sejam só de mãos fracas." }
       - { text: "{{t:fold|Desisto}}", why: "Tight demais: com {{n:outs.oesd}} outs, você acerta a {{t:straight|sequência}} no turn em cerca de {{n:odds.oesd.flop-turn}} das vezes, não muito menos que o preço de {{n:eq.bet-third}}; o resto vem das implied odds e da chance de ver o river de graça. Além disso, você pode dar check-raise." }
   - kind: choice
     id: m6.l3.q-top-pair-weak
@@ -122,7 +122,7 @@ Você dá check-raise por dois motivos:
 - **por {{t:value|valor}}**: você tem uma mão muito forte ({{t:two-pair|dois pares}}, set) e quer construir o {{t:pot|pote}},
 - **como {{t:semi-bluff|semiblefe}}**: você tem um {{t:draw|projeto}} ({{t:flush}}, {{t:oesd}}) que ganha de duas formas: quando o Button {{t:fold|desiste}} ou quando você acerta.
 
-Mãos médias, como {{t:top-pair}} com kicker fraco, você normalmente {{t:call|paga}}: depois do {{t:raise|aumento}}, as mãos piores do Button {{t:fold|desistem}} com mais frequência, e as melhores pagam. Isso é uma simplificação: contra c-bets pequenos, o solver também {{t:raise|aumenta}} com parte dos {{t:top-pair|top pairs}} e dos {{t:pair|pares}} fracos para proteção. Já com {{t:two-pair|dois pares}} em um flop muito {{t:connected|conectado}}, o solver muitas vezes apenas {{t:call|paga}}.
+Com mãos médias, como {{t:top-pair}} com kicker fraco, você normalmente {{t:call|paga}}: depois do {{t:raise|aumento}}, as mãos piores do Button {{t:fold|desistem}} com mais frequência, e as melhores pagam. Isso é uma simplificação: contra c-bets pequenos, o solver também {{t:raise|aumenta}} com parte dos {{t:top-pair|top pairs}} e dos {{t:pair|pares}} fracos para proteção. Já com {{t:two-pair|dois pares}} em um flop muito {{t:connected|conectado}}, o solver muitas vezes apenas {{t:call|paga}}.
 
 ## Quando com mais frequência
 

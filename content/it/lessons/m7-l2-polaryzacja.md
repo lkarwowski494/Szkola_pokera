@@ -41,8 +41,8 @@ drills:
     prompt: "{{t:open|Hai aperto}} dal Button, il {{t:big-blind|big blind}} ha {{t:call|chiamato}} il c-bet sul flop. Al turn esce un due. Nel {{t:pot|piatto}} ci sono {{n:ex.pot}}, l'avversario fa {{t:check|check}}. Hai un set. Cosa fai?"
     table: { hand: "7c 7d", position: BTN, board: "Jh 7h 4s 2c" }
     options:
-      - { text: "Punto {{n:ex.bet.three-quarters}}", correct: true, why: "Sì: l'avversario può avere un {{t:draw|progetto}} a {{t:flush|colore}} (due cuori) e a {{t:straight|scala}} (es. 65, T9). Contro una puntata di 3/4 del {{t:pot|piatto}} un {{t:flush-draw|progetto di colore}} ha bisogno di {{n:eq.bet-three-quarters}} di equity, e il {{t:flush|colore}} arriva in circa il {{n:odds.flush.turn-river}} dei casi. Contro il tuo set ha ancora meno: [[4h]] e [[2h]] ti danno il {{t:full-house|full}}, quindi gli restano {{n:outs.flush.vs-set}} out puliti, circa {{n:odds.flush.vs-set}}. Paga troppo." }
-      - { text: "Punto {{n:ex.bet.quarter}}", sizeError: true, why: "Azione giusta, sizing sbagliato: contro una puntata di 1/4 del {{t:pot|piatto}} un {{t:draw|progetto}} ha bisogno solo di {{n:eq.bet-quarter}} di equity, quindi ottiene un buon prezzo. Con una mano molto forte su un {{t:board|board}} con un {{t:flush-draw|progetto di colore}} punti grande." }
+      - { text: "Punto {{n:ex.bet.three-quarters}}", correct: true, why: "Sì: l'avversario può avere un {{t:draw|progetto}} a {{t:flush|colore}} (due cuori) e a {{t:straight|scala}} (es. 65, T9). Contro una puntata di 3/4 del {{t:pot|piatto}} un {{t:flush-draw|progetto di colore}} ha bisogno del {{n:eq.bet-three-quarters}} di equity, e il {{t:flush|colore}} arriva in circa il {{n:odds.flush.turn-river}} dei casi. Contro il tuo set ha ancora meno: [[4h]] e [[2h]] ti danno il {{t:full-house|full}}, quindi gli restano {{n:outs.flush.vs-set}} out puliti, circa {{n:odds.flush.vs-set}}. Paga troppo." }
+      - { text: "Punto {{n:ex.bet.quarter}}", sizeError: true, why: "Azione giusta, sizing sbagliato: contro una puntata di 1/4 del {{t:pot|piatto}} un {{t:draw|progetto}} ha bisogno solo del {{n:eq.bet-quarter}} di equity, quindi ottiene un buon prezzo. Con una mano molto forte su un {{t:board|board}} con un {{t:flush-draw|progetto di colore}} punti grande." }
       - { text: "{{t:check|Check}}", why: "Una carta gratis è un regalo per i {{t:draw|progetti}}, e tu non costruisci il {{t:pot|piatto}} prima del river. Un set su un {{t:board|board}} con un {{t:flush-draw|progetto di colore}} punta." }
   - kind: choice
     id: m7.l2.q-semibluff-size
@@ -84,7 +84,7 @@ drills:
     id: m7.l2.q-oesd-threshold
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "Al turn l'avversario ha un {{t:oesd|progetto di scala bilaterale}}: circa il {{n:odds.oesd.turn-river}} al river. Da quale tua puntata in su paga troppo (contando solo le pot odds)?"
+    prompt: "Al turn l'avversario ha un {{t:oesd|OESD}}: circa il {{n:odds.oesd.turn-river}} al river. Da quale tua puntata in su paga troppo (contando solo le pot odds)?"
     options:
       - { text: "Già da 1/3 del {{t:pot|piatto}}: gli serve {{n:eq.bet-third}}", correct: true, why: "Sì: {{n:eq.bet-third}} è più di {{n:odds.oesd.turn-river}}. Al turn i {{t:draw|progetti}} hanno solo una carta, quindi anche una puntata media dà loro un prezzo cattivo." }
       - { text: "Solo dal {{t:pot|piatto}} intero: gli serve {{n:eq.bet-pot}}", why: "Con il {{t:pot|piatto}} intero paga decisamente troppo, ma già con 1/3 del {{t:pot|piatto}} gli serve {{n:eq.bet-third}}, più del suo {{n:odds.oesd.turn-river}}." }

@@ -79,7 +79,7 @@ drills:
     options:
       - { text: "{{t:fold|Foldo}}", correct: true, why: "Hai solo il sette come carta più alta. Perdi persino contro la maggior parte dei {{t:bluff|bluff}} del Button (donna con picche, jack con picche), quindi non è un bluff-catcher. Difendi con altre mani." }
       - { text: "{{t:call|Chiamo}}, perché il prezzo è buono", why: "Il prezzo ({{n:eq.bet-half}}) non aiuta una mano che perde contro quasi tutto, persino contro i {{t:bluff|bluff}}." }
-      - { text: "{{t:raise|Rilancio}} come {{t:bluff|bluff}}", why: "Il {{t:raise|rilancio}} in {{t:bluff|bluff}} al river è una giocata avanzata e rischiosa. È più semplice e meglio passare una mano senza possibilità." }
+      - { text: "{{t:raise|Rilancio}} come {{t:bluff|bluff}}", why: "Il {{t:raise|rilancio}} in {{t:bluff|bluff}} al river è una giocata avanzata e rischiosa. È più semplice e meglio foldare una mano senza possibilità." }
   - kind: choice
     id: m8.l4.q-which-defend
     family: m8.catch.hands

@@ -62,7 +62,7 @@ drills:
     rules: [R-M8-004]
     prompt: "Vì sao tỉ lệ {{t:bluff|bluff}} trong các lần cược của bạn được tính bằng cùng công thức với equity mà đối thủ cần để {{t:call|theo}}?"
     options:
-      - { text: "Vì tay bài bắt {{t:bluff|bluff}} của đối thủ thắng đúng vào những lúc bạn {{t:bluff|bluff}}", correct: true, why: "Tay bài của họ thua {{t:value|giá trị}} của bạn và thắng {{t:bluff|bluff}}, nên equity của nó chính là tỉ lệ {{t:bluff|bluff}}. Khi tỉ lệ này bằng equity cần thiết, lần {{t:call|theo}} hòa vốn và đối thủ không thể lợi dụng bạn, dù bằng cách theo hay bỏ bài." }
+      - { text: "Vì tay bài bắt {{t:bluff|bluff}} của đối thủ thắng đúng vào những lúc bạn {{t:bluff|bluff}}", correct: true, why: "Tay bài của họ thua giá trị của bạn và thắng {{t:bluff|bluff}}, nên equity của nó chính là tỉ lệ {{t:bluff|bluff}}. Khi tỉ lệ này bằng equity cần thiết, lần {{t:call|theo}} hòa vốn và đối thủ không thể lợi dụng bạn, dù bằng cách theo hay bỏ bài." }
       - { text: "Đó là trùng hợp, các công thức chỉ trông giống nhau", why: "Đó không phải trùng hợp. Bạn chọn tỉ lệ {{t:bluff|bluff}} sao cho equity của tay bài bắt {{t:bluff|bluff}} bằng đúng mức giá của nó." }
       - { text: "Vì đối thủ luôn có đúng mức equity cần thiết", why: "Đối thủ có bao nhiêu equity là do các lần cược của bạn quyết định. Chính bạn chọn số {{t:bluff|bluff}} sao cho kết quả hòa vốn." }
   - kind: choice
@@ -71,7 +71,7 @@ drills:
     rules: [R-M8-004]
     prompt: "Bạn cược cả {{t:pot|pot}} ở river, nhưng {{t:bluff|bluff}} chiếm một nửa số lần cược của bạn chứ không phải {{n:bluff.share.bet-pot}}. Một đối thủ tinh ý có thể làm gì?"
     options:
-      - { text: "{{t:call|Theo}} thường xuyên hơn, kể cả bằng những tay bài yếu bắt {{t:bluff|bluff}}", correct: true, why: "Lần {{t:call|theo}} của họ thắng một nửa số lần, trong khi chỉ cần {{n:eq.bet-pot}}. Trả tiền nhiều hơn, họ kiếm được từ {{t:bluff|bluff}} của bạn nhiều hơn số mất cho {{t:value|giá trị}}." }
+      - { text: "{{t:call|Theo}} thường xuyên hơn, kể cả bằng những tay bài yếu bắt {{t:bluff|bluff}}", correct: true, why: "Lần {{t:call|theo}} của họ thắng một nửa số lần, trong khi chỉ cần {{n:eq.bet-pot}}. Trả tiền nhiều hơn, họ kiếm được từ {{t:bluff|bluff}} của bạn nhiều hơn số mất cho giá trị." }
       - { text: "{{t:fold|Bỏ bài}} thường xuyên hơn", why: "Bỏ bài là nhường {{t:pot|pot}} cho các {{t:bluff|bluff}} của bạn. Khi có quá nhiều {{t:bluff|bluff}}, đối thủ kiếm lời bằng cách {{t:call|theo}}." }
       - { text: "Không làm gì, tỉ lệ không quan trọng", why: "Có quan trọng: khi có quá nhiều {{t:bluff|bluff}}, mỗi lần {{t:call|theo}} bằng tay bài bắt {{t:bluff|bluff}} đều có lời cho đối thủ." }
   - kind: choice
@@ -81,7 +81,7 @@ drills:
     prompt: "Ở river, bạn cược cả {{t:pot|pot}} gần như chỉ để {{t:value|lấy giá trị}}, gần như không có {{t:bluff|bluff}}. Một đối thủ tinh ý có thể làm gì?"
     options:
       - { text: "{{t:fold|Bỏ}} mọi tay bài chỉ thắng được {{t:bluff|bluff}}", correct: true, why: "Khi {{t:bluff|bluff}} ít hơn {{n:bluff.share.bet-pot}}, lần {{t:call|theo}} bằng tay bài bắt {{t:bluff|bluff}} sẽ lỗ. Khi đó đối thủ chỉ trả tiền bằng những tay bài tốt hơn, và các lần cược {{t:value|lấy giá trị}} của bạn ít được trả tiền hơn." }
-      - { text: "{{t:call|Theo}} thường xuyên hơn", why: "Nếu {{t:call|theo}}, họ chủ yếu trả tiền cho {{t:value|giá trị}} của bạn. Khi {{t:range|range}} của bạn không có {{t:bluff|bluff}}, họ nên {{t:fold|bỏ bài}}." }
+      - { text: "{{t:call|Theo}} thường xuyên hơn", why: "Nếu {{t:call|theo}}, họ chủ yếu trả tiền cho giá trị của bạn. Khi {{t:range|range}} của bạn không có {{t:bluff|bluff}}, họ nên {{t:fold|bỏ bài}}." }
       - { text: "{{t:raise|Tố}} với mọi tay bài", why: "{{t:raise|Tố}} vào tay bài mạnh của bạn mà không có bài tốt hơn là chắc chắn lỗ. Đối thủ chỉ cần {{t:fold|bỏ bài}} thường xuyên hơn." }
   - kind: choice
     id: m8.l2.q-combos
@@ -106,7 +106,7 @@ Trong bài học đầu tiên, bạn đã cược {{t:value|lấy giá trị}}. 
 
 ## {{t:range|Range}} {{t:polarized}}
 
-Ở river khi {{t:in-position}}, bạn thường cược bằng **{{t:range|range}} {{t:polarized|phân cực}}** (như trong M7): các tay bài rất mạnh {{t:value|lấy giá trị}} và {{t:bluff|bluff}}, không có tay bài trung bình (những tay này {{t:check}}, như trong bài học đầu tiên). Ở river, {{t:bluff|bluff}} là những tay bài không có cơ hội ở showdown. Khi đó đối thủ có nhiều tay bài thua {{t:value|giá trị}} của bạn nhưng thắng {{t:bluff|bluff}}. Đó là **bluff-catcher** (tay bài bắt {{t:bluff|bluff}}).
+Ở river khi {{t:in-position}}, bạn thường cược bằng **{{t:range|range}} {{t:polarized|phân cực}}** (như trong M7): các tay bài rất mạnh {{t:value|lấy giá trị}} và {{t:bluff|bluff}}, không có tay bài trung bình (những tay này {{t:check}}, như trong bài học đầu tiên). Ở river, {{t:bluff|bluff}} là những tay bài không có cơ hội ở showdown. Khi đó đối thủ có nhiều tay bài thua giá trị của bạn nhưng thắng {{t:bluff|bluff}}. Đó là **bluff-catcher** (tay bài bắt {{t:bluff|bluff}}).
 
 ## Bao nhiêu {{t:bluff|bluff}}
 

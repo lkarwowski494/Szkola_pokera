@@ -13,7 +13,7 @@ drills:
     prompt: "Der Button hat {{t:open|eröffnet}}, du hast im {{t:big-blind|Big Blind}} {{t:call|gecallt}}. Auf dem Flop checkt ihr beide. Am Turn setzt du als Erster. Wie heißt diese {{t:bet}}?"
     table: { position: BB }
     options:
-      - { text: "Probe Bet", correct: true, why: "Ja: Ein Probe Bet ist eine {{t:bet}} {{t:out-of-position}} am Turn, nachdem der {{t:aggressor}} von vor dem Flop keinen C-Bet gemacht und {{t:check|gecheckt}} hat." }
+      - { text: "Probe Bet", correct: true, why: "Ja: Ein Probe Bet ist eine {{t:bet}} {{t:out-of-position}} am Turn, nachdem der Preflop-{{t:aggressor}} keinen C-Bet gemacht und {{t:check|gecheckt}} hat." }
       - { text: "C-Bet", why: "Einen C-Bet {{t:bet|setzt}} der Spieler, der vor dem Flop {{t:raise|geraist}} hat. Du hast nur {{t:call|gecallt}}." }
       - { text: "Check-Raise", why: "Ein Check-Raise ist ein {{t:check}} und danach ein {{t:raise}} gegen den {{t:bet|Bet}} des Gegners. Hier setzt du als Erster und {{t:raise|raist}} niemanden." }
   - kind: choice
@@ -23,7 +23,7 @@ drills:
     prompt: "Warum kannst du nach einem {{t:check}} des Buttons auf dem Flop am Turn öfter setzen als sonst?"
     table: { position: BB }
     options:
-      - { text: "Weil der Button mit vielen starken Händen setzen würde, also hat er nach einem {{t:check}} weniger davon", correct: true, why: "Ja: Mit starken Händen macht man meist einen C-Bet. Die {{t:range}} des Buttons enthält nach einem {{t:check}} mehr mittlere und schwache Hände, und du kannst sie mit einer {{t:bet}} angreifen." }
+      - { text: "Weil der Button mit vielen starken Händen setzen würde und nach einem {{t:check}} deshalb weniger davon hat", correct: true, why: "Ja: Mit starken Händen macht man meist einen C-Bet. Die {{t:range}} des Buttons enthält nach einem {{t:check}} mehr mittlere und schwache Hände, und du kannst sie mit einer {{t:bet}} angreifen." }
       - { text: "Weil ein {{t:check}} immer bedeutet, dass der Button nichts hat", why: "Nicht immer: Der Button {{t:check|checkt}} manchmal mit einer starken Hand, um dich in eine Falle zu locken. Davon hat er aber weniger als dann, wenn er setzt." }
       - { text: "Weil du am Turn {{t:position}} hast", why: "Nein: Der Button handelt auf jeder {{t:street}} nach dir. Einen Probe Bet {{t:bet|setzt}} du {{t:out-of-position}}." }
   - kind: choice
@@ -93,7 +93,7 @@ drills:
     prompt: "Du verteidigst den {{t:big-blind}}. Du hast den C-Bet des Buttons auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Fünf, du {{t:check|checkst}}, und der Button {{t:bet|setzt}} {{n:ex.bet.three-quarters}} in einen {{t:pot}} von {{n:ex.pot}}. Was machst du?"
     table: { hand: "Kd Tc", position: BB, board: "Ks 7d 2c 5h" }
     options:
-      - { text: "Ich {{t:call|calle}}", correct: true, why: "{{t:top-pair}} ist zu stark, um auf einer Blank-Karte zu {{t:fold|folden}}: Es schlägt {{t:semi-bluff|Semi-Bluffs}} und schwächere Könige. Du brauchst {{n:eq.bet-three-quarters}}, und gegen die {{t:range}} eines {{t:second-barrel|Second Barrels}} hat so ein {{t:pair}} meist so viel." }
+      - { text: "Ich {{t:call|calle}}", correct: true, why: "{{t:top-pair}} ist zu stark, um auf einer leeren Karte zu {{t:fold|folden}}: Es schlägt {{t:semi-bluff|Semi-Bluffs}} und schwächere Könige. Du brauchst {{n:eq.bet-three-quarters}}, und gegen die {{t:range}} eines {{t:second-barrel|Second Barrels}} hat so ein {{t:pair}} meist so viel." }
       - { text: "Ich {{t:fold|folde}}", why: "Zu tight. Ein {{t:second-barrel}} ist stärker als ein C-Bet, aber der Button {{t:bet|setzt}} ihn auch mit {{t:draw|Draws}} und {{t:bluff|Bluffs}}. {{t:top-pair}} schlägt sie alle." }
       - { text: "Ich {{t:raise|raise}}", why: "Nach einem {{t:raise}} {{t:fold|folden}} schlechtere Hände, und bessere Könige und Sets zahlen. {{t:top-pair}} mit mittlerem Kicker ist keine Hand zum {{t:raise|Raisen}}." }
   - kind: choice
@@ -105,7 +105,7 @@ drills:
     options:
       - { text: "Weil der Gegner den {{t:second-barrel}} mit einer engeren {{t:range}} und meist größer {{t:bet|setzt}} und {{t:draw|Draws}} nur noch eine Karte haben", correct: true, why: "Ja: Einen Teil seiner {{t:bluff|Bluffs}} gibt der Gegner am Turn auf, ein größerer Bet senkt die {{t:mdf}} (bei 3/4 {{t:pot}} {{n:mdf.bet-three-quarters}}), und deine {{t:draw|Draws}} verlieren die Hälfte ihrer Chancen. Schwache {{t:pair|Paare}} und Hände ohne Outs {{t:fold|foldest}} du öfter als auf dem Flop." }
       - { text: "Weil man am Turn {{t:chips}} sparen muss", why: "Es zählt der {{t:expected-value}} jeder Entscheidung, nicht das Sparen. Du verteidigst enger, weil der Gegner mit stärkeren Händen setzt." }
-      - { text: "Gar nicht, du verteidigst weiter, weil du schon viele {{t:chips}} investiert hast", why: "Was du schon investiert hast, kommt nicht zurück. Du entscheidest anhand des aktuellen Preises und der Stärke der gegnerischen {{t:range}}." }
+      - { text: "Gar nicht, du verteidigst breiter, weil du schon viele {{t:chips}} investiert hast", why: "Was du schon investiert hast, kommt nicht zurück. Du entscheidest anhand des aktuellen Preises und der Stärke der gegnerischen {{t:range}}." }
   - kind: numeric
     id: m7.l4.n-mdf-turn
     family: m7.defend.math
@@ -113,13 +113,13 @@ drills:
     prompt: "Turn. Der Gegner {{t:bet|setzt}} {{n:ex.bet.three-quarters}} in einen {{t:pot}} von {{n:ex.pot}}. Wie hoch ist die {{t:mdf}}? Gib die Zahl in Prozent ein."
     table: { position: BB }
     answer: mdf.bet-three-quarters
-    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + Bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. In einem veröffentlichten Turn-Beispiel verteidigte der Solver im Schnitt nahe an der {{t:mdf}}; {{t:out-of-position}} verteidigst du manchmal weniger (auf dem Flop und am Turn). Wenn du weißt, dass der Gegner seltener {{t:bluff|blufft}}, {{t:fold|foldest}} du öfter (die Rechnung kommt in M8, in der Lektion übers Erwischen von {{t:bluff|Bluffs}})."
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + Bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. In einem veröffentlichten Turn-Beispiel verteidigte der Solver im Schnitt nahe an der {{t:mdf}}; {{t:out-of-position}} verteidigst du manchmal weniger (auf dem Flop und am Turn). Wenn du weißt, dass der Gegner seltener {{t:bluff|blufft}}, {{t:fold|foldest}} du öfter (die Rechnung kommt in M8, in der Lektion übers Fangen von {{t:bluff|Bluffs}})."
 ---
 Am Turn triffst du auf zwei neue Situationen: Der Button hat keinen C-Bet gemacht und {{t:check|gecheckt}}, oder er hat einen C-Bet gemacht und setzt zum zweiten Mal. Im ersten Fall kannst du selbst angreifen, im zweiten verteidigst du enger als auf dem Flop.
 
 ## Probe Bet
 
-Ein Probe Bet ist eine {{t:bet}} {{t:out-of-position}} am Turn, nachdem der {{t:aggressor}} von vor dem Flop auf dem Flop {{t:check|gecheckt}} hat. Mit vielen starken Händen hätte der Button einen C-Bet gemacht, also hat er nach dem {{t:check}} weniger davon. Seine {{t:range}} ist schwächer, und du kannst sie angreifen.
+Ein Probe Bet ist eine {{t:bet}} {{t:out-of-position}} am Turn, nachdem der Preflop-{{t:aggressor}} auf dem Flop {{t:check|gecheckt}} hat. Mit vielen starken Händen hätte der Button einen C-Bet gemacht, also hat er nach dem {{t:check}} weniger davon. Seine {{t:range}} ist schwächer, und du kannst sie angreifen.
 
 - **Öfter auf niedrigen Boards**, z. B. [[8c 5d 2s 3h]]: Niedrige Karten treffen deine breite Verteidigung.
 - **Seltener auf hohen**, z. B. [[Ac Kd 8h Js]]: Der {{t:range-advantage}} bleibt beim Button.

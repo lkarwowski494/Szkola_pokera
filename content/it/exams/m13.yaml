@@ -23,7 +23,7 @@ drills:
     prompt: "Il solver gioca la tua mano come {{t:raise|rilancio}} con frequenza {{n:exam.m13.solver.main}} e come {{t:fold|fold}} con frequenza {{n:exam.m13.solver.rare}}. Hai fatto {{t:fold|fold}}. Come lo valuterà il report?"
     options:
       - { text: "Accettabile", correct: true, why: "Il solver fa {{t:fold|fold}} con frequenza {{n:exam.m13.solver.rare}}: almeno {{n:range.mixed.min}}, ma meno di {{n:range.mixed.low}}. È la giocata meno frequente di una {{t:mixed-hand|mano mista}}, quindi non è un errore, ma una decisione accettabile." }
-      - { text: "In linea", why: "In linea è un'azione che il solver gioca con frequenza di almeno {{n:range.mixed.low}}. Il {{t:fold|fold}} con frequenza {{n:exam.m13.solver.rare}} è meno frequente." }
+      - { text: "Conforme", why: "Conforme è un'azione che il solver gioca con frequenza di almeno {{n:range.mixed.low}}. Il {{t:fold|fold}} con frequenza {{n:exam.m13.solver.rare}} è meno frequente." }
       - { text: "Errore", why: "Un errore è un'azione che il solver non gioca mai. Il {{t:fold|fold}} con frequenza {{n:exam.m13.solver.rare}} è la giocata meno frequente di una {{t:mixed-hand|mano mista}}, quindi entrambe le giocate sono corrette." }
   - kind: choice
     id: m13.exam.q4
@@ -41,14 +41,14 @@ drills:
     rules: [R-M13-003]
     prompt: "In partita avevi J♣ T♣ su un {{t:board|board}} 9♣ 8♦ 2♣. Quale di queste configurazioni è la stessa situazione, cioè ha la stessa decisione corretta?"
     options:
-      - { text: "J♦ T♦ su un {{t:board|board}} 9♦ 8♣ 2♦", correct: true, why: "I fiori sono stati scambiati con i quadri e i quadri con i fiori, ovunque contemporaneamente. Hai ancora un {{t:flush-draw|progetto di colore}} e un {{t:oesd|progetto di scala bilaterale}}, quindi la decisione non cambia." }
+      - { text: "J♦ T♦ su un {{t:board|board}} 9♦ 8♣ 2♦", correct: true, why: "I fiori sono stati scambiati con i quadri e i quadri con i fiori, ovunque contemporaneamente. Hai ancora un {{t:flush-draw|progetto di colore}} e un {{t:oesd|OESD}}, quindi la decisione non cambia." }
       - { text: "J♣ T♣ su un {{t:board|board}} 9♦ 8♣ 2♦", why: "I semi sono stati scambiati solo sul {{t:board|board}}: i tuoi fiori non corrispondono più al {{t:board|board}} e il {{t:flush-draw|progetto di colore}} è sparito. È una situazione diversa." }
       - { text: "J♥ T♥ su un {{t:board|board}} 9♣ 8♦ 2♣", why: "I semi sono stati scambiati solo nella tua mano: i cuori non corrispondono ai fiori sul {{t:board|board}}, quindi il {{t:flush-draw|progetto di colore}} non c'è più." }
   - kind: choice
     id: m13.exam.q6
     family: m13.sample
     rules: [R-M13-004]
-    prompt: "In una settimana hai avuto {{n:exam.m13.opps}} occasioni per difendere il {{t:big-blind|big blind}} contro un {{t:open|open}} dal Button. Cosa puoi dire della tua frequenza di difesa?"
+    prompt: "In una settimana hai avuto {{n:exam.m13.opps}} occasioni per difendere il {{t:big-blind|big blind}} contro un'{{t:open|apertura}} dal Button. Cosa puoi dire della tua frequenza di difesa?"
     options:
       - { text: "Posso già guardarla, ma senza certezza", correct: true, why: "Conti le occasioni, non le mani. Una statistica la guardi da circa {{n:hud.opps.look}} occasioni e diventi sicuro a circa {{n:hud.opps.sure}}. {{n:exam.m13.opps}} sono un primo segnale, non una conclusione." }
       - { text: "So già quanto spesso difendo", why: "{{n:exam.m13.opps}} occasioni sono ancora meno delle circa {{n:hud.opps.sure}} a cui diventi sicuro." }

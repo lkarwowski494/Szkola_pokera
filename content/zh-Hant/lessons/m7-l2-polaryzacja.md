@@ -12,19 +12,19 @@ drills:
     rules: [R-M7-005]
     prompt: "轉牌上哪一種下注{{t:range}}是{{t:polarized}}的？"
     options:
-      - { text: "暗三、{{t:two-pair}}和{{t:draw|聽牌}}，沒有中等{{t:pair|對子}}", correct: true, why: "沒錯：{{t:range}}{{t:polarized}}有兩極：非常強的牌和{{t:semi-bluff|半詐唬}}。中間，也就是中等牌，不在其中：這些牌會{{t:check|過牌}}。" }
+      - { text: "暗三條、{{t:two-pair}}和{{t:draw|聽牌}}，沒有中等{{t:pair|對子}}", correct: true, why: "沒錯：{{t:polarized}}{{t:range}}有兩極：非常強的牌和{{t:semi-bluff|半詐唬}}。中間，也就是中等牌，不在其中：這些牌會{{t:check|過牌}}。" }
       - { text: "{{t:top-pair|頂對}}、中等{{t:pair|對子}}和較弱的{{t:pair|對子}}", why: "這裡沒有任何一極：缺少非常強的牌和{{t:semi-bluff|半詐唬}}，只有由上而下的{{t:pair|對子}}。這比較接近{{t:linear|線性}}{{t:range|範圍}}：主要用有價值的牌下注，通常用小尺寸，而不是在轉牌下大注。" }
       - { text: "只有{{t:bluff|詐唬}}", why: "沒有強牌的{{t:range|範圍}}很容易被對手識破，他會一直{{t:call|跟注}}。{{t:polarized|極化}}{{t:range}}把{{t:bluff|詐唬}}和非常強的牌結合在一起。" }
   - kind: choice
     id: m7.l2.q-def-linear
     family: m7.polar.concept
     rules: [R-M7-005]
-    prompt: "在{{t:dry|乾燥}}的翻牌 [[Ks 7d 2c]] 上，你幾乎用所有牌都下小注：從暗三到弱{{t:pair|對子}}。這種下注{{t:range}}叫什麼？"
+    prompt: "在{{t:dry|乾燥}}的翻牌 [[Ks 7d 2c]] 上，你幾乎用所有牌都下小注：從暗三條到弱{{t:pair|對子}}。這種下注{{t:range}}叫什麼？"
     table: { position: BTN, board: "Ks 7d 2c" }
     options:
       - { text: "{{t:linear|線性}}", correct: true, why: "沒錯：強牌和中等牌一起下注，用小尺寸。這是 M5 的打法，用在你有{{t:range-advantage|範圍優勢}}的{{t:dry|乾燥}}高牌翻牌面上。" }
       - { text: "{{t:polarized|極化}}", why: "{{t:polarized|極化}}{{t:range}}沒有中等牌：只有非常強的牌和{{t:bluff|詐唬}}會下注。這裡連弱{{t:pair|對子}}也下注了。" }
-      - { text: "封頂", why: "封頂{{t:range}}是指缺少最強牌的範圍。你連暗三也下注了。" }
+      - { text: "封頂", why: "封頂{{t:range}}是指缺少最強牌的範圍。你連暗三條也下注了。" }
   - kind: choice
     id: m7.l2.q-why-medium
     family: m7.polar.concept
@@ -38,12 +38,12 @@ drills:
     id: m7.l2.q-set-wet
     family: m7.polar.size
     rules: [R-M7-005, R-M7-006]
-    prompt: "你在按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}了翻牌的 c-bet。轉牌是一張 2。{{t:pot|底池}}有 {{n:ex.pot}}，對手{{t:check|過牌}}。你有暗三。你怎麼做？"
+    prompt: "你在按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}了翻牌的 c-bet。轉牌是一張 2。{{t:pot|底池}}有 {{n:ex.pot}}，對手{{t:check|過牌}}。你有暗三條。你怎麼做？"
     table: { hand: "7c 7d", position: BTN, board: "Jh 7h 4s 2c" }
     options:
-      - { text: "下注 {{n:ex.bet.three-quarters}}", correct: true, why: "沒錯：對手可能有{{t:draw}}，聽{{t:flush|同花}}（兩張紅心）和{{t:straight|順子}}（例如 65、T9）。面對 3/4 {{t:pot|底池}}的下注，{{t:flush-draw}}需要 {{n:eq.bet-three-quarters}} 的權益，而{{t:flush}}成牌的機率約 {{n:odds.flush.turn-river}}。對上你的暗三，他的機會更小：[[4h]] 和 [[2h]] 會讓你拿到{{t:full-house|葫蘆}}，所以他只剩 {{n:outs.flush.vs-set}} 張乾淨的 outs，約 {{n:odds.flush.vs-set}}。他付得太貴了。" }
+      - { text: "下注 {{n:ex.bet.three-quarters}}", correct: true, why: "沒錯：對手可能有{{t:draw}}，聽{{t:flush|同花}}（兩張紅心）和{{t:straight|順子}}（例如 65、T9）。面對 3/4 {{t:pot|底池}}的下注，{{t:flush-draw}}需要 {{n:eq.bet-three-quarters}} 的權益，而{{t:flush}}成牌的機率約 {{n:odds.flush.turn-river}}。對上你的暗三條，他的機會更小：[[4h]] 和 [[2h]] 會讓你拿到{{t:full-house|葫蘆}}，所以他只剩 {{n:outs.flush.vs-set}} 張乾淨的補牌，約 {{n:odds.flush.vs-set}}。他付得太貴了。" }
       - { text: "下注 {{n:ex.bet.quarter}}", sizeError: true, why: "行動對，尺寸錯：面對 1/4 {{t:pot|底池}}的下注，{{t:draw}}只需要 {{n:eq.bet-quarter}} 的權益，所以拿到好價格。在有{{t:flush-draw|同花聽牌}}的{{t:board|公共牌}}上拿著非常強的牌，你要下大注。" }
-      - { text: "{{t:check|過牌}}", why: "免費牌是送給{{t:draw|聽牌}}的禮物，而且你沒有在河牌前做大{{t:pot|底池}}。在有{{t:flush-draw|同花聽牌}}的{{t:board|公共牌}}上，暗三要下注。" }
+      - { text: "{{t:check|過牌}}", why: "免費牌是送給{{t:draw|聽牌}}的禮物，而且你沒有在河牌前做大{{t:pot|底池}}。在有{{t:flush-draw|同花聽牌}}的{{t:board|公共牌}}上，暗三條要下注。" }
   - kind: choice
     id: m7.l2.q-semibluff-size
     family: m7.polar.size
@@ -75,10 +75,10 @@ drills:
     id: m7.l2.q-quarter-price
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "轉牌。你有暗三，只往 {{n:ex.pot}} 的{{t:pot|底池}}下注 {{n:ex.bet.quarter}}。對手有{{t:flush-draw}}（到河牌約 {{n:odds.flush.turn-river}}）。這代表什麼？"
+    prompt: "轉牌。你有暗三條，只往 {{n:ex.pot}} 的{{t:pot|底池}}下注 {{n:ex.bet.quarter}}。對手有{{t:flush-draw}}（到河牌約 {{n:odds.flush.turn-river}}）。這代表什麼？"
     options:
       - { text: "他拿到好價格：只需要 {{n:eq.bet-quarter}}", correct: true, why: "沒錯：{{n:ex.bet.quarter}} ÷ ({{n:ex.pot}} + {{n:ex.bet.quarter}} + {{n:ex.bet.quarter}}) = {{n:eq.bet-quarter}}，低於他的 {{n:odds.flush.turn-river}}。{{t:call|跟注}}對他有利可圖，而你的小注讓出了一部分價值。" }
-      - { text: "他必須{{t:fold|棄牌}}，因為他需要 {{n:eq.bet-three-quarters}}", why: "那是面對 3/4 {{t:pot|底池}}下注時需要的勝率。面對 1/4 {{t:pot|底池}}的下注，他只要 {{n:eq.bet-quarter}} 就夠了。" }
+      - { text: "他必須{{t:fold|棄牌}}，因為他需要 {{n:eq.bet-three-quarters}}", why: "那是面對 3/4 {{t:pot|底池}}下注時需要的權益。面對 1/4 {{t:pot|底池}}的下注，他只要 {{n:eq.bet-quarter}} 就夠了。" }
       - { text: "價格不重要，因為你反正贏他", why: "你現在贏他，但他約有 {{n:odds.flush.turn-river}} 的機率在河牌贏你。下注尺寸決定他為這個機會付得太多還是太少。" }
   - kind: choice
     id: m7.l2.q-oesd-threshold
@@ -108,13 +108,13 @@ drills:
 ## 兩種{{t:range|範圍}}
 
 - **{{t:linear|線性}}：** 從最強的牌往下下注，連中等牌一起。通常用小尺寸，例如在 [[Ks 7d 2c]] 上用 {{n:cbet.size.small}} {{t:pot|底池}}的 c-bet。
-- **{{t:polarized|極化}}：** 兩極下注：非常強的牌（暗三、{{t:two-pair}}、{{t:straight|順子}}、同花）和{{t:semi-bluff|半詐唬}}（{{t:draw|聽牌}}）。其中沒有中等牌。
+- **{{t:polarized|極化}}：** 兩極下注：非常強的牌（暗三條、{{t:two-pair}}、{{t:straight|順子}}、同花）和{{t:semi-bluff|半詐唬}}（{{t:draw|聽牌}}）。其中沒有中等牌。
 
-一般來說，{{t:range}}{{t:polarized}}由非常強的牌和{{t:bluff|詐唬}}組成。在轉牌，{{t:bluff|詐唬}}通常是{{t:semi-bluff|半詐唬}}；在河牌（M8），則是攤牌時毫無勝算的牌。
+一般來說，{{t:polarized}}{{t:range}}由非常強的牌和{{t:bluff|詐唬}}組成。在轉牌，{{t:bluff|詐唬}}通常是{{t:semi-bluff|半詐唬}}；在河牌（M8），則是攤牌時毫無勝算的牌。
 
 ## 為什麼要在轉牌極化
 
-對手{{t:call|跟注}}了翻牌，所以通常有{{t:pair|對子}}或{{t:draw}}，有時是帶後門的高牌（M6）。中等牌下第二注什麼也得不到：較差的牌{{t:fold|棄牌}}，較好的牌付錢。強牌想在河牌前做大{{t:pot|底池}}，{{t:semi-bluff|半詐唬}}則需要對手{{t:fold|棄牌}}，而且被{{t:call}}時還有 outs。
+對手{{t:call|跟注}}了翻牌，所以通常有{{t:pair|對子}}或{{t:draw}}，有時是帶後門的高牌（M6）。中等牌下第二注什麼也得不到：較差的牌{{t:fold|棄牌}}，較好的牌付錢。強牌想在河牌前做大{{t:pot|底池}}，{{t:semi-bluff|半詐唬}}則需要對手{{t:fold|棄牌}}，而且被{{t:call}}時還有補牌。
 
 ## {{t:polarized}}{{t:range|範圍}}，大注
 

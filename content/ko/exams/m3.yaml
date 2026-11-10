@@ -18,7 +18,7 @@ drills:
     prompt: "프리플롭에서 당신이 가장 먼저 액션하며, 아직 아무도 게임에 참여하지 않았습니다. 어떻게 하시겠습니까?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "오프수트 AT는 {{t:utg}}에서의 {{t:open|오픈}} {{t:range|레인지}}(약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}개 핸드)에 들어갑니다. 앱의 솔버는 여기서 이 핸드를 항상 플레이합니다." }
+      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "오프수트 AT는 {{t:utg}}에서의 {{t:open|오픈}} {{t:range|레인지}}(핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}})에 들어갑니다. 앱의 솔버는 여기서 이 핸드를 항상 플레이합니다." }
       - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다. {{t:utg}}에서는 좁게 플레이하지만, AT는 여전히 {{t:range|레인지}}에 들어갑니다." }
       - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "가장 먼저 들어갈 때는 {{t:raise|레이즈하거나}} {{t:fold|폴드합니다}}. 림프는 {{t:initiative|주도권}}과 블라인드를 바로 가져올 기회를 내줍니다." }
   - kind: choice
@@ -46,7 +46,7 @@ drills:
     prompt: "당신에게까지 모두 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Jd 9c", position: BTN }
     options:
-      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "버튼에서는 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}개 핸드를 {{t:open|오픈합니다}}. 블라인드만 남았고 플롭 이후에는 {{t:position|포지션}}을 가지므로, 오프수트 J9도 들어갑니다." }
+      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "버튼에서는 핸드의 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}를 {{t:open|오픈합니다}}. 블라인드만 남았고 플롭 이후에는 {{t:position|포지션}}을 가지므로, 오프수트 J9도 들어갑니다." }
       - { text: "{{t:fold|폴드합니다}}", why: "{{t:cutoff|CO}}에서는 솔버가 이 핸드를 드물게 플레이하지만, 버튼에서는 항상 플레이합니다. 블라인드만 상대할 때 그것은 너무 타이트합니다." }
       - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "림프는 {{t:initiative|주도권}}을 내줍니다. {{t:raise|레이즈}}는 종종 블라인드를 바로 가져옵니다." }
   - kind: choice
@@ -56,7 +56,7 @@ drills:
     prompt: "{{t:small-blind|스몰 블라인드}}에 있는 당신에게까지 모두 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Td 8c", position: SB }
     options:
-      - { text: "{{n:pf.open-size-sb}}까지 {{t:raise|레이즈합니다}}", correct: true, why: "이제 {{t:big-blind|빅 블라인드}}만 상대하므로 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}개 핸드로 넓게 {{t:open|오픈합니다}}. 플롭 이후에는 먼저 액션하므로, {{t:small-blind|스몰 블라인드}}에서는 다른 {{t:position|포지션}}보다 조금 더 크게 {{t:raise|레이즈합니다}}." }
+      - { text: "{{n:pf.open-size-sb}}까지 {{t:raise|레이즈합니다}}", correct: true, why: "이제 {{t:big-blind|빅 블라인드}}만 상대하므로 핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}로 넓게 {{t:open|오픈합니다}}. 플롭 이후에는 먼저 액션하므로, {{t:small-blind|스몰 블라인드}}에서는 다른 {{t:position|포지션}}보다 조금 더 크게 {{t:raise|레이즈합니다}}." }
       - { text: "{{n:pf.open-size}}까지 {{t:raise|레이즈합니다}}", sizeError: true, why: "액션은 맞지만 크기가 틀렸습니다. {{n:pf.open-size}}는 나머지 {{t:position|포지션}}에서의 {{t:open|오픈}} 크기입니다. {{t:small-blind|스몰 블라인드}}에서는 {{t:out-of-position|아웃 오브 포지션}}으로 플레이하므로 {{n:pf.open-size-sb}}까지 {{t:raise|레이즈합니다}}." }
       - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "가장 먼저 들어갈 때는 {{t:raise|레이즈하거나}} {{t:fold|폴드합니다}}({{t:small-blind|스몰 블라인드}}에서는 이것이 단순화입니다. 일부 솔버 솔루션은 여기서 일부 핸드를 림프합니다). 림프는 {{t:initiative|주도권}}과 블라인드를 바로 가져올 기회를 내줍니다." }
       - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다. 상대가 한 명일 때 앱의 솔버는 {{t:small-blind|스몰 블라인드}}에서 T8o를 항상 플레이합니다." }
@@ -84,7 +84,7 @@ drills:
     prompt: "{{t:utg}}가 {{t:raise|레이즈했고}}, 나머지는 당신에게까지 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "다시 {{t:raise|레이즈합니다}}(3-bet)", correct: true, why: "KK는 가장 강한 핸드 중 하나이며, {{t:utg}}가 {{t:open|오픈하는}} 대부분의 핸드에 대해 우위에 있습니다. 3-bet은 {{t:pot|팟}}을 키우고 보통 상대를 한 명만 남깁니다." }
+      - { text: "다시 {{t:raise|레이즈합니다}}(3벳)", correct: true, why: "KK는 가장 강한 핸드 중 하나이며, {{t:utg}}가 {{t:open|오픈하는}} 대부분의 핸드에 대해 우위에 있습니다. 3벳은 {{t:pot|팟}}을 키우고 보통 상대를 한 명만 남깁니다." }
       - { text: "{{t:call|콜만 합니다}}", why: "속임수로 플레이하기도 하지만, 원칙적으로는 밸류를 포기하고 블라인드를 싸게 게임에 들여보냅니다." }
       - { text: "{{t:utg}}의 {{t:range|레인지}}가 강하므로 {{t:fold|폴드합니다}}", why: "{{t:utg}}의 {{t:range|레인지}}는 좁지만, KK는 여전히 그에 대해 확실한 우위에 있습니다." }
   - kind: paint

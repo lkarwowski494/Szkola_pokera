@@ -59,7 +59,7 @@
   # błędny rozmiar przy dobrej akcji = „niedokładność” (B-015, decyzja właściciela 3 października 2026)
   wrongSizes: &w-btn-vs-co
     "玩這手（3-bet 到 7.5bb 或{{t:call|跟注}}）":
-      - { text: "3-bet 到 {{n:pf.3bet.oop-total}}", why: "這是{{t:out-of-position|無位置}}時用的尺寸。{{t:in-position|有位置}}時，你{{t:raise|加注}}約{{t:open|開池}}的 {{n:pf.3bet.size-ip}}，也就是到 {{n:pf.3bet.ip-total}}。" }
+      - { text: "3-bet 到 {{n:pf.3bet.oop-total}}", why: "這是{{t:out-of-position|無位置}}時用的尺寸。{{t:in-position|有位置}}時，你{{t:raise|加注}}到約{{t:open|開池}}的 {{n:pf.3bet.size-ip}}，也就是到 {{n:pf.3bet.ip-total}}。" }
 - id: vs-open.sb-vs-btn
   title: "{{t:small-blind|小盲}}，按鈕位以 2.5bb {{t:open|開池}}"
   hero: SB

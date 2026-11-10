@@ -28,14 +28,14 @@ drills:
     options:
       - { text: "{{n:bluff.share.bet-three-quarters}}", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}) = {{n:bluff.share.bet-three-quarters}}. Es el mismo número que la equity que necesita el rival para {{t:call|igualar}}." }
       - { text: "{{n:alpha.bet-three-quarters}}", why: "Eso es alpha: con qué frecuencia tiene que funcionar un solo {{t:bluff|farol}} sin opciones. La proporción de {{t:bluff|faroles}} en el {{t:range|rango}} se calcula con ambas apuestas en el denominador: {{n:bluff.share.bet-three-quarters}}." }
-      - { text: "{{n:mdf.bet-three-quarters}}", why: "Eso es el {{t:mdf}}, es decir, cuánto debería defender el rival. La proporción de tus {{t:bluff|faroles}} es {{n:bluff.share.bet-three-quarters}}." }
+      - { text: "{{n:mdf.bet-three-quarters}}", why: "Eso es la {{t:mdf}}, es decir, cuánto debería defender el rival. La proporción de tus {{t:bluff|faroles}} es {{n:bluff.share.bet-three-quarters}}." }
   - kind: choice
     id: m8.l2.q-share-overbet
     family: m8.bluff.share
     rules: [R-M8-004, R-M8-005]
     prompt: "River. En el {{t:pot|bote}} hay {{n:ex.pot}} y apuestas más que el {{t:pot|bote}}: {{n:ex.bet.overbet}}. En equilibrio, ¿qué parte de tus apuestas son {{t:bluff|faroles}}?"
     options:
-      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. Una {{t:overbet|sobreapuesta}}, es decir, una {{t:bet|apuesta}} mayor que todo el {{t:pot|bote}}, le da al rival el peor precio, así que puedes incluir en ella más {{t:bluff|faroles}} que en ninguna otra, pero aun así menos de la mitad." }
+      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. Un {{t:overbet|overbet}}, es decir, una {{t:bet|apuesta}} mayor que todo el {{t:pot|bote}}, le da al rival el peor precio, así que puedes incluir en él más {{t:bluff|faroles}} que en ningún otro, pero aun así menos de la mitad." }
       - { text: "{{n:alpha.bet-overbet}}", why: "Eso es alpha para este tamaño: con qué frecuencia tiene que {{t:fold|retirarse}} el rival para que un solo {{t:bluff|farol}} sea rentable. La proporción de {{t:bluff|faroles}} en el {{t:range|rango}} es {{n:bluff.share.bet-overbet}}." }
       - { text: "{{n:bluff.share.bet-pot}}", why: "Esa es la proporción de {{t:bluff|faroles}} con una apuesta de todo el {{t:pot|bote}}. Con una apuesta de {{n:ex.bet.overbet}} hay más: {{n:bluff.share.bet-overbet}}." }
   - kind: choice
@@ -123,7 +123,7 @@ Es la misma fórmula que la de la equity necesaria para {{t:call|igualar}} de M2
 | Apuesta | Proporción de {{t:bluff|faroles}} | Alpha (de M6) |
 |---|---|---|
 | 1/3 del {{t:pot|bote}} | {{n:bluff.share.bet-third}} | {{n:alpha.bet-third}} |
-| 1/2 {{t:pot|bote}} | {{n:bluff.share.bet-half}} | {{n:alpha.bet-half}} |
+| 1/2 del {{t:pot|bote}} | {{n:bluff.share.bet-half}} | {{n:alpha.bet-half}} |
 | 3/4 del {{t:pot|bote}} | {{n:bluff.share.bet-three-quarters}} | {{n:alpha.bet-three-quarters}} |
 | Todo el {{t:pot|bote}} | {{n:bluff.share.bet-pot}} | {{n:alpha.bet-pot}} |
 | 1,5 {{t:pot|botes}} | {{n:bluff.share.bet-overbet}} | {{n:alpha.bet-overbet}} |

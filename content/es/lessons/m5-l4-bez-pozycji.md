@@ -14,7 +14,7 @@ drills:
     table: { position: CO, board: "Jd 9s 8c" }
     options:
       - { text: "{{t:check|Paso}} más a menudo que {{t:in-position|en posición}}", correct: true, why: "Sí: el Button {{t:call|ha igualado}} con {{t:position|posición}}, así que tiene un {{t:range|rango}} fuerte, y un flop medio y {{t:connected|conectado}} conecta bien con sus {{t:pair|parejas}} y {{t:connectors|conectores}}. {{t:out-of-position|Fuera de posición}}, aquí {{t:check|pasas}} muy a menudo, también con manos fuertes." }
-      - { text: "C-bet a menudo y pequeña, como en el Button", why: "Ese es el plan {{t:in-position|en posición}} en un flop {{t:dry|seco}} y alto. Aquí no tienes {{t:position|posición}} y el flop no favorece a tu {{t:range|rango}}." }
+      - { text: "C-bet a menudo y pequeño, como en el Button", why: "Ese es el plan {{t:in-position|en posición}} en un flop {{t:dry|seco}} y alto. Aquí no tienes {{t:position|posición}} y el flop no favorece a tu {{t:range|rango}}." }
       - { text: "C-bet con todas las manos para no perder la {{t:initiative|iniciativa}}", why: "La {{t:initiative|iniciativa}} no gana por sí sola: el {{t:range|rango}} del Button aquí es fuerte y, tras cada {{t:bet|apuesta}}, también hablas primero en el turn y el river." }
   - kind: choice
     id: m5.l4.q-oop-why
@@ -23,7 +23,7 @@ drills:
     prompt: "¿Por qué haces c-bet con menos frecuencia {{t:out-of-position|fuera de posición}} que {{t:in-position|en posición}}?"
     options:
       - { text: "Porque el rival {{t:in-position|en posición}} ve tu acción en cada {{t:street|calle}} y su {{t:range|rango}} tras {{t:call|igualar}} es fuerte", correct: true, why: "Sí: el jugador que {{t:call|iguala}} con {{t:position|posición}} {{t:fold|se ha retirado}} con las manos débiles y a menudo ha {{t:raise|subido}} con las más fuertes. Le quedan manos medias y buenas y, además, habla el último." }
-      - { text: "Porque la c-bet {{t:out-of-position|fuera de posición}} está prohibida", why: "No: las reglas permiten apostar desde cualquier sitio. La cuestión es que la c-bet {{t:out-of-position|fuera de posición}} compensa con menos frecuencia." }
+      - { text: "Porque el c-bet {{t:out-of-position|fuera de posición}} está prohibido", why: "No: las reglas permiten apostar desde cualquier sitio. La cuestión es que el c-bet {{t:out-of-position|fuera de posición}} compensa con menos frecuencia." }
       - { text: "Porque {{t:out-of-position|fuera de posición}} siempre tienes la mano más débil", why: "No: tu mano no depende de la {{t:position|posición}}. Lo que cambia es la facilidad con la que realizas su equity." }
   - kind: choice
     id: m5.l4.q-oop-strong
@@ -44,7 +44,7 @@ drills:
     table: { hand: "Ad Qc", position: CO, board: "9h 7h 4s" }
     options:
       - { text: "{{t:check|Paso}}", correct: true, why: "Sí: contra dos rivales, una mano sin {{t:pair|pareja}} y sin {{t:draw|proyecto}} rara vez gana el {{t:pot|bote}} con una {{t:bet|apuesta}}. Es más probable que uno de los dos haya ligado este flop." }
-      - { text: "C-bet pequeña, como en el mano a mano", why: "Contra dos rivales, el {{t:bluff|farol}} tiene que pasar por los dos, y los dos fallan a la vez mucho menos a menudo que uno solo." }
+      - { text: "C-bet pequeño, como en el mano a mano", why: "Contra dos rivales, el {{t:bluff|farol}} tiene que pasar por los dos, y los dos fallan a la vez mucho menos a menudo que uno solo." }
       - { text: "C-bet grande para echar a los dos", why: "Un {{t:bluff|farol}} grande contra dos rivales arriesga mucho, y la probabilidad de que los dos {{t:fold|se retiren}} es pequeña. En este flop tienen muchas {{t:pair|parejas}} y {{t:draw|proyectos}}." }
   - kind: choice
     id: m5.l4.q-multi-value
@@ -73,7 +73,7 @@ drills:
     position: BTN
     options:
       check: "{{t:check|Paso}} más a menudo, c-bet menos de lo habitual"
-      small: "C-bet a menudo y pequeña: {{n:cbet.size.small}} del {{t:pot|bote}} ({{n:cbet.btn.small}})"
+      small: "C-bet a menudo y pequeño: {{n:cbet.size.small}} del {{t:pot|bote}} ({{n:cbet.btn.small}})"
       big: "C-bet a menudo y grande: {{n:cbet.size.big}} del {{t:pot|bote}} ({{n:cbet.btn.big}})"
     cases:
       - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
@@ -88,8 +88,8 @@ drills:
         rule: R-M5-004
         why:
           check: "Sí: un flop bajo con cartas cercanas entre sí favorece a la {{t:big-blind|ciega grande}}, que aquí tiene más a menudo {{t:two-pair|doble pareja}} o {{t:straight|escalera}}. Haces c-bet con menos frecuencia que en flops altos: muchas manos {{t:check|pasan}} y apuestan sobre todo las manos fuertes y los {{t:draw|proyectos}} fuertes."
-          small: "Demasiado a menudo: en un flop bajo con cartas cercanas entre sí es la {{t:big-blind|ciega grande}} quien tiene la {{t:nuts-advantage|ventaja de nuts}}. Las c-bets frecuentes, incluso pequeñas, le dan ocasión de {{t:raise|subir}} (check-raise) con sus manos más fuertes."
-          big: "Demasiado a menudo y demasiado caro: la {{t:big-blind|ciega grande}} ha ligado aquí más a menudo {{t:two-pair|doble pareja}} o {{t:straight|escalera}}. Una c-bet grande y frecuente arriesga mucho cuando tú normalmente solo tienes cartas altas."
+          small: "Demasiado a menudo: en un flop bajo con cartas cercanas entre sí es la {{t:big-blind|ciega grande}} quien tiene la {{t:nuts-advantage|ventaja de nuts}}. Los c-bets frecuentes, incluso pequeños, le dan ocasión de {{t:raise|subir}} (check-raise) con sus manos más fuertes."
+          big: "Demasiado a menudo y demasiado caro: la {{t:big-blind|ciega grande}} ha ligado aquí más a menudo {{t:two-pair|doble pareja}} o {{t:straight|escalera}}. Un c-bet grande y frecuente arriesga mucho cuando tú normalmente solo tienes cartas altas."
     count: 3
 ---
 Hasta ahora has jugado {{t:in-position|en posición}} contra un solo rival. {{t:out-of-position|Fuera de posición}} y contra varios jugadores haces c-bet con menos frecuencia.

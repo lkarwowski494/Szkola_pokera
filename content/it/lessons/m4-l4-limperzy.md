@@ -46,7 +46,7 @@ drills:
       - { text: "{{t:raise|Rilancio}} a {{n:pf.iso.one-limper}}", correct: true, why: "AJ è una mano da {{t:isolation|isolamento}}: domina molte mani con cui un giocatore più debole fa limp, e dopo il flop hai la {{t:position|posizione}}. Dimensione: {{n:pf.iso.base}} più {{n:pf.iso.per-limper}} per limper." }
       - { text: "{{t:raise|Rilancio}} a {{n:pf.min-raise}}", sizeError: true, why: "Azione giusta, ma un {{t:raise|rilancio}} minimo dà al limper un ottimo prezzo, quindi quasi mai {{t:fold|folderà}} e non giochi testa a testa contro di lui. {{t:raise|Rilanci}} a {{n:pf.iso.one-limper}}." }
       - { text: "Chiamo", why: "Cedi l'{{t:initiative|iniziativa}} e fai entrare i blind a poco prezzo. Con una mano che domina il limper, vuoi costruire il {{t:pot|piatto}}." }
-      - { text: "{{t:fold|Folda}}", why: "Troppo stretto: contro un limper il Button {{t:isolation|isola}} circa il {{n:pf.iso.btn.low}}–{{n:pf.iso.btn.high}} delle mani, e AJ ci rientra con ampio margine." }
+      - { text: "{{t:fold|Foldo}}", why: "Troppo stretto: contro un limper il Button {{t:isolation|isola}} circa il {{n:pf.iso.btn.low}}–{{n:pf.iso.btn.high}} delle mani, e AJ ci rientra con ampio margine." }
   - kind: choice
     id: m4.l4.q-many
     family: m4.iso.many
@@ -55,7 +55,7 @@ drills:
     table: { hand: "7s 6s", position: BTN }
     options:
       - { text: "Chiamo", correct: true, why: "Contro molti limper i {{t:connectors|connettori}} dello stesso seme sono mani speculative: vedi il flop a poco prezzo {{t:in-position}} e puoi chiudere una mano forte. Una fonte consiglia qui di chiamare; un'altra suggerisce di evitarlo, quindi accettiamo anche il {{t:fold}}." }
-      - { text: "{{t:fold|Folda}}", correct: true, why: "Anche questo è corretto: una fonte suggerisce di non chiamare, ma di {{t:raise|rilanciare}} o {{t:fold|foldare}}, e 76s non è una mano da {{t:raise|rilanciare}} {{t:value|per valore}}. Un'altra fonte consiglia di chiamare, quindi accettiamo entrambe le giocate." }
+      - { text: "{{t:fold|Foldo}}", correct: true, why: "Anche questo è corretto: una fonte suggerisce di non chiamare, ma di {{t:raise|rilanciare}} o {{t:fold|foldare}}, e 76s non è una mano da {{t:raise|rilanciare}} {{t:value|per valore}}. Un'altra fonte consiglia di chiamare, quindi accettiamo entrambe le giocate." }
       - { text: "{{t:raise|Rilancio}} a {{n:pf.iso.two-limpers}}", why: "Con tre limper un {{t:raise|rilancio}} di {{t:bluff}} raramente porta a casa il {{t:pot|piatto}}, e la dimensione dovrebbe essere ancora più grande. 76s non è una mano da {{t:raise|rilanciare}} {{t:value|per valore}}." }
 ---
 Il limp è l'ingresso nella mano pareggiando soltanto il {{t:big-blind}}. I professionisti raramente fanno limp per primi (regola del modulo 3), quindi i limper ai microlimiti sono di solito giocatori più deboli. {{t:raise|Rilanciare}} un limper si chiama {{t:isolation|isolamento}}: vuoi giocare testa a testa contro di lui, idealmente {{t:in-position}}.

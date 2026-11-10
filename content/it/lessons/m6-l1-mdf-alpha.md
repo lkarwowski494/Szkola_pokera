@@ -93,7 +93,7 @@ drills:
       - { text: "{{t:call|Chiamo}}, perché la {{t:mdf}} dice di difendere il {{n:mdf.bet-pot}}", why: "La {{t:mdf}} protegge da un giocatore che {{t:bluff|bluffa}} abbastanza spesso. Questo giocatore non lo fa, quindi attenersi alla {{t:mdf}} significa regalargli soldi." }
       - { text: "{{t:raise|Rilancio}} all-in", why: "Le mani migliori pagheranno, quelle peggiori {{t:fold|folderanno}}. Una {{t:pair|coppia}} con un kicker debole non è una mano da {{t:raise|rilancio}}." }
 ---
-Quando l'avversario {{t:bet|punta}}, non ti chiedi solo „questa mano può vincere?”. Guardi anche tutte le mani che puoi avere in questa situazione, cioè il tuo {{t:range}}. Due numeri ti dicono quante difenderne e quanto spesso deve funzionare il {{t:bluff}} dell'avversario.
+Quando l'avversario {{t:bet|punta}}, non ti chiedi solo «questa mano può vincere?». Guardi anche tutte le mani che puoi avere in questa situazione, cioè il tuo {{t:range}}. Due numeri ti dicono quante difenderne e quanto spesso deve funzionare il {{t:bluff}} dell'avversario.
 
 ## Alpha: quanto spesso deve funzionare un {{t:bluff}}
 

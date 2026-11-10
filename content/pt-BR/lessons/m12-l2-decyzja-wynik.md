@@ -86,7 +86,7 @@ drills:
       - { text: "Nada, a {{t:session}} foi vencedora", why: "Erros em {{t:session|sessões}} vencedoras custam o mesmo, só são mais difíceis de notar. Analisar só as derrotas deixa de fora metade dos erros." }
       - { text: "Conclui que lê os adversários melhor do que dizem as contas", why: "Dois acertos são pouco para tirar conclusões sobre a leitura dos adversários. A explicação mais simples é a {{t:variance}}." }
 ---
-O poker dá um retorno que muitas vezes mente. Uma boa decisão pode perder, e uma ruim pode ganhar. Se você avalia seu jogo pelos resultados, aprende com sinais aleatórios.
+O pôquer dá um retorno que muitas vezes mente. Uma boa decisão pode perder, e uma ruim pode ganhar. Se você avalia seu jogo pelos resultados, aprende com sinais aleatórios.
 
 ## Resulting: avaliar pelo resultado
 

@@ -24,7 +24,7 @@ drills:
     table: { position: BTN, board: "7s 6h 5d" }
     options:
       - { text: "La {{t:big-blind|grosse blinde}}", correct: true, why: "Oui : la {{t:big-blind|grosse blinde}} défend beaucoup de {{t:connectors|connecteurs}} assortis et de mains avec un six ou un sept. Depuis le Bouton, vous avez plus de cartes hautes qui ont raté ici. C'est l'{{t:nuts-advantage|avantage de nuts}} de la {{t:big-blind|grosse blinde}}." }
-      - { text: "Vous, qui avez {{t:open|ouvert}} depuis le Bouton", why: "Non : votre {{t:range|range}} est pleine de cartes hautes. Vous avez plus d'{{t:overpair|overpairs}} ({{t:pocket-pair|paires servies}} plus hautes que chaque carte du {{t:board|board}}, p. ex. TT, JJ), mais moins de {{t:two-pair|doubles paires}} et de {{t:straight|quintes}} ; vous avez à peu près autant de sets (brelans avec une {{t:pocket-pair|paire servie}}) l'un que l'autre." }
+      - { text: "Vous, qui avez {{t:open|ouvert}} depuis le Bouton", why: "Non : votre {{t:range|range}} est pleine de cartes hautes. Vous avez plus d'{{t:overpair|overpaires}} ({{t:pocket-pair|paires servies}} plus hautes que chaque carte du {{t:board|board}}, p. ex. TT, JJ), mais moins de {{t:two-pair|doubles paires}} et de {{t:straight|quintes}} ; vous avez à peu près autant de sets (brelans avec une {{t:pocket-pair|paire servie}}) l'un que l'autre." }
       - { text: "Tous les deux aussi souvent", why: "Non : les {{t:range|ranges}} diffèrent par leur composition. La défense large de la {{t:big-blind|grosse blinde}} contient beaucoup de petites cartes, et votre {{t:range|range}} des cartes hautes." }
   - kind: choice
     id: m5.l2.q-capped

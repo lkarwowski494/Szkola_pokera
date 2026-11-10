@@ -43,7 +43,7 @@ drills:
     prompt: "{{t:open|Has abierto}} desde el Button, la {{t:big-blind|ciega grande}} {{t:call|ha igualado}} y en el river {{t:check|pasa}}. ¿Con cuál de estas manos es mejor {{t:bluff|farolear}}?"
     table: { board: "Qs Tc 6d 3h 2s", position: BTN }
     options:
-      - { text: "[[Kc Jc]]", correct: true, why: "Correcto: el {{t:oesd|proyecto de escalera abierto}} no ha entrado, y el rey como carta más alta casi nunca gana en el showdown. Una mano sin opciones no pierde nada cuando el {{t:bluff|farol}} sale mal." }
+      - { text: "[[Kc Jc]]", correct: true, why: "Correcto: el {{t:oesd|proyecto de escalera abierta}} no ha entrado, y el rey como carta más alta casi nunca gana en el showdown. Una mano sin opciones no pierde nada cuando el {{t:bluff|farol}} sale mal." }
       - { text: "[[Ts 9s]]", why: "La {{t:second-pair|segunda pareja}} gana tras {{t:check|pasar}} contra {{t:draw|proyectos}} fallidos y manos más débiles. Con un {{t:bluff|farol}} renunciarías a esa victoria." }
       - { text: "[[Qd 8d]]", why: "La {{t:top-pair|pareja mayor}} tiene valor en el showdown. No {{t:bluff|faroleas}} con una mano que a menudo gana tras {{t:check|pasar}}." }
   - kind: choice

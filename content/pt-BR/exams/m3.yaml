@@ -10,12 +10,12 @@ drills:
     options:
       - { text: "O {{t:big-blind}}", correct: true, why: "A partir do flop, os blinds agem primeiro e o Button age por último. Por isso, aqui o Button tem {{t:position|posição}} e o {{t:big-blind}} joga {{t:out-of-position}}." }
       - { text: "O Button, porque {{t:open|abriu}}", why: "A ordem de ação depende do lugar na mesa, e não de quem {{t:open|abriu}}. A partir do flop, o Button sempre age por último." }
-      - { text: "Quem agiu por último no pré-flop", why: "No pré-flop, os blinds agem por último, mas a partir do flop agem primeiro. É por isso que a {{t:position}} do Button é a melhor." }
+      - { text: "Quem agiu por último no preflop", why: "No preflop, os blinds agem por último, mas a partir do flop agem primeiro. É por isso que a {{t:position}} do Button é a melhor." }
   - kind: choice
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Você é o primeiro a agir no pré-flop e ninguém entrou na mão ainda. O que você faz?"
+    prompt: "Você é o primeiro a agir no preflop e ninguém entrou na mão ainda. O que você faz?"
     table: { hand: "Ac Td", position: UTG }
     options:
       - { text: "{{t:raise|Aumento}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range}} de {{t:open|abertura}} do {{t:utg}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver do app sempre joga essa mão aqui." }

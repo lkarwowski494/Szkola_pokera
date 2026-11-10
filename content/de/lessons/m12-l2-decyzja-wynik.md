@@ -65,7 +65,7 @@ drills:
     prompt: "Drei {{t:session|Sessions}} lang hast du aggressiver gespielt als sonst und gewonnen. Ist das ein Beweis, dass der neue Stil besser ist?"
     options:
       - { text: "Nein, drei {{t:session|Sessions}} sind zu wenig; du bewertest die neuen Spielzüge in der Handanalyse", correct: true, why: "Selbst ein riesiger Unterschied im Können (die besten {{n:skill.pct}} gegen die schwächsten {{n:skill.pct}}) geht erst nach ca. {{n:skill.hands}} Händen in ca. {{n:skill.ahead}} der Fälle in Führung. Der Unterschied zwischen deinen beiden Stilen ist viel kleiner." }
-      - { text: "Ja, das Ergebnis zeigt, was funktioniert", why: "Das Ergebnis aus wenigen {{t:session|Sessions}} ist vor allem Rauschen. Bei einer {{t:standard-deviation|Standardabweichung}} von ca. {{n:var.sd}} lassen selbst {{n:var.hands.k}} Tausend Hände einen Fehler von ca. ± {{n:var.ci.wr}}." }
+      - { text: "Ja, das Ergebnis zeigt, was funktioniert", why: "Das Ergebnis aus wenigen {{t:session|Sessions}} ist vor allem Rauschen. Bei einer {{t:standard-deviation|Standardabweichung}} von ca. {{n:var.sd}} lassen selbst {{n:var.hands.k}} Tsd. Hände einen Fehler von ca. ± {{n:var.ci.wr}}." }
       - { text: "Ja, wenn du mehr als sonst gewonnen hast", why: "Ein größerer Gewinn aus einer kleinen Stichprobe ist immer noch eine kleine Stichprobe. Spielzüge bewertest du mit Rechnung und Handanalyse." }
   - kind: choice
     id: m12.l2.q-skill-hands

@@ -17,26 +17,26 @@ drills:
     id: m10.l2.q-gap-passive
     family: m10.types.read
     rules: [R-M10-004]
-    prompt: "{{n:hud.ex.reg.hands}}핸드 후 상대의 {{t:vpip}}는 {{n:hud.ex.passive.vpip}}, {{t:pfr}}는 {{n:hud.ex.passive.pfr}}입니다. 이것은 상대의 프리플롭 플레이에 대해 무엇을 말해 줍니까?"
+    prompt: "{{n:hud.ex.reg.hands}}핸드 후 상대의 {{t:vpip}}는 {{n:hud.ex.passive.vpip}}, {{t:pfr}}은 {{n:hud.ex.passive.pfr}}입니다. 이것은 상대의 프리플롭 플레이에 대해 무엇을 말해 줍니까?"
     options:
       - { text: "패시브합니다: 대부분의 핸드에서 {{t:call|콜}}이나 림프만 합니다", correct: true, why: "{{t:vpip}} − {{t:pfr}} 차이는 {{n:hud.ex.passive.gap}}포인트로, 기준인 {{n:hud.gap.passive}}를 넘습니다. 꽤 많은 핸드를 플레이하지만, 대부분은 {{t:raise|레이즈}} 없이 {{t:pot|팟}}에 넣습니다." }
-      - { text: "많은 핸드를 플레이하므로 어그레시브합니다", why: "핸드 수({{t:vpip}})는 얼마나 루즈하게 플레이하는지를 말해 줄 뿐, 얼마나 어그레시브한지는 말해 주지 않습니다. 공격성은 {{t:pfr}}와 두 수치의 차이로 알 수 있습니다." }
+      - { text: "많은 핸드를 플레이하므로 어그레시브합니다", why: "핸드 수({{t:vpip}})는 얼마나 루즈하게 플레이하는지를 말해 줄 뿐, 얼마나 어그레시브한지는 말해 주지 않습니다. 공격성은 {{t:pfr}}과 두 수치의 차이로 알 수 있습니다." }
       - { text: "{{t:nit|니트}}입니다", why: "{{t:nit}}는 약 {{n:hud.vpip.nit-max}}까지의 핸드만 플레이합니다. 이 플레이어는 그보다 분명히 많이 플레이합니다." }
   - kind: choice
     id: m10.l2.q-data-passive
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "온라인 마이크로 스테이크(NL25) 모집단 데이터에 따르면 {{t:recreational|레크리에이셔널 플레이어}}는 {{n:mda.rec.wtsd}}의 경우에 쇼다운까지 가고 쇼다운의 {{n:mda.rec.wsd}}를 이깁니다. {{t:regular|레귤러}}는 각각 {{n:mda.reg.wtsd}}와 {{n:mda.reg.wsd}}입니다. 여기서 무엇을 알 수 있습니까?"
+    prompt: "온라인 마이크로 스테이크(NL25) 모집단 데이터에 따르면 {{t:recreational|레크리에이션 플레이어}}는 {{n:mda.rec.wtsd}}의 경우에 쇼다운까지 가고 쇼다운의 {{n:mda.rec.wsd}}를 이깁니다. {{t:regular|레귤러}}는 각각 {{n:mda.reg.wtsd}}와 {{n:mda.reg.wsd}}입니다. 여기서 무엇을 알 수 있습니까?"
     options:
-      - { text: "{{t:recreational|레크리에이셔널 플레이어}}는 끝까지 더 자주 돈을 내고 더 자주 집니다: 더 약한 핸드로 {{t:call|콜}}합니다", correct: true, why: "쇼다운까지 더 자주 가지만 이기는 경우는 더 드물기 때문에, 더 약한 핸드로 그곳까지 갑니다. 이런 상대에게는 더 많은 핸드로 {{t:value|밸류}} 베팅을 하고, {{t:bluff|블러프}}는 줄입니다." }
-      - { text: "{{t:recreational|레크리에이셔널 플레이어}}는 더 자주 {{t:bluff|블러프}}합니다", why: "이 수치는 얼마나 자주, 어떤 핸드로 쇼다운까지 가는지를 말해 줄 뿐, {{t:bluff|블러프}}에 대해서는 말해 주지 않습니다. 더 약한 핸드로 {{t:call|콜}}하기 때문에 쇼다운을 덜 이깁니다." }
+      - { text: "{{t:recreational|레크리에이션 플레이어}}는 끝까지 더 자주 돈을 내고 더 자주 집니다: 더 약한 핸드로 {{t:call|콜}}합니다", correct: true, why: "쇼다운까지 더 자주 가지만 이기는 경우는 더 드물기 때문에, 더 약한 핸드로 그곳까지 갑니다. 이런 상대에게는 더 많은 핸드로 {{t:value|밸류}} 베팅을 하고, {{t:bluff|블러프}}는 줄입니다." }
+      - { text: "{{t:recreational|레크리에이션 플레이어}}는 더 자주 {{t:bluff|블러프}}합니다", why: "이 수치는 얼마나 자주, 어떤 핸드로 쇼다운까지 가는지를 말해 줄 뿐, {{t:bluff|블러프}}에 대해서는 말해 주지 않습니다. 더 약한 핸드로 {{t:call|콜}}하기 때문에 쇼다운을 덜 이깁니다." }
       - { text: "아무것도 없습니다: 몇 포인트 차이는 노이즈입니다", why: "이것은 한 플레이어의 수십 핸드가 아니라 {{n:mda.period.months}}개월 동안 해당 {{t:stakes|스테이크}} 전체 모집단의 데이터입니다. 이 차이는 NL25, NL50, NL100에서 일관됩니다." }
   - kind: choice
     id: m10.l2.q-thin-value
     family: m10.types.adjust
     rules: [R-M10-006]
     table: { hand: "Kh Qd", board: "Ks 8h 4c 2d 7s" }
-    prompt: "리버입니다. 플롭과 턴에서 베팅했고 상대는 {{t:call|콜}}했습니다. 상대는 패시브한 {{t:recreational|레크리에이셔널 플레이어}}입니다({{t:vpip}} {{n:mda.rec.vpip}}, {{t:pfr}} {{n:mda.rec.pfr}}, {{n:hud.ex.reg.hands}}핸드). 상대가 {{t:check|체크}}합니다. {{t:top-pair|탑 페어}}와 두 번째로 좋은 키커로 어떻게 하시겠습니까?"
+    prompt: "리버입니다. 플롭과 턴에서 베팅했고 상대는 {{t:call|콜}}했습니다. 상대는 패시브한 {{t:recreational|레크리에이션 플레이어}}입니다({{t:vpip}} {{n:mda.rec.vpip}}, {{t:pfr}} {{n:mda.rec.pfr}}, {{n:hud.ex.reg.hands}}핸드). 상대가 {{t:check|체크}}합니다. {{t:top-pair|탑 페어}}와 두 번째로 좋은 키커로 어떻게 하시겠습니까?"
     options:
       - { text: "{{t:value|밸류}}로 베팅합니다", correct: true, why: "이런 플레이어는 더 약한 킹, 8, 포켓 {{t:pair|페어}}로 끝까지 {{t:call|콜}}합니다. 상대가 {{t:call|콜}}하는 핸드의 절반 이상이 내 핸드보다 약하므로 베팅이 이익입니다(모듈 8의 기준)." }
       - { text: "더 좋은 핸드에 걸리지 않도록 {{t:check|체크}}합니다", why: "더 약한 핸드로 {{t:call|콜}}하는 플레이어를 상대로 {{t:check}}는 밸류를 포기하는 것입니다. 더 좋은 핸드가 가끔 돈을 내겠지만, 더 약한 핸드의 {{t:call|콜}}이 더 많습니다." }
@@ -46,7 +46,7 @@ drills:
     family: m10.types.adjust
     rules: [R-M10-006]
     table: { hand: "9h 8h", board: "Ac Kd 5h 2c Js" }
-    prompt: "리버, {{t:straight-draw}}가 맞지 않았습니다. 상대는 패시브한 {{t:recreational|레크리에이셔널 플레이어}}({{t:wtsd}} {{n:mda.rec.wtsd}})이고 플롭과 턴에서 {{t:call|콜}}했습니다. 상대가 {{t:check|체크}}합니다. 어떻게 하시겠습니까?"
+    prompt: "리버, {{t:straight-draw}}가 맞지 않았습니다. 상대는 패시브한 {{t:recreational|레크리에이션 플레이어}}({{t:wtsd}} {{n:mda.rec.wtsd}})이고 플롭과 턴에서 {{t:call|콜}}했습니다. 상대가 {{t:check|체크}}합니다. 어떻게 하시겠습니까?"
     options:
       - { text: "{{t:check|체크}}하고 {{t:pot|팟}}을 포기합니다", correct: true, why: "{{t:bluff}}는 상대가 베팅의 {{t:alpha}}보다 더 자주 {{t:fold|폴드}}할 때만 이익입니다. 두 {{t:street|스트리트}}에서 {{t:call|콜}}했고 쇼다운까지 자주 가는 플레이어는 리버에서 {{t:fold|폴드}}하는 일이 드뭅니다." }
       - { text: "쇼다운 밸류가 없으므로 크게 베팅합니다", why: "기본 전략(모듈 8)에서는 이런 {{t:bluff}}가 좋을 때도 있지만, 이 플레이어를 상대로는 {{t:fold|폴드}}가 부족합니다: {{t:bluff|블러프}}는 손해입니다." }
@@ -106,26 +106,26 @@ drills:
 |---|---|---|---|
 | {{t:nit|니트}} | 약 {{n:hud.vpip.nit-max}}까지 | 작음 | 너무 적은 핸드를 플레이 |
 | {{t:regular|레귤러}} ({{t:tag}}, {{t:lag}}) | 약 {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} | 작음 | 기본 전략에 가까움 |
-| 패시브 {{t:recreational|레크리에이셔널 플레이어}} | 약 {{n:hud.vpip.loose}}부터 | {{n:hud.gap.passive}}포인트 초과 | 너무 많은 핸드, 너무 잦은 {{t:call|콜}} |
+| 패시브 {{t:recreational|레크리에이션 플레이어}} | 약 {{n:hud.vpip.loose}}부터 | {{n:hud.gap.passive}}포인트 초과 | 너무 많은 핸드, 너무 잦은 {{t:call|콜}} |
 | {{t:maniac|매니악}} | 약 {{n:hud.vpip.loose}}부터 | 약 {{n:hud.gap.aggressive}}포인트까지 | 너무 많은 핸드, 너무 잦은 {{t:raise|레이즈}} |
 
 차이가 큰 패시브 플레이어는 {{t:calling-station}}이라고도 합니다. 유형 사이에는 전이 구간이 있습니다(예: {{t:vpip}}가 10%대이거나, 차이가 몇 포인트인 루즈한 플레이어). 이런 경우에는 유형을 정하지 않고 다른 통계를 더 살펴봅니다.
 
 ## 모집단 데이터가 말해 주는 것
 
-공개 통계 데이터베이스는 대형 온라인 사이트 한 곳의 NL25 6-max 플레이어 평균 통계를 최근 {{n:mda.period.months}}개월 동안의 모든 핸드를 기준으로 제공합니다. 여기서 {{t:regular|레귤러}}는 {{t:vpip}}가 {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}}이고 승률이 {{n:mda.reg.def.wr}}을 넘는 플레이어이고, {{t:recreational|레크리에이셔널 플레이어}}는 {{t:vpip}}가 {{n:mda.rec.def}}를 넘고 승률이 {{n:mda.rec.def.wr}} 미만인 플레이어입니다:
+공개 통계 데이터베이스는 대형 온라인 사이트 한 곳의 NL25 6-max 플레이어 평균 통계를 최근 {{n:mda.period.months}}개월 동안의 모든 핸드를 기준으로 제공합니다. 여기서 {{t:regular|레귤러}}는 {{t:vpip}}가 {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}}이고 윈레이트가 {{n:mda.reg.def.wr}}을 넘는 플레이어이고, {{t:recreational|레크리에이션 플레이어}}는 {{t:vpip}}가 {{n:mda.rec.def}}를 넘고 윈레이트가 {{n:mda.rec.def.wr}} 미만인 플레이어입니다:
 
-| 통계 | {{t:regular|레귤러}} | {{t:recreational|레크리에이셔널 플레이어}} |
+| 통계 | {{t:regular|레귤러}} | {{t:recreational|레크리에이션 플레이어}} |
 |---|---|---|
 | {{t:vpip}} / {{t:pfr}} | {{n:mda.reg.vpip}} / {{n:mda.reg.pfr}} | {{n:mda.rec.vpip}} / {{n:mda.rec.pfr}} |
-| 3벳에 폴드 | {{n:mda.reg.f3b}} | {{n:mda.rec.f3b}} |
+| 폴드 투 3벳 | {{n:mda.reg.f3b}} | {{n:mda.rec.f3b}} |
 | {{t:wtsd}} | {{n:mda.reg.wtsd}} | {{n:mda.rec.wtsd}} |
 | 쇼다운 승리 | {{n:mda.reg.wsd}} | {{n:mda.rec.wsd}} |
-| 승률 | {{n:mda.reg.wr}} | {{n:mda.rec.wr}} |
+| 윈레이트 | {{n:mda.reg.wr}} | {{n:mda.rec.wr}} |
 
-{{t:recreational|레크리에이셔널 플레이어}}의 {{t:vpip}} − {{t:pfr}} 차이는 {{n:mda.rec.gap.pp}}포인트이므로 패시브합니다. 쇼다운까지 더 자주 가고 이기는 경우는 더 드뭅니다: 더 약한 핸드로 {{t:call|콜}}합니다. 3벳에 {{t:fold|폴드}}하는 일도 드뭅니다. NL50과 NL100에서도 수치는 거의 같습니다.
+{{t:recreational|레크리에이션 플레이어}}의 {{t:vpip}} − {{t:pfr}} 차이는 {{n:mda.rec.gap.pp}}포인트이므로 패시브합니다. 쇼다운까지 더 자주 가고 이기는 경우는 더 드뭅니다: 더 약한 핸드로 {{t:call|콜}}합니다. 3벳에 {{t:fold|폴드}}하는 일도 드뭅니다. NL50과 NL100에서도 수치는 거의 같습니다.
 
-## 패시브 {{t:recreational|레크리에이셔널 플레이어}}
+## 패시브 {{t:recreational|레크리에이션 플레이어}}
 
 모듈 8의 기본 전략은 바뀌지 않습니다: {{t:call|콜}}할 핸드의 절반 이상이 더 약한 핸드일 때 {{t:value|밸류}} 베팅을 하고, {{t:bluff}}는 상대가 {{t:alpha}}보다 더 자주 {{t:fold|폴드}}할 때 이익입니다. 바뀌는 것은 상대입니다: 더 많은 약한 핸드로 {{t:call|콜}}합니다. 따라서:
 

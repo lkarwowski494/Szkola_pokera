@@ -31,12 +31,12 @@ drills:
     id: m5.l1.q-monotone
     family: m5.texture.facts
     rules: [R-M5-002]
-    prompt: "Der Flop ist {{t:monotone|einfarbig}}: Alle drei Karten haben dieselbe Farbe. Was bedeutet das?"
+    prompt: "Der Flop ist {{t:monotone|monoton}}: Alle drei Karten haben dieselbe Farbe. Was bedeutet das?"
     table: { board: "Kh 8h 3h" }
     options:
       - { text: "Ein Spieler mit zwei Karten dieser Farbe hat schon einen {{t:flush|Flush}}", correct: true, why: "Ja: Drei Herz auf dem {{t:board|Board}} und zwei auf der Hand sind fünf Karten einer Farbe. Ein Spieler mit einem Herz hat einen {{t:flush-draw|Flush-Draw}}." }
       - { text: "Niemand kann schon einen {{t:flush|Flush}} haben", why: "Nein: Für einen {{t:flush|Flush}} braucht man fünf Karten, und drei liegen schon auf dem {{t:board|Board}}. Zwei auf der Hand reichen." }
-      - { text: "Ein {{t:flush|Flush}} ist erst ab dem Turn möglich", why: "Nein: So ist es auf einem {{t:two-tone|zweifarbigen}} Flop. Auf einem {{t:monotone|einfarbigen}} kann ein {{t:flush|Flush}} schon jetzt fertig sein." }
+      - { text: "Ein {{t:flush|Flush}} ist erst ab dem Turn möglich", why: "Nein: So ist es auf einem {{t:two-tone|zweifarbigen}} Flop. Auf einem {{t:monotone|monotonen}} kann ein {{t:flush|Flush}} schon jetzt fertig sein." }
   - kind: choice
     id: m5.l1.q-dry
     family: m5.texture.facts
@@ -63,7 +63,7 @@ Wir schauen auf die höchste Karte. Ein **hoher** Flop hat als höchste Karte ei
 
 ## Farben
 
-Ein **{{t:rainbow|Rainbow}}**-Flop hat drei verschiedene Farben: Noch niemand hat einen {{t:flush-draw|Flush-Draw}}. Ein **{{t:two-tone|zweifarbiger}}** Flop hat zwei Karten einer Farbe, z. B. [[Jh Th 8c]]: Zwei Karten eines Spielers in dieser Farbe ergeben einen {{t:flush-draw|Flush-Draw}}. Ein **{{t:monotone|einfarbiger}}** Flop hat alle drei Karten in einer Farbe, z. B. [[Kh 8h 3h]]: Ein {{t:flush|Flush}} kann schon fertig sein.
+Ein **{{t:rainbow|Rainbow}}**-Flop hat drei verschiedene Farben: Noch niemand hat einen {{t:flush-draw|Flush-Draw}}. Ein **{{t:two-tone|zweifarbiger}}** Flop hat zwei Karten einer Farbe, z. B. [[Jh Th 8c]]: Zwei Karten eines Spielers in dieser Farbe ergeben einen {{t:flush-draw|Flush-Draw}}. Ein **{{t:monotone|monotoner}}** Flop hat alle drei Karten in einer Farbe, z. B. [[Kh 8h 3h]]: Ein {{t:flush|Flush}} kann schon fertig sein.
 
 ## Ränge
 
@@ -100,7 +100,7 @@ Ein **{{t:dry|trockener}}** Flop hat weniger als {{n:tex.threshold.medium}} Pkt.
 
 Eine fertige {{t:straight|Straße}} wiegt mehr als ein bloßer {{t:draw|Draw}}, weil sie das Kräfteverhältnis schon jetzt verändert. Eine {{t:straight|Straße}}, die auf mehrere Arten möglich ist, wiegt mehr als eine {{t:straight|Straße}}, die nur auf eine Art möglich ist: Auf [[9h 8d 7c]] haben viele Hände eine {{t:straight|Straße}} oder einen {{t:oesd|OESD}}, auf [[Ah Kd Tc]] dagegen ergibt nur QJ eine {{t:straight|Straße}}, und einen offenen {{t:draw|Draw}} hat niemand. Deshalb ist A-K-T in drei Farben mittelnass, obwohl er {{t:connected|verbunden}} ist.
 
-Der {{t:two-tone|zweifarbige}} Flop [[Kh 7h 2c]] ist ein {{t:dry|trockener}} Flop mit einem {{t:flush-draw|Flush-Draw}}: Es gibt weder eine {{t:straight|Straße}} noch einen {{t:straight-draw|Straßen-Draw}}. Ein {{t:monotone|einfarbiger}} Flop ist immer {{t:wet|nass}}: Auf [[Kh 8h 3h]] haben mehr Hände einen {{t:flush|Flush}} oder {{t:flush-draw|Flush-Draw}} als auf [[9h 8d 7c]] eine {{t:straight|Straße}} oder einen {{t:oesd|OESD}}.
+Der {{t:two-tone|zweifarbige}} Flop [[Kh 7h 2c]] ist ein {{t:dry|trockener}} Flop mit einem {{t:flush-draw|Flush-Draw}}: Es gibt weder eine {{t:straight|Straße}} noch einen {{t:straight-draw|Straßen-Draw}}. Ein {{t:monotone|monotoner}} Flop ist immer {{t:wet|nass}}: Auf [[Kh 8h 3h]] haben mehr Hände einen {{t:flush|Flush}} oder {{t:flush-draw|Flush-Draw}} als auf [[9h 8d 7c]] eine {{t:straight|Straße}} oder einen {{t:oesd|OESD}}.
 
 Auf einem {{t:dry|trockenen}} Flop bleibt der Führende meist bis zum River vorne. Auf einem {{t:wet|nassen}} verändern spätere Karten oft das Kräfteverhältnis, deshalb ist die beste Hand auf dem Flop weniger sicher.
 

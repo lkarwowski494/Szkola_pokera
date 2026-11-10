@@ -47,8 +47,8 @@ drills:
     prompt: "你在按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。你在翻牌和轉牌都下注，每次都被{{t:call}}。河牌，{{t:big-blind}}{{t:check|過牌}}。你怎麼做？"
     table: { hand: "Ah Kd", board: "Ks 9c 4d 2h 7s", position: BTN }
     options:
-      - { text: "{{t:value|價值}}下注", correct: true, why: "{{t:top-pair|頂對}}配最大踢腳。{{t:call|跟注}}了兩{{t:street|輪}}的對手有很多較弱的K（KQ、KJ、KT）和9，而這個{{t:board|公共牌}}面上的{{t:draw|聽牌}}很少。較差的牌付錢的頻率會遠高於較好的牌（{{t:two-pair}}、三條）。通常{{t:top-pair}}能承受兩{{t:value|輪價值下注}}（M9）；這裡可以打到第三輪，因為對手會用較弱的K付錢。" }
-      - { text: "{{t:check|過牌}}，因為對手可能有三條", why: "有可能，但很少。{{t:check|過牌}}會讓你失去所有較弱的K本來會付的那一注。你要算的是誰會{{t:call|跟注}}，而不是有沒有更好的牌存在。" }
+      - { text: "{{t:value|價值}}下注", correct: true, why: "{{t:top-pair|頂對}}配最大踢腳。{{t:call|跟注}}了兩{{t:street|輪}}的對手有很多較弱的K（KQ、KJ、KT）和9，而這個{{t:board|公共牌}}面上的{{t:draw|聽牌}}很少。較差的牌付錢的頻率會遠高於較好的牌（{{t:two-pair}}、暗三條）。通常{{t:top-pair}}能承受兩{{t:value|輪價值下注}}（M9）；這裡可以打到第三輪，因為對手會用較弱的K付錢。" }
+      - { text: "{{t:check|過牌}}，因為對手可能有暗三條", why: "有可能，但很少。{{t:check|過牌}}會讓你失去所有較弱的K本來會付的那一注。你要算的是誰會{{t:call|跟注}}，而不是有沒有更好的牌存在。" }
       - { text: "{{t:check|過牌}}，讓對手詐唬", why: "兩次都{{t:call|跟注}}的對手手上主要是{{t:pair|對子}}，在你{{t:check|過牌}}後很少{{t:bluff|詐唬}}。下注打他較弱的K，賺錢更穩。" }
   - kind: choice
     id: m8.l1.q-second-pair
@@ -57,8 +57,8 @@ drills:
     prompt: "你在按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。你在翻牌持續下注並被{{t:call}}，轉牌你們都{{t:check|過牌}}。河牌，{{t:big-blind}}{{t:check|過牌}}。你怎麼做？"
     table: { hand: "Tc 9c", board: "Kd Th 5s 3c 2d", position: BTN }
     options:
-      - { text: "{{t:check|過牌}}", correct: true, why: "踢腳很弱的{{t:second-pair|第二對}}能贏沒聽中的{{t:draw|聽牌}}和較弱的{{t:pair|對子}}，但這些牌面對下注會{{t:fold|棄牌}}。會付錢的主要是K和較大的10。你{{t:check|過牌}}，免費看到攤牌。" }
-      - { text: "{{t:value|價值}}下注", why: "誰會付錢？沒有{{t:pair|對子}}的牌會{{t:fold|棄牌}}，而K和較大的10會{{t:call|跟注}}。大多數{{t:call|跟注}}都會比你的牌好。" }
+      - { text: "{{t:check|過牌}}", correct: true, why: "踢腳很弱的{{t:second-pair|第二對}}能贏沒聽中的{{t:draw|聽牌}}和較弱的{{t:pair|對子}}，但這些牌面對下注會{{t:fold|棄牌}}。會付錢的主要是K和踢腳較好的10。你{{t:check|過牌}}，免費看到攤牌。" }
+      - { text: "{{t:value|價值}}下注", why: "誰會付錢？沒有{{t:pair|對子}}的牌會{{t:fold|棄牌}}，而K和踢腳較好的10會{{t:call|跟注}}。大多數{{t:call|跟注}}都會比你的牌好。" }
       - { text: "當作{{t:bluff}}下大注", why: "你的牌經常在攤牌時獲勝。{{t:bluff|詐唬}}就等於放棄這份勝利：較差的牌本來就會{{t:fold|棄牌}}，而K很少{{t:fold|棄牌}}。" }
   - kind: choice
     id: m8.l1.q-who-calls
@@ -67,7 +67,7 @@ drills:
     prompt: "你在按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。你在翻牌持續下注並被{{t:call}}，轉牌你們都{{t:check|過牌}}。河牌，{{t:big-blind}}{{t:check|過牌}}。你有{{t:top-pair|頂對}}配10踢腳。哪些牌會付小注，而且比你的牌差？"
     table: { hand: "Qd Td", board: "Qs 8h 4c 3d 2s", position: BTN }
     options:
-      - { text: "8、4，以及踢腳較弱的Q", correct: true, why: "這些牌跟注了翻牌而且有{{t:pair|對子}}，所以常會付小注。你會輸給踢腳較好的Q、{{t:two-pair|兩對}}、三條和{{t:straight|順子}}（A5、65），但較差的{{t:call|跟注}}更多。" }
+      - { text: "8、4，以及踢腳較弱的Q", correct: true, why: "這些牌跟注了翻牌而且有{{t:pair|對子}}，所以常會付小注。你會輸給踢腳較好的Q、{{t:two-pair|兩對}}、暗三條和{{t:straight|順子}}（A5、65），但較差的{{t:call|跟注}}更多。" }
       - { text: "沒有{{t:pair|對子}}的牌", why: "沒有{{t:pair|對子}}的牌很少付河牌的下注；有時A高牌會付錢，但這裡較差的{{t:pair|對子}}多得多。" }
       - { text: "沒有，只有較好的牌會付錢", why: "太保守了：{{t:big-blind}}會用許多比Q小的{{t:pair|對子}}防守。轉牌{{t:check|過牌}}後，他的{{t:range}}裡有不少這種牌。" }
   - kind: choice
@@ -78,7 +78,7 @@ drills:
     table: { hand: "Qd Td", board: "Qs 8h 4c 3d 2s", position: BTN }
     options:
       - { text: "下注{{n:ex.bet.quarter}}，也就是1/4{{t:pot|底池}}", correct: true, why: "薄價值：你只贏過略多於一半會付錢的牌。小注會有8、4和較弱的Q{{t:call|跟注}}，所以較差的{{t:call|跟注}}仍多於較好的。" }
-      - { text: "下注{{n:ex.bet.pot}}，也就是整個{{t:pot}}", sizeError: true, why: "行動對了，尺寸錯了：面對{{t:pot|底池}}大小的下注，8和4會{{t:fold|棄牌}}，付錢的主要是較好的Q、{{t:two-pair}}和三條。這樣大多數{{t:call|跟注}}都比你好。薄價值要下小注。" }
+      - { text: "下注{{n:ex.bet.pot}}，也就是整個{{t:pot}}", sizeError: true, why: "行動對了，尺寸錯了：面對{{t:pot|底池}}大小的下注，8和4會{{t:fold|棄牌}}，付錢的主要是較好的Q、{{t:two-pair}}和暗三條。這樣大多數{{t:call|跟注}}都比你好。薄價值要下小注。" }
       - { text: "{{t:check|過牌}}", why: "你會損失價值：對手有很多較小的{{t:pair|對子}}會付小注。{{t:check|過牌}}就是把這些錢讓出去。" }
   - kind: choice
     id: m8.l1.q-where-am-i
@@ -104,7 +104,7 @@ drills:
 
 ## 門檻：超過一半的{{t:call|跟注}}
 
-當你在有{{t:position|位置}}時下注，而對手只能{{t:call|跟注}}或{{t:fold|棄牌}}，你只需要計算他會拿來付錢的牌：
+當你在有{{t:position|位置}}時下注，而對手只能{{t:call|跟注}}或{{t:fold|棄牌}}，你只計算他會拿來付錢的牌：
 
 ```formula
 價值下注：較差的跟注 > 較好的跟注
@@ -128,12 +128,12 @@ drills:
 
 薄價值（thin value）是用一手只贏過略多於一半{{t:call|跟注}}的牌下注，例如踢腳中等的{{t:top-pair|頂對}}。這種下注要比強牌下得**更小**，通常約1/4–1/2{{t:pot|底池}}：小注連較弱的{{t:pair|對子}}也會付，但面對大注它們會{{t:fold|棄牌}}，只剩下較好的牌。
 
-這是簡化的說法：沒有被過牌加注的風險時，解算器的薄價值下注甚至小到約1/4{{t:pot|底池}}；有這種風險時，在有{{t:position|位置}}的情況下很少低於1/2{{t:pot|底池}}。
+這是簡化的說法：沒有被過牌加注的風險時，求解器的薄價值下注甚至小到約1/4{{t:pot|底池}}；有這種風險時，在有{{t:position|位置}}的情況下很少低於1/2{{t:pot|底池}}。
 
 ## 中等牌就{{t:check|過牌}}
 
 你{{t:in-position}}拿著中等牌，例如{{t:second-pair|第二對}}。對手較差的牌面對下注會{{t:fold|棄牌}}，而較好的牌會付錢。這時下注會把你的牌變成{{t:bluff}}。你{{t:check|過牌}}：攤牌時你能贏較差的牌，又不必多付錢給較好的牌。
 
 :::note 這些規則從何而來
-超過一半{{t:call|跟注}}的門檻是純數學（{{t:in-position}}下注，沒有{{t:raise|加注}}，也沒有抽水）。薄價值的下注尺寸和中等牌{{t:check}}，來自已發表的解算器分析（籌碼量較短的{{t:tournament|錦標賽}}）以及教學資料。
+超過一半{{t:call|跟注}}的門檻是純數學（{{t:in-position}}下注，沒有{{t:raise|加注}}，也沒有抽水）。薄價值的下注尺寸和中等牌{{t:check}}，來自已發表的求解器分析（籌碼量較短的{{t:tournament|錦標賽}}）以及教學資料。
 :::

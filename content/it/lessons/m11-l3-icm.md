@@ -26,23 +26,23 @@ drills:
     id: m11.l3.n-equity
     family: m11.icm.equity
     rules: [R-M11-008]
-    prompt: "{{t:payout|Pagamenti}}: {{n:m11.icm.a.p1}} del {{t:prize-pool|montepremi}} per il 1° posto e {{n:m11.icm.a.p2}} per il 2°. Stack {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}}, {{n:m11.icm.a.s3}}. Secondo l'{{t:icm}}, quanto vale lo stack più corto (in percentuale del {{t:prize-pool|montepremi}})? Inserisci un numero."
+    prompt: "{{t:payout|Premi}}: il {{n:m11.icm.a.p1}} del {{t:prize-pool|montepremi}} per il 1° posto e il {{n:m11.icm.a.p2}} per il 2°. Stack {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}}, {{n:m11.icm.a.s3}}. Secondo l'{{t:icm}}, quanto vale lo stack più corto (in percentuale del {{t:prize-pool|montepremi}})? Inserisci un numero."
     answer: m11.icm.a.eq3
     explanation: "Probabilità del 1° posto {{n:m11.icm.a.chips3}}, del 2° posto {{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} ≈ {{n:m11.icm.a.second3}}. Equity = {{n:m11.icm.a.chips3}} × {{n:m11.icm.a.p1}} + {{n:m11.icm.a.second3}} × {{n:m11.icm.a.p2}} ≈ {{n:m11.icm.a.eq3}}, più del suo {{n:m11.icm.a.chips3}} delle {{t:chips|fiches}}."
   - kind: choice
     id: m11.l3.q-big-stack
     family: m11.icm.equity
     rules: [R-M11-008]
-    prompt: "Lo stack grande ha {{n:m11.icm.a.chips1}} delle {{t:chips|fiches}} in gioco. Secondo l'{{t:icm}}, quanto vale in denaro?"
+    prompt: "Lo stack grande ha il {{n:m11.icm.a.chips1}} delle {{t:chips|fiches}} in gioco. Secondo l'{{t:icm}}, quanto vale in denaro?"
     options:
-      - { text: "{{n:m11.icm.a.eq1}}, cioè meno della sua quota di {{t:chips|fiches}}", correct: true, why: "Lo stack grande può vincere al massimo {{n:m11.icm.a.p1}} del {{t:prize-pool|montepremi}}, anche se può conquistare tutte le {{t:chips}}. Per questo le {{t:chips}} del leader valgono meno della loro quota, e quelle dello {{t:short-stack|short stack}} di più ({{n:m11.icm.a.eq3}})." }
-      - { text: "{{n:m11.icm.a.chips1}}, quanto la sua quota di {{t:chips|fiches}}", why: "Sarebbe così se il vincitore prendesse l'intero {{t:prize-pool|montepremi}}. Con {{t:payout|pagamenti}} {{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}}, ogni {{t:chips|fiche}} dello stack grande vale meno: {{n:m11.icm.a.eq1}}." }
-      - { text: "{{n:m11.icm.a.p1}}, perché vincerà quasi sicuramente", why: "Ha solo {{n:m11.icm.a.chips1}} di probabilità del 1° posto, e il resto della sua {{t:tournament-equity|equity di torneo}} gli viene dal 2° posto. In totale {{n:m11.icm.a.eq1}}." }
+      - { text: "{{n:m11.icm.a.eq1}}, cioè meno della sua quota di {{t:chips|fiches}}", correct: true, why: "Lo stack grande può vincere al massimo il {{n:m11.icm.a.p1}} del {{t:prize-pool|montepremi}}, anche se può conquistare tutte le {{t:chips}}. Per questo le {{t:chips}} del leader valgono meno della loro quota, e quelle dello {{t:short-stack|short stack}} di più ({{n:m11.icm.a.eq3}})." }
+      - { text: "{{n:m11.icm.a.chips1}}, quanto la sua quota di {{t:chips|fiches}}", why: "Sarebbe così se il vincitore prendesse l'intero {{t:prize-pool|montepremi}}. Con {{t:payout|premi}} {{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}}, ogni {{t:chips|fiche}} dello stack grande vale meno: {{n:m11.icm.a.eq1}}." }
+      - { text: "{{n:m11.icm.a.p1}}, perché vincerà quasi sicuramente", why: "Ha solo il {{n:m11.icm.a.chips1}} di probabilità del 1° posto, e il resto della sua {{t:tournament-equity|equity di torneo}} gli viene dal 2° posto. In totale {{n:m11.icm.a.eq1}}." }
   - kind: numeric
     id: m11.l3.n-bf
     family: m11.bf
     rules: [R-M11-009]
-    prompt: "{{t:bubble|Bolla}}: quattro giocatori, tre posti pagati. {{t:call|Chiamando}} un all-in, se perdi perdi {{n:m11.bf.loss}} del {{t:prize-pool|montepremi}}, se vinci guadagni {{n:m11.bf.gain}}. Quanto vale il bubble factor? Inserisci un numero con due decimali."
+    prompt: "{{t:bubble|Bolla}}: quattro giocatori, tre posti pagati. {{t:call|Chiamando}} un all-in, se perdi perdi il {{n:m11.bf.loss}} del {{t:prize-pool|montepremi}}, se vinci guadagni il {{n:m11.bf.gain}}. Quanto vale il bubble factor? Inserisci un numero con due decimali."
     answer: m11.bf.value
     explanation: "Bubble factor = perdita ÷ guadagno = {{n:m11.bf.loss}} ÷ {{n:m11.bf.gain}} = {{n:m11.bf.value}}. Perdere fa male quasi una volta e mezza in più di quanto vincere aiuti."
   - kind: numeric
@@ -51,12 +51,12 @@ drills:
     rules: [R-M11-009]
     prompt: "Il bubble factor è {{n:m11.bf.value}}. Quanta equity ti serve perché il {{t:call}} dell'all-in convenga? Inserisci un numero in percentuale."
     answer: m11.bf.req
-    explanation: "Equity necessaria = BF ÷ (BF + 1), cioè perdita ÷ (perdita + guadagno) = {{n:m11.bf.loss}} ÷ {{n:m11.bf.range}} = {{n:m11.bf.req}}. Nel gioco a {{t:chips}} basterebbe {{n:m11.bf.req-chips}}."
+    explanation: "Equity necessaria = BF ÷ (BF + 1), cioè perdita ÷ (perdita + guadagno) = {{n:m11.bf.loss}} ÷ {{n:m11.bf.range}} = {{n:m11.bf.req}}. Nel gioco a {{t:chips}} basterebbe il {{n:m11.bf.req-chips}}."
   - kind: choice
     id: m11.l3.q-premium
     family: m11.bf
     rules: [R-M11-009]
-    prompt: "Nel gioco a {{t:chips}}, per {{t:call|chiamare}} questo all-in basta {{n:m11.bf.req-chips}} di equity, ma secondo l'{{t:icm}} te ne serve {{n:m11.bf.req}}. Come si chiama la differenza?"
+    prompt: "Nel gioco a {{t:chips}}, per {{t:call|chiamare}} questo all-in basta il {{n:m11.bf.req-chips}} di equity, ma secondo l'{{t:icm}} te ne serve il {{n:m11.bf.req}}. Come si chiama la differenza?"
     options:
       - { text: "{{t:risk-premium|Risk premium}} ({{n:m11.bf.premium}})", correct: true, why: "Il {{t:risk-premium|risk premium}} è l'equity aggiuntiva che l'{{t:icm}} richiede oltre al prezzo in {{t:chips|fiches}}: {{n:m11.bf.req}} − {{n:m11.bf.req-chips}} = {{n:m11.bf.premium}}." }
       - { text: "Bubble factor", why: "Il bubble factor è il rapporto tra perdita e guadagno ({{n:m11.bf.value}}). Da esso calcoli l'equity necessaria, e la differenza rispetto al gioco a {{t:chips}} è il {{t:risk-premium}}." }
@@ -65,16 +65,16 @@ drills:
     id: m11.l3.q-call-bubble
     family: m11.icm.call
     rules: [R-M11-009, R-M11-010]
-    prompt: "{{t:bubble|Bolla}}, l'esempio della lezione. La tua mano ha circa {{n:m11.bf.example-eq}} di equity contro il {{t:range}} di all-in dell'avversario. Nel gioco a {{t:chips}} il {{t:call}} converrebbe, perché basta {{n:m11.bf.req-chips}}. Cosa fai qui?"
+    prompt: "{{t:bubble|Bolla}}, l'esempio della lezione. La tua mano ha circa il {{n:m11.bf.example-eq}} di equity contro il {{t:range}} di all-in dell'avversario. Nel gioco a {{t:chips}} il {{t:call}} converrebbe, perché basta il {{n:m11.bf.req-chips}}. Cosa fai qui?"
     options:
-      - { text: "{{t:fold|Foldo}}", correct: true, why: "Secondo l'{{t:icm}} qui ti serve {{n:m11.bf.req}} di equity. Una mano che vince meno spesso perde denaro, anche se in {{t:chips|fiches}} sarebbe in attivo." }
-      - { text: "{{t:call|Chiamo}}, perché in {{t:chips|fiches}} è un guadagno", why: "In un {{t:tournament|torneo}} con {{t:payout|pagamenti}} conta il denaro, non le {{t:chips}}. Perdere ti costa {{n:m11.bf.loss}} del {{t:prize-pool|montepremi}}, mentre vincere ti dà solo {{n:m11.bf.gain}}." }
-      - { text: "{{t:call|Chiamo}}, perché vinco più della metà delle volte", why: "Una mano con {{n:m11.bf.example-eq}} vince più della metà delle volte, ma qui è comunque troppo debole: la soglia è {{n:m11.bf.req}}." }
+      - { text: "{{t:fold|Foldo}}", correct: true, why: "Secondo l'{{t:icm}} qui ti serve il {{n:m11.bf.req}} di equity. Una mano che vince meno spesso perde denaro, anche se in {{t:chips|fiches}} sarebbe in attivo." }
+      - { text: "{{t:call|Chiamo}}, perché in {{t:chips|fiches}} è un guadagno", why: "In un {{t:tournament|torneo}} con {{t:payout|premi}} conta il denaro, non le {{t:chips}}. Perdere ti costa il {{n:m11.bf.loss}} del {{t:prize-pool|montepremi}}, mentre vincere ti dà solo il {{n:m11.bf.gain}}." }
+      - { text: "{{t:call|Chiamo}}, perché vinco più della metà delle volte", why: "Una mano con il {{n:m11.bf.example-eq}} vince più della metà delle volte, ma qui è comunque troppo debole: la soglia è il {{n:m11.bf.req}}." }
   - kind: choice
     id: m11.l3.q-covering
     family: m11.icm.call
     rules: [R-M11-010]
-    prompt: "{{t:bubble|Bolla}} del {{t:tournament|torneo}}. Hai lo stack più grande al tavolo e {{t:cover|copri}} tutti. Lo stack medio passa contro di te molto spesso. Cosa ne consegue?"
+    prompt: "{{t:bubble|Bolla}} del {{t:tournament|torneo}}. Hai lo stack più grande al tavolo e {{t:cover|copri}} tutti. Lo stack medio folda contro di te molto spesso. Cosa ne consegue?"
     options:
       - { text: "Puoi {{t:shove|pushare}} più largo, perché gli avversari {{t:call|chiamano}} stretto", correct: true, why: "Lo stack medio, quando {{t:call|chiama}}, rischia di uscire appena prima dei premi, quindi gli serve molta equity. Tu, se perdi, perdi solo una parte dello stack. Gli avversari {{t:call|chiamano}} stretto, quindi più spesso ti prendi il {{t:pot|piatto}} senza combattere." }
       - { text: "Giochi più stretto per non perdere il comando", why: "Il leader ha il rischio più basso al tavolo. Giocare stretto gli fa rinunciare al suo vantaggio principale: la pressione sugli stack medi." }
@@ -124,7 +124,7 @@ La probabilità del 2° posto la calcoli allo stesso modo, ma separatamente per 
 
 ## Esempio: tre giocatori in {{t:bubble|bolla}}
 
-Sono pagati due posti: {{n:m11.icm.a.p1}} e {{n:m11.icm.a.p2}} del {{t:prize-pool|montepremi}}. Stack: {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}} e {{n:m11.icm.a.s3}} {{t:chips|fiches}}.
+Sono pagati due posti: il {{n:m11.icm.a.p1}} e il {{n:m11.icm.a.p2}} del {{t:prize-pool|montepremi}}. Stack: {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}} e {{n:m11.icm.a.s3}} {{t:chips|fiches}}.
 
 - Lo {{t:short-stack|short stack}} vince il {{t:tournament}} con probabilità {{n:m11.icm.a.s3}} ÷ {{n:m11.icm.a.total}} = **{{n:m11.icm.a.chips3}}**.
 - Per il 2° posto: se vince lo stack grande ({{n:m11.icm.a.chips1}}), il corto arriva secondo con probabilità {{n:m11.icm.a.second3.via1}}; se vince il medio ({{n:m11.icm.a.chips2}}), con probabilità {{n:m11.icm.a.second3.via2}}. In totale {{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} ≈ **{{n:m11.icm.a.second3}}** (le componenti sono arrotondate).
@@ -140,11 +140,11 @@ Lo {{t:short-stack|short stack}} vale più delle sue {{t:chips}}, quello grande 
 
 ## Bubble factor: perdere fa più male
 
-Quattro giocatori, tre posti pagati: {{n:m11.bf.p1}}, {{n:m11.bf.p2}} e {{n:m11.bf.p3}}. Stack {{n:m11.bf.s1}}, {{n:m11.bf.s2}} (tu), {{n:m11.bf.s3}} e {{n:m11.bf.s4}}. Il giocatore con {{n:m11.bf.s3}} va all-in e tu lo {{t:cover|copri}}, cioè hai più {{t:chips|fiches}}. Per semplicità ignoriamo i blind nel {{t:pot|piatto}}.
+Quattro giocatori, tre posti pagati: il {{n:m11.bf.p1}}, il {{n:m11.bf.p2}} e il {{n:m11.bf.p3}}. Stack {{n:m11.bf.s1}}, {{n:m11.bf.s2}} (tu), {{n:m11.bf.s3}} e {{n:m11.bf.s4}}. Il giocatore con {{n:m11.bf.s3}} va all-in e tu lo {{t:cover|copri}}, cioè hai più {{t:chips|fiches}}. Per semplicità ignoriamo i blind nel {{t:pot|piatto}}.
 
-- Ora il tuo stack vale {{n:m11.bf.eq.now}} del {{t:prize-pool|montepremi}}.
-- Se vinci: hai {{n:m11.bf.win}}, l'avversario esce e sono tutti a premio. La tua equity sale a {{n:m11.bf.eq.win}}, cioè di **{{n:m11.bf.gain}}**.
-- Se perdi: ti restano {{n:m11.bf.lose}} e l'equity scende a {{n:m11.bf.eq.lose}}, cioè di **{{n:m11.bf.loss}}**.
+- Ora il tuo stack vale il {{n:m11.bf.eq.now}} del {{t:prize-pool|montepremi}}.
+- Se vinci: hai {{n:m11.bf.win}}, l'avversario esce e sono tutti a premio. La tua equity sale al {{n:m11.bf.eq.win}}, cioè del **{{n:m11.bf.gain}}**.
+- Se perdi: ti restano {{n:m11.bf.lose}} e l'equity scende al {{n:m11.bf.eq.lose}}, cioè del **{{n:m11.bf.loss}}**.
 
 ```formula
 bubble factor = perdita se perdi ÷ guadagno se vinci
@@ -156,9 +156,9 @@ Qui {{n:m11.bf.loss}} ÷ {{n:m11.bf.gain}} = **{{n:m11.bf.value}}**. L'app usa q
 equity necessaria = BF ÷ (BF + 1)
 ```
 
-Risulta **{{n:m11.bf.req}}**. Nel gioco a {{t:chips}} rischi {{n:m11.bf.s3}} per vincere {{n:m11.bf.s3}}, quindi basterebbe {{n:m11.bf.req-chips}}. La differenza, {{n:m11.bf.premium}}, è il **{{t:risk-premium}}**.
+Risulta il **{{n:m11.bf.req}}**. Nel gioco a {{t:chips}} rischi {{n:m11.bf.s3}} per vincere {{n:m11.bf.s3}}, quindi basterebbe il {{n:m11.bf.req-chips}}. La differenza, il {{n:m11.bf.premium}}, è il **{{t:risk-premium}}**.
 
-La stessa tendenza si vede in un equilibrio pubblicato per tre giocatori con stack uguali (un articolo scientifico del 2008): quando il Button e lo {{t:small-blind}} sono già all-in, il {{t:big-blind}} in una singola mano {{t:call|chiama}} con {{n:m11.jamfold3.overcall.single}} delle mani, mentre in un {{t:tournament|torneo}} con {{t:payout|pagamenti}} solo con {{n:m11.jamfold3.overcall.tourn}}, cioè solo le {{t:pocket-pair|coppie servite}} più alte e AKs.
+La stessa tendenza si vede in un equilibrio pubblicato per tre giocatori con stack uguali (un articolo scientifico del 2008): quando il Button e lo {{t:small-blind}} sono già all-in, il {{t:big-blind}} in una singola mano {{t:call|chiama}} con il {{n:m11.jamfold3.overcall.single}} delle mani, mentre in un {{t:tournament|torneo}} con {{t:payout|premi}} solo con il {{n:m11.jamfold3.overcall.tourn}}, cioè solo le {{t:pocket-pair|coppie servite}} più alte e AKs.
 
 :::note Chi {{t:call|chiama}} stretto
 Uno stack medio in {{t:bubble|bolla}} o al {{t:final-table|tavolo finale}} (l'ultimo tavolo di un {{t:tournament|torneo}}, dove si gioca per i premi più alti) {{t:call|chiama}} gli all-in molto più stretto che nel gioco a {{t:chips}}. Uno stack grande che {{t:cover|copre}} gli avversari rischia meno e può sfruttarlo: {{t:shove|pushare}} più largo, perché gli avversari devono {{t:fold|foldare}}. Il bubble factor dipende da tutti gli stack al tavolo, perciò non si calcola al tavolo: lo si allena sugli esempi, per sviluppare la sensibilità.

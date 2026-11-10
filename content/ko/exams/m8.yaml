@@ -14,11 +14,11 @@ drills:
     id: m8.exam.q2
     family: m8.value.size
     rules: [R-M8-003]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 c-bet과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 9와 함께 {{t:top-pair|탑 페어를}} 가지고 있고, 지불할 핸드 중 절반을 조금 넘는 핸드를 이긴다고 추정합니다. 어떻게 하시겠습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 C벳과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 9와 함께 {{t:top-pair|탑 페어를}} 가지고 있고, 지불할 핸드 중 절반을 조금 넘는 핸드를 이긴다고 추정합니다. 어떻게 하시겠습니까?"
     table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
     options:
-      - { text: "{{t:pot|팟의}} 약 1/3 베팅", correct: true, why: "맞습니다. 이것은 thin value입니다. 작은 베팅에는 세븐, 포, 더 약한 잭도 {{t:call|콜하므로}}, {{t:call|콜}} 중에는 강한 핸드보다 약한 핸드가 더 많이 남습니다." }
-      - { text: "{{t:pot|팟}} 전체 베팅", sizeError: true, why: "액션은 맞지만 사이즈가 틀렸습니다. {{t:pot|팟}} 크기 베팅에는 세븐과 포가 {{t:fold|폴드하고}}, 주로 더 강한 잭과 더 강한 핸드가 지불합니다. thin value는 더 작게, 보통 {{t:pot|팟의}} 약 1/4–1/2로 베팅합니다." }
+      - { text: "{{t:pot|팟의}} 약 1/3 베팅", correct: true, why: "맞습니다. 이것은 씬 밸류입니다. 작은 베팅에는 7, 4, 더 약한 잭도 {{t:call|콜하므로}}, {{t:call|콜}} 중에는 강한 핸드보다 약한 핸드가 더 많이 남습니다." }
+      - { text: "{{t:pot|팟}} 전체 베팅", sizeError: true, why: "액션은 맞지만 사이즈가 틀렸습니다. {{t:pot|팟}} 크기 베팅에는 7과 4가 {{t:fold|폴드하고}}, 주로 더 강한 잭과 더 강한 핸드가 지불합니다. 씬 밸류는 더 작게, 보통 {{t:pot|팟의}} 약 1/4–1/2로 베팅합니다." }
       - { text: "{{t:check|체크합니다}}. 베팅하기에는 핸드가 너무 약하기 때문입니다", why: "밸류를 잃습니다. 작은 베팅을 지불할 핸드의 절반 이상을 이기기 때문입니다. 더 작은 사이즈를 고르기만 하면 됩니다." }
   - kind: numeric
     id: m8.exam.q3
@@ -85,9 +85,9 @@ drills:
     id: m8.exam.q10
     family: m8.value.check
     rules: [R-M8-002]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 c-bet과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 6 {{t:pair|페어를}} 가지고 있습니다. 어떻게 하시겠습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서는 C벳과 {{t:call}}, 턴에서는 둘 다 {{t:check|체크했습니다}}. 리버에서 {{t:big-blind}}가 {{t:check|체크합니다}}. 6 {{t:pair|페어를}} 가지고 있습니다. 어떻게 하시겠습니까?"
     table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
     options:
-      - { text: "{{t:check|체크합니다}}", correct: true, why: "맞습니다. 6 {{t:pair|페어는}} 빗나간 {{t:draw|드로우와}} 하이 카드를 이기지만, 그런 핸드는 베팅에 {{t:fold|폴드합니다}}. 주로 잭, 에잇, 킹이 지불합니다. {{t:check|체크하면}} 무료로 쇼다운에 갑니다." }
+      - { text: "{{t:check|체크합니다}}", correct: true, why: "맞습니다. 6 {{t:pair|페어는}} 빗나간 {{t:draw|드로우와}} 하이 카드를 이기지만, 그런 핸드는 베팅에 {{t:fold|폴드합니다}}. 주로 잭, 8, 킹이 지불합니다. {{t:check|체크하면}} 무료로 쇼다운에 갑니다." }
       - { text: "{{t:value|밸류로}} 작게 베팅합니다", why: "작은 베팅에도 주로 더 강한 {{t:pair|페어가}} {{t:call|콜합니다}}. 여기서 상대의 약한 핸드는 주로 {{t:pair|페어가}} 없는 핸드와 가장 약한 {{t:pair|페어이며}}, 이런 핸드는 거의 지불하지 않습니다." }
       - { text: "상대가 더 강한 {{t:pair|페어를}} {{t:fold|폴드하도록}} 크게 베팅합니다", why: "베팅은 쇼다운 밸류가 있는 핸드를 {{t:bluff}}로 바꿉니다. {{t:bluff|블러프는}} 가능성이 없는 핸드로 하며, 이 핸드는 {{t:check|체크한}} 뒤 자주 이깁니다." }

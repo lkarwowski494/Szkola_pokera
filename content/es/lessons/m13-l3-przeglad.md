@@ -21,7 +21,7 @@ drills:
     rules: [R-M13-005]
     prompt: "Acabas de perder un {{t:pot|bote}} grande y estás alterado. ¿Cuándo es mejor revisar esta mano?"
     options:
-      - { text: "Al cabo de unas horas o al día siguiente", correct: true, why: "Sí: el mejor momento para revisar es unas horas o unos días después de la {{t:session|sesión}}, con la cabeza despejada. Justo después de perder es fácil tomar una buena decisión por un error, o al revés." }
+      - { text: "Al cabo de unas horas o al día siguiente", correct: true, why: "Sí: el mejor momento para revisar es unas horas o unos días después de la {{t:session|sesión}}, con la cabeza despejada. Justo después de perder es fácil confundir una buena decisión con un error, o al revés." }
       - { text: "Enseguida, para no olvidar los detalles", why: "Los detalles los apuntas enseguida, pero la valoración la aplazas. Con las emociones a flor de piel, la valoración está teñida por el resultado." }
       - { text: "Nunca, porque es mala suerte", why: "Puede que sea mala suerte o puede que sea un error. Solo lo sabrás revisándola cuando se calmen las emociones." }
   - kind: choice

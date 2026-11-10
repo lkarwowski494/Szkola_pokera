@@ -7,7 +7,7 @@ full-house: "葫蘆"  # full house; bez formy 6; formy: 葫蘆×11
 flush: "同花"  # flush; bez formy 36; formy: 同花×84
 straight: "順子"  # straight; bez formy 26; formy: 順子×132, 順×1 [WIELE FORM]
 three-of-a-kind: "三條"  # three of a kind; bez formy 8; formy: 三條×15, 三×1 [WIELE FORM]
-set: "三條"  # set; bez formy 1; formy: 三條×1
+set: "暗三條"  # set; bez formy 1; formy: 三條×1
 two-pair: "兩對"  # two pair; bez formy 36; formy: 兩對×28
 pair: "對子"  # pair; bez formy 32; formy: 對子×205, 一對×53, 對×16, 兩對×1 [WIELE FORM]
 high-card: "高牌"  # high card; bez formy 2; formy: 高牌×1
@@ -18,19 +18,19 @@ bet: "下注"  # bet; bez formy 99; formy: 下注×308, 注×4, 定×1, 下×1, 
 call: "跟注"  # call; bez formy 61; formy: 跟注×804, 跟注者×2, 跟×1, 檢視×1 [WIELE FORM]
 raise: "加注"  # raise; bez formy 10; formy: 加注×308
 fold: "棄牌"  # fold; bez formy 47; formy: 棄牌×620, 棄掉×39, 蓋牌×27, 蓋掉×1, 已棄牌×1 [AB: Z2: 蓋牌 tylko w m11-l1 — ujednolicić]
-check-raise: null  # check-raise; bez formy 0; formy: — [DO USTALENIA]
+check-raise: "過牌加注"  # check-raise; bez formy 0; formy: — [DO USTALENIA]
 all-in: "全下"  # all-in; bez formy 0; formy: 全下×1
 pot: "底池"  # pot; bez formy 81; formy: 底池×810
 side-pot: "邊池"  # side pot; bez formy 0; formy: 邊池×2
 split-pot: "平分底池"  # split pot; bez formy 0; formy: 平分底池×16, 就平分底池×1 [WIELE FORM]
 playing-the-board: "打公牌"  # playing the board; bez formy 2; formy: 打公牌×2
-board: "公共牌"  # board; bez formy 5; formy: 公共牌×54, 牌面×41, 公牌×1, 牌桌×1, 牌桌上×1 [WIELE FORM]
+board: "牌面"  # board; bez formy 5; formy: 公共牌×54, 牌面×41, 公牌×1, 牌桌×1, 牌桌上×1 [WIELE FORM]
 community-cards: "公共牌"  # community cards; bez formy 0; formy: 公共牌×12
 hole-cards: "底牌"  # hole cards; bez formy 2; formy: 底牌×1
 small-blind: "小盲"  # small blind; bez formy 23; formy: 小盲×104, SB×5, 小盲注×3 [WIELE FORM]
 big-blind: "大盲"  # big blind; bez formy 117; formy: 大盲×142, 大盲注×15, BB×6, 大盲位×3 [WIELE FORM]
 chips: "籌碼"  # chips; bez formy 7; formy: 籌碼×96
-stack: null  # stack; bez formy 0; formy: — [DO USTALENIA]
+stack: "籌碼量"  # stack; bez formy 0; formy: — [DO USTALENIA]
 street: "街"  # street; bez formy 1; formy: 街×68, 條街×6, 輪×4 [WIELE FORM]
 betting-round: "下注輪"  # betting round; bez formy 1; formy: 下注輪×7
 preflop: "翻牌前"  # preflop; bez formy 0; formy: 翻牌前×1
@@ -46,15 +46,15 @@ late-position: "後位"  # late position; bez formy 0; formy: 後位×1
 utg: null  # under the gun; bez formy 30; formy: UTG×16, 槍口位×1 [SKRÓT UTG]
 hijack: "HJ"  # hijack; bez formy 0; formy: HJ×17
 cutoff: "CO"  # cutoff; bez formy 0; formy: CO×54, 關煞位×1 [WIELE FORM]
-button: "BTN"  # button; bez formy 0; formy: BTN×3
+button: "按鈕位"  # button; bez formy 0; formy: BTN×3
 outs: "補牌"  # out; bez formy 0; formy: 補牌×1
 draw: "聽牌"  # draw; bez formy 23; formy: 聽牌×178
 flush-draw: "同花聽牌"  # flush draw; bez formy 16; formy: 同花聽牌×45
 straight-draw: "順子聽牌"  # straight draw; bez formy 2; formy: 順子聽牌×17
 oesd: null  # open-ended straight draw; bez formy 7; formy: 兩頭順子聽牌×10, 兩頭順聽牌×6 [SKRÓT OESD]
 gutshot: null  # gutshot; bez formy 0; formy: — [DO USTALENIA]
-backdoor: null  # backdoor; bez formy 0; formy: — [DO USTALENIA]
-pot-odds: null  # pot odds; bez formy 0; formy: — [DO USTALENIA]
+backdoor: "後門"  # backdoor; bez formy 0; formy: — [DO USTALENIA]
+pot-odds: "底池賠率"  # pot odds; bez formy 0; formy: — [DO USTALENIA]
 implied-odds: "隱含賠率"  # implied odds; bez formy 1; formy: 隱含賠率×1
 equity: "權益"  # equity; bez formy 4; formy: 權益×12, 勝率×3 [AB: Z2/Z3: UI, terms-def, 141× w tekście; 勝率 (108×) ujednolicić]
 equity-realization: "權益實現"  # equity realization; bez formy 0; formy: 權益實現×3, 實現勝率×2, 實現權益×2 [WIELE FORM]
@@ -100,7 +100,7 @@ value-bet: "價值下注"  # value bet; bez formy 0; formy: 價值下注×1
 bluff: "詐唬"  # bluff; bez formy 60; formy: 詐唬×414
 semi-bluff: "半詐唬"  # semi-bluff; bez formy 6; formy: 半詐唬×18
 blocker: "阻擋牌"  # blocker; bez formy 0; formy: 阻擋牌×22
-bluff-catcher: null  # bluff catcher; bez formy 0; formy: — [DO USTALENIA]
+bluff-catcher: "抓詐唬牌"  # bluff catcher; bez formy 0; formy: — [DO USTALENIA]
 barrel: null  # barrel; bez formy 0; formy: — [DO USTALENIA]
 second-barrel: "第二槍"  # second barrel; bez formy 3; formy: 第二槍×23
 probe-bet: null  # probe bet; bez formy 0; formy: — [DO USTALENIA]
@@ -113,14 +113,14 @@ alpha: "alpha"  # alpha; bez formy 2; formy: alpha×4
 variance: "變異數"  # variance; bez formy 7; formy: 變異數×9, 波動×7, 變異×3 [AB: Z2, kontrola (a): 波動/變異 ujednolicić; przeczytane PQ „變異數（Variance）”]
 buy-in: "買入"  # buy-in; bez formy 0; formy: 買入×83
 bankroll: "資金"  # bankroll; bez formy 0; formy: 資金×1
-tilt: null  # tilt; bez formy 0; formy: — [DO USTALENIA]
+tilt: "上頭"  # tilt; bez formy 0; formy: — [DO USTALENIA]
 winrate: "贏率"  # win rate; bez formy 0; formy: 勝率×1 [AB: Z2: 98× w treści; 勝率 koliduje z equity; źródło TW [DO USTALENIA]]
 downswing: "下風期"  # downswing; bez formy 0; formy: 下風期×28
 session: "場次"  # session; bez formy 2; formy: 牌局×49, 場次×5 [AB: Z1: 牌局 = też „rozdanie” (dwuznaczne)]
 stakes: "級別"  # stakes; bez formy 4; formy: 級別×59
 standard-deviation: "標準差"  # standard deviation; bez formy 1; formy: 標準差×43
 risk-of-ruin: "破產風險"  # risk of ruin; bez formy 0; formy: 破產風險×4
-mental-game: null  # mental game; bez formy 1; formy: — [DO USTALENIA]
+mental-game: "心態"  # mental game; bez formy 1; formy: — [DO USTALENIA]
 tournament: "錦標賽"  # tournament; bez formy 0; formy: 錦標賽×18
 push-fold: null  # push/fold; bez formy 0; formy: — [DO USTALENIA]
 shove: "推全下"  # shove; bez formy 0; formy: 推全下×13, 推×8, 全推×2, 推全下的人×1 [WIELE FORM]
@@ -132,9 +132,9 @@ risk-premium: "風險溢價"  # risk premium; bez formy 0; formy: 風險溢價×
 m-ratio: null  # M-ratio; bez formy 0; formy: — [DO USTALENIA]
 red-zone: "紅區"  # red zone; bez formy 1; formy: 紅區×1
 green-zone: "綠區"  # green zone; bez formy 0; formy: 綠區×2
-ante: null  # ante; bez formy 0; formy: — [DO USTALENIA]
+ante: "前注"  # ante; bez formy 0; formy: — [DO USTALENIA]
 bb-ante: "大盲前注"  # big blind ante; bez formy 3; formy: 大盲前注×3
-fold-equity: null  # fold equity; bez formy 0; formy: — [DO USTALENIA]
+fold-equity: "棄牌權益"  # fold equity; bez formy 0; formy: — [DO USTALENIA]
 gap-concept: null  # gap concept; bez formy 0; formy: — [DO USTALENIA]
 chip-ev: null  # chip EV; bez formy 0; formy: — [DO USTALENIA]
 tournament-equity: "錦標賽權益"  # tournament equity; bez formy 0; formy: 錦標賽權益×1
@@ -145,7 +145,7 @@ final-table: "決賽桌"  # final table; bez formy 0; formy: 決賽桌×4
 short-stack: "短籌碼"  # short stack; bez formy 1; formy: 短籌碼×10, 短×1 [WIELE FORM]
 nash-equilibrium: null  # Nash equilibrium; bez formy 0; formy: — [DO USTALENIA]
 overcall: null  # overcall; bez formy 0; formy: — [DO USTALENIA]
-heads-up: null  # heads up; bez formy 0; formy: — [DO USTALENIA]
+heads-up: "單挑"  # heads up; bez formy 0; formy: — [DO USTALENIA]
 dead-money: null  # dead money; bez formy 0; formy: — [DO USTALENIA]
 stack-off: null  # stack off; bez formy 0; formy: — [DO USTALENIA]
 exploit: "剝削"  # exploit; bez formy 0; formy: 剝削×9

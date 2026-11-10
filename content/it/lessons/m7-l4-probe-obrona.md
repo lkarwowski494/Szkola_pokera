@@ -104,8 +104,8 @@ drills:
     table: { position: BB }
     options:
       - { text: "Perché l'avversario {{t:bet|punta}} il {{t:second-barrel}} con un {{t:range}} più stretto e di solito con una size più grande, e i {{t:draw|progetti}} hanno ormai una sola carta", correct: true, why: "Sì: al turn l'avversario rinuncia a una parte dei {{t:bluff}}, una puntata più grande abbassa l'{{t:mdf}} (con 3/4 di {{t:pot|piatto}} è {{n:mdf.bet-three-quarters}}), e i tuoi {{t:draw|progetti}} perdono metà delle probabilità. Le {{t:pair|coppie}} deboli e le mani senza out le {{t:fold|foldi}} più spesso che al flop." }
-      - { text: "Perché al turn bisogna risparmiare {{t:chips|fiche}}", why: "Conta il {{t:expected-value}} di ogni decisione, non il risparmio. Difendi più stretto perché l'avversario punta con mani più forti." }
-      - { text: "No, difendi più largo perché hai già messo molte {{t:chips|fiche}}", why: "Quello che hai già messo non torna indietro. Decidi in base al prezzo attuale e alla forza del {{t:range}} dell'avversario." }
+      - { text: "Perché al turn bisogna risparmiare {{t:chips|fiches}}", why: "Conta il {{t:expected-value}} di ogni decisione, non il risparmio. Difendi più stretto perché l'avversario punta con mani più forti." }
+      - { text: "No, difendi più largo perché hai già messo molte {{t:chips|fiches}}", why: "Quello che hai già messo non torna indietro. Decidi in base al prezzo attuale e alla forza del {{t:range}} dell'avversario." }
   - kind: numeric
     id: m7.l4.n-mdf-turn
     family: m7.defend.math
@@ -113,7 +113,7 @@ drills:
     prompt: "Turn. L'avversario {{t:bet|punta}} {{n:ex.bet.three-quarters}} in un {{t:pot|piatto}} di {{n:ex.pot}}. Quanto vale l'{{t:mdf}}? Inserisci il numero in percentuale."
     table: { position: BB }
     answer: mdf.bet-three-quarters
-    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + puntata) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. In un esempio pubblicato sul turn il solver difendeva in media vicino all'{{t:mdf}}; {{t:out-of-position}} capita di difendere meno (al flop e al turn). Quando sai che l'avversario {{t:bluff|bluffa}} meno spesso, {{t:fold|foldi}} più spesso (i calcoli sono in M8, nella lezione su come cogliere i {{t:bluff}})."
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + puntata) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. In un esempio pubblicato sul turn il solver difendeva in media vicino all'{{t:mdf}}; {{t:out-of-position}} capita di difendere meno (al flop e al turn). Quando sai che l'avversario {{t:bluff|bluffa}} meno spesso, {{t:fold|foldi}} più spesso (i calcoli sono in M8, nella lezione su come catturare i {{t:bluff}})."
 ---
 Al turn incontrerai due situazioni nuove: il Button non ha fatto c-bet e ha {{t:check|fatto check}}, oppure ha fatto c-bet e punta una seconda volta. Nella prima puoi attaccare tu, nella seconda difendi più stretto che al flop.
 

@@ -373,7 +373,7 @@
       "balanced": "솔버의 기본 전략에 가깝게 플레이합니다.",
       "tight-passive": "적은 핸드를 플레이하고 레이즈를 거의 하지 않습니다.",
       "tight-aggressive": "적은 핸드를 플레이하지만 자주 레이즈합니다.",
-      "loose-passive": "많은 핸드를 플레이하고 주로 콜만 합니다.",
+      "loose-passive": "많은 핸드를 플레이하고 자주 콜만 합니다.",
       "loose-aggressive": "많은 핸드를 플레이하고 자주 레이즈합니다."
     },
     "tables": {
@@ -710,7 +710,7 @@
       "foldRight": "맞습니다. {{t:icm|ICM}} 기준으로 필요한 에퀴티는 {{required}}인데, 내 에퀴티는 {{equity}}뿐입니다.",
       "foldRightChips": "맞습니다. {{t:icm|ICM}} 기준으로 필요한 에퀴티는 {{required}}인데, 내 에퀴티는 {{equity}}뿐입니다. {{t:chips|칩}} 게임이라면 {{t:call|콜}}할 상황입니다. 이것이 바로 {{t:risk-premium|리스크 프리미엄}}입니다.",
       "foldWrong": "아닙니다. 에퀴티 {{equity}}면 충분합니다. {{t:icm|ICM}} 기준 문턱은 {{required}}입니다.",
-      "callExplanation": "{{t:prize-pool|상금 풀}}에서 내 에퀴티: 현재 {{now}}, 이기면 {{win}}, 지면 {{lose}}. Bubble factor = 손실 ÷ 이득 = {{loss}} ÷ {{gain}} ≈ {{bf}}이므로 필요한 에퀴티는 BF ÷ (BF + 1) ≈ {{required}}입니다. {{t:chips|칩}} 게임이라면 {{requiredChips}}면 충분합니다.",
+      "callExplanation": "{{t:prize-pool|상금 풀}}에서 내 에퀴티: 현재 {{now}}, 이기면 {{win}}, 지면 {{lose}}. 버블 팩터(BF) = 손실 ÷ 이득 = {{loss}} ÷ {{gain}} ≈ {{bf}}이므로 필요한 에퀴티는 BF ÷ (BF + 1) ≈ {{required}}입니다. {{t:chips|칩}} 게임이라면 {{requiredChips}}면 충분합니다.",
       "equityPrompt": "{{table}} {{t:icm|ICM}} 기준으로 내 스택의 가치({{t:prize-pool|상금 풀}}에서 차지하는 비율)는 얼마인가요?",
       "equityRight": "맞습니다. 순위별 합계입니다: 해당 순위 확률 × 해당 순위 {{t:payout|상금}}.",
       "equityChips": "아닙니다. 그것은 {{t:chips|칩}} 점유율입니다. {{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 {{t:chips|칩}}이 돈으로 1:1 환산되지 않습니다.",

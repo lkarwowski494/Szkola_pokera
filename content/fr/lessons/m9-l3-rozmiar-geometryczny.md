@@ -33,7 +33,7 @@ drills:
     id: m9.l3.q-srp-half
     family: m9.geo-srp
     rules: [R-M9-007]
-    prompt: "{{t:pot|Pot}} simplement relancé : au flop, il y a {{n:bb.pot-after.vs-btn}}, et chacun de vous a {{n:spr.srp.stack}} derrière. Vous misez un demi-{{t:pot}} au flop, au turn et à la river, et l'adversaire {{t:call|suit}} toujours. Combien mettez-vous au total ?"
+    prompt: "{{t:pot|Pot}} à une seule relance : au flop, il y a {{n:bb.pot-after.vs-btn}}, et chacun de vous a {{n:spr.srp.stack}} derrière. Vous misez un demi-{{t:pot}} au flop, au turn et à la river, et l'adversaire {{t:call|suit}} toujours. Combien mettez-vous au total ?"
     options:
       - { text: "{{n:srp.half.total}}", correct: true, why: "{{n:srp.half.flop}} + {{n:srp.half.turn}} + {{n:srp.half.river}} = {{n:srp.half.total}}. La majeure partie du stack reste en dehors du {{t:pot}} : avec un {{t:spr}} d'environ {{n:spr.srp}}, un demi-{{t:pot}} est trop peu pour jouer tout le stack." }
       - { text: "{{n:spr.srp.stack}}, soit tout le stack", why: "Le {{t:pot}} ne monte qu'à {{n:srp.half.flop-after}}, {{n:srp.half.turn-after}}, et ainsi de suite. Trois {{t:bet|mises}} d'un demi-{{t:pot}} engagent au total {{n:srp.half.total}}, loin de tout le stack." }
@@ -42,10 +42,10 @@ drills:
     id: m9.l3.q-srp-geo
     family: m9.geo-srp
     rules: [R-M9-007]
-    prompt: "{{t:pot|Pot}} simplement relancé, {{t:spr}} d'environ {{n:spr.srp}}. Quelle taille de {{t:bet|mise}} constante au flop, au turn et à la river engage tout le stack ?"
+    prompt: "{{t:pot|Pot}} à une seule relance, {{t:spr}} d'environ {{n:spr.srp}}. Quelle taille de {{t:bet|mise}} constante au flop, au turn et à la river engage tout le stack ?"
     options:
       - { text: "Environ {{n:geo.srp.3}} du {{t:pot}}, soit plus que tout le {{t:pot}}", correct: true, why: "Oui : même trois {{t:bet|mises}} de la taille du {{t:pot}} n'engagent que {{n:srp.potbet.total}} d'un stack de {{n:spr.srp.stack}}. Tout le stack n'entre qu'à environ {{n:geo.srp.3}} du {{t:pot}} sur chaque {{t:street}}." }
-      - { text: "Environ {{n:geo.3bet-ip.3}} du {{t:pot}}", why: "Cela suffit dans un {{t:pot}} 3-bet ({{t:spr}} d'environ {{n:spr.3bet-ip}}). Dans un {{t:pot}} simplement relancé, le {{t:spr}} est d'environ {{n:spr.srp}}, donc les {{t:bet|mises}} doivent être plus grosses que le {{t:pot}}." }
+      - { text: "Environ {{n:geo.3bet-ip.3}} du {{t:pot}}", why: "Cela suffit dans un {{t:pot}} 3-bet ({{t:spr}} d'environ {{n:spr.3bet-ip}}). Dans un {{t:pot}} à une seule relance, le {{t:spr}} est d'environ {{n:spr.srp}}, donc les {{t:bet|mises}} doivent être plus grosses que le {{t:pot}}." }
       - { text: "Environ {{n:cbet.size.small}} du {{t:pot}}", why: "Trois {{t:bet|mises}} de ce type n'engagent qu'une petite partie du stack. Avec un {{t:spr}} d'environ {{n:spr.srp}}, il faut environ {{n:geo.srp.3}} du {{t:pot}} sur chaque {{t:street}}." }
   - kind: choice
     id: m9.l3.q-3bet-ip
@@ -75,7 +75,7 @@ drills:
     options:
       - { text: "Environ {{n:geo.4bet.2}} du {{t:pot}}", correct: true, why: "Oui : sur deux {{t:street|streets}}, (1 + 2f) au carré = 1 + 2·{{n:spr.4bet}}, donc f ≈ {{n:geo.4bet.2}}. Après la {{t:bet|mise}} et le {{t:call}}, il reste exactement le montant d'une {{t:bet|mise}} de même taille au turn." }
       - { text: "Environ {{n:geo.4bet.3}} du {{t:pot}}", sizeError: true, why: "C'est la taille pour trois {{t:street|streets}}. En deux {{t:bet|mises}} de {{n:geo.4bet.3}} du {{t:pot}}, une partie du stack restera pour la river." }
-      - { text: "All-in tout de suite ({{n:spr.4bet.stack}})", why: "C'est un plan sur une seule {{t:street}}, pas sur deux. Une {{t:bet|mise}} d'environ {{n:spr.4bet}} {{t:pot|pots}} d'emblée ne laisse à l'adversaire qu'une décision : {{t:call|suivre}} pour tout ou {{t:fold|se coucher}}." }
+      - { text: "All-in tout de suite ({{n:spr.4bet.stack}})", why: "C'est un plan sur une seule {{t:street}}, pas sur deux. Une {{t:bet|mise}} d'environ {{n:spr.4bet}} fois le {{t:pot}} d'emblée ne laisse à l'adversaire qu'une décision : {{t:call|suivre}} pour tout ou {{t:fold|se coucher}}." }
   - kind: choice
     id: m9.l3.q-meaning
     family: m9.geo-math
@@ -121,9 +121,9 @@ Exemple : avec un {{t:spr}} de {{n:geo.half.spr}}, trois {{t:bet|mises}} d'un d
 
 Dans un {{t:pot}} 3-bet {{t:in-position|en position}}, cela donne des {{t:bet|mises}} de {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}} et {{n:geo.3bet-ip.river}}, soit {{n:geo.3bet-ip.total}} au total, c'est-à-dire tout le stack.
 
-## Le {{t:pot}} simplement relancé est profond
+## Le {{t:pot}} à une seule relance est profond
 
-Avec un {{t:spr}} d'environ {{n:spr.srp}}, trois {{t:bet|mises}} d'un demi-{{t:pot}} n'engagent que {{n:srp.half.total}}, et trois {{t:bet|mises}} de la taille du {{t:pot}} {{n:srp.potbet.total}} d'un stack de {{n:spr.srp.stack}}. Tout le stack n'entre qu'avec des {{t:bet|mises}} plus grosses que le {{t:pot}}. C'est pourquoi, dans un tel {{t:pot}}, on joue tout le stack surtout avec des mains très fortes.
+Avec un {{t:spr}} d'environ {{n:spr.srp}}, trois {{t:bet|mises}} d'un demi-{{t:pot}} n'engagent que {{n:srp.half.total}}, et trois {{t:bet|mises}} de la taille du {{t:pot}}, {{n:srp.potbet.total}} d'un stack de {{n:spr.srp.stack}}. Tout le stack n'entre qu'avec des {{t:bet|mises}} plus grosses que le {{t:pot}}. C'est pourquoi, dans un tel {{t:pot}}, on joue tout le stack surtout avec des mains très fortes.
 
 :::note Quand est-ce utile
 La taille de mise géométrique est utile quand vous voulez engager tout le stack d'ici la river, c'est-à-dire avec une main très forte. Toutes les mains ne veulent pas jouer tout le stack : combien de {{t:value|streets de valeur}} une main peut supporter, c'est le sujet de la leçon suivante. La formule, ce sont des mathématiques pures. Les modules précédents donnent des tailles adaptées à la {{t:texture}} du flop ; la taille géométrique est un point de repère pour un plan visant tout le stack.

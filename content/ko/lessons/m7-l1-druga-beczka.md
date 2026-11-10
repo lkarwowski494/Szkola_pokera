@@ -10,7 +10,7 @@ drills:
     id: m7.l1.q-barrel-card
     family: m7.barrel.card
     rules: [R-M7-001]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. [[Jd 7c 3s]] 플롭에서 c-bet을 {{t:bet|베팅했고}} 상대가 {{t:call|콜했습니다}}. 턴의 어떤 카드가 당신의 {{t:second-barrel|세컨드 배럴}}에 가장 도움이 됩니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. [[Jd 7c 3s]] 플롭에서 C벳을 {{t:bet|베팅했고}} 상대가 {{t:call|콜했습니다}}. 턴의 어떤 카드가 당신의 {{t:second-barrel|세컨드 배럴}}에 가장 도움이 됩니까?"
     table: { position: BTN, board: "Jd 7c 3s" }
     options:
       - { text: "[[As]]", correct: true, why: "맞습니다: 에이스는 당신의 {{t:open|오픈}} {{t:range|레인지}}에 있는 많은 핸드(AK, AQ, AJ)에 맞고, {{t:big-blind}}는 플롭을 주로 {{t:pair|페어}}와 {{t:draw|드로우}}로 {{t:call|콜했습니다}}. 상대의 모든 {{t:pair}}가 한 단계씩 내려갑니다." }
@@ -30,7 +30,7 @@ drills:
     id: m7.l1.q-bad-card
     family: m7.barrel.card
     rules: [R-M7-001, R-M7-002]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서 c-bet을 {{t:bet|베팅했고}} 상대가 {{t:call|콜했습니다}}. 턴은 7입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 플롭에서 C벳을 {{t:bet|베팅했고}} 상대가 {{t:call|콜했습니다}}. 턴은 7입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Ad Qc", position: BTN, board: "9h 6c 2d 7s" }
     options:
       - { text: "{{t:check|체크합니다}}", correct: true, why: "9와 6이 있는 {{t:board|보드}}에 7이 나오면 T8과 85에는 {{t:straight|스트레이트}}, 76과 97에는 {{t:two-pair}}가 되는데, 모두 {{t:big-blind}}가 방어하는 핸드입니다. 당신은 {{t:pair|페어}}도 {{t:draw|드로우}}도 없습니다. {{t:bluff}}를 포기하고 무료 카드를 받습니다." }
@@ -40,7 +40,7 @@ drills:
     id: m7.l1.q-gutshot-ace
     family: m7.barrel.bluff
     rules: [R-M7-001, R-M7-002]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 c-bet을 {{t:call|콜했습니다}}. 턴은 에이스입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 C벳을 {{t:call|콜했습니다}}. 턴은 에이스입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Kh Qh", position: BTN, board: "Jd 7c 3s As" }
     options:
       - { text: "{{n:ex.bet.three-quarters}} 베팅합니다", correct: true, why: "좋은 {{t:second-barrel}}입니다: 에이스는 당신의 {{t:range|레인지}}에 맞고, 당신은 {{t:straight|스트레이트}}로 가는 거트샷(10)이 있습니다. 상대가 {{t:pair|페어}}를 {{t:fold|폴드하면}} 바로 이기고, {{t:call|콜하더라도}} 여전히 맞힐 수 있습니다." }
@@ -50,7 +50,7 @@ drills:
     id: m7.l1.q-air-blank
     family: m7.barrel.bluff
     rules: [R-M7-002]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 c-bet을 {{t:call|콜했습니다}}. 턴은 2입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 C벳을 {{t:call|콜했습니다}}. 턴은 2입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Qh Jh", position: BTN, board: "Kd 8c 3s 2h" }
     options:
       - { text: "{{t:check|체크합니다}}", correct: true, why: "당신은 {{t:pair|페어}}도 {{t:draw|드로우}}도 없습니다: 카드가 한 장 남은 상황에서 하트 세 장으로는 부족하고, {{t:straight|스트레이트}}까지는 두 장이 모자랍니다. 2는 아무것도 바꾸지 않고, 상대는 킹이 있는 {{t:board|보드}}에서 플롭을 {{t:call|콜했으니}} {{t:pair|페어}}를 가진 경우가 많습니다. {{t:bluff}}를 포기합니다." }
@@ -69,7 +69,7 @@ drills:
     id: m7.l1.q-medium-pair
     family: m7.barrel.value
     rules: [R-M7-003]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 c-bet을 {{t:call|콜했습니다}}. 턴은 2입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 C벳을 {{t:call|콜했습니다}}. 턴은 2입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
     table: { hand: "9s 9c", position: BTN, board: "Kd 8c 3s 2h" }
     options:
       - { text: "{{t:check|체크합니다}}", correct: true, why: "9 {{t:pair|페어}}는 중간 핸드입니다: {{t:bluff|블러프}}는 이기지만 모든 킹에게 집니다. 두 번째 베팅에 상대는 더 약한 핸드를 {{t:fold|폴드하고}} 킹으로는 돈을 냅니다. {{t:check|체크하면}} {{t:pot|팟}}을 작게 유지하고 쇼다운까지 갑니다." }
@@ -79,10 +79,10 @@ drills:
     id: m7.l1.q-value-top
     family: m7.barrel.value
     rules: [R-M7-003]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 c-bet을 {{t:call|콜했습니다}}. 턴은 2입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 플롭 C벳을 {{t:call|콜했습니다}}. 턴은 2입니다. {{t:pot|팟}} 규모는 {{n:ex.pot}}입니다. 상대는 {{t:check|체크합니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Ac Kh", position: BTN, board: "Kd 8c 3s 2h" }
     options:
-      - { text: "{{t:value|밸류}}로 베팅합니다", correct: true, why: "베스트 키커의 {{t:top-pair|톱 페어}}는 강한 핸드입니다. 상대는 플롭을 {{t:call|콜했으니}} 더 약한 킹이나 8을 가진 경우가 많고, 이런 핸드는 한 번 더 돈을 냅니다." }
+      - { text: "{{t:value|밸류}}로 베팅합니다", correct: true, why: "베스트 키커의 {{t:top-pair|탑 페어}}는 강한 핸드입니다. 상대는 플롭을 {{t:call|콜했으니}} 더 약한 킹이나 8을 가진 경우가 많고, 이런 핸드는 한 번 더 돈을 냅니다." }
       - { text: "상대는 어차피 아무것도 없으니 {{t:check|체크합니다}}", why: "상대는 플롭을 {{t:call|콜했으니}} {{t:pair|페어}}를 가진 경우가 많습니다. {{t:check|체크하면}} 더 약한 핸드가 지불했을 {{t:bet}}을 잃습니다." }
       - { text: "올인합니다", why: "더 약한 {{t:pair|페어}}는 스택 전체를 좀처럼 지불하지 않습니다. 더 약한 킹과 8에게서 돈을 받을 수 있는 사이즈를 고르세요." }
   - kind: choice
@@ -92,7 +92,7 @@ drills:
     prompt: "턴에서 어떤 핸드로 가장 자주 {{t:second-barrel|세컨드 배럴}}을 {{t:bet|베팅합니까}}?"
     options:
       - { text: "강한 핸드와 {{t:draw|드로우}}; 중간 핸드는 {{t:check|체크합니다}}", correct: true, why: "맞습니다: 강한 핸드는 돈을 받길 원하고, {{t:draw|드로우}}는 두 가지 방법으로 이기며, 중간 핸드는 추가 {{t:bet|베팅}}으로 얻는 것이 없습니다." }
-      - { text: "{{t:initiative|이니셔티브}}를 잃지 않도록 모든 핸드로", why: "{{t:initiative|이니셔티브}}만으로는 이기지 못합니다. 상대는 플롭을 {{t:call|콜했으니}} 더 강한 {{t:range}}를 가지고 있고, 아웃 없는 핸드와 중간 {{t:pair|페어}}는 계속 베팅하면 손해를 봅니다." }
+      - { text: "{{t:initiative|주도권}}을 잃지 않도록 모든 핸드로", why: "{{t:initiative|주도권}}만으로는 이기지 못합니다. 상대는 플롭을 {{t:call|콜했으니}} 더 강한 {{t:range}}를 가지고 있고, 아웃 없는 핸드와 중간 {{t:pair|페어}}는 계속 베팅하면 손해를 봅니다." }
       - { text: "가장 강한 핸드로만", why: "그러면 상대는 당신이 베팅할 때마다 폴드하고, 당신에게 이길 때만 돈을 낼 것입니다. {{t:draw|드로우}}는 자연스러운 {{t:semi-bluff|세미 블러프}}입니다." }
   - kind: numeric
     id: m7.l1.n-alpha-turn
@@ -105,17 +105,17 @@ drills:
     id: m7.l1.q-filter
     family: m7.barrel.range
     rules: [R-M7-003]
-    prompt: "c-bet에 {{t:call|콜한}} 뒤 턴에서 상대의 {{t:range}}가 플롭보다 강한 이유는 무엇입니까?"
+    prompt: "C벳에 {{t:call|콜한}} 뒤 턴에서 상대의 {{t:range}}가 플롭보다 강한 이유는 무엇입니까?"
     options:
-      - { text: "가장 약한 핸드를 플롭에서 {{t:fold|폴드했기}} 때문입니다", correct: true, why: "맞습니다: c-bet에는 {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 핸드가 {{t:fold|폴드합니다}}. {{t:pair|페어}}와 {{t:draw|드로우}}가 남으므로 {{t:second-barrel}}은 첫 번째 베팅보다 강한 {{t:range}}를 상대합니다." }
+      - { text: "가장 약한 핸드를 플롭에서 {{t:fold|폴드했기}} 때문입니다", correct: true, why: "맞습니다: C벳에는 {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 핸드가 {{t:fold|폴드합니다}}. {{t:pair|페어}}와 {{t:draw|드로우}}가 남으므로 {{t:second-barrel}}은 첫 번째 베팅보다 강한 {{t:range}}를 상대합니다." }
       - { text: "턴이 항상 상대를 돕기 때문입니다", why: "아닙니다: 턴은 무작위이고 때로는 당신을 돕습니다(예: 에이스). 상대의 {{t:range|레인지}}를 강하게 만드는 것은 플롭에서 내린 상대 자신의 결정입니다." }
       - { text: "강하지 않습니다, 프리플롭과 같은 {{t:range}}입니다", why: "모든 결정은 일부 핸드를 걸러 냅니다. {{t:bet}}에 {{t:call|콜한}} 플레이어는 보통 무언가에 맞았거나 {{t:draw}}가 있습니다." }
 ---
-{{t:second-barrel|세컨드 배럴}}은 프리플롭에서 {{t:raise|레이즈한}} 플레이어의 두 번째 {{t:bet}}입니다: 플롭 c-bet, {{t:call}}, 그다음 턴 베팅. 턴에서는 “핸드가 있는가”뿐 아니라 “이 카드가 나에게 도움이 되는가, 상대에게 도움이 되는가”도 묻습니다.
+{{t:second-barrel|세컨드 배럴}}은 프리플롭에서 {{t:raise|레이즈한}} 플레이어의 두 번째 {{t:bet}}입니다: 플롭 C벳, {{t:call}}, 그다음 턴 베팅. 턴에서는 “핸드가 있는가”뿐 아니라 “이 카드가 나에게 도움이 되는가, 상대에게 도움이 되는가”도 묻습니다.
 
 ## 상대가 {{t:call|콜했으니}} 더 강합니다
 
-c-bet에 상대는 {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 핸드를 {{t:fold|폴드합니다}}. {{t:call|콜한}} 플레이어는 보통 {{t:pair|페어}}나 {{t:draw}}를 가지고 있고, 때로는 백도어가 있는 높은 카드입니다(M6의 방어처럼). 그래서 {{t:second-barrel}}은 첫 번째 베팅보다 강한 {{t:range}}를 상대하며, 모든 핸드로 두 번째 베팅을 하지는 않습니다.
+C벳에 상대는 {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 핸드를 {{t:fold|폴드합니다}}. {{t:call|콜한}} 플레이어는 보통 {{t:pair|페어}}나 {{t:draw}}를 가지고 있고, 때로는 백도어가 있는 높은 카드입니다(M6의 방어처럼). 그래서 {{t:second-barrel}}은 첫 번째 베팅보다 강한 {{t:range}}를 상대하며, 모든 핸드로 두 번째 베팅을 하지는 않습니다.
 
 ## 어떤 카드가 도움이 되는가
 

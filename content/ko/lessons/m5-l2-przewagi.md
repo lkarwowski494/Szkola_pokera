@@ -3,7 +3,7 @@ id: m5.l2
 module: m5
 order: 2
 title: "플롭은 누구에게 유리할까"
-sub: "레인지 우위와 너츠 우위"
+sub: "레인지 우위와 넛 우위"
 rules: [R-M5-003, R-M5-004, R-M5-005, R-M5-006]
 drills:
   - kind: choice
@@ -23,7 +23,7 @@ drills:
     prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind|빅 블라인드}}가 {{t:call|콜했습니다}}. 플롭: [[7s 6h 5d]]. 여기서 매우 강한 핸드({{t:two-pair|투 페어}} 또는 {{t:straight|스트레이트}})를 더 자주 가진 쪽은 누구입니까?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "{{t:big-blind|빅 블라인드}}", correct: true, why: "맞습니다. {{t:big-blind|빅 블라인드}}는 수딧 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어합니다. 버튼의 당신은 여기서 빗나간 높은 카드가 더 많습니다. 이것이 {{t:big-blind|빅 블라인드}}의 {{t:nuts-advantage|너츠 우위}}입니다." }
+      - { text: "{{t:big-blind|빅 블라인드}}", correct: true, why: "맞습니다. {{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어합니다. 버튼의 당신은 여기서 빗나간 높은 카드가 더 많습니다. 이것이 {{t:big-blind|빅 블라인드}}의 {{t:nuts-advantage|넛 우위}}입니다." }
       - { text: "버튼에서 {{t:open|오픈한}} 당신", why: "아닙니다. 당신의 {{t:range|레인지}}는 높은 카드로 가득합니다. {{t:overpair|오버페어}}({{t:board|보드}}의 모든 카드보다 높은 {{t:pocket-pair|포켓 페어}}, 예: TT, JJ)는 더 많지만 {{t:two-pair|투 페어}}와 {{t:straight|스트레이트}}는 더 적습니다. 셋({{t:pocket-pair|포켓 페어}}로 만든 트리플)은 두 사람 모두 비슷하게 많이 가지고 있습니다." }
       - { text: "두 사람 모두 똑같이 자주", why: "아닙니다. 두 {{t:range|레인지}}는 구성이 다릅니다. {{t:big-blind|빅 블라인드}}의 넓은 방어 범위에는 낮은 카드가 많고, 당신의 {{t:range|레인지}}에는 높은 카드가 많습니다." }
   - kind: choice
@@ -42,8 +42,8 @@ drills:
     rules: [R-M5-005]
     prompt: "당신에게 {{t:range-advantage|레인지 우위}}가 있지만, 상대도 가장 강한 핸드를 당신만큼 가지고 있습니다. 어떤 크기로 베팅하는 편입니까?"
     options:
-      - { text: "작게, 그리고 자주", correct: true, why: "맞습니다. {{t:range-advantage|레인지 우위}}는 자주 베팅할 수 있다는 뜻입니다. {{t:nuts-advantage|너츠 우위}}가 없으면 큰 {{t:bet|베팅}}은 상대의 가장 강한 핸드에 맞서 큰 위험을 지게 되고, 약한 핸드는 작은 베팅에도 어차피 {{t:fold|폴드}}합니다." }
-      - { text: "크게, 우위가 있으니까", why: "아닙니다. 큰 크기를 결정하는 것은 {{t:nuts-advantage|너츠 우위}}, 즉 가장 강한 핸드가 더 많은 것입니다. 여기서는 그것이 없습니다." }
+      - { text: "작게, 그리고 자주", correct: true, why: "맞습니다. {{t:range-advantage|레인지 우위}}는 자주 베팅할 수 있다는 뜻입니다. {{t:nuts-advantage|넛 우위}}가 없으면 큰 {{t:bet|베팅}}은 상대의 가장 강한 핸드에 맞서 큰 위험을 지게 되고, 약한 핸드는 작은 베팅에도 어차피 {{t:fold|폴드}}합니다." }
+      - { text: "크게, 우위가 있으니까", why: "아닙니다. 큰 크기를 결정하는 것은 {{t:nuts-advantage|넛 우위}}, 즉 가장 강한 핸드가 더 많은 것입니다. 여기서는 그것이 없습니다." }
       - { text: "항상 {{t:check|체크}}합니다", why: "너무 신중합니다. {{t:range-advantage|레인지 우위}}는 자주 베팅할 이유입니다. 다만 작게 베팅합니다." }
   - kind: choice
     id: m5.l2.q-nuts
@@ -51,8 +51,8 @@ drills:
     rules: [R-M5-005]
     prompt: "당신의 {{t:range|레인지}}에는 상대의 {{t:range|레인지}}보다 가장 강한 핸드가 훨씬 많습니다. 이것은 당신에게 무엇을 줍니까?"
     options:
-      - { text: "더 좋은 핸드를 만나는 일이 드물어서 크게 베팅할 수 있습니다", correct: true, why: "맞습니다. 이것이 {{t:nuts-advantage|너츠 우위}}입니다. 큰 {{t:bet|베팅}}은 상대의 중간 핸드에서 더 많이 뽑아내고, 더 좋은 핸드에게 {{t:raise|레이즈}}를 받는 일은 드뭅니다." }
-      - { text: "항상 작게 베팅해야 합니다", why: "아닙니다. 작은 크기는 {{t:range-advantage|레인지 우위}}만 있을 때 고릅니다. {{t:nuts-advantage|너츠 우위}}가 있으면 더 크게 베팅할 수 있습니다." }
+      - { text: "더 좋은 핸드를 만나는 일이 드물어서 크게 베팅할 수 있습니다", correct: true, why: "맞습니다. 이것이 {{t:nuts-advantage|넛 우위}}입니다. 큰 {{t:bet|베팅}}은 상대의 중간 핸드에서 더 많이 뽑아내고, 더 좋은 핸드에게 {{t:raise|레이즈}}를 받는 일은 드뭅니다." }
+      - { text: "항상 작게 베팅해야 합니다", why: "아닙니다. 작은 크기는 {{t:range-advantage|레인지 우위}}만 있을 때 고릅니다. {{t:nuts-advantage|넛 우위}}가 있으면 더 크게 베팅할 수 있습니다." }
       - { text: "아무것도 없습니다. 중요한 것은 당신의 핸드뿐입니다", why: "당신의 핸드도 중요하지만 상대는 당신의 {{t:range|레인지}}만 볼 수 있습니다. {{t:bet|베팅}} 크기는 여러 핸드에 한꺼번에 맞도록 고릅니다." }
   - kind: numeric
     id: m5.l2.n-miss
@@ -66,11 +66,11 @@ drills:
     id: m5.l2.q-miss-means
     family: m5.math.miss
     rules: [R-M5-006]
-    prompt: "{{t:pair|페어}}가 없는 핸드는 플롭에서 약 {{n:flop.miss.unpaired}}의 경우 {{t:pair|페어}}를 맞히지 못합니다. 이것은 c-bet에 어떤 의미가 있습니까?"
+    prompt: "{{t:pair|페어}}가 없는 핸드는 플롭에서 약 {{n:flop.miss.unpaired}}의 경우 {{t:pair|페어}}를 맞히지 못합니다. 이것은 C벳에 어떤 의미가 있습니까?"
     options:
-      - { text: "상대에게 아무것도 없는 경우가 많아서, 작은 {{t:bet|베팅}}으로도 {{t:pot|팟}}을 바로 가져오는 일이 많습니다", correct: true, why: "맞습니다. 이것이 c-bet의 기본입니다. 빗나갔다고 항상 {{t:fold|폴드}}하는 것은 아니지만(상대가 {{t:draw|드로우}}나 높은 카드를 가지고 있을 수 있습니다), 상대의 {{t:range|레인지}}에는 약한 핸드가 많습니다." }
+      - { text: "상대에게 아무것도 없는 경우가 많아서, 작은 {{t:bet|베팅}}으로도 {{t:pot|팟}}을 바로 가져오는 일이 많습니다", correct: true, why: "맞습니다. 이것이 C벳의 기본입니다. 빗나갔다고 항상 {{t:fold|폴드}}하는 것은 아니지만(상대가 {{t:draw|드로우}}나 높은 카드를 가지고 있을 수 있습니다), 상대의 {{t:range|레인지}}에는 약한 핸드가 많습니다." }
       - { text: "상대는 정확히 {{n:flop.miss.unpaired}}의 경우 {{t:fold|폴드}}합니다", why: "아닙니다. {{t:pair|페어}}가 없는 상대도 때로는 {{t:draw|드로우}}나 높은 카드로 {{t:call|콜}}하고, 때로는 핸드에 이미 {{t:pair|페어}}를 들고 있습니다. 이 숫자는 플롭이 상대에게 맞지 않은 빈도의 근사치일 뿐입니다." }
-      - { text: "당신도 똑같이 자주 빗나가므로 c-bet은 의미가 없습니다", why: "아닙니다. 당신도 자주 빗나가지만 상대는 그것이 언제인지 모릅니다. {{t:aggressor|어그레서}}(플롭 전에 마지막으로 {{t:raise|레이즈}}한 플레이어)로서 당신의 {{t:range|레인지}}는 많은 플롭에서 더 강하고, 상대가 {{t:fold|폴드}}하면 {{t:bet|베팅}}으로 {{t:pot|팟}}을 가져옵니다." }
+      - { text: "당신도 똑같이 자주 빗나가므로 C벳은 의미가 없습니다", why: "아닙니다. 당신도 자주 빗나가지만 상대는 그것이 언제인지 모릅니다. {{t:aggressor|어그레서}}(플롭 전에 마지막으로 {{t:raise|레이즈}}한 플레이어)로서 당신의 {{t:range|레인지}}는 많은 플롭에서 더 강하고, 상대가 {{t:fold|폴드}}하면 {{t:bet|베팅}}으로 {{t:pot|팟}}을 가져옵니다." }
   - kind: numeric
     id: m5.l2.n-hit
     family: m5.math.miss
@@ -85,16 +85,16 @@ drills:
 
 어떤 플롭에서 당신의 핸드가 평균적으로 상대의 핸드보다 강하면 당신에게 {{t:range-advantage|레인지 우위}}가 있습니다. 버튼에서 {{t:open|오픈}}한 뒤 [[Ks 7d 2c]]에서는 좋은 키커를 가진 킹과 높은 {{t:pair|페어}}를 더 많이 가진 쪽이 당신입니다. {{t:big-blind|빅 블라인드}}는 여기서 빗나간 핸드가 많습니다.
 
-[[7s 6h 5d]]처럼 낮고 {{t:connected|연결된}} 플롭에서는 {{t:range-advantage|레인지 우위}}가 거의 사라지고, 가장 강한 핸드는 {{t:big-blind|빅 블라인드}}가 더 자주 가집니다. 수딧 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어하므로 {{t:two-pair|투 페어}}나 {{t:straight|스트레이트}}를 더 자주 가집니다.
+[[7s 6h 5d]]처럼 낮고 {{t:connected|커넥티드한}} 플롭에서는 {{t:range-advantage|레인지 우위}}가 거의 사라지고, 가장 강한 핸드는 {{t:big-blind|빅 블라인드}}가 더 자주 가집니다. 수티드 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어하므로 {{t:two-pair|투 페어}}나 {{t:straight|스트레이트}}를 더 자주 가집니다.
 
-## {{t:nuts-advantage|너츠 우위}}
+## {{t:nuts-advantage|넛 우위}}
 
-{{t:nuts-advantage|너츠 우위}}는 {{t:range|레인지}}에 가장 강한 핸드(“{{t:nuts|너츠}}”)가 더 많은 것을 말합니다. {{t:range-advantage|레인지 우위}}는 얼마나 자주 베팅할 수 있는지를 알려 줍니다. {{t:nuts-advantage|너츠 우위}}는 얼마나 크게 베팅할지를 알려 줍니다. 상대보다 가장 강한 핸드가 훨씬 많으면 더 큰 크기로 베팅할 수 있습니다. {{t:range-advantage|레인지 우위}}만 있으면 작게 베팅합니다.
+{{t:nuts-advantage|넛 우위}}는 {{t:range|레인지}}에 가장 강한 핸드(“{{t:nuts|넛}}”)가 더 많은 것을 말합니다. {{t:range-advantage|레인지 우위}}는 얼마나 자주 베팅할 수 있는지를 알려 줍니다. {{t:nuts-advantage|넛 우위}}는 얼마나 크게 베팅할지를 알려 줍니다. 상대보다 가장 강한 핸드가 훨씬 많으면 더 큰 크기로 베팅할 수 있습니다. {{t:range-advantage|레인지 우위}}만 있으면 작게 베팅합니다.
 
 ## 상대는 대개 빗나갑니다
 
 [[Jc Td]]처럼 {{t:pair|페어}}가 없는 핸드는 플롭에서 약 {{n:flop.miss.unpaired}}의 경우 {{t:pair|페어}}를 맞히지 못합니다. 알 수 없는 카드 {{n:cards.unseen.preflop}}장 중 이 핸드의 카드와 페어를 이루는 카드는 {{n:pair.outs.unpaired}}장뿐입니다. 자료에서는 흔히 약 {{n:flop.hit.one-pair}}라고 하는데, 이는 정확히 {{t:pair|페어}} 하나가 될 확률입니다. {{t:two-pair|투 페어}}와 {{t:three-of-a-kind|트리플}}까지 포함하면 맞힐 확률은 약 {{n:flop.hit.unpaired}}입니다. 그래서 플롭에서의 {{t:bet|베팅}}은 당신이 아무것도 맞히지 못했을 때도 {{t:pot|팟}}을 바로 가져오는 경우가 많습니다. 빗나갔다고 항상 {{t:fold|폴드}}하는 것은 아닙니다. 상대가 {{t:draw|드로우}}나 높은 카드 두 장을 가지고 있을 수 있습니다.
 
 :::note 이 원칙의 출처
-{{t:range-advantage|레인지 우위}}와 {{t:nuts-advantage|너츠 우위}}라는 개념은 솔버 결과에 기반한 게임 이론 자료(용어 사전과 c-bet 크기에 관한 글)에서 나왔습니다. 이 레슨의 숫자는 앱이 정확하게 계산한 값입니다.
+{{t:range-advantage|레인지 우위}}와 {{t:nuts-advantage|넛 우위}}라는 개념은 솔버 결과에 기반한 게임 이론 자료(용어 사전과 C벳 크기에 관한 글)에서 나왔습니다. 이 레슨의 숫자는 앱이 정확하게 계산한 값입니다.
 :::

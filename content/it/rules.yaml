@@ -120,7 +120,7 @@
 - id: R-M3-001
   module: m3
   if: "sei al Button e tutti prima di te hanno {{t:fold|foldato}}"
-  then: "{{t:open|apri}} più largo di tutte le {{t:position|posizioni}} prima dei blind; solo lo {{t:small-blind|small blind}} {{t:open|apre}} in modo altrettanto largo"
+  then: "{{t:open|apri}} più largo che da tutte le altre {{t:position|posizioni}} prima dei blind; solo lo {{t:small-blind|small blind}} {{t:open|apre}} in modo altrettanto largo"
   because: "dal flop in poi parli per ultimo e dietro di te restano solo i blind"
   level: gto
   source: "sito con tabelle del solver, 6-max 100bb NL500 (https://beyondgto.com/ranges/btn-open-6max-100bb, https://beyondgto.com/ranges/sb-open-6max-100bb): BTN 42%, SB 44%; sito di formazione, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): SB leggermente più largo del Button, 40–50%; sito con tabelle preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): BTN 40–45%, SB 39–47% (documento 12, D2)"
@@ -237,7 +237,7 @@
   module: m4
   if: "sei in {{t:big-blind|big blind}}, il Button ha {{t:open|aperto}} a {{n:pf.open-size}} e lo {{t:small-blind|small blind}} ha {{t:fold|foldato}}"
   then: "difendi largo, perché per {{t:call|chiamare}} ti serve solo circa {{n:eq.bb-vs-btn-open}} di equity"
-  because: "aggiungi poco a un {{t:pot|piatto}} grande; le soluzioni dei solver pubblicate qui difendono circa {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}} delle mani"
+  because: "aggiungi poco a un {{t:pot|piatto}} grande; le soluzioni dei solver pubblicate difendono qui circa {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}} delle mani"
   level: heuristic
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.bb-vs-btn, nine.vs-open.bb-vs-btn] }
   source: "calcolo del prezzo; sito con tabelle del solver, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn), NL500: «GTO defends the Big Blind with about 45% of hands»; scuola che pubblica risultati di solver (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200: «3-bets 11.5% to 11bb and calls 29.0%»; solver preflop del progetto (ADR-20) solo nella griglia e nella valutazione gioco/fold, la sua difesa complessiva senza validazione (D-153)"
@@ -320,7 +320,7 @@
   module: m4
   if: "sei in {{t:big-blind|big blind}} e lo {{t:small-blind|small blind}} ha {{t:open|aperto}} a {{n:pf.open-size-sb}}"
   then: "difendi largo, più di metà delle mani, anche se per {{t:call|chiamare}} ti serve circa {{n:eq.bb-vs-sb-open}} di equity; il 3-bet è di circa {{n:pf.3bet.size-ip}} l'{{t:open|apertura}}"
-  because: "dopo il flop hai la {{t:position|posizione}}, quindi realizzi più equity; la soluzione del solver pubblicata qui difende circa {{n:pf.bb-def.vs-sb.pub}} delle mani"
+  because: "dopo il flop hai la {{t:position|posizione}}, quindi realizzi più equity; la soluzione del solver pubblicata difende qui circa {{n:pf.bb-def.vs-sb.pub}} delle mani"
   level: heuristic
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.bb-vs-sb, nine.vs-open.bb-vs-sb] }
   source: "calcolo del prezzo; solver preflop del progetto (ADR-20); albero del solver (3-bet a 9bb); sito con tabelle del solver, BB vs SB (https://beyondgto.com/defense/bb-vs-sb), NL500, 100bb: «GTO defends the Big Blind with about 56% of hands»"
@@ -332,14 +332,14 @@
 - id: R-M5-001
   module: m5
   if: "il flop totalizza meno di {{n:tex.threshold.medium}} punti di {{t:wetness|bagnatura}}: una {{t:straight|scala}} possibile in più modi (con almeno due insiemi di due ranghi) vale {{n:tex.points.straight.made}} punti, una {{t:straight|scala}} possibile in un solo modo {{n:tex.points.straight.made-one}}, il solo {{t:straight-draw|progetto di scala}} {{n:tex.points.straight.draw}}, due carte dello stesso seme {{n:tex.points.suits.two-tone}}, tre dello stesso seme {{n:tex.points.suits.monotone}}"
-  then: "è un flop {{t:dry|asciutto}}: i {{t:draw|progetti}} sono pochi e nessuno ha ancora una {{t:straight|scala}} o un {{t:flush|colore}} fatti"
+  then: "è un flop {{t:dry|secco}}: i {{t:draw|progetti}} sono pochi e nessuno ha ancora una {{t:straight|scala}} o un {{t:flush|colore}} fatti"
   because: "le carte successive cambiano raramente chi è in testa, quindi la mano migliore sul flop di solito resta la migliore"
   level: rules
-  source: "definizione della texture nell'app (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); concetto di flop asciutto: sito di formazione, Sizing Your C-Bets; sito di formazione, What Is a Continuation Bet; esempi di flop asciutti: sito di formazione (K72r, A94r), sito di formazione (AA6r); il confine asciutto/intermedio è una convenzione dell'app"
+  source: "definizione della texture nell'app (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); concetto di flop secco: sito di formazione, Sizing Your C-Bets; sito di formazione, What Is a Continuation Bet; esempi di flop secchi: sito di formazione (K72r, A94r), sito di formazione (AA6r); il confine secco/intermedio è una convenzione dell'app"
   sources: [{ kind: training }, { kind: training }]
 - id: R-M5-002
   module: m5
-  if: "il flop totalizza almeno {{n:tex.threshold.wet}} punti di {{t:wetness|bagnatura}} (punti come nella definizione di flop {{t:dry|asciutto}})"
+  if: "il flop totalizza almeno {{n:tex.threshold.wet}} punti di {{t:wetness|bagnatura}} (punti come nella definizione di flop {{t:dry|secco}})"
   then: "è un flop {{t:wet|bagnato}}: l'avversario ha spesso {{t:draw|progetti}}, e a volte già una {{t:straight|scala}} o un {{t:flush|colore}}"
   because: "le carte successive cambiano spesso chi è in testa, quindi la mano migliore adesso è meno al sicuro"
   level: rules
@@ -380,7 +380,7 @@
   sources: [{ kind: training }, { kind: math }]
 - id: R-M5-007
   module: m5
-  if: "come {{t:aggressor|aggressore}} preflop hai la {{t:position|posizione}} e il flop è {{t:dry|asciutto}} e alto, ad es. K-7-2 di tre semi diversi"
+  if: "come {{t:aggressor|aggressore}} preflop hai la {{t:position|posizione}} e il flop è {{t:dry|secco}} e alto, ad es. K-7-2 di tre semi diversi"
   then: "fai c-bet spesso e piccolo, circa {{n:cbet.size.small}} del {{t:pot|piatto}} (semplificazione: su questi flop il solver usa anche l'{{t:overbet|overbet}})"
   because: "hai il {{t:range-advantage|vantaggio di range}}, e le mani deboli dell'avversario non hanno quasi possibilità: basta una {{t:bet|puntata}} piccola per fargliele {{t:fold|foldare}}, mentre le {{t:pair|coppie}} peggiori la {{t:call|chiameranno}} comunque"
   level: heuristic
@@ -491,7 +491,7 @@
 - id: R-M6-007
   module: m6
   if: "hai due carte alte senza {{t:pair|coppia}} e senza {{t:draw|progetto}}, e il c-bet è grande (3/4 del {{t:pot|piatto}} o più)"
-  then: "di solito {{t:fold|foldi}} (sui flop {{t:dry|asciutti}} con un re il solver però {{t:call|chiama}} con molte mani con l'asso)"
+  then: "di solito {{t:fold|foldi}} (sui flop {{t:dry|secchi}} con un re il solver però {{t:call|chiama}} con molte mani con l'asso)"
   because: "{{t:out-of-position|fuori posizione}} una mano così arriva raramente allo showdown, e una {{t:pair|coppia}} fatta con la carta alta spesso perde comunque; {{t:call|chiami}} piuttosto quando hai un {{t:draw|progetto}} aggiuntivo, meglio se al {{t:flush|colore}} massimo"
   level: heuristic
   source: "sito di formazione, When to Call With Ace-High (J42, 66%: «the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw»); sito di formazione, Defending the BB on High Card Boards (K84: il solver chiama con una parte degli assi anche contro 2/3 del piatto)"
@@ -524,7 +524,7 @@
   module: m6
   if: "valuti un check-raise come {{t:bluff|bluff}} o {{t:semi-bluff|semi-bluff}}"
   then: "scegli per farlo soprattutto {{t:draw|progetti}} forti; più raramente l'avversario {{t:fold|folda}}, meno {{t:bluff|bluff}} del genere fai, e quando non {{t:fold|folda}} quasi mai, fai check-raise soprattutto per {{t:value|valore}}"
-  because: "il {{t:bluff|bluff}} guadagna solo quando l'avversario {{t:fold|folda}} più spesso di alpha (R-M6-002); un {{t:draw|progetto}} forte vince anche quando chiude, quindi perde meno quando i {{t:fold|fold}} mancano"
+  because: "il {{t:bluff|bluff}} guadagna solo quando l'avversario {{t:fold|folda}} più spesso di alpha (R-M6-002); un {{t:draw|progetto}} forte vince anche quando chiude, quindi è quello che perde meno quando i {{t:fold|fold}} mancano"
   level: heuristic
   source: "conclusione da alpha (R-M6-002): il bluff ha bisogno dei fold dell'avversario; sito di formazione, 5 Winning Check-Raising Strategies («tighten your bluffing range to include only strong draws»)"
   sources: [{ kind: training }, { kind: math }]
@@ -534,7 +534,7 @@
 - id: R-M7-001
   module: m7
   if: "hai fatto c-bet sul flop con la {{t:position|posizione}}, l'avversario ha {{t:call|chiamato}} e al turn arriva una carta alta (asso o re) su un {{t:board|board}} più basso"
-  then: "fai più spesso il {{t:second-barrel|second barrel}}, anche come {{t:bluff|bluff}}"
+  then: "{{t:bet|punti}} più spesso il {{t:second-barrel|second barrel}}, anche come {{t:bluff|bluff}}"
   because: "questa carta di solito colpisce più spesso il tuo {{t:range|range}} di {{t:open|apertura}} che il {{t:range|range}} di chi difende, e ogni {{t:pair|coppia}} dell'avversario scende di un posto"
   level: heuristic
   source: "sito di un solver commerciale, The Worst Turn Card; sito di formazione, When to Fire a Second Barrel; sito di formazione, When to Double Barrel the Turn as a Bluff"
@@ -859,7 +859,7 @@
 - id: R-M10-005
   module: m10
   if: "assegni un tipo all'avversario in base a {{t:vpip|VPIP}} e {{t:pfr|PFR}} (6-max, almeno circa {{n:hud.hands.vpip.low}} mani)"
-  then: "il {{t:nit|nit}} gioca fino a circa {{n:hud.vpip.nit-max}} delle mani; il {{t:regular|regular}} circa {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} con una piccola differenza {{t:vpip|VPIP}} − {{t:pfr|PFR}}; il giocatore loose da circa {{n:hud.vpip.loose}}: con una differenza di oltre {{n:hud.gap.passive}} punti è un {{t:recreational|giocatore ricreativo}} passivo ({{t:calling-station|calling station}}), con una differenza fino a circa {{n:hud.gap.aggressive}} punti è un {{t:maniac|maniaco}}"
+  then: "il {{t:nit|nit}} gioca fino a circa {{n:hud.vpip.nit-max}} delle mani; il {{t:regular|regular}} circa {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} con una piccola differenza {{t:vpip|VPIP}} − {{t:pfr|PFR}}; il giocatore loose da circa {{n:hud.vpip.loose}}: con una differenza di oltre {{n:hud.gap.passive}} punti è un {{t:recreational|giocatore ricreativo}} passivo ({{t:calling-station|calling station}}), con una differenza fino a circa {{n:hud.gap.aggressive}} punti è un {{t:maniac|maniac}}"
   because: "il tipo dice in che direzione l'avversario si discosta dalla base: gioca troppo poche mani, troppe mani, {{t:call|chiama}} troppo spesso o {{t:raise|rilancia}} troppo spesso"
   level: heuristic
   source: "sito di formazione, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/), tabella 6-max cash: «22 to 28», «35+», «14 or below»; «a player playing a 45 VPIP is either a maniac or a calling station»; «When the gap is less than 3 points, I flag them as highly aggressive»; sito di formazione, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): «10-15% | Very tight (nit)», «18-22% | Tight-aggressive (TAG)», «25-30% | Loose-aggressive (LAG)», «35%+ | Loose (likely recreational)», profili «Nit (15/12/3%)», «Whale / Recreational (45/8/2%)», «Maniac (38/35/15%+)»; analisi del database di mani della popolazione: Regulars «VPIP = 18-32», Recreationals «VPIP > 40»; soglie come parte comune o come intervallo che copre le fonti (D-M10-03)"
@@ -884,12 +884,12 @@
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }]
 - id: R-M10-008
   module: m10
-  if: "giochi contro un {{t:maniac|maniaco}} ({{t:vpip|VPIP}} da circa {{n:hud.vpip.loose}}, {{t:pfr|PFR}} quasi uguale al {{t:vpip|VPIP}})"
+  if: "giochi contro un {{t:maniac|maniac}} ({{t:vpip|VPIP}} da circa {{n:hud.vpip.loose}}, {{t:pfr|PFR}} quasi uguale al {{t:vpip|VPIP}})"
   then: "non lo {{t:bluff|bluffi}}, {{t:call|chiami}} più largo con le mani che catturano i {{t:bluff|bluff}}, e con le mani molto forti lo lasci puntare"
   because: "le sue puntate e i suoi {{t:raise|rilanci}} contengono più {{t:bluff|bluff}} che nella base, quindi le mani che nella base sono al limite della {{t:call|chiamata}} guadagnano, e il {{t:bluff|bluff}} contro chi {{t:fold|folda}} raramente perde"
   level: exploit
   population: "un singolo avversario: lettura HUD da almeno circa 100 mani (VPIP dal 35%, VPIP − PFR sotto i 3 punti); soglie del tipo da due siti di formazione (6-max cash online); nessun dato sull'intera popolazione (D-M10-02)"
-  source: "sito di formazione, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): maniaco «Trap with premium hands by flat-calling preflop and letting them stack off. Don't try to out-bluff them; just let them hang themselves.»; sito di formazione, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): «a player playing a 45 VPIP is either a maniac or a calling station»; principio delle mani miste: sito di un solver commerciale, Calling Down Over-Bluffed Lines in Lower Limits (R-M10-009)"
+  source: "sito di formazione, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): maniac «Trap with premium hands by flat-calling preflop and letting them stack off. Don't try to out-bluff them; just let them hang themselves.»; sito di formazione, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): «a player playing a 45 VPIP is either a maniac or a calling station»; principio delle mani miste: sito di un solver commerciale, Calling Down Over-Bluffed Lines in Lower Limits (R-M10-009)"
   sources: [{ kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }, { kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: solver-pub }]
 - id: R-M10-009
   module: m10
@@ -993,7 +993,7 @@
 - id: R-M12-006
   module: m12
   if: "noti i primi segnali di tilt del tuo profilo (ad es. rabbia dopo un bad beat, voglia di punire l'avversario)"
-  then: "reagisci subito: un respiro profondo e una frase preparata che ti ricorda perché questa è {{t:variance|varianza}} o un errore da cui imparare"
+  then: "reagisci subito: un respiro e una frase preparata che ti ricorda perché questa è {{t:variance|varianza}} o un errore da cui imparare"
   because: "quando il tilt cresce smetti di pensare con lucidità, e a quel punto non è più possibile controllarlo"
   level: heuristic
   source: "Tendler, intervista su un sito di informazione (2014) («When tilt becomes too intense, it shuts down your ability to think», «you must begin correcting tilt when it's small»); Tendler e Carter, The Mental Game of Poker (2011), tecnica «injecting logic»"
@@ -1161,7 +1161,7 @@
   module: m13
   if: "scambi i semi di tutte le carte con un'unica permutazione (ad es. cuori in picche, picche in cuori)"
   then: "la decisione corretta non cambia"
-  because: "la forza delle mani e dei {{t:draw|progetti}} dipende dal fatto che i semi coincidano, non da quali semi siano; per questo il replay del gioco mostra la stessa situazione con semi diversi"
+  because: "la forza delle mani e dei {{t:draw|progetti}} dipende dal fatto che i semi coincidano, non da quali semi siano; per questo il ripasso dal gioco mostra la stessa situazione con semi diversi"
   level: math
   source: "calcolo: la classifica delle combinazioni non distingue i semi (regole del Texas Hold'em), e una permutazione dei semi conserva quali carte hanno lo stesso seme; verificato in poker-core con un test di proprietà (documento 02, documento 14, 5.6)"
   sources: [{ kind: math }]

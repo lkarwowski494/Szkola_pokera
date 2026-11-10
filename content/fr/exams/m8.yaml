@@ -17,25 +17,25 @@ drills:
     prompt: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|suivi}}. Au flop, c-bet et {{t:call}} ; au turn, vous avez tous les deux {{t:check|checké}}. À la river, la {{t:big-blind}} {{t:check|checke}}. Vous avez une {{t:top-pair|top paire}} avec un neuf et estimez battre un peu plus de la moitié des mains qui paieront. Que faites-vous ?"
     table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
     options:
-      - { text: "Miser env. 1/3 du {{t:pot|pot}}", correct: true, why: "Oui : c'est du thin value. Les sept, les quatre et les valets plus faibles {{t:call|suivront}} aussi une petite mise, donc parmi les {{t:call|calls}} il reste plus de mains moins bonnes que de meilleures." }
-      - { text: "Miser tout le {{t:pot|pot}}", sizeError: true, why: "Bonne action, mauvaise taille : face à une mise de la taille du {{t:pot|pot}}, les sept et les quatre {{t:fold|se coucheront}}, et ce sont surtout les meilleurs valets et les mains plus fortes qui paieront. Misez le thin value plus petit, généralement env. 1/4–1/2 du {{t:pot|pot}}." }
-      - { text: "Je {{t:check|checke}}, car la main est trop faible pour miser", why: "Vous perdez de la valeur : vous battez plus de la moitié des mains qui paieront une petite mise. Il suffit de choisir une taille plus petite." }
+      - { text: "Miser env. 1/3 du {{t:pot|pot}}", correct: true, why: "Oui : c'est de la thin value. Les sept, les quatre et les valets plus faibles {{t:call|suivront}} aussi une petite mise, donc parmi les {{t:call|calls}} il reste plus de mains moins bonnes que de meilleures." }
+      - { text: "Miser tout le {{t:pot|pot}}", sizeError: true, why: "Bonne action, mauvaise taille : face à une mise de la taille du {{t:pot|pot}}, les sept et les quatre {{t:fold|se coucheront}}, et ce sont surtout les meilleurs valets et les mains plus fortes qui paieront. Misez la thin value plus petit, généralement env. 1/4–1/2 du {{t:pot|pot}}." }
+      - { text: "Je {{t:check|checke}}, car la main est trop faible pour miser", why: "Vous perdez de la value : vous battez plus de la moitié des mains qui paieront une petite mise. Il suffit de choisir une taille plus petite." }
   - kind: numeric
     id: m8.exam.q3
     family: m8.bluff.share
     rules: [R-M8-004, R-M8-005]
     prompt: "River. Le {{t:pot|pot}} contient {{n:exam.m8.pot}}, vous misez {{n:exam.m8.bet}} avec une {{t:range|range}} composée de mains très fortes et de {{t:bluff|bluffs}}. À l'équilibre, quelle part de vos mises représentent les {{t:bluff|bluffs}} ? Saisissez le nombre en pourcentage."
     answer: exam.m8.share
-    explanation: "Part des {{t:bluff|bluffs}} = mise ÷ ({{t:pot}} + 2·mise) = {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}}. La main de l'adversaire qui attrape les {{t:bluff|bluffs}} a besoin d'autant d'equity, donc elle ne gagne rien, qu'elle {{t:call|suive}} ou qu'elle {{t:fold|se couche}}."
+    explanation: "Part des {{t:bluff|bluffs}} = mise ÷ ({{t:pot}} + 2·mise) = {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}}. La main de l'adversaire qui attrape les {{t:bluff|bluffs}} a besoin d'autant d'équité, donc elle ne gagne rien, qu'elle {{t:call|suive}} ou qu'elle {{t:fold|se couche}}."
   - kind: choice
     id: m8.exam.q4
     family: m8.bluff.combos
     rules: [R-M8-004]
-    prompt: "River. Le {{t:pot|pot}} contient {{n:exam.m8.pot}}, vous misez {{n:exam.m8.bet}} avec une {{t:range|range}} de {{n:exam.m8.range}} {{t:combo|combinaisons}} : mains de valeur et {{t:bluff|bluffs}}. La part de {{t:bluff|bluffs}} à l'équilibre est de {{n:exam.m8.share}}. Combien de {{t:combo|combinaisons}} sont des {{t:bluff|bluffs}} ?"
+    prompt: "River. Le {{t:pot|pot}} contient {{n:exam.m8.pot}}, vous misez {{n:exam.m8.bet}} avec une {{t:range|range}} de {{n:exam.m8.range}} {{t:combo|combinaisons}} : mains de value et {{t:bluff|bluffs}}. La part de {{t:bluff|bluffs}} à l'équilibre est de {{n:exam.m8.share}}. Combien de {{t:combo|combinaisons}} sont des {{t:bluff|bluffs}} ?"
     options:
-      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Oui : {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|bluffs}} et {{n:exam.m8.value-combos}} {{t:combo|combinaisons}} {{t:value|pour la valeur}}." }
+      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Oui : {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|bluffs}} et {{n:exam.m8.value-combos}} {{t:combo|combinaisons}} {{t:value|de value}}." }
       - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "C'est ce qu'il y aurait avec une mise de tout le {{t:pot|pot}} (part de {{n:bluff.share.bet-pot}}). Avec une mise plus petite, il y a moins de {{t:bluff|bluffs}} : {{n:exam.m8.share}}." }
-      - { text: "{{n:exam.m8.value-combos}}", why: "C'est le nombre de {{t:combo|combinaisons}} {{t:value|pour la valeur}}. Les {{t:bluff|bluffs}} en sont la plus petite partie : {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
+      - { text: "{{n:exam.m8.value-combos}}", why: "C'est le nombre de {{t:combo|combinaisons}} {{t:value|de value}}. Les {{t:bluff|bluffs}} en sont la plus petite partie : {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
   - kind: choice
     id: m8.exam.q5
     family: m8.bluff.hands
@@ -54,7 +54,7 @@ drills:
     table: { board: "Qd Jc 4s 2h 9d", position: BTN }
     options:
       - { text: "[[Ts 7s]]", correct: true, why: "Oui : le dix bloque les deux {{t:straight|quintes}} (KT et T8), c'est-à-dire les mains avec lesquelles l'adversaire paiera à coup sûr. Il en a moins de {{t:combo|combinaisons}}, donc il lui reste plus souvent une main à coucher." }
-      - { text: "[[6s 5s]]", why: "Cette main ne bloque aucune main forte de l'adversaire. Pour choisir entre des {{t:bluff|bluffs}} sans chance, préférez celui qui bloque sa valeur." }
+      - { text: "[[6s 5s]]", why: "Cette main ne bloque aucune main forte de l'adversaire. Pour choisir entre des {{t:bluff|bluffs}} sans chance, préférez celui qui bloque sa value." }
   - kind: numeric
     id: m8.exam.q7
     family: m8.blockers.combos
@@ -69,8 +69,8 @@ drills:
     rules: [R-M8-010]
     prompt: "River. Le {{t:pot|pot}} contient {{n:exam.m8.pot}}, l'adversaire {{t:bet|mise}} {{n:exam.m8.bet}}. Vous avez un bluff-catcher et estimez que les {{t:bluff|bluffs}} représentent env. {{n:exam.m8.bluffs.est}} de ses mises. Que faites-vous ?"
     options:
-      - { text: "Je {{t:fold|me couche}}", correct: true, why: "Oui : il vous faut {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} d'equity, et un bluff-catcher ne bat que les {{t:bluff|bluffs}}, soit env. {{n:exam.m8.bluffs.est}} des cas. Le {{t:call|call}} est perdant." }
-      - { text: "Je {{t:call|suis}}", why: "Votre equity est la part de {{t:bluff|bluffs}} dans ses mises : {{n:exam.m8.bluffs.est}}. C'est moins que les {{n:exam.m8.share}} nécessaires, donc le {{t:call}} est perdant." }
+      - { text: "Je {{t:fold|me couche}}", correct: true, why: "Oui : il vous faut {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} d'équité, et un bluff-catcher ne bat que les {{t:bluff|bluffs}}, soit env. {{n:exam.m8.bluffs.est}} des cas. Le {{t:call|call}} est perdant." }
+      - { text: "Je {{t:call|suis}}", why: "Votre équité est la part de {{t:bluff|bluffs}} dans ses mises : {{n:exam.m8.bluffs.est}}. C'est moins que les {{n:exam.m8.share}} nécessaires, donc le {{t:call}} est perdant." }
       - { text: "Je {{t:raise|relance}}", why: "Après une {{t:raise|relance}}, les {{t:bluff|bluffs}} {{t:fold|se coucheront}} et seules les meilleures mains paieront. Vous ne {{t:raise|relancez}} pas avec un bluff-catcher." }
   - kind: choice
     id: m8.exam.q9
@@ -79,8 +79,8 @@ drills:
     prompt: "Vous défendez la {{t:big-blind}}. Les cœurs ne sont pas rentrés, et la river a donné une {{t:straight}} aux mains T7 et 75. Vous {{t:check|checkez}}, et le Button {{t:bet|mise}} tout le {{t:pot|pot}}. Vous avez une {{t:top-pair|top paire}} avec un kicker faible. Avec laquelle de ces mains le {{t:call}} est-il meilleur ?"
     table: { board: "Kh 9h 6c 2s 8d", position: BB }
     options:
-      - { text: "[[Kc 7c]]", correct: true, why: "Oui : le sept bloque les deux nouvelles {{t:straight|quintes}} (T7 et 75), soit une partie de la valeur du Button, et sans cœur vous ne bloquez pas les {{t:flush-draw|tirages couleur}} manqués, ses principaux {{t:bluff|bluffs}}. Il reste plus de {{t:bluff|bluffs}} dans ses mises." }
-      - { text: "[[Ks 3h]]", why: "La carte [[3h]] bloque une partie des {{t:flush-draw|tirages couleur}} manqués, c'est-à-dire des {{t:bluff|bluffs}} du Button, et cette main ne bloque aucune {{t:straight|quinte}}. Il reste plus de valeur dans ses mises." }
+      - { text: "[[Kc 7c]]", correct: true, why: "Oui : le sept bloque les deux nouvelles {{t:straight|quintes}} (T7 et 75), soit une partie de la value du Button, et sans cœur vous ne bloquez pas les {{t:flush-draw|tirages couleur}} manqués, ses principaux {{t:bluff|bluffs}}. Il reste plus de {{t:bluff|bluffs}} dans ses mises." }
+      - { text: "[[Ks 3h]]", why: "La carte [[3h]] bloque une partie des {{t:flush-draw|tirages couleur}} manqués, c'est-à-dire des {{t:bluff|bluffs}} du Button, et cette main ne bloque aucune {{t:straight|quinte}}. Il reste plus de value dans ses mises." }
   - kind: choice
     id: m8.exam.q10
     family: m8.value.check
@@ -89,5 +89,5 @@ drills:
     table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
     options:
       - { text: "Je {{t:check|checke}}", correct: true, why: "Oui : la {{t:pair|paire}} de six bat les {{t:draw|tirages}} manqués et les cartes hautes, mais ces mains {{t:fold|se coucheront}} face à une mise. Ce sont surtout les valets, les huit et les rois qui paieront. En {{t:check|checkant}}, vous allez au showdown gratuitement." }
-      - { text: "Je mise petit {{t:value|pour la valeur}}", why: "Une petite mise sera elle aussi {{t:call|suivie}} surtout par de meilleures {{t:pair|paires}}. Les mains moins bonnes de l'adversaire sont ici surtout des mains sans {{t:pair|paire}} et les {{t:pair|paires}} les plus faibles, et elles paient rarement." }
+      - { text: "Je mise petit {{t:value|pour la value}}", why: "Une petite mise sera elle aussi {{t:call|suivie}} surtout par de meilleures {{t:pair|paires}}. Les mains moins bonnes de l'adversaire sont ici surtout des mains sans {{t:pair|paire}} et les {{t:pair|paires}} les plus faibles, et elles paient rarement." }
       - { text: "Je mise gros pour que l'adversaire {{t:fold|couche}} une meilleure {{t:pair|paire}}", why: "La mise transforme une main avec de la valeur au showdown en {{t:bluff}}. Vous {{t:bluff|bluffez}} avec des mains sans chance, et cette main gagne souvent après un {{t:check|check}}." }

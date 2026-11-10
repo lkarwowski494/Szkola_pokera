@@ -46,10 +46,10 @@ drills:
     id: m1.l1.q5
     family: m1.actions
     rules: [R-M1-002]
-    prompt: "Bạn đang ở {{t:big-blind|mù lớn}}, mọi người đều đã {{t:fold|bỏ bài}}, {{t:small-blind}} chỉ bù thêm cho đủ. Bạn có bài yếu. Bạn làm gì?"
+    prompt: "Bạn đang ở {{t:big-blind|big blind}}, mọi người đều đã {{t:fold|bỏ bài}}, {{t:small-blind}} chỉ bù thêm cho đủ. Bạn có bài yếu. Bạn làm gì?"
     table: { hand: "7c 2d", position: BB }
     options:
-      - { text: "{{t:check|Xem bài}}", correct: true, why: "{{t:big-blind}} của bạn được tính như một {{t:bet}}, còn {{t:small-blind}} chỉ cược bằng. Không ai {{t:raise|tố}}, nên bạn được xem flop miễn phí. Bài yếu không phải lý do để bỏ bài khi việc đó không tốn gì." }
+      - { text: "{{t:check|Xem bài}}", correct: true, why: "{{t:big-blind}} của bạn được tính như một {{t:bet}}, còn {{t:small-blind}} chỉ cược bằng. Không ai {{t:raise|tố}}, nên bạn được xem flop miễn phí. Bài yếu không phải lý do để bỏ bài khi chơi tiếp không tốn gì." }
       - { text: "{{t:fold|Bỏ bài}}", why: "{{t:fold|Bỏ bài}} khi bạn có thể {{t:check|xem bài}} miễn phí là thiệt hại thuần túy." }
       - { text: "{{t:raise|Tố}}", why: "Với 7-2, bạn không có gì để phát triển; {{t:check}} cho bạn flop miễn phí." }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar actions
@@ -67,9 +67,9 @@ drills:
     params: { area: table, dir: both }
     count: 4
 ---
-Mỗi ván bài đều diễn ra theo một thứ tự cố định. Trước tiên, hai người chơi đặt các khoản cược bắt buộc, gọi là **blind**: {{t:small-blind}} và {{t:big-blind}}. Nhờ vậy, trong {{t:pot|hũ}} luôn có thứ để tranh giành.
+Mỗi ván bài đều diễn ra theo một thứ tự cố định. Trước tiên, hai người chơi đặt các khoản cược bắt buộc, gọi là **blind**: {{t:small-blind}} và {{t:big-blind}}. Nhờ vậy, trong {{t:pot|pot}} luôn có thứ để tranh giành.
 
-Trước flop, {{t:big-blind}} được tính như một {{t:bet}}: ai muốn chơi thì ít nhất phải {{t:call|theo}}. {{t:big-blind|Mù lớn}} hành động cuối cùng trước flop. Nếu không ai {{t:raise|tố}}, người này có thể {{t:check|xem bài}} và xem flop mà không phải trả thêm.
+Trước flop, {{t:big-blind}} được tính như một {{t:bet}}: ai muốn chơi thì ít nhất phải {{t:call|theo}}. {{t:big-blind|Big blind}} hành động cuối cùng trước flop. Nếu không ai {{t:raise|tố}}, người này có thể {{t:check|xem bài}} và xem flop mà không phải trả thêm.
 
 ## Bốn {{t:betting-round|vòng cược}}
 
@@ -78,11 +78,11 @@ Trước flop, {{t:big-blind}} được tính như một {{t:bet}}: ai muốn ch
 3. **Turn**: lá thứ tư.
 4. **River**: lá thứ năm, lá cuối cùng.
 
-Nếu sau vòng cược ở river vẫn còn ít nhất hai người chơi, họ lật bài. Đó là **showdown**: tay bài mạnh nhất thắng {{t:pot|hũ}}. Nếu tất cả trừ một người đã {{t:fold|bỏ bài}} trước đó, người còn lại thắng {{t:pot|hũ}} mà không cần lật bài.
+Nếu sau vòng cược ở river vẫn còn ít nhất hai người chơi, họ lật bài. Đó là **showdown**: tay bài mạnh nhất thắng {{t:pot|pot}}. Nếu tất cả trừ một người đã {{t:fold|bỏ bài}} trước đó, người còn lại thắng {{t:pot|pot}} mà không cần lật bài.
 
 ## Các nước đi có thể chọn
 
-- **{{t:check|Xem bài}}**: bạn không bỏ thêm gì. Chỉ được làm khi trong vòng này chưa ai trước bạn {{t:bet|cược}} hoặc {{t:raise|tố}} (trước flop, {{t:big-blind|mù lớn}} có thể {{t:check|xem bài}} nếu không ai {{t:raise|tố}}).
+- **{{t:check|Xem bài}}**: bạn không bỏ thêm gì. Chỉ được làm khi trong vòng này chưa ai trước bạn {{t:bet|cược}} hoặc {{t:raise|tố}} (trước flop, {{t:big-blind|big blind}} có thể {{t:check|xem bài}} nếu không ai {{t:raise|tố}}).
 - **{{t:bet|Cược}}**: {{t:bet}} đầu tiên trong vòng. Trong các công thức ở những bài sau, chúng ta viết ngắn gọn là “bet”.
 - **{{t:call|Theo}}**: bạn bỏ vào cho bằng {{t:bet|mức cược}} của đối thủ.
 - **{{t:raise|Tố}}**: bạn nâng {{t:bet}} của người khác lên.
@@ -93,5 +93,5 @@ Nếu có người đã {{t:bet|cược}}, bạn có thể {{t:fold|bỏ bài}},
 :::
 
 :::note All-in và {{t:side-pot}}
-Bạn không thể {{t:bet|cược}} nhiều hơn số bạn có trước mặt. Khi bạn bỏ vào toàn bộ {{t:chips}}, bạn **all-in**: bạn không tham gia cược tiếp nữa, còn các {{t:community-cards}} còn lại được chia ra đến hết. Từ mỗi đối thủ, bạn chỉ có thể thắng tối đa bằng số bạn đã bỏ vào. Nếu những người khác tiếp tục chơi với số tiền lớn hơn, phần dư sẽ vào **{{t:side-pot|hũ phụ}}**, và chỉ họ tranh nhau phần đó.
+Bạn không thể {{t:bet|cược}} nhiều hơn số bạn có trước mặt. Khi bạn bỏ vào toàn bộ {{t:chips}}, bạn **all-in**: bạn không tham gia cược tiếp nữa, còn các {{t:community-cards}} còn lại được chia ra đến hết. Từ mỗi đối thủ, bạn chỉ có thể thắng tối đa bằng số bạn đã bỏ vào. Nếu những người khác tiếp tục chơi với số tiền lớn hơn, phần dư sẽ vào **{{t:side-pot|pot phụ}}** (side pot), và chỉ họ tranh nhau phần đó.
 :::

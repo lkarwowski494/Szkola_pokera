@@ -62,7 +62,7 @@ drills:
     options:
       - { text: "L'application n'avait pour elles ni règle vérifiable ni résultat de solveur", correct: true, why: "Oui : « non évaluée » ne veut pas dire « bien ». Ces décisions pouvaient être bonnes ou mauvaises ; le rapport ne le sait pas et le dit clairement." }
       - { text: "Elles étaient bonnes, donc le rapport ne les affiche pas", why: "Non : le rapport compte les bonnes décisions comme conformes. « Non évaluée » signifie une absence d'évaluation, pas un compliment." }
-      - { text: "Elles étaient trop faciles pour être évaluées", why: "Ce n'est pas une question de difficulté. Sont évaluées les décisions pour lesquelles l'application dispose d'une règle avec condition ou d'un spot de solver." }
+      - { text: "Elles étaient trop faciles pour être évaluées", why: "Ce n'est pas une question de difficulté. Sont évaluées les décisions pour lesquelles l'application dispose d'une règle avec condition ou d'un spot de solveur." }
   - kind: choice
     id: m13.l1.q-result
     family: m13.result
@@ -104,6 +104,6 @@ Quand le solveur joue votre main de deux façons, les deux sont correctes. La th
 
 Le résultat se trouve en bas du rapport, en petits caractères. D'après le calcul de la leçon sur la {{t:variance|variance}}, après environ {{n:m13.noise.hands.k}} milliers de mains, l'intervalle à {{n:var.conf95}} du winrate est d'environ ± {{n:m13.noise.ci}} ; le résultat est donc presque uniquement du bruit : un joueur gagnant peut être en négatif, et un joueur perdant largement en positif. Une {{t:session|session}} compte quelques dizaines de mains, donc son résultat ne dit presque rien de votre jeu.
 
-:::note D'où viennent ces principes
-Principe d'indifférence : documents sur les bases de la théorie de l'équilibre. Seuil du coup rare et appellation « imprécision » : document sur l'évaluation de son propre jeu par rapport à un solver. Le seuil de {{n:range.mixed.low}} est un réglage de l'application, sans source. La {{t:variance|variance}} du résultat et la probabilité de perdre relèvent du calcul.
+:::note D'où viennent ces règles
+Principe d'indifférence : documents sur les bases de la théorie de l'équilibre. Seuil du coup rare et appellation « imprécision » : document sur l'évaluation de son propre jeu par rapport à un solveur. Le seuil de {{n:range.mixed.low}} est un réglage de l'application, sans source. La {{t:variance|variance}} du résultat et la probabilité de perdre relèvent du calcul.
 :::

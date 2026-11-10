@@ -27,7 +27,7 @@ drills:
     prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}在翻牌{{t:call|跟注}}了你的 c-bet。轉牌是 5，對手{{t:check|過牌}}。你拿著帶 A 的{{t:second-pair|第二對}}。你怎麼做？"
     table: { hand: "Ad 7d", position: BTN, board: "Ts 7c 3d 5h" }
     options:
-      - { text: "{{t:check|過牌}}", correct: true, why: "對：{{t:second-pair|第二對}}是中等牌力的牌。對手{{t:call|跟注}}翻牌後，他的{{t:range}}更強：面對第二次下注，較差的牌會{{t:fold|棄牌}}，付錢的則是 10 以上的牌。{{t:check|過牌}}能讓你把{{t:pot|底池}}控制得小，並打到攤牌。" }
+      - { text: "{{t:check|過牌}}", correct: true, why: "對：{{t:second-pair|第二對}}是中等牌力的牌。對手{{t:call|跟注}}翻牌後，他的{{t:range}}更強：面對第二次下注，較差的牌會{{t:fold|棄牌}}，付錢的則是一對 10 或更好的牌。{{t:check|過牌}}能讓你把{{t:pot|底池}}控制得小，並打到攤牌。" }
       - { text: "{{t:value|價值}}下注", why: "用中等牌力下注，要靠較差的牌付錢才能賺，而對手{{t:call|跟注}}翻牌後，這類牌變少了。付錢的主要是贏你的牌。" }
       - { text: "下大注保護手牌", why: "用中等{{t:pair|對子}}下大注，會把較差的牌趕走，留下較好的牌。當付錢的主要是已經領先的牌時，保護沒有幫助。" }
   - kind: numeric
@@ -53,8 +53,8 @@ drills:
     prompt: "轉牌。你有{{t:two-pair}}，對手可能有{{t:flush-draw}}（河牌約 {{n:odds.flush.turn-river}}）。{{t:pot|底池}}裡有 {{n:exam.m7.pot}}，對手{{t:check|過牌}}。你怎麼做？"
     table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
     options:
-      - { text: "下注 {{n:exam.m7.bet.three-quarters}}", correct: true, why: "對：面對 3/4 {{t:pot|底池}}的下注，{{t:draw}}需要 {{n:eq.bet-three-quarters}} 的 equity，而它約有 {{n:odds.flush.turn-river}}。它付的價格太高，而你用強牌做大{{t:pot|底池}}。" }
-      - { text: "下注 {{n:exam.m7.bet.quarter}}", sizeError: true, why: "行動對了，尺寸錯了：面對 1/4 {{t:pot|底池}}的下注，{{t:draw}}只需要 {{n:eq.bet-quarter}}，低於它約 {{n:odds.flush.turn-river}} 的勝率。小注給了它好價格。要下大注。" }
+      - { text: "下注 {{n:exam.m7.bet.three-quarters}}", correct: true, why: "對：面對 3/4 {{t:pot|底池}}的下注，{{t:draw}}需要 {{n:eq.bet-three-quarters}} 的權益，而它約有 {{n:odds.flush.turn-river}}。它付的價格太高，而你用強牌做大{{t:pot|底池}}。" }
+      - { text: "下注 {{n:exam.m7.bet.quarter}}", sizeError: true, why: "行動對了，尺寸錯了：面對 1/4 {{t:pot|底池}}的下注，{{t:draw}}只需要 {{n:eq.bet-quarter}}，低於它約 {{n:odds.flush.turn-river}} 的權益。小注給了它好價格。要下大注。" }
       - { text: "{{t:check|過牌}}", why: "免費牌是送給{{t:flush-draw|同花聽牌}}的禮物，而你會失去強牌的價值。有{{t:two-pair|兩對}}時你要下注。" }
   - kind: numeric
     id: m7.exam.q7

@@ -51,10 +51,10 @@ drills:
     rules: [R-M12-006]
     prompt: "Você perdeu um {{t:pot|pote}} grande. Sabe que jogou bem e que é {{t:variance|variância}}, e o rival também jogou corretamente. Mesmo assim, a própria derrota irrita você tanto que você não consegue se concentrar. Que tipo de tilt é esse, segundo a divisão da lição sobre tilt?"
     options:
-      - { text: "Tilt de ódio a perder", correct: true, why: "O gatilho é a própria derrota, mesmo quando você sabe que é {{t:variance|variância}}. Você não culpa a sorte, nem a si mesmo, nem o rival." }
-      - { text: "Tilt de injustiça", why: "Esse tipo é disparado pela sensação de que o pôquer é injusto: bad beats, coolers, rivais acertando no river. Aqui você sabe que tudo aconteceu normalmente, e o que irrita você é a própria derrota." }
-      - { text: "Tilt de erro", why: "Tilt de erro é raiva dos próprios erros. Aqui você sabe que jogou bem." }
-      - { text: "Tilt de vingança", why: "A vingança é dirigida ao rival, por exemplo, depois de uma falta de respeito. Aqui o rival jogou corretamente e não é ele o motivo da raiva." }
+      - { text: "Tilt por ódio de perder", correct: true, why: "O gatilho é a própria derrota, mesmo quando você sabe que é {{t:variance|variância}}. Você não culpa a sorte, nem a si mesmo, nem o rival." }
+      - { text: "Tilt por injustiça", why: "Esse tipo é disparado pela sensação de que o pôquer é injusto: bad beats, coolers, rivais acertando no river. Aqui você sabe que tudo aconteceu normalmente, e o que irrita você é a própria derrota." }
+      - { text: "Tilt por erro", why: "Tilt por erro é raiva dos próprios erros. Aqui você sabe que jogou bem." }
+      - { text: "Tilt por vingança", why: "A vingança é dirigida ao rival, por exemplo, depois de uma falta de respeito. Aqui o rival jogou corretamente e não é ele o motivo da raiva." }
   - kind: choice
     id: m12.exam.q7
     family: m12.tilt-response

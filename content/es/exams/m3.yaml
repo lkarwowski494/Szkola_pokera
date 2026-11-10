@@ -18,7 +18,7 @@ drills:
     prompt: "Actúas primero preflop y nadie ha entrado aún en la mano. ¿Qué haces?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Subo}}", correct: true, why: "AT de distinto palo entra en el {{t:range|rango}} de {{t:open|apertura}} desde {{t:utg|UTG}} (unas {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} manos). El solver de la aplicación la juega aquí siempre." }
+      - { text: "{{t:raise|Subo}}", correct: true, why: "AT de distinto palo entra en el {{t:range|rango}} de {{t:open|apertura}} desde {{t:utg|UTG}} (alrededor del {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} de las manos). El solver de la aplicación la juega aquí siempre." }
       - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado. Desde {{t:utg|UTG}} juegas estrecho, pero AT sigue dentro del {{t:range|rango}}." }
       - { text: "Completo la {{t:big-blind|ciega grande}}", why: "Si eres el primero en entrar, {{t:raise|subes}} o {{t:fold|te retiras}}. El limp cede la {{t:initiative|iniciativa}} y la posibilidad de llevarte las ciegas de inmediato." }
   - kind: choice
@@ -46,7 +46,7 @@ drills:
     prompt: "Todos {{t:fold|se han retirado}} hasta ti. ¿Qué haces?"
     table: { hand: "Jd 9c", position: BTN }
     options:
-      - { text: "{{t:raise|Subo}}", correct: true, why: "En el Button {{t:open|abres}} unas {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} manos. Solo quedan las ciegas y después del flop tienes {{t:position|posición}}, así que J9 de distinto palo entra." }
+      - { text: "{{t:raise|Subo}}", correct: true, why: "En el Button {{t:open|abres}} alrededor del {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} de las manos. Solo quedan las ciegas y después del flop tienes {{t:position|posición}}, así que J9 de distinto palo entra." }
       - { text: "{{t:fold|Me retiro}}", why: "Desde el {{t:cutoff|CO}} el solver juega esta mano pocas veces, pero en el Button, siempre. Contra solo las ciegas, es demasiado cerrado." }
       - { text: "Completo la {{t:big-blind|ciega grande}}", why: "El limp cede la {{t:initiative|iniciativa}}. Una {{t:raise|subida}} a menudo se lleva las ciegas de inmediato." }
   - kind: choice
@@ -56,7 +56,7 @@ drills:
     prompt: "Todos {{t:fold|se han retirado}} hasta ti en la {{t:small-blind|ciega pequeña}}. ¿Qué haces?"
     table: { hand: "Td 8c", position: SB }
     options:
-      - { text: "{{t:raise|Subo}} a {{n:pf.open-size-sb}}", correct: true, why: "Ya solo juegas contra la {{t:big-blind|ciega grande}}, así que {{t:open|abres}} amplio, unas {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} manos. Después del flop actúas primero; por eso, desde la {{t:small-blind|ciega pequeña}}, {{t:raise|subes}} algo más que desde otras {{t:position|posiciones}}." }
+      - { text: "{{t:raise|Subo}} a {{n:pf.open-size-sb}}", correct: true, why: "Ya solo juegas contra la {{t:big-blind|ciega grande}}, así que {{t:open|abres}} amplio, alrededor del {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} de las manos. Después del flop actúas primero; por eso, desde la {{t:small-blind|ciega pequeña}}, {{t:raise|subes}} algo más que desde otras {{t:position|posiciones}}." }
       - { text: "{{t:raise|Subo}} a {{n:pf.open-size}}", sizeError: true, why: "Buena acción, tamaño incorrecto: {{n:pf.open-size}} es la {{t:open|apertura}} desde las demás {{t:position|posiciones}}. Desde la {{t:small-blind|ciega pequeña}} juegas {{t:out-of-position|fuera de posición}}, así que {{t:raise|subes}} a {{n:pf.open-size-sb}}." }
       - { text: "Completo la {{t:big-blind|ciega grande}}", why: "Si eres el primero en entrar, {{t:raise|subes}} o {{t:fold|te retiras}} (desde la {{t:small-blind|ciega pequeña}} es una simplificación: algunas soluciones de solver completan aquí con parte de las manos). Completar cede la {{t:initiative|iniciativa}} y la posibilidad de llevarte las ciegas de inmediato." }
       - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado: contra un solo rival, el solver de la aplicación juega T8o desde la {{t:small-blind|ciega pequeña}} siempre." }
@@ -67,7 +67,7 @@ drills:
     prompt: "Todos los jugadores antes que tú {{t:fold|se han retirado}}, estás en el {{t:hijack|HJ}} y {{t:open|abres}}. ¿A cuántas bb {{t:raise|subes}}? Escribe un número."
     table: { hand: "Kh Qh", position: HJ }
     answer: pf.open-size
-    explanation: "{{t:open|Abres}} a {{n:pf.open-size}} desde cualquier {{t:position|posición}} salvo la {{t:small-blind|ciega pequeña}} (allí, a {{n:pf.open-size-sb}}). Un único tamaño es sencillo y no revela la fuerza de tu mano. Es una simplificación: desde {{t:early-position|posiciones tempranas}}, los solvers {{t:open|abren}} algo menos."
+    explanation: "{{t:open|Abres}} a {{n:pf.open-size}} desde cualquier {{t:position|posición}} salvo la {{t:small-blind|ciega pequeña}} (allí, a {{n:pf.open-size-sb}}). Un único tamaño es sencillo y no revela la fuerza de tu mano. Es una simplificación: desde las {{t:early-position|primeras posiciones}}, los solvers {{t:open|abren}} algo menos."
   - kind: choice
     id: m3.exam.q7
     family: m3.suited

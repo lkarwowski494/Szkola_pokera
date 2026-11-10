@@ -55,7 +55,7 @@ drills:
     params: { area: board, dir: both }
     count: 4
 ---
-Después del flop, cada jugador ya ve cinco de sus siete cartas. Cómo encajan las tres cartas de la {{t:board}} con las manos de los jugadores es lo que llamamos {{t:texture}} del flop. De la {{t:texture}} depende quién conecta más a menudo y si merece la pena apostar. Antes de aprender la c-bet (una {{t:bet}} en el flop tras una {{t:raise}} antes del flop), aprende a leer el flop en cuatro ejes.
+Después del flop, cada jugador ya ve cinco de sus siete cartas. Cómo encajan las tres cartas de la {{t:board}} con las manos de los jugadores es lo que llamamos {{t:texture}} del flop. De la {{t:texture}} depende quién conecta más a menudo y si merece la pena apostar. Antes de aprender el c-bet (una {{t:bet}} en el flop tras una {{t:raise}} antes del flop), aprende a leer el flop en cuatro ejes.
 
 ## Altura
 
@@ -98,9 +98,9 @@ Un flop **{{t:dry}}** tiene menos de {{n:tex.threshold.medium}} pts; uno **{{t:w
 | [[9h 8d 7c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.made}} | {{n:tex.ex.987}} | {{t:wet}} |
 | [[Jh Th 8c]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.made}} | {{n:tex.ex.jt8}} | {{t:wet}} |
 
-Una {{t:straight}} ya hecha pesa más que un simple {{t:draw}}, porque cambia el equilibrio de fuerzas ya. Una {{t:straight}} posible de varias formas pesa más que una {{t:straight}} posible de una sola: en [[9h 8d 7c]] muchas manos tienen {{t:straight}} o {{t:oesd}}, mientras que en [[Ah Kd Tc]] solo QJ forma {{t:straight}} y nadie tiene un {{t:draw}} abierto. Por eso A-K-T de tres palos es intermedio, aunque sea {{t:connected}}.
+Una {{t:straight}} ya hecha pesa más que un simple {{t:draw}}, porque cambia el equilibrio de fuerzas ya. Una {{t:straight}} posible de varias formas pesa más que una {{t:straight}} posible de una sola: en [[9h 8d 7c]] muchas manos tienen {{t:straight}} u {{t:oesd}}, mientras que en [[Ah Kd Tc]] solo QJ forma {{t:straight}} y nadie tiene un {{t:draw}} abierto. Por eso A-K-T de tres palos es intermedio, aunque sea {{t:connected}}.
 
-El flop {{t:two-tone}} [[Kh 7h 2c]] es {{t:dry}} y tiene un solo {{t:flush-draw}}: no hay {{t:straight}} ni {{t:straight-draw}}. Un flop {{t:monotone}} es siempre {{t:wet}}: en [[Kh 8h 3h]] hay más manos con {{t:flush}} o {{t:flush-draw}} que manos con {{t:straight}} o {{t:oesd}} en [[9h 8d 7c]].
+El flop {{t:two-tone}} [[Kh 7h 2c]] es {{t:dry}} y tiene un solo {{t:flush-draw}}: no hay {{t:straight}} ni {{t:straight-draw}}. Un flop {{t:monotone}} es siempre {{t:wet}}: en [[Kh 8h 3h]] hay más manos con {{t:flush}} o {{t:flush-draw}} que manos con {{t:straight}} u {{t:oesd}} en [[9h 8d 7c]].
 
 En un flop {{t:dry}}, quien va por delante suele seguir por delante hasta el river. En uno {{t:wet}}, las siguientes cartas cambian a menudo el equilibrio de fuerzas, así que la mejor mano en el flop es menos segura.
 

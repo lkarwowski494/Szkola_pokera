@@ -42,8 +42,8 @@ drills:
     rules: [R-M12-004]
     prompt: "轉牌。你拿著乾淨的{{t:flush-draw|同花聽牌}}，{{t:pot|底池}}有 {{n:ex.pot}}。對手以 {{n:ex.bet.half}} 全下，之後已經贏不到更多。你{{t:call|跟注}}，河牌來了{{t:flush|同花}}，你贏了。你怎麼評價這次{{t:call|跟注}}？"
     options:
-      - { text: "是錯的，雖然贏了", correct: true, why: "你需要 {{n:eq.bet-half}} 的 equity，而{{t:flush-draw|同花聽牌}}在河牌成牌的機率約為 {{n:odds.flush.turn-river}}。對手已經全下，之後不會再多付你任何錢。重複很多次之後，這樣的{{t:call|跟注}}會虧錢。" }
-      - { text: "是對的，因為你贏了{{t:pot|底池}}", why: "單一手牌的結果不會改變價格。評價針對的是你根據當時資訊所做的決策：{{n:odds.flush.turn-river}} 的 equity 對上所需的 {{n:eq.bet-half}}。" }
+      - { text: "是錯的，雖然贏了", correct: true, why: "你需要 {{n:eq.bet-half}} 的權益，而{{t:flush-draw|同花聽牌}}在河牌成牌的機率約為 {{n:odds.flush.turn-river}}。對手已經全下，之後不會再多付你任何錢。重複很多次之後，這樣的{{t:call|跟注}}會虧錢。" }
+      - { text: "是對的，因為你贏了{{t:pot|底池}}", why: "單一手牌的結果不會改變價格。評價針對的是你根據當時資訊所做的決策：{{n:odds.flush.turn-river}} 的權益對上所需的 {{n:eq.bet-half}}。" }
       - { text: "不知道對手的牌就無法評價", why: "你當時知道的就足以評價：對手已經全下，你的手牌只有成{{t:flush|同花}}才會贏，而價格需要 {{n:eq.bet-half}}。" }
   - kind: choice
     id: m12.exam.q6

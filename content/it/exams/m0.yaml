@@ -5,7 +5,7 @@ drills:
     id: m0.exam.q1
     family: m0.ranking
     rules: [R-M0-001]
-    prompt: "L'avversario ha un {{t:three-of-a-kind|tris}} d'assi, tu una {{t:straight|scala}} al jack. Chi vince?"
+    prompt: "L'avversario ha un {{t:three-of-a-kind|tris}} d'assi, tu una {{t:straight|scala}} al fante. Chi vince?"
     table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
     options:
       - { text: "Tu", correct: true, why: "La tua cinquina è J-10-9-8-7, cioè una {{t:straight|scala}}. La {{t:straight|scala}} sta sopra il {{t:three-of-a-kind|tris}} in classifica, quindi quanto sono alte le carte dell'avversario non conta." }
@@ -48,7 +48,7 @@ drills:
     table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
     options:
       - { text: "{{t:split-pot|Piatto diviso}}", correct: true, why: "La cinquina migliore di entrambi i giocatori è K-K-A-Q-J. Il 4 e il 3 non entrano nella cinquina, quindi non cambiano nulla." }
-      - { text: "Tu, perché 4 è più alto di 3", why: "Il kicker conta solo quando entra nelle 5 carte migliori. Qui la donna e il jack li dà il {{t:board|board}}, quindi il quattro è la sesta carta." }
+      - { text: "Tu, perché 4 è più alto di 3", why: "Il kicker conta solo quando entra nelle 5 carte migliori. Qui la donna e il fante li dà il {{t:board|board}}, quindi il quattro è la sesta carta." }
       - { text: "L'avversario", why: "L'avversario ha la tua stessa cinquina: K-K-A-Q-J." }
   - kind: choice
     id: m0.exam.q6

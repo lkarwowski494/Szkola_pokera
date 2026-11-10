@@ -52,7 +52,7 @@ drills:
     table: { hand: "Qd Jc", board: "7s 4h 2s", position: BB }
     options:
       - { text: "{{t:fold|Se coucher}}", correct: true, why: "Vous n'avez ni {{t:pair|paire}} ni {{t:draw|tirage}} (aucun pique, et la {{t:straight|quinte}} est loin). Face à un gros c-bet, il vous faut {{n:eq.bet-three-quarters}} d'équité, et {{t:out-of-position|hors position}} vous irez rarement au showdown avec de simples cartes hautes. Une {{t:pair|paire}} de dames ou de valets ne gagnera pas toujours non plus." }
-      - { text: "{{t:call|Suivre}}", why: "C'est tentant, car la dame et le valet sont plus hauts que le board. Mais des cartes hautes seules ne suffisent pas à ce prix : à la turn, vous ferez souvent face à une nouvelle mise et vous vous {{t:fold|coucherez}}." }
+      - { text: "{{t:call|Suivre}}", why: "C'est tentant, car la dame et le valet sont plus hauts que le board. Mais des cartes hautes seules ne suffisent pas à ce prix : au turn, vous ferez souvent face à une nouvelle mise et vous vous {{t:fold|coucherez}}." }
       - { text: "Check-raise", why: "Pour un {{t:bluff|bluff}}, les mains avec un {{t:draw|tirage}}, qui ont une deuxième façon de gagner, conviennent mieux. Cette main n'en a aucune." }
   - kind: choice
     id: m6.l2.q-backdoor
@@ -61,7 +61,7 @@ drills:
     prompt: "Vous défendez la {{t:big-blind|grosse blinde}} contre l'{{t:open|ouverture}} du Bouton. Au flop, vous {{t:check|checkez}}, le Bouton {{t:bet|mise}} 1/3 du {{t:pot|pot}} en c-bet. Que faites-vous ?"
     table: { hand: "Qs Js", board: "7s 4h 2d", position: BB }
     options:
-      - { text: "{{t:call|Suivre}}", correct: true, why: "Deux cartes hautes plus un {{t:flush-draw|tirage couleur}} supplémentaire (backdoor : trois piques, il vous faut un pique à la turn et à la river). Au prix de {{n:eq.bet-third}}, cela suffit pour {{t:call|suivre}}." }
+      - { text: "{{t:call|Suivre}}", correct: true, why: "Deux cartes hautes plus un {{t:flush-draw|tirage couleur}} supplémentaire (backdoor : trois piques, il vous faut un pique au turn et à la river). Au prix de {{n:eq.bet-third}}, cela suffit pour {{t:call|suivre}}." }
       - { text: "Check-raise", why: "En général, non. Vous check-raisez surtout avec vos mains et vos {{t:draw|tirages}} les plus forts ({{t:flush|couleur}}, {{t:oesd|tirage quinte bilatéral}}). Un {{t:flush-draw|tirage couleur}} supplémentaire est faible : quand le Bouton paie, il ne vous reste généralement que des cartes hautes. Avec cette main, vous {{t:call|suivez}}." }
       - { text: "{{t:fold|Se coucher}}", why: "Trop serré face à un petit c-bet. Le {{t:draw|tirage}} supplémentaire et deux cartes hautes donnent assez d'équité au prix de {{n:eq.bet-third}}." }
   - kind: choice
@@ -71,9 +71,9 @@ drills:
     prompt: "Vous défendez la {{t:big-blind|grosse blinde}} contre l'{{t:open|ouverture}} du Bouton. Au flop, vous {{t:check|checkez}}, le Bouton {{t:bet|mise}} 1/3 du {{t:pot|pot}} en c-bet. Que faites-vous ?"
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
-      - { text: "{{t:call|Suivre}}", correct: true, why: "Vous avez un gutshot à la {{t:straight|quinte}} (une dame) et un roi plus haut que le board. {{t:call|Suivre}} vous achète une carte : vous touchez le gutshot à la turn dans environ {{n:odds.gutshot.flop-turn}} des cas, et le roi ajoute quelques outs vers la {{t:top-pair|top paire}}. Au total, c'est moins que le prix de {{n:eq.bet-third}}, mais si vous touchez la {{t:straight|quinte}}, vous gagnerez davantage (implied odds), et le roi seul bat parfois les {{t:bluff|bluffs}} du Bouton. Face à un petit c-bet, cela suffit pour {{t:call|suivre}}." }
+      - { text: "{{t:call|Suivre}}", correct: true, why: "Vous avez un gutshot à la {{t:straight|quinte}} (une dame) et un roi plus haut que le board. {{t:call|Suivre}} vous achète une carte : vous touchez le gutshot au turn dans environ {{n:odds.gutshot.flop-turn}} des cas, et le roi ajoute quelques outs vers la {{t:top-pair|top paire}}. Au total, c'est moins que le prix de {{n:eq.bet-third}}, mais si vous touchez la {{t:straight|quinte}}, vous gagnerez davantage (implied odds), et le roi seul bat parfois les {{t:bluff|bluffs}} du Bouton. Face à un petit c-bet, cela suffit pour {{t:call|suivre}}." }
       - { text: "{{t:fold|Se coucher}}", why: "Trop serré : un {{t:draw|tirage}} plus une carte haute, c'est suffisant face à un petit c-bet." }
-      - { text: "Check-raise all-in", why: "Vous risquez tout votre tapis avec une main qui n'a encore rien. Cette taille fait coucher les mains plus faibles, et seules les meilleures paient." }
+      - { text: "Check-raise all-in", why: "Vous risquez tout votre stack avec une main qui n'a encore rien. Cette taille fait coucher les mains plus faibles, et seules les meilleures paient." }
   - kind: choice
     id: m6.l2.q-air-ak
     family: m6.flop.fold
@@ -91,11 +91,11 @@ drills:
     prompt: "Pourquoi ne pas {{t:call|suivre}} au flop {{t:out-of-position|hors position}} avec toute main dont l'équité dépasse, même légèrement, le prix ?"
     table: { position: BB }
     options:
-      - { text: "Parce que vous ne réaliserez pas toute votre équité", correct: true, why: "L'équité, c'est votre chance si la main va au showdown sans autres {{t:bet|mises}}. {{t:out-of-position|Hors position}}, vous parlez en premier à la turn et à la river, et vous vous {{t:fold|coucherez}} souvent face à une nouvelle mise. Les mains faibles réalisent alors moins que leur équité." }
+      - { text: "Parce que vous ne réaliserez pas toute votre équité", correct: true, why: "L'équité, c'est votre chance si la main va au showdown sans autres {{t:bet|mises}}. {{t:out-of-position|Hors position}}, vous parlez en premier au turn et à la river, et vous vous {{t:fold|coucherez}} souvent face à une nouvelle mise. Les mains faibles réalisent alors moins que leur équité." }
       - { text: "Parce que le Bouton a toujours une main forte au flop", why: "Le Bouton {{t:open|ouvre}} et fait des c-bets large, y compris avec des {{t:bluff|bluffs}}. Le problème, c'est votre {{t:position|position}}, pas sa force." }
       - { text: "Parce qu'il faut économiser ses {{t:chips|jetons}} pour de meilleures occasions", why: "Ce qui compte, c'est l'{{t:expected-value|espérance de gain}} de chaque décision, pas l'économie de {{t:chips|jetons}}." }
 ---
-Dans M5, vous avez joué le c-bet en tant qu'{{t:aggressor|agresseur}}. Vous êtes maintenant de l'autre côté : vous défendez la {{t:big-blind|grosse blinde}}, vous checkez au flop, et le Bouton {{t:bet|mise}} en c-bet. Rappel de M5 : un c-bet est une {{t:bet|mise}} du joueur qui a {{t:raise|relancé}} préflop, et l'{{t:range-advantage|avantage de range}} dépend de la {{t:texture|texture}} du flop.
+Dans M5, vous avez joué le c-bet en tant qu'{{t:aggressor|agresseur}}. Vous êtes maintenant de l'autre côté : vous défendez la {{t:big-blind|grosse blinde}}, vous checkez au flop, et le Bouton {{t:bet|mise}} en c-bet. Rappel de M5 : un c-bet est une {{t:bet|mise}} du joueur qui a {{t:raise|relancé}} preflop, et l'{{t:range-advantage|avantage de range}} dépend de la {{t:texture|texture}} du flop.
 
 ## Le prix d'un c-bet
 
@@ -124,11 +124,11 @@ Face à un petit c-bet (environ 1/3 du {{t:pot|pot}}), vous continuez :
 - avec des cartes hautes et un {{t:draw|tirage}} supplémentaire (backdoor), p. ex. trois cartes d'une même couleur,
 - généralement aussi avec un as comme carte la plus haute.
 
-Rappel de M2 : {{t:call|suivre}} une {{t:bet|mise}} au flop vous achète une carte, donc vous comparez un {{t:draw|tirage}} avec votre chance à la turn. Cette chance est parfois un peu inférieure au prix d'un petit c-bet. {{t:call|Suivre}} reste rentable quand, après avoir touché, vous gagnerez plus que ce qui se trouve actuellement dans le {{t:pot|pot}} (ce qu'on appelle les implied odds, que vous calculerez dans M7), ou quand la main gagne parfois sans toucher, p. ex. grâce à une carte haute.
+Rappel de M2 : {{t:call|suivre}} une {{t:bet|mise}} au flop vous achète une carte, donc vous comparez un {{t:draw|tirage}} avec votre chance au turn. Cette chance est parfois un peu inférieure au prix d'un petit c-bet. {{t:call|Suivre}} reste rentable quand, après avoir touché, vous gagnerez plus que ce qui se trouve actuellement dans le {{t:pot|pot}} (ce qu'on appelle les implied odds, que vous calculerez dans M7), ou quand la main gagne parfois sans toucher, p. ex. grâce à une carte haute.
 
 ## Ce que vous {{t:fold|couchez}}
 
 - les mains sans {{t:pair|paire}} ni {{t:draw|tirage}} qui n'ont ni as ni cartes plus hautes que le board ; sur les flops avec un as, vous en {{t:fold|couchez}} davantage,
 - généralement deux cartes hautes sans {{t:draw|tirage}} quand le c-bet est gros (sur les flops {{t:dry|secs}} avec un roi, le solveur {{t:call|suit}} toutefois avec beaucoup de mains contenant un as) ; vous {{t:call|suivez}} plutôt quand vous avez un {{t:draw|tirage}} supplémentaire, idéalement vers la meilleure {{t:flush|couleur}} possible.
 
-À mesure que le c-bet augmente, les mains suivantes parmi les plus faibles ne sont plus {{t:call|suivies}}, mais couchées.
+À mesure que le c-bet augmente, les mains suivantes parmi les plus faibles passent du {{t:call|call}} au fold.

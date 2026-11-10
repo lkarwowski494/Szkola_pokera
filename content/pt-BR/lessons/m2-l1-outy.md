@@ -48,7 +48,7 @@ drills:
     id: m2.l1.q5
     family: m2.odds
     rules: [R-M2-001, R-M2-002]
-    prompt: "Flop. Você tem um {{t:flush-draw}}, e o adversário {{t:bet|aposta}}. Com qual chance de acerto você compara o preço do {{t:call|call}}?"
+    prompt: "Flop. Você tem um {{t:flush-draw|projeto de flush}}, e o adversário {{t:bet|aposta}}. Com qual chance de acerto você compara o preço do {{t:call|call}}?"
     table: { hand: "Ah 5h", board: "Kh 8h 3c" }
     options:
       - { text: "Cerca de {{n:odds.flush.flop-turn}}, a chance no turn", correct: true, why: "O {{t:call|call}} compra só uma carta. No turn o adversário pode {{t:bet|apostar}} de novo, e você pagará pelo river separadamente. {{n:outs.flush}} de {{n:cards.unseen.flop}} dá cerca de {{n:odds.flush.flop-turn}}." }

@@ -44,7 +44,7 @@ drills:
 
 ## Cách đọc bảng lưới
 
-Mỗi ô là một loại tay bài. Phía trên đường chéo là các tay bài đồng chất (ví dụ AKs), phía dưới là các tay bài khác chất (ví dụ AKo), còn trên đường chéo là các {{t:pair|đôi}}. Ô màu xanh lá là {{t:raise|tố}}, ô trống là {{t:fold|bỏ bài}}. Ô được tô một phần nghĩa là solver chỉ thỉnh thoảng chơi tay bài đó. Nếu solver {{t:open|mở cược}} với tay đó với tần suất từ {{n:range.mixed.low}} đến {{n:range.mixed.high}} (các ngưỡng này là thiết lập của ứng dụng), thì đó là {{t:mixed-hand|tay bài hỗn hợp}}: khi đó, trong bài tập chúng tôi chấp nhận cả hai câu trả lời. Hành động mà solver chơi ít hơn {{n:range.mixed.low}} số lần, nhưng ít nhất {{n:range.mixed.min}}, được bài tập coi là chấp nhận được: đó không phải lỗi, nhưng phần ôn lại của nhiệm vụ này sẽ quay lại sớm hơn. Hành động mà solver chơi ít hơn {{n:range.mixed.min}} số lần bị bài tập đánh giá là thiếu chính xác (thang đánh giá do trang của solver công bố gọi những nước đi như vậy là thế), còn hành động mà solver không bao giờ chơi bị đánh giá là lỗi.
+Mỗi ô là một loại tay bài. Phía trên đường chéo là các tay bài cùng chất (ví dụ AKs), phía dưới là các tay bài khác chất (ví dụ AKo), còn trên đường chéo là các {{t:pair|đôi}}. Ô màu xanh lá là {{t:raise|tố}}, ô trống là {{t:fold|bỏ bài}}. Ô được tô một phần nghĩa là solver chỉ thỉnh thoảng chơi tay bài đó. Nếu solver {{t:open|mở cược}} với tay đó với tần suất từ {{n:range.mixed.low}} đến {{n:range.mixed.high}} (các ngưỡng này là thiết lập của ứng dụng), thì đó là {{t:mixed-hand|tay bài trộn}}: khi đó, trong bài tập chúng tôi chấp nhận cả hai câu trả lời. Hành động mà solver chơi ít hơn {{n:range.mixed.low}} số lần, nhưng ít nhất {{n:range.mixed.min}}, được bài tập coi là chấp nhận được: đó không phải lỗi, nhưng phần ôn lại của nhiệm vụ này sẽ quay lại sớm hơn. Hành động mà solver chơi ít hơn {{n:range.mixed.min}} số lần bị bài tập đánh giá là thiếu chính xác (thang đánh giá do trang của solver công bố gọi những nước đi như vậy là thế), còn hành động mà solver không bao giờ chơi bị đánh giá là lỗi.
 
 ## Từ {{t:position|vị trí}} đầu tiên đến Button
 
@@ -81,7 +81,7 @@ rfi.sb
 :::
 
 :::note Cách ghi nhớ
-Đừng học thuộc lòng {{n:combos.kinds}} ô. Hãy nhớ các ranh giới: những {{t:pair|đôi}} nào, những quân át đồng chất nào, và các tay bài khác chất bắt đầu từ lá bài nào. Các bài tập dưới đây sẽ chia những tay bài ở ranh giới của {{t:range|dải bài}} thường xuyên hơn.
+Đừng học thuộc lòng {{n:combos.kinds}} ô. Hãy nhớ các ranh giới: những {{t:pair|đôi}} nào, những quân át cùng chất nào, và các tay bài khác chất bắt đầu từ lá bài nào. Các bài tập dưới đây sẽ chia những tay bài ở ranh giới của {{t:range|dải bài}} thường xuyên hơn.
 :::
 
-Những {{t:range|dải bài}} này đến từ một mô hình đơn giản hóa lối chơi sau flop, vì vậy ở khoảng chục tay bài nằm ở ranh giới của {{t:range|dải bài}}, chúng khác với các bảng chuyên nghiệp, khi theo hướng này, khi theo hướng kia. Chủ yếu là các tay bài đồng chất có khoảng trống (ví dụ 75s, 97s) và các tay bài khác chất yếu (ví dụ A4o, K7o). Bài tập không chấm điểm những tay bài này.
+Những {{t:range|dải bài}} này đến từ một mô hình đơn giản hóa lối chơi sau flop, vì vậy ở hơn chục tay bài nằm ở ranh giới của {{t:range|dải bài}}, chúng khác với các bảng chuyên nghiệp, khi theo hướng này, khi theo hướng kia. Chủ yếu là các tay bài cùng chất có khoảng trống (ví dụ 75s, 97s) và các tay bài khác chất yếu (ví dụ A4o, K7o). Bài tập không chấm điểm những tay bài này.

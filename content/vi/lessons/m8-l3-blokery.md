@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Một lá bài trong tay bạn khiến đối thủ có ít {{t:combo|tổ hợp}} của một tay bài nào đó hơn", correct: true, why: "Đối thủ không thể có lá bài bạn đang cầm. Khi bạn có một lá A, đối thủ có ít lá A hơn: ít {{t:pair|đôi}} A hơn, ít AK hơn, ít thùng có lá A hơn." }
       - { text: "Một lá bài trên {{t:board|bàn}} làm hỏng một {{t:draw}}", why: "Đôi khi người ta nói vậy một cách thông thường về các lá trên {{t:board|bàn}}, nhưng {{t:blocker}} theo nghĩa này là lá bài trong tay bạn. Các lá trên {{t:board|bàn}} thì cả hai người chơi đều thấy." }
-      - { text: "Một bet nhỏ nhằm chặn một bet lớn của đối thủ", why: "Đó là cái gọi là blocking bet, một chuyện khác. {{t:blocker|Blocker}} là lá bài trong tay làm giảm số {{t:combo|tổ hợp}} của đối thủ." }
+      - { text: "Một cược nhỏ nhằm chặn một cược lớn của đối thủ", why: "Đó là cái gọi là blocking bet, một chuyện khác. {{t:blocker|Blocker}} là lá bài trong tay làm giảm số {{t:combo|tổ hợp}} của đối thủ." }
   - kind: numeric
     id: m8.l3.n-ak-one
     family: m8.blockers.combos
@@ -55,7 +55,7 @@ drills:
     prompt: "{{t:flush-draw|Draw thùng}} bích không thành. {{t:big-blind|Big blind}} check trên river. Cả hai tay đều chỉ có Q với 8. Nên bluff bằng tay nào?"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
-      - { text: "[[Qd 8c]]", correct: true, why: "Không có lá bích, bạn không chặn các {{t:draw|draw}} hụt của đối thủ, mà đó là những tay sẽ {{t:fold|bỏ bài}} trước bet của bạn. Các lá còn lại của hai tay giống nhau." }
+      - { text: "[[Qd 8c]]", correct: true, why: "Không có lá bích, bạn không chặn các {{t:draw|draw}} hụt của đối thủ, mà đó là những tay sẽ {{t:fold|bỏ bài}} trước cược của bạn. Các lá còn lại của hai tay giống nhau." }
       - { text: "[[Qd 8s]]", why: "Lá 8 bích chặn một phần các {{t:flush-draw|draw thùng}} hụt (vd. [[8s 7s]]) mà đối thủ lẽ ra sẽ {{t:fold|bỏ}}. Đối thủ còn lại tương đối nhiều tay bài sẽ trả tiền hơn." }
       - { text: "Không khác gì", why: "Khác biệt nằm ở chất của lá 8. Lá bích trong tay bạn lấy đi của đối thủ một phần các tay bài sẽ bỏ." }
   - kind: choice
@@ -85,8 +85,8 @@ drills:
     table: { hand: "Ah 9c", board: "Kh 9h 4c 2s 6h", position: BTN }
     options:
       - { text: "{{t:check|Check}}", correct: true, why: "{{t:pair|Đôi}} 9 sau khi {{t:check|check}} thắng nhiều tay bài không có {{t:pair|đôi}} của đối thủ. {{t:blocker|Blocker}} không biến một tay có giá trị showdown thành một {{t:bluff}} tốt: trước tiên bạn chọn những tay không có cơ hội, sau đó mới xem đến {{t:blocker|blocker}}." }
-      - { text: "Bet để {{t:bluff}}, vì có lá A cơ", why: "Lá A cơ là một {{t:blocker}} tốt, nhưng với {{t:pair|đôi}} 9 bạn sẽ thiệt khi {{t:bluff|bluff}}: các tay yếu hơn đằng nào cũng {{t:fold|bỏ bài}}, còn các thùng và các tay có K sẽ trả tiền." }
-      - { text: "Bet {{t:value|lấy giá trị}}", why: "Ai sẽ trả tiền bằng tay yếu hơn? Trên {{t:board|bàn}} có thể có thùng, các tay yếu hơn {{t:pair|đôi}} 9 gần như luôn {{t:fold|bỏ bài}}." }
+      - { text: "Cược để {{t:bluff}}, vì có lá A cơ", why: "Lá A cơ là một {{t:blocker}} tốt, nhưng với {{t:pair|đôi}} 9 bạn sẽ thiệt khi {{t:bluff|bluff}}: các tay yếu hơn đằng nào cũng {{t:fold|bỏ bài}}, còn các thùng và các tay có K sẽ trả tiền." }
+      - { text: "Cược {{t:value|lấy giá trị}}", why: "Ai sẽ trả tiền bằng tay yếu hơn? Trên {{t:board|bàn}} có thể có thùng, các tay yếu hơn {{t:pair|đôi}} 9 gần như luôn {{t:fold|bỏ bài}}." }
 ---
 Trong bài trước, bạn đã xác định cần bao nhiêu {{t:bluff|bluff}} và rằng bạn {{t:bluff|bluff}} bằng những tay không có cơ hội ở showdown. Thường thì số tay như vậy nhiều hơn mức cần. Khi đó, **{{t:blocker|blocker}}** sẽ quyết định lựa chọn.
 

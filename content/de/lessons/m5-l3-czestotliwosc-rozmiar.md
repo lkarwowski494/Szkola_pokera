@@ -103,7 +103,7 @@ drills:
       - { text: "Weil eine kleine {{t:bet|Bet}} immer einen {{t:fold}} bekommt", why: "Nein: Dein Gegner {{t:call|callt}} eine kleine {{t:bet|Bet}} mit jedem {{t:pair|Paar}}. Eine kleine {{t:bet|Bet}} riskiert einfach weniger, deshalb braucht sie weniger {{t:fold|Folds}}." }
       - { text: "Weil eine große {{t:bet|Bet}} immer ein Fehler ist", why: "Nein: Auf einem {{t:wet|nassen}} Flop und mit dem {{t:nuts-advantage|Nuts-Vorteil}} ist eine große {{t:bet|Bet}} manchmal am besten. Auf einem {{t:dry|trockenen}} Flop bringt sie dir für das größere Risiko aber nichts." }
 ---
-Eine C-Bet (fortsetzende {{t:bet|Bet}}) ist eine {{t:bet|Bet}} am Flop von dem Spieler, der vor dem Flop zuletzt {{t:raise|geraist}} hat. In dieser Lektion spielst du {{t:in-position}}: Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}} und {{t:check|checkt}} am Flop. Der {{t:pot|Pot}} am Flop beträgt {{n:bb.pot-after.vs-btn}}. Es gibt zwei Fragen: wie oft du betten sollst und wie viel.
+Eine C-Bet (Continuation {{t:bet|Bet}}) ist eine {{t:bet|Bet}} am Flop von dem Spieler, der vor dem Flop zuletzt {{t:raise|geraist}} hat. In dieser Lektion spielst du {{t:in-position}}: Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}} und {{t:check|checkt}} am Flop. Der {{t:pot|Pot}} am Flop beträgt {{n:bb.pot-after.vs-btn}}. Es gibt zwei Fragen: wie oft du betten sollst und wie viel.
 
 ## {{t:dry|Trockener}}, hoher Flop: oft und klein
 
@@ -119,7 +119,7 @@ Auf einem Flop wie [[Kh Jh 7c]] hat dein Gegner viele {{t:flush-draw|Flush-Draws
 
 Auf einem {{t:paired|gepaarten}} Flop, z. B. [[Qd Qs 6h]], hast du den {{t:range-advantage|Range-Vorteil}}, und ein {{t:draw}} ist kaum zu bekommen, also kann ein Gegner ohne {{t:pair|Paar}} selten {{t:call|callen}}. Du bettest oft und klein: Eine große {{t:bet|Bet}} lohnt sich nicht, weil jeder von euch einen {{t:three-of-a-kind|Drilling}} haben kann. Auf einem {{t:monotone|monotonen}} Flop, z. B. [[Kh 8h 3h]], kann schon jeder einen {{t:flush}} haben, also bettest du seltener als sonst und klein.
 
-Achtung: „{{t:wet|nass}}“ heißt nicht „große Bet“. Ein {{t:monotone|monotoner}} Flop ist in der App immer {{t:wet|nass}}, trotzdem bettet der Solver auf ihm selten und mit kleiner Größe (veröffentlichte Solver-Ergebnisse). Die Größe wächst mit der {{t:wetness|Nässe}} nur bis zu einem gewissen Punkt: Auf den {{t:wet|nassesten}} Flops wie [[Qd 8d 7d]] sinkt sie wieder. Die größere Größe aus dem vorigen Abschnitt gilt für Flops mit vielen {{t:draw|Draws}}, auf denen eine {{t:straight}} noch nicht möglich ist (in der App meist mittlere).
+Achtung: „{{t:wet|nass}}“ heißt nicht „große Bet“. Ein {{t:monotone|monotoner}} Flop ist in der App immer {{t:wet|nass}}, trotzdem bettet der Solver auf ihm selten und mit kleiner Größe (veröffentlichte Solver-Ergebnisse). Die Größe wächst mit der {{t:wetness|Nässe}} nur bis zu einem gewissen Punkt: Auf den {{t:wet|nassesten}} Flops wie [[Qd 8d 7d]] sinkt sie wieder. Die größere Bet-Größe aus dem vorigen Abschnitt gilt für Flops mit vielen {{t:draw|Draws}}, auf denen eine {{t:straight}} noch nicht möglich ist (in der App meist mittelnasse).
 
 ## Niedrig mit nah beieinanderliegenden Karten: Du {{t:check|checkst}} öfter
 

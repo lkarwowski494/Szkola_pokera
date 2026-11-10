@@ -34,7 +34,7 @@ drills:
       - { text: "Imprécision", correct: true, why: "{{t:call|Suivre}} dans {{n:exam.m13.solver.tiny}} des cas, c'est moins que {{n:range.mixed.min}}. Le rapport compte une action sous le seuil comme une imprécision, c'est-à-dire comme une erreur : c'est un seuil de l'application, pas de la théorie." }
       - { text: "Erreur", why: "Une erreur est une action que le solveur ne joue jamais. Ici, le solveur {{t:call|suit}} dans {{n:exam.m13.solver.tiny}} des cas." }
       - { text: "Acceptable, car le solveur {{t:call|suit}} aussi parfois", why: "Une action est acceptable quand elle est jouée dans au moins {{n:range.mixed.min}} des cas. {{n:exam.m13.solver.tiny}}, c'est trop peu." }
-      - { text: "Sans évaluation", why: "« Sans évaluation » s'applique à une décision pour laquelle l'application n'a ni règle ni résultat du solver. Ici, il y a un résultat du solver." }
+      - { text: "Sans évaluation", why: "« Sans évaluation » s'applique à une décision pour laquelle l'application n'a ni règle ni résultat du solveur. Ici, il y a un résultat du solveur." }
   - kind: choice
     id: m13.exam.q5
     family: m13.suit-swap

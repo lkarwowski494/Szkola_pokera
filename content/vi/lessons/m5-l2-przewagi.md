@@ -23,14 +23,14 @@ drills:
     prompt: "Bạn {{t:open|mở}} từ Button, {{t:big-blind}} {{t:call|theo}}. Flop: [[7s 6h 5d]]. Ai thường có tay rất mạnh ở đây hơn ({{t:two-pair}} hoặc {{t:straight}})?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "{{t:big-blind|Big blind}}", correct: true, why: "Đúng: {{t:big-blind}} phòng thủ nhiều {{t:connectors|bài liên tiếp}} đồng chất và các tay có lá 6 hoặc lá 7. Bạn từ Button có nhiều lá cao hơn, và chúng trượt ở đây. Đó là {{t:nuts-advantage}} của {{t:big-blind|big blind}}." }
+      - { text: "{{t:big-blind|Big blind}}", correct: true, why: "Đúng: {{t:big-blind}} phòng thủ nhiều {{t:connectors|bài liên tiếp}} cùng chất và các tay có lá 6 hoặc lá 7. Bạn từ Button có nhiều lá cao hơn, và chúng trượt ở đây. Đó là {{t:nuts-advantage}} của {{t:big-blind|big blind}}." }
       - { text: "Bạn, người {{t:open|mở}} từ Button", why: "Không: {{t:range}} của bạn đầy lá cao. Bạn có nhiều {{t:overpair|overpair}} hơn ({{t:pocket-pair|đôi túi}} cao hơn mọi lá trên {{t:board|bàn}}, ví dụ TT, JJ), nhưng ít {{t:two-pair|hai đôi}} và {{t:straight|sảnh}} hơn; số set (bộ ba với {{t:pocket-pair|đôi túi}}) của hai bạn thì tương đương." }
       - { text: "Cả hai thường như nhau", why: "Không: các {{t:range|dải bài}} khác nhau về thành phần. Phần phòng thủ rộng của {{t:big-blind|big blind}} có nhiều lá nhỏ, còn {{t:range}} của bạn có nhiều lá cao." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
     rules: [R-M5-003]
-    prompt: "Vì sao {{t:big-blind}} chỉ {{t:call|theo}} lệnh {{t:open}} của bạn lại hiếm khi có AA hoặc AK trên flop [[Ad 8s 3c]]?"
+    prompt: "Vì sao {{t:big-blind}} chỉ {{t:call|theo}} lượt {{t:open}} của bạn lại hiếm khi có AA hoặc AK trên flop [[Ad 8s 3c]]?"
     table: { position: BTN, board: "Ad 8s 3c" }
     options:
       - { text: "Vì với những tay này họ thường {{t:raise|tố}} trước flop (3-bet)", correct: true, why: "Đúng: {{t:big-blind}} chơi những tay mạnh nhất bằng 3-bet, nên sau khi chỉ {{t:call|theo}}, {{t:range}} của họ có ít tay tốt nhất. Bạn thì có đủ chúng trong {{t:range|dải bài}}." }
@@ -70,7 +70,7 @@ drills:
     options:
       - { text: "Đối thủ thường không có gì, nên ngay cả một {{t:bet|cược}} nhỏ cũng thường thắng {{t:pot}} ngay", correct: true, why: "Đúng: đó là nền tảng của c-bet. Trượt không phải lúc nào cũng có nghĩa là {{t:fold|bỏ bài}} (đối thủ có thể có {{t:draw|bài chờ}} hoặc lá cao), nhưng trong {{t:range|dải bài}} của họ có nhiều tay yếu." }
       - { text: "Đối thủ sẽ {{t:fold|bỏ bài}} đúng {{n:flop.miss.unpaired}} số trường hợp", why: "Không: đối thủ không có {{t:pair|đôi}} đôi khi {{t:call|theo}} với {{t:draw|bài chờ}} hoặc lá cao, và đôi khi đã có sẵn {{t:pair|đôi}} trên tay. Đây chỉ là ước lượng flop trượt với họ thường xuyên đến mức nào." }
-      - { text: "Bạn cũng trượt thường xuyên như vậy, nên c-bet chẳng có ý nghĩa", why: "Không: bạn cũng thường trượt, nhưng đối thủ không biết khi nào. {{t:range}} của bạn với tư cách {{t:aggressor|người tấn công}} (người chơi {{t:raise|tố}} cuối cùng trước flop) mạnh hơn trên nhiều flop, và {{t:bet|cược}} sẽ thắng {{t:pot}} khi đối thủ {{t:fold|bỏ bài}}." }
+      - { text: "Bạn cũng trượt thường xuyên như vậy, nên c-bet chẳng có ý nghĩa", why: "Không: bạn cũng thường trượt, nhưng đối thủ không biết khi nào. {{t:range|Dải bài}} của bạn với tư cách {{t:aggressor|người tấn công}} (người chơi {{t:raise|tố}} cuối cùng trước flop) mạnh hơn trên nhiều flop, và {{t:bet|cược}} sẽ thắng {{t:pot}} khi đối thủ {{t:fold|bỏ bài}}." }
   - kind: numeric
     id: m5.l2.n-hit
     family: m5.math.miss
@@ -85,7 +85,7 @@ Trước flop, {{t:range|dải bài}} của những người chơi trông khác 
 
 Bạn có {{t:range-advantage|lợi thế dải bài}} khi trên một flop cụ thể, các tay của bạn trung bình mạnh hơn các tay của đối thủ. Trên [[Ks 7d 2c]] sau khi {{t:open|mở}} từ Button, chính bạn là người có nhiều lá K với kicker tốt hơn và nhiều {{t:pair|đôi}} cao hơn. {{t:big-blind|Big blind}} ở đây có nhiều tay đã trượt.
 
-Trên flop thấp, {{t:connected|liên kết}}, ví dụ [[7s 6h 5d]], {{t:range-advantage}} gần như biến mất, và {{t:big-blind}} thường có những tay mạnh nhất hơn: họ phòng thủ nhiều {{t:connectors|bài liên tiếp}} đồng chất và các tay có lá 6 hoặc lá 7, nên thường có {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn.
+Trên flop thấp, {{t:connected|liên kết}}, ví dụ [[7s 6h 5d]], {{t:range-advantage}} gần như biến mất, và {{t:big-blind}} thường có những tay mạnh nhất hơn: họ phòng thủ nhiều {{t:connectors|bài liên tiếp}} cùng chất và các tay có lá 6 hoặc lá 7, nên thường có {{t:two-pair}} hoặc {{t:straight|sảnh}} hơn.
 
 ## {{t:nuts-advantage|Lợi thế nuts}}
 

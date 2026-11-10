@@ -16,7 +16,7 @@ drills:
     rules: [R-M9-010]
     prompt: "{{t:spr}} trên flop là {{n:exam.m9.spr}}. Theo các vùng {{t:spr}}, tay bài nào sau đây là tay bài ở ranh giới: bạn chơi nó để lấy {{t:value|giá trị}}, nhưng không phải lúc nào cũng {{t:call|theo}} all-in của đối thủ?"
     options:
-      - { text: "{{t:top-pair|Đôi lớn nhất}} với kicker tốt", correct: true, why: "Đúng: {{n:exam.m9.spr}} nằm trong vùng từ {{n:spr.zone.low}} đến {{n:spr.zone.mid}}, nơi {{t:top-pair}} là tay bài ở ranh giới (đây là cách đơn giản hóa). Dưới {{n:spr.zone.low}}, nó thường sẽ chơi cho cả stack." }
+      - { text: "{{t:top-pair|Đôi cao nhất}} với kicker tốt", correct: true, why: "Đúng: {{n:exam.m9.spr}} nằm trong vùng từ {{n:spr.zone.low}} đến {{n:spr.zone.mid}}, nơi {{t:top-pair}} là tay bài ở ranh giới (đây là cách đơn giản hóa). Dưới {{n:spr.zone.low}}, nó thường sẽ chơi cho cả stack." }
       - { text: "Set", why: "Set chơi cho cả stack ngay cả khi {{t:spr}} trên {{n:spr.zone.deep}}. Với {{t:spr}} {{n:exam.m9.spr}}, đây rõ ràng là tay bài chơi cho cả stack." }
       - { text: "{{t:two-pair|Hai đôi}} từ hai lá cao nhất trên {{t:board|bài chung}}", why: "{{t:two-pair}} cao đủ để chơi cho stack ngay cả trong vùng từ {{n:spr.zone.mid}} đến {{n:spr.zone.deep}}. Với {{t:spr}} {{n:exam.m9.spr}}, đây là tay bài chơi cho cả stack, không phải tay bài ở ranh giới." }
   - kind: numeric

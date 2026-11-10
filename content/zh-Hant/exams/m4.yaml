@@ -89,16 +89,16 @@ drills:
     table: { hand: "As Ac", position: HJ }
     options:
       - { text: "4-bet 到約 {{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}", correct: true, why: "AA 你會做{{t:value|價值}} 4-bet。{{t:out-of-position|沒有位置}}時 4-bet 約為 3-bet 的 {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}}：{{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}，× {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}。" }
-      - { text: "{{t:call|跟注}}", why: "AA 想把整個籌碼都投進去。{{t:out-of-position|沒有位置}}時{{t:call|跟注}}會放棄{{t:value|價值}}和{{t:initiative|主動權}}。" }
+      - { text: "{{t:call|跟注}}", why: "AA 想把整個籌碼都投進去。{{t:out-of-position|沒有位置}}時{{t:call|跟注}}會放棄價值和{{t:initiative|主動權}}。" }
       - { text: "全下 {{n:format.stack}}", why: "全下會把對手原本會用來跟注普通 4-bet 的較弱手牌逼走。4-bet 到約 3-bet 的 {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} 之後，剩下的籌碼你無論如何都能輕鬆投進去。" }
   - kind: numeric
     id: m4.exam.n1
     family: m4.iso.size
     rules: [R-M4-012]
-    prompt: "兩名玩家跛入，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想要{{t:isolation|隔離加注}}。你要{{t:raise|加注}}到多少 bb？請輸入數字。"
+    prompt: "兩名玩家溜入，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想要{{t:isolation|隔離加注}}。你要{{t:raise|加注}}到多少 bb？請輸入數字。"
     table: { hand: "Qs Qc", position: SB }
     answer: exam.m4.iso.two-oop
-    explanation: "基本 {{n:pf.iso.base}}，兩名跛入者每人加 {{n:pf.iso.per-limper}}，再加 {{n:pf.iso.oop-extra}}，因為翻牌後你先行動：共 {{n:exam.m4.iso.two-oop}}。"
+    explanation: "基本 {{n:pf.iso.base}}，兩名溜入者每人加 {{n:pf.iso.per-limper}}，再加 {{n:pf.iso.oop-extra}}，因為翻牌後你先行動：共 {{n:exam.m4.iso.two-oop}}。"
   - kind: choice
     id: m4.exam.q10
     family: m4.iso.many
@@ -106,6 +106,6 @@ drills:
     prompt: "你前面有三名玩家只跟了{{t:big-blind|大盲}}。你在 {{t:cutoff|CO}}。你會怎麼做？"
     table: { hand: "Ad Kh", position: CO }
     options:
-      - { text: "{{t:raise|加注}}到 {{n:exam.m4.iso.three}}", correct: true, why: "面對多名跛入者，你{{t:raise|加注}}主要是為了{{t:value|價值}}，而 AK 正是這種手牌。尺寸：{{n:pf.iso.base}}，三名跛入者每人再加 {{n:pf.iso.per-limper}}。" }
-      - { text: "{{t:raise|加注}}到 {{n:pf.iso.one-limper}}", sizeError: true, why: "動作正確，但這是面對一名跛入者的尺寸。每多一名就加 {{n:pf.iso.per-limper}}，所以這裡是 {{n:exam.m4.iso.three}}。" }
-      - { text: "跟著跛入", why: "跟著跛入適合投機型手牌。AK 想要做大{{t:pot|底池}}，並減少對手人數。" }
+      - { text: "{{t:raise|加注}}到 {{n:exam.m4.iso.three}}", correct: true, why: "面對多名溜入者，你{{t:raise|加注}}主要是為了{{t:value|價值}}，而 AK 正是這種手牌。尺寸：{{n:pf.iso.base}}，三名溜入者每人再加 {{n:pf.iso.per-limper}}。" }
+      - { text: "{{t:raise|加注}}到 {{n:pf.iso.one-limper}}", sizeError: true, why: "動作正確，但這是面對一名溜入者的尺寸。每多一名就加 {{n:pf.iso.per-limper}}，所以這裡是 {{n:exam.m4.iso.three}}。" }
+      - { text: "跟著溜入", why: "跟著溜入適合投機型手牌。AK 想要做大{{t:pot|底池}}，並減少對手人數。" }

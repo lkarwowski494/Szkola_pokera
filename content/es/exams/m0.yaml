@@ -18,7 +18,7 @@ drills:
     prompt: "Tú tienes {{t:four-of-a-kind|póker}} de nueves y tu rival, {{t:full-house|full}} de reyes. ¿Quién gana?"
     table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
     options:
-      - { text: "Tú", correct: true, why: "El {{t:four-of-a-kind|póker}} ocupa el 3.º puesto del ranking y el {{t:full-house|full}}, el 4.º. Los reyes del rival no le ayudan, porque las jugadas son distintas." }
+      - { text: "Tú", correct: true, why: "El {{t:four-of-a-kind|póker}} ocupa el 3.er puesto del ranking y el {{t:full-house|full}}, el 4.º. Los reyes del rival no le ayudan, porque las jugadas son distintas." }
       - { text: "Tu rival, porque los reyes son más altos que los nueves", why: "La altura de las cartas solo se compara cuando la jugada es la misma. El {{t:four-of-a-kind|póker}} siempre gana al {{t:full-house|full}}." }
       - { text: "{{t:split-pot|Bote dividido}}, porque los dos usáis la {{t:board|mesa}}", why: "Los dos usáis las {{t:community-cards|cartas comunitarias}}, pero cada uno forma una combinación de cinco cartas distinta: tú, {{t:four-of-a-kind|póker}}; tu rival, {{t:full-house|full}}." }
   - kind: choice

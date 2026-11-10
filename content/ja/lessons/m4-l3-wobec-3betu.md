@@ -10,7 +10,7 @@ drills:
     id: m4.l3.q-mdf
     family: m4.vs3bet.math
     rules: [R-M4-007]
-    prompt: "{{t:cutoff|CO}}から{{n:pf.open-size}}に{{t:open|オープン}}し、ボタンが{{n:pf.3bet.ip-total}}に{{t:raise|レイズ}}、ブラインドは{{t:fold|フォールド}}しました。ボタンがどのハンドで3ベットしても利益を出せないようにするには、{{t:open|オープン}}{{t:range|レンジ}}の少なくともどれだけを続ける（{{t:call|コール}}または4ベットする）必要がありますか？"
+    prompt: "{{t:cutoff|CO}}から{{n:pf.open-size}}に{{t:open|オープン}}し、ボタンが{{n:pf.3bet.ip-total}}に{{t:raise|レイズ}}、ブラインドは{{t:fold|フォールド}}しました。ボタンがどんなハンドの3ベットでも利益を出せる状態にしないためには、{{t:open|オープン}}{{t:range|レンジ}}の少なくともどれだけを続ける（{{t:call|コール}}または4ベットする）必要がありますか？"
     table: { position: CO }
     options:
       - { text: "{{t:open|オープン}}{{t:range|レンジ}}の約{{n:mdf.vs-3bet-ip-size}}", correct: true, why: "ボタンは{{n:vs3bet.win}}を得るために{{n:pf.3bet.ip-total}}をリスクにさらしています。あなたが{{n:alpha.vs-3bet-ip-size}}より高い頻度で{{t:fold|フォールド}}すると、最も弱いハンドでも相手の3ベットは利益になります。" }

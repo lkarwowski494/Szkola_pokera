@@ -59,7 +59,7 @@ drills:
     id: m9.exam.q7
     family: m9.geo-srp
     rules: [R-M9-007]
-    prompt: "{{t:pot|Pote}} com um único raise, stacks de {{n:format.stack}}: no flop, o {{t:pot}} é de {{n:bb.pot-after.vs-btn}}, e cada um de vocês tem {{n:spr.srp.stack}} atrás. Você aposta o {{t:pot|pote}} inteiro no flop, no turn e no river, e o rival sempre {{t:call|paga}}. Quanto você coloca no total?"
+    prompt: "{{t:pot|Pote}} com um único aumento, stacks de {{n:format.stack}}: no flop, o {{t:pot}} é de {{n:bb.pot-after.vs-btn}}, e cada um de vocês tem {{n:spr.srp.stack}} atrás. Você aposta o {{t:pot|pote}} inteiro no flop, no turn e no river, e o rival sempre {{t:call|paga}}. Quanto você coloca no total?"
     table: { position: BTN }
     options:
       - { text: "{{n:srp.potbet.total}}: menos que o stack inteiro", correct: true, why: "Sim: {{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}} de um stack de {{n:spr.srp.stack}}. O {{t:pot|pote}} no flop é pequeno em relação ao stack, então o stack inteiro só entra com {{t:bet|apostas}} de cerca de {{n:geo.srp.3}} do {{t:pot|pote}} em cada {{t:street}}." }

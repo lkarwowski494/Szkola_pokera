@@ -71,7 +71,7 @@ drills:
     rules: [R-M12-002]
     prompt: "兩位玩家，{{t:standard-deviation|標準差}} {{n:var.sd}}，{{n:var.hands.k}} 千手牌。一位贏率 {{n:var.wr.ex}}，另一位 {{n:dd.wr-low}}。他們各自多常會遇到 {{n:dd.bi.big}} 個{{t:buy-in|買入}}的{{t:downswing|下風期}}？"
     options:
-      - { text: "第一位約 {{n:dd.p.big.100k}}，第二位約 {{n:dd.p.big.100k.wr-low}} 的情況", correct: true, why: "贏率較低，把結果往上拉的力量較弱，所以{{t:downswing|下風期}}更深、也更頻繁。在 {{n:dd.wr-low}}（微注級別贏錢玩家的典型贏率）下，{{n:dd.bi.big}} 個{{t:buy-in|買入}}的{{t:downswing|下風期}}在超過一半的樣本中出現。" }
+      - { text: "第一位約 {{n:dd.p.big.100k}}，第二位約 {{n:dd.p.big.100k.wr-low}} 的情況", correct: true, why: "贏率較低，把結果往上拉的力量較弱，所以{{t:downswing|下風期}}更深、也更頻繁。在 {{n:dd.wr-low}}（微級別贏錢玩家的典型贏率）下，{{n:dd.bi.big}} 個{{t:buy-in|買入}}的{{t:downswing|下風期}}在超過一半的樣本中出現。" }
       - { text: "兩人一樣常，因為{{t:standard-deviation|標準差}}相同", why: "{{t:standard-deviation|標準差}}決定波動幅度，但贏率決定結果多快擺脫波動。贏率 {{n:dd.wr-low}} 時，{{n:dd.bi.big}} 個{{t:buy-in|買入}}的{{t:downswing|下風期}}約在 {{n:dd.p.big.100k.wr-low}} 的樣本中出現，贏率 {{n:var.wr.ex}} 時約為 {{n:dd.p.big.100k}}。" }
       - { text: "都不會：{{n:dd.bi.big}} 個{{t:buy-in|買入}}的{{t:downswing|下風期}}只會發生在輸家身上", why: "錯。即使是贏率 {{n:var.wr.ex}} 的玩家，在 {{n:var.hands.k}} 千手牌的樣本中也約有 {{n:dd.p.big.100k}} 會遇到。" }
   - kind: choice
@@ -90,14 +90,14 @@ drills:
     prompt: "6 人桌無限注德州撲克現金局，典型的{{t:standard-deviation|標準差}}是多少？"
     options:
       - { text: "約 {{n:var.sd.low}}–{{n:var.sd.high}}", correct: true, why: "{{t:variance|變異數}}計算器給出的就是這個範圍。最常被當作典型值的是約 {{n:var.sd}}。打法越激進，{{t:standard-deviation|標準差}}越高。" }
-      - { text: "約 {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}", why: "這是微注級別贏錢玩家的典型贏率。{{t:standard-deviation|標準差}}比贏率大數十倍，所以結果才會波動這麼大。" }
+      - { text: "約 {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}", why: "這是微級別贏錢玩家的典型贏率。{{t:standard-deviation|標準差}}比贏率大數十倍，所以結果才會波動這麼大。" }
       - { text: "每 100 手約 {{n:var.sd.result.bi}} 個{{t:buy-in|買入}}", why: "這是打完 {{n:var.hands.k}} 千手牌後結果的{{t:standard-deviation|標準差}}，不是每 100 手的。" }
 ---
 你在撲克中的結果是兩件事的總和：你打得多好，以及運氣。這兩個部分都能測量。贏率告訴你平均贏多少，而{{t:standard-deviation|標準差}}告訴你結果在這個平均值周圍波動得多厲害。
 
 ## 兩個以 bb/100 表示的數字
 
-**贏率**是每 100 手牌的平均獲利，以{{t:big-blind|大盲注}}計算。微注級別的贏錢玩家通常是 {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}。
+**贏率**是每 100 手牌的平均獲利，以{{t:big-blind|大盲注}}計算。微級別的贏錢玩家通常是 {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}。
 
 **{{t:standard-deviation|標準差}}（SD）**是每 100 手牌結果的典型離散程度。在 6 人桌現金局中通常是 {{n:var.sd.low}}–{{n:var.sd.high}}，一般以 {{n:var.sd}} 作為典型值。{{t:standard-deviation|標準差}}比贏率大數十倍，所以一個{{t:session|場次}}、甚至一個月的結果，能說明的事情都很少。
 

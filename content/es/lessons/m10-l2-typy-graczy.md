@@ -26,7 +26,7 @@ drills:
     id: m10.l2.q-data-passive
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "Según los datos de población de micro límites online (NL25), los {{t:recreational|jugadores recreativos}} llegan al showdown en el {{n:mda.rec.wtsd}} de los casos y ganan el {{n:mda.rec.wsd}} de los showdowns; los {{t:regular|regulares}}, el {{n:mda.reg.wtsd}} y el {{n:mda.reg.wsd}}. ¿Qué se deduce de esto?"
+    prompt: "Según los datos de población de microlímites online (NL25), los {{t:recreational|jugadores recreativos}} llegan al showdown en el {{n:mda.rec.wtsd}} de los casos y ganan el {{n:mda.rec.wsd}} de los showdowns; los {{t:regular|regulares}}, el {{n:mda.reg.wtsd}} y el {{n:mda.reg.wsd}}. ¿Qué se deduce de esto?"
     options:
       - { text: "Los {{t:recreational|jugadores recreativos}} pagan hasta el final más a menudo y pierden más a menudo: {{t:call|igualan}} con manos más débiles", correct: true, why: "Llegan al showdown más a menudo y lo ganan menos, así que llegan con manos más débiles. Contra ellos apuestas {{t:value|por valor}} con más manos y {{t:bluff|faroleas}} menos." }
       - { text: "Los {{t:recreational|jugadores recreativos}} {{t:bluff|farolean}} más a menudo", why: "Estas cifras hablan de con qué frecuencia llegan al showdown y con qué, no de {{t:bluff|faroles}}. Ganan menos showdowns porque {{t:call|igualan}} con manos más débiles." }
@@ -77,7 +77,7 @@ drills:
     table: { hand: "Kc 9c", board: "Kd 7s 4h 2c Qh" }
     prompt: "Tu rival es un {{t:maniac|maníaco}}: {{t:vpip}} {{n:hud.ex.maniac.vpip}}, {{t:pfr}} {{n:hud.ex.maniac.pfr}} tras {{n:hud.ex.reg.hands}} manos. Ha apostado en todas las {{t:street|calles}} y en el river {{t:bet|apuesta}} todo el {{t:pot|bote}}. ¿Qué haces con {{t:top-pair|pareja mayor}} y un kicker débil?"
     options:
-      - { text: "{{t:call|Igualo}}", correct: true, why: "Contra un jugador que {{t:bluff|farolea}} más que en la base, las manos marginales para {{t:call|igualar}} ganan dinero. La {{t:pair|pareja}} máxima le gana a sus {{t:bluff|faroles}} y a parte de su valor." }
+      - { text: "{{t:call|Igualo}}", correct: true, why: "Contra un jugador que {{t:bluff|farolea}} más que en la base, las manos marginales para {{t:call|igualar}} ganan dinero. La {{t:pair|pareja}} mayor le gana a sus {{t:bluff|faroles}} y a parte de su valor." }
       - { text: "{{t:fold|Me retiro}}, porque una apuesta de todo el {{t:pot|bote}} indica una mano fuerte", why: "En un jugador que juega casi todas las manos {{t:raise|subiendo}} y apuesta en todas las {{t:street|calles}}, una apuesta grande incluye muchos {{t:bluff|faroles}}. Si {{t:fold|te retiras}}, le pagas por ser agresivo." }
       - { text: "{{t:raise|Subo}} all-in", why: "Una {{t:raise|subida}} hace que los {{t:bluff|faroles}} {{t:fold|se retiren}} y que las manos mejores {{t:call|igualen}}. Con una mano que caza {{t:bluff|faroles}}, basta con {{t:call|igualar}}." }
   - kind: choice

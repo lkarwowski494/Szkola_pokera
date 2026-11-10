@@ -60,7 +60,7 @@ drills:
     options:
       - { text: "약 {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "솔버 솔루션과 차트가 대략 이만큼 {{t:fold|폴드}}합니다. 상한은 {{n:alpha.vs-3bet-ip-size}} 기준선 바로 아래에 있습니다: 이보다 자주 폴드하면 상대의 3벳은 어떤 핸드로든 이익을 냅니다." }
       - { text: "AA와 KK를 제외한 거의 전부", why: "그러면 {{n:alpha.vs-3bet-ip-size}}보다 훨씬 자주 {{t:fold|폴드}}하므로, 상대는 아무 두 장의 카드로 3벳해도 이익을 냅니다." }
-      - { text: "4분의 1 미만", why: "{{t:fold|폴드}}가 너무 적습니다: 상대의 {{t:range|레인지}}에 지고 플롭 이후 플레이도 나쁜 핸드로 3벳에 돈을 내주게 됩니다." }
+      - { text: "4분의 1 미만", why: "{{t:fold|폴드}}가 너무 적습니다: 상대의 {{t:range|레인지}}에 지고 플롭 이후 플레이도 나쁜 핸드로 3벳을 콜하게 됩니다." }
   - kind: choice
     id: m4.exam.q7
     family: m4.vs3bet.oop
@@ -69,7 +69,7 @@ drills:
     table: { hand: "Ah Tc", position: HJ }
     options:
       - { text: "{{t:fold|폴드}}", correct: true, why: "오프수트 AT는 {{t:out-of-position|아웃 오브 포지션}}에서 AJ, AQ, AK에 자주 도미네이트당하고, 플롭 이후 {{t:equity-realization|에퀴티 실현}}이 잘 되지 않습니다. 이런 핸드는 3벳을 받으면 {{t:fold|폴드}}합니다." }
-      - { text: "{{t:call|콜}}", why: "에이스가 끌리지만, {{t:out-of-position|아웃 오브 포지션}}에서는 수딧 핸드와 {{t:pair|페어}}로 {{t:call|콜}}합니다. ATo는 더 약한 키커로 에이스를 맞추는 경우가 너무 많습니다." }
+      - { text: "{{t:call|콜}}", why: "에이스가 끌리지만, {{t:out-of-position|아웃 오브 포지션}}에서는 수티드 핸드와 {{t:pair|페어}}로 {{t:call|콜}}합니다. ATo는 더 약한 키커로 에이스를 맞히는 경우가 너무 많습니다." }
       - { text: "{{t:value|밸류}}로 4벳", why: "{{t:value|밸류}} 4벳은 보통 AA, KK, AK로 합니다. ATo는 이 핸드에 {{t:call|콜}}할 대부분의 핸드에 집니다." }
   - kind: choice
     id: m4.exam.q8
@@ -108,4 +108,4 @@ drills:
     options:
       - { text: "{{n:exam.m4.iso.three}}까지 {{t:raise|레이즈}}", correct: true, why: "림퍼가 많을 때는 주로 {{t:value|밸류}}를 위해 {{t:raise|레이즈}}하며, AK가 바로 그런 핸드입니다. 사이즈: 기본 {{n:pf.iso.base}}에 세 림퍼 각각 {{n:pf.iso.per-limper}}씩 추가." }
       - { text: "{{n:pf.iso.one-limper}}까지 {{t:raise|레이즈}}", sizeError: true, why: "좋은 액션이지만, 이는 림퍼 한 명을 상대할 때의 사이즈입니다. 림퍼가 한 명 늘 때마다 {{n:pf.iso.per-limper}}씩 추가되므로 여기서는 {{n:exam.m4.iso.three}}입니다." }
-      - { text: "림프 비하인드", why: "림프 비하인드는 스페큘레이티브 핸드에 어울립니다. AK는 {{t:pot|팟}}을 키우고 상대 수를 줄이고 싶어 합니다." }
+      - { text: "콜", why: "콜은 투기적인 핸드에 어울립니다. AK는 {{t:pot|팟}}을 키우고 상대 수를 줄이고 싶어 합니다." }

@@ -131,7 +131,7 @@ Aqui: {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = **{{n:io
 
 ## {{t:spr}}: quantas {{t:chips|fichas}} o adversário tem atrás
 
-O {{t:spr}} (stack em relação ao {{t:pot|pote}}) é o {{t:effective-stack|stack efetivo}}, ou seja, o menor dos dois, dividido pelo {{t:pot|pote}} no início da {{t:street|rodada}}. Dá para calcular o {{t:spr}} em qualquer {{t:street|rodada}}; aqui você o calcula no turn. Com um {{t:pot|pote}} de {{n:ex.pot}} e um stack de {{n:spr.stack.high}}, o {{t:spr}} é {{n:spr.high}}, ou seja, o adversário ainda tem vários {{t:pot|potes}} atrás; com um stack de {{n:spr.stack.low}}, é só {{n:spr.low}}. As implied odds não podem ser maiores que as {{t:chips|fichas}} que o adversário ainda tem à sua frente. Com {{t:spr}} baixo, quase só as pot odds importam. Mais sobre o {{t:spr}} no módulo “Plano da mão” (M9), que planeja a mão de acordo com o {{t:spr}} do flop.
+O {{t:spr}} (stack em relação ao {{t:pot|pote}}) é o {{t:effective-stack|stack efetivo}}, ou seja, o menor dos dois, dividido pelo {{t:pot|pote}} no início da {{t:street|rodada}}. Dá para calcular o {{t:spr}} em qualquer {{t:street|rodada}}; aqui você o calcula no turn. Com um {{t:pot|pote}} de {{n:ex.pot}} e um stack de {{n:spr.stack.high}}, o {{t:spr}} é {{n:spr.high}}, ou seja, o adversário ainda tem vários {{t:pot|potes}} atrás; com um stack de {{n:spr.stack.low}}, é só {{n:spr.low}}. As implied odds não podem ser maiores que as {{t:chips|fichas}} que o adversário ainda tem atrás. Com {{t:spr}} baixo, quase só as pot odds importam. Mais sobre o {{t:spr}} no módulo “Plano da mão” (M9), que planeja a mão de acordo com o {{t:spr}} do flop.
 
 ## Quando as implied odds são reais
 

@@ -22,7 +22,7 @@ drills:
     prompt: "Bạn có {{n:m11.thr.raise}} trở lên và là người đầu tiên {{t:open|mở}} pot. Bạn làm gì với một tay bài muốn chơi?"
     options:
       - { text: "Thường là tố (ví dụ tố tối thiểu)", correct: true, why: "Trên khoảng {{n:m11.thr.raise}}, các nguồn khuyên tố bình thường: bạn vẫn còn chỗ để {{t:fold|bỏ bài}} trước một cú {{t:raise|tố}} hoặc chơi sau flop." }
-      - { text: "Luôn all-in", why: "All-in với stack lớn như vậy là mạo hiểm nhiều chỉ để thắng các blind. Tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn tay mạnh hơn sẽ trả tiền cho bạn." }
+      - { text: "Luôn all-in", why: "All-in với stack lớn như vậy là mạo hiểm nhiều chỉ để thắng các blind. Tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn tay mạnh hơn sẽ theo." }
       - { text: "Push/fold như ở mức {{n:m11.thr.pushfold}}", why: "Push/fold là công cụ cho {{t:short-stack|stack ngắn}}: đến khoảng {{n:m11.thr.pushfold}}, và với các tay yếu hơn thì đến khoảng {{n:m11.thr.upper}}." }
   - kind: numeric
     id: m11.l1.n-m
@@ -67,7 +67,7 @@ drills:
     id: m11.l1.q-fold-equity
     family: m11.fold-equity
     rules: [R-M11-004]
-    prompt: "{{t:small-blind|Small blind}}, {{n:m11.depth.10}}, không có ante. {{t:big-blind}} phải {{t:fold|bỏ bài}} bao nhiêu lần trên một trăm để cú all-in bằng một tay bài hoàn toàn không có cơ hội hòa vốn?"
+    prompt: "{{t:small-blind|Small blind}}, {{n:m11.depth.10}}, không có ante. {{t:big-blind}} phải {{t:fold|bỏ bài}} bao nhiêu lần trên một trăm để cú all-in bằng một tay bài hoàn toàn không có cơ hội thắng đạt mức hòa vốn?"
     options:
       - { text: "Hơn {{n:m11.push.10.alpha}}", correct: true, why: "Bạn mạo hiểm {{n:m11.push.10.risk}} để thắng {{n:m11.push.10.win}}: {{n:m11.push.10.risk}} ÷ ({{n:m11.push.10.win}} + {{n:m11.push.10.risk}}) là khoảng {{n:m11.push.10.alpha}}. Đối thủ không {{t:fold|bỏ bài}} nhiều đến vậy, nên all-in chỉ có lời với tay bài cũng có equity khi đối thủ {{t:call|theo}}." }
       - { text: "Hơn một nửa", why: "Một nửa là đủ nếu bạn mạo hiểm bằng số bạn có thể thắng. Ở đây bạn mạo hiểm {{n:m11.push.10.risk}}, mà chỉ thắng {{n:m11.push.10.win}} blind." }
@@ -114,7 +114,7 @@ Bạn tính stack bằng {{t:big-blind|big blind}}. Các nguồn đồng ý ở 
 | Stack | Bạn thường làm gì |
 |---|---|
 | khoảng {{n:m11.thr.pushfold}} trở xuống | all-in hoặc {{t:fold}} |
-| từ {{n:m11.thr.pushfold}} đến {{n:m11.thr.upper}} | push/fold với các tay yếu và trung bình |
+| từ {{n:m11.thr.pushfold}} đến {{n:m11.thr.upper}} | push/fold với các tay yếu hơn và trung bình |
 | trên khoảng {{n:m11.thr.raise}} | tố thông thường |
 
 Vì sao không tố? Khi bạn có {{n:m11.depth.10}} và tố lên {{n:pf.open-size}}, bạn còn quá ít chip phía sau {{t:pot|pot}} đến mức gặp cú {{t:raise}} all-in, bạn gần như vẫn phải {{t:call|theo}}. Đối thủ biết bạn sẽ không {{t:fold|bỏ bài}}, nên không cần phải e ngại. All-in ngay lập tức ép ra nhiều **fold equity** nhất từ stack, tức là lợi nhuận đến từ việc đối thủ {{t:fold|bỏ bài}}.
@@ -135,7 +135,7 @@ Ví dụ: bạn có {{n:m11.m.stack}} {{t:chips|chip}}, blind {{n:m11.m.sb}}/{{n
 
 ## Stack càng ngắn, càng rộng
 
-Các lưới trong bài học này được solver của ứng dụng tính cho tình huống đơn giản nhất: mọi người đều đã {{t:fold|bỏ bài}}, bạn chơi từ {{t:small-blind|small blind}} với {{t:big-blind|big blind}}, và mỗi người chỉ có thể all-in hoặc {{t:fold|bỏ bài}}.
+Các lưới trong bài học này được solver của ứng dụng tính cho tình huống đơn giản nhất: mọi người đều đã {{t:fold|bỏ bài}}, bạn chơi từ {{t:small-blind|small blind}} đấu với {{t:big-blind|big blind}}, và mỗi người chỉ có thể all-in hoặc {{t:fold|bỏ bài}}.
 
 ```range
 push.sb-15

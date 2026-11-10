@@ -42,7 +42,7 @@ drills:
     prompt: "Tutti hanno {{t:fold|foldato}} fino a te. Cosa fai?"
     table: { hand: "Qs Js", position: BTN }
     options:
-      - { text: "{{t:raise|Rilancio}}", correct: true, why: "QJ dello stesso seme è un'ottima mano per attaccare i blind dalla {{t:position|posizione}}: centra {{t:straight|scale}}, colori e {{t:pair|coppie}} alte." }
+      - { text: "{{t:raise|Rilancio}}", correct: true, why: "QJ dello stesso seme è un'ottima mano per attaccare i blind in {{t:position|posizione}}: centra {{t:straight|scale}}, colori e {{t:pair|coppie}} alte." }
       - { text: "{{t:fold|Foldo}}", why: "Sul Button questa mano è troppo buona per {{t:fold|foldare}}." }
       - { text: "{{t:call|Chiamo}}", why: "Meglio {{t:raise|rilanciare}}: hai la possibilità di prendere subito i blind e giochi con l'{{t:initiative|iniziativa}}." }
 ---

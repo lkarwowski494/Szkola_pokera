@@ -791,9 +791,9 @@
         },
         "ranks": {
           "paired": "{{t:paired|ペアボード}}",
-          "connected": "{{t:connected|コネクト}}",
-          "semiConnected": "{{t:semi-connected|セミコネクト}}",
-          "disconnected": "{{t:disconnected|ディスコネクト}}"
+          "connected": "{{t:connected|コネクテッド}}",
+          "semiConnected": "{{t:semi-connected|セミコネクテッド}}",
+          "disconnected": "{{t:disconnected|ディスコネクテッド}}"
         },
         "wetness": {
           "dry": "{{t:dry|ドライ}}",
@@ -822,9 +822,9 @@
         },
         "ranks": {
           "paired": "{{t:paired|ペアボード}}のフロップは同じランクのカードが2枚か3枚あります。この場合、プレイヤーの2枚を使う{{t:straight|ストレート}}は不可能ですが、{{t:straight-draw|ストレートドロー}}は可能なことがあります",
-          "connected": "{{t:connected|コネクト}}のフロップは連続する5つのランクの範囲に異なる3つのランクがあるので、すでに{{t:straight|ストレート}}が可能です（エースは1としても数えます）",
-          "semiConnected": "{{t:semi-connected|セミコネクト}}のフロップは連続する5つのランクの範囲に2つのランクがありますが、3つではありません。まだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}（オープンエンドまたはガットショット）はすでに可能です",
-          "disconnected": "{{t:disconnected|ディスコネクト}}のフロップはランクが離れていて、どの2枚も連続する5つのランクの範囲に収まらないので、誰も{{t:straight-draw|ストレートドロー}}さえ持っていません"
+          "connected": "{{t:connected|コネクテッド}}のフロップは連続する5つのランクの範囲に異なる3つのランクがあるので、すでに{{t:straight|ストレート}}が可能です（エースは1としても数えます）",
+          "semiConnected": "{{t:semi-connected|セミコネクテッド}}のフロップは連続する5つのランクの範囲に2つのランクがありますが、3つではありません。まだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}（オープンエンドまたはガットショット）はすでに可能です",
+          "disconnected": "{{t:disconnected|ディスコネクテッド}}のフロップはランクが離れていて、どの2枚も連続する5つのランクの範囲に収まらないので、誰も{{t:straight-draw|ストレートドロー}}さえ持っていません"
         },
         "wetness": {
           "dry": "{{t:dry|ドライ}}のフロップは{{t:draw|ドロー}}が少ないです。{{scale}}",
@@ -857,9 +857,9 @@
       "prompt": {
         "height": "このフロップはどのくらい高いですか？",
         "suits": "このフロップのスートはいくつですか？",
-        "ranks": "このフロップは{{t:paired|ペアボード}}、{{t:connected|コネクト}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクト}}のどれですか？",
+        "ranks": "このフロップは{{t:paired|ペアボード}}、{{t:connected|コネクテッド}}、{{t:semi-connected|セミコネクテッド}}、{{t:disconnected|ディスコネクテッド}}のどれですか？",
         "wetness": "このフロップは{{t:dry|ドライ}}、中間、{{t:wet|ウェット}}のどれですか？",
-        "many": "各行でフロップの{{t:texture|テクスチャ}}を評価してください。"
+        "many": "各行でフロップの{{t:texture|テクスチャー}}を評価してください。"
       },
       "whyRight": "はい：{{def}}。{{fact}}",
       "whyWrong": "いいえ：{{def}}。{{fact}}",

@@ -95,6 +95,6 @@ La {{t:nuts-advantage|ventaja de nuts}} consiste en tener más manos de las más
 
 Una mano sin {{t:pair|pareja}}, p. ej., [[Jc Td]], no liga {{t:pair|pareja}} en el flop en aprox. el {{n:flop.miss.unpaired}} de los casos. De las {{n:cards.unseen.preflop}} cartas desconocidas, solo {{n:pair.outs.unpaired}} emparejan sus cartas. Las fuentes suelen dar aprox. {{n:flop.hit.one-pair}}: es la probabilidad de exactamente una {{t:pair|pareja}}; contando {{t:two-pair|dobles parejas}} y {{t:three-of-a-kind|tríos}}, la probabilidad de ligar es de aprox. {{n:flop.hit.unpaired}}. Por eso una {{t:bet}} en el flop a menudo gana el {{t:pot|bote}} al momento, incluso cuando tú no has ligado nada. Fallar no siempre significa {{t:fold|retirarse}}: el rival puede tener un {{t:draw|proyecto}} o dos cartas altas.
 
-:::note De dónde salen estos principios
+:::note De dónde salen estas reglas
 Los conceptos de {{t:range-advantage|ventaja de rango}} y {{t:nuts-advantage|ventaja de nuts}} proceden de materiales de teoría de juegos basados en resultados de solvers (un glosario de conceptos y un artículo sobre tamaños de c-bet). Las cifras de esta lección son cálculos exactos de la aplicación.
 :::

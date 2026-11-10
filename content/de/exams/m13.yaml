@@ -41,9 +41,9 @@ drills:
     rules: [R-M13-003]
     prompt: "Im Spiel hattest du J♣ T♣ auf dem {{t:board|Board}} 9♣ 8♦ 2♣. Welche dieser Konstellationen ist dieselbe Situation, hat also dieselbe richtige Entscheidung?"
     options:
-      - { text: "J♦ T♦ auf dem {{t:board|Board}} 9♦ 8♣ 2♦", correct: true, why: "Kreuz wurde gegen Karo getauscht und Karo gegen Kreuz, überall gleichzeitig. Du hast weiterhin einen {{t:flush-draw|Flush Draw}} und einen {{t:oesd|OESD}}, also ändert sich die Entscheidung nicht." }
-      - { text: "J♣ T♣ auf dem {{t:board|Board}} 9♦ 8♣ 2♦", why: "Die Farben wurden nur auf dem {{t:board|Board}} getauscht: Deine Kreuz passen nicht mehr zum {{t:board|Board}}, und der {{t:flush-draw|Flush Draw}} ist weg. Das ist eine andere Situation." }
-      - { text: "J♥ T♥ auf dem {{t:board|Board}} 9♣ 8♦ 2♣", why: "Die Farben wurden nur in deiner Hand getauscht: Herz passt nicht zu den Kreuz auf dem {{t:board|Board}}, also gibt es keinen {{t:flush-draw|Flush Draw}} mehr." }
+      - { text: "J♦ T♦ auf dem {{t:board|Board}} 9♦ 8♣ 2♦", correct: true, why: "Kreuz wurde gegen Karo getauscht und Karo gegen Kreuz, überall gleichzeitig. Du hast weiterhin einen {{t:flush-draw|Flush-Draw}} und einen {{t:oesd|OESD}}, also ändert sich die Entscheidung nicht." }
+      - { text: "J♣ T♣ auf dem {{t:board|Board}} 9♦ 8♣ 2♦", why: "Die Farben wurden nur auf dem {{t:board|Board}} getauscht: Deine Kreuz passen nicht mehr zum {{t:board|Board}}, und der {{t:flush-draw|Flush-Draw}} ist weg. Das ist eine andere Situation." }
+      - { text: "J♥ T♥ auf dem {{t:board|Board}} 9♣ 8♦ 2♣", why: "Die Farben wurden nur in deiner Hand getauscht: Herz passt nicht zu den Kreuz auf dem {{t:board|Board}}, also gibt es keinen {{t:flush-draw|Flush-Draw}} mehr." }
   - kind: choice
     id: m13.exam.q6
     family: m13.sample

@@ -77,7 +77,7 @@ drills:
     prompt: "Les piques ne sont pas rentrés. À la river, vous {{t:check|checkez}}, et le Bouton {{t:bet|mise}} la moitié du {{t:pot|pot}}. Que faites-vous ?"
     table: { hand: "7c 6c", board: "Kd 9s 5s 2c 3h", position: BB }
     options:
-      - { text: "{{t:fold|Je me couche}}", correct: true, why: "Vous n'avez que hauteur sept. Vous perdez même contre la plupart des {{t:bluff|bluffs}} du Bouton (dame avec des piques, valet avec des piques), donc ce n'est pas un bluff-catcher. Vous défendez avec d'autres mains." }
+      - { text: "{{t:fold|Je me couche}}", correct: true, why: "Vous n'avez qu'une hauteur sept. Vous perdez même contre la plupart des {{t:bluff|bluffs}} du Bouton (dame avec des piques, valet avec des piques), donc ce n'est pas un bluff-catcher. Vous défendez avec d'autres mains." }
       - { text: "{{t:call|Je paie}}, car le prix est bon", why: "Le prix ({{n:eq.bet-half}}) n'aidera pas une main qui perd contre presque tout, même contre les {{t:bluff|bluffs}}." }
       - { text: "{{t:raise|Je relance}} en {{t:bluff|bluff}}", why: "{{t:raise|Relancer}} en {{t:bluff|bluff}} à la river est un coup avancé et risqué. Il est plus simple et meilleur de se coucher avec une main sans chance." }
   - kind: choice

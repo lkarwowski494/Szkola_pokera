@@ -92,7 +92,7 @@ xác suất thua = 1 − equity
 - **Thiếu chính xác**: hành động đúng, kích cỡ sai, hoặc hành động mà solver có chơi, nhưng ít hơn {{n:range.mixed.min}} trường hợp. Được tính như sai lầm: đây là thiết lập của ứng dụng, không phải lý thuyết.
 - **Sai lầm**: hành động trái với quy tắc được phát biểu dứt khoát, hoặc hành động mà solver hoàn toàn không chơi.
 - **Không đánh giá**: ứng dụng không có quy tắc kiểm chứng được cho quyết định này. Điều này không có nghĩa là “tốt”.
-- **Hết giờ**: khi bật giới hạn thời gian, ứng dụng đã chơi thay bạn. Quyết định như vậy không được tính vào đánh giá, nhưng sẽ quay lại trong phần ôn tập.
+- **Quá thời gian**: khi bật giới hạn thời gian, ứng dụng đã chơi thay bạn. Quyết định như vậy không được tính vào đánh giá, nhưng sẽ quay lại trong phần ôn tập.
 
 Ở đầu báo cáo có con số “Đã đánh giá X trên Y quyết định”. Sau flop, nhiều quyết định không được đánh giá, vì phần lớn quy tắc ở turn và river nói về tần suất của toàn bộ {{t:range|dải bài}}, chứ không phải về một tay bài.
 

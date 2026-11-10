@@ -24,7 +24,7 @@ drills:
     options:
       - { text: "Parce qu'un adversaire {{t:in-position|en position}} voit votre action à chaque {{t:street|street}}, et que sa {{t:range}} est forte une fois qu'il a {{t:call|suivi}}", correct: true, why: "Oui : un joueur qui {{t:call|suit}} avec la {{t:position}} s'est {{t:fold|couché}} avec ses mains faibles et a souvent {{t:raise|relancé}} ses plus fortes. Il lui reste des mains moyennes et bonnes, et en plus il parle en dernier." }
       - { text: "Parce qu'un c-bet {{t:out-of-position|hors position}} est interdit", why: "Non : les règles permettent de miser depuis n'importe quelle place. Le fait est qu'un c-bet {{t:out-of-position|hors position}} est moins souvent rentable." }
-      - { text: "Parce qu'{{t:out-of-position|hors position}}, vous avez toujours la main la plus faible", why: "Non : votre main ne dépend pas de la {{t:position}}. Ce qui change, c'est la facilité avec laquelle vous réalisez son equity." }
+      - { text: "Parce qu'{{t:out-of-position|hors position}}, vous avez toujours la main la plus faible", why: "Non : votre main ne dépend pas de la {{t:position}}. Ce qui change, c'est la facilité avec laquelle vous réalisez son équité." }
   - kind: choice
     id: m5.l4.q-oop-strong
     family: m5.cbet.oop
@@ -44,7 +44,7 @@ drills:
     table: { hand: "Ad Qc", position: CO, board: "9h 7h 4s" }
     options:
       - { text: "{{t:check|Checker}}", correct: true, why: "Oui : contre deux adversaires, une main sans {{t:pair|paire}} et sans {{t:draw|tirage}} remporte rarement le {{t:pot}} avec une {{t:bet|mise}}. L'un des deux a plus souvent touché ce flop." }
-      - { text: "Petit c-bet, comme en tête-à-tête", why: "Contre deux adversaires, le {{t:bluff}} doit passer les deux, et les deux ratent en même temps bien moins souvent qu'un seul." }
+      - { text: "Petit c-bet, comme en tête-à-tête", why: "Contre deux adversaires, le {{t:bluff}} doit passer face aux deux, et les deux ratent en même temps bien moins souvent qu'un seul." }
       - { text: "Gros c-bet, pour faire coucher les deux", why: "Un gros {{t:bluff}} contre deux adversaires risque beaucoup, et la probabilité que les deux {{t:fold|se couchent}} est faible. Sur ce flop, ils ont beaucoup de {{t:pair|paires}} et de {{t:draw|tirages}}." }
   - kind: choice
     id: m5.l4.q-multi-value
@@ -100,7 +100,7 @@ Quand vous {{t:open|ouvrez}} depuis le {{t:cutoff|CO}} et que le Button {{t:call
 
 ## Contre plusieurs adversaires
 
-Chaque adversaire supplémentaire est une chance de plus que quelqu'un ait touché le flop. Une main sans {{t:pair|paire}} rate le flop dans env. {{n:flop.miss.unpaired}} des cas, mais deux en même temps seulement dans env. {{n:flop.miss.two}}. Un {{t:bluff}} doit passer tout le monde, donc contre plusieurs adversaires, vous renoncez surtout aux {{t:bluff|bluffs}}. Vous misez rarement et petit, surtout sur les flops qui touchent bien votre {{t:range}} ; sur un flop {{t:dry|sec}}, vous {{t:check|checkez}} souvent même avec une main très forte.
+Chaque adversaire supplémentaire est une chance de plus que quelqu'un ait touché le flop. Une main sans {{t:pair|paire}} rate le flop dans env. {{n:flop.miss.unpaired}} des cas, mais deux en même temps seulement dans env. {{n:flop.miss.two}}. Un {{t:bluff}} doit passer face à tous, donc contre plusieurs adversaires, vous renoncez surtout aux {{t:bluff|bluffs}}. Vous misez rarement et petit, surtout sur les flops qui touchent bien votre {{t:range}} ; sur un flop {{t:dry|sec}}, vous {{t:check|checkez}} souvent même avec une main très forte.
 
 :::note D'où viennent ces règles
 Les règles de cette leçon proviennent de résultats de solveurs publiés (c-bet {{t:out-of-position|hors position}}, c-bet sur un flop avec un as et dans un {{t:pot}} multiway) et de supports de formation ({{t:pot}} multiway). Ce sont des heuristiques : l'application n'indique pas de fréquences en pourcentage. La probabilité que deux mains ratent en même temps est un calcul exact pour deux mains de quatre rangs différents ; il ne tient pas compte de vos cartes, comme le chiffre pour une seule main.

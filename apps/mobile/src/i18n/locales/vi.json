@@ -64,7 +64,7 @@
   },
   "settings": {
     "title": "Cài đặt",
-    "purchases": "Mua hàng",
+    "purchases": "Giao dịch mua",
     "manage": "Quản lý gói đăng ký",
     "other": "Khác",
     "help": "Trợ giúp",
@@ -652,7 +652,7 @@
     "range": {
       "fold": "{{t:fold|Bỏ bài}}",
       "right": "Đúng. Solver chơi như vậy trong {{pct}} trường hợp.",
-      "acceptable": "Chấp nhận được. Solver chơi như vậy trong {{pct}} trường hợp, nên đây không phải sai lầm, nhưng nó thường chọn một hành động khác hơn. Tốt nhất hãy ghi nhớ hành động thường gặp hơn đó.",
+      "acceptable": "Chấp nhận được. Solver chơi như vậy trong {{pct}} trường hợp, nên đây không phải sai lầm, nhưng nó chọn một hành động khác thường xuyên hơn. Tốt nhất hãy ghi nhớ hành động thường gặp hơn đó.",
       "wrongRare": "Solver chỉ chơi như vậy trong {{pct}} trường hợp, tức là gần như không bao giờ.",
       "wrongVeryRare": "Với tay bài này, solver chơi như vậy ít hơn {{pct}} trường hợp.",
       "wrongNever": "Solver không bao giờ chơi như vậy với tay bài này.",

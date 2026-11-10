@@ -3,7 +3,7 @@ id: m1.l1
 module: m1
 order: 1
 title: "Ablauf einer Hand"
-sub: "Blinds, Straßen und mögliche Aktionen"
+sub: "Blinds, Streets und mögliche Aktionen"
 rules: [R-M1-001, R-M1-002, R-M1-003, R-M1-004]
 drills:
   - kind: choice
@@ -93,5 +93,5 @@ Wenn jemand {{t:bet|gesetzt}} hat, kannst du {{t:fold|folden}}, {{t:call|mitgehe
 :::
 
 :::note All-in und {{t:side-pot|Nebenpot}}
-Du kannst nicht mehr {{t:bet|setzen}}, als du vor dir liegen hast. Wenn du alle deine {{t:chips|Chips}} einzahlst, bist du **all-in**: Du bietest nicht mehr weiter mit, und die restlichen {{t:community-cards|Gemeinschaftskarten}} werden bis zum Ende ausgeteilt. Von jedem Gegner kannst du höchstens so viel gewinnen, wie du selbst eingezahlt hast. Spielen die anderen um mehr weiter, kommt der Überschuss in einen **{{t:side-pot|Nebenpot}}**, um den nur sie spielen.
+Du kannst nicht mehr {{t:bet|setzen}}, als du vor dir liegen hast. Wenn du alle deine {{t:chips|Chips}} einzahlst, bist du **all-in**: Du setzt danach nicht mehr, und die restlichen {{t:community-cards|Gemeinschaftskarten}} werden bis zum Ende ausgeteilt. Von jedem Gegner kannst du höchstens so viel gewinnen, wie du selbst eingezahlt hast. Spielen die anderen um mehr weiter, kommt der Überschuss in einen **{{t:side-pot|Nebenpot}}** (Side Pot), um den nur sie spielen.
 :::

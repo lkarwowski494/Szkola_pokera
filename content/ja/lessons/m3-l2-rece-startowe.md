@@ -42,7 +42,7 @@ drills:
     prompt: "全員があなたまで{{t:fold|フォールド}}しました。どうしますか？"
     table: { hand: "Qs Js", position: BTN }
     options:
-      - { text: "{{t:raise|レイズ}}", correct: true, why: "スーテッドのQJは、{{t:position|ポジション}}からブラインドを攻めるのにとても良いハンドです。{{t:straight|ストレート}}、フラッシュ、高い{{t:pair|ペア}}を作ります。" }
+      - { text: "{{t:raise|レイズ}}", correct: true, why: "スーテッドのQJは、{{t:position|ポジション}}を持ってブラインドを攻めるのにとても良いハンドです。{{t:straight|ストレート}}、フラッシュ、高い{{t:pair|ペア}}を作ります。" }
       - { text: "{{t:fold|フォールド}}", why: "ボタンでは、このハンドは{{t:fold|フォールド}}するには良すぎます。" }
       - { text: "{{t:call|コール}}", why: "{{t:raise|レイズ}}するほうが良いです。すぐにブラインドを獲得するチャンスがあり、{{t:initiative|イニシアチブ}}を持ってプレイできます。" }
 ---

@@ -10,7 +10,7 @@ drills:
     id: m7.l3.q-turn-odds
     family: m7.draw.odds
     rules: [R-M7-007]
-    prompt: "Trên flop, bạn có khoảng {{n:odds.flush.flop-river}} cơ hội ra {{t:flush}} trước river. Turn không giúp gì. Bây giờ cơ hội của bạn là bao nhiêu?"
+    prompt: "Trên flop, bạn có khoảng {{n:odds.flush.flop-river}} cơ hội ra {{t:flush}} cho đến river. Turn không giúp gì. Bây giờ cơ hội của bạn là bao nhiêu?"
     options:
       - { text: "Khoảng {{n:odds.flush.turn-river}}", correct: true, why: "Đúng: chỉ còn một lá. {{n:outs.flush}} out trên {{n:cards.unseen.turn}} lá chưa biết là {{n:odds.flush.turn-river}}, khoảng một nửa cơ hội so với trên flop." }
       - { text: "Vẫn khoảng {{n:odds.flush.flop-river}}, vì số out vẫn như cũ", why: "Số out vẫn như cũ, nhưng số lá còn lật ít hơn. {{n:odds.flush.flop-river}} tính cho hai lá, còn ở turn chỉ còn một lá." }
@@ -29,7 +29,7 @@ drills:
     prompt: "Turn. Bạn có bao nhiêu out để ra {{t:flush|thùng}} hoặc {{t:straight|sảnh}}? Hãy nhập một số."
     table: { hand: "Jh Th", board: "9h 8c 2h 3s" }
     answer: outs.combo
-    explanation: "Để ra {{t:flush|thùng}}: {{n:outs.flush}} lá cơ; để ra {{t:straight|sảnh}}: mọi lá đầm và mọi lá bảy, tức {{n:outs.oesd}} lá. Đầm cơ và bảy cơ đã được tính trong thùng, nên bạn trừ {{n:draw.combo.overlap}}: {{n:outs.combo.raw}} − {{n:draw.combo.overlap}} = {{n:outs.combo}}."
+    explanation: "Để ra {{t:flush|thùng}}: {{n:outs.flush}} lá cơ; để ra {{t:straight|sảnh}}: mọi lá Q và mọi lá 7, tức {{n:outs.oesd}} lá. Q cơ và 7 cơ đã được tính trong thùng, nên bạn trừ {{n:draw.combo.overlap}}: {{n:outs.combo.raw}} − {{n:draw.combo.overlap}} = {{n:outs.combo}}."
   - kind: choice
     id: m7.l3.q-combo-call
     family: m7.draw.call
@@ -63,8 +63,8 @@ drills:
     prompt: "Turn. Trong {{t:pot|pot}} có {{n:ex.third.pot}}, đối thủ {{t:bet|cược}} {{n:io.flush.bet}}. Mỗi người còn {{n:io.flush.stack}} phía sau, và đối thủ sẵn sàng trả tiền với {{t:pair|đôi}} A. Bạn làm gì?"
     table: { hand: "Kh Jh", position: BB, board: "Ah 8h 3c 2s" }
     options:
-      - { text: "{{t:call|Theo}}", correct: true, why: "Riêng giá thì không đủ ({{n:io.flush.eq}} so với khoảng {{n:odds.flush.turn-river}}), nhưng khi trúng bạn chỉ cần thắng thêm {{n:io.flush.extra}}. Bạn có {{t:draw|bài chờ}} tới {{t:flush|thùng}} mạnh nhất (A cơ nằm trên {{t:board|bàn}}, nên {{t:flush}} K là cao nhất), đối thủ còn nhiều {{t:chips|chip}} phía sau, và người chơi có {{t:pair|đôi}} A thường sẽ trả một lượt cược như vậy ở river. Lá trúng sẽ dễ thấy (lá cơ thứ ba), nhưng đối thủ có {{t:pair|đôi}} A vẫn thường trả tiền; vì thế implied odds ở đây nhỏ hơn so với khi trúng kín." }
-      - { text: "{{t:fold|Bỏ bài}}, vì {{n:odds.flush.turn-river}} ít hơn {{n:io.flush.eq}}", why: "Pot odds bảo “{{t:fold}}”, nhưng bạn đang bỏ qua implied odds. Chỉ thiếu {{n:io.flush.extra}}, và đối thủ còn {{n:io.flush.stack}} phía sau cùng một tay bài sẽ trả tiền." }
+      - { text: "{{t:call|Theo}}", correct: true, why: "Riêng giá thì không đủ ({{n:io.flush.eq}} so với khoảng {{n:odds.flush.turn-river}}), nhưng khi trúng bạn chỉ cần thắng thêm {{n:io.flush.extra}}. Bạn có {{t:draw|bài chờ}} tới {{t:flush|thùng}} mạnh nhất (A cơ nằm trên {{t:board|bài chung}}, nên {{t:flush}} K là cao nhất), đối thủ còn nhiều {{t:chips|chip}} phía sau, và người chơi có {{t:pair|đôi}} A thường sẽ trả một lượt cược như vậy ở river. Lá trúng sẽ dễ thấy (lá cơ thứ ba), nhưng đối thủ có {{t:pair|đôi}} A vẫn thường trả tiền; vì thế implied odds ở đây nhỏ hơn so với khi trúng kín." }
+      - { text: "{{t:fold|Bỏ bài}}, vì {{n:odds.flush.turn-river}} ít hơn {{n:io.flush.eq}}", why: "Pot odds bảo “{{t:fold}}”, nhưng bạn đang bỏ qua implied odds. Chỉ thiếu {{n:io.flush.extra}}, và đối thủ còn {{n:io.flush.stack}} phía sau và có một tay bài sẽ trả tiền." }
       - { text: "{{t:raise|Tố}} all-in", why: "Đối thủ có {{t:pair|đôi}} A nhiều khả năng sẽ {{t:call|theo}}, và khi đó bạn chỉ có khoảng {{n:odds.flush.turn-river}}. Tốt hơn là xem river với giá rẻ và thắng nhiều hơn khi trúng." }
   - kind: choice
     id: m7.l3.q-gutshot-short
@@ -83,8 +83,8 @@ drills:
     table: { hand: "6h 5h", position: BB, board: "Ah Kh 9c 2d" }
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn cần {{n:eq.bet-pot}}, còn bạn có khoảng {{n:odds.flush.turn-river}}. Thêm nữa, {{t:flush}} của bạn thấp: khi ra lá cơ, đối thủ có Q hoặc J cơ sẽ có {{t:flush}} tốt hơn, và đó là lúc bạn thua nhiều nhất (implied odds ngược)." }
-      - { text: "{{t:call|Theo}}, vì có implied odds", why: "Implied odds ở đây yếu: {{t:flush}} đã trúng vẫn có thể thua một thùng cao hơn, và ai cũng thấy lá cơ thứ ba trên {{t:board|bàn}}. Ngoài ra còn thiếu rất nhiều: giá là {{n:eq.bet-pot}}." }
-      - { text: "{{t:raise|Tố}}", why: "Một đối thủ thận trọng đã {{t:bet|cược}} cả {{t:pot|pot}} trên {{t:board|bàn}} có A và K hiếm khi {{t:fold|bỏ bài}}. Bạn mạo hiểm nhiều với một tay bài có thể thua ngay cả khi trúng." }
+      - { text: "{{t:call|Theo}}, vì có implied odds", why: "Implied odds ở đây yếu: {{t:flush}} đã trúng vẫn có thể thua một thùng cao hơn, và ai cũng thấy lá cơ thứ ba trên {{t:board|bài chung}}. Ngoài ra còn thiếu rất nhiều: giá là {{n:eq.bet-pot}}." }
+      - { text: "{{t:raise|Tố}}", why: "Một đối thủ thận trọng đã {{t:bet|cược}} cả {{t:pot|pot}} trên {{t:board|bài chung}} có A và K hiếm khi {{t:fold|bỏ bài}}. Bạn mạo hiểm nhiều với một tay bài có thể thua ngay cả khi trúng." }
   - kind: choice
     id: m7.l3.q-when-implied
     family: m7.implied.when
@@ -131,16 +131,16 @@ số cần thắng = số tiền phải theo × (số lá trượt ÷ số out)
 
 ## {{t:spr}}: đối thủ còn bao nhiêu {{t:chips|chip}} phía sau
 
-{{t:spr}} (tỷ lệ stack so với {{t:pot|pot}}) là {{t:effective-stack}}, tức stack nhỏ hơn trong hai stack, chia cho {{t:pot|pot}} ở đầu {{t:street|vòng cược}}. Có thể tính {{t:spr}} ở bất kỳ {{t:street|vòng cược}} nào; ở đây bạn tính nó ở turn. Với {{t:pot|pot}} {{n:ex.pot}} và stack {{n:spr.stack.high}}, {{t:spr}} bằng {{n:spr.high}}, tức đối thủ còn vài {{t:pot|pot}} phía sau, còn với stack {{n:spr.stack.low}} thì chỉ là {{n:spr.low}}. Implied odds không thể lớn hơn số {{t:chips}} mà đối thủ còn trước mặt. Với {{t:spr}} thấp, gần như chỉ pot odds là quan trọng. Tìm hiểu thêm về {{t:spr}} trong mô-đun “Kế hoạch ván bài” (M9), nơi lên kế hoạch cho ván bài theo {{t:spr}} từ flop.
+{{t:spr}} (tỷ lệ stack so với {{t:pot|pot}}) là {{t:effective-stack}}, tức stack nhỏ hơn trong hai stack, chia cho {{t:pot|pot}} ở đầu {{t:street|vòng cược}}. Có thể tính {{t:spr}} ở bất kỳ {{t:street|vòng cược}} nào; ở đây bạn tính nó ở turn. Với {{t:pot|pot}} {{n:ex.pot}} và stack {{n:spr.stack.high}}, {{t:spr}} bằng {{n:spr.high}}, tức đối thủ còn vài {{t:pot|pot}} phía sau, còn với stack {{n:spr.stack.low}} thì chỉ là {{n:spr.low}}. Implied odds không thể lớn hơn số {{t:chips}} mà đối thủ còn trước mặt. Với {{t:spr}} thấp, gần như chỉ pot odds là quan trọng. Tìm hiểu thêm về {{t:spr}} trong mô-đun “Lên kế hoạch cho ván bài” (M9), nơi lên kế hoạch cho ván bài theo {{t:spr}} từ flop.
 
 ## Khi nào implied odds là thật
 
 - bạn có {{t:draw}} tới **tay bài mạnh nhất** ({{t:flush}} cao nhất có thể, thường là có A),
 - đối thủ có **tay bài mạnh** mà họ sẽ trả tiền,
 - đối thủ còn **nhiều {{t:chips|chip}}** phía sau ({{t:spr}} cao),
-- lá trúng **không dễ nhận ra** (ví dụ: gutshot ít lộ hơn lá cơ thứ ba trên {{t:board|bàn}}).
+- lá trúng **không dễ nhận ra** (ví dụ: gutshot ít lộ hơn lá cơ thứ ba trên {{t:board|bài chung}}).
 
-Implied odds ngược bất lợi cho bạn: khi bạn có {{t:draw}} tới {{t:flush|thùng}} thấp, hoặc tới {{t:straight|sảnh}} trong khi {{t:flush}} có thể xuất hiện trên {{t:board|bàn}}, đôi khi bạn trúng mà vẫn thua, lại còn thua trong {{t:pot|pot}} lớn.
+Implied odds ngược bất lợi cho bạn: khi bạn có {{t:draw}} tới {{t:flush|thùng}} thấp, hoặc tới {{t:straight|sảnh}} trong khi {{t:flush}} có thể xuất hiện trên {{t:board|bài chung}}, đôi khi bạn trúng mà vẫn thua, lại còn thua trong {{t:pot|pot}} lớn.
 
 :::note Các quy tắc này từ đâu ra
 Phép tính implied odds là phép tính chính xác dựa trên {{t:expected-value|giá trị kỳ vọng}}. Các điều kiện để implied odds là thật, cũng như implied odds ngược, là các quy tắc kinh nghiệm từ tài liệu đào tạo.

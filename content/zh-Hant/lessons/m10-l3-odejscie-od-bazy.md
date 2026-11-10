@@ -19,7 +19,7 @@ drills:
     id: m10.l3.q-small-shift
     family: m10.base.mixed
     rules: [R-M10-009]
-    prompt: "在一個已公開的 solver 範例中，對手在河牌的下注有約{{n:overbluff.lock}}是{{t:bluff|詐唬}}，而不是約{{n:overbluff.base}}。面對他的下注，你用抓{{t:bluff|詐唬}}的手牌應對時，有什麼改變？"
+    prompt: "在一個已公開的求解器範例中，對手在河牌的下注有約{{n:overbluff.lock}}是{{t:bluff|詐唬}}，而不是約{{n:overbluff.base}}。面對他的下注，你用抓{{t:bluff|詐唬}}的手牌應對時，有什麼改變？"
     options:
       - { text: "不再{{t:fold|棄牌}}：基準策略中混合的手牌，現在一律{{t:call|跟注}}", correct: true, why: "這樣就足以讓鎖定對手策略的解中，防守轉為純{{t:call|跟注}}。無差異的手牌會對最小的{{t:bluff|詐唬}}過量做出反應。" }
       - { text: "幾乎不變：幾個百分點太少，改變不了什麼", why: "對無差異的手牌來說，幾個百分點已經很多：在均衡中，{{t:call|跟注}}與{{t:fold|棄牌}}對它們的結果相同，所以任何{{t:bluff|詐唬}}過量都會讓天平倒向{{t:call|跟注}}。" }
@@ -30,7 +30,7 @@ drills:
     rules: [R-M10-009]
     prompt: "你知道對手在某條路線中{{t:bluff|詐唬}}的頻率低於均衡。一手抓{{t:bluff|詐唬}}的牌，在基準策略中有時{{t:call|跟注}}、有時{{t:fold|棄牌}}，你會怎麼打？"
     options:
-      - { text: "一律{{t:fold|棄牌}}", correct: true, why: "當{{t:bluff|詐唬}}少於均衡所需，無差異的手牌{{t:call|跟注}}就會虧損。solver 的結果：{{t:bluff|詐唬}}不足時，一律{{t:fold|棄牌}}。" }
+      - { text: "一律{{t:fold|棄牌}}", correct: true, why: "當{{t:bluff|詐唬}}少於均衡所需，無差異的手牌{{t:call|跟注}}就會虧損。求解器的結果：{{t:bluff|詐唬}}不足時，一律{{t:fold|棄牌}}。" }
       - { text: "一律{{t:call|跟注}}，以免對手用{{t:bluff|詐唬}}占我便宜", why: "{{t:bluff|詐唬}}太少的對手，無法利用你的{{t:fold|棄牌}}。是你藉由{{t:fold|棄牌}}利用他的錯誤。" }
       - { text: "照基準策略打，一半一半", why: "只有兩種決策結果相同時，混合才有意義。{{t:bluff|詐唬}}不足時，{{t:fold|棄牌}}的收益更高。" }
   - kind: numeric
@@ -46,7 +46,7 @@ drills:
     rules: [R-M10-010]
     prompt: "對手在{{n:hud.ex.reg.hands}}手牌中的 fold to c-bet 為{{n:hud.ex.fcb.high}}。你在{{t:dry|乾燥}}的翻牌上什麼都沒中。沒有牌時下 1/3 {{t:pot|底池}}的 c-bet 划算嗎？"
     options:
-      - { text: "划算：對手{{t:fold|棄牌}}的頻率高於{{n:alpha.cbet.small}}，所以 c-bet 立即獲利", correct: true, why: "1/3 {{t:pot|底池}}的 c-bet 在{{t:fold|棄牌}}率{{n:alpha.cbet.small}}時損益兩平。對手{{t:fold|棄牌}}的頻率高得多，所以在你計算手牌的權益之前，c-bet 就已經獲利。fold to c-bet 綜合了所有下注尺度和牌桌，因此只是近似值。" }
+      - { text: "划算：對手{{t:fold|棄牌}}的頻率高於{{n:alpha.cbet.small}}，所以 c-bet 立即獲利", correct: true, why: "1/3 {{t:pot|底池}}的 c-bet 在{{t:fold|棄牌}}率{{n:alpha.cbet.small}}時損益兩平。對手{{t:fold|棄牌}}的頻率高得多，所以在你計算手牌的權益之前，c-bet 就已經獲利。fold to c-bet 綜合了所有下注尺度和牌面，因此只是近似值。" }
       - { text: "不划算：沒有牌就不下注", why: "{{t:bluff|詐唬}}不需要牌，需要的是對手{{t:fold|棄牌}}。當對手{{t:fold|棄牌}}的頻率高於{{n:alpha.cbet.small}}，c-bet 用任何手牌都能賺錢。" }
       - { text: "只用大尺度，因為小注逼不走手牌", why: "下注越大，需要的{{t:fold|棄牌}}越多：3/4 {{t:pot|底池}}時高達{{n:alpha.cbet.big}}。如果對手本來就常{{t:fold|棄牌}}，小 c-bet 能用更低的成本做到。" }
   - kind: choice
@@ -55,7 +55,7 @@ drills:
     rules: [R-M10-010, R-M10-006]
     prompt: "對手在{{n:hud.ex.reg.hands}}手牌中的 fold to c-bet 為{{n:hud.ex.fcb.low}}。你沒中翻牌，也沒有{{t:draw|聽牌}}。你考慮下 3/4 {{t:pot|底池}}的 c-bet。你怎麼做？"
     options:
-      - { text: "{{t:check|過牌}}：這位對手{{t:fold|棄牌}}的頻率低於大 c-bet 所需", correct: true, why: "3/4 {{t:pot|底池}}的 c-bet 要到{{n:alpha.cbet.big}}的{{t:fold|棄牌}}率才損益兩平，而對手的{{t:fold|棄牌}}率是{{n:hud.ex.fcb.low}}。沒有牌也沒有 outs，這種{{t:bluff|詐唬}}會虧損。" }
+      - { text: "{{t:check|過牌}}：這位對手{{t:fold|棄牌}}的頻率低於大 c-bet 所需", correct: true, why: "3/4 {{t:pot|底池}}的 c-bet 要到{{n:alpha.cbet.big}}的{{t:fold|棄牌}}率才損益兩平，而對手的{{t:fold|棄牌}}率是{{n:hud.ex.fcb.low}}。沒有牌也沒有補牌，這種{{t:bluff|詐唬}}會虧損。" }
       - { text: "下注，因為 c-bet 是標準打法", why: "沒有牌的 c-bet，只有在對手{{t:fold|棄牌}}夠頻繁，或手牌有權益時才是好的。這裡兩者都沒有。" }
       - { text: "全下，逼對手{{t:fold|棄牌}}", why: "下注越大，需要的{{t:fold|棄牌}}越多。很少{{t:fold|棄牌}}的對手，不會因為你{{t:bet|下注}}更多就更常{{t:fold|棄牌}}。" }
   - kind: choice
@@ -63,7 +63,7 @@ drills:
     family: m10.base.3bet
     rules: [R-M10-011]
     table: { hand: "Kh Jh", position: "BTN" }
-    prompt: "一位 fold to 3-bet 為{{n:mda.rec.f3b}}的{{t:recreational|娛樂玩家}}從{{t:cutoff|關煞位}}{{t:open|開池}}。你在按鈕位。在基準策略中，KJs 有時{{t:call|跟注}}，A5s 有時用來 3-bet {{t:bluff|詐唬}}。面對這位玩家你怎麼打？"
+    prompt: "一位 fold to 3-bet 為{{n:mda.rec.f3b}}的{{t:recreational|娛樂玩家}}從{{t:cutoff|CO}}{{t:open|開池}}。你在按鈕位。在基準策略中，KJs 有時{{t:call|跟注}}，A5s 有時用來 3-bet {{t:bluff|詐唬}}。面對這位玩家你怎麼打？"
     options:
       - { text: "KJs 3-bet 拿{{t:value|價值}}，A5s 不拿來 3-bet {{t:bluff|詐唬}}", correct: true, why: "面對 3-bet 很少{{t:fold|棄牌}}的玩家，常會用較弱的手牌{{t:call|跟注}}，所以較強的手牌靠 3-bet 賺錢。3-bet {{t:bluff|詐唬}}要在{{t:fold|棄牌}}率超過{{n:alpha.vs-3bet-ip-size}}時才會立即獲利，而這位玩家的{{t:fold|棄牌}}率是{{n:mda.rec.f3b}}。" }
       - { text: "3-bet A5s，因為帶{{t:blocker|阻擋牌}}的{{t:bluff|詐唬}}是好的 3-bet", why: "在基準策略中是這樣，那是面對約一半時候會{{t:fold|棄牌}}的對手。這位對手的{{t:fold|棄牌}}率是{{n:mda.rec.f3b}}，所以這個{{t:bluff|詐唬}}幾乎總是拿弱牌打大{{t:pot|底池}}。" }
@@ -72,7 +72,7 @@ drills:
     id: m10.l3.q-3bet-data
     family: m10.base.3bet
     rules: [R-M10-011]
-    prompt: "根據線上微注級別（NL25）的族群數據，{{t:regular|常規玩家}}面對 3-bet 的{{t:fold|棄牌}}率為{{n:mda.reg.f3b}}，{{t:recreational|娛樂玩家}}則為{{n:mda.rec.f3b}}。有{{t:position|位置}}時 3-bet 到{{n:pf.3bet.ip-total}}，要在{{t:fold|棄牌}}率超過{{n:alpha.vs-3bet-ip-size}}時，沒有牌也能獲利。這代表什麼？"
+    prompt: "根據線上微級別（NL25）的族群數據，{{t:regular|常規玩家}}面對 3-bet 的{{t:fold|棄牌}}率為{{n:mda.reg.f3b}}，{{t:recreational|娛樂玩家}}則為{{n:mda.rec.f3b}}。有{{t:position|位置}}時 3-bet 到{{n:pf.3bet.ip-total}}，要在{{t:fold|棄牌}}率超過{{n:alpha.vs-3bet-ip-size}}時，沒有牌也能獲利。這代表什麼？"
     options:
       - { text: "面對{{t:recreational|娛樂玩家}}，3-bet 時幾乎不帶{{t:bluff|詐唬}}；面對{{t:regular|常規玩家}}，{{t:bluff|詐唬}}保留，但只用有權益的手牌", correct: true, why: "沒有任何族群{{t:fold|棄牌}}頻繁到讓 3-bet 在沒有牌時也能獲利。基準策略中的 3-bet {{t:bluff|詐唬}}靠翻牌後的權益和對手{{t:fold|棄牌}}獲利；面對{{t:fold|棄牌}}率{{n:mda.rec.f3b}}的玩家，主要只剩權益，所以你用{{t:linear|線性}}{{t:range|範圍}} 3-bet。" }
       - { text: "用任何手牌 3-bet 所有人，因為大家都很常{{t:fold|棄牌}}", why: "這裡沒有人{{t:fold|棄牌}}的頻率高於{{n:alpha.vs-3bet-ip-size}}。用任何手牌 3-bet 都會虧損。" }
@@ -96,7 +96,7 @@ drills:
 - 對手{{t:bluff|詐唬}}太多：{{t:mixed-hand|混合手牌}}一律{{t:call|跟注}}；
 - 對手{{t:bluff|詐唬}}太少：{{t:mixed-hand|混合手牌}}一律{{t:fold|棄牌}}。
 
-不需要太大的差距。在一個已公開的 solver 範例中（按鈕位在下注、{{t:check|過牌}}、下注的路線後於河牌下注），對手的{{t:bluff|詐唬}}從約{{n:overbluff.base}}變為約{{n:overbluff.lock}}，就讓{{t:big-blind|大盲}}的防守轉為純{{t:call|跟注}}。基準策略中一律{{t:fold|棄牌}}或一律繼續的手牌，只有在對手大幅偏離均衡時才會改變決策。
+不需要太大的差距。在一個已公開的求解器範例中（按鈕位在下注、{{t:check|過牌}}、下注的路線後於河牌下注），對手的{{t:bluff|詐唬}}從約{{n:overbluff.base}}變為約{{n:overbluff.lock}}，就讓{{t:big-blind|大盲}}的防守轉為純{{t:call|跟注}}。基準策略中一律{{t:fold|棄牌}}或一律繼續的手牌，只有在對手大幅偏離均衡時才會改變決策。
 
 ## 用門檻計算{{t:bluff|詐唬}}
 
@@ -108,11 +108,11 @@ drills:
 
 1/3 {{t:pot|底池}}的 c-bet 是{{n:alpha.cbet.small}}，3/4 {{t:pot|底池}}是{{n:alpha.cbet.big}}。{{t:hud|HUD}}上的 fold to c-bet 能顯示對手在門檻之上還是之下。這只是近似值：這項數據綜合了所有下注尺度和翻牌，而且你的手牌通常還有一些權益。在擊中對手{{t:range|範圍}}的翻牌上，他{{t:fold|棄牌}}的頻率會低於平均。
 
-線上微注級別（NL25）族群的玩家，面對翻牌 c-bet 平均有{{n:mda.all.fcb}}會{{t:fold|棄牌}}。這不一定是錯誤：solver 在翻牌{{t:out-of-position|無位置}}時，{{t:fold|棄牌}}的頻率也會高於{{t:mdf|MDF}}所示（模組 6）。因此，光是族群平均高於門檻，並不足以支持沒有牌時的 c-bet；你需要對特定對手的讀牌，或是沒有擊中他{{t:range|範圍}}的翻牌。
+線上微級別（NL25）族群的玩家，面對翻牌 c-bet 平均有{{n:mda.all.fcb}}會{{t:fold|棄牌}}。這不一定是錯誤：求解器在翻牌{{t:out-of-position|無位置}}時，{{t:fold|棄牌}}的頻率也會高於{{t:mdf|MDF}}所示（模組 6）。因此，光是族群平均高於門檻，並不足以支持沒有牌時的 c-bet；你需要對特定對手的讀牌，或是沒有擊中他{{t:range|範圍}}的翻牌。
 
 ## 3-bet 不{{t:fold|棄牌}}的玩家
 
-有{{t:position|位置}}時 3-bet 到{{n:pf.3bet.ip-total}}，只有在對手{{t:fold|棄牌}}的頻率高於{{n:alpha.vs-3bet-ip-size}}時，完全沒有牌也能獲利（模組 4）。線上微注級別（NL25）的族群數據：
+有{{t:position|位置}}時 3-bet 到{{n:pf.3bet.ip-total}}，只有在對手{{t:fold|棄牌}}的頻率高於{{n:alpha.vs-3bet-ip-size}}時，完全沒有牌也能獲利（模組 4）。線上微級別（NL25）的族群數據：
 
 | 族群 | Fold to 3-bet |
 |---|---|
@@ -126,5 +126,5 @@ drills:
 樣本越小，數據的誤差越大（第 1 課）。樣本小時，你只調整邊緣手牌，而且只朝讀牌的方向調整。大幅偏離、涵蓋整個{{t:range|範圍}}，只有在樣本夠大且對手錯誤明顯時才有意義。偏離基準策略本身就是一種錯誤，好的對手可以加以利用。
 
 :::note 資料來源
-{{t:mixed-hand|混合手牌}}的原則來自一份已公開、鎖定對手策略的 solver 分析（solver 的解，不是族群數據）。{{t:alpha|alpha}}門檻是計算結果。族群的 fold to 3-bet 與 fold to c-bet 來自公開的統計資料庫（一個大型線上平台，NL25–NL100，2026 年 10 月之前的{{n:mda.period.months}}個月）。fold to 3-bet 的界線與「小樣本，小偏離」原則，是兩份教學資料中的建議。
+{{t:mixed-hand|混合手牌}}的原則來自一份已公開、鎖定對手策略的求解器分析（求解器的解，不是族群數據）。{{t:alpha|alpha}}門檻是計算結果。族群的 fold to 3-bet 與 fold to c-bet 來自公開的統計資料庫（一個大型線上平台，NL25–NL100，2026 年 10 月之前的{{n:mda.period.months}}個月）。fold to 3-bet 的界線與「小樣本，小偏離」原則，是兩份教學資料中的建議。
 :::

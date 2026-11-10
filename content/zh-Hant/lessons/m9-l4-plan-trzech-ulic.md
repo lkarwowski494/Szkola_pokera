@@ -50,7 +50,7 @@ drills:
     id: m9.l4.q-line-3bet
     family: m9.plan-line
     rules: [R-M9-009]
-    prompt: "3-bet {{t:pot|底池}}，你有{{t:position|位置}}，{{t:spr}}約 {{n:spr.3bet-ip}}。你有暗三條，想在河牌前投入整個籌碼。該走哪條路線？"
+    prompt: "3-bet {{t:pot|底池}}，你有{{t:position|位置}}，{{t:spr}}約 {{n:spr.3bet-ip}}。你有暗三條，想到河牌為止投入整個籌碼。該走哪條路線？"
     table: { hand: "9c 9d", board: "9s 6h 2c", position: BTN }
     options:
       - { text: "翻牌、轉牌、河牌都{{t:bet|下注}}，每次約 {{n:geo.3bet-ip.3}} {{t:pot|底池}}", correct: true, why: "沒錯：{{n:geo.3bet-ip.flop}}、{{n:geo.3bet-ip.turn}} 和 {{n:geo.3bet-ip.river}} 加起來是 {{n:geo.3bet-ip.total}}，也就是整個籌碼。對手每條{{t:street|街}}都付出{{t:pot|底池}}中合理的一部分。" }

@@ -78,7 +78,7 @@
 - id: R-M2-001
   module: m2
   if: "翻牌時你有 {{n:draw.flush.seen}} 張{{t:flush|同花}}的牌"
-  then: "你有 {{n:outs.flush}} 張補牌：轉牌成{{t:flush|同花}}的機率約 {{n:odds.flush.flop-turn}}；只有在不必再面對{{t:bet|下注}}就能看到兩張牌時（all-in），到河牌的機率才約 {{n:odds.flush.flop-river}}"
+  then: "你有 {{n:outs.flush}} 張補牌：轉牌成{{t:flush|同花}}的機率約 {{n:odds.flush.flop-turn}}；只有在不必再面對{{t:bet|下注}}就能看到兩張牌時（全下），到河牌的機率才約 {{n:odds.flush.flop-river}}"
   because: "一個花色有 {{n:cards.per-suit}} 張牌，你看到了 {{n:draw.flush.seen}} 張；在翻牌{{t:call|跟注}}一次{{t:bet|下注}}只能買到一張牌"
   level: math
   source: "精確計算"
@@ -86,7 +86,7 @@
 - id: R-M2-002
   module: m2
   if: "你已經算好補牌數"
-  then: "你估算命中機率：看一張牌時補牌數 × 2，看兩張牌時補牌數 × 4；翻牌面對{{t:bet|下注}}時只算一張牌（× 2），只有在不必再面對{{t:bet|下注}}就能看到轉牌和河牌時（all-in）才用 × 4"
+  then: "你估算命中機率：看一張牌時補牌數 × 2，看兩張牌時補牌數 × 4；翻牌面對{{t:bet|下注}}時只算一張牌（× 2），只有在不必再面對{{t:bet|下注}}就能看到轉牌和河牌時（全下）才用 × 4"
   because: "對手可以讓你為河牌另外付錢；補牌最多 {{n:rule24.outs.max}} 張時，2 與 4 法則的誤差約 {{n:rule24.error.max.pp}} 個百分點"
   level: math
   source: "訓練網站，Poker drawing odds & outs explained（https://upswingpoker.com/poker-drawing-odds-outs-explained/）：「For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation」；計算：最大誤差為 10 張補牌時的 1.7 個百分點（文件 12 M0–M3）"
@@ -302,7 +302,7 @@
 - id: R-M4-012
   module: m4
   if: "你前面有一位或多位玩家只補齊{{t:big-blind|大盲}}（溜入）"
-  then: "你{{t:raise|加注}}到 {{n:pf.iso.base}}，每多一位溜入者再加 {{n:pf.iso.per-limper}}，{{t:out-of-position|無位置}}時再多 {{n:pf.iso.oop-extra}}"
+  then: "你{{t:raise|加注}}到 {{n:pf.iso.base}}，每位溜入者再加 {{n:pf.iso.per-limper}}，{{t:out-of-position|無位置}}時再多 {{n:pf.iso.oop-extra}}"
   because: "較小的{{t:raise|加注}}給溜入者太好的價格，也無法把這手牌從他們手上搶過來"
   level: heuristic
   check: { kind: iso-size, players: [6, 9], stackBb: [100], params: { base: "n:pf.iso.base", perLimper: "n:pf.iso.per-limper", oopExtra: "n:pf.iso.oop-extra" } }
@@ -469,7 +469,7 @@
   then: "你{{t:fold|棄牌}}的頻率高於{{t:mdf|MDF}}所示，中等{{t:pair|對子}}也一樣"
   because: "{{t:mdf|MDF}}假設對手{{t:bluff|詐唬}}得夠多；缺少{{t:bluff|詐唬}}時，用較弱的手牌{{t:call|跟注}}主要是在付錢給更好的手牌"
   level: exploit
-  population: "牌桌上觀察到的特定玩家；沒有族群資料（樣本、級別、平台），所以本規則不假設整群玩家都很少詐唬；兩個訓練網站的教練如此描述低級別的被動型娛樂玩家（為了娛樂而玩，通常比常客弱），但沒有手牌資料庫的數據"
+  population: "牌桌上觀察到的特定玩家；沒有族群資料（樣本、級別、平台），所以本規則不假設整群玩家都很少詐唬；兩個訓練網站的教練如此描述低級別的被動型娛樂玩家（為了娛樂而玩，通常比常規玩家弱），但沒有手牌資料庫的數據"
   source: "訓練網站，Bluff Catching: When to Call and When to Let It Go（https://deepfold.co/en/blog/bluff-catching-principles：被動型娛樂玩家不會在河牌用大額下注詐唬）；訓練網站，MDF in Poker: Why Most Players Misuse It（https://pokercoaching.com/blog/mdf-poker：「In low-stakes games, most players will bluff way less」）"
   sources: [{ kind: training, url: "https://deepfold.co/en/blog/bluff-catching-principles" }, { kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }]
 - id: R-M6-005
@@ -499,7 +499,7 @@
 - id: R-M6-008
   module: m6
   if: "你想在翻牌過牌加注（check-raise）"
-  then: "你主要用最強的手牌（{{t:two-pair|兩對}}、暗三）和{{t:draw|聽牌}}（{{t:flush|同花}}、{{t:oesd|兩頭順聽牌}}）來做；中等{{t:pair|對子}}通常{{t:call|跟注}}（簡化：面對小額 c-bet，求解器也會為了保護，用一部分{{t:top-pair|頂對}}和弱{{t:pair|對子}}{{t:raise|加注}}）"
+  then: "你主要用最強的手牌（{{t:two-pair|兩對}}、暗三條）和{{t:draw|聽牌}}（{{t:flush|同花}}、{{t:oesd|兩頭順聽牌}}）來做；中等{{t:pair|對子}}通常{{t:call|跟注}}（簡化：面對小額 c-bet，求解器也會為了保護，用一部分{{t:top-pair|頂對}}和弱{{t:pair|對子}}{{t:raise|加注}}）"
   because: "過牌加注後，較差的手牌通常會{{t:fold|棄牌}}，較好的則會付錢，所以中等{{t:pair|對子}}很少從中獲利；{{t:draw|聽牌}}有兩種贏法：對手{{t:fold|棄牌}}或命中"
   level: heuristic
   source: "訓練網站，5 Winning Check-Raising Strategies（求解器「check-raise all sorts of top pairs versus small bets」）；訓練網站（求解器圖表）（用暗三和聽牌過牌加注；弱對子為了保護）"
@@ -565,7 +565,7 @@
   sources: [{ kind: math }]
 - id: R-M7-005
   module: m7
-  if: "你在轉牌用{{t:polarized|兩極化}}的{{t:range|範圍}}下注（非常強的牌和帶{{t:draw|聽牌}}的{{t:semi-bluff|半詐唬}}，沒有中等手牌）"
+  if: "你在轉牌用{{t:polarized|極化}}的{{t:range|範圍}}下注（非常強的牌和帶{{t:draw|聽牌}}的{{t:semi-bluff|半詐唬}}，沒有中等手牌）"
   then: "你選擇大尺寸，例如{{t:pot|底池}}的 3/4，而中等手牌{{t:check|過牌}}"
   because: "強牌想在河牌前做大{{t:pot|底池}}，{{t:bluff|詐唬}}牌需要對手{{t:fold|棄牌}}，而中等手牌無法從大{{t:pot|底池}}中獲益"
   level: heuristic
@@ -617,7 +617,7 @@
   module: m7
   if: "你防守{{t:big-blind|大盲}}，而按鈕位{{t:open|開池}}後在翻牌沒有 c-bet（{{t:check|過牌}}）"
   then: "轉牌你更常自己下注（探測下注，probe bet），尤其在低牌面；在有 A 或 K 的牌面則較少"
-  because: "按鈕位拿很多強牌時會下注，所以{{t:check|過牌}}後他的強牌較少；不過在高牌面上，{{t:range-advantage|範圍優勢}}仍在他那邊"
+  because: "按鈕位的很多強牌本來會下注，所以{{t:check|過牌}}後他的強牌較少；不過在高牌面上，{{t:range-advantage|範圍優勢}}仍在他那邊"
   level: heuristic
   source: "商業求解器網站，The Turn Probe Bet；訓練網站，Turn Probe（Kanu7）；訓練網站，Probe Betting Explained"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
@@ -670,11 +670,11 @@
   then: "在均衡中，你的下注約有 {{n:bluff.share.bet-pot}} 是{{t:bluff|詐唬}}；一般來說，{{t:bluff|詐唬}}比例 = 下注 ÷ （{{t:pot|底池}} + 2·下注）"
   because: "這時對手只能贏{{t:bluff|詐唬}}的手牌剛好擁有所需權益（{{n:eq.bet-pot}}）：{{t:call|跟注}}或{{t:fold|棄牌}}都賺不到，所以你無法被剝削"
   level: math
-  source: "計算：抓詐唬手牌的無差異條件（簡化模型：兩極化範圍對上抓詐唬牌）；商業求解器網站，How to Solve Toy Games"
+  source: "計算：抓詐唬手牌的無差異條件（簡化模型：極化範圍對上抓詐唬牌）；商業求解器網站，How to Solve Toy Games"
   sources: [{ kind: solver-pub }, { kind: math }]
 - id: R-M8-005
   module: m8
-  if: "河牌你用{{t:polarized|兩極化}}的{{t:range|範圍}}改變下注尺寸"
+  if: "河牌你用{{t:polarized|極化}}的{{t:range|範圍}}改變下注尺寸"
   then: "下注越大，其中的{{t:bluff|詐唬}}越多；下注越小則越少：{{t:pot|底池}} 1/3 時約 {{n:bluff.share.bet-third}}，整個{{t:pot|底池}}時約 {{n:bluff.share.bet-pot}}"
   because: "下注越大，給對手的價格越差，所以他的{{t:call|跟注}}需要你的{{t:range|範圍}}中有更多{{t:bluff|詐唬}}才划算"
   level: math
@@ -683,7 +683,7 @@
 - id: R-M8-006
   module: m8
   if: "你在選擇河牌要用哪些手牌{{t:bluff|詐唬}}"
-  then: "你用攤牌時贏不了的最弱手牌{{t:bluff|詐唬}}（例如沒中的{{t:straight|順子}}{{t:draw|聽牌}}，或毫無勝算的大牌）；有攤牌價值的手牌{{t:check|過牌}}"
+  then: "你用攤牌時贏不了的最弱手牌{{t:bluff|詐唬}}（例如沒中的{{t:straight|順子}}{{t:draw|聽牌}}，或毫無勝算的高牌）；有攤牌價值的手牌{{t:check|過牌}}"
   because: "用{{t:check|過牌}}後常常能贏的牌{{t:bluff|詐唬}}，等於放棄那份勝利；毫無勝算的牌在{{t:bluff|詐唬}}失敗時沒有任何損失"
   level: heuristic
   source: "商業求解器網站，We're At The River. Our Hand Can't Win. Now What?；訓練網站，Polarized vs Linear Ranges"
@@ -691,7 +691,7 @@
 - id: R-M8-007
   module: m8
   if: "你在沒有攤牌價值的手牌中挑選{{t:bluff|詐唬}}牌"
-  then: "你挑一手帶有能阻擋對手強牌（也就是他會用來付錢的牌）的手牌（例如{{t:board|牌面}}上有三張同花色時，拿著該花色的 A）"
+  then: "你挑的手牌要有一張能阻擋對手強牌（也就是他會用來付錢的牌）的牌（例如{{t:board|牌面}}上有三張同花色時，拿著該花色的 A）"
   because: "當你拿著他最強手牌中的一張，對手這些牌的{{t:combo|組合}}就變少，所以他更常剩下要棄掉的牌"
   level: heuristic
   source: "M8 課程大綱；商業求解器網站，Blockers & Unblockers: The Secret to Picking Great Bluffs；訓練網站，What is Unblocking in Poker"
@@ -775,13 +775,13 @@
   module: m9
   if: "你在滿籌碼的單次加注{{t:pot|底池}}中（{{t:spr|SPR}}約 {{n:spr.srp}}），只有一{{t:pair|對}}"
   then: "你打價值，但通常不打算投入全部籌碼"
-  because: "要在河牌前投入全部籌碼，每一{{t:street|街}}都得下注超過{{t:pot|底池}}，而肯投入這麼多錢的對手，很少拿著比一{{t:pair|對}}還差的牌"
+  because: "要到河牌為止投入全部籌碼，每一{{t:street|街}}都得下注超過{{t:pot|底池}}，而肯投入這麼多錢的對手，很少拿著比一{{t:pair|對}}還差的牌"
   level: heuristic
   source: "幾何尺寸計算（m9.l3）；商業求解器網站，Stack-to-Pot Ratio；訓練網站，When to Check Top Pair"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: math }]
 - id: R-M9-006
   module: m9
-  if: "你想在河牌前用相同比例的{{t:bet|下注}}投入全部籌碼"
+  if: "你想到河牌為止用相同比例的{{t:bet|下注}}投入全部籌碼"
   then: "你在每一{{t:street|街}}都下注{{t:pot|底池}}的同一比例 f，使 (1 + 2f) 的「{{t:street|街}}數」次方 = 1 + 2·{{t:spr|SPR}}；在{{t:in-position|有位置}}的 3-bet {{t:pot|底池}}中，約為{{t:pot|底池}}的 {{n:geo.3bet-ip.3}}"
   because: "一次{{t:bet|下注}} f 加上一次{{t:call|跟注}}，會讓{{t:pot|底池}}乘以 (1 + 2f)，而當{{t:pot|底池}}長到{{t:pot|底池}} + 2·籌碼時就是全下"
   level: math
@@ -791,14 +791,14 @@
   module: m9
   if: "在籌碼 {{n:format.stack}} 的單次加注{{t:pot|底池}}中，你三{{t:street|街}}都下注"
   then: "你要記得，在 {{n:spr.srp.stack}} 的籌碼中，三次半{{t:pot|底池}}的{{t:bet|下注}}只投入 {{n:srp.half.total}}，三次{{t:pot|底池}}大小的{{t:bet|下注}}則投入 {{n:srp.potbet.total}}"
-  because: "翻牌的{{t:pot|底池}}相對於籌碼很小；每一{{t:street|街}}下注約{{t:pot|底池}}的 {{n:geo.srp.3}} 時，才會投入全部籌碼"
+  because: "翻牌的{{t:pot|底池}}相對於籌碼很小；每一{{t:street|街}}{{t:bet|下注}}約{{t:pot|底池}}的 {{n:geo.srp.3}} 時，才會投入全部籌碼"
   level: math
   source: "計算：下注加跟注讓底池乘以 (1 + 2f)"
   sources: [{ kind: math }]
 - id: R-M9-008
   module: m9
   if: "翻牌{{t:bet|下注}}前，你在規劃這手牌"
-  then: "你評估這手牌能打幾條{{t:value|價值}}街（街數是簡化）：非常強的牌（暗三、{{t:straight|順子}}、大{{t:two-pair|兩對}}）三條，踢腳好的{{t:top-pair|頂對}}或{{t:overpair|超對}}通常兩條，對手會用較弱的牌付錢時才打第三條；較弱的{{t:pair|對子}}一條或零條"
+  then: "你評估這手牌能打幾條{{t:value|價值}}街（{{t:street|街}}數是簡化）：非常強的牌（暗三條、{{t:straight|順子}}、大{{t:two-pair|兩對}}）三條，踢腳好的{{t:top-pair|頂對}}或{{t:overpair|超對}}通常兩條，對手會用較弱的牌付錢時才打第三條；較弱的{{t:pair|對子}}一條或零條"
   because: "每多一{{t:street|街}}，對手較差的手牌就會{{t:fold|棄牌}}，留在{{t:pot|底池}}裡的主要是比你好的手牌"
   level: heuristic
   source: "綜合：訓練網站，When to Check Top Pair（https://upswingpoker.com/when-to-check-top-pair/）：「In single raised pots, the stack-to-pot ratio (SPR) is too high to comfortably get 3 streets of value with many top pair hands.」；商業求解器網站，Stack-to-Pot Ratio（https://blog.gtowizard.com/stack-to-pot-ratio/）：「All top pairs and all nut flush draws are now indifferent between calling and folding」（SPR 16）；商業求解器網站，Pot Geometry（https://blog.gtowizard.com/pot-geometry/）：「Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage.」；各手牌的街數，包括較弱的對子：本應用的簡化（D-149）"
@@ -814,7 +814,7 @@
 - id: R-M9-010
   module: m9
   if: "你在規劃是否要用某手牌打全部籌碼"
-  then: "你看{{t:spr|SPR}}區間（簡化）：低於約 {{n:spr.zone.low}} 時通常{{t:top-pair|頂對}}就夠，{{n:spr.zone.low}} 到 {{n:spr.zone.mid}} 時{{t:top-pair|頂對}}是邊緣牌，{{n:spr.zone.mid}} 到 {{n:spr.zone.deep}} 時你通常需要大{{t:two-pair|兩對}}或更好，高於 {{n:spr.zone.deep}} 時則需要暗三、{{t:straight|順子}}或更好的牌"
+  then: "你看{{t:spr|SPR}}區間（簡化）：低於約 {{n:spr.zone.low}} 時通常{{t:top-pair|頂對}}就夠，{{n:spr.zone.low}} 到 {{n:spr.zone.mid}} 時{{t:top-pair|頂對}}是邊緣牌，{{n:spr.zone.mid}} 到 {{n:spr.zone.deep}} 時你通常需要大{{t:two-pair|兩對}}或更好，高於 {{n:spr.zone.deep}} 時則需要暗三條、{{t:straight|順子}}或更好的牌"
   because: "{{t:spr|SPR}}越高，投入全部籌碼所需的{{t:bet|下注}}次數越多，而到最後對手主要用強牌付錢；{{t:spr|SPR}} {{n:spr.zone.deep}} 時，要三次{{t:pot|底池}}大小的{{t:bet|下注}}才會投入全部籌碼"
   level: heuristic
   source: "有訓練網站的教練，SPR Strategy（https://www.splitsuit.com/spr-poker-strategy）：「less than 3 is an auto-stack off with top pair or better, between 3-6 is situational and based upon villain/board texture, and more than 6 SPR isn't a default stack-off」；商業求解器網站，Stack-to-Pot Ratio（https://blog.gtowizard.com/stack-to-pot-ratio/）：「at this higher SPR, stacking off with top pair starts to get a bit dicey」；6–13 區間：兩個訓練網站的交集：SPR（https://www.thepokerbank.com/strategy/concepts/spr/）：「Medium SPR = 7 - 16」、「Good hands for medium SPRs.」、「Top two pair. Sets.」；Poker SPR（https://pokercoaching.com/blog/poker-spr/）：「High SPR (8+): Deep stacks favor hands that make nutted combinations (sets, straights, flushes) over one-pair holdings.」；門檻 13：計算 (1+2·1)^3 = 1+2·13，以及 Flynn、Mehta、Miller，Professional No-Limit Hold'em，經由新聞網站（https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm）：「if you're heads-up and the stack-to-pot ratio is 13 going to the flop, you and your opponent can each make exactly three pot-sized bets」；區間界線：本應用的簡化（D-149）"
@@ -992,9 +992,9 @@
   sources: [{ kind: study }]
 - id: R-M12-006
   module: m12
-  if: "你注意到自己檔案中情緒失控（tilt）的第一個徵兆（例如被爆冷後生氣、想懲罰對手）"
+  if: "你注意到自己上頭側寫中的最初訊號（例如被爆冷後生氣、想懲罰對手）"
   then: "你立刻反應：深呼吸，再加上一句事先準備好的話，提醒自己為什麼這是{{t:variance|變異數}}，或是可以學習的錯誤"
-  because: "情緒失控一旦加劇，你就無法清楚思考，這時就再也控制不住了"
+  because: "上頭一旦加劇，你就無法清楚思考，這時就再也控制不住了"
   level: heuristic
   source: "Tendler，新聞網站訪談（2014）（「When tilt becomes too intense, it shuts down your ability to think」，「you must begin correcting tilt when it's small」）；Tendler 與 Carter，The Mental Game of Poker（2011），「injecting logic」技巧"
   sources: [{ kind: book }]
@@ -1109,14 +1109,14 @@
   module: m11
   if: "在有{{t:icm|ICM}}的{{t:tournament|錦標賽}}中，你{{t:call|跟注}}一個可能淘汰你的全下"
   then: "你需要的權益是 BF ÷ （BF + 1），其中泡沫因子 BF = 輸時損失的權益 ÷ 贏時增加的權益；在課程的範例中是 {{n:m11.bf.req}}，而以{{t:chips|籌碼}}計算時是 {{n:m11.bf.req-chips}}"
-  because: "在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中，輸掉時損失的錢比贏的時候增加的多，所以{{t:call|跟注}}必須比打{{t:chips|籌碼}}時更常贏"
+  because: "在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中，輸掉時損失的錢比贏的時候增加的多，所以{{t:call|跟注}}必須比在以{{t:chips|籌碼}}計價的遊戲中更常贏"
   level: math
   source: "ICM 計算（numbers.yaml，鍵 m11.bf.*）；商業求解器網站，What Is the Bubble Factor（https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/）：「$EV lost when you lose / $EV gained when you win = Bubble Factor」，「Required Equity = Bubble Factor / (Bubble Factor + 1)」"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/" }, { kind: math }]
 - id: R-M11-010
   module: m11
   if: "現在是{{t:bubble|泡沫期}}或{{t:final-table|決賽桌}}，而你是中等籌碼"
-  then: "你{{t:call|跟注}}全下的範圍比打{{t:chips|籌碼}}時緊很多，而{{t:cover|覆蓋}}你的大籌碼可以{{t:shove|推全下}}得更寬"
+  then: "你{{t:call|跟注}}全下的範圍比在以{{t:chips|籌碼}}計價的遊戲中緊很多，而{{t:cover|覆蓋}}你的大籌碼可以{{t:shove|推全下}}得更寬"
   because: "{{t:risk-premium|風險溢價}}：贏到的{{t:chips|籌碼}}價值低於輸掉的，而大籌碼在這過程中冒的風險比你小"
   level: heuristic
   source: "商業求解器網站，ICM Basics（https://blog.gtowizard.com/icm-basics/）：「chips won are worth less than chips lost」（不含顏色標記的文字），「Big stacks can threaten smaller stacks as they take on less risk when stacking off」；訓練網站，ICM at Final Tables（https://upswingpoker.com/icm-final-tables/）：「When it comes to calling versus shoves, you have to tighten up dramatically when big money is on the line」；訓練網站，Big Stack Advantage（https://upswingpoker.com/big-stack-advantage-stone-bubble/）：「Risk premiums are the additional equity needed to play for stacks. This means responding ranges tighten up considerably」；Ganzfried 與 Sandholm，AAMAS 2008（https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf），表 2：兩次全下後，大盲在錦標賽中跟注「0.021」，在單手牌中則是「0.197」"
@@ -1161,7 +1161,7 @@
   module: m13
   if: "你用同一套對換方式替換所有牌的花色（例如紅心換成黑桃，黑桃換成紅心）"
   then: "正確的決策不會改變"
-  because: "手牌和{{t:draw|聽牌}}的強度取決於花色是否相同，而不是是哪些花色；所以遊戲重播會用不同的花色呈現同一個情境"
+  because: "手牌和{{t:draw|聽牌}}的強度取決於花色是否相同，而不是是哪些花色；所以對局複習會用不同的花色呈現同一個情境"
   level: math
   source: "計算：牌型排名不區分花色（德州撲克規則），而花色置換會保留哪些牌同花色；在 poker-core 中以性質測試檢查（文件 02，文件 14，5.6）"
   sources: [{ kind: math }]
@@ -1185,7 +1185,7 @@
   module: m13
   if: "你輸了一個大{{t:pot|底池}}，或在某手牌中不知道該怎麼做"
   then: "你檢討那手牌；冤家牌（cooler，兩手強牌，任何一方都不可能合理地{{t:fold|棄牌}}）和爆冷（bad beat）則不花太多時間"
-  because: "冤家牌和爆冷每個人都會遇到，而有困難決策的牌局，才是值得檢討的那類"
+  because: "冤家牌和爆冷每個人都會遇到，而有困難決策的牌局，屬於值得檢討的那類"
   level: heuristic
   source: "手牌分析應用程式的部落格，How to Review Your Poker Hands（https://blog.checkreplay.com/poker-hand-review/）：「Big pots, especially the ones you lost.」；「Hands where you weren’t sure what to do.」；有訓練部落格的教練，How to Effectively Conduct Poker Hand Reviews（https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html）：「Coolers and bad beats happen to everybody. Learn how to differentiate them from the hands that matter and don't spend much time on them」"
   sources: [{ kind: training, url: "https://blog.checkreplay.com/poker-hand-review/" }, { kind: training, url: "https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html" }]

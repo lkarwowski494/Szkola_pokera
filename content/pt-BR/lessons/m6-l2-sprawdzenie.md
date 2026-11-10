@@ -95,7 +95,7 @@ drills:
       - { text: "Porque o Button sempre tem mão forte no flop", why: "O Button {{t:open|abre}} e faz c-bet com muitas mãos, inclusive com {{t:bluff|blefes}}. O problema é a sua {{t:position|posição}}, não a força dele." }
       - { text: "Porque é preciso guardar {{t:chips|fichas}} para oportunidades melhores", why: "O que conta é o {{t:expected-value|valor esperado}} de cada decisão, não economizar {{t:chips|fichas}}." }
 ---
-No M5 você jogou a c-bet como {{t:aggressor|agressor}}. Agora você está do outro lado: defende o {{t:big-blind}}, dá check no flop, e o Button {{t:bet|aposta}} uma c-bet. Lembre-se do M5: c-bet é uma {{t:bet|aposta}} do jogador que {{t:raise|aumentou}} no pré-flop, e a {{t:range-advantage}} depende da {{t:texture|textura}} do flop.
+No M5 você jogou a c-bet como {{t:aggressor|agressor}}. Agora você está do outro lado: defende o {{t:big-blind}}, dá check no flop, e o Button {{t:bet|aposta}} uma c-bet. Lembre-se do M5: c-bet é uma {{t:bet|aposta}} do jogador que {{t:raise|aumentou}} no preflop, e a {{t:range-advantage}} depende da {{t:texture|textura}} do flop.
 
 ## O preço da c-bet
 

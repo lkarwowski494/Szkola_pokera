@@ -53,12 +53,12 @@
     "renewsQuarter": "Zahlung alle 3 Monate. Verlängert sich automatisch bis zur Kündigung.",
     "renewsYear": "Zahlung einmal im Jahr. Verlängert sich automatisch bis zur Kündigung.",
     "oneTime": "Einmaliger Kauf, ohne weitere Zahlungen.",
-    "cancelInfo": "Du kündigst das Abo in den Einstellungen deines Apple-Accounts (Abonnements). Nach der Kündigung verlängert es sich nicht, und der Vollzugriff bleibt bis zum Ende des bezahlten Zeitraums bestehen.",
+    "cancelInfo": "Du kündigst das Abo in den Einstellungen deines Apple Accounts (Abonnements). Nach der Kündigung verlängert es sich nicht, und der Vollzugriff bleibt bis zum Ende des bezahlten Zeitraums bestehen.",
     "restore": "Käufe wiederherstellen",
     "close": "Schließen",
     "terms": "Nutzungsbedingungen (Terms of Use)",
     "privacy": "Datenschutzerklärung",
-    "noPurchases": "Wir haben auf diesem Apple-Account keine Käufe gefunden.",
+    "noPurchases": "Wir haben auf diesem Apple Account keine Käufe gefunden.",
     "pending": "Der Kauf wartet auf Freigabe. Der Zugriff wird automatisch aktiviert, sobald er freigegeben ist.",
     "failed": "Der Kauf konnte nicht abgeschlossen werden. Versuche es erneut.",
     "restoreFailed": "Die Käufe konnten nicht wiederhergestellt werden. Prüfe deine Verbindung und versuche es erneut."
@@ -653,13 +653,13 @@
       "royalFlush": "einen {{t:royal-flush|Royal Flush}}"
     },
     "paint": {
-      "explanation": "{{title}}. Grünes Feld: Du spielst die Hand und hast sie markiert. Zeichen „−“: eine Hand aus der {{t:range|Range}}, die fehlt. Zeichen „+“: markiert, aber der Solver {{t:fold|foldet}} sie. Punkt: eine {{t:mixed-hand|gemischte Hand}} (der Solver spielt sie nur manchmal) oder eine strittige Hand (der Solver weicht bei ihr von öffentlichen Tabellen ab), daher wird sie in beide Richtungen als richtig gewertet. Das Ergebnis zählt {{t:combo|Kombos}} ({{t:pair|Paar}} {{pairCombos}}, gleichfarbig {{suitedCombos}}, verschiedenfarbig {{offsuitCombos}}) nur unter den Händen aus der {{t:range|Range}} oder den markierten.",
+      "explanation": "{{title}}. Grünes Feld: Du spielst die Hand und hast sie markiert. Zeichen „−“: eine Hand aus der {{t:range|Range}}, die fehlt. Zeichen „+“: markiert, aber der Solver {{t:fold|foldet}} sie. Punkt: eine {{t:mixed-hand|gemischte Hand}} (der Solver spielt sie nur manchmal) oder eine strittige Hand (der Solver weicht bei ihr von öffentlichen Tabellen ab), daher wird sie in beide Richtungen als richtig gewertet. Das Ergebnis zählt {{t:combo|Kombinationen}} ({{t:pair|Paar}} {{pairCombos}}, gleichfarbig {{suitedCombos}}, verschiedenfarbig {{offsuitCombos}}) nur unter den Händen aus der {{t:range|Range}} oder den markierten.",
       "score": "Übereinstimmung mit dem Solver: {{score}} (bestanden ab {{pass}})."
     },
     "numeric": {
       "yours": "Deine Antwort: {{value}}",
       "exact": "Genau: {{value}}",
-      "diffPp": "Differenz: {{diff}} Pp.",
+      "diffPp": "Differenz: {{diff}} Prozentpunkte",
       "diff": "Differenz: {{diff}}"
     },
     "range": {
@@ -682,7 +682,7 @@
       "facts": "Deine besten fünf: {{heroCards}} ({{heroHand}}). Gegner: {{villainCards}} ({{villainHand}}).",
       "reason": {
         "category": "{{winner}} steht in der Rangfolge höher als {{loser}}.",
-        "kicker": "Die Kombination ist dieselbe, also entscheidet die erste unterschiedliche Beikarte (Kicker) in den besten fünf.",
+        "kicker": "Die Handkategorie ist dieselbe, also entscheidet die erste unterschiedliche Beikarte (Kicker) in den besten fünf.",
         "higherSameCategory": "Ihr habt beide {{hand}}, aber eine Hand ist höher.",
         "boardPlays": "Die besten fünf beider Spieler liegen auf dem {{t:board|Board}}, also „{{t:playing-the-board|spielen beide das Board}}“, und es gibt einen {{t:split-pot|Split Pot}}.",
         "identical": "Die besten fünf haben dieselben Ränge, also gibt es einen {{t:split-pot|Split Pot}}."
@@ -721,7 +721,7 @@
       "callWrong": "Nein. Laut {{t:icm|ICM}} brauchst du {{required}} Equity, und du hast {{equity}}.",
       "callWrongChips": "Nein. Laut {{t:icm|ICM}} brauchst du {{required}} Equity, und du hast {{equity}}. In einem Spiel um {{t:chips|Chips}} würde sich ein {{t:call|Call}} lohnen, aber hier kostet eine Niederlage mehr Geld, als ein Gewinn einbringt.",
       "foldRight": "Ja. Laut {{t:icm|ICM}} brauchst du {{required}} Equity, und du hast nur {{equity}}.",
-      "foldRightChips": "Ja. Laut {{t:icm|ICM}} brauchst du {{required}} Equity, und du hast nur {{equity}}. In einem Spiel um {{t:chips|Chips}} wäre das ein {{t:call|Call}}: Genau das ist die {{t:risk-premium|Risikoprämie}}.",
+      "foldRightChips": "Ja. Laut {{t:icm|ICM}} brauchst du {{required}} Equity, und du hast nur {{equity}}. In einem Spiel um {{t:chips|Chips}} wäre das ein {{t:call|Call}}: Genau das ist die {{t:risk-premium|Risk Premium}}.",
       "foldWrong": "Nein. {{equity}} Equity reicht: Laut {{t:icm|ICM}} liegt die Grenze bei {{required}}.",
       "callExplanation": "Deine Equity am {{t:prize-pool|Preispool}}: jetzt {{now}}, nach einem Gewinn {{win}}, nach einer Niederlage {{lose}}. Bubble Factor = Verlust ÷ Gewinn = {{loss}} ÷ {{gain}} ≈ {{bf}}, also brauchst du BF ÷ (BF + 1) ≈ {{required}} Equity. In einem Spiel um {{t:chips|Chips}} würden {{requiredChips}} reichen.",
       "equityPrompt": "{{table}} Wie viel ist dein Stack laut {{t:icm|ICM}} wert (Anteil am {{t:prize-pool|Preispool}})?",

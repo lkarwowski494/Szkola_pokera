@@ -14,7 +14,7 @@ drills:
     id: m9.exam.q2
     family: m9.spr-zone
     rules: [R-M9-010]
-    prompt: "Lo {{t:spr}} al flop è {{n:exam.m9.spr}}. Secondo le zone di {{t:spr}}, quale di queste mani è al limite: la giochi {{t:value|per value}}, ma non sempre {{t:call|chiami}} l'all-in dell'avversario?"
+    prompt: "Lo {{t:spr}} al flop è {{n:exam.m9.spr}}. Secondo le zone di {{t:spr}}, quale di queste mani è al limite: la giochi {{t:value|per valore}}, ma non sempre {{t:call|chiami}} l'all-in dell'avversario?"
     options:
       - { text: "{{t:top-pair|Top pair}} con un buon kicker", correct: true, why: "Sì: {{n:exam.m9.spr}} rientra nella zona da {{n:spr.zone.low}} a {{n:spr.zone.mid}}, in cui la {{t:top-pair|top pair}} è una mano al limite (è una semplificazione). Sotto {{n:spr.zone.low}} di solito giocherebbe per tutto lo stack." }
       - { text: "Set", why: "Un set gioca per tutto lo stack anche con lo {{t:spr}} sopra {{n:spr.zone.deep}}. Con lo {{t:spr}} a {{n:exam.m9.spr}} è nettamente una mano da tutto lo stack." }
@@ -34,7 +34,7 @@ drills:
     table: { hand: "Qh Qc", board: "Jd 7s 3c" }
     options:
       - { text: "Bet con il piano di giocare per tutto lo stack", correct: true, why: "Sì: dopo il bet e la {{t:call|chiamata}} nel {{t:pot|piatto}} ci sarebbero {{n:ex.half.total}}, più dei {{n:exam.m9.low.left}} che ti restano nello stack. Contro l'all-in dell'avversario ti servirebbe solo {{n:exam.m9.eq.low-after-half}} di equity, e un'{{t:overpair}} con uno {{t:spr}} così basso gioca per tutto lo stack." }
-      - { text: "Bet di {{n:ex.bet.half}} e {{t:fold|foldi}} se l'avversario va all-in", why: "Puntare e poi {{t:fold|foldare}} qui non ha senso: dopo il tuo bet, per {{t:call|chiamare}} l'all-in bastano {{n:exam.m9.eq.low-after-half}} di equity. O giochi per tutto lo stack, o {{t:check|fai check}}." }
+      - { text: "Bet di {{n:ex.bet.half}} e {{t:fold|fold}} se l'avversario va all-in", why: "Puntare e poi {{t:fold|foldare}} qui non ha senso: dopo il tuo bet, per {{t:call|chiamare}} l'all-in bastano {{n:exam.m9.eq.low-after-half}} di equity. O giochi per tutto lo stack, o {{t:check|fai check}}." }
       - { text: "{{t:check|Faccio check}} e {{t:fold|foldo}} su qualsiasi bet", why: "Con lo {{t:spr}} sotto {{n:spr.zone.low}} un'{{t:overpair}} è una mano da tutto lo stack. {{t:fold|Foldare}} su un bet significa cedere il {{t:pot|piatto}} con una mano molto forte." }
   - kind: choice
     id: m9.exam.q5
@@ -49,11 +49,11 @@ drills:
     id: m9.exam.q6
     family: m9.plan-streets
     rules: [R-M9-008]
-    prompt: "Hai {{t:open|aperto}} dal Button, il {{t:big-blind}} ha {{t:call|chiamato}}. Hai un'{{t:overpair}} di jack su un flop {{t:dry|secco}} e basso. Quante {{t:value|street di value}} regge di solito questa mano?"
+    prompt: "Hai {{t:open|aperto}} dal Button, il {{t:big-blind}} ha {{t:call|chiamato}}. Hai un'{{t:overpair}} di jack su un flop {{t:dry|secco}} e basso. Quante {{t:value|street di valore}} regge di solito questa mano?"
     table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
     options:
       - { text: "Di solito due, la terza quando l'avversario paga con mani più deboli", correct: true, why: "Sì: un'{{t:overpair}} la pagano i nove, i cinque e le {{t:pair|coppie}} più deboli, ma a ogni {{t:street}} le mani peggiori {{t:fold|foldano}} e nel {{t:pot|piatto}} restano soprattutto quelle migliori." }
-      - { text: "Tre, sempre", why: "Tre {{t:value|street di value}} le reggono di solito mani molto forti: set, {{t:straight|scale}}, {{t:two-pair|doppie coppie}} alte. Alla terza {{t:bet|puntata}} un'{{t:overpair}} di jack spesso paga mani migliori." }
+      - { text: "Tre, sempre", why: "Tre {{t:value|street di valore}} le reggono di solito mani molto forti: set, {{t:straight|scale}}, {{t:two-pair|doppie coppie}} alte. Alla terza {{t:bet|puntata}} un'{{t:overpair}} di jack spesso paga mani migliori." }
       - { text: "Nessuna: fai {{t:check}} fino allo showdown", why: "Troppo prudente: su un flop {{t:dry|secco}} un'{{t:overpair}} batte molte mani che pagheranno una o due {{t:bet|puntate}}." }
   - kind: choice
     id: m9.exam.q7
@@ -69,7 +69,7 @@ drills:
     id: m9.exam.q8
     family: m9.geo-size
     rules: [R-M9-009]
-    prompt: "{{t:pot|Piatto}} 3-bettato, sei in {{t:position|posizione}}, {{t:spr}} circa {{n:spr.3bet-ip}}. Hai una mano da tre {{t:value|street di value}} e vuoi mettere tutto lo stack. Un amico ti consiglia bet piccoli da 1/3 del {{t:pot|piatto}} su ogni {{t:street}}. Cosa succede se l'avversario {{t:call|chiama}} tre volte?"
+    prompt: "{{t:pot|Piatto}} 3-bettato, sei in {{t:position|posizione}}, {{t:spr}} circa {{n:spr.3bet-ip}}. Hai una mano da tre {{t:value|street di valore}} e vuoi mettere tutto lo stack. Un amico ti consiglia bet piccoli da 1/3 del {{t:pot|piatto}} su ogni {{t:street}}. Cosa succede se l'avversario {{t:call|chiama}} tre volte?"
     table: { position: BTN }
     options:
       - { text: "Metterai solo circa {{n:g3b.third.total}} del tuo stack di {{n:spr.3bet-ip.stack}}", correct: true, why: "Sì: i bet piccoli lasciano un {{t:pot|piatto}} piccolo per le {{t:street}} successive. Tutto lo stack entra con circa {{n:geo.3bet-ip.3}} del {{t:pot|piatto}} su ogni {{t:street}}, quindi la misura geometrica la scegli già al flop." }

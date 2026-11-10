@@ -41,7 +41,7 @@ drills:
     id: m1.exam.q5
     family: m1.streets
     rules: [R-M1-004]
-    prompt: "Quante {{t:community-cards|carte comuni}} ci sono sul {{t:board|tavolo}} durante le puntate al turn?"
+    prompt: "Quante {{t:community-cards|carte comuni}} ci sono sul {{t:board|board}} durante le puntate al turn?"
     options:
       - { text: "4", correct: true, why: "Il flop ha dato tre carte e il turn aggiunge la quarta. La quinta arriva solo al river." }
       - { text: "3", why: "Al flop ci sono tre carte. Il turn ne aggiunge una." }
@@ -53,7 +53,7 @@ drills:
     prompt: "Dopo le puntate al river siete rimasti in gioco tu e un avversario. Cosa succede ora?"
     options:
       - { text: "Scoprite le carte (showdown)", correct: true, why: "Il river è l'ultimo {{t:betting-round|giro di puntate}}. Se restano almeno due giocatori, mostrano le carte e la combinazione migliore vince il {{t:pot|piatto}}." }
-      - { text: "Esce ancora una carta", why: "Sul {{t:board|tavolo}} ci sono al massimo cinque carte. Dopo il river non ne escono altre." }
+      - { text: "Esce ancora una carta", why: "Sul {{t:board|board}} ci sono al massimo cinque carte. Dopo il river non ne escono altre." }
       - { text: "Il {{t:pot|piatto}} si divide sempre in parti uguali", why: "Si divide solo quando le combinazioni sono pari. Di solito vince la mano migliore." }
   - kind: choice
     id: m1.exam.q7

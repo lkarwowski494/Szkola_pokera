@@ -12,14 +12,14 @@ drills:
     rules: [R-M8-004]
     prompt: "River. Im {{t:pot|Pot}} sind {{n:ex.pot}}, du bettest den ganzen {{t:pot|Pot}}: {{n:ex.bet.pot}}. Deine {{t:range}} besteht aus sehr starken Händen und {{t:bluff|Bluffs}}. Welcher Anteil deiner Bets sollte aus {{t:bluff|Bluffs}} bestehen, damit dein Gegner dich nicht ausnutzen kann? Gib eine Prozentzahl ein."
     answer: bluff.share.bet-pot
-    explanation: "Anteil der {{t:bluff|Bluffs}} = Bet ÷ ({{t:pot}} + 2·Bet) = {{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = {{n:bluff.share.bet-pot}}. Jeder dritte Bet ist ein {{t:bluff}}: Dann verdient die Hand deines Gegners, die nur gegen {{t:bluff|Bluffs}} gewinnt, weder mit einem {{t:call|Call}} noch mit einem {{t:fold|Fold}} etwas."
+    explanation: "Anteil der {{t:bluff|Bluffs}} = Bet ÷ ({{t:pot}} + 2·Bet) = {{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = {{n:bluff.share.bet-pot}}. Jede dritte Bet ist ein {{t:bluff}}: Dann verdient die Hand deines Gegners, die nur gegen {{t:bluff|Bluffs}} gewinnt, weder mit einem {{t:call|Call}} noch mit einem {{t:fold|Fold}} etwas."
   - kind: numeric
     id: m8.l2.n-share-half
     family: m8.bluff.share
     rules: [R-M8-004, R-M8-005]
     prompt: "River. Im {{t:pot|Pot}} sind {{n:ex.pot}}, du bettest den halben {{t:pot|Pot}}: {{n:ex.bet.half}}. Welcher Anteil deiner Bets sind im Gleichgewicht {{t:bluff|Bluffs}}? Gib eine Prozentzahl ein."
     answer: bluff.share.bet-half
-    explanation: "{{n:ex.bet.half}} ÷ ({{n:ex.pot}} + {{n:ex.bet.half}} + {{n:ex.bet.half}}) = {{n:bluff.share.bet-half}}. Ein kleinerer Bet gibt deinem Gegner einen besseren Preis, daher gibt es weniger {{t:bluff|Bluffs}} als bei einem Bet über den ganzen {{t:pot|Pot}} ({{n:bluff.share.bet-pot}})."
+    explanation: "{{n:ex.bet.half}} ÷ ({{n:ex.pot}} + {{n:ex.bet.half}} + {{n:ex.bet.half}}) = {{n:bluff.share.bet-half}}. Eine kleinere Bet gibt deinem Gegner einen besseren Preis, daher gibt es weniger {{t:bluff|Bluffs}} als bei einer Bet über den ganzen {{t:pot|Pot}} ({{n:bluff.share.bet-pot}})."
   - kind: choice
     id: m8.l2.q-share-three-quarters
     family: m8.bluff.share
@@ -35,17 +35,17 @@ drills:
     rules: [R-M8-004, R-M8-005]
     prompt: "River. Im {{t:pot|Pot}} sind {{n:ex.pot}}, du bettest mehr als den {{t:pot|Pot}}: {{n:ex.bet.overbet}}. Welcher Anteil deiner Bets sind im Gleichgewicht {{t:bluff|Bluffs}}?"
     options:
-      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. Ein {{t:overbet|Overbet}}, also ein {{t:bet|Bet}}, der größer ist als der ganze {{t:pot|Pot}}, gibt deinem Gegner den schlechtesten Preis, daher kannst du darin die meisten {{t:bluff|Bluffs}} haben, aber immer noch weniger als die Hälfte." }
+      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. Eine {{t:overbet|Overbet}}, also eine {{t:bet|Bet}}, die größer ist als der ganze {{t:pot|Pot}}, gibt deinem Gegner den schlechtesten Preis, daher kannst du darin die meisten {{t:bluff|Bluffs}} haben, aber immer noch weniger als die Hälfte." }
       - { text: "{{n:alpha.bet-overbet}}", why: "Das ist Alpha für diese Größe: wie oft dein Gegner {{t:fold|folden}} muss, damit sich ein einzelner {{t:bluff}} lohnt. Der Anteil der {{t:bluff|Bluffs}} in der {{t:range|Range}} beträgt {{n:bluff.share.bet-overbet}}." }
-      - { text: "{{n:bluff.share.bet-pot}}", why: "So hoch ist der Anteil der {{t:bluff|Bluffs}} bei einem Bet über den ganzen {{t:pot|Pot}}. Bei einem Bet von {{n:ex.bet.overbet}} sind es mehr: {{n:bluff.share.bet-overbet}}." }
+      - { text: "{{n:bluff.share.bet-pot}}", why: "So hoch ist der Anteil der {{t:bluff|Bluffs}} bei einer Bet über den ganzen {{t:pot|Pot}}. Bei einer Bet von {{n:ex.bet.overbet}} sind es mehr: {{n:bluff.share.bet-overbet}}." }
   - kind: choice
     id: m8.l2.q-compare
     family: m8.bluff.size
     rules: [R-M8-005]
-    prompt: "Bei welchem Bet auf dem River hast du mehr {{t:bluff|Bluffs}} in deiner {{t:range|Range}}: 1/3 {{t:pot|Pot}} oder ganzer {{t:pot|Pot}}?"
+    prompt: "Bei welcher Bet auf dem River hast du mehr {{t:bluff|Bluffs}} in deiner {{t:range|Range}}: 1/3 {{t:pot|Pot}} oder ganzer {{t:pot|Pot}}?"
     options:
-      - { text: "Bei ganzem {{t:pot|Pot}}", correct: true, why: "Bei 1/3 {{t:pot|Pot}} sind etwa {{n:bluff.share.bet-third}} der Bets {{t:bluff|Bluffs}}, bei ganzem {{t:pot|Pot}} etwa {{n:bluff.share.bet-pot}}. Ein größerer Bet gibt deinem Gegner einen schlechteren Preis, deshalb braucht sein {{t:call}} mehr {{t:bluff|Bluffs}}, um sich zu lohnen." }
-      - { text: "Bei 1/3 {{t:pot|Pot}}", why: "Umgekehrt. Ein kleiner Bet gibt deinem Gegner einen guten Preis: Zum {{t:call|Callen}} reichen ihm etwa {{n:bluff.share.bet-third}} {{t:bluff|Bluffs}} unter deinen Bets. Bei mehr {{t:bluff|Bluffs}} würde er mit Gewinn bezahlen." }
+      - { text: "Bei ganzem {{t:pot|Pot}}", correct: true, why: "Bei 1/3 {{t:pot|Pot}} sind etwa {{n:bluff.share.bet-third}} der Bets {{t:bluff|Bluffs}}, bei ganzem {{t:pot|Pot}} etwa {{n:bluff.share.bet-pot}}. Eine größere Bet gibt deinem Gegner einen schlechteren Preis, deshalb braucht sein {{t:call}} mehr {{t:bluff|Bluffs}}, um sich zu lohnen." }
+      - { text: "Bei 1/3 {{t:pot|Pot}}", why: "Umgekehrt. Eine kleine Bet gibt deinem Gegner einen guten Preis: Zum {{t:call|Callen}} reichen ihm etwa {{n:bluff.share.bet-third}} {{t:bluff|Bluffs}} unter deinen Bets. Bei mehr {{t:bluff|Bluffs}} würde er mit Gewinn bezahlen." }
       - { text: "Gleich viele", why: "Der Anteil der {{t:bluff|Bluffs}} hängt von der Größe ab: etwa {{n:bluff.share.bet-third}} bei 1/3 {{t:pot|Pot}}, etwa {{n:bluff.share.bet-pot}} bei ganzem {{t:pot|Pot}}." }
   - kind: choice
     id: m8.l2.q-alpha-vs-share
@@ -53,7 +53,7 @@ drills:
     rules: [R-M8-004]
     prompt: "Du bettest auf dem River den ganzen {{t:pot|Pot}}. Alpha beträgt {{n:alpha.bet-pot}}, der Anteil der {{t:bluff|Bluffs}} {{n:bluff.share.bet-pot}}. Was sagt jede dieser Zahlen aus?"
     options:
-      - { text: "Alpha: wie oft dein Gegner {{t:fold|folden}} muss; Anteil: welcher Teil der Bets {{t:bluff|Bluffs}} sind", correct: true, why: "Alpha betrifft einen einzelnen {{t:bluff}} ohne Chance: Er kommt bei null heraus, wenn dein Gegner in {{n:alpha.bet-pot}} der Fälle {{t:fold|foldet}}. Der Anteil der {{t:bluff|Bluffs}} beschreibt die Zusammensetzung deiner {{t:range|Range}}: Jeder dritte Bet ist ein {{t:bluff}}, damit der {{t:call}} deines Gegners bei null herauskommt." }
+      - { text: "Alpha: wie oft dein Gegner {{t:fold|folden}} muss; Anteil: welcher Teil der Bets {{t:bluff|Bluffs}} sind", correct: true, why: "Alpha betrifft einen einzelnen {{t:bluff}} ohne Chance: Er kommt bei null heraus, wenn dein Gegner in {{n:alpha.bet-pot}} der Fälle {{t:fold|foldet}}. Der Anteil der {{t:bluff|Bluffs}} beschreibt die Zusammensetzung deiner {{t:range|Range}}: Jede dritte Bet ist ein {{t:bluff}}, damit der {{t:call}} deines Gegners bei null herauskommt." }
       - { text: "Das sind zwei Namen für dasselbe, eine davon ist falsch berechnet", why: "Beide sind richtig berechnet: Alpha = Bet ÷ ({{t:pot}} + Bet), Anteil der {{t:bluff|Bluffs}} = Bet ÷ ({{t:pot}} + 2·Bet). Sie beantworten verschiedene Fragen." }
       - { text: "Alpha: wie viele {{t:bluff|Bluffs}} du in deiner {{t:range|Range}} hast; Anteil: wie oft dein Gegner {{t:fold|foldet}}", why: "Umgekehrt. Alpha ist die Schwelle für {{t:fold|Folds}} deines Gegners bei einem einzelnen {{t:bluff}}, und der Anteil der {{t:bluff|Bluffs}} ist die Zusammensetzung deiner {{t:range|Range}} an Bets." }
   - kind: choice
@@ -87,18 +87,18 @@ drills:
     id: m8.l2.q-combos
     family: m8.bluff.combos
     rules: [R-M8-004]
-    prompt: "Auf dem River bettest du den ganzen {{t:pot|Pot}} mit einer {{t:range|Range}} aus {{n:bluff.ex.range}} {{t:combo|Combos}}: Value-Hände und {{t:bluff|Bluffs}}. Wie viele davon sind im Gleichgewicht {{t:bluff|Bluffs}}?"
+    prompt: "Auf dem River bettest du den ganzen {{t:pot|Pot}} mit einer {{t:range|Range}} aus {{n:bluff.ex.range}} {{t:combo|Kombinationen}}: Value-Hände und {{t:bluff|Bluffs}}. Wie viele davon sind im Gleichgewicht {{t:bluff|Bluffs}}?"
     options:
-      - { text: "{{n:bluff.ex.bluffs}}", correct: true, why: "{{n:bluff.ex.range}} × {{n:bluff.share.bet-pot}} = {{n:bluff.ex.bluffs}} {{t:bluff|Bluffs}} und {{n:bluff.ex.value}} {{t:combo|Combos}} für {{t:value|Value}}: ein {{t:bluff}} auf je zwei Hände für {{t:value|Value}}." }
+      - { text: "{{n:bluff.ex.bluffs}}", correct: true, why: "{{n:bluff.ex.range}} × {{n:bluff.share.bet-pot}} = {{n:bluff.ex.bluffs}} {{t:bluff|Bluffs}} und {{n:bluff.ex.value}} {{t:combo|Kombinationen}} für {{t:value|Value}}: ein {{t:bluff}} auf je zwei Hände für {{t:value|Value}}." }
       - { text: "{{n:bluff.ex.wrong-alpha}}", why: "Das ergäbe sich aus Alpha ({{n:alpha.bet-pot}}). Alpha ist die Schwelle für {{t:fold|Folds}} bei einem einzelnen {{t:bluff}}, nicht der Anteil der {{t:bluff|Bluffs}} in der {{t:range|Range}}." }
-      - { text: "{{n:bluff.ex.value}}", why: "So viele {{t:combo|Combos}} sind für {{t:value|Value}}. {{t:bluff|Bluffs}} gibt es halb so viele: {{n:bluff.ex.bluffs}}." }
+      - { text: "{{n:bluff.ex.value}}", why: "So viele {{t:combo|Kombinationen}} sind für {{t:value|Value}}. {{t:bluff|Bluffs}} gibt es halb so viele: {{n:bluff.ex.bluffs}}." }
   - kind: choice
     id: m8.l2.q-which-hands
     family: m8.bluff.hands
     rules: [R-M8-006]
     prompt: "Auf dem River brauchst du ein paar {{t:bluff|Bluffs}} für Bets über den ganzen {{t:pot|Pot}}. Welche Hände wählst du dafür?"
     options:
-      - { text: "Die schwächsten, z. B. verpasste {{t:draw|Draws}} auf eine {{t:straight|Straight}} oder hohe Karten ohne Chance", correct: true, why: "Eine Hand ohne Chance im Showdown verliert nichts, wenn der {{t:bluff}} nicht klappt: Nach einem {{t:check}} würde sie sowieso verlieren. Deshalb {{t:bluff|blufft}} sie." }
+      - { text: "Die schwächsten, z. B. verpasste {{t:draw|Draws}} auf eine {{t:straight|Straße}} oder hohe Karten ohne Chance", correct: true, why: "Eine Hand ohne Chance im Showdown verliert nichts, wenn der {{t:bluff}} nicht klappt: Nach einem {{t:check}} würde sie sowieso verlieren. Deshalb {{t:bluff|blufft}} sie." }
       - { text: "Mittlere {{t:pair|Paare}}", why: "Ein mittleres {{t:pair|Paar}} gewinnt nach einem {{t:check}} oft. Wenn du damit {{t:bluff|bluffst}}, {{t:fold|folden}} schlechtere Hände, und bessere bezahlen: Du gibst einen Gewinn im Showdown her." }
       - { text: "Beliebige, Hauptsache das Verhältnis stimmt", why: "Das Verhältnis ist nicht alles. Ein {{t:bluff}} mit einer Hand, die den Showdown gewinnen würde, kostet mehr als ein {{t:bluff}} mit einer Hand ohne Chance." }
 ---
@@ -106,19 +106,19 @@ In der ersten Lektion hast du auf {{t:value|Value}} gebettet. Aber wenn du auf d
 
 ## {{t:polarized|Polarisierte}} {{t:range}}
 
-Auf dem River bettest du {{t:in-position}} oft mit einer **{{t:polarized|polarisierten}} {{t:range}}** (wie in M7): sehr starke Hände auf {{t:value|Value}} und {{t:bluff|Bluffs}}, ohne mittlere Hände (die {{t:check|checken}}, wie in der ersten Lektion). Auf dem River sind deine {{t:bluff|Bluffs}} Hände ohne Chance im Showdown. Dein Gegner hat dann viele Hände, die gegen deine Value-Hände verlieren, aber gegen deine {{t:bluff|Bluffs}} gewinnen. Das sind **Bluffcatcher** (Hände, die {{t:bluff|Bluffs}} fangen).
+Auf dem River bettest du {{t:in-position}} oft mit einer **{{t:polarized|polarisierten}} {{t:range}}** (wie in M7): sehr starke Hände auf {{t:value|Value}} und {{t:bluff|Bluffs}}, ohne mittlere Hände (die {{t:check|checken}}, wie in der ersten Lektion). Auf dem River sind deine {{t:bluff|Bluffs}} Hände ohne Chance im Showdown. Dein Gegner hat dann viele Hände, die gegen deine Value-Hände verlieren, aber gegen deine {{t:bluff|Bluffs}} gewinnen. Das sind **Bluff-Catcher** (Hände, die {{t:bluff|Bluffs}} fangen).
 
 ## Wie viele {{t:bluff|Bluffs}}
 
-Die Zahl der {{t:bluff|Bluffs}} wählst du so, dass der Bluffcatcher deines Gegners bei null herauskommt, egal ob er {{t:call|callt}} oder {{t:fold|foldet}}:
+Die Zahl der {{t:bluff|Bluffs}} wählst du so, dass der Bluff-Catcher deines Gegners bei null herauskommt, egal ob er {{t:call|callt}} oder {{t:fold|foldet}}:
 
 ```formula
 Anteil der Bluffs = Bet ÷ (Pot + 2·Bet)
 ```
 
-Das ist dieselbe Formel wie für die Equity, die man zum {{t:call|Callen}} braucht, aus M2. Das ist kein Zufall: Ein Bluffcatcher gewinnt genau dann, wenn du {{t:bluff|bluffst}}, also ist seine Equity der Anteil deiner {{t:bluff|Bluffs}}. Bei einem Bet über den ganzen {{t:pot|Pot}}: {{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = **{{n:bluff.share.bet-pot}}**, also ist jeder dritte Bet ein {{t:bluff}}.
+Das ist dieselbe Formel wie für die Equity, die man zum {{t:call|Callen}} braucht, aus M2. Das ist kein Zufall: Ein Bluff-Catcher gewinnt genau dann, wenn du {{t:bluff|bluffst}}, also ist seine Equity der Anteil deiner {{t:bluff|Bluffs}}. Bei einer Bet über den ganzen {{t:pot|Pot}}: {{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = **{{n:bluff.share.bet-pot}}**, also ist jede dritte Bet ein {{t:bluff}}.
 
-## Größerer Bet, mehr {{t:bluff|Bluffs}}
+## Größere Bet, mehr {{t:bluff|Bluffs}}
 
 | Bet | Anteil der {{t:bluff|Bluffs}} | Alpha (aus M6) |
 |---|---|---|
@@ -128,16 +128,16 @@ Das ist dieselbe Formel wie für die Equity, die man zum {{t:call|Callen}} brauc
 | Ganzer {{t:pot}} | {{n:bluff.share.bet-pot}} | {{n:alpha.bet-pot}} |
 | 1,5 {{t:pot|Pots}} | {{n:bluff.share.bet-overbet}} | {{n:alpha.bet-overbet}} |
 
-Ein größerer Bet gibt deinem Gegner einen schlechteren Preis, daher kannst du darin mehr {{t:bluff|Bluffs}} haben. Ein kleiner Bet verträgt nur wenige.
+Eine größere Bet gibt deinem Gegner einen schlechteren Preis, daher kannst du darin mehr {{t:bluff|Bluffs}} haben. Eine kleine Bet verträgt nur wenige.
 
 ## Der Anteil der {{t:bluff|Bluffs}} ist nicht Alpha
 
-Alpha aus M6 = Bet ÷ ({{t:pot}} + Bet) sagt dir, wie oft dein Gegner {{t:fold|folden}} muss, damit **ein einzelner** {{t:bluff}} ohne Chance bei null herauskommt. Der Anteil der {{t:bluff|Bluffs}} = Bet ÷ ({{t:pot}} + 2·Bet) sagt dir, welcher Teil **deiner gesamten {{t:range|Range}} an Bets** aus {{t:bluff|Bluffs}} besteht. Bei einem Bet über den ganzen {{t:pot|Pot}} braucht ein {{t:bluff}} mehr als {{n:alpha.bet-pot}} {{t:fold|Folds}}, während deine {{t:range|Range}} {{n:bluff.share.bet-pot}} {{t:bluff|Bluffs}} enthält. Im zweiten Nenner steht ein zusätzlicher Bet, weil du den Preis für den {{t:call|Call}} deines Gegners berechnest.
+Alpha aus M6 = Bet ÷ ({{t:pot}} + Bet) sagt dir, wie oft dein Gegner {{t:fold|folden}} muss, damit **ein einzelner** {{t:bluff}} ohne Chance bei null herauskommt. Der Anteil der {{t:bluff|Bluffs}} = Bet ÷ ({{t:pot}} + 2·Bet) sagt dir, welcher Teil **deiner gesamten {{t:range|Range}} an Bets** aus {{t:bluff|Bluffs}} besteht. Bei einer Bet über den ganzen {{t:pot|Pot}} braucht ein {{t:bluff}} mehr als {{n:alpha.bet-pot}} {{t:fold|Folds}}, während deine {{t:range|Range}} {{n:bluff.share.bet-pot}} {{t:bluff|Bluffs}} enthält. Im zweiten Nenner steht eine zusätzliche Bet, weil du den Preis für den {{t:call|Call}} deines Gegners berechnest.
 
 ## Womit du {{t:bluff|bluffst}}
 
-Für {{t:bluff|Bluffs}} wählst du **die schwächsten Hände**, z. B. verpasste {{t:draw|Draws}} auf eine {{t:straight|Straight}} oder hohe Karten ohne Chance (verpasste {{t:flush|Flushes}} behandelt die Lektion über {{t:blocker|Blocker}}): Nach einem {{t:check}} würden sie sowieso verlieren, also nimmt ihnen ein gescheiterter {{t:bluff}} nichts. Hände mit Showdown-Value {{t:check|checken}}.
+Für {{t:bluff|Bluffs}} wählst du **die schwächsten Hände**, z. B. verpasste {{t:draw|Draws}} auf eine {{t:straight|Straße}} oder hohe Karten ohne Chance (verpasste {{t:flush|Flushes}} behandelt die Lektion über {{t:blocker|Blocker}}): Nach einem {{t:check}} würden sie sowieso verlieren, also nimmt ihnen ein gescheiterter {{t:bluff}} nichts. Hände mit Showdown-Value {{t:check|checken}}.
 
 :::note Das ist ein Gleichgewichtspunkt, kein Rezept für jeden Gegner
-Diese Verhältnisse schützen dich vor einem Gegner, der gut spielt. Gegen bestimmte Spieler kannst du davon abweichen; mehr dazu im Modul über {{t:exploit|Exploits}} bei Microstakes (M10). Die Formel für den Anteil der {{t:bluff|Bluffs}} ist eine Rechnung in einem vereinfachten Modell: eine {{t:polarized|polarisierte}} {{t:range}} gegen eine Hand, die {{t:bluff|Bluffs}} fängt (ein Spielzeugmodell aus der Spieltheorie). Die Empfehlung, mit den schwächsten Händen zu {{t:bluff|bluffen}}, stammt aus Trainingsmaterialien und Solver-Analysen.
+Diese Verhältnisse schützen dich vor einem Gegner, der gut spielt. Gegen bestimmte Spieler kannst du davon abweichen; mehr dazu im Modul über {{t:exploit|Exploits}} auf den Mikrolimits (M10). Die Formel für den Anteil der {{t:bluff|Bluffs}} ist eine Rechnung in einem vereinfachten Modell: eine {{t:polarized|polarisierte}} {{t:range}} gegen eine Hand, die {{t:bluff|Bluffs}} fängt (ein Spielzeugmodell aus der Spieltheorie). Die Empfehlung, mit den schwächsten Händen zu {{t:bluff|bluffen}}, stammt aus Trainingsmaterialien und Solver-Analysen.
 :::

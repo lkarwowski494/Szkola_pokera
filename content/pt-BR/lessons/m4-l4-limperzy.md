@@ -58,7 +58,7 @@ drills:
       - { text: "{{t:fold|Desisto}}", correct: true, why: "Também correto: uma das fontes aconselha não pagar, e sim {{t:raise|aumentar}} ou {{t:fold|desistir}}, e 76s não serve para {{t:raise|aumentar}} {{t:value|por valor}}. Outra fonte recomenda pagar, então aceitamos as duas jogadas." }
       - { text: "{{t:raise|Aumento}} para {{n:pf.iso.two-limpers}}", why: "Com três limpers, um {{t:raise|aumento}} de {{t:bluff|blefe}} raramente leva o {{t:pot|pote}}, e o tamanho deveria ser ainda maior. 76s não serve para {{t:raise|aumentar}} {{t:value|por valor}}." }
 ---
-Limp é entrar na mão apenas pagando o {{t:big-blind|big blind}}. Profissionais raramente dão limp como primeiros a entrar (regra do módulo 3), então os limpers nos micro stakes costumam ser jogadores mais fracos. {{t:raise|Aumentar}} contra um limper se chama {{t:isolation|isolamento}}: você quer jogar mano a mano com ele, de preferência {{t:in-position|em posição}}.
+Limp é entrar na mão apenas pagando o {{t:big-blind|big blind}}. Profissionais raramente dão limp como primeiros a entrar (regra do módulo 3), então os limpers nos microlimites costumam ser jogadores mais fracos. {{t:raise|Aumentar}} contra um limper se chama {{t:isolation|isolamento}}: você quer jogar mano a mano com ele, de preferência {{t:in-position|em posição}}.
 
 :::note De onde vêm estas regras
 O solver do app não joga limps, então esta lição se baseia em materiais de treinamento. As regras estão marcadas como heurísticas.

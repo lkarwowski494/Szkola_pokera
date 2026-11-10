@@ -49,7 +49,7 @@ drills:
     prompt: "Sei in {{t:big-blind|big blind}}, tutti hanno {{t:fold|foldato}} e lo {{t:small-blind|small blind}} ha solo completato. Hai una mano debole. Cosa fai?"
     table: { hand: "7c 2d", position: BB }
     options:
-      - { text: "{{t:check|Check}}", correct: true, why: "Il tuo {{t:big-blind|big blind}} vale come una {{t:bet|puntata}} e lo {{t:small-blind|small blind}} l'ha solo pareggiato. Nessuno ha {{t:raise|rilanciato}}, quindi vedi il flop gratis. Una mano debole non è un motivo per passare, quando non costa nulla." }
+      - { text: "{{t:check|Check}}", correct: true, why: "Il tuo {{t:big-blind|big blind}} vale come una {{t:bet|puntata}} e lo {{t:small-blind|small blind}} l'ha solo pareggiato. Nessuno ha {{t:raise|rilanciato}}, quindi vedi il flop gratis. Una mano debole non è un motivo per foldare, quando non costa nulla." }
       - { text: "{{t:fold|Foldo}}", why: "{{t:fold|Foldare}} quando puoi fare {{t:check|check}} gratis è una perdita pura." }
       - { text: "{{t:raise|Rilancio}}", why: "Con 7-2 non hai niente su cui costruire; il {{t:check|check}} ti dà un flop gratis." }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar actions
@@ -78,7 +78,7 @@ Prima del flop il {{t:big-blind|big blind}} vale come una {{t:bet|puntata}}: chi
 3. **Turn**: la quarta carta.
 4. **River**: la quinta e ultima carta.
 
-Se dopo le puntate sul river sono rimasti in gioco almeno due giocatori, scoprono le carte. È lo **showdown**: la combinazione migliore vince il {{t:pot|piatto}}. Se prima tutti tranne uno {{t:fold|foldano}}, quel giocatore vince il {{t:pot|piatto}} senza mostrare le carte.
+Se dopo le puntate sul river sono rimasti in gioco almeno due giocatori, scoprono le carte. È lo **showdown**: il punto migliore vince il {{t:pot|piatto}}. Se prima tutti tranne uno {{t:fold|foldano}}, quel giocatore vince il {{t:pot|piatto}} senza mostrare le carte.
 
 ## Mosse disponibili
 
@@ -92,6 +92,6 @@ Se dopo le puntate sul river sono rimasti in gioco almeno due giocatori, scopron
 Se qualcuno ha {{t:bet|puntato}}, puoi {{t:fold|foldare}}, {{t:call|chiamare}} o {{t:raise|rilanciare}}. Se nessuno ha {{t:bet|puntato}}, puoi fare {{t:check|check}} o {{t:bet|puntare}}.
 :::
 
-:::note All-in e {{t:side-pot|piatto laterale}}
-Non puoi {{t:bet|puntare}} più di quanto hai davanti. Quando metti tutte le tue {{t:chips|fiches}}, sei **all-in**: non partecipi più alle puntate e le restanti {{t:community-cards|carte comuni}} vengono distribuite fino alla fine. Da ogni avversario puoi vincere al massimo quanto hai messo tu. Se gli altri continuano a giocare per di più, l'eccedenza va nel **{{t:side-pot|piatto laterale}}** (side pot), che si contendono solo loro.
+:::note All-in e {{t:side-pot|piatto secondario}}
+Non puoi {{t:bet|puntare}} più di quanto hai davanti. Quando metti tutte le tue {{t:chips|fiches}}, sei **all-in**: non partecipi più alle puntate e le restanti {{t:community-cards|carte comuni}} vengono distribuite fino alla fine. Da ogni avversario puoi vincere al massimo quanto hai messo tu. Se gli altri continuano a giocare per di più, l'eccedenza va nel **{{t:side-pot|piatto secondario}}** (side pot), che si contendono solo loro.
 :::

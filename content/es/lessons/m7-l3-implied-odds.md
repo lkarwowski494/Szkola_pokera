@@ -119,7 +119,7 @@ Con la regla del 2 y el 4 del M2, multiplicas los outs por 2. Cuando dos {{t:dra
 
 ## Implied odds
 
-Las implied odds (probabilidades implícitas) son las {{t:chips|fichas}} que ganarás en el river cuando ligues. Ejemplo: en el {{t:pot|bote}} hay {{n:ex.third.pot}}, el rival {{t:bet|apuesta}} {{n:io.flush.bet}} y tú tienes {{t:flush-draw|proyecto de color}}. Necesitas {{n:io.flush.bet}} ÷ {{n:io.flush.total}} = {{n:io.flush.eq}} de equity, y tienes aprox. {{n:odds.flush.turn-river}}. El {{t:pot|bote}} por sí solo no basta.
+Las implied odds (odds implícitas) son las {{t:chips|fichas}} que ganarás en el river cuando ligues. Ejemplo: en el {{t:pot|bote}} hay {{n:ex.third.pot}}, el rival {{t:bet|apuesta}} {{n:io.flush.bet}} y tú tienes {{t:flush-draw|proyecto de color}}. Necesitas {{n:io.flush.bet}} ÷ {{n:io.flush.total}} = {{n:io.flush.eq}} de equity, y tienes aprox. {{n:odds.flush.turn-river}}. El {{t:pot|bote}} por sí solo no basta.
 
 De {{n:cards.unseen.turn}} rivers posibles, ligas {{n:outs.flush}} veces y fallas {{n:miss.flush.turn}} veces. Para quedar a cero, cada acierto tiene que aportar lo mismo que cuestan los fallos:
 

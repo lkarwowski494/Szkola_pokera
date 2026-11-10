@@ -87,7 +87,7 @@ drills:
     prompt: "Trên turn, đối thủ có {{t:oesd|bài chờ sảnh hai đầu}}: khoảng {{n:odds.oesd.turn-river}} đến river. Từ mức cược nào của bạn thì đối thủ trả giá quá đắt (chỉ tính pot odds)?"
     options:
       - { text: "Ngay từ 1/3 {{t:pot|pot}}: cần {{n:eq.bet-third}}", correct: true, why: "Đúng: {{n:eq.bet-third}} lớn hơn {{n:odds.oesd.turn-river}}. Trên turn, {{t:draw|bài chờ}} chỉ còn một lá, nên ngay cả cược trung bình cũng cho chúng giá tệ." }
-      - { text: "Chỉ từ cả {{t:pot|pot}}: cần {{n:eq.bet-pot}}", why: "Với cược cả {{t:pot|pot}}, đối thủ trả quá đắt nhiều, nhưng ngay ở 1/3 {{t:pot|pot}} đã cần {{n:eq.bet-third}}, nhiều hơn {{n:odds.oesd.turn-river}} của mình." }
+      - { text: "Chỉ từ cả {{t:pot|pot}}: cần {{n:eq.bet-pot}}", why: "Với cược cả {{t:pot|pot}}, đối thủ trả giá quá đắt rõ rệt, nhưng ngay ở 1/3 {{t:pot|pot}} đã cần {{n:eq.bet-third}}, nhiều hơn {{n:odds.oesd.turn-river}} của mình." }
       - { text: "Không bao giờ, {{t:draw|bài chờ}} luôn có thể {{t:call|theo}}", why: "{{t:draw|Bài chờ}} chỉ {{t:call|theo}} khi có giá tốt hoặc có implied odds (bài học tiếp theo). Trên turn, nó có khoảng {{n:odds.oesd.turn-river}}, nên phần lớn mức cược là giá tệ đối với nó." }
   - kind: generated
     id: m7.l2.g-draw-call

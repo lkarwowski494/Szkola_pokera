@@ -10,7 +10,7 @@ drills:
     id: m13.l2.q-swap
     family: m13.suit-swap
     rules: [R-M13-003]
-    prompt: "En una partida tenías A♥ K♥ en un {{t:board|board}} Q♥ 7♥ 2♣ y cometiste un error. En el repaso ves A♠ K♠ en un {{t:board|board}} Q♠ 7♠ 2♦. ¿La decisión correcta es la misma?"
+    prompt: "En una partida tenías A♥ K♥ en una {{t:board|mesa}} Q♥ 7♥ 2♣ y cometiste un error. En el repaso ves A♠ K♠ en una {{t:board|mesa}} Q♠ 7♠ 2♦. ¿La decisión correcta es la misma?"
     options:
       - { text: "Sí: todos los palos se cambiaron con un único intercambio", correct: true, why: "Los corazones pasaron a ser picas y los tréboles, diamantes, en todas partes a la vez. Sigues teniendo un {{t:flush-draw|proyecto de color}} al as y la misma fuerza de mano, así que la decisión no cambia." }
       - { text: "No: las picas son más fuertes que los corazones", why: "En Texas Hold'em todos los palos son iguales: solo importa si las cartas son del mismo palo, no de cuál." }
@@ -19,11 +19,11 @@ drills:
     id: m13.l2.q-swap-wrong
     family: m13.suit-swap
     rules: [R-M13-003]
-    prompt: "¿Cuál de estos cambios NO conserva la decisión de esta situación: K♥ Q♥ en un {{t:board|board}} J♥ 8♥ 3♠?"
+    prompt: "¿Cuál de estos cambios NO conserva la decisión de esta situación: K♥ Q♥ en una {{t:board|mesa}} J♥ 8♥ 3♠?"
     options:
-      - { text: "K♥ Q♥ en un {{t:board|board}} J♠ 8♠ 3♥", correct: true, why: "Aquí los palos se cambiaron solo en el {{t:board|board}}: tus corazones ya no encajan con el {{t:board|board}} y el {{t:flush-draw|proyecto de color}} ha desaparecido. Ya es otra situación." }
-      - { text: "K♠ Q♠ en un {{t:board|board}} J♠ 8♠ 3♥", why: "Es un único intercambio para todas las cartas (corazones ↔ picas), así que la decisión es la misma." }
-      - { text: "K♦ Q♦ en un {{t:board|board}} J♦ 8♦ 3♠", why: "Es un único intercambio (corazones → diamantes) para todas las cartas, así que la decisión es la misma." }
+      - { text: "K♥ Q♥ en una {{t:board|mesa}} J♠ 8♠ 3♥", correct: true, why: "Aquí los palos se cambiaron solo en la {{t:board|mesa}}: tus corazones ya no encajan con la {{t:board|mesa}} y el {{t:flush-draw|proyecto de color}} ha desaparecido. Ya es otra situación." }
+      - { text: "K♠ Q♠ en una {{t:board|mesa}} J♠ 8♠ 3♥", why: "Es un único intercambio para todas las cartas (corazones ↔ picas), así que la decisión es la misma." }
+      - { text: "K♦ Q♦ en una {{t:board|mesa}} J♦ 8♦ 3♠", why: "Es un único intercambio (corazones → diamantes) para todas las cartas, así que la decisión es la misma." }
   - kind: choice
     id: m13.l2.q-cards
     family: m13.cards
@@ -31,7 +31,7 @@ drills:
     prompt: "¿Qué decisiones del informe pasan a los repasos como tarjetas?"
     options:
       - { text: "Errores, imprecisiones y decisiones tomadas con el tiempo agotado", correct: true, why: "Sí. Una decisión aceptable no es un error, así que no crea tarjeta. La misma regla con la misma clase de mano en el mismo spot da una sola tarjeta, no varias." }
-      - { text: "Todas las decisiones evaluadas", why: "Las decisiones conformes y las aceptables no necesitan corrección, y los repasos sirven para practicar lo que salió mal." }
+      - { text: "Todas las decisiones evaluadas", why: "Las decisiones acordes y las aceptables no necesitan corrección, y los repasos sirven para practicar lo que salió mal." }
       - { text: "Solo los errores, sin las imprecisiones", why: "Una imprecisión (p. ej., la acción correcta con el tamaño equivocado) cuenta como un error, así que también vuelve en los repasos." }
   - kind: choice
     id: m13.l2.q-family

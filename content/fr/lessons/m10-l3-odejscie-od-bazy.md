@@ -31,7 +31,7 @@ drills:
     prompt: "Vous savez que, dans une ligne donnée, l'adversaire {{t:bluff|bluffe}} moins souvent qu'à l'équilibre. Que faites-vous avec une main qui attrape les {{t:bluff|bluffs}} et qui, dans la base, {{t:call|suit}} parfois et {{t:fold|se couche}} parfois ?"
     options:
       - { text: "Je {{t:fold|me couche}} toujours", correct: true, why: "Quand il y a moins de {{t:bluff|bluffs}} que ne l'exige l'équilibre, les mains indifférentes perdent en {{t:call|suivant}}. Résultat du solveur : face à un manque de {{t:bluff|bluffs}}, vous {{t:fold|vous couchez}} toujours." }
-      - { text: "Je {{t:call|paie}} toujours, pour que l'adversaire ne m'exploite pas avec des {{t:bluff|bluffs}}", why: "Un adversaire qui {{t:bluff|bluffe}} trop rarement ne pourra pas exploiter le fait que vous {{t:fold|vous couchiez}}. C'est vous qui exploitez son erreur en {{t:fold|vous couchant}}." }
+      - { text: "Je {{t:call|suis}} toujours, pour que l'adversaire ne m'exploite pas avec des {{t:bluff|bluffs}}", why: "Un adversaire qui {{t:bluff|bluffe}} trop rarement ne pourra pas exploiter le fait que vous {{t:fold|vous couchiez}}. C'est vous qui exploitez son erreur en {{t:fold|vous couchant}}." }
       - { text: "Je joue comme dans la base, moitié-moitié", why: "Mélanger n'a de sens que lorsque les deux décisions rapportent la même chose. Face à un manque de {{t:bluff|bluffs}}, {{t:fold|se coucher}} rapporte davantage." }
   - kind: numeric
     id: m10.l3.n-alpha-small
@@ -46,9 +46,9 @@ drills:
     rules: [R-M10-010]
     prompt: "L'adversaire a un fold to c-bet de {{n:hud.ex.fcb.high}} sur {{n:hud.ex.reg.hands}} mains. Sur un flop {{t:dry|sec}}, vous n'avez rien touché. Un c-bet de 1/3 du {{t:pot}} sans main est-il rentable ?"
     options:
-      - { text: "Oui : l'adversaire {{t:fold|se couche}} plus souvent que {{n:alpha.cbet.small}}, donc le c-bet rapporte immédiatement", correct: true, why: "Un c-bet de 1/3 du {{t:pot}} atteint le point mort quand l'adversaire {{t:fold|se couche}} dans {{n:alpha.cbet.small}} des cas. L'adversaire {{t:fold|se couche}} bien plus souvent, donc le c-bet rapporte avant même que vous comptiez l'équité de votre main. Le fold to c-bet regroupe toutes les tailles et toutes les tables, c'est donc une approximation." }
+      - { text: "Oui : l'adversaire {{t:fold|se couche}} plus souvent que {{n:alpha.cbet.small}}, donc le c-bet rapporte immédiatement", correct: true, why: "Un c-bet de 1/3 du {{t:pot}} atteint le point mort quand l'adversaire {{t:fold|se couche}} dans {{n:alpha.cbet.small}} des cas. L'adversaire {{t:fold|se couche}} bien plus souvent, donc le c-bet rapporte avant même que vous comptiez l'équité de votre main. Le fold to c-bet regroupe toutes les tailles et tous les boards, c'est donc une approximation." }
       - { text: "Non : sans main, vous ne misez pas", why: "Un {{t:bluff}} n'a pas besoin d'une main, il a besoin de {{t:fold|folds}}. Quand l'adversaire {{t:fold|se couche}} plus souvent que {{n:alpha.cbet.small}}, le c-bet rapporte avec n'importe quelle main." }
-      - { text: "Seulement avec une grande taille, car une petite ne fait pas coucher de mains", why: "Une mise plus grosse a besoin de plus de {{t:fold|folds}} : à 3/4 du {{t:pot}}, jusqu'à {{n:alpha.cbet.big}}. Quand l'adversaire {{t:fold|se couche}} souvent de toute façon, un petit c-bet obtient le même résultat à moindre coût." }
+      - { text: "Seulement avec une grande taille, car une petite ne fait pas coucher de mains", why: "Une mise plus grosse a besoin de plus de {{t:fold|folds}} : à 3/4 du {{t:pot}}, pas moins de {{n:alpha.cbet.big}}. Quand l'adversaire {{t:fold|se couche}} souvent de toute façon, un petit c-bet obtient le même résultat à moindre coût." }
   - kind: choice
     id: m10.l3.q-alpha-low
     family: m10.base.alpha
@@ -81,7 +81,7 @@ drills:
     id: m10.l3.q-sample-direction
     family: m10.base.mixed
     rules: [R-M10-012, R-M10-003]
-    prompt: "Après {{n:hud.ex.mid.hands}} mains, l'adversaire semble loose et passif, mais l'échantillon est petit. Jusqu'où vous écartez-vous de la base ?"
+    prompt: "Après {{n:hud.ex.mid.hands}} mains, l'adversaire semble large et passif, mais l'échantillon est petit. Jusqu'où vous écartez-vous de la base ?"
     options:
       - { text: "Un peu, dans le sens de la lecture, et seulement avec les mains limites", correct: true, why: "Le sens est déjà visible sur un petit échantillon, mais les chiffres ont une grande marge d'erreur. Vous décalez les mains à la limite de la décision dans le sens de la lecture, et vous jouez le reste comme dans la base, jusqu'à ce que l'échantillon grandisse." }
       - { text: "À fond : je joue immédiatement contre lui en {{t:exploit|exploitation}} maximale", why: "Sur un petit échantillon, la lecture peut être fausse. Un grand écart par rapport à la base est lui-même exploitable : la base est la stratégie la moins vulnérable à l'exploitation." }

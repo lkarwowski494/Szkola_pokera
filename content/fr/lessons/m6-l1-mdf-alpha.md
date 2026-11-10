@@ -28,7 +28,7 @@ drills:
     options:
       - { text: "{{n:mdf.bet-half}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.half}}) = {{n:mdf.bet-half}}. C'est la part de votre {{t:range}} que vous défendez pour qu'un {{t:bluff}} sans aucune chance ne soit pas rentable." }
       - { text: "{{n:alpha.bet-half}}", why: "C'est l'alpha : la fréquence à laquelle le {{t:bluff}} adverse doit réussir. La {{t:mdf}} en est le complément, soit {{n:mdf.bet-half}}." }
-      - { text: "{{n:eq.bet-half}}", why: "C'est l'équité nécessaire pour {{t:call|suivre}} avec une seule main (vue en M2). La {{t:mdf}} indique quelle part de toute votre {{t:range}} vous défendez." }
+      - { text: "{{n:eq.bet-half}}", why: "C'est l'équité requise pour {{t:call|suivre}} avec une seule main (vue en M2). La {{t:mdf}} indique quelle part de toute votre {{t:range}} vous défendez." }
   - kind: choice
     id: m6.l1.q-mdf-overbet
     family: m6.mdf
@@ -37,7 +37,7 @@ drills:
     options:
       - { text: "{{n:mdf.bet-overbet}}", correct: true, why: "{{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}}) = {{n:mdf.bet-overbet}}. Plus la mise est grosse, plus la part de votre {{t:range}} à défendre est petite." }
       - { text: "{{n:alpha.bet-overbet}}", why: "C'est l'alpha : la fréquence à laquelle un {{t:bluff}} de {{n:ex.bet.overbet}} doit réussir. Vous défendez le reste, soit {{n:mdf.bet-overbet}}." }
-      - { text: "{{n:eq.bet-overbet}}", why: "C'est l'équité nécessaire pour {{t:call|suivre}} : {{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}). Autre nombre, autre question." }
+      - { text: "{{n:eq.bet-overbet}}", why: "C'est l'équité requise pour {{t:call|suivre}} : {{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}). Autre nombre, autre question." }
   - kind: numeric
     id: m6.l1.n-alpha-half
     family: m6.alpha
@@ -53,7 +53,7 @@ drills:
     options:
       - { text: "Dans plus de {{n:alpha.bet-three-quarters}} des cas", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:alpha.bet-three-quarters}}. C'est l'alpha pour une mise de 3/4 du {{t:pot}}." }
       - { text: "Dans plus de {{n:mdf.bet-three-quarters}} des cas", why: "C'est la {{t:mdf}}, c'est-à-dire ce que votre adversaire devrait défendre. L'alpha est la part avec laquelle il peut se {{t:fold|coucher}} avant que votre {{t:bluff}} ne devienne rentable : {{n:alpha.bet-three-quarters}}." }
-      - { text: "Dans plus de {{n:eq.bet-three-quarters}} des cas", why: "C'est l'équité dont votre adversaire a besoin pour {{t:call|suivre}}. Le seuil du {{t:bluff}} se calcule sans son {{t:call|paiement}} au dénominateur : {{n:alpha.bet-three-quarters}}." }
+      - { text: "Dans plus de {{n:eq.bet-three-quarters}} des cas", why: "C'est l'équité dont votre adversaire a besoin pour {{t:call|suivre}}. Le seuil du {{t:bluff}} se calcule sans son {{t:call|call}} au dénominateur : {{n:alpha.bet-three-quarters}}." }
   - kind: choice
     id: m6.l1.q-alpha-compare
     family: m6.alpha
@@ -69,7 +69,7 @@ drills:
     rules: [R-M6-001]
     prompt: "River, votre adversaire {{t:bet|mise}} 1/3 du {{t:pot}}. La {{t:mdf}} est de {{n:mdf.bet-third}}, et il vous faut {{n:eq.bet-third}} d'équité pour {{t:call|suivre}}. Comment concilier ces deux nombres ?"
     options:
-      - { text: "La {{t:mdf}} concerne toute votre {{t:range}}, l'équité une seule main", correct: true, why: "La {{t:mdf}} indique quelle part de toutes vos mains vous défendez pour que votre adversaire ne puisse pas {{t:bluff|bluffer}} avec n'importe quelles cartes. L'équité nécessaire indique s'il est rentable de {{t:call|suivre}} avec une main précise face à ce avec quoi votre adversaire {{t:bet|mise}} réellement." }
+      - { text: "La {{t:mdf}} concerne toute votre {{t:range}}, l'équité une seule main", correct: true, why: "La {{t:mdf}} indique quelle part de toutes vos mains vous défendez pour que votre adversaire ne puisse pas {{t:bluff|bluffer}} avec n'importe quelles cartes. L'équité requise indique s'il est rentable de {{t:call|suivre}} avec une main précise face à ce avec quoi votre adversaire {{t:bet|mise}} réellement." }
       - { text: "L'un des deux est mal calculé", why: "Les deux sont justes : {{n:ex.third.pot}} ÷ {{n:ex.third.pot-after-bet}} = {{n:mdf.bet-third}} et {{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}. Ils répondent à des questions différentes." }
       - { text: "Vous {{t:call|suivez}} quand vous avez au moins {{n:mdf.bet-third}} d'équité", why: "C'est une confusion de notions. Pour {{t:call|suivre}}, {{n:eq.bet-third}} d'équité suffisent. {{n:mdf.bet-third}} est une part de votre {{t:range}}, et non les chances d'une seule main." }
   - kind: choice
@@ -89,7 +89,7 @@ drills:
     prompt: "Un joueur dont vous savez, grâce à de nombreuses mains précédentes, qu'il {{t:bluff|bluffe}} rarement {{t:bet|mise}} tout le {{t:pot}} à la river. Vous avez une {{t:pair|paire}} de rois avec un kicker faible. Que faites-vous ?"
     table: { hand: "Kd 9d", board: "Kc 8s 4h 2c Qs", position: BB }
     options:
-      - { text: "{{t:fold|Je me couche}}", correct: true, why: "Vous savez, grâce à de nombreuses mains précédentes, que ce joueur {{t:bluff|bluffe}} rarement. Quand les {{t:bluff|bluffs}} manquent, votre {{t:pair|paire}} paie surtout des mains meilleures (KQ, brelans). Face à un tel joueur, vous vous {{t:fold|couchez}} plus souvent que ne l'indique la {{t:mdf}}." }
+      - { text: "{{t:fold|Je me couche}}", correct: true, why: "Vous savez, grâce à de nombreuses mains précédentes, que ce joueur {{t:bluff|bluffe}} rarement. Quand les {{t:bluff|bluffs}} manquent, votre {{t:pair|paire}} paie surtout des mains meilleures (KQ, sets). Face à un tel joueur, vous vous {{t:fold|couchez}} plus souvent que ne l'indique la {{t:mdf}}." }
       - { text: "{{t:call|Je paie}}, car la {{t:mdf}} impose de défendre {{n:mdf.bet-pot}}", why: "La {{t:mdf}} vous protège contre un joueur qui {{t:bluff|bluffe}} assez souvent. Ce joueur ne le fait pas, donc s'en tenir à la {{t:mdf}} revient à lui donner de l'argent." }
       - { text: "{{t:raise|Je relance}} all-in", why: "Les mains meilleures paieront, les moins bonnes se {{t:fold|coucheront}}. Une {{t:pair|paire}} avec un kicker faible n'est pas une main pour {{t:raise|relancer}}." }
 ---
@@ -115,7 +115,7 @@ MDF = pot ÷ (pot + mise)
 
 Exemple à la river : le {{t:pot}} contient {{n:ex.third.pot}}, votre adversaire {{t:bet|mise}} {{n:ex.third.bet}}, soit 1/3 du {{t:pot}}. {{t:mdf}} = {{n:ex.third.pot}} ÷ {{n:ex.third.pot-after-bet}} = **{{n:mdf.bet-third}}**.
 
-| Mise adverse | {{t:mdf}} | Alpha | Équité nécessaire |
+| Mise adverse | {{t:mdf}} | Alpha | Équité requise |
 |---|---|---|---|
 | 1/4 du {{t:pot}} | {{n:mdf.bet-quarter}} | {{n:alpha.bet-quarter}} | {{n:eq.bet-quarter}} |
 | 1/3 du {{t:pot}} | {{n:mdf.bet-third}} | {{n:alpha.bet-third}} | {{n:eq.bet-third}} |
@@ -123,9 +123,9 @@ Exemple à la river : le {{t:pot}} contient {{n:ex.third.pot}}, votre adversair
 | 3/4 du {{t:pot}} | {{n:mdf.bet-three-quarters}} | {{n:alpha.bet-three-quarters}} | {{n:eq.bet-three-quarters}} |
 | Tout le {{t:pot}} | {{n:mdf.bet-pot}} | {{n:alpha.bet-pot}} | {{n:eq.bet-pot}} |
 
-## La {{t:mdf}} n'est pas l'équité nécessaire
+## La {{t:mdf}} n'est pas l'équité requise
 
-L'équité nécessaire vue en M2 concerne **une seule main** : est-il rentable de {{t:call|suivre}} avec elle ? La {{t:mdf}} concerne **toute votre {{t:range}}** : quelle part vous en défendez. Face à une mise de 1/3 du {{t:pot}} à la river, la {{t:mdf}} suggère de défendre environ {{n:mdf.bet-third}} de vos mains, tandis que {{t:call|suivre}} avec une main donnée est rentable si elle gagne dans au moins {{n:eq.bet-third}} des cas.
+L'équité requise vue en M2 concerne **une seule main** : est-il rentable de {{t:call|suivre}} avec elle ? La {{t:mdf}} concerne **toute votre {{t:range}}** : quelle part vous en défendez. Face à une mise de 1/3 du {{t:pot}} à la river, la {{t:mdf}} suggère de défendre environ {{n:mdf.bet-third}} de vos mains, tandis que {{t:call|suivre}} avec une main donnée est rentable si elle gagne dans au moins {{n:eq.bet-third}} des cas.
 
 ## Au flop, {{t:out-of-position|hors de position}}, vous défendez moins
 

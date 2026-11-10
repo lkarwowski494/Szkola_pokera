@@ -45,7 +45,7 @@ drills:
     prompt: "{{t:pot|Piatto}} con un solo rilancio, {{t:spr}} circa {{n:spr.srp}}. Quale dimensione fissa della {{t:bet|puntata}} al flop, al turn e al river mette tutto lo stack?"
     options:
       - { text: "Circa {{n:geo.srp.3}} del {{t:pot|piatto}}, cioè più dell'intero {{t:pot|piatto}}", correct: true, why: "Sì: perfino tre {{t:bet|puntate}} pari al {{t:pot|piatto}} mettono solo {{n:srp.potbet.total}} su uno stack di {{n:spr.srp.stack}}. Tutto lo stack entra solo con circa {{n:geo.srp.3}} del {{t:pot|piatto}} su ogni {{t:street|street}}." }
-      - { text: "Circa {{n:geo.3bet-ip.3}} del {{t:pot|piatto}}", why: "Questo basta in un {{t:pot|piatto}} 3-bet ({{t:spr}} circa {{n:spr.3bet-ip}}). In un {{t:pot|piatto}} con un solo rilancio lo {{t:spr}} è circa {{n:spr.srp}}, quindi le {{t:bet|puntate}} devono essere più grandi del {{t:pot|piatto}}." }
+      - { text: "Circa {{n:geo.3bet-ip.3}} del {{t:pot|piatto}}", why: "Questo basta in un {{t:pot|piatto}} 3-bet ({{t:spr}} circa {{n:spr.3bet-ip}}). In un {{t:pot|piatto}} con un solo rilancio l'{{t:spr}} è circa {{n:spr.srp}}, quindi le {{t:bet|puntate}} devono essere più grandi del {{t:pot|piatto}}." }
       - { text: "Circa {{n:cbet.size.small}} del {{t:pot|piatto}}", why: "Tre {{t:bet|puntate}} così mettono solo una piccola parte dello stack. Con {{t:spr}} circa {{n:spr.srp}} serve circa {{n:geo.srp.3}} del {{t:pot|piatto}} su ogni {{t:street|street}}." }
   - kind: choice
     id: m9.l3.q-3bet-ip

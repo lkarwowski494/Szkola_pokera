@@ -97,7 +97,7 @@ drills:
       - { text: "Guardi il risultato dell'ultima settimana", why: "Una settimana di risultati è soprattutto {{t:variance}} (lezione sulla {{t:variance|varianza}}). La qualità del gioco nei giorni peggiori dice di più." }
       - { text: "Confronti la tua {{t:session|sessione}} migliore con la peggiore", why: "Questo confronto mostra solo le oscillazioni, non il progresso. Confronta il gioco peggiore con il peggiore precedente." }
 ---
-Il tilt è la perdita di controllo sotto l'effetto di emozioni negative, di solito dopo dei bad beat o una lunga serie di perdite. Finisce con decisioni scadenti e una perdita molto più grande del solito. Non è raro: in un'indagine tramite questionario, {{n:tilt.severe}} dei giocatori ha ammesso di essere andato in tilt pesante almeno una volta negli ultimi sei mesi.
+Il tilt è la perdita di controllo sotto l'effetto di emozioni negative, di solito dopo dei bad beat o una lunga serie di perdite. Finisce con decisioni scadenti e una perdita molto più grande del solito. Non è raro: in un'indagine tramite questionario, l'{{n:tilt.severe}} dei giocatori ha ammesso di essere andato in tilt pesante almeno una volta negli ultimi sei mesi.
 
 ## Sette tipi di tilt
 

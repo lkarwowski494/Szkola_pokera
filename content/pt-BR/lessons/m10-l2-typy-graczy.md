@@ -26,7 +26,7 @@ drills:
     id: m10.l2.q-data-passive
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "Segundo dados da população dos micro limites online (NL25), os {{t:recreational|jogadores recreativos}} chegam ao showdown em {{n:mda.rec.wtsd}} dos casos e vencem {{n:mda.rec.wsd}} dos showdowns; os {{t:regular|regulares}}, {{n:mda.reg.wtsd}} e {{n:mda.reg.wsd}}. O que se conclui disso?"
+    prompt: "Segundo dados da população dos microlimites online (NL25), os {{t:recreational|jogadores recreativos}} chegam ao showdown em {{n:mda.rec.wtsd}} dos casos e vencem {{n:mda.rec.wsd}} dos showdowns; os {{t:regular|regulares}}, {{n:mda.reg.wtsd}} e {{n:mda.reg.wsd}}. O que se conclui disso?"
     options:
       - { text: "Os {{t:recreational|jogadores recreativos}} pagam até o fim com mais frequência e perdem com mais frequência: {{t:call|pagam}} com mãos mais fracas", correct: true, why: "Eles chegam ao showdown com mais frequência e o vencem menos, então chegam lá com mãos mais fracas. Contra eles, você aposta {{t:value|por valor}} com mais mãos e {{t:bluff|blefa}} menos." }
       - { text: "Os {{t:recreational|jogadores recreativos}} {{t:bluff|blefam}} com mais frequência", why: "Esses números falam de com que frequência eles chegam ao showdown e com o quê, não de {{t:bluff|blefes}}. Eles vencem menos showdowns porque {{t:call|pagam}} com mãos mais fracas." }
@@ -136,7 +136,7 @@ A base do módulo 8 não muda: você aposta {{t:value|por valor}} quando mais da
 
 **O {{t:nit|nit}}** joga só mãos fortes. Quando ele {{t:raise|aumenta}} ou dá 3-bet, as mãos da parte de baixo do seu {{t:range}} de {{t:call}} ficam dominadas com mais frequência, então você {{t:fold|desiste}} com elas mais vezes que na base do módulo 4. Quando ele está no blind, você rouba mais, porque ele raramente defende.
 
-**O {{t:maniac|maníaco}}** joga muitas mãos e {{t:raise|aumenta}} com quase todas. As apostas dele contêm mais {{t:bluff|blefes}} que na base, então você {{t:call|paga}} com as mãos no limite do {{t:call}}, deixa ele apostar quando tem mãos muito fortes e não {{t:bluff|blefa}}: ele raramente {{t:fold|desiste}}.
+**O {{t:maniac|maníaco}}** joga muitas mãos e {{t:raise|aumenta}} com quase todas. As apostas dele contêm mais {{t:bluff|blefes}} que na base, então você {{t:call|paga}} com as mãos no limite do {{t:call}}, deixa ele apostar quando você tem mãos muito fortes e não {{t:bluff|blefa}}: ele raramente {{t:fold|desiste}}.
 
 :::note De onde vêm esses limiares
 Os limiares dos tipos são convenções de treinadores (dois materiais de treinamento, cash 6-max online): usamos a parte em comum ou um intervalo que abrange as duas fontes. Os dados da população vêm de uma base pública de estatísticas (uma grande sala online, NL25–NL100, todas as mãos dos {{n:mda.period.months}} meses antes de outubro de 2026; o site não informa o número de mãos). Identificar o tipo de um {{t:nit|nit}} ou de um {{t:maniac|maníaco}} depende das estatísticas de um adversário específico, e não de dados sobre a população inteira, por isso exige amostra.

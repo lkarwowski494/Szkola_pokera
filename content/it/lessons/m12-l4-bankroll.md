@@ -55,7 +55,7 @@ drills:
     rules: [R-M12-011, R-M12-002]
     prompt: "Hai iniziato a questo {{t:stakes|limite}} con {{n:br.bi.base}} {{t:buy-in|buy-in}} e ne hai persi {{n:dd.bi.small}}. Ora ne hai {{n:br.ex.after-dd}}. Cosa fai?"
     options:
-      - { text: "Resti a questo {{t:stakes|limite}} e rivedi le decisioni nelle mani perse", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|buy-in}} sono ancora più della soglia di discesa più tardiva, {{n:br.bi.move-down}}. In una simulazione un {{t:downswing}} così colpisce circa {{n:dd.p.small.100k}} dei giocatori che vincono {{n:var.wr.ex}} su {{n:var.hands.k}} mila mani, e la revisione delle mani verifica se dietro ci sono errori." }
+      - { text: "Resti a questo {{t:stakes|limite}} e rivedi le decisioni nelle mani perse", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|buy-in}} sono ancora più della soglia di discesa più tardiva, {{n:br.bi.move-down}}. In una simulazione un {{t:downswing}} così colpisce circa il {{n:dd.p.small.100k}} dei giocatori che vincono {{n:var.wr.ex}} su {{n:var.hands.k}} mila mani, e la revisione delle mani verifica se dietro ci sono errori." }
       - { text: "Scendi subito di {{t:stakes|limite}}", correct: true, why: "Anche questa è una buona decisione: alcune fonti consigliano di scendere già dopo aver perso {{n:dd.bi.small}} {{t:buy-in|buy-in}}. Scendere prima di arrivare a metà bankroll non è un errore, farlo dopo sì." }
       - { text: "Aggiungi {{t:buy-in|buy-in}} da fuori per tornare a {{n:br.bi.base}}", why: "Ricaricare dopo ogni {{t:downswing}} toglie senso al bankroll come confine del rischio. Fissi la soglia in anticipo e la rispetti." }
   - kind: choice
@@ -82,8 +82,8 @@ drills:
     rules: [R-M12-012]
     prompt: "Hai appena iniziato. Come dividi il tempo tra studio e gioco?"
     options:
-      - { text: "Circa {{n:study.beginner}} di studio", correct: true, why: "All'inizio hai più cose da recuperare, quindi lo studio prevale." }
-      - { text: "Circa {{n:study.min}} di studio", why: "È la soglia minima per un giocatore che già vince. All'inizio lo studio dovrebbe prevalere." }
+      - { text: "Circa l'{{n:study.beginner}} di studio", correct: true, why: "All'inizio hai più cose da recuperare, quindi lo studio prevale." }
+      - { text: "Circa il {{n:study.min}} di studio", why: "È la soglia minima per un giocatore che già vince. All'inizio lo studio dovrebbe prevalere." }
       - { text: "Solo gioco, lo studio arriverà con l'esperienza", why: "Il risultato del gioco è un feedback debole (lezione su decisione e risultato). Lo studio con spiegazioni e l'analisi delle mani insegnano più in fretta." }
   - kind: choice
     id: m12.l4.q-study-winner
@@ -91,9 +91,9 @@ drills:
     rules: [R-M12-012]
     prompt: "Vinci già al tuo {{t:stakes|limite}}. Come dividi il tempo?"
     options:
-      - { text: "Più o meno metà e metà, ma mai meno di {{n:study.min}} di studio", correct: true, why: "Anche quando vinci, l'ideale è circa {{n:study.winner}} di studio, e il minimo è {{n:study.min}}." }
-      - { text: "Solo gioco, visto che vinci", why: "Anche quando vinci, non scendi sotto {{n:study.min}} del tempo dedicato allo studio." }
-      - { text: "Circa {{n:study.beginner}} di studio, come all'inizio", why: "Puoi farlo, se ti prepari per {{t:stakes|limiti}} più alti. Se semplicemente vinci al tuo, basta circa {{n:study.winner}}." }
+      - { text: "Più o meno metà e metà, ma mai meno del {{n:study.min}} di studio", correct: true, why: "Anche quando vinci, l'ideale è circa il {{n:study.winner}} di studio, e il minimo è {{n:study.min}}." }
+      - { text: "Solo gioco, visto che vinci", why: "Anche quando vinci, non scendi sotto il {{n:study.min}} del tempo dedicato allo studio." }
+      - { text: "Circa l'{{n:study.beginner}} di studio, come all'inizio", why: "Puoi farlo, se ti prepari per {{t:stakes|limiti}} più alti. Se semplicemente vinci al tuo, basta circa {{n:study.winner}}." }
   - kind: choice
     id: m12.l4.q-warning-sign
     family: m12.responsible
@@ -138,7 +138,7 @@ Fissa la soglia in anticipo: scendi di un {{t:stakes|limite}} al più tardi quan
 
 ## Studio e gioco
 
-All'inizio dedichi circa {{n:study.beginner}} del tempo allo studio e il resto al gioco. Quando vinci al tuo {{t:stakes|limite}}, l'ideale è circa {{n:study.winner}}, ma mai meno di {{n:study.min}} di studio.
+All'inizio dedichi circa l'{{n:study.beginner}} del tempo allo studio e il resto al gioco. Quando vinci al tuo {{t:stakes|limite}}, l'ideale è circa {{n:study.winner}}, ma mai meno del {{n:study.min}} di studio.
 
 :::note Gioco responsabile
 Alcuni segnali che il gioco sta sfuggendo al controllo: giochi più a lungo di quanto avevi previsto; dopo una perdita torni a giocare per rifarti delle perdite; giochi con soldi che non puoi permetterti di perdere o chiedi prestiti per giocare; giochi per sfuggire alle preoccupazioni; nascondi il gioco alle persone care.

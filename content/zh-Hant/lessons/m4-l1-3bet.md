@@ -13,7 +13,7 @@ drills:
     prompt: "{{t:cutoff|CO}} {{t:open|開池}}到 {{n:pf.open-size}}。你想在按鈕位{{t:raise|加注}}。要加到多少？"
     table: { hand: "Ah Qh", position: BTN }
     options:
-      - { text: "加到 {{n:pf.3bet.ip-total}}", correct: true, why: "{{t:in-position|有利位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-ip}}。這是標準尺度，到翻牌時能留下良好的籌碼與{{t:pot|底池}}比。" }
+      - { text: "加到 {{n:pf.3bet.ip-total}}", correct: true, why: "{{t:in-position|有位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-ip}}。這是標準尺度，到翻牌時能留下良好的籌碼與{{t:pot|底池}}比。" }
       - { text: "加到 {{n:pf.3bet.too-small}}", why: "太小：對手拿到極佳的價格，幾乎任何牌都能{{t:call|跟注}}並繼續打下去。" }
       - { text: "加到 {{n:pf.3bet.too-big}}", why: "以{{t:in-position}}的打法來說太大：你冒的風險更大，而對手較好的牌反正也不會{{t:fold|棄牌}}。" }
   - kind: choice
@@ -23,8 +23,8 @@ drills:
     prompt: "按鈕位{{t:open|開池}}到 {{n:pf.open-size}}，{{t:small-blind}}{{t:fold|棄牌}}。你想在{{t:big-blind|大盲}}{{t:raise|加注}}。要加到多少？"
     table: { hand: "Kd Ks", position: BB }
     options:
-      - { text: "加到 {{n:pf.3bet.oop-total}}", correct: true, why: "{{t:out-of-position|不利位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-oop}}。較大的尺度讓按鈕位無法在{{t:in-position}}廉價{{t:call}}。" }
-      - { text: "加到 {{n:pf.3bet.ip-total}}", why: "這是{{t:in-position}}玩家用的尺度。{{t:out-of-position|不利位置}}時，你給對手的價格太好。" }
+      - { text: "加到 {{n:pf.3bet.oop-total}}", correct: true, why: "{{t:out-of-position|無位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-oop}}。較大的尺度讓按鈕位無法在{{t:in-position}}廉價{{t:call}}。" }
+      - { text: "加到 {{n:pf.3bet.ip-total}}", why: "這是{{t:in-position}}玩家用的尺度。{{t:out-of-position|無位置}}時，你給對手的價格太好。" }
       - { text: "只{{t:call|跟注}}", why: "拿 KK 你想立刻做大{{t:pot|底池}}：這是翻牌前第二好的牌。" }
   - kind: choice
     id: m4.l1.q-sb
@@ -72,7 +72,7 @@ drills:
 
 ## 3-bet 的尺度
 
-{{t:in-position|有利位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-ip}}，也就是對手{{t:open|開池}} {{n:pf.open-size}} 時加到 {{n:pf.3bet.ip-total}}。{{t:out-of-position|不利位置}}時，例如在盲注位面對 {{t:cutoff|CO}} 或按鈕位的{{t:open|開池}}，則加到{{t:open|開池}}的約 {{n:pf.3bet.size-oop}}，也就是 {{n:pf.3bet.oop-total}}。在{{t:out-of-position}}使用較大的尺度，能讓對手無法廉價{{t:call}}，否則他之後會帶著{{t:position|位置}}優勢來打。
+{{t:in-position|有位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-ip}}，也就是對手{{t:open|開池}} {{n:pf.open-size}} 時加到 {{n:pf.3bet.ip-total}}。{{t:out-of-position|無位置}}時，例如在盲注位面對 {{t:cutoff|CO}} 或按鈕位的{{t:open|開池}}，則加到{{t:open|開池}}的約 {{n:pf.3bet.size-oop}}，也就是 {{n:pf.3bet.oop-total}}。在{{t:out-of-position}}使用較大的尺度，能讓對手無法廉價{{t:call}}，否則他之後會帶著{{t:position|位置}}優勢來打。
 
 ## {{t:position|位置}}決定是否{{t:call|跟注}}
 
@@ -84,7 +84,7 @@ vs-open.btn-vs-co
 
 手牌表只顯示按鈕位玩哪些牌（用 3-bet 或{{t:call|跟注}}）、哪些牌{{t:fold|棄牌}}。3-bet 與{{t:call|跟注}}之間的比例請從上面的數字學習：App 的求解器在這個情境幾乎不{{t:call|跟注}}，所以無法重現這個比例。在十幾手牌上，例如 A8s、98s 和 44，App 的求解器打法和已公開的解不同，所以練習不會評分這些牌。
 
-在{{t:small-blind|小盲}}，你幾乎總是{{t:raise|加注}}或{{t:fold|棄牌}}。{{t:call|跟注}}意味著要在{{t:out-of-position}}打，而且你後面的{{t:big-blind}}還可能{{t:raise|加注}}。{{t:out-of-position|不利位置}}時，手牌的**{{t:equity-realization|權益實現}}**較差：它贏得的{{t:pot|底池}}份額比它的權益顯示的少，因為你更常在攤牌前{{t:fold|棄牌}}，也更難靠{{t:bet|下注}}贏下{{t:pot|底池}}。
+在{{t:small-blind|小盲}}，你幾乎總是{{t:raise|加注}}或{{t:fold|棄牌}}。{{t:call|跟注}}意味著要在{{t:out-of-position}}打，而且你後面的{{t:big-blind}}還可能{{t:raise|加注}}。{{t:out-of-position|無位置}}時，手牌的**{{t:equity-realization|權益實現}}**較差：它贏得的{{t:pot|底池}}份額比它的權益顯示的少，因為你更常在攤牌前{{t:fold|棄牌}}，也更難靠{{t:bet|下注}}贏下{{t:pot|底池}}。
 
 ```range
 vs-open.sb-vs-btn

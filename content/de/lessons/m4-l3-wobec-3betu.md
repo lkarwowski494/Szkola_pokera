@@ -34,7 +34,7 @@ drills:
     table: { hand: "As Kd", position: CO }
     options:
       - { text: "Ich 4-bette", correct: true, why: "AK 4-bettest du meistens: Die Hand will den Stack reinbringen, blockt AA und KK des Gegners und dominiert AQ, KQ und schwächere Asse." }
-      - { text: "Ich {{t:call|calle}}", why: "Manche Quellen {{t:call|callen}} AK manchmal, meistens spielst du aber die 4-Bet: {{t:out-of-position|Ohne Position}} verlierst du nach einem {{t:call|Call}} die {{t:initiative|Initiative}} und Wert." }
+      - { text: "Ich {{t:call|calle}}", why: "Manche Quellen {{t:call|callen}} AK manchmal, meistens spielst du aber die 4-Bet: {{t:out-of-position|Ohne Position}} verlierst du nach einem {{t:call|Call}} die {{t:initiative|Initiative}} und Value." }
       - { text: "Ich {{t:fold|folde}}", why: "AK ist preflop eine der besten Hände. Ein {{t:fold|Fold}} ist hier ein großer Fehler." }
   - kind: choice
     id: m4.l3.q-87s
@@ -43,7 +43,7 @@ drills:
     prompt: "Du hast vom Button auf {{n:pf.open-size}} {{t:open|eröffnet}}, der {{t:small-blind|Small Blind}} hat {{t:fold|gefoldet}}, der {{t:big-blind|Big Blind}} hat auf {{n:pf.3bet.oop-total}} {{t:raise|geraist}}. Was machst du?"
     table: { hand: "8h 7h", position: BTN }
     options:
-      - { text: "Ich {{t:call|calle}}", correct: true, why: "Ein suited {{t:connectors|Connector}} hat {{t:in-position|in Position}} eine gute {{t:equity-realization|Equity-Realisierung}}: Er trifft {{t:straight|Straights}} und Flushes, und wenn er verfehlt, kannst du ihn am Flop leicht {{t:fold|folden}}." }
+      - { text: "Ich {{t:call|calle}}", correct: true, why: "Ein suited {{t:connectors|Connector}} hat {{t:in-position|in Position}} eine gute {{t:equity-realization|Equity-Realisierung}}: Er trifft {{t:straight|Straßen}} und Flushes, und wenn er verfehlt, kannst du ihn am Flop leicht {{t:fold|folden}}." }
       - { text: "Ich {{t:fold|folde}}", why: "{{t:in-position|In Position}} ist diese Hand spielbar genug, um sie zu verteidigen. Ein {{t:fold|Fold}} wäre zu tight." }
       - { text: "Ich 4-bette", why: "Als {{t:bluff|Bluff}} eignen sich suited Asse besser, weil sie AA und AK blocken. 87s sieht lieber einen Flop." }
   - kind: choice
@@ -109,4 +109,4 @@ Laut einer veröffentlichten Solver-Lösung ({{t:cutoff|CO}} gegen eine 3-Bet de
 
 ## 4-Bet
 
-AA, KK und AK 4-bettest du meistens {{t:value|auf Value}}; AK {{t:call|callen}} manche Quellen manchmal. QQ und JJ spielen die Quellen unterschiedlich: Eine 4-bettet meistens, die andere {{t:call|callt}}. Als {{t:bluff|Bluff}} eignen sich suited Asse wie A5s am besten: Sie blocken AA und AK des Gegners und haben nach einem {{t:call|Call}} Chancen auf einen {{t:flush|Flush}} und einen {{t:straight|Straight}}. Eine 4-Bet beträgt etwa {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} der 3-Bet {{t:in-position|in Position}} und {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} {{t:out-of-position|ohne Position}}. Wenn du zum Beispiel vom Button gegen eine 3-Bet des {{t:small-blind|Small Blinds}} auf {{n:pf.3bet.oop-total}} 4-bettest (der {{t:big-blind|Big Blind}} hat {{t:fold|gefoldet}}), {{t:raise|raist}} du auf {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}; wenn du aus dem {{t:cutoff|CO}} gegen eine 3-Bet des Buttons auf {{n:pf.3bet.ip-total}} 4-bettest, {{t:raise|raist}} du auf etwa {{n:pf.4bet.oop-example.low}}. Nach einem {{t:call|Call}} bleibt in den Stacks etwa {{n:spr.4bet.high}}–{{n:spr.4bet.oop}}-mal so viel, wie im {{t:pot|Pot}} liegt, sodass gute Hände den Rest leicht reinbringen.
+AA, KK und AK 4-bettest du meistens {{t:value|auf Value}}; AK {{t:call|callen}} manche Quellen manchmal. QQ und JJ spielen die Quellen unterschiedlich: Eine 4-bettet meistens, die andere {{t:call|callt}}. Als {{t:bluff|Bluff}} eignen sich suited Asse wie A5s am besten: Sie blocken AA und AK des Gegners und haben nach einem {{t:call|Call}} Chancen auf einen {{t:flush|Flush}} und eine {{t:straight|Straße}}. Eine 4-Bet beträgt etwa {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} der 3-Bet {{t:in-position|in Position}} und {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} {{t:out-of-position|ohne Position}}. Wenn du zum Beispiel vom Button gegen eine 3-Bet des {{t:small-blind|Small Blinds}} auf {{n:pf.3bet.oop-total}} 4-bettest (der {{t:big-blind|Big Blind}} hat {{t:fold|gefoldet}}), {{t:raise|raist}} du auf {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}; wenn du aus dem {{t:cutoff|CO}} gegen eine 3-Bet des Buttons auf {{n:pf.3bet.ip-total}} 4-bettest, {{t:raise|raist}} du auf etwa {{n:pf.4bet.oop-example.low}}. Nach einem {{t:call|Call}} bleibt in den Stacks etwa {{n:spr.4bet.high}}–{{n:spr.4bet.oop}}-mal so viel, wie im {{t:pot|Pot}} liegt, sodass gute Hände den Rest leicht reinbringen.
