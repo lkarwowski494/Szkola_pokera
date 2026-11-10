@@ -1,0 +1,47 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "foldet dein Gegner selten, spielen",
+    "nowy": "{{t:fold|foldet}} dein Gegner selten, spielen",
+    "waga": "WYS",
+    "powod": "R-M10-011 because: zgubiony znacznik {{t:fold|…}} przy „gdy rywal {{t:fold|pasuje}} rzadko” (pl ma dwa znaczniki fold w because, de jeden); poprawka przywraca znacznik",
+    "grupa": "de-R3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "ein {{t:fold|Fold}} nach einem {{t:raise|Raise}} zu viele",
+    "nowy": "ein {{t:fold|Fold}} nach einem {{t:raise|Raise}} deines Gegners zu viele",
+    "waga": "ŚR",
+    "powod": "R-M11-001 because: pl rozróżnia własne „podbicie” i „fold po przebiciu” (rywala); de „ein Raise und ein Fold nach einem Raise” jest dwuznaczne, doprecyzowanie czyje przebicie",
+    "grupa": "de-R3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "robust gegen einen Lesefehler",
+    "nowy": "robust gegen einen falschen Read",
+    "waga": "ŚR",
+    "powod": "R-M13-008 because: „błąd odczytu” (rywala) oddany jako „Lesefehler” (błąd czytania tekstu); w lekcjach M10 de używa „Read”",
+    "grupa": "de-R3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "das dich ausscheiden lassen kann",
+    "nowy": "das dich aus dem Turnier werfen kann",
+    "waga": "NISKIE",
+    "powod": "R-M11-009 if: niezręczna konstrukcja „ausscheiden lassen” dla „może cię wyeliminować”",
+    "grupa": "de-R3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "nach einer {{t:session|Session}} willst du",
+    "nowy": "nach einer einzigen {{t:session|Session}} willst du",
+    "waga": "NISKIE",
+    "powod": "R-M13-004 if: „po jednej sesji” — „nach einer Session” czyta się jak rodzajnik nieokreślony, gubi „jednej”",
+    "grupa": "de-R3"
+  }
+]

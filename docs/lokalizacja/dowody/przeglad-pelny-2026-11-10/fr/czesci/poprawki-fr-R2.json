@@ -1,0 +1,47 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/rules.yaml",
+    "stary": "vous tirez plus souvent un {{t:second-barrel|second barrel}}",
+    "nowy": "vous {{t:bet|misez}} plus souvent un {{t:second-barrel|second barrel}}",
+    "waga": "WYS",
+    "powod": "R-M7-001 then (linia 537): zgubiony znacznik {{t:bet|…}} (pl: „częściej {{t:bet|stawiasz}} {{t:second-barrel|second barrel}}”); poprawka celowo przywraca znacznik t:bet, sens bez zmian",
+    "grupa": "fr-R2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/rules.yaml",
+    "stary": "if: \"vous faites un probe bet au turn\"",
+    "nowy": "if: \"vous {{t:bet|misez}} en probe bet au turn\"",
+    "waga": "WYS",
+    "powod": "R-M7-012 if (linia 626): zgubiony znacznik {{t:bet|…}} (pl: „{{t:bet|stawiasz}} probe bet na turnie”); poprawka celowo przywraca znacznik t:bet, sformułowanie „misez en probe bet” jak w lekcjach fr",
+    "grupa": "fr-R2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/rules.yaml",
+    "stary": "l'adversaire tire le {{t:second-barrel|second barrel}} avec",
+    "nowy": "l'adversaire {{t:bet|mise}} le {{t:second-barrel|second barrel}} avec",
+    "waga": "WYS",
+    "powod": "R-M7-013 because (linia 636): zgubiony znacznik {{t:bet|…}} (pl: „{{t:second-barrel|second barrel}} rywal {{t:bet|stawia}} węższym zakresem”); poprawka celowo przywraca znacznik t:bet, sens bez zmian",
+    "grupa": "fr-R2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/rules.yaml",
+    "stary": "d'autant plus que le c-bet est petit",
+    "nowy": "d'autant plus gros que le c-bet est petit",
+    "waga": "NISKIE",
+    "powod": "R-M6-010 then (linia 518): „d'autant plus que” czyta się też jako „tym bardziej, że c-bet jest mały”; pl: „tym więcej, im mniejszy c-bet” (większa krotność przy mniejszym c-becie)",
+    "grupa": "fr-R2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/rules.yaml",
+    "stary": "une value bet gagne plus de la moitié des fois où elle est suivie",
+    "nowy": "un value bet gagne plus de la moitié des fois où il est suivi",
+    "waga": "NISKIE",
+    "powod": "R-M8-001 source (linia 649): rodzaj gramatyczny; „value bet” jest we francuskim rodzaju męskiego (un bet, un c-bet, un probe bet w tym samym pliku)",
+    "grupa": "fr-R2"
+  }
+]

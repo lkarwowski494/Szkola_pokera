@@ -1,0 +1,155 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "foldest du öfter als {{n:alpha.bet-third}}",
+    "nowy": "{{t:fold|foldest}} du öfter als {{n:alpha.bet-third}}",
+    "waga": "WYS",
+    "powod": "R-M6-001 because (446): zgubiony znacznik {{t:fold|…}} (pl: {{t:fold|pasujesz}}); poprawka przywraca znacznik",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "foldet dein Gegner eine schlechtere Hand, gewinnst du denselben",
+    "nowy": "{{t:fold|foldet}} dein Gegner eine schlechtere Hand, gewinnst du denselben",
+    "waga": "WYS",
+    "powod": "R-M8-001 because (647): zgubiony znacznik {{t:fold|…}} (pl: {{t:fold|pasuje}}); poprawka przywraca znacznik",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "(hoher {{t:spr|SPR}})",
+    "nowy": "(hohe {{t:spr|SPR}})",
+    "waga": "ŚR",
+    "powod": "R-M7-009 then (603): SPR w terms-nazwy ma rodzaj żeński (die SPR); w pliku rodzaj mieszany",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "bei niedrigem {{t:spr|SPR}} sind keine da",
+    "nowy": "bei niedriger {{t:spr|SPR}} sind keine da",
+    "waga": "ŚR",
+    "powod": "R-M7-009 because (604): rodzaj SPR (żeński wg terms-nazwy)",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "du berechnest den {{t:spr|SPR}} auf dem Flop",
+    "nowy": "du berechnest die {{t:spr|SPR}} auf dem Flop",
+    "waga": "ŚR",
+    "powod": "R-M9-001 if (744): rodzaj SPR (żeński wg terms-nazwy)",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "je niedriger der {{t:spr|SPR}}, desto besser",
+    "nowy": "je niedriger die {{t:spr|SPR}}, desto besser",
+    "waga": "ŚR",
+    "powod": "R-M9-002 because (754): rodzaj SPR; w tej samej regule then ma „bei einer SPR”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "if: \"der {{t:spr|SPR}} auf dem Flop ist niedriger als",
+    "nowy": "if: \"die {{t:spr|SPR}} auf dem Flop ist niedriger als",
+    "waga": "ŚR",
+    "powod": "R-M9-003 if (760): rodzaj SPR; because tej samej reguły ma „bei einer SPR”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "je höher der {{t:spr|SPR}}, desto mehr",
+    "nowy": "je höher die {{t:spr|SPR}}, desto mehr",
+    "waga": "ŚR",
+    "powod": "R-M9-010 because (818): rodzaj SPR; to samo zdanie dalej ma „bei einer SPR”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "{{t:flush-draw|Flush Draw}}, Draw zur",
+    "nowy": "{{t:flush-draw|Flush-Draw}}, Draw zur",
+    "waga": "NISKIE",
+    "powod": "R-M7-002 then (545): pisownia terminu wg terms-nazwy „Flush-Draw”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "dein Gegner kann einen {{t:flush-draw|Flush Draw}} haben",
+    "nowy": "dein Gegner kann einen {{t:flush-draw|Flush-Draw}} haben",
+    "waga": "NISKIE",
+    "powod": "R-M7-006 if (576): pisownia terminu wg terms-nazwy „Flush-Draw”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "bei einem Flush Draw und einem Einsatz von",
+    "nowy": "bei einem Flush-Draw und einem Einsatz von",
+    "waga": "NISKIE",
+    "powod": "R-M7-008 because (595): pisownia terminu wg terms-nazwy „Flush-Draw”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "ein {{t:flush-draw|Flush Draw}} ist nicht angekommen",
+    "nowy": "ein {{t:flush-draw|Flush-Draw}} ist nicht angekommen",
+    "waga": "NISKIE",
+    "powod": "R-M8-008 if (701): pisownia terminu wg terms-nazwy „Flush-Draw”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "du wählst eine große Größe, z. B. 3/4",
+    "nowy": "du wählst eine große Einsatzgröße, z. B. 3/4",
+    "waga": "NISKIE",
+    "powod": "R-M7-005 then (569): niezręczne „große Größe”; „Einsatzgröße” jak w R-M8-005",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "ein {{t:flush|Flush}} sind etwa {{n:odds.flush.turn-river}}",
+    "nowy": "für einen {{t:flush|Flush}} sind das etwa {{n:odds.flush.turn-river}}",
+    "waga": "NISKIE",
+    "powod": "R-M7-007 then (585): niegramatyczne „ein Flush sind etwa X %”; mowa o szansie na kolor",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "ein Value Bet gewinnt mehr als die Hälfte der Male, wenn er gecallt wird",
+    "nowy": "eine Value Bet gewinnt mehr als die Hälfte der Male, wenn sie gecallt wird",
+    "waga": "NISKIE",
+    "powod": "R-M8-001 source (649): rodzaj „Bet” żeński (terms-nazwy: value-bet r. f; w pliku „eine C-Bet”, „eine Probe Bet”)",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "beschreiben so passive Freizeitspieler",
+    "nowy": "beschreiben auf diese Weise passive Freizeitspieler",
+    "waga": "NISKIE",
+    "powod": "R-M6-004 population (472): „so passive” czyta się jako „tak pasywnych”; pl: „opisują tak [w ten sposób] pasywnych graczy”",
+    "grupa": "de-R2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "mehr der stärksten Hände ({{t:nuts-advantage|Nuts-Vorteil}})",
+    "nowy": "mehr von den stärksten Händen ({{t:nuts-advantage|Nuts-Vorteil}})",
+    "waga": "NISKIE",
+    "powod": "R-M6-009 because (511): niezręczny dopełniacz „mehr der stärksten Hände”",
+    "grupa": "de-R2"
+  }
+]

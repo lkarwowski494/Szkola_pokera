@@ -1,0 +1,299 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l1-druga-beczka.md",
+    "stary": "nimmst eine Gratiskarte",
+    "nowy": "nimmst eine Freikarte",
+    "waga": "NISKIE",
+    "powod": "m7-l1:36: „darmowa karta” w pozostałych plikach modułu i korpusie to „Freikarte” (11×), „Gratiskarte” tylko tutaj.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l1-druga-beczka.md",
+    "stary": "die {{t:value|Value}}-Hände des Gegners blocken",
+    "nowy": "die Value-Hände des Gegners blocken",
+    "waga": "ŚR",
+    "powod": "m7-l1:137: nadmiarowy znacznik {{t:value}} — źródło pl ma w tym miejscu zwykły tekst („blokują wartość rywala”); usunięcie nadmiarowego znacznika.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+    "stary": "der {{t:aggressor}} von vor dem Flop keinen",
+    "nowy": "der Preflop-{{t:aggressor}} keinen",
+    "waga": "NISKIE",
+    "powod": "m7-l4:16: „der Aggressor von vor dem Flop” to niezręczna kalka; naturalnie „der Preflop-Aggressor”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+    "stary": "der {{t:aggressor}} von vor dem Flop auf dem Flop",
+    "nowy": "der Preflop-{{t:aggressor}} auf dem Flop",
+    "waga": "NISKIE",
+    "powod": "m7-l4:122: „der Aggressor von vor dem Flop auf dem Flop” to niezręczna kalka; naturalnie „der Preflop-Aggressor”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+    "stary": "setzen würde, also hat er nach einem {{t:check}} weniger davon",
+    "nowy": "setzen würde und nach einem {{t:check}} deshalb weniger davon hat",
+    "waga": "NISKIE",
+    "powod": "m7-l4:26: „Weil …, also hat er …” to niegramatyczna konstrukcja (zdanie podrzędne bez dokończenia); sens bez zmian.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+    "stary": "auf einer Blank-Karte zu",
+    "nowy": "auf einer leeren Karte zu",
+    "waga": "NISKIE",
+    "powod": "m7-l4:96: „pusta karta” zdefiniowana w m7-l1:124 jako „leere Karte”; „Blank-Karte” tylko tutaj.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+    "stary": "du verteidigst weiter, weil",
+    "nowy": "du verteidigst breiter, weil",
+    "waga": "ŚR",
+    "powod": "m7-l4:108: źródło „bronisz szerzej”; „verteidigst weiter” czyta się jako „bronisz dalej/nadal”; w lekcji przeciwieństwem „enger” jest „breit” („breite Verteidigung”).",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m7-l4-probe-obrona.md",
+    "stary": "übers Erwischen von {{t:bluff|Bluffs}}",
+    "nowy": "übers Fangen von {{t:bluff|Bluffs}}",
+    "waga": "NISKIE",
+    "powod": "m7-l4:116: odesłanie do lekcji M8 „łapanie blefów”, której tytuł de to „Bluffs fangen”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:open|geöffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}",
+    "nowy": "{{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q1 prompt: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:open|geöffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Zwei",
+    "nowy": "{{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Zwei",
+    "waga": "ŚR",
+    "powod": "m7.exam.q2 prompt: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:open|geöffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Fünf",
+    "nowy": "{{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat die C-Bet auf dem Flop {{t:call|gecallt}}. Der Turn ist eine Fünf",
+    "waga": "ŚR",
+    "powod": "m7.exam.q3 prompt: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "fürs {{t:open|Öffnen}}",
+    "nowy": "fürs {{t:open|Eröffnen}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q1 why [[Kh]]: {{t:open}} to w korpusie de „eröffnet/Eröffnen” (109×); „geöffnet/Öffnen” (otworzyć drzwi) tylko w tym pliku.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "T7 und 75 eine {{t:straight|Straight}}",
+    "nowy": "T7 und 75 eine {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q1 why [[8c]]: {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "87 und 43 eine {{t:straight|Straight}}",
+    "nowy": "87 und 43 eine {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q1 why [[5s]]: {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "gibt ihr eine {{t:straight|Straight}}",
+    "nowy": "gibt ihr eine {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q2 why [[8c 7c]]: {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "zur {{t:straight|Straight}}",
+    "nowy": "zur {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q8 why (outs.oesd): {{t:straight}} to wg terms-nazwy.yaml i lekcji m7 „Straße”; „Straight” tylko w egzaminie.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:straight-draw|Straight Draw}}",
+    "nowy": "{{t:straight-draw|Straight-Draw}}",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q8 why (outs.gutshot): pisownia wg terms-nazwy.yaml „Straight-Draw”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "98 und 86 {{t:two-pair|Two Pair}}",
+    "nowy": "98 und 86 {{t:two-pair|zwei Paare}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q1 why [[8c]]: {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "Sets und {{t:two-pair|Two Pair}}",
+    "nowy": "Sets und {{t:two-pair|zwei Paare}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q5 opcja 2: {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "Du hast {{t:two-pair|Two Pair}}",
+    "nowy": "Du hast {{t:two-pair|zwei Paare}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q6 prompt: {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "Mit {{t:two-pair|Two Pair}} setzt du",
+    "nowy": "Mit {{t:two-pair|zwei Paaren}} setzt du",
+    "waga": "ŚR",
+    "powod": "m7.exam.q6 why (check): {{t:two-pair}} to wg terms-nazwy.yaml i lekcji m7-l2 „zwei Paare”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "einen {{t:flush-draw|Flush Draw}} und einen Gutshot",
+    "nowy": "einen {{t:flush-draw|Flush-Draw}} und einen Gutshot",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q2 why [[Qh Jh]]: pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:flush-draw|Flush Draws}}",
+    "nowy": "{{t:flush-draw|Flush-Draws}}",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q5 opcja 3: pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "einen {{t:flush-draw|Flush Draw}} haben",
+    "nowy": "einen {{t:flush-draw|Flush-Draw}} haben",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q6 prompt: pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "für einen {{t:flush-draw|Flush Draw}}",
+    "nowy": "für einen {{t:flush-draw|Flush-Draw}}",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q6 why (check): pisownia wg terms-nazwy.yaml i lekcji m7: „Flush-Draw”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "Du hast {{t:second-pair|zweites Paar}} mit Ass",
+    "nowy": "Du hast {{t:second-pair|Second Pair}} mit Ass",
+    "waga": "ŚR",
+    "powod": "m7.exam.q3 prompt: {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:second-pair|Zweites Paar}}",
+    "nowy": "{{t:second-pair|Second Pair}}",
+    "waga": "ŚR",
+    "powod": "m7.exam.q3 why (check): {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:second-pair|zweites Paar}}\", correct",
+    "nowy": "{{t:second-pair|Second Pair}}\", correct",
+    "waga": "ŚR",
+    "powod": "m7.exam.q5 opcja 1: {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "{{t:second-pair|zweites Paar}} und einen Gutshot",
+    "nowy": "{{t:second-pair|Second Pair}} und einen Gutshot",
+    "waga": "ŚR",
+    "powod": "m7.exam.q9 prompt: {{t:second-pair}} to wg terms-nazwy.yaml i lekcji m7-l1:134 „Second Pair”.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "also setzen sie mit derselben großen Size wie starke Hände",
+    "nowy": "also setzen sie genauso groß wie starke Hände",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q5 why opcja 3: „rozmiar” w lekcjach m7 to „Größe”/„groß” („Richtige Aktion, falsche Größe” w m7-l1 i m7-l2); „Size” tylko w egzaminie.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "falsche Size",
+    "nowy": "falsche Größe",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q6 why (sizeError): „rozmiar” w lekcjach m7 to „Größe”/„groß” („Richtige Aktion, falsche Größe” w m7-l1 i m7-l2); „Size” tylko w egzaminie.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "und einer größeren Size als die C-Bet",
+    "nowy": "und größer als die C-Bet",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q10 why (fold): „rozmiar” w lekcjach m7 to „Größe”/„groß” („Richtige Aktion, falsche Größe” w m7-l1 i m7-l2); „Size” tylko w egzaminie.",
+    "grupa": "de-L5"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m7.yaml",
+    "stary": "weder eine Hand {{t:value|auf Value}} noch",
+    "nowy": "weder eine {{t:value|Value}}-Hand noch",
+    "waga": "NISKIE",
+    "powod": "m7.exam.q10 why (raise): „eine Hand auf Value” to kalka „ręka dla wartości”; naturalnie „Value-Hand” (tak w m7-l2:16).",
+    "grupa": "de-L5"
+  }
+]

@@ -1,0 +1,650 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l1-push-fold.md",
+    "stary": "còn tay mạnh hơn sẽ trả tiền cho bạn.",
+    "nowy": "còn tay mạnh hơn sẽ theo.",
+    "waga": "ŚR",
+    "powod": "m11-l1:25 (q-threshold-deep, why „Zawsze all-in”): pl „a płacą lepsze” = lepsze ręce sprawdzają; „trả tiền cho bạn” znaczy „zapłacą ci” (sugeruje zysk)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l1-push-fold.md",
+    "stary": "một tay bài hoàn toàn không có cơ hội hòa vốn?",
+    "nowy": "một tay bài hoàn toàn không có cơ hội thắng đạt mức hòa vốn?",
+    "waga": "ŚR",
+    "powod": "m11-l1:70 (q-fold-equity prompt): dwuznaczne „không có cơ hội hòa vốn” czyta się jako „bez szans na wyjście na zero”; pl: ręka bez żadnych szans (na wygraną) wychodzi na zero",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l1-push-fold.md",
+    "stary": "các tay yếu và trung bình",
+    "nowy": "các tay yếu hơn và trung bình",
+    "waga": "NISKIE",
+    "powod": "m11-l1:117 (tabela): pl „dla słabszych i średnich rąk”; w drillu i egzaminie „yếu hơn”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l1-push-fold.md",
+    "stary": "bạn chơi từ {{t:small-blind|small blind}} với {{t:big-blind|big blind}}",
+    "nowy": "bạn chơi từ {{t:small-blind|small blind}} đấu với {{t:big-blind|big blind}}",
+    "waga": "NISKIE",
+    "powod": "m11-l1:138: pl „przeciw dużemu blindowi”; samo „với” = „z” (dwuznaczne)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "thường xuyên gặp {{t:pair|đôi}} cao hơn hơn.",
+    "nowy": "gặp {{t:pair|đôi}} cao hơn thường xuyên hơn.",
+    "waga": "NISKIE",
+    "powod": "m11-l2:67 (q-22 why): zdublowane „hơn hơn”; pl „częściej trafia na wyższą parę”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "Nhiều hơn khi không có ante, vì",
+    "nowy": "Nhiều hơn so với khi không có ante, vì",
+    "waga": "ŚR",
+    "powod": "m11-l2:88 (q-ante, opcja 3): pl „Więcej niż bez ante”; bez „so với” czyta się „więcej, gdy nie ma ante” (odwrotnie)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "text: \"{{t:risk-premium|Phần bù rủi ro}}",
+    "nowy": "text: \"{{t:risk-premium|Risk premium}}",
+    "waga": "ŚR",
+    "powod": "m11-l3:61 (q-premium, odpowiedź): termin niezgodny z terms-nazwy (risk-premium = „risk premium”); w tym samym pytaniu (l.62) i w l.159 goły znacznik daje „risk premium”, więc poprawna odpowiedź nazywa się inaczej niż w wyjaśnieniu",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "why: \"{{t:risk-premium|Phần bù rủi ro}}",
+    "nowy": "why: \"{{t:risk-premium|Risk premium}}",
+    "waga": "ŚR",
+    "powod": "m11-l3:61 (q-premium, why): jak wyżej, termin niezgodny z terms-nazwy (risk-premium = „risk premium”)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "Bạn có thể {{t:shove|shove}} rộng hơn",
+    "nowy": "Bạn có thể {{t:shove|push}} rộng hơn",
+    "waga": "ŚR",
+    "powod": "m11-l3:79 (q-covering): termin niespójny: terms-nazwy shove = „push”, l1/l2/egzamin mają „đẩy (all-in)”; „shove” to trzecia nazwa",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "tận dụng điều này: {{t:shove|shove}} rộng hơn",
+    "nowy": "tận dụng điều này: {{t:shove|push}} rộng hơn",
+    "waga": "ŚR",
+    "powod": "m11-l3:164 (note): termin niespójny: terms-nazwy shove = „push”; „shove” to trzecia nazwa obok „đẩy (all-in)”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:pocket-pair|đôi túi}}",
+    "nowy": "{{t:pocket-pair|pocket pair}}",
+    "waga": "ŚR",
+    "powod": "m11-l3:161: termin niezgodny z terms-nazwy (pocket-pair = „pocket pair”; „đôi túi” bez źródła)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m11.yaml",
+    "stary": "một tay bài hoàn toàn không có cơ hội hòa vốn?",
+    "nowy": "một tay bài hoàn toàn không có cơ hội thắng đạt mức hòa vốn?",
+    "waga": "ŚR",
+    "powod": "m11.exam.q3 prompt (l.23): dwuznaczne „không có cơ hội hòa vốn” („bez szans na wyjście na zero”); pl: ręka bez żadnych szans wychodzi na zero",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m11.yaml",
+    "stary": "với tay bài không có cơ hội hòa vốn?",
+    "nowy": "với tay bài không có cơ hội thắng đạt mức hòa vốn?",
+    "waga": "ŚR",
+    "powod": "m11.exam.q4 prompt (l.32): jak w q3, dwuznaczne „không có cơ hội hòa vốn”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m11.yaml",
+    "stary": "{{n:m11.bf.p3}} {{t:prize-pool|quỹ giải thưởng}}",
+    "nowy": "{{n:m11.bf.p3}} {{t:prize-pool|tổng giải thưởng}}",
+    "waga": "ŚR",
+    "powod": "m11.exam.q7 prompt (l.57): termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); lekcja ma „quỹ thưởng”, egzamin „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m11.yaml",
+    "stary": "{{n:exam.m11.bf.loss}} {{t:prize-pool|quỹ giải thưởng}}",
+    "nowy": "{{n:exam.m11.bf.loss}} {{t:prize-pool|tổng giải thưởng}}",
+    "waga": "ŚR",
+    "powod": "m11.exam.q7 prompt (l.57): termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m13.yaml",
+    "stary": "của một {{t:mixed-hand|tay bài hỗn hợp}}",
+    "nowy": "của một {{t:mixed-hand|tay bài trộn}}",
+    "waga": "ŚR",
+    "powod": "m13.exam.q3 why 1 (l.25): termin niezgodny z terms-nazwy (mixed-hand = „tay bài trộn”)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m13.yaml",
+    "stary": "hơn của {{t:mixed-hand|tay bài hỗn hợp}}",
+    "nowy": "hơn của {{t:mixed-hand|tay bài trộn}}",
+    "waga": "ŚR",
+    "powod": "m13.exam.q3 why 3 (l.27): termin niezgodny z terms-nazwy (mixed-hand = „tay bài trộn”)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m13.yaml",
+    "stary": "text: \"Khớp\", why: \"Hành động khớp là",
+    "nowy": "text: \"Phù hợp\", why: \"Hành động phù hợp là",
+    "waga": "ŚR",
+    "powod": "m13.exam.q3 opcja 2 (l.26): nazwa werdyktu „Zgodna” w interfejsie vi to „Phù hợp” (vi.json grade.zgodne, verdicts.compliant), nie „Khớp”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m13.yaml",
+    "stary": "text: \"Lỗi\", why: \"Lỗi là hành động solver hoàn toàn không chơi. {{t:fold|Bỏ bài}}",
+    "nowy": "text: \"Sai lầm\", why: \"Sai lầm là hành động solver hoàn toàn không chơi. {{t:fold|Bỏ bài}}",
+    "waga": "ŚR",
+    "powod": "m13.exam.q3 opcja 3 (l.27): nazwa werdyktu „Błąd” w interfejsie vi to „Sai lầm” (vi.json verdicts.mistake), nie „Lỗi”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m13.yaml",
+    "stary": "text: \"Lỗi\", why: \"Lỗi là hành động solver hoàn toàn không chơi. Ở đây",
+    "nowy": "text: \"Sai lầm\", why: \"Sai lầm là hành động solver hoàn toàn không chơi. Ở đây",
+    "waga": "ŚR",
+    "powod": "m13.exam.q4 opcja 2 (l.35): nazwa werdyktu „Błąd” w interfejsie vi to „Sai lầm” (vi.json verdicts.mistake), nie „Lỗi”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m13.yaml",
+    "stary": "{{t:big-blind|mù lớn}}",
+    "nowy": "{{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m13.exam.q6 prompt (l.51): termin niezgodny z terms-nazwy (big-blind = „big blind”)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m13.yaml",
+    "stary": "{{t:bluff|tháu cáy}}",
+    "nowy": "{{t:bluff|bluff}}",
+    "waga": "ŚR",
+    "powod": "m13.exam.q9 prompt (l.78): termin niezgodny z terms-nazwy (bluff = „bluff”; egzamin m11 ma „bluff”)",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|mù lớn}}, không",
+    "nowy": "{{t:big-blind|big blind}}, không",
+    "waga": "ŚR",
+    "powod": "m11-l2:13: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "ante. {{t:small-blind|Mù nhỏ}}",
+    "nowy": "ante. {{t:small-blind|Small blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:13: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "\"Tiền mù",
+    "nowy": "\"Blind",
+    "waga": "ŚR",
+    "powod": "m11-l2:16: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "hơn, tiền mù",
+    "nowy": "hơn, blind",
+    "waga": "ŚR",
+    "powod": "m11-l2:24: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": ", tiền mù của",
+    "nowy": ", blind của",
+    "waga": "ŚR",
+    "powod": "m11-l2:25: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "Tiền mù đã",
+    "nowy": "Blind đã",
+    "waga": "ŚR",
+    "powod": "m11-l2:26: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} đã all-in. Bạn cần",
+    "nowy": "{{t:small-blind|small blind}} đã all-in. Bạn cần",
+    "waga": "ŚR",
+    "powod": "m11-l2:31: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "tiền mù chiếm phần nhỏ",
+    "nowy": "blind chiếm phần nhỏ",
+    "waga": "ŚR",
+    "powod": "m11-l2:35: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "luôn có tiền mù",
+    "nowy": "luôn có blind",
+    "waga": "ŚR",
+    "powod": "m11-l2:36: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|mù lớn}}, {{t:small-blind|mù nhỏ}} đã all-in. Hãy",
+    "nowy": "{{t:big-blind|big blind}}, {{t:small-blind|small blind}} đã all-in. Hãy",
+    "waga": "ŚR",
+    "powod": "m11-l2:49: terminy niezgodne z terms-nazwy (big-blind = „big blind”, small-blind = „small blind”; dwa miejsca w jednej poprawce, bo krótszy fragment nie jest unikalny); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} với",
+    "nowy": "{{t:small-blind|small blind}} với",
+    "waga": "ŚR",
+    "powod": "m11-l2:54: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "này ở {{t:big-blind|mù lớn}}",
+    "nowy": "này ở {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:54: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "chính {{t:small-blind|mù nhỏ}}",
+    "nowy": "chính {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:54: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} tôi",
+    "nowy": "{{t:small-blind|small blind}} tôi",
+    "waga": "ŚR",
+    "powod": "m11-l2:58: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|Mù lớn}},",
+    "nowy": "{{t:big-blind|Big blind}},",
+    "waga": "ŚR",
+    "powod": "m11-l2:64: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} đã all-in. Bạn có",
+    "nowy": "{{t:small-blind|small blind}} đã all-in. Bạn có",
+    "waga": "ŚR",
+    "powod": "m11-l2:64: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "\"Ở {{n:m11.depth.10}}, {{t:small-blind|mù nhỏ}}",
+    "nowy": "\"Ở {{n:m11.depth.10}}, {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:74: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|mù lớn}} chỉ",
+    "nowy": "{{t:big-blind|big blind}} chỉ",
+    "waga": "ŚR",
+    "powod": "m11-l2:74: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|Mù lớn}} phải",
+    "nowy": "{{t:big-blind|Big blind}} phải",
+    "waga": "ŚR",
+    "powod": "m11-l2:77: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "đã có tiền mù",
+    "nowy": "đã có blind",
+    "waga": "ŚR",
+    "powod": "m11-l2:77: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:bb-ante|ante mù lớn}}.",
+    "nowy": "{{t:bb-ante|big blind ante}}.",
+    "waga": "ŚR",
+    "powod": "m11-l2:83: termin niezgodny z terms-nazwy (bb-ante = „big blind ante”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|mù lớn}} và đã",
+    "nowy": "{{t:big-blind|big blind}} và đã",
+    "waga": "ŚR",
+    "powod": "m11-l2:83: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|Mù nhỏ}} đã all-in.",
+    "nowy": "{{t:small-blind|Small blind}} đã all-in.",
+    "waga": "ŚR",
+    "powod": "m11-l2:83: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "all-in, {{t:small-blind|mù nhỏ}}",
+    "nowy": "all-in, {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:107: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "Ở {{t:big-blind|mù lớn}}",
+    "nowy": "Ở {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:107: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "bạn ở {{t:big-blind|mù lớn}}",
+    "nowy": "bạn ở {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:114: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "Tiền mù của bạn đã nằm trong {{t:pot|pot}}.",
+    "nowy": "Blind của bạn đã nằm trong {{t:pot|pot}}.",
+    "waga": "ŚR",
+    "powod": "m11-l2:118: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "vì tiền mù",
+    "nowy": "vì blind",
+    "waga": "ŚR",
+    "powod": "m11-l2:130: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} all-in với khoảng {{n:m11.push.10}} tay bài, còn {{t:big-blind|mù lớn}} {{t:call|theo}}",
+    "nowy": "{{t:small-blind|small blind}} all-in với khoảng {{n:m11.push.10}} tay bài, còn {{t:big-blind|big blind}} {{t:call|theo}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:140: terminy niezgodne z terms-nazwy (small-blind = „small blind”, big-blind = „big blind”; dwa miejsca w jednej poprawce, bo krótszy fragment nie jest unikalny); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}},",
+    "nowy": "{{t:small-blind|small blind}},",
+    "waga": "ŚR",
+    "powod": "m11-l2:140: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} chỉ",
+    "nowy": "{{t:small-blind|small blind}} chỉ",
+    "waga": "ŚR",
+    "powod": "m11-l2:154: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|Mù lớn}} trong",
+    "nowy": "{{t:big-blind|Big blind}} trong",
+    "waga": "ŚR",
+    "powod": "m11-l2:154: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "khi {{t:small-blind|mù nhỏ}}",
+    "nowy": "khi {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:154: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} có",
+    "nowy": "{{t:small-blind|small blind}} có",
+    "waga": "ŚR",
+    "powod": "m11-l2:154: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|mù lớn}}.",
+    "nowy": "{{t:big-blind|big blind}}.",
+    "waga": "ŚR",
+    "powod": "m11-l2:154: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|mù lớn}} vẫn",
+    "nowy": "{{t:big-blind|big blind}} vẫn",
+    "waga": "ŚR",
+    "powod": "m11-l2:160: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "với {{t:bb-ante|ante mù lớn}}",
+    "nowy": "với {{t:bb-ante|big blind ante}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:168: termin niezgodny z terms-nazwy (bb-ante = „big blind ante”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:small-blind|mù nhỏ}} đấu",
+    "nowy": "{{t:small-blind|small blind}} đấu",
+    "waga": "ŚR",
+    "powod": "m11-l2:175: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:big-blind|mù lớn}} khi",
+    "nowy": "{{t:big-blind|big blind}} khi",
+    "waga": "ŚR",
+    "powod": "m11-l2:175: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:prize-pool|quỹ thưởng}} cho",
+    "nowy": "{{t:prize-pool|tổng giải thưởng}} cho",
+    "waga": "ŚR",
+    "powod": "m11-l3:29: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:prize-pool|quỹ thưởng}})?",
+    "nowy": "{{t:prize-pool|tổng giải thưởng}})?",
+    "waga": "ŚR",
+    "powod": "m11-l3:29: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:prize-pool|quỹ thưởng}}, dù có",
+    "nowy": "{{t:prize-pool|tổng giải thưởng}}, dù có",
+    "waga": "ŚR",
+    "powod": "m11-l3:38: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "bộ {{t:prize-pool|quỹ thưởng}}.",
+    "nowy": "bộ {{t:prize-pool|tổng giải thưởng}}.",
+    "waga": "ŚR",
+    "powod": "m11-l3:39: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:prize-pool|quỹ thưởng}}, còn nếu",
+    "nowy": "{{t:prize-pool|tổng giải thưởng}}, còn nếu",
+    "waga": "ŚR",
+    "powod": "m11-l3:45: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:prize-pool|quỹ thưởng}}, còn thắng",
+    "nowy": "{{t:prize-pool|tổng giải thưởng}}, còn thắng",
+    "waga": "ŚR",
+    "powod": "m11-l3:71: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "bộ {{t:prize-pool|quỹ thưởng}},",
+    "nowy": "bộ {{t:prize-pool|tổng giải thưởng}},",
+    "waga": "ŚR",
+    "powod": "m11-l3:113: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:prize-pool|quỹ thưởng}} kỳ",
+    "nowy": "{{t:prize-pool|tổng giải thưởng}} kỳ",
+    "waga": "ŚR",
+    "powod": "m11-l3:123: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{t:prize-pool|quỹ thưởng}}. Stack:",
+    "nowy": "{{t:prize-pool|tổng giải thưởng}}. Stack:",
+    "waga": "ŚR",
+    "powod": "m11-l3:127: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "** {{t:prize-pool|quỹ thưởng}}",
+    "nowy": "** {{t:prize-pool|tổng giải thưởng}}",
+    "waga": "ŚR",
+    "powod": "m11-l3:131: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m11-l3-icm.md",
+    "stary": "{{n:m11.bf.eq.now}} {{t:prize-pool|quỹ thưởng}}",
+    "nowy": "{{n:m11.bf.eq.now}} {{t:prize-pool|tổng giải thưởng}}",
+    "waga": "ŚR",
+    "powod": "m11-l3:145: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+    "grupa": "vi-L9"
+  }
+]

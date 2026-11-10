@@ -1,0 +1,641 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "réalise mal l'equity}}",
+    "nowy": "réalise mal l'équité}}",
+    "waga": "ŚR",
+    "powod": "m4-l1:37: niespójny termin: equity → « équité » (terms-nazwy; tak w m4-l2, m4-l3 i egzaminie)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "l'equity de votre main",
+    "nowy": "l'équité de votre main",
+    "waga": "ŚR",
+    "powod": "m4-l1:37: niespójny termin: equity → « équité » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "réalise moins bien son equity}}",
+    "nowy": "réalise moins bien son équité}}",
+    "waga": "ŚR",
+    "powod": "m4-l1:87: niespójny termin: equity → « équité » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "que ne l'indique son equity",
+    "nowy": "que ne l'indique son équité",
+    "waga": "ŚR",
+    "powod": "m4-l1:87: niespójny termin: equity → « équité » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "souvent avant l'abattage.\"",
+    "nowy": "souvent avant le showdown.\"",
+    "waga": "ŚR",
+    "powod": "m4-l1:37: niespójny termin: showdown (terms-nazwy; tak w m4-l2), nie « abattage »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "plus souvent avant l'abattage",
+    "nowy": "plus souvent avant le showdown",
+    "waga": "ŚR",
+    "powod": "m4-l1:87: niespójny termin: showdown (terms-nazwy; tak w m4-l2), nie « abattage »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "une demi-blind dans",
+    "nowy": "une demi-blinde dans",
+    "waga": "NISKIE",
+    "powod": "m4-l1:37: pisownia niespójna z przyjętą « blinde »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Une demi-blind, c'est",
+    "nowy": "Une demi-blinde, c'est",
+    "waga": "NISKIE",
+    "powod": "m4-l1:37: pisownia niespójna z przyjętą « blinde »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "(blind, ",
+    "nowy": "(blinde, ",
+    "waga": "NISKIE",
+    "powod": "m4-l1:71: pisownia niespójna z przyjętą « blinde »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "depuis les blinds",
+    "nowy": "depuis les blindes",
+    "waga": "NISKIE",
+    "powod": "m4-l1:75: pisownia niespójna z przyjętą « blinde » (m4-l3: « les blindes »)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "{{t:call|suit}} presque rien",
+    "nowy": "{{t:call|suit}} presque jamais",
+    "waga": "NISKIE",
+    "powod": "m4-l1:93: niezręczne « suivre rien »; sens: prawie nigdy nie sprawdza",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Sur une douzaine de mains",
+    "nowy": "Sur plus d'une dizaine de mains",
+    "waga": "NISKIE",
+    "powod": "m4-l1:85: pl „w kilkunastu rękach” (11–19), « une douzaine » zawęża",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "Parce que {{t:out-of-position|hors position}}",
+    "nowy": "Parce que {{t:out-of-position|hors de position}}",
+    "waga": "ŚR",
+    "powod": "m4-l2:34: niespójny termin: « hors de position » (terms-nazwy; tak w m4-l1, l3, l4)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "sans {{t:bet|mises}}. {{t:out-of-position|Hors position}}, vous",
+    "nowy": "sans {{t:bet|mises}}. {{t:out-of-position|Hors de position}}, vous",
+    "waga": "ŚR",
+    "powod": "m4-l2:34: niespójny termin: « hors de position » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "{{t:value|valeur}}. {{t:out-of-position|Hors position}},",
+    "nowy": "{{t:value|valeur}}. {{t:out-of-position|Hors de position}},",
+    "waga": "ŚR",
+    "powod": "m4-l2:44: niespójny termin: « hors de position » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "l'{{t:open|ouverture}}). {{t:out-of-position|Hors position}},",
+    "nowy": "l'{{t:open|ouverture}}). {{t:out-of-position|Hors de position}},",
+    "waga": "ŚR",
+    "powod": "m4-l2:45: niespójny termin: « hors de position » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "{{t:out-of-position|hors position}}.\"",
+    "nowy": "{{t:out-of-position|hors de position}}.\"",
+    "waga": "ŚR",
+    "powod": "m4-l2:46: niespójny termin: « hors de position » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "autres {{t:bet|mises}}. {{t:out-of-position|Hors position}}, vous",
+    "nowy": "autres {{t:bet|mises}}. {{t:out-of-position|Hors de position}}, vous",
+    "waga": "ŚR",
+    "powod": "m4-l2:73: niespójny termin: « hors de position » (terms-nazwy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "les blinds dans le",
+    "nowy": "les blindes dans le",
+    "waga": "NISKIE",
+    "powod": "m4-l2:16: pisownia niespójna z przyjętą « blinde »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "contient aussi les blinds",
+    "nowy": "contient aussi les blindes",
+    "waga": "NISKIE",
+    "powod": "m4-l2:26: pisownia niespójna z przyjętą « blinde »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "Les {{t:pair|paires}} moyennes et petites, KQo et les as dépareillés, vous les {{t:call|suivez}} généralement.",
+    "nowy": "Avec les {{t:pair|paires}} moyennes et petites, KQo et les as dépareillés, vous {{t:call|suivez}} généralement.",
+    "waga": "ŚR",
+    "powod": "m4-l2:92: błąd językowy: « suivre » nie bierze ręki jako dopełnienia (suivre avec une main)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l4-limperzy.md",
+    "stary": "{{t:big-blind|big blind}} (limp). Vous voulez",
+    "nowy": "{{t:big-blind|grosse blinde}} (limp). Vous voulez",
+    "waga": "ŚR",
+    "powod": "m4-l4:13: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l4-limperzy.md",
+    "stary": "payé la {{t:big-blind|big blind}}. Vous voulez",
+    "nowy": "payé la {{t:big-blind|grosse blinde}}. Vous voulez",
+    "waga": "ŚR",
+    "powod": "m4-l4:23: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l4-limperzy.md",
+    "stary": "en {{t:small-blind|small blind}}",
+    "nowy": "en {{t:small-blind|petite blinde}}",
+    "waga": "ŚR",
+    "powod": "m4-l4:33: niespójny termin: small-blind = « petite blinde » (terms-nazwy, reszta modułu)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l4-limperzy.md",
+    "stary": "{{t:big-blind|big blind}} (limp). Vous êtes",
+    "nowy": "{{t:big-blind|grosse blinde}} (limp). Vous êtes",
+    "waga": "ŚR",
+    "powod": "m4-l4:43: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l4-limperzy.md",
+    "stary": "payé la {{t:big-blind|big blind}}. Vous êtes",
+    "nowy": "payé la {{t:big-blind|grosse blinde}}. Vous êtes",
+    "waga": "ŚR",
+    "powod": "m4-l4:54: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l4-limperzy.md",
+    "stary": "la {{t:big-blind|big blind}}. Les",
+    "nowy": "la {{t:big-blind|grosse blinde}}. Les",
+    "waga": "ŚR",
+    "powod": "m4-l4:61: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l4-limperzy.md",
+    "stary": "laissez entrer les blinds",
+    "nowy": "laissez entrer les blindes",
+    "waga": "NISKIE",
+    "powod": "m4-l4:48: pisownia niespójna z przyjętą « blinde »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "abandonne de la {{t:value|valeur}} et",
+    "nowy": "abandonne de la valeur et",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:92: dodany znacznik {{t:value}}, którego nie ma w pl („oddaje wartość”); poprawka celowo usuwa nadmiarowy znacznik (zmienia zestaw kluczy)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "chacun des trois limpers",
+    "nowy": "chacun des trois limpeurs",
+    "waga": "NISKIE",
+    "powod": "m4 egzamin:109: niespójna forma: « limpeurs » (tak w tym samym zdaniu i w m4-l4)",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "un seul limper.",
+    "nowy": "un seul limpeur.",
+    "waga": "NISKIE",
+    "powod": "m4 egzamin:110: niespójna forma: « limpeur »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Chaque limper supplémentaire",
+    "nowy": "Chaque limpeur supplémentaire",
+    "waga": "NISKIE",
+    "powod": "m4 egzamin:110: niespójna forma: « limpeur »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "ont simplement complété la",
+    "nowy": "ont seulement payé la",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:106: niespójne nazwanie tego samego zagrania (m4-l4: « ont seulement payé »); « compléter » dotyczy zwykle małej blindy",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Je complète",
+    "nowy": "Je paie",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:111: niespójne z m4-l4 (« Je paie ») dla „Dopłacam”",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Compléter convient",
+    "nowy": "Payer convient",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:111: niespójne z m4-l4 (« payer ») dla „dopłata”",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Les as dépareillés (AJo–A9o) à la {{t:big-blind|grosse blinde}}, vous vous contentez généralement de les {{t:call|suivre}}",
+    "nowy": "Avec les as dépareillés (AJo–A9o) à la {{t:big-blind|grosse blinde}}, vous vous contentez généralement de {{t:call|suivre}}",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:33: błąd językowy: « suivre » nie bierze ręki jako dopełnienia",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Les {{t:pair|paires}} moyennes et petites à la {{t:big-blind|grosse blinde}}, vous les {{t:call|suivez}} généralement.",
+    "nowy": "Avec les {{t:pair|paires}} moyennes et petites à la {{t:big-blind|grosse blinde}}, vous {{t:call|suivez}} généralement.",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:34: błąd językowy: « suivre » nie bierze ręki jako dopełnienia",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "le Button.",
+    "nowy": "le Bouton.",
+    "waga": "ŚR",
+    "powod": "m4-l1:13: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": " prompt: \"Le Button a {{t:open|ouvert}} à {{n:pf.open-size}},",
+    "nowy": " prompt: \"Le Bouton a {{t:open|ouvert}} à {{n:pf.open-size}},",
+    "waga": "ŚR",
+    "powod": "m4-l1:23: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Button d'un",
+    "nowy": "Bouton d'un",
+    "waga": "ŚR",
+    "powod": "m4-l1:26: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": " prompt: \"Le Button a {{t:open|ouvert}} à {{n:pf.open-size}}.",
+    "nowy": " prompt: \"Le Bouton a {{t:open|ouvert}} à {{n:pf.open-size}}.",
+    "waga": "ŚR",
+    "powod": "m4-l1:33: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Button {{t:open|ouvre}}",
+    "nowy": "Bouton {{t:open|ouvre}}",
+    "waga": "ŚR",
+    "powod": "m4-l1:38: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "du Button.",
+    "nowy": "du Bouton.",
+    "waga": "ŚR",
+    "powod": "m4-l1:43: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "du Button,",
+    "nowy": "du Bouton,",
+    "waga": "ŚR",
+    "powod": "m4-l1:75: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Button face",
+    "nowy": "Bouton face",
+    "waga": "ŚR",
+    "powod": "m4-l1:79: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Button joue",
+    "nowy": "Bouton joue",
+    "waga": "ŚR",
+    "powod": "m4-l1:85: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Button ne",
+    "nowy": "Bouton ne",
+    "waga": "ŚR",
+    "powod": "m4-l1:93: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "au Button,",
+    "nowy": "au Bouton,",
+    "waga": "ŚR",
+    "powod": "m4-l1:99: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l1-3bet.md",
+    "stary": "Button et",
+    "nowy": "Bouton et",
+    "waga": "ŚR",
+    "powod": "m4-l1:104: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "    prompt: \"Le Button {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. De",
+    "nowy": "    prompt: \"Le Bouton {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. De",
+    "waga": "ŚR",
+    "powod": "m4-l2:13: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "au Button, mais",
+    "nowy": "au Bouton, mais",
+    "waga": "ŚR",
+    "powod": "m4-l2:24: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "Button à",
+    "nowy": "Bouton à",
+    "waga": "ŚR",
+    "powod": "m4-l2:25: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "Button ?\"",
+    "nowy": "Bouton ?\"",
+    "waga": "ŚR",
+    "powod": "m4-l2:31: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "Button a",
+    "nowy": "Bouton a",
+    "waga": "ŚR",
+    "powod": "m4-l2:35: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "\"Le Button {{t:open|ouvre}}",
+    "nowy": "\"Le Bouton {{t:open|ouvre}}",
+    "waga": "ŚR",
+    "powod": "m4-l2:35: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "    prompt: \"Le Button {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Vous",
+    "nowy": "    prompt: \"Le Bouton {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Vous",
+    "waga": "ŚR",
+    "powod": "m4-l2:41: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "Button ne",
+    "nowy": "Bouton ne",
+    "waga": "ŚR",
+    "powod": "m4-l2:44: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "    prompt: \"Le Button {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Coloriez",
+    "nowy": "    prompt: \"Le Bouton {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Coloriez",
+    "waga": "ŚR",
+    "powod": "m4-l2:67: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "le Button {{t:open|ouvre}}",
+    "nowy": "le Bouton {{t:open|ouvre}}",
+    "waga": "ŚR",
+    "powod": "m4-l2:69: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+    "stary": "au Button, un",
+    "nowy": "au Bouton, un",
+    "waga": "ŚR",
+    "powod": "m4-l2:92: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Button s'est",
+    "nowy": "Bouton s'est",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:9: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "\"Le Button a",
+    "nowy": "\"Le Bouton a",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:19: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "au Button, depuis",
+    "nowy": "au Bouton, depuis",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:22: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "au Button, vous",
+    "nowy": "au Bouton, vous",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:23: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "du Button.\"",
+    "nowy": "du Bouton.\"",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:24: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "le Button a {{t:open|ouvert}},",
+    "nowy": "le Bouton a {{t:open|ouvert}},",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:29: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Button et",
+    "nowy": "Bouton et",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:39: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "au Button.\"",
+    "nowy": "au Bouton.\"",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:42: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "le Button a {{t:raise|relancé}}",
+    "nowy": "le Bouton a {{t:raise|relancé}}",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:68: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Button à",
+    "nowy": "Bouton à",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:78: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m4.yaml",
+    "stary": "Button se",
+    "nowy": "Bouton se",
+    "waga": "ŚR",
+    "powod": "m4 egzamin:98: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+    "grupa": "fr-L2"
+  }
+]

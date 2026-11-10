@@ -1,0 +1,83 @@
+[
+ {
+  "jezyk": "de",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "Entscheiden üben, ohne Einsatz",
+  "nowy": "Entscheiden üben ohne Echtgeld",
+  "waga": "ŚR",
+  "powod": "de-DE subtitle: „ohne Einsatz” jest dwuznaczne (Einsatz = stawka, ale też „zaangażowanie, wysiłek”: „ćwicz decyzje bez wysiłku”); pl „bez gry o stawki”, en „no real money”. Zamiennik ma 30 znaków (limit 30) i jest spójny z „Kein Echtgeldspiel” w promotionalText.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "Entscheidungen in vier Stufen bewertet",
+  "nowy": "Entscheidungen in vier Stufen bewertet: übereinstimmend, vertretbar, Ungenauigkeit, Fehler",
+  "waga": "ŚR",
+  "powod": "de-DE description, sekcja ÜBEN: pominięte nazwy czterech stopni oceny (pl „zgodna, dopuszczalna, niedokładność, błąd”, en „correct, acceptable, inaccuracy, mistake”); nazwy jak w słowniku aplikacji (grade.*).",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "Tagesserie und ein Fortschrittswert",
+  "nowy": "Tagesserie und ein Leistungsindex",
+  "waga": "NISKIE",
+  "powod": "de-DE description, sekcja WIEDERHOLUNG UND FORTSCHRITT: „wskaźnik zaawansowania” w aplikacji to „Leistungsindex” (advancement.title); jedna nazwa na jedno pojęcie.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "{{t:risk-premium|Risikoprämie}}",
+  "nowy": "{{t:risk-premium|Risk Premium}}",
+  "waga": "ŚR",
+  "powod": "drill.icm.foldRightChips (de.json:724): przyjęta nazwa terminu risk-premium to „Risk Premium” (terms-nazwy.yaml; rodzaj żeński, więc „die Risk Premium” zostaje); „Risikoprämie” to druga nazwa tego samego pojęcia.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "{{t:combo|Kombos}}",
+  "nowy": "{{t:combo|Kombinationen}}",
+  "waga": "ŚR",
+  "powod": "drill.paint.explanation (de.json:656): przyjęta nazwa terminu combo to „Kombination” (terms-nazwy.yaml, w treści Kombinationen ×27); „Kombos” niespójne.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "Die Kombination ist dieselbe",
+  "nowy": "Die Handkategorie ist dieselbe",
+  "waga": "ŚR",
+  "powod": "drill.whoWins.reason.kicker (de.json:685): pl „Układ jest ten sam” (ta sama kategoria układu); „Kombination” jest w de zajęta przez termin combo (kombinacja kart własnych), więc zdanie jest dwuznaczne.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "{{diff}} Pp.",
+  "nowy": "{{diff}} Prozentpunkte",
+  "waga": "NISKIE",
+  "powod": "drill.numeric.diffPp (de.json:662): „Pp.” nie jest przyjętym niemieckim skrótem punktów procentowych; pełne słowo jest jednoznaczne.",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "deines Apple-Accounts (Abonnements)",
+  "nowy": "deines Apple Accounts (Abonnements)",
+  "waga": "NISKIE",
+  "powod": "purchase.cancelInfo (de.json:56): nazwa własna Apple po niemiecku to „Apple Account” bez łącznika; tak też w opisie sklepu de-DE („deines Apple Accounts”).",
+  "grupa": "de-U1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "auf diesem Apple-Account keine",
+  "nowy": "auf diesem Apple Account keine",
+  "waga": "NISKIE",
+  "powod": "purchase.noPurchases (de.json:61): „Apple Account” bez łącznika, spójnie z purchase.cancelInfo i opisem sklepu.",
+  "grupa": "de-U1"
+ }
+]

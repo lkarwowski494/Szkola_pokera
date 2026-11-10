@@ -1,0 +1,6 @@
+[
+  { "jezyk": "fr", "cel": "content/fr/rules.yaml", "stary": "notion de flop humide", "nowy": "notion de flop wet", "waga": "NISKIE", "powod": "R-M5-002 source: termin niespójny z terms-nazwy.yaml (wet: „wet”, zmiana D-392) i z polem then tej samej reguły („flop {{t:wet|wet}}”); pole source nie jest pokazywane w aplikacji", "grupa": "fr-R1" },
+  { "jezyk": "fr", "cel": "content/fr/rules.yaml", "stary": "exemples de flops humides", "nowy": "exemples de flops wet", "waga": "NISKIE", "powod": "R-M5-002 source: termin niespójny z terms-nazwy.yaml (wet: „wet”)", "grupa": "fr-R1" },
+  { "jezyk": "fr", "cel": "content/fr/rules.yaml", "stary": "la limite intermédiaire/humide", "nowy": "la limite intermédiaire/wet", "waga": "NISKIE", "powod": "R-M5-002 source: termin niespójny z terms-nazwy.yaml (wet: „wet”)", "grupa": "fr-R1" },
+  { "jezyk": "fr", "cel": "content/fr/rules.yaml", "stary": "un flop humide ne signifie pas", "nowy": "un flop wet ne signifie pas", "waga": "NISKIE", "powod": "R-M5-010 source: termin niespójny z terms-nazwy.yaml (wet: „wet”)", "grupa": "fr-R1" }
+]

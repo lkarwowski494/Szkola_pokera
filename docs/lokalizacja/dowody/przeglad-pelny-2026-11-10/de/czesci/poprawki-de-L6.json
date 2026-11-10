@@ -1,0 +1,470 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l1-value.md",
+    "stary": "folden schlechtere Hände meist",
+    "nowy": "{{t:fold|folden}} schlechtere Hände meist",
+    "waga": "WYS",
+    "powod": "m8-l1:17 (q-why-bet, opcja 3, why): zgubiony znacznik {{t:fold|…}} (pl: „gorsze ręce zwykle {{t:fold|pasują}}”); poprawka przywraca znacznik.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l1-value.md",
+    "stary": "{{t:street|Streets}} gecallt hat",
+    "nowy": "{{t:street|Streets}} {{t:call|gecallt}} hat",
+    "waga": "WYS",
+    "powod": "m8-l1:50 (q-top-pair-top-kicker, why): zgubiony znacznik {{t:call|…}} (pl: „{{t:call|sprawdził}} dwie {{t:street|ulice}}”); poprawka przywraca znacznik.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l1-value.md",
+    "stary": "Wenn du aus {{t:position|Position}} bettest",
+    "nowy": "Wenn du in {{t:position|Position}} bettest",
+    "waga": "ŚR",
+    "powod": "m8-l1:107: „z pozycji” = mając pozycję; „aus Position” to kalka, dwuznaczna (czytelna jak „out of position”); w tej samej lekcji „in Position”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l1-value.md",
+    "stary": "geht er aus {{t:position|Position}} selten",
+    "nowy": "geht er in {{t:position|Position}} selten",
+    "waga": "ŚR",
+    "powod": "m8-l1:131: jak wyżej, „z pozycji” → „in Position”, nie „aus Position”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l1-value.md",
+    "stary": "Dein {{t:flush-draw|Flush Draw}}",
+    "nowy": "Dein {{t:flush-draw|Flush-Draw}}",
+    "waga": "NISKIE",
+    "powod": "m8-l1:96: pisownia terminu wg terms-nazwy.yaml i m8-l3/l4: „Flush-Draw”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l1-value.md",
+    "stary": "manchmal zahlt Ass-high, aber",
+    "nowy": "manchmal zahlt Ass-hoch, aber",
+    "waga": "NISKIE",
+    "powod": "m8-l1:71: niespójne „Ass-high” wobec „Ass-hoch” w m8-l3 (ta sama nazwa układu).",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l1-value.md",
+    "stary": "manchmal zahlt Ass-high, das",
+    "nowy": "manchmal zahlt Ass-hoch, das",
+    "waga": "NISKIE",
+    "powod": "m8-l1:121: niespójne „Ass-high” wobec „Ass-hoch” w m8-l3.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "**Bluffcatcher**",
+    "nowy": "**Bluff-Catcher**",
+    "waga": "ŚR",
+    "powod": "m8-l2:109: pisownia terminu niespójna z m8-l4 i egzaminem („Bluff-Catcher”).",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "der Bluffcatcher deines",
+    "nowy": "der Bluff-Catcher deines",
+    "waga": "ŚR",
+    "powod": "m8-l2:113: pisownia terminu niespójna z m8-l4 i egzaminem („Bluff-Catcher”).",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Ein Bluffcatcher gewinnt",
+    "nowy": "Ein Bluff-Catcher gewinnt",
+    "waga": "ŚR",
+    "powod": "m8-l2:119: pisownia terminu niespójna z m8-l4 i egzaminem („Bluff-Catcher”).",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "{{n:bluff.ex.range}} {{t:combo|Combos}}",
+    "nowy": "{{n:bluff.ex.range}} {{t:combo|Kombinationen}}",
+    "waga": "ŚR",
+    "powod": "m8-l2:90 (q-combos, prompt): termin combo wg terms-nazwy.yaml to „Kombination”; tak w m8-l3 i egzaminie.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "{{n:bluff.ex.value}} {{t:combo|Combos}}",
+    "nowy": "{{n:bluff.ex.value}} {{t:combo|Kombinationen}}",
+    "waga": "ŚR",
+    "powod": "m8-l2:92 (q-combos, why): termin combo wg terms-nazwy.yaml to „Kombination”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "So viele {{t:combo|Combos}} sind",
+    "nowy": "So viele {{t:combo|Kombinationen}} sind",
+    "waga": "ŚR",
+    "powod": "m8-l2:94 (q-combos, opcja 3, why): termin combo wg terms-nazwy.yaml to „Kombination”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "{{t:straight|Straight}} oder hohe Karten ohne Chance\", correct",
+    "nowy": "{{t:straight|Straße}} oder hohe Karten ohne Chance\", correct",
+    "waga": "ŚR",
+    "powod": "m8-l2:101 (q-which-hands): termin straight wg terms-nazwy.yaml to „Straße”; tak w m8-l1 i egzaminie.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "{{t:straight|Straight}} oder hohe Karten ohne Chance (verpasste",
+    "nowy": "{{t:straight|Straße}} oder hohe Karten ohne Chance (verpasste",
+    "waga": "ŚR",
+    "powod": "m8-l2:139: termin straight wg terms-nazwy.yaml to „Straße”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "{{t:exploit|Exploits}} bei Microstakes",
+    "nowy": "{{t:exploit|Exploits}} auf den Mikrolimits",
+    "waga": "ŚR",
+    "powod": "m8-l2:142: „mikrostawki” w korpusie de to „Mikrolimits” (18×; terms-nazwy stakes: „Limit”); „Microstakes” występuje tylko tu.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Jeder dritte Bet ist ein {{t:bluff}}: Dann",
+    "nowy": "Jede dritte Bet ist ein {{t:bluff}}: Dann",
+    "waga": "NISKIE",
+    "powod": "m8-l2:15: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Ein kleinerer Bet gibt",
+    "nowy": "Eine kleinere Bet gibt",
+    "waga": "NISKIE",
+    "powod": "m8-l2:22: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "weniger {{t:bluff|Bluffs}} als bei einem Bet",
+    "nowy": "weniger {{t:bluff|Bluffs}} als bei einer Bet",
+    "waga": "NISKIE",
+    "powod": "m8-l2:22: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Ein {{t:overbet|Overbet}}, also ein {{t:bet|Bet}}, der größer ist",
+    "nowy": "Eine {{t:overbet|Overbet}}, also eine {{t:bet|Bet}}, die größer ist",
+    "waga": "NISKIE",
+    "powod": "m8-l2:38: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module. Overbet także r. żeński wg terms-nazwy.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "So hoch ist der Anteil der {{t:bluff|Bluffs}} bei einem Bet",
+    "nowy": "So hoch ist der Anteil der {{t:bluff|Bluffs}} bei einer Bet",
+    "waga": "NISKIE",
+    "powod": "m8-l2:40: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Bei einem Bet von",
+    "nowy": "Bei einer Bet von",
+    "waga": "NISKIE",
+    "powod": "m8-l2:40: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Bei welchem Bet",
+    "nowy": "Bei welcher Bet",
+    "waga": "NISKIE",
+    "powod": "m8-l2:45: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Ein größerer Bet gibt deinem Gegner einen schlechteren Preis, deshalb",
+    "nowy": "Eine größere Bet gibt deinem Gegner einen schlechteren Preis, deshalb",
+    "waga": "NISKIE",
+    "powod": "m8-l2:47: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Ein kleiner Bet gibt",
+    "nowy": "Eine kleine Bet gibt",
+    "waga": "NISKIE",
+    "powod": "m8-l2:48: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Jeder dritte Bet ist ein {{t:bluff}}, damit",
+    "nowy": "Jede dritte Bet ist ein {{t:bluff}}, damit",
+    "waga": "NISKIE",
+    "powod": "m8-l2:56: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Bei einem Bet über den ganzen {{t:pot|Pot}}: ",
+    "nowy": "Bei einer Bet über den ganzen {{t:pot|Pot}}: ",
+    "waga": "NISKIE",
+    "powod": "m8-l2:119: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "also ist jeder dritte Bet",
+    "nowy": "also ist jede dritte Bet",
+    "waga": "NISKIE",
+    "powod": "m8-l2:119: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "## Größerer Bet, mehr",
+    "nowy": "## Größere Bet, mehr",
+    "waga": "NISKIE",
+    "powod": "m8-l2:121: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Ein größerer Bet gibt deinem Gegner einen schlechteren Preis, daher",
+    "nowy": "Eine größere Bet gibt deinem Gegner einen schlechteren Preis, daher",
+    "waga": "NISKIE",
+    "powod": "m8-l2:131: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Ein kleiner Bet verträgt",
+    "nowy": "Eine kleine Bet verträgt",
+    "waga": "NISKIE",
+    "powod": "m8-l2:131: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "Bei einem Bet über den ganzen {{t:pot|Pot}} braucht",
+    "nowy": "Bei einer Bet über den ganzen {{t:pot|Pot}} braucht",
+    "waga": "NISKIE",
+    "powod": "m8-l2:135: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l2-ile-blefow.md",
+    "stary": "steht ein zusätzlicher Bet",
+    "nowy": "steht eine zusätzliche Bet",
+    "waga": "NISKIE",
+    "powod": "m8-l2:135: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l3-blokery.md",
+    "stary": "Ein kleiner Bet, der einen großen Bet des Gegners",
+    "nowy": "Eine kleine Bet, die eine große Bet des Gegners",
+    "waga": "NISKIE",
+    "powod": "m8-l3:17 (q-what-blocker, opcja 3, text): Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l3-blokery.md",
+    "stary": "ein sogenannter Blocking Bet",
+    "nowy": "eine sogenannte Blocking Bet",
+    "waga": "NISKIE",
+    "powod": "m8-l3:17 (q-what-blocker, opcja 3, why): Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m8-l3-blokery.md",
+    "stary": "auf deinen Bet {{t:fold|folden}}",
+    "nowy": "auf deine Bet {{t:fold|folden}}",
+    "waga": "NISKIE",
+    "powod": "m8-l3:58: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "{{t:call|callen}} deinen Bet",
+    "nowy": "{{t:call|callen}} deine Bet",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q1 prompt: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "Der Bet gewinnt",
+    "nowy": "Die Bet gewinnt",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q1 opcja 1 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "auf einen Bet. Unter",
+    "nowy": "auf eine Bet. Unter",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q1 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "Ein Bet „zur",
+    "nowy": "Eine Bet „zur",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q1 opcja 3 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "Einen kleinen Bet {{t:call|callen}} auch",
+    "nowy": "Eine kleine Bet {{t:call|callen}} auch",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q2 opcja 1 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "Auf einen Bet in Höhe",
+    "nowy": "Auf eine Bet in Höhe",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q2 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "zu schwach für einen Bet ist",
+    "nowy": "zu schwach für eine Bet ist",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q2 opcja 3 text: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "die einen kleinen Bet bezahlen",
+    "nowy": "die eine kleine Bet bezahlen",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q2 opcja 3 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "So viele wären es bei einem Bet",
+    "nowy": "So viele wären es bei einer Bet",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q4 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "Bei einem kleineren Bet",
+    "nowy": "Bei einer kleineren Bet",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q4 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "auf einen Bet. Zahlen",
+    "nowy": "auf eine Bet. Zahlen",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q10 opcja 1 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "Auch einen kleinen Bet",
+    "nowy": "Auch eine kleine Bet",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q10 opcja 2 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "Ein Bet macht aus",
+    "nowy": "Eine Bet macht aus",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q10 opcja 3 why: Rodzaj terminu „Bet”: terms-nazwy.yaml podaje r. żeński (eine Bet), tak też m8-l1 i m8-l4; tu rodzaj męski — niespójność w module.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "die verpassten {{t:flush-draw|Flush Draws}} nicht",
+    "nowy": "die verpassten {{t:flush-draw|Flush-Draws}} nicht",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q9 opcja 1 why: pisownia terminu wg terms-nazwy.yaml i m8-l3/l4: „Flush-Draw”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "der verpassten {{t:flush-draw|Flush Draws}}, also",
+    "nowy": "der verpassten {{t:flush-draw|Flush-Draws}}, also",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q9 opcja 2 why: pisownia terminu wg terms-nazwy.yaml i m8-l3/l4: „Flush-Draw”.",
+    "grupa": "de-L6"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m8.yaml",
+    "stary": "und König hoch gewinnt",
+    "nowy": "und König-hoch gewinnt",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q5 opcja 1 why: pisownia niespójna z „Ass-hoch” w m8-l3.",
+    "grupa": "de-L6"
+  }
+]

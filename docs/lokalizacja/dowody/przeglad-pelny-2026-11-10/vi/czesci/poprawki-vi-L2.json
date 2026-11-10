@@ -1,0 +1,632 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "ở mù lớn",
+    "nowy": "ở big blind",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:5: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "trăm equity ở {{t:big-blind|mù lớn}} để {{t:call|theo}}",
+    "nowy": "trăm equity ở {{t:big-blind|big blind}} để {{t:call|theo}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:13: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "ở {{t:big-blind|mù lớn}} để",
+    "nowy": "ở {{t:big-blind|big blind}} để",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:21: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "ở {{t:big-blind|mù lớn}} bạn",
+    "nowy": "ở {{t:big-blind|big blind}} bạn",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:31: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "{{t:big-blind|mù lớn}}.",
+    "nowy": "{{t:big-blind|big blind}}.",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:41: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "thủ {{t:big-blind|mù lớn}}",
+    "nowy": "thủ {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:67: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "Mù lớn",
+    "nowy": "Big blind",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:69: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "vậy {{t:big-blind|mù lớn}}",
+    "nowy": "vậy {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:69: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "{{t:raise|tố}} từ {{t:big-blind|mù lớn}}",
+    "nowy": "{{t:raise|tố}} từ {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:91: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "từ {{t:big-blind|mù lớn}} trong",
+    "nowy": "từ {{t:big-blind|big blind}} trong",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "mù lớn",
+    "nowy": "big blind",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "Button {{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|mù nhỏ}} {{t:fold|bỏ bài}}. Bạn cần",
+    "nowy": "Button {{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|small blind}} {{t:fold|bỏ bài}}. Bạn cần",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:13: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "\"{{t:small-blind|Mù nhỏ}}",
+    "nowy": "\"{{t:small-blind|Small blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:21: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "{{n:pf.open-size}}. {{t:small-blind|Mù nhỏ}}",
+    "nowy": "{{n:pf.open-size}}. {{t:small-blind|Small blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:25: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "{{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|mù nhỏ}} {{t:fold|bỏ bài}}. Bạn",
+    "nowy": "{{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|small blind}} {{t:fold|bỏ bài}}. Bạn",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:41: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "{{n:pf.open-size}}, {{t:small-blind|mù nhỏ}}",
+    "nowy": "{{n:pf.open-size}}, {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:67: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "và {{t:small-blind|mù nhỏ}}",
+    "nowy": "và {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:69: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "## Khi đối đầu {{t:small-blind|mù nhỏ}}",
+    "nowy": "## Khi đối đầu {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:81: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "Mù nhỏ",
+    "nowy": "Small blind",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:83: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "mù nhỏ",
+    "nowy": "small blind",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "mù lớn",
+    "nowy": "big blind",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:86: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "mù nhỏ",
+    "nowy": "small blind",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:112: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "với {{t:big-blind|mù lớn}}",
+    "nowy": "với {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m4:23: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "ở {{t:big-blind|mù lớn}},",
+    "nowy": "ở {{t:big-blind|big blind}},",
+    "waga": "ŚR",
+    "powod": "m4:29: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "Từ {{t:big-blind|mù lớn}},",
+    "nowy": "Từ {{t:big-blind|big blind}},",
+    "waga": "ŚR",
+    "powod": "m4:32: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "(AJo–A9o) ở {{t:big-blind|mù lớn}} bạn",
+    "nowy": "(AJo–A9o) ở {{t:big-blind|big blind}} bạn",
+    "waga": "ŚR",
+    "powod": "m4:33: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "ở {{t:big-blind|mù lớn}} bạn",
+    "nowy": "ở {{t:big-blind|big blind}} bạn",
+    "waga": "ŚR",
+    "powod": "m4:34: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "{{t:big-blind|mù lớn}},",
+    "nowy": "{{t:big-blind|big blind}},",
+    "waga": "ŚR",
+    "powod": "m4:39: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "mù lớn",
+    "nowy": "big blind",
+    "waga": "ŚR",
+    "powod": "m4:49: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "bài}}. Bạn ở {{t:small-blind|mù nhỏ}} và muốn 3-bet.",
+    "nowy": "bài}}. Bạn ở {{t:small-blind|small blind}} và muốn 3-bet.",
+    "waga": "ŚR",
+    "powod": "m4:9: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "Từ {{t:small-blind|mù nhỏ}},",
+    "nowy": "Từ {{t:small-blind|small blind}},",
+    "waga": "ŚR",
+    "powod": "m4:13: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "\"Từ {{t:small-blind|mù nhỏ}} trước {{t:cutoff|CO}},",
+    "nowy": "\"Từ {{t:small-blind|small blind}} trước {{t:cutoff|CO}},",
+    "waga": "ŚR",
+    "powod": "m4:14: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "ở {{t:small-blind|mù nhỏ}}.",
+    "nowy": "ở {{t:small-blind|small blind}}.",
+    "waga": "ŚR",
+    "powod": "m4:19: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "từ {{t:small-blind|mù nhỏ}}",
+    "nowy": "từ {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m4:22: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "Từ {{t:small-blind|mù nhỏ}}",
+    "nowy": "Từ {{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m4:23: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "{{t:small-blind|mù nhỏ}}.",
+    "nowy": "{{t:small-blind|small blind}}.",
+    "waga": "ŚR",
+    "powod": "m4:44: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "\"{{t:small-blind|Mù nhỏ}}",
+    "nowy": "\"{{t:small-blind|Small blind}}",
+    "waga": "ŚR",
+    "powod": "m4:49: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "Trước {{t:small-blind|mù nhỏ}}, sau",
+    "nowy": "Trước {{t:small-blind|small blind}}, sau",
+    "waga": "ŚR",
+    "powod": "m4:52: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "{{t:small-blind|mù nhỏ}},",
+    "nowy": "{{t:small-blind|small blind}},",
+    "waga": "ŚR",
+    "powod": "m4:53: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "Mù nhỏ",
+    "nowy": "Small blind",
+    "waga": "ŚR",
+    "powod": "m4:54: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "mù nhỏ",
+    "nowy": "small blind",
+    "waga": "ŚR",
+    "powod": "m4:98: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "phần {{t:range|dải bài}}",
+    "nowy": "phần {{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:13: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "Khoảng {{n:mdf.vs-3bet-ip-size}} {{t:range|dải bài}} {{t:open|mở",
+    "nowy": "Khoảng {{n:mdf.vs-3bet-ip-size}} {{t:range|range}} {{t:open|mở",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:16: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "nửa {{t:range|dải bài}}\",",
+    "nowy": "nửa {{t:range|range}}\",",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:17: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "{{t:range|dải bài}}.",
+    "nowy": "{{t:range|range}}.",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:17: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "thua {{t:range|dải bài}}",
+    "nowy": "thua {{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:18: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "vào {{t:range|dải bài}}",
+    "nowy": "vào {{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:67: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "của {{t:range|dải bài}}",
+    "nowy": "của {{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:76: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "dải bài",
+    "nowy": "range",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:98: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "{{t:range|dải bài}},",
+    "nowy": "{{t:range|range}},",
+    "waga": "ŚR",
+    "powod": "m4:22: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "của {{t:range|dải bài}}",
+    "nowy": "của {{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m4:24: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "thua {{t:range|dải bài}}",
+    "nowy": "thua {{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m4:63: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "dải bài",
+    "nowy": "range",
+    "waga": "ŚR",
+    "powod": "m4:82: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l1-3bet.md",
+    "stary": "ATs, {{t:connectors|bài liền}}",
+    "nowy": "ATs, {{t:connectors|connector}}",
+    "waga": "ŚR",
+    "powod": "m4-l1-3bet:97: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l1-3bet.md",
+    "stary": "A4s, và {{t:connectors|bài liền}} đồng",
+    "nowy": "A4s, và {{t:connectors|connector}} đồng",
+    "waga": "ŚR",
+    "powod": "m4-l1-3bet:99: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l1-3bet.md",
+    "stary": "bài liền",
+    "nowy": "connector",
+    "waga": "ŚR",
+    "powod": "m4-l1-3bet:99: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "chất, {{t:connectors|bài liên tiếp}}",
+    "nowy": "chất, {{t:connectors|connector}}",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:73: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "A4s, và {{t:connectors|bài liên tiếp}} đồng",
+    "nowy": "A4s, và {{t:connectors|connector}} đồng",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "bài liên tiếp",
+    "nowy": "connector",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "tay {{t:connectors|bài liên tiếp}}",
+    "nowy": "tay {{t:connectors|connector}}",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:46: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "phần {{t:connectors|bài liên tiếp}}",
+    "nowy": "phần {{t:connectors|connector}}",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:104: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "bài liên tiếp",
+    "nowy": "connector",
+    "waga": "ŚR",
+    "powod": "m4-l3-wobec-3betu:108: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l1-3bet.md",
+    "stary": "{{t:pocket-pair|đôi tẩy}}",
+    "nowy": "{{t:pocket-pair|pocket pair}}",
+    "waga": "ŚR",
+    "powod": "m4-l1-3bet:48: termin: terms-nazwy.yaml ma „pocket pair”; „đôi tẩy” to forma jednorazowa (w korpusie także „đôi túi”)",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+    "stary": "Bạn chỉ cần một nửa nếu trong {{t:pot|pot}} chỉ có {{t:bet|cược}} của đối thủ",
+    "nowy": "Chỉ khi trong {{t:pot|pot}} chỉ có {{t:bet|cược}} của đối thủ thì bạn mới cần đến một nửa",
+    "waga": "ŚR",
+    "powod": "m4-l2-obrona-bb:16: dwuznaczność: pl „Połowy potrzebowałbyś tylko wtedy, gdyby…”; vi czyta się jak „wystarczy ci zaledwie połowa, jeśli…” (połowa jako mało), co odwraca wymowę wyjaśnienia",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l1-3bet.md",
+    "stary": "{{t:call}} rẻ {{t:in-position}}",
+    "nowy": "{{t:call}} rẻ khi {{t:in-position}}",
+    "waga": "NISKIE",
+    "powod": "m4-l1-3bet:26: po rozwinięciu znaczników „theo rẻ có vị trí” — brak łącznika; w m4-l2:44 jest „theo rẻ khi có vị trí”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m4.yaml",
+    "stary": "{{t:call}} rẻ {{t:in-position}}",
+    "nowy": "{{t:call}} rẻ khi {{t:in-position}}",
+    "waga": "NISKIE",
+    "powod": "m4:12: po rozwinięciu znaczników „theo rẻ có vị trí” — brak łącznika „khi”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "trong phần lớn các trường hợp",
+    "nowy": "trong tuyệt đại đa số trường hợp",
+    "waga": "NISKIE",
+    "powod": "m4-l3-wobec-3betu:66: pl „w zdecydowanej większości przypadków”; vi osłabia do „w większości”",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+    "stary": "từ nhiều nguồn",
+    "nowy": "từ một số nguồn",
+    "waga": "NISKIE",
+    "powod": "m4-l3-wobec-3betu:93: pl „z kilku źródeł”; vi „z wielu źródeł” zawyża",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l1-3bet.md",
+    "stary": "từ nhiều nguồn độc lập",
+    "nowy": "từ một số nguồn độc lập",
+    "waga": "NISKIE",
+    "powod": "m4-l1-3bet:104: pl „z kilku niezależnych źródeł”; vi „z wielu” zawyża",
+    "grupa": "vi-L2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m4-l4-limperzy.md",
+    "stary": "kinh nghiệm thực hành (heuristic)",
+    "nowy": "quy tắc kinh nghiệm (heuristic)",
+    "waga": "NISKIE",
+    "powod": "m4-l4-limperzy:64: to samo zdanie pl („Reguły są oznaczone jako heurystyki”) w m4-l3:93 oddane „quy tắc kinh nghiệm (heuristic)”; ujednolicenie",
+    "grupa": "vi-L2"
+  }
+]

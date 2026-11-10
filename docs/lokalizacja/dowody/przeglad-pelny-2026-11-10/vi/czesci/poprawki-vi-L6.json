@@ -1,0 +1,92 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+    "stary": "thua {{t:value|giá trị}} của bạn và thắng",
+    "nowy": "thua giá trị của bạn và thắng",
+    "waga": "ŚR",
+    "powod": "m8-l2:65 (q-same-as-equity, why): nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+    "stary": "số mất cho {{t:value|giá trị}}",
+    "nowy": "số mất cho giá trị",
+    "waga": "ŚR",
+    "powod": "m8-l2:74 (q-too-many, why): nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+    "stary": "trả tiền cho {{t:value|giá trị}} của bạn",
+    "nowy": "trả tiền cho giá trị của bạn",
+    "waga": "ŚR",
+    "powod": "m8-l2:84 (q-too-few, why): nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+    "stary": "thua {{t:value|giá trị}} của bạn nhưng thắng",
+    "nowy": "thua giá trị của bạn nhưng thắng",
+    "waga": "ŚR",
+    "powod": "m8-l2:109: nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l1-value.md",
+    "stary": "vì khi có {{t:position|vị trí}}, đối thủ",
+    "nowy": "vì khi bạn có {{t:position|vị trí}}, đối thủ",
+    "waga": "ŚR",
+    "powod": "m8-l1:89 (q-where-am-i, why): pl „z pozycji rywal pokaże karty” — pozycję ma gracz (ty); w vi bez podmiotu zdanie czyta się, jakby pozycję miał rywal",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l3-blokery.md",
+    "stary": "Một bet nhỏ nhằm chặn một bet lớn của đối thủ",
+    "nowy": "Một cược nhỏ nhằm chặn một cược lớn của đối thủ",
+    "waga": "ŚR",
+    "powod": "m8-l3:17 (q-what-blocker, text): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l3-blokery.md",
+    "stary": "trước bet của bạn",
+    "nowy": "trước cược của bạn",
+    "waga": "ŚR",
+    "powod": "m8-l3:58 (q-missed-flush, why): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l3-blokery.md",
+    "stary": "Bet để {{t:bluff}}, vì có lá A cơ",
+    "nowy": "Cược để {{t:bluff}}, vì có lá A cơ",
+    "waga": "ŚR",
+    "powod": "m8-l3:88 (q-blocker-not-enough, text): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m8-l3-blokery.md",
+    "stary": "Bet {{t:value|lấy giá trị}}",
+    "nowy": "Cược {{t:value|lấy giá trị}}",
+    "waga": "ŚR",
+    "powod": "m8-l3:89 (q-blocker-not-enough, text): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+    "grupa": "vi-L6"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m8.yaml",
+    "stary": "có nhiều tay yếu hơn tay mạnh hơn",
+    "nowy": "tay yếu hơn nhiều hơn tay mạnh hơn",
+    "waga": "NISKIE",
+    "powod": "m8.exam.q2:20 why: szyk dwuznaczny („nhiều tay yếu hơn tay mạnh hơn”); pl „zostaje więcej gorszych rąk niż lepszych” — ten sam szyk co w q1:11",
+    "grupa": "vi-L6"
+  }
+]

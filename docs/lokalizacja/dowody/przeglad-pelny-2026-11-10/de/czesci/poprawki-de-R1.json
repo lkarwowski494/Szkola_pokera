@@ -1,0 +1,38 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "{{t:straight-draw|Straight Draw}}",
+    "nowy": "{{t:straight-draw|Straight-Draw}}",
+    "waga": "NISKIE",
+    "powod": "R-M5-001 if (linia 334): pisownia formy terminu niezgodna z terms-nazwy.yaml (straight-draw: „Straight-Draw”, z łącznikiem); klucz bez zmian.",
+    "grupa": "de-R1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "auch einen {{t:overbet|Overbet}}",
+    "nowy": "auch eine {{t:overbet|Overbet}}",
+    "waga": "NISKIE",
+    "powod": "R-M5-007 then (linia 384): rodzaj gramatyczny; terms-nazwy.yaml podaje overbet jako rodzaj żeński (jak „die Bet”), więc „eine Overbet”.",
+    "grupa": "de-R1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "(in seinem Beispiel 2,4x)",
+    "nowy": "(in ihrem Beispiel 2,4x)",
+    "waga": "NISKIE",
+    "powod": "R-M4-011 source (linia 300): zaimek odnosi się do „Trainingsseite” (rodzaj żeński), więc „in ihrem Beispiel”; kalka polskiego „w jego przykładzie” (serwis).",
+    "grupa": "de-R1"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/rules.yaml",
+    "stary": "die Trefferchance auf den Karten",
+    "nowy": "die Trefferchance mit den Karten",
+    "waga": "NISKIE",
+    "powod": "R-M2-005 if (linia 112): kalka polskiego „na kartach”; po niemiecku szansa trafienia „mit den Karten, die du für diesen Preis siehst”.",
+    "grupa": "de-R1"
+  }
+]

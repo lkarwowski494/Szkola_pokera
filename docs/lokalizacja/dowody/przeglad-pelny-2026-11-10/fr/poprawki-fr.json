@@ -1,0 +1,3773 @@
+[
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "notion de flop humide",
+  "nowy": "notion de flop wet",
+  "waga": "NISKIE",
+  "powod": "R-M5-002 source: termin niespójny z terms-nazwy.yaml (wet: „wet”, zmiana D-392) i z polem then tej samej reguły („flop {{t:wet|wet}}”); pole source nie jest pokazywane w aplikacji",
+  "grupa": "fr-R1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "exemples de flops humides",
+  "nowy": "exemples de flops wet",
+  "waga": "NISKIE",
+  "powod": "R-M5-002 source: termin niespójny z terms-nazwy.yaml (wet: „wet”)",
+  "grupa": "fr-R1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "la limite intermédiaire/humide",
+  "nowy": "la limite intermédiaire/wet",
+  "waga": "NISKIE",
+  "powod": "R-M5-002 source: termin niespójny z terms-nazwy.yaml (wet: „wet”)",
+  "grupa": "fr-R1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "un flop humide ne signifie pas",
+  "nowy": "un flop wet ne signifie pas",
+  "waga": "NISKIE",
+  "powod": "R-M5-010 source: termin niespójny z terms-nazwy.yaml (wet: „wet”)",
+  "grupa": "fr-R1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "vous tirez plus souvent un {{t:second-barrel|second barrel}}",
+  "nowy": "vous {{t:bet|misez}} plus souvent un {{t:second-barrel|second barrel}}",
+  "waga": "WYS",
+  "powod": "R-M7-001 then (linia 537): zgubiony znacznik {{t:bet|…}} (pl: „częściej {{t:bet|stawiasz}} {{t:second-barrel|second barrel}}”); poprawka celowo przywraca znacznik t:bet, sens bez zmian",
+  "grupa": "fr-R2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "if: \"vous faites un probe bet au turn\"",
+  "nowy": "if: \"vous {{t:bet|misez}} en probe bet au turn\"",
+  "waga": "WYS",
+  "powod": "R-M7-012 if (linia 626): zgubiony znacznik {{t:bet|…}} (pl: „{{t:bet|stawiasz}} probe bet na turnie”); poprawka celowo przywraca znacznik t:bet, sformułowanie „misez en probe bet” jak w lekcjach fr",
+  "grupa": "fr-R2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "l'adversaire tire le {{t:second-barrel|second barrel}} avec",
+  "nowy": "l'adversaire {{t:bet|mise}} le {{t:second-barrel|second barrel}} avec",
+  "waga": "WYS",
+  "powod": "R-M7-013 because (linia 636): zgubiony znacznik {{t:bet|…}} (pl: „{{t:second-barrel|second barrel}} rywal {{t:bet|stawia}} węższym zakresem”); poprawka celowo przywraca znacznik t:bet, sens bez zmian",
+  "grupa": "fr-R2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "d'autant plus que le c-bet est petit",
+  "nowy": "d'autant plus gros que le c-bet est petit",
+  "waga": "NISKIE",
+  "powod": "R-M6-010 then (linia 518): „d'autant plus que” czyta się też jako „tym bardziej, że c-bet jest mały”; pl: „tym więcej, im mniejszy c-bet” (większa krotność przy mniejszym c-becie)",
+  "grupa": "fr-R2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "une value bet gagne plus de la moitié des fois où elle est suivie",
+  "nowy": "un value bet gagne plus de la moitié des fois où il est suivi",
+  "waga": "NISKIE",
+  "powod": "R-M8-001 source (linia 649): rodzaj gramatyczny; „value bet” jest we francuskim rodzaju męskiego (un bet, un c-bet, un probe bet w tym samym pliku)",
+  "grupa": "fr-R2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "il a beaucoup moins d'occasions et une erreur plus grande",
+  "nowy": "il a plusieurs fois moins d'occasions et une erreur plus grande",
+  "waga": "ŚR",
+  "powod": "R-M10-003 because (l. 847): pl „wielokrotnie mniej okazji”; „beaucoup moins” osłabia szczegół",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "environ 615 mille mains",
+  "nowy": "environ 615 000 mains",
+  "waga": "NISKIE",
+  "powod": "R-M12-003 source (l. 975): „615 mille mains” to kalka z „615 tys. rąk”; po francusku liczbę zapisuje się „615 000”",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "même les {{n:skill.pct}} meilleurs joueurs ne devancent les {{n:skill.pct}} plus faibles",
+  "nowy": "même les {{n:skill.pct}} de joueurs les plus forts ne devancent les {{n:skill.pct}} les plus faibles",
+  "waga": "NISKIE",
+  "powod": "R-M12-005 because (l. 989): „les 1% meilleurs joueurs … les 1% plus faibles” jest niegramatyczne; sens bez zmian",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "avec une {{t:bb-ante|ante de grosse blinde}} de",
+  "nowy": "avec une {{t:bb-ante|big blind ante}} de",
+  "waga": "NISKIE",
+  "powod": "R-M11-003 then (l. 1063): termin bb-ante w terms-nazwy.yaml i w lekcjach M11 to „big blind ante”; tu jedyne użycie „ante de grosse blinde”",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "somme des probabilités × {{t:payout|gains}}",
+  "nowy": "somme des probabilités × {{t:payout|paiements}}",
+  "waga": "ŚR",
+  "powod": "R-M11-008 then (l. 1103): termin payout w terms-nazwy.yaml i w lekcji m11-l3 to „paiement(s)”; „gains” jest niespójne i dwuznaczne (wygrane)",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "avec des {{t:payout|gains}}, une défaite",
+  "nowy": "avec des {{t:payout|paiements}}, une défaite",
+  "waga": "ŚR",
+  "powod": "R-M11-009 because (l. 1112): termin payout = „paiements” (terms-nazwy.yaml, m11-l3:71, exams/m11.yaml:67 mają to samo zdanie z „paiements”)",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "chacun de ces jeux est correct",
+  "nowy": "chacun de ces coups est correct",
+  "waga": "ŚR",
+  "powod": "R-M13-002 then (l. 1155): „zagranie” w lekcji m13-l1 (to samo twierdzenie) to „coup”; „jeu” w znaczeniu pojedynczego zagrania jest nienaturalne",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "ne mélange que des jeux de même",
+  "nowy": "ne mélange que des coups de même",
+  "waga": "ŚR",
+  "powod": "R-M13-002 because (l. 1156): spójność z m13-l1:36 („ne mélange que des coups de même espérance de gain”)",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "c'est pourquoi la reprise d'un coup joué montre",
+  "nowy": "c'est pourquoi une révision issue du jeu montre",
+  "waga": "ŚR",
+  "powod": "R-M13-003 because (l. 1164): „powtórka z gry” to nazwa funkcji aplikacji; w lekcji m13-l2 „révisions issues du jeu”, tu inna nazwa („reprise d'un coup joué”)",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "vous gagnez en certitude vers environ",
+  "nowy": "vous gagnez en certitude à environ",
+  "waga": "NISKIE",
+  "powod": "R-M13-004 then (l. 1171): „vers environ” to podwójne przybliżenie (pl „przy ok.”)",
+  "grupa": "fr-R3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "{{n:pf.rfi.utg.high}} mains",
+  "nowy": "{{n:pf.rfi.utg.high}} des mains",
+  "waga": "ŚR",
+  "powod": "m3.exam.q2 (m3.yaml:21): błąd gramatyczny: wartość to procent („env. 15 %–18 % mains”), brak „des”; lekcje m3-l1 i m3-l3 mają „des mains”",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "{{n:pf.rfi.btn.high}} mains",
+  "nowy": "{{n:pf.rfi.btn.high}} des mains",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:49): błąd gramatyczny: wartość to procent („env. 15 %–18 % mains”), brak „des”; lekcje m3-l1 i m3-l3 mają „des mains”",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "{{n:pf.rfi.sb.high}} mains",
+  "nowy": "{{n:pf.rfi.sb.high}} des mains",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:59): błąd gramatyczny: wartość to procent („env. 15 %–18 % mains”), brak „des”; lekcje m3-l1 i m3-l3 mają „des mains”",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m3-l2-rece-startowe.md",
+  "stary": "attaquer les blinds",
+  "nowy": "attaquer les blindes",
+  "waga": "NISKIE",
+  "powod": "m3-l2:45: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m3-l2-rece-startowe.md",
+  "stary": "remporter les blinds",
+  "nowy": "remporter les blindes",
+  "waga": "NISKIE",
+  "powod": "m3-l2:47: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "les blinds parlent en premier et",
+  "nowy": "les blindes parlent en premier et",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:11: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "Préflop, les blinds parlent",
+  "nowy": "Préflop, les blindes parlent",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:13: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "Le limp cède l'{{t:initiative}} et la chance de remporter les blinds",
+  "nowy": "Le limp cède l'{{t:initiative}} et la chance de remporter les blindes",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:23: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "le Button et les blinds",
+  "nowy": "le Button et les blindes",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:40: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "Il ne reste que les blinds",
+  "nowy": "Il ne reste que les blindes",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:49: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "Face aux seules blinds",
+  "nowy": "Face aux seules blindes",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:50: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "remporte souvent les blinds",
+  "nowy": "remporte souvent les blindes",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:51: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "Compléter cède l'{{t:initiative}} et la chance de remporter les blinds",
+  "nowy": "Compléter cède l'{{t:initiative}} et la chance de remporter les blindes",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:61: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m3.yaml",
+  "stary": "laissez entrer les blinds",
+  "nowy": "laissez entrer les blindes",
+  "waga": "NISKIE",
+  "powod": "m3.yaml:88: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m3-l1-pozycja.md",
+  "stary": "{{t:early-position|positions précoces}}",
+  "nowy": "{{t:early-position|premières positions}}",
+  "waga": "NISKIE",
+  "powod": "m3-l1:69: kalka „positions précoces”; egzamin m3 (m3.yaml:70) i lekcja m3-l3:80 mają „premières positions” — jedna nazwa na pojęcie; klucz znacznika bez zmian",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m2-l1-outy.md",
+  "stary": "{{n:draw.oesd.ranks}} hauteurs ×",
+  "nowy": "{{n:draw.oesd.ranks}} rangs ×",
+  "waga": "NISKIE",
+  "powod": "m2.l1.q2 (m2-l1:26): niespójny termin na rangę karty: „hauteurs” tylko tu, egzamin m2 (m2.yaml:21,23,31) i moduł 3 mają „rang(s)” w tym samym rachunku",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m2-l1-outy.md",
+  "stary": "Deux hauteurs de cartes",
+  "nowy": "Deux rangs de cartes",
+  "waga": "NISKIE",
+  "powod": "m2.l1.q2 (m2-l1:28): niespójny termin na rangę karty: „hauteurs” tylko tu, egzamin m2 (m2.yaml:21,23,31) i moduł 3 mają „rang(s)” w tym samym rachunku",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m1-l1-przebieg.md",
+  "stary": "**{{t:side-pot|pot secondaire}}**, que seuls eux se disputent",
+  "nowy": "**{{t:side-pot|pot secondaire}}** (side pot), qu'eux seuls se disputent",
+  "waga": "NISKIE",
+  "powod": "m1-l1:96: pominięty dopisek źródła „(side pot)”; niezręczny szyk „que seuls eux” → „qu'eux seuls”",
+  "grupa": "fr-L1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "réalise mal l'equity}}",
+  "nowy": "réalise mal l'équité}}",
+  "waga": "ŚR",
+  "powod": "m4-l1:37: niespójny termin: equity → « équité » (terms-nazwy; tak w m4-l2, m4-l3 i egzaminie)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "l'equity de votre main",
+  "nowy": "l'équité de votre main",
+  "waga": "ŚR",
+  "powod": "m4-l1:37: niespójny termin: equity → « équité » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "réalise moins bien son equity}}",
+  "nowy": "réalise moins bien son équité}}",
+  "waga": "ŚR",
+  "powod": "m4-l1:87: niespójny termin: equity → « équité » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "que ne l'indique son equity",
+  "nowy": "que ne l'indique son équité",
+  "waga": "ŚR",
+  "powod": "m4-l1:87: niespójny termin: equity → « équité » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "souvent avant l'abattage.\"",
+  "nowy": "souvent avant le showdown.\"",
+  "waga": "ŚR",
+  "powod": "m4-l1:37: niespójny termin: showdown (terms-nazwy; tak w m4-l2), nie « abattage »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "plus souvent avant l'abattage",
+  "nowy": "plus souvent avant le showdown",
+  "waga": "ŚR",
+  "powod": "m4-l1:87: niespójny termin: showdown (terms-nazwy; tak w m4-l2), nie « abattage »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "une demi-blind dans",
+  "nowy": "une demi-blinde dans",
+  "waga": "NISKIE",
+  "powod": "m4-l1:37: pisownia niespójna z przyjętą « blinde »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Une demi-blind, c'est",
+  "nowy": "Une demi-blinde, c'est",
+  "waga": "NISKIE",
+  "powod": "m4-l1:37: pisownia niespójna z przyjętą « blinde »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "(blind, ",
+  "nowy": "(blinde, ",
+  "waga": "NISKIE",
+  "powod": "m4-l1:71: pisownia niespójna z przyjętą « blinde »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "depuis les blinds",
+  "nowy": "depuis les blindes",
+  "waga": "NISKIE",
+  "powod": "m4-l1:75: pisownia niespójna z przyjętą « blinde » (m4-l3: « les blindes »)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "{{t:call|suit}} presque rien",
+  "nowy": "{{t:call|suit}} presque jamais",
+  "waga": "NISKIE",
+  "powod": "m4-l1:93: niezręczne « suivre rien »; sens: prawie nigdy nie sprawdza",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Sur une douzaine de mains",
+  "nowy": "Sur plus d'une dizaine de mains",
+  "waga": "NISKIE",
+  "powod": "m4-l1:85: pl „w kilkunastu rękach” (11–19), « une douzaine » zawęża",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "Parce que {{t:out-of-position|hors position}}",
+  "nowy": "Parce que {{t:out-of-position|hors de position}}",
+  "waga": "ŚR",
+  "powod": "m4-l2:34: niespójny termin: « hors de position » (terms-nazwy; tak w m4-l1, l3, l4)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "sans {{t:bet|mises}}. {{t:out-of-position|Hors position}}, vous",
+  "nowy": "sans {{t:bet|mises}}. {{t:out-of-position|Hors de position}}, vous",
+  "waga": "ŚR",
+  "powod": "m4-l2:34: niespójny termin: « hors de position » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "{{t:value|valeur}}. {{t:out-of-position|Hors position}},",
+  "nowy": "{{t:value|valeur}}. {{t:out-of-position|Hors de position}},",
+  "waga": "ŚR",
+  "powod": "m4-l2:44: niespójny termin: « hors de position » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "l'{{t:open|ouverture}}). {{t:out-of-position|Hors position}},",
+  "nowy": "l'{{t:open|ouverture}}). {{t:out-of-position|Hors de position}},",
+  "waga": "ŚR",
+  "powod": "m4-l2:45: niespójny termin: « hors de position » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "{{t:out-of-position|hors position}}.\"",
+  "nowy": "{{t:out-of-position|hors de position}}.\"",
+  "waga": "ŚR",
+  "powod": "m4-l2:46: niespójny termin: « hors de position » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "autres {{t:bet|mises}}. {{t:out-of-position|Hors position}}, vous",
+  "nowy": "autres {{t:bet|mises}}. {{t:out-of-position|Hors de position}}, vous",
+  "waga": "ŚR",
+  "powod": "m4-l2:73: niespójny termin: « hors de position » (terms-nazwy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "les blinds dans le",
+  "nowy": "les blindes dans le",
+  "waga": "NISKIE",
+  "powod": "m4-l2:16: pisownia niespójna z przyjętą « blinde »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "contient aussi les blinds",
+  "nowy": "contient aussi les blindes",
+  "waga": "NISKIE",
+  "powod": "m4-l2:26: pisownia niespójna z przyjętą « blinde »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "Les {{t:pair|paires}} moyennes et petites, KQo et les as dépareillés, vous les {{t:call|suivez}} généralement.",
+  "nowy": "Avec les {{t:pair|paires}} moyennes et petites, KQo et les as dépareillés, vous {{t:call|suivez}} généralement.",
+  "waga": "ŚR",
+  "powod": "m4-l2:92: błąd językowy: « suivre » nie bierze ręki jako dopełnienia (suivre avec une main)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l4-limperzy.md",
+  "stary": "{{t:big-blind|big blind}} (limp). Vous voulez",
+  "nowy": "{{t:big-blind|grosse blinde}} (limp). Vous voulez",
+  "waga": "ŚR",
+  "powod": "m4-l4:13: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l4-limperzy.md",
+  "stary": "payé la {{t:big-blind|big blind}}. Vous voulez",
+  "nowy": "payé la {{t:big-blind|grosse blinde}}. Vous voulez",
+  "waga": "ŚR",
+  "powod": "m4-l4:23: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l4-limperzy.md",
+  "stary": "en {{t:small-blind|small blind}}",
+  "nowy": "en {{t:small-blind|petite blinde}}",
+  "waga": "ŚR",
+  "powod": "m4-l4:33: niespójny termin: small-blind = « petite blinde » (terms-nazwy, reszta modułu)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l4-limperzy.md",
+  "stary": "{{t:big-blind|big blind}} (limp). Vous êtes",
+  "nowy": "{{t:big-blind|grosse blinde}} (limp). Vous êtes",
+  "waga": "ŚR",
+  "powod": "m4-l4:43: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l4-limperzy.md",
+  "stary": "payé la {{t:big-blind|big blind}}. Vous êtes",
+  "nowy": "payé la {{t:big-blind|grosse blinde}}. Vous êtes",
+  "waga": "ŚR",
+  "powod": "m4-l4:54: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l4-limperzy.md",
+  "stary": "la {{t:big-blind|big blind}}. Les",
+  "nowy": "la {{t:big-blind|grosse blinde}}. Les",
+  "waga": "ŚR",
+  "powod": "m4-l4:61: niespójny termin: big-blind = « grosse blinde » (terms-nazwy, reszta modułu)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l4-limperzy.md",
+  "stary": "laissez entrer les blinds",
+  "nowy": "laissez entrer les blindes",
+  "waga": "NISKIE",
+  "powod": "m4-l4:48: pisownia niespójna z przyjętą « blinde »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "abandonne de la {{t:value|valeur}} et",
+  "nowy": "abandonne de la valeur et",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:92: dodany znacznik {{t:value}}, którego nie ma w pl („oddaje wartość”); poprawka celowo usuwa nadmiarowy znacznik (zmienia zestaw kluczy)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "chacun des trois limpers",
+  "nowy": "chacun des trois limpeurs",
+  "waga": "NISKIE",
+  "powod": "m4 egzamin:109: niespójna forma: « limpeurs » (tak w tym samym zdaniu i w m4-l4)",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "un seul limper.",
+  "nowy": "un seul limpeur.",
+  "waga": "NISKIE",
+  "powod": "m4 egzamin:110: niespójna forma: « limpeur »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Chaque limper supplémentaire",
+  "nowy": "Chaque limpeur supplémentaire",
+  "waga": "NISKIE",
+  "powod": "m4 egzamin:110: niespójna forma: « limpeur »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "ont simplement complété la",
+  "nowy": "ont seulement payé la",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:106: niespójne nazwanie tego samego zagrania (m4-l4: « ont seulement payé »); « compléter » dotyczy zwykle małej blindy",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Je complète",
+  "nowy": "Je paie",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:111: niespójne z m4-l4 (« Je paie ») dla „Dopłacam”",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Compléter convient",
+  "nowy": "Payer convient",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:111: niespójne z m4-l4 (« payer ») dla „dopłata”",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Les as dépareillés (AJo–A9o) à la {{t:big-blind|grosse blinde}}, vous vous contentez généralement de les {{t:call|suivre}}",
+  "nowy": "Avec les as dépareillés (AJo–A9o) à la {{t:big-blind|grosse blinde}}, vous vous contentez généralement de {{t:call|suivre}}",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:33: błąd językowy: « suivre » nie bierze ręki jako dopełnienia",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Les {{t:pair|paires}} moyennes et petites à la {{t:big-blind|grosse blinde}}, vous les {{t:call|suivez}} généralement.",
+  "nowy": "Avec les {{t:pair|paires}} moyennes et petites à la {{t:big-blind|grosse blinde}}, vous {{t:call|suivez}} généralement.",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:34: błąd językowy: « suivre » nie bierze ręki jako dopełnienia",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "le Button.",
+  "nowy": "le Bouton.",
+  "waga": "ŚR",
+  "powod": "m4-l1:13: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": " prompt: \"Le Button a {{t:open|ouvert}} à {{n:pf.open-size}},",
+  "nowy": " prompt: \"Le Bouton a {{t:open|ouvert}} à {{n:pf.open-size}},",
+  "waga": "ŚR",
+  "powod": "m4-l1:23: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Button d'un",
+  "nowy": "Bouton d'un",
+  "waga": "ŚR",
+  "powod": "m4-l1:26: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": " prompt: \"Le Button a {{t:open|ouvert}} à {{n:pf.open-size}}.",
+  "nowy": " prompt: \"Le Bouton a {{t:open|ouvert}} à {{n:pf.open-size}}.",
+  "waga": "ŚR",
+  "powod": "m4-l1:33: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Button {{t:open|ouvre}}",
+  "nowy": "Bouton {{t:open|ouvre}}",
+  "waga": "ŚR",
+  "powod": "m4-l1:38: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "du Button.",
+  "nowy": "du Bouton.",
+  "waga": "ŚR",
+  "powod": "m4-l1:43: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "du Button,",
+  "nowy": "du Bouton,",
+  "waga": "ŚR",
+  "powod": "m4-l1:75: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Button face",
+  "nowy": "Bouton face",
+  "waga": "ŚR",
+  "powod": "m4-l1:79: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Button joue",
+  "nowy": "Bouton joue",
+  "waga": "ŚR",
+  "powod": "m4-l1:85: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Button ne",
+  "nowy": "Bouton ne",
+  "waga": "ŚR",
+  "powod": "m4-l1:93: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "au Button,",
+  "nowy": "au Bouton,",
+  "waga": "ŚR",
+  "powod": "m4-l1:99: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l1-3bet.md",
+  "stary": "Button et",
+  "nowy": "Bouton et",
+  "waga": "ŚR",
+  "powod": "m4-l1:104: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "    prompt: \"Le Button {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. De",
+  "nowy": "    prompt: \"Le Bouton {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. De",
+  "waga": "ŚR",
+  "powod": "m4-l2:13: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "au Button, mais",
+  "nowy": "au Bouton, mais",
+  "waga": "ŚR",
+  "powod": "m4-l2:24: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "Button à",
+  "nowy": "Bouton à",
+  "waga": "ŚR",
+  "powod": "m4-l2:25: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "Button ?\"",
+  "nowy": "Bouton ?\"",
+  "waga": "ŚR",
+  "powod": "m4-l2:31: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "Button a",
+  "nowy": "Bouton a",
+  "waga": "ŚR",
+  "powod": "m4-l2:35: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "\"Le Button {{t:open|ouvre}}",
+  "nowy": "\"Le Bouton {{t:open|ouvre}}",
+  "waga": "ŚR",
+  "powod": "m4-l2:35: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "    prompt: \"Le Button {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Vous",
+  "nowy": "    prompt: \"Le Bouton {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Vous",
+  "waga": "ŚR",
+  "powod": "m4-l2:41: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "Button ne",
+  "nowy": "Bouton ne",
+  "waga": "ŚR",
+  "powod": "m4-l2:44: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "    prompt: \"Le Button {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Coloriez",
+  "nowy": "    prompt: \"Le Bouton {{t:open|a ouvert}} à {{n:pf.open-size}}, la {{t:small-blind|petite blinde}} {{t:fold|s'est couchée}}. Coloriez",
+  "waga": "ŚR",
+  "powod": "m4-l2:67: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "le Button {{t:open|ouvre}}",
+  "nowy": "le Bouton {{t:open|ouvre}}",
+  "waga": "ŚR",
+  "powod": "m4-l2:69: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m4-l2-obrona-bb.md",
+  "stary": "au Button, un",
+  "nowy": "au Bouton, un",
+  "waga": "ŚR",
+  "powod": "m4-l2:92: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Button s'est",
+  "nowy": "Bouton s'est",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:9: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "\"Le Button a",
+  "nowy": "\"Le Bouton a",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:19: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "au Button, depuis",
+  "nowy": "au Bouton, depuis",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:22: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "au Button, vous",
+  "nowy": "au Bouton, vous",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:23: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "du Button.\"",
+  "nowy": "du Bouton.\"",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:24: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "le Button a {{t:open|ouvert}},",
+  "nowy": "le Bouton a {{t:open|ouvert}},",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:29: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Button et",
+  "nowy": "Bouton et",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:39: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "au Button.\"",
+  "nowy": "au Bouton.\"",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:42: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "le Button a {{t:raise|relancé}}",
+  "nowy": "le Bouton a {{t:raise|relancé}}",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:68: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Button à",
+  "nowy": "Bouton à",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:78: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m4.yaml",
+  "stary": "Button se",
+  "nowy": "Bouton se",
+  "waga": "ŚR",
+  "powod": "m4 egzamin:98: niespójny termin: « Bouton » (terms-nazwy « bouton »; tak w m4-l3, m4-l4 i większości korpusu), nie « Button »",
+  "grupa": "fr-L2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l1-tekstury.md",
+  "stary": "(bilatéral ou ventral)",
+  "nowy": "(bilatéral ou gutshot)",
+  "waga": "ŚR",
+  "powod": "m5-l1:74: pl „otwarty albo gutshot”; przyjęta nazwa gutshot = „gutshot” (terms-nazwy.yaml fr), „ventral” jedyny raz w korpusie fr",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l1-tekstury.md",
+  "stary": "une {{t:pair|paire}} au {{t:board|tableau}}",
+  "nowy": "une {{t:pair|paire}} sur le {{t:board|board}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:29 (q-connected, why 3): niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr), tak w m5-l2, m5-l3 i egzaminie",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l1-tekstury.md",
+  "stary": "trois cœurs au {{t:board|tableau}}",
+  "nowy": "trois cœurs sur le {{t:board|board}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:37 (q-monotone, why 1): niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr)",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l1-tekstury.md",
+  "stary": "trois sont déjà au {{t:board|tableau}}",
+  "nowy": "trois sont déjà sur le {{t:board|board}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:38 (q-monotone, why 2): niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr)",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l1-tekstury.md",
+  "stary": "les trois cartes du {{t:board|tableau}}",
+  "nowy": "les trois cartes du {{t:board|board}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:58: niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr)",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l1-tekstury.md",
+  "stary": "qu'aucune paire de cartes ne tient dans",
+  "nowy": "que deux cartes ne tiennent jamais dans",
+  "waga": "NISKIE",
+  "powod": "m5-l1:76: pl „żadne dwie”; „paire de cartes” myli się z terminem paire (układ); w m5-l1:28 to samo oddano jako „combinaison de deux cartes”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l2-przewagi.md",
+  "stary": "{{t:overpair|overpairs}}",
+  "nowy": "{{t:overpair|overpaires}}",
+  "waga": "ŚR",
+  "powod": "m5-l2:27 (q-765, why 2): przyjęta nazwa overpair = „overpaire” (terms-nazwy.yaml fr); forma angielska",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Le flop est {{t:monotone|monochrome}}",
+  "nowy": "Le flop est {{t:monotone|monocolore}}",
+  "waga": "ŚR",
+  "powod": "m5-l3:76 (q-mono prompt): niespójny termin monotone; przyjęta nazwa „monocolore” (terms-nazwy.yaml fr), tak w m5-l1 i egzaminie",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Sur un flop {{t:monotone|monochrome}}, un gros",
+  "nowy": "Sur un flop {{t:monotone|monocolore}}, un gros",
+  "waga": "ŚR",
+  "powod": "m5-l3:80 (q-mono, why 2): niespójny termin monotone; przyjęta nazwa „monocolore”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:paired|Pairé}} et {{t:monotone|monochrome}}",
+  "nowy": "{{t:paired|Pairé}} et {{t:monotone|monocolore}}",
+  "waga": "ŚR",
+  "powod": "m5-l3:118 (nagłówek): niespójny termin monotone; przyjęta nazwa „monocolore”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Sur un flop {{t:monotone|monochrome}}, p. ex.",
+  "nowy": "Sur un flop {{t:monotone|monocolore}}, p. ex.",
+  "waga": "ŚR",
+  "powod": "m5-l3:120: niespójny termin monotone; przyjęta nazwa „monocolore”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "un flop {{t:monotone|monochrome}} est toujours",
+  "nowy": "un flop {{t:monotone|monocolore}} est toujours",
+  "waga": "ŚR",
+  "powod": "m5-l3:122: niespójny termin monotone; przyjęta nazwa „monocolore”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "; {{t:monotone|monochrome}}",
+  "nowy": "; {{t:monotone|monocolore}}",
+  "waga": "ŚR",
+  "powod": "m5-l3:133 (note): niespójny termin monotone; przyjęta nazwa „monocolore”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Une main non pairée rate le flop",
+  "nowy": "Une main sans {{t:pair|paire}} rate le flop",
+  "waga": "WYS",
+  "powod": "m5-l3:130: zgubiony znacznik {{t:pair|…}} (pl „Ręka bez {{t:pair|pary}}”); poprawka celowo przywraca znacznik t:pair, brzmienie jak w m5-l4:103",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "de mains hauteur as qui",
+  "nowy": "de mains avec un as qui",
+  "waga": "NISKIE",
+  "powod": "m5-l3:51 (q-kj, why 3): pl „rąk z asem”; „hauteur as” = as wysoka (bez pary), węższe niż źródło",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "car ces chiffres proviennent de résultats de solvers",
+  "nowy": "car ces chiffres proviennent de résultats de solveurs",
+  "waga": "NISKIE",
+  "powod": "m5-l3:133 (note): „solvers” obok „solveurs” w tym samym akapicie i pliku",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l4-bez-pozycji.md",
+  "stary": "vous réalisez son equity",
+  "nowy": "vous réalisez son équité",
+  "waga": "ŚR",
+  "powod": "m5-l4:27 (q-oop-why, why 3): przyjęta nazwa equity = „équité” (terms-nazwy.yaml fr), tak w egzaminie m5 q9",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l4-bez-pozycji.md",
+  "stary": "le {{t:bluff}} doit passer les deux",
+  "nowy": "le {{t:bluff}} doit passer face aux deux",
+  "waga": "NISKIE",
+  "powod": "m5-l4:47 (q-multi, why 2): pl „musi przejść przez obu”; „passer les deux” niegramatyczne, w egzaminie q8 „passer face aux deux adversaires”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l4-bez-pozycji.md",
+  "stary": "doit passer tout le monde",
+  "nowy": "doit passer face à tous",
+  "waga": "NISKIE",
+  "powod": "m5-l4:103: pl „musi przejść przez wszystkich”; „passer tout le monde” niegramatyczne, w egzaminie q4 „passe rarement face à tous”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m5.yaml",
+  "stary": "six hauteurs différentes",
+  "nowy": "six rangs différents",
+  "waga": "ŚR",
+  "powod": "exams/m5 q4 prompt (linia 38): pl „sześć różnych rang”; ranga = „rang” w m5-l1 i m5-l4:63 („quatre rangs différents”), „hauteur” w m5-l1 to wysokość flopa",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m5.yaml",
+  "stary": "{{t:monotone|monotones}}",
+  "nowy": "{{t:monotone|monocolores}}",
+  "waga": "ŚR",
+  "powod": "exams/m5 q10 why 2 (linia 99): przyjęta nazwa monotone = „monocolore” (terms-nazwy.yaml fr); „monotone” po francusku znaczy „jednostajny”",
+  "grupa": "fr-L3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "sans son {{t:call|paiement}} au dénominateur",
+  "nowy": "sans son {{t:call|call}} au dénominateur",
+  "waga": "ŚR",
+  "powod": "m6-l1:56 (q-alpha-three-quarters): forma „paiement” dla call jest niespójna (wszędzie „suivre”/„call”; „paiement” to przyjęta nazwa payout) i niejasna w zdaniu o mianowniku",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "(KQ, brelans)",
+  "nowy": "(KQ, sets)",
+  "waga": "ŚR",
+  "powod": "m6-l1:92 (q-exploit-river): pl „sety”; terms-nazwy set = „set” (brelan = three-of-a-kind), w m6-l3 „sets”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "C'est l'équité nécessaire pour {{t:call|suivre}} avec une seule main",
+  "nowy": "C'est l'équité requise pour {{t:call|suivre}} avec une seule main",
+  "waga": "NISKIE",
+  "powod": "m6-l1:31: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "l'équité nécessaire pour {{t:call|suivre}}",
+  "nowy": "l'équité requise pour {{t:call|suivre}}",
+  "waga": "NISKIE",
+  "powod": "m6-l1:40: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "L'équité nécessaire indique",
+  "nowy": "L'équité requise indique",
+  "waga": "NISKIE",
+  "powod": "m6-l1:72: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "Équité nécessaire |",
+  "nowy": "Équité requise |",
+  "waga": "NISKIE",
+  "powod": "m6-l1:118: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "n'est pas l'équité nécessaire",
+  "nowy": "n'est pas l'équité requise",
+  "waga": "NISKIE",
+  "powod": "m6-l1:126: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+  "stary": "L'équité nécessaire vue en M2",
+  "nowy": "L'équité requise vue en M2",
+  "waga": "NISKIE",
+  "powod": "m6-l1:128: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "à la turn, vous ferez",
+  "nowy": "au turn, vous ferez",
+  "waga": "NISKIE",
+  "powod": "m6-l2:55: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "un pique à la turn et",
+  "nowy": "un pique au turn et",
+  "waga": "NISKIE",
+  "powod": "m6-l2:64: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "le gutshot à la turn dans",
+  "nowy": "le gutshot au turn dans",
+  "waga": "NISKIE",
+  "powod": "m6-l2:74: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "en premier à la turn et",
+  "nowy": "en premier au turn et",
+  "waga": "NISKIE",
+  "powod": "m6-l2:94: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "votre chance à la turn. Cette",
+  "nowy": "votre chance au turn. Cette",
+  "waga": "NISKIE",
+  "powod": "m6-l2:127: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "tout votre tapis",
+  "nowy": "tout votre stack",
+  "waga": "NISKIE",
+  "powod": "m6-l2:76 (q-gutshot-overcard): pl „cały stack”; terms-nazwy stack = „stack”, w korpusie przeważa „votre stack”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "{{t:raise|relancé}} préflop",
+  "nowy": "{{t:raise|relancé}} preflop",
+  "waga": "NISKIE",
+  "powod": "m6-l2:98: terms-nazwy preflop = „preflop” (pisownia przyjęta w korpusie, 104× wobec 39× „préflop”)",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+  "stary": "ne sont plus {{t:call|suivies}}, mais couchées",
+  "nowy": "passent du {{t:call|call}} au fold",
+  "waga": "NISKIE",
+  "powod": "m6-l2:134: pl „przechodzą ze sprawdzenia do pasa”; „mains suivies” jest niezręczne (sprawdza się zakład, nie rękę)",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m6.yaml",
+  "stary": "pas autant moins que vous voulez",
+  "nowy": "mais pas aussi peu que vous le voulez",
+  "waga": "ŚR",
+  "powod": "exams/m6:28 (m6.exam.q3, odp. 2): „pas autant moins que” jest niegramatyczne; pl „nie dowolnie mniej”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m6.yaml",
+  "stary": "{{t:two-pair|deux paires}}",
+  "nowy": "{{t:two-pair|doubles paires}}",
+  "waga": "ŚR",
+  "powod": "exams/m6:94 (m6.exam.q10): terms-nazwy two-pair = „double paire”; w m6-l3 „doubles paires”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m6.yaml",
+  "stary": "Vous avez As hauteur, sans",
+  "nowy": "Vous avez une hauteur As, sans",
+  "waga": "ŚR",
+  "powod": "exams/m6:54 (m6.exam.q6 prompt): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m6.yaml",
+  "stary": "As hauteur bat une partie des {{t:bluff|bluffs}} du Bouton et peut toucher une {{t:pair|paire}}, donc vous le défendez",
+  "nowy": "Une hauteur As bat une partie des {{t:bluff|bluffs}} du Bouton et peut toucher une {{t:pair|paire}}, donc vous la défendez",
+  "waga": "ŚR",
+  "powod": "exams/m6:57 (m6.exam.q6 odp. 1): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m6.yaml",
+  "stary": "As hauteur se défend",
+  "nowy": "une hauteur As se défend",
+  "waga": "ŚR",
+  "powod": "exams/m6:58 (m6.exam.q6 odp. 2): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m6.yaml",
+  "stary": "As hauteur sans",
+  "nowy": "Une hauteur As sans",
+  "waga": "ŚR",
+  "powod": "exams/m6:78 (m6.exam.q8 odp. 3): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m6.yaml",
+  "stary": "L’alpha, c’est le reste jusqu’au total",
+  "nowy": "L’alpha en est le complément",
+  "waga": "NISKIE",
+  "powod": "exams/m6:18 (m6.exam.q2, odp. 2): „le reste jusqu’au total” to kalka z „reszta do całości”; w m6-l1:30 to samo oddano „le complément”",
+  "grupa": "fr-L4"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "Quand miser une deuxième fois à la turn",
+  "nowy": "Quand miser une deuxième fois au turn",
+  "waga": "NISKIE",
+  "powod": "m7-l1:6: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "Quelle carte à la turn aide",
+  "nowy": "Quelle carte au turn aide",
+  "waga": "NISKIE",
+  "powod": "m7-l1:13: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "un as à la turn après",
+  "nowy": "un as au turn après",
+  "waga": "NISKIE",
+  "powod": "m7-l1:23: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "La turn est un sept",
+  "nowy": "Le turn est un sept",
+  "waga": "NISKIE",
+  "powod": "m7-l1:33: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "La turn est un as",
+  "nowy": "Le turn est un as",
+  "waga": "NISKIE",
+  "powod": "m7-l1:43: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "a {{t:check|checké}} la turn",
+  "nowy": "a {{t:check|checké}} le turn",
+  "waga": "NISKIE",
+  "powod": "m7-l1:48: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "La turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"Qh Jh\"",
+  "nowy": "Le turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"Qh Jh\"",
+  "waga": "NISKIE",
+  "powod": "m7-l1:53: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”) (fragment obejmuje dwie linie, bo prompt powtarza się dosłownie w liniach 72 i 82)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "La turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"9s 9c\"",
+  "nowy": "Le turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"9s 9c\"",
+  "waga": "NISKIE",
+  "powod": "m7-l1:72: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”) (fragment obejmuje dwie linie, bo prompt powtarza się dosłownie w linii 82)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "La turn est un deux",
+  "nowy": "Le turn est un deux",
+  "waga": "NISKIE",
+  "powod": "m7-l1:82: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”) (unikalne dopiero po nałożeniu dwóch poprzednich poprawek)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "À la turn, il en reste une",
+  "nowy": "Au turn, il en reste une",
+  "waga": "NISKIE",
+  "powod": "m7-l1:67: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "un {{t:second-barrel|second barrel}} à la turn ?",
+  "nowy": "un {{t:second-barrel|second barrel}} au turn ?",
+  "waga": "NISKIE",
+  "powod": "m7-l1:92: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "de l'adversaire à la turn est-elle",
+  "nowy": "de l'adversaire au turn est-elle",
+  "waga": "NISKIE",
+  "powod": "m7-l1:108: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "Parce que la turn l'aide toujours",
+  "nowy": "Parce que le turn l'aide toujours",
+  "waga": "NISKIE",
+  "powod": "m7-l1:111: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "Non : la turn est aléatoire",
+  "nowy": "Non : le turn est aléatoire",
+  "waga": "NISKIE",
+  "powod": "m7-l1:111: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "puis une mise à la turn.",
+  "nowy": "puis une mise au turn.",
+  "waga": "NISKIE",
+  "powod": "m7-l1:114: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "À la turn, vous ne vous demandez",
+  "nowy": "Au turn, vous ne vous demandez",
+  "waga": "NISKIE",
+  "powod": "m7-l1:114: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "et {{t:two-pair|deux paires}} à 87",
+  "nowy": "et une {{t:two-pair|double paire}} à 87",
+  "waga": "NISKIE",
+  "powod": "m7-l1:17: two-pair — terms-nazwy.yaml: „double paire” (tak w m7-l2 i egzaminie); tu „deux paires”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "et {{t:two-pair|deux paires}} à 76",
+  "nowy": "et une {{t:two-pair|double paire}} à 76",
+  "waga": "NISKIE",
+  "powod": "m7-l1:36: two-pair — terms-nazwy.yaml: „double paire” (tak w m7-l2 i egzaminie); tu „deux paires”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "et {{t:two-pair|deux paires}} aux mains",
+  "nowy": "et des {{t:two-pair|doubles paires}} aux mains",
+  "waga": "NISKIE",
+  "powod": "m7-l1:123: two-pair — terms-nazwy.yaml: „double paire” (tak w m7-l2 i egzaminie); tu „deux paires”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "d'analyses de solvers",
+  "nowy": "d'analyses de solveurs",
+  "waga": "NISKIE",
+  "powod": "m7-l1:137: „solvers” obok „le solveur” w tym samym akapicie; jedna forma",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+  "stary": "résultats des solvers",
+  "nowy": "résultats des solveurs",
+  "waga": "NISKIE",
+  "powod": "m7-l1:137: „solvers” obok „le solveur” w tym samym akapicie; jedna forma",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+  "stary": "et va à l'abattage à moindre coût",
+  "nowy": "et va au showdown à moindre coût",
+  "waga": "ŚR",
+  "powod": "m7-l2:36: showdown — terms-nazwy.yaml: „showdown” (tak w m7-l1 i egzaminie); tu „abattage”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+  "stary": "vous allez à l'abattage à moindre coût",
+  "nowy": "vous allez au showdown à moindre coût",
+  "waga": "ŚR",
+  "powod": "m7-l2:64: showdown — terms-nazwy.yaml: „showdown” (tak w m7-l1 i egzaminie); tu „abattage”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+  "stary": "sans chance à l'abattage",
+  "nowy": "sans chance au showdown",
+  "waga": "ŚR",
+  "powod": "m7-l2:113: showdown — terms-nazwy.yaml: „showdown” (tak w m7-l1 i egzaminie); tu „abattage”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+  "stary": "vous misez des mains les plus fortes vers le bas",
+  "nowy": "vous misez en partant des mains les plus fortes vers le bas",
+  "waga": "NISKIE",
+  "powod": "m7-l2:110: „betujesz od najsilniejszych rąk w dół” — „des mains” czyta się jak rodzajnik nieokreślony, zdanie niejasne",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "est sur le {{t:board|tableau}}",
+  "nowy": "est sur le {{t:board|board}}",
+  "waga": "ŚR",
+  "powod": "m7-l3:66: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "troisième cœur sur le {{t:board|tableau}}. Il manque",
+  "nowy": "troisième cœur sur le {{t:board|board}}. Il manque",
+  "waga": "ŚR",
+  "powod": "m7-l3:86: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "sur un {{t:board|tableau}} avec un as",
+  "nowy": "sur un {{t:board|board}} avec un as",
+  "waga": "ŚR",
+  "powod": "m7-l3:87: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "troisième cœur sur le {{t:board|tableau}}).",
+  "nowy": "troisième cœur sur le {{t:board|board}}).",
+  "waga": "ŚR",
+  "powod": "m7-l3:141: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "peut tomber sur le {{t:board|tableau}}",
+  "nowy": "peut tomber sur le {{t:board|board}}",
+  "waga": "ŚR",
+  "powod": "m7-l3:143: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "au début du {{t:street|tour d'enchères}}",
+  "nowy": "au début de la {{t:street|street}}",
+  "waga": "ŚR",
+  "powod": "m7-l3:134: street („ulicy”) — terms-nazwy.yaml: „street” (tak w m7-l4:28 i w definicji SPR w terms-def); „tour d'enchères” to nazwa innego terminu (betting-round)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "à chaque {{t:street|tour d'enchères}}",
+  "nowy": "à chaque {{t:street|street}}",
+  "waga": "ŚR",
+  "powod": "m7-l3:134: street („ulicy”) — terms-nazwy.yaml: „street” (tak w m7-l4:28 i w definicji SPR w terms-def); „tour d'enchères” to nazwa innego terminu (betting-round)",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "fondé sur la {{t:expected-value|valeur espérée}}",
+  "nowy": "fondé sur l'{{t:expected-value|espérance de gain}}",
+  "waga": "ŚR",
+  "powod": "m7-l3:146: expected-value — terms-nazwy.yaml: „espérance de gain” (tak renderuje się znacznik bez formy w m7-l4:107); tu „valeur espérée”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+  "stary": "« Planifier la main »",
+  "nowy": "« Plan de la main »",
+  "waga": "ŚR",
+  "powod": "m7-l3:134: nazwa modułu M9 w content/fr/modules.yaml to „Plan de la main”; odsyłacz podaje inny tytuł",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l4-probe-obrona.md",
+  "stary": "sur une carte blanche",
+  "nowy": "sur une carte neutre",
+  "waga": "ŚR",
+  "powod": "m7-l4:96: „na pustej karcie” — w m7-l1 „carte neutre”; „carte blanche” to idiom („wolna ręka”), mylące",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m7-l4-probe-obrona.md",
+  "stary": "d'analyses de solvers",
+  "nowy": "d'analyses de solveurs",
+  "waga": "NISKIE",
+  "powod": "m7-l4:145: „solvers” obok „solveur” w tym samym akapicie; jedna forma",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m7.yaml",
+  "stary": "{{n:eq.bet-three-quarters}} d'equity",
+  "nowy": "{{n:eq.bet-three-quarters}} d'équité",
+  "waga": "NISKIE",
+  "powod": "exams/m7 q6 (linia 56): equity — terms-nazwy.yaml i m7-l2/l3: „équité”; tu angielskie „equity”",
+  "grupa": "fr-L5"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l3-blokery.md",
+  "stary": "La grosse blinde checke à la river. Les deux mains",
+  "nowy": "La {{t:big-blind|grosse blinde}} checke à la river. Les deux mains",
+  "waga": "WYS",
+  "powod": "m8-l3:55 (m8.l3.q-missed-flush prompt): zgubiony znacznik {{t:big-blind|…}} obecny w źródle pl („{{t:big-blind|Duży blind}} czeka”); poprawka celowo przywraca znacznik (zmienia zestaw kluczy).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l1-value.md",
+  "stary": "un solveur mise la thin value jusqu'à env. 1/4",
+  "nowy": "un solveur mise la thin value en descendant jusqu'à env. 1/4",
+  "waga": "ŚR",
+  "powod": "m8-l1:131: pl „betuje thin value nawet ok. 1/4 puli” (= aż tak mało); „mise … jusqu'à env. 1/4” czyta się jako górną granicę (najwyżej 1/4), co odwraca kierunek.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l1-value.md",
+  "stary": "sous 1/2 {{t:pot|pot}}",
+  "nowy": "sous 1/2 du {{t:pot|pot}}",
+  "waga": "NISKIE",
+  "powod": "m8-l1:131: brak „du” („1/2 du pot”, jak w pozostałych ułamkach puli w tym pliku).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l2-ile-blefow.md",
+  "stary": "ratés ou des mains hauteur sans chance\", correct",
+  "nowy": "ratés ou des cartes hautes sans chance\", correct",
+  "waga": "ŚR",
+  "powod": "m8-l2:101 (m8.l2.q-which-hands): pl „wysokie karty bez szans”; „mains hauteur” bez nazwy karty jest niegramatyczne/niejasne; termin wg terms-nazwy: high-card = „carte haute” (tak też w exams/m8:91).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l2-ile-blefow.md",
+  "stary": "ratés ou des mains hauteur sans chance (les",
+  "nowy": "ratés ou des cartes hautes sans chance (les",
+  "waga": "ŚR",
+  "powod": "m8-l2:139: pl „wysokie karty bez szans”; „mains hauteur” bez nazwy karty jest niegramatyczne/niejasne; high-card = „carte haute”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l2-ile-blefow.md",
+  "stary": "| 1/2 {{t:pot}} |",
+  "nowy": "| 1/2 du {{t:pot}} |",
+  "waga": "NISKIE",
+  "powod": "m8-l2:126: wiersz tabeli bez „du”, sąsiednie wiersze „1/3 du pot”, „3/4 du pot”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l4-bluff-catching.md",
+  "stary": "Vous n'avez que hauteur sept",
+  "nowy": "Vous n'avez qu'une hauteur sept",
+  "waga": "NISKIE",
+  "powod": "m8-l4:80 (m8.l4.q-no-chance): brak rodzajnika („qu'une hauteur sept”, por. m8-l1:99 „qu'une hauteur Dame”).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l3-blokery.md",
+  "stary": "Je mise {{t:value|pour la valeur}}",
+  "nowy": "Je mise {{t:value|pour la value}}",
+  "waga": "ŚR",
+  "powod": "m8-l3:89: termin value wg terms-nazwy.yaml = „value”; w lekcjach M8 wszędzie „pour la value / de value”, tu „valeur”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m8-l3-blokery.md",
+  "stary": "Vous bloquez sa valeur",
+  "nowy": "Vous bloquez sa value",
+  "waga": "ŚR",
+  "powod": "m8-l3:77: termin value („blokujesz jego wartość”) – w M8 l1, l2, l4 „value” (np. m8-l4:70 „vous bloquez sa value”).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "Vous perdez de la valeur",
+  "nowy": "Vous perdez de la value",
+  "waga": "ŚR",
+  "powod": "exams/m8:22 (q2): termin value = „value” (terms-nazwy; m8-l1:82 „Vous perdez de la value”).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "mains de valeur et",
+  "nowy": "mains de value et",
+  "waga": "ŚR",
+  "powod": "exams/m8:34 (q4 prompt): termin value = „value” (m8-l2 „mains de value”).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "{{t:combo|combinaisons}} {{t:value|pour la valeur}}.\" }",
+  "nowy": "{{t:combo|combinaisons}} {{t:value|de value}}.\" }",
+  "waga": "ŚR",
+  "powod": "exams/m8:36 (q4): „kombinacji dla wartości” – termin value = „value”; w m8-l2:92 „combos de value”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "C'est le nombre de {{t:combo|combinaisons}} {{t:value|pour la valeur}}",
+  "nowy": "C'est le nombre de {{t:combo|combinaisons}} {{t:value|de value}}",
+  "waga": "ŚR",
+  "powod": "exams/m8:38 (q4): termin value = „value”; jak m8-l2:94.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "préférez celui qui bloque sa valeur",
+  "nowy": "préférez celui qui bloque sa value",
+  "waga": "ŚR",
+  "powod": "exams/m8:57 (q6): termin value = „value”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "soit une partie de la valeur du Button",
+  "nowy": "soit une partie de la value du Button",
+  "waga": "ŚR",
+  "powod": "exams/m8:82 (q9): termin value = „value”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "Il reste plus de valeur dans ses mises",
+  "nowy": "Il reste plus de value dans ses mises",
+  "waga": "ŚR",
+  "powod": "exams/m8:83 (q9): termin value = „value” (m8-l4:61 „plus de value”).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "Je mise petit {{t:value|pour la valeur}}",
+  "nowy": "Je mise petit {{t:value|pour la value}}",
+  "waga": "ŚR",
+  "powod": "exams/m8:92 (q10): termin value = „value”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "a besoin d'autant d'equity",
+  "nowy": "a besoin d'autant d'équité",
+  "waga": "ŚR",
+  "powod": "exams/m8:29 (q3 explanation): termin equity wg terms-nazwy = „équité”; lekcje M8 mają „équité”.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "{{n:exam.m8.share}} d'equity",
+  "nowy": "{{n:exam.m8.share}} d'équité",
+  "waga": "ŚR",
+  "powod": "exams/m8:72 (q8): equity = „équité” (terms-nazwy, lekcje M8).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "Votre equity est",
+  "nowy": "Votre équité est",
+  "waga": "ŚR",
+  "powod": "exams/m8:73 (q8): equity = „équité” (terms-nazwy, lekcje M8).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "c'est du thin value",
+  "nowy": "c'est de la thin value",
+  "waga": "NISKIE",
+  "powod": "exams/m8:20 (q2): rodzaj „thin value” – w m8-l1 żeński („la thin value”), tu męski.",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m8.yaml",
+  "stary": "Misez le thin value plus petit",
+  "nowy": "Misez la thin value plus petit",
+  "waga": "NISKIE",
+  "powod": "exams/m8:21 (q2): rodzaj „thin value” – w m8-l1 żeński („La thin value se mise petit”).",
+  "grupa": "fr-L6"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l1-spr.md",
+  "stary": "De combien d'equity avez-vous",
+  "nowy": "De combien d'équité avez-vous",
+  "waga": "ŚR",
+  "powod": "m9-l1:90 (n-jam-spr2 prompt): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l1-spr.md",
+  "stary": "Equity nécessaire = {{n:commit.stack}}",
+  "nowy": "Équité nécessaire = {{n:commit.stack}}",
+  "waga": "ŚR",
+  "powod": "m9-l1:92 (n-jam-spr2 explanation): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l1-spr.md",
+  "stary": "avez-vous besoin du moins d'equity pour",
+  "nowy": "vous faut-il le moins d'équité pour",
+  "waga": "ŚR",
+  "powod": "m9-l1:97 (q-jam-price prompt): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”; przy okazji „besoin du moins d'…” (pl „najmniej equity”) czyta się jak „du moins” = „przynajmniej”, jaśniej „vous faut-il le moins d'…”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l1-spr.md",
+  "stary": "Equity nécessaire = stack",
+  "nowy": "Équité nécessaire = stack",
+  "waga": "ŚR",
+  "powod": "m9-l1:143: termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "d'equity, et encore moins",
+  "nowy": "d'équité, et encore moins",
+  "waga": "ŚR",
+  "powod": "m9-l4:47 (q-tp-4bet): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "De combien d'equity avez-vous",
+  "nowy": "De combien d'équité avez-vous",
+  "waga": "ŚR",
+  "powod": "exams/m9:26 (q3 prompt): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "{{n:exam.m9.eq.low-after-half}} d'equity, et",
+  "nowy": "{{n:exam.m9.eq.low-after-half}} d'équité, et",
+  "waga": "ŚR",
+  "powod": "exams/m9:36 (q4 opcja 1 why): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "{{n:exam.m9.eq.low-after-half}} d'equity suffit",
+  "nowy": "{{n:exam.m9.eq.low-after-half}} d'équité suffit",
+  "waga": "ŚR",
+  "powod": "exams/m9:37 (q4 opcja 2 why): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l2-zaangazowanie.md",
+  "stary": "{{t:pot|Pot}} avec une seule relance, stacks",
+  "nowy": "{{t:pot|Pot}} à une seule relance, stacks",
+  "waga": "ŚR",
+  "powod": "m9-l2:65 (q-tp-srp prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l2-zaangazowanie.md",
+  "stary": "Dans un {{t:pot}} avec une seule relance, le",
+  "nowy": "Dans un {{t:pot}} à une seule relance, le",
+  "waga": "ŚR",
+  "powod": "m9-l2:110: niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "{{t:pot|Pot}} simplement relancé : au flop",
+  "nowy": "{{t:pot|Pot}} à une seule relance : au flop",
+  "waga": "ŚR",
+  "powod": "m9-l3:36 (q-srp-half prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "{{t:pot|Pot}} simplement relancé, {{t:spr}}",
+  "nowy": "{{t:pot|Pot}} à une seule relance, {{t:spr}}",
+  "waga": "ŚR",
+  "powod": "m9-l3:45 (q-srp-geo prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "Dans un {{t:pot}} simplement relancé, le",
+  "nowy": "Dans un {{t:pot}} à une seule relance, le",
+  "waga": "ŚR",
+  "powod": "m9-l3:48 (q-srp-geo opcja 2 why): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "## Le {{t:pot}} simplement relancé est profond",
+  "nowy": "## Le {{t:pot}} à une seule relance est profond",
+  "waga": "ŚR",
+  "powod": "m9-l3:124 (nagłówek): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "Un {{t:pot}} relancé une fois, stacks",
+  "nowy": "Un {{t:pot}} à une seule relance, stacks",
+  "waga": "ŚR",
+  "powod": "exams/m9:62 (q7 prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "Un {{t:pot}} 3-betté, vous",
+  "nowy": "Un {{t:pot}} 3-bet, vous",
+  "waga": "NISKIE",
+  "powod": "exams/m9:72 (q8 prompt): niespójność: pl „pula 3-betowana” w lekcjach M9 to „pot 3-bet” (m9-l3, m9-l4), tu „pot 3-betté”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "pas toujours le all-in de",
+  "nowy": "pas toujours l'all-in de",
+  "waga": "NISKIE",
+  "powod": "exams/m9:17 (q2 prompt): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "Face au all-in de",
+  "nowy": "Face à l'all-in de",
+  "waga": "NISKIE",
+  "powod": "exams/m9:36 (q4 opcja 1 why): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "{{t:call|suivre}} le all-in. Soit",
+  "nowy": "{{t:call|suivre}} l'all-in. Soit",
+  "waga": "NISKIE",
+  "powod": "exams/m9:37 (q4 opcja 2 why): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m9.yaml",
+  "stary": "au turn, c'est le all-in",
+  "nowy": "au turn, c'est l'all-in",
+  "waga": "NISKIE",
+  "powod": "exams/m9:45 (q5 opcja 1 why): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "{{n:spr.4bet}} {{t:pot|pots}} d'emblée",
+  "nowy": "{{n:spr.4bet}} fois le {{t:pot}} d'emblée",
+  "waga": "NISKIE",
+  "powod": "m9-l3:78 (q-4bet-two opcja 3 why): pl „zakład ok. {{n:spr.4bet}} puli”; wartość ok. 1,7, więc liczba mnoga „1,7 pots” jest błędna (fr: l.mn. od 2); naturalnie „1,7 fois le pot”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "de la taille du {{t:pot}} {{n:srp.potbet.total}} d'un stack",
+  "nowy": "de la taille du {{t:pot}}, {{n:srp.potbet.total}} d'un stack",
+  "waga": "NISKIE",
+  "powod": "m9-l3:126: elipsa czasownika bez przecinka zlewa „taille du pot” z kwotą („…du pot 39 BB d'un stack”); przecinek jak w pl po „puli”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "ou {{t:check}} et {{t:call|suivi}}.",
+  "nowy": "ou {{t:check}} puis {{t:call}}.",
+  "waga": "ŚR",
+  "powod": "m9-l4:36 (q-middle-pair opcja 1 why): pl „{{t:check}} i {{t:call|sprawdzanie}}” (linia check–call); „check et suivi” nie jest nazwą zagrania („suivi” czyta się jak imiesłów bierny albo „monitoring”); nazwa terminu wg terms-nazwy to „call”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "puis {{t:check}} et {{t:call|suivi}} :",
+  "nowy": "puis {{t:check}} et {{t:call}} :",
+  "waga": "ŚR",
+  "powod": "m9-l4:123 (lista linii): pl „{{t:check}} i {{t:call|sprawdzanie}}” (linia check–call); „check et suivi” nie jest nazwą zagrania („suivi” czyta się jak imiesłów bierny albo „monitoring”); nazwa terminu wg terms-nazwy to „call”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "{{t:top-pair|top paire}} à l'as, c'est",
+  "nowy": "{{t:top-pair|top paire}} avec un as, c'est",
+  "waga": "NISKIE",
+  "powod": "m9-l4:47 (q-tp-4bet opcja 2 why): pl „najwyższą parą z asem” (AK na K-high, as = kicker); „top paire à l'as” sugeruje parę asów; w m9-l2 to samo wyrażenie oddane „top paire avec un as”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "sur les {{t:street|streets}} suivantes. Quelques",
+  "nowy": "sur les {{t:street|streets}} successives. Quelques",
+  "waga": "NISKIE",
+  "powod": "m9-l4:119: pl „na kolejnych ulicach” = na następujących po sobie ulicach (flop, turn, river), nie „na następnych”",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis\", correct:",
+  "nowy": "stack\", correct:",
+  "waga": "ŚR",
+  "powod": "m9-l4:26: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis n'entrerait",
+  "nowy": "stack n'entrerait",
+  "waga": "ŚR",
+  "powod": "m9-l4:26: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis entre au",
+  "nowy": "stack entre au",
+  "waga": "ŚR",
+  "powod": "m9-l4:46: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis. Ici, deux",
+  "nowy": "stack. Ici, deux",
+  "waga": "ŚR",
+  "powod": "m9-l4:46: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "c'est jouer tout le tapis",
+  "nowy": "c'est jouer tout le stack",
+  "waga": "ŚR",
+  "powod": "m9-l4:46: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis, et les",
+  "nowy": "stack, et les",
+  "waga": "ŚR",
+  "powod": "m9-l4:48: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis d'ici la",
+  "nowy": "stack d'ici la",
+  "waga": "ŚR",
+  "powod": "m9-l4:53: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis. À chaque",
+  "nowy": "stack. À chaque",
+  "waga": "ŚR",
+  "powod": "m9-l4:56: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis demande",
+  "nowy": "stack demande",
+  "waga": "ŚR",
+  "powod": "m9-l4:57: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis serait",
+  "nowy": "stack serait",
+  "waga": "ŚR",
+  "powod": "m9-l4:58: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis sans de",
+  "nowy": "stack sans de",
+  "waga": "ŚR",
+  "powod": "m9-l4:65: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "faut-il jouer tout le tapis",
+  "nowy": "faut-il jouer tout le stack",
+  "waga": "ŚR",
+  "powod": "m9-l4:66: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis, et cette",
+  "nowy": "stack, et cette",
+  "waga": "ŚR",
+  "powod": "m9-l4:75: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis. Avec des",
+  "nowy": "stack. Avec des",
+  "waga": "ŚR",
+  "powod": "m9-l4:75: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tout le tapis. La",
+  "nowy": "tout le stack. La",
+  "waga": "ŚR",
+  "powod": "m9-l4:76: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "non pour tout le tapis",
+  "nowy": "non pour tout le stack",
+  "waga": "ŚR",
+  "powod": "m9-l4:77: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "{{t:pot|pot}}, tapis",
+  "nowy": "{{t:pot|pot}}, stacks",
+  "waga": "ŚR",
+  "powod": "m9-l4:82: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module); tu l.mn. „stacks” (pl „stacki po”)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "du reste du tapis",
+  "nowy": "du reste du stack",
+  "waga": "ŚR",
+  "powod": "m9-l4:82: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "le tapis est",
+  "nowy": "le stack est",
+  "waga": "ŚR",
+  "powod": "m9-l4:84: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "pour jouer tout le tapis",
+  "nowy": "pour jouer tout le stack",
+  "waga": "ŚR",
+  "powod": "m9-l4:84: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "reste du tapis.\"",
+  "nowy": "reste du stack.\"",
+  "waga": "ŚR",
+  "powod": "m9-l4:85: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis\", why:",
+  "nowy": "stack\", why:",
+  "waga": "ŚR",
+  "powod": "m9-l4:86: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis ne vaut",
+  "nowy": "stack ne vaut",
+  "waga": "ŚR",
+  "powod": "m9-l4:86: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tout le tapis ?",
+  "nowy": "tout le stack ?",
+  "waga": "ŚR",
+  "powod": "m9-l4:95: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis et vous",
+  "nowy": "stack et vous",
+  "waga": "ŚR",
+  "powod": "m9-l4:111: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "le tapis :**",
+  "nowy": "le stack :**",
+  "waga": "ŚR",
+  "powod": "m9-l4:111: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis, donc vous",
+  "nowy": "stack, donc vous",
+  "waga": "ŚR",
+  "powod": "m9-l4:112: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "jouez le tapis",
+  "nowy": "jouez le stack",
+  "waga": "ŚR",
+  "powod": "m9-l4:112: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "de mettre tout le tapis.",
+  "nowy": "de mettre tout le stack.",
+  "waga": "ŚR",
+  "powod": "m9-l4:113: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tout le tapis. Une",
+  "nowy": "tout le stack. Une",
+  "waga": "ŚR",
+  "powod": "m9-l4:115: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis : dans",
+  "nowy": "stack : dans",
+  "waga": "ŚR",
+  "powod": "m9-l4:115: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "tapis (zones",
+  "nowy": "stack (zones",
+  "waga": "ŚR",
+  "powod": "m9-l4:115: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "d'un tapis de",
+  "nowy": "d'un stack de",
+  "waga": "ŚR",
+  "powod": "m9-l4:127: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "mettent tout le tapis",
+  "nowy": "mettent tout le stack",
+  "waga": "ŚR",
+  "powod": "m9-l4:127: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+  "grupa": "fr-L7"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "Ils {{t:fold|se couchent}} aussi rarement face à un 3-bet.",
+  "nowy": "De plus, ils {{t:fold|se couchent}} rarement face à un 3-bet.",
+  "waga": "ŚR",
+  "powod": "m10-l2:126: pl „Rzadko też pasują na 3-bet”; „aussi rarement” czyta się jako „równie rzadko” (dwuznaczność)",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "Il vous 3-bet.",
+  "nowy": "Il vous 3-bette.",
+  "waga": "NISKIE",
+  "powod": "m10-l2:59: czasownik nieodmieniony; w l1, l3 forma „3-bette/3-better”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "si peu de mains 3-bet surtout",
+  "nowy": "si peu de mains 3-bette surtout",
+  "waga": "NISKIE",
+  "powod": "m10-l2:61: czasownik nieodmieniony; spójność z „3-bette” w l1 i l3",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "Je 4-bet\"",
+  "nowy": "Je 4-bette\"",
+  "waga": "NISKIE",
+  "powod": "m10-l2:63 (text): czasownik nieodmieniony; spójność z „3-bette/4-bette”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "4-bet AJ contre un",
+  "nowy": "4-better AJ contre un",
+  "waga": "NISKIE",
+  "powod": "m10-l2:63 (why): bezokolicznik „4-better”, jak „3-better” w l3 i l4",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:raise|relance}} ou 3-bet, les mains",
+  "nowy": "{{t:raise|relance}} ou 3-bette, les mains",
+  "waga": "NISKIE",
+  "powod": "m10-l2:137: czasownik nieodmieniony; spójność z „3-bette”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "tout votre tapis",
+  "nowy": "tout votre stack",
+  "waga": "NISKIE",
+  "powod": "m10-l2:91: pl „cały stack”; terms-nazwy fr: stack = „stack”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "toutes les tailles et toutes les tables",
+  "nowy": "toutes les tailles et tous les boards",
+  "waga": "ŚR",
+  "powod": "m10-l3:49: pl „rozmiary i stoły” – „stół” to board (karty wspólne), nie stół do gry; por. l3:109 „tous les flops”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "jusqu'à {{n:alpha.cbet.big}}",
+  "nowy": "pas moins de {{n:alpha.cbet.big}}",
+  "waga": "ŚR",
+  "powod": "m10-l3:51: pl „aż {{n}}” (podkreślenie wielkości), „jusqu'à” znaczy „do” i sugeruje górną granicę przedziału",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Je {{t:call|paie}} toujours",
+  "nowy": "Je {{t:call|suis}} toujours",
+  "waga": "NISKIE",
+  "powod": "m10-l3:34: jedyne „payer” dla call w przejrzanych plikach; wszędzie indziej „suivre”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "semble loose et passif",
+  "nowy": "semble large et passif",
+  "waga": "NISKIE",
+  "powod": "m10-l3:84: pl „luźnego”; w l1 i l2 „large” (joueur très large), tu angielskie „loose”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "les joueurs seraient ensemble à l'équilibre",
+  "nowy": "les joueurs termineraient ensemble à zéro",
+  "waga": "ŚR",
+  "powod": "m10-l4:24: pl „razem wychodziliby na zero”; „à l'équilibre” w tym module znaczy równowagę strategii (l3), dwuznaczne",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "ils seraient donc ensemble à l'équilibre",
+  "nowy": "ils termineraient donc ensemble à zéro",
+  "waga": "ŚR",
+  "powod": "m10-l4:89: pl „razem wychodziliby na zero”; „à l'équilibre” w tym module znaczy równowagę strategii (l3), dwuznaczne",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "De combien d'equity avez-vous",
+  "nowy": "De combien d'équité avez-vous",
+  "waga": "ŚR",
+  "powod": "m10-l4:49: terms-nazwy fr: equity = „équité”; w l3 „équité”, w l4 „equity”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "{{n:eq.bet-half}} d'equity",
+  "nowy": "{{n:eq.bet-half}} d'équité",
+  "waga": "ŚR",
+  "powod": "m10-l4:56: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "il vous faut donc plus d'equity",
+  "nowy": "il vous faut donc plus d'équité",
+  "waga": "ŚR",
+  "powod": "m10-l4:60: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "L'equity nécessaire du module 2",
+  "nowy": "L'équité nécessaire du module 2",
+  "waga": "ŚR",
+  "powod": "m10-l4:108: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "equity nécessaire = montant",
+  "nowy": "équité nécessaire = montant",
+  "waga": "ŚR",
+  "powod": "m10-l4:111 (formula): terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "Le seuil d'equity est",
+  "nowy": "Le seuil d'équité est",
+  "waga": "ŚR",
+  "powod": "m10-l4:126: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "{{t:fold|se coucher}} ou 3-bet plus souvent",
+  "nowy": "{{t:fold|se coucher}} ou 3-better plus souvent",
+  "waga": "NISKIE",
+  "powod": "m10-l4:67 (text): bezokolicznik „3-better”, jak w l4:68 i l4:87",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "pour des tapis de {{n:rake.solver.depth}}",
+  "nowy": "pour des stacks de {{n:rake.solver.depth}}",
+  "waga": "NISKIE",
+  "powod": "m10-l4:126: pl „stacków”; terms-nazwy fr: stack = „stack”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "pour un tapis de {{n:format.stack}}",
+  "nowy": "pour un stack de {{n:format.stack}}",
+  "waga": "NISKIE",
+  "powod": "m10-l4:126: pl „stacku”; terms-nazwy fr: stack = „stack”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "l'erreur standard de son",
+  "nowy": "l'erreur type de son",
+  "waga": "ŚR",
+  "powod": "m10.exam.q2 prompt: w l1 (i reszcie korpusu) „erreur type”; jedno pojęcie, jedna nazwa",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "est à l'équilibre avec {{n:alpha.cbet.small}}",
+  "nowy": "atteint le point mort avec {{n:alpha.cbet.small}}",
+  "waga": "ŚR",
+  "powod": "m10.exam.q7 why (opcja 1): pl „wychodzi na zero”; w l3 „atteint le point mort”, „à l'équilibre” znaczy w module równowagę strategii",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "toutes les tailles et toutes les tables",
+  "nowy": "toutes les tailles et tous les boards",
+  "waga": "ŚR",
+  "powod": "m10.exam.q7 why (opcja 1): pl „stoły” = boardy (karty wspólne), nie stoły do gry",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "La salle prélève",
+  "nowy": "Le site prélève",
+  "waga": "NISKIE",
+  "powod": "m10.exam.q9 prompt: pl „sala”; w l1 i l4 konsekwentnie „site”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "De combien d'equity",
+  "nowy": "De combien d'équité",
+  "waga": "ŚR",
+  "powod": "m10.exam.q9 prompt: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "à environ {{n:m11.push.15}} mains. K2o",
+  "nowy": "à environ {{n:m11.push.15}} des mains. K2o",
+  "waga": "ŚR",
+  "powod": "m11-l1:63 (q-k2o why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "{{n:m11.push.10-ante}} mains.\" }",
+  "nowy": "{{n:m11.push.10-ante}} des mains.\" }",
+  "waga": "ŚR",
+  "powod": "m11-l1:91 (q-ante why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "avec environ {{n:m11.push.15}} mains, à",
+  "nowy": "avec environ {{n:m11.push.15}} des mains, à",
+  "waga": "ŚR",
+  "powod": "m11-l1:152: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "{{n:m11.3max.push.btn}} mains, et la",
+  "nowy": "{{n:m11.3max.push.btn}} des mains, et la",
+  "waga": "ŚR",
+  "powod": "m11-l1:156: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "{{n:m11.push.10-ante}} mains (le",
+  "nowy": "{{n:m11.push.10-ante}} des mains (le",
+  "waga": "ŚR",
+  "powod": "m11-l1:174: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "a aussi de l'equity quand",
+  "nowy": "a aussi de l'équité quand",
+  "waga": "ŚR",
+  "powod": "m11-l1:72: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "Sans equity, il vous faut",
+  "nowy": "Sans équité, il vous faut",
+  "waga": "ŚR",
+  "powod": "m11-l1:74: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "a toujours plus d'equity\"",
+  "nowy": "a toujours plus d'équité\"",
+  "waga": "ŚR",
+  "powod": "m11-l1:82 (text): termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "L'equity d'une main ne dépend",
+  "nowy": "L'équité d'une main ne dépend",
+  "waga": "ŚR",
+  "powod": "m11-l1:82 (why): termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "tout comme l'equity de votre main",
+  "nowy": "tout comme l'équité de votre main",
+  "waga": "ŚR",
+  "powod": "m11-l1:170: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "Il suffit qu'il {{t:fold|se couche}}",
+  "nowy": "Il suffit qu'elle {{t:fold|se couche}}",
+  "waga": "NISKIE",
+  "powod": "m11-l1:74 (text): podmiotem w pytaniu jest „la grosse blinde” (elle), nie „il”",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "depuis le Button, il reste",
+  "nowy": "depuis le Bouton, il reste",
+  "waga": "NISKIE",
+  "powod": "m11-l1:156: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "chacun, le Button part",
+  "nowy": "chacun, le Bouton part",
+  "waga": "NISKIE",
+  "powod": "m11-l1:156: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": "quand le Button {{t:fold|s'est couché}}, avec",
+  "nowy": "quand le Bouton {{t:fold|s'est couché}}, avec",
+  "waga": "NISKIE",
+  "powod": "m11-l1:156: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l1-push-fold.md",
+  "stary": ": Button {{n:m11.jamfold3.btn}}",
+  "nowy": ": Bouton {{n:m11.jamfold3.btn}}",
+  "waga": "NISKIE",
+  "powod": "m11-l1:166: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "(env. {{n:m11.push.15}} mains)",
+  "nowy": "(env. {{n:m11.push.15}} des mains)",
+  "waga": "ŚR",
+  "powod": "m11-l2:67 (q-22 why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "à env. {{n:m11.call.15}} mains.",
+  "nowy": "à env. {{n:m11.call.15}} des mains.",
+  "waga": "ŚR",
+  "powod": "m11-l2:67 (q-22 why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "avec env. {{n:m11.push.10}} mains, mais",
+  "nowy": "avec env. {{n:m11.push.10}} des mains, mais",
+  "waga": "ŚR",
+  "powod": "m11-l2:74 (prompt): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "env. {{n:m11.call.10-ante}} mains au lieu",
+  "nowy": "env. {{n:m11.call.10-ante}} des mains au lieu",
+  "waga": "ŚR",
+  "powod": "m11-l2:86: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "avec env. {{n:m11.3max.call.bb-two}} mains, et quand",
+  "nowy": "avec env. {{n:m11.3max.call.bb-two}} des mains, et quand",
+  "waga": "ŚR",
+  "powod": "m11-l2:110: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Le solveur ne {{t:call|suit}} qu'avec env. {{n:m11.3max.call.bb-two}} mains",
+  "nowy": "Le solveur ne {{t:call|suit}} qu'avec env. {{n:m11.3max.call.bb-two}} des mains",
+  "waga": "ŚR",
+  "powod": "m11-l2:111: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "avec env. {{n:m11.push.10}} mains, et la",
+  "nowy": "avec env. {{n:m11.push.10}} des mains, et la",
+  "waga": "ŚR",
+  "powod": "m11-l2:140: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{n:m11.3max.call.sb}} mains, bien",
+  "nowy": "{{n:m11.3max.call.sb}} des mains, bien",
+  "waga": "ŚR",
+  "powod": "m11-l2:154: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{n:m11.3max.call.bb-two}} mains. Contre",
+  "nowy": "{{n:m11.3max.call.bb-two}} des mains. Contre",
+  "waga": "ŚR",
+  "powod": "m11-l2:160: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:call|suit}} avec env. {{n:m11.call.10-ante}} mains",
+  "nowy": "{{t:call|suit}} avec env. {{n:m11.call.10-ante}} des mains",
+  "waga": "ŚR",
+  "powod": "m11-l2:168: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "l'adversaire {{t:shove|fait}} aussi {{t:shove|tapis}} plus large",
+  "nowy": "l'adversaire {{t:shove|fait tapis}} plus large lui aussi",
+  "waga": "ŚR",
+  "powod": "m11-l2:168: jeden znacznik źródła ({{t:shove|pushuje}}) rozbity na dwa; formy „fait” i „tapis” osobno nie oznaczają terminu. Poprawka scala znacznik (ten sam klucz shove, liczba wystąpień 2→1 jak w pl)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "qu'à l'abattage, et contre une {{t:range|range}}",
+  "nowy": "qu'au showdown, et contre une {{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:57: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "jusqu'à l'abattage",
+  "nowy": "jusqu'au showdown",
+  "waga": "ŚR",
+  "powod": "m11-l2:59: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "qu'à l'abattage, et contre des mains déjà",
+  "nowy": "qu'au showdown, et contre des mains déjà",
+  "waga": "ŚR",
+  "powod": "m11-l2:76: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "qu'à l'abattage, et contre des mains que",
+  "nowy": "qu'au showdown, et contre des mains que",
+  "waga": "ŚR",
+  "powod": "m11-l2:134: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+  "stary": "la table d'un site de formation donne",
+  "nowy": "le tableau d'un site de formation donne",
+  "waga": "NISKIE",
+  "powod": "m11-l2:140: „table” w znaczeniu tabeli to anglicyzm (tu myli się ze stołem); m11-l1:152 ma „le tableau d'un site de formation”",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l3-icm.md",
+  "stary": "pour ne pas perdre la tête\"",
+  "nowy": "pour ne pas perdre la première place\"",
+  "waga": "ŚR",
+  "powod": "m11-l3:80 (q-covering, text): pl „żeby nie stracić prowadzenia”; „perdre la tête” to po francusku przede wszystkim idiom „stracić głowę / oszaleć”, dwuznaczne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l3-icm.md",
+  "stary": "Le leader prend le moins de risques à la table.",
+  "nowy": "C'est le leader qui risque le moins à la table.",
+  "waga": "ŚR",
+  "powod": "m11-l3:80 (why): pl „Lider ma najmniejsze ryzyko przy stole” (stan, nie zachowanie); „prend le moins de risques” sugeruje, że lider gra najostrożniej, co przeczy uzasadnieniu",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m11-l3-icm.md",
+  "stary": "quand le bouton et la",
+  "nowy": "quand le Bouton et la",
+  "waga": "NISKIE",
+  "powod": "m11-l3:161: nazwa pozycji wielką literą jak w m11-l2 i egzaminach („le Bouton”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m11.yaml",
+  "stary": "a aussi besoin d'equity pour",
+  "nowy": "a aussi besoin d'équité pour",
+  "waga": "ŚR",
+  "powod": "exams/m11 q3:25: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m11.yaml",
+  "stary": "pourcentage d'equity avez-vous",
+  "nowy": "pourcentage d'équité avez-vous",
+  "waga": "ŚR",
+  "powod": "exams/m11 q5:41: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m11.yaml",
+  "stary": "Votre equity est actuellement",
+  "nowy": "Votre équité est actuellement",
+  "waga": "ŚR",
+  "powod": "exams/m11 q7:59: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m11.yaml",
+  "stary": "d'equity suffit pour",
+  "nowy": "d'équité suffit pour",
+  "waga": "ŚR",
+  "powod": "exams/m11 q8:64: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m11.yaml",
+  "stary": "Equity requise = BF",
+  "nowy": "Équité requise = BF",
+  "waga": "ŚR",
+  "powod": "exams/m11 q8:66: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m11.yaml",
+  "stary": "élève toujours l'equity requise",
+  "nowy": "élève toujours l'équité requise",
+  "waga": "ŚR",
+  "powod": "exams/m11 q8:68: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m11.yaml",
+  "stary": "nettement plus d'equity qu'en",
+  "nowy": "nettement plus d'équité qu'en",
+  "waga": "ŚR",
+  "powod": "exams/m11 q9:75: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m13.yaml",
+  "stary": "ni règle ni résultat du solver.",
+  "nowy": "ni règle ni résultat du solveur.",
+  "waga": "NISKIE",
+  "powod": "exams/m13 q4:37: „solver” zamiast „solveur” (wszędzie indziej w pliku i module „solveur”)",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m13.yaml",
+  "stary": "il y a un résultat du solver.",
+  "nowy": "il y a un résultat du solveur.",
+  "waga": "NISKIE",
+  "powod": "exams/m13 q4:37: „solver” zamiast „solveur”",
+  "grupa": "fr-L9"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l3-tilt.md",
+  "stary": "lisez la fiche sur le jeu responsable",
+  "nowy": "lisez l'encadré « Jeu responsable »",
+  "waga": "ŚR",
+  "powod": "m12-l3:133: pl „kartę o odpowiedzialnej grze”; ta sama ramka w m12-l4:102 i jej tytuł (m12-l4:143) to „l'encadré « Jeu responsable »” — jedna nazwa na odesłanie do treści krytycznej",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "text: \"Le tilt d'erreur\"",
+  "nowy": "text: \"Le tilt de l'erreur\"",
+  "waga": "ŚR",
+  "powod": "exam m12:56: q6: nazwa typu tiltu w lekcji m12-l3 (16, 42, 43, 53) to „tilt de l'erreur”; pytanie odwołuje się do podziału z lekcji",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "Le tilt d'erreur, c'est",
+  "nowy": "Le tilt de l'erreur, c'est",
+  "waga": "ŚR",
+  "powod": "exam m12:56: q6 why: nazwa typu tiltu jak w lekcji m12-l3 („tilt de l'erreur”)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l4-bankroll.md",
+  "stary": "C'est du tilt par désespoir",
+  "nowy": "C'est du tilt de désespoir",
+  "waga": "ŚR",
+  "powod": "m12-l4:51: q-move-down why: nazwa typu tiltu w m12-l3 (17, 33, 71) to „tilt de désespoir”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "à partir de quand le talent commence à l'emporter",
+  "nowy": "à partir de quand la compétence commence à l'emporter",
+  "waga": "ŚR",
+  "powod": "m12-l2:74: pl „umiejętność” (skill, rzecz wyuczona), „talent” sugeruje wrodzony dar; w tym samym pliku „écart de niveau”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "le talent ne commençait à l'emporter",
+  "nowy": "la compétence ne commençait à l'emporter",
+  "waga": "ŚR",
+  "powod": "m12-l2:112: pl „umiejętność zaczynała przeważać”; „talent” ≠ umiejętność",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "equity.\"",
+  "nowy": "équité.\"",
+  "waga": "ŚR",
+  "powod": "m12-l2:16: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "equity au",
+  "nowy": "équité au",
+  "waga": "ŚR",
+  "powod": "m12-l2:17: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{n:eq.bet-quarter}} d'equity et vous",
+  "nowy": "{{n:eq.bet-quarter}} d'équité et vous",
+  "waga": "ŚR",
+  "powod": "m12-l2:31: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{n:eq.bet-pot}} d'equity et vous",
+  "nowy": "{{n:eq.bet-pot}} d'équité et vous",
+  "waga": "ŚR",
+  "powod": "m12-l2:40: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "prix, l'equity face à",
+  "nowy": "prix, l'équité face à",
+  "waga": "ŚR",
+  "powod": "m12-l2:49: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "equity que",
+  "nowy": "équité que",
+  "waga": "ŚR",
+  "powod": "m12-l2:85: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "et l'equity face à",
+  "nowy": "et l'équité face à",
+  "waga": "ŚR",
+  "powod": "m12-l2:106: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "equity,",
+  "nowy": "équité,",
+  "waga": "ŚR",
+  "powod": "exam m12:45: termin equity: terms-nazwy.yaml fr = „équité”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "equity face",
+  "nowy": "équité face",
+  "waga": "ŚR",
+  "powod": "exam m12:46: termin equity: terms-nazwy.yaml fr = „équité”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{t:standard-deviation|écart type}} d'env.",
+  "nowy": "{{t:standard-deviation|écart-type}} d'env.",
+  "waga": "NISKIE",
+  "powod": "m12-l2:68: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{t:standard-deviation|écart type}} (leçon",
+  "nowy": "{{t:standard-deviation|écart-type}} (leçon",
+  "waga": "NISKIE",
+  "powod": "m12-l2:77: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l4-bankroll.md",
+  "stary": "avec un {{t:standard-deviation|écart type}} de {{n:var.sd}}",
+  "nowy": "avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}}",
+  "waga": "NISKIE",
+  "powod": "m12-l4:20: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l4-bankroll.md",
+  "stary": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart type}} de {{n:var.sd}}, mais un",
+  "nowy": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart-type}} de {{n:var.sd}}, mais un",
+  "waga": "NISKIE",
+  "powod": "m12-l4:29: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l4-bankroll.md",
+  "stary": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart type}} de {{n:var.sd}}, mais vous",
+  "nowy": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart-type}} de {{n:var.sd}}, mais vous",
+  "waga": "NISKIE",
+  "powod": "m12-l4:38: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l4-bankroll.md",
+  "stary": "Avec un {{t:standard-deviation|écart type}} de {{n:var.sd}}",
+  "nowy": "Avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}}",
+  "waga": "NISKIE",
+  "powod": "m12-l4:123: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "{{n:var.wr.typical.high}} avec un {{t:standard-deviation|écart type}} de {{n:var.sd}} et",
+  "nowy": "{{n:var.wr.typical.high}} avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}} et",
+  "waga": "NISKIE",
+  "powod": "exam m12:7: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "{{t:buy-in|buy-ins}}. L'{{t:standard-deviation|écart type}} du résultat",
+  "nowy": "{{t:buy-in|buy-ins}}. L'{{t:standard-deviation|écart-type}} du résultat",
+  "waga": "NISKIE",
+  "powod": "exam m12:9: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "moyenne. L'{{t:standard-deviation|écart type}} du résultat",
+  "nowy": "moyenne. L'{{t:standard-deviation|écart-type}} du résultat",
+  "waga": "NISKIE",
+  "powod": "exam m12:10: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "votre {{t:standard-deviation|écart type}} de",
+  "nowy": "votre {{t:standard-deviation|écart-type}} de",
+  "waga": "NISKIE",
+  "powod": "exam m12:16: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "votre {{t:standard-deviation|écart type}} est",
+  "nowy": "votre {{t:standard-deviation|écart-type}} est",
+  "waga": "NISKIE",
+  "powod": "exam m12:25: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "{{t:standard-deviation|écart type}} plus",
+  "nowy": "{{t:standard-deviation|écart-type}} plus",
+  "waga": "NISKIE",
+  "powod": "exam m12:27: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "un {{t:standard-deviation|écart type}} de {{n:var.sd}}\",",
+  "nowy": "un {{t:standard-deviation|écart-type}} de {{n:var.sd}}\",",
+  "waga": "NISKIE",
+  "powod": "exam m12:28: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "\"L'{{t:standard-deviation|écart type}} est",
+  "nowy": "\"L'{{t:standard-deviation|écart-type}} est",
+  "waga": "NISKIE",
+  "powod": "exam m12:28: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "Votre {{t:standard-deviation|écart type}} est",
+  "nowy": "Votre {{t:standard-deviation|écart-type}} est",
+  "waga": "NISKIE",
+  "powod": "exam m12:34: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "{{n:dd.wr-low}} avec un {{t:standard-deviation|écart type}} de {{n:var.sd}} et",
+  "nowy": "{{n:dd.wr-low}} avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}} et",
+  "waga": "NISKIE",
+  "powod": "exam m12:71: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "{{t:standard-deviation|écart type}} ne",
+  "nowy": "{{t:standard-deviation|écart-type}} ne",
+  "waga": "NISKIE",
+  "powod": "exam m12:89: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m12.yaml",
+  "stary": "{{t:standard-deviation|écart type}} qui",
+  "nowy": "{{t:standard-deviation|écart-type}} qui",
+  "waga": "NISKIE",
+  "powod": "exam m12:93: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{n:var.hands.k}} milliers de mains",
+  "nowy": "{{n:var.hands.k}} mille mains",
+  "waga": "NISKIE",
+  "powod": "m12-l2:68: wszędzie indziej w module „{{n:…}} mille mains”; „100 milliers de mains” niepoprawne",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "contre les {{n:skill.pct}} plus faibles",
+  "nowy": "contre les {{n:skill.pct}} les plus faibles",
+  "waga": "NISKIE",
+  "powod": "m12-l2:67: stopień najwyższy („najsłabszego”) wymaga rodzajnika: „les plus faibles”; bez niego czyta się jak stopień wyższy",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "devancent les {{n:skill.pct}} plus faibles",
+  "nowy": "devancent les {{n:skill.pct}} les plus faibles",
+  "waga": "NISKIE",
+  "powod": "m12-l2:76: stopień najwyższy: „les plus faibles”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "devançaient les {{n:skill.pct}} plus faibles",
+  "nowy": "devançaient les {{n:skill.pct}} les plus faibles",
+  "waga": "NISKIE",
+  "powod": "m12-l2:112: stopień najwyższy: „les plus faibles”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l3-tilt.md",
+  "stary": "relance sur vos blinds",
+  "nowy": "relance sur vos blindes",
+  "waga": "NISKIE",
+  "powod": "m12-l3:22: pisownia: terms-nazwy.yaml „blinde”, w korpusie przeważa „blindes”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l3-tilt.md",
+  "stary": "ce qui vous déclenche",
+  "nowy": "ce qui déclenche votre tilt",
+  "waga": "NISKIE",
+  "powod": "m12-l3:78: kalka „co cię wyzwala”; po francusku wyzwala się tilt, nie gracza (por. m12-l3:118 „ce qui le déclenche”)",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l3-tilt.md",
+  "stary": "Votre jeu a un écart",
+  "nowy": "Votre niveau de jeu varie",
+  "waga": "NISKIE",
+  "powod": "m12-l3:130: kalka „gra ma rozrzut”; „a un écart” jest po francusku niezręczne i niejasne",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l4-bankroll.md",
+  "stary": "Elle le protège de la faillite",
+  "nowy": "Elle le protège de la ruine",
+  "waga": "NISKIE",
+  "powod": "m12-l4:77: pl „bankructwo” = to samo pojęcie co w {{t:risk-of-ruin}} („risque de ruine”); „faillite” to inne słowo na to samo pojęcie",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l1-wariancja.md",
+  "stary": "fait normalement partie du jeu d'un joueur gagnant",
+  "nowy": "est une composante normale du jeu d'un joueur gagnant",
+  "waga": "NISKIE",
+  "powod": "m12-l1:65: pl „jest normalną częścią gry”; „fait normalement partie” czyta się jak „zwykle należy do”",
+  "grupa": "fr-L10"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m0-l1-uklady.md",
+  "stary": "{{t:straight|quinte}} dans une seule couleur",
+  "nowy": "{{t:straight-flush|quinte dans une seule couleur}}",
+  "waga": "NISKIE",
+  "powod": "m0-l1:88: naprawa znacznika: źródło ma tu drugi {{t:straight-flush|strit w kolorze}}, przekład podmienił klucz na straight; opis „quinte dans une seule couleur” oznacza quinte flush",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l1-raport.md",
+  "stary": "spot de solver",
+  "nowy": "spot de solveur",
+  "waga": "NISKIE",
+  "powod": "m13-l1:65: „solver” zamiast „solveur” (w lekcji, korpusie i interfejsie wszędzie „solveur”)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l1-raport.md",
+  "stary": "par rapport à un solver",
+  "nowy": "par rapport à un solveur",
+  "waga": "NISKIE",
+  "powod": "m13-l1:108: „solver” zamiast „solveur” (spójność z lekcją i interfejsem)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l1-raport.md",
+  "stary": ":::note D'où viennent ces principes",
+  "nowy": ":::note D'où viennent ces règles",
+  "waga": "NISKIE",
+  "powod": "m13-l1:107: ten sam nagłówek pl „Skąd te zasady” ma w m13-l2 i m13-l3 (i 14× w korpusie) postać „D'où viennent ces règles”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "résultats de solver",
+  "nowy": "résultats de solveur",
+  "waga": "NISKIE",
+  "powod": "m13-l3:87: „solver” zamiast „solveur” (spójność z korpusem i interfejsem)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Elle verrouillera la zone de ce module",
+  "nowy": "Elle verrouillera le domaine de ce module",
+  "waga": "ŚR",
+  "powod": "m13-l2:44 text: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Une zone débloquée après les leçons reste accessible",
+  "nowy": "Un domaine débloqué après les leçons reste accessible",
+  "waga": "ŚR",
+  "powod": "m13-l2:44 why: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Quand la zone de jeu « Flop : c-bet » se débloque-t-elle",
+  "nowy": "Quand le domaine de jeu « Flop : c-bet » se débloque-t-il",
+  "waga": "ŚR",
+  "powod": "m13-l2:67: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Oui : la zone ne distribue que des situations du module, elle se débloque donc",
+  "nowy": "Oui : le domaine ne distribue que des situations du module, il se débloque donc",
+  "waga": "ŚR",
+  "powod": "m13-l2:69: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "et les zones seulement après",
+  "nowy": "et les domaines seulement après",
+  "waga": "ŚR",
+  "powod": "m13-l2:71: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Une zone de jeu correspond à un module du cours. Elle se débloque",
+  "nowy": "Un domaine de jeu correspond à un module du cours. Il se débloque",
+  "waga": "ŚR",
+  "powod": "m13-l2:89: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "vous passez directement à la zone où",
+  "nowy": "vous passez directement au domaine où",
+  "waga": "ŚR",
+  "powod": "m13-l2:89: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "décisions prises après la fin du temps imparti\", correct",
+  "nowy": "décisions au temps dépassé\", correct",
+  "waga": "ŚR",
+  "powod": "m13-l2:33: pl „decyzje po przekroczonym czasie” to stopień oceny „Temps dépassé” (fr.json game.report.verdicts.timeout, m13-l1:95); „prises après la fin du temps imparti” nie przywołuje nazwy i sugeruje, że gracz zdecydował po czasie (decyzję podjęła aplikacja)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "décisions prises après la fin du temps imparti deviennent",
+  "nowy": "décisions au temps dépassé deviennent",
+  "waga": "ŚR",
+  "powod": "m13-l2:77: pl „decyzje po przekroczonym czasie” to stopień oceny „Temps dépassé” (fr.json game.report.verdicts.timeout, m13-l1:95); „prises après la fin du temps imparti” nie przywołuje nazwy i sugeruje, że gracz zdecydował po czasie (decyzję podjęła aplikacja)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "{{t:flush-draw|tirage couleur}} par l'as",
+  "nowy": "{{t:flush-draw|tirage couleur}} à l'as",
+  "waga": "NISKIE",
+  "powod": "m13-l2:15: „draw do koloru z asem” to po francusku „tirage couleur à l'as”; „par l'as” jest nienaturalne",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Un des entraîneurs ne regarde",
+  "nowy": "Un des coachs ne regarde",
+  "waga": "NISKIE",
+  "powod": "m13-l2:60: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Un des entraîneurs conseille",
+  "nowy": "Un des coachs conseille",
+  "waga": "NISKIE",
+  "powod": "m13-l2:93: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "des conseils d'entraîneurs",
+  "nowy": "des conseils de coachs",
+  "waga": "NISKIE",
+  "powod": "m13-l3:64: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "des heuristiques d'entraîneurs",
+  "nowy": "des heuristiques de coachs",
+  "waga": "NISKIE",
+  "powod": "m13-l3:87: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "les {{t:position|positions}}, les tapis, les actions",
+  "nowy": "les {{t:position|positions}}, les stacks, les actions",
+  "waga": "NISKIE",
+  "powod": "m13-l3:80: pl „stacki”; przyjęta nazwa terminu to „stack” (terms-nazwy.yaml), w korpusie „les/des stacks” 31× wobec „tapis” 6×",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "Pendant une partie en direct",
+  "nowy": "Pendant une partie en live",
+  "waga": "NISKIE",
+  "powod": "m13-l3:13: „gra na żywo” (en: live game) to w pokerze po francusku „en live”; „en direct” oznacza transmisję na żywo",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "{{t:wet|Humide}}",
+  "nowy": "{{t:wet|Wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.label.wetness.wet",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "{{t:dry|Sec}} ou {{t:wet|humide}}",
+  "nowy": "{{t:dry|Sec}} ou {{t:wet|wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.axis.wetness",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "intermédiaire {{medium}}, {{t:wet|humide}}",
+  "nowy": "intermédiaire {{medium}}, {{t:wet|wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.scale",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "un flop {{t:wet|humide}} donne",
+  "nowy": "un flop {{t:wet|wet}} donne",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.def.wetness.wet",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "intermédiaire ou {{t:wet|humide}}",
+  "nowy": "intermédiaire ou {{t:wet|wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.prompt.wetness",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "Vous avez ouvert le coup en vous contentant de payer la blinde",
+  "nowy": "Vous êtes entré le premier dans le coup en payant seulement la blinde",
+  "waga": "ŚR",
+  "powod": "play.report.detail.limp: pl „Wszedłeś do rozdania jako pierwszy samym blindem (limp)”; „ouvert” koliduje z terminem open = ouverture (otwarcie przebiciem), a limp właśnie nie jest otwarciem; zgubione też „jako pierwszy”",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/modules.yaml",
+  "stary": "Préflop face",
+  "nowy": "Preflop face",
+  "waga": "NISKIE",
+  "powod": "modules.yaml m4 title: pisownia terminu wg terms-nazwy.yaml (preflop: \"preflop\") i słownika interfejsu (Preflop), bez akcentu",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "store/app-store-metadata.json",
+  "stary": "Décisions notées sur quatre niveaux",
+  "nowy": "Décisions notées sur quatre niveaux : conforme, acceptable, imprécision, erreur",
+  "waga": "ŚR",
+  "powod": "fr-FR description, ENTRAÎNEMENT: pominięte wyliczenie czterech stopni oceny (pl: „zgodna, dopuszczalna, niedokładność, błąd”; en-US też je wymienia); nazwy jak w słowniku interfejsu (grade.*)",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "store/app-store-metadata.json",
+  "stary": "indice de progression",
+  "nowy": "indice de niveau",
+  "waga": "NISKIE",
+  "powod": "fr-FR description, RÉVISIONS ET PROGRÈS: „wskaźnik zaawansowania” w aplikacji to „Indice de niveau” (advancement.title); jedna nazwa na jedno pojęcie",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "store/app-store-metadata.json",
+  "stary": "une séance d’entraînement",
+  "nowy": "une séance d’exercices",
+  "waga": "NISKIE",
+  "powod": "fr-FR description, ACCÈS: „sesja ćwiczeń” w aplikacji to „Séance d’exercices” (today.practice, start.title.practice); spójność nazwy aktywności objętej limitem",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/terms-def.yaml",
+  "stary": "Une mise isolée pour la value",
+  "nowy": "Une seule mise pour la value",
+  "waga": "ŚR",
+  "powod": "value-bet (terms-def:97): pl „Pojedynczy zakład dla wartości”; „mise isolée” znaczy „odizolowany zakład” i myli się z terminem isolation (relance d'isolation).",
+  "grupa": "fr-T1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/terms-def.yaml",
+  "stary": "soit à l'équilibre ; elle dépend",
+  "nowy": "ne soit ni gagnant ni perdant ; elle dépend",
+  "waga": "ŚR",
+  "powod": "alpha (terms-def:110): pl „wyszedł na zero”; „à l'équilibre” jest dwuznaczne w kursie, gdzie „équilibre” oznacza strategię równowagi (GTO, por. mixed-hand „stratégie d'équilibre”).",
+  "grupa": "fr-T1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/terms-def.yaml",
+  "stary": "gagner contre chaque adversaire qu'au maximum ce que",
+  "nowy": "gagner de chaque adversaire, au maximum, que ce que",
+  "waga": "NISKIE",
+  "powod": "all-in (terms-def:20): pl „Od każdego rywala możesz wygrać najwyżej tyle”; „gagner contre … qu'au maximum ce que” niezręczne składniowo i mniej ścisłe (od rywala, nie przeciw rywalowi).",
+  "grupa": "fr-T1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/terms-def.yaml",
+  "stary": "on part soit all-in, soit on se couche",
+  "nowy": "soit on part all-in, soit on se couche",
+  "waga": "NISKIE",
+  "powod": "push-fold (terms-def:123): błędna symetria „soit…, soit…” (pierwsze „soit” wewnątrz zdania, drugie przed całym zdaniem).",
+  "grupa": "fr-T1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/terms-def.yaml",
+  "stary": "qui n'entre dans le pot presque qu'avec des mains fortes",
+  "nowy": "qui n'entre dans le pot pratiquement qu'avec des mains fortes",
+  "waga": "NISKIE",
+  "powod": "nit (terms-def:154): „presque qu'avec” — niezręczny zbitek; sens bez zmian (pl „niemal wyłącznie z mocnymi rękami”).",
+  "grupa": "fr-T1"
+ }
+]

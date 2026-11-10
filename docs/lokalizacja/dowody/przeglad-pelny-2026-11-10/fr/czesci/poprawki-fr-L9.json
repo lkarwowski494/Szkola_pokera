@@ -1,0 +1,389 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "à environ {{n:m11.push.15}} mains. K2o",
+    "nowy": "à environ {{n:m11.push.15}} des mains. K2o",
+    "waga": "ŚR",
+    "powod": "m11-l1:63 (q-k2o why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "{{n:m11.push.10-ante}} mains.\" }",
+    "nowy": "{{n:m11.push.10-ante}} des mains.\" }",
+    "waga": "ŚR",
+    "powod": "m11-l1:91 (q-ante why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "avec environ {{n:m11.push.15}} mains, à",
+    "nowy": "avec environ {{n:m11.push.15}} des mains, à",
+    "waga": "ŚR",
+    "powod": "m11-l1:152: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "{{n:m11.3max.push.btn}} mains, et la",
+    "nowy": "{{n:m11.3max.push.btn}} des mains, et la",
+    "waga": "ŚR",
+    "powod": "m11-l1:156: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "{{n:m11.push.10-ante}} mains (le",
+    "nowy": "{{n:m11.push.10-ante}} des mains (le",
+    "waga": "ŚR",
+    "powod": "m11-l1:174: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "a aussi de l'equity quand",
+    "nowy": "a aussi de l'équité quand",
+    "waga": "ŚR",
+    "powod": "m11-l1:72: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "Sans equity, il vous faut",
+    "nowy": "Sans équité, il vous faut",
+    "waga": "ŚR",
+    "powod": "m11-l1:74: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "a toujours plus d'equity\"",
+    "nowy": "a toujours plus d'équité\"",
+    "waga": "ŚR",
+    "powod": "m11-l1:82 (text): termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "L'equity d'une main ne dépend",
+    "nowy": "L'équité d'une main ne dépend",
+    "waga": "ŚR",
+    "powod": "m11-l1:82 (why): termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "tout comme l'equity de votre main",
+    "nowy": "tout comme l'équité de votre main",
+    "waga": "ŚR",
+    "powod": "m11-l1:170: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne w module (fold equity zostaje)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "Il suffit qu'il {{t:fold|se couche}}",
+    "nowy": "Il suffit qu'elle {{t:fold|se couche}}",
+    "waga": "NISKIE",
+    "powod": "m11-l1:74 (text): podmiotem w pytaniu jest „la grosse blinde” (elle), nie „il”",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "depuis le Button, il reste",
+    "nowy": "depuis le Bouton, il reste",
+    "waga": "NISKIE",
+    "powod": "m11-l1:156: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "chacun, le Button part",
+    "nowy": "chacun, le Bouton part",
+    "waga": "NISKIE",
+    "powod": "m11-l1:156: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": "quand le Button {{t:fold|s'est couché}}, avec",
+    "nowy": "quand le Bouton {{t:fold|s'est couché}}, avec",
+    "waga": "NISKIE",
+    "powod": "m11-l1:156: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l1-push-fold.md",
+    "stary": ": Button {{n:m11.jamfold3.btn}}",
+    "nowy": ": Bouton {{n:m11.jamfold3.btn}}",
+    "waga": "NISKIE",
+    "powod": "m11-l1:166: pozycja: terms-nazwy.yaml button = „bouton”; w m11-l2 i egzaminach „le Bouton”, tu angielskie „Button” (niespójność w module)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "(env. {{n:m11.push.15}} mains)",
+    "nowy": "(env. {{n:m11.push.15}} des mains)",
+    "waga": "ŚR",
+    "powod": "m11-l2:67 (q-22 why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "à env. {{n:m11.call.15}} mains.",
+    "nowy": "à env. {{n:m11.call.15}} des mains.",
+    "waga": "ŚR",
+    "powod": "m11-l2:67 (q-22 why): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "avec env. {{n:m11.push.10}} mains, mais",
+    "nowy": "avec env. {{n:m11.push.10}} des mains, mais",
+    "waga": "ŚR",
+    "powod": "m11-l2:74 (prompt): liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "env. {{n:m11.call.10-ante}} mains au lieu",
+    "nowy": "env. {{n:m11.call.10-ante}} des mains au lieu",
+    "waga": "ŚR",
+    "powod": "m11-l2:86: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "avec env. {{n:m11.3max.call.bb-two}} mains, et quand",
+    "nowy": "avec env. {{n:m11.3max.call.bb-two}} des mains, et quand",
+    "waga": "ŚR",
+    "powod": "m11-l2:110: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "Le solveur ne {{t:call|suit}} qu'avec env. {{n:m11.3max.call.bb-two}} mains",
+    "nowy": "Le solveur ne {{t:call|suit}} qu'avec env. {{n:m11.3max.call.bb-two}} des mains",
+    "waga": "ŚR",
+    "powod": "m11-l2:111: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "avec env. {{n:m11.push.10}} mains, et la",
+    "nowy": "avec env. {{n:m11.push.10}} des mains, et la",
+    "waga": "ŚR",
+    "powod": "m11-l2:140: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{n:m11.3max.call.sb}} mains, bien",
+    "nowy": "{{n:m11.3max.call.sb}} des mains, bien",
+    "waga": "ŚR",
+    "powod": "m11-l2:154: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{n:m11.3max.call.bb-two}} mains. Contre",
+    "nowy": "{{n:m11.3max.call.bb-two}} des mains. Contre",
+    "waga": "ŚR",
+    "powod": "m11-l2:160: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "{{t:call|suit}} avec env. {{n:m11.call.10-ante}} mains",
+    "nowy": "{{t:call|suit}} avec env. {{n:m11.call.10-ante}} des mains",
+    "waga": "ŚR",
+    "powod": "m11-l2:168: liczba jest procentem (np. „60 %”), po francusku wymagane „des mains”; „X % mains” jest niegramatyczne (pl: „ok. X rąk”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "l'adversaire {{t:shove|fait}} aussi {{t:shove|tapis}} plus large",
+    "nowy": "l'adversaire {{t:shove|fait tapis}} plus large lui aussi",
+    "waga": "ŚR",
+    "powod": "m11-l2:168: jeden znacznik źródła ({{t:shove|pushuje}}) rozbity na dwa; formy „fait” i „tapis” osobno nie oznaczają terminu. Poprawka scala znacznik (ten sam klucz shove, liczba wystąpień 2→1 jak w pl)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "qu'à l'abattage, et contre une {{t:range|range}}",
+    "nowy": "qu'au showdown, et contre une {{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m11-l2:57: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "jusqu'à l'abattage",
+    "nowy": "jusqu'au showdown",
+    "waga": "ŚR",
+    "powod": "m11-l2:59: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "qu'à l'abattage, et contre des mains déjà",
+    "nowy": "qu'au showdown, et contre des mains déjà",
+    "waga": "ŚR",
+    "powod": "m11-l2:76: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "qu'à l'abattage, et contre des mains que",
+    "nowy": "qu'au showdown, et contre des mains que",
+    "waga": "ŚR",
+    "powod": "m11-l2:134: termin: terms-nazwy.yaml showdown = „showdown” (tak w m11-l1 i egzaminie m11); „abattage” niespójne w module",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l2-sprawdzanie.md",
+    "stary": "la table d'un site de formation donne",
+    "nowy": "le tableau d'un site de formation donne",
+    "waga": "NISKIE",
+    "powod": "m11-l2:140: „table” w znaczeniu tabeli to anglicyzm (tu myli się ze stołem); m11-l1:152 ma „le tableau d'un site de formation”",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l3-icm.md",
+    "stary": "pour ne pas perdre la tête\"",
+    "nowy": "pour ne pas perdre la première place\"",
+    "waga": "ŚR",
+    "powod": "m11-l3:80 (q-covering, text): pl „żeby nie stracić prowadzenia”; „perdre la tête” to po francusku przede wszystkim idiom „stracić głowę / oszaleć”, dwuznaczne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l3-icm.md",
+    "stary": "Le leader prend le moins de risques à la table.",
+    "nowy": "C'est le leader qui risque le moins à la table.",
+    "waga": "ŚR",
+    "powod": "m11-l3:80 (why): pl „Lider ma najmniejsze ryzyko przy stole” (stan, nie zachowanie); „prend le moins de risques” sugeruje, że lider gra najostrożniej, co przeczy uzasadnieniu",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m11-l3-icm.md",
+    "stary": "quand le bouton et la",
+    "nowy": "quand le Bouton et la",
+    "waga": "NISKIE",
+    "powod": "m11-l3:161: nazwa pozycji wielką literą jak w m11-l2 i egzaminach („le Bouton”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m11.yaml",
+    "stary": "a aussi besoin d'equity pour",
+    "nowy": "a aussi besoin d'équité pour",
+    "waga": "ŚR",
+    "powod": "exams/m11 q3:25: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m11.yaml",
+    "stary": "pourcentage d'equity avez-vous",
+    "nowy": "pourcentage d'équité avez-vous",
+    "waga": "ŚR",
+    "powod": "exams/m11 q5:41: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m11.yaml",
+    "stary": "Votre equity est actuellement",
+    "nowy": "Votre équité est actuellement",
+    "waga": "ŚR",
+    "powod": "exams/m11 q7:59: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m11.yaml",
+    "stary": "d'equity suffit pour",
+    "nowy": "d'équité suffit pour",
+    "waga": "ŚR",
+    "powod": "exams/m11 q8:64: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m11.yaml",
+    "stary": "Equity requise = BF",
+    "nowy": "Équité requise = BF",
+    "waga": "ŚR",
+    "powod": "exams/m11 q8:66: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m11.yaml",
+    "stary": "élève toujours l'equity requise",
+    "nowy": "élève toujours l'équité requise",
+    "waga": "ŚR",
+    "powod": "exams/m11 q8:68: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m11.yaml",
+    "stary": "nettement plus d'equity qu'en",
+    "nowy": "nettement plus d'équité qu'en",
+    "waga": "ŚR",
+    "powod": "exams/m11 q9:75: termin: terms-nazwy.yaml equity = „équité” (tak w m11-l2, m11-l3, m13); samodzielne „equity” niespójne",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m13.yaml",
+    "stary": "ni règle ni résultat du solver.",
+    "nowy": "ni règle ni résultat du solveur.",
+    "waga": "NISKIE",
+    "powod": "exams/m13 q4:37: „solver” zamiast „solveur” (wszędzie indziej w pliku i module „solveur”)",
+    "grupa": "fr-L9"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m13.yaml",
+    "stary": "il y a un résultat du solver.",
+    "nowy": "il y a un résultat du solveur.",
+    "waga": "NISKIE",
+    "powod": "exams/m13 q4:37: „solver” zamiast „solveur”",
+    "grupa": "fr-L9"
+  }
+]

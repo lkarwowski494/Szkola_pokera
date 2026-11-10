@@ -1,0 +1,209 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "sans son {{t:call|paiement}} au dénominateur",
+    "nowy": "sans son {{t:call|call}} au dénominateur",
+    "waga": "ŚR",
+    "powod": "m6-l1:56 (q-alpha-three-quarters): forma „paiement” dla call jest niespójna (wszędzie „suivre”/„call”; „paiement” to przyjęta nazwa payout) i niejasna w zdaniu o mianowniku",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "(KQ, brelans)",
+    "nowy": "(KQ, sets)",
+    "waga": "ŚR",
+    "powod": "m6-l1:92 (q-exploit-river): pl „sety”; terms-nazwy set = „set” (brelan = three-of-a-kind), w m6-l3 „sets”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "C'est l'équité nécessaire pour {{t:call|suivre}} avec une seule main",
+    "nowy": "C'est l'équité requise pour {{t:call|suivre}} avec une seule main",
+    "waga": "NISKIE",
+    "powod": "m6-l1:31: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "l'équité nécessaire pour {{t:call|suivre}}",
+    "nowy": "l'équité requise pour {{t:call|suivre}}",
+    "waga": "NISKIE",
+    "powod": "m6-l1:40: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "L'équité nécessaire indique",
+    "nowy": "L'équité requise indique",
+    "waga": "NISKIE",
+    "powod": "m6-l1:72: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "Équité nécessaire |",
+    "nowy": "Équité requise |",
+    "waga": "NISKIE",
+    "powod": "m6-l1:118: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "n'est pas l'équité nécessaire",
+    "nowy": "n'est pas l'équité requise",
+    "waga": "NISKIE",
+    "powod": "m6-l1:126: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l1-mdf-alpha.md",
+    "stary": "L'équité nécessaire vue en M2",
+    "nowy": "L'équité requise vue en M2",
+    "waga": "NISKIE",
+    "powod": "m6-l1:128: „potrzebne equity” to w M2 i rules.yaml (oraz w m6-l2) „équité requise”; tu „équité nécessaire” — ujednolicenie nazwy pojęcia",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "à la turn, vous ferez",
+    "nowy": "au turn, vous ferez",
+    "waga": "NISKIE",
+    "powod": "m6-l2:55: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "un pique à la turn et",
+    "nowy": "un pique au turn et",
+    "waga": "NISKIE",
+    "powod": "m6-l2:64: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "le gutshot à la turn dans",
+    "nowy": "le gutshot au turn dans",
+    "waga": "NISKIE",
+    "powod": "m6-l2:74: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "en premier à la turn et",
+    "nowy": "en premier au turn et",
+    "waga": "NISKIE",
+    "powod": "m6-l2:94: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "votre chance à la turn. Cette",
+    "nowy": "votre chance au turn. Cette",
+    "waga": "NISKIE",
+    "powod": "m6-l2:127: „à la turn” → „au turn” (terms-nazwy: „le turn”; w m6-l1, m6-l3 i większości korpusu „au turn”)",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "tout votre tapis",
+    "nowy": "tout votre stack",
+    "waga": "NISKIE",
+    "powod": "m6-l2:76 (q-gutshot-overcard): pl „cały stack”; terms-nazwy stack = „stack”, w korpusie przeważa „votre stack”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "{{t:raise|relancé}} préflop",
+    "nowy": "{{t:raise|relancé}} preflop",
+    "waga": "NISKIE",
+    "powod": "m6-l2:98: terms-nazwy preflop = „preflop” (pisownia przyjęta w korpusie, 104× wobec 39× „préflop”)",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m6-l2-sprawdzenie.md",
+    "stary": "ne sont plus {{t:call|suivies}}, mais couchées",
+    "nowy": "passent du {{t:call|call}} au fold",
+    "waga": "NISKIE",
+    "powod": "m6-l2:134: pl „przechodzą ze sprawdzenia do pasa”; „mains suivies” jest niezręczne (sprawdza się zakład, nie rękę)",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m6.yaml",
+    "stary": "pas autant moins que vous voulez",
+    "nowy": "mais pas aussi peu que vous le voulez",
+    "waga": "ŚR",
+    "powod": "exams/m6:28 (m6.exam.q3, odp. 2): „pas autant moins que” jest niegramatyczne; pl „nie dowolnie mniej”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m6.yaml",
+    "stary": "{{t:two-pair|deux paires}}",
+    "nowy": "{{t:two-pair|doubles paires}}",
+    "waga": "ŚR",
+    "powod": "exams/m6:94 (m6.exam.q10): terms-nazwy two-pair = „double paire”; w m6-l3 „doubles paires”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m6.yaml",
+    "stary": "Vous avez As hauteur, sans",
+    "nowy": "Vous avez une hauteur As, sans",
+    "waga": "ŚR",
+    "powod": "exams/m6:54 (m6.exam.q6 prompt): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m6.yaml",
+    "stary": "As hauteur bat une partie des {{t:bluff|bluffs}} du Bouton et peut toucher une {{t:pair|paire}}, donc vous le défendez",
+    "nowy": "Une hauteur As bat une partie des {{t:bluff|bluffs}} du Bouton et peut toucher une {{t:pair|paire}}, donc vous la défendez",
+    "waga": "ŚR",
+    "powod": "exams/m6:57 (m6.exam.q6 odp. 1): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m6.yaml",
+    "stary": "As hauteur se défend",
+    "nowy": "une hauteur As se défend",
+    "waga": "ŚR",
+    "powod": "exams/m6:58 (m6.exam.q6 odp. 2): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m6.yaml",
+    "stary": "As hauteur sans",
+    "nowy": "Une hauteur As sans",
+    "waga": "ŚR",
+    "powod": "exams/m6:78 (m6.exam.q8 odp. 3): „As hauteur” to kalka z „ace high”; w korpusie i w użyciu francuskim „hauteur As”",
+    "grupa": "fr-L4"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m6.yaml",
+    "stary": "L’alpha, c’est le reste jusqu’au total",
+    "nowy": "L’alpha en est le complément",
+    "waga": "NISKIE",
+    "powod": "exams/m6:18 (m6.exam.q2, odp. 2): „le reste jusqu’au total” to kalka z „reszta do całości”; w m6-l1:30 to samo oddano „le complément”",
+    "grupa": "fr-L4"
+  }
+]

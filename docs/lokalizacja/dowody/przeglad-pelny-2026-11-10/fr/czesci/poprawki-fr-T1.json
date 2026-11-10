@@ -1,0 +1,47 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/terms-def.yaml",
+    "stary": "Une mise isolée pour la value",
+    "nowy": "Une seule mise pour la value",
+    "waga": "ŚR",
+    "powod": "value-bet (terms-def:97): pl „Pojedynczy zakład dla wartości”; „mise isolée” znaczy „odizolowany zakład” i myli się z terminem isolation (relance d'isolation).",
+    "grupa": "fr-T1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/terms-def.yaml",
+    "stary": "soit à l'équilibre ; elle dépend",
+    "nowy": "ne soit ni gagnant ni perdant ; elle dépend",
+    "waga": "ŚR",
+    "powod": "alpha (terms-def:110): pl „wyszedł na zero”; „à l'équilibre” jest dwuznaczne w kursie, gdzie „équilibre” oznacza strategię równowagi (GTO, por. mixed-hand „stratégie d'équilibre”).",
+    "grupa": "fr-T1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/terms-def.yaml",
+    "stary": "gagner contre chaque adversaire qu'au maximum ce que",
+    "nowy": "gagner de chaque adversaire, au maximum, que ce que",
+    "waga": "NISKIE",
+    "powod": "all-in (terms-def:20): pl „Od każdego rywala możesz wygrać najwyżej tyle”; „gagner contre … qu'au maximum ce que” niezręczne składniowo i mniej ścisłe (od rywala, nie przeciw rywalowi).",
+    "grupa": "fr-T1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/terms-def.yaml",
+    "stary": "on part soit all-in, soit on se couche",
+    "nowy": "soit on part all-in, soit on se couche",
+    "waga": "NISKIE",
+    "powod": "push-fold (terms-def:123): błędna symetria „soit…, soit…” (pierwsze „soit” wewnątrz zdania, drugie przed całym zdaniem).",
+    "grupa": "fr-T1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/terms-def.yaml",
+    "stary": "qui n'entre dans le pot presque qu'avec des mains fortes",
+    "nowy": "qui n'entre dans le pot pratiquement qu'avec des mains fortes",
+    "waga": "NISKIE",
+    "powod": "nit (terms-def:154): „presque qu'avec” — niezręczny zbitek; sens bez zmian (pl „niemal wyłącznie z mocnymi rękami”).",
+    "grupa": "fr-T1"
+  }
+]

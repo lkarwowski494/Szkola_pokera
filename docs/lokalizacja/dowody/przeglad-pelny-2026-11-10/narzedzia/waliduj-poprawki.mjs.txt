@@ -1,0 +1,22 @@
+// node waliduj.mjs <poprawki.json>…  (cwd = repo). Sprawdza format i nakłada kolejno na kopię w pamięci: „stary” dokładnie 1×.
+import { readFileSync, existsSync } from 'node:fs';
+const WAGI = ['KRYT', 'WYS', 'ŚR', 'NISKIE'];
+const zn = (s) => [...s.matchAll(/\{\{\s*([tn]):([^}|]+)/g)].map((m) => `${m[1]}:${m[2].trim()}`).sort().join(',');
+const pliki = {}; let bl = 0, ok = 0;
+for (const f of process.argv.slice(2)) {
+  let lista; try { lista = JSON.parse(readFileSync(f, 'utf8')); } catch (e) { console.log(`BŁĄD ${f}: JSON ${e.message}`); bl++; continue; }
+  if (!Array.isArray(lista)) { console.log(`BŁĄD ${f}: nie tablica`); bl++; continue; }
+  lista.forEach((p, i) => {
+    const e = (m) => { console.log(`BŁĄD ${f}[${i}] ${String(p.stary).slice(0, 50)}: ${m}`); bl++; };
+    for (const k of ['jezyk', 'cel', 'stary', 'nowy', 'waga', 'powod', 'grupa']) if (typeof p[k] !== 'string' || (!p[k] && k !== 'nowy')) return e(`pole ${k}`);
+    if (!WAGI.includes(p.waga)) return e(`waga ${p.waga}`);
+    if (!(p.cel.startsWith(`content/${p.jezyk}/`) || p.cel === `apps/mobile/src/i18n/locales/${p.jezyk}.json` || p.cel === `apps/mobile/locales/systemowe/${p.jezyk}.json` || p.cel === 'store/app-store-metadata.json' || p.cel === 'docs/sklep/aso/metadane-fala2.json') || !existsSync(p.cel)) return e(`cel ${p.cel}`);
+    if (p.stary === p.nowy) return e('stary = nowy');
+    if (zn(p.stary) !== zn(p.nowy)) { if (!/znacznik/i.test(p.powod)) return e(`znaczniki [${zn(p.stary)}] → [${zn(p.nowy)}] (celowa naprawa znacznika: słowo „znacznik” w powod)`); console.log(`UWAGA ${f}[${i}]: zmiana znaczników [${zn(p.stary)}] → [${zn(p.nowy)}] (deklarowana w powod)`); }
+    pliki[p.cel] ??= readFileSync(p.cel, 'utf8');
+    const ile = pliki[p.cel].split(p.stary).length - 1;
+    if (ile !== 1) return e(`„stary” występuje ${ile}× w ${p.cel}`);
+    pliki[p.cel] = pliki[p.cel].replace(p.stary, () => p.nowy); ok++;
+  });
+}
+console.log(`poprawne: ${ok}, błędy: ${bl}`); process.exit(bl ? 1 : 0);

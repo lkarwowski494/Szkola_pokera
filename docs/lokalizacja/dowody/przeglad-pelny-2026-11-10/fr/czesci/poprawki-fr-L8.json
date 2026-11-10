@@ -1,0 +1,245 @@
+[
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "Ils {{t:fold|se couchent}} aussi rarement face à un 3-bet.",
+  "nowy": "De plus, ils {{t:fold|se couchent}} rarement face à un 3-bet.",
+  "waga": "ŚR",
+  "powod": "m10-l2:126: pl „Rzadko też pasują na 3-bet”; „aussi rarement” czyta się jako „równie rzadko” (dwuznaczność)",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "Il vous 3-bet.",
+  "nowy": "Il vous 3-bette.",
+  "waga": "NISKIE",
+  "powod": "m10-l2:59: czasownik nieodmieniony; w l1, l3 forma „3-bette/3-better”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "si peu de mains 3-bet surtout",
+  "nowy": "si peu de mains 3-bette surtout",
+  "waga": "NISKIE",
+  "powod": "m10-l2:61: czasownik nieodmieniony; spójność z „3-bette” w l1 i l3",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "Je 4-bet\"",
+  "nowy": "Je 4-bette\"",
+  "waga": "NISKIE",
+  "powod": "m10-l2:63 (text): czasownik nieodmieniony; spójność z „3-bette/4-bette”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "4-bet AJ contre un",
+  "nowy": "4-better AJ contre un",
+  "waga": "NISKIE",
+  "powod": "m10-l2:63 (why): bezokolicznik „4-better”, jak „3-better” w l3 i l4",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:raise|relance}} ou 3-bet, les mains",
+  "nowy": "{{t:raise|relance}} ou 3-bette, les mains",
+  "waga": "NISKIE",
+  "powod": "m10-l2:137: czasownik nieodmieniony; spójność z „3-bette”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l2-typy-graczy.md",
+  "stary": "tout votre tapis",
+  "nowy": "tout votre stack",
+  "waga": "NISKIE",
+  "powod": "m10-l2:91: pl „cały stack”; terms-nazwy fr: stack = „stack”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "toutes les tailles et toutes les tables",
+  "nowy": "toutes les tailles et tous les boards",
+  "waga": "ŚR",
+  "powod": "m10-l3:49: pl „rozmiary i stoły” – „stół” to board (karty wspólne), nie stół do gry; por. l3:109 „tous les flops”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "jusqu'à {{n:alpha.cbet.big}}",
+  "nowy": "pas moins de {{n:alpha.cbet.big}}",
+  "waga": "ŚR",
+  "powod": "m10-l3:51: pl „aż {{n}}” (podkreślenie wielkości), „jusqu'à” znaczy „do” i sugeruje górną granicę przedziału",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Je {{t:call|paie}} toujours",
+  "nowy": "Je {{t:call|suis}} toujours",
+  "waga": "NISKIE",
+  "powod": "m10-l3:34: jedyne „payer” dla call w przejrzanych plikach; wszędzie indziej „suivre”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "semble loose et passif",
+  "nowy": "semble large et passif",
+  "waga": "NISKIE",
+  "powod": "m10-l3:84: pl „luźnego”; w l1 i l2 „large” (joueur très large), tu angielskie „loose”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "les joueurs seraient ensemble à l'équilibre",
+  "nowy": "les joueurs termineraient ensemble à zéro",
+  "waga": "ŚR",
+  "powod": "m10-l4:24: pl „razem wychodziliby na zero”; „à l'équilibre” w tym module znaczy równowagę strategii (l3), dwuznaczne",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "ils seraient donc ensemble à l'équilibre",
+  "nowy": "ils termineraient donc ensemble à zéro",
+  "waga": "ŚR",
+  "powod": "m10-l4:89: pl „razem wychodziliby na zero”; „à l'équilibre” w tym module znaczy równowagę strategii (l3), dwuznaczne",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "De combien d'equity avez-vous",
+  "nowy": "De combien d'équité avez-vous",
+  "waga": "ŚR",
+  "powod": "m10-l4:49: terms-nazwy fr: equity = „équité”; w l3 „équité”, w l4 „equity”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "{{n:eq.bet-half}} d'equity",
+  "nowy": "{{n:eq.bet-half}} d'équité",
+  "waga": "ŚR",
+  "powod": "m10-l4:56: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "il vous faut donc plus d'equity",
+  "nowy": "il vous faut donc plus d'équité",
+  "waga": "ŚR",
+  "powod": "m10-l4:60: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "L'equity nécessaire du module 2",
+  "nowy": "L'équité nécessaire du module 2",
+  "waga": "ŚR",
+  "powod": "m10-l4:108: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "equity nécessaire = montant",
+  "nowy": "équité nécessaire = montant",
+  "waga": "ŚR",
+  "powod": "m10-l4:111 (formula): terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "Le seuil d'equity est",
+  "nowy": "Le seuil d'équité est",
+  "waga": "ŚR",
+  "powod": "m10-l4:126: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "{{t:fold|se coucher}} ou 3-bet plus souvent",
+  "nowy": "{{t:fold|se coucher}} ou 3-better plus souvent",
+  "waga": "NISKIE",
+  "powod": "m10-l4:67 (text): bezokolicznik „3-better”, jak w l4:68 i l4:87",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "pour des tapis de {{n:rake.solver.depth}}",
+  "nowy": "pour des stacks de {{n:rake.solver.depth}}",
+  "waga": "NISKIE",
+  "powod": "m10-l4:126: pl „stacków”; terms-nazwy fr: stack = „stack”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m10-l4-rake.md",
+  "stary": "pour un tapis de {{n:format.stack}}",
+  "nowy": "pour un stack de {{n:format.stack}}",
+  "waga": "NISKIE",
+  "powod": "m10-l4:126: pl „stacku”; terms-nazwy fr: stack = „stack”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "l'erreur standard de son",
+  "nowy": "l'erreur type de son",
+  "waga": "ŚR",
+  "powod": "m10.exam.q2 prompt: w l1 (i reszcie korpusu) „erreur type”; jedno pojęcie, jedna nazwa",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "est à l'équilibre avec {{n:alpha.cbet.small}}",
+  "nowy": "atteint le point mort avec {{n:alpha.cbet.small}}",
+  "waga": "ŚR",
+  "powod": "m10.exam.q7 why (opcja 1): pl „wychodzi na zero”; w l3 „atteint le point mort”, „à l'équilibre” znaczy w module równowagę strategii",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "toutes les tailles et toutes les tables",
+  "nowy": "toutes les tailles et tous les boards",
+  "waga": "ŚR",
+  "powod": "m10.exam.q7 why (opcja 1): pl „stoły” = boardy (karty wspólne), nie stoły do gry",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "La salle prélève",
+  "nowy": "Le site prélève",
+  "waga": "NISKIE",
+  "powod": "m10.exam.q9 prompt: pl „sala”; w l1 i l4 konsekwentnie „site”",
+  "grupa": "fr-L8"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m10.yaml",
+  "stary": "De combien d'equity",
+  "nowy": "De combien d'équité",
+  "waga": "ŚR",
+  "powod": "m10.exam.q9 prompt: terms-nazwy fr: equity = „équité”",
+  "grupa": "fr-L8"
+ }
+]

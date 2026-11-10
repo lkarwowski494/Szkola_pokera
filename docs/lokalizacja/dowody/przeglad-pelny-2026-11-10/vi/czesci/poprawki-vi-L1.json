@@ -1,0 +1,488 @@
+[
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "Nhờ vậy, trong {{t:pot|hũ}}",
+  "nowy": "Nhờ vậy, trong {{t:pot|pot}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:70: termin pot: terms-nazwy vi = „pot”; reszta przejrzanych plików (m2, m3, egzaminy m0–m3) ma „pot”, tylko ta lekcja „hũ”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "mạnh nhất thắng {{t:pot|hũ}}",
+  "nowy": "mạnh nhất thắng {{t:pot|pot}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:81: termin pot: terms-nazwy vi = „pot”; reszta przejrzanych plików (m2, m3, egzaminy m0–m3) ma „pot”, tylko ta lekcja „hũ”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "người còn lại thắng {{t:pot|hũ}}",
+  "nowy": "người còn lại thắng {{t:pot|pot}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:81: termin pot: terms-nazwy vi = „pot”; reszta przejrzanych plików (m2, m3, egzaminy m0–m3) ma „pot”, tylko ta lekcja „hũ”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "**{{t:side-pot|hũ phụ}}**,",
+  "nowy": "**{{t:side-pot|pot phụ}}** (side pot),",
+  "waga": "ŚR",
+  "powod": "m1-l1:96: forma „hũ phụ” niespójna z nazwą terminu (side pot) i z „pot”; pominięty nawias „(side pot)” ze źródła pl",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "Bạn đang ở {{t:big-blind|mù lớn}}",
+  "nowy": "Bạn đang ở {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:49: nazwa terminu w terms-nazwy vi = „big blind”; w tym samym akapicie znacznik bez formy wyświetla „big blind”, a forma mówi „mù lớn” (dwie nazwy jednego pojęcia); lekcje m3 mają „big blind”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "{{t:big-blind|Mù lớn}} hành động",
+  "nowy": "{{t:big-blind|Big blind}} hành động",
+  "waga": "ŚR",
+  "powod": "m1-l1:72: nazwa terminu w terms-nazwy vi = „big blind”; w tym samym akapicie znacznik bez formy wyświetla „big blind”, a forma mówi „mù lớn” (dwie nazwy jednego pojęcia); lekcje m3 mają „big blind”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "trước flop, {{t:big-blind|mù lớn}}",
+  "nowy": "trước flop, {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:85: nazwa terminu w terms-nazwy vi = „big blind”; w tym samym akapicie znacznik bez formy wyświetla „big blind”, a forma mówi „mù lớn” (dwie nazwy jednego pojęcia); lekcje m3 mają „big blind”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "khi việc đó không tốn gì",
+  "nowy": "khi chơi tiếp không tốn gì",
+  "waga": "ŚR",
+  "powod": "m1-l1:52 (m1.l1.q5): „việc đó” odnosi się składniowo do „bỏ bài” (pasowanie nic nie kosztuje); źródło: słaba ręka nie jest powodem do pasu, gdy dalsza gra nic nie kosztuje",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m2-l2-pot-odds.md",
+  "stary": "− {{t:call}}, và",
+  "nowy": "− {{t:call|tiền theo}}, và",
+  "waga": "NISKIE",
+  "powod": "m2-l2:97: we wzorze EV goły znacznik wyświetla czasownik „theo” („… − theo”); w bloku formula tej lekcji kwota sprawdzenia to „tiền theo”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l1-pozycja.md",
+  "stary": "Kích thước {{t:open|mở}} bài",
+  "nowy": "Kích thước {{t:open|mở cược}}",
+  "waga": "ŚR",
+  "powod": "m3-l1:68: „mở bài” = odkrycie kart / wstęp, nie otwarcie; nazwa terminu w terms-nazwy vi = „mở cược”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l1-pozycja.md",
+  "stary": "bạn không chỉ bỏ thêm cho bằng blind",
+  "nowy": "bạn đừng chỉ bỏ thêm cho bằng blind",
+  "waga": "ŚR",
+  "powod": "m3-l1:69: „không chỉ…” czyta się jak „nie tylko dopłacasz (lecz także…)”; źródło: wchodząc jako pierwszy, nie dopłacasz samego blinda",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "{{t:bluff|Tố lừa}}",
+  "nowy": "{{t:bluff|Bluff}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:26 (m3.l2.q2): forma „Tố lừa” zawiera „tố” (= raise) i nie jest nazwą blefu; terms-nazwy vi: bluff = „bluff”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "tay bài đồng chất có thêm",
+  "nowy": "tay bài cùng chất có thêm",
+  "waga": "ŚR",
+  "powod": "m3-l2:15: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "QJ đồng chất",
+  "nowy": "QJ cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:45: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "cùng AK đồng chất",
+  "nowy": "cùng AK cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:53: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "AJ đồng chất",
+  "nowy": "AJ cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:54: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "KQ đồng chất",
+  "nowy": "KQ cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:54: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "liên tiếp đồng chất",
+  "nowy": "liên tiếp cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:55: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "tay bài đồng chất và {{n:combos.kinds.offsuit}}",
+  "nowy": "tay bài cùng chất và {{n:combos.kinds.offsuit}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "tay bài đồng chất có {{n:combos.suited}}",
+  "nowy": "tay bài cùng chất có {{n:combos.suited}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "gấp ba lần AK đồng chất",
+  "nowy": "gấp ba lần AK cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "{{t:mixed-hand|tay bài hỗn hợp}}",
+  "nowy": "{{t:mixed-hand|tay bài trộn}}",
+  "waga": "ŚR",
+  "powod": "m3-l3:47: nazwa terminu mixed-hand w terms-nazwy vi = „tay bài trộn”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "khoảng chục tay bài",
+  "nowy": "hơn chục tay bài",
+  "waga": "ŚR",
+  "powod": "m3-l3:87: źródło „w kilkunastu rękach” (11–19); „khoảng chục” = około dziesięciu",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "các tay bài đồng chất (ví dụ AKs)",
+  "nowy": "các tay bài cùng chất (ví dụ AKs)",
+  "waga": "ŚR",
+  "powod": "m3-l3:47: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "quân át đồng chất",
+  "nowy": "quân át cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l3:84: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "tay bài đồng chất có khoảng trống",
+  "nowy": "tay bài cùng chất có khoảng trống",
+  "waga": "ŚR",
+  "powod": "m3-l3:87: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m0.yaml",
+  "stary": "Vì vậy bạn chơi bằng {{t:board|bàn}}",
+  "nowy": "Vì vậy bạn chơi bằng bài trên {{t:board|bàn}}",
+  "waga": "NISKIE",
+  "powod": "m0.exam.q8 (m0.yaml:81): „chơi bằng bàn” dosłownie „grasz stołem (meblem)”; chodzi o granie kartami ze stołu (playing the board)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m0.yaml",
+  "stary": "nên đối thủ chơi bằng {{t:board|bàn}}",
+  "nowy": "nên đối thủ chơi bằng bài trên {{t:board|bàn}}",
+  "waga": "NISKIE",
+  "powod": "m0.exam.q9 (m0.yaml:92): „chơi bằng bàn” dosłownie „grasz stołem (meblem)”; chodzi o granie kartami ze stołu (playing the board)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m2.yaml",
+  "stary": "cơ hội của {{t:flush-draw|draw thùng}}",
+  "nowy": "cơ hội của {{t:flush-draw|bài chờ thùng}}",
+  "waga": "ŚR",
+  "powod": "m2.exam.q3 (m2.yaml:40): flush-draw = „bài chờ thùng” (terms-nazwy vi i lekcja m2-l1); egzamin ma „draw thùng”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m2.yaml",
+  "stary": "Bạn có {{t:flush-draw|draw thùng}}, stack sâu",
+  "nowy": "Bạn có {{t:flush-draw|bài chờ thùng}}, stack sâu",
+  "waga": "ŚR",
+  "powod": "m2.exam.q6 (m2.yaml:77): flush-draw = „bài chờ thùng” (terms-nazwy vi i lekcja m2-l1); egzamin ma „draw thùng”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m2.yaml",
+  "stary": "còn bạn có {{t:flush-draw|draw thùng}}",
+  "nowy": "còn bạn có {{t:flush-draw|bài chờ thùng}}",
+  "waga": "ŚR",
+  "powod": "m2.exam.q8 (m2.yaml:95): flush-draw = „bài chờ thùng” (terms-nazwy vi i lekcja m2-l1); egzamin ma „draw thùng”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "text: \"{{t:big-blind|Mù lớn}}\"",
+  "nowy": "text: \"{{t:big-blind|Big blind}}\"",
+  "waga": "ŚR",
+  "powod": "m3.exam.q1 (m3.yaml:11): poprawna odpowiedź nazwana „Mù lớn”, a pytanie (znacznik bez formy) mówi „big blind”; terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "các mù hành động trước, còn Button",
+  "nowy": "các blind hành động trước, còn Button",
+  "waga": "ŚR",
+  "powod": "m3.exam.q1 (m3.yaml:11): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Ở preflop, các mù hành động sau cùng",
+  "nowy": "Ở preflop, các blind hành động sau cùng",
+  "waga": "ŚR",
+  "powod": "m3.exam.q1 (m3.yaml:13): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "{{t:big-blind|mù lớn}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp",
+  "nowy": "{{t:big-blind|big blind}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp",
+  "waga": "ŚR",
+  "powod": "m3.exam.q2 (m3.yaml:23): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn tiền mù",
+  "nowy": "Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q2 (m3.yaml:23): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Button và các mù",
+  "nowy": "Button và các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q4 (m3.yaml:40): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Chỉ còn lại các mù",
+  "nowy": "Chỉ còn lại các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:49): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Khi chỉ còn các mù",
+  "nowy": "Khi chỉ còn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:50): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "{{t:big-blind|mù lớn}}\", why: \"Limp làm mất",
+  "nowy": "{{t:big-blind|big blind}}\", why: \"Limp làm mất",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:51): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "thường ăn tiền mù",
+  "nowy": "thường ăn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:51): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "ở {{t:small-blind|mù nhỏ}}. Bạn làm gì",
+  "nowy": "ở {{t:small-blind|small blind}}. Bạn làm gì",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:56): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "đấu với {{t:big-blind|mù lớn}}",
+  "nowy": "đấu với {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:59): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "vì vậy ở {{t:small-blind|mù nhỏ}}",
+  "nowy": "vì vậy ở {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:59): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Ở {{t:small-blind|mù nhỏ}} bạn chơi",
+  "nowy": "Ở {{t:small-blind|small blind}} bạn chơi",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:60): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "{{t:big-blind|mù lớn}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}} (ở",
+  "nowy": "{{t:big-blind|big blind}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}} (ở",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "(ở {{t:small-blind|mù nhỏ}} đây là",
+  "nowy": "(ở {{t:small-blind|small blind}} đây là",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "bù cho bằng mức mù",
+  "nowy": "bù cho bằng mức blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Việc bù làm mất {{t:initiative|thế chủ động}} và cơ hội ăn tiền mù",
+  "nowy": "Việc bù làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "T8o ở {{t:small-blind|mù nhỏ}}",
+  "nowy": "T8o ở {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:62): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "trừ {{t:small-blind|mù nhỏ}}",
+  "nowy": "trừ {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.n1 (m3.yaml:70): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "để các mù vào ván",
+  "nowy": "để các blind vào ván",
+  "waga": "ŚR",
+  "powod": "m3.exam.q8 (m3.yaml:88): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "T9 đồng chất chơi",
+  "nowy": "T9 cùng chất chơi",
+  "waga": "ŚR",
+  "powod": "m3.exam.q7 (m3.yaml:75): suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Tay đồng chất còn",
+  "nowy": "Tay cùng chất còn",
+  "waga": "ŚR",
+  "powod": "m3.exam.q7 (m3.yaml:77): suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "(số vòng cược là đơn giản hóa)",
+    "nowy": "(số {{t:street|vòng cược}} là đơn giản hóa)",
+    "waga": "WYS",
+    "powod": "R-M9-008 then (linia 801): zgubiony znacznik {{t:street|…}}; źródło ma „(liczby {{t:street|ulic}} to uproszczenie)”, przekład zwykły tekst. Poprawka przywraca znacznik.",
+    "grupa": "vi-R2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "số street cho từng tay",
+    "nowy": "số vòng cược cho từng tay",
+    "waga": "ŚR",
+    "powod": "R-M9-008 source (linia 804): „street” po angielsku, podczas gdy w tej samej regule i w całym M9 „ulica” to „vòng cược”; niespójny termin.",
+    "grupa": "vi-R2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "một {{t:bluff|bluff}} không có cơ hội mạo hiểm",
+    "nowy": "một {{t:bluff|bluff}} không có cơ hội thắng mạo hiểm",
+    "waga": "ŚR",
+    "powod": "R-M6-001 because (linia 446): „blef bez szans ryzykuje 1 część”; bez „thắng” zdanie czyta się jako „blef nie ma okazji zaryzykować”; R-M6-002 ma poprawnie „không có cơ hội thắng”.",
+    "grupa": "vi-R2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "trước cược, họ sẽ {{t:fold|bỏ bài}} tay kém hơn",
+    "nowy": "nếu bạn cược, họ sẽ {{t:fold|bỏ bài}} tay kém hơn",
+    "waga": "ŚR",
+    "powod": "R-M7-003 because (linia 554): „na bet spasuje gorsze ręce”; „trước cược” na początku członu czyta się czasowo („przed zakładem”), co odwraca kolejność zdarzeń; dwuznaczność.",
+    "grupa": "vi-R2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "mà bạn đã thắng nếu {{t:check|xem bài}}",
+    "nowy": "mà bạn cũng sẽ thắng nếu {{t:check|xem bài}}",
+    "waga": "ŚR",
+    "powod": "R-M8-001 because (linia 647): „którą wygrałbyś po czekaniu” to tryb przypuszczający; „đã thắng” = „już wygrałeś” (czas przeszły dokonany), błąd gramatyczny zaciemniający porównanie.",
+    "grupa": "vi-R2"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "chỉ thắng hơn một nửa một chút số tay",
+    "nowy": "chỉ thắng nhỉnh hơn một nửa số tay",
+    "waga": "NISKIE",
+    "powod": "R-M8-003 if (linia 661): „wygrywa z niewiele ponad połową rąk”; szyk „hơn một nửa một chút số tay” niezręczny, kalka.",
+    "grupa": "vi-R2"
+  }
+]

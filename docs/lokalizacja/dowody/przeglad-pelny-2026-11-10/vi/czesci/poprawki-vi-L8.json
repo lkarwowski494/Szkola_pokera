@@ -1,0 +1,425 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:check|xem bài}}. Bạn làm gì với",
+    "nowy": "{{t:check|check}}. Bạn làm gì với",
+    "waga": "ŚR",
+    "powod": "m10-l2:39: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:check|Xem bài}} để",
+    "nowy": "{{t:check|Check}} để",
+    "waga": "ŚR",
+    "powod": "m10-l2:42: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "Anh ta {{t:check|xem bài}}. Bạn làm gì?\"",
+    "nowy": "Anh ta {{t:check|check}}. Bạn làm gì?\"",
+    "waga": "ŚR",
+    "powod": "m10-l2:49: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:check|Xem bài}} và",
+    "nowy": "{{t:check|Check}} và",
+    "waga": "ŚR",
+    "powod": "m10-l2:51: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:check|xem bài}}",
+    "nowy": "{{t:check|check}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:87: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:check|Xem bài}}",
+    "nowy": "{{t:check|Check}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:89: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|đánh lừa}} ít hơn.\"",
+    "nowy": "{{t:bluff|bluff}} ít hơn.\"",
+    "waga": "ŚR",
+    "powod": "m10-l2:31: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|đánh lừa}} thường xuyên hơn",
+    "nowy": "{{t:bluff|bluff}} thường xuyên hơn",
+    "waga": "ŚR",
+    "powod": "m10-l2:32: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "nói về {{t:bluff|đánh lừa}}",
+    "nowy": "nói về {{t:bluff|bluff}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:32: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|cú đánh lừa}} bị",
+    "nowy": "{{t:bluff|cú bluff}} bị",
+    "waga": "ŚR",
+    "powod": "m10-l2:52: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|đánh lừa}} nhiều",
+    "nowy": "{{t:bluff|bluff}} nhiều",
+    "waga": "ŚR",
+    "powod": "m10-l2:80: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|cú đánh lừa}} của",
+    "nowy": "{{t:bluff|cú bluff}} của",
+    "waga": "ŚR",
+    "powod": "m10-l2:80: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|cú đánh lừa}}.",
+    "nowy": "{{t:bluff|cú bluff}}.",
+    "waga": "ŚR",
+    "powod": "m10-l2:81: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|cú đánh lừa}} {{t:fold|bỏ bài}}",
+    "nowy": "{{t:bluff|cú bluff}} {{t:fold|bỏ bài}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:82: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|đánh lừa}},",
+    "nowy": "{{t:bluff|bluff}},",
+    "waga": "ŚR",
+    "powod": "m10-l2:82: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|đánh lừa}} {{t:maniac|maniac}}",
+    "nowy": "{{t:bluff|bluff}} {{t:maniac|maniac}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:89: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "bằng {{t:bluff|đánh lừa}}",
+    "nowy": "bằng {{t:bluff|bluff}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:89: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|Đánh lừa}}",
+    "nowy": "{{t:bluff|Bluff}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:90: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|đánh lừa}} ít",
+    "nowy": "{{t:bluff|bluff}} ít",
+    "waga": "ŚR",
+    "powod": "m10-l2:133: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|cú đánh lừa}}",
+    "nowy": "{{t:bluff|cú bluff}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:139: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "{{t:bluff|đánh lừa}}",
+    "nowy": "{{t:bluff|bluff}}",
+    "waga": "ŚR",
+    "powod": "m10-l2:139: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "chơi rộng đến đâu",
+    "nowy": "chơi lỏng đến đâu",
+    "waga": "ŚR",
+    "powod": "m10-l2:23: niespójny termin: pl „luźno/luźny” = „lỏng” w m10-l1 i m10-l3; „rộng” oznacza w tym module „szeroko” (theo rộng), więc miesza dwa pojęcia",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "người chơi rộng",
+    "nowy": "người chơi lỏng",
+    "waga": "ŚR",
+    "powod": "m10-l2:112: niespójny termin: pl „luźno/luźny” = „lỏng” w m10-l1 i m10-l3; „rộng” oznacza w tym module „szeroko” (theo rộng), więc miesza dwa pojęcia",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+    "stary": "vì bạn không có giá trị showdown",
+    "nowy": "vì tôi không có giá trị showdown",
+    "waga": "NISKIE",
+    "powod": "m10-l2:52: odpowiedź w 1. osobie w źródle („nie mam wartości”); „bạn” zmienia osobę wewnątrz odpowiedzi gracza",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "{{t:range|dải bài}} {{t:linear|tuyến tính}}.\"",
+    "nowy": "{{t:range|range}} {{t:linear|tuyến tính}}.\"",
+    "waga": "ŚR",
+    "powod": "m10-l3:77: niespójny termin: range = „range” (terms-nazwy.yaml; w tym samym pliku {{t:range}} bez formy daje „range”, tak też egzamin), tu „dải bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "{{t:range|dải bài}} {{t:linear|tuyến tính}}",
+    "nowy": "{{t:range|range}} {{t:linear|tuyến tính}}",
+    "waga": "ŚR",
+    "powod": "m10-l3:122: niespójny termin: range = „range” (terms-nazwy.yaml; w tym samym pliku {{t:range}} bez formy daje „range”, tak też egzamin), tu „dải bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "{{t:range|dải bài}}",
+    "nowy": "{{t:range|range}}",
+    "waga": "ŚR",
+    "powod": "m10-l3:126: niespójny termin: range = „range” (terms-nazwy.yaml; w tym samym pliku {{t:range}} bez formy daje „range”, tak też egzamin), tu „dải bài”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+    "stary": "nhiều tay bài mạnh hơn để lấy",
+    "nowy": "thêm nhiều tay bài mạnh để lấy",
+    "waga": "NISKIE",
+    "powod": "m10-l3:122: dwuznaczne („wiele silniejszych rąk” zamiast „więcej silnych rąk”); źródło: „więcej silnych rąk dla wartości”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l4-rake.md",
+    "stary": "{{t:big-blind|mù lớn}}?\"",
+    "nowy": "{{t:big-blind|big blind}}?\"",
+    "waga": "ŚR",
+    "powod": "m10-l4:74: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l4-rake.md",
+    "stary": "{{t:big-blind|mù lớn}} bằng",
+    "nowy": "{{t:big-blind|big blind}} bằng",
+    "waga": "ŚR",
+    "powod": "m10-l4:77: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l4-rake.md",
+    "stary": "ở {{t:big-blind|mù lớn}}",
+    "nowy": "ở {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m10-l4:78: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l4-rake.md",
+    "stary": "từ {{t:big-blind|mù lớn}}",
+    "nowy": "từ {{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m10-l4:78: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l4-rake.md",
+    "stary": "{{t:small-blind|mù nhỏ}}",
+    "nowy": "{{t:small-blind|small blind}}",
+    "waga": "ŚR",
+    "powod": "m10-l4:123: niespójny termin: small blind = „small blind” (terms-nazwy.yaml; tak egzamin m10), tu „mù nhỏ”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m10-l4-rake.md",
+    "stary": "{{t:big-blind|mù lớn}}",
+    "nowy": "{{t:big-blind|big blind}}",
+    "waga": "ŚR",
+    "powod": "m10-l4:123: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "chiến lược cơ sở ở mô-đun 4",
+    "nowy": "chiến lược nền ở mô-đun 4",
+    "waga": "ŚR",
+    "powod": "exam m10:34: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "chiến lược cơ sở.\"",
+    "nowy": "chiến lược nền.\"",
+    "waga": "ŚR",
+    "powod": "exam m10:36: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "như trong chiến lược cơ sở,",
+    "nowy": "như trong chiến lược nền,",
+    "waga": "ŚR",
+    "powod": "exam m10:37: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "Chiến lược cơ sở giả định một",
+    "nowy": "Chiến lược nền giả định một",
+    "waga": "ŚR",
+    "powod": "exam m10:37: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "chiến lược cơ sở ở",
+    "nowy": "chiến lược nền ở",
+    "waga": "ŚR",
+    "powod": "exam m10:52: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "chiến lược cơ sở,",
+    "nowy": "chiến lược nền,",
+    "waga": "ŚR",
+    "powod": "exam m10:54: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "Làm như trong chiến lược cơ sở",
+    "nowy": "Làm như trong chiến lược nền",
+    "waga": "ŚR",
+    "powod": "exam m10:56: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "Chiến lược cơ sở",
+    "nowy": "Chiến lược nền",
+    "waga": "ŚR",
+    "powod": "exam m10:56: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "chiến lược cơ sở",
+    "nowy": "chiến lược nền",
+    "waga": "ŚR",
+    "powod": "exam m10:71: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "nên nhiều lần {{t:call|theo}} của họ là tay bài kém hơn tay của bạn",
+    "nowy": "nên số lần {{t:call|theo}} của họ bằng tay bài kém hơn tay của bạn cũng nhiều hơn",
+    "waga": "ŚR",
+    "powod": "exam m10.q6:54 why: zgubione porównanie; źródło: „więcej jego sprawdzeń to ręce gorsze od twojej”, przekład: „wiele jego sprawdzeń”",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "có khoảng cách {{t:vpip}}",
+    "nowy": "có chênh lệch {{t:vpip}}",
+    "waga": "NISKIE",
+    "powod": "exam m10.q6:55 why: różnica VPIP − PFR to w lekcjach „chênh lệch”; „khoảng cách” niespójne",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "{{t:draw|draw}}",
+    "nowy": "{{t:draw|bài chờ}}",
+    "waga": "ŚR",
+    "powod": "exam m10.q7:61: niespójny termin: draw = „bài chờ” (terms-nazwy.yaml; tak w bliźniaczym pytaniu m10-l3:56)",
+    "grupa": "vi-L8"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m10.yaml",
+    "stary": "tức là trong khoảng từ khoảng",
+    "nowy": "tức là từ khoảng",
+    "waga": "NISKIE",
+    "powod": "exam m10.q2:19 explanation: niezręczne powtórzenie „trong khoảng từ khoảng”",
+    "grupa": "vi-L8"
+  }
+]

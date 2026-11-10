@@ -1,0 +1,200 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l3-blokery.md",
+    "stary": "La grosse blinde checke à la river. Les deux mains",
+    "nowy": "La {{t:big-blind|grosse blinde}} checke à la river. Les deux mains",
+    "waga": "WYS",
+    "powod": "m8-l3:55 (m8.l3.q-missed-flush prompt): zgubiony znacznik {{t:big-blind|…}} obecny w źródle pl („{{t:big-blind|Duży blind}} czeka”); poprawka celowo przywraca znacznik (zmienia zestaw kluczy).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l1-value.md",
+    "stary": "un solveur mise la thin value jusqu'à env. 1/4",
+    "nowy": "un solveur mise la thin value en descendant jusqu'à env. 1/4",
+    "waga": "ŚR",
+    "powod": "m8-l1:131: pl „betuje thin value nawet ok. 1/4 puli” (= aż tak mało); „mise … jusqu'à env. 1/4” czyta się jako górną granicę (najwyżej 1/4), co odwraca kierunek.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l1-value.md",
+    "stary": "sous 1/2 {{t:pot|pot}}",
+    "nowy": "sous 1/2 du {{t:pot|pot}}",
+    "waga": "NISKIE",
+    "powod": "m8-l1:131: brak „du” („1/2 du pot”, jak w pozostałych ułamkach puli w tym pliku).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l2-ile-blefow.md",
+    "stary": "ratés ou des mains hauteur sans chance\", correct",
+    "nowy": "ratés ou des cartes hautes sans chance\", correct",
+    "waga": "ŚR",
+    "powod": "m8-l2:101 (m8.l2.q-which-hands): pl „wysokie karty bez szans”; „mains hauteur” bez nazwy karty jest niegramatyczne/niejasne; termin wg terms-nazwy: high-card = „carte haute” (tak też w exams/m8:91).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l2-ile-blefow.md",
+    "stary": "ratés ou des mains hauteur sans chance (les",
+    "nowy": "ratés ou des cartes hautes sans chance (les",
+    "waga": "ŚR",
+    "powod": "m8-l2:139: pl „wysokie karty bez szans”; „mains hauteur” bez nazwy karty jest niegramatyczne/niejasne; high-card = „carte haute”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l2-ile-blefow.md",
+    "stary": "| 1/2 {{t:pot}} |",
+    "nowy": "| 1/2 du {{t:pot}} |",
+    "waga": "NISKIE",
+    "powod": "m8-l2:126: wiersz tabeli bez „du”, sąsiednie wiersze „1/3 du pot”, „3/4 du pot”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l4-bluff-catching.md",
+    "stary": "Vous n'avez que hauteur sept",
+    "nowy": "Vous n'avez qu'une hauteur sept",
+    "waga": "NISKIE",
+    "powod": "m8-l4:80 (m8.l4.q-no-chance): brak rodzajnika („qu'une hauteur sept”, por. m8-l1:99 „qu'une hauteur Dame”).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l3-blokery.md",
+    "stary": "Je mise {{t:value|pour la valeur}}",
+    "nowy": "Je mise {{t:value|pour la value}}",
+    "waga": "ŚR",
+    "powod": "m8-l3:89: termin value wg terms-nazwy.yaml = „value”; w lekcjach M8 wszędzie „pour la value / de value”, tu „valeur”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m8-l3-blokery.md",
+    "stary": "Vous bloquez sa valeur",
+    "nowy": "Vous bloquez sa value",
+    "waga": "ŚR",
+    "powod": "m8-l3:77: termin value („blokujesz jego wartość”) – w M8 l1, l2, l4 „value” (np. m8-l4:70 „vous bloquez sa value”).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "Vous perdez de la valeur",
+    "nowy": "Vous perdez de la value",
+    "waga": "ŚR",
+    "powod": "exams/m8:22 (q2): termin value = „value” (terms-nazwy; m8-l1:82 „Vous perdez de la value”).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "mains de valeur et",
+    "nowy": "mains de value et",
+    "waga": "ŚR",
+    "powod": "exams/m8:34 (q4 prompt): termin value = „value” (m8-l2 „mains de value”).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "{{t:combo|combinaisons}} {{t:value|pour la valeur}}.\" }",
+    "nowy": "{{t:combo|combinaisons}} {{t:value|de value}}.\" }",
+    "waga": "ŚR",
+    "powod": "exams/m8:36 (q4): „kombinacji dla wartości” – termin value = „value”; w m8-l2:92 „combos de value”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "C'est le nombre de {{t:combo|combinaisons}} {{t:value|pour la valeur}}",
+    "nowy": "C'est le nombre de {{t:combo|combinaisons}} {{t:value|de value}}",
+    "waga": "ŚR",
+    "powod": "exams/m8:38 (q4): termin value = „value”; jak m8-l2:94.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "préférez celui qui bloque sa valeur",
+    "nowy": "préférez celui qui bloque sa value",
+    "waga": "ŚR",
+    "powod": "exams/m8:57 (q6): termin value = „value”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "soit une partie de la valeur du Button",
+    "nowy": "soit une partie de la value du Button",
+    "waga": "ŚR",
+    "powod": "exams/m8:82 (q9): termin value = „value”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "Il reste plus de valeur dans ses mises",
+    "nowy": "Il reste plus de value dans ses mises",
+    "waga": "ŚR",
+    "powod": "exams/m8:83 (q9): termin value = „value” (m8-l4:61 „plus de value”).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "Je mise petit {{t:value|pour la valeur}}",
+    "nowy": "Je mise petit {{t:value|pour la value}}",
+    "waga": "ŚR",
+    "powod": "exams/m8:92 (q10): termin value = „value”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "a besoin d'autant d'equity",
+    "nowy": "a besoin d'autant d'équité",
+    "waga": "ŚR",
+    "powod": "exams/m8:29 (q3 explanation): termin equity wg terms-nazwy = „équité”; lekcje M8 mają „équité”.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "{{n:exam.m8.share}} d'equity",
+    "nowy": "{{n:exam.m8.share}} d'équité",
+    "waga": "ŚR",
+    "powod": "exams/m8:72 (q8): equity = „équité” (terms-nazwy, lekcje M8).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "Votre equity est",
+    "nowy": "Votre équité est",
+    "waga": "ŚR",
+    "powod": "exams/m8:73 (q8): equity = „équité” (terms-nazwy, lekcje M8).",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "c'est du thin value",
+    "nowy": "c'est de la thin value",
+    "waga": "NISKIE",
+    "powod": "exams/m8:20 (q2): rodzaj „thin value” – w m8-l1 żeński („la thin value”), tu męski.",
+    "grupa": "fr-L6"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m8.yaml",
+    "stary": "Misez le thin value plus petit",
+    "nowy": "Misez la thin value plus petit",
+    "waga": "NISKIE",
+    "powod": "exams/m8:21 (q2): rodzaj „thin value” – w m8-l1 żeński („La thin value se mise petit”).",
+    "grupa": "fr-L6"
+  }
+]

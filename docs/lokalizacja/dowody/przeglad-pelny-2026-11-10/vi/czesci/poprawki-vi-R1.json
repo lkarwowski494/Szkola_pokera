@@ -1,0 +1,29 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "{{t:fold|bỏ bài}}, không chỉ bỏ thêm cho bằng tiền mù (limp)",
+    "nowy": "{{t:fold|bỏ bài}}, chứ không chỉ bỏ thêm cho bằng tiền mù (limp)",
+    "waga": "ŚR",
+    "powod": "R-M3-004 then (linia 149): „không chỉ” czyta się jak „nie tylko” (dopłacasz i coś jeszcze); źródło: „nie dopłacasz samego blinda”. „chứ không chỉ” daje jednoznaczne przeciwstawienie.",
+    "grupa": "vi-R1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "bạn vào ván đầu tiên bằng một lần {{t:raise|tố}}",
+    "nowy": "bạn là người đầu tiên vào ván bằng một lần {{t:raise|tố}}",
+    "waga": "ŚR",
+    "powod": "R-M3-007 if (linia 174): „vào ván đầu tiên” jest dwuznaczne (wchodzisz do pierwszego rozdania); źródło: „wchodzisz do rozdania jako pierwszy przebiciem”; ujednolicenie z R-M3-004 if („bạn là người đầu tiên vào ván”).",
+    "grupa": "vi-R1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "range mở bài tăng dần từ UTG đến Button",
+    "nowy": "range mở cược tăng dần từ UTG đến Button",
+    "waga": "NISKIE",
+    "powod": "R-M3-006 source (linia 170): „mở bài” znaczy odkrycie kart/wstęp, nie otwarcie; przyjęta nazwa terminu open w terms-nazwy.yaml to „mở cược”.",
+    "grupa": "vi-R1"
+  }
+]

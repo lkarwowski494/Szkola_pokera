@@ -1,0 +1,335 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "Quand miser une deuxième fois à la turn",
+    "nowy": "Quand miser une deuxième fois au turn",
+    "waga": "NISKIE",
+    "powod": "m7-l1:6: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "Quelle carte à la turn aide",
+    "nowy": "Quelle carte au turn aide",
+    "waga": "NISKIE",
+    "powod": "m7-l1:13: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "un as à la turn après",
+    "nowy": "un as au turn après",
+    "waga": "NISKIE",
+    "powod": "m7-l1:23: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "La turn est un sept",
+    "nowy": "Le turn est un sept",
+    "waga": "NISKIE",
+    "powod": "m7-l1:33: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "La turn est un as",
+    "nowy": "Le turn est un as",
+    "waga": "NISKIE",
+    "powod": "m7-l1:43: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "a {{t:check|checké}} la turn",
+    "nowy": "a {{t:check|checké}} le turn",
+    "waga": "NISKIE",
+    "powod": "m7-l1:48: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "La turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"Qh Jh\"",
+    "nowy": "Le turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"Qh Jh\"",
+    "waga": "NISKIE",
+    "powod": "m7-l1:53: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”) (fragment obejmuje dwie linie, bo prompt powtarza się dosłownie w liniach 72 i 82)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "La turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"9s 9c\"",
+    "nowy": "Le turn est un deux. Le {{t:pot|pot}} contient {{n:ex.pot}} et l'adversaire {{t:check|checke}}. Que faites-vous ?\"\n    table: { hand: \"9s 9c\"",
+    "waga": "NISKIE",
+    "powod": "m7-l1:72: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”) (fragment obejmuje dwie linie, bo prompt powtarza się dosłownie w linii 82)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "La turn est un deux",
+    "nowy": "Le turn est un deux",
+    "waga": "NISKIE",
+    "powod": "m7-l1:82: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”) (unikalne dopiero po nałożeniu dwóch poprzednich poprawek)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "À la turn, il en reste une",
+    "nowy": "Au turn, il en reste une",
+    "waga": "NISKIE",
+    "powod": "m7-l1:67: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "un {{t:second-barrel|second barrel}} à la turn ?",
+    "nowy": "un {{t:second-barrel|second barrel}} au turn ?",
+    "waga": "NISKIE",
+    "powod": "m7-l1:92: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "de l'adversaire à la turn est-elle",
+    "nowy": "de l'adversaire au turn est-elle",
+    "waga": "NISKIE",
+    "powod": "m7-l1:108: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "Parce que la turn l'aide toujours",
+    "nowy": "Parce que le turn l'aide toujours",
+    "waga": "NISKIE",
+    "powod": "m7-l1:111: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "Non : la turn est aléatoire",
+    "nowy": "Non : le turn est aléatoire",
+    "waga": "NISKIE",
+    "powod": "m7-l1:111: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "puis une mise à la turn.",
+    "nowy": "puis une mise au turn.",
+    "waga": "NISKIE",
+    "powod": "m7-l1:114: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "À la turn, vous ne vous demandez",
+    "nowy": "Au turn, vous ne vous demandez",
+    "waga": "NISKIE",
+    "powod": "m7-l1:114: rodzaj „turn” niespójny z resztą modułu i korpusu (m7-l2–l4, egzamin: „le turn”, „au turn”)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "et {{t:two-pair|deux paires}} à 87",
+    "nowy": "et une {{t:two-pair|double paire}} à 87",
+    "waga": "NISKIE",
+    "powod": "m7-l1:17: two-pair — terms-nazwy.yaml: „double paire” (tak w m7-l2 i egzaminie); tu „deux paires”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "et {{t:two-pair|deux paires}} à 76",
+    "nowy": "et une {{t:two-pair|double paire}} à 76",
+    "waga": "NISKIE",
+    "powod": "m7-l1:36: two-pair — terms-nazwy.yaml: „double paire” (tak w m7-l2 i egzaminie); tu „deux paires”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "et {{t:two-pair|deux paires}} aux mains",
+    "nowy": "et des {{t:two-pair|doubles paires}} aux mains",
+    "waga": "NISKIE",
+    "powod": "m7-l1:123: two-pair — terms-nazwy.yaml: „double paire” (tak w m7-l2 i egzaminie); tu „deux paires”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "d'analyses de solvers",
+    "nowy": "d'analyses de solveurs",
+    "waga": "NISKIE",
+    "powod": "m7-l1:137: „solvers” obok „le solveur” w tym samym akapicie; jedna forma",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l1-druga-beczka.md",
+    "stary": "résultats des solvers",
+    "nowy": "résultats des solveurs",
+    "waga": "NISKIE",
+    "powod": "m7-l1:137: „solvers” obok „le solveur” w tym samym akapicie; jedna forma",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+    "stary": "et va à l'abattage à moindre coût",
+    "nowy": "et va au showdown à moindre coût",
+    "waga": "ŚR",
+    "powod": "m7-l2:36: showdown — terms-nazwy.yaml: „showdown” (tak w m7-l1 i egzaminie); tu „abattage”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+    "stary": "vous allez à l'abattage à moindre coût",
+    "nowy": "vous allez au showdown à moindre coût",
+    "waga": "ŚR",
+    "powod": "m7-l2:64: showdown — terms-nazwy.yaml: „showdown” (tak w m7-l1 i egzaminie); tu „abattage”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+    "stary": "sans chance à l'abattage",
+    "nowy": "sans chance au showdown",
+    "waga": "ŚR",
+    "powod": "m7-l2:113: showdown — terms-nazwy.yaml: „showdown” (tak w m7-l1 i egzaminie); tu „abattage”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l2-polaryzacja.md",
+    "stary": "vous misez des mains les plus fortes vers le bas",
+    "nowy": "vous misez en partant des mains les plus fortes vers le bas",
+    "waga": "NISKIE",
+    "powod": "m7-l2:110: „betujesz od najsilniejszych rąk w dół” — „des mains” czyta się jak rodzajnik nieokreślony, zdanie niejasne",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "est sur le {{t:board|tableau}}",
+    "nowy": "est sur le {{t:board|board}}",
+    "waga": "ŚR",
+    "powod": "m7-l3:66: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "troisième cœur sur le {{t:board|tableau}}. Il manque",
+    "nowy": "troisième cœur sur le {{t:board|board}}. Il manque",
+    "waga": "ŚR",
+    "powod": "m7-l3:86: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "sur un {{t:board|tableau}} avec un as",
+    "nowy": "sur un {{t:board|board}} avec un as",
+    "waga": "ŚR",
+    "powod": "m7-l3:87: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "troisième cœur sur le {{t:board|tableau}}).",
+    "nowy": "troisième cœur sur le {{t:board|board}}).",
+    "waga": "ŚR",
+    "powod": "m7-l3:141: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "peut tomber sur le {{t:board|tableau}}",
+    "nowy": "peut tomber sur le {{t:board|board}}",
+    "waga": "ŚR",
+    "powod": "m7-l3:143: board — terms-nazwy.yaml: „board” (tak w m7-l1, l2, l4 i egzaminie); tu „tableau”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "au début du {{t:street|tour d'enchères}}",
+    "nowy": "au début de la {{t:street|street}}",
+    "waga": "ŚR",
+    "powod": "m7-l3:134: street („ulicy”) — terms-nazwy.yaml: „street” (tak w m7-l4:28 i w definicji SPR w terms-def); „tour d'enchères” to nazwa innego terminu (betting-round)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "à chaque {{t:street|tour d'enchères}}",
+    "nowy": "à chaque {{t:street|street}}",
+    "waga": "ŚR",
+    "powod": "m7-l3:134: street („ulicy”) — terms-nazwy.yaml: „street” (tak w m7-l4:28 i w definicji SPR w terms-def); „tour d'enchères” to nazwa innego terminu (betting-round)",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "fondé sur la {{t:expected-value|valeur espérée}}",
+    "nowy": "fondé sur l'{{t:expected-value|espérance de gain}}",
+    "waga": "ŚR",
+    "powod": "m7-l3:146: expected-value — terms-nazwy.yaml: „espérance de gain” (tak renderuje się znacznik bez formy w m7-l4:107); tu „valeur espérée”",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l3-implied-odds.md",
+    "stary": "« Planifier la main »",
+    "nowy": "« Plan de la main »",
+    "waga": "ŚR",
+    "powod": "m7-l3:134: nazwa modułu M9 w content/fr/modules.yaml to „Plan de la main”; odsyłacz podaje inny tytuł",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l4-probe-obrona.md",
+    "stary": "sur une carte blanche",
+    "nowy": "sur une carte neutre",
+    "waga": "ŚR",
+    "powod": "m7-l4:96: „na pustej karcie” — w m7-l1 „carte neutre”; „carte blanche” to idiom („wolna ręka”), mylące",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m7-l4-probe-obrona.md",
+    "stary": "d'analyses de solvers",
+    "nowy": "d'analyses de solveurs",
+    "waga": "NISKIE",
+    "powod": "m7-l4:145: „solvers” obok „solveur” w tym samym akapicie; jedna forma",
+    "grupa": "fr-L5"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m7.yaml",
+    "stary": "{{n:eq.bet-three-quarters}} d'equity",
+    "nowy": "{{n:eq.bet-three-quarters}} d'équité",
+    "waga": "NISKIE",
+    "powod": "exams/m7 q6 (linia 56): equity — terms-nazwy.yaml i m7-l2/l3: „équité”; tu angielskie „equity”",
+    "grupa": "fr-L5"
+  }
+]

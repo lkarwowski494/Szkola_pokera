@@ -1,0 +1,164 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "{{n:pf.rfi.utg.high}} mains",
+    "nowy": "{{n:pf.rfi.utg.high}} des mains",
+    "waga": "ŚR",
+    "powod": "m3.exam.q2 (m3.yaml:21): błąd gramatyczny: wartość to procent („env. 15 %–18 % mains”), brak „des”; lekcje m3-l1 i m3-l3 mają „des mains”",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "{{n:pf.rfi.btn.high}} mains",
+    "nowy": "{{n:pf.rfi.btn.high}} des mains",
+    "waga": "ŚR",
+    "powod": "m3.exam.q5 (m3.yaml:49): błąd gramatyczny: wartość to procent („env. 15 %–18 % mains”), brak „des”; lekcje m3-l1 i m3-l3 mają „des mains”",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "{{n:pf.rfi.sb.high}} mains",
+    "nowy": "{{n:pf.rfi.sb.high}} des mains",
+    "waga": "ŚR",
+    "powod": "m3.exam.q6 (m3.yaml:59): błąd gramatyczny: wartość to procent („env. 15 %–18 % mains”), brak „des”; lekcje m3-l1 i m3-l3 mają „des mains”",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m3-l2-rece-startowe.md",
+    "stary": "attaquer les blinds",
+    "nowy": "attaquer les blindes",
+    "waga": "NISKIE",
+    "powod": "m3-l2:45: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m3-l2-rece-startowe.md",
+    "stary": "remporter les blinds",
+    "nowy": "remporter les blindes",
+    "waga": "NISKIE",
+    "powod": "m3-l2:47: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "les blinds parlent en premier et",
+    "nowy": "les blindes parlent en premier et",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:11: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "Préflop, les blinds parlent",
+    "nowy": "Préflop, les blindes parlent",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:13: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "Le limp cède l'{{t:initiative}} et la chance de remporter les blinds",
+    "nowy": "Le limp cède l'{{t:initiative}} et la chance de remporter les blindes",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:23: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "le Button et les blinds",
+    "nowy": "le Button et les blindes",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:40: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "Il ne reste que les blinds",
+    "nowy": "Il ne reste que les blindes",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:49: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "Face aux seules blinds",
+    "nowy": "Face aux seules blindes",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:50: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "remporte souvent les blinds",
+    "nowy": "remporte souvent les blindes",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:51: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "Compléter cède l'{{t:initiative}} et la chance de remporter les blinds",
+    "nowy": "Compléter cède l'{{t:initiative}} et la chance de remporter les blindes",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:61: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m3.yaml",
+    "stary": "laissez entrer les blinds",
+    "nowy": "laissez entrer les blindes",
+    "waga": "NISKIE",
+    "powod": "m3.yaml:88: pisownia niespójna: „blinds” zamiast „blindes” (terms-nazwy: petite/grosse blinde; lekcje m1-l1, m3-l1, m3-l3 mają „blindes”)",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m3-l1-pozycja.md",
+    "stary": "{{t:early-position|positions précoces}}",
+    "nowy": "{{t:early-position|premières positions}}",
+    "waga": "NISKIE",
+    "powod": "m3-l1:69: kalka „positions précoces”; egzamin m3 (m3.yaml:70) i lekcja m3-l3:80 mają „premières positions” — jedna nazwa na pojęcie; klucz znacznika bez zmian",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m2-l1-outy.md",
+    "stary": "{{n:draw.oesd.ranks}} hauteurs ×",
+    "nowy": "{{n:draw.oesd.ranks}} rangs ×",
+    "waga": "NISKIE",
+    "powod": "m2.l1.q2 (m2-l1:26): niespójny termin na rangę karty: „hauteurs” tylko tu, egzamin m2 (m2.yaml:21,23,31) i moduł 3 mają „rang(s)” w tym samym rachunku",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m2-l1-outy.md",
+    "stary": "Deux hauteurs de cartes",
+    "nowy": "Deux rangs de cartes",
+    "waga": "NISKIE",
+    "powod": "m2.l1.q2 (m2-l1:28): niespójny termin na rangę karty: „hauteurs” tylko tu, egzamin m2 (m2.yaml:21,23,31) i moduł 3 mają „rang(s)” w tym samym rachunku",
+    "grupa": "fr-L1"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m1-l1-przebieg.md",
+    "stary": "**{{t:side-pot|pot secondaire}}**, que seuls eux se disputent",
+    "nowy": "**{{t:side-pot|pot secondaire}}** (side pot), qu'eux seuls se disputent",
+    "waga": "NISKIE",
+    "powod": "m1-l1:96: pominięty dopisek źródła „(side pot)”; niezręczny szyk „que seuls eux” → „qu'eux seuls”",
+    "grupa": "fr-L1"
+  }
+]

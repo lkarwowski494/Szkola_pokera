@@ -1,0 +1,299 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l1-tekstury.md",
+    "stary": "Der Flop ist {{t:monotone|einfarbig}}:",
+    "nowy": "Der Flop ist {{t:monotone|monoton}}:",
+    "waga": "ŚR",
+    "powod": "m5.l1.q-monotone prompt: termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l1-tekstury.md",
+    "stary": "Auf einem {{t:monotone|einfarbigen}} kann",
+    "nowy": "Auf einem {{t:monotone|monotonen}} kann",
+    "waga": "ŚR",
+    "powod": "m5.l1.q-monotone opcja 3 why: termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l1-tekstury.md",
+    "stary": "**{{t:monotone|einfarbiger}}**",
+    "nowy": "**{{t:monotone|monotoner}}**",
+    "waga": "ŚR",
+    "powod": "m5-l1 sekcja Farben (definicja): termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l1-tekstury.md",
+    "stary": "Ein {{t:monotone|einfarbiger}} Flop ist immer",
+    "nowy": "Ein {{t:monotone|monotoner}} Flop ist immer",
+    "waga": "ŚR",
+    "powod": "m5-l1 akapit o K72 two-tone: termin monotone: terms-nazwy.yaml ma „monoton”, tak też m5-l3 i egzamin m5; w m5-l1 „einfarbig” (jedna nazwa na jedno pojęcie)",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l2-przewagi.md",
+    "stary": "vor dem Flop {{t:raise|geraist}}, und seine breite",
+    "nowy": "vor dem Flop geraist, und seine breite",
+    "waga": "NISKIE",
+    "powod": "m5.l2.q-k72 opcja 1 why: nadmiarowy znacznik t:raise, źródło pl ma tu „przebiłby” bez znacznika (poprawka usuwa dodany znacznik)",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l2-przewagi.md",
+    "stary": "die stärksten, die er {{t:raise|geraist}} hätte",
+    "nowy": "die stärksten, die er geraist hätte",
+    "waga": "NISKIE",
+    "powod": "m5.l2.q-capped opcja 2 why: nadmiarowy znacznik t:raise, źródło pl ma „przebiłby” bez znacznika (poprawka usuwa dodany znacznik)",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l2-przewagi.md",
+    "stary": "Über eine große Größe entscheidet",
+    "nowy": "Über eine große Bet-Größe entscheidet",
+    "waga": "NISKIE",
+    "powod": "m5.l2.q-kinds opcja 2 why: niezręczne „große/größere Größe”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l2-przewagi.md",
+    "stary": "kannst du mit einer größeren Größe betten",
+    "nowy": "kannst du größer betten",
+    "waga": "NISKIE",
+    "powod": "m5-l2 sekcja Nuts-Vorteil: niezręczne „große/größere Größe”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "(in der App meist mittlere)",
+    "nowy": "(in der App meist mittelnasse)",
+    "waga": "ŚR",
+    "powod": "m5-l3 akapit „Achtung”: pl „pośrednich” to kategoria mokrości, w m5-l1 nazwana „mittelnass”; „mittlere” oznacza w m5-l1 wysokość flopa (mittlerer Flop = walet/dziesiątka), więc zmienia odniesienie",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "Die größere Größe aus dem vorigen Abschnitt",
+    "nowy": "Die größere Bet-Größe aus dem vorigen Abschnitt",
+    "waga": "NISKIE",
+    "powod": "m5-l3 akapit „Achtung”: niezręczne „große/größere Größe”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "(fortsetzende {{t:bet|Bet}})",
+    "nowy": "(Continuation {{t:bet|Bet}})",
+    "waga": "NISKIE",
+    "powod": "m5-l3 pierwszy akapit: rozwinięcie skrótu C-Bet to po niemiecku „Continuation Bet”; „fortsetzende Bet” jest kalką nieużywaną w języku",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l4-bez-pozycji.md",
+    "stary": "und {{t:connected|connected}}",
+    "nowy": "und {{t:connected|verbunden}}",
+    "waga": "ŚR",
+    "powod": "m5.l4.q-oop-plan prompt: forma angielska; terms-nazwy.yaml i reszta modułu (także why tej samej odpowiedzi) mają „verbunden”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l4-bez-pozycji.md",
+    "stary": "öfter {{t:two-pair|Two Pair}} oder eine {{t:straight|Straight}} hat",
+    "nowy": "öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} hat",
+    "waga": "ŚR",
+    "powod": "m5.l4.c-review why.check: terminy two-pair i straight; terms-nazwy.yaml oraz ten sam tekst w m5.l3.c-btn mają „zwei Paare” i „Straße”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m5-l4-bez-pozycji.md",
+    "stary": "öfter {{t:two-pair|Two Pair}} oder eine {{t:straight|Straight}} getroffen",
+    "nowy": "öfter {{t:two-pair|zwei Paare}} oder eine {{t:straight|Straße}} getroffen",
+    "waga": "ŚR",
+    "powod": "m5.l4.c-review why.big: terminy two-pair i straight; terms-nazwy.yaml oraz ten sam tekst w m5.l3.c-btn mają „zwei Paare” i „Straße”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "{{t:two-pair|Two Pair}}",
+    "nowy": "{{t:two-pair|zwei Paare}}",
+    "waga": "ŚR",
+    "powod": "m5.exam.q2 prompt: termin two-pair; terms-nazwy.yaml i lekcje m5-l2, m5-l3 mają „zwei Paare”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "{{t:out-of-position|Ohne Position}} gegen einen Spieler",
+    "nowy": "{{t:out-of-position|Out of Position}} gegen einen Spieler",
+    "waga": "ŚR",
+    "powod": "m5.exam.q7 prompt: termin out-of-position: terms-nazwy.yaml i m5-l4 mają „out of Position”, egzamin „ohne Position”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "{{t:out-of-position|ohne Position}} gibt",
+    "nowy": "{{t:out-of-position|out of Position}} gibt",
+    "waga": "ŚR",
+    "powod": "m5.exam.q7 opcja 1 why: termin out-of-position: terms-nazwy.yaml i m5-l4 mają „out of Position”, egzamin „ohne Position”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "Nein: {{t:out-of-position|Ohne Position}}",
+    "nowy": "Nein: {{t:out-of-position|Out of Position}}",
+    "waga": "ŚR",
+    "powod": "m5.exam.q7 opcja 3 why: termin out-of-position: terms-nazwy.yaml i m5-l4 mają „out of Position”, egzamin „ohne Position”",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "weil ein großer {{t:bet|Bet}} viel",
+    "nowy": "weil eine große {{t:bet|Bet}} viel",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q3 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "damit dieser {{t:bet|Bet}} bei null",
+    "nowy": "damit diese {{t:bet|Bet}} bei null",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q5 prompt: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "für einen kleinen C-Bet",
+    "nowy": "für eine kleine C-Bet",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q5 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "Ein größerer Bet riskiert mehr, also muss er öfter",
+    "nowy": "Eine größere Bet riskiert mehr, also muss sie öfter",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q5 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "Rentabilitätsschwelle des Bets",
+    "nowy": "Rentabilitätsschwelle der Bet",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q5 opcja 3 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "du seinen {{t:bet|Bet}} oder",
+    "nowy": "du seine {{t:bet|Bet}} oder",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q7 opcja 1 text: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "auf jeden {{t:bet|Bet}}",
+    "nowy": "auf jede {{t:bet|Bet}}",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q7 opcja 2 text: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "mit jedem {{t:bet|Bet}} gewinnen",
+    "nowy": "mit jeder {{t:bet|Bet}} gewinnen",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q7 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "{{t:call|callen}} den {{t:bet|Bet}} des Gegners",
+    "nowy": "{{t:call|callen}} die {{t:bet|Bet}} des Gegners",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q7 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "zuerst auf den C-Bet?",
+    "nowy": "zuerst auf die C-Bet?",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q8 prompt: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "Deinen {{t:bet|Bet}}",
+    "nowy": "Deine {{t:bet|Bet}}",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q9 opcja 1 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "Ein kleiner {{t:bet|Bet}} gibt",
+    "nowy": "Eine kleine {{t:bet|Bet}} gibt",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q9 opcja 3 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "„großer Bet“",
+    "nowy": "„große Bet“",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q10 opcja 2 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski (w m5-l3 to samo zdanie: „große Bet“)",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "Ein Bet in Höhe",
+    "nowy": "Eine Bet in Höhe",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q10 opcja 3 why: rodzaj rzeczownika Bet: terms-nazwy.yaml i lekcje m5 mają rodzaj żeński (eine Bet, die C-Bet), w egzaminie męski",
+    "grupa": "de-L3"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m5.yaml",
+    "stary": "Wenn du c-bettest, mit welcher Größe?",
+    "nowy": "Wenn du überhaupt c-bettest, mit welcher Größe?",
+    "waga": "NISKIE",
+    "powod": "m5.exam.q10 prompt: pl „Gdy już c-betujesz” (jeśli w ogóle); przekład gubi „już”",
+    "grupa": "de-L3"
+  }
+]

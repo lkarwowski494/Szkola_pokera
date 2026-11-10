@@ -1,0 +1,416 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Năm lá liên tiếp, không cùng một chất, ví dụ 5-6-7-8-9. Lá A có thể là lá cao nhất (A-K-Q-J-T) hoặc thấp nhất (A-2-3-4-5).",
+    "nowy": "Năm lá liên tiếp, không phải cả năm cùng một chất, ví dụ 5-6-7-8-9. Lá A có thể là lá cao nhất (A-K-Q-J-T) hoặc thấp nhất (A-2-3-4-5).",
+    "waga": "NISKIE",
+    "powod": "terms-def straight (linia 6): pl „nie wszystkie w jednym kolorze”; „không cùng một chất” można odczytać jako „każda w innym kolorze”",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Tiếp tục chơi mà không bỏ thêm chip, chỉ được khi bạn không phải bù thêm gì: chưa ai bet trong vòng cược này (trước flop, big blind có thể check khi không ai raise). Đừng nhầm với call, tức là bỏ chip để theo bet của đối thủ.",
+    "nowy": "Tiếp tục chơi mà không bỏ thêm chip, chỉ được khi bạn không phải bù thêm gì: chưa ai cược trong vòng cược này (trước flop, big blind có thể check khi không ai tố). Đừng nhầm với theo (call), tức là bỏ chip để theo cược của đối thủ.",
+    "waga": "ŚR",
+    "powod": "terms-def check (linia 14): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Lần bỏ chip đầu tiên trong một vòng cược mà chưa ai bet (theo nghĩa rộng, mọi lần bỏ chip vào pot đều gọi là bet).",
+    "nowy": "Lần bỏ chip đầu tiên trong một vòng cược mà chưa ai cược (theo nghĩa rộng, mọi lần bỏ chip vào pot đều gọi là cược).",
+    "waga": "ŚR",
+    "powod": "terms-def bet (linia 15): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bỏ vào pot đúng bằng mức bet hoặc raise của đối thủ để tiếp tục chơi. Đừng nhầm với check, tức là tiếp tục chơi mà không bet khi chưa ai bet.",
+    "nowy": "Bỏ vào pot đúng bằng mức cược hoặc mức tố của đối thủ để tiếp tục chơi. Đừng nhầm với check, tức là tiếp tục chơi mà không cược khi chưa ai cược.",
+    "waga": "ŚR",
+    "powod": "terms-def call (linia 16): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Nâng mức cược lên trên bet của đối thủ; những người còn lại phải bù phần chênh lệch, raise tiếp hoặc fold.",
+    "nowy": "Nâng mức cược lên trên lần cược của đối thủ; những người còn lại phải bù phần chênh lệch, tố tiếp hoặc bỏ bài.",
+    "waga": "ŚR",
+    "powod": "terms-def raise (linia 17): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bạn check trước, rồi khi đối thủ bet thì bạn raise lại trong cùng vòng cược.",
+    "nowy": "Bạn check trước, rồi khi đối thủ cược thì bạn tố trong cùng vòng cược.",
+    "waga": "ŚR",
+    "powod": "terms-def check-raise (linia 19): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Toàn bộ chip đã đặt trong ván bài hiện tại. Người có tay bài tốt nhất ở showdown nhận pot (khi có side pot thì từng pot được phân định riêng), hoặc người còn lại khi tất cả những người khác đã fold.",
+    "nowy": "Toàn bộ chip đã đặt trong ván bài hiện tại. Người có tay bài tốt nhất ở showdown nhận pot (khi có side pot thì từng pot được phân định riêng), hoặc người còn lại khi tất cả những người khác đã bỏ bài.",
+    "waga": "ŚR",
+    "powod": "terms-def pot (linia 21): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Tên gọi lóng của vòng cược: preflop, flop, turn và river là bốn street. Ví dụ: “value ba street” là các lần cược lấy value ở flop, turn và river.",
+    "nowy": "Tên gọi lóng của vòng cược: preflop, flop, turn và river là bốn street. Ví dụ: “value ba street” là các lần cược lấy giá trị ở flop, turn và river.",
+    "waga": "ŚR",
+    "powod": "terms-def street (linia 32): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Giai đoạn của ván bài trong đó người chơi lần lượt check, bet, call, raise hoặc fold; trong hold'em có bốn vòng: preflop, flop, turn và river.",
+    "nowy": "Giai đoạn của ván bài trong đó người chơi lần lượt check, cược, theo, tố hoặc bỏ bài; trong hold'em có bốn vòng: preflop, flop, turn và river.",
+    "waga": "ŚR",
+    "powod": "terms-def betting-round (linia 33): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Tỷ lệ giữa số chip bạn phải bỏ thêm và pot bạn có thể thắng (tính cả bet của đối thủ). Nó cho biết bạn cần thắng thường xuyên đến mức nào để call có lời.",
+    "nowy": "Tỷ lệ giữa số chip bạn phải bỏ thêm và pot bạn có thể thắng (tính cả lần cược của đối thủ). Nó cho biết bạn cần thắng thường xuyên đến mức nào để việc theo có lời.",
+    "waga": "ŚR",
+    "powod": "terms-def pot-odds (linia 55): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Tay bài mà chiến lược cân bằng lúc chọn nước đi này, lúc chọn nước đi khác (ví dụ lúc raise, lúc call); cả hai nước đi đều đúng. Người ta cũng nói tay bài đó được chơi bằng chiến lược hỗn hợp.",
+    "nowy": "Tay bài mà chiến lược cân bằng lúc chọn nước đi này, lúc chọn nước đi khác (ví dụ lúc tố, lúc theo); cả hai nước đi đều đúng. Người ta cũng nói tay bài đó được chơi bằng chiến lược hỗn hợp.",
+    "waga": "ŚR",
+    "powod": "terms-def mixed-hand (linia 62): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Vào pot trước flop bằng một lần raise khi tất cả những người trước bạn đã fold.",
+    "nowy": "Vào pot trước flop bằng một lần tố khi tất cả những người trước bạn đã bỏ bài.",
+    "waga": "ŚR",
+    "powod": "terms-def open (linia 63): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Lần raise đầu tiên lên một lần open trước flop; tên gọi tính big blind là lần cược thứ nhất và open là lần thứ hai.",
+    "nowy": "Lần tố đầu tiên lên trên một lần mở cược trước flop; tên gọi tính big blind là lần cược thứ nhất và lần mở cược là lần thứ hai.",
+    "waga": "ŚR",
+    "powod": "terms-def 3-bet (linia 68): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Raise lên một 3-bet, tức là lần cược thứ tư trong vòng cược.",
+    "nowy": "Tố lên trên một 3-bet, tức là lần cược thứ tư trong vòng cược.",
+    "waga": "ŚR",
+    "powod": "terms-def 4-bet (linia 69): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Vào pot trước flop chỉ bằng cách call big blind khi chưa ai raise.",
+    "nowy": "Vào pot trước flop chỉ bằng cách theo big blind khi chưa ai tố.",
+    "waga": "ŚR",
+    "powod": "terms-def limp (linia 70): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Raise sau một hoặc vài lần limp, để chơi tay đôi với người limp (thường là người chơi yếu hơn).",
+    "nowy": "Tố sau một hoặc vài lần limp, để chơi tay đôi với người limp (thường là người chơi yếu hơn).",
+    "waga": "ŚR",
+    "powod": "terms-def isolation (linia 71): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Continuation bet (cược tiếp tục): bet của người chơi là aggressor ở vòng trước, ví dụ bet ở flop sau khi open preflop.",
+    "nowy": "Continuation bet (cược tiếp tục): lần cược của người chơi là người tấn công ở vòng trước, ví dụ cược ở flop sau khi mở cược preflop.",
+    "waga": "ŚR",
+    "powod": "terms-def c-bet (linia 86): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Người chơi bet hoặc raise sau cùng ở vòng cược trước.",
+    "nowy": "Người chơi cược hoặc tố sau cùng ở vòng cược trước.",
+    "waga": "ŚR",
+    "powod": "terms-def aggressor (linia 87): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Vai trò của aggressor sau cùng: người này thường là người thực hiện bet tiếp theo.",
+    "nowy": "Vai trò của người tấn công sau cùng: người này thường là người thực hiện lần cược tiếp theo.",
+    "waga": "ŚR",
+    "powod": "terms-def initiative (linia 88): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Xây dựng range từ hai thái cực: tay bài mạnh để lấy value và bluff, không có tay bài trung bình.",
+    "nowy": "Xây dựng range từ hai thái cực: tay bài mạnh để lấy giá trị và bluff, không có tay bài trung bình.",
+    "waga": "ŚR",
+    "powod": "terms-def polarization (linia 93): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Cược với tay bài mạnh để đối thủ call bằng tay bài yếu hơn.",
+    "nowy": "Cược với tay bài mạnh để đối thủ theo bằng tay bài yếu hơn.",
+    "waga": "ŚR",
+    "powod": "terms-def value (linia 96): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Một lần bet để lấy value: đặt với tay bài mạnh để các tay bài yếu hơn call.",
+    "nowy": "Một lần cược để lấy giá trị: đặt với tay bài mạnh để các tay bài yếu hơn theo.",
+    "waga": "ŚR",
+    "powod": "terms-def value-bet (linia 97): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bet với tay bài yếu khó thắng ở showdown, nhằm khiến đối thủ fold tay bài tốt hơn.",
+    "nowy": "Cược với tay bài yếu khó thắng ở showdown, nhằm khiến đối thủ bỏ tay bài tốt hơn.",
+    "waga": "ŚR",
+    "powod": "terms-def bluff (linia 98): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bet với tay bài còn yếu nhưng có cơ hội cải thiện (ví dụ có bài chờ): bạn thắng nếu đối thủ fold hoặc nếu bạn ra bài.",
+    "nowy": "Cược với tay bài còn yếu nhưng có cơ hội cải thiện (ví dụ có bài chờ): bạn thắng nếu đối thủ bỏ bài hoặc nếu bạn ra bài.",
+    "waga": "ŚR",
+    "powod": "terms-def semi-bluff (linia 99): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Tay bài chỉ thắng được bluff của đối thủ, còn thua các bet lấy value của họ.",
+    "nowy": "Tay bài chỉ thắng được bluff của đối thủ, còn thua các lần cược lấy giá trị của họ.",
+    "waga": "ŚR",
+    "powod": "terms-def bluff-catcher (linia 101): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Thêm một bet ở vòng cược kế tiếp sau bet của chính bạn ở vòng trước.",
+    "nowy": "Thêm một lần cược ở vòng cược kế tiếp sau lần cược của chính bạn ở vòng trước.",
+    "waga": "ŚR",
+    "powod": "terms-def barrel (linia 102): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Lần bet thứ hai liên tiếp: sau c-bet ở flop, người chơi bet tiếp ở turn.",
+    "nowy": "Lần cược thứ hai liên tiếp: sau c-bet ở flop, người chơi cược tiếp ở turn.",
+    "waga": "ŚR",
+    "powod": "terms-def second-barrel (linia 103): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bet ở turn của người chơi không có vị trí sau khi aggressor preflop check ở flop thay vì c-bet.",
+    "nowy": "Lần cược ở turn của người chơi không có vị trí sau khi người tấn công preflop check ở flop thay vì c-bet.",
+    "waga": "ŚR",
+    "powod": "terms-def probe-bet (linia 104): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bet của người chơi đặt cược trước khi aggressor của vòng trước kịp hành động.",
+    "nowy": "Lần cược của người chơi đặt cược trước khi người tấn công của vòng trước kịp hành động.",
+    "waga": "ŚR",
+    "powod": "terms-def donk-bet (linia 105): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bet sau flop lớn hơn toàn bộ pot.",
+    "nowy": "Lần cược sau flop lớn hơn toàn bộ pot.",
+    "waga": "ŚR",
+    "powod": "terms-def overbet (linia 106): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Effective stack chia cho pot ở đầu một street (để lên kế hoạch cho ván bài, người ta tính ở flop); cho biết stack sâu đến mức nào so với pot (SPR càng thấp, mọi thứ càng nhanh vào pot).",
+    "nowy": "Stack hiệu dụng chia cho pot ở đầu một street (để lên kế hoạch cho ván bài, người ta tính ở flop); cho biết stack sâu đến mức nào so với pot (SPR càng thấp, mọi thứ càng nhanh vào pot).",
+    "waga": "ŚR",
+    "powod": "terms-def spr (linia 108): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Phần nhỏ nhất của range phải phòng thủ trước một bet để bluff của đối thủ bằng tay bài không có cơ hội không tự động có lời.",
+    "nowy": "Phần nhỏ nhất của range phải phòng thủ trước một lần cược để bluff của đối thủ bằng tay bài không có cơ hội không tự động có lời.",
+    "waga": "ŚR",
+    "powod": "terms-def mdf (linia 109): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Tần suất đối thủ phải fold để bluff bằng tay bài không có cơ hội hòa vốn; phụ thuộc vào kích thước bet so với pot.",
+    "nowy": "Tần suất đối thủ phải bỏ bài để bluff bằng tay bài không có cơ hội hòa vốn; phụ thuộc vào kích thước lần cược so với pot.",
+    "waga": "ŚR",
+    "powod": "terms-def alpha (linia 110): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Chiến lược đơn giản hóa cho short stack: trước flop chỉ chọn all-in hoặc fold.",
+    "nowy": "Chiến lược đơn giản hóa cho short stack: trước flop chỉ chọn all-in hoặc bỏ bài.",
+    "waga": "ŚR",
+    "powod": "terms-def push-fold (linia 123): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Nước all-in, thường là một lần raise trước flop.",
+    "nowy": "Nước all-in, thường là một lần tố trước flop.",
+    "waga": "ŚR",
+    "powod": "terms-def shove (linia 124): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Vùng M rất thấp: chủ yếu chỉ còn all-in hoặc fold.",
+    "nowy": "Vùng M rất thấp: chủ yếu chỉ còn all-in hoặc bỏ bài.",
+    "waga": "ŚR",
+    "powod": "terms-def red-zone (linia 131): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Phần giá trị của một nước đi đến từ khả năng đối thủ fold.",
+    "nowy": "Phần giá trị của một nước đi đến từ khả năng đối thủ bỏ bài.",
+    "waga": "ŚR",
+    "powod": "terms-def fold-equity (linia 135): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Nguyên tắc rằng để call một lần open cần tay bài mạnh hơn so với tự mình open.",
+    "nowy": "Nguyên tắc rằng để theo một lần mở cược cần tay bài mạnh hơn so với tự mình mở cược.",
+    "waga": "ŚR",
+    "powod": "terms-def gap-concept (linia 136): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Call một bet mà người trước bạn đã call.",
+    "nowy": "Theo một lần cược mà người trước bạn đã theo.",
+    "waga": "ŚR",
+    "powod": "terms-def overcall (linia 145): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Chip trong pot của những người chơi không còn khả năng thắng pot, ví dụ những người đã fold.",
+    "nowy": "Chip trong pot của những người chơi không còn khả năng thắng pot, ví dụ những người đã bỏ bài.",
+    "waga": "ŚR",
+    "powod": "terms-def dead-money (linia 147): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Bỏ toàn bộ stack vào pot trong một ván, tức là all-in hoặc call all-in.",
+    "nowy": "Bỏ toàn bộ stack vào pot trong một ván, tức là all-in hoặc theo all-in.",
+    "waga": "ŚR",
+    "powod": "terms-def stack-off (linia 148): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi tự nguyện bỏ tiền vào pot trước flop (call hoặc raise).",
+    "nowy": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi tự nguyện bỏ tiền vào pot trước flop (theo hoặc tố).",
+    "waga": "ŚR",
+    "powod": "terms-def vpip (linia 151): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi raise trước flop.",
+    "nowy": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi tố trước flop.",
+    "waga": "ŚR",
+    "powod": "terms-def pfr (linia 152): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Lối chơi chặt và hung hăng: ít tay bài nhưng chơi hung hăng (bet và raise).",
+    "nowy": "Lối chơi chặt và hung hăng: ít tay bài nhưng chơi hung hăng (cược và tố).",
+    "waga": "ŚR",
+    "powod": "terms-def tag (linia 156): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Cách gọi miệt thị người chơi call rất thường xuyên, kể cả với tay bài yếu hoặc bài chờ.",
+    "nowy": "Cách gọi miệt thị người chơi theo rất thường xuyên, kể cả với tay bài yếu hoặc bài chờ.",
+    "waga": "ŚR",
+    "powod": "terms-def calling-station (linia 159): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/terms-def.yaml",
+    "stary": "Cách gọi miệt thị người chơi rất lỏng và hung hăng, bet và raise với bất cứ bài gì.",
+    "nowy": "Cách gọi miệt thị người chơi rất lỏng và hung hăng, cược và tố với bất cứ bài gì.",
+    "waga": "ŚR",
+    "powod": "terms-def maniac (linia 160): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+    "grupa": "vi-T1"
+  }
+]

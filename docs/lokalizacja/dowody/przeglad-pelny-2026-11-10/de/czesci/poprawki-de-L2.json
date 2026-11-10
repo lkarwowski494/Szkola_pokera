@@ -1,0 +1,344 @@
+[
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l1-3bet.md",
+    "stary": "(hauptsächlich aus sehr starken",
+    "nowy": "(hauptsächlich bestehend aus sehr starken",
+    "waga": "NISKIE",
+    "powod": "m4-l1:97: brak imiesłowu (pl „złożonym głównie z”); nawias bez czasownika jest eliptyczny obok „(von den stärksten Händen abwärts aufgebaut)”",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+    "stary": "Gesuitete Hände",
+    "nowy": "Suited Hände",
+    "waga": "ŚR",
+    "powod": "m4-l2:73: termin „suited” (terms-nazwy: suited; l1, l3, l4 piszą „suited”), tu „gesuitet”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+    "stary": "und gesuitete {{t:connectors|Connectors}}. Mittlere",
+    "nowy": "und suited {{t:connectors|Connectors}}. Mittlere",
+    "waga": "ŚR",
+    "powod": "m4-l2:92: termin „suited” (terms-nazwy: suited; l1, l3, l4 piszą „suited”), tu „gesuitet”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+    "stary": "sowie gesuitete {{t:connectors|Connectors}}",
+    "nowy": "sowie suited {{t:connectors|Connectors}}",
+    "waga": "ŚR",
+    "powod": "m4-l2:92: termin „suited” (terms-nazwy: suited; l1, l3, l4 piszą „suited”), tu „gesuitet”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l2-obrona-bb.md",
+    "stary": "Du verlierst Wert",
+    "nowy": "Du verlierst Value",
+    "waga": "NISKIE",
+    "powod": "m4-l2:46: pl „wartość” = termin value (terms-nazwy: Value; l3:58 „weder Value”, egzamin q9 „verschenkt Value”); „Wert” niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l3-wobec-3betu.md",
+    "stary": "{{t:initiative|Initiative}} und Wert",
+    "nowy": "{{t:initiative|Initiative}} und Value",
+    "waga": "NISKIE",
+    "powod": "m4-l3:37: pl „wartość” = termin value (terms-nazwy: Value); „Wert” niespójne z resztą",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l3-wobec-3betu.md",
+    "stary": "{{t:straight|Straights}}",
+    "nowy": "{{t:straight|Straßen}}",
+    "waga": "ŚR",
+    "powod": "m4-l3:46: termin straight: terms-nazwy „Straße”, l1 „eine Straße”; tu „Straight”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/lessons/m4-l3-wobec-3betu.md",
+    "stary": "einen {{t:straight|Straight}}",
+    "nowy": "eine {{t:straight|Straße}}",
+    "waga": "ŚR",
+    "powod": "m4-l3:112: termin straight: terms-nazwy „Straße”, l1 „eine Straße”; tu „Straight”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Die größere Größe",
+    "nowy": "Die größere Size",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:12: niezręczne powtórzenie „größere Größe”; l1:26 w tym samym zdaniu ma „Die größere Size”",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "also {{t:raise|erhöhst}} du auf etwa",
+    "nowy": "also {{t:raise|raist}} du auf etwa",
+    "waga": "ŚR",
+    "powod": "egzamin m4:12: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "{{t:raise|erhöhst}} du auf {{n:pf.3bet.oop-total}}",
+    "nowy": "{{t:raise|raist}} du auf {{n:pf.3bet.oop-total}}",
+    "waga": "ŚR",
+    "powod": "egzamin m4:13: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "noch {{t:raise|erhöhen}}",
+    "nowy": "noch {{t:raise|raisen}}",
+    "waga": "ŚR",
+    "powod": "egzamin m4:14: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "{{t:raise|erhöht}} er weniger",
+    "nowy": "{{t:raise|raist}} er kleiner",
+    "waga": "ŚR",
+    "powod": "egzamin m4:53: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie (l2:92 „raist du kleiner”)",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "der Button hat auf {{n:pf.3bet.ip-total}} {{t:raise|erhöht}}",
+    "nowy": "der Button hat auf {{n:pf.3bet.ip-total}} {{t:raise|geraist}}",
+    "waga": "ŚR",
+    "powod": "egzamin m4:68: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "{{n:pf.3bet.oop-total}} {{t:raise|erhöht}}",
+    "nowy": "{{n:pf.3bet.oop-total}} {{t:raise|geraist}}",
+    "waga": "ŚR",
+    "powod": "egzamin m4:78: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "der {{t:cutoff|CO}} hat auf {{n:pf.3bet.ip-total}} {{t:raise|erhöht}}",
+    "nowy": "der {{t:cutoff|CO}} hat auf {{n:pf.3bet.ip-total}} {{t:raise|geraist}}",
+    "waga": "ŚR",
+    "powod": "egzamin m4:88: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "{{t:raise|erhöhst}} du? Gib",
+    "nowy": "{{t:raise|raist}} du? Gib",
+    "waga": "ŚR",
+    "powod": "egzamin m4:98: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "{{n:exam.m4.iso.three}} {{t:raise|erhöhen}}",
+    "nowy": "{{n:exam.m4.iso.three}} {{t:raise|raisen}}",
+    "waga": "ŚR",
+    "powod": "egzamin m4:109: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Limper {{t:raise|erhöhst}} du vor allem",
+    "nowy": "Limper {{t:raise|raist}} du vor allem",
+    "waga": "ŚR",
+    "powod": "egzamin m4:109: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "{{n:pf.iso.one-limper}} {{t:raise|erhöhen}}",
+    "nowy": "{{n:pf.iso.one-limper}} {{t:raise|raisen}}",
+    "waga": "ŚR",
+    "powod": "egzamin m4:110: forma terminu raise: w lekcjach m4 wszędzie „raisen/raist”, w egzaminie „erhöhen”: jedna nazwa na jedno pojęcie",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "A9 in verschiedenen Farben",
+    "nowy": "A9 offsuit",
+    "waga": "ŚR",
+    "powod": "egzamin m4:33: termin „offsuit” (terms-nazwy; lekcje m4: „offsuit”, zapis rąk AJo–A9o), tu opisowo „in verschiedenen Farben”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Asse in verschiedenen Farben (AJo–A9o)",
+    "nowy": "Offsuit-Asse (AJo–A9o)",
+    "waga": "ŚR",
+    "powod": "egzamin m4:33: termin „offsuit” (terms-nazwy; lekcje m4: „offsuit”, zapis rąk AJo–A9o), tu opisowo „in verschiedenen Farben”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "AT in verschiedenen Farben ist",
+    "nowy": "AT offsuit ist",
+    "waga": "ŚR",
+    "powod": "egzamin m4:71: termin „offsuit” (terms-nazwy; lekcje m4: „offsuit”, zapis rąk AJo–A9o), tu opisowo „in verschiedenen Farben”: niespójne",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Ein 3-Bet gibt dir",
+    "nowy": "Eine 3-Bet gibt dir",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:23: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "ein typisches 3-Bet",
+    "nowy": "eine typische 3-Bet",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:29: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "und ein 3-Bet mit ihnen verträgt ein 4-Bet schlecht",
+    "nowy": "und eine 3-Bet mit ihnen verträgt eine 4-Bet schlecht",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:34: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "also beträgt das 3-Bet etwa",
+    "nowy": "also beträgt die 3-Bet etwa",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:52: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "ist ein 3-Bet gegen eine",
+    "nowy": "ist eine 3-Bet gegen eine",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:54: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Du bekommst ein 3-Bet von",
+    "nowy": "Du bekommst eine 3-Bet von",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:59: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "würde das 3-Bet des Gegners",
+    "nowy": "würde die 3-Bet des Gegners",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:61: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "du gegen ein 3-Bet.",
+    "nowy": "du gegen eine 3-Bet.",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:71: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Ein 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. ATo",
+    "nowy": "Eine 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. ATo",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:73: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Ein 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. 99",
+    "nowy": "Eine 4-Bet {{t:value|für Value}} spielst du meist mit AA, KK und AK. 99",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:83: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "beträgt das 4-Bet etwa",
+    "nowy": "beträgt die 4-Bet etwa",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:91: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "des 3-Bets: ",
+    "nowy": "der 3-Bet: ",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:91: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "ein normales 4-Bet bezahlen",
+    "nowy": "eine normale 4-Bet bezahlen",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:93: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "Nach einem 4-Bet von etwa",
+    "nowy": "Nach einer 4-Bet von etwa",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:93: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  },
+  {
+    "jezyk": "de",
+    "cel": "content/de/exams/m4.yaml",
+    "stary": "des 3-Bets bringst",
+    "nowy": "der 3-Bet bringst",
+    "waga": "NISKIE",
+    "powod": "egzamin m4:93: rodzaj gramatyczny: 3-Bet/4-Bet są żeńskie (terms-nazwy: r. f; lekcje m4: „eine 3-Bet”), tu rodzaj nijaki",
+    "grupa": "de-L2"
+  }
+]
