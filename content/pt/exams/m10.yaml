@@ -1,0 +1,82 @@
+module: m10
+drills:
+  - kind: choice
+    id: m10.exam.q1
+    family: m10.hud.stats
+    rules: [R-M10-001]
+    prompt: "Todos {{t:fold|desistiram}} até ao adversário no {{t:small-blind|small blind}}. O adversário completa até ao {{t:big-blind|big blind}} e, quando o {{t:big-blind}} {{t:raise|aumenta}}, {{t:fold|desiste}}. Como é que esta mão altera as estatísticas dele?"
+    options:
+      - { text: "Aumenta o {{t:vpip}}, mas não o {{t:pfr}}", correct: true, why: "Completar até ao {{t:big-blind|big blind}} é colocar voluntariamente {{t:chips|fichas}} além do blind obrigatório, por isso conta para o {{t:vpip}}. O adversário não {{t:raise|aumentou}}, por isso o {{t:pfr}} não sobe." }
+      - { text: "Não altera nenhuma, porque o {{t:small-blind|small blind}} é um pagamento obrigatório", why: "Obrigatório é apenas o próprio blind. Completar até ao {{t:big-blind|big blind}} completo já é uma decisão do adversário, ou seja, um pagamento voluntário, que aumenta o {{t:vpip}}." }
+      - { text: "Aumenta o {{t:vpip}} e o {{t:pfr}}", why: "O {{t:pfr}} só sobe quando o próprio adversário {{t:raise|aumenta}} antes do flop. Aqui quem {{t:raise|aumentou}} foi o {{t:big-blind}}, e o adversário apenas completou e {{t:fold|desistiu}}." }
+      - { text: "Não aumenta o {{t:vpip}}, porque o adversário {{t:fold|desistiu}} antes do flop de qualquer forma", why: "O {{t:vpip}} conta os pagamentos voluntários, e não se a mão chegou ao flop. O adversário completou por vontade própria, por isso a mão conta para o {{t:vpip}}." }
+  - kind: numeric
+    id: m10.exam.q2
+    family: m10.hud.sample
+    rules: [R-M10-002]
+    prompt: "O adversário enfrentou um c-bet {{n:exam.m10.se.n}} vezes e {{t:fold|desistiu}} em {{n:exam.m10.se.p}} delas. Qual é o erro padrão do fold to c-bet dele em pontos percentuais? Introduza um número."
+    answer: exam.m10.se
+    explanation: "√(p × (1 − p) ÷ n) = √({{n:exam.m10.se.p}} × {{n:exam.m10.se.q}} ÷ {{n:exam.m10.se.n}}) ≈ {{n:exam.m10.se}}. Contam-se as oportunidades (os c-bets que enfrentou), e não as mãos. Com cerca de {{n:var.conf95}} de confiança, o verdadeiro fold to c-bet situa-se dentro de ± {{n:var.z95}} × {{n:exam.m10.se}} ≈ ± {{n:exam.m10.ci}}, ou seja, entre cerca de {{n:exam.m10.ci.low}} e {{n:exam.m10.ci.high}}."
+  - kind: choice
+    id: m10.exam.q3
+    family: m10.hud.sample
+    rules: [R-M10-003]
+    prompt: "Após {{n:exam.m10.mid.hands}} mãos, o adversário tem {{t:vpip}} {{n:exam.m10.mid.vpip}}, {{t:pfr}} {{n:exam.m10.mid.pfr}} e fold to 3-bet {{n:exam.m10.mid.f3b}}. Em quais destes números já pode basear as suas decisões?"
+    options:
+      - { text: "No {{t:vpip}} e no {{t:pfr}}; o fold to 3-bet ainda é acaso", correct: true, why: "O {{t:vpip}} e o {{t:pfr}} leem-se após cerca de {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} mãos, mas o fold to 3-bet só após cerca de {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}, porque a oportunidade para ele só surge após uma {{t:open|abertura}} e um 3-bet. Em {{n:exam.m10.mid.hands}} mãos, são apenas algumas oportunidades." }
+      - { text: "Em todos os três, porque a amostra ultrapassa {{n:hud.hands.vpip.low}} mãos", why: "O limiar de cerca de {{n:hud.hands.vpip.low}} mãos aplica-se às estatísticas que têm oportunidade em todas as mãos. O fold to 3-bet tem várias vezes menos oportunidades e precisa de cerca de {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} mãos." }
+      - { text: "Em nenhum: antes de mil mãos, as estatísticas são aleatórias", why: "São aleatórias abaixo de cerca de {{n:hud.hands.random}} mãos. Após {{n:exam.m10.mid.hands}} mãos, o {{t:vpip}} e o {{t:pfr}} já dizem alguma coisa." }
+      - { text: "Apenas no fold to 3-bet, porque é o mais extremo", why: "Um número extremo de uma amostra pequena é mais vezes acaso do que uma leitura. A fiabilidade depende do número de oportunidades, e o fold to 3-bet é o que tem menos aqui." }
+  - kind: choice
+    id: m10.exam.q4
+    family: m10.types.adjust
+    rules: [R-M10-007]
+    prompt: "Um {{t:nit|nit}} ({{t:vpip}} {{n:exam.m10.nit.vpip}}, {{t:pfr}} {{n:exam.m10.nit.pfr}}, {{n:exam.m10.nit.hands}} mãos) {{t:open|abre}} de {{t:utg|UTG}}. Está no Button com uma mão da parte inferior do {{t:range|range}} com que, na base do módulo 4, {{t:call|paga}} uma {{t:open|abertura}} destas. O que faz?"
+    options:
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "Um jogador que joga tão poucas mãos {{t:raise|aumenta}} sobretudo com as mais fortes. As mãos da parte inferior do seu {{t:range|range}} de {{t:call|pagamento}} estão mais vezes dominadas contra ele, por isso {{t:fold|desiste}} com elas mais vezes do que na base." }
+      - { text: "{{t:call|Pago}} como na base, porque tenho {{t:position|posição}}", why: "A {{t:position|posição}} não corrige uma mão dominada. A base pressupõe um {{t:range|range}} de {{t:open|abertura}} típico, e o {{t:range|range}} deste jogador é muito mais forte." }
+      - { text: "Faço 3-bet como {{t:bluff}}, porque o {{t:nit}} só joga mãos fortes e vai {{t:fold|desistir}}", why: "O {{t:range|range}} de {{t:open|abertura}} dele é composto sobretudo pelas mãos mais fortes, e essas raramente {{t:fold|desistem}} perante um 3-bet. Aqui, o {{t:bluff|bluff}} vai contra a parte mais forte do jogo dele." }
+  - kind: choice
+    id: m10.exam.q5
+    family: m10.types.adjust
+    rules: [R-M10-008]
+    prompt: "O adversário é um {{t:maniac|maníaco}}: {{t:vpip}} {{n:exam.m10.maniac.vpip}}, {{t:pfr}} {{n:exam.m10.maniac.pfr}}, {{n:exam.m10.long.hands}} mãos. Fez {{t:set|set}} no flop e o adversário {{t:bet|aposta}}. O que faz?"
+    options:
+      - { text: "{{t:call|Pago}} e deixo-o continuar a apostar", correct: true, why: "Com uma mão muito forte, deixa o {{t:maniac|maníaco}} apostar: as apostas dele incluem muitos {{t:bluff|bluffs}} e mãos fracas, e um {{t:call}} mantém-nas em jogo para as {{t:street|rondas}} seguintes." }
+      - { text: "{{t:raise|Aumento}} logo o máximo possível", why: "Um {{t:raise|aumento}} faz com que os {{t:bluff|bluffs}} e as mãos fracas dele {{t:fold|desistam}} antes de investirem mais. Contra um jogador que aposta por iniciativa própria, ganha mais deixando-o fazê-lo." }
+      - { text: "{{t:fold|Desisto}}, porque um {{t:pfr}} alto significa mãos fortes", why: "Um {{t:pfr}} alto com um {{t:vpip}} tão alto significa que ele {{t:raise|aumenta}} com quase qualquer mão, e não que tem mãos fortes. Aqui, um {{t:set}} é uma das melhores mãos." }
+  - kind: choice
+    id: m10.exam.q6
+    family: m10.types.adjust
+    rules: [R-M10-006]
+    prompt: "River. O adversário é um {{t:recreational|jogador recreativo}} passivo: {{t:vpip}} {{n:exam.m10.rec.vpip}}, {{t:pfr}} {{n:exam.m10.rec.pfr}}, {{n:exam.m10.long.hands}} mãos. {{t:check|Passa}}. Tem uma mão com que, na base do módulo 8, aqui umas vezes aposta {{t:value|por valor}} e outras vezes {{t:check|passa}}. O que faz?"
+    options:
+      - { text: "Aposto {{t:value|por valor}}", correct: true, why: "Um jogador destes {{t:call|paga}} até ao fim com mais mãos fracas do que o adversário da base, por isso mais dos {{t:call|pagamentos}} dele são mãos piores do que a sua. Contra ele, aposta {{t:value|por valor}} também mãos mais finas." }
+      - { text: "{{t:check|Passo}}, porque um jogador passivo só {{t:call|paga}} com mãos boas", why: "É o contrário: um jogador com uma grande diferença {{t:vpip}} − {{t:pfr}} joga muitas mãos e {{t:call|paga}} com elas até ao fim. É precisamente essa a razão para apostar mais, e não menos." }
+      - { text: "Faço o mesmo que na base: umas vezes aposto, outras vezes faço {{t:check}}", why: "A base pressupõe um adversário que se defende corretamente. Este adversário {{t:call|paga}} demasiadas vezes, por isso uma mão no limite desloca-se para uma aposta {{t:value|por valor}}." }
+  - kind: choice
+    id: m10.exam.q7
+    family: m10.base.alpha
+    rules: [R-M10-010]
+    prompt: "O adversário tem fold to c-bet {{n:exam.m10.fcb}} após {{n:exam.m10.long.hands}} mãos. Falhou o flop e não tem {{t:draw|draw}}. Que c-bet sem mão é imediatamente lucrativo?"
+    options:
+      - { text: "Apenas o pequeno, de 1/3 do {{t:pot|pote}}", correct: true, why: "Um c-bet de 1/3 do {{t:pot|pote}} fica em equilíbrio com {{n:alpha.cbet.small}} de {{t:fold|desistências}}, e um de 3/4 do {{t:pot|pote}} só com {{n:alpha.cbet.big}}. {{n:exam.m10.fcb}} só chega para o pequeno. O fold to c-bet junta todos os tamanhos e mesas, por isso isto é uma aproximação." }
+      - { text: "Ambos, porque o adversário {{t:fold|desiste}} muitas vezes", why: "Um c-bet grande arrisca mais e precisa de mais de {{n:alpha.cbet.big}} de {{t:fold|desistências}}. O adversário {{t:fold|desiste}} em {{n:exam.m10.fcb}}, ou seja, demasiado raramente." }
+      - { text: "Apenas o grande, porque força mais a {{t:fold|desistência}}", why: "O fold to c-bet do {{t:hud|HUD}} não indica que o adversário {{t:fold|desiste}} mais vezes perante uma aposta grande. Com {{n:exam.m10.fcb}} de {{t:fold|desistências}}, um c-bet grande sem mão perde, porque precisa de {{n:alpha.cbet.big}}." }
+      - { text: "Nenhum, porque o adversário {{t:fold|desiste}} em menos de metade dos casos", why: "O limiar não é metade, mas sim aposta ÷ ({{t:pot}} + aposta). Para um c-bet de 1/3 do {{t:pot|pote}}, é {{n:alpha.cbet.small}}, por isso {{n:exam.m10.fcb}} chega." }
+  - kind: choice
+    id: m10.exam.q8
+    family: m10.base.3bet
+    rules: [R-M10-011]
+    prompt: "O adversário tem fold to 3-bet {{n:exam.m10.f3b.low}} após {{n:exam.m10.long.hands}} mãos. Ele {{t:open|abre}} do {{t:cutoff|CO}}, e está no Button com uma mão com que, na base, faz 3-bet como {{t:bluff}}. O que altera?"
+    options:
+      - { text: "Deixo de fazer 3-bet com esta mão; contra ele, faço 3-bet sobretudo com mãos fortes", correct: true, why: "Um 3-bet para {{n:pf.3bet.ip-total}} só é lucrativo sem mão com mais de {{n:alpha.vs-3bet-ip-size}} de {{t:fold|desistências}}, e este adversário {{t:fold|desiste}} em {{n:exam.m10.f3b.low}}. O {{t:bluff|bluff}} jogaria um {{t:pot|pote}} grande com uma mão fraca, enquanto as mãos fortes recebem mais {{t:call|pagamentos}} dele: {{t:range}} {{t:linear|linear}}." }
+      - { text: "Faço 3-bet com esta mão mais vezes, porque o adversário é fraco", why: "Aqui, a fraqueza do adversário é que raramente {{t:fold|desiste}}. O {{t:bluff|bluff}} vive das {{t:fold|desistências}}, por isso perde contra ele." }
+      - { text: "Nada: o fold to 3-bet ainda não é fiável", why: "Após {{n:exam.m10.long.hands}} mãos, já é: o fold to 3-bet lê-se após cerca de {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} mãos." }
+  - kind: numeric
+    id: m10.exam.q9
+    family: m10.rake.math
+    rules: [R-M10-015]
+    prompt: "Há {{n:ex.pot}} no {{t:pot|pote}} e o adversário {{t:bet|aposta}} o {{t:pot|pote}} inteiro: {{n:ex.bet.pot}}. A sala cobra {{n:rake.ex.pct}} do {{t:pot|pote}} e o {{t:rake-cap|limite}} está fora de alcance. De quanta equity precisa para {{t:call|pagar}}? Introduza uma percentagem."
+    answer: exam.m10.rake.eq
+    explanation: "O {{t:pot|pote}} após o {{t:call|pagamento}} é {{n:exam.m10.rake.total}} e, depois de descontado o {{t:rake|rake}}, {{n:exam.m10.rake.after}}. Paga {{n:ex.bet.pot}}: {{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}} em vez de {{n:eq.bet-pot}} sem {{t:rake|rake}}."

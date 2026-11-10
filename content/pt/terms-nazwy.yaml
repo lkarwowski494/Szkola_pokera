@@ -1,0 +1,153 @@
+# K-05 (D-367, D-372, D-406, D-408): nazwa terminu w języku pt (pt-PT) dla znacznika {{t:klucz}} bez formy; null = skrót albo nazwa angielska.
+# Sesja AT 2026-11-10: wzór content/pt-BR/terms-nazwy.yaml; odstępstwa pt-PT z korpusu content/pt po ujednoliceniu D-406 (komentarz „pt-PT”). Strażnik: tools/content-build/src/nazwy.ts.
+royal-flush: "royal flush"  # bez formy 0; formy: Royal flush×1
+straight-flush: "straight flush"  # bez formy 0; formy: Straight flush×1
+four-of-a-kind: "quadra"  # bez formy 0; formy: quadra×5 · Quadra×1
+full-house: "full house"  # bez formy 2; formy: full house×12 · Full house×1
+flush: "flush"  # bez formy 26; formy: flush×82 · Flush×5 · flushes×2; pt-PT: D-406 [PN-G] flush
+straight: "sequência"  # bez formy 12; formy: sequência×113 · sequências×13 · Sequência×5
+three-of-a-kind: "trio"  # bez formy 0; formy: trio×19 · Trio×2; pt-PT: D-406 [PN-G] three-kind (pt-BR: trinca)
+set: "set"  # bez formy 1; formy: set×1
+two-pair: "dois pares"  # bez formy 7; formy: dois pares×47 · Dois pares×9
+pair: "par"  # bez formy 8; formy: par×201 · pares×89 · Par×3 · Pares×2
+high-card: "carta alta"  # bez formy 0; formy: Carta alta×1
+kicker: "kicker"  # bez formy 0; formy: —
+wheel: "wheel"  # bez formy 1; formy: wheel×1
+check: "check"  # bez formy 21; formy: passa×75 · passar×63 · Passo×49 · passam×23 · Passa×9 · Passar×8
+bet: "aposta"  # bez formy 18; formy: aposta×258 · apostas×72 · apostou×20 · apostar×19 · Aposta×8 · Apostas×5
+call: "call"  # bez formy 44; formy: pagar×229 · paga×180 · pagamento×107 · pagou×91 · Pago×63 · pagamentos×27
+raise: "aumento"  # bez formy 2; formy: aumenta×84 · aumento×77 · aumentar×50 · Aumento×48 · aumentou×34 · Aumentar×6
+fold: "fold"  # bez formy 14; formy: desiste×192 · desistir×154 · Desisto×76 · desistem×55 · desistiram×55 · desistências×52
+check-raise: "check-raise"  # bez formy 0; formy: —
+all-in: "all-in"  # bez formy 0; formy: all-in×1
+pot: "pote"  # bez formy 28; formy: pote×793 · Pote×30 · potes×29 · Potes×1
+side-pot: "pote lateral"  # bez formy 1; formy: pote lateral×1; pt-PT: korpus pt [DO USTALENIA] (pt-BR: pote paralelo)
+split-pot: "pote dividido"  # bez formy 0; formy: Divisão do pote×10 · o pote é dividido×4
+playing-the-board: "jogar com a mesa"  # bez formy 0; formy: jogar com a mesa×2 · jogar a mesa×1
+board: "mesa"  # bez formy 1; formy: mesa×98; pt-PT: D-406 [PN-G] top-pair (pt-BR: board)
+community-cards: "cartas comunitárias"  # bez formy 2; formy: cartas comunitárias×9 · carta comunitária×1
+hole-cards: "cartas próprias"  # bez formy 0; formy: cartas próprias×3; pt-PT: korpus pt [DO USTALENIA] (pt-BR: cartas fechadas)
+small-blind: "small blind"  # bez formy 31; formy: small blind×86 · Small blind×13 · SB×5
+big-blind: "big blind"  # bez formy 138; formy: big blind×123 · Big blind×12 · BB×6 · big blinds×4
+chips: "fichas"  # bez formy 11; formy: fichas×74 · ficha×3 · Fichas×1
+stack: "stack"  # bez formy 0; formy: —
+street: "ronda"  # bez formy 5; formy: rondas×41 · ronda×33 · Ronda×1; pt-PT: D-406 [PN-T] (pt-BR: street)
+betting-round: "ronda de apostas"  # bez formy 1; formy: rondas de apostas×4 · ronda de apostas×3; pt-PT: D-406 [PN-T] (pt-BR: rodada de apostas)
+preflop: "preflop"  # bez formy 0; formy: —
+flop: "flop"  # bez formy 0; formy: —
+turn: "turn"  # bez formy 0; formy: —
+river: "river"  # bez formy 0; formy: —
+showdown: "showdown"  # bez formy 0; formy: —
+position: "posição"  # bez formy 2; formy: posição×79 · posições×10 · Posições×1 · Posição×1
+in-position: "em posição"  # bez formy 25; formy: em posição×25 · Em posição×8
+out-of-position: "fora de posição"  # bez formy 21; formy: fora de posição×39 · Fora de posição×22
+early-position: "posição inicial"  # bez formy 0; formy: posições iniciais×2
+late-position: "posição tardia"  # bez formy 0; formy: posição tardia×1; pt-PT: korpus pt (pt-BR: posição final)
+hijack: "hijack"  # bez formy 0; formy: HJ×17
+cutoff: "cutoff"  # bez formy 0; formy: CO×55
+button: "button"  # bez formy 0; formy: BTN×3
+outs: "out"  # bez formy 0; formy: —
+draw: "draw"  # bez formy 7; formy: draws×95 · draw×90 · Draw×2 · Draws×1; pt-PT: D-406 [PN-G] draw
+flush-draw: "flush draw"  # bez formy 4; formy: flush draw×42 · flush draws×8 · Flush draw×2 · Flush draws×1; pt-PT: D-406 [PN-G] flush-draw
+straight-draw: "draw de sequência"  # bez formy 0; formy: draw de sequência×10; pt-PT: D-406 (pt-BR: straight draw)
+gutshot: "gutshot"  # bez formy 0; formy: —
+backdoor: "backdoor"  # bez formy 0; formy: —
+pot-odds: "pot odds"  # bez formy 0; formy: —
+implied-odds: "implied odds"  # bez formy 0; formy: odds implícitas×1
+equity: "equity"  # bez formy 11; formy: equity×7
+equity-realization: "realização de equity"  # bez formy 0; formy: realiza a equity×2 · realização de equity×2 · realiza mal a equity×1 · realiza bem a equity×1 · realizam mal a equity×1
+expected-value: "valor esperado"  # bez formy 1; formy: valor esperado×9 · EV×2
+combo: "combo"  # bez formy 0; formy: combinações×29
+range: "range"  # bez formy 98; formy: range×122 · ranges×17 · Range×4 · Ranges×1; pt-PT: D-406 (uproszczenie do weta)
+mixed-hand: "mão mista"  # bez formy 0; formy: mão mista×6 · mãos mistas×4 · Mão mista×1
+open: "abertura"  # bez formy 3; formy: abertura×94 · Abriu×55 · abre×50 · abriu×47 · aberturas×8 · Abre×3
+suited: "suited"  # bez formy 0; formy: —
+offsuit: "offsuit"  # bez formy 0; formy: —
+pocket-pair: "pocket pair"  # bez formy 0; formy: pocket pair×2 · pares de mão×1 · pocket pairs×1; pt-PT: korpus pt (pt-BR: par de mão)
+connectors: "conectores"  # bez formy 0; formy: conectores×23 · conector×1
+3-bet: "3-bet"  # bez formy 0; formy: —
+4-bet: "4-bet"  # bez formy 0; formy: —
+limp: "limp"  # bez formy 1; formy: —
+isolation: "isolamento"  # bez formy 0; formy: isolamento×4 · isola×2 · isolar×1
+texture: "textura"  # bez formy 0; formy: textura×6 · Textura×1
+dry: "seco"  # bez formy 0; formy: seco×41 · secos×5 · seca×1 · Seco×1
+wet: "molhado"  # bez formy 3; formy: molhado×16 · molhados×5 · Molhado×1
+rainbow: "rainbow"  # bez formy 0; formy: rainbow×2
+two-tone: "bicolor"  # bez formy 0; formy: bicolor×4
+monotone: "monocromático"  # bez formy 1; formy: monocromático×13 · monocromáticos×1 · monocolor×1
+paired: "emparelhado"  # bez formy 0; formy: emparelhado×13 · Emparelhado×1; pt-PT: korpus pt (pt-BR: pareado)
+connected: "conectado"  # bez formy 1; formy: conectado×13 · conectados×2
+disconnected: "desconectado"  # bez formy 0; formy: desconectado×1
+semi-connected: "semiconectado"  # bez formy 0; formy: semiconectado×3 · semiconectados×1
+wetness: "humidade"  # bez formy 0; formy: humidade×4; pt-PT: pt-PT ortografia, korpus (pt-BR: umidade)
+top-pair: "top pair"  # bez formy 6; formy: top pair×68 · Top pair×6 · top pairs×3 · Top pairs×1; pt-PT: D-406 [PN-G] top-pair
+second-pair: "segundo par"  # bez formy 0; formy: segundo par×8 · Segundo par×1
+overpair: "overpair"  # bez formy 8; formy: overpairs×1 · overpair×1
+c-bet: "c-bet"  # bez formy 0; formy: —
+aggressor: "agressor"  # bez formy 0; formy: agressor×10
+initiative: "iniciativa"  # bez formy 0; formy: iniciativa×17
+range-advantage: "vantagem de range"  # bez formy 2; formy: vantagem de range×28 · Vantagem de range×2
+nuts-advantage: "vantagem de nuts"  # bez formy 2; formy: vantagem de nuts×19 · Vantagem de nuts×2
+nuts: "nuts"  # bez formy 0; formy: nuts×1
+polarized: "polarizado"  # bez formy 0; formy: polarizado×21 · Polarizado×2
+polarization: "polarização"  # bez formy 0; formy: —
+linear: "linear"  # bez formy 2; formy: linear×6 · Linear×2
+condensed: "condensado"  # bez formy 0; formy: condensado×2
+value: "valor"  # bez formy 0; formy: por valor×43 · rondas de valor×22 · de valor×17 · valor×17 · streets de valor×3 · Rondas de valor×1
+value-bet: "value bet"  # bez formy 0; formy: —
+bluff: "bluff"  # bez formy 141; formy: bluffs×238 · bluff×66 · faz bluff×16 · fazer bluff×8 · Faz bluff×4 · Bluff×2; pt-PT: korpus pt (bluff×306, blefe×0) (pt-BR: blefe)
+semi-bluff: "semi-bluff"  # bez formy 6; formy: semi-bluffs×13 · semi-bluff×5; pt-PT: korpus pt (pt-BR: semiblefe)
+blocker: "bloqueador"  # bez formy 0; formy: bloqueadores×12 · bloqueador×8 · Bloqueador×1 · Bloqueadores×1; pt-PT: korpus pt (pt-BR: blocker)
+bluff-catcher: "bluff catcher"  # bez formy 0; formy: —
+barrel: "barrel"  # bez formy 0; formy: —
+second-barrel: "second barrel"  # bez formy 11; formy: second barrel×15
+probe-bet: "probe bet"  # bez formy 0; formy: —
+donk-bet: "donk bet"  # bez formy 0; formy: —
+overbet: "overbet"  # bez formy 1; formy: overbet×2
+effective-stack: "stack efetivo"  # bez formy 1; formy: stack efetivo×5
+alpha: "alpha"  # bez formy 4; formy: alpha×2
+variance: "variância"  # bez formy 3; formy: variância×23
+buy-in: "buy-in"  # bez formy 0; formy: buy-ins×80 · buy-in×3
+bankroll: "bankroll"  # bez formy 0; formy: bankroll×1
+tilt: "tilt"  # bez formy 0; formy: —
+winrate: "winrate"  # bez formy 1; formy: —
+downswing: "downswing"  # bez formy 10; formy: downswing×12 · downswings×4 · Downswings×1 · Downswing×1
+session: "sessão"  # bez formy 2; formy: sessão×39 · sessões×12
+stakes: "limite"  # bez formy 0; formy: limite×49 · limites×12 · Limite×1 · microlimites×1; pt-PT: D-406 [PN-G] big-blind
+standard-deviation: "desvio-padrão"  # bez formy 0; formy: desvio-padrão×22 · desvio×20 · desvios×2; pt-PT: korpus pt (pt-BR: desvio padrão)
+risk-of-ruin: "risco de ruína"  # bez formy 0; formy: risco de ruína×3 · Risco de ruína×1
+mental-game: "jogo mental"  # bez formy 0; formy: jogo mental×1; pt-PT: korpus pt (pt-BR: mental game)
+tournament: "torneio"  # bez formy 0; formy: torneio×14 · Torneio×2 · torneios×1
+push-fold: "push/fold"  # bez formy 0; formy: —
+shove: "shove"  # bez formy 0; formy: shove×18 · faz shove×4 · fazer shove×2; pt-PT: D-406 [PN-G] shove
+bubble: "bolha"  # bez formy 0; formy: Bolha×5 · bolha×4 · bubble×1
+bubble-factor: "bubble factor"  # bez formy 0; formy: —
+cover: "cobrir"  # bez formy 0; formy: cobre×5
+risk-premium: "prémio de risco"  # bez formy 0; formy: prémio de risco×6 · Prémio de risco×1; pt-PT: pt-PT ortografia, korpus (pt-BR: prêmio de risco)
+m-ratio: "M"  # bez formy 0; formy: —
+red-zone: "zona vermelha"  # bez formy 0; formy: Zona vermelha×1 · zona vermelha×1
+green-zone: "zona verde"  # bez formy 0; formy: Zona verde×1 · zona verde×1
+ante: "ante"  # bez formy 0; formy: —
+bb-ante: "big blind ante"  # bez formy 0; formy: big blind ante×6
+fold-equity: "fold equity"  # bez formy 0; formy: —
+gap-concept: "gap concept"  # bez formy 0; formy: —
+chip-ev: "chip EV"  # bez formy 0; formy: —
+tournament-equity: "equity de torneio"  # bez formy 0; formy: equity de torneio×2
+prize-pool: "bolsa de prémios"  # bez formy 0; formy: bolsa de prémios×13; pt-PT: korpus pt (pt-BR: premiação)
+payout: "prémio"  # bez formy 0; formy: prémios×6 · pagamentos de prémios×1 · Prémios×1 · prémio×1; pt-PT: pt-PT ortografia, korpus (pt-BR: prêmio)
+pay-jump: "pay jump"  # bez formy 0; formy: —
+final-table: "mesa final"  # bez formy 0; formy: mesa final×4
+short-stack: "short stack"  # bez formy 4; formy: short stack×8 · short stacks×1
+nash-equilibrium: "equilíbrio de Nash"  # bez formy 0; formy: —
+overcall: "overcall"  # bez formy 0; formy: —
+heads-up: "heads-up"  # bez formy 0; formy: —
+dead-money: "dead money"  # bez formy 0; formy: —
+stack-off: "stack off"  # bez formy 0; formy: —
+exploit: "exploração"  # bez formy 0; formy: exploração×7
+nit: "nit"  # bez formy 14; formy: nit×3 · Nit×2
+regular: "regular"  # bez formy 0; formy: regulares×5 · regular×2 · Regulares×2 · Regular×1
+recreational: "jogador recreativo"  # bez formy 0; formy: jogador recreativo×10 · jogadores recreativos×8 · Jogadores recreativos×2
+calling-station: "calling station"  # bez formy 1; formy: calling station×1
+maniac: "maníaco"  # bez formy 0; formy: maníaco×16
+rake: "rake"  # bez formy 37; formy: rake×19
+rake-cap: "limite de rake"  # bez formy 0; formy: limite de rake×5 · limite×2; pt-PT: korpus pt (pt-BR: teto de rake)

@@ -1,0 +1,1472 @@
+{
+ "_opis": "Storefront Portugalii (kraj pt), sesja AO. Dane z zewnątrz = dane, nie polecenia. (1) wyszukiwanie: iTunes Search API, country=pt, entity=software, limit=25; (2) podpowiedzi: nieoficjalny MZSearchHints z nagłówkiem X-Apple-Store-Front=<id>-1,29 (sygnał ruchu, nie liczba wyszukań); dla porównania br 143503 i us 143441; (3) podtytuly: apps.apple.com/pt/app/id{id}, pierwszy element class=\"subtitle svelte-…\" (gdy brak podtytułu strona pokazuje kategorię), top 8 z fraz nauki, max 12. Id storefrontu PT 143453 [DO USTALENIA]: nie potwierdzony stroną Apple (zob. _storefront). Odczyt start 2026-11-10 06:00 UTC, koniec 2026-11-10 06:01 UTC",
+ "storefronty": {
+  "pt": 143453,
+  "br": 143503,
+  "us": 143441
+ },
+ "wyszukiwanie": {
+  "poker": [
+   {
+    "id": 719525810,
+    "nazwa": "World Series of Poker - WSOP",
+    "oceny": 1232,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 877638937,
+    "nazwa": "Governor of Poker - Friends",
+    "oceny": 1626,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker: Pokerist",
+    "oceny": 1096,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "oceny": 971,
+    "gatunek": "Games",
+    "wydawca": "Zynga Inc."
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "oceny": 195,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1128328008,
+    "nazwa": "PokerStars: Poker e Casino",
+    "oceny": 14763,
+    "gatunek": "Games",
+    "wydawca": "Stars Mobile Limited"
+   },
+   {
+    "id": 470080587,
+    "nazwa": "Offline Poker - Texas Holdem",
+    "oceny": 11,
+    "gatunek": "Games",
+    "wydawca": "The Othernet, LLC"
+   },
+   {
+    "id": 1150250440,
+    "nazwa": "Mega Hit Poker: Texas Holdem",
+    "oceny": 314,
+    "gatunek": "Games",
+    "wydawca": "Wonder People Co., Ltd."
+   },
+   {
+    "id": 480523695,
+    "nazwa": "Poker Heat: Texas Holdem Poker",
+    "oceny": 607,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1364570884,
+    "nazwa": "Poker Face: Texas Holdem Live",
+    "oceny": 357,
+    "gatunek": "Games",
+    "wydawca": "Comunix Ltd"
+   },
+   {
+    "id": 959038492,
+    "nazwa": "Blackjack 21: Blackjackist",
+    "oceny": 1050,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 6446099491,
+    "nazwa": "Offsuit: Texas Holdem Poker",
+    "oceny": 26,
+    "gatunek": "Games",
+    "wydawca": "Offsuit Games, Inc."
+   },
+   {
+    "id": 1278826611,
+    "nazwa": "888 poker: Jogos de Poker",
+    "oceny": 2101,
+    "gatunek": "Games",
+    "wydawca": "888"
+   },
+   {
+    "id": 6758732164,
+    "nazwa": "Gambit -  Play and Learn Poker",
+    "oceny": 6,
+    "gatunek": "Games",
+    "wydawca": "Chess.com"
+   },
+   {
+    "id": 565061887,
+    "nazwa": "RallyAces Poker - Texas Holdem",
+    "oceny": 114,
+    "gatunek": "Games",
+    "wydawca": "Outerdawn Limited"
+   },
+   {
+    "id": 1516755569,
+    "nazwa": "House of Poker - Texas Holdem",
+    "oceny": 12,
+    "gatunek": "Games",
+    "wydawca": "MASSIVE GAMING PTY. LTD."
+   },
+   {
+    "id": 1477775889,
+    "nazwa": "Holdem or Foldem: Texas Poker",
+    "oceny": 2,
+    "gatunek": "Games",
+    "wydawca": "HK DENGSHEN TECHNOLOGY CO., LIMITED"
+   },
+   {
+    "id": 1451481714,
+    "nazwa": "Poker Zmist -Texas Holdem",
+    "oceny": 17,
+    "gatunek": "Games",
+    "wydawca": "ZMist Games Private Limited"
+   },
+   {
+    "id": 592081067,
+    "nazwa": "Pokerrrr 2: Texas Holdem Poker",
+    "oceny": 36,
+    "gatunek": "Games",
+    "wydawca": "Mondraw Limited"
+   },
+   {
+    "id": 1077750528,
+    "nazwa": "Poker Online Games",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "R-Soft"
+   },
+   {
+    "id": 1530025009,
+    "nazwa": "PokerGaga: Bate-papo por vídeo",
+    "oceny": 114,
+    "gatunek": "Games",
+    "wydawca": "Onecent Technology Co., Limited"
+   },
+   {
+    "id": 1317006618,
+    "nazwa": "Poker with Friends – EasyPoker",
+    "oceny": 33,
+    "gatunek": "Games",
+    "wydawca": "Appex IVS"
+   },
+   {
+    "id": 284602850,
+    "nazwa": "Texas Hold’em",
+    "oceny": 236,
+    "gatunek": "Games",
+    "wydawca": "Apple"
+   },
+   {
+    "id": 1467915358,
+    "nazwa": "Video Poker por Pokerist",
+    "oceny": 198,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   }
+  ],
+  "póquer": [
+   {
+    "id": 719525810,
+    "nazwa": "World Series of Poker - WSOP",
+    "oceny": 1232,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "oceny": 195,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1150250440,
+    "nazwa": "Mega Hit Poker: Texas Holdem",
+    "oceny": 314,
+    "gatunek": "Games",
+    "wydawca": "Wonder People Co., Ltd."
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker: Pokerist",
+    "oceny": 1096,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 1364570884,
+    "nazwa": "Poker Face: Texas Holdem Live",
+    "oceny": 357,
+    "gatunek": "Games",
+    "wydawca": "Comunix Ltd"
+   },
+   {
+    "id": 1530025009,
+    "nazwa": "PokerGaga: Bate-papo por vídeo",
+    "oceny": 114,
+    "gatunek": "Games",
+    "wydawca": "Onecent Technology Co., Limited"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "oceny": 971,
+    "gatunek": "Games",
+    "wydawca": "Zynga Inc."
+   },
+   {
+    "id": 480523695,
+    "nazwa": "Poker Heat: Texas Holdem Poker",
+    "oceny": 607,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 565061887,
+    "nazwa": "RallyAces Poker - Texas Holdem",
+    "oceny": 114,
+    "gatunek": "Games",
+    "wydawca": "Outerdawn Limited"
+   },
+   {
+    "id": 877638937,
+    "nazwa": "Governor of Poker - Friends",
+    "oceny": 1626,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1467915358,
+    "nazwa": "Video Poker por Pokerist",
+    "oceny": 198,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 1549967840,
+    "nazwa": "Velo Poker: Play Texas Holdem",
+    "oceny": 14,
+    "gatunek": "Games",
+    "wydawca": "Velo Oyun Yazılım ve Pazarlama Anonim Şirketi"
+   },
+   {
+    "id": 1491159140,
+    "nazwa": "Rest Poker : Texas Holdem Game",
+    "oceny": 7,
+    "gatunek": "Games",
+    "wydawca": "REST PLAY TEKNOLOJI A.S"
+   },
+   {
+    "id": 1477775889,
+    "nazwa": "Holdem or Foldem: Texas Poker",
+    "oceny": 2,
+    "gatunek": "Games",
+    "wydawca": "HK DENGSHEN TECHNOLOGY CO., LIMITED"
+   },
+   {
+    "id": 6751030270,
+    "nazwa": "Póquer Pai Gow por Pokerist",
+    "oceny": 4,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 1128328008,
+    "nazwa": "PokerStars: Poker e Casino",
+    "oceny": 14763,
+    "gatunek": "Games",
+    "wydawca": "Stars Mobile Limited"
+   },
+   {
+    "id": 1018155306,
+    "nazwa": "Octro Poker Texas Holdem Games",
+    "oceny": 5,
+    "gatunek": "Games",
+    "wydawca": "Octro, Inc."
+   },
+   {
+    "id": 6502453075,
+    "nazwa": "Balatro",
+    "oceny": 563,
+    "gatunek": "Games",
+    "wydawca": "Playstack Ltd"
+   },
+   {
+    "id": 1178002719,
+    "nazwa": "Omaha Poker: Pokerist",
+    "oceny": 4,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 6477283493,
+    "nazwa": "Texas Hold'em Poker: Pokerist+",
+    "oceny": 14,
+    "gatunek": "Games",
+    "wydawca": "KamaGames"
+   },
+   {
+    "id": 1278826611,
+    "nazwa": "888 poker: Jogos de Poker",
+    "oceny": 2101,
+    "gatunek": "Games",
+    "wydawca": "888"
+   },
+   {
+    "id": 1478813930,
+    "nazwa": "POKER Texas Hold'em e Fechado",
+    "oceny": 38,
+    "gatunek": "Games",
+    "wydawca": "Megajogos Entretenimento Ltda"
+   }
+  ],
+  "pôquer": [
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker: Pokerist",
+    "oceny": 1096,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 719525810,
+    "nazwa": "World Series of Poker - WSOP",
+    "oceny": 1232,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "oceny": 971,
+    "gatunek": "Games",
+    "wydawca": "Zynga Inc."
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "oceny": 195,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 6447117790,
+    "nazwa": "Cálculo da mão de pôquer/Poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "MINERVA K.K."
+   },
+   {
+    "id": 565061887,
+    "nazwa": "RallyAces Poker - Texas Holdem",
+    "oceny": 114,
+    "gatunek": "Games",
+    "wydawca": "Outerdawn Limited"
+   },
+   {
+    "id": 1150250440,
+    "nazwa": "Mega Hit Poker: Texas Holdem",
+    "oceny": 314,
+    "gatunek": "Games",
+    "wydawca": "Wonder People Co., Ltd."
+   },
+   {
+    "id": 1101622978,
+    "nazwa": "PPPoker-NLH, PLO, OFC",
+    "oceny": 6,
+    "gatunek": "Sports",
+    "wydawca": "AceKing Tech Limited"
+   },
+   {
+    "id": 1364570884,
+    "nazwa": "Poker Face: Texas Holdem Live",
+    "oceny": 357,
+    "gatunek": "Games",
+    "wydawca": "Comunix Ltd"
+   },
+   {
+    "id": 877638937,
+    "nazwa": "Governor of Poker - Friends",
+    "oceny": 1626,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 6752563787,
+    "nazwa": "Póquer Caribenho por Pokerist",
+    "oceny": 1,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 6751030270,
+    "nazwa": "Póquer Pai Gow por Pokerist",
+    "oceny": 4,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 421919486,
+    "nazwa": "Pôquer Ladrão",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Appzooka, Inc."
+   },
+   {
+    "id": 1278826611,
+    "nazwa": "888 poker: Jogos de Poker",
+    "oceny": 2101,
+    "gatunek": "Games",
+    "wydawca": "888"
+   },
+   {
+    "id": 1639024196,
+    "nazwa": "Calculadora fichas de pôquer",
+    "oceny": 0,
+    "gatunek": "Utilities",
+    "wydawca": "kuya hosoda"
+   },
+   {
+    "id": 6477283493,
+    "nazwa": "Texas Hold'em Poker: Pokerist+",
+    "oceny": 14,
+    "gatunek": "Games",
+    "wydawca": "KamaGames"
+   },
+   {
+    "id": 6807609009,
+    "nazwa": "Crown Five: Póquer no relógio",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Rob Veen"
+   },
+   {
+    "id": 480523695,
+    "nazwa": "Poker Heat: Texas Holdem Poker",
+    "oceny": 607,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 397553707,
+    "nazwa": "Texas Poker: Pokerist Pro",
+    "oceny": 5,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 957338854,
+    "nazwa": "Video Poker (Jacks or Better)",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Winkpass Creations, Inc."
+   },
+   {
+    "id": 959038492,
+    "nazwa": "Blackjack 21: Blackjackist",
+    "oceny": 1050,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 6789286272,
+    "nazwa": "Treinador de Póquer GTO",
+    "oceny": 0,
+    "gatunek": "Utilities",
+    "wydawca": "Yaoquan Li"
+   },
+   {
+    "id": 284602850,
+    "nazwa": "Texas Hold’em",
+    "oceny": 236,
+    "gatunek": "Games",
+    "wydawca": "Apple"
+   },
+   {
+    "id": 1128328008,
+    "nazwa": "PokerStars: Poker e Casino",
+    "oceny": 14763,
+    "gatunek": "Games",
+    "wydawca": "Stars Mobile Limited"
+   }
+  ],
+  "aprender poker": [
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker: Pokerist",
+    "oceny": 1096,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 877638937,
+    "nazwa": "Governor of Poker - Friends",
+    "oceny": 1626,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "oceny": 195,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "oceny": 971,
+    "gatunek": "Games",
+    "wydawca": "Zynga Inc."
+   },
+   {
+    "id": 1626050814,
+    "nazwa": "Poker Academy",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "iSolve Sp. z o.o."
+   },
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Aprender poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "VIAM Building & Construction Materials Trading Co LLC"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "CLOViZ, Inc."
+   },
+   {
+    "id": 480523695,
+    "nazwa": "Poker Heat: Texas Holdem Poker",
+    "oceny": 607,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 470080587,
+    "nazwa": "Offline Poker - Texas Holdem",
+    "oceny": 11,
+    "gatunek": "Games",
+    "wydawca": "The Othernet, LLC"
+   },
+   {
+    "id": 719525810,
+    "nazwa": "World Series of Poker - WSOP",
+    "oceny": 1232,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "Treinador GTO Poker - NTPoker",
+    "oceny": 2,
+    "gatunek": "Education",
+    "wydawca": "1900 Co."
+   },
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - Aprenda Holdem",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Funco"
+   },
+   {
+    "id": 1477775889,
+    "nazwa": "Holdem or Foldem: Texas Poker",
+    "oceny": 2,
+    "gatunek": "Games",
+    "wydawca": "HK DENGSHEN TECHNOLOGY CO., LIMITED"
+   },
+   {
+    "id": 1128328008,
+    "nazwa": "PokerStars: Poker e Casino",
+    "oceny": 14763,
+    "gatunek": "Games",
+    "wydawca": "Stars Mobile Limited"
+   },
+   {
+    "id": 1364570884,
+    "nazwa": "Poker Face: Texas Holdem Live",
+    "oceny": 357,
+    "gatunek": "Games",
+    "wydawca": "Comunix Ltd"
+   },
+   {
+    "id": 572194977,
+    "nazwa": "Poker! Texas Hold'em Offline",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "OKD Limited"
+   },
+   {
+    "id": 565061887,
+    "nazwa": "RallyAces Poker - Texas Holdem",
+    "oceny": 114,
+    "gatunek": "Games",
+    "wydawca": "Outerdawn Limited"
+   },
+   {
+    "id": 1278826611,
+    "nazwa": "888 poker: Jogos de Poker",
+    "oceny": 2101,
+    "gatunek": "Games",
+    "wydawca": "888"
+   },
+   {
+    "id": 1519739842,
+    "nazwa": "ESC Online Poker",
+    "oceny": 7,
+    "gatunek": "Games",
+    "wydawca": "EMOTIVA ON-LINE SA."
+   },
+   {
+    "id": 1467915358,
+    "nazwa": "Video Poker por Pokerist",
+    "oceny": 198,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 1550204730,
+    "nazwa": "Pok Pok",
+    "oceny": 43,
+    "gatunek": "Education",
+    "wydawca": "Pok Pok"
+   }
+  ],
+  "aprender póquer": [
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Aprender poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "VIAM Building & Construction Materials Trading Co LLC"
+   },
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - Aprenda Holdem",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Funco"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "CLOViZ, Inc."
+   },
+   {
+    "id": 6759221162,
+    "nazwa": "Felted: Texas Holdem Poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "GTO Solutions AS"
+   },
+   {
+    "id": 6787507770,
+    "nazwa": "PreFlop GTO: Póquer Treino",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "Zhongyuan Tang"
+   },
+   {
+    "id": 1494263170,
+    "nazwa": "Aprenda Poker",
+    "oceny": 1,
+    "gatunek": "Games",
+    "wydawca": "Jelle Van den Eynde"
+   },
+   {
+    "id": 6804515003,
+    "nazwa": "Pocket Poker: Texas Hold'em",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Sawyer Christensen"
+   }
+  ],
+  "poker estratégia": [
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "oceny": 971,
+    "gatunek": "Games",
+    "wydawca": "Zynga Inc."
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "oceny": 195,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 6789286272,
+    "nazwa": "Treinador de Póquer GTO",
+    "oceny": 0,
+    "gatunek": "Utilities",
+    "wydawca": "Yaoquan Li"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "CLOViZ, Inc."
+   },
+   {
+    "id": 6739345737,
+    "nazwa": "Palmon: Survival",
+    "oceny": 328,
+    "gatunek": "Games",
+    "wydawca": "LILITH TECHNOLOGY HONG KONG LIMITED"
+   },
+   {
+    "id": 1478813930,
+    "nazwa": "POKER Texas Hold'em e Fechado",
+    "oceny": 38,
+    "gatunek": "Games",
+    "wydawca": "Megajogos Entretenimento Ltda"
+   },
+   {
+    "id": 486937878,
+    "nazwa": "Sueca um jogo multiplayer",
+    "oceny": 798,
+    "gatunek": "Games",
+    "wydawca": "Web2mil S.A."
+   },
+   {
+    "id": 1053012308,
+    "nazwa": "Clash Royale",
+    "oceny": 54319,
+    "gatunek": "Games",
+    "wydawca": "Supercell"
+   },
+   {
+    "id": 1626050814,
+    "nazwa": "Poker Academy",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "iSolve Sp. z o.o."
+   },
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Aprender poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "VIAM Building & Construction Materials Trading Co LLC"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "Treinador GTO Poker - NTPoker",
+    "oceny": 2,
+    "gatunek": "Education",
+    "wydawca": "1900 Co."
+   },
+   {
+    "id": 504452059,
+    "nazwa": "Tap Poker Social",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "FREEON"
+   },
+   {
+    "id": 421919486,
+    "nazwa": "Pôquer Ladrão",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Appzooka, Inc."
+   },
+   {
+    "id": 1113223808,
+    "nazwa": "Rival Stars College Football",
+    "oceny": 22,
+    "gatunek": "Games",
+    "wydawca": "PikPok"
+   },
+   {
+    "id": 6738748434,
+    "nazwa": "GTO Gecko: Poker Wizard",
+    "oceny": 2,
+    "gatunek": "Education",
+    "wydawca": "GTO Solutions AS"
+   },
+   {
+    "id": 6448104157,
+    "nazwa": "Jogos Offline - Sem internet",
+    "oceny": 4804,
+    "gatunek": "Games",
+    "wydawca": "Moreno Maio"
+   },
+   {
+    "id": 6759221162,
+    "nazwa": "Felted: Texas Holdem Poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "GTO Solutions AS"
+   },
+   {
+    "id": 583376357,
+    "nazwa": "Poker Master: Trainer & Games",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "IncrediApp"
+   },
+   {
+    "id": 6756220388,
+    "nazwa": "PLO Gecko: Treinador de Poker",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "GTO Solutions AS"
+   },
+   {
+    "id": 6449764756,
+    "nazwa": "Gin Rummy - Jogo clássico",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Beijing ZJCYOU Technology Co., Ltd"
+   },
+   {
+    "id": 1300001920,
+    "nazwa": "Bacará – Dragão Ás Cassino",
+    "oceny": 2,
+    "gatunek": "Games",
+    "wydawca": "GameSpring"
+   }
+  ],
+  "póquer estratégia": [
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "oceny": 971,
+    "gatunek": "Games",
+    "wydawca": "Zynga Inc."
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "oceny": 195,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 6789286272,
+    "nazwa": "Treinador de Póquer GTO",
+    "oceny": 0,
+    "gatunek": "Utilities",
+    "wydawca": "Yaoquan Li"
+   },
+   {
+    "id": 421919486,
+    "nazwa": "Pôquer Ladrão",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Appzooka, Inc."
+   },
+   {
+    "id": 1300001920,
+    "nazwa": "Bacará – Dragão Ás Cassino",
+    "oceny": 2,
+    "gatunek": "Games",
+    "wydawca": "GameSpring"
+   },
+   {
+    "id": 499907682,
+    "nazwa": "Okey 101 - jogo de peças",
+    "oceny": 12,
+    "gatunek": "Games",
+    "wydawca": "Adikus"
+   },
+   {
+    "id": 1478813930,
+    "nazwa": "POKER Texas Hold'em e Fechado",
+    "oceny": 38,
+    "gatunek": "Games",
+    "wydawca": "Megajogos Entretenimento Ltda"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "CLOViZ, Inc."
+   },
+   {
+    "id": 6759221162,
+    "nazwa": "Felted: Texas Holdem Poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "GTO Solutions AS"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "Treinador GTO Poker - NTPoker",
+    "oceny": 2,
+    "gatunek": "Education",
+    "wydawca": "1900 Co."
+   },
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Aprender poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "VIAM Building & Construction Materials Trading Co LLC"
+   },
+   {
+    "id": 6479562719,
+    "nazwa": "PocketSolver: Solver de pôquer",
+    "oceny": 0,
+    "gatunek": "Utilities",
+    "wydawca": "Elliot Dunk"
+   },
+   {
+    "id": 6742145425,
+    "nazwa": "Aces Calculador Chances Pôquer",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "thomas giacinto"
+   },
+   {
+    "id": 6787507770,
+    "nazwa": "PreFlop GTO: Póquer Treino",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "Zhongyuan Tang"
+   },
+   {
+    "id": 6806819167,
+    "nazwa": "MENTIROS@ - Dados e Bluff",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Lorenzo Rossello"
+   },
+   {
+    "id": 6785665094,
+    "nazwa": "Poker FC",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Gerson dos Santos"
+   },
+   {
+    "id": 1593070140,
+    "nazwa": "Flip Flop Poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Calogero Friscia"
+   },
+   {
+    "id": 6504387334,
+    "nazwa": "Blackjack 21 - Dealer Queens",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Ranja, inc."
+   },
+   {
+    "id": 6818585347,
+    "nazwa": "SmashDice: Roguelike de Dados",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "DAWID PERA"
+   },
+   {
+    "id": 6714458788,
+    "nazwa": "Flush Divino",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "BODHI AI LIMITED"
+   },
+   {
+    "id": 6791983330,
+    "nazwa": "RangeMyHand: Push Fold Coach",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "Edwin Andermyr"
+   }
+  ],
+  "texas holdem": [
+   {
+    "id": 719525810,
+    "nazwa": "World Series of Poker - WSOP",
+    "oceny": 1232,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker: Pokerist",
+    "oceny": 1096,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   },
+   {
+    "id": 1477775889,
+    "nazwa": "Holdem or Foldem: Texas Poker",
+    "oceny": 2,
+    "gatunek": "Games",
+    "wydawca": "HK DENGSHEN TECHNOLOGY CO., LIMITED"
+   },
+   {
+    "id": 877638937,
+    "nazwa": "Governor of Poker - Friends",
+    "oceny": 1626,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 284602850,
+    "nazwa": "Texas Hold’em",
+    "oceny": 236,
+    "gatunek": "Games",
+    "wydawca": "Apple"
+   },
+   {
+    "id": 1150250440,
+    "nazwa": "Mega Hit Poker: Texas Holdem",
+    "oceny": 314,
+    "gatunek": "Games",
+    "wydawca": "Wonder People Co., Ltd."
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "oceny": 971,
+    "gatunek": "Games",
+    "wydawca": "Zynga Inc."
+   },
+   {
+    "id": 445305390,
+    "nazwa": "Texas Holdem Poker Portugal",
+    "oceny": 15,
+    "gatunek": "Games",
+    "wydawca": "BIGWIN NETWORK TECHNOLOGY LIMITED"
+   },
+   {
+    "id": 470080587,
+    "nazwa": "Offline Poker - Texas Holdem",
+    "oceny": 11,
+    "gatunek": "Games",
+    "wydawca": "The Othernet, LLC"
+   },
+   {
+    "id": 480523695,
+    "nazwa": "Poker Heat: Texas Holdem Poker",
+    "oceny": 607,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "oceny": 195,
+    "gatunek": "Games",
+    "wydawca": "Playtika LTD"
+   },
+   {
+    "id": 1364570884,
+    "nazwa": "Poker Face: Texas Holdem Live",
+    "oceny": 357,
+    "gatunek": "Games",
+    "wydawca": "Comunix Ltd"
+   },
+   {
+    "id": 6446099491,
+    "nazwa": "Offsuit: Texas Holdem Poker",
+    "oceny": 26,
+    "gatunek": "Games",
+    "wydawca": "Offsuit Games, Inc."
+   },
+   {
+    "id": 6477283493,
+    "nazwa": "Texas Hold'em Poker: Pokerist+",
+    "oceny": 14,
+    "gatunek": "Games",
+    "wydawca": "KamaGames"
+   },
+   {
+    "id": 1077750528,
+    "nazwa": "Poker Online Games",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "R-Soft"
+   },
+   {
+    "id": 1330924793,
+    "nazwa": "Texas Holdem: Poker Legends",
+    "oceny": 11,
+    "gatunek": "Games",
+    "wydawca": "DYNAMICNEXT"
+   },
+   {
+    "id": 1317006618,
+    "nazwa": "Poker with Friends – EasyPoker",
+    "oceny": 33,
+    "gatunek": "Games",
+    "wydawca": "Appex IVS"
+   },
+   {
+    "id": 6758732164,
+    "nazwa": "Gambit -  Play and Learn Poker",
+    "oceny": 6,
+    "gatunek": "Games",
+    "wydawca": "Chess.com"
+   },
+   {
+    "id": 1451481714,
+    "nazwa": "Poker Zmist -Texas Holdem",
+    "oceny": 17,
+    "gatunek": "Games",
+    "wydawca": "ZMist Games Private Limited"
+   },
+   {
+    "id": 875589196,
+    "nazwa": "HD Poker: Texas Holdem",
+    "oceny": 22,
+    "gatunek": "Games",
+    "wydawca": "Z4"
+   },
+   {
+    "id": 1403684238,
+    "nazwa": "Poker Championship - Holdem",
+    "oceny": 7,
+    "gatunek": "Games",
+    "wydawca": "BBstudio Inc."
+   },
+   {
+    "id": 1018155306,
+    "nazwa": "Octro Poker Texas Holdem Games",
+    "oceny": 5,
+    "gatunek": "Games",
+    "wydawca": "Octro, Inc."
+   },
+   {
+    "id": 1577187969,
+    "nazwa": "Texas Holdem Mania®-No Rake!",
+    "oceny": 1,
+    "gatunek": "Games",
+    "wydawca": "Simple Game"
+   },
+   {
+    "id": 959038492,
+    "nazwa": "Blackjack 21: Blackjackist",
+    "oceny": 1050,
+    "gatunek": "Games",
+    "wydawca": "WISE WAVE CORPORATION LIMITED"
+   }
+  ],
+  "poker treino": [
+   {
+    "id": 1630961215,
+    "nazwa": "Treinador GTO Poker - NTPoker",
+    "oceny": 2,
+    "gatunek": "Education",
+    "wydawca": "1900 Co."
+   },
+   {
+    "id": 6738748434,
+    "nazwa": "GTO Gecko: Poker Wizard",
+    "oceny": 2,
+    "gatunek": "Education",
+    "wydawca": "GTO Solutions AS"
+   },
+   {
+    "id": 572194977,
+    "nazwa": "Poker! Texas Hold'em Offline",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "OKD Limited"
+   },
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Aprender poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "VIAM Building & Construction Materials Trading Co LLC"
+   },
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - Aprenda Holdem",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Funco"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "CLOViZ, Inc."
+   },
+   {
+    "id": 6758763848,
+    "nazwa": "Handsight: Poker Odds Scanner",
+    "oceny": 0,
+    "gatunek": "Entertainment",
+    "wydawca": "Olli Siitonen"
+   },
+   {
+    "id": 6759221162,
+    "nazwa": "Felted: Texas Holdem Poker",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "GTO Solutions AS"
+   },
+   {
+    "id": 6787507770,
+    "nazwa": "PreFlop GTO: Póquer Treino",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "Zhongyuan Tang"
+   },
+   {
+    "id": 6787552890,
+    "nazwa": "PostFlop Poker GTO Treinador",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "Zhongyuan Tang"
+   },
+   {
+    "id": 6745214168,
+    "nazwa": "PokerX - Super App Poker IA",
+    "oceny": 0,
+    "gatunek": "Utilities",
+    "wydawca": "Diagonal Private Limited"
+   },
+   {
+    "id": 6810784484,
+    "nazwa": "Prof Poker",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "OMNI LABS SOLUCOES DIGITAIS LTDA"
+   },
+   {
+    "id": 6773373269,
+    "nazwa": "Poker & Poker",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "atsuko imai"
+   },
+   {
+    "id": 6788189610,
+    "nazwa": "The Poker Calculator",
+    "oceny": 0,
+    "gatunek": "Utilities",
+    "wydawca": "The NFC Mint LLC"
+   },
+   {
+    "id": 6806193121,
+    "nazwa": "PurePoker Trainer",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "Nyhetsanalyse AS"
+   },
+   {
+    "id": 6804515003,
+    "nazwa": "Pocket Poker: Texas Hold'em",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Sawyer Christensen"
+   }
+  ],
+  "curso poker": [
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - Aprenda Holdem",
+    "oceny": 0,
+    "gatunek": "Games",
+    "wydawca": "Funco"
+   },
+   {
+    "id": 6741470142,
+    "nazwa": "Estados do Brasil - Mapa Quiz",
+    "oceny": 0,
+    "gatunek": "Education",
+    "wydawca": "Fabian Zurbruegg"
+   }
+  ]
+ },
+ "podpowiedzi": {
+  "pt|poker": [
+   "pokerstars",
+   "poker",
+   "poker bros",
+   "poker online",
+   "poker offline",
+   "pokeraid",
+   "poker gaga",
+   "poker face",
+   "poker lens",
+   "poker trainer"
+  ],
+  "pt|póquer": [
+   "póquer pai gow por pokerist",
+   "póquer caribenho por pokerist",
+   "apostar no póquer por pokerist",
+   "crown five: póquer no relógio",
+   "live casino: póquer e roleta",
+   "preflop gto: póquer treino",
+   "temporizador póquer nextblind",
+   "treinador de póquer gto",
+   "pokerstars",
+   "poker"
+  ],
+  "pt|aprender po": [
+   "aprender português",
+   "aprender português iniciantes",
+   "aprender português com aulas de línguas grátis",
+   "aprender: português europeu",
+   "aprender polonês com nemo",
+   "aprender português vocabulário",
+   "aprender português brasileiro com aulas de línguas",
+   "aprender polaco audio curso y vocabulario rápido",
+   "aprender português europeu",
+   "aprender português - lingocat"
+  ],
+  "pt|poker est": [],
+  "pt|póquer est": [],
+  "pt|aprender pó": [],
+  "br|póquer": [
+   "pokerstars",
+   "poker",
+   "poker brasil",
+   "poker online",
+   "poker texas hold",
+   "poker offline",
+   "pokeraid",
+   "poker face",
+   "poker trainer",
+   "pokerstars live"
+  ],
+  "br|aprender po": [
+   "aprender português",
+   "aprender português de portugal",
+   "aprender polonês",
+   "aprender português iniciantes",
+   "aprender português vocabulário",
+   "aplicativo para aprender português",
+   "aprender polonês com nemo",
+   "aprender português - portugal",
+   "aprender português brasileiro com aulas de línguas",
+   "aprender português - bilinguae"
+  ],
+  "us|póquer": [
+   "póquer",
+   "juego de póquer",
+   "poker",
+   "pokerstars",
+   "pokerrrr 2",
+   "poker face",
+   "poker atlas",
+   "poker offline",
+   "pokeraid",
+   "pokerist"
+  ],
+  "us|aprender po": [
+   "aprender portugues",
+   "aprender portugués fácil",
+   "aprender polaco audio curso y vocabulario rápido"
+  ]
+ },
+ "podtytuly": [
+  {
+   "id": 370339723,
+   "nazwa": "Texas Hold'em Poker: Pokerist",
+   "podtytul": "N.º 1 de Póquer",
+   "oceny": 1096,
+   "gatunek": "Games"
+  },
+  {
+   "id": 877638937,
+   "nazwa": "Governor of Poker - Friends",
+   "podtytul": "Texas Holdem Poker Card Games",
+   "oceny": 1626,
+   "gatunek": "Games"
+  },
+  {
+   "id": 1448884851,
+   "nazwa": "MONOPOLY Poker - Texas Holdem",
+   "podtytul": null,
+   "oceny": 195,
+   "gatunek": "Games"
+  },
+  {
+   "id": 354902315,
+   "nazwa": "Zynga Poker - Texas Holdem",
+   "podtytul": "Ganhe fichas com pôquer online",
+   "oceny": 971,
+   "gatunek": "Games"
+  },
+  {
+   "id": 1626050814,
+   "nazwa": "Poker Academy",
+   "podtytul": "Master Poker Strategy with AI",
+   "oceny": 0,
+   "gatunek": "Education"
+  },
+  {
+   "id": 6782936673,
+   "nazwa": "Vibe Poker: Aprender poker",
+   "podtytul": "Jogo de Texas Holdem online",
+   "oceny": 0,
+   "gatunek": "Games"
+  },
+  {
+   "id": 6737678499,
+   "nazwa": "Poker Trainer GTO - POKER Q'z",
+   "podtytul": "Póquer: quiz e estratégia",
+   "oceny": 0,
+   "gatunek": "Education"
+  },
+  {
+   "id": 480523695,
+   "nazwa": "Poker Heat: Texas Holdem Poker",
+   "podtytul": "Jogos de Cartas - VIP League",
+   "oceny": 607,
+   "gatunek": "Games"
+  },
+  {
+   "id": 6789286272,
+   "nazwa": "Treinador de Póquer GTO",
+   "podtytul": "Análise de mãos e estratégias",
+   "oceny": 0,
+   "gatunek": "Utilities"
+  },
+  {
+   "id": 6739345737,
+   "nazwa": "Palmon: Survival",
+   "podtytul": "Capture, Lute e Cultive",
+   "oceny": 328,
+   "gatunek": "Games"
+  },
+  {
+   "id": 1478813930,
+   "nazwa": "POKER Texas Hold'em e Fechado",
+   "podtytul": "Dois aplicativos em um só!",
+   "oceny": 38,
+   "gatunek": "Games"
+  },
+  {
+   "id": 486937878,
+   "nazwa": "Sueca um jogo multiplayer",
+   "podtytul": "Jogue e conecte-se com o mundo",
+   "oceny": 798,
+   "gatunek": "Games"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/rules.yaml",
+    "stary": "dá uma boa relação stack/pote no flop",
+    "nowy": "dá uma boa relação entre o stack e o {{t:pot|pote}} no flop",
+    "waga": "ŚREDNIE",
+    "powod": "R-M4-001 because (l. 213): w pl „stosunek stacka do {{t:pot|puli}}” ma znacznik pot, w pt go brak (ostrzeżenie narzędzia [22].because pot).",
+    "grupa": "R1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/rules.yaml",
+    "stary": "que jogam bem quando lhes pagam",
+    "nowy": "que jogam bem quando lhes {{t:call|pagam}}",
+    "waga": "ŚREDNIE",
+    "powod": "R-M4-006 because (l. 258): pl ma 3 znaczniki call („dobrze grają po {{t:call|sprawdzeniu}}”), pt 2; trzecie „pagam” bez znacznika (ostrzeżenie narzędzia [27].because call).",
+    "grupa": "R1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/rules.yaml",
+    "stary": "um jogador que, pelo que observou, raramente faz {{t:bluff|bluff}} {{t:bet|aposta}} alto no river",
+    "nowy": "no river, faz uma {{t:bet|aposta}} grande um jogador que, pelo que observou, raramente faz {{t:bluff|bluff}}",
+    "waga": "ŚREDNIE",
+    "powod": "R-M6-004 if (l. 468): zbitka „raramente faz bluff aposta alto” czyta się jak ciąg rzeczowników (bluff aposta); szyk z inwersją jest naturalny w pt-PT i oddaje pl „duży bet” jako „aposta grande”.",
+    "grupa": "R1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/rules.yaml",
+    "stary": "faz c-bet com frequência e pequeno, cerca de",
+    "nowy": "faz c-bet com frequência e com um tamanho pequeno, cerca de",
+    "waga": "NISKIE",
+    "powod": "R-M5-007 then (l. 384): „pequeno” jako przysłówek przy „faz c-bet” jest nienaturalne; pl „często i mało” = często i małym rozmiarem (jak w R-M5-005 „com um tamanho maior”).",
+    "grupa": "R1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/rules.yaml",
+    "stary": "then: \"faz c-bet com frequência e pequeno\"",
+    "nowy": "then: \"faz c-bet com frequência e com um tamanho pequeno\"",
+    "waga": "NISKIE",
+    "powod": "R-M5-009 then (l. 401): jak wyżej, spójnie z R-M5-007.",
+    "grupa": "R1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/rules.yaml",
+    "stary": "menos vezes do que o habitual e pequeno",
+    "nowy": "menos vezes do que o habitual e com um tamanho pequeno",
+    "waga": "NISKIE",
+    "powod": "R-M5-010 then (l. 410): jak wyżej, spójnie z R-M5-007.",
+    "grupa": "R1"
+  }
+]

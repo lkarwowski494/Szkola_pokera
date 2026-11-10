@@ -1017,6 +1017,51 @@ Rola: `node prompts/tools/assemble.mjs 09-lokalizacja --tryb build` (repo `promp
 - vi: nazwy K-05 małą literą na początku zdania (plan §6, [DO USTALENIA]); terms-nazwy [DO USTALENIA] ko 25, it 52, vi 48.
 - Metadane fali 2 do `store/` — po decyzji właściciela.
 
+## Sesja AO — pt (pt-PT): przekład, przegląd lekcji, mechanizm (2026-11-10, rola 09 build, D-405; w toku)
+Polecenie: `docs/koordynacja/polecenia/AO.md` @ bf15b37. Zadanie 1 (szacunek przeglądu 9 języków przez API: Opus ≈ 77 USD / 9 przebiegów, Sonnet ≈ 39 USD / 5) zamknięte odpowiedzią właściciela „Fable 5.2 ale nie przez API tylko tutaj” (sesje AP–AR).
+
+| Krok | Stan / dowód |
+|---|---|
+| 2. Przekład pt przez API | **zrobione**: 65/65 przyjętych, 10,53 USD; artefakty 13738624525 (lekcje), 13739778340 (reszta), wygasają 2026-11-17 — `dowody/przeklad-pt-2026-11-10.txt` |
+| 3a. Przegląd lekcji (całość, 6 subagentów) | **zrobione**: L1–L6 (m12 w całości: {{n:}} 188/42/2/98 = pl), KRYT 0, WYS 8, 244 poprawki — `dowody/przeglad-pt-2026-11-10/` (instrukcja.md, L*.md, poprawki-L*.json) |
+| 3b. Przegląd reszty (całość) | **do zrobienia**: grupy E (exams m0–m13), R (rules, spots, areas, modules, helplines), U (`locales/pt.json` + terms-def + etykiety ocen z m13-l1 + „Ajuda” z m12-l1:140) — ta sama `instrukcja.md` |
+| 3c. Kontrola (a) | **do zrobienia**: przekład zwrotny pt→pl bez źródła (m12-l1, m12-l4, egzamin m12, helplines, R-M12-*), porównanie w trzeciej sesji |
+| 3d. Terminologia całego pt | **do decyzji (rola 09, D-406)**: recenzenci zalecają flush „cor” (korpus 42–45 : 17–18), flush draw „projeto de cor”, draw „projeto” (116 : 48), top pair „par de topo” (warianty: par mais alto ×13 dwuznaczne, par máximo), range „range” (68; leque/gama tylko lokalnie), check „passar” (vs „fazer check”), stakes „limite(s)”/„microlimites”, shove „shove” (vs push), rodzaj „o c-bet”, big blind (rodzaj do ustalenia). Wykonanie: `ujednolic-formy.mjs --jezyki pt` (reguły pt do dopisania) po poprawkach; zmiany w m12 tylko z ponowną kontrolą (a) |
+| 3e. K-05 `content/pt/terms-nazwy.yaml` | **do zrobienia** (recenzenci: bez niego gołe `{{t:pot}}` pokazują nazwę angielską): szkic z `docs/lokalizacja/narzedzia/glosariusz.mjs` na nałożonej treści, wzór `content/pt-BR/terms-nazwy.yaml`; nazwy zgodne z 3d |
+| 3f. Nałożenie | kopie `propozycje.json` z obu artefaktów → `poprawki.mjs <prop> poprawki-*.json --wyjscie …` → `przeklad-api.mjs --zastosuj` → ujednolicenie → `content:build`, `pnpm i18n` |
+| 3g. Wydanie w kodzie | `git apply docs/lokalizacja/przygotowane/ao-pt/kod-jezyki.patch wydanie-app.patch usun-d373.patch`; dopisać: `konfiguracja.test.ts` (polyfill: oczekiwane dane = bazowe ∪ `znacznikIntl` wydanych, czyli pt-PT), `jezyk-4-09.test.ts:15–19` (pt-PT → pt zamiast pt-BR), `slowniki.ts` (`pt`), `language.name` pt = „Português (Portugal)” (test tego wymaga — sprawdzić słownik), `przeglad_jezyki.pt` w rejestrze; `pnpm run ci` 0; lista `docs/lokalizacja/lista-telefonu-pt-PT.md` |
+| 4. Metadane sklepu pt-PT | **propozycja zrobiona** (55edcb0): `docs/sklep/aso/metadane-pt-PT.json`, „PokerGym: aprende póquer”, kontrola kod 0. **Do poprawy:** głos „tu” (aprende, Treina) ≠ rejestr aplikacji pt „formalnie, bez você” (`scripts/i18n/wspolne.mjs:68`) — wyrównać do formy formalnej („aprenda”, „Treine”) albo zapisać wyjątek (sklep PT zwykle „tu” — [DO USTALENIA]) |
+
+Uwagi: łatki sprawdzone `git apply --check` na 55edcb0 (3 × ok). Stopka commitu 55edcb0 ma literówkę w identyfikatorze sesji (bez force-push nie poprawiono). Zasada 30% kontekstu: sesja AO kończy na kroku 3a.
+
+## Sesja AS — pt (pt-PT): przegląd reszty, terminologia, ASO (2026-11-10, rola 09 build, następczyni AO; w toku)
+Polecenie: `docs/koordynacja/polecenia/AS.md` @ b57b939, start `sesja-ao-pt-pt` @ c8ccacf (zgodny). Dowody: `docs/lokalizacja/dowody/przeglad-pt-2026-11-10/`.
+
+| Krok | Stan / dowód |
+|---|---|
+| Artefakty przekładu | pobrane przez MCP GitHub (`download_workflow_run_artifact`), sha256 zip = dowód AO (d19bb69b…, 44ef9cc0…); wygasają 2026-11-17 |
+| 3b. Przegląd reszty (całość) | **zrobione**, 6 subagentów w świeżym kontekście: E1 (m0–m6, 253 jedn.), E2 (m7–m13, 425; m12 {{n:}} 122 = pl), R1 (R-M0…M6, 60 reguł/241 pól), R2 (R-M7…M13, 81/328), R3 (spots 67, areas 5, modules 28, helplines 4), U (`pt.json` 731 kluczy, terms-def 162, m13-l1 11, m12-l1:140 1). **KRYT 0, WYS 0**; ŚR E1 30, E2 32 miejsca, R1 3, R2 8, R3 3, U 9. Listy `poprawki-E1,E2,R1,R2,R3,U.json` = 33+38+6+9+3+38 = **127, test na kopii `art2/propozycje.json`: 127 nałożonych, 0 pominiętych, kod 0** |
+| 3c. Kontrola (a) | przekład zwrotny bez źródła: `a-zwrotny-pt-pl.md` (m12-l1, m12-l4, egzamin m12, helplines, R-M12-*; 14 miejsc DWUZNACZNE); porównanie w trzeciej sesji: `wynik-a-pt.md` — **ZALICZONA** (65 jednostek, KRYT 0, WYS 0, ŚR 2: m12-l4:59 granica „najpóźniej przy połowie”, R-M12-005 „dopiero po ok. 1500 rękach”; 14/14 DWUZNACZNE rozstrzygnięte), `poprawki-A.json` 2 |
+| 3d. Terminologia (D-406) | **decyzja zapisana**: `terminologia-D-406.md` (źródła PokerNews Portugal + Priberam, odczyt 2026-11-10): flush „flush” (nie „cor”), flush draw „flush draw”, draw „draw” (nie „projeto”), top pair „top pair”, check formy „passar”, shove „shove” (push = błąd), stakes „limite(s)/microlimites”, street „ronda”, board „mesa”, range „range”; preflop zostaje (odstępstwo nazwane). 27 poprawek E1/E2/U wprowadza formy „cor/projeto” — **nakładać wszystkie, potem ujednolicenie** (reguły pt w `ujednolic-formy.mjs` do dopisania; zmiana rodzaju „a/uma cor” → „o/um flush” wymaga listy kontekstów) |
+| 3e. K-05 `content/pt/terms-nazwy.yaml` | **do zrobienia**: wzór `content/pt-BR/terms-nazwy.yaml`, nazwy z D-406; formy korpusu: skrypt `formy.mjs` (do odtworzenia: liczy `{{t:klucz|forma}}` w `content/pt`) |
+| 3f. Nałożenie | **do zrobienia**: `poprawki.mjs art1/propozycje.json poprawki-L1…L6.json` (244, 0 pominiętych — sprawdzone w AS) i `art2/propozycje.json poprawki-E1,E2,R1,R2,R3,U,A.json` (127+1); lekcje także `poprawki-A.json` (+1) → `przeklad-api.mjs --zastosuj` (oba przyjęte w AS, 0 odrzuceń) → ujednolicenie D-406 → K-05 → kontrola (a) zmian w m12 → `content:build` |
+| 3g. Wydanie w kodzie | **do zrobienia**: łatki `ao-pt/*.patch` (`git apply --check` 3 × ok na 78f1c5f) + dopiski z wiersza 3g sesji AO; U: `language.name` „Português (Portugal)”, `pt.json` podpiąć w `slowniki.ts` z regułą pt-PT |
+| 4 / zad. 3 AS. ASO pt-PT | **zrobione**: forma formalna (aprenda, Treine, seu…) jak aplikacja, „ronda de apostas” zamiast „street”; kontrola `sprawdz-metadane-aso.py` kod 0 (D-407) |
+
+Uwaga dla następcy: `content/pt/` i `locales/pt.json` są w drzewie **nieśledzone** (nałożone roboczo do przeglądu, bez poprawek E/R/U) — hook pre-push `content:check` blokuje push, gdy są obecne; przed pushem samych docs przenieść je poza repo. Sesja AS kończy na kroku 3b/3c (reguła 30% kontekstu).
+
+## Sesja AT — pt (pt-PT): nałożenie i wydanie w kodzie (2026-11-10, rola 09 build, następczyni AS; D-408, D-409)
+Polecenie: `docs/koordynacja/polecenia/AT.md` @ 4e864e7, start `sesja-ao-pt-pt` @ a28b48e (zgodny). Dowód: `docs/lokalizacja/dowody/nalozenie-pt-2026-11-10.md`.
+
+| Krok | Stan / dowód |
+|---|---|
+| 3d/3e. Reguły pt, K-05 | **zrobione**: reguły `pt` w `ujednolic-formy.mjs` (uzgadnianie rodzaju), przebieg kontrolny 0 zamian, formy odrzucone w D-406: 0; `content/pt/terms-nazwy.yaml` 151 kluczy, 27 odstępstw pt-PT (D-408) |
+| 3f. Nałożenie | **zrobione**: 245 + 128 poprawek, 0 pominiętych; `--zastosuj` 44 + 21 plików, 0 odrzuceń; ujednolicenie 571 zamian; kontrola (a) 27 wierszy m12 zaliczona (1 ŚR nałożona) — `przeglad-pt-2026-11-10/a-AT/` |
+| 3g. Wydanie w kodzie | **zrobione**: łatki AO + dopiski; testy czerwone przed kodem (3 + 7) → zielone; `przeglad_jezyki.pt` ×11; jedna przebudowa baz; `pnpm run ci` kod 0 |
+| 4. Lista, decyzje | **zrobione**: `docs/lokalizacja/lista-telefonu-pt-PT.md`, D-408, D-409, wiersz pt w `jezyki.md` |
+
+Otwarte: zrzuty pt (E2) i telefon — krok właściciela/koordynatora; E2E po scaleniu (koordynator); autor 3 commitów AS do poprawy przy scaleniu (polecenie AT pkt 2).
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 

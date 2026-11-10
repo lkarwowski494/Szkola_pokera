@@ -1,7 +1,12 @@
 import type { Jezyk } from './jezyki';
 
-/** Tag przekazywany do `Intl`: kod języka aplikacji (serbski domyślnie cyrylicą, chiński tradycyjny z pismem). Region telefonu nie zmienia formatu (D-134: język aplikacji decyduje). */
-export const znacznikIntl = (j: Jezyk): string => j;
+/**
+ * Tag przekazywany do `Intl` (liczby, daty, liczba mnoga): kod języka aplikacji (serbski domyślnie cyrylicą, chiński tradycyjny
+ * z pismem). Region telefonu nie zmienia formatu (D-134: język aplikacji decyduje). Wyjątek: „pt” w aplikacji to portugalski europejski, a CLDR „pt” bez regionu to
+ * wariant brazylijski (plurals.xml: pt i = 0..1, pt_PT i = 1) — więc pt → pt-PT, jak Trening `lib/i18n.ts:28` (TAG pt: 'pt-PT',
+ * odczyt 2026-11-10; D-405). Pozostałe kody bez zmian.
+ */
+export const znacznikIntl = (j: Jezyk): string => (j === 'pt' ? 'pt-PT' : j);
 
 /** Liczba wg języka: znak dziesiętny i grupowanie z `Intl.NumberFormat`. `miejsca` = stała liczba cyfr po przecinku
  *  (minimum = maksimum; D-220, ADR 0014: „34,97%” ma tyle cyfr co wartość w treści, „35,00%” nie traci zer). */

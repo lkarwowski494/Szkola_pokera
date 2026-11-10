@@ -1,0 +1,344 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"zgodne\": \"Alinhada\"",
+    "nowy": "\"zgodne\": \"Conforme\"",
+    "waga": "ŚREDNIE",
+    "powod": "[grade.zgodne] Etykieta stopnia „Zgodna” w UI („Alinhada”) różni się od nazwy w lekcji m13-l1 (6× „Conforme”, m13-l1-raport.md:36,45,55,64,90); jedna nazwa stopnia w całym pt; „Conforme” naturalne w pt-PT i nieodmienne.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"compliant\": \"Alinhada\"",
+    "nowy": "\"compliant\": \"Conforme\"",
+    "waga": "ŚREDNIE",
+    "powod": "[play.report.verdicts.compliant] Etykieta stopnia „Zgodna” w UI („Alinhada”) różni się od nazwy w lekcji m13-l1 (6× „Conforme”, m13-l1-raport.md:36,45,55,64,90); jedna nazwa stopnia w całym pt; „Conforme” naturalne w pt-PT i nieodmienne.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"compliant-exploit\": \"Alinhada ({{t:exploit|exploração}})\"",
+    "nowy": "\"compliant-exploit\": \"Conforme ({{t:exploit|exploração}})\"",
+    "waga": "ŚREDNIE",
+    "powod": "[play.report.verdicts.compliant-exploit] Etykieta stopnia „Zgodna” w UI („Alinhada”) różni się od nazwy w lekcji m13-l1 (6× „Conforme”, m13-l1-raport.md:36,45,55,64,90); jedna nazwa stopnia w całym pt; „Conforme” naturalne w pt-PT i nieodmienne.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"good\": \"Decisões alinhadas e aceitáveis\"",
+    "nowy": "\"good\": \"Decisões conformes e aceitáveis\"",
+    "waga": "ŚREDNIE",
+    "powod": "[play.report.good] Etykieta stopnia „Zgodna” w UI („Alinhada”) różni się od nazwy w lekcji m13-l1 (6× „Conforme”, m13-l1-raport.md:36,45,55,64,90); jedna nazwa stopnia w całym pt; „Conforme” naturalne w pt-PT i nieodmienne.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"gameExplain\": \"O jogo é a percentagem de decisões avaliadas como alinhadas ou aceitáveis entre as últimas {{window}} decisões avaliadas na área, numa mesa de 6 jogadores com stacks de 100bb. O resultado aparece a partir de {{min}} decisões (até {{window}} como provisório). Em cada área, o conhecimento e o jogo contam por igual; o resultado das mãos em {{t:chips|fichas}} não entra no indicador.\"",
+    "nowy": "\"gameExplain\": \"O jogo é a percentagem de decisões avaliadas como conformes ou aceitáveis entre as últimas {{window}} decisões avaliadas na área, numa mesa de 6 jogadores com stacks de 100bb. O resultado aparece a partir de {{min}} decisões (até {{window}} como provisório). Em cada área, o conhecimento e o jogo contam por igual; o resultado das mãos em {{t:chips|fichas}} não entra no indicador.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[advancement.gameExplain] Etykieta stopnia „Zgodna” w UI („Alinhada”) różni się od nazwy w lekcji m13-l1 (6× „Conforme”, m13-l1-raport.md:36,45,55,64,90); jedna nazwa stopnia w całym pt; „Conforme” naturalne w pt-PT i nieodmienne.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"rated\": \"{{rated}} de {{all}} decisões avaliadas\"",
+    "nowy": "\"rated\": \"Avaliadas {{rated}} de {{all}} decisões\"",
+    "waga": "ŚREDNIE",
+    "powod": "[play.report.rated] Lekcja m13-l1 cytuje licznik raportu jako «Avaliadas X de Y decisões» (m13-l1-raport.md:61,97); napis w UI ma inny szyk, więc uczeń nie znajdzie cytowanego tekstu. Szyk jak w pl („Oceniono X z Y decyzji”).",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"name\": \"Português\"",
+    "nowy": "\"name\": \"Português (Portugal)\"",
+    "waga": "ŚREDNIE",
+    "powod": "[language.name] Na liście języków obok „Português (Brasil)” (pt-BR.json) sama nazwa „Português” jest niejednoznaczna; wymagane brzmienie „Português (Portugal)”.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"resultPerfect\": \"Pleno. Pode avançar.\"",
+    "nowy": "\"resultPerfect\": \"Tudo certo. Pode avançar.\"",
+    "waga": "NISKIE",
+    "powod": "[session.resultPerfect] „Pleno.” jako samodzielne zdanie jest nienaturalne (w pt-PT „fazer o pleno”); pl „Komplet.” = wszystkie odpowiedzi dobre.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"stateAfter\": \"depois de si\"",
+    "nowy": "\"stateAfter\": \"a seguir\"",
+    "waga": "ŚREDNIE",
+    "powod": "[table.stateAfter] Pigułka 72 pt, kontekst: najwyżej ok. 10 znaków; „depois de si” ma 12 i może się nie zmieścić. „a seguir” (8) = gracz mówi po tobie.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"nutsYes\": \"tem um {{t:draw}} para a melhor mão\"",
+    "nowy": "\"nutsYes\": \"tem um {{t:draw|projeto}} para a melhor mão\"",
+    "waga": "ŚREDNIE",
+    "powod": "[play.report.detail.nutsYes] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt. Dodatkowo goły {{t:draw}} bez pliku content/pt/terms-nazwy.yaml wyrenderuje angielskie „draw”.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"nutsNo\": \"não tem um {{t:draw|draw}} para a melhor mão\"",
+    "nowy": "\"nutsNo\": \"não tem um {{t:draw|projeto}} para a melhor mão\"",
+    "waga": "ŚREDNIE",
+    "powod": "[play.report.detail.nutsNo] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"drawFlush\": \"um {{t:flush-draw|draw de flush}}\"",
+    "nowy": "\"drawFlush\": \"um {{t:flush-draw|projeto de flush}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.drawCall.drawFlush] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"rainbow\": \"um flop {{t:rainbow}} tem três cartas de três naipes diferentes, por isso ninguém tem ainda um {{t:flush-draw|draw de flush}}\"",
+    "nowy": "\"rainbow\": \"um flop {{t:rainbow}} tem três cartas de três naipes diferentes, por isso ninguém tem ainda um {{t:flush-draw|projeto de flush}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.suits.rainbow] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"twoTone\": \"um flop {{t:two-tone|bicolor}} tem duas cartas do mesmo naipe, por isso duas cartas do jogador desse naipe dão um {{t:flush-draw|draw de flush}}\"",
+    "nowy": "\"twoTone\": \"um flop {{t:two-tone|bicolor}} tem duas cartas do mesmo naipe, por isso duas cartas do jogador desse naipe dão um {{t:flush-draw|projeto de flush}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.suits.twoTone] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"rainbow\": \"não há {{t:flush-draw|draw de flush}} (três naipes diferentes)\"",
+    "nowy": "\"rainbow\": \"não há {{t:flush-draw|projeto de flush}} (três naipes diferentes)\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.draws.rainbow] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"twoTone\": \"há um {{t:flush-draw|draw de flush}} (duas cartas do mesmo naipe)\"",
+    "nowy": "\"twoTone\": \"há um {{t:flush-draw|projeto de flush}} (duas cartas do mesmo naipe)\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.draws.twoTone] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"paired\": \"um flop {{t:paired|emparelhado}} tem duas ou três cartas do mesmo valor; uma {{t:straight|sequência}} com as duas cartas do jogador é então impossível, embora um {{t:straight-draw|draw de sequência}} seja por vezes possível\"",
+    "nowy": "\"paired\": \"um flop {{t:paired|emparelhado}} tem duas ou três cartas do mesmo valor; uma {{t:straight|sequência}} com as duas cartas do jogador é então impossível, embora um {{t:straight-draw|projeto de sequência}} seja por vezes possível\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.ranks.paired] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"semiConnected\": \"um flop {{t:semi-connected|semiconectado}} tem dois valores dentro de cinco consecutivos, mas não três: ainda não há {{t:straight|sequência}}, mas um {{t:straight-draw|draw de sequência}} (aberto ou gutshot) já é possível\"",
+    "nowy": "\"semiConnected\": \"um flop {{t:semi-connected|semiconectado}} tem dois valores dentro de cinco consecutivos, mas não três: ainda não há {{t:straight|sequência}}, mas um {{t:straight-draw|projeto de sequência}} (aberto ou gutshot) já é possível\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.ranks.semiConnected] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"disconnected\": \"um flop {{t:disconnected|desconectado}} tem valores tão afastados que nenhum par deles cabe em cinco consecutivos, por isso ninguém tem sequer um {{t:straight-draw|draw de sequência}}\"",
+    "nowy": "\"disconnected\": \"um flop {{t:disconnected|desconectado}} tem valores tão afastados que nenhum par deles cabe em cinco consecutivos, por isso ninguém tem sequer um {{t:straight-draw|projeto de sequência}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.ranks.disconnected] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"pairedDraw\": \"Aqui duas cartas têm o mesmo valor; um {{t:straight-draw|draw de sequência}} obtém-se, p. ex., com {{example}}.\"",
+    "nowy": "\"pairedDraw\": \"Aqui duas cartas têm o mesmo valor; um {{t:straight-draw|projeto de sequência}} obtém-se, p. ex., com {{example}}.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.rankFact.pairedDraw] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"semiConnected\": \"Aqui ainda não há {{t:straight|sequência}}, mas um {{t:straight-draw|draw de sequência}} obtém-se, p. ex., com {{example}}.\"",
+    "nowy": "\"semiConnected\": \"Aqui ainda não há {{t:straight|sequência}}, mas um {{t:straight-draw|projeto de sequência}} obtém-se, p. ex., com {{example}}.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.rankFact.semiConnected] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"disconnected\": \"Aqui nenhuma combinação de duas cartas do jogador dá sequer um {{t:straight-draw|draw de sequência}}.\"",
+    "nowy": "\"disconnected\": \"Aqui nenhuma combinação de duas cartas do jogador dá sequer um {{t:straight-draw|projeto de sequência}}.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.rankFact.disconnected] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"straightDraw\": \"não há {{t:straight|sequência}}, mas há um {{t:straight-draw|draw de sequência}}, p. ex., com {{example}}\"",
+    "nowy": "\"straightDraw\": \"não há {{t:straight|sequência}}, mas há um {{t:straight-draw|projeto de sequência}}, p. ex., com {{example}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.draws.straightDraw] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"straightNone\": \"não há {{t:straight|sequência}} nem {{t:straight-draw|draw de sequência}}\"",
+    "nowy": "\"straightNone\": \"não há {{t:straight|sequência}} nem {{t:straight-draw|projeto de sequência}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.draws.straightNone] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"scale\": \"Contamos pontos: {{t:straight|sequência}} possível de várias formas (com pelo menos dois conjuntos de dois valores) {{made}}, {{t:straight|sequência}} possível de uma só forma {{madeOne}}, apenas {{t:straight-draw|draw de sequência}} {{draw}}; flop {{t:two-tone|bicolor}} {{twoTone}}, {{t:monotone|monocolor}} {{monotone}}. {{t:dry|Seco}} é 0–{{dryMax}}, intermédio {{medium}}, {{t:wet|molhado}} {{wet}} ou mais\"",
+    "nowy": "\"scale\": \"Contamos pontos: {{t:straight|sequência}} possível de várias formas (com pelo menos dois conjuntos de dois valores) {{made}}, {{t:straight|sequência}} possível de uma só forma {{madeOne}}, apenas {{t:straight-draw|projeto de sequência}} {{draw}}; flop {{t:two-tone|bicolor}} {{twoTone}}, {{t:monotone|monocolor}} {{monotone}}. {{t:dry|Seco}} é 0–{{dryMax}}, intermédio {{medium}}, {{t:wet|molhado}} {{wet}} ou mais\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.scale] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"dry\": \"um flop {{t:dry|seco}} dá poucos {{t:draw|draws}}. {{scale}}\"",
+    "nowy": "\"dry\": \"um flop {{t:dry|seco}} dá poucos {{t:draw|projetos}}. {{scale}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.wetness.dry] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"medium\": \"um flop intermédio dá alguns {{t:draw|draws}}. {{scale}}\"",
+    "nowy": "\"medium\": \"um flop intermédio dá alguns {{t:draw|projetos}}. {{scale}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.wetness.medium] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"wet\": \"um flop {{t:wet|molhado}} dá muitos {{t:draw|draws}} ou {{t:straight|sequências}} feitas. {{scale}}\"",
+    "nowy": "\"wet\": \"um flop {{t:wet|molhado}} dá muitos {{t:draw|projetos}} ou {{t:straight|sequências}} feitas. {{scale}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.texture.def.wetness.wet] Termin draw: w lekcjach pt dominuje „projeto” ({{t:draw|projeto/projetos}} ok. 155×, {{t:flush-draw|projeto…}} 41×, wobec „draw” 41× i „draw de flush” 11×), także terms-def (draw, outs, semi-bluff, rainbow, two-tone: „projeto”). UI używa „draw” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"table\": \"{{players}} jogadores, {{paid}} lugares pagos ({{payouts}} do {{t:prize-pool|prize pool}}). Stacks: {{stacks}}.\"",
+    "nowy": "\"table\": \"{{players}} jogadores, {{paid}} lugares pagos ({{payouts}} da {{t:prize-pool|bolsa de prémios}}). Stacks: {{stacks}}.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.icm.table] Termin prize pool: lekcje pt 13× {{t:prize-pool|bolsa de prémios}}, 0× „prize pool”; terms-def tournament-equity: „bolsa de prémios”. UI używa „prize pool” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"callExplanation\": \"A sua equity no {{t:prize-pool|prize pool}}: agora {{now}}, após ganhar {{win}}, após perder {{lose}}. Bubble factor = perda ÷ ganho = {{loss}} ÷ {{gain}} ≈ {{bf}}, por isso precisa de BF ÷ (BF + 1) ≈ {{required}} de equity. Num jogo por {{t:chips|fichas}}, bastariam {{requiredChips}}.\"",
+    "nowy": "\"callExplanation\": \"A sua equity na {{t:prize-pool|bolsa de prémios}}: agora {{now}}, após ganhar {{win}}, após perder {{lose}}. Bubble factor = perda ÷ ganho = {{loss}} ÷ {{gain}} ≈ {{bf}}, por isso precisa de BF ÷ (BF + 1) ≈ {{required}} de equity. Num jogo por {{t:chips|fichas}}, bastariam {{requiredChips}}.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.icm.callExplanation] Termin prize pool: lekcje pt 13× {{t:prize-pool|bolsa de prémios}}, 0× „prize pool”; terms-def tournament-equity: „bolsa de prémios”. UI używa „prize pool” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"equityPrompt\": \"{{table}} Quanto vale o seu stack segundo o {{t:icm}} (parte do {{t:prize-pool|prize pool}})?\"",
+    "nowy": "\"equityPrompt\": \"{{table}} Quanto vale o seu stack segundo o {{t:icm}} (parte da {{t:prize-pool|bolsa de prémios}})?\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.icm.equityPrompt] Termin prize pool: lekcje pt 13× {{t:prize-pool|bolsa de prémios}}, 0× „prize pool”; terms-def tournament-equity: „bolsa de prémios”. UI używa „prize pool” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"equityExplanationMore\": \"A probabilidade do 1.º lugar é o seu stack ÷ todas as {{t:chips|fichas}} ({{share}}); os lugares seguintes calculam-se da mesma forma entre os restantes jogadores. No total, {{icm}} do {{t:prize-pool|prize pool}}, mais do que a sua parte das {{t:chips|fichas}}.\"",
+    "nowy": "\"equityExplanationMore\": \"A probabilidade do 1.º lugar é o seu stack ÷ todas as {{t:chips|fichas}} ({{share}}); os lugares seguintes calculam-se da mesma forma entre os restantes jogadores. No total, {{icm}} da {{t:prize-pool|bolsa de prémios}}, mais do que a sua parte das {{t:chips|fichas}}.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.icm.equityExplanationMore] Termin prize pool: lekcje pt 13× {{t:prize-pool|bolsa de prémios}}, 0× „prize pool”; terms-def tournament-equity: „bolsa de prémios”. UI używa „prize pool” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "apps/mobile/src/i18n/locales/pt.json",
+    "stary": "\"equityExplanationLess\": \"A probabilidade do 1.º lugar é o seu stack ÷ todas as {{t:chips|fichas}} ({{share}}); os lugares seguintes calculam-se da mesma forma entre os restantes jogadores. No total, {{icm}} do {{t:prize-pool|prize pool}}, menos do que a sua parte das {{t:chips|fichas}}.\"",
+    "nowy": "\"equityExplanationLess\": \"A probabilidade do 1.º lugar é o seu stack ÷ todas as {{t:chips|fichas}} ({{share}}); os lugares seguintes calculam-se da mesma forma entre os restantes jogadores. No total, {{icm}} da {{t:prize-pool|bolsa de prémios}}, menos do que a sua parte das {{t:chips|fichas}}.\"",
+    "waga": "ŚREDNIE",
+    "powod": "[drill.icm.equityExplanationLess] Termin prize pool: lekcje pt 13× {{t:prize-pool|bolsa de prémios}}, 0× „prize pool”; terms-def tournament-equity: „bolsa de prémios”. UI używa „prize pool” — jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/terms-def.yaml",
+    "stary": "nit: \"Jogador muito fechado,",
+    "nowy": "nit: \"Jogador muito apertado,",
+    "waga": "ŚREDNIE",
+    "powod": "terms-def.yaml:154 (nit). Termin tight: lekcje pt 42× „apertado”, 3× „fechado” (wszystkie 3 w terms-def); UI play.styles/tables: „Apertado”. Jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/terms-def.yaml",
+    "stary": "tag: \"Estilo fechado e agressivo:",
+    "nowy": "tag: \"Estilo apertado e agressivo:",
+    "waga": "ŚREDNIE",
+    "powod": "terms-def.yaml:156 (tag). Termin tight: lekcje pt 42× „apertado”, 3× „fechado” (wszystkie 3 w terms-def); UI play.styles/tables: „Apertado”. Jedna nazwa w całym pt.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/terms-def.yaml",
+    "stary": "para que um bluff com uma mão sem hipóteses fique a zero;",
+    "nowy": "para que um bluff com uma mão sem hipóteses não ganhe nem perca;",
+    "waga": "ŚREDNIE",
+    "powod": "terms-def.yaml:110 (alpha). pl „wyszedł na zero” = break-even; pt-PT „ficar a zero” znaczy potocznie „zostać z niczym”, co w definicji liczbowej (szczebel math) myli.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/terms-def.yaml",
+    "stary": "O stack dividido pela soma dos blinds e antes de uma mão:",
+    "nowy": "O stack dividido pela soma dos blinds e dos antes de uma mão:",
+    "waga": "ŚREDNIE",
+    "powod": "terms-def.yaml:130 (m-ratio). „blinds e antes de uma mão” czyta się jako „blindy i przed rozdaniem” (antes = przed); rodzajnik „dos antes” rozstrzyga, że to liczba mnoga od ante.",
+    "grupa": "U"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/terms-def.yaml",
+    "stary": "mostra quantas de determinada mão existem realmente num range.",
+    "nowy": "mostra quantas combinações de determinada mão existem realmente num range.",
+    "waga": "NISKIE",
+    "powod": "terms-def.yaml:60 (combo). „quantas de determinada mão” bez rzeczownika jest niegramatyczne; pl „ile danych rąk”.",
+    "grupa": "U"
+  }
+]
