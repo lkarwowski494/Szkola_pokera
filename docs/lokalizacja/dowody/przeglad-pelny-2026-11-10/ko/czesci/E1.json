@@ -1,0 +1,272 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 21,
+  "stary": "(약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}개 핸드)",
+  "nowy": "(핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}})",
+  "waga": "ŚR",
+  "powod": "pl: „ok. {{n:…low}}–{{n:…high}} rąk” to odsetek rąk (liczby mają jednostkę percent i wyświetlają się jako np. 15%–18%); w ko po procencie stoi klasyfikator liczby sztuk „개 핸드”, co daje niegramatyczne „15%–18%개 핸드” i sugeruje liczbę rąk. Poprawnie: „핸드의 약 …%–…%”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 49,
+  "stary": "약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}개 핸드를 {{t:open|오픈합니다}}",
+  "nowy": "핸드의 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}를 {{t:open|오픈합니다}}",
+  "waga": "ŚR",
+  "powod": "pl: „ok. {{n:…low}}–{{n:…high}} rąk” to odsetek rąk (liczby mają jednostkę percent i wyświetlają się jako np. 15%–18%); w ko po procencie stoi klasyfikator liczby sztuk „개 핸드”, co daje niegramatyczne „15%–18%개 핸드” i sugeruje liczbę rąk. Poprawnie: „핸드의 약 …%–…%”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 59,
+  "stary": "약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}개 핸드로 넓게",
+  "nowy": "핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}로 넓게",
+  "waga": "ŚR",
+  "powod": "pl: „ok. {{n:…low}}–{{n:…high}} rąk” to odsetek rąk (liczby mają jednostkę percent i wyświetlają się jako np. 15%–18%); w ko po procencie stoi klasyfikator liczby sztuk „개 핸드”, co daje niegramatyczne „15%–18%개 핸드” i sugeruje liczbę rąk. Poprawnie: „핸드의 약 …%–…%”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 87,
+  "stary": "(3-bet)\"",
+  "nowy": "(3벳)\"",
+  "waga": "ŚR",
+  "powod": "pl: „3-bet”; w ko nazwa terminu wg terms-nazwy to „3벳” (tak też w egzaminach m4 i m5 oraz w lekcjach m4); tu została angielska pisownia „3-bet”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 87,
+  "stary": "3-bet은 {{t:pot|팟}}을 키우고",
+  "nowy": "3벳은 {{t:pot|팟}}을 키우고",
+  "waga": "ŚR",
+  "powod": "pl: „3-bet”; w ko nazwa terminu wg terms-nazwy to „3벳” (tak też w egzaminach m4 i m5 oraz w lekcjach m4); tu została angielska pisownia „3-bet”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m2.yaml",
+  "linia": 54,
+  "stary": "2와 4 규칙으로 계산하면",
+  "nowy": "2와 4의 법칙으로 계산하면",
+  "waga": "ŚR",
+  "powod": "pl: „reguła 2 i 4”; lekcja m2-l1 (ko) wprowadza tę nazwę jako „2와 4의 법칙” (tytuł sekcji i zadanie); jedna nazwa na pojęcie.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 72,
+  "stary": "수딧 핸드와",
+  "nowy": "수티드 핸드와",
+  "waga": "ŚR",
+  "powod": "pl: „rękami w kolorze”; terms-nazwy: suited = „수티드”, tu wariant „수딧”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 72,
+  "stary": "에이스를 맞추는 경우가",
+  "nowy": "에이스를 맞히는 경우가",
+  "waga": "NISKIE",
+  "powod": "Ortografia: „trafić” (kartę) to 맞히다, nie 맞추다 (dopasować); reszta egzaminów ma „맞히다” (np. m3 „에이스를 맞혀도”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m1.yaml",
+  "linia": 28,
+  "stary": "상대도 맞추지 못했을 수 있습니다",
+  "nowy": "상대도 맞히지 못했을 수 있습니다",
+  "waga": "NISKIE",
+  "powod": "Ortografia: pl „rywal mógł też nie trafić” = 맞히다, nie 맞추다; spójnie z resztą egzaminów.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 111,
+  "stary": "{ text: \"림프 비하인드\", why: \"림프 비하인드는 스페큘레이티브 핸드에 어울립니다.",
+  "nowy": "{ text: \"콜\", why: \"콜은 투기적인 핸드에 어울립니다.",
+  "waga": "ŚR",
+  "powod": "pl: „Dopłacam” / „Dopłata pasuje do rąk spekulacyjnych”. Lekcja m4-l4 (ko) oddaje tę samą odpowiedź jako „콜”, a „ręce spekulacyjne” jako „투기적인 핸드”; „림프 비하인드” i „스페큘레이티브 핸드” nie występują nigdzie indziej w treści i nie są nigdzie objaśnione.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 63,
+  "stary": "핸드로 3벳에 돈을 내주게 됩니다",
+  "nowy": "핸드로 3벳을 콜하게 됩니다",
+  "waga": "NISKIE",
+  "powod": "pl: „płaciłbyś 3-bety rękami, które…” = sprawdzałbyś 3-bety; „3벳에 돈을 내주게 됩니다” brzmi jak „oddajesz pieniądze 3-betowi”, „3벳을 콜하게 됩니다” jest jednoznaczne.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 29,
+  "stary": "{{t:nuts-advantage|너츠 우위}}. 그중",
+  "nowy": "{{t:nuts-advantage|넛 우위}}. 그중",
+  "waga": "ŚR",
+  "powod": "pl: „przewaga nutsów” ({{t:nuts-advantage}}); terms-nazwy: „넛 우위”. W tym samym pliku znacznik bez formy (linie 22, 98) wyświetla „넛 우위”, a forma tu to „너츠 우위” — dwie nazwy jednego pojęcia na jednym ekranie egzaminu.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 31,
+  "stary": "{ text: \"{{t:nuts-advantage|너츠 우위}}\"",
+  "nowy": "{ text: \"{{t:nuts-advantage|넛 우위}}\"",
+  "waga": "ŚR",
+  "powod": "pl: „przewaga nutsów” ({{t:nuts-advantage}}); terms-nazwy: „넛 우위”. W tym samym pliku znacznik bez formy (linie 22, 98) wyświetla „넛 우위”, a forma tu to „너츠 우위” — dwie nazwy jednego pojęcia na jednym ekranie egzaminu.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 32,
+  "stary": "{{t:nuts-advantage|너츠 우위}}가 없으면",
+  "nowy": "{{t:nuts-advantage|넛 우위}}가 없으면",
+  "waga": "ŚR",
+  "powod": "pl: „przewaga nutsów” ({{t:nuts-advantage}}); terms-nazwy: „넛 우위”. W tym samym pliku znacznik bez formy (linie 22, 98) wyświetla „넛 우위”, a forma tu to „너츠 우위” — dwie nazwy jednego pojęcia na jednym ekranie egzaminu.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 22,
+  "stary": "낮고 {{t:connected}} 플롭은",
+  "nowy": "낮고 {{t:connected|커넥티드한}} 플롭은",
+  "waga": "NISKIE",
+  "powod": "pl: „niski, {{t:connected}} flop”; znacznik bez formy daje „낮고 커넥티드 플롭은” (brak końcówki przydawki po „낮고”); forma „커넥티드한” jak w egzaminie m6 linia 94.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 57,
+  "stary": "C-벳을 가장 드물게 하는",
+  "nowy": "C벳을 가장 드물게 하는",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet”; terms-nazwy: c-bet = „C벳” (tak w lekcjach m5-l4, m6-l3 i w rules). Tu inny zapis; przykład poprawki, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 60,
+  "stary": "C-벳을 가장 자주 하는 구도",
+  "nowy": "C벳을 가장 자주 하는 구도",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet”; terms-nazwy: c-bet = „C벳” (tak w lekcjach m5-l4, m6-l3 i w rules). Tu inny zapis; przykład poprawki, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 28,
+  "stary": "작은 c-bet에는 어차피",
+  "nowy": "작은 C벳에는 어차피",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet”; terms-nazwy: c-bet = „C벳” (tak w lekcjach m5-l4, m6-l3 i w rules). Tu inny zapis; przykład poprawki, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 17,
+  "stary": "맞습니다: alpha = 벳",
+  "nowy": "맞습니다: 알파 = 벳",
+  "waga": "ŚR",
+  "powod": "pl: „alpha”; terms-nazwy: alpha = „알파” (tak w lekcjach m6-l1, m8-l2 i w rules); tu zostało łacińskie „alpha”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 18,
+  "stary": "alpha는 전체에서",
+  "nowy": "알파는 전체에서",
+  "waga": "ŚR",
+  "powod": "pl: „alpha”; terms-nazwy: alpha = „알파” (tak w lekcjach m6-l1, m8-l2 i w rules); tu zostało łacińskie „alpha”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 48,
+  "stary": "첫 번째 숫자는 alpha(",
+  "nowy": "첫 번째 숫자는 알파(",
+  "waga": "ŚR",
+  "powod": "pl: „alpha”; terms-nazwy: alpha = „알파” (tak w lekcjach m6-l1, m8-l2 i w rules); tu zostało łacińskie „alpha”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 76,
+  "stary": "거셧(9)",
+  "nowy": "거트샷(9)",
+  "waga": "ŚR",
+  "powod": "pl: „gutshot (dziewiątka)”; terms-nazwy: gutshot = „거트샷”; „거셧” to literówka (nie występuje nigdzie indziej).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 67,
+  "stary": "하이 카드 두 장이지만",
+  "nowy": "하이카드 두 장이지만",
+  "waga": "NISKIE",
+  "powod": "pl: „dwie wysokie karty”; lekcja m6-l2 (ko) i terms-nazwy piszą łącznie „하이카드”; tu „하이 카드”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 68,
+  "stary": "하이 카드 두 장은",
+  "nowy": "하이카드 두 장은",
+  "waga": "NISKIE",
+  "powod": "pl: „dwie wysokie karty”; lekcja m6-l2 (ko) i terms-nazwy piszą łącznie „하이카드”; tu „하이 카드”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 67,
+  "stary": "오히려 이런 핸드로",
+  "nowy": "바로 이런 핸드로",
+  "waga": "NISKIE",
+  "powod": "pl: „sprawdzasz raczej właśnie taką ręką”; „오히려” znaczy „wręcz przeciwnie/na odwrót” i sugeruje kontrast, którego w pl nie ma; „바로 이런 핸드로” = „właśnie taką ręką”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 58,
+  "stary": "에이스 하이가 보통 방어됩니다",
+  "nowy": "에이스 하이는 보통 방어합니다",
+  "waga": "NISKIE",
+  "powod": "pl: „as jako najwyższa karta zwykle się broni”; strona bierna „방어됩니다” jest nienaturalna, w linii 57 to samo zdanie brzmi „보통 방어합니다”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m1.yaml",
+  "linia": 20,
+  "stary": "올릴 {{t:bet}}이 있기 때문에 바로 {{t:raise|레이즈}}가 가능합니다.",
+  "nowy": "{{t:raise|레이즈}}가 가능한 것은 바로 올릴 {{t:bet}}이 있기 때문입니다.",
+  "waga": "NISKIE",
+  "powod": "pl: „Przebicie jest możliwe właśnie dlatego, że jest bet do podniesienia”; w ko „바로” stoi przed „레이즈가 가능합니다” i czyta się jako „od razu można przebić”; po przestawieniu „바로 … 때문입니다” = „właśnie dlatego”.",
+  "grupa": "E1"
+ }
+]
