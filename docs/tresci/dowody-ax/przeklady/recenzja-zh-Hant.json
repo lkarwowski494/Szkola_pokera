@@ -1,0 +1,54 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "對手{{t:bet|下注}}前，{{t:pot|底池}}裡有 {{n:exam.m2.half.pot}} {{t:chips|籌碼}}。對手{{t:bet|下注}} {{n:exam.m2.half.bet}}。你至少需要多少贏得{{t:pot|底池}}的機率（{{t:equity|權益}}）才能{{t:call|跟注}}？",
+  "uwaga": "Sens i klucze zgodne. Odpowiedź to procent, więc „機率” (prawdopodobieństwo), nie „機會”; brzmienie jak w definicji equity zh-Hant („你贏得底池的機率”) — jedna definicja."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl; naturalne."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "„跟注大盲” to naturalne nazwanie limpu; klucze = pl. Zmiana tylko w m3.exam.q2 (ten sam tekst w q5/q6 zostaje)."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl, klucze = pl; 溜入 = terms-nazwy."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "{{t:cutoff|CO}} {{t:open|開池}}{{t:raise|加注}}到 {{n:pf.open-size}}，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想再加注一次（{{t:3-bet|3-bet}}）。你要{{t:raise|加注}}到多少？",
+  "uwaga": "Sens i klucze zgodne. „加注到 2.5bb 開池” jest niezgrabne; naturalny szyk to „開池加注到 2.5bb”."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z nowym pl; klucze = pl; naturalne."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "你在{{t:big-blind|大盲}}，現在是翻牌圈。{{t:bet|下注}}前，{{t:pot|底池}}有 {{n:exam.m6.pot}} {{t:chips|籌碼}}。按鈕位在一手牌中{{t:bet|下注}} {{n:exam.m6.bet.quarter}}，在另一手牌中下注 {{n:exam.m6.bet.three-quarters}}。在這兩手牌中，你各至少需要多少贏得{{t:pot|底池}}的機率（{{t:equity|權益}}）才能{{t:call|跟注}}？",
+  "uwaga": "Jak m2.exam.q5: „機率” zamiast „機會”, „贏得” jak w definicji equity. Reszta bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "現在是河牌圈，也就是最後一個{{t:betting-round|下注輪}}。對手{{t:check|過牌}}。假設面對你的{{t:bet|下注}}，他只能{{t:call|跟注}}或{{t:fold|棄牌}}。他的{{t:range|範圍}}（他可能持有的牌）中有{{n:exam.m8.range.worse}}手比你差的牌，但其中只有{{n:exam.m8.call.worse}}手會跟注你的下注。另外也有{{n:exam.m8.call.better}}手比你好的牌會跟注。你要下注嗎？",
+  "uwaga": "Sens i klucze zgodne. „河牌，最後一個下注輪” — „河牌” to sama karta; rundę nazywa „河牌圈” (jak „翻牌圈” w m6). „可能拿到的牌” → „可能持有的牌” (naturalniej o kartach w ręce)."
+ }
+]

@@ -1,0 +1,55 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "相手が{{t:bet|ベット}}する前、{{t:pot|ポット}}には{{n:exam.m2.half.pot}}{{t:chips|チップ}}あります。相手が{{n:exam.m2.half.bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するには、{{t:pot|ポット}}を勝ち取る確率（{{t:equity|エクイティ}}）が最低どれだけ必要ですか？",
+  "uwaga": "Sens, liczby i klucze zgodne z nowym pl. Poprawka tylko stylu: „相手のベットの前、” brzmi sztywno; „相手がベットする前、” jest naturalne."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl (sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał); naturalne, bez żargonu; brak znaczników jak w pl."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。{{t:big-blind|ビッグブラインド}}の額を{{t:call|コール}}するだけのプレイは{{t:limp|リンプ}}と呼ばれ、{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。",
+  "uwaga": "Sens i klucze zgodne z pl. „…するだけなのはリンプで、” jest niezgrabne; „…するだけのプレイはリンプと呼ばれ、” czyta się naturalnie i lepiej definiuje termin. Spójne z nową opcją 2."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z nowym pl (otwarcie przez przebicie do X, 3-bet jako ponowne przebicie, „do ilu przebijasz”); klucze = pl (drugie „レイズ” bez znacznika — dopuszczalne, zestaw kluczy ten sam); forma 3ベット = terms-nazwy."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Gracz na dużym blindzie jako osoba, flop objaśniony jako trzy pierwsze karty wspólne; klucze = pl; formy zgodne z terms-nazwy."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "あなたは{{t:big-blind|ビッグブラインド}}で、いまはフロップです。{{t:bet|ベット}}される前、{{t:pot|ポット}}には{{n:exam.m6.pot}}{{t:chips|チップ}}あります。ボタンは、ある回では{{n:exam.m6.bet.quarter}}、別の回では{{n:exam.m6.bet.three-quarters}}を{{t:bet|ベット}}します。それぞれの場合で{{t:call|コール}}するには、{{t:pot|ポット}}を勝ち取る確率（{{t:equity|エクイティ}}）が最低どれだけ必要ですか？",
+  "uwaga": "Sens zgodny. „ある手では／別の手では” jest mylące (手 = ruch, jak w shogi, albo karty w ręce); wracam do „ある回／別の回” ze starego tekstu. „ベットの前、” → „ベットされる前、” (naturalniej). Klucze i {{n:}} bez zmian."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Założenie „tylko sprawdzić albo spasować”, zakres objaśniony, „4 ręce lepsze” jednoznacznie; klucze = pl ({{t:}} na drugim „コール” pominięty — zestaw kluczy ten sam). Naturalne."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "{{t:big-blind|ビッグブラインド}}の額を{{t:call|コール}}",
+  "stare": "{{t:big-blind|ビッグブラインド}}の額だけ払う",
+  "uwaga": "NOWE POLE. pl zmienił opcję na „{{t:call|Sprawdzam}} {{t:big-blind|duży blind}}”; ja „ビッグブラインドの額だけ払う” nie ma klucza call, a „だけ” (tylko) lekko podpowiada, że to słabszy ruch (pl nie ma „tylko” w opcji). Nowe brzmienie zgodne z kluczami pl i z nowym wyjaśnieniem. Zmiana tylko w m3.exam.q2 (ten sam tekst stoi też w m3.exam.q5/q6 — tam zostaje)."
+ }
+]

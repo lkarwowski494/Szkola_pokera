@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "{{t:pot|ポット}}には{{n:exam.m2.half.pot}}あります。相手が{{n:exam.m2.half.bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するには、どれだけのエクイティが必要ですか？"
+    prompt: "相手が{{t:bet|ベット}}する前、{{t:pot|ポット}}には{{n:exam.m2.half.pot}}{{t:chips|チップ}}あります。相手が{{n:exam.m2.half.bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するには、{{t:pot|ポット}}を勝ち取る確率（{{t:equity|エクイティ}}）が最低どれだけ必要ですか？"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "あなたが払うのは{{n:exam.m2.half.bet}}で、あなたの{{t:call|コール}}後の{{t:pot}}は{{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}です。{{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}。これは{{t:pot|ポット}}の半分の{{t:bet}}なので、{{t:pot|ポット}}がどの大きさでも結果は同じです。" }
       - { text: "{{n:exam.m2.half.wrong}}", why: "それは{{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}で、あなたの{{t:call|コール}}が入っていません。払う額は、{{t:call|コール}}後の{{t:pot|ポット}}全体で割ります：{{n:exam.m2.half.total}}。" }

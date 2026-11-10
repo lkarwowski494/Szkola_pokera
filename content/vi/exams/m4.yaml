@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "{{t:cutoff|CO}} {{t:open|mở cược}} {{n:pf.open-size}}, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|small blind}} và muốn 3-bet. Lên bao nhiêu?"
+    prompt: "{{t:cutoff|CO}} {{t:open|mở cược}} bằng cách {{t:raise|tố}} lên {{n:pf.open-size}}, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|small blind}} và muốn tố thêm lần nữa ({{t:3-bet|3-bet}}). Bạn {{t:raise|tố}} lên bao nhiêu?"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "Lên {{n:pf.3bet.oop-total}}", correct: true, why: "Sau flop bạn sẽ hành động trước, nên bạn {{t:raise|tố}} khoảng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}}. Mức lớn hơn khiến {{t:cutoff|CO}} không thể {{t:call}} rẻ khi {{t:in-position}}." }

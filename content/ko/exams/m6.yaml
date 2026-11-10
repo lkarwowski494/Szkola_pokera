@@ -41,7 +41,7 @@ drills:
     id: m6.exam.q5
     family: m6.flop.price
     rules: [R-M6-005]
-    prompt: "플롭입니다. {{t:pot|팟}}은 {{n:exam.m6.pot}}입니다. 버튼이 한 번은 {{n:exam.m6.bet.quarter}}만큼, 다른 핸드에서는 {{n:exam.m6.bet.three-quarters}}만큼 {{t:bet|벳합니다}}. 각 경우에 {{t:call|콜하려면}} 에퀴티가 얼마나 필요합니까?"
+    prompt: "당신은 {{t:big-blind|빅 블라인드}}에 있고, 지금은 플롭입니다. {{t:bet|베팅}} 전 {{t:pot|팟}}에는 {{n:exam.m6.pot}} {{t:chips|칩}}이 있습니다. 버튼이 한 핸드에서는 {{n:exam.m6.bet.quarter}}, 다른 핸드에서는 {{n:exam.m6.bet.three-quarters}}만큼 {{t:bet|벳합니다}}. 각 핸드에서 {{t:call|콜하려면}} {{t:pot|팟}}을 가져갈 확률({{t:equity|에퀴티}})이 최소 얼마나 필요합니까?"
     table: { position: BB }
     options:
       - { text: "각각 약 {{n:eq.bet-quarter}}, {{n:eq.bet-three-quarters}}", correct: true, why: "맞습니다: 벳 ÷ ({{t:pot}} + 2·벳). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, 그리고 {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. 벳이 클수록 더 좁은 {{t:range|레인지}}로 방어합니다." }

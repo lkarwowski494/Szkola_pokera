@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind}}가 {{t:call|콜했습니다}}. 다음 중 어느 플롭에서 {{t:big-blind}}가 당신보다 {{t:two-pair}}나 {{t:straight|스트레이트}}를 더 자주 가지고 있습니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind|빅 블라인드}}에 있는 플레이어가 {{t:call|콜했습니다}}. 다음 중 어느 플롭(처음 깔리는 {{t:community-cards|커뮤니티 카드}} 3장)에서 그 플레이어가 당신보다 {{t:two-pair}}나 {{t:straight|스트레이트}}를 더 자주 가지고 있습니까?"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "맞습니다. 낮고 {{t:connected|커넥티드한}} 플롭은 {{t:connectors|커넥터}}와 작은 카드로 된 핸드에 맞는데, {{t:big-blind}}는 이런 핸드로 많이 방어합니다. 버튼에서 오픈한 당신에게는 높은 카드가 더 많고, 여기서는 빗나갔습니다. 이것이 {{t:big-blind|빅 블라인드}}의 {{t:nuts-advantage}}입니다." }

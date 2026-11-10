@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "En el {{t:pot|bote}} hay {{n:exam.m2.half.pot}}. Tu rival {{t:bet|apuesta}} {{n:exam.m2.half.bet}}. ¿Cuánta equity necesitas para {{t:call|igualar}}?"
+    prompt: "Antes de la {{t:bet|apuesta}} de tu rival, en el {{t:pot|bote}} hay {{n:exam.m2.half.pot}} {{t:chips|fichas}}. Tu rival {{t:bet|apuesta}} {{n:exam.m2.half.bet}}. ¿Qué probabilidad mínima de ganar el {{t:pot|bote}} ({{t:equity|equity}}) necesitas para {{t:call|igualar}}?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Pones {{n:exam.m2.half.bet}}, y después de que {{t:call|iguales}} el {{t:pot|bote}} tiene {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. Es una {{t:bet|apuesta}} de medio {{t:pot|bote}}, así que el resultado es el mismo con cualquier tamaño de {{t:pot|bote}}." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "Eso es {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, sin contar lo que {{t:call|igualas}}. Divide lo que pones entre todo el {{t:pot|bote}} después de {{t:call|igualar}}: {{n:exam.m2.half.total}}." }

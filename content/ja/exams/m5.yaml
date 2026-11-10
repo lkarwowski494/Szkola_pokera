@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。次のうち、{{t:big-blind}}のほうがあなたより{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多いフロップはどれですか？"
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind|ビッグブラインド}}のプレイヤーが{{t:call|コール}}しました。次のうち、そのプレイヤーのほうがあなたより{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多いフロップ（最初の3枚の{{t:community-cards|コミュニティカード}}）はどれですか？"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "そのとおりです。低くて{{t:connected}}なフロップは、{{t:big-blind}}が多くディフェンスする{{t:connectors|コネクター}}や小さいカードのハンドに当たります。ボタンからのあなたは高いカードが多く、それらはここで外れています。これは{{t:big-blind|ビッグブラインド}}の{{t:nuts-advantage}}です。" }

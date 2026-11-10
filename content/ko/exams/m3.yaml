@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "프리플롭에서 당신이 가장 먼저 액션하며, 아직 아무도 게임에 참여하지 않았습니다. 어떻게 하시겠습니까?"
+    prompt: "테이블에는 여섯 명이 앉아 있고, 카드가 막 나눠졌습니다. 당신이 가장 먼저 결정하며, 당신 앞에서는 아직 아무도 플레이하지 않았습니다. 어떻게 하시겠습니까?"
     table: { hand: "Ac Td", position: UTG }
     options:
       - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "오프수트 AT는 {{t:utg}}에서의 {{t:open|오픈}} {{t:range|레인지}}(핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}})에 들어갑니다. 앱의 솔버는 여기서 이 핸드를 항상 플레이합니다." }
       - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다. {{t:utg}}에서는 좁게 플레이하지만, AT는 여전히 {{t:range|레인지}}에 들어갑니다." }
-      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "가장 먼저 들어갈 때는 {{t:raise|레이즈하거나}} {{t:fold|폴드합니다}}. 림프는 {{t:initiative|주도권}}과 블라인드를 바로 가져올 기회를 내줍니다." }
+      - { text: "{{t:big-blind|빅 블라인드}} 금액을 {{t:call|콜합니다}}", why: "가장 먼저 들어갈 때는 {{t:raise|레이즈하거나}} {{t:fold|폴드합니다}}. {{t:big-blind|빅 블라인드}} 금액만 {{t:call|콜하는}} 것은 {{t:limp|림프}}이며, {{t:initiative|주도권}}과 블라인드를 바로 가져올 기회를 내줍니다." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

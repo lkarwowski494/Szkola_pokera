@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Actúas primero preflop y nadie ha entrado aún en la mano. ¿Qué haces?"
+    prompt: "Hay seis jugadores en la mesa y se acaban de repartir las cartas. Eres el primero en decidir: nadie ha jugado todavía antes que tú. ¿Qué haces?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Subo}}", correct: true, why: "AT de distinto palo entra en el {{t:range|rango}} de {{t:open|apertura}} desde {{t:utg|UTG}} (alrededor del {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} de las manos). El solver de la aplicación la juega aquí siempre." }
+      - { text: "{{t:raise|Subo}} la {{t:big-blind|ciega grande}}", correct: true, why: "AT de distinto palo entra en el {{t:range|rango}} de {{t:open|apertura}} desde {{t:utg|UTG}} (alrededor del {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} de las manos). El solver de la aplicación la juega aquí siempre." }
       - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado. Desde {{t:utg|UTG}} juegas estrecho, pero AT sigue dentro del {{t:range|rango}}." }
-      - { text: "Completo la {{t:big-blind|ciega grande}}", why: "Si eres el primero en entrar, {{t:raise|subes}} o {{t:fold|te retiras}}. El limp cede la {{t:initiative|iniciativa}} y la posibilidad de llevarte las ciegas de inmediato." }
+      - { text: "{{t:call|Igualo}} la {{t:big-blind|ciega grande}}", why: "Si eres el primero en entrar, {{t:raise|subes}} o {{t:fold|te retiras}}. Limitarte a {{t:call|igualar}} la {{t:big-blind|ciega grande}} es hacer {{t:limp|limp}}: cedes la {{t:initiative|iniciativa}} y la posibilidad de llevarte las ciegas de inmediato." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

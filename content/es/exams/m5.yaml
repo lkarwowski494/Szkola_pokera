@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "{{t:open|Abriste}} desde el Button y la {{t:big-blind|ciega grande}} {{t:call|igualó}}. ¿En cuál de estos flops es la {{t:big-blind|ciega grande}} la que, con más frecuencia que tú, tiene {{t:two-pair|doble pareja}} o {{t:straight|escalera}}?"
+    prompt: "{{t:open|Abriste}} desde el Button y el jugador de la {{t:big-blind|ciega grande}} {{t:call|igualó}}. ¿En cuál de estos flops (las tres primeras {{t:community-cards|cartas comunitarias}}) ese jugador tiene con más frecuencia que tú {{t:two-pair|doble pareja}} o {{t:straight|escalera}}?"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "Sí: un flop bajo y {{t:connected|conectado}} le va bien a los {{t:connectors|conectores}} y a las manos con cartas pequeñas, que la {{t:big-blind|ciega grande}} defiende mucho. Tú, desde el Button, tienes más cartas altas, que aquí han fallado. Es una {{t:nuts-advantage|ventaja de nuts}} de la {{t:big-blind|ciega grande}}." }

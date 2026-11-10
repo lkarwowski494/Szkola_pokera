@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Vous parlez en premier préflop, personne n'est encore entré dans le coup. Que faites-vous ?"
+    prompt: "Six joueurs sont à la table et les cartes viennent d'être distribuées. Vous décidez en premier : personne n'a encore joué avant vous. Que faites-vous ?"
     table: { hand: "Ac Td", position: UTG }
     options:
       - { text: "{{t:raise|Je relance}}", correct: true, why: "AT dépareillé fait partie de la {{t:range}} d'{{t:open|ouverture}} depuis {{t:utg}} (env. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} des mains). Le solveur de l'application la joue toujours ici." }
       - { text: "{{t:fold|Je me couche}}", why: "Trop serré. Depuis {{t:utg}}, vous jouez étroit, mais AT est encore dans la {{t:range}}." }
-      - { text: "Je complète la {{t:big-blind|grosse blinde}}", why: "En premier, vous {{t:raise|relancez}} ou vous {{t:fold|vous couchez}}. Le limp cède l'{{t:initiative}} et la chance de remporter les blindes tout de suite." }
+      - { text: "Je {{t:call|paie}} la {{t:big-blind|grosse blinde}}", why: "En premier, vous {{t:raise|relancez}} ou vous {{t:fold|vous couchez}}. Se contenter de {{t:call|payer}} la {{t:big-blind|grosse blinde}}, c'est faire un {{t:limp|limp}} : vous cédez l'{{t:initiative}} et la chance de remporter les blindes tout de suite." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

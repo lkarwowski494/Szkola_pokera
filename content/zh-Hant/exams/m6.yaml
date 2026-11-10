@@ -41,7 +41,7 @@ drills:
     id: m6.exam.q5
     family: m6.flop.price
     rules: [R-M6-005]
-    prompt: "翻牌圈。{{t:pot|底池}}有 {{n:exam.m6.pot}}。按鈕位在一手牌中{{t:bet|下注}} {{n:exam.m6.bet.quarter}}，在另一手牌中下注 {{n:exam.m6.bet.three-quarters}}。這兩種情況下，你各需要多少權益才能{{t:call|跟注}}？"
+    prompt: "你在{{t:big-blind|大盲}}，現在是翻牌圈。{{t:bet|下注}}前，{{t:pot|底池}}有 {{n:exam.m6.pot}} {{t:chips|籌碼}}。按鈕位在一手牌中{{t:bet|下注}} {{n:exam.m6.bet.quarter}}，在另一手牌中下注 {{n:exam.m6.bet.three-quarters}}。在這兩手牌中，你各至少需要多少贏得{{t:pot|底池}}的機率（{{t:equity|權益}}）才能{{t:call|跟注}}？"
     table: { position: BB }
     options:
       - { text: "約 {{n:eq.bet-quarter}} 和 {{n:eq.bet-three-quarters}}", correct: true, why: "對：下注額 ÷ ({{t:pot}} + 2·下注額)。{{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}，而 {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}。面對較大的下注，你用較窄的{{t:range|範圍}}防守。" }

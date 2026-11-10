@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "Trong {{t:pot|pot}} có {{n:exam.m2.half.pot}}. Đối thủ {{t:bet|cược}} {{n:exam.m2.half.bet}}. Bạn cần bao nhiêu equity để {{t:call|theo}}?"
+    prompt: "Trước khi đối thủ {{t:bet|cược}}, trong {{t:pot|pot}} có {{n:exam.m2.half.pot}} {{t:chips|chip}}. Đối thủ {{t:bet|cược}} {{n:exam.m2.half.bet}}. Để {{t:call|theo}}, cơ hội thắng {{t:pot|pot}} ({{t:equity|equity}}) của bạn tối thiểu phải là bao nhiêu?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Bạn bỏ thêm {{n:exam.m2.half.bet}}, và sau khi bạn {{t:call|theo}}, {{t:pot}} có {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. Đây là {{t:bet}} nửa {{t:pot|pot}}, nên kết quả như nhau với mọi kích thước {{t:pot|pot}}." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "Đó là {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, chưa tính phần {{t:call|theo}} của bạn. Hãy chia số tiền bạn bỏ thêm cho toàn bộ {{t:pot|pot}} sau khi {{t:call|theo}}: {{n:exam.m2.half.total}}." }

@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "{{t:cutoff|CO}}가 {{n:pf.open-size}} 사이즈로 {{t:open|오픈}}했고, 버튼은 {{t:fold|폴드}}했습니다. {{t:small-blind|스몰 블라인드}}에 있고 3벳을 하려고 합니다. 얼마까지 하시겠습니까?"
+    prompt: "{{t:cutoff|CO}}가 {{n:pf.open-size}}로 {{t:raise|레이즈하며}} {{t:open|오픈}}했고, 버튼은 {{t:fold|폴드}}했습니다. {{t:small-blind|스몰 블라인드}}에 있는 당신은 한 번 더 레이즈({{t:3-bet|3벳}})하려고 합니다. 얼마까지 {{t:raise|레이즈하시겠습니까}}?"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "{{n:pf.3bet.oop-total}}까지", correct: true, why: "플롭 이후 먼저 액션하게 되므로 {{t:open|오픈}}의 약 {{n:pf.3bet.size-oop}} 사이즈로 {{t:raise|레이즈}}합니다. 더 큰 사이즈는 {{t:cutoff|CO}}가 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}하는 것을 막습니다." }

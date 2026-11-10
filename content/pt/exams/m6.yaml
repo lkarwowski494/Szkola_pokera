@@ -41,7 +41,7 @@ drills:
     id: m6.exam.q5
     family: m6.flop.price
     rules: [R-M6-005]
-    prompt: "Flop. No {{t:pot|pote}} estão {{n:exam.m6.pot}}. Numa mão, o Button {{t:bet|aposta}} {{n:exam.m6.bet.quarter}} e, noutra, {{n:exam.m6.bet.three-quarters}}. De quanta equity precisa para {{t:call|pagar}} em cada um destes casos?"
+    prompt: "Está no {{t:big-blind|big blind}} e é o flop. Antes da {{t:bet|aposta}}, o {{t:pot|pote}} tem {{n:exam.m6.pot}} {{t:chips|fichas}}. O Button {{t:bet|aposta}} {{n:exam.m6.bet.quarter}} numa mão e {{n:exam.m6.bet.three-quarters}} noutra. De que probabilidade mínima de ganhar o {{t:pot|pote}} ({{t:equity|equity}}) precisa para {{t:call|pagar}} em cada uma destas mãos?"
     table: { position: BB }
     options:
       - { text: "Cerca de {{n:eq.bet-quarter}} e {{n:eq.bet-three-quarters}}", correct: true, why: "Sim: aposta ÷ ({{t:pot}} + 2·aposta). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, e {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Contra uma aposta maior, defende com um {{t:range}} mais estreito." }

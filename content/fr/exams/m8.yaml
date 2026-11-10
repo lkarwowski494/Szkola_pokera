@@ -5,9 +5,9 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River, l'adversaire {{t:check|checke}} et ne peut pas vous {{t:raise|relancer}}. Sa {{t:range|range}} contient {{n:exam.m8.range.worse}} mains moins bonnes que la vôtre, mais seules {{n:exam.m8.call.worse}} d'entre elles {{t:call|suivront}} votre mise. Il paiera aussi {{n:exam.m8.call.better}} fois avec une meilleure main. Misez-vous ?"
+    prompt: "River, le dernier {{t:betting-round|tour d'enchères}}. L'adversaire {{t:check|checke}}. Supposez que, face à votre {{t:bet|mise}}, il ne puisse que {{t:call|suivre}} ou {{t:fold|se coucher}}. Sa {{t:range|range}} (les mains qu'il peut avoir) contient {{n:exam.m8.range.worse}} mains moins bonnes que la vôtre, mais seules {{n:exam.m8.call.worse}} d'entre elles {{t:call|suivront}} votre mise. Votre mise sera aussi suivie par {{n:exam.m8.call.better}} mains meilleures que la vôtre. Misez-vous ?"
     options:
-      - { text: "Non, je {{t:check|checke}}", correct: true, why: "Oui : ne comptez que les mains qui paieront. La mise gagne {{n:exam.m8.call.worse}} fois et perd {{n:exam.m8.call.better}} fois, soit une perte nette de {{n:exam.m8.net.loss}} mise. Les mains moins bonnes qui {{t:fold|se coucheront}} auraient de toute façon perdu contre vous après un {{t:check|check}}." }
+      - { text: "Non, je {{t:check|checke}}", correct: true, why: "Exact : ne comptez que les mains qui paieront. La mise gagne {{n:exam.m8.call.worse}} fois et perd {{n:exam.m8.call.better}} fois, soit une perte nette de {{n:exam.m8.net.loss}} mise. Les mains moins bonnes qui {{t:fold|se coucheront}} auraient de toute façon perdu contre vous après un {{t:check|check}}." }
       - { text: "Oui, car il y a plus de mains moins bonnes que de meilleures", why: "L'adversaire a {{n:exam.m8.range.worse}} mains moins bonnes, mais la plupart d'entre elles {{t:fold|se coucheront}} face à une mise. Parmi les mains qui paieront, les meilleures sont plus nombreuses ({{n:exam.m8.call.better}} contre {{n:exam.m8.call.worse}})." }
       - { text: "Oui, pour savoir où j'en suis", why: "Une mise « pour l'information » paie les meilleures mains, tandis que les moins bonnes {{t:fold|se couchent}}. Vous obtenez la même information gratuitement après un {{t:check|check}}, au showdown." }
   - kind: choice

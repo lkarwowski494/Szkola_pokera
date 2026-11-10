@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "{{t:cutoff|CO}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想要 3-bet。要加到多少？"
+    prompt: "{{t:cutoff|CO}} {{t:open|開池}}{{t:raise|加注}}到 {{n:pf.open-size}}，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想再加注一次（{{t:3-bet|3-bet}}）。你要{{t:raise|加注}}到多少？"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "加到 {{n:pf.3bet.oop-total}}", correct: true, why: "翻牌後你要先行動，所以你{{t:raise|加注}}到約{{t:open|開池}}的 {{n:pf.3bet.size-oop}}。較大的尺寸讓 {{t:cutoff|CO}} 無法在{{t:in-position|有位置}}時便宜地{{t:call|跟注}}。" }

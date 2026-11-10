@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "There is {{n:exam.m2.half.pot}} in the {{t:pot}}. Your opponent {{t:bet|bets}} {{n:exam.m2.half.bet}}. How much equity do you need to {{t:call}}?"
+    prompt: "Before your opponent's {{t:bet}}, there are {{n:exam.m2.half.pot}} {{t:chips|chips}} in the {{t:pot}}. Your opponent {{t:bet|bets}} {{n:exam.m2.half.bet}}. What minimum chance of winning the {{t:pot}} ({{t:equity|equity}}) do you need to {{t:call}}?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "You put in {{n:exam.m2.half.bet}}, and after your {{t:call}} the {{t:pot}} holds {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. This is a half-{{t:pot}} {{t:bet}}, so the result is the same at any {{t:pot}} size." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "That's {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, without your {{t:call}}. Divide what you put in by the whole {{t:pot}} after the {{t:call}}: {{n:exam.m2.half.total}}." }

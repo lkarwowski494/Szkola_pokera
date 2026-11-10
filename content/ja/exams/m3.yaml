@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "プリフロップで最初にアクションします。まだ誰もゲームに参加していません。どうしますか？"
+    prompt: "テーブルには6人のプレイヤーがいて、カードが配られたところです。あなたが最初に判断します。あなたより前には、まだ誰もプレイしていません。どうしますか？"
     table: { hand: "Ac Td", position: UTG }
     options:
       - { text: "{{t:raise|レイズ}}", correct: true, why: "オフスートのATは、{{t:utg}}からの{{t:open|オープン}}{{t:range|レンジ}}（約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}ハンド）に入っています。アプリのソルバーはここで常にこのハンドをプレイします。" }
       - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。{{t:utg}}からは狭くプレイしますが、ATはまだ{{t:range|レンジ}}内です。" }
-      - { text: "{{t:big-blind|ビッグブラインド}}の額だけ払う", why: "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。リンプは{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。" }
+      - { text: "{{t:big-blind|ビッグブラインド}}の額を{{t:call|コール}}", why: "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。{{t:big-blind|ビッグブラインド}}の額を{{t:call|コール}}するだけのプレイは{{t:limp|リンプ}}と呼ばれ、{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。" }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

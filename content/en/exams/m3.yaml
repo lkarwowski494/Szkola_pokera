@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "You're first to act preflop, and no one has entered the pot yet. What do you do?"
+    prompt: "There are six players at the table, and the cards have just been dealt. You're the first to decide: no one has made a move yet. What do you do?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Raise}}", correct: true, why: "Offsuit AT is within the {{t:open|opening}} {{t:range}} from {{t:utg|under the gun}} (about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} hands). The app's solver always plays it here." }
+      - { text: "{{t:raise|Raise}} the {{t:big-blind|big blind}}", correct: true, why: "Offsuit AT is within the {{t:open|opening}} {{t:range}} from {{t:utg|under the gun}} (about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} hands). The app's solver always plays it here." }
       - { text: "{{t:fold|Fold}}", why: "Too tight. From {{t:utg|under the gun}} you play narrow, but AT is still in your {{t:range}}." }
-      - { text: "Call the {{t:big-blind|big blind}}", why: "When you're first in, you {{t:raise}} or {{t:fold}}. A limp gives up the {{t:initiative}} and the chance to win the blinds right away." }
+      - { text: "{{t:call|Call}} the {{t:big-blind|big blind}}", why: "When you're the first to decide, you {{t:raise}} or {{t:fold}}. Just {{t:call|calling}} the {{t:big-blind|big blind}} is a {{t:limp}}: it gives up the {{t:initiative}} and the chance to win the blinds right away." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

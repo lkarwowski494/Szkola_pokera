@@ -5,7 +5,7 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River: l'avversario {{t:check|fa check}} e non può {{t:raise|rilanciarti}}. Nel suo {{t:range|range}} ci sono {{n:exam.m8.range.worse}} mani peggiori della tua, ma solo {{n:exam.m8.call.worse}} di queste {{t:call|chiameranno}} la tua puntata. Pagherà anche {{n:exam.m8.call.better}} volte con una mano migliore. Punti?"
+    prompt: "River, l'ultimo {{t:betting-round|giro di puntate}}. L'avversario {{t:check|fa check}}. Supponi che sulla tua {{t:bet|puntata}} possa solo {{t:call|chiamare}} o {{t:fold|foldare}}. Nel suo {{t:range|range}} (le mani che potrebbe avere) ci sono {{n:exam.m8.range.worse}} mani peggiori della tua, ma solo {{n:exam.m8.call.worse}} di queste {{t:call|chiameranno}} la tua {{t:bet|puntata}}. La {{t:call|chiameranno}} anche {{n:exam.m8.call.better}} mani migliori della tua. {{t:bet|Punti}}?"
     options:
       - { text: "No, {{t:check|faccio check}}", correct: true, why: "Giusto: conta solo le mani che pagheranno. La puntata vince {{n:exam.m8.call.worse}} volte e perde {{n:exam.m8.call.better}} volte, quindi al netto perde {{n:exam.m8.net.loss}} puntata. Le mani peggiori che {{t:fold|foldano}} avrebbero perso comunque contro di te dopo il {{t:check|check}}." }
       - { text: "Sì, perché le mani peggiori sono più di quelle migliori", why: "L'avversario ha {{n:exam.m8.range.worse}} mani peggiori, ma la maggior parte di queste {{t:fold|folderà}} sulla puntata. Tra le mani che pagheranno, quelle migliori sono di più ({{n:exam.m8.call.better}} contro {{n:exam.m8.call.worse}})." }

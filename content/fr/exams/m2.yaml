@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "Le {{t:pot|pot}} contient {{n:exam.m2.half.pot}}. Votre adversaire {{t:bet|mise}} {{n:exam.m2.half.bet}}. De combien d'equity avez-vous besoin pour {{t:call|suivre}} ?"
+    prompt: "Avant la {{t:bet|mise}} de votre adversaire, le {{t:pot|pot}} contient {{n:exam.m2.half.pot}} {{t:chips|jetons}}. Votre adversaire {{t:bet|mise}} {{n:exam.m2.half.bet}}. De quelle chance minimale de remporter le {{t:pot|pot}} ({{t:equity|équité}}) avez-vous besoin pour {{t:call|suivre}} ?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Vous payez {{n:exam.m2.half.bet}}, et une fois que vous avez {{t:call|suivi}}, le {{t:pot|pot}} contient {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. C'est une {{t:bet|mise}} d'un demi-{{t:pot|pot}}, donc le résultat est le même quelle que soit la taille du {{t:pot|pot}}." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "C'est {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, sans compter ce que vous ajoutez en {{t:call|suivant}}. Divisez votre paiement par le {{t:pot|pot}} entier après avoir {{t:call|suivi}} : {{n:exam.m2.half.total}}." }

@@ -41,7 +41,7 @@ drills:
     id: m6.exam.q5
     family: m6.flop.price
     rules: [R-M6-005]
-    prompt: "Flop. Trong {{t:pot}} có {{n:exam.m6.pot}}. Một lần Button {{t:bet|cược}} {{n:exam.m6.bet.quarter}}, còn ở một ván khác là {{n:exam.m6.bet.three-quarters}}. Bạn cần bao nhiêu equity để {{t:call|theo}} trong mỗi trường hợp?"
+    prompt: "Bạn ở {{t:big-blind}}, ván bài đang ở flop. Trước khi có cược, trong {{t:pot}} có {{n:exam.m6.pot}} {{t:chips|chip}}. Button {{t:bet|cược}} {{n:exam.m6.bet.quarter}} ở một ván và {{n:exam.m6.bet.three-quarters}} ở một ván khác. Trong mỗi ván đó, để {{t:call|theo}}, cơ hội thắng {{t:pot}} ({{t:equity|equity}}) của bạn tối thiểu phải là bao nhiêu?"
     table: { position: BB }
     options:
       - { text: "Khoảng {{n:eq.bet-quarter}} và {{n:eq.bet-three-quarters}}", correct: true, why: "Đúng: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, còn {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Trước mức bet lớn hơn, bạn bảo vệ bằng {{t:range}} hẹp hơn." }

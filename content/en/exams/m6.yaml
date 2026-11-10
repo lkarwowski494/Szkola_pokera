@@ -41,7 +41,7 @@ drills:
     id: m6.exam.q5
     family: m6.flop.price
     rules: [R-M6-005]
-    prompt: "Flop. The {{t:pot}} is {{n:exam.m6.pot}}. In one hand the Button {{t:bet|bets}} {{n:exam.m6.bet.quarter}}, and in another {{n:exam.m6.bet.three-quarters}}. How much equity do you need to {{t:call}} in each case?"
+    prompt: "You're in the {{t:big-blind}}, and it's the flop. Before the {{t:bet}}, there are {{n:exam.m6.pot}} {{t:chips|chips}} in the {{t:pot}}. The Button {{t:bet|bets}} {{n:exam.m6.bet.quarter}} in one hand and {{n:exam.m6.bet.three-quarters}} in another. What minimum chance of winning the {{t:pot}} ({{t:equity|equity}}) do you need to {{t:call}} in each of these hands?"
     table: { position: BB }
     options:
       - { text: "About {{n:eq.bet-quarter}} and {{n:eq.bet-three-quarters}}", correct: true, why: "Yes: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, and {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Against a bigger bet you defend with a narrower {{t:range}}." }

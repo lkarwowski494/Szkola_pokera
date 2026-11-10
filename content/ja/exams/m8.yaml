@@ -5,7 +5,7 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "リバーで相手が{{t:check|チェック}}し、相手はあなたに{{t:raise|レイズ}}できません。相手の{{t:range|レンジ}}にはあなたより弱いハンドが{{n:exam.m8.range.worse}}個ありますが、あなたのベットに{{t:call|コール}}するのはそのうち{{n:exam.m8.call.worse}}個だけです。また、より強いハンドでも{{n:exam.m8.call.better}}回支払ってきます。ベットしますか？"
+    prompt: "リバー、最後の{{t:betting-round|ベッティングラウンド}}です。相手が{{t:check|チェック}}しました。あなたの{{t:bet|ベット}}に対して、相手は{{t:call|コール}}か{{t:fold|フォールド}}しかできないとします。相手の{{t:range|レンジ}}（相手が持ちうるハンド）には、あなたより弱いハンドが{{n:exam.m8.range.worse}}個ありますが、あなたのベットにコールするのはそのうち{{n:exam.m8.call.worse}}個だけです。あなたより強いハンド{{n:exam.m8.call.better}}個もコールしてきます。ベットしますか？"
     options:
       - { text: "いいえ、{{t:check|チェック}}します", correct: true, why: "正解です。数えるのは支払ってくれるハンドだけです。ベットは{{n:exam.m8.call.worse}}回勝ち、{{n:exam.m8.call.better}}回負けるので、差し引き{{n:exam.m8.net.loss}}ベットの損です。{{t:fold|フォールド}}する弱いハンドは、{{t:check|チェック}}してもどのみちあなたに負けていました。" }
       - { text: "はい、弱いハンドのほうが強いハンドより多いからです", why: "相手には弱いハンドが{{n:exam.m8.range.worse}}個ありますが、その大半はベットに{{t:fold|フォールド}}します。支払ってくれるハンドの中では、強いハンドのほうが多いのです（{{n:exam.m8.call.better}}対{{n:exam.m8.call.worse}}）。" }

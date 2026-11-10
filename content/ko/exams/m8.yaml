@@ -5,7 +5,7 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "리버에서 상대가 {{t:check|체크하며}}, 상대는 당신에게 {{t:raise|레이즈할}} 수 없습니다. 상대의 {{t:range|레인지에는}} 당신보다 약한 핸드가 {{n:exam.m8.range.worse}}개 있지만, 당신의 베팅에 {{t:call|콜하는}} 핸드는 그중 {{n:exam.m8.call.worse}}개뿐입니다. 더 강한 핸드로도 {{n:exam.m8.call.better}}번 지불합니다. 베팅하시겠습니까?"
+    prompt: "리버, 마지막 {{t:betting-round|베팅 라운드}}입니다. 상대가 {{t:check|체크합니다}}. 당신의 {{t:bet|베팅}}에 상대는 {{t:call|콜}}이나 {{t:fold|폴드}}만 할 수 있다고 가정하세요. 상대의 {{t:range|레인지}}(상대가 가질 수 있는 핸드)에는 당신보다 약한 핸드가 {{n:exam.m8.range.worse}}개 있지만, 당신의 베팅에 콜하는 핸드는 그중 {{n:exam.m8.call.worse}}개뿐입니다. 당신보다 강한 핸드 {{n:exam.m8.call.better}}개도 콜합니다. 베팅하시겠습니까?"
     options:
       - { text: "아니요, {{t:check|체크합니다}}", correct: true, why: "맞습니다. 지불할 핸드만 세세요. 베팅은 {{n:exam.m8.call.worse}}번 이기고 {{n:exam.m8.call.better}}번 지므로, 순손실은 베팅 {{n:exam.m8.net.loss}}개입니다. {{t:fold|폴드하는}} 약한 핸드는 {{t:check|체크한}} 뒤에도 어차피 당신에게 졌을 것입니다." }
       - { text: "네, 약한 핸드가 강한 핸드보다 많기 때문입니다", why: "상대에게 약한 핸드가 {{n:exam.m8.range.worse}}개 있지만, 대부분은 베팅에 {{t:fold|폴드합니다}}. 지불할 핸드 중에서는 강한 핸드가 더 많습니다({{n:exam.m8.call.better}} 대 {{n:exam.m8.call.worse}})." }

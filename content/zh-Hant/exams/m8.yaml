@@ -5,7 +5,7 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "河牌，對手{{t:check|過牌}}，而且無法{{t:raise|加注}}你。他的{{t:range|範圍}}中有{{n:exam.m8.range.worse}}手比你差的牌，但其中只有{{n:exam.m8.call.worse}}手會{{t:call|跟注}}你的下注。他也會有{{n:exam.m8.call.better}}次用比你好的牌付錢。你要下注嗎？"
+    prompt: "現在是河牌圈，也就是最後一個{{t:betting-round|下注輪}}。對手{{t:check|過牌}}。假設面對你的{{t:bet|下注}}，他只能{{t:call|跟注}}或{{t:fold|棄牌}}。他的{{t:range|範圍}}（他可能持有的牌）中有{{n:exam.m8.range.worse}}手比你差的牌，但其中只有{{n:exam.m8.call.worse}}手會跟注你的下注。另外也有{{n:exam.m8.call.better}}手比你好的牌會跟注。你要下注嗎？"
     options:
       - { text: "不，{{t:check|過牌}}", correct: true, why: "對：只計算會付錢的牌。下注會贏{{n:exam.m8.call.worse}}次、輸{{n:exam.m8.call.better}}次，也就是淨虧{{n:exam.m8.net.loss}}個下注。會{{t:fold|棄牌}}的較差牌，在你{{t:check|過牌}}後本來就會輸給你。" }
       - { text: "要，因為較差的牌比較好的牌多", why: "對手有{{n:exam.m8.range.worse}}手較差的牌，但其中多數面對下注會{{t:fold|棄牌}}。在會付錢的牌中，較好的牌比較多（{{n:exam.m8.call.better}}對{{n:exam.m8.call.worse}}）。" }

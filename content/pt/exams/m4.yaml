@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "O {{t:cutoff|CO}} {{t:open|abriu}} para {{n:pf.open-size}}, o Button {{t:fold|desistiu}}. Está no {{t:small-blind|small blind}} e quer fazer 3-bet. Para quanto?"
+    prompt: "O {{t:cutoff|CO}} {{t:open|abriu}} com um aumento para {{n:pf.open-size}}, o Button {{t:fold|desistiu}}. Está no {{t:small-blind|small blind}} e quer voltar a aumentar ({{t:3-bet|3-bet}}). Para quanto {{t:raise|aumenta}}?"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "Para {{n:pf.3bet.oop-total}}", correct: true, why: "Depois do flop será o primeiro a agir, por isso {{t:raise|aumenta}} para cerca de {{n:pf.3bet.size-oop}} a {{t:open|abertura}}. Um tamanho maior tira ao {{t:cutoff|CO}} um {{t:call|pagamento}} barato {{t:in-position|em posição}}." }

@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Age primeiro no preflop e ainda ninguém entrou no jogo. O que faz?"
+    prompt: "Estão seis jogadores à mesa e as cartas acabaram de ser distribuídas. É o primeiro a decidir: antes de si, ainda ninguém jogou. O que faz?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Aumento}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range|range}} de {{t:open|abertura}} a partir de {{t:utg|UTG}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver da aplicação joga-a aqui sempre." }
+      - { text: "{{t:raise|Aumento}} o {{t:big-blind|big blind}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range|range}} de {{t:open|abertura}} a partir de {{t:utg|UTG}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver da aplicação joga-a aqui sempre." }
       - { text: "{{t:fold|Desisto}}", why: "Demasiado apertado. De {{t:utg|UTG}} joga de forma estreita, mas AT ainda está no {{t:range|range}}." }
-      - { text: "Completo o {{t:big-blind|big blind}}", why: "Sendo o primeiro, {{t:raise|aumenta}} ou {{t:fold|desiste}}. O limp cede a {{t:initiative|iniciativa}} e a hipótese de ganhar os blinds de imediato." }
+      - { text: "{{t:call|Pago}} o {{t:big-blind|big blind}}", why: "Sendo o primeiro, {{t:raise|aumenta}} ou {{t:fold|desiste}}. Limitar-se a {{t:call|pagar}} o {{t:big-blind|big blind}} é fazer {{t:limp|limp}}: cede a {{t:initiative|iniciativa}} e a hipótese de ganhar os blinds de imediato." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

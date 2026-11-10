@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。在下列哪個翻牌上，{{t:big-blind}}比你更常拿到{{t:two-pair}}或{{t:straight|順子}}？"
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}位的玩家{{t:call|跟注}}。在下列哪個翻牌（最先發出的三張{{t:community-cards|公共牌}}）上，那位玩家比你更常拿到{{t:two-pair}}或{{t:straight|順子}}？"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "對：低張、{{t:connected}}的翻牌會擊中{{t:connectors|連張}}和小牌手牌，而{{t:big-blind}}防守很多這類牌。你從按鈕位開池，高牌較多，這些牌在這裡都沒擊中。這是{{t:big-blind|大盲}}的{{t:nuts-advantage}}。" }

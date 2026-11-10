@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "Le {{t:cutoff|CO}} a {{t:open|ouvert}} à {{n:pf.open-size}}, le Bouton s'est {{t:fold|couché}}. Vous êtes à la {{t:small-blind|petite blinde}} et voulez 3-better. À combien ?"
+    prompt: "Le {{t:cutoff|CO}} a {{t:open|ouvert}} en relançant à {{n:pf.open-size}}, le Bouton s'est {{t:fold|couché}}. Vous êtes à la {{t:small-blind|petite blinde}} et voulez relancer une nouvelle fois ({{t:3-bet|3-bet}}). À combien {{t:raise|relancez}}-vous ?"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "À {{n:pf.3bet.oop-total}}", correct: true, why: "Après le flop, vous parlerez en premier, donc vous {{t:raise|relancez}} à environ {{n:pf.3bet.size-oop}} l'{{t:open|ouverture}}. Une taille plus grande prive le {{t:cutoff|CO}} d'un {{t:call}} bon marché {{t:in-position}}." }

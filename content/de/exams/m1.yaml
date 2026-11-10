@@ -14,7 +14,7 @@ drills:
     id: m1.exam.q2
     family: m1.actions
     rules: [R-M1-001]
-    prompt: "Ein Gegner vor dir hat {{t:bet|gesetzt}}. Welchen Zug kannst du jetzt nicht machen?"
+    prompt: "Dein Gegner hat {{t:bet|gesetzt}}, und jetzt bist du dran. Welchen dieser Züge kannst du nicht machen?"
     options:
       - { text: "{{t:check|Checken}}", correct: true, why: "{{t:check|Checken}} kannst du nur, wenn in dieser Runde niemand vor dir {{t:bet|gesetzt}} oder {{t:raise|erhöht}} hat. Jetzt musst du {{t:fold|folden}}, {{t:call|callen}} oder {{t:raise|erhöhen}}." }
       - { text: "{{t:raise|Erhöhen}}", why: "Eine {{t:raise|Erhöhung}} ist gerade deshalb möglich, weil es einen {{t:bet|Einsatz}} gibt, den man erhöhen kann." }

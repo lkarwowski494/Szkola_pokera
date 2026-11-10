@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop nào dưới đây {{t:big-blind}} có {{t:two-pair}} hoặc {{t:straight|sảnh}} thường xuyên hơn bạn?"
+    prompt: "Bạn {{t:open|mở cược}} từ Button, người chơi ở {{t:big-blind}} {{t:call|theo}}. Trên flop nào dưới đây (ba {{t:community-cards|lá bài chung}} đầu tiên) người chơi đó có {{t:two-pair}} hoặc {{t:straight|sảnh}} thường xuyên hơn bạn?"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "Đúng: flop thấp, {{t:connected}} trúng các {{t:connectors|bài liên tiếp}} và các tay có lá nhỏ, mà {{t:big-blind}} bảo vệ rất nhiều. Bạn ở Button có nhiều lá cao hơn, và chúng đã trượt ở đây. Đây là {{t:nuts-advantage}} của {{t:big-blind|big blind}}." }

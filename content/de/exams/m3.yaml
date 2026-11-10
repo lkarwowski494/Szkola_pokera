@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Du bist preflop als Erster dran, noch niemand ist ins Spiel eingestiegen. Was tust du?"
+    prompt: "Am Tisch sitzen sechs Spieler, die Karten wurden gerade ausgeteilt. Du entscheidest als Erster: Vor dir war noch niemand an der Reihe. Was tust du?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Raisen}}", correct: true, why: "AT ungleichfarbig liegt in der {{t:range|Range}} zum {{t:open|Eröffnen}} von {{t:utg}} (ca. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} der Hände). Der Solver der App spielt sie hier immer." }
+      - { text: "Den {{t:big-blind|Big Blind}} {{t:raise|raisen}}", correct: true, why: "AT ungleichfarbig liegt in der {{t:range|Range}} zum {{t:open|Eröffnen}} von {{t:utg}} (ca. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} der Hände). Der Solver der App spielt sie hier immer." }
       - { text: "{{t:fold|Folden}}", why: "Zu tight. Von {{t:utg}} spielst du eng, aber AT ist noch in der {{t:range|Range}}." }
-      - { text: "Den {{t:big-blind|Big Blind}} bezahlen", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du. Mit einem Limp gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
+      - { text: "Den {{t:big-blind|Big Blind}} {{t:call|callen}}", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du. Nur den {{t:big-blind|Big Blind}} zu {{t:call|callen}} ist ein {{t:limp|Limp}}: Damit gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

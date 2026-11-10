@@ -1,0 +1,54 @@
+[
+ {
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z nowym pl; klucze = pl; „{{n}} {{t:chips|칩}}이” zgodne z resztą ko; „팟을 가져갈 확률” naturalne (definicja ko mówi „팟을 이길 확률” — sens ten sam)."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Oddaje nowy pl; naturalne."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z pl, klucze = pl; spójne z poprawioną opcją 2 („빅 블라인드 금액을 콜합니다”)."
+ },
+ {
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z nowym pl; klucze = pl (drugie „레이즈” bez znacznika — zestaw ten sam); 3벳 = terms-nazwy."
+ },
+ {
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "버튼에서 {{t:open|오픈했고}} {{t:big-blind|빅 블라인드}}에 있는 플레이어가 {{t:call|콜했습니다}}. 다음 중 어느 플롭(처음 깔리는 {{t:community-cards|커뮤니티 카드}} 3장)에서 그 플레이어가 당신보다 {{t:two-pair}}나 {{t:straight|스트레이트}}를 더 자주 가지고 있습니까?",
+  "uwaga": "Sens i klucze zgodne. „빅 블라인드의 플레이어” brzmi jak „gracz należący do blinda”; pozycję w ko opisuje się „…에 있는” (jak w m4: „스몰 블라인드에 있는”)."
+ },
+ {
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "당신은 {{t:big-blind|빅 블라인드}}에 있고, 지금은 플롭입니다. {{t:bet|베팅}} 전 {{t:pot|팟}}에는 {{n:exam.m6.pot}} {{t:chips|칩}}이 있습니다. 버튼이 한 핸드에서는 {{n:exam.m6.bet.quarter}}, 다른 핸드에서는 {{n:exam.m6.bet.three-quarters}}만큼 {{t:bet|벳합니다}}. 각 핸드에서 {{t:call|콜하려면}} {{t:pot|팟}}을 가져갈 확률({{t:equity|에퀴티}})이 최소 얼마나 필요합니까?",
+  "uwaga": "Sens i klucze zgodne. „당신은 빅 블라인드이고” utożsamia gracza z blindem; „빅 블라인드에 있고” (pozycja), jak w m4 i m5."
+ },
+ {
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "werdykt": "AKCEPTUJĘ",
+  "uwaga": "Zgodne z nowym pl; klucze = pl; naturalne."
+ },
+ {
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "werdykt": "POPRAWKA",
+  "nowe_ostateczne": "{{t:big-blind|빅 블라인드}} 금액을 {{t:call|콜합니다}}",
+  "stare": "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다",
+  "uwaga": "NOWE POLE. pl: „{{t:call|Sprawdzam}} {{t:big-blind|duży blind}}”; ko „빅 블라인드 금액만 맞춥니다” nie ma klucza call, a „만” (tylko) podpowiada słabszy ruch. Nowe brzmienie = klucze pl, spójne z wyjaśnieniem („빅 블라인드 금액만 콜하는 것은 림프”). Zmiana tylko w m3.exam.q2 (ten sam tekst stoi też w m3.exam.q5/q6 — tam zostaje)."
+ }
+]

@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "{{t:pot|팟}} 크기는 {{n:exam.m2.half.pot}}입니다. 상대의 {{t:bet|베팅}}은 {{n:exam.m2.half.bet}}입니다. {{t:call|콜}}하려면 에퀴티가 얼마나 필요합니까?"
+    prompt: "상대가 {{t:bet|베팅}}하기 전 {{t:pot|팟}}에는 {{n:exam.m2.half.pot}} {{t:chips|칩}}이 있습니다. 상대가 {{n:exam.m2.half.bet}}을 {{t:bet|베팅}}합니다. {{t:call|콜}}하려면 {{t:pot|팟}}을 가져갈 확률({{t:equity|에퀴티}})이 최소 얼마나 필요합니까?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "추가로 내는 금액은 {{n:exam.m2.half.bet}}입니다. 내 {{t:call|콜}} 후 {{t:pot|팟}}은 {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}입니다. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. 이는 {{t:pot|팟}}의 절반 크기 {{t:bet|베팅}}이므로 {{t:pot|팟}} 크기와 관계없이 결과가 같습니다." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "이는 내 {{t:call|콜}}을 빼고 계산한 {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}입니다. 추가 금액은 {{t:call|콜}} 후 전체 {{t:pot|팟}}으로 나눕니다: {{n:exam.m2.half.total}}." }

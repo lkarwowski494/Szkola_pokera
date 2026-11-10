@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "翻牌前你第一個行動，還沒有人入池。你怎麼做？"
+    prompt: "桌上有六位玩家，牌剛發完。你第一個做決定：在你之前還沒有人行動。你怎麼做？"
     table: { hand: "Ac Td", position: UTG }
     options:
       - { text: "{{t:raise|加注}}", correct: true, why: "不同花 AT 在{{t:utg}}的{{t:open|開池}}{{t:range|範圍}}內（約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 手牌）。App 的求解器在這裡一律會打這手牌。" }
       - { text: "{{t:fold|棄牌}}", why: "太緊了。在{{t:utg}}你要打得窄，但 AT 仍在{{t:range|範圍}}內。" }
-      - { text: "補齊{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。溜入會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
+      - { text: "{{t:call|跟注}}{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。只{{t:call|跟注}}{{t:big-blind|大盲}}就是{{t:limp|溜入}}：這會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

@@ -5,7 +5,7 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River: o adversário {{t:check|dá check}} e não pode {{t:raise|aumentar}}. No {{t:range}} dele há {{n:exam.m8.range.worse}} mãos piores que a sua, mas só {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Ele também vai pagar {{n:exam.m8.call.better}} vezes com uma mão melhor. Você aposta?"
+    prompt: "River, a última {{t:betting-round|rodada de apostas}}. O adversário {{t:check|dá check}}. Suponha que, diante da sua {{t:bet|aposta}}, ele só possa {{t:call|pagar}} ou {{t:fold|desistir}}. No {{t:range}} dele (as mãos que ele pode ter) há {{n:exam.m8.range.worse}} mãos piores que a sua, mas só {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Também vão pagá-la {{n:exam.m8.call.better}} mãos melhores que a sua. Você aposta?"
     options:
       - { text: "Não, {{t:check|dou check}}", correct: true, why: "Isso: você conta só as mãos que vão pagar. A aposta ganha {{n:exam.m8.call.worse}} vezes e perde {{n:exam.m8.call.better}} vezes, ou seja, no líquido perde {{n:exam.m8.net.loss}} aposta. As mãos piores que {{t:fold|desistirem}} perderiam para você de qualquer forma depois do {{t:check|check}}." }
       - { text: "Sim, porque há mais mãos piores do que melhores", why: "O adversário tem {{n:exam.m8.range.worse}} mãos piores, mas a maioria delas vai {{t:fold|desistir}} diante de uma aposta. Entre as mãos que vão pagar, há mais mãos melhores ({{n:exam.m8.call.better}} contra {{n:exam.m8.call.worse}})." }

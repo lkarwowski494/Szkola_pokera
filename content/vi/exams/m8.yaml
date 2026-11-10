@@ -5,7 +5,7 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River, đối thủ {{t:check|check}} và không thể {{t:raise|tố}} bạn. Trong {{t:range|range}} của đối thủ có {{n:exam.m8.range.worse}} tay yếu hơn tay bạn, nhưng chỉ {{n:exam.m8.call.worse}} tay trong số đó sẽ {{t:call|theo}} cược của bạn. Đối thủ cũng sẽ trả tiền {{n:exam.m8.call.better}} lần bằng tay mạnh hơn. Bạn có cược không?"
+    prompt: "River, {{t:betting-round|vòng cược}} cuối cùng. Đối thủ {{t:check|check}}. Giả sử trước {{t:bet|cược}} của bạn, đối thủ chỉ có thể {{t:call|theo}} hoặc {{t:fold|bỏ bài}}. Trong {{t:range|range}} của đối thủ (những tay đối thủ có thể có) có {{n:exam.m8.range.worse}} tay yếu hơn tay bạn, nhưng chỉ {{n:exam.m8.call.worse}} tay trong số đó sẽ theo cược của bạn. Ngoài ra, {{n:exam.m8.call.better}} tay mạnh hơn tay bạn cũng sẽ theo. Bạn có cược không?"
     options:
       - { text: "Không, tôi {{t:check|check}}", correct: true, why: "Đúng: chỉ tính những tay sẽ trả tiền. Cược thắng {{n:exam.m8.call.worse}} lần và thua {{n:exam.m8.call.better}} lần, tức lỗ ròng {{n:exam.m8.net.loss}} cược. Những tay yếu hơn sẽ {{t:fold|bỏ bài}} thì đằng nào cũng thua bạn sau khi {{t:check|check}}." }
       - { text: "Có, vì tay yếu hơn nhiều hơn tay mạnh hơn", why: "Đối thủ có {{n:exam.m8.range.worse}} tay yếu hơn, nhưng phần lớn trong số đó sẽ {{t:fold|bỏ bài}} trước cược. Trong số những tay sẽ trả tiền, tay mạnh hơn lại nhiều hơn ({{n:exam.m8.call.better}} so với {{n:exam.m8.call.worse}})." }

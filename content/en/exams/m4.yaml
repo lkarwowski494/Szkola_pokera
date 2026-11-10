@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "The {{t:cutoff|CO}} {{t:open|opened}} to {{n:pf.open-size}}, the Button {{t:fold|folded}}. You're in the {{t:small-blind}} and want to 3-bet. To what size?"
+    prompt: "The {{t:cutoff|CO}} {{t:open|opened}} by {{t:raise|raising}} to {{n:pf.open-size}}, and the Button {{t:fold|folded}}. You're in the {{t:small-blind}} and want to {{t:raise}} again (a {{t:3-bet|3-bet}}). How much do you {{t:raise}} to?"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "To {{n:pf.3bet.oop-total}}", correct: true, why: "You'll act first after the flop, so you {{t:raise}} to about {{n:pf.3bet.size-oop}} the {{t:open}}. The bigger size denies the {{t:cutoff|CO}} a cheap {{t:call}} {{t:in-position}}." }

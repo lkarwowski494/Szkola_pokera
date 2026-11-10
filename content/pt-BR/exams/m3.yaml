@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Você é o primeiro a agir no preflop e ninguém entrou na mão ainda. O que você faz?"
+    prompt: "Há seis jogadores na mesa e as cartas acabaram de ser distribuídas. Você é o primeiro a decidir: ninguém jogou antes de você ainda. O que você faz?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Aumento}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range}} de {{t:open|abertura}} do {{t:utg}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver do app sempre joga essa mão aqui." }
+      - { text: "{{t:raise|Aumento}} o {{t:big-blind|big blind}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range}} de {{t:open|abertura}} do {{t:utg}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver do app sempre joga essa mão aqui." }
       - { text: "{{t:fold|Desisto}}", why: "Apertado demais. No {{t:utg}} você joga poucas mãos, mas AT ainda está no {{t:range}}." }
-      - { text: "Pago o {{t:big-blind}}", why: "Sendo o primeiro, você {{t:raise|aumenta}} ou {{t:fold|desiste}}. O limp entrega a {{t:initiative}} e a chance de levar os blinds na hora." }
+      - { text: "{{t:call|Pago}} o {{t:big-blind|big blind}}", why: "Sendo o primeiro, você {{t:raise|aumenta}} ou {{t:fold|desiste}}. Só {{t:call|pagar}} o {{t:big-blind|big blind}} é dar {{t:limp|limp}}: isso entrega a {{t:initiative}} e a chance de levar os blinds na hora." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

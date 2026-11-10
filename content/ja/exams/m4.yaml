@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "{{t:cutoff|CO}}が{{n:pf.open-size}}に{{t:open|オープン}}し、ボタンは{{t:fold|フォールド}}しました。あなたは{{t:small-blind|スモールブラインド}}で、3ベットしたいと考えています。どのサイズにしますか？"
+    prompt: "{{t:cutoff|CO}}が{{n:pf.open-size}}に{{t:raise|レイズ}}して{{t:open|オープン}}し、ボタンは{{t:fold|フォールド}}しました。あなたは{{t:small-blind|スモールブラインド}}で、もう一度レイズ（{{t:3-bet|3ベット}}）したいと考えています。いくらまで{{t:raise|レイズ}}しますか？"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "{{n:pf.3bet.oop-total}}まで", correct: true, why: "フロップ後は先にアクションするため、{{t:open|オープン}}の約{{n:pf.3bet.size-oop}}に{{t:raise|レイズ}}します。大きめのサイズにすることで、{{t:cutoff|CO}}が{{t:in-position}}で安く{{t:call}}するのを防ぎます。" }

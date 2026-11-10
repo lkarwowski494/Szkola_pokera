@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "{{t:pot|底池}}裡有 {{n:exam.m2.half.pot}}。對手{{t:bet|下注}} {{n:exam.m2.half.bet}}。你需要多少權益才能{{t:call|跟注}}？"
+    prompt: "對手{{t:bet|下注}}前，{{t:pot|底池}}裡有 {{n:exam.m2.half.pot}} {{t:chips|籌碼}}。對手{{t:bet|下注}} {{n:exam.m2.half.bet}}。你至少需要多少贏得{{t:pot|底池}}的機率（{{t:equity|權益}}）才能{{t:call|跟注}}？"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "你要補 {{n:exam.m2.half.bet}}，你{{t:call|跟注}}後{{t:pot}}裡有 {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}。{{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}。這是半個{{t:pot|底池}}的{{t:bet}}，所以不論{{t:pot|底池}}多大，結果都一樣。" }
       - { text: "{{n:exam.m2.half.wrong}}", why: "這是 {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}，沒算進你的{{t:call|跟注}}。要拿你補的金額除以{{t:call|跟注}}後的整個{{t:pot|底池}}：{{n:exam.m2.half.total}}。" }

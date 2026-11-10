@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Parli per primo preflop e nessuno è ancora entrato in gioco. Cosa fai?"
+    prompt: "Al tavolo siete in sei e le carte sono appena state distribuite. Decidi per primo: prima di te nessuno ha ancora fatto una mossa. Cosa fai?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Rilancio}}", correct: true, why: "AT di semi diversi rientra nel {{t:range|range}} di {{t:open|apertura}} da {{t:utg|UTG}} (circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mani). Il solver dell'app qui la gioca sempre." }
+      - { text: "{{t:raise|Rilancio}} sul {{t:big-blind|big blind}}", correct: true, why: "AT di semi diversi rientra nel {{t:range|range}} di {{t:open|apertura}} da {{t:utg|UTG}} (circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mani). Il solver dell'app qui la gioca sempre." }
       - { text: "{{t:fold|Foldo}}", why: "Troppo stretto. Da {{t:utg|UTG}} giochi stretto, ma AT è ancora nel {{t:range|range}}." }
-      - { text: "Pago il {{t:big-blind|big blind}}", why: "Da primo a entrare {{t:raise|rilanci}} o {{t:fold|foldi}}. Il limp cede l'{{t:initiative|iniziativa}} e la possibilità di prendere subito i blind." }
+      - { text: "{{t:call|Chiamo}} il {{t:big-blind|big blind}}", why: "Da primo a entrare {{t:raise|rilanci}} o {{t:fold|foldi}}. Limitarsi a {{t:call|chiamare}} il {{t:big-blind|big blind}} è un {{t:limp|limp}}: cede l'{{t:initiative|iniziativa}} e la possibilità di prendere subito i blind." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

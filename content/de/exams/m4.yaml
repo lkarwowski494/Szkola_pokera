@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "Der {{t:cutoff|CO}} hat auf {{n:pf.open-size}} {{t:open|eröffnet}}, der Button hat {{t:fold|gefoldet}}. Du sitzt im {{t:small-blind|Small Blind}} und willst 3-betten. Auf wie viel?"
+    prompt: "Der {{t:cutoff|CO}} hat mit einem {{t:raise|Raise}} auf {{n:pf.open-size}} {{t:open|eröffnet}}, der Button hat {{t:fold|gefoldet}}. Du sitzt im {{t:small-blind|Small Blind}} und willst noch einmal {{t:raise|erhöhen}} (eine {{t:3-bet|3-Bet}}). Auf wie viel {{t:raise|raist}} du?"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "Auf {{n:pf.3bet.oop-total}}", correct: true, why: "Nach dem Flop handelst du zuerst, also {{t:raise|raist}} du auf etwa {{n:pf.3bet.size-oop}} der {{t:open|Eröffnung}}. Die größere Size nimmt dem {{t:cutoff|CO}} den billigen {{t:call|Call}} {{t:in-position|in Position}}." }

@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. On which of these flops is the {{t:big-blind}} more likely than you to have {{t:two-pair}} or a {{t:straight}}?"
+    prompt: "You {{t:open|opened}} from the Button, and the player in the {{t:big-blind}} {{t:call|called}}. On which of these flops (the first three {{t:community-cards|community cards}}) is that player more likely than you to have {{t:two-pair}} or a {{t:straight}}?"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "Yes: a low, {{t:connected}} flop hits {{t:connectors}} and small-card hands, which the {{t:big-blind}} defends a lot. From the Button you have more high cards, which missed here. This is a {{t:nuts-advantage}} for the {{t:big-blind}}." }

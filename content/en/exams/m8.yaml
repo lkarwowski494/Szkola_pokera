@@ -5,9 +5,9 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River: your opponent {{t:check|checks}} and can't {{t:raise}} you. Their {{t:range}} contains {{n:exam.m8.range.worse}} hands worse than yours, but only {{n:exam.m8.call.worse}} of them will {{t:call}} your bet. They'll also pay {{n:exam.m8.call.better}} times with a better hand. Do you bet?"
+    prompt: "River, the last {{t:betting-round|betting round}}. Your opponent {{t:check|checks}}. Assume that if you {{t:bet}}, they can only {{t:call}} or {{t:fold}}. Their {{t:range}} (the hands they could have) contains {{n:exam.m8.range.worse}} hands worse than yours, but only {{n:exam.m8.call.worse}} of them will {{t:call}} your {{t:bet}}. Your {{t:bet}} will also be {{t:call|called}} by {{n:exam.m8.call.better}} hands better than yours. Do you {{t:bet}}?"
     options:
-      - { text: "No, {{t:check}}", correct: true, why: "Yes: count only the hands that will pay. The bet wins {{n:exam.m8.call.worse}} times and loses {{n:exam.m8.call.better}} times, a net loss of {{n:exam.m8.net.loss}} bet. Worse hands that {{t:fold}} would have lost to you after a {{t:check}} anyway." }
+      - { text: "No, {{t:check}}", correct: true, why: "Right: count only the hands that will pay. The bet wins {{n:exam.m8.call.worse}} times and loses {{n:exam.m8.call.better}} times, a net loss of {{n:exam.m8.net.loss}} bet. Worse hands that {{t:fold}} would have lost to you after a {{t:check}} anyway." }
       - { text: "Yes, because there are more worse hands than better ones", why: "Your opponent has {{n:exam.m8.range.worse}} worse hands, but most of them will {{t:fold}} to a bet. Among the hands that will pay, better ones outnumber worse ones ({{n:exam.m8.call.better}} vs {{n:exam.m8.call.worse}})." }
       - { text: "Yes, to find out where I stand", why: "A bet “for information” pays off better hands, while worse ones {{t:fold}}. You get the same information for free after a {{t:check}}, at showdown." }
   - kind: choice

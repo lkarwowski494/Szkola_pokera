@@ -41,7 +41,7 @@ drills:
     id: m6.exam.q5
     family: m6.flop.price
     rules: [R-M6-005]
-    prompt: "フロップです。{{t:pot|ポット}}は{{n:exam.m6.pot}}です。ボタンがある回では{{n:exam.m6.bet.quarter}}、別の回では{{n:exam.m6.bet.three-quarters}}を{{t:bet|ベット}}します。それぞれの場合、{{t:call|コール}}するのに必要なエクイティはどれくらいですか？"
+    prompt: "あなたは{{t:big-blind|ビッグブラインド}}で、いまはフロップです。{{t:bet|ベット}}される前、{{t:pot|ポット}}には{{n:exam.m6.pot}}{{t:chips|チップ}}あります。ボタンは、ある回では{{n:exam.m6.bet.quarter}}、別の回では{{n:exam.m6.bet.three-quarters}}を{{t:bet|ベット}}します。それぞれの場合で{{t:call|コール}}するには、{{t:pot|ポット}}を勝ち取る確率（{{t:equity|エクイティ}}）が最低どれだけ必要ですか？"
     table: { position: BB }
     options:
       - { text: "約{{n:eq.bet-quarter}}と約{{n:eq.bet-three-quarters}}", correct: true, why: "正解です。ベット ÷ ({{t:pot}} + 2·ベット)。{{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}、{{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}です。ベットが大きいほど、狭い{{t:range|レンジ}}でディフェンスします。" }

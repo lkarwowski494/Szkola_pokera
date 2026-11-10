@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Você {{t:open|abriu}} do Button, e o {{t:big-blind}} {{t:call|pagou}}. Em qual destes flops é o {{t:big-blind}} quem tem {{t:two-pair|dois pares}} ou {{t:straight|sequência}} com mais frequência que você?"
+    prompt: "Você {{t:open|abriu}} do Button, e o jogador no {{t:big-blind|big blind}} {{t:call|pagou}}. Em qual destes flops (as três primeiras {{t:community-cards|cartas comunitárias}}) esse jogador tem {{t:two-pair|dois pares}} ou {{t:straight|sequência}} com mais frequência que você?"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "Sim: um flop baixo e {{t:connected|conectado}} acerta {{t:connectors|conectores}} e mãos com cartas baixas, que o {{t:big-blind}} defende muito. Você, do Button, tem mais cartas altas, que erraram aqui. Isso é {{t:nuts-advantage|vantagem de nuts}} do {{t:big-blind|big blind}}." }

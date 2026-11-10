@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "Il {{t:pot|piatto}} è di {{n:exam.m2.half.pot}}. L'avversario {{t:bet|punta}} {{n:exam.m2.half.bet}}. Quanta equity ti serve per {{t:call|chiamare}}?"
+    prompt: "Prima della {{t:bet|puntata}} dell'avversario, nel {{t:pot|piatto}} ci sono {{n:exam.m2.half.pot}} {{t:chips|fiches}}. L'avversario {{t:bet|punta}} {{n:exam.m2.half.bet}}. Qual è la probabilità minima di vincere il {{t:pot|piatto}} ({{t:equity|equity}}) che ti serve per {{t:call|chiamare}}?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Metti {{n:exam.m2.half.bet}}, e dopo la tua {{t:call|chiamata}} il {{t:pot|piatto}} è di {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. È una {{t:bet|puntata}} da metà {{t:pot|piatto}}, quindi il risultato è lo stesso con qualsiasi dimensione del {{t:pot|piatto}}." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "È {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, senza la tua {{t:call|chiamata}}. Quello che metti lo dividi per tutto il {{t:pot|piatto}} dopo la {{t:call|chiamata}}: {{n:exam.m2.half.total}}." }

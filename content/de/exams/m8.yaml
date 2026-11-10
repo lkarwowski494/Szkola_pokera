@@ -5,7 +5,7 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River, dein Gegner {{t:check|checkt}} und kann dich nicht {{t:raise|raisen}}. In seiner {{t:range|Range}} sind {{n:exam.m8.range.worse}} Hände, die schlechter sind als deine, aber nur {{n:exam.m8.call.worse}} davon {{t:call|callen}} deine Bet. Er zahlt außerdem {{n:exam.m8.call.better}}-mal mit einer besseren Hand. Bettest du?"
+    prompt: "River, die letzte {{t:betting-round|Setzrunde}}. Dein Gegner {{t:check|checkt}}. Nimm an, dass er auf deine {{t:bet|Bet}} nur noch {{t:call|callen}} oder {{t:fold|folden}} kann. In seiner {{t:range|Range}} (den Händen, die er haben könnte) sind {{n:exam.m8.range.worse}} Hände, die schlechter sind als deine, aber nur {{n:exam.m8.call.worse}} davon {{t:call|callen}} deine {{t:bet|Bet}}. Außerdem wird sie von {{n:exam.m8.call.better}} Händen {{t:call|gecallt}}, die besser sind als deine. {{t:bet|Bettest}} du?"
     options:
       - { text: "Nein, ich {{t:check|checke}}", correct: true, why: "Richtig: Zähl nur die Hände, die zahlen. Die Bet gewinnt {{n:exam.m8.call.worse}}-mal und verliert {{n:exam.m8.call.better}}-mal, verliert also netto {{n:exam.m8.net.loss}} Bet. Schlechtere Hände, die {{t:fold|folden}}, hätten nach einem {{t:check|Check}} ohnehin gegen dich verloren." }
       - { text: "Ja, weil es mehr schlechtere als bessere Hände gibt", why: "Dein Gegner hat {{n:exam.m8.range.worse}} schlechtere Hände, aber die meisten davon {{t:fold|folden}} auf eine Bet. Unter den Händen, die zahlen, sind die besseren in der Überzahl ({{n:exam.m8.call.better}} gegenüber {{n:exam.m8.call.worse}})." }

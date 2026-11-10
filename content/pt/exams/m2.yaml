@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "O {{t:pot|pote}} tem {{n:exam.m2.half.pot}}. O adversário {{t:bet|aposta}} {{n:exam.m2.half.bet}}. Quanta equity precisa para {{t:call|pagar}}?"
+    prompt: "Antes da {{t:bet|aposta}} do adversário, o {{t:pot|pote}} tem {{n:exam.m2.half.pot}} {{t:chips|fichas}}. O adversário {{t:bet|aposta}} {{n:exam.m2.half.bet}}. De que probabilidade mínima de ganhar o {{t:pot|pote}} ({{t:equity|equity}}) precisa para {{t:call|pagar}}?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Paga {{n:exam.m2.half.bet}}, e o {{t:pot|pote}}, depois do seu {{t:call|pagamento}}, tem {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. Esta é uma {{t:bet|aposta}} de meio {{t:pot|pote}}, por isso o resultado é o mesmo com qualquer tamanho de {{t:pot|pote}}." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "Isso é {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, sem o seu {{t:call|pagamento}}. Divida o que paga pelo {{t:pot|pote}} inteiro depois do {{t:call|pagamento}}: {{n:exam.m2.half.total}}." }
