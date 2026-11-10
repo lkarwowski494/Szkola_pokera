@@ -1,0 +1,21 @@
+# Fixture testu CA (F3): rozmiar jako akcja (three-bet-size, reguła R-M4-001). Nie jest treścią aplikacji.
+id: sc-fx-3bet-ip
+module: m4
+situation: "Fixture: three-bet-size."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: three-bet-size
+    rule: R-M4-001
+    openBb: 2.5
+
+    actions:
+      - { action: raise, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wchodzisz do rozdania przebiciem o standardowy rozmiar." }
+      - { action: raise-small, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, za mały rozmiar daje rywalowi tanią cenę." }
+      - { action: raise-big, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, za duży rozmiar ryzykuje za dużo." }

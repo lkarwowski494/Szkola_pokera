@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type GeneratorContext, type GeneratorTemplate, type RangeSpotData, type ScenarioLevel } from '@szkola/poker-core';
+import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -13,7 +13,13 @@ export interface ScenarioCheckContext {
   moduleIds: ReadonlySet<string>;
   /** id spotu zakresu → etykiety akcji węzła solvera (F1); bez tego punkty range-spot są błędem. */
   spots?: ReadonlyMap<string, readonly string[]>;
+  /** Przypadki c-betu z reguł cbet-case (F2); bez nich punkty cbet-case są błędem. */
+  cbetCases?: readonly CbetCaseData[];
+  /** Reguły rozmiaru (open-size, three-bet-size, no-limp) z parametrami (F3); bez nich punkty size-spot są błędem. */
+  sizeRules?: readonly SizeRuleData[];
 }
+/** Akcje punktu cbet-case ↔ plan z przypadku c-betu (CbetAction z content-schema). */
+const CBET_AKCJE = { check: 'check', small: 'bet-small', big: 'bet-big' } as const;
 export interface LoadedScenario { file: string; template: ScenarioTemplate }
 
 const stem = (file: string) => file.replace(/\.yaml$/, '');
@@ -37,6 +43,29 @@ export function loadScenarioTemplates(dir: string): LoadedScenario[] {
 }
 
 /** Błędy szablonu względem treści (lista pusta = poprawny). Schemat sprawdza kształt, tu: powiązania z regułami, liczbami, modułami. */
+/** Kolejność akcji preflop (od UTG do BB) i po flopie (SB pierwszy, BTN ostatni). */
+const KOLEJNOSC_PREFLOP = ['UTG', 'UTG1', 'UTG2', 'LJ', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
+const KOLEJNOSC_PO_FLOPIE = ['SB', 'BB', 'UTG', 'UTG1', 'UTG2', 'LJ', 'HJ', 'CO', 'BTN'] as const;
+
+/** CJ ŚR-003: pozycje size-spot wobec reguły (gracz ≠ rywal; kolejność otwarcia; ip/oop reguły rozmiaru 3-betu). */
+function sprawdzPozycjeSizeSpot(pos: { hero: string; villain: string }, check: string, regulaPozycja: string | number | undefined, p: string): string[] {
+  const e: string[] = [];
+  if (pos.hero === pos.villain) return [`${p} gracz i rywal nie mogą siedzieć na tej samej pozycji (${pos.hero})`];
+  const pre = (x: string) => (KOLEJNOSC_PREFLOP as readonly string[]).indexOf(x);
+  const post = (x: string) => (KOLEJNOSC_PO_FLOPIE as readonly string[]).indexOf(x);
+  if (check === 'three-bet-size') {
+    if (pre(pos.villain) > pre(pos.hero)) e.push(`${p} three-bet-size: rywal otworzył przed graczem, a ${pos.villain} działa po ${pos.hero}`);
+    const ip = post(pos.hero) > post(pos.villain);
+    if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${pos.hero} wobec ${pos.villain})`);
+    if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${pos.hero} wobec ${pos.villain})`);
+  } else {
+    // CJ ŚR-004: zły mały rozmiar (0,8 × standard = 2,0 bb) to rozmiar solvera z UTG (GTO Wizard, Range Morphology: UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb)
+    if (check === 'open-size' && pos.hero !== 'BTN' && pos.hero !== 'SB') e.push(`${p} open-size tylko z BTN i SB (rozmiar solvera z ${pos.hero} jest mniejszy lub równy 2,0–2,3 bb, więc mały rozmiar nie byłby błędny)`);
+    if (pos.hero === 'BB' || pre(pos.hero) > pre(pos.villain)) e.push(`${p} ${check}: otwierający (gracz, ${pos.hero}) działa przed rywalem (${pos.villain}); BB nie otwiera`);
+  }
+  return e;
+}
+
 export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: ScenarioCheckContext): string[] {
   const e: string[] = [];
   const pre = `szablon ${t.id}:`;
@@ -75,15 +104,69 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
           if (t.bounds[l] && !t.bounds[l]!.freqs?.[i]) e.push(`${p} poziom ${l}: punkt range-spot wymaga przedziału freqs`);
         }
       }
-    } else {
+    } else if (d.kind === 'cbet-case') {
+      const przypadki = (ctx.cbetCases ?? []).filter((c) => c.rule === d.rule);
+      if (przypadki.length === 0) e.push(`${p} reguła ${d.rule} nie ma przypadku c-betu (zadanie c-btn: cases z rule: ${d.rule}); punkt cbet-case ocenia przypadek, nie rachunek`);
+      const mozliwe = new Set(przypadki.map((c) => CBET_AKCJE[c.best]));
+      if (new Set(d.actions.map((a) => a.action)).size !== d.actions.length) e.push(`${p} akcja powtórzona`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && !d.actions.some((a) => a.action === ex)) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie ma wyjaśnienia (BR-OCE-002)`);
+        if (ex !== undefined && przypadki.length > 0 && !mozliwe.has(ex as 'check')) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie wynika z żadnego przypadku reguły ${d.rule} (są: ${[...mozliwe].join(', ')})`);
+        if (b.flop === undefined) e.push(`${p} poziom ${l}: punkt cbet-case wymaga filtra flop (przypadek c-betu zależy od tekstury)`);
+      }
+    } else if (d.kind === 'icm-call') {
+      const labels = ctx.spots?.get(d.spot);
+      if (!labels) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      else if (!labels.includes('all-in')) e.push(`${p} spot ${d.spot} nie ma akcji all-in (zakres all-inu rywala; są: ${labels.join(', ')})`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu icm-call to call albo fold, jest ${ex}`);
+        const m = b.margins?.[i]?.min ?? b.marginMin;
+        if (!((m ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt icm-call wymaga marginMin > 0 (decyzja bliska progu nie ma jednoznacznej odpowiedzi)`);
+      }
+    } else if (d.kind === 'size-spot') {
+      const r = ctx.sizeRules?.find((x) => x.id === d.rule);
+      if (!r || r.check.kind !== d.check) e.push(`${p} reguła ${d.rule} nie jest regułą ${d.check} (rozmiar liczy się z jej parametrów)`);
+      if (d.check === 'three-bet-size' && d.openBb === undefined) e.push(`${p} three-bet-size wymaga openBb (otwarcie rywala w bb)`);
+      if (d.check !== 'three-bet-size' && d.openBb !== undefined) e.push(`${p} openBb tylko dla three-bet-size`);
+      if (d.sb !== undefined && d.check === 'three-bet-size') e.push(`${p} sb tylko dla open-size i no-limp`);
+      if (d.sb === true && t.positions.hero !== 'SB') e.push(`${p} sb: true wymaga pozycji gracza SB, jest ${t.positions.hero}`);
+      if (d.sb !== true && d.check !== 'three-bet-size' && t.positions.hero === 'SB') e.push(`${p} gracz z SB wymaga sb: true (rozmiar openSb)`);
+      e.push(...sprawdzPozycjeSizeSpot(t.positions, d.check, r?.check.params.position, p));
+      const akcje = d.actions.map((a) => a.action);
+      if (new Set(akcje).size !== akcje.length) e.push(`${p} akcja powtórzona`);
+      if (d.check === 'no-limp' ? akcje.slice().sort().join(',') !== 'limp,raise' : !(akcje.includes('raise') && akcje.every((a) => a !== 'limp'))) {
+        e.push(d.check === 'no-limp' ? `${p} no-limp: akcje to raise i limp, każda z wyjaśnieniem` : `${p} ${d.check}: akcje to raise oraz raise-small i/albo raise-big (limp tylko dla no-limp)`);
+      }
+      if (d.check !== 'no-limp' && akcje.includes('limp')) e.push(`${p} limp tylko dla no-limp`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && ex !== 'raise') e.push(`${p} poziom ${l}: oczekiwana akcja size-spot to raise (standardowy rozmiar), jest ${ex}`);
+      }
+    } else if (d.kind === 'draw-call') {
       const akcje = d.actions.map((a) => a.action).sort().join(',');
       if (akcje !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
       for (const l of SCENARIO_LEVELS_LIST) {
         const ex = t.bounds[l]?.expected[i];
         if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu draw-call to call albo fold, jest ${ex}`);
         if (t.bounds[l] && t.bounds[l]!.draws.length === 0) e.push(`${p} poziom ${l}: punkt draw-call wymaga listy draws`);
+        const b = t.bounds[l];
+        if (b && b.marginMin === undefined && b.margins === undefined) e.push(`${p} poziom ${l}: punkt draw-call wymaga marginMin albo margins (bez wartości domyślnej, ŚR-003)`);
+        else if (b && l === 'latwy' && !((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: margines dolny musi być > 0 (łatwa decyzja nie leży przy progu, ŚR-003)`);
       }
       if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
+    }
+    if (d.kind !== 'cbet-case') {
+      for (const l of SCENARIO_LEVELS_LIST) if (t.bounds[l]?.holding !== undefined) e.push(`${p} poziom ${l}: holding tylko dla punktu cbet-case`);
+    }
+    if (d.kind !== 'icm-call') {
+      for (const l of SCENARIO_LEVELS_LIST) if (t.bounds[l]?.chipsDiffer !== undefined) e.push(`${p} poziom ${l}: chipsDiffer tylko dla punktu icm-call`);
     }
     for (const a of d.actions) {
       // BR-OCE-001/002, D-557: pierwsze zdanie wymienia rękę, pozycję i stół z wariantu (znaczniki), a nie z przykładu w treści
@@ -126,10 +209,10 @@ export function checkScenarioGenerator(
   t: ScenarioTemplate,
   pojemnoscMin: number = POJEMNOSC_MIN,
   proby: number = PROBY_POJEMNOSCI,
-  ctx: GeneratorContext = { spots: [] as readonly RangeSpotData[], thresholds: { mixedMin: 0.035, mixedLow: 0.25 } },
+  ctx?: GeneratorContext, // bez kontekstu punkty range-spot, cbet-case, size-spot i icm-call kończą się TemplateError (brak zgadywanych progów, NIS-006)
 ): string[] {
   const e: string[] = [];
-  const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
   for (const level of t.levels as ScenarioLevel[]) {
     const odciski = new Set<string>();
     try {

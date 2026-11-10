@@ -1,0 +1,19 @@
+# Fixture testu CA (F3): rozmiar jako akcja (no-limp, reguła R-M3-004). Nie jest treścią aplikacji.
+id: sc-fx-no-limp
+module: m3
+situation: "Fixture: no-limp."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: no-limp
+    rule: R-M3-004
+
+    actions:
+      - { action: raise, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wchodzisz do rozdania przebiciem o standardowy rozmiar." }
+      - { action: limp, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, samo dopłacenie blinda oddaje inicjatywę." }

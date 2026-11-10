@@ -29,7 +29,7 @@ const tekstLekcji = (c: ReturnType<typeof compileContent>) => JSON.stringify(c.l
 
 describe('treść w języku innym niż polski (rola 09, K2b)', { timeout: 120_000 }, () => {
   const dir = zEn();
-  const pl = compileContent(dir, 'pl');
+  const pl = compileContent(dir, 'pl', { kontrolaGeneratora: false });
   const en = compileContent(dir, 'en');
 
   it('D-287: w en bez nawiasu z nazwą angielską; po polsku nawias zostaje', () => {
@@ -64,7 +64,7 @@ describe('treść w języku innym niż polski (rola 09, K2b)', { timeout: 120_00
     writeFileSync(naklad, wsp.replace('{{t:utg|UTG}}, nikt jeszcze nie wszedł do gry', '{{t:utg|UTG}}, nobody has entered the pot yet').replace('{{t:utg|UTG}} przy stole 9-osobowym, nikt jeszcze nie wszedł do gry', '{{t:utg}} at a 9-player table, nobody has entered the pot yet'));
     const c = compileContent(dir, 'en');
     expect(c.ranges.map((r) => r.title)).toEqual(expect.arrayContaining(['UTG, nobody has entered the pot yet', 'under the gun at a 9-player table, nobody has entered the pot yet'])); // KO-032/D-520: jawna forma = skrót (intencja D-319), goły znacznik = nazwa (linia stołu)
-    expect(compileContent(dir, 'pl').ranges.map((r) => r.title).join('|')).not.toContain('nobody');
+    expect(compileContent(dir, 'pl', { kontrolaGeneratora: false }).ranges.map((r) => r.title).join('|')).not.toContain('nobody');
     writeFileSync(naklad, wsp.replace(/path: "([^"]*)"/, 'path: "$1x"'));
     expect(() => compileContent(dir, 'en')).toThrow(/ranges\/spots\.yaml: przekład zmienia coś poza tekstem/);
     rmSync(join(dir, 'en/ranges'), { recursive: true, force: true });

@@ -1,0 +1,29 @@
+# CE: pnpm run ci na 1533486 + test recenzja-ce-odtworzenie.test.ts (it.fails), 2026-11-10T22:11:09Z
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  178 passed (178)
+packages/domena test:  Test Files  24 passed (24)
+packages/domena test:       Tests  335 passed (335)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  17 passed (17)
+packages/postep test:       Tests  136 passed (136)
+tools/content-build test:  Test Files  32 passed (32)
+tools/content-build test:       Tests  293 passed | 2 expected fail (295)
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 108 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 128 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 152 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 159 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+# Subtest: każdy workflow parsuje się bez błędów
+ok 170 - każdy workflow parsuje się bez błędów
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+0 błędów, 0 uwag
+pnpm run ci exit=0

@@ -10,7 +10,7 @@ const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
 
 describe('tabela scenarios w bazie treści (KO-050)', () => {
   it('jeden wiersz na szablon, data = JSON szablonu z compileContent, klucz obcy do modules', () => {
-    const c = compileContent(contentDir, 'pl');
+    const c = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
     expect((c.scenarios ?? []).length).toBeGreaterThan(0);
     const dir = mkdtempSync(join(tmpdir(), 'scen-db-'));
     try {

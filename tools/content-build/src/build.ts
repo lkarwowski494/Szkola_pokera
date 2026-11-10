@@ -31,7 +31,7 @@ import {
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
 import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
-import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
+import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type Equity169Data, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
 import { compileHandRanking, compileRanges } from './ranges';
@@ -125,6 +125,8 @@ export interface CompileOptions {
   registryDir?: string;
   /** Lista przejściowa strażnika rejestru (registry.ts); domyślnie tools/content-build/rejestr-przejsciowe.json, null = bez listy. */
   transitional?: string | null;
+  /** Kontrola generatora szablonów (2000 prób na poziom, najdroższy krok kompilacji pl); domyślnie włączona. Wyłączają ją tylko testy, które sprawdzają treść innych kontroli, a generator ma własne testy i bramkę w `content:build` (CJ, zadanie 6). */
+  kontrolaGeneratora?: boolean;
 }
 
 export function compileContent(contentDir: string, locale = 'pl', opts: CompileOptions = {}): CompiledContent {
@@ -382,12 +384,32 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     }
   }
 
+  // reguły sprawdzalne w trybie gry (przed szablonami scenariuszy: punkty cbet-case biorą z nich przypadki c-betu, F2)
+  const evalRules = compileEvalRules(rulesRaw, lessons, modules, rangeIds, (key, where) => {
+    const n = numbers.get(key);
+    if (!n) throw new Error(`${where}: nieznana liczba ${key}`);
+    used.add(key);
+    return n.value;
+  });
+
   // szablony scenariuszy (content/<tekst>/scenarios/<id>.yaml, BR-SZB-001): źródła ocen, poziomy, wyjaśnienia; generator tylko w bazie (pl)
   const scenarios: ScenarioTemplate[] = [];
   const scenarioFiles = loadScenarioTemplates(join(localeDir, 'scenarios'));
   const seenScenarioIds = new Set<string>();
-  // progi oceny z zakresów (ADR-26) dla generatora punktów range-spot; brak liczb = punkty range-spot nie przejdą sprawdzenia generatora
-  const scenarioThresholds = { mixedMin: numbers.get('range.mixed.min')?.value ?? 0.035, mixedLow: numbers.get('range.mixed.low')?.value ?? 0.25 };
+  // progi oceny z zakresów (ADR-26) dla generatora punktów range-spot: tylko z numbers.yaml, bez wartości zapasowych (NIS-006)
+  const prog = (key: string): number => {
+    const n = numbers.get(key);
+    if (!n) throw new Error(`szablony scenariuszy: brak liczby ${key} w numbers.yaml (progi oceny zakresów, ADR-26)`);
+    return n.value;
+  };
+  const scenarioThresholds = () => ({ mixedMin: prog('range.mixed.min'), mixedLow: prog('range.mixed.low') });
+  // przypadki c-betu z reguł cbet-case (te same dla wszystkich reguł jednego zadania c-btn; każdy wskazuje swoją regułę w polu rule)
+  // (przy różnych zadaniach: suma bez powtórzeń, w kolejności reguł)
+  const cbetCases = [...new Map(evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()];
+  // macierz equity 169×169 dla punktów icm-call (F4); brak pliku = takie punkty nie przejdą sprawdzenia generatora
+  const equityPath = join(contentDir, '..', 'tools', 'equity', 'equity169.json');
+  const equity169 = existsSync(equityPath) ? (JSON.parse(readFileSync(equityPath, 'utf8')) as Equity169Data) : undefined;
+  const sizeRules = evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind));
   for (const { file, template } of scenarioFiles) {
     fileCtx = `${tekst}/scenarios/${file}`;
     const errs = checkScenarioTemplate(template, file, {
@@ -395,11 +417,17 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
       numberKeys: new Set(numbers.keys()),
       moduleIds,
       spots: new Map(ranges.map((r) => [r.id, r.actions.map((a) => a.label)])),
+      cbetCases,
+      sizeRules,
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
+<<<<<<< HEAD
     errs.push(...checkScenarioNaEkran(template));
     if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds }));
+=======
+    if (locale === 'pl' && opts.kontrolaGeneratora !== false && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds(), cbetCases, sizeRules, ...(equity169 ? { equity169 } : {}) }));
+>>>>>>> origin/sesja-cj-poprawki
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {
       const gdzie = `${template.id}#${i + 1}`;
@@ -424,12 +452,6 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   }
   const areasPath = join(localeDir, 'areas.yaml');
   const areas: AreaDef[] = existsSync(areasPath) ? parseOrThrow(AreasFile, readYaml(areasPath), 'areas.yaml') : [];
-  const evalRules = compileEvalRules(rulesRaw, lessons, modules, rangeIds, (key, where) => {
-    const n = numbers.get(key);
-    if (!n) throw new Error(`${where}: nieznana liczba ${key}`);
-    used.add(key);
-    return n.value;
-  });
   // liczby użyte pośrednio (przez refs innych liczb) też są w użyciu
   const stack = [...used];
   while (stack.length) {

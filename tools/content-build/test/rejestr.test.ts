@@ -25,7 +25,7 @@ function compileWith(statuses: Record<string, string>, opts: { exemptKeys?: stri
     const reg = registry.map((w) => ({ ...w, status: statuses[w.id] ?? 'potwierdzone' }));
     writeFileSync(join(dir, 'docs/tresci/rejestr.json'), JSON.stringify(reg));
     writeFileSync(join(dir, 'docs/tresci/rejestr/bez-twierdzen.json'), JSON.stringify([...exempt, ...(opts.exemptKeys ?? []).map((klucz) => ({ klucz }))]));
-    return compileContent(join(dir, 'content'), 'pl', { transitional: null });
+    return compileContent(join(dir, 'content'), 'pl', { transitional: null, kontrolaGeneratora: false });
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -103,7 +103,7 @@ describe('strażnik powiązań z rejestrem (D-141)', () => {
   // Lista przejściowa usunięta po poprawkach treści E2 (rola 06, 2026-11-04): każde naruszenie przerywa budowanie.
   it(`treść projektu: bez listy przejściowej (${TRANSITIONAL_FILE}) i bez ostrzeżeń strażnika`, () => {
     expect(existsSync(join(contentDir, '..', TRANSITIONAL_FILE))).toBe(false);
-    const c = compileContent(contentDir);
+    const c = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
     expect(c.warnings.filter((w) => w.includes('strażnik rejestru'))).toEqual([]);
   }, 60_000);
 });

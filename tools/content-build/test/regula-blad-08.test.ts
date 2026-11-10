@@ -9,7 +9,7 @@ import { compileContent } from '../src/build';
 const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
 
 describe('reguła 2 i 4: granica outów i największy błąd (D-339)', () => {
-  const c = compileContent(contentDir);
+  const c = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
   const n = (k: string) => c.numbers.find((x) => x.key === k);
 
   it('błąd z numbers.yaml = największy |reguła − dokładnie| dla 1…granica outów, we wszystkich trzech sytuacjach lekcji', () => {

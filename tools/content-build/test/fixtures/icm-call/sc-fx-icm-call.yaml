@@ -1,0 +1,20 @@
+# Fixture testu CA (F4): sprawdzenie all-inu przy ICM; equity z kart wobec zakresu push SB 10 bb. Nie jest treścią aplikacji.
+id: sc-fx-icm-call
+module: m11
+situation: "Fixture: bańka, rywal wszedł all-in."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { marginMin: 0.1, expected: [fold] }
+  sredni: { marginMin: 0.05, marginMax: 0.15, expected: [call] }
+  trudny: { marginMin: 0.01, marginMax: 0.1, chipsDiffer: true, expected: [fold] }
+decisions:
+  - street: preflop
+    kind: icm-call
+    spot: push.sb-10
+    rule: R-M11-009
+    actions:
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}} na bańce, {{w:stol}}, rywal wszedł all-in. Pasujesz, bo przy ICM próg equity jest wyższy niż w grze o żetony." }
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}} na bańce, {{w:stol}}, rywal wszedł all-in. Sprawdzasz, bo ręka ma wystarczające equity także przy ICM." }

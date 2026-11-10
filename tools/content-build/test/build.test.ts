@@ -72,18 +72,25 @@ describe('schemat', () => {
   });
 });
 
+/** Pełna kompilacja pl (z generatorem) raz na plik testu: bramka generatora zostaje, bez powtarzania ~20 s. */
+let pelna: ReturnType<typeof compileContent> | undefined;
+const skompilowana = () => (pelna ??= compileContent(contentDir));
+
 describe('treść projektu', () => {
   it('kompiluje się bez błędów i bez liczb wpisanych ręcznie', () => {
-    const c = compileContent(contentDir);
+    const c = skompilowana();
     expect(c.lessons.length).toBeGreaterThan(0);
     expect(c.warnings.filter((w) => w.includes('wpisane ręcznie'))).toEqual([]);
     expect(c.warnings.filter((w) => w.includes('nie jest nigdzie używana'))).toEqual([]);
     // pełna kompilacja treści; w `pnpm run ci` (testy pakietów równolegle) przekroczyła 5 s (E3 roli 06, 2026-11-04)
   }, 30_000);
   // dwie pełne kompilacje treści; przy rosnącej treści i obciążonym runnerze domyślne 5 s bywało za mało
+  it('wyłączenie kontroli generatora nie zmienia wyniku kompilacji (tylko pomija kontrolę)', () => {
+    expect(compileContent(contentDir, 'pl', { kontrolaGeneratora: false }).hash).toBe(skompilowana().hash);
+  }, 120_000);
   it('jest deterministyczna (ten sam hash)', () => {
-    expect(compileContent(contentDir).hash).toBe(compileContent(contentDir).hash);
-  }, 120_000); // po scaleniu BS+BU jedna kompilacja ok. 16 s, dwie > 30 s (CD, D-720)
+    expect(skompilowana().hash).toBe(compileContent(contentDir).hash); // pierwsza z pamięci, druga świeża: dwie niezależne kompilacje
+  }, 120_000); // dwie pełne kompilacje (z generatorem szablonów) przekraczają 30 s na wolnej maszynie (BU, 2026-11-10)
 });
 
 describe('pula egzaminacyjna (content/pl/exams)', () => {
@@ -116,7 +123,7 @@ describe('pula egzaminacyjna (content/pl/exams)', () => {
       rmSync(join(root, 'content/pl/exams'), { recursive: true, force: true });
       mkdirSync(join(root, 'content/pl/exams'), { recursive: true });
       writeFileSync(join(root, 'content/pl/exams/m2.yaml'), yaml);
-      return compileContent(join(root, 'content'));
+      return compileContent(join(root, 'content'), 'pl', { kontrolaGeneratora: false });
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -146,7 +153,7 @@ drills:
 });
 
 describe('nowe typy zadań (B-015, B-016, B-017)', () => {
-  const c = compileContent(contentDir);
+  const c = skompilowana();
   const drills = c.lessons.flatMap((l) => l.drills);
 
   it('zadania liczbowe mają odpowiedź z numbers.yaml (wartość, jednostka, format)', () => {
@@ -177,7 +184,7 @@ describe('nowe typy zadań (B-015, B-016, B-017)', () => {
 });
 
 describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
-  const c = compileContent(contentDir);
+  const c = skompilowana();
   const drills = c.lessons.flatMap((l) => l.drills);
 
   it('missProbability: ręka bez pary chybia flop w 67,6% przypadków', () => {
@@ -356,7 +363,7 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
     ).toThrow(/należy do a i b/);
   });
   it('prawdziwa treść: każdy termin ma źródło z adresem, ćwiczenie słownictwa ma w obszarze co najmniej 4 terminy', () => {
-    const c = compileContent(contentDir);
+    const c = skompilowana();
     expect(c.terms.length).toBeGreaterThan(80);
     // źródło nazwy zostaje w terms.yaml (do bazy aplikacji nie trafia, decyzja właściciela z 9.10.2026)
     const file = TermsFile.parse(parseYaml(readFileSync(join(contentDir, 'terms.yaml'), 'utf8')));
