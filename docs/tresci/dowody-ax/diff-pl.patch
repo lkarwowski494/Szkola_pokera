@@ -1,0 +1,117 @@
+commit 269d049267a7c34487fb293017079a36bd28db75
+Author: Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>
+Date:   Tue Nov 10 09:45:45 2026 +0000
+
+    KO-027: brzmienie pl pytań oceny poziomu (m1.q2, m2.q5, m3.q2, m4.q1, m5.q2, m6.q5, m8.q1)
+    
+    Zmiana redakcyjna bez zmiany sensu, poprawnej odpowiedzi i liczb: pełne zdania
+    zamiast skrótów żargonu (m3: „Mówisz pierwszy preflop…” → opis sytuacji; opcje
+    „Przebijam duży blind / Sprawdzam duży blind / Pasuję”), „equity” z polskim opisem
+    z glosariusza, pula przed zakładem nazwana wprost (m2, m6), jednoznaczne liczby
+    rąk w m8. Znaczniki {{t:}}/{{n:}} i ID bez zmian w znaczeniu; wszystkie terminy
+    oznaczone (T-02). Przeglądy: docs/tresci/dowody-ax/.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01T66VBvoHtBam11taia24sJ
+
+diff --git a/content/pl/exams/m1.yaml b/content/pl/exams/m1.yaml
+index 1288b64..2ba93ba 100644
+--- a/content/pl/exams/m1.yaml
++++ b/content/pl/exams/m1.yaml
+@@ -14,7 +14,7 @@ drills:
+     id: m1.exam.q2
+     family: m1.actions
+     rules: [R-M1-001]
+-    prompt: "Rywal przed tobą {{t:bet|postawił}}. Którego ruchu nie możesz teraz wykonać?"
++    prompt: "Rywal {{t:bet|postawił}} {{t:bet|zakład}} i teraz twoja kolej. Którego z tych ruchów nie możesz wykonać?"
+     options:
+       - { text: "{{t:check|Czekać}}", correct: true, why: "{{t:check|Czekać}} można tylko wtedy, gdy w tej rundzie nikt przed tobą nie {{t:bet|postawił}} ani nie {{t:raise|przebił}}. Teraz musisz {{t:fold|spasować}}, {{t:call|sprawdzić}} albo {{t:raise|przebić}}." }
+       - { text: "{{t:raise|Przebić}}", why: "{{t:raise|Przebicie}} jest możliwe właśnie dlatego, że jest {{t:bet}} do podniesienia." }
+diff --git a/content/pl/exams/m2.yaml b/content/pl/exams/m2.yaml
+index bcefbb3..138d782 100644
+--- a/content/pl/exams/m2.yaml
++++ b/content/pl/exams/m2.yaml
+@@ -58,7 +58,7 @@ drills:
+     id: m2.exam.q5
+     family: m2.pot-odds
+     rules: [R-M2-003]
+-    prompt: "W {{t:pot|puli}} jest {{n:exam.m2.half.pot}}. Rywal {{t:bet|stawia}} {{n:exam.m2.half.bet}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}}?"
++    prompt: "Przed {{t:bet|zakładem}} rywala w {{t:pot|puli}} jest {{n:exam.m2.half.pot}} {{t:chips|żetonów}}. Rywal {{t:bet|stawia}} {{n:exam.m2.half.bet}}. Jakiej szansy na wygranie {{t:pot|puli}} ({{t:equity}}) potrzebujesz co najmniej, żeby {{t:call|sprawdzić}}?"
+     options:
+       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Dopłacasz {{n:exam.m2.half.bet}}, a {{t:pot}} po twoim {{t:call|sprawdzeniu}} ma {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. To {{t:bet}} pół {{t:pot|puli}}, więc wynik jest ten sam przy każdej wielkości {{t:pot|puli}}." }
+       - { text: "{{n:exam.m2.half.wrong}}", why: "To {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, bez twojego {{t:call|sprawdzenia}}. Dopłatę dzielisz przez całą {{t:pot|pulę}} po {{t:call|sprawdzeniu}}: {{n:exam.m2.half.total}}." }
+diff --git a/content/pl/exams/m3.yaml b/content/pl/exams/m3.yaml
+index b7ab7b0..37facab 100644
+--- a/content/pl/exams/m3.yaml
++++ b/content/pl/exams/m3.yaml
+@@ -15,12 +15,12 @@ drills:
+     id: m3.exam.q2
+     family: m3.open-early
+     rules: [R-M3-002]
+-    prompt: "Mówisz pierwszy preflop, nikt jeszcze nie wszedł do gry. Co robisz?"
++    prompt: "Gracie w sześć osób, karty właśnie rozdane. Decydujesz jako pierwszy, przed tobą nikt jeszcze nie zagrał. Co robisz?"
+     table: { hand: "Ac Td", position: UTG }
+     options:
+-      - { text: "{{t:raise|Przebijam}}", correct: true, why: "AT w różnych kolorach mieści się w {{t:range|zakresie}} {{t:open|otwarcia}} z {{t:utg}} (ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk). Solver aplikacji gra ją tu zawsze." }
++      - { text: "{{t:raise|Przebijam}} {{t:big-blind|duży blind}}", correct: true, why: "AT w różnych kolorach mieści się w {{t:range|zakresie}} {{t:open|otwarcia}} z {{t:utg}} (ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk). Solver aplikacji gra ją tu zawsze." }
+       - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. Z {{t:utg}} grasz wąsko, ale AT jest jeszcze w {{t:range|zakresie}}." }
+-      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Jako pierwszy {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Limp oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
++      - { text: "{{t:call|Sprawdzam}} {{t:big-blind|duży blind}}", why: "Jako pierwszy {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Samo {{t:call|sprawdzenie}} {{t:big-blind|dużego blinda}} to {{t:limp}}: oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
+   - kind: choice
+     id: m3.exam.q3
+     family: m3.rfi.early
+diff --git a/content/pl/exams/m4.yaml b/content/pl/exams/m4.yaml
+index 43cfeef..4cbf7ca 100644
+--- a/content/pl/exams/m4.yaml
++++ b/content/pl/exams/m4.yaml
+@@ -6,7 +6,7 @@ drills:
+     id: m4.exam.q1
+     family: m4.3bet.size
+     rules: [R-M4-002, R-M4-003]
+-    prompt: "{{t:cutoff|CO}} {{t:open|otworzył}} na {{n:pf.open-size}}, Button {{t:fold|spasował}}. Jesteś na {{t:small-blind|małym blindzie}} i chcesz 3-betować. Do ilu?"
++    prompt: "{{t:cutoff|CO}} {{t:open|otworzył}} grę, {{t:raise|przebijając}} do {{n:pf.open-size}}, a Button {{t:fold|spasował}}. Jesteś na {{t:small-blind|małym blindzie}} i chcesz {{t:raise|przebić}} jeszcze raz ({{t:3-bet}}). Do ilu {{t:raise|przebijasz}}?"
+     table: { hand: "Ad Kd", position: SB }
+     options:
+       - { text: "Do {{n:pf.3bet.oop-total}}", correct: true, why: "Po flopie będziesz mówić pierwszy, więc {{t:raise|przebijasz}} ok. {{n:pf.3bet.size-oop}} {{t:open|otwarcia}}. Większy rozmiar odbiera {{t:cutoff|CO}} tanie {{t:call}} {{t:in-position}}." }
+diff --git a/content/pl/exams/m5.yaml b/content/pl/exams/m5.yaml
+index 820b214..c8e9615 100644
+--- a/content/pl/exams/m5.yaml
++++ b/content/pl/exams/m5.yaml
+@@ -16,7 +16,7 @@ drills:
+     id: m5.exam.q2
+     family: m5.advantage.who
+     rules: [R-M5-004]
+-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na którym z tych flopów to {{t:big-blind}} częściej niż ty ma {{t:two-pair}} albo {{t:straight|strita}}?"
++    prompt: "{{t:open|Otworzyłeś}} grę z Buttona, a gracz na {{t:big-blind|dużym blindzie}} {{t:call|sprawdził}}. Na którym z tych flopów (pierwszych trzech {{t:community-cards|kart wspólnych}}) ten gracz częściej niż ty ma {{t:two-pair}} albo {{t:straight|strita}}?"
+     table: { position: BTN }
+     options:
+       - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}." }
+diff --git a/content/pl/exams/m6.yaml b/content/pl/exams/m6.yaml
+index d328fa9..d7cf9ca 100644
+--- a/content/pl/exams/m6.yaml
++++ b/content/pl/exams/m6.yaml
+@@ -41,7 +41,7 @@ drills:
+     id: m6.exam.q5
+     family: m6.flop.price
+     rules: [R-M6-005]
+-    prompt: "Flop. W {{t:pot|puli}} jest {{n:exam.m6.pot}}. Button {{t:bet|stawia}} raz {{n:exam.m6.bet.quarter}}, a w innym rozdaniu {{n:exam.m6.bet.three-quarters}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}} w każdym z tych przypadków?"
++    prompt: "Jesteś na {{t:big-blind|dużym blindzie}}, jest flop. Przed {{t:bet|zakładem}} w {{t:pot|puli}} jest {{n:exam.m6.pot}} {{t:chips|żetonów}}. Button {{t:bet|stawia}} w jednym rozdaniu {{n:exam.m6.bet.quarter}}, a w innym {{n:exam.m6.bet.three-quarters}}. Jakiej szansy na wygranie {{t:pot|puli}} ({{t:equity}}) potrzebujesz co najmniej, żeby {{t:call|sprawdzić}}, w każdym z tych rozdań?"
+     table: { position: BB }
+     options:
+       - { text: "Ok. {{n:eq.bet-quarter}} i {{n:eq.bet-three-quarters}}", correct: true, why: "Tak: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, a {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Przy większym becie bronisz węższym {{t:range|zakresem}}." }
+diff --git a/content/pl/exams/m8.yaml b/content/pl/exams/m8.yaml
+index b9e1790..c892c27 100644
+--- a/content/pl/exams/m8.yaml
++++ b/content/pl/exams/m8.yaml
+@@ -5,9 +5,9 @@ drills:
+     id: m8.exam.q1
+     family: m8.value.threshold
+     rules: [R-M8-001]
+-    prompt: "River, rywal {{t:check|czeka}} i nie może cię {{t:raise|przebić}}. W jego {{t:range|zakresie}} jest {{n:exam.m8.range.worse}} rąk gorszych od twojej, ale twój bet {{t:call|sprawdzi}} tylko {{n:exam.m8.call.worse}} z nich. Zapłaci też {{n:exam.m8.call.better}} razy lepszą ręką. Betujesz?"
++    prompt: "River, ostatnia {{t:betting-round|runda licytacji}}. Rywal {{t:check|czeka}}. Załóż, że na twój {{t:bet|zakład}} może już tylko {{t:call|sprawdzić}} albo {{t:fold|spasować}}. W jego {{t:range|zakresie}} (wśród rąk, które może mieć) jest {{n:exam.m8.range.worse}} rąk gorszych od twojej, ale tylko {{n:exam.m8.call.worse}} z nich {{t:call|sprawdzą}} twój {{t:bet|zakład}}. {{t:call|Sprawdzą}} go też {{n:exam.m8.call.better}} ręce lepsze od twojej. {{t:bet|Stawiasz}} {{t:bet|zakład}}?"
+     options:
+-      - { text: "Nie, {{t:check|czekam}}", correct: true, why: "Tak: liczysz tylko ręce, które zapłacą. Bet wygrywa {{n:exam.m8.call.worse}} razy i przegrywa {{n:exam.m8.call.better}} razy, czyli na czysto traci {{n:exam.m8.net.loss}} bet. Gorsze ręce, które {{t:fold|spasują}}, i tak przegrałyby z tobą po {{t:check|czekaniu}}." }
++      - { text: "Nie, {{t:check|czekam}}", correct: true, why: "Dobrze: liczysz tylko ręce, które zapłacą. Bet wygrywa {{n:exam.m8.call.worse}} razy i przegrywa {{n:exam.m8.call.better}} razy, czyli na czysto traci {{n:exam.m8.net.loss}} bet. Gorsze ręce, które {{t:fold|spasują}}, i tak przegrałyby z tobą po {{t:check|czekaniu}}." }
+       - { text: "Tak, bo gorszych rąk jest więcej niż lepszych", why: "Rywal ma {{n:exam.m8.range.worse}} gorszych rąk, ale większość z nich na bet {{t:fold|spasuje}}. Wśród rąk, które zapłacą, lepszych jest więcej ({{n:exam.m8.call.better}} wobec {{n:exam.m8.call.worse}})." }
+       - { text: "Tak, żeby się dowiedzieć, gdzie jestem", why: "Bet „dla informacji” płaci lepszym rękom, a gorsze {{t:fold|pasują}}. Tę samą informację dostajesz za darmo po {{t:check|czekaniu}}, przy showdownie." }
+   - kind: choice
