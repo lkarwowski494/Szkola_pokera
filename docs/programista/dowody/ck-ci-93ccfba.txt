@@ -1,0 +1,110 @@
+pnpm run ci @ 93ccfba, kod wyjścia 0 (2026-11-10)
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  178 passed (178)
+packages/domena test:  Test Files  24 passed (24)
+packages/domena test:       Tests  337 passed (337)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  18 passed (18)
+packages/postep test:       Tests  141 passed (141)
+tools/content-build test:  Test Files  26 passed (26)
+tools/content-build test:       Tests  252 passed (252)
+apps/mobile test: Test Suites: 112 passed, 112 total
+apps/mobile test: Tests:       821 passed, 821 total
+# Subtest: podsumuj: zielony w ponowieniu wypisany i kod 0; padł dwa razy → kod 1; flow bez ponowienia liczy się jako dwa razy
+ok 21 - podsumuj: zielony w ponowieniu wypisany i kod 0; padł dwa razy → kod 1; flow bez ponowienia liczy się jako dwa razy
+# Subtest: podsumuj: pusty albo brakujący raport = maszyna, kod 1 bez ponowień
+ok 22 - podsumuj: pusty albo brakujący raport = maszyna, kod 1 bez ponowień
+# Subtest: podsumuj: przerwany przebieg — flow z katalogu nieobecny w raporcie → kod 1 z nazwą (przegląd D-043 nr 1)
+ok 24 - podsumuj: przerwany przebieg — flow z katalogu nieobecny w raporcie → kod 1 z nazwą (przegląd D-043 nr 1)
+# Subtest: podsumuj: Maestro z kodem ≠ 0, w raporcie same zielone → kod 1 (maszyna; Trening e2e-ios.yml:231–241)
+ok 25 - podsumuj: Maestro z kodem ≠ 0, w raporcie same zielone → kod 1 (maszyna; Trening e2e-ios.yml:231–241)
+# Subtest: limit kosztu przeglądu: powyżej limitu STOP, kod 1, bez wysłania
+ok 36 - limit kosztu przeglądu: powyżej limitu STOP, kod 1, bez wysłania
+# Subtest: --szacuj nie dotyka sieci ani klucza (fetch rzuca, klucz ustawiony), zapisuje szacunek, kod 0 poniżej limitu
+ok 58 - --szacuj nie dotyka sieci ani klucza (fetch rzuca, klucz ustawiony), zapisuje szacunek, kod 0 poniżej limitu
+# Subtest: bez klucza przebieg płatny niemożliwy (kod 2), bez sieci
+ok 61 - bez klucza przebieg płatny niemożliwy (kod 2), bez sieci
+# Subtest: drugi STOP przed wysłaniem: koszt(wejście z count_tokens, Σ max_tokens) > limit → kod 1, batch niewysłany
+ok 73 - drugi STOP przed wysłaniem: koszt(wejście z count_tokens, Σ max_tokens) > limit → kod 1, batch niewysłany
+# Subtest: polecenie bez git push: kod 0 i bramki nie biegną (nawet failujące)
+ok 80 - polecenie bez git push: kod 0 i bramki nie biegną (nawet failujące)
+# Subtest: git push z porażką bramki: kod 2, stderr z nazwą bramki i wyjściem polecenia; dalsze bramki nie biegną
+ok 81 - git push z porażką bramki: kod 2, stderr z nazwą bramki i wyjściem polecenia; dalsze bramki nie biegną
+# Subtest: git push z zielonymi bramkami: kod 0
+ok 82 - git push z zielonymi bramkami: kod 0
+# Subtest: wejście nie-JSON: kod 0 (hook nie blokuje cudzych wywołań)
+ok 83 - wejście nie-JSON: kod 0 (hook nie blokuje cudzych wywołań)
+# Subtest: kod z listy nieznany w App Store Connect (np. „BO” zamiast BOL) → STOP z kodem; zapis nic nie robi
+ok 100 - kod z listy nieznany w App Store Connect (np. „BO” zamiast BOL) → STOP z kodem; zapis nic nie robi
+# Subtest: metadane podgląd: tylko GET, plan „utwórz” dla 10 lokalizacji × 2 obiekty, kod 0; bez wersji: komunikat z krokiem, kod 0
+ok 110 - metadane podgląd: tylko GET, plan „utwórz” dla 10 lokalizacji × 2 obiekty, kod 0; bez wersji: komunikat z krokiem, kod 0
+# Subtest: metadane zapis jak Apple: lokalizacje wersji utworzone przez Apple po appInfo → ponowny odczyt, PATCH zamiast POST, kod 0, bez 409
+ok 112 - metadane zapis jak Apple: lokalizacje wersji utworzone przez Apple po appInfo → ponowny odczyt, PATCH zamiast POST, kod 0, bez 409
+# Subtest: metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+ok 113 - metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+# Subtest: lokalizacje IAP: brak produktów w ASC = problem i kod 1, zero zapisów nawet w apply
+ok 119 - lokalizacje IAP: brak produktów w ASC = problem i kod 1, zero zapisów nawet w apply
+# Subtest: lokalizacje IAP: produkty w dwóch grupach subskrypcji = problem (niejednoznaczne), kod 1, zero zapisów
+ok 127 - lokalizacje IAP: produkty w dwóch grupach subskrypcji = problem (niejednoznaczne), kod 1, zero zapisów
+# Subtest: braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+ok 148 - braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 152 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 159 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+ok    NSPrivacyAccessedAPICategoryFileTimestamp ← expo-application (manifest: C617.1); expo-document-picker (kod bez manifestu: contentModificationDateKey); expo-file-system (manifest: 0A2A.1, 3B52.1); expo-sqlite (kod bez manifestu: stat); react-native (manifest: C617.1) | app.json: C617.1, 3B52.1
+ok    NSPrivacyAccessedAPICategoryUserDefaults ← expo-constants (manifest: CA92.1); expo-dev-launcher (kod bez manifestu: NSUserDefaults); expo-dev-launcher (kod bez manifestu: UserDefaults); expo-dev-menu (kod bez manifestu: UserDefaults); expo-localization (manifest: CA92.1); expo-notifications (manifest: CA92.1); expo-sharing (kod bez manifestu: UserDefaults); expo-system-ui (manifest: CA92.1); react-native (manifest: CA92.1) | app.json: CA92.1
+ok    NSPrivacyAccessedAPICategoryDiskSpace ← expo-file-system (manifest: E174.1, 85F4.1); expo-sqlite (kod bez manifestu: fstatfs); expo-sqlite (kod bez manifestu: fstatvfs); expo-sqlite (kod bez manifestu: statfs) | app.json: E174.1, 85F4.1
+> szkola-pokera@ i18n:kod /home/user/Szkola_pokera
+> node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src
+UWAGA kod apps/mobile/src/app/(tabs)/lessons.tsx:73 t(rozwiniety ? 'lessons.collapse' : 'lessons.expand'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/glossary.tsx:43 t(`glossary.areas.${s.area}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/session.tsx:173 t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/session.tsx:372 t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/settings.tsx:110 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/PaintGrid.tsx:118 t(STAN_KLUCZ[result[i]!]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/RuleCard.tsx:15 t(`level.${rule.level}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/Stol.tsx:127 t(STAN_KLUCZ[m.stan]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:11 t(`rules.sourceKind.one.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:13 t(`rules.sourceKind.many.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:17 t(total === 1 ? 'rules.source' : 'rules.sources'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dane/EkranDanych.tsx:91 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dzis/BlokLekcji.tsx:14 t(blok.rozpoczeta ? 'today.continueLesson' : 'today.startLesson'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/ocena/StopienOceny.tsx:22 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:52 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:113 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:150 t(`scenario.street.${ulicaDecyzji}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:151 t(`grade.${ocenaWyboru}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:163 t(`scenario.street.${widok.ulica}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:168 t(`scenario.street.${u}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:203 t(`scenario.street.${nastepna.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:225 t(klucz): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:239 t(`scenario.level.${p.poziom}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:249 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:252 t(`grade.${k.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:45 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:40 t(`scenario.level.${w}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:84 t(`grade.${w.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:95 t(`grade.${akcje[a]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:101 t(`grade.${akcje[a]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:130 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:133 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/start/EkranStartu.tsx:37 t(`start.title.${TYTUL[rodzaj]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/PanelDecyzji.tsx:35 t(`grade.${ocenaDecyzji(rekord.grade)}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:23 t(`grade.${stopien}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:33 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:92 t(`card.rank.${r}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:92 t(`card.suit.${s}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:100 t(`table.position.${p.toLowerCase()}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:108 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+0 błędów, 0 uwag
+kod 0
