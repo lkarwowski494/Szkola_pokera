@@ -1,0 +1,68 @@
+[
+ {
+  "grupa": "L2",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "stary": "**{{t:semi-connected|セミコネクテッド}}**なフロップは",
+  "powod": "a: wpis zmieniał formę セミコネクテッド → セミコネクト, czyli w kierunku odwrotnym do przyjętej nazwy semi-connected = セミコネクテッド; tekst m5-l1:74 zostaje bez zmiany"
+ },
+ {
+  "grupa": "L2",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "stary": "（{{t:semi-connected|セミコネクテッド}}なフロップ、または",
+  "powod": "a: wpis zmieniał formę セミコネクテッド → セミコネクト, czyli w kierunku odwrotnym do przyjętej nazwy semi-connected = セミコネクテッド; tekst m5-l1:84 zostaje bez zmiany"
+ },
+ {
+  "grupa": "U1",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "{{t:connected|コネクト}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクト}}",
+  "powod": "a: zastąpiony wpisem AP ja.json:860 (wpis U1 zostawiał w polu nowy formę セミコネクト)"
+ },
+ {
+  "grupa": "L5",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "stary": "シングルレイズの{{t:pot|ポット}}、スタック",
+  "powod": "c: zastąpiony wpisem AP m9-l2-zaangazowanie.md:65 (wpis L5 zmieniał na „レイズが1回の…”)"
+ },
+ {
+  "grupa": "L5",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "stary": "シングルレイズの{{t:pot|ポット}}では",
+  "powod": "c: zastąpiony wpisem AP m9-l2-zaangazowanie.md:110 (wpis L5 zmieniał na „レイズが1回の…”)"
+ },
+ {
+  "grupa": "R4",
+  "cel": "content/ja/rules.yaml",
+  "stary": "ハンド数の平方根に比例してしか小さくならないからです",
+  "powod": "d: zastąpiony wpisem AP rules.yaml:973 (wpis R4 zostawiał 比例)"
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/ja/exams/m5.yaml",
+  "stary": "低く{{t:connected}}のフロップは",
+  "powod": "g: to samo miejsce co poprawka AP m5.yaml:22; zmiana E1 („低く{{t:connected}}のフロップは” → „低くて{{t:connected}}なフロップは”) przeniesiona bez zmian do połączonej poprawki AP"
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/ja/exams/m5.yaml",
+  "stary": "勝ち目のない手で",
+  "powod": "g: to samo miejsce co poprawka AP m5.yaml:47; zmiana E1 („勝ち目のない手で” → „勝ち目のないハンドで”) przeniesiona bez zmian do połączonej poprawki AP"
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/ja/exams/m5.yaml",
+  "stary": "text: \"手を諦めるわけではない",
+  "powod": "g: to samo miejsce co poprawka AP m5.yaml:68; zmiana E1 („text: \"手を諦めるわけではない” → „text: \"ハンドを諦めるわけではない”) przeniesiona bez zmian do połączonej poprawki AP"
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/ja/exams/m5.yaml",
+  "stary": "やめるのはどの手ですか",
+  "powod": "g: to samo miejsce co poprawka AP m5.yaml:75; zmiana E1 („やめるのはどの手ですか” → „やめるのはどのハンドですか”) przeniesiona bez zmian do połączonej poprawki AP"
+ },
+ {
+  "grupa": "S1",
+  "cel": "content/ja/terms-def.yaml",
+  "stary": "そのボードでその時点で最も強い手です。",
+  "powod": "g: zastąpiony wpisem AP terms-def.yaml:91 (wpis S1 wstawiał „手”)"
+ }
+]

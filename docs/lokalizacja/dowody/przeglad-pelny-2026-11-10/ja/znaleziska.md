@@ -10,7 +10,7 @@ Wygenerowane przez `zloz.mjs ja` z plików `czesci/*.json` (nie edytuj ręcznie)
 | NISKIE | 50 |
 | **razem** | 147 |
 
-Części bez wyniku: brak. Odrzucone przez kontrolę: 0. Kolizje: 0. Ostrzeżenia o znacznikach: 6.
+Części bez wyniku: brak. Wykluczone rozstrzygnięciem (wykluczenia.json): 0. Odrzucone przez kontrolę: 0. Kolizje: 0. Ostrzeżenia o znacznikach: 6.
 
 ## WYS (1)
 

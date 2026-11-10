@@ -11,12 +11,17 @@ const podzial = JSON.parse(readFileSync(join(D, 'podzial.json'), 'utf8'));
 const WAGI = ['KRYT', 'WYS', 'ŚR', 'NISKIE'];
 const zn = (s) => [...s.matchAll(/\{\{n:[^}]*\}\}|\[\[[^\]]*\]\]|\bR-M\d+-\d+\b|\{\{t:[^}|]+|\{\{\s*(?![nt]:)[^{}|,\s]+/g)].map((m) => m[0].trim()).sort().join(' ');
 const ok = [], zle = [], ostrz = [], braki = [];
-const czesci = Object.keys(podzial);
+// AP = poprawki sesji nadrzędnej po rozstrzygnięciu sprzeczności (czesci/AP.json); wykluczenia.json = wpisy części usunięte
+// rozstrzygnięciem: [{ grupa, cel, stary, powod }] (dokładne dopasowanie grupa+cel+stary).
+const czesci = [...Object.keys(podzial), ...(existsSync(join(C, 'AP.json')) ? ['AP'] : [])];
+const pw = join(D, K, 'wykluczenia.json'), wykl = existsSync(pw) ? JSON.parse(readFileSync(pw, 'utf8')) : [], uzyteW = new Set();
 for (const cz of czesci) {
   const p = join(C, `${cz}.json`);
   if (!existsSync(p) || !existsSync(join(C, `${cz}-uwagi.md`))) { braki.push(cz); continue; }
   let a; try { a = JSON.parse(readFileSync(p, 'utf8')); } catch (e) { zle.push(`${cz}: plik JSON nie parsuje się (${e.message})`); continue; }
   for (const x of a) {
+    const iw = wykl.findIndex((w) => w.grupa === cz && w.cel === x.cel && w.stary === x.stary);
+    if (iw >= 0) { uzyteW.add(iw); continue; }
     const opis = `${cz} ${x.cel}:${x.linia} „${String(x.stary).slice(0, 50)}”`;
     if (x.jezyk !== K || !WAGI.includes(x.waga) || typeof x.stary !== 'string' || typeof x.nowy !== 'string' || !x.stary || !x.powod) { zle.push(`${opis} — pola`); continue; }
     if (!existsSync(x.cel)) { zle.push(`${opis} — brak pliku cel`); continue; }
@@ -28,6 +33,7 @@ for (const cz of czesci) {
     ok.push({ jezyk: K, cel: x.cel, linia, stary: x.stary, nowy: x.nowy, waga: x.waga, powod: x.powod, grupa: cz });
   }
 }
+wykl.forEach((w, i) => { if (!uzyteW.has(i)) zle.push(`wykluczenie bez dopasowania: ${w.grupa} ${w.cel} „${String(w.stary).slice(0, 40)}”`); });
 // kolizje: dwie poprawki, których `stary` nachodzą na siebie w tym samym pliku
 const wgPliku = {};
 for (const x of ok) (wgPliku[x.cel] ??= []).push(x);
@@ -43,7 +49,7 @@ const kom = (s) => String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
 const L = [`# Pełny przegląd przekładu ${K} — znaleziska z poprawką mechaniczną (sesja AP, 2026-11-10)`, '',
   `Wygenerowane przez \`zloz.mjs ${K}\` z plików \`czesci/*.json\` (nie edytuj ręcznie). Poprawki: \`poprawki-${K}.json\` (${ok.length}). Znaleziska bez poprawki mechanicznej, wzorce do ujednolicenia, pytania i pokrycie plików: \`czesci/<CZĘŚĆ>-uwagi.md\` oraz \`podsumowanie.md\`.`, '',
   `| Waga | Liczba |`, '|---|---|', ...WAGI.map((w) => `| ${w} | ${licz[w]} |`), `| **razem** | ${ok.length} |`, '',
-  `Części bez wyniku: ${braki.length ? braki.join(', ') : 'brak'}. Odrzucone przez kontrolę: ${zle.length}. Kolizje: ${kolizje.length}. Ostrzeżenia o znacznikach: ${ostrz.length}.`, ''];
+  `Części bez wyniku: ${braki.length ? braki.join(', ') : 'brak'}. Wykluczone rozstrzygnięciem (wykluczenia.json): ${uzyteW.size}. Odrzucone przez kontrolę: ${zle.length}. Kolizje: ${kolizje.length}. Ostrzeżenia o znacznikach: ${ostrz.length}.`, ''];
 for (const w of WAGI) {
   const xs = ok.filter((x) => x.waga === w); if (!xs.length) continue;
   L.push(`## ${w} (${xs.length})`, '', '| # | Część | plik:linia | Było | Ma być | Powód |', '|---|---|---|---|---|---|');

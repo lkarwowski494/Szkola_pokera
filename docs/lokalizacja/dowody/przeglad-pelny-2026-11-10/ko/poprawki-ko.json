@@ -1,0 +1,3012 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "linia": 713,
+  "stary": "Bubble factor = 손실 ÷ 이득",
+  "nowy": "버블 팩터(BF) = 손실 ÷ 이득",
+  "waga": "ŚR",
+  "powod": "Angielska nazwa w zdaniu koreańskim: pl „Bubble factor = strata ÷ zysk” (w pl nazwa terminu jest angielska); terms-nazwy ko bubble-factor = „버블 팩터”, tak też w lekcjach ko. „(BF)” wprowadza skrót użyty dalej w „BF ÷ (BF + 1)” (bez zmian, wg kontekstu klucza).",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 7,
+  "stary": "에 있는 상대까지 모두 {{t:fold|폴드}}했습니다",
+  "nowy": "에 있는 상대 앞까지 모두 {{t:fold|폴드}}했습니다",
+  "waga": "ŚR",
+  "powod": "pl „Wszyscy spasowali do rywala na małym blindzie” (pasy doszły do rywala, on jeszcze gra). „상대까지 모두 폴드했습니다” czyta się „wszyscy łącznie z rywalem spasowali”, co przeczy następnemu zdaniu (rywal dopłaca). „상대 앞까지” = do rywala.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 34,
+  "stary": "{{t:nit|닛}}({{t:vpip}}",
+  "nowy": "{{t:nit|니트}}({{t:vpip}}",
+  "waga": "ŚR",
+  "powod": "Termin nit: terms-nazwy ko = „니트”; forma „닛” to inny zapis tego samego terminu (w tym samym pliku l. 38 znacznik bez formy wyświetla „니트”). Jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 34,
+  "stary": "핸드)이 {{t:utg|UTG}}",
+  "nowy": "핸드)가 {{t:utg|UTG}}",
+  "waga": "ŚR",
+  "powod": "Partykuła podmiotu dla „니트(…)”: po zmianie formy na „니트” (wygłos samogłoskowy) ma być „가”, nie „이”. Poprawka łączna z poprawką formy {{t:nit|…}} w tej samej linii.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 38,
+  "stary": "{{t:nit}}은 강한",
+  "nowy": "{{t:nit}}는 강한",
+  "waga": "ŚR",
+  "powod": "Znacznik bez formy wyświetla nazwę z terms-nazwy „니트”, więc na ekranie jest „니트은” (błąd gramatyczny); poprawnie „니트는”. pl „bo {{t:nit}} gra tylko silne ręce”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 63,
+  "stary": "모든 사이즈와 테이블을 합친 값",
+  "nowy": "모든 사이즈와 보드를 합친 값",
+  "waga": "ŚR",
+  "powod": "pl „Fold to c-bet łączy wszystkie rozmiary i stoły”: „stół” to w źródle termin board (karty wspólne), nie miejsce gry; lekcja m10-l3 mówi „rozmiary i flopy”, a reguła ko (rules.yaml, ta sama fraza) ma „모든 사이즈와 보드”. „테이블” (stoły do gry) zmienia sens uwagi.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 80,
+  "stary": "{{t:rake-cap|레이크 상한}}",
+  "nowy": "{{t:rake-cap|레이크 캡}}",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku ma być postacią nazwy z terms-nazwy ko: rake-cap = „레이크 캡” (znacznik bez formy wyświetli „레이크 캡”); „레이크 상한” to inna nazwa tego samego terminu. pl „{{t:rake-cap|limit}} jest poza zasięgiem”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m11.yaml",
+  "linia": 73,
+  "stary": "당신은 평균 스택입니다",
+  "nowy": "당신은 중간 스택입니다",
+  "waga": "ŚR",
+  "powod": "pl „Masz średni stack” = stack średniej wielkości (między dużym a krótkim), nie średnia arytmetyczna żetonów („평균 스택” to odrębne pojęcie turniejowe). Reszta przekładu ko ma „중간 스택” (6×).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 54,
+  "stary": "{ text: \"지는 것을 싫어해서 생기는 틸트\"",
+  "nowy": "{ text: \"패배 혐오 틸트\"",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna, nazwa typu tiltu. pl „Tilt z nienawiści do przegrywania”, a pytanie odsyła do „podziału z lekcji o tilcie”; lekcja ko m12-l3 nazywa ten typ „패배 혐오 틸트” (tabela i opcje ćwiczeń). Egzamin używa innej, opisowej nazwy; jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 55,
+  "stary": "{ text: \"불공정함 때문에 생기는 틸트\"",
+  "nowy": "{ text: \"불공정 틸트\"",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna, nazwa typu tiltu. pl „Tilt z niesprawiedliwości”; lekcja ko m12-l3 konsekwentnie „불공정 틸트”. Ujednolicenie nazwy z lekcją, do której odsyła pytanie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 56,
+  "stary": "{ text: \"실수 때문에 생기는 틸트\"",
+  "nowy": "{ text: \"실수 틸트\"",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna, nazwa typu tiltu. pl „Tilt z błędu”; lekcja ko m12-l3 i uzasadnienie tej samej opcji mają „실수 틸트”. Ujednolicenie nazwy.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m13.yaml",
+  "linia": 73,
+  "stary": "c-벳 후",
+  "nowy": "C벳 후",
+  "waga": "ŚR",
+  "powod": "pl „po c-becie”. Zapis „c-벳” występuje w całym przekładzie ko tylko tutaj; nazwa terminu w terms-nazwy ko = „C벳” (tak w lekcjach i rules).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m2.yaml",
+  "linia": 54,
+  "stary": "2와 4 규칙으로 계산하면",
+  "nowy": "2와 4의 법칙으로 계산하면",
+  "waga": "ŚR",
+  "powod": "pl: „reguła 2 i 4”; lekcja m2-l1 (ko) wprowadza tę nazwę jako „2와 4의 법칙” (tytuł sekcji i zadanie); jedna nazwa na pojęcie.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 21,
+  "stary": "(약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}개 핸드)",
+  "nowy": "(핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}})",
+  "waga": "ŚR",
+  "powod": "pl: „ok. {{n:…low}}–{{n:…high}} rąk” to odsetek rąk (liczby mają jednostkę percent i wyświetlają się jako np. 15%–18%); w ko po procencie stoi klasyfikator liczby sztuk „개 핸드”, co daje niegramatyczne „15%–18%개 핸드” i sugeruje liczbę rąk. Poprawnie: „핸드의 약 …%–…%”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 49,
+  "stary": "약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}개 핸드를 {{t:open|오픈합니다}}",
+  "nowy": "핸드의 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}를 {{t:open|오픈합니다}}",
+  "waga": "ŚR",
+  "powod": "pl: „ok. {{n:…low}}–{{n:…high}} rąk” to odsetek rąk (liczby mają jednostkę percent i wyświetlają się jako np. 15%–18%); w ko po procencie stoi klasyfikator liczby sztuk „개 핸드”, co daje niegramatyczne „15%–18%개 핸드” i sugeruje liczbę rąk. Poprawnie: „핸드의 약 …%–…%”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 59,
+  "stary": "약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}개 핸드로 넓게",
+  "nowy": "핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}로 넓게",
+  "waga": "ŚR",
+  "powod": "pl: „ok. {{n:…low}}–{{n:…high}} rąk” to odsetek rąk (liczby mają jednostkę percent i wyświetlają się jako np. 15%–18%); w ko po procencie stoi klasyfikator liczby sztuk „개 핸드”, co daje niegramatyczne „15%–18%개 핸드” i sugeruje liczbę rąk. Poprawnie: „핸드의 약 …%–…%”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 87,
+  "stary": "(3-bet)\"",
+  "nowy": "(3벳)\"",
+  "waga": "ŚR",
+  "powod": "pl: „3-bet”; w ko nazwa terminu wg terms-nazwy to „3벳” (tak też w egzaminach m4 i m5 oraz w lekcjach m4); tu została angielska pisownia „3-bet”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m3.yaml",
+  "linia": 87,
+  "stary": "3-bet은 {{t:pot|팟}}을 키우고",
+  "nowy": "3벳은 {{t:pot|팟}}을 키우고",
+  "waga": "ŚR",
+  "powod": "pl: „3-bet”; w ko nazwa terminu wg terms-nazwy to „3벳” (tak też w egzaminach m4 i m5 oraz w lekcjach m4); tu została angielska pisownia „3-bet”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 72,
+  "stary": "수딧 핸드와",
+  "nowy": "수티드 핸드와",
+  "waga": "ŚR",
+  "powod": "pl: „rękami w kolorze”; terms-nazwy: suited = „수티드”, tu wariant „수딧”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 111,
+  "stary": "{ text: \"림프 비하인드\", why: \"림프 비하인드는 스페큘레이티브 핸드에 어울립니다.",
+  "nowy": "{ text: \"콜\", why: \"콜은 투기적인 핸드에 어울립니다.",
+  "waga": "ŚR",
+  "powod": "pl: „Dopłacam” / „Dopłata pasuje do rąk spekulacyjnych”. Lekcja m4-l4 (ko) oddaje tę samą odpowiedź jako „콜”, a „ręce spekulacyjne” jako „투기적인 핸드”; „림프 비하인드” i „스페큘레이티브 핸드” nie występują nigdzie indziej w treści i nie są nigdzie objaśnione.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 29,
+  "stary": "{{t:nuts-advantage|너츠 우위}}. 그중",
+  "nowy": "{{t:nuts-advantage|넛 우위}}. 그중",
+  "waga": "ŚR",
+  "powod": "pl: „przewaga nutsów” ({{t:nuts-advantage}}); terms-nazwy: „넛 우위”. W tym samym pliku znacznik bez formy (linie 22, 98) wyświetla „넛 우위”, a forma tu to „너츠 우위” — dwie nazwy jednego pojęcia na jednym ekranie egzaminu.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 31,
+  "stary": "{ text: \"{{t:nuts-advantage|너츠 우위}}\"",
+  "nowy": "{ text: \"{{t:nuts-advantage|넛 우위}}\"",
+  "waga": "ŚR",
+  "powod": "pl: „przewaga nutsów” ({{t:nuts-advantage}}); terms-nazwy: „넛 우위”. W tym samym pliku znacznik bez formy (linie 22, 98) wyświetla „넛 우위”, a forma tu to „너츠 우위” — dwie nazwy jednego pojęcia na jednym ekranie egzaminu.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 32,
+  "stary": "{{t:nuts-advantage|너츠 우위}}가 없으면",
+  "nowy": "{{t:nuts-advantage|넛 우위}}가 없으면",
+  "waga": "ŚR",
+  "powod": "pl: „przewaga nutsów” ({{t:nuts-advantage}}); terms-nazwy: „넛 우위”. W tym samym pliku znacznik bez formy (linie 22, 98) wyświetla „넛 우위”, a forma tu to „너츠 우위” — dwie nazwy jednego pojęcia na jednym ekranie egzaminu.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 57,
+  "stary": "C-벳을 가장 드물게 하는",
+  "nowy": "C벳을 가장 드물게 하는",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet”; terms-nazwy: c-bet = „C벳” (tak w lekcjach m5-l4, m6-l3 i w rules). Tu inny zapis; przykład poprawki, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 60,
+  "stary": "C-벳을 가장 자주 하는 구도",
+  "nowy": "C벳을 가장 자주 하는 구도",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet”; terms-nazwy: c-bet = „C벳” (tak w lekcjach m5-l4, m6-l3 i w rules). Tu inny zapis; przykład poprawki, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 17,
+  "stary": "맞습니다: alpha = 벳",
+  "nowy": "맞습니다: 알파 = 벳",
+  "waga": "ŚR",
+  "powod": "pl: „alpha”; terms-nazwy: alpha = „알파” (tak w lekcjach m6-l1, m8-l2 i w rules); tu zostało łacińskie „alpha”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 18,
+  "stary": "alpha는 전체에서",
+  "nowy": "알파는 전체에서",
+  "waga": "ŚR",
+  "powod": "pl: „alpha”; terms-nazwy: alpha = „알파” (tak w lekcjach m6-l1, m8-l2 i w rules); tu zostało łacińskie „alpha”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 28,
+  "stary": "작은 c-bet에는 어차피",
+  "nowy": "작은 C벳에는 어차피",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet”; terms-nazwy: c-bet = „C벳” (tak w lekcjach m5-l4, m6-l3 i w rules). Tu inny zapis; przykład poprawki, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 48,
+  "stary": "첫 번째 숫자는 alpha(",
+  "nowy": "첫 번째 숫자는 알파(",
+  "waga": "ŚR",
+  "powod": "pl: „alpha”; terms-nazwy: alpha = „알파” (tak w lekcjach m6-l1, m8-l2 i w rules); tu zostało łacińskie „alpha”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 76,
+  "stary": "거셧(9)",
+  "nowy": "거트샷(9)",
+  "waga": "ŚR",
+  "powod": "pl: „gutshot (dziewiątka)”; terms-nazwy: gutshot = „거트샷”; „거셧” to literówka (nie występuje nigdzie indziej).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 63,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}가 있습니다",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}가 있습니다",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku {{t:oesd|…}}: terms-nazwy ko = „양방향 스트레이트 드로우”; „오픈엔디드 스트레이트 드로우” to inna nazwa tego samego terminu (w tym pliku l. 75 opisowo „양쪽이 열린 스트레이트 드로우”). Jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 70,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}(J 또는 6)",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}(J 또는 6)",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: forma {{t:oesd|…}} zgodna z terms-nazwy ko („양방향 스트레이트 드로우”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 20,
+  "stary": "이것은 thin value입니다",
+  "nowy": "이것은 씬 밸류입니다",
+  "waga": "ŚR",
+  "powod": "pl „to thin value”. W ko termin ma zapis koreański „씬 밸류” (lekcje m8 i rules: 9×); angielskie „thin value” zostało tylko w tym pliku (2×). Resztka angielskiego tekstu, niespójna z lekcją.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 21,
+  "stary": "thin value는 더 작게",
+  "nowy": "씬 밸류는 더 작게",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: „thin value” → „씬 밸류” (zapis używany w lekcjach ko).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 31,
+  "stary": "{{t:two-pair|투페어}}입니까",
+  "nowy": "{{t:two-pair|투 페어}}입니까",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 33,
+  "stary": "{{t:two-pair|투페어}}는 8위입니다. {{t:two-pair|투페어}}가",
+  "nowy": "{{t:two-pair|투 페어}}는 8위입니다. {{t:two-pair|투 페어}}가",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 34,
+  "stary": "text: \"{{t:two-pair|투페어}}\", why: \"{{t:two-pair|투페어}}는",
+  "nowy": "text: \"{{t:two-pair|투 페어}}\", why: \"{{t:two-pair|투 페어}}는",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 94,
+  "stary": "| 8 | {{t:two-pair|투페어}} |",
+  "nowy": "| 8 | {{t:two-pair|투 페어}} |",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 99,
+  "stary": "{{t:two-pair|투페어}}를 이깁니다",
+  "nowy": "{{t:two-pair|투 페어}}를 이깁니다",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 99,
+  "stary": "같은 {{t:two-pair|투페어}})",
+  "nowy": "같은 {{t:two-pair|투 페어}})",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l1-statystyki.md",
+  "linia": 69,
+  "stary": "닛이므로 {{t:nit|닛}}처럼",
+  "nowy": "니트이므로 {{t:nit|니트}}처럼",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nit = „니트” (tak też w m10-l2); tu forma „닛” niezgodna z nazwą terminu. (pl „bo większość graczy to nity”)",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l1-statystyki.md",
+  "linia": 69,
+  "stary": "{{t:nit|닛}}, 즉",
+  "nowy": "{{t:nit|니트}}, 즉",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nit = „니트” (tak też w m10-l2); tu forma „닛” niezgodna z nazwą terminu. (pl „{{t:nit}}, czyli bardzo ciasny gracz”)",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 29,
+  "stary": "면 {{t:recreational|레크리에이셔널 플레이어}}는 ",
+  "nowy": "면 {{t:recreational|레크리에이션 플레이어}}는 ",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 31,
+  "stary": " \"{{t:recreational|레크리에이셔널 플레이어}}는 끝",
+  "nowy": " \"{{t:recreational|레크리에이션 플레이어}}는 끝",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 32,
+  "stary": " \"{{t:recreational|레크리에이셔널 플레이어}}는 더",
+  "nowy": " \"{{t:recreational|레크리에이션 플레이어}}는 더",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 39,
+  "stary": "{{t:recreational|레크리에이셔널 플레이어}}입",
+  "nowy": "{{t:recreational|레크리에이션 플레이어}}입",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 49,
+  "stary": "{{t:recreational|레크리에이셔널 플레이어}}(",
+  "nowy": "{{t:recreational|레크리에이션 플레이어}}(",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 109,
+  "stary": "브 {{t:recreational|레크리에이셔널 플레이어}} |",
+  "nowy": "브 {{t:recreational|레크리에이션 플레이어}} |",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": "승률이 {{n:mda.reg.def.wr}}을 넘는",
+  "nowy": "윈레이트가 {{n:mda.reg.def.wr}}을 넘는",
+  "waga": "ŚR",
+  "powod": "pl „wynik” (w bb/100, wartości ujemne −2, −20, −47): „승률” znaczy po koreańsku odsetek wygranych i nie może być ujemny; to samo pojęcie w m10-l4 i terms-nazwy to „윈레이트” (en: Win rate).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": "승률이 {{n:mda.rec.def.wr}} 미만인",
+  "nowy": "윈레이트가 {{n:mda.rec.def.wr}} 미만인",
+  "waga": "ŚR",
+  "powod": "pl „wynik” (w bb/100, wartości ujemne −2, −20, −47): „승률” znaczy po koreańsku odsetek wygranych i nie może być ujemny; to samo pojęcie w m10-l4 i terms-nazwy to „윈레이트” (en: Win rate).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": ", {{t:recreational|레크리에이셔널 플레이어}}는 ",
+  "nowy": ", {{t:recreational|레크리에이션 플레이어}}는 ",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 118,
+  "stary": "| {{t:recreational|레크리에이셔널 플레이어}} |",
+  "nowy": "| {{t:recreational|레크리에이션 플레이어}} |",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 121,
+  "stary": "| 3벳에 폴드 |",
+  "nowy": "| 폴드 투 3벳 |",
+  "waga": "ŚR",
+  "powod": "pl „Fold to 3-bet” (nazwa statystyki): w m10-l1 i reszcie przekładu „폴드 투 3벳” (12 wystąpień), tu jedyny raz „3벳에 폴드”; jedna nazwa statystyki.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 124,
+  "stary": "| 승률 |",
+  "nowy": "| 윈레이트 |",
+  "waga": "ŚR",
+  "powod": "pl „wynik” (w bb/100, wartości ujemne −2, −20, −47): „승률” znaczy po koreańsku odsetek wygranych i nie może być ujemny; to samo pojęcie w m10-l4 i terms-nazwy to „윈레이트” (en: Win rate).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 126,
+  "stary": "{{t:recreational|레크리에이셔널 플레이어}}의",
+  "nowy": "{{t:recreational|레크리에이션 플레이어}}의",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 128,
+  "stary": "# 패시브 {{t:recreational|레크리에이셔널 플레이어}}",
+  "nowy": "# 패시브 {{t:recreational|레크리에이션 플레이어}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 49,
+  "stary": "모든 사이즈와 테이블을 합친",
+  "nowy": "모든 사이즈와 보드를 합친",
+  "waga": "ŚR",
+  "powod": "pl „Fold to c-bet łączy wszystkie rozmiary i stoły”: „stół” to w źródle board (karty wspólne; w treści lekcji to samo zdanie: „wszystkie rozmiary i flopy”), a „테이블” znaczy stół do gry; ma być „보드”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 42,
+  "stary": "{{t:rake-cap|레이크 상한}}에 더 자주",
+  "nowy": "{{t:rake-cap|레이크 캡}}에 더 자주",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 43,
+  "stary": "{{t:rake-cap|레이크 상한}}으로",
+  "nowy": "{{t:rake-cap|레이크 캡}}으로",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 44,
+  "stary": "{{t:rake-cap|레이크 상한}}입니다",
+  "nowy": "{{t:rake-cap|레이크 캡}}입니다",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 49,
+  "stary": "{{t:rake-cap|상한}}은",
+  "nowy": "{{t:rake-cap|레이크 캡}}은",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 93,
+  "stary": "{{t:rake-cap|레이크 상한}}을",
+  "nowy": "{{t:rake-cap|레이크 캡}}을",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 67,
+  "stary": "더 좁아서(약 {{n:m11.push.15}}의 핸드) 2 {{t:pair|페어}}가",
+  "nowy": "더 좁아서(약 {{n:m11.push.15}}의 핸드) 2의 {{t:pair|페어}}가",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:pair}} dwójek” (para dwójek). „2 페어” czyta się jak „투 페어” (dwie pary, inny układ); „2의 페어” jest jednoznaczne i zgodne z poleceniem („2로 이루어진 페어”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 68,
+  "stary": "why: \"2 {{t:pair|페어}}는 더 높은 카드 두 장을",
+  "nowy": "why: \"2의 {{t:pair|페어}}는 더 높은 카드 두 장을",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:pair|Para}} dwójek wobec dwóch wyższych kart”. „2 페어” czyta się jak „투 페어” (dwie pary); „2의 페어” jest jednoznaczne.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 134,
+  "stary": "“갭 콘셉트(gap concept)”",
+  "nowy": "“갭 컨셉(gap concept)”",
+  "waga": "ŚR",
+  "powod": "pl: „gap concept”; terms-nazwy ko: gap-concept = „갭 컨셉”, a w lekcji „갭 콘셉트”. Jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 29,
+  "stary": "prompt: \"{{t:payout|페이아웃}}: 1위는",
+  "nowy": "prompt: \"{{t:payout|상금}}: 1위는",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:payout|Wypłaty}}”. terms-nazwy ko: payout = „상금”; forma w znaczniku ma być postacią tej nazwy (tak jest w m11-l2: {{t:payout|상금}}), nie „페이아웃”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 39,
+  "stary": "{{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}} {{t:payout|페이아웃}}에서는",
+  "nowy": "{{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}} {{t:payout|상금}} 구조에서는",
+  "waga": "ŚR",
+  "powod": "pl: „Przy {{t:payout|wypłatach}} …/…”. terms-nazwy ko: payout = „상금”, nie „페이아웃”; „상금 구조에서는” zachowuje sens „przy wypłatach 60/40”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 71,
+  "stary": "why: \"{{t:payout|페이아웃}}이 있는 {{t:tournament|토너먼트}}에서는 {{t:chips}}이 아니라",
+  "nowy": "why: \"{{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 {{t:chips}}이 아니라",
+  "waga": "ŚR",
+  "powod": "pl: „W turnieju z {{t:payout|wypłatami}}”. terms-nazwy ko: payout = „상금”, nie „페이아웃”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 161,
+  "stary": "{{t:call|콜하지만}}, {{t:payout|페이아웃}}이 있는",
+  "nowy": "{{t:call|콜하지만}}, {{t:payout|상금}} 구조가 있는",
+  "waga": "ŚR",
+  "powod": "pl: „w turnieju z {{t:payout|wypłatami}}”. terms-nazwy ko: payout = „상금”, nie „페이아웃”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l2-decyzja-wynik.md",
+  "linia": 68,
+  "stary": "{{n:var.hands.k}}천 핸드도",
+  "nowy": "{{n:var.hands.k}}k 핸드도",
+  "waga": "ŚR",
+  "powod": "pl: „nawet {{n:var.hands.k}} tys. rąk”. „100천 핸드” to nienaturalny zapis liczby po koreańsku i niezgodny z resztą modułu (lekcje m12-l1 i m12-l4 mają wszędzie „{{n:var.hands.k}}k 핸드”); ujednolicenie do „k 핸드”.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 51,
+  "stary": "절박함에서 오는 틸트입니다",
+  "nowy": "절박함 틸트입니다",
+  "waga": "ŚR",
+  "powod": "pl: „To tilt z desperacji” — nazwa typu tiltu z lekcji m12-l3, gdzie ko ma konsekwentnie „절박함 틸트” (tabela i ćwiczenia). Jedna nazwa na jedno pojęcie.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 102,
+  "stary": "이 레슨 끝의 ‘책임감 있는 게임’ 안내에 있는 연락처를",
+  "nowy": "‘책임감 있는 게임’ 안내에 있는 연락처를",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna. pl: „skorzystaj z kontaktów z karty o odpowiedzialnej grze” — w ko dodano „이 레슨 끝의” („na końcu tej lekcji”), czego nie ma w pl; ćwiczenie może być pokazane poza lekcją (powtórki), więc dodatek bywa mylący. Usunięcie dodatku przywraca zgodność z pl.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 5,
+  "stary": "title: \"게임 리포트 읽는 법\"",
+  "nowy": "title: \"게임 보고서 읽는 법\"",
+  "waga": "ŚR",
+  "powod": "pl: „raport z gry”; ekran w interfejsie ko nazywa się „세션 보고서” (play.report.title), a lekcja pisze „리포트”. Jedna nazwa na pojęcie (pozostałe miejsca: uwagi, „Do ujednolicenia skryptem”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 61,
+  "stary": "결정 30개 중 14개 평가됨",
+  "nowy": "결정 30개 중 14개 평가",
+  "waga": "ŚR",
+  "powod": "pl cytuje napis z ekranu „Oceniono 14 z 30 decyzji”; w interfejsie ko (play.report.rated) napis brzmi „결정 {{all}}개 중 {{rated}}개 평가”. Cytat ma być taki jak na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 76,
+  "stary": "{{t:session|세션}} 후 리포트는 얼마를",
+  "nowy": "{{t:session|세션}} 후 보고서는 얼마를",
+  "waga": "ŚR",
+  "powod": "pl: „Raport po sesji”; w interfejsie ko „보고서” (play.report.title: „세션 보고서”), w lekcji „리포트”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 97,
+  "stary": "결정 Y개 중 X개 평가됨",
+  "nowy": "결정 Y개 중 X개 평가",
+  "waga": "ŚR",
+  "powod": "pl cytuje napis z ekranu „Oceniono X z Y decyzji”; w interfejsie ko: „결정 {{all}}개 중 {{rated}}개 평가”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 105,
+  "stary": "결과는 리포트 맨 아래에",
+  "nowy": "결과는 보고서 맨 아래에",
+  "waga": "ŚR",
+  "powod": "pl: „na dole raportu”; w interfejsie ko „보고서”, w lekcji „리포트”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 58,
+  "stary": "4-bet을 두 번 받았고",
+  "nowy": "4벳을 두 번 받았고",
+  "waga": "ŚR",
+  "powod": "pl: „4-bet”; terms-nazwy ko: 4-bet = „4벳” (reszta przekładu: 4벳 ×51, „4-bet” tylko w tej linii). Resztka angielskiego zapisu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 58,
+  "stary": "이제 4-bet에 너무 자주",
+  "nowy": "이제 4벳에 너무 자주",
+  "waga": "ŚR",
+  "powod": "pl: „pasujesz na 4-bet za często”; terms-nazwy ko: 4-bet = „4벳”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 67,
+  "stary": "“플롭: c-bet” 게임 영역은",
+  "nowy": "“플롭: C벳” 게임 영역은",
+  "waga": "ŚR",
+  "powod": "pl cytuje nazwę obszaru = tytuł modułu m5 „Flop: c-bet”; w ko moduł nazywa się „플롭: C벳” (content/ko/modules.yaml), terms-nazwy: c-bet = „C벳”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 69,
+  "stary": "잠금 해제됩니다. 자유 게임은 처음부터",
+  "nowy": "잠금 해제됩니다. 자유 플레이는 처음부터",
+  "waga": "ŚR",
+  "powod": "pl: „Gra swobodna” (nazwa trybu z interfejsu); w interfejsie ko tryb nazywa się „자유 플레이” (play.free), a lekcja pisze „자유 게임”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 71,
+  "stary": "text: \"바로, 자유 게임처럼\"",
+  "nowy": "text: \"바로, 자유 플레이처럼\"",
+  "waga": "ŚR",
+  "powod": "pl: „jak gra swobodna”; w interfejsie ko „자유 플레이” (play.free).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 71,
+  "stary": "why: \"자유 게임은 첫날부터",
+  "nowy": "why: \"자유 플레이는 첫날부터",
+  "waga": "ŚR",
+  "powod": "pl: „Gra swobodna jest dostępna od pierwszego dnia”; w interfejsie ko „자유 플레이” (play.free).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 89,
+  "stary": "{{t:open|오픈}}한 후의 c-bet입니다",
+  "nowy": "{{t:open|오픈}}한 후의 C벳입니다",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet po otwarciu z Buttona”; terms-nazwy ko: c-bet = „C벳”. Resztka angielskiego zapisu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l1-outy.md",
+  "linia": 111,
+  "stary": "- **{{t:oesd|오픈엔디드 스트레이트 드로우}}**",
+  "nowy": "- **{{t:oesd|양방향 스트레이트 드로우}}**",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: oesd = „양방향 스트레이트 드로우” (pl: „OESD”); forma „오픈엔디드 스트레이트 드로우” to inna nazwa tego samego pojęcia.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l1-outy.md",
+  "linia": 126,
+  "stary": "| {{t:oesd|오픈엔디드 스트레이트 드로우}} |",
+  "nowy": "| {{t:oesd|양방향 스트레이트 드로우}} |",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: oesd = „양방향 스트레이트 드로우” (pl: „OESD” w tabeli); jedna nazwa na pojęcie.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l1-pozycja.md",
+  "linia": 37,
+  "stary": "{{t:initiative|이니셔티브}}를 내줍니다",
+  "nowy": "{{t:initiative|주도권}}을 내줍니다",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: initiative = „주도권” (pl: „oddaje inicjatywę”); „이니셔티브” to druga nazwa tego samego pojęcia; partykuła zmieniona na „을”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l1-pozycja.md",
+  "linia": 69,
+  "stary": "{{t:initiative|이니셔티브}}를 줍니다",
+  "nowy": "{{t:initiative|주도권}}을 줍니다",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: initiative = „주도권” (pl: „daje inicjatywę”); partykuła zmieniona na „을”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l2-rece-startowe.md",
+  "linia": 35,
+  "stary": "레이즈합니다}} (3-bet)\"",
+  "nowy": "레이즈합니다}} (3벳)\"",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: 3-bet = „3벳” (pl: „3-bet”); w przekładzie została nazwa angielska, reszta lekcji ko używa „3벳”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l2-rece-startowe.md",
+  "linia": 53,
+  "stary": "레이즈합니다}}(3-bet).",
+  "nowy": "레이즈합니다}}(3벳).",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: 3-bet = „3벳” (pl: „przebijasz ponownie (3-bet)”); została nazwa angielska.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 47,
+  "stary": "{{t:mixed-hand|믹스 핸드}}",
+  "nowy": "{{t:mixed-hand|혼합 핸드}}",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: mixed-hand = „혼합 핸드” (pl: „ręka mieszana”); „믹스 핸드” to jedyne takie użycie, miejsce definiuje pojęcie.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 46,
+  "stary": "수딧\"",
+  "nowy": "수티드\"",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 97,
+  "stary": "고, 수딧",
+  "nowy": "고, 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 97,
+  "stary": "s, 수딧",
+  "nowy": "s, 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": "고 수딧",
+  "nowy": "고 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": ". 수딧",
+  "nowy": ". 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": "와 수딧",
+  "nowy": "와 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 44,
+  "stary": "3-bet\", c",
+  "nowy": "3벳\", c",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 45,
+  "stary": "3-bet\", s",
+  "nowy": "3벳\", s",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 67,
+  "stary": "3-bet)",
+  "nowy": "3벳)",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 79,
+  "stary": "3-bet 합",
+  "nowy": "3벳 합",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet과",
+  "nowy": "3벳과",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet 구",
+  "nowy": "3벳 구",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet은",
+  "nowy": "3벳은",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet합",
+  "nowy": "3벳합",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet하",
+  "nowy": "3벳하",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 28,
+  "stary": "\"수딧",
+  "nowy": "\"수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 28,
+  "stary": " {{t:initiative|이니셔티브}}를",
+  "nowy": " {{t:initiative|주도권}}을",
+  "waga": "ŚR",
+  "powod": "pl „oddaje/oddajesz inicjatywę”: content/ko/terms-nazwy.yaml podaje initiative = „주도권” (tak też w m4-l3); tu „이니셔티브”. Partykuła zmieniona na „을” po spółgłosce.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 48,
+  "stary": "\"{{t:initiative|이니셔티브}}를",
+  "nowy": "\"{{t:initiative|주도권}}을",
+  "waga": "ŚR",
+  "powod": "pl „oddaje/oddajesz inicjatywę”: content/ko/terms-nazwy.yaml podaje initiative = „주도권” (tak też w m4-l3); tu „이니셔티브”. Partykuła zmieniona na „을” po spółgłosce.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 57,
+  "stary": "때 수딧",
+  "nowy": "때 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 73,
+  "stary": "수딧 에",
+  "nowy": "수티드 에",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 73,
+  "stary": "고 수딧",
+  "nowy": "고 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 75,
+  "stary": "와 수딧",
+  "nowy": "와 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 58,
+  "stary": "c-bet",
+  "nowy": "C벳",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 80,
+  "stary": "{{t:wetness|웻 정도}}",
+  "nowy": "{{t:wetness|웻니스}}",
+  "waga": "ŚR",
+  "powod": "pl „punkty mokrości”: content/ko/terms-nazwy.yaml podaje wetness = „웻니스”; forma „웻 정도” nie jest postacią tej nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 6,
+  "stary": " 너츠",
+  "nowy": " 넛",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 26,
+  "stary": "는 수딧",
+  "nowy": "는 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „konektorów w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 26,
+  "stary": "}}의 {{t:nuts-advantage|너츠",
+  "nowy": "}}의 {{t:nuts-advantage|넛",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 45,
+  "stary": "너츠 우위}}가 없으면 큰 {{",
+  "nowy": "넛 우위}}가 없으면 큰 {{",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 46,
+  "stary": "{{t:nuts-advantage|너츠 우위}},",
+  "nowy": "{{t:nuts-advantage|넛 우위}},",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 54,
+  "stary": "너츠 우위}}입니다. 큰 {{",
+  "nowy": "넛 우위}}입니다. 큰 {{",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 55,
+  "stary": "{{t:nuts-advantage|너츠 우위}}가 있",
+  "nowy": "{{t:nuts-advantage|넛 우위}}가 있",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 69,
+  "stary": "c-bet에",
+  "nowy": "C벳에",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 71,
+  "stary": "c-bet의",
+  "nowy": "C벳의",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 73,
+  "stary": "c-bet은",
+  "nowy": "C벳은",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "stary": ". 수딧",
+  "nowy": ". 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „konektorów w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "stary": "{{t:connected|연결된}}",
+  "nowy": "{{t:connected|커넥티드한}}",
+  "waga": "ŚR",
+  "powod": "pl „Na niskim, połączonym flopie”: content/ko/terms-nazwy.yaml podaje connected = „커넥티드” (tak w m5-l1); tu rodzime „연결된” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 90,
+  "stary": "# {{t:nuts-advantage|너츠 우위}}",
+  "nowy": "# {{t:nuts-advantage|넛 우위}}",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 92,
+  "stary": "너츠 우위}}는 {{",
+  "nowy": "넛 우위}}는 {{",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 92,
+  "stary": "너츠}",
+  "nowy": "넛}",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 92,
+  "stary": " {{t:nuts-advantage|너츠 우위}}는",
+  "nowy": " {{t:nuts-advantage|넛 우위}}는",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 99,
+  "stary": "c-bet ",
+  "nowy": "C벳 ",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 99,
+  "stary": "}}와 {{t:nuts-advantage|너츠",
+  "nowy": "}}와 {{t:nuts-advantage|넛",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 6,
+  "stary": "sub: \"인 포지션 c-bet\"",
+  "nowy": "sub: \"인 포지션 C벳\"",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳”; w tej lekcji zostawiono angielskie „c-bet” (pl „C-bet z pozycją”), a lekcje m5-l4 i m6-l3 piszą „C벳”. Przykład mechanizmu opisanego w uwagach (55 trafień).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 39,
+  "stary": "기회(check-raise)를",
+  "nowy": "기회(체크레이즈)를",
+  "waga": "ŚR",
+  "powod": "Resztka angielska „check-raise” w tekście ko (pl „(check-raise)”); terms-nazwy ko: check-raise = „체크레이즈”, tak też w tej samej odpowiedzi w m5-l4:91.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 39,
+  "stary": "쪽에 {{t:nuts-advantage|너츠 우위}}가",
+  "nowy": "쪽에 {{t:nuts-advantage|넛 우위}}가",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „przewagę nutsów”); forma „너츠 우위” niezgodna z nazwą, w m5-l4:91 jest „넛 우위”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 56,
+  "stary": "잭 세트를",
+  "nowy": "잭 셋을",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: set = „셋” (pl „seta waletów”); „세트” występuje tylko w tej lekcji, reszta przekładu (np. m6-l3) pisze „셋”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 60,
+  "stary": "당신의 세트는",
+  "nowy": "당신의 셋은",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: set = „셋” (pl „twój set”); „세트” niezgodne z resztą przekładu.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 79,
+  "stary": "당신의 {{t:nuts-advantage|너츠 우위}}는",
+  "nowy": "당신의 {{t:nuts-advantage|넛 우위}}는",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „twoja {{t:nuts-advantage}}”); forma „너츠 우위” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 104,
+  "stary": "{{t:wet|웨트}} 플롭에서, 그리고 {{t:nuts-advantage|너츠 우위}}가",
+  "nowy": "{{t:wet|웻}} 플롭에서, 그리고 {{t:nuts-advantage|넛 우위}}가",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻”, nuts-advantage = „넛 우위” (pl „na mokrym flopie i z przewagą nutsów”); formy „웨트” i „너츠 우위” niezgodne z nazwami.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 112,
+  "stary": "{{t:overbet|오버베팅}}",
+  "nowy": "{{t:overbet|오버벳}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: overbet = „오버벳” (pl „overbetu”); forma „오버베팅” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "“{{t:wet|웨트}}”가",
+  "nowy": "“{{t:wet|웻}}”이",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻” (pl „{{t:wet}}” nie znaczy „duży bet”); forma „웨트” niezgodna z nazwą; partykuła dopasowana do spółgłoski końcowej.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "항상 {{t:wet|웨트}}로 분류되지만",
+  "nowy": "항상 {{t:wet|웻}}으로 분류되지만",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻” (pl „jest w aplikacji zawsze {{t:wet}}”); forma „웨트” niezgodna z nazwą; partykuła „으로” po spółgłosce.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "{{t:wetness|웨트니스}}에",
+  "nowy": "{{t:wetness|웻니스}}에",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wetness = „웻니스” (pl „z mokrością”); forma „웨트니스” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "가장 {{t:wet|웨트한}}",
+  "nowy": "가장 {{t:wet|웻한}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻” (pl „najbardziej mokrych flopach”); forma „웨트한” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l4-bez-pozycji.md",
+  "linia": 18,
+  "stary": "{{t:initiative|이니셔티브}}를 잃지",
+  "nowy": "{{t:initiative|주도권}}을 잃지",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: initiative = „주도권” (pl „żeby nie stracić inicjatywy”); forma „이니셔티브” niezgodna z nazwą; partykuła „을” po spółgłosce.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l4-bez-pozycji.md",
+  "linia": 18,
+  "stary": "{{t:initiative|이니셔티브}}만으로는",
+  "nowy": "{{t:initiative|주도권}}만으로는",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: initiative = „주도권” (pl „Inicjatywa nie wygrywa sama”); forma „이니셔티브” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l4-bez-pozycji.md",
+  "linia": 99,
+  "stary": "{{t:condensed|압축된}} 레인지",
+  "nowy": "{{t:condensed|컨덴스드}} 레인지",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: condensed = „컨덴스드” (pl „jest {{t:condensed|skondensowany}}”); forma „압축된” nie jest postacią nazwy terminu.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l1-mdf-alpha.md",
+  "linia": 55,
+  "stary": "알파는 블러프가 이익을",
+  "nowy": "알파는 {{t:bluff|블러프}}가 이익을",
+  "waga": "ŚR",
+  "powod": "Zgubiony znacznik terminu: pl „zanim twój {{t:bluff}} zacznie zarabiać”, w ko zwykły tekst „블러프” bez {{t:bluff|…}} (w pl 1 znacznik bluff w tym zdaniu, w ko 0).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l1-mdf-alpha.md",
+  "linia": 79,
+  "stary": "1/3 크기 c-bet을",
+  "nowy": "1/3 크기 C벳을",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳” (pl „stawia c-bet 1/3 puli”); angielskie „c-bet” w tekście ko. Przykład mechanizmu z uwag.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 6,
+  "stary": "sub: \"포지션 없이 c-bet 방어하기\"",
+  "nowy": "sub: \"포지션 없이 C벳 방어하기\"",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳” (pl „Obrona przed c-betem bez pozycji”); angielskie „c-bet” w podtytule ko. Przykład mechanizmu z uwag.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 36,
+  "stary": "{{t:polarized|양극화된}} {{t:range|레인지}}",
+  "nowy": "{{t:polarized|폴라라이즈드}} {{t:range|레인지}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: polarized = „폴라라이즈드” (pl „{{t:range}} {{t:polarized}}”); forma „양극화된” nie jest postacią nazwy terminu.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 94,
+  "stary": "{{t:out-of-position|포지션 없이}} 플레이하면 턴과",
+  "nowy": "{{t:out-of-position|아웃 오브 포지션}}에서는 턴과",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: out-of-position = „아웃 오브 포지션” (pl „Bez pozycji mówisz pierwszy na turnie i riverze”); forma „포지션 없이” nie jest postacią nazwy, w tej samej lekcji znacznik bez formy daje „아웃 오브 포지션”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 100,
+  "stary": "## c-bet의 가격",
+  "nowy": "## C벳의 가격",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳” (pl „## Cena c-betu”); angielskie „c-bet” w nagłówku ko. Przykład mechanizmu z uwag.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 114,
+  "stary": "## {{t:out-of-position|포지션 없이}}는 덜 실현합니다",
+  "nowy": "## {{t:out-of-position|아웃 오브 포지션}}에서는 덜 실현합니다",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: out-of-position = „아웃 오브 포지션” (pl „## Bez pozycji realizujesz mniej”); forma „포지션 없이” nie jest postacią nazwy.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 116,
+  "stary": "{{t:out-of-position|포지션 없이}} 플레이하면 모든",
+  "nowy": "{{t:out-of-position|아웃 오브 포지션}}에서는 모든",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: out-of-position = „아웃 오브 포지션” (pl „Bez pozycji mówisz pierwszy na każdej ulicy”); forma „포지션 없이” nie jest postacią nazwy.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 116,
+  "stary": "수딧 핸드",
+  "nowy": "수티드 핸드",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: suited = „수티드” (pl „Ręce w kolorze”); „수딧” to inna nazwa tego samego pojęcia.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 41,
+  "stary": "{{t:bet|벳했고}}, {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}",
+  "nowy": "{{t:bet|벳했고}}, 당신은 {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}",
+  "waga": "ŚR",
+  "powod": "pl „Button postawił …, a ty przebiłeś do …”: w ko brak podmiotu drugiego zdania, więc czyta się, że to Button przebił. Dodany podmiot „당신은”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 49,
+  "stary": "{{t:bet|벳했고}}, {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}",
+  "nowy": "{{t:bet|벳했고}}, 당신은 {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}",
+  "waga": "ŚR",
+  "powod": "pl „Button postawił …, a ty przebiłeś tylko do …”: w ko brak podmiotu drugiego zdania, więc czyta się, że to Button przebił. Dodany podmiot „당신은”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 130,
+  "stary": "{{t:nuts-advantage|넛 어드밴티지}}",
+  "nowy": "{{t:nuts-advantage|넛 우위}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „czyli przewagę nutsów”); forma „넛 어드밴티지” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 85,
+  "stary": "{{t:top-pair|톱 페어}}",
+  "nowy": "{{t:top-pair|탑 페어}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:top-pair|Najwyższa para}}”; terms-nazwy ko: top-pair = „탑 페어”, forma „톱 페어” jest niezgodna z nazwą terminu i resztą przekładu.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 95,
+  "stary": "{{t:initiative|이니셔티브}}를 잃지",
+  "nowy": "{{t:initiative|주도권}}을 잃지",
+  "waga": "ŚR",
+  "powod": "pl: „żeby nie stracić {{t:initiative|inicjatywy}}”; terms-nazwy ko: initiative = „주도권”; forma „이니셔티브” niezgodna z nazwą terminu (partykuła 를→을).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 95,
+  "stary": "{{t:initiative|이니셔티브}}만으로는",
+  "nowy": "{{t:initiative|주도권}}만으로는",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:initiative|Inicjatywa}} sama nie wygrywa”; terms-nazwy ko: initiative = „주도권”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 108,
+  "stary": "prompt: \"c-bet에 {{t:call|콜한}} 뒤",
+  "nowy": "prompt: \"C벳에 {{t:call|콜한}} 뒤",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 114,
+  "stary": "플롭 c-bet, {{t:call}}, 그다음",
+  "nowy": "플롭 C벳, {{t:call}}, 그다음",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 118,
+  "stary": "c-bet에 상대는 {{t:pair|페어}}도",
+  "nowy": "C벳에 상대는 {{t:pair|페어}}도",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 87,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 104,
+  "stary": "오픈엔디드 {{t:straight|스트레이트}} 드로우(약",
+  "nowy": "양방향 {{t:straight|스트레이트}} 드로우(약",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 110,
+  "stary": "{{n:cbet.size.small}} c-bet.",
+  "nowy": "{{n:cbet.size.small}} C벳.",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 127,
+  "stary": "오픈엔디드 {{t:straight|스트레이트}}의 확률",
+  "nowy": "양방향 {{t:straight|스트레이트}}의 확률",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 17,
+  "stary": "M2의 2와 4 규칙을 쓰세요",
+  "nowy": "M2의 2와 4의 법칙을 쓰세요",
+  "waga": "ŚR",
+  "powod": "pl: „reguła 2 i 4 z M2”; lekcja M2 (m2-l1-outy, 4 miejsca) nazywa tę regułę „2와 4의 법칙”; odwołanie do M2 ma używać tej samej nazwy.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 54,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 114,
+  "stary": "| 오픈엔디드 {{t:straight|스트레이트}} |",
+  "nowy": "| 양방향 {{t:straight|스트레이트}} |",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 116,
+  "stary": "+ 오픈엔디드 {{t:straight|스트레이트}}",
+  "nowy": "+ 양방향 {{t:straight|스트레이트}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 118,
+  "stary": "M2의 2와 4 규칙을 쓰면",
+  "nowy": "M2의 2와 4의 법칙을 쓰면",
+  "waga": "ŚR",
+  "powod": "pl: „Z regułą 2 i 4 z M2”; w lekcji M2 reguła nazywa się „2와 4의 법칙”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 18,
+  "stary": "{ text: \"체크 레이즈\", why: \"체크 레이즈는",
+  "nowy": "{ text: \"체크레이즈\", why: \"체크레이즈는",
+  "waga": "ŚR",
+  "powod": "pl: „Check-raise”; terms-nazwy ko: check-raise = „체크레이즈” (bez spacji, tak w m8-l1 linia 131).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 78,
+  "stary": "{ text: \"체크 레이즈\", why: \"{{t:second-barrel",
+  "nowy": "{ text: \"체크레이즈\", why: \"{{t:second-barrel",
+  "waga": "ŚR",
+  "powod": "pl: „Check-raise”; terms-nazwy ko: check-raise = „체크레이즈” (bez spacji).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 107,
+  "stary": "{{t:expected-value|기대값}}",
+  "nowy": "{{t:expected-value|기댓값}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:expected-value}}”; terms-nazwy ko: expected-value = „기댓값” (pisownia normatywna; tak w m7-l3 linia 146), „기대값” jest formą nienormatywną.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l1-value.md",
+  "linia": 26,
+  "stary": "너츠로만 벳하게",
+  "nowy": "넛으로만 벳하게",
+  "waga": "ŚR",
+  "powod": "pl: „betowałbyś tylko nutsami”; terms-nazwy ko: nuts = „넛” (tak w m7-l1 linia 48), „너츠” jest formą odrzuconą.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l2-ile-blefow.md",
+  "linia": 38,
+  "stary": "{{t:bet|벳}}은 상대에게 가장 나쁜",
+  "nowy": "{{t:bet|베팅}}은 상대에게 가장 나쁜",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku bet niezgodna z terms-nazwy (bet: „베팅”); pl „czyli {{t:bet|zakład}} większy niż cała pula”. „벳” to wariant tłumacza, nazwa terminu to „베팅”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 64,
+  "stary": "{{t:effective-stack|이펙티브 스택}}, 즉 두 스택 중 작은 쪽으로 계산합니다",
+  "nowy": "{{t:effective-stack|유효 스택}}, 즉 두 스택 중 작은 쪽으로 계산합니다",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy (effective-stack: „유효 스택”; tak też w rules.yaml, terms-def, exams/m9, m7-l3); pl „Liczysz z {{t:effective-stack|efektywnego stacku}}”. W tej lekcji znacznik bez formy (linia 113) wyświetla „유효 스택”, więc obok stały dwie nazwy.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 66,
+  "stary": "더 작은 스택(이펙티브 스택)을 사용합니다",
+  "nowy": "더 작은 스택(유효 스택)을 사용합니다",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: pl „bierzesz mniejszy stack (efektywny)”; nazwa terminu w ko to „유효 스택”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 110,
+  "stary": "SPR = 이펙티브 스택 ÷ 플롭의 팟",
+  "nowy": "SPR = 유효 스택 ÷ 플롭의 팟",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: wzór pl „SPR = efektywny stack ÷ pula na flopie”; nazwa terminu w ko to „유효 스택”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 113,
+  "stary": "{{t:effective-stack|이펙티브 스택}}은 두 스택 중 작은 쪽이며",
+  "nowy": "{{t:effective-stack|유효 스택}}은 두 스택 중 작은 쪽이며",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: pl „{{t:effective-stack|Efektywny stack}} to mniejszy z dwóch stacków”; w tym samym akapicie znacznik bez formy daje „유효 스택”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 30,
+  "stary": "상대는 {{t:draw|드로}}나 더 약한 퀸으로도",
+  "nowy": "상대는 {{t:draw|드로우}}나 더 약한 퀸으로도",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku draw niezgodna z terms-nazwy (draw: „드로우”); pl „także z {{t:draw|drawami}}”. „드로” to odosobniony wariant pisowni.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 59,
+  "stary": "더 약한 핸드와 {{t:draw|드로}}도 충분한 돈을",
+  "nowy": "더 약한 핸드와 {{t:draw|드로우}}도 충분한 돈을",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: pl „gorsze ręce i {{t:draw|drawy}}”; nazwa terminu to „드로우”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 110,
+  "stary": "(지오메트릭 사이즈에 관한 레슨)",
+  "nowy": "(기하학적 사이즈에 관한 레슨)",
+  "waga": "ŚR",
+  "powod": "Odesłanie do lekcji niezgodne z jej tytułem w ko: pl „(lekcja o rozmiarze geometrycznym)”, lekcja m9-l3 ma tytuł „기하학적 사이즈” i wszędzie używa tej nazwy; „지오메트릭 사이즈” nie występuje w m9-l3.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 72,
+  "stary": "지오메트릭 사이즈로 베팅하나요",
+  "nowy": "기하학적 사이즈로 베팅하나요",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 75,
+  "stary": "지오메트릭 사이즈는 스택 전체를 넣기 위한",
+  "nowy": "기하학적 사이즈는 스택 전체를 넣기 위한",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 76,
+  "stary": "항상 지오메트릭 사이즈로 베팅합니다",
+  "nowy": "항상 기하학적 사이즈로 베팅합니다",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 76,
+  "stary": "지오메트릭 사이즈는 스택 전체를 넣는 플랜에",
+  "nowy": "기하학적 사이즈는 스택 전체를 넣는 플랜에",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 111,
+  "stary": "플롭부터 지오메트릭 사이즈로",
+  "nowy": "플롭부터 기하학적 사이즈로",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 29,
+  "stary": "또는 같은 {{t:two-pair|투페어}}\"",
+  "nowy": "또는 같은 {{t:two-pair|투 페어}}\"",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: two-pair = „투 페어” (ze spacją), w regule R-M0-002 forma „투페어”. Pl: „te same {{t:two-pair}}”. Ujednolicenie pisowni nazwy układu.",
+  "grupa": "R1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 213,
+  "stary": "이 크기는 플롭에서 적절한 스택 대 팟 비율을 만들고",
+  "nowy": "이 크기는 플롭에서 적절한 스택 대 {{t:pot|팟}} 비율을 만들고",
+  "waga": "ŚR",
+  "powod": "Zgubiony znacznik terminu: pl R-M4-001 because „stosunek stacka do {{t:pot|puli}}”, w przekładzie „팟” bez znacznika {{t:pot|…}} (liczba znaczników t: w linii inna niż w pl). Przywrócony znacznik, tekst widoczny bez zmian.",
+  "grupa": "R1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 360,
+  "stary": "{{t:nuts-advantage|너츠 우위}}는 상대에게",
+  "nowy": "{{t:nuts-advantage|넛 우위}}는 상대에게",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 360,
+  "stary": "{{t:two-pair|투페어}}나 {{t:straight|스트레이트}}를 더 자주",
+  "nowy": "{{t:two-pair|투 페어}}나 {{t:straight|스트레이트}}를 더 자주",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z terms-nazwy: two-pair = „투 페어” (ze spacją; pl „dwie pary”), tu „투페어”",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 367,
+  "stary": "훨씬 많을 때({{t:nuts-advantage|너츠 우위}})",
+  "nowy": "훨씬 많을 때({{t:nuts-advantage|넛 우위}})",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 411,
+  "stary": "{{t:aggressor|어그레서}}의 {{t:nuts-advantage|너츠 우위}}",
+  "nowy": "{{t:aggressor|어그레서}}의 {{t:nuts-advantage|넛 우위}}",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 502,
+  "stary": "({{t:two-pair|투페어}}, 셋)",
+  "nowy": "({{t:two-pair|투 페어}}, 셋)",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z terms-nazwy: two-pair = „투 페어” (ze spacją; pl „dwie pary”), tu „투페어”",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 502,
+  "stary": "{{t:oesd|OESD}}",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}",
+  "waga": "ŚR",
+  "powod": "forma znacznika nie jest postacią nazwy z terms-nazwy: oesd = „양방향 스트레이트 드로우” (pl „{{t:oesd}}”); skrót „OESD” to inna nazwa tego samego pojęcia",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 511,
+  "stary": "가지고({{t:nuts-advantage|너츠 우위}})",
+  "nowy": "가지고({{t:nuts-advantage|넛 우위}})",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 801,
+  "stary": "높은 {{t:two-pair|투페어}})는 세 번",
+  "nowy": "높은 {{t:two-pair|투 페어}})는 세 번",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (two-pair: „투 페어”); pl „wysokie {{t:two-pair}}”. Jedna nazwa na pojęcie.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 817,
+  "stary": "높은 {{t:two-pair|투페어}} 이상이",
+  "nowy": "높은 {{t:two-pair|투 페어}} 이상이",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (two-pair: „투 페어”); pl „wysokich {{t:two-pair|dwóch par}} albo lepiej”.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 862,
+  "stary": "{{t:nit|닛}}은 핸드의",
+  "nowy": "{{t:nit|니트}}는 핸드의",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (nit: „니트”); pl „{{t:nit}} gra do ok. …”. Partykuła tematu dopasowana do nowej nazwy (니트는).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 878,
+  "stary": "{{t:nit|닛}}(최소 약 {{n:hud.hands.vpip.low}}핸드에서 {{t:vpip|VPIP}} 약 {{n:hud.vpip.nit-max}} 이하)이 {{t:raise|레이즈}}하거나",
+  "nowy": "{{t:nit|니트}}(최소 약 {{n:hud.hands.vpip.low}}핸드에서 {{t:vpip|VPIP}} 약 {{n:hud.vpip.nit-max}} 이하)가 {{t:raise|레이즈}}하거나",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (nit: „니트”); pl „{{t:raise|przebija}} albo 3-betuje {{t:nit}} (…)”. Partykuła podmiotu po nawiasie dopasowana do nowej nazwy (니트…가).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 882,
+  "stary": "닛은 테이블의 소수이므로",
+  "nowy": "니트는 테이블의 소수이므로",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu nit niezgodna z terms-nazwy („니트”); pl „nity to mniejszość stołu”. Spójność z poprawkami w liniach 862 i 878.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 947,
+  "stary": "{{t:rake-cap|레이크 상한}}에",
+  "nowy": "{{t:rake-cap|레이크 캡}}에",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (rake-cap: „레이크 캡”); pl „{{t:rake-cap|limitu rake'u}}”. Partykuła 에 bez zmian.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 1164,
+  "stary": "그래서 게임 복기는 같은 상황을 다른 무늬로 보여 줍니다",
+  "nowy": "그래서 실전 복습은 같은 상황을 다른 무늬로 보여 줍니다",
+  "waga": "ŚR",
+  "powod": "pl: „dlatego powtórka z gry pokazuje tę samą sytuację w innych kolorach” — chodzi o funkcję aplikacji (karty powtórek z gry), którą lekcja m13-l2 w ko nazywa „실전 복습” / „복습”; „복기” to przegląd/analiza rozdania, czyli inne pojęcie (w tym module osobne: przegląd rozdań). Jedna nazwa na jedno pojęcie.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "linia": 23,
+  "stary": "결정마다 평가와 해설, 베팅 없음",
+  "nowy": "결정마다 평가와 해설, 판돈 없음",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (brak hazardu) w podtytule. pl: „Nauka pokera bez gry o stawki”, en „no real money”. „베팅 없음” = „bez betów/zakładów”, a bet (베팅/벳) jest w aplikacji uczonym zagraniem; „판돈 없음” = bez stawek. Długość bez zmian (18 znaków, limit 30). Podtytuł to decyzja ASO, do akceptacji roli sklepu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "linia": 26,
+  "stary": "베팅도, 딸 수 있는 칩도, 실제 돈을 거는 게임도 없습니다.",
+  "nowy": "판돈도, 딸 수 있는 칩도, 실제 돈을 거는 게임도 없습니다.",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (brak hazardu). pl: „w aplikacji nie ma stawek, żetonów do wygrania ani gry na pieniądze” (en „no stakes”). „베팅” to w tej aplikacji nazwa zagrania bet (terms-nazwy bet: 베팅, przyciski 벳), więc „베팅도 없습니다” = „nie ma betów” mówi coś innego niż pl i przeczy treści aplikacji; „판돈” = stawki pieniężne.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "linia": 26,
+  "stary": "수학(아웃츠, 오즈, 팟 오즈)",
+  "nowy": "수학(아웃, 오즈, 팟 오즈)",
+  "waga": "ŚR",
+  "powod": "Termin: pl „outy”; terms-nazwy ko outs = „아웃” (komentarz: „아웃츠 — poprawka do 아웃”), interfejs używa „아웃”.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "linia": 26,
+  "stary": "프리플랍, 플랍, 턴, 리버",
+  "nowy": "프리플롭, 플롭, 턴, 리버",
+  "waga": "ŚR",
+  "powod": "Termin: terms-nazwy ko preflop = „프리플롭”, flop = „플롭”; cały interfejs używa „플롭/프리플롭”. Opis sklepu ma inną pisownię niż aplikacja (pl: „gra przed flopem, flop”). Słów kluczowych (프리플랍, wyszukiwanie) nie zmieniam.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "linia": 26,
+  "stary": "• 결정을 네 단계로 평가\\n",
+  "nowy": "• 결정을 네 단계로 평가: 일치, 허용, 부정확, 실수\\n",
+  "waga": "ŚR",
+  "powod": "Pominięty szczegół: pl „Decyzje z oceną w czterech stopniach: zgodna, dopuszczalna, niedokładność, błąd”. Nazwy stopni jak w interfejsie ko (grade.*: 일치, 허용, 부정확, 실수).",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "linia": 376,
+  "stary": "많은 핸드를 플레이하고 주로 콜만 합니다.",
+  "nowy": "많은 핸드를 플레이하고 자주 콜만 합니다.",
+  "waga": "NISKIE",
+  "powod": "pl: „Gra dużo rąk i często tylko dopłaca”. „주로” = „głównie”, pl mówi „często” (자주), tak jak w sąsiednich opisach stylów („자주 레이즈합니다”).",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m1.yaml",
+  "linia": 20,
+  "stary": "올릴 {{t:bet}}이 있기 때문에 바로 {{t:raise|레이즈}}가 가능합니다.",
+  "nowy": "{{t:raise|레이즈}}가 가능한 것은 바로 올릴 {{t:bet}}이 있기 때문입니다.",
+  "waga": "NISKIE",
+  "powod": "pl: „Przebicie jest możliwe właśnie dlatego, że jest bet do podniesienia”; w ko „바로” stoi przed „레이즈가 가능합니다” i czyta się jako „od razu można przebić”; po przestawieniu „바로 … 때문입니다” = „właśnie dlatego”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m1.yaml",
+  "linia": 28,
+  "stary": "상대도 맞추지 못했을 수 있습니다",
+  "nowy": "상대도 맞히지 못했을 수 있습니다",
+  "waga": "NISKIE",
+  "powod": "Ortografia: pl „rywal mógł też nie trafić” = 맞히다, nie 맞추다; spójnie z resztą egzaminów.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 64,
+  "stary": "{{n:alpha.cbet.big}}이 넘는",
+  "nowy": "{{n:alpha.cbet.big}}가 넘는",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie (…퍼센트, wygłos samogłoskowy): „43%가”, nie „43%이”; por. l. 73 „{{n:alpha.vs-3bet-ip-size}}가 넘는”. Sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 65,
+  "stary": "{{n:alpha.cbet.big}}이 필요하기",
+  "nowy": "{{n:alpha.cbet.big}}가 필요하기",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie: „43%가 필요하기”, nie „43%이”. Sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 18,
+  "stary": "약 {{n:exam.m12.wr.ci.low}}와 약",
+  "nowy": "약 {{n:exam.m12.wr.ci.low}}과 약",
+  "waga": "NISKIE",
+  "powod": "Partykuła po jednostce „bb/100” (czytane …백, wygłos spółgłoskowy): w tym samym pliku jest „{{n:exam.m12.style.wr}}은” (l. 37), więc konsekwentnie „과”, nie „와”. Sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 43,
+  "stary": "{{n:ex.bet.half}}로 올인했고",
+  "nowy": "{{n:ex.bet.half}}으로 올인했고",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: znacznik wyświetla „50” (오십, wygłos spółgłoskowy), więc „50으로”, nie „50로”. Sens bez zmian (pl „wchodzi all-in za {{n:ex.bet.half}}”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 55,
+  "stary": "배드 빗, 쿨러",
+  "nowy": "배드 비트, 쿨러",
+  "waga": "NISKIE",
+  "powod": "pl „bad beaty, coolery”. W przekładzie ko dominuje pisownia „배드 비트” (9× wobec 3× „배드 빗”, m.in. lekcja m12-l3 w tym samym zdaniu wzorcowym i egzamin m13). Ujednolicenie pisowni.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 80,
+  "stary": "{{n:exam.m12.md.now}}이 남았습니다",
+  "nowy": "{{n:exam.m12.md.now}}가 남았습니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: znacznik wyświetla „24” (이십사, wygłos samogłoskowy), więc „24가”, nie „24이”. Liczba i sens bez zmian (pl „masz {{n:exam.m12.md.now}}”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 82,
+  "stary": "{{n:exam.m12.md.now}}으로 그보다",
+  "nowy": "{{n:exam.m12.md.now}}로 그보다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: „24” kończy się samogłoską, więc „24로”, nie „24으로”. Liczba i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 83,
+  "stary": "{{n:exam.m12.md.now}}이 기준",
+  "nowy": "{{n:exam.m12.md.now}}가 기준",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: „24” kończy się samogłoską, więc „24가”, nie „24이”. Liczba i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 83,
+  "stary": "기준 {{n:br.bi.move-down}}은",
+  "nowy": "기준 {{n:br.bi.move-down}}는",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: znacznik wyświetla „15” (십오, wygłos samogłoskowy), więc „15는”, nie „15은”. Liczba i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 63,
+  "stary": "핸드로 3벳에 돈을 내주게 됩니다",
+  "nowy": "핸드로 3벳을 콜하게 됩니다",
+  "waga": "NISKIE",
+  "powod": "pl: „płaciłbyś 3-bety rękami, które…” = sprawdzałbyś 3-bety; „3벳에 돈을 내주게 됩니다” brzmi jak „oddajesz pieniądze 3-betowi”, „3벳을 콜하게 됩니다” jest jednoznaczne.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m4.yaml",
+  "linia": 72,
+  "stary": "에이스를 맞추는 경우가",
+  "nowy": "에이스를 맞히는 경우가",
+  "waga": "NISKIE",
+  "powod": "Ortografia: „trafić” (kartę) to 맞히다, nie 맞추다 (dopasować); reszta egzaminów ma „맞히다” (np. m3 „에이스를 맞혀도”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m5.yaml",
+  "linia": 22,
+  "stary": "낮고 {{t:connected}} 플롭은",
+  "nowy": "낮고 {{t:connected|커넥티드한}} 플롭은",
+  "waga": "NISKIE",
+  "powod": "pl: „niski, {{t:connected}} flop”; znacznik bez formy daje „낮고 커넥티드 플롭은” (brak końcówki przydawki po „낮고”); forma „커넥티드한” jak w egzaminie m6 linia 94.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 58,
+  "stary": "에이스 하이가 보통 방어됩니다",
+  "nowy": "에이스 하이는 보통 방어합니다",
+  "waga": "NISKIE",
+  "powod": "pl: „as jako najwyższa karta zwykle się broni”; strona bierna „방어됩니다” jest nienaturalna, w linii 57 to samo zdanie brzmi „보통 방어합니다”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 67,
+  "stary": "하이 카드 두 장이지만",
+  "nowy": "하이카드 두 장이지만",
+  "waga": "NISKIE",
+  "powod": "pl: „dwie wysokie karty”; lekcja m6-l2 (ko) i terms-nazwy piszą łącznie „하이카드”; tu „하이 카드”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 67,
+  "stary": "오히려 이런 핸드로",
+  "nowy": "바로 이런 핸드로",
+  "waga": "NISKIE",
+  "powod": "pl: „sprawdzasz raczej właśnie taką ręką”; „오히려” znaczy „wręcz przeciwnie/na odwrót” i sugeruje kontrast, którego w pl nie ma; „바로 이런 핸드로” = „właśnie taką ręką”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m6.yaml",
+  "linia": 68,
+  "stary": "하이 카드 두 장은",
+  "nowy": "하이카드 두 장은",
+  "waga": "NISKIE",
+  "powod": "pl: „dwie wysokie karty”; lekcja m6-l2 (ko) i terms-nazwy piszą łącznie „하이카드”; tu „하이 카드”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 11,
+  "stary": "수비하는 쪽의",
+  "nowy": "방어하는 쪽의",
+  "waga": "NISKIE",
+  "powod": "pl „range obrońcy”. W przekładzie ko „bronić/obrona” to „방어” (ok. 170× wobec 6× „수비”, z czego 5 w tym pliku; m8, m10, m13 mają „방어”). Ujednolicenie słownictwa.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 12,
+  "stary": "가 수비하는 핸드입니다",
+  "nowy": "가 방어하는 핸드입니다",
+  "waga": "NISKIE",
+  "powod": "pl „rękom, które {{t:big-blind}} broni”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 13,
+  "stary": "작은 카드를 많이 수비합니다",
+  "nowy": "작은 카드를 많이 방어합니다",
+  "waga": "NISKIE",
+  "powod": "pl „broni wielu małych kart”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 80,
+  "stary": "를 수비합니다. 플롭에서 둘 다",
+  "nowy": "를 방어합니다. 플롭에서 둘 다",
+  "waga": "NISKIE",
+  "powod": "pl „Bronisz {{t:big-blind}}”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 90,
+  "stary": "를 수비합니다. 플롭에서 버튼의",
+  "nowy": "를 방어합니다. 플롭에서 버튼의",
+  "waga": "NISKIE",
+  "powod": "pl „Bronisz {{t:big-blind}}”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 20,
+  "stary": "세븐, 포, 더 약한 잭도",
+  "nowy": "7, 4, 더 약한 잭도",
+  "waga": "NISKIE",
+  "powod": "pl „siódemki, czwórki i słabsze walety”. „포” jako czwórka jest mylące (포카드 = kareta) i niespójne z resztą egzaminów ko, gdzie niskie rangi są cyframi (m7: „9와 6”, m9: „9 페어, 5 페어”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 21,
+  "stary": "세븐과 포가",
+  "nowy": "7과 4가",
+  "waga": "NISKIE",
+  "powod": "pl „siódemki i czwórki {{t:fold|spasują}}”: jak wyżej, rangi cyframi zamiast „세븐/포”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 91,
+  "stary": "주로 잭, 에잇, 킹이",
+  "nowy": "주로 잭, 8, 킹이",
+  "waga": "NISKIE",
+  "powod": "pl „walety, ósemki i króle”: ranga 8 cyfrą jak w pozostałych egzaminach ko („에잇” występuje w całym przekładzie tylko tutaj).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/helplines.yaml",
+  "linia": 27,
+  "stary": "도박의 영향을 받는 누구에게나 무료 실질적 조언과 정서적 지원을 온라인으로 제공합니다.",
+  "nowy": "도박의 영향을 받는 누구에게나 실질적인 조언과 정서적 지원을 온라인으로 무료 제공합니다.",
+  "waga": "NISKIE",
+  "powod": "pl: „Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka hazard; poufnie.” Sens zachowany, ale zbitka „무료 실질적 조언” (dwa określenia rzeczownikowe bez łącznika) jest nienaturalna; po zmianie „무료” odnosi się jednoznacznie do porad i wsparcia, jak w pl. Żadna informacja nie jest dodana ani usunięta.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m1-l1-przebieg.md",
+  "linia": 86,
+  "stary": "„bet”이라고",
+  "nowy": "“bet”이라고",
+  "waga": "NISKIE",
+  "powod": "Polski cudzysłów „…” (pl: „bet”) został w tekście koreańskim; reszta przekładu używa “…”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 20,
+  "stary": "{{t:pfr}}는 {{n:hud.ex.passive.pfr}}",
+  "nowy": "{{t:pfr}}은 {{n:hud.ex.passive.pfr}}",
+  "waga": "NISKIE",
+  "powod": "Partykuła po PFR (czyt. 피에프알, kończy się spółgłoską): ma być „은”, jak w m10-l1 („{{t:pfr}}은”); pl „i PFR …”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 23,
+  "stary": "{{t:pfr}}와 두 수치",
+  "nowy": "{{t:pfr}}과 두 수치",
+  "waga": "NISKIE",
+  "powod": "Partykuła po PFR (czyt. 피에프알, kończy się spółgłoską): ma być „과”, nie „와”; pl „O agresji mówi PFR i różnica między nimi”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 109,
+  "stary": "보통 에퀴티가 조금 더 있습니다",
+  "nowy": "보통 에퀴티도 어느 정도 있습니다",
+  "waga": "NISKIE",
+  "powod": "pl „twoja ręka zwykle ma jeszcze trochę equity” = ma dodatkowo pewne equity; „조금 더 있습니다” czyta się jako „ma trochę więcej equity” (porównanie, którego w pl nie ma).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 57,
+  "stary": "그것도 하이 카드와 {{t:pair|페어}}가 많은 올인",
+  "nowy": "그것도 높은 카드와 {{t:pair|페어}}가 많은 올인",
+  "waga": "NISKIE",
+  "powod": "pl: „dużo wysokich kart i par”. „하이 카드” to w ko nazwa układu high card (terms-nazwy: 하이카드); tu chodzi o wysokie karty, jak w tej samej lekcji „더 높은 카드 두 장”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 140,
+  "stary": "폴드 에퀴티가 없으면 하이 카드와 {{t:pair|페어}}를 상대로",
+  "nowy": "폴드 에퀴티가 없으면 높은 카드와 {{t:pair|페어}}를 상대로",
+  "waga": "NISKIE",
+  "powod": "pl: „przeciw wysokim kartom i parom”. „하이 카드” to nazwa układu high card; tu chodzi o wysokie karty („높은 카드”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 38,
+  "stary": "{{n:var.sqrt-blocks}}로 계산하세요",
+  "nowy": "{{n:var.sqrt-blocks}}으로 계산하세요",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to 31,6 (kończy się na „육”, spółgłoska), więc poprawnie „으로”, nie „로”. Sens jak w pl („Przyjmij √… ≈ …”) bez zmian.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 49,
+  "stary": "느리게 좁힙니다: 오차는 핸드 수의 제곱근에 비례해 줄어듭니다",
+  "nowy": "느리게 좁힙니다: 오차는 핸드 수의 제곱근에 반비례해 줄어듭니다",
+  "waga": "NISKIE",
+  "powod": "pl: „błąd maleje z pierwiastkiem z liczby rąk”. „제곱근에 비례해 줄어듭니다” (maleje proporcjonalnie do pierwiastka) jest matematycznie nieścisłe; błąd jest odwrotnie proporcjonalny do pierwiastka („반비례”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 118,
+  "stary": "윈레이트 추정 오차는 핸드 수의 제곱근에 비례해 줄어듭니다",
+  "nowy": "윈레이트 추정 오차는 핸드 수의 제곱근에 반비례해 줄어듭니다",
+  "waga": "NISKIE",
+  "powod": "pl: „Błąd oszacowania winrate maleje z pierwiastkiem z liczby rąk”. Jak w linii 49: zależność odwrotna („반비례”), nie „비례”.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l3-tilt.md",
+  "linia": 35,
+  "stary": "(뱅크롤과 리스크 레슨)",
+  "nowy": "(뱅크롤과 위험 레슨)",
+  "waga": "NISKIE",
+  "powod": "pl: „(lekcja o bankrollu i ryzyku)”. Tytuł tej lekcji w ko to „뱅크롤과 위험” (m12-l4, pole title); odesłanie ma używać tej samej nazwy.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 32,
+  "stary": "약 {{n:ror.base.wr-min}}이 나옵니다",
+  "nowy": "약 {{n:ror.base.wr-min}}가 나옵니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to procent (39%, „퍼센트” kończy się samogłoską), więc „가”, nie „이”. Sens jak w pl („wychodzi ok. …”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 41,
+  "stary": "약 {{n:ror.base.wr-min}}이 됩니다",
+  "nowy": "약 {{n:ror.base.wr-min}}가 됩니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie („퍼센트” kończy się samogłoską): „가 됩니다”, nie „이 됩니다”. Sens jak w pl („daje ok. …”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 47,
+  "stary": "{{n:br.ex.below}}이 남았습니다",
+  "nowy": "{{n:br.ex.below}}가 남았습니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to 14 („십사”, samogłoska), więc „가”, nie „이”. Sens jak w pl („masz {{n:br.ex.below}}”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 137,
+  "stary": "{{n:br.bi.move-down}}으로)",
+  "nowy": "{{n:br.bi.move-down}}로)",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to 15 („십오”, samogłoska), więc „로”, nie „으로”. Sens jak w pl („z {{n:br.bi.base}} do {{n:br.bi.move-down}}”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 141,
+  "stary": "{{n:study.beginner}}을 공부에",
+  "nowy": "{{n:study.beginner}}를 공부에",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie (80%, „퍼센트” kończy się samogłoską): „를”, nie „을”. Sens jak w pl („ok. {{n:study.beginner}} czasu przeznaczasz na naukę”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 13,
+  "stary": "좋은 결정이었는데도 이런 핸드에서 몇 퍼센트를 집니까?",
+  "nowy": "좋은 결정이었는데도 이런 핸드 중 몇 퍼센트에서 집니까?",
+  "waga": "NISKIE",
+  "powod": "pl: „W ilu procentach takich rozdań przegrywasz”. „몇 퍼센트를 집니까” brzmi jak „ile procent przegrywasz” (czego?); „이런 핸드 중 몇 퍼센트에서” oddaje „w ilu procentach rozdań”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 27,
+  "stary": "{{n:m13.eq.example2}}입니다. 이런 핸드에서 몇 퍼센트를 집니까?",
+  "nowy": "{{n:m13.eq.example2}}입니다. 이런 핸드 중 몇 퍼센트에서 집니까?",
+  "waga": "NISKIE",
+  "powod": "pl: „W ilu procentach takich rozdań przegrywasz?”. Jak wyżej: „이런 핸드 중 몇 퍼센트에서” oddaje „w ilu procentach rozdań”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 95,
+  "stary": ":::note 이 원칙의 근거",
+  "nowy": ":::note 이 원칙의 출처",
+  "waga": "NISKIE",
+  "powod": "pl: ten sam nagłówek ramki „Skąd te zasady” w m13-l1, l2 i l3; w ko l1 i l3 mają „이 원칙의 출처”, l2 „이 원칙의 근거”. Ujednolicenie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l3-przeglad.md",
+  "linia": 26,
+  "stary": "text: \"하지 않습니다. 운이 나빴을 뿐입니다\"",
+  "nowy": "text: \"절대 하지 않습니다. 운이 나빴을 뿐입니다\"",
+  "waga": "NISKIE",
+  "powod": "pl: „Nigdy, bo to pech”; w ko zgubione „nigdy” („하지 않습니다” = „nie robię”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l2-rece-startowe.md",
+  "linia": 47,
+  "stary": "{{t:initiative}}를 쥐고",
+  "nowy": "{{t:initiative}}을 쥐고",
+  "waga": "NISKIE",
+  "powod": "Znacznik bez formy wyświetla nazwę „주도권” (spółgłoska końcowa), więc partykuła „를” daje błędne „주도권를”; poprawnie „주도권을” (pl: „grasz z inicjatywą”).",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 80,
+  "stary": "9인 테이블의 초반 {{t:position|포지션}}",
+  "nowy": "9인 테이블의 얼리 {{t:position|포지션}}",
+  "waga": "NISKIE",
+  "powod": "pl: „wczesnych pozycji”; `terms-nazwy` ko: early-position = „얼리 포지션” (tak w m3-l1), tu „초반 포지션” — druga nazwa tego samego pojęcia.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 46,
+  "stary": "{{t:range|레인지}} 중 {{t:call|콜}} 레인지 하단에",
+  "nowy": "{{t:call|콜}} {{t:range|레인지}} 하단에",
+  "waga": "NISKIE",
+  "powod": "pl „z dołu zakresu sprawdzenia”: „레인지 중 콜 레인지 하단” powtarza „레인지” i brzmi nienaturalnie; w m4-l2 to samo wyrażenie brzmi „콜 레인지 하단”. Znaczniki zachowane.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": "{{t:range|레인지}} 중 {{t:call|콜}} 레인지 하단의",
+  "nowy": "{{t:call|콜}} {{t:range|레인지}} 하단의",
+  "waga": "NISKIE",
+  "powod": "pl „z dołu zakresu sprawdzenia”: „레인지 중 콜 레인지 하단” powtarza „레인지” i brzmi nienaturalnie; w m4-l2 to samo wyrażenie brzmi „콜 레인지 하단”. Znaczniki zachowane.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 74,
+  "stary": "양방 또",
+  "nowy": "양방향 또",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 101,
+  "stary": "{{t:oesd|양방 스트레이트 드로우}}를 가지",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}를 가지",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 101,
+  "stary": "양방 {",
+  "nowy": "양방향 {",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 103,
+  "stary": "{{t:oesd|양방 스트레이트 드로우}}를 가진",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}를 가진",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 96,
+  "stary": "{{t:expected-value|기대값}}",
+  "nowy": "{{t:expected-value|기댓값}}",
+  "waga": "NISKIE",
+  "powod": "terms-nazwy ko: expected-value = „기댓값” (pl „Liczy się {{t:expected-value}}”); „기대값” to pisownia nienormatywna i niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 54,
+  "stary": "직접 C벳에 {{t:call|콜할}} 때",
+  "nowy": "당신이 C벳에 {{t:call|콜할}} 때",
+  "waga": "NISKIE",
+  "powod": "pl „Tyle potrzebowałeś ty, żeby sprawdzić c-bet”: „직접” (bezpośrednio/osobiście) nie oddaje jasno przeciwstawienia ty – Button; „당신이” mówi to wprost.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 125,
+  "stary": "솔버도 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}로 {{t:raise|레이즈합니다}}",
+  "nowy": "솔버가 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}로도 {{t:raise|레이즈합니다}}",
+  "waga": "NISKIE",
+  "powod": "pl „solver przebija też część najwyższych par i słabych par”: „też” odnosi się do rąk, a „솔버도” znaczy „solver także (jak ktoś inny)”. Partykuła „도” przeniesiona na ręce.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 77,
+  "stary": "이미 {{t:fold|폴드하지}} 않는",
+  "nowy": "더는 {{t:fold|폴드하지}} 않는",
+  "waga": "NISKIE",
+  "powod": "pl: „często już nie {{t:fold|spasuje}}” („już nie” = „więcej nie”); „이미 폴드하지 않는” to kalka („już” jako „이미”), naturalnie „더는 폴드하지 않는”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 96,
+  "stary": "블랭크 카드에서",
+  "nowy": "빈 카드에서",
+  "waga": "NISKIE",
+  "powod": "pl: „na pustej karcie”; ten sam moduł (m7-l1 linie 57 i 124) oddaje „pusta karta” jako „빈 카드”; ujednolicenie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l1-value.md",
+  "linia": 72,
+  "stary": "턴에서 {{t:check|체크}}된 뒤",
+  "nowy": "턴에서 {{t:check|체크}}한 뒤",
+  "waga": "NISKIE",
+  "powod": "pl: „Po {{t:check|czekaniu}} na turnie jego {{t:range}}…” (rywal czekał); strona bierna „체크된” jest nienaturalna, forma czynna „체크한 뒤” zgodna z resztą tekstu.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l1-value.md",
+  "linia": 115,
+  "stary": "같은 만큼 잃습니다",
+  "nowy": "그만큼 잃습니다",
+  "waga": "NISKIE",
+  "powod": "pl: „tyle samo byś tracił”; „같은 만큼” jest niegramatyczne, poprawnie „그만큼”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l2-ile-blefow.md",
+  "linia": 72,
+  "stary": "{{n:bluff.share.bet-pot}}이 아니라 절반입니다",
+  "nowy": "{{n:bluff.share.bet-pot}}가 아니라 절반입니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie w procentach (pl „a nie {{n:bluff.share.bet-pot}}”): „33%” czyta się „…퍼센트”, kończy się samogłoską, więc „가 아니라”, nie „이 아니라”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l3-blokery.md",
+  "linia": 16,
+  "stary": "{{t:board|보드}}의 카드를 두고 흔히 이렇게 말하기도 하지만",
+  "nowy": "{{t:board|보드}}의 카드를 두고 구어에서 가끔 이렇게 말하기도 하지만",
+  "waga": "NISKIE",
+  "powod": "pl „Tak czasem mówi się potocznie o kartach na stole”: przekład ma „흔히” (często, powszechnie) zamiast „czasem … potocznie”; nowy tekst oddaje „czasem” i „potocznie”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 130,
+  "stary": "플롭의 {{t:spr}}으로 판단합니다",
+  "nowy": "플롭의 {{t:spr}}로 판단합니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po znaczniku bez formy: „SPR” (에스피알) kończy się na ㄹ, więc „로”, nie „으로” (pl „liczysz z {{t:spr}} na flopie”).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 100,
+  "stary": "{{t:spr}} {{n:spr.commit}}은 이 구간에 속하며",
+  "nowy": "{{t:spr}} {{n:spr.commit}}는 이 구간에 속하며",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: {{n:spr.commit}} = „2” (이), kończy się samogłoską, więc „는”, nie „은” (pl „Przykład SPR {{n:spr.commit}} leży w tej strefie”).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 36,
+  "stary": "레이즈가 한 번 나온 {{t:pot|팟}}: 플롭 시점에",
+  "nowy": "싱글 레이즈 {{t:pot|팟}}: 플롭 시점에",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 45,
+  "stary": "레이즈가 한 번 나온 {{t:pot|팟}}, {{t:spr}} 약",
+  "nowy": "싱글 레이즈 {{t:pot|팟}}, {{t:spr}} 약",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 48,
+  "stary": "레이즈가 한 번 나온 {{t:pot|팟}}에서는",
+  "nowy": "싱글 레이즈 {{t:pot|팟}}에서는",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 101,
+  "stary": "첫 번째 강의에서",
+  "nowy": "첫 번째 레슨에서",
+  "waga": "NISKIE",
+  "powod": "pl „lekcja”: w całym przekładzie „레슨” (65 wystąpień), tylko tu „강의”; ujednolicenie nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 124,
+  "stary": "## 레이즈가 한 번 나온 {{t:pot|팟}}은 깊습니다",
+  "nowy": "## 싱글 레이즈 {{t:pot|팟}}은 깊습니다",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 129,
+  "stary": "다음 강의에서",
+  "nowy": "다음 레슨에서",
+  "waga": "NISKIE",
+  "powod": "pl „lekcja”: w całym przekładzie „레슨” (65 wystąpień), tylko tu „강의”; ujednolicenie nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 38,
+  "stary": "드로를 완성하지",
+  "nowy": "드로우를 완성하지",
+  "waga": "NISKIE",
+  "powod": "pl „żeby rywal nie dobrał”: terms-nazwy ko draw = „드로우”; „드로” to wariant pisowni niezgodny z nazwą terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 338,
+  "stary": "드라이 플랍의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 드라이 플랍 예시",
+  "nowy": "드라이 플롭의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 드라이 플롭 예시",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 346,
+  "stary": "웻 플랍의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 웻 플랍 예시",
+  "nowy": "웻 플롭의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 웻 플롭 예시",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 413,
+  "stary": "웻 플랍이라고 해서 큰 베팅을 뜻하지는 않습니다",
+  "nowy": "웻 플롭이라고 해서 큰 베팅을 뜻하지는 않습니다",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 429,
+  "stary": "UTG vs BTN c벳 28%",
+  "nowy": "UTG vs BTN C벳 28%",
+  "waga": "NISKIE",
+  "powod": "pisownia „c벳” niezgodna z terms-nazwy (c-bet = „C벳”) i z polami if/then (pl „c-bet”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 464,
+  "stary": "작은 c벳에 대한 디펜스",
+  "nowy": "작은 C벳에 대한 디펜스",
+  "waga": "NISKIE",
+  "powod": "pisownia „c벳” niezgodna z terms-nazwy (c-bet = „C벳”) i z polami if/then (pl „c-bet”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 513,
+  "stary": "레이즈하지 말아야 할 플랍:",
+  "nowy": "레이즈하지 말아야 할 플롭:",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 521,
+  "stary": "작은 c벳 상대 4.5배, 큰 c벳 상대 3.2배",
+  "nowy": "작은 C벳 상대 4.5배, 큰 C벳 상대 3.2배",
+  "waga": "NISKIE",
+  "powod": "pisownia „c벳” niezgodna z terms-nazwy (c-bet = „C벳”) i z polami if/then (pl „c-bet”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 595,
+  "stary": "{{n:io.flush.extra}}가 필요합니다",
+  "nowy": "{{n:io.flush.extra}}이 필요합니다",
+  "waga": "NISKIE",
+  "powod": "błąd partykuły: {{n:io.flush.extra}} daje „50” (오십, kończy się spółgłoską), więc poprawnie „50이 필요합니다”, nie „50가” (pl „to {{n:io.flush.extra}} ponad pulę”)",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 626,
+  "stary": "프로브 {{t:bet|베팅}}을 할 때",
+  "nowy": "프로브 벳을 {{t:bet|베팅}}할 때",
+  "waga": "NISKIE",
+  "powod": "pl „{{t:bet|stawiasz}} probe bet”: nazwa zagrania w terms-nazwy to „프로브 벳” i tak stoi w R-M7-011 (linia 619); tu „프로브 베팅”; wzór jak „세컨드 배럴을 {{t:bet|베팅}}” w linii 537",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 649,
+  "stary": "체크 대비 베팅의 기대값(",
+  "nowy": "체크 대비 베팅의 기댓값(",
+  "waga": "NISKIE",
+  "powod": "Pisownia nienormatywna „기대값”; terms-nazwy expected-value: „기댓값”; pl „wartość oczekiwana betu względem czekania”.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 748,
+  "stary": "유효 스택 ÷ 플랍의 팟",
+  "nowy": "유효 스택 ÷ 플롭의 팟",
+  "waga": "NISKIE",
+  "powod": "Pisownia „플랍” niezgodna z terms-nazwy (flop: „플롭”) i z resztą tego fragmentu (wszędzie „플롭”); pl „pula na flopie”.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 883,
+  "stary": "닛 “Plays only premium hands.",
+  "nowy": "니트 “Plays only premium hands.",
+  "waga": "NISKIE",
+  "powod": "Nazwa terminu nit niezgodna z terms-nazwy („니트”); pl „nit „Plays only premium hands…”” (etykieta przed cytatem w polu source).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 973,
+  "stary": "핸드 수의 제곱근에 비례해 줄어듭니다",
+  "nowy": "핸드 수의 제곱근에 반비례해 줄어듭니다",
+  "waga": "NISKIE",
+  "powod": "Treść krytyczna (R-M12-003). pl: „błąd oszacowania maleje z pierwiastkiem z liczby rąk” (błąd = stała ÷ √n). „제곱근에 비례해” znaczy dosłownie „proporcjonalnie do pierwiastka”, co matematycznie jest zależnością odwrotną do zamierzonej; „반비례해” oddaje wzór podany dalej w zdaniu.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 1005,
+  "stary": "이 상태로 계속하는 것은 가장 낮은 수준(C-게임)으로",
+  "nowy": "이 상태로 계속하는 것은 자신의 가장 낮은 수준(C-게임)으로",
+  "waga": "NISKIE",
+  "powod": "Treść krytyczna (R-M12-007). pl: „gra na twoim najgorszym poziomie (C-game)” — w przekładzie zgubione „twoim”; bez tego zdanie brzmi jak ogólnie najniższy poziom gry, a nie najgorszy poziom danego gracza.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 1027,
+  "stary": "{{n:br.bi.move-down}}으로)",
+  "nowy": "{{n:br.bi.move-down}}로)",
+  "waga": "NISKIE",
+  "powod": "Treść krytyczna (R-M12-011), tylko gramatyka: znacznik renderuje liczbę 15 (십오, kończy się samogłoską), więc partykuła ma być „로”, nie „으로” („30에서 15로”). Sens bez zmian względem pl „(przy 30 do 15)”.",
+  "grupa": "R4"
+ }
+]
