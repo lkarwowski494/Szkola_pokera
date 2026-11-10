@@ -55,3 +55,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BQ | 06 fix (opus/high) | — | 6,68 | 26,7 | 17:34 → 17:38 → 17:44 → 17:59 → 18:15 | 16 min (odbiór: przejęcie koordynatora) | przyjęta po CI 42869998001 |
 | BR | 08 build (sonnet) | — | 0,56 | 12,6 | 18:14 → 18:15 → 18:22 → (CI 70fdf40 w toku) → 18:30 | 0 | scalenie 3 gałęzi |
 | BS | 06 build (opus/high) | — | 11,60 | 30,7 | 18:25 → 18:35 → 18:47 → 19:20 (CI 42883225372) → recenzja BV | 0 | 3 szablony + szkice 11 |
+| BT | 08 build (sonnet) | — | 9,35 | 49,4 | 18:47 → 18:50 → ok. 19:00 → CI 19:35 → przyjęte 19:50 | odbiór czekał na recenzję BW (ok. 15 min) | kontekst ponad 38% bez przekazania |
+| BW | 08 audit (opus/high) | — | 5,22 | 25,3 | 19:30 → 19:31 → 4d89b7e → n/d → 19:50 | — | recenzja BT PRZYJĄĆ |
