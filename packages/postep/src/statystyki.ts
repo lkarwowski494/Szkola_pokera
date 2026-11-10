@@ -24,8 +24,11 @@ async function odczyt<T>(port: PortBazy, sql: string, parsuj: (w: object) => T |
   }
 }
 
+// Ocena poziomu (rodzaj `ocena_poziomu`) nie liczy się do statystyk ani serii (decyzja właściciela 2026-11-10, D-477):
+// tylko filtr odczytu, zapisane odpowiedzi oceny zostają w bazie i w eksporcie bez zmian.
 export function statystykiRodzin(port: PortBazy): Odczyt<StatystykaRodziny> {
-  return odczyt(port, 'SELECT rodzina_id, count(*) AS n, sum(zaliczona) AS z FROM odpowiedz GROUP BY rodzina_id ORDER BY rodzina_id', (w) =>
+  return odczyt(port, `SELECT o.rodzina_id AS rodzina_id, count(*) AS n, sum(o.zaliczona) AS z FROM odpowiedz o
+     JOIN aktywnosc a ON a.id = o.aktywnosc_id WHERE a.rodzaj <> 'ocena_poziomu' GROUP BY o.rodzina_id ORDER BY o.rodzina_id`, (w) =>
     'rodzina_id' in w && typeof w.rodzina_id === 'string' && 'n' in w && calkowita(w.n) && 'z' in w && calkowita(w.z)
       ? { rodzinaId: w.rodzina_id, wszystkie: w.n, zaliczone: w.z } : null);
 }
@@ -49,7 +52,8 @@ export async function wynikiLekcji(port: PortBazy): Odczyt<WynikLekcji> {
 // Dni lokalne (RRRR-MM-DD) aktywności z co najmniej jedną odpowiedzią (D-251).
 export function dniZOdpowiedzia(port: PortBazy): Odczyt<string> {
   return odczyt(port,
-    'SELECT DISTINCT a.dzien_lokalny AS d FROM aktywnosc a WHERE EXISTS (SELECT 1 FROM odpowiedz o WHERE o.aktywnosc_id = a.id) ORDER BY d',
+    `SELECT DISTINCT a.dzien_lokalny AS d FROM aktywnosc a
+     WHERE a.rodzaj <> 'ocena_poziomu' AND EXISTS (SELECT 1 FROM odpowiedz o WHERE o.aktywnosc_id = a.id) ORDER BY d`,
     (w) => ('d' in w && typeof w.d === 'string' ? w.d : null));
 }
 // Seria: liczba kolejnych dni kalendarzowych kończących się dziś albo wczoraj (dziś bez odpowiedzi nie przerywa serii).
