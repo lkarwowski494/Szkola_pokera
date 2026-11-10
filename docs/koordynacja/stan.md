@@ -65,7 +65,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-025**.
+- KO następny: **KO-027**. Pule: AV D-470…D-474, AW D-475…D-484; następny wolny D-485.
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -119,3 +119,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 08:50 | koordynator | E2E 42778528672 na 40e5cef **success** (08:39; kompilacja 22 min, flowy 15 min), CI 42778528710 success → **AU przyjęta** (commit, autor, CI+E2E na SHA, recenzja niezależna); zarchiwizowana, 5,37 USD, kontekst 32,4% | prośba do właściciela: build TestFlight |
 | 11-10 08:51 | właściciel | „Kliknąłem” → TestFlight 42785838180 na 40e5cef (workflow_dispatch, numer przebiegu 9 → build 1009), in_progress | kontrola 09:22 |
 | 11-10 09:23 | koordynator | TestFlight 42785838180 na 40e5cef **success** (09:13, 22 min); numer buildu 1009 wg reguły workflowu (niesprawdzone w ASC) | właściciel: telefon wg list; linia 14:00 |
+| 11-10 09:35 | właściciel | „Dlaczego ikona jest stara ?” → sprawdzone: ikona D-123 w `docs/design/ikona/` nie trafiła do `apps/mobile/assets/images/` (bloby różne); KO-025 „Teraz, build razem z poprawkami” → polecenie AV @ 0c7d969, gałąź `sesja-av-ikona` @ 40e5cef, start AV przez subagenta | wynik startu AV |
+| 11-10 09:50 | właściciel | telefon (build 1009): „Nie wiem” + ekran wyboru na starcie oceny → KO-026; polecenie AW, gałąź `sesja-aw-ocena` @ 40e5cef | start AW |
