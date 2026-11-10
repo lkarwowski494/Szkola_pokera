@@ -13,7 +13,7 @@ import pl from '@/i18n/locales/pl.json';
 import type { RangeSpot } from '@/data/content/repo';
 import { instantiate } from '../engine';
 import { RANGE_REASON, REASON_DIRECTION } from '../range-reasons';
-import { razNa } from '../text';
+import { oftenKey, razNa } from '../text';
 import type { ChoiceInstance, DrillInstance } from '../types';
 
 const gen = (generator: string, params: Record<string, string> = {}, count = 40): Drill =>
@@ -62,7 +62,7 @@ describe('KO-040: wyjaśnienia generatorów decyzji', () => {
     for (const raw of instantiate(gen('drawCall', { street }), 'l', createRng(11))) {
       const x = choice(raw);
       const e = x.explanation ?? '';
-      expect(e).toMatch(new RegExp(`^Masz .+ na ${street === 'flop' ? 'flopie' : 'turnie'}, rywal`));
+      expect(e).toMatch(new RegExp(`^Masz .+ na ${street === 'flop' ? 'flopie' : 'turnie'}, przeciwnik`));
       const bo = e.indexOf(', bo ');
       expect(bo).toBeGreaterThan(0);
       expect(firstPct(e)).toBeGreaterThan(bo);
@@ -85,5 +85,30 @@ describe('KO-040: wyjaśnienia generatorów decyzji', () => {
     expect(razNa(1 / 3)).toBe('3');
     expect(razNa(0.2857)).toBe('3,5');
     expect(razNa(0.191)).toBe('5');
+  });
+
+  // Recenzja BK 06-tresci-001: reguła źródłowa powodu musi obejmować spot (warunek `if`); tabela spot → reguła.
+  it('powód spotu pochodzi z reguły, której warunek obejmuje spot (BK 06-tresci-001)', () => {
+    const REGULA: Record<string, string> = {
+      pushSb: 'R-M11-002', pushAnte: 'R-M11-003', push3max: 'R-M11-011', pushSb3max: 'R-M11-011',
+      callBb: 'R-M11-007', call3max: 'R-M11-012', call3maxTwo: 'R-M11-012',
+    };
+    // za małym blindem zostaje tylko duży blind: „każdy kolejny gracz za tobą” (push3max) tu nie obowiązuje
+    for (const id of ['push.sb-5', 'push.sb-10', 'push.sb-15', 'push.sb-10-ante', 'push.sb-3max']) expect(RANGE_REASON[id]).not.toBe('push3max');
+    expect(RANGE_REASON['push.btn-3max']).toBe('push3max');
+    for (const id of Object.keys(RANGE_REASON).filter((x) => /^(push|call)\./.test(x))) expect(REGULA[RANGE_REASON[id]!]).toBeDefined();
+  });
+
+  // Recenzja BK 06-tresci-003: ta sama liczba (ok. 50%) nie dostaje opisu „częściej” ani „rzadziej”.
+  it('częstość ok. 50% opisana bez „częściej/rzadziej” (BK 06-tresci-003)', () => {
+    const k = [0.497, 0.5, 0.503].map(oftenKey);
+    expect(new Set(k).size).toBe(1);
+    expect(k[0]).toBe('half');
+  });
+
+  // Recenzja BK 06-tresci-006: jedna nazwa rywala w obrębie generatora (jak w treści zadania) i „equity”, nie „szans”.
+  it('potOdds i drawCall: „przeciwnik” jak w treści zadania, „equity” zamiast „szans” (BK 06-tresci-006)', () => {
+    for (const k of ['explanation']) expect(pl.drill.potOdds[k as 'explanation']).not.toMatch(/[Rr]ywal|szans/);
+    for (const k of ['situationFlop', 'situationTurn'] as const) expect((pl.drill.drawCall as Record<string, string>)[k]).not.toMatch(/[Rr]ywal/);
   });
 });

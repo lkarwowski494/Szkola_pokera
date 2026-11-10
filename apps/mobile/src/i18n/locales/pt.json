@@ -713,7 +713,8 @@
         "usually": "normalmente",
         "always": "sempre",
         "overHalf": "mais de metade das vezes",
-        "underHalf": "menos de metade das vezes"
+        "underHalf": "menos de metade das vezes",
+        "half": "mais ou menos uma vez em cada duas"
       },
       "reason": {
         "rfiUtg": "Atrás de si ainda há cinco jogadores, por isso é mais frequente alguém ter uma mão melhor.",
@@ -731,7 +732,8 @@
         "push3max": "Cada jogador a mais atrás de si é mais uma hipótese de alguém acordar com uma mão forte, por isso é mais raro todos {{t:fold|desistirem}}.",
         "callBb": "Quem paga só ganha no showdown, e contra um {{t:range|range}} que já é mais forte do que um aleatório; quem faz {{t:shove|shove}} ganha também quando o adversário {{t:fold|desiste}}.",
         "call3max": "O jogador atrás de si pode ter uma mão forte e entrar, e contra dois {{t:range|ranges}} a {{t:equity}} da sua mão desce depressa.",
-        "call3maxTwo": "Contra dois {{t:range|ranges}} a {{t:equity}} da sua mão desce depressa."
+        "call3maxTwo": "Contra dois {{t:range|ranges}} a {{t:equity}} da sua mão desce depressa.",
+        "pushSb3max": "O Button já {{t:fold|desistiu}}, por isso basta que o {{t:big-blind|big blind}} {{t:fold|desista}}; a partir do Button, têm de {{t:fold|desistir}} dois jogadores."
       },
       "acceptableFreq": "O solver joga assim em {{pct}} dos casos, por isso não é um erro, mas escolhe mais vezes outra ação. O melhor é memorizar a mais frequente."
     },

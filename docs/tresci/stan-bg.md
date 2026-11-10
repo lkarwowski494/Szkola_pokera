@@ -22,6 +22,13 @@ zmienione: drill.range.{right, acceptable, freqs}, drill.outs.{wrongTooMany, wro
 usunięte: drill.drawCall.{explanationFlop, explanationTurn, verdictGood, verdictNearFlop, verdictNearTurn, verdictBad, right, wrong}
 treść pl do przekładu: content/pl/exams/m2.yaml (q6, q7, q8), m3.yaml (q2), m8.yaml (q8), m10.yaml (q8), m11.yaml (q10), content/pl/lessons/m12-l2-decyzja-wynik.md (q-draw-bad)
 
+## Recenzja BK (06 audit, recenzja-bg-07eba39.md @ 7b159bd)
+- 06-tresci-001 (WYS): push.sb-3max → nowy powód `pushSb3max` (część `then` R-M11-011 i m11.exam.q10, kierunek „wide”); test spot → reguła. Naprawione.
+- 06-tresci-003 (ŚR): częstość 45–55% = „mniej więcej co drugi raz” (`often.half`). Naprawione.
+- 06-tresci-006 (NIS): potOdds i drawCall „przeciwnik” jak w treści zadania, „equity” zamiast „szans” (pl; przekłady już miały „opponent/equity”). Naprawione.
+- Nowe klucze do przeglądu 09: drill.range.reason.pushSb3max, drill.range.often.half (przekład w sesji, 11 języków).
+- Otwarte: 06-tresci-002 (ŚR, sedno KO-040: „bo ręka jest w zakresie” bez powodu z ręki), 06-tresci-004 (NIS, powód porównawczy pushSb przy 15bb, btnVsCo), 06-tresci-005 (NIS, kontrola liczb słownych w treści).
+
 ## Otwarte
 - 09: przegląd 62 przełożonych kluczy w 11 językach (przekład agenta, bez native speakera).
 - Pozostałe wyjaśnienia klasy B/C (numeryczne egzaminy M6, M9, M11, M12; reguła R-M2-005 „because” tautologia — zmiana wymaga też rejestru) — następna sesja H.

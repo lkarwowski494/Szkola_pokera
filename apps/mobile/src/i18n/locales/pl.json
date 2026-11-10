@@ -726,7 +726,8 @@
         "almostAlways": "prawie zawsze",
         "usually": "zwykle",
         "overHalf": "częściej niż co drugi raz",
-        "underHalf": "rzadziej niż co drugi raz"
+        "underHalf": "rzadziej niż co drugi raz",
+        "half": "mniej więcej co drugi raz"
       },
       "reason": {
         "rfiUtg": "Za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę.",
@@ -744,7 +745,8 @@
         "push3max": "Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc {{t:fold|pasy}} wszystkich zdarzają się rzadziej.",
         "callBb": "Sprawdzający wygrywa tylko na showdownie i to przeciw {{t:range|zakresowi}}, który już jest silniejszy niż losowy; {{t:shove|pushujący}} wygrywa też wtedy, gdy rywal {{t:fold|spasuje}}.",
         "call3max": "Gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje.",
-        "call3maxTwo": "Przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje."
+        "call3maxTwo": "Przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje.",
+        "pushSb3max": "Button już {{t:fold|spasował}}, więc wystarczy, że {{t:fold|spasuje}} tylko {{t:big-blind|duży blind}}; z Buttona muszą {{t:fold|spasować}} dwaj gracze."
       },
       "acceptableFreq": "Solver gra tak w {{pct}} przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą."
     },
@@ -845,7 +847,7 @@
     "points_other": "{{count}} punktu",
     "potOdds": {
       "prompt": "W {{t:pot|puli}} jest {{pot}}. Przeciwnik {{t:bet|stawia}} {{bet}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}}?",
-      "explanation": "Rywal {{t:bet|stawia}} {{bet}} do {{t:pot|puli}} {{pot}}. Żeby {{t:call|sprawdzić}}, dopłacasz {{bet}}, a cała {{t:pot}} po twoim {{t:call|sprawdzeniu}} to {{total}}: potrzebujesz {{required}} szans, czyli wygrywać mniej więcej raz na {{needN}}. Rachunek: {{bet}} ÷ {{total}} {{sign}} {{required}}.",
+      "explanation": "Przeciwnik {{t:bet|stawia}} {{bet}} do {{t:pot|puli}} {{pot}}. Żeby {{t:call|sprawdzić}}, dopłacasz {{bet}}, a cała {{t:pot}} po twoim {{t:call|sprawdzeniu}} to {{total}}: potrzebujesz {{required}} equity, czyli wygrywać mniej więcej raz na {{needN}}. Rachunek: {{bet}} ÷ {{total}} {{sign}} {{required}}.",
       "right": "Tak: to, co dopłacasz, dzielisz przez całą {{t:pot|pulę}} po twoim {{t:call|sprawdzeniu}}.",
       "mistakeNoCall": "Nie. To {{t:bet}} podzielony przez {{t:pot|pulę}} po {{t:bet|zakładzie}}. Do mianownika dolicz też swoje {{t:call}}.",
       "mistakeBetOverPot": "Nie. To {{t:bet}} podzielony przez {{t:pot|pulę}} sprzed {{t:bet|zakładu}}. Liczysz wobec wszystkiego, co możesz wygrać.",
@@ -865,8 +867,8 @@
       "outs_other": "{{count}} outu",
       "whyFlop": "Liczy się szansa na jedną kartę, bo {{t:call|sprawdzasz}} tylko ten {{t:bet}}: przed riverem zwykle zapłacisz kolejną cenę.",
       "whyTurn": "Liczy się szansa na jedną kartę: została już tylko jedna.",
-      "situationFlop": "Masz {{draw}} na flopie, rywal {{t:bet|stawia}} {{bet}} do {{t:pot|puli}} {{pot}}.",
-      "situationTurn": "Masz {{draw}} na turnie, rywal {{t:bet|stawia}} {{bet}} do {{t:pot|puli}} {{pot}}.",
+      "situationFlop": "Masz {{draw}} na flopie, przeciwnik {{t:bet|stawia}} {{bet}} do {{t:pot|puli}} {{pot}}.",
+      "situationTurn": "Masz {{draw}} na turnie, przeciwnik {{t:bet|stawia}} {{bet}} do {{t:pot|puli}} {{pot}}.",
       "decisionGood": "{{t:call|Sprawdzasz}}, bo twój draw trafia częściej, niż wymaga cena.",
       "decisionNear": "{{t:fold|Pasujesz}}, bo twój draw trafia trochę rzadziej, niż wymaga cena.",
       "decisionBad": "{{t:fold|Pasujesz}}, bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena.",

@@ -713,7 +713,8 @@
         "usually": "di solito",
         "always": "sempre",
         "overHalf": "più di una volta su due",
-        "underHalf": "meno di una volta su due"
+        "underHalf": "meno di una volta su due",
+        "half": "più o meno una volta su due"
       },
       "reason": {
         "rfiUtg": "Dietro di te ci sono ancora cinque giocatori, quindi più spesso qualcuno ha una mano migliore.",
@@ -731,7 +732,8 @@
         "push3max": "Ogni giocatore in più dietro di te è un'altra possibilità che qualcuno si svegli con una mano forte, quindi capita più di rado che tutti {{t:fold|foldino}}.",
         "callBb": "Chi chiama vince solo allo showdown, e contro un {{t:range|range}} già più forte di uno casuale; chi {{t:shove|pusha}} vince anche quando l'avversario {{t:fold|folda}}.",
         "call3max": "Il giocatore dietro di te può avere una mano forte ed entrare, e contro due {{t:range|range}} l'{{t:equity}} della tua mano cala in fretta.",
-        "call3maxTwo": "Contro due {{t:range|range}} l'{{t:equity}} della tua mano cala in fretta."
+        "call3maxTwo": "Contro due {{t:range|range}} l'{{t:equity}} della tua mano cala in fretta.",
+        "pushSb3max": "Il Button ha già {{t:fold|foldato}}, quindi basta che {{t:fold|foldi}} il {{t:big-blind|big blind}}; dal Button devono {{t:fold|foldare}} due giocatori."
       },
       "acceptableFreq": "Il solver gioca così nel {{pct}} dei casi, quindi non è un errore, ma sceglie più spesso un'altra azione. Meglio memorizzare quella più frequente."
     },

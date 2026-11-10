@@ -700,7 +700,8 @@
         "usually": "usually",
         "always": "always",
         "overHalf": "more often than every other time",
-        "underHalf": "less often than every other time"
+        "underHalf": "less often than every other time",
+        "half": "about every other time"
       },
       "reason": {
         "rfiUtg": "There are still five players behind you, so someone more often has a better hand.",
@@ -718,7 +719,8 @@
         "push3max": "Each extra player behind you is another chance that someone wakes up with a strong hand, so everyone {{t:fold|folding}} happens less often.",
         "callBb": "The caller wins only at showdown, and against a {{t:range}} that is already stronger than a random one; the player who {{t:shove|shoves}} also wins when the opponent {{t:fold|folds}}.",
         "call3max": "The player behind you may have a strong hand and join in, and against two {{t:range|ranges}} your hand's {{t:equity}} drops quickly.",
-        "call3maxTwo": "Against two {{t:range|ranges}} your hand's {{t:equity}} drops quickly."
+        "call3maxTwo": "Against two {{t:range|ranges}} your hand's {{t:equity}} drops quickly.",
+        "pushSb3max": "The Button has already {{t:fold|folded}}, so only the {{t:big-blind|big blind}} has to {{t:fold}}; from the Button, two players have to {{t:fold}}."
       },
       "acceptableFreq": "The solver plays this {{pct}} of the time, so it's not a mistake, but it more often chooses a different action. It's best to remember the more frequent one."
     },

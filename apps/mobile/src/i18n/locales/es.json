@@ -713,7 +713,8 @@
         "usually": "normalmente",
         "always": "siempre",
         "overHalf": "más de la mitad de las veces",
-        "underHalf": "menos de la mitad de las veces"
+        "underHalf": "menos de la mitad de las veces",
+        "half": "más o menos una de cada dos veces"
       },
       "reason": {
         "rfiUtg": "Detrás de ti quedan aún cinco jugadores, así que es más frecuente que alguien tenga una mano mejor.",
@@ -731,7 +732,8 @@
         "push3max": "Cada jugador más detrás de ti es una oportunidad extra de que alguien despierte con una mano fuerte, así que es menos frecuente que todos se {{t:fold|retiren}}.",
         "callBb": "Quien iguala solo gana en el showdown, y contra un {{t:range|rango}} que ya es más fuerte que uno aleatorio; quien hace {{t:shove|push}} gana también cuando el rival se {{t:fold|retira}}.",
         "call3max": "El jugador detrás de ti puede tener una mano fuerte y entrar, y contra dos {{t:range|rangos}} la {{t:equity}} de tu mano baja rápido.",
-        "call3maxTwo": "Contra dos {{t:range|rangos}} la {{t:equity}} de tu mano baja rápido."
+        "call3maxTwo": "Contra dos {{t:range|rangos}} la {{t:equity}} de tu mano baja rápido.",
+        "pushSb3max": "El Button ya {{t:fold|se ha retirado}}, así que basta con que {{t:fold|se retire}} la {{t:big-blind|ciega grande}}; desde el Button tienen que {{t:fold|retirarse}} dos jugadores."
       },
       "acceptableFreq": "El solver juega así en el {{pct}} de los casos, así que no es un error, pero elige más a menudo otra acción. Lo mejor es que recuerdes la más frecuente."
     },

@@ -713,7 +713,8 @@
         "usually": "généralement",
         "always": "toujours",
         "overHalf": "plus d'une fois sur deux",
-        "underHalf": "moins d'une fois sur deux"
+        "underHalf": "moins d'une fois sur deux",
+        "half": "environ une fois sur deux"
       },
       "reason": {
         "rfiUtg": "Il reste encore cinq joueurs derrière vous, donc quelqu'un a plus souvent une meilleure main.",
@@ -731,7 +732,8 @@
         "push3max": "Chaque joueur supplémentaire derrière vous est une chance de plus que quelqu'un se réveille avec une main forte, donc il arrive plus rarement que tout le monde se {{t:fold|couche}}.",
         "callBb": "Celui qui suit ne gagne qu'au showdown, et contre une {{t:range|range}} déjà plus forte qu'une main aléatoire ; celui qui {{t:shove|pushe}} gagne aussi quand l'adversaire se {{t:fold|couche}}.",
         "call3max": "Le joueur derrière vous peut avoir une main forte et entrer dans le coup, et contre deux {{t:range|ranges}} l'{{t:equity|équité}} de votre main baisse vite.",
-        "call3maxTwo": "Contre deux {{t:range|ranges}}, l'{{t:equity|équité}} de votre main baisse vite."
+        "call3maxTwo": "Contre deux {{t:range|ranges}}, l'{{t:equity|équité}} de votre main baisse vite.",
+        "pushSb3max": "Le Button s’est déjà {{t:fold|couché}}, donc il suffit que la {{t:big-blind|grosse blinde}} se {{t:fold|couche}} ; depuis le Button, deux joueurs doivent se {{t:fold|coucher}}."
       },
       "acceptableFreq": "Le solveur joue ainsi dans {{pct}} des cas : ce n'est donc pas une erreur, mais il choisit plus souvent une autre action. Mieux vaut retenir la plus fréquente."
     },

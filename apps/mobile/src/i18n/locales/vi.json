@@ -687,7 +687,8 @@
         "usually": "thường xuyên",
         "always": "luôn luôn",
         "overHalf": "nhiều hơn một nửa số lần",
-        "underHalf": "ít hơn một nửa số lần"
+        "underHalf": "ít hơn một nửa số lần",
+        "half": "khoảng hai lần một lần"
       },
       "reason": {
         "rfiUtg": "Sau bạn vẫn còn năm người chơi, nên thường xuyên hơn sẽ có ai đó cầm tay bài tốt hơn.",
@@ -705,7 +706,8 @@
         "push3max": "Mỗi người chơi thêm sau bạn là thêm một khả năng có ai đó cầm tay bài mạnh, nên việc tất cả cùng {{t:fold|bỏ bài}} xảy ra hiếm hơn.",
         "callBb": "Người theo chỉ thắng ở showdown, và còn phải thắng trước một {{t:range|range}} đã mạnh hơn ngẫu nhiên; người {{t:shove|push}} còn thắng cả khi đối thủ {{t:fold|bỏ bài}}.",
         "call3max": "Người chơi sau bạn có thể có tay bài mạnh và tham gia, mà trước hai {{t:range|range}} thì {{t:equity|equity}} của tay bài bạn giảm nhanh.",
-        "call3maxTwo": "Trước hai {{t:range|range}}, {{t:equity|equity}} của tay bài bạn giảm nhanh."
+        "call3maxTwo": "Trước hai {{t:range|range}}, {{t:equity|equity}} của tay bài bạn giảm nhanh.",
+        "pushSb3max": "Button đã {{t:fold|bỏ bài}}, nên chỉ cần {{t:big-blind|big blind}} {{t:fold|bỏ bài}}; từ Button thì phải có hai người chơi {{t:fold|bỏ bài}}."
       },
       "acceptableFreq": "Solver chơi như vậy trong {{pct}} trường hợp, nên đây không phải sai lầm, nhưng nó chọn một hành động khác thường xuyên hơn. Tốt nhất hãy ghi nhớ hành động thường gặp hơn đó."
     },

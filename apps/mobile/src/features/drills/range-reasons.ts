@@ -1,6 +1,6 @@
 /**
  * Powód szerokości zakresu w spocie: zdanie z pola `because` reguły, która ten spot ocenia (`content/pl/rules.yaml`,
- * `check.spots`): rfi → R-M3-001/002/003/006/009/010, vs-open → R-M4-003/004/005/014, push/call → R-M11-002/003/007/011/012.
+ * `check.spots`): rfi → R-M3-001/002/003/006/009/010, vs-open → R-M4-003/004/005/014, push/call → R-M11-002/003/007/011/012 (push.sb-3max: część `then` R-M11-011 i egzamin m11.exam.q10, recenzja BK 06-tresci-001).
  */
 export const RANGE_REASON: Record<string, string> = {
   'rfi.utg': 'rfiUtg',
@@ -29,7 +29,7 @@ export const RANGE_REASON: Record<string, string> = {
   'push.sb-15': 'pushSb',
   'push.sb-10-ante': 'pushAnte',
   'push.btn-3max': 'push3max',
-  'push.sb-3max': 'push3max',
+  'push.sb-3max': 'pushSb3max',
   'call.bb-5': 'callBb',
   'call.bb-10': 'callBb',
   'call.bb-15': 'callBb',
@@ -57,6 +57,7 @@ export const REASON_DIRECTION: Record<string, 'tight' | 'wide'> = {
   pushSb: 'wide',
   pushAnte: 'wide',
   push3max: 'tight',
+  pushSb3max: 'wide',
   callBb: 'tight',
   call3max: 'tight',
   call3maxTwo: 'tight',

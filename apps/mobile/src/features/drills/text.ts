@@ -139,8 +139,9 @@ const rangeReason = (spot: string, st: RangeStatus): string | null => {
   const dir = REASON_DIRECTION[k];
   return st === 'mixed' || (st === 'in' && dir === 'wide') || (st === 'out' && dir === 'tight') ? r(`range.reason.${k}`) : null;
 };
-/** Częstość słowami (dodatek po „bo”): ≥ 99,5% zawsze, ≥ 95% prawie zawsze, ≥ 75% zwykle, ≥ 50% częściej niż co drugi raz, niżej rzadziej. */
-const oftenKey = (f: number) => (f >= 0.995 ? 'always' : f >= 0.95 ? 'almostAlways' : f >= 0.75 ? 'usually' : f >= 0.5 ? 'overHalf' : 'underHalf');
+/** Częstość słowami (dodatek po „bo”): ≥ 99,5% zawsze, ≥ 95% prawie zawsze, ≥ 75% zwykle, ≥ 55% częściej niż co drugi raz, 45–55% mniej więcej co drugi raz (BK 06-tresci-003), niżej rzadziej. */
+export const oftenKey = (f: number) =>
+  f >= 0.995 ? 'always' : f >= 0.95 ? 'almostAlways' : f >= 0.75 ? 'usually' : f >= 0.55 ? 'overHalf' : f >= 0.45 ? 'half' : 'underHalf';
 /** „Raz na N”: N = 1 ÷ ułamek, zaokrąglone do 0,5 (rachunek na danych zadania, przewodnik KO-040). */
 export const razNa = (x: number): string => num(Math.round(2 / x) / 2);
 
