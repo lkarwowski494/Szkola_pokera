@@ -209,6 +209,14 @@ export interface ScenarioVariant {
 
 export class TemplateError extends Error {}
 
+/**
+ * Wersja generatora wariantów (ŚR-001, KO-058 A, D-730): ta sama trójka szablon + poziom + ziarno daje tę samą rękę tylko w obrębie
+ * jednej wersji. Zmiana wyniku generatora (losowanie, kolejność odrzuceń, odcisk, kontekst) wymaga podniesienia liczby; historia
+ * wariantów zapisuje ją przy każdym wpisie, a „to samo rozdanie” wolno ponowić tylko przy wersji równej bieżącej.
+ * 0 jest zarezerwowane dla wpisów sprzed wprowadzenia wersji. Pilnuje tego test wzorca w scenario-gen.test.ts.
+ */
+export const GENERATOR_WERSJA = 1;
+
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 export const MAX_CONSECUTIVE_REJECTIONS = 5000; // BR-GEN-003 mówi 1000; po odrzuceniu gotowych rąk (06-tresci-201) sc-19 miał ok. 0,5% rozdań dla poziomu, więc 1000 kończyło się sporadycznym błędem szablonu (D-665, do weta)
 

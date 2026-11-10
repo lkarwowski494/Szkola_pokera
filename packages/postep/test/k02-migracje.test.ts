@@ -8,7 +8,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { listaMigracji, migruj, otworzPostep } from '../src';
 import { SCHEMAT_V2 } from '../src/schemat-v2';
 import { adapterNode, integralnosc, otworzNode, zawartosc } from '../../../tests/narzedzia/postep-node';
-import { schematV1, schematV2, zbudujWzorzecV1 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { schematV1, schematV2, schematV3, zbudujWzorzecV1 } from '../../../tests/narzedzia/wzorzec-bazy';
 import { katalogTymczasowy, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
@@ -19,13 +19,13 @@ const licznosci = (db: DatabaseSync) => Object.fromEntries((db.prepare("SELECT n
 const sha = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
 
 describe('K-02 migracje', () => {
-  it('ADR 0004: lista migracji na pustej bazie daje schemat = schemat.sql (v1) + schemat-v2.sql (D-532), user_version = 2', async () => {
-    const wzor = new DatabaseSync(':memory:'); wzor.exec(schematV1()); wzor.exec(schematV2());
+  it('ADR 0004: lista migracji na pustej bazie daje schemat = schemat.sql (v1) + schemat-v2.sql (D-532) + schemat-v3.sql (ŚR-001), user_version = 3', async () => {
+    const wzor = new DatabaseSync(':memory:'); wzor.exec(schematV1()); wzor.exec(schematV2()); wzor.exec(schematV3());
     const db = otworzNode();
     const w = await migruj(adapterNode(db), listaMigracji());
-    expect(w).toEqual({ ok: true, wartosc: 2 });
+    expect(w).toEqual({ ok: true, wartosc: 3 });
     expect(schemat(db)).toEqual(schemat(wzor));
-    expect(wersja(db)).toBe(2);
+    expect(wersja(db)).toBe(3);
   });
   it('K-02, AK-NFR-DANE-001-a: kopia wzorca v1 → otworzPostep: liczności bez zmian, integrity_check = ok, foreign_key_check pusty, user_version bieżąca; drugie otwarcie bez zmian', async () => {
     const p = join(katalogTymczasowy(), 'postep.db');
@@ -47,10 +47,10 @@ describe('K-02 migracje', () => {
     const p = join(katalogTymczasowy(), 'postep.db');
     const oczekiwane = zbudujWzorzecV1(p);
     const db = otworzNode(p);
-    const zla = { wersja: 3, sql: 'CREATE TABLE nowa (x INTEGER CHECK (x > 0)); INSERT INTO nowa SELECT krok FROM odpowiedz;' }; // wzorzec ma krok = 0
+    const zla = { wersja: 4, sql: 'CREATE TABLE nowa (x INTEGER CHECK (x > 0)); INSERT INTO nowa SELECT krok FROM odpowiedz;' }; // wzorzec ma krok = 0
     const w = await migruj(adapterNode(db), [...listaMigracji(), zla]);
     expect(w).toEqual({ ok: false, powod: 'migracja_nieudana' });
-    expect(wersja(db)).toBe(2); // v2 (D-532) przeszła i zatwierdzona osobno; wersja 3 wycofana
+    expect(wersja(db)).toBe(3); // v2 (D-532) i v3 (ŚR-001) przeszły i zatwierdzone osobno; wersja 4 wycofana
     expect(licznosci(db)).toEqual({ ...oczekiwane, wariant_historia: 0 }); // także brak tabeli `nowa`
   });
   it('E4f, AK-NFR-DANE-001-c: baza nowsza niż aplikacja → baza_nowsza, plik bajt w bajt bez zmian', async () => {
@@ -75,17 +75,17 @@ describe('K-02 migracja v1 → v2 (wariant_historia, D-532)', () => {
     cpSync(zrodlo, kopia);
     return { kopia, oczekiwane };
   };
-  it('kopia bazy v1 z danymi → otworzPostep: user_version 2, dane v1 bez zmian (wartości), wariant_historia pusta, integrity ok', async () => {
+  it('kopia bazy v1 z danymi → otworzPostep: user_version 3 (v1 → v2 → v3), dane v1 bez zmian (wartości), wariant_historia pusta, integrity ok', async () => {
     const { kopia, oczekiwane } = WZORZEC_V1();
     const WSZYSTKIE = Object.keys(oczekiwane);
     const d0 = otworzNode(kopia); expect(wersja(d0)).toBe(1); const przed = zawartosc(d0, WSZYSTKIE); d0.close();
     const db = otworzNode(kopia);
     const port = await otworzPostep(adapterNode(db));
-    expect(wersja(db)).toBe(2);
+    expect(wersja(db)).toBe(3);
     expect(zawartosc(db, WSZYSTKIE)).toEqual(przed);
     expect(licznosci(db)).toEqual({ ...oczekiwane, wariant_historia: 0 });
     expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
-    const wzor = new DatabaseSync(':memory:'); wzor.exec(schematV1()); wzor.exec(schematV2());
+    const wzor = new DatabaseSync(':memory:'); wzor.exec(schematV1()); wzor.exec(schematV2()); wzor.exec(schematV3());
     expect(schemat(db)).toEqual(schemat(wzor));
     await port.zamknij();
   });
@@ -102,9 +102,9 @@ describe('K-02 migracja v1 → v2 (wariant_historia, D-532)', () => {
     expect(zawartosc(db, Object.keys(oczekiwane))).toEqual(przed);
     expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
   });
-  it('lista migracji: v1 bez zmian jako pierwsza, v2 = SCHEMAT_V2', () => {
+  it('lista migracji: v1 bez zmian jako pierwsza, v2 = SCHEMAT_V2 (v3 osobno, wariantyHistoria-cf.test.ts)', () => {
     const l = listaMigracji();
-    expect(l.map((m) => m.wersja)).toEqual([1, 2]);
+    expect(l.map((m) => m.wersja)).toEqual([1, 2, 3]);
     expect(l[1]!.sql).toBe(SCHEMAT_V2);
   });
 });

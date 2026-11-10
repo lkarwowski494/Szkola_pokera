@@ -49,7 +49,7 @@ describe('AK-BR-DANE-002: walidacja pliku przed importem', () => {
   it('D-532: WARIANTY_HISTORIA_OKNO = 20, a wariant_historia jest w TABELE_EKSPORTU', () => {
     expect(K.WARIANTY_HISTORIA_OKNO).toBe(20);
     expect(TABELE_EKSPORTU).toContain('wariant_historia');
-    expect(K.SCHEMAT_WERSJA).toBe(2);
+    expect(K.SCHEMAT_WERSJA).toBe(3); // v3: generator_wersja (ŚR-001)
   });
   it('AK-BR-DANE-002-c brak `dane` → bledny_plik', () => {
     const { dane: _d, ...bez } = koperta();

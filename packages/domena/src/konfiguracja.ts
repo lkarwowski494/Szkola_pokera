@@ -23,7 +23,7 @@ export const KONFIGURACJA = {
   PRZYPOMNIENIE_DOMYSLNA_PORA: { godzina: 8, minuta: 0 }, // D-252: stała pora jak Trening lib/planReminder.ts:13 (bez wyboru godziny)
   DZIENNIK_MAKS_WPISOW: 200, // ADR 0009 pkt 2 [OCENA: 200], D-240
   WARIANTY_HISTORIA_OKNO: 20, // D-532: ostatnie odciski wariantów scenariuszy na szablon i poziom
-  SCHEMAT_WERSJA: 2, // ADR 0004; v2 = wariant_historia (D-532)
+  SCHEMAT_WERSJA: 3, // ADR 0004; v2 = wariant_historia (D-532), v3 = generator_wersja (ŚR-001)
   EKSPORT_WERSJA_FORMATU: 1, // ADR 0008
   TRESC_FORMAT: 1, // ADR 0005
   ROZMIAR_POBRANIA_PROG_MB: 50, // ADR 0005 [OCENA]; powyżej decyzja właściciela

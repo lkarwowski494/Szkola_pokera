@@ -2,7 +2,7 @@
 // po wszystkich nieznanych kartach i sprawdzanie 5-kartowych podzbiorów wzorcowym evaluatorem, cena z definicji (zakład / (pula + 2 × zakład)).
 import { describe, expect, it } from 'vitest';
 import {
-  BET_FRACTIONS, classifyFlop, FULL_DECK, generateVariant, permuteCard, rankOf, SUIT_PERMUTATIONS, TemplateError, textureMatches, variantFingerprint,
+  BET_FRACTIONS, classifyFlop, FULL_DECK, GENERATOR_WERSJA, generateVariant, permuteCard, rankOf, SUIT_PERMUTATIONS, TemplateError, textureMatches, variantFingerprint,
   type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant,
 } from '../src';
 import type { Card } from '../src';
@@ -142,4 +142,14 @@ describe('generator wariantów: ziarno i odcisk (BR-GEN-001, D-531)', () => {
       }
     }
   }, 600_000);
+});
+
+// ŚR-001 (KO-058 A, D-731): kontrola trwała. Zmiana wyniku generatora pod tym samym ziarnem zmienia „to samo rozdanie” z historii
+// wariantów; wtedy GENERATOR_WERSJA musi wzrosnąć, a ten wzorzec zostać przeliczony w tym samym commicie.
+describe('ŚR-001: GENERATOR_WERSJA pilnuje wyniku generatora', () => {
+  const WZORZEC = { wersja: 1, odcisk: 'test-a|sredni|7051/T06132' }; // ziarno 12345; zmiana tej pary w jednym commicie = świadome podniesienie wersji
+  it('wersja generatora i odcisk wzorcowego wariantu zmieniają się razem', () => {
+    const v = generateVariant(SZABLON_A, 'sredni', 12345);
+    expect({ wersja: GENERATOR_WERSJA, odcisk: v.fingerprint }).toEqual(WZORZEC);
+  });
 });

@@ -1,10 +1,16 @@
 // Wybór wariantu scenariusza bez powtórzeń (BR-GEN-002, D-532): w sesji 0 powtórzeń odcisku, między sesjami odcisk spoza
 // okna ostatnich odcisków szablonu na poziomie; gdy wolnego nie ma, odcisk widziany najdawniej. Czysta logika: historia
 // i ziarno startowe to argumenty (zapis historii: pakiet postep).
-import { generateVariant, type GeneratorContext, type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
+import { GENERATOR_WERSJA, generateVariant, type GeneratorContext, type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
 import { KONFIGURACJA } from './konfiguracja';
 
-export interface WpisHistorii { odcisk: string; ziarno: number }
+export interface WpisHistorii {
+  odcisk: string;
+  ziarno: number;
+  /** Wersja generatora, którym wpis zapisano (0 = sprzed wprowadzenia wersji). Ziarno ma sens tylko pod tą samą wersją (ŚR-001, D-730). */
+  generatorWersja: number;
+}
+const zgodny = (w: WpisHistorii): boolean => w.generatorWersja === GENERATOR_WERSJA;
 export interface OpcjeWyboru {
   /** Historia szablonu na poziomie, od najstarszego do najnowszego (jak `odczytajOdciski`). */
   historia: readonly WpisHistorii[];
@@ -31,8 +37,9 @@ export function wybierzWariant(szablon: GeneratorTemplate, poziom: ScenarioLevel
     ostatni = v;
   }
   // Brak wolnego odcisku: najdawniej widziany z okna, o ile nie był w tej sesji (D-532).
+  // Tylko wpisy zgodnej wersji: ziarno starego generatora dałoby inną rękę niż ta w historii (ŚR-001). Okno wyżej liczy wszystkie wersje.
   for (const w of okno) {
-    if (o.sesja.has(w.odcisk)) continue;
+    if (o.sesja.has(w.odcisk) || !zgodny(w)) continue;
     return generuj(szablon, poziom, w.ziarno, o.kontekst);
   }
   if (!ostatni) throw new Error('wybierzWariant: brak prób');
@@ -52,5 +59,14 @@ export interface StartWariantu {
  */
 export function czyPowtorkaWariantu(s: StartWariantu): boolean {
   const ostatni = s.historia[s.historia.length - 1];
-  return ostatni !== undefined && ostatni.odcisk === s.odcisk;
+  return ostatni !== undefined && ostatni.odcisk === s.odcisk && zgodny(ostatni);
+}
+
+/**
+ * Ziarno do „Zagraj jeszcze raz to samo rozdanie” (ŚR-001, D-731): ziarno ostatniego wpisu, ale tylko gdy zapisał go bieżący generator.
+ * Wpis starszej wersji (także 0) albo pusta historia → null: wywołujący losuje nowe rozdanie (`wybierzWariant`) bez komunikatu.
+ */
+export function ziarnoPowtorki(historia: readonly WpisHistorii[]): number | null {
+  const ostatni = historia[historia.length - 1];
+  return ostatni !== undefined && zgodny(ostatni) ? ostatni.ziarno : null;
 }
