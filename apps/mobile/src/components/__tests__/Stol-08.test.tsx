@@ -4,6 +4,7 @@
 // wygląd sprawdzają zrzuty (lista dla właściciela, plan-08 część 6).
 import '@/i18n';
 import i18n from 'i18next';
+import { StyleSheet } from 'react-native';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Stol } from '@/components/Stol';
 import { SZEROKOSC_KARTY, ukladRzedow } from '@/features/stol/ukladRzedow';
@@ -78,6 +79,9 @@ describe('D-476: stół z trzema rzędami (rywal 2 + board 5 + gracz 2)', () => 
     const s = screen.getByTestId('stol-rama').props.style;
     return Array.isArray(s) ? Object.assign({}, ...s.flat(Infinity).filter(Boolean)) : s;
   };
+  const ramaFlat = () => StyleSheet.flatten(screen.getByTestId('stol-rama').props.style) as { aspectRatio?: number; width?: number; height?: number };
+  /** Żaden element stylu ramy nie niesie klucza aspectRatio (także `undefined`): scalanie JS go ukrywa, a natywnie 1,7 zostawało. */
+  const kluczeProporcji = () => [screen.getByTestId('stol-rama').props.style].flat(Infinity).filter(Boolean).filter((x: object) => 'aspectRatio' in x).length;
   const wysokoscRamy = () => stylRamy().height as number | undefined;
   const szerokoscKarty = (kod: string): number => {
     const k = screen.getAllByLabelText(nazwaKarty(kod, t))[0]!;
@@ -91,13 +95,41 @@ describe('D-476: stół z trzema rzędami (rywal 2 + board 5 + gracz 2)', () => 
     await fireEvent(screen.getByRole('image'), 'layout', { nativeEvent: { layout: { width: pole, height: 0, x: 0, y: 0 } } });
     const u = ukladRzedow(pole, { opp: 2, board: 5, hero: 2 });
     expect(wysokoscRamy()).toBe(u.wysokoscRamy);
-    // proporcja 1,7:1 musi być zdjęta (aspectRatio: undefined), inaczej na urządzeniu wysokość ramy znów zależy od proporcji
-    expect(stylRamy()).toHaveProperty('aspectRatio', undefined);
+    // Z1 (E2E 42800500800): wynikowy styl ramy (StyleSheet.flatten, nie scalanie z nadpisaniem `undefined`) bez proporcji 1,7:1
+    // i z jawnymi wymiarami układu; na urządzeniu `aspectRatio: undefined` nie zdejmował 1,7 i rama miała 310 × 1,7 = 527 pt
+    const rama = ramaFlat();
+    expect(kluczeProporcji()).toBe(0);
+    expect(rama.width).toBe(u.szerokoscRamy);
+    expect(rama.height).toBe(u.wysokoscRamy);
     // rozmiar kart board z układu rzędów: 320 pt → „sm” (22 pt), 390 pt → „md” (40 pt); karty rywala i gracza z układu też
     expect(szerokoscKarty('8c')).toBe(SZEROKOSC_KARTY[u.board]);
     expect(szerokoscKarty('Ac')).toBe(SZEROKOSC_KARTY[u.opp]);
     expect(szerokoscKarty('Th')).toBe(SZEROKOSC_KARTY[u.hero]);
     expect(szerokoscKarty('8c')).toBe(ekran === 320 ? 22 : 40);
     expect(u.wysokoscRamy).toBeGreaterThan(Math.floor(u.szerokoscRamy / 1.7)); // stary układ (sama proporcja) był za niski
+  });
+
+  it.each([
+    [320, 'tylko ręka', { hand: ['Th', '9h'] }, 0],
+    [390, 'tylko ręka', { hand: ['Th', '9h'] }, 0],
+    [320, 'rywal + ręka', { opp: ['Ac', 'Ad'], hand: ['Th', '9h'] }, 2],
+    [390, 'rywal + ręka', { opp: ['Ac', 'Ad'], hand: ['Th', '9h'] }, 2],
+  ])('Z1: stół 1- i 2-rzędowy (%i pt, %s): wysokość i szerokość z układu, bez aspectRatio', async (ekran, _nazwa, inny, opp) => {
+    const pole = ekran - 32;
+    await render(<Stol table={inny} />);
+    await fireEvent(screen.getByRole('image'), 'layout', { nativeEvent: { layout: { width: pole, height: 0, x: 0, y: 0 } } });
+    const u = ukladRzedow(pole, { opp, board: 0, hero: 2 });
+    const rama = ramaFlat();
+    expect(kluczeProporcji()).toBe(0);
+    expect(rama.width).toBe(u.szerokoscRamy);
+    if (opp === 0) expect(rama.height).toBe(Math.floor(u.szerokoscRamy / 1.7)); // owal 1,7:1 jak dotąd, gdy karty się mieszczą
+    else expect(rama.height).toBeGreaterThan(Math.floor(u.szerokoscRamy / 1.7)); // wysokość z układu (też 2 rzędy rozpychały ramę w szerokość przy aspectRatio)
+    expect(rama.height).toBe(u.wysokoscRamy);
+  });
+
+  it('Z1: przed pomiarem (bez układu) rama zostaje z proporcją 1,7:1', async () => {
+    await render(<Stol table={table} />);
+    expect(ramaFlat().aspectRatio).toBe(1.7);
+    expect(kluczeProporcji()).toBe(1);
   });
 });

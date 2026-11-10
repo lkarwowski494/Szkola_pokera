@@ -16,10 +16,26 @@ name: Ocena poziomu
 - assertVisible: 'Przejdź test poziomujący'
 - assertVisible: 'Zacznij od początku'
 - tapOn: 'Przejdź test poziomujący'
+# pytanie ze stołem 3-rzędowym jest wysokie: „Nie wiem” leży pod ekranem (E2E 42800500800), więc przewijamy do niego
+- scrollUntilVisible:
+    element: 'Nie wiem'
+    direction: DOWN
+    timeout: 30000
 - assertVisible: 'Nie wiem'
 - assertNotVisible: 'Pomiń'
+- takeScreenshot: 05-pytanie-ze-stolem
+# po przewinięciu odpowiedź 0 może być nad ekranem: wracamy do niej przed tapnięciem
+- scrollUntilVisible:
+    element:
+      id: 'option-0'
+    direction: UP
+    timeout: 30000
 - tapOn:
     id: 'option-0'
+- scrollUntilVisible:
+    element: 'Nie wiem'
+    direction: DOWN
+    timeout: 30000
 - assertVisible: 'Nie wiem'
 # przerwanie po pierwszej odpowiedzi: po ponownym uruchomieniu ekran wyboru, nie pytanie
 - stopApp

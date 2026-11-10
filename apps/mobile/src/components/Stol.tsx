@@ -25,6 +25,7 @@ const SLOTY: readonly (readonly [number, number])[] = [
   [91, 22],
   [91, 78],
 ];
+const PROPORCJA_OWALU = 1.7; // owal 1,7:1 (makieta e3); z układem rzędów rama dostaje jawną szerokość i wysokość, bez proporcji (Z1, E2E 42800500800)
 const MIEJSCE = { w: 72, h: 40 }; // stały rysunek (design-spec: miejsca mają stały rozmiar)
 const STAN_KLUCZ: Record<StanMiejsca, string> = { ty: 'table.stateHero', pas: 'table.stateFold', czeka: 'table.stateAfter', przebija: 'table.stateRaise' };
 
@@ -53,7 +54,7 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
         onLayout={(e) => ustawSzerokosc(Math.round(e.nativeEvent.layout.width))}
         style={[styles.pole, { paddingVertical: miejsca ? MIEJSCE.h / 2 : 0 }]}
       >
-        <View testID="stol-rama" style={[styles.rama, { backgroundColor: tk.frame }, uklad ? { aspectRatio: undefined, height: uklad.wysokoscRamy } : null]}>
+        <View testID="stol-rama" style={[styles.rama, { backgroundColor: tk.frame }, uklad ? { width: uklad.szerokoscRamy, height: uklad.wysokoscRamy } : { aspectRatio: PROPORCJA_OWALU }]}>
           <View style={[styles.sukno, { backgroundColor: tk.felt1, borderColor: tk.felt2 }]}>
             {miejsca ? (
               <CardRow cards={reka} size="lg" />
@@ -131,7 +132,7 @@ function Siedzenie({ m }: { m: Miejsce }): React.JSX.Element {
 
 const styles = StyleSheet.create({
   pole: { width: '100%', paddingHorizontal: MIEJSCE.w / 2 - odstep.s },
-  rama: { aspectRatio: 1.7, borderRadius: 9999, padding: odstep.s }, // promien.owal = połowa wysokości,
+  rama: { borderRadius: 9999, padding: odstep.s }, // promien.owal = połowa wysokości,
   sukno: { flex: 1, borderRadius: 9999, borderWidth: 2, alignItems: 'center', justifyContent: 'center', gap: odstep.s, padding: odstep.l },
   miejsce: {
     position: 'absolute',

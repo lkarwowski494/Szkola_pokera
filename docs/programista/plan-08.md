@@ -1307,3 +1307,9 @@ Polecenie: `docs/koordynacja/polecenia/AZ.md` @ ec11f18; start `sesja-az-pozycja
 - Stan: KO-028 wykonane w części kodowej; nazwy czekają na rolę 06 (sesja BB). Sam skrót w 15 z 72 komórek: UTG w 11 językach poza pl (en, de, es, it, ko, vi, fr, pt, pt-BR, ja, zh-Hant), HJ i CO w ja, zh-Hant; en „Your position: UTG.”.
 - Po recenzji (bff0095): AZ-01 testy dokładnego tekstu + mutacje czerwone, AZ-05 skrót jako osobne słowo, AZ-02 ten wpis, AZ-07 log CI z SHA. AZ-04 (dwa nawiasy w linii, niespójny wzór nazw) i AZ-06 → rola 04/06.
 - Nie zrobiono: zrzuty 320 pt / AX5 (brak symulatora; oszacowanie w teście).
+
+### Sesja AZ, część 2 — E2E 42800500800 (D-496)
+- Z1: rama stołu bez `aspectRatio` przy układzie rzędów (jawne width × height), test `Stol-08` czerwony (2 klucze `aspectRatio` zamiast 0) → zielony; wymiary ramy 3 rzędy: było 527 × 310 pt (E2E, iPhone 17), jest 314 × 310 (320 pt ekranu: 288 × 310; 390: 302 × 310).
+- Z2: `e2e/05-ocena-poziomu.yaml` (scroll do „Nie wiem”, powrót do `option-0`, zrzut `05-pytanie-ze-stolem`), strażnik w `e2e-flowy.test.mjs`; pozostałe flowy używają `option-0` bez „Nie wiem” — bez zmian.
+- Z3 (do roli 04): brakuje ok. 118 / 133 / 137 pt na 402×874 / 390×844 / 393×852 (oszacowanie, założenia w D-496).
+- Nie zrobiono: zrzut „po” (brak symulatora; zrobi go E2E dzięki nowemu `takeScreenshot`).

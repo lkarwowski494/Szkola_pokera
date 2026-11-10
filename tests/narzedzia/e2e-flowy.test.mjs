@@ -119,3 +119,15 @@ test('K7 (plan-09): flow drugiego języka 08-drugi-jezyk.yaml w bramce, startuje
   const kroki = parseAllDocuments(readFileSync(f, 'utf8')).at(-1).toJSON();
   assert.equal(kroki[0]?.launchApp?.arguments?.AppleLanguages, '(en)');
 });
+
+test('Z2 (E2E 42800500800): „Nie wiem” na pytaniu ze stołem jest pod ekranem, więc każde jego assertVisible/tapOn poprzedza scrollUntilVisible', () => {
+  for (const plik of wszystkie.filter((f) => readFileSync(f, 'utf8').includes('Nie wiem'))) {
+    const [, kroki] = parseAllDocuments(readFileSync(plik, 'utf8')).map((d) => d.toJS());
+    kroki.forEach((krok, i) => {
+      const asercja = krok && typeof krok === 'object' && (krok.assertVisible === 'Nie wiem' || krok.tapOn === 'Nie wiem');
+      if (!asercja) return;
+      const poprzedni = kroki[i - 1];
+      assert.ok(poprzedni?.scrollUntilVisible?.element === 'Nie wiem', `${relative(E2E, plik)}, krok ${i + 1}: brak scrollUntilVisible 'Nie wiem' bezpośrednio przed`);
+    });
+  }
+});
