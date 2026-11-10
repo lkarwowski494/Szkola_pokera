@@ -22,19 +22,15 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- Koordynator session_01T66VBzpecX1cLyGgZbrkbu przejął 06:40. Biblioteka `prompts` dołączona po słowach właściciela „Zgoda na prompts” (ok. 07:00) — klon /home/user/prompts @ f701ce9; KO-023 zamknięte.
-- AP: kontekst 33,7% (get_session 06:38), koszt 139,35 USD — wysłane polecenie PRZEKAZANIA 06:39.
-- Gałąź robocza @ **66aa8cc**: AM (016317e, CI 42766336909 success) + AN (docs) + AQ i AR (pełny przegląd it/es/pt-BR i fr/de/vi — tylko pliki w `docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/`, scalenia `[skip ci]`). Szczyt z dowodem E2E nadal 6afa34d.
-- Aktywne: **AP** (przegląd ja, zh-Hant, ko; ja i zh-Hant gotowe wg raportu 06:22, ko w toku) i **AS** (pt-PT po AO, gałąź `sesja-ao-pt-pt`).
-- **Następny krok następcy:** po PRZEKAZANIU AP — odbiór i scalenie (docs), potem zlecić sesję kodu **AT** (rola 09 build, gałąź od roboczej): nałożenie poprawek przeglądu 9 języków (`<język>/poprawki-<język>.json`, instrukcje `stan-AQ.md`, `README.md`, `stan-AR.md`), w tym WYS: ja `ja.json:96` data.replaceBody (odwrócony kierunek w oknie importu — dotyczy danych użytkownika), es m4-l4:33, 13 zgubionych znaczników fr/de/vi; decyzje właściciela KO-020…KO-022 (metadane → rola 10 / generator `zbuduj-metadane.py`); jedna przebudowa baz, `pnpm run ci`, push → CI + E2E. Po AS: scalenie pt-PT, E2E. Potem build TestFlight (właściciel).
-- Zakres 1.0 słowami właściciela: „Wszystkie 11 od razu” (+ pt-PT); build TestFlight „Po poprawkach z dzisiaj”.
+- Gałąź robocza @ **40e5cef**: pt-PT (AT) + poprawki pełnego przeglądu 9 języków (AU, 2849, WYS 15) + KO-020/021/022/024. CI 42778528710 i E2E 42778528672 **success**. Wszystkie sesje dnia przyjęte i zarchiwizowane; aktywnych sesji brak.
+- **Czeka na właściciela:** build TestFlight (`testflight.yml` z ref `claude/sleepy-brahmagupta-2065nu`, Approve), potem listy telefonu (`docs/lokalizacja/lista-telefonu-*.md`, w tym pt-PT i T-au-*).
+- Następne dla koordynatora: po buildzie — odbiór wyników telefonu; backlog (en-US „correct”→„Aligned” rola 10; błędy źródła pl → rola 06: m2.yaml:89, m10-l3:49, text.ts:152; NISKIE pt-PT N-1…N-3). Kontroli brak, gdy nic nie trwa; linia 14:00.
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AU | session_01T66VBwPmJmtteuLqtue8Ga | 09 build, kod (sonnet) | sesja-au-poprawki @ f8272c1 (start) | 0 (07:12) | — | w toku: WYS (ja.json:96, es m4-l4:33, 13 znaczników), nałożenie 9 języków, KO-020/021/024 (polecenie AU @ d25f936) |
 
-Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%; odbiór warunkowy: CI/E2E/recenzja). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -120,3 +116,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 07:23 | AU | HEAD **40e5cef** (b49340b + log `ci-koncowe.txt`, 593 testy mobile wg sesji) — do ff zamiast b49340b | jw. |
 | 11-10 07:35 | koordynator | recenzja niezależna AU: KRYT 0, WYS 0, ŚR 1 (en-US opis „correct” vs UI „Aligned”, `store/app-store-metadata.json:22` — rola 10), NISKIE 2; ja replaceBody zgodny z pl.json:99, test WYS mutacyjnie 15/15 — `docs/koordynacja/recenzje/recenzja-au-e0b482f.md`. Werdykt: przyjąć po CI/E2E na 40e5cef | ff po E2E 1db8449 |
 | 11-10 07:55 | koordynator | E2E 42772729272 na 1db8449 **success** (07:39) → **AT przyjęta** (CI + E2E + recenzja). Robocza ff → **40e5cef** (AU + pt-PT); CI i E2E na 40e5cef ruszają. Kontekst koordynatora 26,2% (koszt 11,21 USD) | po zielonym E2E: przyjęcie i archiwum AU, prośba o build TestFlight; przekazanie koordynatora przy 30% |
+| 11-10 08:50 | koordynator | E2E 42778528672 na 40e5cef **success** (08:39; kompilacja 22 min, flowy 15 min), CI 42778528710 success → **AU przyjęta** (commit, autor, CI+E2E na SHA, recenzja niezależna); zarchiwizowana, 5,37 USD, kontekst 32,4% | prośba do właściciela: build TestFlight |

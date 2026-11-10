@@ -27,3 +27,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | AS | 09 build | — | 17,33 | 24,9 | 06:22 → 06:22 → 78f1c5f → (bez CI, gałąź sesji) → przekazanie 06:34, archiwum 06:55 | 21 min: przejęcie koordynatora | autor commitów niezgodny z CLAUDE.md |
 | AP | 09 audit (fable) | — | 152,60 | 37,1 | 06:09 → 06:10 → … → (docs, bez CI) → przekazanie 06:51, przyjęte 07:05 | 12 min do odpowiedzi na polecenie przekazania (06:39→06:51), kontekst +3,4 pp. | — |
 | AT | 09 build | — | 7,32 | 26,4 | 06:46 → 06:47 → a655dd2 07:02 → CI 1db8449 w toku → (warunkowo) | 0 | szybko: AS przygotowała wszystko |
+| AU | 09 build (sonnet) | — | 5,37 | 32,4 | 06:56 → 06:57 → e43fb7f 06:59 → CI/E2E 40e5cef 08:39 → przyjęte 08:50 | 30 min: czekanie z pushem na koniec E2E 1db8449 (anulowanie przebiegu); 45 min E2E | szac. sesji 2–3 h, rzeczywiście 25 min |
