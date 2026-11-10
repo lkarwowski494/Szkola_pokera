@@ -1,0 +1,43 @@
+# pnpm run ci na 178cf9765af1760e654e90cdb7ef029eed8d5488 (sesja CC, 2026-11-10); pełny log w scratchpadzie, tu początek i koniec
+$ pnpm run ci
+
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr
+
+
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+
+Scope: 9 of 10 workspace projects
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/srs typecheck: Done
+[...]
+46:packages/jezyki test:       Tests  144 passed (144)
+48:packages/jezyki test:    Duration  1.04s (tests 54%, transform 29%, import 14%, worker 2%)
+51:packages/poker-core test:       Tests  178 passed (178)
+53:packages/poker-core test:    Duration  118.73s (tests 94%, import 4%, transform 1%)
+64:packages/domena test:       Tests  332 passed (332)
+66:packages/domena test:    Duration  9.98s (tests 68%, transform 16%, import 11%, setup 4%, worker 1%)
+71:tools/preflop-solver test:       Tests  44 passed (44)
+73:tools/preflop-solver test:    Duration  64.61s (tests 98%, transform 1%, import 1%)
+120:packages/postep test:       Tests  136 passed (136)
+122:packages/postep test:    Duration  5.90s (tests 70%, transform 15%, import 13%, worker 1%)
+151:tools/content-build test:       Tests  201 passed (201)
+153:tools/content-build test:    Duration  25.57s (tests 71%, import 27%, transform 2%)
+1773:apps/mobile test: Tests:       760 passed, 760 total
+2944:# tests 193
+2946:# pass 193
+2947:# fail 0
+2964:      Tests  35 passed (35)
+2966:   Duration  694ms (tests 58%, transform 25%, import 13%, worker 4%)
+3378:błędy: 0, uwagi: 397; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 774
+3405:0 błędów, 0 uwag
+0 błędów, 0 uwag
+
+real	5m4.130s
+user	9m3.831s
+sys	0m26.037s
+kod=0

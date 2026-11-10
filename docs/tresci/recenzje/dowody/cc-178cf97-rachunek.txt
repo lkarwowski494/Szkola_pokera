@@ -1,0 +1,6 @@
+$ python3 -I (rachunek niezależny z formuł content/numbers.yaml:425-467, 791-820; zaokrąglenia jak decimals w numbers.yaml)
+q1: exp.bi=15, sqrt-blocks=22.4, sd.bi=17.9, ci.half=35.08, przedział -20.1 .. 50.1 BI (dolna < 0: True)
+q2: se.wr=3.6, ci.wr=7.06, przedział -4.06 .. 10.06 bb/100 (dolna < 0: True)
+q3: SD100 bloki=9604 -> 960 tys. rąk; SD80 (var.need) 6147 -> 615 tys.; stosunek 1.562 = (100/80)^2=1.5625
+q8: x=2.50, RoR=e^-x=8.2%; dla porównania 100 BI: 0.19%; RoR(BR) malejące: [28.7, 8.2, 2.4, 0.7]
+kod=0
