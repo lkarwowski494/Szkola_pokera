@@ -3,6 +3,7 @@ import { cardsToString, combosCount, HandCategory, RANKS, rankOf, type Card, typ
 import { formatujLiczbe, jestJezykiem, ZRODLO, type Jezyk } from '@szkola/jezyki';
 import i18n from '@/i18n';
 import { MIXED_LOW, MIXED_MIN } from './thresholds';
+import { RANGE_REASON } from './range-reasons';
 import { tr } from './terms';
 
 /**
@@ -126,6 +127,17 @@ function hudFact(s: HudSpot, x: PlayerType, th: HudThresholds): string {
 }
 const sample = (n: number) => r('playerType.sample', { count: n });
 
+// ---------- Zakresy (rangeDecision): powód z reguły spotu (KO-040) ----------
+
+/** Miejsce ręki w zakresie spotu: w zakresie, poza nim, na granicy (ręka mieszana, ADR-04). */
+export type RangeStatus = 'in' | 'out' | 'mixed';
+
+const rangeReason = (spot: string): string | null => (RANGE_REASON[spot] ? r(`range.reason.${RANGE_REASON[spot]}`) : null);
+/** Częstość słowami (dodatek po „bo”): ≥ 95% prawie zawsze, ≥ 75% zwykle, niżej raz tak, raz inaczej. */
+const oftenKey = (f: number) => (f >= 0.95 ? 'almostAlways' : f >= 0.75 ? 'usually' : 'mixed');
+/** „Raz na N”: N = 1 ÷ ułamek, zaokrąglone do 0,5 (rachunek na danych zadania, przewodnik KO-040). */
+export const razNa = (x: number): string => num(Math.round(2 / x) / 2);
+
 export const t = {
   paint: {
     explanation: (title: string) =>
@@ -142,13 +154,26 @@ export const t = {
     get fold() {
       return L('range.fold');
     },
-    right: (f: number) => L('range.right', { pct: pct(f) }),
-    acceptable: (f: number) => L('range.acceptable', { pct: pct(f) }),
-    wrong: (f: number) =>
-      f >= 0.005 ? L('range.wrongRare', { pct: pct(f) }) : f > 0 ? L('range.wrongVeryRare', { pct: pct(0.005, 1) }) : L('range.wrongNever'),
-    explanation: (hc: string, freqs: { name: string; f: number }[], mixed: boolean) =>
+    right: (f: number, st: RangeStatus, spot: string) =>
+      trJ(zdania(r('range.right', { status: r(`range.status.${st}`) }), rangeReason(spot), r('range.freqRight', { pct: pct(f), often: r(`range.often.${oftenKey(f)}`) }))),
+    acceptable: (f: number, st: RangeStatus, spot: string) => trJ(zdania(r('range.acceptable', { pct: pct(f), status: r(`range.status.${st}`) }), rangeReason(spot))),
+    wrong: (f: number, st: RangeStatus, spot: string, chosenFold: boolean) =>
       trJ(
         zdania(
+          r(chosenFold && st === 'in' ? 'range.wrongTight' : !chosenFold && st === 'out' ? 'range.wrongLoose' : 'range.wrongOther', { status: r(`range.status.${st}`) }),
+          rangeReason(spot),
+          f >= 0.005 ? r('range.wrongRare', { pct: pct(f) }) : f > 0 ? r('range.wrongVeryRare', { pct: pct(0.005, 1) }) : r('range.wrongNever'),
+        ),
+      ),
+    /** Sytuacja → zagranie „bo” → powód z reguły spotu → częstości solvera jako dodatek (KO-040, BR-OCE-001). */
+    explanation: (hc: string, freqs: { name: string; f: number }[], mixed: boolean, ctx: { title: string; spot: string; status: RangeStatus; action: string }) =>
+      trJ(
+        zdania(
+          r('range.situation', { hand: hc, title: ctx.title }),
+          ctx.status === 'in'
+            ? r('range.playIn', { action: ctx.action.toLowerCase(), status: r('range.status.in') })
+            : r(ctx.status === 'out' ? 'range.playOut' : 'range.playMixed', { status: r(`range.status.${ctx.status}`) }),
+          rangeReason(ctx.spot),
           r('range.freqs', { hand: hc, freqs: lista(freqs.filter((x) => x.f >= 0.005).map((x) => r('range.freq', { action: x.name.toLowerCase(), pct: pct(x.f) }))) }),
           mixed && r('range.mixedNote', { low: pct(MIXED_LOW) }),
           freqs.some((x) => x.f >= MIXED_MIN && x.f < MIXED_LOW) && r('range.acceptableNote', { low: pct(MIXED_LOW), min: pct(MIXED_MIN, 1) }),
@@ -214,7 +239,8 @@ export const t = {
     get right() {
       return L('outs.right');
     },
-    wrong: (n: number, correct: number) => L(n > correct ? 'outs.wrongTooMany' : 'outs.wrongTooFew', { n }),
+    wrong: (n: number, correct: number, what: 'flush' | 'oesd' | 'gutshot') =>
+      L(n > correct ? 'outs.wrongTooMany' : 'outs.wrongTooFew', { n, base: r(what === 'flush' ? 'outs.baseFlush' : what === 'oesd' ? 'outs.baseOesd' : 'outs.baseGutshot') }),
   },
   icm: {
     get call() {
@@ -262,7 +288,9 @@ export const t = {
     why: (s: HudSpot, x: PlayerType, th: HudThresholds) =>
       x === s.type
         ? L('playerType.whyRight', { fact: hudFact(s, x, th), adjust: r(`playerType.adjust.${x}`) })
-        : L('playerType.whyWrong', { fact: hudFact(s, x, th) }),
+        : s.type === 'unknown'
+          ? L('playerType.whyWrongUnknown', { fact: hudFact(s, x, th), actualFact: hudFact(s, s.type, th) })
+          : L('playerType.whyWrong', { fact: hudFact(s, x, th), actual: r(`playerType.name.${s.type}`), actualFact: hudFact(s, s.type, th) }),
     explanation: (s: HudSpot, th: HudThresholds) => {
       const read = s.hands < th.minHands ? r('playerType.readFew', { minHands: th.minHands }) : r('playerType.readEnough', { readHands: th.readHands });
       return L('playerType.explanation', { sample: sample(s.hands), read, fact: hudFact(s, s.type, th), adjust: r(`playerType.adjust.${s.type}`) });
@@ -271,7 +299,7 @@ export const t = {
   potOdds: {
     prompt: (pot: number, bet: number) => L('potOdds.prompt', { pot, bet }),
     explanation: (pot: number, bet: number, req: number) =>
-      L('potOdds.explanation', { potAfter: pot + bet, bet, total: pot + 2 * bet, sign: eqSign(req), required: pctEquity(req) }),
+      L('potOdds.explanation', { pot, bet, total: pot + 2 * bet, sign: eqSign(req), required: pctEquity(req), needN: razNa(req) }),
     get right() {
       return L('potOdds.right');
     },
@@ -298,27 +326,49 @@ export const t = {
     get fold() {
       return L('drawCall.fold');
     },
-    explanation: (s: { outs: number; unseen: number; hitNextCard: number; required: number; street: 'flop' | 'turn'; nearMiss: boolean }) => {
+    /** Sytuacja → decyzja „bo” → dlaczego jedna karta → cena z przełożeniem „raz na N” (KO-040). */
+    explanation: (s: DrawCallText) => {
       const flop = s.street === 'flop';
-      const verdict =
-        s.hitNextCard > s.required ? 'drawCall.verdictGood' : s.nearMiss ? (flop ? 'drawCall.verdictNearFlop' : 'drawCall.verdictNearTurn') : 'drawCall.verdictBad';
-      return L(flop ? 'drawCall.explanationFlop' : 'drawCall.explanationTurn', {
-        outs: r('drawCall.outs', { count: s.outs }),
-        unseen: s.unseen,
-        chance: pct(s.hitNextCard, 1),
-        why: r(flop ? 'drawCall.whyFlop' : 'drawCall.whyTurn'),
-        required: pctEquity(s.required),
-        verdict: r(verdict),
-      });
+      const call = s.correct === 'call';
+      return trJ(
+        zdania(
+          r(flop ? 'drawCall.situationFlop' : 'drawCall.situationTurn', { draw: drawName(s.what), bet: s.bet, pot: s.pot }),
+          r(call ? 'drawCall.decisionGood' : s.nearMiss ? 'drawCall.decisionNear' : 'drawCall.decisionBad'),
+          r(flop ? 'drawCall.whyFlop' : 'drawCall.whyTurn'),
+          r(flop ? 'drawCall.priceFlop' : 'drawCall.priceTurn', {
+            required: pctEquity(s.required),
+            needN: razNa(s.required),
+            chance: pct(s.hitNextCard, 1),
+            outs: r('drawCall.outs', { count: s.outs }),
+            unseen: s.unseen,
+            hitN: razNa(s.hitNextCard),
+          }),
+          !call && s.nearMiss && r(flop ? 'drawCall.impliedFlop' : 'drawCall.impliedTurn'),
+        ),
+      );
     },
-    get right() {
-      return L('drawCall.right');
-    },
-    get wrong() {
-      return L('drawCall.wrong');
-    },
+    /** Dlaczego dobrze / dlaczego źle dla wybranej opcji (BR-OCE-002). */
+    why: (s: DrawCallText, chosen: 'call' | 'fold') =>
+      chosen === 'call'
+        ? L(s.correct === 'call' ? 'drawCall.callRight' : 'drawCall.callWrong', { bet: s.bet })
+        : L(s.correct === 'fold' ? 'drawCall.foldRight' : 'drawCall.foldWrong', { bet: s.bet }),
   },
 };
+
+/** Dane zadania drawCall potrzebne tekstom. */
+interface DrawCallText {
+  outs: number;
+  unseen: number;
+  hitNextCard: number;
+  required: number;
+  street: 'flop' | 'turn';
+  nearMiss: boolean;
+  pot: number;
+  bet: number;
+  what: 'flush' | 'oesd' | 'gutshot';
+  correct: 'call' | 'fold';
+}
+const drawName = (what: 'flush' | 'oesd' | 'gutshot') => r(what === 'flush' ? 'drawCall.drawFlush' : what === 'oesd' ? 'drawCall.drawOesd' : 'drawCall.drawGutshot');
 
 // ---------- Tekstura flopa (M5) ----------
 
