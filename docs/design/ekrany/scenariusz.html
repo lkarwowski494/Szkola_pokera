@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scenariusz i ocena decyzji</title>
+<!-- Sesja BE część B (rola 04, 2026-11-10). Wymagania: docs/brd/wymagania-scenariusze.md @ sesja-bd-zakres 8cba034 (BR-SZB, BR-GEN, BR-POZ, BR-OCE),
+     docs/brd/wymagania-nauka.md BR-SCN-001…004; szablon SC-01 (docs/zakres/scenariusze-plan.md:24: M2, flop kolor-draw wobec zakładu ½ puli, turn bez trafienia).
+     Fakty (content/pl/rules.yaml R-M2-001, R-M2-003; content/numbers.yaml): draw do koloru = 4 karty w kolorze (draw.flush.seen), outy 13 − 4 = 9 (outs.flush);
+     zakład pół puli → do sprawdzenia potrzebne 25% (eq.bet-half: płacisz 1 z 4 części); turn→river: 9 z 46 niewidzianych kart = ok. 19,6% (rachunek: 52 − 2 − 4).
+     [PRZYKŁAD]: karty wariantu, kwoty w bb, kroki rywala, OCENY akcji i brzmienie wyjaśnień (ostateczne: rola 06 wg ADR-24; R-M2-001 pomija m.in. implied odds — uproszczenie). -->
+<link rel="stylesheet" href="e3.css">
+<link rel="stylesheet" href="scenariusz.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="trefl" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4.6"/><circle cx="6.6" cy="13.4" r="4.6"/><circle cx="17.4" cy="13.4" r="4.6"/><path d="M11 13h2c0 3.5.8 6 2.8 8.5H8.2C10.2 19 11 16.5 11 13z"/></symbol>
+  <symbol id="karo" viewBox="0 0 24 24"><path d="M12 2l8 10-8 10-8-10z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+  <symbol id="szewron" viewBox="0 0 10 16"><path d="M2 2l6 6-6 6"/></symbol>
+</svg>
+
+<main data-ekran="start" aria-label="Scenariusz, start">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">‹ Scenariusze</a><span></span></nav>
+  <section class="sc-opis">
+    <p>Matematyka podstawowa · scenariusz 1 z 3</p>
+    <h1 class="tytul">Kolor-draw, rywal zakłada</h1>
+    <p>Grasz z Buttona, duży blind broni. Cztery ulice, decyzje na flopie i turnie. Głębokość 100 bb.</p>
+  </section>
+  <p class="etykieta">Poziom</p>
+  <div class="segment" role="radiogroup" aria-label="Poziom trudności">
+    <a href="#" role="radio" aria-checked="true">Automatycznie</a>
+    <a href="#" role="radio" aria-checked="false">Łatwy</a>
+    <a href="#" role="radio" aria-checked="false">Średni</a>
+    <a href="#" role="radio" aria-checked="false">Trudny</a>
+  </div>
+  <p class="podpowiedz"><b>Teraz: średni.</b> Zaliczony test modułu 2, więc decyzja będzie wymagać jednej liczby z kursu.</p>
+  <p class="podpowiedz">Każde rozdanie ma nowe karty. Wynik to oceny decyzji, nie wygrana.</p>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zacznij rozdanie</a></div>
+</main>
+
+<main data-ekran="przebieg" aria-label="Scenariusz, decyzja na turnie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Turn</span></nav>
+  <ol class="ulice" aria-label="Ulice"><li class="byla">Preflop</li><li class="byla">Flop</li><li aria-current="step">Turn</li><li>River</li></ol>
+  <section class="stol hu" role="img" aria-label="Stół: ty na BTN z waletem kier i dziesiątką kier, rywal na BB. Na stole: król kier, szóstka kier, dwójka trefl, trójka pik.">
+    <div class="owal"></div>
+    <div class="karty wspolne"><div class="karta czerwona"><b>K</b><svg><use href="#kier"/></svg></div><div class="karta czerwona"><b>6</b><svg><use href="#kier"/></svg></div><div class="karta"><b>2</b><svg><use href="#trefl"/></svg></div><div class="karta"><b>3</b><svg><use href="#pik"/></svg></div><div class="karta pusta" aria-hidden="true"></div></div>
+    <div class="miejsce" style="left:50%;top:0%">BB<small>rywal · 100 bb</small></div>
+    <div class="miejsce ty" style="left:16%;top:88%">BTN<small>ty · 100 bb</small></div>
+    <div class="karty twoje"><div class="karta czerwona"><b>J</b><svg><use href="#kier"/></svg></div><div class="karta czerwona"><b>10</b><svg><use href="#kier"/></svg></div></div>
+  </section>
+  <p class="w-puli">W puli <b>16,5 bb</b> · do sprawdzenia <b>5,5 bb</b></p>
+  <ol class="dziennik" aria-label="Przebieg rozdania">
+    <li><span class="u">Preflop</span><span>Ty przebijasz do 2,5 bb, BB sprawdza</span></li>
+    <li><span class="u">Flop</span><span>BB zakłada 2,75 bb, ty sprawdzasz</span><span class="ocena-chip">✓ Zgodna</span></li>
+    <li class="teraz" aria-live="polite"><span class="u">Turn</span><span>3♠. BB zakłada 5,5 bb, pół puli</span></li>
+  </ol>
+  <section class="akcje">
+    <p class="etykieta">Twój ruch</p>
+    <div class="pasek" role="group" aria-label="Akcje"><a href="#">Pas</a><a href="#">Sprawdzenie<small>5,5 bb</small></a><a href="#">Przebicie<small>do 16,5 bb</small></a></div>
+  </section>
+</main>
+
+<main data-ekran="ocena-zle" aria-label="Ocena decyzji: błąd">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Turn</span></nav>
+  <section class="werdykt" aria-live="polite"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">✗</span>Błąd</h2>
+    <p>Twój wybór: <b>sprawdzenie 5,5 bb</b>. Lepiej: pas.</p>
+  </div></section>
+  <section class="dlaczego">
+    <h2>Dlaczego sprawdzenie jest słabsze</h2>
+    <p><span class="syt">Masz J♥ 10♥ na Buttonie, na stole K♥ 6♥ 2♣ 3♠, rywal zakłada pół puli.</span> Do koloru brakuje ci jednej karty, a została tylko jedna karta do odkrycia. Płacisz za szansę, która przychodzi za rzadko jak na tę cenę.</p>
+  </section>
+  <section class="dlaczego">
+    <h2>Dlaczego pas jest lepszy</h2>
+    <p>Grasz pas, bo bez trafienia twoje J-10 przegrywa prawie z każdą ręką, którą rywal zakłada na tym stole, a ta cena wymaga trafiania częściej, niż trafiasz.</p>
+  </section>
+  <div class="oceny-akcji" role="img" aria-label="Oceny akcji: pas zgodna, sprawdzenie błąd, twój wybór, przebicie błąd.">
+    <span>Pas<small>✓ Zgodna</small></span><span class="twoj">Sprawdzenie<small>✗ Błąd</small></span><span>Przebicie<small>✗ Błąd</small></span>
+  </div>
+  <div class="rozwin"><a href="#" aria-expanded="false">Liczby<span class="strzalka" aria-hidden="true">⌄</span></a></div>
+  <a class="link" style="margin:4px 20px 0" href="#">Zgłoś błąd w tym zadaniu</a>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Dalej: river</a></div>
+</main>
+
+<main data-ekran="ocena-liczby" aria-label="Ocena decyzji, liczby rozwinięte">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Turn</span></nav>
+  <section class="werdykt"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">✗</span>Błąd</h2>
+    <p>Twój wybór: <b>sprawdzenie 5,5 bb</b>. Lepiej: pas.</p>
+  </div></section>
+  <section class="dlaczego"><h2>Dlaczego pas jest lepszy</h2>
+    <p>Grasz pas, bo ta cena wymaga trafiania częściej, niż trafiasz.</p></section>
+  <div class="rozwin"><a href="#" aria-expanded="true">Liczby<span class="strzalka" aria-hidden="true">⌃</span></a>
+    <div>
+      <p>Rywal zakłada pół puli, więc płacisz 1 z 4 części puli: potrzebujesz <span class="liczba">25%</span> szans, czyli wygrać mniej więcej raz na cztery.</p>
+      <p>Do koloru masz <span class="liczba">9</span> outów z <span class="liczba">46</span> niewidzianych kart: ok. <span class="liczba">19,6%</span>, czyli trafiasz mniej więcej raz na pięć. To za mało.</p>
+    </div></div>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Dalej: river</a></div>
+</main>
+
+<main data-ekran="ocena-mieszana" aria-label="Ocena decyzji: dopuszczalna, ręka mieszana">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Flop</span></nav>
+  <section class="werdykt" aria-live="polite"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">≈</span>Dopuszczalna</h2>
+    <p>Twój wybór: <b>przebicie</b>. Obie akcje są tu poprawne.</p>
+  </div></section>
+  <section class="dlaczego">
+    <h2>Kiedy które zagranie</h2>
+    <p><span class="syt">Masz J♥ 10♥ na Buttonie, na stole K♥ 6♥ 2♣, rywal zakłada.</span> Sprawdzasz, gdy chcesz tanio zobaczyć turn. Przebijasz, gdy chcesz, żeby rywal spasował od razu, a gdy sprawdzi, nadal możesz trafić kolor. <span class="przyklad">[PRZYKŁAD: treść rola 06]</span></p>
+  </section>
+  <div class="oceny-akcji" role="img" aria-label="Oceny akcji: pas błąd, sprawdzenie zgodna, przebicie dopuszczalna, twój wybór.">
+    <span>Pas<small>✗ Błąd</small></span><span>Sprawdzenie<small>✓ Zgodna</small></span><span class="twoj">Przebicie<small>≈ Dopuszczalna</small></span>
+  </div>
+  <div class="rozwin"><a href="#" aria-expanded="false">Dlaczego nie pas<span class="strzalka" aria-hidden="true">⌄</span></a></div>
+  <div class="rozwin"><a href="#" aria-expanded="false">Liczby<span class="strzalka" aria-hidden="true">⌄</span></a></div>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Dalej: turn</a></div>
+</main>
+
+<main data-ekran="koniec" aria-label="Scenariusz zakończony">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><span></span><b>Scenariusz</b><a href="#">Zamknij</a></nav>
+  <h1 class="duzy-tytul tytul">Rozdanie zakończone</h1>
+  <p class="podpowiedz">Kolor-draw, rywal zakłada · poziom średni</p>
+  <div class="grupa podsumowanie" role="list">
+    <div role="listitem"><span class="opis">Flop: sprawdzenie<small>Zgodna z najlepszym zagraniem</small></span><span class="wartosc">✓ Zgodna</span></div>
+    <div role="listitem"><span class="opis">Turn: sprawdzenie<small>Lepiej: pas. Cena wymagała trafiania częściej.</small></span><span class="wartosc">✗ Błąd</span></div>
+    <div role="listitem"><span class="opis">River: 10♣, nie ma koloru<small>Rywal pokazuje K♠ Q♦: para króli wygrywa z parą dziesiątek.</small></span></div>
+  </div>
+  <p class="podpowiedz"><b>1 z 2 decyzji dobrze.</b> Do powtórek trafia sytuacja z turnu.</p>
+  <div class="przyciski sc">
+    <a class="przycisk glowny" href="#">Nowe rozdanie</a>
+    <a class="przycisk drugi" href="#">Zagraj to samo jeszcze raz</a>
+  </div>
+</main>
+</body>
+</html>

@@ -17,5 +17,11 @@ Aktualizacja: 2026-11-10 · gałąź `sesja-be-projekt` @ 00b0566 (start zgodny 
 ## Część A (wykonana 2026-11-10)
 - Zębatka D-540, menu W1/W2 D-541 (rek. W1), ekran „Lekcje” D-542; specyfikacja `docs/design/menu-i-zebatka.md`, zrzuty `docs/design/wzorce-zrzuty/menu/`.
 
+## Część A v2 (2026-11-10, po BR-MENU @ 8cba034 i uwadze koordynatora)
+- W1 zębatka + sukno + 4 kafelki; W2 ustawienia jako kafelek; mieszczą się na 375×667 (`miesci-sie-menu.txt`). Czeka na wybór właściciela.
+
+## Część B (wykonana 2026-11-10)
+- `docs/design/scenariusz-i-ocena.md`, `ekrany/scenariusz.html`, zrzuty `wzorce-zrzuty/scenariusz/`; D-543 (przebieg), D-544 (ocena), D-545 (start z poziomem); przepełnienie kod 0 (`przepelnienie-be.txt`).
+
 ## Następny krok
-Czekam na wybór W1/W2 (właściciel przez koordynatora) i SHA przekazania BD; potem część B.
+PRZEKAZANIE do koordynatora wysłane; czekam na wybór W1/W2 i ewentualne weta D-540–D-545. Kod: rola 08; treść wyjaśnień: rola 06; etykiety: rola 09.

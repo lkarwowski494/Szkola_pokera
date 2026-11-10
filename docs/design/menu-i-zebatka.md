@@ -48,7 +48,7 @@ Duży tytuł „Lekcje”, licznik „3 z 44 lekcji” z paskiem postępu, lista
 
 ### Dostępność i języki
 - VoiceOver: kafelek = przycisk z etykietą „{tytuł}. {stan}.”, ikony ukryte; plakietka: „Powtórki, 7 na dziś”; kolejność czytania = wizualna (sukno, kafelki wierszami).
-- AX5: jedna kolumna; przy 390 pt wyraz „zaawansowania” łamie się w środku (`wzorce-zrzuty/menu/menu-dark-390-ax5.png`) — poza wyjątkiem D-122 (tylko 320 pt). Do roli 06/09: krótsza etykieta kafelka (np. „Twój poziom”) z pełną nazwą na ekranie docelowym `[DO USTALENIA]`.
+- AX5: jedna kolumna; tytuł kafelka, który nie mieści się obok ikony, przechodzi pod nią w całości (RN `flexWrap`). Pomiar `przepelnienie-be.txt` (kod 0, nic nie wystaje). Łamanie w środku wyrazu poza wyjątkiem D-122 (320 pt): przy AX5 na 390 i 430 pt — „zaawansowania” (W1), de „Wiederholungen”, „Übungssession”, „Leistungsindex”, „Einstellungen”, na ekranie „Lekcje” „Matematyka podstawowa”, „Eksploatacja mikrostawek”; przy tekście domyślnym tylko de „Bewertung” w stanie kafelka W2 (13 pt). Znalezisko ŚREDNIE (nie blokuje): krótsze etykiety kafelków (06/09) i sprawdzenie dzielenia wyrazów w RN (D-122, `[DO USTALENIA]` rola 08).
 - Najdłuższe etykiety (12 plików `apps/mobile/src/i18n/locales/`): de „Wiederholungen” na pasku, „Übungssession” / „Leistungsindex” w kafelkach mieszczą się przy 390 i 320 pt (ekrany `w1-de`, `w2-de`); nowe etykiety („Lekcje”, „Scenariusze”, stany kafelków) nie mają jeszcze kluczy — przekład rola 09, w makiecie de `[PRZYKŁAD]`.
 - Kontrast nowych par: 32/32 OK (`kontrast-menu.txt`); granica kafelka (`surface`/sukno na `bg` w ciemnym) ma ok. 1,2–1,5:1 — informacyjnie, bo kontrolkę wyznacza tekst etykiety (WCAG 1.4.11 nie wymaga obwódki), tak jak komórki list iOS.
 

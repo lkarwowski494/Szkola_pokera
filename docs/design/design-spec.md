@@ -10,6 +10,7 @@ Rola 04, build E3, 2026-11-04. Decyzje: D-114 (ekran kluczowy), D-116 (pasek str
 | Zrzuty wzorcowe (linia bazowa audytu SP-13): 5 ekranów × 320/390/430 × jasny/ciemny × domyślny/AX5 = 60 | `wzorce-zrzuty/`, arkusze `wzorce-zrzuty/arkusze/` |
 | Ikona: warstwy SVG, PNG, arkusz | `ikona/` (generuje `narzedzia/ikona-warstwy.mjs`, pliki `narzedzia/ikona.mjs`, arkusz `narzedzia/arkusz-ikony.py`) |
 | Menu kafelkowe, ekran „Lekcje”, zębatka (sesja BE, D-540–D-542) | `menu-i-zebatka.md` |
+| Scenariusz: start, przebieg, ocena „dlaczego”, koniec (sesja BE, D-543–D-545) | `scenariusz-i-ocena.md` |
 | Kierunek i kroje (historia E2) | `02-kierunki.md`, `kroje-tytulow.png` |
 
 ## Znaczenie kolorów

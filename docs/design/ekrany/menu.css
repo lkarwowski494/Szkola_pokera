@@ -86,3 +86,7 @@
 .kafel { min-height: 76px; justify-content: flex-start; }
 .kafle.w2 .kafel:not(.szeroki) { min-height: 72px; }
 @container style(--dt-tresc: 3.1) { .kafel > b { flex-direction: column; align-items: flex-start; gap: 4px; } .kafel > b .ik, .wiersz-wsk .ik { width: 28px; height: 28px; } }
+/* tytuł, który nie mieści się obok ikony, przechodzi pod nią w całości (RN: flexWrap), zamiast łamać wyraz */
+.kafel > b { flex-wrap: wrap; row-gap: 2px; overflow-wrap: normal; } .kafle .kafel span { overflow-wrap: break-word; }
+.kafle { gap: 8px; } .wiersz-wsk { margin-top: 8px; }
+@container style(--dt-tresc: 3.1) { .kafel > b, .kafle .kafel span { overflow-wrap: anywhere; } }
