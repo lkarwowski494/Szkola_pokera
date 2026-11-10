@@ -1,0 +1,227 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "vence a quinta carta mais alta (o kicker)",
+  "nowy": "vence a quinta carta (o kicker) mais alta",
+  "waga": "NISKIE",
+  "powod": "pt-BR-T-01 dwuznaczne: „a quinta carta mais alta” czyta się jak „piąta najwyższa karta”; pl terms.yaml:51 „wygrywa wyższa piąta karta (kicker)”",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "quando ninguém deu raise). Não confunda com call",
+  "nowy": "quando ninguém aumentou). Não confunda com call",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-02 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:147 „gdy nikt nie przebił”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "o valor da aposta ou do raise do adversário",
+  "nowy": "o valor da aposta ou do aumento do adversário",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-03 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:164 „zakład lub przebicie rywala”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "completar a diferença, dar outro raise ou dar fold",
+  "nowy": "completar a diferença, aumentar de novo ou dar fold",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-04 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:173 „przebić dalej”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "quando o adversário aposta, dá raise na mesma rodada",
+  "nowy": "quando o adversário aposta, aumenta na mesma rodada",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-05 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:191 „przebijasz go”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "geralmente indicado em big blinds",
+  "nowy": "geralmente indicadas em big blinds",
+  "waga": "NISKIE",
+  "powod": "pt-BR-T-06 zgoda rodzaju/liczby: podmiot „Todas as fichas” (pl terms.yaml:292 „zwykle podaje się je”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "dão call, dão raise ou dão fold",
+  "nowy": "dão call, aumentam ou dão fold",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-07 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:307 „przebijają”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "às vezes raise, às vezes call",
+  "nowy": "às vezes aumento, às vezes call",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-08 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:546 „czasem przebicie”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "antes do flop com um raise quando todos",
+  "nowy": "antes do flop com um aumento quando todos",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-09 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:556 „przez przebicie”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "O primeiro raise sobre um open antes do flop; o nome conta o big blind como a primeira aposta e o open como a segunda.",
+  "nowy": "O primeiro aumento sobre uma abertura antes do flop; o nome conta o big blind como a primeira aposta e a abertura como a segunda.",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-10 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise”; nazwa terminu open w terms-nazwy.yaml:63 to „abertura” (lekcje: 192/192 znaczników open w formie abertura/abrir); definicja używa „open” (pl terms.yaml:597 „Pierwsze przebicie otwarcia… a otwarcie jako drugi”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "Um raise sobre um 3-bet",
+  "nowy": "Um aumento sobre um 3-bet",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-11 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:605 „Przebicie 3-betu”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "quando ninguém deu raise ainda",
+  "nowy": "quando ninguém aumentou ainda",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-12 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:612 „gdy nikt jeszcze nie przebił”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "Raise depois de um ou mais limps",
+  "nowy": "Aumento depois de um ou mais limps",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-13 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:620 „Przebicie po jednym lub kilku limpach”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "Pocket pair mais alto que todas",
+  "nowy": "Par de mão mais alto que todas",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-14 nazwa terminu pocket-pair w terms-nazwy.yaml:66 to „par de mão” (lekcje: par(es) de mão / par na mão, 0× „pocket pair”); pl terms.yaml:735 „Pocket para”",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "depois de dar open no preflop",
+  "nowy": "depois de abrir no preflop",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-15 nazwa terminu open w terms-nazwy.yaml:63 to „abertura” (lekcje: 192/192 znaczników open w formie abertura/abrir); definicja używa „open” (pl terms.yaml:744 „po otwarciu preflop”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "apostou ou deu raise por último",
+  "nowy": "apostou ou aumentou por último",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-16 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:751 „stawiał lub przebijał”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "geralmente como raise antes do flop",
+  "nowy": "geralmente como aumento antes do flop",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-17 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1049 „jako przebicie”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "pela soma dos blinds e antes de uma mão",
+  "nowy": "pela soma dos blinds e dos antes de uma mão",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-18 myląca składnia: „e antes de uma mão” czyta się jak „i przed rozdaniem”, a chodzi o ante (pl terms.yaml:1098 „sumę blindów i ante w jednym rozdaniu”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "para pagar um open do que para dar open",
+  "nowy": "para pagar uma abertura do que para abrir",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-19 nazwa terminu open w terms-nazwy.yaml:63 to „abertura” (lekcje: 192/192 znaczników open w formie abertura/abrir); definicja używa „open” (pl terms.yaml:1144 „do sprawdzenia otwarcia… niż do samego otwarcia”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "saltos grandes aumentam o risk premium",
+  "nowy": "saltos grandes aumentam o prêmio de risco",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-20 nazwa terminu risk-premium w terms-nazwy.yaml:126 to „prêmio de risco” (lekcje: 4/5 znaczników „prêmio de risco”, 0× „risk premium” w formie); pl terms.yaml:1183",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "(dá call ou raise)",
+  "nowy": "(dá call ou aumenta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-21 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1261 „sprawdza albo przebija”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "o jogador dá raise antes do flop",
+  "nowy": "o jogador aumenta antes do flop",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-22 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1269 „przebija przed flopem”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "(apostas e raises)",
+  "nowy": "(apostas e aumentos)",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-23 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1300 „zakłady i przebicia”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "mais fraco que os regs",
+  "nowy": "mais fraco que os regulares",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-24 nazwa terminu regular w terms-nazwy.yaml:148 to „regular” (lekcje: regulares 7/10); skrót „regs” nigdzie w słowniczku nieobjaśniony; pl terms.yaml:1317 „od stałych bywalców”",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "aposta e dá raise com qualquer coisa",
+  "nowy": "aposta e aumenta com qualquer coisa",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-25 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1332 „stawia i przebija”)",
+  "grupa": "pt-BR-T"
+ }
+]

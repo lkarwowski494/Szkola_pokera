@@ -1,0 +1,1109 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m2-l2-pot-odds.md",
+  "stary": "{{t:implied-odds|probabilidades implícitas}}",
+  "nowy": "{{t:implied-odds|odds implícitas}}",
+  "waga": "ŚR",
+  "powod": "es-L1-01 nazwa terminu implied-odds wg terms-nazwy.yaml: «odds implícitas»",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m3-l1-pozycja.md",
+  "stary": "desde {{t:early-position|posiciones tempranas}}",
+  "nowy": "desde las {{t:early-position|primeras posiciones}}",
+  "waga": "ŚR",
+  "powod": "es-L1-02 nazwa terminu early-position wg terms-nazwy.yaml: «primeras posiciones»",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "casi tan amplio como el Botón",
+  "nowy": "más o menos tan amplio como el Botón",
+  "waga": "ŚR",
+  "powod": "es-L1-03 pl «podobnie szeroko jak Button» (en «about as wide as»); «casi tan amplio» sugeruje węziej",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "Para las {{t:position|posiciones}} tempranas en",
+  "nowy": "Para las primeras {{t:position|posiciones}} en",
+  "waga": "NISKIE",
+  "powod": "es-L1-04 spójność z nazwą terminu early-position («primeras posiciones»)",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l1-3bet.md",
+  "stary": "{{t:pair|Pareja}}: 22",
+  "nowy": "{{t:pair|Pareja}} de 22",
+  "waga": "NISKIE",
+  "powod": "es-L1-05 pl «Para 22»; dwukropek nienaturalny",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l1-3bet.md",
+  "stary": "99, KQo y AJo se juegan de formas distintas",
+  "nowy": "99, KQo y AJo a veces se juegan de formas distintas",
+  "waga": "NISKIE",
+  "powod": "es-L1-06 pl «bywają grane różnie» — zgubione «bywają»",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l2-obrona-bb.md",
+  "stary": "de la parte baja de tu {{t:range|rango}} de {{t:call|igualar}}",
+  "nowy": "de la parte baja del {{t:range|rango}} con el que {{t:call|igualas}}",
+  "waga": "NISKIE",
+  "powod": "es-L1-07 niegramatyczne «rango de igualar»; jak w m4-l1-3bet.md:99",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l3-wobec-3betu.md",
+  "stary": "un precio muy bueno para {{t:call}} {{t:out-of-position}}",
+  "nowy": "un precio muy bueno para {{t:call|igualar}} {{t:out-of-position}}",
+  "waga": "NISKIE",
+  "powod": "es-L2-01 znacznik bez formy daje „para call fuera de posición”; forma czasownikowa jak w reszcie pliku",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l4-limperzy.md",
+  "stary": "todos pasan hasta ti",
+  "nowy": "todos se retiran hasta ti",
+  "waga": "WYS",
+  "powod": "es-L2-02 pl „wszyscy pasują do ciebie” = fold; „pasar” to w przekładzie nazwa check",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l1-tekstury.md",
+  "stary": "aprender la c-bet (una",
+  "nowy": "aprender el c-bet (una",
+  "waga": "ŚR",
+  "powod": "es-L2-03 rodzaj terminu c-bet: męski jak w m5-l2, m5-l3 i większości przekładu",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l1-tekstury.md",
+  "stary": "muchas manos tienen {{t:straight}} o {{t:oesd}}",
+  "nowy": "muchas manos tienen {{t:straight}} u {{t:oesd}}",
+  "waga": "NISKIE",
+  "powod": "es-L2-04 spójnik „u” przed „OESD”",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l1-tekstury.md",
+  "stary": "manos con {{t:straight}} o {{t:oesd}}",
+  "nowy": "manos con {{t:straight}} u {{t:oesd}}",
+  "waga": "NISKIE",
+  "powod": "es-L2-05 spójnik „u” przed „OESD”",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l2-przewagi.md",
+  "stary": ":::note De dónde salen estos principios",
+  "nowy": ":::note De dónde salen estas reglas",
+  "waga": "NISKIE",
+  "powod": "es-L2-06 ten sam nagłówek pl „Skąd te zasady” w pozostałych lekcjach: „estas reglas”",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "C-bet a menudo y pequeña, como en el Button",
+  "nowy": "C-bet a menudo y pequeño, como en el Button",
+  "waga": "ŚR",
+  "powod": "es-L2-07 rodzaj terminu c-bet: męski (ta sama opcja w m5-l3: „pequeño”)",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Porque la c-bet {{t:out-of-position|fuera de posición}} está prohibida",
+  "nowy": "Porque el c-bet {{t:out-of-position|fuera de posición}} está prohibido",
+  "waga": "ŚR",
+  "powod": "es-L2-08 rodzaj terminu c-bet: męski",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "La cuestión es que la c-bet",
+  "nowy": "La cuestión es que el c-bet",
+  "waga": "ŚR",
+  "powod": "es-L2-09 rodzaj terminu c-bet: męski",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "C-bet pequeña, como en el mano a mano",
+  "nowy": "C-bet pequeño, como en el mano a mano",
+  "waga": "ŚR",
+  "powod": "es-L2-10 rodzaj terminu c-bet: męski",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "C-bet a menudo y pequeña: {{n:cbet.size.small}}",
+  "nowy": "C-bet a menudo y pequeño: {{n:cbet.size.small}}",
+  "waga": "ŚR",
+  "powod": "es-L2-11 rodzaj terminu c-bet: męski (ta sama opcja w m5-l3: „pequeño”)",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Las c-bets frecuentes, incluso pequeñas, le dan",
+  "nowy": "Los c-bets frecuentes, incluso pequeños, le dan",
+  "waga": "ŚR",
+  "powod": "es-L2-12 rodzaj terminu c-bet: męski (m5-l3: „Los c-bets frecuentes”)",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Una c-bet grande y frecuente",
+  "nowy": "Un c-bet grande y frecuente",
+  "waga": "ŚR",
+  "powod": "es-L2-13 rodzaj terminu c-bet: męski (m5-l3: „Un c-bet grande y frecuente”)",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "(recuerda el alfa de la primera lección)",
+  "nowy": "(recuerda el alpha de la primera lección)",
+  "waga": "ŚR",
+  "powod": "es-L3-01 niespójna nazwa terminu alpha: w m6-l1 (definicja) i terms-nazwy „alpha”, tu „alfa”",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "es un arma importante frente a los c-bets (casi siempre eliges",
+  "nowy": "es un arma importante frente a los c-bets (la mayoría de las veces eliges",
+  "waga": "ŚR",
+  "powod": "es-L3-02 pl „najczęściej” (en „most of the time”), nie „prawie zawsze”",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "tras su {{t:call|pago}}, {{n:xr.example.extra}} más",
+  "nowy": "tras su {{t:call|igualada}}, {{n:xr.example.extra}} más",
+  "waga": "NISKIE",
+  "powod": "es-L3-03 call nazwany dwojako w pliku (igualar / pago); rzeczownik jak w m6-l1: igualada",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "para que tus {{t:call|pagos}} no sean todos débiles",
+  "nowy": "para que tus {{t:call|igualadas}} no sean todas débiles",
+  "waga": "NISKIE",
+  "powod": "es-L3-04 call nazwany dwojako w pliku (igualar / pagos)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "es un buen {{t:call|pago}} con un precio",
+  "nowy": "es una buena {{t:call|igualada}} con un precio",
+  "waga": "NISKIE",
+  "powod": "es-L3-05 call nazwany dwojako w pliku (igualar / pago)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "el solver solo {{t:call|iguala}} con parte de las {{t:two-pair|dobles parejas}}",
+  "nowy": "con parte de las {{t:two-pair|dobles parejas}} el solver se limita a {{t:call|igualar}}",
+  "waga": "NISKIE",
+  "powod": "es-L3-06 dwuznaczne „solo iguala con parte” (czyta się: sprawdza tylko częścią); pl: część dwóch par solver tylko sprawdza",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l2-sprawdzenie.md",
+  "stary": "{{t:oesd|proyecto abierto de escalera}}",
+  "nowy": "{{t:oesd|proyecto de escalera abierta}}",
+  "waga": "NISKIE",
+  "powod": "es-L3-07 forma OESD niespójna z resztą modułu (m6-l3: proyecto de escalera abierta)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l2-sprawdzenie.md",
+  "stary": "- normalmente también con as como carta más alta.",
+  "nowy": "- normalmente también as como carta más alta.",
+  "waga": "NISKIE",
+  "powod": "es-L3-08 zdublowany przyimek: „continúas con: … con as” (pozostałe punkty listy bez „con”)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m7-l1-druga-beczka.md",
+  "stary": "el rival {{t:call|iguala}} y después apuesta en el turn",
+  "nowy": "el rival {{t:call|iguala}} y después otra apuesta en el turn",
+  "waga": "NISKIE",
+  "powod": "es-L3-09 „el rival iguala y después apuesta” czyta się, jakby betował rywal; pl: c-bet, call, a potem bet (agresora)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m7-l1-druga-beczka.md",
+  "stary": "cuando bloquean el {{t:value|valor}} del rival",
+  "nowy": "cuando bloquean el valor del rival",
+  "waga": "NISKIE",
+  "powod": "es-L3-10 dodany znacznik {{t:value}}, którego nie ma w pl (m7-l1:137 „blokują wartość rywala” zwykłym tekstem)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l2-ile-blefow.md",
+  "stary": "Eso es el {{t:mdf}}",
+  "nowy": "Eso es la {{t:mdf}}",
+  "waga": "ŚR",
+  "powod": "es-L4-01 rodzaj MDF: wszędzie indziej żeński (la MDF)",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l2-ile-blefow.md",
+  "stary": "Una {{t:overbet|sobreapuesta}}, es decir, una {{t:bet|apuesta}} mayor que todo el {{t:pot|bote}}, le da al rival el peor precio, así que puedes incluir en ella más {{t:bluff|faroles}} que en ninguna otra,",
+  "nowy": "Un {{t:overbet|overbet}}, es decir, una {{t:bet|apuesta}} mayor que todo el {{t:pot|bote}}, le da al rival el peor precio, así que puedes incluir en él más {{t:bluff|faroles}} que en ningún otro,",
+  "waga": "ŚR",
+  "powod": "es-L4-02 nazwa terminu overbet wg terms-nazwy.yaml (r.m.), zdanie wprowadza termin",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m7-l3-implied-odds.md",
+  "stary": "(probabilidades implícitas)",
+  "nowy": "(odds implícitas)",
+  "waga": "NISKIE",
+  "powod": "es-L4-03 objaśnienie zgodne z nazwą implied-odds w terms-nazwy.yaml",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l2-ile-blefow.md",
+  "stary": "| 1/2 {{t:pot|bote}} |",
+  "nowy": "| 1/2 del {{t:pot|bote}} |",
+  "waga": "NISKIE",
+  "powod": "es-L4-04 brak „del”, jak w sąsiednich wierszach tabeli",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l4-bluff-catching.md",
+  "stary": "| 1/2 {{t:pot|bote}} |",
+  "nowy": "| 1/2 del {{t:pot|bote}} |",
+  "waga": "NISKIE",
+  "powod": "es-L4-05 brak „del”, jak w sąsiednim wierszu tabeli",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l4-bluff-catching.md",
+  "stary": "title: \"Pagar faroles\"",
+  "nowy": "title: \"Cazar faroles\"",
+  "waga": "NISKIE",
+  "powod": "es-L4-06 tytuł zgodny z pl „Łapanie blefów” i odwołaniem w m7-l4:116 („cazar faroles”)",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m9-l2-zaangazowanie.md",
+  "stary": "Para meter todo el stack antes del river habría",
+  "nowy": "Para meter todo el stack hasta el river habría",
+  "waga": "ŚR",
+  "powod": "es-L5-01 pl „do rivera” = do rivera włącznie, nie „przed riverem”",
+  "grupa": "es-L5"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m9-l1-spr.md",
+  "stary": "| Trío (set), {{t:straight|escalera}} o mejor |",
+  "nowy": "| Set, {{t:straight|escalera}} o mejor |",
+  "waga": "ŚR",
+  "powod": "es-L5-02 pl „set”; „Trío” to inny termin (three-of-a-kind), dodane",
+  "grupa": "es-L5"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l1-statystyki.md",
+  "stary": "se ha {{t:fold|retirado}} en {{n:hud.se.f3b.p}} de ellas",
+  "nowy": "se ha {{t:fold|retirado}} en el {{n:hud.se.f3b.p}} de ellas",
+  "waga": "NISKIE",
+  "powod": "es-L5-04 brak rodzajnika przed procentem („en el 50 % de ellas”)",
+  "grupa": "es-L5"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l2-typy-graczy.md",
+  "stary": "datos de población de micro límites online",
+  "nowy": "datos de población de microlímites online",
+  "waga": "NISKIE",
+  "powod": "es-L6-01 pisownia: «microlímites» łącznie (jak w m10-l3, m10-l4)",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l2-typy-graczy.md",
+  "stary": "La {{t:pair|pareja}} máxima le gana",
+  "nowy": "La {{t:pair|pareja}} mayor le gana",
+  "waga": "ŚR",
+  "powod": "es-L6-02 ten sam termin (top pair) w pliku to «pareja mayor»; tu «pareja máxima»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{n:mda.period.months}} meses antes de octubre de 2026",
+  "nowy": "los {{n:mda.period.months}} meses anteriores a octubre de 2026",
+  "waga": "ŚR",
+  "powod": "es-L6-03 pl: okres N miesięcy przed październikiem, nie punkt w czasie «N miesięcy wcześniej»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l4-rake.md",
+  "stary": "solo se queda con unos pocos por ciento del",
+  "nowy": "solo se queda con un pequeño porcentaje del",
+  "waga": "NISKIE",
+  "powod": "es-L6-04 kalka «kilka procent»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l4-rake.md",
+  "stary": "Unos pocos por ciento de cada {{t:pot|bote}} tras el flop suman",
+  "nowy": "Un pequeño porcentaje de cada {{t:pot|bote}} tras el flop suma",
+  "waga": "NISKIE",
+  "powod": "es-L6-05 kalka «kilka procent»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "se estrecha de unas {{n:m11.push.10}} a unas {{n:m11.push.15}} manos",
+  "nowy": "se estrecha de aprox. el {{n:m11.push.10}} a aprox. el {{n:m11.push.15}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-L6-06 znacznik to procent («58,3 %»): «unas 58,3 % manos» niegramatyczne",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "El equilibrio está en unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} manos",
+  "nowy": "El equilibrio está en aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-L6-07 procent + «manos» bez «de las»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "Sin ante, unas {{n:m11.push.10}}; con ante, unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}.",
+  "nowy": "Sin ante, aprox. el {{n:m11.push.10}}; con ante, aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-08 «unas» + procent",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "vas all-in con unas {{n:m11.push.15}} manos; con {{n:m11.depth.10}}, con unas {{n:m11.push.10}}, y con {{n:m11.depth.5}}, ya con unas {{n:m11.nash.push.5}}–{{n:m11.push.5}}.",
+  "nowy": "vas all-in con aprox. el {{n:m11.push.15}} de las manos; con {{n:m11.depth.10}}, con aprox. el {{n:m11.push.10}}, y con {{n:m11.depth.5}}, ya con aprox. el {{n:m11.nash.push.5}}–{{n:m11.push.5}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-09 «unas» + procent + «manos»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "va all-in con unas {{n:m11.3max.push.btn}} manos, y la {{t:small-blind|ciega pequeña}}, cuando el Button se ha {{t:fold|retirado}}, con unas {{n:m11.3max.push.sb}}.",
+  "nowy": "va all-in con aprox. el {{n:m11.3max.push.btn}} de las manos, y la {{t:small-blind|ciega pequeña}}, cuando el Button se ha {{t:fold|retirado}}, con aprox. el {{n:m11.3max.push.sb}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-10 «unas» + procent + «manos»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "crece de unas {{n:m11.push.10}} a unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} manos (",
+  "nowy": "crece de aprox. el {{n:m11.push.10}} a aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} de las manos (",
+  "waga": "ŚR",
+  "powod": "es-L6-11 «unas» + procent + «manos»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Se juega con {{t:bb-ante|big blind ante}}.",
+  "nowy": "Se juega con {{t:bb-ante|ante de ciega grande}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-12 termin bb-ante = «ante de ciega grande» (terms-nazwy, m11-l1)",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "y un {{t:bb-ante|big blind ante}} de {{n:m11.ante}}",
+  "nowy": "y un {{t:bb-ante|ante de ciega grande}} de {{n:m11.ante}}",
+  "waga": "ŚR",
+  "powod": "es-L6-13 termin bb-ante = «ante de ciega grande»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Manos como [[7s 6s]] las {{t:shove|empujas}} desde",
+  "nowy": "Con manos como [[7s 6s]] {{t:shove|haces push}} desde",
+  "waga": "ŚR",
+  "powod": "es-L6-14 termin shove = «push» (w pliku «haces push»); «empujas» to druga nazwa",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "sin fold equity tienen muy poca equity contra",
+  "nowy": "sin fold equity tienen demasiado poca equity contra",
+  "waga": "NISKIE",
+  "powod": "es-L6-15 pl «za mało equity» = za mało, nie «bardzo mało»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Con una {{t:standard-deviation|desviación típica}} de alrededor de",
+  "nowy": "Con una {{t:standard-deviation|desviación estándar}} de alrededor de",
+  "waga": "ŚR",
+  "powod": "es-L7-01 termin: «desviación estándar» (terms-nazwy), nie «típica»; spójnie z m12-l1",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "y de la {{t:standard-deviation|desviación típica}} (lección",
+  "nowy": "y de la {{t:standard-deviation|desviación estándar}} (lección",
+  "waga": "ŚR",
+  "powod": "es-L7-02 termin: «desviación estándar» (terms-nazwy), nie «típica»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l3-tilt.md",
+  "stary": "y a saltos de {{t:stakes|límite}}. Es la señal",
+  "nowy": "y a saltos a {{t:stakes|límites}} más altos. Es la señal",
+  "waga": "ŚR",
+  "powod": "es-L7-03 zgubiony kierunek «w górę stawek» (pl m12-l3:33)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l3-tilt.md",
+  "stary": "en un estudio por encuesta, {{n:tilt.severe}} de los jugadores",
+  "nowy": "en un estudio por encuesta, el {{n:tilt.severe}} de los jugadores",
+  "waga": "NISKIE",
+  "powod": "es-L7-04 brak rodzajnika przed procentem (w m12-l1/l2 «el {{n}}»)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "le ocurre a aprox. {{n:dd.p.small.100k}} de los jugadores",
+  "nowy": "le ocurre a aprox. el {{n:dd.p.small.100k}} de los jugadores",
+  "waga": "NISKIE",
+  "powod": "es-L7-05 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "Lo protege de la bancarrota",
+  "nowy": "Lo protege de la ruina",
+  "waga": "NISKIE",
+  "powod": "es-L7-06 «bankructwo» = termin risk-of-ruin «ruina», nie «bancarrota» (pl m12-l4:77)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "Al principio es cuando más tienes que recuperar, así",
+  "nowy": "Al principio es cuando más te queda por aprender, así",
+  "waga": "ŚR",
+  "powod": "es-L7-07 «nadrobić» (naukę) oddane «recuperar», w tym module = odgrywać straty; mylące (pl m12-l4:85)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "no bajas de {{n:study.min}} del tiempo dedicado al estudio",
+  "nowy": "no dedicas al estudio menos del {{n:study.min}} del tiempo",
+  "waga": "NISKIE",
+  "powod": "es-L7-08 dwuznaczne «X del tiempo dedicado al estudio»; pl: nie mniej niż X czasu na naukę (m12-l4:95)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "exclusivamente a jugar al póquer",
+  "nowy": "exclusivamente a jugar al póker",
+  "waga": "NISKIE",
+  "powod": "es-L7-09 pisownia «póker» jak w pozostałych plikach",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "dedicas aprox. {{n:study.beginner}} del tiempo",
+  "nowy": "dedicas aprox. el {{n:study.beginner}} del tiempo",
+  "waga": "NISKIE",
+  "powod": "es-L7-10 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "text: \"Sin valorar\", why: \"No: el spot tiene resultado del solver, así que la decisión está valorada. «Sin valorar» se asigna",
+  "nowy": "text: \"Sin evaluar\", why: \"No: el spot tiene resultado del solver, así que la decisión está valorada. «Sin evaluar» se asigna",
+  "waga": "ŚR",
+  "powod": "es-L7-11 etykieta raportu w interfejsie to «Sin evaluar» (es.json unrated), nie «Sin valorar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "«Valoradas 14 de 30 decisiones»",
+  "nowy": "«Evaluadas 14 de 30 decisiones»",
+  "waga": "ŚR",
+  "powod": "es-L7-12 cytat z interfejsu: «Evaluadas {{rated}} de {{all}} decisiones» (es.json rated)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "Sí: «sin valorar» no significa",
+  "nowy": "Sí: «sin evaluar» no significa",
+  "waga": "ŚR",
+  "powod": "es-L7-13 etykieta interfejsu «Sin evaluar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "«Sin valorar» es falta de valoración",
+  "nowy": "«Sin evaluar» es falta de valoración",
+  "waga": "ŚR",
+  "powod": "es-L7-14 etykieta interfejsu «Sin evaluar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "**Sin valorar**",
+  "nowy": "**Sin evaluar**",
+  "waga": "ŚR",
+  "powod": "es-L7-15 etykieta interfejsu «Sin evaluar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "«Valoradas X de Y decisiones»",
+  "nowy": "«Evaluadas X de Y decisiones»",
+  "waga": "ŚR",
+  "powod": "es-L7-16 cytat z interfejsu: «Evaluadas … de … decisiones»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "En el módulo de mental game aprendiste",
+  "nowy": "En el módulo de juego mental aprendiste",
+  "waga": "ŚR",
+  "powod": "es-L7-17 termin mental-game = «juego mental» (terms-nazwy; tytuł modułu «Juego mental y bankroll»)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "juega en al menos {{n:range.mixed.low}} de los casos es acorde",
+  "nowy": "juega en al menos el {{n:range.mixed.low}} de los casos es acorde",
+  "waga": "NISKIE",
+  "powod": "es-L7-18 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "en aprox. {{n:range.mixed.high}} de los casos",
+  "nowy": "en aprox. el {{n:range.mixed.high}} de los casos",
+  "waga": "NISKIE",
+  "powod": "es-L7-19 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "jugado en aprox. {{n:range.mixed.low}} de los casos",
+  "nowy": "jugado en aprox. el {{n:range.mixed.low}} de los casos",
+  "waga": "NISKIE",
+  "powod": "es-L7-20 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "jugada en al menos {{n:range.mixed.min}}, pero con menos frecuencia que en {{n:range.mixed.low}} de los casos",
+  "nowy": "jugada en al menos el {{n:range.mixed.min}}, pero con menos frecuencia que en el {{n:range.mixed.low}} de los casos",
+  "waga": "NISKIE",
+  "powod": "es-L7-21 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "que en {{n:range.mixed.min}} de los casos es una imprecisión",
+  "nowy": "que en el {{n:range.mixed.min}} de los casos es una imprecisión",
+  "waga": "NISKIE",
+  "powod": "es-L7-22 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "pierdes en aprox. {{n:m13.lose.example}} de las manos",
+  "nowy": "pierdes en aprox. el {{n:m13.lose.example}} de las manos",
+  "waga": "NISKIE",
+  "powod": "es-L7-23 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "en al menos {{n:range.mixed.low}} de los casos (este",
+  "nowy": "en al menos el {{n:range.mixed.low}} de los casos (este",
+  "waga": "NISKIE",
+  "powod": "es-L7-24 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "que en {{n:range.mixed.min}} de los casos. Cuenta",
+  "nowy": "que en el {{n:range.mixed.min}} de los casos. Cuenta",
+  "waga": "NISKIE",
+  "powod": "es-L7-25 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "en al menos {{n:range.mixed.min}} de los casos; con",
+  "nowy": "en al menos el {{n:range.mixed.min}} de los casos; con",
+  "waga": "NISKIE",
+  "powod": "es-L7-26 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "A♥ K♥ en un {{t:board|board}} Q♥ 7♥ 2♣",
+  "nowy": "A♥ K♥ en una {{t:board|mesa}} Q♥ 7♥ 2♣",
+  "waga": "ŚR",
+  "powod": "es-L7-27 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "A♠ K♠ en un {{t:board|board}} Q♠ 7♠ 2♦",
+  "nowy": "A♠ K♠ en una {{t:board|mesa}} Q♠ 7♠ 2♦",
+  "waga": "ŚR",
+  "powod": "es-L7-28 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♥ Q♥ en un {{t:board|board}} J♥ 8♥ 3♠",
+  "nowy": "K♥ Q♥ en una {{t:board|mesa}} J♥ 8♥ 3♠",
+  "waga": "ŚR",
+  "powod": "es-L7-29 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♥ Q♥ en un {{t:board|board}} J♠ 8♠ 3♥",
+  "nowy": "K♥ Q♥ en una {{t:board|mesa}} J♠ 8♠ 3♥",
+  "waga": "ŚR",
+  "powod": "es-L7-30 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "solo en el {{t:board|board}}: tus corazones ya no encajan con el {{t:board|board}}",
+  "nowy": "solo en la {{t:board|mesa}}: tus corazones ya no encajan con la {{t:board|mesa}}",
+  "waga": "ŚR",
+  "powod": "es-L7-31 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♠ Q♠ en un {{t:board|board}} J♠ 8♠ 3♥",
+  "nowy": "K♠ Q♠ en una {{t:board|mesa}} J♠ 8♠ 3♥",
+  "waga": "ŚR",
+  "powod": "es-L7-32 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♦ Q♦ en un {{t:board|board}} J♦ 8♦ 3♠",
+  "nowy": "K♦ Q♦ en una {{t:board|mesa}} J♦ 8♦ 3♠",
+  "waga": "ŚR",
+  "powod": "es-L7-33 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "Las decisiones conformes y las aceptables",
+  "nowy": "Las decisiones acordes y las aceptables",
+  "waga": "ŚR",
+  "powod": "es-L7-34 nazwa werdyktu «Acorde» (m13-l1, es.json), nie «conforme» (pl m13-l2:34 «Zgodne»)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l3-przeglad.md",
+  "stary": "es fácil tomar una buena decisión por un error, o al revés",
+  "nowy": "es fácil confundir una buena decisión con un error, o al revés",
+  "waga": "ŚR",
+  "powod": "es-L7-35 «tomar una buena decisión por un error» czyta się jak «podjąć dobrą decyzję przez pomyłkę»; pl m13-l3:24 «uznać dobrą decyzję za błąd»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "el solver también usa la {{t:overbet|sobreapuesta}}",
+  "nowy": "el solver también usa el {{t:overbet|overbet}}",
+  "waga": "ŚR",
+  "powod": "es-R1-01 termin overbet: terms-nazwy.yaml podaje «overbet» (m), nie «sobreapuesta» (pl rules.yaml:384)",
+  "grupa": "es-R1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "los jugadores recreacionales pasivos no farolean con apuestas grandes en el river",
+  "nowy": "los jugadores recreativos pasivos no farolean con apuestas grandes en el river",
+  "waga": "NISKIE",
+  "powod": "es-R1-02 termin recreational: «jugador recreativo» (terms-nazwy.yaml; tak samo w polu population tej reguły, linia 472); pl rules.yaml:473",
+  "grupa": "es-R1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "y A5s y los conectores suited normalmente los igualas",
+  "nowy": "y A5s y los conectores del mismo palo normalmente los igualas",
+  "waga": "NISKIE",
+  "powod": "es-R1-03 spójność: «w kolorze» wszędzie indziej w pliku to «del mismo palo» (terms-nazwy: suited); pl rules.yaml:260",
+  "grupa": "es-R1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "jugadores recreacionales 42/18",
+  "nowy": "jugadores recreativos 42/18",
+  "waga": "ŚR",
+  "powod": "es-R2-01 niespójny termin: recreational = «jugador recreativo» (terms-nazwy, reszta pliku i lekcje); pl rules.yaml:857",
+  "grupa": "es-R2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "y los jugadores recreacionales 32%",
+  "nowy": "y los jugadores recreativos 32%",
+  "waga": "ŚR",
+  "powod": "es-R2-02 niespójny termin: recreational = «jugador recreativo»; w tej samej regule pole population ma «jugadores recreativos»; pl rules.yaml:874",
+  "grupa": "es-R2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "solo piensas en recuperarte o juegas",
+  "nowy": "solo piensas en recuperar lo perdido o juegas",
+  "waga": "ŚR",
+  "powod": "es-R2-03 treść krytyczna R-M12-007: «odegranie się» = odzyskanie strat; «recuperarte» jest dwuznaczne (dojść do siebie); lekcje es mają «recuperar lo perdido»; pl rules.yaml:1003",
+  "grupa": "es-R2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "por eso la repetición de partida muestra",
+  "nowy": "por eso el repaso de tus partidas muestra",
+  "waga": "ŚR",
+  "powod": "es-R2-04 niespójna nazwa funkcji: «powtórka z gry» = «repaso(s) de tus partidas» w lekcji m13-l2 i interfejsie («Repasos»); pl rules.yaml:1164",
+  "grupa": "es-R2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m0.yaml",
+  "stary": "ocupa el 3.º puesto",
+  "nowy": "ocupa el 3.er puesto",
+  "waga": "NISKIE",
+  "powod": "es-X1-01 apócope: «tercer puesto» se abrevia 3.er, no 3.º",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "(unas {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} manos)",
+  "nowy": "(alrededor del {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} de las manos)",
+  "waga": "ŚR",
+  "powod": "es-X1-02 wartości to procenty: «unas 15 %–18 % manos» jest niegramatyczne (pl m3.yaml:21 «ok. …–… rąk»)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "{{t:open|abres}} unas {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} manos",
+  "nowy": "{{t:open|abres}} alrededor del {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-X1-03 jak es-X1-02 (pl m3.yaml:49)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "{{t:open|abres}} amplio, unas {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} manos",
+  "nowy": "{{t:open|abres}} amplio, alrededor del {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-X1-04 jak es-X1-02 (pl m3.yaml:59)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "desde {{t:early-position|posiciones tempranas}}",
+  "nowy": "desde las {{t:early-position|primeras posiciones}}",
+  "waga": "ŚR",
+  "powod": "es-X1-05 termin early-position w terms-nazwy.yaml: «primeras posiciones» (pl m3.yaml:70)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m4.yaml",
+  "stary": "Solo {{t:call|pago}}",
+  "nowy": "Solo {{t:call|igualo}}",
+  "waga": "ŚR",
+  "powod": "es-X1-06 ten sam termin dwojako w pliku: wszędzie indziej «Igualo» (pl m4.yaml:14 «Tylko sprawdzam»)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m4.yaml",
+  "stary": "Los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo los {{t:call|igualas}}",
+  "nowy": "Con los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo {{t:call|igualas}}",
+  "waga": "ŚR",
+  "powod": "es-X1-07 kalka: «igualar los ases» znaczy wyrównać asy, nie sprawdzić nimi (pl m4.yaml:33)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m4.yaml",
+  "stary": "Las {{t:pair|parejas}} medianas y pequeñas en la {{t:big-blind|ciega grande}} normalmente las {{t:call|igualas}}",
+  "nowy": "Con las {{t:pair|parejas}} medianas y pequeñas en la {{t:big-blind|ciega grande}} normalmente {{t:call|igualas}}",
+  "waga": "ŚR",
+  "powod": "es-X1-08 kalka jak es-X1-07 (pl m4.yaml:34)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m5.yaml",
+  "stary": "para una c-bet pequeña",
+  "nowy": "para un c-bet pequeño",
+  "waga": "NISKIE",
+  "powod": "es-X1-09 rodzaj c-bet: w m6 i w większości korpusu męski («un c-bet pequeño»)",
+  "grupa": "es-X1"
+ },
+ {
+  "cel": "content/es/exams/m13.yaml",
+  "stary": "text: \"Alineada\", why: \"Alineada es la acción",
+  "nowy": "text: \"Acorde\", why: \"Acorde es la acción",
+  "waga": "ŚR",
+  "powod": "es-X2-01 nazwa werdyktu „Zgodna” w interfejsie es to „Acorde” (es.json grade.zgodne / verdicts.compliant), nie „Alineada”",
+  "jezyk": "es",
+  "grupa": "es-X2"
+ },
+ {
+  "cel": "content/es/exams/m13.yaml",
+  "stary": "text: \"Sin valorar\", why: \"«Sin valorar» es lo que recibe",
+  "nowy": "text: \"Sin evaluar\", why: \"«Sin evaluar» es lo que recibe",
+  "waga": "ŚR",
+  "powod": "es-X2-02 nazwa werdyktu „Bez oceny” w interfejsie es to „Sin evaluar” (es.json verdicts.unrated), nie „Sin valorar”",
+  "jezyk": "es",
+  "grupa": "es-X2"
+ },
+ {
+  "cel": "content/es/exams/m10.yaml",
+  "stary": "{{t:rake-cap|límite}}",
+  "nowy": "{{t:rake-cap|tope}}",
+  "waga": "ŚR",
+  "powod": "es-X2-03 termin rake-cap = „tope de rake” (terms-nazwy); „límite” to w es nazwa terminu stakes — myląca forma",
+  "jezyk": "es",
+  "grupa": "es-X2"
+ },
+ {
+  "cel": "content/es/exams/m11.yaml",
+  "stary": "ya solo juegas all-in o {{t:fold|retirarte}} e intentas",
+  "nowy": "ya solo vas all-in o {{t:fold|te retiras}} e intentas",
+  "waga": "NISKIE",
+  "powod": "es-X2-04 błąd składni: „juegas all-in o retirarte” (bezokolicznik zwrotny po formie osobowej)",
+  "jezyk": "es",
+  "grupa": "es-X2"
+ },
+ {
+  "cel": "content/es/exams/m8.yaml",
+  "stary": "{{t:oesd|proyecto de escalera abierto}}",
+  "nowy": "{{t:oesd|proyecto de escalera abierta}}",
+  "waga": "NISKIE",
+  "powod": "es-X2-05 forma terminu oesd niespójna z resztą przekładu („proyecto de escalera abierta”, m.in. exams/m7, m13)",
+  "jezyk": "es",
+  "grupa": "es-X2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"small\": \"{{t:c-bet|c-bet}} pequeña\"",
+  "nowy": "\"small\": \"{{t:c-bet|c-bet}} pequeño\"",
+  "waga": "NISKIE",
+  "powod": "es-U-02 rodzaj c-bet: w treści es męski (un c-bet, c-bet pequeño), tu żeński",
+  "grupa": "es-U"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "también más finas",
+  "nowy": "también más finos",
+  "waga": "NISKIE",
+  "powod": "es-U-03 rodzaj value bet: w treści es męski (un value bet, del value bet), tu zgoda żeńska",
+  "grupa": "es-U"
+ },
+ {
+  "jezyk": "es",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "un índice de progreso",
+  "nowy": "un indicador de nivel",
+  "waga": "NISKIE",
+  "powod": "es-U-04 nazwa funkcji jak w aplikacji: advancement.title = „Indicador de nivel”",
+  "grupa": "es-U"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "La primera subida a un open antes del flop; el nombre cuenta la ciega grande como la primera apuesta y el open como la segunda.",
+  "nowy": "La primera subida a una apertura antes del flop; el nombre cuenta la ciega grande como la primera apuesta y la apertura como la segunda.",
+  "waga": "ŚR",
+  "powod": "es-T-01 termin open: w terms-nazwy „apertura” (i tak w lekcjach), w definicji 3-bet angielskie „open”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "una apuesta en el flop tras hacer open preflop",
+  "nowy": "una apuesta en el flop tras abrir preflop",
+  "waga": "ŚR",
+  "powod": "es-T-02 termin open: w terms-nazwy „apertura”/czasownik „abrir”, w definicji c-bet „hacer open”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "para igualar un open hace falta una mano más fuerte que para hacer el open tú",
+  "nowy": "para igualar una apertura hace falta una mano más fuerte que para abrir tú",
+  "waga": "ŚR",
+  "powod": "es-T-03 termin open: w terms-nazwy „apertura”, w definicji gap-concept „open” 2×",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "Estrategia simplificada para short stacks:",
+  "nowy": "Estrategia simplificada para stacks cortos:",
+  "waga": "ŚR",
+  "powod": "es-T-04 termin short-stack: w terms-nazwy „stack corto”, w definicji push-fold angielskie „short stacks”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "los saltos grandes aumentan el risk premium",
+  "nowy": "los saltos grandes aumentan la prima de riesgo",
+  "waga": "ŚR",
+  "powod": "es-T-05 termin risk-premium: w terms-nazwy „prima de riesgo”, w definicji pay-jump angielskie „risk premium”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "la suma de ciegas y antes de una mano",
+  "nowy": "la suma de las ciegas y el ante de una mano",
+  "waga": "ŚR",
+  "powod": "es-T-06 „y antes de una mano” czyta się jako „i przed rozdaniem”; pl: „sumę blindów i ante w jednym rozdaniu”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "tras una c-bet en el flop",
+  "nowy": "tras un c-bet en el flop",
+  "waga": "NISKIE",
+  "powod": "es-T-07 rodzaj c-bet: w lekcjach i regułach przeważa męski (100 : 22), 3-bet/4-bet w definicjach też męskie",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "dice el {{t:alpha|alfa}} del mód",
+  "nowy": "dice el {{t:alpha|alpha}} del mód",
+  "waga": "ŚR",
+  "powod": "es-S-01 m10-l3-odejscie-od-bazy.md:103 terms-nazwy.yaml: alpha = „alpha” (194 wystąpienia wobec 3 „alfa”; wzorzec es-L3-01, D-431)",
+  "grupa": "es-S"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "ales de {{t:alpha|alfa}} son ari",
+  "nowy": "ales de {{t:alpha|alpha}} son ari",
+  "waga": "ŚR",
+  "powod": "es-S-02 m10-l3-odejscie-od-bazy.md:129 terms-nazwy.yaml: alpha = „alpha” (wzorzec es-L3-01, D-431)",
+  "grupa": "es-S"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "quedan sin valorar",
+  "nowy": "quedan sin evaluar",
+  "waga": "NISKIE",
+  "powod": "es-S-03 m13-l1-raport.md:97 etykieta raportu „Sin evaluar” jak w es.json (wzorzec es-L7, es-X2-02)",
+  "grupa": "es-S"
+ }
+]
