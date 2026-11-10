@@ -22,6 +22,16 @@
  {
   "jezyk": "ja",
   "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 795,
+  "stary": "{{t:semi-connected|セミコネクト}}\",",
+  "nowy": "{{t:semi-connected|セミコネクテッド}}\",",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (a): semi-connected = „セミコネクテッド” (nazwa w terms-nazwy wg poprawki S1, równolegle do コネクテッド / ディスコネクテッド); pl „półpołączony”. Etykieta odpowiedzi w ćwiczeniu tekstur.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
   "linia": 796,
   "stary": "\"disconnected\": \"{{t:disconnected|ディスコネクト}}\"",
   "nowy": "\"disconnected\": \"{{t:disconnected|ディスコネクテッド}}\"",
@@ -42,6 +52,16 @@
  {
   "jezyk": "ja",
   "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 826,
+  "stary": "{{t:semi-connected|セミコネクト}}のフロッ",
+  "nowy": "{{t:semi-connected|セミコネクテッド}}のフロッ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (a): semi-connected = „セミコネクテッド” (nazwa w terms-nazwy wg poprawki S1, równolegle do コネクテッド / ディスコネクテッド); pl „półpołączony”. Uzasadnienie w ćwiczeniu tekstur.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
   "linia": 827,
   "stary": "{{t:disconnected|ディスコネクト}}のフロップは",
   "nowy": "{{t:disconnected|ディスコネクテッド}}のフロップは",
@@ -53,11 +73,11 @@
   "jezyk": "ja",
   "cel": "apps/mobile/src/i18n/locales/ja.json",
   "linia": 860,
-  "stary": "{{t:connected|コネクト}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクト}}",
-  "nowy": "{{t:connected|コネクテッド}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクテッド}}",
+  "stary": "{{t:connected|コネクト}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクト}}のどれで",
+  "nowy": "{{t:connected|コネクテッド}}、{{t:semi-connected|セミコネクテッド}}、{{t:disconnected|ディスコネクテッド}}のどれで",
   "waga": "ŚR",
-  "powod": "drill.texture.prompt.ranks: pl „{{t:paired}}, {{t:connected}}, {{t:semi-connected|półpołączony}} czy {{t:disconnected}}”; formy connected i disconnected niezgodne z content/ja/terms-nazwy.yaml („コネクテッド”, „ディスコネクテッド”); semi-connected „セミコネクト” jest zgodne i zostaje.",
-  "grupa": "U1"
+  "powod": "Rozstrzygnięcie AP (a): semi-connected = „セミコネクテッド” (nazwa w terms-nazwy wg poprawki S1, równolegle do コネクテッド / ディスコネクテッド); pl „półpołączony”. Zastępuje wpis U1 tej linii: formy connected i disconnected jak w U1 (コネクテッド, ディスコネクテッド wg terms-nazwy), a semi-connected w przyjętej formie セミコネクテッド zamiast セミコネクト.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -88,6 +108,146 @@
   "waga": "ŚR",
   "powod": "pl: „{{t:rake-cap|limit}} jest poza zasięgiem” — forma znacznika niezgodna z terms-nazwy (rake-cap = „レーキ上限”); jedna nazwa na pojęcie.",
   "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 7,
+  "stary": "た。あなたの手は中程度で、",
+  "nowy": "た。あなたのハンドは中程度で、",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian; „手放すに” = „oddać”, bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 9,
+  "stary": "では、弱めの手と中程度の手にはプッシュ/フォールドが主な方法です。このスタックでは、オールインが相手から最も多くの{{t:fold|フォールド}}を引き出します。これは単純化で、ソルバーは一部の手を別の方法で",
+  "nowy": "では、弱めのハンドと中程度のハンドにはプッシュ/フォールドが主な方法です。このスタックでは、オールインが相手から最も多くの{{t:fold|フォールド}}を引き出します。これは単純化で、ソルバーは一部のハンドを別の方法で",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 3× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 23,
+  "stary": "まったくない手でのオールイ",
+  "nowy": "まったくないハンドでのオールイ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 27,
+  "stary": "見込みのない手は{{t:fold|フォールド}}でしか利益を得られず、それが約{{n:exam.m11.fe.alpha}}必要です。だからオールインの{{t:range}}は、広いとはいえ、すべての手を含むわけで",
+  "nowy": "見込みのないハンドは{{t:fold|フォールド}}でしか利益を得られず、それが約{{n:exam.m11.fe.alpha}}必要です。だからオールインの{{t:range}}は、広いとはいえ、すべてのハンドを含むわけで",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 32,
+  "stary": "見込みのない手でのオールイ",
+  "nowy": "見込みのないハンドでのオールイ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 34,
+  "stary": "、より多くの手で{{t:shove|プッシュ}}",
+  "nowy": "、より多くのハンドで{{t:shove|プッシュ}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 48,
+  "stary": "{{t:shove|プッシュ}}する手なら、どれで",
+  "nowy": "{{t:shove|プッシュ}}するハンドなら、どれで",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 50,
+  "stary": "{{n:m11.call.5}}の手\", cor",
+  "nowy": "{{n:m11.call.5}}のハンド\", cor",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 51,
+  "stary": "{{n:m11.call.5}}の手で{{t:call|コール}}",
+  "nowy": "{{n:m11.call.5}}のハンドで{{t:call|コール}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 52,
+  "stary": "はランダムな手ではなく、オ",
+  "nowy": "はランダムなハンドではなく、オ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 76,
+  "stary": "ックは多くの手で{{t:shove|プッシュ}}",
+  "nowy": "ックは多くのハンドで{{t:shove|プッシュ}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 84,
+  "stary": "{{n:m11.3max.push.sb}}の手\", correct: true, why: \"後ろにいるプレイヤーが一人増えるごとに、誰かが強い手を持っている",
+  "nowy": "{{n:m11.3max.push.sb}}のハンド\", correct: true, why: \"後ろにいるプレイヤーが一人増えるごとに、誰かが強いハンドを持っている",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m11.yaml",
+  "linia": 86,
+  "stary": "{{n:m11.3max.push.sb}}の手で{{t:shove|プッシュ}}",
+  "nowy": "{{n:m11.3max.push.sb}}のハンドで{{t:shove|プッシュ}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "linia": 29,
+  "stary": "数の平方根に比例してしか",
+  "nowy": "数の平方根に反比例してしか",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (d), egzamin m12 (treść krytyczna): błąd maleje odwrotnie proporcjonalnie do pierwiastka z liczby rąk (∝ 1/√n), więc „反比例して”; pl „Błąd maleje dopiero z pierwiastkiem z liczby rąk” ma „dopiero”, więc „しか…ません” zostaje (jak poprawka R3 w rules.yaml:839). Liczby bez zmian.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -132,32 +292,222 @@
  {
   "jezyk": "ja",
   "cel": "content/ja/exams/m5.yaml",
-  "linia": 47,
-  "stary": "勝ち目のない手で",
-  "nowy": "勝ち目のないハンドで",
+  "linia": 13,
+  "stary": "で、ここでの手は平均してあ",
+  "nowy": "で、ここでのハンドは平均してあ",
   "waga": "ŚR",
-  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”). W m6 to samo zdanie brzmi „勝ち目のないハンドで”.",
-  "grupa": "E1"
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 22,
+  "stary": "りです。低く{{t:connected}}のフロップは、{{t:big-blind}}が多くディフェンスする{{t:connectors|コネクター}}や小さいカードの手に当たります",
+  "nowy": "りです。低くて{{t:connected}}なフロップは、{{t:big-blind}}が多くディフェンスする{{t:connectors|コネクター}}や小さいカードのハンドに当たります",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian). Połączona z wykluczonym wpisem E1 tej linii („低く{{t:connected}}のフロップは” → „低くて{{t:connected}}なフロップは”: pl: „niski, {{t:connected}} flop”. „低くコネクテッドのフロップ” jest niegramatyczne (przysłówkowe „低く” nie łączy się z rzeczownikiem); „低くてコネクテッドなフロップ” jest poprawne, znacznik bez zmian.).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 31,
+  "stary": "より最も強い手をずっと多く持っていれば、より強い手にぶつかるこ",
+  "nowy": "より最も強いハンドをずっと多く持っていれば、より強いハンドにぶつかるこ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 32,
+  "stary": "手の最も強い手に対して大き",
+  "nowy": "手の最も強いハンドに対して大き",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 33,
+  "stary": "イズは自分の手だけで決まる\", why: \"相手にはあなたの手は見えず、見えるのは{{t:range}}だけです。サイズは多くの手に同時に合う",
+  "nowy": "イズは自分のハンドだけで決まる\", why: \"相手にはあなたのハンドは見えず、見えるのは{{t:range}}だけです。サイズは多くのハンドに同時に合う",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 3× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 38,
+  "stary": "{{t:pair|ペア}}のない手1つがフロップに外れるのは約{{n:flop.miss.unpaired}}、2つ同時なら約{{n:flop.miss.two}}です。そのような手が3つ（6つ",
+  "nowy": "{{t:pair|ペア}}のないハンド1つがフロップに外れるのは約{{n:flop.miss.unpaired}}、2つ同時なら約{{n:flop.miss.two}}です。そのようなハンドが3つ（6つ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 47,
+  "stary": "勝ち目のない手で{{n:cbet.btn.big}}",
+  "nowy": "勝ち目のないハンドで{{n:cbet.btn.big}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian). Połączona z wykluczonym wpisem E1 tej linii („勝ち目のない手で” → „勝ち目のないハンドで”: pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”). W m6 to samo zdanie brzmi „勝ち目のないハンドで”.).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 52,
+  "stary": "{{t:pair|ペア}}のない手がフロップに",
+  "nowy": "{{t:pair|ペア}}のないハンドがフロップに",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 59,
+  "stary": "は強く（弱い手は{{t:fold|フォールド}}し、最も強い手の一部は{{t:raise|レイズ}}",
+  "nowy": "は強く（弱いハンドは{{t:fold|フォールド}}し、最も強いハンドの一部は{{t:raise|レイズ}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 60,
+  "stary": "{{t:big-blind}}は弱い手を多く含めて",
+  "nowy": "{{t:big-blind}}は弱いハンドを多く含めて",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 61,
+  "stary": "ンスには弱い手が多く含まれ",
+  "nowy": "ンスには弱いハンドが多く含まれ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 66,
+  "stary": "{{t:out-of-position|アウトオブポジション}}では強い手でもよく{{t:check|チェック}}",
+  "nowy": "{{t:out-of-position|アウトオブポジション}}では強いハンドでもよく{{t:check|チェック}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
   "cel": "content/ja/exams/m5.yaml",
   "linia": 68,
-  "stary": "text: \"手を諦めるわけではない",
-  "nowy": "text: \"ハンドを諦めるわけではない",
+  "stary": "ext: \"手を諦めるわけではない：{{t:check|チェック}}の後、相手の{{t:bet}}に{{t:call|コール}}するかチェックレイズする\", correct: true, why: \"そのとおりです。{{t:out-of-position}}での{{t:check|チェック}}は{{t:pot|ポット}}を明け渡すことではありません。強い手は{{t:call|コール}}",
+  "nowy": "ext: \"ハンドを諦めるわけではない：{{t:check|チェック}}の後、相手の{{t:bet}}に{{t:call|コール}}するかチェックレイズする\", correct: true, why: \"そのとおりです。{{t:out-of-position}}での{{t:check|チェック}}は{{t:pot|ポット}}を明け渡すことではありません。強いハンドは{{t:call|コール}}",
   "waga": "ŚR",
-  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).",
-  "grupa": "E1"
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian). Połączona z wykluczonym wpisem E1 tej linii („text: \"手を諦めるわけではない” → „text: \"ハンドを諦めるわけではない”: pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 69,
+  "stary": "{{t:check|チェック}}する手の多くは、相",
+  "nowy": "{{t:check|チェック}}するハンドの多くは、相",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 70,
+  "stary": "{{t:pair|ペア}}のない手でだけ{{t:check|チェック}}する\", why: \"いいえ。{{t:out-of-position}}では、強い手も含めて{{t:range|レンジ}}全体でよく{{t:check|チェック}}します。弱い手だけが{{t:check|チェック}}",
+  "nowy": "{{t:pair|ペア}}のないハンドでだけ{{t:check|チェック}}する\", why: \"いいえ。{{t:out-of-position}}では、強いハンドも含めて{{t:range|レンジ}}全体でよく{{t:check|チェック}}します。弱いハンドだけが{{t:check|チェック}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 3× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
   "cel": "content/ja/exams/m5.yaml",
   "linia": 75,
-  "stary": "やめるのはどの手ですか",
-  "nowy": "やめるのはどのハンドですか",
+  "stary": "めるのはどの手ですか？\"",
+  "nowy": "めるのはどのハンドですか？\"",
   "waga": "ŚR",
-  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).",
-  "grupa": "E1"
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian). Połączona z wykluczonym wpisem E1 tej linii („やめるのはどの手ですか” → „やめるのはどのハンドですか”: pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 78,
+  "stary": "{{t:pair|ペア}}のない手2つが同時に外れるのは約{{n:flop.miss.two}}しかありません。ベットはまれにし、主に強い手と強い{{t:draw|ドロー}}",
+  "nowy": "{{t:pair|ペア}}のないハンド2つが同時に外れるのは約{{n:flop.miss.two}}しかありません。ベットはまれにし、主に強いハンドと強い{{t:draw|ドロー}}",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 79,
+  "stary": "々ベットする手に含まれます",
+  "nowy": "々ベットするハンドに含まれます",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 80,
+  "stary": "t: \"どの手もやめない：",
+  "nowy": "t: \"どのハンドもやめない：",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 88,
+  "stary": "げ、主に強い手と強い{{t:draw|ドロー}}でベットします。{{t:draw|ドロー}}のない最も低い{{t:pair}}は、せいぜい中程度の手です。{{t:bet}}に{{t:call|コール}}してくるのは主に、より強い手と、この手に対してエク",
+  "nowy": "げ、主に強いハンドと強い{{t:draw|ドロー}}でベットします。{{t:draw|ドロー}}のない最も低い{{t:pair}}は、せいぜい中程度のハンドです。{{t:bet}}に{{t:call|コール}}してくるのは主に、より強いハンドと、このハンドに対してエク",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 4× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 89,
+  "stary": "イズは、強い手と強い{{t:draw|ドロー}}のためのものです。最も低い{{t:pair|ペア}}では、あなたによく勝つ手やエクイティの大きい手に対して大き",
+  "nowy": "イズは、強いハンドと強い{{t:draw|ドロー}}のためのものです。最も低い{{t:pair|ペア}}では、あなたによく勝つハンドやエクイティの大きいハンドに対して大き",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 3× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 90,
+  "stary": "ない中程度の手は{{t:check|チェック}}することが多くなります。小さい{{t:bet}}は{{t:draw|ドロー}}に安くカードを見せることになり、弱い手はどのみちめ",
+  "nowy": "ない中程度のハンドは{{t:check|チェック}}することが多くなります。小さい{{t:bet}}は{{t:draw|ドロー}}に安くカードを見せることになり、弱いハンドはどのみちめ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -171,6 +521,16 @@
  },
  {
   "jezyk": "ja",
+  "cel": "content/ja/exams/m6.yaml",
+  "linia": 94,
+  "stary": "解です。低く{{t:connected|コネクト}}したフロップでは",
+  "nowy": "解です。低くて{{t:connected|コネクテッド}}なフロップでは",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. pl „na niskim, połączonym flopie”; zapis jak w poprawce L2 m5-l2:88.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
   "cel": "content/ja/exams/m7.yaml",
   "linia": 44,
   "stary": "ポットの3/4をベットします",
@@ -178,6 +538,16 @@
   "waga": "ŚR",
   "powod": "pl: „betujesz 3/4 {{t:pot|puli}}” — w przekładzie zgubiony znacznik terminu {{t:pot|…}} (zwykły tekst „ポット”); przywrócony znacznik z formą zgodną z terms-nazwy (ポット).",
   "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 49,
+  "stary": "てのサイズとテーブルをまとめた数",
+  "nowy": "てのサイズとボードをまとめた数",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (e): pl „Fold to c-bet łączy wszystkie rozmiary i stoły” — „stoły” to boardy (lekcja l. 109: rozmiary i flopy), nie stoły do gry; „ボード” jak w rules.yaml:906 i w poprawce E2 exams/m10.yaml:63.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -278,6 +648,26 @@
   "waga": "ŚR",
   "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
   "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l3-tilt.md",
+  "linia": 78,
+  "stary": ": \"プロフィールを書き出す：何がきっかけになるか、何を考え何を感じるか、プレイがどう変わるか\", correct: true, why: \"ティルトの仕方もその理由も、プレイヤーごとに少しずつ違います。プロフィールがあれば、",
+  "nowy": ": \"プロファイルを書き出す：何がきっかけになるか、何を考え何を感じるか、プレイがどう変わるか\", correct: true, why: \"ティルトの仕方もその理由も、プレイヤーごとに少しずつ違います。プロファイルがあれば、",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (i), moduł 12: „profil (tiltu)” = „プロファイル” jak w regule R-M12-006 (rules.yaml:995); „プロフィール” to raczej notka o osobie. Sens bez zmian; pl „Od spisania profilu… Profil pozwala rozpoznać sygnały” (2 wystąpienia w linii).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l3-tilt.md",
+  "linia": 118,
+  "stary": "ィルトプロフィール**を書き",
+  "nowy": "ィルトプロファイル**を書き",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (i), moduł 12: „profil (tiltu)” = „プロファイル” jak w regule R-M12-006 (rules.yaml:995); „プロフィール” to raczej notka o osobie. Sens bez zmian; pl „Spisz swój **profil tiltu**”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -411,26 +801,6 @@
  },
  {
   "jezyk": "ja",
-  "cel": "content/ja/lessons/m5-l1-tekstury.md",
-  "linia": 74,
-  "stary": "**{{t:semi-connected|セミコネクテッド}}**なフロップは",
-  "nowy": "**{{t:semi-connected|セミコネクト}}**なフロップは",
-  "waga": "ŚR",
-  "powod": "Forma znacznika niezgodna z terms-nazwy (semi-connected: „セミコネクト”); reszta przekładu używa セミコネクト.",
-  "grupa": "L2"
- },
- {
-  "jezyk": "ja",
-  "cel": "content/ja/lessons/m5-l1-tekstury.md",
-  "linia": 84,
-  "stary": "（{{t:semi-connected|セミコネクテッド}}なフロップ、または",
-  "nowy": "（{{t:semi-connected|セミコネクト}}なフロップ、または",
-  "waga": "ŚR",
-  "powod": "Forma znacznika niezgodna z terms-nazwy (semi-connected: „セミコネクト”).",
-  "grupa": "L2"
- },
- {
-  "jezyk": "ja",
   "cel": "content/ja/lessons/m5-l2-przewagi.md",
   "linia": 88,
   "stary": "低くて{{t:connected|コネクトした}}フロップでは",
@@ -471,6 +841,16 @@
  },
  {
   "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 126,
+  "stary": "{{t:connected|コネクト}}・{{t:semi-connected|セミコネクト}}のフロッ",
+  "nowy": "{{t:connected|コネクテッド}}・{{t:semi-connected|セミコネクテッド}}のフロッ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (a): semi-connected = „セミコネクテッド” (nazwa w terms-nazwy wg poprawki S1, równolegle do コネクテッド / ディスコネクテッド); pl „półpołączony”. Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. Obie formy w jednej frazie („na innych niskich flopach połączonych i półpołączonych”), sens bez zmian.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
   "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
   "linia": 94,
   "stary": "強いハンドは支払い、弱いハンドは{{t:fold|フォールド}}します。",
@@ -488,6 +868,46 @@
   "waga": "ŚR",
   "powod": "pl: „Taki rozmiar wypycha słabsze ręce, a płacą tylko lepsze” — słabsze/lepsze od twojej ręki; ja „słabe/silne”. W tej samej lekcji (w. 46) jest poprawnie „より強いハンド”.",
   "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l3-check-raise.md",
+  "linia": 16,
+  "stary": "y: \"低く{{t:connected|コネクトした}}フロップでの",
+  "nowy": "y: \"低くて{{t:connected|コネクテッド}}なフロップでの",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. pl „na niskim, połączonym flopie”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l3-check-raise.md",
+  "linia": 17,
+  "stary": "。非常に{{t:connected|コネクトした}}フロッ",
+  "nowy": "。非常に{{t:connected|コネクテッド}}なフロッ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. pl „na bardzo połączonych flopach”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l3-check-raise.md",
+  "linia": 125,
+  "stary": "、非常に{{t:connected|コネクトした}}フロッ",
+  "nowy": "、非常に{{t:connected|コネクテッド}}なフロッ",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. pl „na bardzo połączonym flopie”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l3-check-raise.md",
+  "linia": 130,
+  "stary": "- **低く{{t:connected|コネクトした}}フロップで*",
+  "nowy": "- **低くて{{t:connected|コネクテッド}}なフロップで*",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. pl „na niskich, połączonych flopach”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -603,21 +1023,21 @@
   "jezyk": "ja",
   "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
   "linia": 65,
-  "stary": "シングルレイズの{{t:pot|ポット}}、スタック",
-  "nowy": "レイズが1回の{{t:pot|ポット}}、スタック",
+  "stary": "\"シングルレイズの{{t:pot|ポット}}",
+  "nowy": "\"シングルレイズド{{t:pot|ポット}}",
   "waga": "ŚR",
-  "powod": "Jedna nazwa na pojęcie: pl „{{t:pot|Pula}} z jednym podbiciem” w m9-l1 oddano 5× jako „レイズが1回の{{t:pot|ポット}}”; „シングルレイズの” występuje w całej treści ja tylko 2× (ta lekcja).",
-  "grupa": "L5"
+  "powod": "Rozstrzygnięcie AP (c): „pula po jednym podbiciu” (single-raised pot) = „シングルレイズド{{t:pot|ポット}}” (forma większościowa: reguły R-M9, egzamin m9, lekcja m9-l3, poprawki L6 w m9-l4); pl „pula z jednym podbiciem”. Zastępuje wpis L5 tej linii, który zmieniał na „レイズが1回の…”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
   "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
   "linia": 110,
-  "stary": "シングルレイズの{{t:pot|ポット}}では",
-  "nowy": "レイズが1回の{{t:pot|ポット}}では",
+  "stary": "レイズの{{t:pot|ポット}}で",
+  "nowy": "レイズド{{t:pot|ポット}}で",
   "waga": "ŚR",
-  "powod": "Jedna nazwa na pojęcie: pl „W {{t:pot|puli}} z jednym podbiciem”; w m9-l1 5× „レイズが1回の{{t:pot|ポット}}”, tu inna nazwa tej samej sytuacji.",
-  "grupa": "L5"
+  "powod": "Rozstrzygnięcie AP (c): „pula po jednym podbiciu” (single-raised pot) = „シングルレイズド{{t:pot|ポット}}” (forma większościowa: reguły R-M9, egzamin m9, lekcja m9-l3, poprawki L6 w m9-l4); pl „pula z jednym podbiciem”. Zastępuje wpis L5 tej linii, który zmieniał na „レイズが1回の…”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -702,6 +1122,56 @@
  {
   "jezyk": "ja",
   "cel": "content/ja/rules.yaml",
+  "linia": 257,
+  "stary": "o、オフスーツのエース（A",
+  "nowy": "o、オフスートのエース（A",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (f): offsuit = „オフスート” (forma większościowa, nazwa w terms-nazwy wg poprawki S1; poprawki L1 i E1 w tę samą stronę); pl „asy w różnych kolorach (AJo–A9o)”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 273,
+  "stary": "弱いオフスーツのハンド（K",
+  "nowy": "弱いオフスートのハンド（K",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (f): offsuit = „オフスート” (forma większościowa, nazwa w terms-nazwy wg poprawki S1; poprawki L1 i E1 w tę samą stronę); pl „słabsze ręce w różnych kolorach”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 274,
+  "stary": " \"オフスーツのハンドはド",
+  "nowy": " \"オフスートのハンドはド",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (f): offsuit = „オフスート” (forma większościowa, nazwa w terms-nazwy wg poprawki S1; poprawki L1 i E1 w tę samą stronę); pl „ręce w różnych kolorach są często zdominowane”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 358,
+  "stary": "{{t:connected|コネクト}}または{{t:semi-connected|セミコネクト}}している場合（例：",
+  "nowy": "{{t:connected|コネクテッド}}または{{t:semi-connected|セミコネクテッド}}である場合（例：",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (a): semi-connected = „セミコネクテッド” (nazwa w terms-nazwy wg poprawki S1, równolegle do コネクテッド / ディスコネクテッド); pl „półpołączony”. Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. Końcówka „…している” przebudowana na „…である” (forma przymiotnikowa nie łączy się z する); pl „flop jest niski i connected albo półpołączony”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 509,
+  "stary": "{{t:connected|コネクト}}している場合（例：",
+  "nowy": "{{t:connected|コネクテッド}}である場合（例：",
+  "waga": "ŚR",
+  "powod": "Rozstrzygnięcie AP (b): connected = „コネクテッド(な)” zgodnie z terms-nazwy.yaml (jedna forma przymiotnikowa); pl „połączony”. Końcówka „…している” przebudowana na „…である”; pl „flop jest niski i connected”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
   "linia": 947,
   "stary": "{{t:rake-cap|レーキキャップ}}",
   "nowy": "{{t:rake-cap|レーキ上限}}",
@@ -713,11 +1183,11 @@
   "jezyk": "ja",
   "cel": "content/ja/rules.yaml",
   "linia": 973,
-  "stary": "ハンド数の平方根に比例してしか小さくならないからです",
-  "nowy": "ハンド数の平方根に比例して小さくなるからです",
+  "stary": "数の平方根に比例してしか小さくならないからです：必",
+  "nowy": "数の平方根に反比例して小さくなるからです：必",
   "waga": "ŚR",
-  "powod": "Treść krytyczna (R-M12-003): pl „błąd oszacowania maleje z pierwiastkiem z liczby rąk” nie zawiera ograniczenia „tylko”; przekład dodaje „しか…ない” (wzmocnienie). Nowy tekst mówi to samo co pl i zgadza się z lekcją m12-l1 (linia 118: 平方根に比例して小さくなります).",
-  "grupa": "R4"
+  "powod": "Rozstrzygnięcie AP (d), R-M12-003 (treść krytyczna): błąd estymacji maleje odwrotnie proporcjonalnie do pierwiastka z liczby rąk (błąd ∝ 1/√n), więc „反比例して”, nie „比例して”; pl „błąd oszacowania maleje z pierwiastkiem z liczby rąk” nie ma „dopiero”, więc bez „しか…ない” (jak we wpisie R4, który ten wpis zastępuje). Liczby i wzór bez zmian.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -1001,16 +1471,6 @@
  },
  {
   "jezyk": "ja",
-  "cel": "content/ja/exams/m5.yaml",
-  "linia": 22,
-  "stary": "低く{{t:connected}}のフロップは",
-  "nowy": "低くて{{t:connected}}なフロップは",
-  "waga": "NISKIE",
-  "powod": "pl: „niski, {{t:connected}} flop”. „低くコネクテッドのフロップ” jest niegramatyczne (przysłówkowe „低く” nie łączy się z rzeczownikiem); „低くてコネクテッドなフロップ” jest poprawne, znacznik bez zmian.",
-  "grupa": "E1"
- },
- {
-  "jezyk": "ja",
   "cel": "content/ja/exams/m7.yaml",
   "linia": 75,
   "stary": "引くのはダイヤの2枚だけです",
@@ -1018,6 +1478,26 @@
   "waga": "NISKIE",
   "powod": "pl: „odejmujesz tylko dwie karty w kolorze karo” — „引く” przy kartach czyta się jak „dobierasz” (draw); „差し引く” jednoznacznie znaczy „odejmujesz”.",
   "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 67,
+  "stary": "して、ベースラインどおりにプレ",
+  "nowy": "して、ベースどおりにプレ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 69,
+  "stary": "ので、ベースラインに戻ります。",
+  "nowy": "ので、ベースに戻ります。",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -1032,12 +1512,72 @@
  {
   "jezyk": "ja",
   "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 87,
+  "stary": "らも、ベースラインからどちらに",
+  "nowy": "らも、ベースからどちらに",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 89,
+  "stary": "–9のベースラインから、相手の",
+  "nowy": "–9のベースから、相手の",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
   "linia": 130,
   "stary": "自分の{{t:stakes|ステークス}}のプレイヤー層のデータ",
   "nowy": "自分の{{t:stakes|ステークス}}の母集団データ",
   "waga": "NISKIE",
   "powod": "pl: „dane o populacji”. W tym pliku „プレイヤー層”, w m10-l2, m10-l3, m10-l4 i rules.yaml „母集団” (25 linii). Jedna nazwa na pojęcie.",
   "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 52,
+  "stary": ": \"ベースライン（モジュール",
+  "nowy": ": \"ベース（モジュール",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 61,
+  "stary": "は、モジュール4のベースラインより多",
+  "nowy": "は、モジュール4のベースより多",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 70,
+  "stary": ": \"ベースラインより広く{{t:open|オープン}}",
+  "nowy": ": \"ベースより広く{{t:open|オープン}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 80,
+  "stary": ": \"ベースラインより多く{{t:bluff|ブラフ}}",
+  "nowy": ": \"ベースより多く{{t:bluff|ブラフ}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -1052,12 +1592,72 @@
  {
   "jezyk": "ja",
   "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 99,
+  "stary": "ヤーがベースラインからどちらに",
+  "nowy": "ヤーがベースからどちらに",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 105,
+  "stary": " | ベースラインとのずれ |",
+  "nowy": " | ベースとのずれ |",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 108,
+  "stary": " | ベースラインに近い |",
+  "nowy": " | ベースに近い |",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 130,
+  "stary": "ル8のベースラインは変わりませ",
+  "nowy": "ル8のベースは変わりませ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
   "linia": 132,
   "stary": "{{t:street|ストリート}}にわたって；",
   "nowy": "{{t:street|ストリート}}にわたって。",
   "waga": "NISKIE",
   "powod": "Punkt listy kończy się średnikiem przeniesionym z pl („…na trzech ulicach;”); w japońskim zdanie kończy „。”, jak w następnym punkcie.",
   "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 137,
+  "stary": "で、モジュール4のベースラインより多",
+  "nowy": "で、モジュール4のベースより多",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 139,
+  "stary": "トにはベースラインより多くの{{t:bluff|ブラフ}}",
+  "nowy": "トにはベースより多くの{{t:bluff|ブラフ}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (h): „baza” (strategia bazowa) = „ベース” jak w lekcji m10-l3, regułach R-M10 i egzaminie m10 (50 wystąpień wobec 14 „ベースライン”); pl „baza / w bazie / od bazy”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -1108,6 +1708,26 @@
   "waga": "NISKIE",
   "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
   "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l1-wariancja.md",
+  "linia": 49,
+  "stary": "誤差はハンド数の平方根に比例して小さくなり",
+  "nowy": "誤差はハンド数の平方根に反比例して小さくなり",
+  "waga": "NISKIE",
+  "powod": "pl: „błąd maleje z pierwiastkiem z liczby rąk” (R-M12-003); „平方根に比例して小さくなる” jest rachunkowo nieścisłe (błąd jest odwrotnie proporcjonalny do pierwiastka) — ujednolicenie z poprawką rules.yaml:973 i exams/m12.yaml:29 (rozstrzygnięcie d sesji AP); sens zalecenia bez zmian",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l1-wariancja.md",
+  "linia": 118,
+  "stary": "推定誤差は、ハンド数の平方根に比例して小さくなり",
+  "nowy": "推定誤差は、ハンド数の平方根に反比例して小さくなり",
+  "waga": "NISKIE",
+  "powod": "pl: „błąd maleje z pierwiastkiem z liczby rąk” (R-M12-003); „平方根に比例して小さくなる” jest rachunkowo nieścisłe (błąd jest odwrotnie proporcjonalny do pierwiastka) — ujednolicenie z poprawką rules.yaml:973 i exams/m12.yaml:29 (rozstrzygnięcie d sesji AP); sens zalecenia bez zmian",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -1302,12 +1922,202 @@
  {
   "jezyk": "ja",
   "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 26,
+  "stary": "ボタンは強い手の多くでベットするので、{{t:check|チェック}}したあとは強い手が少ないから\", correct: true, why: \"はい。強い手は通常Cベットします。{{t:check|チェック}}したあとのボタンの{{t:range|レンジ}}には中程度の手や弱い手が多く、あな",
+  "nowy": "ボタンは強いハンドの多くでベットするので、{{t:check|チェック}}したあとは強いハンドが少ないから\", correct: true, why: \"はい。強いハンドは通常Cベットします。{{t:check|チェック}}したあとのボタンの{{t:range|レンジ}}には中程度のハンドや弱いハンドが多く、あな",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 5× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 27,
+  "stary": "るため、強い手で{{t:check|チェック}}することもあります。ただし、ベットするときよりは強い手が少なくなり",
+  "nowy": "るため、強いハンドで{{t:check|チェック}}することもあります。ただし、ベットするときよりは強いハンドが少なくなり",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 36,
+  "stary": "がここで強い手を持っている",
+  "nowy": "がここで強いハンドを持っている",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 56,
+  "stary": "ットに向いた手です。ボタン",
+  "nowy": "ットに向いたハンドです。ボタン",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 57,
+  "stary": "は相手の弱い手から稼げませ",
+  "nowy": "は相手の弱いハンドから稼げませ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 67,
+  "stary": "アウツのある手でより頻繁に",
+  "nowy": "アウツのあるハンドでより頻繁に",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 76,
+  "stary": "枚では、この手は{{t:second-barrel|セカンドバレル}}",
+  "nowy": "枚では、このハンドは{{t:second-barrel|セカンドバレル}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 78,
+  "stary": "それより強い手を持っている",
+  "nowy": "それより強いハンドを持っている",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 88,
+  "stary": "できていない手でスタック全",
+  "nowy": "できていないハンドでスタック全",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 98,
+  "stary": "すると、弱い手は{{t:fold|フォールド}}し、強いKやセットが払ってきます。キッカーが中程度の{{t:top-pair|トップペア}}は{{t:raise|レイズ}}する手ではありませ",
+  "nowy": "すると、弱いハンドは{{t:fold|フォールド}}し、強いKやセットが払ってきます。キッカーが中程度の{{t:top-pair|トップペア}}は{{t:raise|レイズ}}するハンドではありませ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 106,
+  "stary": "アウツのない手は、フロップ",
+  "nowy": "アウツのないハンドは、フロップ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 107,
+  "stary": "手がより強い手でベットして",
+  "nowy": "手がより強いハンドでベットして",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 122,
+  "stary": "ボタンは強い手の多くでCベットしていたはずなので、{{t:check|チェック}}したあとは強い手が少なくなり",
+  "nowy": "ボタンは強いハンドの多くでCベットしていたはずなので、{{t:check|チェック}}したあとは強いハンドが少なくなり",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 2× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 127,
+  "stary": "ベットに使う手",
+  "nowy": "ベットに使うハンド",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 129,
+  "stary": "与えたくない手。",
+  "nowy": "与えたくないハンド。",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 130,
+  "stary": "方法で勝てる手。",
+  "nowy": "方法で勝てるハンド。",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 132,
+  "stary": "アウツもない手は{{t:check|チェック}}",
+  "nowy": "アウツもないハンドは{{t:check|チェック}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
   "linia": 136,
   "stary": "。ブラフの一部をあきらめているからです",
   "nowy": "。{{t:bluff|ブラフ}}の一部をあきらめているからです",
   "waga": "NISKIE",
   "powod": "pl: „część {{t:bluff|blefów}} odpuścił” ma znacznik terminu; w przekładzie znacznik zgubiono (zwykły tekst „ブラフ”). Przywrócenie znacznika z tym samym kluczem.",
   "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 139,
+  "stary": "アウツのない手や最も弱い{{t:pair|ペア}}",
+  "nowy": "アウツのないハンドや最も弱い{{t:pair|ペア}}",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 145,
+  "stary": "ヤーがどんな手でプローブベ",
+  "nowy": "ヤーがどんなハンドでプローブベ",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (g): „ręka” = „ハンド” jak w pozostałych lekcjach, egzaminach i regułach (w tej linii 1× „手” w znaczeniu ręki pokerowej wg pl; „相手” bez zmian).",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -1358,6 +2168,16 @@
   "waga": "NISKIE",
   "powod": "pl: „nie dodają do puli stałej kwoty, tylko ją mnożą”. „何倍にもします” znaczy „zwiększają wielokrotnie” (przesada); chodzi o mnożenie zamiast dodawania, jak w m9-l4 („掛け算で大きくなります”).",
   "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 427,
+  "stary": "{{t:condensed|コンデンス}}されているからです：弱",
+  "nowy": "{{t:condensed|コンデンスド}}だからです：弱",
+  "waga": "NISKIE",
+  "powod": "Rozstrzygnięcie AP (j): condensed = „コンデンスド” zgodnie z terms-nazwy.yaml i lekcją m5-l4:99 (jedna forma jak przy connected); pl „range sprawdzającego z pozycji jest condensed”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
@@ -1433,11 +2253,11 @@
   "jezyk": "ja",
   "cel": "content/ja/terms-def.yaml",
   "linia": 91,
-  "stary": "そのボードでその時点で最も強い手です。",
-  "nowy": "そのボードでその時点でありうる最も強い手です。",
+  "stary": "でその時点で最も強い手です。例：K",
+  "nowy": "でその時点でありうる最も強いハンドです。例：K",
   "waga": "NISKIE",
-  "powod": "pl „Najsilniejsza możliwa ręka na danym stole w danej chwili”: w przekładzie zgubione „możliwa” (bez tego zdanie można czytać jako najsilniejszą rękę wśród graczy w rozdaniu).",
-  "grupa": "S1"
+  "powod": "Zastępuje wpis S1 tej linii (dodane „ありうる”: nuts to najsilniejsza możliwa ręka na danym stole) wersją z „ハンド” zamiast „手” — rozstrzygnięcie AP (g): „ręka” = „ハンド”.",
+  "grupa": "AP"
  },
  {
   "jezyk": "ja",
