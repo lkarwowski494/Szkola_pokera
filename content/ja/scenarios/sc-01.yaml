@@ -1,0 +1,35 @@
+# sc-01: Japanese text of content/pl/scenarios/sc-01.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-01
+module: m2
+situation: "{{t:3-bet|3ベット}}の後、あなたは{{t:flush-draw|フラッシュドロー}}を持っていて、相手はフロップでもターンでも小さく{{t:bet|ベット}}します。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  trudny: { draws: [flush], marginMin: 0, marginMax: 0.02, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [18, 20, 22, 24]
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:pot|ポット}}に比べて小さく{{t:bet|ベット}}しています。{{t:call|コール}}するのは、払うのがカード一枚分だけで、{{t:flush-draw|フラッシュドロー}}はそのカードで、これほど安い価格が求めるより高い頻度で当たるからです。{{n:outs.flush}}アウツあるので、ターンで{{t:flush|フラッシュ}}が完成するのは約{{n:odds.flush.flop-turn}}、つまりおよそ五枚に一枚です。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:pot|ポット}}に比べて小さく{{t:bet|ベット}}しています。{{t:fold|フォールド}}すると、{{t:call|コール}}で稼げる{{t:pot|ポット}}を手放すことになります：これほど小さな{{t:bet|ベット}}に対しては、{{t:flush-draw|フラッシュドロー}}は価格が求めるより高い頻度で当たります。フォールドするのは、価格が当たる確率より高いときです。まだ役ができていないからではありません。"
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}です：ターンで{{t:flush|フラッシュ}}は完成せず、{{w:rywal}}の相手はまた小さく{{t:bet|ベット}}しています。{{t:call|コール}}するのは、リバーまで残りのカードは一枚で、これほど安い価格なら{{t:flush-draw|フラッシュドロー}}はまだ十分な頻度で当たるからです。リバーで{{t:flush|フラッシュ}}が完成するのは約{{n:odds.flush.turn-river}}、つまりおよそ五枚に一枚です。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}です：ターンで{{t:flush|フラッシュ}}は完成せず、{{w:rywal}}の相手はまた小さく{{t:bet|ベット}}しています。{{t:fold|フォールド}}はタイトすぎます：ターンではカード一枚分の確率で数えます。これほど小さな{{t:bet|ベット}}に対しては、そのカードは価格が求めるより高い頻度で当たるので、{{t:call|コール}}で稼げる{{t:pot|ポット}}を手放すことになります。"

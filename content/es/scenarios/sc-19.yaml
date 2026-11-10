@@ -1,0 +1,34 @@
+# sc-19: Spanish text of content/pl/scenarios/sc-19.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-19
+module: m7
+situation: "Con stacks cortos, tras un {{t:3-bet}} tienes un {{t:flush-draw}}; tu rival {{t:bet|apuesta}} poco en el flop y mucho en el turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} poco en relación con el {{t:pot}}. {{t:call|Igualas}}, porque solo pagas por una carta, y tu {{t:flush-draw}} liga con ella más a menudo de lo que exige un precio tan bajo. El {{t:flush}} llega en el turn en aproximadamente el {{n:odds.flush.flop-turn}} de los casos, más o menos una carta de cada cinco."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} poco en relación con el {{t:pot}}. {{t:fold|Retirarte}} es renunciar a un {{t:pot}} en el que {{t:call|igualar}} da dinero: contra una {{t:bet}} tan pequeña, tu {{t:flush-draw}} liga más a menudo de lo que exige el precio."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-008
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}: el turn no ha traído el {{t:flush}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho. {{t:call|Igualar}} cuenta con las {{t:implied-odds}}, y aquí no las hay: con un {{t:spr}} bajo quedan tan pocas {{t:chips}} detrás del {{t:pot}} que, aunque las ganes todas al ligar, no cubren los {{t:call|pagos}} que pierdes. Las odds implícitas solo cuentan cuando tu rival todavía tiene con qué pagarte."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}: el turn no ha traído el {{t:flush}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho. Te {{t:fold|retiras}}, porque la última carta liga con menos frecuencia de lo que exige el precio, y las {{t:implied-odds}} no lo cambian: con un {{t:spr}} bajo quedan demasiado pocas {{t:chips}} detrás del {{t:pot}} para que lo que ganas al ligar compense los {{t:call|pagos}} que pierdes. El {{t:flush}} llega en el river en aproximadamente el {{n:odds.flush.turn-river}} de los casos, más o menos una carta de cada cinco."

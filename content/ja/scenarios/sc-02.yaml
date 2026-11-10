@@ -1,0 +1,34 @@
+# sc-02: Japanese text of content/pl/scenarios/sc-02.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-02
+module: m2
+situation: "スタックが浅い状態で{{t:3-bet|3ベット}}の後、あなたは{{t:oesd|OESD}}を持っていて、相手はフロップでは小さく、ターンでは大きく{{t:bet|ベット}}します。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [oesd], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [oesd], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:pot|ポット}}に比べて小さく{{t:bet|ベット}}しています。{{t:call|コール}}するのは、払うのがカード一枚分だけで、{{t:oesd|OESD}}はそのカードで、これほど安い価格が求めるより高い頻度で当たるからです。{{n:outs.oesd}}アウツあるので、ターンで{{t:straight|ストレート}}が完成するのは約{{n:odds.oesd.flop-turn}}、つまりおよそ六枚に一枚です。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:pot|ポット}}に比べて小さく{{t:bet|ベット}}しています。{{t:fold|フォールド}}すると、{{t:call|コール}}で稼げる{{t:pot|ポット}}を手放すことになります：これほど小さな{{t:bet|ベット}}に対しては、{{t:oesd|OESD}}は価格が求めるより高い頻度で当たります。"
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}です：ターンで{{t:straight|ストレート}}は完成せず、{{w:rywal}}の相手は大きく{{t:bet|ベット}}しています。{{t:call|コール}}は損です：最後のカードに払うのに、そのカードは価格が求めるより低い頻度でしか当たりません。{{t:implied-odds|インプライドオッズ}}でも取り戻せません。スタックが浅いので{{t:pot|ポット}}の後ろに残っている{{t:chips|チップ}}が少なすぎ、当たったときにそれをすべて勝っても、負けた{{t:call|コール}}の分を埋められないからです。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}です：ターンで{{t:straight|ストレート}}は完成せず、{{w:rywal}}の相手は大きく{{t:bet|ベット}}しています。{{t:fold|フォールド}}するのは、最後のカードに払うのに、そのカードは価格が求めるより低い頻度でしか当たらず、しかも{{t:pot|ポット}}の後ろに残っている{{t:chips|チップ}}が少なすぎて、当たってもそれを取り戻せないからです。リバーで{{t:straight|ストレート}}が完成するのは約{{n:odds.oesd.turn-river}}、つまりおよそ六枚に一枚です。"

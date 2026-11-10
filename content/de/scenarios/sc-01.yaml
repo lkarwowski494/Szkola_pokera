@@ -1,0 +1,35 @@
+# sc-01: German text of content/pl/scenarios/sc-01.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-01
+module: m2
+situation: "Nach einer {{t:3-bet}} hast du einen {{t:flush-draw}}, und dein Gegner {{t:bet|setzt}} auf dem Flop und am Turn wenig."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  trudny: { draws: [flush], marginMin: 0, marginMax: 0.02, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [18, 20, 22, 24]
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} im Verhältnis zum {{t:pot}} wenig. Du {{t:call|callst}}, weil du nur für eine Karte zahlst und dein {{t:flush-draw}} mit dieser Karte öfter trifft, als ein so niedriger Preis verlangt. Du hast {{n:outs.flush}} Outs, also kommt der {{t:flush}} am Turn in etwa {{n:odds.flush.flop-turn}} der Fälle, ungefähr jede fünfte Karte."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} im Verhältnis zum {{t:pot}} wenig. Ein {{t:fold}} gibt einen {{t:pot}} auf, an dem ein {{t:call}} verdient: Gegen einen so kleinen {{t:bet|Einsatz}} trifft dein {{t:flush-draw}} öfter, als der Preis verlangt. Folde, wenn der Preis höher ist als deine Trefferchance, und nicht, weil du noch keine fertige Hand hast."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}: Der Turn hat den {{t:flush}} nicht gebracht, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} wieder wenig. Du {{t:call|callst}}, weil bis zum River noch eine Karte bleibt und dein {{t:flush-draw}} zu einem so niedrigen Preis immer noch oft genug trifft. Der {{t:flush}} kommt am River in etwa {{n:odds.flush.turn-river}} der Fälle, ungefähr jede fünfte Karte."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}: Der Turn hat den {{t:flush}} nicht gebracht, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} wieder wenig. {{t:fold|Folden}} ist zu tight: Am Turn rechnest du mit der Chance für eine Karte, und gegen einen so kleinen {{t:bet|Einsatz}} trifft diese Karte öfter, als der Preis verlangt, also gibst du einen {{t:pot}} auf, an dem ein {{t:call}} verdient."

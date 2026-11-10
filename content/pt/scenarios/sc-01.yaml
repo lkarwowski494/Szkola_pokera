@@ -1,0 +1,35 @@
+# sc-01: Portuguese text of content/pl/scenarios/sc-01.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-01
+module: m2
+situation: "Depois de um {{t:3-bet}} tem um {{t:flush-draw}}, e o adversário {{t:bet|aposta}} pouco no flop e no turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  trudny: { draws: [flush], marginMin: 0, marginMax: 0.02, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [18, 20, 22, 24]
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. {{t:call|Paga}}, porque só está a pagar por uma carta, e o seu {{t:flush-draw}} acerta nela mais vezes do que um preço tão baixo exige. Tem {{n:outs.flush}} outs, por isso o {{t:flush}} sai no turn em cerca de {{n:odds.flush.flop-turn}} dos casos, mais ou menos uma carta em cada cinco."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. {{t:fold|Desistir}} entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro: contra uma {{t:bet}} tão pequena, o seu {{t:flush-draw}} acerta mais vezes do que o preço exige. Desista quando o preço for mais alto do que a sua probabilidade de acertar, e não por ainda não ter a mão feita."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}: o turn não trouxe o {{t:flush}}, e o adversário no {{w:rywal}} volta a {{t:bet|apostar}} pouco. {{t:call|Paga}}, porque falta uma carta até ao river, e a um preço tão baixo o seu {{t:flush-draw}} continua a acertar com frequência suficiente. O {{t:flush}} sai no river em cerca de {{n:odds.flush.turn-river}} dos casos, mais ou menos uma carta em cada cinco."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}: o turn não trouxe o {{t:flush}}, e o adversário no {{w:rywal}} volta a {{t:bet|apostar}} pouco. {{t:fold|Desistir}} é demasiado apertado: no turn conta a probabilidade para uma carta, e contra uma {{t:bet}} tão pequena essa carta acerta mais vezes do que o preço exige, por isso entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro."

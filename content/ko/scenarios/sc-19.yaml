@@ -1,0 +1,34 @@
+# sc-19: Korean text of content/pl/scenarios/sc-19.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-19
+module: m7
+situation: "스택이 짧은 상황에서 {{t:3-bet|3벳}} 후 당신은 {{t:flush-draw|플러시 드로우}}를 가지고 있고, 상대는 플롭에서 작게, 턴에서 크게 {{t:bet|베팅}}합니다."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:pot|팟}}에 비해 작게 {{t:bet|베팅}}합니다. 카드 한 장에 대한 값만 치르는데, {{t:flush-draw|플러시 드로우}}가 그 카드에서 이렇게 낮은 가격이 요구하는 것보다 더 자주 적중하므로 {{t:call|콜}}합니다. 턴에서 {{t:flush|플러시}}가 완성될 확률은 약 {{n:odds.flush.flop-turn}}, 대략 다섯 장에 한 장입니다."
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:pot|팟}}에 비해 작게 {{t:bet|베팅}}합니다. {{t:fold|폴드}}하면 {{t:call|콜}}로 돈을 버는 {{t:pot|팟}}을 포기하게 됩니다: 이렇게 작은 {{t:bet|베팅}}에 대해서는 {{t:flush-draw|플러시 드로우}}가 가격이 요구하는 것보다 더 자주 적중합니다."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-008
+    actions:
+      - action: call
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}입니다: 턴에서 {{t:flush|플러시}}가 완성되지 않았고, {{w:rywal}} 위치의 상대가 크게 {{t:bet|베팅}}합니다. {{t:call|콜}}은 {{t:implied-odds|임플라이드 오즈}}를 기대하지만, 여기에는 그것이 없습니다: {{t:spr|SPR}}이 낮아 {{t:pot|팟}} 뒤에 남은 {{t:chips|칩}}이 너무 적어서, 적중했을 때 그 칩을 모두 이겨도 잃은 {{t:call|콜}}을 메우지 못합니다. 임플라이드 오즈는 상대에게 아직 당신에게 지불할 것이 남아 있을 때만 의미가 있습니다."
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}입니다: 턴에서 {{t:flush|플러시}}가 완성되지 않았고, {{w:rywal}} 위치의 상대가 크게 {{t:bet|베팅}}합니다. 마지막 카드는 가격이 요구하는 것보다 덜 자주 적중하고, {{t:implied-odds|임플라이드 오즈}}도 이를 바꾸지 못하므로 {{t:fold|폴드}}합니다: {{t:spr|SPR}}이 낮아 {{t:pot|팟}} 뒤에 남은 {{t:chips|칩}}이 너무 적어서, 적중 후의 이익으로 잃은 {{t:call|콜}}을 만회할 수 없습니다. 리버에서 {{t:flush|플러시}}가 완성될 확률은 약 {{n:odds.flush.turn-river}}, 대략 다섯 장에 한 장입니다."

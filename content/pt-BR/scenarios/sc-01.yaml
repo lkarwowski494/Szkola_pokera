@@ -1,0 +1,35 @@
+# sc-01: Brazilian Portuguese text of content/pl/scenarios/sc-01.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-01
+module: m2
+situation: "Depois de um {{t:3-bet}} você tem um {{t:flush-draw|projeto de flush}}, e o adversário {{t:bet|aposta}} pouco no flop e no turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  trudny: { draws: [flush], marginMin: 0, marginMax: 0.02, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [18, 20, 22, 24]
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. Você {{t:call|paga}}, porque está pagando só por uma carta, e seu {{t:flush-draw|projeto de flush}} acerta nela mais vezes do que um preço tão baixo exige. Você tem {{n:outs.flush}} outs, então o {{t:flush}} sai no turn em cerca de {{n:odds.flush.flop-turn}} dos casos, mais ou menos uma carta a cada cinco."
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. {{t:fold|Desistir}} entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro: contra uma {{t:bet}} tão pequena, seu {{t:flush-draw|projeto de flush}} acerta mais vezes do que o preço exige. Desista quando o preço for mais alto do que sua chance de acertar, e não porque você ainda não tem a mão feita."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}: o turn não trouxe o {{t:flush}}, e o adversário no {{w:rywal}} volta a {{t:bet|apostar}} pouco. Você {{t:call|paga}}, porque falta uma carta até o river, e a um preço tão baixo seu {{t:flush-draw|projeto de flush}} ainda acerta com frequência suficiente. O {{t:flush}} sai no river em cerca de {{n:odds.flush.turn-river}} dos casos, mais ou menos uma carta a cada cinco."
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}: o turn não trouxe o {{t:flush}}, e o adversário no {{w:rywal}} volta a {{t:bet|apostar}} pouco. {{t:fold|Desistir}} é tight demais: no turn você calcula a chance para uma carta, e contra uma {{t:bet}} tão pequena essa carta acerta mais vezes do que o preço exige, então você entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro."

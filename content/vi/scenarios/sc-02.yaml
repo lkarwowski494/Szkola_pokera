@@ -1,0 +1,34 @@
+# sc-02: Vietnamese text of content/pl/scenarios/sc-02.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-02
+module: m2
+situation: "Khi stack ngắn, sau một {{t:3-bet|3-bet}} bạn có {{t:oesd|OESD}}; đối thủ {{t:bet|cược}} nhỏ ở flop và lớn ở turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [oesd], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [oesd], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} nhỏ so với {{t:pot|pot}}. Bạn {{t:call|theo}}, vì bạn chỉ trả tiền cho một lá, và {{t:oesd|OESD}} trúng ở lá đó thường xuyên hơn mức mà giá thấp như vậy đòi hỏi. Bạn có {{n:outs.oesd}} out, nên {{t:straight|sảnh}} ra ở turn trong khoảng {{n:odds.oesd.flop-turn}} trường hợp, nghĩa là khoảng một lá trong sáu lá."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} nhỏ so với {{t:pot|pot}}. {{t:fold|Bỏ bài}} là bỏ đi một {{t:pot|pot}} mà việc {{t:call|theo}} mang lại lợi nhuận: trước mức {{t:bet|cược}} nhỏ như vậy, {{t:oesd|OESD}} trúng thường xuyên hơn mức giá đòi hỏi."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}: turn không mang lại {{t:straight|sảnh}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn. {{t:call|Theo}} sẽ lỗ: bạn trả tiền cho lá cuối cùng, và lá đó trúng ít thường xuyên hơn mức giá đòi hỏi. {{t:implied-odds|Implied odds}} không bù lại được, vì khi stack ngắn, ngoài {{t:pot|pot}} chỉ còn quá ít {{t:chips|chip}}: ngay cả khi bạn thắng hết số đó lúc trúng, chúng cũng không bù được những lần {{t:call|theo}} bị thua."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}: turn không mang lại {{t:straight|sảnh}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn. Bạn {{t:fold|bỏ bài}}, vì bạn trả tiền cho lá cuối cùng, lá đó trúng ít thường xuyên hơn mức giá đòi hỏi, và ngoài {{t:pot|pot}} chỉ còn quá ít {{t:chips|chip}} để việc trúng bù lại được. {{t:straight|Sảnh}} ra ở river trong khoảng {{n:odds.oesd.turn-river}} trường hợp, nghĩa là khoảng một lá trong sáu lá."
