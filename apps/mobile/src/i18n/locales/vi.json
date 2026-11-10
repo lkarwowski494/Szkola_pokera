@@ -27,7 +27,11 @@
     "reviewsTileDue_other": "{{count}} cho hôm nay",
     "reviewsTileNone": "Hôm nay không có",
     "scenarios": "Tình huống",
-    "scenariosSoon": "Sắp ra mắt"
+    "scenariosSoon": "Sắp ra mắt",
+    "limitTile": "Miễn phí vào ngày mai",
+    "limitReached": "Đã dùng hết giới hạn hằng ngày. Hoạt động miễn phí tiếp theo là ngày mai; bài học không bị giới hạn.",
+    "afterFirstLesson": "Sau bài học đầu tiên",
+    "afterFirstLessonM2": "Sau bài học đầu tiên của chương 2"
   },
   "lessons": {
     "title": "Bài học",

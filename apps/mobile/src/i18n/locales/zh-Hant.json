@@ -27,7 +27,11 @@
     "reviewsTileDue_other": "今天 {{count}} 項",
     "reviewsTileNone": "今天沒有",
     "scenarios": "情境",
-    "scenariosSoon": "即將推出"
+    "scenariosSoon": "即將推出",
+    "limitTile": "明天再免費",
+    "limitReached": "今日額度已用完。下一次免費活動在明天；課程不受額度限制。",
+    "afterFirstLesson": "完成第一課之後",
+    "afterFirstLessonM2": "完成模組 2 的第一課之後"
   },
   "lessons": {
     "title": "課程",

@@ -10,6 +10,8 @@ import i18n from 'i18next';
 import { StyleSheet } from 'react-native';
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react-native';
 import { zapiszPowtorke } from '@szkola/postep';
+import { useDostep } from '@/state/dostep';
+import { zegarTelefonu } from '@/platform/zegar';
 import { PostepKontekst } from '@/data/postepKontekst';
 import { portTestowy } from '@/test-utils/postepTestowy';
 import { sciezkaTresciPl } from '@/test-utils/trescPl';
@@ -56,7 +58,10 @@ async function otworz(Ekran: () => React.JSX.Element) {
 }
 const wymiar = (el: { props: { style?: unknown } }) => StyleSheet.flatten(el.props.style as Parameters<typeof StyleSheet.flatten>[0]) as { width?: number; height?: number };
 
-beforeEach(() => mockPush.mockReset());
+beforeEach(() => {
+  mockPush.mockReset();
+  useDostep.setState({ pro: false });
+});
 
 describe('„Dziś” (BR-MENU-001 po ER-16, D-541)', () => {
   it('kafelki Powtórki, Sesja ćwiczeń, Scenariusze jako przyciski; bez listy lekcji i bez Wskaźnika zaawansowania', async () => {
@@ -113,6 +118,48 @@ describe('„Dziś” (BR-MENU-001 po ER-16, D-541)', () => {
     expect([rys.props.width, rys.props.height, rys.props.strokeWidth]).toEqual([24, 24, 2]);
     await fireEvent.press(z);
     expect(mockPush).toHaveBeenCalledWith('/settings');
+  });
+});
+
+describe('„Dziś”: stany kafelków (BR-MENU-001, limit BR-LIM-001; menu-i-zebatka.md „Stany”)', () => {
+  it('nowy użytkownik: „Po pierwszej lekcji” (Powtórki) i „Po pierwszej lekcji modułu 2” (Scenariusze), bez stopki limitu', async () => {
+    await otworz(TodayScreen);
+    await screen.findByLabelText(`${t('today.reviewsTile')}. ${t('today.afterFirstLesson')}.`);
+    expect(screen.getByLabelText(`${t('today.scenarios')}. ${t('today.afterFirstLessonM2')}.`)).toBeTruthy();
+    expect(screen.queryByText(t('today.limitReached'))).toBeNull();
+  });
+
+  it('limit wyczerpany (zużycie z tej samej logiki co EkranStartu): Sesja „Darmowa jutro” z obwódką kreskową, stopka i „Pełny dostęp”', async () => {
+    const p = await portTestowy();
+    const dzien = zegarTelefonu.dzienLokalny(Date.now(), zegarTelefonu.strefa());
+    p.db.prepare("INSERT INTO aktywnosc (id, rodzaj, stan, z_limitu, dzien_lokalny, strefa, plan, krok, start_ms, koniec_ms) VALUES ('a1','sesja','zakonczona',1,?,?,'{}',0,1,2)").run(dzien, zegarTelefonu.strefa());
+    await render(
+      <PostepKontekst.Provider value={p.port}>
+        <TodayScreen />
+      </PostepKontekst.Provider>,
+    );
+    const sesja = await screen.findByLabelText(`${t('today.practice')}. ${t('today.limitTile')}.`);
+    const st = StyleSheet.flatten(sesja.props.style as Parameters<typeof StyleSheet.flatten>[0]) as { borderStyle?: string; backgroundColor?: string };
+    expect(st.borderStyle).toBe('dashed');
+    expect(screen.getByText(t('today.limitReached'))).toBeTruthy();
+    await fireEvent.press(sesja);
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/session', params: { mode: 'practice' } }); // nie blokuje wejścia
+    await fireEvent.press(screen.getByRole('link', { name: t('start.fullAccess') }));
+    expect(mockPush).toHaveBeenLastCalledWith('/purchase');
+  });
+
+  it('Pro: bez stanu limitu mimo zużycia', async () => {
+    useDostep.setState({ pro: true });
+    const p = await portTestowy();
+    const dzien = zegarTelefonu.dzienLokalny(Date.now(), zegarTelefonu.strefa());
+    p.db.prepare("INSERT INTO aktywnosc (id, rodzaj, stan, z_limitu, dzien_lokalny, strefa, plan, krok, start_ms, koniec_ms) VALUES ('a1','sesja','zakonczona',1,?,?,'{}',0,1,2)").run(dzien, zegarTelefonu.strefa());
+    await render(
+      <PostepKontekst.Provider value={p.port}>
+        <TodayScreen />
+      </PostepKontekst.Provider>,
+    );
+    await screen.findByLabelText(`${t('today.practice')}. ${t('today.practiceHint')}.`);
+    expect(screen.queryByText(t('today.limitReached'))).toBeNull();
   });
 });
 

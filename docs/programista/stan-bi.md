@@ -5,7 +5,7 @@ Aktualizacja: 2026-11-10 · gałąź `sesja-bi-menu` (start 0c24cb6) · poleceni
 | Krok | Stan | Dowód |
 |---|---|---|
 | 1 pasek Dziś · Lekcje · Postęp, ekran Lekcje | gotowe | `(tabs)/_layout.tsx`, `(tabs)/lessons.tsx`; `menu-bi.test.tsx` („Lekcje”) |
-| 2 „Dziś”: Kontynuuj, Powtórki (N), Sesja, Scenariusze | gotowe; Scenariusze → ekran „wkrótce” (`app/scenarios.tsx`, bez przycisków, D-581) | `menu-bi.test.tsx` („Dziś”, „Scenariusze”) |
+| 2 „Dziś”: Kontynuuj, Powtórki (N), Sesja, Scenariusze + stany limit/nowy | gotowe; Scenariusze → ekran „wkrótce” (`app/scenarios.tsx`, bez przycisków, D-581) | `menu-bi.test.tsx` („Dziś”, „Scenariusze”) |
 | 3 Wskaźnik tylko na Postępie | gotowe | test „Postęp”; `index.tsx` bez `AdvancementCard` |
 | 4 zębatka SVG D-540/D-546 | gotowe (24 pt, kreska 2, 44×44, etykieta) | test „zębatka”; `components/Ikona.tsx` |
 | 5 teksty 12 języków | gotowe, do przeglądu roli 09 | `i18n:kod` błędy 0 |
@@ -23,7 +23,8 @@ CI: `pnpm run ci` kod 0 po poprawce: `dowody/bi-ci-po-k11.log` (apps/mobile 713 
 `tabs.lessons`; `today.reviewsTile`, `today.reviewsTileDue_*`, `today.reviewsTileNone`, `today.scenarios`, `today.scenariosSoon`; `lessons.title|moduleDone|moduleProgress|expand|collapse`; `scenarios.title|soon`. Martwe po zmianie (zostawione, bo pinuje je test 08-F24): `tabs.review`, `today.reviews`, `today.reviewsDue_*`, `today.allLessons`, `today.exercises`.
 
 ## Otwarte
-- ŚREDNIE: stan „limit” na kafelkach i „Po pierwszej lekcji” (D-582); sprzątanie martwych kluczy po decyzji 09.
+- Stany „limit” i „Po pierwszej lekcji” wdrożone po poleceniu koordynatora (D-582, testy `kafle-bi.test.ts` i `menu-bi.test.tsx`, czerwone przed kodem 5 z 9 i 3 z 3, zielone po). Sprzątanie martwych kluczy po decyzji 09.
+- Klucze dodatkowe do przeglądu 09: `today.limitTile`, `today.limitReached`, `today.afterFirstLesson`, `today.afterFirstLessonM2`.
 - Do sprawdzenia na urządzeniu: czy ekran startu powtórek ma „Zacznij” przy pustej kolejce (flow 02); NativeTabs ikona `capsule` (SF) dla Dziś; kafelki AX5 (1 kolumna od skali 1,3, łamanie wyrazów D-122); kontrast zębatki.
 - Lista zrzutów do zrobienia: `dzis` 390 jasny/ciemny, 320 AX5, `lekcje` 390, `postep` 390 ciemny, `scenariusze` 390 — porównać z `docs/design/wzorce-zrzuty/menu/koncowy-*.png`.
 - Rozbieżność z makietą (do 04): ikona Dziś w pasku to SF `capsule` (makieta: owal), `md="today"` na Androidzie.

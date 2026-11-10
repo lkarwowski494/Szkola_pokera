@@ -11,6 +11,12 @@ import { aktywnoscWToku, zuzyteDzis, type PortBazy, type PowodOdczytu } from '@s
 // `limit` w każdym wariancie: start po nieudanym wznowieniu (zmiana treści) też liczy limit, nigdy `bezLimitu` z przypadku.
 export type PrzygotowanieStartu = { akcja: 'wznow' | 'bez_ekranu' | 'ekran_startu'; limit: Limit };
 
+/** Limit dnia ze zużycia (jedno miejsce dla ekranu startu i kafelków „Dziś”, BR-LIM-001): `limitDnia` z domeny na dniu lokalnym telefonu. */
+export function limitZeZuzycia(zuzyteDzis: number, w: { pro: boolean; zegar: Zegar }): Limit {
+  const strefa = w.zegar.strefa();
+  return limitDnia({ zuzyteDzis, pro: w.pro, dzien: w.zegar.dzienLokalny(w.zegar.teraz(), strefa), strefa }, KONFIGURACJA);
+}
+
 export async function przygotujStart(
   port: PortBazy,
   w: { rodzaj: RodzajAktywnosci; trescId: string | null; pierwszePodejscieTestu: boolean; pro: boolean; zegar: Zegar },
@@ -21,7 +27,7 @@ export async function przygotujStart(
   const [wToku, zuzyte] = await Promise.all([aktywnoscWToku(port, w.rodzaj), zuzyteDzis(port, dzien)]);
   if (!wToku.ok) return wToku;
   if (!zuzyte.ok) return zuzyte;
-  const limit = limitDnia({ zuzyteDzis: zuzyte.wartosc, pro: w.pro, dzien, strefa }, KONFIGURACJA);
+  const limit = limitZeZuzycia(zuzyte.wartosc, { pro: w.pro, zegar: w.zegar });
   if (wToku.wartosc && wToku.wartosc.aktywnosc.plan.trescId === w.trescId) return { ok: true, wartosc: { akcja: 'wznow', limit } };
   const poza = mozeStartowac(w.rodzaj, w.pierwszePodejscieTestu, { bezLimitu: false, pozostalo: 0, odnowienieMs: 0 });
   return { ok: true, wartosc: { akcja: poza.start && !poza.zLimitu ? 'bez_ekranu' : 'ekran_startu', limit } };

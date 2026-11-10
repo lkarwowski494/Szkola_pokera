@@ -8,7 +8,7 @@ import { etykietaKafla } from './widok';
  * (tytuł zawija się pod ikoną przy dużym tekście), tytuł 17 pt semibold, stan 13 pt `muted`. Cały kafelek jest przyciskiem
  * z etykietą „{tytuł}. {stan}.”; ikona ukryta przed czytnikiem. Wysokość ≥ 44 pt.
  */
-export default function Kafel({ testID, ikona, tytul, stan, onPress, szeroki }: { testID: string; ikona: NazwaIkony; tytul: string; stan: string; onPress(): void; szeroki: boolean }) {
+export default function Kafel({ testID, ikona, tytul, stan, onPress, szeroki, limit = false }: { testID: string; ikona: NazwaIkony; tytul: string; stan: string; onPress(): void; szeroki: boolean; limit?: boolean }) {
   const tk = useTokens();
   return (
     <Pressable
@@ -20,7 +20,11 @@ export default function Kafel({ testID, ikona, tytul, stan, onPress, szeroki }: 
         flexBasis: szeroki ? '100%' : '47%',
         flexGrow: 1,
         minHeight: 72,
-        backgroundColor: tk.surface,
+        // limit (menu-i-zebatka.md): tło przezroczyste i obwódka kreskowana — drugi kanał poza tekstem „Darmowa jutro”
+        backgroundColor: limit ? 'transparent' : tk.surface,
+        borderWidth: limit ? 1.5 : 0,
+        borderStyle: limit ? ('dashed' as const) : ('solid' as const),
+        borderColor: tk.muted,
         borderRadius: promien.przycisk,
         paddingVertical: odstep.m,
         paddingHorizontal: odstep.m,

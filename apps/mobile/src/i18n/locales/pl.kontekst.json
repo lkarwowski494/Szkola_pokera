@@ -712,5 +712,9 @@
   "lessons.expand": "Etykieta czytnika zwiniętego modułu (akcja). Użyty w: app/(tabs)/lessons.tsx. [BI, 2026-11-10]",
   "lessons.collapse": "Etykieta czytnika rozwiniętego modułu (akcja). Użyty w: app/(tabs)/lessons.tsx. [BI, 2026-11-10]",
   "scenarios.title": "Tytuł ekranu Scenariusze (stan „wkrótce” do kroku F). Użyty w: app/scenarios.tsx. [BI, 2026-11-10]",
-  "scenarios.soon": "Opis stanu „wkrótce” ekranu Scenariusze. Użyty w: app/scenarios.tsx. [BI, 2026-11-10]"
+  "scenarios.soon": "Opis stanu „wkrótce” ekranu Scenariusze. Użyty w: app/scenarios.tsx. [BI, 2026-11-10]",
+  "today.limitTile": "Stan kafelków Sesja ćwiczeń i Scenariusze po wyczerpaniu dziennego limitu (obwódka kreskowana jako drugi kanał). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.limitReached": "Stopka pod kafelkami po wyczerpaniu limitu (BR-LIM-001; nazwa „dzienny limit”, D-111). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.afterFirstLesson": "Stan kafelka Powtórki u nowego użytkownika: co go odblokuje. Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.afterFirstLessonM2": "Stan kafelka Scenariusze do czasu pierwszej lekcji modułu 2 (BR-MENU-001). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]"
 }

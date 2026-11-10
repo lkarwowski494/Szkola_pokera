@@ -33,7 +33,11 @@
     "reviewsTileDue_other": "{{count}} na dziś",
     "reviewsTileNone": "Brak na dziś",
     "scenarios": "Scenariusze",
-    "scenariosSoon": "Wkrótce"
+    "scenariosSoon": "Wkrótce",
+    "limitTile": "Darmowa jutro",
+    "limitReached": "Dzienny limit wykorzystany. Kolejna darmowa aktywność jutro; lekcje działają bez limitu.",
+    "afterFirstLesson": "Po pierwszej lekcji",
+    "afterFirstLessonM2": "Po pierwszej lekcji modułu 2"
   },
   "lessons": {
     "title": "Lekcje",

@@ -31,7 +31,11 @@
     "reviewsTileDue_other": "{{count}} para hoje",
     "reviewsTileNone": "Nenhuma hoje",
     "scenarios": "Cenários",
-    "scenariosSoon": "Em breve"
+    "scenariosSoon": "Em breve",
+    "limitTile": "Grátis amanhã",
+    "limitReached": "Limite diário atingido. A próxima atividade grátis é amanhã; as lições não têm limite.",
+    "afterFirstLesson": "Depois da primeira lição",
+    "afterFirstLessonM2": "Depois da primeira lição do módulo 2"
   },
   "lessons": {
     "title": "Lições",
