@@ -58,3 +58,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BT | 08 build (sonnet) | — | 9,35 | 49,4 | 18:47 → 18:50 → ok. 19:00 → CI 19:35 → przyjęte 19:50 | odbiór czekał na recenzję BW (ok. 15 min) | kontekst ponad 38% bez przekazania |
 | BW | 08 audit (opus/high) | — | 5,22 | 25,3 | 19:30 → 19:31 → 4d89b7e → n/d → 19:50 | — | recenzja BT PRZYJĄĆ |
 | BV | 06 audit (opus/high) | — | 5,06 | 26,2 | 19:31 → 19:40 → 5bca448 → n/d → 19:55 | — | recenzja BS PRZYJĄĆ Z WARUNKIEM |
+| BZ | 08 audit (opus/high) | — | 4,56 | 24,3 | 20:45 → 20:50 → 4195f4a → n/d → 21:10 | — | recenzja BU PRZYJĄĆ Z WARUNKIEM |
+| BU | 08 build (sonnet) | — | 4,45 | 30,1 | 18:50 → 18:54 → … → 6a5ca17 20:38 → CI w toku | — | sesja sama zgłosiła 80% kontekstu (błędny szacunek) |
