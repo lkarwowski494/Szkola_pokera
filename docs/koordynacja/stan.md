@@ -33,6 +33,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | AT | session_01T66VBw7z352UvDDkynn3JP | 09 build, kod | sesja-ao-pt-pt @ a28b48e (start) | 0 (06:55) | — | w toku: kroki 3d–3g pt-PT (polecenie AT @ 4e864e7) |
+| AU | session_01T66VBwPmJmtteuLqtue8Ga | 09 build, kod (sonnet) | sesja-au-poprawki @ f8272c1 (start) | 0 (07:12) | — | w toku: WYS (ja.json:96, es m4-l4:33, 13 znaczników), nałożenie 9 języków, KO-020/021/024 (polecenie AU @ d25f936) |
 
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
@@ -110,3 +111,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 06:51 | AP → koordynator | PRZEKAZANIE: 24887be, ja 229 (WYS 1 ja.json:96), zh-Hant 347, ko 485 poprawek, KRYT 0; D-420 do weta; PYTANIE podtytuł ko | odbiór |
 | 11-10 07:05 | koordynator | **AP przyjęta**: 13 commitów, autor zgodny, 118 plików wyłącznie w `przeglad-pelny-2026-11-10/`; scalona do roboczej @ f8272c1 (konflikt add/add `instrukcja-subagenta.md` AQ vs AP — obie wersje zachowane, AP jako `instrukcja-subagenta-AP.md`; wyjątek jak 06:19: pliki dowodów, bez kodu); `[skip ci]`. AP zarchiwizowana (152,60 USD, 37,1% — ponad 30% o 7 pp., przekazanie wysłane 06:39 przy 33,7%). Polecenie AU @ d25f936, gałąź `sesja-au-poprawki` @ f8272c1; prompt 09 build złożony świeżo (f701ce9), model sonnet wg `--lista` | start AU |
 | 11-10 07:10 | właściciel | podtytuł ko: „Zmienić na 판돈 없음 (Recommended)” → KO-024, do przekazania AU | — |
+| 11-10 07:14 | koordynator | AU wystartowała (session_01T66VBwPmJmtteuLqtue8Ga); cmp pierwszej wiadomości: różnica tylko U+00A0/U+202F → spacje w linii 400 (sprawdzone Pythonem) — AU dostała poprawkę i KO-024 przez send_message; WG-07 | kontrola 07:05→ następna ok. 08:15 |
