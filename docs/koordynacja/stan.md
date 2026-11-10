@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:19 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:34 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -22,22 +22,19 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- Raport nocy D-359 zapisany (gałąź robocza e01ba05, `docs/programista/plan-08.md`); pytanie zbiorcze zadane i odebrane 05:50–06:10 UTC (odpowiedzi: `decyzje.md` KO-005…KO-016).
-- `site/` z nazwą PokerGym na `main` @ ddb0108 (zgoda właściciela); przebieg Pages do sprawdzenia przy kontroli.
-- Szczyt kodu z dowodem: **6afa34d** (E2E 42732430729 i CI 42732569378 success — sprawdzone w Actions 05:40). Gałąź robocza @ e01ba05 (tylko docs nad 6afa34d).
-- Gałąź robocza @ **9c5012c** (AM 016317e — CI 42766336909 success; AN scalona, tylko docs, `[skip ci]`). Szczyt z dowodem E2E nadal 6afa34d (zmiany AM poza aplikacją: `store/`, docs, test narzędzi). W toku: AP/AQ/AR (pełny przegląd 9 języków), AS (pt-PT po AO).
+- **Przekazanie koordynatora w toku** (kontekst 34%): następca przejmuje wg E6 pkt 5; do tego czasu bez nowych sesji.
+- Gałąź robocza @ **66aa8cc**: AM (016317e, CI 42766336909 success) + AN (docs) + AQ i AR (pełny przegląd it/es/pt-BR i fr/de/vi — tylko pliki w `docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/`, scalenia `[skip ci]`). Szczyt z dowodem E2E nadal 6afa34d.
+- Aktywne: **AP** (przegląd ja, zh-Hant, ko; ja i zh-Hant gotowe wg raportu 06:22, ko w toku) i **AS** (pt-PT po AO, gałąź `sesja-ao-pt-pt`).
+- **Następny krok następcy:** po PRZEKAZANIU AP — odbiór i scalenie (docs), potem zlecić sesję kodu **AT** (rola 09 build, gałąź od roboczej): nałożenie poprawek przeglądu 9 języków (`<język>/poprawki-<język>.json`, instrukcje `stan-AQ.md`, `README.md`, `stan-AR.md`), w tym WYS: ja `ja.json:96` data.replaceBody (odwrócony kierunek w oknie importu — dotyczy danych użytkownika), es m4-l4:33, 13 zgubionych znaczników fr/de/vi; decyzje właściciela KO-020…KO-022 (metadane → rola 10 / generator `zbuduj-metadane.py`); jedna przebudowa baz, `pnpm run ci`, push → CI + E2E. Po AS: scalenie pt-PT, E2E. Potem build TestFlight (właściciel).
 - Zakres 1.0 słowami właściciela: „Wszystkie 11 od razu” (+ pt-PT); build TestFlight „Po poprawkach z dzisiaj”.
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AO | session_01T66VBwQoZrfRhLaY2LmtdR | 09 build, kod | sesja-ao-pt-pt @ c8ccacf | 30 (wg sesji) | API 10,53; sesja [DO USTALENIA] | PRZEKAZANIE 06:17 (zad. 3 w połowie) → następca AS; do archiwizacji po starcie AS i zapisie kosztu |
-| AS | (po starcie) | 09 build, kod | sesja-ao-pt-pt @ c8ccacf | — | — | zlecana: dokończenie pt-PT |
-| AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk @ e01ba05 | — | — | wystartowała (WORKING tuż po starcie; pierwsza tura niesprawdzona): ja, zh-Hant, ko |
-| AQ | session_01T66VBxSH9VTYhVSyVDqCB5 | 09 audit, docs | przeglad-aq-romanskie @ e01ba05 | — | — | wystartowała: pt-BR, es, it |
-| AR | session_01T66VBx2fb5Tf1JtB5kMueE | 09 audit, docs | przeglad-ar-fr-de-vi @ e01ba05 | — | — | wystartowała: fr, de, vi |
+| AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk (baza 016317e) | [niesprawdzone] | [niesprawdzone] | w toku: ja 147 poprawek (WYS 1), zh-Hant 231 (WYS 0), ko czytany; koniec ok. 07:00 wg sesji |
+| AS | session_01T66VBvE86T64QC2vSV2oJH | 09 build, kod | sesja-ao-pt-pt @ c8ccacf | [niesprawdzone] | [niesprawdzone] | wystartowała 06:25 (pierwsza tura niesprawdzona): dokończenie pt-PT |
 
-Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR. Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -58,20 +55,20 @@ Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koord
 - Fakty: W-04 e-mail wsparcia + dostawca skrzynki; administrator (imię i nazwisko, forma); W-05 Apple ID aplikacji; W-07 dane sprzedawcy JP (wariant A potwierdzony 2026-11-10). Uwaga: `site/` na `main` ma w tych miejscach publicznie tekst „[DO USTALENIA: …]” (było tak też przed ddb0108).
 - Znaki towarowe „pokergym” / „poker gym” (USPTO, EUIPO, WIPO GBD w przeglądarce) przed zapisem nazwy w ASC (D-378, D-382) — krok po kroku do podania.
 - Wpis ręczny kategorii w ASC (Education + Games/Card) po wyniku AM.
-- Wysłanie pytania do Apple Developer Support w sprawie Wietnamu (tekst i kroki przygotowuje AN; ok. 10 min).
+- Wysłanie pytania do Apple Developer Support w sprawie Wietnamu: tekst w `docs/prawo/kr-vn-ponowna-ocena-2026-11-10.md` §7 (gałąź robocza); ścieżka przeczytana tylko do developer.apple.com/contact/ (dalej logowanie). Właściciel poproszony 06:20: „napisz »Wietnam«” — bez odpowiedzi.
+- Koszt: właściciel poinformowany o koszcie przeglądu (AQ 98,37 + AR 121,31 USD; AP w toku) — patrz `koszty.md`.
 - Build TestFlight po poprawkach; potem listy telefonu.
 - Konto Apple Search Ads (D-377; po premierze).
 - Zarchiwizowanie sesji poprzednika session_01T66VBvZebfV7GaciZqtW3H, jeśli jest widoczna (dla koordynatora „not found”).
 - Decyzje nocy nieomówione pojedynczo (techniczne i wykonawcze z listy D-343–D-394): zostają „do weta”.
 
 ## Przypomnienia
-- (raport nocy 07:00 trig_01PLD3r1hZVyFRQodEVuJfz4 usunięty 06:20 — raport zrobiony 05:45) · trig_01E3ShNoCbuUYRTGFdedbP47 „…: linia 14:00” 10.11 · trig_019RcQqtkXBEGePo3EBxinUa „…: linia 05:00” 11.11. Kontrola tylko gdy coś trwa. (Przypomnienia poprzednika trig_01AeLX…, trig_019PQf…, trig_01TZaa… usunął on sam 05:25.)
-- Poprzednika: trig_01BrH7Zk3tSKmXLeQ1wovYhg „kontrola przekazania” 05:42 (sprząta poprzednik).
-- Push na gałąź stanu przechodzi przez hook pre-push (typecheck, i18n, content) — w nowym kontenerze najpierw `pnpm install --frozen-lockfile` (5,6 s).
+- Koordynatora session_01T66VBxtQGd3faU3Y4mNUuA (usuwa je sam po starcie następcy): trig_019x1vbCBm1tyDhefrPWLXeS „…: kontrola” 06:38 · trig_01E3ShNoCbuUYRTGFdedbP47 „…: linia 14:00” 10.11 · trig_019RcQqtkXBEGePo3EBxinUa „…: linia 05:00” 11.11. **Następca tworzy własne**: kontrola (AP, AS trwają), linia 14:00, linia 05:00.
+- Push na gałąź stanu z nowego kontenera przechodzi bez `pnpm install` (sprawdzone dziś 6×); push na gałęzie kodu przez hook pre-push wymaga `pnpm install --frozen-lockfile` (wg AP).
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; następny wolny **D-450**.
-- KO następny: **KO-020**.
+- KO następny: **KO-023**.
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -101,3 +98,6 @@ Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koord
 | 11-10 06:13 | AP, AQ, AR → koordynator | start: baza 016317e zamiast e01ba05 (AM scalona po zapisaniu poleceń — przyjęte); listy jednostek odtworzone z `scripts/i18n/wspolne.mjs` bez uruchamiania (brak node_modules; wyjątek przyjęty); 13–16 subagentów na język; wskazane pliki metadanych fali 2 | raporty po pierwszym języku |
 | 11-10 06:17 | AO | PRZEKAZANIE przy 30%: c8ccacf; przekład pt 65/65, API 10,53 USD; przegląd 44 lekcji: KRYT 0, WYS 8, 244 poprawki; łatki mechanizmu pt-PT; metadane pt-PT; D-405, D-406 do weta; otwarte: reszta przeglądu, terminologia, nałożenie, wydanie. Koszt sesji: subagenci ok. 1,3 mln tokenów (wg AO) | następca AS |
 | 11-10 06:19 | koordynator | **AM przyjęta**: CI 42766336909 na 016317e success (06:09), koszt 1,80 USD, kontekst 20% — zarchiwizowana. **AN przyjęta**: 5e77ce2 (2 commity, autor OK, 4 pliki docs), scalona do roboczej @ 9c5012c (konflikt dopisanych wierszy w `docs/decyzje.md` rozwiązany przez zachowanie obu stron — wyjątek od „konflikt zleca się sesji”: wiersze D-395/396 i D-400 rozłączne); `pnpm run ci` kod 0 wg AN, CI na 9c5012c nie biegło (`[skip ci]`, docs) — niesprawdzone; koszt 5,74 USD, kontekst 28% — zarchiwizowana. Dla właściciela: tekst pytania do Apple (VN) w `docs/prawo/kr-vn-ponowna-ocena-2026-11-10.md` §7 | AS start; raporty AP–AR |
+| 11-10 06:19–06:32 | AR, AQ, AP → koordynator | raporty i PRZEKAZANIA: **AQ** 68498c4 — it 291, es 123, pt-BR 112 poprawek; KRYT 0, WYS 1 (es m4-l4:33 „pasan” = check zamiast fold); D-430…D-432 do weta. **AR** 4f0b781 — fr 419, de 368, vi 475 poprawek; KRYT 0, WYS 13 (zgubione znaczniki, sens bez zmian); D-440…D-442; 4 pytania. **AP** (raport) — ja 147 (WYS 1: `ja.json:96` odwrócony kierunek w oknie importu postępu), zh-Hant 231, ko w toku | odbiór |
+| 11-10 06:25 | koordynator | AS wystartowała (session_01T66VBvE86T64QC2vSV2oJH; prompt roli przepisany przez subagenta, ta sama znana różnica co w AO) | — |
+| 11-10 06:34 | koordynator | **AQ i AR przyjęte**: autor OK (4 i 12 commitów), zmiany wyłącznie w `docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/` (99 i 108 plików), scalone bez konfliktu do roboczej @ 66aa8cc (`[skip ci]`; treść znalezisk niesprawdzona przez koordynatora — sprawdzi nałożenie + CI). Koszty z get_session: AO 23,55, AQ 98,37, AR 121,31 USD; AO, AQ, AR zarchiwizowane. Pytania AR → właściciel: stopnie oceny w opisie sklepu „Dopisać we wszystkich 9 językach” (KO-020), podtytuł de „Zmienić na »ohne Echtgeld« (zalecane)” (KO-021); fr „Fiches de révision” w interfejsie — KO-022 (koordynator, do weta) | przekazanie koordynatora |

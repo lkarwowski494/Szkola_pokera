@@ -16,6 +16,11 @@
 | AM session_01T66VBzioNjwudY42GtzgHt | 10 kod | — | 1,80 | 20 | 11-10 05:52 → 06:06 (przekazanie) → 06:09 CI zielone → 06:19 przyjęte | pytanie do właściciela ok. 2 min | kategoria Games/Card, zdanie w opisie |
 | AN session_01T66VBy5HsHQDnmCWm8Vboj | 10 docs | — | 5,74 | 28 | 11-10 05:52 → 06:18 → 06:19 przyjęte | pytanie do właściciela ok. 2 min | KR/VN |
 | API przekład pt-PT (AO) | workflow | ≈ 8,15 (×1,35 = 11) | 10,53 | — | 11-10 | — | mnożnik ×1,29 |
+| AO session_01T66VBwQoZrfRhLaY2LmtdR | 09 kod | — | 23,55 (+ API 10,53) | 30 | 11-10 05:52 → 06:17 przekazanie → AS | — | pt-PT: przekład + przegląd 44 lekcji |
+| AQ session_01T66VBxSH9VTYhVSyVDqCB5 | 09 audit docs | — | 98,37 | 34 | 11-10 06:09 → 06:26 → 06:34 przyjęte | odbiór ok. 10 min (koordynator zajęty) | pełny przegląd it, es, pt-BR; 39 subagentów |
+| AR session_01T66VBx2fb5Tf1JtB5kMueE | 09 audit docs | — | 121,31 | 32 | 11-10 06:09 → 06:32 → 06:34 przyjęte | — | pełny przegląd fr, de, vi; 48 subagentów |
+| koordynator session_01T66VBxtQGd3faU3Y4mNUuA | M9 | — | 31,42 (do 06:32) | 34 | 11-10 05:22 → przekazanie | — | + subagenci startu sesji ok. 0,8 mln tokenów |
 
 Sesje wcześniejsze (A…AD) — koszty niezapisane [DO USTALENIA].
 Mnożnik szacunku API: ×1,33 (2 pomiary). Mnożnik sesji: brak szacunków — na start 2.
+Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR 121,31 / 3); AP w toku. Sesje AQ i AR przekroczyły 30% kontekstu (34%, 32%) — krótkie zadanie, bez przekazania.
