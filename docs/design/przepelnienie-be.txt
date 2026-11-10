@@ -1,0 +1,124 @@
+# node narzedzia/przepelnienie.mjs — 2026-11-10 (sesja BE); INFO = łamanie w środku wyrazu (wyjątek D-122 tylko 320 pt; reszta: znalezisko w menu-i-zebatka.md)
+## ekrany/menu.html
+320: INFO w1-de „Lektion” złamany w środku wyrazu
+320: INFO w1-de „Wiederholungen” złamany w środku wyrazu
+320: INFO w1-de „Übungssession” złamany w środku wyrazu
+320: INFO w1-de „Entscheidungen” złamany w środku wyrazu
+320: INFO w1-de „Bewertung” złamany w środku wyrazu
+320: INFO w2-de „Lektion” złamany w środku wyrazu
+320: INFO w2-de „Wiederholungen” złamany w środku wyrazu
+320: INFO w2-de „Übungssession” złamany w środku wyrazu
+320: INFO w2-de „Leistungsindex” złamany w środku wyrazu
+320 AX5: INFO w1-w-trakcie „Matematyka” złamany w środku wyrazu
+320 AX5: INFO w1-w-trakcie „podstawowa,” złamany w środku wyrazu
+320 AX5: INFO w1-w-trakcie „Kontynuuj” złamany w środku wyrazu
+320 AX5: INFO w1-w-trakcie „wyjaśnieniem” złamany w środku wyrazu
+320 AX5: INFO w1-w-trakcie „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w1-w-trakcie „zaawansowania” złamany w środku wyrazu
+320 AX5: INFO w1-nowy „wyjaśnieniem” złamany w środku wyrazu
+320 AX5: INFO w1-nowy „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w1-nowy „zaawansowania” złamany w środku wyrazu
+320 AX5: INFO w1-ukonczone „ukończony” złamany w środku wyrazu
+320 AX5: INFO w1-ukonczone „wyjaśnieniem” złamany w środku wyrazu
+320 AX5: INFO w1-ukonczone „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w1-ukonczone „zaawansowania” złamany w środku wyrazu
+320 AX5: INFO w1-limit „Matematyka” złamany w środku wyrazu
+320 AX5: INFO w1-limit „podstawowa,” złamany w środku wyrazu
+320 AX5: INFO w1-limit „Kontynuuj” złamany w środku wyrazu
+320 AX5: INFO w1-limit „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w1-limit „zaawansowania” złamany w środku wyrazu
+320 AX5: INFO w1-limit „wykorzystany.” złamany w środku wyrazu
+320 AX5: INFO w2-w-trakcie „podstawowa,” złamany w środku wyrazu
+320 AX5: INFO w2-w-trakcie „Kontynuuj” złamany w środku wyrazu
+320 AX5: INFO w2-w-trakcie „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w2-w-trakcie „Ustawienia” złamany w środku wyrazu
+320 AX5: INFO w2-nowy „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w2-nowy „Ustawienia” złamany w środku wyrazu
+320 AX5: INFO w2-ukonczone „ukończony” złamany w środku wyrazu
+320 AX5: INFO w2-ukonczone „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w2-ukonczone „Ustawienia” złamany w środku wyrazu
+320 AX5: INFO w2-limit „podstawowa,” złamany w środku wyrazu
+320 AX5: INFO w2-limit „Kontynuuj” złamany w środku wyrazu
+320 AX5: INFO w2-limit „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO w2-limit „Ustawienia” złamany w środku wyrazu
+320 AX5: INFO w2-limit „wykorzystany.” złamany w środku wyrazu
+320 AX5: INFO w1-de „Mathematik,” złamany w środku wyrazu
+320 AX5: INFO w1-de „Lektion” złamany w środku wyrazu
+320 AX5: INFO w1-de „fortsetzen” złamany w środku wyrazu
+320 AX5: INFO w1-de „Wiederholungen” złamany w środku wyrazu
+320 AX5: INFO w1-de „Übungssession” złamany w środku wyrazu
+320 AX5: INFO w1-de „Entscheidungen” złamany w środku wyrazu
+320 AX5: INFO w1-de „(automatisch)” złamany w środku wyrazu
+320 AX5: INFO w1-de „Leistungsindex” złamany w środku wyrazu
+320 AX5: INFO w1-de „Wissen” złamany w środku wyrazu
+320 AX5: INFO w2-de „Mathematik,” złamany w środku wyrazu
+320 AX5: INFO w2-de „Lektion” złamany w środku wyrazu
+320 AX5: INFO w2-de „fortsetzen” złamany w środku wyrazu
+320 AX5: INFO w2-de „Wiederholungen” złamany w środku wyrazu
+320 AX5: INFO w2-de „Übungssession” złamany w środku wyrazu
+320 AX5: INFO w2-de „Entscheidungen” złamany w środku wyrazu
+320 AX5: INFO w2-de „Bewertung” złamany w środku wyrazu
+320 AX5: INFO w2-de „Leistungsindex” złamany w środku wyrazu
+320 AX5: INFO w2-de „Einstellungen” złamany w środku wyrazu
+320 AX5: INFO w2-de „Daten,” złamany w środku wyrazu
+320 AX5: INFO lekcje „Ukończony” złamany w środku wyrazu
+320 AX5: INFO lekcje „Ukończony” złamany w środku wyrazu
+320 AX5: INFO lekcje „Matematyka” złamany w środku wyrazu
+320 AX5: INFO lekcje „podstawowa” złamany w środku wyrazu
+320 AX5: INFO lekcje „sprawdzić” złamany w środku wyrazu
+320 AX5: INFO lekcje „Egzamin” złamany w środku wyrazu
+320 AX5: INFO lekcje „modułu” złamany w środku wyrazu
+320 AX5: INFO lekcje „c-bet” złamany w środku wyrazu
+320 AX5: INFO lekcje „Eksploatacja” złamany w środku wyrazu
+320 AX5: INFO lekcje „mikrostawek” złamany w środku wyrazu
+390: INFO w2-de „Bewertung” złamany w środku wyrazu
+390 AX5: INFO w1-w-trakcie „zaawansowania” złamany w środku wyrazu
+390 AX5: INFO w1-nowy „zaawansowania” złamany w środku wyrazu
+390 AX5: INFO w1-ukonczone „zaawansowania” złamany w środku wyrazu
+390 AX5: INFO w1-limit „zaawansowania” złamany w środku wyrazu
+390 AX5: INFO w1-de „Mathematik,” złamany w środku wyrazu
+390 AX5: INFO w1-de „Wiederholungen” złamany w środku wyrazu
+390 AX5: INFO w1-de „Übungssession” złamany w środku wyrazu
+390 AX5: INFO w1-de „Entscheidungen” złamany w środku wyrazu
+390 AX5: INFO w1-de „Bewertung” złamany w środku wyrazu
+390 AX5: INFO w1-de „Leistungsindex” złamany w środku wyrazu
+390 AX5: INFO w2-de „Mathematik,” złamany w środku wyrazu
+390 AX5: INFO w2-de „Wiederholungen” złamany w środku wyrazu
+390 AX5: INFO w2-de „Übungssession” złamany w środku wyrazu
+390 AX5: INFO w2-de „Leistungsindex” złamany w środku wyrazu
+390 AX5: INFO w2-de „Einstellungen” złamany w środku wyrazu
+390 AX5: INFO lekcje „Matematyka” złamany w środku wyrazu
+390 AX5: INFO lekcje „podstawowa” złamany w środku wyrazu
+390 AX5: INFO lekcje „Eksploatacja” złamany w środku wyrazu
+390 AX5: INFO lekcje „mikrostawek” złamany w środku wyrazu
+430: INFO w2-de „Bewertung” złamany w środku wyrazu
+430 AX5: INFO w1-w-trakcie „zaawansowania” złamany w środku wyrazu
+430 AX5: INFO w1-nowy „zaawansowania” złamany w środku wyrazu
+430 AX5: INFO w1-ukonczone „zaawansowania” złamany w środku wyrazu
+430 AX5: INFO w1-limit „zaawansowania” złamany w środku wyrazu
+430 AX5: INFO w1-de „Wiederholungen” złamany w środku wyrazu
+430 AX5: INFO w1-de „Übungssession” złamany w środku wyrazu
+430 AX5: INFO w1-de „Leistungsindex” złamany w środku wyrazu
+430 AX5: INFO w2-de „Lektion” złamany w środku wyrazu
+430 AX5: INFO w2-de „Wiederholungen” złamany w środku wyrazu
+430 AX5: INFO lekcje „Matematyka” złamany w środku wyrazu
+430 AX5: INFO lekcje „podstawowa” złamany w środku wyrazu
+OK
+kod=0
+## ekrany/scenariusz.html
+320: INFO ocena-zle „J-10” złamany w środku wyrazu
+320 AX5: INFO start „Scenariusze” złamany w środku wyrazu
+320 AX5: INFO start „Automatycznie” złamany w środku wyrazu
+320 AX5: INFO przebieg „Sprawdzenie” złamany w środku wyrazu
+320 AX5: INFO ocena-zle „sprawdzenie” złamany w środku wyrazu
+320 AX5: INFO ocena-zle „sprawdzenie” złamany w środku wyrazu
+320 AX5: INFO ocena-liczby „sprawdzenie” złamany w środku wyrazu
+320 AX5: INFO ocena-liczby „potrzebujesz” złamany w środku wyrazu
+320 AX5: INFO ocena-liczby „niewidzianych” złamany w środku wyrazu
+320 AX5: INFO ocena-mieszana „Sprawdzasz,” złamany w środku wyrazu
+320 AX5: INFO ocena-mieszana „Dlaczego” złamany w środku wyrazu
+320 AX5: INFO koniec „zakończone” złamany w środku wyrazu
+320 AX5: INFO koniec „sprawdzenie” złamany w środku wyrazu
+320 AX5: INFO koniec „sprawdzenie” złamany w środku wyrazu
+OK
+kod=0

@@ -3,7 +3,8 @@
     "review": "Wiederholungen",
     "rules": "Regeln",
     "progress": "Fortschritt",
-    "today": "Heute"
+    "today": "Heute",
+    "lessons": "Lektionen"
   },
   "today": {
     "title": "Heute",
@@ -22,7 +23,29 @@
     "rowDone": "Abgeschlossen.",
     "rowStarted": "Begonnen.",
     "rowPassed": "Bestanden.",
-    "rowScore": "Ergebnis: {{dobre}} von {{razem}}."
+    "rowScore": "Ergebnis: {{dobre}} von {{razem}}.",
+    "reviewsTile": "Wiederholungen",
+    "reviewsTileDue_one": "{{count}} für heute",
+    "reviewsTileDue_other": "{{count}} für heute",
+    "reviewsTileNone": "Heute keine",
+    "scenarios": "Szenarien",
+    "scenariosSoon": "Demnächst",
+    "limitTile": "Morgen wieder gratis",
+    "limitReached": "Tageslimit erreicht. Die nächste kostenlose Aktivität gibt es morgen; Lektionen laufen ohne Limit.",
+    "afterFirstLesson": "Nach der ersten Lektion",
+    "afterFirstLessonM2": "Nach der ersten Lektion in Modul 2",
+    "courseDoneTitle": "Kurs abgeschlossen"
+  },
+  "lessons": {
+    "title": "Lektionen",
+    "moduleDone": "Abgeschlossen",
+    "moduleProgress": "{{done}} von {{total}}",
+    "expand": "Aufklappen",
+    "collapse": "Zuklappen"
+  },
+  "scenarios": {
+    "title": "Szenarien",
+    "soon": "Szenarien folgen in Kürze. Bis dahin kannst du Entscheidungen in der Übungssession trainieren."
   },
   "welcome": {
     "title": "PokerGym",

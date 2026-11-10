@@ -17,6 +17,9 @@ name: Drugi język
     visible: '${LEKCJA_START_TYTUL_EN}'
     timeout: 30000
 - takeScreenshot: 08-dzis-en
+# lista lekcji jest w zakładce „Lekcje” (D-542, KO-045)
+- tapOn:
+    id: 'zakladka-lekcje'
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'

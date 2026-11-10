@@ -1,0 +1,82 @@
+/* Sesja BE część B (rola 04): scenariusz całego rozdania (F-12, BR-SZB/GEN/POZ, BR-SCN) i ocena decyzji (KO-040, BR-OCE).
+   Uzupełnia e3.css; kolory wyłącznie z tokeny.css. Bez żetonów, salda i wygranej (BR-SCN-002, OG-02). */
+
+/* Start: przełącznik poziomu jako kontrolka segmentowa iOS */
+.sc-opis { padding: 8px 20px 0; }
+.sc-opis p { font-size: var(--t-przypis); color: var(--muted); line-height: 1.4; }
+.sc-opis h1 { font-size: var(--t-tytul); line-height: 1.2; margin: 4px 0 8px; }
+.segment { margin: 8px 16px 0; display: flex; flex-wrap: wrap; background: var(--separator); border-radius: 10px; padding: 2px; gap: 2px; }
+.segment a { flex: 1 1 calc(64px * var(--dt-tresc)); min-height: 44px; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: var(--t-przypis); padding: 4px 6px; line-height: 1.2; }
+.segment a[aria-checked="true"] { background: var(--surface); font-weight: 600; box-shadow: 0 1px 3px var(--shadow); }
+.podpowiedz { font-size: var(--t-przypis); color: var(--muted); margin: 8px 20px 0; line-height: 1.4; }
+.podpowiedz b { color: var(--ink); font-weight: 600; }
+
+/* Przebieg: ulice jako kroki (tekst + kształt, nie kolor) */
+.ulice { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 16px 0; list-style: none; }
+.ulice li { font-size: var(--t-drobny); padding: 4px 10px; border-radius: 12px; border: 1.5px solid var(--separator); color: var(--muted); }
+.ulice li.byla { border-style: solid; border-color: var(--muted); }
+.ulice li.byla::before { content: '✓ '; }
+.ulice li[aria-current] { border: 2px solid var(--ink); color: var(--ink); font-weight: 600; }
+
+/* Stół heads-up: dwa miejsca, karty stołu, głębokość w bb przy miejscu; „W puli” tekstem, bez żetonów */
+.stol.hu { height: 200px; margin-top: 28px; }
+.stol.hu .wspolne { top: 50%; display: flex; gap: 6px; }
+.stol.hu .wspolne .karta { width: 46px; height: 64px; padding: 3px 6px; }
+.stol.hu .wspolne .karta b { font-size: 22px; }
+.stol.hu .wspolne .karta svg { width: 16px; height: 16px; }
+.stol.hu .wspolne .karta.pusta { background: transparent; border: 1.5px dashed var(--on-felt-muted); box-shadow: none; }
+.w-puli { text-align: center; margin: 60px 20px 0; font-size: var(--t-przypis); color: var(--muted); line-height: 1.4; font-feature-settings: 'tnum'; }
+.w-puli b { color: var(--ink); font-weight: 600; }
+
+/* Dziennik akcji: rywal krok po kroku (najnowszy na dole, nowy wpis pojawia się po 400 ms; „Ogranicz ruch”: od razu) */
+.dziennik { margin: 12px 16px 0; background: var(--surface); border-radius: 14px; padding: 4px 0; list-style: none; }
+.dziennik li { display: flex; gap: 10px; align-items: baseline; padding: 6px 14px; font-size: var(--t-przypis); line-height: 1.35; }
+.dziennik li + li { border-top: 1px solid var(--separator); }
+.dziennik .u { flex: none; width: calc(48px * var(--dt-tresc)); color: var(--muted); font-size: var(--t-drobny); }
+.dziennik .ocena-chip { margin-left: auto; flex: none; font-size: var(--t-drobny); color: var(--muted); border: 1px solid var(--separator); border-radius: 8px; padding: 0 6px; }
+.dziennik li.teraz { font-weight: 600; }
+
+/* Ocena: tekst „dlaczego” na pierwszym planie; liczby w rozwijanym dodatku */
+.werdykt { margin: 12px 16px 0; border-radius: 28px; background: var(--frame); padding: 6px; }
+.werdykt .sukno { border-radius: 22px; background: radial-gradient(80% 90% at 50% 20%, var(--felt1), var(--felt2)); padding: 14px 16px; color: var(--on-felt); }
+.werdykt .stopien { font-size: max(min(calc(1.75rem * var(--dt-tytul)), calc(var(--w) * 0.085)), 1.25rem); }
+.werdykt p { font-size: var(--t-przypis); color: var(--on-felt-muted); margin-top: 4px; }
+.werdykt p b { color: var(--gold-text); font-weight: 600; }
+.dlaczego { margin: 16px 20px 0; }
+.dlaczego h2 { font-size: var(--t-tresc); font-weight: 600; line-height: 1.3; }
+.dlaczego p { font-size: var(--t-tresc); line-height: 1.42; margin-top: 6px; }
+.dlaczego p .syt { color: var(--muted); }
+.oceny-akcji { margin: 16px 16px 0; display: flex; flex-wrap: wrap; border: 1.5px solid var(--action-outline); border-radius: 14px; overflow: hidden; }
+.oceny-akcji span { flex: 1 1 calc(90px * var(--dt-tresc)); min-height: 56px; padding: 6px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: var(--action-bg); color: var(--action-ink); font-size: var(--t-przypis); font-weight: 600; line-height: 1.25; position: relative; }
+.oceny-akcji span + span { border-left: 1.5px solid var(--action-edge); }
+.oceny-akcji small { font-weight: 400; color: var(--action-muted); font-size: var(--t-drobny); }
+.oceny-akcji span.twoj { box-shadow: inset 0 0 0 3px var(--gold); }
+.oceny-akcji span.twoj small::after { content: ' · twój wybór'; color: var(--gold-text); }
+.rozwin { margin: 12px 16px 0; background: var(--surface); border-radius: 14px; }
+.rozwin > a { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 8px 16px; color: var(--ink); text-decoration: none; font-size: var(--t-tresc); font-weight: 600; }
+.rozwin > a .strzalka { margin-left: auto; }
+.rozwin > div { border-top: 1px solid var(--separator); padding: 10px 16px 14px; font-size: var(--t-przypis); line-height: 1.45; }
+.rozwin > div p + p { margin-top: 8px; }
+.rozwin .liczba { font-weight: 600; font-feature-settings: 'tnum'; }
+
+/* Podsumowanie: lista decyzji ze stopniami, bez wyniku pieniężnego */
+.podsumowanie { margin: 12px 16px 0; }
+.przyciski.sc { margin-top: auto; }
+.przycisk.drugi { background: var(--surface); color: var(--ink); }
+
+/* Poprawki po krytyce zrzutu (2026-11-10) */
+.stol.hu .twoje { bottom: -52px; }
+.w-puli { margin-top: 70px; }
+.pasek a, .oceny-akcji span { padding-left: 4px; padding-right: 4px; hyphens: manual; overflow-wrap: normal; }
+.werdykt .znak { border: none; width: auto; margin-right: 0.25em; } /* D-284: bez kółka wokół znaku */
+.segment a:first-child { flex-grow: 1.8; }
+.segment a:first-child { flex: 1 1 calc(116px * var(--dt-tresc)); }
+/* Duży tekst: ulica nad wpisem dziennika (inaczej wpis ma kolumnę na jeden znak), mniejsze marginesy */
+.dziennik li { flex-wrap: wrap; }
+.dziennik li > :not(.u):not(.ocena-chip) { flex: 1 1 60%; min-width: 0; }
+@container style(--dt-tresc: 3.1) {
+  .dziennik .u { width: 100%; }
+  .dziennik, .werdykt, .rozwin, .oceny-akcji, .segment { margin-left: 8px; margin-right: 8px; }
+  .dlaczego, .sc-opis, .podpowiedz { margin-left: 12px; margin-right: 12px; padding-left: 0; padding-right: 0; }
+}
+@container style(--dt-tresc: 3.1) { .pasek a, .oceny-akcji span { overflow-wrap: anywhere; } }

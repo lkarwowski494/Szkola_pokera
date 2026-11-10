@@ -1,4 +1,4 @@
-import { nastepnaLekcja, stanKursu, type FaktyKursu, type ModulKursu } from '@szkola/domena';
+import { nastepnaLekcja, stanKursu, type FaktyKursu, type Limit, type ModulKursu } from '@szkola/domena';
 import type { PostepLekcji } from '@szkola/postep';
 import type { LessonSummary, ModuleRow } from '@/data/content/repo';
 
@@ -67,4 +67,36 @@ export function etykietaWiersza(w: { tytul: string; opis: string; stan: 'done' |
   ]
     .filter((x): x is string => x !== null)
     .join(' ');
+}
+
+/** Kolumny kafelków na „Dziś” (D-541): przy dużym tekście jedna kolumna. Próg 1,3 = od ok. AX1 (iOS: AX1 ≈ 1,35, XXXL ≈ 1,24 skali treści). */
+export function liczbaKolumnKafli(skalaTekstu: number): 1 | 2 {
+  return skalaTekstu >= 1.3 ? 1 : 2;
+}
+
+/** Etykieta VoiceOver kafelka: „{tytuł}. {stan}.” — stan nie tylko tekstem na ekranie; bez podwójnej kropki. */
+export function etykietaKafla(tytul: string, stan: string): string {
+  return `${tytul}. ${stan.replace(/[.!?…]+\s*$/u, '')}.`;
+}
+
+/** Stan kafelków „Dziś” (BR-MENU-001, menu-i-zebatka.md „Stany”): z limitu dnia, liczby powtórek i ukończonych lekcji. */
+export interface StanKafli {
+  powtorki: 'liczba' | 'po_pierwszej' | 'brak';
+  sesja: 'opis' | 'limit';
+  scenariusze: 'wkrotce' | 'po_m2' | 'limit';
+  stopkaLimitu: boolean;
+}
+/** Scenariusze mają treść od modułu 2 (D-536: M0, M1 bez scenariuszy; BR-MENU-001 „Po pierwszej lekcji modułu 2”). */
+const MODUL_SCENARIUSZY_OD = 2;
+export function stanKafli(w: { limit: Limit; powtorkiNaDzis: number; ukonczoneLekcje: readonly string[]; moduly: readonly ModuleRow[]; lekcje: readonly LessonSummary[] }): StanKafli {
+  const wyczerpany = !w.limit.bezLimitu && w.limit.pozostalo <= 0;
+  const ordModulu = new Map(w.moduly.map((m) => [m.id, m.ord]));
+  const ordLekcji = new Map(w.lekcje.map((l) => [l.id, ordModulu.get(l.moduleId) ?? -1]));
+  const odblokowane = w.ukonczoneLekcje.some((id) => (ordLekcji.get(id) ?? -1) >= MODUL_SCENARIUSZY_OD);
+  return {
+    powtorki: w.powtorkiNaDzis > 0 ? 'liczba' : w.ukonczoneLekcje.length === 0 ? 'po_pierwszej' : 'brak',
+    sesja: wyczerpany ? 'limit' : 'opis',
+    scenariusze: !odblokowane ? 'po_m2' : wyczerpany ? 'limit' : 'wkrotce',
+    stopkaLimitu: wyczerpany,
+  };
 }

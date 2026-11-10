@@ -3,7 +3,8 @@
     "review": "復習",
     "rules": "ルール",
     "progress": "進捗",
-    "today": "今日"
+    "today": "今日",
+    "lessons": "レッスン"
   },
   "today": {
     "title": "今日",
@@ -21,7 +22,28 @@
     "rowDone": "完了。",
     "rowStarted": "開始済み。",
     "rowPassed": "合格。",
-    "rowScore": "スコア：{{razem}}問中{{dobre}}問。"
+    "rowScore": "スコア：{{razem}}問中{{dobre}}問。",
+    "reviewsTile": "復習",
+    "reviewsTileDue_other": "今日は{{count}}件",
+    "reviewsTileNone": "今日はなし",
+    "scenarios": "シナリオ",
+    "scenariosSoon": "近日公開",
+    "limitTile": "無料枠は明日",
+    "limitReached": "1日の上限に達しました。次の無料アクティビティは明日です。レッスンは上限なしで利用できます。",
+    "afterFirstLesson": "最初のレッスンのあとに",
+    "afterFirstLessonM2": "モジュール2の最初のレッスンのあとに",
+    "courseDoneTitle": "コース修了"
+  },
+  "lessons": {
+    "title": "レッスン",
+    "moduleDone": "完了",
+    "moduleProgress": "{{done}}/{{total}}",
+    "expand": "開く",
+    "collapse": "閉じる"
+  },
+  "scenarios": {
+    "title": "シナリオ",
+    "soon": "シナリオは近日公開です。それまでは練習セッションで判断を練習できます。"
   },
   "welcome": {
     "title": "PokerGym",

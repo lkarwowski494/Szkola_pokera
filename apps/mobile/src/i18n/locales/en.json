@@ -3,7 +3,8 @@
     "review": "Reviews",
     "rules": "Rules",
     "progress": "Progress",
-    "today": "Today"
+    "today": "Today",
+    "lessons": "Lessons"
   },
   "today": {
     "title": "Today",
@@ -22,7 +23,29 @@
     "rowDone": "Completed.",
     "rowStarted": "Started.",
     "rowPassed": "Passed.",
-    "rowScore": "Score: {{dobre}} of {{razem}}."
+    "rowScore": "Score: {{dobre}} of {{razem}}.",
+    "reviewsTile": "Reviews",
+    "reviewsTileDue_one": "{{count}} due today",
+    "reviewsTileDue_other": "{{count}} due today",
+    "reviewsTileNone": "None due today",
+    "scenarios": "Scenarios",
+    "scenariosSoon": "Coming soon",
+    "limitTile": "Free tomorrow",
+    "limitReached": "Daily limit used. Your next free activity is tomorrow; lessons work without a limit.",
+    "afterFirstLesson": "After your first lesson",
+    "afterFirstLessonM2": "After your first lesson in module 2",
+    "courseDoneTitle": "Course completed"
+  },
+  "lessons": {
+    "title": "Lessons",
+    "moduleDone": "Completed",
+    "moduleProgress": "{{done}} of {{total}}",
+    "expand": "Expand",
+    "collapse": "Collapse"
+  },
+  "scenarios": {
+    "title": "Scenarios",
+    "soon": "Scenarios are coming soon. Until then, practice decisions in a practice session."
   },
   "welcome": {
     "title": "PokerGym",
