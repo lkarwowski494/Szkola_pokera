@@ -21,8 +21,8 @@ const BAZA = {
   decisions: [{
     street: 'flop', kind: 'draw-call', pots: [20, 40], fractions: [0.25, 0.5, 1], villain: 'bet', rule: 'R-M2-001',
     actions: [
-      { action: 'call', explanation: 'Masz draw, rywal {{t:bet|stawia}}: {{t:call|sprawdzasz}}, bo cena jest niższa niż szansa na trafienie ({{n:outs.flush}} outów).' },
-      { action: 'fold', explanation: 'Masz draw, rywal {{t:bet|stawia}}: {{t:fold|pasujesz}}, bo szansa na trafienie jest niższa niż cena.' },
+      { action: 'call', explanation: 'Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, rywal z {{w:rywal}} {{t:bet|stawia}}. {{t:call|Sprawdzasz}}, bo cena jest niższa niż szansa na trafienie ({{n:outs.flush}} outów).' },
+      { action: 'fold', explanation: 'Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, rywal z {{w:rywal}} {{t:bet|stawia}}. {{t:fold|Pasujesz}}, bo szansa na trafienie jest niższa niż cena.' },
     ],
   }],
 };
@@ -73,6 +73,17 @@ describe('walidacja szablonu w budowaniu', () => {
     expect(checkScenarioTemplate(t(BAZA), 'inny.yaml', ctx).join()).toMatch(/nazwą pliku/);
     expect(checkScenarioTemplate(t(kopia((b) => { b.module = 'm9'; })), 'sc-test-draw.yaml', ctx).join()).toMatch(/moduł m9/);
   });
+  it('wyjaśnienie ma karty i pozycję wariantu w zdaniu sytuacji (BR-OCE-001/002, D-557)', () => {
+    const bez = kopia((b) => { b.decisions[0]!.actions[0]!.explanation = 'Masz draw, rywal {{t:bet|stawia}}. {{t:call|Sprawdzasz}}, bo cena jest niższa niż szansa.'; });
+    expect(checkScenarioTemplate(t(bez), 'sc-test-draw.yaml', ctx).join('\n')).toMatch(/sc-test-draw.*punkt decyzji 1.*call.*zdanie sytuacji.*reka.*stol.*pozycja/);
+    // znaczniki dopiero w drugim zdaniu nie liczą się jako sytuacja
+    const pozno = kopia((b) => { b.decisions[0]!.actions[1]!.explanation = 'Rywal {{t:bet|stawia}}. {{t:fold|Pasujesz}}, bo {{w:reka}} na {{w:pozycja}} i {{w:stol}} to za mało.'; });
+    expect(checkScenarioTemplate(t(pozno), 'sc-test-draw.yaml', ctx).join('\n')).toMatch(/punkt decyzji 1.*fold.*zdanie sytuacji/);
+  });
+  it('nieznany znacznik wariantu to błąd budowania', () => {
+    const zly = kopia((b) => { b.decisions[0]!.actions[0]!.explanation += ' {{w:reka2}}'; });
+    expect(checkScenarioTemplate(t(zly), 'sc-test-draw.yaml', ctx).join('\n')).toMatch(/punkt decyzji 1.*call.*nieznany znacznik wariantu.*reka2/);
+  });
   it('typ rywala wymaga reguły exploit', () => {
     const z = { ...BAZA, villainType: 'nit' };
     expect(checkScenarioTemplate(t(z), 'sc-test-draw.yaml', ctx).join()).toMatch(/exploit/);
@@ -119,6 +130,7 @@ describe('compileContent z szablonami scenariuszy', () => {
     const c = zTreścią({ 'sc-test-draw.yaml': yaml(BAZA) });
     expect(c.scenarios?.map((s) => s.id)).toEqual(['sc-test-draw']);
     expect(c.scenarios?.[0]?.decisions[0]?.actions[0]?.explanation).not.toContain('{{n:');
+    expect(c.scenarios?.[0]?.decisions[0]?.actions[0]?.explanation).toContain('{{w:reka}}'); // znaczniki wariantu zostają do wyświetlenia
   }, 120_000);
   it('szablon bez źródła oceny przerywa budowanie z id i numerem punktu', () => {
     const zly = kopia((b) => { delete (b.decisions[0] as { rule?: string }).rule; });

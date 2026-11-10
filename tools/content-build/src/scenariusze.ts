@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -61,6 +61,16 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     if (d.calc !== undefined && !ctx.numberKeys.has(d.calc)) e.push(`${p} nieznany rachunek ${d.calc}`);
     const akcje = d.actions.map((a) => a.action).sort().join(',');
     if (akcje !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+    for (const a of d.actions) {
+      // BR-OCE-001/002, D-557: pierwsze zdanie wymienia rękę, pozycję i stół z wariantu (znaczniki), a nie z przykładu w treści
+      const zdanie = a.explanation.split(/[.!?\n]/)[0] ?? '';
+      const znane = findVariantMarkers(a.explanation);
+      const nieznane = znane.filter((m) => !(VARIANT_MARKERS as readonly string[]).includes(m));
+      if (nieznane.length) e.push(`${p} akcja ${a.action}: nieznany znacznik wariantu ${nieznane.map((m) => `{{w:${m}}}`).join(', ')} (dozwolone: ${VARIANT_MARKERS.join(', ')})`);
+      const w = findVariantMarkers(zdanie);
+      const brak = (['reka', 'stol', 'pozycja'] as const).filter((m) => !w.includes(m));
+      if (brak.length) e.push(`${p} akcja ${a.action}: zdanie sytuacji (pierwsze) musi mieć znaczniki wariantu ${brak.map((m) => `{{w:${m}}}`).join(', ')}, żeby pokazywało karty i pozycję z wylosowanego wariantu`);
+    }
     if (i === 0 && d.street !== 'flop') e.push(`${p} pierwsza decyzja jest na flopie`);
     if (i === 1 && d.street !== 'turn') e.push(`${p} druga decyzja jest na turnie`);
     if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);

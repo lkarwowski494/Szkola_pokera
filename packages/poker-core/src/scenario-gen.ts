@@ -169,3 +169,26 @@ export function generateVariant(template: GeneratorTemplate, level: ScenarioLeve
   }
   throw new TemplateError(`${template.id}: ${MAX_CONSECUTIVE_REJECTIONS} odrzuceń z rzędu na poziomie ${level}`);
 }
+
+/**
+ * Znaczniki wariantu w wyjaśnieniu akcji (BR-OCE-002, D-557): {{w:reka}} (ręka gracza), {{w:stol}} (karty stołu widoczne w punkcie
+ * decyzji), {{w:pozycja}} i {{w:rywal}} (pozycje z szablonu). Podstawiane przy wyświetleniu; formatowanie kart i nazw pozycji
+ * (język) podaje wołający, bo poker-core nie zna języków interfejsu.
+ */
+export const VARIANT_MARKERS = ['reka', 'stol', 'pozycja', 'rywal'] as const;
+export type VariantMarker = (typeof VARIANT_MARKERS)[number];
+
+const VARIANT_MARKER_RE = /\{\{w:([^}|]*)\}\}/g;
+
+/** Nazwy znaczników wariantu z tekstu w kolejności występowania (także nieznane, do walidacji). */
+export function findVariantMarkers(text: string): string[] {
+  return [...text.matchAll(VARIANT_MARKER_RE)].map((m) => m[1]!);
+}
+
+/** Podstawia znaczniki wartościami wariantu; nieznany znacznik to błąd (nie cichy napis w treści dla użytkownika). */
+export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>): string {
+  return text.replace(VARIANT_MARKER_RE, (_all, name: string) => {
+    if (!(VARIANT_MARKERS as readonly string[]).includes(name)) throw new TemplateError(`nieznany znacznik wariantu {{w:${name}}}`);
+    return values[name as VariantMarker];
+  });
+}
