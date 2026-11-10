@@ -42,7 +42,7 @@ describe('nazwy marek (decyzja właściciela z 9.10.2026)', () => {
   });
 
   it('lekcje, zadania, egzaminy, reguły, liczby, terminy, zakresy, moduły, słowniczek i telefony pomocy w aplikacji nie zawierają nazw marek ani autorów', () => {
-    const content = compileContent(contentDir);
+    const content = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
     const dir = mkdtempSync(join(tmpdir(), 'brands-'));
     try {
       const db = new DatabaseSync(writeContentDb(content, dir), { readOnly: true });
@@ -101,7 +101,7 @@ describe('źródła reguły: rodzaj i liczba (decyzja właściciela z 9.10.2026)
   });
 
   it('baza aplikacji ma rodzaje i liczby źródeł reguł, bez pełnych opisów źródeł reguł, liczb i terminów', () => {
-    const content = compileContent(contentDir);
+    const content = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
     const dir = mkdtempSync(join(tmpdir(), 'sources-'));
     try {
       const db = new DatabaseSync(writeContentDb(content, dir), { readOnly: true });

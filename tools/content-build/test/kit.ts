@@ -3,7 +3,8 @@ import { BOT_SOLVER_FILE, BOT_SOLVER_PLAYERS, botKnowledgeFrom, gradingKitFrom, 
 import { compileContent } from '../src/build';
 
 /** Skompilowana treść i zestawy dla botów i oceny (wspólne dla testów trybu gry). */
-export const content = compileContent(join(resolve(import.meta.dirname, '../../..'), 'content'));
+// bez kontroli generatora (ok. 20 s na plik testu importujący kit); pełna kompilacja z generatorem jest w build.test.ts i w `pnpm content:build`
+export const content = compileContent(join(resolve(import.meta.dirname, '../../..'), 'content'), 'pl', { kontrolaGeneratora: false });
 const numbers = new Map(content.numbers.map((n) => [n.key, n.value]));
 export const number = (k: string): number => {
   const v = numbers.get(k);

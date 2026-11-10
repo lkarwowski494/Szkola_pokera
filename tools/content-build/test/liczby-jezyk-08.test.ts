@@ -61,7 +61,7 @@ describe('JAK-F07-02: liczby w treści według języka bazy', () => {
 
   it('LJ-08-d strażnik: w bazie `pl` każda liczba z numbers.yaml ma ten sam zapis co przed zmianą', () => {
     const wpisy = NumbersFile.parse(parseYaml(readFileSync(join(contentDir, 'numbers.yaml'), 'utf8')));
-    const liczby = compileContent(contentDir, 'pl').numbers;
+    const liczby = compileContent(contentDir, 'pl', { kontrolaGeneratora: false }).numbers;
     expect(liczby.length).toBe(Object.keys(wpisy).length);
     const rozne = liczby.filter((n) => {
       const e = wpisy[n.key]!;

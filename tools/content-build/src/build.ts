@@ -125,6 +125,8 @@ export interface CompileOptions {
   registryDir?: string;
   /** Lista przejściowa strażnika rejestru (registry.ts); domyślnie tools/content-build/rejestr-przejsciowe.json, null = bez listy. */
   transitional?: string | null;
+  /** Kontrola generatora szablonów (2000 prób na poziom, najdroższy krok kompilacji pl); domyślnie włączona. Wyłączają ją tylko testy, które sprawdzają treść innych kontroli, a generator ma własne testy i bramkę w `content:build` (CJ, zadanie 6). */
+  kontrolaGeneratora?: boolean;
 }
 
 export function compileContent(contentDir: string, locale = 'pl', opts: CompileOptions = {}): CompiledContent {
@@ -420,7 +422,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
-    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds(), cbetCases, sizeRules, ...(equity169 ? { equity169 } : {}) }));
+    if (locale === 'pl' && opts.kontrolaGeneratora !== false && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds(), cbetCases, sizeRules, ...(equity169 ? { equity169 } : {}) }));
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {
       const gdzie = `${template.id}#${i + 1}`;

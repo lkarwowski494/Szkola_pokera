@@ -14,7 +14,7 @@ afterAll(() => { for (const k of katalogi) rmSync(k, { recursive: true, force: t
 const tymczasowy = (p: string) => { const k = mkdtempSync(join(tmpdir(), p)); katalogi.push(k); return k; };
 
 const pamiec = new Map<string, ReturnType<typeof compileContent>>();
-const skompiluj = (j: string) => pamiec.get(j) ?? (pamiec.set(j, compileContent(contentDir, j)), pamiec.get(j)!);
+const skompiluj = (j: string) => pamiec.get(j) ?? (pamiec.set(j, compileContent(contentDir, j, { kontrolaGeneratora: false })), pamiec.get(j)!);
 
 // Kompilacja treści jednego języka trwa ok. 1 s lokalnie i do ok. 4 s na runnerze GitHuba (CI 42459236698: T35-08-a 7,3 s przy
 // domyślnych 5 s); limit dotyczy czasu kompilacji, nie asercji.

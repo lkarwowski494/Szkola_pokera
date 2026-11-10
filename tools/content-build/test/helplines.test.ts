@@ -166,7 +166,7 @@ describe('mechanika pomocy na danych testowych (schemat, kontrole, wybór kraju 
   });
 
   it('lekcja M12-L4 i moduł ekranu „Pomoc” mają te same dane (jedno źródło)', () => {
-    const content = compileContent(join(root, 'content'), 'pl');
+    const content = compileContent(join(root, 'content'), 'pl', { kontrolaGeneratora: false });
     const lesson = JSON.stringify(content.lessons.find((l) => l.id === 'm12.l4')!.body);
     const md = helplinesMarkdown(h);
     const src = helplinesModuleSource(content.helplines);
