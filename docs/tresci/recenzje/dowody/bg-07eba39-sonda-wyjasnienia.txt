@@ -1,0 +1,141 @@
+$ sonda (git worktree 07eba39 w scratchpadzie, plik testu poza repo): npx jest src/features/drills/__tests__/sonda-bk.test.ts  → exit 0
+# spoty syntetyczne: częstości 1 / 0 / 0,5 na klasę ręki; teksty z pl.json; znaczniki {{t:…}} zostawione
+--- rfi.btn [mixed]
+EXPL: Masz 44. Sytuacja: Button, wszyscy spasowali. Możesz grać albo pasować (fold), bo to ręka na granicy zakresu (range): solver raz ją gra, raz pasuje. Zostały za tobą tylko blindy, a po flopie będziesz mieć pozycję (position). Częstości solvera dla 44: przebicie do 2,5bb 50%, pas (fold) 50%. To ręka graniczna: solver miesza akcje, więc aplikacja uznaje za dobrą każdą odpowiedź graną w co najmniej 25% przypadków.
+  OPT Przebicie do 2,5bb (ok): Tak: to ręka na granicy zakresu (range). Zostały za tobą tylko blindy, a po flopie będziesz mieć pozycję (position). Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+  OPT Pas (fold) (ok): Tak: to ręka na granicy zakresu (range). Zostały za tobą tylko blindy, a po flopie będziesz mieć pozycję (position). Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+--- rfi.btn [out]
+EXPL: Masz K2o. Sytuacja: Button, wszyscy spasowali. Pasujesz (fold), bo w tej sytuacji ta ręka jest poza zakresem (range). Częstości solvera dla K2o: pas (fold) 100%.
+  OPT Przebicie do 2,5bb (zle): Za luźno: w tej sytuacji ta ręka jest poza zakresem (range). Solver nigdy tak nie gra z tą ręką.
+  OPT Pas (fold) (ok): Tak: w tej sytuacji ta ręka jest poza zakresem (range). Solver gra tak w 100% przypadków, czyli zawsze.
+--- rfi.btn [in]
+EXPL: Masz Q7s. Sytuacja: Button, wszyscy spasowali. Najlepsza akcja: przebicie do 2,5bb, bo w tej sytuacji ta ręka mieści się w zakresie (range). Zostały za tobą tylko blindy, a po flopie będziesz mieć pozycję (position). Częstości solvera dla Q7s: przebicie do 2,5bb 100%.
+  OPT Przebicie do 2,5bb (ok): Tak: w tej sytuacji ta ręka mieści się w zakresie (range). Zostały za tobą tylko blindy, a po flopie będziesz mieć pozycję (position). Solver gra tak w 100% przypadków, czyli zawsze.
+  OPT Pas (fold) (zle): Za ciasno: w tej sytuacji ta ręka mieści się w zakresie (range). Zostały za tobą tylko blindy, a po flopie będziesz mieć pozycję (position). Solver nigdy tak nie gra z tą ręką.
+--- push.sb-3max [mixed]
+EXPL: Masz 44. Sytuacja: Mały blind, trzech graczy, stacki po 7,5bb, Button spasował. Możesz grać albo pasować (fold), bo to ręka na granicy zakresu (range): solver raz ją gra, raz pasuje. Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc pasy wszystkich zdarzają się rzadziej. Częstości solvera dla 44: all-in 50%, pas (fold) 50%. To ręka graniczna: solver miesza akcje, więc aplikacja uznaje za dobrą każdą odpowiedź graną w co najmniej 25% przypadków.
+  OPT All-in (ok): Tak: to ręka na granicy zakresu (range). Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc pasy (fold) wszystkich zdarzają się rzadziej. Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+  OPT Pas (fold) (ok): Tak: to ręka na granicy zakresu (range). Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc pasy (fold) wszystkich zdarzają się rzadziej. Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+--- push.sb-3max [out]
+EXPL: Masz K2o. Sytuacja: Mały blind, trzech graczy, stacki po 7,5bb, Button spasował. Pasujesz (fold), bo w tej sytuacji ta ręka jest poza zakresem (range). Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc pasy wszystkich zdarzają się rzadziej. Częstości solvera dla K2o: pas (fold) 100%.
+  OPT All-in (zle): Za luźno: w tej sytuacji ta ręka jest poza zakresem (range). Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc pasy (fold) wszystkich zdarzają się rzadziej. Solver nigdy tak nie gra z tą ręką.
+  OPT Pas (fold) (ok): Tak: w tej sytuacji ta ręka jest poza zakresem (range). Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc pasy (fold) wszystkich zdarzają się rzadziej. Solver gra tak w 100% przypadków, czyli zawsze.
+--- push.sb-3max [in]
+EXPL: Masz Q7s. Sytuacja: Mały blind, trzech graczy, stacki po 7,5bb, Button spasował. Najlepsza akcja: all-in, bo w tej sytuacji ta ręka mieści się w zakresie (range). Częstości solvera dla Q7s: all-in 100%.
+  OPT All-in (ok): Tak: w tej sytuacji ta ręka mieści się w zakresie (range). Solver gra tak w 100% przypadków, czyli zawsze.
+  OPT Pas (fold) (zle): Za ciasno: w tej sytuacji ta ręka mieści się w zakresie (range). Solver nigdy tak nie gra z tą ręką.
+--- push.sb-15 [mixed]
+EXPL: Masz 44. Sytuacja: Mały blind, stack 15bb. Możesz grać albo pasować (fold), bo to ręka na granicy zakresu (range): solver raz ją gra, raz pasuje. Przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje, a rywal musi sprawdzać (call) szerzej. Częstości solvera dla 44: all-in 50%, pas (fold) 50%. To ręka graniczna: solver miesza akcje, więc aplikacja uznaje za dobrą każdą odpowiedź graną w co najmniej 25% przypadków.
+  OPT All-in (ok): Tak: to ręka na granicy zakresu (range). Przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje (fold), a rywal musi sprawdzać (call) szerzej. Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+  OPT Pas (fold) (ok): Tak: to ręka na granicy zakresu (range). Przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje (fold), a rywal musi sprawdzać (call) szerzej. Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+--- push.sb-15 [out]
+EXPL: Masz K2o. Sytuacja: Mały blind, stack 15bb. Pasujesz (fold), bo w tej sytuacji ta ręka jest poza zakresem (range). Częstości solvera dla K2o: pas (fold) 100%.
+  OPT All-in (zle): Za luźno: w tej sytuacji ta ręka jest poza zakresem (range). Solver nigdy tak nie gra z tą ręką.
+  OPT Pas (fold) (ok): Tak: w tej sytuacji ta ręka jest poza zakresem (range). Solver gra tak w 100% przypadków, czyli zawsze.
+--- push.sb-15 [in]
+EXPL: Masz Q7s. Sytuacja: Mały blind, stack 15bb. Najlepsza akcja: all-in, bo w tej sytuacji ta ręka mieści się w zakresie (range). Przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje (fold), a rywal musi sprawdzać (call) szerzej. Częstości solvera dla Q7s: all-in 100%.
+  OPT All-in (ok): Tak: w tej sytuacji ta ręka mieści się w zakresie (range). Przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje (fold), a rywal musi sprawdzać (call) szerzej. Solver gra tak w 100% przypadków, czyli zawsze.
+  OPT Pas (fold) (zle): Za ciasno: w tej sytuacji ta ręka mieści się w zakresie (range). Przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje (fold), a rywal musi sprawdzać (call) szerzej. Solver nigdy tak nie gra z tą ręką.
+--- call.bb-10 [mixed]
+EXPL: Masz 44. Sytuacja: Duży blind, stack 10bb, SB all-in. Możesz grać albo pasować (fold), bo to ręka na granicy zakresu (range): solver raz ją gra, raz pasuje. Sprawdzający wygrywa tylko na showdownie i to przeciw zakresowi, który już jest silniejszy niż losowy; pushujący (shove) wygrywa też wtedy, gdy rywal spasuje. Częstości solvera dla 44: sprawdzam 50%, pas (fold) 50%. To ręka graniczna: solver miesza akcje, więc aplikacja uznaje za dobrą każdą odpowiedź graną w co najmniej 25% przypadków.
+  OPT Sprawdzam (ok): Tak: to ręka na granicy zakresu (range). Sprawdzający wygrywa tylko na showdownie i to przeciw zakresowi, który już jest silniejszy niż losowy; pushujący (shove) wygrywa też wtedy, gdy rywal spasuje (fold). Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+  OPT Pas (fold) (ok): Tak: to ręka na granicy zakresu (range). Sprawdzający wygrywa tylko na showdownie i to przeciw zakresowi, który już jest silniejszy niż losowy; pushujący (shove) wygrywa też wtedy, gdy rywal spasuje (fold). Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+--- call.bb-10 [out]
+EXPL: Masz K2o. Sytuacja: Duży blind, stack 10bb, SB all-in. Pasujesz (fold), bo w tej sytuacji ta ręka jest poza zakresem (range). Sprawdzający wygrywa tylko na showdownie i to przeciw zakresowi, który już jest silniejszy niż losowy; pushujący (shove) wygrywa też wtedy, gdy rywal spasuje. Częstości solvera dla K2o: pas (fold) 100%.
+  OPT Sprawdzam (zle): Za luźno: w tej sytuacji ta ręka jest poza zakresem (range). Sprawdzający wygrywa tylko na showdownie i to przeciw zakresowi, który już jest silniejszy niż losowy; pushujący (shove) wygrywa też wtedy, gdy rywal spasuje (fold). Solver nigdy tak nie gra z tą ręką.
+  OPT Pas (fold) (ok): Tak: w tej sytuacji ta ręka jest poza zakresem (range). Sprawdzający wygrywa tylko na showdownie i to przeciw zakresowi, który już jest silniejszy niż losowy; pushujący (shove) wygrywa też wtedy, gdy rywal spasuje (fold). Solver gra tak w 100% przypadków, czyli zawsze.
+--- call.bb-10 [in]
+EXPL: Masz Q7s. Sytuacja: Duży blind, stack 10bb, SB all-in. Najlepsza akcja: sprawdzam, bo w tej sytuacji ta ręka mieści się w zakresie (range). Częstości solvera dla Q7s: sprawdzam 100%.
+  OPT Sprawdzam (ok): Tak: w tej sytuacji ta ręka mieści się w zakresie (range). Solver gra tak w 100% przypadków, czyli zawsze.
+  OPT Pas (fold) (zle): Za ciasno: w tej sytuacji ta ręka mieści się w zakresie (range). Solver nigdy tak nie gra z tą ręką.
+--- vs-open.btn-vs-co [mixed]
+EXPL: Masz 44. Sytuacja: Button, CO otworzył. Możesz grać albo pasować (fold), bo to ręka na granicy zakresu (range): solver raz ją gra, raz pasuje. Rywal często sprawdza (call), więc chcesz mieć rękę, która dobrze gra w puli (pot) po sprawdzeniu. Częstości solvera dla 44: gram (3-bet do 7,5bb albo call) 50%, pas (fold) 50%. To ręka graniczna: solver miesza akcje, więc aplikacja uznaje za dobrą każdą odpowiedź graną w co najmniej 25% przypadków.
+  OPT Gram (3-bet do 7,5bb albo call) (ok): Tak: to ręka na granicy zakresu (range). Rywal często sprawdza (call), więc chcesz mieć rękę, która dobrze gra w puli (pot) po sprawdzeniu. Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+  OPT Pas (fold) (ok): Tak: to ręka na granicy zakresu (range). Rywal często sprawdza (call), więc chcesz mieć rękę, która dobrze gra w puli (pot) po sprawdzeniu. Solver gra tak w 50% przypadków, czyli częściej niż co drugi raz.
+--- vs-open.btn-vs-co [out]
+EXPL: Masz K2o. Sytuacja: Button, CO otworzył. Pasujesz (fold), bo w tej sytuacji ta ręka jest poza zakresem (range). Częstości solvera dla K2o: pas (fold) 100%.
+  OPT Gram (3-bet do 7,5bb albo call) (zle): Za luźno: w tej sytuacji ta ręka jest poza zakresem (range). Solver nigdy tak nie gra z tą ręką.
+  OPT Pas (fold) (ok): Tak: w tej sytuacji ta ręka jest poza zakresem (range). Solver gra tak w 100% przypadków, czyli zawsze.
+--- vs-open.btn-vs-co [in]
+EXPL: Masz Q7s. Sytuacja: Button, CO otworzył. Najlepsza akcja: gram (3-bet do 7,5bb albo call), bo w tej sytuacji ta ręka mieści się w zakresie (range). Rywal często sprawdza (call), więc chcesz mieć rękę, która dobrze gra w puli (pot) po sprawdzeniu. Częstości solvera dla Q7s: gram (3-bet do 7,5bb albo call) 100%.
+  OPT Gram (3-bet do 7,5bb albo call) (ok): Tak: w tej sytuacji ta ręka mieści się w zakresie (range). Rywal często sprawdza (call), więc chcesz mieć rękę, która dobrze gra w puli (pot) po sprawdzeniu. Solver gra tak w 100% przypadków, czyli zawsze.
+  OPT Pas (fold) (zle): Za ciasno: w tej sytuacji ta ręka mieści się w zakresie (range). Rywal często sprawdza (call), więc chcesz mieć rękę, która dobrze gra w puli (pot) po sprawdzeniu. Solver nigdy tak nie gra z tą ręką.
+--- drawCall flop
+P: Flop. W puli (pot) jest 80, przeciwnik stawia (bet) 53. Masz draw do koloru (flush draw). Co robisz?
+EXPL: Masz draw do koloru (flush draw) na flopie, rywal stawia (bet) 53 do puli (pot) 80. Pasujesz (fold), bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę, bo sprawdzasz (call) tylko ten zakład: przed riverem zwykle zapłacisz kolejną cenę. Cena: potrzebujesz 28%, czyli wygrywać mniej więcej raz na 3,5; draw trafia na turnie w 19,1% (9 outów z 47 nieznanych kart), czyli mniej więcej raz na 5.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 53 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 53.
+--- drawCall flop
+P: Flop. W puli (pot) jest 200, przeciwnik stawia (bet) 400. Masz OESD (open-ended straight draw). Co robisz?
+EXPL: Masz OESD (open-ended straight draw) na flopie, rywal stawia (bet) 400 do puli (pot) 200. Pasujesz (fold), bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę, bo sprawdzasz (call) tylko ten zakład: przed riverem zwykle zapłacisz kolejną cenę. Cena: potrzebujesz 40%, czyli wygrywać mniej więcej raz na 2,5; draw trafia na turnie w 17,0% (8 outów z 47 nieznanych kart), czyli mniej więcej raz na 6.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 400 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 400.
+--- drawCall flop
+P: Flop. W puli (pot) jest 200, przeciwnik stawia (bet) 200. Masz OESD (open-ended straight draw). Co robisz?
+EXPL: Masz OESD (open-ended straight draw) na flopie, rywal stawia (bet) 200 do puli (pot) 200. Pasujesz (fold), bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę, bo sprawdzasz (call) tylko ten zakład: przed riverem zwykle zapłacisz kolejną cenę. Cena: potrzebujesz 33%, czyli wygrywać mniej więcej raz na 3; draw trafia na turnie w 17,0% (8 outów z 47 nieznanych kart), czyli mniej więcej raz na 6.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 200 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 200.
+--- drawCall flop
+P: Flop. W puli (pot) jest 20, przeciwnik stawia (bet) 13. Masz gutshot. Co robisz?
+EXPL: Masz gutshot na flopie, rywal stawia (bet) 13 do puli (pot) 20. Pasujesz (fold), bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę, bo sprawdzasz (call) tylko ten zakład: przed riverem zwykle zapłacisz kolejną cenę. Cena: potrzebujesz 28%, czyli wygrywać mniej więcej raz na 3,5; draw trafia na turnie w 8,5% (4 outy z 47 nieznanych kart), czyli mniej więcej raz na 12.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 13 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 13.
+--- drawCall turn
+P: Turn. W puli (pot) jest 200, przeciwnik stawia (bet) 300. Masz gutshot. Co robisz?
+EXPL: Masz gutshot na turnie, rywal stawia (bet) 300 do puli (pot) 200. Pasujesz (fold), bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę: została już tylko jedna. Cena: potrzebujesz 37,5%, czyli wygrywać mniej więcej raz na 2,5; draw trafia na riverze w 8,7% (4 outy z 46 nieznanych kart), czyli mniej więcej raz na 11,5.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 300 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 300.
+--- drawCall turn
+P: Turn. W puli (pot) jest 120, przeciwnik stawia (bet) 60. Masz gutshot. Co robisz?
+EXPL: Masz gutshot na turnie, rywal stawia (bet) 60 do puli (pot) 120. Pasujesz (fold), bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę: została już tylko jedna. Cena: potrzebujesz 25%, czyli wygrywać mniej więcej raz na 4; draw trafia na riverze w 8,7% (4 outy z 46 nieznanych kart), czyli mniej więcej raz na 11,5.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 60 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 60.
+--- drawCall turn
+P: Turn. W puli (pot) jest 40, przeciwnik stawia (bet) 13. Masz OESD (open-ended straight draw). Co robisz?
+EXPL: Masz OESD (open-ended straight draw) na turnie, rywal stawia (bet) 13 do puli (pot) 40. Pasujesz (fold), bo twój draw trafia trochę rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę: została już tylko jedna. Cena: potrzebujesz 20%, czyli wygrywać mniej więcej raz na 5; draw trafia na riverze w 17,4% (8 outów z 46 nieznanych kart), czyli mniej więcej raz na 6. Może się opłacić tylko dzięki implied odds, czyli gdy po trafieniu wygrasz więcej.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 13 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 13.
+--- drawCall turn
+P: Turn. W puli (pot) jest 150, przeciwnik stawia (bet) 150. Masz OESD (open-ended straight draw). Co robisz?
+EXPL: Masz OESD (open-ended straight draw) na turnie, rywal stawia (bet) 150 do puli (pot) 150. Pasujesz (fold), bo płacisz za kartę, która trafia wyraźnie rzadziej, niż wymaga cena. Liczy się szansa na jedną kartę: została już tylko jedna. Cena: potrzebujesz 33%, czyli wygrywać mniej więcej raz na 3; draw trafia na riverze w 17,4% (8 outów z 46 nieznanych kart), czyli mniej więcej raz na 6.
+  OPT Sprawdzam (call) (zle): To sprawdzenie (call) traci: płacisz 150 za kartę, która trafia rzadziej, niż wymaga cena.
+  OPT Pasuję (fold) (ok): Tak: za tę cenę draw trafia za rzadko, więc pas (fold) oszczędza 150.
+--- icm
+EXPL: Na bubble liczysz w pieniądzach, nie w żetonach (chips): przegrana zabiera ci 14,1% puli nagród (prize pool), a wygrana dodaje tylko 11,8%. Dlatego potrzebujesz ok. 54,5% equity, a w grze o żetony wystarczyłoby 50%. Rachunek: twoje equity w puli nagród teraz 41,2%, po wygranej 53,0%, po przegranej 27,1%; bubble factor = 14,1% ÷ 11,8% ≈ 1,20, próg BF ÷ (BF + 1) ≈ 54,5%.
+  OPT Sprawdzam (call) (zle): Nie. Twoja ręka wygrywa za rzadko nawet w grze o żetony (chips), a na bubble próg jest jeszcze wyższy: według ICM (Independent Chip Model) potrzebujesz 54,5%, a masz 34%.
+  OPT Pasuję (fold) (ok): Tak. Przegrana kosztuje cię tu więcej, niż wygrana dodaje, a twoja ręka wygrywa za rzadko: według ICM (Independent Chip Model) potrzebujesz 54,5%, a masz tylko 34%.
+--- icm
+EXPL: Na bubble liczysz w pieniądzach, nie w żetonach (chips): przegrana zabiera ci 21,6% puli nagród (prize pool), a wygrana dodaje tylko 12,7%. Dlatego potrzebujesz ok. 63,0% equity, a w grze o żetony wystarczyłoby 50%. Rachunek: twoje equity w puli nagród teraz 21,6%, po wygranej 34,3%, po przegranej 0,0%; bubble factor = 21,6% ÷ 12,7% ≈ 1,70, próg BF ÷ (BF + 1) ≈ 63,0%.
+  OPT Sprawdzam (call) (zle): Nie. Na bubble przegrana zabiera ci więcej z puli nagród (prize pool), niż wygrana dodaje, więc sprawdzasz (call) tylko ręką, która wygrywa wyraźnie częściej. Według ICM (Independent Chip Model) potrzebujesz 63,0%, a masz 52%; w grze o żetony (chips) to sprawdzenie by się opłaciło.
+  OPT Pasuję (fold) (ok): Tak. Przegrana kosztuje cię tu więcej, niż wygrana dodaje, a twoja ręka wygrywa za rzadko: według ICM (Independent Chip Model) potrzebujesz 63,0%, a masz tylko 52%. W grze o żetony (chips) byłoby to sprawdzenie (call): to właśnie risk premium.
+--- potOdds
+EXPL: Rywal stawia (bet) 100 do puli (pot) 200. Żeby sprawdzić (call), dopłacasz 100, a cała pula po twoim sprawdzeniu to 400: potrzebujesz 25% szans, czyli wygrywać mniej więcej raz na 4. Rachunek: 100 ÷ 400 = 25%.
+  OPT 33% (zle): Nie. To zakład (bet) podzielony przez pulę (pot) po zakładzie. Do mianownika dolicz też swoje sprawdzenie (call).
+  OPT 50% (zle): Nie. To zakład (bet) podzielony przez pulę (pot) sprzed zakładu. Liczysz wobec wszystkiego, co możesz wygrać.
+  OPT 25% (ok): Tak: to, co dopłacasz, dzielisz przez całą pulę (pot) po twoim sprawdzeniu (call).
+--- potOdds
+EXPL: Rywal stawia (bet) 30 do puli (pot) 40. Żeby sprawdzić (call), dopłacasz 30, a cała pula po twoim sprawdzeniu to 100: potrzebujesz 30% szans, czyli wygrywać mniej więcej raz na 3,5. Rachunek: 30 ÷ 100 = 30%.
+  OPT 75% (zle): Nie. To zakład (bet) podzielony przez pulę (pot) sprzed zakładu. Liczysz wobec wszystkiego, co możesz wygrać.
+  OPT 43% (zle): Nie. To zakład (bet) podzielony przez pulę (pot) po zakładzie. Do mianownika dolicz też swoje sprawdzenie (call).
+  OPT 30% (ok): Tak: to, co dopłacasz, dzielisz przez całą pulę (pot) po twoim sprawdzeniu (call).
+--- outs
+EXPL: Brakuje jednej karty w środku strita (straight). Domyka go tylko jedna ranga, w 4 kolorach: 4 karty. Szansa na turnie: 8,5% (4 × 2 ≈ 8%). Do rivera, jeśli zobaczysz obie karty bez dopłaty (np. po all-in): 16,5% (4 × 4 ≈ 16%).
+  OPT 4 (ok): Tak.
+  OPT 6 (zle): Nie, 6 to za dużo. Brakuje jednej karty w środku strita (straight). Domyka go tylko jedna ranga, w 4 kolorach: 4 karty.
+  OPT 2 (zle): Nie, 2 to za mało. Brakuje jednej karty w środku strita (straight). Domyka go tylko jedna ranga, w 4 kolorach: 4 karty.
+--- outs
+EXPL: Brakuje jednej karty w środku strita (straight). Domyka go tylko jedna ranga, w 4 kolorach: 4 karty. Szansa na turnie: 8,5% (4 × 2 ≈ 8%). Do rivera, jeśli zobaczysz obie karty bez dopłaty (np. po all-in): 16,5% (4 × 4 ≈ 16%).
+  OPT 4 (ok): Tak.
+  OPT 3 (zle): Nie, 3 to za mało. Brakuje jednej karty w środku strita (straight). Domyka go tylko jedna ranga, w 4 kolorach: 4 karty.
+  OPT 6 (zle): Nie, 6 to za dużo. Brakuje jednej karty w środku strita (straight). Domyka go tylko jedna ranga, w 4 kolorach: 4 karty.
+--- whoWins
+EXPL: Twoja najlepsza piątka: [[3h 3d 3c Kc 7d]] (trójka [three of a kind]). Przeciwnik: [[7d 6s 5d 4c 3h]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+  OPT Ty (zle): Nie. Twoja najlepsza piątka: [[3h 3d 3c Kc 7d]] (trójka [three of a kind]). Przeciwnik: [[7d 6s 5d 4c 3h]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+  OPT Przeciwnik (ok): Tak. Twoja najlepsza piątka: [[3h 3d 3c Kc 7d]] (trójka [three of a kind]). Przeciwnik: [[7d 6s 5d 4c 3h]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+  OPT Podział puli (split pot) (zle): Nie. Twoja najlepsza piątka: [[3h 3d 3c Kc 7d]] (trójka [three of a kind]). Przeciwnik: [[7d 6s 5d 4c 3h]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+--- whoWins
+EXPL: Twoja najlepsza piątka: [[2s 2d 2c Ad 9d]] (trójka [three of a kind]). Przeciwnik: [[5h 4s 3s 2d Ad]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+  OPT Ty (zle): Nie. Twoja najlepsza piątka: [[2s 2d 2c Ad 9d]] (trójka [three of a kind]). Przeciwnik: [[5h 4s 3s 2d Ad]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+  OPT Przeciwnik (ok): Tak. Twoja najlepsza piątka: [[2s 2d 2c Ad 9d]] (trójka [three of a kind]). Przeciwnik: [[5h 4s 3s 2d Ad]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+  OPT Podział puli (split pot) (zle): Nie. Twoja najlepsza piątka: [[2s 2d 2c Ad 9d]] (trójka [three of a kind]). Przeciwnik: [[5h 4s 3s 2d Ad]] (strit [straight]). Strit (straight) jest wyżej w rankingu niż trójka (three of a kind).
+ICM: 20000 spotów, min bubble factor 1.0586, required<=0.5: 0

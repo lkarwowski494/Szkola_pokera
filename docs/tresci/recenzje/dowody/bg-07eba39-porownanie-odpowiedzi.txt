@@ -1,0 +1,17 @@
+$ porównanie text+correct opcji przed (8cba034) i po (07eba39) dla zmienionych plików content/
+content/pl/exams/m10.yaml przed=67e9297526febe96b9bdbdc455c26382  - po=67e9297526febe96b9bdbdc455c26382  - correct_true=7 ZGODNE
+content/pl/exams/m11.yaml przed=959a425eb7c40cb10ac9d10c186d995a  - po=959a425eb7c40cb10ac9d10c186d995a  - correct_true=7 ZGODNE
+content/pl/exams/m2.yaml przed=1629589c71b988adc137161b443dc65c  - po=1629589c71b988adc137161b443dc65c  - correct_true=8 ZGODNE
+content/pl/exams/m3.yaml przed=46b31e6c576bf5b6273c661fad75dfb8  - po=46b31e6c576bf5b6273c661fad75dfb8  - correct_true=8 ZGODNE
+content/pl/exams/m8.yaml przed=16414f9a2b55bd9be363e834c1a3d39e  - po=16414f9a2b55bd9be363e834c1a3d39e  - correct_true=8 ZGODNE
+content/pl/lessons/m12-l2-decyzja-wynik.md przed=1db3d31c0fe9e05db34008d0b5721f59  - po=1db3d31c0fe9e05db34008d0b5721f59  - correct_true=8 ZGODNE
+$ klucze {{n:}} w why przed/po (zbiory)
+content/pl/exams/m2.yaml n-klucze ZGODNE
+content/pl/exams/m8.yaml n-klucze ZGODNE
+content/pl/lessons/m12-l2-decyzja-wynik.md n-klucze ZGODNE
+content/pl/exams/m3.yaml n-klucze ZGODNE
+content/pl/exams/m10.yaml n-klucze ZGODNE
+content/pl/exams/m11.yaml n-klucze ZGODNE
+$ cyfry dodane w why (poza {{n:}})
+      2 3
+exit 0

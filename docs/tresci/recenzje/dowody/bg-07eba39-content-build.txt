@@ -1,0 +1,5 @@
+$ pnpm content:build  (07eba39, 2026-11-10)
+Zapisano 35 baz treści w /home/user/Szkola_pokera/apps/mobile/assets/content: 44 lekcji, 141 reguł, 829 liczb, 162 terminów.
+(node:480) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+content:build exit 0

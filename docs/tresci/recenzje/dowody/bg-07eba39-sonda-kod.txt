@@ -1,0 +1,27 @@
+# kod sondy (kopia .txt)
+/// <reference types="jest" />
+import type { Drill } from '@szkola/content-schema';
+import { createRng, HAND_CLASSES, generateIcmCall } from '@szkola/poker-core';
+import type { RangeSpot } from '@/data/content/repo';
+import { instantiate } from '../engine';
+const gen = (generator: string, params: Record<string, string> = {}, count = 400): Drill =>
+  ({ kind: 'generated', id: `t.${generator}`, family: `f.${generator}`, rules: [], generator, params, count }) as Drill;
+it('sonda', () => {
+  const out: string[] = [];
+  const mk = (id: string, title: string, hero: string, name: string): RangeSpot => ({ id, title, hero, path: '', playPercent: 0.5, groups: [{ name, freqs: HAND_CLASSES.map((hc, i) => (i % 3 === 0 ? 1 : i % 3 === 1 ? 0 : 0.5)) }] });
+  for (const [id, title, hero, name] of [['rfi.btn','Button, wszyscy spasowali','BTN','Przebicie do 2,5bb'],['push.sb-3max','Mały blind, trzech graczy, stacki po 7,5bb, Button spasował','SB','All-in'],['push.sb-15','Mały blind, stack 15bb','SB','All-in'],['call.bb-10','Duży blind, stack 10bb, SB all-in','BB','Sprawdzam'],['vs-open.btn-vs-co','Button, CO otworzył','BTN','Gram (3-bet do 7,5bb albo call)']] as const) {
+    const seen = new Set<string>();
+    for (const raw of instantiate(gen('rangeDecision', { spots: id }, 60), 'l', createRng(5), undefined, { range: () => mk(id, title, hero, name) })) {
+      if (raw.kind !== 'choice') continue;
+      const st = /Najlepsza/.test(raw.explanation ?? '') ? 'in' : /Pasujesz/.test(raw.explanation ?? '') ? 'out' : 'mixed';
+      if (seen.has(st)) continue; seen.add(st);
+      out.push(`--- ${id} [${st}]\nEXPL: ${raw.explanation}\n` + raw.options.map((o) => `  OPT ${o.text} (${o.correct ? 'ok' : o.acceptable ? 'dop' : 'zle'}): ${o.why}`).join('\n'));
+    }
+  }
+  for (const street of ['flop','turn']) { let n = 0; for (const raw of instantiate(gen('drawCall', { street }, 200), 'l', createRng(9))) { if (raw.kind !== 'choice' || n++ > 3) continue; out.push(`--- drawCall ${street}\nP: ${raw.prompt}\nEXPL: ${raw.explanation}\n` + raw.options.map((o) => `  OPT ${o.text} (${o.correct ? 'ok' : 'zle'}): ${o.why}`).join('\n')); } }
+  for (const g of [['icm',{mode:'call'}],['potOdds',{}],['outs',{kind:'gutshot'}],['whoWins',{}]] as const) { let n = 0; for (const raw of instantiate(gen(g[0], g[1] as Record<string,string>, 20), 'l', createRng(4))) { if (raw.kind !== 'choice' || n++ > 1) continue; out.push(`--- ${g[0]}\nEXPL: ${raw.explanation}\n` + raw.options.map((o) => `  OPT ${o.text} (${o.correct ? 'ok' : 'zle'}): ${o.why}`).join('\n')); } }
+  const rng = createRng(1); let minBf = 99, n = 0, bad = 0;
+  for (let i = 0; i < 20000; i++) { const s = generateIcmCall(rng); n++; minBf = Math.min(minBf, s.bubbleFactor); if (s.required <= s.requiredChips) bad++; }
+  out.push(`ICM: ${n} spotów, min bubble factor ${minBf.toFixed(4)}, required<=0.5: ${bad}`);
+  require('fs').writeFileSync(process.env.SONDA_OUT!, out.join('\n'));
+});

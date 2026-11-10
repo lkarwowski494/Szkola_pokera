@@ -1,0 +1,13 @@
+$ pnpm run ci  (07eba39, 2026-11-10; pełny log w scratchpadzie sesji BK)
+apps/mobile test: Test Suites: 92 passed, 92 total
+apps/mobile test: Tests:       709 passed, 709 total
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 108 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 128 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 151 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: każdy workflow parsuje się bez błędów
+ok 167 - każdy workflow parsuje się bez błędów
+0 błędów, 0 uwag
+ci exit 0
