@@ -3,7 +3,8 @@
     "review": "Ripassi",
     "rules": "Regole",
     "progress": "Progressi",
-    "today": "Oggi"
+    "today": "Oggi",
+    "lessons": "Lezioni"
   },
   "today": {
     "title": "Oggi",
@@ -23,7 +24,25 @@
     "rowDone": "Completata.",
     "rowStarted": "Iniziata.",
     "rowPassed": "Superato.",
-    "rowScore": "Risultato: {{dobre}} su {{razem}}."
+    "rowScore": "Risultato: {{dobre}} su {{razem}}.",
+    "reviewsTile": "Ripassi",
+    "reviewsTileDue_one": "{{count}} per oggi",
+    "reviewsTileDue_many": "{{count}} per oggi",
+    "reviewsTileDue_other": "{{count}} per oggi",
+    "reviewsTileNone": "Nessuno oggi",
+    "scenarios": "Scenari",
+    "scenariosSoon": "In arrivo"
+  },
+  "lessons": {
+    "title": "Lezioni",
+    "moduleDone": "Completato",
+    "moduleProgress": "{{done}} di {{total}}",
+    "expand": "Espandi",
+    "collapse": "Comprimi"
+  },
+  "scenarios": {
+    "title": "Scenari",
+    "soon": "Gli scenari arriveranno presto. Nel frattempo allena le decisioni nella sessione di esercizi."
   },
   "welcome": {
     "title": "PokerGym",

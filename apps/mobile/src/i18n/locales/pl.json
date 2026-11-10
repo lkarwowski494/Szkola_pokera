@@ -3,7 +3,8 @@
     "review": "Powtórki",
     "rules": "Reguły",
     "progress": "Postęp",
-    "today": "Dziś"
+    "today": "Dziś",
+    "lessons": "Lekcje"
   },
   "today": {
     "title": "Dziś",
@@ -24,7 +25,26 @@
     "rowDone": "Ukończona.",
     "rowStarted": "Rozpoczęta.",
     "rowPassed": "Zaliczony.",
-    "rowScore": "Wynik: {{dobre}} z {{razem}}."
+    "rowScore": "Wynik: {{dobre}} z {{razem}}.",
+    "reviewsTile": "Powtórki",
+    "reviewsTileDue_one": "{{count}} na dziś",
+    "reviewsTileDue_few": "{{count}} na dziś",
+    "reviewsTileDue_many": "{{count}} na dziś",
+    "reviewsTileDue_other": "{{count}} na dziś",
+    "reviewsTileNone": "Brak na dziś",
+    "scenarios": "Scenariusze",
+    "scenariosSoon": "Wkrótce"
+  },
+  "lessons": {
+    "title": "Lekcje",
+    "moduleDone": "Ukończony",
+    "moduleProgress": "{{done}} z {{total}}",
+    "expand": "Rozwiń",
+    "collapse": "Zwiń"
+  },
+  "scenarios": {
+    "title": "Scenariusze",
+    "soon": "Scenariusze będą dostępne wkrótce. Do tego czasu ćwicz decyzje w sesji ćwiczeń."
   },
   "welcome": {
     "title": "PokerGym",

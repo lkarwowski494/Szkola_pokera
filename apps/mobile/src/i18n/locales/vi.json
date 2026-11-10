@@ -3,7 +3,8 @@
     "review": "Ôn tập",
     "rules": "Quy tắc",
     "progress": "Tiến độ",
-    "today": "Hôm nay"
+    "today": "Hôm nay",
+    "lessons": "Bài học"
   },
   "today": {
     "title": "Hôm nay",
@@ -21,7 +22,23 @@
     "rowDone": "Đã hoàn thành.",
     "rowStarted": "Đã bắt đầu.",
     "rowPassed": "Đã đạt.",
-    "rowScore": "Kết quả: {{dobre}} trên {{razem}}."
+    "rowScore": "Kết quả: {{dobre}} trên {{razem}}.",
+    "reviewsTile": "Ôn tập",
+    "reviewsTileDue_other": "{{count}} cho hôm nay",
+    "reviewsTileNone": "Hôm nay không có",
+    "scenarios": "Tình huống",
+    "scenariosSoon": "Sắp ra mắt"
+  },
+  "lessons": {
+    "title": "Bài học",
+    "moduleDone": "Đã hoàn thành",
+    "moduleProgress": "{{done}} trên {{total}}",
+    "expand": "Mở rộng",
+    "collapse": "Thu gọn"
+  },
+  "scenarios": {
+    "title": "Tình huống",
+    "soon": "Tình huống sẽ sớm có mặt. Trong lúc chờ, hãy luyện các quyết định trong phiên luyện tập."
   },
   "welcome": {
     "title": "PokerGym",

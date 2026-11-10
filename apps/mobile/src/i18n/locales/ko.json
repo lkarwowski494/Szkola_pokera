@@ -3,7 +3,8 @@
     "review": "복습",
     "rules": "규칙",
     "progress": "진도",
-    "today": "오늘"
+    "today": "오늘",
+    "lessons": "레슨"
   },
   "today": {
     "title": "오늘",
@@ -21,7 +22,23 @@
     "rowDone": "완료.",
     "rowStarted": "시작함.",
     "rowPassed": "합격.",
-    "rowScore": "점수: {{razem}}개 중 {{dobre}}개."
+    "rowScore": "점수: {{razem}}개 중 {{dobre}}개.",
+    "reviewsTile": "복습",
+    "reviewsTileDue_other": "오늘 {{count}}개",
+    "reviewsTileNone": "오늘은 없음",
+    "scenarios": "시나리오",
+    "scenariosSoon": "곧 제공"
+  },
+  "lessons": {
+    "title": "레슨",
+    "moduleDone": "완료",
+    "moduleProgress": "{{total}}개 중 {{done}}개",
+    "expand": "펼치기",
+    "collapse": "접기"
+  },
+  "scenarios": {
+    "title": "시나리오",
+    "soon": "시나리오는 곧 제공됩니다. 그때까지는 연습 세션에서 판단을 연습하세요."
   },
   "welcome": {
     "title": "PokerGym",

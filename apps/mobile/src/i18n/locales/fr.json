@@ -3,7 +3,8 @@
     "review": "Révisions",
     "rules": "Règles",
     "progress": "Progrès",
-    "today": "Aujourd'hui"
+    "today": "Aujourd'hui",
+    "lessons": "Leçons"
   },
   "today": {
     "title": "Aujourd'hui",
@@ -23,7 +24,25 @@
     "rowDone": "Terminée.",
     "rowStarted": "Commencée.",
     "rowPassed": "Réussi.",
-    "rowScore": "Score : {{dobre}} sur {{razem}}."
+    "rowScore": "Score : {{dobre}} sur {{razem}}.",
+    "reviewsTile": "Révisions",
+    "reviewsTileDue_one": "{{count}} pour aujourd'hui",
+    "reviewsTileDue_many": "{{count}} pour aujourd'hui",
+    "reviewsTileDue_other": "{{count}} pour aujourd'hui",
+    "reviewsTileNone": "Aucune aujourd'hui",
+    "scenarios": "Scénarios",
+    "scenariosSoon": "Bientôt"
+  },
+  "lessons": {
+    "title": "Leçons",
+    "moduleDone": "Terminé",
+    "moduleProgress": "{{done}} sur {{total}}",
+    "expand": "Développer",
+    "collapse": "Réduire"
+  },
+  "scenarios": {
+    "title": "Scénarios",
+    "soon": "Les scénarios arrivent bientôt. D'ici là, entraîne tes décisions dans la séance d'exercices."
   },
   "welcome": {
     "title": "PokerGym",

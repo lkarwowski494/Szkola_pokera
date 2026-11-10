@@ -699,5 +699,18 @@
   "drill.vocab.wrong": "Użyty w: features/drills/text.ts (zadania generowane, D-288). Ocena zła; {{line}} = jeden z line*.",
   "drill.vocab.end": "Użyty w: features/drills/text.ts (zadania generowane, D-288). Wyjaśnienie: {{line}} jako zdanie.",
   "drill.vocab.meaning": "Użyty w: features/drills/text.ts (zadania generowane, D-288). Definicja terminu w wyjaśnieniu.",
-  "drill.vocab.alsoSeen": "Użyty w: features/drills/text.ts (zadania generowane, D-288). Inne nazwy angielskie terminu; {{list}} = lista."
+  "drill.vocab.alsoSeen": "Użyty w: features/drills/text.ts (zadania generowane, D-288). Inne nazwy angielskie terminu; {{list}} = lista.",
+  "tabs.lessons": "Etykieta zakładki paska (Dziś · Lekcje · Postęp). Użyty w: app/(tabs)/_layout.tsx. [BI, 2026-11-10]",
+  "today.reviewsTile": "Tytuł kafelka kolejki powtórek na „Dziś”. Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.reviewsTileDue": "Stan kafelka Powtórki: liczba kart z terminem do teraz („7 na dziś”). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.reviewsTileNone": "Stan kafelka Powtórki, gdy nic nie czeka. Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.scenarios": "Tytuł kafelka Scenariusze na „Dziś”. Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "today.scenariosSoon": "Stan kafelka Scenariusze do kroku F (ekran scenariusza). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
+  "lessons.title": "Duży tytuł zakładki „Lekcje”. Użyty w: app/(tabs)/lessons.tsx. [BI, 2026-11-10]",
+  "lessons.moduleDone": "Stan modułu, w którym wszystkie lekcje są ukończone. Użyty w: app/(tabs)/lessons.tsx. [BI, 2026-11-10]",
+  "lessons.moduleProgress": "Stan modułu „N z M” (ukończone lekcje z wszystkich). Użyty w: app/(tabs)/lessons.tsx. [BI, 2026-11-10]",
+  "lessons.expand": "Etykieta czytnika zwiniętego modułu (akcja). Użyty w: app/(tabs)/lessons.tsx. [BI, 2026-11-10]",
+  "lessons.collapse": "Etykieta czytnika rozwiniętego modułu (akcja). Użyty w: app/(tabs)/lessons.tsx. [BI, 2026-11-10]",
+  "scenarios.title": "Tytuł ekranu Scenariusze (stan „wkrótce” do kroku F). Użyty w: app/scenarios.tsx. [BI, 2026-11-10]",
+  "scenarios.soon": "Opis stanu „wkrótce” ekranu Scenariusze. Użyty w: app/scenarios.tsx. [BI, 2026-11-10]"
 }

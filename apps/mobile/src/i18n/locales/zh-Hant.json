@@ -3,7 +3,8 @@
     "review": "複習",
     "rules": "規則",
     "progress": "進度",
-    "today": "今天"
+    "today": "今天",
+    "lessons": "課程"
   },
   "today": {
     "title": "今天",
@@ -21,7 +22,23 @@
     "rowDone": "已完成。",
     "rowStarted": "已開始。",
     "rowPassed": "已通過。",
-    "rowScore": "得分：{{dobre}}/{{razem}}。"
+    "rowScore": "得分：{{dobre}}/{{razem}}。",
+    "reviewsTile": "複習",
+    "reviewsTileDue_other": "今天 {{count}} 項",
+    "reviewsTileNone": "今天沒有",
+    "scenarios": "情境",
+    "scenariosSoon": "即將推出"
+  },
+  "lessons": {
+    "title": "課程",
+    "moduleDone": "已完成",
+    "moduleProgress": "{{done}}/{{total}}",
+    "expand": "展開",
+    "collapse": "收合"
+  },
+  "scenarios": {
+    "title": "情境",
+    "soon": "情境即將推出。在此之前，可以在練習回合中練習決策。"
   },
   "welcome": {
     "title": "PokerGym",
