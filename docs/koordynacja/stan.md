@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:58 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:10 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -25,18 +25,18 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Raport nocy D-359 zapisany (gałąź robocza e01ba05, `docs/programista/plan-08.md`); pytanie zbiorcze zadane i odebrane 05:50–06:10 UTC (odpowiedzi: `decyzje.md` KO-005…KO-016).
 - `site/` z nazwą PokerGym na `main` @ ddb0108 (zgoda właściciela); przebieg Pages do sprawdzenia przy kontroli.
 - Szczyt kodu z dowodem: **6afa34d** (E2E 42732430729 i CI 42732569378 success — sprawdzone w Actions 05:40). Gałąź robocza @ e01ba05 (tylko docs nad 6afa34d).
-- W toku: sesje AM (kategoria Games/Card), AN (ponowna ocena KR/VN, docs), AO (szacunek pełnego przeglądu + pt-PT) — osobne gałęzie od e01ba05, rozłączne pliki.
+- Gałąź robocza @ **016317e** (AM scalona; CI na tym SHA w toku — szczyt z dowodem E2E nadal 6afa34d). W toku: AP/AQ/AR (pełny przegląd 9 języków w sesjach), AN (ponowna ocena KR/VN, docs), AO (szacunek pełnego przeglądu + pt-PT) — osobne gałęzie od e01ba05, rozłączne pliki.
 - Zakres 1.0 słowami właściciela: „Wszystkie 11 od razu” (+ pt-PT); build TestFlight „Po poprawkach z dzisiaj”.
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AM | session_01T66VBzioNjwudY42GtzgHt | 10 build, kod | sesja-am-kategoria @ e01ba05 | — | — | wystartowała (get_session przez subagenta: WORKING) |
+| AM | session_01T66VBzioNjwudY42GtzgHt | 10 build, kod | sesja-am-kategoria @ 016317e → scalone ff do roboczej 016317e | — | [DO USTALENIA przy archiwizacji] | PRZEKAZANIE 06:06; autor OK; `pnpm run ci` kod 0 wg sesji — **niesprawdzone** do wyniku CI na 016317e (gałąź robocza); po zielonym: koszt → archiwizacja |
 | AN | session_01T66VBy5HsHQDnmCWm8Vboj | 10 build, docs | sesja-an-kr-vn @ e01ba05 | — | — | wystartowała (WORKING) |
 | AO | session_01T66VBwQoZrfRhLaY2LmtdR | 09 build, kod | sesja-ao-pt-pt @ e01ba05 | — | — | wystartowała (WORKING) |
-| AP | (po starcie) | 09 audit, docs | przeglad-ap-cjk @ e01ba05 | — | — | zlecana 05:58: pełny przegląd ja, zh-Hant, ko |
-| AQ | (po starcie) | 09 audit, docs | przeglad-aq-romanskie @ e01ba05 | — | — | zlecana 05:58: pt-BR, es, it |
-| AR | (po starcie) | 09 audit, docs | przeglad-ar-fr-de-vi @ e01ba05 | — | — | zlecana 05:58: fr, de, vi |
+| AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk @ e01ba05 | — | — | wystartowała (WORKING tuż po starcie; pierwsza tura niesprawdzona): ja, zh-Hant, ko |
+| AQ | session_01T66VBxSH9VTYhVSyVDqCB5 | 09 audit, docs | przeglad-aq-romanskie @ e01ba05 | — | — | wystartowała: pt-BR, es, it |
+| AR | session_01T66VBx2fb5Tf1JtB5kMueE | 09 audit, docs | przeglad-ar-fr-de-vi @ e01ba05 | — | — | wystartowała: fr, de, vi |
 
 Litery użyte dotąd: A…Z, AA…AR (następna: **AS**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
@@ -94,3 +94,7 @@ Litery użyte dotąd: A…Z, AA…AR (następna: **AS**). Polecenia: `docs/koord
 | 11-10 05:52 | koordynator | AM, AN, AO wystartowały (ID w tabeli; create_session przez subagentów, prompt roli przepisany — zgodność znak po znaku niesprawdzona; znana różnica w AO: w szablonie „Przekazanie” roli 09 jedna linia polecenia ma `06-tresci` zamiast `12-niezawodnosc` — bez wpływu, sesje nie robią przekazania roli). Pages 42764138515 na ddb0108 success (05:46). **Korekta godzin:** wpisy dziennika z 05:45–06:20 i godziny w KO-005…017 były szacowane; wg Actions push `site/` na `main` był o 05:45, pytanie zbiorcze ok. 05:35–05:45 | kontrola za ok. 60 min |
 | 11-10 05:54 | AO → koordynator | PYTANIE: szacunek pełnego przeglądu przez API (≈ 77 USD mocniejszy model / ≈ 39 USD tańszy; 9 lub 5 przebiegów); pt-PT szacunek ≈ 11 USD ≤ 25 → AO startuje 2 przebiegi przekładu | pytanie do właściciela |
 | 11-10 05:58 | właściciel → koordynator | odpowiedź: „Fable 5.2 ale nie przez API tylko tutaj” (KO-018) → przegląd w 3 sesjach docs AP/AQ/AR (KO-019); AO: przeglądu API nie uruchamia | start AP–AR |
+| 11-10 05:57 | AN → koordynator | raport 1: KR nigdy nie miał sprawdzenia prawnego (wyłączony sygnałem sklepowym); trop: reguła Apple o częstym symulowanym hazardzie i numerze klasyfikacji w KR, skutek ręcznego 18+ (D-310) do sprawdzenia; reszta ok. 1–1,5 h | czekam na dokument i PYTANIE |
+| 11-10 05:59 | AM → koordynator → właściciel | PYTANIE o zdanie „a course, not a game” w opisie sklepu; odpowiedź właściciela: „Przeformułować (zalecane)” → przekazane AM 06:01 | — |
+| 11-10 06:06 | AM | PRZEKAZANIE: 915a0d5 (D-395 kategoria), 016317e (D-396 zdanie w 11 lokalizacjach, przegląd subagentem, 3 poprawki); otwarte: nazwy przycisków ASC i id GAMES [DO USTALENIA], brak weryfikacji ja/zh-Hant/ko/vi przez osobę znającą język | odbiór |
+| 11-10 06:10 | koordynator | odbiór AM: 2 commity, autor zgodny z CLAUDE.md, 9 plików (store/, docs/sklep, docs/decyzje, test); scalenie ff do gałęzi roboczej @ 016317e (push OK); CI na 016317e — do sprawdzenia. AP, AQ, AR wystartowały (ID w tabeli; model skonfigurowany wg decyzji KO-018; prompt przepisany przez subagenta, zgodność bajt po bajcie niesprawdzona) | kontrola 06:38 |
