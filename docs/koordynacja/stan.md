@@ -83,6 +83,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | BU | session_01T66VBz1zxFGeSi1ckhaTX5 | 08 build, kod (sonnet) | sesja-bu-format @ b9a656a (start) | — | — | rozszerzenie formatu F1–F6 (KO-049) + tabela scenarios w bazie treści (KO-050, kontrakt od BT przekazany 19:28) + cherry-pick testów BS 866744e; polecenie BU.md @ 900fb60, pula D-660…D-674; E0 18:54, szac. 6–9 h; D-660/661 do weta |
 | BV | session_01T66VBzWBrpUSPnQG9rZukM | 06 audit, treść (opus/high) | sesja-bv-recenzja @ 866744e | — | — | recenzja niezależna BS (polecenie BV.md @ a538be5); start 19:40; cmp: linia 390 regex (transport) — poprawka wysłana |
 | BW | session_01T66VBwmx4CAeCDkB1iVZQu | 08 audit, kod (opus/high) | sesja-bw-recenzja @ 713314b | — | — | recenzja niezależna BT, ścieżki wrażliwe (polecenie BW.md @ 1564f82); start 19:40; cmp identyczne |
+| BY | session_01T66VBxxKRM2aCjQsr6uoS4 | 04 fix BI-002, docs (opus/high) | sesja-by-powtorki @ 70fdf40 (start) | — | — | polecenie BY.md @ a07904d, pula D-685…D-689, decyzje docs/decyzje/BY.md; start 20:35; cmp identyczne (57267 B) |
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BX**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
