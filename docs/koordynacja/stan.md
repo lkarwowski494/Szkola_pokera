@@ -32,10 +32,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk (baza 016317e) | 33,7 (06:38) | 139,35 (06:38) | w toku: ja 147 poprawek (WYS 1), zh-Hant 231 (WYS 0), ko czytany; koniec ok. 07:00 wg sesji |
 | AT | session_01T66VBw7z352UvDDkynn3JP | 09 build, kod | sesja-ao-pt-pt @ a28b48e (start) | 0 (06:55) | — | w toku: kroki 3d–3g pt-PT (polecenie AT @ 4e864e7) |
 
-Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD). Litery użyte dotąd: A…Z, AA…AT (następna: **AU** — nałożenie poprawek 9 języków po PRZEKAZANIU AP). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -70,7 +69,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-024**.
+- KO następny: **KO-025**.
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -108,3 +107,6 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 06:40 | koordynator (session_01T66VBzpecX1cLyGgZbrkbu) | przejęcie E6 pkt 5: przypomnienia własne (ID w „Przypomnienia”); wiadomość o zmianie do AP (+ polecenie PRZEKAZANIA, 33,7%) i AS; list_events poprzednika po 06:30: brak wiadomości od sesji i właściciela; add_repo prompts: odrzucony przez klasyfikator | PRZEJĄŁEM; prośba o bibliotekę; odbiór AS |
 | 11-10 06:55 | koordynator | AT wystartowała (session_01T66VBw7z352UvDDkynn3JP, opus, auto, sesja-ao-pt-pt); pierwsza wiadomość odebrana bajt w bajt (cmp, 59 583 B; prompt 09 build sha256 8f1444b4… z AS, KO-023). AS zarchiwizowana: koszt 17,33 USD, kontekst 24,9%; 3 commity AS autor „Claude <noreply@anthropic.com>” → poprawka autora przy scaleniu (E3) | PRZEKAZANIE AP → AU |
 | 11-10 07:00 | właściciel → koordynator | „Zgoda na prompts” → add_repo OK, klon @ f701ce9. Porównanie promptu AT ze świeżo złożonym 09 build: 2 różnice (linia 398 brak U+202F w klasie regex funkcji porównania liczb; linia 615 znane `06-tresci`) — AT powiadomiona | PRZEKAZANIE AP → AU |
+| 11-10 06:51 | AP → koordynator | PRZEKAZANIE: 24887be, ja 229 (WYS 1 ja.json:96), zh-Hant 347, ko 485 poprawek, KRYT 0; D-420 do weta; PYTANIE podtytuł ko | odbiór |
+| 11-10 07:05 | koordynator | **AP przyjęta**: 13 commitów, autor zgodny, 118 plików wyłącznie w `przeglad-pelny-2026-11-10/`; scalona do roboczej @ f8272c1 (konflikt add/add `instrukcja-subagenta.md` AQ vs AP — obie wersje zachowane, AP jako `instrukcja-subagenta-AP.md`; wyjątek jak 06:19: pliki dowodów, bez kodu); `[skip ci]`. AP zarchiwizowana (152,60 USD, 37,1% — ponad 30% o 7 pp., przekazanie wysłane 06:39 przy 33,7%). Polecenie AU @ d25f936, gałąź `sesja-au-poprawki` @ f8272c1; prompt 09 build złożony świeżo (f701ce9), model sonnet wg `--lista` | start AU |
+| 11-10 07:10 | właściciel | podtytuł ko: „Zmienić na 판돈 없음 (Recommended)” → KO-024, do przekazania AU | — |
