@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:34 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:45 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -16,13 +16,14 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
   - 2026-11-10 ok. 06:05 UTC, przekład pt-PT przez API: „Do 25 USD” łącznie (≤ 15 USD na przebieg, D-341); wykorzystane 10,53 (wg AO, przebiegi 42765074236, 42765077031).
 - Zawsze za zgodą: push i scalenie na `main` (poza listą wyżej), PR, App Store Connect zapis, TestFlight, publikacja, usuwanie gałęzi i danych, force-push, koszty stałe, wiadomości do ludzi, koszt API ponad pułap.
 - Pułapy kosztu: **brak** — właściciel 2026-11-10 ok. 05:55 UTC: „Bez pułapu, tylko raport” (koszt w liniach 05:00 i 14:00; budżet kontekstu 30% bez zmian); API przekładu wg zgód wyżej.
-- Koordynator aktywny: session_01T66VBxtQGd3faU3Y4mNUuA (od 2026-11-10 05:30 UTC, uruchomiony przez właściciela z `/apps4brew`; poprzednik session_01T66VBvZebfV7GaciZqtW3H, przed nim session_01T66VBzPr7MhGZ3A6RPdfBG).
+- Koordynator aktywny: session_01T66VBzpecX1cLyGgZbrkbu (od 2026-11-10 06:40 UTC, przekazanie E6; poprzednik session_01T66VBxtQGd3faU3Y4mNUuA od 05:30, przed nim session_01T66VBvZebfV7GaciZqtW3H, session_01T66VBzPr7MhGZ3A6RPdfBG).
 - Środowisko: environment_id env_011LiSvPc7hKtQZSkk13hSky, model claude-opus-5-5, wysiłek medium, permission_mode auto, extra_allowed_tools brak; repo sesji: lkarwowski494/Szkola_pokera, lkarwowski494/prompts (biblioteka, prywatna — dodawać przez add_repo read).
 - Środowisko sesji podrzędnych od 2026-11-10 ok. 06:10 UTC: „Takie jak ta sesja (zalecane)” = env_0166YQoQYngJLGR5ViagvRAi, permission_mode auto.
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- **Przekazanie koordynatora w toku** (kontekst 34%): następca przejmuje wg E6 pkt 5; do tego czasu bez nowych sesji.
+- Koordynator session_01T66VBzpecX1cLyGgZbrkbu przejął 06:40. `add_repo prompts` odrzucony przez klasyfikator (jak 05:20) → prośba do właściciela; do zgody nowe sesje tylko z promptem roli złożonym dziś przez poprzednika (09 build z pierwszej wiadomości AS — wyjątek nazwany, KO-023).
+- AP: kontekst 33,7% (get_session 06:38), koszt 139,35 USD — wysłane polecenie PRZEKAZANIA 06:39.
 - Gałąź robocza @ **66aa8cc**: AM (016317e, CI 42766336909 success) + AN (docs) + AQ i AR (pełny przegląd it/es/pt-BR i fr/de/vi — tylko pliki w `docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/`, scalenia `[skip ci]`). Szczyt z dowodem E2E nadal 6afa34d.
 - Aktywne: **AP** (przegląd ja, zh-Hant, ko; ja i zh-Hant gotowe wg raportu 06:22, ko w toku) i **AS** (pt-PT po AO, gałąź `sesja-ao-pt-pt`).
 - **Następny krok następcy:** po PRZEKAZANIU AP — odbiór i scalenie (docs), potem zlecić sesję kodu **AT** (rola 09 build, gałąź od roboczej): nałożenie poprawek przeglądu 9 języków (`<język>/poprawki-<język>.json`, instrukcje `stan-AQ.md`, `README.md`, `stan-AR.md`), w tym WYS: ja `ja.json:96` data.replaceBody (odwrócony kierunek w oknie importu — dotyczy danych użytkownika), es m4-l4:33, 13 zgubionych znaczników fr/de/vi; decyzje właściciela KO-020…KO-022 (metadane → rola 10 / generator `zbuduj-metadane.py`); jedna przebudowa baz, `pnpm run ci`, push → CI + E2E. Po AS: scalenie pt-PT, E2E. Potem build TestFlight (właściciel).
@@ -31,8 +32,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk (baza 016317e) | [niesprawdzone] | [niesprawdzone] | w toku: ja 147 poprawek (WYS 1), zh-Hant 231 (WYS 0), ko czytany; koniec ok. 07:00 wg sesji |
-| AS | session_01T66VBvE86T64QC2vSV2oJH | 09 build, kod | sesja-ao-pt-pt @ a28b48e (niesprawdzone) | 30 (wg sesji) | [odczytać get_session przed archiwizacją] | **PRZEKAZANIE 06:34** — potrzebny następca **AT-pt** (09 build): kroki 3d–3g z plan-08 „Sesja AS”; AS do archiwizacji po starcie następcy i zapisie kosztu |
+| AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk (baza 016317e) | 33,7 (06:38) | 139,35 (06:38) | w toku: ja 147 poprawek (WYS 1), zh-Hant 231 (WYS 0), ko czytany; koniec ok. 07:00 wg sesji |
+| AS | session_01T66VBvE86T64QC2vSV2oJH | 09 build, kod | sesja-ao-pt-pt @ a28b48e (niesprawdzone) | 24,5 (get_session 06:38) | 17,19 (06:38) | **PRZEKAZANIE 06:34** — potrzebny następca **AT-pt** (09 build): kroki 3d–3g z plan-08 „Sesja AS”; AS do archiwizacji po starcie następcy i zapisie kosztu |
 
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR. Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
@@ -63,8 +64,9 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR. Litery użyte dot
 - Decyzje nocy nieomówione pojedynczo (techniczne i wykonawcze z listy D-343–D-394): zostają „do weta”.
 
 ## Przypomnienia
-- Koordynatora session_01T66VBxtQGd3faU3Y4mNUuA (usuwa je sam po starcie następcy): trig_019x1vbCBm1tyDhefrPWLXeS „…: kontrola” 06:38 · trig_01E3ShNoCbuUYRTGFdedbP47 „…: linia 14:00” 10.11 · trig_019RcQqtkXBEGePo3EBxinUa „…: linia 05:00” 11.11. **Następca tworzy własne**: kontrola (AP, AS trwają), linia 14:00, linia 05:00.
-- Push na gałąź stanu z nowego kontenera przechodzi bez `pnpm install` (sprawdzone dziś 6×); push na gałęzie kodu przez hook pre-push wymaga `pnpm install --frozen-lockfile` (wg AP).
+- Koordynatora session_01T66VBzpecX1cLyGgZbrkbu: trig_01TsGcpHpp1WqkQoa9XQjYDV „…: kontrola” 07:05 · trig_01QH4Q5cgzpF8gTNwjZ2H7HF „…: linia 14:00” 10.11 · trig_01MvY3c1633qgKD4DiT3xZNA „…: linia 05:00” 11.11.
+- Poprzednika session_01T66VBxtQGd3faU3Y4mNUuA (kontrola, 14:00, 05:00 usunięte przez niego 06:38; zostaje „kontrola przekazania” trig_01HhS6seisLYydQxF2fBJPp9 07:09; dawne ID): trig_019x1vbCBm1tyDhefrPWLXeS „…: kontrola” 06:38 · trig_01E3ShNoCbuUYRTGFdedbP47 „…: linia 14:00” 10.11 · trig_019RcQqtkXBEGePo3EBxinUa „…: linia 05:00” 11.11.
+- Push na gałąź stanu: hook pre-push (`scripts/pre-push-check.mjs`) wymaga `pnpm install --frozen-lockfile` także tu (06:42 typecheck kod 2 bez node_modules; install 7,9 s); push na gałęzie kodu przez hook pre-push wymaga `pnpm install --frozen-lockfile` (wg AP).
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; następny wolny **D-450**.
@@ -103,3 +105,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR. Litery użyte dot
 | 11-10 06:34 | koordynator | **AQ i AR przyjęte**: autor OK (4 i 12 commitów), zmiany wyłącznie w `docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/` (99 i 108 plików), scalone bez konfliktu do roboczej @ 66aa8cc (`[skip ci]`; treść znalezisk niesprawdzona przez koordynatora — sprawdzi nałożenie + CI). Koszty z get_session: AO 23,55, AQ 98,37, AR 121,31 USD; AO, AQ, AR zarchiwizowane. Pytania AR → właściciel: stopnie oceny w opisie sklepu „Dopisać we wszystkich 9 językach” (KO-020), podtytuł de „Zmienić na »ohne Echtgeld« (zalecane)” (KO-021); fr „Fiches de révision” w interfejsie — KO-022 (koordynator, do weta) | przekazanie koordynatora |
 | 11-10 06:34 | AS → koordynator | PRZEKAZANIE przy 30%: a28b48e; przegląd reszty pt (egzaminy, reguły, UI 731 kluczy, terms-def 162): KRYT 0, WYS 0, 127 poprawek; pokrycie pt 65/65 z lekcjami AO; kontrola (a) m12 zaliczona; D-406 (terminologia pt-PT ze źródeł), D-407 (ASO pt-PT w formie formalnej) do weta; 0 USD API. Otwarte 3d–3g: reguły pt w `ujednolic-formy.mjs`, K-05 `content/pt/terms-nazwy.yaml`, nałożenie, łatki `ao-pt`, `language.name`, `content:build`, `pnpm run ci`, lista telefonu. Uwaga AS: hook pre-push `content:check` blokuje push, gdy w drzewie leży nieśledzone `content/pt` | **następca koordynatora:** odbiór a28b48e, sesja-następca pt-PT (litera AT albo AU — uzgodnić z sesją nakładającą 9 języków; obie zmieniają treść i konfigurację: osobne gałęzie, scalać po kolei) |
 | 11-10 06:38 | koordynator | przekazane do session_01T66VBzpecX1cLyGgZbrkbu (create_session bez błędu, WORKING tuż po starcie; prompt przepisany przez subagenta); własne przypomnienia kontrola/14:00/05:00 usunięte — tworzy je następca; zostaje „kontrola przekazania” za 30 min | PRZEJĄŁEM → archiwizacja poprzednika |
+| 11-10 06:40 | koordynator (session_01T66VBzpecX1cLyGgZbrkbu) | przejęcie E6 pkt 5: przypomnienia własne (ID w „Przypomnienia”); wiadomość o zmianie do AP (+ polecenie PRZEKAZANIA, 33,7%) i AS; list_events poprzednika po 06:30: brak wiadomości od sesji i właściciela; add_repo prompts: odrzucony przez klasyfikator | PRZEJĄŁEM; prośba o bibliotekę; odbiór AS |
