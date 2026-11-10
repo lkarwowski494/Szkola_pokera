@@ -75,7 +75,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-034**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
+- KO następny: **KO-035**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -168,3 +168,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 11:48 | BC → koordynator | plan (wg sesji): zmiana 14/72 komórek (UTG ×12: pl „pierwsza pozycja po blindach”, en „under the gun”…; HJ/CO w ja, zh-Hant), 58 zostaje; 345 gołych `{{t:utg}}` → `{{t:utg\|UTG}}` w 12 językach (render lekcji identyczny — dowód skryptem); konflikt z testem D-319 → KO-032 (wyjątek nazwany); szac. 1,5 h. Przyjęte z warunkami (dowód renderu, locales/store, pełny tekst linii pl/en) | PRZEKAZANIE BC ok. 13:20 |
 | 11-10 11:50 | właściciel → koordynator → AY | „Wariant głęboki, zgoda na dołączenie repo” → KO-033; przekazane AY dosłownie: ponowić add_repo raz, fan-out po sygnale o buildzie | odpowiedź AY (add_repo); kontrola 11:49 E2E |
 | 11-10 11:52 | koordynator | **E2E 42800500800 na bca751e: failure** (koniec 11:42, 66 min; CI 42800500665 success). AW i AX **nieprzyjęte** do wyjaśnienia; build TestFlight wstrzymany (prośby do właściciela nie było). Diagnoza zlecona subagentowi (joby, końcówka logu, flow, przyczyna a/b/c) → `recenzje/diagnoza-e2e-42800500800.md` | wynik diagnozy → naprawa sesją 08 (AZ ma kontekst < 28% i gałąź kodu) |
+| 11-10 11:55 | AY → koordynator | add_repo w AY odrzucony 3. raz (po słowach właściciela); AY prosi o prompty ról (b). Decyzja KO-034: role audytu jako sesje koordynatora; AY ma wypchnąć `audit/M1-2026-11-10/polecenia/<rola>.md` + `skladanie.md` (argumenty assemble) na `sesja-ay-audyt`; AY uruchamia 3 soczewki E0b (bez repo) | „GOTOWE @ SHA” od AY; start ról po buildzie |
