@@ -4,6 +4,7 @@
 import '@/i18n';
 import i18n from 'i18next';
 import { TERM_NAMES, TERMS } from '@/data/content/terms.generated';
+import { tr } from '@/features/drills/terms';
 import { KOLEJNOSC, nazwaPozycji, opisKart } from '@/features/stol/uklad';
 import { SLOWNIKI } from '@/i18n/slowniki';
 import type { Position } from '@/features/drills/types';
@@ -11,8 +12,6 @@ import type { Position } from '@/features/drills/types';
 /** Kod pozycji z `Position` (features/drills/types.ts:4) → klucz terminu w content/terms.yaml. */
 const KLUCZ: Record<Position, keyof typeof TERMS & string> = { UTG: 'utg', HJ: 'hijack', CO: 'cutoff', BTN: 'button', SB: 'small-blind', BB: 'big-blind' };
 const JEZYKI = Object.keys(SLOWNIKI);
-// Brak nazwy w języku (plik terms-nazwy bez klucza albo null = „skrót”): zachowanie zastępcze = skrót z terms.yaml (rola 06 uzupełnia).
-const BRAKI = ['fr:UTG', 'pt:UTG', 'pt-BR:UTG', 'ja:UTG', 'zh-Hant:UTG'];
 
 function oczekiwanaNazwa(jezyk: string, p: Position): string {
   const info = TERMS[KLUCZ[p]];
@@ -30,12 +29,12 @@ describe('KO-028: nazwa pozycji przy stole', () => {
   it('pl: „Twoja pozycja (position): mały blind (small blind, SB).” zamiast samego skrótu', () => {
     const t = i18n.getFixedT('pl');
     expect(opisKart({ position: 'SB' }, t)).toBe('Twoja pozycja (position): mały blind (small blind, SB).');
-    expect(opisKart({ position: 'UTG' }, t)).toBe('Twoja pozycja (position): UTG (under the gun).');
+    expect(opisKart({ position: 'UTG' }, t)).toBe('Twoja pozycja (position): pierwsza pozycja po blindach (under the gun, UTG).');
   });
 
   for (const jezyk of JEZYKI) {
     for (const p of KOLEJNOSC) {
-      it(`${jezyk} ${p}: tekst i etykieta czytnika mają nazwę z glosariusza i skrót${BRAKI.includes(`${jezyk}:${p}`) ? ' (brak nazwy w języku → sam skrót)' : ''}`, () => {
+      it(`${jezyk} ${p}: tekst i etykieta czytnika mają nazwę z glosariusza i skrót`, () => {
         const t = i18n.getFixedT(jezyk);
         const nazwa = oczekiwanaNazwa(jezyk, p);
         for (const linia of [opisKart({ position: p }, t), opisKart({ position: p }, t, { nazwy: true })]) {
@@ -54,19 +53,35 @@ describe('KO-028: nazwa pozycji przy stole', () => {
     }
   });
 
-  // AZ-01/AZ-05: dokładny tekst dla nazwy = skrót, nazwy bez skrótu i zachowania zastępczego (brak/null nazwy w języku)
-  it('nazwa równa skrótowi nie dubluje skrótu: „UTG”, nie „UTG (UTG)”; „HJ” (ja), nie „HJ (HJ)”', () => {
-    expect(nazwaPozycji('UTG', i18n.getFixedT('de'))).toBe('UTG');
-    expect(nazwaPozycji('UTG', i18n.getFixedT('en'))).toBe('UTG');
-    expect(nazwaPozycji('HJ', i18n.getFixedT('ja'))).toBe('HJ');
-    expect(nazwaPozycji('CO', i18n.getFixedT('zh-Hant'))).toBe('CO');
+  // AZ-01/AZ-05: zachowanie zastępcze i dopisek skrótu na sztucznych danych (nie zależą od treści `content/`, więc łapią mutacje)
+  it('nazwa równa skrótowi nie dubluje skrótu: „UTG”, nie „UTG (UTG)”; „HJ”, nie „HJ (HJ)”', () => {
+    expect(nazwaPozycji('UTG', () => 'UTG')).toBe('UTG');
+    expect(nazwaPozycji('HJ', () => 'HJ')).toBe('HJ');
+    expect(nazwaPozycji('CO', () => 'CO')).toBe('CO');
   });
 
-  it('brak nazwy w języku (fr, pt, pt-BR: brak klucza; ja, zh-Hant: null) → sam skrót UTG, bez nawiasu', () => {
-    for (const j of ['fr', 'pt', 'pt-BR', 'ja', 'zh-Hant']) {
-      expect([j, nazwaPozycji('UTG', i18n.getFixedT(j))]).toEqual([j, 'UTG']);
-      expect([j, opisKart({ position: 'UTG' }, i18n.getFixedT(j), { nazwy: true }).includes('(UTG)')]).toEqual([j, false]);
+  it('brak nazwy w języku (plik terms-nazwy bez klucza albo null): renderer podaje nazwę angielską, a nazwaPozycji dopisuje skrót — jeden raz', () => {
+    const przypadki: Parameters<typeof tr>[2][] = [{ fr: {} }, { fr: { utg: null as unknown as string } }];
+    for (const nazwy of przypadki) { // TERM_NAMES: język → klucz → nazwa
+      const t = (k: string) => (k === 'table.position.utg' ? tr('{{t:utg}}', 'fr', nazwy) : k);
+      expect(t('table.position.utg')).toBe('under the gun');
+      expect(nazwaPozycji('UTG', t)).toBe('under the gun (UTG)');
     }
+  });
+
+  // Nazwy z content/ (D-520, KO-028/KO-032): dokładny tekst w językach, w których wcześniej był sam skrót
+  it.each([
+    ['de', 'UTG', 'Under the Gun (UTG)'],
+    ['en', 'UTG', 'under the gun (UTG)'],
+    ['fr', 'UTG', 'under the gun (UTG)'],
+    ['pt', 'UTG', 'under the gun (UTG)'],
+    ['pt-BR', 'UTG', 'under the gun (UTG)'],
+    ['ja', 'UTG', 'アンダーザガン (UTG)'],
+    ['ja', 'HJ', 'ハイジャック (HJ)'],
+    ['zh-Hant', 'UTG', '槍口位 (UTG)'],
+    ['zh-Hant', 'CO', '關煞位 (CO)'],
+  ] as const)('%s %s → „%s”', (jezyk, p, oczekiwane) => {
+    expect(nazwaPozycji(p, i18n.getFixedT(jezyk))).toBe(oczekiwane);
   });
 
   it('nazwa z pełnym brzmieniem dostaje skrót w nawiasie: dokładny tekst', () => {
