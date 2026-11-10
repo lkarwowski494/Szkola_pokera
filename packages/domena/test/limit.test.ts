@@ -1,6 +1,7 @@
 // Testy akceptacyjne limitu dnia (BR-LIM-001, -003, -005; ADR 0007 „Potwierdzenie”; K-05). Oczekiwane wartości:
 // parametr LIMIT_AKTYWNOSCI_DZIENNIE z konfiguracji (D-107) i data w strefie z Intl (tests/narzedzia/czas.ts), nie z kodu aplikacji.
 import { describe, expect, it } from 'vitest';
+import { GENERATOR_WERSJA } from '@szkola/poker-core';
 import { czyPowtorkaWariantu, KONFIGURACJA as K, limitDnia, mozeStartowac, type Limit, type RodzajAktywnosci } from '../src';
 import { dzienW, nastepnyDzien, poczatekDnia, przejsciaCzasu } from '../../../tests/narzedzia/czas';
 import { lataTestowe, STREFY_TESTOWE } from '../../../tests/narzedzia/strefy';
@@ -75,7 +76,7 @@ describe('ADR 0007 „Potwierdzenie”: Pro i nowy dzień', () => {
 });
 
 // 08-programista-002: powtórkę wariantu rozpoznaje domena z historii (odcisk ostatnio zapisanego wariantu), nie flaga od wywołującego.
-const HIST = [{ odcisk: 'sz|latwy|AK0/Q1/7', ziarno: 11 }, { odcisk: 'sz|latwy|JT0/952/', ziarno: 22 }];
+const HIST = [{ odcisk: 'sz|latwy|AK0/Q1/7', ziarno: 11, generatorWersja: GENERATOR_WERSJA }, { odcisk: 'sz|latwy|JT0/952/', ziarno: 22, generatorWersja: GENERATOR_WERSJA }];
 const TEN_SAM = { historia: HIST, odcisk: 'sz|latwy|JT0/952/' };
 const INNY = { historia: HIST, odcisk: 'sz|latwy|88/K42/' };
 

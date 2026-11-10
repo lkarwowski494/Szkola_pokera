@@ -1,6 +1,6 @@
 // BR-GEN-002 (D-532): bez powtórzeń w sesji i między sesjami, pojemność, najdawniej widziany przy braku wolnego odcisku.
 import { describe, expect, it } from 'vitest';
-import { BET_FRACTIONS, generateVariant, type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
+import { BET_FRACTIONS, GENERATOR_WERSJA, generateVariant, type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
 import { KONFIGURACJA as K, wybierzWariant, type WpisHistorii } from '../src';
 
 const SZABLON: GeneratorTemplate = {
@@ -27,14 +27,14 @@ describe('BR-GEN-002: wybór wariantu bez powtórzeń', () => {
       const v = wybierzWariant(SZABLON, 'sredni', i + 1, { historia, sesja: new Set() });
       const okno = historia.slice(-K.WARIANTY_HISTORIA_OKNO).map((w) => w.odcisk);
       expect(okno.includes(v.fingerprint), `wariant ${i}`).toBe(false);
-      historia.push({ odcisk: v.fingerprint, ziarno: v.seed });
+      historia.push({ odcisk: v.fingerprint, ziarno: v.seed, generatorWersja: GENERATOR_WERSJA });
     }
   }, 600_000);
 
   it('ten sam odcisk po wyjściu z okna może wrócić (okno to 20, nie cała historia)', () => {
     const v = generateVariant(SZABLON, 'sredni', 1);
-    const wypelniacze: WpisHistorii[] = Array.from({ length: K.WARIANTY_HISTORIA_OKNO }, (_, i) => ({ odcisk: `inny-${i}`, ziarno: i }));
-    const historia = [{ odcisk: v.fingerprint, ziarno: v.seed }, ...wypelniacze];
+    const wypelniacze: WpisHistorii[] = Array.from({ length: K.WARIANTY_HISTORIA_OKNO }, (_, i) => ({ odcisk: `inny-${i}`, ziarno: i, generatorWersja: GENERATOR_WERSJA }));
+    const historia = [{ odcisk: v.fingerprint, ziarno: v.seed, generatorWersja: GENERATOR_WERSJA }, ...wypelniacze];
     expect(wybierzWariant(SZABLON, 'sredni', 1, { historia, sesja: new Set() }).fingerprint).toBe(v.fingerprint);
   });
 
@@ -44,7 +44,7 @@ describe('BR-GEN-002: wybór wariantu bez powtórzeń', () => {
     }));
     // generator zna tylko trzy odciski; ziarno wybiera jeden z nich
     const generuj = (_: GeneratorTemplate, __: ScenarioLevel, ziarno: number): ScenarioVariant => pula[ziarno >= 100 && ziarno <= 102 ? ziarno - 100 : ziarno % 3]!;
-    const historia: WpisHistorii[] = [{ odcisk: 'b', ziarno: 101 }, { odcisk: 'c', ziarno: 102 }, { odcisk: 'a', ziarno: 100 }];
+    const historia: WpisHistorii[] = [{ odcisk: 'b', ziarno: 101, generatorWersja: GENERATOR_WERSJA }, { odcisk: 'c', ziarno: 102, generatorWersja: GENERATOR_WERSJA }, { odcisk: 'a', ziarno: 100, generatorWersja: GENERATOR_WERSJA }];
     const v = wybierzWariant(SZABLON, 'sredni', 5, { historia, sesja: new Set(), generuj });
     expect(v.fingerprint).toBe('b'); // najdawniej widziany
     const v2 = wybierzWariant(SZABLON, 'sredni', 5, { historia, sesja: new Set(['b']), generuj });

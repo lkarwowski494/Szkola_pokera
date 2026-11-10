@@ -10,6 +10,9 @@ export const schematV1 = () => readFileSync(SCIEZKA_SCHEMATU, 'utf8');
 // Migracja v2 (D-532): osobny plik, bo schemat.sql = wydana migracja v1 (wydanej migracji się nie zmienia, dane.md „Polityka migracji”).
 export const SCIEZKA_SCHEMATU_V2 = fileURLToPath(new URL('../../docs/architektura/schemat-v2.sql', import.meta.url));
 export const schematV2 = () => readFileSync(SCIEZKA_SCHEMATU_V2, 'utf8');
+// Migracja v3 (ŚR-001): kolumna generator_wersja w wariant_historia.
+export const SCIEZKA_SCHEMATU_V3 = fileURLToPath(new URL('../../docs/architektura/schemat-v3.sql', import.meta.url));
+export const schematV3 = () => readFileSync(SCIEZKA_SCHEMATU_V3, 'utf8');
 export const T0 = 1_793_000_000_000; // stały czas wzorca (ms UTC)
 export const DZIEN_WZORCA = '2026-10-26';
 const D = 86_400_000;

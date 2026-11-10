@@ -10,7 +10,7 @@ import { przygotuj, sprzatnij } from './wspolne';
 afterEach(sprzatnij);
 const META = { terazMs: T0, aplikacja: '1.0.0' };
 const OKNO = KONFIGURACJA.WARIANTY_HISTORIA_OKNO;
-const zapis = (o: Partial<ZapisOdcisku> & { odcisk: string }) => ({ szablonId: 's01', poziom: 'latwy' as const, ziarno: 1, terazMs: T0, ...o });
+const zapis = (o: Partial<ZapisOdcisku> & { odcisk: string }) => ({ szablonId: 's01', poziom: 'latwy' as const, ziarno: 1, terazMs: T0, generatorWersja: 1, ...o });
 const kolumnyHistorii = (db: import('node:sqlite').DatabaseSync) => db.prepare('SELECT * FROM wariant_historia ORDER BY id').all().map((w) => ({ ...w }));
 
 describe('D-532 okno historii', () => {
@@ -20,7 +20,7 @@ describe('D-532 okno historii', () => {
     const { port } = await przygotuj('pusta');
     for (let i = 0; i < 3; i++) expect(await zapiszOdcisk(port, zapis({ odcisk: `o${i}`, ziarno: 100 + i, terazMs: T0 + i }))).toEqual({ ok: true, wartosc: undefined });
     expect(await odczytajOdciski(port, 's01', 'latwy')).toEqual({ ok: true, wartosc: [
-      { odcisk: 'o0', ziarno: 100, zagranoMs: T0 }, { odcisk: 'o1', ziarno: 101, zagranoMs: T0 + 1 }, { odcisk: 'o2', ziarno: 102, zagranoMs: T0 + 2 },
+      { odcisk: 'o0', ziarno: 100, zagranoMs: T0, generatorWersja: 1 }, { odcisk: 'o1', ziarno: 101, zagranoMs: T0 + 1, generatorWersja: 1 }, { odcisk: 'o2', ziarno: 102, zagranoMs: T0 + 2, generatorWersja: 1 },
     ] });
     expect(await odczytajOdciski(port, 's01', 'trudny')).toEqual({ ok: true, wartosc: [] });
   });
@@ -34,7 +34,7 @@ describe('D-532 okno historii', () => {
     expect(ile(db, 'wariant_historia')).toBe(2);
     expect((db.prepare("SELECT id FROM wariant_historia WHERE odcisk = 'a'").get() as { id: number }).id).toBe(idA); // UPSERT, nie REPLACE (ADR 0003 pkt 4)
     expect(await odczytajOdciski(port, 's01', 'latwy')).toEqual({ ok: true, wartosc: [
-      { odcisk: 'b', ziarno: 2, zagranoMs: T0 + 1 }, { odcisk: 'a', ziarno: 9, zagranoMs: T0 + 5 },
+      { odcisk: 'b', ziarno: 2, zagranoMs: T0 + 1, generatorWersja: 1 }, { odcisk: 'a', ziarno: 9, zagranoMs: T0 + 5, generatorWersja: 1 },
     ] });
   });
 
@@ -129,8 +129,8 @@ describe('D-532 eksport, import, „Usuń postęp”', () => {
     const k = JSON.parse(w.ok ? w.wartosc : '{}');
     expect(k.wersja_formatu).toBe(1);
     expect(k.dane.wariant_historia).toEqual([
-      { id: 1, szablon_id: 's01', poziom: 'latwy', odcisk: 'a', ziarno: 7, zagrano_ms: T0 },
-      { id: 2, szablon_id: 's05', poziom: 'trudny', odcisk: 'b', ziarno: 8, zagrano_ms: T0 + 1 },
+      { id: 1, szablon_id: 's01', poziom: 'latwy', odcisk: 'a', ziarno: 7, zagrano_ms: T0, generator_wersja: 1 },
+      { id: 2, szablon_id: 's05', poziom: 'trudny', odcisk: 'b', ziarno: 8, zagrano_ms: T0 + 1, generator_wersja: 1 },
     ]);
   });
   it('round-trip: eksport → import na czystej bazie daje identyczną historię, integrity ok', async () => {

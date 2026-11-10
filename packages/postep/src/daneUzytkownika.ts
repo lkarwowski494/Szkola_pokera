@@ -20,7 +20,7 @@ export const TYPY_KOLUMN: Record<TabelaEksportu, Readonly<Record<string, TypKolu
   karta: { rodzina_id: 't', termin_ms: 'i', stabilnosc: 'r', trudnosc: 'r', dni_zaplanowane: 'r', kroki_nauki: 'i', powtorzenia: 'i',
     zapomnienia: 'i', stan: 'i', ostatnia_powtorka_ms: 'i?', zmieniono_ms: 'i' },
   log_powtorki: { id: 'i', rodzina_id: 't', odpowiedz_id: 'i?', ocena_fsrs: 'i', stan_przed: 'i', termin_przed_ms: 'i', powtorzono_ms: 'i' },
-  wariant_historia: { id: 'i', szablon_id: 't', poziom: 't', odcisk: 't', ziarno: 'i', zagrano_ms: 'i' }, // schemat-v2.sql (D-532)
+  wariant_historia: { id: 'i', szablon_id: 't', poziom: 't', odcisk: 't', ziarno: 'i', zagrano_ms: 'i', generator_wersja: 'i' }, // schemat-v2.sql (D-532) + schemat-v3.sql (ŚR-001)
 };
 export const KOLUMNY_EKSPORTU: Record<TabelaEksportu, readonly string[]> = {
   ustawienie: Object.keys(TYPY_KOLUMN.ustawienie), postep_lekcji: Object.keys(TYPY_KOLUMN.postep_lekcji),
@@ -28,6 +28,10 @@ export const KOLUMNY_EKSPORTU: Record<TabelaEksportu, readonly string[]> = {
   wynik_testu: Object.keys(TYPY_KOLUMN.wynik_testu), karta: Object.keys(TYPY_KOLUMN.karta), log_powtorki: Object.keys(TYPY_KOLUMN.log_powtorki),
   wariant_historia: Object.keys(TYPY_KOLUMN.wariant_historia),
 };
+// Kolumny, których brak w wierszu pliku oznacza wartość domyślną: pliki sprzed migracji, która je dodała, muszą się importować (jak
+// TABELE_OPCJONALNE w domenie). `generator_wersja` (ŚR-001, D-732): brak = 0, czyli wpis niezgodny z każdą bieżącą wersją generatora.
+// To nie jest zgadywanie wartości: 0 jest tym, co migracja v3 nadaje wpisom sprzed kolumny. Nowa kolumna opcjonalna: tylko z decyzją.
+const KOLUMNY_OPCJONALNE: Partial<Record<TabelaEksportu, Readonly<Record<string, Wartosc>>>> = { wariant_historia: { generator_wersja: 0 } };
 const KLUCZ: Record<TabelaEksportu, string> = {
   ustawienie: 'klucz', postep_lekcji: 'lekcja_id', aktywnosc: 'id', odpowiedz: 'id', wynik_testu: 'aktywnosc_id', karta: 'rodzina_id', log_powtorki: 'id', wariant_historia: 'id',
 };
@@ -49,11 +53,19 @@ const czyObiekt = (v: unknown): v is Record<string, unknown> => typeof v === 'ob
 function wartosciWiersza(t: TabelaEksportu, w: unknown): Wartosc[] | null {
   if (!czyObiekt(w)) return null;
   const kolumny = KOLUMNY_EKSPORTU[t];
-  if (Object.keys(w).length !== kolumny.length) return null;
+  const domyslne = KOLUMNY_OPCJONALNE[t] ?? {};
+  const brakujace = kolumny.filter((k) => !(k in w) && k in domyslne).length;
+  if (Object.keys(w).length !== kolumny.length - brakujace) return null; // brak kolumny opcjonalnej dozwolony, nadmiar nie
   const wartosci: Wartosc[] = [];
   for (const k of kolumny) {
+    if (!(k in w)) {
+      const d = domyslne[k];
+      if (d === undefined) return null;
+      wartosci.push(d);
+      continue;
+    }
     const v = w[k];
-    if (!(k in w) || !zgodnaZTypem(TYPY_KOLUMN[t][k], v)) return null;
+    if (!zgodnaZTypem(TYPY_KOLUMN[t][k], v)) return null;
     wartosci.push(v);
   }
   return wartosci;

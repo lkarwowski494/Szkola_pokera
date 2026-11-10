@@ -4,10 +4,11 @@ import type { Polaczenie } from './port';
 import { PrzerwanoWTle } from './bledy';
 import { SCHEMAT_V1 } from './schemat-v1';
 import { SCHEMAT_V2 } from './schemat-v2';
+import { SCHEMAT_V3 } from './schemat-v3';
 
 export interface Migracja { wersja: number; sql: string; przebudowa?: boolean }
 // Lista migracji aplikacji; v1 = docs/architektura/schemat.sql (ADR 0004). Wydanej migracji się nie zmienia (dane.md).
-const MIGRACJE: readonly Migracja[] = [{ wersja: 1, sql: SCHEMAT_V1 }, { wersja: 2, sql: SCHEMAT_V2 }]; // v2: historia odcisków wariantów (D-532)
+const MIGRACJE: readonly Migracja[] = [{ wersja: 1, sql: SCHEMAT_V1 }, { wersja: 2, sql: SCHEMAT_V2 }, { wersja: 3, sql: SCHEMAT_V3 }]; // v2: historia odcisków wariantów (D-532); v3: generator_wersja (ŚR-001)
 export function listaMigracji(): readonly Migracja[] {
   return MIGRACJE;
 }
