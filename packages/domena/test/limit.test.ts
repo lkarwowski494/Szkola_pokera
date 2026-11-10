@@ -73,3 +73,21 @@ describe('ADR 0007 „Potwierdzenie”: Pro i nowy dzień', () => {
     }
   });
 });
+
+describe('KO-043: „Zagraj jeszcze raz to samo rozdanie” nie zużywa dziennego limitu', () => {
+  it('powtórka wariantu scenariusza startuje przy wyczerpanym limicie i nie idzie z limitu', () => {
+    expect(mozeStartowac('scenariusz', false, WYCZERPANY, true)).toEqual({ start: true, zLimitu: false });
+  });
+  it('powtórka przy dostępnym limicie też nie zużywa limitu', () => {
+    expect(mozeStartowac('scenariusz', false, JEDNA, true)).toEqual({ start: true, zLimitu: false });
+  });
+  it('nowy wariant scenariusza (nie powtórka) nadal idzie z limitu i jest blokowany po jego wyczerpaniu', () => {
+    expect(mozeStartowac('scenariusz', false, JEDNA, false)).toEqual({ start: true, zLimitu: true });
+    expect(mozeStartowac('scenariusz', false, WYCZERPANY)).toEqual({ start: false, powod: 'limit_wyczerpany' });
+  });
+  it('znacznik powtórki nie zmienia innych rodzajów aktywności', () => {
+    for (const rodzaj of ['sesja', 'powtorki'] as const) {
+      expect(mozeStartowac(rodzaj, false, WYCZERPANY, true)).toEqual({ start: false, powod: 'limit_wyczerpany' });
+    }
+  });
+});
