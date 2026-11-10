@@ -1,11 +1,11 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { przejscieAktywnosci, startAktywnosci, wejscieDoAktywnosci, type Aktywnosc, type AktywnoscWToku, type Limit, type OcenaOdpowiedzi, type Wynik, type Zegar } from '@szkola/domena';
-import { generateVariant, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
+import { GENERATOR_WERSJA, generateVariant, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
 import {
   aktywnoscWToku, odczytajOdciski, odpowiedziAktywnosci, porzucAktywnosc, zacznijAktywnosc, zakonczAktywnosc, zapiszKrok, zapiszOdcisk,
   type OdpowiedzKroku, type PortBazy, type PowodZapisu,
 } from '@szkola/postep';
-import { wybierzWariant } from '@szkola/domena';
+import { wybierzWariant, ziarnoPowtorki } from '@szkola/domena';
 import { zapiszBladPostepu } from '@/data/postep';
 import { AKCJE, grafWariantu, naGenerator, przebiegWariantu, type Akcja } from './wariant';
 
@@ -80,12 +80,12 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   }
   const historia = await odczytajOdciski(port, w.szablon.id, w.poziom);
   if (!historia.ok) return historia;
-  const h = historia.wartosc.map((o) => ({ odcisk: o.odcisk, ziarno: o.ziarno }));
+  const h = historia.wartosc.map((o) => ({ odcisk: o.odcisk, ziarno: o.ziarno, generatorWersja: o.generatorWersja }));
   const ostatni = h[h.length - 1];
   const generator = naGenerator(w.szablon);
   let wariant: ScenarioVariant;
   try {
-    wariant = w.tryb === 'powtorka' && ostatni ? generateVariant(generator, w.poziom, ostatni.ziarno) : wybierzWariant(generator, w.poziom, w.ziarno, { historia: h, sesja: w.sesja });
+    wariant = w.tryb === 'powtorka' && ostatni && ziarnoPowtorki(h) !== null ? generateVariant(generator, w.poziom, ostatni.ziarno) : wybierzWariant(generator, w.poziom, w.ziarno, { historia: h, sesja: w.sesja });
   } catch {
     return { ok: false, powod: 'plan_niepoprawny' }; // szablon spoza granic (błąd treści), nie wariant spoza granic dla użytkownika
   }
@@ -107,7 +107,7 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   const zapis = await zacznijAktywnosc(port, id, start.wartosc, porzuc);
   if (!zapis.ok) return zapis;
   // Odcisk po starcie aktywności: jego brak nie psuje rozdania (najwyżej wariant wróci wcześniej), więc błąd tylko do dziennika.
-  const odcisk = await zapiszOdcisk(port, { szablonId: w.szablon.id, poziom: w.poziom, odcisk: wariant.fingerprint, ziarno: wariant.seed, terazMs: teraz });
+  const odcisk = await zapiszOdcisk(port, { szablonId: w.szablon.id, poziom: w.poziom, odcisk: wariant.fingerprint, ziarno: wariant.seed, terazMs: teraz, generatorWersja: GENERATOR_WERSJA });
   if (!odcisk.ok) zapiszBladPostepu(odcisk.powod, 'scenariusz');
   return { ok: true, wartosc: { id, aktywnosc: start.wartosc, szablon: w.szablon, poziom: w.poziom, wariant, wybory: [] } };
 }

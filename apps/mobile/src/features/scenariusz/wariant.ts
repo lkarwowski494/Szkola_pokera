@@ -22,9 +22,9 @@ export const AKCJE: readonly Akcja[] = ['fold', 'call'];
  * (`tools/content-build/src/scenariusze.ts`, `checkScenarioGenerator`), więc ekran losuje te same warianty co kontrola (CK, 08-programista-001).
  */
 export function naGenerator(s: ScenarioTemplate): GeneratorTemplate {
-  return { id: s.id, stackBb: s.stackBb, levels: s.bounds, decisions: s.decisions.map((d) => d.kind === 'range-spot'
-      ? { kind: d.kind, street: d.street, spot: d.spot }
-      : { kind: d.kind, street: d.street, pots: d.pots, fractions: d.fractions, villain: d.villain }) };
+  // Ta sama konwersja co `checkScenarioGenerator` (tools/content-build/src/scenariusze.ts): decyzje i granice wprost z treści, jedna definicja
+  // dla kontroli i ekranu (CL: po scaleniu CJ unia punktów decyzji i `positions` weszły do generatora; test CK porównuje oba warianty).
+  return { id: s.id, stackBb: s.stackBb, positions: s.positions, levels: s.bounds, decisions: s.decisions } as GeneratorTemplate;
 }
 
 /** Graf do planu aktywności (D-219): pas kończy rozdanie, sprawdzenie prowadzi do następnej decyzji albo do pokazania kart. */

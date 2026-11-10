@@ -3,6 +3,7 @@
 // odpowiedzi, „Zagraj jeszcze raz” poza limitem i „Nowe rozdanie” z limitem (KO-043), nowy odcisk (BR-GEN-002).
 // Port na node:sqlite jak w aktywnoscSesji-08.
 import { KONFIGURACJA, type Limit } from '@szkola/domena';
+import { GENERATOR_WERSJA } from '@szkola/poker-core';
 import { aktywnoscWToku, odczytajOdciski, odpowiedziAktywnosci, wynikiScenariuszy, zuzyteDzis } from '@szkola/postep';
 import { utworzZegar } from '@/platform/zegar';
 import { portTestowy } from '@/test-utils/postepTestowy';
@@ -33,7 +34,7 @@ describe('start i wznowienie', () => {
     expect(s.aktywnosc.plan.trescId).toBe('sc-01');
     expect(s.wybory).toEqual([]);
     const h = ok(await odczytajOdciski(port, 'sc-01', 'sredni'));
-    expect(h).toEqual([{ odcisk: s.wariant.fingerprint, ziarno: s.wariant.seed, zagranoMs: T0 }]);
+    expect(h).toEqual([{ odcisk: s.wariant.fingerprint, ziarno: s.wariant.seed, zagranoMs: T0, generatorWersja: GENERATOR_WERSJA }]); // CF: wpis niesie wersję generatora
   });
   it('wznowienie (nowy port na tym samym pliku): te same karty i odpowiedzi, bez nowego startu i bez limitu', async () => {
     const { port, sciezka } = await portTestowy();

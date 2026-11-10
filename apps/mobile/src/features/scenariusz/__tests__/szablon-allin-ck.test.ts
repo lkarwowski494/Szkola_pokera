@@ -8,7 +8,8 @@ import { portTestowy } from '@/test-utils/postepTestowy';
 import { otworzScenariusz } from '../aktywnoscScenariusza';
 import { naGenerator, widokDecyzji } from '../wariant';
 
-const MARTWE_BLINDY_BB = 1.5; // jak scenario-gen.ts
+// martwe blindy z pozycji (CJ D-746): 1,5 − blind gracza (BB = 1) − blind rywala (BTN = 0) = 0,5 bb; wyrocznia niezależna od poker-core (D-747)
+const MARTWE_BLINDY_BB = 0.5;
 const ALLIN: ScenarioTemplate = {
   id: 'sc-fx-allin-draw', module: 'm2', situation: '-', table: '6max', positions: { hero: 'BB', villain: 'BTN' }, stackBb: 35,
   levels: ['sredni'],
@@ -24,7 +25,8 @@ describe('linia all-in na ekranie (CK, 08-programista-002)', () => {
   it('wariant: zakład to cały stos za pulą (stackBb − wkład gracza), widok pokazuje go w bb', () => {
     const v = generateVariant(naGenerator(ALLIN), 'sredni', 3);
     const d = v.decisions[0]!;
-    expect(d.bet).toBe(Math.round(35 - (d.pot - MARTWE_BLINDY_BB) / 2));
+    // all-in = dokładnie stos gracza za pulą, bez zaokrąglenia (CJ, KO-056 ŚR-002)
+    expect(d.bet).toBe(35 - (d.pot - MARTWE_BLINDY_BB) / 2);
     expect(widokDecyzji(v, 0).doSprawdzeniaBb).toBe(d.bet);
   });
   it('otworzScenariusz: rozdanie startuje (nie „plan_niepoprawny”)', async () => {
