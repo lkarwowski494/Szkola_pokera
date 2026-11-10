@@ -1,0 +1,96 @@
+# Pula pytań egzaminacyjnych modułu M6 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m6.*).
+module: m6
+drills:
+  - kind: numeric
+    id: m6.exam.q1
+    family: m6.mdf
+    rules: [R-M6-001, R-M6-005]
+    prompt: "River. No {{t:pot|pote}} estão {{n:exam.m6.pot}}, e o adversário {{t:bet|aposta}} {{n:exam.m6.bet.three-quarters}}. Qual é o {{t:mdf}}, ou seja, que parte mínima do seu {{t:range}} defende? Introduza o número em percentagem."
+    answer: exam.m6.mdf.three-quarters
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + aposta) = {{n:exam.m6.pot}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}}) = {{n:exam.m6.mdf.three-quarters}}. Se {{t:fold|desistir}} com mais frequência, um {{t:bluff}} sem hipóteses dá lucro automaticamente."
+  - kind: choice
+    id: m6.exam.q2
+    family: m6.alpha
+    rules: [R-M6-002]
+    prompt: "River. No {{t:pot|pote}} estão {{n:exam.m6.pot}}. Faz {{t:bluff}} com uma mão sem hipóteses, apostando {{n:exam.m6.bet.quarter}}. Com que frequência tem o adversário de {{t:fold|desistir}} para que este {{t:bluff}} não dê lucro nem prejuízo?"
+    options:
+      - { text: "Em mais de {{n:exam.m6.alpha.quarter}} dos casos", correct: true, why: "Sim: alpha = aposta ÷ ({{t:pot}} + aposta) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}. Um {{t:bluff}} pequeno arrisca pouco, por isso bastam-lhe {{t:fold|desistências}} raras." }
+      - { text: "Em mais de {{n:exam.m6.mdf.quarter}} dos casos", why: "Isso é o {{t:mdf}}: a parte do {{t:range}} que o adversário deve defender. O alpha é o que falta para o total: {{n:exam.m6.alpha.quarter}}." }
+      - { text: "Em mais de {{n:eq.bet-quarter}} dos casos", why: "Isso é a equity de que o adversário precisa para {{t:call|pagar}}; no denominador entra ainda o {{t:call|pagamento}} dele. O limiar para o {{t:bluff}} é aposta ÷ ({{t:pot}} + aposta) = {{n:exam.m6.alpha.quarter}}." }
+  - kind: choice
+    id: m6.exam.q3
+    family: m6.mdf-concept
+    rules: [R-M6-003]
+    prompt: "Defende o {{t:big-blind}} contra uma {{t:open|abertura}} do Button. No flop, o Button {{t:bet|aposta}} um c-bet de 1/4 do {{t:pot|pote}}. Um colega {{t:fold|desiste}} aqui de mais de metade das mãos, porque «o {{t:mdf}} é apenas um ponto de referência». O que está errado?"
+    table: { position: BB }
+    options:
+      - { text: "No flop pode defender um pouco menos do que o {{t:mdf}}, mas não se {{t:fold|desiste}} em massa contra c-bets pequenos", correct: true, why: "Sim: com um c-bet de 1/4 do {{t:pot|pote}}, o {{t:mdf}} é {{n:exam.m6.mdf.quarter}}. No flop, {{t:out-of-position|fora de posição}}, pode defender um pouco menos, porque os {{t:bluff|bluffs}} do Button ainda têm equity, mas {{t:fold|desistir}} de mais de metade das mãos entrega-lhe o {{t:pot|pote}} a troco de nada." }
+      - { text: "Nada: no flop o {{t:mdf}} não se aplica de todo", why: "No flop, o {{t:mdf}} é um ponto de referência: pode defender um pouco menos, não arbitrariamente menos. Com um c-bet pequeno, tem na mesma muitas mãos com equity suficiente." }
+      - { text: "No flop é preciso defender mais do que o {{t:mdf}}", why: "Pelo contrário: no flop, {{t:out-of-position|fora de posição}}, pode defender um pouco menos, porque não realizará toda a equity das mãos fracas. O erro do colega é {{t:fold|desistir}} muito mais do que devia." }
+  - kind: choice
+    id: m6.exam.q4
+    family: m6.exploit
+    rules: [R-M6-004]
+    prompt: "Microlimites. Um {{t:recreational|jogador recreativo}} passivo, que raramente faz {{t:bluff}}, {{t:bet|aposta}} 3/4 do {{t:pot|pote}} no river. Tem um {{t:pair|par}} de damas, e na {{t:board|mesa}} há um ás e um rei. O que faz?"
+    table: { hand: "Qd Qc", board: "Ah Jd 7c 4s Ks" }
+    options:
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "Sim: o seu {{t:pair|par}} é inferior ao ás e ao rei da {{t:board|mesa}}, por isso ganha sobretudo a {{t:bluff|bluffs}}. Este jogador raramente faz {{t:bluff}}, por isso contra ele {{t:fold|desiste}} com mais frequência do que indica o {{t:mdf}}." }
+      - { text: "{{t:call|Pago}}, porque o {{t:mdf}} manda defender cerca de {{n:exam.m6.mdf.three-quarters}}", why: "O {{t:mdf}} pressupõe que o adversário faz {{t:bluff}} com frequência suficiente. Este jogador não o faz, por isso, ao {{t:call|pagar}}, paga sobretudo a mãos melhores." }
+      - { text: "{{t:raise|Aumento}}", why: "Depois de um {{t:raise|aumento}}, as mãos piores {{t:fold|desistem}} e as melhores pagam. Um {{t:pair|par}} inferior a duas cartas da {{t:board|mesa}} não é mão para {{t:raise|aumentar}}." }
+  - kind: choice
+    id: m6.exam.q5
+    family: m6.flop.price
+    rules: [R-M6-005]
+    prompt: "Flop. No {{t:pot|pote}} estão {{n:exam.m6.pot}}. Numa mão, o Button {{t:bet|aposta}} {{n:exam.m6.bet.quarter}} e, noutra, {{n:exam.m6.bet.three-quarters}}. De quanta equity precisa para {{t:call|pagar}} em cada um destes casos?"
+    table: { position: BB }
+    options:
+      - { text: "Cerca de {{n:eq.bet-quarter}} e {{n:eq.bet-three-quarters}}", correct: true, why: "Sim: aposta ÷ ({{t:pot}} + 2·aposta). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, e {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Contra uma aposta maior, defende com um {{t:range}} mais estreito." }
+      - { text: "Cerca de {{n:exam.m6.alpha.quarter}} e {{n:eq.bet-three-quarters}}", why: "O primeiro número é o alpha (aposta ÷ ({{t:pot}} + aposta)), ou seja, o limiar para o {{t:bluff}} do Button. Para obter o preço do {{t:call|pagamento}}, some o seu próprio {{t:call|pagamento}}: {{n:eq.bet-quarter}}." }
+      - { text: "O mesmo em ambos, porque é o mesmo {{t:pot}}", why: "Não: o preço depende do tamanho da aposta. Uma aposta maior significa um preço pior: {{n:eq.bet-three-quarters}} em vez de {{n:eq.bet-quarter}}." }
+  - kind: choice
+    id: m6.exam.q6
+    family: m6.flop.call
+    rules: [R-M6-006]
+    prompt: "Defende o {{t:big-blind}} contra uma {{t:open|abertura}} do Button. No flop {{t:check|passa}}, e o Button {{t:bet|aposta}} um c-bet de 1/3 do {{t:pot|pote}}. Tem ás como carta mais alta, sem {{t:draw|draw}}. O que faz?"
+    table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
+    options:
+      - { text: "{{t:call|Pago}}", correct: true, why: "Sim: contra um c-bet pequeno, precisa apenas de cerca de {{n:eq.bet-third}} de equity. O ás como carta mais alta ganha a parte dos {{t:bluff|bluffs}} do Button e pode fazer {{t:pair|par}}, por isso normalmente defende-o. {{t:fold|Desiste}} das mãos mais fracas sem {{t:pair|par}} e sem {{t:draw|draw}}." }
+      - { text: "{{t:fold|Desisto}}", why: "Demasiado apertado: contra um c-bet pequeno, o ás como carta mais alta normalmente defende-se. {{t:fold|Desiste}} de mãos mais fracas sem {{t:pair|par}} e sem {{t:draw|draw}}." }
+      - { text: "Check-raise", why: "O check-raise faz-se sobretudo com as mãos mais fortes e com {{t:draw|draws}}. Esta mão não tem valor nem um {{t:draw|draw}} que lhe dê uma segunda forma de ganhar." }
+  - kind: choice
+    id: m6.exam.q7
+    family: m6.flop.fold
+    rules: [R-M6-007]
+    prompt: "Defende o {{t:big-blind}} contra uma {{t:open|abertura}} do Button. No flop [[8c 4d 2h]] {{t:check|passa}}, e o Button {{t:bet|aposta}} um c-bet de 3/4 do {{t:pot|pote}}. Com qual destas mãos faz mais sentido {{t:call|pagar}}?"
+    table: { board: "8c 4d 2h", position: BB }
+    options:
+      - { text: "[[Ad Jd]]", correct: true, why: "Sim: ambas as mãos são duas cartas altas sem {{t:pair|par}}, mas AJ de ouros tem ainda um {{t:flush-draw|flush draw}} (backdoor) para o {{t:flush|flush}} mais alto: com um ouro na {{t:board|mesa}}, ainda precisa de mais dois ouros. Contra um c-bet grande, é de preferência com uma mão destas que {{t:call|paga}}." }
+      - { text: "[[Ks Qs]]", why: "KQ de espadas não tem aqui nenhum {{t:draw|draw}}: não há espadas na {{t:board|mesa}} e a {{t:straight|sequência}} está demasiado longe. Contra um c-bet grande, normalmente {{t:fold|desiste}} de duas cartas altas sem {{t:draw|draw}}." }
+  - kind: choice
+    id: m6.exam.q8
+    family: m6.xr.semibluff
+    rules: [R-M6-008]
+    prompt: "Defende o {{t:big-blind}} contra uma {{t:open|abertura}} do Button. No flop [[Jh 8c 4h]] {{t:check|passa}}, e o Button {{t:bet|aposta}} um c-bet de 1/3 do {{t:pot|pote}}. Com qual destas mãos é melhor fazer check-raise?"
+    table: { board: "Jh 8c 4h", position: BB }
+    options:
+      - { text: "[[Qh Th]]", correct: true, why: "Sim: um {{t:flush-draw|flush draw}} e um gutshot (um nove) formam um {{t:draw|draw}} forte. O check-raise ganha quando o Button {{t:fold|desiste}} e, quando ele paga, continua a ter muitos outs." }
+      - { text: "[[Jd 5d]]", why: "Um {{t:top-pair|top pair}} com kicker fraco é uma mão para {{t:call|pagar}}. Depois de um check-raise, as mãos piores normalmente {{t:fold|desistem}} e as melhores pagam." }
+      - { text: "[[As 3c]]", why: "O ás como carta mais alta sem {{t:draw|draw}} não tem uma segunda forma de ganhar. O check-raise como {{t:bluff}} faz-se sobretudo com {{t:draw|draws}}." }
+  - kind: numeric
+    id: m6.exam.q9
+    family: m6.xr.size
+    rules: [R-M6-010]
+    prompt: "Flop. No {{t:pot|pote}} estão {{n:exam.m6.pot}}, e o Button {{t:bet|aposta}} um c-bet pequeno de {{n:exam.m6.bet.quarter}}. Faz check-raise para {{n:xr.mult.example}} o valor do c-bet. Para quanto {{t:raise|aumenta}}? Introduza o número de {{t:chips|fichas}}."
+    table: { position: BB }
+    answer: exam.m6.xr
+    explanation: "{{n:exam.m6.bet.quarter}} × {{n:xr.mult.example}} = {{n:exam.m6.xr}}. Contra um c-bet pequeno, {{t:raise|aumenta}} mais perto do limite superior do intervalo {{n:xr.mult.low}}–{{n:xr.mult.example}}: um check-raise mínimo daria ao Button um preço muito bom."
+  - kind: choice
+    id: m6.exam.q10
+    family: m6.xr.when
+    rules: [R-M6-009]
+    prompt: "Defende o {{t:big-blind}} contra uma {{t:open|abertura}} do Button. Em que flop faz check-raise com mais frequência?"
+    table: { position: BB }
+    options:
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Sim: num flop baixo e {{t:connected|conectado}}, o {{t:big-blind}} tem mais das combinações mais fortes ({{t:two-pair|dois pares}}, {{t:straight|sequências}}) do que o Button, por isso aqui faz check-raise com mais frequência." }
+      - { text: "[[Ks Qd Jh]]", why: "Um flop alto, com cartas próximas umas das outras, acerta bem no {{t:range}} do Button (AK, AQ, KQ, {{t:pair|pares}} altos). Aqui faz check-raise com menos frequência." }
+      - { text: "[[Ah Ad Qc]]", why: "Num flop com um {{t:pair|par}} de ases, quem tem as mãos mais fortes com mais frequência é o Button, que {{t:open|abriu}} com muitos ases. Aqui raramente faz check-raise." }

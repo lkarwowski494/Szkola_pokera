@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { JEZYKI, NAKLADKI, ZRODLO } from '@szkola/jezyki';
+import { JEZYKI, NAKLADKI, ZRODLO, znacznikIntl } from '@szkola/jezyki';
 import { SLOWNIKI, WYDANE } from '../slowniki';
 
 const korzen = join(__dirname, '../../..');
@@ -35,6 +35,8 @@ describe('supportedLocales = słowniki = rejestr (definicja ukończenia roli 09)
     const kod = readFileSync(join(__dirname, '../polyfille.ts'), 'utf8');
     const dane = [...kod.matchAll(/locale-data\/([A-Za-z-]+)\.js/g)].map((m) => m[1]!);
     const bazowe = new Set(WYDANE.map((j) => (NAKLADKI[j] ?? j).split('-')[0]!));
+    // + dane regionalne, gdy znacznik Intl języka różni się od kodu (pt → pt-PT, D-405: CLDR „pt” to wariant brazylijski)
+    for (const j of WYDANE) if (znacznikIntl(j) !== j) bazowe.add(znacznikIntl(j));
     expect(razem(dane)).toEqual(razem([...bazowe]));
     expect(kod).toContain('polyfill-force.js');
   });

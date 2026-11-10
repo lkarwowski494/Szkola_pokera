@@ -1050,6 +1050,18 @@ Polecenie: `docs/koordynacja/polecenia/AS.md` @ b57b939, start `sesja-ao-pt-pt` 
 
 Uwaga dla następcy: `content/pt/` i `locales/pt.json` są w drzewie **nieśledzone** (nałożone roboczo do przeglądu, bez poprawek E/R/U) — hook pre-push `content:check` blokuje push, gdy są obecne; przed pushem samych docs przenieść je poza repo. Sesja AS kończy na kroku 3b/3c (reguła 30% kontekstu).
 
+## Sesja AT — pt (pt-PT): nałożenie i wydanie w kodzie (2026-11-10, rola 09 build, następczyni AS; D-408, D-409)
+Polecenie: `docs/koordynacja/polecenia/AT.md` @ 4e864e7, start `sesja-ao-pt-pt` @ a28b48e (zgodny). Dowód: `docs/lokalizacja/dowody/nalozenie-pt-2026-11-10.md`.
+
+| Krok | Stan / dowód |
+|---|---|
+| 3d/3e. Reguły pt, K-05 | **zrobione**: reguły `pt` w `ujednolic-formy.mjs` (uzgadnianie rodzaju), przebieg kontrolny 0 zamian, formy odrzucone w D-406: 0; `content/pt/terms-nazwy.yaml` 151 kluczy, 27 odstępstw pt-PT (D-408) |
+| 3f. Nałożenie | **zrobione**: 245 + 128 poprawek, 0 pominiętych; `--zastosuj` 44 + 21 plików, 0 odrzuceń; ujednolicenie 571 zamian; kontrola (a) 27 wierszy m12 zaliczona (1 ŚR nałożona) — `przeglad-pt-2026-11-10/a-AT/` |
+| 3g. Wydanie w kodzie | **zrobione**: łatki AO + dopiski; testy czerwone przed kodem (3 + 7) → zielone; `przeglad_jezyki.pt` ×11; jedna przebudowa baz; `pnpm run ci` kod 0 |
+| 4. Lista, decyzje | **zrobione**: `docs/lokalizacja/lista-telefonu-pt-PT.md`, D-408, D-409, wiersz pt w `jezyki.md` |
+
+Otwarte: zrzuty pt (E2) i telefon — krok właściciela/koordynatora; E2E po scaleniu (koordynator); autor 3 commitów AS do poprawy przy scaleniu (polecenie AT pkt 2).
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 

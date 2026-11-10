@@ -1,0 +1,80 @@
+[Z1] lessons/m12-l2-decyzja-wynik.md:29
+PL:     prompt: "Turn. Masz czysty {{t:flush-draw}} ({{n:outs.flush}} outów), w {{t:pot|puli}} {{n:ex.pot}}, rywal {{t:bet|stawia}} {{n:ex.bet.quarter}}. {{t:call|Sprawdzasz}}, {{t:flush}} nie wchodzi i tracisz {{n:ex.bet.quarter}}. Jak oceniasz {{t:call}}?"
+
+[Z2] lessons/m12-l2-decyzja-wynik.md:32
+PL:       - { text: "Było złe, bo {{t:flush}} nie wszedł", why: "{{t:flush|Kolor}} wchodzi tylko w ok. {{n:odds.flush.turn-river}} przypadków, więc chybienie było najbardziej prawdopodobnym wynikiem. Decyzję oceniasz po cenie, a ta była dobra." }
+
+[Z3] lessons/m12-l2-decyzja-wynik.md:33
+PL:       - { text: "Dobre tylko wtedy, gdyby {{t:flush}} wszedł", why: "To definicja oceny po wyniku. Ta sama decyzja nie zmienia jakości zależnie od karty, która spadła później." }
+
+[Z4] lessons/m12-l2-decyzja-wynik.md:38
+PL:     prompt: "Turn. Czysty {{t:flush-draw}}, w {{t:pot|puli}} {{n:ex.pot}}, rywal {{t:bet|stawia}} całą {{t:pot|pulę}}: {{n:ex.bet.pot}}. {{t:call|Sprawdzasz}} i {{t:flush}} wchodzi na riverze. Jak oceniasz {{t:call}}?"
+
+[Z5] lessons/m12-l2-decyzja-wynik.md:42
+PL:       - { text: "Było dobre, bo {{t:flush}} to najlepsza ręka", why: "Siła ręki po trafieniu nie zmienia ceny. Liczy się porównanie: {{n:odds.flush.turn-river}} szans wobec {{n:eq.bet-pot}} potrzebnych." }
+
+[Z6] lessons/m12-l2-decyzja-wynik.md:49
+PL:       - { text: "Czy przy informacjach, które miałem, decyzja miała dodatnie {{t:expected-value|EV}}?", correct: true, why: "To jedyne pytanie, które odróżnia błąd od pecha. Liczysz cenę, equity wobec {{t:range|zakresu}} rywala i to, co wiedziałeś w chwili decyzji." }
+
+[Z7] lessons/m12-l2-decyzja-wynik.md:97
+PL: All-in z {{t:pair|parą}} asów wobec {{t:pair|pary}} króli to najlepsza możliwa decyzja, a przegrywa w ok. **{{n:res.kk-wins}}** przypadków. Z drugiej strony {{t:call}} z {{t:flush-draw|drawem do koloru}} za całą {{t:pot|pulę}} na turnie jest złe (potrzebujesz {{n:eq.bet-pot}}, masz ok. {{n:odds.flush.turn-river}}), a mimo to wygrywa mniej więcej raz na pięć.
+
+[Z8] lessons/m12-l2-decyzja-wynik.md:106
+PL: 2. Policz cenę i equity wobec {{t:range|zakresu}} rywala (M2, M6).
+
+[Z9] lessons/m12-l3-tilt.md:118
+PL: Każdy tiltuje trochę inaczej. Spisz swój **profil tiltu**: co go wyzwala, co wtedy myślisz i czujesz, co robisz przy stole (np. {{t:call|sprawdzasz}} za szeroko, {{t:raise|przebijasz}} z zemsty). Im lepiej znasz swoje sygnały, tym wcześniej je złapiesz.
+
+[Z10] lessons/m12-l4-bankroll.md:51
+PL:       - { text: "Przechodzisz na wyższą {{t:stakes|stawkę}}, żeby szybciej odrobić", why: "To tilt z desperacji. Wyższa {{t:stakes}} przy mniejszym bankrollu w {{t:buy-in|wpisowych}} gwałtownie zwiększa {{t:risk-of-ruin|ryzyko bankructwa}}." }
+
+[Z11] lessons/m12-l4-bankroll.md:59
+PL:       - { text: "Schodzisz {{t:stakes|stawkę}} od razu", correct: true, why: "To też dobra decyzja: część źródeł radzi zejść już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}. Zejście wcześniej niż przy połowie bankrollu nie jest błędem, a później już tak." }
+
+[Z12] lessons/m12-l4-bankroll.md:94
+PL:       - { text: "Mniej więcej pół na pół, ale nigdy mniej niż {{n:study.min}} nauki", correct: true, why: "Także gdy wygrywasz, ideałem jest ok. {{n:study.winner}} nauki, a minimum to {{n:study.min}}." }
+
+[Z13] exams/m12.yaml:36
+PL:       - { text: "Nie: przedział {{n:var.conf95}} to ± ok. {{n:exam.m12.style.ci}}; nowe zagrania oceniasz w przeglądzie rozdań", correct: true, why: "Błąd winrate po {{n:exam.m12.style.blocks}} blokach to {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, więc przedział to ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Taki wynik zmieści się i przy lepszym, i przy gorszym stylu. O strategii decyduje przegląd decyzji." }
+
+[Z14] exams/m12.yaml:43
+PL:     prompt: "Turn. Masz czysty {{t:flush-draw}}, w {{t:pot|puli}} {{n:ex.pot}}. Rywal wchodzi all-in za {{n:ex.bet.half}}, więcej nie da się już wygrać. {{t:call|Sprawdzasz}}, {{t:flush}} wchodzi na riverze i wygrywasz. Jak oceniasz {{t:call}}?"
+
+[Z15] exams/m12.yaml:54
+PL:       - { text: "Tilt z nienawiści do przegrywania", correct: true, why: "Wyzwalaczem jest sama przegrana, nawet gdy wiesz, że to {{t:variance}}. Nie winisz losu, siebie ani rywala." }
+
+[Z16] exams/m12.yaml:55
+PL:       - { text: "Tilt z niesprawiedliwości", why: "Ten typ wyzwala poczucie, że poker jest niesprawiedliwy: bad beaty, coolery, trafienia rywala na riverze. Tu wiesz, że wszystko odbyło się normalnie, a złości cię sama przegrana." }
+
+[Z17] exams/m12.yaml:56
+PL:       - { text: "Tilt z błędu", why: "Tilt z błędu to złość na własne pomyłki. Tu wiesz, że zagrałeś dobrze." }
+
+[Z18] exams/m12.yaml:62
+PL:     prompt: "Po trzech przegranych dużych {{t:pot|pulach}} nie potrafisz już ocenić, czy twoje ostatnie {{t:call|sprawdzenie}} było dobre, i myślisz o przejściu na wyższą {{t:stakes|stawkę}}, żeby szybciej odrobić straty. Co robisz?"
+
+[Z19] exams/m12.yaml:65
+PL:       - { text: "Robię kilka oddechów i gram dalej na wyższej {{t:stakes|stawce}}", why: "Oddech pomaga przy pierwszych sygnałach tiltu, póki jeszcze myślisz jasno. Tu tilt już urósł, a wyższa {{t:stakes}} tylko zwiększa straty." }
+
+[Z20] exams/m12.yaml:66
+PL:       - { text: "Gram dalej na tej samej {{t:stakes|stawce}}, ale tylko silne ręce", why: "Gdy nie potrafisz już spokojnie ocenić decyzji, dalsza gra to gra na twoim najgorszym poziomie (C-game), niezależnie od tego, które ręce wybierasz. Kończysz {{t:session|sesję}}." }
+
+[Z21] exams/m12.yaml:71
+PL:     prompt: "Wygrywasz {{n:dd.wr-low}} przy {{t:standard-deviation|odchyleniu}} {{n:var.sd}} i masz {{n:exam.m12.ror.bi}} {{t:buy-in|wpisowych}} ({{n:exam.m12.ror.bb}}). Jakie jest ryzyko utraty całego bankrollu, jeśli nigdy nie zejdziesz {{t:stakes|stawkę}}?"
+
+[Z22] exams/m12.yaml:82
+PL:       - { text: "Schodzę o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Próg zejścia to połowa założonej liczby {{t:buy-in|wpisowych}}: przy {{n:br.bi.beginner}} to {{n:exam.m12.md.half}}. Masz {{n:exam.m12.md.now}}, czyli mniej. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. To ogólna wskazówka; jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”." }
+
+[Z23] exams/m12.yaml:84
+PL:       - { text: "Zostaję i gram więcej, żeby odrobić straty", why: "Odgrywanie strat to sygnał ostrzegawczy, a nie plan. Bankroll spadł poniżej progu {{n:exam.m12.md.half}}, więc schodzisz {{t:stakes|stawkę}} niżej." }
+
+[Z24] rules.yaml:989
+PL:   because: "nawet najlepszy {{n:skill.pct}} graczy wyprzedza najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} przypadków dopiero po ok. {{n:skill.hands}} rękach, a mniejsze różnice umiejętności potrzebują znacznie więcej rąk"
+
+[Z25] rules.yaml:1028
+PL:   then: "schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy i wracasz najwcześniej wtedy, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}"
+
+[Z26] rules.yaml:1036
+PL:   then: "na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę; gdy wygrywasz na swojej {{t:stakes|stawce}}, ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}"
+
+[Z27] rules.yaml:1037
+PL:   because: "na początku masz najwięcej do nadrobienia, a gdy już wygrywasz na swojej {{t:stakes|stawce}}, możesz grać więcej"

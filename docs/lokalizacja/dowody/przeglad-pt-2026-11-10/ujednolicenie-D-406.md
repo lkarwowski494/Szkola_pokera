@@ -1,0 +1,584 @@
+# Ujednolicenie form (D-391) — zapisane
+
+Zamian: 565; wierszy w treści krytycznej m12: 10.
+
+## m12 (ponowna kontrola (a))
+- pt lessons/m12-l2-decyzja-wynik.md:29
+- pt lessons/m12-l2-decyzja-wynik.md:32
+- pt lessons/m12-l2-decyzja-wynik.md:33
+- pt lessons/m12-l2-decyzja-wynik.md:38
+- pt lessons/m12-l2-decyzja-wynik.md:42
+- pt lessons/m12-l2-decyzja-wynik.md:97
+- pt lessons/m12-l3-tilt.md:118
+- pt rules.yaml:1028
+- pt rules.yaml:1036
+- pt rules.yaml:1037
+
+## 勝率 bez zmiany (inne znaczenie albo brak equity w en)
+
+## Zamiany
+- pt lessons/m0-l1-uklady.md:13 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:15 pt flush cor → flush (rodzaj): «{{t:flush|Cor}}» → «{{t:flush|Flush}}»
+- pt lessons/m0-l1-uklady.md:15 pt flush cor → flush (rodzaj): «A {{t:flush|cor}}» → «O {{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:16 pt flush cor → flush (rodzaj): «da {{t:flush|cor}}» → «do {{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:22 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:24 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:24 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:24 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:25 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m0-l1-uklady.md:91 pt flush cor → flush (rodzaj): «{{t:flush|Cor}}» → «{{t:flush|Flush}}»
+- pt lessons/m1-l1-przebieg.md:6 Blinds, streets e jogadas → Blinds, rondas e jogadas: «Blinds, streets e jogadas» → «Blinds, rondas e jogadas»
+- pt lessons/m10-l1-statystyki.md:107 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m10-l1-statystyki.md:107 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m10-l2-typy-graczy.md:39 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m10-l2-typy-graczy.md:43 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m10-l2-typy-graczy.md:49 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt lessons/m10-l2-typy-graczy.md:78 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m10-l2-typy-graczy.md:132 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m10-l3-odejscie-od-bazy.md:56 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m12-l2-decyzja-wynik.md:29 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m12-l2-decyzja-wynik.md:29 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m12-l2-decyzja-wynik.md:32 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m12-l2-decyzja-wynik.md:32 pt flush cor → flush (rodzaj): «A {{t:flush|cor}}» → «O {{t:flush|flush}}»
+- pt lessons/m12-l2-decyzja-wynik.md:33 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m12-l2-decyzja-wynik.md:38 {{t:flush-draw|Projeto de cor}} → Flush draw: «{{t:flush-draw|Projeto de cor}}» → «{{t:flush-draw|Flush draw}}»
+- pt lessons/m12-l2-decyzja-wynik.md:38 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m12-l2-decyzja-wynik.md:42 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m12-l2-decyzja-wynik.md:97 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m12-l3-tilt.md:118 leque → range: «leque» → «range»
+- pt lessons/m13-l2-powtorki.md:13 pt board → mesa (rodzaj): «no {{t:board|board}}» → «na {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:13 pt board → mesa (rodzaj): «no {{t:board|board}}» → «na {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:15 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m13-l2-powtorki.md:17 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m13-l2-powtorki.md:22 pt board → mesa (rodzaj): «no {{t:board|board}}» → «na {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:24 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m13-l2-powtorki.md:24 pt board → mesa (rodzaj): «no {{t:board|board}}» → «na {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:24 pt board → mesa (rodzaj): «no {{t:board|board}}» → «na {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:24 pt board → mesa (rodzaj): «o {{t:board|board}}» → «a {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:25 pt board → mesa (rodzaj): «no {{t:board|board}}» → «na {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:26 pt board → mesa (rodzaj): «no {{t:board|board}}» → «na {{t:board|mesa}}»
+- pt lessons/m13-l2-powtorki.md:79 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m13-l3-przeglad.md:33 pt board → mesa (rodzaj): «num {{t:board|board}} {{t:dry|seco» → «numa {{t:board|mesa}} {{t:dry|seca»
+- pt lessons/m2-l1-outy.md:13 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m2-l1-outy.md:33 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m2-l1-outy.md:88 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m2-l1-outy.md:108 {{t:draw|Projetos}} → Draws: «{{t:draw|Projetos}}» → «{{t:draw|Draws}}»
+- pt lessons/m2-l1-outy.md:110 {{t:flush-draw|Projeto de cor}} → Flush draw: «{{t:flush-draw|Projeto de cor}}» → «{{t:flush-draw|Flush draw}}»
+- pt lessons/m2-l1-outy.md:110 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m2-l1-outy.md:123 {{t:draw|Projeto}} → Draw: «{{t:draw|Projeto}}» → «{{t:draw|Draw}}»
+- pt lessons/m2-l1-outy.md:125 pt flush cor → flush (rodzaj): «{{t:flush|Cor}}» → «{{t:flush|Flush}}»
+- pt lessons/m2-l1-outy.md:131 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m2-l1-outy.md:131 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m2-l1-outy.md:134 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m2-l2-pot-odds.md:22 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m2-l2-pot-odds.md:25 pt flush cor → flush (rodzaj): «A {{t:flush|cor}}» → «O {{t:flush|flush}}»
+- pt lessons/m2-l2-pot-odds.md:26 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m2-l2-pot-odds.md:26 pt flush cor → flush (rodzaj): «a melhor {{t:flush|cor}}» → «o melhor {{t:flush|flush}}»
+- pt lessons/m2-l2-pot-odds.md:73 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m2-l2-pot-odds.md:76 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m4-l1-3bet.md:46 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m4-l1-3bet.md:99 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m4-l3-wobec-3betu.md:46 pt cor → flush (tekst, rodzaj): «cores» → «flushes»
+- pt lessons/m4-l3-wobec-3betu.md:76 pt cor → flush (tekst, rodzaj): «cores» → «flushes»
+- pt lessons/m5-l1-tekstury.md:37 {{t:flush-draw|draw de flush}} → flush draw: «{{t:flush-draw|draw de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m5-l1-tekstury.md:66 {{t:flush-draw|draw de flush}} → flush draw: «{{t:flush-draw|draw de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m5-l1-tekstury.md:66 {{t:flush-draw|draw de flush}} → flush draw: «{{t:flush-draw|draw de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m5-l1-tekstury.md:103 {{t:flush-draw|draw de flush}} → flush draw: «{{t:flush-draw|draw de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m5-l1-tekstury.md:103 {{t:flush-draw|draw de flush}} → flush draw: «{{t:flush-draw|draw de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m5-l2-przewagi.md:71 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m5-l2-przewagi.md:72 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m5-l2-przewagi.md:96 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m5-l3-czestotliwosc-rozmiar.md:49 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m5-l3-czestotliwosc-rozmiar.md:51 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m5-l3-czestotliwosc-rozmiar.md:59 {{t:flush-draw|draws de flush}} → flush draws: «{{t:flush-draw|draws de flush}}» → «{{t:flush-draw|flush draws}}»
+- pt lessons/m5-l3-czestotliwosc-rozmiar.md:116 {{t:flush-draw|draws de flush}} → flush draws: «{{t:flush-draw|draws de flush}}» → «{{t:flush-draw|flush draws}}»
+- pt lessons/m5-l4-bez-pozycji.md:32 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m5-l4-bez-pozycji.md:35 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m5-l4-bez-pozycji.md:36 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m5-l4-bez-pozycji.md:37 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m5-l4-bez-pozycji.md:43 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m5-l4-bez-pozycji.md:46 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m5-l4-bez-pozycji.md:48 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m5-l4-bez-pozycji.md:53 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m5-l4-bez-pozycji.md:85 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m5-l4-bez-pozycji.md:90 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l1-mdf-alpha.md:82 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l1-mdf-alpha.md:132 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l1-mdf-alpha.md:132 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l2-sprawdzenie.md:45 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:46 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l2-sprawdzenie.md:54 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:56 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:64 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:65 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:65 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l2-sprawdzenie.md:65 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m6-l2-sprawdzenie.md:66 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:74 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m6-l2-sprawdzenie.md:75 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:84 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:84 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt lessons/m6-l2-sprawdzenie.md:86 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:116 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:123 {{t:flush-draw|projetos de cor}} → flush draws: «{{t:flush-draw|projetos de cor}}» → «{{t:flush-draw|flush draws}}»
+- pt lessons/m6-l2-sprawdzenie.md:124 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:127 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:131 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:132 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:132 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l2-sprawdzenie.md:132 pt flush cor → flush (rodzaj): «a {{t:flush|cor}} mais alta» → «o {{t:flush|flush}} mais alto»
+- pt lessons/m6-l3-check-raise.md:6 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:13 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:16 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l3-check-raise.md:23 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:26 projetos? de sequência → draw de sequência: «projetos de sequência» → «draw de sequência»
+- pt lessons/m6-l3-check-raise.md:26 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l3-check-raise.md:26 projetos → draws: «projetos» → «draws»
+- pt lessons/m6-l3-check-raise.md:26 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:27 {{t:flush-draw|projeto de flush}} → flush draw: «{{t:flush-draw|projeto de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m6-l3-check-raise.md:33 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:33 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:36 pt a c-bet → o c-bet: «A c-bet» → «O c-bet»
+- pt lessons/m6-l3-check-raise.md:36 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:36 pt a c-bet → o c-bet: «da c-bet» → «do c-bet»
+- pt lessons/m6-l3-check-raise.md:52 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:54 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:59 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:62 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l3-check-raise.md:63 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l3-check-raise.md:69 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:72 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt lessons/m6-l3-check-raise.md:72 pt a c-bet → o c-bet: «uma c-bet pequena» → «um c-bet pequeno»
+- pt lessons/m6-l3-check-raise.md:73 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l3-check-raise.md:79 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:82 {{t:top-pair|Par de topo}} → Top pair: «{{t:top-pair|Par de topo}}» → «{{t:top-pair|Top pair}}»
+- pt lessons/m6-l3-check-raise.md:83 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l3-check-raise.md:83 pt a c-bet → o c-bet: «c-bets pequenas» → «c-bets pequenos»
+- pt lessons/m6-l3-check-raise.md:84 pt a c-bet → o c-bet: «uma c-bet pequena» → «um c-bet pequeno»
+- pt lessons/m6-l3-check-raise.md:84 {{t:top-pair|Par de topo}} → Top pair: «{{t:top-pair|Par de topo}}» → «{{t:top-pair|Top pair}}»
+- pt lessons/m6-l3-check-raise.md:89 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:92 {{t:flush-draw|projeto de flush}} → flush draw: «{{t:flush-draw|projeto de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m6-l3-check-raise.md:92 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt lessons/m6-l3-check-raise.md:93 projetos? de sequência → draw de sequência: «projetos de sequência» → «draw de sequência»
+- pt lessons/m6-l3-check-raise.md:93 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l3-check-raise.md:93 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l3-check-raise.md:102 pt a c-bet → o c-bet: «Uma c-bet pequena» → «Um c-bet pequeno»
+- pt lessons/m6-l3-check-raise.md:102 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:103 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:104 pt a c-bet → o c-bet: «c-bets pequenas» → «c-bets pequenos»
+- pt lessons/m6-l3-check-raise.md:109 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:113 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m6-l3-check-raise.md:114 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l3-check-raise.md:116 pt a c-bet → o c-bet: «c-bet barata» → «c-bet barato»
+- pt lessons/m6-l3-check-raise.md:123 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l3-check-raise.md:125 pt a c-bet → o c-bet: «c-bets pequenas» → «c-bets pequenos»
+- pt lessons/m6-l3-check-raise.md:125 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m6-l3-check-raise.md:125 {{t:top-pair|pares de topo}} → top pairs: «{{t:top-pair|pares de topo}}» → «{{t:top-pair|top pairs}}»
+- pt lessons/m6-l3-check-raise.md:129 pt a c-bet → o c-bet: «uma c-bet pequena» → «um c-bet pequeno»
+- pt lessons/m6-l3-check-raise.md:129 pt a c-bet → o c-bet: «uma c-bet pequena» → «um c-bet pequeno»
+- pt lessons/m6-l3-check-raise.md:129 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m6-l3-check-raise.md:135 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m6-l3-check-raise.md:135 pt a c-bet → o c-bet: «da c-bet» → «do c-bet»
+- pt lessons/m6-l3-check-raise.md:135 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:135 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:135 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:135 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m6-l3-check-raise.md:138 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:16 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:28 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:36 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l1-druga-beczka.md:38 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:56 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l1-druga-beczka.md:63 {{t:flush-draw|projeto de flush}} → flush draw: «{{t:flush-draw|projeto de flush}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l1-druga-beczka.md:66 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l1-druga-beczka.md:85 {{t:top-pair|Par de topo}} → Top pair: «{{t:top-pair|Par de topo}}» → «{{t:top-pair|Top pair}}»
+- pt lessons/m7-l1-druga-beczka.md:94 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:94 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:96 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:110 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l1-druga-beczka.md:110 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:112 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l1-druga-beczka.md:118 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l1-druga-beczka.md:118 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l1-druga-beczka.md:128 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l1-druga-beczka.md:134 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m7-l2-polaryzacja.md:15 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l2-polaryzacja.md:15 {{t:check|fazem check}} → passam: «{{t:check|fazem check}}» → «{{t:check|passam}}»
+- pt lessons/m7-l2-polaryzacja.md:16 {{t:top-pair|Pares de topo}} → Top pairs: «{{t:top-pair|Pares de topo}}» → «{{t:top-pair|Top pairs}}»
+- pt lessons/m7-l2-polaryzacja.md:36 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l2-polaryzacja.md:41 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l2-polaryzacja.md:41 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l2-polaryzacja.md:44 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:44 {{t:draw|projeto}} de {{t:flush|cor}} → {{t:flush-draw|flush draw}}: «{{t:draw|projeto}} de {{t:flush|cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:44 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m7-l2-polaryzacja.md:45 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:45 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:46 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:46 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l2-polaryzacja.md:46 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt lessons/m7-l2-polaryzacja.md:51 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l2-polaryzacja.md:51 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l2-polaryzacja.md:54 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:55 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l2-polaryzacja.md:56 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:56 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m7-l2-polaryzacja.md:56 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt lessons/m7-l2-polaryzacja.md:56 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt lessons/m7-l2-polaryzacja.md:61 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l2-polaryzacja.md:61 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l2-polaryzacja.md:64 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m7-l2-polaryzacja.md:64 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt lessons/m7-l2-polaryzacja.md:64 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt lessons/m7-l2-polaryzacja.md:71 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:73 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:78 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:87 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt lessons/m7-l2-polaryzacja.md:89 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l2-polaryzacja.md:91 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:91 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:104 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m7-l2-polaryzacja.md:106 {{t:check|fazem check}} → passam: «{{t:check|fazem check}}» → «{{t:check|passam}}»
+- pt lessons/m7-l2-polaryzacja.md:111 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l2-polaryzacja.md:111 pt cor → flush (tekst, rodzaj): «cores» → «flushes»
+- pt lessons/m7-l2-polaryzacja.md:117 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:121 {{t:check|fazem check}} → passam: «{{t:check|fazem check}}» → «{{t:check|passam}}»
+- pt lessons/m7-l2-polaryzacja.md:123 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l2-polaryzacja.md:125 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:127 pt flush cor → flush (rodzaj): «A {{t:flush|cor}}» → «O {{t:flush|flush}}»
+- pt lessons/m7-l2-polaryzacja.md:135 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l2-polaryzacja.md:135 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l2-polaryzacja.md:135 pt flush cor → flush (rodzaj): «da {{t:flush|cor}}» → «do {{t:flush|flush}}»
+- pt lessons/m7-l2-polaryzacja.md:135 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m7-l2-polaryzacja.md:138 {{t:check|fazem check}} → passam: «{{t:check|fazem check}}» → «{{t:check|passam}}»
+- pt lessons/m7-l3-implied-odds.md:5 Projetos → Draws: «Projetos» → «Draws»
+- pt lessons/m7-l3-implied-odds.md:13 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:29 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:32 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:32 pt cor → flush (tekst, rodzaj): «na cor» → «no flush»
+- pt lessons/m7-l3-implied-odds.md:41 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:41 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:41 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:46 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l3-implied-odds.md:54 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt lessons/m7-l3-implied-odds.md:66 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:66 pt flush cor → flush (rodzaj): «a melhor {{t:flush|cor}}» → «o melhor {{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:66 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:85 pt flush cor → flush (rodzaj): «a sua {{t:flush|cor}}» → «o seu {{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:85 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt lessons/m7-l3-implied-odds.md:86 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}} feita» → «um {{t:flush|flush}} feito»
+- pt lessons/m7-l3-implied-odds.md:94 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:96 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:96 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}} baixa» → «um {{t:flush|flush}} baixo»
+- pt lessons/m7-l3-implied-odds.md:107 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:111 {{t:draw|Projeto}} → Draw: «{{t:draw|Projeto}}» → «{{t:draw|Draw}}»
+- pt lessons/m7-l3-implied-odds.md:113 pt flush cor → flush (rodzaj): «{{t:flush|Cor}}» → «{{t:flush|Flush}}»
+- pt lessons/m7-l3-implied-odds.md:116 pt flush cor → flush (rodzaj): «{{t:flush|Cor}}» → «{{t:flush|Flush}}»
+- pt lessons/m7-l3-implied-odds.md:118 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l3-implied-odds.md:122 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m7-l3-implied-odds.md:138 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:138 pt flush cor → flush (rodzaj): «a {{t:flush|cor}} mais alta» → «o {{t:flush|flush}} mais alto»
+- pt lessons/m7-l3-implied-odds.md:143 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l3-implied-odds.md:143 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}} baixa» → «um {{t:flush|flush}} baixo»
+- pt lessons/m7-l3-implied-odds.md:143 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt lessons/m7-l4-probe-obrona.md:6 pt faz check → passa (tekst): «faz check» → «passa»
+- pt lessons/m7-l4-probe-obrona.md:16 {{t:check|feito check}} → passado: «{{t:check|feito check}}» → «{{t:check|passado}}»
+- pt lessons/m7-l4-probe-obrona.md:17 pt a c-bet → o c-bet: «A c-bet» → «O c-bet»
+- pt lessons/m7-l4-probe-obrona.md:27 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l4-probe-obrona.md:33 {{t:check|fez check}} → passou: «{{t:check|fez check}}» → «{{t:check|passou}}»
+- pt lessons/m7-l4-probe-obrona.md:38 pt a c-bet → o c-bet: «na c-bet» → «no c-bet»
+- pt lessons/m7-l4-probe-obrona.md:43 {{t:check|fizeram check}} → passaram: «{{t:check|fizeram check}}» → «{{t:check|passaram}}»
+- pt lessons/m7-l4-probe-obrona.md:47 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l4-probe-obrona.md:47 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt lessons/m7-l4-probe-obrona.md:47 {{t:check|fizer check}} → passar: «{{t:check|fizer check}}» → «{{t:check|passar}}»
+- pt lessons/m7-l4-probe-obrona.md:48 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt lessons/m7-l4-probe-obrona.md:53 {{t:check|fizeram check}} → passaram: «{{t:check|fizeram check}}» → «{{t:check|passaram}}»
+- pt lessons/m7-l4-probe-obrona.md:56 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m7-l4-probe-obrona.md:57 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt lessons/m7-l4-probe-obrona.md:57 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt lessons/m7-l4-probe-obrona.md:58 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m7-l4-probe-obrona.md:58 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt lessons/m7-l4-probe-obrona.md:63 {{t:check|fizeram check}} → passaram: «{{t:check|fizeram check}}» → «{{t:check|passaram}}»
+- pt lessons/m7-l4-probe-obrona.md:66 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m7-l4-probe-obrona.md:66 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt lessons/m7-l4-probe-obrona.md:68 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt lessons/m7-l4-probe-obrona.md:73 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l4-probe-obrona.md:73 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l4-probe-obrona.md:78 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m7-l4-probe-obrona.md:83 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l4-probe-obrona.md:83 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l4-probe-obrona.md:93 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l4-probe-obrona.md:93 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt lessons/m7-l4-probe-obrona.md:96 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m7-l4-probe-obrona.md:97 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l4-probe-obrona.md:97 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l4-probe-obrona.md:97 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m7-l4-probe-obrona.md:98 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m7-l4-probe-obrona.md:103 pt a c-bet → o c-bet: «uma c-bet» → «um c-bet»
+- pt lessons/m7-l4-probe-obrona.md:106 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l4-probe-obrona.md:106 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l4-probe-obrona.md:118 {{t:check|fez check}} → passou: «{{t:check|fez check}}» → «{{t:check|passou}}»
+- pt lessons/m7-l4-probe-obrona.md:122 {{t:check|feito check}} → passado: «{{t:check|feito check}}» → «{{t:check|passado}}»
+- pt lessons/m7-l4-probe-obrona.md:130 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l4-probe-obrona.md:132 {{t:check|fazem check}} → passam: «{{t:check|fazem check}}» → «{{t:check|passam}}»
+- pt lessons/m7-l4-probe-obrona.md:136 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l4-probe-obrona.md:136 pt a c-bet → o c-bet: «a c-bet» → «o c-bet»
+- pt lessons/m7-l4-probe-obrona.md:138 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m7-l4-probe-obrona.md:140 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m8-l1-value.md:50 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l1-value.md:50 {{t:top-pair|Par de topo}} → Top pair: «{{t:top-pair|Par de topo}}» → «{{t:top-pair|Top pair}}»
+- pt lessons/m8-l1-value.md:60 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l1-value.md:67 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m8-l1-value.md:77 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m8-l1-value.md:129 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m8-l2-ile-blefow.md:101 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l2-ile-blefow.md:139 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l2-ile-blefow.md:139 pt flush cor → flush (rodzaj): «as {{t:flush|cores}} falhadas» → «os {{t:flush|flushes}} falhados»
+- pt lessons/m8-l3-blokery.md:15 pt cor → flush (tekst, rodzaj): «cores» → «flushes»
+- pt lessons/m8-l3-blokery.md:16 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m8-l3-blokery.md:45 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt lessons/m8-l3-blokery.md:48 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m8-l3-blokery.md:48 pt cor → flush (tekst, rodzaj): «as cores» → «os flushes»
+- pt lessons/m8-l3-blokery.md:49 pt flush cor → flush (rodzaj): «nenhuma {{t:flush|cor}}» → «nenhum {{t:flush|flush}}»
+- pt lessons/m8-l3-blokery.md:49 pt cor → flush (tekst, rodzaj): «todas as suas cores» → «todos os seus flushes»
+- pt lessons/m8-l3-blokery.md:50 pt cor → flush (tekst, rodzaj): «cores» → «flushes»
+- pt lessons/m8-l3-blokery.md:55 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m8-l3-blokery.md:58 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l3-blokery.md:59 {{t:flush-draw|projetos de cor}} → flush draws: «{{t:flush-draw|projetos de cor}}» → «{{t:flush-draw|flush draws}}»
+- pt lessons/m8-l3-blokery.md:68 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l3-blokery.md:78 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m8-l3-blokery.md:88 pt cor → flush (tekst, rodzaj): «as cores» → «os flushes»
+- pt lessons/m8-l3-blokery.md:89 pt cor → flush (tekst, rodzaj): «cor» → «flush»
+- pt lessons/m8-l3-blokery.md:106 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt lessons/m8-l3-blokery.md:110 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt lessons/m8-l3-blokery.md:110 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt lessons/m8-l3-blokery.md:110 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l3-blokery.md:117 pt cor → flush (tekst, rodzaj): «cores falhadas» → «flushes falhados»
+- pt lessons/m8-l4-bluff-catching.md:16 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l4-bluff-catching.md:18 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l4-bluff-catching.md:57 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m8-l4-bluff-catching.md:60 {{t:flush-draw|projetos de cor}} → flush draws: «{{t:flush-draw|projetos de cor}}» → «{{t:flush-draw|flush draws}}»
+- pt lessons/m8-l4-bluff-catching.md:61 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m8-l4-bluff-catching.md:70 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m8-l4-bluff-catching.md:71 pt flush cor → flush (rodzaj): «nenhuma {{t:flush|cor}}» → «nenhum {{t:flush|flush}}»
+- pt lessons/m8-l4-bluff-catching.md:71 pt cor → flush (tekst, rodzaj): «todas as suas cores» → «todos os seus flushes»
+- pt lessons/m8-l4-bluff-catching.md:128 {{t:flush-draw|projetos de cor}} → flush draws: «{{t:flush-draw|projetos de cor}}» → «{{t:flush-draw|flush draws}}»
+- pt lessons/m8-l4-bluff-catching.md:128 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt lessons/m8-l4-bluff-catching.md:128 pt cor → flush (tekst, rodzaj): «as cores» → «os flushes»
+- pt lessons/m9-l1-spr.md:80 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l1-spr.md:85 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:27 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:30 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m9-l2-zaangazowanie.md:30 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:46 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:49 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:50 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:56 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:58 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:59 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt lessons/m9-l2-zaangazowanie.md:59 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:65 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:69 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:70 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:78 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:80 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:98 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:100 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:104 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:106 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:106 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l2-zaangazowanie.md:113 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:23 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:28 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:37 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:43 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:46 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:47 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:72 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:76 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:77 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:77 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:84 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:104 {{t:top-pair|Par de topo}} → Top pair: «{{t:top-pair|Par de topo}}» → «{{t:top-pair|Top pair}}»
+- pt lessons/m9-l4-plan-trzech-ulic.md:130 {{t:top-pair|pares de topo}} → top pairs: «{{t:top-pair|pares de topo}}» → «{{t:top-pair|top pairs}}»
+- pt exams/m0.yaml:67 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt exams/m0.yaml:70 pt flush cor → flush (rodzaj): «As {{t:flush|cores}}» → «Os {{t:flush|flushes}}»
+- pt exams/m10.yaml:61 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m13.yaml:44 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m13.yaml:45 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m13.yaml:46 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m2.yaml:8 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt exams/m2.yaml:12 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt exams/m2.yaml:40 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m2.yaml:77 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m2.yaml:95 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m2.yaml:95 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt exams/m3.yaml:77 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt exams/m3.yaml:77 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt exams/m5.yaml:78 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m5.yaml:78 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:79 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:79 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:85 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m5.yaml:88 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m5.yaml:88 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:88 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:89 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:90 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m5.yaml:90 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:98 pt cor → flush (tekst, rodzaj): «uma cor» → «um flush»
+- pt exams/m5.yaml:100 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:100 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m5.yaml:100 pt cor → flush (tekst, rodzaj): «as cores» → «os flushes»
+- pt exams/m6.yaml:54 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:57 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:58 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:59 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:59 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m6.yaml:67 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m6.yaml:67 pt flush cor → flush (rodzaj): «a {{t:flush|cor}} mais alta» → «o {{t:flush|flush}} mais alto»
+- pt exams/m6.yaml:68 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:68 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:76 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m6.yaml:76 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:77 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt exams/m6.yaml:78 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt exams/m6.yaml:78 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m7.yaml:18 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m7.yaml:21 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m7.yaml:27 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m7.yaml:30 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt exams/m7.yaml:30 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt exams/m7.yaml:44 {{t:check|fazem check}} → passam: «{{t:check|fazem check}}» → «{{t:check|passam}}»
+- pt exams/m7.yaml:46 {{t:check|fazem check}} → passam: «{{t:check|fazem check}}» → «{{t:check|passam}}»
+- pt exams/m7.yaml:48 {{t:flush-draw|Projetos de cor}} → Flush draws: «{{t:flush-draw|Projetos de cor}}» → «{{t:flush-draw|Flush draws}}»
+- pt exams/m7.yaml:53 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m7.yaml:53 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m7.yaml:58 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt exams/m7.yaml:58 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt exams/m7.yaml:75 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt exams/m7.yaml:80 {{t:check|fizeram check}} → passaram: «{{t:check|fizeram check}}» → «{{t:check|passaram}}»
+- pt exams/m7.yaml:83 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt exams/m7.yaml:84 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt exams/m7.yaml:84 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt exams/m7.yaml:85 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt exams/m7.yaml:85 {{t:check|fazer check}} → passar: «{{t:check|fazer check}}» → «{{t:check|passar}}»
+- pt exams/m7.yaml:85 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt exams/m7.yaml:90 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m8.yaml:8 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m8.yaml:10 {{t:check|faço check}} → passo: «{{t:check|faço check}}» → «{{t:check|passo}}»
+- pt exams/m8.yaml:17 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt exams/m8.yaml:17 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m8.yaml:17 {{t:check|fizeram check}} → passaram: «{{t:check|fizeram check}}» → «{{t:check|passaram}}»
+- pt exams/m8.yaml:22 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt exams/m8.yaml:43 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m8.yaml:47 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m8.yaml:48 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt exams/m8.yaml:53 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m8.yaml:79 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt exams/m8.yaml:79 {{t:check|Faz check}} → Passa: «{{t:check|Faz check}}» → «{{t:check|Passa}}»
+- pt exams/m8.yaml:82 {{t:flush-draw|projetos de cor}} → flush draws: «{{t:flush-draw|projetos de cor}}» → «{{t:flush-draw|flush draws}}»
+- pt exams/m8.yaml:83 {{t:flush-draw|projetos de cor}} → flush draws: «{{t:flush-draw|projetos de cor}}» → «{{t:flush-draw|flush draws}}»
+- pt exams/m8.yaml:88 {{t:check|faz check}} → passa: «{{t:check|faz check}}» → «{{t:check|passa}}»
+- pt exams/m8.yaml:88 {{t:check|fizeram check}} → passaram: «{{t:check|fizeram check}}» → «{{t:check|passaram}}»
+- pt exams/m8.yaml:91 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt exams/m8.yaml:91 pt fazer check → passar (tekst): «fazer check» → «passar»
+- pt exams/m8.yaml:91 {{t:check|Faço check}} → Passo: «{{t:check|Faço check}}» → «{{t:check|Passo}}»
+- pt exams/m9.yaml:19 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt exams/m9.yaml:19 {{t:top-pair|Par de topo}} → Top pair: «{{t:top-pair|Par de topo}}» → «{{t:top-pair|Top pair}}»
+- pt modules.yaml:2 Blinds, streets, ações → Blinds, rondas, ações: «Blinds, streets, ações» → «Blinds, rondas, ações»
+- pt modules.yaml:10 para três streets → para três rondas: «para três streets» → «para três rondas»
+- pt rules.yaml:23 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt rules.yaml:23 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt rules.yaml:80 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt rules.yaml:81 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt rules.yaml:112 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:159 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt rules.yaml:334 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt rules.yaml:335 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:335 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}} feitas» → «um {{t:flush|flush}} feitos»
+- pt rules.yaml:343 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:343 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt rules.yaml:392 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:393 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:394 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:402 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:411 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt rules.yaml:411 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt rules.yaml:427 {{t:street|streets}} → rondas: «{{t:street|streets}}» → «{{t:street|rondas}}»
+- pt rules.yaml:434 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:486 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:486 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:486 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:493 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:495 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:495 pt flush cor → flush (rodzaj): «a {{t:flush|cor}} mais alta» → «o {{t:flush|flush}} mais alto»
+- pt rules.yaml:502 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:502 pt flush cor → flush (rodzaj): «{{t:flush|cor}}» → «{{t:flush|flush}}»
+- pt rules.yaml:502 {{t:top-pair|pares de topo}} → top pairs: «{{t:top-pair|pares de topo}}» → «{{t:top-pair|top pairs}}»
+- pt rules.yaml:503 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:519 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:526 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:527 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:545 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt rules.yaml:545 projeto → draw: «projeto» → «draw»
+- pt rules.yaml:552 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt rules.yaml:568 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:576 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt rules.yaml:577 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:578 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:584 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:585 pt flush cor → flush (rodzaj): «a {{t:flush|cor}}» → «o {{t:flush|flush}}»
+- pt rules.yaml:593 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:595 projeto de (?:cor|flush) → flush draw: «projeto de cor» → «flush draw»
+- pt rules.yaml:603 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:610 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:610 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}} baixa» → «um {{t:flush|flush}} baixo»
+- pt rules.yaml:610 pt flush cor → flush (rodzaj): «uma {{t:flush|cor}}» → «um {{t:flush|flush}}»
+- pt rules.yaml:627 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:628 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:635 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:636 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:686 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:701 {{t:flush-draw|projeto de cor}} → flush draw: «{{t:flush-draw|projeto de cor}}» → «{{t:flush-draw|flush draw}}»
+- pt rules.yaml:703 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt rules.yaml:726 {{t:draw|projeto}} → draw: «{{t:draw|projeto}}» → «{{t:draw|draw}}»
+- pt rules.yaml:760 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt rules.yaml:762 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt rules.yaml:778 {{t:street|street}} → ronda: «{{t:street|street}}» → «{{t:street|ronda}}»
+- pt rules.yaml:785 {{t:street|street}} → ronda: «{{t:street|street}}» → «{{t:street|ronda}}»
+- pt rules.yaml:785 {{t:street|streets}} → rondas: «{{t:street|streets}}» → «{{t:street|rondas}}»
+- pt rules.yaml:792 {{t:street|streets}} → rondas: «{{t:street|streets}}» → «{{t:street|rondas}}»
+- pt rules.yaml:794 {{t:street|street}} → ronda: «{{t:street|street}}» → «{{t:street|ronda}}»
+- pt rules.yaml:801 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt rules.yaml:801 {{t:street|streets}} → rondas: «{{t:street|streets}}» → «{{t:street|rondas}}»
+- pt rules.yaml:802 {{t:street|street}} → ronda: «{{t:street|street}}» → «{{t:street|ronda}}»
+- pt rules.yaml:810 {{t:street|street}} → ronda: «{{t:street|street}}» → «{{t:street|ronda}}»
+- pt rules.yaml:817 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt rules.yaml:817 {{t:top-pair|par de topo}} → top pair: «{{t:top-pair|par de topo}}» → «{{t:top-pair|top pair}}»
+- pt rules.yaml:1028 {{t:stakes|nível}} → limite: «{{t:stakes|nível}}» → «{{t:stakes|limite}}»
+- pt rules.yaml:1028 {{t:stakes|nível}} → limite: «{{t:stakes|nível}}» → «{{t:stakes|limite}}»
+- pt rules.yaml:1036 {{t:stakes|nível}} → limite: «{{t:stakes|nível}}» → «{{t:stakes|limite}}»
+- pt rules.yaml:1037 {{t:stakes|nível}} → limite: «{{t:stakes|nível}}» → «{{t:stakes|limite}}»
+- pt rules.yaml:1055 {{t:shove|push}} → shove: «{{t:shove|push}}» → «{{t:shove|shove}}»
+- pt rules.yaml:1063 {{t:shove|push}} → shove: «{{t:shove|push}}» → «{{t:shove|shove}}»
+- pt rules.yaml:1095 {{t:shove|push}} → shove: «{{t:shove|push}}» → «{{t:shove|shove}}»
+- pt rules.yaml:1095 {{t:shove|push}} → shove: «{{t:shove|push}}» → «{{t:shove|shove}}»
+- pt rules.yaml:1096 {{t:shove|push}} → shove: «{{t:shove|push}}» → «{{t:shove|shove}}»
+- pt rules.yaml:1119 {{t:shove|push}} → shove: «{{t:shove|push}}» → «{{t:shove|shove}}»
+- pt rules.yaml:1127 {{t:shove|push}} → shove: «{{t:shove|push}}» → «{{t:shove|shove}}»
+- pt rules.yaml:1164 {{t:draw|projetos}} → draws: «{{t:draw|projetos}}» → «{{t:draw|draws}}»
+- pt terms-def.yaml:48 projeto de (?:cor|flush) → flush draw: «projeto de flush» → «flush draw»
+- pt terms-def.yaml:52 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt terms-def.yaml:53 Projeto de sequência → Draw de sequência: «Projeto de sequência» → «Draw de sequência»
+- pt terms-def.yaml:54 Projeto → Draw: «Projeto» → «Draw»
+- pt terms-def.yaml:56 nas streets seguintes → nas rondas seguintes: «nas streets seguintes» → «nas rondas seguintes»
+- pt terms-def.yaml:72 projetos → draws: «projetos» → «draws»
+- pt terms-def.yaml:73 projetos → draws: «projetos» → «draws»
+- pt terms-def.yaml:74 projetos → draws: «projetos» → «draws»
+- pt terms-def.yaml:75 projeto → draw: «projeto» → «draw»
+- pt terms-def.yaml:76 projetos → draws: «projetos» → «draws»
+- pt terms-def.yaml:80 projetos? de sequência → draw de sequência: «projeto de sequência» → «draw de sequência»
+- pt terms-def.yaml:81 projetos? de sequência → draw de sequência: «projetos de sequência» → «draw de sequência»
+- pt terms-def.yaml:82 projetos → draws: «projetos» → «draws»
+- pt terms-def.yaml:99 projeto → draw: «projeto» → «draw»
+- pt terms-def.yaml:108 início de uma street → início de uma ronda: «início de uma street» → «início de uma ronda»

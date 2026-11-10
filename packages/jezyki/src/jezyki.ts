@@ -60,13 +60,6 @@ export function jezykZTagu(tag: string | null | undefined): Jezyk | null {
 }
 
 /**
- * Tymczasowe zastępstwa języka bazowego wariantem (D-373, 2026-11-09): telefon w pt (region inny niż BR), dopóki `pt` nie ma
- * słownika — pt-BR zamiast angielskiego. Odstępstwo od Treningu nazwane (tam wydane są pt i pt-BR, więc pt-PT → pt:
- * trening `docs/16-jezyki-i-marka.md:100–101`, odczyt 2026-11-09). Działa tylko, gdy języka bazowego nie ma w `dostepne`.
- */
-export const ZASTEPSTWA_TYMCZASOWE: Partial<Record<Jezyk, Jezyk>> = { pt: 'pt-BR' };
-
-/**
  * Język aplikacji z preferencji systemu: pierwszy tag z listy, którego język jest dostępny (ma słownik); wariant bez słownika
  * schodzi do języka bazowego. Nic nie pasuje: angielski (BRD), a bez niego język źródłowy.
  * `dostepne` to języki z rzeczywistym słownikiem (nie cała lista JEZYKI).
@@ -77,8 +70,7 @@ export function wybierzJezyk(tagi: readonly string[], dostepne: readonly Jezyk[]
     if (!j) continue;
     const trafienie =
       lancuchZastepczy(j).find((x) => x !== ZRODLO && dostepne.includes(x)) ??
-      (j === ZRODLO && dostepne.includes(ZRODLO) ? ZRODLO : null) ??
-      (ZASTEPSTWA_TYMCZASOWE[j] && dostepne.includes(ZASTEPSTWA_TYMCZASOWE[j]) ? ZASTEPSTWA_TYMCZASOWE[j] : null);
+      (j === ZRODLO && dostepne.includes(ZRODLO) ? ZRODLO : null);
     if (trafienie) return trafienie;
   }
   return dostepne.includes(ZAPASOWY) ? ZAPASOWY : ZRODLO;
