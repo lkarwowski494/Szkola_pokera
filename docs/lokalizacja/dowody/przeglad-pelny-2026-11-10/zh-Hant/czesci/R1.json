@@ -1,0 +1,32 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 305,
+  "stary": "每多一位溜入者再加",
+  "nowy": "每位溜入者再加",
+  "waga": "ŚR",
+  "powod": "pl: „do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego limpera” – dopłata liczona od pierwszego limpera (numbers: pf.iso.one-limper = podstawa + 1). „每多一位…再加” można odczytać jako dopłatę dopiero za każdego kolejnego limpera (pierwszy w cenie podstawy), co daje rozmiar o 1bb za mały; „每位溜入者再加” jest jednoznaczne i zgodne z lekcją m4-l4 („每位溜入玩家再加”).",
+  "grupa": "R1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 81,
+  "stary": "就能看到兩張牌時（all-in）",
+  "nowy": "就能看到兩張牌時（全下）",
+  "waga": "NISKIE",
+  "powod": "pl: „(all-in)”. W terms-nazwy zh-Hant termin all-in ma nazwę „全下” (w treści 全下 261×, łacińskie all-in 23×); jedna nazwa na pojęcie.",
+  "grupa": "R1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 89,
+  "stary": "就能看到轉牌和河牌時（all-in）",
+  "nowy": "就能看到轉牌和河牌時（全下）",
+  "waga": "NISKIE",
+  "powod": "pl: „(all-in)”. W terms-nazwy zh-Hant termin all-in ma nazwę „全下”; ujednolicenie z resztą przekładu.",
+  "grupa": "R1"
+ }
+]

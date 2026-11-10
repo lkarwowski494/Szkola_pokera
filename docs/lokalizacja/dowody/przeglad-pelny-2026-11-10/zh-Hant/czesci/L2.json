@@ -1,0 +1,212 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l1-3bet.md",
+  "linia": 16,
+  "stary": "correct: true, why: \"{{t:in-position|有利位置}}時",
+  "nowy": "correct: true, why: \"{{t:in-position|有位置}}時",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: in-position = „有位置” (pl „Z pozycją”); w tej samej lekcji znacznik bez formy wyświetla „有位置”, więc „有利位置” daje dwie nazwy jednego pojęcia.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l1-3bet.md",
+  "linia": 26,
+  "stary": "correct: true, why: \"{{t:out-of-position|不利位置}}時",
+  "nowy": "correct: true, why: \"{{t:out-of-position|無位置}}時",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: out-of-position = „無位置” (pl „Bez pozycji”); w tej samej lekcji znacznik bez formy wyświetla „無位置”, więc „不利位置” daje dwie nazwy jednego pojęcia.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l1-3bet.md",
+  "linia": 27,
+  "stary": "玩家用的尺度。{{t:out-of-position|不利位置}}時",
+  "nowy": "玩家用的尺度。{{t:out-of-position|無位置}}時",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: out-of-position = „無位置” (pl „Bez pozycji”); w tej samej lekcji znacznik bez formy wyświetla „無位置”, więc „不利位置” daje dwie nazwy jednego pojęcia.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l1-3bet.md",
+  "linia": 75,
+  "stary": "{{t:in-position|有利位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-ip}}，也就是",
+  "nowy": "{{t:in-position|有位置}}時，你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-ip}}，也就是",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: in-position = „有位置” (pl „Z pozycją”); w tej samej lekcji znacznik bez formy wyświetla „有位置”, więc „有利位置” daje dwie nazwy jednego pojęcia.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l1-3bet.md",
+  "linia": 75,
+  "stary": "{{t:out-of-position|不利位置}}時，例如",
+  "nowy": "{{t:out-of-position|無位置}}時，例如",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: out-of-position = „無位置” (pl „Bez pozycji”); w tej samej lekcji znacznik bez formy wyświetla „無位置”, więc „不利位置” daje dwie nazwy jednego pojęcia.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l1-3bet.md",
+  "linia": 87,
+  "stary": "{{t:out-of-position|不利位置}}時，手牌的",
+  "nowy": "{{t:out-of-position|無位置}}時，手牌的",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: out-of-position = „無位置” (pl „Bez pozycji”); w tej samej lekcji znacznik bez formy wyświetla „無位置”, więc „不利位置” daje dwie nazwy jednego pojęcia.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 13,
+  "stary": "多少百分比的 equity，",
+  "nowy": "多少百分比的權益，",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 21,
+  "stary": "需要多少 equity 才能",
+  "nowy": "需要多少權益才能",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 26,
+  "stary": "一半的 equity。這裡",
+  "nowy": "一半的權益。這裡",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 31,
+  "stary": "{{n:eq.bb-vs-btn-open}} equity 的牌",
+  "nowy": "{{n:eq.bb-vs-btn-open}}權益的牌",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 34,
+  "stary": "無法實現全部 equity\"",
+  "nowy": "無法實現全部權益\"",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 34,
+  "stary": "why: \"Equity 是在沒有",
+  "nowy": "why: \"權益是在沒有",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 34,
+  "stary": "實現的比 equity 顯示的少",
+  "nowy": "實現的比權益顯示的少",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 69,
+  "stary": "{{n:eq.bb-vs-btn-open}}的 equity 就能",
+  "nowy": "{{n:eq.bb-vs-btn-open}}的權益就能",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 73,
+  "stary": "Equity 告訴你",
+  "nowy": "權益告訴你",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 73,
+  "stary": "它們的 equity 少",
+  "nowy": "它們的權益少",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l2-obrona-bb.md",
+  "linia": 83,
+  "stary": "{{n:eq.bb-vs-sb-open}}的 equity 才能",
+  "nowy": "{{n:eq.bb-vs-sb-open}}的權益才能",
+  "waga": "ŚR",
+  "powod": "Resztka angielskiego: pl „equity” to w zh-Hant „權益” (terms-nazwy equity = „權益”; tak też w sąsiednich lekcjach m4-l1 i m4-l3). W tej lekcji słowo zostało po angielsku.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m4-l3-wobec-3betu.md",
+  "linia": 112,
+  "stary": "AA 和 AK，{{t:call|跟注}}後還有機會",
+  "nowy": "AA 和 AK，被{{t:call|跟注}}後還有機會",
+  "waga": "NISKIE",
+  "powod": "pl „a po sprawdzeniu mają szansę na…” mówi o sytuacji, gdy rywal sprawdzi twój 4-bet; „跟注後” brzmi, jakbyś to ty sprawdzał. W m4-l1 to samo zdanie ma „被跟注後”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l1-tekstury.md",
+  "linia": 58,
+  "stary": "在學習 c-bet（翻牌前{{t:raise|加注}}後，在翻牌圈的{{t:bet|下注}}）之前",
+  "nowy": "在學習持續下注（c-bet，也就是翻牌前{{t:raise|加注}}後，在翻牌圈的{{t:bet|下注}}）之前",
+  "waga": "ŚR",
+  "powod": "pl „Zanim nauczysz się c-betu (…)” wprowadza pojęcie; terms-nazwy c-bet = „持續下注” i następna lekcja (m5-l2) używa już tylko „持續下注”, więc nazwa wprowadzona tu jako samo „c-bet” nie łączy się z dalszym tekstem. Nowy tekst podaje obie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l2-przewagi.md",
+  "linia": 73,
+  "stary": "{{t:aggressor|主動方}}",
+  "nowy": "{{t:aggressor|進攻者}}",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: aggressor = „進攻者” (pl „agresora”); „主動方” to inna nazwa tego samego pojęcia.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "stary": "{{t:connected|連接}}",
+  "nowy": "{{t:connected|連張}}",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: connected = „連張” (pl „połączonym”); lekcja m5-l1, która definiuje pojęcie, i interfejs mają „連張”.",
+  "grupa": "L2"
+ }
+]

@@ -1,0 +1,232 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 85,
+  "stary": "{{t:top-pair|톱 페어}}",
+  "nowy": "{{t:top-pair|탑 페어}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:top-pair|Najwyższa para}}”; terms-nazwy ko: top-pair = „탑 페어”, forma „톱 페어” jest niezgodna z nazwą terminu i resztą przekładu.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 95,
+  "stary": "{{t:initiative|이니셔티브}}를 잃지",
+  "nowy": "{{t:initiative|주도권}}을 잃지",
+  "waga": "ŚR",
+  "powod": "pl: „żeby nie stracić {{t:initiative|inicjatywy}}”; terms-nazwy ko: initiative = „주도권”; forma „이니셔티브” niezgodna z nazwą terminu (partykuła 를→을).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 95,
+  "stary": "{{t:initiative|이니셔티브}}만으로는",
+  "nowy": "{{t:initiative|주도권}}만으로는",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:initiative|Inicjatywa}} sama nie wygrywa”; terms-nazwy ko: initiative = „주도권”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 108,
+  "stary": "prompt: \"c-bet에 {{t:call|콜한}} 뒤",
+  "nowy": "prompt: \"C벳에 {{t:call|콜한}} 뒤",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 114,
+  "stary": "플롭 c-bet, {{t:call}}, 그다음",
+  "nowy": "플롭 C벳, {{t:call}}, 그다음",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l1-druga-beczka.md",
+  "linia": 118,
+  "stary": "c-bet에 상대는 {{t:pair|페어}}도",
+  "nowy": "C벳에 상대는 {{t:pair|페어}}도",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 110,
+  "stary": "{{n:cbet.size.small}} c-bet.",
+  "nowy": "{{n:cbet.size.small}} C벳.",
+  "waga": "ŚR",
+  "powod": "pl ma „c-bet”; nazwa terminu c-bet w terms-nazwy ko to „C벳” (tak też w m7-l4 i m8-l1), a tu został zapis łaciński „c-bet”; ujednolicenie nazwy (pozostałe miejsca: skrypt, patrz uwagi).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 87,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 104,
+  "stary": "오픈엔디드 {{t:straight|스트레이트}} 드로우(약",
+  "nowy": "양방향 {{t:straight|스트레이트}} 드로우(약",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l2-polaryzacja.md",
+  "linia": 127,
+  "stary": "오픈엔디드 {{t:straight|스트레이트}}의 확률",
+  "nowy": "양방향 {{t:straight|스트레이트}}의 확률",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 54,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 114,
+  "stary": "| 오픈엔디드 {{t:straight|스트레이트}} |",
+  "nowy": "| 양방향 {{t:straight|스트레이트}} |",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 116,
+  "stary": "+ 오픈엔디드 {{t:straight|스트레이트}}",
+  "nowy": "+ 양방향 {{t:straight|스트레이트}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:oesd}}”/„strit otwarty”; terms-nazwy ko: oesd = „양방향 스트레이트 드로우” (tak w m7-l4), tu „오픈엔디드”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 17,
+  "stary": "M2의 2와 4 규칙을 쓰세요",
+  "nowy": "M2의 2와 4의 법칙을 쓰세요",
+  "waga": "ŚR",
+  "powod": "pl: „reguła 2 i 4 z M2”; lekcja M2 (m2-l1-outy, 4 miejsca) nazywa tę regułę „2와 4의 법칙”; odwołanie do M2 ma używać tej samej nazwy.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 118,
+  "stary": "M2의 2와 4 규칙을 쓰면",
+  "nowy": "M2의 2와 4의 법칙을 쓰면",
+  "waga": "ŚR",
+  "powod": "pl: „Z regułą 2 i 4 z M2”; w lekcji M2 reguła nazywa się „2와 4의 법칙”; jedna nazwa na pojęcie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l3-implied-odds.md",
+  "linia": 77,
+  "stary": "이미 {{t:fold|폴드하지}} 않는",
+  "nowy": "더는 {{t:fold|폴드하지}} 않는",
+  "waga": "NISKIE",
+  "powod": "pl: „często już nie {{t:fold|spasuje}}” („już nie” = „więcej nie”); „이미 폴드하지 않는” to kalka („już” jako „이미”), naturalnie „더는 폴드하지 않는”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 18,
+  "stary": "{ text: \"체크 레이즈\", why: \"체크 레이즈는",
+  "nowy": "{ text: \"체크레이즈\", why: \"체크레이즈는",
+  "waga": "ŚR",
+  "powod": "pl: „Check-raise”; terms-nazwy ko: check-raise = „체크레이즈” (bez spacji, tak w m8-l1 linia 131).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 78,
+  "stary": "{ text: \"체크 레이즈\", why: \"{{t:second-barrel",
+  "nowy": "{ text: \"체크레이즈\", why: \"{{t:second-barrel",
+  "waga": "ŚR",
+  "powod": "pl: „Check-raise”; terms-nazwy ko: check-raise = „체크레이즈” (bez spacji).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 107,
+  "stary": "{{t:expected-value|기대값}}",
+  "nowy": "{{t:expected-value|기댓값}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:expected-value}}”; terms-nazwy ko: expected-value = „기댓값” (pisownia normatywna; tak w m7-l3 linia 146), „기대값” jest formą nienormatywną.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m7-l4-probe-obrona.md",
+  "linia": 96,
+  "stary": "블랭크 카드에서",
+  "nowy": "빈 카드에서",
+  "waga": "NISKIE",
+  "powod": "pl: „na pustej karcie”; ten sam moduł (m7-l1 linie 57 i 124) oddaje „pusta karta” jako „빈 카드”; ujednolicenie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l1-value.md",
+  "linia": 26,
+  "stary": "너츠로만 벳하게",
+  "nowy": "넛으로만 벳하게",
+  "waga": "ŚR",
+  "powod": "pl: „betowałbyś tylko nutsami”; terms-nazwy ko: nuts = „넛” (tak w m7-l1 linia 48), „너츠” jest formą odrzuconą.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l1-value.md",
+  "linia": 72,
+  "stary": "턴에서 {{t:check|체크}}된 뒤",
+  "nowy": "턴에서 {{t:check|체크}}한 뒤",
+  "waga": "NISKIE",
+  "powod": "pl: „Po {{t:check|czekaniu}} na turnie jego {{t:range}}…” (rywal czekał); strona bierna „체크된” jest nienaturalna, forma czynna „체크한 뒤” zgodna z resztą tekstu.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l1-value.md",
+  "linia": 115,
+  "stary": "같은 만큼 잃습니다",
+  "nowy": "그만큼 잃습니다",
+  "waga": "NISKIE",
+  "powod": "pl: „tyle samo byś tracił”; „같은 만큼” jest niegramatyczne, poprawnie „그만큼”.",
+  "grupa": "L4"
+ }
+]

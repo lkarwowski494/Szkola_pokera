@@ -1,0 +1,92 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 801,
+  "stary": "높은 {{t:two-pair|투페어}})는 세 번",
+  "nowy": "높은 {{t:two-pair|투 페어}})는 세 번",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (two-pair: „투 페어”); pl „wysokie {{t:two-pair}}”. Jedna nazwa na pojęcie.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 817,
+  "stary": "높은 {{t:two-pair|투페어}} 이상이",
+  "nowy": "높은 {{t:two-pair|투 페어}} 이상이",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (two-pair: „투 페어”); pl „wysokich {{t:two-pair|dwóch par}} albo lepiej”.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 862,
+  "stary": "{{t:nit|닛}}은 핸드의",
+  "nowy": "{{t:nit|니트}}는 핸드의",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (nit: „니트”); pl „{{t:nit}} gra do ok. …”. Partykuła tematu dopasowana do nowej nazwy (니트는).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 878,
+  "stary": "{{t:nit|닛}}(최소 약 {{n:hud.hands.vpip.low}}핸드에서 {{t:vpip|VPIP}} 약 {{n:hud.vpip.nit-max}} 이하)이 {{t:raise|레이즈}}하거나",
+  "nowy": "{{t:nit|니트}}(최소 약 {{n:hud.hands.vpip.low}}핸드에서 {{t:vpip|VPIP}} 약 {{n:hud.vpip.nit-max}} 이하)가 {{t:raise|레이즈}}하거나",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (nit: „니트”); pl „{{t:raise|przebija}} albo 3-betuje {{t:nit}} (…)”. Partykuła podmiotu po nawiasie dopasowana do nowej nazwy (니트…가).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 882,
+  "stary": "닛은 테이블의 소수이므로",
+  "nowy": "니트는 테이블의 소수이므로",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu nit niezgodna z terms-nazwy („니트”); pl „nity to mniejszość stołu”. Spójność z poprawkami w liniach 862 i 878.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 883,
+  "stary": "닛 “Plays only premium hands.",
+  "nowy": "니트 “Plays only premium hands.",
+  "waga": "NISKIE",
+  "powod": "Nazwa terminu nit niezgodna z terms-nazwy („니트”); pl „nit „Plays only premium hands…”” (etykieta przed cytatem w polu source).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 947,
+  "stary": "{{t:rake-cap|레이크 상한}}에",
+  "nowy": "{{t:rake-cap|레이크 캡}}에",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku niezgodna z terms-nazwy (rake-cap: „레이크 캡”); pl „{{t:rake-cap|limitu rake'u}}”. Partykuła 에 bez zmian.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 748,
+  "stary": "유효 스택 ÷ 플랍의 팟",
+  "nowy": "유효 스택 ÷ 플롭의 팟",
+  "waga": "NISKIE",
+  "powod": "Pisownia „플랍” niezgodna z terms-nazwy (flop: „플롭”) i z resztą tego fragmentu (wszędzie „플롭”); pl „pula na flopie”.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 649,
+  "stary": "체크 대비 베팅의 기대값(",
+  "nowy": "체크 대비 베팅의 기댓값(",
+  "waga": "NISKIE",
+  "powod": "Pisownia nienormatywna „기대값”; terms-nazwy expected-value: „기댓값”; pl „wartość oczekiwana betu względem czekania”.",
+  "grupa": "R3"
+ }
+]

@@ -1,0 +1,162 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 15,
+  "stary": "沒錯：{{t:range}}{{t:polarized}}有兩極",
+  "nowy": "沒錯：{{t:polarized}}{{t:range}}有兩極",
+  "waga": "ŚR",
+  "powod": "pl „{{t:range}} {{t:polarized}} ma dwa bieguny” (zakres spolaryzowany); w zh kolejność rzeczownik+przymiotnik daje „範圍極化” (= „polaryzacja zakresu”), a reszta lekcji (nagłówek l. 119, l. 121, 138) ma „極化範圍”. Zamiana kolejności znaczników, klucze bez zmian.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 113,
+  "stary": "一般來說，{{t:range}}{{t:polarized}}由",
+  "nowy": "一般來說，{{t:polarized}}{{t:range}}由",
+  "waga": "ŚR",
+  "powod": "pl „{{t:range}} {{t:polarized}} to bardzo silne ręce i blefy”; w zh wyświetla się „範圍極化由…組成” zamiast „極化範圍”; ujednolicenie z l. 119/121/138 tej lekcji.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 81,
+  "stary": "下注時需要的勝率",
+  "nowy": "下注時需要的權益",
+  "waga": "ŚR",
+  "powod": "pl „Tyle potrzebowałby przy becie 3/4 puli” (mowa o wymaganym equity); termin equity wg terms-nazwy to 權益 (tak w tej lekcji l. 44, 45, 71), a 勝率 jest przeznaczone do ujednolicenia i koliduje z winrate.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 44,
+  "stary": "張乾淨的 outs，約",
+  "nowy": "張乾淨的補牌，約",
+  "waga": "ŚR",
+  "powod": "pl „czystych outów”; terms-nazwy: outs = 補牌 (tak w m7-l3, m7-l4, m8-l1 tej części), tu zostało angielskie „outs”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "linia": 117,
+  "stary": "時還有 outs。",
+  "nowy": "時還有補牌。",
+  "waga": "ŚR",
+  "powod": "pl „mają outy, gdy dostaną call”; terms-nazwy: outs = 補牌, tu zostało angielskie „outs”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 37,
+  "stary": "而且你沒有能變成強牌的 outs。",
+  "nowy": "而且你沒有能變成強牌的補牌。",
+  "waga": "ŚR",
+  "powod": "pl „nie masz outów do mocnej ręki”; terms-nazwy: outs = 補牌 (przykład; pozostałe miejsca w tej lekcji — patrz uwagi, „Do ujednolicenia skryptem”).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l1-druga-beczka.md",
+  "linia": 57,
+  "stary": "沒有 outs 的{{t:bluff|詐唬}}只有在對手",
+  "nowy": "沒有補牌的{{t:bluff|詐唬}}只有在對手",
+  "waga": "ŚR",
+  "powod": "pl „Blef bez outów wygrywa tylko wtedy…”; terms-nazwy: outs = 補牌 (przykład; reszta w uwagach).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l4-probe-obrona.md",
+  "linia": 96,
+  "stary": "通常有這麼多勝率。",
+  "nowy": "通常有這麼多權益。",
+  "waga": "ŚR",
+  "powod": "pl „Potrzebujesz {{n:eq.bet-three-quarters}}, a … taka para zwykle ma tyle” (equity); termin equity wg terms-nazwy to 權益, 勝率 do ujednolicenia.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l4-probe-obrona.md",
+  "linia": 66,
+  "stary": "而高{{t:board}}有利於",
+  "nowy": "而高牌{{t:board|牌面}}有利於",
+  "waga": "NISKIE",
+  "powod": "pl „wysoki {{t:board}} sprzyja zakresowi Buttona”; znacznik bez formy wyświetla „高公共牌” (nienaturalne); w tej samej lekcji l. 37 jest „高牌{{t:board|牌面}}”. Klucz bez zmian.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l4-probe-obrona.md",
+  "linia": 28,
+  "stary": "每一{{t:street|輪}}按鈕位",
+  "nowy": "每一條{{t:street|街}}按鈕位",
+  "waga": "NISKIE",
+  "powod": "pl „na każdej {{t:street|ulicy}}”; terms-nazwy: street = 街 (tak w m7-l3 l. 134 „每條街”); „輪” to nazwa betting-round (下注輪).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l4-probe-obrona.md",
+  "linia": 145,
+  "stary": "關於微注玩家用哪些牌",
+  "nowy": "關於微級別玩家用哪些牌",
+  "waga": "NISKIE",
+  "powod": "pl „gracze mikrostawek”; stakes = 級別 wg terms-nazwy, a tytuł modułu M10 w modules.yaml to „剝削微級別牌局”; „微注” niezgodne z resztą.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 60,
+  "stary": "會付錢的主要是K和較大的10。",
+  "nowy": "會付錢的主要是K和踢腳較好的10。",
+  "waga": "ŚR",
+  "powod": "pl „Zapłacą głównie króle i lepsze dziesiątki” = dziesiątki z lepszym kickerem; „較大的10” („większe dziesiątki”) jest niezrozumiałe; w l. 70 tej lekcji ta sama konstrukcja to „踢腳較好的Q”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 61,
+  "stary": "而K和較大的10會{{t:call|跟注}}",
+  "nowy": "而K和踢腳較好的10會{{t:call|跟注}}",
+  "waga": "ŚR",
+  "powod": "pl „króle i lepsze dziesiątki sprawdzą” = dziesiątki z lepszym kickerem; „較大的10” jest niezrozumiałe (por. l. 70 „踢腳較好的Q”).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 131,
+  "stary": "解算器的薄價值下注",
+  "nowy": "求解器的薄價值下注",
+  "waga": "ŚR",
+  "powod": "pl „solver”; w przekładzie solver to 求解器 (204×) albo „solver” (178×); „解算器” występuje tylko 2× w całym zh-Hant (oba w tej lekcji) — trzecia nazwa tego samego pojęcia.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 138,
+  "stary": "來自已發表的解算器分析",
+  "nowy": "來自已發表的求解器分析",
+  "waga": "ŚR",
+  "powod": "pl „z opublikowanych analiz solvera”; „解算器” tylko w tej lekcji, wszędzie indziej 求解器/solver.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l1-value.md",
+  "linia": 107,
+  "stary": "你只需要計算他會拿來付錢的牌",
+  "nowy": "你只計算他會拿來付錢的牌",
+  "waga": "NISKIE",
+  "powod": "pl „liczysz wyłącznie ręce, którymi zapłaci”; „只需要計算” = „wystarczy policzyć”, a pl mówi „liczysz tylko” (zawężenie, nie ułatwienie).",
+  "grupa": "L4"
+ }
+]

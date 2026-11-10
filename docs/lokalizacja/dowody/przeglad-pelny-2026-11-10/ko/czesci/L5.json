@@ -1,0 +1,122 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l2-ile-blefow.md",
+  "linia": 38,
+  "stary": "{{t:bet|벳}}은 상대에게 가장 나쁜",
+  "nowy": "{{t:bet|베팅}}은 상대에게 가장 나쁜",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku bet niezgodna z terms-nazwy (bet: „베팅”); pl „czyli {{t:bet|zakład}} większy niż cała pula”. „벳” to wariant tłumacza, nazwa terminu to „베팅”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l2-ile-blefow.md",
+  "linia": 72,
+  "stary": "{{n:bluff.share.bet-pot}}이 아니라 절반입니다",
+  "nowy": "{{n:bluff.share.bet-pot}}가 아니라 절반입니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie w procentach (pl „a nie {{n:bluff.share.bet-pot}}”): „33%” czyta się „…퍼센트”, kończy się samogłoską, więc „가 아니라”, nie „이 아니라”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m8-l3-blokery.md",
+  "linia": 16,
+  "stary": "{{t:board|보드}}의 카드를 두고 흔히 이렇게 말하기도 하지만",
+  "nowy": "{{t:board|보드}}의 카드를 두고 구어에서 가끔 이렇게 말하기도 하지만",
+  "waga": "NISKIE",
+  "powod": "pl „Tak czasem mówi się potocznie o kartach na stole”: przekład ma „흔히” (często, powszechnie) zamiast „czasem … potocznie”; nowy tekst oddaje „czasem” i „potocznie”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 64,
+  "stary": "{{t:effective-stack|이펙티브 스택}}, 즉 두 스택 중 작은 쪽으로 계산합니다",
+  "nowy": "{{t:effective-stack|유효 스택}}, 즉 두 스택 중 작은 쪽으로 계산합니다",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy (effective-stack: „유효 스택”; tak też w rules.yaml, terms-def, exams/m9, m7-l3); pl „Liczysz z {{t:effective-stack|efektywnego stacku}}”. W tej lekcji znacznik bez formy (linia 113) wyświetla „유효 스택”, więc obok stały dwie nazwy.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 66,
+  "stary": "더 작은 스택(이펙티브 스택)을 사용합니다",
+  "nowy": "더 작은 스택(유효 스택)을 사용합니다",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: pl „bierzesz mniejszy stack (efektywny)”; nazwa terminu w ko to „유효 스택”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 110,
+  "stary": "SPR = 이펙티브 스택 ÷ 플롭의 팟",
+  "nowy": "SPR = 유효 스택 ÷ 플롭의 팟",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: wzór pl „SPR = efektywny stack ÷ pula na flopie”; nazwa terminu w ko to „유효 스택”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 113,
+  "stary": "{{t:effective-stack|이펙티브 스택}}은 두 스택 중 작은 쪽이며",
+  "nowy": "{{t:effective-stack|유효 스택}}은 두 스택 중 작은 쪽이며",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: pl „{{t:effective-stack|Efektywny stack}} to mniejszy z dwóch stacków”; w tym samym akapicie znacznik bez formy daje „유효 스택”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l1-spr.md",
+  "linia": 130,
+  "stary": "플롭의 {{t:spr}}으로 판단합니다",
+  "nowy": "플롭의 {{t:spr}}로 판단합니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po znaczniku bez formy: „SPR” (에스피알) kończy się na ㄹ, więc „로”, nie „으로” (pl „liczysz z {{t:spr}} na flopie”).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 30,
+  "stary": "상대는 {{t:draw|드로}}나 더 약한 퀸으로도",
+  "nowy": "상대는 {{t:draw|드로우}}나 더 약한 퀸으로도",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku draw niezgodna z terms-nazwy (draw: „드로우”); pl „także z {{t:draw|drawami}}”. „드로” to odosobniony wariant pisowni.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 59,
+  "stary": "더 약한 핸드와 {{t:draw|드로}}도 충분한 돈을",
+  "nowy": "더 약한 핸드와 {{t:draw|드로우}}도 충분한 돈을",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: pl „gorsze ręce i {{t:draw|drawy}}”; nazwa terminu to „드로우”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 100,
+  "stary": "{{t:spr}} {{n:spr.commit}}은 이 구간에 속하며",
+  "nowy": "{{t:spr}} {{n:spr.commit}}는 이 구간에 속하며",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: {{n:spr.commit}} = „2” (이), kończy się samogłoską, więc „는”, nie „은” (pl „Przykład SPR {{n:spr.commit}} leży w tej strefie”).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l2-zaangazowanie.md",
+  "linia": 110,
+  "stary": "(지오메트릭 사이즈에 관한 레슨)",
+  "nowy": "(기하학적 사이즈에 관한 레슨)",
+  "waga": "ŚR",
+  "powod": "Odesłanie do lekcji niezgodne z jej tytułem w ko: pl „(lekcja o rozmiarze geometrycznym)”, lekcja m9-l3 ma tytuł „기하학적 사이즈” i wszędzie używa tej nazwy; „지오메트릭 사이즈” nie występuje w m9-l3.",
+  "grupa": "L5"
+ }
+]

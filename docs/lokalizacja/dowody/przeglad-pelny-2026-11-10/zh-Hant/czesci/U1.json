@@ -1,0 +1,212 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 342,
+  "stary": "{{t:session|牌局}}結束後評分",
+  "nowy": "{{t:session|場次}}結束後評分",
+  "waga": "ŚR",
+  "powod": "terms-nazwy: session = „場次”; forma 牌局 nie jest postacią tej nazwy i w tym samym słowniku znaczy też „rozdanie” (play.autoNote, play.report.replay), więc pl „sesja” i „rozdanie” zlewają się w jedno słowo.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 397,
+  "stary": "要結束{{t:session|牌局}}嗎",
+  "nowy": "要結束{{t:session|場次}}嗎",
+  "waga": "ŚR",
+  "powod": "terms-nazwy: session = „場次”; forma 牌局 nie jest postacią tej nazwy i w tym samym słowniku znaczy też „rozdanie” (play.autoNote, play.report.replay), więc pl „sesja” i „rozdanie” zlewają się w jedno słowo.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 437,
+  "stary": "\"title\": \"{{t:session|牌局}}報告\"",
+  "nowy": "\"title\": \"{{t:session|場次}}報告\"",
+  "waga": "ŚR",
+  "powod": "terms-nazwy: session = „場次”; forma 牌局 nie jest postacią tej nazwy i w tym samym słowniku znaczy też „rozdanie” (play.autoNote, play.report.replay), więc pl „sesja” i „rozdanie” zlewają się w jedno słowo.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 705,
+  "stary": "（{{t:prize-pool|獎池}}的 {{payouts}}）",
+  "nowy": "（{{t:prize-pool|獎金池}}的 {{payouts}}）",
+  "waga": "NISKIE",
+  "powod": "terms-nazwy: prize-pool = „獎金池”; forma 獎池 to inny (skrócony) wariant nazwy — pl „puli nagród”; ujednolicenie z nazwą terminu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 713,
+  "stary": "你在{{t:prize-pool|獎池}}中的權益",
+  "nowy": "你在{{t:prize-pool|獎金池}}中的權益",
+  "waga": "NISKIE",
+  "powod": "terms-nazwy: prize-pool = „獎金池”; forma 獎池 to inny (skrócony) wariant nazwy — pl „puli nagród”; ujednolicenie z nazwą terminu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 714,
+  "stary": "（占{{t:prize-pool|獎池}}的比例）",
+  "nowy": "（占{{t:prize-pool|獎金池}}的比例）",
+  "waga": "NISKIE",
+  "powod": "terms-nazwy: prize-pool = „獎金池”; forma 獎池 to inny (skrócony) wariant nazwy — pl „puli nagród”; ujednolicenie z nazwą terminu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 718,
+  "stary": "合計為{{t:prize-pool|獎池}}的 {{icm}}，高於",
+  "nowy": "合計為{{t:prize-pool|獎金池}}的 {{icm}}，高於",
+  "waga": "NISKIE",
+  "powod": "terms-nazwy: prize-pool = „獎金池”; forma 獎池 to inny (skrócony) wariant nazwy — pl „puli nagród”; ujednolicenie z nazwą terminu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 719,
+  "stary": "合計為{{t:prize-pool|獎池}}的 {{icm}}，低於",
+  "nowy": "合計為{{t:prize-pool|獎金池}}的 {{icm}}，低於",
+  "waga": "NISKIE",
+  "powod": "terms-nazwy: prize-pool = „獎金池”; forma 獎池 to inny (skrócony) wariant nazwy — pl „puli nagród”; ujednolicenie z nazwą terminu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 724,
+  "stary": "\"regular\": \"{{t:regular|常客}}\"",
+  "nowy": "\"regular\": \"{{t:regular|常規玩家}}\"",
+  "waga": "ŚR",
+  "powod": "terms-nazwy: regular = „常規玩家” (pl „Reg”); 常客 = „stały bywalec”, forma niezgodna z nazwą terminu i z definicją w słowniczku.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 739,
+  "stary": "{{t:regular|常客}}玩約",
+  "nowy": "{{t:regular|常規玩家}}玩約",
+  "waga": "ŚR",
+  "powod": "terms-nazwy: regular = „常規玩家” (pl „Reg”); 常客 = „stały bywalec”, forma niezgodna z nazwą terminu i z definicją w słowniczku.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 765,
+  "stary": "\"drawGutshot\": \"卡順聽牌\"",
+  "nowy": "\"drawGutshot\": \"gutshot\"",
+  "waga": "ŚR",
+  "powod": "pl „gutshot”; terms-nazwy: gutshot = null, a kontekst klucza (pl.kontekst.json) mówi „nazwa angielska w każdym języku”; 卡順 nie jest nazwą z terms-nazwy.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 826,
+  "stary": "（兩頭順或卡順）",
+  "nowy": "（兩頭順或 gutshot）",
+  "waga": "ŚR",
+  "powod": "pl „(otwarty albo gutshot)”; pl „gutshot”; terms-nazwy: gutshot = null, a kontekst klucza (pl.kontekst.json) mówi „nazwa angielska w każdym języku”; 卡順 nie jest nazwą z terms-nazwy.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "linia": 827,
+  "stary": "所以沒有人連{{t:straight-draw|順子聽牌}}都有",
+  "nowy": "所以任何人連{{t:straight-draw|順子聽牌}}都沒有",
+  "waga": "NISKIE",
+  "powod": "pl „więc nikt nie ma nawet drawa do strita”; konstrukcja 「沒有人連…都有」 jest niegramatyczna (wzorzec to 「連…都沒有」), zdanie czyta się niejasno.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "• 決策分四個等級評分",
+  "nowy": "• 決策分四個等級評分：吻合、可接受、不精確、錯誤",
+  "waga": "ŚR",
+  "powod": "pl „Decyzje z oceną w czterech stopniach: zgodna, dopuszczalna, niedokładność, błąd” — przekład pomija nazwy czterech stopni; dodane nazwy jak w aplikacji (grade.*).",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "依序學習的單元：",
+  "nowy": "依序學習的模組：",
+  "waga": "ŚR",
+  "powod": "W aplikacji (locales/zh-Hant.json) pl „moduł” = 模組, „egzamin modułu” = 模組測驗; opis sklepu nazywa to samo inaczej (單元/單元考試) — jedna nazwa na pojęcie.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "• 單元考試（15 題）",
+  "nowy": "• 模組測驗（15 題）",
+  "waga": "ŚR",
+  "powod": "W aplikacji (locales/zh-Hant.json) pl „moduł” = 模組, „egzamin modułu” = 模組測驗; opis sklepu nazywa to samo inaczej (單元/單元考試) — jedna nazwa na pojęcie.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "每個單元考試的第一次作答",
+  "nowy": "每個模組測驗的第一次作答",
+  "waga": "ŚR",
+  "powod": "W aplikacji (locales/zh-Hant.json) pl „moduł” = 模組, „egzamin modułu” = 模組測驗; opis sklepu nazywa to samo inaczej (單元/單元考試) — jedna nazwa na pojęcie.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "• 附練習的課堂",
+  "nowy": "• 附練習的課程",
+  "waga": "ŚR",
+  "powod": "W aplikacji pl „lekcje” = 課程 (tabs, today, start.alwaysFree); opis sklepu ma 課堂 — jedna nazwa na pojęcie.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "課堂、程度測驗和",
+  "nowy": "課程、程度測驗和",
+  "waga": "ŚR",
+  "powod": "W aplikacji pl „lekcje” = 課程 (tabs, today, start.alwaysFree); opis sklepu ma 課堂 — jedna nazwa na pojęcie.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "進階指數",
+  "nowy": "程度指標",
+  "waga": "ŚR",
+  "powod": "pl „wskaźnik zaawansowania”; w aplikacji ten ekran nazywa się 程度指標 (advancement.title) — opis sklepu ma inną nazwę tej samej funkcji.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "store/app-store-metadata.json",
+  "linia": 36,
+  "stary": "完整存取可取消此限制",
+  "nowy": "完整存取權可取消此限制",
+  "waga": "NISKIE",
+  "powod": "pl „Pełny dostęp znosi ten limit”; w aplikacji i na ekranie zakupu „Pełny dostęp” = 完整存取權 (purchase.title) — ta sama nazwa produktu.",
+  "grupa": "U1"
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l3-implied-odds.md",
+  "linia": 134,
+  "stary": "「ハンドの計画」モジュール",
+  "nowy": "「ハンドのプラン」モジュール",
+  "waga": "ŚR",
+  "powod": "pl: „w module „Plan rozdania” (M9)”. Tytuł modułu M9 w content/ja/modules.yaml to „ハンドのプラン”; cytowana nazwa modułu ma być taka jak na ekranie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l3-implied-odds.md",
+  "linia": 54,
+  "stary": "{{t:oesd|オープンエンド・ストレートドロー}}",
+  "nowy": "{{t:oesd|OESD}}",
+  "waga": "ŚR",
+  "powod": "pl: „Masz {{t:oesd}}”. W terms-nazwy.yaml oesd = null (zostaje skrót OESD); w m7-l2 i m7-l4 tego samego modułu jest OESD, forma rozwinięta jest niezgodna z nazwą terminu.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l1-value.md",
+  "linia": 107,
+  "stary": "{{t:position|ポジション}}からベットし",
+  "nowy": "{{t:position|ポジション}}がある状態でベットし",
+  "waga": "ŚR",
+  "powod": "pl: „Gdy betujesz z pozycji” (= mając pozycję). „ポジションからベット” to kalka niejasna po japońsku w zdaniu definiującym warunek progu; w tej samej lekcji (linia 89) jest poprawne „ポジションがあるので”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l1-value.md",
+  "linia": 131,
+  "stary": "{{t:position|ポジション}}からは{{t:pot|ポット}}の1/2を",
+  "nowy": "{{t:position|ポジション}}がある場合は{{t:pot|ポット}}の1/2を",
+  "waga": "NISKIE",
+  "powod": "pl: „z pozycji rzadko schodzi poniżej 1/2 puli”. Ta sama kalka „ポジションから”; naturalnie „ポジションがある場合は”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 136,
+  "stary": "。ブラフの一部をあきらめているからです",
+  "nowy": "。{{t:bluff|ブラフ}}の一部をあきらめているからです",
+  "waga": "NISKIE",
+  "powod": "pl: „część {{t:bluff|blefów}} odpuścił” ma znacznik terminu; w przekładzie znacznik zgubiono (zwykły tekst „ブラフ”). Przywrócenie znacznika z tym samym kluczem.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l1-value.md",
+  "linia": 72,
+  "stary": "多くディフェンドしています",
+  "nowy": "多くディフェンスしています",
+  "waga": "NISKIE",
+  "powod": "pl: „broni wielu par”. Jedyne „ディフェンド” w całym przekładzie ja; wszędzie indziej „ディフェンス(する)” (124 wystąpienia).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 75,
+  "stary": "ミディアムハンドです",
+  "nowy": "中程度のハンドです",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 94,
+  "stary": "。ミディアムハンドは{{t:check|チェック}}\", correct",
+  "nowy": "。中程度のハンドは{{t:check|チェック}}\", correct",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 94,
+  "stary": "ミディアムハンドは次の",
+  "nowy": "中程度のハンドは次の",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 95,
+  "stary": "ミディアム{{t:pair|ペア}}",
+  "nowy": "中程度の{{t:pair|ペア}}",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej. (pl: „średnie pary”).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 132,
+  "stary": "## ミディアムハンドは{{t:check|チェック}}",
+  "nowy": "## 中程度のハンドは{{t:check|チェック}}",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej. Nagłówek odpowiada nagłówkowi „中程度のハンドは…” w m8-l1.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 137,
+  "stary": "ミディアムハンドは{{t:check|チェック}}）は",
+  "nowy": "中程度のハンドは{{t:check|チェック}}）は",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ }
+]

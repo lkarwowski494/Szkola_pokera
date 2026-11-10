@@ -1,0 +1,152 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m4.yaml",
+  "linia": 98,
+  "stary": "兩名玩家跛入",
+  "nowy": "兩名玩家溜入",
+  "waga": "ŚR",
+  "powod": "pl ma „limpuje/limperów”; terms-nazwy zh-Hant: limp = 溜入 (komentarz: ujednolicić 跛入), lekcje używają 溜入; 跛入 występuje tylko w egzaminach.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m4.yaml",
+  "linia": 101,
+  "stary": "兩名跛入者每人加",
+  "nowy": "兩名溜入者每人加",
+  "waga": "ŚR",
+  "powod": "pl ma „limpuje/limperów”; terms-nazwy zh-Hant: limp = 溜入 (komentarz: ujednolicić 跛入), lekcje używają 溜入; 跛入 występuje tylko w egzaminach.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m4.yaml",
+  "linia": 109,
+  "stary": "面對多名跛入者",
+  "nowy": "面對多名溜入者",
+  "waga": "ŚR",
+  "powod": "pl ma „limpuje/limperów”; terms-nazwy zh-Hant: limp = 溜入 (komentarz: ujednolicić 跛入), lekcje używają 溜入; 跛入 występuje tylko w egzaminach.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m4.yaml",
+  "linia": 109,
+  "stary": "三名跛入者每人再加",
+  "nowy": "三名溜入者每人再加",
+  "waga": "ŚR",
+  "powod": "pl ma „limpuje/limperów”; terms-nazwy zh-Hant: limp = 溜入 (komentarz: ujednolicić 跛入), lekcje używają 溜入; 跛入 występuje tylko w egzaminach.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m4.yaml",
+  "linia": 110,
+  "stary": "面對一名跛入者",
+  "nowy": "面對一名溜入者",
+  "waga": "ŚR",
+  "powod": "pl ma „limpuje/limperów”; terms-nazwy zh-Hant: limp = 溜入 (komentarz: ujednolicić 跛入), lekcje używają 溜入; 跛入 występuje tylko w egzaminach.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m4.yaml",
+  "linia": 111,
+  "stary": "跟著跛入\", why: \"跟著跛入適合",
+  "nowy": "跟著溜入\", why: \"跟著溜入適合",
+  "waga": "ŚR",
+  "powod": "pl „Dopłacam / Dopłata” (dołączenie do limperów); ten sam termin limp co wyżej: terms-nazwy 溜入 zamiast 跛入, spójnie z resztą pytania.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m4.yaml",
+  "linia": 92,
+  "stary": "會放棄{{t:value|價值}}和{{t:initiative",
+  "nowy": "會放棄價值和{{t:initiative",
+  "waga": "NISKIE",
+  "powod": "pl: „oddaje wartość i {{t:initiative|inicjatywę}}” — w pl „wartość” bez znacznika; przekład dodał znacznik {{t:value}}, którego nie ma w źródle (zestaw znaczników ma być jak w pl).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 14,
+  "stary": "{{t:board|公牌}}",
+  "nowy": "{{t:board|公共牌}}",
+  "waga": "ŚR",
+  "powod": "pl „{{t:board|stole}}”; forma 公牌 niezgodna z terms-nazwy (board = 公共牌) i resztą egzaminów (公共牌/牌面).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 22,
+  "stary": "高牌較多",
+  "nowy": "大牌較多",
+  "waga": "NISKIE",
+  "powod": "pl „masz więcej wysokich kart”; 高牌 to w tym przekładzie nazwa układu high-card (terms-nazwy), więc „wysokie karty” lepiej jako 大牌 (tak w m0).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 59,
+  "stary": "每一{{t:street|輪}}",
+  "nowy": "每一{{t:street|條街}}",
+  "waga": "ŚR",
+  "powod": "pl „na każdej {{t:street|ulicy}}”; terms-nazwy: street = 街 (forma 條街), 輪 miesza się z betting-round (下注輪).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 88,
+  "stary": "有很多 equity 的{{t:draw|聽牌}}",
+  "nowy": "有很多權益的{{t:draw|聽牌}}",
+  "waga": "ŚR",
+  "powod": "pl „dużo equity”; resztka angielska — terms-nazwy equity = 權益, tak też w egzaminach m2, m4, m6.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 89,
+  "stary": "或有很多 equity 的手牌",
+  "nowy": "或有很多權益的手牌",
+  "waga": "ŚR",
+  "powod": "pl „mają dużo equity”; resztka angielska — terms-nazwy equity = 權益, tak też w egzaminach m2, m4, m6.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 98,
+  "stary": "你下注比平常少，而且用小尺寸",
+  "nowy": "你下注的頻率比平常低，而且用小尺寸",
+  "waga": "NISKIE",
+  "powod": "pl „betujesz rzadziej niż zwykle i małym rozmiarem”; 下注比平常少 można odczytać jako mniejszą kwotę, a pl mówi o częstości (rozmiar jest osobno).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m6.yaml",
+  "linia": 76,
+  "stary": "你仍然有很多 outs",
+  "nowy": "你仍然有很多補牌",
+  "waga": "ŚR",
+  "powod": "pl „nadal masz wiele outów”; resztka angielska — terms-nazwy outs = 補牌, tak w egzaminie m2.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "linia": 100,
+  "stary": "底池大小的下注，正是",
+  "nowy": "{{t:pot|底池}}大小的下注，正是",
+  "waga": "NISKIE",
+  "powod": "pl: „Bet wielkości {{t:pot|puli}}” — w przekładzie zgubiony znacznik {{t:pot}} (w pl dwa wystąpienia w tej linii, w zh jedno); sens bez zmian.",
+  "grupa": "E1"
+ }
+]

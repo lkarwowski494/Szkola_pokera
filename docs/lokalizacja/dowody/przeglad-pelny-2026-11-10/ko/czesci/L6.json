@@ -1,0 +1,372 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 36,
+  "stary": "레이즈가 한 번 나온 {{t:pot|팟}}: 플롭 시점에",
+  "nowy": "싱글 레이즈 {{t:pot|팟}}: 플롭 시점에",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 45,
+  "stary": "레이즈가 한 번 나온 {{t:pot|팟}}, {{t:spr}} 약",
+  "nowy": "싱글 레이즈 {{t:pot|팟}}, {{t:spr}} 약",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 48,
+  "stary": "레이즈가 한 번 나온 {{t:pot|팟}}에서는",
+  "nowy": "싱글 레이즈 {{t:pot|팟}}에서는",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 101,
+  "stary": "첫 번째 강의에서",
+  "nowy": "첫 번째 레슨에서",
+  "waga": "NISKIE",
+  "powod": "pl „lekcja”: w całym przekładzie „레슨” (65 wystąpień), tylko tu „강의”; ujednolicenie nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 124,
+  "stary": "## 레이즈가 한 번 나온 {{t:pot|팟}}은 깊습니다",
+  "nowy": "## 싱글 레이즈 {{t:pot|팟}}은 깊습니다",
+  "waga": "NISKIE",
+  "powod": "pl „Pula z jednym podbiciem”: w m9-l3 oddane opisowo „레이즈가 한 번 나온 팟”, a w m9-l4 i reszcie przekładu (14 wystąpień) „싱글 레이즈 팟”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 129,
+  "stary": "다음 강의에서",
+  "nowy": "다음 레슨에서",
+  "waga": "NISKIE",
+  "powod": "pl „lekcja”: w całym przekładzie „레슨” (65 wystąpień), tylko tu „강의”; ujednolicenie nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 38,
+  "stary": "드로를 완성하지",
+  "nowy": "드로우를 완성하지",
+  "waga": "NISKIE",
+  "powod": "pl „żeby rywal nie dobrał”: terms-nazwy ko draw = „드로우”; „드로” to wariant pisowni niezgodny z nazwą terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 72,
+  "stary": "지오메트릭 사이즈로 베팅하나요",
+  "nowy": "기하학적 사이즈로 베팅하나요",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 75,
+  "stary": "지오메트릭 사이즈는 스택 전체를 넣기 위한",
+  "nowy": "기하학적 사이즈는 스택 전체를 넣기 위한",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 76,
+  "stary": "항상 지오메트릭 사이즈로 베팅합니다",
+  "nowy": "항상 기하학적 사이즈로 베팅합니다",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 76,
+  "stary": "지오메트릭 사이즈는 스택 전체를 넣는 플랜에",
+  "nowy": "기하학적 사이즈는 스택 전체를 넣는 플랜에",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 111,
+  "stary": "플롭부터 지오메트릭 사이즈로",
+  "nowy": "플롭부터 기하학적 사이즈로",
+  "waga": "ŚR",
+  "powod": "pl „rozmiar geometryczny”: tytuł lekcji m9-l3, rules.yaml (R-M9) i m9-l3 mają „기하학적 사이즈”, a m9-l4 nazywa to samo pojęcie „지오메트릭 사이즈”; jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l1-statystyki.md",
+  "linia": 69,
+  "stary": "닛이므로 {{t:nit|닛}}처럼",
+  "nowy": "니트이므로 {{t:nit|니트}}처럼",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nit = „니트” (tak też w m10-l2); tu forma „닛” niezgodna z nazwą terminu. (pl „bo większość graczy to nity”)",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l1-statystyki.md",
+  "linia": 69,
+  "stary": "{{t:nit|닛}}, 즉",
+  "nowy": "{{t:nit|니트}}, 즉",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nit = „니트” (tak też w m10-l2); tu forma „닛” niezgodna z nazwą terminu. (pl „{{t:nit}}, czyli bardzo ciasny gracz”)",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 20,
+  "stary": "{{t:pfr}}는 {{n:hud.ex.passive.pfr}}",
+  "nowy": "{{t:pfr}}은 {{n:hud.ex.passive.pfr}}",
+  "waga": "NISKIE",
+  "powod": "Partykuła po PFR (czyt. 피에프알, kończy się spółgłoską): ma być „은”, jak w m10-l1 („{{t:pfr}}은”); pl „i PFR …”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 23,
+  "stary": "{{t:pfr}}와 두 수치",
+  "nowy": "{{t:pfr}}과 두 수치",
+  "waga": "NISKIE",
+  "powod": "Partykuła po PFR (czyt. 피에프알, kończy się spółgłoską): ma być „과”, nie „와”; pl „O agresji mówi PFR i różnica między nimi”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 29,
+  "stary": "면 {{t:recreational|레크리에이셔널 플레이어}}는 ",
+  "nowy": "면 {{t:recreational|레크리에이션 플레이어}}는 ",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 31,
+  "stary": " \"{{t:recreational|레크리에이셔널 플레이어}}는 끝",
+  "nowy": " \"{{t:recreational|레크리에이션 플레이어}}는 끝",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 32,
+  "stary": " \"{{t:recreational|레크리에이셔널 플레이어}}는 더",
+  "nowy": " \"{{t:recreational|레크리에이션 플레이어}}는 더",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 39,
+  "stary": "{{t:recreational|레크리에이셔널 플레이어}}입",
+  "nowy": "{{t:recreational|레크리에이션 플레이어}}입",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 49,
+  "stary": "{{t:recreational|레크리에이셔널 플레이어}}(",
+  "nowy": "{{t:recreational|레크리에이션 플레이어}}(",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 109,
+  "stary": "브 {{t:recreational|레크리에이셔널 플레이어}} |",
+  "nowy": "브 {{t:recreational|레크리에이션 플레이어}} |",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": "승률이 {{n:mda.reg.def.wr}}을 넘는",
+  "nowy": "윈레이트가 {{n:mda.reg.def.wr}}을 넘는",
+  "waga": "ŚR",
+  "powod": "pl „wynik” (w bb/100, wartości ujemne −2, −20, −47): „승률” znaczy po koreańsku odsetek wygranych i nie może być ujemny; to samo pojęcie w m10-l4 i terms-nazwy to „윈레이트” (en: Win rate).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": "승률이 {{n:mda.rec.def.wr}} 미만인",
+  "nowy": "윈레이트가 {{n:mda.rec.def.wr}} 미만인",
+  "waga": "ŚR",
+  "powod": "pl „wynik” (w bb/100, wartości ujemne −2, −20, −47): „승률” znaczy po koreańsku odsetek wygranych i nie może być ujemny; to samo pojęcie w m10-l4 i terms-nazwy to „윈레이트” (en: Win rate).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": ", {{t:recreational|레크리에이셔널 플레이어}}는 ",
+  "nowy": ", {{t:recreational|레크리에이션 플레이어}}는 ",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 118,
+  "stary": "| {{t:recreational|레크리에이셔널 플레이어}} |",
+  "nowy": "| {{t:recreational|레크리에이션 플레이어}} |",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 121,
+  "stary": "| 3벳에 폴드 |",
+  "nowy": "| 폴드 투 3벳 |",
+  "waga": "ŚR",
+  "powod": "pl „Fold to 3-bet” (nazwa statystyki): w m10-l1 i reszcie przekładu „폴드 투 3벳” (12 wystąpień), tu jedyny raz „3벳에 폴드”; jedna nazwa statystyki.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 124,
+  "stary": "| 승률 |",
+  "nowy": "| 윈레이트 |",
+  "waga": "ŚR",
+  "powod": "pl „wynik” (w bb/100, wartości ujemne −2, −20, −47): „승률” znaczy po koreańsku odsetek wygranych i nie może być ujemny; to samo pojęcie w m10-l4 i terms-nazwy to „윈레이트” (en: Win rate).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 126,
+  "stary": "{{t:recreational|레크리에이셔널 플레이어}}의",
+  "nowy": "{{t:recreational|레크리에이션 플레이어}}의",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l2-typy-graczy.md",
+  "linia": 128,
+  "stary": "# 패시브 {{t:recreational|레크리에이셔널 플레이어}}",
+  "nowy": "# 패시브 {{t:recreational|레크리에이션 플레이어}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: recreational = „레크리에이션 플레이어” (tak w m10-l3); forma „레크리에이셔널 플레이어” w znaczniku nie jest postacią nazwy terminu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 49,
+  "stary": "모든 사이즈와 테이블을 합친",
+  "nowy": "모든 사이즈와 보드를 합친",
+  "waga": "ŚR",
+  "powod": "pl „Fold to c-bet łączy wszystkie rozmiary i stoły”: „stół” to w źródle board (karty wspólne; w treści lekcji to samo zdanie: „wszystkie rozmiary i flopy”), a „테이블” znaczy stół do gry; ma być „보드”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 109,
+  "stary": "보통 에퀴티가 조금 더 있습니다",
+  "nowy": "보통 에퀴티도 어느 정도 있습니다",
+  "waga": "NISKIE",
+  "powod": "pl „twoja ręka zwykle ma jeszcze trochę equity” = ma dodatkowo pewne equity; „조금 더 있습니다” czyta się jako „ma trochę więcej equity” (porównanie, którego w pl nie ma).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 42,
+  "stary": "{{t:rake-cap|레이크 상한}}에 더 자주",
+  "nowy": "{{t:rake-cap|레이크 캡}}에 더 자주",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 43,
+  "stary": "{{t:rake-cap|레이크 상한}}으로",
+  "nowy": "{{t:rake-cap|레이크 캡}}으로",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 44,
+  "stary": "{{t:rake-cap|레이크 상한}}입니다",
+  "nowy": "{{t:rake-cap|레이크 캡}}입니다",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 49,
+  "stary": "{{t:rake-cap|상한}}은",
+  "nowy": "{{t:rake-cap|레이크 캡}}은",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l4-rake.md",
+  "linia": 93,
+  "stary": "{{t:rake-cap|레이크 상한}}을",
+  "nowy": "{{t:rake-cap|레이크 캡}}을",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: rake-cap = „레이크 캡”; forma „레이크 상한/상한” w znaczniku {{t:rake-cap|…}} nie jest postacią nazwy terminu (pl „limit rake'u”).",
+  "grupa": "L6"
+ }
+]

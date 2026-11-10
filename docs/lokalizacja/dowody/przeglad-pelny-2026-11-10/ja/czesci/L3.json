@@ -1,0 +1,102 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "{{t:wetness|ウェットさ}}",
+  "nowy": "{{t:wetness|ウェット度}}",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: wetness = „ウェット度” (tak też w interfejsie: summary „{{t:wetness|ウェット度}}”); tu jedyne w korpusie „ウェットさ”. pl: „Rozmiar rośnie z {{t:wetness|mokrością}}”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "（アプリでは通常、中程度のもの）",
+  "nowy": "（アプリでは通常、中間のもの）",
+  "waga": "ŚR",
+  "powod": "pl: „(w aplikacji zwykle pośrednich)” odsyła do kategorii mokrości „Pośredni” z interfejsu; w ja.json ta kategoria nazywa się „中間” (drill.texture wetness.medium), a nie „中程度” — czytelnik nie skojarzy z etykietą w aplikacji.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 116,
+  "stary": "ソルバーはそこで小さなサイズでベットします",
+  "nowy": "ソルバーはそこではより小さなサイズでベットします",
+  "waga": "ŚR",
+  "powod": "pl: „solvery betują tam mniejszym rozmiarem” (stopień wyższy: mniejszym niż na flopie z drawami bez gotowego strita); ja mówi „małym rozmiarem”. Nowy tekst oddaje porównanie.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l4-bez-pozycji.md",
+  "linia": 47,
+  "stary": "{{t:bluff}}が2人とも通らなければなりません",
+  "nowy": "{{t:bluff}}が2人の両方に通らなければなりません",
+  "waga": "NISKIE",
+  "powod": "pl: „{{t:bluff}} musi przejść przez obu”. W ja niezgodność podmiotu („ブラフが2人とも通る”); naturalnie: ブラフが（相手）に通る.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 13,
+  "stary": "勝ち目のない相手の{{t:bluff|ブラフ}}が",
+  "nowy": "相手の勝ち目のない{{t:bluff|ブラフ}}が",
+  "waga": "NISKIE",
+  "powod": "pl: „jego {{t:bluff}} bez szans” — „bez szans” dotyczy blefu; szyk „勝ち目のない相手の” da się odczytać jako „rywala bez szans”. Reszta lekcji ma „勝ち目のない{{t:bluff|ブラフ}}”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 94,
+  "stary": "強いハンドは支払い、弱いハンドは{{t:fold|フォールド}}します。",
+  "nowy": "より強いハンドはコールし、より弱いハンドは{{t:fold|フォールド}}します。",
+  "waga": "ŚR",
+  "powod": "pl: „Lepsze ręce zapłacą, gorsze {{t:fold|spasują}}” — porównanie z twoją ręką (lepsze/gorsze od niej), w ja „silne/słabe ręce”; do tego „支払い” bez dopełnienia jest niejasne (zapłacą = sprawdzą przebicie).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 92,
+  "stary": "主に強いハンド（KQ、セット）に支払うことになります",
+  "nowy": "主により強いハンド（KQ、セット）に支払うことになります",
+  "waga": "NISKIE",
+  "powod": "pl: „płaci głównie lepszym rękom (KQ, sety)” — lepszym od twojej pary, nie „silnym”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 135,
+  "stary": "主に強いハンドに支払うことになるからです",
+  "nowy": "主により強いハンドに支払うことになるからです",
+  "waga": "NISKIE",
+  "powod": "pl: „płaci głównie lepszym rękom” — stopień wyższy (lepszym od twojej słabszej pary).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l2-sprawdzenie.md",
+  "linia": 76,
+  "stary": "このサイズでは弱いハンドは降りてしまい、払ってくるのは強いハンドだけです。",
+  "nowy": "このサイズではより弱いハンドは降りてしまい、払ってくるのはより強いハンドだけです。",
+  "waga": "ŚR",
+  "powod": "pl: „Taki rozmiar wypycha słabsze ręce, a płacą tylko lepsze” — słabsze/lepsze od twojej ręki; ja „słabe/silne”. W tej samej lekcji (w. 46) jest poprawnie „より強いハンド”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l3-check-raise.md",
+  "linia": 93,
+  "stary": "完成しても勝てる{{t:draw|ドロー}}",
+  "nowy": "完成させて勝つこともできる{{t:draw|ドロー}}",
+  "waga": "NISKIE",
+  "powod": "pl: „{{t:draw|drawami}} …, które wygrywają też po trafieniu” (druga droga do wygranej). „完成しても勝てる” brzmi jak ustępstwo („wygrywają nawet gdy trafią”).",
+  "grupa": "L3"
+ }
+]

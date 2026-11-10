@@ -1,0 +1,332 @@
+{
+ "L1": [
+  {
+   "pl": "content/pl/lessons/m0-l1-uklady.md",
+   "cel": "content/{K}/lessons/m0-l1-uklady.md"
+  },
+  {
+   "pl": "content/pl/lessons/m1-l1-przebieg.md",
+   "cel": "content/{K}/lessons/m1-l1-przebieg.md"
+  },
+  {
+   "pl": "content/pl/lessons/m2-l1-outy.md",
+   "cel": "content/{K}/lessons/m2-l1-outy.md"
+  },
+  {
+   "pl": "content/pl/lessons/m2-l2-pot-odds.md",
+   "cel": "content/{K}/lessons/m2-l2-pot-odds.md"
+  },
+  {
+   "pl": "content/pl/lessons/m3-l1-pozycja.md",
+   "cel": "content/{K}/lessons/m3-l1-pozycja.md"
+  },
+  {
+   "pl": "content/pl/lessons/m3-l2-rece-startowe.md",
+   "cel": "content/{K}/lessons/m3-l2-rece-startowe.md"
+  },
+  {
+   "pl": "content/pl/lessons/m3-l3-zakresy-otwarc.md",
+   "cel": "content/{K}/lessons/m3-l3-zakresy-otwarc.md"
+  }
+ ],
+ "L2": [
+  {
+   "pl": "content/pl/lessons/m4-l1-3bet.md",
+   "cel": "content/{K}/lessons/m4-l1-3bet.md"
+  },
+  {
+   "pl": "content/pl/lessons/m4-l2-obrona-bb.md",
+   "cel": "content/{K}/lessons/m4-l2-obrona-bb.md"
+  },
+  {
+   "pl": "content/pl/lessons/m4-l3-wobec-3betu.md",
+   "cel": "content/{K}/lessons/m4-l3-wobec-3betu.md"
+  },
+  {
+   "pl": "content/pl/lessons/m4-l4-limperzy.md",
+   "cel": "content/{K}/lessons/m4-l4-limperzy.md"
+  },
+  {
+   "pl": "content/pl/lessons/m5-l1-tekstury.md",
+   "cel": "content/{K}/lessons/m5-l1-tekstury.md"
+  },
+  {
+   "pl": "content/pl/lessons/m5-l2-przewagi.md",
+   "cel": "content/{K}/lessons/m5-l2-przewagi.md"
+  }
+ ],
+ "L3": [
+  {
+   "pl": "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md",
+   "cel": "content/{K}/lessons/m5-l3-czestotliwosc-rozmiar.md"
+  },
+  {
+   "pl": "content/pl/lessons/m5-l4-bez-pozycji.md",
+   "cel": "content/{K}/lessons/m5-l4-bez-pozycji.md"
+  },
+  {
+   "pl": "content/pl/lessons/m6-l1-mdf-alpha.md",
+   "cel": "content/{K}/lessons/m6-l1-mdf-alpha.md"
+  },
+  {
+   "pl": "content/pl/lessons/m6-l2-sprawdzenie.md",
+   "cel": "content/{K}/lessons/m6-l2-sprawdzenie.md"
+  },
+  {
+   "pl": "content/pl/lessons/m6-l3-check-raise.md",
+   "cel": "content/{K}/lessons/m6-l3-check-raise.md"
+  }
+ ],
+ "L4": [
+  {
+   "pl": "content/pl/lessons/m7-l1-druga-beczka.md",
+   "cel": "content/{K}/lessons/m7-l1-druga-beczka.md"
+  },
+  {
+   "pl": "content/pl/lessons/m7-l2-polaryzacja.md",
+   "cel": "content/{K}/lessons/m7-l2-polaryzacja.md"
+  },
+  {
+   "pl": "content/pl/lessons/m7-l3-implied-odds.md",
+   "cel": "content/{K}/lessons/m7-l3-implied-odds.md"
+  },
+  {
+   "pl": "content/pl/lessons/m7-l4-probe-obrona.md",
+   "cel": "content/{K}/lessons/m7-l4-probe-obrona.md"
+  },
+  {
+   "pl": "content/pl/lessons/m8-l1-value.md",
+   "cel": "content/{K}/lessons/m8-l1-value.md"
+  }
+ ],
+ "L5": [
+  {
+   "pl": "content/pl/lessons/m8-l2-ile-blefow.md",
+   "cel": "content/{K}/lessons/m8-l2-ile-blefow.md"
+  },
+  {
+   "pl": "content/pl/lessons/m8-l3-blokery.md",
+   "cel": "content/{K}/lessons/m8-l3-blokery.md"
+  },
+  {
+   "pl": "content/pl/lessons/m8-l4-bluff-catching.md",
+   "cel": "content/{K}/lessons/m8-l4-bluff-catching.md"
+  },
+  {
+   "pl": "content/pl/lessons/m9-l1-spr.md",
+   "cel": "content/{K}/lessons/m9-l1-spr.md"
+  },
+  {
+   "pl": "content/pl/lessons/m9-l2-zaangazowanie.md",
+   "cel": "content/{K}/lessons/m9-l2-zaangazowanie.md"
+  }
+ ],
+ "L6": [
+  {
+   "pl": "content/pl/lessons/m9-l3-rozmiar-geometryczny.md",
+   "cel": "content/{K}/lessons/m9-l3-rozmiar-geometryczny.md"
+  },
+  {
+   "pl": "content/pl/lessons/m9-l4-plan-trzech-ulic.md",
+   "cel": "content/{K}/lessons/m9-l4-plan-trzech-ulic.md"
+  },
+  {
+   "pl": "content/pl/lessons/m10-l1-statystyki.md",
+   "cel": "content/{K}/lessons/m10-l1-statystyki.md"
+  },
+  {
+   "pl": "content/pl/lessons/m10-l2-typy-graczy.md",
+   "cel": "content/{K}/lessons/m10-l2-typy-graczy.md"
+  },
+  {
+   "pl": "content/pl/lessons/m10-l3-odejscie-od-bazy.md",
+   "cel": "content/{K}/lessons/m10-l3-odejscie-od-bazy.md"
+  },
+  {
+   "pl": "content/pl/lessons/m10-l4-rake.md",
+   "cel": "content/{K}/lessons/m10-l4-rake.md"
+  }
+ ],
+ "L7": [
+  {
+   "pl": "content/pl/lessons/m11-l1-push-fold.md",
+   "cel": "content/{K}/lessons/m11-l1-push-fold.md"
+  },
+  {
+   "pl": "content/pl/lessons/m11-l2-sprawdzanie.md",
+   "cel": "content/{K}/lessons/m11-l2-sprawdzanie.md"
+  },
+  {
+   "pl": "content/pl/lessons/m11-l3-icm.md",
+   "cel": "content/{K}/lessons/m11-l3-icm.md"
+  },
+  {
+   "pl": "content/pl/lessons/m13-l1-raport.md",
+   "cel": "content/{K}/lessons/m13-l1-raport.md"
+  },
+  {
+   "pl": "content/pl/lessons/m13-l2-powtorki.md",
+   "cel": "content/{K}/lessons/m13-l2-powtorki.md"
+  },
+  {
+   "pl": "content/pl/lessons/m13-l3-przeglad.md",
+   "cel": "content/{K}/lessons/m13-l3-przeglad.md"
+  }
+ ],
+ "L8": [
+  {
+   "pl": "content/pl/lessons/m12-l1-wariancja.md",
+   "cel": "content/{K}/lessons/m12-l1-wariancja.md",
+   "uwaga": "TREŚĆ KRYTYCZNA (moduł 12)"
+  },
+  {
+   "pl": "content/pl/lessons/m12-l2-decyzja-wynik.md",
+   "cel": "content/{K}/lessons/m12-l2-decyzja-wynik.md",
+   "uwaga": "TREŚĆ KRYTYCZNA (moduł 12)"
+  },
+  {
+   "pl": "content/pl/lessons/m12-l3-tilt.md",
+   "cel": "content/{K}/lessons/m12-l3-tilt.md",
+   "uwaga": "TREŚĆ KRYTYCZNA (moduł 12)"
+  },
+  {
+   "pl": "content/pl/lessons/m12-l4-bankroll.md",
+   "cel": "content/{K}/lessons/m12-l4-bankroll.md",
+   "uwaga": "TREŚĆ KRYTYCZNA (moduł 12)"
+  }
+ ],
+ "E1": [
+  {
+   "pl": "content/pl/exams/m0.yaml",
+   "cel": "content/{K}/exams/m0.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m1.yaml",
+   "cel": "content/{K}/exams/m1.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m2.yaml",
+   "cel": "content/{K}/exams/m2.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m3.yaml",
+   "cel": "content/{K}/exams/m3.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m4.yaml",
+   "cel": "content/{K}/exams/m4.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m5.yaml",
+   "cel": "content/{K}/exams/m5.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m6.yaml",
+   "cel": "content/{K}/exams/m6.yaml"
+  }
+ ],
+ "E2": [
+  {
+   "pl": "content/pl/exams/m7.yaml",
+   "cel": "content/{K}/exams/m7.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m8.yaml",
+   "cel": "content/{K}/exams/m8.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m9.yaml",
+   "cel": "content/{K}/exams/m9.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m10.yaml",
+   "cel": "content/{K}/exams/m10.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m11.yaml",
+   "cel": "content/{K}/exams/m11.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m12.yaml",
+   "cel": "content/{K}/exams/m12.yaml"
+  },
+  {
+   "pl": "content/pl/exams/m13.yaml",
+   "cel": "content/{K}/exams/m13.yaml"
+  }
+ ],
+ "R1": [
+  {
+   "pl": "content/pl/rules.yaml",
+   "cel": "content/{K}/rules.yaml",
+   "linie": "1-331",
+   "zakres": "nagłówek, R-M1…R-M4"
+  }
+ ],
+ "R2": [
+  {
+   "pl": "content/pl/rules.yaml",
+   "cel": "content/{K}/rules.yaml",
+   "linie": "332-642",
+   "zakres": "R-M5…R-M7"
+  }
+ ],
+ "R3": [
+  {
+   "pl": "content/pl/rules.yaml",
+   "cel": "content/{K}/rules.yaml",
+   "linie": "643-952",
+   "zakres": "R-M8…R-M10"
+  }
+ ],
+ "R4": [
+  {
+   "pl": "content/pl/rules.yaml",
+   "cel": "content/{K}/rules.yaml",
+   "linie": "953-1207",
+   "zakres": "R-M12 (treść krytyczna), R-M11, R-M13"
+  }
+ ],
+ "S1": [
+  {
+   "pl": "content/pl/areas.yaml",
+   "cel": "content/{K}/areas.yaml"
+  },
+  {
+   "pl": "content/pl/modules.yaml",
+   "cel": "content/{K}/modules.yaml"
+  },
+  {
+   "pl": "content/ranges/spots.yaml",
+   "cel": "content/{K}/ranges/spots.yaml",
+   "uwaga": "nakładka: tylko pola tekstowe"
+  },
+  {
+   "pl": "content/helplines.yaml",
+   "cel": "content/{K}/helplines.yaml",
+   "uwaga": "nakładka; TREŚĆ KRYTYCZNA: numery, adresy, nazwy, kraje"
+  },
+  {
+   "pl": "content/terms.yaml (pola def)",
+   "cel": "content/{K}/terms-def.yaml",
+   "uwaga": "162 definicje; porównaj każdą z polem def tego samego klucza"
+  },
+  {
+   "pl": "content/terms.yaml (pola pl, en) + docs/lokalizacja/glosariusz.md",
+   "cel": "content/{K}/terms-nazwy.yaml",
+   "uwaga": "nazwy terminów; oceń poprawność i przyjętość nazwy w języku; komentarze po # nie są treścią"
+  }
+ ],
+ "U1": [
+  {
+   "pl": "apps/mobile/src/i18n/locales/pl.json",
+   "cel": "apps/mobile/src/i18n/locales/{K}.json",
+   "uwaga": "cały słownik interfejsu; kontekst kluczy: locales/pl.kontekst.json; sprawdź też formy liczby mnogiej (_one/_other…) i parametry"
+  },
+  {
+   "pl": "store/app-store-metadata.json (lokalizacje.pl, en-US) albo docs/sklep/aso/metadane-fala2.json",
+   "cel": "metadane sklepu języka {K}: klucz lokalizacji w store/app-store-metadata.json lub docs/sklep/aso/metadane-fala2.json; store/iap-localizations.json jeśli ma ten język",
+   "uwaga": "jeśli języka nie ma w żadnym pliku — zapisz „brak metadanych”; limity: name 30, subtitle 30, keywords 100 znaków; TREŚĆ KRYTYCZNA: zdania o braku hazardu/prawdziwych pieniędzy"
+  }
+ ]
+}

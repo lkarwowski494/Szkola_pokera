@@ -1,0 +1,162 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 31,
+  "stary": "{{t:two-pair|투페어}}입니까",
+  "nowy": "{{t:two-pair|투 페어}}입니까",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 33,
+  "stary": "{{t:two-pair|투페어}}는 8위입니다. {{t:two-pair|투페어}}가",
+  "nowy": "{{t:two-pair|투 페어}}는 8위입니다. {{t:two-pair|투 페어}}가",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 34,
+  "stary": "text: \"{{t:two-pair|투페어}}\", why: \"{{t:two-pair|투페어}}는",
+  "nowy": "text: \"{{t:two-pair|투 페어}}\", why: \"{{t:two-pair|투 페어}}는",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 94,
+  "stary": "| 8 | {{t:two-pair|투페어}} |",
+  "nowy": "| 8 | {{t:two-pair|투 페어}} |",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 99,
+  "stary": "{{t:two-pair|투페어}}를 이깁니다",
+  "nowy": "{{t:two-pair|투 페어}}를 이깁니다",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "linia": 99,
+  "stary": "같은 {{t:two-pair|투페어}})",
+  "nowy": "같은 {{t:two-pair|투 페어}})",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: two-pair = „투 페어”; forma w znaczniku ma być postacią tej nazwy (pl: „dwie pary”), tu pisownia łączna „투페어”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m1-l1-przebieg.md",
+  "linia": 86,
+  "stary": "„bet”이라고",
+  "nowy": "“bet”이라고",
+  "waga": "NISKIE",
+  "powod": "Polski cudzysłów „…” (pl: „bet”) został w tekście koreańskim; reszta przekładu używa “…”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l1-outy.md",
+  "linia": 111,
+  "stary": "- **{{t:oesd|오픈엔디드 스트레이트 드로우}}**",
+  "nowy": "- **{{t:oesd|양방향 스트레이트 드로우}}**",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: oesd = „양방향 스트레이트 드로우” (pl: „OESD”); forma „오픈엔디드 스트레이트 드로우” to inna nazwa tego samego pojęcia.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l1-outy.md",
+  "linia": 126,
+  "stary": "| {{t:oesd|오픈엔디드 스트레이트 드로우}} |",
+  "nowy": "| {{t:oesd|양방향 스트레이트 드로우}} |",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: oesd = „양방향 스트레이트 드로우” (pl: „OESD” w tabeli); jedna nazwa na pojęcie.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l1-pozycja.md",
+  "linia": 37,
+  "stary": "{{t:initiative|이니셔티브}}를 내줍니다",
+  "nowy": "{{t:initiative|주도권}}을 내줍니다",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: initiative = „주도권” (pl: „oddaje inicjatywę”); „이니셔티브” to druga nazwa tego samego pojęcia; partykuła zmieniona na „을”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l1-pozycja.md",
+  "linia": 69,
+  "stary": "{{t:initiative|이니셔티브}}를 줍니다",
+  "nowy": "{{t:initiative|주도권}}을 줍니다",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: initiative = „주도권” (pl: „daje inicjatywę”); partykuła zmieniona na „을”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l2-rece-startowe.md",
+  "linia": 47,
+  "stary": "{{t:initiative}}를 쥐고",
+  "nowy": "{{t:initiative}}을 쥐고",
+  "waga": "NISKIE",
+  "powod": "Znacznik bez formy wyświetla nazwę „주도권” (spółgłoska końcowa), więc partykuła „를” daje błędne „주도권를”; poprawnie „주도권을” (pl: „grasz z inicjatywą”).",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l2-rece-startowe.md",
+  "linia": 35,
+  "stary": "레이즈합니다}} (3-bet)\"",
+  "nowy": "레이즈합니다}} (3벳)\"",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: 3-bet = „3벳” (pl: „3-bet”); w przekładzie została nazwa angielska, reszta lekcji ko używa „3벳”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l2-rece-startowe.md",
+  "linia": 53,
+  "stary": "레이즈합니다}}(3-bet).",
+  "nowy": "레이즈합니다}}(3벳).",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: 3-bet = „3벳” (pl: „przebijasz ponownie (3-bet)”); została nazwa angielska.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 47,
+  "stary": "{{t:mixed-hand|믹스 핸드}}",
+  "nowy": "{{t:mixed-hand|혼합 핸드}}",
+  "waga": "ŚR",
+  "powod": "`terms-nazwy` ko: mixed-hand = „혼합 핸드” (pl: „ręka mieszana”); „믹스 핸드” to jedyne takie użycie, miejsce definiuje pojęcie.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 80,
+  "stary": "9인 테이블의 초반 {{t:position|포지션}}",
+  "nowy": "9인 테이블의 얼리 {{t:position|포지션}}",
+  "waga": "NISKIE",
+  "powod": "pl: „wczesnych pozycji”; `terms-nazwy` ko: early-position = „얼리 포지션” (tak w m3-l1), tu „초반 포지션” — druga nazwa tego samego pojęcia.",
+  "grupa": "L1"
+ }
+]

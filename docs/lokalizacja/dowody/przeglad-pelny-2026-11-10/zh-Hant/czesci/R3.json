@@ -1,0 +1,82 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 778,
+  "stary": "要在河牌前投入全部籌碼，每一{{t:street|街}}",
+  "nowy": "要到河牌為止投入全部籌碼，每一{{t:street|街}}",
+  "waga": "ŚR",
+  "powod": "pl: „żeby wpłacić cały stack do rivera” = do rivera włącznie (trzy ulice, en „by the river”); „在河牌前” znaczy „przed riverem”, czyli sugeruje wpłacenie stacku w dwie ulice, co nie zgadza się z rachunkiem trzech ulic (R-M9-006/007). „到河牌為止” obejmuje river.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 784,
+  "stary": "你想在河牌前用相同比例的{{t:bet|下注}}投入全部籌碼",
+  "nowy": "你想到河牌為止用相同比例的{{t:bet|下注}}投入全部籌碼",
+  "waga": "ŚR",
+  "powod": "pl: „wpłacić cały stack równymi zakładami do rivera” (do rivera włącznie, en „by the river”); „在河牌前” = „przed riverem”, a wzór w then liczy wszystkie ulice łącznie z riverem.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 677,
+  "stary": "{{t:polarized|兩極化}}的{{t:range|範圍}}改變下注尺寸",
+  "nowy": "{{t:polarized|極化}}的{{t:range|範圍}}改變下注尺寸",
+  "waga": "ŚR",
+  "powod": "Termin polarized ma w terms-nazwy.yaml nazwę „極化” (w treści 極化 przeważa); forma „兩極化” w znaczniku jest inną nazwą tego samego pojęcia (pl: „zakresem spolaryzowanym”).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 673,
+  "stary": "簡化模型：兩極化範圍對上抓詐唬牌",
+  "nowy": "簡化模型：極化範圍對上抓詐唬牌",
+  "waga": "NISKIE",
+  "powod": "Spójność z terms-nazwy.yaml (polarized = „極化”); pl: „zakres spolaryzowany przeciw bluff-catcherowi”.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 686,
+  "stary": "或毫無勝算的大牌）",
+  "nowy": "或毫無勝算的高牌）",
+  "waga": "ŚR",
+  "powod": "pl: „wysokimi kartami bez szans” (ręka typu wysoka karta, en „high cards with no chance”); „大牌” w pokerze zwykle znaczy „mocna ręka” (tak też w m4-l4: 擊中大牌), więc „毫無勝算的大牌” jest dwuznaczne/sprzeczne. „高牌” to nazwa z terms-nazwy (high-card).",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 794,
+  "stary": "每一{{t:street|街}}下注約{{t:pot|底池}}的 {{n:geo.srp.3}} 時",
+  "nowy": "每一{{t:street|街}}{{t:bet|下注}}約{{t:pot|底池}}的 {{n:geo.srp.3}} 時",
+  "waga": "NISKIE",
+  "powod": "W pl jest znacznik „{{t:bet|zakładach}}” („przy {{t:bet|zakładach}} ok. … puli”); w przekładzie „下注” bez znacznika — brak jednego {{t:bet}} względem pl.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 801,
+  "stary": "（街數是簡化）",
+  "nowy": "（{{t:street|街}}數是簡化）",
+  "waga": "NISKIE",
+  "powod": "W pl „(liczby {{t:street|ulic}} to uproszczenie)” ze znacznikiem; w przekładzie „街” bez znacznika — brak jednego {{t:street}} względem pl.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 694,
+  "stary": "你挑一手帶有能阻擋對手強牌（也就是他會用來付錢的牌）的手牌（例如",
+  "nowy": "你挑的手牌要有一張能阻擋對手強牌（也就是他會用來付錢的牌）的牌（例如",
+  "waga": "NISKIE",
+  "powod": "pl: „wybierasz rękę z kartą, która blokuje silne ręce rywala”; w przekładzie zgubiono rzeczownik „karta” („帶有能阻擋…的手牌” nie ma dopełnienia), zdanie niegramatyczne; nowa wersja mówi wprost „ręka z kartą, która blokuje”.",
+  "grupa": "R3"
+ }
+]

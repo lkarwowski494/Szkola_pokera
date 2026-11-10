@@ -1,0 +1,482 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 46,
+  "stary": "수딧\"",
+  "nowy": "수티드\"",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 97,
+  "stary": "고, 수딧",
+  "nowy": "고, 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 97,
+  "stary": "s, 수딧",
+  "nowy": "s, 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": "고 수딧",
+  "nowy": "고 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": ". 수딧",
+  "nowy": ". 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": "와 수딧",
+  "nowy": "와 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 28,
+  "stary": "\"수딧",
+  "nowy": "\"수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 57,
+  "stary": "때 수딧",
+  "nowy": "때 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 73,
+  "stary": "수딧 에",
+  "nowy": "수티드 에",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 73,
+  "stary": "고 수딧",
+  "nowy": "고 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 75,
+  "stary": "와 수딧",
+  "nowy": "와 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧”, a w m4-l2 i m4-l3 „수티드” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 26,
+  "stary": "는 수딧",
+  "nowy": "는 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „konektorów w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "stary": ". 수딧",
+  "nowy": ". 수티드",
+  "waga": "ŚR",
+  "powod": "Termin „suited” (pl „konektorów w kolorze”) ma w content/ko/terms-nazwy.yaml nazwę „수티드”; tu „수딧” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 44,
+  "stary": "3-bet\", c",
+  "nowy": "3벳\", c",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 45,
+  "stary": "3-bet\", s",
+  "nowy": "3벳\", s",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 67,
+  "stary": "3-bet)",
+  "nowy": "3벳)",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 79,
+  "stary": "3-bet 합",
+  "nowy": "3벳 합",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet과",
+  "nowy": "3벳과",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet 구",
+  "nowy": "3벳 구",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet은",
+  "nowy": "3벳은",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet합",
+  "nowy": "3벳합",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l2-obrona-bb.md",
+  "linia": 92,
+  "stary": "3-bet하",
+  "nowy": "3벳하",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „3-bet” ma w content/ko/terms-nazwy.yaml nazwę „3벳” i tak jest w m4-l1 i m4-l3; w tej lekcji stoi „3-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 58,
+  "stary": "c-bet",
+  "nowy": "C벳",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 69,
+  "stary": "c-bet에",
+  "nowy": "C벳에",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 71,
+  "stary": "c-bet의",
+  "nowy": "C벳의",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 73,
+  "stary": "c-bet은",
+  "nowy": "C벳은",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 99,
+  "stary": "c-bet ",
+  "nowy": "C벳 ",
+  "waga": "ŚR",
+  "powod": "Resztka zapisu angielskiego: pl „c-betu” ma w content/ko/terms-nazwy.yaml (klucz c-bet) nazwę „C벳”; tu „c-bet”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 6,
+  "stary": " 너츠",
+  "nowy": " 넛",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 26,
+  "stary": "}}의 {{t:nuts-advantage|너츠",
+  "nowy": "}}의 {{t:nuts-advantage|넛",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 45,
+  "stary": "너츠 우위}}가 없으면 큰 {{",
+  "nowy": "넛 우위}}가 없으면 큰 {{",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 46,
+  "stary": "{{t:nuts-advantage|너츠 우위}},",
+  "nowy": "{{t:nuts-advantage|넛 우위}},",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 54,
+  "stary": "너츠 우위}}입니다. 큰 {{",
+  "nowy": "넛 우위}}입니다. 큰 {{",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 55,
+  "stary": "{{t:nuts-advantage|너츠 우위}}가 있",
+  "nowy": "{{t:nuts-advantage|넛 우위}}가 있",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 90,
+  "stary": "# {{t:nuts-advantage|너츠 우위}}",
+  "nowy": "# {{t:nuts-advantage|넛 우위}}",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 92,
+  "stary": "너츠 우위}}는 {{",
+  "nowy": "넛 우위}}는 {{",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 92,
+  "stary": "너츠}",
+  "nowy": "넛}",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 92,
+  "stary": " {{t:nuts-advantage|너츠 우위}}는",
+  "nowy": " {{t:nuts-advantage|넛 우위}}는",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 99,
+  "stary": "}}와 {{t:nuts-advantage|너츠",
+  "nowy": "}}와 {{t:nuts-advantage|넛",
+  "waga": "ŚR",
+  "powod": "pl „przewaga nutsów” / „nutsów”: content/ko/terms-nazwy.yaml podaje nuts-advantage = „넛 우위”, nuts = „넛”; tu „너츠”. Forma w znaczniku ma być postacią nazwy z terms-nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 28,
+  "stary": " {{t:initiative|이니셔티브}}를",
+  "nowy": " {{t:initiative|주도권}}을",
+  "waga": "ŚR",
+  "powod": "pl „oddaje/oddajesz inicjatywę”: content/ko/terms-nazwy.yaml podaje initiative = „주도권” (tak też w m4-l3); tu „이니셔티브”. Partykuła zmieniona na „을” po spółgłosce.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l4-limperzy.md",
+  "linia": 48,
+  "stary": "\"{{t:initiative|이니셔티브}}를",
+  "nowy": "\"{{t:initiative|주도권}}을",
+  "waga": "ŚR",
+  "powod": "pl „oddaje/oddajesz inicjatywę”: content/ko/terms-nazwy.yaml podaje initiative = „주도권” (tak też w m4-l3); tu „이니셔티브”. Partykuła zmieniona na „을” po spółgłosce.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 74,
+  "stary": "양방 또",
+  "nowy": "양방향 또",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 101,
+  "stary": "{{t:oesd|양방 스트레이트 드로우}}를 가지",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}를 가지",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 101,
+  "stary": "양방 {",
+  "nowy": "양방향 {",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 103,
+  "stary": "{{t:oesd|양방 스트레이트 드로우}}를 가진",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}를 가진",
+  "waga": "NISKIE",
+  "powod": "pl „otwarty (draw do strita)” / {{t:oesd}}: content/ko/terms-nazwy.yaml podaje oesd = „양방향 스트레이트 드로우”; tu skrócone „양방”. Ujednolicenie nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l1-tekstury.md",
+  "linia": 80,
+  "stary": "{{t:wetness|웻 정도}}",
+  "nowy": "{{t:wetness|웻니스}}",
+  "waga": "ŚR",
+  "powod": "pl „punkty mokrości”: content/ko/terms-nazwy.yaml podaje wetness = „웻니스”; forma „웻 정도” nie jest postacią tej nazwy.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "stary": "{{t:connected|연결된}}",
+  "nowy": "{{t:connected|커넥티드한}}",
+  "waga": "ŚR",
+  "powod": "pl „Na niskim, połączonym flopie”: content/ko/terms-nazwy.yaml podaje connected = „커넥티드” (tak w m5-l1); tu rodzime „연결된” — jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 46,
+  "stary": "{{t:range|레인지}} 중 {{t:call|콜}} 레인지 하단에",
+  "nowy": "{{t:call|콜}} {{t:range|레인지}} 하단에",
+  "waga": "NISKIE",
+  "powod": "pl „z dołu zakresu sprawdzenia”: „레인지 중 콜 레인지 하단” powtarza „레인지” i brzmi nienaturalnie; w m4-l2 to samo wyrażenie brzmi „콜 레인지 하단”. Znaczniki zachowane.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m4-l1-3bet.md",
+  "linia": 99,
+  "stary": "{{t:range|레인지}} 중 {{t:call|콜}} 레인지 하단의",
+  "nowy": "{{t:call|콜}} {{t:range|레인지}} 하단의",
+  "waga": "NISKIE",
+  "powod": "pl „z dołu zakresu sprawdzenia”: „레인지 중 콜 레인지 하단” powtarza „레인지” i brzmi nienaturalnie; w m4-l2 to samo wyrażenie brzmi „콜 레인지 하단”. Znaczniki zachowane.",
+  "grupa": "L2"
+ }
+]

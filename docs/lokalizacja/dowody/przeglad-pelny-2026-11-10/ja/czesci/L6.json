@@ -1,0 +1,252 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 97,
+  "stary": "| Flop | {{n:ex.pot}}",
+  "nowy": "| フロップ | {{n:ex.pot}}",
+  "waga": "ŚR",
+  "powod": "Wiersz tabeli zostawiony po angielsku (pl: „Flop/Turn/River” to w pl zwykłe nazwy ulic); reszta przekładu ja używa フロップ/ターン/リバー, także w tym pliku. Resztka tekstu nieprzełożonego.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 98,
+  "stary": "| Turn | {{n:ex.pot.after-pot-call}}",
+  "nowy": "| ターン | {{n:ex.pot.after-pot-call}}",
+  "waga": "ŚR",
+  "powod": "Wiersz tabeli zostawiony po angielsku (pl: „Flop/Turn/River” to w pl zwykłe nazwy ulic); reszta przekładu ja używa フロップ/ターン/リバー, także w tym pliku. Resztka tekstu nieprzełożonego.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 99,
+  "stary": "| River | {{n:geo.ex.turn-after}}",
+  "nowy": "| リバー | {{n:geo.ex.turn-after}}",
+  "waga": "ŚR",
+  "powod": "Wiersz tabeli zostawiony po angielsku (pl: „Flop/Turn/River” to w pl zwykłe nazwy ulic); reszta przekładu ja używa フロップ/ターン/リバー, także w tym pliku. Resztka tekstu nieprzełożonego.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 113,
+  "stary": "## よくある{{t:pot|ポット}}のサイズ",
+  "nowy": "## よくある{{t:pot|ポット}}でのサイズ",
+  "waga": "ŚR",
+  "powod": "pl: „Rozmiary dla typowych pul” = rozmiary zakładu dla typowych pul. Obecny nagłówek czyta się jako „typowe wielkości puli”; „でのサイズ” oddaje sens pl.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 89,
+  "stary": "{{t:pot|ポット}}を何倍にもします",
+  "nowy": "{{t:pot|ポット}}を掛け算で増やします",
+  "waga": "NISKIE",
+  "powod": "pl: „nie dodają do puli stałej kwoty, tylko ją mnożą”. „何倍にもします” znaczy „zwiększają wielokrotnie” (przesada); chodzi o mnożenie zamiast dodawania, jak w m9-l4 („掛け算で大きくなります”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 45,
+  "stary": "フロップ、ターン、リバーで一定のどの{{t:bet|ベット}}サイズなら、スタック全額が入りますか？",
+  "nowy": "フロップ、ターン、リバーで毎回同じ{{t:bet|ベット}}サイズにするなら、どのサイズでスタック全額が入りますか？",
+  "waga": "NISKIE",
+  "powod": "pl: „Jaki stały rozmiar zakładu na flopie, turnie i riverze wpłaca cały stack?”. „一定のどのベットサイズなら” to niegramatyczny szyk; nowy tekst mówi to samo naturalnie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 72,
+  "stary": "シングルレイズ{{t:pot|ポット}}で、{{t:spr}}は約",
+  "nowy": "シングルレイズド{{t:pot|ポット}}で、{{t:spr}}は約",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 113,
+  "stary": "シングルレイズ{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}）では、バリュー",
+  "nowy": "シングルレイズド{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}）では、バリュー",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 115,
+  "stary": "シングルレイズ{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}、",
+  "nowy": "シングルレイズド{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}、",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 130,
+  "stary": "シングルレイズ{{t:pot|ポット}}では{{t:spr}}が高すぎて",
+  "nowy": "シングルレイズド{{t:pot|ポット}}では{{t:spr}}が高すぎて",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 87,
+  "stary": "あなたの{{t:stakes|ステークス}}のプレイヤー層のデータ",
+  "nowy": "あなたの{{t:stakes|ステークス}}の母集団データ",
+  "waga": "NISKIE",
+  "powod": "pl: „dane o populacji”. W tym pliku „プレイヤー層”, w m10-l2, m10-l3, m10-l4 i rules.yaml „母集団” (25 linii). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 130,
+  "stary": "自分の{{t:stakes|ステークス}}のプレイヤー層のデータ",
+  "nowy": "自分の{{t:stakes|ステークス}}の母集団データ",
+  "waga": "NISKIE",
+  "powod": "pl: „dane o populacji”. W tym pliku „プレイヤー層”, w m10-l2, m10-l3, m10-l4 i rules.yaml „母集団” (25 linii). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 82,
+  "stary": "text: \"オールインに{{t:raise|レイズ}}\"",
+  "nowy": "text: \"オールインで{{t:raise|レイズ}}\"",
+  "waga": "NISKIE",
+  "powod": "pl: „Przebijam all-in”. „オールインにレイズ” czyta się jak „przebijam czyjś all-in”; „オールインでレイズ” = przebijam all-inem.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 132,
+  "stary": "{{t:street|ストリート}}にわたって；",
+  "nowy": "{{t:street|ストリート}}にわたって。",
+  "waga": "NISKIE",
+  "powod": "Punkt listy kończy się średnikiem przeniesionym z pl („…na trzech ulicach;”); w japońskim zdanie kończy „。”, jak w następnym punkcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 92,
+  "stary": "## まずは{{t:mixed-hand|混合ハンド}}から",
+  "nowy": "## まずは{{t:mixed-hand|ミックスハンド}}から",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 96,
+  "stary": "多すぎる：{{t:mixed-hand|混合ハンド}}",
+  "nowy": "多すぎる：{{t:mixed-hand|ミックスハンド}}",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 97,
+  "stary": "少なすぎる：{{t:mixed-hand|混合ハンド}}",
+  "nowy": "少なすぎる：{{t:mixed-hand|ミックスハンド}}",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 129,
+  "stary": "{{t:mixed-hand|混合ハンド}}の原則",
+  "nowy": "{{t:mixed-hand|ミックスハンド}}の原則",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 75,
+  "stary": "への{{t:in-position|インポジション}}の3ベットは、",
+  "nowy": "への{{t:position|インポジション}}の3ベットは、",
+  "waga": "ŚR",
+  "powod": "Klucz znacznika zmieniony względem pl: pl „3-bet z {{t:position|pozycji}}”, ja ma {{t:in-position|…}}. Klucz ma być jak w pl; widoczny tekst „インポジション” zostaje (forma zawiera nazwę ポジション, używana już pod kluczem position).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 115,
+  "stary": "への{{t:in-position|インポジション}}の3ベットが、",
+  "nowy": "への{{t:position|インポジション}}の3ベットが、",
+  "waga": "ŚR",
+  "powod": "Klucz znacznika zmieniony względem pl: pl „3-bet z {{t:position|pozycji}}”, ja ma {{t:in-position|…}}. Klucz ma być jak w pl; widoczny tekst „インポジション” zostaje (forma zawiera nazwę ポジション, używana już pod kluczem position).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 42,
+  "stary": "explanation: \"閾値は",
+  "nowy": "explanation: \"しきい値は",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 101,
+  "stary": "## 閾値で計算する",
+  "nowy": "## しきい値で計算する",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 109,
+  "stary": "相手がこの閾値より上か下か",
+  "nowy": "相手がこのしきい値より上か下か",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 111,
+  "stary": "母集団の平均が閾値を上回っている",
+  "nowy": "母集団の平均がしきい値を上回っている",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 129,
+  "stary": "{{t:alpha|アルファ}}の閾値は",
+  "nowy": "{{t:alpha|アルファ}}のしきい値は",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ }
+]

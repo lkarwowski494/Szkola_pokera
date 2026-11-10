@@ -1,0 +1,82 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 29,
+  "stary": "{{t:payout|ペイアウト}}：1位に",
+  "nowy": "{{t:payout|賞金}}：1位に",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 39,
+  "stary": "の{{t:payout|ペイアウト}}では、",
+  "nowy": "の{{t:payout|賞金}}では、",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 71,
+  "stary": "{{t:payout|ペイアウト}}のある{{t:tournament|トーナメント}}で重要",
+  "nowy": "{{t:payout|賞金}}のある{{t:tournament|トーナメント}}で重要",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 161,
+  "stary": "{{t:payout|ペイアウト}}のある{{t:tournament|トーナメント}}では{{n:",
+  "nowy": "{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では{{n:",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l1-raport.md",
+  "linia": 61,
+  "stary": "レポート：「30件中14件の判断を評価しました」",
+  "nowy": "レポート：「判断30件中14件を評価」",
+  "waga": "ŚR",
+  "powod": "pl cytuje napis z raportu „Oceniono 14 z 30 decyzji” dokładnie jak w interfejsie pl (game.report.rated „Oceniono {{rated}} z {{all}} decyzji”); w ja interfejs pokazuje „判断{{all}}件中{{rated}}件を評価” (ja.json), a lekcja cytuje inne brzmienie. Cytat ma odpowiadać temu, co użytkownik widzi na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l1-raport.md",
+  "linia": 97,
+  "stary": "「Y件中X件の判断を評価しました」",
+  "nowy": "「判断Y件中X件を評価」",
+  "waga": "ŚR",
+  "powod": "pl „Oceniono X z Y decyzji” = napis interfejsu; w ja interfejs ma „判断{{all}}件中{{rated}}件を評価” (ja.json). Cytat dopasowany do ekranu raportu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l2-powtorki.md",
+  "linia": 52,
+  "stary": "プレースタイル",
+  "nowy": "プレイスタイル",
+  "waga": "NISKIE",
+  "powod": "pisownia: w całym przekładzie ja „プレイ” (740 wystąpień) wobec „プレー” (7); pl „styl” — sens bez zmian, ujednolicenie zapisu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l2-powtorki.md",
+  "linia": 53,
+  "stary": "上手くプレーしています",
+  "nowy": "上手くプレイしています",
+  "waga": "NISKIE",
+  "powod": "pisownia: w całym przekładzie ja „プレイ” (740) wobec „プレー” (7); pl „Grasz dobrze” — sens bez zmian, ujednolicenie zapisu.",
+  "grupa": "L7"
+ }
+]

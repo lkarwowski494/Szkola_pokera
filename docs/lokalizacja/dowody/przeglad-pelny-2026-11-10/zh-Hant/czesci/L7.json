@@ -1,0 +1,412 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 5,
+  "stary": "全下或蓋牌",
+  "nowy": "全下或棄牌",
+  "waga": "ŚR",
+  "powod": "Tytuł pl „all-in albo pas”: fold nazwany 蓋牌, a terms-nazwy (fold: 棄牌) i cała reszta lekcji mają 棄牌; jedyne wystąpienie 蓋牌 w treści.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 17,
+  "stary": "盲注（平跟），看翻牌",
+  "nowy": "盲注（溜入），看翻牌",
+  "waga": "ŚR",
+  "powod": "pl „limp”: w przekładzie 平跟, a terms-nazwy ma limp: 溜入 (52× w treści); 平跟 oznacza też zwykłe sprawdzenie (flat call), więc jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 17,
+  "stary": "平跟沒有機會",
+  "nowy": "溜入沒有機會",
+  "waga": "ŚR",
+  "powod": "pl „limp”: w przekładzie 平跟, a terms-nazwy ma limp: 溜入 (52× w treści); 平跟 oznacza też zwykłe sprawdzenie (flat call), więc jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 17,
+  "stary": "有時會平跟，但",
+  "nowy": "有時會溜入，但",
+  "waga": "ŚR",
+  "powod": "pl „limp”: w przekładzie 平跟, a terms-nazwy ma limp: 溜入 (52× w treści); 平跟 oznacza też zwykłe sprawdzenie (flat call), więc jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 123,
+  "stary": "也能選擇平跟和小加注",
+  "nowy": "也能選擇溜入和小加注",
+  "waga": "ŚR",
+  "powod": "pl „limp”: w przekładzie 平跟, a terms-nazwy ma limp: 溜入 (52× w treści); 平跟 oznacza też zwykłe sprawdzenie (flat call), więc jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 123,
+  "stary": "用部分手牌平跟或最小加注",
+  "nowy": "用部分手牌溜入或最小加注",
+  "waga": "ŚR",
+  "powod": "pl „limp”: w przekładzie 平跟, a terms-nazwy ma limp: 溜入 (52× w treści); 平跟 oznacza też zwykłe sprawdzenie (flat call), więc jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l1-push-fold.md",
+  "linia": 65,
+  "stary": "你{{t:shove|全推}}的範圍最寬",
+  "nowy": "你{{t:shove|推全下}}的範圍最寬",
+  "waga": "NISKIE",
+  "powod": "pl „{{t:shove|pushujesz}}”: forma 全推 niezgodna z terms-nazwy (shove: 推全下), tak jak w lekcjach m11-l2 i m11-l3.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l2-sprawdzanie.md",
+  "linia": 58,
+  "stary": "你沒有棄牌收益，而對手",
+  "nowy": "你沒有棄牌權益，而對手",
+  "waga": "ŚR",
+  "powod": "pl „fold equity”: w tej lekcji 棄牌收益, a w m11-l1 i m11-l3 (i reszcie treści) 棄牌權益; 棄牌收益 występuje tylko w tym pliku — jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l2-sprawdzanie.md",
+  "linia": 76,
+  "stary": "跟注者沒有棄牌收益",
+  "nowy": "跟注者沒有棄牌權益",
+  "waga": "ŚR",
+  "powod": "pl „fold equity”: w tej lekcji 棄牌收益, a w m11-l1 i m11-l3 (i reszcie treści) 棄牌權益; 棄牌收益 występuje tylko w tym pliku — jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l2-sprawdzanie.md",
+  "linia": 78,
+  "stary": "差別來自棄牌收益",
+  "nowy": "差別來自棄牌權益",
+  "waga": "ŚR",
+  "powod": "pl „fold equity”: w tej lekcji 棄牌收益, a w m11-l1 i m11-l3 (i reszcie treści) 棄牌權益; 棄牌收益 występuje tylko w tym pliku — jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l2-sprawdzanie.md",
+  "linia": 140,
+  "stary": "沒有棄牌收益，它們",
+  "nowy": "沒有棄牌權益，它們",
+  "waga": "ŚR",
+  "powod": "pl „fold equity”: w tej lekcji 棄牌收益, a w m11-l1 i m11-l3 (i reszcie treści) 棄牌權益; 棄牌收益 występuje tylko w tym pliku — jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m11-l3-icm.md",
+  "linia": 161,
+  "stary": "當 Button 和",
+  "nowy": "當按鈕位和",
+  "waga": "NISKIE",
+  "powod": "pl „Button”: tu zostawione po angielsku, a w m11-l1 i m11-l2 (i 335× w treści) pozycja nazywa się 按鈕位.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 36,
+  "stary": "{ text: \"一致\", correct: true, why: \"對：solver",
+  "nowy": "{ text: \"吻合\", correct: true, why: \"對：solver",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 36,
+  "stary": "採取的行動就算一致",
+  "nowy": "採取的行動就算吻合",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 45,
+  "stary": "{ text: \"一致\", correct: true, why: \"對：約",
+  "nowy": "{ text: \"吻合\", correct: true, why: \"對：約",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 45,
+  "stary": "沒有低於一致的門檻",
+  "nowy": "沒有低於吻合的門檻",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 46,
+  "stary": "已達到一致的門檻",
+  "nowy": "已達到吻合的門檻",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 55,
+  "stary": "{ text: \"一致\", why:",
+  "nowy": "{ text: \"吻合\", why:",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 64,
+  "stary": "算作一致",
+  "nowy": "算作吻合",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 90,
+  "stary": "**一致**",
+  "nowy": "**吻合**",
+  "waga": "ŚR",
+  "powod": "pl werdykt „Zgodna”: w lekcji 一致, a interfejs raportu (locales/zh-Hant.json: grade.zgodne, report.verdicts.compliant) pokazuje 吻合; lekcja uczy czytać raport, więc nazwa stopnia musi być ta sama co na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 95,
+  "stary": "**逾時**",
+  "nowy": "**超時**",
+  "waga": "ŚR",
+  "powod": "pl stopień „Przekroczony czas”: w lekcji 逾時, a interfejs raportu (report.verdicts.timeout) i lekcja m13-l2 mają 超時.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 61,
+  "stary": "「已評分 30 個決策中的 14 個」",
+  "nowy": "「已評分 14/30 個決策」",
+  "waga": "ŚR",
+  "powod": "pl cytuje napis raportu „Oceniono 14 z 30 decyzji”; w interfejsie zh-Hant ten napis brzmi „已評分 {{rated}}/{{all}} 個決策”, więc cytat ma wyglądać jak na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 97,
+  "stary": "「已評分 Y 個決策中的 X 個」",
+  "nowy": "「已評分 X/Y 個決策」",
+  "waga": "ŚR",
+  "powod": "pl „Oceniono X z Y decyzji” to napis z raportu; w interfejsie zh-Hant: „已評分 {{rated}}/{{all}} 個決策”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 105,
+  "stary": "winrate 的 {{n:var.conf95}}",
+  "nowy": "贏率的 {{n:var.conf95}}",
+  "waga": "ŚR",
+  "powod": "pl „winrate”: zostawione po angielsku, a terms-nazwy ma winrate: 贏率 (100× w treści, m.in. lekcja o wariancji, do której zdanie odsyła).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "linia": 105,
+  "stary": "輸家也可能大幅領先",
+  "nowy": "輸家也可能大幅獲利",
+  "waga": "NISKIE",
+  "powod": "pl „przegrywający [może być] na dużym plusie”: 領先 = „prowadzi”, a chodzi o wynik na plusie (zysk), w parze z „負的”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 34,
+  "stary": "相符和可接受的決策",
+  "nowy": "吻合和可接受的決策",
+  "waga": "ŚR",
+  "powod": "pl „Zgodne i dopuszczalne”: werdykt nazwany 相符, a interfejs raportu ma 吻合 (report.good: „吻合和可接受的決策”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 35,
+  "stary": "例如動作正確、尺寸錯誤",
+  "nowy": "例如行動正確、尺寸錯誤",
+  "waga": "NISKIE",
+  "powod": "pl „dobra akcja, zły rozmiar”: akcja = 行動 w m13-l1 i w interfejsie („行動正確，尺寸錯誤”); tu 動作.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 40,
+  "stary": "對 Button 的防守",
+  "nowy": "對按鈕位的防守",
+  "waga": "NISKIE",
+  "powod": "pl „wobec Buttona”: pozycja w reszcie treści to 按鈕位; tu zostawione po angielsku.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 44,
+  "stary": "text: \"鎖住這個單元的區域\"",
+  "nowy": "text: \"鎖住這個模組的領域\"",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 44,
+  "stary": "上完課後解鎖的區域會保持開放",
+  "nowy": "上完課後解鎖的領域會保持開放",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 53,
+  "stary": "而一場 {{t:session}} 也無法",
+  "nowy": "而一個{{t:session}}也無法",
+  "waga": "NISKIE",
+  "powod": "pl „jedna {{t:session}}”: znacznik bez formy daje 場次, więc wychodzi „一場 場次” (podwojone 場, zbędne spacje); reszta pliku ma „一個場次”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 62,
+  "stary": "一場 {{t:session}} 不會改變",
+  "nowy": "一個{{t:session}}不會改變",
+  "waga": "NISKIE",
+  "powod": "pl „Jedna {{t:session}}”: znacznik bez formy daje 場次, więc wychodzi „一場 場次”; reszta pliku ma „一個場次”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 67,
+  "stary": "「翻牌：c-bet」遊戲區域什麼時候解鎖",
+  "nowy": "「翻牌：持續下注」實戰領域什麼時候解鎖",
+  "waga": "ŚR",
+  "powod": "pl „obszar gry „Flop: c-bet””: nazwa obszaru = tytuł modułu m5, w zh-Hant „翻牌：持續下注” (modules.yaml); obszar w interfejsie to 領域, tryb gry to 實戰.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 69,
+  "stary": "text: \"完成這個單元的所有課程後\"",
+  "nowy": "text: \"完成這個模組的所有課程後\"",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 69,
+  "stary": "這個區域只發出單元中的情境，所以要等你學會它的規則才會解鎖。自由對局從一開始",
+  "nowy": "這個領域只發出模組中的情境，所以要等你學會它的規則才會解鎖。自由對戰從一開始",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 71,
+  "stary": "text: \"立刻，和自由對局一樣\"",
+  "nowy": "text: \"立刻，和自由對戰一樣\"",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 71,
+  "stary": "自由對局從第一天就能使用，區域則要等上完單元的課程才會開放",
+  "nowy": "自由對戰從第一天就能使用，領域則要等上完模組的課程才會開放",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 89,
+  "stary": "一個遊戲區域就是課程中的一個單元。完成該單元的所有課程後就會解鎖，而且只發出這個單元中的情境，例如 Button {{t:open|開池}}",
+  "nowy": "一個實戰領域就是課程中的一個模組。完成該模組的所有課程後就會解鎖，而且只發出這個模組中的情境，例如按鈕位{{t:open|開池}}",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji. Dodatkowo „Button” → 按鈕位 jak w reszcie treści.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 89,
+  "stary": "前往錯誤最多的區域",
+  "nowy": "前往錯誤最多的領域",
+  "waga": "ŚR",
+  "powod": "pl „moduł” / „obszar (gry)” / „gra swobodna”: w interfejsie zh-Hant to 模組, 領域 (play.areasHint, tableSizeAreas) i 自由對戰 (play.free); lekcja opisuje ten ekran słowami 單元, 區域, 自由對局, więc czytelnik nie znajdzie tych nazw w aplikacji.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l2-powtorki.md",
+  "linia": 96,
+  "stary": "與{{t:exploit|剝削}}單元相同",
+  "nowy": "與{{t:exploit|剝削}}模組相同",
+  "waga": "ŚR",
+  "powod": "pl „w module o eksploatacji”: moduł w interfejsie i modules.yaml to 模組 (m13-l1 też: 心態模組), tu 單元.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m13-l3-przeglad.md",
+  "linia": 80,
+  "stary": "每一{{t:street|輪}}的",
+  "nowy": "每一{{t:street|街}}的",
+  "waga": "ŚR",
+  "powod": "pl „na każdej {{t:street|ulicy}}”: forma 輪 niezgodna z terms-nazwy (street: 街); 輪 to runda licytacji (betting-round: 下注輪).",
+  "grupa": "L7"
+ }
+]

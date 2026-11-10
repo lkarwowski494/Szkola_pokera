@@ -1,0 +1,62 @@
+[
+ {
+  "grupa": "U1",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "\"drawGutshot\": \"卡順聽牌\"",
+  "powod": "S-1: gutshot zostaje w interfejsie jako 卡順 (jak w treści, 22 wystąpienia); wpis U1 zamieniał „卡順聽牌” na łacińskie „gutshot”. Bez zastępstwa; nazwa w terms-nazwy bez zmian (K-05)."
+ },
+ {
+  "grupa": "U1",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "（兩頭順或卡順）",
+  "powod": "S-1: gutshot zostaje w interfejsie jako 卡順 (jak w treści); wpis U1 zamieniał „兩頭順或卡順” na „兩頭順或 gutshot”. Bez zastępstwa."
+ },
+ {
+  "grupa": "L5",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "stary": "要在河牌前把整個籌碼量打進去",
+  "powod": "S-2: zastąpiony wpisem AP m9-l2-zaangazowanie.md:110 (wpis L5 wprowadzał trzecią formę „在河牌結束前”; przyjęta 到河牌為止)"
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "stary": "高牌較多",
+  "powod": "S-3: „wysokie karty” = 高牌 (forma dominująca, 81 + UI 2; R3 rules.yaml:686 i L4 m7-l4:66 idą w tę stronę); wpis E1 zmieniał 高牌 → 大牌 i nie zawierał innych zmian. Bez zastępstwa."
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "stary": "每一{{t:street|輪}}",
+  "powod": "S-6: zastąpiony wpisem AP exams/m5.yaml:59 (wpis E1 dawał 每一{{t:street|條街}}; przyjęta jedna forma 每條{{t:street|街}})"
+ },
+ {
+  "grupa": "L4",
+  "cel": "content/zh-Hant/lessons/m7-l4-probe-obrona.md",
+  "stary": "每一{{t:street|輪}}按鈕位",
+  "powod": "S-6: zastąpiony wpisem AP m7-l4-probe-obrona.md:28 (wpis L4 dawał 每一條{{t:street|街}}; przyjęta jedna forma 每條{{t:street|街}})"
+ },
+ {
+  "grupa": "L7",
+  "cel": "content/zh-Hant/lessons/m13-l3-przeglad.md",
+  "stary": "每一{{t:street|輪}}的",
+  "powod": "S-6: zastąpiony wpisem AP m13-l3-przeglad.md:80 (wpis L7 dawał 每一{{t:street|街}}; przyjęta jedna forma 每條{{t:street|街}})"
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/zh-Hant/exams/m5.yaml",
+  "stary": "{{t:board|公牌}}",
+  "powod": "S-9: zastąpiony wpisem AP exams/m5.yaml:14 (wpis E1 zmieniał formę na 公共牌; pl „As na {{t:board|stole}}” to board → 牌面)"
+ },
+ {
+  "grupa": "E2",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "stary": "採用的動作才算一致",
+  "powod": "S-11: zastąpiony wpisem AP exams/m13.yaml:26 (wpis E2 zostawiał w polu nowy „動作”; przyjęta forma 行動, jak L7 m13-l1:36 „採取的行動就算吻合”)"
+ },
+ {
+  "grupa": "L7",
+  "cel": "content/zh-Hant/lessons/m13-l1-raport.md",
+  "stary": "{ text: \"一致\", correct: true, why: \"對：solver",
+  "powod": "to samo miejsce co poprawka AP lessons/m13-l1-raport.md:36 (U-1); zmiana L7 („{ text: \"一致\", correct: true, why: \"對：solver” → „{ text: \"吻合\", correct: true, why: \"對：solver”) przeniesiona bez zmian do połączonej poprawki AP"
+ }
+]

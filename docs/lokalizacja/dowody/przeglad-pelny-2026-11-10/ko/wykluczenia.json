@@ -1,0 +1,50 @@
+[
+ {
+  "grupa": "E1",
+  "cel": "content/ko/exams/m6.yaml",
+  "stary": "하이 카드 두 장이지만",
+  "powod": "S1: wpis zmieniał „하이 카드” → „하이카드” (nazwa układu); przyjęto „wysokie karty” = „높은 카드”; zastąpiony wpisem AP exams/m6.yaml:67"
+ },
+ {
+  "grupa": "E1",
+  "cel": "content/ko/exams/m6.yaml",
+  "stary": "하이 카드 두 장은",
+  "powod": "S1: wpis zmieniał „하이 카드” → „하이카드” (nazwa układu); przyjęto „wysokie karty” = „높은 카드”; zastąpiony wpisem AP exams/m6.yaml:68 (połączonym z zamianą c-bet → C벳 w tym samym miejscu)"
+ },
+ {
+  "grupa": "E2",
+  "cel": "content/ko/exams/m12.yaml",
+  "stary": "약 {{n:exam.m12.wr.ci.low}}와 약",
+  "powod": "S2: partykuła po wartości w bb/100 („와” → „과”) nie rozstrzygnięta — pytanie do rodzimego użytkownika o odczyt jednostki; wpis wstrzymany, żeby egzamin m12 nie różnił się od lekcji i reguł modułu 12 (oczekuje)"
+ },
+ {
+  "grupa": "L8",
+  "cel": "content/ko/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{n:var.hands.k}}천 핸드도",
+  "powod": "S4: wpis zmieniał „천 핸드” → „k 핸드”; przyjęto zapis „{{n:klucz}},000핸드”; zastąpiony wpisem AP m12-l2-decyzja-wynik.md:68"
+ },
+ {
+  "grupa": "L3",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:bet|벳했고}}, {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}",
+  "powod": "S6: wpis dopisywał „당신은”; plik używa „내가/나는” — zastąpiony wpisem AP m6-l3-check-raise.md:41 („내가”), poprawka sensu (kto przebił) zachowana"
+ },
+ {
+  "grupa": "L3",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:bet|벳했고}}, {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}",
+  "powod": "S6: wpis dopisywał „당신은”; plik używa „내가/나는” — zastąpiony wpisem AP m6-l3-check-raise.md:49 („내가”), poprawka sensu (kto przebił) zachowana"
+ },
+ {
+  "grupa": "L3",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "stary": "직접 C벳에 {{t:call|콜할}} 때",
+  "powod": "S6: wpis wstawiał „당신이”; plik używa „내가/나는” — zastąpiony wpisem AP m6-l3-check-raise.md:54 („내가”)"
+ },
+ {
+  "grupa": "U1",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "결정마다 평가와 해설, 베팅 없음",
+  "powod": "Sklep: zmiana podtytułu (subtitle) to decyzja produktowa/ASO roli sklepu — wpis wstrzymany i przekazany koordynatorowi jako pytanie (było „결정마다 평가와 해설, 베팅 없음” → propozycja „결정마다 평가와 해설, 판돈 없음”, 18 znaków); wpisy U1 dotyczące opisu zostają"
+ }
+]

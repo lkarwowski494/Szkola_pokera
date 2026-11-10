@@ -1,0 +1,102 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l3-wobec-3betu.md",
+  "linia": 13,
+  "stary": "ボタンがどのハンドで3ベットしても利益を出せないようにするには",
+  "nowy": "ボタンがどんなハンドの3ベットでも利益を出せる状態にしないためには",
+  "waga": "ŚR",
+  "powod": "pl: „żeby Button nie zarabiał na 3-becie z każdą ręką” (zaprzeczenie dotyczy „z każdą ręką”). Przekład mówi „żeby Button nie mógł zarobić, jakąkolwiek ręką 3-betuje” (żadna ręka nie zarabia), co jest za mocne; nowy tekst: „żeby nie powstał stan, w którym 3-bet zarabia dowolną ręką”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l4-limperzy.md",
+  "linia": 46,
+  "stary": "弱いプレイヤーがリンプする多くのハンドを支配しており",
+  "nowy": "弱いプレイヤーがリンプする多くのハンドをドミネートしており",
+  "waga": "ŚR",
+  "powod": "pl: „dominuje wiele rąk”. W reszcie przekładu (m4-l3 i dalej) dominacja to konsekwentnie ドミネート; 支配 pojawia się tylko w tej lekcji. Jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l4-limperzy.md",
+  "linia": 48,
+  "stary": "リンパーを支配するハンドなら",
+  "nowy": "リンパーをドミネートするハンドなら",
+  "waga": "ŚR",
+  "powod": "pl: „Z ręką, która dominuje limpera”. Ujednolicenie z ドミネート używanym w pozostałych lekcjach (支配 tylko tutaj).",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "linia": 74,
+  "stary": "連続する5つのランクの中に自分のカードが2枚だけ収まっています",
+  "nowy": "フロップのカードのうち2枚だけが連続する5つのランクの中に収まっています",
+  "waga": "ŚR",
+  "powod": "pl: „ma w obrębie pięciu kolejnych rang tylko dwie swoje karty” (swoje = karty flopa). 自分のカード czyta się jako „twoje (gracza) karty”, co myli definicję; nowy tekst mówi wprost o kartach flopa.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "linia": 74,
+  "stary": "**{{t:semi-connected|セミコネクテッド}}**なフロップは",
+  "nowy": "**{{t:semi-connected|セミコネクト}}**なフロップは",
+  "waga": "ŚR",
+  "powod": "Forma znacznika niezgodna z terms-nazwy (semi-connected: „セミコネクト”); reszta przekładu używa セミコネクト.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "linia": 84,
+  "stary": "（{{t:semi-connected|セミコネクテッド}}なフロップ、または",
+  "nowy": "（{{t:semi-connected|セミコネクト}}なフロップ、または",
+  "waga": "ŚR",
+  "powod": "Forma znacznika niezgodna z terms-nazwy (semi-connected: „セミコネクト”).",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "stary": "低くて{{t:connected|コネクトした}}フロップでは",
+  "nowy": "低くて{{t:connected|コネクテッド}}なフロップでは",
+  "waga": "ŚR",
+  "powod": "pl: „Na niskim, {{t:connected|połączonym}} flopie”. Forma コネクトした nie jest postacią nazwy z terms-nazwy (connected: „コネクテッド”, jedna forma przymiotnikowa); lekcja m5-l1 definiuje pojęcie jako コネクテッド.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l2-obrona-bb.md",
+  "linia": 13,
+  "stary": "フロップ以降のプレーは考慮しません",
+  "nowy": "フロップ以降のプレイは考慮しません",
+  "waga": "NISKIE",
+  "powod": "Pisownia: w całym przekładzie プレイ (ok. 800 wystąpień), プレー tylko w kilku miejscach; ujednolicenie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l2-obrona-bb.md",
+  "linia": 34,
+  "stary": "最後までプレーした場合",
+  "nowy": "最後までプレイした場合",
+  "waga": "NISKIE",
+  "powod": "Pisownia プレー → プレイ (ujednolicenie z resztą przekładu).",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l2-obrona-bb.md",
+  "linia": 46,
+  "stary": "をプレーしたいわけではありません",
+  "nowy": "をプレイしたいわけではありません",
+  "waga": "NISKIE",
+  "powod": "Pisownia プレー → プレイ (ujednolicenie z resztą przekładu).",
+  "grupa": "L2"
+ }
+]

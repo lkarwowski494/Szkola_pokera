@@ -1,0 +1,102 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-nazwy.yaml",
+  "linia": 10,
+  "stary": "set: \"三條\"",
+  "nowy": "set: \"暗三條\"",
+  "waga": "ŚR",
+  "powod": "pl rozróżnia „set” (para w ręce) i „trójka” (three of a kind); w zh-Hant oba klucze mają nazwę 三條, więc {{t:set}} bez formy (exams/m10.yaml:47) i słowniczek pokazują to samo co three-of-a-kind. Definicja three-of-a-kind w terms-def sama nazywa set „暗三條”, a w treści 暗三條 występuje 30×; przyjęta nazwa seta to 暗三條.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/modules.yaml",
+  "linia": 13,
+  "stary": "波動與上頭",
+  "nowy": "變異數與上頭",
+  "waga": "ŚR",
+  "powod": "pl „Wariancja i tilt”: termin variance ma w terms-nazwy nazwę 變異數 (tytuł lekcji m12-l1 też „用數字看變異數”); 波動 to inna nazwa tego samego pojęcia — ujednolicenie do jednej nazwy.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "linia": 119,
+  "stary": "變異的平方根",
+  "nowy": "變異數的平方根",
+  "waga": "ŚR",
+  "powod": "pl „pierwiastek z wariancji”: termin variance = 變異數 (terms-nazwy); 變異 to niepełna nazwa, niezgodna ze słownikiem.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "linia": 158,
+  "stary": "通常比常客弱",
+  "nowy": "通常比常規玩家弱",
+  "waga": "ŚR",
+  "powod": "pl „słabiej od stałych bywalców” odsyła do terminu reg; w terms-nazwy regular = 常規玩家, a 常客 to wariant oznaczony do ujednolicenia.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "linia": 42,
+  "stary": "（例如槍口位）",
+  "nowy": "（例如 UTG）",
+  "waga": "ŚR",
+  "powod": "pl „(np. UTG)”: w terms-nazwy utg = null (zostaje skrót UTG), w treści UTG jest nazwą tej pozycji; 槍口位 nie jest nigdzie wprowadzone (poza jedną formą w exams/m10), więc definicja używa nazwy nieznanej czytelnikowi.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "linia": 43,
+  "stary": "尤其是關煞位。",
+  "nowy": "尤其是 CO。",
+  "waga": "ŚR",
+  "powod": "pl „zwłaszcza Cutoff”: w terms-nazwy cutoff = CO i tak nazywa się pozycja w całym przekładzie (CO 54×); 關煞位 nie jest nazwą używaną w kursie.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "linia": 45,
+  "stary": "緊鄰關煞位之前的座位",
+  "nowy": "緊鄰 CO 之前的座位",
+  "waga": "ŚR",
+  "powod": "pl „bezpośrednio przed Cutoffem”: nazwa terminu cutoff w zh-Hant to CO (terms-nazwy); 關煞位 niezgodne z resztą przekładu.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "linia": 138,
+  "stary": "獎池份額",
+  "nowy": "獎金池份額",
+  "waga": "NISKIE",
+  "powod": "pl „część puli nagród”: termin prize-pool = 獎金池 (terms-nazwy); 獎池 to wariant skrócony.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "linia": 108,
+  "stary": "有效籌碼量除以",
+  "nowy": "有效籌碼除以",
+  "waga": "NISKIE",
+  "powod": "pl „Efektywny stack podzielony przez pulę”: termin effective-stack = 有效籌碼 (terms-nazwy); jedna nazwa na pojęcie.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "linia": 62,
+  "stary": "你{{t:raise|加注}}約{{t:open|開池}}的 {{n:pf.3bet.size-ip}}",
+  "nowy": "你{{t:raise|加注}}到約{{t:open|開池}}的 {{n:pf.3bet.size-ip}}",
+  "waga": "NISKIE",
+  "powod": "pl „przebijasz ok. 3x otwarcia, czyli do 7,5bb”: bez 到 zdanie „加注約開池的 3x” jest niegramatyczne; lekcja m4-l1 ma „加注到開池的約 3x”.",
+  "grupa": "S1"
+ }
+]

@@ -1,0 +1,322 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 54,
+  "stary": "{ text: \"지는 것을 싫어해서 생기는 틸트\"",
+  "nowy": "{ text: \"패배 혐오 틸트\"",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna, nazwa typu tiltu. pl „Tilt z nienawiści do przegrywania”, a pytanie odsyła do „podziału z lekcji o tilcie”; lekcja ko m12-l3 nazywa ten typ „패배 혐오 틸트” (tabela i opcje ćwiczeń). Egzamin używa innej, opisowej nazwy; jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 55,
+  "stary": "{ text: \"불공정함 때문에 생기는 틸트\"",
+  "nowy": "{ text: \"불공정 틸트\"",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna, nazwa typu tiltu. pl „Tilt z niesprawiedliwości”; lekcja ko m12-l3 konsekwentnie „불공정 틸트”. Ujednolicenie nazwy z lekcją, do której odsyła pytanie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 56,
+  "stary": "{ text: \"실수 때문에 생기는 틸트\"",
+  "nowy": "{ text: \"실수 틸트\"",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna, nazwa typu tiltu. pl „Tilt z błędu”; lekcja ko m12-l3 i uzasadnienie tej samej opcji mają „실수 틸트”. Ujednolicenie nazwy.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 55,
+  "stary": "배드 빗, 쿨러",
+  "nowy": "배드 비트, 쿨러",
+  "waga": "NISKIE",
+  "powod": "pl „bad beaty, coolery”. W przekładzie ko dominuje pisownia „배드 비트” (9× wobec 3× „배드 빗”, m.in. lekcja m12-l3 w tym samym zdaniu wzorcowym i egzamin m13). Ujednolicenie pisowni.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 43,
+  "stary": "{{n:ex.bet.half}}로 올인했고",
+  "nowy": "{{n:ex.bet.half}}으로 올인했고",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: znacznik wyświetla „50” (오십, wygłos spółgłoskowy), więc „50으로”, nie „50로”. Sens bez zmian (pl „wchodzi all-in za {{n:ex.bet.half}}”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 80,
+  "stary": "{{n:exam.m12.md.now}}이 남았습니다",
+  "nowy": "{{n:exam.m12.md.now}}가 남았습니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: znacznik wyświetla „24” (이십사, wygłos samogłoskowy), więc „24가”, nie „24이”. Liczba i sens bez zmian (pl „masz {{n:exam.m12.md.now}}”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 82,
+  "stary": "{{n:exam.m12.md.now}}으로 그보다",
+  "nowy": "{{n:exam.m12.md.now}}로 그보다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: „24” kończy się samogłoską, więc „24로”, nie „24으로”. Liczba i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 83,
+  "stary": "{{n:exam.m12.md.now}}이 기준",
+  "nowy": "{{n:exam.m12.md.now}}가 기준",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: „24” kończy się samogłoską, więc „24가”, nie „24이”. Liczba i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 83,
+  "stary": "기준 {{n:br.bi.move-down}}은",
+  "nowy": "기준 {{n:br.bi.move-down}}는",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: znacznik wyświetla „15” (십오, wygłos samogłoskowy), więc „15는”, nie „15은”. Liczba i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m12.yaml",
+  "linia": 18,
+  "stary": "약 {{n:exam.m12.wr.ci.low}}와 약",
+  "nowy": "약 {{n:exam.m12.wr.ci.low}}과 약",
+  "waga": "NISKIE",
+  "powod": "Partykuła po jednostce „bb/100” (czytane …백, wygłos spółgłoskowy): w tym samym pliku jest „{{n:exam.m12.style.wr}}은” (l. 37), więc konsekwentnie „과”, nie „와”. Sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 7,
+  "stary": "에 있는 상대까지 모두 {{t:fold|폴드}}했습니다",
+  "nowy": "에 있는 상대 앞까지 모두 {{t:fold|폴드}}했습니다",
+  "waga": "ŚR",
+  "powod": "pl „Wszyscy spasowali do rywala na małym blindzie” (pasy doszły do rywala, on jeszcze gra). „상대까지 모두 폴드했습니다” czyta się „wszyscy łącznie z rywalem spasowali”, co przeczy następnemu zdaniu (rywal dopłaca). „상대 앞까지” = do rywala.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 34,
+  "stary": "{{t:nit|닛}}({{t:vpip}}",
+  "nowy": "{{t:nit|니트}}({{t:vpip}}",
+  "waga": "ŚR",
+  "powod": "Termin nit: terms-nazwy ko = „니트”; forma „닛” to inny zapis tego samego terminu (w tym samym pliku l. 38 znacznik bez formy wyświetla „니트”). Jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 34,
+  "stary": "핸드)이 {{t:utg|UTG}}",
+  "nowy": "핸드)가 {{t:utg|UTG}}",
+  "waga": "ŚR",
+  "powod": "Partykuła podmiotu dla „니트(…)”: po zmianie formy na „니트” (wygłos samogłoskowy) ma być „가”, nie „이”. Poprawka łączna z poprawką formy {{t:nit|…}} w tej samej linii.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 38,
+  "stary": "{{t:nit}}은 강한",
+  "nowy": "{{t:nit}}는 강한",
+  "waga": "ŚR",
+  "powod": "Znacznik bez formy wyświetla nazwę z terms-nazwy „니트”, więc na ekranie jest „니트은” (błąd gramatyczny); poprawnie „니트는”. pl „bo {{t:nit}} gra tylko silne ręce”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 63,
+  "stary": "모든 사이즈와 테이블을 합친 값",
+  "nowy": "모든 사이즈와 보드를 합친 값",
+  "waga": "ŚR",
+  "powod": "pl „Fold to c-bet łączy wszystkie rozmiary i stoły”: „stół” to w źródle termin board (karty wspólne), nie miejsce gry; lekcja m10-l3 mówi „rozmiary i flopy”, a reguła ko (rules.yaml, ta sama fraza) ma „모든 사이즈와 보드”. „테이블” (stoły do gry) zmienia sens uwagi.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 64,
+  "stary": "{{n:alpha.cbet.big}}이 넘는",
+  "nowy": "{{n:alpha.cbet.big}}가 넘는",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie (…퍼센트, wygłos samogłoskowy): „43%가”, nie „43%이”; por. l. 73 „{{n:alpha.vs-3bet-ip-size}}가 넘는”. Sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 65,
+  "stary": "{{n:alpha.cbet.big}}이 필요하기",
+  "nowy": "{{n:alpha.cbet.big}}가 필요하기",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie: „43%가 필요하기”, nie „43%이”. Sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m10.yaml",
+  "linia": 80,
+  "stary": "{{t:rake-cap|레이크 상한}}",
+  "nowy": "{{t:rake-cap|레이크 캡}}",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku ma być postacią nazwy z terms-nazwy ko: rake-cap = „레이크 캡” (znacznik bez formy wyświetli „레이크 캡”); „레이크 상한” to inna nazwa tego samego terminu. pl „{{t:rake-cap|limit}} jest poza zasięgiem”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 63,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}가 있습니다",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}가 있습니다",
+  "waga": "ŚR",
+  "powod": "Forma w znaczniku {{t:oesd|…}}: terms-nazwy ko = „양방향 스트레이트 드로우”; „오픈엔디드 스트레이트 드로우” to inna nazwa tego samego terminu (w tym pliku l. 75 opisowo „양쪽이 열린 스트레이트 드로우”). Jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 70,
+  "stary": "{{t:oesd|오픈엔디드 스트레이트 드로우}}(J 또는 6)",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}(J 또는 6)",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: forma {{t:oesd|…}} zgodna z terms-nazwy ko („양방향 스트레이트 드로우”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 11,
+  "stary": "수비하는 쪽의",
+  "nowy": "방어하는 쪽의",
+  "waga": "NISKIE",
+  "powod": "pl „range obrońcy”. W przekładzie ko „bronić/obrona” to „방어” (ok. 170× wobec 6× „수비”, z czego 5 w tym pliku; m8, m10, m13 mają „방어”). Ujednolicenie słownictwa.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 12,
+  "stary": "가 수비하는 핸드입니다",
+  "nowy": "가 방어하는 핸드입니다",
+  "waga": "NISKIE",
+  "powod": "pl „rękom, które {{t:big-blind}} broni”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 13,
+  "stary": "작은 카드를 많이 수비합니다",
+  "nowy": "작은 카드를 많이 방어합니다",
+  "waga": "NISKIE",
+  "powod": "pl „broni wielu małych kart”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 80,
+  "stary": "를 수비합니다. 플롭에서 둘 다",
+  "nowy": "를 방어합니다. 플롭에서 둘 다",
+  "waga": "NISKIE",
+  "powod": "pl „Bronisz {{t:big-blind}}”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m7.yaml",
+  "linia": 90,
+  "stary": "를 수비합니다. 플롭에서 버튼의",
+  "nowy": "를 방어합니다. 플롭에서 버튼의",
+  "waga": "NISKIE",
+  "powod": "pl „Bronisz {{t:big-blind}}”: ujednolicenie „수비” → „방어” jak w reszcie przekładu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 20,
+  "stary": "이것은 thin value입니다",
+  "nowy": "이것은 씬 밸류입니다",
+  "waga": "ŚR",
+  "powod": "pl „to thin value”. W ko termin ma zapis koreański „씬 밸류” (lekcje m8 i rules: 9×); angielskie „thin value” zostało tylko w tym pliku (2×). Resztka angielskiego tekstu, niespójna z lekcją.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 21,
+  "stary": "thin value는 더 작게",
+  "nowy": "씬 밸류는 더 작게",
+  "waga": "ŚR",
+  "powod": "Jak wyżej: „thin value” → „씬 밸류” (zapis używany w lekcjach ko).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 20,
+  "stary": "세븐, 포, 더 약한 잭도",
+  "nowy": "7, 4, 더 약한 잭도",
+  "waga": "NISKIE",
+  "powod": "pl „siódemki, czwórki i słabsze walety”. „포” jako czwórka jest mylące (포카드 = kareta) i niespójne z resztą egzaminów ko, gdzie niskie rangi są cyframi (m7: „9와 6”, m9: „9 페어, 5 페어”).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 21,
+  "stary": "세븐과 포가",
+  "nowy": "7과 4가",
+  "waga": "NISKIE",
+  "powod": "pl „siódemki i czwórki {{t:fold|spasują}}”: jak wyżej, rangi cyframi zamiast „세븐/포”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m8.yaml",
+  "linia": 91,
+  "stary": "주로 잭, 에잇, 킹이",
+  "nowy": "주로 잭, 8, 킹이",
+  "waga": "NISKIE",
+  "powod": "pl „walety, ósemki i króle”: ranga 8 cyfrą jak w pozostałych egzaminach ko („에잇” występuje w całym przekładzie tylko tutaj).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m11.yaml",
+  "linia": 73,
+  "stary": "당신은 평균 스택입니다",
+  "nowy": "당신은 중간 스택입니다",
+  "waga": "ŚR",
+  "powod": "pl „Masz średni stack” = stack średniej wielkości (między dużym a krótkim), nie średnia arytmetyczna żetonów („평균 스택” to odrębne pojęcie turniejowe). Reszta przekładu ko ma „중간 스택” (6×).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m13.yaml",
+  "linia": 73,
+  "stary": "c-벳 후",
+  "nowy": "C벳 후",
+  "waga": "ŚR",
+  "powod": "pl „po c-becie”. Zapis „c-벳” występuje w całym przekładzie ko tylko tutaj; nazwa terminu w terms-nazwy ko = „C벳” (tak w lekcjach i rules).",
+  "grupa": "E2"
+ }
+]
