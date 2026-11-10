@@ -20,6 +20,13 @@ export interface PlanAktywnosci {
   // D-248 (08-F10): zadania kroków w kolejności (sesja, powtórki, test, lekcja, ocena poziomu) — wznowienie buduje ten sam
   // zestaw; `ziarno` (liczba całkowita) odtwarza zadanie generowane. Plan zapisany w JSON kolumny `plan` (schemat v1 bez zmian).
   zadania?: readonly ZadaniePlanu[];
+  // tylko `scenariusz` (BR-GEN-001, BT): poziom i ziarno wariantu — z szablonu `trescId`, poziomu i ziarna generator odtwarza
+  // te same karty przy wznowieniu i przy „Zagraj jeszcze raz”; poziom jest też podstawą poziomu automatycznego (BR-POZ-002).
+  wariant?: WariantPlanu;
+}
+export interface WariantPlanu {
+  poziom: 'latwy' | 'sredni' | 'trudny';
+  ziarno: number; // liczba całkowita
 }
 export interface ZadaniePlanu {
   id: string;
