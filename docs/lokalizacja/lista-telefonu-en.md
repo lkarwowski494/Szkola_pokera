@@ -52,3 +52,7 @@ Samosprawdzenie `Intl` (liczba mnoga) działa przy starcie aplikacji: w buildzie
 - [ ] „Przejdź test poziomujący” → pytanie 1 z 8; pod odpowiedziami przycisk „Nie wiem” (en: „I don't know”), brak „Pomiń”; „Nie wiem” przechodzi do następnego pytania; po 8 × „Nie wiem” wynik = moduł M0.
 - [ ] Przerwanie po kilku pytaniach (zamknięcie aplikacji) → po ponownym otwarciu ekran wyboru, nie pytanie.
 - [ ] Pytanie 1 z 8 (rywal A♣ A♦, board A♠ 8♣ 7♦ J♥ 2♠, twoje 10♥ 9♥): karty rywala, board i twoje mieszczą się w owalu, tekst pod stołem czytelny; sprawdź też iPhone SE (wąski) i największy tekst. Ten sam stół w lekcjach i egzaminach z showdownem.
+
+## Session AZ: position name at the table (KO-028, D-495)
+- [ ] Task with a position and no action line: the line reads "Your position: under the gun (UTG)." style (full name plus abbreviation: small blind (SB), big blind (BB), button (BTN)), not the bare abbreviation. Not cut off; on iPhone SE and at the largest text it wraps between words.
+- [ ] VoiceOver reads the same line with the position name.

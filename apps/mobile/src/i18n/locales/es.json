@@ -563,6 +563,14 @@
     "raised_many": "{{list}} {{t:raise|suben}}",
     "raised_other": "{{list}} {{t:raise|suben}}",
     "yourPosition": "Tu {{t:position|posición}}: {{pos}}.",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "Tus cartas: {{cards}}.",
     "oppCards": "Cartas del rival: {{cards}}.",
     "rowOpp": "Rival",

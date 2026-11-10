@@ -537,6 +537,14 @@
     "folded_other": "{{list}} {{t:fold|폴드}}",
     "raised_other": "{{list}} {{t:raise|레이즈}}",
     "yourPosition": "내 {{t:position|포지션}}: {{pos}}.",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "내 카드: {{cards}}.",
     "oppCards": "상대 카드: {{cards}}.",
     "rowOpp": "상대",

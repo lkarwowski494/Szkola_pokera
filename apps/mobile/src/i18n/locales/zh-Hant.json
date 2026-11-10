@@ -537,6 +537,14 @@
     "folded_other": "{{list}} {{t:fold|棄牌}}",
     "raised_other": "{{list}} {{t:raise|加注}}",
     "yourPosition": "你的{{t:position|位置}}：{{pos}}。",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "你的手牌：{{cards}}。",
     "oppCards": "對手的手牌：{{cards}}。",
     "rowOpp": "對手",

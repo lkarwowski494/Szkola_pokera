@@ -10,3 +10,7 @@ Stan: 2026-11-10. Jak: świeża instalacja (albo Ustawienia → Dane → „Usu�
 | T-ax-2 | pytania o pulę (60 i 30; 80 oraz 20/60): „Przed zakładem … w puli jest … żetonów”, „Jakiej szansy na wygranie puli (equity) potrzebujesz co najmniej…” — zrozumiałe? | |
 | T-ax-3 | pytanie river (10 rąk / 3 / 4): czy jasne, że 4 to liczba rąk lepszych; wyjaśnienie poprawnej odpowiedzi zaczyna się od „Dobrze:” | |
 | T-ax-4 | wszystkie 8 pytań: tekst mieści się na ekranie (największy tekst, iPhone SE) bez obcięć | |
+
+## Sesja AZ: nazwa pozycji przy stole (KO-028, D-495)
+- [ ] Zadanie z pozycją bez przebiegu akcji (np. pytanie oceny z UTG): linia „Twoja pozycja (position): UTG (under the gun).”; dla BB „duży blind (big blind, BB)”, dla SB „mały blind (small blind, SB)”, dla BTN „Button (BTN)”. Linia nie jest ucięta; na iPhone SE i przy największym tekście zawija się na granicy słów.
+- [ ] VoiceOver czyta tę samą linię z nazwą pozycji.

@@ -537,6 +537,14 @@
     "folded_other": "{{list}} {{t:fold|フォールド}}",
     "raised_other": "{{list}} {{t:raise|レイズ}}",
     "yourPosition": "あなたの{{t:position|ポジション}}：{{pos}}。",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "あなたのカード：{{cards}}。",
     "oppCards": "相手のカード：{{cards}}。",
     "rowOpp": "相手",

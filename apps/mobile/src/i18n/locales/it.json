@@ -563,6 +563,14 @@
     "raised_many": "{{list}} {{t:raise|rilanciano}}",
     "raised_other": "{{list}} {{t:raise|rilanciano}}",
     "yourPosition": "La tua {{t:position|posizione}}: {{pos}}.",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "Le tue carte: {{cards}}.",
     "oppCards": "Carte dell'avversario: {{cards}}.",
     "rowOpp": "Avversario",

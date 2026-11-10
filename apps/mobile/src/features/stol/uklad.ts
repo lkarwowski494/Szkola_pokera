@@ -91,6 +91,15 @@ export function nazwaKarty(c: string, t: TFn): string {
   if (!WARTOSCI.has(r) || !(s in SYMBOL)) return c;
   return t('card.name', { rank: t(`card.rank.${r}`), suit: t(`card.suit.${s}`) });
 }
+/**
+ * Nazwa pozycji dla początkującego (KO-028, D-495): nazwa z glosariusza w języku interfejsu (`table.position.*` = znacznik
+ * terminu, więc bez tekstów na sztywno) i skrót; skrót, który już stoi w nazwie („Hijack (HJ)”, „UTG”), nie powtarza się.
+ * Brak nazwy terminu w języku daje sam skrót albo nazwę angielską z renderera terminów (zachowanie zastępcze).
+ */
+export function nazwaPozycji(p: Position, t: TFn): string {
+  const nazwa = t(`table.position.${p.toLowerCase()}`);
+  return nazwa.includes(p) ? nazwa : `${nazwa} (${p})`;
+}
 const karta = (c: string) => `${c[0] === 'T' ? '10' : (c[0] ?? '')}${SYMBOL[c[1] ?? ''] ?? ''}`;
 
 /**
@@ -104,7 +113,7 @@ export function opisKart(
 ): string {
   const karty = (xs: readonly string[]) => (o.nazwy ? lista(xs.map((c) => nazwaKarty(c, t)), t) : xs.map(karta).join(' '));
   return [
-    s.position ? t('table.yourPosition', { pos: s.position }) : null, // A04-04, D-282 pkt 2–3: pozycja bez przebiegu nie znika
+    s.position ? t('table.yourPosition', { pos: nazwaPozycji(s.position, t) }) : null, // A04-04, D-282 pkt 2–3: pozycja bez przebiegu nie znika
     s.opp?.length ? t('table.oppCards', { cards: karty(s.opp) }) : null, // A04-01, D-282 pkt 1
     s.hand?.length ? t('table.yourCards', { cards: karty(s.hand) }) : null,
     s.board?.length ? t('table.board', { cards: karty(s.board) }) : null,

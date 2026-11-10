@@ -550,6 +550,14 @@
     "raised_one": "{{list}} {{t:raise|raist}}",
     "raised_other": "{{list}} {{t:raise|raisen}}",
     "yourPosition": "Deine {{t:position|Position}}: {{pos}}.",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "Deine Karten: {{cards}}.",
     "oppCards": "Karten des Gegners: {{cards}}.",
     "rowOpp": "Gegner",

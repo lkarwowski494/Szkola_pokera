@@ -537,6 +537,14 @@
     "folded_other": "{{list}} {{t:fold|bỏ bài}}",
     "raised_other": "{{list}} {{t:raise|tố}}",
     "yourPosition": "{{t:position|Vị trí}} của bạn: {{pos}}.",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "Bài của bạn: {{cards}}.",
     "oppCards": "Bài của đối thủ: {{cards}}.",
     "rowOpp": "Đối thủ",

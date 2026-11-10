@@ -576,6 +576,14 @@
     "raised_many": "{{list}} {{t:raise|przebijają}}",
     "raised_other": "{{list}} {{t:raise|przebijają}}",
     "yourPosition": "Twoja {{t:position|pozycja}}: {{pos}}.",
+    "position": {
+      "utg": "{{t:utg}}",
+      "hj": "{{t:hijack}}",
+      "co": "{{t:cutoff}}",
+      "btn": "{{t:button}}",
+      "sb": "{{t:small-blind}}",
+      "bb": "{{t:big-blind}}"
+    },
     "yourCards": "Twoje karty: {{cards}}.",
     "oppCards": "Karty rywala: {{cards}}.",
     "rowOpp": "Rywal",

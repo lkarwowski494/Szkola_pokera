@@ -58,7 +58,7 @@ describe('Stol', () => {
   it('A04-04 (D-282 pkt 2): sama pozycja bez kart i przebiegu — bez owalu i pustej grafiki, wiersz „Twoja pozycja: BB”', async () => {
     await render(<Stol table={{ position: 'BB' }} />);
     expect(screen.queryByRole('image')).toBeNull();
-    expect(screen.getByText('Twoja pozycja (position): BB.')).toBeTruthy();
+    expect(screen.getByText('Twoja pozycja (position): duży blind (big blind, BB).')).toBeTruthy();
   });
 
   it('A04-04 (D-282 pkt 3): pozycja z kartami bez przebiegu — stół bez miejsc, pozycja w etykiecie i opisie', async () => {
@@ -66,8 +66,8 @@ describe('Stol', () => {
     await render(<Stol table={table} />);
     expect(screen.queryAllByTestId(/^miejsce-/)).toHaveLength(0);
     const etykieta: string = screen.getByRole('image').props.accessibilityLabel;
-    expect(etykieta).toBe('Twoja pozycja (position): BTN. Twoje karty: as kier i król karo. Na stole (board): 10 pik, 7 kier i 2 trefl.');
-    expect(screen.getByText('Twoja pozycja (position): BTN. Twoje karty: A♥ K♦. Na stole (board): 10♠ 7♥ 2♣.')).toBeTruthy(); // A04-11: widoczny tekst z symbolami
+    expect(etykieta).toBe('Twoja pozycja (position): Button (BTN). Twoje karty: as kier i król karo. Na stole (board): 10 pik, 7 kier i 2 trefl.');
+    expect(screen.getByText('Twoja pozycja (position): Button (BTN). Twoje karty: A♥ K♦. Na stole (board): 10♠ 7♥ 2♣.')).toBeTruthy(); // A04-11: widoczny tekst z symbolami
   });
 });
 
