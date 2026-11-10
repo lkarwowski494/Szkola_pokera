@@ -4,6 +4,8 @@
 
 ## Dokument 12 „Weryfikacja źródeł”
 
+**Ograniczenie:** solver aplikacji (`content/ranges/preflop-6max-100bb.json`) nie jest zwalidowany na składzie obrony BB vs BTN (zwalidowane tylko częstości fold/call/3-bet), więc nie jest szczeblem 2 dla tego twierdzenia; rachunek na nim to wskazówka.
+
 | Twierdzenie | Źródło (odczyt 2026-11-10, cytat sprawdzony na surowym tekście) | Szczebel | Werdykt |
 |---|---|---|---|
 | R-M5-004 / R-M6-009: na niskim połączonym flopie BB ma w zakresie strity | https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/ — „Connected boards are a unique case due to flopped straights often being in the BB’s range.” | 2 (cash, BTN vs BB) | POPARTE |
