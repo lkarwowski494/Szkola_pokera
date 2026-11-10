@@ -40,9 +40,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | BC | session_01T66VBwoBUWuJtuhuG26K6h | 06 fix, treść (opus) | sesja-bc-pozycje @ 7e8c376 | — | — | **PRZEKAZANIE 11:59 (nieodebrane: recenzja niezależna, test AZ → sesja kodu)**; start 11:42: nazwy pozycji 6 × 12 (KO-028 część 06); cmp: tylko linia 374 (WG-07) |
 
 | BD | session_01T66VByXNGjk6SnGDy2oyZK | 03 build, docs (opus) | sesja-bd-zakres @ 00b0566 (start) | — | — | w toku od 15:05: wymagania scenariuszy/oceny/menu, plan szablonów; cmp identyczne |
-| BE | session_01T66VBwGCdsgQrYxtfGFcF6 | 04 build, docs (opus) | sesja-be-projekt @ 00b0566 (start) | — | — | w toku od 15:10: część A zębatka + menu (2 warianty → właściciel); część B po BD; cmp identyczne |
 | BF | session_01T66VBygZRH4tisiJ9zmhUE | 08 build, kod (sonnet) | sesja-bf-generator @ 8cba034 (start) | — | — | w toku od 15:40: krok B (format, generator, historia, limit KO-043); cmp identyczne |
 | BG | session_01T66VBx6VGRMjxQWpErFRbE | 06 build, treść (opus) | sesja-bg-wyjasnienia @ 8cba034 (start) | — | — | w toku od 15:40: lista książek KO-044 (~1 h), przeróbka wyjaśnień KO-040; cmp: linia 417 (WG-07) + linia 624 „audit” zamiast „build” (błąd subagenta) — poprawka wysłana |
+| BH | session_01T66VBvcHM7i3GoaSdpjQAR | 04 build, docs (opus) | sesja-be-projekt @ 008753c (start) | — | — | w toku od 16:00: menu W2 wg KO-045, D-546, ER-16; cmp identyczne |
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BI**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
@@ -199,3 +199,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 15:45 | BE → koordynator → właściciel | BE część A @ be3d801: zębatka D-540 (rysunek 24 pt, kreska 2 pt, przycisk 44×44; pomiar kontrastu pikseli; nowa zależność react-native-svg — do decyzji z licencją), menu W1/W2, ekran Lekcje D-542. Właściciel: KO-045 W2 + Wskaźnik w Postępie → przekazane BE; część B (ekran scenariusza i oceny) na 8cba034 | PRZEKAZANIE BE; start BF/BG (subagent w toku) |
 | 11-10 15:50 | koordynator | BF i BG wystartowały (ID w tabeli). BE v2 a45979d minęła się z KO-045 → BE dostała wyjaśnienie: W2 z pierwszego porównania, errata BR-MENU-001. BD zarchiwizowana 15:25 | kontrola 16:12 |
 | 11-10 15:55 | BE → koordynator | PRZEKAZANIE część B 8c4ecc6 (ekran scenariusza D-543, ocena „dlaczego” na pierwszym planie D-544, poziom D-545; zrzuty `wzorce-zrzuty/scenariusz/`) i stan 008753c; BE ok. 70% kontekstu (szacunek sesji) — KO-045 niewniesione → następca BH (04 build) wg `docs/design/stan-be.md`. BR-SCN-003 (po błędzie: dalej) — do potwierdzenia | start BH → archiwum BE |
+| 11-10 16:00 | koordynator | BH wystartowała (session_01T66VBvcHM7i3GoaSdpjQAR, cmp identyczne); BE zarchiwizowana (9,38 USD, kontekst 34,4% wg get_session — sesja szacowała 70%) | kontrola 16:12 |

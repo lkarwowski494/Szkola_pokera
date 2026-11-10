@@ -38,3 +38,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BB/BA (KO-029) | 06 fix (opus) | — | — | — | fbb2d15 w 57a83bf → E2E zielone 13:11 | — | przyjęte |
 | BC | 06 fix (opus) | — | 7,78 | 28,8 | 11:42 → 7e8c376 11:59 → recenzja 12:25 → ff 00b0566 14:03 → CI+E2E zielone 14:55 → przyjęte 15:10 | czekanie na build 1010 (zakaz push na roboczą) ok. 1 h 35 min | — |
 | AZ (końcowy) | 08 fix (sonnet) | — | 3,25 | 26,3 | … → Z4 00b0566 12:28 → E2E zielone 14:55 → przyjęte 15:10 | jw. | — |
+| BD | 03 build (opus) | — | nieodczytany | — | 15:05 → 8cba034 15:19 → przyjęte 15:25 | 0 | praca ok. 15 min |
+| BE | 04 build (opus) | — | 9,38 | 34,4 | 15:10 → be3d801 15:20 → 8c4ecc6 15:30 → następca BH 16:00 | wybór właściciela 15:45 | szacunek sesji 70% vs pomiar 34,4% |
