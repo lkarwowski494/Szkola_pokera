@@ -1,0 +1,10 @@
+$ curl -sL -o pd.html -w "%{http_code} %{size_download}" https://www.primedope.com/risk-of-ruin-formula-for-poker-players/  (odczyt 2026-11-10)
+200 48459
+kod=0
+$ grep -n -o -E "constant win rate and[^<]{0,40}|closed-form approximation:|RoR = e\^\(-2 x WR x BR / SD\^2\)|No moving down in stakes[^<]{0,120}|slightly fatter tails" pd.html
+468:constant win rate and 
+468:closed-form approximation:
+469:RoR = e^(-2 x WR x BR / SD^2)
+570:slightly fatter tails
+571:No moving down in stakes.
+kod=0

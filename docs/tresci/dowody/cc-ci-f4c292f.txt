@@ -1,0 +1,15 @@
+# pnpm run ci na f4c292f (commit raportu CC; sesja CC, 2026-11-10); wyciąg
+$ pnpm run ci
+40:packages/srs test:       Tests  21 passed (21)
+45:packages/jezyki test:       Tests  144 passed (144)
+50:packages/poker-core test:       Tests  178 passed (178)
+63:packages/domena test:       Tests  332 passed (332)
+70:tools/preflop-solver test:       Tests  44 passed (44)
+117:packages/postep test:       Tests  136 passed (136)
+150:tools/content-build test:       Tests  201 passed (201)
+2632:# pass 193
+2633:# fail 0
+2650:      Tests  35 passed (35)
+3064:błędy: 0, uwagi: 397; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 774
+3091:0 błędów, 0 uwag
+kod=0

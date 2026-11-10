@@ -1,0 +1,14 @@
+$ git diff --stat 70fdf40..178cf97 -- "content/*/exams/m12.yaml"
+ content/pl/exams/m12.yaml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+kod=0
+$ ls content/*/exams/m12.yaml | wc -l
+12
+$ grep -c "Rachunek" content/{pl,en,de,ja}/exams/m12.yaml
+content/pl/exams/m12.yaml:4
+content/en/exams/m12.yaml:0
+content/de/exams/m12.yaml:0
+$ sed -n 9p content/en/exams/m12.yaml | cut -c1-260
+      - { text: "From about {{n:exam.m12.ci.low.bi}} to about {{n:exam.m12.ci.high.bi}} {{t:buy-in|buy-ins}}", correct: true, why: "You expect {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}, which is {{n:exam.m12.exp.bi}} {{t:buy-in
+$ grep -rn "06-tresci-006" docs/tresci/recenzje/recenzja-bn-5cd9d8c.md | head -2
+169:### 06-tresci-006 · Nowe wyjaśnienia 6 opcji egzaminów są tylko po polsku

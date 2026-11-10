@@ -19181,15 +19181,15 @@
   "krytyczne": true,
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
-   "data": "2026-11-04",
-   "sha": "9734bf632f3c"
+   "data": "2026-11-10",
+   "sha": "081d35e3337f"
   },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD. | E3 2026-11-04 (A8, S3): zastrzeżenie „przybliżenie przy stałym winrate i SD” także w karcie reguły.",
+  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD. | E3 2026-11-04 (A8, S3): zastrzeżenie „przybliżenie przy stałym winrate i SD” także w karcie reguły. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha 9734bf632f3c → 081d35e3337f",
   "przeglad_jezyki": {
    "en": {
     "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
@@ -19373,15 +19373,15 @@
   "krytyczne": true,
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
-   "data": "2026-11-04",
-   "sha": "f991b4ff92ce"
+   "data": "2026-11-10",
+   "sha": "19c1b4f5e103"
   },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
-  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian). | E3 2026-11-04 (A8, S3): „poniżej połowy” → „do połowy” (źródło: „half the roll, which is the point to move down”); warunek wr i SD przy 6% → 25%; cytat dla powrotu wyżej (PokerSkill). | E3 2026-11-04 (A9, S3): kwantyfikator zawężony do winrate 2–5bb/100 z symulacji; PrimeDope dopisane do pola source w rules.yaml. | E3 2026-11-04 (A10, S3): powrót jako warunek konieczny („Move up only when”): „najwcześniej wtedy”; m12-l4 q-move-down z warunkiem winrate i SD. | E3 2026-11-04 (A11, S3): egzamin M12 „najpóźniej przy” połowie zamiast „poniżej” (źródło: „half the roll, which is the point to move down”).",
+  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian). | E3 2026-11-04 (A8, S3): „poniżej połowy” → „do połowy” (źródło: „half the roll, which is the point to move down”); warunek wr i SD przy 6% → 25%; cytat dla powrotu wyżej (PokerSkill). | E3 2026-11-04 (A9, S3): kwantyfikator zawężony do winrate 2–5bb/100 z symulacji; PrimeDope dopisane do pola source w rules.yaml. | E3 2026-11-04 (A10, S3): powrót jako warunek konieczny („Move up only when”): „najwcześniej wtedy”; m12-l4 q-move-down z warunkiem winrate i SD. | E3 2026-11-04 (A11, S3): egzamin M12 „najpóźniej przy” połowie zamiast „poniżej” (źródło: „half the roll, which is the point to move down”). | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha f991b4ff92ce → 19c1b4f5e103",
   "decyzja": "D-146",
   "przeglad_jezyki": {
    "en": {
@@ -19811,15 +19811,15 @@
   "krytyczne": true,
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
-   "data": "2026-11-04",
-   "sha": "ce6b770c611b"
+   "data": "2026-11-10",
+   "sha": "a71835be76ac"
   },
   "wielkosc": "br.bi.base",
   "wartosc": 30,
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:456, cytat Primedope: „25-30 buy-ins at NL25-NL50” → „25 to 30 at NL25 to NL50” (dosłownie; kontekst: przy 5% ryzyka bankructwa).",
-  "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny | E3 2026-11-04 (D-159): w treści jako przykład założonej liczby wpisowych, bez zalecenia „minimum”.",
+  "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny | E3 2026-11-04 (D-159): w treści jako przykład założonej liczby wpisowych, bez zalecenia „minimum”. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha ce6b770c611b → a71835be76ac",
   "przeglad_jezyki": {
    "en": {
     "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
@@ -19925,15 +19925,15 @@
   "krytyczne": true,
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
-   "data": "2026-11-04",
-   "sha": "d6dcbdd1599f"
+   "data": "2026-11-10",
+   "sha": "90bfff53762f"
   },
   "wielkosc": "br.bi.beginner",
   "wartosc": 50,
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source. | E3 2026-11-04 (D-159): w treści tylko jako przykład liczby wpisowych (tabela RoR, egzamin m12 q9), bez zalecenia dla początkujących.",
+  "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source. | E3 2026-11-04 (D-159): w treści tylko jako przykład liczby wpisowych (tabela RoR, egzamin m12 q9), bez zalecenia dla początkujących. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha d6dcbdd1599f → 90bfff53762f",
   "przeglad_jezyki": {
    "en": {
     "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
@@ -20313,15 +20313,15 @@
   "krytyczne": true,
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
-   "data": "2026-11-04",
-   "sha": "7628777cfadc"
+   "data": "2026-11-10",
+   "sha": "27580214ffed"
   },
   "wielkosc": "ror.two",
   "wartosc": 2,
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Stała wzoru (ruch Browna z dryfem); atrybucja „Malmuth” nieodczytana.",
+  "uwagi": "Stała wzoru (ruch Browna z dryfem); atrybucja „Malmuth” nieodczytana. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha 7628777cfadc → 27580214ffed",
   "przeglad_jezyki": {
    "en": {
     "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
