@@ -10,7 +10,7 @@ import type { DrillRow } from '@/data/content/repo';
 import { zapiszBladPostepu } from '@/data/postep';
 import EkranPowitania from '@/features/powitanie/EkranPowitania';
 import { EkranPytaniaOceny, EkranWynikuOceny } from '@/features/ocena-poziomu/EkranyOceny';
-import { etapStartu, odpowiedzOceny, pominOcene, zacznijOcene, type Ocena } from '@/features/ocena-poziomu/ocenaPoziomu';
+import { etapStartu, odpowiedzOceny, pominOcene, zacznijOcene, zacznijOdPoczatku, type Ocena } from '@/features/ocena-poziomu/ocenaPoziomu';
 import { styl, useTokens } from '@/theme/tokens';
 
 export interface ModulStartu { id: string; title: string; pierwszaLekcja: string | null }
@@ -26,8 +26,8 @@ const noweId = () => `${Date.now().toString(36)}-${Math.random().toString(36).sl
 
 /**
  * Pierwsze uruchomienie (PR-01): stan w układzie głównym, nie trasa — jak Trening `app/_layout.tsx:38–73` (ekran startu
- * jako stan nad treścią; odczyt 2026-11-08). Etap z postep.db (`etapStartu`): punkt startu → `children` („Dziś”); ocena
- * w toku → ocena od początku (BR-ONB-001-c); inaczej powitanie. Każda odpowiedź zapisana przed następnym pytaniem;
+ * jako stan nad treścią; odczyt 2026-11-08). Etap z postep.db (`etapStartu`): punkt startu → `children` („Dziś”); inaczej
+ * ekran wyboru (także po przerwanej ocenie, D-475: „Przejdź test poziomujący” albo „Zacznij od początku”). Każda odpowiedź zapisana przed następnym pytaniem;
  * błąd zapisu → komunikat, odpowiedź do ponowienia (tlo-i-bledy.md §4).
  */
 export default function PierwszeUruchomienie({
@@ -46,7 +46,7 @@ export default function PierwszeUruchomienie({
       return { e: 'blad' };
     }
     if (r.wartosc) return { e: 'pytanie', ocena: r.wartosc, bladZapisu: false };
-    // treść bez pytań oceny: jak „Pomiń” (punkt startu = pierwszy moduł)
+    // treść bez pytań oceny: jak „Zacznij od początku” (punkt startu = pierwszy moduł)
     const p = await pominOcene(port, null, zegar.teraz(), pierwszy);
     return p.ok ? { e: 'gotowe' } : { e: 'blad' };
   }, [port, wiersz, moduly, zegar, pierwszy]);
@@ -64,28 +64,33 @@ export default function PierwszeUruchomienie({
           return { e: 'blad' };
         }
         if (w.wartosc === 'gotowe') return { e: 'gotowe' };
-        if (w.wartosc === 'powitanie') return { e: 'powitanie' };
-        return zacznijRef.current();
+        return { e: 'powitanie' };
       })
       .catch((): Etap => ({ e: 'blad' }))
       .then(ustawEtap);
   }, [port]);
   useEffect(wczytaj, [wczytaj]);
 
-  const pomin = (ocena: Ocena | null) => {
+  /** „Zacznij od początku” na ekranie wyboru (BR-ONB-001, D-475): punkt startu M0; przerwana ocena w toku zostaje porzucona. */
+  const odPoczatku = () => {
     if (zapisWToku.current) return;
     zapisWToku.current = true;
-    void pominOcene(port, ocena, zegar.teraz(), pierwszy).then((w) => {
-      zapisWToku.current = false;
-      if (w.ok) ustawEtap({ e: 'gotowe' });
-      else {
-        zapiszBladPostepu(w.powod, 'ocena_poziomu');
-        if (ocena) ustawEtap({ e: 'pytanie', ocena, bladZapisu: true });
-      }
-    });
+    void zacznijOdPoczatku(port, zegar.teraz(), pierwszy)
+      .then((w) => {
+        zapisWToku.current = false;
+        if (w.ok) ustawEtap({ e: 'gotowe' });
+        else {
+          zapiszBladPostepu(w.powod, 'ocena_poziomu');
+          ustawEtap({ e: 'blad' });
+        }
+      })
+      .catch(() => {
+        zapisWToku.current = false;
+        ustawEtap({ e: 'blad' });
+      });
   };
 
-  const odpowiedz = (ocena: Ocena, indeks: number) => {
+  const odpowiedz = (ocena: Ocena, indeks: number | null) => {
     if (zapisWToku.current) return;
     zapisWToku.current = true;
     void odpowiedzOceny(port, ocena, indeks, zegar.teraz()).then((w) => {
@@ -113,7 +118,8 @@ export default function PierwszeUruchomienie({
     case 'powitanie':
       return (
         <EkranPowitania
-          onDalej={() => {
+          onOdPoczatku={odPoczatku}
+          onTest={() => {
             ustawEtap({ e: 'ladowanie' });
             void zacznij().catch((): Etap => ({ e: 'blad' })).then(ustawEtap);
           }}
@@ -141,7 +147,7 @@ export default function PierwszeUruchomienie({
             </>
           }
           onOdpowiedz={(i) => odpowiedz(o, i)}
-          onPomin={() => pomin(o)}
+          onNieWiem={() => odpowiedz(o, null)}
         />
       );
     }

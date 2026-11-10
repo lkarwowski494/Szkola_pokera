@@ -39,8 +39,7 @@ it('po ukończonym starcie nowa baza treści (zmiana języka) nie odmontowuje na
   );
   const { rerender } = await render(widok('pl'));
   await screen.findByText(/bez gry na pieniądze/);
-  await fireEvent.press(screen.getByRole('button', { name: 'Dalej' }));
-  await fireEvent.press(await screen.findByRole('button', { name: 'Pomiń' }));
+  await fireEvent.press(screen.getByRole('button', { name: 'Zacznij od początku' }));
   await screen.findByText('NAWIGACJA');
   expect(montowania).toBe(1);
 

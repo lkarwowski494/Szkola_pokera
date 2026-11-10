@@ -28,7 +28,7 @@ export const PYTANIA_OCENY: readonly { modulId: string; zadanieId: string }[] = 
 ];
 const MODUL_ZADANIA = new Map(PYTANIA_OCENY.map((p) => [p.zadanieId, p.modulId]));
 
-export type EtapStartu = 'gotowe' | 'powitanie' | 'ocena';
+export type EtapStartu = 'gotowe' | 'powitanie';
 export interface Ocena {
   id: string;
   aktywnosc: AktywnoscWToku;
@@ -55,20 +55,21 @@ export function punktStartuZOceny(moduly: readonly string[], poprawne: ReadonlyS
   return moduly[moduly.length - 1] ?? '';
 }
 
-/** Etap pierwszego uruchomienia: punkt startu zapisany → „Dziś”; ocena w toku (przerwana) → ocena od początku; inaczej powitanie. */
+/**
+ * Etap pierwszego uruchomienia: punkt startu zapisany → „Dziś”; inaczej ekran wyboru na starcie (powitanie), także gdy
+ * ocena była w toku (przerwana): D-475, BR-ONB-001 „Przerwana ocena”. Przerwaną aktywność porzuca start nowej oceny albo „Zacznij od początku”.
+ */
 export async function etapStartu(port: PortBazy): Promise<Wynik<EtapStartu, PowodOdczytu>> {
-  const [u, w] = await Promise.all([odczytajUstawienie(port, 'punkt_startu'), aktywnoscWToku(port, 'ocena_poziomu')]);
+  const u = await odczytajUstawienie(port, 'punkt_startu');
   if (!u.ok) return u;
-  if (!w.ok) return w;
   const p = parsujPunktStartu(u.wartosc);
   if (!p.ok) return p;
-  if (p.wartosc) return { ok: true, wartosc: 'gotowe' };
-  return { ok: true, wartosc: w.wartosc ? 'ocena' : 'powitanie' };
+  return { ok: true, wartosc: p.wartosc ? 'gotowe' : 'powitanie' };
 }
 
 /**
- * Nowa ocena od pierwszego pytania; ocena w toku (przerwana) zostaje porzucona w tej samej transakcji (BR-ONB-001-c:
- * „ocenę od początku”). Pytania, których nie ma w treści, są pomijane; żadne → null, nic nie zapisane.
+ * Nowa ocena od pierwszego pytania (po wyborze „Przejdź test poziomujący”); ocena w toku (przerwana) zostaje porzucona
+ * w tej samej transakcji (BR-ONB-001 „Przerwana ocena”, D-475). Pytania, których nie ma w treści, są pomijane; żadne → null, nic nie zapisane.
  */
 export async function zacznijOcene(port: PortBazy, w: WejscieOceny): Promise<Wynik<Ocena | null, PowodOceny>> {
   const wToku = await aktywnoscWToku(port, 'ocena_poziomu');
@@ -97,17 +98,17 @@ export async function zacznijOcene(port: PortBazy, w: WejscieOceny): Promise<Wyn
 export async function odpowiedzOceny(
   port: PortBazy,
   o: Ocena,
-  indeks: number,
+  indeks: number | null, // null = „Nie wiem” (D-475): liczone jak błędna, zapis `{"nieWiem":true}` (bez migracji schematu)
   teraz: number,
 ): Promise<Wynik<{ ocena: Ocena; punktStartu: string | null }, PowodOceny>> {
   const krok = o.odpowiedzi.length;
   const item = o.items[krok];
   const nast = przejscieAktywnosci(o.aktywnosc, { typ: 'odpowiedz', krok, teraz });
   if (!item || !nast.ok) return { ok: false, powod: 'krok_niezgodny' };
-  const answer = { kind: 'choice' as const, index: indeks };
-  const { ocena, zaliczona } = ocenaSchematu(gradeAnswer(item, answer));
+  const answer = indeks === null ? null : { kind: 'choice' as const, index: indeks };
+  const { ocena, zaliczona } = answer === null ? ocenaSchematu('wrong') : ocenaSchematu(gradeAnswer(item, answer));
   const odp: OdpowiedzKroku = {
-    krok, zadanie_id: item.drillId, rodzina_id: item.family, wybor: JSON.stringify({ answer }), ocena, zaliczona, czas_ms: 0,
+    krok, zadanie_id: item.drillId, rodzina_id: item.family, wybor: JSON.stringify(answer === null ? { nieWiem: true } : { answer }), ocena, zaliczona, czas_ms: 0,
     odpowiedziano_ms: teraz,
   };
   const odpowiedzi = [...o.odpowiedzi, zaliczona === 1];
@@ -125,9 +126,21 @@ export async function odpowiedzOceny(
   return { ok: true, wartosc: { ocena: { ...o, odpowiedzi }, punktStartu: punkt } };
 }
 
-/** „Pomiń” (BR-ONB-001-b): punkt startu = pierwszy moduł, ocena w toku porzucona (moduly.md `ocenaPoziomu`). */
+/** „Zacznij od początku” (BR-ONB-001; dawne „Pomiń”): punkt startu = pierwszy moduł, ocena w toku porzucona (moduly.md `ocenaPoziomu`). */
 export async function pominOcene(port: PortBazy, o: Ocena | null, teraz: number, pierwszyModul: string): Promise<Wynik<void, PowodZapisu>> {
   const u = await zapiszUstawienie(port, 'punkt_startu', { modulId: pierwszyModul, ustawionoMs: teraz }, teraz);
   if (!u.ok) return u;
   return o ? porzucAktywnosc(port, o.id, teraz) : { ok: true, wartosc: undefined };
+}
+
+/**
+ * „Zacznij od początku” na ekranie wyboru (D-475): punkt startu = pierwszy moduł; przerwana ocena (jeśli jest) porzucona.
+ * Ocena w toku nie jest już w stanie ekranu po ponownym uruchomieniu, więc jest odczytywana z bazy.
+ */
+export async function zacznijOdPoczatku(port: PortBazy, teraz: number, pierwszyModul: string): Promise<Wynik<void, PowodZapisu | PowodOdczytu>> {
+  const wToku = await aktywnoscWToku(port, 'ocena_poziomu');
+  if (!wToku.ok) return wToku;
+  const u = await zapiszUstawienie(port, 'punkt_startu', { modulId: pierwszyModul, ustawionoMs: teraz }, teraz);
+  if (!u.ok) return u;
+  return wToku.wartosc ? porzucAktywnosc(port, wToku.wartosc.id, teraz) : { ok: true, wartosc: undefined };
 }

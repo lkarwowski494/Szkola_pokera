@@ -6,7 +6,7 @@ import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
 /**
  * Ocena poziomu (PR-01, BR-ONB-001, BR-ONB-002; maszyna `aktywnosc` rodzaju `ocena_poziomu`, ADR 0010).
- * Pytanie: najwyżej OCENA_POZIOMU_MAKS_PYTAN (konfiguracja.ts), „Pomiń” na każdym ekranie.
+ * Pytanie: najwyżej OCENA_POZIOMU_MAKS_PYTAN (konfiguracja.ts); „Nie wiem” zamiast „Pomiń” (D-475), rezygnacja z oceny tylko na ekranie wyboru.
  * Wynik: punkt startu i przycisk rozpoczęcia nauki; bez ekranu zakupu (D-105).
  */
 export type PropsPytaniaOceny = {
@@ -15,7 +15,7 @@ export type PropsPytaniaOceny = {
   tresc: string;
   odpowiedzi: readonly string[];
   onOdpowiedz(indeks: number): void;
-  onPomin(): void;
+  onNieWiem(): void; // liczone jak błędna odpowiedź (D-475)
   stol?: React.ReactNode; // karty albo stół pytania z egzaminu (docs/tresci/ocena-poziomu-pytania.md „Uwaga dla 08”; D-265)
 };
 export type PropsWynikuOceny = {
@@ -24,7 +24,7 @@ export type PropsWynikuOceny = {
   onZacznij(): void;
 };
 
-export function EkranPytaniaOceny({ numer, liczba, tresc, odpowiedzi, onOdpowiedz, onPomin, stol }: PropsPytaniaOceny): React.JSX.Element {
+export function EkranPytaniaOceny({ numer, liczba, tresc, odpowiedzi, onOdpowiedz, onNieWiem, stol }: PropsPytaniaOceny): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   return (
@@ -58,7 +58,7 @@ export function EkranPytaniaOceny({ numer, liczba, tresc, odpowiedzi, onOdpowied
           </Pressable>
         ))}
       </View>
-      <Button variant="ghost" label={t('placement.skip')} onPress={onPomin} />
+      <Button variant="ghost" label={t('placement.dontKnow')} onPress={onNieWiem} />
     </Screen>
   );
 }

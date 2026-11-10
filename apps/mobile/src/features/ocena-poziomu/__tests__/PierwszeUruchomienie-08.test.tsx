@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 // Bramka pierwszego uruchomienia (rola 08 cz. 5b krok 3; PR-01, flow 05): powitanie → ocena → „Dziś”; przerwana ocena po
-// ponownym uruchomieniu od pierwszego pytania z „Pomiń”, bez powitania (BR-ONB-001-c); zapis w postep.db (node:sqlite).
+// ponownym uruchomieniu ekran wyboru, potem od pierwszego pytania z „Nie wiem” (BR-ONB-001, D-475); zapis w postep.db (node:sqlite).
 import '@/i18n';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
@@ -45,7 +45,7 @@ describe('pierwsze uruchomienie', () => {
       </PierwszeUruchomienie>,
     );
     await screen.findByText(/bez gry na pieniądze/);
-    await fireEvent.press(screen.getByRole('button', { name: 'Dalej' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Przejdź test poziomujący' }));
     await screen.findByText(`Pytanie ${pierwsze}`);
     const etykieta = opisKart({ hand: ['Jc', '9d'], board: ['Ts', '7h', '2c'] }, i18n.t.bind(i18n), { nazwy: true }); // A04-11: nazwy kart dla czytnika
     expect(screen.getByRole('image').props.accessibilityLabel).toBe(etykieta);
@@ -59,23 +59,21 @@ describe('pierwsze uruchomienie', () => {
     expect(pliki(src).filter((f) => !f.includes('__tests__') && /\bTableFelt\b/.test(readFileSync(f, 'utf8')))).toEqual([]);
   });
 
-  it('BR-ONB-001-b: powitanie → Dalej → pytanie 1 → Pomiń → „Dziś”, punkt startu M0', async () => {
+  it('BR-ONB-001: powitanie (wybór) → „Zacznij od początku” → „Dziś”, punkt startu M0, bez pytań oceny', async () => {
     const { port, db } = await portTestowy();
     await render(<Bramka port={port} />);
     await screen.findByText(/bez gry na pieniądze/);
     expect(screen.queryByText('DZIŚ')).toBeNull();
-    await fireEvent.press(screen.getByRole('button', { name: 'Dalej' }));
-    await screen.findByText('Pytanie m0.exam.q1');
-    await fireEvent.press(screen.getByRole('button', { name: 'Pomiń' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Zacznij od początku' }));
     await screen.findByText('DZIŚ');
     expect(JSON.parse((db.prepare("SELECT wartosc FROM ustawienie WHERE klucz = 'punkt_startu'").get() as { wartosc: string }).wartosc)).toEqual({ modulId: 'm0', ustawionoMs: T0 });
   });
 
-  it('BR-ONB-001-c: przerwana po pierwszej odpowiedzi → po ponownym uruchomieniu pytanie 1 i „Pomiń”, bez powitania', async () => {
+  it('BR-ONB-001 „Przerwana ocena”: po ponownym uruchomieniu ekran wyboru (nie pytanie), „Przejdź test” → pytanie 1 i „Nie wiem”; postęp pusty', async () => {
     const { port, sciezka } = await portTestowy();
     const pierwszy = await render(<Bramka port={port} />);
     await screen.findByText(/bez gry na pieniądze/);
-    await fireEvent.press(screen.getByRole('button', { name: 'Dalej' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Przejdź test poziomujący' }));
     await screen.findByText('Pytanie m0.exam.q1');
     await fireEvent.press(screen.getByRole('button', { name: /^Dobra m0/ }));
     await screen.findByText('Pytanie m1.exam.q2');
@@ -83,16 +81,19 @@ describe('pierwsze uruchomienie', () => {
     await port.zamknij();
     const drugi = await portTestowy(sciezka);
     await render(<Bramka port={drugi.port} />);
+    await screen.findByText(/bez gry na pieniądze/);
+    expect(screen.queryByText('Pytanie m0.exam.q1')).toBeNull();
+    await fireEvent.press(screen.getByRole('button', { name: 'Przejdź test poziomujący' }));
     await screen.findByText('Pytanie m0.exam.q1');
-    expect(screen.queryByText(/bez gry na pieniądze/)).toBeNull();
-    expect(screen.getByRole('button', { name: 'Pomiń' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Nie wiem' })).toBeTruthy();
+    expect(screen.queryByRole('button', { name: 'Pomiń' })).toBeNull();
   });
 
   it('BR-ONB-001-a/BR-ONB-002: wszystkie odpowiedzi → punkt startu z regułą wyniku i „Zacznij naukę” → „Dziś”', async () => {
     const { port, db } = await portTestowy();
     await render(<Bramka port={port} />);
     await screen.findByText(/bez gry na pieniądze/);
-    await fireEvent.press(screen.getByRole('button', { name: 'Dalej' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Przejdź test poziomujący' }));
     for (const p of PYTANIA_OCENY) {
       await screen.findByText(`Pytanie ${p.zadanieId}`);
       await fireEvent.press(screen.getByRole('button', { name: new RegExp(`^${p.modulId === 'm2' ? 'Zła' : 'Dobra'} ${p.zadanieId.replace(/\./g, '\\.')}`) }));
@@ -103,6 +104,22 @@ describe('pierwsze uruchomienie', () => {
     await fireEvent.press(screen.getByRole('button', { name: 'Zacznij naukę' }));
     await screen.findByText('DZIŚ');
     await waitFor(() => expect(JSON.parse((db.prepare("SELECT wartosc FROM ustawienie WHERE klucz = 'punkt_startu'").get() as { wartosc: string }).wartosc).modulId).toBe('m2'));
+  });
+
+  it('BR-ONB-001 „Nie wiem” na każdym pytaniu → wynik M0 („Nie wiem” nie zawyża poziomu), bez „Pomiń”', async () => {
+    const { port, db } = await portTestowy();
+    await render(<Bramka port={port} />);
+    await screen.findByText(/bez gry na pieniądze/);
+    await fireEvent.press(screen.getByRole('button', { name: 'Przejdź test poziomujący' }));
+    for (const p of PYTANIA_OCENY) {
+      await screen.findByText(`Pytanie ${p.zadanieId}`);
+      await fireEvent.press(screen.getByRole('button', { name: 'Nie wiem' }));
+    }
+    await screen.findByText(/Moduł 0/);
+    await fireEvent.press(screen.getByRole('button', { name: 'Zacznij naukę' }));
+    await screen.findByText('DZIŚ');
+    expect(JSON.parse((db.prepare("SELECT wartosc FROM ustawienie WHERE klucz = 'punkt_startu'").get() as { wartosc: string }).wartosc).modulId).toBe('m0');
+    expect(db.prepare('SELECT COUNT(*) AS n, SUM(zaliczona) AS z FROM odpowiedz').get()).toEqual({ n: PYTANIA_OCENY.length, z: 0 });
   });
 
   it('punkt startu zapisany → od razu „Dziś”', async () => {
@@ -123,7 +140,7 @@ describe('A04-02: karty w treści i odpowiedziach oceny poziomu', () => {
         tresc="Który flop [[8h 6d 5c]] jest najbardziej skoordynowany?"
         odpowiedzi={['[[8h 6d 5c]]', '[[Kd Td 3s]]', '[[Ah Ad 7c]]']}
         onOdpowiedz={onOdpowiedz}
-        onPomin={jest.fn()}
+        onNieWiem={jest.fn()}
       />,
     );
     expect(screen.queryAllByText(/\[\[/)).toHaveLength(0);
