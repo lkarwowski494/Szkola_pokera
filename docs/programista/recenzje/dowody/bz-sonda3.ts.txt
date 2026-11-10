@@ -1,0 +1,23 @@
+// Sonda 3: ziarno 1588 — dlaczego 1000 odrzuceń z rzędu na sc-01 (wszystkie poziomy) i sc-19 sredni
+import { join } from 'node:path';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import { createRng, dealCards, analyseOutsSpot, classifyFlop, textureMatches, rankOf, classifyHolding, cardToString } from '/home/user/Szkola_pokera/packages/poker-core/src';
+const t = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios')).find((x) => x.template.id === 'sc-01')!.template;
+console.log('sc-01 latwy bounds', JSON.stringify(t.bounds.latwy), 'decisions', JSON.stringify(t.decisions.map((d: any) => ({ s: d.street, pots: d.pots, f: d.fractions }))));
+for (const seed of [1588, 1587, 1589]) {
+  const rng = createRng(seed);
+  const powod: Record<string, number> = {};
+  const rece = new Set<string>();
+  for (let i = 0; i < 1000; i++) {
+    const c = dealCards(rng, 9);
+    rece.add(c.slice(0, 9).join(','));
+    const flop = c.slice(4, 7);
+    const b: any = t.bounds.latwy;
+    let p = 'dalej';
+    if (!textureMatches(classifyFlop(flop), b.flop ?? {})) p = 'tekstura';
+    else if (b.reject.includes('stol-sparowany') && new Set(flop.map(rankOf)).size < 3) p = 'sparowany';
+    else { const s = analyseOutsSpot([c[0]!, c[1]!], flop); if (!s || !b.draws.includes(s.draw.kind)) p = 'brak-drawa'; else if (classifyHolding([c[0]!, c[1]!], flop).improvesBoard) p = 'gotowa'; }
+    powod[p] = (powod[p] ?? 0) + 1;
+  }
+  console.log('ziarno', seed, 'różnych rozdań w 1000 próbach:', rece.size, JSON.stringify(powod));
+}

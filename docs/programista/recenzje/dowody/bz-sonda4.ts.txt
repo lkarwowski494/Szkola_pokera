@@ -1,0 +1,24 @@
+// Sonda 4: linia all-in (F5) — zakład rywala vs dokładny stos gracza za pulą (ŚR-203); domena wybierzWariant na szablonie range-spot
+import { join } from 'node:path';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import { generateVariant } from '/home/user/Szkola_pokera/packages/poker-core/src';
+import { wybierzWariant } from '/home/user/Szkola_pokera/packages/domena/src/wariant';
+const fx = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'tools/content-build/test/fixtures/scenariusze')).find((x) => x.template.id === 'sc-fx-allin-draw')!.template;
+const g: any = { id: fx.id, stackBb: fx.stackBb, levels: fx.bounds, decisions: fx.decisions };
+const ile: Record<string, number> = {};
+let ponad = 0;
+for (let s = 1; s <= 2000; s++) {
+  const v = generateVariant(g, 'sredni', s);
+  const d = v.decisions[0]!;
+  const stos = fx.stackBb - (d.pot - 1.5) / 2;
+  const k = `pula ${d.pot}: zakład ${d.bet}, stos gracza za pulą ${stos}`;
+  ile[k] = (ile[k] ?? 0) + 1;
+  if (d.bet > stos) ponad++;
+}
+console.log(JSON.stringify(ile, null, 1));
+console.log('warianty z zakładem > stos gracza:', ponad, '/ 2000');
+const rs = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'tools/content-build/test/fixtures/range-spot'))[0]!.template;
+try {
+  wybierzWariant({ id: rs.id, levels: rs.bounds, decisions: rs.decisions } as any, rs.levels[0] as any, 1, { historia: [], sesja: new Set() });
+  console.log('wybierzWariant range-spot: OK');
+} catch (e) { console.log('wybierzWariant range-spot: BŁĄD', (e as Error).constructor.name, (e as Error).message); }

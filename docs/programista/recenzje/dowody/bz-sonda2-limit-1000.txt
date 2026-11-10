@@ -1,0 +1,10 @@
+$ MAXREJ=1000 N=3000 npx tsx sonda2.ts (HEAD 6a5ca17)
+MAX_CONSECUTIVE_REJECTIONS = 1000 ziarna 1..3000
+sc-01 latwy: błędy 1/3000 (ziarna 1588), czas śr. 1.45 ms, p99 7.0 ms, max 17.1 ms
+sc-01 sredni: błędy 1/3000 (ziarna 1588), czas śr. 1.31 ms, p99 6.0 ms, max 10.1 ms
+sc-01 trudny: błędy 1/3000 (ziarna 1588), czas śr. 1.42 ms, p99 6.7 ms, max 11.6 ms
+sc-02 latwy: błędy 0/3000 (ziarna ), czas śr. 1.19 ms, p99 5.6 ms, max 11.0 ms
+sc-02 sredni: błędy 0/3000 (ziarna ), czas śr. 1.15 ms, p99 5.1 ms, max 10.4 ms
+sc-19 latwy: błędy 10/3000 (ziarna 147,853,920,1071,1270), czas śr. 2.14 ms, p99 10.1 ms, max 16.0 ms
+sc-19 sredni: błędy 1/3000 (ziarna 1588), czas śr. 1.64 ms, p99 7.7 ms, max 17.2 ms
+KOD WYJŚCIA: 0

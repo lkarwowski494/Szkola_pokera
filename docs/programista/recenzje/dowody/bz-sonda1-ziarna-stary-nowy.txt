@@ -1,0 +1,14 @@
+$ npx tsx sonda1.ts (cwd repo, HEAD 6a5ca17)
+sc-01 latwy: ziarna 1..300: ten sam odcisk 112, ten sam odcisk+pula+zakład 112, błąd starego 0
+sc-01 sredni: ziarna 1..300: ten sam odcisk 112, ten sam odcisk+pula+zakład 112, błąd starego 0
+sc-01 trudny: ziarna 1..300: ten sam odcisk 112, ten sam odcisk+pula+zakład 112, błąd starego 0
+sc-02 latwy: ziarna 1..300: ten sam odcisk 190, ten sam odcisk+pula+zakład 161, błąd starego 0
+sc-02 sredni: ziarna 1..300: ten sam odcisk 190, ten sam odcisk+pula+zakład 190, błąd starego 0
+sc-19 latwy: ziarna 1..300: ten sam odcisk 107, ten sam odcisk+pula+zakład 70, błąd starego 0
+sc-19 sredni: ziarna 1..300: ten sam odcisk 112, ten sam odcisk+pula+zakład 112, błąd starego 0
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+KOD WYJŚCIA: 0

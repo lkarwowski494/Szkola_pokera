@@ -1,0 +1,10 @@
+$ npx tsx sonda4.ts (HEAD 6a5ca17)
+{
+ "pula 36: zakład 18, stos gracza za pulą 17.75": 491,
+ "pula 40: zakład 16, stos gracza za pulą 15.75": 504,
+ "pula 44: zakład 14, stos gracza za pulą 13.75": 499,
+ "pula 30: zakład 21, stos gracza za pulą 20.75": 506
+}
+warianty z zakładem > stos gracza: 2000 / 2000
+wybierzWariant range-spot: BŁĄD TemplateError sc-fx-rfi-btn: punkt range-spot wymaga danych zakresów (GeneratorContext)
+KOD WYJŚCIA: 0

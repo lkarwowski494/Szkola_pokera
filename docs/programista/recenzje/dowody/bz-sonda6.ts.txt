@@ -1,0 +1,22 @@
+// Sonda 6: czy testy KO-051 (bv-gotowa-reka) i ŚR-203 (stos-zakladu-bu) padają na generatorze sprzed BU (b9a656a) — czy potrafią być czerwone
+import { join } from 'node:path';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import { classifyHolding } from '/home/user/Szkola_pokera/packages/poker-core/src';
+import * as OLD from './old-gen';
+const pl = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios'));
+for (const { template: t } of pl) {
+  const g: any = { id: t.id, levels: t.bounds, decisions: t.decisions };
+  for (const level of t.levels as any[]) {
+    const b: any = t.bounds[level]; let gotowa = 0, ponad = 0, bledy = 0;
+    for (let s = 1; s <= 2000; s++) {
+      let v: any; try { v = OLD.generateVariant(g, level, s); } catch { bledy++; continue; }
+      let zak = 0;
+      v.decisions.forEach((d: any, i: number) => {
+        if (b.expected[i] === 'fold' && classifyHolding(v.hero, v.board.slice(0, d.street === 'flop' ? 3 : 4)).improvesBoard) gotowa++;
+        if (d.bet > t.stackBb - (v.decisions[0].pot - 1.5) / 2 - zak) ponad++;
+        zak += d.bet;
+      });
+    }
+    console.log(`b9a656a ${t.id} ${level}: fold z gotową ręką ${gotowa}, zakład > stos ${ponad}, błędy generatora ${bledy} (2000 ziaren)`);
+  }
+}

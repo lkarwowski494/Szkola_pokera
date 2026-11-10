@@ -1,0 +1,22 @@
+// Sonda 2: ile ziaren pada przy limicie MAXREJ (1000 = BR-GEN-003, 5000 = D-665) i czas jednego wariantu
+import { join } from 'node:path';
+import { performance } from 'node:perf_hooks';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import * as G from './new-gen-param';
+const pl = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios'));
+const N = Number(process.env.N ?? 3000);
+console.log('MAX_CONSECUTIVE_REJECTIONS =', G.MAX_CONSECUTIVE_REJECTIONS, 'ziarna 1..' + N);
+for (const { template: t } of pl) {
+  const g: any = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions };
+  for (const level of t.levels as any[]) {
+    let err = 0; const czasy: number[] = []; const zle: number[] = [];
+    for (let s = 1; s <= N; s++) {
+      const a = performance.now();
+      try { G.generateVariant(g, level, s); } catch { err++; if (zle.length < 5) zle.push(s); }
+      czasy.push(performance.now() - a);
+    }
+    czasy.sort((x, y) => x - y);
+    const sr = czasy.reduce((x, y) => x + y, 0) / N;
+    console.log(`${t.id} ${level}: błędy ${err}/${N} (ziarna ${zle.join(',')}), czas śr. ${sr.toFixed(2)} ms, p99 ${czasy[Math.floor(N*0.99)]!.toFixed(1)} ms, max ${czasy[N-1]!.toFixed(1)} ms`);
+  }
+}

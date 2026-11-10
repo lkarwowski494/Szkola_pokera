@@ -1,0 +1,6 @@
+$ npx tsx sonda5.ts (HEAD 6a5ca17)
+schemat: przyjęty {"draws":["flush"],"marginMin":0,"marginMax":null,"reject":["rywal-ma-out-gracza","stol-sparowany"],"expected":["call","call"]}
+checkScenarioTemplate (błędy o marginesie): []
+checkScenarioGenerator: []
+łatwy: najmniejszy margines 0.0012 ; punktów z marginesem < 10 pp: 2983 (2000 wariantów)
+KOD WYJŚCIA: 0

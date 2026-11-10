@@ -1,0 +1,6 @@
+$ npx tsx sonda3.ts (HEAD 6a5ca17)
+sc-01 latwy bounds {"draws":["flush"],"marginMin":0.1,"marginMax":null,"reject":["rywal-ma-out-gracza","stol-sparowany"],"expected":["call","call"]} decisions [{"s":"flop","pots":[18,20,22,24],"f":[0.1,0.2,0.25,0.3]},{"s":"turn","pots":[],"f":[0.1,0.2,0.25,0.3]}]
+ziarno 1588 różnych rozdań w 1000 próbach: 1000 {"brak-drawa":804,"sparowany":164,"gotowa":7,"dalej":25}
+ziarno 1587 różnych rozdań w 1000 próbach: 1000 {"brak-drawa":815,"sparowany":156,"dalej":21,"gotowa":8}
+ziarno 1589 różnych rozdań w 1000 próbach: 1000 {"brak-drawa":779,"sparowany":190,"dalej":23,"gotowa":8}
+KOD WYJŚCIA: 0

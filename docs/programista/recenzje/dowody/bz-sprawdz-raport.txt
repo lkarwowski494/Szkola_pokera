@@ -1,0 +1,3 @@
+$ node sprawdz-raport.mjs docs/programista/recenzje/recenzja-bu-6a5ca17.md . docs/programista/recenzje --rola 08-programista
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 08-programista
+KOD WYJŚCIA: 0

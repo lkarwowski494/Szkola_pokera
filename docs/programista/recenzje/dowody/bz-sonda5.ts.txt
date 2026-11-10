@@ -1,0 +1,21 @@
+// Sonda 5: szablon sc-01 z poziomem łatwym bez marginMin/marginMax (schemat 6a5ca17 daje domyślne 0/null) — czy build to przepuszcza
+// i jaki najmniejszy margines dostaje poziom łatwy (BR-GEN-003: łatwy ≥ 10 pp)
+import { readFileSync } from 'node:fs';
+import { parse } from '/home/user/Szkola_pokera/node_modules/yaml/dist/index.js';
+import { ScenarioTemplate } from '/home/user/Szkola_pokera/packages/content-schema/src';
+import { checkScenarioGenerator, checkScenarioTemplate } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import { generateVariant } from '/home/user/Szkola_pokera/packages/poker-core/src';
+const surowy: any = parse(readFileSync('/home/user/Szkola_pokera/content/pl/scenarios/sc-01.yaml', 'utf8'));
+delete surowy.bounds.latwy.marginMin; delete surowy.bounds.latwy.marginMax;
+const r = ScenarioTemplate.safeParse(surowy);
+console.log('schemat:', r.success ? 'przyjęty' : 'odrzucony', r.success ? JSON.stringify(r.data.bounds.latwy) : JSON.stringify(r.error.issues));
+if (r.success) {
+  const t = r.data;
+  const bt = checkScenarioTemplate(t, 'sc-01.yaml', { ruleLevels: new Map([['R-M2-005','math'],['R-M2-004','math'],['R-M2-001','math'],['R-M2-002','math']] as any), numberKeys: new Set(), moduleIds: new Set([t.module]) }).filter((x) => /margin|margines/i.test(x));
+  console.log('checkScenarioTemplate (błędy o marginesie):', JSON.stringify(bt));
+  console.log('checkScenarioGenerator:', JSON.stringify(checkScenarioGenerator(t)));
+  const g: any = { id: t.id, levels: t.bounds, decisions: t.decisions };
+  let min = 1; let pod10 = 0;
+  for (let s = 1; s <= 2000; s++) for (const d of generateVariant(g, 'latwy', s).decisions) { min = Math.min(min, d.margin); if (d.margin < 0.1) pod10++; }
+  console.log('łatwy: najmniejszy margines', min.toFixed(4), '; punktów z marginesem < 10 pp:', pod10, '(2000 wariantów)');
+}

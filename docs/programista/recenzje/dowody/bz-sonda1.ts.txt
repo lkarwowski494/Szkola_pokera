@@ -1,0 +1,21 @@
+// Sonda 1: te same ziarna, generator b9a656a vs 6a5ca17 na szablonach content/pl (D-531: ziarno w historii użytkownika)
+import { join } from 'node:path';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import * as OLD from './old-gen';
+import * as NEW from '/home/user/Szkola_pokera/packages/poker-core/src/scenario-gen';
+const pl = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios'));
+const N = 300;
+for (const { template: t } of pl) {
+  const g: any = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions };
+  for (const level of t.levels as any[]) {
+    let sameFp = 0, sameAll = 0, oldErr = 0;
+    for (let s = 1; s <= N; s++) {
+      const n = NEW.generateVariant(g, level, s);
+      let o: any;
+      try { o = OLD.generateVariant(g, level, s); } catch { oldErr++; continue; }
+      if (o.fingerprint === n.fingerprint) sameFp++;
+      if (JSON.stringify(o.decisions.map((d: any) => [d.pot, d.bet])) === JSON.stringify(n.decisions.map((d: any) => [d.pot, d.bet])) && o.fingerprint === n.fingerprint) sameAll++;
+    }
+    console.log(`${t.id} ${level}: ziarna 1..${N}: ten sam odcisk ${sameFp}, ten sam odcisk+pula+zakład ${sameAll}, błąd starego ${oldErr}`);
+  }
+}

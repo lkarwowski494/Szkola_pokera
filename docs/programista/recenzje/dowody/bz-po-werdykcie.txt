@@ -1,0 +1,11 @@
+Porównanie z uzasadnieniem autora BU — przeczytane PO zapisaniu werdyktu (polecenie BZ pkt 3).
+Źródła: docs/programista/stan-bu.md (@ 6a5ca17); D-664, D-665 — brak wpisów w docs/decyzje.md na tej gałęzi (grep "D-66[0-9]" → 0 trafień), znane tylko z komentarzy w kodzie (content-schema/src/index.ts:10, poker-core/src/scenario-gen.ts:121).
+
+08-programista-001 (ziarno po zmianie generatora): autor nie wspomina. Bez zmian.
+08-programista-002 (all-in > stos o 0,25 bb): autor nie wspomina; komentarz w kodzie "all-in to z definicji cały stos (zaokrąglony)". Bez zmian.
+08-programista-003 (domyślny margines): autor wymienia "domyślne draws/marginMin/marginMax/reject w schemacie" jako zmianę kształtu, bez kontroli zastępczej. Bez zmian.
+08-programista-004 (domena bez GeneratorContext): autor zapisał to jako "Niezrobione" (stan-bu.md, sekcja "Niezrobione"). Potwierdza znalezisko; poziom bez zmian (ŚREDNIE, backlog).
+08-programista-005 (5000 vs 1000): stan-bu.md (stan @ e6dfee3) mówi jeszcze o limicie 1000; uzasadnienie 5000 tylko w komentarzu kodu (D-665) i zgadza się z pomiarem BZ (sonda 2). Bez zmian.
+08-programista-006: autor nie wspomina. Bez zmian.
+Uwaga: stan-bu.md ma kod @ e6dfee3 i nie opisuje commitów 9e9cb42 i 15e2717 (KO-050, KO-051) ani D-664/D-665 — rejestr decyzji nie ma tych wpisów (do uzupełnienia przez sesję scalającą).
+Werdykt bez zmian: PRZYJĄĆ Z WARUNKIEM.
