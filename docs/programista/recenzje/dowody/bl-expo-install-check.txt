@@ -1,0 +1,11 @@
+The following packages should be updated for best compatibility with the installed expo version:
+  jest@29.7.0 - expected version: ~30.5.2
+  @types/jest@29.5.14 - expected version: 30.0.0
+Your project may not work correctly until you install the expected versions of the packages.
+Found outdated dependencies
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+EXIT 1

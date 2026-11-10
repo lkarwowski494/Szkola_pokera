@@ -1,0 +1,71 @@
+TAP version 13
+# Subtest: każdy flow to poprawny YAML (nagłówek + kroki)
+ok 1 - każdy flow to poprawny YAML (nagłówek + kroki)
+  ---
+  duration_ms: 25.499615
+  type: 'test'
+  ...
+# Subtest: każda zmienna ${…} we flowach ma niepustą wartość z helplines-env.mjs
+ok 2 - każda zmienna ${…} we flowach ma niepustą wartość z helplines-env.mjs
+  ---
+  duration_ms: 129.483134
+  type: 'test'
+  ...
+# Subtest: każdy runFlow wskazuje istniejący plik (ścieżka względem flowu)
+ok 3 - każdy runFlow wskazuje istniejący plik (ścieżka względem flowu)
+  ---
+  duration_ms: 0.482617
+  type: 'test'
+  ...
+# Subtest: config.yaml uruchamia tylko flowy z katalogu głównego (oczekujace/ poza bramką, D-189)
+ok 4 - config.yaml uruchamia tylko flowy z katalogu głównego (oczekujace/ poza bramką, D-189)
+  ---
+  duration_ms: 0.769844
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)
+ok 5 - e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)
+  ---
+  duration_ms: 0.357545
+  type: 'test'
+  ...
+# Subtest: każde id we flowach bramki ma testID w kodzie aplikacji (apps/mobile/src)
+ok 6 - każde id we flowach bramki ma testID w kodzie aplikacji (apps/mobile/src)
+  ---
+  duration_ms: 7.420312
+  type: 'test'
+  ...
+# Subtest: każdy launchApp we flowach ustala język telefonu (arguments.AppleLanguages = (pl) albo (en), D-353)
+ok 7 - każdy launchApp we flowach ustala język telefonu (arguments.AppleLanguages = (pl) albo (en), D-353)
+  ---
+  duration_ms: 11.973025
+  type: 'test'
+  ...
+# Subtest: K7 (plan-09): flow drugiego języka 08-drugi-jezyk.yaml w bramce, startuje z telefonem en
+ok 8 - K7 (plan-09): flow drugiego języka 08-drugi-jezyk.yaml w bramce, startuje z telefonem en
+  ---
+  duration_ms: 1.984368
+  type: 'test'
+  ...
+# Subtest: Z2 (E2E 42800500800): „Nie wiem” na pytaniu ze stołem jest pod ekranem, więc każde jego assertVisible/tapOn poprzedza scrollUntilVisible
+ok 9 - Z2 (E2E 42800500800): „Nie wiem” na pytaniu ze stołem jest pod ekranem, więc każde jego assertVisible/tapOn poprzedza scrollUntilVisible
+  ---
+  duration_ms: 2.074709
+  type: 'test'
+  ...
+# Subtest: tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na zakładce, która go renderuje (D-542)
+ok 10 - tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na zakładce, która go renderuje (D-542)
+  ---
+  duration_ms: 10.118511
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 284.384706
+EXIT 0

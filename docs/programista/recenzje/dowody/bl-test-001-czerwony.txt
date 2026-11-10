@@ -1,0 +1,44 @@
+TAP version 13
+# Subtest: tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na zakładce, która go renderuje (D-542)
+not ok 1 - tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na zakładce, która go renderuje (D-542)
+  ---
+  duration_ms: 23.631649
+  type: 'test'
+  location: '/home/user/Szkola_pokera/tests/narzedzia/e2e-flowy.test.mjs:139:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + [
+    +   '02-powtorki.yaml, krok 3: czeka na „No-Limit Hold’em od zera.*” na zakładce index.tsx, a tekst renderuje tylko lessons.tsx',
+    +   '03-slowniczek.yaml, krok 3: czeka na „No-Limit Hold’em od zera.*” na zakładce index.tsx, a tekst renderuje tylko lessons.tsx',
+    +   '04-pomoc.yaml, krok 3: czeka na „No-Limit Hold’em od zera.*” na zakładce index.tsx, a tekst renderuje tylko lessons.tsx'
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: '02-powtorki.yaml, krok 3: czeka na „No-Limit Hold’em od zera.*” na zakładce index.tsx, a tekst renderuje tylko lessons.tsx'
+    1: '03-slowniczek.yaml, krok 3: czeka na „No-Limit Hold’em od zera.*” na zakładce index.tsx, a tekst renderuje tylko lessons.tsx'
+    2: '04-pomoc.yaml, krok 3: czeka na „No-Limit Hold’em od zera.*” na zakładce index.tsx, a tekst renderuje tylko lessons.tsx'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/Szkola_pokera/tests/narzedzia/e2e-flowy.test.mjs:164:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 129.72254
+EXIT 1
