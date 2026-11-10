@@ -1,6 +1,6 @@
 // BR-GEN-002 (D-532): bez powtórzeń w sesji i między sesjami, pojemność, najdawniej widziany przy braku wolnego odcisku.
 import { describe, expect, it } from 'vitest';
-import { BET_FRACTIONS, generateVariant, type GeneratorTemplate, type ScenarioVariant } from '@szkola/poker-core';
+import { BET_FRACTIONS, generateVariant, type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
 import { KONFIGURACJA as K, wybierzWariant, type WpisHistorii } from '../src';
 
 const SZABLON: GeneratorTemplate = {
@@ -43,7 +43,7 @@ describe('BR-GEN-002: wybór wariantu bez powtórzeń', () => {
       templateId: 't', level: 'sredni', seed: 100 + i, hero: [0, 1], villain: [2, 3], board: [4, 5, 6, 7, 8], decisions: [], fingerprint: odcisk,
     }));
     // generator zna tylko trzy odciski; ziarno wybiera jeden z nich
-    const generuj = (_: GeneratorTemplate, __: 'sredni', ziarno: number): ScenarioVariant => pula[ziarno >= 100 && ziarno <= 102 ? ziarno - 100 : ziarno % 3]!;
+    const generuj = (_: GeneratorTemplate, __: ScenarioLevel, ziarno: number): ScenarioVariant => pula[ziarno >= 100 && ziarno <= 102 ? ziarno - 100 : ziarno % 3]!;
     const historia: WpisHistorii[] = [{ odcisk: 'b', ziarno: 101 }, { odcisk: 'c', ziarno: 102 }, { odcisk: 'a', ziarno: 100 }];
     const v = wybierzWariant(SZABLON, 'sredni', 5, { historia, sesja: new Set(), generuj });
     expect(v.fingerprint).toBe('b'); // najdawniej widziany
