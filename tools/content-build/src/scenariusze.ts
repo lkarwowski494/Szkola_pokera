@@ -43,6 +43,29 @@ export function loadScenarioTemplates(dir: string): LoadedScenario[] {
 }
 
 /** Błędy szablonu względem treści (lista pusta = poprawny). Schemat sprawdza kształt, tu: powiązania z regułami, liczbami, modułami. */
+/** Kolejność akcji preflop (od UTG do BB) i po flopie (SB pierwszy, BTN ostatni). */
+const KOLEJNOSC_PREFLOP = ['UTG', 'UTG1', 'UTG2', 'LJ', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
+const KOLEJNOSC_PO_FLOPIE = ['SB', 'BB', 'UTG', 'UTG1', 'UTG2', 'LJ', 'HJ', 'CO', 'BTN'] as const;
+
+/** CJ ŚR-003: pozycje size-spot wobec reguły (gracz ≠ rywal; kolejność otwarcia; ip/oop reguły rozmiaru 3-betu). */
+function sprawdzPozycjeSizeSpot(pos: { hero: string; villain: string }, check: string, regulaPozycja: string | number | undefined, p: string): string[] {
+  const e: string[] = [];
+  if (pos.hero === pos.villain) return [`${p} gracz i rywal nie mogą siedzieć na tej samej pozycji (${pos.hero})`];
+  const pre = (x: string) => (KOLEJNOSC_PREFLOP as readonly string[]).indexOf(x);
+  const post = (x: string) => (KOLEJNOSC_PO_FLOPIE as readonly string[]).indexOf(x);
+  if (check === 'three-bet-size') {
+    if (pre(pos.villain) > pre(pos.hero)) e.push(`${p} three-bet-size: rywal otworzył przed graczem, a ${pos.villain} działa po ${pos.hero}`);
+    const ip = post(pos.hero) > post(pos.villain);
+    if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${pos.hero} wobec ${pos.villain})`);
+    if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${pos.hero} wobec ${pos.villain})`);
+  } else {
+    // CJ ŚR-004: zły mały rozmiar (0,8 × standard = 2,0 bb) to rozmiar solvera z UTG (GTO Wizard, Range Morphology: UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb)
+    if (check === 'open-size' && pos.hero !== 'BTN' && pos.hero !== 'SB') e.push(`${p} open-size tylko z BTN i SB (rozmiar solvera z ${pos.hero} jest mniejszy lub równy 2,0–2,3 bb, więc mały rozmiar nie byłby błędny)`);
+    if (pos.hero === 'BB' || pre(pos.hero) > pre(pos.villain)) e.push(`${p} ${check}: otwierający (gracz, ${pos.hero}) działa przed rywalem (${pos.villain}); BB nie otwiera`);
+  }
+  return e;
+}
+
 export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: ScenarioCheckContext): string[] {
   const e: string[] = [];
   const pre = `szablon ${t.id}:`;
@@ -115,6 +138,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       if (d.sb !== undefined && d.check === 'three-bet-size') e.push(`${p} sb tylko dla open-size i no-limp`);
       if (d.sb === true && t.positions.hero !== 'SB') e.push(`${p} sb: true wymaga pozycji gracza SB, jest ${t.positions.hero}`);
       if (d.sb !== true && d.check !== 'three-bet-size' && t.positions.hero === 'SB') e.push(`${p} gracz z SB wymaga sb: true (rozmiar openSb)`);
+      e.push(...sprawdzPozycjeSizeSpot(t.positions, d.check, r?.check.params.position, p));
       const akcje = d.actions.map((a) => a.action);
       if (new Set(akcje).size !== akcje.length) e.push(`${p} akcja powtórzona`);
       if (d.check === 'no-limp' ? akcje.slice().sort().join(',') !== 'limp,raise' : !(akcje.includes('raise') && akcje.every((a) => a !== 'limp'))) {
@@ -177,7 +201,7 @@ export function checkScenarioGenerator(
   ctx?: GeneratorContext, // bez kontekstu punkty range-spot, cbet-case, size-spot i icm-call kończą się TemplateError (brak zgadywanych progów, NIS-006)
 ): string[] {
   const e: string[] = [];
-  const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
   for (const level of t.levels as ScenarioLevel[]) {
     const odciski = new Set<string>();
     try {

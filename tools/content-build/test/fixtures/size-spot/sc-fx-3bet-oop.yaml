@@ -3,7 +3,7 @@ id: sc-fx-3bet-oop
 module: m4
 situation: "Fixture: three-bet-size."
 table: 6max
-positions: { hero: BB, villain: BB }
+positions: { hero: BB, villain: BTN }
 stackBb: 100
 levels: [latwy]
 bounds:
