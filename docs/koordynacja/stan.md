@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:25 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:52 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -31,9 +31,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AM | (po starcie) | 10 build, kod | sesja-am-kategoria @ e01ba05 | — | — | zlecana 06:25 |
-| AN | (po starcie) | 10 build, docs | sesja-an-kr-vn @ e01ba05 | — | — | zlecana 06:25 |
-| AO | (po starcie) | 09 build, kod | sesja-ao-pt-pt @ e01ba05 | — | — | zlecana 06:25 |
+| AM | session_01T66VBzioNjwudY42GtzgHt | 10 build, kod | sesja-am-kategoria @ e01ba05 | — | — | wystartowała (get_session przez subagenta: WORKING) |
+| AN | session_01T66VBy5HsHQDnmCWm8Vboj | 10 build, docs | sesja-an-kr-vn @ e01ba05 | — | — | wystartowała (WORKING) |
+| AO | session_01T66VBwQoZrfRhLaY2LmtdR | 09 build, kod | sesja-ao-pt-pt @ e01ba05 | — | — | wystartowała (WORKING) |
 
 Litery użyte dotąd: A…Z, AA…AO (następna: **AP**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
@@ -88,3 +88,4 @@ Litery użyte dotąd: A…Z, AA…AO (następna: **AP**). Polecenia: `docs/koord
 | 11-10 06:10 | właściciel → koordynator | pytanie zbiorcze: odpowiedzi KO-005…KO-016: weto D-360 (Games/Card), ponowna ocena KR/VN, pt-PT osobno ≤ 25 USD API, pełny przegląd AI całości, 11 języków w 1.0, tryb „właściciel”, bez pułapu, site/ na main, build po poprawkach, środowisko tej sesji | zlecenie AM, AN, AO |
 | 11-10 06:15 | koordynator | `site/` PokerGym na `main`: ddb0108 (2 pliki, 8 linii — tylko nazwa; `git diff --stat`) | sprawdzić przebieg Pages |
 | 11-10 06:20 | koordynator | polecenia AM/AN/AO @ c32ddfa (komunikat tego commitu wymienia też stan — stan dopisany dopiero w następnym commicie, błąd skryptu) | start sesji |
+| 11-10 05:52 | koordynator | AM, AN, AO wystartowały (ID w tabeli; create_session przez subagentów, prompt roli przepisany — zgodność znak po znaku niesprawdzona; znana różnica w AO: w szablonie „Przekazanie” roli 09 jedna linia polecenia ma `06-tresci` zamiast `12-niezawodnosc` — bez wpływu, sesje nie robią przekazania roli). Pages 42764138515 na ddb0108 success (05:46). **Korekta godzin:** wpisy dziennika z 05:45–06:20 i godziny w KO-005…017 były szacowane; wg Actions push `site/` na `main` był o 05:45, pytanie zbiorcze ok. 05:35–05:45 | kontrola za ok. 60 min |
