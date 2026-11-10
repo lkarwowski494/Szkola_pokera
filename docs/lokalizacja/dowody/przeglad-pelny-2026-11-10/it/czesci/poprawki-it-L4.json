@@ -1,0 +1,74 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m8-l1-value.md",
+  "stary": "perché, giocando in {{t:position|posizione}}, l'avversario mostrerà",
+  "nowy": "perché sei in {{t:position|posizione}} e l'avversario mostrerà",
+  "waga": "ŚR",
+  "powod": "it-L4-01 gerundium przypisuje pozycję rywalowi; pl m8-l1-value.md:89 „z pozycji rywal pokaże karty” (pozycję masz ty)",
+  "grupa": "it-L4"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m8-l4-bluff-catching.md",
+  "stary": "meglio passare una mano senza possibilità",
+  "nowy": "meglio foldare una mano senza possibilità",
+  "waga": "ŚR",
+  "powod": "it-L4-02 fold nazwany „passare” wbrew reszcie pliku (foldare); pl m8-l4-bluff-catching.md:82 „spasowanie”",
+  "grupa": "it-L4"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l4-probe-obrona.md",
+  "stary": "nella lezione su come cogliere i {{t:bluff}}",
+  "nowy": "nella lezione su come catturare i {{t:bluff}}",
+  "waga": "ŚR",
+  "powod": "it-L4-03 odwołanie do lekcji „Catturare i bluff” (m8-l4 tytuł) nazwane inaczej; pl m7-l4-probe-obrona.md:116 „lekcja o łapaniu blefów”",
+  "grupa": "it-L4"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l3-implied-odds.md",
+  "stary": "## Una carta alla fine",
+  "nowy": "## Manca una sola carta",
+  "waga": "ŚR",
+  "powod": "it-L4-04 myląca kalka nagłówka; pl m7-l3-implied-odds.md:109 „Jedna karta do końca” (en „One card to go”)",
+  "grupa": "it-L4"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l4-probe-obrona.md",
+  "stary": "bisogna risparmiare {{t:chips|fiche}}",
+  "nowy": "bisogna risparmiare {{t:chips|fiches}}",
+  "waga": "NISKIE",
+  "powod": "it-L4-05 forma terminu chips niezgodna z terms-nazwy („fiches”); pl m7-l4-probe-obrona.md:107",
+  "grupa": "it-L4"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l4-probe-obrona.md",
+  "stary": "hai già messo molte {{t:chips|fiche}}",
+  "nowy": "hai già messo molte {{t:chips|fiches}}",
+  "waga": "NISKIE",
+  "powod": "it-L4-06 forma terminu chips niezgodna z terms-nazwy („fiches”); pl m7-l4-probe-obrona.md:108",
+  "grupa": "it-L4"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l3-implied-odds.md",
+  "stary": "Si può: con la regola del 2 e del 4 del M2",
+  "nowy": "Si può: con la regola del 2 e del 4 dell'M2",
+  "waga": "NISKIE",
+  "powod": "it-L4-07 rodzajnik przed skrótem M2 (emme): dell'M2; pl m7-l3-implied-odds.md:17",
+  "grupa": "it-L4"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l3-implied-odds.md",
+  "stary": "Con la regola del 2 e del 4 del M2 moltiplichi",
+  "nowy": "Con la regola del 2 e del 4 dell'M2 moltiplichi",
+  "waga": "NISKIE",
+  "powod": "it-L4-08 rodzajnik przed skrótem M2 (emme): dell'M2; pl m7-l3-implied-odds.md:118",
+  "grupa": "it-L4"
+ }
+]

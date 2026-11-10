@@ -1,0 +1,83 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "then: \"fai più spesso il {{t:second-barrel|second barrel}}, anche come",
+  "nowy": "then: \"{{t:bet|punti}} più spesso il {{t:second-barrel|second barrel}}, anche come",
+  "waga": "ŚR",
+  "powod": "it-R1-01 zgubiony znacznik {{t:bet|…}} (pl rules.yaml:537 „częściej {{t:bet|stawiasz}} {{t:second-barrel|second barrel}}”)",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "flop {{t:dry|asciutto}}: i {{t:draw|progetti}} sono pochi",
+  "nowy": "flop {{t:dry|secco}}: i {{t:draw|progetti}} sono pochi",
+  "waga": "ŚR",
+  "powod": "it-R1-02 termin dry: terms-nazwy.yaml „secco”, w pliku „asciutto” (pl:335)",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "definizione di flop {{t:dry|asciutto}})",
+  "nowy": "definizione di flop {{t:dry|secco}})",
+  "waga": "ŚR",
+  "powod": "it-R1-03 termin dry: terms-nazwy.yaml „secco” (pl:342)",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "il flop è {{t:dry|asciutto}} e alto, ad es. K-7-2 di tre semi diversi",
+  "nowy": "il flop è {{t:dry|secco}} e alto, ad es. K-7-2 di tre semi diversi",
+  "waga": "ŚR",
+  "powod": "it-R1-04 termin dry: terms-nazwy.yaml „secco” (pl:383)",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "sui flop {{t:dry|asciutti}} con un re",
+  "nowy": "sui flop {{t:dry|secchi}} con un re",
+  "waga": "ŚR",
+  "powod": "it-R1-05 termin dry: terms-nazwy.yaml „secco” (pl:494)",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "le soluzioni dei solver pubblicate qui difendono circa",
+  "nowy": "le soluzioni dei solver pubblicate difendono qui circa",
+  "waga": "ŚR",
+  "powod": "it-R1-06 „qui” przy „pubblicate” czyta się „opublikowane tutaj”; pl:240 „bronią tu” (w tym spocie)",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "la soluzione del solver pubblicata qui difende circa",
+  "nowy": "la soluzione del solver pubblicata difende qui circa",
+  "waga": "ŚR",
+  "powod": "it-R1-07 jak it-R1-06; pl:323 „broni tu”",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "{{t:open|apri}} più largo di tutte le {{t:position|posizioni}} prima dei blind",
+  "nowy": "{{t:open|apri}} più largo che da tutte le altre {{t:position|posizioni}} prima dei blind",
+  "waga": "NISKIE",
+  "powod": "it-R1-08 niegramatyczne porównanie; pl:123 „najszerzej ze wszystkich pozycji przed blindami”",
+  "grupa": "it-R1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "quindi perde meno quando i {{t:fold|fold}} mancano",
+  "nowy": "quindi è quello che perde meno quando i {{t:fold|fold}} mancano",
+  "waga": "NISKIE",
+  "powod": "it-R1-09 stopień najwyższy oddany wyższym; pl:527 „traci najmniej”",
+  "grupa": "it-R1"
+ }
+]

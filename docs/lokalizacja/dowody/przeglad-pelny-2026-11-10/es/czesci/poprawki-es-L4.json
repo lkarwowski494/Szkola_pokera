@@ -1,0 +1,56 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l2-ile-blefow.md",
+  "stary": "Eso es el {{t:mdf}}",
+  "nowy": "Eso es la {{t:mdf}}",
+  "waga": "ŚR",
+  "powod": "es-L4-01 rodzaj MDF: wszędzie indziej żeński (la MDF)",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l2-ile-blefow.md",
+  "stary": "Una {{t:overbet|sobreapuesta}}, es decir, una {{t:bet|apuesta}} mayor que todo el {{t:pot|bote}}, le da al rival el peor precio, así que puedes incluir en ella más {{t:bluff|faroles}} que en ninguna otra,",
+  "nowy": "Un {{t:overbet|overbet}}, es decir, una {{t:bet|apuesta}} mayor que todo el {{t:pot|bote}}, le da al rival el peor precio, así que puedes incluir en él más {{t:bluff|faroles}} que en ningún otro,",
+  "waga": "ŚR",
+  "powod": "es-L4-02 nazwa terminu overbet wg terms-nazwy.yaml (r.m.), zdanie wprowadza termin",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m7-l3-implied-odds.md",
+  "stary": "(probabilidades implícitas)",
+  "nowy": "(odds implícitas)",
+  "waga": "NISKIE",
+  "powod": "es-L4-03 objaśnienie zgodne z nazwą implied-odds w terms-nazwy.yaml",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l2-ile-blefow.md",
+  "stary": "| 1/2 {{t:pot|bote}} |",
+  "nowy": "| 1/2 del {{t:pot|bote}} |",
+  "waga": "NISKIE",
+  "powod": "es-L4-04 brak „del”, jak w sąsiednich wierszach tabeli",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l4-bluff-catching.md",
+  "stary": "| 1/2 {{t:pot|bote}} |",
+  "nowy": "| 1/2 del {{t:pot|bote}} |",
+  "waga": "NISKIE",
+  "powod": "es-L4-05 brak „del”, jak w sąsiednim wierszu tabeli",
+  "grupa": "es-L4"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m8-l4-bluff-catching.md",
+  "stary": "title: \"Pagar faroles\"",
+  "nowy": "title: \"Cazar faroles\"",
+  "waga": "NISKIE",
+  "powod": "es-L4-06 tytuł zgodny z pl „Łapanie blefów” i odwołaniem w m7-l4:116 („cazar faroles”)",
+  "grupa": "es-L4"
+ }
+]

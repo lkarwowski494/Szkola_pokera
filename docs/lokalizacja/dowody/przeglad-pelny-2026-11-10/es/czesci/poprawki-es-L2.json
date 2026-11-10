@@ -1,0 +1,119 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l3-wobec-3betu.md",
+  "stary": "un precio muy bueno para {{t:call}} {{t:out-of-position}}",
+  "nowy": "un precio muy bueno para {{t:call|igualar}} {{t:out-of-position}}",
+  "waga": "NISKIE",
+  "powod": "es-L2-01 znacznik bez formy daje „para call fuera de posición”; forma czasownikowa jak w reszcie pliku",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l4-limperzy.md",
+  "stary": "todos pasan hasta ti",
+  "nowy": "todos se retiran hasta ti",
+  "waga": "WYS",
+  "powod": "es-L2-02 pl „wszyscy pasują do ciebie” = fold; „pasar” to w przekładzie nazwa check",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l1-tekstury.md",
+  "stary": "aprender la c-bet (una",
+  "nowy": "aprender el c-bet (una",
+  "waga": "ŚR",
+  "powod": "es-L2-03 rodzaj terminu c-bet: męski jak w m5-l2, m5-l3 i większości przekładu",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l1-tekstury.md",
+  "stary": "muchas manos tienen {{t:straight}} o {{t:oesd}}",
+  "nowy": "muchas manos tienen {{t:straight}} u {{t:oesd}}",
+  "waga": "NISKIE",
+  "powod": "es-L2-04 spójnik „u” przed „OESD”",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l1-tekstury.md",
+  "stary": "manos con {{t:straight}} o {{t:oesd}}",
+  "nowy": "manos con {{t:straight}} u {{t:oesd}}",
+  "waga": "NISKIE",
+  "powod": "es-L2-05 spójnik „u” przed „OESD”",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l2-przewagi.md",
+  "stary": ":::note De dónde salen estos principios",
+  "nowy": ":::note De dónde salen estas reglas",
+  "waga": "NISKIE",
+  "powod": "es-L2-06 ten sam nagłówek pl „Skąd te zasady” w pozostałych lekcjach: „estas reglas”",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "C-bet a menudo y pequeña, como en el Button",
+  "nowy": "C-bet a menudo y pequeño, como en el Button",
+  "waga": "ŚR",
+  "powod": "es-L2-07 rodzaj terminu c-bet: męski (ta sama opcja w m5-l3: „pequeño”)",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Porque la c-bet {{t:out-of-position|fuera de posición}} está prohibida",
+  "nowy": "Porque el c-bet {{t:out-of-position|fuera de posición}} está prohibido",
+  "waga": "ŚR",
+  "powod": "es-L2-08 rodzaj terminu c-bet: męski",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "La cuestión es que la c-bet",
+  "nowy": "La cuestión es que el c-bet",
+  "waga": "ŚR",
+  "powod": "es-L2-09 rodzaj terminu c-bet: męski",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "C-bet pequeña, como en el mano a mano",
+  "nowy": "C-bet pequeño, como en el mano a mano",
+  "waga": "ŚR",
+  "powod": "es-L2-10 rodzaj terminu c-bet: męski",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "C-bet a menudo y pequeña: {{n:cbet.size.small}}",
+  "nowy": "C-bet a menudo y pequeño: {{n:cbet.size.small}}",
+  "waga": "ŚR",
+  "powod": "es-L2-11 rodzaj terminu c-bet: męski (ta sama opcja w m5-l3: „pequeño”)",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Las c-bets frecuentes, incluso pequeñas, le dan",
+  "nowy": "Los c-bets frecuentes, incluso pequeños, le dan",
+  "waga": "ŚR",
+  "powod": "es-L2-12 rodzaj terminu c-bet: męski (m5-l3: „Los c-bets frecuentes”)",
+  "grupa": "es-L2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Una c-bet grande y frecuente",
+  "nowy": "Un c-bet grande y frecuente",
+  "waga": "ŚR",
+  "powod": "es-L2-13 rodzaj terminu c-bet: męski (m5-l3: „Un c-bet grande y frecuente”)",
+  "grupa": "es-L2"
+ }
+]

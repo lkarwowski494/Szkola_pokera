@@ -1,0 +1,29 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "dice el {{t:alpha|alfa}} del mód",
+  "nowy": "dice el {{t:alpha|alpha}} del mód",
+  "waga": "ŚR",
+  "powod": "es-S-01 m10-l3-odejscie-od-bazy.md:103 terms-nazwy.yaml: alpha = „alpha” (194 wystąpienia wobec 3 „alfa”; wzorzec es-L3-01, D-431)",
+  "grupa": "es-S"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "ales de {{t:alpha|alfa}} son ari",
+  "nowy": "ales de {{t:alpha|alpha}} son ari",
+  "waga": "ŚR",
+  "powod": "es-S-02 m10-l3-odejscie-od-bazy.md:129 terms-nazwy.yaml: alpha = „alpha” (wzorzec es-L3-01, D-431)",
+  "grupa": "es-S"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "quedan sin valorar",
+  "nowy": "quedan sin evaluar",
+  "waga": "NISKIE",
+  "powod": "es-S-03 m13-l1-raport.md:97 etykieta raportu „Sin evaluar” jak w es.json (wzorzec es-L7, es-X2-02)",
+  "grupa": "es-S"
+ }
+]

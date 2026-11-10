@@ -1,0 +1,6 @@
+[
+  { "jezyk": "es", "cel": "content/es/lessons/m9-l2-zaangazowanie.md", "stary": "Para meter todo el stack antes del river habría", "nowy": "Para meter todo el stack hasta el river habría", "waga": "ŚR", "powod": "es-L5-01 pl „do rivera” = do rivera włącznie, nie „przed riverem”", "grupa": "es-L5" },
+  { "jezyk": "es", "cel": "content/es/lessons/m9-l1-spr.md", "stary": "| Trío (set), {{t:straight|escalera}} o mejor |", "nowy": "| Set, {{t:straight|escalera}} o mejor |", "waga": "ŚR", "powod": "es-L5-02 pl „set”; „Trío” to inny termin (three-of-a-kind), dodane", "grupa": "es-L5" },
+  { "jezyk": "es", "cel": "content/es/lessons/m9-l3-rozmiar-geometryczny.md", "stary": "Antes de {{t:bet|hacer}} una {{t:bet|apuesta}} en el flop", "nowy": "Antes de hacer una {{t:bet|apuesta}} en el flop", "waga": "ŚR", "powod": "es-L5-03 „hacer” nie jest formą terminu bet; znacznik na zwykłym czasowniku", "grupa": "es-L5" },
+  { "jezyk": "es", "cel": "content/es/lessons/m10-l1-statystyki.md", "stary": "se ha {{t:fold|retirado}} en {{n:hud.se.f3b.p}} de ellas", "nowy": "se ha {{t:fold|retirado}} en el {{n:hud.se.f3b.p}} de ellas", "waga": "NISKIE", "powod": "es-L5-04 brak rodzajnika przed procentem („en el 50 % de ellas”)", "grupa": "es-L5" }
+]

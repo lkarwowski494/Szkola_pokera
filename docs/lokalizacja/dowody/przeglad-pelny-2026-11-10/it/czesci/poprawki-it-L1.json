@@ -1,0 +1,137 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m1-l1-przebieg.md",
+  "stary": "non è un motivo per passare, quando",
+  "nowy": "non è un motivo per foldare, quando",
+  "waga": "ŚR",
+  "powod": "it-L1-01 w tym samym pliku fold to wszędzie „foldo/foldare”; „passare” to druga nazwa tego samego zagrania (pl m1-l1-przebieg.md:52 „pasowania”)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m1-l1-przebieg.md",
+  "stary": ":::note All-in e {{t:side-pot|piatto laterale}}",
+  "nowy": ":::note All-in e {{t:side-pot|piatto secondario}}",
+  "waga": "ŚR",
+  "powod": "it-L1-02 terms-nazwy.yaml: side-pot = „piatto secondario” (pl m1-l1-przebieg.md:95)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m1-l1-przebieg.md",
+  "stary": "**{{t:side-pot|piatto laterale}}** (side pot)",
+  "nowy": "**{{t:side-pot|piatto secondario}}** (side pot)",
+  "waga": "ŚR",
+  "powod": "it-L1-03 terms-nazwy.yaml: side-pot = „piatto secondario” (pl m1-l1-przebieg.md:96)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m1-l1-przebieg.md",
+  "stary": "la combinazione migliore vince",
+  "nowy": "il punto migliore vince",
+  "waga": "NISKIE",
+  "powod": "it-L1-04 „układ” w m0-l1 to konsekwentnie „punto”; „combinazione” jest w lekcjach formą terminu combo (pl m1-l1-przebieg.md:81 „najlepszy układ”)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m2-l1-outy.md",
+  "stary": "- **{{t:oesd|Progetto di scala bilaterale}}**, ad es.",
+  "nowy": "- **{{t:oesd|OESD}}**, ad es.",
+  "waga": "ŚR",
+  "powod": "it-L1-05 terms-nazwy.yaml: oesd = „OESD”; źródło też „OESD” (pl m2-l1-outy.md:111)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m2-l1-outy.md",
+  "stary": "| {{t:oesd|Progetto di scala bilaterale}} | {{n:outs.oesd}} |",
+  "nowy": "| {{t:oesd|OESD}} | {{n:outs.oesd}} |",
+  "waga": "ŚR",
+  "powod": "it-L1-06 terms-nazwy.yaml: oesd = „OESD” (pl m2-l1-outy.md:126)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m2-l1-outy.md",
+  "stary": "il tuo {{t:call}} compra solo una carta",
+  "nowy": "la tua {{t:call|chiamata}} compra solo una carta",
+  "waga": "NISKIE",
+  "powod": "it-L1-07 w tym samym pliku rzeczownik call to „la chiamata” (linie 51, 54); tu ten sam termin jako „il call” (pl m2-l1-outy.md:131)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m3-l1-pozycja.md",
+  "stary": "K9o chiude facilmente un re",
+  "nowy": "K9o centra facilmente un re",
+  "waga": "NISKIE",
+  "powod": "it-L1-08 „chiudere” dotyczy domykania drawa; „trafia króla” = „centra” (tak w m3-l2:25, 45) (pl m3-l1-pozycja.md:26)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m3-l2-rece-startowe.md",
+  "stary": "attaccare i blind dalla {{t:position|posizione}}",
+  "nowy": "attaccare i blind in {{t:position|posizione}}",
+  "waga": "NISKIE",
+  "powod": "it-L1-09 kalka „z pozycji”; po włosku „in posizione” (terms: in-position) (pl m3-l2-rece-startowe.md:45)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "{{t:open|apre}} in modo ampio quasi quanto il Button",
+  "nowy": "{{t:open|apre}} più o meno largo quanto il Button",
+  "waga": "ŚR",
+  "powod": "it-L1-10 źródło: „podobnie szeroko jak Button” (en „about as wide as”); „quasi quanto” sugeruje węziej niż Button (pl m3-l3-zakresy-otwarc.md:77)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l1-3bet.md",
+  "stary": "{{t:pocket-pair|pocket pair}}",
+  "nowy": "{{t:pocket-pair|coppia servita}}",
+  "waga": "ŚR",
+  "powod": "it-L1-11 terms-nazwy.yaml: pocket-pair = „coppia servita” (pl m4-l1-3bet.md:48)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l1-3bet.md",
+  "stary": "{{t:hole-cards|carte coperte}}",
+  "nowy": "{{t:hole-cards|carte personali}}",
+  "waga": "ŚR",
+  "powod": "it-L1-12 terms-nazwy.yaml: hole-cards = „carte personali” (tak w m0-l1:81, 104) (pl m4-l1-3bet.md:48)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l1-3bet.md",
+  "stary": "(in questa soluzione minima, a {{n:pf.open-size.solver-utg}})",
+  "nowy": "(che in questa soluzione è minima, a {{n:pf.open-size.solver-utg}})",
+  "waga": "ŚR",
+  "powod": "it-L1-13 źródło: otwarcie jest minimalne („w tym rozwiązaniu minimalnego”, en „a minimum open in this solution”); przekład czyta się jako „w tym minimalnym rozwiązaniu” (pl m4-l1-3bet.md:79)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l2-obrona-bb.md",
+  "stary": "bisogna risparmiare {{t:chips|chip}}",
+  "nowy": "bisogna risparmiare {{t:chips|fiches}}",
+  "waga": "ŚR",
+  "powod": "it-L1-14 terms-nazwy.yaml: chips = „fiches” (tak w m1-l1, m2-l2) (pl m4-l2-obrona-bb.md:36)",
+  "grupa": "it-L1"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l2-obrona-bb.md",
+  "stary": "non risparmiare {{t:chips|chip}}",
+  "nowy": "non risparmiare {{t:chips|fiches}}",
+  "waga": "ŚR",
+  "powod": "it-L1-15 terms-nazwy.yaml: chips = „fiches” (pl m4-l2-obrona-bb.md:36)",
+  "grupa": "it-L1"
+ }
+]

@@ -1,0 +1,1010 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m2-l1-outy.md",
+  "stary": "Você tem um {{t:flush-draw}}, e o adversário",
+  "nowy": "Você tem um {{t:flush-draw|projeto de flush}}, e o adversário",
+  "waga": "ŚR",
+  "powod": "pt-BR-L1-01 ten sam termin dwojako w pliku: „flush draw” (znacznik bez formy) i „Projeto de flush” (l. 110)",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m3-l2-rece-startowe.md",
+  "stary": "jogando mãos fracas demais",
+  "nowy": "jogando um número excessivo de mãos fracas",
+  "waga": "ŚR",
+  "powod": "pt-BR-L1-02 pl „za dużo słabych rąk” (liczba rąk), przekład czyta się „ręce zbyt słabe”",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m3-l2-rece-startowe.md",
+  "stary": "{{t:late-position|posição tardia}}",
+  "nowy": "{{t:late-position|posição final}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-L1-03 terms-nazwy: late-position = „posição final”",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l1-3bet.md",
+  "stary": "{{t:pocket-pair|par na mão}}",
+  "nowy": "{{t:pocket-pair|par de mão}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-L1-04 terms-nazwy: pocket-pair = „par de mão”",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l2-obrona-bb.md",
+  "stary": "Aqui ele também tem os blinds",
+  "nowy": "Aqui o pote também tem os blinds",
+  "waga": "ŚR",
+  "powod": "pt-BR-L1-05 „ele” po „do adversário” czyta się jako rywal; pl: blindy są w puli",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l2-obrona-bb.md",
+  "stary": "é a que defende de forma mais ampla",
+  "nowy": "é quem defende de forma mais ampla",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L1-06 niezgoda rodzaju „o big blind é a que”",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l2-obrona-bb.md",
+  "stary": "realizam menos do que a sua equity",
+  "nowy": "realizam menos do que a equity delas",
+  "waga": "ŚR",
+  "powod": "pt-BR-L1-07 „a sua equity” przy zwrocie „você” = „twoje equity”; pl „ich equity” (rąk)",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l2-obrona-bb.md",
+  "stary": "você defende com elas mais prontamente",
+  "nowy": "você defende com eles mais prontamente",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L1-08 zgoda rodzaju: mãos, conectores e pares → „eles”",
+  "grupa": "pt-BR-L1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l3-wobec-3betu.md",
+  "stary": "Um às forte do mesmo naipe",
+  "nowy": "Um ás forte do mesmo naipe",
+  "waga": "ŚR",
+  "powod": "pt-BR-L2-01 literówka: „às” (ściągnięcie a+as) zamiast „ás” (as, karta); pl m4-l3-wobec-3betu.md:76 „Mocny as w kolorze”",
+  "grupa": "pt-BR-L2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m5-l4-bez-pozycji.md",
+  "stary": "abrir mão da mão",
+  "nowy": "abandonar a mão",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L2-02 niezręczne powtórzenie „abrir mão da mão”; pl m5-l4-bez-pozycji.md:99 „nie oznacza rezygnacji z ręki”",
+  "grupa": "pt-BR-L2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m7-l1-druga-beczka.md",
+  "stary": "title: \"Segundo barril\"",
+  "nowy": "title: \"Second barrel\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-L3-01 termin second-barrel nazwany dwojako w pliku (tytuł „Segundo barril”, treść „second barrel”); terms-nazwy: second barrel",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m7-l1-druga-beczka.md",
+  "stary": "bloqueiam o {{t:value|valor}} do rival",
+  "nowy": "bloqueiam o valor do rival",
+  "waga": "ŚR",
+  "powod": "pt-BR-L3-02 dodany znacznik {{t:value}}, którego nie ma w źródle pl (m7-l1:137 „blokują wartość rywala”)",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m6-l2-sprawdzenie.md",
+  "stary": "{{t:raise|aumentou}} no pré-flop",
+  "nowy": "{{t:raise|aumentou}} no preflop",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L3-03 pisownia terminu niezgodna z terms-nazwy (preflop)",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m6-l3-check-raise.md",
+  "stary": "Parte dos {{t:draw|projetos}} fortes você {{t:call|paga}}",
+  "nowy": "Com parte dos {{t:draw|projetos}} fortes você {{t:call|paga}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L3-04 kalka szyku: „pagar” bez „com” czyta się jak „płacisz drawom”",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m6-l3-check-raise.md",
+  "stary": "Mãos médias, como {{t:top-pair}} com kicker fraco, você normalmente {{t:call|paga}}",
+  "nowy": "Com mãos médias, como {{t:top-pair}} com kicker fraco, você normalmente {{t:call|paga}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L3-05 kalka szyku: „pagar” bez „com” czyta się jak „płacisz średnim rękom”",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m7-l4-probe-obrona.md",
+  "stary": "Com pares fracos e mãos sem outs",
+  "nowy": "Com {{t:pair|pares}} fracos e mãos sem outs",
+  "waga": "ŚR",
+  "powod": "pt-BR-L4-01 zgubiony znacznik {{t:pair}} (pl m7-l4-probe-obrona.md:106 „Słabe {{t:pair|pary}}”)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m8-l1-value.md",
+  "stary": "faz thin value com apostas de até cerca de 1/4",
+  "nowy": "faz thin value com apostas de apenas cerca de 1/4",
+  "waga": "ŚR",
+  "powod": "pt-BR-L4-02 „nawet ok. 1/4” = tak mało jak 1/4; „de até” czyta się jako górna granica (pl m8-l1-value.md:131)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m8-l2-ile-blefow.md",
+  "stary": "{{t:blocker|blockers}}",
+  "nowy": "{{t:blocker|bloqueadores}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L4-03 odwołanie do lekcji zatytułowanej „Bloqueadores”; w m8-l3/m8-l4 wszędzie „bloqueadores” (pl m8-l2-ile-blefow.md:139)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m8-l2-ile-blefow.md",
+  "stary": "| 1/2 {{t:pot|pote}} |",
+  "nowy": "| 1/2 do {{t:pot|pote}} |",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L4-04 brak „do”, niespójne z wierszami „1/3 do”, „3/4 do” (pl m8-l2-ile-blefow.md:126)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m8-l4-bluff-catching.md",
+  "stary": "| 1/2 {{t:pot|pote}} |",
+  "nowy": "| 1/2 do {{t:pot|pote}} |",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L4-05 brak „do”, niespójne z wierszem „1/3 do” (pl m8-l4-bluff-catching.md:111)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m8-l4-bluff-catching.md",
+  "stary": "Quando há poucos {{t:bluff|blefes}}, {{t:call|pagar}}",
+  "nowy": "Quando há {{t:bluff|blefes}} de menos, {{t:call|pagar}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L4-06 „za mało” (za mało względem ceny), nie „mało” (pl m8-l4-bluff-catching.md:33)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m7-l3-implied-odds.md",
+  "stary": "ainda tem à sua frente",
+  "nowy": "ainda tem atrás",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L4-07 „à sua frente” dwuznaczne (twoje/jego); reszta pliku: „atrás” (pl m7-l3-implied-odds.md:134 „przed sobą”)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m8-l1-value.md",
+  "stary": "só custa caro",
+  "nowy": "só custa dinheiro",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L4-08 „tylko kosztuje”; „caro” dodane (pl m8-l1-value.md:15)",
+  "grupa": "pt-BR-L4"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m9-l2-zaangazowanie.md",
+  "stary": "Se depois da sua {{t:bet|aposta}} sobraria no seu stack",
+  "nowy": "Se depois da sua {{t:bet|aposta}} sobrar no seu stack",
+  "waga": "ŚR",
+  "powod": "pt-BR-L5-01 błąd gramatyczny: po „se” futuro do subjuntivo (sobrar), nie futuro do pretérito (sobraria)",
+  "grupa": "pt-BR-L5"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "Depois da {{t:bet|aposta}} e do {{t:call|pagamento}}",
+  "nowy": "Depois da {{t:bet|aposta}} e do {{t:call}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-L5-02 ten sam termin (call, rzeczownik) nazwany w pliku dwojako: „call” (5×) i „pagamento” (2×)",
+  "grupa": "pt-BR-L5"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "{{t:pot|Pote}} depois do {{t:call|pagamento}}",
+  "nowy": "{{t:pot|Pote}} depois do {{t:call}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-L5-03 ten sam termin (call, rzeczownik) nazwany w pliku dwojako: „call” (5×) i „pagamento” (2×)",
+  "grupa": "pt-BR-L5"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m10-l2-typy-graczy.md",
+  "stary": "deixa ele apostar quando tem mãos muito fortes",
+  "nowy": "deixa ele apostar quando você tem mãos muito fortes",
+  "waga": "ŚR",
+  "powod": "pt-BR-L6-01 dwuznaczny podmiot: można odczytać „gdy on ma silne ręce”; pl m10-l2:139 „z bardzo silnymi rękami pozwalasz mu betować”",
+  "grupa": "pt-BR-L6"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m10-l2-typy-graczy.md",
+  "stary": "população dos micro limites online",
+  "nowy": "população dos microlimites online",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L6-02 pisownia łączna i spójność z m10-l4 („microlimites”); pl m10-l2:29 „mikrostawek”",
+  "grupa": "pt-BR-L6"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Segundo dados da população de micro stakes online",
+  "nowy": "Segundo dados da população de microlimites online",
+  "waga": "ŚR",
+  "powod": "pt-BR-L6-03 termin stakes = „limite” (terms-nazwy), w m10-l2/l4 „microlimites”; pl m10-l3:75 „mikrostawek”",
+  "grupa": "pt-BR-L6"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Os jogadores da população de micro stakes online",
+  "nowy": "Os jogadores da população de microlimites online",
+  "waga": "ŚR",
+  "powod": "pt-BR-L6-04 termin stakes = „limite” (terms-nazwy), w m10-l2/l4 „microlimites”; pl m10-l3:111 „mikrostawek”",
+  "grupa": "pt-BR-L6"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "Dados da população de micro stakes online (NL25):",
+  "nowy": "Dados da população de microlimites online (NL25):",
+  "waga": "ŚR",
+  "powod": "pt-BR-L6-05 termin stakes = „limite” (terms-nazwy), w m10-l2/l4 „microlimites”; pl m10-l3:115 „mikrostawek”",
+  "grupa": "pt-BR-L6"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m11-l2-sprawdzanie.md",
+  "stary": "as {{t:payout|premiações}} importam",
+  "nowy": "os {{t:payout|prêmios}} importam",
+  "waga": "ŚR",
+  "powod": "pt-BR-L6-06 forma terminu payout („prêmio”) jest nazwą innego terminu, prize-pool („premiação”); pl m11-l2:175 „wypłaty”",
+  "grupa": "pt-BR-L6"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Mãos como [[7s 6s]] você {{t:shove|dá shove}}",
+  "nowy": "Com mãos como [[7s 6s]] você {{t:shove|dá shove}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L6-07 kalka składni pl (dopełnienie bez przyimka przy „dar shove”/„desistir”); pl m11-l2:140",
+  "grupa": "pt-BR-L6"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l4-bankroll.md",
+  "stary": "Isso é tilt de desespero.",
+  "nowy": "Isso é tilt por desespero.",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-01 Nazwa typu tiltu niespójna z m12-l3 („Tilt por desespero”, pt-BR m12-l3:33,114); pl m12-l4:51 „tilt z desperacji” = ta sama nazwa co pl m12-l3:33",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l1-raport.md",
+  "stary": "com {{t:raise|raise}} ou com",
+  "nowy": "com {{t:raise|aumento}} ou com",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-02 Forma „raise” nie jest formą terminu raise = „aumento” (terms-nazwy.yaml:19); pl m13-l1:34 „przebiciem”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l1-raport.md",
+  "stary": "era preciso dar {{t:raise|raise}}",
+  "nowy": "era preciso {{t:raise|aumentar}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-03 jw.; pl m13-l1:37 „przebić”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l1-raport.md",
+  "stary": "com {{t:raise|raise}} em cerca de",
+  "nowy": "com {{t:raise|aumento}} em cerca de",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-04 jw.; pl m13-l1:43 „przebiciem”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l2-powtorki.md",
+  "stary": "Decisões corretas e aceitáveis",
+  "nowy": "Decisões alinhadas e aceitáveis",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-05 Stopień oceny „Zgodna” = „Alinhada” (pt-BR m13-l1:90, interfejs); „corretas” to inna nazwa tego samego stopnia; pl m13-l2:34 „Zgodne i dopuszczalne”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l3-przeglad.md",
+  "stary": "{{t:fold|largaria}} um set aqui",
+  "nowy": "{{t:fold|desistiria}} de um set aqui",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-06 Forma „largar” nie jest formą terminu fold (wszędzie „desistir”/„fold”); pl m13-l3:33 „spasowałby”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l3-przeglad.md",
+  "stary": "de forma sensata, {{t:fold|largar}}",
+  "nowy": "de forma sensata, {{t:fold|desistir}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-07 jw.; pl m13-l3:76 „spasować”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "O poker dá um retorno",
+  "nowy": "O pôquer dá um retorno",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-08 Pisownia niespójna z resztą modułu i interfejsem („pôquer”: m12-l1:96, m12-l3:104, m12-l4:113); pl m12-l2:89 „Poker”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l3-tilt.md",
+  "stary": "leia o cartão sobre jogo responsável na lição",
+  "nowy": "leia o quadro “Jogo responsável” na lição",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-09 Ta sama „karta o odpowiedzialnej grze” (pl m12-l3:133, m12-l4:102) nazwana w m12-l4:102 „quadro “Jogo responsável””; „cartão” to w m13 karta powtórek",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l1-wariancja.md",
+  "stary": "vencedores nos micro stakes, um",
+  "nowy": "vencedores nos microlimites, um",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-10 „mikrostawki” = „microlimites” (terms-def stakes, modules.yaml m10; termin stakes = „limite”); pl m12-l1:74 „na mikrostawkach”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l1-wariancja.md",
+  "stary": "vencedores nos micro stakes. O",
+  "nowy": "vencedores nos microlimites. O",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-11 jw.; pl m12-l1:93",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l1-wariancja.md",
+  "stary": "vencedores nos micro stakes costumam",
+  "nowy": "vencedores nos microlimites costumam",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-12 jw.; pl m12-l1:100",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "K-J-7 {{t:two-tone|de dois naipes}}",
+  "nowy": "K-J-7 {{t:two-tone|bicolor}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-01 forma nie jest formą terminu two-tone = „bicolor” (terms-nazwy.yaml:76); pl rules.yaml:392 „K-J-7 {{t:two-tone}}”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "logo abaixo desse limite",
+  "nowy": "logo abaixo desse limiar",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-02 „próg” (pl rules.yaml:266) oddany jako „limite”, które w pt-BR jest nazwą terminu stakes (terms-nazwy.yaml:116; w tym pliku linia 472 „limites baixos”); reszta treści pt-BR ma „limiar” (np. exams/m5.yaml:52 „limiar é aposta”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "o limite é aposta ÷ ({{t:pot|pote}} + aposta)\"",
+  "nowy": "o limiar é aposta ÷ ({{t:pot|pote}} + aposta)\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-03 jak -02: „próg” (pl rules.yaml:419) → „limiar”, nie „limite” (= stawki)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "o limite é aposta ÷ ({{t:pot|pote}} + aposta); os outs que você tem baixam esse limite",
+  "nowy": "o limiar é aposta ÷ ({{t:pot|pote}} + aposta); os outs que você tem baixam esse limiar",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-04 jak -02: „próg” ×2 (pl rules.yaml:562) → „limiar”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "; {{t:pair|pares}} médios e pequenos, KQo",
+  "nowy": "; com {{t:pair|pares}} médios e pequenos, KQo",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-05 brak przyimka: „pares … você paga” czyta się jak „płacisz parom”; w pliku wszędzie „paga com” (pl rules.yaml:257 „pary … sprawdzasz”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "; {{t:pair|pares}} médios você normalmente {{t:call|paga}}",
+  "nowy": "; com {{t:pair|pares}} médios você normalmente {{t:call|paga}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-06 jak -05 (pl rules.yaml:502 „średnie pary zwykle sprawdzasz”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "{{t:call|pagar}} nem uma {{t:bet|aposta}} pequena",
+  "nowy": "{{t:call|pagar}} até mesmo uma {{t:bet|aposta}} pequena",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-07 „raramente consegue pagar nem uma” — niegramatyczne podwójne przeczenie; pl rules.yaml:402 „rzadko może sprawdzić nawet mały bet”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "um jogador que, pelo que você observou, raramente {{t:bluff|blefa}} {{t:bet|aposta}} alto no river",
+  "nowy": "quem {{t:bet|aposta}} alto no river é um jogador que, pelo que você observou, raramente {{t:bluff|blefa}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-08 dwa czasowniki obok siebie („blefa aposta”) — zdanie mylące przy czytaniu; pl rules.yaml:468 „duży bet na riverze stawia gracz, o którym wiesz…, że rzadko blefuje”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "então perde menos quando faltam",
+  "nowy": "então é o que menos perde quando faltam",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-09 stopień najwyższy: pl rules.yaml:527 „traci najmniej” (en „loses the least”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "mais estreito que o do c-bet",
+  "nowy": "mais fechado que o do c-bet",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-10 „węższy zakres” w tym pliku wszędzie „mais fechado” (np. linie 314, 478, 635); pl rules.yaml:636 „węższym zakresem”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "então o fold de todos acontece menos vezes",
+  "nowy": "então o {{t:fold}} de todos acontece menos vezes",
+  "waga": "ŚR",
+  "powod": "pt-BR-R2-01 pominięty znacznik {{t:fold|…}} (pl rules.yaml:1128 „{{t:fold|pasy}} wszystkich”)",
+  "grupa": "pt-BR-R2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "com {{t:payout|premiação}}, perder custa",
+  "nowy": "com {{t:payout|prêmios}}, perder custa",
+  "waga": "ŚR",
+  "powod": "pt-BR-R2-02 forma „premiação” to nazwa innego terminu (prize-pool); payout = „prêmio” (terms-nazwy.yaml:136–137; pl rules.yaml:1112 „z {{t:payout|wypłatami}}”)",
+  "grupa": "pt-BR-R2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "o objetivo é parar antes, antes de perder",
+  "nowy": "o objetivo é parar mais cedo, antes de perder",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R2-03 powtórzenie „antes, antes” (pl rules.yaml:1005 „skończyć wcześniej, zanim stracisz”)",
+  "grupa": "pt-BR-R2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m3.yaml",
+  "stary": "Quem agiu por último no pré-flop",
+  "nowy": "Quem agiu por último no preflop",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-01 termin preflop: terms-nazwy „preflop”, m1 używa „preflop” (pl m3.yaml:13)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m3.yaml",
+  "stary": "No pré-flop, os blinds agem",
+  "nowy": "No preflop, os blinds agem",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-02 termin preflop jak w terms-nazwy (pl m3.yaml:13)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m3.yaml",
+  "stary": "primeiro a agir no pré-flop",
+  "nowy": "primeiro a agir no preflop",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-03 termin preflop jak w terms-nazwy (pl m3.yaml:18)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "({{t:pot}} + bet) = {{n:exam.m6.pot}}",
+  "nowy": "({{t:pot}} + aposta) = {{n:exam.m6.pot}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-04 „bet” obok „aposta” w tym samym pliku; terms-nazwy bet = „aposta”, m5 ma „aposta ÷ (pote + aposta)” (pl m6.yaml:10)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "alpha = bet ÷ ({{t:pot}} + bet)",
+  "nowy": "alpha = aposta ÷ ({{t:pot}} + aposta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-05 „bet” zamiast „aposta” we wzorze (pl m6.yaml:17)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "{{t:bluff|blefe}} é bet ÷ ({{t:pot}} + bet)",
+  "nowy": "{{t:bluff|blefe}} é aposta ÷ ({{t:pot}} + aposta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-06 „bet” zamiast „aposta” we wzorze (pl m6.yaml:19)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "Sim: bet ÷ ({{t:pot}} + 2·bet)",
+  "nowy": "Sim: aposta ÷ ({{t:pot}} + 2·aposta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-07 „bet” zamiast „aposta” we wzorze (pl m6.yaml:47)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "Contra um bet maior",
+  "nowy": "Contra uma aposta maior",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-08 „bet” zamiast „aposta” w zdaniu (pl m6.yaml:47)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "alpha (bet ÷ ({{t:pot}} + bet))",
+  "nowy": "alpha (aposta ÷ ({{t:pot}} + aposta))",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-09 „bet” zamiast „aposta” we wzorze (pl m6.yaml:48)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "tamanho do bet. Um bet maior",
+  "nowy": "tamanho da aposta. Uma aposta maior",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-10 „bet” zamiast „aposta” w zdaniu, 2× (pl m6.yaml:49)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m10.yaml",
+  "stary": "{{t:rake-cap|limite}}",
+  "nowy": "{{t:rake-cap|teto}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-X2-01 termin rake-cap = „teto de rake” (terms-nazwy), w lekcji m10-l4 „teto”; „limite” to w pt-BR nazwa terminu stakes, więc zdanie myli",
+  "grupa": "pt-BR-X2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m9.yaml",
+  "stary": "com um único raise",
+  "nowy": "com um único aumento",
+  "waga": "ŚR",
+  "powod": "pt-BR-X2-02 termin raise = „aumento” (terms-nazwy); lekcje m9 mają „pote com um único aumento”",
+  "grupa": "pt-BR-X2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m11.yaml",
+  "stary": "}}, igual em {{t:chips|fichas}}",
+  "nowy": "}}, o mesmo que em {{t:chips|fichas}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-X2-03 „tak samo jak w żetonach”: brak członu porównania, „igual em fichas” czyta się jak „równe w żetonach”",
+  "grupa": "pt-BR-X2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "{{t:bubble|Bubble}}",
+  "nowy": "{{t:bubble|Bolha}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-U-01 termin bubble = „bolha” (terms-nazwy.yaml:123; w treści wyłącznie Bolha/bolha)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/modules.yaml",
+  "stary": "title: \"Pré-flop diante de ação\"",
+  "nowy": "title: \"Preflop diante de ação\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-U-02 termin preflop = „preflop” (terms-nazwy.yaml:36), tak też w pt-BR.json play.streets.preflop",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "Último: {{last}}.",
+  "nowy": "Última: {{last}}.",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-06 zgoda rodzaju z „barra” (pl „Ostatni” = słupek)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "estão desativadas nas configurações do celular",
+  "nowy": "estão desativadas nos Ajustes do celular",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-07 ustawienia systemowe iOS w pt-BR to „Ajustes” (tak w purchase.cancelInfo)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "Uma prova de módulo (15 questões)",
+  "nowy": "Um exame do módulo (15 questões)",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-08 nazwa jak w aplikacji: „Exame do módulo” (pt-BR.json exam.title)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "de cada prova de módulo são",
+  "nowy": "de cada exame do módulo são",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-08 nazwa jak w aplikacji: „Exame do módulo”",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "uma nova tentativa de prova.",
+  "nowy": "uma nova tentativa de exame.",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-08 nazwa jak w aplikacji (purchase.unlocks: „novas tentativas de exame”)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "um índice de evolução",
+  "nowy": "um índice de nível",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-09 nazwa jak w aplikacji: „Índice de nível” (advancement.title)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "• Aulas com exercícios",
+  "nowy": "• Lições com exercícios",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "indica sua primeira aula",
+  "nowy": "indica sua primeira lição",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "ACESSO\\nAs aulas, a avaliação",
+  "nowy": "ACESSO\\nAs lições, a avaliação",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "vence a quinta carta mais alta (o kicker)",
+  "nowy": "vence a quinta carta (o kicker) mais alta",
+  "waga": "NISKIE",
+  "powod": "pt-BR-T-01 dwuznaczne: „a quinta carta mais alta” czyta się jak „piąta najwyższa karta”; pl terms.yaml:51 „wygrywa wyższa piąta karta (kicker)”",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "quando ninguém deu raise). Não confunda com call",
+  "nowy": "quando ninguém aumentou). Não confunda com call",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-02 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:147 „gdy nikt nie przebił”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "o valor da aposta ou do raise do adversário",
+  "nowy": "o valor da aposta ou do aumento do adversário",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-03 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:164 „zakład lub przebicie rywala”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "completar a diferença, dar outro raise ou dar fold",
+  "nowy": "completar a diferença, aumentar de novo ou dar fold",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-04 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:173 „przebić dalej”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "quando o adversário aposta, dá raise na mesma rodada",
+  "nowy": "quando o adversário aposta, aumenta na mesma rodada",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-05 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:191 „przebijasz go”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "geralmente indicado em big blinds",
+  "nowy": "geralmente indicadas em big blinds",
+  "waga": "NISKIE",
+  "powod": "pt-BR-T-06 zgoda rodzaju/liczby: podmiot „Todas as fichas” (pl terms.yaml:292 „zwykle podaje się je”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "dão call, dão raise ou dão fold",
+  "nowy": "dão call, aumentam ou dão fold",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-07 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:307 „przebijają”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "às vezes raise, às vezes call",
+  "nowy": "às vezes aumento, às vezes call",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-08 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:546 „czasem przebicie”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "antes do flop com um raise quando todos",
+  "nowy": "antes do flop com um aumento quando todos",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-09 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:556 „przez przebicie”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "O primeiro raise sobre um open antes do flop; o nome conta o big blind como a primeira aposta e o open como a segunda.",
+  "nowy": "O primeiro aumento sobre uma abertura antes do flop; o nome conta o big blind como a primeira aposta e a abertura como a segunda.",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-10 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise”; nazwa terminu open w terms-nazwy.yaml:63 to „abertura” (lekcje: 192/192 znaczników open w formie abertura/abrir); definicja używa „open” (pl terms.yaml:597 „Pierwsze przebicie otwarcia… a otwarcie jako drugi”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "Um raise sobre um 3-bet",
+  "nowy": "Um aumento sobre um 3-bet",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-11 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:605 „Przebicie 3-betu”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "quando ninguém deu raise ainda",
+  "nowy": "quando ninguém aumentou ainda",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-12 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:612 „gdy nikt jeszcze nie przebił”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "Raise depois de um ou mais limps",
+  "nowy": "Aumento depois de um ou mais limps",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-13 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:620 „Przebicie po jednym lub kilku limpach”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "Pocket pair mais alto que todas",
+  "nowy": "Par de mão mais alto que todas",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-14 nazwa terminu pocket-pair w terms-nazwy.yaml:66 to „par de mão” (lekcje: par(es) de mão / par na mão, 0× „pocket pair”); pl terms.yaml:735 „Pocket para”",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "depois de dar open no preflop",
+  "nowy": "depois de abrir no preflop",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-15 nazwa terminu open w terms-nazwy.yaml:63 to „abertura” (lekcje: 192/192 znaczników open w formie abertura/abrir); definicja używa „open” (pl terms.yaml:744 „po otwarciu preflop”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "apostou ou deu raise por último",
+  "nowy": "apostou ou aumentou por último",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-16 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:751 „stawiał lub przebijał”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "geralmente como raise antes do flop",
+  "nowy": "geralmente como aumento antes do flop",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-17 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1049 „jako przebicie”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "pela soma dos blinds e antes de uma mão",
+  "nowy": "pela soma dos blinds e dos antes de uma mão",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-18 myląca składnia: „e antes de uma mão” czyta się jak „i przed rozdaniem”, a chodzi o ante (pl terms.yaml:1098 „sumę blindów i ante w jednym rozdaniu”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "para pagar um open do que para dar open",
+  "nowy": "para pagar uma abertura do que para abrir",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-19 nazwa terminu open w terms-nazwy.yaml:63 to „abertura” (lekcje: 192/192 znaczników open w formie abertura/abrir); definicja używa „open” (pl terms.yaml:1144 „do sprawdzenia otwarcia… niż do samego otwarcia”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "saltos grandes aumentam o risk premium",
+  "nowy": "saltos grandes aumentam o prêmio de risco",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-20 nazwa terminu risk-premium w terms-nazwy.yaml:126 to „prêmio de risco” (lekcje: 4/5 znaczników „prêmio de risco”, 0× „risk premium” w formie); pl terms.yaml:1183",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "(dá call ou raise)",
+  "nowy": "(dá call ou aumenta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-21 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1261 „sprawdza albo przebija”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "o jogador dá raise antes do flop",
+  "nowy": "o jogador aumenta antes do flop",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-22 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1269 „przebija przed flopem”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "(apostas e raises)",
+  "nowy": "(apostas e aumentos)",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-23 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1300 „zakłady i przebicia”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "mais fraco que os regs",
+  "nowy": "mais fraco que os regulares",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-24 nazwa terminu regular w terms-nazwy.yaml:148 to „regular” (lekcje: regulares 7/10); skrót „regs” nigdzie w słowniczku nieobjaśniony; pl terms.yaml:1317 „od stałych bywalców”",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "aposta e dá raise com qualquer coisa",
+  "nowy": "aposta e aumenta com qualquer coisa",
+  "waga": "ŚR",
+  "powod": "pt-BR-T-25 nazwa terminu raise w terms-nazwy.yaml:19 to „aumento” (lekcje i reguły: 234 z 239 znaczników raise w formie aument-, 0× gołe „raise” w tekście); definicja używa „raise” (pl terms.yaml:1332 „stawia i przebija”)",
+  "grupa": "pt-BR-T"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "Tilt de ódio a perder",
+  "nowy": "Tilt por ódio de perder",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-01 m12.yaml:54 nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "Tilt de injustiça",
+  "nowy": "Tilt por injustiça",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-02 m12.yaml:55 nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "      - { text: \"Tilt de erro\", why: \"Tilt de erro é raiva dos próprios erros. Aqui você sabe que jogou bem.\" }",
+  "nowy": "      - { text: \"Tilt por erro\", why: \"Tilt por erro é raiva dos próprios erros. Aqui você sabe que jogou bem.\" }",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-03 m12.yaml:56 (2×) nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "Tilt de vingança",
+  "nowy": "Tilt por vingança",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-04 m12.yaml:57 nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l4-limperzy.md",
+  "stary": "nos micro stakes",
+  "nowy": "nos microlimites",
+  "waga": "NISKIE",
+  "powod": "pt-BR-S-05 m4-l4-limperzy.md:61 termin stakes = „limite”, w korpusie „microlimites” (wzorzec pt-BR-L6-02…04, pt-BR-L7)",
+  "grupa": "pt-BR-S"
+ }
+]

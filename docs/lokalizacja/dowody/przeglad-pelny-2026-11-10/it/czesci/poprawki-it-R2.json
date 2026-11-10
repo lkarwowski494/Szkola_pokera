@@ -1,0 +1,7 @@
+[
+  { "jezyk": "it", "cel": "content/it/rules.yaml", "stary": "punti è un {{t:maniac|maniaco}}", "nowy": "punti è un {{t:maniac|maniac}}", "waga": "ŚR", "powod": "it-R2-01 termin maniac: nazwa wg terms-nazwy.yaml to „maniac”, nie „maniaco” (pl rules.yaml:862)", "grupa": "it-R2" },
+  { "jezyk": "it", "cel": "content/it/rules.yaml", "stary": "giochi contro un {{t:maniac|maniaco}}", "nowy": "giochi contro un {{t:maniac|maniac}}", "waga": "ŚR", "powod": "it-R2-02 termin maniac: nazwa wg terms-nazwy.yaml to „maniac”, nie „maniaco” (pl rules.yaml:887)", "grupa": "it-R2" },
+  { "jezyk": "it", "cel": "content/it/rules.yaml", "stary": "hud-stats-guide): maniaco «Trap", "nowy": "hud-stats-guide): maniac «Trap", "waga": "ŚR", "powod": "it-R2-03 termin maniac: spójnie z terms-nazwy.yaml („maniac”) (pl rules.yaml:892)", "grupa": "it-R2" },
+  { "jezyk": "it", "cel": "content/it/rules.yaml", "stary": "per questo il replay del gioco mostra", "nowy": "per questo il ripasso dal gioco mostra", "waga": "ŚR", "powod": "it-R2-04 „powtórka z gry” to nazwa funkcji aplikacji; w lekcji m13-l2 po włosku „Ripassi dal gioco”; „replay del gioco” myli (pl rules.yaml:1164)", "grupa": "it-R2" },
+  { "jezyk": "it", "cel": "content/it/rules.yaml", "stary": "reagisci subito: un respiro profondo e una frase", "nowy": "reagisci subito: un respiro e una frase", "waga": "NISKIE", "powod": "it-R2-05 dodane „profondo”, źródło ma tylko „oddech” (pl rules.yaml:996, en „a breath”)", "grupa": "it-R2" }
+]

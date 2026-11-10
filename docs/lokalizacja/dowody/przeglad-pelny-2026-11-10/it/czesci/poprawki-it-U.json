@@ -1,0 +1,56 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "così distanti che nessuna coppia rientra in cinque consecutivi",
+  "nowy": "così distanti che non ce ne sono due entro cinque consecutivi",
+  "waga": "ŚR",
+  "powod": "it-U-01 „coppia” to w aplikacji nazwa układu (para); pl „żadne dwie [rangi] nie mieszczą się w pięciu kolejnych”",
+  "grupa": "it-U"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "Qui nessuna coppia di carte del giocatore dà neanche un",
+  "nowy": "Qui nessuna combinazione di due carte del giocatore dà neanche un",
+  "waga": "ŚR",
+  "powod": "it-U-02 „coppia di carte del giocatore” czyta się jak para na ręce; pl „żadne dwie karty gracza”",
+  "grupa": "it-U"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"cards\": \"Carte di ripasso:",
+  "nowy": "\"cards\": \"Schede di ripasso:",
+  "waga": "NISKIE",
+  "powod": "it-U-03 „carte” w aplikacji pokerowej = karty do gry; fiszki powtórek to „schede”",
+  "grupa": "it-U"
+ },
+ {
+  "jezyk": "it",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "dalle regole e dalla scala dei punti fino alla strategia",
+  "nowy": "dalle regole e dalla classifica delle combinazioni fino alla strategia",
+  "waga": "NISKIE",
+  "powod": "it-U-04 opis sklepu niespójny z aplikacją: układy = „combinazioni” (modules.yaml m0, it.json „classifica delle combinazioni”); „scala” w aplikacji = strit",
+  "grupa": "it-U"
+ },
+ {
+  "jezyk": "it",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "Moduli in ordine: regole e punti, come si svolge",
+  "nowy": "Moduli in ordine: regole e combinazioni, come si svolge",
+  "waga": "NISKIE",
+  "powod": "it-U-05 nazwa modułu w aplikacji: „Regole e combinazioni” (content/it/modules.yaml:1)",
+  "grupa": "it-U"
+ },
+ {
+  "jezyk": "it",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "serie di giorni e un indice di avanzamento",
+  "nowy": "serie di giorni e un indice di livello",
+  "waga": "NISKIE",
+  "powod": "it-U-06 nazwa w aplikacji: „Indice di livello” (it.json advancement.title)",
+  "grupa": "it-U"
+ }
+]

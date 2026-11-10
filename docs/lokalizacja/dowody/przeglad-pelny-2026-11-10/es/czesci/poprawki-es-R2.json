@@ -1,0 +1,38 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "jugadores recreacionales 42/18",
+  "nowy": "jugadores recreativos 42/18",
+  "waga": "ŚR",
+  "powod": "es-R2-01 niespójny termin: recreational = «jugador recreativo» (terms-nazwy, reszta pliku i lekcje); pl rules.yaml:857",
+  "grupa": "es-R2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "y los jugadores recreacionales 32%",
+  "nowy": "y los jugadores recreativos 32%",
+  "waga": "ŚR",
+  "powod": "es-R2-02 niespójny termin: recreational = «jugador recreativo»; w tej samej regule pole population ma «jugadores recreativos»; pl rules.yaml:874",
+  "grupa": "es-R2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "solo piensas en recuperarte o juegas",
+  "nowy": "solo piensas en recuperar lo perdido o juegas",
+  "waga": "ŚR",
+  "powod": "es-R2-03 treść krytyczna R-M12-007: «odegranie się» = odzyskanie strat; «recuperarte» jest dwuznaczne (dojść do siebie); lekcje es mają «recuperar lo perdido»; pl rules.yaml:1003",
+  "grupa": "es-R2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "por eso la repetición de partida muestra",
+  "nowy": "por eso el repaso de tus partidas muestra",
+  "waga": "ŚR",
+  "powod": "es-R2-04 niespójna nazwa funkcji: «powtórka z gry» = «repaso(s) de tus partidas» w lekcji m13-l2 i interfejsie («Repasos»); pl rules.yaml:1164",
+  "grupa": "es-R2"
+ }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "cel": "content/es/exams/m13.yaml",
+    "stary": "text: \"Alineada\", why: \"Alineada es la acción",
+    "nowy": "text: \"Acorde\", why: \"Acorde es la acción",
+    "waga": "ŚR",
+    "powod": "es-X2-01 nazwa werdyktu „Zgodna” w interfejsie es to „Acorde” (es.json grade.zgodne / verdicts.compliant), nie „Alineada”",
+    "jezyk": "es",
+    "grupa": "es-X2"
+  },
+  {
+    "cel": "content/es/exams/m13.yaml",
+    "stary": "text: \"Sin valorar\", why: \"«Sin valorar» es lo que recibe",
+    "nowy": "text: \"Sin evaluar\", why: \"«Sin evaluar» es lo que recibe",
+    "waga": "ŚR",
+    "powod": "es-X2-02 nazwa werdyktu „Bez oceny” w interfejsie es to „Sin evaluar” (es.json verdicts.unrated), nie „Sin valorar”",
+    "jezyk": "es",
+    "grupa": "es-X2"
+  },
+  {
+    "cel": "content/es/exams/m10.yaml",
+    "stary": "{{t:rake-cap|límite}}",
+    "nowy": "{{t:rake-cap|tope}}",
+    "waga": "ŚR",
+    "powod": "es-X2-03 termin rake-cap = „tope de rake” (terms-nazwy); „límite” to w es nazwa terminu stakes — myląca forma",
+    "jezyk": "es",
+    "grupa": "es-X2"
+  },
+  {
+    "cel": "content/es/exams/m11.yaml",
+    "stary": "ya solo juegas all-in o {{t:fold|retirarte}} e intentas",
+    "nowy": "ya solo vas all-in o {{t:fold|te retiras}} e intentas",
+    "waga": "NISKIE",
+    "powod": "es-X2-04 błąd składni: „juegas all-in o retirarte” (bezokolicznik zwrotny po formie osobowej)",
+    "jezyk": "es",
+    "grupa": "es-X2"
+  },
+  {
+    "cel": "content/es/exams/m8.yaml",
+    "stary": "{{t:oesd|proyecto de escalera abierto}}",
+    "nowy": "{{t:oesd|proyecto de escalera abierta}}",
+    "waga": "NISKIE",
+    "powod": "es-X2-05 forma terminu oesd niespójna z resztą przekładu („proyecto de escalera abierta”, m.in. exams/m7, m13)",
+    "jezyk": "es",
+    "grupa": "es-X2"
+  }
+]

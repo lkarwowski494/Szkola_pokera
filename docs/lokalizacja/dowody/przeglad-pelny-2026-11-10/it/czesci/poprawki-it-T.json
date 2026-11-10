@@ -1,0 +1,5 @@
+[
+  { "jezyk": "it", "cel": "content/it/terms-def.yaml", "stary": "Il primo rilancio di un open prima del flop; il nome conta il big blind come prima puntata e l'open come seconda.", "nowy": "Il primo rilancio di un'apertura prima del flop; il nome conta il big blind come prima puntata e l'apertura come seconda.", "waga": "ŚR", "powod": "it-T-01 termin open: terms-nazwy „apertura”, w lekcjach 192/192 form apertura/aprire; definicja używa „open”", "grupa": "it-T" },
+  { "jezyk": "it", "cel": "content/it/terms-def.yaml", "stary": "ad es. una puntata al flop dopo un open preflop", "nowy": "ad es. una puntata al flop dopo un'apertura preflop", "waga": "ŚR", "powod": "it-T-02 termin open: terms-nazwy „apertura”; definicja c-bet używa „open”", "grupa": "it-T" },
+  { "jezyk": "it", "cel": "content/it/terms-def.yaml", "stary": "per fare call contro un open serve una mano più forte che per fare open", "nowy": "per fare call contro un'apertura serve una mano più forte che per aprire", "waga": "ŚR", "powod": "it-T-03 termin open: terms-nazwy „apertura”; definicja gap concept używa „open” / „fare open”", "grupa": "it-T" }
+]

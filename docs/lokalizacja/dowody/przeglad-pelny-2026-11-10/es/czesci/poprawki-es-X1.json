@@ -1,0 +1,83 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m0.yaml",
+  "stary": "ocupa el 3.º puesto",
+  "nowy": "ocupa el 3.er puesto",
+  "waga": "NISKIE",
+  "powod": "es-X1-01 apócope: «tercer puesto» se abrevia 3.er, no 3.º",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "(unas {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} manos)",
+  "nowy": "(alrededor del {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} de las manos)",
+  "waga": "ŚR",
+  "powod": "es-X1-02 wartości to procenty: «unas 15 %–18 % manos» jest niegramatyczne (pl m3.yaml:21 «ok. …–… rąk»)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "{{t:open|abres}} unas {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} manos",
+  "nowy": "{{t:open|abres}} alrededor del {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-X1-03 jak es-X1-02 (pl m3.yaml:49)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "{{t:open|abres}} amplio, unas {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} manos",
+  "nowy": "{{t:open|abres}} amplio, alrededor del {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-X1-04 jak es-X1-02 (pl m3.yaml:59)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m3.yaml",
+  "stary": "desde {{t:early-position|posiciones tempranas}}",
+  "nowy": "desde las {{t:early-position|primeras posiciones}}",
+  "waga": "ŚR",
+  "powod": "es-X1-05 termin early-position w terms-nazwy.yaml: «primeras posiciones» (pl m3.yaml:70)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m4.yaml",
+  "stary": "Solo {{t:call|pago}}",
+  "nowy": "Solo {{t:call|igualo}}",
+  "waga": "ŚR",
+  "powod": "es-X1-06 ten sam termin dwojako w pliku: wszędzie indziej «Igualo» (pl m4.yaml:14 «Tylko sprawdzam»)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m4.yaml",
+  "stary": "Los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo los {{t:call|igualas}}",
+  "nowy": "Con los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo {{t:call|igualas}}",
+  "waga": "ŚR",
+  "powod": "es-X1-07 kalka: «igualar los ases» znaczy wyrównać asy, nie sprawdzić nimi (pl m4.yaml:33)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m4.yaml",
+  "stary": "Las {{t:pair|parejas}} medianas y pequeñas en la {{t:big-blind|ciega grande}} normalmente las {{t:call|igualas}}",
+  "nowy": "Con las {{t:pair|parejas}} medianas y pequeñas en la {{t:big-blind|ciega grande}} normalmente {{t:call|igualas}}",
+  "waga": "ŚR",
+  "powod": "es-X1-08 kalka jak es-X1-07 (pl m4.yaml:34)",
+  "grupa": "es-X1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/exams/m5.yaml",
+  "stary": "para una c-bet pequeña",
+  "nowy": "para un c-bet pequeño",
+  "waga": "NISKIE",
+  "powod": "es-X1-09 rodzaj c-bet: w m6 i w większości korpusu męski («un c-bet pequeño»)",
+  "grupa": "es-X1"
+ }
+]

@@ -1,0 +1,317 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Con una {{t:standard-deviation|desviación típica}} de alrededor de",
+  "nowy": "Con una {{t:standard-deviation|desviación estándar}} de alrededor de",
+  "waga": "ŚR",
+  "powod": "es-L7-01 termin: «desviación estándar» (terms-nazwy), nie «típica»; spójnie z m12-l1",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "y de la {{t:standard-deviation|desviación típica}} (lección",
+  "nowy": "y de la {{t:standard-deviation|desviación estándar}} (lección",
+  "waga": "ŚR",
+  "powod": "es-L7-02 termin: «desviación estándar» (terms-nazwy), nie «típica»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l3-tilt.md",
+  "stary": "y a saltos de {{t:stakes|límite}}. Es la señal",
+  "nowy": "y a saltos a {{t:stakes|límites}} más altos. Es la señal",
+  "waga": "ŚR",
+  "powod": "es-L7-03 zgubiony kierunek «w górę stawek» (pl m12-l3:33)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l3-tilt.md",
+  "stary": "en un estudio por encuesta, {{n:tilt.severe}} de los jugadores",
+  "nowy": "en un estudio por encuesta, el {{n:tilt.severe}} de los jugadores",
+  "waga": "NISKIE",
+  "powod": "es-L7-04 brak rodzajnika przed procentem (w m12-l1/l2 «el {{n}}»)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "le ocurre a aprox. {{n:dd.p.small.100k}} de los jugadores",
+  "nowy": "le ocurre a aprox. el {{n:dd.p.small.100k}} de los jugadores",
+  "waga": "NISKIE",
+  "powod": "es-L7-05 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "Lo protege de la bancarrota",
+  "nowy": "Lo protege de la ruina",
+  "waga": "NISKIE",
+  "powod": "es-L7-06 «bankructwo» = termin risk-of-ruin «ruina», nie «bancarrota» (pl m12-l4:77)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "Al principio es cuando más tienes que recuperar, así",
+  "nowy": "Al principio es cuando más te queda por aprender, así",
+  "waga": "ŚR",
+  "powod": "es-L7-07 «nadrobić» (naukę) oddane «recuperar», w tym module = odgrywać straty; mylące (pl m12-l4:85)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "no bajas de {{n:study.min}} del tiempo dedicado al estudio",
+  "nowy": "no dedicas al estudio menos del {{n:study.min}} del tiempo",
+  "waga": "NISKIE",
+  "powod": "es-L7-08 dwuznaczne «X del tiempo dedicado al estudio»; pl: nie mniej niż X czasu na naukę (m12-l4:95)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "exclusivamente a jugar al póquer",
+  "nowy": "exclusivamente a jugar al póker",
+  "waga": "NISKIE",
+  "powod": "es-L7-09 pisownia «póker» jak w pozostałych plikach",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "dedicas aprox. {{n:study.beginner}} del tiempo",
+  "nowy": "dedicas aprox. el {{n:study.beginner}} del tiempo",
+  "waga": "NISKIE",
+  "powod": "es-L7-10 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "text: \"Sin valorar\", why: \"No: el spot tiene resultado del solver, así que la decisión está valorada. «Sin valorar» se asigna",
+  "nowy": "text: \"Sin evaluar\", why: \"No: el spot tiene resultado del solver, así que la decisión está valorada. «Sin evaluar» se asigna",
+  "waga": "ŚR",
+  "powod": "es-L7-11 etykieta raportu w interfejsie to «Sin evaluar» (es.json unrated), nie «Sin valorar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "«Valoradas 14 de 30 decisiones»",
+  "nowy": "«Evaluadas 14 de 30 decisiones»",
+  "waga": "ŚR",
+  "powod": "es-L7-12 cytat z interfejsu: «Evaluadas {{rated}} de {{all}} decisiones» (es.json rated)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "Sí: «sin valorar» no significa",
+  "nowy": "Sí: «sin evaluar» no significa",
+  "waga": "ŚR",
+  "powod": "es-L7-13 etykieta interfejsu «Sin evaluar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "«Sin valorar» es falta de valoración",
+  "nowy": "«Sin evaluar» es falta de valoración",
+  "waga": "ŚR",
+  "powod": "es-L7-14 etykieta interfejsu «Sin evaluar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "**Sin valorar**",
+  "nowy": "**Sin evaluar**",
+  "waga": "ŚR",
+  "powod": "es-L7-15 etykieta interfejsu «Sin evaluar»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "«Valoradas X de Y decisiones»",
+  "nowy": "«Evaluadas X de Y decisiones»",
+  "waga": "ŚR",
+  "powod": "es-L7-16 cytat z interfejsu: «Evaluadas … de … decisiones»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "En el módulo de mental game aprendiste",
+  "nowy": "En el módulo de juego mental aprendiste",
+  "waga": "ŚR",
+  "powod": "es-L7-17 termin mental-game = «juego mental» (terms-nazwy; tytuł modułu «Juego mental y bankroll»)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "juega en al menos {{n:range.mixed.low}} de los casos es acorde",
+  "nowy": "juega en al menos el {{n:range.mixed.low}} de los casos es acorde",
+  "waga": "NISKIE",
+  "powod": "es-L7-18 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "en aprox. {{n:range.mixed.high}} de los casos",
+  "nowy": "en aprox. el {{n:range.mixed.high}} de los casos",
+  "waga": "NISKIE",
+  "powod": "es-L7-19 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "jugado en aprox. {{n:range.mixed.low}} de los casos",
+  "nowy": "jugado en aprox. el {{n:range.mixed.low}} de los casos",
+  "waga": "NISKIE",
+  "powod": "es-L7-20 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "jugada en al menos {{n:range.mixed.min}}, pero con menos frecuencia que en {{n:range.mixed.low}} de los casos",
+  "nowy": "jugada en al menos el {{n:range.mixed.min}}, pero con menos frecuencia que en el {{n:range.mixed.low}} de los casos",
+  "waga": "NISKIE",
+  "powod": "es-L7-21 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "que en {{n:range.mixed.min}} de los casos es una imprecisión",
+  "nowy": "que en el {{n:range.mixed.min}} de los casos es una imprecisión",
+  "waga": "NISKIE",
+  "powod": "es-L7-22 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "pierdes en aprox. {{n:m13.lose.example}} de las manos",
+  "nowy": "pierdes en aprox. el {{n:m13.lose.example}} de las manos",
+  "waga": "NISKIE",
+  "powod": "es-L7-23 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "en al menos {{n:range.mixed.low}} de los casos (este",
+  "nowy": "en al menos el {{n:range.mixed.low}} de los casos (este",
+  "waga": "NISKIE",
+  "powod": "es-L7-24 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "que en {{n:range.mixed.min}} de los casos. Cuenta",
+  "nowy": "que en el {{n:range.mixed.min}} de los casos. Cuenta",
+  "waga": "NISKIE",
+  "powod": "es-L7-25 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l1-raport.md",
+  "stary": "en al menos {{n:range.mixed.min}} de los casos; con",
+  "nowy": "en al menos el {{n:range.mixed.min}} de los casos; con",
+  "waga": "NISKIE",
+  "powod": "es-L7-26 brak rodzajnika przed procentem",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "A♥ K♥ en un {{t:board|board}} Q♥ 7♥ 2♣",
+  "nowy": "A♥ K♥ en una {{t:board|mesa}} Q♥ 7♥ 2♣",
+  "waga": "ŚR",
+  "powod": "es-L7-27 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "A♠ K♠ en un {{t:board|board}} Q♠ 7♠ 2♦",
+  "nowy": "A♠ K♠ en una {{t:board|mesa}} Q♠ 7♠ 2♦",
+  "waga": "ŚR",
+  "powod": "es-L7-28 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♥ Q♥ en un {{t:board|board}} J♥ 8♥ 3♠",
+  "nowy": "K♥ Q♥ en una {{t:board|mesa}} J♥ 8♥ 3♠",
+  "waga": "ŚR",
+  "powod": "es-L7-29 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♥ Q♥ en un {{t:board|board}} J♠ 8♠ 3♥",
+  "nowy": "K♥ Q♥ en una {{t:board|mesa}} J♠ 8♠ 3♥",
+  "waga": "ŚR",
+  "powod": "es-L7-30 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "solo en el {{t:board|board}}: tus corazones ya no encajan con el {{t:board|board}}",
+  "nowy": "solo en la {{t:board|mesa}}: tus corazones ya no encajan con la {{t:board|mesa}}",
+  "waga": "ŚR",
+  "powod": "es-L7-31 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♠ Q♠ en un {{t:board|board}} J♠ 8♠ 3♥",
+  "nowy": "K♠ Q♠ en una {{t:board|mesa}} J♠ 8♠ 3♥",
+  "waga": "ŚR",
+  "powod": "es-L7-32 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "K♦ Q♦ en un {{t:board|board}} J♦ 8♦ 3♠",
+  "nowy": "K♦ Q♦ en una {{t:board|mesa}} J♦ 8♦ 3♠",
+  "waga": "ŚR",
+  "powod": "es-L7-33 termin board = «mesa» (terms-nazwy; m13-l3 «{{t:board|mesa}}»), nie «board»",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l2-powtorki.md",
+  "stary": "Las decisiones conformes y las aceptables",
+  "nowy": "Las decisiones acordes y las aceptables",
+  "waga": "ŚR",
+  "powod": "es-L7-34 nazwa werdyktu «Acorde» (m13-l1, es.json), nie «conforme» (pl m13-l2:34 «Zgodne»)",
+  "grupa": "es-L7"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m13-l3-przeglad.md",
+  "stary": "es fácil tomar una buena decisión por un error, o al revés",
+  "nowy": "es fácil confundir una buena decisión con un error, o al revés",
+  "waga": "ŚR",
+  "powod": "es-L7-35 «tomar una buena decisión por un error» czyta się jak «podjąć dobrą decyzję przez pomyłkę»; pl m13-l3:24 «uznać dobrą decyzję za błąd»",
+  "grupa": "es-L7"
+ }
+]

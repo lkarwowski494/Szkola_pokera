@@ -1,0 +1,326 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l3-wobec-3betu.md",
+  "stary": "per non far scartare le mani",
+  "nowy": "per non far foldare le mani",
+  "waga": "ŚR",
+  "powod": "it-L2-01 „scartare” to nie nazwa pasu używana w lekcji; termin fold = foldare (pl m4-l3:67 „żeby nie wyrzucać słabszych rąk”)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l3-wobec-3betu.md",
+  "stary": "lasciando più spesso",
+  "nowy": "foldando più spesso",
+  "waga": "ŚR",
+  "powod": "it-L2-02 pas nazwany „lasciare” zamiast foldare (pl m4-l3:100 „przy częstszym pasowaniu”)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l4-limperzy.md",
+  "stary": "- { text: \"{{t:fold|Folda}}\", why:",
+  "nowy": "- { text: \"{{t:fold|Foldo}}\", why:",
+  "waga": "ŚR",
+  "powod": "it-L2-03 3. osoba zamiast 1. (pl m4-l4:49 „Pasuję”)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m4-l4-limperzy.md",
+  "stary": "- { text: \"{{t:fold|Folda}}\", correct: true",
+  "nowy": "- { text: \"{{t:fold|Foldo}}\", correct: true",
+  "waga": "ŚR",
+  "powod": "it-L2-04 3. osoba zamiast 1. (pl m4-l4:58 „Pasuję”)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l1-tekstury.md",
+  "stary": "{{t:wetness|umidità}}",
+  "nowy": "{{t:wetness|bagnatura}}",
+  "waga": "ŚR",
+  "powod": "it-L2-05 termin wetness wg terms-nazwy = „bagnatura” (pl m5-l1:80)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l2-przewagi.md",
+  "stary": "puntare spesso, solo poco",
+  "nowy": "puntare spesso, ma poco",
+  "waga": "NISKIE",
+  "powod": "it-L2-06 kalka „tylko mało” (pl m5-l2:47)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l2-przewagi.md",
+  "stary": "Da dove vengono questi principi",
+  "nowy": "Da dove vengono queste regole",
+  "waga": "NISKIE",
+  "powod": "it-L2-07 ten sam nagłówek „Skąd te zasady” w pozostałych lekcjach to „queste regole” (pl m5-l2:98)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:dry|asciutto}} e alto hai",
+  "nowy": "{{t:dry|secco}} e alto hai",
+  "waga": "ŚR",
+  "powod": "it-L2-08 termin dry wg terms-nazwy = „secco” (pl m5-l3:24)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Sì: un flop {{t:dry|asciutto}} e alto ti",
+  "nowy": "Sì: un flop {{t:dry|secco}} e alto ti",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco” (pl m5-l3:25)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:dry|asciutto}} l'avversario ha pochi",
+  "nowy": "{{t:dry|secco}} l'avversario ha pochi",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco” (pl m5-l3:26)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:top-pair|coppia massima}} (una {{t:pair|coppia}} con la carta più alta del {{t:board}}) su un flop {{t:dry|asciutto}}",
+  "nowy": "{{t:top-pair}} (una {{t:pair|coppia}} con la carta più alta del {{t:board}}) su un flop {{t:dry|secco}}",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco”; it-L2-09 top-pair wg terms-nazwy = „top pair” (pl m5-l3:49)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:dry|asciutto}} l'avversario non ha",
+  "nowy": "{{t:dry|secco}} l'avversario non ha",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco” (pl m5-l3:50)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:dry|asciutto}} con {{t:top-pair|coppia massima}} punti",
+  "nowy": "{{t:dry|secco}} con {{t:top-pair|top pair}} punti",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco”; it-L2-09 top-pair = „top pair” (pl m5-l3:51)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:dry|asciutto}} un c-bet di {{n:cbet.size.small}} del {{t:pot|piatto}} con una mano senza possibilità conviene più spesso di un c-bet di",
+  "nowy": "{{t:dry|secco}} una c-bet di {{n:cbet.size.small}} del {{t:pot|piatto}} con una mano senza possibilità conviene più spesso di una c-bet di",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco”; it-L2-11 c-bet r. ż. jak w terms-nazwy i lekcjach m5-l1/l2/l4 (pl m5-l3:100)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:dry|asciutto}} le mani più deboli",
+  "nowy": "{{t:dry|secco}} le mani più deboli",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco” (pl m5-l3:102)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:dry|asciutto}}, però",
+  "nowy": "{{t:dry|secco}}, però",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco” (pl m5-l3:104)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "## Flop {{t:dry|asciutto}}",
+  "nowy": "## Flop {{t:dry|secco}}",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco” (pl m5-l3:108)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "(flop {{t:dry|asciutto}}:",
+  "nowy": "(flop {{t:dry|secco}}:",
+  "waga": "ŚR",
+  "powod": "it-L2-08 dry = „secco” (pl m5-l3:133)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "con l'{{t:wetness|umidità}}",
+  "nowy": "con la {{t:wetness|bagnatura}}",
+  "waga": "ŚR",
+  "powod": "it-L2-10 wetness wg terms-nazwy = „bagnatura” (pl m5-l3:122)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "C-bet frequenti, anche piccoli",
+  "nowy": "C-bet frequenti, anche piccole",
+  "waga": "ŚR",
+  "powod": "it-L2-11 c-bet r. ż. (pl m5-l3:39)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Un c-bet grande e frequente",
+  "nowy": "Una c-bet grande e frequente",
+  "waga": "ŚR",
+  "powod": "it-L2-11 c-bet r. ż. (pl m5-l3:40)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "spesso, per questo un c-bet piccolo conviene",
+  "nowy": "spesso, per questo una c-bet piccola conviene",
+  "waga": "ŚR",
+  "powod": "it-L2-11 c-bet r. ż. (pl m5-l3:88)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Il c-bet ({{t:bet|puntata}} di continuazione)",
+  "nowy": "La c-bet ({{t:bet|puntata}} di continuazione)",
+  "waga": "ŚR",
+  "powod": "it-L2-11 c-bet r. ż. (pl m5-l3:106)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Un c-bet piccolo tipico è di circa {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}} del {{t:pot|piatto}}, uno grande",
+  "nowy": "Una c-bet piccola tipica è di circa {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}} del {{t:pot|piatto}}, una grande",
+  "waga": "ŚR",
+  "powod": "it-L2-11 c-bet r. ż. (pl m5-l3:112)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "dei casi, per questo un c-bet piccolo conviene",
+  "nowy": "dei casi, per questo una c-bet piccola conviene",
+  "waga": "ŚR",
+  "powod": "it-L2-11 c-bet r. ż. (pl m5-l3:130)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "(materiali di formazione);",
+  "nowy": "(materiali didattici);",
+  "waga": "NISKIE",
+  "powod": "it-L2-12 „materiały szkoleniowe” w pozostałych lekcjach = „materiali didattici” (pl m5-l3:112)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "tratte da materiali di formazione e da",
+  "nowy": "tratte da materiali didattici e da",
+  "waga": "NISKIE",
+  "powod": "it-L2-12 „materiali didattici” (pl m5-l3:133)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "(materiali di formazione sulle",
+  "nowy": "(materiali didattici sulle",
+  "waga": "NISKIE",
+  "powod": "it-L2-12 „materiali didattici” (pl m5-l3:133)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Hai {{t:top-pair|coppia massima}} con il miglior kicker",
+  "nowy": "Hai {{t:top-pair|top pair}} con il miglior kicker",
+  "waga": "ŚR",
+  "powod": "it-L2-14 top-pair wg terms-nazwy = „top pair” (pl m5-l4:32)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "anche con {{t:top-pair|coppia massima}} e miglior kicker",
+  "nowy": "anche con {{t:top-pair|top pair}} e miglior kicker",
+  "waga": "ŚR",
+  "powod": "it-L2-14 top-pair = „top pair” (pl m5-l4:35)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "{{n:cbet.size.small}} del {{t:pot|piatto}}\", why: \"Troppo spesso: in questa situazione il solver punta in meno di {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|coppia massima}}",
+  "nowy": "{{n:cbet.size.small}} del {{t:pot|piatto}}\", why: \"Troppo spesso: in questa situazione il solver punta in meno del {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|top pair}}",
+  "waga": "ŚR",
+  "powod": "it-L2-13 brak rodzajnika przed procentem; it-L2-14 top-pair = „top pair” (pl m5-l4:36)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "{{n:cbet.size.big}} del {{t:pot|piatto}}\", why: \"Troppo spesso: in questa situazione il solver punta in meno di {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|coppia massima}}",
+  "nowy": "{{n:cbet.size.big}} del {{t:pot|piatto}}\", why: \"Troppo spesso: in questa situazione il solver punta in meno del {{n:cbet.oop.a94.bet}} dei casi. La {{t:top-pair|top pair}}",
+  "waga": "ŚR",
+  "powod": "it-L2-13 brak rodzajnika przed procentem; it-L2-14 top-pair = „top pair” (pl m5-l4:37)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Hai {{t:top-pair|coppia massima}} con un buon kicker",
+  "nowy": "Hai {{t:top-pair|top pair}} con un buon kicker",
+  "waga": "ŚR",
+  "powod": "it-L2-14 top-pair = „top pair” (pl m5-l4:53)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "manca il flop in circa {{n:flop.miss.unpaired}} dei casi. Quanto",
+  "nowy": "manca il flop in circa il {{n:flop.miss.unpaired}} dei casi. Quanto",
+  "waga": "ŚR",
+  "powod": "it-L2-13 brak rodzajnika przed procentem (pl m5-l4:63; por. it m5-l2:96)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "è di circa {{n:flop.miss.two}}:",
+  "nowy": "è di circa il {{n:flop.miss.two}}:",
+  "waga": "ŚR",
+  "powod": "it-L2-13 brak rodzajnika przed procentem (pl m5-l4:65)",
+  "grupa": "it-L2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l4-bez-pozycji.md",
+  "stary": "manca il flop in circa {{n:flop.miss.unpaired}} dei casi, ma due insieme solo in circa {{n:flop.miss.two}}.",
+  "nowy": "manca il flop in circa il {{n:flop.miss.unpaired}} dei casi, ma due insieme solo in circa il {{n:flop.miss.two}}.",
+  "waga": "ŚR",
+  "powod": "it-L2-13 brak rodzajnika przed procentem, dwa miejsca w jednym zdaniu (pl m5-l4:103)",
+  "grupa": "it-L2"
+ }
+]

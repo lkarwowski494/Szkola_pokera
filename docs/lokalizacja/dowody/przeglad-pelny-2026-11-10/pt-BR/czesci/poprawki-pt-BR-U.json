@@ -1,0 +1,128 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "{{t:bubble|Bubble}}",
+  "nowy": "{{t:bubble|Bolha}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-U-01 termin bubble = „bolha” (terms-nazwy.yaml:123; w treści wyłącznie Bolha/bolha)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/modules.yaml",
+  "stary": "title: \"Pré-flop diante de ação\"",
+  "nowy": "title: \"Preflop diante de ação\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-U-02 termin preflop = „preflop” (terms-nazwy.yaml:36), tak też w pt-BR.json play.streets.preflop",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/modules.yaml",
+  "stary": "sub: \"Blinds, ruas, ações\"",
+  "nowy": "sub: \"Blinds, streets, ações\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-U-03 termin street = „street” (terms-nazwy.yaml:34)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/modules.yaml",
+  "stary": "sub: \"SPR e tamanhos para três ruas\"",
+  "nowy": "sub: \"SPR e tamanhos para três streets\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-U-04 termin street = „street” (terms-nazwy.yaml:34)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "• Decisões avaliadas em quatro níveis\\n",
+  "nowy": "• Decisões avaliadas em quatro níveis: alinhada, aceitável, imprecisão, erro\\n",
+  "waga": "ŚR",
+  "powod": "pt-BR-U-05 pominięte wyliczenie czterech stopni oceny (pl: „zgodna, dopuszczalna, niedokładność, błąd”); nazwy jak grade.* w pt-BR.json",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "Último: {{last}}.",
+  "nowy": "Última: {{last}}.",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-06 zgoda rodzaju z „barra” (pl „Ostatni” = słupek)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "estão desativadas nas configurações do celular",
+  "nowy": "estão desativadas nos Ajustes do celular",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-07 ustawienia systemowe iOS w pt-BR to „Ajustes” (tak w purchase.cancelInfo)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "Uma prova de módulo (15 questões)",
+  "nowy": "Um exame do módulo (15 questões)",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-08 nazwa jak w aplikacji: „Exame do módulo” (pt-BR.json exam.title)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "de cada prova de módulo são",
+  "nowy": "de cada exame do módulo são",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-08 nazwa jak w aplikacji: „Exame do módulo”",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "uma nova tentativa de prova.",
+  "nowy": "uma nova tentativa de exame.",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-08 nazwa jak w aplikacji (purchase.unlocks: „novas tentativas de exame”)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "um índice de evolução",
+  "nowy": "um índice de nível",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-09 nazwa jak w aplikacji: „Índice de nível” (advancement.title)",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "• Aulas com exercícios",
+  "nowy": "• Lições com exercícios",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "indica sua primeira aula",
+  "nowy": "indica sua primeira lição",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+  "grupa": "pt-BR-U"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "store/app-store-metadata.json",
+  "stary": "ACESSO\\nAs aulas, a avaliação",
+  "nowy": "ACESSO\\nAs lições, a avaliação",
+  "waga": "NISKIE",
+  "powod": "pt-BR-U-10 w aplikacji „lição/lições”",
+  "grupa": "pt-BR-U"
+ }
+]

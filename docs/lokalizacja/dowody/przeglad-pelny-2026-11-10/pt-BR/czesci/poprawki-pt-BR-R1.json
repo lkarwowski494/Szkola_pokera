@@ -1,0 +1,92 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "K-J-7 {{t:two-tone|de dois naipes}}",
+  "nowy": "K-J-7 {{t:two-tone|bicolor}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-01 forma nie jest formą terminu two-tone = „bicolor” (terms-nazwy.yaml:76); pl rules.yaml:392 „K-J-7 {{t:two-tone}}”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "logo abaixo desse limite",
+  "nowy": "logo abaixo desse limiar",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-02 „próg” (pl rules.yaml:266) oddany jako „limite”, które w pt-BR jest nazwą terminu stakes (terms-nazwy.yaml:116; w tym pliku linia 472 „limites baixos”); reszta treści pt-BR ma „limiar” (np. exams/m5.yaml:52 „limiar é aposta”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "o limite é aposta ÷ ({{t:pot|pote}} + aposta)\"",
+  "nowy": "o limiar é aposta ÷ ({{t:pot|pote}} + aposta)\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-03 jak -02: „próg” (pl rules.yaml:419) → „limiar”, nie „limite” (= stawki)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "o limite é aposta ÷ ({{t:pot|pote}} + aposta); os outs que você tem baixam esse limite",
+  "nowy": "o limiar é aposta ÷ ({{t:pot|pote}} + aposta); os outs que você tem baixam esse limiar",
+  "waga": "ŚR",
+  "powod": "pt-BR-R1-04 jak -02: „próg” ×2 (pl rules.yaml:562) → „limiar”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "; {{t:pair|pares}} médios e pequenos, KQo",
+  "nowy": "; com {{t:pair|pares}} médios e pequenos, KQo",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-05 brak przyimka: „pares … você paga” czyta się jak „płacisz parom”; w pliku wszędzie „paga com” (pl rules.yaml:257 „pary … sprawdzasz”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "; {{t:pair|pares}} médios você normalmente {{t:call|paga}}",
+  "nowy": "; com {{t:pair|pares}} médios você normalmente {{t:call|paga}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-06 jak -05 (pl rules.yaml:502 „średnie pary zwykle sprawdzasz”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "{{t:call|pagar}} nem uma {{t:bet|aposta}} pequena",
+  "nowy": "{{t:call|pagar}} até mesmo uma {{t:bet|aposta}} pequena",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-07 „raramente consegue pagar nem uma” — niegramatyczne podwójne przeczenie; pl rules.yaml:402 „rzadko może sprawdzić nawet mały bet”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "um jogador que, pelo que você observou, raramente {{t:bluff|blefa}} {{t:bet|aposta}} alto no river",
+  "nowy": "quem {{t:bet|aposta}} alto no river é um jogador que, pelo que você observou, raramente {{t:bluff|blefa}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-08 dwa czasowniki obok siebie („blefa aposta”) — zdanie mylące przy czytaniu; pl rules.yaml:468 „duży bet na riverze stawia gracz, o którym wiesz…, że rzadko blefuje”",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "então perde menos quando faltam",
+  "nowy": "então é o que menos perde quando faltam",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-09 stopień najwyższy: pl rules.yaml:527 „traci najmniej” (en „loses the least”)",
+  "grupa": "pt-BR-R1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "mais estreito que o do c-bet",
+  "nowy": "mais fechado que o do c-bet",
+  "waga": "NISKIE",
+  "powod": "pt-BR-R1-10 „węższy zakres” w tym pliku wszędzie „mais fechado” (np. linie 314, 478, 635); pl rules.yaml:636 „węższym zakresem”",
+  "grupa": "pt-BR-R1"
+ }
+]

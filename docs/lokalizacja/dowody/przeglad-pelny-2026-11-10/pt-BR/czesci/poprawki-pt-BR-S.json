@@ -1,0 +1,47 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "Tilt de ódio a perder",
+  "nowy": "Tilt por ódio de perder",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-01 m12.yaml:54 nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "Tilt de injustiça",
+  "nowy": "Tilt por injustiça",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-02 m12.yaml:55 nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "      - { text: \"Tilt de erro\", why: \"Tilt de erro é raiva dos próprios erros. Aqui você sabe que jogou bem.\" }",
+  "nowy": "      - { text: \"Tilt por erro\", why: \"Tilt por erro é raiva dos próprios erros. Aqui você sabe que jogou bem.\" }",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-03 m12.yaml:56 (2×) nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m12.yaml",
+  "stary": "Tilt de vingança",
+  "nowy": "Tilt por vingança",
+  "waga": "ŚR",
+  "powod": "pt-BR-S-04 m12.yaml:57 nazwa typu tiltu jak w lekcji m12-l3 („Tilt por …”; treść krytyczna m12, wzorzec pt-BR-L7-01)",
+  "grupa": "pt-BR-S"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m4-l4-limperzy.md",
+  "stary": "nos micro stakes",
+  "nowy": "nos microlimites",
+  "waga": "NISKIE",
+  "powod": "pt-BR-S-05 m4-l4-limperzy.md:61 termin stakes = „limite”, w korpusie „microlimites” (wzorzec pt-BR-L6-02…04, pt-BR-L7)",
+  "grupa": "pt-BR-S"
+ }
+]
