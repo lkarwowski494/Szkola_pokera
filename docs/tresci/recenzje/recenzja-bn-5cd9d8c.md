@@ -41,6 +41,8 @@ Zakres: całość nowych i zmienionych twierdzeń z diffu: 5 nowych reguł, `bec
 | pushSbDeep | `apps/mobile/src/i18n/locales/pl.json:750` „ryzykujesz więcej względem blindów” | R-M11-002 then (im krótszy stack, tym więcej rąk) i because, odwrócone; tylko przy rękach poza zakresem (kierunek tight) | POPARTE | ok | — |
 | egzaminy ×6 | m6 l.17 i 47, m9 l.10 i 45, m11 l.25 i 66 | te same twierdzenia, zmieniona kolejność (sens, potem rachunek); m11 l.25 i 66: zdania z istniejących złych opcji tego samego zadania; rachunek geometrii w m9 l.45 sprawdzony (SPR 4, bet = pula, po sprawdzeniu pula ×3, drugi bet = cały stack) | POPARTE | ok | 06-tresci-006 (przekład) |
 
+Skrypt modułu `kontrole-mechaniczne` (`kontrole-tresci.mjs` z promptu roli) nie był uruchamiany: treść projektu jest w YAML i JSON bez znaczników `[T:…]`, a projekt ma własną kontrolę rejestru `pnpm tresci:rejestr` (część `pnpm run ci`, wynik „0 błędów, 0 uwag”, `dowody/bn-5cd9d8c-ci.txt`). Poprawka regexu `LICZBA` w prompcie roli (wiadomość koordynatora 2026-11-10) nie zmienia więc wyników tej recenzji.
+
 ## Linia bazowa i założenia
 Linia bazowa (przed czytaniem argumentów autora): dobre wyjaśnienie „dlaczego” przy decyzji preflop podaje cechę ręki, która naprawdę decyduje w tym spocie (siła na showdownie, grywalność po flopie, dominacja, blokery, cena), a nie tylko cechę prawdziwą. Wzorzec: serwisy solverów i szkoleniowe (upswingpoker.com, „Offsuit hands with big gaps … dominated”) tłumaczą pas dominacją i słabą grywalnością, a sprawdzenie all-in ceną i zakresem rywala. Wynika z tego, że prawdziwość cechy to warunek konieczny, ale niewystarczający: cecha musi też być powodem tej decyzji (06-tresci-003).
 
