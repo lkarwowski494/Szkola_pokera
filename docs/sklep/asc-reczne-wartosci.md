@@ -97,7 +97,7 @@ Pola (PV-1): „Contact: Name, email, phone number … Enter the phone number in
 | Notes | tekst niżej (2491 bajtów < 4000) |
 | Attachment | brak |
 
-Tekst Notes: `store/review-notes.en.txt` z usuniętymi kluczami w nawiasach. Etykiety sprawdzone dziś z `apps/mobile/src/i18n/locales/en.json`: wszystkie 11 (`tabs.today` „Today”, `today.practice` „Practice session”, `start.begin` „Start”, `session.end` „End”, `start.fullAccess` „Full access”, `purchase.restore` „Restore purchases”, `settings.manage` „Manage subscription”, `data.title` „Data”, `settings.reset` „Delete progress”, `settings.help` „Help”, `placement.skip` „Skip”) są identyczne z roboczym przekładem, więc warunek 10-D01-04 jest spełniony. Ścieżka do ustawień (ikona koła zębatego na „Today”) w kodzie: `apps/mobile/src/app/(tabs)/index.tsx:94`; „Help” w zakładce postępu: `(tabs)/progress.tsx:80`.
+Tekst Notes: `store/review-notes.en.txt` z usuniętymi kluczami w nawiasach. Etykiety sprawdzone dziś z `apps/mobile/src/i18n/locales/en.json`: wszystkie 13 (`tabs.today` „Today”, `today.practice` „Practice session”, `start.begin` „Start”, `session.end` „End”, `start.fullAccess` „Full access”, `purchase.restore` „Restore purchases”, `settings.manage` „Manage subscription”, `data.title` „Data”, `settings.reset` „Delete progress”, `settings.help` „Help”, `welcome.takeTest` „Take the placement test”, `welcome.startFresh` „Start from the beginning”, `placement.dontKnow` „I don't know”) są identyczne z roboczym przekładem, więc warunek 10-D01-04 jest spełniony. Ścieżka do ustawień (ikona koła zębatego na „Today”) w kodzie: `apps/mobile/src/app/(tabs)/index.tsx:94`; „Help” w zakładce postępu: `(tabs)/progress.tsx:80`.
 
 Zostają warunki z `store/review-notes.md`: ścieżki przejść na buildzie kandydata (D-04), produkty IAP w tym samym zgłoszeniu, adres poczty (W-04) — bez niego usuń akapit CONTACT.
 
@@ -112,7 +112,7 @@ WHAT THE APP IS
 
 NO ACCOUNT, NO SERVER
 - No sign-in and no backend. Progress is stored only on the device. No demo account is needed.
-- First launch: a welcome screen, then a short placement check (up to 8 questions); "Skip" works on every question.
+- First launch: a welcome screen with a choice: "Take the placement test" (up to 8 questions; "I don't know" is available on every question) or "Start from the beginning" (no questions).
 
 IN-APP PURCHASES (one subscription group: quarterly and yearly auto-renewable subscriptions, plus a one-time lifetime unlock; no introductory offers or free trials)
 - Free without purchase: all lessons, the placement check and the first attempt at each module exam. One more activity per day is free: a practice session, a review session or an exam retake.

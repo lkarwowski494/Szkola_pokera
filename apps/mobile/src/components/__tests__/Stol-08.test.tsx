@@ -6,6 +6,7 @@ import '@/i18n';
 import i18n from 'i18next';
 import { render, screen } from '@testing-library/react-native';
 import { Stol } from '@/components/Stol';
+import { SZEROKOSC_KARTY } from '@/features/stol/ukladRzedow';
 import { etykietaStolu, nazwaKarty, opisKart, opisReki, ukladStolu } from '@/features/stol/uklad';
 
 const t = i18n.t.bind(i18n);
@@ -73,9 +74,15 @@ describe('Stol', () => {
 
 describe('D-476: stół z trzema rzędami (rywal 2 + board 5 + gracz 2)', () => {
   const table = { opp: ['Ac', 'Ad'], hand: ['Th', '9h'], board: ['As', '8c', '7d', 'Jh', '2s'] };
-  const wysokoscRamy = () => {
+  const stylRamy = (): Record<string, unknown> => {
     const s = screen.getByTestId('stol-rama').props.style;
-    return (Array.isArray(s) ? Object.assign({}, ...s.flat(Infinity).filter(Boolean)) : s).height as number | undefined;
+    return Array.isArray(s) ? Object.assign({}, ...s.flat(Infinity).filter(Boolean)) : s;
+  };
+  const wysokoscRamy = () => stylRamy().height as number | undefined;
+  const szerokoscKarty = (kod: string): number => {
+    const k = screen.getAllByLabelText(nazwaKarty(kod, t))[0]!;
+    const s = k.props.style;
+    return (Array.isArray(s) ? Object.assign({}, ...s.flat(Infinity).filter(Boolean)) : s).width;
   };
 
   it.each([320, 390])('po pomiarze (%i pt ekranu) owal dostaje wysokość z układu rzędów, nie z samej proporcji 1,7:1', async (ekran) => {
@@ -86,6 +93,13 @@ describe('D-476: stół z trzema rzędami (rywal 2 + board 5 + gracz 2)', () => 
     await fireEvent(screen.getByRole('image'), 'layout', { nativeEvent: { layout: { width: pole, height: 0, x: 0, y: 0 } } });
     const u = ukladRzedow(pole, { opp: 2, board: 5, hero: 2 });
     expect(wysokoscRamy()).toBe(u.wysokoscRamy);
+    // proporcja 1,7:1 musi być zdjęta (aspectRatio: undefined), inaczej na urządzeniu wysokość ramy znów zależy od proporcji
+    expect(stylRamy()).toHaveProperty('aspectRatio', undefined);
+    // rozmiar kart board z układu rzędów: 320 pt → „sm” (22 pt), 390 pt → „md” (40 pt); karty rywala i gracza z układu też
+    expect(szerokoscKarty('8c')).toBe(SZEROKOSC_KARTY[u.board]);
+    expect(szerokoscKarty('Ac')).toBe(SZEROKOSC_KARTY[u.opp]);
+    expect(szerokoscKarty('Th')).toBe(SZEROKOSC_KARTY[u.hero]);
+    expect(szerokoscKarty('8c')).toBe(ekran === 320 ? 22 : 40);
     expect(u.wysokoscRamy).toBeGreaterThan(Math.floor(u.szerokoscRamy / 1.7)); // stary układ (sama proporcja) był za niski
   });
 });
