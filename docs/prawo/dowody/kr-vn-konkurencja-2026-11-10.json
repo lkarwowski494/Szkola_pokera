@@ -1,0 +1,321 @@
+{
+ "odczyt": "2026-11-10",
+ "metoda": "iTunes Lookup API, country=us (kategoria, contentAdvisoryRating) oraz country=kr i country=vn (dostępność), jedno wywołanie na kraj, te same 35 id co wejscie.json",
+ "aplikacje": [
+  {
+   "id": 6590603158,
+   "nazwa": "GTO Preflop Wizard Poker AI",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "12+",
+   "KR": true,
+   "VN": true
+  },
+  {
+   "id": 1622947056,
+   "nazwa": "GTO Preflop - Texas Hold'em",
+   "grupa": "top25",
+   "kategoria": "Sports",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1488850006,
+   "nazwa": "Postflop+ GTO Poker Trainer",
+   "grupa": "top25",
+   "kategoria": "Utilities",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 555222027,
+   "nazwa": "Enterra Poker Calculator",
+   "grupa": "top25",
+   "kategoria": "Productivity",
+   "ocena_us": "4+",
+   "KR": true,
+   "VN": true
+  },
+  {
+   "id": 6478522482,
+   "nazwa": "Poker Trainer - Learn Poker",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1530767783,
+   "nazwa": "Solver+ Poker : GTO Strategy",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1435468870,
+   "nazwa": "Preflop+ Poker GTO Nash Charts",
+   "grupa": "top25",
+   "kategoria": "Utilities",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1553727514,
+   "nazwa": "Poker AI - Game & Strategy",
+   "grupa": "top25",
+   "kategoria": "Utilities",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 6748414132,
+   "nazwa": "Learn Poker Offline - Hold 'Em",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 6748104711,
+   "nazwa": "Poker Skill - Learn Holdem",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "4+",
+   "KR": true,
+   "VN": true
+  },
+  {
+   "id": 6747833042,
+   "nazwa": "Poker Trainer: Flop Factor",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 581867383,
+   "nazwa": "Tournament Poker Coach",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 6747779080,
+   "nazwa": "Preflop AI: GTO Poker Trainer",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1458491856,
+   "nazwa": "DTO MTT - GTO Poker Trainer",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 505831997,
+   "nazwa": "Insta Poker Coach Texas Holdem",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 294379237,
+   "nazwa": "PokerCruncher - Advanced Odds",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1629141961,
+   "nazwa": "GTO Preflop",
+   "grupa": "top25",
+   "kategoria": "Utilities",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 6742486598,
+   "nazwa": "PokerArena: Play & Learn Poker",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1445519206,
+   "nazwa": "Evenbet Poker Calculator",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1630961215,
+   "nazwa": "NTPoker – GTO Poker Trainer",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "4+",
+   "KR": true,
+   "VN": true
+  },
+  {
+   "id": 6758732164,
+   "nazwa": "Gambit -  Play and Learn Poker",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 6458732631,
+   "nazwa": "GTO Ranges+ Poker Solver",
+   "grupa": "top25",
+   "kategoria": "Sports",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1559404571,
+   "nazwa": "Poker Power Play",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1494263170,
+   "nazwa": "Learn Poker",
+   "grupa": "top25",
+   "kategoria": "Games",
+   "ocena_us": "4+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1444569705,
+   "nazwa": "Poker Coaching",
+   "grupa": "top25",
+   "kategoria": "Education",
+   "ocena_us": "4+",
+   "KR": true,
+   "VN": true
+  },
+  {
+   "id": 719525810,
+   "nazwa": "WSOP Texas Holdem Poker Game",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 354902315,
+   "nazwa": "Zynga Poker ™ - Texas Hold'em",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 480523695,
+   "nazwa": "Poker Heat: Texas Holdem Games",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 284602850,
+   "nazwa": "Texas Hold’em",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 1364570884,
+   "nazwa": "Poker Face: Texas Holdem Live",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 370339723,
+   "nazwa": "Texas Hold'em Poker: Pokerist",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 1150250440,
+   "nazwa": "Mega Hit Poker: Texas Holdem",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 1018155306,
+   "nazwa": "Octro Poker Texas Holdem Games",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": true
+  },
+  {
+   "id": 1477775889,
+   "nazwa": "Holdem or Foldem: Texas Poker",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  },
+  {
+   "id": 592081067,
+   "nazwa": "Pokerrrr 2: Texas Holdem Poker",
+   "grupa": "zetony10",
+   "kategoria": "Games",
+   "ocena_us": "17+",
+   "KR": false,
+   "VN": false
+  }
+ ]
+}
