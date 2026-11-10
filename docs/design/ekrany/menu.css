@@ -90,3 +90,18 @@
 .kafel > b { flex-wrap: wrap; row-gap: 2px; overflow-wrap: normal; } .kafle .kafel span { overflow-wrap: break-word; }
 .kafle { gap: 8px; } .wiersz-wsk { margin-top: 8px; }
 @container style(--dt-tresc: 3.1) { .kafel > b, .kafle .kafel span { overflow-wrap: anywhere; } }
+
+/* KO-045 (sesja BH): Wskaźnik zaawansowania na ekranie Postęp — fragment jak AdvancementCard (plakietka z liczbą, tytuł, „Wiedza N”, ›) */
+.wsk-karta { margin: 12px 16px 0; min-height: 64px; display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--surface); border-radius: 14px; color: var(--ink); text-decoration: none; line-height: 1.3; flex-wrap: wrap; }
+.wsk-karta .plakietka { min-width: 52px; height: 52px; padding: 0 6px; border: 2px solid var(--ink); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: var(--t-tytul); font-weight: 700; font-feature-settings: 'tnum'; flex: none; }
+.wsk-karta .opis { flex: 1 1 60%; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.wsk-karta b { font-size: var(--t-tresc); font-weight: 700; }
+.wsk-karta small, .statystyki small { font-size: var(--t-przypis); color: var(--muted); display: block; }
+.wsk-karta .szewron { width: 10px; height: 16px; flex: none; stroke: var(--muted); fill: none; stroke-width: 2; }
+.grupa.statystyki { margin-top: 16px; }
+.grupa.statystyki b { font-weight: 600; }
+@container style(--dt-tresc: 3.1) { .wsk-karta { margin: 12px 8px 0; padding: 10px; } .wsk-karta b { overflow-wrap: anywhere; } }
+/* KO-045: trzy kafelki pod „Kontynuuj” — ostatni (Scenariusze) na pełną szerokość, bez osieroconej połówki wiersza */
+.kafle.w2 > .kafel:last-child:nth-child(even) { grid-column: 1 / -1; }
+/* AX5: karta wskaźnika jako pionowy stos (plakietka nad tytułem), żeby tytuł miał całą szerokość (HIG: przy dużym tekście układ pionowy) */
+@container style(--dt-tresc: 3.1) { .wsk-karta { flex-direction: column; align-items: flex-start; } .wsk-karta .opis { flex: none; width: 100%; } .wsk-karta .szewron { display: none; } }

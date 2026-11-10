@@ -1,4 +1,5 @@
-// menu-makieta.mjs — generuje ekrany/menu.html i ekrany/zebatka.html (sesja BE, KO-036, KO-041).
+// menu-makieta.mjs — generuje ekrany/menu.html i ekrany/zebatka.html (sesja BE/BH, KO-036, KO-041, wariant końcowy KO-045).
+// Historia wyboru: warianty W1/W2 @ be3d801 (porównanie wzorce-zrzuty/menu/porownanie-w1-w2-*.png) i v2 @ a45979d; tu tylko układ końcowy.
 // Użycie: node narzedzia/menu-makieta.mjs (z katalogu docs/design). Treść:
 // - etykiety istniejących kluczy z apps/mobile/src/i18n/locales/{pl,de}.json (today.*, learn.lessonsDone, advancement.title, exam.start, session.title.scenario);
 // - moduły i liczba lekcji: content/pl/modules.yaml (14 modułów), content/pl/lessons (44 pliki, liczby na moduł policzone z nazw plików); lekcje m0-l1, m2-l1, m2-l2; EXAM_SIZE 15 (apps/mobile/src/features/drills/thresholds.ts:46);
@@ -66,49 +67,45 @@ const stopkaLimitu = (L, s) => s.limit ? `<p class="przypis limit"><b>${L.limit}
 const zakladki = (pozycje, aktywna) => `<nav class="zakladki" aria-label="Zakładki">${pozycje.map(([n, ik, badge]) =>
   `<a href="#"${n === aktywna ? ' aria-current="page"' : ''} aria-label="${n}${badge ? `, ${badge} na dziś` : ''}"><span class="zk">${ikona(ik)}${badge ? `<em>${badge}</em>` : ''}</span>${n}</a>`).join('')}</nav>`;
 
-// Treść kafelków wspólna dla wariantów (BR-MENU-001 @ sesja-bd-zakres 8cba034: lekcje, ćwiczenia, powtórki z liczbą, scenariusze; kafelek bez treści mówi, co go odblokuje)
-const kLekcje = (L, s) => kafel('lekcje', L.lekcje, L.zrobione(s.zrobione, 44));
+// Treść kafelków (BR-MENU-001 po erracie ER-16: lekcje z zakładki „Lekcje”, bez kafelka lekcji; kafelek bez treści mówi, co go odblokuje)
 const kPowt = (L, s) => kafel('powtorki', L.powt, s.powt ? L.naDzis(s.powt) : s.nowy ? (L.lang === 'pl' ? 'Po pierwszej lekcji' : 'Nach der ersten Lektion') : L.brakPowt);
 const kSesja = (L, s) => kafel('cwiczenia', L.sesja, s.limit ? L.limitTile : L.sesjaOpis, { limit: s.limit });
 const kScen = (L, s) => kafel('scenariusze', L.scen, s.nowy ? (L.lang === 'pl' ? 'Po pierwszej lekcji modułu 2' : 'Nach der ersten Lektion von Modul 2') : s.limit ? L.limitTile : L.poziom(s.poziom), { limit: s.limit && !s.nowy });
-const pasek = (L, s) => zakladki([[L.dzis, 'dzis'], [L.powt, 'powtorki', s.powt || 0], [L.postep, 'wskaznik']], L.dzis);
+// Pasek KO-045: Dziś · Lekcje · Postęp, bez plakietki (liczba powtórek jest na kafelku)
+const pasek = (L, aktywna) => zakladki([[L.dzis, 'dzis'], [L.lekcje, 'lekcje'], [L.postep, 'wskaznik']], aktywna);
 
-// W1: zębatka + sukno (element firmowy) + 4 kafelki 2×2 + Wskaźnik jako niski wiersz; pasek bez zmian
-function w1(L, s, id) {
-  return `<main data-ekran="${id}" lang="${L.lang}" aria-label="${L.dzis}, wariant 1">
+// Dziś (KO-045, wariant końcowy = W2 z be3d801 bez kafelka Wskaźnik): zębatka (D-540) + szeroki kafelek „Kontynuuj” na suknie + Powtórki, Sesja ćwiczeń, Scenariusze
+function dzis(L, s, id) {
+  const miejsce = s.lekcja && L.lekcjaZ(L.lang === 'pl' ? s.lekcja[0] : L.modul, s.lekcja[1]);
+  const tytul = s.nowy ? (L.lang === 'pl' ? 'Układy kart' : 'Hände') : L.tytul;
+  const kont = s.koniec
+    ? `<a class="kafel sukno-kafel szeroki" href="#" aria-label="${L.lang === 'pl' ? 'Kurs ukończony' : 'Kurs abgeschlossen'}. ${L.kursKoniec}"><b class="tytul">${L.lang === 'pl' ? 'Kurs ukończony' : 'Kurs abgeschlossen'}</b><span>${L.kursKoniec}</span></a>`
+    : `<a class="kafel sukno-kafel szeroki" href="#" aria-label="${L[s.przycisk]}: ${tytul}. ${miejsce}."><span>${miejsce}</span><b class="tytul">${tytul}</b><i class="mini-przycisk">${L[s.przycisk]}</i></a>`;
+  return `<main data-ekran="${id}" lang="${L.lang}" aria-label="${L.dzis}">
   ${nav(L)}
-  ${sukno(L, s)}
-  <div class="kafle">
-    ${kLekcje(L, s)}
+  <div class="kafle w2">
+    ${kont}
     ${kPowt(L, s)}
     ${kSesja(L, s)}
     ${kScen(L, s)}
   </div>
-  <a class="wiersz-wsk" href="#" aria-label="${L.wsk}. ${L.wiedza(s.wiedza)}.">${ikona('wskaznik')}<span><b>${L.wsk}</b> ${L.wiedza(s.wiedza)}</span>${szewron}</a>
   ${stopkaLimitu(L, s)}
-  ${pasek(L, s)}
+  ${pasek(L, L.dzis)}
 </main>`;
 }
 
-// W2: bez zębatki; „Kontynuuj” = szeroki kafelek na suknie + 6 kafelków (z Wskaźnikiem i Ustawieniami); pasek bez zmian
-function w2(L, s, id) {
-  const kont = s.koniec
-    ? `<a class="kafel sukno-kafel szeroki" href="#" aria-label="${L.kursKoniec}"><b class="tytul">${L.lang === 'pl' ? 'Kurs ukończony' : 'Kurs abgeschlossen'}</b><span>${L.kursKoniec}</span></a>`
-    : `<a class="kafel sukno-kafel szeroki" href="#" aria-label="${L[s.przycisk]}: ${s.nowy ? 'Układy kart' : L.tytul}. ${L.lekcjaZ(L.lang === 'pl' ? s.lekcja[0] : L.modul, s.lekcja[1])}."><span>${L.lekcjaZ(L.lang === 'pl' ? s.lekcja[0] : L.modul, s.lekcja[1])}</span><b class="tytul">${s.nowy ? (L.lang === 'pl' ? 'Układy kart' : 'Hände') : L.tytul}</b><i class="mini-przycisk">${L[s.przycisk]}</i></a>`;
-  return `<main data-ekran="${id}" lang="${L.lang}" aria-label="${L.dzis}, wariant 2">
+// Postęp (KO-045): Wskaźnik zaawansowania na górze ekranu, jak AdvancementCard w apps/mobile/src/app/(tabs)/progress.tsx:45-46 (plakietka z liczbą, tytuł, „Wiedza N”, ›); niżej istniejące statystyki (progress.accuracy, answers, streak)
+function postep(L, s, id) {
+  const stat = s.nowy
+    ? `<p class="przypis">Zrób pierwsze ćwiczenia, a tu pojawią się twoje statystyki.</p>`
+    : `<div class="grupa statystyki"><div><span class="opis"><b>Trafność: 74%</b><small>212 odpowiedzi · Seria: 5 dni</small></span></div></div><p class="przypis przyklad">[PRZYKŁAD] liczby</p>`;
+  return `<main data-ekran="${id}" lang="${L.lang}" aria-label="${L.postep}">
   <div class="stan"><span>9:41</span><i></i></div>
-  <h1 class="duzy-tytul tytul bez-nav">${L.dzis}</h1>
-  <div class="kafle w2">
-    ${kont}
-    ${kLekcje(L, s)}
-    ${kPowt(L, s)}
-    ${kSesja(L, s)}
-    ${kScen(L, s)}
-    ${kafel('wskaznik', L.wskKrotki || L.wsk, L.wiedza(s.wiedza))}
-    ${kafel('ustawienia', L.ust, L.lang === 'pl' ? 'Język, dane, zakupy' : 'Sprache, Daten, Käufe')}
-  </div>
-  ${stopkaLimitu(L, s)}
-  ${pasek(L, s)}
+  <h1 class="duzy-tytul tytul bez-nav">${L.postep}</h1>
+  <a class="wsk-karta" href="#" aria-label="${L.wsk}: ${s.wiedza} na 100. Wiedza ${s.wiedza}." aria-describedby="${id}-hint"><span class="plakietka">${s.wiedza}</span><span class="opis"><b>${L.wsk}</b><small>Wiedza ${s.wiedza}</small></span>${szewron}</a>
+  <p id="${id}-hint" hidden>Pokazuje wynik w obszarach kursu</p>
+  ${stat}
+  ${pasek(L, L.postep)}
 </main>`;
 }
 
@@ -119,8 +116,7 @@ function lekcje() {
   const wiersz = ([t, s, st]) => `<a href="#" aria-label="${t}. ${s}.${st === 'done' ? ' Ukończona.' : st === 'started' ? ' Rozpoczęta.' : ''}"><span class="kropka ${st}">${st === 'done' ? '✓' : ''}</span><span class="opis">${t}<small>${s}</small></span>${szewron}</a>`;
   return `<main data-ekran="lekcje" lang="pl" aria-label="Lekcje">
   <div class="stan"><span>9:41</span><i></i></div>
-  <nav class="nav"><a href="#">‹ Dziś</a><span></span></nav>
-  <h1 class="duzy-tytul tytul">Lekcje</h1>
+  <h1 class="duzy-tytul tytul bez-nav">Lekcje</h1>
   <p class="przypis postep-lekcji"><b>3 z 44 lekcji</b> <span class="przyklad">[PRZYKŁAD]</span></p>
   <div class="pasek-postepu" role="img" aria-label="3 z 44 lekcji ukończonych"><i style="width:7%"></i></div>
   <div class="grupa moduly">
@@ -129,6 +125,7 @@ function lekcje() {
          <div class="lista">${lekcjeM2.map(wiersz).join('')}<a href="#" class="egzamin" aria-label="Egzamin modułu. 15 pytań."><span class="kropka egz"></span><span class="opis">Egzamin modułu<small>15 pytań</small></span>${szewron}</a></div></div>`
       : `<a href="#" aria-expanded="false" aria-label="${n}. ${zrob} z ${razem}${zrob === razem ? ', ukończony' : ''}. Rozwiń."><span class="opis"><b>${n}</b><small>${zrob === razem ? 'Ukończony' : `${zrob} z ${razem}`}</small></span><span class="strzalka" aria-hidden="true">⌄</span></a>`).join('')}
   </div>
+  ${pasek(PL, PL.lekcje)}
 </main>`;
 }
 
@@ -150,13 +147,13 @@ ${cialo}
 `;
 
 const ekranyMenu = [
-  ...Object.entries(STANY).map(([k, s]) => w1(PL, s, `w1-${k}`)),
-  ...Object.entries(STANY).map(([k, s]) => w2(PL, s, `w2-${k}`)),
-  w1(DE, STANY['w-trakcie'], 'w1-de'),
-  w2(DE, STANY['w-trakcie'], 'w2-de'),
+  ...Object.entries(STANY).map(([k, s]) => dzis(PL, s, `dzis-${k}`)),
+  dzis(DE, STANY['w-trakcie'], 'dzis-de'),
   lekcje(),
+  postep(PL, STANY['w-trakcie'], 'postep'),
+  postep(PL, STANY.nowy, 'postep-nowy'),
 ].join('\n');
-writeFileSync(resolve(ekrany, 'menu.html'), html('Menu główne: warianty', 'Sesja BE (rola 04): menu kafelkowe KO-041, warianty W1 i W2, stany: w trakcie, nowy, ukończone, limit; de jako najdłuższy język; ekran „Lekcje”. Dane [PRZYKŁAD] opisane w narzedzia/menu-makieta.mjs.', 'menu.css', ekranyMenu));
+writeFileSync(resolve(ekrany, 'menu.html'), html('Menu główne', 'Sesja BH (rola 04): menu kafelkowe, wariant końcowy KO-045 (W2 + Wskaźnik w Postępie); Dziś w stanach: w trakcie, nowy, ukończone, limit; de jako najdłuższy język; zakładki Lekcje i Postęp. Dane [PRZYKŁAD] opisane w narzedzia/menu-makieta.mjs.', 'menu.css', ekranyMenu));
 
 // Zębatka: przed (znak tekstowy „⚙︎” 17 pt, jak apps/mobile/src/app/(tabs)/index.tsx:84-88) i po (rysunek 24 pt, kreska 2 pt, przycisk 44×44)
 const zebatka = `<main data-ekran="zebatka" aria-label="Zębatka ustawień: przed i po">
