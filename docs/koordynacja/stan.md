@@ -33,9 +33,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk (baza 016317e) | 33,7 (06:38) | 139,35 (06:38) | w toku: ja 147 poprawek (WYS 1), zh-Hant 231 (WYS 0), ko czytany; koniec ok. 07:00 wg sesji |
-| AS | session_01T66VBvE86T64QC2vSV2oJH | 09 build, kod | sesja-ao-pt-pt @ a28b48e (niesprawdzone) | 24,5 (get_session 06:38) | 17,19 (06:38) | **PRZEKAZANIE 06:34** — potrzebny następca **AT-pt** (09 build): kroki 3d–3g z plan-08 „Sesja AS”; AS do archiwizacji po starcie następcy i zapisie kosztu |
+| AT | session_01T66VBw7z352UvDDkynn3JP | 09 build, kod | sesja-ao-pt-pt @ a28b48e (start) | 0 (06:55) | — | w toku: kroki 3d–3g pt-PT (polecenie AT @ 4e864e7) |
 
-Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR. Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD). Litery użyte dotąd: A…Z, AA…AT (następna: **AU** — nałożenie poprawek 9 języków po PRZEKAZANIU AP). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -69,8 +69,8 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR. Litery użyte dot
 - Push na gałąź stanu: hook pre-push (`scripts/pre-push-check.mjs`) wymaga `pnpm install --frozen-lockfile` także tu (06:42 typecheck kod 2 bez node_modules; install 7,9 s); push na gałęzie kodu przez hook pre-push wymaga `pnpm install --frozen-lockfile` (wg AP).
 
 ## Pule numerów decyzji
-- Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; następny wolny **D-450**.
-- KO następny: **KO-023**.
+- Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
+- KO następny: **KO-024**.
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -106,3 +106,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR. Litery użyte dot
 | 11-10 06:34 | AS → koordynator | PRZEKAZANIE przy 30%: a28b48e; przegląd reszty pt (egzaminy, reguły, UI 731 kluczy, terms-def 162): KRYT 0, WYS 0, 127 poprawek; pokrycie pt 65/65 z lekcjami AO; kontrola (a) m12 zaliczona; D-406 (terminologia pt-PT ze źródeł), D-407 (ASO pt-PT w formie formalnej) do weta; 0 USD API. Otwarte 3d–3g: reguły pt w `ujednolic-formy.mjs`, K-05 `content/pt/terms-nazwy.yaml`, nałożenie, łatki `ao-pt`, `language.name`, `content:build`, `pnpm run ci`, lista telefonu. Uwaga AS: hook pre-push `content:check` blokuje push, gdy w drzewie leży nieśledzone `content/pt` | **następca koordynatora:** odbiór a28b48e, sesja-następca pt-PT (litera AT albo AU — uzgodnić z sesją nakładającą 9 języków; obie zmieniają treść i konfigurację: osobne gałęzie, scalać po kolei) |
 | 11-10 06:38 | koordynator | przekazane do session_01T66VBzpecX1cLyGgZbrkbu (create_session bez błędu, WORKING tuż po starcie; prompt przepisany przez subagenta); własne przypomnienia kontrola/14:00/05:00 usunięte — tworzy je następca; zostaje „kontrola przekazania” za 30 min | PRZEJĄŁEM → archiwizacja poprzednika |
 | 11-10 06:40 | koordynator (session_01T66VBzpecX1cLyGgZbrkbu) | przejęcie E6 pkt 5: przypomnienia własne (ID w „Przypomnienia”); wiadomość o zmianie do AP (+ polecenie PRZEKAZANIA, 33,7%) i AS; list_events poprzednika po 06:30: brak wiadomości od sesji i właściciela; add_repo prompts: odrzucony przez klasyfikator | PRZEJĄŁEM; prośba o bibliotekę; odbiór AS |
+| 11-10 06:55 | koordynator | AT wystartowała (session_01T66VBw7z352UvDDkynn3JP, opus, auto, sesja-ao-pt-pt); pierwsza wiadomość odebrana bajt w bajt (cmp, 59 583 B; prompt 09 build sha256 8f1444b4… z AS, KO-023). AS zarchiwizowana: koszt 17,33 USD, kontekst 24,9%; 3 commity AS autor „Claude <noreply@anthropic.com>” → poprawka autora przy scaleniu (E3) | PRZEKAZANIE AP → AU |
