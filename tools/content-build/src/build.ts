@@ -29,7 +29,7 @@ import {
   type ScenarioTemplate,
 } from '@szkola/content-schema';
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
-import { checkScenarioGenerator, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
+import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
@@ -398,6 +398,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
+    errs.push(...checkScenarioNaEkran(template));
     if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds }));
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {

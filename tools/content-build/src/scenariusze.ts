@@ -106,6 +106,17 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
   return e;
 }
 
+/**
+ * Szablon na ekranie scenariusza (CK, 08-programista-002): ekran ma tylko akcje pas/sprawdzenie i generuje wariant bez danych
+ * zakresów, więc punkt `range-spot` (F1) kończyłby się tam błędem planu. Budowanie odrzuca taki szablon z czytelnym błędem, dopóki
+ * ekran go nie obsłuży (osobna praca: kontekst spotów, preflop, indeksy po `points`). Linia `all-in` działa (generator dostaje `stackBb`).
+ */
+export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
+  return t.decisions.flatMap((d, i) => d.kind === 'range-spot'
+    ? [`szablon ${t.id}: punkt ${i + 1} range-spot nie jest jeszcze obsługiwany na ekranie scenariusza (brak danych zakresów i interfejsu wielu akcji); szablon nie może trafić do bazy treści`]
+    : []);
+}
+
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */
 export const POJEMNOSC_MIN = 40;
 export const PROBY_POJEMNOSCI = 2000;
