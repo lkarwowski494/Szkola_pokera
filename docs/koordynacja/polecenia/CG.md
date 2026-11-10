@@ -1,0 +1,10 @@
+# Sesja CG: recenzja niezależna CF (kod, ścieżki wrażliwe: packages/postep, migracja) — Szkoła Pokera
+Koordynator: session_01T66VBwSdwmmCy2rQJHrxEQ (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; przy zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko odczyt).
+
+1. Rola: 08-programista w trybie audit. Prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-cg-recenzja` @ 1b7db3c (= sesja-cf-wersja; inny HEAD: zgłoś). `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>; obowiązuje mimo hooka sesji).
+3. Zadanie: recenzja niezależna zmian CF `1533486..1b7db3c` (D-043; ŚR-001 recenzji BZ, decyzja KO-058 A: stała GENERATOR_WERSJA w poker-core, kolumna `generator_wersja` w historii wariantów, migracja v3, powtórka „to samo rozdanie” tylko przy zgodnej wersji, okno bez powtórzeń liczy wszystkie wersje, eksport/import). Sprawdź obowiązkowo zasadę zero utraty danych: migracja w transakcji, test na kopii bazy v2 z wpisami, wycofanie po błędzie, UPSERT zamiast INSERT OR REPLACE, kopia/eksport/import kompletne (import starszego formatu), brak cichego rozjazdu powtórki między wersjami. Nie czytaj uzasadnień autora (`docs/programista/stan-cf.md`, `docs/decyzje/CF.md`) przed własną oceną. Gotowe: raport `docs/programista/recenzje/recenzja-cf-1b7db3c.md` (werdykt, znaleziska KRYT/WYS/ŚR/NIS z miejscem i realnością), test odtwarzający (czerwony) dla każdego KRYT/WYS, `pnpm run ci` kod 0 z dowodem `docs/programista/dowody/cg-ci-<sha>.txt`, push.
+4. Zakazy: nie poprawiasz kodu autora (tylko testy odtwarzające i raport), nie scalasz, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, bez --no-verify i force-push, bez AskUserQuestion; STOP-y roli → raport do koordynatora.
+5. Decyzje: pula **D-735…D-739**, zapis w `docs/decyzje/CG.md` (KO-054).
+6. Kontekst: od 30% kończysz krok i PRZEKAZANIE; % kontekstu w raporcie.
+7. Raport ≤ 10 linii przez send_message: werdykt, liczby znalezisk, SHA, plik raportu, ci.
