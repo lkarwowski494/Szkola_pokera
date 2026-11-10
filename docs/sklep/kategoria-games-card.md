@@ -25,7 +25,7 @@ Nie odczytano: osobnej strony pomocy „wybór kategorii w ASC” (adres `…/ma
 
 ## 3. Ryzyka i skutki kategorii Games
 
-1. **Sprzeczność komunikatu (ryzyko rzeczywiste, ŚREDNIE).** Opis en (`store/app-store-metadata.json:22`): „It is a course, not a game: there are no stakes, no chips to win and no real-money play.” Strona produktu pokaże Games/Card obok zdania „not a game”. Wytyczna 2.3.5 daje Apple prawo do zmiany kategorii („we may change the category for you”), nie do odrzucenia, ale recenzent może zapytać; 2.3 wymaga, by metadane „accurately reflect the app’s core experience”. Zdanie jest też prawdziwe (brak stawek), więc nie jest fałszem, tylko tonem sprzecznym z półką. Opcje w pytaniu do koordynatora.
+1. **Sprzeczność komunikatu (ryzyko rzeczywiste, ŚREDNIE).** Opis en (`store/app-store-metadata.json:22`): „It is a course, not a game: there are no stakes, no chips to win and no real-money play.” Strona produktu pokaże Games/Card obok zdania „not a game”. Wytyczna 2.3.5 daje Apple prawo do zmiany kategorii („we may change the category for you”), nie do odrzucenia, ale recenzent może zapytać; 2.3 wymaga, by metadane „accurately reflect the app’s core experience”. Zdanie jest też prawdziwe (brak stawek), więc nie jest fałszem, tylko tonem sprzecznym z półką. Rozstrzygnięte: właściciel wybrał przeformułowanie (D-396), zdanie zmienione w 11 lokalizacjach.
 2. **Czas przed ekranem.** Games jako kategoria dodatkowa zalicza aplikację do kategorii limitu czasu „Games” (KAT-1). Skutek dla użytkownika z limitem na gry; przy ocenie 18+ rzadko istotny. Informacja, nie bloker.
 3. **Korea i Chiny.** Pole RCN pojawi się w ASC (Games + ocena 17+), ale jest wymagane tylko przy „Frequent/Intense” hazardzie symulowanym; u nas None, a KOR i CHN są poza listą 166 storefrontów (D-362). Gdyby je kiedyś włączyć: Chiny wymagają dla gier numeru zatwierdzenia (AI-1), do sprawdzenia przed włączeniem.
 4. **Ankieta wiekowa bez zmian.** Simulated Gambling = None zostaje prawdziwe niezależnie od kategorii. Sama kategoria Games nie jest sygnałem hazardu w ankiecie; tytuł „Card” to gatunek.
@@ -46,5 +46,5 @@ Zapis w ASC tylko właściciel. Ścieżka dojścia z przeczytanej strony AI-2: A
 
 ## 5. Otwarte
 
-- Decyzja produktowa o zdaniu „It is a course, not a game” w opisie (pl: odpowiednik) w kontekście Games/Card: pytanie do koordynatora.
+- Zdanie „not a game”: rozstrzygnięte (D-396). Zmiana metadanych dotrze do ASC dopiero po `metadane.mjs --zapis` (krok właściciela); fala 2 dopiero po dopisaniu kodów do LOCALE_MAP.
 - Nazwy elementów interfejsu ASC i id `GAMES` (patrz wyżej) — do potwierdzenia przy kroku ręcznym.

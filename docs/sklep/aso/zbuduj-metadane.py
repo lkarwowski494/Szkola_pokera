@@ -13,7 +13,7 @@ L['ja'] = dict(
  keywords='初心者,ホールデム,レンジ,プリフロップ,トレーナー,gto,icm,オッズ,クイズ',
  promotionalText='ポーカーを基礎のルールから戦略まで学べます。すべての判断に評価と「なぜ」の解説つき。リアルマネーのプレイなし、アカウント不要、広告なし。',
  description=(
- "PokerGymは、ノーリミット・テキサスホールデムでの判断の仕方を教えるアプリです。ルールと役の強さから、各ストリートの戦略まで学べます。すべてのプレイに評価がつき、なぜ良いのか、なぜ悪いのかを解説します。これは学習用のコースであり、ゲームではありません。賭け金も、獲得できるチップも、リアルマネーのプレイもありません。\n\n"
+ "PokerGymは、ノーリミット・テキサスホールデムでの判断の仕方を教えるアプリです。ルールと役の強さから、各ストリートの戦略まで学べます。すべてのプレイに評価がつき、なぜ良いのか、なぜ悪いのかを解説します。これは学習用のトレーニングであり、ギャンブルではありません。賭け金も、獲得できるチップも、リアルマネーのプレイもありません。\n\n"
  "コース\n"
  "• 順番に進むモジュール：ルールと役、ハンドの流れ、数学（アウツ、オッズ、ポットオッズ）、ポジションとオープン、プリフロップ、フロップ、ターン、リバー、ハンドの計画（SPR）、弱いプレイヤーのよくあるミスへの対応、トーナメント（プッシュ/フォールドとICM）、分散とティルト、自分のプレイの振り返り\n"
  "• 練習問題つきのレッスン。用語はその場と用語集で説明\n"
@@ -44,7 +44,7 @@ L['zh-Hant'] = dict(
  keywords='撲克策略,撲克訓練,新手入門,底池賠率,錦標賽,翻牌前,翻牌後,起手牌,gto,icm',
  promotionalText='從規則到策略，一步步學會撲克。每個決策都有評分和「為什麼」的解說。沒有真錢遊戲、不需帳號、沒有廣告。',
  description=(
- "PokerGym 教你在無限注德州撲克（No-Limit Texas Hold'em）中如何做決策：從規則與牌型大小，到每一條街的策略。每一個打法都會得到評分，並解說它為什麼好或不好。這是一門課程，不是遊戲：沒有賭注、沒有可贏取的籌碼，也沒有真錢遊戲。\n\n"
+ "PokerGym 教你在無限注德州撲克（No-Limit Texas Hold'em）中如何做決策：從規則與牌型大小，到每一條街的策略。每一個打法都會得到評分，並解說它為什麼好或不好。這是訓練，不是賭博：沒有賭注、沒有可贏取的籌碼，也沒有真錢遊戲。\n\n"
  "課程\n"
  "• 依序學習的單元：規則與牌型、一手牌的流程、數學（補牌、賠率、底池賠率）、位置與開池、翻牌前、翻牌、轉牌、河牌、手牌規劃（SPR）、應對較弱玩家的常見錯誤、錦標賽（push/fold 與 ICM）、變異數與情緒失控（tilt）、檢討自己的打法\n"
  "• 附練習的課堂；術語在出現處和詞彙表中說明\n"
@@ -75,7 +75,7 @@ L['pt-BR'] = dict(
  keywords='poker,texas,holdem,gto,estratégia,curso,aulas,treinador,preflop,range,outs,icm,torneio,quiz',
  promotionalText='Estude pôquer das regras à estratégia. Cada decisão recebe uma nota e uma explicação. Sem jogo a dinheiro, sem conta, sem anúncios.',
  description=(
- "O PokerGym ensina a tomar decisões no No-Limit Texas Hold'em, das regras e da força das mãos até a estratégia em cada street. Cada jogada recebe uma nota e uma explicação de por que é boa ou ruim. É um curso, não um jogo: não há apostas, fichas para ganhar nem jogo a dinheiro.\n\n"
+ "O PokerGym ensina a tomar decisões no No-Limit Texas Hold'em, das regras e da força das mãos até a estratégia em cada street. Cada jogada recebe uma nota e uma explicação de por que é boa ou ruim. É treino, não jogo de azar: não há apostas, fichas para ganhar nem jogo com dinheiro de verdade.\n\n"
  "CURSO\n"
  "• Módulos em ordem: regras e ranking de mãos, como uma mão se desenrola, matemática (outs, odds, pot odds), posição e abertura, jogo preflop, flop, turn, river, planejamento da mão (SPR), jogar contra os erros comuns de jogadores mais fracos, torneios (push/fold e ICM), variância e tilt, análise do seu próprio jogo\n"
  "• Aulas com exercícios; termos explicados onde aparecem e em um glossário\n"
@@ -106,7 +106,7 @@ L['fr-FR'] = dict(
  keywords='stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraînement',
  promotionalText='Étudiez le poker, des règles à la stratégie. Chaque décision est notée et expliquée. Pas de jeu d’argent, pas de compte, pas de publicité.',
  description=(
- "PokerGym enseigne la prise de décision au No-Limit Texas Hold'em, des règles et de la hiérarchie des mains jusqu’à la stratégie sur chaque street. Chaque coup reçoit une note et une explication : pourquoi il est bon ou mauvais. C’est un cours, pas un jeu : pas de mises, pas de jetons à gagner, pas de jeu d’argent.\n\n"
+ "PokerGym enseigne la prise de décision au No-Limit Texas Hold'em, des règles et de la hiérarchie des mains jusqu’à la stratégie sur chaque street. Chaque coup reçoit une note et une explication : pourquoi il est bon ou mauvais. C’est de l’entraînement, pas du jeu d’argent : pas de mises, pas de jetons à gagner, pas d’argent réel.\n\n"
  "COURS\n"
  "• Modules dans l’ordre : règles et combinaisons, déroulement d’une main, mathématiques (outs, cotes, cote du pot), position et ouverture, jeu preflop, flop, turn, river, plan de la main (SPR), jouer contre les erreurs courantes des joueurs plus faibles, tournois (push/fold et ICM), variance et tilt, analyse de votre propre jeu\n"
  "• Leçons avec exercices ; termes expliqués là où ils apparaissent et dans un glossaire\n"
@@ -138,7 +138,7 @@ F2['de-DE'] = dict(
  keywords='strategie,texas,holdem,gto,preflop,postflop,range,outs,odds,icm,turnier,kurs,quiz,trainer,anfänger',
  promotionalText='Poker von den Regeln bis zur Strategie lernen. Jede Entscheidung wird bewertet und erklärt. Kein Echtgeldspiel, kein Konto, keine Werbung.',
  description=(
- "PokerGym bringt dir Entscheidungen im No-Limit Texas Hold'em bei – von den Regeln und der Rangfolge der Hände bis zur Strategie auf jeder Street. Jeder Spielzug bekommt eine Bewertung und eine Erklärung, warum er gut oder schlecht ist. Es ist ein Kurs, kein Spiel: keine Einsätze, keine Chips zu gewinnen und kein Echtgeldspiel.\n\n"
+ "PokerGym bringt dir Entscheidungen im No-Limit Texas Hold'em bei – von den Regeln und der Rangfolge der Hände bis zur Strategie auf jeder Street. Jeder Spielzug bekommt eine Bewertung und eine Erklärung, warum er gut oder schlecht ist. Es ist Training, kein Glücksspiel: keine Einsätze, keine Chips zu gewinnen und kein Echtgeldspiel.\n\n"
  "KURS\n"
  "• Module der Reihe nach: Regeln und Handrangfolge, Ablauf einer Hand, Mathematik (Outs, Odds, Pot Odds), Position und Eröffnung, Preflop-Spiel, Flop, Turn, River, Handplanung (SPR), Spiel gegen typische Fehler schwächerer Spieler, Turniere (Push/Fold und ICM), Varianz und Tilt, Analyse des eigenen Spiels\n"
  "• Lektionen mit Übungen; Begriffe werden an Ort und Stelle und in einem Glossar erklärt\n"
@@ -168,7 +168,7 @@ F2['es-ES'] = dict(
  keywords='poker,texas,holdem,gto,preflop,postflop,rangos,outs,icm,torneo,curso,lecciones,entrenador,estrategia',
  promotionalText='Estudia póker desde las reglas hasta la estrategia. Cada decisión se califica y se explica. Sin juego con dinero real, sin cuenta, sin anuncios.',
  description=(
- "PokerGym enseña a tomar decisiones en No-Limit Texas Hold'em, desde las reglas y el ranking de manos hasta la estrategia en cada calle. Cada jugada recibe una calificación y una explicación de por qué es buena o mala. Es un curso, no un juego: no hay apuestas, ni fichas que ganar, ni juego con dinero real.\n\n"
+ "PokerGym enseña a tomar decisiones en No-Limit Texas Hold'em, desde las reglas y el ranking de manos hasta la estrategia en cada calle. Cada jugada recibe una calificación y una explicación de por qué es buena o mala. Es entrenamiento, no juego de azar: no hay apuestas, ni fichas que ganar, ni juego con dinero real.\n\n"
  "CURSO\n"
  "• Módulos en orden: reglas y ranking de manos, cómo se desarrolla una mano, matemáticas (outs, odds, pot odds), posición y apertura, juego preflop, flop, turn, river, plan de la mano (SPR), jugar contra los errores comunes de jugadores más débiles, torneos (push/fold e ICM), varianza y tilt, análisis de tu propio juego\n"
  "• Lecciones con ejercicios; términos explicados donde aparecen y en un glosario\n"
@@ -198,7 +198,7 @@ F2['ko'] = dict(
  keywords='텍사스홀덤,프리플랍,포스트플랍,토너먼트,gto,icm,트레이너,홀덤공부',
  promotionalText='규칙부터 전략까지 포커를 배우세요. 모든 결정에 평가와 ‘왜’에 대한 해설이 있습니다. 실제 돈 게임과 광고가 없고, 계정 없이 사용합니다.',
  description=(
- "PokerGym은 노리밋 텍사스 홀덤(No-Limit Texas Hold'em)에서 결정을 내리는 법을 가르칩니다. 규칙과 족보부터 각 스트리트의 전략까지 배웁니다. 모든 플레이에 평가가 붙고, 왜 좋은지 또는 나쁜지 해설합니다. 이것은 게임이 아니라 강좌입니다. 베팅도, 딸 수 있는 칩도, 실제 돈 게임도 없습니다.\n\n"
+ "PokerGym은 노리밋 텍사스 홀덤(No-Limit Texas Hold'em)에서 결정을 내리는 법을 가르칩니다. 규칙과 족보부터 각 스트리트의 전략까지 배웁니다. 모든 플레이에 평가가 붙고, 왜 좋은지 또는 나쁜지 해설합니다. 이것은 도박이 아니라 훈련입니다. 베팅도, 딸 수 있는 칩도, 실제 돈을 거는 게임도 없습니다.\n\n"
  "강좌\n"
  "• 순서대로 진행하는 모듈: 규칙과 족보, 한 핸드의 진행, 수학(아웃츠, 오즈, 팟 오즈), 포지션과 오픈, 프리플랍, 플랍, 턴, 리버, 핸드 계획(SPR), 약한 플레이어의 흔한 실수에 대응하기, 토너먼트(푸시/폴드와 ICM), 분산과 틸트, 자신의 플레이 분석\n"
  "• 연습 문제가 있는 레슨, 용어는 나오는 곳과 용어집에서 설명\n"
@@ -228,7 +228,7 @@ F2['it'] = dict(
  keywords='strategia,texas,holdem,gto,preflop,postflop,range,outs,odds,icm,torneo,corso,lezioni,allenamento',
  promotionalText='Studia il poker dalle regole alla strategia. Ogni decisione riceve un voto e una spiegazione. Niente gioco con soldi veri, niente account, niente pubblicità.',
  description=(
- "PokerGym insegna a prendere decisioni nel No-Limit Texas Hold'em, dalle regole e dalla scala dei punti fino alla strategia su ogni street. Ogni giocata riceve un voto e una spiegazione del perché è buona o cattiva. È un corso, non un gioco: niente puntate, niente fiches da vincere e niente gioco con soldi veri.\n\n"
+ "PokerGym insegna a prendere decisioni nel No-Limit Texas Hold'em, dalle regole e dalla scala dei punti fino alla strategia su ogni street. Ogni giocata riceve un voto e una spiegazione del perché è buona o cattiva. È allenamento, non gioco d’azzardo: niente puntate, niente fiches da vincere e niente gioco con soldi veri.\n\n"
  "CORSO\n"
  "• Moduli in ordine: regole e punti, come si svolge una mano, matematica (outs, odds, pot odds), posizione e apertura, gioco preflop, flop, turn, river, piano della mano (SPR), giocare contro gli errori comuni dei giocatori più deboli, tornei (push/fold e ICM), varianza e tilt, analisi del proprio gioco\n"
  "• Lezioni con esercizi; termini spiegati dove compaiono e in un glossario\n"
@@ -258,7 +258,7 @@ F2['vi'] = dict(
  keywords='texas,holdem,gto,preflop,postflop,range,outs,odds,icm,quiz,trainer,tilt,strategy,chiến,thuật',
  promotionalText='Học poker từ luật chơi đến chiến thuật. Mỗi quyết định đều được chấm điểm và giải thích. Không chơi bằng tiền thật, không cần tài khoản, không quảng cáo.',
  description=(
- "PokerGym dạy cách ra quyết định trong No-Limit Texas Hold'em, từ luật chơi và thứ hạng các tay bài đến chiến thuật ở từng vòng. Mỗi nước đi đều được chấm điểm và giải thích vì sao tốt hay chưa tốt. Đây là một khóa học, không phải trò chơi: không có tiền cược, không có chip để thắng và không chơi bằng tiền thật.\n\n"
+ "PokerGym dạy cách ra quyết định trong No-Limit Texas Hold'em, từ luật chơi và thứ hạng các tay bài đến chiến thuật ở từng vòng. Mỗi nước đi đều được chấm điểm và giải thích vì sao tốt hay chưa tốt. Đây là luyện tập, không phải cờ bạc: không có tiền cược, không có chip để thắng và không chơi bằng tiền thật.\n\n"
  "KHÓA HỌC\n"
  "• Các học phần theo thứ tự: luật và thứ hạng tay bài, diễn biến một ván, toán (outs, odds, pot odds), vị trí và mở cược, giai đoạn preflop, flop, turn, river, lập kế hoạch ván bài (SPR), đối phó với lỗi thường gặp của người chơi yếu hơn, giải đấu (push/fold và ICM), phương sai và tilt, phân tích lối chơi của chính bạn\n"
  "• Bài học kèm bài tập; thuật ngữ được giải thích ngay tại chỗ và trong bảng thuật ngữ\n"
