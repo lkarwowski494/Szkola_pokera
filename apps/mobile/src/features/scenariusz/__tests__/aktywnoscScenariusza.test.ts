@@ -110,6 +110,16 @@ describe('powtórka i nowe rozdanie (KO-043, BR-GEN-002)', () => {
     }
     expect(ok(await odczytajOdciski(port, 'sc-01', 'sredni'))).toHaveLength(6);
   });
+  it('powtórka przy rozdaniu w toku tego samego szablonu: stare porzucone, w toku zostaje jedno (nie dwa)', async () => {
+    const { port, db } = await portTestowy();
+    const s = ok(await otworzScenariusz(port, wejscie({ limit: JEDEN })));
+    const p = ok(await otworzScenariusz(port, wejscie({ tryb: 'powtorka', limit: WYCZERPANY, noweId: () => 'p2' })));
+    expect(p.id).toBe('p2');
+    expect(p.wariant.fingerprint).toBe(s.wariant.fingerprint);
+    const stany = db.prepare("SELECT id, stan FROM aktywnosc WHERE rodzaj = 'scenariusz' ORDER BY start_ms, id").all().map((w) => ({ ...w }));
+    expect(stany.filter((x) => x.stan === 'w_toku')).toEqual([{ id: 'p2', stan: 'w_toku' }]);
+    expect(stany.find((x) => x.id === s.id)?.stan).toBe('porzucona');
+  });
   it('powtórka bez historii zachowuje się jak nowy wariant (nie ma czego powtarzać)', async () => {
     const { port } = await portTestowy();
     const s = ok(await otworzScenariusz(port, wejscie({ tryb: 'powtorka', limit: JEDEN })));

@@ -48,6 +48,16 @@ describe('wynikiScenariuszy', () => {
       { trescId: 'sc-02', poziom: 'sredni', startMs: T0 + 100, oceny: ['dopuszczalne', 'zgodne'] },
     ] });
   });
+  it('przegląd D-043 P1: zakończony scenariusz ze złym planem (stary build, import) jest pomijany, reszta wyników czytelna', async () => {
+    const { db, port } = await przygotuj('pusta');
+    for (const [id, ms] of [['z1', T0], ['z2', T0 + 1], ['z3', T0 + 2]] as const) {
+      await zacznijAktywnosc(port, id, scenariusz('sc-01', 'latwy', 1, ms));
+      await zakonczAktywnosc(port, id, ms + 5, { ostatnia: odp(0, 'zgodne') });
+    }
+    db.prepare("UPDATE aktywnosc SET plan = '\"x\"' WHERE id = 'z1'").run();
+    db.prepare("UPDATE aktywnosc SET plan = json_set(plan, '$.wariant.poziom', 'ekspert') WHERE id = 'z2'").run();
+    expect(await wynikiScenariuszy(port)).toEqual({ ok: true, wartosc: [{ trescId: 'sc-01', poziom: 'latwy', startMs: T0 + 2, oceny: ['zgodne'] }] });
+  });
   it('porzucone i zakończone bez odpowiedzi nie liczą się; brak danych = pusta lista', async () => {
     const { port } = await przygotuj('pusta');
     expect(await wynikiScenariuszy(port)).toEqual({ ok: true, wartosc: [] });

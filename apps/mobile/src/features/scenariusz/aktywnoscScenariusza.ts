@@ -102,7 +102,8 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   });
   if (!start.ok) return start;
   const id = w.noweId();
-  const porzuc = zapisana && wejscie.akcja === 'porzuc_i_start' ? { id: zapisana.id, teraz } : wejscie.akcja === 'start' && zapisana ? { id: zapisana.id, teraz } : undefined;
+  // rozdanie w toku (inny szablon, albo ten sam przy „Zagraj jeszcze raz” / po nieudanym wznowieniu) zamykane razem ze startem nowego: w toku jest najwyżej jedno
+  const porzuc = zapisana ? { id: zapisana.id, teraz } : undefined;
   const zapis = await zacznijAktywnosc(port, id, start.wartosc, porzuc);
   if (!zapis.ok) return zapis;
   // Odcisk po starcie aktywności: jego brak nie psuje rozdania (najwyżej wariant wróci wcześniej), więc błąd tylko do dziennika.

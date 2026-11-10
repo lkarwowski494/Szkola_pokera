@@ -226,9 +226,11 @@ export async function wynikiScenariuszy(port: PortBazy): Promise<Wynik<WynikScen
         continue;
       }
       ostatniId = w.id;
-      const plan = parsujPlan(JSON.parse(w.plan) as unknown);
-      if (!plan) return { ok: false, powod: 'odczyt_nieudany' };
-      if (plan.trescId === null || plan.wariant === undefined) { ostatniId = null; continue; } // bez wariantu: nie z tego generatora
+      // Plan zakończonej aktywności jest tu czytany po raz pierwszy: zły (stary build, import) = wiersz pominięty, bo wynik służy
+      // tylko do poziomu automatycznego i jeden zły wiersz nie może blokować wszystkich scenariuszy (przegląd D-043 P1).
+      let plan: PlanAktywnosci | null = null;
+      try { plan = parsujPlan(JSON.parse(w.plan) as unknown); } catch { plan = null; }
+      if (!plan || plan.trescId === null || plan.wariant === undefined) { ostatniId = null; continue; }
       wynik.push({ trescId: plan.trescId, poziom: plan.wariant.poziom, startMs: w.start_ms, oceny: [ocena] });
     }
     return { ok: true, wartosc: wynik };
