@@ -1001,6 +1001,22 @@ Rola: `add_repo prompts` odrzucone przez klasyfikator — **wyjątek nazwany** j
 - Telefon (lista do dopisania w `lista-telefonu-*.md`): plan §7 T-d-1…3, T-e-1, T-5-1 (de, es).
 - Przegląd D-043: `dowody/d043-AK-2026-11-09.md` — KRYT 0, WYS 0, ŚR 1 i 3 NISKIE naprawione.
 
+## Sesja AL — ko, it, vi: nałożenie i wydanie w kodzie (2026-11-10, rola 09 build, D-394)
+Rola: `node prompts/tools/assemble.mjs 09-lokalizacja --tryb build` (repo `prompts` dodane w tej sesji, f701ce9) — bez wyjątku D-381.
+
+| Krok | Test / dowód (czerwony przed → zielony po) | Decyzja |
+|---|---|---|
+| 1. Nałożenie ko+it+vi: 5 artefaktów (skróty zgodne), 301 poprawek AJ (0 pominiętych), wariant A (skrót UI ko/it), `--zastosuj` 195 plików; ujednolicenie form 469 (`ujednolic-formy.mjs --jezyki ko,it,vi`, reguły ko/it/vi, `slowoK`, `wFold`); ko spots „방어”, ko m7 „턴 플레이” (schemat min 2); K-05 terms-nazwy ko/it/vi; kontrola (a) m12-l1 + R-M12-* ponownie **zaliczona ×3**; `przeglad_jezyki` 11 × 3 | `pnpm content:build` 0; `pnpm i18n` 0 błędów (uwagi 192 → 284); `scal-rejestr --sprawdz` 33 błędy → 0; `dowody/nalozenie-ko-it-vi-2026-11-10.md`, `kontrola-a-ko-it-vi-2026-11-10/` | D-394 |
+| 2. Wydanie ko, it, vi: `WYDANE`, polyfille, `app.json` supportedLocales/locales, `locales/systemowe/ko|it|vi.json` („PokerGym”); krój ko systemowy (bez zmian), vi/it Literata (fontTools 0 braków); T35-08-b „it” → „nl” | `i18n/__tests__/jezyk-ko-it-vi-09.test.ts` 5 ✕ → 6 ✓; `konfiguracja.test.ts` ✓; T35-08-b ✕ („it” ma katalog) → ✓ | D-394 |
+| 3. Metadane fali 2 | nie przeniesione (polecenie: decyzja właściciela rano) | — |
+
+### Zostaje
+- Lista telefonu: `docs/lokalizacja/lista-telefonu-ko-it-vi.md` (T-k-1…3, T-i-1…2, T-v-1…2, T-kiv-1…2).
+- NISKIE z kontroli (a): ko „,000핸드” vs „k 핸드”, R-M12-006 „głęboki oddech” (ko, it — jak de); vi m12-l1 w125 bez „ok.”, R-M12-011 „zaraz po” — zmiany tylko z ponowną kontrolą (a).
+- Formy poza skryptem: „플랍”/„c벳” w polach `source:` (opisy źródeł; jak D-391); it „passare” w tekście wolnym (bywa checkiem — ręcznie); ko „디펜더” (obrońca) bez zmiany; ko `{{t:big-blind|빅 블라인드가}}` (partykuła w formie).
+- vi: nazwy K-05 małą literą na początku zdania (plan §6, [DO USTALENIA]); terms-nazwy [DO USTALENIA] ko 25, it 52, vi 48.
+- Metadane fali 2 do `store/` — po decyzji właściciela.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
