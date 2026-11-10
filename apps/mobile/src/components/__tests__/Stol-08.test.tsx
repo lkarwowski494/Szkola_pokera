@@ -4,9 +4,9 @@
 // wygląd sprawdzają zrzuty (lista dla właściciela, plan-08 część 6).
 import '@/i18n';
 import i18n from 'i18next';
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Stol } from '@/components/Stol';
-import { SZEROKOSC_KARTY } from '@/features/stol/ukladRzedow';
+import { SZEROKOSC_KARTY, ukladRzedow } from '@/features/stol/ukladRzedow';
 import { etykietaStolu, nazwaKarty, opisKart, opisReki, ukladStolu } from '@/features/stol/uklad';
 
 const t = i18n.t.bind(i18n);
@@ -86,8 +86,6 @@ describe('D-476: stół z trzema rzędami (rywal 2 + board 5 + gracz 2)', () => 
   };
 
   it.each([320, 390])('po pomiarze (%i pt ekranu) owal dostaje wysokość z układu rzędów, nie z samej proporcji 1,7:1', async (ekran) => {
-    const { fireEvent } = require('@testing-library/react-native');
-    const { ukladRzedow } = require('@/features/stol/ukladRzedow');
     await render(<Stol table={table} />);
     const pole = ekran - 32;
     await fireEvent(screen.getByRole('image'), 'layout', { nativeEvent: { layout: { width: pole, height: 0, x: 0, y: 0 } } });
