@@ -70,7 +70,7 @@ drills:
     rules: [R-M12-009]
     prompt: "Wygrywasz {{n:dd.wr-low}} przy {{t:standard-deviation|odchyleniu}} {{n:var.sd}} i masz {{n:exam.m12.ror.bi}} {{t:buy-in|wpisowych}} ({{n:exam.m12.ror.bb}}). Jakie jest ryzyko utraty całego bankrollu, jeśli nigdy nie zejdziesz {{t:stakes|stawkę}}?"
     options:
-      - { text: "Ok. {{n:exam.m12.ror}}", correct: true, why: "Wykładnik: 2 × winrate × bankroll ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}, więc RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
+      - { text: "Ok. {{n:exam.m12.ror}}", correct: true, why: "Dodatni winrate nie chroni przed {{t:variance|wariancją}}: ryzyko utraty bankrollu maleje wykładniczo z bankrollem, ale przy niskim winrate zostaje wyraźnie większe od zera. Rachunek (przybliżenie przy stałym winrate i SD): wykładnik 2 × winrate × bankroll ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}, więc RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
       - { text: "Zero, bo wygrywasz", why: "Dodatni winrate nie chroni przed {{t:variance|wariancją}}. Przy tym bankrollu i winrate ryzyko to ok. {{n:exam.m12.ror}}: wyraźnie większe od zera." }
       - { text: "Ok. połowa, bo winrate jest niski", why: "Ryzyko maleje wykładniczo z bankrollem. Przy {{n:exam.m12.ror.bi}} {{t:buy-in|wpisowych}} wykładnik to {{n:exam.m12.ror.x}}, a e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
   - kind: choice
