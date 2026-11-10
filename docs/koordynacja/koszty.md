@@ -28,3 +28,6 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | AP | 09 audit (fable) | — | 152,60 | 37,1 | 06:09 → 06:10 → … → (docs, bez CI) → przekazanie 06:51, przyjęte 07:05 | 12 min do odpowiedzi na polecenie przekazania (06:39→06:51), kontekst +3,4 pp. | — |
 | AT | 09 build | — | 7,32 | 26,4 | 06:46 → 06:47 → a655dd2 07:02 → CI 1db8449 w toku → (warunkowo) | 0 | szybko: AS przygotowała wszystko |
 | AU | 09 build (sonnet) | — | 5,37 | 32,4 | 06:56 → 06:57 → e43fb7f 06:59 → CI/E2E 40e5cef 08:39 → przyjęte 08:50 | 30 min: czekanie z pushem na koniec E2E 1db8449 (anulowanie przebiegu); 45 min E2E | szac. sesji 2–3 h, rzeczywiście 25 min |
+| AV | 08 fix (sonnet) | — | 0,85 | 15,4 | 09:33 → 09:33 → 128a089 09:41 → CI 09:44, E2E 10:31 → przyjęte 10:35 | 49 min: przebieg E2E (kompilacja + flowy) | praca sesji 8 min; E2E 6× dłuższe niż praca |
+| AW | 08 build (sonnet) | — | 4,45 (10:15) | 27,7 | 09:34 → 09:35 → bd965be ok. 09:46 → 0a89f70 10:07 → CI/E2E bca751e w toku | ok. 25 min: push na roboczą czekał na koniec E2E 128a089 | szac. sesji 3–4 h, rzeczywiście ok. 35 min; recenzja zdublowana przy przekazaniu koordynatora (2 subagenty) |
+| AX | 06 fix (opus) | — | 16,56 (10:08) | 28,5 | 09:36 → 09:37 → e0ab3d2 10:05 → CI/E2E bca751e w toku | ok. 25 min: jw. | subagenci ok. 0,9 mln tokenów wg sesji; m5.q2 nie zmieściło się w kontekście |
