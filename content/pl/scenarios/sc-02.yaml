@@ -1,0 +1,36 @@
+# SC-02 (M2): OESD po 3-becie przy krótkich stosach: mały zakład na flopie (sprawdzenie), duży na turnie (pas).
+# Oceny: rachunek R-M2-005 (flop) i R-M7-007 (turn); pas na turnie odporny na implied odds (R-M7-008 z całym stosem za pulą,
+# test szablony-bs, D-630); głębokość 35 bb i brak poziomu trudnego: D-631. Rola 06, sesja BS, 2026-11-10.
+id: sc-02
+module: m2
+situation: "Przy krótkich stosach po {{t:3-bet|3-becie}} masz {{t:oesd}}; rywal {{t:bet|stawia}} mało na flopie i dużo na turnie."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [oesd], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [oesd], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mało w stosunku do {{t:pot|puli}}. {{t:call|Sprawdzasz}}, bo płacisz tylko za jedną kartę, a {{t:oesd}} trafia na niej częściej, niż wymaga tak niska cena. Masz {{n:outs.oesd}} outów, więc {{t:straight|strit}} wpada na turnie w ok. {{n:odds.oesd.flop-turn}} przypadków, czyli mniej więcej co szóstą kartę."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mało w stosunku do {{t:pot|puli}}. {{t:fold|Pas}} oddaje {{t:pot|pulę}}, na której {{t:call|sprawdzenie}} zarabia: przy tak małym {{t:bet|zakładzie}} {{t:oesd}} trafia częściej, niż wymaga cena."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}: turn nie dał {{t:straight|strita}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo. {{t:call|Sprawdzenie}} traci: płacisz za ostatnią kartę, a ona trafia rzadziej, niż wymaga cena. {{t:implied-odds|Implied odds}} tego nie odrobią, bo przy krótkich stosach za {{t:pot|pulą}} zostało za mało {{t:chips|żetonów}}: nawet gdy po trafieniu wygrasz wszystkie, nie pokryją przegranych {{t:call|sprawdzeń}}."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}: turn nie dał {{t:straight|strita}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo. {{t:fold|Pasujesz}}, bo płacisz za ostatnią kartę, a ona trafia rzadziej, niż wymaga cena, a za {{t:pot|pulą}} zostało za mało {{t:chips|żetonów}}, żeby trafienie to odrobiło. {{t:straight|Strit}} wpada na riverze w ok. {{n:odds.oesd.turn-river}} przypadków, czyli mniej więcej co szóstą kartę."
