@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 09:50 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 09:55 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -16,26 +16,27 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
   - 2026-11-10 ok. 06:05 UTC, przekład pt-PT przez API: „Do 25 USD” łącznie (≤ 15 USD na przebieg, D-341); wykorzystane 10,53 (wg AO, przebiegi 42765074236, 42765077031).
 - Zawsze za zgodą: push i scalenie na `main` (poza listą wyżej), PR, App Store Connect zapis, TestFlight, publikacja, usuwanie gałęzi i danych, force-push, koszty stałe, wiadomości do ludzi, koszt API ponad pułap.
 - Pułapy kosztu: **brak** — właściciel 2026-11-10 ok. 05:55 UTC: „Bez pułapu, tylko raport” (koszt w liniach 05:00 i 14:00; budżet kontekstu 30% bez zmian); API przekładu wg zgód wyżej.
-- Koordynator aktywny: session_01T66VBzpecX1cLyGgZbrkbu (od 2026-11-10 06:40 UTC, przekazanie E6; poprzednik session_01T66VBxtQGd3faU3Y4mNUuA od 05:30, przed nim session_01T66VBvZebfV7GaciZqtW3H, session_01T66VBzPr7MhGZ3A6RPdfBG).
+- Koordynator aktywny: session_01T66VBzWo4nU2Czir22NNVy (od 2026-11-10 09:50 UTC, przekazanie E6; środowisko tej sesji: env_0166YQoQYngJLGR5ViagvRAi, model claude-fable-5-2 po `/model` właściciela ok. 08:00, auto; poprzednik session_01T66VBzpecX1cLyGgZbrkbu od 06:40, przed nim session_01T66VBxtQGd3faU3Y4mNUuA od 05:30, przed nim session_01T66VBvZebfV7GaciZqtW3H, session_01T66VBzPr7MhGZ3A6RPdfBG).
 - Środowisko: environment_id env_011LiSvPc7hKtQZSkk13hSky, model claude-opus-5-5, wysiłek medium, permission_mode auto, extra_allowed_tools brak; repo sesji: lkarwowski494/Szkola_pokera, lkarwowski494/prompts (biblioteka, prywatna — dodawać przez add_repo read).
 - Środowisko sesji podrzędnych od 2026-11-10 ok. 06:10 UTC: „Takie jak ta sesja (zalecane)” = env_0166YQoQYngJLGR5ViagvRAi, permission_mode auto.
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- **Przekazanie koordynatora w toku** (kontekst 35,1% o 09:46): następca przejmuje wg E6 pkt 5. Właściciel przełączył model tej sesji na `claude-fable-5-2` (`/model`, ok. 08:00 UTC) — następca startuje na tym samym modelu.
-- Build TestFlight 1009 (przebieg 42785838180, 40e5cef) u właściciela na telefonie; właściciel zgłasza uwagi zrzutami w czacie koordynatora. Dotąd: ikona (KO-025 → AV), „Nie wiem” + ekran wyboru (KO-026 → AW), niezrozumiałe pytanie pl (KO-027 → AX), układ stołu (AW zad. 7).
-- Gałąź robocza @ **128a089** (40e5cef + AV ikona): CI i E2E na 128a089 w toku od ok. 09:45 — **sprawdzić wynik** (Actions, gałąź `claude/sleepy-brahmagupta-2065nu`), potem przyjąć i zarchiwizować AV (koszt do `koszty.md`).
-- **AW: `sesja-aw-ocena` @ 31347bd** (zad. 1–7 + scalona robocza 128a089, `pnpm run ci` 0 wg sesji). Do zrobienia przez następcę: (1) zad. 8 (`table.yourPosition`: „mały blind (SB)” zamiast samego skrótu) — AW czeka: wariant A (mapowanie kodu pozycji → klucz terminu w `uklad.ts:107`, istniejący mechanizm nazw) **po scaleniu AX do roboczej**, na sygnał koordynatora (sprawdzić kontekst AW; ≥ 30% → nowa sesja 08); (2) recenzja niezależna AW zlecona subagentowi poprzedniego koordynatora — wynik miał trafić do jego scratchpadu (`recenzja-aw.md`), **następca go nie zobaczy → zlecić recenzję ponownie** (zakres w dzienniku 09:47); (3) po recenzji i scaleniu z roboczą: ff/merge do roboczej, CI + E2E (flowy Maestro zmienione, nieuruchomione lokalnie — pierwsze E2E jest dowodem).
-- **AX w toku** (`sesja-ax-pytania`, 06 fix): poprawa brzmienia 7 z 8 pytań oceny + zad. 6 (m5.q2 jednoznaczność) + 11 języków; szac. koniec ok. 11:30. Po PRZEKAZANIU: recenzja niezależna (treść: sens bez zmian, poprawna odpowiedź bez zmian), scalenie po AW (bazy .db: przebudowa po scaleniu przez sesję), CI + E2E.
-- Kolejność scalania: AV (zrobione) → AW → AX; push kodu na roboczą nie w trakcie E2E (anuluje przebieg) — czekać na koniec.
-- Po zielonym E2E na szczycie z AV+AW+AX: prośba do właściciela o nowy build TestFlight (KO-025: „build razem z poprawkami”) i lista telefonu (pozycje T-ikona-1..3, ocena, stół).
+- Koordynator session_01T66VBzWo4nU2Czir22NNVy przejął 09:50 (E6 pkt 5). Biblioteka `prompts`: add_repo odrzucony przez klasyfikator w tej sesji → prośba do właściciela (raz); do zgody **bez nowych sesji podrzędnych wymagających promptu roli** (recenzje robi subagent).
+- Build TestFlight 1009 (40e5cef) u właściciela na telefonie; uwagi w czacie koordynatora (poprzednik przekazuje dosłownie). Dotąd: ikona (KO-025 → AV), „Nie wiem” + ekran wyboru (KO-026 → AW), pytanie pl (KO-027 → AX), układ stołu (AW zad. 7).
+- Robocza @ **128a089**: CI 42792894116 **success** (09:44); E2E 42792894117 w toku od 09:42 (koniec ok. 10:27) → potem przyjęcie i archiwum AV (0,81 USD, 15,0%).
+- **AW** `sesja-aw-ocena` @ **31347bd** (zawiera 128a089 — merge-base sprawdzony; 7 commitów, autor zgodny; 47 plików +3195/−158; `pnpm run ci` 0 wg sesji). Zad. 8 (`table.yourPosition`: „mały blind (SB)” zamiast skrótu): KO-028 wariant A (mapowanie kodu pozycji → klucz terminu, `uklad.ts:107`) — AW robi **po scaleniu AX do roboczej, na sygnał koordynatora** (kontekst AW 24,9%; ≥ 30% → nowa sesja 08). Recenzja niezależna 31347bd zlecona subagentowi 09:53 (poprzednik zapowiedział też przesłanie wyniku swojej recenzji bd965be) → `docs/koordynacja/recenzje/recenzja-aw-31347bd.md`. Po recenzji i końcu E2E 128a089: ff roboczej → CI + E2E (flowy Maestro zmienione, pierwsze E2E jest dowodem).
+- **AX w toku** (`sesja-ax-pytania` @ 40e5cef, bez pushu; 16,6%, 3,27 USD): po PRZEKAZANIU recenzja niezależna (sens i poprawna odpowiedź bez zmian), scalenie po AW (bazy .db przebudowuje sesja), CI + E2E.
+- Kolejność scalania: AV (zrobione) → AW → AX; push kodu na roboczą nie w trakcie E2E.
+- Po zielonym E2E na szczycie z AV+AW+AX: prośba do właściciela o nowy build TestFlight (KO-025) i lista telefonu (T-ikona-1..3, ocena, stół).
+- Hook pre-push działa w katalogu głównym sesji (`/home/user/Szkola_pokera`), nie w worktree: `pnpm install --frozen-lockfile` trzeba zrobić **tam** (09:56 typecheck kod 2 → po instalacji 0).
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AV | session_01T66VBypDXrEWs35z1DWk7U | 08 fix, kod (sonnet) | sesja-av-ikona @ 40e5cef (start) | — | — | w toku: ikona D-123 → aplikacja (KO-025); cmp promptu identyczne |
-| AW | session_01T66VBvecFidWwcDkVK34J4 | 08 build, kod (sonnet) | sesja-aw-ocena @ 40e5cef (start) | — | — | w toku: ekran wyboru + „Nie wiem” (KO-026) + układ stołu (zad. 7, D-476); plan przyjęty, szac. 3–4 h; cmp promptu: wynik subagenta w drodze |
-| AX | session_01T66VBvoHtBam11taia24sJ | 06 fix, treść (opus) | sesja-ax-pytania @ 40e5cef (start) | — | — | w toku: zrozumiałość pytań oceny (KO-027); cmp promptu: 1 linia (374) — ucieczki `\u00A0\u202F` w regexie zamienione na dosłowne znaki, równoważne (WG-07, 3. raz) |
+| AV | session_01T66VBypDXrEWs35z1DWk7U | 08 fix, kod (sonnet) | sesja-av-ikona @ 128a089 | 15,0 | 0,81 | PRZEKAZANIE; na roboczej; CI zielone, czeka na E2E 42792894117 → archiwum |
+| AW | session_01T66VBvecFidWwcDkVK34J4 | 08 build, kod (sonnet) | sesja-aw-ocena @ 31347bd | 24,9 | 3,26 | PRZEKAZANIE (zad. 1–7 + scalona robocza); recenzja niezależna w toku; zad. 8 — zapytana |
+| AX | session_01T66VBvoHtBam11taia24sJ | 06 fix, treść (opus) | sesja-ax-pytania @ 40e5cef (bez pushu) | 16,6 | 3,27 | w toku: zrozumiałość pytań oceny (KO-027), czeka na recenzję przekładów (własny subagent) |
 
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
@@ -66,6 +67,8 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 - Decyzje nocy nieomówione pojedynczo (techniczne i wykonawcze z listy D-343–D-394): zostają „do weta”.
 
 ## Przypomnienia
+- **Koordynatora session_01T66VBzWo4nU2Czir22NNVy (aktywne):** trig_01ArAQUx3wBNbLYVafwP3Hte „…: kontrola” 10:21 · trig_01SewEvnz5TL8hxUJTZfYfRk „…: linia 14:00” 10.11 · trig_01PboMBDv66pY1EoBxv5VFGv „…: linia 05:00” 11.11.
+- Poprzednika session_01T66VBzpecX1cLyGgZbrkbu (usuwa on sam; o 09:50 jeszcze: trig_01QU6DmMpZX3pKeZrvimWofp kontrola 10:37, trig_01QH4Q5cgzpF8gTNwjZ2H7HF 14:00, trig_01MvY3c1633qgKD4DiT3xZNA 05:00) — niżej dawny wpis:
 - Koordynatora session_01T66VBzpecX1cLyGgZbrkbu: trig_01TsGcpHpp1WqkQoa9XQjYDV „…: kontrola” 07:05 · trig_01QH4Q5cgzpF8gTNwjZ2H7HF „…: linia 14:00” 10.11 · trig_01MvY3c1633qgKD4DiT3xZNA „…: linia 05:00” 11.11.
 - Poprzednika session_01T66VBxtQGd3faU3Y4mNUuA (kontrola, 14:00, 05:00 usunięte przez niego 06:38; zostaje „kontrola przekazania” trig_01HhS6seisLYydQxF2fBJPp9 07:09; dawne ID): trig_019x1vbCBm1tyDhefrPWLXeS „…: kontrola” 06:38 · trig_01E3ShNoCbuUYRTGFdedbP47 „…: linia 14:00” 10.11 · trig_019RcQqtkXBEGePo3EBxinUa „…: linia 05:00” 11.11.
 - Push na gałąź stanu: hook pre-push (`scripts/pre-push-check.mjs`) wymaga `pnpm install --frozen-lockfile` także tu (06:42 typecheck kod 2 bez node_modules; install 7,9 s); push na gałęzie kodu przez hook pre-push wymaga `pnpm install --frozen-lockfile` (wg AP).
@@ -137,3 +140,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 09:50 | koordynator | kontekst 35,1%, koszt 22,91 USD → przekazanie E6 | następca |
 | 11-10 09:50 | AW → koordynator | scalenie 128a089 → 31347bd (`pnpm run ci` 0 wg sesji); zad. 8 nie zrobione — PYTANIE A/B → odpowiedź koordynatora: A (mechanizm terminów), po scaleniu AX, na sygnał (KO-028, techniczna, do weta) | recenzja 31347bd; sygnał po AX |
 | 11-10 09:51 | koordynator | przekazane do session_01T66VBzWo4nU2Czir22NNVy (start bez błędu, WORKING, model claude-fable-5-2; cmp promptu: 1 literówka „bez zmiany kontroli” + brak końcowego \n); własne przypomnienia kontrola/14:00/05:00 usunięte; zostaje „kontrola przekazania” trig_01EvpsCbgTGG3WCZHBFX44AU 10:21; wynik recenzji AW (subagent) prześlę następcy | PRZEJĄŁEM → archiwizacja poprzednika |
+| 11-10 09:55 | koordynator (session_01T66VBzWo4nU2Czir22NNVy) | przejęcie E6 pkt 5: stan @ 8660ba8 przeczytany; własne przypomnienia (ID w „Przypomnienia”); wiadomość o zmianie do AV, AW, AX (delivered ×3); list_events poprzednika (user, 100 ostatnich, od 09:46): brak wiadomości właściciela i sesji po zapisie stanu (starsze strony nieczytane); add_repo prompts: odrzucony przez klasyfikator; CI 42792894116 na 128a089 success, E2E 42792894117 in_progress; AW @ 31347bd: zawiera 128a089, autor 7/7 zgodny; recenzja niezależna AW zlecona ponownie subagentowi. Godziny dziennika 09:35–10:10 powyżej były szacowane z wyprzedzeniem (zegar: przekazanie 09:49) | PRZEJĄŁEM; prośba o bibliotekę; kontrola 10:21 |
