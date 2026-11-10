@@ -6,9 +6,10 @@ Rola 04, build, 2026-11-10. Wejście: KO-036 (zębatka), KO-041 (menu z kafelkam
 |---|---|
 | Makieta: W1 i W2 × stany (w trakcie, nowy, ukończone, limit), de (najdłuższe etykiety), ekran „Lekcje” | `ekrany/menu.html` + `ekrany/menu.css` (generuje `narzedzia/menu-makieta.mjs`) |
 | Makieta zębatki przed/po | `ekrany/zebatka.html` |
-| Porównanie W1/W2 (w trakcie + limit) | `wzorce-zrzuty/menu/porownanie-w1-w2-light.png`, `-dark.png` |
+| Porównanie W1/W2 (w trakcie + nowy) | `wzorce-zrzuty/menu/porownanie-w1-w2-light.png`, `-dark.png` |
 | Arkusze: 390 i 320 jasny, 390 ciemny, AX5 320 jasny i 390 ciemny, skala szarości, ciemny + zwiększony kontrast | `wzorce-zrzuty/menu/menu-*.png` |
 | Zębatka przed/po | `wzorce-zrzuty/menu/zebatka-light.png`, `zebatka-dark.png`; pomiar `narzedzia/zebatka-pomiar.mjs` |
+| Mieszczenie bez przewijania 375×667 | `miesci-sie-menu.txt` (`narzedzia/miesci-sie.mjs`), kod 0 |
 | Kontrast nowych par (4 warianty palety) | `kontrast-menu.txt` (wejście `narzedzia/kontrast-menu.json`), kod 0 |
 
 ## Zębatka (KO-036, D-540)
@@ -18,21 +19,24 @@ Rola 04, build, 2026-11-10. Wejście: KO-036 (zębatka), KO-041 (menu z kafelkam
 - Wdrożenie (rola 08): `react-native-svg` (`<Svg viewBox="0 0 24 24"><Path d=… /><Circle cx=12 cy=12 r=3.6 /></Svg>`, `fill="none"`, `stroke={tk.ink}`, `strokeWidth={2}`) — ta sama biblioteka obsłuży ikony kafelków niżej. Analogia: Trening rysuje ikony przez `react-native-svg` (`package.json:64`, `components/TabIcon.tsx`; odczyt 2026-11-10 @ 2e4b0f8).
 
 ## Menu główne: dwa warianty (KO-041, D-541, wybór właściciela)
-Wspólne: sukno z następną lekcją zostaje elementem firmowym (D-118); pod nim kafelki funkcji 2 kolumny (`minmax(136 pt × skala treści)`), przy dużym tekście jedna kolumna; długa lista lekcji schodzi na ekran „Lekcje”. Kafelek: tło `surface`, promień 14, min. 112 pt wysokości, ikona 28 pt kreska 2 pt, tytuł 17 pt semibold, stan 15 pt `muted`; cały kafelek jest jednym przyciskiem z etykietą „{tytuł}. {stan}.”.
+Wymagania: BR-MENU-001…003 (`docs/brd/wymagania-scenariusze.md` @ `sesja-bd-zakres` 8cba034, D-535): kafelki lekcje, ćwiczenia, powtórki z liczbą, scenariusze; bez listy lekcji; wszystkie kafelki bez przewijania na 375×667 pt przy tekście domyślnym; kafelek bez treści mówi, co go odblokuje; ikona ustawień ≥ 3:1 i ≥ 44 pt.
+Wspólne: pasek zakładek bez zmian (Dziś · Powtórki · Postęp, liczba powtórek na plakietce) — wariant z zakładką „Lekcje” odrzucony, bo BR-MENU-001 wymaga kafelka lekcji na Dziś (zakładka byłaby duplikatem). Kafelek: tło `surface`, promień 14, ikona 22 pt w wierszu tytułu (przy dużym tekście nad tytułem), tytuł 17 pt semibold, stan 15 pt `muted`; cały kafelek to jeden przycisk z etykietą „{tytuł}. {stan}.”. Dwie kolumny; przy dużym tekście jedna.
 
-| | W1 „Sukno + 4 kafelki” (rekomendacja) | W2 „Wszystko kafelkami” |
+| | W1 „Sukno + 4 kafelki, zębatka” (rekomendacja) | W2 „Wszystko kafelkami, ustawienia jako kafelek” |
 |---|---|---|
-| Ekran Dziś | sukno w pełnym rozmiarze + kafelki: Lekcje, Scenariusze, Sesja ćwiczeń, Wskaźnik zaawansowania | „Kontynuuj” jako szeroki kafelek na suknie (niższy, bez podtytułu) + kafelki: Powtórki, Sesja ćwiczeń, Scenariusze, Wskaźnik |
-| Pasek zakładek | bez zmian: Dziś · Powtórki · Postęp; liczba powtórek na dziś jako plakietka zakładki | Dziś · Lekcje · Postęp; Powtórki tylko jako kafelek z liczbą |
-| Najmocniejszy argument | najmniejsza zmiana nawyku i testów (identyfikatory zakładek bez zmian), największe sukno = najsilniejsza tożsamość | lekcje (rdzeń kursu, 44) zawsze jednym dotknięciem z każdego miejsca; Dziś bez duplikatu z paskiem |
-| Koszt dla 08/07 | nowy ekran „Lekcje”, kafelki, plakietka zakładki | jak W1 + zmiana paska (flowy E2E z `zakladka-powtorki`) |
+| Zrzut 390 pt | `wzorce-zrzuty/menu/w1-390.png` | `wzorce-zrzuty/menu/w2-390.png` |
+| Dziś | zębatka (D-540) + duże sukno z następną lekcją + kafelki Lekcje, Powtórki, Sesja ćwiczeń, Scenariusze + niski wiersz „Wskaźnik zaawansowania” | bez zębatki; zwarte sukno-kafelek „Kontynuuj” + 6 kafelków: Lekcje, Powtórki, Sesja ćwiczeń, Scenariusze, Wskaźnik, Ustawienia |
+| Ustawienia | zębatka w prawym górnym rogu (konwencja iOS) | kafelek „Ustawienia — Język, dane, zakupy” (jak Trening: wiersz w „Więcej”, `app/(tabs)/more.tsx:23`) |
+| Za | najczęstsza czynność (następna lekcja) jest największym elementem; ustawienia tam, gdzie szuka ich użytkownik iOS | wszystko na jednej siatce, ustawienia nie do przeoczenia |
+| Przeciw | — | rzadka czynność (ustawienia) zajmuje kafelek równy codziennym; sukno mniejsze |
+| Mieści się na 375×667 (`miesci-sie-menu.txt`, kod 0) | 639 pt (de 664) | 619 pt (de 645) |
 
-Rekomendacja W1, bo funkcja: najczęstsza czynność (następna lekcja) zostaje największym elementem, wszystkie funkcje są o jedno dotknięcie od Dziś, a powtórki nadal mają własną zakładkę z licznikiem — bez nowego nawyku. Analogia Trening: ekran główny = jedna duża akcja + kafelki prowadzące dalej (`app/(tabs)/index.tsx:43-53`), rzadziej używane funkcje zeszły piętro niżej (`docs/22-przeplywy-i-nawigacja.md:292-305`).
+Rekomendacja W1: następna lekcja zostaje największym elementem, a rzadkie ustawienia nie zajmują miejsca codziennych funkcji. Duży tekst W1: `wzorce-zrzuty/menu/w1-320-ax5.png`.
 
 ### Stany (makieta: `w1-*`, `w2-*`)
 | Stan | Sukno / pierwszy kafelek | Kafelki |
 |---|---|---|
-| Nowy (po ocenie poziomu) | „Zacznij lekcję”, Zasady i układy, lekcja 1 „Układy kart” | Lekcje „0 z 44 lekcji”; Scenariusze „Rozdanie od preflopu do rivera”; Powtórki (W2) „Po pierwszej lekcji”; Wskaźnik „Wiedza 0 na 100” |
+| Nowy (po ocenie poziomu) | „Zacznij lekcję”, Zasady i układy, lekcja 1 „Układy kart” | Lekcje „0 z 44 lekcji”; Powtórki „Po pierwszej lekcji”; Scenariusze „Po pierwszej lekcji modułu 2” (BR-MENU-001: co odblokuje; scenariusze od M2, D-536); Wskaźnik „Wiedza 0 na 100” |
 | W trakcie | „Kontynuuj lekcję” + bieżąca lekcja | Lekcje „3 z 44”, Scenariusze „Poziom: średni (auto)” (KO-039), Powtórki „7 na dziś” |
 | Wszystko zrobione | „Kurs ukończony” + `today.courseDone` | jak w trakcie, Lekcje „44 z 44” |
 | Limit wyczerpany | bez zmian (lekcje bez limitu) | Sesja ćwiczeń i Scenariusze: stan „Darmowa jutro”, tło przezroczyste, obwódka kreskowana (nie tylko kolor); pod kafelkami „Dzienny limit wykorzystany…” + link „Pełny dostęp” (BR-LIM-001; nazwa „dzienny limit”, D-111) |
@@ -51,4 +55,5 @@ Duży tytuł „Lekcje”, licznik „3 z 44 lekcji” z paskiem postępu, lista
 ## Otwarte
 - Etykieta kafelka „Wskaźnik zaawansowania” przy AX5 390 pt (wyżej).
 - Ikony kafelków są rysunkami makiety (kreska 2 pt); rola 08 przenosi ścieżki do `react-native-svg`.
-- Kafelek Scenariusze zależy od treści scenariuszy (D-255, KO-035); do tego czasu ukryty, siatka 3 kafelków (W1: Wskaźnik na pełną szerokość).
+- W2: tytuł kafelka „Wskaźnik” (pełna nazwa łamała się w środku wyrazu przy 390 pt) — etykieta do roli 06/09.
+- Pomiar mieszczenia się: `narzedzia/miesci-sie.mjs` (pasek stanu 20 pt i pasek zakładek 49 pt jak iPhone 375×667).
