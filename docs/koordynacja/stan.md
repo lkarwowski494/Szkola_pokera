@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:52 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:58 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -34,8 +34,11 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | AM | session_01T66VBzioNjwudY42GtzgHt | 10 build, kod | sesja-am-kategoria @ e01ba05 | — | — | wystartowała (get_session przez subagenta: WORKING) |
 | AN | session_01T66VBy5HsHQDnmCWm8Vboj | 10 build, docs | sesja-an-kr-vn @ e01ba05 | — | — | wystartowała (WORKING) |
 | AO | session_01T66VBwQoZrfRhLaY2LmtdR | 09 build, kod | sesja-ao-pt-pt @ e01ba05 | — | — | wystartowała (WORKING) |
+| AP | (po starcie) | 09 audit, docs | przeglad-ap-cjk @ e01ba05 | — | — | zlecana 05:58: pełny przegląd ja, zh-Hant, ko |
+| AQ | (po starcie) | 09 audit, docs | przeglad-aq-romanskie @ e01ba05 | — | — | zlecana 05:58: pt-BR, es, it |
+| AR | (po starcie) | 09 audit, docs | przeglad-ar-fr-de-vi @ e01ba05 | — | — | zlecana 05:58: fr, de, vi |
 
-Litery użyte dotąd: A…Z, AA…AO (następna: **AP**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Litery użyte dotąd: A…Z, AA…AR (następna: **AS**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -43,7 +46,8 @@ Litery użyte dotąd: A…Z, AA…AO (następna: **AP**). Polecenia: `docs/koord
 | 06:25 → ok. 07:30 | AM: kategoria Education + Games/Card w repo, kontrola zgodności z ankietą wiekową i notatkami recenzenta | AM (10) | — | ewent. odpowiedź na PYTANIE; potem wpis ręczny w ASC |
 | 06:25 → ok. 08:30 | AN: ponowna ocena KR i VN (źródła pierwotne) → opcje | AN (10, docs) | — | decyzja o KR/VN |
 | 06:25 → ok. 07:00 | AO zad. 1: szacunek pełnego przeglądu AI 9 języków | AO (09) | — | limit kosztu API przeglądu |
-| po szacunku | pełny przegląd AI całości 9 języków (workflow płatny) + naniesienie poprawek | AP… (09) | limit właściciela | limit |
+| teraz → [DO USTALENIA, brak pomiaru] | pełny przegląd całości 9 języków w sesjach (bez API) | AP, AQ, AR (09 audit) | — | — |
+| po przeglądzie | naniesienie poprawek przeglądu w kodzie, CI + E2E | AS… (09 build) | AP–AR | weta do KRYT/WYS produktowych |
 | dziś | AO zad. 2–4: pt-PT przekład (≤ 25 USD), przegląd, wydanie w kodzie, E2E | AO (09) | — | — |
 | po AM, AO, przeglądzie | scalenie gałęzi sesji do roboczej, CI + E2E na wyniku | koordynator (konflikt: sesja) | odbiory | — |
 | po scaleniu („Po poprawkach z dzisiaj”) | build TestFlight `testflight.yml` z ref gałęzi roboczej; listy telefonu 4 + de-es + ko-it-vi + pt-PT, K6 en | właściciel | zielone E2E na szczycie | uruchomienie + Approve, telefon |
@@ -55,7 +59,6 @@ Litery użyte dotąd: A…Z, AA…AO (następna: **AP**). Polecenia: `docs/koord
 - Fakty: W-04 e-mail wsparcia + dostawca skrzynki; administrator (imię i nazwisko, forma); W-05 Apple ID aplikacji; W-07 dane sprzedawcy JP (wariant A potwierdzony 2026-11-10). Uwaga: `site/` na `main` ma w tych miejscach publicznie tekst „[DO USTALENIA: …]” (było tak też przed ddb0108).
 - Znaki towarowe „pokergym” / „poker gym” (USPTO, EUIPO, WIPO GBD w przeglądarce) przed zapisem nazwy w ASC (D-378, D-382) — krok po kroku do podania.
 - Wpis ręczny kategorii w ASC (Education + Games/Card) po wyniku AM.
-- Limit kosztu API pełnego przeglądu AI (po szacunku AO).
 - Decyzja o KR i VN (po AN).
 - Build TestFlight po poprawkach; potem listy telefonu.
 - Konto Apple Search Ads (D-377; po premierze).
@@ -68,8 +71,8 @@ Litery użyte dotąd: A…Z, AA…AO (następna: **AP**). Polecenia: `docs/koord
 - Push na gałąź stanu przechodzi przez hook pre-push (typecheck, i18n, content) — w nowym kontenerze najpierw `pnpm install --frozen-lockfile` (5,6 s).
 
 ## Pule numerów decyzji
-- Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419; następny wolny **D-420**.
-- KO następny: **KO-018**.
+- Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; następny wolny **D-450**.
+- KO następny: **KO-020**.
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -89,3 +92,5 @@ Litery użyte dotąd: A…Z, AA…AO (następna: **AP**). Polecenia: `docs/koord
 | 11-10 06:15 | koordynator | `site/` PokerGym na `main`: ddb0108 (2 pliki, 8 linii — tylko nazwa; `git diff --stat`) | sprawdzić przebieg Pages |
 | 11-10 06:20 | koordynator | polecenia AM/AN/AO @ c32ddfa (komunikat tego commitu wymienia też stan — stan dopisany dopiero w następnym commicie, błąd skryptu) | start sesji |
 | 11-10 05:52 | koordynator | AM, AN, AO wystartowały (ID w tabeli; create_session przez subagentów, prompt roli przepisany — zgodność znak po znaku niesprawdzona; znana różnica w AO: w szablonie „Przekazanie” roli 09 jedna linia polecenia ma `06-tresci` zamiast `12-niezawodnosc` — bez wpływu, sesje nie robią przekazania roli). Pages 42764138515 na ddb0108 success (05:46). **Korekta godzin:** wpisy dziennika z 05:45–06:20 i godziny w KO-005…017 były szacowane; wg Actions push `site/` na `main` był o 05:45, pytanie zbiorcze ok. 05:35–05:45 | kontrola za ok. 60 min |
+| 11-10 05:54 | AO → koordynator | PYTANIE: szacunek pełnego przeglądu przez API (≈ 77 USD mocniejszy model / ≈ 39 USD tańszy; 9 lub 5 przebiegów); pt-PT szacunek ≈ 11 USD ≤ 25 → AO startuje 2 przebiegi przekładu | pytanie do właściciela |
+| 11-10 05:58 | właściciel → koordynator | odpowiedź: „Fable 5.2 ale nie przez API tylko tutaj” (KO-018) → przegląd w 3 sesjach docs AP/AQ/AR (KO-019); AO: przeglądu API nie uruchamia | start AP–AR |
