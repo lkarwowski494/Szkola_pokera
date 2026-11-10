@@ -46,8 +46,20 @@ Pozostałe 56 komórek bez zmian (BTN, SB, BB we wszystkich językach; HJ, CO po
 
 ## Zmiana poza linią stołu (UI, `locales/*.json`, nie zmieniane w tej sesji)
 
-`table.tableSizeHint9` ma w 11 językach goły `{{t:utg}}` i pokazuje teraz nazwę: pl „…trzy wczesne pozycje (position): pierwsza pozycja po blindach (under the gun, UTG), UTG+1 i UTG+2.”, en „…before LJ: under the gun, UTG+1 and UTG+2.”. Jeśli wolicie dawny tekst: `{{t:utg|UTG}}` w tym kluczu (sesja kodu).
+`table.tableSizeHint9` ma w 10 językach (bez de, ko) goły `{{t:utg}}` i renderuje teraz nazwę; klucz nie ma użycia w kodzie (grep `apps/mobile/src`: 0), więc zmiana jest niewidoczna: pl „…trzy wczesne pozycje (position): pierwsza pozycja po blindach (under the gun, UTG), UTG+1 i UTG+2.”, en „…before LJ: under the gun, UTG+1 and UTG+2.”. Jeśli wolicie dawny tekst: `{{t:utg|UTG}}` w tym kluczu (sesja kodu).
 
 ## Treść lekcji, egzaminów, reguł i spotów
 
-`compileContent` 12 języków: po zamianie 345 gołych `{{t:utg}}` na `{{t:utg|UTG}}` (commit fef9d57) wynik bajtowo identyczny z bazą; po zmianie nazwy (commit z D-520) różni się wyłącznie wpis terminu `utg` (pl, abbr) i skrót `hash` bazy.
+`compileContent` 12 języków: po zamianie 328 gołych `{{t:utg}}` na `{{t:utg|UTG}}` (commit fef9d57) wynik bajtowo identyczny z bazą; po zmianie nazwy (commit z D-520) różni się wyłącznie wpis terminu `utg` (pl, abbr) i skrót `hash` bazy.
+
+## Test nakładki spots (KO-032)
+
+`tools/content-build/test/jezyk-tresci-09.test.ts:64-66`: jawna forma `{{t:utg|UTG}}` → „UTG, nobody has entered the pot yet”; goły `{{t:utg}}` → „under the gun at a 9-player table, nobody has entered the pot yet”. Na nowej treści: 1 passed. Na starym wpisie terminu (`content/terms.yaml` z fbb2d15, reszta bez zmian): 1 failed, `- "under the gun at a 9-player table, nobody has entered the pot yet"` / `+ "UTG at a 9-player table, nobody has entered the pot yet"` — czerwony z właściwego powodu.
+
+## Stół 6- i 9-osobowy (warunek 3)
+
+UTG to pierwsza pozycja za dużym blindem w obu: m3-l1 (tabela 6-osobowa: „Pierwszy preflop”), m3-l3:80 (9-osobowy: UTG, UTG+1, UTG+2 przed HJ); PokerStrategy de (odczyt 2026-11-10): „In einem Full Ring Texas Hold'em Spiel mit neun oder zehn Spielern ist UTG der erste Spieler links vom Big Blind”. Linie przy stole: pl „Twoja pozycja (position): pierwsza pozycja po blindach (under the gun, UTG).”, en „Your position: under the gun (UTG).”.
+
+## Recenzja autor ≠ recenzent
+
+Subagent w świeżym kontekście (diff fbb2d15..2b2274f, 14 źródeł otwartych sam, cytaty `grep -F`): brak znalezisk wysokich; NISKIE: liczba 345 → 328 (poprawione), `tableSizeHint9` 10 zamiast 11 języków (poprawione), pl nazwa nie pada w lekcji M3 (backlog).
