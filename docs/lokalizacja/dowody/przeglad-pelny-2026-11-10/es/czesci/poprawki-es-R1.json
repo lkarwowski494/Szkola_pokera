@@ -1,0 +1,5 @@
+[
+  { "jezyk": "es", "cel": "content/es/rules.yaml", "stary": "el solver también usa la {{t:overbet|sobreapuesta}}", "nowy": "el solver también usa el {{t:overbet|overbet}}", "waga": "ŚR", "powod": "es-R1-01 termin overbet: terms-nazwy.yaml podaje «overbet» (m), nie «sobreapuesta» (pl rules.yaml:384)", "grupa": "es-R1" },
+  { "jezyk": "es", "cel": "content/es/rules.yaml", "stary": "los jugadores recreacionales pasivos no farolean con apuestas grandes en el river", "nowy": "los jugadores recreativos pasivos no farolean con apuestas grandes en el river", "waga": "NISKIE", "powod": "es-R1-02 termin recreational: «jugador recreativo» (terms-nazwy.yaml; tak samo w polu population tej reguły, linia 472); pl rules.yaml:473", "grupa": "es-R1" },
+  { "jezyk": "es", "cel": "content/es/rules.yaml", "stary": "y A5s y los conectores suited normalmente los igualas", "nowy": "y A5s y los conectores del mismo palo normalmente los igualas", "waga": "NISKIE", "powod": "es-R1-03 spójność: «w kolorze» wszędzie indziej w pliku to «del mismo palo» (terms-nazwy: suited); pl rules.yaml:260", "grupa": "es-R1" }
+]

@@ -1,0 +1,272 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "AA batte KK in circa {{n:pf.aa-vs-kk}} dei casi. Perdere in circa {{n:res.kk-wins}} dei casi",
+  "nowy": "AA batte KK in circa l'{{n:pf.aa-vs-kk}} dei casi. Perdere in circa il {{n:res.kk-wins}} dei casi",
+  "waga": "NISKIE",
+  "powod": "it-L7-01 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "prima della carta: circa {{n:pf.aa-vs-kk}} di equity",
+  "nowy": "prima della carta: circa l'{{n:pf.aa-vs-kk}} di equity",
+  "waga": "NISKIE",
+  "powod": "it-L7-02 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "all-in preflop in circa {{n:pf.aa-vs-kk}} dei casi",
+  "nowy": "all-in preflop in circa l'{{n:pf.aa-vs-kk}} dei casi",
+  "waga": "NISKIE",
+  "powod": "it-L7-03 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "({{n:outs.flush}} outs)",
+  "nowy": "({{n:outs.flush}} out)",
+  "waga": "ŚR",
+  "powod": "it-L7-04 termin: terms-nazwy.yaml outs = „out” (nieodmienne); w pozostałych lekcjach „out”",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Ti serviva {{n:eq.bet-quarter}} di equity e ne avevi circa {{n:odds.flush.turn-river}}.",
+  "nowy": "Ti serviva il {{n:eq.bet-quarter}} di equity e ne avevi circa il {{n:odds.flush.turn-river}}.",
+  "waga": "NISKIE",
+  "powod": "it-L7-05 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "entra solo in circa {{n:odds.flush.turn-river}} dei casi",
+  "nowy": "entra solo in circa il {{n:odds.flush.turn-river}} dei casi",
+  "waga": "NISKIE",
+  "powod": "it-L7-06 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Ti serviva {{n:eq.bet-pot}} di equity e ne avevi circa {{n:odds.flush.turn-river}}.",
+  "nowy": "Ti serviva il {{n:eq.bet-pot}} di equity e ne avevi circa il {{n:odds.flush.turn-river}}.",
+  "waga": "NISKIE",
+  "powod": "it-L7-07 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Con un prezzo di {{n:eq.bet-pot}} e una probabilità di circa {{n:odds.flush.turn-river}},",
+  "nowy": "Con un prezzo del {{n:eq.bet-pot}} e una probabilità di circa il {{n:odds.flush.turn-river}},",
+  "waga": "NISKIE",
+  "powod": "it-L7-08 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "hai {{n:odds.flush.turn-river}} di probabilità, te ne servono {{n:eq.bet-pot}}",
+  "nowy": "hai il {{n:odds.flush.turn-river}} di probabilità, te ne serve il {{n:eq.bet-pot}}",
+  "waga": "NISKIE",
+  "powod": "it-L7-09 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "(il {{n:skill.pct}} più forte contro il {{n:skill.pct}} più debole)",
+  "nowy": "(l'{{n:skill.pct}} più forte contro l'{{n:skill.pct}} più debole)",
+  "waga": "ŚR",
+  "powod": "it-L7-10 zły rodzajnik: liczba zaczyna się od samogłoski („il 1%”/„il 80%” → „l'1%”/„l'80%”)",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "passa in vantaggio in circa {{n:skill.ahead}} dei casi",
+  "nowy": "passa in vantaggio in circa il {{n:skill.ahead}} dei casi",
+  "waga": "NISKIE",
+  "powod": "it-L7-11 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Il {{n:skill.pct}} più forte dei giocatori supera il {{n:skill.pct}} più debole",
+  "nowy": "L'{{n:skill.pct}} più forte dei giocatori supera l'{{n:skill.pct}} più debole",
+  "waga": "ŚR",
+  "powod": "it-L7-12 zły rodzajnik: liczba zaczyna się od samogłoski („il 1%”/„il 80%” → „l'1%”/„l'80%”)",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": " in circa {{n:skill.ahead}} dei casi dopo circa",
+  "nowy": " in circa il {{n:skill.ahead}} dei casi dopo circa",
+  "waga": "NISKIE",
+  "powod": "it-L7-13 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "eppure perde in circa **{{n:res.kk-wins}}** dei casi",
+  "nowy": "eppure perde in circa il **{{n:res.kk-wins}}** dei casi",
+  "waga": "NISKIE",
+  "powod": "it-L7-14 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "(ti serve {{n:eq.bet-pot}}, hai circa {{n:odds.flush.turn-river}})",
+  "nowy": "(ti serve il {{n:eq.bet-pot}}, hai circa il {{n:odds.flush.turn-river}})",
+  "waga": "NISKIE",
+  "powod": "it-L7-15 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "che il {{n:skill.pct}} più forte dei giocatori superava il {{n:skill.pct}} più debole",
+  "nowy": "che l'{{n:skill.pct}} più forte dei giocatori superava l'{{n:skill.pct}} più debole",
+  "waga": "ŚR",
+  "powod": "it-L7-16 zły rodzajnik: liczba zaczyna się od samogłoski („il 1%”/„il 80%” → „l'1%”/„l'80%”)",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "in circa {{n:skill.ahead}} dei confronti",
+  "nowy": "in circa il {{n:skill.ahead}} dei confronti",
+  "waga": "NISKIE",
+  "powod": "it-L7-17 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l3-tilt.md",
+  "stary": "questionario, {{n:tilt.severe}} dei giocatori",
+  "nowy": "questionario, l'{{n:tilt.severe}} dei giocatori",
+  "waga": "NISKIE",
+  "powod": "it-L7-18 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "colpisce circa {{n:dd.p.small.100k}} dei giocatori",
+  "nowy": "colpisce circa il {{n:dd.p.small.100k}} dei giocatori",
+  "waga": "NISKIE",
+  "powod": "it-L7-19 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "\"Circa {{n:study.beginner}} di studio\", correct",
+  "nowy": "\"Circa l'{{n:study.beginner}} di studio\", correct",
+  "waga": "NISKIE",
+  "powod": "it-L7-20 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "Circa {{n:study.min}} di studio",
+  "nowy": "Circa il {{n:study.min}} di studio",
+  "waga": "NISKIE",
+  "powod": "it-L7-21 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "mai meno di {{n:study.min}} di studio\", correct: true, why: \"Anche quando vinci, l'ideale è circa {{n:study.winner}} di studio",
+  "nowy": "mai meno del {{n:study.min}} di studio\", correct: true, why: \"Anche quando vinci, l'ideale è circa il {{n:study.winner}} di studio",
+  "waga": "NISKIE",
+  "powod": "it-L7-22 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "non scendi sotto {{n:study.min}} del tempo",
+  "nowy": "non scendi sotto il {{n:study.min}} del tempo",
+  "waga": "NISKIE",
+  "powod": "it-L7-23 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "Circa {{n:study.beginner}} di studio, come all'inizio",
+  "nowy": "Circa l'{{n:study.beginner}} di studio, come all'inizio",
+  "waga": "NISKIE",
+  "powod": "it-L7-24 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "dedichi circa {{n:study.beginner}} del tempo",
+  "nowy": "dedichi circa l'{{n:study.beginner}} del tempo",
+  "waga": "NISKIE",
+  "powod": "it-L7-25 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "ma mai meno di {{n:study.min}} di studio.",
+  "nowy": "ma mai meno del {{n:study.min}} di studio.",
+  "waga": "NISKIE",
+  "powod": "it-L7-26 brak rodzajnika przed procentem (wł. wymaga „il/l' X%”; w m12-l1 przekład stosuje go konsekwentnie); sens bez zmian",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m13-l1-raport.md",
+  "stary": "Vai all-in con il {{n:m13.eq.example}}",
+  "nowy": "Vai all-in con l'{{n:m13.eq.example}}",
+  "waga": "ŚR",
+  "powod": "it-L7-27 zły rodzajnik: liczba zaczyna się od samogłoski („il 1%”/„il 80%” → „l'1%”/„l'80%”)",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m13-l1-raport.md",
+  "stary": "dieci volte con il {{n:m13.eq.example}}",
+  "nowy": "dieci volte con l'{{n:m13.eq.example}}",
+  "waga": "ŚR",
+  "powod": "it-L7-28 zły rodzajnik: liczba zaczyna się od samogłoski („il 1%”/„il 80%” → „l'1%”/„l'80%”)",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m13-l1-raport.md",
+  "stary": "Con il {{n:m13.eq.example}} di {{t:equity}} perdi",
+  "nowy": "Con l'{{n:m13.eq.example}} di {{t:equity}} perdi",
+  "waga": "ŚR",
+  "powod": "it-L7-29 zły rodzajnik: liczba zaczyna się od samogłoski („il 1%”/„il 80%” → „l'1%”/„l'80%”)",
+  "grupa": "it-L7"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m13-l2-powtorki.md",
+  "stary": "entro un limite giornaliero",
+  "nowy": "entro il limite giornaliero",
+  "waga": "NISKIE",
+  "powod": "it-L7-30 źródło mówi o konkretnym dziennym limicie aplikacji („w granicach dziennego limitu”), nie o jakimś limicie",
+  "grupa": "it-L7"
+ }
+]

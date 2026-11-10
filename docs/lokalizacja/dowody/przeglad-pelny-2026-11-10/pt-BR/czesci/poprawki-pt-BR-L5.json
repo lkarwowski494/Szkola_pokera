@@ -1,0 +1,5 @@
+[
+  { "jezyk": "pt-BR", "cel": "content/pt-BR/lessons/m9-l2-zaangazowanie.md", "stary": "Se depois da sua {{t:bet|aposta}} sobraria no seu stack", "nowy": "Se depois da sua {{t:bet|aposta}} sobrar no seu stack", "waga": "ŚR", "powod": "pt-BR-L5-01 błąd gramatyczny: po „se” futuro do subjuntivo (sobrar), nie futuro do pretérito (sobraria)", "grupa": "pt-BR-L5" },
+  { "jezyk": "pt-BR", "cel": "content/pt-BR/lessons/m9-l3-rozmiar-geometryczny.md", "stary": "Depois da {{t:bet|aposta}} e do {{t:call|pagamento}}", "nowy": "Depois da {{t:bet|aposta}} e do {{t:call}}", "waga": "ŚR", "powod": "pt-BR-L5-02 ten sam termin (call, rzeczownik) nazwany w pliku dwojako: „call” (5×) i „pagamento” (2×)", "grupa": "pt-BR-L5" },
+  { "jezyk": "pt-BR", "cel": "content/pt-BR/lessons/m9-l3-rozmiar-geometryczny.md", "stary": "{{t:pot|Pote}} depois do {{t:call|pagamento}}", "nowy": "{{t:pot|Pote}} depois do {{t:call}}", "waga": "ŚR", "powod": "pt-BR-L5-03 ten sam termin (call, rzeczownik) nazwany w pliku dwojako: „call” (5×) i „pagamento” (2×)", "grupa": "pt-BR-L5" }
+]

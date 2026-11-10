@@ -1,0 +1,29 @@
+[
+  {
+    "jezyk": "pt-BR",
+    "cel": "content/pt-BR/rules.yaml",
+    "stary": "então o fold de todos acontece menos vezes",
+    "nowy": "então o {{t:fold}} de todos acontece menos vezes",
+    "waga": "ŚR",
+    "powod": "pt-BR-R2-01 pominięty znacznik {{t:fold|…}} (pl rules.yaml:1128 „{{t:fold|pasy}} wszystkich”)",
+    "grupa": "pt-BR-R2"
+  },
+  {
+    "jezyk": "pt-BR",
+    "cel": "content/pt-BR/rules.yaml",
+    "stary": "com {{t:payout|premiação}}, perder custa",
+    "nowy": "com {{t:payout|prêmios}}, perder custa",
+    "waga": "ŚR",
+    "powod": "pt-BR-R2-02 forma „premiação” to nazwa innego terminu (prize-pool); payout = „prêmio” (terms-nazwy.yaml:136–137; pl rules.yaml:1112 „z {{t:payout|wypłatami}}”)",
+    "grupa": "pt-BR-R2"
+  },
+  {
+    "jezyk": "pt-BR",
+    "cel": "content/pt-BR/rules.yaml",
+    "stary": "o objetivo é parar antes, antes de perder",
+    "nowy": "o objetivo é parar mais cedo, antes de perder",
+    "waga": "NISKIE",
+    "powod": "pt-BR-R2-03 powtórzenie „antes, antes” (pl rules.yaml:1005 „skończyć wcześniej, zanim stracisz”)",
+    "grupa": "pt-BR-R2"
+  }
+]

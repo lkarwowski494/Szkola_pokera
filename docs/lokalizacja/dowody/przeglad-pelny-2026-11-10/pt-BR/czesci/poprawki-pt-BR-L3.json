@@ -1,0 +1,47 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m7-l1-druga-beczka.md",
+  "stary": "title: \"Segundo barril\"",
+  "nowy": "title: \"Second barrel\"",
+  "waga": "ŚR",
+  "powod": "pt-BR-L3-01 termin second-barrel nazwany dwojako w pliku (tytuł „Segundo barril”, treść „second barrel”); terms-nazwy: second barrel",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m7-l1-druga-beczka.md",
+  "stary": "bloqueiam o {{t:value|valor}} do rival",
+  "nowy": "bloqueiam o valor do rival",
+  "waga": "ŚR",
+  "powod": "pt-BR-L3-02 dodany znacznik {{t:value}}, którego nie ma w źródle pl (m7-l1:137 „blokują wartość rywala”)",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m6-l2-sprawdzenie.md",
+  "stary": "{{t:raise|aumentou}} no pré-flop",
+  "nowy": "{{t:raise|aumentou}} no preflop",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L3-03 pisownia terminu niezgodna z terms-nazwy (preflop)",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m6-l3-check-raise.md",
+  "stary": "Parte dos {{t:draw|projetos}} fortes você {{t:call|paga}}",
+  "nowy": "Com parte dos {{t:draw|projetos}} fortes você {{t:call|paga}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L3-04 kalka szyku: „pagar” bez „com” czyta się jak „płacisz drawom”",
+  "grupa": "pt-BR-L3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m6-l3-check-raise.md",
+  "stary": "Mãos médias, como {{t:top-pair}} com kicker fraco, você normalmente {{t:call|paga}}",
+  "nowy": "Com mãos médias, como {{t:top-pair}} com kicker fraco, você normalmente {{t:call|paga}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L3-05 kalka szyku: „pagar” bez „com” czyta się jak „płacisz średnim rękom”",
+  "grupa": "pt-BR-L3"
+ }
+]

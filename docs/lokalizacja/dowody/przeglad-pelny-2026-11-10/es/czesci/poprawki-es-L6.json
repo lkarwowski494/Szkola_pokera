@@ -1,0 +1,137 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l2-typy-graczy.md",
+  "stary": "datos de población de micro límites online",
+  "nowy": "datos de población de microlímites online",
+  "waga": "NISKIE",
+  "powod": "es-L6-01 pisownia: «microlímites» łącznie (jak w m10-l3, m10-l4)",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l2-typy-graczy.md",
+  "stary": "La {{t:pair|pareja}} máxima le gana",
+  "nowy": "La {{t:pair|pareja}} mayor le gana",
+  "waga": "ŚR",
+  "powod": "es-L6-02 ten sam termin (top pair) w pliku to «pareja mayor»; tu «pareja máxima»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{n:mda.period.months}} meses antes de octubre de 2026",
+  "nowy": "los {{n:mda.period.months}} meses anteriores a octubre de 2026",
+  "waga": "ŚR",
+  "powod": "es-L6-03 pl: okres N miesięcy przed październikiem, nie punkt w czasie «N miesięcy wcześniej»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l4-rake.md",
+  "stary": "solo se queda con unos pocos por ciento del",
+  "nowy": "solo se queda con un pequeño porcentaje del",
+  "waga": "NISKIE",
+  "powod": "es-L6-04 kalka «kilka procent»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l4-rake.md",
+  "stary": "Unos pocos por ciento de cada {{t:pot|bote}} tras el flop suman",
+  "nowy": "Un pequeño porcentaje de cada {{t:pot|bote}} tras el flop suma",
+  "waga": "NISKIE",
+  "powod": "es-L6-05 kalka «kilka procent»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "se estrecha de unas {{n:m11.push.10}} a unas {{n:m11.push.15}} manos",
+  "nowy": "se estrecha de aprox. el {{n:m11.push.10}} a aprox. el {{n:m11.push.15}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-L6-06 znacznik to procent («58,3 %»): «unas 58,3 % manos» niegramatyczne",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "El equilibrio está en unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} manos",
+  "nowy": "El equilibrio está en aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} de las manos",
+  "waga": "ŚR",
+  "powod": "es-L6-07 procent + «manos» bez «de las»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "Sin ante, unas {{n:m11.push.10}}; con ante, unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}.",
+  "nowy": "Sin ante, aprox. el {{n:m11.push.10}}; con ante, aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-08 «unas» + procent",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "vas all-in con unas {{n:m11.push.15}} manos; con {{n:m11.depth.10}}, con unas {{n:m11.push.10}}, y con {{n:m11.depth.5}}, ya con unas {{n:m11.nash.push.5}}–{{n:m11.push.5}}.",
+  "nowy": "vas all-in con aprox. el {{n:m11.push.15}} de las manos; con {{n:m11.depth.10}}, con aprox. el {{n:m11.push.10}}, y con {{n:m11.depth.5}}, ya con aprox. el {{n:m11.nash.push.5}}–{{n:m11.push.5}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-09 «unas» + procent + «manos»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "va all-in con unas {{n:m11.3max.push.btn}} manos, y la {{t:small-blind|ciega pequeña}}, cuando el Button se ha {{t:fold|retirado}}, con unas {{n:m11.3max.push.sb}}.",
+  "nowy": "va all-in con aprox. el {{n:m11.3max.push.btn}} de las manos, y la {{t:small-blind|ciega pequeña}}, cuando el Button se ha {{t:fold|retirado}}, con aprox. el {{n:m11.3max.push.sb}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-10 «unas» + procent + «manos»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l1-push-fold.md",
+  "stary": "crece de unas {{n:m11.push.10}} a unas {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} manos (",
+  "nowy": "crece de aprox. el {{n:m11.push.10}} a aprox. el {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} de las manos (",
+  "waga": "ŚR",
+  "powod": "es-L6-11 «unas» + procent + «manos»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Se juega con {{t:bb-ante|big blind ante}}.",
+  "nowy": "Se juega con {{t:bb-ante|ante de ciega grande}}.",
+  "waga": "ŚR",
+  "powod": "es-L6-12 termin bb-ante = «ante de ciega grande» (terms-nazwy, m11-l1)",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "y un {{t:bb-ante|big blind ante}} de {{n:m11.ante}}",
+  "nowy": "y un {{t:bb-ante|ante de ciega grande}} de {{n:m11.ante}}",
+  "waga": "ŚR",
+  "powod": "es-L6-13 termin bb-ante = «ante de ciega grande»",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Manos como [[7s 6s]] las {{t:shove|empujas}} desde",
+  "nowy": "Con manos como [[7s 6s]] {{t:shove|haces push}} desde",
+  "waga": "ŚR",
+  "powod": "es-L6-14 termin shove = «push» (w pliku «haces push»); «empujas» to druga nazwa",
+  "grupa": "es-L6"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m11-l2-sprawdzanie.md",
+  "stary": "sin fold equity tienen muy poca equity contra",
+  "nowy": "sin fold equity tienen demasiado poca equity contra",
+  "waga": "NISKIE",
+  "powod": "es-L6-15 pl «za mało equity» = za mało, nie «bardzo mało»",
+  "grupa": "es-L6"
+ }
+]

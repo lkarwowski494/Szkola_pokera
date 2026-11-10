@@ -1,0 +1,65 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "La primera subida a un open antes del flop; el nombre cuenta la ciega grande como la primera apuesta y el open como la segunda.",
+  "nowy": "La primera subida a una apertura antes del flop; el nombre cuenta la ciega grande como la primera apuesta y la apertura como la segunda.",
+  "waga": "ŚR",
+  "powod": "es-T-01 termin open: w terms-nazwy „apertura” (i tak w lekcjach), w definicji 3-bet angielskie „open”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "una apuesta en el flop tras hacer open preflop",
+  "nowy": "una apuesta en el flop tras abrir preflop",
+  "waga": "ŚR",
+  "powod": "es-T-02 termin open: w terms-nazwy „apertura”/czasownik „abrir”, w definicji c-bet „hacer open”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "para igualar un open hace falta una mano más fuerte que para hacer el open tú",
+  "nowy": "para igualar una apertura hace falta una mano más fuerte que para abrir tú",
+  "waga": "ŚR",
+  "powod": "es-T-03 termin open: w terms-nazwy „apertura”, w definicji gap-concept „open” 2×",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "Estrategia simplificada para short stacks:",
+  "nowy": "Estrategia simplificada para stacks cortos:",
+  "waga": "ŚR",
+  "powod": "es-T-04 termin short-stack: w terms-nazwy „stack corto”, w definicji push-fold angielskie „short stacks”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "los saltos grandes aumentan el risk premium",
+  "nowy": "los saltos grandes aumentan la prima de riesgo",
+  "waga": "ŚR",
+  "powod": "es-T-05 termin risk-premium: w terms-nazwy „prima de riesgo”, w definicji pay-jump angielskie „risk premium”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "la suma de ciegas y antes de una mano",
+  "nowy": "la suma de las ciegas y el ante de una mano",
+  "waga": "ŚR",
+  "powod": "es-T-06 „y antes de una mano” czyta się jako „i przed rozdaniem”; pl: „sumę blindów i ante w jednym rozdaniu”",
+  "grupa": "es-T"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "tras una c-bet en el flop",
+  "nowy": "tras un c-bet en el flop",
+  "waga": "NISKIE",
+  "powod": "es-T-07 rodzaj c-bet: w lekcjach i regułach przeważa męski (100 : 22), 3-bet/4-bet w definicjach też męskie",
+  "grupa": "es-T"
+ }
+]

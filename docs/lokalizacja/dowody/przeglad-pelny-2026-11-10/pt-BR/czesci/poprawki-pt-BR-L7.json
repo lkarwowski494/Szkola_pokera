@@ -1,0 +1,110 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l4-bankroll.md",
+  "stary": "Isso é tilt de desespero.",
+  "nowy": "Isso é tilt por desespero.",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-01 Nazwa typu tiltu niespójna z m12-l3 („Tilt por desespero”, pt-BR m12-l3:33,114); pl m12-l4:51 „tilt z desperacji” = ta sama nazwa co pl m12-l3:33",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l1-raport.md",
+  "stary": "com {{t:raise|raise}} ou com",
+  "nowy": "com {{t:raise|aumento}} ou com",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-02 Forma „raise” nie jest formą terminu raise = „aumento” (terms-nazwy.yaml:19); pl m13-l1:34 „przebiciem”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l1-raport.md",
+  "stary": "era preciso dar {{t:raise|raise}}",
+  "nowy": "era preciso {{t:raise|aumentar}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-03 jw.; pl m13-l1:37 „przebić”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l1-raport.md",
+  "stary": "com {{t:raise|raise}} em cerca de",
+  "nowy": "com {{t:raise|aumento}} em cerca de",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-04 jw.; pl m13-l1:43 „przebiciem”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l2-powtorki.md",
+  "stary": "Decisões corretas e aceitáveis",
+  "nowy": "Decisões alinhadas e aceitáveis",
+  "waga": "ŚR",
+  "powod": "pt-BR-L7-05 Stopień oceny „Zgodna” = „Alinhada” (pt-BR m13-l1:90, interfejs); „corretas” to inna nazwa tego samego stopnia; pl m13-l2:34 „Zgodne i dopuszczalne”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l3-przeglad.md",
+  "stary": "{{t:fold|largaria}} um set aqui",
+  "nowy": "{{t:fold|desistiria}} de um set aqui",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-06 Forma „largar” nie jest formą terminu fold (wszędzie „desistir”/„fold”); pl m13-l3:33 „spasowałby”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m13-l3-przeglad.md",
+  "stary": "de forma sensata, {{t:fold|largar}}",
+  "nowy": "de forma sensata, {{t:fold|desistir}}",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-07 jw.; pl m13-l3:76 „spasować”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "O poker dá um retorno",
+  "nowy": "O pôquer dá um retorno",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-08 Pisownia niespójna z resztą modułu i interfejsem („pôquer”: m12-l1:96, m12-l3:104, m12-l4:113); pl m12-l2:89 „Poker”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l3-tilt.md",
+  "stary": "leia o cartão sobre jogo responsável na lição",
+  "nowy": "leia o quadro “Jogo responsável” na lição",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-09 Ta sama „karta o odpowiedzialnej grze” (pl m12-l3:133, m12-l4:102) nazwana w m12-l4:102 „quadro “Jogo responsável””; „cartão” to w m13 karta powtórek",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l1-wariancja.md",
+  "stary": "vencedores nos micro stakes, um",
+  "nowy": "vencedores nos microlimites, um",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-10 „mikrostawki” = „microlimites” (terms-def stakes, modules.yaml m10; termin stakes = „limite”); pl m12-l1:74 „na mikrostawkach”",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l1-wariancja.md",
+  "stary": "vencedores nos micro stakes. O",
+  "nowy": "vencedores nos microlimites. O",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-11 jw.; pl m12-l1:93",
+  "grupa": "pt-BR-L7"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l1-wariancja.md",
+  "stary": "vencedores nos micro stakes costumam",
+  "nowy": "vencedores nos microlimites costumam",
+  "waga": "NISKIE",
+  "powod": "pt-BR-L7-12 jw.; pl m12-l1:100",
+  "grupa": "pt-BR-L7"
+ }
+]

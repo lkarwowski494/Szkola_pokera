@@ -1,0 +1,92 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "(recuerda el alfa de la primera lección)",
+  "nowy": "(recuerda el alpha de la primera lección)",
+  "waga": "ŚR",
+  "powod": "es-L3-01 niespójna nazwa terminu alpha: w m6-l1 (definicja) i terms-nazwy „alpha”, tu „alfa”",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "es un arma importante frente a los c-bets (casi siempre eliges",
+  "nowy": "es un arma importante frente a los c-bets (la mayoría de las veces eliges",
+  "waga": "ŚR",
+  "powod": "es-L3-02 pl „najczęściej” (en „most of the time”), nie „prawie zawsze”",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "tras su {{t:call|pago}}, {{n:xr.example.extra}} más",
+  "nowy": "tras su {{t:call|igualada}}, {{n:xr.example.extra}} más",
+  "waga": "NISKIE",
+  "powod": "es-L3-03 call nazwany dwojako w pliku (igualar / pago); rzeczownik jak w m6-l1: igualada",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "para que tus {{t:call|pagos}} no sean todos débiles",
+  "nowy": "para que tus {{t:call|igualadas}} no sean todas débiles",
+  "waga": "NISKIE",
+  "powod": "es-L3-04 call nazwany dwojako w pliku (igualar / pagos)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "es un buen {{t:call|pago}} con un precio",
+  "nowy": "es una buena {{t:call|igualada}} con un precio",
+  "waga": "NISKIE",
+  "powod": "es-L3-05 call nazwany dwojako w pliku (igualar / pago)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l3-check-raise.md",
+  "stary": "el solver solo {{t:call|iguala}} con parte de las {{t:two-pair|dobles parejas}}",
+  "nowy": "con parte de las {{t:two-pair|dobles parejas}} el solver se limita a {{t:call|igualar}}",
+  "waga": "NISKIE",
+  "powod": "es-L3-06 dwuznaczne „solo iguala con parte” (czyta się: sprawdza tylko częścią); pl: część dwóch par solver tylko sprawdza",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l2-sprawdzenie.md",
+  "stary": "{{t:oesd|proyecto abierto de escalera}}",
+  "nowy": "{{t:oesd|proyecto de escalera abierta}}",
+  "waga": "NISKIE",
+  "powod": "es-L3-07 forma OESD niespójna z resztą modułu (m6-l3: proyecto de escalera abierta)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m6-l2-sprawdzenie.md",
+  "stary": "- normalmente también con as como carta más alta.",
+  "nowy": "- normalmente también as como carta más alta.",
+  "waga": "NISKIE",
+  "powod": "es-L3-08 zdublowany przyimek: „continúas con: … con as” (pozostałe punkty listy bez „con”)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m7-l1-druga-beczka.md",
+  "stary": "el rival {{t:call|iguala}} y después apuesta en el turn",
+  "nowy": "el rival {{t:call|iguala}} y después otra apuesta en el turn",
+  "waga": "NISKIE",
+  "powod": "es-L3-09 „el rival iguala y después apuesta” czyta się, jakby betował rywal; pl: c-bet, call, a potem bet (agresora)",
+  "grupa": "es-L3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m7-l1-druga-beczka.md",
+  "stary": "cuando bloquean el {{t:value|valor}} del rival",
+  "nowy": "cuando bloquean el valor del rival",
+  "waga": "NISKIE",
+  "powod": "es-L3-10 dodany znacznik {{t:value}}, którego nie ma w pl (m7-l1:137 „blokują wartość rywala” zwykłym tekstem)",
+  "grupa": "es-L3"
+ }
+]

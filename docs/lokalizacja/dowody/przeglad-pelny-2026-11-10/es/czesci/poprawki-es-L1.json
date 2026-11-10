@@ -1,0 +1,65 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m2-l2-pot-odds.md",
+  "stary": "{{t:implied-odds|probabilidades implícitas}}",
+  "nowy": "{{t:implied-odds|odds implícitas}}",
+  "waga": "ŚR",
+  "powod": "es-L1-01 nazwa terminu implied-odds wg terms-nazwy.yaml: «odds implícitas»",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m3-l1-pozycja.md",
+  "stary": "desde {{t:early-position|posiciones tempranas}}",
+  "nowy": "desde las {{t:early-position|primeras posiciones}}",
+  "waga": "ŚR",
+  "powod": "es-L1-02 nazwa terminu early-position wg terms-nazwy.yaml: «primeras posiciones»",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "casi tan amplio como el Botón",
+  "nowy": "más o menos tan amplio como el Botón",
+  "waga": "ŚR",
+  "powod": "es-L1-03 pl «podobnie szeroko jak Button» (en «about as wide as»); «casi tan amplio» sugeruje węziej",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "Para las {{t:position|posiciones}} tempranas en",
+  "nowy": "Para las primeras {{t:position|posiciones}} en",
+  "waga": "NISKIE",
+  "powod": "es-L1-04 spójność z nazwą terminu early-position («primeras posiciones»)",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l1-3bet.md",
+  "stary": "{{t:pair|Pareja}}: 22",
+  "nowy": "{{t:pair|Pareja}} de 22",
+  "waga": "NISKIE",
+  "powod": "es-L1-05 pl «Para 22»; dwukropek nienaturalny",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l1-3bet.md",
+  "stary": "99, KQo y AJo se juegan de formas distintas",
+  "nowy": "99, KQo y AJo a veces se juegan de formas distintas",
+  "waga": "NISKIE",
+  "powod": "es-L1-06 pl «bywają grane różnie» — zgubione «bywają»",
+  "grupa": "es-L1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m4-l2-obrona-bb.md",
+  "stary": "de la parte baja de tu {{t:range|rango}} de {{t:call|igualar}}",
+  "nowy": "de la parte baja del {{t:range|rango}} con el que {{t:call|igualas}}",
+  "waga": "NISKIE",
+  "powod": "es-L1-07 niegramatyczne «rango de igualar»; jak w m4-l1-3bet.md:99",
+  "grupa": "es-L1"
+ }
+]

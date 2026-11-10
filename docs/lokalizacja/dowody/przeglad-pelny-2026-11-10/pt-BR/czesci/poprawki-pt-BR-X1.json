@@ -1,0 +1,92 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m3.yaml",
+  "stary": "Quem agiu por último no pré-flop",
+  "nowy": "Quem agiu por último no preflop",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-01 termin preflop: terms-nazwy „preflop”, m1 używa „preflop” (pl m3.yaml:13)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m3.yaml",
+  "stary": "No pré-flop, os blinds agem",
+  "nowy": "No preflop, os blinds agem",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-02 termin preflop jak w terms-nazwy (pl m3.yaml:13)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m3.yaml",
+  "stary": "primeiro a agir no pré-flop",
+  "nowy": "primeiro a agir no preflop",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-03 termin preflop jak w terms-nazwy (pl m3.yaml:18)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "({{t:pot}} + bet) = {{n:exam.m6.pot}}",
+  "nowy": "({{t:pot}} + aposta) = {{n:exam.m6.pot}}",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-04 „bet” obok „aposta” w tym samym pliku; terms-nazwy bet = „aposta”, m5 ma „aposta ÷ (pote + aposta)” (pl m6.yaml:10)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "alpha = bet ÷ ({{t:pot}} + bet)",
+  "nowy": "alpha = aposta ÷ ({{t:pot}} + aposta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-05 „bet” zamiast „aposta” we wzorze (pl m6.yaml:17)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "{{t:bluff|blefe}} é bet ÷ ({{t:pot}} + bet)",
+  "nowy": "{{t:bluff|blefe}} é aposta ÷ ({{t:pot}} + aposta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-06 „bet” zamiast „aposta” we wzorze (pl m6.yaml:19)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "Sim: bet ÷ ({{t:pot}} + 2·bet)",
+  "nowy": "Sim: aposta ÷ ({{t:pot}} + 2·aposta)",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-07 „bet” zamiast „aposta” we wzorze (pl m6.yaml:47)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "Contra um bet maior",
+  "nowy": "Contra uma aposta maior",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-08 „bet” zamiast „aposta” w zdaniu (pl m6.yaml:47)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "alpha (bet ÷ ({{t:pot}} + bet))",
+  "nowy": "alpha (aposta ÷ ({{t:pot}} + aposta))",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-09 „bet” zamiast „aposta” we wzorze (pl m6.yaml:48)",
+  "grupa": "pt-BR-X1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m6.yaml",
+  "stary": "tamanho do bet. Um bet maior",
+  "nowy": "tamanho da aposta. Uma aposta maior",
+  "waga": "ŚR",
+  "powod": "pt-BR-X1-10 „bet” zamiast „aposta” w zdaniu, 2× (pl m6.yaml:49)",
+  "grupa": "pt-BR-X1"
+ }
+]

@@ -1,0 +1,5 @@
+[
+  { "jezyk": "pt-BR", "cel": "content/pt-BR/exams/m10.yaml", "stary": "{{t:rake-cap|limite}}", "nowy": "{{t:rake-cap|teto}}", "waga": "ŚR", "powod": "pt-BR-X2-01 termin rake-cap = „teto de rake” (terms-nazwy), w lekcji m10-l4 „teto”; „limite” to w pt-BR nazwa terminu stakes, więc zdanie myli", "grupa": "pt-BR-X2" },
+  { "jezyk": "pt-BR", "cel": "content/pt-BR/exams/m9.yaml", "stary": "com um único raise", "nowy": "com um único aumento", "waga": "ŚR", "powod": "pt-BR-X2-02 termin raise = „aumento” (terms-nazwy); lekcje m9 mają „pote com um único aumento”", "grupa": "pt-BR-X2" },
+  { "jezyk": "pt-BR", "cel": "content/pt-BR/exams/m11.yaml", "stary": "}}, igual em {{t:chips|fichas}}", "nowy": "}}, o mesmo que em {{t:chips|fichas}}", "waga": "NISKIE", "powod": "pt-BR-X2-03 „tak samo jak w żetonach”: brak członu porównania, „igual em fichas” czyta się jak „równe w żetonach”", "grupa": "pt-BR-X2" }
+]

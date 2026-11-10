@@ -1,0 +1,20 @@
+[
+  {
+    "jezyk": "pt-BR",
+    "cel": "content/pt-BR/lessons/m4-l3-wobec-3betu.md",
+    "stary": "Um às forte do mesmo naipe",
+    "nowy": "Um ás forte do mesmo naipe",
+    "waga": "ŚR",
+    "powod": "pt-BR-L2-01 literówka: „às” (ściągnięcie a+as) zamiast „ás” (as, karta); pl m4-l3-wobec-3betu.md:76 „Mocny as w kolorze”",
+    "grupa": "pt-BR-L2"
+  },
+  {
+    "jezyk": "pt-BR",
+    "cel": "content/pt-BR/lessons/m5-l4-bez-pozycji.md",
+    "stary": "abrir mão da mão",
+    "nowy": "abandonar a mão",
+    "waga": "NISKIE",
+    "powod": "pt-BR-L2-02 niezręczne powtórzenie „abrir mão da mão”; pl m5-l4-bez-pozycji.md:99 „nie oznacza rezygnacji z ręki”",
+    "grupa": "pt-BR-L2"
+  }
+]

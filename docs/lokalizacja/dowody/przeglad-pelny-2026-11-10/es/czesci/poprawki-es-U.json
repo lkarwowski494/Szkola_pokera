@@ -1,0 +1,38 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/modules.yaml",
+  "stary": "Valor, faroles, bloqueadores",
+  "nowy": "Valor, faroles, blockers",
+  "waga": "ŚR",
+  "powod": "es-U-01 termin blocker: w terms-nazwy.yaml nazwa „blocker”, nie „bloqueador”",
+  "grupa": "es-U"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"small\": \"{{t:c-bet|c-bet}} pequeña\"",
+  "nowy": "\"small\": \"{{t:c-bet|c-bet}} pequeño\"",
+  "waga": "NISKIE",
+  "powod": "es-U-02 rodzaj c-bet: w treści es męski (un c-bet, c-bet pequeño), tu żeński",
+  "grupa": "es-U"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "también más finas",
+  "nowy": "también más finos",
+  "waga": "NISKIE",
+  "powod": "es-U-03 rodzaj value bet: w treści es męski (un value bet, del value bet), tu zgoda żeńska",
+  "grupa": "es-U"
+ },
+ {
+  "jezyk": "es",
+  "cel": "docs/sklep/aso/metadane-fala2.json",
+  "stary": "un índice de progreso",
+  "nowy": "un indicador de nivel",
+  "waga": "NISKIE",
+  "powod": "es-U-04 nazwa funkcji jak w aplikacji: advancement.title = „Indicador de nivel”",
+  "grupa": "es-U"
+ }
+]

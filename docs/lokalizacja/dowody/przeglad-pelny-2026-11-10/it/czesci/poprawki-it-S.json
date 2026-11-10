@@ -1,0 +1,146 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m10-l2-typy-graczy.md",
+  "stary": "      - { text: \"{{t:check|Faccio check}}: {{t:bluff|bluffare}} un {{t:maniac|maniaco}} raramente funziona\", correct: true, why: \"Il {{t:maniac|maniaco}} raramente {{t:fold|folda}} e spesso {{t:raise|rilancia}}. Con lui guadagni {{t:call|chiamando}} con mani più forti, non con i {{t:bluff}}.\" }",
+  "nowy": "      - { text: \"{{t:check|Faccio check}}: {{t:bluff|bluffare}} un {{t:maniac|maniac}} raramente funziona\", correct: true, why: \"Il {{t:maniac|maniac}} raramente {{t:fold|folda}} e spesso {{t:raise|rilancia}}. Con lui guadagni {{t:call|chiamando}} con mani più forti, non con i {{t:bluff}}.\" }",
+  "waga": "ŚR",
+  "powod": "it-S-01 m10-l2-typy-graczy.md:89 (2×) terms-nazwy.yaml: nazwa terminu maniac = „maniac” (wzorzec it-R2-01…03, it-X2)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m10-l2-typy-graczy.md",
+  "stary": "      - { text: \"Punto, perché il {{t:check}} di un {{t:maniac|maniaco}} indica debolezza\", why: \"Può darsi, ma il {{t:maniac|maniaco}} spesso {{t:raise|rilancia}} con qualsiasi mano. Il {{t:bluff}} ha bisogno di {{t:fold}}, e lui ne concede pochi.\" }",
+  "nowy": "      - { text: \"Punto, perché il {{t:check}} di un {{t:maniac|maniac}} indica debolezza\", why: \"Può darsi, ma il {{t:maniac|maniac}} spesso {{t:raise|rilancia}} con qualsiasi mano. Il {{t:bluff}} ha bisogno di {{t:fold}}, e lui ne concede pochi.\" }",
+  "waga": "ŚR",
+  "powod": "it-S-02 m10-l2-typy-graczy.md:90 (2×) terms-nazwy.yaml: nazwa terminu maniac = „maniac” (wzorzec it-R2, it-X2)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m10-l2-typy-graczy.md",
+  "stary": "}} e il {{t:maniac|maniaco}} si basa",
+  "nowy": "}} e il {{t:maniac|maniac}} si basa",
+  "waga": "ŚR",
+  "powod": "it-S-03 m10-l2-typy-graczy.md:142 terms-nazwy.yaml: nazwa terminu maniac = „maniac” (wzorzec it-R2, it-X2)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l3-implied-odds.md",
+  "stary": "un {{t:oesd|progetto di scala bilaterale}}",
+  "nowy": "un {{t:oesd|OESD}}",
+  "waga": "ŚR",
+  "powod": "it-S-04 m7-l3-implied-odds.md:54 terms-nazwy.yaml: nazwa terminu oesd = „OESD” (wzorzec it-L1, it-L3, it-X2; D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m5-l1-tekstury.md",
+  "stary": "un {{t:oesd|progetto di scala bilaterale}}",
+  "nowy": "un {{t:oesd|OESD}}",
+  "waga": "ŚR",
+  "powod": "it-S-05 m5-l1-tekstury.md:101 terms-nazwy.yaml: nazwa terminu oesd = „OESD” (D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": " out di un {{t:oesd|progetto di scala bilaterale}}. Per il",
+  "nowy": " out di un {{t:oesd|OESD}}. Per il",
+  "waga": "ŚR",
+  "powod": "it-S-06 m2.yaml:12 terms-nazwy.yaml: nazwa terminu oesd = „OESD” (D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": " tu hai un {{t:oesd|progetto di scala bilaterale}} ({{n:ou",
+  "nowy": " tu hai un {{t:oesd|OESD}} ({{n:ou",
+  "waga": "ŚR",
+  "powod": "it-S-07 m2.yaml:36 terms-nazwy.yaml: nazwa terminu oesd = „OESD” (D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "op. Hai un {{t:oesd|progetto di scala bilaterale}} e l'avv",
+  "nowy": "op. Hai un {{t:oesd|OESD}} e l'avv",
+  "waga": "ŚR",
+  "powod": "it-S-08 m2.yaml:45 terms-nazwy.yaml: nazwa terminu oesd = „OESD” (D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "rn. Hai un {{t:oesd|progetto di scala bilaterale}}. Il {{t",
+  "nowy": "rn. Hai un {{t:oesd|OESD}}. Il {{t",
+  "waga": "ŚR",
+  "powod": "it-S-09 m2.yaml:86 terms-nazwy.yaml: nazwa terminu oesd = „OESD” (D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m13-l2-powtorki.md",
+  "stary": "sullo {{t:exploit|sfruttamento}}",
+  "nowy": "sull'{{t:exploit|exploit}}",
+  "waga": "ŚR",
+  "powod": "it-S-10 m13-l2-powtorki.md:96 terms-nazwy.yaml: nazwa terminu exploit = „exploit” (wzorzec it-L5-06)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{t:exploit|sfruttamento}}",
+  "nowy": "{{t:exploit|exploit}}",
+  "waga": "ŚR",
+  "powod": "it-S-11 m10-l3-odejscie-od-bazy.md:87 terms-nazwy.yaml: nazwa terminu exploit = „exploit” (wzorzec it-L5-06)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m8-l2-ile-blefow.md",
+  "stary": "sullo {{t:exploit|sfruttamento}}",
+  "nowy": "sull'{{t:exploit|exploit}}",
+  "waga": "ŚR",
+  "powod": "it-S-12 m8-l2-ile-blefow.md:142 terms-nazwy.yaml: nazwa terminu exploit = „exploit” (wzorzec it-L5-06)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m6.yaml",
+  "stary": "La {{t:top-pair|coppia massima}}",
+  "nowy": "La {{t:top-pair|top pair}}",
+  "waga": "ŚR",
+  "powod": "it-S-13 m6.yaml:77 terms-nazwy.yaml: nazwa terminu top-pair = „top pair” (wzorzec it-L2, it-L3, it-L5, it-X2)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "flop asciutto:",
+  "nowy": "flop secco:",
+  "waga": "ŚR",
+  "powod": "it-S-14 rules.yaml:338 terms-nazwy.yaml: nazwa terminu dry = „secco” (wzorzec it-R1-02…05, D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "flop asciutti:",
+  "nowy": "flop secchi:",
+  "waga": "ŚR",
+  "powod": "it-S-15 rules.yaml:338 terms-nazwy.yaml: nazwa terminu dry = „secco” (wzorzec it-R1-02…05, D-430)",
+  "grupa": "it-S"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "confine asciutto/intermedio",
+  "nowy": "confine secco/intermedio",
+  "waga": "ŚR",
+  "powod": "it-S-16 rules.yaml:338 terms-nazwy.yaml: nazwa terminu dry = „secco” (wzorzec it-R1-02…05, D-430)",
+  "grupa": "it-S"
+ }
+]
