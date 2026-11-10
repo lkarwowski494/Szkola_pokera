@@ -42,7 +42,7 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 ```
 
 ## 5. Stan i plan (2026-11-09 22:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
-**Szczyt kodu z dowodem (00:33): 200d6a2 (E2E 42717745661 zielone); wcześniej e67157a (42709979531).** Wcześniej: 4e1c00d (E2E 42673161093 zielone 9/9); 4763dc6 (AA) E2E 42690423784 zielone. Po nim 935c9cf (AC, D-376) — **E2E 42700220213 w toku od 21:12** (długo; > 70 min → list_workflow_jobs, ocena zawieszenia).
+**Szczyt kodu z dowodem (01:51): 6afa34d (E2E 42732430729 zielone, CI 42732569378 na 3d9b776 zielone); wcześniej 804160d, 200d6a2, e67157a.** Wcześniej: 4e1c00d (E2E 42673161093 zielone 9/9); 4763dc6 (AA) E2E 42690423784 zielone. Po nim 935c9cf (AC, D-376) — **E2E 42700220213 w toku od 21:12** (długo; > 70 min → list_workflow_jobs, ocena zawieszenia).
 **Sesje w toku:**
 - **AE** `session_01T66VBxav4k25kuxvggJK2A` (kod, rola 09): nałożenie ja, zh-Hant, pt-BR, fr razem (URL D-365, K-05 D-367, `--zastosuj` + procedura AC dla 14 jedn./język, wydanie jak K3 en, D-368/D-369/D-373); push dopiero po E2E 42700220213.
 - **AF** `session_01T66VBzWM2UMShgAmsAohEN` (docs + `store/app-store-metadata.json`, rola 10/11): metadane sklepu nowych języków, słowa kluczowe, `docs/sklep/search-ads-kroki.md`, znaki towarowe „PokerGym” (D-377, D-378 — dosłane wiadomością).
