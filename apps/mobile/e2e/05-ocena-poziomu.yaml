@@ -1,5 +1,6 @@
-# PR-01, R-36, R-35: powitanie, ocena pominięta (start z pierwszej lekcji M0, bez ekranu zakupu) i ocena przerwana
-# (po ponownym uruchomieniu ocena od początku albo „Pomiń”, postęp pusty). BR-ONB-001-a–c, BR-ONB-004.
+# PR-01, R-36, R-35: powitanie z wyborem na starcie (D-475), „Zacznij od początku” (start z pierwszej lekcji M0, bez
+# ekranu zakupu) i ocena przerwana (po ponownym uruchomieniu ekran wyboru, postęp pusty). „Nie wiem” zamiast „Pomiń”
+# na ekranie pytania. BR-ONB-001, BR-ONB-004.
 appId: pl.lkarwowski.szkolapokera
 name: Ocena poziomu
 ---
@@ -10,26 +11,30 @@ name: Ocena poziomu
 - extendedWaitUntil:
     visible: '.*bez gry na pieniądze.*'
     timeout: 30000
-- takeScreenshot: 05-powitanie
+- takeScreenshot: 05-powitanie-wybor
 - assertNotVisible: '.*(wygr|online|kasyn).*'
-- tapOn: 'Dalej'
-- assertVisible: 'Pomiń'
+- assertVisible: 'Przejdź test poziomujący'
+- assertVisible: 'Zacznij od początku'
+- tapOn: 'Przejdź test poziomujący'
+- assertVisible: 'Nie wiem'
+- assertNotVisible: 'Pomiń'
 - tapOn:
     id: 'option-0'
-- assertVisible: 'Pomiń'
-# przerwanie po pierwszej odpowiedzi
+- assertVisible: 'Nie wiem'
+# przerwanie po pierwszej odpowiedzi: po ponownym uruchomieniu ekran wyboru, nie pytanie
 - stopApp
 - launchApp:
     clearState: false
     arguments:
       AppleLanguages: '(pl)'
 - extendedWaitUntil:
-    visible: 'Pomiń'
+    visible: 'Przejdź test poziomujący'
     timeout: 30000
-- takeScreenshot: 05-po-przerwaniu
-- tapOn: 'Pomiń'
+- assertNotVisible: 'Nie wiem'
+- takeScreenshot: 05-po-przerwaniu-wybor
+- tapOn: 'Zacznij od początku'
 - extendedWaitUntil:
     visible: '${LEKCJA_START_TYTUL}'
     timeout: 30000
 - assertNotVisible: '.*(\$|€|zł|Przywróć zakupy).*'
-- takeScreenshot: 05-dzis-po-pominieciu
+- takeScreenshot: 05-dzis-po-rozpoczeciu-od-poczatku

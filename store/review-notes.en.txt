@@ -8,7 +8,7 @@ WHAT THE APP IS
 
 NO ACCOUNT, NO SERVER
 - No sign-in and no backend. Progress is stored only on the device. No demo account is needed.
-- First launch: a welcome screen, then a short placement check (up to 8 questions); "Skip" works on every question.
+- First launch: a welcome screen with a choice: "Take the placement test" (up to 8 questions; "I don't know" is available on every question) or "Start from the beginning" (no questions).
 
 IN-APP PURCHASES (one subscription group: quarterly and yearly auto-renewable subscriptions, plus a one-time lifetime unlock; no introductory offers or free trials)
 - Free without purchase: all lessons, the placement check and the first attempt at each module exam. One more activity per day is free: a practice session, a review session or an exam retake.

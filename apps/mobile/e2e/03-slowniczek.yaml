@@ -6,7 +6,7 @@ name: Słowniczek
     clearState: true
     arguments:
       AppleLanguages: '(pl)'
-# pierwsze uruchomienie (cz. 5b krok 3): powitanie → „Pomiń” w ocenie poziomu → „Dziś” (BR-ONB-001-b)
+# pierwsze uruchomienie (cz. 5b krok 3): powitanie → „Zacznij od początku” → „Dziś” (BR-ONB-001, D-475)
 - runFlow: wspolne/za-powitaniem.yaml
 - extendedWaitUntil:
     visible: 'No-Limit Hold’em od zera.*'

@@ -226,7 +226,7 @@ test('kontrola: kategoria EDUCATION + GAMES (D-395); dostępność i grupa cen =
 // każda etykieta, do której notatki odsyłają, = tekst z en.json (recenzent widzi aplikację po angielsku).
 test('notatki dla recenzenta: bez kluczy słownika w nawiasach; etykiety = en.json', () => {
   const en = js('apps/mobile/src/i18n/locales/en.json'); const t = (k) => k.split('.').reduce((o, x) => o?.[x], en);
-  const etykiety = ['placement.skip', 'tabs.today', 'today.practice', 'start.begin', 'session.end', 'start.fullAccess', 'purchase.restore', 'settings.manage', 'data.title', 'settings.reset', 'settings.help'];
+  const etykiety = ['welcome.takeTest', 'welcome.startFresh', 'placement.dontKnow', 'tabs.today', 'today.practice', 'start.begin', 'session.end', 'start.fullAccess', 'purchase.restore', 'settings.manage', 'data.title', 'settings.reset', 'settings.help'];
   for (const f of ['store/review-notes.en.txt', 'store/review-notes.md']) {
     const tekst = f.endsWith('.md') ? rd(f).split('```text')[1].split('```')[0] : rd(f);
     assert.doesNotMatch(tekst, /\((?:[a-z]+[A-Z]?[a-z]*\.)+[a-zA-Z]+\)/, `${f}: klucz w nawiasie`);
