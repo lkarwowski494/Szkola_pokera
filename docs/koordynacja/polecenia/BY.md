@@ -1,0 +1,12 @@
+# Sesja BY: BI-002 pusta kolejka Powtórek (projekt) — Szkoła Pokera
+Koordynator: session_01T66VBzJJVF7UGtLwjYvqQx (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: koordynacja (tylko do odczytu).
+
+1. Rola: 04-studio-projektowe w trybie fix (zadanie BI-002, moduł render-i-krytyka). Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-by-powtorki` @ 70fdf40 (inny HEAD: zgłoś). Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem. Sesja tylko z dokumentami (bez kodu aplikacji).
+3. Zadania:
+   1. BI-002 (ŚR, z recenzji BL, `docs/programista/stan-bi.md` sekcja „Poprawki po recenzji BL”, punkt 002): kafelek Powtórki przy pustej kolejce („Po pierwszej lekcji”/„Brak na dziś”) prowadzi przez ekran startu (licznik; przy wyczerpanym limicie „Pełny dostęp”) do pustej kolejki; projekt tego stuknięcia nie opisuje. Opcje z BI: (a) przy 0 kart pominąć ekran startu i od razu pokazać pusty stan z następnym terminem; (b) kafelek w tych stanach nieaktywny. Najpierw sprawdź, jak to rozwiązał Trening (`lkarwowski494/trening`, publiczne, klon --depth 1; `plik:linia`, data odczytu — zasada D-191). Gotowe: opis stanu i przejścia w `docs/design/design-spec.md` (lub pliku, który spec wskazuje dla menu W2), makieta/zrzut stanu, teksty pl w systemie 04, rekomendacja.
+   2. To decyzja produktowa (wygląd/zachowanie) — tryb „właściciel”: przygotuj ≥ 2 opcje z kompromisem i rekomendacją pierwszą (według wartości dla użytkownika) i wyślij jako PYTANIE do koordynatora; do odpowiedzi zapisz w specu rekomendowaną jako warunkową. Implementację zleci koordynator sesji 08.
+4. Zakazy: jak w szablonie — nie scalasz, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, bez --no-verify i force-push, bez AskUserQuestion; STOP-y roli i punkt czyszczenia → raport do koordynatora.
+5. Decyzje: numery z puli **D-685…D-689**; zapis w osobnym pliku **`docs/decyzje/BY.md`** (KO-054), nie w `docs/decyzje.md`.
+6. Kontekst: od 30% kończysz krok, stan w `docs/design/stan-by.md`, push, PRZEKAZANIE; % kontekstu w każdym raporcie.
+7. Raporty ≤ 10 linii przez send_message: PYTANIE (pełna treść, opcje, rekomendacja), PRZEKAZANIE (SHA, pliki, decyzje, koszt, otwarte).
