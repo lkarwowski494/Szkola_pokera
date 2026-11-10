@@ -111,7 +111,7 @@
   module: m2
   if: "equity của bạn nhỏ hơn equity cần thiết (với {{t:draw|bài chờ}}: cơ hội trúng trên những lá bạn sẽ được xem với giá này)"
   then: "bạn {{t:fold|bỏ bài}} (khi không có lý lẽ bổ sung, ví dụ implied odds)"
-  because: "mỗi lần {{t:call|theo}} như vậy đều mất tiền về lâu dài"
+  because: "{{t:call|theo}} chỉ có lời khi bạn thắng ít nhất thường xuyên như mức giá đòi hỏi; thắng ít hơn thì mỗi lần {{t:call|theo}} như vậy, trung bình bạn bỏ vào nhiều hơn số lấy lại từ {{t:pot|pot}}"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "tính toán: EV = equity × (pot sau khi bạn theo) − khoản theo; âm khi equity < khoản theo ÷ pot sau khi bạn theo"
@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solver preflop của dự án, bàn 9 người 100bb (ADR-20; tài liệu 10, “Đo N9a cuối cùng”: xác thực một phần N1–N4, NashConv 0,0094bb; thành phần UTG–UTG+2 chưa được kiểm chứng, còn tần suất chưa được xác thực ở bậc 2 (D-153), nên quy tắc chỉ nêu hướng, không có số liệu solver; mức heuristic, D-144). Phù hợp với khoảng chung của các bảng 9-max bậc 4: UTG khoảng 9–13%, UTG+1 khoảng 11–14% (trang bảng preflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; trang bảng preflop thứ hai, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; tài liệu 10, “Cấu hình 9-max 100bb”). Ván chơi sau khi UTG–UTG+2 bỏ bài chính là ván 6-max (kiểm thử cây)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "bạn có hai lá khác nhau và xem chúng có thể cùng tạo {{t:straight|sảnh}} không"
+  then: "càng gần nhau càng nhiều cách: hai lá liền nhau từ 5-4 đến J-T nằm trong bốn {{t:straight|sảnh}} khác nhau, cách một lá từ 5-3 đến Q-T thì ba, còn cách năm bậc trở lên (ví dụ 7-2) thì không có sảnh nào"
+  because: "{{t:straight|Sảnh}} là năm bậc liên tiếp; khoảng cách giữa hai lá càng lớn thì càng ít bộ năm như vậy chứa cả hai (A cũng được tính là 1)"
+  level: math
+  source: "tính toán: kiểm tra mười sảnh từ A-2-3-4-5 đến 10-J-Q-K-A cho cả 169 loại tay; định nghĩa: quy định phòng bài được cơ quan quản lý California phê duyệt (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "bạn có một lá cao với lá thứ hai yếu hơn (ví dụ K5 hoặc A7), và đối thủ có thể có cùng lá cao đó với {{t:kicker}} tốt hơn"
+  then: "khi cả hai cùng bắt {{t:pair|đôi}} bằng lá đó, đối thủ có {{t:kicker}} tốt hơn thắng bạn (tay bạn bị áp đảo); hai lá cao thì ngược lại: {{t:kicker}} cao thắng các tay yếu hơn có cùng lá đó (đơn giản hóa: bỏ qua các lá trên {{t:board|board}}, vốn có thể khiến {{t:kicker}} không còn tác dụng và {{t:pot|pot}} bị chia)"
+  because: "khi cùng {{t:pair|đôi}}, {{t:kicker}} quyết định, nên trước flop, khi cả hai tay đều khác chất, tay bị áp đảo thắng ít hơn tay áp đảo nó; tay bị áp đảo đồng chất (suited) đôi khi gần như ngang ngửa với nó (ví dụ A2s gặp A3o); vì vậy tay này khó chơi (đơn giản hóa: nguồn đào tạo nói điều này về việc phòng thủ trước 3-bet)"
+  level: heuristic
+  source: "luật: kicker quyết định khi cùng bộ bài (R-M0-002); tính toán: equity của tay bị áp đảo dưới một nửa trong mọi cặp đấu; từ điển poker (https://www.pokerskill.com/poker-glossary/dominated-hand/); trang đào tạo (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "cả hai lá của bạn đều thấp (9 trở xuống), kể cả khi là {{t:pair|đôi}} thấp"
+  then: "trên flop thường có ít nhất một lá cao hơn cả hai, và đối thủ bắt được lá đó có {{t:pair|đôi}} cao hơn đôi từ bài của bạn"
+  because: "flop có ba lá, và bộ bài có nhiều lá cao hơn một tay thấp: lá cao của bạn càng thấp thì càng hay có một lá như vậy"
+  level: math
+  source: "tính toán: xác suất = 1 − C(m, 3) ÷ C(50, 3), m = số lá không cao hơn lá cao của tay, trừ hai lá của tay; đối chiếu với toàn bộ 19.600 flop cho cả 169 loại"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "bạn có {{t:pair|đôi}} trên tay trước flop"
+  then: "bạn đã có bài thành: tay không có {{t:pair|đôi}} cần {{t:community-cards}} giúp mới thắng được"
+  because: "{{t:pair|đôi}} xếp trên {{t:high-card}}, và trước flop tay không có đôi chỉ có lá cao"
+  level: rules
+  source: "luật Texas Hold'em: quy định phòng bài được cơ quan quản lý California phê duyệt (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), One Pair xếp trên High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "solver push/fold của dự án (pushfold.json, ba người chơi); khớp với Ganzfried và Sandholm, AAMAS 2008, bảng 2, single hand: “SB jam after jam … 0.234”, “BB jam after jam/fold … 0.308”, “BB jam after jam/jam … 0.197”"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "tất cả người chơi trong {{t:pot|pot}} đều all-in trước flop"
+  then: "không còn {{t:bet|cược}} nữa: ván bài được quyết định sau khi chia {{t:community-cards}}, và nếu không ai có {{t:pair|đôi}} trở lên, lá cao hơn thắng (đơn giản hóa: nếu năm lá tốt nhất đều nằm trên {{t:board|board}}, thì {{t:split-pot|chia pot}})"
+  because: "không còn {{t:bet|cược}} nên không ai có thể {{t:fold|bỏ bài}}, chỉ thứ hạng bài còn quan trọng; nếu chỉ có lá cao thì lá cao nhất quyết định"
+  level: rules
+  source: "luật Texas Hold'em: quy định phòng bài được cơ quan quản lý California phê duyệt (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; luật giải đấu Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), luật 17 Face Up for All-Ins"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://www.pokertda.com/view-poker-tda-rules/" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

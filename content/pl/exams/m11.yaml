@@ -22,7 +22,7 @@ drills:
     rules: [R-M11-004]
     prompt: "{{t:small-blind|Mały blind}}, {{n:exam.m11.fe.depth}}, bez ante, wszyscy {{t:fold|spasowali}}. Jak często {{t:big-blind}} musiałby {{t:fold|pasować}}, żeby all-in ręką bez żadnych szans wyszedł na zero?"
     options:
-      - { text: "W ponad {{n:exam.m11.fe.alpha}} przypadków", correct: true, why: "Dokładasz {{n:exam.m11.fe.risk}}, żeby wygrać {{n:m11.push.10.win}} blindów: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. Rywal tak często nie {{t:fold|pasuje}}, więc all-in potrzebuje też equity, gdy rywal {{t:call|sprawdzi}}." }
+      - { text: "W ponad {{n:exam.m11.fe.alpha}} przypadków", correct: true, why: "Ryzykujesz dużo więcej, niż wygrywasz, więc sam {{t:bluff}} potrzebowałby bardzo częstych {{t:fold|pasów}}. Rachunek: dokładasz {{n:exam.m11.fe.risk}}, żeby wygrać {{n:m11.push.10.win}} blindów: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. Rywal tak często nie {{t:fold|pasuje}}, więc all-in potrzebuje też equity, gdy rywal {{t:call|sprawdzi}}." }
       - { text: "W ponad połowie przypadków", why: "Ryzykujesz dużo więcej, niż wygrywasz: {{n:exam.m11.fe.risk}} wobec {{n:m11.push.10.win}}. Próg to ryzyko ÷ (wygrana + ryzyko), czyli ok. {{n:exam.m11.fe.alpha}}." }
       - { text: "Nigdy nie musi: z {{n:exam.m11.fe.depth}} all-in zawsze się opłaca", why: "Ręka bez szans przy showdownie zarabia tylko na {{t:fold|pasach}}, a tych potrzebuje ok. {{n:exam.m11.fe.alpha}}. Dlatego {{t:range}} all-inu, choć szeroki, nie obejmuje wszystkich rąk." }
   - kind: choice
@@ -63,7 +63,7 @@ drills:
     rules: [R-M11-009]
     prompt: "Ten sam spot: bubble factor {{n:exam.m11.bf.value}}. W grze o {{t:chips}} do {{t:call|sprawdzenia}} wystarczy {{n:exam.m11.bf.req-chips}} equity. Ile potrzebujesz według {{t:icm}}?"
     options:
-      - { text: "Ok. {{n:exam.m11.bf.req}}", correct: true, why: "Potrzebne equity = BF ÷ (BF + 1) = strata ÷ (strata + zysk) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. Różnica wobec {{n:exam.m11.bf.req-chips}} to {{t:risk-premium|risk premium}}." }
+      - { text: "Ok. {{n:exam.m11.bf.req}}", correct: true, why: "W {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc {{t:call}} musi wygrywać częściej niż w grze o {{t:chips}}. Rachunek: potrzebne equity = BF ÷ (BF + 1) = strata ÷ (strata + zysk) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. Różnica wobec {{n:exam.m11.bf.req-chips}} to {{t:risk-premium|risk premium}}." }
       - { text: "{{n:exam.m11.bf.req-chips}}, tak samo jak w {{t:chips|żetonach}}", why: "W {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc {{t:call}} musi wygrywać częściej: ok. {{n:exam.m11.bf.req}}." }
       - { text: "Mniej niż {{n:exam.m11.bf.req-chips}}, bo {{t:bubble|bubble}} zmusza rywala do {{t:bluff|blefów}}", why: "Bubble factor powyżej 1 zawsze podnosi potrzebne equity ponad cenę w {{t:chips|żetonach}}. Tu do ok. {{n:exam.m11.bf.req}}." }
   - kind: choice
@@ -83,4 +83,4 @@ drills:
     options:
       - { text: "Z {{t:small-blind|małego blinda}}: ok. {{n:m11.3max.push.sb}} rąk wobec ok. {{n:m11.3max.push.btn}} z Buttona", correct: true, why: "Każdy gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką. Z Buttona {{t:fold|spasować}} muszą dwaj gracze, z {{t:small-blind|małego blinda}} tylko jeden." }
       - { text: "Z Buttona, bo ma najlepszą {{t:position|pozycję}}", why: "Po all-inie nikt już nie podejmuje decyzji po flopie, więc {{t:position|pozycja}} nic tu nie daje. Liczy się, ilu graczy może {{t:call|sprawdzić}}: za Buttonem jest ich dwóch." }
-      - { text: "Tak samo z obu miejsc", why: "Solver {{t:shove|pushuje}} z Buttona ok. {{n:m11.3max.push.btn}}, a z {{t:small-blind|małego blinda}} ok. {{n:m11.3max.push.sb}} rąk. Różnicę robi liczba graczy za tobą." }
+      - { text: "Tak samo z obu miejsc", why: "Liczba graczy za tobą zmienia, jak często wszyscy {{t:fold|spasują}}: z Buttona muszą {{t:fold|spasować}} dwaj gracze, z {{t:small-blind|małego blinda}} tylko jeden. Dlatego solver {{t:shove|pushuje}} z Buttona ok. {{n:m11.3max.push.btn}}, a z {{t:small-blind|małego blinda}} ok. {{n:m11.3max.push.sb}} rąk." }

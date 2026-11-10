@@ -1,0 +1,29 @@
+# pnpm run ci (2026-11-10, HEAD 5cd9d8c), wybrane linie wyniku
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  11 passed (11)
+packages/poker-core test:       Tests  155 passed (155)
+packages/domena test:  Test Files  22 passed (22)
+packages/domena test:       Tests  314 passed (314)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  15 passed (15)
+packages/postep test:       Tests  108 passed (108)
+tools/content-build test:  Test Files  17 passed (17)
+tools/content-build test:       Tests  180 passed (180)
+apps/mobile test: Test Suites: 94 passed, 94 total
+apps/mobile test: Tests:       721 passed, 721 total
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 108 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 128 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 151 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: każdy workflow parsuje się bez błędów
+ok 167 - każdy workflow parsuje się bez błędów
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+0 błędów, 0 uwag
+ci exit 0

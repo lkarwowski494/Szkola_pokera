@@ -111,7 +111,7 @@
   module: m2
   if: "내 에퀴티가 필요한 에퀴티보다 낮을 때({{t:draw|드로우}}라면: 이 가격으로 보게 될 카드에서 적중할 확률)"
   then: "{{t:fold|폴드}}합니다(임플라이드 오즈 같은 추가 근거가 없다면)"
-  because: "그런 {{t:call|콜}}은 모두 장기적으로 돈을 잃습니다"
+  because: "{{t:call|콜}}은 가격이 요구하는 만큼 이상 자주 이길 때만 이득입니다. 그보다 덜 자주 이기면, 그런 {{t:call|콜}}을 할 때마다 {{t:pot|팟}}에서 되찾는 것보다 평균적으로 더 많이 내게 됩니다"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "계산: EV = 에퀴티 × (내 콜 이후의 팟) − 콜 금액. 에퀴티 < 콜 금액 ÷ 내 콜 이후의 팟이면 음수입니다"
@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "프로젝트의 프리플롭 솔버, 9인 테이블 100bb (ADR-20; 문서 10, “최종 N9a 측정”: N1–N4 부분 검증, NashConv 0.0094bb. UTG–UTG+2 구성은 미검증이고 빈도는 2단계 검증이 없으므로(D-153), 이 규칙은 솔버 수치 없이 방향만 제시합니다. heuristic 수준, D-144). 4단계 9-max 차트들의 공통 구간과 일치: UTG 약 9–13%, UTG+1 약 11–14% (프리플롭 차트 사이트, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; 두 번째 프리플롭 차트 사이트, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; 문서 10, “9-max 100bb 구성”). UTG–UTG+2가 폴드한 뒤의 플레이는 정확히 6-max 플레이와 같습니다(트리 테스트)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "서로 다른 두 카드가 있고, 함께 {{t:straight|스트레이트}}를 만들 수 있는지 확인할 때"
+  then: "가까울수록 방법이 많습니다. 5-4부터 J-T까지 이웃한 카드는 서로 다른 네 가지 {{t:straight|스트레이트}}에 들어가고, 5-3부터 Q-T까지 한 칸 떨어진 카드는 세 가지, 다섯 랭크 이상 떨어진 카드(예: 7-2)는 하나도 없습니다"
+  because: "{{t:straight|스트레이트}}는 연속된 다섯 랭크입니다. 카드 사이가 멀수록 둘을 모두 포함하는 다섯 장 묶음이 줄어듭니다(에이스는 1로도 셉니다)"
+  level: math
+  source: "계산: A-2-3-4-5부터 10-J-Q-K-A까지 열 가지 스트레이트를 169개 핸드 클래스 모두에서 확인; 정의: 캘리포니아 규제 당국 승인 카드룸 규정(https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "높은 카드와 약한 두 번째 카드(예: K5, A7)를 가지고 있고, 상대가 같은 높은 카드에 더 좋은 {{t:kicker}}를 가질 수 있을 때"
+  then: "둘 다 그 카드로 {{t:pair|페어}}가 되면 더 좋은 {{t:kicker}}를 가진 상대가 이깁니다(당신의 핸드는 도미네이트된 것입니다). 높은 카드 두 장은 반대로, 높은 {{t:kicker}}가 같은 카드를 가진 약한 핸드를 이깁니다(단순화: {{t:board|보드}} 카드는 고려하지 않았습니다. 보드에 따라 {{t:kicker}}가 의미 없어지고 {{t:pot|팟}}이 나뉠 수 있습니다)"
+  because: "같은 {{t:pair|페어}}라면 {{t:kicker}}로 결정되므로, 플롭 전 두 핸드가 모두 오프수트라면 도미네이트된 핸드는 그것을 도미네이트하는 핸드보다 덜 자주 이깁니다. 도미네이트된 핸드가 수티드라면 거의 비슷할 때도 있습니다(예: A2s 대 A3o). 그래서 플레이하기 어렵습니다(단순화: 트레이닝 자료는 3벳 방어에 대해 이렇게 말합니다)"
+  level: heuristic
+  source: "규칙: 같은 족보면 키커로 결정(R-M0-002); 계산: 도미네이트된 핸드의 에퀴티는 모든 조합에서 절반 미만; 포커 용어집(https://www.pokerskill.com/poker-glossary/dominated-hand/); 트레이닝 사이트(https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "두 카드가 모두 낮을 때(9 이하, 낮은 {{t:pair|페어}} 포함)"
+  then: "플롭에는 보통 두 카드보다 높은 카드가 적어도 한 장 나오고, 그 카드를 맞힌 상대는 당신의 카드로 만든 페어보다 높은 {{t:pair|페어}}를 갖습니다"
+  because: "플롭은 세 장이고 덱에는 낮은 핸드보다 높은 카드가 많습니다. 당신의 높은 카드가 낮을수록 그중 하나가 더 자주 나옵니다"
+  level: math
+  source: "계산: 확률 = 1 − C(m, 3) ÷ C(50, 3), m = 핸드의 높은 카드 이하인 카드(핸드 두 장 제외); 169개 클래스 모두 19,600개 플롭과 대조"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "플롭 전에 {{t:pair|페어}}를 들고 있을 때"
+  then: "이미 완성된 핸드입니다. {{t:pair|페어}}가 없는 핸드가 이를 이기려면 {{t:community-cards}}의 도움이 필요합니다"
+  because: "{{t:pair|페어}}는 족보에서 {{t:high-card}}보다 위이고, 플롭 전에 페어가 없는 핸드는 하이카드뿐입니다"
+  level: rules
+  source: "텍사스 홀덤 규칙: 캘리포니아 규제 당국 승인 카드룸 규정(https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), One Pair는 High Card보다 위"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "프로젝트의 푸시/폴드 솔버(pushfold.json, 3명); Ganzfried와 Sandholm, AAMAS 2008, 표 2, 단일 핸드와 일치: “SB jam after jam … 0.234”, “BB jam after jam/fold … 0.308”, “BB jam after jam/jam … 0.197”"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "{{t:pot|팟}}의 모든 플레이어가 플롭 전에 올인했을 때"
+  then: "더 이상 {{t:bet|벳}}이 없습니다. {{t:community-cards}}가 깔린 뒤의 족보로 결정되고, 아무도 {{t:pair|페어}} 이상이 없으면 높은 카드가 이깁니다(단순화: 가장 좋은 다섯 장이 모두 {{t:board|보드}}에 있으면 {{t:split-pot|스플릿 팟}}이 됩니다)"
+  because: "더 이상 {{t:bet|벳}}이 없으니 아무도 {{t:fold|폴드}}할 수 없고, 족보 순위만 중요합니다. 하이카드끼리는 가장 높은 카드로 결정됩니다"
+  level: rules
+  source: "텍사스 홀덤 규칙: 캘리포니아 규제 당국 승인 카드룸 규정(https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; Poker TDA 토너먼트 규칙(https://www.pokertda.com/view-poker-tda-rules/), 규칙 17 Face Up for All-Ins"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://www.pokertda.com/view-poker-tda-rules/" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

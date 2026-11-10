@@ -1,0 +1,8 @@
+# Porównanie przed/po (BN, egzaminy M6/M9/M11/M12): poprawne odpowiedzi i zbiory kluczy {{n:}} w każdej opcji
+m6.yaml:17 klucze ZGODNE, poprawna ZGODNA, poza why BEZ ZMIAN
+m6.yaml:47 klucze ZGODNE, poprawna ZGODNA, poza why BEZ ZMIAN
+m9.yaml:10 klucze ZGODNE, poprawna ZGODNA, poza why BEZ ZMIAN
+m9.yaml:45 klucze ZGODNE, poprawna ZGODNA, poza why BEZ ZMIAN
+m11.yaml:25 klucze ZGODNE, poprawna ZGODNA, poza why BEZ ZMIAN
+m11.yaml:66 klucze ZGODNE, poprawna ZGODNA, poza why BEZ ZMIAN
+niezgodności: 0 (m12 cofnięte: treść krytyczna z przeglądem D-027, do następnej sesji)

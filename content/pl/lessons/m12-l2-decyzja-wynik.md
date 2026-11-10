@@ -37,7 +37,7 @@ drills:
     rules: [R-M12-004]
     prompt: "Turn. Czysty {{t:flush-draw}}, w {{t:pot|puli}} {{n:ex.pot}}, rywal {{t:bet|stawia}} całą {{t:pot|pulę}}: {{n:ex.bet.pot}}. {{t:call|Sprawdzasz}} i {{t:flush}} wchodzi na riverze. Jak oceniasz {{t:call}}?"
     options:
-      - { text: "Było złe, mimo wygranej", correct: true, why: "Potrzebowałeś {{n:eq.bet-pot}} equity, a miałeś ok. {{n:odds.flush.turn-river}}. Wygrałeś tym razem, ale przy wielu powtórzeniach takie {{t:call}} traci." }
+      - { text: "Było złe, mimo wygranej", correct: true, why: "Z czystym {{t:flush-draw|drawem do koloru}} na turnie, wobec {{t:bet|zakładu}} całej {{t:pot|puli}}, {{t:call}} było złe, bo {{t:flush|kolor}} wchodzi za rzadko jak na tę cenę: cena wymaga wygrywania mniej więcej co trzeciego rozdania ({{n:eq.bet-pot}}), a {{t:flush|kolor}} wchodzi na riverze mniej więcej co piąte (ok. {{n:odds.flush.turn-river}}). Wygrałeś tym razem, ale przy wielu powtórzeniach takie {{t:call}} traci." }
       - { text: "Było dobre, bo wygrałeś {{t:pot|pulę}}", why: "Wygrana nie poprawia decyzji. Przy cenie {{n:eq.bet-pot}} i szansie ok. {{n:odds.flush.turn-river}} to {{t:call}} na dłuższą metę traci." }
       - { text: "Było dobre, bo {{t:flush}} to najlepsza ręka", why: "Siła ręki po trafieniu nie zmienia ceny. Liczy się porównanie: {{n:odds.flush.turn-river}} szans wobec {{n:eq.bet-pot}} potrzebnych." }
   - kind: choice

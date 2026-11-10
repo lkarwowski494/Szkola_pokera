@@ -1,0 +1,23 @@
+# Sesja BQ 06-tresci-001: equity dokładne ręki zdominowanej (wszystkie C(48,5)=1 712 304 boardy), 2026-11-10
+# Komenda (z packages/poker-core): tsx eq-dokl2.ts; skrypt niżej. Wszystkie X = T..A, kickery sąsiednie k1 < k2 = k1+1 < X, 5 układów kolorów; posortowane malejąco, 8 najwyższych:
+dokł Ah2c vs As3h eq=0.4738 win=0.2211 lose=0.2734
+dokł Ah3c vs As4h eq=0.4735 win=0.2225 lose=0.2754
+dokł Kh2c vs Ks3h eq=0.4727 win=0.2205 lose=0.2752
+dokł Qh2c vs Qs3h eq=0.4727 win=0.2201 lose=0.2748
+dokł Jh2c vs Js3h eq=0.4727 win=0.2197 lose=0.2744
+dokł Th2c vs Ts3h eq=0.4727 win=0.2193 lose=0.2739
+dokł Kh3c vs Ks4h eq=0.4723 win=0.2220 lose=0.2775
+dokł Qh3c vs Qs4h eq=0.4723 win=0.2216 lose=0.2770
+# Ręka zdominowana w kolorze: As2s wobec Ad3c = 0,5009 (recenzja BP, dowody/bn-5cd9d8c-equity-dominacja.txt; test bq-dominacja-001.test.ts)
+# --- skrypt ---
+import { handEquity, parseCard } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+const R = '23456789TJQKA';
+const konf = [['h','c','s','d'],['h','s','s','d'],['h','c','s','h'],['h','s','s','h'],['h','c','s','c']];
+const out: string[] = [];
+for (let x = 14; x >= 10; x--) for (let k1 = 2; k1 <= x - 2; k1++) for (const k2 of [k1 + 1]) for (const [a, b, c, d] of konf) {
+  const h1 = [parseCard(R[x-2]+a), parseCard(R[k1-2]+b)], h2 = [parseCard(R[x-2]+c), parseCard(R[k2-2]+d)];
+  const e = handEquity([h1 as any, h2 as any], [], { exactLimit: 2_000_000 });
+  out.push(`${e.exact ? 'dokł' : 'MC'} ${R[x-2]}${a}${R[k1-2]}${b} vs ${R[x-2]}${c}${R[k2-2]}${d} eq=${e.equity[0]!.toFixed(4)} win=${e.win[0]!.toFixed(4)} lose=${e.win[1]!.toFixed(4)}`);
+}
+out.sort((p, q) => Number(q.split('eq=')[1]!.slice(0, 6)) - Number(p.split('eq=')[1]!.slice(0, 6)));
+console.log(out.slice(0, 8).join('\n'));

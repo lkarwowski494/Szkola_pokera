@@ -1,0 +1,9 @@
+# npx jest src/features/drills/__tests__/recenzja-bp-dominacja.test.ts (apps/mobile), test odtwarzający 06-tresci-001
+    ✕ As2s (zdominowana, w kolorze) wygrywa rzadziej niż Ad3c (dominująca) (702 ms)
+    ✕ Ks2s (zdominowana, w kolorze) wygrywa rzadziej niż Kd3c (dominująca) (700 ms)
+    Expected: < 0.26413183640288174
+    Received:   0.26585466132182134
+    Expected: < 0.2651999878526243
+    Received:   0.2659387585382035
+Tests:       2 failed, 2 total
+exit 1

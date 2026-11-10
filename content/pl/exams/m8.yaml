@@ -69,7 +69,7 @@ drills:
     rules: [R-M8-010]
     prompt: "River. W {{t:pot|puli}} jest {{n:exam.m8.pot}}, rywal {{t:bet|stawia}} {{n:exam.m8.bet}}. Masz bluff-catcher i szacujesz, że {{t:bluff|blefy}} to ok. {{n:exam.m8.bluffs.est}} jego betów. Co robisz?"
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Tak: potrzebujesz {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} equity, a bluff-catcher wygrywa tylko z {{t:bluff|blefami}}, czyli w ok. {{n:exam.m8.bluffs.est}} przypadków. {{t:call|Sprawdzenie}} traci." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Tak. Twoja ręka bije tylko {{t:bluff|blefy}}, a ten rywal {{t:bluff|blefuje}} za rzadko jak na tę cenę: {{t:call|sprawdzenie}} wygrałoby mniej więcej co piąte rozdanie (ok. {{n:exam.m8.bluffs.est}}), a cena wymaga ponad co czwartego. Rachunek: {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} equity." }
       - { text: "{{t:call|Sprawdzam}}", why: "Twoje equity to udział {{t:bluff|blefów}} w jego betach: {{n:exam.m8.bluffs.est}}. To mniej niż potrzebne {{n:exam.m8.share}}, więc {{t:call}} traci." }
       - { text: "{{t:raise|Przebijam}}", why: "Po {{t:raise|przebiciu}} {{t:bluff|blefy}} {{t:fold|spasują}}, a zapłacą tylko lepsze ręce. Bluff-catcherem nie {{t:raise|przebijasz}}." }
   - kind: choice

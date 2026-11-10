@@ -1,0 +1,58 @@
+// Niezależna kontrola powodów z klasy ręki (BP, 06-tresci audit). Status liczony jak engine.ts; prawdziwość każdej cechy liczona tu od nowa.
+import { DatabaseSync } from 'node:sqlite';
+import { handReasonKey, handFeatures, HAND_REASON_SIDE } from '/home/user/Szkola_pokera/apps/mobile/src/features/drills/hand-reasons.ts';
+import { RANGE_REASON, REASON_DIRECTION } from '/home/user/Szkola_pokera/apps/mobile/src/features/drills/range-reasons.ts';
+const R = '23456789TJQKA';
+const HC: string[] = [];
+for (let row = 12; row >= 0; row--) for (let col = 12; col >= 0; col--) HC.push(row === col ? R[row] + R[col] : col < row ? R[row] + R[col] + 's' : R[col] + R[row] + 'o');
+const v = (c: string) => R.indexOf(c) + 2;
+const db = new DatabaseSync(process.argv[2]!, { readOnly: true });
+const spots = (db.prepare('SELECT id, groups, uncertain FROM ranges').all() as any[]).map((x) => ({ id: x.id, groups: JSON.parse(x.groups), unc: new Set(JSON.parse(x.uncertain ?? '[]')) }));
+// własne liczenie stritów: zbiory 5 kolejnych rang, as jako 1 i 14
+const strits = (a: number, b: number) => { let n = 0; for (let lo = 1; lo <= 10; lo++) { const s = new Set([lo, lo + 1, lo + 2, lo + 3, lo + 4].map((x) => (x === 1 ? 14 : x))); if (a !== b && s.has(a) && s.has(b)) n++; } return n; };
+// własne liczenie flopów z kartą wyższą: pełny przegląd talii bez dwóch kart ręki
+const flopWyzsza = (hi: number, pair: boolean) => {
+  const deck: number[] = []; for (let r = 2; r <= 14; r++) for (let s = 0; s < 4; s++) deck.push(r);
+  // usuń dwie karty ręki (rangi hi i lo; dla pary dwie karty hi); lo nieistotne dla wyniku poza rangą ≤ hi
+  const rm = (r: number) => deck.splice(deck.indexOf(r), 1);
+  rm(hi); rm(pair ? hi : 2); // druga karta: dowolna ≤ hi (tu 2 dla wygody: liczba kart ≤ hi taka sama)
+  let tot = 0, hit = 0;
+  for (let i = 0; i < 50; i++) for (let j = i + 1; j < 50; j++) for (let k = j + 1; k < 50; k++) { tot++; if (deck[i]! > hi || deck[j]! > hi || deck[k]! > hi) hit++; }
+  return hit / tot;
+};
+const out: string[] = []; const zle: string[] = []; const bez: string[] = []; const licz: Record<string, number> = {};
+for (const sp of spots) {
+  const k = RANGE_REASON[sp.id]; const dir = k ? REASON_DIRECTION[k] : undefined;
+  HC.forEach((hc, h) => {
+    if (sp.unc.has(hc)) return;
+    const play = sp.groups.reduce((s: number, g: any) => s + (g.freqs[h] ?? 0), 0);
+    const fr = [...sp.groups.map((g: any) => g.freqs[h] ?? 0), Math.max(0, 1 - play)];
+    const best = Math.max(...fr);
+    if (best < 0.75) return;
+    const st = fr[fr.length - 1] === best ? 'out' : 'in';
+    const spotOk = (st === 'in' && dir === 'wide') || (st === 'out' && dir === 'tight');
+    if (spotOk) { licz['spot'] = (licz['spot'] ?? 0) + 1; return; }
+    const key = handReasonKey(hc, st, sp.id);
+    licz[key ?? 'null'] = (licz[key ?? 'null'] ?? 0) + 1;
+    if (!key) { bez.push(`${sp.id}:${hc}:${st}`); return; }
+    const a = v(hc[0]!), b = v(hc[1]!), hi = Math.max(a, b), lo = Math.min(a, b), pair = a === b, suited = hc[2] === 's';
+    let ok = HAND_REASON_SIDE[key] === st, why = '';
+    switch (key) {
+      case 'pair': ok &&= pair; break;
+      case 'high': ok &&= !pair && lo >= 10; break;
+      case 'suited': ok &&= suited; break;
+      case 'connected': { const n = strits(a, b); ok &&= n >= 3 && n === handFeatures(hc).straights; why = `n=${n}`; break; }
+      case 'highAllIn': ok &&= /^(push|call)\./.test(sp.id) && hi >= 10; why = `rank=${hi}`; break;
+      case 'dominated': ok &&= !pair && !(hi === 14 && lo === 13); break; // lepszy kicker istnieje dla każdej ręki poza AK
+      case 'overcards': case 'overcardsPair': { const p = flopWyzsza(hi, pair); ok &&= hi <= 9 && (key === 'overcardsPair') === pair; why = `p=${p.toFixed(4)}`; break; }
+    }
+    out.push(`${sp.id}\t${hc}\t${st}\t${key}\t${why}\t${ok ? 'OK' : 'ZLE'}`);
+    if (!ok) zle.push(`${sp.id}:${hc}:${st}:${key}:${why}`);
+  });
+}
+console.log(out.join('\n'));
+console.log('LICZNIKI', JSON.stringify(licz));
+console.log('BEZ_POWODU', bez.length, bez.slice(0, 40).join(' '));
+console.log('ZLE', zle.length, zle.join(' '));
+console.log('SPOTY', spots.length, spots.map((s) => `${s.id}=${RANGE_REASON[s.id]}/${REASON_DIRECTION[RANGE_REASON[s.id]!]}`).join(' '));
+process.exitCode = zle.length ? 1 : 0;

@@ -1,0 +1,79 @@
+FAIL src/features/drills/__tests__/bq-zrodla-004.test.ts
+  06-tresci-004 (BQ): R-M11-013 ma źródło TDA reguła 17
+    ✕ sources w każdym języku zawiera regulamin TDA (9 ms)
+    ✕ source pl cytuje regułę 17 dosłownie (1 ms)
+    ✕ rejestr (bn.json) ma źródło szczebla 1 z cytatem i datą odczytu
+
+  ● 06-tresci-004 (BQ): R-M11-013 ma źródło TDA reguła 17 › sources w każdym języku zawiera regulamin TDA
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "de",
+    -   true,
+    +   false,
+      ]
+
+      19 |   it('sources w każdym języku zawiera regulamin TDA', () => {
+      20 |     expect(JEZYKI.length).toBe(12);
+    > 21 |     for (const l of JEZYKI) expect([l, blok(l, 'R-M11-013').match(/\n {2}sources: (.*)\n?/)?.[1]?.includes(TDA)]).toEqual([l, true]);
+         |                                                                                                                   ^
+      22 |   });
+      23 |
+      24 |   it('source pl cytuje regułę 17 dosłownie', () => {
+
+      at Object.toEqual (src/features/drills/__tests__/bq-zrodla-004.test.ts:21:115)
+
+  ● 06-tresci-004 (BQ): R-M11-013 ma źródło TDA reguła 17 › source pl cytuje regułę 17 dosłownie
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "All hands will be tabled without delay once a player is all-in and all betting action by all other players in the hand is complete."
+    Received string:    "R-M11-013
+      module: m11
+      if: \"wszyscy gracze w {{t:pot|puli}} są all-in przed flopem\"
+      then: \"nie ma już {{t:bet|zakładów}}: rozdanie rozstrzyga sam układ po wyłożeniu {{t:community-cards|kart wspólnych}}, a gdy nikt nie ma {{t:pair|pary}} ani lepszego układu, wygrywa wyższa karta\"
+      because: \"bez dalszych {{t:bet|zakładów}} nikt nie może już {{t:fold|spasować}}, więc liczy się tylko ranking układów; przy samych wysokich kartach decyduje najwyższa\"
+      level: rules
+      source: \"zasady Texas Hold'em: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: High Card „A hand that consists of five cards that do not make any of the hands listed above. An Ace, King, Queen, Jack and 9 is the highest ranked High Card hand”\"
+      sources: [{ kind: rules, url: \"https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf\" }]·
+    # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
+    # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
+    # więc jest w tekście lekcji, a nie w księdze reguł."
+
+      23 |
+      24 |   it('source pl cytuje regułę 17 dosłownie', () => {
+    > 25 |     expect(blok('pl', 'R-M11-013')).toContain(CYTAT);
+         |                                     ^
+      26 |   });
+      27 |
+      28 |   it('rejestr (bn.json) ma źródło szczebla 1 z cytatem i datą odczytu', () => {
+
+      at Object.toContain (src/features/drills/__tests__/bq-zrodla-004.test.ts:25:37)
+
+  ● 06-tresci-004 (BQ): R-M11-013 ma źródło TDA reguła 17 › rejestr (bn.json) ma źródło szczebla 1 z cytatem i datą odczytu
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "All hands will be tabled without delay once a player is all-in and all betting action by all other players in the hand is complete."
+    Received: undefined
+
+      29 |     const r = JSON.parse(readFileSync(join(ROOT, 'docs/tresci/rejestr/bn.json'), 'utf8')) as { id: string; zrodla: { adres: string; cytat: string; szczebel: number; odczyt: string }[] }[];
+      30 |     const z = r.find((w) => w.id === 'R-M11-013')?.zrodla.find((x) => x.adres === TDA);
+    > 31 |     expect(z?.cytat).toBe(CYTAT);
+         |                      ^
+      32 |     expect(z?.szczebel).toBe(1);
+      33 |     expect(z?.odczyt).toMatch(/^\d{4}-\d\d-\d\d$/);
+      34 |   });
+
+      at Object.toBe (src/features/drills/__tests__/bq-zrodla-004.test.ts:31:22)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        0.755 s
+Ran all test suites matching /src\/features\/drills\/__tests__\/bq-zrodla-004.test.ts/i.
+kod 1

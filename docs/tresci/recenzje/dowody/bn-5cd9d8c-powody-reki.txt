@@ -1,0 +1,2413 @@
+# node --experimental-strip-types powody.ts <baza pl> (skrypt: bn-5cd9d8c-skrypt-powody.ts.txt); kod wyjścia 0
+rfi.utg	AA	in	pair		OK
+rfi.utg	AKs	in	high		OK
+rfi.utg	AQs	in	high		OK
+rfi.utg	AJs	in	high		OK
+rfi.utg	ATs	in	high		OK
+rfi.utg	A9s	in	suited		OK
+rfi.utg	A5s	in	suited		OK
+rfi.utg	AKo	in	high		OK
+rfi.utg	KK	in	pair		OK
+rfi.utg	KQs	in	high		OK
+rfi.utg	KJs	in	high		OK
+rfi.utg	KTs	in	high		OK
+rfi.utg	K9s	in	suited		OK
+rfi.utg	AQo	in	high		OK
+rfi.utg	KQo	in	high		OK
+rfi.utg	QQ	in	pair		OK
+rfi.utg	QJs	in	high		OK
+rfi.utg	QTs	in	high		OK
+rfi.utg	AJo	in	high		OK
+rfi.utg	KJo	in	high		OK
+rfi.utg	JJ	in	pair		OK
+rfi.utg	JTs	in	high		OK
+rfi.utg	J9s	in	suited		OK
+rfi.utg	ATo	in	high		OK
+rfi.utg	TT	in	pair		OK
+rfi.utg	T9s	in	suited		OK
+rfi.utg	T7s	in	suited		OK
+rfi.utg	99	in	pair		OK
+rfi.utg	88	in	pair		OK
+rfi.utg	77	in	pair		OK
+rfi.utg	66	in	pair		OK
+rfi.utg	55	in	pair		OK
+rfi.utg	54s	in	suited		OK
+rfi.hj	A7s	out	dominated		OK
+rfi.hj	A3s	out	dominated		OK
+rfi.hj	A2s	out	dominated		OK
+rfi.hj	K8s	out	dominated		OK
+rfi.hj	K6s	out	dominated		OK
+rfi.hj	K4s	out	dominated		OK
+rfi.hj	K3s	out	dominated		OK
+rfi.hj	K2s	out	dominated		OK
+rfi.hj	Q9s	out	dominated		OK
+rfi.hj	Q7s	out	dominated		OK
+rfi.hj	Q6s	out	dominated		OK
+rfi.hj	Q5s	out	dominated		OK
+rfi.hj	Q4s	out	dominated		OK
+rfi.hj	Q3s	out	dominated		OK
+rfi.hj	Q2s	out	dominated		OK
+rfi.hj	QJo	out	dominated		OK
+rfi.hj	J8s	out	dominated		OK
+rfi.hj	J7s	out	dominated		OK
+rfi.hj	J6s	out	dominated		OK
+rfi.hj	J5s	out	dominated		OK
+rfi.hj	J4s	out	dominated		OK
+rfi.hj	J3s	out	dominated		OK
+rfi.hj	J2s	out	dominated		OK
+rfi.hj	JTo	out	dominated		OK
+rfi.hj	T6s	out	dominated		OK
+rfi.hj	T5s	out	dominated		OK
+rfi.hj	T4s	out	dominated		OK
+rfi.hj	T3s	out	dominated		OK
+rfi.hj	T2s	out	dominated		OK
+rfi.hj	A9o	out	dominated		OK
+rfi.hj	K9o	out	dominated		OK
+rfi.hj	Q9o	out	dominated		OK
+rfi.hj	J9o	out	dominated		OK
+rfi.hj	T9o	out	dominated		OK
+rfi.hj	96s	out	overcards	p=0.7929	OK
+rfi.hj	95s	out	overcards	p=0.7929	OK
+rfi.hj	94s	out	overcards	p=0.7929	OK
+rfi.hj	93s	out	overcards	p=0.7929	OK
+rfi.hj	92s	out	overcards	p=0.7929	OK
+rfi.hj	J8o	out	dominated		OK
+rfi.hj	T8o	out	dominated		OK
+rfi.hj	87s	out	overcards	p=0.8673	OK
+rfi.hj	84s	out	overcards	p=0.8673	OK
+rfi.hj	83s	out	overcards	p=0.8673	OK
+rfi.hj	82s	out	overcards	p=0.8673	OK
+rfi.hj	A7o	out	dominated		OK
+rfi.hj	Q7o	out	dominated		OK
+rfi.hj	J7o	out	dominated		OK
+rfi.hj	T7o	out	dominated		OK
+rfi.hj	97o	out	overcards	p=0.7929	OK
+rfi.hj	87o	out	overcards	p=0.8673	OK
+rfi.hj	74s	out	overcards	p=0.9214	OK
+rfi.hj	73s	out	overcards	p=0.9214	OK
+rfi.hj	72s	out	overcards	p=0.9214	OK
+rfi.hj	A6o	out	dominated		OK
+rfi.hj	K6o	out	dominated		OK
+rfi.hj	Q6o	out	dominated		OK
+rfi.hj	J6o	out	dominated		OK
+rfi.hj	T6o	out	dominated		OK
+rfi.hj	96o	out	overcards	p=0.7929	OK
+rfi.hj	86o	out	overcards	p=0.8673	OK
+rfi.hj	76o	out	overcards	p=0.9214	OK
+rfi.hj	64s	out	overcards	p=0.9584	OK
+rfi.hj	63s	out	overcards	p=0.9584	OK
+rfi.hj	62s	out	overcards	p=0.9584	OK
+rfi.hj	A5o	out	dominated		OK
+rfi.hj	K5o	out	dominated		OK
+rfi.hj	Q5o	out	dominated		OK
+rfi.hj	J5o	out	dominated		OK
+rfi.hj	T5o	out	dominated		OK
+rfi.hj	95o	out	overcards	p=0.7929	OK
+rfi.hj	85o	out	overcards	p=0.8673	OK
+rfi.hj	75o	out	overcards	p=0.9214	OK
+rfi.hj	65o	out	overcards	p=0.9584	OK
+rfi.hj	52s	out	overcards	p=0.9814	OK
+rfi.hj	K4o	out	dominated		OK
+rfi.hj	Q4o	out	dominated		OK
+rfi.hj	J4o	out	dominated		OK
+rfi.hj	T4o	out	dominated		OK
+rfi.hj	94o	out	overcards	p=0.7929	OK
+rfi.hj	84o	out	overcards	p=0.8673	OK
+rfi.hj	74o	out	overcards	p=0.9214	OK
+rfi.hj	64o	out	overcards	p=0.9584	OK
+rfi.hj	54o	out	overcards	p=0.9814	OK
+rfi.hj	44	out	overcardsPair	p=0.9939	OK
+rfi.hj	43s	out	overcards	p=0.9939	OK
+rfi.hj	42s	out	overcards	p=0.9939	OK
+rfi.hj	A3o	out	dominated		OK
+rfi.hj	K3o	out	dominated		OK
+rfi.hj	Q3o	out	dominated		OK
+rfi.hj	J3o	out	dominated		OK
+rfi.hj	T3o	out	dominated		OK
+rfi.hj	93o	out	overcards	p=0.7929	OK
+rfi.hj	83o	out	overcards	p=0.8673	OK
+rfi.hj	73o	out	overcards	p=0.9214	OK
+rfi.hj	63o	out	overcards	p=0.9584	OK
+rfi.hj	53o	out	overcards	p=0.9814	OK
+rfi.hj	43o	out	overcards	p=0.9939	OK
+rfi.hj	32s	out	overcards	p=0.9990	OK
+rfi.hj	A2o	out	dominated		OK
+rfi.hj	K2o	out	dominated		OK
+rfi.hj	Q2o	out	dominated		OK
+rfi.hj	J2o	out	dominated		OK
+rfi.hj	T2o	out	dominated		OK
+rfi.hj	92o	out	overcards	p=0.7929	OK
+rfi.hj	82o	out	overcards	p=0.8673	OK
+rfi.hj	72o	out	overcards	p=0.9214	OK
+rfi.hj	62o	out	overcards	p=0.9584	OK
+rfi.hj	52o	out	overcards	p=0.9814	OK
+rfi.hj	42o	out	overcards	p=0.9939	OK
+rfi.hj	32o	out	overcards	p=0.9990	OK
+rfi.hj	22	out	overcardsPair	p=1.0000	OK
+rfi.co	K3s	out	dominated		OK
+rfi.co	K2s	out	dominated		OK
+rfi.co	Q7s	out	dominated		OK
+rfi.co	Q4s	out	dominated		OK
+rfi.co	Q3s	out	dominated		OK
+rfi.co	Q2s	out	dominated		OK
+rfi.co	J8s	out	dominated		OK
+rfi.co	J7s	out	dominated		OK
+rfi.co	J6s	out	dominated		OK
+rfi.co	J5s	out	dominated		OK
+rfi.co	J4s	out	dominated		OK
+rfi.co	J3s	out	dominated		OK
+rfi.co	J2s	out	dominated		OK
+rfi.co	T6s	out	dominated		OK
+rfi.co	T5s	out	dominated		OK
+rfi.co	T4s	out	dominated		OK
+rfi.co	T3s	out	dominated		OK
+rfi.co	T2s	out	dominated		OK
+rfi.co	K9o	out	dominated		OK
+rfi.co	Q9o	out	dominated		OK
+rfi.co	J9o	out	dominated		OK
+rfi.co	T9o	out	dominated		OK
+rfi.co	96s	out	overcards	p=0.7929	OK
+rfi.co	95s	out	overcards	p=0.7929	OK
+rfi.co	94s	out	overcards	p=0.7929	OK
+rfi.co	93s	out	overcards	p=0.7929	OK
+rfi.co	92s	out	overcards	p=0.7929	OK
+rfi.co	J8o	out	dominated		OK
+rfi.co	84s	out	overcards	p=0.8673	OK
+rfi.co	83s	out	overcards	p=0.8673	OK
+rfi.co	82s	out	overcards	p=0.8673	OK
+rfi.co	A7o	out	dominated		OK
+rfi.co	Q7o	out	dominated		OK
+rfi.co	J7o	out	dominated		OK
+rfi.co	T7o	out	dominated		OK
+rfi.co	97o	out	overcards	p=0.7929	OK
+rfi.co	87o	out	overcards	p=0.8673	OK
+rfi.co	74s	out	overcards	p=0.9214	OK
+rfi.co	73s	out	overcards	p=0.9214	OK
+rfi.co	72s	out	overcards	p=0.9214	OK
+rfi.co	A6o	out	dominated		OK
+rfi.co	K6o	out	dominated		OK
+rfi.co	Q6o	out	dominated		OK
+rfi.co	J6o	out	dominated		OK
+rfi.co	T6o	out	dominated		OK
+rfi.co	96o	out	overcards	p=0.7929	OK
+rfi.co	86o	out	overcards	p=0.8673	OK
+rfi.co	76o	out	overcards	p=0.9214	OK
+rfi.co	64s	out	overcards	p=0.9584	OK
+rfi.co	63s	out	overcards	p=0.9584	OK
+rfi.co	62s	out	overcards	p=0.9584	OK
+rfi.co	A5o	out	dominated		OK
+rfi.co	K5o	out	dominated		OK
+rfi.co	Q5o	out	dominated		OK
+rfi.co	J5o	out	dominated		OK
+rfi.co	T5o	out	dominated		OK
+rfi.co	95o	out	overcards	p=0.7929	OK
+rfi.co	85o	out	overcards	p=0.8673	OK
+rfi.co	75o	out	overcards	p=0.9214	OK
+rfi.co	65o	out	overcards	p=0.9584	OK
+rfi.co	52s	out	overcards	p=0.9814	OK
+rfi.co	K4o	out	dominated		OK
+rfi.co	Q4o	out	dominated		OK
+rfi.co	J4o	out	dominated		OK
+rfi.co	T4o	out	dominated		OK
+rfi.co	94o	out	overcards	p=0.7929	OK
+rfi.co	84o	out	overcards	p=0.8673	OK
+rfi.co	74o	out	overcards	p=0.9214	OK
+rfi.co	64o	out	overcards	p=0.9584	OK
+rfi.co	54o	out	overcards	p=0.9814	OK
+rfi.co	43s	out	overcards	p=0.9939	OK
+rfi.co	42s	out	overcards	p=0.9939	OK
+rfi.co	A3o	out	dominated		OK
+rfi.co	K3o	out	dominated		OK
+rfi.co	Q3o	out	dominated		OK
+rfi.co	J3o	out	dominated		OK
+rfi.co	T3o	out	dominated		OK
+rfi.co	93o	out	overcards	p=0.7929	OK
+rfi.co	83o	out	overcards	p=0.8673	OK
+rfi.co	73o	out	overcards	p=0.9214	OK
+rfi.co	63o	out	overcards	p=0.9584	OK
+rfi.co	53o	out	overcards	p=0.9814	OK
+rfi.co	43o	out	overcards	p=0.9939	OK
+rfi.co	32s	out	overcards	p=0.9990	OK
+rfi.co	A2o	out	dominated		OK
+rfi.co	K2o	out	dominated		OK
+rfi.co	Q2o	out	dominated		OK
+rfi.co	J2o	out	dominated		OK
+rfi.co	T2o	out	dominated		OK
+rfi.co	92o	out	overcards	p=0.7929	OK
+rfi.co	82o	out	overcards	p=0.8673	OK
+rfi.co	72o	out	overcards	p=0.9214	OK
+rfi.co	62o	out	overcards	p=0.9584	OK
+rfi.co	52o	out	overcards	p=0.9814	OK
+rfi.co	42o	out	overcards	p=0.9939	OK
+rfi.co	32o	out	overcards	p=0.9990	OK
+rfi.co	22	out	overcardsPair	p=1.0000	OK
+rfi.btn	Q3s	out	dominated		OK
+rfi.btn	Q2s	out	dominated		OK
+rfi.btn	J4s	out	dominated		OK
+rfi.btn	J3s	out	dominated		OK
+rfi.btn	J2s	out	dominated		OK
+rfi.btn	T5s	out	dominated		OK
+rfi.btn	T4s	out	dominated		OK
+rfi.btn	T3s	out	dominated		OK
+rfi.btn	T2s	out	dominated		OK
+rfi.btn	95s	out	overcards	p=0.7929	OK
+rfi.btn	94s	out	overcards	p=0.7929	OK
+rfi.btn	93s	out	overcards	p=0.7929	OK
+rfi.btn	92s	out	overcards	p=0.7929	OK
+rfi.btn	J8o	out	dominated		OK
+rfi.btn	84s	out	overcards	p=0.8673	OK
+rfi.btn	83s	out	overcards	p=0.8673	OK
+rfi.btn	82s	out	overcards	p=0.8673	OK
+rfi.btn	Q7o	out	dominated		OK
+rfi.btn	J7o	out	dominated		OK
+rfi.btn	T7o	out	dominated		OK
+rfi.btn	97o	out	overcards	p=0.7929	OK
+rfi.btn	87o	out	overcards	p=0.8673	OK
+rfi.btn	74s	out	overcards	p=0.9214	OK
+rfi.btn	73s	out	overcards	p=0.9214	OK
+rfi.btn	72s	out	overcards	p=0.9214	OK
+rfi.btn	K6o	out	dominated		OK
+rfi.btn	Q6o	out	dominated		OK
+rfi.btn	J6o	out	dominated		OK
+rfi.btn	T6o	out	dominated		OK
+rfi.btn	96o	out	overcards	p=0.7929	OK
+rfi.btn	86o	out	overcards	p=0.8673	OK
+rfi.btn	76o	out	overcards	p=0.9214	OK
+rfi.btn	63s	out	overcards	p=0.9584	OK
+rfi.btn	62s	out	overcards	p=0.9584	OK
+rfi.btn	K5o	out	dominated		OK
+rfi.btn	Q5o	out	dominated		OK
+rfi.btn	J5o	out	dominated		OK
+rfi.btn	T5o	out	dominated		OK
+rfi.btn	95o	out	overcards	p=0.7929	OK
+rfi.btn	85o	out	overcards	p=0.8673	OK
+rfi.btn	65o	out	overcards	p=0.9584	OK
+rfi.btn	K4o	out	dominated		OK
+rfi.btn	Q4o	out	dominated		OK
+rfi.btn	J4o	out	dominated		OK
+rfi.btn	T4o	out	dominated		OK
+rfi.btn	94o	out	overcards	p=0.7929	OK
+rfi.btn	84o	out	overcards	p=0.8673	OK
+rfi.btn	74o	out	overcards	p=0.9214	OK
+rfi.btn	64o	out	overcards	p=0.9584	OK
+rfi.btn	54o	out	overcards	p=0.9814	OK
+rfi.btn	43s	out	overcards	p=0.9939	OK
+rfi.btn	42s	out	overcards	p=0.9939	OK
+rfi.btn	A3o	out	dominated		OK
+rfi.btn	K3o	out	dominated		OK
+rfi.btn	Q3o	out	dominated		OK
+rfi.btn	J3o	out	dominated		OK
+rfi.btn	T3o	out	dominated		OK
+rfi.btn	93o	out	overcards	p=0.7929	OK
+rfi.btn	83o	out	overcards	p=0.8673	OK
+rfi.btn	73o	out	overcards	p=0.9214	OK
+rfi.btn	63o	out	overcards	p=0.9584	OK
+rfi.btn	53o	out	overcards	p=0.9814	OK
+rfi.btn	43o	out	overcards	p=0.9939	OK
+rfi.btn	32s	out	overcards	p=0.9990	OK
+rfi.btn	A2o	out	dominated		OK
+rfi.btn	K2o	out	dominated		OK
+rfi.btn	Q2o	out	dominated		OK
+rfi.btn	J2o	out	dominated		OK
+rfi.btn	T2o	out	dominated		OK
+rfi.btn	92o	out	overcards	p=0.7929	OK
+rfi.btn	82o	out	overcards	p=0.8673	OK
+rfi.btn	72o	out	overcards	p=0.9214	OK
+rfi.btn	62o	out	overcards	p=0.9584	OK
+rfi.btn	52o	out	overcards	p=0.9814	OK
+rfi.btn	42o	out	overcards	p=0.9939	OK
+rfi.btn	32o	out	overcards	p=0.9990	OK
+rfi.btn	22	out	overcardsPair	p=1.0000	OK
+rfi.sb	Q3s	out	dominated		OK
+rfi.sb	Q2s	out	dominated		OK
+rfi.sb	J4s	out	dominated		OK
+rfi.sb	J3s	out	dominated		OK
+rfi.sb	J2s	out	dominated		OK
+rfi.sb	T4s	out	dominated		OK
+rfi.sb	T3s	out	dominated		OK
+rfi.sb	T2s	out	dominated		OK
+rfi.sb	95s	out	overcards	p=0.7929	OK
+rfi.sb	94s	out	overcards	p=0.7929	OK
+rfi.sb	93s	out	overcards	p=0.7929	OK
+rfi.sb	92s	out	overcards	p=0.7929	OK
+rfi.sb	J8o	out	dominated		OK
+rfi.sb	84s	out	overcards	p=0.8673	OK
+rfi.sb	83s	out	overcards	p=0.8673	OK
+rfi.sb	82s	out	overcards	p=0.8673	OK
+rfi.sb	Q7o	out	dominated		OK
+rfi.sb	J7o	out	dominated		OK
+rfi.sb	T7o	out	dominated		OK
+rfi.sb	97o	out	overcards	p=0.7929	OK
+rfi.sb	87o	out	overcards	p=0.8673	OK
+rfi.sb	74s	out	overcards	p=0.9214	OK
+rfi.sb	73s	out	overcards	p=0.9214	OK
+rfi.sb	72s	out	overcards	p=0.9214	OK
+rfi.sb	K6o	out	dominated		OK
+rfi.sb	Q6o	out	dominated		OK
+rfi.sb	J6o	out	dominated		OK
+rfi.sb	T6o	out	dominated		OK
+rfi.sb	96o	out	overcards	p=0.7929	OK
+rfi.sb	86o	out	overcards	p=0.8673	OK
+rfi.sb	76o	out	overcards	p=0.9214	OK
+rfi.sb	63s	out	overcards	p=0.9584	OK
+rfi.sb	62s	out	overcards	p=0.9584	OK
+rfi.sb	K5o	out	dominated		OK
+rfi.sb	Q5o	out	dominated		OK
+rfi.sb	J5o	out	dominated		OK
+rfi.sb	T5o	out	dominated		OK
+rfi.sb	95o	out	overcards	p=0.7929	OK
+rfi.sb	85o	out	overcards	p=0.8673	OK
+rfi.sb	75o	out	overcards	p=0.9214	OK
+rfi.sb	65o	out	overcards	p=0.9584	OK
+rfi.sb	K4o	out	dominated		OK
+rfi.sb	Q4o	out	dominated		OK
+rfi.sb	J4o	out	dominated		OK
+rfi.sb	T4o	out	dominated		OK
+rfi.sb	94o	out	overcards	p=0.7929	OK
+rfi.sb	84o	out	overcards	p=0.8673	OK
+rfi.sb	74o	out	overcards	p=0.9214	OK
+rfi.sb	64o	out	overcards	p=0.9584	OK
+rfi.sb	54o	out	overcards	p=0.9814	OK
+rfi.sb	43s	out	overcards	p=0.9939	OK
+rfi.sb	42s	out	overcards	p=0.9939	OK
+rfi.sb	A3o	out	dominated		OK
+rfi.sb	K3o	out	dominated		OK
+rfi.sb	Q3o	out	dominated		OK
+rfi.sb	J3o	out	dominated		OK
+rfi.sb	T3o	out	dominated		OK
+rfi.sb	93o	out	overcards	p=0.7929	OK
+rfi.sb	83o	out	overcards	p=0.8673	OK
+rfi.sb	73o	out	overcards	p=0.9214	OK
+rfi.sb	63o	out	overcards	p=0.9584	OK
+rfi.sb	53o	out	overcards	p=0.9814	OK
+rfi.sb	43o	out	overcards	p=0.9939	OK
+rfi.sb	32s	out	overcards	p=0.9990	OK
+rfi.sb	A2o	out	dominated		OK
+rfi.sb	K2o	out	dominated		OK
+rfi.sb	Q2o	out	dominated		OK
+rfi.sb	J2o	out	dominated		OK
+rfi.sb	T2o	out	dominated		OK
+rfi.sb	92o	out	overcards	p=0.7929	OK
+rfi.sb	82o	out	overcards	p=0.8673	OK
+rfi.sb	72o	out	overcards	p=0.9214	OK
+rfi.sb	62o	out	overcards	p=0.9584	OK
+rfi.sb	52o	out	overcards	p=0.9814	OK
+rfi.sb	42o	out	overcards	p=0.9939	OK
+rfi.sb	32o	out	overcards	p=0.9990	OK
+rfi.sb	22	out	overcardsPair	p=1.0000	OK
+vs-open.btn-vs-co	K6s	out	dominated		OK
+vs-open.btn-vs-co	K4s	out	dominated		OK
+vs-open.btn-vs-co	K3s	out	dominated		OK
+vs-open.btn-vs-co	K2s	out	dominated		OK
+vs-open.btn-vs-co	Q8s	out	dominated		OK
+vs-open.btn-vs-co	Q7s	out	dominated		OK
+vs-open.btn-vs-co	Q6s	out	dominated		OK
+vs-open.btn-vs-co	Q5s	out	dominated		OK
+vs-open.btn-vs-co	Q4s	out	dominated		OK
+vs-open.btn-vs-co	Q3s	out	dominated		OK
+vs-open.btn-vs-co	Q2s	out	dominated		OK
+vs-open.btn-vs-co	QJo	out	dominated		OK
+vs-open.btn-vs-co	J8s	out	dominated		OK
+vs-open.btn-vs-co	J7s	out	dominated		OK
+vs-open.btn-vs-co	J6s	out	dominated		OK
+vs-open.btn-vs-co	J5s	out	dominated		OK
+vs-open.btn-vs-co	J4s	out	dominated		OK
+vs-open.btn-vs-co	J3s	out	dominated		OK
+vs-open.btn-vs-co	J2s	out	dominated		OK
+vs-open.btn-vs-co	KTo	out	dominated		OK
+vs-open.btn-vs-co	QTo	out	dominated		OK
+vs-open.btn-vs-co	JTo	out	dominated		OK
+vs-open.btn-vs-co	T6s	out	dominated		OK
+vs-open.btn-vs-co	T5s	out	dominated		OK
+vs-open.btn-vs-co	T4s	out	dominated		OK
+vs-open.btn-vs-co	T3s	out	dominated		OK
+vs-open.btn-vs-co	T2s	out	dominated		OK
+vs-open.btn-vs-co	A9o	out	dominated		OK
+vs-open.btn-vs-co	K9o	out	dominated		OK
+vs-open.btn-vs-co	Q9o	out	dominated		OK
+vs-open.btn-vs-co	J9o	out	dominated		OK
+vs-open.btn-vs-co	T9o	out	dominated		OK
+vs-open.btn-vs-co	96s	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	95s	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	94s	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	93s	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	92s	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	A8o	out	dominated		OK
+vs-open.btn-vs-co	K8o	out	dominated		OK
+vs-open.btn-vs-co	Q8o	out	dominated		OK
+vs-open.btn-vs-co	J8o	out	dominated		OK
+vs-open.btn-vs-co	T8o	out	dominated		OK
+vs-open.btn-vs-co	98o	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	86s	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	85s	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	84s	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	83s	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	82s	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	A7o	out	dominated		OK
+vs-open.btn-vs-co	K7o	out	dominated		OK
+vs-open.btn-vs-co	Q7o	out	dominated		OK
+vs-open.btn-vs-co	J7o	out	dominated		OK
+vs-open.btn-vs-co	T7o	out	dominated		OK
+vs-open.btn-vs-co	97o	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	87o	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	74s	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	73s	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	72s	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	A6o	out	dominated		OK
+vs-open.btn-vs-co	K6o	out	dominated		OK
+vs-open.btn-vs-co	Q6o	out	dominated		OK
+vs-open.btn-vs-co	J6o	out	dominated		OK
+vs-open.btn-vs-co	T6o	out	dominated		OK
+vs-open.btn-vs-co	96o	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	86o	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	76o	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	64s	out	overcards	p=0.9584	OK
+vs-open.btn-vs-co	63s	out	overcards	p=0.9584	OK
+vs-open.btn-vs-co	62s	out	overcards	p=0.9584	OK
+vs-open.btn-vs-co	A5o	out	dominated		OK
+vs-open.btn-vs-co	K5o	out	dominated		OK
+vs-open.btn-vs-co	Q5o	out	dominated		OK
+vs-open.btn-vs-co	J5o	out	dominated		OK
+vs-open.btn-vs-co	T5o	out	dominated		OK
+vs-open.btn-vs-co	95o	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	85o	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	75o	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	65o	out	overcards	p=0.9584	OK
+vs-open.btn-vs-co	53s	out	overcards	p=0.9814	OK
+vs-open.btn-vs-co	52s	out	overcards	p=0.9814	OK
+vs-open.btn-vs-co	A4o	out	dominated		OK
+vs-open.btn-vs-co	K4o	out	dominated		OK
+vs-open.btn-vs-co	Q4o	out	dominated		OK
+vs-open.btn-vs-co	J4o	out	dominated		OK
+vs-open.btn-vs-co	T4o	out	dominated		OK
+vs-open.btn-vs-co	94o	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	84o	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	74o	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	64o	out	overcards	p=0.9584	OK
+vs-open.btn-vs-co	54o	out	overcards	p=0.9814	OK
+vs-open.btn-vs-co	43s	out	overcards	p=0.9939	OK
+vs-open.btn-vs-co	42s	out	overcards	p=0.9939	OK
+vs-open.btn-vs-co	A3o	out	dominated		OK
+vs-open.btn-vs-co	K3o	out	dominated		OK
+vs-open.btn-vs-co	Q3o	out	dominated		OK
+vs-open.btn-vs-co	J3o	out	dominated		OK
+vs-open.btn-vs-co	T3o	out	dominated		OK
+vs-open.btn-vs-co	93o	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	83o	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	73o	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	63o	out	overcards	p=0.9584	OK
+vs-open.btn-vs-co	53o	out	overcards	p=0.9814	OK
+vs-open.btn-vs-co	43o	out	overcards	p=0.9939	OK
+vs-open.btn-vs-co	32s	out	overcards	p=0.9990	OK
+vs-open.btn-vs-co	A2o	out	dominated		OK
+vs-open.btn-vs-co	K2o	out	dominated		OK
+vs-open.btn-vs-co	Q2o	out	dominated		OK
+vs-open.btn-vs-co	J2o	out	dominated		OK
+vs-open.btn-vs-co	T2o	out	dominated		OK
+vs-open.btn-vs-co	92o	out	overcards	p=0.7929	OK
+vs-open.btn-vs-co	82o	out	overcards	p=0.8673	OK
+vs-open.btn-vs-co	72o	out	overcards	p=0.9214	OK
+vs-open.btn-vs-co	62o	out	overcards	p=0.9584	OK
+vs-open.btn-vs-co	52o	out	overcards	p=0.9814	OK
+vs-open.btn-vs-co	42o	out	overcards	p=0.9939	OK
+vs-open.btn-vs-co	32o	out	overcards	p=0.9990	OK
+vs-open.sb-vs-btn	A9s	out	dominated		OK
+vs-open.sb-vs-btn	A2s	out	dominated		OK
+vs-open.sb-vs-btn	K6s	out	dominated		OK
+vs-open.sb-vs-btn	K5s	out	dominated		OK
+vs-open.sb-vs-btn	K4s	out	dominated		OK
+vs-open.sb-vs-btn	K3s	out	dominated		OK
+vs-open.sb-vs-btn	K2s	out	dominated		OK
+vs-open.sb-vs-btn	Q8s	out	dominated		OK
+vs-open.sb-vs-btn	Q7s	out	dominated		OK
+vs-open.sb-vs-btn	Q6s	out	dominated		OK
+vs-open.sb-vs-btn	Q5s	out	dominated		OK
+vs-open.sb-vs-btn	Q4s	out	dominated		OK
+vs-open.sb-vs-btn	Q3s	out	dominated		OK
+vs-open.sb-vs-btn	Q2s	out	dominated		OK
+vs-open.sb-vs-btn	QJo	out	dominated		OK
+vs-open.sb-vs-btn	J8s	out	dominated		OK
+vs-open.sb-vs-btn	J7s	out	dominated		OK
+vs-open.sb-vs-btn	J6s	out	dominated		OK
+vs-open.sb-vs-btn	J5s	out	dominated		OK
+vs-open.sb-vs-btn	J4s	out	dominated		OK
+vs-open.sb-vs-btn	J3s	out	dominated		OK
+vs-open.sb-vs-btn	J2s	out	dominated		OK
+vs-open.sb-vs-btn	KTo	out	dominated		OK
+vs-open.sb-vs-btn	JTo	out	dominated		OK
+vs-open.sb-vs-btn	T6s	out	dominated		OK
+vs-open.sb-vs-btn	T5s	out	dominated		OK
+vs-open.sb-vs-btn	T4s	out	dominated		OK
+vs-open.sb-vs-btn	T3s	out	dominated		OK
+vs-open.sb-vs-btn	T2s	out	dominated		OK
+vs-open.sb-vs-btn	A9o	out	dominated		OK
+vs-open.sb-vs-btn	K9o	out	dominated		OK
+vs-open.sb-vs-btn	Q9o	out	dominated		OK
+vs-open.sb-vs-btn	J9o	out	dominated		OK
+vs-open.sb-vs-btn	T9o	out	dominated		OK
+vs-open.sb-vs-btn	97s	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	96s	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	95s	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	94s	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	93s	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	92s	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	A8o	out	dominated		OK
+vs-open.sb-vs-btn	K8o	out	dominated		OK
+vs-open.sb-vs-btn	Q8o	out	dominated		OK
+vs-open.sb-vs-btn	J8o	out	dominated		OK
+vs-open.sb-vs-btn	T8o	out	dominated		OK
+vs-open.sb-vs-btn	98o	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	87s	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	86s	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	85s	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	84s	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	83s	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	82s	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	A7o	out	dominated		OK
+vs-open.sb-vs-btn	K7o	out	dominated		OK
+vs-open.sb-vs-btn	Q7o	out	dominated		OK
+vs-open.sb-vs-btn	J7o	out	dominated		OK
+vs-open.sb-vs-btn	T7o	out	dominated		OK
+vs-open.sb-vs-btn	97o	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	87o	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	76s	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	74s	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	73s	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	72s	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	A6o	out	dominated		OK
+vs-open.sb-vs-btn	K6o	out	dominated		OK
+vs-open.sb-vs-btn	Q6o	out	dominated		OK
+vs-open.sb-vs-btn	J6o	out	dominated		OK
+vs-open.sb-vs-btn	T6o	out	dominated		OK
+vs-open.sb-vs-btn	96o	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	86o	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	76o	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	65s	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	64s	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	63s	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	62s	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	A5o	out	dominated		OK
+vs-open.sb-vs-btn	K5o	out	dominated		OK
+vs-open.sb-vs-btn	Q5o	out	dominated		OK
+vs-open.sb-vs-btn	J5o	out	dominated		OK
+vs-open.sb-vs-btn	T5o	out	dominated		OK
+vs-open.sb-vs-btn	95o	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	85o	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	75o	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	65o	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	53s	out	overcards	p=0.9814	OK
+vs-open.sb-vs-btn	52s	out	overcards	p=0.9814	OK
+vs-open.sb-vs-btn	A4o	out	dominated		OK
+vs-open.sb-vs-btn	K4o	out	dominated		OK
+vs-open.sb-vs-btn	Q4o	out	dominated		OK
+vs-open.sb-vs-btn	J4o	out	dominated		OK
+vs-open.sb-vs-btn	T4o	out	dominated		OK
+vs-open.sb-vs-btn	94o	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	84o	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	74o	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	64o	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	54o	out	overcards	p=0.9814	OK
+vs-open.sb-vs-btn	44	out	overcardsPair	p=0.9939	OK
+vs-open.sb-vs-btn	43s	out	overcards	p=0.9939	OK
+vs-open.sb-vs-btn	42s	out	overcards	p=0.9939	OK
+vs-open.sb-vs-btn	A3o	out	dominated		OK
+vs-open.sb-vs-btn	K3o	out	dominated		OK
+vs-open.sb-vs-btn	Q3o	out	dominated		OK
+vs-open.sb-vs-btn	J3o	out	dominated		OK
+vs-open.sb-vs-btn	T3o	out	dominated		OK
+vs-open.sb-vs-btn	93o	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	83o	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	73o	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	63o	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	53o	out	overcards	p=0.9814	OK
+vs-open.sb-vs-btn	43o	out	overcards	p=0.9939	OK
+vs-open.sb-vs-btn	33	out	overcardsPair	p=0.9990	OK
+vs-open.sb-vs-btn	32s	out	overcards	p=0.9990	OK
+vs-open.sb-vs-btn	A2o	out	dominated		OK
+vs-open.sb-vs-btn	K2o	out	dominated		OK
+vs-open.sb-vs-btn	Q2o	out	dominated		OK
+vs-open.sb-vs-btn	J2o	out	dominated		OK
+vs-open.sb-vs-btn	T2o	out	dominated		OK
+vs-open.sb-vs-btn	92o	out	overcards	p=0.7929	OK
+vs-open.sb-vs-btn	82o	out	overcards	p=0.8673	OK
+vs-open.sb-vs-btn	72o	out	overcards	p=0.9214	OK
+vs-open.sb-vs-btn	62o	out	overcards	p=0.9584	OK
+vs-open.sb-vs-btn	52o	out	overcards	p=0.9814	OK
+vs-open.sb-vs-btn	42o	out	overcards	p=0.9939	OK
+vs-open.sb-vs-btn	32o	out	overcards	p=0.9990	OK
+vs-open.sb-vs-btn	22	out	overcardsPair	p=1.0000	OK
+vs-open.bb-vs-btn	J3s	out	dominated		OK
+vs-open.bb-vs-btn	T3s	out	dominated		OK
+vs-open.bb-vs-btn	94s	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	93s	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	92s	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	J8o	out	dominated		OK
+vs-open.bb-vs-btn	98o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	84s	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	83s	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	82s	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	Q7o	out	dominated		OK
+vs-open.bb-vs-btn	J7o	out	dominated		OK
+vs-open.bb-vs-btn	97o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	87o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	74s	out	overcards	p=0.9214	OK
+vs-open.bb-vs-btn	73s	out	overcards	p=0.9214	OK
+vs-open.bb-vs-btn	72s	out	overcards	p=0.9214	OK
+vs-open.bb-vs-btn	K6o	out	dominated		OK
+vs-open.bb-vs-btn	Q6o	out	dominated		OK
+vs-open.bb-vs-btn	J6o	out	dominated		OK
+vs-open.bb-vs-btn	T6o	out	dominated		OK
+vs-open.bb-vs-btn	96o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	86o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	63s	out	overcards	p=0.9584	OK
+vs-open.bb-vs-btn	62s	out	overcards	p=0.9584	OK
+vs-open.bb-vs-btn	Q5o	out	dominated		OK
+vs-open.bb-vs-btn	J5o	out	dominated		OK
+vs-open.bb-vs-btn	T5o	out	dominated		OK
+vs-open.bb-vs-btn	95o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	85o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	65o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-btn	K4o	out	dominated		OK
+vs-open.bb-vs-btn	Q4o	out	dominated		OK
+vs-open.bb-vs-btn	J4o	out	dominated		OK
+vs-open.bb-vs-btn	T4o	out	dominated		OK
+vs-open.bb-vs-btn	94o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	84o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	74o	out	overcards	p=0.9214	OK
+vs-open.bb-vs-btn	64o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-btn	54o	out	overcards	p=0.9814	OK
+vs-open.bb-vs-btn	A3o	out	dominated		OK
+vs-open.bb-vs-btn	K3o	out	dominated		OK
+vs-open.bb-vs-btn	Q3o	out	dominated		OK
+vs-open.bb-vs-btn	J3o	out	dominated		OK
+vs-open.bb-vs-btn	T3o	out	dominated		OK
+vs-open.bb-vs-btn	93o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	83o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	73o	out	overcards	p=0.9214	OK
+vs-open.bb-vs-btn	63o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-btn	53o	out	overcards	p=0.9814	OK
+vs-open.bb-vs-btn	43o	out	overcards	p=0.9939	OK
+vs-open.bb-vs-btn	32s	out	overcards	p=0.9990	OK
+vs-open.bb-vs-btn	K2o	out	dominated		OK
+vs-open.bb-vs-btn	Q2o	out	dominated		OK
+vs-open.bb-vs-btn	J2o	out	dominated		OK
+vs-open.bb-vs-btn	T2o	out	dominated		OK
+vs-open.bb-vs-btn	92o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-btn	82o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-btn	72o	out	overcards	p=0.9214	OK
+vs-open.bb-vs-btn	62o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-btn	52o	out	overcards	p=0.9814	OK
+vs-open.bb-vs-btn	42o	out	overcards	p=0.9939	OK
+vs-open.bb-vs-btn	32o	out	overcards	p=0.9990	OK
+vs-open.bb-vs-sb	J3s	out	dominated		OK
+vs-open.bb-vs-sb	94s	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	93s	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	92s	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	J8o	out	dominated		OK
+vs-open.bb-vs-sb	84s	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	83s	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	82s	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	Q7o	out	dominated		OK
+vs-open.bb-vs-sb	J7o	out	dominated		OK
+vs-open.bb-vs-sb	97o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	87o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	73s	out	overcards	p=0.9214	OK
+vs-open.bb-vs-sb	72s	out	overcards	p=0.9214	OK
+vs-open.bb-vs-sb	Q6o	out	dominated		OK
+vs-open.bb-vs-sb	J6o	out	dominated		OK
+vs-open.bb-vs-sb	T6o	out	dominated		OK
+vs-open.bb-vs-sb	96o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	86o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	62s	out	overcards	p=0.9584	OK
+vs-open.bb-vs-sb	Q5o	out	dominated		OK
+vs-open.bb-vs-sb	J5o	out	dominated		OK
+vs-open.bb-vs-sb	T5o	out	dominated		OK
+vs-open.bb-vs-sb	95o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	85o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	65o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-sb	K4o	out	dominated		OK
+vs-open.bb-vs-sb	Q4o	out	dominated		OK
+vs-open.bb-vs-sb	J4o	out	dominated		OK
+vs-open.bb-vs-sb	T4o	out	dominated		OK
+vs-open.bb-vs-sb	94o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	84o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	74o	out	overcards	p=0.9214	OK
+vs-open.bb-vs-sb	64o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-sb	54o	out	overcards	p=0.9814	OK
+vs-open.bb-vs-sb	A3o	out	dominated		OK
+vs-open.bb-vs-sb	K3o	out	dominated		OK
+vs-open.bb-vs-sb	Q3o	out	dominated		OK
+vs-open.bb-vs-sb	J3o	out	dominated		OK
+vs-open.bb-vs-sb	T3o	out	dominated		OK
+vs-open.bb-vs-sb	93o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	83o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	73o	out	overcards	p=0.9214	OK
+vs-open.bb-vs-sb	63o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-sb	53o	out	overcards	p=0.9814	OK
+vs-open.bb-vs-sb	43o	out	overcards	p=0.9939	OK
+vs-open.bb-vs-sb	32s	out	overcards	p=0.9990	OK
+vs-open.bb-vs-sb	K2o	out	dominated		OK
+vs-open.bb-vs-sb	Q2o	out	dominated		OK
+vs-open.bb-vs-sb	J2o	out	dominated		OK
+vs-open.bb-vs-sb	T2o	out	dominated		OK
+vs-open.bb-vs-sb	92o	out	overcards	p=0.7929	OK
+vs-open.bb-vs-sb	82o	out	overcards	p=0.8673	OK
+vs-open.bb-vs-sb	72o	out	overcards	p=0.9214	OK
+vs-open.bb-vs-sb	62o	out	overcards	p=0.9584	OK
+vs-open.bb-vs-sb	52o	out	overcards	p=0.9814	OK
+vs-open.bb-vs-sb	42o	out	overcards	p=0.9939	OK
+vs-open.bb-vs-sb	32o	out	overcards	p=0.9990	OK
+nine.rfi.utg	AA	in	pair		OK
+nine.rfi.utg	AKs	in	high		OK
+nine.rfi.utg	AQs	in	high		OK
+nine.rfi.utg	AJs	in	high		OK
+nine.rfi.utg	ATs	in	high		OK
+nine.rfi.utg	A5s	in	suited		OK
+nine.rfi.utg	AKo	in	high		OK
+nine.rfi.utg	KK	in	pair		OK
+nine.rfi.utg	KQs	in	high		OK
+nine.rfi.utg	KJs	in	high		OK
+nine.rfi.utg	AQo	in	high		OK
+nine.rfi.utg	KQo	in	high		OK
+nine.rfi.utg	QQ	in	pair		OK
+nine.rfi.utg	QJs	in	high		OK
+nine.rfi.utg	QTs	in	high		OK
+nine.rfi.utg	JJ	in	pair		OK
+nine.rfi.utg	JTs	in	high		OK
+nine.rfi.utg	J9s	in	suited		OK
+nine.rfi.utg	TT	in	pair		OK
+nine.rfi.utg	T8s	in	suited		OK
+nine.rfi.utg	99	in	pair		OK
+nine.rfi.utg	88	in	pair		OK
+nine.rfi.utg	66	in	pair		OK
+nine.rfi.utg1	AA	in	pair		OK
+nine.rfi.utg1	AKs	in	high		OK
+nine.rfi.utg1	AQs	in	high		OK
+nine.rfi.utg1	AJs	in	high		OK
+nine.rfi.utg1	ATs	in	high		OK
+nine.rfi.utg1	A5s	in	suited		OK
+nine.rfi.utg1	A4s	in	suited		OK
+nine.rfi.utg1	AKo	in	high		OK
+nine.rfi.utg1	KK	in	pair		OK
+nine.rfi.utg1	KQs	in	high		OK
+nine.rfi.utg1	KJs	in	high		OK
+nine.rfi.utg1	KTs	in	high		OK
+nine.rfi.utg1	AQo	in	high		OK
+nine.rfi.utg1	KQo	in	high		OK
+nine.rfi.utg1	QQ	in	pair		OK
+nine.rfi.utg1	QJs	in	high		OK
+nine.rfi.utg1	QTs	in	high		OK
+nine.rfi.utg1	JJ	in	pair		OK
+nine.rfi.utg1	JTs	in	high		OK
+nine.rfi.utg1	J9s	in	suited		OK
+nine.rfi.utg1	TT	in	pair		OK
+nine.rfi.utg1	T8s	in	suited		OK
+nine.rfi.utg1	99	in	pair		OK
+nine.rfi.utg1	88	in	pair		OK
+nine.rfi.utg1	77	in	pair		OK
+nine.rfi.utg1	75s	in	suited		OK
+nine.rfi.utg1	66	in	pair		OK
+nine.rfi.utg2	AA	in	pair		OK
+nine.rfi.utg2	AKs	in	high		OK
+nine.rfi.utg2	AQs	in	high		OK
+nine.rfi.utg2	AJs	in	high		OK
+nine.rfi.utg2	ATs	in	high		OK
+nine.rfi.utg2	A5s	in	suited		OK
+nine.rfi.utg2	AKo	in	high		OK
+nine.rfi.utg2	KK	in	pair		OK
+nine.rfi.utg2	KQs	in	high		OK
+nine.rfi.utg2	KJs	in	high		OK
+nine.rfi.utg2	KTs	in	high		OK
+nine.rfi.utg2	AQo	in	high		OK
+nine.rfi.utg2	KQo	in	high		OK
+nine.rfi.utg2	QQ	in	pair		OK
+nine.rfi.utg2	QJs	in	high		OK
+nine.rfi.utg2	QTs	in	high		OK
+nine.rfi.utg2	AJo	in	high		OK
+nine.rfi.utg2	JJ	in	pair		OK
+nine.rfi.utg2	JTs	in	high		OK
+nine.rfi.utg2	J9s	in	suited		OK
+nine.rfi.utg2	TT	in	pair		OK
+nine.rfi.utg2	T8s	in	suited		OK
+nine.rfi.utg2	99	in	pair		OK
+nine.rfi.utg2	88	in	pair		OK
+nine.rfi.utg2	77	in	pair		OK
+nine.rfi.utg2	75s	in	suited		OK
+nine.rfi.utg2	66	in	pair		OK
+nine.rfi.lj	AA	in	pair		OK
+nine.rfi.lj	AKs	in	high		OK
+nine.rfi.lj	AQs	in	high		OK
+nine.rfi.lj	AJs	in	high		OK
+nine.rfi.lj	ATs	in	high		OK
+nine.rfi.lj	A9s	in	suited		OK
+nine.rfi.lj	A5s	in	suited		OK
+nine.rfi.lj	AKo	in	high		OK
+nine.rfi.lj	KK	in	pair		OK
+nine.rfi.lj	KQs	in	high		OK
+nine.rfi.lj	KJs	in	high		OK
+nine.rfi.lj	KTs	in	high		OK
+nine.rfi.lj	K9s	in	suited		OK
+nine.rfi.lj	AQo	in	high		OK
+nine.rfi.lj	KQo	in	high		OK
+nine.rfi.lj	QQ	in	pair		OK
+nine.rfi.lj	QJs	in	high		OK
+nine.rfi.lj	QTs	in	high		OK
+nine.rfi.lj	AJo	in	high		OK
+nine.rfi.lj	KJo	in	high		OK
+nine.rfi.lj	JJ	in	pair		OK
+nine.rfi.lj	JTs	in	high		OK
+nine.rfi.lj	J9s	in	suited		OK
+nine.rfi.lj	ATo	in	high		OK
+nine.rfi.lj	TT	in	pair		OK
+nine.rfi.lj	T9s	in	suited		OK
+nine.rfi.lj	T7s	in	suited		OK
+nine.rfi.lj	99	in	pair		OK
+nine.rfi.lj	88	in	pair		OK
+nine.rfi.lj	77	in	pair		OK
+nine.rfi.lj	66	in	pair		OK
+nine.rfi.lj	55	in	pair		OK
+nine.rfi.lj	54s	in	suited		OK
+nine.rfi.hj	A7s	out	dominated		OK
+nine.rfi.hj	A3s	out	dominated		OK
+nine.rfi.hj	A2s	out	dominated		OK
+nine.rfi.hj	K8s	out	dominated		OK
+nine.rfi.hj	K6s	out	dominated		OK
+nine.rfi.hj	K4s	out	dominated		OK
+nine.rfi.hj	K3s	out	dominated		OK
+nine.rfi.hj	K2s	out	dominated		OK
+nine.rfi.hj	Q9s	out	dominated		OK
+nine.rfi.hj	Q7s	out	dominated		OK
+nine.rfi.hj	Q6s	out	dominated		OK
+nine.rfi.hj	Q5s	out	dominated		OK
+nine.rfi.hj	Q4s	out	dominated		OK
+nine.rfi.hj	Q3s	out	dominated		OK
+nine.rfi.hj	Q2s	out	dominated		OK
+nine.rfi.hj	QJo	out	dominated		OK
+nine.rfi.hj	J8s	out	dominated		OK
+nine.rfi.hj	J7s	out	dominated		OK
+nine.rfi.hj	J6s	out	dominated		OK
+nine.rfi.hj	J5s	out	dominated		OK
+nine.rfi.hj	J4s	out	dominated		OK
+nine.rfi.hj	J3s	out	dominated		OK
+nine.rfi.hj	J2s	out	dominated		OK
+nine.rfi.hj	JTo	out	dominated		OK
+nine.rfi.hj	T6s	out	dominated		OK
+nine.rfi.hj	T5s	out	dominated		OK
+nine.rfi.hj	T4s	out	dominated		OK
+nine.rfi.hj	T3s	out	dominated		OK
+nine.rfi.hj	T2s	out	dominated		OK
+nine.rfi.hj	A9o	out	dominated		OK
+nine.rfi.hj	K9o	out	dominated		OK
+nine.rfi.hj	Q9o	out	dominated		OK
+nine.rfi.hj	J9o	out	dominated		OK
+nine.rfi.hj	T9o	out	dominated		OK
+nine.rfi.hj	96s	out	overcards	p=0.7929	OK
+nine.rfi.hj	95s	out	overcards	p=0.7929	OK
+nine.rfi.hj	94s	out	overcards	p=0.7929	OK
+nine.rfi.hj	93s	out	overcards	p=0.7929	OK
+nine.rfi.hj	92s	out	overcards	p=0.7929	OK
+nine.rfi.hj	J8o	out	dominated		OK
+nine.rfi.hj	T8o	out	dominated		OK
+nine.rfi.hj	87s	out	overcards	p=0.8673	OK
+nine.rfi.hj	84s	out	overcards	p=0.8673	OK
+nine.rfi.hj	83s	out	overcards	p=0.8673	OK
+nine.rfi.hj	82s	out	overcards	p=0.8673	OK
+nine.rfi.hj	A7o	out	dominated		OK
+nine.rfi.hj	Q7o	out	dominated		OK
+nine.rfi.hj	J7o	out	dominated		OK
+nine.rfi.hj	T7o	out	dominated		OK
+nine.rfi.hj	97o	out	overcards	p=0.7929	OK
+nine.rfi.hj	87o	out	overcards	p=0.8673	OK
+nine.rfi.hj	74s	out	overcards	p=0.9214	OK
+nine.rfi.hj	73s	out	overcards	p=0.9214	OK
+nine.rfi.hj	72s	out	overcards	p=0.9214	OK
+nine.rfi.hj	A6o	out	dominated		OK
+nine.rfi.hj	K6o	out	dominated		OK
+nine.rfi.hj	Q6o	out	dominated		OK
+nine.rfi.hj	J6o	out	dominated		OK
+nine.rfi.hj	T6o	out	dominated		OK
+nine.rfi.hj	96o	out	overcards	p=0.7929	OK
+nine.rfi.hj	86o	out	overcards	p=0.8673	OK
+nine.rfi.hj	76o	out	overcards	p=0.9214	OK
+nine.rfi.hj	64s	out	overcards	p=0.9584	OK
+nine.rfi.hj	63s	out	overcards	p=0.9584	OK
+nine.rfi.hj	62s	out	overcards	p=0.9584	OK
+nine.rfi.hj	A5o	out	dominated		OK
+nine.rfi.hj	K5o	out	dominated		OK
+nine.rfi.hj	Q5o	out	dominated		OK
+nine.rfi.hj	J5o	out	dominated		OK
+nine.rfi.hj	T5o	out	dominated		OK
+nine.rfi.hj	95o	out	overcards	p=0.7929	OK
+nine.rfi.hj	85o	out	overcards	p=0.8673	OK
+nine.rfi.hj	75o	out	overcards	p=0.9214	OK
+nine.rfi.hj	65o	out	overcards	p=0.9584	OK
+nine.rfi.hj	52s	out	overcards	p=0.9814	OK
+nine.rfi.hj	K4o	out	dominated		OK
+nine.rfi.hj	Q4o	out	dominated		OK
+nine.rfi.hj	J4o	out	dominated		OK
+nine.rfi.hj	T4o	out	dominated		OK
+nine.rfi.hj	94o	out	overcards	p=0.7929	OK
+nine.rfi.hj	84o	out	overcards	p=0.8673	OK
+nine.rfi.hj	74o	out	overcards	p=0.9214	OK
+nine.rfi.hj	64o	out	overcards	p=0.9584	OK
+nine.rfi.hj	54o	out	overcards	p=0.9814	OK
+nine.rfi.hj	44	out	overcardsPair	p=0.9939	OK
+nine.rfi.hj	43s	out	overcards	p=0.9939	OK
+nine.rfi.hj	42s	out	overcards	p=0.9939	OK
+nine.rfi.hj	A3o	out	dominated		OK
+nine.rfi.hj	K3o	out	dominated		OK
+nine.rfi.hj	Q3o	out	dominated		OK
+nine.rfi.hj	J3o	out	dominated		OK
+nine.rfi.hj	T3o	out	dominated		OK
+nine.rfi.hj	93o	out	overcards	p=0.7929	OK
+nine.rfi.hj	83o	out	overcards	p=0.8673	OK
+nine.rfi.hj	73o	out	overcards	p=0.9214	OK
+nine.rfi.hj	63o	out	overcards	p=0.9584	OK
+nine.rfi.hj	53o	out	overcards	p=0.9814	OK
+nine.rfi.hj	43o	out	overcards	p=0.9939	OK
+nine.rfi.hj	32s	out	overcards	p=0.9990	OK
+nine.rfi.hj	A2o	out	dominated		OK
+nine.rfi.hj	K2o	out	dominated		OK
+nine.rfi.hj	Q2o	out	dominated		OK
+nine.rfi.hj	J2o	out	dominated		OK
+nine.rfi.hj	T2o	out	dominated		OK
+nine.rfi.hj	92o	out	overcards	p=0.7929	OK
+nine.rfi.hj	82o	out	overcards	p=0.8673	OK
+nine.rfi.hj	72o	out	overcards	p=0.9214	OK
+nine.rfi.hj	62o	out	overcards	p=0.9584	OK
+nine.rfi.hj	52o	out	overcards	p=0.9814	OK
+nine.rfi.hj	42o	out	overcards	p=0.9939	OK
+nine.rfi.hj	32o	out	overcards	p=0.9990	OK
+nine.rfi.hj	22	out	overcardsPair	p=1.0000	OK
+nine.rfi.co	K3s	out	dominated		OK
+nine.rfi.co	K2s	out	dominated		OK
+nine.rfi.co	Q7s	out	dominated		OK
+nine.rfi.co	Q4s	out	dominated		OK
+nine.rfi.co	Q3s	out	dominated		OK
+nine.rfi.co	Q2s	out	dominated		OK
+nine.rfi.co	J8s	out	dominated		OK
+nine.rfi.co	J7s	out	dominated		OK
+nine.rfi.co	J6s	out	dominated		OK
+nine.rfi.co	J5s	out	dominated		OK
+nine.rfi.co	J4s	out	dominated		OK
+nine.rfi.co	J3s	out	dominated		OK
+nine.rfi.co	J2s	out	dominated		OK
+nine.rfi.co	T6s	out	dominated		OK
+nine.rfi.co	T5s	out	dominated		OK
+nine.rfi.co	T4s	out	dominated		OK
+nine.rfi.co	T3s	out	dominated		OK
+nine.rfi.co	T2s	out	dominated		OK
+nine.rfi.co	K9o	out	dominated		OK
+nine.rfi.co	Q9o	out	dominated		OK
+nine.rfi.co	J9o	out	dominated		OK
+nine.rfi.co	T9o	out	dominated		OK
+nine.rfi.co	96s	out	overcards	p=0.7929	OK
+nine.rfi.co	95s	out	overcards	p=0.7929	OK
+nine.rfi.co	94s	out	overcards	p=0.7929	OK
+nine.rfi.co	93s	out	overcards	p=0.7929	OK
+nine.rfi.co	92s	out	overcards	p=0.7929	OK
+nine.rfi.co	J8o	out	dominated		OK
+nine.rfi.co	84s	out	overcards	p=0.8673	OK
+nine.rfi.co	83s	out	overcards	p=0.8673	OK
+nine.rfi.co	82s	out	overcards	p=0.8673	OK
+nine.rfi.co	A7o	out	dominated		OK
+nine.rfi.co	Q7o	out	dominated		OK
+nine.rfi.co	J7o	out	dominated		OK
+nine.rfi.co	T7o	out	dominated		OK
+nine.rfi.co	97o	out	overcards	p=0.7929	OK
+nine.rfi.co	87o	out	overcards	p=0.8673	OK
+nine.rfi.co	74s	out	overcards	p=0.9214	OK
+nine.rfi.co	73s	out	overcards	p=0.9214	OK
+nine.rfi.co	72s	out	overcards	p=0.9214	OK
+nine.rfi.co	A6o	out	dominated		OK
+nine.rfi.co	K6o	out	dominated		OK
+nine.rfi.co	Q6o	out	dominated		OK
+nine.rfi.co	J6o	out	dominated		OK
+nine.rfi.co	T6o	out	dominated		OK
+nine.rfi.co	96o	out	overcards	p=0.7929	OK
+nine.rfi.co	86o	out	overcards	p=0.8673	OK
+nine.rfi.co	76o	out	overcards	p=0.9214	OK
+nine.rfi.co	64s	out	overcards	p=0.9584	OK
+nine.rfi.co	63s	out	overcards	p=0.9584	OK
+nine.rfi.co	62s	out	overcards	p=0.9584	OK
+nine.rfi.co	A5o	out	dominated		OK
+nine.rfi.co	K5o	out	dominated		OK
+nine.rfi.co	Q5o	out	dominated		OK
+nine.rfi.co	J5o	out	dominated		OK
+nine.rfi.co	T5o	out	dominated		OK
+nine.rfi.co	95o	out	overcards	p=0.7929	OK
+nine.rfi.co	85o	out	overcards	p=0.8673	OK
+nine.rfi.co	75o	out	overcards	p=0.9214	OK
+nine.rfi.co	65o	out	overcards	p=0.9584	OK
+nine.rfi.co	52s	out	overcards	p=0.9814	OK
+nine.rfi.co	K4o	out	dominated		OK
+nine.rfi.co	Q4o	out	dominated		OK
+nine.rfi.co	J4o	out	dominated		OK
+nine.rfi.co	T4o	out	dominated		OK
+nine.rfi.co	94o	out	overcards	p=0.7929	OK
+nine.rfi.co	84o	out	overcards	p=0.8673	OK
+nine.rfi.co	74o	out	overcards	p=0.9214	OK
+nine.rfi.co	64o	out	overcards	p=0.9584	OK
+nine.rfi.co	54o	out	overcards	p=0.9814	OK
+nine.rfi.co	43s	out	overcards	p=0.9939	OK
+nine.rfi.co	42s	out	overcards	p=0.9939	OK
+nine.rfi.co	A3o	out	dominated		OK
+nine.rfi.co	K3o	out	dominated		OK
+nine.rfi.co	Q3o	out	dominated		OK
+nine.rfi.co	J3o	out	dominated		OK
+nine.rfi.co	T3o	out	dominated		OK
+nine.rfi.co	93o	out	overcards	p=0.7929	OK
+nine.rfi.co	83o	out	overcards	p=0.8673	OK
+nine.rfi.co	73o	out	overcards	p=0.9214	OK
+nine.rfi.co	63o	out	overcards	p=0.9584	OK
+nine.rfi.co	53o	out	overcards	p=0.9814	OK
+nine.rfi.co	43o	out	overcards	p=0.9939	OK
+nine.rfi.co	32s	out	overcards	p=0.9990	OK
+nine.rfi.co	A2o	out	dominated		OK
+nine.rfi.co	K2o	out	dominated		OK
+nine.rfi.co	Q2o	out	dominated		OK
+nine.rfi.co	J2o	out	dominated		OK
+nine.rfi.co	T2o	out	dominated		OK
+nine.rfi.co	92o	out	overcards	p=0.7929	OK
+nine.rfi.co	82o	out	overcards	p=0.8673	OK
+nine.rfi.co	72o	out	overcards	p=0.9214	OK
+nine.rfi.co	62o	out	overcards	p=0.9584	OK
+nine.rfi.co	52o	out	overcards	p=0.9814	OK
+nine.rfi.co	42o	out	overcards	p=0.9939	OK
+nine.rfi.co	32o	out	overcards	p=0.9990	OK
+nine.rfi.co	22	out	overcardsPair	p=1.0000	OK
+nine.rfi.btn	Q3s	out	dominated		OK
+nine.rfi.btn	Q2s	out	dominated		OK
+nine.rfi.btn	J4s	out	dominated		OK
+nine.rfi.btn	J3s	out	dominated		OK
+nine.rfi.btn	J2s	out	dominated		OK
+nine.rfi.btn	T5s	out	dominated		OK
+nine.rfi.btn	T4s	out	dominated		OK
+nine.rfi.btn	T3s	out	dominated		OK
+nine.rfi.btn	T2s	out	dominated		OK
+nine.rfi.btn	95s	out	overcards	p=0.7929	OK
+nine.rfi.btn	94s	out	overcards	p=0.7929	OK
+nine.rfi.btn	93s	out	overcards	p=0.7929	OK
+nine.rfi.btn	92s	out	overcards	p=0.7929	OK
+nine.rfi.btn	J8o	out	dominated		OK
+nine.rfi.btn	84s	out	overcards	p=0.8673	OK
+nine.rfi.btn	83s	out	overcards	p=0.8673	OK
+nine.rfi.btn	82s	out	overcards	p=0.8673	OK
+nine.rfi.btn	Q7o	out	dominated		OK
+nine.rfi.btn	J7o	out	dominated		OK
+nine.rfi.btn	T7o	out	dominated		OK
+nine.rfi.btn	97o	out	overcards	p=0.7929	OK
+nine.rfi.btn	87o	out	overcards	p=0.8673	OK
+nine.rfi.btn	74s	out	overcards	p=0.9214	OK
+nine.rfi.btn	73s	out	overcards	p=0.9214	OK
+nine.rfi.btn	72s	out	overcards	p=0.9214	OK
+nine.rfi.btn	K6o	out	dominated		OK
+nine.rfi.btn	Q6o	out	dominated		OK
+nine.rfi.btn	J6o	out	dominated		OK
+nine.rfi.btn	T6o	out	dominated		OK
+nine.rfi.btn	96o	out	overcards	p=0.7929	OK
+nine.rfi.btn	86o	out	overcards	p=0.8673	OK
+nine.rfi.btn	76o	out	overcards	p=0.9214	OK
+nine.rfi.btn	63s	out	overcards	p=0.9584	OK
+nine.rfi.btn	62s	out	overcards	p=0.9584	OK
+nine.rfi.btn	K5o	out	dominated		OK
+nine.rfi.btn	Q5o	out	dominated		OK
+nine.rfi.btn	J5o	out	dominated		OK
+nine.rfi.btn	T5o	out	dominated		OK
+nine.rfi.btn	95o	out	overcards	p=0.7929	OK
+nine.rfi.btn	85o	out	overcards	p=0.8673	OK
+nine.rfi.btn	65o	out	overcards	p=0.9584	OK
+nine.rfi.btn	K4o	out	dominated		OK
+nine.rfi.btn	Q4o	out	dominated		OK
+nine.rfi.btn	J4o	out	dominated		OK
+nine.rfi.btn	T4o	out	dominated		OK
+nine.rfi.btn	94o	out	overcards	p=0.7929	OK
+nine.rfi.btn	84o	out	overcards	p=0.8673	OK
+nine.rfi.btn	74o	out	overcards	p=0.9214	OK
+nine.rfi.btn	64o	out	overcards	p=0.9584	OK
+nine.rfi.btn	54o	out	overcards	p=0.9814	OK
+nine.rfi.btn	43s	out	overcards	p=0.9939	OK
+nine.rfi.btn	42s	out	overcards	p=0.9939	OK
+nine.rfi.btn	A3o	out	dominated		OK
+nine.rfi.btn	K3o	out	dominated		OK
+nine.rfi.btn	Q3o	out	dominated		OK
+nine.rfi.btn	J3o	out	dominated		OK
+nine.rfi.btn	T3o	out	dominated		OK
+nine.rfi.btn	93o	out	overcards	p=0.7929	OK
+nine.rfi.btn	83o	out	overcards	p=0.8673	OK
+nine.rfi.btn	73o	out	overcards	p=0.9214	OK
+nine.rfi.btn	63o	out	overcards	p=0.9584	OK
+nine.rfi.btn	53o	out	overcards	p=0.9814	OK
+nine.rfi.btn	43o	out	overcards	p=0.9939	OK
+nine.rfi.btn	32s	out	overcards	p=0.9990	OK
+nine.rfi.btn	A2o	out	dominated		OK
+nine.rfi.btn	K2o	out	dominated		OK
+nine.rfi.btn	Q2o	out	dominated		OK
+nine.rfi.btn	J2o	out	dominated		OK
+nine.rfi.btn	T2o	out	dominated		OK
+nine.rfi.btn	92o	out	overcards	p=0.7929	OK
+nine.rfi.btn	82o	out	overcards	p=0.8673	OK
+nine.rfi.btn	72o	out	overcards	p=0.9214	OK
+nine.rfi.btn	62o	out	overcards	p=0.9584	OK
+nine.rfi.btn	52o	out	overcards	p=0.9814	OK
+nine.rfi.btn	42o	out	overcards	p=0.9939	OK
+nine.rfi.btn	32o	out	overcards	p=0.9990	OK
+nine.rfi.btn	22	out	overcardsPair	p=1.0000	OK
+nine.rfi.sb	Q3s	out	dominated		OK
+nine.rfi.sb	Q2s	out	dominated		OK
+nine.rfi.sb	J4s	out	dominated		OK
+nine.rfi.sb	J3s	out	dominated		OK
+nine.rfi.sb	J2s	out	dominated		OK
+nine.rfi.sb	T4s	out	dominated		OK
+nine.rfi.sb	T3s	out	dominated		OK
+nine.rfi.sb	T2s	out	dominated		OK
+nine.rfi.sb	95s	out	overcards	p=0.7929	OK
+nine.rfi.sb	94s	out	overcards	p=0.7929	OK
+nine.rfi.sb	93s	out	overcards	p=0.7929	OK
+nine.rfi.sb	92s	out	overcards	p=0.7929	OK
+nine.rfi.sb	J8o	out	dominated		OK
+nine.rfi.sb	84s	out	overcards	p=0.8673	OK
+nine.rfi.sb	83s	out	overcards	p=0.8673	OK
+nine.rfi.sb	82s	out	overcards	p=0.8673	OK
+nine.rfi.sb	Q7o	out	dominated		OK
+nine.rfi.sb	J7o	out	dominated		OK
+nine.rfi.sb	T7o	out	dominated		OK
+nine.rfi.sb	97o	out	overcards	p=0.7929	OK
+nine.rfi.sb	87o	out	overcards	p=0.8673	OK
+nine.rfi.sb	74s	out	overcards	p=0.9214	OK
+nine.rfi.sb	73s	out	overcards	p=0.9214	OK
+nine.rfi.sb	72s	out	overcards	p=0.9214	OK
+nine.rfi.sb	K6o	out	dominated		OK
+nine.rfi.sb	Q6o	out	dominated		OK
+nine.rfi.sb	J6o	out	dominated		OK
+nine.rfi.sb	T6o	out	dominated		OK
+nine.rfi.sb	96o	out	overcards	p=0.7929	OK
+nine.rfi.sb	86o	out	overcards	p=0.8673	OK
+nine.rfi.sb	76o	out	overcards	p=0.9214	OK
+nine.rfi.sb	63s	out	overcards	p=0.9584	OK
+nine.rfi.sb	62s	out	overcards	p=0.9584	OK
+nine.rfi.sb	K5o	out	dominated		OK
+nine.rfi.sb	Q5o	out	dominated		OK
+nine.rfi.sb	J5o	out	dominated		OK
+nine.rfi.sb	T5o	out	dominated		OK
+nine.rfi.sb	95o	out	overcards	p=0.7929	OK
+nine.rfi.sb	85o	out	overcards	p=0.8673	OK
+nine.rfi.sb	75o	out	overcards	p=0.9214	OK
+nine.rfi.sb	65o	out	overcards	p=0.9584	OK
+nine.rfi.sb	K4o	out	dominated		OK
+nine.rfi.sb	Q4o	out	dominated		OK
+nine.rfi.sb	J4o	out	dominated		OK
+nine.rfi.sb	T4o	out	dominated		OK
+nine.rfi.sb	94o	out	overcards	p=0.7929	OK
+nine.rfi.sb	84o	out	overcards	p=0.8673	OK
+nine.rfi.sb	74o	out	overcards	p=0.9214	OK
+nine.rfi.sb	64o	out	overcards	p=0.9584	OK
+nine.rfi.sb	54o	out	overcards	p=0.9814	OK
+nine.rfi.sb	43s	out	overcards	p=0.9939	OK
+nine.rfi.sb	42s	out	overcards	p=0.9939	OK
+nine.rfi.sb	A3o	out	dominated		OK
+nine.rfi.sb	K3o	out	dominated		OK
+nine.rfi.sb	Q3o	out	dominated		OK
+nine.rfi.sb	J3o	out	dominated		OK
+nine.rfi.sb	T3o	out	dominated		OK
+nine.rfi.sb	93o	out	overcards	p=0.7929	OK
+nine.rfi.sb	83o	out	overcards	p=0.8673	OK
+nine.rfi.sb	73o	out	overcards	p=0.9214	OK
+nine.rfi.sb	63o	out	overcards	p=0.9584	OK
+nine.rfi.sb	53o	out	overcards	p=0.9814	OK
+nine.rfi.sb	43o	out	overcards	p=0.9939	OK
+nine.rfi.sb	32s	out	overcards	p=0.9990	OK
+nine.rfi.sb	A2o	out	dominated		OK
+nine.rfi.sb	K2o	out	dominated		OK
+nine.rfi.sb	Q2o	out	dominated		OK
+nine.rfi.sb	J2o	out	dominated		OK
+nine.rfi.sb	T2o	out	dominated		OK
+nine.rfi.sb	92o	out	overcards	p=0.7929	OK
+nine.rfi.sb	82o	out	overcards	p=0.8673	OK
+nine.rfi.sb	72o	out	overcards	p=0.9214	OK
+nine.rfi.sb	62o	out	overcards	p=0.9584	OK
+nine.rfi.sb	52o	out	overcards	p=0.9814	OK
+nine.rfi.sb	42o	out	overcards	p=0.9939	OK
+nine.rfi.sb	32o	out	overcards	p=0.9990	OK
+nine.rfi.sb	22	out	overcardsPair	p=1.0000	OK
+nine.vs-open.btn-vs-co	K6s	out	dominated		OK
+nine.vs-open.btn-vs-co	K4s	out	dominated		OK
+nine.vs-open.btn-vs-co	K3s	out	dominated		OK
+nine.vs-open.btn-vs-co	K2s	out	dominated		OK
+nine.vs-open.btn-vs-co	Q8s	out	dominated		OK
+nine.vs-open.btn-vs-co	Q7s	out	dominated		OK
+nine.vs-open.btn-vs-co	Q6s	out	dominated		OK
+nine.vs-open.btn-vs-co	Q5s	out	dominated		OK
+nine.vs-open.btn-vs-co	Q4s	out	dominated		OK
+nine.vs-open.btn-vs-co	Q3s	out	dominated		OK
+nine.vs-open.btn-vs-co	Q2s	out	dominated		OK
+nine.vs-open.btn-vs-co	QJo	out	dominated		OK
+nine.vs-open.btn-vs-co	J8s	out	dominated		OK
+nine.vs-open.btn-vs-co	J7s	out	dominated		OK
+nine.vs-open.btn-vs-co	J6s	out	dominated		OK
+nine.vs-open.btn-vs-co	J5s	out	dominated		OK
+nine.vs-open.btn-vs-co	J4s	out	dominated		OK
+nine.vs-open.btn-vs-co	J3s	out	dominated		OK
+nine.vs-open.btn-vs-co	J2s	out	dominated		OK
+nine.vs-open.btn-vs-co	KTo	out	dominated		OK
+nine.vs-open.btn-vs-co	QTo	out	dominated		OK
+nine.vs-open.btn-vs-co	JTo	out	dominated		OK
+nine.vs-open.btn-vs-co	T6s	out	dominated		OK
+nine.vs-open.btn-vs-co	T5s	out	dominated		OK
+nine.vs-open.btn-vs-co	T4s	out	dominated		OK
+nine.vs-open.btn-vs-co	T3s	out	dominated		OK
+nine.vs-open.btn-vs-co	T2s	out	dominated		OK
+nine.vs-open.btn-vs-co	A9o	out	dominated		OK
+nine.vs-open.btn-vs-co	K9o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q9o	out	dominated		OK
+nine.vs-open.btn-vs-co	J9o	out	dominated		OK
+nine.vs-open.btn-vs-co	T9o	out	dominated		OK
+nine.vs-open.btn-vs-co	96s	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	95s	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	94s	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	93s	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	92s	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	A8o	out	dominated		OK
+nine.vs-open.btn-vs-co	K8o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q8o	out	dominated		OK
+nine.vs-open.btn-vs-co	J8o	out	dominated		OK
+nine.vs-open.btn-vs-co	T8o	out	dominated		OK
+nine.vs-open.btn-vs-co	98o	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	86s	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	85s	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	84s	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	83s	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	82s	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	A7o	out	dominated		OK
+nine.vs-open.btn-vs-co	K7o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q7o	out	dominated		OK
+nine.vs-open.btn-vs-co	J7o	out	dominated		OK
+nine.vs-open.btn-vs-co	T7o	out	dominated		OK
+nine.vs-open.btn-vs-co	97o	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	87o	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	74s	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	73s	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	72s	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	A6o	out	dominated		OK
+nine.vs-open.btn-vs-co	K6o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q6o	out	dominated		OK
+nine.vs-open.btn-vs-co	J6o	out	dominated		OK
+nine.vs-open.btn-vs-co	T6o	out	dominated		OK
+nine.vs-open.btn-vs-co	96o	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	86o	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	76o	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	64s	out	overcards	p=0.9584	OK
+nine.vs-open.btn-vs-co	63s	out	overcards	p=0.9584	OK
+nine.vs-open.btn-vs-co	62s	out	overcards	p=0.9584	OK
+nine.vs-open.btn-vs-co	A5o	out	dominated		OK
+nine.vs-open.btn-vs-co	K5o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q5o	out	dominated		OK
+nine.vs-open.btn-vs-co	J5o	out	dominated		OK
+nine.vs-open.btn-vs-co	T5o	out	dominated		OK
+nine.vs-open.btn-vs-co	95o	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	85o	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	75o	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	65o	out	overcards	p=0.9584	OK
+nine.vs-open.btn-vs-co	53s	out	overcards	p=0.9814	OK
+nine.vs-open.btn-vs-co	52s	out	overcards	p=0.9814	OK
+nine.vs-open.btn-vs-co	A4o	out	dominated		OK
+nine.vs-open.btn-vs-co	K4o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q4o	out	dominated		OK
+nine.vs-open.btn-vs-co	J4o	out	dominated		OK
+nine.vs-open.btn-vs-co	T4o	out	dominated		OK
+nine.vs-open.btn-vs-co	94o	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	84o	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	74o	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	64o	out	overcards	p=0.9584	OK
+nine.vs-open.btn-vs-co	54o	out	overcards	p=0.9814	OK
+nine.vs-open.btn-vs-co	43s	out	overcards	p=0.9939	OK
+nine.vs-open.btn-vs-co	42s	out	overcards	p=0.9939	OK
+nine.vs-open.btn-vs-co	A3o	out	dominated		OK
+nine.vs-open.btn-vs-co	K3o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q3o	out	dominated		OK
+nine.vs-open.btn-vs-co	J3o	out	dominated		OK
+nine.vs-open.btn-vs-co	T3o	out	dominated		OK
+nine.vs-open.btn-vs-co	93o	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	83o	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	73o	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	63o	out	overcards	p=0.9584	OK
+nine.vs-open.btn-vs-co	53o	out	overcards	p=0.9814	OK
+nine.vs-open.btn-vs-co	43o	out	overcards	p=0.9939	OK
+nine.vs-open.btn-vs-co	32s	out	overcards	p=0.9990	OK
+nine.vs-open.btn-vs-co	A2o	out	dominated		OK
+nine.vs-open.btn-vs-co	K2o	out	dominated		OK
+nine.vs-open.btn-vs-co	Q2o	out	dominated		OK
+nine.vs-open.btn-vs-co	J2o	out	dominated		OK
+nine.vs-open.btn-vs-co	T2o	out	dominated		OK
+nine.vs-open.btn-vs-co	92o	out	overcards	p=0.7929	OK
+nine.vs-open.btn-vs-co	82o	out	overcards	p=0.8673	OK
+nine.vs-open.btn-vs-co	72o	out	overcards	p=0.9214	OK
+nine.vs-open.btn-vs-co	62o	out	overcards	p=0.9584	OK
+nine.vs-open.btn-vs-co	52o	out	overcards	p=0.9814	OK
+nine.vs-open.btn-vs-co	42o	out	overcards	p=0.9939	OK
+nine.vs-open.btn-vs-co	32o	out	overcards	p=0.9990	OK
+nine.vs-open.sb-vs-btn	A9s	out	dominated		OK
+nine.vs-open.sb-vs-btn	A2s	out	dominated		OK
+nine.vs-open.sb-vs-btn	K6s	out	dominated		OK
+nine.vs-open.sb-vs-btn	K5s	out	dominated		OK
+nine.vs-open.sb-vs-btn	K4s	out	dominated		OK
+nine.vs-open.sb-vs-btn	K3s	out	dominated		OK
+nine.vs-open.sb-vs-btn	K2s	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q8s	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q7s	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q6s	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q5s	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q4s	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q3s	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q2s	out	dominated		OK
+nine.vs-open.sb-vs-btn	QJo	out	dominated		OK
+nine.vs-open.sb-vs-btn	J8s	out	dominated		OK
+nine.vs-open.sb-vs-btn	J7s	out	dominated		OK
+nine.vs-open.sb-vs-btn	J6s	out	dominated		OK
+nine.vs-open.sb-vs-btn	J5s	out	dominated		OK
+nine.vs-open.sb-vs-btn	J4s	out	dominated		OK
+nine.vs-open.sb-vs-btn	J3s	out	dominated		OK
+nine.vs-open.sb-vs-btn	J2s	out	dominated		OK
+nine.vs-open.sb-vs-btn	KTo	out	dominated		OK
+nine.vs-open.sb-vs-btn	JTo	out	dominated		OK
+nine.vs-open.sb-vs-btn	T6s	out	dominated		OK
+nine.vs-open.sb-vs-btn	T5s	out	dominated		OK
+nine.vs-open.sb-vs-btn	T4s	out	dominated		OK
+nine.vs-open.sb-vs-btn	T3s	out	dominated		OK
+nine.vs-open.sb-vs-btn	T2s	out	dominated		OK
+nine.vs-open.sb-vs-btn	A9o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K9o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q9o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J9o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T9o	out	dominated		OK
+nine.vs-open.sb-vs-btn	97s	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	96s	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	95s	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	94s	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	93s	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	92s	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	A8o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K8o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q8o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J8o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T8o	out	dominated		OK
+nine.vs-open.sb-vs-btn	98o	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	87s	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	86s	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	85s	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	84s	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	83s	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	82s	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	A7o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K7o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q7o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J7o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T7o	out	dominated		OK
+nine.vs-open.sb-vs-btn	97o	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	87o	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	76s	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	74s	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	73s	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	72s	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	A6o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K6o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q6o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J6o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T6o	out	dominated		OK
+nine.vs-open.sb-vs-btn	96o	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	86o	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	76o	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	65s	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	64s	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	63s	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	62s	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	A5o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K5o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q5o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J5o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T5o	out	dominated		OK
+nine.vs-open.sb-vs-btn	95o	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	85o	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	75o	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	65o	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	53s	out	overcards	p=0.9814	OK
+nine.vs-open.sb-vs-btn	52s	out	overcards	p=0.9814	OK
+nine.vs-open.sb-vs-btn	A4o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K4o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q4o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J4o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T4o	out	dominated		OK
+nine.vs-open.sb-vs-btn	94o	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	84o	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	74o	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	64o	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	54o	out	overcards	p=0.9814	OK
+nine.vs-open.sb-vs-btn	44	out	overcardsPair	p=0.9939	OK
+nine.vs-open.sb-vs-btn	43s	out	overcards	p=0.9939	OK
+nine.vs-open.sb-vs-btn	42s	out	overcards	p=0.9939	OK
+nine.vs-open.sb-vs-btn	A3o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K3o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q3o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J3o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T3o	out	dominated		OK
+nine.vs-open.sb-vs-btn	93o	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	83o	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	73o	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	63o	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	53o	out	overcards	p=0.9814	OK
+nine.vs-open.sb-vs-btn	43o	out	overcards	p=0.9939	OK
+nine.vs-open.sb-vs-btn	33	out	overcardsPair	p=0.9990	OK
+nine.vs-open.sb-vs-btn	32s	out	overcards	p=0.9990	OK
+nine.vs-open.sb-vs-btn	A2o	out	dominated		OK
+nine.vs-open.sb-vs-btn	K2o	out	dominated		OK
+nine.vs-open.sb-vs-btn	Q2o	out	dominated		OK
+nine.vs-open.sb-vs-btn	J2o	out	dominated		OK
+nine.vs-open.sb-vs-btn	T2o	out	dominated		OK
+nine.vs-open.sb-vs-btn	92o	out	overcards	p=0.7929	OK
+nine.vs-open.sb-vs-btn	82o	out	overcards	p=0.8673	OK
+nine.vs-open.sb-vs-btn	72o	out	overcards	p=0.9214	OK
+nine.vs-open.sb-vs-btn	62o	out	overcards	p=0.9584	OK
+nine.vs-open.sb-vs-btn	52o	out	overcards	p=0.9814	OK
+nine.vs-open.sb-vs-btn	42o	out	overcards	p=0.9939	OK
+nine.vs-open.sb-vs-btn	32o	out	overcards	p=0.9990	OK
+nine.vs-open.sb-vs-btn	22	out	overcardsPair	p=1.0000	OK
+nine.vs-open.bb-vs-btn	J3s	out	dominated		OK
+nine.vs-open.bb-vs-btn	T3s	out	dominated		OK
+nine.vs-open.bb-vs-btn	94s	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	93s	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	92s	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	J8o	out	dominated		OK
+nine.vs-open.bb-vs-btn	98o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	84s	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	83s	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	82s	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	Q7o	out	dominated		OK
+nine.vs-open.bb-vs-btn	J7o	out	dominated		OK
+nine.vs-open.bb-vs-btn	97o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	87o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	74s	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-btn	73s	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-btn	72s	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-btn	K6o	out	dominated		OK
+nine.vs-open.bb-vs-btn	Q6o	out	dominated		OK
+nine.vs-open.bb-vs-btn	J6o	out	dominated		OK
+nine.vs-open.bb-vs-btn	T6o	out	dominated		OK
+nine.vs-open.bb-vs-btn	96o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	86o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	63s	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-btn	62s	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-btn	Q5o	out	dominated		OK
+nine.vs-open.bb-vs-btn	J5o	out	dominated		OK
+nine.vs-open.bb-vs-btn	T5o	out	dominated		OK
+nine.vs-open.bb-vs-btn	95o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	85o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	65o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-btn	K4o	out	dominated		OK
+nine.vs-open.bb-vs-btn	Q4o	out	dominated		OK
+nine.vs-open.bb-vs-btn	J4o	out	dominated		OK
+nine.vs-open.bb-vs-btn	T4o	out	dominated		OK
+nine.vs-open.bb-vs-btn	94o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	84o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	74o	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-btn	64o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-btn	54o	out	overcards	p=0.9814	OK
+nine.vs-open.bb-vs-btn	A3o	out	dominated		OK
+nine.vs-open.bb-vs-btn	K3o	out	dominated		OK
+nine.vs-open.bb-vs-btn	Q3o	out	dominated		OK
+nine.vs-open.bb-vs-btn	J3o	out	dominated		OK
+nine.vs-open.bb-vs-btn	T3o	out	dominated		OK
+nine.vs-open.bb-vs-btn	93o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	83o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	73o	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-btn	63o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-btn	53o	out	overcards	p=0.9814	OK
+nine.vs-open.bb-vs-btn	43o	out	overcards	p=0.9939	OK
+nine.vs-open.bb-vs-btn	32s	out	overcards	p=0.9990	OK
+nine.vs-open.bb-vs-btn	K2o	out	dominated		OK
+nine.vs-open.bb-vs-btn	Q2o	out	dominated		OK
+nine.vs-open.bb-vs-btn	J2o	out	dominated		OK
+nine.vs-open.bb-vs-btn	T2o	out	dominated		OK
+nine.vs-open.bb-vs-btn	92o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-btn	82o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-btn	72o	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-btn	62o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-btn	52o	out	overcards	p=0.9814	OK
+nine.vs-open.bb-vs-btn	42o	out	overcards	p=0.9939	OK
+nine.vs-open.bb-vs-btn	32o	out	overcards	p=0.9990	OK
+nine.vs-open.bb-vs-sb	J3s	out	dominated		OK
+nine.vs-open.bb-vs-sb	94s	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	93s	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	92s	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	J8o	out	dominated		OK
+nine.vs-open.bb-vs-sb	84s	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	83s	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	82s	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	Q7o	out	dominated		OK
+nine.vs-open.bb-vs-sb	J7o	out	dominated		OK
+nine.vs-open.bb-vs-sb	97o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	87o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	73s	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-sb	72s	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-sb	Q6o	out	dominated		OK
+nine.vs-open.bb-vs-sb	J6o	out	dominated		OK
+nine.vs-open.bb-vs-sb	T6o	out	dominated		OK
+nine.vs-open.bb-vs-sb	96o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	86o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	62s	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-sb	Q5o	out	dominated		OK
+nine.vs-open.bb-vs-sb	J5o	out	dominated		OK
+nine.vs-open.bb-vs-sb	T5o	out	dominated		OK
+nine.vs-open.bb-vs-sb	95o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	85o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	65o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-sb	K4o	out	dominated		OK
+nine.vs-open.bb-vs-sb	Q4o	out	dominated		OK
+nine.vs-open.bb-vs-sb	J4o	out	dominated		OK
+nine.vs-open.bb-vs-sb	T4o	out	dominated		OK
+nine.vs-open.bb-vs-sb	94o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	84o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	74o	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-sb	64o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-sb	54o	out	overcards	p=0.9814	OK
+nine.vs-open.bb-vs-sb	A3o	out	dominated		OK
+nine.vs-open.bb-vs-sb	K3o	out	dominated		OK
+nine.vs-open.bb-vs-sb	Q3o	out	dominated		OK
+nine.vs-open.bb-vs-sb	J3o	out	dominated		OK
+nine.vs-open.bb-vs-sb	T3o	out	dominated		OK
+nine.vs-open.bb-vs-sb	93o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	83o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	73o	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-sb	63o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-sb	53o	out	overcards	p=0.9814	OK
+nine.vs-open.bb-vs-sb	43o	out	overcards	p=0.9939	OK
+nine.vs-open.bb-vs-sb	32s	out	overcards	p=0.9990	OK
+nine.vs-open.bb-vs-sb	K2o	out	dominated		OK
+nine.vs-open.bb-vs-sb	Q2o	out	dominated		OK
+nine.vs-open.bb-vs-sb	J2o	out	dominated		OK
+nine.vs-open.bb-vs-sb	T2o	out	dominated		OK
+nine.vs-open.bb-vs-sb	92o	out	overcards	p=0.7929	OK
+nine.vs-open.bb-vs-sb	82o	out	overcards	p=0.8673	OK
+nine.vs-open.bb-vs-sb	72o	out	overcards	p=0.9214	OK
+nine.vs-open.bb-vs-sb	62o	out	overcards	p=0.9584	OK
+nine.vs-open.bb-vs-sb	52o	out	overcards	p=0.9814	OK
+nine.vs-open.bb-vs-sb	42o	out	overcards	p=0.9939	OK
+nine.vs-open.bb-vs-sb	32o	out	overcards	p=0.9990	OK
+push.sb-5	93s	out	overcards	p=0.7929	OK
+push.sb-5	92s	out	overcards	p=0.7929	OK
+push.sb-5	83s	out	overcards	p=0.8673	OK
+push.sb-5	82s	out	overcards	p=0.8673	OK
+push.sb-5	73s	out	overcards	p=0.9214	OK
+push.sb-5	72s	out	overcards	p=0.9214	OK
+push.sb-5	62s	out	overcards	p=0.9584	OK
+push.sb-5	T5o	out	dominated		OK
+push.sb-5	95o	out	overcards	p=0.7929	OK
+push.sb-5	85o	out	overcards	p=0.8673	OK
+push.sb-5	75o	out	overcards	p=0.9214	OK
+push.sb-5	65o	out	overcards	p=0.9584	OK
+push.sb-5	52s	out	overcards	p=0.9814	OK
+push.sb-5	T4o	out	dominated		OK
+push.sb-5	94o	out	overcards	p=0.7929	OK
+push.sb-5	84o	out	overcards	p=0.8673	OK
+push.sb-5	74o	out	overcards	p=0.9214	OK
+push.sb-5	64o	out	overcards	p=0.9584	OK
+push.sb-5	54o	out	overcards	p=0.9814	OK
+push.sb-5	42s	out	overcards	p=0.9939	OK
+push.sb-5	T3o	out	dominated		OK
+push.sb-5	93o	out	overcards	p=0.7929	OK
+push.sb-5	83o	out	overcards	p=0.8673	OK
+push.sb-5	73o	out	overcards	p=0.9214	OK
+push.sb-5	63o	out	overcards	p=0.9584	OK
+push.sb-5	53o	out	overcards	p=0.9814	OK
+push.sb-5	43o	out	overcards	p=0.9939	OK
+push.sb-5	32s	out	overcards	p=0.9990	OK
+push.sb-5	J2o	out	dominated		OK
+push.sb-5	T2o	out	dominated		OK
+push.sb-5	92o	out	overcards	p=0.7929	OK
+push.sb-5	82o	out	overcards	p=0.8673	OK
+push.sb-5	72o	out	overcards	p=0.9214	OK
+push.sb-5	62o	out	overcards	p=0.9584	OK
+push.sb-5	52o	out	overcards	p=0.9814	OK
+push.sb-5	42o	out	overcards	p=0.9939	OK
+push.sb-5	32o	out	overcards	p=0.9990	OK
+push.sb-10	J2s	out	dominated		OK
+push.sb-10	T3s	out	dominated		OK
+push.sb-10	T2s	out	dominated		OK
+push.sb-10	94s	out	overcards	p=0.7929	OK
+push.sb-10	93s	out	overcards	p=0.7929	OK
+push.sb-10	92s	out	overcards	p=0.7929	OK
+push.sb-10	83s	out	overcards	p=0.8673	OK
+push.sb-10	82s	out	overcards	p=0.8673	OK
+push.sb-10	J7o	out	dominated		OK
+push.sb-10	T7o	out	dominated		OK
+push.sb-10	73s	out	overcards	p=0.9214	OK
+push.sb-10	72s	out	overcards	p=0.9214	OK
+push.sb-10	Q6o	out	dominated		OK
+push.sb-10	J6o	out	dominated		OK
+push.sb-10	T6o	out	dominated		OK
+push.sb-10	96o	out	overcards	p=0.7929	OK
+push.sb-10	86o	out	overcards	p=0.8673	OK
+push.sb-10	63s	out	overcards	p=0.9584	OK
+push.sb-10	62s	out	overcards	p=0.9584	OK
+push.sb-10	Q5o	out	dominated		OK
+push.sb-10	J5o	out	dominated		OK
+push.sb-10	T5o	out	dominated		OK
+push.sb-10	95o	out	overcards	p=0.7929	OK
+push.sb-10	85o	out	overcards	p=0.8673	OK
+push.sb-10	75o	out	overcards	p=0.9214	OK
+push.sb-10	65o	out	overcards	p=0.9584	OK
+push.sb-10	52s	out	overcards	p=0.9814	OK
+push.sb-10	Q4o	out	dominated		OK
+push.sb-10	J4o	out	dominated		OK
+push.sb-10	T4o	out	dominated		OK
+push.sb-10	94o	out	overcards	p=0.7929	OK
+push.sb-10	84o	out	overcards	p=0.8673	OK
+push.sb-10	74o	out	overcards	p=0.9214	OK
+push.sb-10	64o	out	overcards	p=0.9584	OK
+push.sb-10	54o	out	overcards	p=0.9814	OK
+push.sb-10	42s	out	overcards	p=0.9939	OK
+push.sb-10	Q3o	out	dominated		OK
+push.sb-10	J3o	out	dominated		OK
+push.sb-10	T3o	out	dominated		OK
+push.sb-10	93o	out	overcards	p=0.7929	OK
+push.sb-10	83o	out	overcards	p=0.8673	OK
+push.sb-10	73o	out	overcards	p=0.9214	OK
+push.sb-10	63o	out	overcards	p=0.9584	OK
+push.sb-10	53o	out	overcards	p=0.9814	OK
+push.sb-10	43o	out	overcards	p=0.9939	OK
+push.sb-10	32s	out	overcards	p=0.9990	OK
+push.sb-10	Q2o	out	dominated		OK
+push.sb-10	J2o	out	dominated		OK
+push.sb-10	T2o	out	dominated		OK
+push.sb-10	92o	out	overcards	p=0.7929	OK
+push.sb-10	82o	out	overcards	p=0.8673	OK
+push.sb-10	72o	out	overcards	p=0.9214	OK
+push.sb-10	62o	out	overcards	p=0.9584	OK
+push.sb-10	52o	out	overcards	p=0.9814	OK
+push.sb-10	42o	out	overcards	p=0.9939	OK
+push.sb-10	32o	out	overcards	p=0.9990	OK
+push.sb-15	AA	in	pair		OK
+push.sb-15	AKs	in	high		OK
+push.sb-15	AQs	in	high		OK
+push.sb-15	AJs	in	high		OK
+push.sb-15	ATs	in	high		OK
+push.sb-15	A9s	in	suited		OK
+push.sb-15	A8s	in	suited		OK
+push.sb-15	A7s	in	suited		OK
+push.sb-15	A6s	in	suited		OK
+push.sb-15	A5s	in	suited		OK
+push.sb-15	A4s	in	suited		OK
+push.sb-15	A3s	in	suited		OK
+push.sb-15	A2s	in	suited		OK
+push.sb-15	AKo	in	high		OK
+push.sb-15	KK	in	pair		OK
+push.sb-15	KQs	in	high		OK
+push.sb-15	KJs	in	high		OK
+push.sb-15	KTs	in	high		OK
+push.sb-15	K9s	in	suited		OK
+push.sb-15	K8s	in	suited		OK
+push.sb-15	K7s	in	suited		OK
+push.sb-15	K6s	in	suited		OK
+push.sb-15	K5s	in	suited		OK
+push.sb-15	K4s	in	suited		OK
+push.sb-15	K3s	in	suited		OK
+push.sb-15	K2s	in	suited		OK
+push.sb-15	AQo	in	high		OK
+push.sb-15	KQo	in	high		OK
+push.sb-15	QQ	in	pair		OK
+push.sb-15	QJs	in	high		OK
+push.sb-15	QTs	in	high		OK
+push.sb-15	Q9s	in	suited		OK
+push.sb-15	Q8s	in	suited		OK
+push.sb-15	Q7s	in	suited		OK
+push.sb-15	Q6s	in	suited		OK
+push.sb-15	Q5s	in	suited		OK
+push.sb-15	AJo	in	high		OK
+push.sb-15	KJo	in	high		OK
+push.sb-15	QJo	in	high		OK
+push.sb-15	JJ	in	pair		OK
+push.sb-15	JTs	in	high		OK
+push.sb-15	J9s	in	suited		OK
+push.sb-15	J8s	in	suited		OK
+push.sb-15	J7s	in	suited		OK
+push.sb-15	J6s	in	suited		OK
+push.sb-15	ATo	in	high		OK
+push.sb-15	KTo	in	high		OK
+push.sb-15	QTo	in	high		OK
+push.sb-15	JTo	in	high		OK
+push.sb-15	TT	in	pair		OK
+push.sb-15	T9s	in	suited		OK
+push.sb-15	T8s	in	suited		OK
+push.sb-15	T7s	in	suited		OK
+push.sb-15	T6s	in	suited		OK
+push.sb-15	A9o	in	highAllIn	rank=14	OK
+push.sb-15	K9o	in	highAllIn	rank=13	OK
+push.sb-15	Q9o	in	highAllIn	rank=12	OK
+push.sb-15	J9o	in	connected	n=3	OK
+push.sb-15	T9o	in	connected	n=4	OK
+push.sb-15	99	in	pair		OK
+push.sb-15	98s	in	suited		OK
+push.sb-15	97s	in	suited		OK
+push.sb-15	96s	in	suited		OK
+push.sb-15	A8o	in	highAllIn	rank=14	OK
+push.sb-15	K8o	in	highAllIn	rank=13	OK
+push.sb-15	T8o	in	connected	n=3	OK
+push.sb-15	98o	in	connected	n=4	OK
+push.sb-15	88	in	pair		OK
+push.sb-15	87s	in	suited		OK
+push.sb-15	86s	in	suited		OK
+push.sb-15	85s	in	suited		OK
+push.sb-15	A7o	in	highAllIn	rank=14	OK
+push.sb-15	K7o	in	highAllIn	rank=13	OK
+push.sb-15	77	in	pair		OK
+push.sb-15	76s	in	suited		OK
+push.sb-15	75s	in	suited		OK
+push.sb-15	A6o	in	highAllIn	rank=14	OK
+push.sb-15	K6o	in	highAllIn	rank=13	OK
+push.sb-15	66	in	pair		OK
+push.sb-15	65s	in	suited		OK
+push.sb-15	64s	in	suited		OK
+push.sb-15	A5o	in	highAllIn	rank=14	OK
+push.sb-15	55	in	pair		OK
+push.sb-15	54s	in	suited		OK
+push.sb-15	A4o	in	highAllIn	rank=14	OK
+push.sb-15	44	in	pair		OK
+push.sb-15	A3o	in	highAllIn	rank=14	OK
+push.sb-15	33	in	pair		OK
+push.sb-15	A2o	in	highAllIn	rank=14	OK
+push.sb-15	22	in	pair		OK
+push.sb-10-ante	92s	out	overcards	p=0.7929	OK
+push.sb-10-ante	83s	out	overcards	p=0.8673	OK
+push.sb-10-ante	82s	out	overcards	p=0.8673	OK
+push.sb-10-ante	72s	out	overcards	p=0.9214	OK
+push.sb-10-ante	T6o	out	dominated		OK
+push.sb-10-ante	62s	out	overcards	p=0.9584	OK
+push.sb-10-ante	T5o	out	dominated		OK
+push.sb-10-ante	95o	out	overcards	p=0.7929	OK
+push.sb-10-ante	85o	out	overcards	p=0.8673	OK
+push.sb-10-ante	75o	out	overcards	p=0.9214	OK
+push.sb-10-ante	J4o	out	dominated		OK
+push.sb-10-ante	T4o	out	dominated		OK
+push.sb-10-ante	94o	out	overcards	p=0.7929	OK
+push.sb-10-ante	84o	out	overcards	p=0.8673	OK
+push.sb-10-ante	74o	out	overcards	p=0.9214	OK
+push.sb-10-ante	64o	out	overcards	p=0.9584	OK
+push.sb-10-ante	54o	out	overcards	p=0.9814	OK
+push.sb-10-ante	42s	out	overcards	p=0.9939	OK
+push.sb-10-ante	J3o	out	dominated		OK
+push.sb-10-ante	T3o	out	dominated		OK
+push.sb-10-ante	93o	out	overcards	p=0.7929	OK
+push.sb-10-ante	83o	out	overcards	p=0.8673	OK
+push.sb-10-ante	73o	out	overcards	p=0.9214	OK
+push.sb-10-ante	63o	out	overcards	p=0.9584	OK
+push.sb-10-ante	53o	out	overcards	p=0.9814	OK
+push.sb-10-ante	43o	out	overcards	p=0.9939	OK
+push.sb-10-ante	32s	out	overcards	p=0.9990	OK
+push.sb-10-ante	J2o	out	dominated		OK
+push.sb-10-ante	T2o	out	dominated		OK
+push.sb-10-ante	92o	out	overcards	p=0.7929	OK
+push.sb-10-ante	82o	out	overcards	p=0.8673	OK
+push.sb-10-ante	72o	out	overcards	p=0.9214	OK
+push.sb-10-ante	62o	out	overcards	p=0.9584	OK
+push.sb-10-ante	52o	out	overcards	p=0.9814	OK
+push.sb-10-ante	42o	out	overcards	p=0.9939	OK
+push.sb-10-ante	32o	out	overcards	p=0.9990	OK
+call.bb-5	AA	in	pair		OK
+call.bb-5	AKs	in	high		OK
+call.bb-5	AQs	in	high		OK
+call.bb-5	AJs	in	high		OK
+call.bb-5	ATs	in	high		OK
+call.bb-5	A9s	in	suited		OK
+call.bb-5	A8s	in	suited		OK
+call.bb-5	A7s	in	suited		OK
+call.bb-5	A6s	in	suited		OK
+call.bb-5	A5s	in	suited		OK
+call.bb-5	A4s	in	suited		OK
+call.bb-5	A3s	in	suited		OK
+call.bb-5	A2s	in	suited		OK
+call.bb-5	AKo	in	high		OK
+call.bb-5	KK	in	pair		OK
+call.bb-5	KQs	in	high		OK
+call.bb-5	KJs	in	high		OK
+call.bb-5	KTs	in	high		OK
+call.bb-5	K9s	in	suited		OK
+call.bb-5	K8s	in	suited		OK
+call.bb-5	K7s	in	suited		OK
+call.bb-5	K6s	in	suited		OK
+call.bb-5	K5s	in	suited		OK
+call.bb-5	K4s	in	suited		OK
+call.bb-5	K3s	in	suited		OK
+call.bb-5	K2s	in	suited		OK
+call.bb-5	AQo	in	high		OK
+call.bb-5	KQo	in	high		OK
+call.bb-5	QQ	in	pair		OK
+call.bb-5	QJs	in	high		OK
+call.bb-5	QTs	in	high		OK
+call.bb-5	Q9s	in	suited		OK
+call.bb-5	Q8s	in	suited		OK
+call.bb-5	Q7s	in	suited		OK
+call.bb-5	Q6s	in	suited		OK
+call.bb-5	Q5s	in	suited		OK
+call.bb-5	Q4s	in	suited		OK
+call.bb-5	Q3s	in	suited		OK
+call.bb-5	Q2s	in	suited		OK
+call.bb-5	AJo	in	high		OK
+call.bb-5	KJo	in	high		OK
+call.bb-5	QJo	in	high		OK
+call.bb-5	JJ	in	pair		OK
+call.bb-5	JTs	in	high		OK
+call.bb-5	J9s	in	suited		OK
+call.bb-5	J8s	in	suited		OK
+call.bb-5	J7s	in	suited		OK
+call.bb-5	J6s	in	suited		OK
+call.bb-5	J5s	in	suited		OK
+call.bb-5	J4s	in	suited		OK
+call.bb-5	J3s	in	suited		OK
+call.bb-5	J2s	in	suited		OK
+call.bb-5	ATo	in	high		OK
+call.bb-5	KTo	in	high		OK
+call.bb-5	QTo	in	high		OK
+call.bb-5	JTo	in	high		OK
+call.bb-5	TT	in	pair		OK
+call.bb-5	T9s	in	suited		OK
+call.bb-5	T8s	in	suited		OK
+call.bb-5	T7s	in	suited		OK
+call.bb-5	T6s	in	suited		OK
+call.bb-5	T5s	in	suited		OK
+call.bb-5	T4s	in	suited		OK
+call.bb-5	A9o	in	highAllIn	rank=14	OK
+call.bb-5	K9o	in	highAllIn	rank=13	OK
+call.bb-5	Q9o	in	highAllIn	rank=12	OK
+call.bb-5	J9o	in	connected	n=3	OK
+call.bb-5	T9o	in	connected	n=4	OK
+call.bb-5	99	in	pair		OK
+call.bb-5	98s	in	suited		OK
+call.bb-5	97s	in	suited		OK
+call.bb-5	96s	in	suited		OK
+call.bb-5	95s	in	suited		OK
+call.bb-5	A8o	in	highAllIn	rank=14	OK
+call.bb-5	K8o	in	highAllIn	rank=13	OK
+call.bb-5	Q8o	in	highAllIn	rank=12	OK
+call.bb-5	J8o	in	highAllIn	rank=11	OK
+call.bb-5	T8o	in	connected	n=3	OK
+call.bb-5	98o	in	connected	n=4	OK
+call.bb-5	88	in	pair		OK
+call.bb-5	87s	in	suited		OK
+call.bb-5	86s	in	suited		OK
+call.bb-5	A7o	in	highAllIn	rank=14	OK
+call.bb-5	K7o	in	highAllIn	rank=13	OK
+call.bb-5	Q7o	in	highAllIn	rank=12	OK
+call.bb-5	J7o	in	highAllIn	rank=11	OK
+call.bb-5	T7o	in	highAllIn	rank=10	OK
+call.bb-5	97o	in	connected	n=3	OK
+call.bb-5	77	in	pair		OK
+call.bb-5	76s	in	suited		OK
+call.bb-5	A6o	in	highAllIn	rank=14	OK
+call.bb-5	K6o	in	highAllIn	rank=13	OK
+call.bb-5	Q6o	in	highAllIn	rank=12	OK
+call.bb-5	J6o	in	highAllIn	rank=11	OK
+call.bb-5	66	in	pair		OK
+call.bb-5	A5o	in	highAllIn	rank=14	OK
+call.bb-5	K5o	in	highAllIn	rank=13	OK
+call.bb-5	Q5o	in	highAllIn	rank=12	OK
+call.bb-5	J5o	in	highAllIn	rank=11	OK
+call.bb-5	55	in	pair		OK
+call.bb-5	A4o	in	highAllIn	rank=14	OK
+call.bb-5	K4o	in	highAllIn	rank=13	OK
+call.bb-5	Q4o	in	highAllIn	rank=12	OK
+call.bb-5	44	in	pair		OK
+call.bb-5	A3o	in	highAllIn	rank=14	OK
+call.bb-5	K3o	in	highAllIn	rank=13	OK
+call.bb-5	Q3o	in	highAllIn	rank=12	OK
+call.bb-5	33	in	pair		OK
+call.bb-5	A2o	in	highAllIn	rank=14	OK
+call.bb-5	K2o	in	highAllIn	rank=13	OK
+call.bb-5	Q2o	in	highAllIn	rank=12	OK
+call.bb-5	22	in	pair		OK
+call.bb-10	AA	in	pair		OK
+call.bb-10	AKs	in	high		OK
+call.bb-10	AQs	in	high		OK
+call.bb-10	AJs	in	high		OK
+call.bb-10	ATs	in	high		OK
+call.bb-10	A9s	in	suited		OK
+call.bb-10	A8s	in	suited		OK
+call.bb-10	A7s	in	suited		OK
+call.bb-10	A6s	in	suited		OK
+call.bb-10	A5s	in	suited		OK
+call.bb-10	A4s	in	suited		OK
+call.bb-10	A3s	in	suited		OK
+call.bb-10	A2s	in	suited		OK
+call.bb-10	AKo	in	high		OK
+call.bb-10	KK	in	pair		OK
+call.bb-10	KQs	in	high		OK
+call.bb-10	KJs	in	high		OK
+call.bb-10	KTs	in	high		OK
+call.bb-10	K9s	in	suited		OK
+call.bb-10	K8s	in	suited		OK
+call.bb-10	K7s	in	suited		OK
+call.bb-10	K6s	in	suited		OK
+call.bb-10	K5s	in	suited		OK
+call.bb-10	K4s	in	suited		OK
+call.bb-10	K3s	in	suited		OK
+call.bb-10	K2s	in	suited		OK
+call.bb-10	AQo	in	high		OK
+call.bb-10	KQo	in	high		OK
+call.bb-10	QQ	in	pair		OK
+call.bb-10	QJs	in	high		OK
+call.bb-10	QTs	in	high		OK
+call.bb-10	Q9s	in	suited		OK
+call.bb-10	Q8s	in	suited		OK
+call.bb-10	Q7s	in	suited		OK
+call.bb-10	Q6s	in	suited		OK
+call.bb-10	AJo	in	high		OK
+call.bb-10	KJo	in	high		OK
+call.bb-10	QJo	in	high		OK
+call.bb-10	JJ	in	pair		OK
+call.bb-10	JTs	in	high		OK
+call.bb-10	J9s	in	suited		OK
+call.bb-10	J8s	in	suited		OK
+call.bb-10	ATo	in	high		OK
+call.bb-10	KTo	in	high		OK
+call.bb-10	QTo	in	high		OK
+call.bb-10	JTo	in	high		OK
+call.bb-10	TT	in	pair		OK
+call.bb-10	T9s	in	suited		OK
+call.bb-10	A9o	in	highAllIn	rank=14	OK
+call.bb-10	K9o	in	highAllIn	rank=13	OK
+call.bb-10	Q9o	in	highAllIn	rank=12	OK
+call.bb-10	99	in	pair		OK
+call.bb-10	A8o	in	highAllIn	rank=14	OK
+call.bb-10	K8o	in	highAllIn	rank=13	OK
+call.bb-10	88	in	pair		OK
+call.bb-10	A7o	in	highAllIn	rank=14	OK
+call.bb-10	K7o	in	highAllIn	rank=13	OK
+call.bb-10	77	in	pair		OK
+call.bb-10	A6o	in	highAllIn	rank=14	OK
+call.bb-10	K6o	in	highAllIn	rank=13	OK
+call.bb-10	66	in	pair		OK
+call.bb-10	A5o	in	highAllIn	rank=14	OK
+call.bb-10	K5o	in	highAllIn	rank=13	OK
+call.bb-10	55	in	pair		OK
+call.bb-10	A4o	in	highAllIn	rank=14	OK
+call.bb-10	44	in	pair		OK
+call.bb-10	A3o	in	highAllIn	rank=14	OK
+call.bb-10	33	in	pair		OK
+call.bb-10	A2o	in	highAllIn	rank=14	OK
+call.bb-10	22	in	pair		OK
+call.bb-15	AA	in	pair		OK
+call.bb-15	AKs	in	high		OK
+call.bb-15	AQs	in	high		OK
+call.bb-15	AJs	in	high		OK
+call.bb-15	ATs	in	high		OK
+call.bb-15	A9s	in	suited		OK
+call.bb-15	A8s	in	suited		OK
+call.bb-15	A7s	in	suited		OK
+call.bb-15	A6s	in	suited		OK
+call.bb-15	A5s	in	suited		OK
+call.bb-15	A4s	in	suited		OK
+call.bb-15	A3s	in	suited		OK
+call.bb-15	A2s	in	suited		OK
+call.bb-15	AKo	in	high		OK
+call.bb-15	KK	in	pair		OK
+call.bb-15	KQs	in	high		OK
+call.bb-15	KJs	in	high		OK
+call.bb-15	KTs	in	high		OK
+call.bb-15	K9s	in	suited		OK
+call.bb-15	K8s	in	suited		OK
+call.bb-15	K7s	in	suited		OK
+call.bb-15	AQo	in	high		OK
+call.bb-15	KQo	in	high		OK
+call.bb-15	QQ	in	pair		OK
+call.bb-15	QJs	in	high		OK
+call.bb-15	QTs	in	high		OK
+call.bb-15	Q9s	in	suited		OK
+call.bb-15	AJo	in	high		OK
+call.bb-15	KJo	in	high		OK
+call.bb-15	QJo	in	high		OK
+call.bb-15	JJ	in	pair		OK
+call.bb-15	JTs	in	high		OK
+call.bb-15	ATo	in	high		OK
+call.bb-15	KTo	in	high		OK
+call.bb-15	QTo	in	high		OK
+call.bb-15	TT	in	pair		OK
+call.bb-15	A9o	in	highAllIn	rank=14	OK
+call.bb-15	K9o	in	highAllIn	rank=13	OK
+call.bb-15	99	in	pair		OK
+call.bb-15	A8o	in	highAllIn	rank=14	OK
+call.bb-15	88	in	pair		OK
+call.bb-15	A7o	in	highAllIn	rank=14	OK
+call.bb-15	77	in	pair		OK
+call.bb-15	A6o	in	highAllIn	rank=14	OK
+call.bb-15	66	in	pair		OK
+call.bb-15	A5o	in	highAllIn	rank=14	OK
+call.bb-15	55	in	pair		OK
+call.bb-15	A4o	in	highAllIn	rank=14	OK
+call.bb-15	44	in	pair		OK
+call.bb-15	A3o	in	highAllIn	rank=14	OK
+call.bb-15	33	in	pair		OK
+call.bb-15	A2o	in	highAllIn	rank=14	OK
+call.bb-10-ante	AA	in	pair		OK
+call.bb-10-ante	AKs	in	high		OK
+call.bb-10-ante	AQs	in	high		OK
+call.bb-10-ante	AJs	in	high		OK
+call.bb-10-ante	ATs	in	high		OK
+call.bb-10-ante	A9s	in	suited		OK
+call.bb-10-ante	A8s	in	suited		OK
+call.bb-10-ante	A7s	in	suited		OK
+call.bb-10-ante	A6s	in	suited		OK
+call.bb-10-ante	A5s	in	suited		OK
+call.bb-10-ante	A4s	in	suited		OK
+call.bb-10-ante	A3s	in	suited		OK
+call.bb-10-ante	A2s	in	suited		OK
+call.bb-10-ante	AKo	in	high		OK
+call.bb-10-ante	KK	in	pair		OK
+call.bb-10-ante	KQs	in	high		OK
+call.bb-10-ante	KJs	in	high		OK
+call.bb-10-ante	KTs	in	high		OK
+call.bb-10-ante	K9s	in	suited		OK
+call.bb-10-ante	K8s	in	suited		OK
+call.bb-10-ante	K7s	in	suited		OK
+call.bb-10-ante	K6s	in	suited		OK
+call.bb-10-ante	K5s	in	suited		OK
+call.bb-10-ante	K4s	in	suited		OK
+call.bb-10-ante	K3s	in	suited		OK
+call.bb-10-ante	K2s	in	suited		OK
+call.bb-10-ante	AQo	in	high		OK
+call.bb-10-ante	KQo	in	high		OK
+call.bb-10-ante	QQ	in	pair		OK
+call.bb-10-ante	QJs	in	high		OK
+call.bb-10-ante	QTs	in	high		OK
+call.bb-10-ante	Q9s	in	suited		OK
+call.bb-10-ante	Q8s	in	suited		OK
+call.bb-10-ante	Q7s	in	suited		OK
+call.bb-10-ante	Q6s	in	suited		OK
+call.bb-10-ante	Q5s	in	suited		OK
+call.bb-10-ante	Q4s	in	suited		OK
+call.bb-10-ante	Q3s	in	suited		OK
+call.bb-10-ante	Q2s	in	suited		OK
+call.bb-10-ante	AJo	in	high		OK
+call.bb-10-ante	KJo	in	high		OK
+call.bb-10-ante	QJo	in	high		OK
+call.bb-10-ante	JJ	in	pair		OK
+call.bb-10-ante	JTs	in	high		OK
+call.bb-10-ante	J9s	in	suited		OK
+call.bb-10-ante	J8s	in	suited		OK
+call.bb-10-ante	J7s	in	suited		OK
+call.bb-10-ante	J6s	in	suited		OK
+call.bb-10-ante	J5s	in	suited		OK
+call.bb-10-ante	J4s	in	suited		OK
+call.bb-10-ante	ATo	in	high		OK
+call.bb-10-ante	KTo	in	high		OK
+call.bb-10-ante	QTo	in	high		OK
+call.bb-10-ante	JTo	in	high		OK
+call.bb-10-ante	TT	in	pair		OK
+call.bb-10-ante	T9s	in	suited		OK
+call.bb-10-ante	T8s	in	suited		OK
+call.bb-10-ante	T7s	in	suited		OK
+call.bb-10-ante	T6s	in	suited		OK
+call.bb-10-ante	A9o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K9o	in	highAllIn	rank=13	OK
+call.bb-10-ante	Q9o	in	highAllIn	rank=12	OK
+call.bb-10-ante	J9o	in	connected	n=3	OK
+call.bb-10-ante	T9o	in	connected	n=4	OK
+call.bb-10-ante	99	in	pair		OK
+call.bb-10-ante	98s	in	suited		OK
+call.bb-10-ante	97s	in	suited		OK
+call.bb-10-ante	A8o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K8o	in	highAllIn	rank=13	OK
+call.bb-10-ante	Q8o	in	highAllIn	rank=12	OK
+call.bb-10-ante	J8o	in	highAllIn	rank=11	OK
+call.bb-10-ante	T8o	in	connected	n=3	OK
+call.bb-10-ante	88	in	pair		OK
+call.bb-10-ante	87s	in	suited		OK
+call.bb-10-ante	A7o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K7o	in	highAllIn	rank=13	OK
+call.bb-10-ante	Q7o	in	highAllIn	rank=12	OK
+call.bb-10-ante	J7o	in	highAllIn	rank=11	OK
+call.bb-10-ante	77	in	pair		OK
+call.bb-10-ante	A6o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K6o	in	highAllIn	rank=13	OK
+call.bb-10-ante	Q6o	in	highAllIn	rank=12	OK
+call.bb-10-ante	66	in	pair		OK
+call.bb-10-ante	A5o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K5o	in	highAllIn	rank=13	OK
+call.bb-10-ante	Q5o	in	highAllIn	rank=12	OK
+call.bb-10-ante	55	in	pair		OK
+call.bb-10-ante	A4o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K4o	in	highAllIn	rank=13	OK
+call.bb-10-ante	Q4o	in	highAllIn	rank=12	OK
+call.bb-10-ante	44	in	pair		OK
+call.bb-10-ante	A3o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K3o	in	highAllIn	rank=13	OK
+call.bb-10-ante	33	in	pair		OK
+call.bb-10-ante	A2o	in	highAllIn	rank=14	OK
+call.bb-10-ante	K2o	in	highAllIn	rank=13	OK
+call.bb-10-ante	22	in	pair		OK
+push.btn-3max	AA	in	pair		OK
+push.btn-3max	AKs	in	high		OK
+push.btn-3max	AQs	in	high		OK
+push.btn-3max	AJs	in	high		OK
+push.btn-3max	ATs	in	high		OK
+push.btn-3max	A9s	in	suited		OK
+push.btn-3max	A8s	in	suited		OK
+push.btn-3max	A7s	in	suited		OK
+push.btn-3max	A6s	in	suited		OK
+push.btn-3max	A5s	in	suited		OK
+push.btn-3max	A4s	in	suited		OK
+push.btn-3max	A3s	in	suited		OK
+push.btn-3max	A2s	in	suited		OK
+push.btn-3max	AKo	in	high		OK
+push.btn-3max	KK	in	pair		OK
+push.btn-3max	KQs	in	high		OK
+push.btn-3max	KJs	in	high		OK
+push.btn-3max	KTs	in	high		OK
+push.btn-3max	K9s	in	suited		OK
+push.btn-3max	K8s	in	suited		OK
+push.btn-3max	K7s	in	suited		OK
+push.btn-3max	K6s	in	suited		OK
+push.btn-3max	K5s	in	suited		OK
+push.btn-3max	K4s	in	suited		OK
+push.btn-3max	K3s	in	suited		OK
+push.btn-3max	AQo	in	high		OK
+push.btn-3max	KQo	in	high		OK
+push.btn-3max	QQ	in	pair		OK
+push.btn-3max	QJs	in	high		OK
+push.btn-3max	QTs	in	high		OK
+push.btn-3max	Q9s	in	suited		OK
+push.btn-3max	Q8s	in	suited		OK
+push.btn-3max	Q7s	in	suited		OK
+push.btn-3max	Q6s	in	suited		OK
+push.btn-3max	AJo	in	high		OK
+push.btn-3max	KJo	in	high		OK
+push.btn-3max	QJo	in	high		OK
+push.btn-3max	JJ	in	pair		OK
+push.btn-3max	JTs	in	high		OK
+push.btn-3max	J9s	in	suited		OK
+push.btn-3max	J8s	in	suited		OK
+push.btn-3max	J7s	in	suited		OK
+push.btn-3max	ATo	in	high		OK
+push.btn-3max	KTo	in	high		OK
+push.btn-3max	QTo	in	high		OK
+push.btn-3max	JTo	in	high		OK
+push.btn-3max	TT	in	pair		OK
+push.btn-3max	T9s	in	suited		OK
+push.btn-3max	T8s	in	suited		OK
+push.btn-3max	T7s	in	suited		OK
+push.btn-3max	A9o	in	highAllIn	rank=14	OK
+push.btn-3max	K9o	in	highAllIn	rank=13	OK
+push.btn-3max	99	in	pair		OK
+push.btn-3max	98s	in	suited		OK
+push.btn-3max	97s	in	suited		OK
+push.btn-3max	A8o	in	highAllIn	rank=14	OK
+push.btn-3max	88	in	pair		OK
+push.btn-3max	87s	in	suited		OK
+push.btn-3max	86s	in	suited		OK
+push.btn-3max	A7o	in	highAllIn	rank=14	OK
+push.btn-3max	77	in	pair		OK
+push.btn-3max	76s	in	suited		OK
+push.btn-3max	A6o	in	highAllIn	rank=14	OK
+push.btn-3max	66	in	pair		OK
+push.btn-3max	65s	in	suited		OK
+push.btn-3max	A5o	in	highAllIn	rank=14	OK
+push.btn-3max	55	in	pair		OK
+push.btn-3max	A4o	in	highAllIn	rank=14	OK
+push.btn-3max	44	in	pair		OK
+push.btn-3max	A3o	in	highAllIn	rank=14	OK
+push.btn-3max	33	in	pair		OK
+push.btn-3max	A2o	in	highAllIn	rank=14	OK
+push.btn-3max	22	in	pair		OK
+push.sb-3max	T2s	out	dominated		OK
+push.sb-3max	94s	out	overcards	p=0.7929	OK
+push.sb-3max	93s	out	overcards	p=0.7929	OK
+push.sb-3max	92s	out	overcards	p=0.7929	OK
+push.sb-3max	83s	out	overcards	p=0.8673	OK
+push.sb-3max	82s	out	overcards	p=0.8673	OK
+push.sb-3max	73s	out	overcards	p=0.9214	OK
+push.sb-3max	72s	out	overcards	p=0.9214	OK
+push.sb-3max	J6o	out	dominated		OK
+push.sb-3max	T6o	out	dominated		OK
+push.sb-3max	96o	out	overcards	p=0.7929	OK
+push.sb-3max	86o	out	overcards	p=0.8673	OK
+push.sb-3max	62s	out	overcards	p=0.9584	OK
+push.sb-3max	J5o	out	dominated		OK
+push.sb-3max	T5o	out	dominated		OK
+push.sb-3max	95o	out	overcards	p=0.7929	OK
+push.sb-3max	85o	out	overcards	p=0.8673	OK
+push.sb-3max	75o	out	overcards	p=0.9214	OK
+push.sb-3max	65o	out	overcards	p=0.9584	OK
+push.sb-3max	52s	out	overcards	p=0.9814	OK
+push.sb-3max	J4o	out	dominated		OK
+push.sb-3max	T4o	out	dominated		OK
+push.sb-3max	94o	out	overcards	p=0.7929	OK
+push.sb-3max	84o	out	overcards	p=0.8673	OK
+push.sb-3max	74o	out	overcards	p=0.9214	OK
+push.sb-3max	64o	out	overcards	p=0.9584	OK
+push.sb-3max	54o	out	overcards	p=0.9814	OK
+push.sb-3max	42s	out	overcards	p=0.9939	OK
+push.sb-3max	J3o	out	dominated		OK
+push.sb-3max	T3o	out	dominated		OK
+push.sb-3max	93o	out	overcards	p=0.7929	OK
+push.sb-3max	83o	out	overcards	p=0.8673	OK
+push.sb-3max	73o	out	overcards	p=0.9214	OK
+push.sb-3max	63o	out	overcards	p=0.9584	OK
+push.sb-3max	53o	out	overcards	p=0.9814	OK
+push.sb-3max	43o	out	overcards	p=0.9939	OK
+push.sb-3max	32s	out	overcards	p=0.9990	OK
+push.sb-3max	Q2o	out	dominated		OK
+push.sb-3max	J2o	out	dominated		OK
+push.sb-3max	T2o	out	dominated		OK
+push.sb-3max	92o	out	overcards	p=0.7929	OK
+push.sb-3max	82o	out	overcards	p=0.8673	OK
+push.sb-3max	72o	out	overcards	p=0.9214	OK
+push.sb-3max	62o	out	overcards	p=0.9584	OK
+push.sb-3max	52o	out	overcards	p=0.9814	OK
+push.sb-3max	42o	out	overcards	p=0.9939	OK
+push.sb-3max	32o	out	overcards	p=0.9990	OK
+call.sb-vs-btn-3max	AA	in	pair		OK
+call.sb-vs-btn-3max	AKs	in	high		OK
+call.sb-vs-btn-3max	AQs	in	high		OK
+call.sb-vs-btn-3max	AJs	in	high		OK
+call.sb-vs-btn-3max	ATs	in	high		OK
+call.sb-vs-btn-3max	A9s	in	suited		OK
+call.sb-vs-btn-3max	A8s	in	suited		OK
+call.sb-vs-btn-3max	A7s	in	suited		OK
+call.sb-vs-btn-3max	A6s	in	suited		OK
+call.sb-vs-btn-3max	A5s	in	suited		OK
+call.sb-vs-btn-3max	A4s	in	suited		OK
+call.sb-vs-btn-3max	A3s	in	suited		OK
+call.sb-vs-btn-3max	A2s	in	suited		OK
+call.sb-vs-btn-3max	AKo	in	high		OK
+call.sb-vs-btn-3max	KK	in	pair		OK
+call.sb-vs-btn-3max	KQs	in	high		OK
+call.sb-vs-btn-3max	KJs	in	high		OK
+call.sb-vs-btn-3max	KTs	in	high		OK
+call.sb-vs-btn-3max	K9s	in	suited		OK
+call.sb-vs-btn-3max	AQo	in	high		OK
+call.sb-vs-btn-3max	KQo	in	high		OK
+call.sb-vs-btn-3max	QQ	in	pair		OK
+call.sb-vs-btn-3max	QJs	in	high		OK
+call.sb-vs-btn-3max	QTs	in	high		OK
+call.sb-vs-btn-3max	AJo	in	high		OK
+call.sb-vs-btn-3max	KJo	in	high		OK
+call.sb-vs-btn-3max	QJo	in	high		OK
+call.sb-vs-btn-3max	JJ	in	pair		OK
+call.sb-vs-btn-3max	JTs	in	high		OK
+call.sb-vs-btn-3max	ATo	in	high		OK
+call.sb-vs-btn-3max	KTo	in	high		OK
+call.sb-vs-btn-3max	TT	in	pair		OK
+call.sb-vs-btn-3max	A9o	in	highAllIn	rank=14	OK
+call.sb-vs-btn-3max	99	in	pair		OK
+call.sb-vs-btn-3max	A8o	in	highAllIn	rank=14	OK
+call.sb-vs-btn-3max	88	in	pair		OK
+call.sb-vs-btn-3max	A7o	in	highAllIn	rank=14	OK
+call.sb-vs-btn-3max	77	in	pair		OK
+call.sb-vs-btn-3max	A6o	in	highAllIn	rank=14	OK
+call.sb-vs-btn-3max	66	in	pair		OK
+call.sb-vs-btn-3max	A5o	in	highAllIn	rank=14	OK
+call.sb-vs-btn-3max	55	in	pair		OK
+call.sb-vs-btn-3max	44	in	pair		OK
+call.sb-vs-btn-3max	33	in	pair		OK
+call.sb-vs-btn-3max	22	in	pair		OK
+call.bb-vs-btn-3max	AA	in	pair		OK
+call.bb-vs-btn-3max	AKs	in	high		OK
+call.bb-vs-btn-3max	AQs	in	high		OK
+call.bb-vs-btn-3max	AJs	in	high		OK
+call.bb-vs-btn-3max	ATs	in	high		OK
+call.bb-vs-btn-3max	A9s	in	suited		OK
+call.bb-vs-btn-3max	A8s	in	suited		OK
+call.bb-vs-btn-3max	A7s	in	suited		OK
+call.bb-vs-btn-3max	A6s	in	suited		OK
+call.bb-vs-btn-3max	A5s	in	suited		OK
+call.bb-vs-btn-3max	A4s	in	suited		OK
+call.bb-vs-btn-3max	A3s	in	suited		OK
+call.bb-vs-btn-3max	A2s	in	suited		OK
+call.bb-vs-btn-3max	AKo	in	high		OK
+call.bb-vs-btn-3max	KK	in	pair		OK
+call.bb-vs-btn-3max	KQs	in	high		OK
+call.bb-vs-btn-3max	KJs	in	high		OK
+call.bb-vs-btn-3max	KTs	in	high		OK
+call.bb-vs-btn-3max	K9s	in	suited		OK
+call.bb-vs-btn-3max	K8s	in	suited		OK
+call.bb-vs-btn-3max	K7s	in	suited		OK
+call.bb-vs-btn-3max	K6s	in	suited		OK
+call.bb-vs-btn-3max	K5s	in	suited		OK
+call.bb-vs-btn-3max	AQo	in	high		OK
+call.bb-vs-btn-3max	KQo	in	high		OK
+call.bb-vs-btn-3max	QQ	in	pair		OK
+call.bb-vs-btn-3max	QJs	in	high		OK
+call.bb-vs-btn-3max	QTs	in	high		OK
+call.bb-vs-btn-3max	Q9s	in	suited		OK
+call.bb-vs-btn-3max	Q8s	in	suited		OK
+call.bb-vs-btn-3max	AJo	in	high		OK
+call.bb-vs-btn-3max	KJo	in	high		OK
+call.bb-vs-btn-3max	QJo	in	high		OK
+call.bb-vs-btn-3max	JJ	in	pair		OK
+call.bb-vs-btn-3max	JTs	in	high		OK
+call.bb-vs-btn-3max	J9s	in	suited		OK
+call.bb-vs-btn-3max	ATo	in	high		OK
+call.bb-vs-btn-3max	KTo	in	high		OK
+call.bb-vs-btn-3max	QTo	in	high		OK
+call.bb-vs-btn-3max	TT	in	pair		OK
+call.bb-vs-btn-3max	T9s	in	suited		OK
+call.bb-vs-btn-3max	A9o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	K9o	in	highAllIn	rank=13	OK
+call.bb-vs-btn-3max	99	in	pair		OK
+call.bb-vs-btn-3max	A8o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	88	in	pair		OK
+call.bb-vs-btn-3max	A7o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	77	in	pair		OK
+call.bb-vs-btn-3max	A6o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	66	in	pair		OK
+call.bb-vs-btn-3max	A5o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	55	in	pair		OK
+call.bb-vs-btn-3max	A4o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	44	in	pair		OK
+call.bb-vs-btn-3max	A3o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	33	in	pair		OK
+call.bb-vs-btn-3max	A2o	in	highAllIn	rank=14	OK
+call.bb-vs-btn-3max	22	in	pair		OK
+call.bb-vs-two-3max	AA	in	pair		OK
+call.bb-vs-two-3max	AKs	in	high		OK
+call.bb-vs-two-3max	AQs	in	high		OK
+call.bb-vs-two-3max	AJs	in	high		OK
+call.bb-vs-two-3max	ATs	in	high		OK
+call.bb-vs-two-3max	A9s	in	suited		OK
+call.bb-vs-two-3max	A8s	in	suited		OK
+call.bb-vs-two-3max	A7s	in	suited		OK
+call.bb-vs-two-3max	A6s	in	suited		OK
+call.bb-vs-two-3max	A5s	in	suited		OK
+call.bb-vs-two-3max	AKo	in	high		OK
+call.bb-vs-two-3max	KK	in	pair		OK
+call.bb-vs-two-3max	KQs	in	high		OK
+call.bb-vs-two-3max	KJs	in	high		OK
+call.bb-vs-two-3max	KTs	in	high		OK
+call.bb-vs-two-3max	K9s	in	suited		OK
+call.bb-vs-two-3max	AQo	in	high		OK
+call.bb-vs-two-3max	KQo	in	high		OK
+call.bb-vs-two-3max	QQ	in	pair		OK
+call.bb-vs-two-3max	QJs	in	high		OK
+call.bb-vs-two-3max	QTs	in	high		OK
+call.bb-vs-two-3max	Q9s	in	suited		OK
+call.bb-vs-two-3max	AJo	in	high		OK
+call.bb-vs-two-3max	KJo	in	high		OK
+call.bb-vs-two-3max	QJo	in	high		OK
+call.bb-vs-two-3max	JJ	in	pair		OK
+call.bb-vs-two-3max	JTs	in	high		OK
+call.bb-vs-two-3max	J9s	in	suited		OK
+call.bb-vs-two-3max	ATo	in	high		OK
+call.bb-vs-two-3max	TT	in	pair		OK
+call.bb-vs-two-3max	T9s	in	suited		OK
+call.bb-vs-two-3max	T8s	in	suited		OK
+call.bb-vs-two-3max	A9o	in	highAllIn	rank=14	OK
+call.bb-vs-two-3max	99	in	pair		OK
+call.bb-vs-two-3max	98s	in	suited		OK
+call.bb-vs-two-3max	88	in	pair		OK
+call.bb-vs-two-3max	87s	in	suited		OK
+call.bb-vs-two-3max	77	in	pair		OK
+call.bb-vs-two-3max	66	in	pair		OK
+call.bb-vs-two-3max	55	in	pair		OK
+call.bb-vs-two-3max	44	in	pair		OK
+call.bb-vs-two-3max	33	in	pair		OK
+LICZNIKI {"pair":161,"high":244,"suited":252,"spot":3057,"dominated":781,"overcards":829,"overcardsPair":16,"highAllIn":113,"connected":12}
+BEZ_POWODU 0 
+ZLE 0 
+SPOTY 34 rfi.utg=rfiUtg/tight rfi.hj=rfiMid/wide rfi.co=rfiMid/wide rfi.btn=rfiBtn/wide rfi.sb=rfiSb/wide vs-open.btn-vs-co=btnVsCo/wide vs-open.sb-vs-btn=sbVsBtn/wide vs-open.bb-vs-btn=bbVsBtn/wide vs-open.bb-vs-sb=bbVsSb/wide nine.rfi.utg=nineEarly/tight nine.rfi.utg1=nineEarly/tight nine.rfi.utg2=nineEarly/tight nine.rfi.lj=nineLj/tight nine.rfi.hj=rfiMid/wide nine.rfi.co=rfiMid/wide nine.rfi.btn=rfiBtn/wide nine.rfi.sb=rfiSb/wide nine.vs-open.btn-vs-co=btnVsCo/wide nine.vs-open.sb-vs-btn=sbVsBtn/wide nine.vs-open.bb-vs-btn=bbVsBtn/wide nine.vs-open.bb-vs-sb=bbVsSb/wide push.sb-5=pushSb/wide push.sb-10=pushSb/wide push.sb-15=pushSbDeep/tight push.sb-10-ante=pushAnte/wide call.bb-5=callBb/tight call.bb-10=callBb/tight call.bb-15=callBb/tight call.bb-10-ante=callBb/tight push.btn-3max=push3max/tight push.sb-3max=pushSb3max/wide call.sb-vs-btn-3max=call3max/tight call.bb-vs-btn-3max=callBb/tight call.bb-vs-two-3max=call3maxTwo/tight

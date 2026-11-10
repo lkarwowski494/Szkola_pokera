@@ -1,0 +1,24 @@
+// Porównanie egzaminów pl przed (02b1fe1) i po (5cd9d8c): prompt, teksty opcji, correct, klucze {{n:}} w why. Bez zależności od testu autora.
+import { execSync } from 'node:child_process';
+import { createRequire } from 'node:module';
+const require = createRequire('/home/user/Szkola_pokera/tools/content-build/package.json');
+const YAML = require('yaml');
+const pliki = execSync('git -C /home/user/Szkola_pokera ls-tree --name-only 5cd9d8c content/pl/exams/').toString().trim().split('\n');
+let roznice = 0, opcje = 0, zmienioneWhy = 0;
+const nk = (s) => [...(s ?? '').matchAll(/\{\{n:([^}]+)\}\}/g)].map((m) => m[1]).sort().join(',');
+for (const p of pliki) {
+  const [a, b] = ['02b1fe1', '5cd9d8c'].map((c) => YAML.parse(execSync(`git -C /home/user/Szkola_pokera show ${c}:${p}`).toString()));
+  const da = a.drills ?? [], db = b.drills ?? [];
+  if (da.length !== db.length) { console.log(`${p}: liczba zadań ${da.length} → ${db.length}`); roznice++; }
+  da.forEach((x, i) => {
+    const y = db[i];
+    if (x.prompt !== y.prompt) { console.log(`${p}#${i}: prompt zmieniony`); roznice++; }
+    (x.options ?? []).forEach((o, j) => {
+      const q = y.options[j]; opcje++;
+      if (o.text !== q.text || !!o.correct !== !!q.correct || !!o.acceptable !== !!q.acceptable) { console.log(`${p}#${i}.${j}: tekst/correct zmienione`); roznice++; }
+      if (o.why !== q.why) { zmienioneWhy++; const ka = nk(o.why), kb = nk(q.why); console.log(`${p}#${i}.${j}: why zmienione (correct=${!!q.correct}); klucze n ${ka === kb ? 'te same' : `RÓŻNE: ${ka} → ${kb}`}`); if (ka !== kb) roznice++; }
+    });
+  });
+}
+console.log(`plików ${pliki.length}, opcji ${opcje}, zmienionych why ${zmienioneWhy}, różnic w kluczach/odpowiedziach ${roznice}`);
+process.exitCode = roznice ? 1 : 0;

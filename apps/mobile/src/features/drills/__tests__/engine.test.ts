@@ -50,7 +50,7 @@ describe('silnik zadań', () => {
     for (const raw of instantiate(gen('icm', { mode: 'call' }), 'l1', rng)) {
       const inst = asChoice(raw);
       expect(inst.prompt).toMatch(/Bubble: [34] graczy/);
-      expect(inst.explanation).toMatch(/Bubble factor/);
+      expect(inst.explanation).toMatch(/[Bb]ubble factor/);
       expect(inst.options.map((o) => o.text)).toEqual(['Sprawdzam (call)', 'Pasuję (fold)']);
     }
     for (const raw of instantiate(gen('icm', { mode: 'equity' }), 'l1', rng)) {

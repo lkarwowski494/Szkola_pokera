@@ -31,7 +31,7 @@ import {
   type Rng,
 } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
-import { capitalize, categoryName, pctEquity, t, textureAxisLabel, textureLabel, textureText, trJ, zdania } from './text';
+import { capitalize, categoryName, pctEquity, t, textureAxisLabel, textureLabel, textureText, trJ, zdania, type RangeStatus } from './text';
 import { MIXED_HIGH, MIXED_LOW, MIXED_MIN } from './thresholds';
 import { vocabBatch } from './vocab';
 import type { DrillInstance, DrillOption, NumericInstance, Position, TextureAxisItem } from './types';
@@ -275,11 +275,13 @@ function whoWins(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number
   const s = generateWhoWins(rng, kicker ? { reason: 'kicker' } : {});
   const winner = s.winner === 'villain' ? s.villainResult : s.heroResult;
   const loser = s.winner === 'villain' ? s.heroResult : s.villainResult;
-  const explanation = zdania(t.whoWins.facts(s.heroResult, s.villainResult), t.whoWins.reason(s.reason, winner, loser));
+  const reason = t.whoWins.reason(s.reason, winner, loser);
+  const explanation = zdania(t.whoWins.facts(s.heroResult, s.villainResult), reason);
+  // „dlaczego” przy każdej opcji: powód rozstrzygnięcia (KO-040, BR-OCE-002)
   const opt = (key: 'hero' | 'villain' | 'split', text: string): DrillOption => ({
     text,
     correct: s.winner === key,
-    why: s.winner === key ? t.whoWins.yes : t.whoWins.no,
+    why: zdania(s.winner === key ? t.whoWins.yes : t.whoWins.no, t.whoWins.facts(s.heroResult, s.villainResult), reason),
   });
   return {
     ...base(d, lessonId, i),
@@ -348,7 +350,7 @@ function outs(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): 
     ...base(d, lessonId, i),
     prompt: t.outs.prompt(kind),
     table: { hand: toStrings(s.hole), board: toStrings(s.board) },
-    options: values.map((v) => ({ text: String(v), correct: v === s.outs, why: v === s.outs ? t.outs.right : t.outs.wrong(v, s.outs) })),
+    options: values.map((v) => ({ text: String(v), correct: v === s.outs, why: v === s.outs ? t.outs.right : t.outs.wrong(v, s.outs, kind) })),
     explanation: t.outs.explanation(kind, s.outs, s.hitNextCard, s.hitToRiver, street),
   };
 }
@@ -394,15 +396,16 @@ function drawCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
   const street = d.params.street === 'flop' ? 'flop' : 'turn';
   const s = generateDrawCall(rng, street);
   const what = s.draw.kind as 'flush' | 'oesd' | 'gutshot';
+  const tekst = { ...s, street: street as 'flop' | 'turn', what, correct: s.correct as 'call' | 'fold' };
   return {
     ...base(d, lessonId, i),
     prompt: t.drawCall.prompt(s.pot, s.bet, what, street),
     table: { hand: toStrings(s.hole), board: toStrings(s.board) },
     options: [
-      { text: t.drawCall.call, correct: s.correct === 'call', why: s.correct === 'call' ? t.drawCall.right : t.drawCall.wrong },
-      { text: t.drawCall.fold, correct: s.correct === 'fold', why: s.correct === 'fold' ? t.drawCall.right : t.drawCall.wrong },
+      { text: t.drawCall.call, correct: s.correct === 'call', why: t.drawCall.why(tekst, 'call') },
+      { text: t.drawCall.fold, correct: s.correct === 'fold', why: t.drawCall.why(tekst, 'fold') },
     ],
-    explanation: t.drawCall.explanation(s),
+    explanation: t.drawCall.explanation(tekst),
   };
 }
 
@@ -442,16 +445,20 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
   const best = Math.max(...freqs.map((f) => f.f));
   const mixed = best < MIXED_HIGH;
   const verdict = rangeVerdict(freqs.map((f) => f.f));
+  // miejsce ręki w zakresie (do zdania „bo”, KO-040): mieszana, gdy najczęstsza akcja < MIXED_HIGH; poza zakresem, gdy najczęstszy jest pas
+  const foldF = freqs[freqs.length - 1]!.f;
+  const status: RangeStatus = mixed ? 'mixed' : foldF === best ? 'out' : 'in';
+  const bestPlay = freqs.slice(0, -1).reduce((a, b) => (b.f > a.f ? b : a));
   const options: DrillOption[] = freqs.map((f, fi) => {
     const v = verdict[fi]!;
     // ostatnia pozycja freqs to pas (część „pas” paska strategii jest kreskowana, design-spec „PasekStrategii”)
-    if (fi === freqs.length - 1) return { ...opcjaZakresu(v, f), pas: true };
-    return opcjaZakresu(v, f);
+    if (fi === freqs.length - 1) return { ...opcjaZakresu(v, f, true), pas: true };
+    return opcjaZakresu(v, f, false);
   });
-  function opcjaZakresu(v: (typeof verdict)[number], f: { name: string; f: number }): DrillOption {
-    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f), czestosc: f.f };
-    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f), czestosc: f.f };
-    return { text: f.name, correct: false, why: t.range.wrong(f.f), czestosc: f.f };
+  function opcjaZakresu(v: (typeof verdict)[number], f: { name: string; f: number }, pas: boolean): DrillOption {
+    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f, status, spot!.id, hc), czestosc: f.f };
+    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f, status, spot!.id, hc), czestosc: f.f };
+    return { text: f.name, correct: false, why: t.range.wrong(f.f, status, spot!.id, pas, hc), czestosc: f.f };
   }
   // błędne rozmiary dokładamy na końcu listy (kolejność opcji generatora jest stała: grupy, pas, złe rozmiary)
   spot.groups.forEach((g, gi) => {
@@ -461,7 +468,7 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
         // rozmiar spoza strategii solvera: częstość 0 (pasek strategii pokazuje go jako twój wybór z 0%)
         verdict[gi] !== 'wrong'
           ? { text: w.text, correct: false, sizeError: true, why: w.why, czestosc: 0 }
-          : { text: w.text, correct: false, why: zdania(t.range.wrong(f), w.why), czestosc: 0 },
+          : { text: w.text, correct: false, why: zdania(t.range.wrong(f, status, spot.id, false, hc), w.why), czestosc: 0 },
       );
     }
   });
@@ -470,6 +477,6 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
     prompt: spot.title,
     table: { hand: toStrings([c1, c2]), position: spot.hero as Position, path: spot.path },
     options,
-    explanation: t.range.explanation(hc, freqs, mixed),
+    explanation: t.range.explanation(hc, freqs, mixed, { title: spot.title, spot: spot.id, status, action: bestPlay.name }),
   };
 }

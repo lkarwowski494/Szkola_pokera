@@ -14,7 +14,7 @@ drills:
     rules: [R-M6-002]
     prompt: "River. W {{t:pot|puli}} jest {{n:exam.m6.pot}}. {{t:bluff|Blefujesz}} ręką bez szans za {{n:exam.m6.bet.quarter}}. Jak często rywal musi {{t:fold|pasować}}, żeby ten {{t:bluff}} wyszedł na zero?"
     options:
-      - { text: "Częściej niż w {{n:exam.m6.alpha.quarter}} przypadków", correct: true, why: "Tak: alpha = bet ÷ ({{t:pot}} + bet) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}. Mały {{t:bluff}} ryzykuje mało, więc wystarczą mu rzadkie {{t:fold|pasy}}." }
+      - { text: "Częściej niż w {{n:exam.m6.alpha.quarter}} przypadków", correct: true, why: "Tak: mały {{t:bluff}} ryzykuje mało, więc wystarczą mu rzadkie {{t:fold|pasy}}. Rachunek: alpha = bet ÷ ({{t:pot}} + bet) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}." }
       - { text: "Częściej niż w {{n:exam.m6.mdf.quarter}} przypadków", why: "To {{t:mdf}}: część {{t:range|zakresu}}, którą rywal powinien bronić. Alpha to reszta do całości: {{n:exam.m6.alpha.quarter}}." }
       - { text: "Częściej niż w {{n:eq.bet-quarter}} przypadków", why: "To equity, którego rywal potrzebuje do {{t:call|sprawdzenia}}; w mianowniku jest jeszcze jego {{t:call}}. Próg dla {{t:bluff|blefu}} to bet ÷ ({{t:pot}} + bet) = {{n:exam.m6.alpha.quarter}}." }
   - kind: choice
@@ -44,7 +44,7 @@ drills:
     prompt: "Jesteś na {{t:big-blind|dużym blindzie}}, jest flop. Przed {{t:bet|zakładem}} w {{t:pot|puli}} jest {{n:exam.m6.pot}} {{t:chips|żetonów}}. Button {{t:bet|stawia}} w jednym rozdaniu {{n:exam.m6.bet.quarter}}, a w innym {{n:exam.m6.bet.three-quarters}}. Jakiej szansy na wygranie {{t:pot|puli}} ({{t:equity}}) potrzebujesz co najmniej, żeby {{t:call|sprawdzić}}, w każdym z tych rozdań?"
     table: { position: BB }
     options:
-      - { text: "Ok. {{n:eq.bet-quarter}} i {{n:eq.bet-three-quarters}}", correct: true, why: "Tak: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, a {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Przy większym becie bronisz węższym {{t:range|zakresem}}." }
+      - { text: "Ok. {{n:eq.bet-quarter}} i {{n:eq.bet-three-quarters}}", correct: true, why: "Tak: większy bet to gorsza cena {{t:call|sprawdzenia}}, więc przy nim bronisz węższym {{t:range|zakresem}}. Rachunek: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, a {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}." }
       - { text: "Ok. {{n:exam.m6.alpha.quarter}} i {{n:eq.bet-three-quarters}}", why: "Pierwsza liczba to alpha (bet ÷ ({{t:pot}} + bet)), czyli próg dla {{t:bluff|blefu}} Buttona. Do ceny {{t:call|sprawdzenia}} dolicz swoje {{t:call}}: {{n:eq.bet-quarter}}." }
       - { text: "Tyle samo w obu, bo to ta sama {{t:pot}}", why: "Nie: cena zależy od rozmiaru betu. Większy bet to gorsza cena: {{n:eq.bet-three-quarters}} zamiast {{n:eq.bet-quarter}}." }
   - kind: choice

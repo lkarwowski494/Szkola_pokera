@@ -1,0 +1,20 @@
+PASS src/features/drills/__tests__/bq-allin-003.test.ts
+(node:2919) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/features/drills/__tests__/powody-reki-bn.test.ts
+PASS src/features/drills/__tests__/engine.test.ts
+PASS src/features/drills/__tests__/ocena-schematu-08.test.ts
+PASS src/features/drills/__tests__/teksty-jezyk-09.test.ts
+PASS src/features/drills/__tests__/wyjasnienia-ko040.test.ts
+PASS src/features/drills/__tests__/recenzja-bp-dominacja.test.ts
+PASS src/features/drills/__tests__/bq-dominacja-001.test.ts
+PASS src/features/drills/__tests__/bq-dominacja-002.test.ts
+PASS src/features/drills/__tests__/terms.test.ts (7.488 s)
+PASS src/features/drills/__tests__/hand-reasons.test.ts
+
+Test Suites: 11 passed, 11 total
+Tests:       110 passed, 110 total
+Snapshots:   0 total
+Time:        9.266 s
+Ran all test suites matching /src\/features\/drills/i.
+kod 0

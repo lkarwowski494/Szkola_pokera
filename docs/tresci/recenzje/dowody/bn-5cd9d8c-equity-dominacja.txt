@@ -1,0 +1,24 @@
+# Dokładne equity, pełny przegląd C(48,5) boardów. (1) własny ewaluator eq.mjs; (2) compareHands z packages/poker-core (eq-core.ts, tsx)
+## (1) eq.mjs, ręce w różnych kolorach (zdominowana pierwsza)
+As2h vs Ad3c: 0.4707
+As4h vs Ad5c: 0.4436
+As5h vs Ad6c: 0.4249
+Ks2h vs Kd3c: 0.4695
+Ts8h vs Td9c: 0.3073
+Qs2h vs Qd3c: 0.4695
+Js2h vs Jd3c: 0.4695
+Ts2h vs Td3c: 0.4695
+## (1) eq.mjs, ręka zdominowana w kolorze
+As2s vs Ad3c: 0.5009
+As4s vs Ad5c: 0.4750
+As5s vs Ad6c: 0.4580
+Ks2s vs Kd3c: 0.5004
+Ts8s vs Td9c: 0.3461
+Qs2s vs Qd3c: 0.5004
+Js2s vs Jd3c: 0.5003
+Ts2s vs Td3c: 0.5003
+## (2) poker-core compareHands
+As2h vs Ad3c wygrane 378944 przegrane 479277 remisy 854083 equity 0.4707
+As2s vs Ad3c wygrane 455224 przegrane 452274 remisy 804806 equity 0.5009
+Ks2s vs Kd3c wygrane 455368 przegrane 454103 remisy 802833 equity 0.5004
+## kontrola ewaluatora: AsAh vs KsKh 0.8264, AsKh vs AdQc 0.7402 (eq.mjs)

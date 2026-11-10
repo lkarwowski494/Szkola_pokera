@@ -111,7 +111,7 @@
   module: m2
   if: "votre équité est inférieure à l'équité requise (avec un {{t:draw|tirage}} : la probabilité de toucher sur les cartes que vous verrez pour ce prix)"
   then: "vous vous {{t:fold|couchez}} (sans arguments supplémentaires, p. ex. les implied odds)"
-  because: "chaque {{t:call|call}} de ce type perd de l'argent sur le long terme"
+  because: "un {{t:call|call}} n'est rentable que si vous gagnez au moins aussi souvent que le prix l'exige ; en gagnant moins souvent, à chaque {{t:call|call}} de ce type vous mettez en moyenne plus que ce que vous récupérez du {{t:pot|pot}}"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "calcul : EV = équité × (pot après votre call) − call ; négative quand équité < call ÷ pot après votre call"
@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solveur préflop du projet, table de 9 joueurs 100bb (ADR-20 ; document 10, « Mesure N9a finale » : validation partielle N1–N4, NashConv 0,0094bb ; composition UTG–UTG+2 non vérifiée, et fréquences sans validation de niveau 2 (D-153), donc la règle n'indique que la direction, sans chiffres du solveur ; niveau heuristic, D-144). Cohérent avec l'intervalle commun des tableaux 9-max de niveau 4 : UTG environ 9–13%, UTG+1 environ 11–14% (site de tableaux préflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart ; second site de tableaux préflop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game ; document 10, « Configuration 9-max 100bb »). Le jeu après l'abandon d'UTG–UTG+2 est exactement le jeu 6-max (test de l'arbre)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "vous avez deux cartes différentes et vérifiez si ensemble elles peuvent former une {{t:straight|quinte}}"
+  then: "plus elles sont proches, plus il y a de façons : des cartes voisines de 5-4 à J-T sont dans quatre {{t:straight|quintes}} différentes, avec un écart de 5-3 à Q-T dans trois, et à cinq rangs ou plus (p. ex. 7-2) dans aucune"
+  because: "une {{t:straight|quinte}}, ce sont cinq rangs consécutifs ; plus l'écart entre les cartes est grand, moins de telles suites contiennent les deux (l'as compte aussi pour un)"
+  level: math
+  source: "calcul : les dix quintes de A-2-3-4-5 à 10-J-Q-K-A vérifiées pour chacune des 169 classes de mains ; définition : règlement approuvé par le régulateur californien (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "vous avez une carte haute avec une seconde carte plus faible (p. ex. K5 ou A7), et un adversaire peut avoir la même carte haute avec un meilleur {{t:kicker}}"
+  then: "si vous touchez tous les deux une {{t:pair|paire}} avec cette carte, l'adversaire au meilleur {{t:kicker}} vous bat (votre main est dominée) ; deux cartes hautes jouent dans l'autre sens : un {{t:kicker}} élevé bat les mains plus faibles avec la même carte (simplification : on laisse de côté les cartes du {{t:board|board}}, qui peuvent rendre le {{t:kicker}} inutile et faire partager le {{t:pot|pot}})"
+  because: "avec la même {{t:pair|paire}}, c'est le {{t:kicker}} qui décide, donc avant le flop, quand les deux mains sont dépareillées, une main dominée gagne moins souvent que la main qui la domine ; une main dominée assortie (suited) est parfois à peu près à égalité avec elle (p. ex. A2s contre A3o) ; elle est donc difficile à jouer (simplification : la source de formation le dit pour la défense contre un 3-bet)"
+  level: heuristic
+  source: "règles : le kicker départage à cœur de main égal (R-M0-002) ; calcul : equity de la main dominée sous la moitié dans chaque confrontation ; glossaire de poker (https://www.pokerskill.com/poker-glossary/dominated-hand/) ; site de formation (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "vos deux cartes sont basses (neuf ou moins), y compris une {{t:pair|paire}} basse"
+  then: "sur le flop tombe généralement au moins une carte plus haute que les deux, et l'adversaire qui la touche a une {{t:pair|paire}} plus haute qu'une paire faite avec vos cartes"
+  because: "le flop compte trois cartes et le paquet contient beaucoup de cartes plus hautes qu'une main basse : plus votre carte haute est basse, plus souvent l'une d'elles tombe"
+  level: math
+  source: "calcul : probabilité = 1 − C(m, 3) ÷ C(50, 3), m = cartes pas plus hautes que la carte haute de la main, sans les deux cartes de la main ; vérifié sur les 19 600 flops pour chacune des 169 classes"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "vous avez une {{t:pair|paire}} en main avant le flop"
+  then: "vous avez déjà une main faite : une main sans {{t:pair|paire}} a besoin des {{t:community-cards}} pour la battre"
+  because: "la {{t:pair|paire}} est au-dessus de la {{t:high-card}} dans le classement, et avant le flop une main sans paire n'a qu'une carte haute"
+  level: rules
+  source: "règles du Texas Hold'em : règlement approuvé par le régulateur californien (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), One Pair au-dessus de High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "solveur push/fold du projet (pushfold.json, trois joueurs) ; cohérent avec Ganzfried et Sandholm, AAMAS 2008, tableau 2, single hand : « SB jam after jam … 0.234 », « BB jam after jam/fold … 0.308 », « BB jam after jam/jam … 0.197 »"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "tous les joueurs du {{t:pot|pot}} sont à tapis avant le flop"
+  then: "il n'y a plus de {{t:bet|mises}} : le coup se décide une fois les {{t:community-cards}} distribuées, et si personne n'a de {{t:pair|paire}} ou mieux, la carte la plus haute gagne (simplification : si les cinq meilleures cartes sont toutes sur le {{t:board|board}}, {{t:split-pot|le pot est partagé}})"
+  because: "sans autres {{t:bet|mises}}, personne ne peut plus se {{t:fold|coucher}}, donc seul le classement des mains compte ; avec seulement des cartes hautes, la plus haute décide"
+  level: rules
+  source: "règles du Texas Hold'em : règlement approuvé par le régulateur californien (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; règles de tournoi de la Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), règle 17 Face Up for All-Ins"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://www.pokertda.com/view-poker-tda-rules/" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

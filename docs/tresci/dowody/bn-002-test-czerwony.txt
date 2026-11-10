@@ -1,0 +1,46 @@
+# Test powody-reki-bn.test.ts na kodzie sprzed zmiany (02b1fe1 + sam test), 2026-11-10
+(node:2339) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/features/drills/__tests__/powody-reki-bn.test.ts
+  KO-040 / BK 06-tresci-002: powód decyzji zakresu w każdym spocie i każdej klasie
+    ✓ baza ma wszystkie spoty z mapą powodów (4 ms)
+    ✕ wyjaśnienie ręki w zakresie i poza nim ma zdanie powodu (poza wyjątkami nazwanymi) (1856 ms)
+    ✓ każdy wyjątek nazwany istnieje w bazie (lista nie zawiera pozycji martwych) (1 ms)
+
+  ● KO-040 / BK 06-tresci-002: powód decyzji zakresu w każdym spocie i każdej klasie › wyjaśnienie ręki w zakresie i poza nim ma zdanie powodu (poza wyjątkami nazwanymi)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 22
+
+    - Array []
+    + Array [
+    +   "rfi.utg:AA:in",
+    +   "opcja rfi.utg:AA",
+    +   "rfi.utg:AKs:in",
+    +   "opcja rfi.utg:AKs",
+    +   "rfi.utg:AQs:in",
+    +   "opcja rfi.utg:AQs",
+    +   "rfi.utg:AJs:in",
+    +   "opcja rfi.utg:AJs",
+    +   "rfi.utg:ATs:in",
+    +   "opcja rfi.utg:ATs",
+    +   "rfi.utg:A9s:in",
+    +   "opcja rfi.utg:A9s",
+    +   "rfi.utg:A5s:in",
+    +   "opcja rfi.utg:A5s",
+    +   "rfi.utg:AKo:in",
+    +   "opcja rfi.utg:AKo",
+    +   "rfi.utg:KK:in",
+    +   "opcja rfi.utg:KK",
+    +   "rfi.utg:KQs:in",
+    +   "opcja rfi.utg:KQs",
+    + ]
+
+      62 |     }
+      63 |     expect(n).toBeGreaterThan(5000);
+    > 64 |     expect(bez.slice(0, 20)).toEqual([]);
+         |                              ^
+      65 |   });
+      66 |

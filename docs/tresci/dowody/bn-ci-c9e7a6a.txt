@@ -1,0 +1,6 @@
+# pnpm run ci na drzewie commitu c9e7a6a (przed commitem, drzewo identyczne), 2026-11-10
+apps/mobile test: Test Suites: 94 passed, 94 total
+apps/mobile test: Tests:       721 passed, 721 total
+błędy: 0, uwagi: 395; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 756
+0 błędów, 0 uwag
+EXIT 0
