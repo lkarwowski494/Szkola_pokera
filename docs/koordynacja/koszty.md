@@ -44,3 +44,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BH | 04 build (menu KO-045) | — | 2,51 | 19,4 | 15:37 → 15:37 → 0c24cb6 → — (docs) → 15:48 | — | |
 | BJ | 08 audit (recenzja BF) | — | 5,31 | 27,2 | 15:55 → 15:58 → 16:16 (53ca690) → — → 16:19 | — | |
 | BF | 08 build (generator, krok B) | — | 5,26 | 32,1 | 15:35 → 15:40 → … → 886b2be CI zielone 15:57 → przekazane 16:18 (bez przyjęcia: WYS BJ-001) | 0 | następca BM |
+| BG | 06 build (książki + KO-040) | — | 17,92 | 36,6 | 15:35 → 15:40 → … → 07eba39 CI 15:57 → 02b1fe1 CI 16:24 → 16:30 | 0 | kontekst ponad 30% bez przekazania |
