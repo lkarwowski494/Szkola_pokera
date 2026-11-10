@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:10 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:18 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -13,7 +13,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
   - D-358/D-359: dotłumaczenia po poprawkach ≤ 5 USD łącznie (wykorzystane 0).
   - Workflowy App Store Connect w trybie zapisu uruchamia i zatwierdza (`release`) **tylko właściciel**, zawsze z ref gałęzi roboczej (z `main` padają). Koordynator: tylko podglądy/kontrola.
   - 2026-11-10 ok. 06:10 UTC, pytanie „Strona site/ … z nową nazwą PokerGym: czy wypchnąć ją na main”: „Zgoda, publikuj teraz” — **wykonane** ddb0108 (tylko `site/privacy.html`, `site/support.html`); zgoda zużyta tym pushem.
-  - 2026-11-10 ok. 06:05 UTC, przekład pt-PT przez API: „Do 25 USD” łącznie (≤ 15 USD na przebieg, D-341); wykorzystane 0.
+  - 2026-11-10 ok. 06:05 UTC, przekład pt-PT przez API: „Do 25 USD” łącznie (≤ 15 USD na przebieg, D-341); wykorzystane 10,53 (wg AO, przebiegi 42765074236, 42765077031).
 - Zawsze za zgodą: push i scalenie na `main` (poza listą wyżej), PR, App Store Connect zapis, TestFlight, publikacja, usuwanie gałęzi i danych, force-push, koszty stałe, wiadomości do ludzi, koszt API ponad pułap.
 - Pułapy kosztu: **brak** — właściciel 2026-11-10 ok. 05:55 UTC: „Bez pułapu, tylko raport” (koszt w liniach 05:00 i 14:00; budżet kontekstu 30% bez zmian); API przekładu wg zgód wyżej.
 - Koordynator aktywny: session_01T66VBxtQGd3faU3Y4mNUuA (od 2026-11-10 05:30 UTC, uruchomiony przez właściciela z `/apps4brew`; poprzednik session_01T66VBvZebfV7GaciZqtW3H, przed nim session_01T66VBzPr7MhGZ3A6RPdfBG).
@@ -32,13 +32,14 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | AM | session_01T66VBzioNjwudY42GtzgHt | 10 build, kod | sesja-am-kategoria @ 016317e → scalone ff do roboczej 016317e | — | [DO USTALENIA przy archiwizacji] | PRZEKAZANIE 06:06; autor OK; `pnpm run ci` kod 0 wg sesji — **niesprawdzone** do wyniku CI na 016317e (gałąź robocza); po zielonym: koszt → archiwizacja |
-| AN | session_01T66VBy5HsHQDnmCWm8Vboj | 10 build, docs | sesja-an-kr-vn @ e01ba05 | — | — | wystartowała (WORKING) |
-| AO | session_01T66VBwQoZrfRhLaY2LmtdR | 09 build, kod | sesja-ao-pt-pt @ e01ba05 | — | — | wystartowała (WORKING) |
+| AN | session_01T66VBy5HsHQDnmCWm8Vboj | 10 build, docs | sesja-an-kr-vn @ 0cc1036 (niesprawdzone) | — | — | PRZEKAZANIE 06:10 + D-400; po odpowiedziach właściciela dopisuje fakt KR 19+, opcje na później i tekst pytania do Apple (VN) → PRZEKAZANIE końcowe |
+| AO | session_01T66VBwQoZrfRhLaY2LmtdR | 09 build, kod | sesja-ao-pt-pt @ c8ccacf | 30 (wg sesji) | API 10,53; sesja [DO USTALENIA] | PRZEKAZANIE 06:17 (zad. 3 w połowie) → następca AS; do archiwizacji po starcie AS i zapisie kosztu |
+| AS | (po starcie) | 09 build, kod | sesja-ao-pt-pt @ c8ccacf | — | — | zlecana: dokończenie pt-PT |
 | AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk @ e01ba05 | — | — | wystartowała (WORKING tuż po starcie; pierwsza tura niesprawdzona): ja, zh-Hant, ko |
 | AQ | session_01T66VBxSH9VTYhVSyVDqCB5 | 09 audit, docs | przeglad-aq-romanskie @ e01ba05 | — | — | wystartowała: pt-BR, es, it |
 | AR | session_01T66VBx2fb5Tf1JtB5kMueE | 09 audit, docs | przeglad-ar-fr-de-vi @ e01ba05 | — | — | wystartowała: fr, de, vi |
 
-Litery użyte dotąd: A…Z, AA…AR (następna: **AS**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -59,7 +60,7 @@ Litery użyte dotąd: A…Z, AA…AR (następna: **AS**). Polecenia: `docs/koord
 - Fakty: W-04 e-mail wsparcia + dostawca skrzynki; administrator (imię i nazwisko, forma); W-05 Apple ID aplikacji; W-07 dane sprzedawcy JP (wariant A potwierdzony 2026-11-10). Uwaga: `site/` na `main` ma w tych miejscach publicznie tekst „[DO USTALENIA: …]” (było tak też przed ddb0108).
 - Znaki towarowe „pokergym” / „poker gym” (USPTO, EUIPO, WIPO GBD w przeglądarce) przed zapisem nazwy w ASC (D-378, D-382) — krok po kroku do podania.
 - Wpis ręczny kategorii w ASC (Education + Games/Card) po wyniku AM.
-- Decyzja o KR i VN (po AN).
+- Wysłanie pytania do Apple Developer Support w sprawie Wietnamu (tekst i kroki przygotowuje AN; ok. 10 min).
 - Build TestFlight po poprawkach; potem listy telefonu.
 - Konto Apple Search Ads (D-377; po premierze).
 - Zarchiwizowanie sesji poprzednika session_01T66VBvZebfV7GaciZqtW3H, jeśli jest widoczna (dla koordynatora „not found”).
@@ -98,3 +99,6 @@ Litery użyte dotąd: A…Z, AA…AR (następna: **AS**). Polecenia: `docs/koord
 | 11-10 05:59 | AM → koordynator → właściciel | PYTANIE o zdanie „a course, not a game” w opisie sklepu; odpowiedź właściciela: „Przeformułować (zalecane)” → przekazane AM 06:01 | — |
 | 11-10 06:06 | AM | PRZEKAZANIE: 915a0d5 (D-395 kategoria), 016317e (D-396 zdanie w 11 lokalizacjach, przegląd subagentem, 3 poprawki); otwarte: nazwy przycisków ASC i id GAMES [DO USTALENIA], brak weryfikacji ja/zh-Hant/ko/vi przez osobę znającą język | odbiór |
 | 11-10 06:10 | koordynator | odbiór AM: 2 commity, autor zgodny z CLAUDE.md, 9 plików (store/, docs/sklep, docs/decyzje, test); scalenie ff do gałęzi roboczej @ 016317e (push OK); CI na 016317e — do sprawdzenia. AP, AQ, AR wystartowały (ID w tabeli; model skonfigurowany wg decyzji KO-018; prompt przepisany przez subagenta, zgodność bajt po bajcie niesprawdzona) | kontrola 06:38 |
+| 11-10 06:10 | AN → koordynator → właściciel | PYTANIE D-400 (KR warunkowo / VN nie teraz + pytanie do Apple). Odpowiedzi właściciela: KR „Korea dostala w ASC 19+ z automatu wczoraj.” (fakt; warunek włączenia niespełniony → KOR zostaje wyłączony, 166 bez zmian — odczytanie koordynatora, zgłoszone właścicielowi); VN „Nie teraz + pytanie do Apple (zalecane)” — przekazane AN 06:12 | PRZEKAZANIE końcowe AN |
+| 11-10 06:13 | AP, AQ, AR → koordynator | start: baza 016317e zamiast e01ba05 (AM scalona po zapisaniu poleceń — przyjęte); listy jednostek odtworzone z `scripts/i18n/wspolne.mjs` bez uruchamiania (brak node_modules; wyjątek przyjęty); 13–16 subagentów na język; wskazane pliki metadanych fali 2 | raporty po pierwszym języku |
+| 11-10 06:17 | AO | PRZEKAZANIE przy 30%: c8ccacf; przekład pt 65/65, API 10,53 USD; przegląd 44 lekcji: KRYT 0, WYS 8, 244 poprawki; łatki mechanizmu pt-PT; metadane pt-PT; D-405, D-406 do weta; otwarte: reszta przeglądu, terminologia, nałożenie, wydanie. Koszt sesji: subagenci ok. 1,3 mln tokenów (wg AO) | następca AS |
