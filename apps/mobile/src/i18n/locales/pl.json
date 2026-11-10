@@ -700,7 +700,7 @@
     "range": {
       "fold": "{{t:fold|Pas}}",
       "right": "Tak: {{status}}.",
-      "acceptable": "Dopuszczalne: {{status}}. Solver gra tak w {{pct}} przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.",
+      "acceptable": "Dopuszczalne: {{status}}.",
       "wrongRare": "Solver gra tak tylko w {{pct}} przypadków, czyli prawie nigdy.",
       "wrongVeryRare": "Solver gra tak z tą ręką rzadziej niż w {{pct}} przypadków.",
       "wrongNever": "Solver nigdy tak nie gra z tą ręką.",
@@ -713,7 +713,7 @@
       "wrongTight": "Za ciasno: {{status}}.",
       "wrongOther": "Słabszy wybór: {{status}}, ale solver gra nią zwykle inaczej.",
       "situation": "Masz {{hand}}. Sytuacja: {{title}}.",
-      "playIn": "Grasz: {{action}}, bo {{status}}.",
+      "playIn": "Najlepsza akcja: {{action}}, bo {{status}}.",
       "playOut": "{{t:fold|Pasujesz}}, bo {{status}}.",
       "playMixed": "Możesz grać albo {{t:fold|pasować}}, bo {{status}}: solver raz ją gra, raz {{t:fold|pasuje}}.",
       "status": {
@@ -722,9 +722,11 @@
         "mixed": "to ręka na granicy {{t:range|zakresu}}"
       },
       "often": {
+        "always": "zawsze",
         "almostAlways": "prawie zawsze",
         "usually": "zwykle",
-        "mixed": "raz tak, raz inaczej"
+        "overHalf": "częściej niż co drugi raz",
+        "underHalf": "rzadziej niż co drugi raz"
       },
       "reason": {
         "rfiUtg": "Za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę.",
@@ -732,7 +734,7 @@
         "rfiBtn": "Zostały za tobą tylko blindy, a po flopie będziesz mieć {{t:position|pozycję}}.",
         "rfiSb": "Grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}, ale po flopie mówisz pierwszy.",
         "nineEarly": "Przy stole 9-osobowym za tobą siedzi więcej graczy niż przy 6-osobowym, więc częściej ktoś ma lepszą rękę.",
-        "nineLj": "Za LJ zostaje tylu graczy co za {{t:utg|UTG}} przy stole 6-osobowym.",
+        "nineLj": "Z LJ grasz jak z {{t:utg|UTG}} przy stole 6-osobowym, bo zostaje za tobą tylu samo graczy.",
         "btnVsCo": "Rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}.",
         "sbVsBtn": "Po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind|duży blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu.",
         "bbVsBtn": "Dopłacasz niewiele do dużej {{t:pot|puli}}, więc bronisz szeroko.",
@@ -741,8 +743,10 @@
         "pushAnte": "Ante powiększa {{t:pot|pulę}}, którą zgarniasz, gdy rywal {{t:fold|spasuje}}, a ryzyko all-inu zostaje to samo.",
         "push3max": "Każdy kolejny gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc {{t:fold|pasy}} wszystkich zdarzają się rzadziej.",
         "callBb": "Sprawdzający wygrywa tylko na showdownie i to przeciw {{t:range|zakresowi}}, który już jest silniejszy niż losowy; {{t:shove|pushujący}} wygrywa też wtedy, gdy rywal {{t:fold|spasuje}}.",
-        "call3max": "Gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje."
-      }
+        "call3max": "Gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje.",
+        "call3maxTwo": "Przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje."
+      },
+      "acceptableFreq": "Solver gra tak w {{pct}} przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą."
     },
     "whoWins": {
       "prompt": "Kto wygrywa to rozdanie?",
@@ -788,7 +792,7 @@
       "table": "{{players}} graczy, płatne {{paid}} miejsca ({{payouts}} {{t:prize-pool|puli nagród}}). Stacki: {{stacks}}.",
       "callPrompt": "{{t:bubble|Bubble}}: {{table}} {{villain}} wchodzi all-in, w grze między wami jest {{atRisk}} {{t:chips|żetonów}}. Twoja ręka ma {{equity}} equity wobec jego {{t:range|zakresu}}. Blindy pomijamy. Co robisz?",
       "callRight": "Tak. Twoja ręka wygrywa częściej, niż wymaga cena na {{t:bubble|bubble}}: masz {{equity}}, a według {{t:icm}} potrzebujesz {{required}}.",
-      "callWrong": "Nie. Na {{t:bubble|bubble}} przegrana zabiera ci więcej z {{t:prize-pool|puli nagród}}, niż wygrana dodaje, więc {{t:call|sprawdzasz}} tylko ręką, która wygrywa wyraźnie częściej. Według {{t:icm}} potrzebujesz {{required}}, a masz {{equity}}.",
+      "callWrong": "Nie. Twoja ręka wygrywa za rzadko nawet w grze o {{t:chips}}, a na {{t:bubble|bubble}} próg jest jeszcze wyższy: według {{t:icm}} potrzebujesz {{required}}, a masz {{equity}}.",
       "callWrongChips": "Nie. Na {{t:bubble|bubble}} przegrana zabiera ci więcej z {{t:prize-pool|puli nagród}}, niż wygrana dodaje, więc {{t:call|sprawdzasz}} tylko ręką, która wygrywa wyraźnie częściej. Według {{t:icm}} potrzebujesz {{required}}, a masz {{equity}}; w grze o {{t:chips}} to {{t:call}} by się opłaciło.",
       "foldRight": "Tak. Przegrana kosztuje cię tu więcej, niż wygrana dodaje, a twoja ręka wygrywa za rzadko: według {{t:icm}} potrzebujesz {{required}}, a masz tylko {{equity}}.",
       "foldRightChips": "Tak. Przegrana kosztuje cię tu więcej, niż wygrana dodaje, a twoja ręka wygrywa za rzadko: według {{t:icm}} potrzebujesz {{required}}, a masz tylko {{equity}}. W grze o {{t:chips}} byłoby to {{t:call}}: to właśnie {{t:risk-premium}}.",
@@ -829,7 +833,7 @@
       "sample_other": "{{count}} ręki",
       "prompt": "Rywal przy stole 6-max, statystyki z {{t:hud|HUD-a}}: {{t:vpip}} {{vpip}}%, {{t:pfr}} {{pfr}}%, próba {{sample}}. Jaki to typ gracza?",
       "whyRight": "Tak. {{fact}} {{adjust}}",
-      "whyWrong": "Nie. {{fact}} To raczej {{actual}}: {{actualFact}}",
+      "whyWrong": "Nie. {{fact}} Właściwa odpowiedź: {{actual}}. {{actualFact}}",
       "readFew": "mniej niż {{minHands}}, więc statystyki są przypadkowe",
       "readEnough": "co najmniej {{readHands}}, więc {{t:vpip}} i {{t:pfr}} da się czytać",
       "explanation": "Najpierw próba: {{sample}} to {{read}}. {{fact}} {{adjust}}",

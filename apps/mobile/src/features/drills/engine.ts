@@ -281,7 +281,7 @@ function whoWins(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number
   const opt = (key: 'hero' | 'villain' | 'split', text: string): DrillOption => ({
     text,
     correct: s.winner === key,
-    why: zdania(s.winner === key ? t.whoWins.yes : t.whoWins.no, reason),
+    why: zdania(s.winner === key ? t.whoWins.yes : t.whoWins.no, t.whoWins.facts(s.heroResult, s.villainResult), reason),
   });
   return {
     ...base(d, lessonId, i),

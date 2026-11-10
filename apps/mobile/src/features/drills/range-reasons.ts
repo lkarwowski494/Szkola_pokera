@@ -35,6 +35,29 @@ export const RANGE_REASON: Record<string, string> = {
   'call.bb-15': 'callBb',
   'call.bb-10-ante': 'callBb',
   'call.sb-vs-btn-3max': 'call3max',
-  'call.bb-vs-btn-3max': 'call3max',
-  'call.bb-vs-two-3max': 'call3max',
+  'call.bb-vs-btn-3max': 'callBb',
+  'call.bb-vs-two-3max': 'call3maxTwo',
+};
+
+/**
+ * Kierunek powodu: „tight” tłumaczy wąski zakres (pokazujemy go przy ręce poza zakresem), „wide” szeroki (przy ręce
+ * w zakresie). Przy ręce na granicy pokazujemy każdy. Bez tego zdanie „bo” przeczyłoby decyzji (recenzja BG, nr 10).
+ */
+export const REASON_DIRECTION: Record<string, 'tight' | 'wide'> = {
+  rfiUtg: 'tight',
+  rfiMid: 'wide',
+  rfiBtn: 'wide',
+  rfiSb: 'wide',
+  nineEarly: 'tight',
+  nineLj: 'tight',
+  btnVsCo: 'wide',
+  sbVsBtn: 'wide',
+  bbVsBtn: 'wide',
+  bbVsSb: 'wide',
+  pushSb: 'wide',
+  pushAnte: 'wide',
+  push3max: 'tight',
+  callBb: 'tight',
+  call3max: 'tight',
+  call3maxTwo: 'tight',
 };

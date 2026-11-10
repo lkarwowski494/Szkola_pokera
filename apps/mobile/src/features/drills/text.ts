@@ -3,7 +3,7 @@ import { cardsToString, combosCount, HandCategory, RANKS, rankOf, type Card, typ
 import { formatujLiczbe, jestJezykiem, ZRODLO, type Jezyk } from '@szkola/jezyki';
 import i18n from '@/i18n';
 import { MIXED_LOW, MIXED_MIN } from './thresholds';
-import { RANGE_REASON } from './range-reasons';
+import { RANGE_REASON, REASON_DIRECTION } from './range-reasons';
 import { tr } from './terms';
 
 /**
@@ -132,9 +132,15 @@ const sample = (n: number) => r('playerType.sample', { count: n });
 /** Miejsce ręki w zakresie spotu: w zakresie, poza nim, na granicy (ręka mieszana, ADR-04). */
 export type RangeStatus = 'in' | 'out' | 'mixed';
 
-const rangeReason = (spot: string): string | null => (RANGE_REASON[spot] ? r(`range.reason.${RANGE_REASON[spot]}`) : null);
-/** Częstość słowami (dodatek po „bo”): ≥ 95% prawie zawsze, ≥ 75% zwykle, niżej raz tak, raz inaczej. */
-const oftenKey = (f: number) => (f >= 0.95 ? 'almostAlways' : f >= 0.75 ? 'usually' : 'mixed');
+/** Powód z reguły spotu, tylko gdy wspiera decyzję: wąski zakres przy ręce poza nim, szeroki przy ręce w nim. */
+const rangeReason = (spot: string, st: RangeStatus): string | null => {
+  const k = RANGE_REASON[spot];
+  if (!k) return null;
+  const dir = REASON_DIRECTION[k];
+  return st === 'mixed' || (st === 'in' && dir === 'wide') || (st === 'out' && dir === 'tight') ? r(`range.reason.${k}`) : null;
+};
+/** Częstość słowami (dodatek po „bo”): ≥ 99,5% zawsze, ≥ 95% prawie zawsze, ≥ 75% zwykle, ≥ 50% częściej niż co drugi raz, niżej rzadziej. */
+const oftenKey = (f: number) => (f >= 0.995 ? 'always' : f >= 0.95 ? 'almostAlways' : f >= 0.75 ? 'usually' : f >= 0.5 ? 'overHalf' : 'underHalf');
 /** „Raz na N”: N = 1 ÷ ułamek, zaokrąglone do 0,5 (rachunek na danych zadania, przewodnik KO-040). */
 export const razNa = (x: number): string => num(Math.round(2 / x) / 2);
 
@@ -155,13 +161,14 @@ export const t = {
       return L('range.fold');
     },
     right: (f: number, st: RangeStatus, spot: string) =>
-      trJ(zdania(r('range.right', { status: r(`range.status.${st}`) }), rangeReason(spot), r('range.freqRight', { pct: pct(f), often: r(`range.often.${oftenKey(f)}`) }))),
-    acceptable: (f: number, st: RangeStatus, spot: string) => trJ(zdania(r('range.acceptable', { pct: pct(f), status: r(`range.status.${st}`) }), rangeReason(spot))),
+      trJ(zdania(r('range.right', { status: r(`range.status.${st}`) }), rangeReason(spot, st), r('range.freqRight', { pct: pct(f), often: r(`range.often.${oftenKey(f)}`) }))),
+    acceptable: (f: number, st: RangeStatus, spot: string) =>
+      trJ(zdania(r('range.acceptable', { status: r(`range.status.${st}`) }), rangeReason(spot, st), r('range.acceptableFreq', { pct: pct(f) }))),
     wrong: (f: number, st: RangeStatus, spot: string, chosenFold: boolean) =>
       trJ(
         zdania(
           r(chosenFold && st === 'in' ? 'range.wrongTight' : !chosenFold && st === 'out' ? 'range.wrongLoose' : 'range.wrongOther', { status: r(`range.status.${st}`) }),
-          rangeReason(spot),
+          rangeReason(spot, st),
           f >= 0.005 ? r('range.wrongRare', { pct: pct(f) }) : f > 0 ? r('range.wrongVeryRare', { pct: pct(0.005, 1) }) : r('range.wrongNever'),
         ),
       ),
@@ -173,7 +180,7 @@ export const t = {
           ctx.status === 'in'
             ? r('range.playIn', { action: ctx.action.toLowerCase(), status: r('range.status.in') })
             : r(ctx.status === 'out' ? 'range.playOut' : 'range.playMixed', { status: r(`range.status.${ctx.status}`) }),
-          rangeReason(ctx.spot),
+          rangeReason(ctx.spot, ctx.status),
           r('range.freqs', { hand: hc, freqs: lista(freqs.filter((x) => x.f >= 0.005).map((x) => r('range.freq', { action: x.name.toLowerCase(), pct: pct(x.f) }))) }),
           mixed && r('range.mixedNote', { low: pct(MIXED_LOW) }),
           freqs.some((x) => x.f >= MIXED_MIN && x.f < MIXED_LOW) && r('range.acceptableNote', { low: pct(MIXED_LOW), min: pct(MIXED_MIN, 1) }),

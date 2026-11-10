@@ -12,7 +12,7 @@ import { createRng, HAND_CLASSES } from '@szkola/poker-core';
 import pl from '@/i18n/locales/pl.json';
 import type { RangeSpot } from '@/data/content/repo';
 import { instantiate } from '../engine';
-import { RANGE_REASON } from '../range-reasons';
+import { RANGE_REASON, REASON_DIRECTION } from '../range-reasons';
 import { razNa } from '../text';
 import type { ChoiceInstance, DrillInstance } from '../types';
 
@@ -35,6 +35,7 @@ describe('KO-040: wyjaśnienia generatorów decyzji', () => {
     expect(ids.filter((id) => !RANGE_REASON[id])).toEqual([]);
     const reasons = (pl.drill.range as unknown as { reason: Record<string, string> }).reason;
     expect(Object.values(RANGE_REASON).filter((k) => !reasons[k])).toEqual([]);
+    expect(Object.values(RANGE_REASON).filter((k) => !REASON_DIRECTION[k])).toEqual([]);
   });
 
   it('rangeDecision: sytuacja, potem „bo”, częstość solvera dopiero po „bo”; każda opcja ma powód', () => {
@@ -47,7 +48,9 @@ describe('KO-040: wyjaśnienia generatorów decyzji', () => {
       const bo = e.indexOf(', bo ');
       expect(bo).toBeGreaterThan(0);
       expect(firstPct(e)).toBeGreaterThan(bo);
-      expect(e).toContain('pięciu graczy');
+      // powód „wąski zakres” (R-M3-002) tylko przy ręce poza zakresem albo na granicy, nigdy przy ręce w zakresie
+      if (/Najlepsza akcja/.test(e)) expect(e).not.toContain('pięciu graczy');
+      else expect(e).toContain('pięciu graczy');
       for (const o of x.options) {
         expect(o.why).toMatch(/w tej sytuacji ta ręka|na granicy/);
         expect(o.why).not.toMatch(/^Solver/);
