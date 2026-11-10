@@ -1,0 +1,3 @@
+sesja CB, base 70fdf40 -> 049a390
+pnpm run ci: kod 0 (0 błędów, 0 uwag), pnpm install --frozen-lockfile wcześniej
+tests/narzedzia/strona.test.mjs: site/privacy.html i site/support.html = wynik generatorów
