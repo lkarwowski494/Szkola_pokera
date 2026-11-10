@@ -1,5 +1,5 @@
 # Plan audytu M1 — PokerGym (Szkoła Pokera) — 2026-11-10
-Commit: bca751e (albo SHA nowego buildu TestFlight, jeśli koordynator poda inny) · Etap: w budowie, TestFlight testy wewnętrzne, przed pierwszym wysłaniem do App Store (bramka D-304) · Wariant: **głęboki** (rekomendacja; powód niżej) · Subagenci: narzędzie Agent w tej sesji, do 6 naraz
+Commit: 57a83bf (build 1010; zastępuje bca751e, sygnał koordynatora 2026-11-10 13:34 UTC) · Etap: w budowie, TestFlight testy wewnętrzne, przed pierwszym wysłaniem do App Store (bramka D-304) · Wariant: **głęboki** (rekomendacja; powód niżej) · Subagenci: narzędzie Agent w tej sesji, do 6 naraz
 
 Pierwszy audyt M1 tego repo (brak wcześniejszego `audit/M1-*` i `koszty.md`) → punkt kontrolny kosztu po partii 1 obowiązkowy (D-020).
 

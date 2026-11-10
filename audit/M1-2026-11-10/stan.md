@@ -1,6 +1,6 @@
 # Stan M1 (AY) — 2026-11-10
 Etap: STOP 1 zatwierdzony (wariant głęboki). KO-034: role audytują osobne sesje chmurowe uruchamiane przez koordynatora (polecenia/<rola>.md, skladanie.md @ 70e815f); raporty na gałęziach audyt/<rola>, wiadomość do AY.
-Czekam na: nowy SHA buildu (E2E na bca751e padło), start partii 1 przez koordynatora.
+Badany SHA: 57a83bf (build 1010, TestFlight run 42825602874); wspolne/ powtórzone na nim (kod 0 ×5). Koordynator: session_01T66VByNdf5NRAj2XqmVkw1. Czekam na start partii 1 (biblioteka prompts po stronie koordynatora).
 W toku: 3 soczewki E0b (soczewki/nowy-uzytkownik.md, praktyk.md, recenzent.md).
 Następne kroki: (1) po nowym SHA powtórzyć wspolne/ (skrypt: install, typecheck, test, ci, akceptacja → wspolne/0N-*.txt, kod wyjścia) i push; (2) dopisać soczewki do linia-bazowa.md („Soczewki”); (3) odbiór raportów partii 1: git fetch audyt/<rola>, sprawdz-raport.mjs (K/narzedzia/, nie w git — przepisać z promptu roli M1, jeśli brak) → dowody/; koszty.md; punkt kontrolny kosztu do koordynatora; (4) partie 2, 3; (5) E2 scalanie, weryfikacja przeciwna (subagenci w tej sesji), E3 raport audit/M1-audytor-generalny-2026-11-10.md + plan-napraw.json (sprawdz-plan.mjs w narzedzia/), PRZEKAZANIE.
 Koszt sesji AY do 11:55 UTC: ~4,1 USD (get_session), kontekst ~20%.
