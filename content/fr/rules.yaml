@@ -534,7 +534,7 @@
 - id: R-M7-001
   module: m7
   if: "vous avez c-betté le flop en {{t:position|position}}, l'adversaire a {{t:call|suivi}}, et au turn tombe une haute carte (un as ou un roi) sur un {{t:board|board}} plus bas"
-  then: "vous tirez plus souvent un {{t:second-barrel|second barrel}}, y compris en {{t:bluff|bluff}}"
+  then: "vous {{t:bet|misez}} plus souvent un {{t:second-barrel|second barrel}}, y compris en {{t:bluff|bluff}}"
   because: "cette carte touche généralement plus souvent votre {{t:range|range}} d'{{t:open|ouverture}} que la {{t:range|range}} du défenseur, et chaque {{t:pair|paire}} de l'adversaire recule d'un rang"
   level: heuristic
   source: "site de solveur commercial, The Worst Turn Card ; site de formation, When to Fire a Second Barrel ; site de formation, When to Double Barrel the Turn as a Bluff"
@@ -623,7 +623,7 @@
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M7-012
   module: m7
-  if: "vous faites un probe bet au turn"
+  if: "vous {{t:bet|misez}} en probe bet au turn"
   then: "vous misez avec les {{t:pair|paires}} qui veulent être payées et se protéger, et avec de bons {{t:draw|tirages}} ; les mains sans {{t:pair|paire}} et sans outs {{t:check|checkent}}"
   because: "les {{t:pair|paires}} gagnent de l'argent contre les mains plus faibles du Bouton et ne lui donnent pas de carte gratuite, les {{t:draw|tirages}} gagnent de deux façons, et les mains vides n'y gagnent rien"
   level: heuristic
@@ -633,7 +633,7 @@
   module: m7
   if: "vous avez {{t:call|suivi}} un c-bet au flop, et l'adversaire mise une deuxième fois au turn"
   then: "vous défendez plus serré qu'au flop : les {{t:draw|tirages}} ne {{t:call|suivent}} qu'avec un bon prix ou des implied odds, et les mains sans outs ainsi que les {{t:pair|paires}} les plus faibles se {{t:fold|couchent}}"
-  because: "l'adversaire tire le {{t:second-barrel|second barrel}} avec une {{t:range|range}} plus étroite que celle du c-bet et généralement plus gros, et les {{t:draw|tirages}} n'ont plus qu'une carte"
+  because: "l'adversaire {{t:bet|mise}} le {{t:second-barrel|second barrel}} avec une {{t:range|range}} plus étroite que celle du c-bet et généralement plus gros, et les {{t:draw|tirages}} n'ont plus qu'une carte"
   level: heuristic
   source: "site de formation, What the Best Poker Pros Already Know About Playing vs. Double Barrels"
   sources: [{ kind: training }]

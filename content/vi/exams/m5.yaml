@@ -97,4 +97,4 @@ drills:
     options:
       - { text: "Nhỏ", correct: true, why: "Đúng: người chơi nào cũng có thể đã có {{t:flush}}, nên {{t:nuts-advantage}} của bạn nhỏ hơn. Trên flop {{t:monotone|đồng chất}}, bạn cược ít thường xuyên hơn bình thường và với mức nhỏ, để không xây {{t:pot|pot}} lớn trước bài thùng." }
       - { text: "Lớn, vì flop này {{t:wet}}", why: "“{{t:wet|Ướt}}” không có nghĩa là “cược lớn”. Mức cược lớn hơn áp dụng cho các flop {{t:wet|ướt}} không {{t:monotone|đồng chất}}. Trên flop {{t:monotone|đồng chất}}, {{t:pot}} lớn rất nguy hiểm, vì đối thủ có thể đã có sẵn {{t:flush}}." }
-      - { text: "Cả {{t:pot|pot}}, để {{t:draw|bài chờ}} phải trả giá đắt", why: "Trên flop {{t:monotone|đồng chất}}, nguy hiểm nhất không phải {{t:draw|bài chờ}}, mà là các tay thùng đã hoàn thành của đối thủ. Cược bằng cả pot rủi ro nhiều nhất chính trước những tay đó." }
+      - { text: "Cả {{t:pot|pot}}, để {{t:draw|bài chờ}} phải trả giá đắt", why: "Trên flop {{t:monotone|đồng chất}}, nguy hiểm nhất không phải {{t:draw|bài chờ}}, mà là các tay thùng đã hoàn thành của đối thủ. Cược bằng cả {{t:pot|pot}} rủi ro nhiều nhất chính trước những tay đó." }

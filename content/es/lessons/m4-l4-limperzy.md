@@ -30,7 +30,7 @@ drills:
     id: m4.l4.q-oop
     family: m4.iso.size
     rules: [R-M4-012]
-    prompt: "Un jugador hace limp y todos pasan hasta ti, que estás en la {{t:small-blind|ciega pequeña}}. Quieres {{t:raise|subir}}. ¿A cuánto?"
+    prompt: "Un jugador hace limp y todos se retiran hasta ti, que estás en la {{t:small-blind|ciega pequeña}}. Quieres {{t:raise|subir}}. ¿A cuánto?"
     table: { hand: "Kd Ks", position: SB }
     options:
       - { text: "A {{n:pf.iso.one-limper-oop}}", correct: true, why: "{{t:out-of-position|Fuera de posición}} añades además {{n:pf.iso.oop-extra}}: {{n:pf.iso.base}} más {{n:pf.iso.per-limper}} por el limper más {{n:pf.iso.oop-extra}}." }

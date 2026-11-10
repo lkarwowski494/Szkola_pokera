@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Damit schlechtere Hände zahlen oder bessere {{t:fold|folden}}", correct: true, why: "Am River kommen keine Karten mehr, also hat eine Bet nur zwei Ziele: Value (schlechtere Hände zahlen) oder ein {{t:bluff|Bluff}} (bessere Hände {{t:fold|folden}}). Eine Bet, die keins von beidem schafft, kostet nur." }
       - { text: "Um dem Gegner die Chance zu nehmen, noch etwas zu treffen", why: "Das ist ein Grund für eine Bet am Flop und Turn. Am River trifft der Gegner nichts mehr: Seine Hand steht fest." }
-      - { text: "Um herauszufinden, ob meine Hand die beste ist", why: "Eine Bet ist keine Frage. Wenn du eine mittlere Hand bettest, folden schlechtere Hände meist, und bessere zahlen, also „findest du es heraus“ mit deinem eigenen Geld. Kostenlos findest du es heraus, wenn du {{t:check|checkst}}." }
+      - { text: "Um herauszufinden, ob meine Hand die beste ist", why: "Eine Bet ist keine Frage. Wenn du eine mittlere Hand bettest, {{t:fold|folden}} schlechtere Hände meist, und bessere zahlen, also „findest du es heraus“ mit deinem eigenen Geld. Kostenlos findest du es heraus, wenn du {{t:check|checkst}}." }
   - kind: choice
     id: m8.l1.q-threshold-yes
     family: m8.value.threshold
@@ -47,7 +47,7 @@ drills:
     prompt: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind|Big Blind}} hat {{t:call|gecallt}}. Du hast am Flop und Turn gebettet und jedes Mal einen {{t:call|Call}} bekommen. River, der {{t:big-blind|Big Blind}} {{t:check|checkt}}. Was tust du?"
     table: { hand: "Ah Kd", board: "Ks 9c 4d 2h 7s", position: BTN }
     options:
-      - { text: "Ich bette auf {{t:value|Value}}", correct: true, why: "{{t:top-pair|Top Pair}} mit dem besten Kicker. Ein Gegner, der zwei {{t:street|Streets}} gecallt hat, hat viele schwächere Könige (KQ, KJ, KT) und Neunen, und {{t:draw|Draws}} gab es auf diesem {{t:board|Board}} wenige. Schlechtere Hände zahlen deutlich öfter als bessere ({{t:two-pair|Two Pair}}, Sets). Normalerweise verträgt {{t:top-pair|Top Pair}} zwei {{t:value|Value-Streets}} (M9); hier eine dritte, weil der Gegner mit schwächeren Königen zahlt." }
+      - { text: "Ich bette auf {{t:value|Value}}", correct: true, why: "{{t:top-pair|Top Pair}} mit dem besten Kicker. Ein Gegner, der zwei {{t:street|Streets}} {{t:call|gecallt}} hat, hat viele schwächere Könige (KQ, KJ, KT) und Neunen, und {{t:draw|Draws}} gab es auf diesem {{t:board|Board}} wenige. Schlechtere Hände zahlen deutlich öfter als bessere ({{t:two-pair|Two Pair}}, Sets). Normalerweise verträgt {{t:top-pair|Top Pair}} zwei {{t:value|Value-Streets}} (M9); hier eine dritte, weil der Gegner mit schwächeren Königen zahlt." }
       - { text: "Ich {{t:check|checke}}, weil der Gegner ein Set haben könnte", why: "Könnte er, aber selten. Wenn du {{t:check|checkst}}, verlierst du eine Bet von all den schwächeren Königen, mit denen er zahlen würde. Du zählst, wer {{t:call|callt}}, nicht, ob eine bessere Hand existiert." }
       - { text: "Ich {{t:check|checke}}, damit der Gegner blufft", why: "Ein Gegner, der zweimal {{t:call|gecallt}} hat, hat meist {{t:pair|Paare}} und {{t:bluff|blufft}} nach deinem {{t:check|Check}} selten. Sicherer verdienst du, wenn du in seine schwächeren Könige bettest." }
   - kind: choice

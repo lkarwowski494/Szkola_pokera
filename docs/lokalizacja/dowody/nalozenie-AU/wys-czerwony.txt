@@ -1,0 +1,16 @@
+    ✕ ja data.replaceBody: postęp Z TELEFONU zostaje zastąpiony postępem Z PLIKU (kierunek jak pl.json) (5 ms)
+    ✕ es m4-l4:33: „todos se retiran hasta ti” (fold), nie „pasan” (= check)
+    ✕ znacznik przywrócony: content/fr/rules.yaml → vous {{t:bet|misez}} plus souvent un {{t:second-barrel|second barrel}} (4 ms)
+    ✕ znacznik przywrócony: content/fr/rules.yaml → if: "vous {{t:bet|misez}} en probe bet au turn" (4 ms)
+    ✕ znacznik przywrócony: content/fr/rules.yaml → l'adversaire {{t:bet|mise}} le {{t:second-barrel|second barrel}} avec (4 ms)
+    ✕ znacznik przywrócony: content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md → Une main sans {{t:pair|paire}} rate le flop (1 ms)
+    ✕ znacznik przywrócony: content/fr/lessons/m8-l3-blokery.md → La {{t:big-blind|grosse blinde}} checke à la river.
+    ✕ znacznik przywrócony: content/de/rules.yaml → {{t:fold|foldest}} du öfter als {{n:alpha.bet-third}} (4 ms)
+    ✕ znacznik przywrócony: content/de/rules.yaml → {{t:fold|foldet}} dein Gegner eine schlechtere Hand, gewinnst du denselben (4 ms)
+    ✕ znacznik przywrócony: content/de/rules.yaml → {{t:fold|foldet}} dein Gegner selten, spielen (8 ms)
+    ✕ znacznik przywrócony: content/de/lessons/m8-l1-value.md → {{t:fold|folden}} schlechtere Hände meist
+    ✕ znacznik przywrócony: content/de/lessons/m8-l1-value.md → {{t:street|Streets}} {{t:call|gecallt}} hat
+    ✕ znacznik przywrócony: content/vi/rules.yaml → (số {{t:street|vòng cược}} là đơn giản hóa) (4 ms)
+    ✕ znacznik przywrócony: content/vi/rules.yaml → khi họ {{t:bluff|bluff}} thừa, bạn luôn (4 ms)
+    ✕ znacznik przywrócony: content/vi/exams/m5.yaml → Cược bằng cả {{t:pot|pot}} rủi ro
+Tests:       15 failed, 15 total

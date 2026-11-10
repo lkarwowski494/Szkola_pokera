@@ -798,7 +798,7 @@
 - id: R-M9-008
   module: m9
   if: "trước khi {{t:bet|cược}} ở flop, bạn lên kế hoạch cho ván bài"
-  then: "bạn đánh giá tay bài chịu được bao nhiêu {{t:value|vòng cược giá trị}} (số vòng cược là đơn giản hóa): tay rất mạnh (set, {{t:straight|sảnh}}, {{t:two-pair|hai đôi}} cao) ba, {{t:top-pair|đôi cao nhất}} với kicker tốt hoặc {{t:overpair|overpair}} thường hai, vòng thứ ba khi đối thủ trả tiền bằng tay yếu hơn; {{t:pair|đôi}} yếu hơn một hoặc không vòng nào"
+  then: "bạn đánh giá tay bài chịu được bao nhiêu {{t:value|vòng cược giá trị}} (số {{t:street|vòng cược}} là đơn giản hóa): tay rất mạnh (set, {{t:straight|sảnh}}, {{t:two-pair|hai đôi}} cao) ba, {{t:top-pair|đôi cao nhất}} với kicker tốt hoặc {{t:overpair|overpair}} thường hai, vòng thứ ba khi đối thủ trả tiền bằng tay yếu hơn; {{t:pair|đôi}} yếu hơn một hoặc không vòng nào"
   because: "qua mỗi {{t:street|vòng cược}}, tay kém hơn của đối thủ {{t:fold|bỏ bài}}, và trong {{t:pot|pot}} chủ yếu còn lại tay tốt hơn tay của bạn"
   level: heuristic
   source: "tổng hợp: trang đào tạo, When to Check Top Pair (https://upswingpoker.com/when-to-check-top-pair/): “In single raised pots, the stack-to-pot ratio (SPR) is too high to comfortably get 3 streets of value with many top pair hands.”; trang của một solver thương mại, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): “All top pairs and all nut flush draws are now indifferent between calling and folding” (SPR 16); trang của một solver thương mại, Pot Geometry (https://blog.gtowizard.com/pot-geometry/): “Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage.”; số street cho từng tay, kể cả đôi yếu hơn: đơn giản hóa của ứng dụng (D-149)"
@@ -894,7 +894,7 @@
 - id: R-M10-009
   module: m10
   if: "bạn biết rằng trong một line nhất định, đối thủ {{t:bluff|bluff}} thường hơn hoặc ít hơn so với trạng thái cân bằng"
-  then: "trước tiên bạn thay đổi quyết định với những tay mà trong chiến lược nền được trộn giữa {{t:call|theo}} và {{t:fold|bỏ bài}}: khi họ bluff thừa, bạn luôn {{t:call|theo}} với chúng, khi họ bluff thiếu, bạn luôn {{t:fold|bỏ bài}}"
+  then: "trước tiên bạn thay đổi quyết định với những tay mà trong chiến lược nền được trộn giữa {{t:call|theo}} và {{t:fold|bỏ bài}}: khi họ {{t:bluff|bluff}} thừa, bạn luôn {{t:call|theo}} với chúng, khi họ bluff thiếu, bạn luôn {{t:fold|bỏ bài}}"
   because: "ở trạng thái cân bằng, những tay này bàng quan, vì đối thủ có đúng số {{t:bluff|bluff}} cần thiết; chỉ cần dư hoặc thiếu một chút là đẩy chúng về một phía, còn phần còn lại của {{t:range|range}} chỉ thay đổi khi chênh lệch lớn"
   level: gto
   source: "trang của một solver thương mại, Calling Down Over-Bluffed Lines in Lower Limits (https://blog.gtowizard.com/calling-down-the-over-bluffed-lines-in-lower-limits/), phân tích bằng nodelock: “Hands that mix calls and folds in theory do so because Villain’s bet size is strategically balanced, making them indifferent to calling and folding since no option is the best.”; “If they are bluffing just a single combo more than they should, all of our indifferent bluff catchers become profitable calls and vice versa (we always fold when they are under-bluffing even slightly).”; “I only changed Villain’s strategy to bluff ~31% instead of ~27% of the time for our strategy to shift completely to never folding.”"

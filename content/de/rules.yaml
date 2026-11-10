@@ -443,7 +443,7 @@
   module: m6
   if: "dein Gegner setzt auf dem River 1/3 des {{t:pot|Pots}}"
   then: "theoretisch verteidigst du ({{t:call|callst}} oder {{t:raise|raist}}) etwa {{n:mdf.bet-third}} deiner {{t:range|Range}}; so viel beträgt die {{t:mdf|MDF}}"
-  because: "ein {{t:bluff|Bluff}} ohne Chance riskiert 1 Teil, um 3 zu gewinnen; foldest du öfter als {{n:alpha.bet-third}}, verdient dein Gegner, indem er mit beliebigen Karten {{t:bluff|blufft}}"
+  because: "ein {{t:bluff|Bluff}} ohne Chance riskiert 1 Teil, um 3 zu gewinnen; {{t:fold|foldest}} du öfter als {{n:alpha.bet-third}}, verdient dein Gegner, indem er mit beliebigen Karten {{t:bluff|blufft}}"
   level: math
   source: "Berechnung: MDF = Pot/(Pot+Einsatz); Trainingsseite, MDF in Poker: Why Most Players Misuse It (https://pokercoaching.com/blog/mdf-poker: „The framework is a starting point, not a rule“)"
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }, { kind: math }]
@@ -644,7 +644,7 @@
   module: m8
   if: "auf dem River willst du {{t:in-position|in Position}} auf {{t:value|Value}} setzen, und dein Gegner kann nur noch {{t:call|callen}} oder {{t:fold|folden}}"
   then: "du setzt, wenn mehr als {{n:value.threshold}} der Hände, die {{t:call|callen}}, schlechter sind als deine; du zählst nur Hände, die bezahlen, nicht alle Hände deines Gegners"
-  because: "jeder {{t:call|Call}} mit einer schlechteren Hand gewinnt einen Einsatz, und jeder {{t:call|Call}} mit einer besseren verliert einen Einsatz; foldet dein Gegner eine schlechtere Hand, gewinnst du denselben {{t:pot|Pot}}, den du nach einem {{t:check|Check}} gewonnen hättest"
+  because: "jeder {{t:call|Call}} mit einer schlechteren Hand gewinnt einen Einsatz, und jeder {{t:call|Call}} mit einer besseren verliert einen Einsatz; {{t:fold|foldet}} dein Gegner eine schlechtere Hand, gewinnst du denselben {{t:pot|Pot}}, den du nach einem {{t:check|Check}} gewonnen hättest"
   level: math
   source: "Berechnung: Erwartungswert des Setzens gegenüber dem Checken (Lehrplan M8: ein Value Bet gewinnt mehr als die Hälfte der Male, wenn er gecallt wird)"
   sources: [{ kind: math }]
@@ -911,7 +911,7 @@
   module: m10
   if: "dein Gegner {{t:fold|foldet}} selten auf eine 3-Bet (Fold to 3-Bet unter etwa {{n:hud.f3b.low}}), z. B. ein typischer {{t:recreational|Freizeitspieler}}"
   then: "du 3-bettest ihn mit einer {{t:linear|linearen}} {{t:range|Range}}: mehr starke Hände auf {{t:value|Value}}, fast ohne {{t:bluff|Bluffs}}"
-  because: "eine 3-Bet {{t:in-position|in Position}} auf {{n:pf.3bet.ip-total}} verdient ohne jede Hand erst bei mehr als {{n:alpha.vs-3bet-ip-size}} {{t:fold|Folds}}; foldet dein Gegner selten, spielen {{t:bluff|Bluffs}} mit schwachen Händen in einem großen {{t:pot|Pot}}, und starke Hände bekommen mehr {{t:call|Calls}}"
+  because: "eine 3-Bet {{t:in-position|in Position}} auf {{n:pf.3bet.ip-total}} verdient ohne jede Hand erst bei mehr als {{n:alpha.vs-3bet-ip-size}} {{t:fold|Folds}}; {{t:fold|foldet}} dein Gegner selten, spielen {{t:bluff|Bluffs}} mit schwachen Händen in einem großen {{t:pot|Pot}}, und starke Hände bekommen mehr {{t:call|Calls}}"
   level: exploit
   population: "großer Online-Pokerraum, NL25–NL100 6-max (Analyse einer Populations-Handdatenbank, 12 Monate vor dem 5.10.2026, Zahl der Hände nicht angegeben): Fold to 3-Bet bei Freizeitspielern 31% (NL50 30%, NL100 32%), bei Regs 55% (NL50 57%, NL100 55%)"
   source: "Seite mit Analyse einer Populations-Handdatenbank (https://bluffaces.com/calculators/mda/), Fold to 3bet (mda.rec.f3b, mda.reg.f3b), Zahl der Hände nicht angegeben; Trainingsseite, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „if a player has a low Fold to 3-Bet, you will want to adjust your 3-betting range against them and play a more linear range made up of almost solely value hands and very few bluffs.“; Trainingsseite, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „<50% → They call 3-bets wide. Drop bluff 3-bets; value-bet thinner and exploit postflop.“; Alpha-Schwelle aus Modul 4 (alpha.vs-3bet-ip-size)"

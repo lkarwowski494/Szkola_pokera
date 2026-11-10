@@ -52,7 +52,7 @@ drills:
     id: m8.l3.q-missed-flush
     family: m8.blockers.bluff
     rules: [R-M8-008]
-    prompt: "Le {{t:flush-draw|tirage couleur}} à pique n'est pas rentré. La grosse blinde checke à la river. Les deux mains n'ont que dame-huit. Avec laquelle vaut-il mieux bluffer ?"
+    prompt: "Le {{t:flush-draw|tirage couleur}} à pique n'est pas rentré. La {{t:big-blind|grosse blinde}} checke à la river. Les deux mains n'ont que dame-huit. Avec laquelle vaut-il mieux bluffer ?"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
       - { text: "[[Qd 8c]]", correct: true, why: "Sans pique, vous ne bloquez pas les {{t:draw|tirages}} manqués de l'adversaire, et ce sont des mains qui {{t:fold|se coucheront}} sur votre mise. Les autres cartes des deux mains sont identiques." }
