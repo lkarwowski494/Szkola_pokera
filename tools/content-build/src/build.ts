@@ -422,12 +422,8 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
-<<<<<<< HEAD
     errs.push(...checkScenarioNaEkran(template));
-    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds }));
-=======
     if (locale === 'pl' && opts.kontrolaGeneratora !== false && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds(), cbetCases, sizeRules, ...(equity169 ? { equity169 } : {}) }));
->>>>>>> origin/sesja-cj-poprawki
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {
       const gdzie = `${template.id}#${i + 1}`;
