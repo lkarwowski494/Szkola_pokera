@@ -1304,5 +1304,6 @@ Polecenie: `docs/koordynacja/polecenia/AX.md` @ 8aa18d1; start `sesja-ax-pytania
 Polecenie: `docs/koordynacja/polecenia/AZ.md` @ ec11f18; start `sesja-az-pozycja` @ bca751e (zgodny).
 - Zrobione: test czerwony (58 z 75) → zielony; `nazwaPozycji` + `table.position.*` w 12 słownikach; test układu 320 pt (`pozycja-uklad-az.test.ts`, bez zmiany wyglądu); `Stol-08` dostosowany; flowy Maestro nie używają tego tekstu (grep `e2e/`).
 - Dowód: `docs/programista/dowody/az-ci-2026-11-10.log` (`pnpm run ci`, kod 0).
-- Otwarte (rola 06): `utg` w terms-nazwy fr, pt, pt-BR (brak klucza), ja, zh-Hant (null) — dziś sam „UTG”.
+- Stan: KO-028 wykonane w części kodowej; nazwy czekają na rolę 06 (sesja BB). Sam skrót w 15 z 72 komórek: UTG w 11 językach poza pl (en, de, es, it, ko, vi, fr, pt, pt-BR, ja, zh-Hant), HJ i CO w ja, zh-Hant; en „Your position: UTG.”.
+- Po recenzji (bff0095): AZ-01 testy dokładnego tekstu + mutacje czerwone, AZ-05 skrót jako osobne słowo, AZ-02 ten wpis, AZ-07 log CI z SHA. AZ-04 (dwa nawiasy w linii, niespójny wzór nazw) i AZ-06 → rola 04/06.
 - Nie zrobiono: zrzuty 320 pt / AX5 (brak symulatora; oszacowanie w teście).

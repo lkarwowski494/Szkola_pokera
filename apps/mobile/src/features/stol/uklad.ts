@@ -98,7 +98,8 @@ export function nazwaKarty(c: string, t: TFn): string {
  */
 export function nazwaPozycji(p: Position, t: TFn): string {
   const nazwa = t(`table.position.${p.toLowerCase()}`);
-  return nazwa.includes(p) ? nazwa : `${nazwa} (${p})`;
+  const jakoSlowo = new RegExp(`(?<![\\p{L}\\p{N}])${p}(?![\\p{L}\\p{N}])`, 'u'); // skrót jako osobne słowo, nie litery wewnątrz nazwy (AZ-05)
+  return jakoSlowo.test(nazwa) ? nazwa : `${nazwa} (${p})`;
 }
 const karta = (c: string) => `${c[0] === 'T' ? '10' : (c[0] ?? '')}${SYMBOL[c[1] ?? ''] ?? ''}`;
 
