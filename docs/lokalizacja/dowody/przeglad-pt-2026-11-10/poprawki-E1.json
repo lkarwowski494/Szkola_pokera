@@ -1,0 +1,299 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m0.yaml",
+    "stary": "prompt: \"Ambos têm um {{t:flush|flush}} de copas com um ás na {{t:board|mesa}}. Quem ganha?\"",
+    "nowy": "prompt: \"Ambos têm uma {{t:flush|cor}} de copas com um ás na {{t:board|mesa}}. Quem ganha?\"",
+    "waga": "ŚREDNIE",
+    "powod": "m0.yaml:67. [flush] Termin: flush w pt = \"cor\" (korpus pt {{t:flush|cor}} 78 : flush 9; m2, m3, flush-draw \"projeto de cor\"); rodzaj żeński.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m0.yaml",
+    "stary": "- { text: \"A sua mão\", correct: true, why: \"Os {{t:flush|flushes}} comparam-se a partir da carta mais alta. O ás é comum e a segunda carta é o seu rei contra a dama do adversário.\" }",
+    "nowy": "- { text: \"A sua mão\", correct: true, why: \"As {{t:flush|cores}} comparam-se a partir da carta mais alta. O ás é comum e a segunda carta é o seu rei contra a dama do adversário.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m0.yaml:70. [flush] Termin: flush w pt = \"cor\" (korpus pt {{t:flush|cor}} 78 : flush 9; m2, m3, flush-draw \"projeto de cor\"); rodzaj żeński.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m0.yaml",
+    "stary": "- { text: \"A sua mão, porque tem um {{t:pair|par}} de damas\", why: \"Ases com damas é mais fraco do que ases com reis, que está na {{t:board|mesa}}. Por isso joga com a {{t:board|mesa}}, tal como o adversário.\" }",
+    "nowy": "- { text: \"A sua mão, porque tem um {{t:pair|par}} de damas\", why: \"Ases com damas são mais fracos do que ases com reis, que estão na {{t:board|mesa}}. Por isso joga com a {{t:board|mesa}}, tal como o adversário.\" }",
+    "waga": "NISKIE",
+    "powod": "m0.yaml:81. Niezgodność liczby/orzeczenia („Ases com damas é mais fraco … que está”).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m2.yaml",
+    "stary": "- { text: \"Cerca de {{n:odds.oesd.flop-turn}}, só no turn\", correct: true, why: \"Um {{t:call|call}} compra uma carta. No turn, o adversário pode {{t:bet|apostar}} de novo, por isso conta uma carta: a aproximação pela regra é {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, e o valor exato é {{n:outs.oesd}} em {{n:cards.unseen.flop}}, ou seja, {{n:odds.oesd.flop-turn}}.\" }",
+    "nowy": "- { text: \"Cerca de {{n:odds.oesd.flop-turn}}, só no turn\", correct: true, why: \"Um {{t:call|pagamento}} compra uma carta. No turn, o adversário pode {{t:bet|apostar}} de novo, por isso conta uma carta: a aproximação pela regra é {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, e o valor exato é {{n:outs.oesd}} em {{n:cards.unseen.flop}}, ou seja, {{n:odds.oesd.flop-turn}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m2.yaml:48. [call] Rzeczownik call = \"pagamento\" (korpus pt 100+27 : \"call\" 17; w tych plikach call 7 tylko w m2).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m2.yaml",
+    "stary": "- { text: \"{{n:exam.m2.half.eq}}\", correct: true, why: \"Paga {{n:exam.m2.half.bet}}, e o {{t:pot|pote}}, depois do seu {{t:call|call}}, tem {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. Esta é uma {{t:bet|aposta}} de meio {{t:pot|pote}}, por isso o resultado é o mesmo com qualquer tamanho de {{t:pot|pote}}.\" }",
+    "nowy": "- { text: \"{{n:exam.m2.half.eq}}\", correct: true, why: \"Paga {{n:exam.m2.half.bet}}, e o {{t:pot|pote}}, depois do seu {{t:call|pagamento}}, tem {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. Esta é uma {{t:bet|aposta}} de meio {{t:pot|pote}}, por isso o resultado é o mesmo com qualquer tamanho de {{t:pot|pote}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m2.yaml:63. [call] Rzeczownik call = \"pagamento\" (korpus pt 100+27 : \"call\" 17; w tych plikach call 7 tylko w m2).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m2.yaml",
+    "stary": "- { text: \"{{n:exam.m2.half.wrong}}\", why: \"Isso é {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, sem o seu {{t:call|call}}. Divida o que paga pelo {{t:pot|pote}} inteiro depois do {{t:call|call}}: {{n:exam.m2.half.total}}.\" }",
+    "nowy": "- { text: \"{{n:exam.m2.half.wrong}}\", why: \"Isso é {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, sem o seu {{t:call|pagamento}}. Divida o que paga pelo {{t:pot|pote}} inteiro depois do {{t:call|pagamento}}: {{n:exam.m2.half.total}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m2.yaml:64. [call] Rzeczownik call = \"pagamento\" (korpus pt 100+27 : \"call\" 17; w tych plikach call 7 tylko w m2).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m2.yaml",
+    "stary": "- { text: \"{{n:exam.m2.half.wrong-pot}}\", why: \"Isso é {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}: a {{t:bet|aposta}} dividida pelo {{t:pot|pote}} antes da {{t:bet|aposta}}. No denominador tem de estar o {{t:pot|pote}} inteiro depois do seu {{t:call|call}}.\" }",
+    "nowy": "- { text: \"{{n:exam.m2.half.wrong-pot}}\", why: \"Isso é {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}: a {{t:bet|aposta}} dividida pelo {{t:pot|pote}} antes da {{t:bet|aposta}}. No denominador tem de estar o {{t:pot|pote}} inteiro depois do seu {{t:call|pagamento}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m2.yaml:65. [call] Rzeczownik call = \"pagamento\" (korpus pt 100+27 : \"call\" 17; w tych plikach call 7 tylko w m2).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m2.yaml",
+    "stary": "explanation: \"Uma {{t:bet|aposta}} do tamanho do {{t:pot|pote}}. Paga {{n:exam.m2.pot.bet}} para um {{t:pot|pote}} que, depois do seu {{t:call|call}}, tem {{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}}. {{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}, ou seja, um terço.\"",
+    "nowy": "explanation: \"Uma {{t:bet|aposta}} do tamanho do {{t:pot|pote}}. Paga {{n:exam.m2.pot.bet}} para um {{t:pot|pote}} que, depois do seu {{t:call|pagamento}}, tem {{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}}. {{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}, ou seja, um terço.\"",
+    "waga": "ŚREDNIE",
+    "powod": "m2.yaml:72. [call] Rzeczownik call = \"pagamento\" (korpus pt 100+27 : \"call\" 17; w tych plikach call 7 tylko w m2).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m2.yaml",
+    "stary": "- { text: \"{{t:fold|Desisto}}\", correct: true, why: \"Precisa de {{n:eq.bet-pot}}. Um {{t:call|call}} compra apenas o turn, e nele acerta com uma probabilidade de cerca de {{n:odds.flush.flop-turn}}. É claramente insuficiente.\" }",
+    "nowy": "- { text: \"{{t:fold|Desisto}}\", correct: true, why: \"Precisa de {{n:eq.bet-pot}}. Um {{t:call|pagamento}} compra apenas o turn, e nele acerta com uma probabilidade de cerca de {{n:odds.flush.flop-turn}}. É claramente insuficiente.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m2.yaml:80. [call] Rzeczownik call = \"pagamento\" (korpus pt 100+27 : \"call\" 17; w tych plikach call 7 tylko w m2).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m3.yaml",
+    "stary": "- { text: \"{{t:raise|Aumento}}\", correct: true, why: \"AT de naipes diferentes está dentro do {{t:range|leque}} de {{t:open|abertura}} a partir de {{t:utg|UTG}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver da aplicação joga-a aqui sempre.\" }",
+    "nowy": "- { text: \"{{t:raise|Aumento}}\", correct: true, why: \"AT de naipes diferentes está dentro do {{t:range|range}} de {{t:open|abertura}} a partir de {{t:utg|UTG}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver da aplicação joga-a aqui sempre.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m3.yaml:21. [range] Range = \"range\" (korpus pt 116+98 : \"leque\" 6, wszystkie w m3 egzaminu); rodzaj męski.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m3.yaml",
+    "stary": "- { text: \"{{t:fold|Desisto}}\", why: \"Demasiado apertado. De {{t:utg|UTG}} joga de forma estreita, mas AT ainda está no {{t:range|leque}}.\" }",
+    "nowy": "- { text: \"{{t:fold|Desisto}}\", why: \"Demasiado apertado. De {{t:utg|UTG}} joga de forma estreita, mas AT ainda está no {{t:range|range}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m3.yaml:22. [range] Range = \"range\" (korpus pt 116+98 : \"leque\" 6, wszystkie w m3 egzaminu); rodzaj męski.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m3.yaml",
+    "stary": "- { text: \"{{t:raise|Aumento}}\", why: \"O ás é tentador, mas do {{t:hijack|HJ}} {{t:open|abre}} de forma mais estreita do que do {{t:cutoff|CO}} e do Button. A9o só entra no {{t:range|leque}} do {{t:cutoff|CO}}.\" }",
+    "nowy": "- { text: \"{{t:raise|Aumento}}\", why: \"O ás é tentador, mas do {{t:hijack|HJ}} {{t:open|abre}} de forma mais estreita do que do {{t:cutoff|CO}} e do Button. A9o só entra no {{t:range|range}} do {{t:cutoff|CO}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m3.yaml:32. [range] Range = \"range\" (korpus pt 116+98 : \"leque\" 6, wszystkie w m3 egzaminu); rodzaj męski.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m3.yaml",
+    "stary": "- { text: \"{{t:fold|Desisto}}\", why: \"É assim que se joga esta mão do {{t:hijack|HJ}}. Do {{t:cutoff|CO}} há menos um jogador atrás de si e o {{t:range|leque}} é mais largo.\" }",
+    "nowy": "- { text: \"{{t:fold|Desisto}}\", why: \"É assim que se joga esta mão do {{t:hijack|HJ}}. Do {{t:cutoff|CO}} há menos um jogador atrás de si e o {{t:range|range}} é mais largo.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m3.yaml:41. [range] Range = \"range\" (korpus pt 116+98 : \"leque\" 6, wszystkie w m3 egzaminu); rodzaj męski.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m3.yaml",
+    "stary": "- { text: \"{{t:fold|Desisto}}, porque o {{t:utg|UTG}} tem um {{t:range|leque}} forte\", why: \"O {{t:range|leque}} do {{t:utg|UTG}} é estreito, mas KK continua a ser claramente favorito contra ele.\" }",
+    "nowy": "- { text: \"{{t:fold|Desisto}}, porque o {{t:utg|UTG}} tem um {{t:range|range}} forte\", why: \"O {{t:range|range}} do {{t:utg|UTG}} é estreito, mas KK continua a ser claramente favorito contra ele.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m3.yaml:89. [range] Range = \"range\" (korpus pt 116+98 : \"leque\" 6, wszystkie w m3 egzaminu); rodzaj męski.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m3.yaml",
+    "stary": "- { text: \"{{t:raise|Aumento}}\", correct: true, why: \"No Button {{t:open|abre}} cerca de {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} mãos. Restam apenas os blinds e, depois do flop, tem {{t:position|posição}}, por isso J9 de naipes diferentes entra no leque.\" }",
+    "nowy": "- { text: \"{{t:raise|Aumento}}\", correct: true, why: \"No Button {{t:open|abre}} cerca de {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} mãos. Restam apenas os blinds e, depois do flop, tem {{t:position|posição}}, por isso J9 de naipes diferentes entra no range.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m3.yaml:49. [range] Range = \"range\" (korpus pt 116+98 : \"leque\" 6, wszystkie w m3 egzaminu); rodzaj męski. Tu słowo dodane bez znacznika (pl „się mieści”).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m4.yaml",
+    "stary": "- { text: \"Cerca de metade\", why: \"Precisaria de metade se no {{t:pot|pote}} estivesse apenas a {{t:bet|aposta}} do adversário. As blinds no {{t:pot|pote}} melhoram o preço.\" }",
+    "nowy": "- { text: \"Cerca de metade\", why: \"Precisaria de metade se no {{t:pot|pote}} estivesse apenas a {{t:bet|aposta}} do adversário. Os blinds no {{t:pot|pote}} melhoram o preço.\" }",
+    "waga": "NISKIE",
+    "powod": "m4.yaml:43. Rodzaj: wszędzie „os blinds” (korpus pt 40×), tu „As blinds”.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "prompt: \"{{t:open|Abriu}} do Button e o {{t:big-blind}} {{t:call|pagou}}. Em qual destes flops é o {{t:big-blind}} que tem {{t:two-pair}} ou {{t:straight|sequência}} com mais frequência do que o próprio?\"",
+    "nowy": "prompt: \"{{t:open|Abriu}} do Button e o {{t:big-blind}} {{t:call|pagou}}. Em qual destes flops é o {{t:big-blind}} que tem {{t:two-pair}} ou {{t:straight|sequência}} com mais frequência do que si?\"",
+    "waga": "NISKIE",
+    "powod": "m5.yaml:19. „o próprio” w sąsiedztwie „o big blind” czyta się jak sam BB; pl „niż ty”. Forma „si” zgodna z przewodnikiem głosu.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"{{t:open|Abriu}} do {{t:hijack|HJ}}, o Button {{t:call|pagou}}, os blinds {{t:fold|desistiram}}\", correct: true, why: \"Sim: o Button {{t:call|pagou}} em {{t:position|posição}}, por isso o {{t:range}} dele é forte (com as mãos fracas {{t:fold|desistiu}}, com parte das mais fortes {{t:raise|aumentou}}), e depois do flop fala primeiro em cada {{t:street|ronda}}.\" }",
+    "nowy": "- { text: \"{{t:open|Abriu}} do {{t:hijack|HJ}}, o Button {{t:call|pagou}}, os blinds {{t:fold|desistiram}}\", correct: true, why: \"Sim: o Button {{t:call|pagou}} em {{t:position|posição}}, por isso o {{t:range}} dele é forte (com as mãos fracas {{t:fold|desistiu}}, com parte das mais fortes {{t:raise|aumentou}}), e depois do flop age primeiro em cada {{t:street|ronda}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:59. Kalka pl „mówisz”: w egzaminach pt kolejność akcji = „agir” (m1, m3, m4: „age primeiro”).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"{{t:open|Abriu}} do {{t:cutoff|CO}}, o {{t:big-blind}} {{t:call|pagou}}\", why: \"Também aqui, depois do flop, fala depois do {{t:big-blind|big blind}}, por isso tem {{t:position|posição}}, e a defesa ampla dele inclui muitas mãos fracas.\" }",
+    "nowy": "- { text: \"{{t:open|Abriu}} do {{t:cutoff|CO}}, o {{t:big-blind}} {{t:call|pagou}}\", why: \"Também aqui, depois do flop, age depois do {{t:big-blind|big blind}}, por isso tem {{t:position|posição}}, e a defesa ampla dele inclui muitas mãos fracas.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:61. Kalka pl „mówisz”: w egzaminach pt kolejność akcji = „agir”.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"Com {{t:bluff|bluffs}} sem {{t:pair|par}} e sem {{t:draw|draw}}\", correct: true, why: \"Sim: um {{t:bluff}} tem de passar pelos dois adversários, e duas mãos sem {{t:pair|par}} falham ao mesmo tempo apenas em cerca de {{n:flop.miss.two}} dos casos. Aposta raramente, sobretudo com mãos fortes e {{t:draw|draws}} fortes.\" }",
+    "nowy": "- { text: \"Com {{t:bluff|bluffs}} sem {{t:pair|par}} e sem {{t:draw|projeto}}\", correct: true, why: \"Sim: um {{t:bluff}} tem de passar pelos dois adversários, e duas mãos sem {{t:pair|par}} falham ao mesmo tempo apenas em cerca de {{n:flop.miss.two}} dos casos. Aposta raramente, sobretudo com mãos fortes e {{t:draw|projetos}} fortes.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:78. [draw] Draw = \"projeto\" (korpus pt 84+68 : \"draws\" 27; m6 egzaminu \"projeto\", m5 \"draw\").",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"Com {{t:draw|draws}} fortes\", why: \"Não: os {{t:draw|draws}} fortes estão entre as mãos que, contra vários adversários, ainda apostam por vezes, porque também ganham quando acertam.\" }",
+    "nowy": "- { text: \"Com {{t:draw|projetos}} fortes\", why: \"Não: os {{t:draw|projetos}} fortes estão entre as mãos que, contra vários adversários, ainda apostam por vezes, porque também ganham quando acertam.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:79. [draw] Draw = \"projeto\" (korpus pt 84+68 : \"draws\" 27; m6 egzaminu \"projeto\", m5 \"draw\").",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "prompt: \"{{t:open|Abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}} e {{t:check|passa}}. O flop é {{t:wet}}. Tem um {{t:pair|par}} de setes com ás, sem {{t:draw|draw}}. O que faz?\"",
+    "nowy": "prompt: \"{{t:open|Abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}} e {{t:check|passa}}. O flop é {{t:wet}}. Tem um {{t:pair|par}} de setes com ás, sem {{t:draw|projeto}}. O que faz?\"",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:85. [draw] Draw = \"projeto\" (korpus pt 84+68 : \"draws\" 27; m6 egzaminu \"projeto\", m5 \"draw\").",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"{{t:check|Passo}}\", correct: true, why: \"Sim: num flop {{t:wet|molhado}} aposta com menos frequência, sobretudo com mãos fortes e {{t:draw|draws}} fortes. O {{t:pair}} mais baixo sem {{t:draw|draw}} é, no máximo, uma mão média: a {{t:bet}} será {{t:call|paga}} sobretudo por mãos melhores e por {{t:draw|draws}} que têm muita equity contra ela.\" }",
+    "nowy": "- { text: \"{{t:check|Passo}}\", correct: true, why: \"Sim: num flop {{t:wet|molhado}} aposta com menos frequência, sobretudo com mãos fortes e {{t:draw|projetos}} fortes. O {{t:pair}} mais baixo sem {{t:draw|projeto}} é, no máximo, uma mão média: a {{t:bet}} será {{t:call|paga}} sobretudo por mãos melhores e por {{t:draw|projetos}} que têm muita equity contra ela.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:88. [draw] Draw = \"projeto\" (korpus pt 84+68 : \"draws\" 27; m6 egzaminu \"projeto\", m5 \"draw\").",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"C-bet de {{n:cbet.size.big}} do {{t:pot|pote}}\", why: \"Um tamanho grande num flop {{t:wet|molhado}} é para mãos fortes e {{t:draw|draws}} fortes. Com o {{t:pair|par}} mais baixo, constrói um {{t:pot|pote}} grande contra mãos que muitas vezes o batem ou têm muita equity.\" }",
+    "nowy": "- { text: \"C-bet de {{n:cbet.size.big}} do {{t:pot|pote}}\", why: \"Um tamanho grande num flop {{t:wet|molhado}} é para mãos fortes e {{t:draw|projetos}} fortes. Com o {{t:pair|par}} mais baixo, constrói um {{t:pot|pote}} grande contra mãos que muitas vezes o batem ou têm muita equity.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:89. [draw] Draw = \"projeto\" (korpus pt 84+68 : \"draws\" 27; m6 egzaminu \"projeto\", m5 \"draw\").",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"C-bet de {{n:cbet.size.small}} do {{t:pot|pote}}\", why: \"Num flop {{t:wet|molhado}}, as mãos médias sem {{t:draw|draw}} {{t:check|passam}} com mais frequência. Uma {{t:bet}} pequena dá aos {{t:draw|draws}} uma carta barata, e as mãos mais fracas raramente pagam na mesma.\" }",
+    "nowy": "- { text: \"C-bet de {{n:cbet.size.small}} do {{t:pot|pote}}\", why: \"Num flop {{t:wet|molhado}}, as mãos médias sem {{t:draw|projeto}} {{t:check|passam}} com mais frequência. Uma {{t:bet}} pequena dá aos {{t:draw|projetos}} uma carta barata, e as mãos mais fracas raramente pagam na mesma.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:90. [draw] Draw = \"projeto\" (korpus pt 84+68 : \"draws\" 27; m6 egzaminu \"projeto\", m5 \"draw\").",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"Pequeno\", correct: true, why: \"Sim: qualquer jogador pode já ter {{t:flush}}, por isso a sua {{t:nuts-advantage}} é menor. Num flop {{t:monotone|monocolor}} aposta com menos frequência do que o habitual e com um tamanho pequeno, para não construir um {{t:pot|pote}} grande contra um flush.\" }",
+    "nowy": "- { text: \"Pequeno\", correct: true, why: \"Sim: qualquer jogador pode já ter {{t:flush}}, por isso a sua {{t:nuts-advantage}} é menor. Num flop {{t:monotone|monocromático}} aposta com menos frequência do que o habitual e com um tamanho pequeno, para não construir um {{t:pot|pote}} grande contra uma cor.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:98. [monotone] \"monocromático\" (korpus pt 10 : \"monocolor\" 4+1, tylko m5 egzaminu). [flush] Termin: flush w pt = \"cor\" (korpus pt {{t:flush|cor}} 78 : flush 9; m2, m3, flush-draw \"projeto de cor\"); rodzaj żeński.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"Grande, porque o flop é {{t:wet}}\", why: \"«{{t:wet|Molhado}}» não significa «aposta grande». O tamanho maior aplica-se a flops {{t:wet|molhados}} que não são {{t:monotone|monocolores}}. Num flop {{t:monotone|monocolor}}, um {{t:pot}} grande é perigoso, porque o adversário pode ter um {{t:flush}} já feito.\" }",
+    "nowy": "- { text: \"Grande, porque o flop é {{t:wet}}\", why: \"«{{t:wet|Molhado}}» não significa «aposta grande». O tamanho maior aplica-se a flops {{t:wet|molhados}} que não são {{t:monotone|monocromáticos}}. Num flop {{t:monotone|monocromático}}, um {{t:pot}} grande é perigoso, porque o adversário pode ter um {{t:flush}} já feito.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:99. [monotone] \"monocromático\" (korpus pt 10 : \"monocolor\" 4+1, tylko m5 egzaminu).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m5.yaml",
+    "stary": "- { text: \"O {{t:pot|pote}} inteiro, para que os {{t:draw|draws}} paguem caro\", why: \"Num flop {{t:monotone|monocolor}}, o maior perigo não são os {{t:draw|draws}}, mas sim os flushes já feitos do adversário. Uma aposta do tamanho do {{t:pot|pote}} arrisca mais precisamente contra eles.\" }",
+    "nowy": "- { text: \"O {{t:pot|pote}} inteiro, para que os {{t:draw|projetos}} paguem caro\", why: \"Num flop {{t:monotone|monocromático}}, o maior perigo não são os {{t:draw|projetos}}, mas sim as cores já feitas do adversário. Uma aposta do tamanho do {{t:pot|pote}} arrisca mais precisamente contra eles.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m5.yaml:100. [draw] Draw = \"projeto\" (korpus pt 84+68 : \"draws\" 27; m6 egzaminu \"projeto\", m5 \"draw\"). [monotone] \"monocromático\" (korpus pt 10 : \"monocolor\" 4+1, tylko m5 egzaminu). [flush] Termin: flush w pt = \"cor\" (korpus pt {{t:flush|cor}} 78 : flush 9; m2, m3, flush-draw \"projeto de cor\"); rodzaj żeński.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m6.yaml",
+    "stary": "prompt: \"Micro stakes. Um {{t:recreational|jogador recreativo}} passivo, que raramente faz {{t:bluff}}, {{t:bet|aposta}} 3/4 do {{t:pot|pote}} no river. Tem um {{t:pair|par}} de damas, e na {{t:board|mesa}} há um ás e um rei. O que faz?\"",
+    "nowy": "prompt: \"Microlimites. Um {{t:recreational|jogador recreativo}} passivo, que raramente faz {{t:bluff}}, {{t:bet|aposta}} 3/4 do {{t:pot|pote}} no river. Tem um {{t:pair|par}} de damas, e na {{t:board|mesa}} há um ás e um rei. O que faz?\"",
+    "waga": "ŚREDNIE",
+    "powod": "m6.yaml:34. Mikrostawki: korpus pt „microlimites” 15× (AO90, bez łącznika); tu angielskie „Micro stakes”.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m6.yaml",
+    "stary": "- { text: \"[[Ad Jd]]\", correct: true, why: \"Sim: ambas as mãos são duas cartas altas sem {{t:pair|par}}, mas AJ de ouros tem ainda um {{t:flush-draw|projeto de flush}} (backdoor) para o {{t:flush}} mais alto: com um ouro na {{t:board|mesa}}, ainda precisa de mais dois ouros. Contra um c-bet grande, é de preferência com uma mão destas que {{t:call|paga}}.\" }",
+    "nowy": "- { text: \"[[Ad Jd]]\", correct: true, why: \"Sim: ambas as mãos são duas cartas altas sem {{t:pair|par}}, mas AJ de ouros tem ainda um {{t:flush-draw|projeto de cor}} (backdoor) para a {{t:flush|cor}} mais alta: com um ouro na {{t:board|mesa}}, ainda precisa de mais dois ouros. Contra um c-bet grande, é de preferência com uma mão destas que {{t:call|paga}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m6.yaml:67. [flush] Termin: flush w pt = \"cor\" (korpus pt {{t:flush|cor}} 78 : flush 9; m2, m3, flush-draw \"projeto de cor\"); rodzaj żeński. Goły {{t:flush}} w pt (brak terms-nazwy) wyrenderuje „flush”.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m6.yaml",
+    "stary": "- { text: \"[[Qh Th]]\", correct: true, why: \"Sim: um {{t:flush-draw|projeto de flush}} e um gutshot (um nove) formam um {{t:draw|projeto}} forte. O check-raise ganha quando o Button {{t:fold|desiste}} e, quando ele paga, continua a ter muitos outs.\" }",
+    "nowy": "- { text: \"[[Qh Th]]\", correct: true, why: \"Sim: um {{t:flush-draw|projeto de cor}} e um gutshot (um nove) formam um {{t:draw|projeto}} forte. O check-raise ganha quando o Button {{t:fold|desiste}} e, quando ele paga, continua a ter muitos outs.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m6.yaml:76. [flush] Termin: flush w pt = \"cor\" (korpus pt {{t:flush|cor}} 78 : flush 9; m2, m3, flush-draw \"projeto de cor\"); rodzaj żeński.",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m6.yaml",
+    "stary": "- { text: \"[[Jd 5d]]\", why: \"Um {{t:top-pair|par mais alto}} com kicker fraco é uma mão para {{t:call|pagar}}. Depois de um check-raise, as mãos piores normalmente {{t:fold|desistem}} e as melhores pagam.\" }",
+    "nowy": "- { text: \"[[Jd 5d]]\", why: \"Um {{t:top-pair|par de topo}} com kicker fraco é uma mão para {{t:call|pagar}}. Depois de um check-raise, as mãos piores normalmente {{t:fold|desistem}} e as melhores pagam.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m6.yaml:77. Top pair: korpus pt „par de topo” 74×; „par mais alto” jest dwuznaczne (najwyższa para / overpair).",
+    "grupa": "E1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/exams/m6.yaml",
+    "stary": "- { text: \"[[8d 6c 5h]]\", correct: true, why: \"Sim: num flop baixo e {{t:connected|ligado}}, o {{t:big-blind}} tem mais das combinações mais fortes ({{t:two-pair|dois pares}}, {{t:straight|sequências}}) do que o Button, por isso aqui faz check-raise com mais frequência.\" }",
+    "nowy": "- { text: \"[[8d 6c 5h]]\", correct: true, why: \"Sim: num flop baixo e {{t:connected|conectado}}, o {{t:big-blind}} tem mais das combinações mais fortes ({{t:two-pair|dois pares}}, {{t:straight|sequências}}) do que o Button, por isso aqui faz check-raise com mais frequência.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "m6.yaml:94. Connected: korpus pt „conectado(s)” 14× : „ligado” 1×.",
+    "grupa": "E1"
+  }
+]
