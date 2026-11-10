@@ -1,5 +1,5 @@
 # Stan M1 (AY) — 2026-11-10 14:55 UTC — WSTRZYMANY
-Decyzja właściciela KO-035 (2026-11-10 14:20); koordynator od 15:45 UTC: session_01T66VBzjJPhrAnrqHvxsogb (dziecko VByNdf…): scenariusze całego rozdania wchodzą do 1.0; audyt M1 czeka na ich ukończenie i nowy build (szac. 2–3 dni). Partia 1 na 57a83bf NIE startuje.
+Decyzja właściciela KO-035 (2026-11-10 14:20); koordynator od 16:32 UTC: session_01T66VBy5NLDQBe8VJ11xQ3s (dziecko VBzjJP…, ten z VByNdf…): scenariusze całego rozdania wchodzą do 1.0; audyt M1 czeka na ich ukończenie i nowy build (szac. 2–3 dni). Partia 1 na 57a83bf NIE startuje.
 
 Zrobione (ważne także po wznowieniu): E0 (środowisko, CI main), E0a (bramka — ponowne użycie MON-18), E0b (linia-bazowa.md + 4 soczewki w soczewki/), plan-audytu.md (wariant głęboki zatwierdzony 11:50 UTC: „Wariant głęboki, zgoda na dołączenie repo”), polecenia/<rola>.md ×13 + skladanie.md (KO-034: role w osobnych sesjach chmurowych koordynatora), wspolne/ na 57a83bf (kod 0 ×5; stare bca751e w wspolne/bca751e/).
 
