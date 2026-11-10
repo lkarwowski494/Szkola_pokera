@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:20 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:32 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -13,12 +13,13 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
   - Workflowy App Store Connect w trybie zapisu uruchamia i zatwierdza (`release`) **tylko właściciel**, zawsze z ref gałęzi roboczej (z `main` padają). Koordynator: tylko podglądy/kontrola.
 - Zawsze za zgodą: push i scalenie na `main` (poza listą wyżej), PR, App Store Connect zapis, TestFlight, publikacja, usuwanie gałęzi i danych, force-push, koszty stałe, wiadomości do ludzi, koszt API ponad pułap.
 - Pułapy kosztu: sesja [DO USTALENIA] (w praktyce 4,6–40 USD na sesję, `koszty.md`), doba [DO USTALENIA]; API przekładu wg zgód wyżej. Do ustalenia słowami właściciela.
-- Koordynator aktywny: session_01T66VBvZebfV7GaciZqtW3H (od 2026-11-10 05:12 UTC; poprzednik session_01T66VBzPr7MhGZ3A6RPdfBG).
+- Koordynator aktywny: session_01T66VBxtQGd3faU3Y4mNUuA (od 2026-11-10 05:30 UTC, uruchomiony przez właściciela z `/apps4brew`; poprzednik session_01T66VBvZebfV7GaciZqtW3H, przed nim session_01T66VBzPr7MhGZ3A6RPdfBG).
 - Środowisko: environment_id env_011LiSvPc7hKtQZSkk13hSky, model claude-opus-5-5, wysiłek medium, permission_mode auto, extra_allowed_tools brak; repo sesji: lkarwowski494/Szkola_pokera, lkarwowski494/prompts (biblioteka, prywatna — dodawać przez add_repo read).
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- **WSTRZYMANE** słowami właściciela 2026-11-10 ok. 05:25 UTC: „WSTRZYMAJ PRACE”. Przypomnienia koordynatora usunięte; żadnych sesji, raportu ani linii do odwołania przez właściciela.
+- **WZNOWIONE** słowami właściciela 2026-11-10 ok. 05:30 UTC (odpowiedzi w `/apps4brew`): „Ta sesja przejmuje koordynację M9”, „Tamta sesja wlasnie wstrzymala i zapisala prace. Sprawdz”, „Przejmij i odwołaj wstrzymanie (zalecane)”. Wstrzymanie z 05:25 („WSTRZYMAJ PRACE”) odwołane. Sprawdzone przed przejęciem: stan @ 24d5b26, na liście zaplanowanych zadań konta brak przypomnień Szkoły Pokera, gałąź robocza @ ab820a8.
+- Różnica środowiska (fakt, mandat bez zmian): ta sesja ma environment_id env_0166YQoQYngJLGR5ViagvRAi, model skonfigurowany claude-opus-5-5 (obsługujący wg `get_session`: claude-fable-5-2), wysiłek medium, permission_mode auto; repo sesji: Szkola_pokera, prompts (klon z `assemble.mjs` jest — sprawa `add_repo prompts` z „Czeka na właściciela” nieaktualna dla tej sesji), trening, oczko, piekarz, oczko-warsztat. Które środowisko dla sesji podrzędnych (mandat: env_011LiSvPc7hKtQZSkk13hSky) — [DO USTALENIA] w pytaniu zbiorczym.
 - Kolejka nocy D-359 wykonana: przekład + nałożenie + wydanie w kodzie 11 języków (pl, en, ja, zh-Hant, pt-BR, fr, de, es, ko, it, vi), nazwa PokerGym w kodzie, metadane sklepu. Brak aktywnych sesji podrzędnych.
 - Szczyt kodu z dowodem: **6afa34d** (E2E 42732430729 zielone 01:41; CI 42732569378 na 3d9b776, ten sam kod, zielone). Gałąź robocza @ ab820a8 (tylko docs nad 6afa34d).
 - Następny krok: **07:00 UTC raport nocy D-359** (w `docs/programista/plan-08.md`) + jedno pytanie zbiorcze do właściciela (treść: „Czeka na właściciela”). Do tego czasu bez nowych sesji.
@@ -52,7 +53,7 @@ Litery użyte dotąd: A…Z, AA…AL (następna: **AM**). Polecenia nocy były w
 - Notatki recenzenta ASC (jedyna RÓŻNICA kontroli 42706853122) — czekają na W-04.
 
 ## Przypomnienia
-- trig_01AeLXmJouMbVztuzcB4fAF7 „Koordynator Szkoła Pokera: raport nocy” 07:00 UTC 10.11 (jednorazowo) · trig_019PQfnnVoXW4mwtNVKTwddy „…: linia 14:00” 10.11 · trig_01TZaaQwGGQsTwNNy3JN3WHC „…: linia 05:00” 11.11. Kontrola tylko gdy coś trwa.
+- trig_01PLD3r1hZVyFRQodEVuJfz4 „Koordynator Szkoła Pokera: raport nocy” 07:00 UTC 10.11 (jednorazowo) · trig_01E3ShNoCbuUYRTGFdedbP47 „…: linia 14:00” 10.11 · trig_019RcQqtkXBEGePo3EBxinUa „…: linia 05:00” 11.11. Kontrola tylko gdy coś trwa. (Przypomnienia poprzednika trig_01AeLX…, trig_019PQf…, trig_01TZaa… usunął on sam 05:25.)
 - Poprzednika: trig_01BrH7Zk3tSKmXLeQ1wovYhg „kontrola przekazania” 05:42 (sprząta poprzednik).
 - Push na gałąź stanu przechodzi przez hook pre-push (typecheck, i18n, content) — w nowym kontenerze najpierw `pnpm install --frozen-lockfile` (5,6 s).
 
@@ -72,3 +73,4 @@ Litery użyte dotąd: A…Z, AA…AL (następna: **AM**). Polecenia nocy były w
 | 11-10 05:12 | koordynator | przekazane do session_01T66VBvZebfV7GaciZqtW3H (start bez błędu); przypomnienie trig_01KihuPMEhUFQp1zAXjtFr5g usunięte — raport 07:00 tworzy następca | PRZEJĄŁEM → archiwizacja poprzednika |
 | 11-10 05:20 | koordynator (session_01T66VBvZebfV7GaciZqtW3H) | przejęcie E6 pkt 5: przypomnienia 07:00/14:00/05:00 utworzone; add_repo prompts odrzucony (klasyfikator); trening/oczko/piekarz publiczne, klon na żądanie; od sesji podrzędnych brak wiadomości; aktywnych sesji brak | PRZEJĄŁEM → raport 07:00 |
 | 11-10 05:25 | koordynator | WSTRZYMANE przez właściciela; usunięte trig_01AeLXmJouMbVztuzcB4fAF7, trig_019PQfnnVoXW4mwtNVKTwddy, trig_01TZaaQwGGQsTwNNy3JN3WHC | czekam na słowa właściciela |
+| 11-10 05:32 | koordynator (session_01T66VBxtQGd3faU3Y4mNUuA) | przejęcie E6 pkt 5 na polecenie właściciela (`/apps4brew`), wstrzymanie odwołane jego słowami; przypomnienia 07:00/14:00/05:00 utworzone (ID w „Przypomnienia”); `get_session` i `list_events` poprzednika: „not found” (niesprawdzone: jego status i wiadomości po 05:25); ReadNotifications: 0; aktywnych sesji podrzędnych brak | PRZEJĄŁEM → raport 07:00 |
