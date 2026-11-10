@@ -94,6 +94,19 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (ex !== undefined && przypadki.length > 0 && !mozliwe.has(ex as 'check')) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie wynika z żadnego przypadku reguły ${d.rule} (są: ${[...mozliwe].join(', ')})`);
         if (b.flop === undefined) e.push(`${p} poziom ${l}: punkt cbet-case wymaga filtra flop (przypadek c-betu zależy od tekstury)`);
       }
+    } else if (d.kind === 'icm-call') {
+      const labels = ctx.spots?.get(d.spot);
+      if (!labels) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      else if (!labels.includes('all-in')) e.push(`${p} spot ${d.spot} nie ma akcji all-in (zakres all-inu rywala; są: ${labels.join(', ')})`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu icm-call to call albo fold, jest ${ex}`);
+        const m = b.margins?.[i]?.min ?? b.marginMin;
+        if (!(m > 0)) e.push(`${p} poziom ${l}: punkt icm-call wymaga marginMin > 0 (decyzja bliska progu nie ma jednoznacznej odpowiedzi)`);
+      }
     } else if (d.kind === 'size-spot') {
       const r = ctx.sizeRules?.find((x) => x.id === d.rule);
       if (!r || r.check.kind !== d.check) e.push(`${p} reguła ${d.rule} nie jest regułą ${d.check} (rozmiar liczy się z jej parametrów)`);
@@ -124,6 +137,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     }
     if (d.kind !== 'cbet-case') {
       for (const l of SCENARIO_LEVELS_LIST) if (t.bounds[l]?.holding !== undefined) e.push(`${p} poziom ${l}: holding tylko dla punktu cbet-case`);
+    }
+    if (d.kind !== 'icm-call') {
+      for (const l of SCENARIO_LEVELS_LIST) if (t.bounds[l]?.chipsDiffer !== undefined) e.push(`${p} poziom ${l}: chipsDiffer tylko dla punktu icm-call`);
     }
     for (const a of d.actions) {
       // BR-OCE-001/002, D-557: pierwsze zdanie wymienia rękę, pozycję i stół z wariantu (znaczniki), a nie z przykładu w treści

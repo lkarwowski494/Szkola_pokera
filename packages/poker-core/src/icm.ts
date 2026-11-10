@@ -75,7 +75,7 @@ export interface IcmCallSpot extends IcmSpot {
   correct: 'call' | 'fold';
 }
 
-function randomStacks(rng: Rng, players: number): number[] {
+export function randomStacks(rng: Rng, players: number): number[] {
   const units = ICM_TOTAL_CHIPS / ICM_STACK_STEP;
   const stacks = Array.from({ length: players }, () => 2);
   for (let left = units - 2 * players; left > 0; left--) stacks[Math.floor(rng() * players)]! += 1;
@@ -83,7 +83,7 @@ function randomStacks(rng: Rng, players: number): number[] {
 }
 
 /** Equity gracza `who` po rozdaniu: gracze z zerem odpadają, a ich miejsca są poza nagrodami (bubble). */
-function equityAfter(stacks: number[], payouts: readonly number[], who: number): number {
+export function equityAfter(stacks: number[], payouts: readonly number[], who: number): number {
   if (stacks[who]! <= 0) return 0;
   const alive = stacks.map((s, i) => [s, i] as const).filter(([s]) => s > 0);
   const eq = icmEquities(

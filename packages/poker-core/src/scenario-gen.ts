@@ -8,6 +8,7 @@ import { analyseOutsSpot, type DrawKind } from './drills';
 import { nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict } from './grading';
 import { classifyHolding, type HoldingClass } from './holding';
 import { hitProbability, requiredEquity } from './math';
+import { equityAfter, ICM_STRUCTURES, icmEquities, randomStacks } from './icm';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
 import { classifyFlop, textureMatches, type TextureFilter } from './texture';
@@ -49,7 +50,19 @@ export interface SizeSpotSpec {
   sb?: boolean;
   openBb?: number;
 }
-export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec;
+/** F4: sprawdzenie all-inu przy ICM; zakres rywala ze spotu push (akcja all-in). */
+export interface IcmCallSpec {
+  kind: 'icm-call';
+  street: 'preflop';
+  spot: string;
+}
+export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec;
+/** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
+export interface Equity169Data {
+  classes: readonly string[];
+  equity: readonly (readonly number[])[];
+  pairs: readonly (readonly number[])[];
+}
 /** Reguła rozmiaru z treści (EvalRule): rodzaj sprawdzenia i parametry z rozwiązanymi liczbami. */
 export interface SizeRuleData {
   id: string;
@@ -82,6 +95,8 @@ export interface GeneratorContext {
   cbetCases?: readonly CbetCaseData[];
   /** F3: reguły open-size, three-bet-size i no-limp (parametry rozmiarów). */
   sizeRules?: readonly SizeRuleData[];
+  /** F4: equity klas wobec klas (poker-core nie czyta plików, D-661). */
+  equity169?: Equity169Data;
 }
 export interface LevelBounds {
   draws: readonly DrawKind[];
@@ -94,6 +109,8 @@ export interface LevelBounds {
   drawToBest?: boolean;
   /** F5: margines osobno na punkt decyzji (po jednym na punkt); zastępuje marginMin/marginMax. */
   margins?: readonly { min: number; max: number | null }[];
+  /** F4: poprawna akcja ICM różni się od akcji w grze o żetony (próg 50%, requiredChips). */
+  chipsDiffer?: boolean;
   /** F2: ręka gracza z jednej z tych klas względem flopu (brak = dowolna). */
   holding?: readonly HoldingFilter[];
   /** F1: przedział częstości akcji oczekiwanej na punkt decyzji range-spot (null = inny rodzaj punktu); min ≤ f ≤ max. */
@@ -155,7 +172,25 @@ export interface SizeSpotVariantDecision {
   options: { action: 'raise' | 'raise-small' | 'raise-big' | 'limp'; bb: number | null }[];
   correct: 'raise';
 }
-export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision;
+export interface IcmCallVariantDecision {
+  point: 'icm-call';
+  street: 'preflop';
+  spot: string;
+  /** Wypłaty struktury (ICM_STRUCTURES) i stacki w żetonach; hero i villain to indeksy w `stacks`. */
+  payouts: number[];
+  stacks: number[];
+  heroIndex: number;
+  villainIndex: number;
+  handClass: string;
+  /** Equity ręki gracza wobec zakresu all-inu rywala (z macierzy 169×169). */
+  handEquity: number;
+  /** Potrzebne equity według ICM: (teraz − przegrana) ÷ (wygrana − przegrana) i w grze o żetony (0,5, blindy pominięte). */
+  required: number;
+  requiredChips: number;
+  correct: 'call' | 'fold';
+  margin: number;
+}
+export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -181,6 +216,22 @@ const IDENTITY: readonly number[] = [0, 1, 2, 3];
 /** F3: złe rozmiary do wyboru jako ułamek rozmiaru standardowego (0,8 ≥ min-raise dla otwarć 2,5–3 bb i 3-betów; 1,6 mieści się w stosie 100 bb); odległość od standardu > 0,05 bb (near, grading.ts). D-695. */
 export const SIZE_SMALL_FACTOR = 0.8;
 export const SIZE_BIG_FACTOR = 1.6;
+/** F4: potrzebne equity w grze o żetony (blindy pominięte: ryzykujesz tyle, ile możesz wygrać), jak IcmCallSpot.requiredChips. */
+const ICM_CHIPS_REQUIRED = 0.5;
+/** Equity klasy ręki wobec zakresu all-inu: Σ w·pary·eq ÷ Σ w·pary po 169 klasach rywala (macierz equity169, częstości w kolejności HAND_CLASSES). */
+function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly number[]): number {
+  const i = m.classes.indexOf(handClass);
+  if (i < 0) throw new TemplateError(`equity169: brak klasy ${handClass}`);
+  let w = 0;
+  let sum = 0;
+  m.classes.forEach((vc, j) => {
+    const x = (freqs[HAND_CLASSES.indexOf(vc)] ?? 0) * m.pairs[i]![j]!;
+    w += x;
+    sum += x * m.equity[i]![j]!;
+  });
+  if (w <= 0) throw new TemplateError('zakres all-inu rywala jest pusty');
+  return sum / w;
+}
 const round1 = (x: number) => Math.round(x * 10) / 10;
 /** Nazwy planu z przypadku c-betu (CbetAction z content-schema) → akcje punktu cbet-case. */
 const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'check', small: 'bet-small', big: 'bet-big' };
@@ -215,10 +266,10 @@ export function variantFingerprint(templateId: string, level: ScenarioLevel, her
 function validateTemplate(t: GeneratorTemplate): void {
   const all = t.decisions;
   const ranges = all.filter((x) => x.kind === 'range-spot');
-  const d = all.filter((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case' && x.kind !== 'size-spot');
+  const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0]!.kind !== 'range-spot')) throw new TemplateError(`${t.id}: punkt range-spot jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
   }
@@ -293,12 +344,41 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   if (b.reject.includes('stol-sparowany') && new Set(flop.map(rankOf)).size < 3) return null;
 
   const points: VariantDecision[] = preflop ? [preflop] : [];
+  let icmSuffix = '';
   const draws: DrawCallVariantDecision[] = [];
   const outCards: Card[] = [];
   let pot = 0;
   let previousOuts: readonly Card[] = [];
   for (const [i, spec] of t.decisions.entries()) {
     if (spec.kind === 'range-spot') continue;
+    if (spec.kind === 'icm-call') {
+      if (!ctx?.equity169) throw new TemplateError(`${t.id}: punkt icm-call wymaga macierzy equity (GeneratorContext.equity169)`);
+      const spot = ctx.spots.find((x) => x.id === spec.spot);
+      const shove = spot?.actions.find((a) => a.label === 'all-in');
+      if (!spot || !shove) throw new TemplateError(`${t.id}: spot ${spec.spot} nie ma akcji all-in (zakres all-inu rywala)`);
+      const handClass = classOf(hero[0], hero[1]);
+      const handEquity = equityVsRange(ctx.equity169, handClass, shove.freqs);
+      const structure = pick(rng, ICM_STRUCTURES);
+      const stacks = randomStacks(rng, structure.players);
+      const heroIndex = Math.floor(rng() * structure.players);
+      const villainIndex = (heroIndex + 1 + Math.floor(rng() * (structure.players - 1))) % structure.players;
+      const atRisk = Math.min(stacks[heroIndex]!, stacks[villainIndex]!);
+      const after = (delta: number) => stacks.map((x, j) => (j === heroIndex ? x + delta : j === villainIndex ? x - delta : x));
+      const eqNow = icmEquities(stacks, structure.payouts)[heroIndex]!;
+      const eqWin = equityAfter(after(atRisk), structure.payouts, heroIndex);
+      const eqLose = equityAfter(after(-atRisk), structure.payouts, heroIndex);
+      const required = (eqNow - eqLose) / (eqWin - eqLose);
+      const margin = Math.abs(handEquity - required);
+      const correct = handEquity >= required ? 'call' : 'fold';
+      if (!inMargin(margin, b, i) || correct !== b.expected[i]) return null; // BR-GEN-003: tylko oczekiwana akcja
+      if (b.chipsDiffer && (handEquity >= ICM_CHIPS_REQUIRED ? 'call' : 'fold') === correct) return null;
+      points.push({
+        point: 'icm-call', street: 'preflop', spot: spec.spot, payouts: [...structure.payouts], stacks, heroIndex, villainIndex, handClass,
+        handEquity, required, requiredChips: ICM_CHIPS_REQUIRED, correct, margin,
+      });
+      icmSuffix = `|${stacks.join('-')}|${heroIndex}${villainIndex}`; // stacki są pokazane w decyzji: ta sama ręka przy innych stackach to inne rozdanie
+      continue;
+    }
     if (spec.kind === 'size-spot') {
       if (!ctx?.sizeRules) throw new TemplateError(`${t.id}: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)`);
       const rule = ctx.sizeRules.find((r) => r.id === spec.rule);
@@ -371,9 +451,9 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     previousOuts = spot.draw.all;
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
-  const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case' && x.kind !== 'size-spot');
+  const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'cbet-case') ? flop : [];
-  return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) };
+  return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 
 /**

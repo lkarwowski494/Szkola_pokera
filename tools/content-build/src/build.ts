@@ -31,7 +31,7 @@ import {
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
 import { checkScenarioGenerator, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
-import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
+import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type Equity169Data, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
 import { compileHandRanking, compileRanges } from './ranges';
@@ -399,6 +399,9 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   // przypadki c-betu z reguł cbet-case (te same dla wszystkich reguł jednego zadania c-btn; każdy wskazuje swoją regułę w polu rule)
   // (przy różnych zadaniach: suma bez powtórzeń, w kolejności reguł)
   const cbetCases = [...new Map(evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()];
+  // macierz equity 169×169 dla punktów icm-call (F4); brak pliku = takie punkty nie przejdą sprawdzenia generatora
+  const equityPath = join(contentDir, '..', 'tools', 'equity', 'equity169.json');
+  const equity169 = existsSync(equityPath) ? (JSON.parse(readFileSync(equityPath, 'utf8')) as Equity169Data) : undefined;
   const sizeRules = evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind));
   for (const { file, template } of scenarioFiles) {
     fileCtx = `${tekst}/scenarios/${file}`;
@@ -412,7 +415,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
-    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds, cbetCases, sizeRules }));
+    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds, cbetCases, sizeRules, ...(equity169 ? { equity169 } : {}) }));
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {
       const gdzie = `${template.id}#${i + 1}`;

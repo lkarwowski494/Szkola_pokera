@@ -511,6 +511,8 @@ export const ScenarioLevelBounds = z
     /** Odległość szansy od ceny jako ułamek (0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy). */
     marginMin: z.number().min(0).max(1).default(0),
     marginMax: z.number().min(0).max(1).nullable().default(null),
+    /** F4: poprawna akcja ICM różni się od akcji w grze o żetony (equity ≥ 50% przy fold albo odwrotnie). */
+    chipsDiffer: z.boolean().optional(),
     /** F2: tylko ręka gracza z tej klasy względem flopu (air: bez pary i drawa; pair: para z kartą gracza; draw: draw od HOLDING_LIMITS.drawOutsMin outów). */
     holding: z.array(ScenarioHolding).min(1).optional(),
     /** F1: przedział częstości akcji oczekiwanej w spocie solvera na punkt decyzji (null = punkt nie jest range-spot); min ≤ f ≤ max. */
@@ -596,7 +598,24 @@ export const ScenarioSizeSpotDecision = z
   })
   .strict();
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision]);
+/**
+ * F4: sprawdzenie all-inu przy ICM (M11). Equity ręki gracza z kart wobec zakresu all-inu rywala (spot push z spots.yaml, akcja
+ * `all-in`), struktura wypłat z ICM_STRUCTURES i losowe stacki; poprawna akcja: equity ≥ BF ÷ (BF + 1) (R-M11-009).
+ */
+export const ScenarioIcmCallDecision = z
+  .object({
+    street: z.literal('preflop'),
+    kind: z.literal('icm-call'),
+    /** Spot push z content/ranges/spots.yaml: zakres all-inu rywala (częstości akcji all-in). */
+    spot: id,
+    rule: id.optional(),
+    calc: id.optional(),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z
