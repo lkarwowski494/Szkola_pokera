@@ -1,16 +1,16 @@
-$ pnpm typecheck
+$ pnpm typecheck (worktree @ 57a83bf)
 
-> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> szkola-pokera@ typecheck /tmp/claude-0/-home-user-Szkola-pokera/adb24e62-dcb5-5bf4-9bdf-5b3651344489/scratchpad/wt-57a
 > pnpm -r --if-present typecheck
 
 Scope: 9 of 10 workspace projects
 packages/content-schema typecheck$ tsc -p tsconfig.json
 packages/jezyki typecheck$ tsc -p tsconfig.json
-packages/poker-core typecheck$ tsc -p tsconfig.json
 packages/srs typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck: Done
 packages/jezyki typecheck: Done
 packages/content-schema typecheck: Done
-packages/srs typecheck: Done
 packages/poker-core typecheck: Done
 packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
 tools/preflop-solver typecheck$ tsc -p tsconfig.json

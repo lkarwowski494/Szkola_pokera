@@ -1,0 +1,25 @@
+$ pnpm typecheck
+
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+
+Scope: 9 of 10 workspace projects
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck: Done
+packages/content-schema typecheck: Done
+packages/srs typecheck: Done
+packages/poker-core typecheck: Done
+packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/preflop-solver typecheck$ tsc -p tsconfig.json
+tools/preflop-solver typecheck: Done
+packages/domena typecheck: Done
+packages/postep typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/content-build typecheck$ tsc -p tsconfig.json
+tools/content-build typecheck: Done
+packages/postep typecheck: Done
+apps/mobile typecheck$ tsc --noEmit
+apps/mobile typecheck: Done
+KOD WYJŚCIA: 0
