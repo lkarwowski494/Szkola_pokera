@@ -1,0 +1,6 @@
+# vitest run --root scratchpad io.test.ts (skrypt: bs-866744e-skrypt-io.ts.txt)
+sc-02 latwy: warianty 10000; EV sprawdzenia ≥ 0 przy implied odds = cały stos: realnie 0, ostrożnie 0; najmniejsza strata EV (realnie) 2.22 bb
+sc-02 sredni: warianty 10000; EV sprawdzenia ≥ 0 przy implied odds = cały stos: realnie 0, ostrożnie 0; najmniejsza strata EV (realnie) 0.39 bb
+sc-19 latwy: warianty 10000; EV sprawdzenia ≥ 0 przy implied odds = cały stos: realnie 0, ostrożnie 0; najmniejsza strata EV (realnie) 4.63 bb
+sc-19 sredni: warianty 10000; EV sprawdzenia ≥ 0 przy implied odds = cały stos: realnie 0, ostrożnie 0; najmniejsza strata EV (realnie) 1.60 bb
+exit 0

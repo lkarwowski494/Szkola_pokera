@@ -1,0 +1,18 @@
+# vitest run --root scratchpad set.test.ts (skrypt: skrypt-set.ts.txt); karty jako liczby poker-core (ranga = floor(k/4), 0 = dwójka)
+sc-02 latwy: pas na turnie 10000, gracz poprawia stół (classifyHolding.improvesBoard) 2403; set 63 (rozszerzone outy > cena: 63); dwie pary/trips 219 (rozszerzone outy > cena: 0)
+seed 233: 27,23 | 34,28,25,26 set, outy rozszerzone 18/46=39.1% vs cena 28.3%
+seed 709: 42,39 | 34,43,30,40 set, outy rozszerzone 18/46=39.1% vs cena 28.3%
+seed 865: 25,28 | 34,37,29,30 set, outy rozszerzone 18/46=39.1% vs cena 28.6%
+sc-02 sredni: pas na turnie 10000, gracz poprawia stół (classifyHolding.improvesBoard) 2403; set 63 (rozszerzone outy > cena: 63); dwie pary/trips 219 (rozszerzone outy > cena: 219)
+seed 233: 27,23 | 34,28,25,26 set, outy rozszerzone 18/46=39.1% vs cena 25.0%
+seed 709: 42,39 | 34,43,30,40 set, outy rozszerzone 18/46=39.1% vs cena 25.0%
+seed 865: 25,28 | 34,37,29,30 set, outy rozszerzone 18/46=39.1% vs cena 25.0%
+sc-19 latwy: pas na turnie 10000, gracz poprawia stół (classifyHolding.improvesBoard) 4353; set 205 (rozszerzone outy > cena: 205); dwie pary/trips 740 (rozszerzone outy > cena: 0)
+seed 38: 23,5 | 49,1,21,22 set, outy rozszerzone 19/46=41.3% vs cena 30.3%
+seed 78: 50,49 | 25,13,41,51 set, outy rozszerzone 19/46=41.3% vs cena 30.3%
+seed 269: 16,28 | 0,20,18,17 set, outy rozszerzone 19/46=41.3% vs cena 30.0%
+sc-19 sredni: pas na turnie 10000, gracz poprawia stół (classifyHolding.improvesBoard) 4367; set 188 (rozszerzone outy > cena: 188); dwie pary/trips 797 (rozszerzone outy > cena: 0)
+seed 9: 17,0 | 12,16,48,18 set, outy rozszerzone 19/46=41.3% vs cena 28.3%
+seed 42: 47,41 | 49,45,5,46 set, outy rozszerzone 19/46=41.3% vs cena 28.8%
+seed 78: 50,49 | 25,13,41,51 set, outy rozszerzone 19/46=41.3% vs cena 28.6%
+exit 0

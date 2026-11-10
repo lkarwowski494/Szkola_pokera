@@ -1,0 +1,28 @@
+// R-M7-010: draw do niskiego koloru (tu: jedna karta gracza w kolorze, bez asa) przy ocenie „call” i marginesie < 1 out.
+import { readFileSync } from 'node:fs';
+import { parse } from '/home/user/Szkola_pokera/node_modules/yaml/dist/index.js';
+import { it } from 'vitest';
+import { generateVariant, rankOf, suitOf } from '/home/user/Szkola_pokera/packages/poker-core/src/index';
+it('rio', () => {
+  const out: string[] = [];
+  for (const id of ['sc-01', 'sc-19']) {
+    const t = parse(readFileSync(`/home/user/Szkola_pokera/content/pl/scenarios/${id}.yaml`, 'utf8'));
+    for (const level of t.levels) {
+      let n = 0, niski = 0, ponizejOutu = 0, oba = 0;
+      for (let seed = 1; seed <= 10000; seed++) {
+        const v: any = generateVariant({ id: t.id, levels: t.bounds, decisions: t.decisions } as any, level, seed);
+        v.decisions.forEach((d: any, i: number) => {
+          if (t.bounds[level].expected[i] !== 'call') return; n++;
+          const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
+          const cnt = [0, 0, 0, 0]; for (const c of [...v.hero, ...stol]) cnt[suitOf(c)]++;
+          const s = cnt.findIndex((x) => x === 4); const hs = v.hero.filter((c: any) => suitOf(c) === s);
+          const low = hs.length === 1 && rankOf(hs[0]) !== 12; if (low) niski++;
+          const unseen = 52 - 2 - stol.length; const m = d.hit - d.required; const jeden = 1 / unseen;
+          if (m < jeden) ponizejOutu++; if (low && m < jeden) oba++;
+        });
+      }
+      out.push(`${id} ${level}: punkty call ${n}; jedna karta gracza w kolorze bez asa ${niski}; margines < 1 out (1/karty nieznane) ${ponizejOutu}; oba ${oba}`);
+    }
+  }
+  console.log(out.join('\n'));
+}, 600000);

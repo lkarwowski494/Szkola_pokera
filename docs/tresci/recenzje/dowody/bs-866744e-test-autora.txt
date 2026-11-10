@@ -1,0 +1,4 @@
+# pnpm exec vitest run test/szablony-bs.test.ts (tools/content-build) @ 866744e
+ Test Files  1 passed (1)
+      Tests  20 passed (20)
+exit 0

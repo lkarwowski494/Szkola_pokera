@@ -1,0 +1,7 @@
+# vitest run --root scratchpad rio.test.ts (skrypt: skrypt-rio.ts.txt)
+sc-01 latwy: punkty call 20000; jedna karta gracza w kolorze bez asa 8218; margines < 1 out (1/karty nieznane) 0; oba 0
+sc-01 sredni: punkty call 20000; jedna karta gracza w kolorze bez asa 8218; margines < 1 out (1/karty nieznane) 1214; oba 481
+sc-01 trudny: punkty call 20000; jedna karta gracza w kolorze bez asa 8218; margines < 1 out (1/karty nieznane) 20000; oba 8218
+sc-19 latwy: punkty call 10000; jedna karta gracza w kolorze bez asa 4201; margines < 1 out (1/karty nieznane) 0; oba 0
+sc-19 sredni: punkty call 10000; jedna karta gracza w kolorze bez asa 4109; margines < 1 out (1/karty nieznane) 0; oba 0
+exit 0

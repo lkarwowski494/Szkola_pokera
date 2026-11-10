@@ -1,0 +1,60 @@
+// Niezależny rachunek BV: outy przez przegląd talii (własna ocena koloru i strita), cena = zakład ÷ (pula + 2 × zakład),
+// stos za pulą realistycznie (pula = 2X + 0,5 martwego SB) i ostrożnie (jak test BS: −1,5), gotowa ręka gracza (para+).
+import { readFileSync } from 'node:fs';
+import { parse } from '/home/user/Szkola_pokera/node_modules/yaml/dist/index.js';
+import { it } from 'vitest';
+import { generateVariant } from '/home/user/Szkola_pokera/packages/poker-core/src/index';
+
+const R = '23456789TJQKA', S = 'cdhs';
+type C = { r: number; s: number };
+const dek: C[] = []; for (let r = 0; r < 13; r++) for (let s = 0; s < 4; s++) dek.push({ r, s });
+const conv = (c: any): C => { const t = String(typeof c === 'number' ? c : c); return t as any; };
+function straight(rs: Set<number>) { const h = (r: number) => rs.has(r < 0 ? 12 : r); for (let t = 12; t >= 3; t--) { let ok = true; for (let k = 0; k < 5; k++) if (!h(t - k)) { ok = false; break; } if (ok) return true; } return false; }
+function made(hero: C[], board: C[]) { // flush/strit z udziałem karty gracza
+  const all = [...hero, ...board];
+  for (let s = 0; s < 4; s++) if (all.filter((c) => c.s === s).length >= 5 && hero.some((c) => c.s === s)) return true;
+  return straight(new Set(all.map((c) => c.r))) && !straight(new Set(board.map((c) => c.r)));
+}
+function outs(hero: C[], board: C[]) { const zn = [...hero, ...board]; return dek.filter((c) => !zn.some((z) => z.r === c.r && z.s === c.s)).filter((c) => made(hero, [...board, c])).length; }
+function para(hero: C[], board: C[]) { // gotowa ręka z kartą gracza: para kieszonkowa albo ranga gracza na stole
+  if (hero[0]!.r === hero[1]!.r) return hero[0]!.r > Math.max(...board.map((c) => c.r)) ? 'overpara' : board.some((c) => c.r === hero[0]!.r) ? 'set' : 'para kieszonkowa';
+  const n = hero.filter((h) => board.some((b) => b.r === h.r)).length;
+  if (n === 2) return 'dwie pary';
+  if (n === 1) { const h = hero.find((h) => board.some((b) => b.r === h.r))!; return h.r === Math.max(...board.map((c) => c.r)) ? 'top para' : 'para'; }
+  return null;
+}
+const pokaz = (cs: C[]) => cs.map((c) => R[c.r] + S[c.s]).join(' ');
+
+it('BV rachunek niezależny', () => {
+  const out: string[] = [];
+  for (const id of ['sc-01', 'sc-02', 'sc-19']) {
+    const t = parse(readFileSync(`/home/user/Szkola_pokera/content/pl/scenarios/${id}.yaml`, 'utf8'));
+    const g = { id: t.id, levels: t.bounds, decisions: t.decisions };
+    for (const level of t.levels) {
+      const st = { n: 0, zleOuty: 0, zlaCena: 0, zlaAkcja: 0, para: {} as Record<string, number>, paraFold: {} as Record<string, number>, ponadStos: 0, ponadStosOstr: 0, efZmianaAkcji: 0, efZmianaPoziomu: 0, przyk: [] as string[] };
+      for (let seed = 1; seed <= 10000; seed++) {
+        const v: any = generateVariant(g as any, level, seed); st.n++;
+        // karty: poker-core Card to liczba? sprawdzamy format
+        const toC = (c: any): C => typeof c === 'number' ? { r: Math.floor(c / 4), s: c % 4 } : { r: R.indexOf(c[0]), s: S.indexOf(c[1]) };
+        const hero = v.hero.map(toC), board = v.board.map(toC);
+        let zaklady = 0; const X = (v.decisions[0].pot - 0.5) / 2, Xo = (v.decisions[0].pot - 1.5) / 2;
+        v.decisions.forEach((d: any, i: number) => {
+          const stol = board.slice(0, d.street === 'flop' ? 3 : 4); const unseen = 52 - 2 - stol.length;
+          const o = outs(hero, stol); if (o !== d.outs) st.zleOuty++;
+          const p = o / unseen, cena = d.bet / (d.pot + 2 * d.bet);
+          if (Math.abs(cena - d.required) > 1e-9) st.zlaCena++;
+          const akcja = p > cena ? 'call' : 'fold'; if (akcja !== t.bounds[level].expected[i]) st.zlaAkcja++;
+          const pr = para(hero, stol);
+          if (pr) { st.para[pr] = (st.para[pr] ?? 0) + 1; if (akcja === 'fold') { st.paraFold[pr] = (st.paraFold[pr] ?? 0) + 1; if (st.przyk.length < 4) st.przyk.push(`seed ${seed} #${i + 1}: ${pokaz(hero)} | ${pokaz(stol)} → ${pr}, oczekiwane fold (zakład ${d.bet} do puli ${d.pot})`); } }
+          const reszta = t.stackBb - X - zaklady, resztaO = t.stackBb - Xo - zaklady;
+          if (d.bet > reszta + 1e-9) { st.ponadStos++; const c = Math.min(d.bet, reszta); const ce = c / (d.pot + d.bet + c); const ae = p > ce ? 'call' : 'fold'; if (ae !== akcja) st.efZmianaAkcji++; const m = Math.abs(p - ce), b = t.bounds[level]; if (!(m >= b.marginMin && (b.marginMax === null || m < b.marginMax))) st.efZmianaPoziomu++; if (st.przyk.length < 8) st.przyk.push(`seed ${seed} #${i + 1}: zakład ${d.bet} bb, graczowi zostało ${reszta.toFixed(2)} bb (stos ${t.stackBb}, pula flop ${v.decisions[0].pot}); cena nominalna ${(cena*100).toFixed(1)}%, przy all-in ${(ce*100).toFixed(1)}%`); }
+          if (d.bet > resztaO + 1e-9) st.ponadStosOstr++;
+          zaklady += d.bet;
+        });
+      }
+      out.push(`${id} ${level}: n=${st.n} zleOuty=${st.zleOuty} zlaCena=${st.zlaCena} zlaAkcja=${st.zlaAkcja} gotowaReka=${JSON.stringify(st.para)} gotowaRekaPrzyFold=${JSON.stringify(st.paraFold)} zakładPonadStos(realnie X=(pula−0,5)/2)=${st.ponadStos} (ostrożnie −1,5: ${st.ponadStosOstr}) zmianaAkcjiPrzyAllIn=${st.efZmianaAkcji} zmianaPoziomuPrzyAllIn=${st.efZmianaPoziomu}`);
+      out.push(...st.przyk.map((x) => '   ' + x));
+    }
+  }
+  console.log(out.join('\n'));
+}, 600000);

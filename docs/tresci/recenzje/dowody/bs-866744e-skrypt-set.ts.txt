@@ -1,0 +1,29 @@
+// Set i dwie pary przy oczekiwanym pasie: outy rozszerzone (kolor/strit z kartą gracza ALBO full/kareta) wobec ceny.
+import { readFileSync } from 'node:fs';
+import { parse } from '/home/user/Szkola_pokera/node_modules/yaml/dist/index.js';
+import { it } from 'vitest';
+import { generateVariant, evaluateHand, HandCategory, classifyHolding } from '/home/user/Szkola_pokera/packages/poker-core/src/index';
+import { remainingDeck } from '/home/user/Szkola_pokera/packages/poker-core/src/cards';
+it('set', () => {
+  const out: string[] = [];
+  for (const id of ['sc-02', 'sc-19']) {
+    const t = parse(readFileSync(`/home/user/Szkola_pokera/content/pl/scenarios/${id}.yaml`, 'utf8'));
+    for (const level of t.levels) {
+      let fold = 0, improves = 0, setL = 0, setCall = 0, twoL = 0, twoCall = 0; const ex: string[] = [];
+      for (let seed = 1; seed <= 10000; seed++) {
+        const v: any = generateVariant({ id: t.id, levels: t.bounds, decisions: t.decisions } as any, level, seed);
+        const d = v.decisions[1]; const stol = v.board.slice(0, 4); fold++;
+        const h = classifyHolding(v.hero, stol); if (h.improvesBoard) improves++;
+        const cat = evaluateHand([...v.hero, ...stol]).category;
+        if (cat === HandCategory.ThreeOfAKind || cat === HandCategory.TwoPair) {
+          const ext = remainingDeck([...v.hero, ...stol]).filter((c: any) => { const e = evaluateHand([...v.hero, ...stol, c]).category; return e <= HandCategory.FullHouse || d.outs && (e === HandCategory.Flush || e === HandCategory.Straight) ; }).length;
+          const p = ext / 46, cena = d.bet / (d.pot + 2 * d.bet);
+          if (cat === HandCategory.ThreeOfAKind) { setL++; if (p > cena) setCall++; if (ex.length < 3) ex.push(`seed ${seed}: ${v.hero} | ${stol} set, outy rozszerzone ${ext}/46=${(p*100).toFixed(1)}% vs cena ${(cena*100).toFixed(1)}%`); }
+          else { twoL++; if (p > cena) twoCall++; }
+        }
+      }
+      out.push(`${id} ${level}: pas na turnie ${fold}, gracz poprawia stół (classifyHolding.improvesBoard) ${improves}; set ${setL} (rozszerzone outy > cena: ${setCall}); dwie pary/trips ${twoL} (rozszerzone outy > cena: ${twoCall})`, ...ex);
+    }
+  }
+  console.log(out.join('\n'));
+}, 600000);

@@ -1,0 +1,33 @@
+# vitest run --root scratchpad niezalezny.test.ts (skrypt: skrypt-niezalezny.ts.txt), 10 000 wariantów na poziom, ziarna 1..10000
+sc-01 latwy: n=10000 zleOuty=0 zlaCena=0 zlaAkcja=0 gotowaReka={"para":4469,"top para":1780,"overpara":205,"dwie pary":220,"set":29,"para kieszonkowa":652} gotowaRekaPrzyFold={} zakładPonadStos(realnie X=(pula−0,5)/2)=0 (ostrożnie −1,5: 0) zmianaAkcjiPrzyAllIn=0 zmianaPoziomuPrzyAllIn=0
+sc-01 sredni: n=10000 zleOuty=0 zlaCena=0 zlaAkcja=0 gotowaReka={"para":4469,"top para":1780,"overpara":205,"dwie pary":220,"set":29,"para kieszonkowa":652} gotowaRekaPrzyFold={} zakładPonadStos(realnie X=(pula−0,5)/2)=0 (ostrożnie −1,5: 0) zmianaAkcjiPrzyAllIn=0 zmianaPoziomuPrzyAllIn=0
+sc-01 trudny: n=10000 zleOuty=0 zlaCena=0 zlaAkcja=0 gotowaReka={"para":4469,"top para":1780,"overpara":205,"dwie pary":220,"set":29,"para kieszonkowa":652} gotowaRekaPrzyFold={} zakładPonadStos(realnie X=(pula−0,5)/2)=0 (ostrożnie −1,5: 0) zmianaAkcjiPrzyAllIn=0 zmianaPoziomuPrzyAllIn=0
+sc-02 latwy: n=10000 zleOuty=0 zlaCena=0 zlaAkcja=0 gotowaReka={"para":2389,"top para":884,"para kieszonkowa":304,"overpara":76} gotowaRekaPrzyFold={"para":1705,"top para":508,"para kieszonkowa":161,"overpara":29} zakładPonadStos(realnie X=(pula−0,5)/2)=850 (ostrożnie −1,5: 850) zmianaAkcjiPrzyAllIn=0 zmianaPoziomuPrzyAllIn=0
+   seed 2 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 22); cena nominalna 33.3%, przy all-in 32.6%
+   seed 3 #2: Th 9d | Jc Ad Qd 9s → para, oczekiwane fold (zakład 17 do puli 22)
+   seed 5 #2: Kh Qd | Ks Ts Jh 7s → top para, oczekiwane fold (zakład 13 do puli 20)
+   seed 7 #2: 7c 8h | 6s 7h 5c Kc → para, oczekiwane fold (zakład 15 do puli 22)
+   seed 18 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 22); cena nominalna 33.3%, przy all-in 32.6%
+   seed 59 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 22); cena nominalna 33.3%, przy all-in 32.6%
+   seed 71 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 22); cena nominalna 33.3%, przy all-in 32.6%
+   seed 72 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 22); cena nominalna 33.3%, przy all-in 32.6%
+sc-02 sredni: n=10000 zleOuty=0 zlaCena=0 zlaAkcja=0 gotowaReka={"para":2389,"top para":884,"para kieszonkowa":304,"overpara":76} gotowaRekaPrzyFold={"para":1705,"top para":508,"para kieszonkowa":161,"overpara":29} zakładPonadStos(realnie X=(pula−0,5)/2)=0 (ostrożnie −1,5: 0) zmianaAkcjiPrzyAllIn=0 zmianaPoziomuPrzyAllIn=0
+   seed 3 #2: Th 9d | Jc Ad Qd 9s → para, oczekiwane fold (zakład 12 do puli 24)
+   seed 5 #2: Kh Qd | Ks Ts Jh 7s → top para, oczekiwane fold (zakład 11 do puli 22)
+   seed 7 #2: 7c 8h | 6s 7h 5c Kc → para, oczekiwane fold (zakład 14 do puli 28)
+   seed 9 #2: 4d 4s | 2d 3d 5c 5s → para kieszonkowa, oczekiwane fold (zakład 14 do puli 28)
+sc-19 latwy: n=10000 zleOuty=0 zlaCena=0 zlaAkcja=0 gotowaReka={"para":4417,"top para":1758,"para kieszonkowa":716,"overpara":211,"set":37,"dwie pary":193} gotowaRekaPrzyFold={"para":2712,"top para":966,"para kieszonkowa":355,"set":37,"overpara":90,"dwie pary":193} zakładPonadStos(realnie X=(pula−0,5)/2)=3268 (ostrożnie −1,5: 3268) zmianaAkcjiPrzyAllIn=0 zmianaPoziomuPrzyAllIn=0
+   seed 1 #2: 6s 8s | Ks 9s Jc 8h → para, oczekiwane fold (zakład 24 do puli 24)
+   seed 1 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 20); cena nominalna 33.3%, przy all-in 32.6%
+   seed 2 #2: Jc Tc | 3h Kc 8c Th → para, oczekiwane fold (zakład 22 do puli 22)
+   seed 4 #2: Qc 2h | 3c Jc Ac 2s → para, oczekiwane fold (zakład 24 do puli 24)
+   seed 4 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 20); cena nominalna 33.3%, przy all-in 32.6%
+   seed 6 #2: zakład 26 bb, graczowi zostało 22.25 bb (stos 35, pula flop 22); cena nominalna 33.3%, przy all-in 30.0%
+   seed 21 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 20); cena nominalna 33.3%, przy all-in 32.6%
+   seed 25 #2: zakład 24 bb, graczowi zostało 23.25 bb (stos 35, pula flop 20); cena nominalna 33.3%, przy all-in 32.6%
+sc-19 sredni: n=10000 zleOuty=0 zlaCena=0 zlaAkcja=0 gotowaReka={"para":4469,"top para":1780,"overpara":205,"dwie pary":220,"set":29,"para kieszonkowa":652} gotowaRekaPrzyFold={"para":2759,"top para":945,"overpara":89,"dwie pary":220,"set":29,"para kieszonkowa":325} zakładPonadStos(realnie X=(pula−0,5)/2)=0 (ostrożnie −1,5: 0) zmianaAkcjiPrzyAllIn=0 zmianaPoziomuPrzyAllIn=0
+   seed 1 #2: 6s 8s | Ks 9s Jc 8h → para, oczekiwane fold (zakład 20 do puli 30)
+   seed 2 #2: Jc Tc | 3h Kc 8c Th → para, oczekiwane fold (zakład 17 do puli 26)
+   seed 4 #2: Qd Tc | Jd 4d 6d Qh → top para, oczekiwane fold (zakład 13 do puli 20)
+   seed 5 #2: 4h 5d | 4d 6d Qd 9c → para, oczekiwane fold (zakład 20 do puli 30)
+exit 0

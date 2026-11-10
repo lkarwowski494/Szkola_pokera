@@ -1,0 +1,11 @@
+# pnpm exec vitest run test/bv-gotowa-reka.test.ts (tools/content-build) @ 866744e + test
+     × sc-02 latwy: w punkcie z oczekiwanym „fold” karta gracza nie poprawia stołu 2086ms
+     × sc-02 sredni: w punkcie z oczekiwanym „fold” karta gracza nie poprawia stołu 1798ms
+     × sc-19 latwy: w punkcie z oczekiwanym „fold” karta gracza nie poprawia stołu 2439ms
+     × sc-19 sredni: w punkcie z oczekiwanym „fold” karta gracza nie poprawia stołu 1920ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: warianty z gotową ręką gracza i oczekiwanym pasem: 3#2, 5#2, 7#2, 9#2, 13#2: expected 496 to be +0 // Object.is equality
+AssertionError: warianty z gotową ręką gracza i oczekiwanym pasem: 1#2, 2#2, 4#2, 5#2, 6#2: expected 857 to be +0 // Object.is equality
+AssertionError: warianty z gotową ręką gracza i oczekiwanym pasem: 1#2, 2#2, 4#2, 5#2, 6#2: expected 880 to be +0 // Object.is equality
+      Tests  4 failed (4)
+exit 1

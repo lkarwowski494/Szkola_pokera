@@ -1,0 +1,28 @@
+// EV sprawdzenia z implied odds w najlepszym razie: EV = p·(P + B + S) − (1 − p)·B, B = min(zakład, stos gracza), S = stos za pulą
+// po sprawdzeniu (wkład preflop X = (pula − 0,5)/2 realnie i (pula − 1,5)/2 ostrożnie); p = outy przeglądem talii ÷ karty nieznane.
+import { readFileSync } from 'node:fs';
+import { parse } from '/home/user/Szkola_pokera/node_modules/yaml/dist/index.js';
+import { it } from 'vitest';
+import { generateVariant, remainingDeck, evaluateHand, HandCategory, suitOf, rankOf } from '/home/user/Szkola_pokera/packages/poker-core/src/index';
+const st = (rs: Set<number>) => { for (let t = 12; t >= 3; t--) { let ok = true; for (let k = 0; k < 5; k++) { const r = t - k; if (!rs.has(r < 0 ? 12 : r)) { ok = false; break; } } if (ok) return true; } return false; };
+function outs(h: number[], b: number[]) { return remainingDeck([...h, ...b]).filter((c: number) => { const a = [...h, ...b, c]; for (let s = 0; s < 4; s++) if (a.filter((x) => suitOf(x) === s).length >= 5 && h.some((x) => suitOf(x) === s) && !b.some(() => false)) return true; return st(new Set(a.map(rankOf))) && !st(new Set([...b, c].map(rankOf))); }).length; }
+it('io', () => {
+  const out: string[] = [];
+  for (const id of ['sc-02', 'sc-19']) {
+    const t = parse(readFileSync(`/home/user/Szkola_pokera/content/pl/scenarios/${id}.yaml`, 'utf8'));
+    for (const level of t.levels) {
+      let n = 0, plusReal = 0, plusOstr = 0, minEVreal = Infinity;
+      for (let seed = 1; seed <= 10000; seed++) {
+        const v: any = generateVariant({ id: t.id, levels: t.bounds, decisions: t.decisions } as any, level, seed);
+        const d = v.decisions[1]; const stol = v.board.slice(0, 4); const p = outs(v.hero, stol) / 46; n++;
+        for (const [m, tag] of [[0.5, 'r'], [1.5, 'o']] as const) {
+          const zost = t.stackBb - (v.decisions[0].pot - m) / 2 - v.decisions[0].bet; const B = Math.min(d.bet, zost); const S = Math.max(0, zost - B);
+          const ev = p * (d.pot + B + S) - (1 - p) * B;
+          if (tag === 'r') { if (ev >= 0) plusReal++; minEVreal = Math.min(minEVreal, -ev); } else if (ev >= 0) plusOstr++;
+        }
+      }
+      out.push(`${id} ${level}: warianty ${n}; EV sprawdzenia ≥ 0 przy implied odds = cały stos: realnie ${plusReal}, ostrożnie ${plusOstr}; najmniejsza strata EV (realnie) ${minEVreal.toFixed(2)} bb`);
+    }
+  }
+  console.log(out.join('\n'));
+}, 600000);
