@@ -1,0 +1,191 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m7.yaml",
+  "stary": "{{t:oesd|progetto di scala bilaterale}}: {{n:outs.oesd}}",
+  "nowy": "{{t:oesd|OESD}}: {{n:outs.oesd}}",
+  "waga": "ŚR",
+  "powod": "it-X2-01 Nazwa terminu oesd wg content/it/terms-nazwy.yaml:54 to „OESD” (forma tłumacza oznaczona tam jako niezgodna); pl m7.yaml:63",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m7.yaml",
+  "stary": "{{t:oesd|progetto di scala bilaterale}} (fante",
+  "nowy": "{{t:oesd|OESD}} (fante",
+  "waga": "ŚR",
+  "powod": "it-X2-02 Jw. (terms-nazwy.yaml:54); pl m7.yaml:70",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m8.yaml",
+  "stary": "in netto perde",
+  "nowy": "al netto perde",
+  "waga": "NISKIE",
+  "powod": "it-X2-03 Niepoprawny zwrot „in netto”; pl m8.yaml:10 „na czysto traci”",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m8.yaml",
+  "stary": "Hai {{t:top-pair|coppia massima}} con il nove",
+  "nowy": "Hai {{t:top-pair|top pair}} con il nove",
+  "waga": "ŚR",
+  "powod": "it-X2-04 Nazwa terminu top-pair wg terms-nazwy.yaml:85 to „top pair” (tak też it m9.yaml:19); pl m8.yaml:17",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m8.yaml",
+  "stary": "il {{t:oesd|progetto di scala bilaterale}} non è entrato",
+  "nowy": "l'{{t:oesd|OESD}} non è entrato",
+  "waga": "ŚR",
+  "powod": "it-X2-05 Nazwa terminu oesd wg terms-nazwy.yaml:54 to „OESD”; pl m8.yaml:46 ma „{{t:oesd|OESD}}”",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m8.yaml",
+  "stary": "La {{t:top-pair|coppia massima}} ha valore",
+  "nowy": "La {{t:top-pair|top pair}} ha valore",
+  "waga": "ŚR",
+  "powod": "it-X2-06 Jak it-X2-04 (terms-nazwy.yaml:85); pl m8.yaml:48",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m8.yaml",
+  "stary": "una mano da lasciare",
+  "nowy": "una mano da foldare",
+  "waga": "NISKIE",
+  "powod": "it-X2-07 „Ręka do spasowania” (pl m8.yaml:56): w całym pliku fold = foldare (terms-nazwy.yaml:20), tu jedyne „lasciare”",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m8.yaml",
+  "stary": "Hai {{t:top-pair|coppia massima}} con un kicker",
+  "nowy": "Hai {{t:top-pair|top pair}} con un kicker",
+  "waga": "ŚR",
+  "powod": "it-X2-08 Jak it-X2-04 (terms-nazwy.yaml:85); pl m8.yaml:79",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m9.yaml",
+  "stary": "{{t:value|per value}}",
+  "nowy": "{{t:value|per valore}}",
+  "waga": "ŚR",
+  "powod": "it-X2-09 Nazwa terminu value wg terms-nazwy.yaml:98 to „valore” („per valore” w it m7, m8, m10); pl m9.yaml:17",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m9.yaml",
+  "stary": "e {{t:fold|foldi}} se",
+  "nowy": "e {{t:fold|fold}} se",
+  "waga": "NISKIE",
+  "powod": "it-X2-10 Opcja odpowiedzi w 2. osobie („foldi”) wśród opcji rzeczownikowych/1. osoby; pl m9.yaml:37 „Bet … i {{t:fold}}”",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m9.yaml",
+  "stary": "Quante {{t:value|street di value}}",
+  "nowy": "Quante {{t:value|street di valore}}",
+  "waga": "ŚR",
+  "powod": "it-X2-11 Jak it-X2-09 (terms-nazwy.yaml:98); pl m9.yaml:52",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m9.yaml",
+  "stary": "Tre {{t:value|street di value}}",
+  "nowy": "Tre {{t:value|street di valore}}",
+  "waga": "ŚR",
+  "powod": "it-X2-12 Jak it-X2-09 (terms-nazwy.yaml:98); pl m9.yaml:56",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m9.yaml",
+  "stary": "da tre {{t:value|street di value}}",
+  "nowy": "da tre {{t:value|street di valore}}",
+  "waga": "ŚR",
+  "powod": "it-X2-13 Jak it-X2-09 (terms-nazwy.yaml:98); pl m9.yaml:72",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m10.yaml",
+  "stary": "un {{t:maniac|maniaco}}",
+  "nowy": "un {{t:maniac|maniac}}",
+  "waga": "ŚR",
+  "powod": "it-X2-14 Nazwa terminu maniac wg terms-nazwy.yaml:162 to „maniac”; pl m10.yaml:43",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m10.yaml",
+  "stary": "il {{t:maniac|maniaco}}",
+  "nowy": "il {{t:maniac|maniac}}",
+  "waga": "ŚR",
+  "powod": "it-X2-15 Jw. (terms-nazwy.yaml:162); pl m10.yaml:45",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m10.yaml",
+  "stary": "{{t:draw|draw}}",
+  "nowy": "{{t:draw|progetto}}",
+  "waga": "ŚR",
+  "powod": "it-X2-16 Nazwa terminu draw wg terms-nazwy.yaml:51 to „progetto” (tak w it m7, m8); pl m10.yaml:61",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m10.yaml",
+  "stary": "{{t:rake-cap|rake cap}}",
+  "nowy": "{{t:rake-cap|tetto del rake}}",
+  "waga": "ŚR",
+  "powod": "it-X2-17 Nazwa terminu rake-cap wg terms-nazwy.yaml:164 to „tetto del rake”; pl m10.yaml:80",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m12.yaml",
+  "stary": "Bastano qualche decina",
+  "nowy": "Basta qualche decina",
+  "waga": "ŚR",
+  "powod": "it-X2-18 Błąd zgody liczby („qualche decina” jest w lp); pl m12.yaml:29 „Kilkadziesiąt tysięcy rąk wystarczy”; sens bez zmian",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m13.yaml",
+  "stary": "text: \"In linea\", why: \"In linea è",
+  "nowy": "text: \"Conforme\", why: \"Conforme è",
+  "waga": "ŚR",
+  "powod": "it-X2-19 Werdykt „Zgodna” (pl m13.yaml:26) nazywa się w interfejsie i lekcji „Conforme” (apps/mobile/src/i18n/locales/it.json:137, 461; content/it/lessons/m13-l1-raport.md:36, 90); „In linea” nie występuje nigdzie indziej",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m13.yaml",
+  "stary": "un {{t:oesd|progetto di scala bilaterale}}",
+  "nowy": "un {{t:oesd|OESD}}",
+  "waga": "ŚR",
+  "powod": "it-X2-20 Nazwa terminu oesd wg terms-nazwy.yaml:54 to „OESD”; pl m13.yaml:44 ma „{{t:oesd|OESD}}”",
+  "grupa": "it-X2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m13.yaml",
+  "stary": "contro un {{t:open|open}}",
+  "nowy": "contro un'{{t:open|apertura}}",
+  "waga": "ŚR",
+  "powod": "it-X2-21 Nazwa terminu open wg terms-nazwy.yaml:65 to „apertura” (tak w it m7, m10); pl m13.yaml:51",
+  "grupa": "it-X2"
+ }
+]

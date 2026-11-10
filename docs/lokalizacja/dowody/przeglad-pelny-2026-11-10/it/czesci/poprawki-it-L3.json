@@ -1,0 +1,182 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l2-sprawdzenie.md",
+  "stary": "per la {{t:top-pair|coppia massima}}",
+  "nowy": "per la {{t:top-pair|top pair}}",
+  "waga": "ŚR",
+  "powod": "it-L3-01 termin top-pair: terms-nazwy.yaml „top pair” (r. f); w m7-l1/m7-l2 „top pair”, tu „coppia massima” (pl m6-l2-sprawdzenie.md:74)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "La {{t:top-pair|coppia massima}} con un kicker debole è una mano da",
+  "nowy": "La {{t:top-pair|top pair}} con un kicker debole è una mano da",
+  "waga": "ŚR",
+  "powod": "it-L3-02 termin top-pair: terms-nazwy.yaml „top pair” (r. f); w m7-l1/m7-l2 „top pair”, tu „coppia massima” (pl m6-l3-check-raise.md:82)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "La {{t:top-pair|coppia massima}} contro un c-bet piccolo",
+  "nowy": "La {{t:top-pair|top pair}} contro un c-bet piccolo",
+  "waga": "ŚR",
+  "powod": "it-L3-03 termin top-pair: terms-nazwy.yaml „top pair” (r. f); w m7-l1/m7-l2 „top pair”, tu „coppia massima” (pl m6-l3-check-raise.md:84)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "la {{t:top-pair|coppia massima}} con un kicker debole, di solito",
+  "nowy": "la {{t:top-pair|top pair}} con un kicker debole, di solito",
+  "waga": "ŚR",
+  "powod": "it-L3-04 termin top-pair: terms-nazwy.yaml „top pair” (r. f); w m7-l1/m7-l2 „top pair”, tu „coppia massima” (pl m6-l3-check-raise.md:125)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "delle {{t:top-pair|coppie massime}}",
+  "nowy": "delle {{t:top-pair|top pair}}",
+  "waga": "ŚR",
+  "powod": "it-L3-05 termin top-pair: terms-nazwy.yaml „top pair” (r. f); w m7-l1/m7-l2 „top pair”, tu „coppia massima” (pl m6-l3-check-raise.md:125)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "i {{t:oesd|progetti di scala bilaterali}} pagheranno",
+  "nowy": "gli {{t:oesd|OESD}} pagheranno",
+  "waga": "ŚR",
+  "powod": "it-L3-06 termin oesd: terms-nazwy.yaml „OESD” (r. m); pl i m6-l2:65 mają OESD (pl m6-l3-check-raise.md:26)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "Un {{t:oesd|progetto di scala bilaterale}} (",
+  "nowy": "Un {{t:oesd|OESD}} (",
+  "waga": "ŚR",
+  "powod": "it-L3-07 termin oesd: terms-nazwy.yaml „OESD” (r. m); pl i m6-l2:65 mają OESD (pl m6-l3-check-raise.md:72 „{{t:oesd|OESD}}”)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:oesd|scala bilaterale}}) che vincono",
+  "nowy": "{{t:oesd|OESD}}) che vincono",
+  "waga": "ŚR",
+  "powod": "it-L3-08 termin oesd: terms-nazwy.yaml „OESD” (r. m); pl i m6-l2:65 mają OESD (pl m6-l3-check-raise.md:93)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:oesd|scala bilaterale}}) che vince",
+  "nowy": "{{t:oesd|OESD}}) che vince",
+  "waga": "ŚR",
+  "powod": "it-L3-09 termin oesd: terms-nazwy.yaml „OESD” (r. m); pl i m6-l2:65 mają OESD (pl m6-l3-check-raise.md:123)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l2-polaryzacja.md",
+  "stary": "un {{t:oesd|progetto di scala bilaterale}}: circa",
+  "nowy": "un {{t:oesd|OESD}}: circa",
+  "waga": "ŚR",
+  "powod": "it-L3-10 termin oesd: terms-nazwy.yaml „OESD” (r. m); pl i m6-l2:65 mają OESD (pl m7-l2-polaryzacja.md:87)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l2-sprawdzenie.md",
+  "stary": "{{t:dry|asciutti}}",
+  "nowy": "{{t:dry|secchi}}",
+  "waga": "ŚR",
+  "powod": "it-L3-11 termin dry: terms-nazwy.yaml „secco”; m7-l2-polaryzacja.md:22,25 „secco”, tu „asciutti” (pl m6-l2-sprawdzenie.md:132)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l2-sprawdzenie.md",
+  "stary": "in circa il {{n:odds.gutshot.flop-turn}} dei casi",
+  "nowy": "in circa l'{{n:odds.gutshot.flop-turn}} dei casi",
+  "waga": "ŚR",
+  "powod": "it-L3-12 rodzajnik: liczba to 8,5% (4 z 47), „il 8,5%” jest błędem, ma być „l'8,5%” (pl m6-l2-sprawdzenie.md:74)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l3-check-raise.md",
+  "stary": "circa il {{n:eq.vs-xr.too-small}} di equity",
+  "nowy": "circa l'{{n:eq.vs-xr.too-small}} di equity",
+  "waga": "ŚR",
+  "powod": "it-L3-13 rodzajnik: liczba to 8% (15 ÷ 180), „il 8%” jest błędem, ma być „l'8%” (pl m6-l3-check-raise.md:27)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l2-sprawdzenie.md",
+  "stary": "ti serve {{n:eq.bet-pot}} di equity invece di {{n:eq.bet-third}}",
+  "nowy": "ti serve il {{n:eq.bet-pot}} di equity invece del {{n:eq.bet-third}}",
+  "waga": "NISKIE",
+  "powod": "it-L3-14 brak rodzajnika przed procentem („ti serve 33% di equity”); w m6-l1 konsekwentnie „il {{n}} di equity” (pl m6-l2-sprawdzenie.md:35)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l2-sprawdzenie.md",
+  "stary": "ti serve solo {{n:eq.bet-third}} di equity",
+  "nowy": "ti serve solo il {{n:eq.bet-third}} di equity",
+  "waga": "NISKIE",
+  "powod": "it-L3-15 brak rodzajnika przed procentem (pl m6-l2-sprawdzenie.md:44)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l2-sprawdzenie.md",
+  "stary": "ti serve {{n:eq.bet-three-quarters}} di equity",
+  "nowy": "ti serve il {{n:eq.bet-three-quarters}} di equity",
+  "waga": "NISKIE",
+  "powod": "it-L3-16 brak rodzajnika przed procentem (pl m6-l2-sprawdzenie.md:54)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l2-polaryzacja.md",
+  "stary": "ha bisogno di {{n:eq.bet-three-quarters}} di equity",
+  "nowy": "ha bisogno del {{n:eq.bet-three-quarters}} di equity",
+  "waga": "NISKIE",
+  "powod": "it-L3-17 brak rodzajnika przed procentem (pl m7-l2-polaryzacja.md:44)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m7-l2-polaryzacja.md",
+  "stary": "ha bisogno solo di {{n:eq.bet-quarter}} di equity",
+  "nowy": "ha bisogno solo del {{n:eq.bet-quarter}} di equity",
+  "waga": "NISKIE",
+  "powod": "it-L3-18 brak rodzajnika przed procentem (pl m7-l2-polaryzacja.md:45)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l1-mdf-alpha.md",
+  "stary": "„questa mano può vincere?”",
+  "nowy": "«questa mano può vincere?»",
+  "waga": "NISKIE",
+  "powod": "it-L3-19 polskie cudzysłowy „…” w tekście włoskim (jedyne wystąpienie „ w it/lessons; pozostałe lekcje mają «…») (pl m6-l1-mdf-alpha.md:96)",
+  "grupa": "it-L3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m6-l2-sprawdzenie.md",
+  "stary": "anche media e bassa,",
+  "nowy": "anche la media e la più bassa,",
+  "waga": "NISKIE",
+  "powod": "it-L3-20 pl „także środkową i najniższą” (bottom pair), „bassa” = niska, nie najniższa (pl m6-l2-sprawdzenie.md:122; en „middle and bottom pair”)",
+  "grupa": "it-L3"
+ }
+]
