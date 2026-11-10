@@ -67,7 +67,7 @@ Aplikacja jest przeznaczona dla dorosłych i nie jest skierowana do dzieci. Nie 
 
 Aplikacja nadal niczego nie wysyła: e-mail wysyłasz Ty, ze swojej poczty. Przyciski „Napisz do nas” i „Zgłoś błąd w tym zadaniu” otwierają Twój program pocztowy; szkic zgłoszenia błędu zawiera identyfikator zadania, wersję aplikacji i język. Przed wysłaniem widzisz cały szkic i możesz go zmienić albo nie wysyłać. Jeśli napiszesz na support@apps4brew.com, przetwarzamy wiadomość tak:
 
-- **Administrator:** Łukasz Karwowski (sprzedawca aplikacji), forma prawna: [DO USTALENIA: forma prawna]; kontakt: support@apps4brew.com.
+- **Administrator:** Łukasz Karwowski (sprzedawca aplikacji), osoba fizyczna nieprowadząca działalności gospodarczej; kontakt: support@apps4brew.com.
 - **Dane:** Twój adres e-mail, treść wiadomości i załączniki oraz dane ze szkicu (identyfikator zadania, wersja aplikacji, język).
 - **Cel:** odpowiedź na wiadomość, wyjaśnienie, poprawa błędu w aplikacji lub w treści kursu.
 - **Podstawa:** art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes: obsługa zapytań i poprawa aplikacji).

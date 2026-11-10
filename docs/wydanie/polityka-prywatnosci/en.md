@@ -66,7 +66,7 @@ The app is intended for adults and is not directed at children. It does not coll
 
 The app still sends nothing: you send the email, from your own mail app. The “Write to us” and “Report a problem with this task” buttons open your mail app; the problem report draft contains the task ID, app version and language. You see the whole draft before sending and can change it or not send it. If you write to support@apps4brew.com, we handle your message as follows:
 
-- **Controller:** Łukasz Karwowski (seller of the app), legal form: [DO USTALENIA: legal form]; contact: support@apps4brew.com.
+- **Controller:** Łukasz Karwowski (seller of the app), natural person, not a business; contact: support@apps4brew.com.
 - **Data:** your email address, the message text and attachments, and the draft details (task ID, app version, language).
 - **Purpose:** replying to your message, clarification, fixing a bug in the app or in the course content.
 - **Legal basis:** Article 6(1)(f) GDPR (legitimate interest: handling enquiries and improving the app).
