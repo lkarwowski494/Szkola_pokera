@@ -1,0 +1,74 @@
+[
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Mù lớn}}, Button đã {{t:open|mở cược}} 2,5bb, {{t:small-blind}}",
+  "nowy": "{{t:big-blind|Mù lớn}}, Button đã {{t:open|mở cược}} 2,5bb, {{t:small-blind|mù nhỏ}}",
+  "waga": "ŚR",
+  "powod": "spots.yaml:76 vs-open.bb-vs-btn title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Mù lớn}}, {{t:small-blind}} đã",
+  "nowy": "{{t:big-blind|Mù lớn}}, {{t:small-blind|mù nhỏ}} đã",
+  "waga": "ŚR",
+  "powod": "spots.yaml:81 vs-open.bb-vs-sb title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "ở bàn 9 người, Button đã {{t:open|mở cược}} 2,5bb, {{t:small-blind}}",
+  "nowy": "ở bàn 9 người, Button đã {{t:open|mở cược}} 2,5bb, {{t:small-blind|mù nhỏ}}",
+  "waga": "ŚR",
+  "powod": "spots.yaml:165 nine.vs-open.bb-vs-btn title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "ở bàn 9 người, {{t:small-blind}}",
+  "nowy": "ở bàn 9 người, {{t:small-blind|mù nhỏ}}",
+  "waga": "ŚR",
+  "powod": "spots.yaml:171 nine.vs-open.bb-vs-sb title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "stack 10bb, {{t:big-blind}} đã đặt ante",
+  "nowy": "stack 10bb, {{t:big-blind|mù lớn}} đã đặt ante",
+  "waga": "ŚR",
+  "powod": "spots.yaml:199 push.sb-10-ante title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "sau bạn vẫn còn {{t:big-blind}}",
+  "nowy": "sau bạn vẫn còn {{t:big-blind|mù lớn}}",
+  "waga": "ŚR",
+  "powod": "spots.yaml:250 call.sb-vs-btn-3max title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "Button đã all-in, {{t:small-blind}} đã {{t:fold|bỏ bài}}",
+  "nowy": "Button đã all-in, {{t:small-blind|mù nhỏ}} đã {{t:fold|bỏ bài}}",
+  "waga": "ŚR",
+  "powod": "spots.yaml:257 call.bb-vs-btn-3max title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "{{t:small-blind}} đã {{t:call|theo}}",
+  "nowy": "{{t:small-blind|mù nhỏ}} đã {{t:call|theo}}",
+  "waga": "ŚR",
+  "powod": "spots.yaml:264 call.bb-vs-two-3max title: w jednym tytule forma „Mù nhỏ/Mù lớn” obok gołego znacznika, który wyświetla się jako „small blind/big blind” (terms-nazwy); dodana forma, klucz znacznika bez zmian – jedna nazwa w zdaniu i w pliku",
+  "grupa": "vi-U1"
+ }
+]

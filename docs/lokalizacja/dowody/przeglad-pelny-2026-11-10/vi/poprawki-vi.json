@@ -1,0 +1,4070 @@
+[
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "{{t:fold|bỏ bài}}, không chỉ bỏ thêm cho bằng tiền mù (limp)",
+  "nowy": "{{t:fold|bỏ bài}}, chứ không chỉ bỏ thêm cho bằng tiền mù (limp)",
+  "waga": "ŚR",
+  "powod": "R-M3-004 then (linia 149): „không chỉ” czyta się jak „nie tylko” (dopłacasz i coś jeszcze); źródło: „nie dopłacasz samego blinda”. „chứ không chỉ” daje jednoznaczne przeciwstawienie.",
+  "grupa": "vi-R1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "bạn vào ván đầu tiên bằng một lần {{t:raise|tố}}",
+  "nowy": "bạn là người đầu tiên vào ván bằng một lần {{t:raise|tố}}",
+  "waga": "ŚR",
+  "powod": "R-M3-007 if (linia 174): „vào ván đầu tiên” jest dwuznaczne (wchodzisz do pierwszego rozdania); źródło: „wchodzisz do rozdania jako pierwszy przebiciem”; ujednolicenie z R-M3-004 if („bạn là người đầu tiên vào ván”).",
+  "grupa": "vi-R1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "range mở bài tăng dần từ UTG đến Button",
+  "nowy": "range mở cược tăng dần từ UTG đến Button",
+  "waga": "NISKIE",
+  "powod": "R-M3-006 source (linia 170): „mở bài” znaczy odkrycie kart/wstęp, nie otwarcie; przyjęta nazwa terminu open w terms-nazwy.yaml to „mở cược”.",
+  "grupa": "vi-R1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "(số vòng cược là đơn giản hóa)",
+  "nowy": "(số {{t:street|vòng cược}} là đơn giản hóa)",
+  "waga": "WYS",
+  "powod": "R-M9-008 then (linia 801): zgubiony znacznik {{t:street|…}}; źródło ma „(liczby {{t:street|ulic}} to uproszczenie)”, przekład zwykły tekst. Poprawka przywraca znacznik.",
+  "grupa": "vi-R2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "số street cho từng tay",
+  "nowy": "số vòng cược cho từng tay",
+  "waga": "ŚR",
+  "powod": "R-M9-008 source (linia 804): „street” po angielsku, podczas gdy w tej samej regule i w całym M9 „ulica” to „vòng cược”; niespójny termin.",
+  "grupa": "vi-R2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "một {{t:bluff|bluff}} không có cơ hội mạo hiểm",
+  "nowy": "một {{t:bluff|bluff}} không có cơ hội thắng mạo hiểm",
+  "waga": "ŚR",
+  "powod": "R-M6-001 because (linia 446): „blef bez szans ryzykuje 1 część”; bez „thắng” zdanie czyta się jako „blef nie ma okazji zaryzykować”; R-M6-002 ma poprawnie „không có cơ hội thắng”.",
+  "grupa": "vi-R2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "trước cược, họ sẽ {{t:fold|bỏ bài}} tay kém hơn",
+  "nowy": "nếu bạn cược, họ sẽ {{t:fold|bỏ bài}} tay kém hơn",
+  "waga": "ŚR",
+  "powod": "R-M7-003 because (linia 554): „na bet spasuje gorsze ręce”; „trước cược” na początku członu czyta się czasowo („przed zakładem”), co odwraca kolejność zdarzeń; dwuznaczność.",
+  "grupa": "vi-R2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "mà bạn đã thắng nếu {{t:check|xem bài}}",
+  "nowy": "mà bạn cũng sẽ thắng nếu {{t:check|xem bài}}",
+  "waga": "ŚR",
+  "powod": "R-M8-001 because (linia 647): „którą wygrałbyś po czekaniu” to tryb przypuszczający; „đã thắng” = „już wygrałeś” (czas przeszły dokonany), błąd gramatyczny zaciemniający porównanie.",
+  "grupa": "vi-R2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "chỉ thắng hơn một nửa một chút số tay",
+  "nowy": "chỉ thắng nhỉnh hơn một nửa số tay",
+  "waga": "NISKIE",
+  "powod": "R-M8-003 if (linia 661): „wygrywa z niewiele ponad połową rąk”; szyk „hơn một nửa một chút số tay” niezręczny, kalka.",
+  "grupa": "vi-R2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "khi họ bluff thừa, bạn luôn",
+  "nowy": "khi họ {{t:bluff|bluff}} thừa, bạn luôn",
+  "waga": "WYS",
+  "powod": "R-M10-009 then: zgubiony znacznik {{t:bluff|…}} (pl: „przy nadmiarze {{t:bluff|blefów}}”); poprawka przywraca znacznik",
+  "grupa": "vi-R3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "nhiều lần {{t:call|theo}} của họ hơn là tay kém hơn tay bạn",
+  "nowy": "trong các lần {{t:call|theo}} của họ có nhiều tay kém hơn tay bạn hơn",
+  "waga": "ŚR",
+  "powod": "R-M10-006 because: niezrozumiała kalka („więcej jego sprawdzeń to ręce gorsze od twojej”); podwójne „hơn” czyta się jak „raczej … niż”",
+  "grupa": "vi-R3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "sau bạn còn nhiều người chơi có thể",
+  "nowy": "sau bạn còn nhiều người chơi hơn có thể",
+  "waga": "ŚR",
+  "powod": "R-M11-011 if: pl „zostało więcej graczy” (porównanie: więcej niż w heads-up), przekład ma „wielu graczy”",
+  "grupa": "vi-R3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "phần chơi lại từ ván đã chơi hiển thị",
+  "nowy": "phần ôn tập từ ván chơi hiển thị",
+  "waga": "ŚR",
+  "powod": "R-M13-003 because: „powtórka z gry” to powtórka (SRS), w lekcji m13-l2 nazwana „Ôn tập từ ván chơi”; „chơi lại” znaczy „odtworzenie/ponowne zagranie” — niespójny termin",
+  "grupa": "vi-R3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "bạn vào ván thường đến đâu",
+  "nowy": "bạn vào ván thường xuyên đến mức nào",
+  "waga": "NISKIE",
+  "powod": "R-M13-004 if: niezręczne „thường đến đâu” (pl „jak często wchodzisz do gry”)",
+  "grupa": "vi-R3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "khớp với cấp độ lớn trong tài liệu 08",
+  "nowy": "khớp với bậc độ lớn trong tài liệu 08",
+  "waga": "NISKIE",
+  "powod": "R-M12-003 source: „rząd wielkości” to po wietnamsku „bậc độ lớn”; „cấp độ lớn” czyta się jak „duży poziom”",
+  "grupa": "vi-R3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "Nhờ vậy, trong {{t:pot|hũ}}",
+  "nowy": "Nhờ vậy, trong {{t:pot|pot}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:70: termin pot: terms-nazwy vi = „pot”; reszta przejrzanych plików (m2, m3, egzaminy m0–m3) ma „pot”, tylko ta lekcja „hũ”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "mạnh nhất thắng {{t:pot|hũ}}",
+  "nowy": "mạnh nhất thắng {{t:pot|pot}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:81: termin pot: terms-nazwy vi = „pot”; reszta przejrzanych plików (m2, m3, egzaminy m0–m3) ma „pot”, tylko ta lekcja „hũ”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "người còn lại thắng {{t:pot|hũ}}",
+  "nowy": "người còn lại thắng {{t:pot|pot}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:81: termin pot: terms-nazwy vi = „pot”; reszta przejrzanych plików (m2, m3, egzaminy m0–m3) ma „pot”, tylko ta lekcja „hũ”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "**{{t:side-pot|hũ phụ}}**,",
+  "nowy": "**{{t:side-pot|pot phụ}}** (side pot),",
+  "waga": "ŚR",
+  "powod": "m1-l1:96: forma „hũ phụ” niespójna z nazwą terminu (side pot) i z „pot”; pominięty nawias „(side pot)” ze źródła pl",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "Bạn đang ở {{t:big-blind|mù lớn}}",
+  "nowy": "Bạn đang ở {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:49: nazwa terminu w terms-nazwy vi = „big blind”; w tym samym akapicie znacznik bez formy wyświetla „big blind”, a forma mówi „mù lớn” (dwie nazwy jednego pojęcia); lekcje m3 mają „big blind”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "{{t:big-blind|Mù lớn}} hành động",
+  "nowy": "{{t:big-blind|Big blind}} hành động",
+  "waga": "ŚR",
+  "powod": "m1-l1:72: nazwa terminu w terms-nazwy vi = „big blind”; w tym samym akapicie znacznik bez formy wyświetla „big blind”, a forma mówi „mù lớn” (dwie nazwy jednego pojęcia); lekcje m3 mają „big blind”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "trước flop, {{t:big-blind|mù lớn}}",
+  "nowy": "trước flop, {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m1-l1:85: nazwa terminu w terms-nazwy vi = „big blind”; w tym samym akapicie znacznik bez formy wyświetla „big blind”, a forma mówi „mù lớn” (dwie nazwy jednego pojęcia); lekcje m3 mają „big blind”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m1-l1-przebieg.md",
+  "stary": "khi việc đó không tốn gì",
+  "nowy": "khi chơi tiếp không tốn gì",
+  "waga": "ŚR",
+  "powod": "m1-l1:52 (m1.l1.q5): „việc đó” odnosi się składniowo do „bỏ bài” (pasowanie nic nie kosztuje); źródło: słaba ręka nie jest powodem do pasu, gdy dalsza gra nic nie kosztuje",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m2-l2-pot-odds.md",
+  "stary": "− {{t:call}}, và",
+  "nowy": "− {{t:call|tiền theo}}, và",
+  "waga": "NISKIE",
+  "powod": "m2-l2:97: we wzorze EV goły znacznik wyświetla czasownik „theo” („… − theo”); w bloku formula tej lekcji kwota sprawdzenia to „tiền theo”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l1-pozycja.md",
+  "stary": "Kích thước {{t:open|mở}} bài",
+  "nowy": "Kích thước {{t:open|mở cược}}",
+  "waga": "ŚR",
+  "powod": "m3-l1:68: „mở bài” = odkrycie kart / wstęp, nie otwarcie; nazwa terminu w terms-nazwy vi = „mở cược”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l1-pozycja.md",
+  "stary": "bạn không chỉ bỏ thêm cho bằng blind",
+  "nowy": "bạn đừng chỉ bỏ thêm cho bằng blind",
+  "waga": "ŚR",
+  "powod": "m3-l1:69: „không chỉ…” czyta się jak „nie tylko dopłacasz (lecz także…)”; źródło: wchodząc jako pierwszy, nie dopłacasz samego blinda",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "{{t:bluff|Tố lừa}}",
+  "nowy": "{{t:bluff|Bluff}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:26 (m3.l2.q2): forma „Tố lừa” zawiera „tố” (= raise) i nie jest nazwą blefu; terms-nazwy vi: bluff = „bluff”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "tay bài đồng chất có thêm",
+  "nowy": "tay bài cùng chất có thêm",
+  "waga": "ŚR",
+  "powod": "m3-l2:15: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "QJ đồng chất",
+  "nowy": "QJ cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:45: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "cùng AK đồng chất",
+  "nowy": "cùng AK cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:53: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "AJ đồng chất",
+  "nowy": "AJ cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:54: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "KQ đồng chất",
+  "nowy": "KQ cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:54: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "liên tiếp đồng chất",
+  "nowy": "liên tiếp cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:55: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "tay bài đồng chất và {{n:combos.kinds.offsuit}}",
+  "nowy": "tay bài cùng chất và {{n:combos.kinds.offsuit}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "tay bài đồng chất có {{n:combos.suited}}",
+  "nowy": "tay bài cùng chất có {{n:combos.suited}}",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l2-rece-startowe.md",
+  "stary": "gấp ba lần AK đồng chất",
+  "nowy": "gấp ba lần AK cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l2:59: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "{{t:mixed-hand|tay bài hỗn hợp}}",
+  "nowy": "{{t:mixed-hand|tay bài trộn}}",
+  "waga": "ŚR",
+  "powod": "m3-l3:47: nazwa terminu mixed-hand w terms-nazwy vi = „tay bài trộn”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "khoảng chục tay bài",
+  "nowy": "hơn chục tay bài",
+  "waga": "ŚR",
+  "powod": "m3-l3:87: źródło „w kilkunastu rękach” (11–19); „khoảng chục” = około dziesięciu",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "các tay bài đồng chất (ví dụ AKs)",
+  "nowy": "các tay bài cùng chất (ví dụ AKs)",
+  "waga": "ŚR",
+  "powod": "m3-l3:47: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "quân át đồng chất",
+  "nowy": "quân át cùng chất",
+  "waga": "ŚR",
+  "powod": "m3-l3:84: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "tay bài đồng chất có khoảng trống",
+  "nowy": "tay bài cùng chất có khoảng trống",
+  "waga": "ŚR",
+  "powod": "m3-l3:87: suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m0.yaml",
+  "stary": "Vì vậy bạn chơi bằng {{t:board|bàn}}",
+  "nowy": "Vì vậy bạn chơi bằng bài trên {{t:board|bàn}}",
+  "waga": "NISKIE",
+  "powod": "m0.exam.q8 (m0.yaml:81): „chơi bằng bàn” dosłownie „grasz stołem (meblem)”; chodzi o granie kartami ze stołu (playing the board)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m0.yaml",
+  "stary": "nên đối thủ chơi bằng {{t:board|bàn}}",
+  "nowy": "nên đối thủ chơi bằng bài trên {{t:board|bàn}}",
+  "waga": "NISKIE",
+  "powod": "m0.exam.q9 (m0.yaml:92): „chơi bằng bàn” dosłownie „grasz stołem (meblem)”; chodzi o granie kartami ze stołu (playing the board)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m2.yaml",
+  "stary": "cơ hội của {{t:flush-draw|draw thùng}}",
+  "nowy": "cơ hội của {{t:flush-draw|bài chờ thùng}}",
+  "waga": "ŚR",
+  "powod": "m2.exam.q3 (m2.yaml:40): flush-draw = „bài chờ thùng” (terms-nazwy vi i lekcja m2-l1); egzamin ma „draw thùng”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m2.yaml",
+  "stary": "Bạn có {{t:flush-draw|draw thùng}}, stack sâu",
+  "nowy": "Bạn có {{t:flush-draw|bài chờ thùng}}, stack sâu",
+  "waga": "ŚR",
+  "powod": "m2.exam.q6 (m2.yaml:77): flush-draw = „bài chờ thùng” (terms-nazwy vi i lekcja m2-l1); egzamin ma „draw thùng”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m2.yaml",
+  "stary": "còn bạn có {{t:flush-draw|draw thùng}}",
+  "nowy": "còn bạn có {{t:flush-draw|bài chờ thùng}}",
+  "waga": "ŚR",
+  "powod": "m2.exam.q8 (m2.yaml:95): flush-draw = „bài chờ thùng” (terms-nazwy vi i lekcja m2-l1); egzamin ma „draw thùng”",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "text: \"{{t:big-blind|Mù lớn}}\"",
+  "nowy": "text: \"{{t:big-blind|Big blind}}\"",
+  "waga": "ŚR",
+  "powod": "m3.exam.q1 (m3.yaml:11): poprawna odpowiedź nazwana „Mù lớn”, a pytanie (znacznik bez formy) mówi „big blind”; terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "các mù hành động trước, còn Button",
+  "nowy": "các blind hành động trước, còn Button",
+  "waga": "ŚR",
+  "powod": "m3.exam.q1 (m3.yaml:11): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Ở preflop, các mù hành động sau cùng",
+  "nowy": "Ở preflop, các blind hành động sau cùng",
+  "waga": "ŚR",
+  "powod": "m3.exam.q1 (m3.yaml:13): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "{{t:big-blind|mù lớn}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp",
+  "nowy": "{{t:big-blind|big blind}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp",
+  "waga": "ŚR",
+  "powod": "m3.exam.q2 (m3.yaml:23): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn tiền mù",
+  "nowy": "Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q2 (m3.yaml:23): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Button và các mù",
+  "nowy": "Button và các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q4 (m3.yaml:40): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Chỉ còn lại các mù",
+  "nowy": "Chỉ còn lại các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:49): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Khi chỉ còn các mù",
+  "nowy": "Khi chỉ còn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:50): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "{{t:big-blind|mù lớn}}\", why: \"Limp làm mất",
+  "nowy": "{{t:big-blind|big blind}}\", why: \"Limp làm mất",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:51): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "thường ăn tiền mù",
+  "nowy": "thường ăn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q5 (m3.yaml:51): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "ở {{t:small-blind|mù nhỏ}}. Bạn làm gì",
+  "nowy": "ở {{t:small-blind|small blind}}. Bạn làm gì",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:56): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "đấu với {{t:big-blind|mù lớn}}",
+  "nowy": "đấu với {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:59): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "vì vậy ở {{t:small-blind|mù nhỏ}}",
+  "nowy": "vì vậy ở {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:59): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Ở {{t:small-blind|mù nhỏ}} bạn chơi",
+  "nowy": "Ở {{t:small-blind|small blind}} bạn chơi",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:60): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "{{t:big-blind|mù lớn}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}} (ở",
+  "nowy": "{{t:big-blind|big blind}}\", why: \"Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}} (ở",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "(ở {{t:small-blind|mù nhỏ}} đây là",
+  "nowy": "(ở {{t:small-blind|small blind}} đây là",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "bù cho bằng mức mù",
+  "nowy": "bù cho bằng mức blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Việc bù làm mất {{t:initiative|thế chủ động}} và cơ hội ăn tiền mù",
+  "nowy": "Việc bù làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:61): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "T8o ở {{t:small-blind|mù nhỏ}}",
+  "nowy": "T8o ở {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.q6 (m3.yaml:62): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "trừ {{t:small-blind|mù nhỏ}}",
+  "nowy": "trừ {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m3.exam.n1 (m3.yaml:70): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "để các mù vào ván",
+  "nowy": "để các blind vào ván",
+  "waga": "ŚR",
+  "powod": "m3.exam.q8 (m3.yaml:88): terms-nazwy vi: big blind / small blind; lekcje m3 mają „big blind”, „small blind”, „các blind”, a egzamin m3 „mù lớn”, „mù nhỏ”, „các mù” (znacznik bez formy w tym samym pytaniu wyświetla nazwę angielską)",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "T9 đồng chất chơi",
+  "nowy": "T9 cùng chất chơi",
+  "waga": "ŚR",
+  "powod": "m3.exam.q7 (m3.yaml:75): suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m3.yaml",
+  "stary": "Tay đồng chất còn",
+  "nowy": "Tay cùng chất còn",
+  "waga": "ŚR",
+  "powod": "m3.exam.q7 (m3.yaml:77): suited = „cùng chất” (terms-nazwy vi; tak też w odpowiedzi m3.l2.q1); „đồng chất” to w terms-nazwy nazwa monotone",
+  "grupa": "vi-L1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "ở mù lớn",
+  "nowy": "ở big blind",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:5: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "trăm equity ở {{t:big-blind|mù lớn}} để {{t:call|theo}}",
+  "nowy": "trăm equity ở {{t:big-blind|big blind}} để {{t:call|theo}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:13: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "ở {{t:big-blind|mù lớn}} để",
+  "nowy": "ở {{t:big-blind|big blind}} để",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:21: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "ở {{t:big-blind|mù lớn}} bạn",
+  "nowy": "ở {{t:big-blind|big blind}} bạn",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:31: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "{{t:big-blind|mù lớn}}.",
+  "nowy": "{{t:big-blind|big blind}}.",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:41: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "thủ {{t:big-blind|mù lớn}}",
+  "nowy": "thủ {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:67: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "Mù lớn",
+  "nowy": "Big blind",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:69: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "vậy {{t:big-blind|mù lớn}}",
+  "nowy": "vậy {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:69: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "{{t:raise|tố}} từ {{t:big-blind|mù lớn}}",
+  "nowy": "{{t:raise|tố}} từ {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:91: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "từ {{t:big-blind|mù lớn}} trong",
+  "nowy": "từ {{t:big-blind|big blind}} trong",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "mù lớn",
+  "nowy": "big blind",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "Button {{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|mù nhỏ}} {{t:fold|bỏ bài}}. Bạn cần",
+  "nowy": "Button {{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|small blind}} {{t:fold|bỏ bài}}. Bạn cần",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:13: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "\"{{t:small-blind|Mù nhỏ}}",
+  "nowy": "\"{{t:small-blind|Small blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:21: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "{{n:pf.open-size}}. {{t:small-blind|Mù nhỏ}}",
+  "nowy": "{{n:pf.open-size}}. {{t:small-blind|Small blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:25: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "{{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|mù nhỏ}} {{t:fold|bỏ bài}}. Bạn",
+  "nowy": "{{t:open|mở}} lên {{n:pf.open-size}}, {{t:small-blind|small blind}} {{t:fold|bỏ bài}}. Bạn",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:41: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "{{n:pf.open-size}}, {{t:small-blind|mù nhỏ}}",
+  "nowy": "{{n:pf.open-size}}, {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:67: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "và {{t:small-blind|mù nhỏ}}",
+  "nowy": "và {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:69: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "## Khi đối đầu {{t:small-blind|mù nhỏ}}",
+  "nowy": "## Khi đối đầu {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:81: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "Mù nhỏ",
+  "nowy": "Small blind",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:83: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "mù nhỏ",
+  "nowy": "small blind",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "mù lớn",
+  "nowy": "big blind",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:86: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "mù nhỏ",
+  "nowy": "small blind",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:112: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "với {{t:big-blind|mù lớn}}",
+  "nowy": "với {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m4:23: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "ở {{t:big-blind|mù lớn}},",
+  "nowy": "ở {{t:big-blind|big blind}},",
+  "waga": "ŚR",
+  "powod": "m4:29: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "Từ {{t:big-blind|mù lớn}},",
+  "nowy": "Từ {{t:big-blind|big blind}},",
+  "waga": "ŚR",
+  "powod": "m4:32: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "(AJo–A9o) ở {{t:big-blind|mù lớn}} bạn",
+  "nowy": "(AJo–A9o) ở {{t:big-blind|big blind}} bạn",
+  "waga": "ŚR",
+  "powod": "m4:33: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "ở {{t:big-blind|mù lớn}} bạn",
+  "nowy": "ở {{t:big-blind|big blind}} bạn",
+  "waga": "ŚR",
+  "powod": "m4:34: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "{{t:big-blind|mù lớn}},",
+  "nowy": "{{t:big-blind|big blind}},",
+  "waga": "ŚR",
+  "powod": "m4:39: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "mù lớn",
+  "nowy": "big blind",
+  "waga": "ŚR",
+  "powod": "m4:49: termin: terms-nazwy.yaml ma „big blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „big blind”, tu „mù lớn”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "bài}}. Bạn ở {{t:small-blind|mù nhỏ}} và muốn 3-bet.",
+  "nowy": "bài}}. Bạn ở {{t:small-blind|small blind}} và muốn 3-bet.",
+  "waga": "ŚR",
+  "powod": "m4:9: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "Từ {{t:small-blind|mù nhỏ}},",
+  "nowy": "Từ {{t:small-blind|small blind}},",
+  "waga": "ŚR",
+  "powod": "m4:13: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "\"Từ {{t:small-blind|mù nhỏ}} trước {{t:cutoff|CO}},",
+  "nowy": "\"Từ {{t:small-blind|small blind}} trước {{t:cutoff|CO}},",
+  "waga": "ŚR",
+  "powod": "m4:14: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "ở {{t:small-blind|mù nhỏ}}.",
+  "nowy": "ở {{t:small-blind|small blind}}.",
+  "waga": "ŚR",
+  "powod": "m4:19: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "từ {{t:small-blind|mù nhỏ}}",
+  "nowy": "từ {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m4:22: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "Từ {{t:small-blind|mù nhỏ}}",
+  "nowy": "Từ {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m4:23: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "{{t:small-blind|mù nhỏ}}.",
+  "nowy": "{{t:small-blind|small blind}}.",
+  "waga": "ŚR",
+  "powod": "m4:44: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "\"{{t:small-blind|Mù nhỏ}}",
+  "nowy": "\"{{t:small-blind|Small blind}}",
+  "waga": "ŚR",
+  "powod": "m4:49: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "Trước {{t:small-blind|mù nhỏ}}, sau",
+  "nowy": "Trước {{t:small-blind|small blind}}, sau",
+  "waga": "ŚR",
+  "powod": "m4:52: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "{{t:small-blind|mù nhỏ}},",
+  "nowy": "{{t:small-blind|small blind}},",
+  "waga": "ŚR",
+  "powod": "m4:53: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "Mù nhỏ",
+  "nowy": "Small blind",
+  "waga": "ŚR",
+  "powod": "m4:54: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "mù nhỏ",
+  "nowy": "small blind",
+  "waga": "ŚR",
+  "powod": "m4:98: termin: terms-nazwy.yaml ma „small blind”; w tym samym zakresie (m4-l1, m4-l4, znaczniki bez formy) jest „small blind”, tu „mù nhỏ”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "phần {{t:range|dải bài}}",
+  "nowy": "phần {{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:13: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "Khoảng {{n:mdf.vs-3bet-ip-size}} {{t:range|dải bài}} {{t:open|mở",
+  "nowy": "Khoảng {{n:mdf.vs-3bet-ip-size}} {{t:range|range}} {{t:open|mở",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:16: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "nửa {{t:range|dải bài}}\",",
+  "nowy": "nửa {{t:range|range}}\",",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:17: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "{{t:range|dải bài}}.",
+  "nowy": "{{t:range|range}}.",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:17: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "thua {{t:range|dải bài}}",
+  "nowy": "thua {{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:18: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "vào {{t:range|dải bài}}",
+  "nowy": "vào {{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:67: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "của {{t:range|dải bài}}",
+  "nowy": "của {{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:76: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "dải bài",
+  "nowy": "range",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:98: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "{{t:range|dải bài}},",
+  "nowy": "{{t:range|range}},",
+  "waga": "ŚR",
+  "powod": "m4:22: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "của {{t:range|dải bài}}",
+  "nowy": "của {{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m4:24: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "thua {{t:range|dải bài}}",
+  "nowy": "thua {{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m4:63: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "dải bài",
+  "nowy": "range",
+  "waga": "ŚR",
+  "powod": "m4:82: termin: terms-nazwy.yaml ma „range”; m4-l1, m4-l2, m4-l4 mają „range”, tu „dải bài”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l1-3bet.md",
+  "stary": "ATs, {{t:connectors|bài liền}}",
+  "nowy": "ATs, {{t:connectors|connector}}",
+  "waga": "ŚR",
+  "powod": "m4-l1-3bet:97: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l1-3bet.md",
+  "stary": "A4s, và {{t:connectors|bài liền}} đồng",
+  "nowy": "A4s, và {{t:connectors|connector}} đồng",
+  "waga": "ŚR",
+  "powod": "m4-l1-3bet:99: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l1-3bet.md",
+  "stary": "bài liền",
+  "nowy": "connector",
+  "waga": "ŚR",
+  "powod": "m4-l1-3bet:99: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "chất, {{t:connectors|bài liên tiếp}}",
+  "nowy": "chất, {{t:connectors|connector}}",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:73: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "A4s, và {{t:connectors|bài liên tiếp}} đồng",
+  "nowy": "A4s, và {{t:connectors|connector}} đồng",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "bài liên tiếp",
+  "nowy": "connector",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:92: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "tay {{t:connectors|bài liên tiếp}}",
+  "nowy": "tay {{t:connectors|connector}}",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:46: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "phần {{t:connectors|bài liên tiếp}}",
+  "nowy": "phần {{t:connectors|connector}}",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:104: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "bài liên tiếp",
+  "nowy": "connector",
+  "waga": "ŚR",
+  "powod": "m4-l3-wobec-3betu:108: termin: terms-nazwy.yaml ma „connector” (tak w m4-l4); w m4-l1 „bài liền”, w m4-l2/l3 „bài liên tiếp” — trzy nazwy jednego pojęcia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l1-3bet.md",
+  "stary": "{{t:pocket-pair|đôi tẩy}}",
+  "nowy": "{{t:pocket-pair|pocket pair}}",
+  "waga": "ŚR",
+  "powod": "m4-l1-3bet:48: termin: terms-nazwy.yaml ma „pocket pair”; „đôi tẩy” to forma jednorazowa (w korpusie także „đôi túi”)",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l2-obrona-bb.md",
+  "stary": "Bạn chỉ cần một nửa nếu trong {{t:pot|pot}} chỉ có {{t:bet|cược}} của đối thủ",
+  "nowy": "Chỉ khi trong {{t:pot|pot}} chỉ có {{t:bet|cược}} của đối thủ thì bạn mới cần đến một nửa",
+  "waga": "ŚR",
+  "powod": "m4-l2-obrona-bb:16: dwuznaczność: pl „Połowy potrzebowałbyś tylko wtedy, gdyby…”; vi czyta się jak „wystarczy ci zaledwie połowa, jeśli…” (połowa jako mało), co odwraca wymowę wyjaśnienia",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l1-3bet.md",
+  "stary": "{{t:call}} rẻ {{t:in-position}}",
+  "nowy": "{{t:call}} rẻ khi {{t:in-position}}",
+  "waga": "NISKIE",
+  "powod": "m4-l1-3bet:26: po rozwinięciu znaczników „theo rẻ có vị trí” — brak łącznika; w m4-l2:44 jest „theo rẻ khi có vị trí”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m4.yaml",
+  "stary": "{{t:call}} rẻ {{t:in-position}}",
+  "nowy": "{{t:call}} rẻ khi {{t:in-position}}",
+  "waga": "NISKIE",
+  "powod": "m4:12: po rozwinięciu znaczników „theo rẻ có vị trí” — brak łącznika „khi”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "trong phần lớn các trường hợp",
+  "nowy": "trong tuyệt đại đa số trường hợp",
+  "waga": "NISKIE",
+  "powod": "m4-l3-wobec-3betu:66: pl „w zdecydowanej większości przypadków”; vi osłabia do „w większości”",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l3-wobec-3betu.md",
+  "stary": "từ nhiều nguồn",
+  "nowy": "từ một số nguồn",
+  "waga": "NISKIE",
+  "powod": "m4-l3-wobec-3betu:93: pl „z kilku źródeł”; vi „z wielu źródeł” zawyża",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l1-3bet.md",
+  "stary": "từ nhiều nguồn độc lập",
+  "nowy": "từ một số nguồn độc lập",
+  "waga": "NISKIE",
+  "powod": "m4-l1-3bet:104: pl „z kilku niezależnych źródeł”; vi „z wielu” zawyża",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m4-l4-limperzy.md",
+  "stary": "kinh nghiệm thực hành (heuristic)",
+  "nowy": "quy tắc kinh nghiệm (heuristic)",
+  "waga": "NISKIE",
+  "powod": "m4-l4-limperzy:64: to samo zdanie pl („Reguły są oznaczone jako heurystyki”) w m4-l3:93 oddane „quy tắc kinh nghiệm (heuristic)”; ujednolicenie",
+  "grupa": "vi-L2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "Cược bằng cả pot rủi ro",
+  "nowy": "Cược bằng cả {{t:pot|pot}} rủi ro",
+  "waga": "WYS",
+  "powod": "m5.exam.q10 opcja 3 why: zgubiony znacznik — źródło ma „Bet wielkości {{t:pot|puli}}”, przekład ma gołe „pot”; poprawka przywraca znacznik t:pot",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "{{t:small-blind|mù nhỏ}}",
+  "nowy": "{{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m5.exam.q1 prompt: niespójny termin — nazwa w terms-nazwy.yaml to „small blind”, a obok {{t:big-blind}} daje „big blind”",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "{{t:big-blind|Mù lớn}} thường",
+  "nowy": "{{t:big-blind|Big blind}} thường",
+  "waga": "ŚR",
+  "powod": "m5.exam.q1 opcja 1 why: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "{{t:big-blind|Mù lớn}}, vì họ",
+  "nowy": "{{t:big-blind|Big blind}}, vì họ",
+  "waga": "ŚR",
+  "powod": "m5.exam.q1 opcja 2 text: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "của {{t:big-blind|mù lớn}}",
+  "nowy": "của {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m5.exam.q2 opcja 1 why: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "sau {{t:big-blind|mù lớn}}",
+  "nowy": "sau {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m5.exam.q6 opcja 3 why: niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "hai vị trí mù {{t:fold|bỏ bài}}",
+  "nowy": "hai blind {{t:fold|bỏ bài}}",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q6 opcja 1 text: „blindy” w m5-l4 (te same sytuacje) to „hai blind”; „vị trí mù” to trzeci wariant nazwy blindów w module",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": "Các tay {{t:bluff|tháu cáy}} không có",
+  "nowy": "Các tay {{t:bluff|bluff}} không có",
+  "waga": "ŚR",
+  "powod": "m5.exam.q8 opcja 1 text: niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna (w why tej samej opcji stoi {{t:bluff}})",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m5.yaml",
+  "stary": ". {{t:big-blind}} phải {{t:fold|bỏ bài}}",
+  "nowy": ". {{t:big-blind|Big blind}} phải {{t:fold|bỏ bài}}",
+  "waga": "NISKIE",
+  "powod": "m5.exam.q5 prompt: znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:big-blind|mù lớn}}, người ở đây",
+  "nowy": "{{t:big-blind|big blind}}, người ở đây",
+  "waga": "ŚR",
+  "powod": "m5-l3:38 (c-btn, przypadek 3, why.check): niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+  "stary": "{{t:big-blind|Mù lớn}} {{t:check|xem bài}}",
+  "nowy": "{{t:big-blind|Big blind}} {{t:check|xem bài}}",
+  "waga": "ŚR",
+  "powod": "m5-l4:53 (q-multi-value prompt): niespójny termin: w tym samym module (i w tych samych pytaniach) {{t:big-blind}} bez formy daje „big blind” (nazwa z terms-nazwy.yaml); forma „mù lớn” wprowadza drugą nazwę tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+  "stary": "{{t:bluff|cú tháu cáy}} phải vượt qua cả hai",
+  "nowy": "{{t:bluff|cú bluff}} phải vượt qua cả hai",
+  "waga": "ŚR",
+  "powod": "m5-l4:47 (q-multi opcja 2 why): niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+  "stary": "Một {{t:bluff|cú tháu cáy}} lớn",
+  "nowy": "Một {{t:bluff|cú bluff}} lớn",
+  "waga": "ŚR",
+  "powod": "m5-l4:48 (q-multi opcja 3 why): niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+  "stary": "{{t:bluff|Cú tháu cáy}} phải vượt qua tất cả",
+  "nowy": "{{t:bluff|Cú bluff}} phải vượt qua tất cả",
+  "waga": "ŚR",
+  "powod": "m5-l4:103: niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+  "stary": "từ bỏ các {{t:bluff|cú tháu cáy}}",
+  "nowy": "từ bỏ các {{t:bluff|cú bluff}}",
+  "waga": "ŚR",
+  "powod": "m5-l4:103: niespójny termin: {{t:bluff}} bez formy (m5-l3:95, egzamin q4/q8) daje „bluff” (nazwa z terms-nazwy.yaml); „tháu cáy” to druga nazwa, w terms-nazwy odnotowana jako potoczna/wulgarna",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l4-bez-pozycji.md",
+  "stary": "{{t:connectors|bài liền}}",
+  "nowy": "{{t:connectors|bài liên tiếp}}",
+  "waga": "NISKIE",
+  "powod": "m5-l4:16 (q-oop-plan opcja 1 why): niespójny termin — m5-l2 i egzamin m5 mają „bài liên tiếp” dla konektorów",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "{{t:draw|draw}} nào",
+  "nowy": "{{t:draw|bài chờ}} nào",
+  "waga": "ŚR",
+  "powod": "m5-l1:47 (q-dry opcja 1 text): niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "cho biết về {{t:draw|draw}}, chứ",
+  "nowy": "cho biết về {{t:draw|bài chờ}}, chứ",
+  "waga": "ŚR",
+  "powod": "m5-l1:48 (q-dry opcja 2 why): niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "chưa ai có {{t:flush-draw|draw thùng}}",
+  "nowy": "chưa ai có {{t:flush-draw|bài chờ thùng}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:66: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia (w tym samym akapicie {{t:flush-draw}} = „bài chờ thùng”)",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "ví dụ JT có draw đó",
+  "nowy": "ví dụ JT có bài chờ đó",
+  "waga": "ŚR",
+  "powod": "m5-l1:74: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "dù chỉ {{t:straight-draw|draw sảnh}}",
+  "nowy": "dù chỉ {{t:straight-draw|bài chờ sảnh}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:76: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "cho {{t:draw|draw}} và các tay bài mạnh",
+  "nowy": "cho {{t:draw|bài chờ}} và các tay bài mạnh",
+  "waga": "ŚR",
+  "powod": "m5-l1:80: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "{{t:draw|draw}} hở hai đầu",
+  "nowy": "{{t:draw|bài chờ}} hở hai đầu",
+  "waga": "ŚR",
+  "powod": "m5-l1:101: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "với một {{t:flush-draw|draw thùng}}",
+  "nowy": "với một {{t:flush-draw|bài chờ thùng}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:103: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "cũng không có {{t:straight-draw|draw sảnh}}",
+  "nowy": "cũng không có {{t:straight-draw|bài chờ sảnh}}",
+  "waga": "ŚR",
+  "powod": "m5-l1:103: niespójny termin: nazwa w terms-nazwy.yaml to „bài chờ” (flush-draw „bài chờ thùng”, straight-draw „bài chờ sảnh”), znaczniki bez formy w tej samej lekcji i pozostałe pliki m5 dają „bài chờ”; forma „draw” to druga nazwa tego samego pojęcia",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "{{t:straight}} đã hoàn thành có trọng số",
+  "nowy": "{{t:straight|Sảnh}} đã hoàn thành có trọng số",
+  "waga": "NISKIE",
+  "powod": "m5-l1:101: znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l1-tekstury.md",
+  "stary": "có nên bet hay không",
+  "nowy": "có nên cược hay không",
+  "waga": "NISKIE",
+  "powod": "m5-l1:58: jedyne w module „bet” jako czasownik; wszędzie indziej „cược” (nazwa terminu bet = „cược”)",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l2-przewagi.md",
+  "stary": "đồng chất và các tay có lá 6 hoặc lá 7. Bạn",
+  "nowy": "cùng chất và các tay có lá 6 hoặc lá 7. Bạn",
+  "waga": "ŚR",
+  "powod": "m5-l2:26 (q-765 opcja 1 why): „konektory w kolorze” = suited; terms-nazwy: suited = „cùng chất”, a „đồng chất” to nazwa monotone (flop jednokolorowy) używana w m5-l1",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l2-przewagi.md",
+  "stary": "đồng chất và các tay có lá 6 hoặc lá 7, nên",
+  "nowy": "cùng chất và các tay có lá 6 hoặc lá 7, nên",
+  "waga": "ŚR",
+  "powod": "m5-l2:88: „konektory w kolorze” = suited; terms-nazwy: suited = „cùng chất”, a „đồng chất” to nazwa monotone używana w m5-l1",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l2-przewagi.md",
+  "stary": "lệnh {{t:open}} của bạn",
+  "nowy": "lượt {{t:open}} của bạn",
+  "waga": "NISKIE",
+  "powod": "m5-l2:33 (q-capped prompt): „lệnh mở cược” („rozkaz/zlecenie”) brzmi nienaturalnie dla „twoje otwarcie”; „lượt mở cược” jest formą używaną w korpusie",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l2-przewagi.md",
+  "stary": ". {{t:range}} của bạn với tư cách",
+  "nowy": ". {{t:range|Dải bài}} của bạn với tư cách",
+  "waga": "NISKIE",
+  "powod": "m5-l2:73 (q-miss-means opcja 3 why): znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą; „Dải bài” jak w pozostałych formach tej lekcji",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": ". {{t:bet}} nhỏ đơn giản là",
+  "nowy": ". {{t:bet|Cược}} nhỏ đơn giản là",
+  "waga": "NISKIE",
+  "powod": "m5-l3:103 (q-alpha opcja 2 why): znacznik bez formy na początku zdania daje małą literę (nazwa terminu pisana małą); forma z wielką literą",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "được đánh dấu là heuristic",
+  "nowy": "được đánh dấu là quy tắc kinh nghiệm",
+  "waga": "NISKIE",
+  "powod": "m5-l3:133: „heurystyki” — m5-l4:106 oddaje to samo słowo jako „quy tắc kinh nghiệm”; angielskie „heuristic” jest tu niespójne i mniej zrozumiałe",
+  "grupa": "vi-L3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l1-mdf-alpha.md",
+  "stary": "trước những gì đối thủ thực sự {{t:bet|cược}}",
+  "nowy": "trước những tay bài mà đối thủ thực sự dùng để {{t:bet|cược}}",
+  "waga": "ŚR",
+  "powod": "m6-l1:72 (q-mdf-vs-equity, why): „wobec tego, czym rywal naprawdę stawia” to ręce, którymi stawia; „những gì đối thủ thực sự cược” czyta się jak kwota zakładu.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l1-mdf-alpha.md",
+  "stary": "không phải cơ hội của một tay bài",
+  "nowy": "không phải cơ hội thắng của một tay bài",
+  "waga": "NISKIE",
+  "powod": "m6-l1:74: „szansa jednej ręki” = szansa wygranej; samo „cơ hội” jest niepełne (w pliku wszędzie „cơ hội thắng”).",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l1-mdf-alpha.md",
+  "stary": "trên river quá hiếm, thì",
+  "nowy": "trên river quá ít, thì",
+  "waga": "NISKIE",
+  "powod": "m6-l1:135 (note): „blefuje … za rzadko”; „quá hiếm” na końcu frazy czasownikowej jest niezręczne, naturalnie „quá ít”.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l2-sprawdzenie.md",
+  "stary": "tần suất {{t:bluff|bluff}} của Button cần thành công",
+  "nowy": "{{t:bluff|bluff}} của Button phải thành công thường xuyên đến mức nào",
+  "waga": "ŚR",
+  "powod": "m6-l2:17 (q-price-third, why): „jak często blef Buttona musi zadziałać”; obecne zdanie czyta się „częstotliwość blefu Buttona musi się udać” (kalka, dwuznaczne). Brzmienie jak w m6-l1:30.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l2-sprawdzenie.md",
+  "stary": "vì cược lớn thường là {{t:bluff|bluff}} hơn",
+  "nowy": "vì cược lớn là {{t:bluff|bluff}} thường xuyên hơn",
+  "waga": "NISKIE",
+  "powod": "m6-l2:36 (q-size-narrow, opcja 3): „duży bet to częściej blef”; „thường là bluff hơn” jest niegramatyczne.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l2-sprawdzenie.md",
+  "stary": "{{t:texture|cấu trúc}}",
+  "nowy": "{{t:texture|kết cấu}}",
+  "waga": "ŚR",
+  "powod": "m6-l2:98: termin texture w terms-nazwy.yaml to „kết cấu”; „cấu trúc” to forma odosobniona (1× w korpusie).",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l2-sprawdzenie.md",
+  "stary": "- thường cả át làm lá cao nhất.",
+  "nowy": "- thường cả những tay có át là lá cao nhất.",
+  "waga": "NISKIE",
+  "powod": "m6-l2:125: „zwykle także asem jako najwyższą kartą” (ręka z asem bez pary); „cả át làm lá cao nhất” jest niejasne w wyliczeniu rąk.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:pair|đôi}} và {{t:draw|draw}} phải trả tiền",
+  "nowy": "{{t:pair|đôi}} và {{t:draw|bài chờ}} phải trả tiền",
+  "waga": "ŚR",
+  "powod": "m6-l3:16: draw = „bài chờ” (terms-nazwy.yaml; tak w m6-l1, m6-l2 i w tym pliku przy {{t:draw}} bez formy); „draw” obok „bài chờ” w jednej lekcji to dwie nazwy jednego pojęcia.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "và {{t:draw|draw}} yếu (gutshot)",
+  "nowy": "và {{t:draw|bài chờ}} yếu (gutshot)",
+  "waga": "ŚR",
+  "powod": "m6-l3:26: draw = „bài chờ” (terms-nazwy.yaml), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "còn draw {{t:flush|thùng}} và {{t:oesd}} sẽ",
+  "nowy": "còn bài chờ {{t:flush|thùng}} và {{t:oesd}} sẽ",
+  "waga": "ŚR",
+  "powod": "m6-l3:26: draw = „bài chờ” (terms-nazwy.yaml: flush-draw „bài chờ thùng”), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:flush-draw|draw thùng}} hay draw {{t:straight|sảnh}}",
+  "nowy": "{{t:flush-draw|bài chờ thùng}} hay bài chờ {{t:straight|sảnh}}",
+  "waga": "ŚR",
+  "powod": "m6-l3:27: flush-draw = „bài chờ thùng”, straight-draw = „bài chờ sảnh” (terms-nazwy.yaml), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:draw|Draw}} đến",
+  "nowy": "{{t:draw|Bài chờ}} đến",
+  "waga": "ŚR",
+  "powod": "m6-l3:62: draw = „bài chờ” (terms-nazwy.yaml), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "các {{t:draw|draw}} mạnh theo cả hai cách",
+  "nowy": "các {{t:draw|bài chờ}} mạnh theo cả hai cách",
+  "waga": "ŚR",
+  "powod": "m6-l3:63: draw = „bài chờ” (terms-nazwy.yaml), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "một phần {{t:draw|draw}} mạnh để",
+  "nowy": "một phần {{t:draw|bài chờ}} mạnh để",
+  "waga": "ŚR",
+  "powod": "m6-l3:73: draw = „bài chờ” (terms-nazwy.yaml), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "bài mạnh hơn và {{t:draw|draw}}; check-raise",
+  "nowy": "bài mạnh hơn và {{t:draw|bài chờ}}; check-raise",
+  "waga": "ŚR",
+  "powod": "m6-l3:83: draw = „bài chờ” (terms-nazwy.yaml), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "{{t:flush-draw|draw thùng}}; bạn chỉ có {{t:straight-draw|draw sảnh}} backdoor",
+  "nowy": "{{t:flush-draw|bài chờ thùng}}; bạn chỉ có {{t:straight-draw|bài chờ sảnh}} backdoor",
+  "waga": "ŚR",
+  "powod": "m6-l3:92: flush-draw = „bài chờ thùng”, straight-draw = „bài chờ sảnh” (terms-nazwy.yaml; tak w bliźniaczym zdaniu m6-l2:84).",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "với các {{t:draw|draw}} (draw {{t:flush|thùng}}, {{t:oesd}}) cũng thắng",
+  "nowy": "với các {{t:draw|bài chờ}} (bài chờ {{t:flush|thùng}}, {{t:oesd}}) cũng thắng",
+  "waga": "ŚR",
+  "powod": "m6-l3:93: draw = „bài chờ”; w tym samym polu następne zdanie ma {{t:draw}} bez formy = „bài chờ”, więc dwie nazwy obok siebie.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "với các {{t:draw|draw}} mạnh, và gutshot",
+  "nowy": "với các {{t:draw|bài chờ}} mạnh, và gutshot",
+  "waga": "ŚR",
+  "powod": "m6-l3:113: draw = „bài chờ” (terms-nazwy.yaml), spójność w pliku (opcja niżej, linia 114, ma {{t:draw}} = „bài chờ”).",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "(draw {{t:flush|thùng}}, {{t:oesd}}) thắng theo hai cách",
+  "nowy": "(bài chờ {{t:flush|thùng}}, {{t:oesd}}) thắng theo hai cách",
+  "waga": "ŚR",
+  "powod": "m6-l3:123: draw = „bài chờ”; w tym samym zdaniu {{t:draw}} bez formy = „bài chờ”, więc „bài chờ (draw thùng…)”.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "cho các {{t:draw|draw}} mạnh nhất",
+  "nowy": "cho các {{t:draw|bài chờ}} mạnh nhất",
+  "waga": "ŚR",
+  "powod": "m6-l3:138 (note): draw = „bài chờ” (terms-nazwy.yaml), spójność w pliku.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m6-l3-check-raise.md",
+  "stary": "ví dụ {{t:top-pair}} với kicker yếu",
+  "nowy": "ví dụ {{t:top-pair|đôi cao nhất}} với kicker yếu",
+  "waga": "NISKIE",
+  "powod": "m6-l3:125: bez formy wyświetla się „top pair”, a dwa zdania dalej i w ćwiczeniach (82, 84) jest „đôi cao nhất”; jedna nazwa w pliku. Klucz bez zmian.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m6.yaml",
+  "stary": "thường có các tay mạnh nhất hơn",
+  "nowy": "có các tay mạnh nhất thường xuyên hơn",
+  "waga": "NISKIE",
+  "powod": "m6.exam.q10 opcja 3 (linia 96): „najsilniejsze ręce częściej ma Button”; szyk „thường có … hơn” jest niezręczny i dwuznaczny.",
+  "grupa": "vi-L4"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+  "stary": "trong {{t:range|phạm vi bài}} {{t:open|mở pot}} của bạn (AK",
+  "nowy": "trong {{t:range|dải bài}} {{t:open|mở pot}} của bạn (AK",
+  "waga": "ŚR",
+  "powod": "m7-l1:16: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+  "stary": "Nó có lợi vì hợp với {{t:range|phạm vi bài}}",
+  "nowy": "Nó có lợi vì hợp với {{t:range|dải bài}}",
+  "waga": "ŚR",
+  "powod": "m7-l1:28: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+  "stary": "Lá này hợp với {{t:range|phạm vi bài}} của đối thủ",
+  "nowy": "Lá này hợp với {{t:range|dải bài}} của đối thủ",
+  "waga": "ŚR",
+  "powod": "m7-l1:37: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+  "stary": "lá A hợp với {{t:range|phạm vi bài}}",
+  "nowy": "lá A hợp với {{t:range|dải bài}}",
+  "waga": "ŚR",
+  "powod": "m7-l1:46: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l1-druga-beczka.md",
+  "stary": "{{t:range|Phạm vi bài}} của đối thủ mạnh lên",
+  "nowy": "{{t:range|Dải bài}} của đối thủ mạnh lên",
+  "waga": "ŚR",
+  "powod": "m7-l1:111: termin „range”: w m7-l1 forma „phạm vi bài”, w m7-l2 i m7-l4 „dải bài” (forma dominująca w korpusie); jedna nazwa na jedno pojęcie",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l2-polaryzacja.md",
+  "stary": "đối thủ trả quá đắt nhiều",
+  "nowy": "đối thủ trả giá quá đắt rõ rệt",
+  "waga": "NISKIE",
+  "powod": "m7-l2:90: niegramatyczne „trả quá đắt nhiều” (pl: „płaci dużo za drogo”); forma jak w m7-l2:135",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "cơ hội ra {{t:flush}} trước river",
+  "nowy": "cơ hội ra {{t:flush}} cho đến river",
+  "waga": "ŚR",
+  "powod": "m7-l3:13: pl „do rivera” (łącznie z riverem); „trước river” = „przed riverem”, co sugeruje szansę bez karty river",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "mọi lá đầm và mọi lá bảy, tức {{n:outs.oesd}} lá. Đầm cơ và bảy cơ",
+  "nowy": "mọi lá Q và mọi lá 7, tức {{n:outs.oesd}} lá. Q cơ và 7 cơ",
+  "waga": "NISKIE",
+  "powod": "m7-l3:32: nazwy kart: wszędzie indziej w przejrzanych plikach „Q”, „J”, „lá 7” (np. m7-l3:85 „Q hoặc J cơ”); tu potoczne „đầm”, „bảy”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "phía sau cùng một tay bài sẽ trả tiền",
+  "nowy": "phía sau và có một tay bài sẽ trả tiền",
+  "waga": "ŚR",
+  "powod": "m7-l3:67: dwuznaczne „cùng một tay bài” (= „ta sama ręka”); pl: „ma za sobą … i rękę, która zapłaci”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "(A cơ nằm trên {{t:board|bàn}}",
+  "nowy": "(A cơ nằm trên {{t:board|bài chung}}",
+  "waga": "ŚR",
+  "powod": "m7-l3:66: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "lá cơ thứ ba trên {{t:board|bàn}}. Ngoài ra",
+  "nowy": "lá cơ thứ ba trên {{t:board|bài chung}}. Ngoài ra",
+  "waga": "ŚR",
+  "powod": "m7-l3:86: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "trên {{t:board|bàn}} có A và K",
+  "nowy": "trên {{t:board|bài chung}} có A và K",
+  "waga": "ŚR",
+  "powod": "m7-l3:87: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "lá cơ thứ ba trên {{t:board|bàn}}).",
+  "nowy": "lá cơ thứ ba trên {{t:board|bài chung}}).",
+  "waga": "ŚR",
+  "powod": "m7-l3:141: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "có thể xuất hiện trên {{t:board|bàn}}",
+  "nowy": "có thể xuất hiện trên {{t:board|bài chung}}",
+  "waga": "ŚR",
+  "powod": "m7-l3:143: termin „board”: w m7-l3 forma „bàn” (znaczy też „stół do gry”), w m7-l1, m7-l2, m7-l4 i egzaminie „bài chung”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l3-implied-odds.md",
+  "stary": "“Kế hoạch ván bài”",
+  "nowy": "“Lên kế hoạch cho ván bài”",
+  "waga": "ŚR",
+  "powod": "m7-l3:134: tytuł modułu M9 w content/vi/modules.yaml to „Lên kế hoạch cho ván bài”; odwołanie ma podawać tytuł, który użytkownik widzi",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+  "stary": "{{t:texture|Kết cấu}} có ý nghĩa",
+  "nowy": "{{t:texture|Kết cấu}} có vai trò quan trọng",
+  "waga": "NISKIE",
+  "powod": "m7-l4:38: pl „ma znaczenie” = jest ważna; „có ý nghĩa” = „ma sens/znaczenie semantyczne”, niezręczne",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+  "stary": "Button thường có lá K hoặc tay tốt hơn sẽ không",
+  "nowy": "Button có nhiều khả năng hơn đang cầm lá K hoặc tay tốt hơn, những tay sẽ không",
+  "waga": "ŚR",
+  "powod": "m7-l4:78: pl „częściej ma króla” (porównanie z c-betem); „thường có” = „zwykle ma”, mocniejsze niż źródło",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+  "stary": "và sám cô sẽ trả tiền",
+  "nowy": "và set sẽ trả tiền",
+  "waga": "ŚR",
+  "powod": "m7-l4:98: pl „sety”; terms-nazwy.yaml: set = „set” („sám cô” odrzucone nawet dla three-of-a-kind = „bộ ba”); w pozostałych plikach „set”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+  "stary": "tay không có out thường xuyên hơn trên flop",
+  "nowy": "tay không có out thường xuyên hơn so với trên flop",
+  "waga": "NISKIE",
+  "powod": "m7-l4:106: pl „częściej niż na flopie”; bez „so với” zdanie da się odczytać „częściej na flopie”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m7-l4-probe-obrona.md",
+  "stary": "hẹp hơn và mạnh hơn trên flop",
+  "nowy": "hẹp hơn và mạnh hơn so với trên flop",
+  "waga": "NISKIE",
+  "powod": "m7-l4:136: pl „niż na flopie”; bez „so với” dwuznaczne (por. m7-l4:118, gdzie jest „so với trên flop”)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "mà {{t:big-blind}} đã {{t:call|theo}} flop đều",
+  "nowy": "mà {{t:big-blind}} đã dùng để {{t:call|theo}} flop đều",
+  "waga": "NISKIE",
+  "powod": "exams/m7:11: q1: pl „para, którą BB sprawdził flop” (narzędnik); w vi brak „dùng để”, zdanie kuleje",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "các tay có 10 trở lên",
+  "nowy": "các tay có lá 10 và các tay mạnh hơn",
+  "waga": "ŚR",
+  "powod": "exams/m7:30: q3: pl „zapłaci dziesiątkami i lepszymi (rękami)”; „có 10 trở lên” można odczytać jako „z kartą 10 lub wyższą”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "Sám cô và {{t:two-pair}}",
+  "nowy": "Set và {{t:two-pair}}",
+  "waga": "ŚR",
+  "powod": "exams/m7:47: q5: pl „Sety”; terms-nazwy.yaml: set = „set”; lekcje m7-l2 używają „set”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "{{t:flush-draw|Draw thùng}}",
+  "nowy": "{{t:flush-draw|Bài chờ thùng}}",
+  "waga": "NISKIE",
+  "powod": "exams/m7:48: q5: nazwa terminu flush-draw w terms-nazwy.yaml i w lekcjach M7 to „bài chờ thùng”",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "với cú bet thứ hai",
+  "nowy": "với cú cược thứ hai",
+  "waga": "ŚR",
+  "powod": "exams/m7:30: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "\"Bet để lấy",
+  "nowy": "\"Cược để lấy",
+  "waga": "ŚR",
+  "powod": "exams/m7:31: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "Bet bằng tay trung bình",
+  "nowy": "Cược bằng tay trung bình",
+  "waga": "ŚR",
+  "powod": "exams/m7:31: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "\"Bet lớn để bảo vệ",
+  "nowy": "\"Cược lớn để bảo vệ",
+  "waga": "ŚR",
+  "powod": "exams/m7:32: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "Bet lớn với {{t:pair|đôi}}",
+  "nowy": "Cược lớn với {{t:pair|đôi}}",
+  "waga": "ŚR",
+  "powod": "exams/m7:32: q3: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "Ngưỡng là bet ÷ ({{t:pot}} + bet)",
+  "nowy": "Ngưỡng là cược ÷ ({{t:pot}} + cược)",
+  "waga": "ŚR",
+  "powod": "exams/m7:39: q4: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "bạn bet 3/4",
+  "nowy": "bạn cược 3/4",
+  "waga": "ŚR",
+  "powod": "exams/m7:44: q5: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "nên bet với kích thước lớn",
+  "nowy": "nên cược với kích thước lớn",
+  "waga": "ŚR",
+  "powod": "exams/m7:47: q5: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "nên bet cùng kích thước lớn",
+  "nowy": "nên cược cùng kích thước lớn",
+  "waga": "ŚR",
+  "powod": "exams/m7:48: q5: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "\"Bet {{n:exam.m7.bet.three-quarters}}\"",
+  "nowy": "\"Cược {{n:exam.m7.bet.three-quarters}}\"",
+  "waga": "ŚR",
+  "powod": "exams/m7:56: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "với cú bet 3/4",
+  "nowy": "với cú cược 3/4",
+  "waga": "ŚR",
+  "powod": "exams/m7:56: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "\"Bet {{n:exam.m7.bet.quarter}}\"",
+  "nowy": "\"Cược {{n:exam.m7.bet.quarter}}\"",
+  "waga": "ŚR",
+  "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "với cú bet 1/4",
+  "nowy": "với cú cược 1/4",
+  "waga": "ŚR",
+  "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "Bet nhỏ cho đối thủ",
+  "nowy": "Cược nhỏ cho đối thủ",
+  "waga": "ŚR",
+  "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "Hãy bet lớn",
+  "nowy": "Hãy cược lớn",
+  "waga": "ŚR",
+  "powod": "exams/m7:57: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "Với {{t:two-pair}}, bạn bet",
+  "nowy": "Với {{t:two-pair}}, bạn cược",
+  "waga": "ŚR",
+  "powod": "exams/m7:58: q6: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "\"Bet (probe bet)\"",
+  "nowy": "\"Cược (probe bet)\"",
+  "waga": "ŚR",
+  "powod": "exams/m7:83: q9: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "bạn tự bet với",
+  "nowy": "bạn tự cược với",
+  "waga": "ŚR",
+  "powod": "exams/m7:84: q9: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m7.yaml",
+  "stary": "các cú bet của Button",
+  "nowy": "các cú cược của Button",
+  "waga": "ŚR",
+  "powod": "exams/m7:93: q10: w egzaminie „bet” zostawione po angielsku jako zwykłe słowo; terms-nazwy.yaml: bet = „cược”, lekcje M7 konsekwentnie „cược” (nie dotyczy nazw c-bet, probe bet)",
+  "grupa": "vi-L5"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+  "stary": "thua {{t:value|giá trị}} của bạn và thắng",
+  "nowy": "thua giá trị của bạn và thắng",
+  "waga": "ŚR",
+  "powod": "m8-l2:65 (q-same-as-equity, why): nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+  "stary": "số mất cho {{t:value|giá trị}}",
+  "nowy": "số mất cho giá trị",
+  "waga": "ŚR",
+  "powod": "m8-l2:74 (q-too-many, why): nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+  "stary": "trả tiền cho {{t:value|giá trị}} của bạn",
+  "nowy": "trả tiền cho giá trị của bạn",
+  "waga": "ŚR",
+  "powod": "m8-l2:84 (q-too-few, why): nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l2-ile-blefow.md",
+  "stary": "thua {{t:value|giá trị}} của bạn nhưng thắng",
+  "nowy": "thua giá trị của bạn nhưng thắng",
+  "waga": "ŚR",
+  "powod": "m8-l2:109: nadmiarowy znacznik {{t:value|…}} — źródło pl ma w tym miejscu zwykłe słowo „wartość” bez znacznika (zestaw kluczy linii różni się od pl); poprawka usuwa znacznik, tekst bez zmian",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l1-value.md",
+  "stary": "vì khi có {{t:position|vị trí}}, đối thủ",
+  "nowy": "vì khi bạn có {{t:position|vị trí}}, đối thủ",
+  "waga": "ŚR",
+  "powod": "m8-l1:89 (q-where-am-i, why): pl „z pozycji rywal pokaże karty” — pozycję ma gracz (ty); w vi bez podmiotu zdanie czyta się, jakby pozycję miał rywal",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l3-blokery.md",
+  "stary": "Một bet nhỏ nhằm chặn một bet lớn của đối thủ",
+  "nowy": "Một cược nhỏ nhằm chặn một cược lớn của đối thủ",
+  "waga": "ŚR",
+  "powod": "m8-l3:17 (q-what-blocker, text): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l3-blokery.md",
+  "stary": "trước bet của bạn",
+  "nowy": "trước cược của bạn",
+  "waga": "ŚR",
+  "powod": "m8-l3:58 (q-missed-flush, why): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l3-blokery.md",
+  "stary": "Bet để {{t:bluff}}, vì có lá A cơ",
+  "nowy": "Cược để {{t:bluff}}, vì có lá A cơ",
+  "waga": "ŚR",
+  "powod": "m8-l3:88 (q-blocker-not-enough, text): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m8-l3-blokery.md",
+  "stary": "Bet {{t:value|lấy giá trị}}",
+  "nowy": "Cược {{t:value|lấy giá trị}}",
+  "waga": "ŚR",
+  "powod": "m8-l3:89 (q-blocker-not-enough, text): angielskie „bet” zostawione w tekście; w pozostałych lekcjach M8 i w terms-nazwy.yaml bet = „cược”",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m8.yaml",
+  "stary": "có nhiều tay yếu hơn tay mạnh hơn",
+  "nowy": "tay yếu hơn nhiều hơn tay mạnh hơn",
+  "waga": "NISKIE",
+  "powod": "m8.exam.q2:20 why: szyk dwuznaczny („nhiều tay yếu hơn tay mạnh hơn”); pl „zostaje więcej gorszych rąk niż lepszych” — ten sam szyk co w q1:11",
+  "grupa": "vi-L6"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l2-zaangazowanie.md",
+  "stary": "thắng một lần trong năm, tức là",
+  "nowy": "thắng một lần trong năm lần, tức là",
+  "waga": "ŚR",
+  "powod": "m9-l2:31 (q-bet-fold, why): pl „raz na pięć”; „một lần trong năm” czyta się też jako „raz w roku” (năm = pięć / rok), trzeba „trong năm lần”.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l2-zaangazowanie.md",
+  "stary": "Để đưa hết cả stack vào trước river",
+  "nowy": "Để đưa hết cả stack vào cho đến river",
+  "waga": "ŚR",
+  "powod": "m9-l2:110: pl „do rivera” = najpóźniej na riverze (zakład na każdej z trzech ulic); „trước river” znaczy „przed riverem”, co przeczy dalszej części zdania.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l2-zaangazowanie.md",
+  "stary": "bài học về kích thước hình học",
+  "nowy": "bài học về kích cỡ cược hình học",
+  "waga": "NISKIE",
+  "powod": "m9-l2:110: odwołanie do lekcji m9-l3, której tytuł w vi brzmi „Kích cỡ cược hình học”; nazwa w odwołaniu ma odpowiadać tytułowi.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l2-zaangazowanie.md",
+  "stary": "kế hoạch cho ba {{t:street|vòng cược}})",
+  "nowy": "kế hoạch cho ba {{t:street|vòng}})",
+  "waga": "NISKIE",
+  "powod": "m9-l2:104: odwołanie do lekcji m9-l4, której tytuł w vi brzmi „Kế hoạch cho ba vòng”; forma terminu jak w tytule.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "Bạn có bài rất mạnh và muốn đưa toàn bộ stack vào trước river",
+  "nowy": "Bạn có bài rất mạnh và muốn đưa toàn bộ stack vào cho đến river",
+  "waga": "ŚR",
+  "powod": "m9-l3:54 (q-3bet-ip, prompt): pl „do rivera” = do rivera włącznie (trzy zakłady: flop, turn, river); „trước river” znaczy „przed riverem”.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "“toàn bộ stack vào trước river”",
+  "nowy": "“toàn bộ stack vào cho đến river”",
+  "waga": "ŚR",
+  "powod": "m9-l3:58 (q-3bet-ip, why): pl „cały stack do rivera”; „trước river” znaczy „przed riverem”.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "Bạn muốn đưa toàn bộ stack vào trước river",
+  "nowy": "Bạn muốn đưa toàn bộ stack vào cho đến river",
+  "waga": "ŚR",
+  "powod": "m9-l3:64 (q-3bet-oop, prompt): pl „do rivera” = do rivera włącznie; „trước river” znaczy „przed riverem”.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l3-rozmiar-geometryczny.md",
+  "stary": "khi bạn muốn đưa toàn bộ stack vào trước river",
+  "nowy": "khi bạn muốn đưa toàn bộ stack vào cho đến river",
+  "waga": "ŚR",
+  "powod": "m9-l3:129 (note): pl „do rivera” = do rivera włącznie; „trước river” znaczy „przed riverem”; w tej samej lekcji (l. 89) jest poprawnie „cho đến river”.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m9.yaml",
+  "stary": "{{t:top-pair|Đôi lớn nhất}}",
+  "nowy": "{{t:top-pair|Đôi cao nhất}}",
+  "waga": "ŚR",
+  "powod": "m9.exam.q2 (l. 19), tekst odpowiedzi: niespójna forma terminu top-pair; w lekcjach m9 i w całym korpusie „đôi cao nhất”, „Đôi lớn nhất” występuje tylko tu.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m9-l1-spr.md",
+  "stary": "trong module về chơi trước flop",
+  "nowy": "trong mô-đun về chơi trước flop",
+  "waga": "NISKIE",
+  "powod": "m9-l1:148 (note): w korpusie vi i w m9-l3, m9-l4 „mô-đun”; „module” występuje tylko tu.",
+  "grupa": "vi-L7"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:check|xem bài}}. Bạn làm gì với",
+  "nowy": "{{t:check|check}}. Bạn làm gì với",
+  "waga": "ŚR",
+  "powod": "m10-l2:39: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:check|Xem bài}} để",
+  "nowy": "{{t:check|Check}} để",
+  "waga": "ŚR",
+  "powod": "m10-l2:42: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "Anh ta {{t:check|xem bài}}. Bạn làm gì?\"",
+  "nowy": "Anh ta {{t:check|check}}. Bạn làm gì?\"",
+  "waga": "ŚR",
+  "powod": "m10-l2:49: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:check|Xem bài}} và",
+  "nowy": "{{t:check|Check}} và",
+  "waga": "ŚR",
+  "powod": "m10-l2:51: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:check|xem bài}}",
+  "nowy": "{{t:check|check}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:87: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:check|Xem bài}}",
+  "nowy": "{{t:check|Check}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:89: niespójny termin: check = „check” (terms-nazwy.yaml; tak w m10-l1, m10-l3, egzaminie i w tym samym pliku przez {{t:check}} bez formy), tu „xem bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|đánh lừa}} ít hơn.\"",
+  "nowy": "{{t:bluff|bluff}} ít hơn.\"",
+  "waga": "ŚR",
+  "powod": "m10-l2:31: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|đánh lừa}} thường xuyên hơn",
+  "nowy": "{{t:bluff|bluff}} thường xuyên hơn",
+  "waga": "ŚR",
+  "powod": "m10-l2:32: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "nói về {{t:bluff|đánh lừa}}",
+  "nowy": "nói về {{t:bluff|bluff}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:32: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|cú đánh lừa}} bị",
+  "nowy": "{{t:bluff|cú bluff}} bị",
+  "waga": "ŚR",
+  "powod": "m10-l2:52: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|đánh lừa}} nhiều",
+  "nowy": "{{t:bluff|bluff}} nhiều",
+  "waga": "ŚR",
+  "powod": "m10-l2:80: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|cú đánh lừa}} của",
+  "nowy": "{{t:bluff|cú bluff}} của",
+  "waga": "ŚR",
+  "powod": "m10-l2:80: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|cú đánh lừa}}.",
+  "nowy": "{{t:bluff|cú bluff}}.",
+  "waga": "ŚR",
+  "powod": "m10-l2:81: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|cú đánh lừa}} {{t:fold|bỏ bài}}",
+  "nowy": "{{t:bluff|cú bluff}} {{t:fold|bỏ bài}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:82: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|đánh lừa}},",
+  "nowy": "{{t:bluff|bluff}},",
+  "waga": "ŚR",
+  "powod": "m10-l2:82: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|đánh lừa}} {{t:maniac|maniac}}",
+  "nowy": "{{t:bluff|bluff}} {{t:maniac|maniac}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:89: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "bằng {{t:bluff|đánh lừa}}",
+  "nowy": "bằng {{t:bluff|bluff}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:89: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|Đánh lừa}}",
+  "nowy": "{{t:bluff|Bluff}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:90: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|đánh lừa}} ít",
+  "nowy": "{{t:bluff|bluff}} ít",
+  "waga": "ŚR",
+  "powod": "m10-l2:133: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|cú đánh lừa}}",
+  "nowy": "{{t:bluff|cú bluff}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:139: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "{{t:bluff|đánh lừa}}",
+  "nowy": "{{t:bluff|bluff}}",
+  "waga": "ŚR",
+  "powod": "m10-l2:139: niespójny termin: bluff = „bluff” (terms-nazwy.yaml; tak w m10-l3, egzaminie i w tym samym pliku przez {{t:bluff}} bez formy), tu „đánh lừa”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "chơi rộng đến đâu",
+  "nowy": "chơi lỏng đến đâu",
+  "waga": "ŚR",
+  "powod": "m10-l2:23: niespójny termin: pl „luźno/luźny” = „lỏng” w m10-l1 i m10-l3; „rộng” oznacza w tym module „szeroko” (theo rộng), więc miesza dwa pojęcia",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "người chơi rộng",
+  "nowy": "người chơi lỏng",
+  "waga": "ŚR",
+  "powod": "m10-l2:112: niespójny termin: pl „luźno/luźny” = „lỏng” w m10-l1 i m10-l3; „rộng” oznacza w tym module „szeroko” (theo rộng), więc miesza dwa pojęcia",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l2-typy-graczy.md",
+  "stary": "vì bạn không có giá trị showdown",
+  "nowy": "vì tôi không có giá trị showdown",
+  "waga": "NISKIE",
+  "powod": "m10-l2:52: odpowiedź w 1. osobie w źródle („nie mam wartości”); „bạn” zmienia osobę wewnątrz odpowiedzi gracza",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{t:range|dải bài}} {{t:linear|tuyến tính}}.\"",
+  "nowy": "{{t:range|range}} {{t:linear|tuyến tính}}.\"",
+  "waga": "ŚR",
+  "powod": "m10-l3:77: niespójny termin: range = „range” (terms-nazwy.yaml; w tym samym pliku {{t:range}} bez formy daje „range”, tak też egzamin), tu „dải bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{t:range|dải bài}} {{t:linear|tuyến tính}}",
+  "nowy": "{{t:range|range}} {{t:linear|tuyến tính}}",
+  "waga": "ŚR",
+  "powod": "m10-l3:122: niespójny termin: range = „range” (terms-nazwy.yaml; w tym samym pliku {{t:range}} bez formy daje „range”, tak też egzamin), tu „dải bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{t:range|dải bài}}",
+  "nowy": "{{t:range|range}}",
+  "waga": "ŚR",
+  "powod": "m10-l3:126: niespójny termin: range = „range” (terms-nazwy.yaml; w tym samym pliku {{t:range}} bez formy daje „range”, tak też egzamin), tu „dải bài”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "nhiều tay bài mạnh hơn để lấy",
+  "nowy": "thêm nhiều tay bài mạnh để lấy",
+  "waga": "NISKIE",
+  "powod": "m10-l3:122: dwuznaczne („wiele silniejszych rąk” zamiast „więcej silnych rąk”); źródło: „więcej silnych rąk dla wartości”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l4-rake.md",
+  "stary": "{{t:big-blind|mù lớn}}?\"",
+  "nowy": "{{t:big-blind|big blind}}?\"",
+  "waga": "ŚR",
+  "powod": "m10-l4:74: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l4-rake.md",
+  "stary": "{{t:big-blind|mù lớn}} bằng",
+  "nowy": "{{t:big-blind|big blind}} bằng",
+  "waga": "ŚR",
+  "powod": "m10-l4:77: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l4-rake.md",
+  "stary": "ở {{t:big-blind|mù lớn}}",
+  "nowy": "ở {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m10-l4:78: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l4-rake.md",
+  "stary": "từ {{t:big-blind|mù lớn}}",
+  "nowy": "từ {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m10-l4:78: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l4-rake.md",
+  "stary": "{{t:small-blind|mù nhỏ}}",
+  "nowy": "{{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m10-l4:123: niespójny termin: small blind = „small blind” (terms-nazwy.yaml; tak egzamin m10), tu „mù nhỏ”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l4-rake.md",
+  "stary": "{{t:big-blind|mù lớn}}",
+  "nowy": "{{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m10-l4:123: niespójny termin: big blind = „big blind” (terms-nazwy.yaml; w tym samym zdaniu/pliku {{t:big-blind}} bez formy daje „big blind”, tak też m10-l1, m10-l2, egzamin), tu „mù lớn”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "chiến lược cơ sở ở mô-đun 4",
+  "nowy": "chiến lược nền ở mô-đun 4",
+  "waga": "ŚR",
+  "powod": "exam m10:34: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "chiến lược cơ sở.\"",
+  "nowy": "chiến lược nền.\"",
+  "waga": "ŚR",
+  "powod": "exam m10:36: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "như trong chiến lược cơ sở,",
+  "nowy": "như trong chiến lược nền,",
+  "waga": "ŚR",
+  "powod": "exam m10:37: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "Chiến lược cơ sở giả định một",
+  "nowy": "Chiến lược nền giả định một",
+  "waga": "ŚR",
+  "powod": "exam m10:37: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "chiến lược cơ sở ở",
+  "nowy": "chiến lược nền ở",
+  "waga": "ŚR",
+  "powod": "exam m10:52: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "chiến lược cơ sở,",
+  "nowy": "chiến lược nền,",
+  "waga": "ŚR",
+  "powod": "exam m10:54: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "Làm như trong chiến lược cơ sở",
+  "nowy": "Làm như trong chiến lược nền",
+  "waga": "ŚR",
+  "powod": "exam m10:56: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "Chiến lược cơ sở",
+  "nowy": "Chiến lược nền",
+  "waga": "ŚR",
+  "powod": "exam m10:56: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "chiến lược cơ sở",
+  "nowy": "chiến lược nền",
+  "waga": "ŚR",
+  "powod": "exam m10:71: niespójny termin: pl „baza” = „chiến lược nền” we wszystkich czterech lekcjach modułu 10; w egzaminie „chiến lược cơ sở”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "nên nhiều lần {{t:call|theo}} của họ là tay bài kém hơn tay của bạn",
+  "nowy": "nên số lần {{t:call|theo}} của họ bằng tay bài kém hơn tay của bạn cũng nhiều hơn",
+  "waga": "ŚR",
+  "powod": "exam m10.q6:54 why: zgubione porównanie; źródło: „więcej jego sprawdzeń to ręce gorsze od twojej”, przekład: „wiele jego sprawdzeń”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "có khoảng cách {{t:vpip}}",
+  "nowy": "có chênh lệch {{t:vpip}}",
+  "waga": "NISKIE",
+  "powod": "exam m10.q6:55 why: różnica VPIP − PFR to w lekcjach „chênh lệch”; „khoảng cách” niespójne",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "{{t:draw|draw}}",
+  "nowy": "{{t:draw|bài chờ}}",
+  "waga": "ŚR",
+  "powod": "exam m10.q7:61: niespójny termin: draw = „bài chờ” (terms-nazwy.yaml; tak w bliźniaczym pytaniu m10-l3:56)",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m10.yaml",
+  "stary": "tức là trong khoảng từ khoảng",
+  "nowy": "tức là từ khoảng",
+  "waga": "NISKIE",
+  "powod": "exam m10.q2:19 explanation: niezręczne powtórzenie „trong khoảng từ khoảng”",
+  "grupa": "vi-L8"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l1-push-fold.md",
+  "stary": "còn tay mạnh hơn sẽ trả tiền cho bạn.",
+  "nowy": "còn tay mạnh hơn sẽ theo.",
+  "waga": "ŚR",
+  "powod": "m11-l1:25 (q-threshold-deep, why „Zawsze all-in”): pl „a płacą lepsze” = lepsze ręce sprawdzają; „trả tiền cho bạn” znaczy „zapłacą ci” (sugeruje zysk)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l1-push-fold.md",
+  "stary": "một tay bài hoàn toàn không có cơ hội hòa vốn?",
+  "nowy": "một tay bài hoàn toàn không có cơ hội thắng đạt mức hòa vốn?",
+  "waga": "ŚR",
+  "powod": "m11-l1:70 (q-fold-equity prompt): dwuznaczne „không có cơ hội hòa vốn” czyta się jako „bez szans na wyjście na zero”; pl: ręka bez żadnych szans (na wygraną) wychodzi na zero",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l1-push-fold.md",
+  "stary": "các tay yếu và trung bình",
+  "nowy": "các tay yếu hơn và trung bình",
+  "waga": "NISKIE",
+  "powod": "m11-l1:117 (tabela): pl „dla słabszych i średnich rąk”; w drillu i egzaminie „yếu hơn”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l1-push-fold.md",
+  "stary": "bạn chơi từ {{t:small-blind|small blind}} với {{t:big-blind|big blind}}",
+  "nowy": "bạn chơi từ {{t:small-blind|small blind}} đấu với {{t:big-blind|big blind}}",
+  "waga": "NISKIE",
+  "powod": "m11-l1:138: pl „przeciw dużemu blindowi”; samo „với” = „z” (dwuznaczne)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "thường xuyên gặp {{t:pair|đôi}} cao hơn hơn.",
+  "nowy": "gặp {{t:pair|đôi}} cao hơn thường xuyên hơn.",
+  "waga": "NISKIE",
+  "powod": "m11-l2:67 (q-22 why): zdublowane „hơn hơn”; pl „częściej trafia na wyższą parę”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Nhiều hơn khi không có ante, vì",
+  "nowy": "Nhiều hơn so với khi không có ante, vì",
+  "waga": "ŚR",
+  "powod": "m11-l2:88 (q-ante, opcja 3): pl „Więcej niż bez ante”; bez „so với” czyta się „więcej, gdy nie ma ante” (odwrotnie)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "text: \"{{t:risk-premium|Phần bù rủi ro}}",
+  "nowy": "text: \"{{t:risk-premium|Risk premium}}",
+  "waga": "ŚR",
+  "powod": "m11-l3:61 (q-premium, odpowiedź): termin niezgodny z terms-nazwy (risk-premium = „risk premium”); w tym samym pytaniu (l.62) i w l.159 goły znacznik daje „risk premium”, więc poprawna odpowiedź nazywa się inaczej niż w wyjaśnieniu",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "why: \"{{t:risk-premium|Phần bù rủi ro}}",
+  "nowy": "why: \"{{t:risk-premium|Risk premium}}",
+  "waga": "ŚR",
+  "powod": "m11-l3:61 (q-premium, why): jak wyżej, termin niezgodny z terms-nazwy (risk-premium = „risk premium”)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "Bạn có thể {{t:shove|shove}} rộng hơn",
+  "nowy": "Bạn có thể {{t:shove|push}} rộng hơn",
+  "waga": "ŚR",
+  "powod": "m11-l3:79 (q-covering): termin niespójny: terms-nazwy shove = „push”, l1/l2/egzamin mają „đẩy (all-in)”; „shove” to trzecia nazwa",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "tận dụng điều này: {{t:shove|shove}} rộng hơn",
+  "nowy": "tận dụng điều này: {{t:shove|push}} rộng hơn",
+  "waga": "ŚR",
+  "powod": "m11-l3:164 (note): termin niespójny: terms-nazwy shove = „push”; „shove” to trzecia nazwa obok „đẩy (all-in)”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:pocket-pair|đôi túi}}",
+  "nowy": "{{t:pocket-pair|pocket pair}}",
+  "waga": "ŚR",
+  "powod": "m11-l3:161: termin niezgodny z terms-nazwy (pocket-pair = „pocket pair”; „đôi túi” bez źródła)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m11.yaml",
+  "stary": "một tay bài hoàn toàn không có cơ hội hòa vốn?",
+  "nowy": "một tay bài hoàn toàn không có cơ hội thắng đạt mức hòa vốn?",
+  "waga": "ŚR",
+  "powod": "m11.exam.q3 prompt (l.23): dwuznaczne „không có cơ hội hòa vốn” („bez szans na wyjście na zero”); pl: ręka bez żadnych szans wychodzi na zero",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m11.yaml",
+  "stary": "với tay bài không có cơ hội hòa vốn?",
+  "nowy": "với tay bài không có cơ hội thắng đạt mức hòa vốn?",
+  "waga": "ŚR",
+  "powod": "m11.exam.q4 prompt (l.32): jak w q3, dwuznaczne „không có cơ hội hòa vốn”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m11.yaml",
+  "stary": "{{n:m11.bf.p3}} {{t:prize-pool|quỹ giải thưởng}}",
+  "nowy": "{{n:m11.bf.p3}} {{t:prize-pool|tổng giải thưởng}}",
+  "waga": "ŚR",
+  "powod": "m11.exam.q7 prompt (l.57): termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); lekcja ma „quỹ thưởng”, egzamin „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m11.yaml",
+  "stary": "{{n:exam.m11.bf.loss}} {{t:prize-pool|quỹ giải thưởng}}",
+  "nowy": "{{n:exam.m11.bf.loss}} {{t:prize-pool|tổng giải thưởng}}",
+  "waga": "ŚR",
+  "powod": "m11.exam.q7 prompt (l.57): termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m13.yaml",
+  "stary": "của một {{t:mixed-hand|tay bài hỗn hợp}}",
+  "nowy": "của một {{t:mixed-hand|tay bài trộn}}",
+  "waga": "ŚR",
+  "powod": "m13.exam.q3 why 1 (l.25): termin niezgodny z terms-nazwy (mixed-hand = „tay bài trộn”)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m13.yaml",
+  "stary": "hơn của {{t:mixed-hand|tay bài hỗn hợp}}",
+  "nowy": "hơn của {{t:mixed-hand|tay bài trộn}}",
+  "waga": "ŚR",
+  "powod": "m13.exam.q3 why 3 (l.27): termin niezgodny z terms-nazwy (mixed-hand = „tay bài trộn”)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m13.yaml",
+  "stary": "text: \"Khớp\", why: \"Hành động khớp là",
+  "nowy": "text: \"Phù hợp\", why: \"Hành động phù hợp là",
+  "waga": "ŚR",
+  "powod": "m13.exam.q3 opcja 2 (l.26): nazwa werdyktu „Zgodna” w interfejsie vi to „Phù hợp” (vi.json grade.zgodne, verdicts.compliant), nie „Khớp”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m13.yaml",
+  "stary": "text: \"Lỗi\", why: \"Lỗi là hành động solver hoàn toàn không chơi. {{t:fold|Bỏ bài}}",
+  "nowy": "text: \"Sai lầm\", why: \"Sai lầm là hành động solver hoàn toàn không chơi. {{t:fold|Bỏ bài}}",
+  "waga": "ŚR",
+  "powod": "m13.exam.q3 opcja 3 (l.27): nazwa werdyktu „Błąd” w interfejsie vi to „Sai lầm” (vi.json verdicts.mistake), nie „Lỗi”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m13.yaml",
+  "stary": "text: \"Lỗi\", why: \"Lỗi là hành động solver hoàn toàn không chơi. Ở đây",
+  "nowy": "text: \"Sai lầm\", why: \"Sai lầm là hành động solver hoàn toàn không chơi. Ở đây",
+  "waga": "ŚR",
+  "powod": "m13.exam.q4 opcja 2 (l.35): nazwa werdyktu „Błąd” w interfejsie vi to „Sai lầm” (vi.json verdicts.mistake), nie „Lỗi”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m13.yaml",
+  "stary": "{{t:big-blind|mù lớn}}",
+  "nowy": "{{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m13.exam.q6 prompt (l.51): termin niezgodny z terms-nazwy (big-blind = „big blind”)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m13.yaml",
+  "stary": "{{t:bluff|tháu cáy}}",
+  "nowy": "{{t:bluff|bluff}}",
+  "waga": "ŚR",
+  "powod": "m13.exam.q9 prompt (l.78): termin niezgodny z terms-nazwy (bluff = „bluff”; egzamin m11 ma „bluff”)",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|mù lớn}}, không",
+  "nowy": "{{t:big-blind|big blind}}, không",
+  "waga": "ŚR",
+  "powod": "m11-l2:13: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "ante. {{t:small-blind|Mù nhỏ}}",
+  "nowy": "ante. {{t:small-blind|Small blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:13: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "\"Tiền mù",
+  "nowy": "\"Blind",
+  "waga": "ŚR",
+  "powod": "m11-l2:16: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "hơn, tiền mù",
+  "nowy": "hơn, blind",
+  "waga": "ŚR",
+  "powod": "m11-l2:24: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": ", tiền mù của",
+  "nowy": ", blind của",
+  "waga": "ŚR",
+  "powod": "m11-l2:25: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Tiền mù đã",
+  "nowy": "Blind đã",
+  "waga": "ŚR",
+  "powod": "m11-l2:26: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} đã all-in. Bạn cần",
+  "nowy": "{{t:small-blind|small blind}} đã all-in. Bạn cần",
+  "waga": "ŚR",
+  "powod": "m11-l2:31: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "tiền mù chiếm phần nhỏ",
+  "nowy": "blind chiếm phần nhỏ",
+  "waga": "ŚR",
+  "powod": "m11-l2:35: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "luôn có tiền mù",
+  "nowy": "luôn có blind",
+  "waga": "ŚR",
+  "powod": "m11-l2:36: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|mù lớn}}, {{t:small-blind|mù nhỏ}} đã all-in. Hãy",
+  "nowy": "{{t:big-blind|big blind}}, {{t:small-blind|small blind}} đã all-in. Hãy",
+  "waga": "ŚR",
+  "powod": "m11-l2:49: terminy niezgodne z terms-nazwy (big-blind = „big blind”, small-blind = „small blind”; dwa miejsca w jednej poprawce, bo krótszy fragment nie jest unikalny); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} với",
+  "nowy": "{{t:small-blind|small blind}} với",
+  "waga": "ŚR",
+  "powod": "m11-l2:54: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "này ở {{t:big-blind|mù lớn}}",
+  "nowy": "này ở {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:54: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "chính {{t:small-blind|mù nhỏ}}",
+  "nowy": "chính {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:54: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} tôi",
+  "nowy": "{{t:small-blind|small blind}} tôi",
+  "waga": "ŚR",
+  "powod": "m11-l2:58: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|Mù lớn}},",
+  "nowy": "{{t:big-blind|Big blind}},",
+  "waga": "ŚR",
+  "powod": "m11-l2:64: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} đã all-in. Bạn có",
+  "nowy": "{{t:small-blind|small blind}} đã all-in. Bạn có",
+  "waga": "ŚR",
+  "powod": "m11-l2:64: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "\"Ở {{n:m11.depth.10}}, {{t:small-blind|mù nhỏ}}",
+  "nowy": "\"Ở {{n:m11.depth.10}}, {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:74: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|mù lớn}} chỉ",
+  "nowy": "{{t:big-blind|big blind}} chỉ",
+  "waga": "ŚR",
+  "powod": "m11-l2:74: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|Mù lớn}} phải",
+  "nowy": "{{t:big-blind|Big blind}} phải",
+  "waga": "ŚR",
+  "powod": "m11-l2:77: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "đã có tiền mù",
+  "nowy": "đã có blind",
+  "waga": "ŚR",
+  "powod": "m11-l2:77: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:bb-ante|ante mù lớn}}.",
+  "nowy": "{{t:bb-ante|big blind ante}}.",
+  "waga": "ŚR",
+  "powod": "m11-l2:83: termin niezgodny z terms-nazwy (bb-ante = „big blind ante”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|mù lớn}} và đã",
+  "nowy": "{{t:big-blind|big blind}} và đã",
+  "waga": "ŚR",
+  "powod": "m11-l2:83: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|Mù nhỏ}} đã all-in.",
+  "nowy": "{{t:small-blind|Small blind}} đã all-in.",
+  "waga": "ŚR",
+  "powod": "m11-l2:83: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "all-in, {{t:small-blind|mù nhỏ}}",
+  "nowy": "all-in, {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:107: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Ở {{t:big-blind|mù lớn}}",
+  "nowy": "Ở {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:107: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "bạn ở {{t:big-blind|mù lớn}}",
+  "nowy": "bạn ở {{t:big-blind|big blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:114: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "Tiền mù của bạn đã nằm trong {{t:pot|pot}}.",
+  "nowy": "Blind của bạn đã nằm trong {{t:pot|pot}}.",
+  "waga": "ŚR",
+  "powod": "m11-l2:118: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "vì tiền mù",
+  "nowy": "vì blind",
+  "waga": "ŚR",
+  "powod": "m11-l2:130: termin niezgodny z terms-nazwy (blind (l1, l3, egzamin: „blind”)); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} all-in với khoảng {{n:m11.push.10}} tay bài, còn {{t:big-blind|mù lớn}} {{t:call|theo}}",
+  "nowy": "{{t:small-blind|small blind}} all-in với khoảng {{n:m11.push.10}} tay bài, còn {{t:big-blind|big blind}} {{t:call|theo}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:140: terminy niezgodne z terms-nazwy (small-blind = „small blind”, big-blind = „big blind”; dwa miejsca w jednej poprawce, bo krótszy fragment nie jest unikalny); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}},",
+  "nowy": "{{t:small-blind|small blind}},",
+  "waga": "ŚR",
+  "powod": "m11-l2:140: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} chỉ",
+  "nowy": "{{t:small-blind|small blind}} chỉ",
+  "waga": "ŚR",
+  "powod": "m11-l2:154: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|Mù lớn}} trong",
+  "nowy": "{{t:big-blind|Big blind}} trong",
+  "waga": "ŚR",
+  "powod": "m11-l2:154: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "khi {{t:small-blind|mù nhỏ}}",
+  "nowy": "khi {{t:small-blind|small blind}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:154: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} có",
+  "nowy": "{{t:small-blind|small blind}} có",
+  "waga": "ŚR",
+  "powod": "m11-l2:154: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|mù lớn}}.",
+  "nowy": "{{t:big-blind|big blind}}.",
+  "waga": "ŚR",
+  "powod": "m11-l2:154: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|mù lớn}} vẫn",
+  "nowy": "{{t:big-blind|big blind}} vẫn",
+  "waga": "ŚR",
+  "powod": "m11-l2:160: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "với {{t:bb-ante|ante mù lớn}}",
+  "nowy": "với {{t:bb-ante|big blind ante}}",
+  "waga": "ŚR",
+  "powod": "m11-l2:168: termin niezgodny z terms-nazwy (bb-ante = „big blind ante”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:small-blind|mù nhỏ}} đấu",
+  "nowy": "{{t:small-blind|small blind}} đấu",
+  "waga": "ŚR",
+  "powod": "m11-l2:175: termin niezgodny z terms-nazwy (small-blind = „small blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l2-sprawdzanie.md",
+  "stary": "{{t:big-blind|mù lớn}} khi",
+  "nowy": "{{t:big-blind|big blind}} khi",
+  "waga": "ŚR",
+  "powod": "m11-l2:175: termin niezgodny z terms-nazwy (big-blind = „big blind”); l1, l3 i egzamin m11 mają formy angielskie",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:prize-pool|quỹ thưởng}} cho",
+  "nowy": "{{t:prize-pool|tổng giải thưởng}} cho",
+  "waga": "ŚR",
+  "powod": "m11-l3:29: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:prize-pool|quỹ thưởng}})?",
+  "nowy": "{{t:prize-pool|tổng giải thưởng}})?",
+  "waga": "ŚR",
+  "powod": "m11-l3:29: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:prize-pool|quỹ thưởng}}, dù có",
+  "nowy": "{{t:prize-pool|tổng giải thưởng}}, dù có",
+  "waga": "ŚR",
+  "powod": "m11-l3:38: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "bộ {{t:prize-pool|quỹ thưởng}}.",
+  "nowy": "bộ {{t:prize-pool|tổng giải thưởng}}.",
+  "waga": "ŚR",
+  "powod": "m11-l3:39: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:prize-pool|quỹ thưởng}}, còn nếu",
+  "nowy": "{{t:prize-pool|tổng giải thưởng}}, còn nếu",
+  "waga": "ŚR",
+  "powod": "m11-l3:45: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:prize-pool|quỹ thưởng}}, còn thắng",
+  "nowy": "{{t:prize-pool|tổng giải thưởng}}, còn thắng",
+  "waga": "ŚR",
+  "powod": "m11-l3:71: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "bộ {{t:prize-pool|quỹ thưởng}},",
+  "nowy": "bộ {{t:prize-pool|tổng giải thưởng}},",
+  "waga": "ŚR",
+  "powod": "m11-l3:113: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:prize-pool|quỹ thưởng}} kỳ",
+  "nowy": "{{t:prize-pool|tổng giải thưởng}} kỳ",
+  "waga": "ŚR",
+  "powod": "m11-l3:123: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{t:prize-pool|quỹ thưởng}}. Stack:",
+  "nowy": "{{t:prize-pool|tổng giải thưởng}}. Stack:",
+  "waga": "ŚR",
+  "powod": "m11-l3:127: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "** {{t:prize-pool|quỹ thưởng}}",
+  "nowy": "** {{t:prize-pool|tổng giải thưởng}}",
+  "waga": "ŚR",
+  "powod": "m11-l3:131: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m11-l3-icm.md",
+  "stary": "{{n:m11.bf.eq.now}} {{t:prize-pool|quỹ thưởng}}",
+  "nowy": "{{n:m11.bf.eq.now}} {{t:prize-pool|tổng giải thưởng}}",
+  "waga": "ŚR",
+  "powod": "m11-l3:145: termin niezgodny z terms-nazwy (prize-pool = „tổng giải thưởng”); egzamin m11 ma jeszcze inną formę „quỹ giải thưởng”",
+  "grupa": "vi-L9"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Bạn có {{t:flush-draw|draw thùng}} sạch ({{n:outs.flush}}",
+  "nowy": "Bạn có {{t:flush-draw|bài chờ thùng}} sạch ({{n:outs.flush}}",
+  "waga": "ŚR",
+  "powod": "m12-l2:29 prompt: termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "Turn. {{t:flush-draw|Draw thùng}} sạch",
+  "nowy": "Turn. {{t:flush-draw|Bài chờ thùng}} sạch",
+  "waga": "ŚR",
+  "powod": "m12-l2:38 prompt: termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{t:call|theo}} với {{t:flush-draw|draw thùng}} một cược bằng cả {{t:pot|pot}} trên turn là tệ",
+  "nowy": "{{t:call|theo}} một cược bằng cả {{t:pot|pot}} trên turn với {{t:flush-draw|bài chờ thùng}} là tệ",
+  "waga": "ŚR",
+  "powod": "m12-l2:97: termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”; przy okazji szyk: dopełnienie („một cược bằng cả pot”) bezpośrednio po czasowniku",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "nhưng vẫn thắng khoảng một lần trong năm",
+  "nowy": "nhưng cứ khoảng năm lần thì vẫn thắng một lần",
+  "waga": "ŚR",
+  "powod": "m12-l2:97: pl „raz na pięć”; „một lần trong năm” czyta się naturalnie jako „raz w roku” (năm = pięć / rok)",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{t:range|phạm vi bài}} của đối thủ và những gì",
+  "nowy": "{{t:range|range}} của đối thủ và những gì",
+  "waga": "ŚR",
+  "powod": "m12-l2:49 why: termin range: przyjęta nazwa w terms-nazwy.yaml to „range”; „phạm vi bài” to trzecia, mniejszościowa forma",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "{{t:range|phạm vi bài}} của đối thủ (M2",
+  "nowy": "{{t:range|range}} của đối thủ (M2",
+  "waga": "ŚR",
+  "powod": "m12-l2:106: termin range: przyjęta nazwa w terms-nazwy.yaml to „range”; „phạm vi bài” to trzecia, mniejszościowa forma",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "cũng chỉ dẫn trước trong khoảng {{n:skill.ahead}} trường hợp sau khoảng {{n:skill.hands}} tay bài",
+  "nowy": "cũng phải sau khoảng {{n:skill.hands}} tay bài mới dẫn trước trong khoảng {{n:skill.ahead}} trường hợp",
+  "waga": "ŚR",
+  "powod": "m12-l2:67 why: pl „wychodzi na prowadzenie … dopiero po ok. N rękach”; „chỉ dẫn trước trong khoảng X trường hợp” czyta się jako „prowadzi tylko w X przypadków” — „dopiero” przeniesione na liczbę rąk",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "ngay cả khi nó mang lại lợi",
+  "nowy": "ngay cả khi nó mang lại lợi nhuận",
+  "waga": "NISKIE",
+  "powod": "m12-l2:85 why: „mang lại lợi” brzmi jak urwane; pl „nawet jeśli się opłacił”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+  "stary": "những sai lầm mang lại lợi cũng",
+  "nowy": "những sai lầm mang lại lợi nhuận cũng",
+  "waga": "NISKIE",
+  "powod": "m12-l2:108: „mang lại lợi” brzmi jak urwane; pl „błędy, które się opłaciły”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l3-tilt.md",
+  "stary": "why: \"{{t:stakes}} cao hơn cũng làm tăng",
+  "nowy": "why: \"{{t:stakes|Mức cược}} cao hơn cũng làm tăng",
+  "waga": "NISKIE",
+  "powod": "m12-l3:35 why: termin bez formy na początku zdania renderuje się małą literą („mức cược cao hơn…”); dodana forma z wielką literą, klucz bez zmian",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l3-tilt.md",
+  "stary": "{{t:stakes}} cao hơn đi cùng",
+  "nowy": "{{t:stakes|Mức cược}} cao hơn đi cùng",
+  "waga": "NISKIE",
+  "powod": "m12-l3:71 why: termin bez formy na początku zdania renderuje się małą literą; dodana forma z wielką literą, klucz bez zmian",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l3-tilt.md",
+  "stary": "bạn tức giận vì vận may",
+  "nowy": "bạn tức giận vì may rủi",
+  "waga": "NISKIE",
+  "powod": "m12-l3:16 why: pl „los”: „vận may” znaczy raczej „szczęście, dobry los”; w m12-l1/l2 „los” oddano jako „may rủi”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l3-tilt.md",
+  "stary": "đổ lỗi cho vận may mà",
+  "nowy": "đổ lỗi cho may rủi mà",
+  "waga": "NISKIE",
+  "powod": "m12-l3:43 why: pl „los”: „vận may” znaczy raczej „szczęście, dobry los”; w m12-l1/l2 „los” oddano jako „may rủi”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l3-tilt.md",
+  "stary": "ván bài thật bất công",
+  "nowy": "trò chơi này thật bất công",
+  "waga": "NISKIE",
+  "powod": "m12-l3:13 prompt: pl „gra jest niesprawiedliwa” (gra w ogóle), „ván bài” = pojedyncze rozdanie",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "Sau một {{t:downswing|chuỗi thua}}, bạn còn",
+  "nowy": "Sau một {{t:downswing|downswing}}, bạn còn",
+  "waga": "ŚR",
+  "powod": "m12-l4:47 prompt: termin downswing — przyjęta nazwa „downswing” (tak w m12-l1 i egzaminie q9); „chuỗi thua” w m12-l3:100 oddaje zwykłe „seria strat”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "sau mỗi {{t:downswing|chuỗi thua}}",
+  "nowy": "sau mỗi {{t:downswing|downswing}}",
+  "waga": "ŚR",
+  "powod": "m12-l4:60 why: termin downswing — przyjęta nazwa „downswing”, nie „chuỗi thua”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "nghìn ván, còn việc",
+  "nowy": "nghìn tay, còn việc",
+  "waga": "NISKIE",
+  "powod": "m12-l4:58 why: pl „tys. rąk”; wszędzie indziej „nghìn tay”, „ván” = rozdanie",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "cần rất nhiều ván (bài học",
+  "nowy": "cần rất nhiều tay bài (bài học",
+  "waga": "NISKIE",
+  "powod": "m12-l4:133: pl „bardzo wielu rąk”; w module ręka = „tay (bài)”, „ván” = rozdanie",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "hãy dùng các liên hệ trong thẻ",
+  "nowy": "hãy dùng thông tin liên hệ trong thẻ",
+  "waga": "NISKIE",
+  "powod": "m12-l4:102 why (treść krytyczna, sens bez zmian): „các liên hệ” to kalka; naturalnie i zgodnie z helplines.yaml pointer „thông tin liên hệ”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m12.yaml",
+  "stary": "Bạn có {{t:flush-draw|draw thùng}} sạch, trong",
+  "nowy": "Bạn có {{t:flush-draw|bài chờ thùng}} sạch, trong",
+  "waga": "ŚR",
+  "powod": "m12.exam.q5 prompt (linia 43): termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m12.yaml",
+  "stary": "còn {{t:flush-draw|draw thùng}} trúng ở river",
+  "nowy": "còn {{t:flush-draw|bài chờ thùng}} trúng ở river",
+  "waga": "ŚR",
+  "powod": "m12.exam.q5 why (linia 45): termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m12.yaml",
+  "stary": "text: \"Tilt vì sai lầm\"",
+  "nowy": "text: \"Tilt vì mắc lỗi\"",
+  "waga": "ŚR",
+  "powod": "m12.exam.q6 (linia 56) text: typ tiltu w lekcji m12-l3 nazywa się „Tilt vì mắc lỗi”; pytanie odwołuje się do podziału z lekcji",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m12.yaml",
+  "stary": "why: \"Tilt vì sai lầm là sự tức giận",
+  "nowy": "why: \"Tilt vì mắc lỗi là sự tức giận",
+  "waga": "ŚR",
+  "powod": "m12.exam.q6 (linia 56) why: nazwa typu jak w lekcji m12-l3 („Tilt vì mắc lỗi”)",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m12.yaml",
+  "stary": "đây là loại tilt nào?",
+  "nowy": "đây là kiểu tilt nào?",
+  "waga": "NISKIE",
+  "powod": "m12.exam.q6 prompt (linia 52): w lekcji m12-l3 „typ tiltu” = „kiểu tilt”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m12.yaml",
+  "stary": "Loại này bị kích hoạt",
+  "nowy": "Kiểu tilt này bị kích hoạt",
+  "waga": "NISKIE",
+  "powod": "m12.exam.q6 (linia 55) why: w lekcji m12-l3 „typ tiltu” = „kiểu tilt”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m12.yaml",
+  "stary": "đổ lỗi cho vận may, cho bản thân",
+  "nowy": "đổ lỗi cho may rủi, cho bản thân",
+  "waga": "NISKIE",
+  "powod": "m12.exam.q6 (linia 54) why: pl „los”: „vận may” znaczy raczej „szczęście, dobry los”; w m12-l1/l2 „los” oddano jako „may rủi”",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l1-wariancja.md",
+  "stary": "chứ không phải chỉ qua kết quả",
+  "nowy": "chứ không phải qua bản thân kết quả",
+  "waga": "NISKIE",
+  "powod": "m12-l1:83 why: pl „a nie sam wynik”; „không phải chỉ qua kết quả” = „nie tylko przez wynik”, sugeruje, że wynik też o tym mówi",
+  "grupa": "vi-L10"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/modules.yaml",
+  "stary": "Second barrel và draw",
+  "nowy": "Second barrel và bài chờ",
+  "waga": "ŚR",
+  "powod": "modules.yaml:8 (m7 sub): „draw” zamiast przyjętej nazwy terminu draw = „bài chờ” (terms-nazwy.yaml; UI używa „bài chờ”)",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "nhưng nó thường chọn một hành động khác hơn",
+  "nowy": "nhưng nó chọn một hành động khác thường xuyên hơn",
+  "waga": "NISKIE",
+  "powod": "vi.json:655 drill.range.acceptable: „częściej wybiera inną akcję”; szyk „khác hơn” dwuznaczny (czyta się jak „bardziej inną akcję”)",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "\"purchases\": \"Mua hàng\"",
+  "nowy": "\"purchases\": \"Giao dịch mua\"",
+  "waga": "NISKIE",
+  "powod": "vi.json:67 settings.purchases (etykieta sekcji zakupów): „Mua hàng” = robienie zakupów; reszta słownika nazywa zakupy „giao dịch mua” (purchase.restore, settings.restored, settings.resetBody)",
+  "grupa": "vi-U1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Năm lá liên tiếp, không cùng một chất, ví dụ 5-6-7-8-9. Lá A có thể là lá cao nhất (A-K-Q-J-T) hoặc thấp nhất (A-2-3-4-5).",
+  "nowy": "Năm lá liên tiếp, không phải cả năm cùng một chất, ví dụ 5-6-7-8-9. Lá A có thể là lá cao nhất (A-K-Q-J-T) hoặc thấp nhất (A-2-3-4-5).",
+  "waga": "NISKIE",
+  "powod": "terms-def straight (linia 6): pl „nie wszystkie w jednym kolorze”; „không cùng một chất” można odczytać jako „każda w innym kolorze”",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Tiếp tục chơi mà không bỏ thêm chip, chỉ được khi bạn không phải bù thêm gì: chưa ai bet trong vòng cược này (trước flop, big blind có thể check khi không ai raise). Đừng nhầm với call, tức là bỏ chip để theo bet của đối thủ.",
+  "nowy": "Tiếp tục chơi mà không bỏ thêm chip, chỉ được khi bạn không phải bù thêm gì: chưa ai cược trong vòng cược này (trước flop, big blind có thể check khi không ai tố). Đừng nhầm với theo (call), tức là bỏ chip để theo cược của đối thủ.",
+  "waga": "ŚR",
+  "powod": "terms-def check (linia 14): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Lần bỏ chip đầu tiên trong một vòng cược mà chưa ai bet (theo nghĩa rộng, mọi lần bỏ chip vào pot đều gọi là bet).",
+  "nowy": "Lần bỏ chip đầu tiên trong một vòng cược mà chưa ai cược (theo nghĩa rộng, mọi lần bỏ chip vào pot đều gọi là cược).",
+  "waga": "ŚR",
+  "powod": "terms-def bet (linia 15): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bỏ vào pot đúng bằng mức bet hoặc raise của đối thủ để tiếp tục chơi. Đừng nhầm với check, tức là tiếp tục chơi mà không bet khi chưa ai bet.",
+  "nowy": "Bỏ vào pot đúng bằng mức cược hoặc mức tố của đối thủ để tiếp tục chơi. Đừng nhầm với check, tức là tiếp tục chơi mà không cược khi chưa ai cược.",
+  "waga": "ŚR",
+  "powod": "terms-def call (linia 16): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Nâng mức cược lên trên bet của đối thủ; những người còn lại phải bù phần chênh lệch, raise tiếp hoặc fold.",
+  "nowy": "Nâng mức cược lên trên lần cược của đối thủ; những người còn lại phải bù phần chênh lệch, tố tiếp hoặc bỏ bài.",
+  "waga": "ŚR",
+  "powod": "terms-def raise (linia 17): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bạn check trước, rồi khi đối thủ bet thì bạn raise lại trong cùng vòng cược.",
+  "nowy": "Bạn check trước, rồi khi đối thủ cược thì bạn tố trong cùng vòng cược.",
+  "waga": "ŚR",
+  "powod": "terms-def check-raise (linia 19): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Toàn bộ chip đã đặt trong ván bài hiện tại. Người có tay bài tốt nhất ở showdown nhận pot (khi có side pot thì từng pot được phân định riêng), hoặc người còn lại khi tất cả những người khác đã fold.",
+  "nowy": "Toàn bộ chip đã đặt trong ván bài hiện tại. Người có tay bài tốt nhất ở showdown nhận pot (khi có side pot thì từng pot được phân định riêng), hoặc người còn lại khi tất cả những người khác đã bỏ bài.",
+  "waga": "ŚR",
+  "powod": "terms-def pot (linia 21): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Tên gọi lóng của vòng cược: preflop, flop, turn và river là bốn street. Ví dụ: “value ba street” là các lần cược lấy value ở flop, turn và river.",
+  "nowy": "Tên gọi lóng của vòng cược: preflop, flop, turn và river là bốn street. Ví dụ: “value ba street” là các lần cược lấy giá trị ở flop, turn và river.",
+  "waga": "ŚR",
+  "powod": "terms-def street (linia 32): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Giai đoạn của ván bài trong đó người chơi lần lượt check, bet, call, raise hoặc fold; trong hold'em có bốn vòng: preflop, flop, turn và river.",
+  "nowy": "Giai đoạn của ván bài trong đó người chơi lần lượt check, cược, theo, tố hoặc bỏ bài; trong hold'em có bốn vòng: preflop, flop, turn và river.",
+  "waga": "ŚR",
+  "powod": "terms-def betting-round (linia 33): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Tỷ lệ giữa số chip bạn phải bỏ thêm và pot bạn có thể thắng (tính cả bet của đối thủ). Nó cho biết bạn cần thắng thường xuyên đến mức nào để call có lời.",
+  "nowy": "Tỷ lệ giữa số chip bạn phải bỏ thêm và pot bạn có thể thắng (tính cả lần cược của đối thủ). Nó cho biết bạn cần thắng thường xuyên đến mức nào để việc theo có lời.",
+  "waga": "ŚR",
+  "powod": "terms-def pot-odds (linia 55): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Tay bài mà chiến lược cân bằng lúc chọn nước đi này, lúc chọn nước đi khác (ví dụ lúc raise, lúc call); cả hai nước đi đều đúng. Người ta cũng nói tay bài đó được chơi bằng chiến lược hỗn hợp.",
+  "nowy": "Tay bài mà chiến lược cân bằng lúc chọn nước đi này, lúc chọn nước đi khác (ví dụ lúc tố, lúc theo); cả hai nước đi đều đúng. Người ta cũng nói tay bài đó được chơi bằng chiến lược hỗn hợp.",
+  "waga": "ŚR",
+  "powod": "terms-def mixed-hand (linia 62): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Vào pot trước flop bằng một lần raise khi tất cả những người trước bạn đã fold.",
+  "nowy": "Vào pot trước flop bằng một lần tố khi tất cả những người trước bạn đã bỏ bài.",
+  "waga": "ŚR",
+  "powod": "terms-def open (linia 63): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Lần raise đầu tiên lên một lần open trước flop; tên gọi tính big blind là lần cược thứ nhất và open là lần thứ hai.",
+  "nowy": "Lần tố đầu tiên lên trên một lần mở cược trước flop; tên gọi tính big blind là lần cược thứ nhất và lần mở cược là lần thứ hai.",
+  "waga": "ŚR",
+  "powod": "terms-def 3-bet (linia 68): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Raise lên một 3-bet, tức là lần cược thứ tư trong vòng cược.",
+  "nowy": "Tố lên trên một 3-bet, tức là lần cược thứ tư trong vòng cược.",
+  "waga": "ŚR",
+  "powod": "terms-def 4-bet (linia 69): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Vào pot trước flop chỉ bằng cách call big blind khi chưa ai raise.",
+  "nowy": "Vào pot trước flop chỉ bằng cách theo big blind khi chưa ai tố.",
+  "waga": "ŚR",
+  "powod": "terms-def limp (linia 70): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Raise sau một hoặc vài lần limp, để chơi tay đôi với người limp (thường là người chơi yếu hơn).",
+  "nowy": "Tố sau một hoặc vài lần limp, để chơi tay đôi với người limp (thường là người chơi yếu hơn).",
+  "waga": "ŚR",
+  "powod": "terms-def isolation (linia 71): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Continuation bet (cược tiếp tục): bet của người chơi là aggressor ở vòng trước, ví dụ bet ở flop sau khi open preflop.",
+  "nowy": "Continuation bet (cược tiếp tục): lần cược của người chơi là người tấn công ở vòng trước, ví dụ cược ở flop sau khi mở cược preflop.",
+  "waga": "ŚR",
+  "powod": "terms-def c-bet (linia 86): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Người chơi bet hoặc raise sau cùng ở vòng cược trước.",
+  "nowy": "Người chơi cược hoặc tố sau cùng ở vòng cược trước.",
+  "waga": "ŚR",
+  "powod": "terms-def aggressor (linia 87): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Vai trò của aggressor sau cùng: người này thường là người thực hiện bet tiếp theo.",
+  "nowy": "Vai trò của người tấn công sau cùng: người này thường là người thực hiện lần cược tiếp theo.",
+  "waga": "ŚR",
+  "powod": "terms-def initiative (linia 88): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Xây dựng range từ hai thái cực: tay bài mạnh để lấy value và bluff, không có tay bài trung bình.",
+  "nowy": "Xây dựng range từ hai thái cực: tay bài mạnh để lấy giá trị và bluff, không có tay bài trung bình.",
+  "waga": "ŚR",
+  "powod": "terms-def polarization (linia 93): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Cược với tay bài mạnh để đối thủ call bằng tay bài yếu hơn.",
+  "nowy": "Cược với tay bài mạnh để đối thủ theo bằng tay bài yếu hơn.",
+  "waga": "ŚR",
+  "powod": "terms-def value (linia 96): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Một lần bet để lấy value: đặt với tay bài mạnh để các tay bài yếu hơn call.",
+  "nowy": "Một lần cược để lấy giá trị: đặt với tay bài mạnh để các tay bài yếu hơn theo.",
+  "waga": "ŚR",
+  "powod": "terms-def value-bet (linia 97): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bet với tay bài yếu khó thắng ở showdown, nhằm khiến đối thủ fold tay bài tốt hơn.",
+  "nowy": "Cược với tay bài yếu khó thắng ở showdown, nhằm khiến đối thủ bỏ tay bài tốt hơn.",
+  "waga": "ŚR",
+  "powod": "terms-def bluff (linia 98): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bet với tay bài còn yếu nhưng có cơ hội cải thiện (ví dụ có bài chờ): bạn thắng nếu đối thủ fold hoặc nếu bạn ra bài.",
+  "nowy": "Cược với tay bài còn yếu nhưng có cơ hội cải thiện (ví dụ có bài chờ): bạn thắng nếu đối thủ bỏ bài hoặc nếu bạn ra bài.",
+  "waga": "ŚR",
+  "powod": "terms-def semi-bluff (linia 99): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Tay bài chỉ thắng được bluff của đối thủ, còn thua các bet lấy value của họ.",
+  "nowy": "Tay bài chỉ thắng được bluff của đối thủ, còn thua các lần cược lấy giá trị của họ.",
+  "waga": "ŚR",
+  "powod": "terms-def bluff-catcher (linia 101): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Thêm một bet ở vòng cược kế tiếp sau bet của chính bạn ở vòng trước.",
+  "nowy": "Thêm một lần cược ở vòng cược kế tiếp sau lần cược của chính bạn ở vòng trước.",
+  "waga": "ŚR",
+  "powod": "terms-def barrel (linia 102): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Lần bet thứ hai liên tiếp: sau c-bet ở flop, người chơi bet tiếp ở turn.",
+  "nowy": "Lần cược thứ hai liên tiếp: sau c-bet ở flop, người chơi cược tiếp ở turn.",
+  "waga": "ŚR",
+  "powod": "terms-def second-barrel (linia 103): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bet ở turn của người chơi không có vị trí sau khi aggressor preflop check ở flop thay vì c-bet.",
+  "nowy": "Lần cược ở turn của người chơi không có vị trí sau khi người tấn công preflop check ở flop thay vì c-bet.",
+  "waga": "ŚR",
+  "powod": "terms-def probe-bet (linia 104): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bet của người chơi đặt cược trước khi aggressor của vòng trước kịp hành động.",
+  "nowy": "Lần cược của người chơi đặt cược trước khi người tấn công của vòng trước kịp hành động.",
+  "waga": "ŚR",
+  "powod": "terms-def donk-bet (linia 105): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bet sau flop lớn hơn toàn bộ pot.",
+  "nowy": "Lần cược sau flop lớn hơn toàn bộ pot.",
+  "waga": "ŚR",
+  "powod": "terms-def overbet (linia 106): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Effective stack chia cho pot ở đầu một street (để lên kế hoạch cho ván bài, người ta tính ở flop); cho biết stack sâu đến mức nào so với pot (SPR càng thấp, mọi thứ càng nhanh vào pot).",
+  "nowy": "Stack hiệu dụng chia cho pot ở đầu một street (để lên kế hoạch cho ván bài, người ta tính ở flop); cho biết stack sâu đến mức nào so với pot (SPR càng thấp, mọi thứ càng nhanh vào pot).",
+  "waga": "ŚR",
+  "powod": "terms-def spr (linia 108): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Phần nhỏ nhất của range phải phòng thủ trước một bet để bluff của đối thủ bằng tay bài không có cơ hội không tự động có lời.",
+  "nowy": "Phần nhỏ nhất của range phải phòng thủ trước một lần cược để bluff của đối thủ bằng tay bài không có cơ hội không tự động có lời.",
+  "waga": "ŚR",
+  "powod": "terms-def mdf (linia 109): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Tần suất đối thủ phải fold để bluff bằng tay bài không có cơ hội hòa vốn; phụ thuộc vào kích thước bet so với pot.",
+  "nowy": "Tần suất đối thủ phải bỏ bài để bluff bằng tay bài không có cơ hội hòa vốn; phụ thuộc vào kích thước lần cược so với pot.",
+  "waga": "ŚR",
+  "powod": "terms-def alpha (linia 110): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Chiến lược đơn giản hóa cho short stack: trước flop chỉ chọn all-in hoặc fold.",
+  "nowy": "Chiến lược đơn giản hóa cho short stack: trước flop chỉ chọn all-in hoặc bỏ bài.",
+  "waga": "ŚR",
+  "powod": "terms-def push-fold (linia 123): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Nước all-in, thường là một lần raise trước flop.",
+  "nowy": "Nước all-in, thường là một lần tố trước flop.",
+  "waga": "ŚR",
+  "powod": "terms-def shove (linia 124): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Vùng M rất thấp: chủ yếu chỉ còn all-in hoặc fold.",
+  "nowy": "Vùng M rất thấp: chủ yếu chỉ còn all-in hoặc bỏ bài.",
+  "waga": "ŚR",
+  "powod": "terms-def red-zone (linia 131): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Phần giá trị của một nước đi đến từ khả năng đối thủ fold.",
+  "nowy": "Phần giá trị của một nước đi đến từ khả năng đối thủ bỏ bài.",
+  "waga": "ŚR",
+  "powod": "terms-def fold-equity (linia 135): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Nguyên tắc rằng để call một lần open cần tay bài mạnh hơn so với tự mình open.",
+  "nowy": "Nguyên tắc rằng để theo một lần mở cược cần tay bài mạnh hơn so với tự mình mở cược.",
+  "waga": "ŚR",
+  "powod": "terms-def gap-concept (linia 136): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Call một bet mà người trước bạn đã call.",
+  "nowy": "Theo một lần cược mà người trước bạn đã theo.",
+  "waga": "ŚR",
+  "powod": "terms-def overcall (linia 145): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Chip trong pot của những người chơi không còn khả năng thắng pot, ví dụ những người đã fold.",
+  "nowy": "Chip trong pot của những người chơi không còn khả năng thắng pot, ví dụ những người đã bỏ bài.",
+  "waga": "ŚR",
+  "powod": "terms-def dead-money (linia 147): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Bỏ toàn bộ stack vào pot trong một ván, tức là all-in hoặc call all-in.",
+  "nowy": "Bỏ toàn bộ stack vào pot trong một ván, tức là all-in hoặc theo all-in.",
+  "waga": "ŚR",
+  "powod": "terms-def stack-off (linia 148): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi tự nguyện bỏ tiền vào pot trước flop (call hoặc raise).",
+  "nowy": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi tự nguyện bỏ tiền vào pot trước flop (theo hoặc tố).",
+  "waga": "ŚR",
+  "powod": "terms-def vpip (linia 151): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi raise trước flop.",
+  "nowy": "Chỉ số HUD: tỷ lệ phần trăm số ván mà người chơi tố trước flop.",
+  "waga": "ŚR",
+  "powod": "terms-def pfr (linia 152): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Lối chơi chặt và hung hăng: ít tay bài nhưng chơi hung hăng (bet và raise).",
+  "nowy": "Lối chơi chặt và hung hăng: ít tay bài nhưng chơi hung hăng (cược và tố).",
+  "waga": "ŚR",
+  "powod": "terms-def tag (linia 156): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Cách gọi miệt thị người chơi call rất thường xuyên, kể cả với tay bài yếu hoặc bài chờ.",
+  "nowy": "Cách gọi miệt thị người chơi theo rất thường xuyên, kể cả với tay bài yếu hoặc bài chờ.",
+  "waga": "ŚR",
+  "powod": "terms-def calling-station (linia 159): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Cách gọi miệt thị người chơi rất lỏng và hung hăng, bet và raise với bất cứ bài gì.",
+  "nowy": "Cách gọi miệt thị người chơi rất lỏng và hung hăng, cược và tố với bất cứ bài gì.",
+  "waga": "ŚR",
+  "powod": "terms-def maniac (linia 160): definicja używa angielskich słów zamiast nazw przyjętych w terms-nazwy.yaml (bet=cược, call=theo, raise=tố, fold=bỏ bài, open=mở cược, aggressor=người tấn công, value=giá trị, effective-stack=stack hiệu dụng); sens bez zmian",
+  "grupa": "vi-T1"
+ }
+]
