@@ -15,7 +15,7 @@ drills:
     rules: [R-M12-001]
     prompt: "Po {{n:exam.m12.hands.k}} tys. rąk twój winrate to {{n:var.wr.typical.high}}, {{t:standard-deviation|odchylenie}} {{n:var.sd}}. Co wiesz o swoim prawdziwym winrate?"
     options:
-      - { text: "Z ok. {{n:var.conf95}} pewnością leży między ok. {{n:exam.m12.wr.ci.low}} a ok. {{n:exam.m12.wr.ci.high}}", correct: true, why: "Błąd winrate to SD ÷ √(bloki) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}. Przedział: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}. Po {{n:exam.m12.hands.k}} tys. rąk nie wiesz nawet, czy wygrywasz." }
+      - { text: "Z ok. {{n:var.conf95}} pewnością leży między ok. {{n:exam.m12.wr.ci.low}} a ok. {{n:exam.m12.wr.ci.high}}", correct: true, why: "{{n:exam.m12.hands.k}} tys. rąk to dla winrate mała próba: po niej nie wiesz nawet, czy wygrywasz. Rachunek: błąd winrate to SD ÷ √(bloki) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}. Przedział: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}." }
       - { text: "Że wygrywasz, bo wynik jest dodatni po dużej próbie", why: "{{n:exam.m12.hands.k}} tys. rąk to dla winrate mała próba: przedział {{n:var.conf95}} sięga od ok. {{n:exam.m12.wr.ci.low}} do ok. {{n:exam.m12.wr.ci.high}}, więc obejmuje też grę na minusie." }
       - { text: "Że jest bardzo bliski {{n:var.wr.typical.high}}, bo próba jest duża", why: "Tak wąskiego przedziału nie da się wyciągnąć z {{n:exam.m12.hands.k}} tys. rąk. Liczysz {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}." }
   - kind: choice
