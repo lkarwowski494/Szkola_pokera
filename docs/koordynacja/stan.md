@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:18 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:19 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -25,14 +25,12 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Raport nocy D-359 zapisany (gałąź robocza e01ba05, `docs/programista/plan-08.md`); pytanie zbiorcze zadane i odebrane 05:50–06:10 UTC (odpowiedzi: `decyzje.md` KO-005…KO-016).
 - `site/` z nazwą PokerGym na `main` @ ddb0108 (zgoda właściciela); przebieg Pages do sprawdzenia przy kontroli.
 - Szczyt kodu z dowodem: **6afa34d** (E2E 42732430729 i CI 42732569378 success — sprawdzone w Actions 05:40). Gałąź robocza @ e01ba05 (tylko docs nad 6afa34d).
-- Gałąź robocza @ **016317e** (AM scalona; CI na tym SHA w toku — szczyt z dowodem E2E nadal 6afa34d). W toku: AP/AQ/AR (pełny przegląd 9 języków w sesjach), AN (ponowna ocena KR/VN, docs), AO (szacunek pełnego przeglądu + pt-PT) — osobne gałęzie od e01ba05, rozłączne pliki.
+- Gałąź robocza @ **9c5012c** (AM 016317e — CI 42766336909 success; AN scalona, tylko docs, `[skip ci]`). Szczyt z dowodem E2E nadal 6afa34d (zmiany AM poza aplikacją: `store/`, docs, test narzędzi). W toku: AP/AQ/AR (pełny przegląd 9 języków), AS (pt-PT po AO).
 - Zakres 1.0 słowami właściciela: „Wszystkie 11 od razu” (+ pt-PT); build TestFlight „Po poprawkach z dzisiaj”.
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AM | session_01T66VBzioNjwudY42GtzgHt | 10 build, kod | sesja-am-kategoria @ 016317e → scalone ff do roboczej 016317e | — | [DO USTALENIA przy archiwizacji] | PRZEKAZANIE 06:06; autor OK; `pnpm run ci` kod 0 wg sesji — **niesprawdzone** do wyniku CI na 016317e (gałąź robocza); po zielonym: koszt → archiwizacja |
-| AN | session_01T66VBy5HsHQDnmCWm8Vboj | 10 build, docs | sesja-an-kr-vn @ 0cc1036 (niesprawdzone) | — | — | PRZEKAZANIE 06:10 + D-400; po odpowiedziach właściciela dopisuje fakt KR 19+, opcje na później i tekst pytania do Apple (VN) → PRZEKAZANIE końcowe |
 | AO | session_01T66VBwQoZrfRhLaY2LmtdR | 09 build, kod | sesja-ao-pt-pt @ c8ccacf | 30 (wg sesji) | API 10,53; sesja [DO USTALENIA] | PRZEKAZANIE 06:17 (zad. 3 w połowie) → następca AS; do archiwizacji po starcie AS i zapisie kosztu |
 | AS | (po starcie) | 09 build, kod | sesja-ao-pt-pt @ c8ccacf | — | — | zlecana: dokończenie pt-PT |
 | AP | session_01T66VBvUfxVvtWEAkNHxvg7 | 09 audit, docs | przeglad-ap-cjk @ e01ba05 | — | — | wystartowała (WORKING tuż po starcie; pierwsza tura niesprawdzona): ja, zh-Hant, ko |
@@ -102,3 +100,4 @@ Litery użyte dotąd: A…Z, AA…AS (następna: **AT**). Polecenia: `docs/koord
 | 11-10 06:10 | AN → koordynator → właściciel | PYTANIE D-400 (KR warunkowo / VN nie teraz + pytanie do Apple). Odpowiedzi właściciela: KR „Korea dostala w ASC 19+ z automatu wczoraj.” (fakt; warunek włączenia niespełniony → KOR zostaje wyłączony, 166 bez zmian — odczytanie koordynatora, zgłoszone właścicielowi); VN „Nie teraz + pytanie do Apple (zalecane)” — przekazane AN 06:12 | PRZEKAZANIE końcowe AN |
 | 11-10 06:13 | AP, AQ, AR → koordynator | start: baza 016317e zamiast e01ba05 (AM scalona po zapisaniu poleceń — przyjęte); listy jednostek odtworzone z `scripts/i18n/wspolne.mjs` bez uruchamiania (brak node_modules; wyjątek przyjęty); 13–16 subagentów na język; wskazane pliki metadanych fali 2 | raporty po pierwszym języku |
 | 11-10 06:17 | AO | PRZEKAZANIE przy 30%: c8ccacf; przekład pt 65/65, API 10,53 USD; przegląd 44 lekcji: KRYT 0, WYS 8, 244 poprawki; łatki mechanizmu pt-PT; metadane pt-PT; D-405, D-406 do weta; otwarte: reszta przeglądu, terminologia, nałożenie, wydanie. Koszt sesji: subagenci ok. 1,3 mln tokenów (wg AO) | następca AS |
+| 11-10 06:19 | koordynator | **AM przyjęta**: CI 42766336909 na 016317e success (06:09), koszt 1,80 USD, kontekst 20% — zarchiwizowana. **AN przyjęta**: 5e77ce2 (2 commity, autor OK, 4 pliki docs), scalona do roboczej @ 9c5012c (konflikt dopisanych wierszy w `docs/decyzje.md` rozwiązany przez zachowanie obu stron — wyjątek od „konflikt zleca się sesji”: wiersze D-395/396 i D-400 rozłączne); `pnpm run ci` kod 0 wg AN, CI na 9c5012c nie biegło (`[skip ci]`, docs) — niesprawdzone; koszt 5,74 USD, kontekst 28% — zarchiwizowana. Dla właściciela: tekst pytania do Apple (VN) w `docs/prawo/kr-vn-ponowna-ocena-2026-11-10.md` §7 | AS start; raporty AP–AR |
