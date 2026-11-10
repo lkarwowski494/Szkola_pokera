@@ -17,6 +17,12 @@ describe('znaczniki wariantu w wyjaśnieniu', () => {
   it('nieznany znacznik to błąd, nie cichy napis', () => {
     expect(() => fillVariantMarkers('Masz {{w:reka2}}', WARTOSCI)).toThrow(/reka2/);
   });
+  it('08-programista-104: znacznik z kreską ({{w:reka|x}}) i niedomknięty to błąd, nie surowy tekst', () => {
+    expect(() => fillVariantMarkers('Masz {{w:reka|kolor}}', WARTOSCI)).toThrow(/reka\|kolor/);
+    expect(() => fillVariantMarkers('Masz {{w:reka', WARTOSCI)).toThrow(/niedomknięt/);
+    expect(findVariantMarkers('Masz {{w:reka|kolor}}')).toEqual(['reka|kolor']);
+    expect(findVariantMarkers('Masz {{w:reka')).toEqual(['{{w:(niedomknięty)']);
+  });
   it('findVariantMarkers zwraca nazwy znaczników z tekstu (także nieznane) w kolejności występowania', () => {
     expect(findVariantMarkers('{{w:stol}} a {{w:xyz}} i {{w:reka}}')).toEqual(['stol', 'xyz', 'reka']);
     expect(VARIANT_MARKERS).toEqual(['reka', 'stol', 'pozycja', 'rywal']);

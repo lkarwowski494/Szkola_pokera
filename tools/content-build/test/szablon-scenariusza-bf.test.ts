@@ -84,6 +84,12 @@ describe('walidacja szablonu w budowaniu', () => {
     const zly = kopia((b) => { b.decisions[0]!.actions[0]!.explanation += ' {{w:reka2}}'; });
     expect(checkScenarioTemplate(t(zly), 'sc-test-draw.yaml', ctx).join('\n')).toMatch(/punkt decyzji 1.*call.*nieznany znacznik wariantu.*reka2/);
   });
+  it('08-programista-104: {{w:reka|x}} i niedomknięty {{w:reka to błąd budowania z id i numerem punktu', () => {
+    for (const zly of ['Masz {{w:reka|kolor}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}. Gram.', 'Masz {{w:reka na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}. Gram.']) {
+      const e = checkScenarioTemplate(t(kopia((b) => { b.decisions[0]!.actions[0]!.explanation = zly; })), 'sc-test-draw.yaml', ctx);
+      expect(e.join('\n')).toMatch(/sc-test-draw.*punkt decyzji 1.*call.*nieznany znacznik wariantu/);
+    }
+  });
   it('typ rywala wymaga reguły exploit', () => {
     const z = { ...BAZA, villainType: 'nit' };
     expect(checkScenarioTemplate(t(z), 'sc-test-draw.yaml', ctx).join()).toMatch(/exploit/);

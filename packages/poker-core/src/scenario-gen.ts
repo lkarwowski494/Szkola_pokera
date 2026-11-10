@@ -178,17 +178,26 @@ export function generateVariant(template: GeneratorTemplate, level: ScenarioLeve
 export const VARIANT_MARKERS = ['reka', 'stol', 'pozycja', 'rywal'] as const;
 export type VariantMarker = (typeof VARIANT_MARKERS)[number];
 
-const VARIANT_MARKER_RE = /\{\{w:([^}|]*)\}\}/g;
+const VARIANT_MARKER_RE = /\{\{w:([^{}]*)\}\}/g;
+const NIEDOMKNIETY = '{{w:(niedomknięty)';
 
-/** Nazwy znaczników wariantu z tekstu w kolejności występowania (także nieznane, do walidacji). */
+/**
+ * Nazwy znaczników wariantu z tekstu w kolejności występowania (także nieznane, do walidacji). Znacznik z kreską
+ * (`{{w:reka|x}}`) ma nazwę `reka|x`, a więc jest nieznany; niedomknięty `{{w:` zgłaszany jako `{{w:(niedomknięty)`
+ * (08-programista-104: nic z `{{w:` nie zostaje surowe w tekście dla użytkownika).
+ */
 export function findVariantMarkers(text: string): string[] {
-  return [...text.matchAll(VARIANT_MARKER_RE)].map((m) => m[1]!);
+  const names = [...text.matchAll(VARIANT_MARKER_RE)].map((m) => m[1]!);
+  if (text.replace(VARIANT_MARKER_RE, '').includes('{{w:')) names.push(NIEDOMKNIETY);
+  return names;
 }
 
 /** Podstawia znaczniki wartościami wariantu; nieznany znacznik to błąd (nie cichy napis w treści dla użytkownika). */
 export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>): string {
-  return text.replace(VARIANT_MARKER_RE, (_all, name: string) => {
+  const wynik = text.replace(VARIANT_MARKER_RE, (_all, name: string) => {
     if (!(VARIANT_MARKERS as readonly string[]).includes(name)) throw new TemplateError(`nieznany znacznik wariantu {{w:${name}}}`);
     return values[name as VariantMarker];
   });
+  if (wynik.includes('{{w:')) throw new TemplateError('niedomknięty znacznik wariantu {{w:');
+  return wynik;
 }
