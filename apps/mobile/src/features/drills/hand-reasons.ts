@@ -77,7 +77,8 @@ export function handReasonKey(hc: string, status: 'in' | 'out', spot: string): H
     if (f.low >= 10) return 'high';
     if (f.suited) return 'suited';
     if (f.straights >= 3) return 'connected';
-    if (isAllInSpot(spot) && f.high >= 10) return 'highAllIn';
+    // tylko as albo król: dziesiątka czy walet to słaby argument za grą (06-tresci-003, BQ; powód z ceny w otwartych)
+    if (isAllInSpot(spot) && f.high >= 13) return 'highAllIn';
     return null;
   }
   if (f.high <= 9) return f.pair ? 'overcardsPair' : 'overcards';

@@ -77,9 +77,9 @@ describe('powody z klasy ręki: kierunek i reguły', () => {
     // ręka w kolorze poza zakresem nie dostaje argumentu „kolor”, a para w zakresie nie dostaje „niskie karty”
     expect(handReasonKey('Q3s', 'out', 'rfi.btn')).toBe('dominated');
     expect(handReasonKey('22', 'in', 'call.bb-5')).toBe('pair');
-    // „wyższa karta przy all-in” tylko w spotach all-in
-    expect(handReasonKey('T7o', 'in', 'rfi.utg')).toBeNull();
-    expect(handReasonKey('T7o', 'in', 'call.bb-5')).toBe('highAllIn');
+    // „wyższa karta przy all-in” tylko w spotach all-in (sesja BQ, 06-tresci-003: K7o zamiast T7o, bo powód tylko od króla)
+    expect(handReasonKey('K7o', 'in', 'rfi.utg')).toBeNull();
+    expect(handReasonKey('K7o', 'in', 'call.bb-5')).toBe('highAllIn');
   });
 
   it('każdy powód ma regułę w rules.yaml z poziomem pewności i źródłami', () => {

@@ -46,6 +46,31 @@ const WYJATKI_BEZ_POWODU: readonly string[] = [
   'vs-open.sb-vs-btn:JTo',
   'vs-open.sb-vs-btn:KTo',
   'vs-open.sb-vs-btn:QJo',
+  // sesja BQ, 06-tresci-003: ręka w zakresie all-in z wyższą kartą Q, J albo 10 i bez innej cechy siły; powód
+  // „wyższa karta” tylko od króla, a powód z ceny sprawdzenia (R-M11-006) jest w otwartych (`docs/tresci/stan-bq.md`)
+  'push.sb-15:Q9o',
+  'call.bb-5:Q9o',
+  'call.bb-5:Q8o',
+  'call.bb-5:J8o',
+  'call.bb-5:Q7o',
+  'call.bb-5:J7o',
+  'call.bb-5:T7o',
+  'call.bb-5:Q6o',
+  'call.bb-5:J6o',
+  'call.bb-5:Q5o',
+  'call.bb-5:J5o',
+  'call.bb-5:Q4o',
+  'call.bb-5:Q3o',
+  'call.bb-5:Q2o',
+  'call.bb-10:Q9o',
+  'call.bb-10-ante:Q9o',
+  'call.bb-10-ante:Q8o',
+  'call.bb-10-ante:J8o',
+  'call.bb-10-ante:Q7o',
+  'call.bb-10-ante:J7o',
+  'call.bb-10-ante:Q6o',
+  'call.bb-10-ante:Q5o',
+  'call.bb-10-ante:Q4o',
 ];
 
 /** Tekst między zdaniem zagrania („…w zakresie.”, „…poza zakresem.”) a częstościami solvera. */
