@@ -2,6 +2,7 @@
 Gałąź `sesja-du-szablony` od b3963e9a. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/DU.md` @ 48baa1fb. Stan na 2026-11-11. Decyzje: `docs/decyzje/DU.md` (D-1030…D-1037; wolne D-1038…D-1049).
 
 ## Wynik w skrócie
+- CI: `pnpm run ci` kod 0 na cbdd2ff2 (`docs/tresci/dowody/du-ci-cbdd2ff2.txt`); pierwsze pełne CI na 4d05d33f było czerwone (`szablony-bs`, przekłady), naprawione w cbdd2ff2 (D-1039).
 - **Po zgodzie koordynatora (KO-070) w treści: SC-06, SC-32, SC-33, SC-34 (Ł/Ś), we wszystkich 12 językach** (pl, en; 10 przekładów agenta do przeglądu 09: D-1038, D-1039). Treść scenariuszy: 10 szablonów (SC-01, 02, 03, 06, 11, 12, 19, 32, 33, 34).
 - Szkice w `docs/tresci/szablony-robocze/` (SC-06, 32, 33 usunięte po wejściu do treści): SC-04, SC-05 (czekają na 08-A), SC-08 (pojemność, D-1035, kolejka decyzji koordynatora), SC-34 z poziomem trudnym (06-tresci-002).
 - Testy zmienione według KO-070 (lista i powody: D-1038); nowy `tools/content-build/test/szablony-du.test.ts`.
