@@ -584,6 +584,8 @@ export const ScenarioRangeSpotDecision = z
     kind: z.literal('range-spot'),
     /** Spot z content/ranges/spots.yaml (hero i ścieżka akcji z węzła solvera). */
     spot: id,
+    /** 08-N1: akcje spotu liczone jako jedna akcja `play` („gram”: np. sprawdzenie i 3-bet jak w siatce grupy); etykiety akcji punktu to wtedy `play` i akcje spoza listy (pas). */
+    play: z.array(z.string().min(1)).min(2).optional(),
     rule: id.optional(),
     calc: id.optional(),
     actions: z.array(z.object({ action: z.string().min(1), explanation: z.string().min(1) }).strict()).min(2),

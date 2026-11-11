@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, eligibleClasses, HAND_CLASSES, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, eligibleClasses, groupedSpot, HAND_CLASSES, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -95,7 +95,14 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     }
     if (d.calc !== undefined && !ctx.numberKeys.has(d.calc)) e.push(`${p} nieznany rachunek ${d.calc}`);
     if (d.kind === 'range-spot') {
-      const labels = ctx.spots?.get(d.spot);
+      const labelsSpotu = ctx.spots?.get(d.spot);
+      // 08-N1: grupa play łączy wskazane akcje spotu w jedną akcję `play`; ekran i ocena widzą wtedy etykiety grupy
+      if (d.play && labelsSpotu) {
+        const brak = d.play.filter((l) => !labelsSpotu.includes(l));
+        if (brak.length) e.push(`${p} grupa play: akcje spoza spotu ${d.spot}: ${brak.join(', ')} (są: ${labelsSpotu.join(', ')})`);
+        if (labelsSpotu.includes('play')) e.push(`${p} grupa play: etykieta play jest zarezerwowana, a spot ${d.spot} ma taką akcję`);
+      }
+      const labels = d.play && labelsSpotu ? [...labelsSpotu.filter((l) => !d.play!.includes(l)), 'play'] : labelsSpotu;
       if (!labels) e.push(`${p} nieznany spot zakresu ${d.spot}`);
       else {
         const nieznane = d.actions.map((a) => a.action).filter((a) => !labels.includes(a));
@@ -277,6 +284,9 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
     if (d.kind === 'size-spot' && d.check === 'iso-size') {
       return [`szablon ${t.id}: punkt ${i + 1} iso-size nie jest jeszcze obsługiwany na ekranie scenariusza (ekran nie pokazuje limperów przed graczem; widok: zadanie dla roli 04 i EkranScenariusza); szablon nie może trafić do bazy treści`];
     }
+    if (d.kind === 'range-spot' && d.play) {
+      return [`szablon ${t.id}: punkt ${i + 1} range-spot z grupą play nie jest jeszcze obsługiwany na ekranie scenariusza (ekran nazywa akcje z etykiet węzła solvera; widok grupy „gram”: zadanie dla roli 04); szablon nie może trafić do bazy treści`];
+    }
     if (kind === 'icm-call' && t.levels.includes('trudny')) {
       return [`szablon ${t.id}: punkt ${i + 1} icm-call: poziom trudny czeka na 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie; docs/tresci/szablony-robocze/README.md, SC-34, D-825); szablon nie może trafić do bazy treści`];
     }
@@ -322,7 +332,8 @@ export function checkScenarioGenerator(
     const pierwszy = t.decisions[0];
     const b = t.bounds[level];
     if (ctx && b && pierwszy?.kind === 'range-spot' && t.decisions.every((d) => d.kind === 'range-spot' || d.kind === 'size-spot')) {
-      const spot = ctx.spots.find((x) => x.id === pierwszy.spot);
+      const spot0 = ctx.spots.find((x) => x.id === pierwszy.spot);
+      const spot = spot0 && pierwszy.play ? groupedSpot(spot0, pierwszy.play) : spot0;
       const zakres = b.freqs?.[0];
       const oczekiwana = b.expected[0];
       if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx, b.equityMarginMin).length);

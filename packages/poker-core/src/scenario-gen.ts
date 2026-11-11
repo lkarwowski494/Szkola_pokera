@@ -36,6 +36,8 @@ export interface RangeSpotSpec {
   kind: 'range-spot';
   street: 'preflop';
   spot: string;
+  /** 08-N1: akcje spotu liczone jako jedna akcja `play` („gram”, np. sprawdzenie i 3-bet jak w siatce grupy); pozostałe akcje (pas) bez zmian. */
+  play?: readonly string[];
 }
 /** F2: c-bet na flopie; `rule` to reguła, której przypadek (`cases`) dopasowany po teksturze flopu daje poprawną akcję (grading.ts, cbet-case). */
 export interface CbetCaseSpec {
@@ -498,6 +500,21 @@ function handFromRange(templateId: string, ctx: GeneratorContext, spotId: string
   return [combo[0], combo[1]];
 }
 
+/** Etykieta akcji grupy „gram” (08-N1, D-1146): zarezerwowana, spot z taką akcją to błąd. */
+export const PLAY_ACTION = 'play';
+/**
+ * 08-N1: spot z akcjami `play` połączonymi w jedną (suma częstości akcji z listy `play`, jak grupa w siatce) i akcjami spoza listy bez zmian (pas).
+ * Klasy niepewne bez zmian. Błąd, gdy akcja z listy nie istnieje w spocie albo spot ma już akcję o etykiecie `play`.
+ */
+export function groupedSpot(spot: RangeSpotData, play: readonly string[]): RangeSpotData {
+  if (spot.actions.some((a) => a.label === PLAY_ACTION)) throw new TemplateError(`spot ${spot.id}: etykieta ${PLAY_ACTION} jest zarezerwowana dla grupy „gram”`);
+  const brak = play.filter((l) => !spot.actions.some((a) => a.label === l));
+  if (play.length === 0 || brak.length) throw new TemplateError(`spot ${spot.id}: akcje grupy play spoza spotu: ${brak.join(', ') || '(pusta lista)'}`);
+  const reszta = spot.actions.filter((a) => !play.includes(a.label));
+  const gram = { label: PLAY_ACTION, freqs: HAND_CLASSES.map((_hc, h) => spot.actions.filter((a) => play.includes(a.label)).reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0)) };
+  return { ...spot, actions: [...reszta, gram] };
+}
+
 /** F1: klasy rąk, w których akcja oczekiwana ma częstość z przedziału poziomu i werdykt „zgodna” (ADR-26); klasy niepewne pominięte. */
 export function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext, equityMarginMin?: number): { hc: string; h: number }[] {
   if (equityMarginMin !== undefined && !ctx.equity169) throw new TemplateError('equityMarginMin wymaga macierzy equity w kontekście generatora (GeneratorContext.equity169)');
@@ -521,8 +538,9 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   let listPoint: ListHandVariantDecision | null = null;
   if (first.kind === 'range-spot') {
     if (!ctx) throw new TemplateError(`${t.id}: punkt range-spot wymaga danych zakresów (GeneratorContext)`);
-    const spot = ctx.spots.find((x) => x.id === first.spot);
-    if (!spot) throw new TemplateError(`${t.id}: nieznany spot ${first.spot}`);
+    const spot0 = ctx.spots.find((x) => x.id === first.spot);
+    if (!spot0) throw new TemplateError(`${t.id}: nieznany spot ${first.spot}`);
+    const spot = first.play ? groupedSpot(spot0, first.play) : spot0;
     const expected = b.expected[0]!;
     const range = b.freqs?.[0];
     if (!range) throw new TemplateError(`${t.id}: poziom ${level}: punkt range-spot bez przedziału freqs`);
