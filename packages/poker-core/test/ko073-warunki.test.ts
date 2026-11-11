@@ -39,5 +39,6 @@ describe('overcardOutsAt: jedna definicja nadkart punktu (KO-073)', () => {
   it('brak nadkart: najwyższa karta stołu wyższa od obu kart gracza; para w ręce', () => {
     expect(overcardOutsAt(k('6s 4s'), k('Ks 5s 2h'))).toBe(0);
     expect(overcardOutsAt(k('As Ad'), k('7c 5d 2h'))).toBe(0);
+    expect(overcardOutsAt(k('Kh 5c'), k('Ks 9d 2h'))).toBe(0); // EE 011: karta gracza równa najwyższej karcie stołu nie jest wyższa (granica > a nie >=)
   });
 });
