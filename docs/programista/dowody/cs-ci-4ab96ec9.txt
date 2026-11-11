@@ -1,0 +1,19 @@
+pnpm run ci @ 4ab96ec9 (sesja CS), kod wyjścia 0
+Test Files  3 passed (3)
+Tests  21 passed (21)
+Test Files  6 passed (6)
+Tests  144 passed (144)
+Test Files  14 passed (14)
+Tests  179 passed (179)
+Test Files  27 passed (27)
+Tests  347 passed | 1 expected fail (348)
+Test Files  9 passed (9)
+Tests  44 passed (44)
+Test Files  21 passed (21)
+Tests  160 passed (160)
+Test Files  38 passed (38)
+Tests  379 passed | 1 expected fail (380)
+Test Suites: 117 passed, 117 total
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+EXIT 0
