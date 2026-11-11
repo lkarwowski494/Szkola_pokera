@@ -130,6 +130,8 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       }
     } else if (d.kind === 'defend') {
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      if (t.positions.hero !== 'BB') e.push(`${p} defend: gracz to BB (obrona BB wobec c-betu, D-1144), jest ${t.positions.hero}`);
+      if (!d.spot.startsWith('vs-open.bb-')) e.push(`${p} defend: spot vs-open.bb-* (obrona BB wobec otwarcia, D-1144), jest ${d.spot}`);
       if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
       // granice zgodne z defendVsCbet (poker-core): mały ≤ 0,4, duży ≥ 0,75 (cbet.size.big, D-1166); sprawdzamy surowe ułamki i zakłady po zaokrągleniu (EI-003)
       for (const f of d.fractions) if (f > 0.4 && f < 0.75) e.push(`${p} ułamek c-betu ${f} leży między małym (≤ 0,4) a dużym (≥ 0,75): źródło (R-M6-006/007) nie rozstrzyga, wariant byłby zawsze odrzucony`);

@@ -28,6 +28,10 @@ describe('08-N2: bramka defend', () => {
   it('EI-003: zaokrąglony zakład w luce (pula 3 × 0,75 → 2 = 0,667) jest błędem szablonu', () => {
     expect(blad(kopia((b) => { b.decisions[0].fractions = [0.75]; b.decisions[0].pots = [3]; }))).toMatch(/pula 3.*zakład 2.*między/);
   });
+  it('EI-006 (D-1144): gracz musi być BB, a spot to obrona BB (vs-open.bb-*)', () => {
+    expect(blad(kopia((b) => { b.positions.hero = 'CO'; b.positions.villain = 'BTN'; }))).toMatch(/defend: gracz to BB/);
+    expect(blad(kopia((b) => { b.decisions[0].spot = 'rfi.co'; }))).toMatch(/defend: spot vs-open\.bb-\*/);
+  });
   it('ekran jeszcze nie obsługuje defend', () => { expect(checkScenarioNaEkran(fx.template).join('\n')).toMatch(/defend nie jest jeszcze obsługiwany na ekranie/); });
   it('generator wytwarza ≥ 40 odcisków (z prawdziwym zakresem obrony BB)', () => {
     expect(checkScenarioGenerator(fx.template, undefined, 2000, { spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } })).toEqual([]);

@@ -42,7 +42,7 @@ describe('08-N4: list-hand', () => {
     expect(() => generateVariant(szablon('fold'), 'latwy', 1)).toThrow(TemplateError);
   });
   it('ta sama klasa w dwóch wpisach to błąd szablonu', () => {
-    expect(() => generateVariant(szablon('4bet', [{ hands: ['AA'], correct: '4bet' }, { hands: ['AA', 'KK'], correct: 'call' }]), 'latwy', 1)).toThrow(/AA/);
+    expect(() => generateVariant(szablon('4bet', [{ hands: ['AA'], correct: '4bet' }, { hands: ['AA', 'KK'], correct: 'call' }]), 'latwy', 1)).toThrow(/klasa AA w więcej niż jednym wpisie listy/); // EI-005: komunikat generatora, nie późniejszy z listHandVerdicts
   });
   it('nieznana klasa ręki to błąd szablonu', () => {
     expect(() => generateVariant(szablon('4bet', [{ hands: ['AAs'], correct: '4bet' }]), 'latwy', 1)).toThrow(/AAs/);
