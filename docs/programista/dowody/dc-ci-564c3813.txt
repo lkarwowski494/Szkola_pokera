@@ -1,0 +1,21 @@
+# pnpm run ci @ 564c3813 (origin/sesja-cx-range-spot, checkout odłączony w sesji DC), 2026-11-11T08:38:33Z
+kod wyjścia: 0
+komenda: pnpm run ci (typecheck, test, test:skrypty, test:kontrole, k08, i18n:kod, content:check, tresci:rejestr); pełny log poza repo
+wyniki testów:
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  179 passed (179)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  42 passed (42)
+tools/content-build test:       Tests  417 passed | 1 expected fail (418)
+apps/mobile test: Tests:       969 passed, 969 total
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
