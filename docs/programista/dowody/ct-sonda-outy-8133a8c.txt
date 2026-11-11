@@ -1,0 +1,132 @@
+# CT (a): niezależna wyrocznia outów i decyzji draw-call na 8133a8c (sonda: outy z talii, nadkarty jako unia i suma, implied odds przy pasie)
+# komenda: npx tsx sonda-outy.ts 3000 (z tools/content-build); źródło sondy: ct-sonda-outy.ts.txt
+{
+ "sc-01 latwy": {
+  "warianty": 3000,
+  "punkty": 6000,
+  "zNadkartami": 2268,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-01 sredni": {
+  "warianty": 3000,
+  "punkty": 6000,
+  "zNadkartami": 1126,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-01 trudny": {
+  "warianty": 3000,
+  "punkty": 6000,
+  "zNadkartami": 0,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-02 latwy": {
+  "warianty": 3000,
+  "punkty": 6000,
+  "zNadkartami": 417,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-02 sredni": {
+  "warianty": 3000,
+  "punkty": 6000,
+  "zNadkartami": 169,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-03 latwy": {
+  "warianty": 3000,
+  "punkty": 3000,
+  "zNadkartami": 996,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-03 sredni": {
+  "warianty": 3000,
+  "punkty": 3000,
+  "zNadkartami": 0,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-19 latwy": {
+  "warianty": 3000,
+  "punkty": 6000,
+  "zNadkartami": 195,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ },
+ "sc-19 sredni": {
+  "warianty": 3000,
+  "punkty": 6000,
+  "zNadkartami": 653,
+  "outyNiezgodne": 0,
+  "decyzjaNiezgodna": {
+   "sameDrawy": 0,
+   "unia": 0,
+   "suma": 0
+  },
+  "implied": 0,
+  "cenaNiezgodna": 0,
+  "przyklady": []
+ }
+}
+OK: 0 niezgodności
+kod wyjścia: 0

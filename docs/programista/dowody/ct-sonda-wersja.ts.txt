@@ -1,0 +1,20 @@
+// Sonda CT (d): ten sam szablon, poziom i ziarno pod generatorem cd327e9 (przed CS) i 8133a8c (po CS), oba GENERATOR_WERSJA = 1.
+import { join } from 'node:path';
+import * as stary from '/home/user/Szkola_pokera/packages/poker-core/.ct-old/src/scenario-gen.ts';
+import * as nowy from '/home/user/Szkola_pokera/packages/poker-core/src/scenario-gen.ts';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze.ts';
+const N = Number(process.argv[2] ?? 500);
+const pl = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios')).map((x) => x.template);
+console.log(`GENERATOR_WERSJA stary=${stary.GENERATOR_WERSJA} nowy=${nowy.GENERATOR_WERSJA}`);
+for (const id of ['sc-01', 'sc-02', 'sc-19']) {
+  const t = pl.find((x) => x.id === id)!;
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as any;
+  for (const level of t.levels) {
+    let rozne = 0; const przyklady: string[] = [];
+    for (let s = 1; s <= N; s++) {
+      const a = stary.generateVariant(g, level as any, s).fingerprint, b = nowy.generateVariant(g, level as any, s).fingerprint;
+      if (a !== b) { rozne++; if (przyklady.length < 3) przyklady.push(`ziarno ${s}: ${a} → ${b}`); }
+    }
+    console.log(`${id} ${level}: inny odcisk dla ${rozne}/${N} ziaren; ${przyklady.join('; ')}`);
+  }
+}

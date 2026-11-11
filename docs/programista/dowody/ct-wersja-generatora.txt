@@ -1,0 +1,23 @@
+# CT (d): generator cd327e9 (przed CS) vs 8133a8c (po CS), te same szablony z content/pl, poziomy i ziarna 1–500
+# stary generator: git archive cd327e9 packages/poker-core/src → packages/poker-core/.ct-old/src (nieśledzone, usunięte po sondzie)
+# komenda: npx tsx sonda-wersja.ts 500 (z tools/content-build); źródło: ct-sonda-wersja.ts.txt
+GENERATOR_WERSJA stary=1 nowy=1
+sc-01 latwy: inny odcisk dla 0/500 ziaren; 
+sc-01 sredni: inny odcisk dla 234/500 ziaren; ziarno 1: sc-01|sredni|4030/K19060/92 → sc-01|sredni|Q090/A17020/82; ziarno 2: sc-01|sredni|A041/T18131/Q0 → sc-01|sredni|J061/K1Q151/22; ziarno 4: sc-01|sredni|A081/J19151/20 → sc-01|sredni|7021/Q16131/92
+sc-01 trudny: inny odcisk dla 315/500 ziaren; ziarno 1: sc-01|trudny|4030/K19060/92 → sc-01|trudny|6051/J1T121/90; ziarno 2: sc-01|trudny|A041/T18131/Q0 → sc-01|trudny|J0T0/K04130/61; ziarno 4: sc-01|trudny|A081/J19151/20 → sc-01|trudny|7021/Q16131/92
+sc-02 latwy: inny odcisk dla 177/500 ziaren; ziarno 3: sc-02|latwy|J0T1/908142/93 → sc-02|latwy|7021/826052/J0; ziarno 6: sc-02|latwy|K0J1/Q0T082/72 → sc-02|latwy|6041/805232/Q1; ziarno 7: sc-02|latwy|A091/Q2J3T1/62 → sc-02|latwy|9031/T28071/Q1
+sc-02 sredni: inny odcisk dla 242/500 ziaren; ziarno 3: sc-02|sredni|J0T1/908142/93 → sc-02|sredni|6051/A07142/K3; ziarno 6: sc-02|sredni|K0J1/Q0T082/72 → sc-02|sredni|9061/K28070/72; ziarno 7: sc-02|sredni|A091/Q2J3T1/62 → sc-02|sredni|T070/K1Q2J1/Q0
+sc-19 latwy: inny odcisk dla 204/500 ziaren; ziarno 1: sc-19|latwy|K061/713121/82 → sc-19|latwy|J081/T13121/K2; ziarno 4: sc-19|latwy|A081/J19151/20 → sc-19|latwy|K081/A1T151/T2; ziarno 5: sc-19|latwy|8060/703021/22 → sc-19|latwy|T090/705031/A1
+sc-19 sredni: inny odcisk dla 263/500 ziaren; ziarno 1: sc-19|sredni|4030/K19060/92 → sc-19|sredni|6051/J1T121/90; ziarno 2: sc-19|sredni|A041/T18131/Q0 → sc-19|sredni|T090/Q15040/52; ziarno 5: sc-19|sredni|8060/703021/22 → sc-19|sredni|5031/A1Q171/90
+kod wyjścia: 0
+
+# kontrola dyskryminacji wyroczni (a): ta sama sonda outów na generatorze sprzed CS (cd327e9), 300 ziaren — musi znaleźć niezgodności
+   "unia sc-02 latwy seed 3 p1: outy 8+nad 2 → unia 14, cena 0.304, oczek. fold",
+   "implied sc-02 latwy seed 3: o=14 potrzeba -0.1 za pulą 7.3",
+   "implied sc-02 latwy seed 7: o=11 potrzeba 8.4 za pulą 12.3",
+   "implied sc-02 latwy seed 12: o=11 potrzeba 8.4 za pulą 12.3",
+   "unia sc-02 latwy seed 19 p1: outy 8+nad 2 → unia 14, cena 0.283, oczek. fold",
+   "implied sc-02 latwy seed 19: o=14 potrzeba -3.3 za pulą 12.3",
+   "implied sc-02 latwy seed 21: o=11 potrzeba 8.4 za pulą 12.3",
+   "implied sc-02 latwy seed 24: o=11 potrzeba 8.2 za pulą 14.3"
+kod wyjścia: 1

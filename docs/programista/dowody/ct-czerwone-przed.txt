@@ -1,0 +1,80 @@
+# CT: testy odtwarzające 08-programista-001 i -002 uruchomione jako zwykłe it (kopia pliku z it.fails → it, usunięta po przebiegu), 8133a8c
+# komenda: sed 's/it\.fails(/it(/' test/recenzja-ct-odtworzenie.test.ts > test/ct-czerwone-tmp.test.ts && npx vitest run test/ct-czerwone-tmp.test.ts -t 08-programista (tools/content-build)
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+(node:3830) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/ct-czerwone-tmp.test.ts (15 tests | 2 failed | 13 skipped) 66ms
+   ❯ 08-programista-001: SC-12 (niski połączony flop) — duży c-bet nie może mieć tej samej oceny co mały (1)
+     × SC-12 łatwy i średni, ziarna 1–50: duży zakład oferowany na ekranie ma inną ocenę niż mały 60ms
+   ❯ 08-programista-002: to samo ziarno pod tą samą wersją generatora daje ten sam odcisk (szablony z treści) (1)
+     × wersja 1: odciski ziaren wzorcowych jak przed CS (albo wersja podniesiona i wzorce przeliczone) 5ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ct-czerwone-tmp.test.ts > 08-programista-001: SC-12 (niski połączony flop) — duży c-bet nie może mieć tej samej oceny co mały > SC-12 łatwy i średni, ziarna 1–50: duży zakład oferowany na ekranie ma inną ocenę niż mały
+AssertionError: expected [ …(100) ] to deeply equal []
+- Expected
++ Received
+- []
++ [
++   "latwy 1: bet-big acceptable = bet-small",
++   "latwy 2: bet-big acceptable = bet-small",
++   "latwy 3: bet-big acceptable = bet-small",
++   "latwy 4: bet-big acceptable = bet-small",
++   "latwy 5: bet-big acceptable = bet-small",
++   "latwy 6: bet-big acceptable = bet-small",
++   "latwy 7: bet-big acceptable = bet-small",
++   "latwy 8: bet-big acceptable = bet-small",
++   "latwy 9: bet-big acceptable = bet-small",
++   "latwy 10: bet-big acceptable = bet-small",
++   "latwy 11: bet-big acceptable = bet-small",
++   "latwy 12: bet-big acceptable = bet-small",
++   "latwy 13: bet-big acceptable = bet-small",
++   "latwy 14: bet-big acceptable = bet-small",
++   "latwy 15: bet-big acceptable = bet-small",
++   "latwy 16: bet-big acceptable = bet-small",
++   "latwy 17: bet-big acceptable = bet-small",
++   "latwy 18: bet-big acceptable = bet-small",
++   "latwy 19: bet-big acceptable = bet-small",
++   "latwy 20: bet-big acceptable = bet-small",
++   "latwy 21: bet-big acceptable = bet-small",
++   "latwy 22: bet-big acceptable = bet-small",
++   "latwy 23: bet-big acceptable = bet-small",
++   "latwy 24: bet-big acceptable = bet-small",
++   "latwy 25: bet-big acceptable = bet-small",
++   "latwy 26: bet-big acceptable = bet-small",
++   "latwy 27: bet-big acceptable = bet-small",
++   "latwy 28: bet-big acceptable = bet-small",
++   "latwy 29: bet-big acceptable = bet-small",
++   "latwy 30: bet-big acceptable = bet-small",
++   "latwy 31: bet-big acceptable = bet-small",
++   "latwy 32: bet-big acceptable = bet-small",
++   "latwy 33: bet-big acceptable = bet-small",
++   "latwy 34: bet-big acceptable = bet-small",
++   "latwy 35: bet-big acceptable = bet-small",
++   "latwy 36: bet-big acceptable = bet-small",
++   "latwy 37: bet-big acceptable = bet-small",
++   "latwy 38: bet-big acceptable = bet-small",
++   "latwy 39: bet-big acceptable = bet-small",
++   "latwy 40: bet-big acceptable = bet-small",
++   "latwy 41: bet-big acceptable = bet-small",
++   "latwy 42: bet-big acceptable = bet-small",
++   "latwy 43: bet-big acceptable = bet-small",
++   "latwy 44: bet-big acceptable = bet-small",
++   "latwy 45: bet-big acceptable = bet-small",
+kod wyjścia: 1 (czerwone z powodu asercji, jak oczekiwano)
+
+# plik w repo (it.fails): npx vitest run test/recenzja-ct-odtworzenie.test.ts
+ Test Files  1 passed (1)
+      Tests  13 passed | 2 expected fail (15)
+kod wyjścia: 0
+
+# ekran (jest --ci): npx jest --ci src/features/scenariusz/__tests__/ct-recenzja.test.tsx (apps/mobile)
+    ✓ sc-11 latwy ziarno 1: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (323 ms)
+    ✓ sc-11 latwy ziarno 7: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (345 ms)
+    ✓ sc-11 sredni ziarno 1: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (249 ms)
+    ✓ sc-11 sredni ziarno 7: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (261 ms)
+    ✓ sc-12 latwy ziarno 1: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (223 ms)
+    ✓ sc-12 latwy ziarno 7: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (225 ms)
+    ✓ sc-12 sredni ziarno 1: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (218 ms)
+    ✓ sc-12 sredni ziarno 7: pasek ocen i „Ocena:” dla check, bet-small, bet-big = verdicts wariantu (260 ms)
+Tests:       8 passed, 8 total
+kod wyjścia: 0

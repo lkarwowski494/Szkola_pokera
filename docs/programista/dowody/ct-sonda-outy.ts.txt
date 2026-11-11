@@ -1,0 +1,87 @@
+// Sonda CT (a): niezależna wyrocznia outów i decyzji draw-call dla szablonów z treści. Uruchom: npx tsx <ten plik> [losowań]
+// Karta = rank*4+suit (rank 0=2..12=A). Wyrocznia nie używa drawOuts/analyseOutsSpot: liczy karty z talii, po których
+// ręka gracza (z użyciem jego karty) staje się stritem albo kolorem, a stół sam stritem/kolorem nie jest.
+import { join } from 'node:path';
+import { generateVariant, type GeneratorTemplate, type ScenarioLevel } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze.ts';
+
+const R = (c: number) => c >> 2;
+const S = (c: number) => c & 3;
+function straightHigh(cards: number[]): number {
+  const ranks = new Set(cards.map(R));
+  let best = -1;
+  for (let top = 12; top >= 3; top--) {
+    const need = [0, 1, 2, 3, 4].map((k) => top - k).map((r) => (r < 0 ? 12 : r));
+    if (top === 3) need[4] = 12; // A-5
+    if (need.every((r) => ranks.has(r))) { best = top; break; }
+  }
+  return best;
+}
+const flushSuit = (cards: number[]) => [0, 1, 2, 3].find((s) => cards.filter((c) => S(c) === s).length >= 5) ?? -1;
+function makesDraw(hero: number[], board: number[], c: number): boolean {
+  const all = [...hero, ...board, c];
+  const b = [...board, c];
+  const fs = flushSuit(all);
+  if (fs >= 0 && flushSuit(b) < 0 && hero.some((h) => S(h) === fs)) return true;
+  const sh = straightHigh(all);
+  if (sh >= 0 && straightHigh(b) < sh) return true; // strit lepszy niż strit samego stołu
+  return false;
+}
+const choose2 = (n: number) => (n * (n - 1)) / 2;
+const hit = (o: number, n: number, k: 1 | 2) => (k === 1 ? o / n : 1 - choose2(n - o) / choose2(n));
+
+const LOS = Number(process.argv[2] ?? 3000);
+const pl = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios')).map((x) => x.template);
+const wynik: Record<string, unknown> = {};
+let bledy = 0;
+for (const t of pl.filter((x) => x.decisions.every((d) => d.kind === 'draw-call'))) {
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  for (const level of t.levels as ScenarioLevel[]) {
+    const st = { warianty: 0, punkty: 0, zNadkartami: 0, outyNiezgodne: 0, decyzjaNiezgodna: { sameDrawy: 0, unia: 0, suma: 0 }, implied: 0, cenaNiezgodna: 0, przyklady: [] as string[] };
+    for (let seed = 1; seed <= LOS; seed++) {
+      const v = generateVariant(g, level, seed);
+      st.warianty++;
+      v.decisions.forEach((d, i) => {
+        st.punkty++;
+        const spec = t.decisions[i]!;
+        const board = v.board.slice(0, d.street === 'flop' ? 3 : 4);
+        const known = new Set([...v.hero, ...board]);
+        const unseen = Array.from({ length: 52 }, (_, c) => c).filter((c) => !known.has(c));
+        const drawOuts = unseen.filter((c) => makesDraw(v.hero, board, c));
+        const topB = Math.max(...board.map(R));
+        const over = [...new Set(v.hero.map(R).filter((r) => r > topB))];
+        const overCards = unseen.filter((c) => over.includes(R(c)));
+        const unia = new Set([...drawOuts, ...overCards]).size;
+        const suma = drawOuts.length + 3 * over.length;
+        if (over.length) st.zNadkartami++;
+        if (drawOuts.length !== d.outs) { st.outyNiezgodne++; if (st.przyklady.length < 3) st.przyklady.push(`outy ${t.id} ${level} seed ${seed}: wyrocznia ${drawOuts.length}, wariant ${d.outs}`); }
+        const n = unseen.length;
+        const k: 1 | 2 = spec.villain === 'all-in' && d.street === 'flop' ? 2 : 1;
+        const cena = d.bet / (d.pot + 2 * d.bet);
+        if (Math.abs(cena - d.required) > 1e-12) st.cenaNiezgodna++;
+        const exp = t.bounds[level]!.expected[i];
+        const dec = (o: number) => (hit(o, n, k) > cena ? 'call' : 'fold');
+        if (dec(drawOuts.length) !== exp) st.decyzjaNiezgodna.sameDrawy++;
+        if (dec(unia) !== exp) { st.decyzjaNiezgodna.unia++; if (st.przyklady.length < 6) st.przyklady.push(`unia ${t.id} ${level} seed ${seed} p${i}: outy ${drawOuts.length}+nad ${over.length} → unia ${unia}, cena ${cena.toFixed(3)}, oczek. ${exp}`); }
+        if (dec(suma) !== exp) st.decyzjaNiezgodna.suma++;
+        // implied odds przy pasie (R-M7-008): potrzebna wygrana po trafieniu = dopłata × (n − o)/o − (pula + zakład) > żetony za pulą po sprawdzeniu
+        if (exp === 'fold' && typeof t.stackBb === 'number') {
+          const martwe = 1.5; // BTN vs BB albo BB vs BTN: SB martwe 0,5 + ... (wkład gracza liczony niżej z puli)
+          void martwe;
+          const wklad = (v.decisions[0]!.pot - (t.positions ? (['SB', 'BB'].includes(t.positions.hero) || ['SB', 'BB'].includes(t.positions.villain) ? 0.5 : 1.5) : 0)) / 2;
+          const wczesniej = v.decisions.slice(0, i).reduce((a, x) => a + x.bet, 0);
+          const zaPula = t.stackBb - wklad - wczesniej - d.bet;
+          const o = Math.max(drawOuts.length, unia, suma);
+          const potrzeba = (d.bet * (n - o)) / o - (d.pot + d.bet);
+          if (!(potrzeba > Math.max(0, zaPula))) { st.implied++; if (st.przyklady.length < 8) st.przyklady.push(`implied ${t.id} ${level} seed ${seed}: o=${o} potrzeba ${potrzeba.toFixed(1)} za pulą ${zaPula.toFixed(1)}`); }
+        }
+      });
+    }
+    const bad = st.outyNiezgodne + st.decyzjaNiezgodna.sameDrawy + st.decyzjaNiezgodna.unia + st.decyzjaNiezgodna.suma + st.cenaNiezgodna + st.implied;
+    bledy += bad;
+    wynik[`${t.id} ${level}`] = st;
+  }
+}
+console.log(JSON.stringify(wynik, null, 1));
+console.log(bledy ? `NIEZGODNOŚCI: ${bledy}` : 'OK: 0 niezgodności');
+process.exit(bledy ? 1 : 0);
