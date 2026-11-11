@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scenariusz ICM</title>
+<!-- Sesja DA (rola 04, 2026-11-11): widok punktu icm-call (F4), warunek powrotu SC-34 (D-807, D-817, D-825). Szablon: docs/tresci/szablony-robocze/sc-34.yaml
+     (bańka, BB wobec all-inu SB, 10 bb; struktury 3 graczy 60/40 i 4 graczy 50/30/20 z packages/poker-core/src/icm.ts:43-46).
+     Liczby wariantów to RACHUNEK tej sesji wzorami generatora (scenario-gen.ts:443-457: ICM Malmuth-Harville, 1 bb = mniejszy stos pary ÷ stackBb,
+     próg od stanu po pasie BB) i equity klas z tools/equity/equity169.json wobec zakresu all-inu SB 10bb| z content/ranges/pushfold.json:
+       4 graczy, stosy 3500/2000/2500/2000 żetonów (A, B, SB, BB), wypłaty 50/30/20: próg ICM 59,2%; A7o 54,3% → pas (margines 4,9 pp, poziom trudny, chipsDiffer);
+       3 graczy, stosy 3500/3500/3000 (A, BB, SB), wypłaty 60/40: próg ICM 55,1%; AJo 61,2% → sprawdzenie (margines 6,0 pp, poziom średni).
+     Próg w grze o żetony z blindem: (10 − 1) ÷ 20 = 45% (D-890). Stosy w bb z jednym miejscem po przecinku (D-889).
+     [PRZYKŁAD]: konkretne karty i stosy wariantu; brzmienie wyjaśnień = szkic SC-34 (rola 06, ostateczne przy powrocie szablonu). -->
+<link rel="stylesheet" href="e3.css">
+<link rel="stylesheet" href="scenariusz.css">
+<link rel="stylesheet" href="scenariusz-icm.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="trefl" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4.6"/><circle cx="6.6" cy="13.4" r="4.6"/><circle cx="17.4" cy="13.4" r="4.6"/><path d="M11 13h2c0 3.5.8 6 2.8 8.5H8.2C10.2 19 11 16.5 11 13z"/></symbol>
+  <symbol id="karo" viewBox="0 0 24 24"><path d="M12 2l8 10-8 10-8-10z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="icm-4-graczy" aria-label="Scenariusz ICM, decyzja: czterech graczy">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="stol icm" role="img" aria-label="Stół: ty na BB z asem karo i siódemką trefl. Rywal na SB wchodzi all-in. Gracz A i Gracz B spasowali.">
+    <div class="owal"></div>
+    <div class="miejsce pas" style="left:0%;top:50%">Gracz A<small>pas</small></div>
+    <div class="miejsce pas" style="left:50%;top:0%">Gracz B<small>pas</small></div>
+    <div class="miejsce allin" style="left:100%;top:50%">SB<small>all-in</small></div>
+    <div class="miejsce ty" style="left:50%;top:100%">BB<small>ty</small></div>
+    <div class="karty srodek"><div class="karta czerwona"><b>A</b><svg><use href="#karo"/></svg></div><div class="karta"><b>7</b><svg><use href="#trefl"/></svg></div></div>
+  </section>
+  <p class="w-puli">W puli <b>13,5 bb</b> · do sprawdzenia <b>9 bb</b></p>
+  <p class="przypis srodek-tekst">9 bb to cały twój stos: przegrana kończy dla ciebie turniej bez nagrody.</p>
+  <section class="turniej" aria-labelledby="t4">
+    <h2 id="t4" class="naglowek-grupy">Bańka: płatne 3 miejsca z 4</h2>
+    <p class="nagrody">Nagrody: 1. miejsce <b>50%</b>, 2. miejsce <b>30%</b>, 3. miejsce <b>20%</b> puli nagród. Czwarte miejsce nic nie dostaje.</p>
+    <div class="grupa stosy" role="list" aria-label="Stosy na początku rozdania">
+      <div role="listitem"><span class="opis">Ty, BB</span><span class="pasek-stosu ty" style="--u:.571" aria-hidden="true"></span><span class="wartosc">10 bb</span></div>
+      <div role="listitem"><span class="opis">Rywal, SB</span><span class="pasek-stosu" style="--u:.714" aria-hidden="true"></span><span class="wartosc">12,5 bb</span></div>
+      <div role="listitem"><span class="opis">Gracz A</span><span class="pasek-stosu" style="--u:1" aria-hidden="true"></span><span class="wartosc">17,5 bb</span></div>
+      <div role="listitem"><span class="opis">Gracz B</span><span class="pasek-stosu" style="--u:.571" aria-hidden="true"></span><span class="wartosc">10 bb</span></div>
+    </div>
+  </section>
+  <ol class="dziennik" aria-label="Przebieg rozdania">
+    <li class="teraz" aria-live="polite"><span class="u">Preflop</span><span>Gracz A: pas. Gracz B: pas. SB: all-in 12,5 bb</span></li>
+  </ol>
+  <section class="akcje">
+    <p class="etykieta">Twój ruch</p>
+    <div class="pasek" role="group" aria-label="Akcje"><a href="#">Pas</a><a href="#">Sprawdzenie<small>9 bb</small></a></div>
+  </section>
+</main>
+
+<main data-ekran="icm-3-graczy" aria-label="Scenariusz ICM, decyzja: trzech graczy">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="stol icm" role="img" aria-label="Stół: ty na BB z asem trefl i waletem kier. Rywal na SB wchodzi all-in. Gracz A spasował.">
+    <div class="owal"></div>
+    <div class="miejsce pas" style="left:6%;top:22%">Gracz A<small>pas</small></div>
+    <div class="miejsce allin" style="left:94%;top:22%">SB<small>all-in</small></div>
+    <div class="miejsce ty" style="left:50%;top:100%">BB<small>ty</small></div>
+    <div class="karty srodek"><div class="karta"><b>A</b><svg><use href="#trefl"/></svg></div><div class="karta czerwona"><b>J</b><svg><use href="#kier"/></svg></div></div>
+  </section>
+  <p class="w-puli">W puli <b>11 bb</b> · do sprawdzenia <b>9 bb</b></p>
+  <section class="turniej" aria-labelledby="t3">
+    <h2 id="t3" class="naglowek-grupy">Bańka: płatne 2 miejsca z 3</h2>
+    <p class="nagrody">Nagrody: 1. miejsce <b>60%</b>, 2. miejsce <b>40%</b> puli nagród. Trzecie miejsce nic nie dostaje.</p>
+    <div class="grupa stosy" role="list" aria-label="Stosy na początku rozdania">
+      <div role="listitem"><span class="opis">Ty, BB</span><span class="pasek-stosu ty" style="--u:1" aria-hidden="true"></span><span class="wartosc">11,7 bb</span></div>
+      <div role="listitem"><span class="opis">Rywal, SB</span><span class="pasek-stosu" style="--u:.857" aria-hidden="true"></span><span class="wartosc">10 bb</span></div>
+      <div role="listitem"><span class="opis">Gracz A</span><span class="pasek-stosu" style="--u:1" aria-hidden="true"></span><span class="wartosc">11,7 bb</span></div>
+    </div>
+  </section>
+  <ol class="dziennik" aria-label="Przebieg rozdania">
+    <li class="teraz" aria-live="polite"><span class="u">Preflop</span><span>Gracz A: pas. SB: all-in 10 bb</span></li>
+  </ol>
+  <section class="akcje">
+    <p class="etykieta">Twój ruch</p>
+    <div class="pasek" role="group" aria-label="Akcje"><a href="#">Pas</a><a href="#">Sprawdzenie<small>9 bb</small></a></div>
+  </section>
+</main>
+
+<main data-ekran="icm-ocena" aria-label="Ocena decyzji ICM: błąd, liczby rozwinięte">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="werdykt" aria-live="polite"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">✗</span>Błąd</h2>
+    <p>Twój wybór: <b>sprawdzenie (call) 9 bb</b>. Lepiej: pas (fold).</p>
+  </div></section>
+  <section class="dlaczego">
+    <h2>Dlaczego „sprawdzenie 9 bb” to słabsze zagranie</h2>
+    <p><span class="syt">Masz A♦ 7♣ na BB na bańce, preflop, a SB wszedł all-in.</span> Sprawdzasz, bo ta ręka ma wobec zakresu all-inu więcej equity, niż wymaga próg z ICM… <span class="przyklad">[PRZYKŁAD: szkic SC-34, rola 06]</span></p>
+  </section>
+  <section class="dlaczego">
+    <h2>Dlaczego „pas” to lepsze zagranie</h2>
+    <p>Pasujesz, bo w turnieju z wypłatami przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc sprawdzenie musi wygrywać częściej niż w grze o żetony. Ta ręka ma wobec zakresu all-inu za mało equity, żeby przejść ten wyższy próg z ICM.</p>
+  </section>
+  <div class="oceny-akcji" role="img" aria-label="Oceny akcji: pas zgodna, sprawdzenie błąd, twój wybór.">
+    <span>Pas<small>✓ Zgodna</small></span><span class="twoj">Sprawdzenie<small>✗ Błąd</small></span>
+  </div>
+  <div class="rozwin"><a href="#" aria-expanded="true">Liczby<span class="strzalka" aria-hidden="true">⌃</span></a>
+    <div>
+      <p>Twoja ręka ma <span class="liczba">54%</span> equity wobec zakresu all-inu rywala, czyli wygrywa mniej więcej w <span class="liczba">5</span> rozdaniach na 10. Według ICM sprawdzenie opłaca się od <span class="liczba">59%</span>, a w grze o żetony wystarczyłoby <span class="liczba">45%</span>: na bańce przegrana zabiera ci więcej z puli nagród, niż wygrana dodaje.</p>
+    </div></div>
+  <div class="rozwin"><a href="#" aria-expanded="false">Stosy i nagrody<span class="strzalka" aria-hidden="true">⌄</span></a></div>
+  <a class="link" style="margin:4px 20px 0" href="#">Zgłoś błąd w tym zadaniu</a>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zobacz podsumowanie</a></div>
+</main>
+</body>
+</html>
