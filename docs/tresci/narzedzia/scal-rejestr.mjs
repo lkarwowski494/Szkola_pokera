@@ -118,6 +118,10 @@ for (const w of krytyczne) {
 // sha, kontrola }. Skrót liczony jak dla pl, ze źródeł języka. Język z katalogiem content/<j>/ bez zapisu albo z zapisem
 // dla innej wersji zdań = błąd (CI czerwone), więc przekład nie wejdzie bez kontroli. Dlaczego: przekład twierdzenia to
 // nowe twierdzenie (rola 09, zasada 3).
+// ŚR-2 (recenzja DB 2026-11-11): zapadka dla wpisów bez sha_pl. Lista zamknięta (stan 2026-11-11: 6 ID × 11 języków = 66); wpis spoza
+// listy bez sha_pl to BŁĄD, więc usunięcie sha_pl nie wyłączy cicho kontroli (licznik uwagi rósłby bez skutku). Nowych ID nie dopisuj:
+// uzupełnij sha_pl po kontroli (a). Usuwaj ID z listy w miarę uzupełniania; pusta lista = koniec uwagi zbiorczej (D-878).
+const BEZ_SHA_PL_DOZWOLONE = new Set(['n:dd.bi.small', 'M12-L4-RAMKA', 'H-INT-1', 'H-INT-2', 't:bankroll', 't:risk-of-ruin']);
 const JEZYKI_TRESCI = existsSync('content') ? readdirSync('content').filter((d) => d !== 'pl' && /^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/.test(d) && statSync(`content/${d}`).isDirectory()).sort() : [];
 const bezSkrotuPl = [];
 for (const jz of JEZYKI_TRESCI) {
@@ -131,7 +135,10 @@ for (const jz of JEZYKI_TRESCI) {
     // 06-tresci-001 (opcja b): przekład powstał z określonej wersji pl (sha_pl); zmiana pl bez przekładu = błąd (uwaga przed przeglądem).
     // Wpis bez sha_pl: uwaga zbiorcza (wprowadzanie partiami; po uzupełnieniu wszystkich partii brak sha_pl stanie się błędem).
     if (pj?.sha) {
-      if (!pj.sha_pl) bezSkrotuPl.push(`${w.id}/${jz}`);
+      if (!pj.sha_pl) {
+        if (BEZ_SHA_PL_DOZWOLONE.has(w.id)) bezSkrotuPl.push(`${w.id}/${jz}`);
+        else (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: przegląd w ${jz} bez sha_pl (wpis spoza listy dozwolonych BEZ_SHA_PL_DOZWOLONE; zapisz sha_pl z kontroli (a))`);
+      }
       else if (pj.sha_pl !== skrotPl.get(w.id)) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: przekład w ${jz} powstał z innej wersji pl (${pj.sha_pl}, teraz ${skrotPl.get(w.id)}): przetłumacz zmiany i zapisz nowy sha_pl`);
     }
   }

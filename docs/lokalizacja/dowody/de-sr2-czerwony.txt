@@ -1,0 +1,98 @@
+TAP version 13
+# Subtest: zmiana wpisu pomocy unieważnia przegląd zastępczy H-INT-1
+ok 1 - zmiana wpisu pomocy unieważnia przegląd zastępczy H-INT-1
+  ---
+  duration_ms: 1560.06392
+  type: 'test'
+  ...
+# Subtest: zmiana lekcji z regułą krytyczną unieważnia przegląd; z --przed-przegladem to uwaga
+ok 2 - zmiana lekcji z regułą krytyczną unieważnia przegląd; z --przed-przegladem to uwaga
+  ---
+  duration_ms: 1549.667333
+  type: 'test'
+  ...
+# Subtest: przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+ok 3 - przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+  ---
+  duration_ms: 1061.826052
+  type: 'test'
+  ...
+# Subtest: D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT-2; twierdzenie fallback.claim liczy się do pokrycia
+ok 4 - D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT-2; twierdzenie fallback.claim liczy się do pokrycia
+  ---
+  duration_ms: 2172.016566
+  type: 'test'
+  ...
+# Subtest: content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia
+ok 5 - content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia
+  ---
+  duration_ms: 2774.265781
+  type: 'test'
+  ...
+# Subtest: zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego, a skrót pl zostaje
+ok 6 - zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego, a skrót pl zostaje
+  ---
+  duration_ms: 1382.760772
+  type: 'test'
+  ...
+# Subtest: 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+ok 7 - 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+  ---
+  duration_ms: 7245.059753
+  type: 'test'
+  ...
+# Subtest: 06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie błąd
+ok 8 - 06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie błąd
+  ---
+  duration_ms: 2713.721129
+  type: 'test'
+  ...
+# Subtest: ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+not ok 9 - ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+  ---
+  duration_ms: 4007.017852
+  type: 'test'
+  location: '/home/user/Szkola_pokera/docs/tresci/narzedzia/scal-rejestr.test.mjs:193:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    wpisy: 1060, bez twierdzeń: 139, wymagane: 1139, brak pokrycia: 0
+    status: {"potwierdzone":1004,"wycofane":54,"otwarte":2}
+    najwyższy szczebel: {"1":705,"2":132,"3":3,"4":214,"5":1,"-":5}
+    werdykt tekstu: {"POPARTE":1047,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+    jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.vpip.high, n:hud.opps.look, n:hud.opps.sure, n:study.beginner, n:study.winner, n:study.min, n:var.wr.typical.high, n:cbet.range.small.low, n:cbet.range.small.high, n:cbet.range.big.low, n:cbet.range.big.high, n:xr.mult.example, n:xr.mult.low, n:cbet.oop.a94.check, n:hud.hands.3bet.high, n:hud.hands.3bet.low, n:hud.hands.random, n:hud.hands.rough.high, n:hud.vpip.reg.high, n:m11.depth.15, n:m11.m.red, n:mda.all.fcb, n:mda.period.months, n:mda.rec.def, n:mda.rec.def.wr, n:mda.rec.f3b, n:mda.rec.pfr, n:mda.rec.vpip, n:mda.rec.wr, n:mda.rec.wsd, n:mda.rec.wtsd, n:mda.reg.def.high, n:mda.reg.def.low, n:mda.reg.def.wr, n:mda.reg.f3b, n:mda.reg.pfr, n:mda.reg.vpip, n:mda.reg.wr, n:mda.reg.wsd, n:mda.reg.wtsd, n:rake.micro.high, n:rake.nl500.high, n:rake.nl500.low, n:rake.pop.nl10.loss, n:rake.pop.nl100.loss, n:rake.pop.nl500.loss, n:rake.pop.reg.hands, n:rake.pop.reg.postrake, n:rake.pop.reg.prerake, n:hud.hands.3bet.overall.low, n:rake.pop.reg.prerake.raw, n:rake.pop.reg.postrake.raw, t:preflop, t:out-of-position, t:late-position, t:outs, t:draw, t:gutshot, t:backdoor, t:pot-odds, t:implied-odds, t:equity, t:combo, t:range, t:suited, t:offsuit, t:pocket-pair, t:limp, t:isolation, t:rainbow, t:two-tone, t:monotone, t:second-pair, t:overpair, t:c-bet, t:range-advantage, t:nuts-advantage, t:polarized, t:value-bet, t:bluff, t:blocker, t:bluff-catcher, t:probe-bet, t:donk-bet, t:overbet, t:mdf, t:tilt, t:winrate, t:downswing, t:session, t:standard-deviation, t:risk-of-ruin, t:mental-game, t:shove, t:bubble, t:bubble-factor, t:fold-equity, t:chip-ev, t:final-table, t:nash-equilibrium, t:overcall, t:stack-off, t:exploit, t:vpip, t:wtsd, t:nit, t:tag, t:lag, t:calling-station, t:maniac, t:rake, t:rake-cap)
+    krytyczne: 56
+    UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 1 wpisów, np. R-M12-009/en
+    0 błędów, 1 uwag
+    
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/Szkola_pokera/docs/tresci/narzedzia/scal-rejestr.test.mjs:206:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+ok 10 - ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+  ---
+  duration_ms: 3095.457305
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 27653.753604

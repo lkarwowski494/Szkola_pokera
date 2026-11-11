@@ -189,3 +189,41 @@ test('06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie
     assert.doesNotMatch(r.stdout, /BŁĄD rejestr R-M12-009: przekład/);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
+
+test('ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga', () => {
+  const d = kopia();
+  try {
+    for (const j of J11) cpSync(join(repo, 'content', j), join(d, 'content', j), { recursive: true });
+    odnow(d);
+    assert.equal(uruchom(d, '--przeglad', 'zastępczy').status, 0);
+    const wytnij = (partia, id, j) => {
+      const p = join(d, 'docs/tresci/rejestr', partia), r = JSON.parse(readFileSync(p, 'utf8'));
+      delete r.find((w) => w.id === id).przeglad_jezyki[j].sha_pl;
+      writeFileSync(p, JSON.stringify(r, null, 1) + '\n');
+    };
+    wytnij('m12-m13.json', 'R-M12-009', 'en');
+    const po = uruchom(d, '--przeglad', 'zastępczy');
+    assert.equal(po.status, 1, po.stdout);
+    assert.match(po.stdout, /BŁĄD rejestr R-M12-009: przegląd w en bez sha_pl/);
+    const przed = uruchom(d, '--przed-przegladem');
+    assert.doesNotMatch(przed.stdout, /BŁĄD rejestr R-M12-009: przegląd w en bez sha_pl/);
+    assert.match(przed.stdout, /UWAGA rejestr R-M12-009: przegląd w en bez sha_pl/);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą', () => {
+  const d = kopia();
+  try {
+    for (const j of J11) cpSync(join(repo, 'content', j), join(d, 'content', j), { recursive: true });
+    odnow(d);
+    const kat = join(d, 'docs/tresci/rejestr');
+    for (const f of readdirSync(kat).filter((x) => x.endsWith('.json') && x !== 'bez-twierdzen.json')) {
+      const p = join(kat, f), a = JSON.parse(readFileSync(p, 'utf8'));
+      for (const w of a) if (w.id === 't:bankroll') for (const j of J11) delete w.przeglad_jezyki?.[j]?.sha_pl;
+      writeFileSync(p, JSON.stringify(a, null, 1) + '\n');
+    }
+    const r = uruchom(d, '--przeglad', 'zastępczy');
+    assert.equal(r.status, 0, r.stdout);
+    assert.match(r.stdout, /UWAGA przeglad_jezyki bez sha_pl/);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
