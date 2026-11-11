@@ -1,0 +1,238 @@
+$ npx vitest run --root tools/content-build test/recenzja-cq-odtworzenie.test.ts   # wariant z `przypadek = it` (pokazuje błędy)
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts (22 tests | 13 failed) 820ms
+   ❯ 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) (16)
+     × sc-11 latwy: wariant powstaje tak jak w aplikacji 8ms
+     × sc-11 sredni: wariant powstaje tak jak w aplikacji 1ms
+     × sc-12 latwy: wariant powstaje tak jak w aplikacji 1ms
+     × sc-12 sredni: wariant powstaje tak jak w aplikacji 1ms
+     × sc-34 latwy: wariant powstaje tak jak w aplikacji 1ms
+     × sc-34 sredni: wariant powstaje tak jak w aplikacji 1ms
+     × sc-34 trudny: wariant powstaje tak jak w aplikacji 1ms
+   ❯ 06-tresci-002: SC-34 poziom trudny — przy ICM po obu stronach (równowaga push/fold) część wariantów ma odpowiedź „sprawdzam” (1)
+     × SC-34 trudny, ziarna 1–12: „pas” zostaje poprawny także wobec zakresu all-inu SB z równowagi ICM 734ms
+   ❯ 06-tresci-003: SC-03 „masz 4 outy” i pas odporny tylko bez kart gracza wyższych od stołu (1)
+     × SC-03 średni: z outami na parę z karty wyższej od stołu (3 na rangę, jak D1 w numbers.yaml) pas zostaje odporny na cenę i implied odds 5ms
+   ❯ 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra (4)
+     × sc-11 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 6ms
+     × sc-11 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 2ms
+     × sc-12 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 7ms
+     × sc-12 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 4ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) > sc-11 latwy: wariant powstaje tak jak w aplikacji
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) > sc-11 sredni: wariant powstaje tak jak w aplikacji
+AssertionError: expected [Function] to not throw an error but 'Error: sc-11: punkt cbet-case wymaga …' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"Error: sc-11: punkt cbet-case wymaga przypadków c-betu (GeneratorContext.cbetCases)"
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:33:96
+     31|       const tenSamPrzypadek = t.decisions.some((d) => d.kind === 'cbet…
+     32|       tenSamPrzypadek(`${t.id} ${level}: wariant powstaje tak jak w ap…
+     33|         expect(() => wybierzWariant(gen(t), level, 1, { historia: [], …
+       |                                                                                                ^
+     34|       });
+     35|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) > sc-12 latwy: wariant powstaje tak jak w aplikacji
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) > sc-12 sredni: wariant powstaje tak jak w aplikacji
+AssertionError: expected [Function] to not throw an error but 'Error: sc-12: punkt cbet-case wymaga …' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"Error: sc-12: punkt cbet-case wymaga przypadków c-betu (GeneratorContext.cbetCases)"
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:33:96
+     31|       const tenSamPrzypadek = t.decisions.some((d) => d.kind === 'cbet…
+     32|       tenSamPrzypadek(`${t.id} ${level}: wariant powstaje tak jak w ap…
+     33|         expect(() => wybierzWariant(gen(t), level, 1, { historia: [], …
+       |                                                                                                ^
+     34|       });
+     35|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) > sc-34 latwy: wariant powstaje tak jak w aplikacji
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) > sc-34 sredni: wariant powstaje tak jak w aplikacji
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext) > sc-34 trudny: wariant powstaje tak jak w aplikacji
+AssertionError: expected [Function] to not throw an error but 'Error: sc-34: punkt icm-call wymaga m…' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"Error: sc-34: punkt icm-call wymaga macierzy equity (GeneratorContext.equity169)"
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:33:96
+     31|       const tenSamPrzypadek = t.decisions.some((d) => d.kind === 'cbet…
+     32|       tenSamPrzypadek(`${t.id} ${level}: wariant powstaje tak jak w ap…
+     33|         expect(() => wybierzWariant(gen(t), level, 1, { historia: [], …
+       |                                                                                                ^
+     34|       });
+     35|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-002: SC-34 poziom trudny — przy ICM po obu stronach (równowaga push/fold) część wariantów ma odpowiedź „sprawdzam” > SC-34 trudny, ziarna 1–12: „pas” zostaje poprawny także wobec zakresu all-inu SB z równowagi ICM
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "2: KJo equity wobec zakresu ICM 0.602 ≥ próg 0.585, szablon fold",
++   "4: A8o equity wobec zakresu ICM 0.592 ≥ próg 0.571, szablon fold",
++   "5: A8o equity wobec zakresu ICM 0.599 ≥ próg 0.592, szablon fold",
++   "10: QTs equity wobec zakresu ICM 0.578 ≥ próg 0.564, szablon fold",
++   "11: A8s equity wobec zakresu ICM 0.609 ≥ próg 0.594, szablon fold",
++ ]
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:100:19
+     98|       if (decyzja !== pt.correct) bledy.push(`${seed}: ${classOf(v.her…
+     99|     }
+    100|     expect(bledy).toEqual([]);
+       |                   ^
+    101|   }, 300_000);
+    102| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-003: SC-03 „masz 4 outy” i pas odporny tylko bez kart gracza wyższych od stołu > SC-03 średni: z outami na parę z karty wyższej od stołu (3 na rangę, jak D1 w numbers.yaml) pas zostaje odporny na cenę i implied odds
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "3: 7 outów (1 wyższe), szansa 0.152 / cena 0.167, implied 2.3 ≤ 13.3 bb",
++   "4: 7 outów (1 wyższe), szansa 0.152 / cena 0.167, implied 2.3 ≤ 13.3 bb",
++   "8: 7 outów (1 wyższe), szansa 0.152 / cena 0.182, implied 4.3 ≤ 14.3 bb",
++   "12: 7 outów (1 wyższe), szansa 0.152 / cena 0.167, implied 2.3 ≤ 13.3 bb",
++   "13: 7 outów (1 wyższe), szansa 0.152 / cena 0.167, implied 1.7 ≤ 16.3 bb",
++ ]
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:122:19
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-11 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+AssertionError: expected [ '1: T3o', '2: Q5o', '4: 72s', …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1: T3o",
++   "2: Q5o",
++   "4: 72s",
++   "5: J5o",
++   "6: 43o",
++ ]
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:140:22
+    138|           if (!((otwarcie[hc] ?? 0) > 0)) poza.push(`${seed}: ${hc}`);
+    139|         }
+    140|         expect(poza).toEqual([]);
+       |                      ^
+    141|       });
+    142|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-11 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+AssertionError: expected [ '3: 72o', '4: 42o', '5: T4o', …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "3: 72o",
++   "4: 42o",
++   "5: T4o",
++   "6: J5o",
++   "7: 87o",
++ ]
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:140:22
+    138|           if (!((otwarcie[hc] ?? 0) > 0)) poza.push(`${seed}: ${hc}`);
+    139|         }
+    140|         expect(poza).toEqual([]);
+       |                      ^
+    141|       });
+    142|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-12 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+AssertionError: expected [ '1: 86o', '2: J8o', '3: J2o', …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1: 86o",
++   "2: J8o",
++   "3: J2o",
++   "9: 93s",
++   "10: 96o",
++ ]
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:140:22
+    138|           if (!((otwarcie[hc] ?? 0) > 0)) poza.push(`${seed}: ${hc}`);
+    139|         }
+    140|         expect(poza).toEqual([]);
+       |                      ^
+    141|       });
+    142|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯
+
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-12 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+AssertionError: expected [ '3: 32o', '5: 83o', '8: J3o', …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "3: 32o",
++   "5: 83o",
++   "8: J3o",
++   "9: 95o",
++   "10: 73o",
++ ]
+
+ ❯ test/recenzja-cq-odtworzenie.test.ts:140:22
+    138|           if (!((otwarcie[hc] ?? 0) > 0)) poza.push(`${seed}: ${hc}`);
+    139|         }
+    140|         expect(poza).toEqual([]);
+       |                      ^
+    141|       });
+    142|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  13 failed | 9 passed (22)
+   Start at  01:42:53
+   Duration  4.24s (import 67%, tests 20%, transform 13%)
+
+kod=1

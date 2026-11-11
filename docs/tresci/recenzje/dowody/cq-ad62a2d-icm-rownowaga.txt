@@ -1,0 +1,21 @@
+$ python3 icm_nash.py tools/equity/equity169.json sc34-warianty.json   # 150 wariantów na poziom SC-34 (ziarna 1..150), fictitious play 800 iteracji
+poziom: [wariantów, rozbieżnych decyzji] {'latwy': [150, 0], 'sredni': [150, 0], 'trudny': [150, 50]}
+trudny seed 2 KJo stacks [2500, 2500, 2000, 3000] h2 v0 pay [0.5, 0.3, 0.2]: model eq 0.556 req 0.585 -> fold; ICM-Nash SB push 0.95 eq 0.602 -> call
+trudny seed 4 A8o stacks [1500, 3000, 2500, 3000] h0 v1 pay [0.5, 0.3, 0.2]: model eq 0.560 req 0.571 -> fold; ICM-Nash SB push 0.93 eq 0.592 -> call
+trudny seed 5 A8o stacks [3000, 3000, 4000] h1 v2 pay [0.6, 0.4]: model eq 0.560 req 0.592 -> fold; ICM-Nash SB push 1.00 eq 0.599 -> call
+trudny seed 10 QTs stacks [3500, 4000, 2500] h2 v1 pay [0.6, 0.4]: model eq 0.522 req 0.564 -> fold; ICM-Nash SB push 0.87 eq 0.578 -> call
+trudny seed 11 A8s stacks [2500, 3000, 3000, 1500] h1 v0 pay [0.5, 0.3, 0.2]: model eq 0.583 req 0.594 -> fold; ICM-Nash SB push 0.86 eq 0.609 -> call
+trudny seed 21 A4o stacks [4000, 4000, 2000] h2 v1 pay [0.6, 0.4]: model eq 0.514 req 0.538 -> fold; ICM-Nash SB push 0.77 eq 0.539 -> call
+trudny seed 31 QJo stacks [1000, 4000, 3000, 2000] h0 v2 pay [0.5, 0.3, 0.2]: model eq 0.507 req 0.549 -> fold; ICM-Nash SB push 0.84 eq 0.561 -> call
+trudny seed 35 A8o stacks [3000, 2000, 1500, 3500] h2 v0 pay [0.5, 0.3, 0.2]: model eq 0.560 req 0.579 -> fold; ICM-Nash SB push 1.00 eq 0.599 -> call
+trudny seed 37 ATo stacks [3000, 2000, 2500, 2500] h3 v2 pay [0.5, 0.3, 0.2]: model eq 0.599 req 0.613 -> fold; ICM-Nash SB push 1.00 eq 0.627 -> call
+trudny seed 38 A6o stacks [5000, 3000, 2000] h2 v0 pay [0.6, 0.4]: model eq 0.526 req 0.575 -> fold; ICM-Nash SB push 0.98 eq 0.575 -> call
+trudny seed 39 KTo stacks [2000, 2000, 2500, 3500] h1 v2 pay [0.5, 0.3, 0.2]: model eq 0.543 req 0.592 -> fold; ICM-Nash SB push 0.98 eq 0.596 -> call
+trudny seed 41 A6o stacks [2500, 3500, 4000] h0 v2 pay [0.6, 0.4]: model eq 0.526 req 0.564 -> fold; ICM-Nash SB push 0.87 eq 0.565 -> call
+kod=0
+
+# walidacja narzędzia: wypłata [1.0] (ICM = żetony) → push SB i call BB jak pushfold.json 10bb (summary: push 0.5837, call 0.3756)
+req 0.45 push 0.5827 call 0.3735
+req 0.45 push 0.5827 call 0.3735
+req 0.45 push 0.5827 call 0.3735
+kod=0

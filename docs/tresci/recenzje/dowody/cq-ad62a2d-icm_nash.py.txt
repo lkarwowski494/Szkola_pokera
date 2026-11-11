@@ -1,0 +1,45 @@
+# Równowaga push/fold SB vs BB z wypłatami ICM (Malmuth-Harville), pozostałe stacki stałe; fictitious play.
+import json, sys, itertools
+import numpy as np
+eqf = json.load(open(sys.argv[1])); V = json.load(open(sys.argv[2]))
+cls = eqf['classes']; E = np.array(eqf['equity']); P = np.array(eqf['pairs'], dtype=float)
+def icm(stacks, pay):
+    n=len(stacks); out=[0.0]*n
+    def rec(left, place, p):
+        if place>=len(pay) or not left: return
+        s=sum(stacks[k] for k in left)
+        for k in left:
+            pk=p*stacks[k]/s; out[k]+=pk*pay[place]; rec([z for z in left if z!=k], place+1, pk)
+    rec([i for i in range(n) if stacks[i]>0],0,1.0); return out
+def moved(st, a, b, d):  # a gains d from b
+    s=list(st); s[a]+=d; s[b]-=d; return s
+res={'latwy':[0,0],'sredni':[0,0],'trudny':[0,0]}; ex=[]
+for v in V:
+    st=v['stacks']; pay=v['payouts']; h=v['heroIndex']; s=v['villainIndex']
+    risk=min(st[h],st[s]); bb=risk/10
+    # stan przed blindami: blindy już w stackach? generator: pas BB = strata 1bb na rzecz SB
+    I=lambda x: icm(x,pay)
+    bb_fold=I(moved(st,s,h,bb)); sb_fold=I(moved(st,h,s,0.5*bb))
+    win_h=I(moved(st,h,s,risk)); lose_h=I(moved(st,s,h,risk))
+    req=(bb_fold[h]-lose_h[h])/(win_h[h]-lose_h[h])
+    p=np.full(169,0.5); q=np.full(169,0.5); ps=np.zeros(169); qs=np.zeros(169)
+    for it in range(1,801):
+        # BB best response
+        w=P*p[None,:]  # w[j,i] = pairs[j][i]*p_i  (BB class j vs SB class i)
+        eqj=(w*E).sum(1)/np.maximum(w.sum(1),1e-12)
+        qb=(eqj>=req).astype(float)
+        # SB best response
+        W=P  # W[i,j]
+        tot=W.sum(1); pc=(W*qb[None,:]).sum(1)/tot
+        eqs=( (W*qb[None,:])*E ).sum(1)/np.maximum((W*qb[None,:]).sum(1),1e-12)  # SB equity vs calling range
+        ev_push=(1-pc)*bb_fold[s]+pc*(eqs*lose_h[s]+(1-eqs)*win_h[s])
+        pb=(ev_push>=sb_fold[s]).astype(float)
+        ps+=pb; qs+=qb; p=ps/it; q=qs/it
+    hc=cls.index(v['handClass'])
+    w=P[hc]*p; eqh=(w*E[hc]).sum()/w.sum()
+    dec='call' if eqh>=req else 'fold'
+    lvl=v['level']; res[lvl][0]+=1; res[lvl][1]+= dec!=v['correct']
+    if dec!=v['correct'] and len(ex)<12: ex.append(f"{lvl} seed {v['seed']} {v['handClass']} stacks {st} h{h} v{s} pay {pay}: model eq {v['handEquity']:.3f} req {v['required']:.3f} -> {v['correct']}; ICM-Nash SB push {p.dot(P.sum(1))/P.sum():.2f} eq {eqh:.3f} -> {dec}")
+    assert abs(req-v['required'])<1e-9, (req, v['required'])
+print('poziom: [wariantów, rozbieżnych decyzji]', res)
+print('\n'.join(ex))
