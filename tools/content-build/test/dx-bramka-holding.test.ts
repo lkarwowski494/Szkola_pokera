@@ -11,7 +11,7 @@ const dir = join(resolve(import.meta.dirname), 'fixtures');
 const spots = compileRanges(join(resolve(import.meta.dirname), '..', '..', '..', 'content')).spots;
 const cbetCases = content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!;
 const ctx = {
-  ruleLevels: new Map([['R-M3-002', 'gto' as const], ['R-M5-007', 'heur' as const]]),
+  ruleLevels: new Map([['R-M3-002', 'gto' as const], ['R-M5-007', 'heuristic' as const]]),
   numberKeys: new Set<string>(),
   moduleIds: new Set(['m3']),
   spots: new Map(spots.map((s) => [s.id, s.actions.map((a) => a.label)])),
