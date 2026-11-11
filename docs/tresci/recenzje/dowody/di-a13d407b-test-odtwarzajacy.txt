@@ -1,0 +1,38 @@
+# Test odtwarzający recenzja-cw-odtworzenie.test.ts: przed poprawką, po poprawce, mutacja (worktree DI, polecenia w nagłówkach)
+$ HEAD a13d407b bez zmian (test z it, treść z 'najwyżej')
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+
+$ HEAD a13d407b + content/pl/scenarios z 431cb885 (treść przed poprawką, test z it)
+     × sc-01: ziarna 1–300, każda ranga wyższa od stołu daje dokładnie 3 nowe outy 1937ms
+     × sc-19: ziarna 1–300, każda ranga wyższa od stołu daje dokładnie 3 nowe outy 1714ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
++   "latwy ziarno 2 punkt 1: ręka 49,10, stół 34,6,26, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 2 punkt 2: ręka 49,10, stół 34,6,26,41, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 4 punkt 1: ręka 27,50, stół 15,31,39, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 4 punkt 2: ręka 27,50, stół 15,31,39,2, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 17 punkt 1: ręka 31,48, stół 47,3,23, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 1 punkt 1: ręka 36,25, stół 33,1,5, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 10 punkt 1: ręka 17,39, stół 29,21,1, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 38 punkt 1: ręka 42,36, stół 2,18,6, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 111 punkt 1: ręka 37,34, stół 13,1,9, ranga 8: nowych outów 2, zdanie mówi 3",
+
+ content/pl/scenarios/sc-19.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ mutacja: usunięte 'najwyżej' w jednym wyjaśnieniu sc-19.yaml (pierwsze wystąpienie)
+     × sc-19: ziarna 1–300, każda ranga wyższa od stołu daje dokładnie 3 nowe outy 1572ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
++   "latwy ziarno 1 punkt 1: ręka 36,25, stół 33,1,5, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 10 punkt 1: ręka 17,39, stół 29,21,1, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 38 punkt 1: ręka 42,36, stół 2,18,6, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 111 punkt 1: ręka 37,34, stół 13,1,9, ranga 8: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 212 punkt 1: ręka 44,38, stół 20,16,4, ranga 9: nowych outów 2, zdanie mówi 3",
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+
+?? apps/mobile/node_modules
+?? node_modules
+?? packages/domena/node_modules
+?? packages/postep/node_modules
+?? tools/content-build/node_modules
+?? tools/preflop-solver/node_modules
