@@ -1,0 +1,23 @@
+# EH: przebieg czerwony testów przed wejściem SC-04/05/08 do treści (stan a6d1bb1b + nowe testy), 2026-11-11
+# komenda: pnpm exec vitest run test/szablony-eh.test.ts test/szablony-co.test.ts test/szablony-du.test.ts (tools/content-build); kod 1
+      Tests  18 failed | 35 passed (53)
+     × de: poziomy, granice, punkty, akcje i znaczniki jak pl 18ms
+     × en: poziomy, granice, punkty, akcje i znaczniki jak pl 19ms
+     × es: poziomy, granice, punkty, akcje i znaczniki jak pl 12ms
+     × fr: poziomy, granice, punkty, akcje i znaczniki jak pl 17ms
+     × it: poziomy, granice, punkty, akcje i znaczniki jak pl 9ms
+     × ja: poziomy, granice, punkty, akcje i znaczniki jak pl 10ms
+     × ko: poziomy, granice, punkty, akcje i znaczniki jak pl 7ms
+     × poziomy: SC-04 tylko łatwy (D-1165), SC-05 łatwy i średni, SC-08 tylko łatwy (D-1034) 35ms
+     × pt-BR: poziomy, granice, punkty, akcje i znaczniki jak pl 7ms
+     × pt: poziomy, granice, punkty, akcje i znaczniki jak pl 7ms
+     × sc-04: w content/pl/scenarios, nie w docs/tresci/szablony-robocze 28ms
+     × sc-05: w content/pl/scenarios, nie w docs/tresci/szablony-robocze 17ms
+     × sc-08: w content/pl/scenarios, nie w docs/tresci/szablony-robocze 39ms
+     × treść ma szablony cbet-case (SC-04, SC-05 po range-spot; SC-11, SC-12) 17ms
+     × treść ma szablony range-spot (SC-04, SC-05, SC-06, SC-08 z EH; SC-32, SC-33) 15ms
+     × treść ma szablony size-spot (SC-06, SC-08 z EH) 1ms
+     × vi: poziomy, granice, punkty, akcje i znaczniki jak pl 9ms
+     × zh-Hant: poziomy, granice, punkty, akcje i znaczniki jak pl 8ms
+ Test Files  3 failed (3)
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯

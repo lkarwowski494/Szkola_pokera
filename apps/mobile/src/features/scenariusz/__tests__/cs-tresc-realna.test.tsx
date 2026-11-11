@@ -26,7 +26,7 @@ describe('treść z bazy: SC-11 i SC-12 na ekranie (CQ 06-tresci-001)', () => {
   it('baza ma SC-11 i SC-12, a SC-34 (icm-call) tylko bez poziomu trudnego (D-986, D-1036)', () => {
     expect(szablony.map((t) => t.id)).toEqual(expect.arrayContaining(['sc-11', 'sc-12']));
     expect(szablony.filter((t) => t.decisions.some((d) => d.kind === 'icm-call')).map((t) => [t.id, t.levels])).toEqual([['sc-34', ['latwy', 'sredni']]]);
-    expect(szablony.filter((t) => t.decisions.some((d) => d.kind === 'range-spot')).map((t) => t.id)).toEqual(['sc-06', 'sc-32', 'sc-33']);
+    expect(szablony.filter((t) => t.decisions.some((d) => d.kind === 'range-spot')).map((t) => t.id)).toEqual(['sc-04', 'sc-05', 'sc-06', 'sc-08', 'sc-32', 'sc-33']); // EH: SC-04, SC-05, SC-08
   });
   for (const id of ['sc-11', 'sc-12']) {
     for (const poziom of ['latwy', 'sredni'] as const) {

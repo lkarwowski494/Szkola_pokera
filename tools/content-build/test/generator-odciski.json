@@ -30,9 +30,25 @@
       "sha": "5ce7d59145159a4b",
       "ziarno1": "sc-03|sredni|J061/K0Q032/93"
     },
+    "sc-04|latwy": {
+      "sha": "3f628ed966d0fed0",
+      "ziarno1": "sc-04|latwy|K0T0/A1Q082"
+    },
+    "sc-05|latwy": {
+      "sha": "c05a10f22a3de0ac",
+      "ziarno1": "sc-05|latwy|K0J0/514223"
+    },
+    "sc-05|sredni": {
+      "sha": "5c21badfd3f8e45b",
+      "ziarno1": "sc-05|sredni|K030/716051"
+    },
     "sc-06|latwy": {
       "sha": "f02bcad3622368d1",
       "ziarno1": "sc-06|latwy|Q0T1/"
+    },
+    "sc-08|latwy": {
+      "sha": "1ffd079472a0a0b6",
+      "ziarno1": "sc-08|latwy|J0J1/"
     },
     "sc-11|latwy": {
       "sha": "6923f11f841d0256",

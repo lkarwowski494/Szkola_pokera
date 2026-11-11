@@ -1,0 +1,35 @@
+# SC-04 (M3): UTG otwiera albo pasuje (range-spot rfi.utg), potem c-bet na suchym wysokim flopie (cbet-case R-M5-007). Rola 06, sesja EH,
+# 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
+id: sc-04
+module: m3
+situation: "You are {{t:utg|UTG}}, and nobody has entered the pot yet; if you {{t:open}}, the {{t:big-blind}} will {{t:call}} and {{t:check}} on the flop."
+table: 6max
+positions: { hero: UTG, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
+    holding: [air]
+    expected: ["raise 2.5", bet-small]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.utg
+    rule: R-M3-002
+    actions:
+      - action: "raise 2.5"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and nobody has entered the pot yet. You {{t:open}}, because this hand fits in the tight {{t:range}} from {{t:utg|UTG}}: five players are still behind you, so someone more often has a better hand, which is why from {{t:utg|UTG}} you {{t:open}} only about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} of hands."
+      - action: fold
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and nobody has entered the pot yet. A {{t:fold}} is too cautious: the solver usually {{t:open|opens}} this hand even from {{t:utg|UTG}}. Five players are still behind you, so the {{t:range}} from {{t:utg|UTG}} is tight, about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} of hands, but this hand fits in it."
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. You {{t:bet}} small, about {{n:cbet.size.small}} of the {{t:pot}}, because you have the {{t:range-advantage}}, and your opponent's weak hands have almost no chance: a small {{t:bet}} is enough to make them {{t:fold}}."
+      - action: check
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. A {{t:check}} is acceptable but less frequent: on a {{t:dry}} high flop you {{t:c-bet}} often and small, because you have the {{t:range-advantage}}, and your opponent's weak hands would {{t:fold}} to a small {{t:bet}} already. By {{t:check|checking}}, you give them a free card."
+      - action: bet-big
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. A big {{t:bet}} is an inaccuracy here: on a {{t:dry}} high flop you usually {{t:c-bet}} small, about {{n:cbet.size.small}} of the {{t:pot}}, because your opponent's weak hands {{t:fold}} to such a {{t:bet}} already."
