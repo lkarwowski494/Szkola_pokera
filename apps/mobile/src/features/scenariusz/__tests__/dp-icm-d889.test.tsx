@@ -4,16 +4,17 @@
 // Kryteria 5 (AX5 na 320/390/430) i 6 (zrzut) wymagają przeglądarki albo urządzenia: lista kontrolna w raporcie (docs/programista/stan-dp.md).
 import '@/i18n';
 import i18n from '@/i18n';
-import { Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { fireEvent, render, screen } from '@testing-library/react-native';
-import { generateVariant, type IcmCallVariantDecision, type ScenarioVariant } from '@szkola/poker-core';
+import { cardToString, generateVariant, type IcmCallVariantDecision, type ScenarioVariant } from '@szkola/poker-core';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { getKontekstGeneratora } from '@/data/content/repo';
+import { nazwaKarty } from '@/features/stol/uklad';
 import { dbCn, ICM } from '@/test-utils/kontekstCn';
 import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
 import { PrzebiegScenariusza } from '../EkranScenariusza';
 import type { SesjaScenariusza } from '../aktywnoscScenariusza';
-import { kwotaAkcji, naGenerator, widokDecyzji, type Akcja } from '../wariant';
+import { kwotaAkcji, naGenerator, ukladIcm, widokDecyzji, type Akcja } from '../wariant';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
@@ -52,6 +53,9 @@ function znajdz(warunek: (p: IcmCallVariantDecision) => boolean): ScenarioVarian
   }
   throw new Error('brak wariantu o tym kształcie w ziarnach 1…400');
 }
+/** Ręczny punkt icm-call (DR, recenzja DQ 003/006): stosy, wypłaty i indeksy pary dowolne, reszta pól bez znaczenia dla układu. */
+const punktReczny = (stacks: number[], payouts: number[], heroIndex: number, villainIndex: number): IcmCallVariantDecision =>
+  ({ point: 'icm-call', street: 'preflop', spot: 'x', payouts, stacks, heroIndex, villainIndex, handClass: 'A7o', handEquity: 0.5, required: 0.5, requiredChips: 0.45, correct: 'fold', margin: 0.05 }) as IcmCallVariantDecision;
 const gracze = (p: IcmCallVariantDecision) => p.stacks.length;
 const heroNieWiekszy = (p: IcmCallVariantDecision) => p.stacks[p.heroIndex]! <= p.stacks[p.villainIndex]!;
 
@@ -113,6 +117,19 @@ describe('kryterium 2: stos „ty” i dopłata z twojego stosu', () => {
   });
 });
 
+describe('układ punktu ICM z ręcznych stosów (makieta): granice, zaokrąglenie, pasek (DR: DQ 003, 006)', () => {
+  it('równe stosy pary: przypis „cały twój stos” (<=, nie <); stosy to wielokrotności żetonów, więc równość jest realna', () => {
+    const u = ukladIcm(punktReczny([2000, 2000, 6000], [0.6, 0.4], 0, 1), ICM)!;
+    expect(u.caleStosTy).toBe(true);
+    expect(ukladIcm(punktReczny([2500, 2000, 6000], [0.6, 0.4], 0, 1), ICM)!.caleStosTy).toBe(false);
+  });
+  it('3 graczy 3500/3500/3000 (ty większy): 11,7 bb zaokrąglone w górę (nie 11,6); pasek względem największego stosu, nie sumy żetonów', () => {
+    const u = ukladIcm(punktReczny([3500, 3500, 3000], [0.6, 0.4], 1, 2), ICM)!;
+    expect(u.wiersze.map((w) => w.stosBb)).toEqual([11.7, 10, 11.7]);
+    expect(u.wiersze.map((w) => Math.round(w.udzial * 1000))).toEqual([1000, 857, 1000]); // 3500÷3500, 3000÷3500, 3500÷3500
+  });
+});
+
 describe('kryterium 3: pula, dopłata, kwota na przycisku i dziennik z jednej funkcji kwoty (D-886)', () => {
   it('dopłata widoku = kwota akcji „call” = liczba na przycisku; dziennik: all-in rywala w bb z wariantu (z przecinkiem), pas graczy spoza pary', async () => {
     const w = znajdz((p) => gracze(p) === 4 && p.stacks[p.villainIndex]! !== Math.min(p.stacks[p.heroIndex]!, p.stacks[p.villainIndex]!));
@@ -139,6 +156,7 @@ describe('kryterium 4: VoiceOver', () => {
     expect(eti).toMatch(/Rywal na SB wchodzi all-in/);
     expect(eti).toMatch(/Gracz A i Gracz B spasowali \(fold\)\./);
     expect(eti).not.toMatch(/[♠♥♦♣]/); // karty nazwami, nie symbolami (A04-11)
+    for (const c of w.hero.map(cardToString)) expect(eti).toContain(nazwaKarty(c, t)); // i obie karty faktycznie są w etykiecie (DR: DQ 002)
     expect(lista().props.accessibilityRole).toBe('list');
     expect(screen.getAllByTestId('pasek-stosu', { includeHiddenElements: true }).every((x) => x.props.accessibilityElementsHidden === true && x.props.importantForAccessibility === 'no-hide-descendants')).toBe(true);
     expect(screen.getAllByRole('header', { name: /^Bańka: płatne/ })).toHaveLength(1);
@@ -186,10 +204,19 @@ describe('duży tekst (AX5): pasek stosu znika, liczba zostaje (design-spec „P
       const w = znajdz((p) => gracze(p) === 4);
       const p = punkt(w);
       await decyzja(w);
-      expect(screen.queryAllByTestId('pasek-stosu')).toHaveLength(0);
+      // pasek ma accessibilityElementsHidden: bez includeHiddenElements zapytanie zawsze zwraca 0 i test nie umie paść (DR: DQ 001)
+      expect(screen.queryAllByTestId('pasek-stosu', { includeHiddenElements: true })).toHaveLength(0);
       for (let i = 0; i < 4; i++) expect(tekstEkranu()).toContain(pelnyStos(p, i));
+      // przy AX5 wartość schodzi pod nazwę (design-spec „Pasek stosu”; DR: DQ 005)
+      for (const wiersz of screen.getAllByTestId('stos-wiersz')) expect(StyleSheet.flatten(wiersz.props.style).flexDirection).toBe('column');
     } finally {
       spy.mockRestore();
     }
+  });
+  it('kontrola: przy skali 1 cztery paski (z ukrytymi dla czytnika), wiersze poziome', async () => {
+    const w = znajdz((p) => gracze(p) === 4);
+    await decyzja(w);
+    expect(screen.queryAllByTestId('pasek-stosu', { includeHiddenElements: true })).toHaveLength(4);
+    for (const wiersz of screen.getAllByTestId('stos-wiersz')) expect(StyleSheet.flatten(wiersz.props.style).flexDirection).toBe('row');
   });
 });

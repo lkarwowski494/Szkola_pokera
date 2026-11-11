@@ -179,14 +179,14 @@ export function TurniejIcm({ uklad, pozycjaTy, pozycjaRywal, formatBb, formatPro
           const kto = w.rola === 'ty' ? t('scenario.icm.you', { pozycja: poz }) : w.rola === 'rywal' ? t('scenario.icm.rival', { pozycja: poz }) : t('drill.icm.player', { letter: w.litera });
           const wartosc = t('scenario.icm.stackValue', { bb: formatBb(w.stosBb) });
           return (
-            <View key={`${w.rola}-${w.litera ?? ''}`} testID="stos-wiersz" accessible accessibilityLabel={t('scenario.icm.rowLabel', { kto, wartosc })} style={[styles.wierszStosu, { borderColor: tk.separator, minHeight: CEL_DOTYKU }]}>
+            <View key={`${w.rola}-${w.litera ?? ''}`} testID="stos-wiersz" accessible accessibilityLabel={t('scenario.icm.rowLabel', { kto, wartosc })} style={[styles.wierszStosu, { borderColor: tk.separator, minHeight: CEL_DOTYKU }, pasek ? null : styles.wierszStosuPodNazwa]}>
               <Text style={[styl.tresc, { color: tk.ink, flexShrink: 1 }]}>{kto}</Text>
               {pasek ? (
                 <View testID="pasek-stosu" accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={[styles.torStosu, { backgroundColor: tk.separator }]}>
                   <View style={{ width: `${Math.round(w.udzial * 100)}%`, height: 8, borderRadius: 4, backgroundColor: w.rola === 'ty' ? tk.goldOnBg : tk.muted }} />
                 </View>
               ) : null}
-              <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600', fontVariant: ['tabular-nums'], textAlign: 'right' }]}>{wartosc}</Text>
+              <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600', fontVariant: ['tabular-nums'], textAlign: pasek ? 'right' : 'left' }]}>{wartosc}</Text>
             </View>
           );
         })}
@@ -234,6 +234,8 @@ const styles = StyleSheet.create({
   segmentOceny: { flexGrow: 1, flexBasis: 96, borderRadius: promien.przycisk, padding: odstep.m, gap: odstep.xs },
   rzadMiejsc: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: odstep.s },
   wierszStosu: { flexDirection: 'row', alignItems: 'center', gap: odstep.m, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingVertical: odstep.xs },
+  // AX4–AX5 bez paska: wartość schodzi pod nazwę (design-spec „Pasek stosu”; recenzja DQ 08-programista-005)
+  wierszStosuPodNazwa: { flexDirection: 'column', alignItems: 'flex-start', gap: odstep.xs },
   torStosu: { flex: 1, height: 8, borderRadius: 4, minWidth: 48, overflow: 'hidden' },
   rozwin: { flexDirection: 'row', alignItems: 'center', borderTopWidth: StyleSheet.hairlineWidth * 2, paddingVertical: odstep.s },
 });
