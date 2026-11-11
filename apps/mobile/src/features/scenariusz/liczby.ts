@@ -1,8 +1,8 @@
 import { formatujLiczbe, formatujProcent, type Jezyk } from '@szkola/jezyki';
-import { analyseOutsSpot, deadBlindsBb, blindBb, hitProbability, overcardOuts, type SizeSpotVariantDecision } from '@szkola/poker-core';
+import { analyseOutsSpot, deadBlindsBb, hitProbability, overcardOuts, type SizeSpotVariantDecision } from '@szkola/poker-core';
 import { jezykZadan } from '@/features/drills/text';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
-import { widokDecyzji, type Akcja } from './wariant';
+import { kwotaAkcji, widokDecyzji, type Akcja } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 
@@ -82,8 +82,11 @@ function zdaniaRozmiaru(s: SesjaScenariusza, i: number, d: SizeSpotVariantDecisi
   };
   const zdania: string[] = [];
   if (standard !== null) zdania.push(zdanie(standard));
-  if (wybor === 'limp') zdania.push(t('scenario.numbers.limp', { kwota: formatujLiczbe(1 - blindBb(pozycje.hero), j) }));
-  else {
+  // kwota limpu z tej samej funkcji co liczba na przycisku (kryterium 5 §3; recenzja DO 08-programista-006)
+  if (wybor === 'limp') {
+    const limp = kwotaAkcji(d, 'limp', s.szablon);
+    if (limp !== null) zdania.push(t('scenario.numbers.limp', { kwota: formatujLiczbe(limp, j) }));
+  } else {
     const wybrany = rozmiar(wybor);
     if (wybrany !== null && wybrany !== standard) zdania.push(zdanie(wybrany));
   }

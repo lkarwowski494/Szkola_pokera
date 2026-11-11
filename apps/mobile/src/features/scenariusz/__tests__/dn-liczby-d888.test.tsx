@@ -13,7 +13,7 @@ import { BEZ_LIMPU, CBET, dbCn, ICM, TROJBET } from '@/test-utils/kontekstCn';
 import { PrzebiegScenariusza } from '../EkranScenariusza';
 import type { SesjaScenariusza } from '../aktywnoscScenariusza';
 import { zdaniaLiczb } from '../liczby';
-import { naGenerator, type Akcja } from '../wariant';
+import { kwotaAkcji, naGenerator, type Akcja } from '../wariant';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
@@ -66,6 +66,12 @@ describe('size-spot: cena rozmiaru dla rywala (kryterium 1, 5)', () => {
     expect(l).toHaveLength(2); // standard + limp
     expect(l[1]).toContain(`Limp kosztuje ${bb(1 - blindBb('SB'))} bb`);
   });
+  it('kwota limpu w zdaniu = kwota akcji z funkcji przycisku (jedna definicja; DR: DO 006)', () => {
+    const s = sesja(BEZ_LIMPU, 'latwy', 5, ['limp']);
+    const kwota = kwotaAkcji(s.wariant.points[0]!, 'limp', s.szablon);
+    expect(kwota).not.toBeNull();
+    expect(zdaniaLiczb(s, 0, 'limp', t)[1]).toContain(`Limp kosztuje ${bb(kwota!)} bb`);
+  });
   it('twój wybór inny niż standard: drugie zdanie z jego rozmiarem; ten sam rozmiar: jedno', () => {
     const s = sesja(TROJBET, 'latwy', 5, ['raise-big']);
     const z = zdaniaLiczb(s, 0, 'raise-big', t);
@@ -103,9 +109,44 @@ describe('icm-call: equity, próg ICM i próg w grze o żetony z blindem (kryter
   });
 });
 
+describe('icm-call: na10 to zaokrąglenie, nie obcięcie (DR: DO 003)', () => {
+  it('na10 = Math.round(10 × equity) także gdy część ułamkowa ≥ 0,5 (ziarna 1–40 na poziom; wymaga takiego przypadku)', () => {
+    let zGora = 0;
+    for (const poziom of ['latwy', 'sredni', 'trudny'] as ScenarioLevel[]) {
+      for (let ziarno = 1; ziarno <= 40; ziarno++) {
+        let s: SesjaScenariusza;
+        try { s = sesja(ICM, poziom, ziarno, ['call']); } catch { continue; }
+        const p = s.wariant.points[0]!;
+        if (p.point !== 'icm-call') continue;
+        if ((10 * p.handEquity) % 1 >= 0.5) zGora++;
+        expect(zdaniaLiczb(s, 0, 'call', t)[0]).toContain(`w ${Math.round(10 * p.handEquity)} rozdaniach na 10`);
+      }
+    }
+    expect(zGora).toBeGreaterThan(0);
+  });
+});
+
 describe('draw-call: nadkarty (kryterium 3)', () => {
   const szablony = getScenarioTemplates(dbCn).filter((x) => x.decisions.some((d) => d.kind === 'draw-call' || d.kind === undefined));
   it('baza ma szablony draw-call', () => expect(szablony.length).toBeGreaterThanOrEqual(3));
+  it('wybór drugiego zdania zależy od correct: call → „rachunek pomija”, fold → „Jeśli doliczysz” (DR: DO 001)', () => {
+    let call = 0, fold = 0;
+    for (const szablon of szablony) {
+      for (const poziom of szablon.levels as ScenarioLevel[]) {
+        for (let ziarno = 1; ziarno <= 60; ziarno++) {
+          let s: SesjaScenariusza;
+          try { s = sesja(szablon, poziom, ziarno, ['fold']); } catch { continue; }
+          const d = s.wariant.points[0]!;
+          if (d.point !== 'draw-call') continue;
+          const z = zdaniaLiczb(s, 0, 'fold', t);
+          if (z.length < 2) continue;
+          if (d.correct === 'call') { call++; expect(z[1]).toContain('rachunek pomija'); } else { fold++; expect(z[1]).toContain('Jeśli doliczysz'); }
+        }
+      }
+    }
+    expect(call).toBeGreaterThan(0);
+    expect(fold).toBeGreaterThan(0);
+  });
   it('zdanie o nadkartach tylko przy nadkarty > 0; dla correct = fold trafiszRazem < required we wszystkich wariantach (ziarna 1–60)', () => {
     let zNadkartami = 0, bezNadkart = 0, fold = 0;
     for (const szablon of szablony) {
