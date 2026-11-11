@@ -140,7 +140,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 |---|---|---|---|---|---|---|
 | DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | ? | ? | PRZEKAZANIE 16:24: werdykt PRZYJĄĆ (0 KRYT/WYS, 2 ŚR, 4 NIS); autor zgodny, tylko docs; do archiwizacji po odczycie kosztu |
 | DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 370a1548 | 0 | 0 | w toku od 16:03: D-889 widok ICM (polecenie DP.md @ b1f0f56, D-985…D-994) |
-| DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 370a1548 | 28,8 | 3,87 | **przyjęta 16:26** (autor 6/6, CI 43050740393 success na 370a1548, recenzja DO PRZYJĄĆ 24e86242); zarchiwizowana; scalenie do roboczej razem z DP (DP ⊃ DN) |
+| DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 370a1548 | 32,5 | 5,11 | **przyjęta 16:26** (autor 6/6, CI 43050740393 success na 370a1548, recenzja DO PRZYJĄĆ 24e86242); zarchiwizowana; scalenie do roboczej razem z DP (DP ⊃ DN) |
 | CW | session_01T66VBwYnHtTiKoR8cjnqsi | 06 fix, treść (opus/high) | sesja-cw-tresci @ 4619781 (start) | — | — | w toku od 07:05 |
 | CX | session_01T66VBybgy9yDNgu92usB38 | 08 build, kod (sonnet) | sesja-cx-range-spot @ 4619781 (start) | — | — | E0 07:25 |
 | CY | session_01T66VBwmz2iHwF9WYHXf7WG | 09 build (sonnet) | sesja-cy-m12 @ 4619781 (start) | — | — | E0 07:24 |
@@ -554,4 +554,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 15:58 | koordynator | przejęcie przez session_01T66VBwchgoN1YcMZZCKBS6 (nowy łańcuch 0/8); prompts @ 9553f6b; 2 linie utworzone | start DO, DP |
 | 16:03 | DO, DP | start DO session_01T66VBwYbNrXHj3rRH7bWR3 (opus/high) i DP session_01T66VBvWMfShSyKQ1PVQgeE (sonnet/medium), polecenia @ b1f0f56; poprzednik: koszt 13,53 USD, max 39,0%, zarchiwizowany przez siebie | kontrola 17:05 |
 | 16:12 | DP → koordynator | PYTANIE: pula w widoku ICM (dokument „stos rywala + blind” vs rachunek D-890) → KO-068: B (mniejszy stos + blind), D-985; VoiceOver mianownik D-986 | DP kontynuuje; kontrola 17:07 |
-| 16:26 | DO → koordynator | PRZEKAZANIE 24e86242: PRZYJĄĆ, ŚR 2, NIS 4, ci 0 (`dowody/do-ci-370a1548.txt` kod 0), D-890 niezależnie potwierdzone; sprawdzone: autor, tylko docs (8 plików) → **DN przyjęta**, DN zarchiwizowana (3,87 USD) | DO archiwizacja po koszcie; DP w toku |
+| 16:26 | DO → koordynator | PRZEKAZANIE 24e86242: PRZYJĄĆ, ŚR 2, NIS 4, ci 0 (`dowody/do-ci-370a1548.txt` kod 0), D-890 niezależnie potwierdzone; sprawdzone: autor, tylko docs (8 plików) → **DN przyjęta**, DN zarchiwizowana (5,11 USD, kontekst końcowy 32,5%) | DO archiwizacja po koszcie; DP w toku |
