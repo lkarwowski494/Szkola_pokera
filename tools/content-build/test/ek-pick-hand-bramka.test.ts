@@ -2,7 +2,7 @@
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
-import { checkScenarioGenerator, checkScenarioTemplate, loadScenarioTemplates } from '../src/scenariusze';
+import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioTemplate, loadScenarioTemplates } from '../src/scenariusze';
 import { content } from './kit';
 
 const fx = loadScenarioTemplates(join(resolve(import.meta.dirname), 'fixtures', 'pick-hand'))[0]!;
@@ -17,5 +17,6 @@ describe('KO-072: bramka pick-hand', () => {
   it('klasa w calls i w folds naraz', () => { expect(blad(kopia((b) => { b.decisions[0].folds = ['AA', '76s']; }))).toMatch(/klasa AA w calls i w folds/); });
   it('nieznana klasa ręki', () => { expect(blad(kopia((b) => { b.decisions[0].calls = ['AAx']; }))).toMatch(/nieznana klasa ręki AAx/); });
   it('oczekiwana akcja punktu to best-hand', () => { expect(blad(kopia((b) => { b.bounds.latwy.expected = ['call']; }))).toMatch(/best-hand/); });
+  it('ekran obsługuje pick-hand (widok minimalny, KO-072)', () => { expect(checkScenarioNaEkran(fx.template)).toEqual([]); });
   it('generator wytwarza ≥ 40 odcisków', () => { expect(checkScenarioGenerator(fx.template, undefined, 2000)).toEqual([]); }, 120_000);
 });

@@ -14,6 +14,7 @@ import { godzinaWStrefie } from '@/features/start/EkranStartu';
 import { nazwaKarty, nazwaPozycji } from '@/features/stol/uklad';
 import { ADRES_KONTAKTOWY } from '@/platform/adresy';
 import { odstep, styl, useTokens } from '@/theme/tokens';
+import { CardRow } from '@/components/PlayingCard';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
@@ -45,6 +46,11 @@ export interface TekstAkcji {
 export function tekstAkcji(v: ScenarioVariant, indeks: number, a: Akcja, s: Pick<ScenarioTemplate, 'stackBb' | 'positions'>, t: TFn): TekstAkcji {
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
+  if (d.point === 'pick-hand') {
+    // KO-072: nazwa akcji to karty wybranej ręki (bez nowego klucza i18n); zapis kart jak w wariancie, np. „Ah 4h”
+    const nazwa = d.hands[a === 'hand-b' ? 1 : 0].map(cardToString).join(' ');
+    return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa };
+  }
   const o = opisAkcji(d, a);
   const baza = t(o.klucz);
   const bezKwoty = d.point === 'range-spot' && o.kwota === 'to' && v.points[indeks + 1]?.point === 'size-spot';
@@ -226,12 +232,17 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
       {icm ? <StolIcmEkranu uklad={icm} s={s} reka={s.wariant.hero.map(cardToString)} t={t} /> : (
       <StolRozdania
         stol={widok.stol}
-        reka={s.wariant.hero.map(cardToString)}
+        reka={d.point === 'pick-hand' ? [] : s.wariant.hero.map(cardToString)}
         pozycjaTy={s.szablon.positions.hero}
         pozycjaRywal={s.szablon.positions.villain}
         stosBb={s.szablon.stackBb}
       />
       )}
+      {d.point === 'pick-hand' ? (
+        <View testID="pick-hand-rece" style={{ flexDirection: 'row', justifyContent: 'space-around', gap: odstep.m }}>
+          {d.hands.map((h, k) => <CardRow key={k} cards={h.map(cardToString)} size="lg" />)}
+        </View>
+      ) : null}
       {widok.pulaBb !== null && widok.doSprawdzeniaBb !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: widok.pulaBb, kwota: widok.doSprawdzeniaBb })}</Text> : null}
       {icm && icm.caleStosTy && widok.doSprawdzeniaBb !== null ? <Text style={[styl.przypis, { color: tk.muted, textAlign: 'center' }]}>{t('scenario.icm.wholeStack', { kwota: t('scenario.icm.stackValue', { bb: formatujLiczbe(widok.doSprawdzeniaBb, jezykZadan()) }) })}</Text> : null}
       {icm && !ocenaMode ? <TurniejIcm uklad={icm} pozycjaTy={s.szablon.positions.hero} pozycjaRywal={s.szablon.positions.villain} formatBb={(x) => formatujLiczbe(x, jezykZadan())} formatProcent={(x) => formatujProcent(x, jezykZadan())} naglowek /> : null}

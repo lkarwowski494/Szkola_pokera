@@ -16,12 +16,12 @@ import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
  * Akcje punktów decyzji na ekranie (CN, D-783): pas i sprawdzenie (draw-call, icm-call), czekanie i c-bet mały/duży (cbet-case),
  * rozmiar podbicia albo limp (size-spot). Identyfikatory jak w szablonie (`actions[].action`) i w wyborze zapisanym w bazie.
  */
-export type Akcja = 'fold' | 'call' | 'check' | 'bet-small' | 'bet-big' | 'raise' | 'raise-small' | 'raise-big' | 'limp' | 'all-in' | `raise ${number}` | `call ${number}`;
+export type Akcja = 'hand-a' | 'hand-b' | 'fold' | 'call' | 'check' | 'bet-small' | 'bet-big' | 'raise' | 'raise-small' | 'raise-big' | 'limp' | 'all-in' | `raise ${number}` | `call ${number}`;
 /**
  * Akcje stałe, jakie ekran zna. Punkt range-spot (CX, F1) ma akcje o nazwach z węzła solvera spotu (`content/ranges/spots.yaml`): `fold`, `call`,
  * `all-in` oraz `raise N` i `call N` z rozmiarem w bb (np. `raise 2.5`); te dwie ostatnie rozpoznaje `jestAkcja` wzorcem, bo lista rozmiarów należy do danych.
  */
-export const AKCJE: readonly Akcja[] = ['fold', 'call', 'check', 'bet-small', 'bet-big', 'raise', 'raise-small', 'raise-big', 'limp', 'all-in'];
+export const AKCJE: readonly Akcja[] = ['hand-a', 'hand-b', 'fold', 'call', 'check', 'bet-small', 'bet-big', 'raise', 'raise-small', 'raise-big', 'limp', 'all-in'];
 const ROZMIAR_SPOTU = /^(raise|call) \d+(\.\d+)?$/;
 /** Czy napis to akcja ekranu (walidacja wyboru odczytanego z bazy i etykiet spotu na granicy z danymi). */
 export const jestAkcja = (a: unknown): a is Akcja => typeof a === 'string' && (AKCJE.some((x) => x === a) || ROZMIAR_SPOTU.test(a));
@@ -43,6 +43,8 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
       return KOLEJNOSC_SIZE.filter((a) => p.options.some((o) => o.action === a));
     case 'range-spot':
       return p.options.map((o) => akcjaSpotu(o.action)); // kolejność węzła solvera: pas, sprawdzenie, rosnące podbicia, all-in
+    case 'pick-hand':
+      return ['hand-a', 'hand-b']; // KO-072: wybór jednej z dwóch rąk; nazwa akcji to karty ręki (EkranScenariusza.tekstAkcji)
     case 'list-hand':
     case 'river-catch':
     case 'defend':
@@ -52,6 +54,7 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
+  if (p.point === 'pick-hand') return p.correct;
   if (p.point === 'list-hand' || p.point === 'river-catch' || p.point === 'defend' || p.point === 'turn-bet') throw new Error('list-hand, river-catch, defend i turn-bet nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
@@ -73,6 +76,7 @@ export type RodzajKwoty = 'pay' | 'to' | 'all';
 export interface OpisAkcji { readonly klucz: string; readonly kwota: RodzajKwoty | null }
 export function opisAkcji(p: VariantDecision, a: Akcja): OpisAkcji {
   const nazwa = (klucz: string, kwota: RodzajKwoty | null): OpisAkcji => ({ klucz: `scenario.action.${klucz}`, kwota });
+  if (a === 'hand-a' || a === 'hand-b') throw new Error('hand-a i hand-b nie mają nazwy z grupy scenario.action: nazwą jest zapis kart ręki (tekstAkcji)');
   if (a === 'fold') return nazwa('fold', null);
   if (a === 'check') return nazwa('check', null);
   if (a === 'bet-small') return nazwa('betSmall', null);
@@ -174,6 +178,7 @@ function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
     if (w === undefined) throw new Error(`Akcja ${a} nie należy do punktu ${d.point}`);
     return NA_OCENE_EKRANU[w];
   }
+  if (d.point === 'pick-hand') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // SC-23a/b: druga ręka to niedokładność, nie błąd (D-1054, zrodla-krok-e.md)
   return a === poprawnaAkcja(d) ? 'zgodne' : 'blad';
 }
 /**
@@ -225,7 +230,7 @@ export function ocenyAkcji(v: ScenarioVariant, indeks: number): Readonly<Partial
 
 export interface WidokDecyzji {
   indeks: number;
-  ulica: 'preflop' | 'flop' | 'turn';
+  ulica: 'preflop' | 'flop' | 'turn' | 'river';
   /** Karty stołu widoczne w tej decyzji (np. „Kh”); przed flopem pusta lista. */
   stol: string[];
   /** Pula w bb po zakładzie rywala (to, o co grasz); null: punkt bez puli w wariancie (cbet-case, size-spot). */
@@ -289,7 +294,7 @@ export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): W
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
   if (d.point === 'river-catch' || d.point === 'list-hand' || d.point === 'defend' || d.point === 'turn-bet') throw new Error('list-hand, river-catch, defend i turn-bet nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania je odrzuca)');
-  const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : 4).map(cardToString);
+  const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : d.street === 'turn' ? 4 : 5).map(cardToString);
   if (d.point === 'draw-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
   if (d.point === 'icm-call' && s) {
     const u = ukladIcm(d, s);
@@ -349,7 +354,9 @@ export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, w
   const tekst = (a: Akcja): string => {
     const wyjasnienie = spec.actions.find((x) => x.action === a)?.explanation;
     if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${a}`);
-    return fillVariantMarkers(wyjasnienie, wartosci, warunki);
+    // KO-072: w pick-hand {{w:reka}} to ręka tej akcji (hand-a = A, hand-b = B), nie zawsze pierwsza
+    const reka = d.point === 'pick-hand' ? d.hands[a === 'hand-b' ? 1 : 0] : null;
+    return fillVariantMarkers(wyjasnienie, reka ? { ...wartosci, reka: karty(reka.map(cardToString)) } : wartosci, warunki);
   };
   // „dobrze” wynika z oceny wyboru, nie z równości z jedną „poprawną” akcją: w ręce mieszanej (range-spot, ADR-04) kilka akcji jest zgodnych (DC WYS-001)
   const poprawna = poprawnaAkcja(d);

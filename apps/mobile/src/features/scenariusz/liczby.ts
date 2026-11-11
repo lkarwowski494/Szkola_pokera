@@ -23,6 +23,7 @@ export function zdaniaLiczb(s: SesjaScenariusza, i: number, wybor: Akcja, t: TFn
       equity: formatujProcent(d.handEquity, j), na10: Math.round(10 * d.handEquity), prog: formatujProcent(d.required, j), progZetony: formatujProcent(d.requiredChips, j),
     })];
     case 'range-spot': return [];
+    case 'pick-hand': return []; // KO-072: liczby SDV/V/F wymagają nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
     case 'list-hand':
     case 'river-catch':
     case 'defend':
