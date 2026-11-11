@@ -48,3 +48,11 @@ describe("fr: spacja nierozdzielająca przed ? ! : ; i w « » w scenario.* (09-
   });
 });
 
+describe("zh-Hant wholeStack (09-lokalizacja-006)", () => {
+  it("mówi o odpadnięciu z turnieju, nie o utracie uprawnienia", () => {
+    const s = slownik("zh-Hant")["scenario.icm.wholeStack"];
+    expect(s).toContain("被淘汰出");
+    expect(s).not.toContain("失去");
+  });
+});
+

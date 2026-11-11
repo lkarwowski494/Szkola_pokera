@@ -1087,7 +1087,7 @@
       "rival": "對手，{{pozycja}}",
       "stackValue": "{{bb}} bb",
       "rowLabel": "{{kto}}，{{wartosc}}",
-      "wholeStack": "{{kwota}} 是你的全部籌碼：輸了就會失去{{t:tournament|錦標賽}}資格，且沒有獎金。",
+      "wholeStack": "{{kwota}} 是你的全部籌碼：輸了就會被淘汰出{{t:tournament|錦標賽}}，拿不到任何獎金。",
       "rewards": "籌碼量與獎金"
     }
   }
