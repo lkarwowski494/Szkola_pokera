@@ -1,0 +1,120 @@
+# Odczyt 2026-11-11 (rola 06, sesja DV): źródła warunków kroku E (SC-16…SC-31) i M10
+# curl -sS -L (HTTP 200 dla wszystkich poniżej), HTML → tekst (usunięte script/style/tagi, tools: tekst.py w notatkach sesji); tylko wiersze z cytatami (numer wiersza w pliku tekstowym)
+
+## https://upswingpoker.com/check-raise-lucid/
+68:	Sets are powerful hands that thrive on getting the money in before any draw completes. This makes check-raising a must on most boards — except those where a straight or flush is already present.
+84:	Tip #3 – Flush draws make for good check-raises
+85:	Flush draws benefit from making the opponent fold their low-equity air-balls, and when they get called they still have a good chance of hitting a flush on the turn or the river.
+89:	Tip #4 – Open-enders should check-raise often (even more so with a backdoor flush draw)
+90:	Similar to flush draws, open-enders also benefit from check-raising by obtaining some fold equity and still retaining a good amount of equity to hit the nuts (with 8 outs, they have a 32% chance of hitting the straight on the turn or the river).
+
+## https://upswingpoker.com/check-raising-strategies/
+80:	A good strategy would be to check-raise 80% of the time when you have trips, and call the remaining 20% of the time in order to strengthen your check-calling range. That way you’ll be protected in case you face big bets on later streets.
+96:	Which specific value hands should you add to your check-raise range? Hands like top pair top-kicker and top pair second kicker (at some frequency) will usually be your best option. Fun fact: solvers will check-raise all sorts of top pairs versus small bets (as you’re about to see).
+106:	Although you should typically avoid merging your range when taking aggressive lines, you can make an exception on low boards (9-3-2, 7-3-3, etc.). It actually makes sense to check-raise for protection with some medium-strength-but-vulnerable hands on such boards.
+
+## https://upswingpoker.com/podcast/ep1-check-raise/
+101:	You don’t always want to raise your high-equity draws, however, as Brady explains:
+102:	If you always check-raised your “natural bluffs,” which are those open-enders, those gutshots, those flush draws, then when you do just check-call, and the turn completes a draw, you’re never going to have that turned strong hand.
+122:	Use a 3.2x raise vs. larger c-bets
+125:	Use a 4.5x raise vs. smaller c-bets
+
+## https://blog.gtowizard.com/flop-heuristics-for-defending-the-blinds-in-mtts/
+53:	The larger the BTN bets, the smaller BB raises. A small raise of a small bet offers extremely good pot odds. It also does little to grow the pot. When the BTN bets 20 into a pot of 100, a 33% pot raise would offer calling odds of 46:186, roughly 4:1. BB mostly prefers to raise larger in order to get more fold equity on their bluffs and more money into the pot with their value hands. As the BTN’s bet gets larger, a proportionately smaller raise offers similar odds, and larger raises are no longer required to get stacks in by the river.
+
+## https://blog.gtowizard.com/the-worst-turn-card/
+76:	Overcards are generally slightly better for the preflop raiser than BB.
+77:	Low cards, like the 5 , are not so good for the PFR.
+79:	Board-pairing cards are pretty bad. On a turned King, we should be more cautious, as if we have seen an ‘amber light’ , and reduce our barreling frequency accordingly.
+81:	Regardless of the turn, we usually won’t use a ⅓ size on the turn IP on rainbow boards. Our value hands want to bet bigger and if we have marginal showdown value hands, checking is higher EV than making a small bet. Thus, our decisions should be between checking or betting larger (66% to 125-150% pot).
+86:	Turn equity for BTN (green is best, red is worst) The worst turn card for BTN is not a board-pairing card but actually the 2 (although it’s close). Generally, all the low cards are bad for BTN in this scenario.
+87:	The best turn cards for BTN include the King , Ace , and Queen . An observable trend with overcards is starting to appear. That makes sense because we c-bet a lot of hands like KQ , KT , QT , and Q9 , which turned top pair or a draw. It’s also harder for BB to check-call King-x than Ace-x on J85 with poor showdown value, so the King is slightly better for BTN than the Ace.
+
+## https://pokercoaching.com/blog/when-to-double-barrel-the-turn-as-a-bluff/
+100:	* At 40 big blinds, barrel no-draw king-highs and check many flush draws, because bluffs should either call a shove happily or fold for free, never bet-fold nine outs.
+109:	The best turn card for a wide flop bettor is an overcard to the board, and the reason is beautiful once you see it.
+111:	Suddenly your range is full of aces, theirs is full of jacks and draws, and you get to bet relentlessly. The same story plays out when eight-five-deuce turns a queen or nine-seven-five turns a king, and on those cards even your remaining king-high and queen-high junk keeps firing, carried by the strength of the range around it.
+112:	Neutral turns call for polarized, selective betting. And on turn cards that favor your opponent, like ones completing their obvious draws, the barrel mostly dies, and the few bluffs you do fire should carry real equity. The frequency follows the card, and the card either recruited your misses into top pair or it did not.
+124:	Deeper stacked, the logic flips back, because your big draws can bet and call the raise, and the barrel returns to the hands that can improve.
+
+## https://www.pokerlistings.com/when-to-fire-a-second-barrel-on-the-turn-a-simple-guide
+352:	Aces and kings on the turn are ideal candidates for second barrels
+362:	barrels. Whatever pair your opponent held on the flop just got demoted
+
+## https://blog.gtowizard.com/principles-of-turn-strategy/
+56:	All that changes on the turn! BB has folded away their equity disadvantage and now has a stronger range on most turns. This means UTG can no longer bet with impunity. Their medium-strength hands have less incentive to bet : They already got some protection on the flop, and now, with just one card to come, there is less danger of getting drawn out on. UTG’s strong hands need to start aggressively growing the pot to make up for that small flop bet .
+60:	UTG shows a clear preference for checking one-pair hands despite the draws . Third pair, second pair, and even most top pairs strictly check. Meanwhile, two pair and sets almost exclusively bet , with the only exceptions coming from KK and QQ . These hands both block the hands most likely to pay off big bets and are particularly resilient against getting drawn out on, as some spade rivers will make them a full house.
+71:	Although solver outputs can look quite different with shallower stacks, the same principles still apply : strong hands grow the pot, medium-strength hands pot control, weak hands bluff or give up, and draws navigate between fold equity and equity realization. What changes is the composition of these hand classes and the relative importance of competing incentives :
+78:	Second pair bets more often. Although these hands mostly fold if raised, UTG’s smaller bet size allows for more thin value/protection bets.
+
+## https://upswingpoker.com/thin-value-bet-poker-strategy/
+66:	A thin value bet is a bet that, when your opponent calls, you expect to win the pot a little over 50% of the time. In other words, it’s a value bet with a relatively marginal hand.
+
+## https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/
+99:	CO’s value bets are actually less ambitious than BB’s. This is owing to the threat of a check-raise and the lack of good bluffing candidates to balance such a wide value betting range. Unlike BB, CO does not value bet a pair of 2s or even a weak 5 . Although they can get called by worse, they can also have their value reduced to 0 by a check-raise, so a free showdown is more appealing.
+
+## https://blog.gtowizard.com/river-refinements-when-your-opponent-wont-check-raise/
+37:	This is why it’s rare to see the IP player bet less than half pot on the river (unless that’s all that remains in the effective stacks). Usually, if you’re betting small, it’s because you’re betting for thin value. But if you expect to be only a slight favorite when called, then it’s typically not worth the risk of opening yourself up to a check-raise. Your medium-strength hands will, in theory, be roughly indifferent between calling or folding a raise from a polarized range. No matter how you respond, your hand loses its value as soon as you get raised . Once you factor in even a 
+
+## https://blog.gtowizard.com/blockers-unblockers-the-secret-to-picking-great-bluffs/
+32:	A good bluff should simultaneously block very strong hands and unblock the hands that we want to fold out. Blocker/unblocker is a useful heuristic for picking powerful bluffs. It is particularly pertinent preflop and on the river.
+52:	A5 s, for example, blocks the really strong hands like AA and AK. It also unblocks a lot of weaker (but still threatening) hands that fold like K9s–K5s, QTs–Q8s, and so on. So, just to be crystal clear, the Ace is a blocker, and the 5 is an unblocker.
+86:	Looking at the flop, my initial instinct regarding bluffs would be to prefer 8-x and 7-x because they block straights. I’d be avoiding bluffing spade or heart draws that missed, because I know that missed flush draws often make bad bluffs because they block other missed flush draws that would make up a big part of the folding range. I’d probably pick K8s, even though the only available combo is spades, because it blocks straights, AK, KK, and K9.
+
+## https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what/
+44:	First and foremost, we have to evaluate whether the idea that our hand can’t win at showdown is actually accurate . After all, there are plenty of scenarios where a hand that was bluffing on one or even both previous streets still has 5%, 10%, or even 20% equity once the river rolls off.
+53:	If we’re going to make sure we have enough bluffs here to keep villain indifferent , which is what we should be doing in theory, then there’s no reason to take a hand that can sometimes win at showdown and use it as a bluff. We may as well use hands that never win at showdown instead, and this way we’re not giving up whatever percentage of the pot we might be winning if we check.
+63:	A lot is made of the significance of blockers within poker strategy, and in many cases, they’re not as meaningful as you might think, but bluffing the river is one instance where it is important to be mindful of each individual hand’s blocking and unblocking properties .
+
+## https://blog.gtowizard.com/principles-of-river-play/
+71:	BB sometimes folds top pair despite sometimes calling with second pair. In other words, they do not choose their bluff catchers based on the rank of the hand, because some of their folds are ranked higher than some of their calls. Rather, these calls are chosen based on their blockers.
+
+## https://deepfold.co/en/blog/bluff-catching-principles
+27:	Principle: A bluff catcher beats only bluffs. If your hand beats some value, stop reading bluff-catching theory and go read value-betting theory instead.
+68:	Breakeven equity = B / (P + 2B)
+98:	Principle: Call when villain's bluff combos / (bluff + value combos) > breakeven equity. Fold when they're below it. MDF is what villain should let you do; the breakeven is what you actually need.
+
+## https://blog.gtowizard.com/stack-to-pot-ratio/
+35:	SPR is defined as the effective stack (how much you can risk) divided by the pot:
+41:	If the SPR were 2, the bet would be $200, and you would need $200/$500 = 40% equity. At SPR 3, you would need $300/$700 = 43% equity to call a $300 bet. The more money you risk relative to what is already in the pot, the stronger a hand you must have to profit on the wager , (If you don’t understand these calculations, read this pot odds article first).
+53:	The chart below is from a BTN vs BB in a single-raised pot, 14bb deep in an MTT , on a J♥8♦5♥ flop. After the preflop action, there are 5.5bb in the pot and 12bb in the effective stacks, for an SPR just over 2 . Let’s examine BB’s response to BTN shoving the flop. Note that although the BTN rarely makes this bet at equilibrium, the solver strategy for responding to it is still valid.
+54:	Any top pair or better is good enough to stack off, even with no fold equity, as are most second pairs and even a few lower pairs (some third pair calls if it also has a backdoor flush draw). Most flush draws can call, though the very weakest fold. While nine outs alone would not yield the requisite 40% equity to call, most of these draws have some chance of winning by making a pair as well, or, in the case of the nut flush draw, by already having the best hand. Open-ended straight draws can call if they also have a backdoor flush draw, but even the best gutshots fold.
+57:	At this higher SPR, stacking off with top pair starts to get a bit dicey, as does the nut flush draw. Open-ended straight draws are pure folds now, unless they also have a frontdoor ♥ draw. Note that backdoor ♦ no longer cut it)
+61:	All top pairs and all nut flush draws are now indifferent between calling and folding: even A♥J x is not a pure call. Many combo draws remain pure, however: 9♥7♥ , 7♥6♥ , and any second pair with a flush draw are profitable calls. This is a good example of robustness. These hands retain more of their equity as the opponent’s range grows stronger, whereas made hands with little chance to improve start to drop off in value. An opponent putting in 16x the pot will often have sets, overpairs, or two pairs against which top pair fares poorly.
+65:	As the stacks get deeper, the BB purely 3-bets these hands preflop. Above SPR 4, stacking off with a single pair, no matter how strong, starts to get dicey. Thus, hands like KK, AA, and AK, which are very good at making one strong pair but rarely make anything stronger, prefer 3-betting in part to ensure a lower SPR should they see a flop.
+
+## https://www.splitsuit.com/spr-poker-strategy
+144:	If the SPR were larger, say 9, it would change things as we are no longer in an “automatic stack-off” SPR. The graphic below shows the SPR zones that I use, and notice that less than 3 is an auto-stack off with top pair or better, between 3-6 is situational and based upon villain/board texture, and more than 6 SPR isn’t a default stack-off (although there are obvious spots where we might against fish or with very strong hands).
+
+## https://blog.gtowizard.com/pot-geometry/
+34:	“Pot Geometry” refers to betting an equal fraction of the pot on each street, such that you’re all-in by the river. This betting strategy is also called the “geometric bet size” or “geometric growth of the pot” (GGOP).
+80:	Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage. This works best when your range is polarized and your opponent’s range is capped.
+
+## https://upswingpoker.com/when-to-check-top-pair/
+73:	In single raised pots, the stack-to-pot ratio (SPR) is too high to comfortably get 3 streets of value with many top pair hands. Thus, you need to consider which of the following 3 plans makes the most sense with your top pair:
+
+## https://bluffaces.com/calculators/mda/
+58:	We analyzed all the hands played in the last 12
+59:	months and
+60:	provide you with aggregated stats for all the players, top 100 players and typical player
+64:	i
+65:	The top 100 most winning players on a certain limit.
+70:	Recreationals
+71:	i
+78:	GGPoker
+80:	NL25
+82:	NL50
+83:	NL100
+
+## https://pokercoaching.com/blog/poker-stats/
+113:	A player who runs 45 VPIP over 300 hands is telling you something reliable. A player who runs 45 VPIP over 20 hands is just running hot. Learning to read stats in context is what separates players who use them well from those who make bad decisions based on small samples.
+154:	The PFR numbers I look for when categorizing a player: in 6-max, a PFR of around 17 to 22 is normal for an aggressive regular. In full ring, that drops to 10 to 15. When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little.
+206:	The stats above are only as reliable as the sample size behind them. One of the most common mistakes I see students make is treating a player’s HUD stats as accurate after just 30 or 40 hands. For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.
+
+## https://www.deucescracked.com/research/online-poker-win-rates
+15:	We analyzed aggregate data from 50,000 tracked sessions and 12M+ hands across micro, small, mid, and high stakes. Here are the real win rate benchmarks for 2026.
+22:	Data aggregated from voluntary hand history submissions by 1,200+ DeucesCracked community members. All data is anonymized. Sample: 50,000 sessions, 12M+ hands, January–June 2026. Results cover 6-max No-Limit Hold'em cash games only. Win rates are calculated in bb/100 (big blinds per 100 hands) and exclude rakeback.
+337:	DeucesCracked.com contains affiliate links. When you sign up through our links, we may earn a commission at no extra cost to you. This helps us maintain and improve our content. We only recommend sites that meet our strict editorial standards. Our reviews and ratings are independently determined and never influenced by affiliate partnerships. Read our full affiliate disclosure and rating methodology . Online gambling regulations vary by country and state — always verify that any platform is licensed and legal in your jurisdiction before playing.
+
+## https://link.springer.com/doi/10.1007/s10899-009-9168-2 (Siler 2010, J Gambl Stud 26:401–420)
+HTTP 200, ale strona wyzwania (4 wiersze tekstu, bez treści artykułu): niedostępne; kopii z serwisów udostępniania o nieznanym pochodzeniu nie używam
