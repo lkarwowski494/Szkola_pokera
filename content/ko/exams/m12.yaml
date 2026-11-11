@@ -6,7 +6,7 @@ drills:
     rules: [R-M12-001]
     prompt: "평균 윈레이트는 {{n:var.wr.typical.high}}, {{t:standard-deviation|표준편차}}는 {{n:var.sd}}이고, 앞으로 {{n:exam.m12.hands.k}},000핸드(100핸드 블록 {{n:exam.m12.blocks}}개)를 플레이합니다. 약 {{n:var.conf95}} 신뢰도로 결과는 어떤 범위에 들어갑니까?"
     options:
-      - { text: "약 {{n:exam.m12.ci.low.bi}}~약 {{n:exam.m12.ci.high.bi}} {{t:buy-in|바이인}}", correct: true, why: "기대 결과는 {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}, 즉 {{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}입니다. 결과의 {{t:standard-deviation|표준편차}}는 {{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}, 즉 약 {{n:exam.m12.sd.bi}} {{t:buy-in|바이인}}입니다. 범위: {{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}." }
+      - { text: "약 {{n:exam.m12.ci.low.bi}}~약 {{n:exam.m12.ci.high.bi}} {{t:buy-in|바이인}}", correct: true, why: "기대 결과는 평균일 뿐입니다. 실제 결과는 평균에서 멀리 벗어날 수 있고, 이기는 플레이어도 손실로 끝날 수 있습니다. 계산: 기대 결과는 {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}, 즉 {{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}입니다. 결과의 {{t:standard-deviation|표준편차}}는 {{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}, 즉 약 {{n:exam.m12.sd.bi}} {{t:buy-in|바이인}}입니다. 범위: {{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}." }
       - { text: "정확히 {{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}", why: "{{n:exam.m12.exp.bi}} {{t:buy-in|바이인}}은 기대 결과, 즉 평균입니다. {{n:exam.m12.hands.k}},000핸드 후 결과의 {{t:standard-deviation|표준편차}}는 약 {{n:exam.m12.sd.bi}} {{t:buy-in|바이인}}이므로 실제 결과는 평균과 크게 다를 수 있습니다." }
       - { text: "약 {{n:exam.m12.exp.bi}}~약 {{n:exam.m12.ci.high.bi}} {{t:buy-in|바이인}}: 이기는 플레이어는 마이너스로 끝나지 않습니다", why: "이기는 플레이어도 마이너스로 끝날 수 있습니다. 이 조건에서 범위의 하한은 약 {{n:exam.m12.ci.low.bi}} {{t:buy-in|바이인}}입니다." }
   - kind: choice
@@ -15,7 +15,7 @@ drills:
     rules: [R-M12-001]
     prompt: "{{n:exam.m12.hands.k}},000핸드 후 윈레이트는 {{n:var.wr.typical.high}}, {{t:standard-deviation|표준편차}}는 {{n:var.sd}}입니다. 진짜 윈레이트에 대해 무엇을 알 수 있습니까?"
     options:
-      - { text: "약 {{n:var.conf95}} 신뢰도로 약 {{n:exam.m12.wr.ci.low}}와 약 {{n:exam.m12.wr.ci.high}} 사이에 있습니다", correct: true, why: "윈레이트의 오차는 SD ÷ √(블록 수) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}입니다. 범위: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}. {{n:exam.m12.hands.k}},000핸드 후에는 이기고 있는지조차 알 수 없습니다." }
+      - { text: "약 {{n:var.conf95}} 신뢰도로 약 {{n:exam.m12.wr.ci.low}}와 약 {{n:exam.m12.wr.ci.high}} 사이에 있습니다", correct: true, why: "{{n:exam.m12.hands.k}},000핸드는 윈레이트를 판단하기에 작은 표본입니다. 그 뒤에도 이기고 있는지조차 알 수 없습니다. 계산: 윈레이트의 오차는 SD ÷ √(블록 수) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}입니다. 범위: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}." }
       - { text: "큰 표본에서 결과가 플러스이므로 이기고 있다는 것", why: "{{n:exam.m12.hands.k}},000핸드는 윈레이트를 판단하기에 작은 표본입니다. {{n:var.conf95}} 범위는 약 {{n:exam.m12.wr.ci.low}}에서 약 {{n:exam.m12.wr.ci.high}}까지이므로 지는 플레이도 포함합니다." }
       - { text: "표본이 크므로 {{n:var.wr.typical.high}}에 매우 가깝다는 것", why: "{{n:exam.m12.hands.k}},000핸드로는 그렇게 좁은 범위를 얻을 수 없습니다. 계산하면 {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}입니다." }
   - kind: choice
@@ -24,7 +24,7 @@ drills:
     rules: [R-M12-003]
     prompt: "공격적으로 플레이하며 {{t:standard-deviation|표준편차}}는 {{n:var.sd.high}}입니다. {{n:var.conf95}} 신뢰도로 윈레이트를 ± {{n:var.target}} 정확도로 알고 싶습니다. 몇 핸드가 필요합니까?"
     options:
-      - { text: "약 {{n:exam.m12.need.hands.k}},000핸드", correct: true, why: "블록 수 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, 즉 약 {{n:exam.m12.need.hands.k}},000핸드입니다. {{t:standard-deviation|표준편차}}가 높을수록 훨씬 큰 표본이 필요합니다." }
+      - { text: "약 {{n:exam.m12.need.hands.k}},000핸드", correct: true, why: "{{t:standard-deviation|표준편차}}가 높을수록 훨씬 큰 표본이 필요합니다. {{t:standard-deviation|표준편차}}는 공식에서 제곱으로 들어가고, 오차는 핸드 수의 제곱근에 따라서만 줄어듭니다. 계산: 블록 수 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, 즉 약 {{n:exam.m12.need.hands.k}},000핸드입니다." }
       - { text: "약 {{n:var.need.hands.k}},000핸드, {{t:standard-deviation|표준편차}}가 {{n:var.sd}}일 때와 같습니다", why: "{{t:standard-deviation|표준편차}}는 공식에서 제곱되므로 {{n:var.sd}} 대신 {{n:var.sd.high}}이면 확실히 더 많은 핸드가 필요합니다. 약 {{n:exam.m12.need.hands.k}},000핸드입니다." }
       - { text: "수만 핸드면 충분합니다", why: "오차는 핸드 수의 제곱근에 비례해서만 줄어듭니다. {{n:var.sd.high}}이고 정확도가 ± {{n:var.target}}이면 100핸드 블록이 약 {{n:exam.m12.need.blocks}}개 필요합니다." }
   - kind: choice
@@ -70,7 +70,7 @@ drills:
     rules: [R-M12-009]
     prompt: "윈레이트는 {{n:dd.wr-low}}, {{t:standard-deviation|표준편차}}는 {{n:var.sd}}이고, {{n:exam.m12.ror.bi}} {{t:buy-in|바이인}}({{n:exam.m12.ror.bb}})이 있습니다. {{t:stakes|스테이크}}를 절대 내리지 않는다면 뱅크롤 전체를 잃을 위험은 얼마입니까?"
     options:
-      - { text: "약 {{n:exam.m12.ror}}", correct: true, why: "지수: 2 × 윈레이트 × 뱅크롤 ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}이므로 RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}입니다." }
+      - { text: "약 {{n:exam.m12.ror}}", correct: true, why: "플러스 윈레이트가 {{t:variance|분산}}을 막아 주지는 않습니다. 뱅크롤을 잃을 위험은 뱅크롤이 커질수록 지수적으로 줄지만, 윈레이트가 낮고 이 정도 뱅크롤에서는 0보다 확실히 큽니다. 계산(윈레이트와 SD가 일정하다는 근사): 지수: 2 × 윈레이트 × 뱅크롤 ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}이므로 RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}입니다." }
       - { text: "이기고 있으므로 0입니다", why: "플러스 윈레이트가 {{t:variance|분산}}을 막아 주지는 않습니다. 이 뱅크롤과 윈레이트에서 위험은 약 {{n:exam.m12.ror}}로, 0보다 확실히 큽니다." }
       - { text: "윈레이트가 낮으므로 약 절반입니다", why: "위험은 뱅크롤에 따라 지수적으로 줄어듭니다. {{n:exam.m12.ror.bi}} {{t:buy-in|바이인}}이면 지수는 {{n:exam.m12.ror.x}}이고, e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}입니다." }
   - kind: choice

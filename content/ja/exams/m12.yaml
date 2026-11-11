@@ -6,7 +6,7 @@ drills:
     rules: [R-M12-001]
     prompt: "平均{{n:var.wr.typical.high}}で勝っていて、{{t:standard-deviation|標準偏差}}は{{n:var.sd}}です。これから{{n:exam.m12.hands.k}}千ハンド（100ハンドを1ブロックとして{{n:exam.m12.blocks}}ブロック）をプレイします。約{{n:var.conf95}}の確信度で、結果はどの範囲に収まりますか？"
     options:
-      - { text: "約{{n:exam.m12.ci.low.bi}}〜約{{n:exam.m12.ci.high.bi}}{{t:buy-in|バイイン}}", correct: true, why: "期待される結果は{{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}、つまり{{n:exam.m12.exp.bi}}{{t:buy-in|バイイン}}です。結果の{{t:standard-deviation|標準偏差}}は{{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}、つまり約{{n:exam.m12.sd.bi}}{{t:buy-in|バイイン}}です。範囲：{{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}。" }
+      - { text: "約{{n:exam.m12.ci.low.bi}}〜約{{n:exam.m12.ci.high.bi}}{{t:buy-in|バイイン}}", correct: true, why: "期待される結果は平均にすぎません。実際の結果は平均から大きく離れることがあり、勝っているプレイヤーでもマイナスで終わることがあります。計算：期待される結果は{{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}、つまり{{n:exam.m12.exp.bi}}{{t:buy-in|バイイン}}です。結果の{{t:standard-deviation|標準偏差}}は{{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}、つまり約{{n:exam.m12.sd.bi}}{{t:buy-in|バイイン}}です。範囲：{{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}。" }
       - { text: "ちょうど{{n:exam.m12.exp.bi}}{{t:buy-in|バイイン}}", why: "{{n:exam.m12.exp.bi}}{{t:buy-in|バイイン}}は期待される結果、つまり平均です。{{n:exam.m12.hands.k}}千ハンド後の結果の{{t:standard-deviation|標準偏差}}は約{{n:exam.m12.sd.bi}}{{t:buy-in|バイイン}}なので、実際の結果は平均から大きく離れることがあります。" }
       - { text: "約{{n:exam.m12.exp.bi}}〜約{{n:exam.m12.ci.high.bi}}{{t:buy-in|バイイン}}：勝っているプレイヤーはマイナスで終わらない", why: "勝っているプレイヤーでもマイナスで終わることがあります。この条件では、範囲の下限は約{{n:exam.m12.ci.low.bi}}{{t:buy-in|バイイン}}です。" }
   - kind: choice
@@ -15,7 +15,7 @@ drills:
     rules: [R-M12-001]
     prompt: "{{n:exam.m12.hands.k}}千ハンドをプレイした時点で、ウィンレートは{{n:var.wr.typical.high}}、{{t:standard-deviation|標準偏差}}は{{n:var.sd}}です。本当のウィンレートについて何が分かりますか？"
     options:
-      - { text: "約{{n:var.conf95}}の確信度で、約{{n:exam.m12.wr.ci.low}}〜約{{n:exam.m12.wr.ci.high}}の間にある", correct: true, why: "ウィンレートの誤差はSD ÷ √(ブロック数) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}です。範囲：{{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}。{{n:exam.m12.hands.k}}千ハンドでは、勝っているかどうかさえ分かりません。" }
+      - { text: "約{{n:var.conf95}}の確信度で、約{{n:exam.m12.wr.ci.low}}〜約{{n:exam.m12.wr.ci.high}}の間にある", correct: true, why: "{{n:exam.m12.hands.k}}千ハンドはウィンレートの推定には小さなサンプルです。それでは勝っているかどうかさえ分かりません。計算：ウィンレートの誤差はSD ÷ √(ブロック数) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}です。範囲：{{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}。" }
       - { text: "大きなサンプルで結果がプラスなので、勝っている", why: "ウィンレートにとって{{n:exam.m12.hands.k}}千ハンドは小さなサンプルです。{{n:var.conf95}}の範囲は約{{n:exam.m12.wr.ci.low}}〜約{{n:exam.m12.wr.ci.high}}なので、負けているプレイも含まれます。" }
       - { text: "サンプルが大きいので、{{n:var.wr.typical.high}}にとても近い", why: "{{n:exam.m12.hands.k}}千ハンドからは、そこまで狭い範囲は得られません。計算は{{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}です。" }
   - kind: choice
@@ -24,7 +24,7 @@ drills:
     rules: [R-M12-003]
     prompt: "アグレッシブにプレイしていて、{{t:standard-deviation|標準偏差}}は{{n:var.sd.high}}です。{{n:var.conf95}}の確信度で、ウィンレートを± {{n:var.target}}の精度で知りたいとします。何ハンド必要ですか？"
     options:
-      - { text: "約{{n:exam.m12.need.hands.k}}千ハンド", correct: true, why: "ブロック数 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}、つまり約{{n:exam.m12.need.hands.k}}千ハンドです。{{t:standard-deviation|標準偏差}}が高いほど、はるかに大きなサンプルが必要です。" }
+      - { text: "約{{n:exam.m12.need.hands.k}}千ハンド", correct: true, why: "{{t:standard-deviation|標準偏差}}が高いほど、はるかに大きなサンプルが必要です。{{t:standard-deviation|標準偏差}}は式の中で2乗で入り、誤差はハンド数の平方根でしか小さくならないからです。計算：ブロック数 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}、つまり約{{n:exam.m12.need.hands.k}}千ハンドです。" }
       - { text: "約{{n:var.need.hands.k}}千ハンド。{{t:standard-deviation|標準偏差}}が{{n:var.sd}}のときと同じ", why: "式の中で{{t:standard-deviation|標準偏差}}は2乗されているので、{{n:var.sd}}ではなく{{n:var.sd.high}}なら、明らかに多くのハンドが必要です。約{{n:exam.m12.need.hands.k}}千ハンドです。" }
       - { text: "数万ハンドで十分", why: "誤差はハンド数の平方根に反比例してしか小さくなりません。{{n:var.sd.high}}で± {{n:var.target}}の精度なら、100ハンドのブロックが約{{n:exam.m12.need.blocks}}個必要です。" }
   - kind: choice
@@ -70,7 +70,7 @@ drills:
     rules: [R-M12-009]
     prompt: "{{t:standard-deviation|標準偏差}}{{n:var.sd}}で{{n:dd.wr-low}}勝っていて、手元には{{n:exam.m12.ror.bi}}{{t:buy-in|バイイン}}（{{n:exam.m12.ror.bb}}）あります。{{t:stakes|ステークス}}を一度も下げない場合、バンクロール全体を失うリスクはどれくらいですか？"
     options:
-      - { text: "約{{n:exam.m12.ror}}", correct: true, why: "指数：2 × ウィンレート × バンクロール ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}。したがってRoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}です。" }
+      - { text: "約{{n:exam.m12.ror}}", correct: true, why: "ウィンレートがプラスでも{{t:variance|分散}}からは守られません。バンクロールを失うリスクはバンクロールに応じて指数的に下がりますが、ウィンレートが低く、このくらいのバンクロールではゼロよりはっきり大きいままです。計算（ウィンレートとSDを一定とする近似）。指数：2 × ウィンレート × バンクロール ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}。したがってRoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}です。" }
       - { text: "勝っているのでゼロ", why: "ウィンレートがプラスでも、{{t:variance|分散}}からは守られません。このバンクロールとウィンレートでは、リスクは約{{n:exam.m12.ror}}で、ゼロより明らかに大きいです。" }
       - { text: "ウィンレートが低いので約半分", why: "リスクはバンクロールに対して指数的に小さくなります。{{n:exam.m12.ror.bi}}{{t:buy-in|バイイン}}では指数は{{n:exam.m12.ror.x}}で、e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}です。" }
   - kind: choice

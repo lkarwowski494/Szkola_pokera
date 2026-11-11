@@ -132,3 +132,60 @@ test('zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego
     rmSync(d, { recursive: true, force: true });
   }
 });
+
+// 06-tresci-001 (recenzja BX, opcja b): przekład treści krytycznej zapisuje skrót wersji pl, z której powstał
+// (przeglad_jezyki.<j>.sha_pl); zmiana pl bez przekładu = błąd w każdym języku. Dlaczego: skrót języka liczy się ze źródeł
+// tego języka, więc sama zmiana pl go nie unieważniała, a CI przechodziło (BN 06-tresci-006, BX 06-tresci-001).
+const J11 = ['en', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pt-BR', 'pt', 'vi', 'zh-Hant'];
+function odnow(d) {
+  // symuluje przegląd po przekładzie: zapisuje bieżące skróty pl, języka i sha_pl we wszystkich wpisach krytycznych
+  const out = uruchom(d, '--przed-przegladem', '--skroty').stdout;
+  const pl = (id) => out.match(new RegExp(`^SKRÓT ${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} ([0-9a-f]{12})`, 'm'))?.[1];
+  const jz = (j, id) => out.match(new RegExp(`^SKRÓT ${j} ${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} ([0-9a-f]{12})`, 'm'))?.[1];
+  const kat = join(d, 'docs/tresci/rejestr');
+  for (const f of readdirSync(kat).filter((x) => x.endsWith('.json') && x !== 'bez-twierdzen.json')) {
+    const p = join(kat, f), a = JSON.parse(readFileSync(p, 'utf8'));
+    for (const w of a) {
+      if (!w.krytyczne || !pl(w.id)) continue;
+      if (w.przeglad) w.przeglad.sha = pl(w.id);
+      for (const j of J11) if (w.przeglad_jezyki?.[j]) Object.assign(w.przeglad_jezyki[j], { sha: jz(j, w.id), sha_pl: pl(w.id) });
+    }
+    writeFileSync(p, JSON.stringify(a, null, 1) + '\n');
+  }
+}
+test('06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów', () => {
+  const d = kopia();
+  try {
+    for (const j of J11) cpSync(join(repo, 'content', j), join(d, 'content', j), { recursive: true });
+    odnow(d); // stan wyjściowy: zapisy zgodne z bieżącymi źródłami (sha_pl dopisane)
+    const baza = uruchom(d, '--przeglad', 'zastępczy');
+    assert.equal(baza.status, 0, baza.stdout);
+    const plik = join(d, 'content/pl/exams/m12.yaml');
+    const t = readFileSync(plik, 'utf8');
+    assert.ok(t.includes('Dodatni winrate nie chroni przed {{t:variance|wariancją}}: ryzyko'));
+    writeFileSync(plik, t.replace('Dodatni winrate nie chroni przed {{t:variance|wariancją}}: ryzyko', 'Dodatni winrate nie chroni przed {{t:variance|wariancją}} w żadnej próbie: ryzyko'));
+    // przegląd pl zmienia się także (skrót pl), ale to osobny błąd; tu liczy się brak przekładu w każdym języku
+    const po = uruchom(d, '--przeglad', 'zastępczy');
+    assert.equal(po.status, 1);
+    for (const j of J11) assert.match(po.stdout, new RegExp(`BŁĄD rejestr R-M12-009: przekład w ${j} powstał z innej wersji pl`), `brak błędu dla ${j}`);
+    // przekład (zmiana tekstu w każdym języku) i zapis skrótów: 0 błędów
+    for (const j of J11) { const pj = join(d, 'content', j, 'exams/m12.yaml'); writeFileSync(pj, readFileSync(pj, 'utf8') + '\n# przekład zmiany pl\n'); }
+    odnow(d);
+    const koniec = uruchom(d, '--przeglad', 'zastępczy');
+    assert.equal(koniec.status, 0, koniec.stdout);
+    assert.doesNotMatch(koniec.stdout, /przekład w \S+ powstał/);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie błąd', () => {
+  const d = kopia();
+  try {
+    for (const j of J11) cpSync(join(repo, 'content', j), join(d, 'content', j), { recursive: true });
+    odnow(d);
+    const plik = join(d, 'content/pl/exams/m12.yaml');
+    writeFileSync(plik, readFileSync(plik, 'utf8') + '\n# zmiana\n');
+    const r = uruchom(d, '--przed-przegladem');
+    assert.match(r.stdout, /UWAGA rejestr R-M12-009: przekład w en powstał z innej wersji pl/);
+    assert.doesNotMatch(r.stdout, /BŁĄD rejestr R-M12-009: przekład/);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
