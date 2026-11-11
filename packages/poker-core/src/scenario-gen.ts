@@ -226,7 +226,7 @@ export interface IcmCallVariantDecision {
   handClass: string;
   /** Equity ręki gracza wobec zakresu all-inu rywala (z macierzy 169×169). */
   handEquity: number;
-  /** Potrzebne equity według ICM: (teraz − przegrana) ÷ (wygrana − przegrana) i w grze o żetony (0,5, blindy pominięte). */
+  /** Potrzebne equity według ICM: (teraz − przegrana) ÷ (wygrana − przegrana) i w grze o żetony: (S − b) ÷ (2S) z blindem gracza (D-890). */
   required: number;
   requiredChips: number;
   correct: 'call' | 'fold';
@@ -274,7 +274,7 @@ const IDENTITY: readonly number[] = [0, 1, 2, 3];
 /** F3: złe rozmiary do wyboru jako ułamek rozmiaru standardowego (0,8 ≥ min-raise dla otwarć 2,5–3 bb i 3-betów; 1,6 mieści się w stosie 100 bb); odległość od standardu > 0,05 bb (near, grading.ts). D-695. */
 export const SIZE_SMALL_FACTOR = 0.8;
 export const SIZE_BIG_FACTOR = 1.6;
-/** F4: potrzebne equity w grze o żetony (blindy pominięte: ryzykujesz tyle, ile możesz wygrać), jak IcmCallSpot.requiredChips. */
+/** F4: próg `chipsDiffer` (wariant trudny): equity ≥ 50% to sprawdzenie w grze o żetony bez blindów; D-890: pole `requiredChips` wariantu liczy blind osobno, (S − b) ÷ (2S), a ten próg odpowiedzi nie zmienia (equity ≥ 50% ⇒ ≥ 45%). */
 const ICM_CHIPS_REQUIRED = 0.5;
 /** Equity klasy ręki wobec zakresu all-inu: Σ w·pary·eq ÷ Σ w·pary po 169 klasach rywala (macierz equity169, częstości w kolejności HAND_CLASSES). */
 function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly number[]): number {
@@ -461,7 +461,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (b.chipsDiffer && (handEquity >= ICM_CHIPS_REQUIRED ? 'call' : 'fold') === correct) return null;
       points.push({
         point: 'icm-call', street: 'preflop', spot: spec.spot, payouts: [...structure.payouts], stacks, heroIndex, villainIndex, handClass,
-        handEquity, required, requiredChips: ICM_CHIPS_REQUIRED, correct, margin,
+        handEquity, required, requiredChips: (t.stackBb! - heroBlind) / (2 * t.stackBb!), correct, margin, // D-890: pas zostawia S − b, sprawdzenie daje 2S z prawdopodobieństwem e
       });
       icmSuffix = `|${stacks.join('-')}|${heroIndex}${villainIndex}`; // stacki są pokazane w decyzji: ta sama ręka przy innych stackach to inne rozdanie
       continue;
