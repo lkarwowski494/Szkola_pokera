@@ -1,0 +1,16 @@
+# Sesja DO: recenzja niezależna kodu DN (709f6947..370a1548) — Szkoła Pokera
+Koordynator: session_01T66VBwchgoN1YcMZZCKBS6 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie audit. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-do-recenzja` @ 370a154897a8cf94d07b1e76bd88f4cfc213d257 (= `origin/sesja-dn-liczby`; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile` (wymaga jej też hook pre-push). Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem.
+3. Zakres: diff `709f6947..370a1548` (D-886…D-888, D-890: „Liczby” F2–F4, nadkarty, próg ICM requiredChips = (S − b) ÷ (2S)). Recenzja bez raportu autora: NIE czytasz `docs/programista/stan-dn.md` ani transkryptu DN; wymagania bierzesz z `docs/decyzje/DA.md` i `docs/design/scenariusz-akcje-i-liczby.md` (kryteria akceptacji dla 08). Decyzje DN `docs/decyzje/DN.md` (D-965…D-969) oceniasz jako część kodu.
+4. Zadania:
+   1. Poprawność: każde kryterium akceptacji D-888 i D-890 ma test, który zabija sensowny mutant (sprawdź co najmniej 3 mutanty, wynik do pliku dowodu). Rachunek D-890 sprawdź niezależnie (własne wyprowadzenie + przykład liczbowy).
+   2. Zasady projektu: liczby tylko przez `{{n:…}}` z `content/numbers.yaml`, wielkości liczone formułą z `refs`; `pnpm content:build` bez zmian w wyniku; `poker-core`/`srs`/`content-schema` bez React Native; teksty pl/en zgodne z dokumentem projektu (D-966 — odstępstwo: oceń, czy wymaga akceptacji roli 04).
+   3. Dane: czy zmiana progu D-890 lub nadkart zmienia zapisane warianty albo wymaga `GENERATOR_WERSJA` / migracji (aplikacja niewydana — ryzyko teoretyczne, ale nazwij je).
+   4. `pnpm run ci` kod 0 na 370a1548 (plik dowodu).
+   Gotowe: `docs/programista/recenzje/recenzja-dn-370a1548.md` (znaleziska z ID `08-programista-NNN`, waga KRYT/WYS/ŚR/NIS, plik:linia, test odtwarzający lub mutant) i werdykt PRZYJĄĆ / PRZYJĄĆ PO POPRAWKACH / ODRZUCIĆ; commit i push na `sesja-do-recenzja`.
+5. Zakazy: nie poprawiasz kodu DN (tylko raport; test odtwarzający wolno dodać w pliku dowodu), nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+6. Decyzje: tryb dzienny — techniczne sam przez analogię (najpierw `lkarwowski494/trening`, potem oczko, piekarz; `repo:plik:linia`, data odczytu), do weta; produktowe → PYTANIE do koordynatora (≥ 2 opcje, rekomendacja); merytoryczne pokerowe → hierarchia źródeł ADR-24 z CLAUDE.md. Pula D-980…D-984 (`docs/decyzje/DO.md`).
+7. Kontekst i koszt: od 30% okna kończysz krok, stan w raporcie recenzji, push, PRZEKAZANIE. Pułapu kosztu brak (mandat) — podaj koszt.
+8. Raporty (≤ 10 linii, send_message): PYTANIE; PRZEKAZANIE: SHA, werdykt, liczba znalezisk wg wagi, pliki dowodów, koszt.
