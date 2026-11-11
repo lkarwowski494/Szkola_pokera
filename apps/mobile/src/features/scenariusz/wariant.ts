@@ -1,6 +1,6 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
-import { cardToString, fillVariantMarkers, type GeneratorTemplate, type ScenarioVariant, type VariantMarker } from '@szkola/poker-core';
+import { blindBb, cardToString, fillVariantMarkers, type GeneratorTemplate, type ScenarioVariant, type VariantDecision, type VariantMarker } from '@szkola/poker-core';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 
@@ -12,9 +12,46 @@ import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
  * `scenario-gen.ts` `Math.round(pot * fraction)`), więc ekran pokazuje tylko bb i nie podaje ułamka puli (po zaokrągleniu
  * mógłby się różnić od nominalnego). `pot` generatora to pula przed zakładem rywala.
  */
-export type Akcja = 'fold' | 'call';
-/** Kolejność akcji na pasku: pas, sprawdzenie (jak w makiecie 04: najtańsza akcja pierwsza). */
-export const AKCJE: readonly Akcja[] = ['fold', 'call'];
+/**
+ * Akcje punktów decyzji na ekranie (CN, D-783): pas i sprawdzenie (draw-call, icm-call), czekanie i c-bet mały/duży (cbet-case),
+ * rozmiar podbicia albo limp (size-spot). Identyfikatory jak w szablonie (`actions[].action`) i w wyborze zapisanym w bazie.
+ */
+export type Akcja = 'fold' | 'call' | 'check' | 'bet-small' | 'bet-big' | 'raise' | 'raise-small' | 'raise-big' | 'limp';
+/** Wszystkie akcje, jakie ekran zna (walidacja wyboru odczytanego z bazy). */
+export const AKCJE: readonly Akcja[] = ['fold', 'call', 'check', 'bet-small', 'bet-big', 'raise', 'raise-small', 'raise-big', 'limp'];
+
+/** Kolejność akcji na pasku: najtańsza pierwsza (jak w makiecie 04); dla size-spot limp, mały rozmiar, standard, duży. */
+const KOLEJNOSC_SIZE: readonly Akcja[] = ['limp', 'raise-small', 'raise', 'raise-big'];
+export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
+  switch (p.point) {
+    case 'draw-call':
+    case 'icm-call':
+      return ['fold', 'call'];
+    case 'cbet-case':
+      return ['check', 'bet-small', 'bet-big'];
+    case 'size-spot':
+      return KOLEJNOSC_SIZE.filter((a) => p.options.some((o) => o.action === a));
+    case 'range-spot':
+      throw new Error('range-spot nie jest obsługiwany na ekranie scenariusza (D-755)');
+  }
+}
+/** Poprawna akcja punktu (rachunek generatora). */
+export function poprawnaAkcja(p: VariantDecision): Akcja {
+  if (p.point === 'range-spot') throw new Error('range-spot nie jest obsługiwany na ekranie scenariusza (D-755)');
+  return p.correct;
+}
+type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
+/**
+ * Kwota akcji w bb do jej nazwy: sprawdzenie draw-call = zakład rywala; sprawdzenie icm-call = cały stos za blindem gracza (pas kosztuje
+ * blind, więc sprawdzenie dopłaca resztę, jak rachunek progu w generatorze); podbicie = rozmiar z wariantu; limp = dopłata do dużego blinda.
+ * null: akcja bez kwoty (pas, czekanie, c-bet bez puli w wariancie).
+ */
+export function kwotaAkcji(p: VariantDecision, a: Akcja, s: Pozycje): number | null {
+  if (p.point === 'draw-call') return a === 'call' ? p.bet : null;
+  if (p.point === 'icm-call') return a === 'call' && typeof s.stackBb === 'number' ? s.stackBb - blindBb(s.positions.hero) : null;
+  if (p.point === 'size-spot') return a === 'limp' ? 1 - blindBb(s.positions.hero) : (p.options.find((o) => o.action === a)?.bb ?? null);
+  return null;
+}
 
 /**
  * Szablon z treści → szablon generatora (jedna definicja granic dla treści i generatora, BR-SZB-001). `stackBb` jest potrzebne
@@ -27,6 +64,17 @@ export function naGenerator(s: ScenarioTemplate): GeneratorTemplate {
   return { id: s.id, stackBb: s.stackBb, positions: s.positions, levels: s.bounds, decisions: s.decisions } as GeneratorTemplate;
 }
 
+/**
+ * Odcisk wariantu do planu aktywności (CN, NIS-004 CM, D-787): `fingerprint` generatora (ręka i flop do izomorfizmu kolorów) plus skrót FNV-1a
+ * całej treści wariantu (karty, pule, zakłady, poprawne akcje, stosy ICM). Sam `fingerprint` nie wykrywa zmiany puli szablonu przy tych samych
+ * kartach, a wznowienie podkładałoby wtedy inną pulę pod zapisane odpowiedzi.
+ */
+export function odciskWariantu(v: ScenarioVariant): string {
+  let h = 0x811c9dc5;
+  for (const c of JSON.stringify({ hero: v.hero, villain: v.villain, board: v.board, points: v.points })) h = Math.imul(h ^ c.charCodeAt(0), 0x01000193) >>> 0;
+  return `${v.fingerprint}#${h.toString(16).padStart(8, '0')}`;
+}
+
 /** Graf do planu aktywności (D-219): pas kończy rozdanie, sprawdzenie prowadzi do następnej decyzji albo do pokazania kart. */
 export function grafWariantu(liczbaDecyzji: number): AkcjaPlanu[][] {
   return Array.from({ length: liczbaDecyzji }, (_, i): AkcjaPlanu[] => [
@@ -35,9 +83,18 @@ export function grafWariantu(liczbaDecyzji: number): AkcjaPlanu[][] {
   ]);
 }
 
+/**
+ * Graf wariantu (CN, D-783): linia draw-call jak dotąd; szablon z jednym punktem cbet-case, size-spot albo icm-call kończy rozdanie
+ * każdą akcją (bez pokazania kart: rozdanie nie ma dalszego przebiegu do pokazania).
+ */
+export function grafPunktow(v: ScenarioVariant): AkcjaPlanu[][] {
+  if (v.points.every((p) => p.point === 'draw-call')) return grafWariantu(v.points.length);
+  return v.points.map((p) => akcjePunktu(p).map((akcja): AkcjaPlanu => ({ akcja, dalej: 'koniec' })));
+}
+
 /** Treść wariantu dla `przebiegScenariusza`: częstość 1 dla poprawnej akcji, 0 dla drugiej (ocena z rachunku, nie z solvera). */
 export function trescZWariantu(v: ScenarioVariant): TrescScenariusza {
-  const graf = grafWariantu(v.decisions.length);
+  const graf = grafPunktow(v);
   const [h0, h1] = v.hero;
   const [r0, r1] = v.villain;
   const [s0, s1, s2, s3, s4] = v.board;
@@ -47,11 +104,11 @@ export function trescZWariantu(v: ScenarioVariant): TrescScenariusza {
     rekaGracza: [cardToString(h0), cardToString(h1)],
     rekaRywala: [cardToString(r0), cardToString(r1)],
     stol: [cardToString(s0), cardToString(s1), cardToString(s2), cardToString(s3), cardToString(s4)],
-    decyzje: v.decisions.map((d, i) => ({
+    decyzje: v.points.map((d, i) => ({
       ulica: d.street,
       akcje: (graf[i] ?? []).map((a) => ({
         akcja: a.akcja,
-        czestosc: a.akcja === d.correct ? 1 : 0,
+        czestosc: a.akcja === poprawnaAkcja(d) ? 1 : 0,
         rywal: null,
         dalej: a.dalej,
         wyjasnienie: '', // teksty składa `bloki` z szablonu (wyjaśnienia własnej akcji, BR-OCE-002)
@@ -64,27 +121,35 @@ export function przebiegWariantu(v: ScenarioVariant, wybory: readonly Akcja[]): 
   return przebiegScenariusza(trescZWariantu(v), wybory);
 }
 
-/** Oceny obu akcji w punkcie decyzji (pasek ocen po decyzji): poprawna „zgodne”, druga „błąd” (RD-11, częstości 1 i 0). */
-export function ocenyAkcji(v: ScenarioVariant, indeks: number): Record<Akcja, OcenaOdpowiedzi> {
-  const d = v.decisions[indeks];
+/** Oceny akcji w punkcie decyzji (pasek ocen po decyzji): poprawna „zgodne”, pozostałe „błąd” (RD-11, częstości 1 i 0). */
+export function ocenyAkcji(v: ScenarioVariant, indeks: number): Readonly<Partial<Record<Akcja, OcenaOdpowiedzi>>> {
+  const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
-  return { fold: d.correct === 'fold' ? 'zgodne' : 'blad', call: d.correct === 'call' ? 'zgodne' : 'blad' };
+  const poprawna = poprawnaAkcja(d);
+  return Object.fromEntries(akcjePunktu(d).map((a): [Akcja, OcenaOdpowiedzi] => [a, a === poprawna ? 'zgodne' : 'blad']));
 }
 
 export interface WidokDecyzji {
   indeks: number;
-  ulica: 'flop' | 'turn';
-  /** Karty stołu widoczne w tej decyzji (np. „Kh”). */
+  ulica: 'preflop' | 'flop' | 'turn';
+  /** Karty stołu widoczne w tej decyzji (np. „Kh”); przed flopem pusta lista. */
   stol: string[];
-  /** Pula w bb po zakładzie rywala (to, o co grasz). */
-  pulaBb: number;
-  /** Ile bb trzeba dopłacić, żeby sprawdzić. */
-  doSprawdzeniaBb: number;
+  /** Pula w bb po zakładzie rywala (to, o co grasz); null: punkt bez puli w wariancie (cbet-case, size-spot). */
+  pulaBb: number | null;
+  /** Ile bb trzeba dopłacić, żeby sprawdzić; null: punkt bez sprawdzenia. */
+  doSprawdzeniaBb: number | null;
 }
-export function widokDecyzji(v: ScenarioVariant, indeks: number): WidokDecyzji {
-  const d = v.decisions[indeks];
-  if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
-  return { indeks, ulica: d.street, stol: v.board.slice(0, d.street === 'flop' ? 3 : 4).map(cardToString), pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
+/** `s` potrzebne tylko dla icm-call (stos i blind gracza wchodzą do puli i dopłaty); bez niego icm-call nie ma kwot. */
+export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): WidokDecyzji {
+  const d = v.points[indeks];
+  if (!d || d.point === 'range-spot') throw new Error(`Wariant nie ma decyzji ${indeks}`);
+  const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : 4).map(cardToString);
+  if (d.point === 'draw-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
+  if (d.point === 'icm-call' && s && typeof s.stackBb === 'number') {
+    const blind = blindBb(s.positions.hero);
+    return { indeks, ulica: 'preflop', stol, pulaBb: s.stackBb + blind, doSprawdzeniaBb: s.stackBb - blind };
+  }
+  return { indeks, ulica: d.street, stol, pulaBb: null, doSprawdzeniaBb: null };
 }
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
@@ -93,11 +158,14 @@ const jestPozycja = (p: string): p is Position => (KOLEJNOSC as readonly string[
 const pozycja = (p: string, t: TFn): string => (jestPozycja(p) ? nazwaPozycji(p, t) : p);
 const karty = (cs: readonly string[]) => `[[${cs.join(' ')}]]`;
 
+/** {{w:stol}}: karty stołu; przed flopem nazwa ulicy (CN D-784: bez nowego klucza, `scenario.street.preflop` małymi literami). */
+const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length === 0 ? t('scenario.street.preflop').toLowerCase() : karty(stol));
+
 /** Wartości znaczników {{w:…}} w punkcie decyzji: karty jako [[…]] dla RichText, pozycje z szablonu (D-557). */
 export function wartosciZnacznikow(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, t: TFn): Record<VariantMarker, string> {
   return {
     reka: karty(v.hero.map(cardToString)),
-    stol: karty(widokDecyzji(v, indeks).stol),
+    stol: stolZnacznika(widokDecyzji(v, indeks).stol, t),
     pozycja: pozycja(s.positions.hero, t),
     rywal: s.positions.villain, // skrót (D-650): w szablonie stoi po przyimku („rywal z BB”), pełna nazwa zepsułaby odmianę
   };
@@ -108,10 +176,11 @@ export interface Blok { rodzaj: RodzajBloku; akcja: Akcja; tekst: string }
 
 /**
  * Wyjaśnienia po decyzji (BR-OCE-002, D-544): błąd i niedokładność — dwa bloki (dlaczego twoja akcja słabsza, dlaczego najlepsza
- * lepsza); akcja zgodna — blok „dobrze” i rozwijany „dlaczego nie” drugiej akcji. Tekst akcji pochodzi z szablonu (pisze go rola 06).
+ * lepsza); akcja zgodna — blok „dobrze” i rozwijane „dlaczego nie” każdej innej akcji punktu (jedna przy pasie i sprawdzeniu, dwie
+ * przy c-becie i rozmiarze). Tekst akcji pochodzi z szablonu (pisze go rola 06).
  */
 export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, wybor: Akcja, t: TFn): Blok[] {
-  const d = v.decisions[indeks];
+  const d = v.points[indeks];
   const spec = s.decisions[indeks];
   if (!d || !spec) throw new Error(`Brak decyzji ${indeks}`);
   const wartosci = wartosciZnacznikow(v, s, indeks, t);
@@ -120,8 +189,8 @@ export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, w
     if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${a}`);
     return fillVariantMarkers(wyjasnienie, wartosci);
   };
-  const inna: Akcja = wybor === 'fold' ? 'call' : 'fold';
-  return wybor === d.correct
-    ? [{ rodzaj: 'dobrze', akcja: wybor, tekst: tekst(wybor) }, { rodzaj: 'dlaczego_nie', akcja: inna, tekst: tekst(inna) }]
-    : [{ rodzaj: 'slabsza', akcja: wybor, tekst: tekst(wybor) }, { rodzaj: 'lepsza', akcja: d.correct, tekst: tekst(d.correct) }];
+  const poprawna = poprawnaAkcja(d);
+  return wybor === poprawna
+    ? [{ rodzaj: 'dobrze', akcja: wybor, tekst: tekst(wybor) }, ...akcjePunktu(d).filter((a) => a !== wybor).map((a): Blok => ({ rodzaj: 'dlaczego_nie', akcja: a, tekst: tekst(a) }))]
+    : [{ rodzaj: 'slabsza', akcja: wybor, tekst: tekst(wybor) }, { rodzaj: 'lepsza', akcja: poprawna, tekst: tekst(poprawna) }];
 }

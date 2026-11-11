@@ -9,6 +9,7 @@ import { utworzZegar } from '@/platform/zegar';
 import { portTestowy } from '@/test-utils/postepTestowy';
 import { SC01 } from '@/test-utils/szablonSc01';
 import { odpowiedzWScenariuszu, otworzScenariusz, type WejscieScenariusza } from '../aktywnoscScenariusza';
+import { odciskWariantu } from '../wariant';
 
 const T0 = Date.UTC(2026, 10, 10, 10);
 const BEZ_LIMITU: Limit = { bezLimitu: true };
@@ -30,7 +31,7 @@ describe('start i wznowienie', () => {
     const s = ok(await otworzScenariusz(port, wejscie()));
     expect(s.wariant.templateId).toBe('sc-01');
     expect(s.aktywnosc.rodzaj).toBe('scenariusz');
-    expect(s.aktywnosc.plan.wariant).toEqual({ poziom: 'sredni', ziarno: s.wariant.seed });
+    expect(s.aktywnosc.plan.wariant).toEqual({ poziom: 'sredni', ziarno: s.wariant.seed, odcisk: odciskWariantu(s.wariant) }); // CN D-787: plan niesie odcisk (NIS-004)
     expect(s.aktywnosc.plan.trescId).toBe('sc-01');
     expect(s.wybory).toEqual([]);
     const h = ok(await odczytajOdciski(port, 'sc-01', 'sredni'));

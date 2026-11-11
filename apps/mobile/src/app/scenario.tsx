@@ -3,7 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Linking } from 'react-native';
 import { Button, Muted, Screen } from '@/components/ui';
-import { getLessonSummaries, getModules, getScenarioTemplates } from '@/data/content/repo';
+import { getKontekstGeneratora, getLessonSummaries, getModules, getScenarioTemplates } from '@/data/content/repo';
 import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
 import { useBazaTresci } from '@/data/tresc/kontekst';
 import { modulyKursu } from '@/features/dzis/widok';
@@ -72,12 +72,18 @@ export default function ScenarioScreen() {
   }, [db, port, id, pro, zegar]);
 
   const otworz = useCallback(async (szablon: ScenarioTemplate, poziom: UstalonyPoziom['poziom'], limit: Limit, tryb: 'nowe' | 'powtorka'): Promise<Stan> => {
-    const r = await otworzScenariusz(port, { szablon, poziom, tryb, limit, zegar: zegar(), noweId, ziarno: Date.now() & 0x7fffffff, sesja: widziane.current });
+    let kontekst: ReturnType<typeof getKontekstGeneratora>;
+    try {
+      kontekst = getKontekstGeneratora(db, szablon);
+    } catch {
+      zapiszBlad('odczyt_nieudany', 'scenariusz'); // uszkodzony wiersz treści: szablon wymagający kontekstu zakończy się błędem planu, bez zgadywania
+    }
+    const r = await otworzScenariusz(port, { szablon, poziom, tryb, limit, zegar: zegar(), noweId, ziarno: Date.now() & 0x7fffffff, sesja: widziane.current, kontekst });
     if (!r.ok) return r.powod === 'limit_wyczerpany' ? { stan: 'zakup' } : { stan: 'blad' };
     widziane.current.add(r.wartosc.wariant.fingerprint);
     start.current = Date.now();
     return { stan: 'gra', sesja: r.wartosc, faza: 'decyzja', koniec: false, bladZapisu: false };
-  }, [port, zegar]);
+  }, [port, zegar, db]);
 
   const wejdz = useCallback(async (): Promise<Stan> => {
     const p = await przygotuj();

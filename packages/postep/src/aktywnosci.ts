@@ -199,7 +199,8 @@ export function parsujPlan(v: unknown): PlanAktywnosci | null {
     if (typeof w !== 'object' || w === null || !('poziom' in w) || !('ziarno' in w) || !liczbaCalkowita(w.ziarno)) return null;
     const poziom = POZIOMY.find((p) => p === w.poziom);
     if (poziom === undefined) return null;
-    plan.wariant = { poziom, ziarno: w.ziarno };
+    if ('odcisk' in w && w.odcisk !== undefined && typeof w.odcisk !== 'string') return null;
+    plan.wariant = { poziom, ziarno: w.ziarno, ...('odcisk' in w && typeof w.odcisk === 'string' ? { odcisk: w.odcisk } : {}) };
   }
   return plan;
 }

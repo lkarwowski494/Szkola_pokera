@@ -1,4 +1,5 @@
 import { ScenarioTemplate, type Block, type Drill, type RuleSourceSummary } from '@szkola/content-schema';
+import { buildGeneratorContext, type Equity169Data, type GeneratorContext, type RangeSpotData } from '@szkola/poker-core';
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 /** Odczyt treści z content-vN.db (tylko do odczytu, ADR-08). */
@@ -257,4 +258,29 @@ export function getScenarioTemplates(db: Pick<SQLiteDatabase, 'getAllSync'>): Sc
     if (!t.success || t.data.id !== r.id) throw new Error(`Szablon scenariusza ${r.id} niezgodny ze schematem`);
     return t.data;
   });
+}
+
+/**
+ * Kontekst generatora dla szablonów z punktami range-spot, cbet-case, size-spot i icm-call (CN D-780, 08-programista-001 CM): spoty
+ * (`ranges`), progi (`numbers`), reguły oceny i macierz equity (`game_kit`) składa ta sama funkcja co kontrola w budowaniu treści
+ * (`buildGeneratorContext`), więc ekran losuje te same warianty co kontrola. `undefined`, gdy szablon go nie potrzebuje (sama linia
+ * draw-call) albo bazie brakuje progów: generator odmawia wtedy punktu wymagającego danych (TemplateError), bez zgadywanych wartości.
+ */
+export function getKontekstGeneratora(db: Pick<SQLiteDatabase, 'getAllSync' | 'getFirstSync'>, szablon: ScenarioTemplate): GeneratorContext | undefined {
+  if (!szablon.decisions.some((d) => d.kind === 'range-spot' || d.kind === 'cbet-case' || d.kind === 'size-spot' || d.kind === 'icm-call')) return undefined;
+  const liczba = (key: string): number | null => db.getFirstSync<{ value: number }>('SELECT value FROM numbers WHERE key = ?', key)?.value ?? null;
+  const mixedMin = liczba('range.mixed.min');
+  const mixedLow = liczba('range.mixed.low');
+  if (mixedMin === null || mixedLow === null) return undefined;
+  const kit = (key: string): unknown => {
+    const w = db.getFirstSync<{ value: string }>('SELECT value FROM game_kit WHERE key = ?', key);
+    return w ? (JSON.parse(w.value) as unknown) : null;
+  };
+  const evalRules = kit('evalRules');
+  if (!Array.isArray(evalRules)) return undefined;
+  const spots = db.getAllSync<{ id: string; actions: string; uncertain: string }>('SELECT id, actions, uncertain FROM ranges').map((r): RangeSpotData => ({
+    id: r.id, actions: JSON.parse(r.actions) as RangeSpotData['actions'], uncertain: JSON.parse(r.uncertain) as string[],
+  }));
+  const equity169 = kit('equity169');
+  return buildGeneratorContext({ spots, thresholds: { mixedMin, mixedLow }, evalRules: evalRules as Parameters<typeof buildGeneratorContext>[0]['evalRules'], ...(equity169 ? { equity169: equity169 as Equity169Data } : {}) });
 }

@@ -98,6 +98,23 @@ export interface GeneratorContext {
   /** F4: equity klas wobec klas (poker-core nie czyta plików, D-661). */
   equity169?: Equity169Data;
 }
+/**
+ * Jedna definicja kontekstu generatora dla budowania treści i ekranu (CN, D-780): z danych treści (spoty, progi, reguły oceny,
+ * macierz equity) składa `GeneratorContext` tak samo w kontroli generatora i w aplikacji, więc ekran losuje te same warianty co kontrola.
+ * `evalRules` to `game_kit.evalRules` (CompiledEvalRule): przypadki c-betu z reguł `cbet-case` (bez powtórzeń, w kolejności reguł)
+ * i reguły rozmiaru (`open-size`, `three-bet-size`, `no-limp`). Czysta funkcja: poker-core nie czyta plików (D-661).
+ */
+export function buildGeneratorContext(d: {
+  spots: readonly RangeSpotData[];
+  thresholds: { mixedMin: number; mixedLow: number };
+  evalRules: readonly { id: string; check: { kind: string; params: Readonly<Record<string, number | string>>; cases?: readonly CbetCaseData[] } }[];
+  equity169?: Equity169Data | undefined;
+}): GeneratorContext {
+  const cbetCases = [...new Map(d.evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()];
+  const sizeRules = d.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)).map((r) => ({ id: r.id, check: { kind: r.check.kind, params: r.check.params } }));
+  return { spots: d.spots, thresholds: d.thresholds, cbetCases, sizeRules, ...(d.equity169 ? { equity169: d.equity169 } : {}) };
+}
+
 export interface LevelBounds {
   draws: readonly DrawKind[];
   flop?: TextureFilter;
@@ -374,7 +391,10 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (!spot || !shove) throw new TemplateError(`${t.id}: spot ${spec.spot} nie ma akcji all-in (zakres all-inu rywala)`);
       const pos = t.positions;
       if (!pos || typeof t.stackBb !== 'number' || !(t.stackBb > 0)) throw new TemplateError(`${t.id}: punkt icm-call wymaga positions i stackBb (blindy gracza wchodzą do progu ICM)`);
-      if (deadBlindsBb(pos) !== 0) throw new TemplateError(`${t.id}: icm-call: pozycje ${pos.hero} wobec ${pos.villain} mają martwe blindy trzecich graczy (nieobsługiwane; dozwolone SB wobec BB)`);
+      // CN ŚR-002 (CM): BB wchodzi all-in dopiero po akcji SB (limp albo podbicie), więc gracz SB traci przy pasie ≥ 1 bb, a nie blind 0,5 bb,
+      // i zakres all-inu rywala nie jest zakresem BB; jedyna para, którą rachunek (pas = strata blinda gracza) opisuje, to BB wobec all-inu SB
+      if (pos.hero !== 'BB' || pos.villain !== 'SB') throw new TemplateError(`${t.id}: icm-call: obsługiwana jest tylko para BB wobec all-inu SB (jest ${pos.hero} wobec ${pos.villain}; BB wchodzi all-in dopiero po akcji SB, a zakres push z SB nie jest jego zakresem)`);
+      if (deadBlindsBb(pos) !== 0) throw new TemplateError(`${t.id}: icm-call: pozycje ${pos.hero} wobec ${pos.villain} mają martwe blindy trzecich graczy (nieobsługiwane)`);
       const handClass = classOf(hero[0], hero[1]);
       const handEquity = equityVsRange(ctx.equity169, handClass, shove.freqs);
       const structure = pick(rng, ICM_STRUCTURES);

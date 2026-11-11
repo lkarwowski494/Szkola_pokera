@@ -89,16 +89,17 @@ export function Dziennik({ wpisy }: { wpisy: readonly WpisDziennika[] }): React.
 }
 
 /** Pasek ocen akcji po decyzji: słowo stopnia przy każdej akcji, twój wybór w złotej obwódce z dopiskiem; bez procentów (D-544). */
-export function PasekOcenAkcji({ akcje, wybor, nazwy }: { akcje: Readonly<Record<Akcja, OcenaOdpowiedzi>>; wybor: Akcja; nazwy: Readonly<Record<Akcja, string>> }): React.JSX.Element {
+export function PasekOcenAkcji({ akcje, wybor, nazwy }: { akcje: Readonly<Partial<Record<Akcja, OcenaOdpowiedzi>>>; wybor: Akcja; nazwy: Readonly<Partial<Record<Akcja, string>>> }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
-  const lista = (Object.keys(nazwy) as Akcja[]).map((a) => `${nazwy[a]} ${t(`grade.${akcje[a]}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
+  const wpisy = (Object.keys(nazwy) as Akcja[]).flatMap((a) => { const o = akcje[a]; return o ? [{ a, o }] : []; });
+  const lista = wpisy.map(({ a, o }) => `${nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
   return (
     <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={styles.pasekOcen}>
-      {(Object.keys(nazwy) as Akcja[]).map((a) => (
+      {wpisy.map(({ a, o }) => (
         <View key={a} style={[styles.segmentOceny, { borderColor: a === wybor ? tk.gold : tk.separator, borderWidth: a === wybor ? 2 : 1, backgroundColor: tk.surface }]}>
           <Text style={[styl.naglowek, { color: tk.ink, textAlign: 'center' }]}>{nazwy[a]}</Text>
-          <Text style={[styl.drobny, { color: tk.ink, textAlign: 'center' }]}>{`${ZNAK[akcje[a]]} ${t(`grade.${akcje[a]}`)}`}</Text>
+          <Text style={[styl.drobny, { color: tk.ink, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
           {a === wybor ? <Text style={[styl.drobny, { color: tk.goldOnBg, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
         </View>
       ))}

@@ -1,13 +1,13 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { przejscieAktywnosci, startAktywnosci, wejscieDoAktywnosci, type Aktywnosc, type AktywnoscWToku, type Limit, type OcenaOdpowiedzi, type Wynik, type Zegar } from '@szkola/domena';
-import { GENERATOR_WERSJA, generateVariant, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
+import { GENERATOR_WERSJA, generateVariant, type GeneratorContext, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
 import {
   aktywnoscWToku, odczytajOdciski, odpowiedziAktywnosci, porzucAktywnosc, zacznijAktywnosc, zakonczAktywnosc, zapiszKrok, zapiszOdcisk,
   type OdpowiedzKroku, type PortBazy, type PowodZapisu,
 } from '@szkola/postep';
 import { wybierzWariant, ziarnoPowtorki } from '@szkola/domena';
 import { zapiszBladPostepu } from '@/data/postep';
-import { AKCJE, grafWariantu, naGenerator, przebiegWariantu, type Akcja } from './wariant';
+import { AKCJE, grafPunktow, naGenerator, odciskWariantu, przebiegWariantu, type Akcja } from './wariant';
 
 /**
  * Scenariusz jako aktywność (ADR 0010; PR-05, BR-GEN-001, BR-GEN-002, KO-043). Wariant = szablon + poziom + ziarno: plan
@@ -27,6 +27,11 @@ export interface WejscieScenariusza {
   ziarno: number;
   /** Odciski już zagrane w tej sesji scenariuszy (BR-GEN-002 a). */
   sesja: ReadonlySet<string>;
+  /**
+   * Dane spoza szablonu dla punktów cbet-case, size-spot i icm-call (CN D-780; `getKontekstGeneratora` z bazy treści, ta sama funkcja co
+   * kontrola w budowaniu). Bez nich generator odmawia takich punktów (TemplateError → `plan_niepoprawny`), nie zgaduje progów.
+   */
+  kontekst?: GeneratorContext | undefined;
 }
 export interface SesjaScenariusza {
   id: string;
@@ -49,16 +54,18 @@ function parsujWybor(json: string): Akcja | null {
 }
 
 /** Wznowienie: wariant z planu i odpowiedzi z bazy; null = nie do odtworzenia (zmiana szablonu), wywołujący zaczyna nowy. */
-async function wznow(port: PortBazy, id: string, a: AktywnoscWToku, szablon: ScenarioTemplate): Promise<Wynik<SesjaScenariusza | null, PowodScenariusza>> {
+async function wznow(port: PortBazy, id: string, a: AktywnoscWToku, szablon: ScenarioTemplate, kontekst: GeneratorContext | undefined): Promise<Wynik<SesjaScenariusza | null, PowodScenariusza>> {
   const w = a.plan.wariant;
   if (!w) return { ok: true, wartosc: null };
   let wariant: ScenarioVariant;
   try {
-    wariant = generateVariant(naGenerator(szablon), w.poziom, w.ziarno);
+    wariant = generateVariant(naGenerator(szablon), w.poziom, w.ziarno, kontekst);
   } catch {
     return { ok: true, wartosc: null };
   }
-  if (wariant.decisions.length !== a.plan.liczbaKrokow) return { ok: true, wartosc: null };
+  if (wariant.points.length !== a.plan.liczbaKrokow) return { ok: true, wartosc: null };
+  // NIS-004 CM: po aktualizacji treści ten sam szablon i ziarno mogą dać inne karty albo pulę pod zapisanymi odpowiedziami; plan z odciskiem to wykrywa
+  if (w.odcisk !== undefined && w.odcisk !== odciskWariantu(wariant)) return { ok: true, wartosc: null };
   const zapisane = await odpowiedziAktywnosci(port, id);
   if (!zapisane.ok) return zapisane;
   const wybory: Akcja[] = [];
@@ -75,7 +82,7 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   if (!wToku.ok) return wToku;
   const zapisana = wToku.wartosc;
   if (w.tryb === 'nowe' && zapisana && zapisana.aktywnosc.plan.trescId === w.szablon.id) {
-    const r = await wznow(port, zapisana.id, zapisana.aktywnosc, w.szablon);
+    const r = await wznow(port, zapisana.id, zapisana.aktywnosc, w.szablon, w.kontekst);
     if (!r.ok || r.wartosc) return r.ok && r.wartosc ? { ok: true, wartosc: r.wartosc } : r.ok ? { ok: false, powod: 'plan_niepoprawny' } : r;
   }
   const historia = await odczytajOdciski(port, w.szablon.id, w.poziom);
@@ -85,11 +92,11 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   const generator = naGenerator(w.szablon);
   let wariant: ScenarioVariant;
   try {
-    wariant = w.tryb === 'powtorka' && ostatni && ziarnoPowtorki(h) !== null ? generateVariant(generator, w.poziom, ostatni.ziarno) : wybierzWariant(generator, w.poziom, w.ziarno, { historia: h, sesja: w.sesja });
+    wariant = w.tryb === 'powtorka' && ostatni && ziarnoPowtorki(h) !== null ? generateVariant(generator, w.poziom, ostatni.ziarno, w.kontekst) : wybierzWariant(generator, w.poziom, w.ziarno, { historia: h, sesja: w.sesja, kontekst: w.kontekst });
   } catch {
     return { ok: false, powod: 'plan_niepoprawny' }; // szablon spoza granic (błąd treści), nie wariant spoza granic dla użytkownika
   }
-  const liczba = wariant.decisions.length;
+  const liczba = wariant.points.length;
   // inna aktywność tego rodzaju w toku: porzucona przy starcie nowej, o ile start jest dozwolony (wejscieDoAktywnosci)
   const wejscie = wejscieDoAktywnosci('scenariusz', w.szablon.id, zapisana?.aktywnosc ?? null, false, w.limit, { historia: h, odcisk: wariant.fingerprint });
   if (wejscie.akcja === 'ekran_zakupu') return { ok: false, powod: 'limit_wyczerpany' };
@@ -98,7 +105,7 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   const start = startAktywnosci({
     rodzaj: 'scenariusz', pierwszePodejscieTestu: false, limit: w.limit, teraz, strefa, dzienLokalny: w.zegar.dzienLokalny(teraz, strefa),
     wariant: { historia: h, odcisk: wariant.fingerprint },
-    plan: { liczbaKrokow: liczba, trescId: w.szablon.id, decyzje: grafWariantu(liczba), wariant: { poziom: w.poziom, ziarno: wariant.seed } },
+    plan: { liczbaKrokow: liczba, trescId: w.szablon.id, decyzje: grafPunktow(wariant), wariant: { poziom: w.poziom, ziarno: wariant.seed, odcisk: odciskWariantu(wariant) } },
   });
   if (!start.ok) return start;
   const id = w.noweId();

@@ -31,7 +31,7 @@ import {
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
 import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
-import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type Equity169Data, type TextureFilter } from '@szkola/poker-core';
+import { buildGeneratorContext, classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type Equity169Data, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
 import { compileHandRanking, compileRanges } from './ranges';
@@ -90,6 +90,8 @@ export interface CompiledContent {
   terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[];
   /** Szablony scenariuszy (BR-SZB-001); brak pola, gdy treść ich nie ma. */
   scenarios?: ScenarioTemplate[];
+  /** Macierz equity 169×169 dla punktów icm-call (CN D-781): tylko gdy któryś szablon ma taki punkt (inaczej ten sam hash i rozmiar bazy co dotąd). */
+  equity169?: Equity169Data;
   /** Telefony pomocy (content/helplines.yaml): do modułu TS ekranu „Pomoc”; w lekcji już rozwinięte. */
   helplines: Helplines;
   hash: string;
@@ -405,13 +407,14 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     return n.value;
   };
   const scenarioThresholds = () => ({ mixedMin: prog('range.mixed.min'), mixedLow: prog('range.mixed.low') });
-  // przypadki c-betu z reguł cbet-case (te same dla wszystkich reguł jednego zadania c-btn; każdy wskazuje swoją regułę w polu rule)
-  // (przy różnych zadaniach: suma bez powtórzeń, w kolejności reguł)
-  const cbetCases = [...new Map(evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()];
   // macierz equity 169×169 dla punktów icm-call (F4); brak pliku = takie punkty nie przejdą sprawdzenia generatora
   const equityPath = join(contentDir, '..', 'tools', 'equity', 'equity169.json');
   const equity169 = existsSync(equityPath) ? (JSON.parse(readFileSync(equityPath, 'utf8')) as Equity169Data) : undefined;
-  const sizeRules = evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind));
+  // kontekst generatora: jedna definicja z poker-core, tak samo składa go ekran (CN D-780); przypadki c-betu i reguły rozmiaru z evalRules
+  const kontekstGeneratora = () => buildGeneratorContext({ spots: ranges, thresholds: scenarioThresholds(), evalRules, equity169 });
+  const kontekst0 = scenarioFiles.length ? kontekstGeneratora() : undefined; // progi tylko, gdy są szablony (jak dotąd)
+  const cbetCases = kontekst0?.cbetCases ?? [];
+  const sizeRules = kontekst0?.sizeRules ?? [];
   for (const { file, template } of scenarioFiles) {
     fileCtx = `${tekst}/scenarios/${file}`;
     const errs = checkScenarioTemplate(template, file, {
@@ -427,7 +430,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     errs.push(...checkScenarioNaEkran(template));
     if (locale === 'pl' && opts.kontrolaGeneratora !== false && errs.length === 0) {
       const t0 = performance.now();
-      errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds(), cbetCases, sizeRules, ...(equity169 ? { equity169 } : {}) }));
+      errs.push(...checkScenarioGenerator(template, undefined, undefined, kontekstGeneratora()));
       opts.naCzasKontroliSzablonu?.(template.id, performance.now() - t0);
     }
     if (errs.length) throw new Error(errs.join('\n'));
@@ -507,7 +510,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
   exams.sort((a, b) => modules.find((m) => m.id === a.module)!.order - modules.find((m) => m.id === b.module)!.order);
   // `scenarios` tylko gdy są szablony: treść bez nich ma ten sam hash co dotąd (zapis szablonów do bazy treści: krok F)
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, tekst, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled, ...(scenarios.length ? { scenarios } : {}) };
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, tekst, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled, ...(scenarios.length ? { scenarios } : {}), ...(equity169 && scenarios.some((t) => t.decisions.some((d) => d.kind === 'icm-call')) ? { equity169 } : {}) };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, helplines, hash, warnings };
 }
@@ -690,6 +693,7 @@ export function writeContentDb(content: CompiledContent, outDir: string, wersja 
     kit.run('handRanking', JSON.stringify(content.handRanking));
     kit.run('evalRules', JSON.stringify(content.evalRules));
     kit.run('areas', JSON.stringify(content.areas));
+    if (content.equity169) kit.run('equity169', JSON.stringify(content.equity169)); // ekran składa z niej kontekst generatora (CN D-781)
     const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?)');
     for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area);
     // KO-050: szablony scenariuszy (BR-SZB-001), jeden wiersz na szablon; data = JSON jak w compileContent().scenarios

@@ -27,6 +27,9 @@ export interface PlanAktywnosci {
 export interface WariantPlanu {
   poziom: 'latwy' | 'sredni' | 'trudny';
   ziarno: number; // liczba całkowita
+  // odcisk wariantu przy starcie (CN, NIS-004 CM, D-787): wznowienie po aktualizacji treści odtwarza wariant z ziarna, więc porównuje odcisk;
+  // niezgodny → nowe rozdanie, nie inne karty pod zapisanymi odpowiedziami. Plany sprzed CN go nie mają (wtedy bez porównania).
+  odcisk?: string;
 }
 export interface ZadaniePlanu {
   id: string;

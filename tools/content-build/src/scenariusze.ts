@@ -190,14 +190,17 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
 }
 
 /**
- * Szablon na ekranie scenariusza (CK, 08-programista-002): ekran ma tylko akcje pas/sprawdzenie i generuje wariant bez danych
- * zakresów, więc punkt `range-spot` (F1) kończyłby się tam błędem planu. Budowanie odrzuca taki szablon z czytelnym błędem, dopóki
- * ekran go nie obsłuży (osobna praca: kontekst spotów, preflop, indeksy po `points`). Linia `all-in` działa (generator dostaje `stackBb`).
+ * Rodzaje punktów decyzji, które ekran scenariusza faktycznie obsługuje (CN, D-782; 08-programista-001 CM): lista dozwolonych,
+ * nie zakazanych, więc nowy rodzaj punktu jest odrzucany w budowaniu, dopóki ekran go nie obsłuży. Ekran składa kontekst generatora
+ * z bazy treści (`buildGeneratorContext`, jak kontrola generatora) i ma akcje dla `draw-call`, `cbet-case`, `size-spot` i `icm-call`.
+ * `range-spot` (F1) czeka na osobną pracę: akcje z etykiet spotu (rozmiary, 3-bet, all-in) i teksty interfejsu od roli 04 (D-755).
  */
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'icm-call'];
+
 export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
-  return t.decisions.flatMap((d, i) => d.kind === 'range-spot'
-    ? [`szablon ${t.id}: punkt ${i + 1} range-spot nie jest jeszcze obsługiwany na ekranie scenariusza (brak danych zakresów i interfejsu wielu akcji); szablon nie może trafić do bazy treści`]
-    : []);
+  return t.decisions.flatMap((d, i) => RODZAJE_NA_EKRANIE.includes(d.kind ?? 'draw-call')
+    ? []
+    : [`szablon ${t.id}: punkt ${i + 1} ${d.kind} nie jest jeszcze obsługiwany na ekranie scenariusza (obsługiwane: ${RODZAJE_NA_EKRANIE.join(', ')}; range-spot: brak akcji spotu i tekstów); szablon nie może trafić do bazy treści`]);
 }
 
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */

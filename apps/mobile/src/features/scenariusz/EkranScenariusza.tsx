@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Linking, Text, View } from 'react-native';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import type { Limit, OcenaOdpowiedzi } from '@szkola/domena';
-import { cardToString, type ScenarioLevel } from '@szkola/poker-core';
+import { cardToString, type ScenarioLevel, type VariantDecision } from '@szkola/poker-core';
 import { formatujProcent } from '@szkola/jezyki';
 import { PasekStrategii } from '@/components/PasekStrategii';
 import { Button, Muted, Screen, Title } from '@/components/ui';
@@ -17,15 +17,32 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolRozdania, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import type { WyborPoziomu } from './poziom';
-import { AKCJE, bloki, ocenyAkcji, przebiegWariantu, widokDecyzji, type Akcja } from './wariant';
+import { akcjePunktu, bloki, kwotaAkcji, ocenyAkcji, poprawnaAkcja, przebiegWariantu, widokDecyzji, type Akcja } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
 const pozycjaTekst = (p: string, t: TFn): string => ((POZYCJE_6MAX as readonly string[]).includes(p) ? nazwaPozycji(p as (typeof POZYCJE_6MAX)[number], t) : p);
 const ULICE = ['preflop', 'flop', 'turn', 'river'] as const;
 
-/** Nazwa akcji z kwotą do sprawdzenia w bb (jednostka bb); nazwy i terminy z istniejących kluczy `play.*` (wspólne z trybem gry). */
-export const nazwaAkcji = (a: Akcja, t: TFn, bb: number): string => (a === 'call' ? t('play.call', { bb }) : t('play.fold'));
+const wielka = (x: string): string => x.charAt(0).toLocaleUpperCase() + x.slice(1);
+/**
+ * Nazwa akcji z kwotą w bb (jednostka bb); nazwy i terminy z istniejących kluczy `play.*` (wspólne z trybem gry), bez nowych tekstów (CN D-783):
+ * pas, czekanie, sprawdzenie, przebicie do N bb, limp jako dopłata do dużego blinda, c-bet mały i duży z `play.report.detail.cbetPlans`.
+ * Brakujące teksty (nazwy rozmiarów, zapis kwoty c-betu) do roli 04.
+ */
+export const nazwaAkcji = (a: Akcja, t: TFn, bb: number | null): string => {
+  switch (a) {
+    case 'fold': return t('play.fold');
+    case 'check': return t('play.check');
+    case 'call':
+    case 'limp': return t('play.call', { bb: bb ?? 0 });
+    case 'bet-small': return wielka(t('play.report.detail.cbetPlans.small'));
+    case 'bet-big': return wielka(t('play.report.detail.cbetPlans.big'));
+    case 'raise':
+    case 'raise-small':
+    case 'raise-big': return t('play.raise', { bb: bb ?? 0 });
+  }
+};
 
 // ---------- Start ----------
 export type LimitEkranuScenariusza = { bezLimitu: true } | { bezLimitu: false; pozostalo: number; odnowienieMs: number };
@@ -99,19 +116,41 @@ export interface PropsPrzebiegu {
   onZakoncz(): void;
 }
 
+/** Ruch rywala przed twoją decyzją (tekst dziennika) albo null: zakład (draw-call), all-in (icm-call), otwarcie (3-bet), czekanie (c-bet). */
+function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn): string | null {
+  const rywal = s.szablon.positions.villain;
+  if (d.point === 'draw-call') return t('play.log.bet', { pos: rywal, bb: d.bet });
+  if (d.point === 'icm-call') return typeof s.szablon.stackBb === 'number' ? t('play.log.allin', { pos: rywal, bb: s.szablon.stackBb }) : null;
+  if (d.point === 'cbet-case') return t('play.log.check', { pos: rywal });
+  const spec = s.szablon.decisions[i];
+  return d.point === 'size-spot' && spec?.kind === 'size-spot' && d.check === 'three-bet-size' && spec.openBb !== undefined ? t('play.log.raise', { pos: rywal, bb: spec.openBb }) : null;
+}
+
+/** Twoja akcja w dzienniku, klucze `play.log.*` jak w trybie gry (czas teraźniejszy trzeciej osoby). */
+function reakcjaGracza(a: Akcja, pos: string, bb: number | null, t: TFn): string {
+  if (a === 'fold') return t('play.log.fold', { pos });
+  if (a === 'check') return t('play.log.check', { pos });
+  if (a === 'call' || a === 'limp') return t('play.log.call', { pos, bb: bb ?? 0 });
+  if (a === 'raise' || a === 'raise-small' || a === 'raise-big') return t('play.log.raise', { pos, bb: bb ?? 0 });
+  return `${pos}: ${nazwaAkcji(a, t, bb).toLowerCase()}`;
+}
+
 /** Wiersze dziennika do decyzji `do` (włącznie): akcja rywala, karta nowej ulicy, twoja odpowiedź i jej ocena. */
 function wpisyDziennika(s: SesjaScenariusza, doIndeksu: number, t: TFn, oceny: readonly OcenaOdpowiedzi[]): WpisDziennika[] {
   const wpisy: WpisDziennika[] = [];
   for (let i = 0; i <= doIndeksu; i++) {
-    const d = s.wariant.decisions[i];
-    const w = widokDecyzji(s.wariant, i);
-    if (!d) break;
-    const karta = d.street === 'turn' ? `[[${cardToString(s.wariant.board[3] as number)}]] ` : '';
+    const d = s.wariant.points[i];
+    if (!d || d.point === 'range-spot') break;
+    const karta = d.point === 'draw-call' && d.street === 'turn' ? `[[${cardToString(s.wariant.board[3] as number)}]] ` : '';
     const odp = s.wybory[i];
-    const reakcja = odp ? `, ${odp === 'call' ? t('play.log.call', { pos: s.szablon.positions.hero, bb: w.doSprawdzeniaBb }) : t('play.log.fold', { pos: s.szablon.positions.hero })}` : '';
+    const rywal = ruchRywala(s, d, i, t);
+    const hero = s.szablon.positions.hero;
+    const reakcja = odp ? reakcjaGracza(odp, hero, kwotaAkcji(d, odp, s.szablon), t) : null;
+    const tekst = [rywal, reakcja].filter((x): x is string => x !== null).join(', ');
+    if (tekst === '') continue;
     wpisy.push({
       ulica: t(`scenario.street.${d.street}`),
-      tekst: `${karta}${t('play.log.bet', { pos: s.szablon.positions.villain, bb: w.doSprawdzeniaBb })}${reakcja}`,
+      tekst: `${karta}${tekst}`,
       ...(oceny[i] ? { ocena: oceny[i] } : {}),
       teraz: i === doIndeksu,
     });
@@ -121,8 +160,8 @@ function wpisyDziennika(s: SesjaScenariusza, doIndeksu: number, t: TFn, oceny: r
 
 /** „Liczby” (BR-OCE-001): każda liczba z przełożeniem na sens w tym samym zdaniu; rachunek z wariantu (rachunek, nie treść). */
 function zdanieLiczb(s: SesjaScenariusza, i: number, t: TFn): string {
-  const d = s.wariant.decisions[i];
-  if (!d) return '';
+  const d = s.wariant.points[i];
+  if (d?.point !== 'draw-call') return ''; // „Liczby” tylko dla linii draw-call; teksty rachunku c-betu, rozmiaru i ICM do roli 04 (CN D-785)
   const j = jezykZadan();
   const nieznane = 52 - 2 - widokDecyzji(s.wariant, i).stol.length;
   return t('scenario.numbers.line', {
@@ -137,22 +176,24 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const { sesja: s } = p;
   const ocenaMode = p.faza === 'ocena';
   const indeks = ocenaMode ? s.wybory.length - 1 : s.wybory.length;
-  const d = s.wariant.decisions[indeks];
+  const d = s.wariant.points[indeks];
   const przebieg = przebiegWariantu(s.wariant, s.wybory);
   const oceny = przebieg.ok ? przebieg.wartosc.kroki.map((k) => k.ocena) : [];
-  const widok = d ? widokDecyzji(s.wariant, indeks) : null;
+  const widok = d && d.point !== 'range-spot' ? widokDecyzji(s.wariant, indeks, s.szablon) : null;
   const wybor = ocenaMode ? s.wybory[indeks] : undefined;
   const ocenaWyboru = ocenaMode ? oceny[indeks] : undefined;
   const ulicaDecyzji = d?.street;
   const ocenyAk = ocenaMode && d ? ocenyAkcjiSesji(s, indeks) : null;
-  const nastepna = s.wariant.decisions[indeks + 1];
+  const nastepna = s.wariant.points[indeks + 1];
   // VoiceOver: po decyzji ocena z werdyktem, przed decyzją nowy wpis rywala (ulica i jego zakład, A04-11/D-283)
-  const opisRywala = d && ulicaDecyzji ? `${t(`scenario.street.${ulicaDecyzji}`)}. ${t('play.log.bet', { pos: s.szablon.positions.villain, bb: d.bet })}` : null;
-  useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: t('scenario.verdict.yours', { akcja: nazwaAkcji(wybor, t, d?.bet ?? 0), lepiej: d ? nazwaAkcji(d.correct, t, d.bet) : '' }) }) : ocenaMode ? null : opisRywala);
+  const ruch = d ? ruchRywala(s, d, Math.max(0, indeks), t) : null;
+  const opisRywala = d && ulicaDecyzji ? [t(`scenario.street.${ulicaDecyzji}`), ruch].filter((x) => x).join('. ') : null;
+  useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: t('scenario.verdict.yours', { akcja: d ? nazwaAkcji(wybor, t, kwotaAkcji(d, wybor, s.szablon)) : '', lepiej: d ? nazwaAkcji(poprawnaAkcja(d), t, kwotaAkcji(d, poprawnaAkcja(d), s.szablon)) : '' }) }) : ocenaMode ? null : opisRywala);
   if (!d || !widok) return <Screen>{null}</Screen>;
-  const bb = widok.doSprawdzeniaBb;
-  const nazwy: Record<Akcja, string> = { fold: nazwaAkcji('fold', t, bb), call: nazwaAkcji('call', t, bb) };
-  const najlepsza: Akcja = d.correct;
+  const akcje = akcjePunktu(d);
+  const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, nazwaAkcji(a, t, kwotaAkcji(d, a, s.szablon))]));
+  const nazwa = (a: Akcja): string => nazwy[a] ?? '';
+  const najlepsza: Akcja = poprawnaAkcja(d);
   const idxUlicy = ULICE.indexOf(widok.ulica);
   const doDziennika = wpisyDziennika(s, indeks, t, ocenaMode ? oceny : oceny.slice(0, indeks));
   return (
@@ -176,27 +217,29 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         pozycjaRywal={s.szablon.positions.villain}
         stosBb={s.szablon.stackBb}
       />
-      <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: widok.pulaBb, kwota: widok.doSprawdzeniaBb })}</Text>
+      {widok.pulaBb !== null && widok.doSprawdzeniaBb !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: widok.pulaBb, kwota: widok.doSprawdzeniaBb })}</Text> : null}
       <Dziennik wpisy={doDziennika} />
       {p.bladZapisu ? <Text accessibilityRole="alert" style={[styl.tresc, { color: tk.ink }]}>{t('session.saveFailed')}</Text> : null}
       {!ocenaMode ? (
         <View style={{ gap: odstep.s }}>
           <Text style={[styl.drobny, { color: tk.muted, fontWeight: '600' }]}>{t('scenario.yourMove')}</Text>
-          <PasekStrategii opcje={AKCJE.map((a) => ({ text: nazwy[a] }))} wybor={null} klasa="" onWybierz={(i) => { const a = AKCJE[i]; if (a) p.onWybierz(a); }} />
+          <PasekStrategii opcje={akcje.map((a) => ({ text: nazwa(a) }))} wybor={null} klasa="" onWybierz={(i) => { const a = akcje[i]; if (a) p.onWybierz(a); }} />
         </View>
       ) : wybor && ocenaWyboru && ocenyAk ? (
         <View style={{ gap: odstep.l }}>
           <Werdykt
             ocena={ocenaWyboru}
-            zdanie={wybor === najlepsza ? t('scenario.verdict.yoursGood', { akcja: nazwy[wybor] }) : t('scenario.verdict.yours', { akcja: nazwy[wybor], lepiej: nazwy[najlepsza] })}
+            zdanie={wybor === najlepsza ? t('scenario.verdict.yoursGood', { akcja: nazwa(wybor) }) : t('scenario.verdict.yours', { akcja: nazwa(wybor), lepiej: nazwa(najlepsza) })}
           />
           {bloki(s.wariant, s.szablon, indeks, wybor, t).map((b) => (
-            <BlokDlaczego key={`${b.rodzaj}-${b.akcja}`} blok={b} nazwa={nazwy[b.akcja]} t={t} />
+            <BlokDlaczego key={`${b.rodzaj}-${b.akcja}`} blok={b} nazwa={nazwa(b.akcja)} t={t} />
           ))}
           <PasekOcenAkcji akcje={ocenyAk} wybor={wybor} nazwy={nazwy} />
-          <Rozwijany tytul={t('scenario.numbers.title')} testID="liczby">
-            <Text style={[styl.tresc, { color: tk.ink }]}>{zdanieLiczb(s, indeks, t)}</Text>
-          </Rozwijany>
+          {d.point === 'draw-call' ? (
+            <Rozwijany tytul={t('scenario.numbers.title')} testID="liczby">
+              <Text style={[styl.tresc, { color: tk.ink }]}>{zdanieLiczb(s, indeks, t)}</Text>
+            </Rozwijany>
+          ) : null}
           {ADRES_KONTAKTOWY ? (
             <ZglosBlad zadanieId={`${s.szablon.id}#${indeks + 1}`} wersjaAplikacji={Constants.expoConfig?.version ?? '?'} jezyk={i18n.language} adresKontaktowy={ADRES_KONTAKTOWY} otworzAdres={(url) => Linking.openURL(url).then(() => true)} />
           ) : null}
@@ -239,15 +282,16 @@ export function KoniecScenariusza(p: PropsKonca): React.JSX.Element {
       <Muted>{`${s.szablon.situation} · ${t(`scenario.level.${p.poziom}`).toLowerCase()}`}</Muted>
       <View accessibilityRole="list" style={{ gap: odstep.m }}>
         {kroki.map((k, i) => {
-          const d = s.wariant.decisions[i];
+          const d = s.wariant.points[i];
           const wyb = s.wybory[i];
-          if (!d || !wyb) return null;
+          if (!d || d.point === 'range-spot' || !wyb) return null;
           const lepiej = k.ocena !== 'zgodne' && k.ocena !== 'dopuszczalne';
+          const poprawna = poprawnaAkcja(d);
           return (
             <View key={i} style={{ flexDirection: 'row', justifyContent: 'space-between', gap: odstep.m }}>
               <View style={{ flex: 1 }}>
-                <Text style={[styl.tresc, { color: tk.ink }]}>{`${t(`scenario.street.${d.street}`)}: ${nazwaAkcji(wyb, t, d.bet)}`}</Text>
-                {lepiej ? <Text style={[styl.przypis, { color: tk.muted }]}>{t('scenario.end.better', { akcja: nazwaAkcji(d.correct, t, d.bet) })}</Text> : null}
+                <Text style={[styl.tresc, { color: tk.ink }]}>{`${t(`scenario.street.${d.street}`)}: ${nazwaAkcji(wyb, t, kwotaAkcji(d, wyb, s.szablon))}`}</Text>
+                {lepiej ? <Text style={[styl.przypis, { color: tk.muted }]}>{t('scenario.end.better', { akcja: nazwaAkcji(poprawna, t, kwotaAkcji(d, poprawna, s.szablon)) })}</Text> : null}
               </View>
               <Text style={[styl.naglowek, { color: tk.ink }]}>{`${t(`grade.${k.ocena}`)}`}</Text>
             </View>
