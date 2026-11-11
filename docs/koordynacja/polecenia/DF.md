@@ -1,5 +1,5 @@
 # Sesja DF: recenzja niezależna CZ (testy jakości: ŚR-006, NIS-007, 08-programista-004, flow 07-scenariusz) — Szkoła Pokera
-Koordynator: session_01T66VBvsiHtynAJhQ4adRmv (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; po wiadomości o zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko do odczytu).
+Koordynator: session_01T66VBvYWeNrFwMqZNx9zYV (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; po wiadomości o zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko do odczytu).
 
 1. Rola 07-jakosc w trybie audit; prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz. Kontrolę transportu promptu pomiń.
 2. Start: gałąź `sesja-df-recenzja` @ ee7f991a71aa3fbdfa5c80b508416c8fd6bb679d (= `origin/sesja-cz-jakosc`; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów wg CLAUDE.md.
