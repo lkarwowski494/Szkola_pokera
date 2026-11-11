@@ -62,6 +62,11 @@ export interface FlopTexture {
   straight: FlopStraightPotential;
   /** Któraś ręka może mieć draw do strita (otwarty albo gutshot); także na flopie sparowanym, np. JJT. */
   straightDrawPossible: boolean;
+  /**
+   * Któraś ręka może mieć OESD: cztery kolejne rangi domykane z obu końców (8 outów), więc bez asa w środku okna
+   * (A-2-3-4 i J-Q-K-A domyka tylko jeden koniec). Klasa „OESD possible” źródła c-betu (R-M5-007/008, D-856).
+   */
+  oesdPossible: boolean;
   /** Punkty mokrości (WETNESS_POINTS), z których wynika wetness. */
   wetnessPoints: number;
 }
@@ -72,6 +77,8 @@ export const MIDDLE_MIN_RANK = 8;
 
 /** Długość strita: tyle kolejnych rang tworzy jedno okno. */
 export const STRAIGHT_LENGTH = 5;
+/** OESD: tyle kolejnych rang ma gracz przed domknięciem z któregoś końca. */
+export const OESD_LENGTH = 4;
 
 /**
  * Punkty mokrości (jedno źródło prawdy dla aplikacji i testów). Decyzja D-39 (dokument 12 M4–M6, raport 12a-22).
@@ -129,6 +136,20 @@ export function hasStraightDrawPair(ranks: readonly number[]): boolean {
   return false;
 }
 
+/**
+ * Czy jakieś dwie różne rangi mieszczą się w jednym oknie czterech kolejnych rang otwartym z obu stron (pozycje lo…lo+3,
+ * lo = 2…10, as tylko jako 1 albo 14, czyli poza oknem). Dokładnie wtedy gracz może dołożyć brakujące rangi okna i mieć OESD
+ * (test wyczerpujący z wyrocznią z rang: tools/content-build/test/cw-sc11-oesd.test.ts).
+ */
+export function hasOesdPair(ranks: readonly number[]): boolean {
+  const distinct = [...new Set(ranks)];
+  for (let low = 2; low + OESD_LENGTH - 1 <= 13; low++) {
+    const inWindow = distinct.filter((r) => positions(r).some((p) => p >= low && p <= low + OESD_LENGTH - 1));
+    if (inWindow.length >= 2) return true;
+  }
+  return false;
+}
+
 export function classifyFlop(flop: readonly Card[]): FlopTexture {
   if (flop.length !== 3) throw new Error('Flop to dokładnie 3 karty');
   if (new Set(flop).size !== 3) throw new Error('Powtórzona karta na flopie');
@@ -157,6 +178,7 @@ export function classifyFlop(flop: readonly Card[]): FlopTexture {
     straightWindows,
     straight,
     straightDrawPossible,
+    oesdPossible: hasOesdPair(ranks),
     wetnessPoints,
   };
 }
@@ -177,7 +199,7 @@ export function flopWetnessShares(): Record<FlopWetness, number> {
 }
 
 /** Filtr tekstury: dla każdej osi lista dopuszczalnych wartości (brak osi = dowolna). */
-export type TextureFilter = { [A in TextureAxis]?: readonly FlopTexture[A][] } & { trips?: boolean };
+export type TextureFilter = { [A in TextureAxis]?: readonly FlopTexture[A][] } & { trips?: boolean; oesdPossible?: boolean };
 
 export function textureMatches(tex: FlopTexture, filter: TextureFilter): boolean {
   for (const axis of TEXTURE_AXES) {
@@ -185,6 +207,7 @@ export function textureMatches(tex: FlopTexture, filter: TextureFilter): boolean
     if (allowed && !allowed.includes(tex[axis])) return false;
   }
   if (filter.trips !== undefined && filter.trips !== tex.trips) return false;
+  if (filter.oesdPossible !== undefined && filter.oesdPossible !== tex.oesdPossible) return false;
   return true;
 }
 

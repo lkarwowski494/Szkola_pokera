@@ -301,6 +301,8 @@ export const TextureFilter = z
     ranks: z.array(FlopRanks).min(1).optional(),
     wetness: z.array(FlopWetness).min(1).optional(),
     trips: z.boolean().optional(),
+    /** Czy któraś ręka może mieć OESD (cztery kolejne rangi domykane z obu końców); `false` = flop bez możliwego OESD (D-856). */
+    oesdPossible: z.boolean().optional(),
   })
   .strict();
 export type TextureFilter = z.infer<typeof TextureFilter>;
