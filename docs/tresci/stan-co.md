@@ -16,4 +16,4 @@ Gałąź `sesja-co-szablony` od 5637200; decyzje `docs/decyzje/CO.md` (D-790…D
 - Recenzja niezależna treści (06 audit): zleca koordynator.
 
 ## Dowody
-- `pnpm content:build` kod 0; `pnpm run ci`: `docs/tresci/dowody/co-ci-<sha>.txt`.
+- `pnpm content:build` kod 0; `pnpm run ci` kod 0 na 385b63f: `docs/tresci/dowody/co-ci-385b63f.txt`.
