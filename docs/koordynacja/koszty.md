@@ -76,3 +76,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | CP | 08 audit (recenzja CN) | — | 5,98 | 29,6 | 01:18 → 01:21 → 01:40 → — → 01:42 | — | |
 | CR | 08 fix (CP) | — | 2,52 | 25,1 | 01:42 → 01:45 → 02:10 → CI w toku → (CS) | — | |
 | CQ | 06 audit (recenzja CO) | — | 7,35 | 32,4 | 01:30 → 01:27 → 02:08 → — → 02:09 | — | |
+| CS | 08 fix (CQ) | — | 4,23 | 28,2 | 02:13 → 02:15 → 03:03 → CI w toku → (CT) | — | |
