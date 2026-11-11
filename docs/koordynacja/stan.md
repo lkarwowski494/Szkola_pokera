@@ -25,6 +25,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **14:57 E2E 43032964388 success na roboczej @ 709f6947 (CI 43032964359 success) — fala DM zamknięta.** Start **DN session_01T66VBzXVjJK9cDjoCtKbMC** (08 build sonnet/medium, `sesja-dn-liczby` @ 709f6947, polecenie DN.md @ 3cde055, D-965…D-979): „Liczby” F2–F4 + widok i próg ICM (D-888…890) + braki D-886/887. Prompt roli wklejony przez koordynatora bezpośrednio (bez subagenta, 605 linii z assemble). Kontrola ok. 15:55. Następna litera **DO**, D-980, KO-068. Limit tygodniowy konta: allowed_warning (14:36).
 - **13:56 przejęcie przez session_01T66VBvPqFB6GZD3a2Yg9AF (lineage 7/8; stan @ 5f959e8).** Prompts dołączona @ 9553f6b. CI 43032964359 i E2E 43032964388 na roboczej @ 709f6947 w toku (start 13:51). Brak aktywnych sesji podrzędnych. Przypomnienia: kontrola 14:35 trig_019VVR1uTXBhQGXaz8b7JedH, linia 05:00 12.11 (04:51) trig_017agQSCSiHt86o2D1GbV7em, linia 14:00 12.11 (13:51) trig_01GL8cTVVncNpAncyLFSeWJR; poprzednika: trig_01CsG62ZLLnRQrNeWJQKnzWt „kontrola przekazania” 14:26 (sprząta on). Następna litera **DN**, D-965, KO-068.
 - **13:55 PRZEKAZANIE koordynatora session_01T66VBvMJxHkBqzn7iJjEuv (kontekst 34,4%, 15,26 USD) → następca (lineage 7/8 — jego następcy create_session nie utworzy: przy jego przekazaniu prośba do właściciela o nowy łańcuch z paska bocznego).** Mandat bez zmian; tryb dzienny.
   - **Robocza `claude/sleepy-brahmagupta-2065nu` ff 46197812 → 709f6947 o 13:53** (is-ancestor sprawdzone; CI 43028576121 success na 709f6947 przed pushem). Push uruchomił CI + E2E na roboczej → **następca: sprawdzić wynik (E2E ok. 40 min, ok. 14:35)**; czerwone → diagnoza 07 audit z run ID.
@@ -131,6 +132,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 709f6947 | 0 | 0 | start 14:57 |
 | CW | session_01T66VBwYnHtTiKoR8cjnqsi | 06 fix, treść (opus/high) | sesja-cw-tresci @ 4619781 (start) | — | — | w toku od 07:05 |
 | CX | session_01T66VBybgy9yDNgu92usB38 | 08 build, kod (sonnet) | sesja-cx-range-spot @ 4619781 (start) | — | — | E0 07:25 |
 | CY | session_01T66VBwmz2iHwF9WYHXf7WG | 09 build (sonnet) | sesja-cy-m12 @ 4619781 (start) | — | — | E0 07:24 |
@@ -535,3 +537,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 13:56 | koordynator | przejęcie przez session_01T66VBvPqFB6GZD3a2Yg9AF (lineage 7/8); prompts @ 9553f6b; CI 43032964359 + E2E 43032964388 na 709f6947 w toku; 3 przypomnienia utworzone | kontrola 14:35 |
 | 14:00 | koordynator | poprzednik: koszt 20,33 USD, kontekst max 39,6% → koszty.md; archiwizuje się sam | kontrola 14:35 |
 | 14:36 | kontrola | CI 43032964359 **success** na 709f6947; E2E 43032964388 w toku (45 min). Koordynator 16,3%, 2,06 USD. get_session: rate_limit seven_day **allowed_warning** (limit tygodniowy konta blisko) | kontrola 14:51 |
+| 14:52 | kontrola | E2E 43032964388 **success** na 709f6947 (14:43) | start DN |
+| 14:57 | DN | start session_01T66VBzXVjJK9cDjoCtKbMC (08 build sonnet/medium, sesja-dn-liczby @ 709f6947, polecenie DN.md @ 3cde055) | kontrola 15:55 |
