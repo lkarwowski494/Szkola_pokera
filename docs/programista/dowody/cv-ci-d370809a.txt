@@ -1,0 +1,2 @@
+# CV zadanie 3: pnpm run ci na d370809a (po podziale testu CQ), EXIT 0, 9m28s
+# przyczyna czerwonego CI: recenzja-cq-odtworzenie.test.ts:129 timeout 5000 ms (sc-19 latwy ok. 4,0 s lokalnie)
