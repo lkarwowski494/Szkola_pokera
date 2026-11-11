@@ -21,3 +21,4 @@ Naprawy testów zależnych od zmiany: `wariant-kontekst-ca.test.ts` (pozycja i s
 - Zrzuty ekranu z urządzenia: brak (brak macOS).
 - Tożsamość commitów: Łukasz Karwowski noreply (CLAUDE.md, polecenie CS pkt 2); hook sesji sugeruje inną, GitHub pokaże commity jako Unverified.
 - Przegląd niezależny ścieżek wrażliwych: patrz sekcja poniżej.
+Przegląd niezależny (subagent, tylko diff `013cc9b6..HEAD` generatora, zasady 10–14): brak uwag P0/P1. Poniżej progu: przy all-in na flopie sprawdzenie implied odds pasa z nadkartami jest ostrzejsze niż potrzeba (obniża tylko pojemność wariantów); osierocony docblock przed `FLOP_REDEALS` w `scenario-gen.ts` (kosmetyka). Oba do backlogu, bez zmiany po zielonym CI.
