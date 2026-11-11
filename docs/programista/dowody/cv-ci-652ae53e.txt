@@ -1,0 +1,2 @@
+# CV zadanie 2: pnpm run ci na 652ae53e (po scaleniu cd6aef3 + sc-12 w kontroli), EXIT 0, 9m37s
+# stabilność: GENERATOR_ODCISKI_ZAPISZ=1 dwukrotnie, cmp identyczne
