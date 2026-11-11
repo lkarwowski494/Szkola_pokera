@@ -214,7 +214,7 @@ const eqPo = (stacks: number[], payouts: readonly number[], h: number) => (stack
 
 describe('szablony treści icm-call: equity z kart i próg ICM zgodne z wyrocznią (BR-GEN-003)', () => {
   const icmT = szkice.filter((t) => t.decisions.some((d) => d.kind === 'icm-call'));
-  it('szkic ma szablon icm-call (SC-34); w content/ go nie ma, bo ekran nie pokazuje stosów i wypłat (D-807)', () => {
+  it('szkic ma szablon icm-call (SC-34); w content/ go nie ma, bo poziom trudny czeka na 06-tresci-002 (ekran ma widok stosów i wypłat od D-889; D-807, D-825)', () => {
     expect(pl.some((t) => t.decisions.some((d) => d.kind === 'icm-call'))).toBe(false);
     expect(icmT.map((t) => t.id)).toEqual(['sc-34']);
   });
