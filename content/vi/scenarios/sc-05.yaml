@@ -1,0 +1,40 @@
+# SC-05 (M3): Button otwiera, BB broni, niski połączony flop (range-spot rfi.btn, potem cbet-case R-M5-004). Rola 06, sesja EH, 2026-11-11.
+# Struktura jak pl (content/pl/scenarios/sc-05.yaml).
+id: sc-05
+module: m3
+situation: "Bạn ở Button, và mọi người trước bạn đã {{t:fold|bỏ bài}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+  sredni:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.btn
+    rule: R-M3-003
+    actions:
+      - action: "raise 2.5"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và mọi người trước bạn đã {{t:fold|bỏ bài}}. Bạn {{t:open|mở cược}}, vì chỉ còn lại các blind, và sau flop bạn sẽ có {{t:position|vị trí}}; từ Button bạn {{t:open|mở cược}} rộng, khoảng {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} số tay bài."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và mọi người trước bạn đã {{t:fold|bỏ bài}}. {{t:fold|Bỏ bài}} là quá thận trọng: solver thường {{t:open|mở cược}} tay này. Chỉ còn lại các blind, và sau flop bạn sẽ có {{t:position|vị trí}}, nên từ Button bạn {{t:open|mở cược}} rộng, khoảng {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} số tay bài."
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. Bạn {{t:check|check}}, vì {{t:big-blind|big blind}} bảo vệ nhiều {{t:connectors|connector}} và tay bài có lá nhỏ trúng flop thấp, còn tay bài không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}} của bạn đã trượt. Trên flop như vậy bạn {{t:c-bet|c-bet}} ít hơn so với flop cao."
+      - action: bet-small
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. Một khoản {{t:bet|cược}} nhỏ là chấp nhận được nhưng ít gặp hơn: trên flop thấp và {{t:connected|liên kết}} bạn {{t:c-bet|c-bet}} ít hơn so với flop cao, vì {{t:big-blind|big blind}} bảo vệ nhiều {{t:connectors|connector}} và tay bài có lá nhỏ trúng flop này."
+      - action: bet-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. Một khoản {{t:bet|cược}} lớn ở đây là thiếu chính xác: trên flop {{t:connected|liên kết}}, {{t:big-blind|big blind}} có thể đã có {{t:straight|sảnh}}, nên nếu cược thì cược nhỏ. Trên flop thấp bạn cũng {{t:c-bet|c-bet}} ít hơn so với flop cao, vì {{t:big-blind|big blind}} bảo vệ nhiều {{t:connectors|connector}} và tay bài có lá nhỏ trúng flop này."

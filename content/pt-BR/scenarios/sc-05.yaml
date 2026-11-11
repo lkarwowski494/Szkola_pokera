@@ -1,0 +1,40 @@
+# SC-05 (M3): Button otwiera, BB broni, niski połączony flop (range-spot rfi.btn, potem cbet-case R-M5-004). Rola 06, sesja EH, 2026-11-11.
+# Struktura jak pl (content/pl/scenarios/sc-05.yaml).
+id: sc-05
+module: m3
+situation: "Você está no Button e todos antes de você {{t:fold|desistiram}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+  sredni:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.btn
+    rule: R-M3-003
+    actions:
+      - action: "raise 2.5"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e todos antes de você {{t:fold|desistiram}}. Você {{t:open|abre}}, porque só restam os blinds e depois do flop você terá {{t:position|posição}}; do Button você {{t:open|abre}} largo, cerca de {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} das mãos."
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e todos antes de você {{t:fold|desistiram}}. {{t:fold|Desistir}} é cauteloso demais: o solver costuma {{t:open|abrir}} esta mão. Só restam os blinds e depois do flop você terá {{t:position|posição}}, então do Button você {{t:open|abre}} largo, cerca de {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} das mãos."
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o {{t:big-blind}} faz {{t:check}}. Você faz {{t:check}}, porque o {{t:big-blind}} defende muitos {{t:connectors}} e mãos com cartas baixas que acertam um flop baixo, e a sua mão sem {{t:pair|par}} nem {{t:draw}} falhou. Em um flop assim você faz {{t:c-bet}} menos vezes do que em flops altos."
+      - action: bet-small
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o {{t:big-blind}} faz {{t:check}}. Uma {{t:bet|aposta}} pequena é aceitável, mas mais rara: em um flop baixo e {{t:connected|conectado}} você faz {{t:c-bet}} menos vezes do que nos altos, porque o {{t:big-blind}} defende muitos {{t:connectors}} e mãos com cartas baixas que acertam este flop."
+      - action: bet-big
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o {{t:big-blind}} faz {{t:check}}. Uma {{t:bet|aposta}} grande é aqui uma imprecisão: em um flop {{t:connected|conectado}} o {{t:big-blind}} pode já ter uma {{t:straight|sequência}}, então, quando apostar, aposte pouco. Em um flop baixo você também faz {{t:c-bet}} menos vezes do que nos altos, porque o {{t:big-blind}} defende muitos {{t:connectors}} e mãos com cartas baixas que acertam este flop."

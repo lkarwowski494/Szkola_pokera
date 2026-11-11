@@ -1,0 +1,35 @@
+# SC-08 (M4): mały blind 3-betuje otwarcie Buttona, potem rozmiar 3-betu (range-spot vs-open.sb-vs-btn, size-spot three-bet-size oop).
+# Rola 06, sesja EH, 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-08.yaml); jeden poziom (D-1034), pojemność wg D-1040.
+id: sc-08
+module: m4
+situation: "당신은 {{t:small-blind|스몰 블라인드}}에 있고, 버튼이 {{n:pf.open-size}}로 {{t:open|오픈}}했습니다."
+table: 6max
+positions: { hero: SB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 10", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: vs-open.sb-vs-btn
+    rule: R-M4-003
+    actions:
+      - action: "raise 10"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼이 {{t:open|오픈}}했습니다. 3벳하는 이유는 이 핸드가 {{t:small-blind|스몰 블라인드}}에서 3벳하는 {{t:range|레인지}}의 상단에 있기 때문입니다. {{t:call|콜}}하면 {{t:out-of-position|아웃 오브 포지션}}으로 플레이하게 되고, 뒤에 있는 {{t:big-blind|빅 블라인드}}가 아직 {{t:raise|레이즈}}할 수 있습니다. 3벳은 {{t:initiative|주도권}}과 {{t:pot|팟}}을 바로 이길 기회를 줍니다."
+      - action: "call 2.5"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼이 {{t:open|오픈}}했습니다. {{t:small-blind|스몰 블라인드}}에서 버튼을 상대로는 거의 {{t:call|콜}}하지 않습니다. {{t:call|콜}}하면 {{t:out-of-position|아웃 오브 포지션}}으로 플레이하게 되고, 뒤에 있는 {{t:big-blind|빅 블라인드}}가 아직 {{t:raise|레이즈}}할 수 있습니다. 이 핸드는 3벳합니다. 3벳은 {{t:initiative|주도권}}과 {{t:pot|팟}}을 바로 이길 기회를 주기 때문입니다."
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼이 {{t:open|오픈}}했습니다. {{t:fold|폴드}}는 너무 신중합니다. 이 핸드는 {{t:small-blind|스몰 블라인드}}에서 3벳하는 {{t:range|레인지}}의 상단(핸드의 약 {{n:pf.3bet-freq.sb-vs-btn}})에 있습니다. 3벳은 {{t:initiative|주도권}}과 {{t:pot|팟}}을 바로 이길 기회를 줍니다."
+  - street: preflop
+    kind: size-spot
+    check: three-bet-size
+    rule: R-M4-002
+    openBb: 2.5
+    actions:
+      - action: raise
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼의 {{t:open|오픈}}에 3벳합니다. {{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-oop}}, 즉 {{n:pf.3bet.oop-total}}까지 {{t:raise|레이즈}}하는 이유는 플롭 이후 당신이 먼저 행동하기 때문입니다. 더 큰 {{t:raise|레이즈}}로 상대가 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}할 기회를 빼앗습니다."
+      - action: raise-small
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼의 {{t:open|오픈}}에 3벳합니다. 이 크기는 부정확합니다. 플롭 이후 당신이 먼저 행동하므로 {{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-oop}}({{n:pf.3bet.oop-total}})까지 {{t:raise|레이즈}}합니다. 더 작은 {{t:raise|레이즈}}는 상대에게 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}할 기회를 줍니다."
+      - action: raise-big
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼의 {{t:open|오픈}}에 3벳합니다. 이 크기는 부정확합니다. {{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-oop}}({{n:pf.3bet.oop-total}})이면 충분합니다. 그 크기만으로도 상대가 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}할 기회를 빼앗으며, 더 큰 크기는 같은 핸드로 더 많은 {{t:chips|칩}}을 위험에 겁니다."

@@ -1,0 +1,35 @@
+# SC-08 (M4): mały blind 3-betuje otwarcie Buttona, potem rozmiar 3-betu (range-spot vs-open.sb-vs-btn, size-spot three-bet-size oop).
+# Rola 06, sesja EH, 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-08.yaml); jeden poziom (D-1034), pojemność wg D-1040.
+id: sc-08
+module: m4
+situation: "Bạn ở {{t:small-blind|small blind}}, và Button đã {{t:open|mở cược}} lên {{n:pf.open-size}}."
+table: 6max
+positions: { hero: SB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 10", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: vs-open.sb-vs-btn
+    rule: R-M4-003
+    actions:
+      - action: "raise 10"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và Button đã {{t:open|mở cược}}. Bạn 3-bet, vì tay này nằm ở phần trên của {{t:range|range}} mà bạn 3-bet từ {{t:small-blind|small blind}}: sau khi {{t:call|theo}}, bạn sẽ chơi {{t:out-of-position|không có vị trí}}, và {{t:big-blind|big blind}} sau bạn vẫn có thể {{t:raise|tố}}; 3-bet cho bạn {{t:initiative|thế chủ động}} và cơ hội thắng {{t:pot|pot}} ngay lập tức."
+      - action: "call 2.5"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và Button đã {{t:open|mở cược}}. Từ {{t:small-blind|small blind}} trước Button, bạn hầu như không {{t:call|theo}}: sau khi {{t:call|theo}}, bạn chơi {{t:out-of-position|không có vị trí}}, và {{t:big-blind|big blind}} sau bạn vẫn có thể {{t:raise|tố}}. Tay này bạn 3-bet, vì 3-bet cho bạn {{t:initiative|thế chủ động}} và cơ hội thắng {{t:pot|pot}} ngay lập tức."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và Button đã {{t:open|mở cược}}. {{t:fold|Bỏ bài}} là quá thận trọng: tay này nằm ở phần trên của {{t:range|range}} mà bạn 3-bet từ {{t:small-blind|small blind}} (khoảng {{n:pf.3bet-freq.sb-vs-btn}} số tay bài). 3-bet cho bạn {{t:initiative|thế chủ động}} và cơ hội thắng {{t:pot|pot}} ngay lập tức."
+  - street: preflop
+    kind: size-spot
+    check: three-bet-size
+    rule: R-M4-002
+    openBb: 2.5
+    actions:
+      - action: raise
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và bạn 3-bet lượt {{t:open|mở cược}} của Button. Bạn {{t:raise|tố}} lên khoảng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}}, tức là lên {{n:pf.3bet.oop-total}}, vì sau flop bạn hành động trước, nên với mức {{t:raise|tố}} lớn hơn bạn không cho đối thủ được {{t:call|theo}} rẻ khi {{t:in-position|có vị trí}}."
+      - action: raise-small
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và bạn 3-bet lượt {{t:open|mở cược}} của Button. Mức này là thiếu chính xác: sau flop bạn hành động trước, nên bạn {{t:raise|tố}} lên khoảng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}} ({{n:pf.3bet.oop-total}}); mức {{t:raise|tố}} nhỏ hơn cho đối thủ được {{t:call|theo}} rẻ khi {{t:in-position|có vị trí}}."
+      - action: raise-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và bạn 3-bet lượt {{t:open|mở cược}} của Button. Mức này là thiếu chính xác: khoảng {{n:pf.3bet.size-oop}} mức {{t:open|mở cược}} ({{n:pf.3bet.oop-total}}) là đủ; mức đó đã không cho đối thủ được {{t:call|theo}} rẻ khi {{t:in-position|có vị trí}}, còn mức lớn hơn mạo hiểm nhiều {{t:chips|chip}} hơn với cùng tay bài."
