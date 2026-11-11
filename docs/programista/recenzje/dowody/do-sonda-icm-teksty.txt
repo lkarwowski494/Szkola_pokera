@@ -1,0 +1,16 @@
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/sonda-do.test.tsx  # worktree @ 370a1548, sonda poza repo (źródło: do-sonda-zrodla.txt)
+    latwy: warianty=400 required<requiredChips=0 round(required)=round(requiredChips)=0 round(eq)=round(required)=0 na10 poza 2–9=0 requiredChips≠0,45=0 equity 0.306–0.543 required 0.477–0.728
+    sredni: warianty=400 required<requiredChips=0 round(required)=round(requiredChips)=0 round(eq)=round(required)=0 na10 poza 2–9=0 requiredChips≠0,45=0 equity 0.518–0.797 required 0.466–0.693
+    trudny: warianty=400 required<requiredChips=0 round(required)=round(requiredChips)=0 round(eq)=round(required)=0 na10 poza 2–9=0 requiredChips≠0,45=0 equity 0.502–0.649 required 0.519–0.709
+    [pl] cbet: Mały c-bet to ok. 33% puli (pot), a duży ok. 75%. Rywal, żeby sprawdzić (call), potrzebuje przy małym 20% szans, czyli wygrać mniej więcej raz na 5, a przy dużym 30%, czyli raz na 3.
+    [pl] 3bet: Przy 3-becie do 7,5 bb otwierający (open) dopłaca 5 bb do puli (pot) 16,5 bb, więc potrzebuje 30% szans, czyli wygrać mniej więcej raz na 3. / Przy 3-becie do 12 bb otwierający (open) dopłaca 9,5 bb do puli (pot) 25,5 bb, więc potrzebuje 37% szans, czyli wygrać mniej więcej raz na 3.
+    [pl] nolimp: Przy przebiciu (raise) do 3 bb duży blind (big blind, BB) dopłaca 2 bb do puli (pot) 6 bb (gdy reszta spasuje [fold]), więc potrzebuje 33% szans, czyli wygrać mniej więcej raz na 3. / Limp kosztuje 0,5 bb, a duży blind (big blind, BB) może zobaczyć flop bez dopłaty.
+    [pl] icm: Twoja ręka ma 51% equity wobec zakresu (range) all-inu rywala, czyli wygrywa mniej więcej w 5 rozdaniach na 10. Według ICM (Independent Chip Model) sprawdzenie (call) opłaca się od 55%, a w grze o żetony (chips) wystarczyłoby 45%: na bańce przegrana zabiera ci więcej z puli nagród (prize pool), niż wygrana dodaje.
+    [en] cbet: A small c-bet is about 33% of the pot, a big one about 75%. To call, your opponent needs 20% equity against the small one, that is, to win about once in 5, and 30% against the big one, about once in 3.
+    [en] 3bet: With a 3-bet to 7.5 bb, the opener adds 5 bb to a pot of 16.5 bb, so they need 30% equity, that is, to win about once in 3. / With a 3-bet to 12 bb, the opener adds 9.5 bb to a pot of 25.5 bb, so they need 37% equity, that is, to win about once in 3.
+    [en] nolimp: With a raise to 3 bb, the big blind adds 2 bb to a pot of 6 bb (if everyone else folds), so they need 33% equity, that is, to win about once in 3. / A limp costs 0.5 bb, and the big blind can see the flop without paying more.
+    [en] icm: Your hand has 51% equity against your opponent's all-in range, so it wins about 5 hands in 10. Under ICM, a call pays off from 55%, while in a game for chips 45% would be enough: on the bubble, losing takes more of the prize pool from you than winning adds.
+  ✓ icm-call: ziarna 1–400 na poziom; próg ICM vs próg w żetonach, na10, zaokrąglenia (1236 ms)
+  ✓ teksty „Liczby” pl i en po podstawieniu (widok użytkownika) (448 ms)
+Tests:       2 passed, 2 total
+kod wyjścia: 0
