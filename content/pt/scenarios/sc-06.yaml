@@ -1,0 +1,34 @@
+# SC-06 (M3): mały blind przebija albo pasuje, potem rozmiar przebicia (F1 + F3: range-spot rfi.sb, size-spot open-size z sb). Rola 06, sesja DU,
+# 2026-11-11. Ocena: rangeVerdict na solverze projektu (R-M3-009, gto) i rozmiar z parametru R-M3-007 (zły rozmiar = niedokładność).
+# Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
+id: sc-06
+module: m3
+situation: "Está no {{t:small-blind}} e todos {{t:fold|desistiram}} até si."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e todos {{t:fold|desistiram}} até si. {{t:raise|Aumenta}}, porque já só joga contra o {{t:big-blind}}; depois do flop fala primeiro, por isso {{t:open|abre}} mais ou menos tão largo como do botão, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos, e esta mão está entre elas."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e todos {{t:fold|desistiram}} até si. {{t:fold|Desistir}} é demasiado cauteloso: o solver costuma {{t:raise|aumentar}} com esta mão. Já só joga contra o {{t:big-blind}}, por isso do {{t:small-blind}} {{t:open|abre}} largo, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos."
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. {{t:raise|Aumenta}} para {{n:pf.open-size-sb}}, porque do {{t:small-blind}} joga {{t:out-of-position}}, por isso aumenta um pouco mais do que {{n:pf.open-size}} das outras {{t:position|posições}}; um só tamanho para todas as mãos não revela a força da sua mão."
+      - action: raise-small
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. Este tamanho é uma imprecisão: do {{t:small-blind}} joga {{t:out-of-position}}, por isso {{t:raise|aumenta}} um pouco mais, para {{n:pf.open-size-sb}}."
+      - action: raise-big
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. Este tamanho é uma imprecisão: {{n:pf.open-size-sb}} chega; um só tamanho para todas as mãos não revela a força da sua mão, e um {{t:raise|aumento}} maior arrisca mais {{t:chips|fichas}} com a mesma mão."

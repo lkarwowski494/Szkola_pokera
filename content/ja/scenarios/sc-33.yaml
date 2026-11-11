@@ -1,0 +1,21 @@
+# SC-33 (M11): duży blind sprawdza all-in małego blinda przy 10 bb (F1, range-spot call.bb-10). Rola 06, sesja DU, 2026-11-11. Ocena:
+# rangeVerdict na solverze push/fold projektu, reguła R-M11-007 (gto); cena z R-M11-006 (math). Jeden poziom (D-1034).
+id: sc-33
+module: m11
+situation: "{{t:tournament|トーナメント}}：あなたは{{n:m11.depth.10}}で{{t:big-blind|ビッグブラインド}}にいて、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。"
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [call] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: call.bb-10
+    rule: R-M11-007
+    actions:
+      - action: call
+        explanation: "あなたは{{n:m11.depth.10}}で{{w:pozycja}}にいて{{w:reka}}を持ち、{{w:stol}}、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。{{t:call|コール}}するのは、このハンドが{{t:call|コール}}の{{t:range|レンジ}}に入るからです。ブラインドはすでに{{t:pot|ポット}}に入っているので、必要なエクイティは約{{n:m11.call.10.eq}}です。ただし、自分で{{t:shove|プッシュ}}するより狭く{{t:call|コール}}します。約{{n:m11.call.10}}対約{{n:m11.push.10}}です。"
+      - action: fold
+        explanation: "あなたは{{n:m11.depth.10}}で{{w:pozycja}}にいて{{w:reka}}を持ち、{{w:stol}}、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。{{t:fold|フォールド}}は慎重すぎます。このハンドは{{t:call|コール}}の{{t:range|レンジ}}（ハンドの約{{n:m11.call.10}}）に入ります。ブラインドはすでに{{t:pot|ポット}}に入っているので、必要なエクイティは約{{n:m11.call.10.eq}}だけです。"

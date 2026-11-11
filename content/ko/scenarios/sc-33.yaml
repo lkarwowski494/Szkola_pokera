@@ -1,0 +1,21 @@
+# SC-33 (M11): duży blind sprawdza all-in małego blinda przy 10 bb (F1, range-spot call.bb-10). Rola 06, sesja DU, 2026-11-11. Ocena:
+# rangeVerdict na solverze push/fold projektu, reguła R-M11-007 (gto); cena z R-M11-006 (math). Jeden poziom (D-1034).
+id: sc-33
+module: m11
+situation: "{{t:tournament|토너먼트}}: 당신은 {{n:m11.depth.10}}로 {{t:big-blind|빅 블라인드}}에 있고, {{t:small-blind|스몰 블라인드}}가 {{t:all-in|올인}}했습니다."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [call] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: call.bb-10
+    rule: R-M11-007
+    actions:
+      - action: call
+        explanation: "당신은 {{n:m11.depth.10}}로 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, {{t:small-blind|스몰 블라인드}}가 {{t:all-in|올인}}했습니다. {{t:call|콜}}하는 이유는 이 핸드가 {{t:call|콜}} {{t:range|레인지}}에 들어가기 때문입니다. 블라인드가 이미 {{t:pot|팟}}에 있으므로 필요한 에퀴티는 약 {{n:m11.call.10.eq}}입니다. 그래도 직접 {{t:shove|푸시}}할 때보다 좁게 {{t:call|콜}}합니다. 약 {{n:m11.call.10}} 대 약 {{n:m11.push.10}}입니다."
+      - action: fold
+        explanation: "당신은 {{n:m11.depth.10}}로 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, {{t:small-blind|스몰 블라인드}}가 {{t:all-in|올인}}했습니다. {{t:fold|폴드}}는 너무 신중합니다. 이 핸드는 {{t:call|콜}} {{t:range|레인지}}(핸드의 약 {{n:m11.call.10}})에 들어갑니다. 블라인드가 이미 {{t:pot|팟}}에 있으므로 필요한 에퀴티는 약 {{n:m11.call.10.eq}}뿐입니다."

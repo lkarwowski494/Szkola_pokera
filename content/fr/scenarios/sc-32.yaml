@@ -1,0 +1,21 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). Rola 06, sesja DU, 2026-11-11. Ocena: rangeVerdict
+# na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|Tournoi}} : vous êtes en {{t:small-blind}} avec {{n:m11.depth.10}}, et tout le monde s'est {{t:fold|couché}} jusqu'à vous."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}} avec {{n:m11.depth.10}}, {{w:stol}}, et tout le monde s'est {{t:fold|couché}}. Vous partez {{t:all-in}}, car avec un tapis si court vous risquez peu par rapport aux blindes que vous gagnez quand l'adversaire se {{t:fold|couche}} ; à {{n:m11.depth.10}} vous faites {{t:shove|tapis}} avec environ {{n:m11.push.10}} des mains, et cette main en fait partie."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}} avec {{n:m11.depth.10}}, {{w:stol}}, et tout le monde s'est {{t:fold|couché}}. Se {{t:fold|coucher}} est trop prudent : à {{n:m11.depth.10}} vous faites {{t:shove|tapis}} avec environ {{n:m11.push.10}} des mains, et cette main en fait partie. Avec un tapis court, vous risquez peu par rapport aux blindes que vous gagnez quand l'adversaire se {{t:fold|couche}}."

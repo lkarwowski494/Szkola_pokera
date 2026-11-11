@@ -1,0 +1,21 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). Rola 06, sesja DU, 2026-11-11. Ocena: rangeVerdict
+# na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|토너먼트}}: 당신은 {{n:m11.depth.10}}로 {{t:small-blind|스몰 블라인드}}에 있고, 모두 당신까지 {{t:fold|폴드}}했습니다."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "당신은 {{n:m11.depth.10}}로 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 모두 {{t:fold|폴드}}했습니다. {{t:all-in|올인}}하는 이유는 이렇게 짧은 스택에서는 상대가 {{t:fold|폴드}}할 때 얻는 블라인드에 비해 위험이 작기 때문입니다. {{n:m11.depth.10}}에서는 핸드의 약 {{n:m11.push.10}}를 {{t:shove|푸시}}하며, 이 핸드는 그 안에 들어갑니다."
+      - action: fold
+        explanation: "당신은 {{n:m11.depth.10}}로 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 모두 {{t:fold|폴드}}했습니다. {{t:fold|폴드}}는 너무 신중합니다. {{n:m11.depth.10}}에서는 핸드의 약 {{n:m11.push.10}}를 {{t:shove|푸시}}하며, 이 핸드는 그 안에 들어갑니다. 짧은 스택에서는 상대가 {{t:fold|폴드}}할 때 얻는 블라인드에 비해 위험이 작습니다."

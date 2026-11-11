@@ -1,0 +1,34 @@
+# SC-06 (M3): mały blind przebija albo pasuje, potem rozmiar przebicia (F1 + F3: range-spot rfi.sb, size-spot open-size z sb). Rola 06, sesja DU,
+# 2026-11-11. Ocena: rangeVerdict na solverze projektu (R-M3-009, gto) i rozmiar z parametru R-M3-007 (zły rozmiar = niedokładność).
+# Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
+id: sc-06
+module: m3
+situation: "あなたは{{t:small-blind|スモールブラインド}}にいて、全員があなたまで{{t:fold|フォールド}}しました。"
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、全員があなたまで{{t:fold|フォールド}}しました。{{t:raise|レイズ}}するのは、もう{{t:big-blind|ビッグブラインド}}だけと戦うからです。フロップ後は先に行動するので、ボタンとほぼ同じくらい広く、ハンドの約{{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}で{{t:open|オープン}}し、このハンドはその中に入ります。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、全員があなたまで{{t:fold|フォールド}}しました。{{t:fold|フォールド}}は慎重すぎます。ソルバーはこのハンドをたいてい{{t:raise|レイズ}}します。もう{{t:big-blind|ビッグブラインド}}だけと戦うので、{{t:small-blind|スモールブラインド}}からはハンドの約{{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}と広く{{t:open|オープン}}します。"
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。{{n:pf.open-size-sb}}まで{{t:raise|レイズ}}するのは、{{t:small-blind|スモールブラインド}}からは{{t:out-of-position|アウトオブポジション}}でプレイするので、他の{{t:position|ポジション}}の{{n:pf.open-size}}より少し大きくするためです。すべてのハンドで同じサイズにすれば、ハンドの強さを明かしません。"
+      - action: raise-small
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。このサイズは不正確です。{{t:small-blind|スモールブラインド}}からは{{t:out-of-position|アウトオブポジション}}でプレイするので、少し大きく{{n:pf.open-size-sb}}まで{{t:raise|レイズ}}します。"
+      - action: raise-big
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。このサイズは不正確です。{{n:pf.open-size-sb}}で十分です。すべてのハンドで同じサイズならハンドの強さを明かさず、大きな{{t:raise|レイズ}}は同じハンドでより多くの{{t:chips|チップ}}をリスクにさらします。"

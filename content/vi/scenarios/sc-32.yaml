@@ -1,0 +1,21 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). Rola 06, sesja DU, 2026-11-11. Ocena: rangeVerdict
+# na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|Giải đấu}}: bạn ở {{t:small-blind|small blind}} với {{n:m11.depth.10}}, và mọi người đã {{t:fold|bỏ bài}} đến lượt bạn."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} với {{n:m11.depth.10}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}}. Bạn {{t:all-in|all-in}}, vì với stack ngắn như vậy bạn mạo hiểm ít so với số blind thắng được khi đối thủ {{t:fold|bỏ bài}}; ở {{n:m11.depth.10}} bạn {{t:shove|push}} khoảng {{n:m11.push.10}} số tay bài, và tay này nằm trong đó."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} với {{n:m11.depth.10}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}}. {{t:fold|Bỏ bài}} là quá thận trọng: ở {{n:m11.depth.10}} bạn {{t:shove|push}} khoảng {{n:m11.push.10}} số tay bài, và tay này nằm trong đó. Với stack ngắn, bạn mạo hiểm ít so với số blind thắng được khi đối thủ {{t:fold|bỏ bài}}."

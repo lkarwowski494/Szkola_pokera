@@ -1,0 +1,21 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). Rola 06, sesja DU, 2026-11-11. Ocena: rangeVerdict
+# na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|トーナメント}}：あなたは{{n:m11.depth.10}}で{{t:small-blind|スモールブラインド}}にいて、全員があなたまで{{t:fold|フォールド}}しました。"
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "あなたは{{n:m11.depth.10}}で{{w:pozycja}}にいて{{w:reka}}を持ち、{{w:stol}}、全員が{{t:fold|フォールド}}しました。{{t:all-in|オールイン}}するのは、これほど短いスタックでは、相手が{{t:fold|フォールド}}したときに得るブラインドに比べてリスクが小さいからです。{{n:m11.depth.10}}ではハンドの約{{n:m11.push.10}}を{{t:shove|プッシュ}}し、このハンドはその中に入ります。"
+      - action: fold
+        explanation: "あなたは{{n:m11.depth.10}}で{{w:pozycja}}にいて{{w:reka}}を持ち、{{w:stol}}、全員が{{t:fold|フォールド}}しました。{{t:fold|フォールド}}は慎重すぎます。{{n:m11.depth.10}}ではハンドの約{{n:m11.push.10}}を{{t:shove|プッシュ}}し、このハンドはその中に入ります。短いスタックでは、相手が{{t:fold|フォールド}}したときに得るブラインドに比べてリスクが小さいです。"

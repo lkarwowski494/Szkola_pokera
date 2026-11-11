@@ -1,0 +1,21 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). Rola 06, sesja DU, 2026-11-11. Ocena: rangeVerdict
+# na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|Turnier}}: Du sitzt mit {{n:m11.depth.10}} im {{t:small-blind}}, und alle haben bis zu dir {{t:fold|gefoldet}}."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}} mit {{n:m11.depth.10}}, {{w:stol}}, und alle haben {{t:fold|gefoldet}}. Du gehst {{t:all-in}}, weil du mit so kurzem Stack wenig riskierst im Vergleich zu den Blinds, die du gewinnst, wenn dein Gegner {{t:fold|foldet}}; bei {{n:m11.depth.10}} {{t:shove|pushst}} du etwa {{n:m11.push.10}} der Hände, und diese Hand gehört dazu."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}} mit {{n:m11.depth.10}}, {{w:stol}}, und alle haben {{t:fold|gefoldet}}. Ein {{t:fold}} ist zu vorsichtig: Bei {{n:m11.depth.10}} {{t:shove|pushst}} du etwa {{n:m11.push.10}} der Hände, und diese Hand gehört dazu. Mit kurzem Stack riskierst du wenig im Vergleich zu den Blinds, die du gewinnst, wenn dein Gegner {{t:fold|foldet}}."

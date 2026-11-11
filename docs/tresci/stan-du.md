@@ -2,7 +2,7 @@
 Gałąź `sesja-du-szablony` od b3963e9a. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/DU.md` @ 48baa1fb. Stan na 2026-11-11. Decyzje: `docs/decyzje/DU.md` (D-1030…D-1037; wolne D-1038…D-1049).
 
 ## Wynik w skrócie
-- **Po zgodzie koordynatora (KO-070) w treści: SC-06, SC-32, SC-33, SC-34 (Ł/Ś), pl i en** (D-1038, D-1039). Treść scenariuszy: 10 szablonów (SC-01, 02, 03, 06, 11, 12, 19, 32, 33, 34).
+- **Po zgodzie koordynatora (KO-070) w treści: SC-06, SC-32, SC-33, SC-34 (Ł/Ś), we wszystkich 12 językach** (pl, en; 10 przekładów agenta do przeglądu 09: D-1038, D-1039). Treść scenariuszy: 10 szablonów (SC-01, 02, 03, 06, 11, 12, 19, 32, 33, 34).
 - Szkice w `docs/tresci/szablony-robocze/` (SC-06, 32, 33 usunięte po wejściu do treści): SC-04, SC-05 (czekają na 08-A), SC-08 (pojemność, D-1035, kolejka decyzji koordynatora), SC-34 z poziomem trudnym (06-tresci-002).
 - Testy zmienione według KO-070 (lista i powody: D-1038); nowy `tools/content-build/test/szablony-du.test.ts`.
 
@@ -40,7 +40,7 @@ Reguły: wszystkie wymienione mają w `docs/tresci/rejestr.json` status „potwi
 - **08-N7:** sprawdzenie na riverze bluff-catcherem przy danym udziale blefów (R-M8-010: `call`, gdy udział > `bet ÷ (pula + 2·bet)`). Akceptacja: wyrocznia rachunku, margines od progu jak w draw-call.
 
 ## Lista dla roli 09
-Nowe pliki do przekładu na 10 języków (de, es, fr, it, ja, ko, pt, pt-BR, vi, zh-Hant): `content/pl/scenarios/sc-06.yaml`, `sc-32.yaml`, `sc-33.yaml`, `sc-34.yaml` (pola `situation` i `explanation`; liczby `{{n:…}}`, znaczniki `{{t:…}}` i `{{w:…}}` bez zmian). SC-34: przekłady z sesji CO w `git show ad62a2d:content/<język>/scenarios/sc-34.yaml` (usunąć poziom trudny). Wersje en: `content/en/scenarios/` (napisane w sesji DU, do przeglądu 04/09).
+Przegląd przekładu agenta (D-1039) w 10 językach (de, es, fr, it, ja, ko, pt, pt-BR, vi, zh-Hant): `content/<język>/scenarios/sc-06.yaml`, `sc-32.yaml`, `sc-33.yaml` (nowe w DU) i `sc-34.yaml` (z sesji CO, bez poziomu trudnego); pola `situation` i `explanation`, w tym formy terminów `{{t:…|forma}}`. Wersje en (`content/en/scenarios/`) do przeglądu 04/09.
 
 ## Następny krok
 08: 08-A (bramka `holding`), potem 06 przenosi SC-04/05 z dopasowaniem `szablony-co`; 08-N1…N7 dla grupy „częściowo”; decyzja o pojemności SC-08 (D-1035); 06: SC-13 (źródło, D-795); 09: przekład 4 szablonów; recenzja niezależna DU (treść i testy, KO-070 pkt 4).

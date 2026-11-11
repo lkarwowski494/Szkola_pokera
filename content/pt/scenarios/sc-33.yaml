@@ -1,0 +1,21 @@
+# SC-33 (M11): duży blind sprawdza all-in małego blinda przy 10 bb (F1, range-spot call.bb-10). Rola 06, sesja DU, 2026-11-11. Ocena:
+# rangeVerdict na solverze push/fold projektu, reguła R-M11-007 (gto); cena z R-M11-006 (math). Jeden poziom (D-1034).
+id: sc-33
+module: m11
+situation: "{{t:tournament|Torneio}}: está no {{t:big-blind}} com {{n:m11.depth.10}} e o {{t:small-blind}} foi {{t:all-in}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [call] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: call.bb-10
+    rule: R-M11-007
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. Faz {{t:call}}, porque esta mão está no seu {{t:range}} de {{t:call}}: a sua blind já está no {{t:pot}}, por isso precisa de cerca de {{n:m11.call.10.eq}} de equity. Ainda assim, faz {{t:call}} mais apertado do que faria {{t:shove|push}}: cerca de {{n:m11.call.10}} das mãos contra cerca de {{n:m11.push.10}}."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. {{t:fold|Desistir}} é demasiado cauteloso: esta mão está no seu {{t:range}} de {{t:call}}, cerca de {{n:m11.call.10}} das mãos. A sua blind já está no {{t:pot}}, por isso só precisa de cerca de {{n:m11.call.10.eq}} de equity."

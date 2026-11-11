@@ -1,0 +1,21 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). Rola 06, sesja DU, 2026-11-11. Ocena: rangeVerdict
+# na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|Torneio}}: você está no {{t:small-blind}} com {{n:m11.depth.10}} e todos {{t:fold|desistiram}} até você."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e todos {{t:fold|desistiram}}. Você vai {{t:all-in}}, porque com um stack tão curto arrisca pouco em comparação com os blinds que ganha quando o adversário {{t:fold|desiste}}; com {{n:m11.depth.10}} você faz {{t:shove|push}} com cerca de {{n:m11.push.10}} das mãos, e esta mão está entre elas."
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e todos {{t:fold|desistiram}}. {{t:fold|Desistir}} é cauteloso demais: com {{n:m11.depth.10}} você faz {{t:shove|push}} com cerca de {{n:m11.push.10}} das mãos, e esta mão está entre elas. Com um stack curto você arrisca pouco em comparação com os blinds que ganha quando o adversário {{t:fold|desiste}}."
