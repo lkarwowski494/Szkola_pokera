@@ -375,7 +375,7 @@ function inMargin(margin: number, b: LevelBounds, i: number): boolean {
 }
 
 /** F1: klasy rąk, w których akcja oczekiwana ma częstość z przedziału poziomu i werdykt „zgodna” (ADR-26); klasy niepewne pominięte. */
-function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext): { hc: string; h: number }[] {
+export function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext): { hc: string; h: number }[] {
   const idx = spot.actions.findIndex((a) => a.label === expected);
   if (idx < 0) return [];
   const out: { hc: string; h: number }[] = [];

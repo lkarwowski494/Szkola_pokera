@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, eligibleClasses, findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -250,7 +250,17 @@ export function checkScenarioGenerator(
       e.push(`szablon ${t.id}: poziom ${level}: generator nie wytwarza wariantów (${err instanceof Error ? err.message : String(err)})`);
       continue;
     }
-    if (odciski.size < pojemnoscMin) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${pojemnoscMin}`);
+    // D-1040 / KO-074: szablon bez flopu (tylko range-spot i size-spot): odcisk to klasa ręki, więc próg to min(próg, liczba klas z eligibleClasses)
+    let prog = pojemnoscMin;
+    const pierwszy = t.decisions[0];
+    const b = t.bounds[level];
+    if (ctx && b && pierwszy?.kind === 'range-spot' && t.decisions.every((d) => d.kind === 'range-spot' || d.kind === 'size-spot')) {
+      const spot = ctx.spots.find((x) => x.id === pierwszy.spot);
+      const zakres = b.freqs?.[0];
+      const oczekiwana = b.expected[0];
+      if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);
+    }
+    if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }
   return e;
 }
