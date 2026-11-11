@@ -2,11 +2,12 @@
 // przed pierwszą decyzją. Czysta logika, bez React Native. Rodzaj oceny w tym kroku: draw-call (rachunek: szansa na jedną
 // kartę wobec ceny sprawdzenia, reguła draw-price), jak generateDrawCall.
 import type { Card } from './cards';
-import { dealCards, makeCard, rankOf, suitOf } from './cards';
+import { dealCards, FULL_DECK, makeCard, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
 import { cbetVerdict, isoSizeStandardBb, type IsoParams, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
 import { classifyHolding, HOLDING_LIMITS, type HoldingClass } from './holding';
+import { strength } from './evaluate';
 import { hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
 import { createRng, pick } from './rng';
@@ -679,9 +680,14 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const h = classifyHolding(hero, turn);
       const rangiTurnu = turn.map(rankOf);
       const zKarta = rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiTurnu.includes(rankOf(c)));
-      if (!(h.cls === 'very-strong' || h.cls === 'strong') || !zKarta) return null; // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143)
+      // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143); „strong” tylko z pary (nadpara, najwyższa para z kickerem), nie z samych outów (EI-001)
+      const zrobiona = h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || h.pairKind === 'top'));
+      if (!zrobiona || !zKarta) return null;
       const draw = analyseOutsSpot(villain, turn);
       if (!draw || !(b.draws as readonly string[]).includes(draw.draw.kind) || classifyHolding(villain, turn).improvesBoard) return null;
+      // draw rywala musi mieć żywy out: karta, po której rywal wygrywa z ręką gracza (full, kareta albo wyższy kolor gracza zabijają draw; EI-001)
+      const znane = new Set<Card>([...hero, ...villain, ...turn]);
+      if (!FULL_DECK.some((c) => !znane.has(c) && strength([...villain, ...turn, c]) < strength([...hero, ...turn, c]))) return null;
       const pot = pick(rng, spec.pots);
       const betSmall = Math.round(pot * spec.small);
       const betBig = Math.round(pot * spec.big);

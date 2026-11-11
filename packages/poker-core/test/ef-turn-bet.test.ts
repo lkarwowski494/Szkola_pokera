@@ -1,12 +1,12 @@
 // 08-N6 (sesja EF): zakład gracza na turnie z silną ręką wobec drawa rywala (R-M7-006, math): duży zakład (3/4 puli) odbiera drawowi cenę,
 // mały (1/4) ją daje. Wyrocznia: cena bet ÷ (pula + 2·bet) i szansa koloru 9/46 liczone wprost w teście.
 import { describe, expect, it } from 'vitest';
-import { generateVariant, rankOf, suitOf, TemplateError, type GeneratorTemplate } from '../src';
+import { classifyHolding, generateVariant, rankOf, suitOf, TemplateError, type GeneratorTemplate } from '../src';
 
-const szablon = (marginMin = 0.02, small = 0.25, big = 0.75): GeneratorTemplate => ({
+const szablon = (marginMin = 0.02, small = 0.25, big = 0.75, pots: number[] = [8, 16, 24, 40]): GeneratorTemplate => ({
   id: 'sc-fx-turn-bet',
   levels: { latwy: { draws: ['flush'], reject: [], marginMin, expected: ['bet-big'] } },
-  decisions: [{ kind: 'turn-bet', street: 'turn', pots: [8, 16, 24, 40], small, big }],
+  decisions: [{ kind: 'turn-bet', street: 'turn', pots, small, big }],
 });
 const LOSOWANIA = 3_000;
 
@@ -34,6 +34,10 @@ describe('08-N6: turn-bet', () => {
       // gracz ma co najmniej parę z kartą własną (silna ręka)
       const rangi = turn.map(rankOf);
       expect(rankOf(v.hero[0]) === rankOf(v.hero[1]) || v.hero.some((c) => rangi.includes(rankOf(c)))).toBe(true);
+      // EI-002: klasa ręki gracza (bez „strong” z samych outów, EI-001) i brak poprawy stołu u rywala
+      const h = classifyHolding(v.hero, turn);
+      expect(h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || h.pairKind === 'top')), `seed ${seed}: ${h.cls}/${h.pairKind}`).toBe(true);
+      expect(classifyHolding(v.villain, turn).improvesBoard, `seed ${seed}: rywal poprawia stół`).toBe(false);
     }
   }, 120_000);
   it('odciski różnią się liczbą zakładów i pulą (zakład pokazany w decyzji)', () => {
@@ -42,6 +46,15 @@ describe('08-N6: turn-bet', () => {
   });
   it('niemożliwy rachunek (cena dużego zakładu poniżej szansy drawa) to błąd szablonu', () => {
     expect(() => generateVariant(szablon(0.02, 0.25, 0.3), 'latwy', 1)).toThrow(TemplateError);
+  });
+  it('EI-002: margines od progu dużego zakładu: pula 40, big 0,36 → zakład 14, cena 0,206, margines 0,010 < 0,02 → brak wariantów (błąd szablonu)', () => {
+    expect(() => generateVariant(szablon(0.02, 0.25, 0.36, [40]), 'latwy', 1)).toThrow(TemplateError);
+  });
+  it('EI-002: tuż nad marginesem od progu dużego zakładu: pula 40, big 0,4 → zakład 16, cena 0,222, margines 0,027 ≥ 0,02 → warianty są', () => {
+    for (let seed = 1; seed <= 50; seed++) {
+      const p = generateVariant(szablon(0.02, 0.25, 0.4, [40]), 'latwy', seed).points[0];
+      expect(p?.point === 'turn-bet' && p.betBig === 16 && p.hit < p.requiredBig - 0.02).toBe(true);
+    }
   });
   it('ten sam seed daje ten sam wariant', () => {
     expect(generateVariant(szablon(), 'latwy', 4).fingerprint).toBe(generateVariant(szablon(), 'latwy', 4).fingerprint);
