@@ -139,7 +139,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | DQ | session_01T66VBvLpB9q2t7Chfq96FR | 08 audit (opus/high) | sesja-dq-recenzja @ 2d5e53f0 | ? | ? | PRZEKAZANIE 17:34: PRZYJĄĆ PO POPRAWKACH (0 KRYT/WYS, 4 ŚR, 2 NIS); autor zgodny, tylko docs; ci kod 0 (`dowody/dq-ci-007e23ad.txt`); KO-068 potwierdzone niezależnie; archiwizacja po koszcie |
-| DR | (start przez subagenta 17:40) | 08 fix (sonnet/medium) | sesja-dp-icm @ 007e23ad | 0 | 0 | w toku: scalenie raportów DO+DQ, poprawki DQ 001/002/003/005/006 i DO 001/003/004/006 (DR.md @ 288a890a, D-1000…D-1009) |
+| DR | session_01T66VBzn4LpNpykcN2CRS96 | 08 fix (sonnet/medium) | sesja-dp-icm @ 007e23ad | 0 | 0 | w toku: scalenie raportów DO+DQ, poprawki DQ 001/002/003/005/006 i DO 001/003/004/006 (DR.md @ 288a890a, D-1000…D-1009) |
 | DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | 25,3 | 5,45 | przyjęta 16:26 (PRZYJĄĆ DN); zarchiwizowana 16:55 |
 | DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 007e23ad | 28,9 | 3,84 | praca przyjęta do poprawek (DQ: PRZYJĄĆ PO POPRAWKACH); kontekst ~29% → następca DR; zarchiwizowana 17:40 |
 | DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 370a1548 | 32,5 | 5,11 | **przyjęta 16:26** (autor 6/6, CI 43050740393 success na 370a1548, recenzja DO PRZYJĄĆ 24e86242); zarchiwizowana; scalenie do roboczej razem z DP (DP ⊃ DN) |
