@@ -1,0 +1,30 @@
+# CT: pnpm run ci na 17b1a3a6 (8133a8c + testy i raport recenzji CT), 2026-11-11
+# stan wyjściowy przed zmianami CT (8133a8c): pnpm run ci → EXIT 0 (apps/mobile 902 testów, content-build 379 + 1 expected fail)
+# komenda: pnpm run ci
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  179 passed (179)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  39 passed (39)
+tools/content-build test:       Tests  392 passed | 3 expected fail (395)
+apps/mobile test: Test Suites: 118 passed, 118 total
+apps/mobile test: Tests:       910 passed, 910 total
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 152 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 159 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+błędy: 0, uwagi: 462; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 825
+krytyczne: 56
+0 błędów, 0 uwag
+EXIT 0
+kod wyjścia: 0

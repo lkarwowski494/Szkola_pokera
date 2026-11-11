@@ -33,7 +33,7 @@ Rejestr założeń: bez propozycji zmian statusu.
 |---|---|---|
 | `poker-core/src/scenario-gen.ts` (nadkarty w draw-call, ręka z zakresu w cbet-case, `verdicts`, `akcjeSzablonu`) | tak | odczyt kodu; wyrocznia od zera `dowody/ct-sonda-outy-8133a8c.txt`; test `recenzja-ct-odtworzenie.test.ts` |
 | `poker-core/src/grading.ts` (`cbetVerdict`, `sizeVerdict` wydzielone bez zmiany zachowania) | tak | odczyt diffu; porównanie z `gradeDecision` w teście CT (c) |
-| `tools/content-build/src/scenariusze.ts` (bramka pełnych akcji, icm-call poza ekranem) | tak | odczyt; testy CR `cp-recenzja-cn` zielone w CI (`dowody/ct-ci-8133a8c.txt`) |
+| `tools/content-build/src/scenariusze.ts` (bramka pełnych akcji, icm-call poza ekranem) | tak | odczyt; testy CR `cp-recenzja-cn` zielone w CI (`dowody/ct-ci-17b1a3a6.txt`) |
 | `apps/mobile/.../wariant.ts`, `EkranScenariusza.tsx` (oceny z `verdicts`, częstości do `przebiegScenariusza`) | tak | odczyt; `ct-recenzja.test.tsx` na prawdziwej bazie pl |
 | `apps/mobile/src/data/content/repo.ts` (parsowanie kontekstu schematem) | tak | odczyt diffu; test `kontekst-cn` w CI |
 | Treść SC-03, SC-11, SC-12 (pl; pozostałe 11 języków tylko obecność i liczba akcji) | częściowo | odczyt pl; przekłady nie oceniane (rola 09) |
@@ -50,7 +50,7 @@ Rejestr założeń: bez propozycji zmian statusu.
 | DEV-01 | dotyczy (nadkarty, losowanie z zakresu, werdykty) | ok: każda nowa reguła ma test, a CT dodał wyrocznie niezależne (a, c) |
 | DEV-02 | dotyczy | ok: 3/3 commitów CR/CS zmieniających kod źródłowy ma test w tym samym commicie: `dbc54523`, `af40492b`, `5dea589c`; pozostałe (`138ca636`, `fcdce6b5`, `2cd57bc4`, `4ab96ec9`) zmieniają tylko testy |
 | DEV-03 | dotyczy | ok: filtry `every(kind === 'draw-call')` w trzech testach nie zawężają istniejących szablonów (w `cd327e9` wszystkie były draw-call); `wznowienie-cn` zmienia ziarno, ale warunek wstępny dalej jest asercją; `szablony-f2-ca` i `wariant-kontekst-ca` dostały dane wymagane przez nowy kod bez zmiany asercji; `recenzja-cq-odtworzenie` 003 rozszerzony z SC-03 Ś na sc-02/03/19 × Ł/Ś (1500 zamiast 2000 ziaren, to samo kryterium); CR zastąpił `it.failing` CP testami bramki (inna, zapisana naprawa D-815). Uwaga: SC-03 Ś nie ma po CS żadnej ręki z nadkartą, więc ten test jest tam pusty — patrz 004 |
-| DEV-04 | dotyczy | ok: `pnpm run ci` kod 0 na 8133a8c przed zmianami CT i po dodaniu testów CT (`dowody/ct-ci-8133a8c.txt`) |
+| DEV-04 | dotyczy | ok: `pnpm run ci` kod 0 na 8133a8c przed zmianami CT i na 17b1a3a6 po dodaniu testów CT (`dowody/ct-ci-17b1a3a6.txt`) |
 | DEV-05 | dotyczy (zapis odcisku i aktywności) | ok: brak zmian ścieżek zapisu w zakresie |
 | DEV-06 | nie dotyczy | brak migracji i kopii w zakresie |
 | DEV-07 | dotyczy | ok: brak zakresu otwarcia, pozycji albo pustego zakresu → `TemplateError`, bez wartości domyślnej (`packages/poker-core/src/scenario-gen.ts:395-402`) |
