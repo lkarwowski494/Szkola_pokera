@@ -619,3 +619,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 19:50 | kontrola + koordynator | E2E 43080852450 (DT) w kolejce od 18:45 (65 min; przyczyna do ustalenia — WG kandydat); DT 20,5%, 1,69 USD; własny kontekst 28,1% → przekazanie E6 | następca |
 | 19:52 | koordynator session_01T66VBwmproZFQjCLcWHQy4 | przekazane do session_01T66VBwtbeXie1cCrPGeeBK (stan @ 7667ff96); moje 05:00/14:00 usunięte; kontrola przekazania 20:20 trig_0183nRjDN9tjbvM7K5EqRHSR | następca przejmuje |
 | 19:49 | koordynator | przejęcie przez session_01T66VBwtbeXie1cCrPGeeBK (stan @ 7667ff96); przypomnienia utworzone; add_repo prompts odrzucone → prośba do właściciela | kontrola 20:20 |
+| 19:52 | poprzednik → koordynator | potwierdzenie PRZEJĄŁEM; koszt 12,79 USD do koszty.md; poprzednik się archiwizuje | kontrola 20:20 |
