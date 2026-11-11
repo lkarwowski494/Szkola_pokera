@@ -125,3 +125,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | EB | 06 fix | — | 5,67 | 25,0 | 20:18 → 20:20 → d77ab171 → ci f08cabe4 (sesja) → CI dispatch 21:01 | — | — |
 | EE | 08 audit | — | 5,90 | 26,8 | 20:57 → 20:59 → 5db9daf4 21:36 → przyjęta | — | recenzja ED |
 | EG | 08 build | — | ? | ? | 21:37 → 21:40 → 2344cbcf → ci (sesja) 21:54 → przyjęta 21:57 | — | scalenie partii |
+| EF | 08 build | — | 6,62 | 34,9 | 21:02 → 21:03 → cb5df3c4 22:06 → ci 82eb8738 (sesja) → PRZEKAZANIE 22:25 @ 9a054b59 | — | silnik N1–N7, KO-076; przekroczyła 30% (sonnet zaniża) |
+| EH | 06 build | — | 10,67 | 28,3 | 21:59 → 22:00 → 3d2f7c98 → ci 5a438d2b (sesja) → PRZEKAZANIE 22:36 @ 4d786bd2 | — | SC-04/05/08; 2 subagenty przekładu |
