@@ -1,3 +1,4 @@
+# (CI na e481abff; ten plik dodany następnym commitem, bez zmian kodu)
 # CV: pnpm run ci, 2026-11-11, EXIT 0 (czas 9m59s)
 # Dowód czerwieni kontroli ŚR-002 (nowy test generator-odciski, plik zapisany dla wersji 2):
 # 1) wersja cofnięta do 1 przy bieżącym generatorze:
