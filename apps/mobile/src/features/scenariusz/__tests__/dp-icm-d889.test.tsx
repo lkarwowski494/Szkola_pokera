@@ -101,7 +101,7 @@ describe('kryterium 2: stos „ty” i dopłata z twojego stosu', () => {
   it('twój stos mniejszy albo równy: przypis „{{kwota}} to cały twój stos: przegrana kończy dla ciebie turniej bez nagrody.”', async () => {
     const w = znajdz((p) => heroNieWiekszy(p));
     await decyzja(w);
-    expect(tekstEkranu()).toContain(`${ICM.stackBb! - 1} bb to cały twój stos: przegrana kończy dla ciebie turniej bez nagrody.`);
+    expect(tekstEkranu()).toContain(`${ICM.stackBb! - 1} bb to cały twój stos: przegrana kończy dla ciebie turniej (tournament) bez nagrody.`);
   });
   it('pula to mniejszy stos pary + twój blind także przy większym stosie rywala; all-in rywala w dzienniku to jego pełny stos (D-985)', async () => {
     const w = znajdz((p) => p.stacks[p.villainIndex]! > p.stacks[p.heroIndex]!);
@@ -134,10 +134,10 @@ describe('kryterium 4: VoiceOver', () => {
   it('etykieta stołu: karty nazwami, stan każdego gracza i rywal na SB; lista stosów ma rolę listy; pasek stosu ukryty dla czytnika', async () => {
     const w = znajdz((p) => gracze(p) === 4);
     await decyzja(w);
-    const stol = screen.getByRole('image', { name: /^Stół: ty na BB/ });
+    const stol = screen.getByRole('image', { name: /^Stół \(board\): ty na BB/ });
     const eti = String(stol.props.accessibilityLabel);
     expect(eti).toMatch(/Rywal na SB wchodzi all-in/);
-    expect(eti).toMatch(/Gracz A i Gracz B spasowali\./);
+    expect(eti).toMatch(/Gracz A i Gracz B spasowali \(fold\)\./);
     expect(eti).not.toMatch(/[♠♥♦♣]/); // karty nazwami, nie symbolami (A04-11)
     expect(lista().props.accessibilityRole).toBe('list');
     expect(screen.getAllByTestId('pasek-stosu', { includeHiddenElements: true }).every((x) => x.props.accessibilityElementsHidden === true && x.props.importantForAccessibility === 'no-hide-descendants')).toBe(true);
@@ -146,7 +146,7 @@ describe('kryterium 4: VoiceOver', () => {
   it('3 graczy: „Gracz A spasował.” (liczba pojedyncza)', async () => {
     const w = znajdz((p) => gracze(p) === 3);
     await decyzja(w);
-    expect(String(screen.getByRole('image', { name: /^Stół: ty na BB/ }).props.accessibilityLabel)).toMatch(/Gracz A spasował\./);
+    expect(String(screen.getByRole('image', { name: /^Stół \(board\): ty na BB/ }).props.accessibilityLabel)).toMatch(/Gracz A spasował \(fold\)\./);
   });
 });
 

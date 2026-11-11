@@ -1128,9 +1128,9 @@
       "withAmount": "{{akcja}} {{kwota}}"
     },
     "icm": {
-      "tableLabel": "Stół: ty na {{ty}}, karty {{reka}}. Rywal na {{rywal}} wchodzi all-in.",
-      "foldedOne": "{{kto}} spasował.",
-      "foldedMany": "{{kto}} spasowali.",
+      "tableLabel": "{{t:board|Stół}}: ty na {{ty}}, karty {{reka}}. Rywal na {{rywal}} wchodzi all-in.",
+      "foldedOne": "{{kto}} {{t:fold|spasował}}.",
+      "foldedMany": "{{kto}} {{t:fold|spasowali}}.",
       "bubble": "{{t:bubble|Bańka}}: płatne {{platne}} miejsca z {{gracze}}",
       "prizes": "Nagrody: {{lista}} {{t:prize-pool|puli nagród}}. {{brak}}",
       "place": "{{n}}. miejsce {{procent}}",
@@ -1141,7 +1141,7 @@
       "rival": "Rywal, {{pozycja}}",
       "stackValue": "{{bb}} bb",
       "rowLabel": "{{kto}}, {{wartosc}}",
-      "wholeStack": "{{kwota}} to cały twój stos: przegrana kończy dla ciebie turniej bez nagrody.",
+      "wholeStack": "{{kwota}} to cały twój stos: przegrana kończy dla ciebie {{t:tournament|turniej}} bez nagrody.",
       "rewards": "Stosy i nagrody"
     }
   }
