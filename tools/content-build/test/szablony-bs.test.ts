@@ -79,6 +79,8 @@ describe('CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym p
   it('pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2', () => {
     const b = bledyD630(zly, 'latwy', 50);
     expect(b.length).toBeGreaterThan(0);
+    // 07-jakosc-002: warunek D-630 musi sam zgłosić błąd przy punkcie #2 (alternatywa „pas nieodporny” go nie zastępuje)
+    expect(b.some((x) => /^\d+#2: pas na flopie bez rachunku na dwie karty \(D-630\)$/.test(x))).toBe(true);
     expect(b.every((x) => /#2: pas na flopie bez rachunku na dwie karty \(D-630\)/.test(x) || /#2: pas nieodporny/.test(x))).toBe(true);
   }, 120_000);
 });
