@@ -1,0 +1,35 @@
+/* Sesja DA (rola 04, 2026-11-11): punkt icm-call (F4). Uzupełnia e3.css i scenariusz.css; kolory wyłącznie z tokeny.css.
+   Stosy w bb i nagrody w procentach puli nagród, bez kwot pieniężnych i żetonów (cel właściciela 2026-11-03, design-spec „Znaczenie kolorów”). */
+
+/* Stół 3–4 miejsc: owal niższy niż heads-up, miejsca na krawędziach, karty gracza na środku sukna (przed flopem stół jest pusty) */
+.stol.icm { height: 168px; margin: 36px 48px 0; }
+.stol.icm .owal { border-radius: 84px; }
+.stol.icm .owal::before { border-radius: 72px; }
+.stol.icm .srodek { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.stol.icm .srodek .karta { width: 52px; height: 72px; padding: 3px 7px; }
+.stol.icm .srodek .karta b { font-size: 26px; }
+.stol.icm .srodek .karta svg { width: 18px; height: 18px; }
+.miejsce.allin { border-width: 2.5px; border-color: var(--seat-ink); }
+.stol.icm .miejsce small { white-space: nowrap; }
+.przypis.srodek-tekst { text-align: center; margin-top: 4px; }
+.stol.icm + .w-puli { margin-top: 40px; }
+
+/* Turniej: nagłówek grupy (bańka), nagrody jednym zdaniem, stosy jako lista grupowana z wartością po prawej */
+.turniej { margin-top: 16px; }
+.naglowek-grupy { font-size: var(--t-tresc); font-weight: 600; line-height: 1.3; margin: 0 20px; }
+.nagrody { font-size: var(--t-przypis); color: var(--muted); line-height: 1.4; margin: 4px 20px 8px; }
+.nagrody b { color: var(--ink); font-weight: 600; font-feature-settings: 'tnum'; }
+.grupa.stosy > div { min-height: 44px; padding: 8px 16px; }
+.grupa.stosy .opis { flex: 0 1 auto; min-width: 7.5em; }
+.grupa.stosy .wartosc { color: var(--ink); font-weight: 600; min-width: 4.2em; text-align: right; }
+/* Pasek stosu: stos względem największego przy stole (--u = stos ÷ największy stos); liczba obok niesie tę samą informację, pasek tylko ułatwia porównanie */
+.pasek-stosu { flex: 1 1 auto; height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--muted) calc(var(--u) * 100%), transparent 0), var(--separator); min-width: 48px; }
+.pasek-stosu.ty { background: linear-gradient(to right, var(--gold-on-bg) calc(var(--u) * 100%), transparent 0), var(--separator); }
+
+/* Duży tekst: wartość pod nazwą, pasek stosu znika (liczba zostaje), stół bez zmian (rysunek o stałym rozmiarze) */
+@container style(--dt-tresc: 3.1) {
+  .naglowek-grupy, .nagrody { margin-left: 12px; margin-right: 12px; }
+  .grupa.stosy { margin-left: 8px; margin-right: 8px; }
+  .pasek-stosu { display: none; }
+  .grupa.stosy .wartosc { margin-left: 0; text-align: left; }
+}
