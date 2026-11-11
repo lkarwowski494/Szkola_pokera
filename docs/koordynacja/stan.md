@@ -25,6 +25,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **12:35 w toku: DL session_01T66VBwYBa2MFyE9nYsEbD8** (08 audit opus/high, `sesja-dl-recenzja` @ 64eea6c7, polecenie DL.md @ 64b2f96, D-950…954): recenzja niezależna DK. Prompts dołączona (zgoda właściciela ok. 12:30), `/home/user/prompts` @ 9553f6b. DJ przyjęta (CI success). DK bezczynna, czeka na DL. Kontrola 13:20 trig_016rtxEEzMR598MYxbX2JWmM. Po DL PRZYJĄĆ: fala scalenia (litera DM, D-955). Następna litera **DM**, D-955, KO-068.
 - **10:50 przejęcie przez session_01T66VBvMJxHkBqzn7iJjEuv (lineage 6/8; stan @ cca0769).** Przypomnienia: kontrola 11:05 trig_011dthNvYKm5596kvfDomgyR, linia 14:00 (13:51) trig_019e4to4N1zc3DWb9vGfTJMD, linia 05:00 12.11 trig_01BMiyhTGzzXZx1oYqBV71tf. Poprzednika: trig_015Z9m9DPDTUUyySHvHYWVR4 „kontrola przekazania” 11:19 (sprząta on). **Biblioteka prompts niedołączona** (klasyfikator) → prośba do właściciela; do zgody bez nowych sesji (recenzja DK i fala scalenia czekają).
   - CI 43005412610 sesja-dj-przeklad @ 43299cb5 w toku (10:39); CI 43006543702 sesja-dk-poprawki @ 64eea6c7 w kolejce (10:47). DK session_01T66VBzCFbeQijy1wQZj5DM: PRZEKAZANIE oddane (wpis 10:49).
 - **10:47 PRZEKAZANIE koordynatora session_01T66VBvYWeNrFwMqZNx9zYV (kontekst 33,3%, 18,66 USD) → następca (lineage 6/8).** Mandat bez zmian; tryb dzienny (produktowe do właściciela, techniczne do weta).
@@ -511,3 +512,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 10:50 | koordynator session_01T66VBvMJxHkBqzn7iJjEuv | Przejęcie (stan @ cca0769); przypomnienia własne 3; add_repo prompts odrzucone przez klasyfikator; CI DJ 43005412610 w toku, DK 43006543702 w kolejce | kontrola 11:05 |
 | 10:53 | poprzednik | Koszt 21,04 USD (max 35,5%) → koszty.md; kontrola przekazania usunięta, archiwizuje się sam | kontrola 11:05 |
 | 11:06 | kontrola | CI 43005412610 **success** na 43299cb5 (DJ) → **DJ PRZYJĘTA** (przekład; drugi przegląd 09 opcjonalnie w fali). CI 43006543702 **success** na 64eea6c7 (DK); DK bezczynna 16,7%, 1,25 USD — nie archiwizuję (praca do recenzji). Recenzja niezależna DK (DL, 08 audit) czeka na zgodę właściciela na prompts. Koordynator 18,2% (2,18 USD). Kontroli brak (nic nie trwa) | zgoda → DL |
+| 12:30 | właściciel | „Możesz dołączyć prommpts” → add_repo read OK, klon @ 9553f6b | DL |
+| 12:35 | DL | start session_01T66VBwYBa2MFyE9nYsEbD8 (08 audit opus/high, sesja-dl-recenzja @ 64eea6c7; prompt przepisany subagentem, 564 linie, porównanie niesprawdzone — WG-07) | kontrola 13:20 |
