@@ -591,3 +591,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 18:53 | DU → koordynator | raport zad. 1 @ 74f82455: 6 szkiców (SC-06/32/33/34 build kod 0; SC-04/05 czekają na 08-A scenariusze.ts:168-169; SC-08 pojemność 26<40 D-1035 → kolejka decyzji; SC-13 otwarte); grupa „częściowo” wymaga 08-N1…N7 (stan-du.md); bloker: testy treści → KO-070 zgoda dla 06 bez luzowania | DU przenosi 4 szablony; potem 08: N1…N7 + 08-A |
 
 | 18:56 | koordynator | start DW session_01T66VBwZBrPe3CvVeEFpjSo (09 audit, recenzja DS, przez subagenta WG-13). Następna litera **DX**, D-1065, KO-071 | kontrola 18:58 |
+| 18:59 | kontrola | **E2E 43072503219 success na roboczej @ b3963e9a** (CI 43072503409 success) — robocza zielona; DT 20,5%, 1,69 USD, claude/dt-e2e @ 516882e3, E2E pomiarowy 43080852450 w kolejce; DU @ 74f82455 przenosi SC-06/32/33/34 (KO-070); DV @ b3963e9a, ci w toku; DW start @ 081c6ef3 | kontrola ok. 19:45 (E2E DT, raporty DU/DV/DW) |
