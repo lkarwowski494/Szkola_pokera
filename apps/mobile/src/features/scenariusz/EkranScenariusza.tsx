@@ -11,14 +11,14 @@ import { jezykZadan } from '@/features/drills/text';
 import { useAnnounce } from '@/features/dostepnosc/announce';
 import { ZglosBlad } from '@/features/opinie/Opinie';
 import { godzinaWStrefie } from '@/features/start/EkranStartu';
-import { nazwaPozycji } from '@/features/stol/uklad';
+import { nazwaKarty, nazwaPozycji } from '@/features/stol/uklad';
 import { ADRES_KONTAKTOWY } from '@/platform/adresy';
 import { odstep, styl, useTokens } from '@/theme/tokens';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
-import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolRozdania, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
+import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
 import type { WyborPoziomu } from './poziom';
-import { akcjePunktu, bloki, kwotaAkcji, ocenyAkcji, opisAkcji, poprawnaAkcja, przebiegWariantu, widokDecyzji, type Akcja } from './wariant';
+import { akcjePunktu, bloki, kwotaAkcji, ocenyAkcji, opisAkcji, poprawnaAkcja, przebiegWariantu, ukladIcm, widokDecyzji, type Akcja, type UkladIcm } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
@@ -130,7 +130,13 @@ export interface PropsPrzebiegu {
 function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn): string | null {
   const rywal = s.szablon.positions.villain;
   if (d.point === 'draw-call') return t('play.log.bet', { pos: rywal, bb: d.bet });
-  if (d.point === 'icm-call') return typeof s.szablon.stackBb === 'number' ? t('play.log.allin', { pos: rywal, bb: s.szablon.stackBb }) : null;
+  if (d.point === 'icm-call') {
+    const u = ukladIcm(d, s.szablon);
+    if (!u) return null;
+    // gracze spoza pary spasowali przed all-inem rywala (D-889: „Gracz A: pas. Gracz B: pas. SB: all-in 12,5 bb”), stos rywala w bb z wariantu
+    const pasy = u.wiersze.filter((w) => w.rola === 'inny').map((w) => t('play.log.fold', { pos: t('drill.icm.player', { letter: w.litera }) }));
+    return [...pasy, t('play.log.allin', { pos: rywal, bb: formatujLiczbe(u.stosRywalaBb, jezykZadan()) })].join('. ');
+  }
   if (d.point === 'cbet-case') return t('play.log.check', { pos: rywal });
   const spec = s.szablon.decisions[i];
   return d.point === 'size-spot' && spec?.kind === 'size-spot' && d.check === 'three-bet-size' && spec.openBb !== undefined ? t('play.log.raise', { pos: rywal, bb: spec.openBb }) : null;
@@ -199,6 +205,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const fraza = (a: Akcja): string => teksty[a]?.fraza ?? '';
   const najlepsza: Akcja = poprawnaAkcja(d);
   const idxUlicy = ULICE.indexOf(widok.ulica);
+  const icm = d.point === 'icm-call' ? ukladIcm(d, s.szablon) : null; // D-889: stół 3–4 miejsc, stosy i nagrody z wariantu
   const doDziennika = wpisyDziennika(s, indeks, t, ocenaMode ? oceny : oceny.slice(0, indeks));
   return (
     <Screen>
@@ -207,6 +214,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         <Text accessibilityRole="header" style={[styl.naglowek, { color: tk.ink }]}>{t('scenario.nav.title')}</Text>
         <Text style={[styl.drobny, { color: tk.muted, minWidth: 64, textAlign: 'right' }]}>{t(`scenario.street.${widok.ulica}`)}</Text>
       </View>
+      {icm ? null : (
       <View accessibilityRole="list" accessibilityLabel={t('scenario.streets.label')} style={{ flexDirection: 'row', gap: odstep.s, flexWrap: 'wrap' }}>
         {ULICE.map((u, i) => (
           <Text key={u} accessibilityState={{ selected: i === idxUlicy }} style={[styl.drobny, { color: i === idxUlicy ? tk.ink : tk.muted, fontWeight: i === idxUlicy ? '700' : '400', textDecorationLine: i === idxUlicy ? 'underline' : 'none' }]}>
@@ -214,6 +222,8 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
           </Text>
         ))}
       </View>
+      )}
+      {icm ? <StolIcmEkranu uklad={icm} s={s} reka={s.wariant.hero.map(cardToString)} t={t} /> : (
       <StolRozdania
         stol={widok.stol}
         reka={s.wariant.hero.map(cardToString)}
@@ -221,7 +231,10 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         pozycjaRywal={s.szablon.positions.villain}
         stosBb={s.szablon.stackBb}
       />
+      )}
       {widok.pulaBb !== null && widok.doSprawdzeniaBb !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: widok.pulaBb, kwota: widok.doSprawdzeniaBb })}</Text> : null}
+      {icm && icm.caleStosTy && widok.doSprawdzeniaBb !== null ? <Text style={[styl.przypis, { color: tk.muted, textAlign: 'center' }]}>{t('scenario.icm.wholeStack', { kwota: t('scenario.icm.stackValue', { bb: formatujLiczbe(widok.doSprawdzeniaBb, jezykZadan()) }) })}</Text> : null}
+      {icm && !ocenaMode ? <TurniejIcm uklad={icm} pozycjaTy={s.szablon.positions.hero} pozycjaRywal={s.szablon.positions.villain} formatBb={(x) => formatujLiczbe(x, jezykZadan())} formatProcent={(x) => formatujProcent(x, jezykZadan())} naglowek /> : null}
       <Dziennik wpisy={doDziennika} />
       {p.bladZapisu ? <Text accessibilityRole="alert" style={[styl.tresc, { color: tk.ink }]}>{t('session.saveFailed')}</Text> : null}
       {!ocenaMode ? (
@@ -246,6 +259,11 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
               ))}
             </Rozwijany>
           ) : null}
+          {icm ? (
+            <Rozwijany tytul={t('scenario.icm.rewards')} testID="stosy-nagrody">
+              <TurniejIcm uklad={icm} pozycjaTy={s.szablon.positions.hero} pozycjaRywal={s.szablon.positions.villain} formatBb={(x) => formatujLiczbe(x, jezykZadan())} formatProcent={(x) => formatujProcent(x, jezykZadan())} naglowek={false} />
+            </Rozwijany>
+          ) : null}
           {ADRES_KONTAKTOWY ? (
             <ZglosBlad zadanieId={`${s.szablon.id}#${indeks + 1}`} wersjaAplikacji={Constants.expoConfig?.version ?? '?'} jezyk={i18n.language} adresKontaktowy={ADRES_KONTAKTOWY} otworzAdres={(url) => Linking.openURL(url).then(() => true)} />
           ) : null}
@@ -253,6 +271,21 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         </View>
       ) : null}
     </Screen>
+  );
+}
+/** Stół punktu icm-call z danych układu: miejsca (nazwa + stan) i etykieta VoiceOver ze stanem każdego gracza i rywalem na SB (kryterium 4). */
+function StolIcmEkranu({ uklad, s, reka, t }: { uklad: UkladIcm; s: SesjaScenariusza; reka: readonly string[]; t: TFn }): React.JSX.Element {
+  const inni = uklad.wiersze.filter((w) => w.rola === 'inny').map((w) => t('drill.icm.player', { letter: w.litera }));
+  const spasowali = inni.length === 0 ? '' : t(inni.length === 1 ? 'scenario.icm.foldedOne' : 'scenario.icm.foldedMany', { kto: inni.length === 1 ? (inni[0] ?? '') : t('table.listAnd', { a: inni.slice(0, -1).join(', '), b: inni[inni.length - 1] ?? '' }) });
+  const etykieta = [t('scenario.icm.tableLabel', { ty: s.szablon.positions.hero, reka: reka.map((c) => nazwaKarty(c, t)).join(', '), rywal: s.szablon.positions.villain }), spasowali].filter((x) => x !== '').join(' ');
+  return (
+    <StolIcm
+      reka={reka}
+      etykieta={etykieta}
+      ty={{ rola: 'ty', nazwa: s.szablon.positions.hero, stan: t('scenario.table.you') }}
+      rywal={{ rola: 'rywal', nazwa: s.szablon.positions.villain, stan: t('play.allInTag') }}
+      inni={inni.map((nazwa) => ({ rola: 'inny' as const, nazwa, stan: t('play.folded') }))}
+    />
   );
 }
 const ocenyAkcjiSesji = (s: SesjaScenariusza, i: number) => ocenyAkcji(s.wariant, i);

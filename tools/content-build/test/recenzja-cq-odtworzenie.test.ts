@@ -41,9 +41,9 @@ describe('06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: ko
       });
     }
   }
-  it('szkic SC-34 (icm-call) jest odrzucany przez bramkę ekranu i nie ma go w content/ (WYS-002, D-807)', () => {
+  it('szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002 i nie ma go w content/ (WYS-002; D-889, D-986)', () => {
     const sc34 = szkice.find((t) => t.id === 'sc-34')!;
-    expect(checkScenarioNaEkran(sc34).join('\n')).toMatch(/icm-call nie jest jeszcze obsługiwany na ekranie/);
+    expect(checkScenarioNaEkran(sc34).join('\n')).toMatch(/poziom trudny.*06-tresci-002/);
     expect(pl.some((t) => t.id === 'sc-34' || t.decisions.some((d) => d.kind === 'icm-call'))).toBe(false);
   });
 });

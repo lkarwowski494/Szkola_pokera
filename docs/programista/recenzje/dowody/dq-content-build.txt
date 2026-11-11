@@ -1,0 +1,10 @@
+$ pnpm content:build  (worktree @ 007e23ad)
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Zapisano 35 baz treści w /tmp/claude-0/-home-user-Szkola-pokera/b32c43be-70e9-55ef-9b5c-98668fa46c22/scratchpad/wt/apps/mobile/assets/content: 44 lekcji, 146 reguł, 829 liczb, 162 terminów.
+(node:6933) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+KOD WYJŚCIA: 0
+$ git status --porcelain (bez sond DQ)
+linii zmian: 0

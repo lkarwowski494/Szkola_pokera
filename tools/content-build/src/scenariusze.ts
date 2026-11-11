@@ -197,12 +197,11 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
  * nie zakazanych, więc nowy rodzaj punktu jest odrzucany w budowaniu, dopóki ekran go nie obsłuży. Ekran składa kontekst generatora
  * z bazy treści (`buildGeneratorContext`, jak kontrola generatora) i ma akcje dla `draw-call`, `cbet-case` i `size-spot`.
  * `range-spot` (F1; CX, D-866) wszedł po obsłudze akcji spotu na ekranie (nazwy z etykiet węzła solvera, ocena z `rangeVerdict` wariantu).
- * Poza listą: `icm-call` (F4; ocena zależy od stosów i wypłat, których ekran nie pokazuje, a teksty i układ tego widoku projektuje rola 04, D-807).
+ * `icm-call` (F4) wszedł z widokiem stosów wszystkich graczy i nagród (DP, D-889; projekt roli 04). Warunek SC-34 (D-825): poziom trudny icm-call czeka na 06-tresci-002
+ * (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie), więc bramka odrzuca szablon icm-call z poziomem trudnym (`checkScenarioNaEkran`, D-986).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot'];
-const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {
-  'icm-call': 'ekran nie pokazuje stosów i wypłat, na których opiera się ocena (czeka na projekt roli 04, D-807)',
-};
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call'];
+const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {};
 
 /**
  * Bramka ekranu (CN, CR WYS-001): rodzaj punktu jest obsługiwany, a punkt c-betu albo rozmiaru ma dokładnie ten zestaw akcji, który ekran
@@ -213,6 +212,9 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
     const kind = d.kind ?? 'draw-call';
     if (!RODZAJE_NA_EKRANIE.includes(kind)) {
       return [`szablon ${t.id}: punkt ${i + 1} ${kind} nie jest jeszcze obsługiwany na ekranie scenariusza (obsługiwane: ${RODZAJE_NA_EKRANIE.join(', ')}; ${kind}: ${POWOD_POZA_EKRANEM[kind] ?? 'brak obsługi'}); szablon nie może trafić do bazy treści`];
+    }
+    if (kind === 'icm-call' && t.levels.includes('trudny')) {
+      return [`szablon ${t.id}: punkt ${i + 1} icm-call: poziom trudny czeka na 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie; docs/tresci/szablony-robocze/README.md, SC-34, D-825); szablon nie może trafić do bazy treści`];
     }
     const wymagane = akcjeSzablonu(kind, d.kind === 'size-spot' ? d.check : undefined);
     if (!wymagane) return [];

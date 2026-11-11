@@ -26,7 +26,7 @@ describe('CM ŚR-001 (naprawa CN, D-782): bramka ekranu przepuszcza tylko rodzaj
     expect(szablony.length).toBeGreaterThanOrEqual(7);
     expect(rangeSpot.length).toBeGreaterThanOrEqual(2);
   });
-  it('lista dozwolonych: draw-call, cbet-case, size-spot, range-spot (icm-call czeka na projekt roli 04, CR WYS-003; range-spot od CX, D-866)', () => expect(RODZAJE_NA_EKRANIE).toEqual(['draw-call', 'cbet-case', 'size-spot', 'range-spot']));
+  it('lista dozwolonych: draw-call, cbet-case, size-spot, range-spot, icm-call (range-spot od CX, D-866; icm-call od DP, D-889: widok stosów i nagród)', () => expect(RODZAJE_NA_EKRANIE).toEqual(['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call']));
   for (const t of rangeSpot) {
     it(`${t.id}: range-spot przepuszczony przez bramkę (CX, D-866), więc ekran z kontekstem generuje wariant i ocenę każdej akcji na każdym poziomie, a bez kontekstu odmawia`, () => {
       expect(checkScenarioNaEkran(t)).toEqual([]);

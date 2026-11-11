@@ -1,13 +1,13 @@
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import type { OcenaOdpowiedzi } from '@szkola/domena';
 import { CardRow } from '@/components/PlayingCard';
 import { RichText } from '@/components/RichText';
 import StopienOceny, { ZNAK } from '@/features/ocena/StopienOceny';
 import { nazwaKarty } from '@/features/stol/uklad';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
-import type { Blok, RodzajBloku } from './wariant';
+import type { Blok, RodzajBloku, UkladIcm } from './wariant';
 import type { Akcja } from './wariant';
 import type { WyborPoziomu } from './poziom';
 
@@ -122,6 +122,79 @@ export function Rozwijany({ tytul, children, testID }: { tytul: string; children
   );
 }
 
+// ---------- Punkt ICM (D-889, docs/design/design-spec.md „Scenariusz: punkt ICM”) ----------
+/** Od tej skali tekstu (iOS: AX5 ≈ 3,1; wartość spoza spec: DA podaje „przy AX5”, próg ustawiony między AX3 a AX5) pasek stosu znika, a wartość schodzi pod nazwę; liczba niesie tę samą informację (D-987). */
+const SKALA_BEZ_PASKA = 2.5;
+
+export interface MiejsceIcm { nazwa: string; stan: string; rola: 'ty' | 'rywal' | 'inny' }
+/**
+ * Stół 3–4 miejsc bez stosów na rysunku (przy 4 miejscach na 320 pt liczby by się nie mieściły, a w rysunku nie skalują się z tekstem): ty = BB na dole,
+ * dalej zgodnie z ruchem wskazówek zegara gracze spoza pary, rywal (SB) po prawej; twoje karty na środku sukna. Etykieta dla czytnika z ekranu.
+ */
+export function StolIcm({ reka, etykieta, ty, rywal, inni }: { reka: readonly string[]; etykieta: string; ty: MiejsceIcm; rywal: MiejsceIcm; inni: readonly MiejsceIcm[] }): React.JSX.Element {
+  const tk = useTokens();
+  const miejsce = (m: MiejsceIcm) => (
+    <View key={`${m.rola}-${m.nazwa}`} style={[styles.miejsce, m.rola === 'ty' ? { borderColor: tk.gold, borderWidth: 2 } : m.rola === 'rywal' ? { borderColor: tk.onFelt, borderWidth: 2 } : { borderColor: tk.onFeltMuted }]}>
+      <Text style={[styl.drobny, { color: m.rola === 'ty' ? tk.goldText : tk.onFelt, fontWeight: '700', textAlign: 'center' }]}>{m.nazwa}</Text>
+      <Text style={[styl.przypis, { color: m.rola === 'ty' ? tk.goldText : tk.onFeltMuted, textAlign: 'center' }]}>{m.stan}</Text>
+    </View>
+  );
+  return (
+    <View accessible accessibilityRole="image" accessibilityLabel={etykieta} style={[styles.rama, { backgroundColor: tk.frame }]}>
+      <View style={[styles.sukno, { backgroundColor: tk.felt1, borderColor: tk.felt2 }]}>
+        <View style={styles.rzadMiejsc}>{[...inni, rywal].map(miejsce)}</View>
+        <CardRow cards={reka} size="lg" />
+        {miejsce(ty)}
+      </View>
+    </View>
+  );
+}
+
+export interface PropsTurniejuIcm {
+  uklad: UkladIcm;
+  /** Pozycje z szablonu (skróty: BB, SB). */
+  pozycjaTy: string;
+  pozycjaRywal: string;
+  /** Zapis liczby w języku zadań (z jednym miejscem po przecinku, bez końcowego zera). */
+  formatBb(bb: number): string;
+  formatProcent(u: number): string;
+  /** Z nagłówkiem bańki (ekran decyzji) albo bez (po rozwinięciu w ocenie: sam wiersz „Stosy i nagrody” jest tytułem). */
+  naglowek: boolean;
+}
+/** Turniej: nagłówek bańki, nagrody jednym zdaniem w % puli nagród i lista „Stosy na początku rozdania” z paskiem stosu względem największego. */
+export function TurniejIcm({ uklad, pozycjaTy, pozycjaRywal, formatBb, formatProcent, naglowek }: PropsTurniejuIcm): React.JSX.Element {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  const { fontScale } = useWindowDimensions();
+  const pasek = fontScale < SKALA_BEZ_PASKA;
+  const miejsca = uklad.wyplaty.map((w, i) => t('scenario.icm.place', { n: i + 1, procent: formatProcent(w) })).join(', ');
+  const brak = t(uklad.liczbaGraczy === 3 ? 'scenario.icm.noPrizeThird' : 'scenario.icm.noPrizeFourth');
+  return (
+    <View style={{ gap: odstep.s }}>
+      {naglowek ? <Text accessibilityRole="header" style={[styl.naglowek, { color: tk.ink }]}>{t('scenario.icm.bubble', { platne: uklad.wyplaty.length, gracze: uklad.liczbaGraczy })}</Text> : null}
+      <Text style={[styl.przypis, { color: tk.muted }]}>{t('scenario.icm.prizes', { lista: miejsca, brak })}</Text>
+      <View accessibilityRole="list" accessibilityLabel={t('scenario.icm.stacksLabel')} style={{ gap: odstep.xs }}>
+        {uklad.wiersze.map((w) => {
+          const poz = w.rola === 'ty' ? pozycjaTy : w.rola === 'rywal' ? pozycjaRywal : null;
+          const kto = w.rola === 'ty' ? t('scenario.icm.you', { pozycja: poz }) : w.rola === 'rywal' ? t('scenario.icm.rival', { pozycja: poz }) : t('drill.icm.player', { letter: w.litera });
+          const wartosc = t('scenario.icm.stackValue', { bb: formatBb(w.stosBb) });
+          return (
+            <View key={`${w.rola}-${w.litera ?? ''}`} testID="stos-wiersz" accessible accessibilityLabel={t('scenario.icm.rowLabel', { kto, wartosc })} style={[styles.wierszStosu, { borderColor: tk.separator, minHeight: CEL_DOTYKU }]}>
+              <Text style={[styl.tresc, { color: tk.ink, flexShrink: 1 }]}>{kto}</Text>
+              {pasek ? (
+                <View testID="pasek-stosu" accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={[styles.torStosu, { backgroundColor: tk.separator }]}>
+                  <View style={{ width: `${Math.round(w.udzial * 100)}%`, height: 8, borderRadius: 4, backgroundColor: w.rola === 'ty' ? tk.goldOnBg : tk.muted }} />
+                </View>
+              ) : null}
+              <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600', fontVariant: ['tabular-nums'], textAlign: 'right' }]}>{wartosc}</Text>
+            </View>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
+
 const TYTUL_BLOKU: Record<RodzajBloku, string> = { slabsza: 'scenario.why.weaker', lepsza: 'scenario.why.better', dobrze: 'scenario.why.good', dlaczego_nie: 'scenario.why.whyNot' };
 
 /** Blok „dlaczego” (BR-OCE-002): zdanie sytuacji na pierwszym planie (tekst z wariantu), potem „grasz …, bo …”. */
@@ -159,5 +232,8 @@ const styles = StyleSheet.create({
   wiersz: { flexDirection: 'row', alignItems: 'flex-start', gap: odstep.s, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingBottom: odstep.s },
   pasekOcen: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
   segmentOceny: { flexGrow: 1, flexBasis: 96, borderRadius: promien.przycisk, padding: odstep.m, gap: odstep.xs },
+  rzadMiejsc: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: odstep.s },
+  wierszStosu: { flexDirection: 'row', alignItems: 'center', gap: odstep.m, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingVertical: odstep.xs },
+  torStosu: { flex: 1, height: 8, borderRadius: 4, minWidth: 48, overflow: 'hidden' },
   rozwin: { flexDirection: 'row', alignItems: 'center', borderTopWidth: StyleSheet.hairlineWidth * 2, paddingVertical: odstep.s },
 });

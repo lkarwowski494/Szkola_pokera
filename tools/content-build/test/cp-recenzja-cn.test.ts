@@ -59,10 +59,15 @@ describe('CP WYS-001: bramka przepuszcza punkt c-betu albo rozmiaru z niepełną
   });
 });
 
-describe('CP WYS-003 (CR, D-807): icm-call poza ekranem do czasu projektu roli 04 (ekran nie pokazuje stosów i wypłat)', () => {
+describe('CP WYS-003 (CR, D-807) → DP D-889: icm-call na ekranie (widok stosów i nagród); poziom trudny czeka na 06-tresci-002 (SC-34, D-825)', () => {
   const icm = loadScenarioTemplates(join(fixtures, 'icm-call'))[0]!.template;
-  it('bramka ekranu odrzuca szablon icm-call z powodem', () => {
-    expect(checkScenarioNaEkran(icm)).toEqual([expect.stringContaining('icm-call nie jest jeszcze obsługiwany na ekranie scenariusza')]);
-    expect(checkScenarioNaEkran(icm)[0]).toContain('stosów i wypłat');
+  it('bramka ekranu przyjmuje icm-call bez poziomu trudnego', () => {
+    expect(checkScenarioNaEkran({ ...icm, levels: ['latwy', 'sredni'] })).toEqual([]);
+  });
+  it('bramka odrzuca icm-call z poziomem trudnym z powodem 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM)', () => {
+    const e = checkScenarioNaEkran(icm);
+    expect(e).toHaveLength(1);
+    expect(e[0]).toContain('poziom trudny');
+    expect(e[0]).toContain('06-tresci-002');
   });
 });

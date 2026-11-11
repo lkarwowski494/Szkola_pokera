@@ -1072,6 +1072,23 @@
       "amountTo": "{{bb}} bb로",
       "amountAll": "{{bb}} bb",
       "withAmount": "{{kwota}} {{akcja}}"
+    },
+    "icm": {
+      "tableLabel": "{{t:board|Table}}: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in.",
+      "foldedOne": "{{kto}} {{t:fold|folded}}.",
+      "foldedMany": "{{kto}} {{t:fold|folded}}.",
+      "bubble": "{{t:bubble|Bubble}}: {{platne}} of {{gracze}} places are paid",
+      "prizes": "Prizes: {{lista}} of the {{t:prize-pool|prize pool}}. {{brak}}",
+      "place": "place {{n}} {{procent}}",
+      "noPrizeThird": "Place 3 gets nothing.",
+      "noPrizeFourth": "Place 4 gets nothing.",
+      "stacksLabel": "Stacks at the start of the hand",
+      "you": "You, {{pozycja}}",
+      "rival": "Opponent, {{pozycja}}",
+      "stackValue": "{{bb}} bb",
+      "rowLabel": "{{kto}}, {{wartosc}}",
+      "wholeStack": "{{kwota}} is your whole stack: if you lose, you are out of the {{t:tournament|tournament}} with no prize.",
+      "rewards": "Stacks and prizes"
     }
   }
 }
