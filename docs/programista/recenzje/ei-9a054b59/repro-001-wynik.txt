@@ -1,0 +1,29 @@
+$ vitest run ei-turn-bet-zywe-outy.test.ts (packages/poker-core, worktree @ 9a054b59): kod 1, 2 testy czerwone
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ei-turn-bet-zywe-outy.test.ts > EI-001: turn-bet: draw rywala ma żywe outy > ziarna 1–500: każdy wariant ma co najmniej jeden out, po którym rywal wygrywa
+AssertionError: expected [ …(90) ] to deeply equal []
++   "seed 15: AhJd vs 8s6d na Qd2d4hAd",
++   "seed 19: KdKc vs Qd9c na 7s5c7c3c",
++   "seed 29: 2hKh vs 5cQc na Kc2cKd4s",
++   "seed 31: As7h vs 3c8s na Js4s7sAc",
++   "seed 36: 9dKh vs 6h2d na QdJh5dKd",
++   "seed 50: 2s3c vs QcTc na 2c2d3hAc",
++   "seed 51: TdJc vs 8d6s na AsJdKd4d",
++   "seed 57: KcAh vs As8h na Qh3hKh4s",
++   "seed 61: 7s2d vs 8cTh na 7h2h2sQh",
++   "seed 65: 9c6c vs AsQs na 6dKd6s9s",
++   "seed 85: TcAd vs 4h5d na 6dTd9dTh",
++   "seed 91: KcKs vs Qh2c na 9c4c3cTh",
++   "seed 95: QcQh vs 6s4h na KhJh8hAd",
++   "seed 97: Ac9s vs Ts4s na 9c8sAhAs",
++   "seed 100: QhTs vs 7c6h na AhJhQc8h",
++   "seed 110: 9s9c vs 4s5d na 2h9d2dQd",
++   "seed 114: KcAh vs 2c6h na 3cQcAc9h",
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected [ …(105) ] to deeply equal []
++   "seed 9: 5d6c na Ad3c4d6d (second, outy 15)",
++   "seed 22: Tc8h na Jh7h5h8s (second, outy 12)",
++   "seed 45: 9c7h na 6hQc7cTc (low, outy 12)",
++   "seed 97: 4d2d na 3hAd4hTd (low, outy 12)",
++   "seed 111: 6c4h na 3hKs6h7h (low, outy 12)",
++   "seed 172: 3s3c na 6d2cQc4c (underpair, outy 12)",

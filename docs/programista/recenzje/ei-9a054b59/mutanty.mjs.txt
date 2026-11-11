@@ -1,0 +1,45 @@
+// Runner mutantów EI: podmiana jednego fragmentu, uruchomienie testów autora, przywrócenie pliku.
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const W = process.argv[2];
+const PC = 'packages/poker-core', CB = 'tools/content-build';
+const M = [
+  ['M01 N5 grading: ignoruj params.position', `${PC}/src/grading.ts`, `const oop = rule.check.params?.position === 'oop';`, `const oop = false;`, CB, 'test/ef-n5-oop.test.ts'],
+  ['M02 N5 bramka: brak kontroli pozycji cbet', `${CB}/src/scenariusze.ts`, `const regulaPozycja = ctx.cbetPositions?.get(d.rule) ?? 'ip';`, `const regulaPozycja: string = 'brak';`, CB, 'test/ef-n5-oop.test.ts'],
+  ['M03 N6 bez warunku hit < reqBig', `${PC}/src/scenario-gen.ts`, `if (!(hit > reqSmall && hit < reqBig) ||`, `if (!(hit > reqSmall) ||`, PC, 'test/ef-turn-bet.test.ts'],
+  ['M04 N6 bez marginesu od dużego', `${PC}/src/scenario-gen.ts`, ` || !inMargin(reqBig - hit, b, i)) return null;`, `) return null;`, PC, 'test/ef-turn-bet.test.ts'],
+  ['M05 N6 bez karty gracza w parze', `${PC}/src/scenario-gen.ts`, `if (!(h.cls === 'very-strong' || h.cls === 'strong') || !zKarta) return null;`, `if (!(h.cls === 'very-strong' || h.cls === 'strong')) return null;`, PC, 'test/ef-turn-bet.test.ts'],
+  ['M06 N6 bez klasy silnej', `${PC}/src/scenario-gen.ts`, `if (!(h.cls === 'very-strong' || h.cls === 'strong') || !zKarta) return null;`, `if (!zKarta) return null;`, PC, 'test/ef-turn-bet.test.ts'],
+  ['M07 N6 bez filtra rywal poprawia stół', `${PC}/src/scenario-gen.ts`, ` || classifyHolding(villain, turn).improvesBoard) return null;`, `) return null;`, PC, 'test/ef-turn-bet.test.ts'],
+  ['M08 N7 bez karty gracza w parze', `${PC}/src/scenario-gen.ts`, `if (h.pairKind === null || !zKartaGracza) return null;`, `if (h.pairKind === null) return null;`, PC, 'test/ef-river-catch.test.ts'],
+  ['M09 N7 próg z pot+bet zamiast pot+2bet', `${PC}/src/scenario-gen.ts`, `.map((x) => ({ ...x, required: requiredEquity(pot, x.bet), margin: Math.abs(x.bluffShare - requiredEquity(pot, x.bet)) }))`, `.map((x) => ({ ...x, required: x.bet / (pot + x.bet), margin: Math.abs(x.bluffShare - x.bet / (pot + x.bet)) }))`, PC, 'test/ef-river-catch.test.ts'],
+  ['M10 N2 bez zgodności z oczekiwaną', `${PC}/src/scenario-gen.ts`, `if (correct === null || correct !== b.expected[i]) return null;`, `if (correct === null) return null;`, PC, 'test/ef-defend.test.ts'],
+  ['M11 N2 ręka spoza zakresu (wagi = 1)', `${PC}/src/scenario-gen.ts`, `const wagi = HAND_CLASSES.map((hc, h) => spot.actions.filter((a) => a.label !== 'fold').reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0) * classCombos(hc).length);`, `const wagi = HAND_CLASSES.map((hc) => classCombos(hc).length);`, PC, 'test/ef-defend.test.ts'],
+  ['M12 KO-076 margines ignorowany', `${PC}/src/scenario-gen.ts`, `(equityMarginMin === undefined || equityMargin(spot, expected, hc, ctx.equity169!) >= equityMarginMin)`, `true`, CB, 'test/ef-margines-ko076.test.ts'],
+  ['M13 KO-076 granica < 0,5 zamiast ≤', `${PC}/src/scenario-gen.ts`, `?? 0) <= 0.5) best =`, `?? 0) < 0.5) best =`, CB, 'test/ef-margines-ko076.test.ts'],
+  ['M14 N1 grupa: max zamiast sumy', `${PC}/src/scenario-gen.ts`, `const gram = { label: PLAY_ACTION, freqs: HAND_CLASSES.map((_hc, h) => spot.actions.filter((a) => play.includes(a.label)).reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0)) };`, `const gram = { label: PLAY_ACTION, freqs: HAND_CLASSES.map((_hc, h) => Math.max(0, ...spot.actions.filter((a) => play.includes(a.label)).map((a) => a.freqs[h] ?? 0))) };`, PC, 'test/ef-gram-pas.test.ts'],
+  ['M15 N3 generator: oop zawsze false', `${PC}/src/scenario-gen.ts`, `spec.limpers, t.positions.hero === 'SB' || t.positions.hero === 'BB');`, `spec.limpers, false);`, CB, 'test/ef-iso-size.test.ts'],
+  ['M16 N3 bramka: bez limitu limperów', `${CB}/src/scenariusze.ts`, `if (d.limpers > przed) e.push(`, `if (false) e.push(`, CB, 'test/ef-iso-size.test.ts'],
+  ['M17 N4 bez kontroli duplikatu klas (generator)', `${PC}/src/scenario-gen.ts`, `if (widziane.has(hc)) throw new TemplateError(`, `if (false) throw new TemplateError(`, PC, 'test/ef-list-hand.test.ts'],
+  ['M18 N4 bramka: bez kontroli duplikatu', `${CB}/src/scenariusze.ts`, `else if (klasy.has(hc)) e.push(`, `else if (false) e.push(`, CB, 'test/ef-list-hand-bramka.test.ts'],
+  ['M19 N6 bramka: oczekiwana dowolna', `${CB}/src/scenariusze.ts`, `if (ex !== undefined && ex !== 'bet-big') e.push(`, `if (false) e.push(`, CB, 'test/ef-turn-bet-bramka.test.ts'],
+  ['M20 N7 bramka: bez marginMin', `${CB}/src/scenariusze.ts`, `if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(\`\${p} poziom \${l}: punkt river-catch`, `if (false) e.push(\`\${p} poziom \${l}: punkt river-catch`, CB, 'test/ef-river-catch-bramka.test.ts'],
+  ['M21 N2 bramka: ułamek w luce dozwolony', `${CB}/src/scenariusze.ts`, `for (const f of d.fractions) if (f > 0.4 && f < 0.7) e.push(`, `for (const f of d.fractions) if (false) e.push(`, CB, 'test/ef-defend-bramka.test.ts'],
+  ['M22 KO-076 macierz w bazie tylko dla icm', `${CB}/src/scenariusze.ts`, ` || Object.values(t.bounds).some((b) => b?.equityMarginMin !== undefined));`, `);`, CB, 'test/ef-margines-ko076.test.ts'],
+  ['M23 bramka ekranu: play przepuszczony', `${CB}/src/scenariusze.ts`, `if (d.kind === 'range-spot' && d.play) {`, `if (false) {`, CB, 'test/ef-gram-pas-bramka.test.ts'],
+  ['M24 bramka ekranu: iso-size przepuszczony', `${CB}/src/scenariusze.ts`, `if (d.kind === 'size-spot' && d.check === 'iso-size') {`, `if (false) {`, CB, 'test/ef-iso-size.test.ts'],
+];
+const wyniki = [];
+for (const [nazwa, plik, z, na, pkg, test] of M) {
+  const sciezka = `${W}/${plik}`;
+  const orig = readFileSync(sciezka, 'utf8');
+  const ile = orig.split(z).length - 1;
+  if (ile !== 1) { wyniki.push(`${nazwa}: NIE ZASTOSOWANO (trafień ${ile})`); continue; }
+  writeFileSync(sciezka, orig.replace(z, na));
+  let kod = 0;
+  try { execSync(`npx vitest run ${test}`, { cwd: `${W}/${pkg}`, stdio: 'pipe', timeout: 600000 }); } catch (e) { kod = e.status ?? 1; }
+  writeFileSync(sciezka, orig);
+  wyniki.push(`${nazwa} [${test}]: ${kod === 0 ? 'PRZEŻYŁ (testy zielone)' : `zabity (kod ${kod})`}`);
+  console.log(wyniki.at(-1));
+}
+console.log('---'); console.log(wyniki.join('\n'));

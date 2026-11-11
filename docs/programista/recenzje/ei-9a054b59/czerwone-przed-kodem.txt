@@ -1,0 +1,15 @@
+375c0b7f test/ef-n5-oop.test.ts: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+375c0b7f test/ef-n5-oop.test.ts:  FAIL  test/ef-n5-oop.test.ts > 08-N5: cbet-case poza pozycją (grading) > reguła oop ocenia czekanie gracza poza pozycją jako zgodne
+375c0b7f test/ef-n5-oop.test.ts: AssertionError: expected null to be 'R-OOP-X' // Object.is equality
+375c0b7f test/ef-n5-oop.test.ts:  FAIL  test/ef-n5-oop.test.ts > 08-N5: cbet-case poza pozycją (grading) > reguła oop ocenia zakład przy najlepszym czekaniu jako niedokładność lub dopuszczalną (nie zgodną)
+4adf0453 test/ef-margines-ko076.test.ts: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+4adf0453 test/ef-margines-ko076.test.ts:  FAIL  test/ef-margines-ko076.test.ts > KO-076: margines equity w poziomie łatwym > z equityMarginMin 0.02: 0 wariantów z marginesem < 2 pp w 10000 losowaniach
+4adf0453 test/ef-margines-ko076.test.ts: ZodError: [
+4adf0453 test/ef-margines-ko076.test.ts:  FAIL  test/ef-margines-ko076.test.ts > KO-076: margines equity w poziomie łatwym > equityMarginMin bez macierzy equity w kontekście to błąd szablonu, nie ciche pominięcie
+82eb8738 test/ef-turn-bet.test.ts: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+82eb8738 test/ef-turn-bet.test.ts:  FAIL  test/ef-turn-bet.test.ts > 08-N6: turn-bet > 3000 wariantów: draw koloru rywala, cena z rachunku, duży zakład odbiera cenę, mały ją daje
+82eb8738 test/ef-turn-bet.test.ts: TypeError: Cannot read properties of undefined (reading 'map')
+82eb8738 test/ef-turn-bet.test.ts:  FAIL  test/ef-turn-bet.test.ts > 08-N6: turn-bet > odciski różnią się liczbą zakładów i pulą (zakład pokazany w decyzji)
+82eb8738 test/ef-turn-bet-bramka.test.ts:  FAIL  test/ef-turn-bet-bramka.test.ts [ test/ef-turn-bet-bramka.test.ts ]
+82eb8738 test/ef-turn-bet-bramka.test.ts: Error: szablon sc-fx-turn-bet: punkt decyzji 1: decisions.0.kind Invalid discriminator value. Expected 'defend' | 'draw-call' | 'range-spot' | 'cbet-case' | 'size-spot' | 'icm-call' | 'list-hand' | 'river-catch'
+82eb8738 test/ef-turn-bet-bramka.test.ts:       Tests  no tests

@@ -1,0 +1,23 @@
+Sonda turn-bet (fixture EF, ziarna 1–3000): kategorie HandCategory gracza (1 kareta, 2 full, 3 kolor, 5 trójka, 6 dwie pary, 7 para); m<k> = draw martwy przy kategorii k
+EI draws=flush: n=3000, draw martwy (0 żywych outów) 507, równość rywala ≤ cena małego zakładu 1059 (kategorie gracza {"1":15,"2":233,"3":56,"5":432,"6":163,"7":160,"m7":123,"m6":79,"m2":210,"m5":49,"m1":15,"m3":31}) [
+  'AsAd | 7h8h | TsAc2h4h żywe 7/44, cena małego 0.167',
+  '7c9d | AsKs | Qh5s9s9c żywe 7/44, cena małego 0.167',
+  '7s3h | Kh2h | 3sTh3d9h żywe 7/44, cena małego 0.167',
+  '6cAd | Jh4h | Ks7hAcAh żywe 7/44, cena małego 0.167',
+  'MARTWY KcKs | Qh2c | 9c4c3cTh',
+  'MARTWY AdQc | Ah3d | 9d7cQd5d',
+  'MARTWY Ks9h | 7s2h | Kh9sQh4h',
+  'MARTWY Ks2c | Jh4h | 2h5d5h2d'
+]
+
+ ✓ test/ei-sondy2.test.ts > EI turn-bet żywe outy, draws flush > pomiar 6557ms
+stdout | test/ei-sondy2.test.ts > EI turn-bet żywe outy, draws flush,oesd > pomiar
+
+Siła klas (equity wobec losowej) z equity169.json vs Monte Carlo 40 000 rozdań:
+EI AA: macierz 0.8520, MC 0.8500
+EI 72o: macierz 0.3458, MC 0.3543
+ ✓ test/ei-sondy3.test.ts > EI: siła klas vs Monte Carlo > AA 71ms
+ ✓ test/ei-sondy3.test.ts > EI: siła klas vs Monte Carlo > 72o 51ms
+EI T9s: macierz 0.5403, MC 0.5345
+ ✓ test/ei-sondy3.test.ts > EI: siła klas vs Monte Carlo > T9s 52ms
+      Tests  3 passed (3)
