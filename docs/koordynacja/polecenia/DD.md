@@ -1,0 +1,14 @@
+# Sesja DD: recenzja niezależna CW (treści: ŚR-005 OESD, CW-1, CW-2, NIS-003; poker-core GENERATOR_WERSJA 2→3) — Szkoła Pokera
+Koordynator: session_01T66VBvsiHtynAJhQ4adRmv (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; po wiadomości o zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko do odczytu).
+
+1. Rola 06-tresci w trybie audit; prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz. Kontrolę transportu promptu pomiń.
+2. Start: gałąź `sesja-dd-recenzja` @ 0ef7785866d3c7b580a7c50fd215f3ffb43d04e2 (= `origin/sesja-cw-tresci`; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów wg CLAUDE.md.
+3. Zadania:
+   1. Recenzja niezależna zmian 46197812..0ef77858 (sesja CW): ŚR-005 (sc-11 bez OESD; `packages/poker-core` GENERATOR_WERSJA 2→3, struktura `oesdPossible`, odciski generatora), CW-1 (m5-l3 i powtórka m5-l4, 12 języków), CW-2 / KO-065 (filtr draw bez pary, fixture KO-064 — czy test zabija mutację filtra), NIS-003 (14 wyjaśnień × 12 języków). Sprawdź merytorykę według hierarchii ADR-24 z CLAUDE.md (rachunek liczony niezależnie: outy, equity, pot odds, kombinatoryka), zgodność liczb z `content/numbers.yaml` (`{{n:…}}`), spójność terminologii, czy zmiana wersji generatora nie psuje identyfikatorów w powtórkach (ścieżka wrażliwa `tools/content-build/`, D-043), i czy testy przed poprawką były czerwone z właściwego powodu (pliki `docs/tresci/dowody/cw-*`). Raportu autora (`docs/decyzje/CW.md`, `docs/tresci/stan-cw.md`) nie czytaj przed własną oceną. Gotowe: `docs/tresci/recenzje/recenzja-cw-0ef7785.md` z werdyktem PRZYJĄĆ / PRZYJĄĆ Z WARUNKIEM / ODRZUCIĆ i znaleziskami KRYT/WYS/ŚR/NIS (plik:linia, dowód, ocena realności).
+   2. KRYT/WYS: test odtwarzający (czerwony) na gałęzi, bez poprawki; wtedy `pnpm run ci` z plikiem `docs/tresci/dowody/dd-ci-<sha8>.txt`.
+   Dozwolone ścieżki: `docs/tresci/recenzje/`, `docs/tresci/stan-dd.md`, `docs/decyzje/DD.md`, nowe testy odtwarzające.
+4. Zakazy: nie scalasz do gałęzi roboczej ani `main`, nie poprawiasz treści ani kodu CW (tylko raport i testy), nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela (bez AskUserQuestion); STOP-y roli i punkt czyszczenia → raport do koordynatora i czekasz.
+5. Decyzje: merytoryczne wg hierarchii źródeł ADR-24 (nie analogia, nie właściciel); techniczne sam, do weta (analogia z lkarwowski494/trening, `repo:plik:linia`). Pula D-897…D-901, wpisy w `docs/decyzje/DD.md`.
+6. Kontekst: od 30% okna kończysz krok, stan w `docs/tresci/stan-dd.md`, push, PRZEKAZANIE. Pułapu kosztu brak (mandat: tylko raport).
+7. Push zbiorczo na `sesja-dd-recenzja`.
+8. Raport ≤ 10 linii przez send_message: po pierwszym zadaniu czas; PRZEKAZANIE (SHA, werdykt, liczby znalezisk, decyzje do weta, koszt).
