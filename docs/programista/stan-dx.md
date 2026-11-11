@@ -1,5 +1,18 @@
-# Stan sesji DX (08-programista, build): silnik scenariuszy
+# Stan sesji DX/ED (08-programista, build): silnik scenariuszy (kontynuuje sesja ED; stan ED na górze)
 Gałąź `sesja-dx-silnik` od b3963e9a. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/DX.md` @ 100319bb. Stan na 2026-11-11. Pula decyzji D-1065…D-1079 (`docs/decyzje/DX.md`).
+
+## Stan sesji ED (2026-11-11 ~20:55 UTC; polecenie `origin/koordynacja:docs/koordynacja/polecenia/ED.md`, pula D-1115…D-1134 w `docs/decyzje/ED.md`)
+| Zadanie | Stan | Dowód |
+|---|---|---|
+| 1. KO-073 | **zrobione** (701b6d18, push cc6d3be0) | blok `{{jesli:nadkarty}}…{{/jesli}}`; testy `poker-core/test/ko073-warunki.test.ts`, `apps/mobile/.../ko073-nadkarty.test.ts`, `tools/content-build/test/ko073-warunek-nadkarty.test.ts`; D-1115 |
+| Poprawki EC (WYS-001/002, ŚR-003, NIS-005/006) | **zrobione** (cc6d3be0) | `scenario-dx.test.ts` (16 testów, wyrocznia 20 000 losowań trójwartościowa); D-1116…D-1118; NIS-004 nie ruszane (do 06) |
+| 2. N1…N7 (schemat, generator, bramka, wariant, widok) | **niezaczęte** (są tylko czyste funkcje N2, N3, N4, N7a) | kroki 1–4 w „Następne kroki” niżej; po KO-073 dodać: `defendVsCbet` zwraca `null` poza zakresem reguł, więc generator odrzuca takie warianty jak `draw-call` w marginesie |
+| 3. KO-072 | niezaczęte | |
+| 4. nocny.yml (grupy mutacji) | niezaczęte; nowe pliki w `packages/poker-core/src` wymagają grupy w `.github/workflows/nocny.yml` (test „grupy mutacji obejmują każdy plik src/”) | |
+| 5. `GENERATOR_WERSJA` | niezaczęte (ocena po integracji; odciski `generator-odciski.json` bez różnic) | |
+| 6. `pnpm run ci` | patrz plik dowodu `docs/programista/dowody/ed-ci-*.txt` | |
+
+Uwagi dla następcy: (a) treść w `content/` ma teraz bloki `{{jesli:nadkarty}}`; `pnpm content:build` zmienia pliki generowane `apps/mobile/assets/content/tresc-*.db` i `tresc.generated.ts` (commitować). (b) `isoSizeStandardBb`/`IsoParams` są w `grading.ts` (jedno źródło), `sizeOptionBbs` w `scenario-gen.ts`. (c) Hak końca sesji wymaga commit+push; push na `sesja-*` nie uruchamia E2E. (d) Testy mobile (jest) dla `features/scenariusz` uruchamiać `pnpm --filter @szkola/mobile exec jest <ścieżka>`; content-build ~4 min, poker-core ~2 min.
 
 ## Stan zadań
 | Zadanie | Stan | Dowód |
