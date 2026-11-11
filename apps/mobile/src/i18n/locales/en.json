@@ -457,11 +457,11 @@
     "log": {
       "fold": "{{pos}}: {{t:fold|folds}}",
       "check": "{{pos}}: {{t:check|checks}}",
-      "call": "{{pos}}: {{t:call|calls}} {{bb}}bb",
-      "bet": "{{pos}}: {{t:bet}} {{bb}}bb",
-      "raise": "{{pos}}: {{t:raise}} to {{bb}}bb",
-      "allin": "{{pos}}: all-in {{bb}}bb",
-      "blinds": "Blinds {{sb}}/{{bb}}bb"
+      "call": "{{pos}}: {{t:call|calls}} {{bb}} bb",
+      "bet": "{{pos}}: {{t:bet}} {{bb}} bb",
+      "raise": "{{pos}}: {{t:raise}} to {{bb}} bb",
+      "allin": "{{pos}}: all-in {{bb}} bb",
+      "blinds": "Blinds {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -1068,6 +1068,21 @@
       "showdownYou": "The river is {{river}}. Your opponent shows {{karty}}: your hand ranks higher.",
       "showdownVillain": "The river is {{river}}. Your opponent shows {{karty}}: their hand ranks higher.",
       "showdownTie": "The river is {{river}}. Your opponent shows {{karty}}: the hands are equal."
+    },
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "limp",
+      "raise": "{{t:raise}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "small {{t:c-bet}}",
+      "betBig": "big {{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "to {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }

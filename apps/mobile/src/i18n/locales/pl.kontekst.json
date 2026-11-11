@@ -717,5 +717,22 @@
   "today.limitReached": "Stopka pod kafelkami po wyczerpaniu limitu (BR-LIM-001; nazwa „dzienny limit”, D-111). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
   "today.afterFirstLesson": "Stan kafelka Powtórki u nowego użytkownika: co go odblokuje. Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
   "today.afterFirstLessonM2": "Stan kafelka Scenariusze do czasu pierwszej lekcji modułu 2 (BR-MENU-001). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
-  "today.courseDoneTitle": "Tytuł kafelka na suknie, gdy wszystkie lekcje są ukończone (nad today.courseDone). Użyty w: features/dzis/BlokLekcji.tsx. [BI, 2026-11-10]"
+  "today.courseDoneTitle": "Tytuł kafelka na suknie, gdy wszystkie lekcje są ukończone (nad today.courseDone). Użyty w: features/dzis/BlokLekcji.tsx. [BI, 2026-11-10]",
+  "scenario": {
+    "action": {
+      "fold": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji pas na przycisku, w pasku ocen i w zdaniach; forma do zdania, pierwszą literę podnosi kod. Ok. 3–12 znaków. [DE, 2026-11-11]",
+      "check": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji czekanie (bez dokładania). Ok. 8–12 znaków.",
+      "call": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji sprawdzenie; kwota (dopłata) osobnym kluczem amountPay.",
+      "limp": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji limp (dopłata do 1 bb przed flopem); termin zostaje po angielsku, jeśli tak ma tabela terminów języka.",
+      "raise": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji przebicie (otwarcie, gdy nikt nie przebił); kwota „do N bb” kluczem amountTo.",
+      "threeBet": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji 3-bet (przebicie otwarcia).",
+      "allIn": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji all-in; kwota (cały stos) kluczem amountAll.",
+      "betSmall": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji mały c-bet (zakład kontynuacyjny, ok. 1/3 puli); rodzaj gramatyczny c-bet według języka.",
+      "betBig": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji duży c-bet (ok. 2/3 puli).",
+      "amountPay": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku: kwota, którą dopłacasz (sprawdzenie, limp). {{bb}} = liczba sformatowana wg języka; między liczbą a „bb” spacja nierozdzielająca (U+00A0). Ok. 8 znaków.",
+      "amountTo": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku: rozmiar całkowity po przebiciu („do N bb”); przyimek/partykuła wg języka (de „auf”, ja „に”, ko „로”). U+00A0 przed „bb”.",
+      "amountAll": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku all-in: cały stos „N bb”. U+00A0 przed „bb”.",
+      "withAmount": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Fraza w zdaniu (werdykt, nagłówki „dlaczego”, VoiceOver): {{akcja}} = nazwa małą literą, {{kwota}} = tekst amountPay/amountTo/amountAll. Szyk do zmiany w przekładzie (ja i ko: kwota przed akcją)."
+    }
+  }
 }

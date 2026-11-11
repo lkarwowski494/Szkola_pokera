@@ -63,7 +63,7 @@ describe('przebieg: decyzja', () => {
     const d = wariant.decisions[0]!;
     expect(tekstEkranu()).toMatch(new RegExp(`W puli[^·]*${d.pot + d.bet} bb · do sprawdzenia[^·]*${d.bet} bb`)); // znaczniki terminów dopisują „(pot)”, „(call)” jak w trybie gry
     expect(tekstEkranu()).not.toMatch(zabronione);
-    await fireEvent.press(screen.getByRole('button', { name: new RegExp(`^Sprawdzam.*${d.bet}bb`) }));
+    await fireEvent.press(screen.getByRole('button', { name: new RegExp(`^Sprawdzenie[\\s\\S]*${d.bet}\\sbb`) }));
     expect(onWybierz).toHaveBeenCalledWith('call');
     await fireEvent.press(screen.getByRole('button', { name: /^Pas/ }));
     expect(onWybierz).toHaveBeenCalledWith('fold');
@@ -81,8 +81,8 @@ describe('przebieg: ocena (BR-OCE-002, D-544)', () => {
     expect(wariant.decisions[0]!.correct).toBe('call');
     const t = tekstEkranu();
     expect(t).toMatch(/Błąd/);
-    expect(t).toMatch(/Dlaczego „Pas[^”]*” to słabsze zagranie/);
-    expect(t).toMatch(/Dlaczego „Sprawdzam[^”]*\d+bb” to lepsze zagranie/);
+    expect(t).toMatch(/Dlaczego „pas[^”]*” to słabsze zagranie/);
+    expect(t).toMatch(/Dlaczego „sprawdzenie[^”]*\d+\sbb” to lepsze zagranie/);
     expect(t).not.toContain('{{w:');
     expect(screen.getByRole('image', { name: /Oceny akcji: .*twój wybór/ })).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Zobacz podsumowanie' })).toBeTruthy(); // pas kończy rozdanie
@@ -92,7 +92,7 @@ describe('przebieg: ocena (BR-OCE-002, D-544)', () => {
   it('zgodne: „dlaczego dobrze” i zwinięte „Dlaczego nie …” (rozwijane, stan expanded)', async () => {
     await ocena('call');
     expect(tekstEkranu()).toMatch(/Zgodna/);
-    expect(tekstEkranu()).toMatch(/Dlaczego „Sprawdzam[^”]*\d+bb” to dobre zagranie/);
+    expect(tekstEkranu()).toMatch(/Dlaczego „sprawdzenie[^”]*\d+\sbb” to dobre zagranie/);
     const nie = screen.getByTestId('dlaczego-nie');
     expect(nie.props.accessibilityState.expanded).toBe(false);
     expect(tekstEkranu()).not.toMatch(/Pas oddaje pulę/);
@@ -116,7 +116,7 @@ describe('koniec (BR-SCN-002, BR-GEN-001)', () => {
     await render(<KoniecScenariusza sesja={sesja(['fold'])} poziom="sredni" bladStartu={null} {...p} />);
     expect(tekstEkranu()).toMatch(/Rozdanie zakończone/);
     expect(tekstEkranu()).toMatch(/Błąd/);
-    expect(tekstEkranu()).toMatch(/Lepiej: Sprawdzam[^.]*\d+bb\./);
+    expect(tekstEkranu()).toMatch(/Lepiej: sprawdzenie[^.]*\d+\sbb\./);
     expect(tekstEkranu()).toMatch(/Dobre decyzje: 0 z 1/);
     expect(tekstEkranu()).not.toMatch(zabronione);
     await fireEvent.press(screen.getByRole('button', { name: 'Nowe rozdanie' }));

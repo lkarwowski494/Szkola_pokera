@@ -28,16 +28,17 @@ const zTreścią = (pliki: Record<string, string>) => {
 };
 
 describe('szablony na ekranie scenariusza (CK, 08-programista-002)', () => {
-  it('szablon z punktem range-spot: budowanie odrzuca go z id szablonu, numerem punktu i powodem', () => {
-    expect(() => zTreścią({ 'sc-fx-rfi-btn.yaml': fx('range-spot', 'sc-fx-rfi-btn.yaml') }))
-      .toThrow(/szablon sc-fx-rfi-btn: punkt 1 range-spot nie jest jeszcze obsługiwany na ekranie scenariusza/);
+  it('szablon z punktem range-spot nie jest odrzucany jako nieobsługiwany na ekranie (CX, D-866); budowanie zatrzymuje go dopiero pojemność wariantów fixture (DC ŚR-004)', () => {
+    // fixture ma za mało różnych rozdań na poziomach średnim i trudnym (3 odciski < 40): to jedyny błąd, więc asercja jest pozytywna, a nie „nie rzuca X”
+    expect(() => zTreścią({ 'sc-fx-rfi-btn.yaml': fx('range-spot', 'sc-fx-rfi-btn.yaml') })).toThrow(/szablon sc-fx-rfi-btn: poziom sredni: pojemność 3 odcisków/);
+    expect(checkScenarioNaEkran(loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'range-spot')).find((x) => x.template.id === 'sc-fx-rfi-btn')!.template)).toEqual([]);
   });
   it('szablon z linią all-in nie jest odrzucany jako nieobsługiwany na ekranie (ekran dostaje stackBb)', () => {
     const [w] = loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'scenariusze')).filter((x) => x.template.id === 'sc-fx-allin-draw');
     expect(w).toBeDefined();
     expect(checkScenarioNaEkran(w!.template)).toEqual([]);
   });
-  it('fixture range-spot jest nieobsługiwany tylko na ekranie: kontrola zwraca błąd na każdy taki punkt', () => {
-    for (const { template } of loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'range-spot'))) expect(checkScenarioNaEkran(template)).toHaveLength(1);
+  it('fixture range-spot przechodzi bramkę ekranu (CX, D-866)', () => {
+    for (const { template } of loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'range-spot'))) expect(checkScenarioNaEkran(template)).toEqual([]);
   });
 });

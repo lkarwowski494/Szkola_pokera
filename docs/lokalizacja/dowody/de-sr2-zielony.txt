@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: zmiana wpisu pomocy unieważnia przegląd zastępczy H-INT-1
+ok 1 - zmiana wpisu pomocy unieważnia przegląd zastępczy H-INT-1
+  ---
+  duration_ms: 1514.535706
+  type: 'test'
+  ...
+# Subtest: zmiana lekcji z regułą krytyczną unieważnia przegląd; z --przed-przegladem to uwaga
+ok 2 - zmiana lekcji z regułą krytyczną unieważnia przegląd; z --przed-przegladem to uwaga
+  ---
+  duration_ms: 1550.562161
+  type: 'test'
+  ...
+# Subtest: przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+ok 3 - przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+  ---
+  duration_ms: 985.401029
+  type: 'test'
+  ...
+# Subtest: D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT-2; twierdzenie fallback.claim liczy się do pokrycia
+ok 4 - D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT-2; twierdzenie fallback.claim liczy się do pokrycia
+  ---
+  duration_ms: 1977.405047
+  type: 'test'
+  ...
+# Subtest: content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia
+ok 5 - content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia
+  ---
+  duration_ms: 2342.85878
+  type: 'test'
+  ...
+# Subtest: zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego, a skrót pl zostaje
+ok 6 - zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego, a skrót pl zostaje
+  ---
+  duration_ms: 1218.896181
+  type: 'test'
+  ...
+# Subtest: 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+ok 7 - 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+  ---
+  duration_ms: 6141.476025
+  type: 'test'
+  ...
+# Subtest: 06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie błąd
+ok 8 - 06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie błąd
+  ---
+  duration_ms: 2783.383809
+  type: 'test'
+  ...
+# Subtest: ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+ok 9 - ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+  ---
+  duration_ms: 5336.52601
+  type: 'test'
+  ...
+# Subtest: ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+ok 10 - ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+  ---
+  duration_ms: 2954.232467
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 26875.450956

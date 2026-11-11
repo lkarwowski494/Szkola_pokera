@@ -446,11 +446,11 @@
     "log": {
       "fold": "{{pos}}: {{t:fold|bỏ bài}}",
       "check": "{{pos}}: {{t:check|check}}",
-      "call": "{{pos}}: {{t:call|theo}} {{bb}}bb",
-      "bet": "{{pos}}: {{t:bet|cược}} {{bb}}bb",
-      "raise": "{{pos}}: {{t:raise|tố}} lên {{bb}}bb",
-      "allin": "{{pos}}: all-in {{bb}}bb",
-      "blinds": "Blind {{sb}}/{{bb}}bb"
+      "call": "{{pos}}: {{t:call|theo}} {{bb}} bb",
+      "bet": "{{pos}}: {{t:bet|cược}} {{bb}} bb",
+      "raise": "{{pos}}: {{t:raise|tố}} lên {{bb}} bb",
+      "allin": "{{pos}}: all-in {{bb}} bb",
+      "blinds": "Blind {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -1050,6 +1050,21 @@
       "showdownYou": "River là {{river}}. Đối thủ lật {{karty}}: bài của bạn cao hơn.",
       "showdownVillain": "River là {{river}}. Đối thủ lật {{karty}}: bài của đối thủ cao hơn.",
       "showdownTie": "River là {{river}}. Đối thủ lật {{karty}}: hai bài ngang nhau."
+    },
+    "action": {
+      "fold": "{{t:fold|bỏ bài}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call|theo}}",
+      "limp": "limp",
+      "raise": "{{t:raise|tố}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "{{t:c-bet}} nhỏ",
+      "betBig": "{{t:c-bet}} lớn",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "lên {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }

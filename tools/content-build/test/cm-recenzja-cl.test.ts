@@ -26,11 +26,18 @@ describe('CM ŚR-001 (naprawa CN, D-782): bramka ekranu przepuszcza tylko rodzaj
     expect(szablony.length).toBeGreaterThanOrEqual(7);
     expect(rangeSpot.length).toBeGreaterThanOrEqual(2);
   });
-  it('lista dozwolonych: draw-call, cbet-case, size-spot (icm-call czeka na projekt roli 04, CR WYS-003)', () => expect(RODZAJE_NA_EKRANIE).toEqual(['draw-call', 'cbet-case', 'size-spot']));
+  it('lista dozwolonych: draw-call, cbet-case, size-spot, range-spot (icm-call czeka na projekt roli 04, CR WYS-003; range-spot od CX, D-866)', () => expect(RODZAJE_NA_EKRANIE).toEqual(['draw-call', 'cbet-case', 'size-spot', 'range-spot']));
   for (const t of rangeSpot) {
-    it(`${t.id}: range-spot odrzucony (ekran nie ma akcji spotu ani tekstów, D-755)`, () => {
-      expect(checkScenarioNaEkran(t)).toEqual([expect.stringContaining('range-spot nie jest jeszcze obsługiwany na ekranie scenariusza')]);
-    });
+    it(`${t.id}: range-spot przepuszczony przez bramkę (CX, D-866), więc ekran z kontekstem generuje wariant i ocenę każdej akcji na każdym poziomie, a bez kontekstu odmawia`, () => {
+      expect(checkScenarioNaEkran(t)).toEqual([]);
+      expect(() => generateVariant(jakNaEkranie(t), t.levels[0] as ScenarioLevel, 1)).toThrow(/GeneratorContext/);
+      for (const l of t.levels as ScenarioLevel[]) {
+        const p = generateVariant(jakNaEkranie(t), l, 1, ctx).points[0]!;
+        if (p.point !== 'range-spot') throw new Error(`nieoczekiwany punkt ${p.point}`);
+        expect(p.options.map((o) => o.action).sort()).toEqual(t.decisions[0]!.actions.map((a) => a.action).sort()); // każda pokazana akcja ma wyjaśnienie (BR-OCE-002)
+        expect(p.options.find((o) => o.action === p.correct)?.verdict).toBe('correct');
+      }
+    }, 120_000);
   }
   for (const t of szablony) {
     it(`${t.id}: przepuszczony przez bramkę, więc ekran z kontekstem generuje wariant na każdym poziomie, a bez kontekstu odmawia (jak przed CN)`, () => {

@@ -446,11 +446,11 @@
     "log": {
       "fold": "{{pos}}：{{t:fold|フォールド}}",
       "check": "{{pos}}：{{t:check|チェック}}",
-      "call": "{{pos}}：{{t:call|コール}} {{bb}}bb",
-      "bet": "{{pos}}：{{t:bet|ベット}} {{bb}}bb",
-      "raise": "{{pos}}：{{bb}}bbに{{t:raise|レイズ}}",
-      "allin": "{{pos}}：オールイン {{bb}}bb",
-      "blinds": "ブラインド {{sb}}/{{bb}}bb"
+      "call": "{{pos}}：{{t:call|コール}} {{bb}} bb",
+      "bet": "{{pos}}：{{t:bet|ベット}} {{bb}} bb",
+      "raise": "{{pos}}：{{bb}} bbに{{t:raise|レイズ}}",
+      "allin": "{{pos}}：オールイン {{bb}} bb",
+      "blinds": "ブラインド {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|プリフロップ}}",
@@ -1050,6 +1050,21 @@
       "showdownYou": "リバーは{{river}}。相手は{{karty}}を見せました。あなたの役のほうが上です。",
       "showdownVillain": "リバーは{{river}}。相手は{{karty}}を見せました。相手の役のほうが上です。",
       "showdownTie": "リバーは{{river}}。相手は{{karty}}を見せました。役は同じです。"
+    },
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "リンプ",
+      "raise": "{{t:raise}}",
+      "threeBet": "3ベット",
+      "allIn": "オールイン",
+      "betSmall": "小さな{{t:c-bet}}",
+      "betBig": "大きな{{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "{{bb}} bbに",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{kwota}}{{akcja}}"
     }
   }
 }

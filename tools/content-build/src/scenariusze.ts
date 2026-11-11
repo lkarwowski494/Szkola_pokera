@@ -103,6 +103,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
           if (ex !== undefined && !labels.includes(ex)) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} spoza węzła spotu ${d.spot}`);
           if (t.bounds[l] && !t.bounds[l]!.freqs?.[i]) e.push(`${p} poziom ${l}: punkt range-spot wymaga przedziału freqs`);
         }
+        // CX (D-866): ekran pokazuje wszystkie akcje węzła spotu, a wyjaśnienie każdej pokazanej akcji to BR-OCE-002
+        const bezWyjasnienia = labels.filter((l) => !d.actions.some((a) => a.action === l));
+        if (bezWyjasnienia.length) e.push(`${p} ekran pokazuje wszystkie akcje spotu ${d.spot}, a brak wyjaśnienia akcji: ${bezWyjasnienia.join(', ')} (BR-OCE-002)`);
       }
     } else if (d.kind === 'cbet-case') {
       const przypadki = (ctx.cbetCases ?? []).filter((c) => c.rule === d.rule);
@@ -193,12 +196,11 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
  * Rodzaje punktów decyzji, które ekran scenariusza faktycznie obsługuje (CN, D-782; 08-programista-001 CM; CR WYS-003): lista dozwolonych,
  * nie zakazanych, więc nowy rodzaj punktu jest odrzucany w budowaniu, dopóki ekran go nie obsłuży. Ekran składa kontekst generatora
  * z bazy treści (`buildGeneratorContext`, jak kontrola generatora) i ma akcje dla `draw-call`, `cbet-case` i `size-spot`.
- * Poza listą: `range-spot` (F1; akcje z etykiet spotu i teksty od roli 04, D-755) oraz `icm-call` (F4; ocena zależy od stosów i wypłat,
- * których ekran nie pokazuje, a teksty i układ tego widoku projektuje rola 04, D-807).
+ * `range-spot` (F1; CX, D-866) wszedł po obsłudze akcji spotu na ekranie (nazwy z etykiet węzła solvera, ocena z `rangeVerdict` wariantu).
+ * Poza listą: `icm-call` (F4; ocena zależy od stosów i wypłat, których ekran nie pokazuje, a teksty i układ tego widoku projektuje rola 04, D-807).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot'];
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot'];
 const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {
-  'range-spot': 'brak akcji spotu i tekstów',
   'icm-call': 'ekran nie pokazuje stosów i wypłat, na których opiera się ocena (czeka na projekt roli 04, D-807)',
 };
 

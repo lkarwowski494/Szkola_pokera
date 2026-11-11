@@ -1,0 +1,11 @@
+CX: pnpm run ci kod 0 po dodaniu kopii en (D-871) na drzewie opartym o e85cc854, 2026-11-11
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  179 passed (179)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  417 passed | 1 expected fail (418)
+apps/mobile test: Tests:       965 passed, 965 total
+błędy: 0, uwagi: 543; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 838
+exit=0

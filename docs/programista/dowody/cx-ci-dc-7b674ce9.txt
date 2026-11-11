@@ -1,0 +1,5 @@
+CX: pnpm run ci kod 0 po poprawkach DC (WYS-001, ŚR-004, NIS-006), drzewo oparte o 7b674ce9, 2026-11-11
+tools/content-build test:       Tests  417 passed | 1 expected fail (418)
+apps/mobile test: Tests:       969 passed, 969 total
+błędy: 0, uwagi: 543; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 838
+exit=0
