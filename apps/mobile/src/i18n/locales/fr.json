@@ -47,7 +47,7 @@
   },
   "scenarios": {
     "title": "Scénarios",
-    "soon": "Les scénarios arrivent bientôt. D'ici là, entraîne tes décisions dans la séance d'exercices.",
+    "soon": "Les scénarios arrivent bientôt. D'ici là, entraînez vos décisions dans la séance d'exercices.",
     "levels": "Niveaux : {{lista}}",
     "locked": "Après la première leçon du module {{n}}"
   },
@@ -250,7 +250,7 @@
     "none": "Rien à réviser. Faites une nouvelle leçon ou revenez plus tard.",
     "start": "Commencer la révision",
     "speed": "Entraînement chronométré",
-    "speedHint": "Les mêmes exercices avec une limite de temps. Entraîne les décisions réflexes.",
+    "speedHint": "Les mêmes exercices avec une limite de temps. Entraînez les décisions réflexes.",
     "next": "Prochaine révision : {{when}}"
   },
   "rules": {
@@ -1027,11 +1027,11 @@
       "trudny": "Difficile"
     },
     "start": {
-      "about": "Toi : {{ty}}, adversaire : {{rywal}}. Profondeur {{bb}} bb.",
-      "nowAuto": "Maintenant : {{poziom}}. Le niveau s’adapte à tes résultats.",
+      "about": "Vous : {{ty}}, adversaire : {{rywal}}. Profondeur {{bb}} bb.",
+      "nowAuto": "Maintenant : {{poziom}}. Le niveau s’adapte à vos résultats.",
       "nowManual": "Niveau choisi : {{poziom}}.",
-      "missing": "Cette main n’existe pas au niveau « {{wybrany}} ». Tu la joueras au niveau « {{poziom}} ».",
-      "hint": "Chaque main a de nouvelles cartes. Le résultat, ce sont les évaluations de tes décisions, pas un gain.",
+      "missing": "Cette main n’existe pas au niveau « {{wybrany}} ». Vous la jouerez au niveau « {{poziom}} ».",
+      "hint": "Chaque main a de nouvelles cartes. Le résultat, ce sont les évaluations de vos décisions, pas un gain.",
       "begin": "Commencer la main"
     },
     "street": {
@@ -1044,19 +1044,19 @@
       "label": "Étapes de la main"
     },
     "table": {
-      "label": "Toi : {{ty}}, cartes {{reka}}. Adversaire : {{rywal}}. Cartes découvertes : {{stol}}.",
+      "label": "Vous : {{ty}}, cartes {{reka}}. Adversaire : {{rywal}}. Cartes découvertes : {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
-      "you": "toi",
+      "you": "vous",
       "villain": "adversaire"
     },
     "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
     "log": {
       "label": "Déroulement de la main"
     },
-    "yourMove": "À toi de jouer",
+    "yourMove": "À vous de jouer",
     "verdict": {
-      "yours": "Ton choix : {{akcja}}. Mieux : {{lepiej}}.",
-      "yoursGood": "Ton choix : {{akcja}}."
+      "yours": "Votre choix : {{akcja}}. Mieux : {{lepiej}}.",
+      "yoursGood": "Votre choix : {{akcja}}."
     },
     "why": {
       "weaker": "Pourquoi « {{akcja}} » est le coup le plus faible",
@@ -1066,11 +1066,11 @@
     },
     "scale": {
       "label": "Évaluation des actions : {{lista}}.",
-      "yourChoice": "ton choix"
+      "yourChoice": "votre choix"
     },
     "numbers": {
       "title": "Chiffres",
-      "line": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il te faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Outs : {{outy}} sur {{nieznane}} cartes non vues : tu touches ton tirage dans {{trafisz}} des cas, environ une fois sur {{razTrafisz}}.",
+      "line": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il vous faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Outs : {{outy}} sur {{nieznane}} cartes non vues : vous touchez votre tirage dans {{trafisz}} des cas, environ une fois sur {{razTrafisz}}.",
       "cbet": "Un petit {{t:c-bet}} représente environ {{maly}} du {{t:pot|pot}}, un gros environ {{duzy}}. Pour {{t:call|suivre}}, votre adversaire a besoin de {{cenaMaly}} d'équité contre le petit, soit gagner environ une fois sur {{razMaly}}, et de {{cenaDuzy}} contre le gros, soit environ une fois sur {{razDuzy}}.",
       "sizeOpen": "Avec une {{t:raise|relance}} à {{bb}} bb, la {{t:big-blind|grosse blinde}} ajoute {{doplata}} bb à un {{t:pot|pot}} de {{pula}} bb (si tous les autres {{t:fold|se couchent}}), il lui faut donc {{cena}} d'équité, soit gagner environ une fois sur {{raz}}.",
       "size3bet": "Avec un 3-bet à {{bb}} bb, le joueur qui a fait l'{{t:open|ouverture}} ajoute {{doplata}} bb à un {{t:pot|pot}} de {{pula}} bb, il lui faut donc {{cena}} d'équité, soit gagner environ une fois sur {{raz}}.",
@@ -1090,7 +1090,7 @@
       "newDeal": "Nouvelle main",
       "again": "Rejouer la même main",
       "close": "Fermer",
-      "showdownYou": "Le river est {{river}}. L’adversaire montre {{karty}} : ta main est plus forte.",
+      "showdownYou": "Le river est {{river}}. L’adversaire montre {{karty}} : votre main est plus forte.",
       "showdownVillain": "Le river est {{river}}. L’adversaire montre {{karty}} : sa main est plus forte.",
       "showdownTie": "Le river est {{river}}. L’adversaire montre {{karty}} : les mains sont égales."
     },
