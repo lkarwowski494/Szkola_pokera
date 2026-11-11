@@ -15,7 +15,7 @@ Werdykt: **przyjąć** (0 KRYT, 0 WYS, 2 ŚR, 3 NIS); nic nie blokuje wydania te
 ## Linia bazowa i założenia
 Ocena z kodu i diffów przed przeczytaniem uzasadnień autorów (`docs/decyzje/CJ.md`, `CK.md`, `CL.md`, `stan-cj/ck/cl.md` przeczytane po własnej ocenie, tylko by odróżnić decyzje od defektów; żadne znalezisko nie jest unieważnione decyzją, 001 jest słownie odnotowane w `stan-cl.md` jako „otwarte” bez kontroli mechanicznej).
 - **Ścieżki zapisu:** w zakresie tylko `zapiszOdcisk` z `generatorWersja` (`apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:110`); zapis po starcie aktywności, błąd do dziennika (decyzja wcześniejsza, bez zmian). Bez `OR REPLACE`, bez nowych migracji.
-- **Obsługa błędów:** błąd generatora na ekranie → `plan_niepoprawny` (`aktywnoscScenariusza.ts:88`); to skutek 001 dla szablonów F2–F4.
+- **Obsługa błędów:** błąd generatora na ekranie → `plan_niepoprawny` (`apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:88`); to skutek 001 dla szablonów F2–F4.
 - **Typy na granicach:** `naGenerator` rzutuje szablon z bazy treści (`as GeneratorTemplate`, `apps/mobile/src/features/scenariusz/wariant.ts:27`) tak samo jak kontrola generatora; szablon przechodzi wcześniej przez schemat zod przy odczycie bazy. Bez nowego znaleziska.
 - **System projektowy, i18n, dostępność, wydajność listy:** sprawdzone, brak zmian w tych obszarach w zakresie.
 - **Liczby konfiguracyjne:** `BUDZET_KONTROLI_SZABLONU_MS = 45_000` w teście (`tools/content-build/test/build.test.ts:81`), budżet testu, nie wartość aplikacji.
@@ -32,14 +32,14 @@ Ocena z kodu i diffów przed przeczytaniem uzasadnień autorów (`docs/decyzje/C
 | `tools/content-build/src/scenariusze.ts` (CJ pozycje size-spot, CK `checkScenarioNaEkran`, kontrola generatora) | tak | odczyt; sonda `dowody/cm-sonda-5637200.txt` |
 | `packages/poker-core/src/scenario-gen.ts` (all-in, ICM z blindami) | tak | odczyt; rachunek ręczny; sonda j.w. |
 | Scalenia 79ad5ef, a9fe969, eae5d1b (`git show --remerge-diff`), ce65318 | tak | odczyt diffów; `git grep` znaczników na każdym commicie |
-| `build.test.ts` (deterministyczność 30 s, budżet czasu), `allin-stos-ca`, `stos-zakladu-bu`, `szablony-f4-ca`, `szablon-allin-ck`, fixture `ko043` | tak | odczyt diffów; przebieg w `dowody/cm-ci-5637200.txt` |
+| `build.test.ts` (deterministyczność 30 s, budżet czasu), `allin-stos-ca`, `stos-zakladu-bu`, `szablony-f4-ca`, `szablon-allin-ck`, fixture `ko043` | tak | odczyt diffów; przebieg w `dowody/cm-ci-cec0119.txt` |
 | `apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts`, `wariant.ts`, `apps/mobile/src/app/scenario.tsx` | tak | odczyt kodu; testy Jest w przebiegu CI |
 | `packages/domena/src/wariant.ts` (`ziarnoPowtorki`, `czyPowtorkaWariantu`) | tak | odczyt; test CG `packages/domena/test/cg-recenzja-powtorka.test.ts` |
 | Przekłady szablonów (generator tylko dla pl) | tak | test struktury `tools/content-build/test/szablony-bs.test.ts:73` |
 | Zachowanie na urządzeniu iOS | nie | brak macOS; zakres to logika TypeScript, sprawdzona testami |
 
 ## Kontrola dowodów i sekretów
-Wynik `node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cl-5637200.md . docs/programista --rola 08-programista` (kopia skryptu w scratchpadzie): wpisany w sekcji „Proponowane polecenie naprawy” po ostatnim przebiegu. `git diff --cached` przejrzany przed commitem: tylko test, raport, decyzje i dowody, bez sekretów.
+Wynik `node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cl-5637200.md . docs/programista --rola 08-programista` (kopia skryptu w scratchpadzie): `OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 08-programista`, kod 0. `git diff --cached` przejrzany przed commitem: tylko test, raport, decyzje i dowody, bez sekretów.
 
 ## Stosowalność listy kontrolnej
 | Pozycja | Status (dotyczy / nie dotyczy + powód / decyzja D-xx) | Wynik (ok / znalezisko ID / nie sprawdzono + powód) |
@@ -47,7 +47,7 @@ Wynik `node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cl-5637200.md 
 | DEV-01 | dotyczy (formuły all-in, ICM, bramki budowania) | 001, 002; formuły dla pozycji z fixture ok (wyrocznie niezależne) |
 | DEV-02 | dotyczy (7 commitów zmieniających zachowanie) | 7/7 zmienia testy w tym samym commicie (f5e4395, 994e285, 2e9c358, 7c7b7ff, c47c337, 1873e52, c82d6b4); w c82d6b4 nowa gałąź powtórki bez własnego testu (003) |
 | DEV-03 | dotyczy | ok: jedyne `it.fails` to CG i ten raport, z ID i instrukcją; brak `.skip`/`.only`; test deterministyczności zachował asercję hasha |
-| DEV-04 | dotyczy | ok: `pnpm run ci` kod 0 (`dowody/cm-ci-5637200.txt`) |
+| DEV-04 | dotyczy | ok: `pnpm run ci` kod 0 (`dowody/cm-ci-cec0119.txt`) |
 | DEV-05 | dotyczy (zapis odcisku) | ok: bez zmian ścieżki zapisu poza nowym polem |
 | DEV-06 | nie dotyczy: brak migracji w zakresie | — |
 | DEV-07 | dotyczy | ok: `icm-call` bez `positions`/`stackBb` daje `TemplateError`, nie domyślną wartość |
@@ -59,7 +59,7 @@ Wynik `node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cl-5637200.md 
 | DEV-13 | dotyczy | ok: martwe blindy z jednej funkcji `deadBlindsBb` |
 | DEV-14 | dotyczy | ok: diff bez sekretów |
 | DEV-15 | nie dotyczy: brak nasłuchów i timerów w zakresie | — |
-| DEV-16 | dotyczy (bb ↔ żetony w ICM) | ok: bb = stos efektywny ÷ stackBb, jedno miejsce (`scenario-gen.ts:389`) |
+| DEV-16 | dotyczy (bb ↔ żetony w ICM) | ok: bb = stos efektywny ÷ stackBb, jedno miejsce (`packages/poker-core/src/scenario-gen.ts:389`) |
 
 ## Znaleziska (szczegóły)
 
@@ -68,7 +68,7 @@ Wynik `node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cl-5637200.md 
 - Poziom: P1 (ŚR wg progu wydania: dziś brak takiej treści)
 - Realność: brzegowy · Pewność: wysoka
 - Rodzaj: D (defekt)
-- Dowód: `tools/content-build/src/scenariusze.ts:197` odrzuca tylko `range-spot`; ekran woła generator bez kontekstu (`apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:88`), a generator bez `GeneratorContext` rzuca dla `cbet-case`, `size-spot`, `icm-call`. Sonda: 8 fixture F2–F4 ma 0 błędów `checkScenarioNaEkran` i błąd „wymaga … (GeneratorContext…)” bez kontekstu (`dowody/cm-sonda-5637200.txt`). Test odtwarzający: `tools/content-build/test/cm-recenzja-cl.test.ts` (`it.fails`).
+- Dowód: `tools/content-build/src/scenariusze.ts:197` odrzuca tylko `range-spot`; ekran woła generator bez kontekstu (`apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:88`), a generator bez `GeneratorContext` rzuca dla `cbet-case`, `size-spot`, `icm-call`. Sonda: 8 fixture F2–F4 ma 0 błędów `checkScenarioNaEkran` i błąd z tekstem GeneratorContext bez kontekstu (`dowody/cm-sonda-5637200.txt`). Test odtwarzający: `tools/content-build/test/cm-recenzja-cl.test.ts` (`it.fails`).
 - Mechanizm: bramka CK (D-755) to lista zakazanych rodzajów spisana, gdy kontekstu wymagał tylko `range-spot`; CA/CJ dodały trzy rodzaje, a CL po scaleniu przekazuje wszystkie punkty do generatora ekranu; `grep -n "range-spot" tools/content-build/src/scenariusze.ts` → bramka ekranu w jednym miejscu (`:198`).
 - Powraca: nie (pierwsze wystąpienie po D-755) → trwała kontrola: test `cm-recenzja-cl.test.ts` po zamianie `it.fails` na `it`.
 - Wzorzec lub źródło: polecenie roli 06 / D-755 („szablon nie może trafić do bazy treści”, gdy ekran go nie obsłuży).
@@ -82,7 +82,7 @@ Wynik `node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cl-5637200.md 
 - Poziom: P1 (ŚR wg progu wydania: brak takiego szablonu w treści)
 - Realność: teoretyczny · Pewność: wysoka
 - Rodzaj: M (kwestia merytoryczna, rachunek szczebel 1)
-- Dowód: `packages/poker-core/src/scenario-gen.ts:377` dopuszcza każdą parę bez martwych blindów, w tym SB wobec BB; koszt pasu to blind gracza (`:389`, 0,5 bb dla SB). BB wchodzi all-in tylko po akcji SB (limp 1 bb albo podbicie), więc gracz SB traci przy pasie co najmniej 1 bb; zakres all-inu rywala bierze `spot` z pozycji SB (`push.sb-10`), a nic nie wiąże pozycji spotu z pozycją rywala. Sonda: szablon fixture z pozycjami odwróconymi przechodzi kontrolę generatora bez błędów (`dowody/cm-sonda-5637200.txt`, „icm SB wobec BB: []”). Test odtwarzający: `cm-recenzja-cl.test.ts` (`it.fails`).
+- Dowód: `packages/poker-core/src/scenario-gen.ts:377` dopuszcza każdą parę bez martwych blindów, w tym SB wobec BB; koszt pasu to blind gracza (`:389`, 0,5 bb dla SB). BB wchodzi all-in tylko po akcji SB (limp 1 bb albo podbicie), więc gracz SB traci przy pasie co najmniej 1 bb; zakres all-inu rywala bierze `spot` z pozycji SB (`push.sb-10`), a nic nie wiąże pozycji spotu z pozycją rywala. Sonda: szablon fixture z pozycjami odwróconymi przechodzi kontrolę generatora bez błędów (`dowody/cm-sonda-5637200.txt`, wiersz icm SB wobec BB: pusta lista błędów). Test odtwarzający: `cm-recenzja-cl.test.ts` (`it.fails`).
 - Mechanizm: walidacja pozycji tylko przez sumę martwych blindów; `grep -n "deadBlindsBb(pos)" packages/poker-core/src/scenario-gen.ts` → 1 trafienie (`:377`).
 - Powraca: nie → trwała kontrola: test j.w.
 - Wzorzec lub źródło: ADR-24 szczebel 1 (rachunek); D-745 (CJ) przyjął model „pas = utrata blinda gracza”, poprawny dla gracza BB wobec all-inu SB.

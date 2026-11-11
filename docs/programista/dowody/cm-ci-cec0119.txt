@@ -1,0 +1,72 @@
+$ pnpm run ci   (HEAD cec01199f6031271abea63425c59d9e06d75735a, 2026-11-11T00:14:03Z)
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/preflop-solver typecheck$ tsc -p tsconfig.json
+packages/postep typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/content-build typecheck$ tsc -p tsconfig.json
+apps/mobile typecheck$ tsc --noEmit
+> szkola-pokera@ test /home/user/Szkola_pokera
+> pnpm -r --if-present test
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  179 passed (179)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  20 passed (20)
+packages/postep test:       Tests  157 passed (157)
+tools/content-build test:  Test Files  35 passed (35)
+tools/content-build test:       Tests  318 passed | 9 expected fail (327)
+apps/mobile test:     > 40 |   await i18n.changeLanguage(j);
+apps/mobile test:       at wrappedCallback (../../node_modules/react-i18next/dist/commonjs/useTranslation.js:61:7)
+apps/mobile test:       at ../../node_modules/i18next/dist/cjs/i18next.js:287:11
+apps/mobile test:       at I18n.emit (../../node_modules/i18next/dist/cjs/i18next.js:285:14)
+apps/mobile test:       at done (../../node_modules/i18next/dist/cjs/i18next.js:2026:16)
+apps/mobile test:       at ../../node_modules/i18next/dist/cjs/i18next.js:2047:9
+apps/mobile test:       at I18n.loadResources (../../node_modules/i18next/dist/cjs/i18next.js:1946:7)
+apps/mobile test:       at setLng (../../node_modules/i18next/dist/cjs/i18next.js:2046:12)
+apps/mobile test:       at I18n.changeLanguage (../../node_modules/i18next/dist/cjs/i18next.js:2059:7)
+apps/mobile test:       at changeLanguage (src/i18n/index.ts:40:14)
+apps/mobile test:       at apply (src/i18n/index.ts:38:33)
+apps/mobile test: PASS src/i18n/__tests__/jezyk-en-09.test.ts
+apps/mobile test: PASS src/i18n/__tests__/jezyk-ko-it-vi-09.test.ts
+apps/mobile test: PASS src/i18n/__tests__/jezyk-de-es-09.test.ts
+apps/mobile test: PASS src/i18n/__tests__/powtorki-nazwa-08.test.ts
+apps/mobile test: PASS src/i18n/__tests__/jezyk-4-09.test.ts
+apps/mobile test: PASS src/i18n/__tests__/jezyk-pt-09.test.ts
+apps/mobile test: PASS src/i18n/__tests__/przeglad-pelny-wys-09.test.ts
+apps/mobile test: PASS src/i18n/__tests__/konfiguracja.test.ts
+apps/mobile test: PASS src/i18n/__tests__/zakup-tekst-10.test.ts
+apps/mobile test: Tests:       821 passed, 821 total
+> szkola-pokera@ test:skrypty /home/user/Szkola_pokera
+> node --test scripts/sprawdz-i18n.test.mjs scripts/pre-push-check.test.mjs docs/tresci/narzedzia/scal-rejestr.test.mjs tests/narzedzia/sprawdz-eksport.test.mjs tests/narzedzia/k07-zakazy.test.mjs tests/narzedzia/k08-manifesty.test.mjs tests/narzedzia/e2e-flowy.test.mjs tests/narzedzia/workflowy.test.mjs tests/narzedzia/strona.test.mjs tests/narzedzia/asc.test.mjs tests/narzedzia/asc-produkty.test.mjs scripts/ci/e2e-ponowienia.test.mjs scripts/ci/nocny-raport.test.mjs scripts/ci/bramka-e2e.test.mjs scripts/ci/dane-pokazowe.test.mjs scripts/i18n/przeklad-api.test.mjs scripts/i18n/przeglad-api.test.mjs
+# Subtest: kontrola znaczników: {{t:…}} w nakładce i słowniku interfejsu nadal odrzuca (strażnik content-build, i18n)
+ok 54 - kontrola znaczników: {{t:…}} w nakładce i słowniku interfejsu nadal odrzuca (strażnik content-build, i18n)
+> szkola-pokera@ test:kontrole /home/user/Szkola_pokera
+> tsc -p tests/kontrole && vitest run --root tests/kontrole
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+> szkola-pokera@ k08 /home/user/Szkola_pokera
+> node tests/narzedzia/k08-manifesty.mjs || echo 'K-08 (informacyjnie, strategia.md §8.1): braki w manifeście prywatności — przegląd roli 10'
+K-08: pakiety natywne 40, z manifestem 7, trafienia w kodzie bez manifestu 53
+> szkola-pokera@ i18n:kod /home/user/Szkola_pokera
+> node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> pnpm --filter @szkola/content-build check
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+kod wyjścia: 0
