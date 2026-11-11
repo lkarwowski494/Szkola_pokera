@@ -1,0 +1,3 @@
+$ node sprawdz-raport.mjs docs/tresci/recenzje/recenzja-eh-4d786bd2.md . docs/tresci --rola 06-tresci
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 06-tresci
+kod wyjścia: 0

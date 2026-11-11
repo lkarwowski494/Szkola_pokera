@@ -2,7 +2,7 @@
 Recenzja niezależna sesji EH (SC-04, SC-05, SC-08 w treści; D-1165…D-1170). Commit: 4d786bd2 (zakres a6d1bb1b..4d786bd2) · Tryb: audit (rola 06, moduły kontrole-mechaniczne, tresci-krytyczne) · Sesja EJ · Środowisko: Linux, Node 22, pnpm 10.28; sieć działa (curl do źródeł); brak macOS/Xcode (nie dotyczy: recenzja treści).
 
 ## Podsumowanie
-**Werdykt: PRZYJĘTE Z UWAGAMI.** Brak znalezisk KRYT i WYS. Wszystkie twierdzenia pl i en w SC-04, SC-05 i SC-08 są POPARTE źródłami otwartymi dziś (22/22 cytaty znalezione dosłownie na surowym tekście, `dowody/ej-zrodla-2026-11-11.txt`). Liczby tylko przez `{{n:…}}`, w 10 przekładach te same znaczniki co w pl (test `szablony-eh`) i brak innych cyfr niż „3-bet”. Decyzje D-1165, D-1166, D-1169 i D-1170 przyjmuję bez zmian. D-1167 i D-1168 (gutshot i backdoor strita → `call`) przyjmuję co do wyniku, ale ich uzasadnienie czyta cytat o check-raisie jako cytat o sprawdzaniu (ŚR, 06-tresci-001). `pnpm run ci` na 4d786bd2: patrz „Kontrola dowodów”.
+**Werdykt: PRZYJĘTE Z UWAGAMI.** Brak znalezisk KRYT i WYS. Wszystkie twierdzenia pl i en w SC-04, SC-05 i SC-08 są POPARTE źródłami otwartymi dziś (22/22 cytaty znalezione dosłownie na surowym tekście, `dowody/ej-zrodla-2026-11-11.txt`). Liczby tylko przez `{{n:…}}`, w 10 przekładach te same znaczniki co w pl (test `szablony-eh`) i brak innych cyfr niż „3-bet”. Decyzje D-1165, D-1166, D-1169 i D-1170 przyjmuję bez zmian. D-1167 i D-1168 (gutshot i backdoor strita → `call`) przyjmuję co do wyniku, ale ich uzasadnienie czyta cytat o check-raisie jako cytat o sprawdzaniu (ŚR, 06-tresci-001). `pnpm run ci` na 4d786bd2: kod 0 (`dowody/ej-ci-4d786bd2.txt`).
 
 | ID | Poziom | Rodzaj | Tytuł | Status |
 |---|---|---|---|---|
@@ -56,7 +56,7 @@ Wzorzec najlepszych: opublikowane rozwiązania solverów (GTO Wizard, BeyondGTO,
 | Kod `defendVsCbet` po 08-EH-2/3 | nie (zadania roli 08 jeszcze nie wykonane; N2 nie jest w treści) | — |
 
 ## Kontrola dowodów i sekretów
-`pnpm run ci` na 4d786bd2: wynik i kod wyjścia w `dowody/ej-ci-4d786bd2.txt`. `node sprawdz-raport.mjs docs/tresci/recenzje/recenzja-eh-4d786bd2.md . docs/tresci --rola 06-tresci`: wynik w `dowody/ej-sprawdz-raport.txt`.
+`pnpm run ci` na 4d786bd2 (`pnpm install --frozen-lockfile`, Node 22.23.4): kod wyjścia 0, wszystkie pakiety testów zielone (`dowody/ej-ci-4d786bd2.txt`). `node sprawdz-raport.mjs docs/tresci/recenzje/recenzja-eh-4d786bd2.md . docs/tresci --rola 06-tresci`: wynik w `dowody/ej-sprawdz-raport.txt`.
 
 ## Stosowalność listy kontrolnej
 | Pozycja | Status (dotyczy / nie dotyczy + powód / decyzja D-xx) | Wynik (ok / znalezisko ID / nie sprawdzono + powód) |
