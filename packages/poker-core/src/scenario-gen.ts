@@ -5,7 +5,7 @@ import type { Card } from './cards';
 import { dealCards, makeCard, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
-import { cbetVerdict, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
+import { cbetVerdict, isoSizeStandardBb, type IsoParams, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
 import { classifyHolding, HOLDING_LIMITS, type HoldingClass } from './holding';
 import { hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
@@ -319,6 +319,8 @@ function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly numb
   return sum / w;
 }
 const round1 = (x: number) => Math.round(x * 10) / 10;
+/** Rozmiary opcji size-spot względem standardu: jedna lista dla generatora i `isoSizeOptions` (08-programista-005). */
+const sizeOptionBbs = (standard: number) => ({ raise: standard, 'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR) }) as const;
 /** Nazwy planu z przypadku c-betu (CbetAction z content-schema) → akcje punktu cbet-case. */
 const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'check', small: 'bet-small', big: 'bet-big' };
 
@@ -513,7 +515,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
         if (!open) throw new TemplateError(`${t.id}: no-limp wymaga reguły open-size w kontekście`);
         standard = num(open.check.params[spec.sb ? 'openSb' : 'open'], 'open');
       }
-      const mozliwe = { raise: standard, 'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR), limp: null } as const;
+      const mozliwe = { ...sizeOptionBbs(standard), limp: null } as const;
       points.push({
         point: 'size-spot', street: 'preflop', check: spec.check, rule: spec.rule,
         options: (spec.check === 'no-limp' ? AKCJE_BEZ_LIMPU : AKCJE_ROZMIARU).map((a) => ({ action: a, bb: mozliwe[a] })),
@@ -688,7 +690,6 @@ export function fillVariantMarkers(text: string, values: Record<VariantMarker, s
 
 
 const RANK_A = 12; // as
-const RANK_K = 11;
 const RANK_T = 8;
 /** Granica „mały / duży” c-bet w obronie: mały to ≤ 0,4 puli (≈ 1/3, R-M6-006), duży ≥ 0,7 (≥ 3/4, R-M6-007); pomiędzy źródło nie rozstrzyga. */
 const DEFEND_SMALL_MAX = 0.4;
@@ -696,48 +697,69 @@ const DEFEND_BIG_MIN = 0.7;
 /** „Wysokie karty” backdoora: obie karty gracza od dziesiątki (nazwane uproszczenie D-1066, do weta). */
 const BACKDOOR_HIGH_MIN = RANK_T;
 
-export interface IsoParams { base: number; perLimper: number; oopExtra: number }
 export interface IsoOption { action: 'raise' | 'raise-small' | 'raise-big'; bb: number; verdict: WerdyktAkcji }
-/** R-M4-012 (grading.ts `iso-size`): base + perLimper × limperzy (+ oopExtra, gdy gracz jest przed wszystkimi limperami po flopie). */
-export function isoSizeStandardBb(p: IsoParams, limpers: number, oop: boolean): number {
-  return p.base + p.perLimper * limpers + (oop ? p.oopExtra : 0);
-}
 export function isoSizeOptions(p: IsoParams, limpers: number, oop: boolean): IsoOption[] {
   const standard = isoSizeStandardBb(p, limpers, oop);
-  return ([['raise', standard], ['raise-small', round1(standard * SIZE_SMALL_FACTOR)], ['raise-big', round1(standard * SIZE_BIG_FACTOR)]] as const).map(([action, bb]) => ({ action, bb, verdict: sizeVerdict(standard, bb) }));
+  return (Object.entries(sizeOptionBbs(standard)) as [IsoOption['action'], number][]).map(([action, bb]) => ({ action, bb, verdict: sizeVerdict(standard, bb) }));
 }
 
 export type DefendAction = 'call' | 'fold';
+
+/** Backdoor w szerokim sensie (D-1116): trzy karty jednego koloru albo trzy rangi w oknie pięciu (as także jako 1), z udziałem karty gracza. Ręka z backdoorem nie jest „bez drawa”. */
+function hasAnyBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boolean {
+  for (let suit = 0; suit < 4; suit++) {
+    if ([...hero, ...flop].filter((c) => suitOf(c) === suit).length === 3 && hero.some((c) => suitOf(c) === suit)) return true;
+  }
+  const rangi = (cards: readonly Card[]): Set<number> => new Set(cards.flatMap((c) => (rankOf(c) === RANK_A ? [RANK_A, -1] : [rankOf(c)])));
+  const wszystkie = rangi([...hero, ...flop]);
+  const reka = rangi(hero);
+  for (let lo = -1; lo + 4 <= RANK_A; lo++) {
+    const okno = [0, 1, 2, 3, 4].map((k) => lo + k);
+    if (okno.filter((r) => wszystkie.has(r)).length >= 3 && okno.some((r) => reka.has(r))) return true;
+  }
+  return false;
+}
+
 /**
- * Obrona BB wobec c-betu na flopie (R-M6-006 mały, R-M6-007 duży; heur). Mały: call przy parze, drawie (kolor, strit otwarty), backdoorze kolorowym
- * z wysokimi kartami i asie w ręce, inaczej fold. Duży: call przy parze i drawie, fold pozostałe; as na suchym flopie z królem to wyjątek źródła
- * (odrzucany: null). Rozmiar między „małym” a „dużym” źródło nie rozstrzyga (null).
+ * Obrona BB wobec c-betu na flopie (R-M6-006 mały, R-M6-007 duży; heur). Oceniamy tylko to, co reguły mówią wprost; resztę odrzucamy (null, D-1116, 08-programista-001/002).
+ * Mały (≤ 0,4 puli): call przy parze, dwóch parach i lepszych, drawie od {@link HOLDING_LIMITS}.drawOutsMin outów, backdoorze kolorowym obu kart ≥ T i asie w ręce;
+ * fold tylko „bez pary i bez drawa” (bez żadnego drawa ani backdoora); ręka z drawem poniżej progu (gutshot) albo z backdoorem strita lub koloru niższych kart: null.
+ * Duży (≥ 0,7): tylko zakres R-M6-007: dwie karty ≥ T, bez pary, drawa i backdoora → fold; wszystko inne (para, draw, backdoor, niższe karty, as z królem na stole): null.
+ * Rozmiar między „małym” a „dużym” źródło nie rozstrzyga (null).
  */
 export function defendVsCbet(hero: readonly [Card, Card], flop: readonly Card[], fraction: number): DefendAction | null {
+  if (!Number.isFinite(fraction) || fraction <= 0) throw new Error(`defendVsCbet: rozmiar c-betu ${fraction} (ułamek puli > 0)`);
   const small = fraction <= DEFEND_SMALL_MAX;
   if (!small && fraction < DEFEND_BIG_MIN) return null;
   const h = classifyHolding(hero, flop);
-  if (h.improvesBoard || h.pairKind !== null || (h.draw?.all.length ?? 0) >= HOLDING_LIMITS.drawOutsMin) return 'call'; // para, dwie pary i więcej (układ lepszy niż stół), draw
+  const outs = h.draw?.all.length ?? 0;
+  const made = h.improvesBoard || h.pairKind !== null;
   const hasAce = hero.some((c) => rankOf(c) === RANK_A);
   if (!small) {
-    const tex = classifyFlop(flop);
-    return hasAce && flop.some((c) => rankOf(c) === RANK_K) && tex.wetness === 'dry' ? null : 'fold';
+    // wyjątek źródła „as na suchym flopie z królem” jest tu zbędny: as i karta ≥ T z królem na stole to zawsze backdoor strita (A, K, T–Q w oknie T–A), czyli null
+    if (made || outs > 0 || hasAnyBackdoor(hero, flop) || !hero.every((c) => rankOf(c) >= RANK_T)) return null;
+    return 'fold';
   }
+  if (made || outs >= HOLDING_LIMITS.drawOutsMin) return 'call'; // para, dwie pary i więcej (układ lepszy niż stół), draw
   if (hasAce) return 'call';
   const suited = suitOf(hero[0]) === suitOf(hero[1]);
   const backdoor = suited && flop.filter((c) => suitOf(c) === suitOf(hero[0])).length === 1 && hero.every((c) => rankOf(c) >= BACKDOOR_HIGH_MIN);
-  return backdoor ? 'call' : 'fold';
+  if (backdoor) return 'call';
+  return outs > 0 || hasAnyBackdoor(hero, flop) ? null : 'fold';
 }
 
 /** R-M4-010: punkt „lista rąk”: oczekiwana akcja z jawnej listy klas w szablonie; ręka spoza listy → null (generator losuje tylko z listy). */
 export interface ListEntry { hands: readonly string[]; correct: string; acceptable?: readonly string[] }
 export function listHandVerdicts(handClass: string, entries: readonly ListEntry[]): { correct: string; acceptable: string[] } | null {
-  const e = entries.find((x) => x.hands.includes(handClass));
+  const trafione = entries.filter((x) => x.hands.includes(handClass));
+  if (trafione.length > 1) throw new Error(`listHandVerdicts: klasa ${handClass} w ${trafione.length} wpisach listy (jednoznaczna akcja oczekiwana)`);
+  const e = trafione[0];
   return e ? { correct: e.correct, acceptable: [...(e.acceptable ?? [])] } : null;
 }
 
 /** R-M8-010 (math): sprawdzenie bluff-catcherem, gdy udział blefów > bet ÷ (pula + 2·bet); w marginesie marginMin od progu odpowiedzi brak (null, jak draw-call). */
 export function riverCatchAction(bluffShare: number, pot: number, bet: number, marginMin: number): 'call' | 'fold' | null {
+  if (!Number.isFinite(bluffShare) || bluffShare < 0 || bluffShare > 1 || !Number.isFinite(marginMin) || marginMin < 0) throw new Error(`riverCatchAction: udział blefów ${bluffShare} (0–1), margines ${marginMin} (≥ 0)`);
   const need = requiredEquity(pot, bet);
   if (Math.abs(bluffShare - need) < marginMin) return null;
   return bluffShare > need ? 'call' : 'fold';
