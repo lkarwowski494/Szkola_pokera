@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, eligibleClasses, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -165,7 +165,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       }
       if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
     }
-    if (d.kind !== 'cbet-case') {
+    // 08-A (DX): filtr holding jest na poziomie szablonu i generator stosuje go w punkcie cbet-case (także po range-spot), więc błąd tylko,
+    // gdy żaden punkt szablonu nie jest cbet-case; zgłaszany raz na punkt niebędący cbet-case, jak dotąd
+    if (d.kind !== 'cbet-case' && !t.decisions.some((x) => x.kind === 'cbet-case')) {
       for (const l of SCENARIO_LEVELS_LIST) if (t.bounds[l]?.holding !== undefined) e.push(`${p} poziom ${l}: holding tylko dla punktu cbet-case`);
     }
     if (d.kind !== 'icm-call') {
@@ -180,6 +182,14 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       const znane = findVariantMarkers(a.explanation);
       const nieznane = znane.filter((m) => !(VARIANT_MARKERS as readonly string[]).includes(m));
       if (nieznane.length) e.push(`${p} akcja ${a.action}: nieznany znacznik wariantu ${nieznane.map((m) => `{{w:${m}}}`).join(', ')} (dozwolone: ${VARIANT_MARKERS.join(', ')})`);
+      // KO-073 (D-1115): bloki warunkowe {{jesli:nazwa}}…{{/jesli}}: znana nazwa, domknięty blok, `nadkarty` tylko w draw-call, pierwsze zdanie bezwarunkowe
+      const warunki = findVariantConditions(a.explanation);
+      const nieznaneWarunki = warunki.filter((w) => !(VARIANT_CONDITIONS as readonly string[]).includes(w) && !w.startsWith('{{jesli:('));
+      if (nieznaneWarunki.length) e.push(`${p} akcja ${a.action}: nieznany warunek ${nieznaneWarunki.map((m) => `{{jesli:${m}}}`).join(', ')} (nieznany warunek wariantu; dozwolone: ${VARIANT_CONDITIONS.join(', ')})`);
+      if (warunki.some((w) => w.startsWith('{{jesli:('))) e.push(`${p} akcja ${a.action}: niedomknięty blok warunku {{jesli:…}}…{{/jesli}} (bloki nie zagnieżdżają się)`);
+      if (warunki.includes('nadkarty') && d.kind !== 'draw-call') e.push(`${p} akcja ${a.action}: warunek nadkarty tylko w punkcie draw-call (zdanie sytuacji i nadkarty liczone z outów drawa)`);
+      const otwarcie = a.explanation.indexOf('{{jesli:');
+      if (otwarcie >= 0 && otwarcie <= (koniec < 0 ? a.explanation.length : koniec)) e.push(`${p} akcja ${a.action}: zdanie sytuacji (pierwsze) nie może być w bloku warunku (karty i pozycja zawsze widoczne)`);
       const w = findVariantMarkers(zdanie);
       const brak = (['reka', 'stol', 'pozycja'] as const).filter((m) => !w.includes(m));
       if (brak.length) e.push(`${p} akcja ${a.action}: zdanie sytuacji (pierwsze) musi mieć znaczniki wariantu ${brak.map((m) => `{{w:${m}}}`).join(', ')}, żeby pokazywało karty i pozycję z wylosowanego wariantu`);
@@ -248,7 +258,17 @@ export function checkScenarioGenerator(
       e.push(`szablon ${t.id}: poziom ${level}: generator nie wytwarza wariantów (${err instanceof Error ? err.message : String(err)})`);
       continue;
     }
-    if (odciski.size < pojemnoscMin) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${pojemnoscMin}`);
+    // D-1040 / KO-074: szablon bez flopu (tylko range-spot i size-spot): odcisk to klasa ręki, więc próg to min(próg, liczba klas z eligibleClasses)
+    let prog = pojemnoscMin;
+    const pierwszy = t.decisions[0];
+    const b = t.bounds[level];
+    if (ctx && b && pierwszy?.kind === 'range-spot' && t.decisions.every((d) => d.kind === 'range-spot' || d.kind === 'size-spot')) {
+      const spot = ctx.spots.find((x) => x.id === pierwszy.spot);
+      const zakres = b.freqs?.[0];
+      const oczekiwana = b.expected[0];
+      if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);
+    }
+    if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }
   return e;
 }

@@ -1,8 +1,8 @@
 import { formatujLiczbe, formatujProcent, type Jezyk } from '@szkola/jezyki';
-import { analyseOutsSpot, deadBlindsBb, hitProbability, overcardOuts, type SizeSpotVariantDecision } from '@szkola/poker-core';
+import { deadBlindsBb, hitProbability, type SizeSpotVariantDecision } from '@szkola/poker-core';
 import { jezykZadan } from '@/features/drills/text';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
-import { kwotaAkcji, widokDecyzji, type Akcja } from './wariant';
+import { kwotaAkcji, nadkartyPunktu, widokDecyzji, type Akcja } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 
@@ -37,8 +37,7 @@ function zdaniaDrawCall(s: SesjaScenariusza, i: number, t: TFn, j: Jezyk): strin
     kwota: d.bet, pula: d.pot + d.bet, potrzeba: formatujProcent(d.required, j), razPotrzeba: raz(d.required),
     outy: d.outs, nieznane, trafisz: formatujProcent(d.hit, j, { miejsca: 1 }), razTrafisz: raz(d.hit),
   });
-  const spot = analyseOutsSpot(s.wariant.hero, stol);
-  const nadkarty = overcardOuts(s.wariant.hero, stol, spot?.draw.all ?? []);
+  const nadkarty = nadkartyPunktu(s.wariant, i); // ta sama definicja co warunek {{jesli:nadkarty}} w wyjaśnieniu (KO-073)
   if (nadkarty === 0) return [linia];
   if (d.correct === 'call') return [linia, t('scenario.numbers.overcardsCall', { nadkarty, nieznane })];
   // te same karty, które liczy generator: all-in rywala na flopie to dwie karty do końca (R-M2-002), inaczej jedna

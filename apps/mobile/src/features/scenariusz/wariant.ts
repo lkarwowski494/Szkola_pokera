@@ -1,6 +1,6 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { KONFIGURACJA, przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
-import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantMarker, type WerdyktAkcji } from '@szkola/poker-core';
+import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, overcardOutsAt, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantConditionValues, type VariantMarker, type WerdyktAkcji } from '@szkola/poker-core';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 
@@ -310,6 +310,21 @@ export function wartosciZnacznikow(v: ScenarioVariant, s: ScenarioTemplate, inde
   };
 }
 
+/**
+ * Nadkarty punktu draw-call: ta sama definicja co zdanie „Liczby” (`zdaniaDrawCall`): karta gracza wyższa od wszystkich kart stołu
+ * w tym punkcie (`overcardOutsAt` > 0, KO-073, D-1115). Poza draw-call 0.
+ */
+export function nadkartyPunktu(v: ScenarioVariant, indeks: number): number {
+  const d = v.points[indeks];
+  if (d?.point !== 'draw-call') return 0;
+  return overcardOutsAt(v.hero, v.board.slice(0, d.street === 'flop' ? 3 : 4));
+}
+
+/** Warunki bloków {{jesli:…}} wyjaśnienia w punkcie decyzji (KO-073). */
+export function warunkiWariantu(v: ScenarioVariant, indeks: number): VariantConditionValues {
+  return { nadkarty: nadkartyPunktu(v, indeks) > 0 };
+}
+
 export type RodzajBloku = 'slabsza' | 'lepsza' | 'dobrze' | 'dlaczego_nie';
 export interface Blok { rodzaj: RodzajBloku; akcja: Akcja; tekst: string }
 
@@ -323,10 +338,11 @@ export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, w
   const spec = s.decisions[indeks];
   if (!d || !spec) throw new Error(`Brak decyzji ${indeks}`);
   const wartosci = wartosciZnacznikow(v, s, indeks, t);
+  const warunki = warunkiWariantu(v, indeks);
   const tekst = (a: Akcja): string => {
     const wyjasnienie = spec.actions.find((x) => x.action === a)?.explanation;
     if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${a}`);
-    return fillVariantMarkers(wyjasnienie, wartosci);
+    return fillVariantMarkers(wyjasnienie, wartosci, warunki);
   };
   // „dobrze” wynika z oceny wyboru, nie z równości z jedną „poprawną” akcją: w ręce mieszanej (range-spot, ADR-04) kilka akcji jest zgodnych (DC WYS-001)
   const poprawna = poprawnaAkcja(d);

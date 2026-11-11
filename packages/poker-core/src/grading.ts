@@ -36,6 +36,13 @@ export type Verdict = 'compliant' | 'compliant-exploit' | 'acceptable' | 'inaccu
 export const VERDICTS: readonly Verdict[] = ['compliant', 'compliant-exploit', 'acceptable', 'inaccuracy', 'mistake', 'unrated', 'timeout'];
 
 /** Werdykty, które tworzą kartę powtórek (dokument 14, 4.4.5 i 5.11). */
+export interface IsoParams { base: number; perLimper: number; oopExtra: number }
+/** R-M4-012: standard dobicia limperów = base + perLimper × limperzy (+ oopExtra, gdy gracz jest przed wszystkimi limperami po flopie); jedno źródło dla oceny (`iso-size`) i generatora. */
+export function isoSizeStandardBb(p: IsoParams, limpers: number, oop: boolean): number {
+  if (![p.base, p.perLimper, p.oopExtra].every(Number.isFinite) || !Number.isInteger(limpers) || limpers < 1) throw new Error(`isoSizeStandardBb: złe parametry ${JSON.stringify(p)}, limperzy ${limpers}`);
+  return p.base + p.perLimper * limpers + (oop ? p.oopExtra : 0);
+}
+
 export function makesCard(v: Verdict): boolean {
   return v === 'mistake' || v === 'inaccuracy' || v === 'timeout';
 }
@@ -372,7 +379,7 @@ const CHECKS: Record<string, Check> = {
     if (!limpers.length) return null;
     const oop = limpers.every((e) => postflopOrder(ctx.st, ctx.seat) < postflopOrder(ctx.st, e.seat));
     const p = rule.check.params;
-    const expected = Number(p.base) + Number(p.perLimper) * limpers.length + (oop ? Number(p.oopExtra) : 0);
+    const expected = isoSizeStandardBb({ base: Number(p.base), perLimper: Number(p.perLimper), oopExtra: Number(p.oopExtra) }, limpers.length, oop);
     return sizeCandidate(rule, expected, (a.to ?? 0) / ctx.bb);
   },
 

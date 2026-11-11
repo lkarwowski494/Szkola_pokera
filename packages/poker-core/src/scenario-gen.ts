@@ -5,8 +5,8 @@ import type { Card } from './cards';
 import { dealCards, makeCard, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
-import { cbetVerdict, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
-import { classifyHolding, type HoldingClass } from './holding';
+import { cbetVerdict, isoSizeStandardBb, type IsoParams, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
+import { classifyHolding, HOLDING_LIMITS, type HoldingClass } from './holding';
 import { hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
 import { createRng, pick } from './rng';
@@ -153,6 +153,11 @@ export function overcardOuts(hero: readonly Card[], board: readonly Card[], draw
     }
   }
   return n;
+}
+
+/** Nadkarty punktu draw-call z samej ręki i stołu (outy drawa z `analyseOutsSpot`); jedna definicja dla liczb i dla warunku {{jesli:nadkarty}} (KO-073). */
+export function overcardOutsAt(hero: readonly Card[], board: readonly Card[]): number {
+  return overcardOuts(hero, board, analyseOutsSpot(hero, board)?.draw.all ?? []);
 }
 
 export interface LevelBounds {
@@ -314,6 +319,8 @@ function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly numb
   return sum / w;
 }
 const round1 = (x: number) => Math.round(x * 10) / 10;
+/** Rozmiary opcji size-spot względem standardu: jedna lista dla generatora i `isoSizeOptions` (08-programista-005). */
+const sizeOptionBbs = (standard: number) => ({ raise: standard, 'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR) }) as const;
 /** Nazwy planu z przypadku c-betu (CbetAction z content-schema) → akcje punktu cbet-case. */
 const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'check', small: 'bet-small', big: 'bet-big' };
 
@@ -375,7 +382,7 @@ function inMargin(margin: number, b: LevelBounds, i: number): boolean {
 }
 
 /** F1: klasy rąk, w których akcja oczekiwana ma częstość z przedziału poziomu i werdykt „zgodna” (ADR-26); klasy niepewne pominięte. */
-function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext): { hc: string; h: number }[] {
+export function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext): { hc: string; h: number }[] {
   const idx = spot.actions.findIndex((a) => a.label === expected);
   if (idx < 0) return [];
   const out: { hc: string; h: number }[] = [];
@@ -508,7 +515,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
         if (!open) throw new TemplateError(`${t.id}: no-limp wymaga reguły open-size w kontekście`);
         standard = num(open.check.params[spec.sb ? 'openSb' : 'open'], 'open');
       }
-      const mozliwe = { raise: standard, 'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR), limp: null } as const;
+      const mozliwe = { ...sizeOptionBbs(standard), limp: null } as const;
       points.push({
         point: 'size-spot', street: 'preflop', check: spec.check, rule: spec.rule,
         options: (spec.check === 'no-limp' ? AKCJE_BEZ_LIMPU : AKCJE_ROZMIARU).map((a) => ({ action: a, bb: mozliwe[a] })),
@@ -632,12 +639,128 @@ export function findVariantMarkers(text: string): string[] {
   return names;
 }
 
-/** Podstawia znaczniki wartościami wariantu; nieznany znacznik to błąd (nie cichy napis w treści dla użytkownika). */
-export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>): string {
-  const wynik = text.replace(VARIANT_MARKER_RE, (_all, name: string) => {
+/**
+ * Warunki bloków w wyjaśnieniu (KO-073, D-1115): `{{jesli:nazwa}}…{{/jesli}}`; treść bloku pokazywana tylko, gdy warunek wariantu jest
+ * prawdziwy. `nadkarty`: gracz ma kartę wyższą od wszystkich kart stołu (`overcardOutsAt` > 0). Bloki nie zagnieżdżają się.
+ */
+export const VARIANT_CONDITIONS = ['nadkarty'] as const;
+export type VariantCondition = (typeof VARIANT_CONDITIONS)[number];
+export type VariantConditionValues = Readonly<Record<VariantCondition, boolean>>;
+
+const CONDITION_OPEN_RE = /\{\{jesli:([^{}]*)\}\}/g;
+const CONDITION_CLOSE = '{{/jesli}}';
+const CONDITION_BLOCK_RE = /\{\{jesli:([^{}]*)\}\}([\s\S]*?)\{\{\/jesli\}\}/g;
+const NIEDOMKNIETY_WARUNEK = '{{jesli:(niedomknięty)';
+
+/** Nazwy warunków z tekstu w kolejności występowania (także nieznane, do walidacji); uszkodzony blok (brak `{{/jesli}}`, zamykający bez otwarcia, zagnieżdżenie) dodaje `{{jesli:(niedomknięty)`. */
+export function findVariantConditions(text: string): string[] {
+  const names = [...text.matchAll(CONDITION_OPEN_RE)].map((m) => m[1]!);
+  const bezBlokow = text.replace(CONDITION_BLOCK_RE, '');
+  if (bezBlokow.includes('{{jesli:') || bezBlokow.includes(CONDITION_CLOSE) || /\{\{jesli:/.test([...text.matchAll(CONDITION_BLOCK_RE)].map((m) => m[2]!).join(''))) names.push(NIEDOMKNIETY_WARUNEK);
+  return names;
+}
+
+function resolveConditions(text: string, conditions: Partial<VariantConditionValues> | undefined): string {
+  const wynik = text.replace(CONDITION_BLOCK_RE, (_all, name: string, body: string) => {
+    if (!(VARIANT_CONDITIONS as readonly string[]).includes(name)) throw new TemplateError(`nieznany warunek wariantu {{jesli:${name}}}`);
+    if (body.includes('{{jesli:')) throw new TemplateError('zagnieżdżony blok warunku {{jesli:');
+    const wartosc = conditions?.[name as VariantCondition];
+    if (wartosc === undefined) throw new TemplateError(`brak wartości warunku {{jesli:${name}}}`);
+    return wartosc ? body : '';
+  });
+  if (wynik.includes('{{jesli:') || wynik.includes(CONDITION_CLOSE)) throw new TemplateError('niedomknięty blok warunku {{jesli:');
+  return wynik;
+}
+
+/**
+ * Podstawia bloki warunkowe i znaczniki wartościami wariantu; nieznany znacznik lub warunek to błąd (nie cichy napis w treści dla
+ * użytkownika). Bloki rozstrzygane przed znacznikami, więc znacznik w ukrytym bloku nie jest podstawiany.
+ */
+export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>, conditions?: Partial<VariantConditionValues>): string {
+  const widoczny = resolveConditions(text, conditions);
+  const wynik = widoczny.replace(VARIANT_MARKER_RE, (_all, name: string) => {
     if (!(VARIANT_MARKERS as readonly string[]).includes(name)) throw new TemplateError(`nieznany znacznik wariantu {{w:${name}}}`);
     return values[name as VariantMarker];
   });
   if (wynik.includes('{{w:')) throw new TemplateError('niedomknięty znacznik wariantu {{w:');
   return wynik;
+}
+
+// ---------- Rodzaje punktów 08-N1…N7 (sesja DX): czyste funkcje oceny; w tym pliku, bo grupy mutacji nocny.yml wymieniają pliki src/ ----------
+
+
+const RANK_A = 12; // as
+const RANK_T = 8;
+/** Granica „mały / duży” c-bet w obronie: mały to ≤ 0,4 puli (≈ 1/3, R-M6-006), duży ≥ 0,7 (≥ 3/4, R-M6-007); pomiędzy źródło nie rozstrzyga. */
+const DEFEND_SMALL_MAX = 0.4;
+const DEFEND_BIG_MIN = 0.7;
+/** „Wysokie karty” backdoora: obie karty gracza od dziesiątki (nazwane uproszczenie D-1066, do weta). */
+const BACKDOOR_HIGH_MIN = RANK_T;
+
+export interface IsoOption { action: 'raise' | 'raise-small' | 'raise-big'; bb: number; verdict: WerdyktAkcji }
+export function isoSizeOptions(p: IsoParams, limpers: number, oop: boolean): IsoOption[] {
+  const standard = isoSizeStandardBb(p, limpers, oop);
+  return (Object.entries(sizeOptionBbs(standard)) as [IsoOption['action'], number][]).map(([action, bb]) => ({ action, bb, verdict: sizeVerdict(standard, bb) }));
+}
+
+export type DefendAction = 'call' | 'fold';
+
+/** Backdoor w szerokim sensie (D-1116): trzy karty jednego koloru albo trzy rangi w oknie pięciu (as także jako 1), z udziałem karty gracza. Ręka z backdoorem nie jest „bez drawa”. */
+function hasAnyBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boolean {
+  for (let suit = 0; suit < 4; suit++) {
+    if ([...hero, ...flop].filter((c) => suitOf(c) === suit).length === 3 && hero.some((c) => suitOf(c) === suit)) return true;
+  }
+  const rangi = (cards: readonly Card[]): Set<number> => new Set(cards.flatMap((c) => (rankOf(c) === RANK_A ? [RANK_A, -1] : [rankOf(c)])));
+  const wszystkie = rangi([...hero, ...flop]);
+  const reka = rangi(hero);
+  for (let lo = -1; lo + 4 <= RANK_A; lo++) {
+    const okno = [0, 1, 2, 3, 4].map((k) => lo + k);
+    if (okno.filter((r) => wszystkie.has(r)).length >= 3 && okno.some((r) => reka.has(r))) return true;
+  }
+  return false;
+}
+
+/**
+ * Obrona BB wobec c-betu na flopie (R-M6-006 mały, R-M6-007 duży; heur). Oceniamy tylko to, co reguły mówią wprost; resztę odrzucamy (null, D-1116, 08-programista-001/002).
+ * Mały (≤ 0,4 puli): call przy parze, dwóch parach i lepszych, drawie od {@link HOLDING_LIMITS}.drawOutsMin outów, backdoorze kolorowym obu kart ≥ T i asie w ręce;
+ * fold tylko „bez pary i bez drawa” (bez żadnego drawa ani backdoora); ręka z drawem poniżej progu (gutshot) albo z backdoorem strita lub koloru niższych kart: null.
+ * Duży (≥ 0,7): tylko zakres R-M6-007: dwie karty ≥ T, bez pary, drawa i backdoora → fold; wszystko inne (para, draw, backdoor, niższe karty, as z królem na stole): null.
+ * Rozmiar między „małym” a „dużym” źródło nie rozstrzyga (null).
+ */
+export function defendVsCbet(hero: readonly [Card, Card], flop: readonly Card[], fraction: number): DefendAction | null {
+  if (!Number.isFinite(fraction) || fraction <= 0) throw new Error(`defendVsCbet: rozmiar c-betu ${fraction} (ułamek puli > 0)`);
+  const small = fraction <= DEFEND_SMALL_MAX;
+  if (!small && fraction < DEFEND_BIG_MIN) return null;
+  const h = classifyHolding(hero, flop);
+  const outs = h.draw?.all.length ?? 0;
+  const made = h.improvesBoard || h.pairKind !== null;
+  const hasAce = hero.some((c) => rankOf(c) === RANK_A);
+  if (!small) {
+    // wyjątek źródła „as na suchym flopie z królem” jest tu zbędny: as i karta ≥ T z królem na stole to zawsze backdoor strita (A, K, T–Q w oknie T–A), czyli null
+    if (made || outs > 0 || hasAnyBackdoor(hero, flop) || !hero.every((c) => rankOf(c) >= RANK_T)) return null;
+    return 'fold';
+  }
+  if (made || outs >= HOLDING_LIMITS.drawOutsMin) return 'call'; // para, dwie pary i więcej (układ lepszy niż stół), draw
+  if (hasAce) return 'call';
+  const suited = suitOf(hero[0]) === suitOf(hero[1]);
+  const backdoor = suited && flop.filter((c) => suitOf(c) === suitOf(hero[0])).length === 1 && hero.every((c) => rankOf(c) >= BACKDOOR_HIGH_MIN);
+  if (backdoor) return 'call';
+  return outs > 0 || hasAnyBackdoor(hero, flop) ? null : 'fold';
+}
+
+/** R-M4-010: punkt „lista rąk”: oczekiwana akcja z jawnej listy klas w szablonie; ręka spoza listy → null (generator losuje tylko z listy). */
+export interface ListEntry { hands: readonly string[]; correct: string; acceptable?: readonly string[] }
+export function listHandVerdicts(handClass: string, entries: readonly ListEntry[]): { correct: string; acceptable: string[] } | null {
+  const trafione = entries.filter((x) => x.hands.includes(handClass));
+  if (trafione.length > 1) throw new Error(`listHandVerdicts: klasa ${handClass} w ${trafione.length} wpisach listy (jednoznaczna akcja oczekiwana)`);
+  const e = trafione[0];
+  return e ? { correct: e.correct, acceptable: [...(e.acceptable ?? [])] } : null;
+}
+
+/** R-M8-010 (math): sprawdzenie bluff-catcherem, gdy udział blefów > bet ÷ (pula + 2·bet); w marginesie marginMin od progu odpowiedzi brak (null, jak draw-call). */
+export function riverCatchAction(bluffShare: number, pot: number, bet: number, marginMin: number): 'call' | 'fold' | null {
+  if (!Number.isFinite(bluffShare) || bluffShare < 0 || bluffShare > 1 || !Number.isFinite(marginMin) || marginMin < 0) throw new Error(`riverCatchAction: udział blefów ${bluffShare} (0–1), margines ${marginMin} (≥ 0)`);
+  const need = requiredEquity(pot, bet);
+  if (Math.abs(bluffShare - need) < marginMin) return null;
+  return bluffShare > need ? 'call' : 'fold';
 }
