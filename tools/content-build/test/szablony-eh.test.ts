@@ -6,7 +6,9 @@
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { defendVsCbet, parseCards } from '@szkola/poker-core';
 import { loadScenarioTemplates } from '../src/scenariusze';
+import { number } from './kit';
 
 const root = resolve(import.meta.dirname, '../../..');
 const JEZYKI = readdirSync(join(root, 'content')).filter((d) => statSync(join(root, 'content', d)).isDirectory() && d !== 'ranges');
@@ -50,4 +52,16 @@ describe('EH: przekłady SC-04, SC-05, SC-08 — ta sama struktura i te same zna
       expect(rozbieznosci).toEqual([]);
     });
   }
+});
+
+describe('08-EH-2 (D-1166, NIS-004): próg „dużego c-betu” w defendVsCbet = cbet.size.big z numbers.yaml, włącznie', () => {
+  const big = number('cbet.size.big');
+  const [qh, jd] = parseCards('Qh Jd') as [number, number];
+  const flop = parseCards('7c 3d 2s');
+  it('rozmiar równy kluczowi → fold (dwie wysokie karty, czysta ręka), tuż pod nim → null', () => {
+    expect(big).toBe(0.75);
+    expect(defendVsCbet([qh, jd], flop, big)).toBe('fold');
+    expect(defendVsCbet([qh, jd], flop, big - 0.001)).toBeNull();
+    expect(defendVsCbet([qh, jd], flop, 0.7)).toBeNull();
+  });
 });

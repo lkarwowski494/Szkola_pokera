@@ -930,9 +930,10 @@ export function fillVariantMarkers(text: string, values: Record<VariantMarker, s
 
 const RANK_A = 12; // as
 const RANK_T = 8;
-/** Granica „mały / duży” c-bet w obronie: mały to ≤ 0,4 puli (≈ 1/3, R-M6-006), duży ≥ 0,7 (≥ 3/4, R-M6-007); pomiędzy źródło nie rozstrzyga. */
+/** Granica „mały / duży” c-bet w obronie: mały to ≤ 0,4 puli (≈ 1/3, R-M6-006), duży ≥ 0,75 (≥ 3/4, R-M6-007); pomiędzy źródło nie rozstrzyga. */
 const DEFEND_SMALL_MAX = 0.4;
-const DEFEND_BIG_MIN = 0.7;
+/** D-1166 / NIS-004: = `cbet.size.big` z content/numbers.yaml (0,75, włącznie); zgodność pilnuje szablony-eh.test.ts w content-build. */
+const DEFEND_BIG_MIN = 0.75;
 /** „Wysokie karty” backdoora: obie karty gracza od dziesiątki (nazwane uproszczenie D-1066, do weta). */
 const BACKDOOR_HIGH_MIN = RANK_T;
 
@@ -944,11 +945,16 @@ export function isoSizeOptions(p: IsoParams, limpers: number, oop: boolean): Iso
 
 export type DefendAction = 'call' | 'fold';
 
-/** Backdoor w szerokim sensie (D-1116): trzy karty jednego koloru albo trzy rangi w oknie pięciu (as także jako 1), z udziałem karty gracza. Ręka z backdoorem nie jest „bez drawa”. */
-function hasAnyBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boolean {
+/** Backdoor koloru: trzy karty jednego koloru z udziałem karty gracza. */
+function hasFlushBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boolean {
   for (let suit = 0; suit < 4; suit++) {
     if ([...hero, ...flop].filter((c) => suitOf(c) === suit).length === 3 && hero.some((c) => suitOf(c) === suit)) return true;
   }
+  return false;
+}
+
+/** Backdoor strita: trzy rangi w oknie pięciu (as także jako 1) z udziałem karty gracza. */
+function hasStraightBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boolean {
   const rangi = (cards: readonly Card[]): Set<number> => new Set(cards.flatMap((c) => (rankOf(c) === RANK_A ? [RANK_A, -1] : [rankOf(c)])));
   const wszystkie = rangi([...hero, ...flop]);
   const reka = rangi(hero);
@@ -959,10 +965,15 @@ function hasAnyBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boo
   return false;
 }
 
+/** Backdoor w szerokim sensie (D-1116): koloru albo strita. Ręka z backdoorem nie jest „bez drawa”. */
+function hasAnyBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boolean {
+  return hasFlushBackdoor(hero, flop) || hasStraightBackdoor(hero, flop);
+}
+
 /**
  * Obrona BB wobec c-betu na flopie (R-M6-006 mały, R-M6-007 duży; heur). Oceniamy tylko to, co reguły mówią wprost; resztę odrzucamy (null, D-1116, 08-programista-001/002).
  * Mały (≤ 0,4 puli): call przy parze, dwóch parach i lepszych, drawie od {@link HOLDING_LIMITS}.drawOutsMin outów, backdoorze kolorowym obu kart ≥ T i asie w ręce;
- * fold tylko „bez pary i bez drawa” (bez żadnego drawa ani backdoora); ręka z drawem poniżej progu (gutshot) albo z backdoorem strita lub koloru niższych kart: null.
+ * gutshot bez pary: call (D-1167); backdoor strita z obiema kartami ≥ T: call (D-1168); fold tylko „bez pary i bez drawa” (bez żadnego drawa ani backdoora); backdoor strita lub koloru z kartą < T: null.
  * Duży (≥ 0,7): tylko zakres R-M6-007: dwie karty ≥ T, bez pary, drawa i backdoora → fold; wszystko inne (para, draw, backdoor, niższe karty, as z królem na stole): null.
  * Rozmiar między „małym” a „dużym” źródło nie rozstrzyga (null).
  */
@@ -984,7 +995,9 @@ export function defendVsCbet(hero: readonly [Card, Card], flop: readonly Card[],
   const suited = suitOf(hero[0]) === suitOf(hero[1]);
   const backdoor = suited && flop.filter((c) => suitOf(c) === suitOf(hero[0])).length === 1 && hero.every((c) => rankOf(c) >= BACKDOOR_HIGH_MIN);
   if (backdoor) return 'call';
-  return outs > 0 || hasAnyBackdoor(hero, flop) ? null : 'fold';
+  if (outs > 0) return 'call'; // gutshot bez pary (D-1167): solver gutshotów nie pasuje; uproszczenie: „kontynuujesz” = call
+  if (hasStraightBackdoor(hero, flop) && hero.every((c) => rankOf(c) >= BACKDOOR_HIGH_MIN)) return 'call'; // backdoor strita z dwiema kartami ≥ T (D-1168)
+  return hasAnyBackdoor(hero, flop) ? null : 'fold'; // backdoor z kartą < T: null (otwarte pytanie D-1168)
 }
 
 /** R-M4-010: punkt „lista rąk”: oczekiwana akcja z jawnej listy klas w szablonie; ręka spoza listy → null (generator losuje tylko z listy). */

@@ -131,7 +131,12 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     } else if (d.kind === 'defend') {
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
       if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
-      for (const f of d.fractions) if (f > 0.4 && f < 0.7) e.push(`${p} ułamek c-betu ${f} leży między małym (≤ 0,4) a dużym (≥ 0,7): źródło (R-M6-006/007) nie rozstrzyga, wariant byłby zawsze odrzucony`);
+      // granice zgodne z defendVsCbet (poker-core): mały ≤ 0,4, duży ≥ 0,75 (cbet.size.big, D-1166); sprawdzamy surowe ułamki i zakłady po zaokrągleniu (EI-003)
+      for (const f of d.fractions) if (f > 0.4 && f < 0.75) e.push(`${p} ułamek c-betu ${f} leży między małym (≤ 0,4) a dużym (≥ 0,75): źródło (R-M6-006/007) nie rozstrzyga, wariant byłby zawsze odrzucony`);
+      for (const pot of d.pots) for (const f of d.fractions) {
+        const bet = Math.round(pot * f);
+        if (bet > 0 && bet / pot > 0.4 && bet / pot < 0.75 && !(f > 0.4 && f < 0.75)) e.push(`${p} pula ${pot} × ułamek ${f}: zakład ${bet} (${(bet / pot).toFixed(3)} puli po zaokrągleniu) leży między małym (≤ 0,4) a dużym (≥ 0,75): wariant byłby odrzucany`);
+      }
       for (const l of SCENARIO_LEVELS_LIST) {
         const ex = t.bounds[l]?.expected[i];
         if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu defend to call albo fold, jest ${ex}`);

@@ -21,6 +21,13 @@ describe('08-N2: bramka defend', () => {
   it('akcje to dokładnie call i fold', () => { expect(blad(kopia((b) => { b.decisions[0].actions[1].action = 'call'; }))).toMatch(/dokładnie call i fold/); });
   it('oczekiwana akcja call albo fold', () => { expect(() => kopia((b) => { b.bounds.latwy.expected = ['raise']; })).not.toThrow(); expect(blad(kopia((b) => { b.bounds.latwy.expected = ['raise']; }))).toMatch(/call albo fold/); });
   it('ułamek c-betu między małym a dużym (0,4–0,7) nie ma odpowiedzi w źródle', () => { expect(blad(kopia((b) => { b.decisions[0].fractions = [0.5]; }))).toMatch(/0\.5.*między/); });
+  it('D-1166: ułamek 0,7 to już luka (duży od 0,75), 0,75 jest dozwolony', () => {
+    expect(blad(kopia((b) => { b.decisions[0].fractions = [0.7]; }))).toMatch(/0\.7.*między/);
+    expect(blad(kopia((b) => { b.decisions[0].fractions = [0.75]; b.decisions[0].pots = [20]; }))).toBe('');
+  });
+  it('EI-003: zaokrąglony zakład w luce (pula 3 × 0,75 → 2 = 0,667) jest błędem szablonu', () => {
+    expect(blad(kopia((b) => { b.decisions[0].fractions = [0.75]; b.decisions[0].pots = [3]; }))).toMatch(/pula 3.*zakład 2.*między/);
+  });
   it('ekran jeszcze nie obsługuje defend', () => { expect(checkScenarioNaEkran(fx.template).join('\n')).toMatch(/defend nie jest jeszcze obsługiwany na ekranie/); });
   it('generator wytwarza ≥ 40 odcisków (z prawdziwym zakresem obrony BB)', () => {
     expect(checkScenarioGenerator(fx.template, undefined, 2000, { spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } })).toEqual([]);
