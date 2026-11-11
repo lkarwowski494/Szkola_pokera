@@ -1,0 +1,10 @@
+CX: pnpm run ci kod 0 na drzewie roboczym równym commitowi d423a6a8 (kod; kolejny commit tylko docs), 2026-11-11, Node v22.23.4, stan wyjściowy 46197812 też kod 0
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  179 passed (179)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  417 passed | 1 expected fail (418)
+apps/mobile test: Tests:       922 passed, 922 total
+krytyczne: 56; 0 błędów, 0 uwag (tresci:rejestr); 0 exit=exit=0
