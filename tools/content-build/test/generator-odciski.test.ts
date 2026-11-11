@@ -2,7 +2,7 @@
 // poker-core nie złapał zmiany CS). Zasada: pod tą samą GENERATOR_WERSJA każdy odcisk dla stałych ziaren musi być identyczny;
 // zmiana wyniku generatora (albo treści szablonu) = podniesienie wersji i przeliczenie pliku w tym samym commicie:
 //   GENERATOR_ODCISKI_ZAPISZ=1 pnpm --filter <pakiet content-build> exec vitest run test/generator-odciski.test.ts
-// Wyjątek nazwany (D-852): sc-12 poza kontrolą, bo jego treść zmienia równolegle sesja CU (WYS-001); do włączenia po scaleniu.
+// Wszystkie szablony z content/pl objęte kontrolą (sc-12 włączony po scaleniu CU, D-854).
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -14,7 +14,7 @@ import { content } from './kit';
 
 const root = resolve(import.meta.dirname, '../../..');
 const PLIK = join(import.meta.dirname, 'generator-odciski.json');
-const POMINIETE = new Set(['sc-12']);
+const POMINIETE = new Set<string>(); // D-852 cofnięte w D-854: sc-12 włączony po scaleniu CU
 const ZIARNA = 200;
 const templates = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template).filter((t) => !POMINIETE.has(t.id));
 // Kontekst jak w aplikacji i w teście CT (zakresy z content/, progi i przypadki c-betu z reguły R-M5-007).
