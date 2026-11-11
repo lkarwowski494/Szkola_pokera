@@ -121,12 +121,27 @@ describe('kwoty akcji spotu (kwotaAkcji)', () => {
   it('podbicie = rozmiar z etykiety; „call N” = dopłata za blindem gracza; all-in i „call” = stos (za blindem przy sprawdzeniu)', () => {
     const d = p('rfi.btn');
     expect(kwotaAkcji(d, 'raise 2.5', poz('BTN', 100))).toBe(2.5);
+    expect(kwotaAkcji(d, 'raise 10', poz('BB', 100))).toBe(10); // podbicie to rozmiar całkowity, blind gracza go nie zmniejsza (DC NIS-006, M5)
+    expect(kwotaAkcji(d, 'raise 3', poz('SB', 100))).toBe(3);
     expect(kwotaAkcji(d, 'call 2.5', poz('BB', 100))).toBe(1.5);
     expect(kwotaAkcji(d, 'call 3', poz('SB', 100))).toBe(2.5);
     expect(kwotaAkcji(d, 'all-in', poz('SB', 10))).toBe(10);
     expect(kwotaAkcji(d, 'call', poz('BB', 10))).toBe(9);
     expect(kwotaAkcji(d, 'all-in', poz('SB', undefined))).toBeNull();
     expect(kwotaAkcji(d, 'fold', poz('SB', 10))).toBeNull();
+  });
+});
+
+describe('graf: range-spot z następnym punktem (DC NIS-006, M7)', () => {
+  it('all-in i pas kończą rozdanie także w linii dwupunktowej, sprawdzenie prowadzi dalej', () => {
+    const v = wariant(RFI_DRAW, 'latwy');
+    const p0 = v.points[0]!;
+    if (p0.point !== 'range-spot') throw new Error('oczekiwano range-spot');
+    const push = { ...p0, spot: 'push.sb-10', options: ['fold', 'all-in', 'call'].map((action) => ({ action, f: 0.3, verdict: 'correct' as const })) };
+    const g = grafPunktow({ ...v, points: [push, v.points[1]!] });
+    expect(g[0]?.find((a) => a.akcja === 'all-in')?.dalej).toBe('koniec');
+    expect(g[0]?.find((a) => a.akcja === 'fold')?.dalej).toBe('koniec');
+    expect(g[0]?.find((a) => a.akcja === 'call')?.dalej).toBe(1);
   });
 });
 

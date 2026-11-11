@@ -201,7 +201,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   // VoiceOver: po decyzji ocena z werdyktem, przed decyzją nowy wpis rywala (ulica i jego zakład, A04-11/D-283)
   const ruch = d ? ruchRywala(s, d, Math.max(0, indeks), t) : null;
   const opisRywala = d && ulicaDecyzji ? [t(`scenario.street.${ulicaDecyzji}`), ruch].filter((x) => x).join('. ') : null;
-  useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: t('scenario.verdict.yours', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '', lepiej: d ? opisAkcjiEkranu(poprawnaAkcja(d)).fraza : '' }) }) : ocenaMode ? null : opisRywala);
+  useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '' }) : t('scenario.verdict.yours', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '', lepiej: d ? opisAkcjiEkranu(poprawnaAkcja(d)).fraza : '' }) }) : ocenaMode ? null : opisRywala);
   if (!d || !widok) return <Screen>{null}</Screen>;
   const akcje = akcjePunktu(d);
   const teksty: Partial<Record<Akcja, TekstAkcji>> = Object.fromEntries(akcje.map((a) => [a, opisAkcjiEkranu(a)]));
@@ -243,7 +243,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         <View style={{ gap: odstep.l }}>
           <Werdykt
             ocena={ocenaWyboru}
-            zdanie={wybor === najlepsza ? t('scenario.verdict.yoursGood', { akcja: fraza(wybor) }) : t('scenario.verdict.yours', { akcja: fraza(wybor), lepiej: fraza(najlepsza) })}
+            zdanie={ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: fraza(wybor) }) : t('scenario.verdict.yours', { akcja: fraza(wybor), lepiej: fraza(najlepsza) })}
           />
           {bloki(s.wariant, s.szablon, indeks, wybor, t).map((b) => (
             <BlokDlaczego key={`${b.rodzaj}-${b.akcja}`} blok={b} nazwa={fraza(b.akcja)} t={t} />

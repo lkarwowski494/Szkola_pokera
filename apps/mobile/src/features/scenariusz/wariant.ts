@@ -277,8 +277,9 @@ export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, w
     if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${a}`);
     return fillVariantMarkers(wyjasnienie, wartosci);
   };
+  // „dobrze” wynika z oceny wyboru, nie z równości z jedną „poprawną” akcją: w ręce mieszanej (range-spot, ADR-04) kilka akcji jest zgodnych (DC WYS-001)
   const poprawna = poprawnaAkcja(d);
-  return wybor === poprawna
+  return ocenaAkcji(d, wybor) === 'zgodne'
     ? [{ rodzaj: 'dobrze', akcja: wybor, tekst: tekst(wybor) }, ...akcjePunktu(d).filter((a) => a !== wybor).map((a): Blok => ({ rodzaj: 'dlaczego_nie', akcja: a, tekst: tekst(a) }))]
     : [{ rodzaj: 'slabsza', akcja: wybor, tekst: tekst(wybor) }, { rodzaj: 'lepsza', akcja: poprawna, tekst: tekst(poprawna) }];
 }
