@@ -1,0 +1,16 @@
+# Sesja DN: „Liczby” F2–F4 + ekran i próg ICM (D-888…D-890) — Szkoła Pokera
+Koordynator: session_01T66VBvPqFB6GZD3a2Yg9AF (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie build. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-dn-liczby` @ 709f69476507f248ccb211eacec73be4332005bb (= robocza `claude/sleepy-brahmagupta-2065nu`, CI 43032964359 i E2E 43032964388 zielone; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile` (wymaga jej też hook pre-push). Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem.
+3. Zadania:
+   1. Inwentaryzacja: dla D-886…D-890 (`docs/decyzje/DA.md`, `docs/design/scenariusz-akcje-i-liczby.md`) ustal, co już jest w kodzie (plik:linia) i co brakuje. Gotowe: tabela w `docs/programista/stan-dn.md`, raport do koordynatora (czas, szacunek reszty).
+   2. Wdrożenie D-888 („Liczby” F2–F4 i draw-call z nadkartami) według §3 dokumentu projektu i jego „Kryteriów akceptacji dla 08”; liczby tylko przez `content/numbers.yaml` (`{{n:…}}`, wielkości liczone formułą z `refs`), po zmianie w `content/` `pnpm content:build`. Gotowe: każde kryterium akceptacji ma test (najpierw czerwony), teksty pl i en z dokumentu; pozostałe języki — klucze z oznaczeniem do przekładu według zasad 09 (bez wymyślania przekładów; zgłoś listę kluczy).
+   3. Wdrożenie D-889 (widok punktu ICM) i D-890 (próg (S − b) ÷ (2S)) według DA.md; rachunek D-890 sprawdzony testem niezależnym (inna ścieżka obliczenia niż w kodzie). Gotowe: testy, RNTL dla widoku.
+   4. Brakujące elementy D-886/D-887 z inwentaryzacji (jeśli są) — tylko w zakresie dokumentu projektu.
+   5. `pnpm run ci` kod 0 na końcowym SHA (wynik do pliku dowodu na gałęzi), push zbiorczy.
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). Wygląd i teksty tylko z dokumentu projektu (zasada 15); brak w dokumencie → PYTANIE do koordynatora. STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora i czekasz na odpowiedź.
+5. Decyzje: tryb dzienny — techniczne rozstrzygasz sam przez analogię (najpierw `lkarwowski494/trening`, potem oczko, piekarz; `repo:plik:linia`, data odczytu), wpis do weta; produktowe → PYTANIE do koordynatora z ≥ 2 opcjami i rekomendacją; merytoryczne pokerowe → hierarchia źródeł ADR-24 z CLAUDE.md. Numery decyzji tylko z puli D-965…D-979 (plik `docs/decyzje/DN.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w `docs/programista/stan-dn.md`, push, PRZEKAZANIE. Pułapu kosztu brak (mandat: tylko raport) — podawaj koszt w raportach.
+7. Push: zbiorczo, na `sesja-dn-liczby`.
+8. Raporty (≤ 10 linii, przez send_message): po zadaniu 1; PYTANIE (pełna treść, opcje, rekomendacja); PRZEKAZANIE: SHA, plik dowodu ci, decyzje do weta, koszt, otwarte, następny krok.
