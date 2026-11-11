@@ -12,4 +12,6 @@ Pula D-917…D-924. Kto: M = merytoryczna według hierarchii ADR-24 (CLAUDE.md),
 - 06-tresci-003: commit z tym plikiem (R-M2-005 `uproszczenie`), dowody `docs/tresci/dowody/dg-003-*`. Status: naprawione-do-weryfikacji.
 - Przekłady dla roli 09 (dziedziczą 06-tresci-001): `content/{en,de,es,fr,it,ja,ko,pt,pt-BR,vi,zh-Hant}/scenarios/sc-01.yaml` (4 wyjaśnienia), `sc-02.yaml` (4), `sc-03.yaml` (2), `sc-19.yaml` (4): 44 pliki, 154 wyjaśnienia ze zdaniem `{{n:pair.outs.per-rank}}`; dodać odpowiednik „najwyżej”. 23 pozostałe bazy biorą tekst en. Do tego czasu znalezisko otwarte w przekładach.
 - Nie ruszane: 06-tresci-002 (decyzja produktowa u właściciela).
-- Następny krok: przegląd ścieżek wrażliwych (`tools/content-build/`, `apps/mobile/src/data/`) świeżym subagentem, push na `sesja-dg-poprawki`, PRZEKAZANIE do koordynatora.
+- Przegląd ścieżek wrażliwych (D-043; `tools/content-build/`, `apps/mobile/src/data/`): świeży subagent, tylko `git diff 431cb885..0e83e8c6`, znalezisko i zasady 10–14: **brak uwag** (identyfikatory szablonów, `rule` i klucze `{{n:}}` bez zmian; historia wariantów kluczowana `szablon_id`, `poziom`, `odcisk`, nie hashem treści, `packages/postep/src/wariantyHistoria.ts:26`; 35 baz `1ae37243de` zgodnych z `tresc.generated.ts`; test wzmocniony; brak sekretów).
+- Kontrola raportu (`sprawdz-raport.mjs` na tym pliku): kod 0.
+- Następny krok: PRZEKAZANIE do koordynatora; reaudit 001/003 i przekłady (rola 09) poza tą sesją.
