@@ -457,11 +457,11 @@
     "log": {
       "fold": "{{pos}}: {{t:fold|foldet}}",
       "check": "{{pos}}: {{t:check|checkt}}",
-      "call": "{{pos}}: {{t:call|callt}} {{bb}}bb",
-      "bet": "{{pos}}: {{t:bet|Bet}} {{bb}}bb",
-      "raise": "{{pos}}: {{t:raise|Raise}} auf {{bb}}bb",
-      "allin": "{{pos}}: all-in {{bb}}bb",
-      "blinds": "Blinds {{sb}}/{{bb}}bb"
+      "call": "{{pos}}: {{t:call|callt}} {{bb}} bb",
+      "bet": "{{pos}}: {{t:bet|Bet}} {{bb}} bb",
+      "raise": "{{pos}}: {{t:raise|Raise}} auf {{bb}} bb",
+      "allin": "{{pos}}: all-in {{bb}} bb",
+      "blinds": "Blinds {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -1073,14 +1073,14 @@
       "fold": "{{t:fold}}",
       "check": "{{t:check}}",
       "call": "{{t:call}}",
-      "limp": "limp",
+      "limp": "Limp",
       "raise": "{{t:raise}}",
-      "threeBet": "3-bet",
-      "allIn": "all-in",
-      "betSmall": "small {{t:c-bet}}",
-      "betBig": "big {{t:c-bet}}",
+      "threeBet": "3-Bet",
+      "allIn": "All-in",
+      "betSmall": "kleine {{t:c-bet}}",
+      "betBig": "große {{t:c-bet}}",
       "amountPay": "{{bb}} bb",
-      "amountTo": "to {{bb}} bb",
+      "amountTo": "auf {{bb}} bb",
       "amountAll": "{{bb}} bb",
       "withAmount": "{{akcja}} {{kwota}}"
     }

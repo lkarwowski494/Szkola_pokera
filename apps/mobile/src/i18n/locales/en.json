@@ -457,11 +457,11 @@
     "log": {
       "fold": "{{pos}}: {{t:fold|folds}}",
       "check": "{{pos}}: {{t:check|checks}}",
-      "call": "{{pos}}: {{t:call|calls}} {{bb}}bb",
-      "bet": "{{pos}}: {{t:bet}} {{bb}}bb",
-      "raise": "{{pos}}: {{t:raise}} to {{bb}}bb",
-      "allin": "{{pos}}: all-in {{bb}}bb",
-      "blinds": "Blinds {{sb}}/{{bb}}bb"
+      "call": "{{pos}}: {{t:call|calls}} {{bb}} bb",
+      "bet": "{{pos}}: {{t:bet}} {{bb}} bb",
+      "raise": "{{pos}}: {{t:raise}} to {{bb}} bb",
+      "allin": "{{pos}}: all-in {{bb}} bb",
+      "blinds": "Blinds {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",

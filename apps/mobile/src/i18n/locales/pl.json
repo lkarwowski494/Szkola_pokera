@@ -479,11 +479,11 @@
     "log": {
       "fold": "{{pos}}: {{t:fold|pas}}",
       "check": "{{pos}}: {{t:check|czeka}}",
-      "call": "{{pos}}: {{t:call|sprawdza}} {{bb}}bb",
-      "bet": "{{pos}}: {{t:bet|zakład}} {{bb}}bb",
-      "raise": "{{pos}}: {{t:raise|przebicie}} do {{bb}}bb",
-      "allin": "{{pos}}: all-in {{bb}}bb",
-      "blinds": "Blindy {{sb}}/{{bb}}bb"
+      "call": "{{pos}}: {{t:call|sprawdza}} {{bb}} bb",
+      "bet": "{{pos}}: {{t:bet|zakład}} {{bb}} bb",
+      "raise": "{{pos}}: {{t:raise|przebicie}} do {{bb}} bb",
+      "allin": "{{pos}}: all-in {{bb}} bb",
+      "blinds": "Blindy {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",

@@ -446,11 +446,11 @@
     "log": {
       "fold": "{{pos}}：{{t:fold|棄牌}}",
       "check": "{{pos}}：{{t:check|過牌}}",
-      "call": "{{pos}}：{{t:call|跟注}} {{bb}}bb",
-      "bet": "{{pos}}：{{t:bet|下注}} {{bb}}bb",
-      "raise": "{{pos}}：{{t:raise|加注}}到 {{bb}}bb",
-      "allin": "{{pos}}：全下 {{bb}}bb",
-      "blinds": "盲注 {{sb}}/{{bb}}bb"
+      "call": "{{pos}}：{{t:call|跟注}} {{bb}} bb",
+      "bet": "{{pos}}：{{t:bet|下注}} {{bb}} bb",
+      "raise": "{{pos}}：{{t:raise|加注}}到 {{bb}} bb",
+      "allin": "{{pos}}：全下 {{bb}} bb",
+      "blinds": "盲注 {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|翻牌前}}",
@@ -1055,16 +1055,16 @@
       "fold": "{{t:fold}}",
       "check": "{{t:check}}",
       "call": "{{t:call}}",
-      "limp": "limp",
+      "limp": "溜入",
       "raise": "{{t:raise}}",
       "threeBet": "3-bet",
-      "allIn": "all-in",
-      "betSmall": "small {{t:c-bet}}",
-      "betBig": "big {{t:c-bet}}",
+      "allIn": "全下",
+      "betSmall": "小額{{t:c-bet}}",
+      "betBig": "大額{{t:c-bet}}",
       "amountPay": "{{bb}} bb",
-      "amountTo": "to {{bb}} bb",
+      "amountTo": "到 {{bb}} bb",
       "amountAll": "{{bb}} bb",
-      "withAmount": "{{akcja}} {{kwota}}"
+      "withAmount": "{{akcja}}{{kwota}}"
     }
   }
 }

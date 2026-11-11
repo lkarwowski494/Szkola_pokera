@@ -446,11 +446,11 @@
     "log": {
       "fold": "{{pos}}: {{t:fold|폴드}}",
       "check": "{{pos}}: {{t:check|체크}}",
-      "call": "{{pos}}: {{t:call|콜}} {{bb}}bb",
-      "bet": "{{pos}}: {{t:bet|벳}} {{bb}}bb",
-      "raise": "{{pos}}: {{bb}}bb로 {{t:raise|레이즈}}",
-      "allin": "{{pos}}: 올인 {{bb}}bb",
-      "blinds": "블라인드 {{sb}}/{{bb}}bb"
+      "call": "{{pos}}: {{t:call|콜}} {{bb}} bb",
+      "bet": "{{pos}}: {{t:bet|벳}} {{bb}} bb",
+      "raise": "{{pos}}: {{bb}} bb로 {{t:raise|레이즈}}",
+      "allin": "{{pos}}: 올인 {{bb}} bb",
+      "blinds": "블라인드 {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|프리플롭}}",
@@ -1055,16 +1055,16 @@
       "fold": "{{t:fold}}",
       "check": "{{t:check}}",
       "call": "{{t:call}}",
-      "limp": "limp",
+      "limp": "림프",
       "raise": "{{t:raise}}",
-      "threeBet": "3-bet",
-      "allIn": "all-in",
-      "betSmall": "small {{t:c-bet}}",
-      "betBig": "big {{t:c-bet}}",
+      "threeBet": "3벳",
+      "allIn": "올인",
+      "betSmall": "작은 {{t:c-bet}}",
+      "betBig": "큰 {{t:c-bet}}",
       "amountPay": "{{bb}} bb",
-      "amountTo": "to {{bb}} bb",
+      "amountTo": "{{bb}} bb로",
       "amountAll": "{{bb}} bb",
-      "withAmount": "{{akcja}} {{kwota}}"
+      "withAmount": "{{kwota}} {{akcja}}"
     }
   }
 }

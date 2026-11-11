@@ -468,11 +468,11 @@
     "log": {
       "fold": "{{pos}}: {{t:fold|desiste}}",
       "check": "{{pos}}: {{t:check|passa}}",
-      "call": "{{pos}}: {{t:call|paga}} {{bb}}bb",
-      "bet": "{{pos}}: {{t:bet|aposta}} {{bb}}bb",
-      "raise": "{{pos}}: {{t:raise|aumenta}} para {{bb}}bb",
-      "allin": "{{pos}}: all-in {{bb}}bb",
-      "blinds": "Blinds {{sb}}/{{bb}}bb"
+      "call": "{{pos}}: {{t:call|paga}} {{bb}} bb",
+      "bet": "{{pos}}: {{t:bet|aposta}} {{bb}} bb",
+      "raise": "{{pos}}: {{t:raise|aumenta}} para {{bb}} bb",
+      "allin": "{{pos}}: all-in {{bb}} bb",
+      "blinds": "Blinds {{sb}}/{{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -1035,7 +1035,7 @@
       "begin": "Começar a mão"
     },
     "street": {
-      "preflop": "Pré-flop",
+      "preflop": "Preflop",
       "flop": "Flop",
       "turn": "Turn",
       "river": "River"
@@ -1088,17 +1088,17 @@
       "showdownTie": "O river é {{river}}. O adversário mostra {{karty}}: as mãos são iguais."
     },
     "action": {
-      "fold": "{{t:fold}}",
-      "check": "{{t:check}}",
-      "call": "{{t:call}}",
+      "fold": "{{t:fold|desistir}}",
+      "check": "{{t:check|passar}}",
+      "call": "{{t:call|pagar}}",
       "limp": "limp",
-      "raise": "{{t:raise}}",
+      "raise": "{{t:raise|aumentar}}",
       "threeBet": "3-bet",
       "allIn": "all-in",
-      "betSmall": "small {{t:c-bet}}",
-      "betBig": "big {{t:c-bet}}",
+      "betSmall": "{{t:c-bet}} pequeno",
+      "betBig": "{{t:c-bet}} grande",
       "amountPay": "{{bb}} bb",
-      "amountTo": "to {{bb}} bb",
+      "amountTo": "para {{bb}} bb",
       "amountAll": "{{bb}} bb",
       "withAmount": "{{akcja}} {{kwota}}"
     }
