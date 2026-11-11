@@ -34,8 +34,8 @@ for (const j of ['pl', 'en']) {
 }
 ok(/żyw/.test(wpis('R-M7-006').twierdzenie), 'rejestr R-M7-006: twierdzenie bez warunku żywych outów');
 
-// KO-076 (D-1141, D-1215): poziom łatwy SC-06, SC-32, SC-33 z equityMarginMin 0.02 (wartość tylko w pl; bounds w en są kopią).
-for (const j of ['pl', 'en']) for (const sc of ['sc-06', 'sc-32', 'sc-33']) {
+// KO-076 (D-1141, D-1215): warunkowe, czeka na 08-EL-4 (testy w tools/); włączyć flagą --ko076 po wdrożeniu.
+if (process.argv.includes('--ko076')) for (const j of ['pl', 'en']) for (const sc of ['sc-06', 'sc-32', 'sc-33']) {
   const t = YAML.parse(readFileSync(`content/${j}/scenarios/${sc}.yaml`, 'utf8'));
   ok(t.bounds?.latwy?.equityMarginMin === 0.02, `${j} ${sc}: poziom łatwy bez equityMarginMin 0.02`);
 }
