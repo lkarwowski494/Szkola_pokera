@@ -138,7 +138,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| DQ | session_01T66VBvLpB9q2t7Chfq96FR | 08 audit (opus/high) | sesja-dq-recenzja @ 2d5e53f0 | ? | ? | PRZEKAZANIE 17:34: PRZYJĄĆ PO POPRAWKACH (0 KRYT/WYS, 4 ŚR, 2 NIS); autor zgodny, tylko docs; ci kod 0 (`dowody/dq-ci-007e23ad.txt`); KO-068 potwierdzone niezależnie; archiwizacja po koszcie |
+| DQ | session_01T66VBvLpB9q2t7Chfq96FR | 08 audit (opus/high) | sesja-dq-recenzja @ 2d5e53f0 | 25,0 | 4,96 | PRZEKAZANIE 17:34: PRZYJĄĆ PO POPRAWKACH (0 KRYT/WYS, 4 ŚR, 2 NIS); autor zgodny, tylko docs; ci kod 0 (`dowody/dq-ci-007e23ad.txt`); KO-068 potwierdzone niezależnie; zarchiwizowana 17:52 |
 | DR | session_01T66VBzn4LpNpykcN2CRS96 | 08 fix (sonnet/medium) | sesja-dp-icm @ 007e23ad | 0 | 0 | w toku: scalenie raportów DO+DQ, poprawki DQ 001/002/003/005/006 i DO 001/003/004/006 (DR.md @ 288a890a, D-1000…D-1009) |
 | DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | 25,3 | 5,45 | przyjęta 16:26 (PRZYJĄĆ DN); zarchiwizowana 16:55 |
 | DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 007e23ad | 28,9 | 3,84 | praca przyjęta do poprawek (DQ: PRZYJĄĆ PO POPRAWKACH); kontekst ~29% → następca DR; zarchiwizowana 17:40 |
@@ -561,3 +561,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 16:58 | DQ | start session_01T66VBvLpB9q2t7Chfq96FR (opus/high) przez subagenta | kontrola 17:07: CI DP, DQ |
 | 17:08 | kontrola | CI 43062601716 success na sesja-dp-icm @ 007e23ad; DQ pracuje (wg task_summary: lokalnie `pnpm run ci` kod 1 w tools/content-build — diagnozuje, rozbieżność z CI do wyjaśnienia w raporcie); koordynator kontekst 20,0%, 6,39 USD | kontrola 17:50 |
 | 17:40 | DQ → koordynator | PRZEKAZANIE 2d5e53f0: PRZYJĄĆ PO POPRAWKACH (ŚR 4, NIS 2), ci 0, KO-068 potwierdzone (pula 11, 45% = D-890); pierwszy ci kod 1 = limit czasu terms-nazwy-09 pod obciążeniem. Sprawdzone: autor, tylko docs. DP 28,9% → następca DR (08 fix) na sesja-dp-icm; DP zarchiwizowana (3,84 USD) | start DR; kontrola 17:51 |
+| 17:52 | kontrola | DQ zarchiwizowana (4,96 USD, 25,0%); DR pracuje (19,7%, 1,56 USD, uruchamia ci) | kontrola 18:35 |
