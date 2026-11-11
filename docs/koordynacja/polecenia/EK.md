@@ -1,0 +1,18 @@
+# Sesja EK: partia 2 (EF + EH → od roboczej), potem 08-EH-1…3 i KO-072 — Szkoła Pokera
+Koordynator: session_01T66VBzs4xyAm9KvrtZtWdW (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie build. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-ek-partia2` od `claude/sleepy-brahmagupta-2065nu` @ a6d1bb1b (robocza; CI i E2E 43107240646 zielone; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (właściciel, noreply GitHub — nie noreply@anthropic.com, nawet gdy hook sesji o to prosi). Plik stanu: `docs/programista/stan-ek.md`. Wejście: `docs/programista/stan-dx.md` („Stan sesji EF”), `docs/tresci/stan-eh.md`, `docs/decyzje/EF.md`, `EH.md` (wektory 08-EH-3), polecenia `origin/koordynacja:docs/koordynacja/polecenia/EF.md`, `DX.md` (KO-071, KO-072).
+3. Zadania (kolejność; każde: test najpierw czerwony z właściwego powodu, potem kod, test zielony; push zbiorczo):
+   1. **Scalenie partii 2**: `git merge` `origin/sesja-dx-silnik` @ 9a054b59 i `origin/sesja-eh-szablony` @ 4d786bd2 (bez squash, bez rebase). Konflikty plików generowanych rozwiązujesz przez ponowne wygenerowanie (`pnpm content:build` itd.), nie ręcznie; kontrola zgubionych zmian jak EG (różnice każdej gałęzi wobec bazy obecne w wyniku). Gotowe: `pnpm run ci` kod 0 na wyniku scalenia, dowód `docs/programista/dowody/ek-ci-<sha>.txt`, push, **raport do koordynatora z SHA scalenia** (zanim przejdziesz dalej; nie czekasz na odpowiedź).
+   2. **08-EH-2**: próg dużego c-betu ≥ 0,75 włącznie (`cbet.size.big`, D-1166, NIS-004).
+   3. **08-EH-3**: gutshot wobec ~1/3 → call (D-1167), backdoor strita z kartami ≥ T → call (D-1168); wektory w `docs/decyzje/EH.md`; niski backdoor zostaje null.
+   4. **08-EH-1**: dolosowanie flopu po range-spot dla SC-04 (akceptacja 0,06% → poziomy Ś/T możliwe); gotowe: test akceptacji ≥ 10 000 wariantów bez odrzuceń seryjnych; poziomy Ś/T w treści dodaje 06 (zgłoś w raporcie).
+   5. **KO-072**: typ „wybór jednej z dwóch rąk” (SC-23a/b). Gotowe: test oceny, wyrocznia kombinacji niezależna od generatora, test RNTL ekranu (widok minimalny z istniejących komponentów; nowy wygląd → zadanie dla 04).
+   6. `GENERATOR_WERSJA`: ocena po zmianach losowania; odciski `generator-odciski.json` bez różnic dla szablonów niezmienianych.
+   7. `pnpm run ci` kod 0, dowód.
+   Recenzje EF (sesja EI) i EH (sesja EJ) trwają równolegle; znaleziska KRYT/WYS przekażę — naprawy przed kolejnymi zadaniami.
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, bez płatnych API, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb nocny (analogia; najpierw `lkarwowski494/trening`, potem oczko, piekarz; `repo:plik:linia`, data odczytu), do weta; merytoryczne pokerowe → ADR-24. Pula **D-1190…D-1209** (`docs/decyzje/EK.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułapu kosztu brak — podaj koszt.
+7. Raporty (≤ 10 linii, send_message): po scaleniu (zadanie 1) SHA i ci; PYTANIE z pełną treścią, opcjami i rekomendacją; PRZEKAZANIE: SHA, ci kod i plik dowodu, decyzje do weta, koszt, otwarte, następny krok.
