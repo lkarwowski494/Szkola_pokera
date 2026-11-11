@@ -1,0 +1,9 @@
+# EB 06-tresci-003: test ekranu na prawdziwej bazie, mutant (2026-11-11)
+Mutant: packages/poker-core/src/scenario-gen.ts:137 bez sizeRules w buildGeneratorContext (cofnięty, git checkout).
+## nowy test, bez mutanta: kod 0
+Tests:       36 passed, 36 total
+## nowy test, z mutantem: kod 1
+    ✕ sc-06 latwy: każda akcja każdego punktu daje ocenę bez surowych znaczników (59 ms)
+Tests:       1 failed, 35 passed, 36 total
+## stary test (7a7a0f1d..1aa97df3), z mutantem: kod 0 (luka)
+Tests:       17 passed, 17 total
