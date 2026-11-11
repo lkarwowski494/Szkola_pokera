@@ -1,0 +1,50 @@
+# Komenda: (tymczasowo it.fails → it) cd tools/content-build && npx vitest run test/cp-recenzja-cn.test.ts
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+(node:1665) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/cp-recenzja-cn.test.ts (3 tests | 2 failed) 2093ms
+   ❯ CP WYS-001: bramka przepuszcza punkt c-betu albo rozmiaru z niepełną listą akcji, a ekran pokazuje zawsze wszystkie akcje generatora (3)
+     × c-bet bez akcji bet-big jest odrzucony w budowaniu (ekran pokaże „Duży c-bet” bez wyjaśnienia) 947ms
+     × 3-bet bez akcji raise-big jest odrzucony w budowaniu (ekran pokaże trzeci rozmiar bez wyjaśnienia) 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/cp-recenzja-cn.test.ts > CP WYS-001: bramka przepuszcza punkt c-betu albo rozmiaru z niepełną listą akcji, a ekran pokazuje zawsze wszystkie akcje generatora > c-bet bez akcji bet-big jest odrzucony w budowaniu (ekran pokaże „Duży c-bet” bez wyjaśnienia)
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ test/cp-recenzja-cn.test.ts:47:30
+     45|   }, 300_000);
+     46|   it('c-bet bez akcji bet-big jest odrzucony w budowaniu (ekran pokaże…
+     47|     expect(bramka(cbet)).not.toEqual([]);
+       |                              ^
+     48|   }, 300_000);
+     49|   it('3-bet bez akcji raise-big jest odrzucony w budowaniu (ekran poka…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/cp-recenzja-cn.test.ts > CP WYS-001: bramka przepuszcza punkt c-betu albo rozmiaru z niepełną listą akcji, a ekran pokazuje zawsze wszystkie akcje generatora > 3-bet bez akcji raise-big jest odrzucony w budowaniu (ekran pokaże trzeci rozmiar bez wyjaśnienia)
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ test/cp-recenzja-cn.test.ts:50:33
+     48|   }, 300_000);
+     49|   it('3-bet bez akcji raise-big jest odrzucony w budowaniu (ekran poka…
+     50|     expect(bramka(trojbet)).not.toEqual([]);
+       |                                 ^
+     51|   }, 300_000);
+     52| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  01:27:34
+   Duration  5.28s (import 49%, tests 41%, transform 11%)
+
+kod 1

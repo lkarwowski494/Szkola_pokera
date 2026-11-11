@@ -1,0 +1,130 @@
+# Komenda: (tymczasowo it.failing → it) cd apps/mobile && npx jest src/features/scenariusz/__tests__/cp-recenzja-cn.test.tsx
+(node:1593) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/features/scenariusz/__tests__/cp-recenzja-cn.test.tsx
+  CP WYS-001: punkt z dwiema akcjami szablonu (przechodzi bramkę, test tools/content-build/test/cp-recenzja-cn.test.ts)
+    ✓ warunek wstępny: szablony mają po dwie akcje z wyjaśnieniem (5 ms)
+    ✕ c-bet: ekran decyzji pokazuje tylko akcje szablonu (bez „Duży c-bet”) (151 ms)
+    ✕ c-bet: ocena zgodnej akcji renderuje się (dziś bloki() rzuca „brak wyjaśnienia akcji bet-big”) (49 ms)
+    ✕ 3-bet: ocena zgodnej akcji renderuje się (dziś bloki() rzuca „brak wyjaśnienia akcji raise-big”) (11 ms)
+  CP WYS-002: ocena akcji ekranu F2/F3 zgodna z oceną reguły w silniku gry
+    ✓ wyrocznia: silnik gry ocenia c-bet (R-M5-007, best small) jako zgodne / dopuszczalne / niedokładność, 3-bet złym rozmiarem jako niedokładność (34 ms)
+    ✓ mechanizm: ekran ocenia każdą akcję poza najlepszą jako błąd (częstość 0 w trescZWariantu) (21 ms)
+    ✕ c-bet: oceny ekranu = oceny silnika gry (5 ziaren) (29 ms)
+    ✕ 3-bet: oceny ekranu = oceny silnika gry (5 ziaren) (11 ms)
+  CP ICM: ocena icm-call zgodna z niezależnym rachunkiem, kwoty ekranu zgodne z linią BB wobec all-inu SB
+    ✓ wyrocznia Malmuth-Harville + equity wobec zakresu push.sb-10: poprawna akcja i próg jak w wariancie (3 poziomy × 8 ziaren) (183 ms)
+    ✓ warunek wstępny: na poziomie trudnym (chipsDiffer) poprawna akcja ICM jest przeciwna do rachunku żetonów, a stosy i wypłaty zmieniają próg (9 ms)
+    ✕ ekran decyzji icm-call pokazuje wypłaty i stosy graczy, od których zależy ocena (dziś tylko all-in rywala, pula i ręka) (20 ms)
+
+  ● CP WYS-001: punkt z dwiema akcjami szablonu (przechodzi bramkę, test tools/content-build/test/cp-recenzja-cn.test.ts) › c-bet: ekran decyzji pokazuje tylko akcje szablonu (bez „Duży c-bet”)
+
+    expect(received).toBeNull()
+
+    Received: <View accessibilityLabel="Duży c-bet" accessibilityRole="button" accessibilityState={{"busy": undefined, "checked": undefined, "disabled": undefined, "expanded": undefined, "selected": undefined}} accessibilityValue={{"max": undefined, "min": undefined, "now": undefined, "text": undefined}} accessible={true} collapsable={false} focusable={true} onBlur={[Function onBlur]} onClick={[Function onClick]} onFocus={[Function onFocus]} onResponderGrant={[Function onResponderGrant]} onResponderMove={[Function onResponderMove]} onResponderRelease={[Function onResponderRelease]} onResponderTerminate={[Function onResponderTerminate]} onResponderTerminationRequest={[Function onResponderTerminationRequest]} onStartShouldSetResponder={[Function onStartShouldSetResponder]} style={[{"alignItems": "center", "flexGrow": 1, "justifyContent": "center", "paddingHorizontal": 8, "paddingVertical": 12}, {"borderColor": "#8EA1CC", "borderLeftWidth": 1, "flexBasis": 140, "minHeight": 64, "opacity": 1}]} testID="option-2"><Text style={[{"fontSize": 17, "fontWeight": "600", "lineHeight": 24}, {"color": "#FFFDF7", "textAlign": "center"}]}>Duży c-bet</Text></View>
+
+      48 |   it('c-bet: ekran decyzji pokazuje tylko akcje szablonu (bez „Duży c-bet”)', async () => {
+      49 |     await ekran(sesja(cbet2, []), 'decyzja');
+    > 50 |     expect(screen.queryByRole('button', { name: /^Duży/ })).toBeNull();
+         |                                                             ^
+      51 |   });
+      52 |   it('c-bet: ocena zgodnej akcji renderuje się (dziś bloki() rzuca „brak wyjaśnienia akcji bet-big”)', async () => {
+      53 |     await ekran(sesja(cbet2, ['bet-small']), 'ocena');
+
+
+  ● CP WYS-001: punkt z dwiema akcjami szablonu (przechodzi bramkę, test tools/content-build/test/cp-recenzja-cn.test.ts) › c-bet: ocena zgodnej akcji renderuje się (dziś bloki() rzuca „brak wyjaśnienia akcji bet-big”)
+
+    sc-cn-cbet: brak wyjaśnienia akcji bet-big
+
+      187 |   const tekst = (a: Akcja): string => {
+      188 |     const wyjasnienie = spec.actions.find((x) => x.action === a)?.explanation;
+    > 189 |     if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${a}`);
+          |                                          ^
+      190 |     return fillVariantMarkers(wyjasnienie, wartosci);
+      191 |   };
+      192 |   const poprawna = poprawnaAkcja(d);
+
+
+  ● CP WYS-001: punkt z dwiema akcjami szablonu (przechodzi bramkę, test tools/content-build/test/cp-recenzja-cn.test.ts) › 3-bet: ocena zgodnej akcji renderuje się (dziś bloki() rzuca „brak wyjaśnienia akcji raise-big”)
+
+    sc-cn-3bet: brak wyjaśnienia akcji raise-big
+
+      187 |   const tekst = (a: Akcja): string => {
+      188 |     const wyjasnienie = spec.actions.find((x) => x.action === a)?.explanation;
+    > 189 |     if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${a}`);
+          |                                          ^
+      190 |     return fillVariantMarkers(wyjasnienie, wartosci);
+      191 |   };
+      192 |   const poprawna = poprawnaAkcja(d);
+
+
+  ● CP WYS-002: ocena akcji ekranu F2/F3 zgodna z oceną reguły w silniku gry › c-bet: oceny ekranu = oceny silnika gry (5 ziaren)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "bet-big": "niedokladnosc",
+    +   "bet-big": "blad",
+        "bet-small": "zgodne",
+    -   "check": "dopuszczalne",
+    +   "check": "blad",
+      }
+
+      119 |   for (const [nazwa, t] of [['c-bet', CBET], ['3-bet', TROJBET]] as const) {
+      120 |     it(`${nazwa}: oceny ekranu = oceny silnika gry (5 ziaren)`, () => {
+    > 121 |       for (let z = 1; z <= 5; z++) expect(ocenyAkcji(wariant(t, 'latwy', z), 0)).toEqual(ocenaSilnika(t, 'latwy', z).oceny);
+          |                                                                                  ^
+      122 |     });
+      123 |   }
+      124 | });
+
+
+  ● CP WYS-002: ocena akcji ekranu F2/F3 zgodna z oceną reguły w silniku gry › 3-bet: oceny ekranu = oceny silnika gry (5 ziaren)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+        "raise": "zgodne",
+    -   "raise-big": "niedokladnosc",
+    -   "raise-small": "niedokladnosc",
+    +   "raise-big": "blad",
+    +   "raise-small": "blad",
+      }
+
+      119 |   for (const [nazwa, t] of [['c-bet', CBET], ['3-bet', TROJBET]] as const) {
+      120 |     it(`${nazwa}: oceny ekranu = oceny silnika gry (5 ziaren)`, () => {
+    > 121 |       for (let z = 1; z <= 5; z++) expect(ocenyAkcji(wariant(t, 'latwy', z), 0)).toEqual(ocenaSilnika(t, 'latwy', z).oceny);
+          |                                                                                  ^
+      122 |     });
+      123 |   }
+      124 | });
+
+
+  ● CP ICM: ocena icm-call zgodna z niezależnym rachunkiem, kwoty ekranu zgodne z linią BB wobec all-inu SB › ekran decyzji icm-call pokazuje wypłaty i stosy graczy, od których zależy ocena (dziś tylko all-in rywala, pula i ręka)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /60\s?%/
+    Received string:  "Zakończ Scenariusz Preflop Etapy rozdania Preflop Flop Turn River Ty: BB, karty as karo, 8 trefl. Rywal: SB. Odkryte karty: . SB · rywal · 10 bb as karo A ♦ 8 trefl 8 ♣ BB · ty · 10 bb W puli (pot) 11 bb · do sprawdzenia (call) 9 bb Przebieg rozdania Preflop SB: all-in 10bb Twój ruch Pas (fold) Pas (fold) Sprawdzam (call) 9bb Sprawdzam (call) 9bb"
+
+      190 |     await ekran(s, 'decyzja');
+      191 |     const tekst = tekstEkranu();
+    > 192 |     for (const w of p.payouts) expect(tekst).toMatch(new RegExp(`${Math.round(w * 100)}\\s?%`));
+          |                                              ^
+      193 |     const bbZet = Math.min(p.stacks[p.heroIndex]!, p.stacks[p.villainIndex]!) / ICM.stackBb;
+      194 |     p.stacks.forEach((x, j) => { if (j !== p.heroIndex && j !== p.villainIndex) expect(tekst).toContain(String(Math.round(x / bbZet))); });
+      195 |   });
+
+
+Test Suites: 1 failed, 1 total
+Tests:       6 failed, 5 passed, 11 total
+Snapshots:   0 total
+Time:        3.422 s
+Ran all test suites matching /src\/features\/scenariusz\/__tests__\/cp-recenzja-cn.test.tsx/i.
+kod 1
