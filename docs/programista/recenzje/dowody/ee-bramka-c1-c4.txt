@@ -1,0 +1,19 @@
+# Mutanty treści c-1 i c-4: komunikat bramki pnpm content:check (kopia robocza, plik przywrócony po każdym)
+== mutant c1: pnpm content:check
+szablon sc-02: punkt decyzji 1: akcja call: niedomknięty blok warunku {{jesli:…}}…{{/jesli}} (bloki nie zagnieżdżają się)
+kod: 1
+== mutant c4: pnpm content:check
+kod: 1
+--- c-4: pełny koniec wyniku (bramka nie zgłasza bloku; pada tylko kontrola nieaktualnych plików generowanych) ---
+  - tresc-b30a537c5d-sl.db: brak pliku
+  - tresc-b30a537c5d-sr.db: brak pliku
+  - tresc-b30a537c5d-sv.db: brak pliku
+  - tresc-b30a537c5d-tr.db: brak pliku
+  - tresc-b30a537c5d-uk.db: brak pliku
+  - tresc-b30a537c5d-vi.db: brak pliku
+  - tresc-b30a537c5d-zh-Hant.db: brak pliku
+Uruchom: pnpm content:build
+/tmp/claude-0/-home-user-Szkola-pokera/9ff73cfc-d543-5b77-996c-586ab42840ea/scratchpad/wt/tools/content-build:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/content-build@0.1.0 check: `tsx src/cli.ts check`
+Exit status 1
+ ELIFECYCLE  Command failed with exit code 1.

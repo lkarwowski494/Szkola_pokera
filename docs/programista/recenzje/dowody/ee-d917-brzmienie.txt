@@ -1,0 +1,71 @@
+$ node brzmienie.mjs  # D-917: każde wyjaśnienie content/*/scenarios/*.yaml @539919af po usunięciu {{jesli:nadkarty}} i {{/jesli}} = tekst @f86c72fc; reszta YAML bez zmian
+# uwaga: „zlyKsztalt … kształt” w ja i zh-Hant to artefakt wzorca sondy (wymagał spacji po {{jesli:nadkarty}}; CJK nie ma spacji między zdaniami, np. „。{{jesli:nadkarty}}ボード…”); liczba bloków i domknięć zgodna (168/168)
+{
+  plikow: 72,
+  zmienionePliki: 48,
+  wyjasnien: 240,
+  wyjasnienZBlokiem: 168,
+  blokow: 168,
+  rozbieznosci: [],
+  zlyKsztalt: [
+    'content/ja/scenarios/sc-01.yaml#0.0 kształt',
+    'content/ja/scenarios/sc-01.yaml#0.1 kształt',
+    'content/ja/scenarios/sc-01.yaml#1.0 kształt',
+    'content/ja/scenarios/sc-01.yaml#1.1 kształt',
+    'content/ja/scenarios/sc-02.yaml#0.0 kształt',
+    'content/ja/scenarios/sc-02.yaml#0.1 kształt',
+    'content/ja/scenarios/sc-02.yaml#1.0 kształt',
+    'content/ja/scenarios/sc-02.yaml#1.1 kształt',
+    'content/ja/scenarios/sc-03.yaml#0.0 kształt',
+    'content/ja/scenarios/sc-03.yaml#0.1 kształt',
+    'content/ja/scenarios/sc-19.yaml#0.0 kształt',
+    'content/ja/scenarios/sc-19.yaml#0.1 kształt',
+    'content/ja/scenarios/sc-19.yaml#1.0 kształt',
+    'content/ja/scenarios/sc-19.yaml#1.1 kształt',
+    'content/zh-Hant/scenarios/sc-01.yaml#0.0 kształt',
+    'content/zh-Hant/scenarios/sc-01.yaml#0.1 kształt',
+    'content/zh-Hant/scenarios/sc-01.yaml#1.0 kształt',
+    'content/zh-Hant/scenarios/sc-01.yaml#1.1 kształt',
+    'content/zh-Hant/scenarios/sc-02.yaml#0.0 kształt',
+    'content/zh-Hant/scenarios/sc-02.yaml#0.1 kształt',
+    'content/zh-Hant/scenarios/sc-02.yaml#1.0 kształt',
+    'content/zh-Hant/scenarios/sc-02.yaml#1.1 kształt',
+    'content/zh-Hant/scenarios/sc-03.yaml#0.0 kształt',
+    'content/zh-Hant/scenarios/sc-03.yaml#0.1 kształt',
+    'content/zh-Hant/scenarios/sc-19.yaml#0.0 kształt',
+    'content/zh-Hant/scenarios/sc-19.yaml#0.1 kształt',
+    'content/zh-Hant/scenarios/sc-19.yaml#1.0 kształt',
+    'content/zh-Hant/scenarios/sc-19.yaml#1.1 kształt'
+  ]
+}
+kod: 1
+
+--- skrypt ---
+// D-917: po usunięciu znaczników bloku tekst = tekst sprzed zmiany (f86c72fc), każde wyjaśnienie, każdy język i każdy plik scenariusza
+import { execSync } from 'node:child_process';
+import { parse } from 'yaml';
+const R = '/home/user/Szkola_pokera';
+const pliki = execSync('git ls-files "content/*/scenarios/*.yaml"', { cwd: R }).toString().trim().split('\n');
+let por = 0, zbl = 0, roz = [], zmienionePliki = 0, bloki = 0, zlyKsztalt = [];
+for (const f of pliki) {
+  let stary; try { stary = execSync(`git show f86c72fc:${f}`, { cwd: R, stdio: ['pipe','pipe','ignore'] }).toString(); } catch { roz.push(`${f}: brak w f86c72fc`); continue; }
+  const nowy = execSync(`git show 539919af:${f}`, { cwd: R }).toString();
+  if (stary !== nowy) zmienionePliki++;
+  const A = parse(stary), B = parse(nowy);
+  // reszta pliku poza wyjaśnieniami bez zmian
+  const bezWyj = (t) => JSON.stringify(t, (k, v) => (k === 'explanation' ? undefined : v));
+  if (bezWyj(A) !== bezWyj(B)) roz.push(`${f}: zmiana poza explanation`);
+  B.decisions.forEach((d, i) => d.actions.forEach((a, j) => {
+    por++;
+    const s = A.decisions[i].actions[j].explanation;
+    const n = a.explanation;
+    const ile = (n.match(/\{\{jesli:/g) || []).length; bloki += ile;
+    if (ile) zbl++;
+    if ((n.match(/\{\{jesli:nadkarty\}\}/g) || []).length !== ile || (n.match(/\{\{\/jesli\}\}/g) || []).length !== ile) zlyKsztalt.push(`${f}#${i}.${j}`);
+    if (ile && !/\{\{jesli:nadkarty\}\} [^{]*?(\{\{(n|t):[^}]*\}\}[^{]*?)*\{\{\/jesli\}\}$/.test(n)) zlyKsztalt.push(`${f}#${i}.${j} kształt`);
+    // tekst po usunięciu znaczników = stary
+    if (n.replace('{{jesli:nadkarty}}', '').replace('{{/jesli}}', '') !== s) roz.push(`${f}#${i}.${j}: brzmienie zmienione`);
+  }));
+}
+console.log({ plikow: pliki.length, zmienionePliki, wyjasnien: por, wyjasnienZBlokiem: zbl, blokow: bloki, rozbieznosci: roz, zlyKsztalt });
+process.exit(roz.length || zlyKsztalt.length ? 1 : 0);

@@ -1,0 +1,10 @@
+# Sonda niezależna (ee-sonda.test.ts, EE_N=300) na kodzie z przeżywającym mutantem; kod jest ≠ 0 = sonda zabija mutanta
+k-10: kod jest 1
+razem wariantów 2700 (unikalnych rąk+stołów 1871), punktów draw-call 4800, z nadkartą 541, bez 4259, para w ręce 0, renderów bloków 119040, języków 35, błędów 2903
+sc-01 liczby 0 Js9s
+pl sc-01 p0 call Js9s|7s2d5sQh9c nad=true widoczny=false
+k-13: kod jest 0
+razem wariantów 2700 (unikalnych rąk+stołów 1871), punktów draw-call 4800, z nadkartą 541, bez 4259, para w ręce 0, renderów bloków 119040, języków 35, błędów 0
+
+# Równoważność mutanta n2-001b (mały c-bet: gutshot → fold): wyczerpujący przegląd flopów dla co 7. ręki gracza, hasAnyBackdoor wyeksportowane tylko w kopii roboczej; vitest kod 0
+układów 3704400, z outami 1–7: 350100, z nich bez backdoora (różnica mutanta): 0

@@ -1,0 +1,82 @@
+$ EE_N=2400 pnpm exec jest src/features/scenariusz/__tests__/ee-sonda.test.ts  # kopia robocza @539919af w scratchpadzie (git worktree), test sondy poza repo; szablony z 35 baz apps/mobile/assets/content/*.db
+sc-01: wariantów 900
+sc-02: wariantów 600
+sc-03: wariantów 600
+sc-19: wariantów 600
+razem wariantów 2700 (unikalnych rąk+stołów 1871), punktów draw-call 4800, z nadkartą 541, bez 4259, para w ręce 0, renderów bloków 119040, języków 35, błędów 0
+Tests:       1 passed, 1 total
+kod wyjścia jest: 0
+
+--- sonda (ee-sonda.test.ts) ---
+/// <reference types="jest" />
+// Sonda EE (recenzja KO-073): rachunek niezależny nadkarty z rang kart (tekst „Ah”), porównany z tekstem z prawdziwej ścieżki `bloki`
+// na szablonach z wbudowanych baz treści wszystkich języków, oraz z linią „Liczby” (`zdaniaLiczb`).
+import { readFileSync, writeFileSync } from 'node:fs';
+import { cardToString, generateVariant, type ScenarioVariant } from '@szkola/poker-core';
+import { ScenarioTemplate } from '@szkola/content-schema';
+import { bloki, naGenerator } from '../wariant';
+import { zdaniaLiczb } from '../liczby';
+
+const S = process.env.EE_S!;
+const N = Number(process.env.EE_N ?? 2600);
+const szablony = JSON.parse(readFileSync(`${S}/szablony.json`, 'utf8')) as Record<string, unknown[]>;
+const RANGI = '23456789TJQKA';
+const ranga = (c: number): number => { const s = cardToString(c as never); const r = RANGI.indexOf(s[0]!); if (r < 0) throw new Error(s); return r; };
+function nadkartaNiezalezna(v: ScenarioVariant, street: string): { nad: boolean; para: boolean } {
+  const h = v.hero.map(ranga);
+  const stol = v.board.slice(0, street === 'flop' ? 3 : 4).map(ranga);
+  const para = h[0] === h[1];
+  return { nad: !para && Math.max(...h) > Math.max(...stol), para };
+}
+const t = (k: string, o?: Record<string, unknown>) => (o ? `${k}${JSON.stringify(o)}` : k);
+const blok = (txt: string): string => { const m = /\{\{jesli:nadkarty\}\}([\s\S]*?)\{\{\/jesli\}\}/.exec(txt); if (!m) throw new Error('brak bloku'); return m[1]!; };
+
+test('KO-073: blok widoczny dokładnie przy nadkarcie (rachunek niezależny)', () => {
+  const pl = szablony.pl!.map((x) => ScenarioTemplate.parse(x));
+  const raport: string[] = [];
+  let unikalne = 0, warianty = 0, punkty = 0, zNad = 0, bezNad = 0, pary = 0, renderow = 0;
+  const bledy: string[] = [];
+  const jezyki = Object.keys(szablony);
+  for (const [k, sPl] of pl.entries()) {
+    const gen = naGenerator(sPl);
+    const wariantySz: ScenarioVariant[] = [];
+    for (const poziom of Object.keys(sPl.bounds)) for (let z = 1; z <= N; z++) {
+      try { wariantySz.push(generateVariant(gen, poziom as never, z)); } catch { /* ziarno bez wariantu */ }
+    }
+    warianty += wariantySz.length;
+    unikalne += new Set(wariantySz.map((v) => `${v.hero}|${v.board}`)).size;
+    let wsz = 0;
+    for (const v of wariantySz) {
+      for (const [i, spec] of sPl.decisions.entries()) {
+        if (spec.kind !== 'draw-call') continue;
+        punkty++;
+        const { nad, para } = nadkartaNiezalezna(v, spec.street);
+        if (para) pary++;
+        if (nad) zNad++; else bezNad++;
+        // linia „Liczby”: zdanie o nadkartach iff nad
+        const liczby = zdaniaLiczb({ wariant: v, szablon: sPl } as never, i, v.points[i]!.point === 'draw-call' ? 'call' : 'call', t).join(' ');
+        if (/overcards(Call|Fold)/.test(liczby) !== nad) bledy.push(`${sPl.id} liczby ${i} ${v.hero.map((c) => cardToString(c)).join('')}`);
+        // wyjaśnienia: pl dla wszystkich wariantów, pozostałe języki dla co 10.
+        const jj = wsz % 10 === 0 ? jezyki : ['pl', 'en', 'ja'];
+        for (const j of jj) {
+          const s = ScenarioTemplate.parse(szablony[j]![k]);
+          for (const a of s.decisions[i]!.actions) {
+            const zd = blok(a.explanation);
+            for (const b of bloki(v, s, i, a.action as never, t)) {
+              renderow++;
+              const ma = b.tekst.includes(zd.trim());
+              if (ma !== nad) bledy.push(`${j} ${s.id} p${i} ${a.action} ${v.hero.map((c) => cardToString(c)).join('')}|${v.board.map((c) => cardToString(c)).join('')} nad=${nad} widoczny=${ma}`);
+              if (/\{\{|\}\}|  |\s$/.test(b.tekst)) bledy.push(`${j} ${s.id} p${i} ${a.action}: ślad znacznika lub odstęp: …${b.tekst.slice(-60)}`);
+            }
+          }
+        }
+      }
+      wsz++;
+    }
+    raport.push(`${sPl.id}: wariantów ${wariantySz.length}`);
+  }
+  raport.push(`razem wariantów ${warianty} (unikalnych rąk+stołów ${unikalne}), punktów draw-call ${punkty}, z nadkartą ${zNad}, bez ${bezNad}, para w ręce ${pary}, renderów bloków ${renderow}, języków ${jezyki.length}, błędów ${bledy.length}`);
+  writeFileSync(`${S}/ko073-sonda-wynik.txt`, [...raport, ...bledy.slice(0, 50)].join('\n') + '\n');
+  expect(bledy).toEqual([]);
+  expect(warianty).toBeGreaterThanOrEqual(10000);
+});

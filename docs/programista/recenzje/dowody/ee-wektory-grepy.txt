@@ -1,0 +1,21 @@
+# Wektory akceptacyjne EC 08-programista-001/002 i wyjątek źródła D-1117 (vitest, kopia robocza @539919af, kod 0)
+Jd Tc | Qh 8c 2s | 0.33 → null
+5d 4c | Kh 7c 3s | 0.33 → null
+Kd Qd | Jh 7c 2s | 0.33 → null
+2d 2c | Ah Kc Qs | 0.75 → null
+3d 2c | Ah Kc 2s | 0.75 → null
+Ah 5d | Kh 8c 2d | 0.75 → null
+Ah Td | Kh 7c 2d | 0.75 → null
+Ah 5d | Kh 9h 2d | 0.75 → null
+Qh Jd | 7c 3d 2s | 0.75 → fold
+9h 3d | Kh 7c 2d | 0.33 → fold
+
+$ grep -n "perLimper \*" packages/poker-core/src/*.ts
+packages/poker-core/src/grading.ts:43:  return p.base + p.perLimper * limpers + (oop ? p.oopExtra : 0);
+$ grep -n "standard \* SIZE_SMALL_FACTOR" packages/poker-core/src/scenario-gen.ts
+323:const sizeOptionBbs = (standard: number) => ({ raise: standard, 'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR) }) as const;
+$ grep -rn "fillVariantMarkers(" apps packages tools --include=*.ts --include=*.tsx (bez testów)
+apps/mobile/src/features/scenariusz/wariant.ts:345:    return fillVariantMarkers(wyjasnienie, wartosci, warunki);
+packages/poker-core/src/scenario-gen.ts:679:export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>, conditions?: Partial<VariantConditionValues>): string {
+$ grep -rn "\.skip(\|\.only(\|xit(\|xdescribe(\|it.todo(\|expect(true)" w testach zmienionych w diffie
+kod grep: 123

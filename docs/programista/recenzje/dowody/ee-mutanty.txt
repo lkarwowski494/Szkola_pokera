@@ -1,0 +1,174 @@
+$ node mutanty-ee.mjs <worktree 539919af>  # każdy mutant: podmiana w pliku, testy grupy, przywrócenie; skrypt niżej
+# grupy: pcdx = poker-core scenario-dx + ko073-warunki; cb = content-build ko073 + dx-pojemnosc-d1040 + szablon-na-ekranie-ck; ko = poker-core ko073 + content-build ko073 + jest apps/mobile src/features/scenariusz; tresc = content-build ko073 + pnpm content:check
+iso-1 bez oopExtra [pcdx]: ZABITY — packages/poker-core: kod 1 × standard = base + n × perLimper (+ oopExtra bez pozycji) 9ms | FAIL  test/scenario-dx.test.ts > 08-N3: iso-size (R-M4-012) > standard = base + n × perLimper (+ oopExtra bez pozycji)
+iso-2 perLimper×(n−1) [pcdx]: ZABITY — packages/poker-core: kod 1 × standard = base + n × perLimper (+ oopExtra bez pozycji) 8ms | × rozmiary 0,8× i 1,6× to niedokładność, standard zgodny 2ms
+iso-3 zamiana współczynników [pcdx]: ZABITY — packages/poker-core: kod 1 × rozmiary 0,8× i 1,6× to niedokładność, standard zgodny 8ms | × opcje iso (0,8× i 1,6×) z tej samej listy co size-spot generatora: standard 5 → 4 i 8 1ms
+def-1 próg małego 0,3 [pcdx]: ZABITY — packages/poker-core: kod 1 × mały c-bet 1/3: para → call, powietrze → fold, as jako najwyższa karta → call 8ms | × granice rozmiaru: 0,4 to mały, 0,7 to duży, pomiędzy null; zły rozmiar to błąd 1ms
+def-2 próg dużego 0,8 [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-002: duży c-bet ≥ 3/4 — para i draw poza zakresem R-M6-007 → null; tylko dwie wysokie karty bez pary, drawa i backdoora → f | × granice rozmiaru: 0,4 to mały, 0,7 to duży, pomiędzy null; zły rozmiar to błąd 1ms
+def-3 bez asa przy małym [pcdx]: ZABITY — packages/poker-core: kod 1 × mały c-bet 1/3: para → call, powietrze → fold, as jako najwyższa karta → call 9ms | × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 5ms
+def-4 backdoor >=1 karta koloru [pcdx]: PRZEŻYŁ (zielony)
+def-5 backdoor od K [pcdx]: ZABITY — packages/poker-core: kod 1 × mały c-bet 1/3: para → call, powietrze → fold, as jako najwyższa karta → call 7ms | × backdoor kolorowy tylko z obiema kartami ≥ T i dokładnie jedną kartą koloru na flopie 1ms
+def-6 backdoor od 2 [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-001: gutshot i backdoor strita bez pary nie dostają „fold” wobec małego c-betu (R-M6-006: „bez pary i bez drawa”) 6ms | × backdoor kolorowy tylko z obiema kartami ≥ T i dokładnie jedną kartą koloru na flopie 1ms
+def-9 draw od 4 outów (gutshot) [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-001: gutshot i backdoor strita bez pary nie dostają „fold” wobec małego c-betu (R-M6-006: „bez pary i bez drawa”) 6ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > 08-programista-001: gutshot i backdoor strita bez pary
+def-10 przedział pośredni → duży [pcdx]: ZABITY — packages/poker-core: kod 1 × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 19ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > wyrocznia 20 000 losowań (rangi i kolory, trzy wartośc
+def-12 para nie liczy się przy małym [pcdx]: ZABITY — packages/poker-core: kod 1 × mały c-bet 1/3: para → call, powietrze → fold, as jako najwyższa karta → call 8ms | × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 2ms
+n2-001a mały: reszta → fold (stan sprzed poprawki 001) [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-001: gutshot i backdoor strita bez pary nie dostają „fold” wobec małego c-betu (R-M6-006: „bez pary i bez drawa”) 6ms | × backdoor kolorowy tylko z obiema kartami ≥ T i dokładnie jedną kartą koloru na flopie 1ms
+n2-001b mały: gutshot → fold [pcdx]: PRZEŻYŁ (zielony)
+n2-001c mały: backdoor strita → fold [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-001: gutshot i backdoor strita bez pary nie dostają „fold” wobec małego c-betu (R-M6-006: „bez pary i bez drawa”) 5ms | × backdoor kolorowy tylko z obiema kartami ≥ T i dokładnie jedną kartą koloru na flopie 1ms
+n2-002a duży: para → call (stan sprzed poprawki 002) [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-002: duży c-bet ≥ 3/4 — para i draw poza zakresem R-M6-007 → null; tylko dwie wysokie karty bez pary, drawa i backdoora → f | × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 2ms
+n2-002b duży: bez warunku „para” [pcdx]: ZABITY — packages/poker-core: kod 1 × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 10ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > wyrocznia 20 000 losowań (rangi i kolory, trzy wartośc
+n2-002c duży: bez warunku „draw” [pcdx]: ZABITY — packages/poker-core: kod 1 × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 80ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > wyrocznia 20 000 losowań (rangi i kolory, trzy wartośc
+n2-002d duży: bez warunku „backdoor” [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-002: duży c-bet ≥ 3/4 — para i draw poza zakresem R-M6-007 → null; tylko dwie wysokie karty bez pary, drawa i backdoora → f | × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 5ms
+n2-002e duży: bez warunku „obie ≥ T” [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-002: duży c-bet ≥ 3/4 — para i draw poza zakresem R-M6-007 → null; tylko dwie wysokie karty bez pary, drawa i backdoora → f | × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 10ms
+n2-002f duży: fold → call [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-002: duży c-bet ≥ 3/4 — para i draw poza zakresem R-M6-007 → null; tylko dwie wysokie karty bez pary, drawa i backdoora → f | × granice rozmiaru: 0,4 to mały, 0,7 to duży, pomiędzy null; zły rozmiar to błąd 1ms
+bd-1 okno strita: 4 rangi zamiast 3 [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-001: gutshot i backdoor strita bez pary nie dostają „fold” wobec małego c-betu (R-M6-006: „bez pary i bez drawa”) 7ms | × 08-programista-002: duży c-bet ≥ 3/4 — para i draw poza zakresem R-M6-007 → null; tylko dwie wysokie karty bez pary, drawa i backdoora → f
+bd-2 bez asa jako 1 [pcdx]: ZABITY — packages/poker-core: kod 1 × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 13ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > wyrocznia 20 000 losowań (rangi i kolory, trzy wartośc
+bd-3 strit: bez udziału karty gracza [pcdx]: ZABITY — packages/poker-core: kod 1 × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 18ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > wyrocznia 20 000 losowań (rangi i kolory, trzy wartośc
+bd-4 kolor: bez udziału karty gracza [pcdx]: ZABITY — packages/poker-core: kod 1 × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 68ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > wyrocznia 20 000 losowań (rangi i kolory, trzy wartośc
+bd-5 okno 4 rang [pcdx]: ZABITY — packages/poker-core: kod 1 × wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu 10ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > wyrocznia 20 000 losowań (rangi i kolory, trzy wartośc
+g-1 bez strażnika fraction [pcdx]: ZABITY — packages/poker-core: kod 1 × granice rozmiaru: 0,4 to mały, 0,7 to duży, pomiędzy null; zły rozmiar to błąd 9ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > granice rozmiaru: 0,4 to mały, 0,7 to duży, pomiędzy n
+g-2 strażnik fraction: tylko NaN [pcdx]: ZABITY — packages/poker-core: kod 1 × granice rozmiaru: 0,4 to mały, 0,7 to duży, pomiędzy null; zły rozmiar to błąd 7ms | FAIL  test/scenario-dx.test.ts > 08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007) > granice rozmiaru: 0,4 to mały, 0,7 to duży, pomiędzy n
+g-3 bez strażnika N7a [pcdx]: ZABITY — packages/poker-core: kod 1 × bluff-catcher: udział blefów poza [0, 1] i ujemny margines to błąd 7ms | FAIL  test/scenario-dx.test.ts > 08-programista-006: strażniki wejścia > bluff-catcher: udział blefów poza [0, 1] i ujemny margines to błąd
+g-4 N7a: bez górnej granicy udziału [pcdx]: ZABITY — packages/poker-core: kod 1 × bluff-catcher: udział blefów poza [0, 1] i ujemny margines to błąd 7ms | FAIL  test/scenario-dx.test.ts > 08-programista-006: strażniki wejścia > bluff-catcher: udział blefów poza [0, 1] i ujemny margines to błąd
+g-5 N7a: bez kontroli marginesu [pcdx]: ZABITY — packages/poker-core: kod 1 × bluff-catcher: udział blefów poza [0, 1] i ujemny margines to błąd 6ms | FAIL  test/scenario-dx.test.ts > 08-programista-006: strażniki wejścia > bluff-catcher: udział blefów poza [0, 1] i ujemny margines to błąd
+g-6 N4: duplikat bez błędu [pcdx]: ZABITY — packages/poker-core: kod 1 × lista rąk: klasa w dwóch wpisach to błąd, a nie cichy wybór pierwszego 6ms | FAIL  test/scenario-dx.test.ts > 08-programista-006: strażniki wejścia > lista rąk: klasa w dwóch wpisach to błąd, a nie cichy wybór pierwsz
+g-7 iso: bez strażnika [pcdx]: ZABITY — packages/poker-core: kod 1 × iso-size: parametry nieskończone lub limperzy < 1 to błąd 7ms | FAIL  test/scenario-dx.test.ts > 08-programista-006: strażniki wejścia > iso-size: parametry nieskończone lub limperzy < 1 to błąd
+list-1 acceptable zawsze puste [pcdx]: ZABITY — packages/poker-core: kod 1 × oczekiwana akcja z listy; ręka spoza listy → null 8ms | FAIL  test/scenario-dx.test.ts > 08-N4: lista rąk (R-M4-010) > oczekiwana akcja z listy; ręka spoza listy → null
+list-2 brak → pierwszy wpis [pcdx]: ZABITY — packages/poker-core: kod 1 × oczekiwana akcja z listy; ręka spoza listy → null 6ms | FAIL  test/scenario-dx.test.ts > 08-N4: lista rąk (R-M4-010) > oczekiwana akcja z listy; ręka spoza listy → null
+river-1 > → >= [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-003: dokładnie na granicy marginesu odpowiedź istnieje, w progu bez marginesu „call” wymaga udziału większego od ceny 7ms | FAIL  test/scenario-dx.test.ts > 08-N7: bluff-catcher na riverze (R-M8-010) > 08-programista-003: dokładnie na granicy marginesu odpowiedź i
+river-2 < → <= w marginesie [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-003: dokładnie na granicy marginesu odpowiedź istnieje, w progu bez marginesu „call” wymaga udziału większego od ceny 5ms | FAIL  test/scenario-dx.test.ts > 08-N7: bluff-catcher na riverze (R-M8-010) > 08-programista-003: dokładnie na granicy marginesu odpowiedź i
+river-3 cena bet/(pula+bet) [pcdx]: ZABITY — packages/poker-core: kod 1 × call, gdy udział blefów > bet ÷ (pula + 2·bet) z marginesem; fold poniżej; w marginesie null 6ms | × 08-programista-003: dokładnie na granicy marginesu odpowiedź istnieje, w progu bez marginesu „call” wymaga udziału większego od ceny 1ms
+river-4 bez marginesu [pcdx]: ZABITY — packages/poker-core: kod 1 × call, gdy udział blefów > bet ÷ (pula + 2·bet) z marginesem; fold poniżej; w marginesie null 6ms | × 08-programista-003: dokładnie na granicy marginesu odpowiedź istnieje, w progu bez marginesu „call” wymaga udziału  (powtórka z poprawionym wcięciem wzorca: node mutanty-ee.mjs <wt> river-4, kod 0)
+river-5 margines ×2 [pcdx]: ZABITY — packages/poker-core: kod 1 × 08-programista-003: dokładnie na granicy marginesu odpowiedź istnieje, w progu bez marginesu „call” wymaga udziału większego od ceny 5ms | FAIL  test/scenario-dx.test.ts > 08-N7: bluff-catcher na riverze (R-M8-010) > 08-programista-003: dokładnie na granicy marginesu odpowiedź i
+p-1 próg 40 zamiast min [cb]: ZABITY — tools/content-build: kod 1 × szablon z punktem range-spot nie jest odrzucany jako nieobsługiwany na ekranie (CX, D-866); budowanie zatrzymuje go dopiero bramka terminó | × szablon z liczbą odcisków równą liczbie klas przechodzi 211ms
+p-2 próg = liczba klas (bez min z 40) [cb]: ZABITY — tools/content-build: kod 1 × górna granica: zakres z więcej niż 40 klasami nie podnosi progu powyżej 40 7ms | FAIL  test/dx-pojemnosc-d1040.test.ts > D-1040: obniżony próg tylko bez flopu (recenzja EC ŚR-007, NIS-008) > górna granica: zakres z więcej
+p-4 bez warunku „tylko range/size-spot” [cb]: ZABITY — tools/content-build: kod 1 × range-spot → cbet-case (flop w odcisku) zachowuje próg 40, mimo mało klas w zakresie 337ms | FAIL  test/dx-pojemnosc-d1040.test.ts > D-1040: obniżony próg tylko bez flopu (recenzja EC ŚR-007, NIS-008) > range-spot → cbet-case (flop w
+p-5 < → <= [cb]: ZABITY — tools/content-build: kod 1 × szablon z punktem range-spot nie jest odrzucany jako nieobsługiwany na ekranie (CX, D-866); budowanie zatrzymuje go dopiero bramka terminó | × szablon z liczbą odcisków równą liczbie klas przechodzi 187ms
+k-1 blok zawsze widoczny [ko]: ZABITY — packages/poker-core: kod 1 × warunek niespełniony: blok znika razem z odstępem w środku, reszta tekstu nietknięta 5ms | × blok z markerem {{w:…}} w środku: marker podstawiany tylko, gdy blok widoczny 1ms ; apps/mobile: kod 1 FAIL src/features/scenariusz/__tests__/ko073-nadkarty.test.ts
+k-2 blok odwrócony [ko]: ZABITY — packages/poker-core: kod 1 × warunek spełniony: treść bloku zostaje, znaczniki bloku znikają 7ms | × warunek niespełniony: blok znika razem z odstępem w środku, reszta tekstu nietknięta 1ms ; apps/mobile: kod 1 FAIL src/features/scenariusz/__tests__/ko073-nadkarty.test.ts
+k-3 bez kontroli resztek po rozstrzygnięciu [ko]: ZABITY — packages/poker-core: kod 1 × błędy: nieznany warunek, niedomknięty i zagnieżdżony blok, brak wartości warunku 5ms | FAIL  test/ko073-warunki.test.ts > blok warunkowy w wyjaśnieniu (KO-073) > błędy: nieznany warunek, niedomknięty i zagnieżdżony blok, brak w
+k-4 bez kontroli zagnieżdżenia (fill) [ko]: ZABITY — packages/poker-core: kod 1 × błędy: nieznany warunek, niedomknięty i zagnieżdżony blok, brak wartości warunku 6ms | FAIL  test/ko073-warunki.test.ts > blok warunkowy w wyjaśnieniu (KO-073) > błędy: nieznany warunek, niedomknięty i zagnieżdżony blok, brak w
+k-5 findVariantConditions bez wykrywania uszkodzeń [ko]: ZABITY — packages/poker-core: kod 1 × findVariantConditions: nazwy w kolejności, także nieznane i uszkodzone 7ms | FAIL  test/ko073-warunki.test.ts > blok warunkowy w wyjaśnieniu (KO-073) > findVariantConditions: nazwy w kolejności, także nieznane i uszko ; tools/content-build: kod 1 × nieznany warunek, niedomknięty i zagnieżdżo
+k-6 bramka: nieznany warunek przepuszczony [ko]: ZABITY — tools/content-build: kod 1 × nieznany warunek, niedomknięty i zagnieżdżony blok: błąd z miejscem 5ms | FAIL  test/ko073-warunek-nadkarty.test.ts > bramka budowania: bloki warunkowe wyjaśnienia > nieznany warunek, niedomknięty i zagnieżdżony bl
+k-7 bramka: niedomknięty przepuszczony [ko]: ZABITY — tools/content-build: kod 1 × nieznany warunek, niedomknięty i zagnieżdżony blok: błąd z miejscem 5ms | FAIL  test/ko073-warunek-nadkarty.test.ts > bramka budowania: bloki warunkowe wyjaśnienia > nieznany warunek, niedomknięty i zagnieżdżony bl
+k-8 bramka: nadkarty poza draw-call [ko]: ZABITY — tools/content-build: kod 1 × warunek nadkarty tylko w punkcie draw-call 6ms | FAIL  test/ko073-warunek-nadkarty.test.ts > bramka budowania: bloki warunkowe wyjaśnienia > warunek nadkarty tylko w punkcie draw-call
+k-9 bramka: pierwsze zdanie w bloku [ko]: ZABITY — tools/content-build: kod 1 × pierwsze zdanie (sytuacja) nie może być warunkowe: znaczniki karty i pozycji poza blokiem 6ms | FAIL  test/ko073-warunek-nadkarty.test.ts > bramka budowania: bloki warunkowe wyjaśnienia > pierwsze zdanie (sytuacja) nie może być warunkow
+k-10 warunek: stół turnu także na flopie [ko]: PRZEŻYŁ (zielony)
+k-11 warunek: cały stół (5 kart) [ko]: ZABITY — apps/mobile: kod 1 FAIL src/features/scenariusz/__tests__/dn-liczby-d888.test.tsx (9.278 s) | FAIL src/features/scenariusz/__tests__/ekran.test.tsx
+k-12 warunek zawsze prawdziwy [ko]: ZABITY — apps/mobile: kod 1 FAIL src/features/scenariusz/__tests__/ko073-nadkarty.test.ts
+k-13 nadkarta ≥ zamiast > [ko]: PRZEŻYŁ (zielony)
+k-14 para w ręce ma nadkarty [ko]: ZABITY — packages/poker-core: kod 1 × brak nadkart: najwyższa karta stołu wyższa od obu kart gracza; para w ręce 6ms | FAIL  test/ko073-warunki.test.ts > overcardOutsAt: jedna definicja nadkart punktu (KO-073) > brak nadkart: najwyższa karta stołu wyższa od o
+k-15 bloki bez warunków (stary fill) [ko]: ZABITY — apps/mobile: kod 1 FAIL src/features/scenariusz/__tests__/ko073-nadkarty.test.ts
+c-1 de sc-02: brak {{/jesli}} [tresc]: ZABITY — tools/content-build: kod 1 × de: 14 wystąpień, każde w bloku {{jesli:nadkarty}}…{{/jesli}}, a blok to tylko to zdanie 36ms | FAIL  test/ko073-warunek-nadkarty.test.ts > zdanie o nadkartach: wszystkie wystąpienia w bloku warunkowym (KO-073) > de: 14 wystąpień, każde ; .: kod 1 
+c-2 en sc-01: literówka nazwy warunku [tresc]: ZABITY — tools/content-build: kod 1 × en: 14 wystąpień, każde w bloku {{jesli:nadkarty}}…{{/jesli}}, a blok to tylko to zdanie 21ms | FAIL  test/ko073-warunek-nadkarty.test.ts > zdanie o nadkartach: wszystkie wystąpienia w bloku warunkowym (KO-073) > en: 14 wystąpień, każde ; .: kod 1 
+c-3 ja sc-19: zdanie bez bloku [tresc]: ZABITY — tools/content-build: kod 1 × ja: 14 wystąpień, każde w bloku {{jesli:nadkarty}}…{{/jesli}}, a blok to tylko to zdanie 15ms | FAIL  test/ko073-warunek-nadkarty.test.ts > zdanie o nadkartach: wszystkie wystąpienia w bloku warunkowym (KO-073) > ja: 14 wystąpień, każde ; .: kod 1 
+c-4 pl sc-03: blok obejmuje też zdanie „To uproszczenie” [tresc]: ZABITY — .: kod 1 
+kod wyjścia skryptu: 0
+
+--- skrypt ---
+// użycie: node mutanty-ee.mjs <worktree> [filtr]; każdy mutant: podmiana tekstu w pliku, uruchomienie testów grupy, przywrócenie.
+// Zabity = któraś komenda testów z kodem ≠ 0. Pliki przywracane po każdym mutancie (także po wyjątku).
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const wt = process.argv[2], filtr = process.argv[3] ? new RegExp(process.argv[3]) : null;
+const SG = 'packages/poker-core/src/scenario-gen.ts', GR = 'packages/poker-core/src/grading.ts', CB = 'tools/content-build/src/scenariusze.ts';
+const WA = 'apps/mobile/src/features/scenariusz/wariant.ts';
+const T = {
+  pc: [['packages/poker-core', 'pnpm exec vitest run']],
+  pcdx: [['packages/poker-core', 'pnpm exec vitest run test/scenario-dx.test.ts test/ko073-warunki.test.ts']],
+  cb: [['tools/content-build', 'pnpm exec vitest run test/ko073-warunek-nadkarty.test.ts test/dx-pojemnosc-d1040.test.ts test/szablon-na-ekranie-ck.test.ts']],
+  cbAll: [['tools/content-build', 'pnpm exec vitest run']],
+  ko: [['packages/poker-core', 'pnpm exec vitest run test/ko073-warunki.test.ts'], ['tools/content-build', 'pnpm exec vitest run test/ko073-warunek-nadkarty.test.ts'], ['apps/mobile', 'pnpm exec jest src/features/scenariusz']],
+  mob: [['apps/mobile', 'pnpm exec jest src/features/scenariusz']],
+  tresc: [['tools/content-build', 'pnpm exec vitest run test/ko073-warunek-nadkarty.test.ts'], ['.', 'pnpm content:check']],
+};
+const M = [
+  // EC 08-programista-001/002/003/005/006 (N2, N3, N4, N7a)
+  ['iso-1 bez oopExtra', GR, '+ (oop ? p.oopExtra : 0);\n}', '+ 0;\n}', 'pcdx'],
+  ['iso-2 perLimper×(n−1)', GR, 'p.perLimper * limpers +', 'p.perLimper * (limpers - 1) +', 'pcdx'],
+  ['iso-3 zamiana współczynników', SG, "'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR)", "'raise-small': round1(standard * SIZE_BIG_FACTOR), 'raise-big': round1(standard * SIZE_SMALL_FACTOR)", 'pcdx'],
+  ['def-1 próg małego 0,3', SG, 'const DEFEND_SMALL_MAX = 0.4;', 'const DEFEND_SMALL_MAX = 0.3;', 'pcdx'],
+  ['def-2 próg dużego 0,8', SG, 'const DEFEND_BIG_MIN = 0.7;', 'const DEFEND_BIG_MIN = 0.8;', 'pcdx'],
+  ['def-3 bez asa przy małym', SG, "  if (hasAce) return 'call';\n", '', 'pcdx'],
+  ['def-4 backdoor >=1 karta koloru', SG, "suitOf(hero[0])).length === 1 &&", "suitOf(hero[0])).length >= 1 &&", 'pcdx'],
+  ['def-5 backdoor od K', SG, 'const BACKDOOR_HIGH_MIN = RANK_T;', 'const BACKDOOR_HIGH_MIN = 11;', 'pcdx'],
+  ['def-6 backdoor od 2', SG, 'const BACKDOOR_HIGH_MIN = RANK_T;', 'const BACKDOOR_HIGH_MIN = 0;', 'pcdx'],
+  ['def-9 draw od 4 outów (gutshot)', SG, 'if (made || outs >= HOLDING_LIMITS.drawOutsMin) return', 'if (made || outs >= 4) return', 'pcdx'],
+  ['def-10 przedział pośredni → duży', SG, '  if (!small && fraction < DEFEND_BIG_MIN) return null;\n', '', 'pcdx'],
+  ['def-12 para nie liczy się przy małym', SG, 'if (made || outs >= HOLDING_LIMITS.drawOutsMin) return', 'if (outs >= HOLDING_LIMITS.drawOutsMin) return', 'pcdx'],
+  ['n2-001a mały: reszta → fold (stan sprzed poprawki 001)', SG, "return outs > 0 || hasAnyBackdoor(hero, flop) ? null : 'fold';", "return 'fold';", 'pcdx'],
+  ['n2-001b mały: gutshot → fold', SG, "return outs > 0 || hasAnyBackdoor(hero, flop) ? null : 'fold';", "return hasAnyBackdoor(hero, flop) ? null : 'fold';", 'pcdx'],
+  ['n2-001c mały: backdoor strita → fold', SG, "return outs > 0 || hasAnyBackdoor(hero, flop) ? null : 'fold';", "return outs > 0 ? null : 'fold';", 'pcdx'],
+  ['n2-002a duży: para → call (stan sprzed poprawki 002)', SG, "    if (made || outs > 0 || hasAnyBackdoor", "    if (made) return 'call';\n    if (outs > 0 || hasAnyBackdoor", 'pcdx'],
+  ['n2-002b duży: bez warunku „para”', SG, "    if (made || outs > 0 || hasAnyBackdoor", "    if (outs > 0 || hasAnyBackdoor", 'pcdx'],
+  ['n2-002c duży: bez warunku „draw”', SG, "    if (made || outs > 0 || hasAnyBackdoor", "    if (made || hasAnyBackdoor", 'pcdx'],
+  ['n2-002d duży: bez warunku „backdoor”', SG, "if (made || outs > 0 || hasAnyBackdoor(hero, flop) || !hero", "if (made || outs > 0 || !hero", 'pcdx'],
+  ['n2-002e duży: bez warunku „obie ≥ T”', SG, " || !hero.every((c) => rankOf(c) >= RANK_T)) return null;", ") return null;", 'pcdx'],
+  ['n2-002f duży: fold → call', SG, "    return 'fold';\n  }\n  if (made", "    return 'call';\n  }\n  if (made", 'pcdx'],
+  ['bd-1 okno strita: 4 rangi zamiast 3', SG, 'okno.filter((r) => wszystkie.has(r)).length >= 3', 'okno.filter((r) => wszystkie.has(r)).length >= 4', 'pcdx'],
+  ['bd-2 bez asa jako 1', SG, '(rankOf(c) === RANK_A ? [RANK_A, -1] : [rankOf(c)])', '[rankOf(c)]', 'pcdx'],
+  ['bd-3 strit: bez udziału karty gracza', SG, ' && okno.some((r) => reka.has(r))) return true;', ') return true;', 'pcdx'],
+  ['bd-4 kolor: bez udziału karty gracza', SG, '.length === 3 && hero.some((c) => suitOf(c) === suit)) return true;', '.length === 3) return true;', 'pcdx'],
+  ['bd-5 okno 4 rang', SG, 'const okno = [0, 1, 2, 3, 4].map', 'const okno = [0, 1, 2, 3].map', 'pcdx'],
+  ['g-1 bez strażnika fraction', SG, 'if (!Number.isFinite(fraction) || fraction <= 0) throw', 'if (false) throw', 'pcdx'],
+  ['g-2 strażnik fraction: tylko NaN', SG, 'if (!Number.isFinite(fraction) || fraction <= 0) throw', 'if (!Number.isFinite(fraction)) throw', 'pcdx'],
+  ['g-3 bez strażnika N7a', SG, 'if (!Number.isFinite(bluffShare) || bluffShare < 0 || bluffShare > 1 || !Number.isFinite(marginMin) || marginMin < 0) throw', 'if (false) throw', 'pcdx'],
+  ['g-4 N7a: bez górnej granicy udziału', SG, ' || bluffShare > 1 ||', ' ||', 'pcdx'],
+  ['g-5 N7a: bez kontroli marginesu', SG, ' || !Number.isFinite(marginMin) || marginMin < 0) throw', ') throw', 'pcdx'],
+  ['g-6 N4: duplikat bez błędu', SG, 'if (trafione.length > 1) throw', 'if (false) throw', 'pcdx'],
+  ['g-7 iso: bez strażnika', GR, "if (![p.base, p.perLimper, p.oopExtra].every(Number.isFinite) || !Number.isInteger(limpers) || limpers < 1) throw", 'if (false) throw', 'pcdx'],
+  ['list-1 acceptable zawsze puste', SG, 'acceptable: [...(e.acceptable ?? [])]', 'acceptable: []', 'pcdx'],
+  ['list-2 brak → pierwszy wpis', SG, 'const e = trafione[0];', 'const e = trafione[0] ?? entries[0];', 'pcdx'],
+  ['river-1 > → >=', SG, "return bluffShare > need ? 'call'", "return bluffShare >= need ? 'call'", 'pcdx'],
+  ['river-2 < → <= w marginesie', SG, 'Math.abs(bluffShare - need) < marginMin', 'Math.abs(bluffShare - need) <= marginMin', 'pcdx'],
+  ['river-3 cena bet/(pula+bet)', SG, 'const need = requiredEquity(pot, bet);', 'const need = bet / (pot + bet);', 'pcdx'],
+  ['river-4 bez marginesu', SG, '  if (Math.abs(bluffShare - need) < marginMin) return null;\n', '', 'pcdx'],
+  ['river-5 margines ×2', SG, 'Math.abs(bluffShare - need) < marginMin', 'Math.abs(bluffShare - need) < 2 * marginMin', 'pcdx'],
+  // EC 08-programista-007/008 (D-1040)
+  ['p-1 próg 40 zamiast min', CB, 'prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);', 'prog = pojemnoscMin;', 'cb'],
+  ['p-2 próg = liczba klas (bez min z 40)', CB, 'prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);', 'prog = eligibleClasses(spot, oczekiwana, zakres, ctx).length;', 'cb'],
+  ['p-4 bez warunku „tylko range/size-spot”', CB, " && t.decisions.every((d) => d.kind === 'range-spot' || d.kind === 'size-spot')", '', 'cb'],
+  ['p-5 < → <=', CB, 'if (odciski.size < prog) e.push', 'if (odciski.size <= prog) e.push', 'cb'],
+  // KO-073: rozstrzyganie bloków, bramka, warunek
+  ['k-1 blok zawsze widoczny', SG, "return wartosc ? body : '';", 'return body;', 'ko'],
+  ['k-2 blok odwrócony', SG, "return wartosc ? body : '';", "return wartosc ? '' : body;", 'ko'],
+  ['k-3 bez kontroli resztek po rozstrzygnięciu', SG, "if (wynik.includes('{{jesli:') || wynik.includes(CONDITION_CLOSE)) throw", 'if (false) throw', 'ko'],
+  ['k-4 bez kontroli zagnieżdżenia (fill)', SG, "if (body.includes('{{jesli:')) throw", 'if (false) throw', 'ko'],
+  ['k-5 findVariantConditions bez wykrywania uszkodzeń', SG, "if (bezBlokow.includes('{{jesli:') ||", "if (false && bezBlokow.includes('{{jesli:') ||", 'ko'],
+  ['k-6 bramka: nieznany warunek przepuszczony', CB, 'if (nieznaneWarunki.length) e.push', 'if (false) e.push', 'ko'],
+  ['k-7 bramka: niedomknięty przepuszczony', CB, "if (warunki.some((w) => w.startsWith('{{jesli:('))) e.push", 'if (false) e.push', 'ko'],
+  ['k-8 bramka: nadkarty poza draw-call', CB, "if (warunki.includes('nadkarty') && d.kind !== 'draw-call') e.push", 'if (false) e.push', 'ko'],
+  ['k-9 bramka: pierwsze zdanie w bloku', CB, 'if (otwarcie >= 0 && otwarcie <=', 'if (false && otwarcie <=', 'ko'],
+  ['k-10 warunek: stół turnu także na flopie', WA, "return overcardOutsAt(v.hero, v.board.slice(0, d.street === 'flop' ? 3 : 4));", 'return overcardOutsAt(v.hero, v.board.slice(0, 4));', 'ko'],
+  ['k-11 warunek: cały stół (5 kart)', WA, "return overcardOutsAt(v.hero, v.board.slice(0, d.street === 'flop' ? 3 : 4));", 'return overcardOutsAt(v.hero, v.board);', 'ko'],
+  ['k-12 warunek zawsze prawdziwy', WA, 'return { nadkarty: nadkartyPunktu(v, indeks) > 0 };', 'return { nadkarty: true };', 'ko'],
+  ['k-13 nadkarta ≥ zamiast >', SG, 'filter((x) => x > najwyzszaNaStole)', 'filter((x) => x >= najwyzszaNaStole)', 'ko'],
+  ['k-14 para w ręce ma nadkarty', SG, " || rankOf(hero[0]!) === rankOf(hero[1]!)) return 0;", ') return 0;', 'ko'],
+  ['k-15 bloki bez warunków (stary fill)', WA, 'return fillVariantMarkers(wyjasnienie, wartosci, warunki);', 'return fillVariantMarkers(wyjasnienie, wartosci, { nadkarty: true });', 'ko'],
+  // treść: uszkodzony blok w przekładzie (bramka budowania i test treści)
+  ['c-1 de sc-02: brak {{/jesli}}', 'content/de/scenarios/sc-02.yaml', '{{/jesli}}', '', 'tresc'],
+  ['c-2 en sc-01: literówka nazwy warunku', 'content/en/scenarios/sc-01.yaml', '{{jesli:nadkarty}}', '{{jesli:nadkarta}}', 'tresc'],
+  ['c-3 ja sc-19: zdanie bez bloku', 'content/ja/scenarios/sc-19.yaml', '{{jesli:nadkarty}}', '', 'tresc'],
+  ['c-4 pl sc-03: blok obejmuje też zdanie „To uproszczenie”', 'content/pl/scenarios/sc-03.yaml', ' To uproszczenie: liczysz tylko outy drawa.{{jesli:nadkarty}}', '{{jesli:nadkarty}} To uproszczenie: liczysz tylko outy drawa.', 'tresc'],
+];
+const wynik = [];
+for (const [n, plik, a, b, grupa] of M) {
+  if (filtr && !filtr.test(n)) continue;
+  const f = `${wt}/${plik}`, orig = readFileSync(f, 'utf8');
+  if (!orig.includes(a)) { wynik.push(`${n}: WZORZEC NIE ZNALEZIONY`); continue; }
+  writeFileSync(f, orig.replace(a, b));
+  const pad = [];
+  try {
+    for (const [cwd, cmd] of T[grupa]) {
+      try { execSync(cmd, { cwd: `${wt}/${cwd}`, stdio: 'pipe', timeout: 600000 }); }
+      catch (e) {
+        const out = String(e.stdout) + String(e.stderr);
+        const linie = [...new Set(out.split('\n').filter((l) => /^\s*(×|✕|FAIL|BŁĄD|Error:)/.test(l)).map((l) => l.trim().slice(0, 140)))].slice(0, 2);
+        pad.push(`${cwd}: kod ${e.status} ${linie.join(' | ')}`);
+      }
+    }
+  } finally { writeFileSync(f, orig); }
+  wynik.push(`${n} [${grupa}]: ${pad.length ? 'ZABITY — ' + pad.join(' ; ') : 'PRZEŻYŁ (zielony)'}`);
+  console.error(wynik.at(-1));
+}
+console.log(wynik.join('\n'));
