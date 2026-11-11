@@ -8,7 +8,7 @@ const splaszcz = (o: Wezel, p = "", w: Record<string, string> = {}): Record<stri
   for (const [k, v] of Object.entries(o)) typeof v === "string" ? (w[p + k] = v) : splaszcz(v, `${p}${k}.`, w);
   return w;
 };
-const slownik = (j: string) => splaszcz((SLOWNIKI as unknown as Record<string, Wezel>)[j]);
+const slownik = (j: string) => splaszcz((SLOWNIKI as unknown as Record<string, Wezel>)[j] ?? {});
 // Znaczniki {{t:id|Nazwa}} i parametry nie są tekstem do oceny formy zwracania się.
 const czysty = (s: string) => s.replace(/\{\{[^}]*\}\}/g, " ");
 
