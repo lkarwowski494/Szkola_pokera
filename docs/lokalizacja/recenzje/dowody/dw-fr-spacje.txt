@@ -1,0 +1,11 @@
+$ node -e (liczenie spacji przed : ; ? ! w fr.json, klucze scenario.numbers|icm vs reszta)  # HEAD 081c6ef3
+ASCII: scenario.numbers.line
+ASCII: scenario.numbers.icm
+ASCII: scenario.numbers.overcardsCall
+ASCII: scenario.icm.tableLabel
+ASCII: scenario.icm.bubble
+ASCII: scenario.icm.prizes
+ASCII: scenario.icm.place
+ASCII: scenario.icm.wholeStack
+klucze DS (scenario.numbers|icm): {"ascii":9,"nbsp":0} reszta słownika: {"ascii":30,"nbsp":205}
+kod wyjścia: 0

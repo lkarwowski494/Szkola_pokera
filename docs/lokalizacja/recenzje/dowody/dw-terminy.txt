@@ -1,0 +1,191 @@
+# Formy {{t:…}} w kluczach DS (scenario.numbers|icm) vs reszta słownika; skrypt node w scratchpadzie, HEAD 081c6ef3
+
+=== de
+board       | DS: Board×2 ; Tisch×1 | reszta: Board×3
+bubble      | DS: Bubble×2 | reszta: Bubble×6
+equity      | DS: Equity×1 | reszta: Equity×4
+call        | DS: Call×2 ; callen×1 | reszta: Call×17 ; callt×2 ; callen×1 ; callst×4 ; ∅×1
+pot         | DS: Pot×3 ; Pots×1 | reszta: Pot×21 ; Pots×1
+prize-pool  | DS: Preispool×1 ; Preispools×1 | reszta: Preispools×4 ; Preispool×3
+fold        | DS: folden×1 ; gefoldet×2 | reszta: foldet×10 ; Fold×10 ; gefoldet×5 ; foldest×4 ; folden×4 ; ∅×1
+open        | DS: Eröffner×1 | reszta: -
+range       | DS: Range×1 | reszta: Range×8 ; Ranges×2
+chips       | DS: Chips×1 | reszta: Chips×15
+big-blind   | DS: Big Blind×2 | reszta: ∅×1 ; Big Blind×3
+raise       | DS: Raise×1 | reszta: Raise×2 ; raist×3 ; raisen×2 ; Raises×1 ; ∅×1
+icm         | DS: ICM×1 | reszta: ICM×7
+all-in      | DS: All-in×1 | reszta: -
+pair        | DS: Paar×4 | reszta: Paar×12
+tournament  | DS: Turnier×1 | reszta: Turnier×1
+c-bet       | DS: ∅×1 | reszta: C-Bet×2 ; ∅×2
+
+=== es
+board       | DS: mesa×2 ; Mesa×1 | reszta: mesa×3
+bubble      | DS: burbuja×1 ; Burbuja×1 | reszta: Burbuja×1 ; burbuja×5
+equity      | DS: equity×1 | reszta: Equity×1 ; ∅×3
+call        | DS: igualar×3 | reszta: Igualar×2 ; iguala×2 ; igualar×11 ; igualas×4 ; Igualo×2 ; iguales×3 ; Igualas×1
+pot         | DS: bote×4 | reszta: Bote×2 ; bote×20
+prize-pool  | DS: bolsa de premios×2 | reszta: bolsa de premios×7
+fold        | DS: retira×1 ; se ha retirado×1 ; se han retirado×1 | reszta: se retira×5 ; Retirarse×2 ; retirado×2 ; retirarse×5 ; se retiró×1 ; se ha retirado×2 ; se han retirado×2 ; retiras×4 ; retirarte×3 ; retira×5 ; retiren×1 ; se retire×1 ; Me retiro×2
+open        | DS: apertura×1 | reszta: -
+range       | DS: rango×1 | reszta: rango×8 ; rangos×2
+chips       | DS: fichas×1 | reszta: fichas×15
+big-blind   | DS: ciega grande×2 | reszta: ∅×1 ; ciega grande×3
+raise       | DS: subida×1 | reszta: Subida×1 ; sube×4 ; suben×2 ; subir×1 ; subidas×1 ; subida×1
+icm         | DS: ICM×1 | reszta: ICM×7
+all-in      | DS: all-in×1 | reszta: -
+pair        | DS: pareja×4 | reszta: pareja×12
+tournament  | DS: torneo×1 | reszta: torneo×1
+c-bet       | DS: ∅×1 | reszta: c-bet×2 ; ∅×2
+
+=== fr
+board       | DS: board×2 ; Table×1 | reszta: board×3
+bubble      | DS: bulle×1 ; Bulle×1 | reszta: Bulle×1 ; bulle×5
+equity      | DS: équité×1 | reszta: Équité×1 ; équité×3
+call        | DS: suivre×3 | reszta: Suivre×3 ; suit×2 ; suivi×2 ; suivez×5 ; suivre×8 ; call×5
+pot         | DS: pot×4 | reszta: Pot×2 ; pot×19 ; ∅×1
+prize-pool  | DS: prize pool×2 | reszta: prize pool×7
+fold        | DS: se couchent×1 ; s'est couché×1 ; se sont couchés×1 | reszta: se couche×5 ; Se coucher×4 ; couché×3 ; se coucher×4 ; couchée×1 ; se couchent×2 ; couche×8 ; couchez×4 ; coucher×3 ; couchant×1
+open        | DS: ouverture×1 | reszta: -
+range       | DS: range×1 | reszta: range×8 ; ranges×2
+chips       | DS: jetons×1 | reszta: jetons×15
+big-blind   | DS: grosse blinde×2 | reszta: ∅×1 ; grosse blinde×3
+raise       | DS: relance×1 | reszta: Relance×1 ; relance×5 ; relancent×2 ; relancer×1 ; relances×1
+icm         | DS: ICM×1 | reszta: ICM×7
+all-in      | DS: all-in×1 | reszta: -
+pair        | DS: paire×4 | reszta: paire×11 ; paires×1
+tournament  | DS: tournoi×1 | reszta: tournoi×1
+c-bet       | DS: ∅×1 | reszta: c-bet×2 ; ∅×2
+
+=== it
+board       | DS: board×2 ; Tavolo×1 | reszta: board×3
+bubble      | DS: bolla×1 ; Bolla×1 | reszta: Bolla×1 ; bolla×5
+equity      | DS: equity×1 | reszta: Equity×1 ; ∅×3
+call        | DS: chiamata×1 ; chiamare×2 | reszta: Chiamo×3 ; chiama×2 ; chiamata×6 ; chiamare×3 ; chiami×3 ; ∅×6 ; Chiami×1 ; chiamo×1
+pot         | DS: piatto×4 | reszta: Piatto×2 ; piatto×17 ; ∅×3
+prize-pool  | DS: montepremi×2 | reszta: montepremi×7
+fold        | DS: foldano×1 ; ha foldato×1 ; hanno foldato×1 | reszta: folda×10 ; Fold×2 ; fold×5 ; foldato×2 ; ha foldato×1 ; hanno foldato×2 ; Foldi×3 ; foldare×2 ; foldino×1 ; foldi×2 ; Foldo×2 ; ∅×3
+open        | DS: apertura×1 | reszta: -
+range       | DS: range×1 | reszta: range×10
+chips       | DS: fiches×1 | reszta: fiches×12 ; ∅×3
+big-blind   | DS: big blind×2 | reszta: ∅×1 ; big blind×3
+raise       | DS: rilancio×1 | reszta: Rilancio×1 ; rilancia×4 ; rilanciano×2 ; rilanciare×1 ; rilanci×1 ; rilancio×1
+icm         | DS: ICM×1 | reszta: ∅×7
+all-in      | DS: all-in×1 | reszta: -
+pair        | DS: coppia×4 | reszta: coppia×9 ; ∅×3
+tournament  | DS: torneo×1 | reszta: torneo×1
+c-bet       | DS: ∅×1 | reszta: c-bet×2 ; ∅×2
+
+=== ja
+board       | DS: ボード×2 ; テーブル×1 | reszta: ボード×3
+bubble      | DS: バブル×2 | reszta: バブル×6
+equity      | DS: エクイティ×1 | reszta: エクイティ×4
+call        | DS: コール×3 | reszta: コール×24 ; ∅×1
+pot         | DS: ポット×4 | reszta: ポット×22
+prize-pool  | DS: プライズプール×2 | reszta: プライズプール×7
+fold        | DS: フォールド×3 | reszta: フォールド×32 ; ∅×1
+open        | DS: オープン×1 | reszta: -
+range       | DS: レンジ×1 | reszta: レンジ×10
+chips       | DS: チップ×1 | reszta: チップ×15
+big-blind   | DS: ビッグブラインド×2 | reszta: ∅×1 ; ビッグブラインド×3
+raise       | DS: レイズ×1 | reszta: レイズ×7 ; ∅×1
+icm         | DS: ∅×1 | reszta: ∅×7
+all-in      | DS: オールイン×1 | reszta: -
+pair        | DS: ペア×4 | reszta: ペア×10 ; ワンペア×2
+tournament  | DS: トーナメント×1 | reszta: トーナメント×1
+c-bet       | DS: ∅×1 | reszta: Cベット×2 ; ∅×2
+
+=== ko
+board       | DS: 보드×2 ; 테이블×1 | reszta: 보드×3
+bubble      | DS: 버블×2 | reszta: 버블×6
+equity      | DS: 에퀴티×1 | reszta: 에퀴티×4
+call        | DS: 콜×3 | reszta: 콜×24 ; ∅×1
+pot         | DS: 팟×4 | reszta: 팟×22
+prize-pool  | DS: 상금 풀×2 | reszta: 상금 풀×7
+fold        | DS: 폴드×3 | reszta: 폴드×32 ; ∅×1
+open        | DS: 오픈×1 | reszta: -
+range       | DS: 레인지×1 | reszta: 레인지×10
+chips       | DS: 칩×1 | reszta: 칩×15
+big-blind   | DS: 빅 블라인드×2 | reszta: ∅×1 ; 빅 블라인드×3
+raise       | DS: 레이즈×1 | reszta: 레이즈×7 ; ∅×1
+icm         | DS: ICM×1 | reszta: ICM×7
+all-in      | DS: 올인×1 | reszta: -
+pair        | DS: 페어×4 | reszta: 페어×10 ; 원페어×2
+tournament  | DS: 토너먼트×1 | reszta: 토너먼트×1
+c-bet       | DS: ∅×1 | reszta: C벳×2 ; ∅×2
+
+=== pt-BR
+board       | DS: mesa×2 ; Mesa×1 | reszta: mesa×3
+bubble      | DS: bolha×1 ; Bolha×1 | reszta: Bolha×1 ; bolha×5
+equity      | DS: equity×1 | reszta: Equity×1 ; ∅×3
+call        | DS: pagar×3 | reszta: Pagar×3 ; paga×9 ; pagar×9 ; ∅×3 ; pagando×1
+pot         | DS: pote×4 | reszta: Pote×2 ; pote×19 ; ∅×1
+prize-pool  | DS: premiação×2 | reszta: premiação×7
+fold        | DS: desistirem×1 ; desistiu×1 ; desistiram×1 | reszta: desiste×13 ; Desistir×4 ; desistiu×5 ; desistir×7 ; desistiram×2 ; desistam×1 ; foldou×1 ; foldar×2
+open        | DS: abertura×1 | reszta: -
+range       | DS: range×1 | reszta: range×8 ; ranges×2
+chips       | DS: fichas×1 | reszta: fichas×15
+big-blind   | DS: big blind×2 | reszta: ∅×1 ; big blind×3
+raise       | DS: aumento×1 | reszta: Aumentar×1 ; aumenta×4 ; aumentam×2 ; aumentar×2 ; aumentos×1
+icm         | DS: ICM×1 | reszta: ∅×7
+all-in      | DS: all-in×1 | reszta: -
+pair        | DS: par×4 | reszta: par×9 ; ∅×3
+tournament  | DS: torneio×1 | reszta: torneio×1
+c-bet       | DS: ∅×1 | reszta: c-bet×2 ; ∅×2
+
+=== pt
+board       | DS: mesa×2 ; Mesa×1 | reszta: mesa×3
+bubble      | DS: bolha×1 ; Bolha×1 | reszta: Bubble×1 ; bolha×5
+equity      | DS: equity×1 | reszta: Equity×1 ; ∅×3
+call        | DS: pagar×3 | reszta: Pago×3 ; paga×4 ; call×6 ; pagar×5 ; ∅×5 ; Paga×1 ; pago×1
+pot         | DS: pote×4 | reszta: Pote×2 ; pote×19 ; ∅×1
+prize-pool  | DS: bolsa de prémios×2 | reszta: bolsa de prémios×7
+fold        | DS: desistirem×1 ; desistiu×1 ; desistiram×1 | reszta: desiste×10 ; Desisto×3 ; desistiu×6 ; desistir×7 ; desistiram×2 ; Desistir×1 ; Desiste×3 ; desistirem×1 ; desista×1 ; desisto×1
+open        | DS: abertura×1 | reszta: -
+range       | DS: range×1 | reszta: range×8 ; ranges×2
+chips       | DS: fichas×1 | reszta: fichas×15
+big-blind   | DS: big blind×2 | reszta: ∅×1 ; big blind×3
+raise       | DS: aumento×1 | reszta: Aumento×1 ; aumenta×4 ; aumentam×2 ; aumentar×1 ; aumentos×1 ; aumento×1
+icm         | DS: ICM×1 | reszta: ∅×7
+all-in      | DS: all-in×1 | reszta: -
+pair        | DS: par×4 | reszta: par×10 ; ∅×2
+tournament  | DS: torneio×1 | reszta: torneio×1
+c-bet       | DS: ∅×1 | reszta: c-bet×2 ; ∅×2
+
+=== vi
+board       | DS: board×2 ; Bàn×1 | reszta: board×3
+bubble      | DS: bubble×1 ; Bubble×1 | reszta: Bubble×1 ; bubble×5
+equity      | DS: equity×1 | reszta: Equity×1 ; equity×3
+call        | DS: theo×3 | reszta: Theo×3 ; theo×21 ; ∅×1
+pot         | DS: Pot×1 ; pot×3 | reszta: Pot×2 ; pot×17 ; ∅×3
+prize-pool  | DS: tổng giải thưởng×2 | reszta: tổng giải thưởng×7
+fold        | DS: bỏ bài×3 | reszta: bỏ bài×28 ; Bỏ bài×4 ; bỏ×1
+open        | DS: mở cược×1 | reszta: -
+range       | DS: range×1 | reszta: range×10
+chips       | DS: chip×1 | reszta: chip×7 ; Chip×1 ; ∅×7
+big-blind   | DS: big blind×2 | reszta: ∅×1 ; big blind×3
+raise       | DS: tố×1 | reszta: Tố×1 ; tố×7
+icm         | DS: ∅×1 | reszta: ∅×7
+all-in      | DS: all-in×1 | reszta: -
+pair        | DS: đôi×3 ; Đôi×1 | reszta: đôi×8 ; ∅×3 ; Đôi×1
+tournament  | DS: giải đấu×1 | reszta: giải đấu×1
+c-bet       | DS: ∅×1 | reszta: c-bet×2 ; ∅×2
+
+=== zh-Hant
+board       | DS: 牌面×2 ; 牌桌×1 | reszta: 牌面×3
+bubble      | DS: 泡沫×2 | reszta: 泡沫×6
+equity      | DS: 權益×1 | reszta: 權益×4
+call        | DS: 跟注×3 | reszta: 跟注×24 ; ∅×1
+pot         | DS: 底池×4 | reszta: 底池×22
+prize-pool  | DS: 獎金池×2 | reszta: 獎金池×7
+fold        | DS: 棄牌×3 | reszta: 棄牌×30 ; 已棄牌×1 ; 棄掉×1 ; ∅×1
+open        | DS: 開池×1 | reszta: -
+range       | DS: 範圍×1 | reszta: 範圍×10
+chips       | DS: 籌碼×1 | reszta: 籌碼×15
+big-blind   | DS: 大盲×2 | reszta: ∅×1 ; 大盲×3
+raise       | DS: 加注×1 | reszta: 加注×7 ; ∅×1
+icm         | DS: ∅×1 | reszta: ∅×7
+all-in      | DS: 全下×1 | reszta: -
+pair        | DS: 對子×4 | reszta: 一對×3 ; 對子×9
+tournament  | DS: 錦標賽×1 | reszta: 錦標賽×1
+c-bet       | DS: ∅×1 | reszta: 持續下注×2 ; ∅×2

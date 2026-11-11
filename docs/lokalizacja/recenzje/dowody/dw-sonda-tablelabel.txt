@@ -1,0 +1,14 @@
+$ tsx sonda.ts  # renderTermsIn na scenario.icm.tableLabel i .prizes, 12 języków, HEAD 081c6ef3 (sonda w scratchpadzie, nie w repo)
+pl     Stół (board): ty na {{ty}}, karty {{reka}}. Rywal na {{rywal}} wchodzi all-in. || Nagrody: {{lista}} puli nagród (prize pool). {{brak}}
+en     Table: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in. || Prizes: {{lista}} of the prize pool. {{brak}}
+de     Tisch: du auf {{ty}}, Karten {{reka}}. Dein Gegner auf {{rywal}} ist All-in. || Preise: {{lista}} des Preispools. {{brak}}
+es     Mesa: tú en {{ty}}, cartas {{reka}}. Tu rival en {{rywal}} va all-in. || Premios: {{lista}} de la bolsa de premios. {{brak}}
+fr     Table : vous en {{ty}}, cartes {{reka}}. Votre adversaire en {{rywal}} fait all-in. || Gains : {{lista}} du prize pool. {{brak}}
+it     Tavolo: tu in {{ty}}, carte {{reka}}. Il tuo avversario in {{rywal}} va all-in. || Premi: {{lista}} del montepremi. {{brak}}
+ja     テーブル：あなたは{{ty}}、カードは{{reka}}。{{rywal}}の相手がオールインしています。 || 賞金：{{lista}}（プライズプールに対する割合）。{{brak}}
+ko     테이블: 나는 {{ty}}, 카드는 {{reka}}입니다. {{rywal}}에 앉은 상대가 올인했습니다. || 상금: {{lista}} (상금 풀에 대한 비율). {{brak}}
+pt-BR  Mesa: você no {{ty}}, cartas {{reka}}. O adversário no {{rywal}} está all-in. || Prêmios: {{lista}} da premiação. {{brak}}
+pt     Mesa: o seu lugar é {{ty}}, cartas {{reka}}. O adversário em {{rywal}} está all-in. || Prémios: {{lista}} da bolsa de prémios. {{brak}}
+vi     Bàn: bạn ở {{ty}}, bài {{reka}}. Đối thủ ở {{rywal}} đang all-in. || Giải thưởng: {{lista}} của tổng giải thưởng. {{brak}}
+zh-Hant 牌桌：你在 {{ty}}，手牌 {{reka}}。{{rywal}} 位置的對手全下了。 || 獎金：{{lista}}（占獎金池的比例）。{{brak}}
+kod wyjścia: 0
