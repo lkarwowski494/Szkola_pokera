@@ -118,6 +118,16 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const bezWyjasnienia = labels.filter((l) => !d.actions.some((a) => a.action === l));
         if (bezWyjasnienia.length) e.push(`${p} ekran pokazuje wszystkie akcje spotu ${d.spot}, a brak wyjaśnienia akcji: ${bezWyjasnienia.join(', ')} (BR-OCE-002)`);
       }
+    } else if (d.kind === 'turn-bet') {
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'bet-big,bet-small') e.push(`${p} akcje to dokładnie bet-small i bet-big, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu turn-bet to bet-big (R-M7-006: duży zakład odbiera drawowi cenę), jest ${ex}`);
+        if (b.draws.length === 0) e.push(`${p} poziom ${l}: punkt turn-bet wymaga listy draws (draw rywala)`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt turn-bet wymaga marginMin > 0 (szansa drawa bliska ceny nie ma jednoznacznej odpowiedzi)`);
+      }
     } else if (d.kind === 'defend') {
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
       if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);

@@ -699,7 +699,26 @@ export const ScenarioDefendDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-N6 (R-M7-006, math): zakład gracza na turnie z silną ręką wobec drawa rywala (rodzaj z `draws` poziomu); wybór między małym (`small`) a dużym (`big`)
+ * ułamkiem puli; poprawny jest duży, gdy rywal ma cenę przy małym i nie ma jej przy dużym (cena = bet ÷ (pula + 2·bet)).
+ */
+export const ScenarioTurnBetDecision = z
+  .object({
+    street: z.literal('turn'),
+    kind: z.literal('turn-bet'),
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    small: z.number().positive(),
+    big: z.number().positive(),
+    actions: z.array(z.object({ action: z.enum(['bet-small', 'bet-big']), explanation: z.string().min(1) }).strict()).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG)
+  .refine((d) => d.small < d.big, 'small musi być mniejsze od big');
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z
