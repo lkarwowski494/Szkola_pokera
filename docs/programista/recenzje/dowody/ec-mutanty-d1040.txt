@@ -1,0 +1,40 @@
+$ node mutanty2.mjs <worktree a6186653>  # mutant w tools/content-build/src/scenariusze.ts, potem vitest dx-pojemnosc-d1040 + szablon-na-ekranie-ck; skrypt niżej
+$ (bez mutanta) → Tests 6 passed (6), kod 0
+p-1 próg 40 zamiast min: ZABITY (kod 1) × szablon z liczbą odcisków równą liczbie klas przechodzi 193ms | × szablon z punktem range-spot nie jest odrzucany jako nieobsługiwany na ekranie (CX, D-866); budowanie zatrzymuje go dopiero bramka terminów fixture (po D-1040 pojemność 3 odcisków = 3 klasy nie jest błędem) 1645ms
+p-2 próg = liczba klas (bez min z 40): PRZEŻYŁ (zielony)
+p-3 porównanie z pojemnoscMin: ZABITY (kod 1) × szablon z liczbą odcisków równą liczbie klas przechodzi 193ms | × szablon z punktem range-spot nie jest odrzucany jako nieobsługiwany na ekranie (CX, D-866); budowanie zatrzymuje go dopiero bramka terminów fixture (po D-1040 pojemność 3 odcisków = 3 klasy nie jest błędem) 1759ms
+p-4 bez warunku „tylko range/size-spot”: PRZEŻYŁ (zielony)
+p-5 < → <=: ZABITY (kod 1) × szablon z liczbą odcisków równą liczbie klas przechodzi 144ms | × szablon z punktem range-spot nie jest odrzucany jako nieobsługiwany na ekranie (CX, D-866); budowanie zatrzymuje go dopiero bramka terminów fixture (po D-1040 pojemność 3 odcisków = 3 klasy nie jest błędem) 1660ms
+p-6 próg 0 (bramka wyłączona): ZABITY (kod 1) × szablon z liczbą odcisków mniejszą niż liczba klas jest nadal odrzucany 4ms
+kod wyjścia skryptu: 0
+
+$ pełny zestaw tools/content-build (pnpm exec vitest run) z mutantem p-2, potem p-4:
+p-2: kod 0
+      Tests  486 passed | 1 expected fail (487)
+p-4: kod 0
+      Tests  486 passed | 1 expected fail (487)
+
+--- skrypt ---
+// użycie: node mutanty2.mjs <worktree a6186653>; mutant w tools/content-build/src/scenariusze.ts, potem vitest dx-pojemnosc-d1040 + szablon-na-ekranie-ck; przywrócenie
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const wt = process.argv[2], f = `${wt}/tools/content-build/src/scenariusze.ts`, orig = readFileSync(f, 'utf8');
+const M = [
+ ['p-1 próg 40 zamiast min', 'prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);', 'prog = pojemnoscMin;'],
+ ['p-2 próg = liczba klas (bez min z 40)', 'prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);', 'prog = eligibleClasses(spot, oczekiwana, zakres, ctx).length;'],
+ ['p-3 porównanie z pojemnoscMin', 'if (odciski.size < prog) e.push', 'if (odciski.size < pojemnoscMin) e.push'],
+ ['p-4 bez warunku „tylko range/size-spot”', " && t.decisions.every((d) => d.kind === 'range-spot' || d.kind === 'size-spot')", ''],
+ ['p-5 < → <=', 'if (odciski.size < prog) e.push', 'if (odciski.size <= prog) e.push'],
+ ['p-6 próg 0 (bramka wyłączona)', 'prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);', 'prog = 0;'],
+];
+const w = [];
+for (const [n, a, b] of M) {
+  if (!orig.includes(a)) { w.push(`${n}: WZORZEC NIE ZNALEZIONY`); continue; }
+  writeFileSync(f, orig.replace(a, b));
+  let kod = 0, out = '';
+  try { out = execSync('pnpm exec vitest run test/dx-pojemnosc-d1040.test.ts test/szablon-na-ekranie-ck.test.ts', { cwd: `${wt}/tools/content-build`, stdio: 'pipe' }).toString(); } catch (e) { kod = e.status; out = String(e.stdout); }
+  const pad = [...new Set(out.split('\n').filter((l) => /^\s*×/.test(l)).map((l) => l.trim()))].join(' | ');
+  w.push(`${n}: ${kod ? 'ZABITY (kod ' + kod + ') ' + pad : 'PRZEŻYŁ (zielony)'}`);
+}
+writeFileSync(f, orig);
+console.log(w.join('\n'));
