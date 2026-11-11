@@ -25,6 +25,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **09:45 DF wystartowała** session_01T66VBwXeKqMJ25CPAXMoTY (07 audit, opus/high, `sesja-df-recenzja` @ ee7f991a, polecenie @ 7b572ff; prompt 74 433 znaki przepisany subagentem, porównanie z plikiem niesprawdzone — WG-07). Następna litera **DG**.
 - **09:40 właściciel na pytanie DF (opcje 1/2/3): „Zgodnie z rekomendacją” = opcja 1, jedna ponowna próba startu DF (07 audit opus/high, recenzja CZ).** Polecenie DF.md: koordynator zmieniony na session_01T66VBvYWeNrFwMqZNx9zYV. Po DF: DG (06 fix 06-tresci-001/003 od 431cb885), DH (09 audit DE faad5b9c).
 - **09:30 przejęcie przez session_01T66VBvYWeNrFwMqZNx9zYV (lineage 5/8; stan @ 745a57e).** Przypomnienia: kontrola 09:58 trig_01TbSYhYRqUTiw4kXZ5A6zdY, linia 14:00 (13:51) trig_013cLSnBmJd1dD2CrTLtEuNo, linia 05:00 12.11 trig_01KWpFrxiqzSQnBg7nE7BGZZ. Poprzednika: trig_013NWpa9NJQvWbNAgyg2VzRG „kontrola przekazania” 09:57 (sprząta on). Prompts dołączona. DD (7,61 USD) i DE (3,65 USD) zakończone, koszty zapisane, zarchiwizowane — bez wiadomości o zmianie koordynatora (sesje skończone; wiadomość wznowiłaby turę, wyjątek nazwany). CI 42994672296 na sesja-de-przeklad @ faad5b9c w toku. Pytanie 09:20 (DF) nadal otwarte — do odpowiedzi bez nowych sesji. Następna litera **DG**, D-917, KO-068.
 - **09:26 PRZEKAZANIE koordynatora session_01T66VBvsiHtynAJhQ4adRmv (kontekst 31,3%, 12,61 USD) → następca (lineage 5/8).** Mandat bez zmian; tryb dzienny (produktowe do właściciela, techniczne do weta).
@@ -483,3 +484,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 09:30 | koordynator session_01T66VBvYWeNrFwMqZNx9zYV | Przejęcie (stan @ 745a57e); przypomnienia własne 3; prompts @ 9553f6b; DD 7,61 / DE 3,65 USD → koszty.md, archiwizacja; CI 42994672296 faad5b9c w toku; wiadomości poprzednika po 09:26: brak od właściciela | PRZEJĄŁEM; kontrola 09:58 |
 | 09:31 | koordynator | Poprzednik: koszt 14,81 USD (max 33,0%) → koszty.md; archiwizuje się sam, „kontrola przekazania” usunięta; pytanie DF zadane ponownie właścicielowi w czacie tej sesji | kontrola 09:58 |
 | 09:40 | właściciel | DF: „Zgodnie z rekomendacją” (opcja 1, jedna ponowna próba startu) | start DF |
+| 09:45 | DF | start session_01T66VBwXeKqMJ25CPAXMoTY (1. próba po zgodzie, bez blokady) | kontrola 09:58; DG, DH |
