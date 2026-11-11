@@ -1,0 +1,21 @@
+# DM 08-programista-001: mutant U1 (Button nie przekazuje testID) vs test w sesja-render-08
+## przed: mutant U1 zastosowany
+ apps/mobile/src/components/ui.tsx | 1 -
+ 1 file changed, 1 deletion(-)
+    ✓ zadanie z wyborem bez strategii: lista odpowiedzi z „Wybierz odpowiedź”, po odpowiedzi nagłówek oceny słowem i „Dalej” (1597 ms)
+    ✓ zadanie ze strategią solvera: panel decyzji (pasek, bez listy i bez „Wybierz odpowiedź”), po ocenie stopień w panelu zamiast nagłówka (183 ms)
+    ✓ „Dalej” przechodzi do następnego zadania („2 z n”) (90 ms)
+    ✓ „Zakończ” w trakcie: aktywność porzucona (odpowiedzi zapisane), powrót (83 ms)
+    ✕ przycisk pod oceną ma testID `sesja-dalej` (jeden, „Dalej”), górny „Zakończ” go nie ma, stuknięcie po id daje „2 z n” bez powrotu (1086 ms)
+    Unable to find an element with testID: sesja-dalej
+                [0m✓ Poprawna odpowiedź[0m
+Tests:       1 failed, 4 passed, 5 total
+(kod jest: 1 test czerwony, 4 zielone — z linii "Tests:")
+Updated 1 path from the index
+## po: kod przywrócony
+    ✓ zadanie z wyborem bez strategii: lista odpowiedzi z „Wybierz odpowiedź”, po odpowiedzi nagłówek oceny słowem i „Dalej” (1400 ms)
+    ✓ zadanie ze strategią solvera: panel decyzji (pasek, bez listy i bez „Wybierz odpowiedź”), po ocenie stopień w panelu zamiast nagłówka (146 ms)
+    ✓ „Dalej” przechodzi do następnego zadania („2 z n”) (84 ms)
+    ✓ „Zakończ” w trakcie: aktywność porzucona (odpowiedzi zapisane), powrót (75 ms)
+    ✓ przycisk pod oceną ma testID `sesja-dalej` (jeden, „Dalej”), górny „Zakończ” go nie ma, stuknięcie po id daje „2 z n” bez powrotu (93 ms)
+Tests:       5 passed, 5 total

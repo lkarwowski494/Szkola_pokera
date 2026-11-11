@@ -127,4 +127,17 @@ describe('ekran sesji: render (08-F21, K-07)', () => {
     expect(await p.port.all('SELECT stan FROM aktywnosc')).toEqual([{ stan: 'porzucona' }]);
     expect(await p.port.all('SELECT COUNT(*) AS n FROM odpowiedz')).toEqual([{ n: 1 }]);
   });
+
+  // 08-programista-001 (recenzja DK): flow 07 (`apps/mobile/e2e/oczekujace/07-scenariusz.yaml`) stuka po `id: 'sesja-dalej'`.
+  // Kontrola przez render, nie przez tekst źródła: `Button` gubiący `testID` albo `testID` także na górnym „Zakończ” to czerwień.
+  it('przycisk pod oceną ma testID `sesja-dalej` (jeden, „Dalej”), górny „Zakończ” go nie ma, stuknięcie po id daje „2 z n” bez powrotu', async () => {
+    await otworz({ mode: 'lesson', lessonId: lekcjaZ(bezStrategii) }, bezStrategii);
+    expect(screen.queryAllByTestId('sesja-dalej')).toHaveLength(0);
+    await act(async () => fireEvent.press(screen.getByTestId('option-0')));
+    await waitFor(() => expect(screen.getAllByTestId('sesja-dalej')).toHaveLength(1));
+    expect(screen.getByTestId('sesja-dalej')).toHaveTextContent(t('session.next'));
+    await act(async () => fireEvent.press(screen.getByTestId('sesja-dalej')));
+    await waitFor(() => expect(screen.getByText(/^2 z \d+$/)).toBeTruthy());
+    expect(mockBack).not.toHaveBeenCalled();
+  });
 });

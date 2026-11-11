@@ -5,3 +5,5 @@ Pominięte (już przodek HEAD): de-przeklad faad5b9c, cx-range-spot 564c3813, cy
 Weryfikacja: wszystkie 8 = przodek HEAD; content:build → pusty diff; pnpm run ci kod 0 (dowody/dm-ci-7358a292.txt).
 Konflikty poza generowanymi: brak (decyzje D-NNN nie były potrzebne).
 Następne: zadanie 2 (08-programista-001), 3 (08-programista-002).
+
+Zad. 2 i 3 gotowe: test RNTL w sesja-render-08 (mutant U1 czerwony przed, zielony po: dowody/dm-mut-U1-button-bez-testid.txt); D-940 poprawione (analogia Trening); decyzje D-955…D-957 w docs/decyzje/DM.md. CI po zmianach: dowody/dm-ci-zad23.txt (kod 0, apps/mobile 1004 testów).

@@ -1,0 +1,7 @@
+# Decyzje sesji DM (rola 08-programista, build), 2026-11-11 — pula D-955…D-964, do weta
+
+| ID | Decyzja | Odrzucone | Powód | Analogia / zależność |
+|---|---|---|---|---|
+| D-955 | Scalenie 8 gałęzi: merge --no-ff, osobny commit na gałąź; konflikt tylko w plikach generowanych (dh: `tresc.generated.ts`, `assets/content/*.db`) rozwiązany regeneracją `pnpm content:build`; de, cx, cy pominięte (już przodkowie HEAD) | ręczne łączenie plików generowanych; squash | polecenie DM pkt 3.1; regeneracja daje spójny skrót i bazy | — |
+| D-956 | 08-programista-001: opcja (a) recenzji DK: test RNTL w `sesja-render-08.test.tsx` na prawdziwym `SessionScreen` (0 elementów `sesja-dalej` przed odpowiedzią, 1 po, tekst „Dalej”, stuknięcie po id daje „2 z n” bez `router.back`); zabija mutanty U1 i U2. Test tekstu źródła w `df-flow-zakoncz` zostaje bez zmian (nic nie usunięto ani nie osłabiono) | (b) parsowanie YAML flowu 07 (zabijałoby U4; recenzja: tylko gdy flow wejdzie do bramki bez przebiegu na każdej zmianie); (c) bez zmian | najtańsza kontrola zachowania zamiast tekstu | Trening: `lkarwowski494/trening:tests/audit-m1-026-kolejnosc-menu.test.tsx:30` (RNTL po `testID`), odczyt 2026-11-11 |
+| D-957 | 08-programista-002: wpis D-940 w `DK.md` poprawiony: analogia z Treningu z `repo:plik:linia` i datą odczytu | zostawić (rejestr z nieprawdziwą przesłanką) | CLAUDE.md „Delegacja decyzji”, D-191 | `lkarwowski494/trening:.maestro/07-zamiana.yaml:41-42`, `components/ProgressBars.tsx:16`, `tests/audit-m1-026-kolejnosc-menu.test.tsx:30` (@ 2d97581, 2026-11-11) |
