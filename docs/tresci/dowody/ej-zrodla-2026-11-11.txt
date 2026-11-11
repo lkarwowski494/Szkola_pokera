@@ -1,0 +1,113 @@
+# EJ: odczyt źródeł 2026-11-11 (curl -sSL, HTML → tekst: usunięte <script>/<style> i znaczniki, html.unescape, zwinięte białe znaki; potem grep -o z kontekstem)
+
+## beyondgto.com_defense_sb-vs-btn.txt  sha256(tekst)=c820dd70456d8386
+
+## beyondgto.com_ranges_btn-open-6max-100bb.txt  sha256(tekst)=1b319a3f18650109
+
+## beyondgto.com_ranges_lj-open-6max-100bb.txt  sha256(tekst)=313041d68b0b8313
+
+## blog.gtowizard.com_crush-3-bet-pots-oop-in-cash-games.txt  sha256(tekst)=073ae2eab2041919
+
+## blog.gtowizard.com_flop-heuristics-ip-c-betting-in-cash-games.txt  sha256(tekst)=364363a48a5ed732
+
+## blog.gtowizard.com_preflop-range-morphology.txt  sha256(tekst)=8edc96eb1217e965
+
+## deepfold.co_en_blog_three-bet-strategy-guide.txt  sha256(tekst)=947617c4a45a8f85
+
+## pokercoaching.com_blog_defending-bb-on-high-card-boards.txt  sha256(tekst)=3032e7fcc968bd42
+
+## upswingpoker.com_backdoor-flush-straight-draw-tips.txt  sha256(tekst)=3ed8252ed3ef16a8
+
+## upswingpoker.com_bet-size-strategy-tips-rules.txt  sha256(tekst)=f3645b708e5ded2d
+
+## upswingpoker.com_when-to-call-with-ace-high.txt  sha256(tekst)=60da1511e8476ac9
+
+## www.preflopwizard.app_blog_6-max-preflop-charts.txt  sha256(tekst)=546ecdd09c690ce2
+
+### pokercoaching :: „guthosts and runner runner draws”
+will start with this. Versus a small c-bet, we are calling 56% of the time and check-raising 17% of the hands. In this situation, we raise a lot of our value hands to build the pot and use a mixed strategy across the board, meaning we use the same hands for calling and raising with a different frequency. This strategy lets us bluff quite a lot. Therefore, we can use our lower equity hands such as guthosts and runner runner draws to to put back the breasu to the BTN, who is going to be c-betting a very wide range in this situation. As for our calling range, we will continue with pretty much all pairs including he underpairs and even A-high hands. Things changes quite a bit against a bigger c-bet, where we need to defend less often because of the MDF concept. The biggest difference when playing against big sizing, is that 
+(kod grep: 0)
+
+### pokercoaching :: „same hands for calling and raising”
+ we are calling 56% of the time and check-raising 17% of the hands. In this situation, we raise a lot of our value hands to build the pot and use a mixed strategy across the board, meaning we use the same hands for calling and raising with a different frequency. This strategy lets us bluff quite a lot. Therefore, we can use our lower equity hands such as guthosts and runner runner draws to to put back the breasu to the BTN, who is
+(kod grep: 0)
+
+### pokercoaching :: „any pair and most of our Ax holdings”
+will be only 5% of our range. While we still using mixed strategies in this situation, we will mostly do some raising with sets and two pair hands for value, mixing in vocational guthots and weak buttom pairs. We call with a similar range as when facing a small c-bet putting out chips in the middle any pair and most of our Ax holdings. Key takeaways You check your entire range from the BB Check-raise aggressively versus a small c-bet Call all your pairs and most of your ace-high hands Only raise top hands and few draws versus big c-bet and call the rest Defending BB on Connected High-Card Boards – Qh9h8d Our strategy on connec
+(kod grep: 0)
+
+### pokercoaching :: „TLDR: See AI summary”
+ve deeper into high-card textures. To build a comprehensive strategy for playing from the big blind versus a c-bet, we will analyze both connected and dry boards. By the end of this article, you will have a good understanding of how to adjust in these situations and how to construct perfect ranges. TLDR: See AI summary of this article. Dry High-Card Boards (e.g., K♠8♥4♣) vs small c-bet (~1/3 pot): Call ~56% with all pairs, ace-highs, and some underpairs; check-raise ~17% with strong top pairs, sets, and select bluffs like gutshots and backdoor draws. Dry High-Card Boards (e.g., K♠8♥4♣) vs vs large c-b
+(kod grep: 0)
+
+### upswingpoker.com_when :: „significant backdoor draw”
+J ♦ 4 ♦ 2♠ flop. The Button c-bets 66% of the pot. Here’s how the solver plays this spot: The solver does call with some Ace-high hands. A♠ 8♠, A ♦ 6x and similar Ace-highs make their way into the calling range. But the solver does not call with any Ace-high hand that doesn’t have a significant backdoor draw . Almost all Ace-highs with which the solver calls have the backdoor nut flush draw (A♠ X♠ or any hand with the A ♦ ). The one exception is Ace-Ten with the T♦, which the solver deems strong enough to call the 66% pot-sized bet. Note: Learn step-by-step how to become the best player at the 
+(kod grep: 0)
+
+### upswingpoker.com_back :: „literal min bet”
+f better hands with which you can call (direct draws, pairs, stronger backdoor draws) and you’ll still defend with enough of your range. Your pot odds are not so good. Maybe you could call versus a literal min bet, but calling any amount more than that is ambitious barring a read. On the other hand, stronger double backdoor hands — ones with an overcard to middle pair, like Q♣ 8♣ — are reasonable hands
+(kod grep: 0)
+
+### upswingpoker.com_back :: „stronger double backdoor hands”
+l defend with enough of your range. Your pot odds are not so good. Maybe you could call versus a literal min bet, but calling any amount more than that is ambitious barring a read. On the other hand, stronger double backdoor hands — ones with an overcard to middle pair, like Q♣ 8♣ — are reasonable hands with which to call in the K ♦ T♣ 6 ♦ example above. Final Thoughts on Backdoor Draws If you take these tips to 
+(kod grep: 0)
+
+### upswingpoker.com_back :: „worth folding into a hand worth calling”
+t that little bit of extra profit out of your backdoor flush and straight draws: Be more inclined to bet when you have a non-made hand with a backdoor flush draw. Backdoor flush draws can make a hand worth folding into a hand worth calling. Use double backdoor draws as check-raise bluffs. Float on the flop with backdoor plus overcard hands in blind vs blind pots. Don’t overdo it. Note: Do not play another hand without this $7 Postflo
+(kod grep: 0)
+
+### upswingpoker.com_back :: „backdoor straight draw, as you could”
+”. Example: If you’re holding K ♥ J ♥ on a flop of A♣ 7 ♥ 2♠, you have a backdoor flush draw because two consecutive hearts on the turn and river would give you a flush. You also have a backdoor straight draw, as you could hit two consecutive cards (a queen and a ten) to make a straight. 1. Be more inclined to bet when your non-made hand has a backdoor flush draw If you have an unpaired hand with a backdoor flush draw,
+(kod grep: 0)
+
+### beyondgto.com_defense :: „roughly 5% as a flat call”
+ted Home / Defense Ranges / SB vs BTN Facing a Raise Small Blind Defense vs Button Open — GTO 6-Max Cash Facing a 2.5bb open from the Button, GTO defends the Small Blind with about 18% of hands — roughly 5% as a flat call and 13% as a 3-bet. Everything else folds. The grid below shows the exact response. 18% Defend 5% Call 13% 3-Bet AA AKs AQs AJs ATs A9s A8s A7s A6s A5s A4s A3s A2s AKo KK KQs KJs KTs K9s K8s K7s K6s 
+(kod grep: 0)
+
+### blog.gtowizard.com_crush :: „barely calls anything”
+): 100bb effective, NL500 {{/grid}} This graphic depicts the response of the SB versus a 2.5x open-raise from the BTN when effectively 100bb deep. The first thing we notice immediately is that the SB barely calls anything. Instead, they almost exclusively 3-bet or fold . But why is that? The three main reasons SB prefers 3-bet only: The SB always plays out of position. When the BTN open-raises, and we call in the SB, 
+(kod grep: 0)
+
+### blog.gtowizard.com_crush :: „3-bet or fold strategy”
+s the aggressor can be tough. Following the principles we learned today will give you a better idea of how to approach these types of spots: As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy. When you 3-bet from the BB, you must also use some relatively weaker hands. They are usually to be found near the bottom of our calling range . You need to be more conservative when out of position.
+(kod grep: 0)
+
+### beyondgto.com_ranges_lj :: „opens about 17%”
+ Русский 简体中文 繁體中文 עברית Get Started Home / Opening Ranges / 100bb LJ Opening Range LJ Opening Range at 100bb — 6-Max Cash GTO Chart At 100 big blinds in 6-max cash, GTO opens about 17% of hands first-in from the LJ — raising rather than limping or jamming at this depth. The grid below shows the exact opening range from solver data. AA AKs AQs AJs ATs A9s A8s A7s A6s A5s A4s A3s A
+(kod grep: 0)
+
+### beyondgto.com_ranges_btn :: „opens about 42%”
+сский 简体中文 繁體中文 עברית Get Started Home / Opening Ranges / 100bb BTN Opening Range Button Opening Range at 100bb — 6-Max Cash GTO Chart At 100 big blinds in 6-max cash, GTO opens about 42% of hands first-in from the Button — raising rather than limping or jamming at this depth. The grid below shows the exact opening range from solver data. AA AKs AQs AJs ATs A9s A8s A7s A6s A5s A4s A
+(kod grep: 0)
+
+### www.preflop :: „Seats Behind”
+ssume a rake of roughly 5% up to 1-2bb (typical of NL100-NL500 online). Mixed strategies are simplified to pure actions, which costs minimal EV at most stakes but makes the ranges learnable. Position Seats Behind RFI Range Open Size UTG (LJ) 5 15-17% 2.5bb HJ (Hijack) 4 19-22% 2.5bb CO (Cutoff) 3 25-28% 2.5bb BTN (Button) 2 40-45% 2.5bb SB (Small Blind) 1 39-47% 3bb BB (Big Blind) 0 Defense only — Ranges ba
+(kod grep: 0)
+
+### www.preflop :: „standard open size”
+ right raise sizing, and how to defend from the big blind. Quick Answer GTO 6-max preflop charts open 15-17% from UTG , expand to 25-28% from the cutoff , and reach 40-45% on the button at 100bb. The standard open size is 2.5bb from all positions (3bb from the small blind). The big blind defends roughly 35-40% of its range against a button open. These ranges are 10-15 percentage points wider than their 9-max equiva
+(kod grep: 0)
+
+### deepfold :: „4x the Open”
+ turns, and still have a clean shove on rivers. If your sizing creates SPR > 7, your value hands lose stack-off threat. If SPR < 4, your bluffs cannot fold opener off marginal pairs. The OOP Formula: 4x the Open Out of position, the cost of being bluff-3-bet is higher (you lose initiative on every street), and your realization is worse. To compensate, charge a tax: 4x the open . Math: Opener raises to 2.5bb 
+(kod grep: 0)
+
+### blog.gtowizard.com_flop :: „low-card holdings”
+ high cards like an Ace , King , or Queen . Conversely, we play fewer hands with low cards, such as 5 or 6 . While the BB also prefers to hold higher cards, a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more. A Surprising Discovery Looking once again at the grouping by high cards chart, we see
+(kod grep: 0)
+
+### blog.gtowizard.com_flop :: „flopped straights often”
+good play. This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity. Connected Connected boards are a unique case due to flopped straights often being in the BB’s range. In order to be respectful of this, we size down; Connected boards see the least amount of the 133% pot sizing. {{tooltip-content: OESD}} OESD A straight draw where the play
+(kod grep: 0)
+
+### blog.gtowizard.com_flop :: „frequent use of the 33% sizing”
+of a flopped straight. Disconnected Disconnected boards are the hardest for either player to connect with. This preserves IP’s preflop advantage better than other board types. This texture sees the frequent use of the 33% sizing, but the 130% sizing is common as well. OESD possible What classifies as a strong hand on an {{tooltip-title: OESD}}-possible board is likely to change on later streets, so sizing up for additional f
+(kod grep: 0)
+
+### upswingpoker.com_bet :: „Bet small (25-35% pot) on dry”
+Rules Click to jump to an in-depth explanation of the rule: Increase your preflop raise size when there is a weak player in the blinds. 3-bet larger preflop when you will be out of position postflop. Bet small (25-35% pot) on dry, static board textures. Bet pretty large (55-80% pot) on wet, dynamic board textures. The stack-to-pot ratio should influence your bet size. Overbet when you have a nut advantage. When double barreli
+(kod grep: 0)
+
+### blog.gtowizard.com_preflop :: „17.6% of all possible”
+ng range is the quintessential linear range. For example, this is a 100bb UTG opening range in an NL500 cash game : {{grid: 4fr 1fr}} An example of a linear range {{/grid}} This range is comprised of 17.6% of all possible starting hands, and crucially, these are the most valuable 17.6% of starting hands (after you account for board coverage ). If you, as the first-to-act player, were to play a range of 17.6% of hands,
+(kod grep: 0)

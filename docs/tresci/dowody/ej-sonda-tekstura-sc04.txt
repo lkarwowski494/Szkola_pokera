@@ -1,0 +1,24 @@
+# EJ: sonda tekstury SC-04 (filtr = przypadek R-M5-007), wszystkie flopy talii, classifyFlop z poker-core @ 4d786bd2
+$ tsx sonda/tekstura.mts
+flopów w filtrze 1248
+{ 'semi-connected/dry': 1152, 'disconnected/dry': 96 }
+{
+  'semi-connected/dry': [ '2 6 Q', '2 6 Q', '2 6 K', '2 6 K' ],
+  'disconnected/dry': [ '2 7 Q', '2 7 Q', '2 7 K', '2 7 K' ]
+}
+kod wyjścia: 0
+
+## skrypt
+// Sonda EJ: rozkład mokrości (classifyFlop) na wszystkich flopach z filtra SC-04 (= przypadek R-M5-007).
+import { classifyFlop, textureMatches, makeCard } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+const filtr = { height: ['high'], suits: ['rainbow'], ranks: ['disconnected', 'semi-connected'], oesdPossible: false } as any;
+const R = '23456789TJQKA', S = 'cdhs';
+const talia: any[] = []; for (let r = 0; r < 13; r++) for (let s = 0; s < 4; s++) talia.push(makeCard(r, s));
+const licz: Record<string, number> = {}; const przyklady: Record<string, string[]> = {}; let n = 0;
+for (let a = 0; a < 52; a++) for (let b = a + 1; b < 52; b++) for (let c = b + 1; c < 52; c++) {
+  const f = [talia[a], talia[b], talia[c]]; const t = classifyFlop(f);
+  if (!textureMatches(t, filtr)) continue; n++;
+  const k = `${t.ranks}/${t.wetness}`; licz[k] = (licz[k] ?? 0) + 1;
+  (przyklady[k] ??= []).length < 4 && przyklady[k].push(f.map((x: number) => R[Math.floor(x/4)] ?? x).join(' '));
+}
+console.log('flopów w filtrze', n); console.log(licz); console.log(przyklady);
