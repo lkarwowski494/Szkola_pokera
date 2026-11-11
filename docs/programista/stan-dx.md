@@ -5,7 +5,7 @@ Gałąź `sesja-dx-silnik` od b3963e9a. Polecenie: `origin/koordynacja:docs/koor
 | Zadanie | Stan | Dowód |
 |---|---|---|
 | 1. 08-A bramka `holding` | **zrobione** (af871e32) | `tools/content-build/test/dx-bramka-holding.test.ts` (czerwony przed poprawką: „holding tylko dla punktu cbet-case” dla range-spot → cbet-case; zielony po); fixture `fixtures/range-cbet/sc-fx-range-cbet.yaml` (układ szkicu SC-04, nie treść aplikacji) |
-| 2. 08-N1…N7 | **częściowo: czyste funkcje oceny** N2, N3, N4, N7 w `packages/poker-core/src/scenario-dx.ts` + testy `test/scenario-dx.test.ts` (8 testów, wyrocznia z rang i kolorów, 10 000 losowań dla N2); **brak**: schemat `ScenarioDecision`, generator (`scenario-gen.ts`), bramka budowania (`scenariusze.ts`), widok. Nic nie jest w `RODZAJE_NA_EKRANIE` (brak widoku). N1, N5, N6 bez kodu. |
+| 2. 08-N1…N7 | **częściowo: czyste funkcje oceny** N2, N3, N4, N7 w `packages/poker-core/src/scenario-gen.ts` (koniec pliku; osobny plik łamał test nocny.yml „grupy mutacji obejmują każdy plik src/”, a workflowów nie zmieniam) + testy `test/scenario-dx.test.ts` (8 testów, wyrocznia z rang i kolorów, 10 000 losowań dla N2); **brak**: schemat `ScenarioDecision`, generator (`scenario-gen.ts`), bramka budowania (`scenariusze.ts`), widok. Nic nie jest w `RODZAJE_NA_EKRANIE` (brak widoku). N1, N5, N6 bez kodu. |
 | 3. KO-072 wybór jednej z dwóch rąk | nie zaczęte | |
 | 4. `GENERATOR_WERSJA` | patrz niżej | |
 | 5. `pnpm run ci` | patrz „Dowód” | |

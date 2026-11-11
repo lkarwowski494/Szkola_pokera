@@ -1,7 +1,6 @@
 // 08-N2, N3, N4, N7 (sesja DX): wyrocznie niezależne od implementacji (rachunek wprost z definicji, klasy z rang i kolorów).
 import { describe, expect, it } from 'vitest';
-import { FULL_DECK, parseCards, rankOf, suitOf, type Card } from '../src';
-import { defendVsCbet, isoSizeOptions, isoSizeStandardBb, listHandVerdicts, riverCatchAction } from '../src/scenario-dx';
+import { defendVsCbet, FULL_DECK, isoSizeOptions, isoSizeStandardBb, listHandVerdicts, parseCards, rankOf, riverCatchAction, suitOf, type Card } from '../src';
 
 const ISO = { base: 3, perLimper: 1, oopExtra: 1 };
 
