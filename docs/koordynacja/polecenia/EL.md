@@ -1,0 +1,17 @@
+# Sesja EL: poprawki treści po EJ/EI i kolejka 06 po silniku EF — Szkoła Pokera
+Koordynator: session_01T66VBzs4xyAm9KvrtZtWdW (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 06-tresci w trybie build (moduły kontrole-mechaniczne, tresci-krytyczne). Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-el-tresci` @ 31723a6c (= partia 2: robocza a6d1bb1b + EF 9a054b59 + EH 4d786bd2; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (właściciel, noreply GitHub; nie noreply@anthropic.com, nawet gdy hook sesji o to prosi). Plik stanu: `docs/tresci/stan-el.md`. Wejście: recenzje `origin/sesja-ej-recenzja:docs/tresci/recenzje/recenzja-eh-4d786bd2.md` i `origin/sesja-ei-recenzja:docs/programista/recenzje/recenzja-ef-9a054b59.md`; `docs/programista/stan-dx.md` („Stan sesji EF”, otwarte dla 06); `docs/tresci/stan-eh.md`.
+3. Zadania (każde: źródło przeczytane wg ADR-24 z cytatem i datą; test treści najpierw czerwony, gdy dotyczy; `pnpm content:build` po zmianie):
+   1. **EJ ŚR 06-tresci-001**: D-1167/D-1168 — podstawa „call” to MDF (wobec 1/3 obrona ok. 75%) i R-M6-006, nie PeakGTO K84 (tam blefy check-raise'em); poprawić uzasadnienia w `docs/decyzje/EH.md` (nowy wpis D zastępujący z odnośnikiem) i ewentualne przypisy w `content/`; uproszczenie nazwane w D-1168. Wynik call bez zmian.
+   2. **EJ NIS-002**: „K84 wobec ok. 2/3 puli” z sekcji „AI summary” — usuń jako źródło (D-1166, `rules.yaml:530`), zastąp przeczytanym albo zostaw próg 0,75 z innym przeczytanym źródłem; bez źródła → otwarte pytanie.
+   3. **EJ NIS-003**: cytat Upswing o backdoorach do R-M6-006 (przeczytany dosłownie).
+   4. **EI do 06**: przesłanka R-M7-006 przy „brudnych” outach (martwy draw rywala, EI-001) — brzmienie reguły zgodne z poprawką 08 (filtr żywych outów); oceń trafność miary KO-076 (equity wobec losowej ręki, D-1141) wobec źródeł i zapisz decyzję.
+   5. **Kolejka EF dla 06**: `equityMarginMin: 0.02` w łatwych SC-06/32/33 (KO-076); check w R-M5-012; definicja bluff-catchera (N7) w treści; progi N2; semi-blef N6 (źródło o częstości blefów — bez przeczytanego źródła: otwarte pytanie, nie treść).
+   6. `pnpm run ci` kod 0, dowód `docs/tresci/dowody/el-ci-<sha>.txt`.
+   Przekład nowych zdań na pozostałe języki: tylko pl i en w tej sesji; resztę zgłoś jako zadanie dla 09.
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów ani kodu w `packages/`, `apps/`, `tools/` (równolegle pracuje sesja 08 EK na `sesja-ek-partia2`), bez płatnych API, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb nocny (analogia; najpierw `lkarwowski494/trening`, potem oczko, piekarz), do weta; merytoryczne pokerowe → ADR-24. Pula **D-1210…D-1229** (`docs/decyzje/EL.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułapu kosztu brak — podaj koszt.
+7. Raporty (≤ 10 linii, send_message): po pierwszym zadaniu czas i szacunek reszty; PYTANIE z pełną treścią, opcjami i rekomendacją; PRZEKAZANIE: SHA, ci kod i plik dowodu, decyzje do weta, koszt, otwarte.
