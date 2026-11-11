@@ -14,7 +14,7 @@ Reguły: wszystkie wymienione mają w `docs/tresci/rejestr.json` status „potwi
 | SC-04 | M3 | R-M3-002 gto, R-M5-007 heur | range-spot `scenario-gen.ts:396`, c-bet po nim `:520` | szkic Ł/Ś (tekstura) | 08-A, 08-T; D-1031 |
 | SC-05 | M3 | R-M3-003 gto, R-M5-004 heur | jw. | szkic Ł/Ś | 08-A, 08-T |
 | SC-06 | M3 | R-M3-009 gto, R-M3-007 heur | range-spot + size-spot `:492` | **w treści** Ł (pl, en) | D-1032 |
-| SC-08 | M4 | R-M4-003 gto, R-M4-002 heur | range-spot + size-spot | szkic Ł, pojemność 26 | decyzja 03 (D-1035), 08-T |
+| SC-08 | M4 | R-M4-003 gto, R-M4-002 heur | range-spot + size-spot | szkic Ł, pojemność 26 | KO-074: próg = liczba klas; zmiana progu w `scenariusze.ts:231` dla 08 (D-1040) |
 | SC-13 | M5 | R-M5-008 heur (bez `check`), R-M5-011 math | cbet-case `:520`, ale brak przypadku `best: big` | otwarte | 06: źródło akcji dla klasy ręki na flopie z drawami (D-795) |
 | SC-32 | M11 | R-M11-002 gto | range-spot `push.sb-10` | **w treści** Ł (pl, en) | — |
 | SC-33 | M11 | R-M11-007 gto, R-M11-006 math | range-spot `call.bb-10` | **w treści** Ł (pl, en) | — |
@@ -43,4 +43,4 @@ Reguły: wszystkie wymienione mają w `docs/tresci/rejestr.json` status „potwi
 Przegląd przekładu agenta (D-1039) w 10 językach (de, es, fr, it, ja, ko, pt, pt-BR, vi, zh-Hant): `content/<język>/scenarios/sc-06.yaml`, `sc-32.yaml`, `sc-33.yaml` (nowe w DU) i `sc-34.yaml` (z sesji CO, bez poziomu trudnego); pola `situation` i `explanation`, w tym formy terminów `{{t:…|forma}}`. Wersje en (`content/en/scenarios/`) do przeglądu 04/09.
 
 ## Następny krok
-08: 08-A (bramka `holding`), potem 06 przenosi SC-04/05 z dopasowaniem `szablony-co`; 08-N1…N7 dla grupy „częściowo”; decyzja o pojemności SC-08 (D-1035); 06: SC-13 (źródło, D-795); 09: przekład 4 szablonów; recenzja niezależna DU (treść i testy, KO-070 pkt 4).
+08: 08-A (bramka `holding`), potem 06 przenosi SC-04/05 z dopasowaniem `szablony-co`; 08-N1…N7 dla grupy „częściowo”; próg pojemności dla szablonów zakresowych (KO-074, D-1040), potem 06 przenosi SC-08; 06: SC-13 (źródło, D-795); 09: przekład 4 szablonów; recenzja niezależna DU (treść i testy, KO-070 pkt 4).
