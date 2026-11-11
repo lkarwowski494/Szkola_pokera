@@ -539,3 +539,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 14:36 | kontrola | CI 43032964359 **success** na 709f6947; E2E 43032964388 w toku (45 min). Koordynator 16,3%, 2,06 USD. get_session: rate_limit seven_day **allowed_warning** (limit tygodniowy konta blisko) | kontrola 14:51 |
 | 14:52 | kontrola | E2E 43032964388 **success** na 709f6947 (14:43) | start DN |
 | 14:57 | DN | start session_01T66VBzXVjJK9cDjoCtKbMC (08 build sonnet/medium, sesja-dn-liczby @ 709f6947, polecenie DN.md @ 3cde055) | kontrola 15:55 |
+| 14:58 | DN | zad. 1 (e83ee04c lokalnie): D-886, D-887 zrobione; D-888, D-889, D-890 brak (ICM_CHIPS_REQUIRED=0,5 w scenario-gen.ts:278). Plan D-890 → D-888 → D-889, ok. 7–8,5 h agenta. Decyzja do weta: nadkarty liczone w ekranie z ręki i stołu, bez nowego pola wariantu i bez GENERATOR_WERSJA (do sprawdzenia przy odbiorze: czy zmiana progu D-890 nie zmienia zapisanych wariantów) | kontrola 15:55 |
