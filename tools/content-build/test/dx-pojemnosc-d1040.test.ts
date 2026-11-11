@@ -6,6 +6,7 @@ import { ScenarioTemplate } from '@szkola/content-schema';
 import { HAND_CLASSES } from '@szkola/poker-core';
 import { compileRanges } from '../src/ranges';
 import { checkScenarioGenerator, loadScenarioTemplates } from '../src/scenariusze';
+import { content } from './kit';
 
 const spots = compileRanges(join(resolve(import.meta.dirname), '..', '..', '..', 'content')).spots;
 const ctx = { spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } };
@@ -35,5 +36,20 @@ describe('D-1040: próg pojemności bez flopu', () => {
   });
   it('szablon z liczbą odcisków mniejszą niż liczba klas jest nadal odrzucany', () => {
     expect(checkScenarioGenerator(waski(), undefined, 3, ctx).join('\n')).toMatch(/pojemność/);
+  });
+});
+
+describe('D-1040: obniżony próg tylko bez flopu (recenzja EC ŚR-007, NIS-008)', () => {
+  it('range-spot → cbet-case (flop w odcisku) zachowuje próg 40, mimo mało klas w zakresie', () => {
+    const t = loadScenarioTemplates(join(resolve(import.meta.dirname), 'fixtures', 'range-cbet'))[0]!.template;
+    const cbetCases = content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!;
+    expect(checkScenarioGenerator(t, undefined, 5, { ...ctx, cbetCases }).join('\n')).toMatch(/wymagane 40\b/);
+  });
+  it('górna granica: zakres z więcej niż 40 klasami nie podnosi progu powyżej 40', () => {
+    const b = structuredClone(baza) as any;
+    b.levels = ['latwy'];
+    b.bounds = { latwy: { freqs: [{ min: 0, max: 1 }], expected: ['raise 2.5'] } };
+    const t = ScenarioTemplate.parse(b);
+    expect(checkScenarioGenerator(t, undefined, 5, ctx).join('\n')).toMatch(/wymagane 40\b/);
   });
 });
