@@ -12,8 +12,9 @@ import { naGenerator, odciskWariantu } from '../wariant';
 
 const T0 = Date.UTC(2026, 10, 11, 10);
 let n = 0;
+// ziarno 1000: warunek wstępny pierwszego testu (te same karty przy innych pulach) zależy od ziarna; od CS WYS-003 (nadkarty) ziarno 1234 go nie spełnia, 1000 tak
 const wejscie = (o: Partial<WejscieScenariusza>): WejscieScenariusza => ({
-  szablon: SC01, poziom: 'sredni', tryb: 'nowe', limit: { bezLimitu: true }, ziarno: 1234, sesja: new Set(),
+  szablon: SC01, poziom: 'sredni', tryb: 'nowe', limit: { bezLimitu: true }, ziarno: 1000, sesja: new Set(),
   zegar: utworzZegar({ kalendarz: () => 'Europe/Warsaw', intl: () => null }, () => T0), noweId: () => `w${++n}`, ...o,
 });
 const ok = <T,>(w: { ok: true; wartosc: T } | { ok: false; powod: string }): T => {
