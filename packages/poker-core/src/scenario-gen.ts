@@ -102,7 +102,20 @@ export interface TurnBetSpec {
   small: number;
   big: number;
 }
-export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
+/**
+ * KO-072 (D-1054, SC-23a/b, heur R-M8-006/007): „wybór jednej z dwóch rąk” do blefu na riverze. Zakres rywala to dana zadania: klasy rąk, które sprawdzą (`calls`)
+ * i które spasują (`folds`). Tryb `showdown` (a): wybierz rękę bez wartości na showdownie (SDV = 0), gdy druga ją ma; tryb `blockers` (b): obie SDV = 0, wybierz rękę
+ * blokującą sprawdzające i niezasłaniającą pasujących (mniej V, nie mniej F). Brak jednoznacznej odpowiedzi = wariant odrzucany. Kandydaci: `hero` i `villain` wariantu
+ * (pole `villain` oznacza tu drugą rękę kandydata; rywal jest dany zakresem, nie kartami).
+ */
+export interface PickHandSpec {
+  kind: 'pick-hand';
+  street: 'river';
+  mode: 'showdown' | 'blockers';
+  calls: readonly string[];
+  folds: readonly string[];
+}
+export type DecisionSpec = PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -347,7 +360,19 @@ export interface ListHandVariantDecision {
   correct: string;
   acceptable: string[];
 }
-export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
+export interface PickHandVariantDecision {
+  point: 'pick-hand';
+  street: 'river';
+  mode: 'showdown' | 'blockers';
+  hands: readonly [readonly [Card, Card], readonly [Card, Card]];
+  /** SDV(h): udział kombinacji zakresu rywala (sprawdzających i pasujących, bez kart h i stołu), z którymi h wygrywa na showdownie. */
+  sdv: readonly [number, number];
+  /** V(h): kombinacje sprawdzające, F(h): kombinacje pasujące; po usunięciu kart h i stołu. */
+  calls: readonly [number, number];
+  folds: readonly [number, number];
+  correct: 'hand-a' | 'hand-b';
+}
+export type VariantDecision = PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -446,7 +471,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
   }
@@ -705,6 +730,18 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
       continue;
     }
+    if (spec.kind === 'pick-hand') {
+      if (spec.calls.length === 0 || spec.folds.length === 0) throw new TemplateError(`${t.id}: pick-hand wymaga calls i folds (klasy rąk rywala)`);
+      const wspolne = spec.calls.filter((hc) => spec.folds.includes(hc));
+      if (wspolne.length > 0) throw new TemplateError(`${t.id}: pick-hand: klasa ${wspolne[0]} w calls i w folds naraz`);
+      for (const hc of [...spec.calls, ...spec.folds]) if (!HAND_CLASSES.includes(hc)) throw new TemplateError(`${t.id}: pick-hand: nieznana klasa ręki ${hc}`);
+      const hands = [hero, villain] as const; // kandydaci: hero = A, villain = B (rywal jest dany zakresem)
+      const r = pickHandAnalysis(spec.mode, hands, board, spec.calls, spec.folds);
+      if (r.correct === null) return null; // brak jednoznacznej odpowiedzi (D-1054)
+      points.push({ point: 'pick-hand', street: 'river', mode: spec.mode, hands, sdv: r.sdv, calls: r.calls, folds: r.folds, correct: r.correct === 0 ? 'hand-a' : 'hand-b' });
+      icmSuffix = `|${villain[0]}-${villain[1]}`; // druga ręka jest pokazana w decyzji
+      continue;
+    }
     if (spec.kind === 'defend') {
       if (spec.pots.length === 0 || spec.fractions.length === 0) throw new TemplateError(`${t.id}: defend wymaga pots i fractions`);
       const pot = pick(rng, spec.pots);
@@ -837,7 +874,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
   const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch') ? board : t.decisions.some((x) => x.kind === 'turn-bet') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend') ? flop : [];
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand') ? board : t.decisions.some((x) => x.kind === 'turn-bet') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 
@@ -927,6 +964,33 @@ export function fillVariantMarkers(text: string, values: Record<VariantMarker, s
   });
   if (wynik.includes('{{w:')) throw new TemplateError('niedomknięty znacznik wariantu {{w:');
   return wynik;
+}
+
+export interface PickHandAnalysis {
+  sdv: [number, number];
+  calls: [number, number];
+  folds: [number, number];
+  /** Indeks poprawnej ręki (0 = A, 1 = B) albo null, gdy źródło nie rozstrzyga (wariant odrzucany). */
+  correct: 0 | 1 | null;
+}
+export function pickHandAnalysis(mode: PickHandSpec['mode'], hands: readonly [readonly [Card, Card], readonly [Card, Card]], board: readonly Card[], calls: readonly string[], folds: readonly string[]): PickHandAnalysis {
+  const callCombos = calls.flatMap((hc) => classCombos(hc));
+  const foldCombos = folds.flatMap((hc) => classCombos(hc));
+  const licz = (h: readonly [Card, Card]) => {
+    const martwe = new Set<Card>([...h, ...board]);
+    const wolne = (c: readonly [Card, Card]) => !martwe.has(c[0]) && !martwe.has(c[1]);
+    const v = callCombos.filter(wolne);
+    const f = foldCombos.filter(wolne);
+    const moja = strength([...h, ...board]);
+    const wygrywa = [...v, ...f].filter((c) => moja < strength([...c, ...board])).length; // mniejsza siła = lepsza ręka
+    const razem = v.length + f.length;
+    return { v: v.length, f: f.length, sdv: razem === 0 ? 0 : wygrywa / razem };
+  };
+  const [a, b] = [licz(hands[0]), licz(hands[1])];
+  let correct: 0 | 1 | null = null;
+  if (mode === 'showdown') correct = a.sdv === 0 && b.sdv > 0 ? 0 : b.sdv === 0 && a.sdv > 0 ? 1 : null; // SC-23a: ręka z SDV > 0 nie jest blefem (GW were-at-the-river:53)
+  else if (a.sdv === 0 && b.sdv === 0) correct = a.v < b.v && a.f >= b.f ? 0 : b.v < a.v && b.f >= a.f ? 1 : null; // SC-23b: mniej sprawdzających, nie mniej pasujących (GW blockers-unblockers:32)
+  return { sdv: [a.sdv, b.sdv], calls: [a.v, b.v], folds: [a.f, b.f], correct };
 }
 
 // ---------- Rodzaje punktów 08-N1…N7 (sesja DX): czyste funkcje oceny; w tym pliku, bo grupy mutacji nocny.yml wymieniają pliki src/ ----------

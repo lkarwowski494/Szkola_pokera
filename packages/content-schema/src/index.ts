@@ -718,7 +718,25 @@ export const ScenarioTurnBetDecision = z
   .refine(oneSource, ONE_SOURCE_MSG)
   .refine((d) => d.small < d.big, 'small musi być mniejsze od big');
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * KO-072 (D-1054, SC-23a/b): wybór jednej z dwóch rąk do blefu na riverze. Zakres rywala to dana zadania: klasy rąk sprawdzających (`calls`) i pasujących (`folds`);
+ * tryb `showdown`: ręka bez wartości na showdownie (SDV = 0), `blockers`: obie SDV = 0, mniej sprawdzających zablokowanych, nie mniej pasujących. Akcje: hand-a, hand-b.
+ */
+export const ScenarioPickHandDecision = z
+  .object({
+    street: z.literal('river'),
+    kind: z.literal('pick-hand'),
+    rule: id.optional(),
+    calc: id.optional(),
+    mode: z.enum(['showdown', 'blockers']),
+    calls: z.array(z.string().min(1)).min(1),
+    folds: z.array(z.string().min(1)).min(1),
+    actions: z.array(z.object({ action: z.enum(['hand-a', 'hand-b']), explanation: z.string().min(1) }).strict()).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z

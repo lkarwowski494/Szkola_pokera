@@ -1,0 +1,20 @@
+# Fixture testu KO-072 (SC-23a/b): wybór jednej z dwóch rąk do blefu na riverze (R-M8-006, R-M8-007). Nie jest treścią aplikacji.
+id: sc-fx-pick-hand
+module: m8
+situation: "Fixture: river, blef jedną z dwóch rąk."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [best-hand] }
+decisions:
+  - street: river
+    kind: pick-hand
+    calc: bluff.share.bet-half
+    mode: blockers
+    calls: [AA, KK, QQ, JJ, TT, AKs, AKo, AQs]
+    folds: [98s, 87s, 76s, 65s, T9s, J9s, QJs]
+    actions:
+      - { action: hand-a, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}; ta ręka blokuje ręce rywala, które sprawdzą, i nie zasłania tych, które spasują." }
+      - { action: hand-b, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}; ta ręka zasłania ręce rywala, które spasowałyby, albo blokuje za mało sprawdzających." }

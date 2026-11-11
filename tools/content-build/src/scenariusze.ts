@@ -143,6 +143,14 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const ex = t.bounds[l]?.expected[i];
         if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu defend to call albo fold, jest ${ex}`);
       }
+    } else if (d.kind === 'pick-hand') {
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'hand-a,hand-b') e.push(`${p} akcje to dokładnie hand-a i hand-b, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const hc of [...d.calls, ...d.folds]) if (!HAND_CLASSES.includes(hc)) e.push(`${p} pick-hand: nieznana klasa ręki ${hc}`);
+      for (const hc of d.calls.filter((x) => d.folds.includes(x))) e.push(`${p} pick-hand: klasa ${hc} w calls i w folds naraz (zakres rywala musi być rozłączny)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && ex !== 'best-hand') e.push(`${p} poziom ${l}: oczekiwana akcja punktu pick-hand to best-hand (poprawna ręka wynika z rachunku, strona jest losowa), jest ${ex}`);
+      }
     } else if (d.kind === 'river-catch') {
       if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
       for (const l of SCENARIO_LEVELS_LIST) {
