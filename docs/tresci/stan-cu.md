@@ -15,7 +15,8 @@ Gałąź `sesja-cu-sc12` od 5839a90 (= sesja-ct-recenzja); decyzje `docs/decyzje
 - **R-M5-004, półpołączone niskie flopy:** `best: check` dla nich pozostaje otwartym pytaniem z D-510 (`docs/tresci/e1-m5-m8.md`); D-845 go nie rozstrzyga.
 - **Rejestr Drive (12/13):** D-845…D-848 tylko w repo, do przeniesienia przez sesję z dostępem do Drive.
 - **Scalenie z CV (ŚR-002):** pliki poza `content/`: `packages/poker-core/src/grading.ts`, `packages/poker-core/src/scenario-gen.ts` (linie 98–99 i 506–510, rozłączne z `GENERATOR_WERSJA`), `packages/content-schema/src/index.ts`, `tools/content-build/src/build.ts`, `tools/content-build/test/{cu-cbet-size-down,szablony-co,recenzja-ct-odtworzenie}.test.ts`, `apps/mobile/src/data/content/tresc.generated.ts`, `apps/mobile/assets/content/*.db`.
-- Status „zweryfikowane” nadaje reaudit; przegląd ścieżki wrażliwej (D-043): wynik niżej.
+- Status „zweryfikowane” nadaje reaudit.
+- Przegląd ścieżki wrażliwej (D-043, subagent w świeżym kontekście, tylko `git diff 5839a90..a746b4d5 -- packages tools/content-build/src apps/mobile/src` + zasady 10–14): **„brak uwag”** (sprawdził: pole dociera do aplikacji przez schemat zod w `repo.ts`, losowanie bez rng w nowym warunku, przypadki bez pola po staremu, werdykty nie są zapisywane w danych użytkownika).
 
 ## Dowody
-- `pnpm content:build` kod 0; `pnpm run ci`: `docs/programista/dowody/cu-ci-<sha>.txt` (wpis po przebiegu).
+- `pnpm content:build` kod 0; `pnpm run ci` kod 0 na `a746b4d5`: `docs/programista/dowody/cu-ci-a746b4d5.txt` (content-build 400 + 2 oczekiwane porażki: ŚR-002 CT dla CV i wcześniejszy `it.fails`; mobile 910).
