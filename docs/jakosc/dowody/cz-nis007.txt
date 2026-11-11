@@ -1,0 +1,35 @@
+# CZ NIS-007 (06-tresci-007) — dowody, 2026-11-11
+
+## Po zmianie: szablony-co.test.ts (10 000 losowań na poziom, wektory outów z rachunku ręcznego)
+      Tests  16 passed (16)
+   Duration  142.17s (tests 97%, import 3%)
+
+## Mutant A (kopia robocza, packages/poker-core/src/scenario-gen.ts holdingMatches): air przepuszcza klasę draw
+     × sc-11 sredni: 10000 wariantów 54ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
++   "17: ręka poza filtrem air (draw, 8 outów)",
++   "25: ręka poza filtrem air (draw, 8 outów)",
++   "31: ręka poza filtrem air (draw, 8 outów)",
++   "40: ręka poza filtrem air (draw, 8 outów)",
++   "49: ręka poza filtrem air (draw, 8 outów)",
+      Tests  1 failed | 1 passed | 14 skipped (16)
+
+## Mutant B (kopia robocza, scenario-gen.ts cbet-case): ręka z dowolnej klasy zamiast z zakresu rfi.<pozycja>
+     × sc-11 latwy: 10000 wariantów 82ms
+     × sc-11 sredni: 10000 wariantów 8ms
+     × sc-12 latwy: 10000 wariantów 20ms
+     × sc-12 sredni: 10000 wariantów 19ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
++   "1: T5o poza zakresem otwarcia BTN",
++   "2: 95o poza zakresem otwarcia BTN",
++   "3: T4o poza zakresem otwarcia BTN",
++   "4: 95o poza zakresem otwarcia BTN",
++   "6: J6o poza zakresem otwarcia BTN",
++   "1: T5o poza zakresem otwarcia BTN",
++   "2: 84o poza zakresem otwarcia BTN",
+
+## Sonda (informacyjnie, do roli 06): outy drawa rąk air wg wyroczni (10 000 wariantów na poziom); 4 = gutshot, poniżej progu HOLDING_LIMITS.drawOutsMin = 8
+sc-11 latwy outy→liczba wariantów: {"0":10000}
+sc-11 sredni outy→liczba wariantów: {"0":8046,"4":1954}
+sc-12 latwy outy→liczba wariantów: {"0":7600,"4":2400}
+sc-12 sredni outy→liczba wariantów: {"0":7729,"4":2271}
