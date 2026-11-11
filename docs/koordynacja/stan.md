@@ -25,6 +25,11 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **15:45 PRZEKAZANIE koordynatora session_01T66VBvPqFB6GZD3a2Yg9AF (kontekst 30,5%, 7,26 USD; lineage 7/8 → nowy łańcuch: prośba do właściciela, prompt w `docs/koordynacja/przekazanie-M9.md`).** Mandat bez zmian; tryb dzienny.
+  - **DN session_01T66VBzXVjJK9cDjoCtKbMC: PRZEKAZANIE częściowe** (kontekst 28,8%, 3,87 USD, bezczynna, NIE zarchiwizowana — praca do odbioru): `sesja-dn-liczby` @ 370a1548 (autor 6/6 zgodny z CLAUDE.md; 26 plików, +5568/−36). D-890 (requiredChips=(S−b)/(2S)) i D-888 („Liczby” cbet/sizeOpen/size3bet/limp/icm/nadkarty) gotowe; `pnpm run ci` kod 0 wg DN na b4297223 (`docs/programista/dowody/dn-ci-b4297223.txt`). **Niesprawdzone:** CI na GitHub — dispatch ci.yml na sesja-dn-liczby o 15:45 (wynik do odczytu); recenzja niezależna — brak.
+  - Decyzje DN do weta: D-965…D-969 (`docs/decyzje/DN.md`); D-966 odstępstwo od tekstu 04 (znaczniki {{t:…}}, na ekranie „przebiciu (raise)”, „puli (pot)”) → akceptacja roli 04; D-967 dług: 7 kluczy scenario.numbers.* z kopią en w 10 słownikach → rola 09; D-968 zmieniony ekran-cn.test.
+  - **Następne:** (1) CI zielone → DO: recenzja niezależna DN (08 audit opus/high, zakres 709f6947..370a1548, bez raportu autora; pula D-980…D-984); (2) DN-2: D-889 widok ICM (design-spec „Scenariusz: punkt ICM”, makieta `ekrany/scenariusz-icm.html`, kryteria 1–6; stosy wariantu zamiast stackBb; icm-call na RODZAJE_NA_EKRANIE z warunkiem SC-34) na `sesja-dn-liczby` po recenzji albo równolegle na osobnej gałęzi od 370a1548 (pula D-985…D-994); (3) 09: przekład 7 kluczy; (4) 04: akceptacja D-966. Po przyjęciu: scalenie do roboczej + CI/E2E. Następna litera **DO**, D-980, KO-068.
+  - Przypomnienia moje: kontrola 15:55 trig_01FuLzHxcLEr4caLyd9UPGh5 (odczyt CI DN), linia 05:00 12.11 trig_017agQSCSiHt86o2D1GbV7em, linia 14:00 12.11 trig_01GL8cTVVncNpAncyLFSeWJR — usunę je po „PRZEJĄŁEM” następcy; do tego czasu nie startuję nowych sesji.
 - **14:57 E2E 43032964388 success na roboczej @ 709f6947 (CI 43032964359 success) — fala DM zamknięta.** Start **DN session_01T66VBzXVjJK9cDjoCtKbMC** (08 build sonnet/medium, `sesja-dn-liczby` @ 709f6947, polecenie DN.md @ 3cde055, D-965…D-979): „Liczby” F2–F4 + widok i próg ICM (D-888…890) + braki D-886/887. Prompt roli wklejony przez koordynatora bezpośrednio (bez subagenta, 605 linii z assemble). Kontrola ok. 15:55. Następna litera **DO**, D-980, KO-068. Limit tygodniowy konta: allowed_warning (14:36).
 - **13:56 przejęcie przez session_01T66VBvPqFB6GZD3a2Yg9AF (lineage 7/8; stan @ 5f959e8).** Prompts dołączona @ 9553f6b. CI 43032964359 i E2E 43032964388 na roboczej @ 709f6947 w toku (start 13:51). Brak aktywnych sesji podrzędnych. Przypomnienia: kontrola 14:35 trig_019VVR1uTXBhQGXaz8b7JedH, linia 05:00 12.11 (04:51) trig_017agQSCSiHt86o2D1GbV7em, linia 14:00 12.11 (13:51) trig_01GL8cTVVncNpAncyLFSeWJR; poprzednika: trig_01CsG62ZLLnRQrNeWJQKnzWt „kontrola przekazania” 14:26 (sprząta on). Następna litera **DN**, D-965, KO-068.
 - **13:55 PRZEKAZANIE koordynatora session_01T66VBvMJxHkBqzn7iJjEuv (kontekst 34,4%, 15,26 USD) → następca (lineage 7/8 — jego następcy create_session nie utworzy: przy jego przekazaniu prośba do właściciela o nowy łańcuch z paska bocznego).** Mandat bez zmian; tryb dzienny.
@@ -132,7 +137,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 709f6947 | 0 | 0 | start 14:57 |
+| DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 370a1548 | 28,8 | 3,87 | PRZEKAZANIE częściowe 15:40; do odbioru (CI dispatch 15:45, recenzja) |
 | CW | session_01T66VBwYnHtTiKoR8cjnqsi | 06 fix, treść (opus/high) | sesja-cw-tresci @ 4619781 (start) | — | — | w toku od 07:05 |
 | CX | session_01T66VBybgy9yDNgu92usB38 | 08 build, kod (sonnet) | sesja-cx-range-spot @ 4619781 (start) | — | — | E0 07:25 |
 | CY | session_01T66VBwmz2iHwF9WYHXf7WG | 09 build (sonnet) | sesja-cy-m12 @ 4619781 (start) | — | — | E0 07:24 |
@@ -540,3 +545,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 14:52 | kontrola | E2E 43032964388 **success** na 709f6947 (14:43) | start DN |
 | 14:57 | DN | start session_01T66VBzXVjJK9cDjoCtKbMC (08 build sonnet/medium, sesja-dn-liczby @ 709f6947, polecenie DN.md @ 3cde055) | kontrola 15:55 |
 | 14:58 | DN | zad. 1 (e83ee04c lokalnie): D-886, D-887 zrobione; D-888, D-889, D-890 brak (ICM_CHIPS_REQUIRED=0,5 w scenario-gen.ts:278). Plan D-890 → D-888 → D-889, ok. 7–8,5 h agenta. Decyzja do weta: nadkarty liczone w ekranie z ręki i stołu, bez nowego pola wariantu i bez GENERATOR_WERSJA (do sprawdzenia przy odbiorze: czy zmiana progu D-890 nie zmienia zapisanych wariantów) | kontrola 15:55 |
+| 15:40 | DN | PRZEKAZANIE częściowe 370a1548 (D-888, D-890; D-889 nie); ci kod 0 wg DN na b4297223; 3,87 USD, 28,8% | CI dispatch |
+| 15:45 | koordynator | CI dispatch ci.yml na sesja-dn-liczby; kontekst 30,5% → przekazanie E6; lineage 7/8 → prośba do właściciela o nowy łańcuch (`przekazanie-M9.md`) | właściciel |
