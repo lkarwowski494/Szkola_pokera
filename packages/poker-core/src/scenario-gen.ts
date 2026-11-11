@@ -274,6 +274,8 @@ export class TemplateError extends Error {}
  * Wersja generatora wariantów (ŚR-001, KO-058 A, D-730): ta sama trójka szablon + poziom + ziarno daje tę samą rękę tylko w obrębie
  * jednej wersji. Zmiana wyniku generatora (losowanie, kolejność odrzuceń, odcisk, kontekst) wymaga podniesienia liczby; historia
  * wariantów zapisuje ją przy każdym wpisie, a „to samo rozdanie” wolno ponowić tylko przy wersji równej bieżącej.
+ * Odcisk historii (`wariant.fingerprint`) obejmuje samo rozdanie; odcisk planu aktywności (`odciskWariantu`, apps/mobile `wariant.ts`) haszuje też pola pochodne punktów
+ * (np. `requiredChips`). Zmiana pola pochodnego bez zmiany rozdania nie wymaga podniesienia wersji: unieważnia tylko rozdania w toku (zaczynają się od nowa), nie historię (recenzja DO 08-programista-004).
  * 0 jest zarezerwowane dla wpisów sprzed wprowadzenia wersji. Pilnują tego test wzorca w scenario-gen.test.ts i odciski prawdziwych szablonów z content/pl (tools/content-build/test/generator-odciski.test.ts, ŚR-002).
  */
 export const GENERATOR_WERSJA = 3; // 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
