@@ -372,7 +372,7 @@ export class TemplateError extends Error {}
  * (np. `requiredChips`). Zmiana pola pochodnego bez zmiany rozdania nie wymaga podniesienia wersji: unieważnia tylko rozdania w toku (zaczynają się od nowa), nie historię (recenzja DO 08-programista-004).
  * 0 jest zarezerwowane dla wpisów sprzed wprowadzenia wersji. Pilnują tego test wzorca w scenario-gen.test.ts i odciski prawdziwych szablonów z content/pl (tools/content-build/test/generator-odciski.test.ts, ŚR-002).
  */
-export const GENERATOR_WERSJA = 3; // 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
+export const GENERATOR_WERSJA = 4; // 4: dolosowanie flopu po range-spot, gdy szablon ma cbet-case (EK 08-EH-1, D-1165; zmieniają się tylko sc-04 i sc-05); 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
 
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */
@@ -576,6 +576,10 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const combo = pick(rng, classCombos(chosen.hc));
     hero = [combo[0], combo[1]];
     rest = dealCards(rng, 7, hero);
+    // 08-EH-1 (D-1165): gdy po punkcie preflop jest cbet-case, flop dolosowujemy do tekstury poziomu (jak w cbet-case); bez tego wąska tekstura razem z klasą ręki zjadała limit odrzuceń
+    if (t.decisions.some((d) => d.kind === 'cbet-case')) {
+      for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
+    }
     const freqs = spot.actions.map((a) => a.freqs[chosen.h]!);
     const verdicts = rangeVerdict(freqs, ctx.thresholds);
     preflop = {
