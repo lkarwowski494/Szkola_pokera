@@ -17,7 +17,20 @@ export function flowyBramki(katalog) {
   return readdirSync(katalog).filter((f) => f.endsWith('.yaml') && f !== 'config.yaml').sort();
 }
 
-export const waga = (katalog, plik) => readFileSync(join(katalog, plik), 'utf8').split('\n').filter((l) => /^\s*- /.test(l)).length || 1;
+/** Czas flowu [s] z przebiegu 43080852450 („[Passed] nazwa (czas)” w logu Maestro). Tylko równoważą części — nie decydują, czy flow się wykona. */
+export const WAGI_S = {
+  '08-drugi-jezyk.yaml': 225,
+  '03-slowniczek.yaml': 139,
+  '06-przerwanie-sesji.yaml': 124,
+  '01-lekcja-zadanie.yaml': 92,
+  '05-ocena-poziomu.yaml': 80,
+  '09-limit-dnia.yaml': 38,
+  '10-zakup-z-ustawien.yaml': 38,
+  '02-powtorki.yaml': 29,
+  '04-pomoc.yaml': 27,
+};
+
+export const waga = (katalog, plik) => WAGI_S[plik] ?? (readFileSync(join(katalog, plik), 'utf8').split('\n').filter((l) => /^\s*- /.test(l)).length || 1) * 5;
 
 /** Zachłannie (najcięższy do najlżejszej części); remis wagi → nazwa; wynik deterministyczny. Zwraca M list posortowanych po nazwie. */
 export function podziel(flowy, wagi, m) {

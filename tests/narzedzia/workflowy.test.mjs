@@ -338,8 +338,8 @@ test('e2e-ios.yml: macierz części = argument M skryptu podziału; zadanie e2e-
   assert.match(JSON.stringify(w.jobs['e2e-razem'].steps), /e2e-podzial\.mjs razem/);
 });
 
-// Cache buildu (D-1021/D-1022): klucz zależny od lockfile'a, bez zmiany wyniku buildu (ccache i CocoaPods tylko przyspieszają).
-test('e2e-ios.yml: cache buildu (CocoaPods, ccache) z kluczem od pnpm-lock.yaml', () => {
+// Cache buildu (D-1021/D-1022): klucz zależny od lockfile'a, bez zmiany wyniku buildu (CocoaPods i DerivedData tylko przyspieszają).
+test('e2e-ios.yml: cache buildu (CocoaPods, DerivedData) z kluczem od pnpm-lock.yaml', () => {
   const kroki = json('e2e-ios.yml').jobs.build.steps.filter((k) => k.uses?.startsWith('actions/cache'));
   assert.equal(kroki.length, 2);
   for (const k of kroki) {

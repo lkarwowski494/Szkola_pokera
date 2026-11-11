@@ -6,7 +6,7 @@ import { existsSync, mkdtempSync, readdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { bledy, brakujace, czesci, flowyBramki, podziel } from './e2e-podzial.mjs';
+import { WAGI_S, bledy, brakujace, czesci, flowyBramki, podziel } from './e2e-podzial.mjs';
 import { mapaFlowow, oczekiwane } from './e2e-ponowienia.mjs';
 
 const E2E = fileURLToPath(new URL('../../apps/mobile/e2e/', import.meta.url));
@@ -60,4 +60,11 @@ test('brakujace: wszystkie flowy z dwóch części zielone → pusto; flow nieob
   assert.deepEqual(brakujace(E2E, [p1]), b.filter((n) => !a.includes(n)));
   assert.deepEqual(brakujace(E2E, [p1, junit([b[0], false], ...b.slice(1).map((n) => [n, true]))]), [b[0]]);
   assert.deepEqual(brakujace(E2E, [p1, junit([b[0], false], ...b.slice(1).map((n) => [n, true])), junit([b[0], true])]), []);
+});
+
+test('WAGI_S: każdy flow bramki ma zmierzoną wagę, a części różnią się o mniej niż 15%', () => {
+  const flowy = flowyBramki(E2E);
+  for (const f of flowy) assert.ok(WAGI_S[f] > 0, `brak wagi: ${f}`);
+  const sumy = czesci(E2E, 2).map((c) => c.reduce((s, f) => s + WAGI_S[f], 0));
+  assert.ok(Math.abs(sumy[0] - sumy[1]) / Math.max(...sumy) < 0.15, `sumy ${sumy}`);
 });
