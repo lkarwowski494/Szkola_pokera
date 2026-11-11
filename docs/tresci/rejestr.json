@@ -16069,7 +16069,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "tylko w ćwiczeniach scenariuszowych (punkty flopu sc-01, sc-02, sc-19): equity drawa liczone tylko z outów drawa; każda karta gracza wyższa od stołu daje jeszcze najwyżej 3 niepewne outy na parę (D1, numbers.yaml pair.outs.per-rank; 2, gdy jedna karta tej rangi jest w kolorze drawa i liczy się już w jego outach), a generator dopuszcza tylko warianty, w których te outy nie zmieniają odpowiedzi; uproszczenie nazwane w każdym wyjaśnieniu draw-call (NIS-003, D-857, D-917). Poza scenariuszami bez tego uproszczenia: lekcja M2 dolicza asy jawnie (content/pl/lessons/m2-l2-pot-odds.md:25), egzamin M2 i obszary nie mają zdania NIS-003",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -16077,7 +16077,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "BN 2026-11-10: because bez tautologii (KO-040, ocena-wyjasnien nr 41), ten sam rachunek EV(call) = eq·(P + 2B) − B.",
+  "uwagi": "BN 2026-11-10: because bez tautologii (KO-040, ocena-wyjasnien nr 41), ten sam rachunek EV(call) = eq·(P + 2B) − B. | DG 2026-11-11 (06-tresci-003, D-918): wpisane uproszczenie NIS-003 (było null, recenzja DD TRE-07)",
   "partia": [
    "m0-m4"
   ]
