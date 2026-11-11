@@ -1,0 +1,14 @@
+# Sesja DF: recenzja niezależna CZ (testy jakości: ŚR-006, NIS-007, 08-programista-004, flow 07-scenariusz) — Szkoła Pokera
+Koordynator: session_01T66VBvsiHtynAJhQ4adRmv (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; po wiadomości o zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko do odczytu).
+
+1. Rola 07-jakosc w trybie audit; prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz. Kontrolę transportu promptu pomiń.
+2. Start: gałąź `sesja-df-recenzja` @ ee7f991a71aa3fbdfa5c80b508416c8fd6bb679d (= `origin/sesja-cz-jakosc`; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów wg CLAUDE.md.
+3. Zadania:
+   1. Recenzja niezależna zmian 46197812..ee7f991a (sesja CZ, 17 plików): ŚR-006 (some(draw-call) + indeks punktu w szablonach bs/bu/bv, fixture cz-range-draw, cz-pokrycie-szablonow), NIS-007 (air z rang/kolorów, zakres z surowego JSON), 08-programista-004 (dowód mutacji testu CK), flow Maestro 07-scenariusz i e2e-flowy (stan przez lekcję m2.l1 + restart). Sprawdź: czy testy łapią błąd (własne mutacje, nie tylko te z dowodów autora), czy żaden test nie został poluzowany ani dopasowany do kodu, czy zmiana „generator dostaje stackBb/positions jak aplikacja” nie zmienia odcisków/identyfikatorów (ścieżka wrażliwa `tools/content-build/`, D-043), czy flow Maestro jest zgodny z ekranem (selektory, teksty) — Maestro nie uruchomisz (Linux): oceń statycznie i wypisz, co musi potwierdzić E2E. Raportu autora (`docs/decyzje/CZ.md`, `docs/jakosc/stan-cz.md`) nie czytaj przed własną oceną. Gotowe: `docs/jakosc/recenzje/recenzja-cz-ee7f991.md` z werdyktem PRZYJĄĆ / PRZYJĄĆ Z WARUNKIEM / ODRZUCIĆ i znaleziskami KRYT/WYS/ŚR/NIS (plik:linia, dowód, realność).
+   2. KRYT/WYS: test odtwarzający (czerwony) na gałęzi, bez poprawki; wtedy `pnpm run ci` z plikiem `docs/jakosc/dowody/df-ci-<sha8>.txt`.
+   Dozwolone ścieżki: `docs/jakosc/recenzje/`, `docs/jakosc/stan-df.md`, `docs/decyzje/DF.md`, nowe testy odtwarzające.
+4. Zakazy: nie scalasz do gałęzi roboczej ani `main`, nie poprawiasz pracy CZ (tylko raport i testy), nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela (bez AskUserQuestion); STOP-y roli i punkt czyszczenia → raport do koordynatora i czekasz.
+5. Decyzje: techniczne sam, do weta (analogia z lkarwowski494/trening, `repo:plik:linia`). Pula D-912…D-916, wpisy w `docs/decyzje/DF.md`.
+6. Kontekst: od 30% okna kończysz krok, stan w `docs/jakosc/stan-df.md`, push, PRZEKAZANIE.
+7. Push zbiorczo na `sesja-df-recenzja`.
+8. Raport ≤ 10 linii przez send_message: PRZEKAZANIE (SHA, werdykt, liczby znalezisk, decyzje do weta, koszt).
