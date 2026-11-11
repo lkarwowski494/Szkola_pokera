@@ -394,3 +394,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-11 03:07 | koordynator | CS zarchiwizowana (4,23 USD, 28,2%); start CT subagentem | kontrola 03:23 |
 | 11-11 03:12 | koordynator | **CT wystartowała**: session_01T66VBzW5QUuqtevaPm6QxJ (08 audit, opus/high, `sesja-ct-recenzja` @ 8133a8c) | kontrola 03:23 |
 | 11-11 03:25 | koordynator | kontrola: CI sesja-cs-poprawki success; CT w toku. Własny kontekst 41% (36,77 USD) → **przekazanie E6** | start następcy |
+| 11-11 03:29 | koordynator | **przekazane do session_01T66VBwEUTZQc2qYQfck1rc** (start bez błędu, opus, effort medium, auto, rewizja koordynacja). Usunięte moje przypomnienia 05:00 i 14:00; zostaje „kontrola przekazania” trig_01PxzE7bEa8jp7RsZV3eVysS 03:59. Koszt poprzednika do koszty.md przy archiwizacji | następca: PRZEJĄŁEM |
