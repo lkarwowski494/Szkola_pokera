@@ -119,3 +119,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | koordynator session_01T66VBwmproZFQjCLcWHQy4 | M9 | — | 12,79 (19:45) | ok. 28 | 18:39 → 19:52 | — | przekazanie do session_01T66VBwtbeXie1cCrPGeeBK; poprzednik archiwizuje się sam |
 | DY | 06 build | — | brak licznika | brak licznika | 19:20 → 19:26 → 0a57f924 → verify c9efdd3d kod 0 → 19:59 | — | docs, przyjęta bez recenzji |
 | EA | 06 audit | — | 7,11 | 29,1 | 19:45 → 19:48 → 0257debc → d490fc69 (docs) → 20:13 | — | recenzja DU |
+| DX | 08 build | — | 2,96 | 25,5 | 19:20 → 19:23 → af871e32 → CI 43092392739 (174dc00b) → odbiór po EC | — | następca ED; 2 przekazania |
