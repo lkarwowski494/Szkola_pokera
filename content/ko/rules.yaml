@@ -1139,7 +1139,7 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11
-  if: "{{t:icm|ICM}}이 적용되는 {{t:tournament|토너먼트}}에서 탈락할 수 있는 올인에 {{t:call|콜}}할 때"
+  if: "{{t:icm|ICM}}이 적용되는 {{t:tournament|토너먼트}}에서 올인에 {{t:call|콜}}할 때"
   then: "에퀴티 BF ÷ (BF + 1)이 필요합니다. 버블 팩터 BF = 졌을 때 잃는 에퀴티 ÷ 이겼을 때 얻는 에퀴티입니다. 레슨 예시에서는 {{t:chips|칩}} 기준 {{n:m11.bf.req-chips}} 대신 {{n:m11.bf.req}}입니다"
   because: "{{t:payout|상금}}이 있는 {{t:tournament|토너먼트}}에서는 졌을 때 잃는 돈이 이겼을 때 얻는 돈보다 크므로, {{t:call|콜}}은 {{t:chips|칩}}만 걸린 게임보다 더 자주 이겨야 합니다"
   level: math

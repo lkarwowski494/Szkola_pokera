@@ -1139,7 +1139,7 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11
-  if: "in un {{t:tournament|torneo}} con {{t:icm|ICM}} {{t:call|chiami}} un all-in che può eliminarti"
+  if: "in un {{t:tournament|torneo}} con {{t:icm|ICM}} {{t:call|chiami}} un all-in"
   then: "ti serve un'equity di BF ÷ (BF + 1), dove il bubble factor BF = equity persa in caso di sconfitta ÷ guadagno in caso di vittoria; nell'esempio della lezione {{n:m11.bf.req}} invece di {{n:m11.bf.req-chips}} in {{t:chips|fiches}}"
   because: "in un {{t:tournament|torneo}} con {{t:payout|premi}} la sconfitta costa più denaro di quanto ne aggiunga la vittoria, quindi la {{t:call|chiamata}} deve vincere più spesso che giocando per le {{t:chips|fiches}}"
   level: math

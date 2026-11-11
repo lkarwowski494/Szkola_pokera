@@ -2,6 +2,7 @@
 // na gałęzi sesja-ea-recenzja). Każdy blok odtwarza jedno znalezisko i był czerwony na 7a7a0f1d.
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { parse as parseYaml } from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import { compileRanges } from '../src/ranges';
@@ -92,5 +93,27 @@ describe('06-tresci-004: uzasadnienia SC-06 i SC-32 w granicach `because` reguł
       expect(wyj('en', 'sc-32', a)).not.toMatch(/risk little/);
       expect(wyj('en', 'sc-32', a)).toMatch(/shorter stack you risk less/);
     }
+  });
+});
+
+// 06-tresci-005: warunek `if` reguły R-M11-009 musi obejmować każdy wariant SC-34, który ją cytuje. Generator losuje stacki gracza i rywala
+// niezależnie, więc część wariantów to sprawdzenie, gdy gracz pokrywa rywala (all-in nie może go wyeliminować). Źródło reguły (bubble factor)
+// nie ma tego warunku: „Bubble factor shows you the equity you need to call an all-in” (blog.gtowizard.com, odczyt 2026-11-11).
+describe('06-tresci-005: warunek R-M11-009 obejmuje warianty SC-34, w których gracz pokrywa rywala', () => {
+  const t = szablony('pl').find((x) => x.id === 'sc-34')!;
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, equity169: JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8')) };
+  let pokrywa = 0;
+  for (const level of t.levels as ScenarioLevel[]) {
+    for (let seed = 1; seed <= 2000; seed++) {
+      const p = generateVariant(g, level, seed, ctx).points[0]!;
+      if (p.point === 'icm-call' && p.stacks[p.heroIndex]! > p.stacks[p.villainIndex]!) pokrywa++;
+    }
+  }
+  it(`generator: gracz pokrywa rywala w ${pokrywa}/4000 wariantów (Ł + Ś)`, () => expect(pokrywa).toBeGreaterThan(0));
+  const warunek = (lang: string) => (parseYaml(readFileSync(join(root, 'content', lang, 'rules.yaml'), 'utf8')) as { id: string; if: string }[]).find((r) => r.id === 'R-M11-009')!.if;
+  it.each([['pl', /wyelimin/], ['en', /eliminat/]] as const)('%s: `if` bez warunku „może cię wyeliminować”', (lang, zakaz) => {
+    expect(warunek(lang)).not.toMatch(zakaz);
+    expect(warunek(lang)).toMatch(/\{\{t:call[|}]/);
   });
 });

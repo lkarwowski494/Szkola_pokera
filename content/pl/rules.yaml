@@ -1140,11 +1140,11 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11
-  if: "w {{t:tournament|turnieju}} z {{t:icm}} {{t:call|sprawdzasz}} all-in, który może cię wyeliminować"
+  if: "w {{t:tournament|turnieju}} z {{t:icm}} {{t:call|sprawdzasz}} all-in"
   then: "potrzebujesz equity BF ÷ (BF + 1), gdzie bubble factor BF = strata equity przy przegranej ÷ zysk przy wygranej; w przykładzie z lekcji {{n:m11.bf.req}} zamiast {{n:m11.bf.req-chips}} w {{t:chips|żetonach}}"
   because: "w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc {{t:call}} musi wygrywać częściej niż w grze o {{t:chips}}"
   level: math
-  source: "obliczenie ICM (numbers.yaml, klucze m11.bf.*); serwis komercyjnego solvera, What Is the Bubble Factor (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/): „$EV lost when you lose / $EV gained when you win = Bubble Factor”, „Required Equity = Bubble Factor / (Bubble Factor + 1)”"
+  source: "obliczenie ICM (numbers.yaml, klucze m11.bf.*); serwis komercyjnego solvera, What Is the Bubble Factor (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/): „$EV lost when you lose / $EV gained when you win = Bubble Factor”, „Required Equity = Bubble Factor / (Bubble Factor + 1)”, „Bubble factor shows you the equity you need to call an all-in.” (odczyt 2026-11-11; warunek bez eliminacji, 06-tresci-005)"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/" }, { kind: math }]
 - id: R-M11-010
   module: m11

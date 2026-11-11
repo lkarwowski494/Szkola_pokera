@@ -1139,7 +1139,7 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11
-  if: "{{t:icm}}のある{{t:tournament|トーナメント}}で、敗退しうるオールインに{{t:call|コール}}する場合"
+  if: "{{t:icm}}のある{{t:tournament|トーナメント}}で、オールインに{{t:call|コール}}する場合"
   then: "必要なエクイティは BF ÷ (BF + 1) です。ここでバブルファクター BF = 負けたときに失うエクイティ ÷ 勝ったときに得るエクイティ。レッスンの例では、{{t:chips|チップ}}での{{n:m11.bf.req-chips}}ではなく{{n:m11.bf.req}}です"
   because: "{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では、負けて失うお金が勝って増えるお金より大きいので、{{t:call}}は{{t:chips|チップ}}を賭けたゲームより高い頻度で勝つ必要があるからです"
   level: math
