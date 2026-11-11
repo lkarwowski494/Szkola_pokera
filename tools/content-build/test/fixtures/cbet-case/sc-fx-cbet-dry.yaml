@@ -16,8 +16,8 @@ bounds:
     holding: [pair]
     expected: [bet-small]
   trudny:
-    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
-    holding: [draw]
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
     expected: [bet-small]
 decisions:
   - street: flop
