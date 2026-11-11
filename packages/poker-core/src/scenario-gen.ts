@@ -66,7 +66,18 @@ export interface ListHandSpec {
   street: 'preflop';
   entries: readonly ListEntry[];
 }
-export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec;
+/**
+ * 08-N7 (R-M8-010, math): sprawdzenie bluff-catcherem na riverze po zakładzie rywala. Udział blefów w zakresie rywala to dana zadania z szablonu
+ * (`bluffShares`, bez populacji nie jest twierdzeniem o rywalu); ręka gracza: jedna para z kartą gracza (bluff-catcher, D-1143).
+ */
+export interface RiverCatchSpec {
+  kind: 'river-catch';
+  street: 'river';
+  pots: readonly number[];
+  fractions: readonly number[];
+  bluffShares: readonly number[];
+}
+export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -268,6 +279,18 @@ export interface IcmCallVariantDecision {
   correct: 'call' | 'fold';
   margin: number;
 }
+export interface RiverCatchVariantDecision {
+  point: 'river-catch';
+  street: 'river';
+  pot: number;
+  bet: number;
+  fraction: number;
+  /** Udział blefów w zakresie rywala (dana zadania) i próg bet ÷ (pula + 2·bet). */
+  bluffShare: number;
+  required: number;
+  correct: 'call' | 'fold';
+  margin: number;
+}
 export interface ListHandVariantDecision {
   point: 'list-hand';
   street: 'preflop';
@@ -276,7 +299,7 @@ export interface ListHandVariantDecision {
   correct: string;
   acceptable: string[];
 }
-export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision;
+export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -375,7 +398,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
   }
@@ -575,6 +598,23 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       icmSuffix = `|${stacks.join('-')}|${heroIndex}${villainIndex}`; // stacki są pokazane w decyzji: ta sama ręka przy innych stackach to inne rozdanie
       continue;
     }
+    if (spec.kind === 'river-catch') {
+      if (spec.pots.length === 0 || spec.fractions.length === 0 || spec.bluffShares.length === 0) throw new TemplateError(`${t.id}: river-catch wymaga pots, fractions i bluffShares`);
+      const h = classifyHolding(hero, board);
+      const rangiStolu = board.map(rankOf);
+      const zKartaGracza = rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiStolu.includes(rankOf(c))); // classifyHolding liczy też poprawę kickerem przy parze na stole
+      if (h.pairKind === null || !zKartaGracza) return null; // bluff-catcher: jedna para z kartą gracza (D-1143)
+      const pot = pick(rng, spec.pots);
+      const kandydaci = spec.fractions.flatMap((fraction) => spec.bluffShares.map((bluffShare) => ({ fraction, bluffShare, bet: Math.round(pot * fraction) })))
+        .filter((x) => x.bet > 0)
+        .map((x) => ({ ...x, required: requiredEquity(pot, x.bet), margin: Math.abs(x.bluffShare - requiredEquity(pot, x.bet)) }))
+        .filter((x) => inMargin(x.margin, b, i) && (x.bluffShare > x.required ? 'call' : 'fold') === b.expected[i]);
+      if (kandydaci.length === 0) return null;
+      const c = pick(rng, kandydaci);
+      points.push({ point: 'river-catch', street: 'river', pot, bet: c.bet, fraction: c.fraction, bluffShare: c.bluffShare, required: c.required, correct: b.expected[i] as 'call' | 'fold', margin: c.margin });
+      icmSuffix = `|${pot}-${c.bet}-${c.bluffShare}`; // zakład i udział blefów są pokazane w decyzji: ta sama ręka przy innych liczbach to inne rozdanie
+      continue;
+    }
     if (spec.kind === 'size-spot') {
       if (!ctx?.sizeRules) throw new TemplateError(`${t.id}: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)`);
       const rule = ctx.sizeRules.find((r) => r.id === spec.rule);
@@ -678,7 +718,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
   const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'cbet-case') ? flop : [];
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch') ? board : t.decisions.some((x) => x.kind === 'cbet-case') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 

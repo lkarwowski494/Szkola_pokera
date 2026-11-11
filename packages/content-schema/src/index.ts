@@ -661,7 +661,25 @@ export const ScenarioListHandDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision]);
+/**
+ * 08-N7 (R-M8-010, math): sprawdzenie bluff-catcherem na riverze po zakładzie rywala. Udział blefów w zakresie rywala to dana zadania (`bluffShares`),
+ * a nie twierdzenie o rywalu; poprawna akcja: call, gdy udział > bet ÷ (pula + 2·bet). Ręka gracza: jedna para z kartą gracza (D-1143).
+ */
+export const ScenarioRiverCatchDecision = z
+  .object({
+    street: z.literal('river'),
+    kind: z.literal('river-catch'),
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    fractions: z.array(z.number().positive()).min(1),
+    bluffShares: z.array(z.number().min(0).max(1)).min(1),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z

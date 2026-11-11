@@ -109,6 +109,15 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const bezWyjasnienia = labels.filter((l) => !d.actions.some((a) => a.action === l));
         if (bezWyjasnienia.length) e.push(`${p} ekran pokazuje wszystkie akcje spotu ${d.spot}, a brak wyjaśnienia akcji: ${bezWyjasnienia.join(', ')} (BR-OCE-002)`);
       }
+    } else if (d.kind === 'river-catch') {
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu river-catch to call albo fold, jest ${ex}`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt river-catch wymaga marginMin > 0 (udział blefów bliski progu nie ma jednoznacznej odpowiedzi)`);
+      }
     } else if (d.kind === 'list-hand') {
       const klasy = new Set<string>();
       for (const en of d.entries) for (const hc of en.hands) {

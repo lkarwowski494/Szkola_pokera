@@ -1,0 +1,20 @@
+# Fixture testu EF (08-N7): sprawdzenie bluff-catcherem na riverze (R-M8-010). Nie jest treścią aplikacji.
+id: sc-fx-river
+module: m8
+situation: "Fixture: river."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.03, expected: [call] }
+decisions:
+  - street: river
+    kind: river-catch
+    calc: bluff.share.bet-half
+    pots: [10, 20, 40]
+    fractions: [0.33, 0.5, 0.75, 1]
+    bluffShares: [0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
+    actions:
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, rywal blefuje dość często, więc sprawdzasz." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, rywal blefuje zbyt rzadko, więc pasujesz." }

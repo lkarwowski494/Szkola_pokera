@@ -44,12 +44,13 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
     case 'range-spot':
       return p.options.map((o) => akcjaSpotu(o.action)); // kolejność węzła solvera: pas, sprawdzenie, rosnące podbicia, all-in
     case 'list-hand':
-      throw new Error('list-hand nie ma jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
+    case 'river-catch':
+      throw new Error('list-hand i river-catch nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   }
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'list-hand') throw new Error('list-hand nie ma jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
+  if (p.point === 'list-hand' || p.point === 'river-catch') throw new Error('list-hand i river-catch nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
 /**
@@ -285,6 +286,7 @@ export function ukladIcm(d: IcmCallVariantDecision, s: Pozycje): UkladIcm | null
 export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): WidokDecyzji {
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
+  if (d.point === 'river-catch' || d.point === 'list-hand') throw new Error('list-hand i river-catch nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania je odrzuca)');
   const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : 4).map(cardToString);
   if (d.point === 'draw-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
   if (d.point === 'icm-call' && s) {
