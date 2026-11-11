@@ -22374,7 +22374,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": "w ćwiczeniach scenariuszowych (sc-01, sc-02, sc-03, sc-19) outy i szansa liczone tylko z drawa; każda karta gracza wyższa od stołu daje jeszcze 3 niepewne outy na parę (D1, numbers.yaml pair.outs.per-rank), a generator dopuszcza tylko warianty, w których te outy nie zmieniają odpowiedzi; uproszczenie nazwane w każdym wyjaśnieniu draw-call (NIS-003, D-857)",
+  "uproszczenie": "w ćwiczeniach scenariuszowych (sc-01, sc-02, sc-03, sc-19) outy i szansa liczone tylko z drawa; każda karta gracza wyższa od stołu daje jeszcze najwyżej 3 niepewne outy na parę (D1, numbers.yaml pair.outs.per-rank; 2, gdy jedna z trzech kart tej rangi jest w kolorze drawa i liczy się już w jego outach, 06-tresci-001, D-917), a generator dopuszcza tylko warianty, w których te outy nie zmieniają odpowiedzi; uproszczenie nazwane w każdym wyjaśnieniu draw-call (NIS-003, D-857)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -22382,7 +22382,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "S3 E3 2026-11-04: „a nie 35,0% jak z flopu do rivera” zamiast „jak na flopie” (na flopie wobec zakładu M2 liczy jedną kartę, 19,1%). | CW 2026-11-11 (NIS-003, D-857): zdanie o kartach wyższych od stołu w 14 wyjaśnieniach × 12 języków; test tools/content-build/test/cw-nadkarty.test.ts (wyrocznia: odpowiedź z outami + 3 na rangę = odpowiedź wariantu).",
+  "uwagi": "S3 E3 2026-11-04: „a nie 35,0% jak z flopu do rivera” zamiast „jak na flopie” (na flopie wobec zakładu M2 liczy jedną kartę, 19,1%). | CW 2026-11-11 (NIS-003, D-857): zdanie o kartach wyższych od stołu w 14 wyjaśnieniach × 12 języków; test tools/content-build/test/cw-nadkarty.test.ts (wyrocznia: odpowiedź z outami + 3 na rangę = odpowiedź wariantu). | DG 2026-11-11 (06-tresci-001, D-917): „daje jeszcze najwyżej 3” w 14 wyjaśnieniach pl (sc-01, sc-02, sc-03, sc-19); przy drawie do koloru z trzema kartami koloru na stole nadkarta w innym kolorze daje 2 nowe outy (rachunek kart, test tools/content-build/test/recenzja-cw-odtworzenie.test.ts z `it`).",
   "partia": [
    "m5-m8"
   ]
@@ -22402,7 +22402,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": "w ćwiczeniach scenariuszowych (sc-01, sc-02, sc-03, sc-19) outy i szansa liczone tylko z drawa; każda karta gracza wyższa od stołu daje jeszcze 3 niepewne outy na parę (D1, numbers.yaml pair.outs.per-rank), a generator dopuszcza tylko warianty, w których te outy nie zmieniają odpowiedzi; uproszczenie nazwane w każdym wyjaśnieniu draw-call (NIS-003, D-857)",
+  "uproszczenie": "w ćwiczeniach scenariuszowych (sc-01, sc-02, sc-03, sc-19) outy i szansa liczone tylko z drawa; każda karta gracza wyższa od stołu daje jeszcze najwyżej 3 niepewne outy na parę (D1, numbers.yaml pair.outs.per-rank; 2, gdy jedna z trzech kart tej rangi jest w kolorze drawa i liczy się już w jego outach, 06-tresci-001, D-917), a generator dopuszcza tylko warianty, w których te outy nie zmieniają odpowiedzi; uproszczenie nazwane w każdym wyjaśnieniu draw-call (NIS-003, D-857)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -22410,7 +22410,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "CW 2026-11-11 (NIS-003, D-857): zdanie o kartach wyższych od stołu w 14 wyjaśnieniach × 12 języków; test tools/content-build/test/cw-nadkarty.test.ts (wyrocznia: odpowiedź z outami + 3 na rangę = odpowiedź wariantu).",
+  "uwagi": "CW 2026-11-11 (NIS-003, D-857): zdanie o kartach wyższych od stołu w 14 wyjaśnieniach × 12 języków; test tools/content-build/test/cw-nadkarty.test.ts (wyrocznia: odpowiedź z outami + 3 na rangę = odpowiedź wariantu). | DG 2026-11-11 (06-tresci-001, D-917): „daje jeszcze najwyżej 3” w 14 wyjaśnieniach pl (sc-01, sc-02, sc-03, sc-19); przy drawie do koloru z trzema kartami koloru na stole nadkarta w innym kolorze daje 2 nowe outy (rachunek kart, test tools/content-build/test/recenzja-cw-odtworzenie.test.ts z `it`).",
   "partia": [
    "m5-m8"
   ]

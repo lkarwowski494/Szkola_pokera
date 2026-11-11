@@ -1,6 +1,7 @@
 // Test odtwarzający recenzji DD (rola 06, audit) zmian CW 46197812..0ef77858: DD-WYS-001 (NIS-003).
 // Raport: docs/tresci/recenzje/recenzja-cw-0ef7785.md. `it.fails` = błąd istnieje (wzór: recenzja-cq-odtworzenie.test.ts);
 // po naprawie zamienić `odtwarzaBlad` na `it` w obu przypadkach. Naprawa „najwyżej 3” (opcja a raportu) przechodzi bez zmiany testu (D-899).
+// DG 2026-11-11 (06-tresci-001, D-917): naprawione „najwyżej 3” w 14 wyjaśnieniach pl; `odtwarzaBlad = it` (kontrola trwała).
 // Zdanie NIS-003 w wyjaśnieniach draw-call mówi: „Każda twoja karta wyższa od stołu daje jeszcze {{n:pair.outs.per-rank}} (= 3)
 // niepewne outy na parę”. Wyrocznia liczona od zera z kart (bez classifyHolding i bez generatora poza losowaniem wariantu):
 // nowe outy rangi = niewidoczne karty tej rangi, które same nie domykają już koloru ani strita (te są policzone w outach drawa).
@@ -12,7 +13,7 @@ import { FULL_DECK, generateVariant, rankOf, suitOf, type Card, type GeneratorTe
 import { loadScenarioTemplates } from '../src/scenariusze';
 import { number } from './kit';
 
-const odtwarzaBlad = it.fails;
+const odtwarzaBlad = it;
 const root = resolve(import.meta.dirname, '../../..');
 const pl = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template);
 const NA_RANGE = number('pair.outs.per-rank');
