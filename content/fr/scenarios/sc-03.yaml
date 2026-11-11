@@ -1,0 +1,23 @@
+# sc-03: French text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "Avec des stacks courts, après un {{t:3-bet}}, vous faites tous les deux {{t:check}} au flop ; au turn vous avez un {{t:gutshot}}, et votre adversaire {{t:bet|mise}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}}. Vous vous {{t:fold|couchez}}, car il reste une carte jusqu'à la river et une seule hauteur complète le {{t:gutshot}} : vous avez {{n:outs.gutshot}} {{t:outs|outs}}, donc la river touche dans environ {{n:odds.gutshot.turn-river}} des cas, moins souvent que le prix ne l'exige. La {{t:implied-odds}} ne le sauve pas : avec des stacks courts, il reste trop peu de {{t:chips}} derrière le {{t:pot}} pour que le gain après avoir touché compense les {{t:call|calls}} perdus."
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}}. Un {{t:call}} paie une carte qui complète la {{t:straight}} seulement dans environ {{n:odds.gutshot.turn-river}} des cas, moins souvent que le prix ne l'exige. La {{t:implied-odds}} ne le sauve pas non plus : avec des stacks courts, il reste trop peu de {{t:chips}} derrière le {{t:pot}} pour que le gain après avoir touché compense les {{t:call|calls}} perdus."

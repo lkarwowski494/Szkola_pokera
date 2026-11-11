@@ -1,0 +1,26 @@
+# sc-12: Japanese text of content/pl/scenarios/sc-12.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-12
+module: m5
+situation: "あなたはボタンから{{t:open|オープン}}し、{{t:big-blind|ビッグブラインド}}が{{t:call|コール}}して、ローカードの{{t:connected|コネクテッド}}なフロップで{{t:check|チェック}}します。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。{{t:check|チェック}}するのは、{{t:big-blind|ビッグブラインド}}が低いフロップに当たる{{t:connectors|コネクター}}や小さなカードのハンドを多く守っていて、{{t:pair|ペア}}も{{t:draw|ドロー}}もないあなたのハンドは外れているからです。こうしたフロップでは、高いフロップより{{t:c-bet|Cベット}}の頻度が下がります。"
+      - action: bet-small
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。小さな{{t:bet|ベット}}は許容範囲ですが、頻度は低めです。ローカードの{{t:connected|コネクテッド}}なフロップでは、{{t:big-blind|ビッグブラインド}}がこのフロップに当たる{{t:connectors|コネクター}}や小さなカードのハンドを多く守っているので、高いフロップより{{t:c-bet|Cベット}}の頻度が下がります。"

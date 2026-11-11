@@ -1,0 +1,23 @@
+# sc-03: English text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "With short stacks after a {{t:3-bet}} you both {{t:check}} the flop; on the turn you have a {{t:gutshot}}, and your opponent {{t:bet|bets}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:bet|bets}}. You {{t:fold}}, because one card is left to the river and only one rank completes a {{t:gutshot}}: you have {{n:outs.gutshot}} {{t:outs}}, so the river hits about {{n:odds.gutshot.turn-river}} of the time, less often than the price requires. {{t:implied-odds|Implied odds}} do not save it: with short stacks too few {{t:chips}} are left behind the {{t:pot}} for a win after a hit to make up for the lost {{t:call|calls}}."
+      - action: call
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:bet|bets}}. A {{t:call}} pays for one card that completes the {{t:straight}} only about {{n:odds.gutshot.turn-river}} of the time, less often than the price requires. {{t:implied-odds|Implied odds}} do not save it either: with short stacks too few {{t:chips}} are left behind the {{t:pot}} for a win after a hit to make up for the lost {{t:call|calls}}."

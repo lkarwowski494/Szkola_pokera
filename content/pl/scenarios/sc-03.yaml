@@ -1,0 +1,26 @@
+# SC-03 (M2): gutshot na turnie wobec zakładu, flop bez akcji gracza (F5: decyzja od turnu). Ocena: rachunek R-M7-007
+# (szansa na jedną kartę wobec ceny); pas odporny na implied odds (R-M7-008 z całym stosem za pulą, test szablony-bs, D-630).
+# Głębokość 25 bb: przy niej mniejszy zakład (ok. ¼ puli) daje poziom średni z pasem odpornym na implied odds (D-790).
+# Rola 06, sesja CO, 2026-11-11 (ze szkicu BS, docs/tresci/szablony-robocze/README.md).
+id: sc-03
+module: m2
+situation: "Przy krótkich stosach po {{t:3-bet|3-becie}} na flopie oboje {{t:check|czekacie}}; na turnie masz {{t:gutshot}}, a rywal {{t:bet|stawia}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}}. {{t:fold|Pasujesz}}, bo do rivera zostaje jedna karta, a {{t:gutshot}} domyka tylko jedna wysokość: masz {{n:outs.gutshot}} {{t:outs|outy}}, więc river trafia w ok. {{n:odds.gutshot.turn-river}} przypadków, rzadziej, niż wymaga cena. {{t:implied-odds}} tego nie ratują: przy krótkich stosach za {{t:pot|pulą}} zostało za mało {{t:chips|żetonów}}, żeby wygrana po trafieniu odrobiła przegrane {{t:call|sprawdzenia}}."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}}. {{t:call|Sprawdzenie}} płaci za jedną kartę, która domyka {{t:straight|strita}} tylko w ok. {{n:odds.gutshot.turn-river}} przypadków, rzadziej, niż wymaga cena. Nie ratują go też {{t:implied-odds}}: przy krótkich stosach za {{t:pot|pulą}} zostało za mało {{t:chips|żetonów}}, żeby wygrana po trafieniu odrobiła przegrane {{t:call|sprawdzenia}}."

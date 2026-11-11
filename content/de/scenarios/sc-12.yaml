@@ -1,0 +1,26 @@
+# sc-12: German text of content/pl/scenarios/sc-12.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-12
+module: m5
+situation: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}} und {{t:check|checkt}} auf einem niedrigen {{t:connected|verbundenen}} Flop."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und der {{t:big-blind}} {{t:check|checkt}}. Du {{t:check|checkst}}, weil der {{t:big-blind}} viele {{t:connectors}} und Hände mit kleinen Karten verteidigt, die einen niedrigen Flop treffen, und deine Hand ohne {{t:pair|Paar}} und ohne {{t:draw}} verfehlt hat. Auf so einem Flop {{t:c-bet|c-bettest}} du seltener als auf hohen Flops."
+      - action: bet-small
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und der {{t:big-blind}} {{t:check|checkt}}. Ein kleiner {{t:bet}} ist zulässig, aber seltener: Auf einem niedrigen {{t:connected|verbundenen}} Flop {{t:c-bet|c-bettest}} du seltener als auf hohen, weil der {{t:big-blind}} viele {{t:connectors}} und Hände mit kleinen Karten verteidigt, die diesen Flop treffen."

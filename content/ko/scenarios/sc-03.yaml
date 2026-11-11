@@ -1,0 +1,23 @@
+# sc-03: Korean text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "스택이 짧은 상태에서 {{t:3-bet|3벳}} 후 플롭에서 둘 다 {{t:check|체크}}했고, 턴에서 당신은 {{t:gutshot|거트샷}}을 가지고 있으며 상대가 {{t:bet|베팅}}합니다."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:bet|베팅}}합니다. {{t:fold|폴드}}하는 이유는 리버까지 카드가 한 장 남았고 {{t:gutshot|거트샷}}을 완성하는 랭크는 하나뿐이기 때문입니다. {{t:outs|아웃}}이 {{n:outs.gutshot}}장이라 리버에서 적중하는 경우는 약 {{n:odds.gutshot.turn-river}}로, 가격이 요구하는 것보다 드뭅니다. {{t:implied-odds|임플라이드 오즈}}도 도움이 되지 않습니다. 스택이 짧아서 {{t:pot|팟}} 뒤에 남은 {{t:chips|칩}}이 너무 적어서 적중한 뒤 이겨도 잃은 {{t:call|콜}}을 되찾을 수 없기 때문입니다."
+      - action: call
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:bet|베팅}}합니다. {{t:call|콜}}은 카드 한 장에 값을 치르는데, 그 카드로 {{t:straight|스트레이트}}가 완성되는 경우는 약 {{n:odds.gutshot.turn-river}}뿐이라 가격이 요구하는 것보다 드뭅니다. {{t:implied-odds|임플라이드 오즈}}도 도움이 되지 않습니다. 스택이 짧아서 {{t:pot|팟}} 뒤에 남은 {{t:chips|칩}}이 너무 적어서 적중한 뒤 이겨도 잃은 {{t:call|콜}}을 되찾을 수 없기 때문입니다."

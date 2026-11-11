@@ -1,0 +1,22 @@
+# sc-34: French text of content/pl/scenarios/sc-34.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-34
+module: m11
+situation: "Dans la {{t:bubble|bulle}}, la {{t:small-blind}} part {{t:all-in}}, et vous êtes en {{t:big-blind}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { marginMin: 0.1, expected: [fold] }
+  sredni: { marginMin: 0.05, marginMax: 0.15, expected: [call] }
+  trudny: { marginMin: 0.01, marginMax: 0.1, chipsDiffer: true, expected: [fold] }
+decisions:
+  - street: preflop
+    kind: icm-call
+    spot: push.sb-10
+    rule: R-M11-009
+    actions:
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}} dans la {{t:bubble|bulle}}, {{w:stol}}, et la {{t:small-blind}} est partie {{t:all-in}}. Vous vous {{t:fold|couchez}}, car dans un {{t:tournament|tournoi}} avec des {{t:payout|paiements}}, une défaite coûte plus d'argent qu'une victoire n'en rapporte, donc un {{t:call}} doit gagner plus souvent que dans le jeu aux {{t:chips}}. Face à la {{t:range}} d'{{t:all-in}}, cette main a trop peu d'{{t:equity}} pour franchir ce seuil plus élevé de l'{{t:icm|ICM}}."
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}} dans la {{t:bubble|bulle}}, {{w:stol}}, et la {{t:small-blind}} est partie {{t:all-in}}. Vous {{t:call|payez}}, car face à la {{t:range}} d'{{t:all-in}}, cette main a plus d'{{t:equity}} que n'en exige le seuil de l'{{t:icm|ICM}}. Ce seuil est plus élevé que dans le jeu aux {{t:chips}}, car dans un {{t:tournament|tournoi}} avec des {{t:payout|paiements}}, une défaite coûte plus d'argent qu'une victoire n'en rapporte."

@@ -1,0 +1,28 @@
+# sc-11: English text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-11
+module: m5
+situation: "You {{t:open|opened}} from the Button, the {{t:big-blind}} {{t:call|called}} and {{t:check|checks}} on a {{t:dry}} high flop."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. You {{t:bet}} small, about {{n:cbet.size.small}} of the {{t:pot}}, because you have the {{t:range-advantage}}, and your opponent's weak hands have almost no chance: a small {{t:bet}} is enough to make them {{t:fold}}. The {{t:big-blind}} {{t:raise|raises}} most AA, KK and AK before the flop, so after just {{t:call|calling}} they have few of them."
+      - action: check
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. A {{t:check}} is acceptable but less frequent: on a {{t:dry}} high flop you {{t:c-bet}} often and small, because you have the {{t:range-advantage}}, and your opponent's weak hands would {{t:fold}} to a small {{t:bet}} already. By {{t:check|checking}}, you give them a free card."
+      - action: bet-big
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. A big {{t:bet}} is an inaccuracy here: on a {{t:dry}} high flop you usually {{t:c-bet}} small, about {{n:cbet.size.small}} of the {{t:pot}}, because your opponent's weak hands {{t:fold}} to such a {{t:bet}} already."

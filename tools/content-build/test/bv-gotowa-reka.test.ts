@@ -8,7 +8,9 @@ import { describe, expect, it } from 'vitest';
 import { classifyHolding, generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import { loadScenarioTemplates } from '../src/scenariusze';
 
-const pl = loadScenarioTemplates(join(resolve(import.meta.dirname, '../../..'), 'content', 'pl', 'scenarios'));
+const pl = loadScenarioTemplates(join(resolve(import.meta.dirname, '../../..'), 'content', 'pl', 'scenarios'))
+  // tylko szablony draw-call: „pas” drawem; icm-call to decyzja przed flopem (bez stołu), cbet-case nie ma pasu (sesja CO, D-791)
+  .filter((x) => x.template.decisions.every((d) => d.kind === 'draw-call'));
 const LOSOWANIA = 2_000;
 
 describe('06-tresci-201: ocena „pas” drawem tylko bez gotowej ręki gracza (R-M2-005 dotyczy samego drawa)', () => {

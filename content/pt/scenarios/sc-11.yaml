@@ -1,0 +1,28 @@
+# sc-11: Portuguese text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-11
+module: m5
+situation: "Fez {{t:open|abertura}} do Button, o {{t:big-blind}} fez {{t:call}} e faz {{t:check}} num flop alto e {{t:dry|seco}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o {{t:big-blind}} faz {{t:check}}. {{t:bet|Aposta}} pouco, cerca de {{n:cbet.size.small}} do {{t:pot}}, porque tem a {{t:range-advantage}} e as mãos fracas do adversário quase não têm hipóteses: uma {{t:bet|aposta}} pequena chega para que as {{t:fold|largue}}. O {{t:big-blind}} faz {{t:raise|aumento}} com a maioria de AA, KK e AK antes do flop, por isso depois de só fazer {{t:call}} tem poucas."
+      - action: check
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o {{t:big-blind}} faz {{t:check}}. O {{t:check}} é aceitável, mas mais raro: num flop alto e {{t:dry|seco}} faz {{t:c-bet}} muitas vezes e pequeno, porque tem a {{t:range-advantage}} e as mãos fracas do adversário já {{t:fold|largariam}} perante uma {{t:bet|aposta}} pequena. Ao fazer {{t:check}}, dá-lhes uma carta grátis."
+      - action: bet-big
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o {{t:big-blind}} faz {{t:check}}. Uma {{t:bet|aposta}} grande é aqui uma imprecisão: num flop alto e {{t:dry|seco}} costuma fazer {{t:c-bet}} pequeno, cerca de {{n:cbet.size.small}} do {{t:pot}}, porque as mãos fracas do adversário já {{t:fold|largam}} perante essa {{t:bet|aposta}}."

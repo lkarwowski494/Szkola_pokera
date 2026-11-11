@@ -1,0 +1,28 @@
+# sc-11: French text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-11
+module: m5
+situation: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|payé}} et fait {{t:check}} sur un flop haut et {{t:dry|sec}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Vous {{t:bet|misez}} petit, environ {{n:cbet.size.small}} du {{t:pot}}, car vous avez l'{{t:range-advantage}} et les mains faibles de votre adversaire n'ont presque aucune chance : une petite {{t:bet|mise}} suffit pour qu'il les {{t:fold|couche}}. La {{t:big-blind}} {{t:raise|relance}} la plupart des AA, KK et AK avant le flop, donc après un simple {{t:call}} elle en a peu."
+      - action: check
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Un {{t:check}} est acceptable, mais plus rare : sur un flop haut et {{t:dry|sec}}, vous faites souvent un petit {{t:c-bet}}, car vous avez l'{{t:range-advantage}} et les mains faibles de votre adversaire se {{t:fold|coucheraient}} déjà face à une petite {{t:bet|mise}}. En faisant {{t:check}}, vous leur donnez une carte gratuite."
+      - action: bet-big
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une grosse {{t:bet|mise}} est ici une imprécision : sur un flop haut et {{t:dry|sec}}, vous faites généralement un petit {{t:c-bet}}, environ {{n:cbet.size.small}} du {{t:pot}}, car les mains faibles de votre adversaire se {{t:fold|couchent}} déjà face à une telle {{t:bet|mise}}."

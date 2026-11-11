@@ -1,0 +1,17 @@
+# Odczyt 2026-11-11 (rola 06, sesja CO): https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/
+# curl -sS (HTTP 200), HTML → tekst (usunięte script/style/tagi); poniżej tylko wiersze z cytatami użytymi w D-793/D-795 (numer wiersza w pliku tekstowym)
+65:BTN vs BB
+120:Top pair weak kicker Ace-x and 
+125:King-x with a good kicker is another commonly checked hand class. To understand this, think about what betting a hand like 
+150:Disconnected boards are the hardest for either player to connect with. This preserves IP’s preflop advantage better than other board types. This texture sees the frequent use of the 33% sizing, but the 130% sizing is common as well.
+152:What classifies as a strong hand on an {{tooltip-title: OESD}}-possible board is likely to change on later streets, so sizing up for additional fold equity and protection on the flop can be a good play. This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity.
+205:Polarize with larger and less frequent bets on flops where draws are present but not yet completed.
+206:Size down and bet less on flops that complete straights and flushes in your opponent’s range.
+# Fragment A73r (wiersze 118–124, ciągły):
+   118	Case Study: A73 Rainbow
+   119	Rather than always looking at bets, another great way to analyze a flop is by looking at checks.
+   120	Top pair weak kicker Ace-x and 
+   121	KK
+   122	–
+   123	JJ
+   124	 all check back the flop at a significantly higher frequency than the rest of the range. These types of hands have low incentive to bet the flop as it is unlikely they’ll get outdrawn. Betting too often with this hand class leaves IP vulnerable to check-raises, which will happen increasingly often as IP chooses to bet more of these marginal holdings.

@@ -1,0 +1,109 @@
+# Sonda generatora (recenzja CQ, 2026-11-11): vitest, tymczasowy plik testu poza repo (usunięty), generateVariant(szablon content/pl, poziom, ziarno 1..4000, kontekst jak szablony-co.test.ts); kod 0
+# heroPozaOtwarciemBTN = klasa ręki gracza z częstością 0 dla 'raise 2.5' w content/ranges/preflop-6max-100bb.json (UTG,HJ,CO fold → BTN); minSlack SC-03 = min(potrzebna wygrana ponad pulę − stos za pulą) w bb
+BTN spot actions fold,raise 2.5 BB actions fold,call 2.5,raise 10
+== sc-03 latwy minSlack=10.75
+{"outs=4":4000,"frac=0.36":337,"pot=14":1356,"holding=air":3346,"frac=0.79":327,"frac=1.00":1047,"pot=16":1359,"heroOverkarta":1329,"holding=weak":654,"pot=12":1285,"frac=0.31":346,"frac=0.50":980,"frac=0.75":650,"frac=0.33":313}
+1638 | 42 5 46 31 | pot 14 bet 5 hit 0.087 req 0.208 slack 20.25
+4715 | 49 36 40 8 | pot 14 bet 11 hit 0.087 req 0.306 slack 83.25
+4312 | 10 31 20 5 | pot 16 bet 16 hit 0.087 req 0.333 slack 134.75
+2651 | 33 2 36 21 | pot 16 bet 16 hit 0.087 req 0.333 slack 134.75
+4643 | 23 39 48 9 | pot 14 bet 11 hit 0.087 req 0.306 slack 83.25
+824 | 46 14 5 49 | pot 12 bet 12 hit 0.087 req 0.333 slack 94.75
+329 | 44 14 42 37 | pot 16 bet 5 hit 0.087 req 0.192 slack 19.25
+849 | 38 19 42 34 | pot 14 bet 7 hit 0.087 req 0.250 slack 41.25
+== sc-03 sredni minSlack=0.25
+{"outs=4":4000,"frac=0.29":1356,"pot=14":1356,"holding=air":3346,"frac=0.25":2644,"pot=16":1359,"heroOverkarta":1329,"holding=weak":654,"pot=12":1285}
+1638 | 42 5 46 31 | pot 14 bet 4 hit 0.087 req 0.182 slack 9.75
+4715 | 49 36 40 8 | pot 14 bet 4 hit 0.087 req 0.182 slack 9.75
+4312 | 10 31 20 5 | pot 16 bet 4 hit 0.087 req 0.167 slack 8.75
+2651 | 33 2 36 21 | pot 16 bet 4 hit 0.087 req 0.167 slack 8.75
+4643 | 23 39 48 9 | pot 14 bet 4 hit 0.087 req 0.182 slack 9.75
+824 | 46 14 5 49 | pot 12 bet 3 hit 0.087 req 0.167 slack 0.25
+329 | 44 14 42 37 | pot 16 bet 4 hit 0.087 req 0.167 slack 8.75
+849 | 38 19 42 34 | pot 14 bet 4 hit 0.087 req 0.182 slack 9.75
+== sc-11 latwy minSlack=Infinity
+{"wet=dry":4000,"ranks=disconnected":4000,"heroPozaOtwarciemBTN":2346,"villainNieBroniCall":1901,"villainCallPossible":2099,"heroMieszanaBTN":1018,"heroWOtwarciuBTN":636}
+356 | 45 24 2 | dry/disconnected BTNopen=0.00
+4014 | 20 1 47 | dry/disconnected BTNopen=0.00
+346 | 1 44 22 | dry/disconnected BTNopen=0.00
+222 | 45 24 6 | dry/disconnected BTNopen=0.00
+3813 | 27 1 44 | dry/disconnected BTNopen=0.00
+97 | 2 41 20 | dry/disconnected BTNopen=0.00
+725 | 22 0 41 | dry/disconnected BTNopen=0.00
+3240 | 1 47 24 | dry/disconnected BTNopen=1.00
+3125 | 40 1 23 | dry/disconnected BTNopen=0.02
+3740 | 4 46 27 | dry/disconnected BTNopen=1.00
+515 | 1 47 22 | dry/disconnected BTNopen=0.00
+3720 | 25 47 2 | dry/disconnected BTNopen=0.00
+== sc-11 sredni minSlack=Infinity
+{"wet=dry":4000,"ranks=semi-connected":4000,"heroWOtwarciuBTN":619,"villainCallPossible":2041,"heroMieszanaBTN":1003,"villainNieBroniCall":1959,"heroPozaOtwarciemBTN":2378}
+139 | 49 6 24 | dry/semi-connected BTNopen=1.00
+1527 | 11 50 41 | dry/semi-connected BTNopen=0.56
+123 | 34 49 15 | dry/semi-connected BTNopen=0.00
+38 | 46 27 40 | dry/semi-connected BTNopen=0.00
+359 | 2 43 13 | dry/semi-connected BTNopen=0.00
+1238 | 1 46 31 | dry/semi-connected BTNopen=0.00
+2025 | 18 43 36 | dry/semi-connected BTNopen=0.00
+725 | 49 28 23 | dry/semi-connected BTNopen=0.00
+218 | 33 27 48 | dry/semi-connected BTNopen=0.00
+435 | 3 28 41 | dry/semi-connected BTNopen=0.00
+4720 | 41 50 8 | dry/semi-connected BTNopen=1.00
+1633 | 38 27 44 | dry/semi-connected BTNopen=0.00
+== sc-12 latwy minSlack=Infinity
+{"wet=medium":1936,"ranks=connected":4000,"heroPozaOtwarciemBTN":1777,"villainCallPossible":2144,"wet=wet":2064,"heroWOtwarciuBTN":1176,"heroMieszanaBTN":1047,"villainNieBroniCall":1856}
+1724 | 6 21 11 | medium/connected BTNopen=0.00
+2438 | 6 19 1 | medium/connected BTNopen=0.00
+361 | 23 8 17 | wet/connected BTNopen=0.00
+3741 | 31 12 25 | medium/connected BTNopen=1.00
+4232 | 25 15 30 | medium/connected BTNopen=1.00
+3137 | 12 3 18 | medium/connected BTNopen=1.00
+1844 | 1 6 12 | wet/connected BTNopen=0.00
+3018 | 2 15 5 | wet/connected BTNopen=0.47
+630 | 18 9 3 | medium/connected BTNopen=0.00
+1831 | 12 26 11 | medium/connected BTNopen=0.00
+3444 | 11 16 6 | wet/connected BTNopen=1.00
+08 | 23 16 25 | wet/connected BTNopen=0.00
+== sc-12 sredni minSlack=Infinity
+{"wet=wet":4000,"ranks=connected":4000,"heroMieszanaBTN":1037,"villainCallPossible":2107,"heroWOtwarciuBTN":1118,"villainNieBroniCall":1893,"heroPozaOtwarciemBTN":1845}
+2443 | 7 12 8 | wet/connected BTNopen=0.77
+3935 | 19 21 29 | wet/connected BTNopen=1.00
+71 | 17 29 23 | wet/connected BTNopen=0.00
+3046 | 18 9 25 | wet/connected BTNopen=1.00
+276 | 16 3 11 | wet/connected BTNopen=0.00
+4621 | 17 27 9 | wet/connected BTNopen=1.00
+2125 | 5 2 14 | wet/connected BTNopen=0.99
+394 | 17 24 9 | wet/connected BTNopen=0.00
+3114 | 16 11 24 | wet/connected BTNopen=0.00
+621 | 26 29 13 | wet/connected BTNopen=0.00
+744 | 13 3 19 | wet/connected BTNopen=0.00
+4431 | 11 25 19 | wet/connected BTNopen=1.00
+== sc-34 latwy minSlack=Infinity
+{"players=3":1903,"hero=1":1123,"heroCovers=false":2496,"req>0.5=true":3798,"hero=0":1167,"players=4":2097,"heroCovers=true":1504,"hero=2":1204,"hero=3":506,"req>0.5=false":202}
+T9o stacks 4000/2000/4000 h1 v0 eq 0.438 req 0.538 pay 0.6,0.4
+32s stacks 2000/3500/4500 h0 v2 eq 0.345 req 0.555 pay 0.6,0.4
+T5s stacks 1500/2000/3500/3000 h0 v2 eq 0.401 req 0.589 pay 0.5,0.3,0.2
+J7o stacks 2500/3500/4000 h1 v2 eq 0.408 req 0.621 pay 0.6,0.4
+75s stacks 4000/3500/2500 h1 v2 eq 0.391 req 0.519 pay 0.6,0.4
+K4o stacks 5000/3500/1500 h0 v1 eq 0.444 req 0.570 pay 0.6,0.4
+74o stacks 3500/3000/3500 h0 v2 eq 0.339 req 0.596 pay 0.6,0.4
+62s stacks 5000/3500/1500 h2 v1 eq 0.349 req 0.503 pay 0.6,0.4
+== sc-34 sredni minSlack=Infinity
+{"players=3":2191,"hero=1":1198,"heroCovers=true":2526,"req>0.5=false":725,"hero=2":1167,"heroCovers=false":1474,"req>0.5=true":3275,"hero=0":1184,"players=4":1809,"hero=3":451}
+A9o stacks 1500/4500/4000 h1 v0 eq 0.574 req 0.479 pay 0.6,0.4
+AKo stacks 4000/3500/2500 h2 v1 eq 0.649 req 0.547 pay 0.6,0.4
+JJ stacks 3000/3500/3500 h1 v2 eq 0.724 req 0.596 pay 0.6,0.4
+KQo stacks 4000/3500/2500 h0 v2 eq 0.571 req 0.519 pay 0.6,0.4
+KQs stacks 4500/2500/3000 h2 v1 eq 0.593 req 0.519 pay 0.6,0.4
+AKo stacks 2500/2500/2000/3000 h2 v0 eq 0.649 req 0.585 pay 0.5,0.3,0.2
+AKo stacks 3000/2500/4500 h1 v0 eq 0.649 req 0.531 pay 0.6,0.4
+JJ stacks 3000/2500/2500/2000 h1 v0 eq 0.724 req 0.627 pay 0.5,0.3,0.2
+== sc-34 trudny minSlack=Infinity
+{"players=4":2232,"hero=3":544,"heroCovers=true":1083,"req>0.5=true":4000,"hero=2":1188,"heroCovers=false":2917,"hero=1":1124,"hero=0":1144,"players=3":1768}
+K8s stacks 2000/2000/2500/3500 h3 v0 eq 0.522 req 0.535 pay 0.5,0.3,0.2
+KJo stacks 2500/2500/2000/3000 h2 v0 eq 0.556 req 0.585 pay 0.5,0.3,0.2
+A4o stacks 1500/3000/3500/2000 h1 v3 eq 0.514 req 0.549 pay 0.5,0.3,0.2
+A8o stacks 1500/3000/2500/3000 h0 v1 eq 0.560 req 0.571 pay 0.5,0.3,0.2
+A8o stacks 3000/3000/4000 h1 v2 eq 0.560 req 0.592 pay 0.6,0.4
+KJs stacks 2000/2000/3000/3000 h3 v2 eq 0.579 req 0.649 pay 0.5,0.3,0.2
+A5o stacks 2000/2500/3500/2000 h2 v1 eq 0.523 req 0.571 pay 0.5,0.3,0.2
+KTo stacks 2500/1500/2500/3500 h2 v0 eq 0.543 req 0.625 pay 0.5,0.3,0.2

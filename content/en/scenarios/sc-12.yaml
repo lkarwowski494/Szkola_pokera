@@ -1,0 +1,26 @@
+# sc-12: English text of content/pl/scenarios/sc-12.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-12
+module: m5
+situation: "You {{t:open|opened}} from the Button, the {{t:big-blind}} {{t:call|called}} and {{t:check|checks}} on a low {{t:connected}} flop."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. You {{t:check}}, because the {{t:big-blind}} defends many {{t:connectors}} and hands with small cards that hit a low flop, and your hand without a {{t:pair}} or a {{t:draw}} missed. On such a flop you {{t:c-bet}} less often than on high flops."
+      - action: bet-small
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the {{t:big-blind}} {{t:check|checks}}. A small {{t:bet}} is acceptable but less frequent: on a low {{t:connected}} flop you {{t:c-bet}} less often than on high ones, because the {{t:big-blind}} defends many {{t:connectors}} and hands with small cards that hit this flop."

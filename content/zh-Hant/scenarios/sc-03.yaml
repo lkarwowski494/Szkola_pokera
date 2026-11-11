@@ -1,0 +1,23 @@
+# sc-03: Traditional Chinese text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "籌碼較短時，{{t:3-bet|3-bet}}之後翻牌圈雙方都{{t:check|過牌}}；轉牌時你拿到{{t:gutshot|卡順}}，對手{{t:bet|下注}}。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}。你{{t:fold|棄牌}}，因為到河牌只剩一張牌，而且只有一種點數能完成{{t:gutshot|卡順}}：你有 {{n:outs.gutshot}} 張{{t:outs|補牌}}，所以河牌命中約 {{n:odds.gutshot.turn-river}}，低於價格所要求的頻率。{{t:implied-odds|隱含賠率}}也救不了：籌碼較短時，{{t:pot|底池}}之外剩下的{{t:chips|籌碼}}太少，命中後贏到的也補不回輸掉的{{t:call|跟注}}。"
+      - action: call
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}。{{t:call|跟注}}是為一張牌付錢，而這張牌完成{{t:straight|順子}}的機率只有約 {{n:odds.gutshot.turn-river}}，低於價格所要求的頻率。{{t:implied-odds|隱含賠率}}也救不了：籌碼較短時，{{t:pot|底池}}之外剩下的{{t:chips|籌碼}}太少，命中後贏到的也補不回輸掉的{{t:call|跟注}}。"

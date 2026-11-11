@@ -1,0 +1,28 @@
+# sc-11: Traditional Chinese text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-11
+module: m5
+situation: "你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}{{t:call|跟注}}後，在{{t:dry|乾燥}}的高牌翻牌上{{t:check|過牌}}。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。你小額{{t:bet|下注}}，約{{t:pot|底池}}的 {{n:cbet.size.small}}，因為你有{{t:range-advantage|範圍優勢}}，而對手的弱牌幾乎沒有機會：小額{{t:bet|下注}}就足以讓這些牌{{t:fold|棄牌}}。{{t:big-blind|大盲}}在翻牌前會{{t:raise|加注}}大多數 AA、KK 和 AK，所以只{{t:call|跟注}}之後，這類牌很少。"
+      - action: check
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。{{t:check|過牌}}可以接受，但比較少見：在{{t:dry|乾燥}}的高牌翻牌上，你常常小額{{t:c-bet|持續下注}}，因為你有{{t:range-advantage|範圍優勢}}，而對手的弱牌面對小額{{t:bet|下注}}就會{{t:fold|棄牌}}。{{t:check|過牌}}等於免費讓它們看下一張牌。"
+      - action: bet-big
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。這裡大額{{t:bet|下注}}不夠精確：在{{t:dry|乾燥}}的高牌翻牌上，你通常小額{{t:c-bet|持續下注}}，約{{t:pot|底池}}的 {{n:cbet.size.small}}，因為對手的弱牌面對這樣的{{t:bet|下注}}就會{{t:fold|棄牌}}。"

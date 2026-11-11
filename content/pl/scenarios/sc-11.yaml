@@ -1,0 +1,31 @@
+# SC-11 (M5): c-bet z Buttona na suchym wysokim flopie po obronie dużego blinda (F2, punkt cbet-case). Ocena: przypadek
+# R-M5-007 (best: small) z zadania m5.l3.c-btn, jak grading.ts. Reguła c-betu jest częstotliwościowa: oczekiwana akcja to akcja
+# zakresu (zgodna), czekanie jest dopuszczalne, duży zakład to niedokładność (D-793, ŚR-005). Ręka bez pary i drawa (holding air):
+# pary z asem i słabym kickerem oraz KK–JJ solver na suchym flopie z asem częściej czeka (D-792). Rola 06, sesja CO, 2026-11-11.
+id: sc-11
+module: m5
+situation: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i na {{t:dry|suchym}} wysokim flopie {{t:check|czeka}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. {{t:bet|Stawiasz}} mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}, bo masz {{t:range-advantage|przewagę zakresu}}, a słabe ręce rywala prawie nie mają szans: mały {{t:bet}} wystarczy, żeby je {{t:fold|spasował}}. {{t:big-blind|Duży blind}} większość AA, KK i AK {{t:raise|przebija}} przed flopem, więc po samym {{t:call|sprawdzeniu}} ma ich mało."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. {{t:check|Czekanie}} jest dopuszczalne, ale rzadsze: na {{t:dry|suchym}} wysokim flopie {{t:c-bet|c-betujesz}} często i mało, bo masz {{t:range-advantage|przewagę zakresu}}, a słabe ręce rywala {{t:fold|spasowałyby}} już mały {{t:bet}}. {{t:check|Czekając}}, dajesz im darmową kartę."
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. Duży {{t:bet}} to tu niedokładność: na {{t:dry|suchym}} wysokim flopie {{t:c-bet|c-betujesz}} zwykle mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}, bo słabe ręce rywala {{t:fold|spasują}} już taki {{t:bet}}."

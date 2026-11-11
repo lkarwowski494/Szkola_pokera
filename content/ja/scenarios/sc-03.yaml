@@ -1,0 +1,23 @@
+# sc-03: Japanese text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "スタックが浅い状態で{{t:3-bet|3ベット}}の後、フロップは二人とも{{t:check|チェック}}しました。ターンであなたは{{t:gutshot|ガットショット}}を持っていて、相手が{{t:bet|ベット}}します。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{w:rywal}}の相手が{{t:bet|ベット}}しています。{{t:fold|フォールド}}するのは、リバーまで残りのカードは一枚で、{{t:gutshot|ガットショット}}を完成させるランクは一つだけだからです。{{t:outs|アウツ}}は{{n:outs.gutshot}}枚なので、リバーで当たるのは約{{n:odds.gutshot.turn-river}}で、価格が求めるより低い頻度です。{{t:implied-odds|インプライドオッズ}}も助けになりません。スタックが浅いので、{{t:pot|ポット}}の後ろに残っている{{t:chips|チップ}}が少なすぎて、当たった後に勝っても、負けた{{t:call|コール}}の分を取り戻せないからです。"
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{w:rywal}}の相手が{{t:bet|ベット}}しています。{{t:call|コール}}は一枚のカードに払うことになり、そのカードで{{t:straight|ストレート}}が完成するのは約{{n:odds.gutshot.turn-river}}だけで、価格が求めるより低い頻度です。{{t:implied-odds|インプライドオッズ}}も助けになりません。スタックが浅いので、{{t:pot|ポット}}の後ろに残っている{{t:chips|チップ}}が少なすぎて、当たった後に勝っても、負けた{{t:call|コール}}の分を取り戻せないからです。"

@@ -1,0 +1,29 @@
+# SC-12 (M5): Button na niskim połączonym flopie po obronie dużego blinda: czekanie ręką bez pary i drawa (F2, punkt
+# cbet-case). Ocena: przypadek R-M5-004 (best: check) z zadania m5.l3.c-btn, jak grading.ts; mały zakład jest dopuszczalny,
+# rzadszy (D-793, ŚR-005). Bez dużego zakładu (grading.ts ocenia go jak mały, źródło mówi „size down”, D-792).
+# Rola 06, sesja CO, 2026-11-11.
+id: sc-12
+module: m5
+situation: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i na niskim {{t:connected|połączonym}} flopie {{t:check|czeka}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. {{t:check|Czekasz}}, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które trafiają niski flop, a twoja ręka bez {{t:pair|pary}} i bez {{t:draw|drawa}} chybiła. Na takim flopie {{t:c-bet|c-betujesz}} rzadziej niż na wysokich flopach."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. Mały {{t:bet}} jest dopuszczalny, ale rzadszy: na niskim {{t:connected|połączonym}} flopie {{t:c-bet|c-betujesz}} rzadziej niż na wysokich, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które ten flop trafiają."
