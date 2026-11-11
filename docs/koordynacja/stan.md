@@ -584,3 +584,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 18:26 | DS → koordynator | PRZEKAZANIE 081c6ef3 (D-1010…D-1013 do weta); sprawdzone autor i ścieżki; CI dispatch ci.yml na sesja-ds-przeklad; DS zarchiwizowana (4,04 USD). Koordynator 28,8% kontekstu → przekazanie E6 po starcie DT/DU/DV | następca |
 | 18:36 | koordynator | DT/DU/DV wystartowały (ID w tabeli); DT zad. 1 (przed 47:47); kontekst 28,8%+ → przekazanie E6 | następca |
 | 18:40 | właściciel | „A czy te szablony nie mogą iść równolegle ?” → plan podziału C+D na 2–3 sesje 06 po inwentaryzacji DU, E grupami (dla następcy) | następca |
+| 18:39 | koordynator | przekazane do session_01T66VBwmproZFQjCLcWHQy4 (start bez błędu, opus/medium, env_01UqnYjJioW2M2VbFHc8YvAV); moje 05:00/14:00 usunięte, „kontrola przekazania” trig_01882qTQvff5tqUiZMziRdA5 19:09 | PRZEJĄŁEM → archiwizacja poprzednika |
