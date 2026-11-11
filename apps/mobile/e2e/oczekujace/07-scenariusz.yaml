@@ -59,11 +59,13 @@ name: Scenariusz
             - inputText: '8'
             - tapOn: 'Sprawdź'
       - scrollUntilVisible:
-          element: '(Dalej|Zakończ)'
+          element:
+            id: 'sesja-dalej'
           direction: DOWN
           timeout: 30000
           centerElement: true
-      - tapOn: '(Dalej|Zakończ)'
+      - tapOn:
+          id: 'sesja-dalej'
 - assertVisible: 'Wynik'
 # ekran lekcji leży poza zakładkami: ponowne uruchomienie bez clearState otwiera „Dziś” z zapisanym postępem
 - stopApp

@@ -5,7 +5,8 @@
 // (maestro-orchestra Orchestra.kt, filtr bez index → Filters.clickableFirst(); Filters.kt: sortedByDescending { it.clickable },
 // sortowanie stabilne; odczyt 2026-11-11). Selektor tekstowy, który pasuje do „Dalej” i do session.end, w sesji trafia więc
 // w porzucenie lekcji zamiast przejścia dalej. Mechanizm, nie linia (D-043): sprawdzane są wszystkie flowy, także oczekujące.
-// Uruchomienie: node --test tests/narzedzia/df-flow-zakoncz.test.mjs (poza `pnpm test:skrypty`, dopóki flow 07 nie jest naprawiony).
+// DK (D-940): flow 07 stuka po id `sesja-dalej` (testID na przycisku pod oceną); test jest w `pnpm test:skrypty`.
+// Uruchomienie: node --test tests/narzedzia/df-flow-zakoncz.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
@@ -59,4 +60,12 @@ test('żaden selektor tekstowy flowu nie pasuje jednocześnie do „Dalej” i d
     }
   }
   assert.deepEqual(bledy, []);
+});
+
+test('przycisk pod oceną ma testID `sesja-dalej`, a górny „Zakończ” (session.end) go nie ma', () => {
+  const zrodlo = readFileSync(join(ROOT, 'apps/mobile/src/app/session.tsx'), 'utf8');
+  assert.match(zrodlo, /<Button testID="sesja-dalej" label=\{idx \+ 1 < items\.length \? t\('session\.next'\) : t\('session\.finish'\)\}/);
+  assert.equal(zrodlo.split('sesja-dalej').length - 1, 1);
+  const flow = readFileSync(join(E2E, 'oczekujace/07-scenariusz.yaml'), 'utf8');
+  assert.match(flow, /id: 'sesja-dalej'/);
 });

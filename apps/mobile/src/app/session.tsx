@@ -411,7 +411,7 @@ export default function SessionScreen() {
             <Text style={[styl.naglowek, { color: tk.ink }]}>{current.answer.kind === 'timeout' ? t('session.timeout') : gradeLabel(t, current.grade)}</Text>
           )}
           <Feedback rec={current} painted={current.answer.kind === 'paint' ? [...current.answer.painted] : undefined} hideChoices />
-          <Button label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={next} />
+          <Button testID="sesja-dalej" label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={next} />
           {/* „Zgłoś błąd w tym zadaniu” pod oceną (PR-09, BR-OPIN-003); ukryte, dopóki nie ma adresu poczty (D-270) */}
           {ADRES_KONTAKTOWY ? (
             <ZglosBlad
