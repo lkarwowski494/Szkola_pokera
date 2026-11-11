@@ -1,0 +1,71 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+ ❯ test/cw-nadkarty.test.ts (22 tests | 12 failed) 4931ms
+   ❯ CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) (12)
+     × pl: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 18ms
+     × en: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 13ms
+     × de: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 10ms
+     × es: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 11ms
+     × fr: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 10ms
+     × it: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 11ms
+     × ja: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 11ms
+     × ko: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 11ms
+     × pt-BR: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 8ms
+     × pt: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 8ms
+     × vi: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 9ms
+     × zh-Hant: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}} 10ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > pl: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > en: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > de: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > es: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > fr: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > it: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > ja: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > ko: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > pt-BR: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > pt: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > vi: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+ FAIL  test/cw-nadkarty.test.ts > CW NIS-003: każde wyjaśnienie draw-call nazywa uproszczenie „same outy drawa” (12 języków) > zh-Hant: sc-01, sc-02, sc-03, sc-19 — każda akcja każdego punktu draw-call ma zdanie z {{n:pair.outs.per-rank}}
+AssertionError: expected [ 'sc-01 punkt 1 call', …(13) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "sc-01 punkt 1 call",
++   "sc-01 punkt 1 fold",
++   "sc-01 punkt 2 call",
++   "sc-01 punkt 2 fold",
++   "sc-02 punkt 1 call",
++   "sc-02 punkt 1 fold",
++   "sc-02 punkt 2 call",
++   "sc-02 punkt 2 fold",
++   "sc-03 punkt 1 fold",
++   "sc-03 punkt 1 call",
++   "sc-19 punkt 1 call",
++   "sc-19 punkt 1 fold",
++   "sc-19 punkt 2 call",
++   "sc-19 punkt 2 fold",
++ ]
+
+ ❯ test/cw-nadkarty.test.ts:37:21
+     35|       }
+     36|       expect(wyjasnien).toBe(14);
+     37|       expect(braki).toEqual([]);
+       |                     ^
+     38|     });
+     39|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  12 failed | 10 passed (22)
+   Start at  07:37:46
+   Duration  5.49s (tests 92%, transform 5%, import 3%)
+
