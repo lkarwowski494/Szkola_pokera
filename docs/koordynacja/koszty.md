@@ -111,3 +111,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | DQ | 08 audit opus/high | — | 4,96 | 25,0 | 16:55 → 16:58 → 17:34 PRZEKAZANIE → (ci w sesji kod 0) → przyjęte 17:40 | 0 | recenzja DP ok. 36 min |
 | DR | 08 fix sonnet | — | 1,66 | 20,1 | 17:36 → 17:38 → … → 17:53 PRZEKAZANIE → (ci w sesji kod 0) → przyjęte 17:58 | 0 | szybka poprawka z gotowymi sondami recenzji |
 | DS | 09 build sonnet | — | 4,04 | 28,1 | 17:58 → 18:00 → 18:24 PRZEKAZANIE → CI dispatch 18:26 | 0 | 2 subagenty przekładu zwrotnego |
+| M9 session_01T66VBwchgoN1YcMZZCKBS6 | koordynator opus/medium | — | ok. 13 (12,83 przy 18:24) | ok. 30 | 15:58 → przekazanie 18:36 → PRZEJĄŁEM 18:40 → archiwizacja | 0 | wg wiadomości poprzednika 18:40 |
