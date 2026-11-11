@@ -1,0 +1,12 @@
+# mutant U4-flow-tap-zakoncz · 64eea6c7 · plik apps/mobile/e2e/oczekujace/07-scenariusz.yaml
+# stary:       - tapOn:
+          id: 'sesja-dalej'
+# nowy:        - tapOn: 'Zakończ'
+mutant zastosowany: apps/mobile/e2e/oczekujace/07-scenariusz.yaml
+$ node --test tests/narzedzia/df-flow-zakoncz.test.mjs tests/narzedzia/e2e-flowy.test.mjs
+# Subtest: e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)
+ok 8 - e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)
+# tests 14
+# pass 14
+# fail 0
+kod: 0

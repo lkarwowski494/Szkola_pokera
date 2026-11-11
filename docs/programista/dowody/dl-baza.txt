@@ -1,0 +1,13 @@
+$ node --test tests/narzedzia/df-flow-zakoncz.test.mjs tests/narzedzia/e2e-flowy.test.mjs
+# tests 14
+# pass 14
+# fail 0
+kod: 0
+$ (tools/content-build) npx vitest run test/szablony-bs.test.ts -t "CZ \(06-tresci-006\)"
+ Test Files  1 passed (1)
+      Tests  3 passed | 22 skipped (25)
+kod: 0
+$ (tools/content-build) npx vitest run test/szablony-co.test.ts
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+kod: 0

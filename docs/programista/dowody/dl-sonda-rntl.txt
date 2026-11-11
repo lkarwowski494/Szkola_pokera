@@ -1,0 +1,19 @@
+$ (apps/mobile) npx jest --ci apps/mobile/src/__tests__/dl-sonda-sesja-dalej.test.tsx -t 'SONDA DL'  [kod bez zmian (64eea6c7)]
+    ✓ SONDA DL: przycisk pod oceną ma testID `sesja-dalej` (jeden), górny „Zakończ” go nie ma, a stuknięcie po id daje „2 z n” (1722 ms)
+Tests:       4 skipped, 1 passed, 5 total
+kod: 0
+mutant zastosowany: apps/mobile/src/components/ui.tsx
+$ (apps/mobile) npx jest --ci apps/mobile/src/__tests__/dl-sonda-sesja-dalej.test.tsx -t 'SONDA DL'  [mutant U1: Button nie przekazuje testID]
+    ✕ SONDA DL: przycisk pod oceną ma testID `sesja-dalej` (jeden), górny „Zakończ” go nie ma, a stuknięcie po id daje „2 z n” (2800 ms)
+    Unable to find an element with testID: sesja-dalej
+                [0m✓ Poprawna odpowiedź[0m
+Tests:       1 failed, 4 skipped, 5 total
+kod: 1
+mutant zastosowany: apps/mobile/src/app/session.tsx
+$ (apps/mobile) npx jest --ci apps/mobile/src/__tests__/dl-sonda-sesja-dalej.test.tsx -t 'SONDA DL'  [mutant U2: testID także na górnym Zakończ]
+    ✕ SONDA DL: przycisk pod oceną ma testID `sesja-dalej` (jeden), górny „Zakończ” go nie ma, a stuknięcie po id daje „2 z n” (2063 ms)
+    Expected length: 0
+    Received length: 1
+    Received array:  [<View accessibilityRole="button" accessibilityState={{"busy": undefined, "checked": undefined, "disabled": undefined, "expanded": undefined, "selected": undefined}} accessibilityValue={{"max": undefined, "min": undefined, "now": undefined, "text": undefined}} accessible={true} collapsable={false} focusable={true} hitSlop={12} onBlur={[Function onBlur]} onClick={[Function onClick]} onFocus={[Function onFocus]} onResponderGrant={[Function onResponderGrant]} onResponderMove={[Function onResponderMove]} onResponderRelease={[Function onResponderRelease]} onResponderTerminate={[Function onResponderTerminate]} onResponderTerminationRequest={[Function onResponderTerminationRequest]} onStartShouldSetResponder={[Function onStartShouldSetResponder]} testID="sesja-dalej"><Text style={[{"fontSize": 17, "fontWeight": "400", "lineHeight": 24}, {"color": "#0A1430", "fontWeight": "600"}]}>Zakończ</Text></View>]
+Tests:       1 failed, 4 skipped, 5 total
+kod: 1

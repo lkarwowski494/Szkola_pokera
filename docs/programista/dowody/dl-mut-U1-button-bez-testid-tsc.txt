@@ -1,0 +1,7 @@
+# mutant U1-button-bez-testid-tsc · 64eea6c7 · plik apps/mobile/src/components/ui.tsx
+# stary:       testID={testID}
+
+# nowy:  
+mutant zastosowany: apps/mobile/src/components/ui.tsx
+$ cd apps/mobile && npx tsc --noEmit -p . && echo TSC-OK
+kod: 0

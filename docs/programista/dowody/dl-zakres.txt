@@ -1,0 +1,32 @@
+$ git diff --stat 1834b144..64eea6c7
+ apps/mobile/e2e/oczekujace/07-scenariusz.yaml      |    6 +-
+ apps/mobile/src/app/session.tsx                    |    2 +-
+ apps/mobile/src/components/ui.tsx                  |    4 +
+ docs/decyzje/DK.md                                 |   13 +
+ docs/jakosc/dowody/dk-001-przed.txt                |   50 +
+ docs/jakosc/dowody/dk-002-baza.txt                 |   10 +
+ docs/jakosc/dowody/dk-002-mut-A-bez-D630.txt       |   35 +
+ docs/jakosc/dowody/dk-002-mut-B-points-length.txt  |   35 +
+ docs/jakosc/dowody/dk-003-baza.txt                 |   12 +
+ docs/jakosc/dowody/dk-003-mut-F-generator.txt      |   69 +
+ .../dowody/dk-003-mut-F4-classifyHolding.txt       |   69 +
+ docs/jakosc/dowody/dk-ci.txt                       | 3319 ++++++++++++++++++++
+ package.json                                       |    2 +-
+ tests/narzedzia/df-flow-zakoncz.test.mjs           |   11 +-
+ tools/content-build/test/szablony-bs.test.ts       |    2 +
+ tools/content-build/test/szablony-co.test.ts       |   23 +
+ 16 files changed, 3657 insertions(+), 5 deletions(-)
+kod: 0
+
+$ git diff --name-only 1834b144..64eea6c7 | grep -E "^(packages/postep/|packages/domena/|apps/mobile/src/data/|apps/mobile/src/platform/|apps/mobile/modules/ochrona-tla/|docs/architektura/schemat.sql|tools/content-build/|\.github/workflows/|apps/mobile/app.json|apps/mobile/eas.json)"
+tools/content-build/test/szablony-bs.test.ts
+tools/content-build/test/szablony-co.test.ts
+kod: 0 (trafienia tylko w tools/content-build/test/)
+
+$ git diff 1834b144..64eea6c7 -- apps/mobile/src | grep -E "^[-+][^-+]"
+-          <Button label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={next} />
++          <Button testID="sesja-dalej" label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={next} />
++  testID,
++  /** Stały identyfikator dla flowów E2E (selektor po id, nie po tekście). */
++  testID?: string;
++      testID={testID}
