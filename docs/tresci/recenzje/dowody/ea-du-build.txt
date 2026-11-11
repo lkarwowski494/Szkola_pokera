@@ -1,0 +1,15 @@
+# EA, 2026-11-11: determinizm pnpm content:build na 7a7a0f1d (worktree, dwa przebiegi). Wynik: po każdym przebiegu git status bez zmian w plikach śledzonych (bazy 12+ języków i tresc.generated.ts = zacommitowane)
+$ pnpm content:build (przebieg 1)
+kod wyjścia: 0
+$ git status --porcelain   (?? ea-sonda = sonda EA, nieśledzona)
+?? apps/mobile/src/features/scenariusz/__tests__/ea-sonda.test.tsx
+$ git hash-object apps/mobile/assets/content/tresc-18ee6d332a-pl.db ; git rev-parse HEAD:<ten plik>
+62699429ad2362026de859450f93c04ec01f5653
+62699429ad2362026de859450f93c04ec01f5653
+$ pnpm content:build (przebieg 2)
+kod wyjścia: 0
+$ git status --porcelain   (?? ea-sonda = sonda EA, nieśledzona)
+?? apps/mobile/src/features/scenariusz/__tests__/ea-sonda.test.tsx
+$ git hash-object apps/mobile/assets/content/tresc-18ee6d332a-pl.db ; git rev-parse HEAD:<ten plik>
+62699429ad2362026de859450f93c04ec01f5653
+62699429ad2362026de859450f93c04ec01f5653

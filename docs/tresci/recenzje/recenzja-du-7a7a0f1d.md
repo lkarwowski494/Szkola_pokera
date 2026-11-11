@@ -21,15 +21,15 @@ Zakres: całość (4 szablony × wszystkie akcje, pl; przekłady tylko struktura
 
 | ID | Zdanie (plik:linia) | Twierdzenie | Źródło otwarte dziś (adres, miejsce) | Cytat | Werdykt | Para zdań | Minimalna poprawka | Znalezisko |
 |---|---|---|---|---|---|---|---|---|
-| SC-06 przebicie | `content/pl/scenarios/sc-06.yaml:20` | R-M3-009: SB otwiera ok. 40–45%, jak z Buttona; po flopie mówi pierwszy | beyondgto.com/ranges/sb-open-6max-100bb; preflopwizard.app/blog/6-max-preflop-charts | „GTO opens about 44% of hands first-in from the Small Blind”; „You open a range nearly as wide as the button (39-47%)” | POPARTE; rachunek: solver projektu `rfi.sb` 42,3%, `rfi.btn` 41,4% | ok | — | 002 (poziom) |
-| SC-06 pas | `content/pl/scenarios/sc-06.yaml:22` | jw.; „solver tę rękę zwykle przebija” | jw. + `preflop-6max-100bb.json` | 87 klas z `raise 3` ≥ 0,97 | POPARTE | ok | — | 002 |
-| SC-06 rozmiar 3 bb | `content/pl/scenarios/sc-06.yaml:30` | R-M3-007 (heuristic, uproszczenie): 2,5 bb, z SB 3 bb, bo bez pozycji | preflopwizard.app (jw.); blog.gtowizard.com/preflop-range-morphology | „2.5bb from all positions (3bb from the small blind)”; „the SB makes it 3bb” | POPARTE | ok | — | — |
-| SC-06 mały / duży | `content/pl/scenarios/sc-06.yaml:32`, `:34` | jw.; 2,4 i 4,8 bb = niedokładność | jw. | jw. | POPARTE (:32); CZĘŚCIOWO (:34) | :34 dodaje powód spoza reguły | usunąć „a większe przebicie ryzykuje…” albo zastąpić `because` | 004 |
-| SC-32 all-in | `content/pl/scenarios/sc-32.yaml:19` | R-M11-002: przy 10 bb push ok. 58,4% | pokerstrategy.com/…/push-fold-play-nash-ranges (10 bb: 56,6%); rachunek EV push vs pas | „10 56.6%” | POPARTE (113 klas; 111 z EV push ≥ pas, 84s i 43s −0,001 i −0,007 bb, w granicy przybliżenia) | „ryzykujesz mało” zamiast „mniej” | „ryzykujesz mniej” | 002, 004 |
+| SC-06 przebicie | `content/pl/scenarios/sc-06.yaml:20` | R-M3-009: SB otwiera ok. 40–45%, jak z Buttona; po flopie mówi pierwszy | beyondgto.com/ranges/sb-open-6max-100bb; preflopwizard.app/blog/6-max-preflop-charts | "GTO opens about 44% of hands first-in from the Small Blind"; "You open a range nearly as wide as the button (39-47%)" | POPARTE; rachunek: solver projektu `rfi.sb` 42,3%, `rfi.btn` 41,4% | ok | — | 002 (poziom) |
+| SC-06 pas | `content/pl/scenarios/sc-06.yaml:22` | jw.; "solver tę rękę zwykle przebija" | jw. + `preflop-6max-100bb.json` | 87 klas z `raise 3` ≥ 0,97 | POPARTE | ok | — | 002 |
+| SC-06 rozmiar 3 bb | `content/pl/scenarios/sc-06.yaml:30` | R-M3-007 (heuristic, uproszczenie): 2,5 bb, z SB 3 bb, bo bez pozycji | preflopwizard.app (jw.); blog.gtowizard.com/preflop-range-morphology | "2.5bb from all positions (3bb from the small blind)"; "the SB makes it 3bb" | POPARTE | ok | — | — |
+| SC-06 mały / duży | `content/pl/scenarios/sc-06.yaml:32`, `:34` | jw.; 2,4 i 4,8 bb = niedokładność | jw. | jw. | POPARTE (:32); CZĘŚCIOWO (:34) | :34 dodaje powód spoza reguły | usunąć "a większe przebicie ryzykuje…" albo zastąpić `because` | 004 |
+| SC-32 all-in | `content/pl/scenarios/sc-32.yaml:19` | R-M11-002: przy 10 bb push ok. 58,4% | pokerstrategy.com/…/push-fold-play-nash-ranges (10 bb: 56,6%); rachunek EV push vs pas | "10 56.6%" | POPARTE (113 klas; 111 z EV push ≥ pas, 84s i 43s −0,001 i −0,007 bb, w granicy przybliżenia) | "ryzykujesz mało" zamiast "mniej" | "ryzykujesz mniej" | 002, 004 |
 | SC-32 pas | `content/pl/scenarios/sc-32.yaml:21` | jw. | jw. | jw. | POPARTE | ok | — | 002 |
-| SC-33 sprawdzenie | `content/pl/scenarios/sc-33.yaml:19` | R-M11-006 (math): (S−1)÷2S = 45%; R-M11-007: call 37,6% węziej niż push 58,4% | pokercoaching.com/push-fold-charts; rachunek | „Calling ranges are tighter than shoving ranges” | POPARTE (70 klas, każda ≥ 45% equity wobec zakresu push) | ok | — | 002 |
+| SC-33 sprawdzenie | `content/pl/scenarios/sc-33.yaml:19` | R-M11-006 (math): (S−1)÷2S = 45%; R-M11-007: call 37,6% węziej niż push 58,4% | pokercoaching.com/push-fold-charts; rachunek | "Calling ranges are tighter than shoving ranges" | POPARTE (70 klas, każda ≥ 45% equity wobec zakresu push) | ok | — | 002 |
 | SC-33 pas | `content/pl/scenarios/sc-33.yaml:21` | jw. | jw. | jw. | POPARTE | ok | — | 002 |
-| SC-34 pas (Ł) | `content/pl/scenarios/sc-34.yaml:21` | R-M11-009: BF ÷ (BF+1); przegrana kosztuje więcej, niż wygrana dodaje | blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments | „Required Equity = Bubble Factor / (Bubble Factor + 1)”; „You always stand to lose more equity than you gain in tournaments” | CZĘŚCIOWO: odpowiedź i próg zgodne (0 rozbieżności / 2000), ale „bo [ICM]” fałszywe w 1807/2000 | „Pasujesz, bo… częściej niż w grze o żetony” sugeruje sprawdzenie w żetonach | zdanie bez przyczyny ICM albo warunkowe | 001, 005 |
+| SC-34 pas (Ł) | `content/pl/scenarios/sc-34.yaml:21` | R-M11-009: BF ÷ (BF+1); przegrana kosztuje więcej, niż wygrana dodaje | blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments | "Required Equity = Bubble Factor / (Bubble Factor + 1)"; "You always stand to lose more equity than you gain in tournaments" | CZĘŚCIOWO: odpowiedź i próg zgodne (0 rozbieżności / 2000), ale "bo [ICM]" fałszywe w 1807/2000 | "Pasujesz, bo… częściej niż w grze o żetony" sugeruje sprawdzenie w żetonach | zdanie bez przyczyny ICM albo warunkowe | 001, 005 |
 | SC-34 sprawdzenie (Ś) | `content/pl/scenarios/sc-34.yaml:23` | jw. | jw. | jw. | POPARTE (0/2000; próg ICM > 45% w 2000/2000) | ok | — | 005 |
 
 ## Linia bazowa i założenia
@@ -62,7 +62,7 @@ Linię bazową zbudowałem od zera, zanim otworzyłem decyzje DU: (1) dla każde
 | urządzenie iOS / TestFlight | nie: brak macOS | krok właściciela przy teście na telefonie |
 
 ## Kontrola dowodów i sekretów
-WYNIK_SPRAWDZ_RAPORT
+`node sprawdz-raport.mjs docs/tresci/recenzje/recenzja-du-7a7a0f1d.md . --rola 06-tresci` (kopia skryptu z promptu roli w scratchpadzie) → „OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 06-tresci”, kod 0. Dowody bez sekretów i bez ścieżek prywatnych (ścieżki scratchpadu zastąpione `<scratchpad>`).
 
 ## Stosowalność listy kontrolnej
 | Pozycja | Status | Wynik |
@@ -117,7 +117,7 @@ WYNIK_SPRAWDZ_RAPORT
 - Poziom: P2 (ŚREDNIE: luka kontroli; sonda pokazuje, że dziś działa)
 - Realność: brzegowy · Pewność: wysoka
 - Rodzaj: D
-- Dowód: `apps/mobile/src/features/scenariusz/__tests__/cs-tresc-realna.test.tsx:29` sprawdza tylko obecność range-spot w bazie (`toEqual(['sc-06', 'sc-32', 'sc-33'])`), a przebieg ekranu tylko dla `['sc-11', 'sc-12']` (`:31`); `recenzja-cq-odtworzenie.test.ts:24-30` buduje kontekst ręcznie, nie z bazy. Sonda w worktree (`dowody/ea-du-sonda-ekranu.txt`): WYNIK_SONDY
+- Dowód: `apps/mobile/src/features/scenariusz/__tests__/cs-tresc-realna.test.tsx:29` sprawdza tylko obecność range-spot w bazie (`toEqual(['sc-06', 'sc-32', 'sc-33'])`), a przebieg ekranu tylko dla `['sc-11', 'sc-12']` (`:31`); `tools/content-build/test/recenzja-cq-odtworzenie.test.ts:24-30` buduje kontekst ręcznie, nie z bazy. Sonda w worktree (`dowody/ea-du-sonda-ekranu.txt`): 15/15 przypadków zielonych, kod 0 (dziś działa)
 - Mechanizm: test ekranu z prawdziwej bazy jest listą jawnych ID, a nie pętlą po szablonach bazy; `grep -n "for (const id of \['sc-11', 'sc-12'\])" apps/mobile/src/features/scenariusz/__tests__/cs-tresc-realna.test.tsx` → 1 trafienie
 - Powraca: tak, CQ 06-tresci-001 (szablon w bazie, którego ekran nie uruchamia) → trwała kontrola: pętla po wszystkich szablonach bazy w `cs-tresc-realna.test.tsx`
 - Wzorzec lub źródło: KO-070 („recenzja niezależna obejmie testy”); `docs/tresci/recenzje/recenzja-co-ad62a2d.md:11`
@@ -131,7 +131,7 @@ WYNIK_SPRAWDZ_RAPORT
 - Poziom: P2 (NISKIE: wzmocnienie bez zmiany odpowiedzi)
 - Realność: realny · Pewność: wysoka
 - Rodzaj: M
-- Dowód: `content/pl/scenarios/sc-06.yaml:34` „a większe {{t:raise|przebicie}} ryzykuje więcej {{t:chips|żetonów}} tą samą ręką” (R-M3-007 `because` tego nie mówi; zasada „bo tylko z because”, `docs/tresci/szablony-robocze/README.md:19`); `content/pl/scenarios/sc-32.yaml:19` „przy tak krótkim stacku ryzykujesz mało względem blindów” wobec R-M11-002 `because` „przy krótszym stacku ryzykujesz mniej” (porównanie zamienione w ocenę bezwzględną: przy 10 bb ryzykujesz 10 bb, by wygrać 1,5 bb)
+- Dowód: `content/pl/scenarios/sc-06.yaml:34` „a większe {{t:raise|przebicie}} ryzykuje więcej {{t:chips|żetonów}} tą samą ręką” (R-M3-007 `because` tego nie mówi; zasada w `docs/tresci/szablony-robocze/README.md:19`: „tylko z pola `because` reguły (D-565, D-567)”); `content/pl/scenarios/sc-32.yaml:19` „przy tak krótkim stacku ryzykujesz mało względem blindów” wobec R-M11-002 `because` „przy krótszym stacku ryzykujesz mniej” (porównanie zamienione w ocenę bezwzględną: przy 10 bb ryzykujesz 10 bb, by wygrać 1,5 bb)
 - Mechanizm: zdanie uzasadnienia spoza `because`; `grep -rn "ryzykujesz mało\|ryzykuje więcej" content/pl/scenarios` → 3 trafienia: sc-06:34, sc-32:19, sc-32:21
 - Powraca: nie
 - Wzorzec lub źródło: preflopwizard.app (otwarte dziś) wspiera kierunek częściowo („a smaller size limits variance and avoids building huge pots out of position”), ale reguła tego nie zapisuje
@@ -146,7 +146,7 @@ WYNIK_SPRAWDZ_RAPORT
 - Realność: realny · Pewność: wysoka
 - Rodzaj: M
 - Dowód: `dowody/ea-du-icm.txt`: gracz pokrywa rywala w 755/2000 wariantów Ł i 1257/2000 Ś; R-M11-009 `if` „{{t:call|sprawdzasz}} all-in, który może cię wyeliminować”; źródło (otwarte dziś) jest szersze: „You always stand to lose more equity than you gain in tournaments”; próg ICM > 45% w 4000/4000 wariantów
-- Mechanizm: generator losuje gracza i rywala niezależnie od stacków (`packages/poker-core/src/scenario-gen.ts:470-471`); `grep -rn "R-M11-009" content/pl/scenarios` → 1 trafienie (sc-34)
+- Mechanizm: generator losuje gracza i rywala niezależnie od stacków (`packages/poker-core/src/scenario-gen.ts:470-471`); `grep -rn "R-M11-009" content/pl/scenarios` → 2 trafienia (sc-34:1 komentarz, sc-34:18 punkt decyzji)
 - Powraca: nie
 - Wzorzec lub źródło: blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments (2026-11-11)
 - Kroki w aplikacji: SC-34, wariant ze stackiem gracza większym niż rywala
@@ -164,16 +164,21 @@ WYNIK_SPRAWDZ_RAPORT
 - Powraca: nie
 - Wzorzec lub źródło: pl `content/pl/scenarios/sc-34.yaml:21` („{{t:call|sprawdzenie}}”)
 - Kroki w aplikacji: język es → SC-34 → pas
-- Opcje: „pagar” → „{{t:call|pagar}}” (jedna zmiana); kontrola mechaniczna: rozszerzyć test struktury en (`szablony-du.test.ts:137-145`) na wszystkie języki i zbiór znaczników. Rekomendacja: obie.
+- Opcje: „pagar” → „{{t:call|pagar}}” (jedna zmiana); kontrola mechaniczna: rozszerzyć test struktury en (`tools/content-build/test/szablony-du.test.ts:137-145`) na wszystkie języki i zbiór znaczników. Rekomendacja: obie.
 - Test akceptacyjny: `ea-du-przeklady.py.txt` → „rozbieżności: 0”
 - Status: otwarte
 
 ## Testy (KO-070)
-WYNIK_TESTOW
+- `pnpm run ci` na 7a7a0f1d: **kod 0** (`dowody/ea-du-ci-7a7a0f1d.txt`; content-build 509 passed + 1 expected fail, domena 347 + 1 expected fail, rejestr treści 0 błędów).
+- Luzowanie: brak. Każda zmiana wynika z nowego szablonu: `cz-pokrycie` dopisuje trzy rodzaje do mapy (test nadal wymaga filtra `some` i ścieżki `'pl', 'scenarios'`); `szablony-co`, `recenzja-cq-odtworzenie`, `cs-tresc-realna` zamieniają asercję „brak icm-call/range-spot” na dokładne listy (`[['sc-34', ['latwy', 'sredni']]]`, `['sc-06', 'sc-32', 'sc-33']`); `generator-odciski.json` tylko dopisuje 5 wpisów, `ZIARNA = 200` bez zmian; `LOSOWANIA = 10_000` w nowym teście jak w CO.
+- Mutanty niezależne od mutanta DU (filtr klas niepewnych), każdy osobno w worktree (`dowody/ea-du-mutanty.txt`, skrypt `dowody/ea-du-mutanty.sh.txt`): M-A range-spot z częstościami klasy sąsiedniej → `szablony-du` kod 1 (3 testy czerwone); M-B rozmiar z SB z parametru `open` → `szablony-du` kod 1; M-C próg ICM bez blinda gracza → `szablony-co` kod 1 (5 testów, treść i szkic). Kontrola bez mutanta: 37/37, kod 0.
+- `pnpm content:build` deterministyczny: dwa przebiegi, 0 zmian w plikach śledzonych, skrót bazy pl równy zacommitowanemu (`dowody/ea-du-build.txt`).
+- Luka: test ekranu na prawdziwej bazie (06-tresci-003).
 
 ## Do sprawdzenia
 - SC-32 84s i 43s: rachunek niezależny daje EV push niższe od pasu o 0,001 i 0,007 bb, solver projektu push 1,0. Różnica mieści się w przybliżeniu macierzy equity169 i zbieżności równowagi; bez dokładnego equity kombinacji nie rozstrzygam (pewność < 80%). Wpływa tylko na 06-tresci-002.
 - Jakość językowa 10 przekładów: rola 09 (polecenie EA pkt 4.4).
+- Obszar roli 04/08 (SP-11, zgłaszam bez oceny, raportu 04 z tego commitu brak): sonda ekranu pokazuje „Masz … na mały blind (small blind, SB), preflop” (`{{w:pozycja}}` w mianowniku po „na”; mechanizm we wszystkich 10 szablonach, `grep -c "na {{w:pozycja}}" content/pl/scenarios/*.yaml`) oraz „przebicie (raise) do 2.4 bb” w przebiegu rozdania obok „2,4 bb” w ocenie (`dowody/ea-du-sonda-ekranu.txt`). Nie dotyczy prawdziwości treści.
 
 ## Co działa dobrze i należy zachować
 - Wyrocznia `szablony-du.test.ts` czyta surowe pliki solvera i `rules.yaml`, a werdykt liczy od zera z progów `numbers.yaml`; sprawdza też, że akcje z wyjaśnieniem „za ostrożny” nie są zgodne (`tools/content-build/test/szablony-du.test.ts:79-83`).
@@ -188,4 +193,4 @@ WYNIK_TESTOW
 ## Proponowane polecenie naprawy
 `node tools/assemble.mjs 06-tresci --tryb fix --zadania 06-tresci-001,06-tresci-004,06-tresci-005,06-tresci-006`; 06-tresci-002 (a) i 06-tresci-003 do roli 08 (generator) i 07 (test ekranu) po decyzji.
 
-`git status --porcelain` na początku: pusty; na końcu (przed commitem raportu): GIT_STATUS_KONIEC
+`git status --porcelain` na początku: pusty; na końcu (przed commitem raportu): tylko pliki tej recenzji (`docs/tresci/recenzje/recenzja-du-7a7a0f1d.md`, `docs/tresci/recenzje/dowody/ea-du-*`); żadnych zmian w treści DU, testach ani kodzie. Sondy i mutanty tylko w worktree w scratchpadzie. Koszt: patrz PRZEKAZANIE.

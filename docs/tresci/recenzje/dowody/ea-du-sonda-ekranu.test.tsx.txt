@@ -1,0 +1,43 @@
+/// <reference types="jest" />
+// Sonda EA (recenzja DU, nie w repo): SC-06, SC-32, SC-33, SC-34 z prawdziwej bazy pl na ekranie: każda akcja każdego punktu daje ocenę bez surowych znaczników.
+import '@/i18n';
+import { render } from '@testing-library/react-native';
+import { generateVariant } from '@szkola/poker-core';
+import type { ScenarioTemplate } from '@szkola/content-schema';
+import { getKontekstGeneratora, getScenarioTemplates } from '@/data/content/repo';
+import { dbCn } from '@/test-utils/kontekstCn';
+import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
+import { PrzebiegScenariusza } from '../EkranScenariusza';
+import type { SesjaScenariusza } from '../aktywnoscScenariusza';
+import { naGenerator, type Akcja } from '../wariant';
+
+jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
+jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
+const szablony = getScenarioTemplates(dbCn);
+const sesja = (szablon: ScenarioTemplate, poziom: string, ziarno: number, wybory: Akcja[]): SesjaScenariusza => ({
+  id: 's1', szablon, poziom, wariant: generateVariant(naGenerator(szablon), poziom as 'latwy', ziarno, getKontekstGeneratora(dbCn, szablon)), wybory,
+  aktywnosc: { stan: 'w_toku', rodzaj: 'scenariusz', zLimitu: true, dzienLokalny: '2026-11-11', strefa: 'Europe/Warsaw', startMs: 0, krok: wybory.length, plan: { liczbaKrokow: szablon.decisions.length, trescId: szablon.id } },
+} as unknown as SesjaScenariusza);
+for (const id of ['sc-06', 'sc-32', 'sc-33', 'sc-34']) {
+  const szablon = szablony.find((t) => t.id === id)!;
+  for (const poziom of szablon.levels) {
+    for (const ziarno of [1, 2, 3]) {
+      it(`${id} ${poziom} ziarno ${ziarno}: decyzja i ocena każdej akcji`, async () => {
+        const exp = szablon.bounds[poziom]!.expected as string[];
+        for (let k = 0; k < szablon.decisions.length; k++) {
+          const przed = exp.slice(0, k) as Akcja[];
+          await render(<PrzebiegScenariusza sesja={sesja(szablon, poziom, ziarno, przed)} faza="decyzja" koniec={false} bladZapisu={false} onWybierz={jest.fn()} onDalej={jest.fn()} onZakoncz={jest.fn()} />);
+          const td = tekstEkranu();
+          expect(td).not.toContain('{{');
+          for (const a of szablon.decisions[k]!.actions) {
+            await render(<PrzebiegScenariusza sesja={sesja(szablon, poziom, ziarno, [...przed, a.action as Akcja])} faza="ocena" koniec={k === szablon.decisions.length - 1} bladZapisu={false} onWybierz={jest.fn()} onDalej={jest.fn()} onZakoncz={jest.fn()} />);
+            const t = tekstEkranu();
+            expect(t).toMatch(/Ocena: /);
+            expect(t).not.toContain('{{');
+            if (ziarno === 1) console.log(`${id} ${poziom} p${k} ${a.action}: ${t.replace(/\s+/g, ' ').slice(0, 600)}`);
+          }
+        }
+      });
+    }
+  }
+}

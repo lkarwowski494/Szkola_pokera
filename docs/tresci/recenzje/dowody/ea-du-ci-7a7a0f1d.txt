@@ -1,0 +1,48 @@
+$ git rev-parse HEAD
+7a7a0f1dd5c31436137a0bd44d30250d7bedd39b
+$ pnpm run ci  (2026-11-11T19:45:45Z)
+[… 3183 linii, wycinek: podsumowania pakietów i koniec]
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  15 passed (15)
+packages/poker-core test:       Tests  184 passed (184)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  48 passed (48)
+tools/content-build test:       Tests  509 passed | 1 expected fail (510)
+# Subtest: 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+ok 7 - 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 112 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 132 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 160 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 167 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+# Subtest: każdy workflow parsuje się bez błędów
+ok 178 - każdy workflow parsuje się bez błędów
+# Subtest: store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+ok 197 - store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+# tests 201
+# pass 201
+# fail 0
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:204 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:207 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+0 błędów, 1 uwag
+status: {"potwierdzone":1004,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":705,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1047,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.vpip.high, n:hud.opps.look, n:hud.opps.sure, n:study.beginner, n:study.winner, n:study.min, n:var.wr.typical.high, n:cbet.range.small.low, n:cbet.range.small.high, n:cbet.range.big.low, n:cbet.range.big.high, n:xr.mult.example, n:xr.mult.low, n:cbet.oop.a94.check, n:hud.hands.3bet.high, n:hud.hands.3bet.low, n:hud.hands.random, n:hud.hands.rough.high, n:hud.vpip.reg.high, n:m11.depth.15, n:m11.m.red, n:mda.all.fcb, n:mda.period.months, n:mda.rec.def, n:mda.rec.def.wr, n:mda.rec.f3b, n:mda.rec.pfr, n:mda.rec.vpip, n:mda.rec.wr, n:mda.rec.wsd, n:mda.rec.wtsd, n:mda.reg.def.high, n:mda.reg.def.low, n:mda.reg.def.wr, n:mda.reg.f3b, n:mda.reg.pfr, n:mda.reg.vpip, n:mda.reg.wr, n:mda.reg.wsd, n:mda.reg.wtsd, n:rake.micro.high, n:rake.nl500.high, n:rake.nl500.low, n:rake.pop.nl10.loss, n:rake.pop.nl100.loss, n:rake.pop.nl500.loss, n:rake.pop.reg.hands, n:rake.pop.reg.postrake, n:rake.pop.reg.prerake, n:hud.hands.3bet.overall.low, n:rake.pop.reg.prerake.raw, n:rake.pop.reg.postrake.raw, t:preflop, t:out-of-position, t:late-position, t:outs, t:draw, t:gutshot, t:backdoor, t:pot-odds, t:implied-odds, t:equity, t:combo, t:range, t:suited, t:offsuit, t:pocket-pair, t:limp, t:isolation, t:rainbow, t:two-tone, t:monotone, t:second-pair, t:overpair, t:c-bet, t:range-advantage, t:nuts-advantage, t:polarized, t:value-bet, t:bluff, t:blocker, t:bluff-catcher, t:probe-bet, t:donk-bet, t:overbet, t:mdf, t:tilt, t:winrate, t:downswing, t:session, t:standard-deviation, t:risk-of-ruin, t:mental-game, t:shove, t:bubble, t:bubble-factor, t:fold-equity, t:chip-ev, t:final-table, t:nash-equilibrium, t:overcall, t:stack-off, t:exploit, t:vpip, t:wtsd, t:nit, t:tag, t:lag, t:calling-station, t:maniac, t:rake, t:rake-cap)
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+kod wyjścia: 0

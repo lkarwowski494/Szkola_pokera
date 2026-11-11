@@ -1,0 +1,61 @@
+=== MUTANT M-A
+# zmiana: range-spot: częstości i oceny z klasy sąsiedniej (chosen.h + 1)
+ packages/poker-core/src/scenario-gen.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+-    const freqs = spot.actions.map((a) => a.freqs[chosen.h]!);
++    const freqs = spot.actions.map((a) => a.freqs[(chosen.h + 1) % 169]!);
+kod wyjścia vitest: 1
+     × sc-06 latwy: 10000 wariantów 14ms
+     × sc-32 latwy: 10000 wariantów 4ms
+     × sc-33 latwy: 10000 wariantów 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
++   "4: A5o: fold generator correct, wyrocznia wrong",
++   "4: A5o: raise 3 generator inaccuracy, wyrocznia correct",
++   "5: T6s: fold generator inaccuracy, wyrocznia wrong",
++   "13: J6s: fold generator wrong, wyrocznia inaccuracy",
++   "21: Q7s: fold generator wrong, wyrocznia inaccuracy",
++   "2: 84s: fold generator correct, wyrocznia wrong",
++   "2: 84s: all-in generator wrong, wyrocznia correct",
++   "4: K4o: fold generator correct, wyrocznia wrong",
+=== MUTANT M-B
+# zmiana: size-spot: rozmiar otwarcia z SB brany z parametru open (2,5 zamiast 3)
+ packages/poker-core/src/scenario-gen.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+-      if (spec.check === 'open-size') standard = num(rule.check.params[spec.sb ? 'openSb' : 'open'], spec.sb ? 'openSb' : 'open');
++      if (spec.check === 'open-size') standard = num(rule.check.params[spec.sb ? 'open' : 'openSb'], 'open');
+kod wyjścia vitest: 1
+     × sc-06 latwy: 10000 wariantów 8ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
++   "1: raise: 2.5 bb, wyrocznia 3",
++   "1: raise-small: 2 bb, wyrocznia 2.4",
++   "1: raise-big: 4 bb, wyrocznia 4.8",
++   "2: raise: 2.5 bb, wyrocznia 3",
++   "2: raise-small: 2 bb, wyrocznia 2.4",
++   "2: raise-big: 4 bb, wyrocznia 4.8",
+ Test Files  1 failed (1)
+      Tests  1 failed | 13 passed (14)
+=== MUTANT M-C
+# zmiana: icm-call: próg ICM bez blinda gracza (CJ WYS-001 cofnięte)
+ packages/poker-core/src/scenario-gen.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+-      const heroBlind = blindBb(pos.hero);
++      const heroBlind = 0;
+kod wyjścia vitest: 1
+     × treść sc-34 latwy: 10000 wariantów 11ms
+     × treść sc-34 sredni: 10000 wariantów 62ms
+     × szkic sc-34 latwy: 10000 wariantów 3ms
+     × szkic sc-34 sredni: 10000 wariantów 76ms
+     × szkic sc-34 trudny: 10000 wariantów 9ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
++   "1: equity/próg 0.43822019127988754/0.5862068965517241 ≠ 0.43822019127988754/0.5382877526753863",
++   "2: equity/próg 0.34549102945113785/0.6022113022113023 ≠ 0.34549102945113785/0.5550076491585926",
++   "3: equity/próg 0.4005520607734808/0.6348750405712431 ≠ 0.4005520607734808/0.589224286309117",
++   "4: equity/próg 0.40783949367088607/0.6627906976744186 ≠ 0.40783949367088607/0.6211463264046101",
++   "5: equity/próg 0.3905755124309394/0.5677966101694916 ≠ 0.3905755124309394/0.5194330800701346",
++   "1: equity/próg 0.7540882133712659/0.6422038271888814 ≠ 0.7540882133712659/0.5993300084839163",
+=== bez mutanta
+?? apps/mobile/src/features/scenariusz/__tests__/ea-sonda.test.tsx
+=== KONTROLA bez mutanta
+kod wyjścia vitest: 0
+ Test Files  2 passed (2)
+      Tests  37 passed (37)

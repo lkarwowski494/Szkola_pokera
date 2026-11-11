@@ -1,0 +1,12 @@
+#!/bin/bash
+# Trzy mutanty niezależne od mutanta DU (filtr klas niepewnych); każdy osobno, potem git checkout.
+WT=$1; F=packages/poker-core/src/scenario-gen.ts; cd $WT
+run(){ name=$1; test=$2; shift 2; echo "=== MUTANT $name"; echo "# zmiana: $*"; git diff --stat; git diff $F | grep '^[-+] ' ; (cd tools/content-build && npx vitest run $test > <scratchpad>/m.log 2>&1; echo "kod wyjścia vitest: $?"; grep -E "×|Tests |Test Files|^\+   \"" <scratchpad>/m.log | head -12); git checkout -- $F; }
+sed -i 's/const freqs = spot.actions.map((a) => a.freqs\[chosen.h\]!);/const freqs = spot.actions.map((a) => a.freqs[(chosen.h + 1) % 169]!);/' $F
+run M-A test/szablony-du.test.ts "range-spot: częstości i oceny z klasy sąsiedniej (chosen.h + 1)"
+sed -i "s/standard = num(rule.check.params\[spec.sb ? 'openSb' : 'open'\], spec.sb ? 'openSb' : 'open');/standard = num(rule.check.params[spec.sb ? 'open' : 'openSb'], 'open');/" $F
+run M-B test/szablony-du.test.ts "size-spot: rozmiar otwarcia z SB brany z parametru open (2,5 zamiast 3)"
+sed -i 's/const heroBlind = blindBb(pos.hero);/const heroBlind = 0;/' $F
+run M-C test/szablony-co.test.ts "icm-call: próg ICM bez blinda gracza (CJ WYS-001 cofnięte)"
+echo "=== bez mutanta"; git status --porcelain
+echo "=== KONTROLA bez mutanta"; (cd tools/content-build && npx vitest run test/szablony-du.test.ts test/szablony-co.test.ts > <scratchpad>/m.log 2>&1; echo "kod wyjścia vitest: $?"; grep -E "Tests |Test Files" <scratchpad>/m.log)
