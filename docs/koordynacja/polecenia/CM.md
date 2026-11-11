@@ -1,0 +1,14 @@
+# Sesja CM: recenzja niezależna ścieżek wrażliwych po scaleniu CL — Szkoła Pokera
+Koordynator: session_01T66VBwSdwmmCy2rQJHrxEQ (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; przy zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko odczyt).
+
+1. Rola: 08-programista w trybie audit. Prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-cm-recenzja` @ 5637200 (= gałąź robocza po scaleniu CL; inny HEAD: zgłoś). `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>; obowiązuje mimo hooka sesji).
+3. Zadanie: recenzja niezależna (D-043) zmian, których nie widziała żadna wcześniejsza recenzja:
+   (a) `tools/content-build/src` w CJ (`cb782bb..2e9c358`: opcja `kontrolaGeneratora`, formuła all-in, ICM z blindami) i CK (`f3f548f..5952fc5`: `checkScenarioNaEkran`) — czy wyłączenie kontroli generatora w testach nie zostawia ścieżki, w której `content:build` albo CI jej nie wykonuje; czy formuły all-in/ICM zgadzają się z rachunkiem (szczebel 1 ADR-24) w testach liczonych niezależnie od generatora;
+   (b) rozwiązania konfliktów i konfliktów semantycznych scalenia CL (`07b04fb..5637200`, `git show --remerge-diff` na commitach scalenia oraz commity CL poza scaleniami): `build.ts`/`build.test.ts`, naprawa znaczników konfliktu ce65318, `naGenerator` w apps/mobile, `aktywnoscScenariusza` (generatorWersja, ziarnoPowtorki), fixture ko043, test all-in CK po formule CJ, test deterministyczności z limitem 30 s i nowe testy budżetu czasu (`naCzasKontroliSzablonu`);
+   (c) warunek KO-059 (decyzje koordynatora): powtórka „to samo rozdanie” rozpoznaje zgodność tylko po GENERATOR_WERSJA (ŚR-001 recenzji CG, `packages/domena/test/cg-recenzja-powtorka.test.ts` `it.fails`); CL podłączył `ziarnoPowtorki` na ekranie — oceń, czy jest teraz droga przez UI do błędnej powtórki (realność) i czy blokuje wydanie.
+   Nie czytaj uzasadnień autorów (`docs/programista/stan-cj.md`, `stan-ck.md`, `stan-cl.md`, `docs/decyzje/CJ.md`, `CK.md`, `CL.md`) przed własną oceną. Gotowe: raport `docs/programista/recenzje/recenzja-cl-5637200.md` (werdykt, znaleziska KRYT/WYS/ŚR/NIS z miejscem i realnością), test odtwarzający (czerwony) dla każdego KRYT/WYS, `pnpm run ci` kod 0 z dowodem `docs/programista/dowody/cm-ci-<sha>.txt`, push na `sesja-cm-recenzja`.
+4. Zakazy: nie poprawiasz kodu (tylko testy odtwarzające i raport), nie piszesz na gałąź roboczą, nie scalasz, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, bez --no-verify i force-push, bez AskUserQuestion; STOP-y roli → raport do koordynatora.
+5. Decyzje: pula **D-775…D-779**, zapis w `docs/decyzje/CM.md`.
+6. Kontekst: od 30% kończysz krok i PRZEKAZANIE; % kontekstu w raporcie.
+7. Raport ≤ 10 linii przez send_message: werdykt, liczby znalezisk, SHA, plik raportu, ci.
