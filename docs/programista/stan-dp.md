@@ -34,4 +34,4 @@ Aktualizacja: 2026-11-11 · gałąź `sesja-dp-icm` (start 370a1548) · poleceni
 
 ## Otwarte
 - D-985 (pula): rozstrzygnięte przez koordynatora jako KO-068 (wariant B, wdrożony). Potrzeba tekstu przypisu „nadwyżka rywala wraca do niego” dla roli 04 (razem z D-966).
-- `pnpm run ci` na końcowym SHA: patrz `docs/programista/dowody/`.
+- `pnpm run ci` na końcowym SHA: `docs/programista/dowody/dp-ci-1b3e5e19.txt`: kod 0 (mobile 1033 testów; wcześniejsze przebiegi: czerwone na e66df9dc terms.test, na 256cc66d i18n --kod, naprawione).
