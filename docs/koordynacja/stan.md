@@ -488,3 +488,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 09:45 | DF | start session_01T66VBwXeKqMJ25CPAXMoTY (1. próba po zgodzie, bez blokady) | kontrola 09:58; DG, DH |
 | 10:00 | DG, DH | start DG session_01T66VBy5kuA6VHee4U2Wmw8, DH session_01T66VBwMUtSGSNRFALxU7wE (1. próba, bez blokady; prompty przepisane subagentami, porównanie niesprawdzone — WG-07) | kontrola |
 | 09:59 | kontrola | CI 42994672296 **success** na faad5b9c (DE); DE czeka na recenzję DH. DF, DG, DH w toku. Koordynator 20,8% (7,86 USD). | kontrola 10:45 |
+| 10:04 | DH, DE | DH PRZEKAZANIE 7560e735 (autor 1/1, tylko docs/): recenzja DE **PRZYJĄĆ** (KRYT 0, WYS 0, ŚR 09-lokalizacja-001 zapadka sha_pl po ID zamiast ID/język → backlog 09 fix, NIS 002/003); ci kod 0 na faad5b9c wg DH + CI 42994672296 success. **DE PRZYJĘTA** (faad5b9c). Do weta: D-902…907 (DE), D-925, D-926 (DH). DH: koszt i archiwizacja przy kontroli (tura w toku) | fala scalenia po DF, DG |
