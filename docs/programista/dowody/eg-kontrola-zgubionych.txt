@@ -1,0 +1,29 @@
+# EG: kontrola zgubionych zmian po scaleniu, HEAD=2344cbcf, 2026-11-11
+# Metoda: dla każdej gałęzi X: pliki zmienione przez X względem merge-base(X, b3963e9a), porównane z HEAD (bez plików generowanych).
+# Oczekiwane: różnice HEAD vs X tylko tam, gdzie zmieniła je INNA z czterech gałęzi albo baza robocza.
+
+## 3a7d3f19
+plików zmienionych przez 3a7d3f19: 27
+plików różniących się HEAD vs 3a7d3f19: 0
+
+## 29130d39
+plików zmienionych przez 29130d39: 3
+plików różniących się HEAD vs 29130d39: 0
+
+## b4eaf50a
+plików zmienionych przez b4eaf50a: 80
+plików różniących się HEAD vs b4eaf50a: 0
+
+## 539919af
+plików zmienionych przez 539919af: 67
+plików różniących się HEAD vs 539919af: 0
+
+## Kontrole punktowe z polecenia
+git diff b4eaf50a HEAD -- content/pl/scenarios/sc-34.yaml :   (puste = brak różnic)
+git diff 539919af HEAD -- content/pl/scenarios/sc-01.yaml :   (puste = brak różnic)
+git diff 539919af HEAD -- content/pl/scenarios/sc-02.yaml :   (puste = brak różnic)
+git diff 539919af HEAD -- content/pl/scenarios/sc-03.yaml :   (puste = brak różnic)
+git diff 539919af HEAD -- content/pl/scenarios/sc-19.yaml :   (puste = brak różnic)
+
+Wynik: brak plików źródłowych różniących się od któregokolwiek z czterech SHA => scalenie nie gubi zmian (źródła mają jedną zmianę per plik, brak nakładania się).
+Pliki generowane: 35 baz tresc-15d491ae57-*.db + tresc.generated.ts z pnpm content:build.
