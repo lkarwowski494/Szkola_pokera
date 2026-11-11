@@ -155,6 +155,11 @@ export function overcardOuts(hero: readonly Card[], board: readonly Card[], draw
   return n;
 }
 
+/** Nadkarty punktu draw-call z samej ręki i stołu (outy drawa z `analyseOutsSpot`); jedna definicja dla liczb i dla warunku {{jesli:nadkarty}} (KO-073). */
+export function overcardOutsAt(hero: readonly Card[], board: readonly Card[]): number {
+  return overcardOuts(hero, board, analyseOutsSpot(hero, board)?.draw.all ?? []);
+}
+
 export interface LevelBounds {
   draws: readonly DrawKind[];
   flop?: TextureFilter;
@@ -632,9 +637,46 @@ export function findVariantMarkers(text: string): string[] {
   return names;
 }
 
-/** Podstawia znaczniki wartościami wariantu; nieznany znacznik to błąd (nie cichy napis w treści dla użytkownika). */
-export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>): string {
-  const wynik = text.replace(VARIANT_MARKER_RE, (_all, name: string) => {
+/**
+ * Warunki bloków w wyjaśnieniu (KO-073, D-1115): `{{jesli:nazwa}}…{{/jesli}}`; treść bloku pokazywana tylko, gdy warunek wariantu jest
+ * prawdziwy. `nadkarty`: gracz ma kartę wyższą od wszystkich kart stołu (`overcardOutsAt` > 0). Bloki nie zagnieżdżają się.
+ */
+export const VARIANT_CONDITIONS = ['nadkarty'] as const;
+export type VariantCondition = (typeof VARIANT_CONDITIONS)[number];
+export type VariantConditionValues = Readonly<Record<VariantCondition, boolean>>;
+
+const CONDITION_OPEN_RE = /\{\{jesli:([^{}]*)\}\}/g;
+const CONDITION_CLOSE = '{{/jesli}}';
+const CONDITION_BLOCK_RE = /\{\{jesli:([^{}]*)\}\}([\s\S]*?)\{\{\/jesli\}\}/g;
+const NIEDOMKNIETY_WARUNEK = '{{jesli:(niedomknięty)';
+
+/** Nazwy warunków z tekstu w kolejności występowania (także nieznane, do walidacji); uszkodzony blok (brak `{{/jesli}}`, zamykający bez otwarcia, zagnieżdżenie) dodaje `{{jesli:(niedomknięty)`. */
+export function findVariantConditions(text: string): string[] {
+  const names = [...text.matchAll(CONDITION_OPEN_RE)].map((m) => m[1]!);
+  const bezBlokow = text.replace(CONDITION_BLOCK_RE, '');
+  if (bezBlokow.includes('{{jesli:') || bezBlokow.includes(CONDITION_CLOSE) || /\{\{jesli:/.test([...text.matchAll(CONDITION_BLOCK_RE)].map((m) => m[2]!).join(''))) names.push(NIEDOMKNIETY_WARUNEK);
+  return names;
+}
+
+function resolveConditions(text: string, conditions: Partial<VariantConditionValues> | undefined): string {
+  const wynik = text.replace(CONDITION_BLOCK_RE, (_all, name: string, body: string) => {
+    if (!(VARIANT_CONDITIONS as readonly string[]).includes(name)) throw new TemplateError(`nieznany warunek wariantu {{jesli:${name}}}`);
+    if (body.includes('{{jesli:')) throw new TemplateError('zagnieżdżony blok warunku {{jesli:');
+    const wartosc = conditions?.[name as VariantCondition];
+    if (wartosc === undefined) throw new TemplateError(`brak wartości warunku {{jesli:${name}}}`);
+    return wartosc ? body : '';
+  });
+  if (wynik.includes('{{jesli:') || wynik.includes(CONDITION_CLOSE)) throw new TemplateError('niedomknięty blok warunku {{jesli:');
+  return wynik;
+}
+
+/**
+ * Podstawia bloki warunkowe i znaczniki wartościami wariantu; nieznany znacznik lub warunek to błąd (nie cichy napis w treści dla
+ * użytkownika). Bloki rozstrzygane przed znacznikami, więc znacznik w ukrytym bloku nie jest podstawiany.
+ */
+export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>, conditions?: Partial<VariantConditionValues>): string {
+  const widoczny = resolveConditions(text, conditions);
+  const wynik = widoczny.replace(VARIANT_MARKER_RE, (_all, name: string) => {
     if (!(VARIANT_MARKERS as readonly string[]).includes(name)) throw new TemplateError(`nieznany znacznik wariantu {{w:${name}}}`);
     return values[name as VariantMarker];
   });

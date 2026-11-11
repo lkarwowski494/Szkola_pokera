@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, eligibleClasses, findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, eligibleClasses, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -182,6 +182,14 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       const znane = findVariantMarkers(a.explanation);
       const nieznane = znane.filter((m) => !(VARIANT_MARKERS as readonly string[]).includes(m));
       if (nieznane.length) e.push(`${p} akcja ${a.action}: nieznany znacznik wariantu ${nieznane.map((m) => `{{w:${m}}}`).join(', ')} (dozwolone: ${VARIANT_MARKERS.join(', ')})`);
+      // KO-073 (D-1115): bloki warunkowe {{jesli:nazwa}}…{{/jesli}}: znana nazwa, domknięty blok, `nadkarty` tylko w draw-call, pierwsze zdanie bezwarunkowe
+      const warunki = findVariantConditions(a.explanation);
+      const nieznaneWarunki = warunki.filter((w) => !(VARIANT_CONDITIONS as readonly string[]).includes(w) && !w.startsWith('{{jesli:('));
+      if (nieznaneWarunki.length) e.push(`${p} akcja ${a.action}: nieznany warunek ${nieznaneWarunki.map((m) => `{{jesli:${m}}}`).join(', ')} (nieznany warunek wariantu; dozwolone: ${VARIANT_CONDITIONS.join(', ')})`);
+      if (warunki.some((w) => w.startsWith('{{jesli:('))) e.push(`${p} akcja ${a.action}: niedomknięty blok warunku {{jesli:…}}…{{/jesli}} (bloki nie zagnieżdżają się)`);
+      if (warunki.includes('nadkarty') && d.kind !== 'draw-call') e.push(`${p} akcja ${a.action}: warunek nadkarty tylko w punkcie draw-call (zdanie sytuacji i nadkarty liczone z outów drawa)`);
+      const otwarcie = a.explanation.indexOf('{{jesli:');
+      if (otwarcie >= 0 && otwarcie <= (koniec < 0 ? a.explanation.length : koniec)) e.push(`${p} akcja ${a.action}: zdanie sytuacji (pierwsze) nie może być w bloku warunku (karty i pozycja zawsze widoczne)`);
       const w = findVariantMarkers(zdanie);
       const brak = (['reka', 'stol', 'pozycja'] as const).filter((m) => !w.includes(m));
       if (brak.length) e.push(`${p} akcja ${a.action}: zdanie sytuacji (pierwsze) musi mieć znaczniki wariantu ${brak.map((m) => `{{w:${m}}}`).join(', ')}, żeby pokazywało karty i pozycję z wylosowanego wariantu`);
