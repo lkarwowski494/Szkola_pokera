@@ -440,3 +440,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 06:31 | session_01T66VBz4mtBEPwdkS219BVy | przejęcie koordynacji (stan @ ecb9d79); add_repo prompts odrzucone przez klasyfikator; przypomnienia 13:51 i 05:00 | prośba do właściciela o dołączenie prompts; potem sesje planu BD §3 od 4619781 |
 | 06:34 | session_01T66VBz4mtBEPwdkS219BVy | poprzednik zarchiwizowany (9,85 USD, 31,7% — koszty.md); wariant B (prompty od poprzednika) niedostępny | czekam na A/C właściciela (prompts) |
 | 07:27 | session_01T66VBz4mtBEPwdkS219BVy | zgoda na prompts → dołączona; polecenia CW–DA @ 26918d9; sesje CW, CX, CY, CZ, DA wystartowały (subagenci); KO-062 (fixture CX) | kontrola 08:27 |
+| 07:29 | CW | E0 (stan docs/tresci/stan-cw.md @ a87482e): D-856 ŚR-005, D-857 NIS-003 samą treścią; znalezisko m5-l3 (R-M5-007 vs R-M5-008) → dodane CW jako zad. 3 | kontrola 08:26 |
