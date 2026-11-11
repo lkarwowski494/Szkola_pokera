@@ -28,16 +28,15 @@ const zTreścią = (pliki: Record<string, string>) => {
 };
 
 describe('szablony na ekranie scenariusza (CK, 08-programista-002)', () => {
-  it('szablon z punktem range-spot: budowanie odrzuca go z id szablonu, numerem punktu i powodem', () => {
-    expect(() => zTreścią({ 'sc-fx-rfi-btn.yaml': fx('range-spot', 'sc-fx-rfi-btn.yaml') }))
-      .toThrow(/szablon sc-fx-rfi-btn: punkt 1 range-spot nie jest jeszcze obsługiwany na ekranie scenariusza/);
+  it('szablon z punktem range-spot: budowanie go przyjmuje (CX, D-866: ekran obsługuje akcje spotu; wcześniej D-755 odrzucał)', () => {
+    expect(() => zTreścią({ 'sc-fx-rfi-btn.yaml': fx('range-spot', 'sc-fx-rfi-btn.yaml') })).not.toThrow(/nie jest jeszcze obsługiwany na ekranie scenariusza/);
   });
   it('szablon z linią all-in nie jest odrzucany jako nieobsługiwany na ekranie (ekran dostaje stackBb)', () => {
     const [w] = loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'scenariusze')).filter((x) => x.template.id === 'sc-fx-allin-draw');
     expect(w).toBeDefined();
     expect(checkScenarioNaEkran(w!.template)).toEqual([]);
   });
-  it('fixture range-spot jest nieobsługiwany tylko na ekranie: kontrola zwraca błąd na każdy taki punkt', () => {
-    for (const { template } of loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'range-spot'))) expect(checkScenarioNaEkran(template)).toHaveLength(1);
+  it('fixture range-spot przechodzi bramkę ekranu (CX, D-866)', () => {
+    for (const { template } of loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'range-spot'))) expect(checkScenarioNaEkran(template)).toEqual([]);
   });
 });
