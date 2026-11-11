@@ -70,7 +70,12 @@ const regulyKit = JSON.parse(dbCn.getFirstSync<{ value: string }>('SELECT value 
 const kit = gradingKitFrom({ number: liczba, rules: regulyKit, spots: [], solverFile: '-', players: 6 });
 const BB = 100;
 const cfg: TableConfig = { stacks: Array(6).fill(100 * BB), smallBlind: BB / 2, bigBlind: BB, button: 3 };
-const NA_OCENE: Record<Verdict, OcenaOdpowiedzi> = { compliant: 'zgodne', acceptable: 'dopuszczalne', inaccuracy: 'niedokladnosc', mistake: 'blad' };
+const OCENY: Partial<Record<Verdict, OcenaOdpowiedzi>> = { compliant: 'zgodne', acceptable: 'dopuszczalne', inaccuracy: 'niedokladnosc', mistake: 'blad' };
+const naOcene = (v: Verdict): OcenaOdpowiedzi => {
+  const o = OCENY[v];
+  if (o === undefined) throw new Error(`werdykt silnika ${v} poza skalą ocen scenariusza`);
+  return o;
+};
 const rozdanie = (holes: ([Card, Card] | null)[], board: Card[], seq: PlayerAction[]): HandState => seq.reduce((st, a) => applyAction(st, a), startHand(cfg, 1, { holes, board }));
 
 /** Ocena silnika gry (gradeDecision, grading.ts) każdej akcji punktu: wyrocznia niezależna od generatora i od ekranu. */
@@ -89,7 +94,7 @@ function ocenaSilnika(t: ScenarioTemplate, poziom: ScenarioLevel, ziarno: number
     for (const a of ['check', 'bet-small', 'bet-big'] as const) {
       const f = gradeDecision(st, a === 'check' ? { type: 'check' } : { type: 'bet', to: Math.round(pula * liczba(a === 'bet-small' ? 'cbet.size.small' : 'cbet.size.big')) }, kit);
       regula = f.ruleId ?? '';
-      oceny[a] = NA_OCENE[f.verdict];
+      oceny[a] = naOcene(f.verdict);
     }
   } else if (p.point === 'size-spot' && p.check === 'three-bet-size') {
     // UTG, HJ pas; CO (2) otwiera openBb; decyzja BTN (3)
@@ -98,7 +103,7 @@ function ocenaSilnika(t: ScenarioTemplate, poziom: ScenarioLevel, ziarno: number
     for (const o of p.options) {
       const f = gradeDecision(st, { type: 'raise', to: Math.round((o.bb ?? 0) * BB) }, kit);
       regula = f.ruleId ?? '';
-      oceny[o.action] = NA_OCENE[f.verdict];
+      oceny[o.action] = naOcene(f.verdict);
     }
   }
   return { regula, oceny };
