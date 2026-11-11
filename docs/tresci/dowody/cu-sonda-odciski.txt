@@ -1,0 +1,12 @@
+# CU 2026-11-11: sonda odcisków SC-11/SC-12, ziarna 1–500 na poziom, skrót SHA-256 (16 znaków) listy fingerprint i listy verdicts
+# bez sizeDown (stan sprzed D-845) vs z sizeDown; skrypt: tools/content-build, tsx, generateVariant z kontekstem pl
+sc-11 latwy odciski 5cbc5dc94c61f006 werdykty 1f62fa4340135971 bet-big: inaccuracy
+sc-11 sredni odciski 7be62879c340b635 werdykty 1f62fa4340135971 bet-big: inaccuracy
+sc-12 latwy odciski 8dea83ddb4cb1431 werdykty 21b6c36ebb9106ee bet-big: acceptable
+sc-12 sredni odciski a0ce0f1d57ca1924 werdykty 21b6c36ebb9106ee bet-big: acceptable
+--- z sizeDown
+sc-11 latwy odciski 5cbc5dc94c61f006 werdykty 1f62fa4340135971 bet-big: inaccuracy
+sc-11 sredni odciski 7be62879c340b635 werdykty 1f62fa4340135971 bet-big: inaccuracy
+sc-12 latwy odciski 8dea83ddb4cb1431 werdykty b0d0778c8404e4f8 bet-big: inaccuracy
+sc-12 sredni odciski a0ce0f1d57ca1924 werdykty b0d0778c8404e4f8 bet-big: inaccuracy
+# wniosek: fingerprint (karty) identyczny dla wszystkich 2000 ziaren; zmienia się tylko verdicts['bet-big'] SC-12 (acceptable → inaccuracy)

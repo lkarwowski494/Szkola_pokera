@@ -55,10 +55,13 @@ const pula = 5 * BB;
 const akcja = (a: Akcja): PlayerAction =>
   a === 'check' ? { type: 'check' } : { type: 'bet', to: Math.round(pula * number(a === 'bet-small' ? 'cbet.size.small' : 'cbet.size.big')) };
 const maPare = (hero: readonly Card[], flop: readonly Card[]) => rankOf(hero[0]!) === rankOf(hero[1]!) || hero.some((c) => flop.some((f) => rankOf(f) === rankOf(c)));
-/** Oceny silnika gry dla akcji przy przypadku c-betu (D-793): best small → check dopuszczalne, big niedokładne; best check → bet dopuszczalny. */
+/**
+ * Oceny silnika gry dla akcji przy przypadku c-betu (D-793): best small → check dopuszczalne, big niedokładne; best check → mały zakład
+ * dopuszczalny, a duży na flopie połączonym niedokładny (D-845, `sizeDown` przypadku R-M5-004; SC-12 ma tylko flopy połączone).
+ */
 const OCENY: Record<string, Record<Akcja, string>> = {
   'bet-small': { 'bet-small': 'compliant', check: 'acceptable', 'bet-big': 'inaccuracy' },
-  check: { check: 'compliant', 'bet-small': 'acceptable', 'bet-big': 'acceptable' },
+  check: { check: 'compliant', 'bet-small': 'acceptable', 'bet-big': 'inaccuracy' },
 };
 
 describe('szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793)', () => {

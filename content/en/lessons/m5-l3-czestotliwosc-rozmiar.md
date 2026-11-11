@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "Yes: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}: they defend many small-card hands, and your high cards missed here. On a {{t:connected}} flop they also have {{t:straight|straights}} and {{t:two-pair|two pair}}, so you usually don't have a {{t:nuts-advantage}}. You c-bet less often than on high flops: many hands {{t:check}}, and it's mainly strong hands and strong {{t:draw|draws}} that bet."
           small: "Too often: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}, and on a {{t:connected}} flop you usually don't have a {{t:nuts-advantage}}. Frequent c-bets, even small ones, give the {{t:big-blind}} the chance to {{t:raise}} after {{t:check|checking}} first (check-raise) with their strongest hands."

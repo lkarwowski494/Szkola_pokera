@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "對：牌張相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}：他防守很多小牌手牌，而你的高牌在這裡沒擊中。在{{t:connected|連張}}翻牌上，他還有{{t:straight|順子}}和{{t:two-pair|兩對}}，所以你通常沒有{{t:nuts-advantage|堅果優勢}}。你 C-bet 的頻率比高牌翻牌低：很多牌{{t:check|過牌}}，下注的主要是強牌和強{{t:draw|聽牌}}。"
           small: "太常了：牌張相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}，而在{{t:connected|連張}}翻牌上你通常沒有{{t:nuts-advantage|堅果優勢}}。頻繁的 C-bet 即使是小注，也讓{{t:big-blind|大盲}}有機會用最強的牌先{{t:check|過牌}}再{{t:raise|加注}}（check-raise）。"

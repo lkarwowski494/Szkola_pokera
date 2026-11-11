@@ -1,7 +1,7 @@
 # SC-12 (M5): Button na niskim połączonym flopie po obronie dużego blinda: czekanie ręką bez pary i drawa (F2, punkt
 # cbet-case). Ocena: przypadek R-M5-004 (best: check) z zadania m5.l3.c-btn, jak grading.ts; mały zakład jest dopuszczalny,
-# rzadszy (D-793, ŚR-005). Bez dużego zakładu (grading.ts ocenia go jak mały, źródło mówi „size down”, D-792).
-# Rola 06, sesja CO, 2026-11-11.
+# rzadszy (D-793, ŚR-005); duży zakład to niedokładność, bo na flopie połączonym źródło mówi „size down” (`sizeDown`
+# przypadku, D-845, zastępuje D-792 i D-826 w części o dużym zakładzie). Rola 06, sesja CO 2026-11-11; CU 2026-11-11.
 id: sc-12
 module: m5
 situation: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i na niskim {{t:connected|połączonym}} flopie {{t:check|czeka}}."
@@ -28,4 +28,4 @@ decisions:
       - action: bet-small
         explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. Mały {{t:bet}} jest dopuszczalny, ale rzadszy: na niskim {{t:connected|połączonym}} flopie {{t:c-bet|c-betujesz}} rzadziej niż na wysokich, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które ten flop trafiają."
       - action: bet-big
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. Duży {{t:bet}} jest dopuszczalny, ale rzadszy: na niskim {{t:connected|połączonym}} flopie {{t:c-bet|c-betujesz}} rzadziej niż na wysokich, a gdy już {{t:bet|stawiasz}}, to raczej mało, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które ten flop trafiają."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. Duży {{t:bet}} to tu niedokładność: na {{t:connected|połączonym}} flopie {{t:big-blind}} może mieć już {{t:straight|strita}}, więc gdy już {{t:bet|stawiasz}}, to mało. Na niskim flopie {{t:c-bet|c-betujesz}} też rzadziej niż na wysokich, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które ten flop trafiają."

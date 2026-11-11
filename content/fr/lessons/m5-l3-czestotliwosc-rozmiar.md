@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "Oui : un flop bas aux cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}} : elle défend beaucoup de mains à petites cartes, et vos cartes hautes ont raté ici. Sur un flop {{t:connected|connecté}}, elle a aussi des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, donc vous n'avez généralement pas l'{{t:nuts-advantage|avantage de nuts}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains fortes et les gros {{t:draw|tirages}} qui misent."
           small: "Trop souvent : un flop bas aux cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}}, et sur un flop {{t:connected|connecté}} vous n'avez généralement pas l'{{t:nuts-advantage|avantage de nuts}}. Des c-bets fréquents, même petits, donnent à la {{t:big-blind|grosse blinde}} l'occasion de {{t:raise|relancer}} après avoir d'abord {{t:check|checké}} (check-raise) avec ses mains les plus fortes."

@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "Isso: um flop baixo com cartas próximas acerta o {{t:range|range}} do {{t:big-blind}}: ele defende muitas mãos com cartas baixas, e suas cartas altas erraram aqui. Em um flop {{t:connected|conectado}}, ele também tem {{t:straight|sequências}} e {{t:two-pair|dois pares}}, então geralmente você não tem {{t:nuts-advantage|vantagem de nuts}}. Você faz c-bet com menos frequência que em flops altos: muitas mãos {{t:check|dão check}}, e apostam principalmente as mãos fortes e os {{t:draw|projetos}} fortes."
           small: "Frequente demais: um flop baixo com cartas próximas acerta o {{t:range|range}} do {{t:big-blind}}, e em um flop {{t:connected|conectado}} geralmente você não tem {{t:nuts-advantage|vantagem de nuts}}. C-bets frequentes, mesmo pequenos, dão ao {{t:big-blind}} a chance de {{t:raise|aumentar}} depois de {{t:check|dar check}} antes (check-raise) com as mãos mais fortes."

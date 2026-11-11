@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "맞습니다. 카드가 서로 가까운 낮은 플롭은 {{t:big-blind|빅 블라인드}}의 {{t:range|레인지}}에 맞습니다. 빅 블라인드는 작은 카드로 된 핸드를 많이 방어하고, 당신의 높은 카드는 여기서 빗나갔습니다. {{t:connected|커넥티드}} 플롭에서는 빅 블라인드에게 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}도 있으므로, 당신에게는 보통 {{t:nuts-advantage|넛 우위}}가 없습니다. 높은 플롭보다 C벳을 덜 자주 합니다. 많은 핸드가 {{t:check|체크하고}}, 주로 강한 핸드와 강한 {{t:draw|드로우}}가 베팅합니다."
           small: "너무 자주 합니다. 카드가 서로 가까운 낮은 플롭은 {{t:big-blind|빅 블라인드}}의 {{t:range|레인지}}에 맞고, {{t:connected|커넥티드}} 플롭에서는 당신에게 보통 {{t:nuts-advantage|넛 우위}}가 없습니다. 작더라도 잦은 C벳은 {{t:big-blind|빅 블라인드}}에게 가장 강한 핸드로 먼저 {{t:check|체크한}} 뒤 {{t:raise|레이즈할}} 기회(체크레이즈)를 줍니다."

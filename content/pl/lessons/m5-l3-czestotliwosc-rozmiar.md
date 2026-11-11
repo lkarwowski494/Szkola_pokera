@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: broni on wielu rąk z małymi kartami, a twoje wysokie karty tu chybiły. Na flopie {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
           small: "Za często: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami."

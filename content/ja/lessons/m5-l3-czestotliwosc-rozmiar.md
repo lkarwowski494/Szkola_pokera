@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "正解です：カード同士が近い低いフロップは{{t:big-blind|ビッグブラインド}}の{{t:range|レンジ}}に当たります。相手は小さいカードのハンドを多くディフェンスしていて、あなたの高いカードはここで外れています。{{t:connected|コネクテッド}}なフロップでは相手に{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}もあるので、あなたにはたいてい{{t:nuts-advantage|ナッツアドバンテージ}}がありません。高いフロップよりCベットの頻度を下げます：多くのハンドが{{t:check|チェック}}し、ベットするのは主に強いハンドと強い{{t:draw|ドロー}}です。"
           small: "頻度が高すぎます：カード同士が近い低いフロップは{{t:big-blind|ビッグブラインド}}の{{t:range|レンジ}}に当たり、{{t:connected|コネクテッド}}なフロップではあなたにはたいてい{{t:nuts-advantage|ナッツアドバンテージ}}がありません。頻繁なCベットは、小さくても、{{t:big-blind|ビッグブラインド}}に最強のハンドで先に{{t:check|チェック}}してからの{{t:raise|レイズ}}（チェックレイズ）の機会を与えます。"
