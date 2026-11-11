@@ -1,0 +1,18 @@
+# EA (recenzja DU 7a7a0f1d), 2026-11-11: niezależny rachunek SC-06/32/33 (surowe pliki solvera + tools/equity/equity169.json), bez kodu generatora
+$ python3 -I ea-du-weryf.py.txt <repo>
+push.sb-10 szerokość 0.5837; call.bb-10 szerokość 0.3756
+SC-33: klasy call>=0.97: 70, equity < 0.450: []; najmniejsze zapasy: [('Q6s', 0.0003), ('K5o', 0.0037), ('Q7s', 0.0069)]
+SC-32: klasy push>=0.97: 113; EV(push)<EV(fold): [('84s', -0.501), ('43s', -0.507)]; najmniejsze zapasy (bb): [('43s', -0.007), ('84s', -0.001), ('Q7o', 0.012)]
+rfi.sb akcje ['fold', 'raise 3']
+rfi.sb: szerokość otwarcia solvera 0.4234
+rfi.btn: szerokość otwarcia solvera 0.4137
+SC-06: klasy raise 3 >= 0.97: 87; przykłady najsłabsze: ['75s', 'A6o', '65s', '64s', 'A5o', '54s', '53s', '52s']
+--- marginesy poziomu łatwego (BR-POZ-001: trudny = margines 0–2 pp)
+SC-33 Ł: |margines equity| < 2 pp: 8/70 klas (11% wariantów, losowanie klasy jednostajne)
+SC-33 Ł: |margines equity| < 5 pp: 22/70 klas (31% wariantów, losowanie klasy jednostajne)
+SC-33 Ł: |margines equity| < 10 pp: 42/70 klas (60% wariantów, losowanie klasy jednostajne)
+SC-32 Ł: |margines equity| < 2 pp: 25/113 klas (22% wariantów, losowanie klasy jednostajne)
+SC-32 Ł: |margines equity| < 5 pp: 49/113 klas (43% wariantów, losowanie klasy jednostajne)
+SC-32 Ł: |margines equity| < 10 pp: 65/113 klas (58% wariantów, losowanie klasy jednostajne)
+SC-06 Ł: częstość raise 3 klas sąsiednich: {'52s': 0.999, '42s': 0, '62s': 0, 'A5o': 1, 'A4o': 0, 'A3o': 0, 'K9o': 1, 'K8o': 0.994, 'Q9o': 1, 'J9o': 1, 'T9o': 1, 'T8o': 1}
+kod wyjścia: 0

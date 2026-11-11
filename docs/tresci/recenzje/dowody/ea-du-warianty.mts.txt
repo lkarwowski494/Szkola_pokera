@@ -1,0 +1,17 @@
+// Zrzut wariantów SC-06/32/33/34 z generatora (do niezależnego przeliczenia w Pythonie).
+import { readFileSync, writeFileSync } from 'node:fs';
+import { generateVariant } from '<repo>/packages/poker-core/src/index.ts';
+import { compileRanges } from '<repo>/tools/content-build/src/ranges.ts';
+import { loadScenarioTemplates } from '<repo>/tools/content-build/src/scenariusze.ts';
+const R = '<repo>';
+const pl = loadScenarioTemplates(R + '/content/pl/scenarios').map((x) => x.template);
+const ctx = { spots: compileRanges(R + '/content').spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, equity169: JSON.parse(readFileSync(R + '/tools/equity/equity169.json', 'utf8')) };
+const out: unknown[] = [];
+const t = pl.find((x) => x.id === 'sc-34')!;
+const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as any;
+for (const level of t.levels) for (let seed = 1; seed <= Number(process.argv[2] ?? 2000); seed++) {
+  const v = generateVariant(g, level as any, seed, ctx as any);
+  out.push({ level, seed, ...(v.points[0] as object) });
+}
+writeFileSync(process.argv[3]!, JSON.stringify(out));
+console.log('zapisano', out.length);

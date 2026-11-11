@@ -1,0 +1,12 @@
+# EA, 2026-11-11: SC-34, 2000 wariantów na poziom z generatora (ea-du-warianty.mts.txt, ziarna 1–2000), ICM Malmutha-Harville'a i equity liczone od zera
+$ tsx ea-du-warianty.mts.txt 2000 sc34.json && python3 -I ea-du-icm.py.txt <repo> sc34.json
+latwy ziarno 1: T9o stacki [4000, 2000, 4000] wypłaty [0.6, 0.4] hero 1 rywal 0: equity 0.4382, próg ICM 0.5383 (generator 0.5383), próg w żetonach 0.450 -> fold (generator fold)
+latwy ziarno 2: 32s stacki [2000, 3500, 4500] wypłaty [0.6, 0.4] hero 0 rywal 2: equity 0.3455, próg ICM 0.5550 (generator 0.5550), próg w żetonach 0.450 -> fold (generator fold)
+latwy ziarno 3: T5s stacki [1500, 2000, 3500, 3000] wypłaty [0.5, 0.3, 0.2] hero 0 rywal 2: equity 0.4006, próg ICM 0.5892 (generator 0.5892), próg w żetonach 0.450 -> fold (generator fold)
+sredni ziarno 1: A9o stacki [1500, 4500, 4000] wypłaty [0.6, 0.4] hero 1 rywal 0: equity 0.5736, próg ICM 0.4792 (generator 0.4792), próg w żetonach 0.450 -> call (generator call)
+sredni ziarno 2: AKo stacki [4000, 3500, 2500] wypłaty [0.6, 0.4] hero 2 rywal 1: equity 0.6487, próg ICM 0.5466 (generator 0.5466), próg w żetonach 0.450 -> call (generator call)
+sredni ziarno 3: JJ stacki [3000, 3500, 3500] wypłaty [0.6, 0.4] hero 1 rywal 2: equity 0.7244, próg ICM 0.5961 (generator 0.5961), próg w żetonach 0.450 -> call (generator call)
+rozbieżności z generatorem: 0 []
+{'latwy': {'n': 2000, 'fold_tez_w_zetonach': 1807, 'icm_wyzszy': 2000}, 'sredni': {'n': 2000, 'fold_tez_w_zetonach': 0, 'icm_wyzszy': 2000}}
+kod wyjścia: 0
+zakres R-M11-009 (if: all-in, który może cię wyeliminować): {('latwy', 'gracz może odpaść'): 1245, ('latwy', 'gracz pokrywa rywala'): 755, ('sredni', 'gracz pokrywa rywala'): 1257, ('sredni', 'gracz może odpaść'): 743}

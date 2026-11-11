@@ -1,0 +1,6 @@
+# EA, 2026-11-11: struktura przekładów SC-06/32/33/34 (12 języków) względem pl: klucze, akcje, poziomy, granice, znaczniki {{w:}}, {{n:}}, {{t:id}}
+$ python3 -I ea-du-przeklady.py.txt <repo>
+języki: ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'pl', 'pt', 'pt-BR', 'vi', 'zh-Hant']
+ZNACZNIKI es sc-34 0 fold brak: [('t', 'call')] nadmiar: []
+rozbieżności: 1
+kod wyjścia: 0 (skrypt zawsze 0; liczba rozbieżności w ostatniej linii)

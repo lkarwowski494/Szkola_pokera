@@ -1,0 +1,72 @@
+# Niezależna weryfikacja SC-06/32/33 (rachunek, surowe pliki solvera, equity169), bez kodu generatora.
+import json, sys
+R = sys.argv[1]
+eq = json.load(open(f'{R}/tools/equity/equity169.json'))
+C = eq['classes']; E = eq['equity']; P = eq['pairs']
+idx = {c:i for i,c in enumerate(C)}
+combos = lambda c: 6 if len(c)==2 else (4 if c[2]=='s' else 12)
+pf = json.load(open(f'{R}/content/ranges/pushfold.json'))
+node = lambda path, pl: next(s for s in pf['spots'] if s['path']==path and s['player']==pl)
+push = node('10bb|','SB'); call = node('10bb|SB:allin','BB')
+fp = push['strategy'][push['actions'].index('all-in')]
+fc = call['strategy'][call['actions'].index('call')]
+def width(f): return sum(f.get(c,0)*combos(c) for c in C)/1326
+def eq_vs(h, rng):
+    i=idx[h]; num=den=0.0
+    for j,c in enumerate(C):
+        w=rng.get(c,0)*P[i][j]
+        num+=w*E[i][j]; den+=w
+    return num/den, den
+print(f'push.sb-10 szerokość {width(fp):.4f}; call.bb-10 szerokość {width(fc):.4f}')
+S=10.0
+# SC-33: BB call: EV(call)-EV(fold) w żetonach względem stanu po wpłaceniu blinda: call: e*2S - S ; fold: -1  => call gdy e >= (S-1)/(2S)
+req=(S-1)/(2*S)
+bad33=[]; ok33=0; marg=[]
+for c in C:
+    if fc.get(c,0)>=0.97:
+        e,_=eq_vs(c,fp); marg.append((e-req,c))
+        if e<req: bad33.append((c,round(e,4)))
+        else: ok33+=1
+marg.sort()
+print(f'SC-33: klasy call>=0.97: {ok33+len(bad33)}, equity < {req:.3f}: {bad33}; najmniejsze zapasy: {[(c,round(m,4)) for m,c in marg[:3]]}')
+# SC-32: SB push: EV(push) = pF*(+1.5) + (1-pF)*(e*2S) - S... liczone od stosu przed blindami: fold => -0.5
+bad32=[]; n32=0; m32=[]
+for c in C:
+    if fp.get(c,0)>=0.97:
+        n32+=1
+        # P(BB call) z kombinacjami (usuwanie kart przez macierz pairs)
+        i=idx[c]; tot=sum(P[i][j] for j in range(len(C))); callw=sum(P[i][j]*fc.get(C[j],0) for j in range(len(C)))
+        pc=callw/tot
+        e,_=eq_vs(c,fc)
+        ev_push=(1-pc)*1.0 + pc*(e*2*S - S)   # wygrana BB (1) przy pasie; showdown: pula 2S
+        ev_fold=-0.5
+        m32.append((ev_push-ev_fold,c))
+        if ev_push<ev_fold: bad32.append((c,round(ev_push,3)))
+m32.sort()
+print(f'SC-32: klasy push>=0.97: {n32}; EV(push)<EV(fold): {bad32}; najmniejsze zapasy (bb): {[(c,round(m,3)) for m,c in m32[:3]]}')
+# SC-32/33 fold w wyjaśnieniach „za ostrożny”: sprawdzenie, że wylosowane ręce mają częstość pasu < 0.25
+# SC-06: rfi.sb z surowego pliku preflop
+pr=json.load(open(f'{R}/content/ranges/preflop-6max-100bb.json'))
+sb=next(s for s in pr['spots'] if s['path']=='UTG:fold,HJ:fold,CO:fold,BTN:fold' and s['player']=='SB')
+btn=next(s for s in pr['spots'] if s['path']=='UTG:fold,HJ:fold,CO:fold' and s['player']=='BTN')
+print('rfi.sb akcje', sb['actions'])
+for name,s in [('rfi.sb',sb),('rfi.btn',btn)]:
+    nf=[a for a in s['actions'] if a!='fold']
+    w=sum(sum(s['strategy'][s['actions'].index(a)].get(c,0) for a in nf)*combos(c) for c in C)/1326
+    print(f'{name}: szerokość otwarcia solvera {w:.4f}')
+fr=sb['strategy'][sb['actions'].index('raise 3')]
+k=[c for c in C if fr.get(c,0)>=0.97]
+print(f'SC-06: klasy raise 3 >= 0.97: {len(k)}; przykłady najsłabsze: {[c for c in k if c[-1] in "so"][-8:]}')
+print('--- marginesy poziomu łatwego (BR-POZ-001: trudny = margines 0–2 pp)')
+def hist(ms, name):
+    n=len(ms)
+    for t in (0.02,0.05,0.10):
+        k=sum(1 for m in ms if abs(m)<t); print(f'{name}: |margines equity| < {t*100:.0f} pp: {k}/{n} klas ({k/n:.0%} wariantów, losowanie klasy jednostajne)')
+m33=[e for e,_ in marg]; hist(m33,'SC-33 Ł')
+m32=[]
+for c in C:
+    if fp.get(c,0)>=0.97:
+        i=idx[c]; tot=sum(P[i]); pc=sum(P[i][j]*fc.get(C[j],0) for j in range(len(C)))/tot
+        e,_=eq_vs(c,fc); ereq=(pc*S-(1-pc)-0.5)/(2*S*pc); m32.append(e-ereq)
+hist(m32,'SC-32 Ł')
+print('SC-06 Ł: częstość raise 3 klas sąsiednich:', {c:fr.get(c,0) for c in ['52s','42s','62s','A5o','A4o','A3o','K9o','K8o','Q9o','J9o','T9o','T8o']})

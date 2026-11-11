@@ -1,0 +1,37 @@
+# EA, 2026-11-11: źródła reguł R-M3-007, R-M3-009, R-M11-002, R-M11-007, R-M11-009 otwarte dziś (curl -L, HTML → tekst, grep na surowym tekście); wycinki ≤ 1–2 zdania
+## R-M3-007 (https://www.preflopwizard.app/blog/6-max-preflop-charts)
+$ grep -o '.\{0,40\}2.5bb from all positions (3bb from the small blind)' pfw.txt
+ton at 100bb. The standard open size is 2.5bb from all positions (3bb from the small blind)
+kod wyjścia grep: 0
+## R-M3-007 (https://www.preflopwizard.app/blog/6-max-preflop-charts)
+$ grep -o 'You open a range nearly as wide as the button (39-47%), but you use a larger sizing (3bb instead of 2.5bb) and you're out of position' pfw.txt
+You open a range nearly as wide as the button (39-47%), but you use a larger sizing (3bb instead of 2.5bb) and you're out of position
+kod wyjścia grep: 0
+## R-M3-007 (https://blog.gtowizard.com/preflop-range-morphology/)
+$ grep -o 'the SB makes it 3bb' morph.txt
+the SB makes it 3bb
+kod wyjścia grep: 0
+## R-M3-009 (https://beyondgto.com/ranges/sb-open-6max-100bb)
+$ grep -o 'GTO opens about 44% of hands first-in from the Small Blind' bgto.txt
+GTO opens about 44% of hands first-in from the Small Blind
+kod wyjścia grep: 0
+## R-M3-009 (https://beyondgto.com/ranges/sb-open-6max-100bb)
+$ grep -o 'the whole range plays as raise-or-fold' bgto.txt
+the whole range plays as raise-or-fold
+kod wyjścia grep: 0
+## R-M11-002 (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/)
+$ grep -o '10 56.6%' ps.txt
+10 56.6%
+kod wyjścia grep: 0
+## R-M11-007 (https://pokercoaching.com/push-fold-charts/)
+$ grep -o 'Calling ranges are tighter than shoving ranges' pc.txt
+Calling ranges are tighter than shoving ranges
+kod wyjścia grep: 0
+## R-M11-009 (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/)
+$ grep -o 'Required Equity = Bubble Factor / (Bubble Factor + 1)' bf.txt
+Required Equity = Bubble Factor / (Bubble Factor + 1)
+kod wyjścia grep: 0
+## R-M11-009 (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/)
+$ grep -o 'You always stand to lose more equity than you gain in tournaments' bf.txt
+You always stand to lose more equity than you gain in tournaments
+kod wyjścia grep: 0

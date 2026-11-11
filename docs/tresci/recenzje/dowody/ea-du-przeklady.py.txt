@@ -1,0 +1,25 @@
+# Struktura przekładów SC-06/32/33/34: te same klucze, akcje, poziomy, granice; te same znaczniki {{w:}}, {{n:}}, {{t:id}} co pl.
+import yaml, re, sys, os, collections
+R=sys.argv[1]; langs=sorted(d for d in os.listdir(f'{R}/content') if os.path.isdir(f'{R}/content/{d}/scenarios'))
+Z=re.compile(r'\{\{([wnt]):([^}|]+)(?:\|[^}]*)?\}\}')
+def marks(s): return collections.Counter((k,v.strip()) for k,v in Z.findall(s or ''))
+def strip(d):
+    d=dict(d); d.pop('situation',None)
+    d['decisions']=[{**x,'actions':[a['action'] for a in x['actions']]} for x in d['decisions']]
+    return d
+bl=0
+print('języki:', langs)
+for sc in ['sc-06','sc-32','sc-33','sc-34']:
+    pl=yaml.safe_load(open(f'{R}/content/pl/scenarios/{sc}.yaml'))
+    for L in langs:
+        p=f'{R}/content/{L}/scenarios/{sc}.yaml'
+        if not os.path.exists(p): print('BRAK', L, sc); bl+=1; continue
+        t=yaml.safe_load(open(p))
+        if strip(t)!=strip(pl): print('STRUKTURA', L, sc); bl+=1
+        if marks(t['situation'])!=marks(pl['situation']): print('ZNACZNIKI situation', L, sc, marks(t['situation'])^marks(pl['situation']) if False else (dict(marks(t['situation'])-marks(pl['situation'])), dict(marks(pl['situation'])-marks(t['situation'])))); bl+=1
+        for di,(a,b) in enumerate(zip(pl['decisions'],t['decisions'])):
+            for x,y in zip(a['actions'],b['actions']):
+                mx,my=marks(x['explanation']),marks(y['explanation'])
+                if set(mx)!=set(my): print('ZNACZNIKI', L, sc, di, x['action'], 'brak:', sorted(set(mx)-set(my)), 'nadmiar:', sorted(set(my)-set(mx))); bl+=1
+                if '{{' in re.sub(Z,'',y['explanation']) or '}}' in re.sub(Z,'',y['explanation']): print('ZNACZNIK USZKODZONY', L, sc, x['action']); bl+=1
+print('rozbieżności:', bl)

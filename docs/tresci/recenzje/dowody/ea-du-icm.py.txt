@@ -1,0 +1,37 @@
+# Niezależny ICM (Malmuth-Harville, rekurencja) i equity z equity169 dla wariantów SC-34 z generatora.
+import json, sys, itertools
+R, F = sys.argv[1], sys.argv[2]
+eq = json.load(open(f'{R}/tools/equity/equity169.json')); C=eq['classes']; E=eq['equity']; P=eq['pairs']; idx={c:i for i,c in enumerate(C)}
+pf = json.load(open(f'{R}/content/ranges/pushfold.json'))
+push = next(s for s in pf['spots'] if s['path']=='10bb|' and s['player']=='SB'); fp = push['strategy'][push['actions'].index('all-in')]
+def eqv(h):
+    i=idx[h]; n=d=0
+    for j,c in enumerate(C): w=fp.get(c,0)*P[i][j]; n+=w*E[i][j]; d+=w
+    return n/d
+def icm(st, pay):
+    st=[max(0,x) for x in st]; n=len(st); res=[0.0]*n
+    def rec(rem, place, prob):
+        if place>=len(pay) or prob==0: return
+        tot=sum(st[k] for k in rem)
+        if tot<=0: return
+        for k in rem:
+            p=prob*st[k]/tot
+            res[k]+=p*pay[place]
+            rec([x for x in rem if x!=k], place+1, p)
+    rec([k for k in range(n) if st[k]>0], 0, 1.0)
+    return res
+V=json.load(open(F)); dif=[]; stat={}; przyk=[]
+for v in V:
+    st=v['stacks']; h=v['heroIndex']; vi=v['villainIndex']; pay=v['payouts']
+    risk=min(st[h],st[vi]); bb=risk/10
+    aft=lambda d:[x+d if k==h else x-d if k==vi else x for k,x in enumerate(st)]
+    ew=icm(aft(risk),pay)[h]; el=icm(aft(-risk),pay)[h]; ef=icm(aft(-bb),pay)[h]
+    req=(ef-el)/(ew-el); e=eqv(v['handClass'])
+    ok = ('call' if e>=req else 'fold')==v['correct']
+    if abs(req-v['required'])>1e-9 or abs(e-v['handEquity'])>1e-9 or not ok: dif.append((v['level'],v['seed'],req,v['required'],e,v['handEquity']))
+    chips=(10-1)/20
+    s=stat.setdefault(v['level'],{'n':0,'fold_tez_w_zetonach':0,'icm_wyzszy':0})
+    s['n']+=1; s['icm_wyzszy']+= req>chips
+    if v['correct']=='fold' and e<chips: s['fold_tez_w_zetonach']+=1
+    if v['seed']<=3: przyk.append(f"{v['level']} ziarno {v['seed']}: {v['handClass']} stacki {st} wypłaty {pay} hero {h} rywal {vi}: equity {e:.4f}, próg ICM {req:.4f} (generator {v['required']:.4f}), próg w żetonach {chips:.3f} -> {'call' if e>=req else 'fold'} (generator {v['correct']})")
+print('\n'.join(przyk)); print('rozbieżności z generatorem:', len(dif), dif[:3]); print(stat)
