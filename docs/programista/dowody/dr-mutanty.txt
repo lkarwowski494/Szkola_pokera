@@ -1,0 +1,85 @@
+# DR: dowód mutantów i testów odtwarzających (recenzje DQ 007e23ad i DO 370a1548), 2026-11-11
+Metoda: mutant wstrzyknięty do kodu na końcowym stanie (po poprawce), uruchomiony `jest --ci` na pliku testu poprawionego; plik przywracany po każdym (skrypt poza repo).
+„Czerwony przed” = mutant przeżywał dotychczasowe testy (dowody DQ/DO: docs/programista/recenzje/dowody/dq-mutanty.txt, do-testy-odtwarzajace.txt: M2, M5, M6, M7, M10 oraz DO M7, M9 PRZEŻYŁY)
+albo nowy test czerwony na kodzie sprzed poprawki (005, DO-006: niżej). „Zielony po” = ten sam test na kodzie bez mutanta (pnpm run ci, dr-ci-*.txt).
+
+## Wyniki (nowe testy kontra mutant)
+##
+   DQ-002 M7 etykieta stołu bez kart (08-programista-002)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 16 passed, 17 total
+   ✕ etykieta stołu: karty nazwami, stan każdego gracza i rywal na SB; lista stosów ma rolę listy; pasek stosu ukryty dla czytnika (12 ms)
+##
+   DQ-003 M2 caleStosTy < zamiast <= (003)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 16 passed, 17 total
+   ✕ równe stosy pary: przypis „cały twój stos” (<=, nie <); stosy to wielokrotności żetonów, więc równość jest realna (1 ms)
+##
+   DQ-006 M6 zaokrąglenie floor (006)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 16 passed, 17 total
+   ✕ 3 graczy 3500/3500/3000 (ty większy): 11,7 bb zaokrąglone w górę (nie 11,6); pasek względem największego stosu, nie sumy żetonów (2 ms)
+##
+   DQ-006 M5 udział względem sumy żetonów (006)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 16 passed, 17 total
+   ✕ 3 graczy 3500/3500/3000 (ty większy): 11,7 bb zaokrąglone w górę (nie 11,6); pasek względem największego stosu, nie sumy żetonów (3 ms)
+##
+   DQ-001 M10 SKALA_BEZ_PASKA = 4 (001)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 16 passed, 17 total
+   ✕ przy skali 3,1 brak paska, wartości stosów nadal w liście (11 ms)
+##
+   DQ-005 AX5 wiersz zawsze poziomy (005)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 16 passed, 17 total
+   ✕ przy skali 3,1 brak paska, wartości stosów nadal w liście (14 ms)
+##
+   DO-001 M7 zawsze overcardsFold (001)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 17 passed, 18 total
+   ✕ wybór drugiego zdania zależy od correct: call → „rachunek pomija”, fold → „Jeśli doliczysz” (DR: DO 001) (24 ms)
+##
+   DO-003 M9 na10 floor (003)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 17 passed, 18 total
+   ✕ na10 = Math.round(10 × equity) także gdy część ułamkowa ≥ 0,5 (ziarna 1–40 na poziom; wymaga takiego przypadku) (224 ms)
+##
+   DO-006 kwotaAkcji limp +0,5 (006)
+  WYNIK:
+   ZABITY (czerwony)
+   |
+   Tests:       1 failed, 17 passed, 18 total
+   ✕ otwarcie z SB (no-limp): pula 2R, dopłata R − 1; limp: koszt 1 − blind (80 ms)
+
+## DO-006 test odtwarzający na kodzie SPRZED poprawki (liczby.ts z HEAD 1b3e5e19…e19bd64a) z mutantem kwotaAkcji(limp)
+## DO-006 PRZED poprawką (liczby.ts z HEAD) + mutant kwotaAkcji limp
+  WYNIK:
+   ZABITY (czerwony)
+   Tests:       1 failed, 17 passed, 18 total
+   ✕ kwota limpu w zdaniu = kwota akcji z funkcji przycisku (jedna definicja; DR: DO 006) (49 ms)
+
+## 005 (DQ): test odtwarzający czerwony na kodzie sprzed poprawki, z właściwego powodu
+$ jest --ci dp-icm-d889.test.tsx (nowa asercja, komponenty.tsx bez poprawki)
+  ✕ przy skali 3,1 brak paska, wartości stosów nadal w liście — Expected: "column" Received: "row" (dp-icm-d889.test.tsx:211)
+Po poprawce (komponenty.tsx: wierszStosuPodNazwa): Tests: 17 passed, 17 total.
+
+## Pozostałe ID bez zmiany kodu produkcyjnego (kod dobry, luka w teście)
+DQ 001, 002, 003, 006 i DO 001, 003: czerwony = mutanty powyżej (przeżywały testy sprzed DR, pod nowymi padają); zielony = kod bez mutanta.
+DO 004: sam komentarz (GENERATOR_WERSJA), bez testu. DQ 004 (Bańka/bubble) i DO 002, 005: poza zakresem polecenia DR (rola 04/06 i backlog).

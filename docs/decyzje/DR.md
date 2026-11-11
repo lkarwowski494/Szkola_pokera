@@ -1,0 +1,9 @@
+# Decyzje sesji DR (08-programista, fix): poprawki z recenzji DQ (007e23ad) i DO (370a1548)
+Pula D-1000…D-1009. Kto: A = agent (delegacja z `CLAUDE.md`), do weta właściciela.
+
+| ID | Data | Kto | Decyzja | Odrzucone | Podstawa | Zależy od |
+|---|---|---|---|---|---|---|
+| D-1000 | 2026-11-11 | A | **005 (DQ): przy skali ≥ 2,5 (bez paska) wiersz stosu jest kolumnowy: wartość pod nazwą, wyrównana do lewej** (`wierszStosuPodNazwa`, `komponenty.tsx`); reszta układu bez zmian. Wykonanie zapisu z design-spec „Pasek stosu”, nie nowa decyzja o wyglądzie (zasada 15). | (b) zostawić poziomo i zapisać odstępstwo: dokument jest jednoznaczny, odstępstwo bez powodu | `docs/design/design-spec.md:61`; recenzja DQ 005 (opcja a); Trening nie ma odpowiednika widoku ICM (D-985…D-990, odczyt 2026-11-11) | akceptacja roli 04 po pomiarze AX5 na 320 pt (kryterium 5, nieodbyte) |
+| D-1001 | 2026-11-11 | A | **Commity grupowe zamiast jednego na ID** dla testów w jednym pliku (DO 001+003+006; DQ 001+002+003+005+006): wspólne importy i sąsiadujące bloki uniemożliwiają rozdzielenie bez sztucznych wersji pośrednich. Dowód per ID: `docs/programista/dowody/dr-mutanty.txt` (mutant → czerwony / zielony). DO 004 osobnym commitem. Wyjątek nazwany (zasada 7). | jeden commit na ID z ręcznie dzielonymi hunkami: ryzyko pośrednich stanów niezbudowalnych | prompt roli, tryb fix pkt E1 | — |
+| D-1002 | 2026-11-11 | A | **DO 006: limp w zdaniu „Liczby” bierze kwotę z `kwotaAkcji(d, 'limp', szablon)`** (`liczby.ts`), nie z własnego `1 − blindBb`; przy `null` zdania limpu nie ma (brak kwoty nie jest zgadywany). | (b) zostawić z komentarzem | recenzja DO 006 (opcja a), `scenariusz-akcje-i-liczby.md` §3 kryterium 5 | — |
+| D-1003 | 2026-11-11 | A | **DO 004: tylko komentarz `GENERATOR_WERSJA`**, bez podniesienia wersji (rozróżnienie odcisku historii i odcisku planu). | (b) podnieść wersję do 4: unieważnia historię „to samo rozdanie” wszystkich szablonów | recenzja DO 004 (opcja a) | — |
