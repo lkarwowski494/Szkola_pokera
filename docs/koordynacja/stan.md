@@ -138,8 +138,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | ? | ? | PRZEKAZANIE 16:24: werdykt PRZYJĄĆ (0 KRYT/WYS, 2 ŚR, 4 NIS); autor zgodny, tylko docs; do archiwizacji po odczycie kosztu |
-| DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 370a1548 | 0 | 0 | w toku od 16:03: D-889 widok ICM (polecenie DP.md @ b1f0f56, D-985…D-994) |
+| DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | 25,3 | 5,45 | przyjęta 16:26 (PRZYJĄĆ DN); zarchiwizowana 16:55 |
+| DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 007e23ad | <30 | ? | PRZEKAZANIE 16:52 (ci 0 wg DP na 1b3e5e19, autor 5/5, 007e23ad = +docs); CI dispatch 16:55; recenzja DQ; czeka bezczynnie |
 | DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 370a1548 | 32,5 | 5,11 | **przyjęta 16:26** (autor 6/6, CI 43050740393 success na 370a1548, recenzja DO PRZYJĄĆ 24e86242); zarchiwizowana; scalenie do roboczej razem z DP (DP ⊃ DN) |
 | CW | session_01T66VBwYnHtTiKoR8cjnqsi | 06 fix, treść (opus/high) | sesja-cw-tresci @ 4619781 (start) | — | — | w toku od 07:05 |
 | CX | session_01T66VBybgy9yDNgu92usB38 | 08 build, kod (sonnet) | sesja-cx-range-spot @ 4619781 (start) | — | — | E0 07:25 |
@@ -555,3 +555,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 16:03 | DO, DP | start DO session_01T66VBwYbNrXHj3rRH7bWR3 (opus/high) i DP session_01T66VBvWMfShSyKQ1PVQgeE (sonnet/medium), polecenia @ b1f0f56; poprzednik: koszt 13,53 USD, max 39,0%, zarchiwizowany przez siebie | kontrola 17:05 |
 | 16:12 | DP → koordynator | PYTANIE: pula w widoku ICM (dokument „stos rywala + blind” vs rachunek D-890) → KO-068: B (mniejszy stos + blind), D-985; VoiceOver mianownik D-986 | DP kontynuuje; kontrola 17:07 |
 | 16:26 | DO → koordynator | PRZEKAZANIE 24e86242: PRZYJĄĆ, ŚR 2, NIS 4, ci 0 (`dowody/do-ci-370a1548.txt` kod 0), D-890 niezależnie potwierdzone; sprawdzone: autor, tylko docs (8 plików) → **DN przyjęta**, DN zarchiwizowana (5,11 USD, kontekst końcowy 32,5%) | DO archiwizacja po koszcie; DP w toku |
+| 16:55 | DP → koordynator | PRZEKAZANIE 007e23ad: D-889 widok icm-call, D-985…D-990 do weta; dług 09: 15 kluczy scenario.icm.*; kryteria 5–6 (AX5, zrzut) niewykonalne w Linuksie; dla 04: przypis „nadwyżka wraca”, stół rząd zamiast owalu. Sprawdzone: autor 5/5, różnica 1b3e5e19→007e23ad tylko docs. CI dispatch ci.yml na sesja-dp-icm. DO zarchiwizowana (5,45 USD). Polecenie DQ @ 3fc19596, gałąź sesja-dq-recenzja @ 007e23ad | start DQ (subagent), kontrola 17:07 |

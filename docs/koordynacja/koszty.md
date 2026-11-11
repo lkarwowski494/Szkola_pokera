@@ -106,3 +106,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | DM session_01T66VByGPc4vVmjYVVTN6me | 08 build (sonnet/medium) | — | 0,97 | 14,9 | 11-11 12:58 zlecone → 13:02 start → 8c4b863a 13:11 → 709f6947 13:22 → CI 43028576121 zielone 13:36 → przyjęte/ff 13:53 | ok. 14 min CI | archiwizowana 13:53 |
 | koordynator session_01T66VBvPqFB6GZD3a2Yg9AF | M9 | — | 13,53 | 39,0 | 13:56 → 15:45 przekazanie | — | skok kontekstu przez wklejenie promptu roli DN (WG-13); od 16:03 prompty ról przez subagenta |
 | DN | 08 build sonnet | — | 5,11 | 32,5 | 14:57 → 14:57 → 15:40 PRZEKAZANIE → CI 15:55 → przyjęte 16:26 | ok. 40 min czekania na nowy łańcuch koordynatora + recenzję DO | D-889 przeniesione do DP |
+| DO | 08 audit opus/high | — | 5,45 | 25,3 | 15:58 → 16:03 → 16:24 → (ci w sesji kod 0) → przyjęte 16:26 | 0 | recenzja DN ok. 21 min |
