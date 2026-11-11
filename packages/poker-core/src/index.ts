@@ -17,3 +17,4 @@ export * from './grading';
 export * from './situation';
 export * from './play';
 export * from './scenario-gen';
+export * from './scenario-dx';
