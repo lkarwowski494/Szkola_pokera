@@ -129,3 +129,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | EH | 06 build | — | 10,67 | 28,3 | 21:59 → 22:00 → 3d2f7c98 → ci 5a438d2b (sesja) → PRZEKAZANIE 22:36 @ 4d786bd2 | — | SC-04/05/08; 2 subagenty przekładu |
 | EI | 08 audit | — | 4,52 | 23,5 | 23:03 → 23:04 → 34cf8a8c → ci 9a054b59 (sesja) → przyjęta 23:21 | — | recenzja EF, PO POPRAWKACH |
 | EJ | 06 audit | — | 5,34 | 25,8 | 23:07 → 23:08 → a8adde54 → ci 4d786bd2 (sesja) → przyjęta 23:23 | — | recenzja EH, Z UWAGAMI |
+| EM | 09 audit | — | 11,22 | 21,9 | 23:38 → 23:39 → 5b8c9984 → ci 31723a6c (sesja) → przyjęta 23:57 | — | przegląd przekładu, 5 subagentów |
