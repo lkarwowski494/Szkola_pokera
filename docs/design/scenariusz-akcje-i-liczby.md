@@ -86,4 +86,72 @@ Akceptuję D-784 dla pl i en: „Masz [[A♠ K♦]] na UTG, preflop, wszyscy prz
 Warunek: kod robi dziś `t('scenario.street.preflop').toLowerCase()`. W językach z wielką literą rzeczowników (de) albo z inną formą przysłówka zmniejszenie liter może dać zły zapis. Rola 09 sprawdza 11 słowników przy przekładzie; jeśli w którymś forma się nie zgadza, dochodzi klucz `scenario.marker.preflop` (pl „preflop”, en „preflop”), a kod przestaje zmniejszać litery. `[DO USTALENIA: forma w de, fr, es, it, pt, pt-BR, vi, ja, ko, zh-Hant, rola 09]`
 
 ## 3. Sekcja „Liczby” dla F2–F4 i draw-call z nadkartami (D-888)
-W przygotowaniu (zadanie 2 sesji DA).
+
+### Zasada
+„Liczby” to rozwijany wiersz pod paskiem ocen, domyślnie zwinięty (D-544). Każda liczba ma w tym samym zdaniu przełożenie na sens (BR-OCE-001, pole `sens`). Wszystkie wartości to parametry liczone w kodzie z wariantu i z `content/numbers.yaml` (rachunek, szczebel 1 ADR-24); w kluczach nie ma wpisanych liczb. Procenty: `formatujProcent` (`packages/jezyki/src/formaty.ts:18`), bez miejsc po przecinku, chyba że niżej podano inaczej; „raz na N”: `Math.max(1, Math.round(1 / p))`, jak w obecnym `zdanieLiczb`.
+
+Sekcja jest pokazywana tylko wtedy, gdy ekran ma dla punktu zdanie z tej tabeli; pusty wiersz „Liczby” się nie pojawia.
+
+| Punkt | Zdania (klucze) | Kiedy |
+|---|---|---|
+| draw-call | `scenario.numbers.line` (bez zmian) + `overcardsFold` albo `overcardsCall` | zdanie o nadkartach tylko przy `nadkarty > 0` |
+| cbet-case | `scenario.numbers.cbet` | zawsze |
+| size-spot `open-size`, `no-limp` | `sizeOpen` dla standardu; drugi raz `sizeOpen` dla twojego wyboru, gdy to inny rozmiar; `limp`, gdy wybrałeś limp | zawsze |
+| size-spot `three-bet-size` | `size3bet` dla standardu i dla twojego wyboru, gdy inny | zawsze |
+| icm-call | `scenario.numbers.icm` | zawsze |
+| range-spot | bez nowych zdań: częstości solvera dochodzą tu według BE („tu trafiają częstości solvera, jeśli punkt je ma”), osobne zadanie przy wdrożeniu range-spot | — |
+
+### Teksty (pl, en)
+**draw-call, nadkarty** (NIS-003, D-846). Wzór: `content/pl/lessons/m2-l2-pot-odds.md:25` („Nawet jeśli doliczysz {{n:pair.outs.per-rank}} asy, które dają parę asów (razem {{n:outs.flush-ace}} outów, …), to wciąż wyraźnie mniej niż {{n:eq.bet-pot}}”): nadkarty dolicza się jako dodatkowe outy i porównuje z ceną. Zdania omijają liczbę mnogą po liczebniku (dopełniacz „z N kart”, „w N% przypadków” się nie odmienia), więc nie potrzebują form `_few`/`_many`.
+
+| Klucz | pl | en |
+|---|---|---|
+| `scenario.numbers.overcardsFold` | `Jeśli doliczysz karty, które dają ci parę wyższą od każdej karty na stole ({{nadkarty}} z {{nieznane}} niewidzianych), trafisz w {{trafiszRazem}} przypadków, czyli wciąż rzadziej, niż wymaga cena ({{potrzeba}}). Taka {{t:pair\|para}} może też przegrać z lepszym układem rywala.` | `If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.` |
+| `scenario.numbers.overcardsCall` | `Karty, które dają ci parę wyższą od każdej karty na stole ({{nadkarty}} z {{nieznane}} niewidzianych), rachunek pomija: taka {{t:pair\|para}} może przegrać z lepszym układem rywala, a same outy drawa wystarczają.` | `The cards that give you a {{t:pair}} higher than every card on the {{t:board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own.` |
+
+Parametry (rachunek, rola 08):
+- `nadkarty`: niewidziane karty tej samej rangi co twoja karta wyższa od najwyższej karty stołu (po 3 na każdą taką kartę; para w ręce się nie liczy), bez kart już policzonych w `outs` (np. as w kolorze drawa).
+- `trafiszRazem = (outs + nadkarty) / nieznane`, jedno miejsce po przecinku (jak `trafisz`); `nieznane`, `potrzeba` jak w `scenario.numbers.line`.
+- Wybór zdania: `correct = fold` → `overcardsFold`, `correct = call` → `overcardsCall`. Test: w każdym wariancie z `correct = fold` i `nadkarty > 0` zachodzi `trafiszRazem < required` (inaczej zdanie byłoby fałszywe; wyrocznia CT z D-846 mówi, że tak jest na 3000 ziaren, test to utrwala).
+- „Para może przegrać z lepszym układem” to ranking układów (szczebel „rules”): jedna para przegrywa z każdym wyższym układem.
+- Ten sam wzór zdania może wziąć rola 06 do wyjaśnień szablonów sc-01/02/03/19 („Masz N outów”), jeśli 08 da znacznik wariantu; to poza tą sesją (D-846: backlog).
+
+**cbet-case.** Wariant nie ma puli (`widokDecyzji`: `pulaBb` null), więc zdanie mówi o rozmiarach w procentach puli i o cenie, jaką rozmiar daje rywalowi (R-M5-007: mały zakład wystarcza, żeby słabe ręce spasowały).
+
+| Klucz | pl | en |
+|---|---|---|
+| `scenario.numbers.cbet` | `Mały {{t:c-bet\|c-bet}} to ok. {{maly}} {{t:pot\|puli}}, a duży ok. {{duzy}}. Rywal, żeby {{t:call\|sprawdzić}}, potrzebuje przy małym {{cenaMaly}} szans, czyli wygrać mniej więcej raz na {{razMaly}}, a przy dużym {{cenaDuzy}}, czyli raz na {{razDuzy}}.` | `A small {{t:c-bet}} is about {{maly}} of the {{t:pot}}, a big one about {{duzy}}. To {{t:call}}, your opponent needs {{cenaMaly}} equity against the small one, that is, to win about once in {{razMaly}}, and {{cenaDuzy}} against the big one, about once in {{razDuzy}}.` |
+
+Parametry: `maly`, `duzy` = `cbet.size.small`, `cbet.size.big` z `numbers.yaml`; cena rywala `f / (1 + 2f)` (sprawdza f do puli 1 + 2f). Dziś wychodzi 20% i raz na 5 oraz 30% i raz na 3 (rachunek kontrolny, nie wartości do wpisania).
+
+**size-spot.** Zdanie pokazuje cenę, jaką rozmiar daje rywalowi (R-M4-001: rozmiar „nie daje rywalowi taniej ceny”; ten sam rachunek co `bb.call.vs-btn` i `bb.pot-after.vs-btn` w `numbers.yaml`).
+
+| Klucz | pl | en |
+|---|---|---|
+| `scenario.numbers.sizeOpen` | `Przy przebiciu do {{bb}} bb {{t:big-blind\|duży blind}} dopłaca {{doplata}} bb do puli {{pula}} bb (gdy reszta spasuje), więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.` | `With a raise to {{bb}} bb, the {{t:big-blind}} adds {{doplata}} bb to a {{t:pot}} of {{pula}} bb (if everyone else folds), so they need {{cena}} equity, that is, to win about once in {{raz}}.` |
+| `scenario.numbers.size3bet` | `Przy 3-becie do {{bb}} bb otwierający dopłaca {{doplata}} bb do puli {{pula}} bb, więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.` | `With a 3-bet to {{bb}} bb, the opener adds {{doplata}} bb to a {{t:pot}} of {{pula}} bb, so they need {{cena}} equity, that is, to win about once in {{raz}}.` |
+| `scenario.numbers.limp` | `Limp kosztuje {{kwota}} bb, a {{t:big-blind\|duży blind}} może zobaczyć flop bez dopłaty.` | `A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.` |
+
+Parametry (R = rozmiar przebicia z `options[].bb`, O = `openBb`, M = martwe blindy `deadBlindsBb(positions)`):
+- otwarcie: `doplata = R − 1`; `pula = 2R + 0,5`, gdy nie jesteś na SB, `2R`, gdy jesteś (twój mały blind jest w R); `cena = doplata / pula`. Rachunek kontrolny Buttona: 2,5 bb → 1,5 bb do 5,5 bb, 27%.
+- 3-bet: `doplata = R − O`; `pula = 2R + M`; `cena = doplata / pula`.
+- limp: `kwota` jak na przycisku (`1 − blindBb(hero)`).
+- Gdy szablon size-spot ma pozycje, przy których rywalem nie jest duży blind (otwarcie), zdanie `sizeOpen` mówi o dużym blindzie jako ostatnim graczu do decyzji; to nazwane uproszczenie („gdy reszta spasuje”).
+
+**icm-call.** Wzór i fakty: R-M11-009 (`math`; bubble factor, próg BF ÷ (BF + 1)) i ćwiczenie `drill.icm.callWrongChips` („przegrana zabiera ci więcej z puli nagród, niż wygrana dodaje”).
+
+| Klucz | pl | en |
+|---|---|---|
+| `scenario.numbers.icm` | `Twoja ręka ma {{equity}} {{t:equity}} wobec {{t:range\|zakresu}} {{t:all-in\|all-inu}} rywala, czyli wygrywa mniej więcej w {{na10}} rozdaniach na 10. Według {{t:icm}} {{t:call\|sprawdzenie}} opłaca się od {{prog}}, a w grze o {{t:chips\|żetony}} wystarczyłoby {{progZetony}}: na {{t:bubble\|bańce}} przegrana zabiera ci więcej z {{t:prize-pool\|puli nagród}}, niż wygrana dodaje.` | `Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm\|ICM}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.` |
+
+Parametry:
+- `equity = handEquity`, `prog = required` z wariantu; `na10 = Math.round(10 × handEquity)`. Rachunek tej sesji (`tools/equity/equity169.json` × zakres all-inu `10bb|` SB z `content/ranges/pushfold.json`, ważony liczbą par kombinacji): equity klas od 30,6% (72o) do 84,6% (AA), więc `na10` = 3–8 i forma „w N rozdaniach” (miejscownik liczby mnogiej, taki sam dla 2–9) się nie zmienia; test pilnuje przedziału 2–9 dla każdego spotu szablonu.
+- Bez miejsc po przecinku: przy `marginMin` ≥ 0,01 zaokrąglone `equity` i `prog` zawsze się różnią (różnica ≥ 1 punkt procentowy przed zaokrągleniem daje różnicę ≥ 1 po zaokrągleniu); test: wyświetlone wartości różne.
+- **`progZetony` z blindem, nie stałe 0,5** (D-890): `(S − b) / (2S)`, gdzie S = `stackBb` (stos efektywny), b = `blindBb(hero)`. Przy BB i 10 bb: 9 / 20 = 45%. Pole wariantu `requiredChips` = 0,5 pomija blindy, a `required` (ICM) liczy stratę blinda przy pasie (`scenario-gen.ts:456-457`; `requiredChips` = `ICM_CHIPS_REQUIRED` z `:278`, wpisane w `:464`; CJ WYS-001); zdanie zestawiające oba progi musi mieć te same założenia.
+
+### Kryteria akceptacji dla 08 („Liczby”)
+1. Dla każdego rodzaju punktu z tabeli „Liczby” zawiera wskazane zdania; dla range-spot wiersza nie ma (do czasu zadania z częstościami).
+2. Żadne zdanie nie zawiera liczby wpisanej w kluczu (test: klucze `scenario.numbers.*` w pl i en nie mają cyfr poza znacznikami `{{…}}`).
+3. Nadkarty: zdanie tylko przy `nadkarty > 0`; dla `correct = fold` `trafiszRazem < required` we wszystkich wariantach testu (na ziarnach jak wyrocznia CT).
+4. ICM: `progZetony` = (S − b) / (2S); `equity` i `prog` po zaokrągleniu różne; `na10` w 2–9.
+5. Liczby w zdaniach zgadzają się z kwotami na przyciskach i pod stołem (ta sama funkcja kwoty, D-886).
