@@ -1,0 +1,8 @@
+# Sonda zapadki ŚR-2 (kopia repo @ faad5b9c w scratchpadzie: git worktree; content/xx = kopia content/de; przeglad_jezyki.xx = kopia .de z poprawionym sha, sha_pl jak w de)
+$ node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz   # bez zmian
+kod wyjścia: 0
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+
+$ node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy   # z 12. językiem xx
+kod wyjścia: 0
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 72 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de

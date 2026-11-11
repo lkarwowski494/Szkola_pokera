@@ -1,0 +1,56 @@
+$ grep -c "}}bb" apps/mobile/src/i18n/locales/<j>.json  (po D-904: play.log.* ma U+00A0, reszta play.* nie)
+pl: 11
+en: 11
+de: 11
+es: 11
+fr: 11
+it: 11
+ja: 14
+ko: 14
+pt-BR: 11
+pt: 11
+vi: 11
+zh-Hant: 11
+kod wyjścia: 0
+
+# klucze pl.json z „}}bb” (ten sam ekran gry co play.log.*)
+play.potLabel "{{t:pot|Pula}}: {{bb}}bb"
+play.call "{{t:call|Sprawdzam}} {{bb}}bb"
+play.bet "{{t:bet|Zakład}} {{bb}}bb"
+play.betFrac "{{t:bet|Zakład}} {{pct}} {{t:pot|puli}} ({{bb}}bb)"
+play.raise "{{t:raise|Przebicie}} do {{bb}}bb"
+play.allin "All-in {{bb}}bb"
+play.handWon "Wygrywasz {{bb}}bb"
+play.handLost "Tracisz {{bb}}bb"
+play.report.result "Wynik w {{t:chips|żetonach}}: {{bb}}bb"
+play.report.detail.size "Rozmiar według reguły: {{expected}}bb, twój: {{actual}}bb."
+play.report.detail.implied "{{t:implied-odds|Implied odds}}: po trafieniu trzeba wygrać jeszcze ok. {{need}}bb, za {{t:pot|pulą}} jest {{have}}bb; {{t:spr|SPR}} {{spr}} (próg {{sprMin}}); {{nuts}}."
+
+$ git diff-tree --cc --name-only ffa9bd7b   # scalenie CY: pliki różne od obu rodziców
+ffa9bd7b73316478c7d5c2eca040807ecae1acdc
+$ git diff --stat 64ca577b ffa9bd7b -- content docs/tresci   # treść i rejestr = stan CY
+kod wyjścia: 0 (puste = brak różnic)
+
+# formy c-bet w treści (rodzaj)
+== de
+     60 eine C-Bet
+     36 kleine C-Bet
+     23 die C-Bet
+     13 der C-Bet
+     12 große C-Bet
+     11 einen C-Bet
+== it
+     17 c-bet piccolo
+     11 c-bet grande
+     10 c-bet piccola
+== ja
+     20 小さいCベット
+     17 小さなCベット
+      9 大きいCベット
+      7 大きなCベット
+== ko
+     41 작은 C벳
+     18 큰 C벳
+== zh-Hant
+     10 小額持續下注
+      2 大額持續下注
