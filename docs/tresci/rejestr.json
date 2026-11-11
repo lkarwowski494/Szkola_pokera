@@ -19192,70 +19192,81 @@
   "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD. | E3 2026-11-04 (A8, S3): zastrzeżenie „przybliżenie przy stałym winrate i SD” także w karcie reguły. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha 9734bf632f3c → 081d35e3337f",
   "przeglad_jezyki": {
    "en": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-09",
-    "sha": "771d1beedb90",
-    "kontrola": "a"
+    "sha": "b0879fe8cff0",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "fr": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "dce6c4651c8e",
-    "kontrola": "a"
+    "sha": "c9967f916528",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "ja": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "d5be16fe8578",
-    "kontrola": "a"
+    "sha": "24d2efa67e8c",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "pt-BR": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "57debff15542",
-    "kontrola": "a"
+    "sha": "1b2a67a2ab73",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "zh-Hant": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "742290a34c1d",
-    "kontrola": "a"
+    "sha": "6113f9aee7a6",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "de": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "a33dc96ad723",
-    "kontrola": "a"
+    "sha": "a5b9b4e70813",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "es": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "22a2b57c8625",
-    "kontrola": "a"
+    "sha": "afd4bc8f536d",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "ko": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "53e9194fd57f",
-    "kontrola": "a"
+    "sha": "238db1670986",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "it": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "e18321286a9f",
-    "kontrola": "a"
+    "sha": "62aa30a34d00",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "vi": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "551c9010bfaa",
-    "kontrola": "a"
+    "sha": "b0bef4a1185d",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    },
    "pt": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "2dc116558463",
-    "kontrola": "a"
+    "sha": "6e07659ee5e4",
+    "kontrola": "a",
+    "sha_pl": "081d35e3337f"
    }
   },
   "partia": [
@@ -19385,70 +19396,81 @@
   "decyzja": "D-146",
   "przeglad_jezyki": {
    "en": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-09",
-    "sha": "624c4b56df65",
-    "kontrola": "a"
+    "sha": "71c5d8dd4813",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "fr": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "a7c9af70ae82",
-    "kontrola": "a"
+    "sha": "cc7ddd3f583e",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "ja": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "bbe33949a082",
-    "kontrola": "a"
+    "sha": "20b4b9b99ddc",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "pt-BR": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "529fa6182d7c",
-    "kontrola": "a"
+    "sha": "bd092508d80a",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "zh-Hant": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "8726639aacf0",
-    "kontrola": "a"
+    "sha": "00b620a0fed7",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "de": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "b7a6e51fbc02",
-    "kontrola": "a"
+    "sha": "f16e364605e1",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "es": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "5d5402059b55",
-    "kontrola": "a"
+    "sha": "93ebba58dfda",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "ko": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "7f39454543c8",
-    "kontrola": "a"
+    "sha": "d3e46daae662",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "it": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "7bd20046e17d",
-    "kontrola": "a"
+    "sha": "c8d3c1b56aa1",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "vi": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "f740f2dc832d",
-    "kontrola": "a"
+    "sha": "26e7cbb257af",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    },
    "pt": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "18864b179a73",
-    "kontrola": "a"
+    "sha": "4609f73b0f06",
+    "kontrola": "a",
+    "sha_pl": "19c1b4f5e103"
    }
   },
   "partia": [
@@ -19822,70 +19844,81 @@
   "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny | E3 2026-11-04 (D-159): w treści jako przykład założonej liczby wpisowych, bez zalecenia „minimum”. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha ce6b770c611b → a71835be76ac",
   "przeglad_jezyki": {
    "en": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-09",
-    "sha": "06937b50e952",
-    "kontrola": "a"
+    "sha": "5cab86916703",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "fr": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "884166680d12",
-    "kontrola": "a"
+    "sha": "775c4b893dd4",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "ja": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "c1521f8237bb",
-    "kontrola": "a"
+    "sha": "69c4c07f475c",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "pt-BR": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "5d29632512ec",
-    "kontrola": "a"
+    "sha": "fa5077c482d8",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "zh-Hant": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "af4a27b199e5",
-    "kontrola": "a"
+    "sha": "9962b12103a5",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "de": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "862cee18151d",
-    "kontrola": "a"
+    "sha": "195868e5ec97",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "es": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "429e823e5237",
-    "kontrola": "a"
+    "sha": "52d8465643ce",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "ko": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "4c570376f10d",
-    "kontrola": "a"
+    "sha": "f120e3d7de66",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "it": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "f71775dfab17",
-    "kontrola": "a"
+    "sha": "ee94b749af45",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "vi": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "1d8cc902e671",
-    "kontrola": "a"
+    "sha": "5a93cc0ce70c",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    },
    "pt": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "479835e63038",
-    "kontrola": "a"
+    "sha": "fd802f2143f2",
+    "kontrola": "a",
+    "sha_pl": "a71835be76ac"
    }
   },
   "partia": [
@@ -19936,70 +19969,81 @@
   "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source. | E3 2026-11-04 (D-159): w treści tylko jako przykład liczby wpisowych (tabela RoR, egzamin m12 q9), bez zalecenia dla początkujących. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha d6dcbdd1599f → 90bfff53762f",
   "przeglad_jezyki": {
    "en": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-09",
-    "sha": "6ce31d901828",
-    "kontrola": "a"
+    "sha": "bfa88128ec6d",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "fr": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "e8a2c5dec7d8",
-    "kontrola": "a"
+    "sha": "e3d80b0c1dfc",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "ja": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "fb1e691c7552",
-    "kontrola": "a"
+    "sha": "79924a55dc83",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "pt-BR": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "36d85f231b16",
-    "kontrola": "a"
+    "sha": "6870beb361ad",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "zh-Hant": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "07766661bceb",
-    "kontrola": "a"
+    "sha": "0654a24720c1",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "de": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "e552f8b37cd9",
-    "kontrola": "a"
+    "sha": "9ab3c7fb2d4c",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "es": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "760e158fed25",
-    "kontrola": "a"
+    "sha": "0ae1dfb89457",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "ko": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "af38e59b1490",
-    "kontrola": "a"
+    "sha": "e5e4be0dc74a",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "it": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "a3f4de75b6e2",
-    "kontrola": "a"
+    "sha": "3abdd52d05b0",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "vi": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "d0ac0df4a27a",
-    "kontrola": "a"
+    "sha": "2b0f932a1f9c",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    },
    "pt": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "01ea7e2814a1",
-    "kontrola": "a"
+    "sha": "0466c5445bf2",
+    "kontrola": "a",
+    "sha_pl": "90bfff53762f"
    }
   },
   "partia": [
@@ -20324,70 +20368,81 @@
   "uwagi": "Stała wzoru (ruch Browna z dryfem); atrybucja „Malmuth” nieodczytana. | BX 2026-11-10: przegląd zastępczy D-027 po przeróbce m12.exam.q1/q2/q3/q8 (D-675), 0 rozbieżności po poprawce q8; dowód docs/tresci/dowody/bx-przeglad-zastepczy.md; sha 7628777cfadc → 27580214ffed",
   "przeglad_jezyki": {
    "en": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-09",
-    "sha": "1e61af2a123f",
-    "kontrola": "a"
+    "sha": "ff825cccde9d",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "fr": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "1cfe58db2055",
-    "kontrola": "a"
+    "sha": "ddda39f1246e",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "ja": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "09a1bf1960dd",
-    "kontrola": "a"
+    "sha": "35d88e64f2ad",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "pt-BR": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "903548bdef06",
-    "kontrola": "a"
+    "sha": "ff7fceb686cd",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "zh-Hant": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "c5ce04b751cd",
-    "kontrola": "a"
+    "sha": "232f78b8beba",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "de": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "ea9a810c0bf6",
-    "kontrola": "a"
+    "sha": "4337a19ef66e",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "es": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "c95359508d00",
-    "kontrola": "a"
+    "sha": "24b797d718c8",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "ko": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "5a2f2ea22ae0",
-    "kontrola": "a"
+    "sha": "5f3142cf735b",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "it": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "a455da9d89a0",
-    "kontrola": "a"
+    "sha": "5b735947fca1",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "vi": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "44de75e2fd73",
-    "kontrola": "a"
+    "sha": "30ceb71f670b",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    },
    "pt": {
-    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT)",
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesje AO/AS; zmiany po nałożeniu i ujednoliceniu D-406 ponownie w sesji AT) | CY 2026-11-11: 4 wyjaśnienia m12 q1/q2/q3/q8 przetłumaczone na nowo (sens przed rachunkiem, D-876); przekład zwrotny w świeżym kontekście 2 subagentów bez dostępu do pl, porównanie sensu z pl: zgodne; dowód docs/lokalizacja/dowody/cy-m12/",
     "data": "2026-11-10",
-    "sha": "7b6ec91206f1",
-    "kontrola": "a"
+    "sha": "5c6a1e76b513",
+    "kontrola": "a",
+    "sha_pl": "27580214ffed"
    }
   },
   "partia": [

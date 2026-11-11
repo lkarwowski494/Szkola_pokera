@@ -103,12 +103,14 @@ const jednostki = (w, z) => {
 };
 const krytyczne = rejestr.filter((x) => x.krytyczne && x.status === 'potwierdzone');
 const skroty = [];
+const skrotPl = new Map();
 const zPl = zrodlaJezyka('pl');
 for (const w of krytyczne) {
   const j = jednostki(w, zPl);
   if (!j.length) bledy.push(`rejestr ${w.id}: twierdzenie krytyczne bez znanego miejsca użycia (dopisz uzyte_w)`);
   const s = skrot(j);
   skroty.push(`SKRÓT ${w.id} ${s} (${j.length} jedn.)`);
+  skrotPl.set(w.id, s);
   if (w.przeglad?.sha && w.przeglad.sha !== s) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: przegląd dotyczy innej wersji zdań (${w.przeglad.sha}, teraz ${s})`);
 }
 // Rola 09, K2d (D-135, D-027): treść krytyczna w języku innym niż polski trafia do bazy tylko po kontroli (a) — przekład
@@ -117,6 +119,7 @@ for (const w of krytyczne) {
 // dla innej wersji zdań = błąd (CI czerwone), więc przekład nie wejdzie bez kontroli. Dlaczego: przekład twierdzenia to
 // nowe twierdzenie (rola 09, zasada 3).
 const JEZYKI_TRESCI = existsSync('content') ? readdirSync('content').filter((d) => d !== 'pl' && /^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/.test(d) && statSync(`content/${d}`).isDirectory()).sort() : [];
+const bezSkrotuPl = [];
 for (const jz of JEZYKI_TRESCI) {
   const z = zrodlaJezyka(jz);
   for (const w of krytyczne) {
@@ -125,8 +128,15 @@ for (const jz of JEZYKI_TRESCI) {
     const pj = w.przeglad_jezyki?.[jz];
     if (!pj?.sha) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: treść krytyczna w ${jz} bez kontroli (a) (przeglad_jezyki.${jz}, skrót ${s})`);
     else if (pj.sha !== s) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: kontrola (a) w ${jz} dotyczy innej wersji zdań (${pj.sha}, teraz ${s})`);
+    // 06-tresci-001 (opcja b): przekład powstał z określonej wersji pl (sha_pl); zmiana pl bez przekładu = błąd (uwaga przed przeglądem).
+    // Wpis bez sha_pl: uwaga zbiorcza (wprowadzanie partiami; po uzupełnieniu wszystkich partii brak sha_pl stanie się błędem).
+    if (pj?.sha) {
+      if (!pj.sha_pl) bezSkrotuPl.push(`${w.id}/${jz}`);
+      else if (pj.sha_pl !== skrotPl.get(w.id)) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: przekład w ${jz} powstał z innej wersji pl (${pj.sha_pl}, teraz ${skrotPl.get(w.id)}): przetłumacz zmiany i zapisz nowy sha_pl`);
+    }
   }
 }
+if (bezSkrotuPl.length) uwagi.push(`przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): ${bezSkrotuPl.length} wpisów, np. ${bezSkrotuPl.slice(0, 3).join(', ')}`);
 if (argv.includes('--skroty')) for (const s of skroty) console.log(s);
 const ile = (f) => rejestr.reduce((m, w) => ((m[f(w)] = (m[f(w)] ?? 0) + 1), m), {});
 const jedno = rejestr.filter((w) => w.status === 'potwierdzone' && (w.zrodla ?? []).length === 1 && w.zrodla[0].szczebel >= 3);

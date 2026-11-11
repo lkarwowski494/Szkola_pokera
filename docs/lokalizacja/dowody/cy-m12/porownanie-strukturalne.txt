@@ -1,0 +1,74 @@
+== en
+content/en/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/en/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/en/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/en/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== de
+content/de/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/de/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/de/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/de/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== es
+content/es/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/es/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/es/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/es/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== fr
+content/fr/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/fr/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/fr/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/fr/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== it
+content/it/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/it/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/it/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/it/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== ja
+content/ja/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+content/ja/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+content/ja/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+content/ja/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+BŁĄD m12.exam.q1:0 (l.9): pierwsze zdanie why to rachunek, nie sens: „期待される結果は平均にすぎません。実際の結果は平均から大きく離れることがあり、勝っているプレイヤーでもマイナスで終わることがあります。計算：”
+BŁĄD m12.exam.q2:0 (l.18): pierwsze zdanie why to rachunek, nie sens: „{{n:exam.m12.hands.k}}千ハンドはウィンレートの推定には小さなサンプルです。それでは勝っているかどうかさえ分かりません。”
+BŁĄD m12.exam.q3:0 (l.27): pierwsze zdanie why to rachunek, nie sens: „{{t:standard-deviation|標準偏差}}が高いほど、はるかに大きなサンプルが必要です。{{t:standard-devia”
+BŁĄD m12.exam.q8:0 (l.73): pierwsze zdanie why to rachunek, nie sens: „ウィンレートがプラスでも{{t:variance|分散}}からは守られません。バンクロールを失うリスクはバンクロールに応じて指数的に下がりま”
+niezgodności: 4
+== ko
+content/ko/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/ko/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/ko/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/ko/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== pt-BR
+content/pt-BR/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pt-BR/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pt-BR/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pt-BR/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== pt
+content/pt/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pt/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pt/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/pt/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== vi
+content/vi/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/vi/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/vi/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+content/vi/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie SENS, why ZMIENIONE
+niezgodności: 0
+== zh-Hant
+content/zh-Hant/exams/m12.yaml:9 m12.exam.q1:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+content/zh-Hant/exams/m12.yaml:18 m12.exam.q2:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+content/zh-Hant/exams/m12.yaml:27 m12.exam.q3:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+content/zh-Hant/exams/m12.yaml:73 m12.exam.q8:0 klucze ZGODNE, poprawna ZGODNA, pierwsze zdanie RACHUNEK, why ZMIENIONE
+BŁĄD m12.exam.q1:0 (l.9): pierwsze zdanie why to rachunek, nie sens: „期望結果只是平均值：實際結果可能離它很遠，贏家甚至可能以虧損收場。計算：你的期望是 {{n:var.wr.typical.high}} × ”
+BŁĄD m12.exam.q2:0 (l.18): pierwsze zdanie why to rachunek, nie sens: „{{n:exam.m12.hands.k}} 千手牌對贏率來說是很小的樣本：打完之後，你甚至不知道自己是不是贏家。計算：贏率的誤差是 SD ”
+BŁĄD m12.exam.q3:0 (l.27): pierwsze zdanie why to rachunek, nie sens: „{{t:standard-deviation|標準差}}越高，需要的樣本就大得多：{{t:standard-deviation|標準差}}在”
+BŁĄD m12.exam.q8:0 (l.73): pierwsze zdanie why to rachunek, nie sens: „正的贏率無法讓你免受{{t:variance|變異數}}影響：損失全部資金的風險會隨資金增加而呈指數下降，但在贏率偏低、資金像這裡一樣的情況”
+niezgodności: 4
