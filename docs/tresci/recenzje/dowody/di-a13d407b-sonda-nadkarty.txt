@@ -1,0 +1,76 @@
+# Sonda DI (reaudit 06-tresci-001) @ a13d407b: wyrocznia z kart pisana od zera, 2000 ziaren na poziom, sc-01/02/03/19 pl
+# nowe = niewidoczne karty rangi wyższej od stołu, które nie domykają strita ani koloru; outy drawa z kart vs liczba {{n:outs.*}} w zdaniu
+sc-01: punkty ze zdaniem 12000, z nadkartą 2220, pary kieszonkowe 0
+  nadkarty: flop nowe=2:278  flop nowe=3:1069  turn nowe=2:237  turn nowe=3:936
+  outy drawa (liczba w zdaniu vs z kart): flop outs.flush=9 real=9:6000  turn -=- real=9:6000
+  przykład latwy/2/p1 49,10 | 34,6,26 r12 nowe=2
+  przykład latwy/2/p2 49,10 | 34,6,26,41 r12 nowe=2
+  przykład latwy/4/p1 27,50 | 15,31,39 r12 nowe=2
+sc-02: punkty ze zdaniem 8000, z nadkartą 390, pary kieszonkowe 0
+  nadkarty: flop nowe=3:454
+  outy drawa (liczba w zdaniu vs z kart): flop outs.oesd=8 real=8:4000  turn -=- real=8:4000
+sc-03: punkty ze zdaniem 4000, z nadkartą 657, pary kieszonkowe 0
+  nadkarty: turn nowe=3:762
+  outy drawa (liczba w zdaniu vs z kart): turn outs.gutshot=4 real=4:4000
+sc-19: punkty ze zdaniem 8000, z nadkartą 576, pary kieszonkowe 0
+  nadkarty: flop nowe=2:81  flop nowe=3:326  turn nowe=2:46  turn nowe=3:158
+  outy drawa (liczba w zdaniu vs z kart): flop -=- real=9:4000  turn -=- real=9:4000
+  przykład latwy/1/p1 36,25 | 33,1,5 r9 nowe=2
+  przykład latwy/10/p1 17,39 | 29,21,1 r9 nowe=2
+  przykład latwy/38/p1 42,36 | 2,18,6 r9 nowe=2
+
+# Kod sondy:
+// Sonda DI (reaudit 06-tresci-001): wyrocznia niezależna od testu autora, pisana od zera.
+import { join, resolve } from 'node:path';
+import { writeFileSync } from 'node:fs';
+import { it } from 'vitest';
+import { FULL_DECK, generateVariant, rankOf, suitOf, type Card, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { loadScenarioTemplates } from '../src/scenariusze';
+import { number } from './kit';
+
+const root = resolve(import.meta.dirname, '../../..');
+const pl = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template);
+const ZD = '{{n:pair.outs.per-rank}}';
+// Ręka pięciokartowa najlepsza z 7: wystarczy sprawdzić strit i kolor (para/set nie zmienia „outu drawa”).
+function maStrita(k: readonly Card[]) {
+  const r = new Set<number>(); for (const c of k) { const x = rankOf(c) + 2; r.add(x); if (x === 14) r.add(1); }
+  for (let lo = 1; lo <= 10; lo++) { let ok = true; for (let j = 0; j < 5; j++) if (!r.has(lo + j)) ok = false; if (ok) return true; }
+  return false;
+}
+function maKolor(k: readonly Card[]) { const n = [0, 0, 0, 0]; for (const c of k) n[suitOf(c)]++; return n.some((x) => x >= 5); }
+it('sonda', () => {
+  const out: string[] = [];
+  for (const id of ['sc-01', 'sc-02', 'sc-03', 'sc-19']) {
+    const t = pl.find((x) => x.id === id)!;
+    const gen = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+    const rozklad = new Map<string, number>(); const outyDrawa = new Map<string, number>(); let pary = 0, punkty = 0, zNadkarta = 0; const przyklady: string[] = [];
+    for (const level of t.levels as ScenarioLevel[]) for (let seed = 1; seed <= 2000; seed++) {
+      const v = generateVariant(gen, level, seed);
+      v.decisions.forEach((d, i) => {
+        const ex = ((t.decisions[i] as any).actions ?? []).map((a: any) => a.explanation as string);
+        if (!ex.some((e: string) => e.includes(ZD))) return;
+        punkty++;
+        const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
+        const widoczne = new Set<Card>([...v.hero, ...stol]);
+        const reszta = FULL_DECK.filter((c) => !widoczne.has(c));
+        const outy = reszta.filter((c) => maStrita([...v.hero, ...stol, c]) || maKolor([...v.hero, ...stol, c]));
+        const odNum = ex.map((e: string) => e.match(/\{\{n:(outs\.[a-z]+)\}\}/)?.[1]).find(Boolean);
+        const kl = `${d.street} ${odNum ?? '-'}=${odNum ? number(odNum) : '-'} real=${outy.length}`; outyDrawa.set(kl, (outyDrawa.get(kl) ?? 0) + 1);
+        if (v.hero[0] !== undefined && rankOf(v.hero[0]) === rankOf(v.hero[1])) pary++;
+        const top = Math.max(...stol.map(rankOf));
+        const rangi = [...new Set(v.hero.map(rankOf).filter((r) => r > top))];
+        if (rangi.length) zNadkarta++;
+        for (const r of rangi) {
+          const nowe = reszta.filter((c) => rankOf(c) === r && !outy.includes(c)).length;
+          const k = `${d.street} nowe=${nowe}`; rozklad.set(k, (rozklad.get(k) ?? 0) + 1);
+          if (nowe !== 3 && przyklady.length < 3) przyklady.push(`${level}/${seed}/p${i + 1} ${v.hero.join(',')} | ${stol.join(',')} r${r} nowe=${nowe}`);
+        }
+      });
+    }
+    out.push(`${id}: punkty ze zdaniem ${punkty}, z nadkartą ${zNadkarta}, pary kieszonkowe ${pary}`);
+    out.push(`  nadkarty: ${[...rozklad].sort().map(([k, n]) => `${k}:${n}`).join('  ')}`);
+    out.push(`  outy drawa (liczba w zdaniu vs z kart): ${[...outyDrawa].sort().map(([k, n]) => `${k}:${n}`).join('  ')}`);
+    for (const p of przyklady) out.push(`  przykład ${p}`);
+  }
+  writeFileSync(process.env.SONDA_OUT!, out.join('\n') + '\n');
+}, 600_000);

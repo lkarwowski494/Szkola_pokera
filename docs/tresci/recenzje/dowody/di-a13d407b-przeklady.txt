@@ -1,0 +1,89 @@
+# Zdanie NIS-003 w przekładach @ a13d407b (YAML) i w bazach treści (node:sqlite, wiersze tabeli scenarios z sentencją)
+en/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+en/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+en/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+en/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+de/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+de/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+de/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+de/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+es/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+es/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+es/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+es/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+fr/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+fr/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+fr/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+fr/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+it/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+it/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+it/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+it/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ja/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ja/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ja/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ja/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ko/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ko/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ko/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+ko/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt-BR/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt-BR/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt-BR/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+pt-BR/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+vi/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+vi/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+vi/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+vi/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+zh-Hant/sc-01: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+zh-Hant/sc-02: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+zh-Hant/sc-03: 2 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+zh-Hant/sc-19: 4 wystąpień {{n:pair.outs.per-rank}}, z górną granicą PL 'najwyżej': 0
+
+en sc-01 zdanie:  Each of your cards higher than the board adds {{n:pair.outs.per-rank}} uncertain outs to a {{t:pair}}, but here that doesn't change the answer
+de sc-01 zdanie:  Jede deiner Karten, die höher als das Board ist, bringt noch {{n:pair.outs.per-rank}} unsichere Outs auf ein {{t:pair|Paar}}, aber hier ändert das die Antwort nicht
+fr sc-01 zdanie:  Chacune de vos cartes plus hautes que le board ajoute encore {{n:pair.outs.per-rank}} outs incertains pour une {{t:pair|paire}}, mais ici cela ne change pas la réponse
+
+# Bazy: wiersze tabeli scenarios (liczba już wstawiona): 'najwyżej 3 niepewne' (pl) / zdanie bez górnej granicy w języku bazy
+tresc-1ae37243de-bg.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-cs.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-da.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-de.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-el.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-en.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-es-419.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-es.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-et.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-fi.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-fr.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-hr.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-hu.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-id.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-it.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-ja.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-ko.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-lt.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-lv.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-ms.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-nb.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-nl.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-pl.db z górną granicą (pl): 4 bez górnej granicy: 0
+tresc-1ae37243de-pt-BR.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-pt.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-ro.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-ru.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-sk.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-sl.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-sr.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-sv.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-tr.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-uk.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-vi.db z górną granicą (pl): 0 bez górnej granicy: 4
+tresc-1ae37243de-zh-Hant.db z górną granicą (pl): 0 bez górnej granicy: 4
+
+# Test odtwarzający czyta tylko pl:
+18:const pl = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template);

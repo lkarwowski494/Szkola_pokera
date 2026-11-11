@@ -1,0 +1,56 @@
+# Diff 431cb885..a13d407b: treść słowami i bazy treści wierszami
+apps/mobile/src/data/content/tresc.generated.ts
+content/pl/scenarios/sc-01.yaml
+content/pl/scenarios/sc-02.yaml
+content/pl/scenarios/sc-03.yaml
+content/pl/scenarios/sc-19.yaml
+docs/decyzje/DG.md
+docs/tresci/dowody/dg-001-ci.txt
+docs/tresci/dowody/dg-001-test-czerwony.txt
+docs/tresci/dowody/dg-001-test-zielony.txt
+docs/tresci/dowody/dg-003-ci.txt
+docs/tresci/dowody/dg-003-po.txt
+docs/tresci/dowody/dg-003-przed.txt
+docs/tresci/rejestr.json
+docs/tresci/rejestr/m0-m4.json
+docs/tresci/rejestr/m5-m8.json
+tools/content-build/test/recenzja-cw-odtworzenie.test.ts
+
+     14 +najwyżej
+
+linie tresc.generated.ts poza zmianą hasha baz: 0
+bg: meta -1 +1
+cs: meta -1 +1
+da: meta -1 +1
+de: meta -1 +1
+el: meta -1 +1
+en: meta -1 +1
+es-419: meta -1 +1
+es: meta -1 +1
+et: meta -1 +1
+fi: meta -1 +1
+fr: meta -1 +1
+hr: meta -1 +1
+hu: meta -1 +1
+id: meta -1 +1
+it: meta -1 +1
+ja: meta -1 +1
+ko: meta -1 +1
+lt: meta -1 +1
+lv: meta -1 +1
+ms: meta -1 +1
+nb: meta -1 +1
+nl: meta -1 +1
+pl: meta -2 +2, scenarios -4 +4
+pt-BR: meta -1 +1
+pt: meta -1 +1
+ro: meta -1 +1
+ru: meta -1 +1
+sk: meta -1 +1
+sl: meta -1 +1
+sr: meta -1 +1
+sv: meta -1 +1
+tr: meta -1 +1
+uk: meta -1 +1
+vi: meta -1 +1
+zh-Hant: meta -1 +1
