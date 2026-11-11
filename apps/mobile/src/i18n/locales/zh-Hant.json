@@ -1050,6 +1050,21 @@
       "showdownYou": "河牌是 {{river}}。對手亮出 {{karty}}：你的牌型較高。",
       "showdownVillain": "河牌是 {{river}}。對手亮出 {{karty}}：對手的牌型較高。",
       "showdownTie": "河牌是 {{river}}。對手亮出 {{karty}}：牌型相同。"
+    },
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "limp",
+      "raise": "{{t:raise}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "small {{t:c-bet}}",
+      "betBig": "big {{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "to {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }

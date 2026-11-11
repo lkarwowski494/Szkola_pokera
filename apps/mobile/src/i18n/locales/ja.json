@@ -1050,6 +1050,21 @@
       "showdownYou": "リバーは{{river}}。相手は{{karty}}を見せました。あなたの役のほうが上です。",
       "showdownVillain": "リバーは{{river}}。相手は{{karty}}を見せました。相手の役のほうが上です。",
       "showdownTie": "リバーは{{river}}。相手は{{karty}}を見せました。役は同じです。"
+    },
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "limp",
+      "raise": "{{t:raise}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "small {{t:c-bet}}",
+      "betBig": "big {{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "to {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }

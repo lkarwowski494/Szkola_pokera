@@ -717,5 +717,22 @@
   "today.limitReached": "Stopka pod kafelkami po wyczerpaniu limitu (BR-LIM-001; nazwa „dzienny limit”, D-111). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
   "today.afterFirstLesson": "Stan kafelka Powtórki u nowego użytkownika: co go odblokuje. Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
   "today.afterFirstLessonM2": "Stan kafelka Scenariusze do czasu pierwszej lekcji modułu 2 (BR-MENU-001). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
-  "today.courseDoneTitle": "Tytuł kafelka na suknie, gdy wszystkie lekcje są ukończone (nad today.courseDone). Użyty w: features/dzis/BlokLekcji.tsx. [BI, 2026-11-10]"
+  "today.courseDoneTitle": "Tytuł kafelka na suknie, gdy wszystkie lekcje są ukończone (nad today.courseDone). Użyty w: features/dzis/BlokLekcji.tsx. [BI, 2026-11-10]",
+  "scenario": {
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "limp",
+      "raise": "{{t:raise}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "small {{t:c-bet}}",
+      "betBig": "big {{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "to {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
+    }
+  }
 }

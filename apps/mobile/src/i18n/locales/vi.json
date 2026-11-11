@@ -1050,6 +1050,21 @@
       "showdownYou": "River là {{river}}. Đối thủ lật {{karty}}: bài của bạn cao hơn.",
       "showdownVillain": "River là {{river}}. Đối thủ lật {{karty}}: bài của đối thủ cao hơn.",
       "showdownTie": "River là {{river}}. Đối thủ lật {{karty}}: hai bài ngang nhau."
+    },
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "limp",
+      "raise": "{{t:raise}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "small {{t:c-bet}}",
+      "betBig": "big {{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "to {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }

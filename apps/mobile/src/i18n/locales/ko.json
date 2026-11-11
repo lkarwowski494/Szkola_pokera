@@ -1050,6 +1050,21 @@
       "showdownYou": "리버는 {{river}}. 상대가 {{karty}}을(를) 보여 줍니다. 당신의 핸드가 더 높습니다.",
       "showdownVillain": "리버는 {{river}}. 상대가 {{karty}}을(를) 보여 줍니다. 상대의 핸드가 더 높습니다.",
       "showdownTie": "리버는 {{river}}. 상대가 {{karty}}을(를) 보여 줍니다. 두 핸드가 같습니다."
+    },
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "limp",
+      "raise": "{{t:raise}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "small {{t:c-bet}}",
+      "betBig": "big {{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "to {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }

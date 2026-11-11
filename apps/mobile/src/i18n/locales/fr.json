@@ -1086,6 +1086,21 @@
       "showdownYou": "Le river est {{river}}. L’adversaire montre {{karty}} : ta main est plus forte.",
       "showdownVillain": "Le river est {{river}}. L’adversaire montre {{karty}} : sa main est plus forte.",
       "showdownTie": "Le river est {{river}}. L’adversaire montre {{karty}} : les mains sont égales."
+    },
+    "action": {
+      "fold": "{{t:fold}}",
+      "check": "{{t:check}}",
+      "call": "{{t:call}}",
+      "limp": "limp",
+      "raise": "{{t:raise}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "small {{t:c-bet}}",
+      "betBig": "big {{t:c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "to {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }
