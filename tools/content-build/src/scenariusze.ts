@@ -109,6 +109,14 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const bezWyjasnienia = labels.filter((l) => !d.actions.some((a) => a.action === l));
         if (bezWyjasnienia.length) e.push(`${p} ekran pokazuje wszystkie akcje spotu ${d.spot}, a brak wyjaśnienia akcji: ${bezWyjasnienia.join(', ')} (BR-OCE-002)`);
       }
+    } else if (d.kind === 'defend') {
+      if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const f of d.fractions) if (f > 0.4 && f < 0.7) e.push(`${p} ułamek c-betu ${f} leży między małym (≤ 0,4) a dużym (≥ 0,7): źródło (R-M6-006/007) nie rozstrzyga, wariant byłby zawsze odrzucony`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu defend to call albo fold, jest ${ex}`);
+      }
     } else if (d.kind === 'river-catch') {
       if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
       for (const l of SCENARIO_LEVELS_LIST) {

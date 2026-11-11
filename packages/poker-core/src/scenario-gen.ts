@@ -77,7 +77,18 @@ export interface RiverCatchSpec {
   fractions: readonly number[];
   bluffShares: readonly number[];
 }
-export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec;
+/**
+ * 08-N2 (R-M6-006 mały, R-M6-007 duży): obrona wobec c-betu na flopie. Gracz (BB) sprawdził otwarcie; ręka pochodzi z jego zakresu obrony (spot `spot`,
+ * akcje inne niż pas, jak zakres otwarcia w cbet-case), rywal stawia ułamek puli z `fractions`; poprawna akcja z `defendVsCbet` (null = wariant odrzucany).
+ */
+export interface DefendSpec {
+  kind: 'defend';
+  street: 'flop';
+  spot: string;
+  pots: readonly number[];
+  fractions: readonly number[];
+}
+export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -291,6 +302,15 @@ export interface RiverCatchVariantDecision {
   correct: 'call' | 'fold';
   margin: number;
 }
+export interface DefendVariantDecision {
+  point: 'defend';
+  street: 'flop';
+  pot: number;
+  bet: number;
+  fraction: number;
+  holding: HoldingClass;
+  correct: 'call' | 'fold';
+}
 export interface ListHandVariantDecision {
   point: 'list-hand';
   street: 'preflop';
@@ -299,7 +319,7 @@ export interface ListHandVariantDecision {
   correct: string;
   acceptable: string[];
 }
-export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision;
+export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -398,10 +418,11 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
   }
+  if (all.some((x) => x.kind === 'defend') && all.length !== 1) throw new TemplateError(`${t.id}: punkt defend jest jedynym punktem szablonu`);
   if (d.length > 0) {
     // decyzje draw-call: flop, turn (decyzja od turnu) albo flop i turn
     const ok = (d.length === 1 && (d[0]!.street === 'flop' || d[0]!.street === 'turn')) || (d.length === 2 && d[0]!.street === 'flop' && d[1]!.street === 'turn');
@@ -463,6 +484,20 @@ function policzMargines(spot: RangeSpotData, expected: string, hc: string, m: Eq
   return best;
 }
 
+/** Ręka z zakresu spotu: klasa losowana z wagą (suma częstości akcji innych niż pas) × liczba kombinacji, potem kombinacja (CS, CQ 06-tresci-004; wspólne dla cbet-case i defend). */
+function handFromRange(templateId: string, ctx: GeneratorContext, spotId: string, rng: () => number, opis: string): [Card, Card] {
+  const spot = ctx.spots.find((x) => x.id === spotId);
+  if (!spot) throw new TemplateError(`${templateId}: brak spotu ${spotId} (${opis})`);
+  const wagi = HAND_CLASSES.map((hc, h) => spot.actions.filter((a) => a.label !== 'fold').reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0) * classCombos(hc).length);
+  const suma = wagi.reduce((a, b) => a + b, 0);
+  if (!(suma > 0)) throw new TemplateError(`${templateId}: zakres ${spotId} jest pusty`);
+  let los = rng() * suma;
+  let h = wagi.findIndex((w) => { los -= w; return los < 0; });
+  if (h < 0) h = wagi.map((w) => w > 0).lastIndexOf(true); // błąd zaokrąglenia na końcu zakresu
+  const combo = pick(rng, classCombos(HAND_CLASSES[h]!));
+  return [combo[0], combo[1]];
+}
+
 /** F1: klasy rąk, w których akcja oczekiwana ma częstość z przedziału poziomu i werdykt „zgodna” (ADR-26); klasy niepewne pominięte. */
 export function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext, equityMarginMin?: number): { hc: string; h: number }[] {
   if (equityMarginMin !== undefined && !ctx.equity169) throw new TemplateError('equityMarginMin wymaga macierzy equity w kontekście generatora (GeneratorContext.equity169)');
@@ -522,23 +557,20 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const w = listHandVerdicts(hc, first.entries)!;
     preflop = null;
     listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, acceptable: w.acceptable };
+  } else if (first.kind === 'defend') {
+    // 08-N2: ręka z zakresu obrony spotu (jak zakres otwarcia w cbet-case); flop dolosowany do tekstury poziomu
+    if (!ctx) throw new TemplateError(`${t.id}: punkt defend wymaga danych zakresów (GeneratorContext)`);
+    hero = handFromRange(t.id, ctx, first.spot, rng, 'zakres obrony gracza');
+    rest = dealCards(rng, 7, hero);
+    for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
   } else if (first.kind === 'cbet-case') {
     // CS (CQ 06-tresci-004): „otworzyłeś z <pozycja>” — ręka gracza pochodzi z zakresu otwarcia tej pozycji (spot rfi.<pozycja> z danych treści, ta sama
     // definicja co zakresy w aplikacji), losowana z wagą częstość otwarcia × liczba kombinacji klasy (suma akcji innych niż pas), a nie dowolna:
     // ręka spoza zakresu uczyłaby c-betu po linii, której aplikacja nie gra. Losowanie z zakresu (nie odrzucanie) zachowuje pojemność wąskich poziomów.
     if (!ctx) throw new TemplateError(`${t.id}: punkt cbet-case wymaga danych zakresów (GeneratorContext)`);
     if (!t.positions) throw new TemplateError(`${t.id}: punkt cbet-case wymaga positions (zakres otwarcia gracza)`);
-    const spotId = `rfi.${t.positions.hero.toLowerCase()}`;
-    const otwarcie = ctx.spots.find((x) => x.id === spotId);
-    if (!otwarcie) throw new TemplateError(`${t.id}: brak spotu ${spotId} (zakres otwarcia gracza)`);
-    const wagi = HAND_CLASSES.map((hc, h) => otwarcie.actions.filter((a) => a.label !== 'fold').reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0) * classCombos(hc).length);
-    const suma = wagi.reduce((a, b) => a + b, 0);
-    if (!(suma > 0)) throw new TemplateError(`${t.id}: zakres otwarcia ${spotId} jest pusty`);
-    let los = rng() * suma;
-    let h = wagi.findIndex((w) => { los -= w; return los < 0; });
-    if (h < 0) h = wagi.map((w) => w > 0).lastIndexOf(true); // błąd zaokrąglenia na końcu zakresu
-    const combo = pick(rng, classCombos(HAND_CLASSES[h]!));
-    hero = [combo[0], combo[1]];
+    const dane = handFromRange(t.id, ctx, `rfi.${t.positions.hero.toLowerCase()}`, rng, 'zakres otwarcia gracza');
+    hero = dane;
     rest = dealCards(rng, 7, hero);
     // wąska tekstura poziomu (SC-11 łatwy: ok. 0,4% flopów) razem z ręką z zakresu zjadłaby limit odrzuceń z rzędu: flop dolosowujemy do tekstury (tanio, bez klasyfikacji ręki)
     for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
@@ -596,6 +628,18 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
         handEquity, required, requiredChips: (t.stackBb! - heroBlind) / (2 * t.stackBb!), correct, margin, // D-890: pas zostawia S − b, sprawdzenie daje 2S z prawdopodobieństwem e
       });
       icmSuffix = `|${stacks.join('-')}|${heroIndex}${villainIndex}`; // stacki są pokazane w decyzji: ta sama ręka przy innych stackach to inne rozdanie
+      continue;
+    }
+    if (spec.kind === 'defend') {
+      if (spec.pots.length === 0 || spec.fractions.length === 0) throw new TemplateError(`${t.id}: defend wymaga pots i fractions`);
+      const pot = pick(rng, spec.pots);
+      const bet = Math.round(pot * pick(rng, spec.fractions));
+      if (bet <= 0) return null;
+      const correct = defendVsCbet(hero, flop, bet / pot);
+      if (correct === null || correct !== b.expected[i]) return null; // null: źródło nie rozstrzyga (D-1116); BR-GEN-003: tylko oczekiwana akcja
+      if (b.holding && !b.holding.some((f) => holdingMatches(f, classifyHolding(hero, flop)))) return null;
+      points.push({ point: 'defend', street: 'flop', pot, bet, fraction: bet / pot, holding: classifyHolding(hero, flop).cls, correct });
+      icmSuffix = `|${pot}-${bet}`; // zakład jest pokazany w decyzji
       continue;
     }
     if (spec.kind === 'river-catch') {
@@ -718,7 +762,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
   const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch') ? board : t.decisions.some((x) => x.kind === 'cbet-case') ? flop : [];
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch') ? board : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 

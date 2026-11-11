@@ -1,0 +1,20 @@
+# Fixture testu EF (08-N2): obrona wobec c-betu (R-M4-004/007). Nie jest treścią aplikacji.
+id: sc-fx-defend
+module: m6
+situation: "Fixture: obrona BB wobec c-betu."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M4-004
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.33]
+    actions:
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, ta ręka ma dość, żeby sprawdzić mały zakład." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, ta ręka nie ma dość, żeby sprawdzić." }

@@ -679,7 +679,25 @@ export const ScenarioRiverCatchDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-N2 (R-M6-006 mały, R-M6-007 duży c-bet): obrona gracza (BB) wobec c-betu na flopie. Ręka z zakresu obrony spotu `spot`, rywal stawia ułamek puli
+ * z `fractions` (≤ 0,4 albo ≥ 0,7: między nimi źródło nie rozstrzyga); poprawna akcja z klasy ręki (`defendVsCbet`), wariant bez odpowiedzi jest odrzucany.
+ */
+export const ScenarioDefendDecision = z
+  .object({
+    street: z.literal('flop'),
+    kind: z.literal('defend'),
+    spot: id,
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    fractions: z.array(z.number().positive()).min(1),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z

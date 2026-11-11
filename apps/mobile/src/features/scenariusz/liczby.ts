@@ -24,7 +24,8 @@ export function zdaniaLiczb(s: SesjaScenariusza, i: number, wybor: Akcja, t: TFn
     })];
     case 'range-spot': return [];
     case 'list-hand':
-    case 'river-catch': return []; // brak liczb: ocena z listy klas (08-N4); widoku jeszcze nie ma
+    case 'river-catch':
+    case 'defend': return []; // brak liczb: ocena z listy klas (08-N4); widoku jeszcze nie ma
   }
 }
 
