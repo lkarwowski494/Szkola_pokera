@@ -95,6 +95,8 @@ export interface CbetCaseData {
   when: TextureFilter;
   best: 'check' | 'small' | 'big';
   rule?: string;
+  /** Flopy, na których duży zakład jest niedokładnością także przy `best: check` (D-845; `cbetVerdict`). */
+  sizeDown?: TextureFilter;
 }
 
 /** Spot zakresu dla generatora (CompiledRangeSpot z content-build): akcje węzła solvera z częstościami dla 169 klas. */
@@ -502,9 +504,10 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const h = classifyHolding(hero, flop);
       if (b.holding && !b.holding.some((f) => holdingMatches(f, h))) return null;
       const najlepsza = c.best;
+      const mniej = !!c.sizeDown && textureMatches(classifyFlop(flop), c.sizeDown); // jak grading.ts `cbet-case` (D-845)
       points.push({
         point: 'cbet-case', street: 'flop', rule: spec.rule, correct, holding: h.cls,
-        verdicts: { check: cbetVerdict(najlepsza, 'check'), 'bet-small': cbetVerdict(najlepsza, 'small'), 'bet-big': cbetVerdict(najlepsza, 'big') },
+        verdicts: { check: cbetVerdict(najlepsza, 'check', mniej), 'bet-small': cbetVerdict(najlepsza, 'small', mniej), 'bet-big': cbetVerdict(najlepsza, 'big', mniej) },
       });
       continue;
     }

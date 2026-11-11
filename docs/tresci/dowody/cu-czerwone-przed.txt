@@ -1,0 +1,10 @@
+# CU 2026-11-11: test cu-cbet-size-down.test.ts na grading.ts sprzed poprawki D-845 (git stash grading.ts), pozostałe zmiany CU obecne
+     × best check: duży zakład niedokładny tylko przy sizeDown; mały zawsze dopuszczalny 8ms
+     × 7h 6d 5c (connected): czekanie zgodne, mały dopuszczalny, duży inaccuracy 5ms
+     × 8s 6h 4d (connected): czekanie zgodne, mały dopuszczalny, duży inaccuracy 2ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/cu-cbet-size-down.test.ts > cbetVerdict z sizeDown (D-845) > best check: duży zakład niedokładny tylko przy sizeDown; mały zawsze dopuszczalny
+ FAIL  test/cu-cbet-size-down.test.ts > treść pl: przypadek R-M5-004 ma sizeDown na flopie połączonym; ocena w grze (gradeDecision) jak D-845 > 7h 6d 5c (connected): czekanie zgodne, mały dopuszczalny, duży inaccuracy
+ FAIL  test/cu-cbet-size-down.test.ts > treść pl: przypadek R-M5-004 ma sizeDown na flopie połączonym; ocena w grze (gradeDecision) jak D-845 > 8s 6h 4d (connected): czekanie zgodne, mały dopuszczalny, duży inaccuracy
+      Tests  3 failed | 4 passed (7)
+kod=1

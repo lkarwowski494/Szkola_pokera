@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "Sì: un flop basso con carte vicine tra loro colpisce il {{t:range}} del {{t:big-blind|big blind}}: difende molte mani con carte piccole, e le tue carte alte qui hanno mancato il flop. Su un flop {{t:connected|connesso}} ha anche {{t:straight|scale}} e {{t:two-pair|doppie coppie}}, quindi di solito non hai il {{t:nuts-advantage|vantaggio di nuts}}. Fai c-bet meno spesso che sui flop alti: molte mani {{t:check|fanno check}} e puntano soprattutto le mani forti e i {{t:draw|progetti}} forti."
           small: "Troppo spesso: un flop basso con carte vicine tra loro colpisce il {{t:range}} del {{t:big-blind|big blind}}, e su un flop {{t:connected|connesso}} di solito non hai il {{t:nuts-advantage|vantaggio di nuts}}. C-bet frequenti, anche piccole, danno al {{t:big-blind|big blind}} l'occasione di {{t:raise|rilanciare}} dopo aver {{t:check|fatto check}} (check-raise) con le mani più forti."

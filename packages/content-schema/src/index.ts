@@ -331,6 +331,11 @@ export const CbetCase = z.object({
   best: CbetAction,
   /** Reguła, z której wynika odpowiedź (R-M5-…). */
   rule: z.string().optional(),
+  /**
+   * Flopy (podzbiór `when`), na których źródło każe zmniejszać rozmiar: duży zakład jest tam niedokładnością także przy `best: check`
+   * (D-845, R-M5-004: „Size down and bet less on flops that complete straights”). Bez pola duży zakład przy `best: check` jest dopuszczalny.
+   */
+  sizeDown: TextureFilter.optional(),
   why: z.object({ check: z.string().min(3), small: z.string().min(3), big: z.string().min(3) }),
 });
 
@@ -431,7 +436,7 @@ export interface CompiledEvalRule {
   level: RuleLevel;
   check: Omit<RuleCheck, 'params'> & {
     params: Record<string, number | string>;
-    cases?: { when: TextureFilter; best: CbetAction; rule?: string }[];
+    cases?: { when: TextureFilter; best: CbetAction; rule?: string; sizeDown?: TextureFilter }[];
   };
   families: string[];
 }
@@ -449,7 +454,7 @@ export const GeneratorEvalRules = z.array(
     check: z.object({
       kind: z.string(),
       params: z.record(z.string(), z.union([z.number(), z.string()])),
-      cases: z.array(z.object({ when: TextureFilter, best: CbetAction, rule: z.string().optional() })).optional(),
+      cases: z.array(z.object({ when: TextureFilter, best: CbetAction, rule: z.string().optional(), sizeDown: TextureFilter.optional() })).optional(),
     }),
   }),
 );

@@ -148,7 +148,8 @@ describe('08-programista-001: SC-12 (niski połączony flop) — duży c-bet nie
   // on flops that complete straights” — nie piszemy wyjaśnienia, które musiałoby nazwać duży zakład dopuszczalnym”. CS dodał bet-big
   // z wyjaśnieniem „Duży bet jest dopuszczalny” i ekran pokazuje obu zakładom „Dopuszczalna”. Test nie wybiera naprawy: przechodzi, gdy duży
   // zakład nie jest akcją punktu na ekranie albo ma ocenę gorszą niż mały.
-  it.fails('SC-12 łatwy i średni, ziarna 1–50: duży zakład oferowany na ekranie ma inną ocenę niż mały', () => {
+  // Naprawione w CU (rola 06, D-845): przypadek R-M5-004 ma `sizeDown` na flopie połączonym, więc duży zakład to niedokładność.
+  it('SC-12 łatwy i średni, ziarna 1–50: duży zakład oferowany na ekranie ma inną ocenę niż mały', () => {
     const t = szablon('sc-12');
     const wTresci = (t.decisions[0]!.actions as { action: string }[]).map((a) => a.action);
     const naEkranie = (akcjeSzablonu('cbet-case') ?? []).filter((a) => wTresci.includes(a));

@@ -60,7 +60,7 @@ export interface EvalRule {
     streets?: readonly Street[];
     spots?: readonly string[];
     params: Readonly<Record<string, number | string>>;
-    cases?: readonly { when: TextureFilter; best: 'check' | 'small' | 'big'; rule?: string }[];
+    cases?: readonly { when: TextureFilter; best: 'check' | 'small' | 'big'; rule?: string; sizeDown?: TextureFilter }[];
   };
   families: readonly string[];
 }
@@ -268,10 +268,12 @@ const near = (a: number, b: number) => Math.abs(a - b) < 0.05;
 /**
  * Werdykt c-betu (R-M5-007, ADR-04; CR WYS-002): jedna definicja dla oceny w grze (`cbet-case` niżej) i dla wariantu scenariusza.
  * Reguły c-betu są częstotliwościowe („często”, „rzadziej”): rzadsza akcja jest dopuszczalna, zły rozmiar to niedokładność.
+ * `sizeDown`: flop pasuje do `sizeDown` przypadku (źródło każe tam zmniejszać rozmiar), więc duży zakład przy `best: check` to
+ * niedokładność, a mały pozostaje dopuszczalny (D-845, R-M5-004 na flopie połączonym).
  */
 export type CbetBest = 'check' | 'small' | 'big';
-export function cbetVerdict(best: CbetBest, chosen: CbetBest): 'compliant' | 'acceptable' | 'inaccuracy' {
-  if (best === 'check') return chosen === 'check' ? 'compliant' : 'acceptable';
+export function cbetVerdict(best: CbetBest, chosen: CbetBest, sizeDown = false): 'compliant' | 'acceptable' | 'inaccuracy' {
+  if (best === 'check') return chosen === 'check' ? 'compliant' : chosen === 'big' && sizeDown ? 'inaccuracy' : 'acceptable';
   return chosen === 'check' ? 'acceptable' : chosen === best ? 'compliant' : 'inaccuracy';
 }
 /** Werdykt rozmiaru podbicia (open-size, three-bet-size, iso-size): zgodny z regułą w granicach 0,05 bb, inny rozmiar to niedokładność. */
@@ -395,7 +397,7 @@ const CHECKS: Record<string, Check> = {
       chosen = frac <= (ctx.kit.cbet.small + ctx.kit.cbet.big) / 2 ? 'small' : 'big';
     } else return null;
     // reguły c-betu są częstotliwościowe („często”, „rzadziej”): rzadsza akcja jest dopuszczalna, nie błędem (5.2)
-    const verdict: Verdict = cbetVerdict(c.best, chosen);
+    const verdict: Verdict = cbetVerdict(c.best, chosen, !!c.sizeDown && textureMatches(tex, c.sizeDown));
     return { rule, verdict, detail: { kind: 'cbet', best: c.best, chosen, betFraction: frac } };
   },
 

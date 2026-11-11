@@ -34,6 +34,7 @@ drills:
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
+        sizeDown: { ranks: [connected] }
         why:
           check: "Đúng: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind|big blind}}: họ bảo vệ nhiều tay có lá nhỏ, còn các lá cao của bạn đã trượt ở đây. Trên flop {{t:connected|liên kết}}, họ còn có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}}, nên thường bạn không có {{t:nuts-advantage|lợi thế nuts}}. Bạn c-bet ít hơn so với trên flop cao: nhiều tay {{t:check|xem bài}}, còn chủ yếu các tay mạnh và {{t:draw|bài chờ}} mạnh mới cược."
           small: "Quá thường xuyên: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind|big blind}}, còn trên flop {{t:connected|liên kết}} thường bạn không có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho {{t:big-blind}} cơ hội {{t:raise|tố}} sau khi đã {{t:check|xem bài}} trước (check-raise) bằng những tay mạnh nhất."

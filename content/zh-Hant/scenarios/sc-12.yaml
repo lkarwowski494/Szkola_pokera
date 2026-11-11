@@ -25,4 +25,4 @@ decisions:
       - action: bet-small
         explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。小額{{t:bet|下注}}可以接受，但比較少見：在低牌{{t:connected|連張}}翻牌上，你{{t:c-bet|持續下注}}的頻率比高牌翻牌低，因為{{t:big-blind|大盲}}防守很多能擊中這個翻牌的{{t:connectors|連張}}和小牌。"
       - action: bet-big
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。大額{{t:bet|下注}}可以接受，但比較少見：在低牌{{t:connected|連張}}翻牌上，你{{t:c-bet|持續下注}}的頻率比高牌翻牌低，下注時也傾向小額，因為{{t:big-blind|大盲}}防守很多能擊中這個翻牌的{{t:connectors|連張}}和小牌。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。這裡大額{{t:bet|下注}}不夠精確：在{{t:connected|連張}}翻牌上，{{t:big-blind|大盲}}可能已經有{{t:straight|順子}}，所以要下注時就小額下注。在低牌翻牌上，你{{t:c-bet|持續下注}}的頻率也比高牌翻牌低，因為{{t:big-blind|大盲}}防守很多能擊中這個翻牌的{{t:connectors|連張}}和小牌。"

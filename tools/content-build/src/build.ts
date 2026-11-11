@@ -743,7 +743,7 @@ export function compileEvalRules(
     if (c.kind === 'cbet-case') {
       const d = drills.find((x) => x.id === c.drill);
       if (!d || d.kind !== 'cbet') throw new Error(`${where}: drill musi wskazywać zadanie kind: cbet (jest ${c.drill})`);
-      cases = d.cases.map((x) => ({ when: x.when, best: x.best, ...(x.rule ? { rule: x.rule } : {}) }));
+      cases = d.cases.map((x) => ({ when: x.when, best: x.best, ...(x.rule ? { rule: x.rule } : {}), ...(x.sizeDown ? { sizeDown: x.sizeDown } : {}) }));
       if (!cases.some((x) => x.rule === r.id)) throw new Error(`${where}: zadanie ${c.drill} nie ma przypadku z rule: ${r.id}`);
     }
     const need: Partial<Record<string, string[]>> = {
