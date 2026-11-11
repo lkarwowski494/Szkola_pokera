@@ -1,0 +1,35 @@
+# SC-08 (M4): mały blind 3-betuje otwarcie Buttona, potem rozmiar 3-betu (range-spot vs-open.sb-vs-btn, size-spot three-bet-size oop).
+# Rola 06, sesja EH, 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-08.yaml); jeden poziom (D-1034), pojemność wg D-1040.
+id: sc-08
+module: m4
+situation: "あなたは{{t:small-blind|スモールブラインド}}にいて、ボタンが{{n:pf.open-size}}に{{t:open|オープン}}しました。"
+table: 6max
+positions: { hero: SB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 10", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: vs-open.sb-vs-btn
+    rule: R-M4-003
+    actions:
+      - action: "raise 10"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンが{{t:open|オープン}}しました。3ベットするのは、このハンドが{{t:small-blind|スモールブラインド}}から3ベットする{{t:range|レンジ}}の上位にあるからです。{{t:call|コール}}すると{{t:out-of-position|アウトオブポジション}}でプレイすることになり、後ろの{{t:big-blind|ビッグブラインド}}がまだ{{t:raise|レイズ}}できます。3ベットすれば{{t:initiative|イニシアチブ}}を握り、すぐに{{t:pot|ポット}}を獲得するチャンスがあります。"
+      - action: "call 2.5"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンが{{t:open|オープン}}しました。{{t:small-blind|スモールブラインド}}からボタンに対しては、ほとんど{{t:call|コール}}しません。{{t:call|コール}}すると{{t:out-of-position|アウトオブポジション}}でプレイすることになり、後ろの{{t:big-blind|ビッグブラインド}}がまだ{{t:raise|レイズ}}できます。このハンドは3ベットします。3ベットすれば{{t:initiative|イニシアチブ}}を握り、すぐに{{t:pot|ポット}}を獲得するチャンスがあります。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンが{{t:open|オープン}}しました。{{t:fold|フォールド}}は慎重すぎます。このハンドは{{t:small-blind|スモールブラインド}}から3ベットする{{t:range|レンジ}}（ハンドの約{{n:pf.3bet-freq.sb-vs-btn}}）の上位にあります。3ベットすれば{{t:initiative|イニシアチブ}}を握り、すぐに{{t:pot|ポット}}を獲得するチャンスがあります。"
+  - street: preflop
+    kind: size-spot
+    check: three-bet-size
+    rule: R-M4-002
+    openBb: 2.5
+    actions:
+      - action: raise
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンの{{t:open|オープン}}に3ベットします。{{t:open|オープン}}の約{{n:pf.3bet.size-oop}}、つまり{{n:pf.3bet.oop-total}}まで{{t:raise|レイズ}}するのは、フロップ後は先に行動するからです。大きめの{{t:raise|レイズ}}で、相手が{{t:in-position|インポジション}}で安く{{t:call|コール}}できないようにします。"
+      - action: raise-small
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンの{{t:open|オープン}}に3ベットします。このサイズは不正確です。フロップ後は先に行動するので、{{t:open|オープン}}の約{{n:pf.3bet.size-oop}}（{{n:pf.3bet.oop-total}}）まで{{t:raise|レイズ}}します。小さい{{t:raise|レイズ}}では、相手に{{t:in-position|インポジション}}で安く{{t:call|コール}}させてしまいます。"
+      - action: raise-big
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンの{{t:open|オープン}}に3ベットします。このサイズは不正確です。{{t:open|オープン}}の約{{n:pf.3bet.size-oop}}（{{n:pf.3bet.oop-total}}）で十分です。そのサイズですでに相手は{{t:in-position|インポジション}}で安く{{t:call|コール}}できなくなり、それより大きいと同じハンドでより多くの{{t:chips|チップ}}をリスクにさらします。"

@@ -1,0 +1,35 @@
+# SC-08 (M4): mały blind 3-betuje otwarcie Buttona, potem rozmiar 3-betu (range-spot vs-open.sb-vs-btn, size-spot three-bet-size oop).
+# Rola 06, sesja EH, 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-08.yaml); jeden poziom (D-1034), pojemność wg D-1040.
+id: sc-08
+module: m4
+situation: "You are in the {{t:small-blind}}, and the Button {{t:open|opened}} to {{n:pf.open-size}}."
+table: 6max
+positions: { hero: SB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 10", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: vs-open.sb-vs-btn
+    rule: R-M4-003
+    actions:
+      - action: "raise 10"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and the Button {{t:open|opened}}. You 3-bet, because this hand is in the top of the {{t:range}} you 3-bet from the {{t:small-blind}}: after a {{t:call}} you would play {{t:out-of-position}}, and the {{t:big-blind}} behind you can still {{t:raise}}; a 3-bet gives you the {{t:initiative}} and a chance to win the {{t:pot}} right away."
+      - action: "call 2.5"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and the Button {{t:open|opened}}. From the {{t:small-blind}} against the Button you almost never {{t:call}}: after a {{t:call}} you play {{t:out-of-position}}, and the {{t:big-blind}} behind you can still {{t:raise}}. You 3-bet this hand, because a 3-bet gives you the {{t:initiative}} and a chance to win the {{t:pot}} right away."
+      - action: fold
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and the Button {{t:open|opened}}. A {{t:fold}} is too cautious: this hand is in the top of the {{t:range}} you 3-bet from the {{t:small-blind}} (about {{n:pf.3bet-freq.sb-vs-btn}} of hands). A 3-bet gives you the {{t:initiative}} and a chance to win the {{t:pot}} right away."
+  - street: preflop
+    kind: size-spot
+    check: three-bet-size
+    rule: R-M4-002
+    openBb: 2.5
+    actions:
+      - action: raise
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you 3-bet the Button's {{t:open}}. You {{t:raise}} to about {{n:pf.3bet.size-oop}} the {{t:open}}, that is to {{n:pf.3bet.oop-total}}, because after the flop you act first, so a bigger {{t:raise}} denies your opponent a cheap {{t:call}} {{t:in-position}}."
+      - action: raise-small
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you 3-bet the Button's {{t:open}}. This size is an inaccuracy: after the flop you act first, so you {{t:raise}} to about {{n:pf.3bet.size-oop}} the {{t:open}} ({{n:pf.3bet.oop-total}}); a smaller {{t:raise}} gives your opponent a cheap {{t:call}} {{t:in-position}}."
+      - action: raise-big
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you 3-bet the Button's {{t:open}}. This size is an inaccuracy: about {{n:pf.3bet.size-oop}} the {{t:open}} ({{n:pf.3bet.oop-total}}) is enough; that size already denies your opponent a cheap {{t:call}} {{t:in-position}}, and a bigger one risks more {{t:chips}} with the same hand."

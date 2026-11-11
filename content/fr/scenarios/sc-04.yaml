@@ -1,0 +1,35 @@
+# SC-04 (M3): UTG otwiera albo pasuje (range-spot rfi.utg), potem c-bet na suchym wysokim flopie (cbet-case R-M5-007). Rola 06, sesja EH,
+# 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
+id: sc-04
+module: m3
+situation: "Vous êtes en {{t:utg|UTG}}, et personne n'est encore entré dans le coup ; si vous {{t:open|ouvrez}}, la {{t:big-blind}} {{t:call|paiera}} et fera {{t:check}} au flop."
+table: 6max
+positions: { hero: UTG, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
+    holding: [air]
+    expected: ["raise 2.5", bet-small]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.utg
+    rule: R-M3-002
+    actions:
+      - action: "raise 2.5"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et personne n'est encore entré dans le coup. Vous {{t:open|ouvrez}}, car cette main entre dans la {{t:range}} serrée de {{t:utg|UTG}} : il reste encore cinq joueurs derrière vous, donc quelqu'un a plus souvent une meilleure main ; c'est pourquoi, depuis {{t:utg|UTG}}, vous n'{{t:open|ouvrez}} qu'environ {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} des mains."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et personne n'est encore entré dans le coup. Se {{t:fold|coucher}} est trop prudent : le solver {{t:open|ouvre}} généralement cette main, même depuis {{t:utg|UTG}}. Il reste encore cinq joueurs derrière vous, donc la {{t:range}} depuis {{t:utg|UTG}} est serrée, environ {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} des mains, mais cette main en fait partie."
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Vous {{t:bet|misez}} petit, environ {{n:cbet.size.small}} du {{t:pot}}, car vous avez l'{{t:range-advantage}} et les mains faibles de votre adversaire n'ont presque aucune chance : une petite {{t:bet|mise}} suffit pour qu'il les {{t:fold|couche}}."
+      - action: check
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Un {{t:check}} est acceptable, mais plus rare : sur un flop haut et {{t:dry|sec}}, vous faites souvent un petit {{t:c-bet}}, car vous avez l'{{t:range-advantage}} et les mains faibles de votre adversaire se {{t:fold|coucheraient}} déjà face à une petite {{t:bet|mise}}. En faisant {{t:check}}, vous leur donnez une carte gratuite."
+      - action: bet-big
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une grosse {{t:bet|mise}} est ici une imprécision : sur un flop haut et {{t:dry|sec}}, vous faites généralement un petit {{t:c-bet}}, environ {{n:cbet.size.small}} du {{t:pot}}, car les mains faibles de votre adversaire se {{t:fold|couchent}} déjà face à une telle {{t:bet|mise}}."

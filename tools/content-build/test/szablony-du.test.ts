@@ -48,12 +48,14 @@ const ctx = {
   spots: compileRanges(join(root, 'content')).spots,
   thresholds: { mixedMin: progi.min, mixedLow: progi.niski },
   sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)),
+  // EH: SC-04 i SC-05 mają po range-spot punkt cbet-case (ocena c-betu sprawdzana w szablony-co.test.ts); przypadki jak w buildGeneratorContext
+  cbetCases: [...new Map(content.evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()],
 };
 
 describe('szablony treści range-spot: ręka i ocena zgodne z plikiem solvera (BR-GEN-003, D-1034)', () => {
   const zakres = pl.filter((t) => t.decisions.some((d) => d.kind === 'range-spot'));
-  it('treść ma szablony range-spot (SC-06, SC-32, SC-33)', () => {
-    expect(zakres.map((t) => t.id)).toEqual(['sc-06', 'sc-32', 'sc-33']);
+  it('treść ma szablony range-spot (SC-04, SC-05, SC-06, SC-08 z EH; SC-32, SC-33)', () => {
+    expect(zakres.map((t) => t.id)).toEqual(['sc-04', 'sc-05', 'sc-06', 'sc-08', 'sc-32', 'sc-33']);
   });
   for (const t of zakres) {
     const d = t.decisions[0]!;
@@ -93,8 +95,8 @@ describe('szablony treści range-spot: ręka i ocena zgodne z plikiem solvera (B
 
 describe('szablony treści size-spot: rozmiary i oceny z parametru reguły (BR-GEN-003, D-1032)', () => {
   const rozmiar = pl.filter((t) => t.decisions.some((d) => d.kind === 'size-spot'));
-  it('treść ma szablony size-spot (SC-06)', () => {
-    expect(rozmiar.map((t) => t.id)).toEqual(['sc-06']);
+  it('treść ma szablony size-spot (SC-06, SC-08 z EH)', () => {
+    expect(rozmiar.map((t) => t.id)).toEqual(['sc-06', 'sc-08']);
   });
   for (const t of rozmiar) {
     const i = t.decisions.findIndex((d) => d.kind === 'size-spot');

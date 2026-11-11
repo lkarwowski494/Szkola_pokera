@@ -1,0 +1,41 @@
+# SC-05 (M3): Button otwiera, BB broni, niski połączony flop (F1 + F2: range-spot rfi.btn, potem cbet-case R-M5-004). Rola 06, sesje DU (szkic) i EH (treść), 2026-11-11.
+# Punkt c-betu jak SC-12 (te same przypadki m5.l3.c-btn: Button wobec BB, ręka bez pary i drawa).
+# Poziomy różni tekstura flopu (jak SC-12): łatwy w trzech kolorach, średni w dwóch; częstość otwarcia w obu ≥ 97% (D-1034).
+id: sc-05
+module: m3
+situation: "Jesteś na Buttonie, wszyscy przed tobą {{t:fold|spasowali}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+  sredni:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.btn
+    rule: R-M3-003
+    actions:
+      - action: "raise 2.5"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy przed tobą {{t:fold|spasowali}}. {{t:open|Otwierasz}}, bo zostały tylko blindy, a po flopie będziesz mieć {{t:position|pozycję}}; z Buttona {{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy przed tobą {{t:fold|spasowali}}. {{t:fold|Pas}} jest za ostrożny: solver tę rękę zwykle {{t:open|otwiera}}. Zostały tylko blindy, a po flopie będziesz mieć {{t:position|pozycję}}, więc z Buttona {{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk."
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. {{t:check|Czekasz}}, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które trafiają niski flop, a twoja ręka bez {{t:pair|pary}} i bez {{t:draw|drawa}} chybiła. Na takim flopie {{t:c-bet|c-betujesz}} rzadziej niż na wysokich flopach."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. Mały {{t:bet}} jest dopuszczalny, ale rzadszy: na niskim {{t:connected|połączonym}} flopie {{t:c-bet|c-betujesz}} rzadziej niż na wysokich, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które ten flop trafiają."
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a {{t:big-blind}} {{t:check|czeka}}. Duży {{t:bet}} to tu niedokładność: na {{t:connected|połączonym}} flopie {{t:big-blind}} może mieć już {{t:straight|strita}}, więc gdy już {{t:bet|stawiasz}}, to mało. Na niskim flopie {{t:c-bet|c-betujesz}} też rzadziej niż na wysokich, bo {{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które ten flop trafiają."

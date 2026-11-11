@@ -1,0 +1,35 @@
+# SC-04 (M3): UTG otwiera albo pasuje (range-spot rfi.utg), potem c-bet na suchym wysokim flopie (cbet-case R-M5-007). Rola 06, sesja EH,
+# 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
+id: sc-04
+module: m3
+situation: "Estás en {{t:utg|UTG}} y nadie ha entrado todavía en el juego; si {{t:open|abres}}, la {{t:big-blind}} {{t:call|pagará}} y en el flop {{t:check|pasará}}."
+table: 6max
+positions: { hero: UTG, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
+    holding: [air]
+    expected: ["raise 2.5", bet-small]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.utg
+    rule: R-M3-002
+    actions:
+      - action: "raise 2.5"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y nadie ha entrado todavía en el juego. {{t:open|Abres}}, porque esta mano entra en el {{t:range|rango}} ajustado de {{t:utg|UTG}}: detrás de ti quedan todavía cinco jugadores, así que es más frecuente que alguien tenga una mano mejor; por eso desde {{t:utg|UTG}} solo {{t:open|abres}} aproximadamente {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} de las manos."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y nadie ha entrado todavía en el juego. {{t:fold|Retirarte}} es demasiado prudente: el solver suele {{t:open|abrir}} esta mano también desde {{t:utg|UTG}}. Detrás de ti quedan todavía cinco jugadores, así que el {{t:range|rango}} desde {{t:utg|UTG}} es ajustado, aproximadamente {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} de las manos, pero esta mano entra en él."
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. {{t:bet|Apuestas}} poco, aproximadamente {{n:cbet.size.small}} del {{t:pot}}, porque tienes la {{t:range-advantage}} y las manos débiles de tu rival casi no tienen opciones: una {{t:bet|apuesta}} pequeña basta para que las {{t:fold|tire}}."
+      - action: check
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. {{t:check|Pasar}} es aceptable, pero menos frecuente: en un flop alto y {{t:dry|seco}} haces {{t:c-bet}} a menudo y pequeño, porque tienes la {{t:range-advantage}} y las manos débiles de tu rival ya se {{t:fold|retirarían}} ante una {{t:bet|apuesta}} pequeña. Al {{t:check|pasar}}, les das una carta gratis."
+      - action: bet-big
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. Una {{t:bet|apuesta}} grande es aquí una imprecisión: en un flop alto y {{t:dry|seco}} sueles hacer {{t:c-bet}} pequeño, aproximadamente {{n:cbet.size.small}} del {{t:pot}}, porque las manos débiles de tu rival ya se {{t:fold|retiran}} ante esa {{t:bet|apuesta}}."

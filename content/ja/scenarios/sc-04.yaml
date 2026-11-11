@@ -1,0 +1,35 @@
+# SC-04 (M3): UTG otwiera albo pasuje (range-spot rfi.utg), potem c-bet na suchym wysokim flopie (cbet-case R-M5-007). Rola 06, sesja EH,
+# 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
+id: sc-04
+module: m3
+situation: "あなたは{{t:utg|UTG}}にいて、まだ誰も参加していません。{{t:open|オープン}}すると、{{t:big-blind|ビッグブラインド}}が{{t:call|コール}}し、フロップで{{t:check|チェック}}します。"
+table: 6max
+positions: { hero: UTG, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
+    holding: [air]
+    expected: ["raise 2.5", bet-small]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.utg
+    rule: R-M3-002
+    actions:
+      - action: "raise 2.5"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、まだ誰も参加していません。{{t:open|オープン}}するのは、このハンドが{{t:utg|UTG}}のタイトな{{t:range|レンジ}}に入るからです。後ろにまだ五人のプレイヤーがいるので、誰かがより良いハンドを持っていることが多くなります。そのため{{t:utg|UTG}}からはハンドの約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}しか{{t:open|オープン}}しません。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、まだ誰も参加していません。{{t:fold|フォールド}}は慎重すぎます。ソルバーはこのハンドを{{t:utg|UTG}}からでもたいてい{{t:open|オープン}}します。後ろにまだ五人のプレイヤーがいるので、{{t:utg|UTG}}からの{{t:range|レンジ}}はハンドの約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}とタイトですが、このハンドはその中に入ります。"
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。{{t:pot|ポット}}の約{{n:cbet.size.small}}の小さな{{t:bet|ベット}}をするのは、あなたに{{t:range-advantage|レンジアドバンテージ}}があり、相手の弱いハンドにはほとんど勝ち目がないからです。小さな{{t:bet|ベット}}で十分に{{t:fold|フォールド}}させられます。"
+      - action: check
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。{{t:check|チェック}}は許容範囲ですが、頻度は低めです。ハイカードの{{t:dry|ドライ}}なフロップでは、{{t:range-advantage|レンジアドバンテージ}}があり、相手の弱いハンドは小さな{{t:bet|ベット}}でもう{{t:fold|フォールド}}するので、頻繁に小さく{{t:c-bet|Cベット}}します。{{t:check|チェック}}すると、相手にタダでカードを見せることになります。"
+      - action: bet-big
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。ここで大きな{{t:bet|ベット}}は不正確です。ハイカードの{{t:dry|ドライ}}なフロップでは、相手の弱いハンドはその程度の{{t:bet|ベット}}でもう{{t:fold|フォールド}}するので、ふつうは{{t:pot|ポット}}の約{{n:cbet.size.small}}の小さな{{t:c-bet|Cベット}}をします。"

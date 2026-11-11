@@ -1,0 +1,40 @@
+# SC-05 (M3): Button otwiera, BB broni, niski połączony flop (range-spot rfi.btn, potem cbet-case R-M5-004). Rola 06, sesja EH, 2026-11-11.
+# Struktura jak pl (content/pl/scenarios/sc-05.yaml).
+id: sc-05
+module: m3
+situation: "你在按鈕位，你前面的所有人都{{t:fold|棄牌}}了。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+  sredni:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
+    holding: [air]
+    expected: ["raise 2.5", check]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.btn
+    rule: R-M3-003
+    actions:
+      - action: "raise 2.5"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你前面的所有人都{{t:fold|棄牌}}了。你{{t:open|開池}}，因為只剩下盲注，而且翻牌後你會有{{t:position|位置}}；從按鈕位你寬{{t:open|開池}}，約 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} 的手牌。"
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你前面的所有人都{{t:fold|棄牌}}了。{{t:fold|棄牌}}太保守：求解器通常會{{t:open|開池}}這手牌。只剩下盲注，而且翻牌後你會有{{t:position|位置}}，所以從按鈕位你寬{{t:open|開池}}，約 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} 的手牌。"
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。你{{t:check|過牌}}，因為{{t:big-blind|大盲}}防守很多能擊中低牌翻牌的{{t:connectors|連張}}和小牌，而你沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}的手牌沒有擊中。在這樣的翻牌上，你{{t:c-bet|持續下注}}的頻率比高牌翻牌低。"
+      - action: bet-small
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。小額{{t:bet|下注}}可以接受，但比較少見：在低牌{{t:connected|連張}}翻牌上，你{{t:c-bet|持續下注}}的頻率比高牌翻牌低，因為{{t:big-blind|大盲}}防守很多能擊中這個翻牌的{{t:connectors|連張}}和小牌。"
+      - action: bet-big
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。這裡大額{{t:bet|下注}}不夠精確：在{{t:connected|連張}}翻牌上，{{t:big-blind|大盲}}可能已經有{{t:straight|順子}}，所以要下注時就小額下注。在低牌翻牌上，你{{t:c-bet|持續下注}}的頻率也比高牌翻牌低，因為{{t:big-blind|大盲}}防守很多能擊中這個翻牌的{{t:connectors|連張}}和小牌。"

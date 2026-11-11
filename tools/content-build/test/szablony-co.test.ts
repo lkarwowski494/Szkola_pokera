@@ -2,7 +2,8 @@
 // wyrocznie niezależne od generatora, jak w szablony-f2-ca i szablony-f4-ca (te same metody, tu na content/pl/scenarios):
 // - cbet-case: prawdziwe rozdanie w silniku gry (BTN otwiera 2,5 bb, BB sprawdza i czeka), ocena gradeDecision z kit; poza akcją
 //   zgodną sprawdzane są też oceny pozostałych akcji (ŚR-005, D-793: rzadsza akcja „dopuszczalna”, duży zakład przy best small
-//   „niedokładność”), bo wyjaśnienia w treści mówią to wprost;
+//   „niedokładność”), bo wyjaśnienia w treści mówią to wprost; od EH otwiera gracz z positions.hero (SC-04: UTG), a punkt c-betu
+//   może stać po range-spot;
 // - icm-call: equity z surowego equity169.json wobec zakresu push z pushfold.json i ICM Malmutha-Harville'a liczony od zera.
 import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -45,12 +46,20 @@ const cfg: TableConfig = { stacks: Array(6).fill(100 * BB), smallBlind: BB / 2, 
 const cbetCases = content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!;
 const AKCJE = ['check', 'bet-small', 'bet-big'] as const;
 type Akcja = (typeof AKCJE)[number];
-function flopBtn(hero: [Card, Card], villain: [Card, Card], flop: Card[]): HandState {
+/** Miejsca przy stole z cfg (button = 3): kolejność akcji przed flopem od UTG. */
+const MIEJSCA = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
+/**
+ * Flop po otwarciu gracza z `pozycja` na 2,5 bb, pasach pozostałych, sprawdzeniu BB i jego czekaniu (EH: SC-04 otwiera z UTG; dawniej
+ * tylko Button). Rywalem jest zawsze BB (szablony cbet-case mają villain: BB).
+ */
+function flopPo(pozycja: string, hero: [Card, Card], villain: [Card, Card], flop: Card[]): HandState {
+  const h = MIEJSCA.indexOf(pozycja as (typeof MIEJSCA)[number]);
+  if (h < 0 || h > 4) throw new Error(`pozycja otwarcia ${pozycja}`);
   const holes: ([Card, Card] | null)[] = Array(6).fill(null);
-  holes[3] = hero;
+  holes[h] = hero;
   holes[5] = villain;
   let st = startHand(cfg, 1, { holes, board: flop });
-  const seq: PlayerAction[] = [{ type: 'fold' }, { type: 'fold' }, { type: 'fold' }, { type: 'raise', to: Math.round(2.5 * BB) }, { type: 'fold' }, { type: 'call' }, { type: 'check' }];
+  const seq: PlayerAction[] = [...MIEJSCA.slice(0, 5).map((_, i): PlayerAction => (i === h ? { type: 'raise', to: Math.round(2.5 * BB) } : { type: 'fold' })), { type: 'call' }, { type: 'check' }];
   for (const a of seq) st = applyAction(st, a);
   return st;
 }
@@ -144,17 +153,18 @@ describe('CZ (06-tresci-007): wyrocznia outów drawa z rang i kolorów, rachunek
 
 describe('szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793)', () => {
   const cbet = pl.filter((t) => t.decisions.some((d) => d.kind === 'cbet-case'));
-  it('treść ma szablony cbet-case (SC-11, SC-12)', () => {
-    expect(cbet.map((t) => t.id)).toEqual(['sc-11', 'sc-12']);
+  it('treść ma szablony cbet-case (SC-04, SC-05 po range-spot; SC-11, SC-12)', () => {
+    expect(cbet.map((t) => t.id)).toEqual(['sc-04', 'sc-05', 'sc-11', 'sc-12']);
   });
   for (const t of cbet) {
     const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, cbetCases };
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów`, () => {
         const b = t.bounds[level]!;
-        const oczekiwana = b.expected[0]! as Akcja;
-        const regula = (t.decisions[0] as { rule: string }).rule;
-        const wTresci = (t.decisions[0]!.actions as { action: string }[]).map((a) => a.action) as Akcja[];
+        const k = t.decisions.findIndex((d) => d.kind === 'cbet-case'); // EH: punkt c-betu bywa drugi (po range-spot)
+        const oczekiwana = b.expected[k]! as Akcja;
+        const regula = (t.decisions[k] as { rule: string }).rule;
+        const wTresci = (t.decisions[k]!.actions as { action: string }[]).map((a) => a.action) as Akcja[];
         const bledy: string[] = [];
         for (let seed = 1; seed <= LOSOWANIA && bledy.length < 5; seed++) {
           const v = generateVariant(gen(t), level, seed, ctx);
@@ -166,13 +176,13 @@ describe('szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akc
           if ((b.holding ?? []).join() === 'air' && gotowyUklad(v.hero, flop)) bledy.push(`${seed}: ręka poza filtrem air (gotowy ${gotowyUklad(v.hero, flop)})`);
           if ((b.holding ?? []).join() === 'air' && outyDrawa(v.hero, flop) >= HOLDING_LIMITS.drawOutsMin) bledy.push(`${seed}: ręka poza filtrem air (draw, ${outyDrawa(v.hero, flop)} outów)`);
           if (t.positions && !otwiera(t.positions.hero, classOf(v.hero[0], v.hero[1]))) bledy.push(`${seed}: ${classOf(v.hero[0], v.hero[1])} poza zakresem otwarcia ${t.positions.hero}`);
-          const st = flopBtn(v.hero, v.villain, flop);
+          const st = flopPo(t.positions!.hero, v.hero, v.villain, flop);
           for (const a of wTresci) {
             const f = gradeDecision(st, akcja(a), kit);
             if (f.ruleId !== regula) bledy.push(`${seed}: ${a}: reguła ${f.ruleId} zamiast ${regula}`);
             if (f.verdict !== OCENY[oczekiwana]![a]) bledy.push(`${seed}: ${a}: silnik ${f.verdict}, wyjaśnienie zakłada ${OCENY[oczekiwana]![a]}`);
           }
-          if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}: punkt wariantu ${v.points[0]!.correct}`);
+          if (v.points[k]?.point !== 'cbet-case' || v.points[k]!.correct !== oczekiwana) bledy.push(`${seed}: punkt wariantu ${v.points[k]?.point} ${v.points[k]?.correct}`);
         }
         expect(bledy).toEqual([]);
       }, 300_000);

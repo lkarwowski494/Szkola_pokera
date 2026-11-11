@@ -1,0 +1,35 @@
+# SC-04 (M3): UTG otwiera albo pasuje (range-spot rfi.utg), potem c-bet na suchym wysokim flopie (cbet-case R-M5-007). Rola 06, sesja EH,
+# 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
+id: sc-04
+module: m3
+situation: "당신은 {{t:utg|UTG}}에 있고, 아직 아무도 핸드에 참여하지 않았습니다. 당신이 {{t:open|오픈}}하면 {{t:big-blind|빅 블라인드}}가 {{t:call|콜}}하고 플롭에서 {{t:check|체크}}합니다."
+table: 6max
+positions: { hero: UTG, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy:
+    freqs: [{ min: 0.97, max: 1 }, null]
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
+    holding: [air]
+    expected: ["raise 2.5", bet-small]
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.utg
+    rule: R-M3-002
+    actions:
+      - action: "raise 2.5"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 아직 아무도 핸드에 참여하지 않았습니다. {{t:open|오픈}}하는 이유는 이 핸드가 {{t:utg|UTG}}의 좁은 {{t:range|레인지}}에 들어가기 때문입니다. 당신 뒤에 아직 다섯 명이 남아 있어 누군가 더 좋은 핸드를 가지고 있는 경우가 더 많으므로, {{t:utg|UTG}}에서는 핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}만 {{t:open|오픈}}합니다."
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 아직 아무도 핸드에 참여하지 않았습니다. {{t:fold|폴드}}는 너무 신중합니다. 솔버는 이 핸드를 {{t:utg|UTG}}에서도 대개 {{t:open|오픈}}합니다. 당신 뒤에 아직 다섯 명이 남아 있으므로 {{t:utg|UTG}}의 {{t:range|레인지}}는 핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}로 좁지만, 이 핸드는 그 안에 들어갑니다."
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{t:big-blind|빅 블라인드}}가 {{t:check|체크}}합니다. {{t:pot|팟}}의 약 {{n:cbet.size.small}}로 작게 {{t:bet|베팅}}하는 이유는 당신에게 {{t:range-advantage|레인지 우위}}가 있고 상대의 약한 핸드는 거의 승산이 없기 때문입니다. 작은 {{t:bet|베팅}}만으로도 {{t:fold|폴드}}시킬 수 있습니다."
+      - action: check
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{t:big-blind|빅 블라인드}}가 {{t:check|체크}}합니다. {{t:check|체크}}도 허용되지만 더 드문 선택입니다. 높은 {{t:dry|드라이}} 플롭에서는 {{t:range-advantage|레인지 우위}}가 있고 상대의 약한 핸드는 작은 {{t:bet|베팅}}에도 이미 {{t:fold|폴드}}하므로 자주, 작게 {{t:c-bet|C벳}}합니다. {{t:check|체크}}하면 상대에게 공짜 카드를 주게 됩니다."
+      - action: bet-big
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{t:big-blind|빅 블라인드}}가 {{t:check|체크}}합니다. 여기서 큰 {{t:bet|베팅}}은 부정확한 선택입니다. 높은 {{t:dry|드라이}} 플롭에서는 상대의 약한 핸드가 그 정도 {{t:bet|베팅}}에도 이미 {{t:fold|폴드}}하므로, 보통 {{t:pot|팟}}의 약 {{n:cbet.size.small}}로 작게 {{t:c-bet|C벳}}합니다."

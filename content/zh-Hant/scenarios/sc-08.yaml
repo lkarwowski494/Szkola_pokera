@@ -1,0 +1,35 @@
+# SC-08 (M4): mały blind 3-betuje otwarcie Buttona, potem rozmiar 3-betu (range-spot vs-open.sb-vs-btn, size-spot three-bet-size oop).
+# Rola 06, sesja EH, 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-08.yaml); jeden poziom (D-1034), pojemność wg D-1040.
+id: sc-08
+module: m4
+situation: "你在{{t:small-blind|小盲}}，按鈕位{{t:open|開池}}到 {{n:pf.open-size}}。"
+table: 6max
+positions: { hero: SB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 10", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: vs-open.sb-vs-btn
+    rule: R-M4-003
+    actions:
+      - action: "raise 10"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，按鈕位{{t:open|開池}}了。你 3-bet，因為這手牌位於你從{{t:small-blind|小盲}} 3-bet 的{{t:range|範圍}}上層：{{t:call|跟注}}之後你會{{t:out-of-position|無位置}}打，而且你後面的{{t:big-blind|大盲}}還可以{{t:raise|加注}}；3-bet 讓你取得{{t:initiative|主動權}}，並有機會立刻贏下{{t:pot|底池}}。"
+      - action: "call 2.5"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，按鈕位{{t:open|開池}}了。從{{t:small-blind|小盲}}面對按鈕位，你幾乎不{{t:call|跟注}}：{{t:call|跟注}}之後你要{{t:out-of-position|無位置}}打，而且你後面的{{t:big-blind|大盲}}還可以{{t:raise|加注}}。這手牌你要 3-bet，因為 3-bet 讓你取得{{t:initiative|主動權}}，並有機會立刻贏下{{t:pot|底池}}。"
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，按鈕位{{t:open|開池}}了。{{t:fold|棄牌}}太保守：這手牌位於你從{{t:small-blind|小盲}} 3-bet 的{{t:range|範圍}}上層（約 {{n:pf.3bet-freq.sb-vs-btn}} 的手牌）。3-bet 讓你取得{{t:initiative|主動權}}，並有機會立刻贏下{{t:pot|底池}}。"
+  - street: preflop
+    kind: size-spot
+    check: three-bet-size
+    rule: R-M4-002
+    openBb: 2.5
+    actions:
+      - action: raise
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你對按鈕位的{{t:open|開池}} 3-bet。你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-oop}}，也就是 {{n:pf.3bet.oop-total}}，因為翻牌後你先行動，所以用較大的{{t:raise|加注}}讓對手無法在{{t:in-position|有位置}}時廉價{{t:call|跟注}}。"
+      - action: raise-small
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你對按鈕位的{{t:open|開池}} 3-bet。這個尺寸不夠精確：翻牌後你先行動，所以你{{t:raise|加注}}到{{t:open|開池}}的約 {{n:pf.3bet.size-oop}}（{{n:pf.3bet.oop-total}}）；較小的{{t:raise|加注}}讓對手能在{{t:in-position|有位置}}時廉價{{t:call|跟注}}。"
+      - action: raise-big
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你對按鈕位的{{t:open|開池}} 3-bet。這個尺寸不夠精確：到{{t:open|開池}}的約 {{n:pf.3bet.size-oop}}（{{n:pf.3bet.oop-total}}）就夠了；這樣的尺寸已經讓對手無法在{{t:in-position|有位置}}時廉價{{t:call|跟注}}，更大的尺寸則是用同一手牌冒險投入更多{{t:chips|籌碼}}。"
