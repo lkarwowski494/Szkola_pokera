@@ -78,3 +78,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | CQ | 06 audit (recenzja CO) | — | 7,35 | 32,4 | 01:30 → 01:27 → 02:08 → — → 02:09 | — | |
 | CS | 08 fix (CQ) | — | 4,23 | 28,2 | 02:13 → 02:15 → 03:03 → CI w toku → (CT) | — | |
 | Koordynator …SdwmmCy2rQJHrxEQ | M9 (opus, medium) | — | 36,77 | 41 | 11-10 21:12 → 11-11 03:29 (przekazanie) | — | próg 30% przekroczony niezauważony (WG-12); zarchiwizowana przez siebie po PRZEJĄŁEM |
+| CT | 08 audit (recenzja CR+CS) | — | 7,85 | 32,3 | 03:07 → 03:12 → 17b1a3a → (docs+testy; ci 0 wg sesji ct-ci-17b1a3a6.txt) → 03:35 przyjąć warunkowo | — | zarchiwizowana 03:42 |
