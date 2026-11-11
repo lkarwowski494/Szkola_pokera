@@ -1,0 +1,14 @@
+ ❯ test/recenzja-cq-odtworzenie.test.ts (26 tests | 5 failed) 715ms
+     × SC-03 średni: z outami na parę z karty wyższej od stołu (3 na rangę, jak D1 w numbers.yaml) pas zostaje odporny na cenę i implied odds 5ms
+     × sc-11 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 7ms
+     × sc-11 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 3ms
+     × sc-12 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 6ms
+     × sc-12 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json) 4ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-003: SC-03 „masz 4 outy” i pas odporny tylko bez kart gracza wyższych od stołu > SC-03 średni: z outami na parę z karty wyższej od stołu (3 na rangę, jak D1 w numbers.yaml) pas zostaje odporny na cenę i implied odds
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-11 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-11 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-12 latwy: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra > sc-12 sredni: ręka gracza ma dodatnią częstość otwarcia z BTN (preflop-6max-100bb.json)
+ Test Files  1 failed (1)
+      Tests  5 failed | 20 passed | 1 expected fail (26)

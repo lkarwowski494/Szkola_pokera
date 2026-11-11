@@ -24,3 +24,5 @@ decisions:
         explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。{{t:check|チェック}}するのは、{{t:big-blind|ビッグブラインド}}が低いフロップに当たる{{t:connectors|コネクター}}や小さなカードのハンドを多く守っていて、{{t:pair|ペア}}も{{t:draw|ドロー}}もないあなたのハンドは外れているからです。こうしたフロップでは、高いフロップより{{t:c-bet|Cベット}}の頻度が下がります。"
       - action: bet-small
         explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。小さな{{t:bet|ベット}}は許容範囲ですが、頻度は低めです。ローカードの{{t:connected|コネクテッド}}なフロップでは、{{t:big-blind|ビッグブラインド}}がこのフロップに当たる{{t:connectors|コネクター}}や小さなカードのハンドを多く守っているので、高いフロップより{{t:c-bet|Cベット}}の頻度が下がります。"
+      - action: bet-big
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}しています。大きな{{t:bet|ベット}}は許容範囲ですが、頻度は低めです。ローカードの{{t:connected|コネクテッド}}なフロップでは、高いフロップより{{t:c-bet|Cベット}}の頻度が下がり、打つ場合も小さめにするのが基本です。{{t:big-blind|ビッグブラインド}}がこのフロップに当たる{{t:connectors|コネクター}}や小さなカードのハンドを多く守っているからです。"

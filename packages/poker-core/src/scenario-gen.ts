@@ -13,6 +13,8 @@ import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
 import { classifyFlop, textureMatches, type TextureFilter } from './texture';
 
+/** Outy na parę z jednej rangi karty gracza wyższej od stołu: 3 karty tej rangi (D1, `pair.outs.per-rank` w content/numbers.yaml). */
+export const OUTS_PER_OVERCARD_RANK = 3;
 export const SCENARIO_LEVELS = ['latwy', 'sredni', 'trudny'] as const;
 export type ScenarioLevel = (typeof SCENARIO_LEVELS)[number];
 
@@ -254,6 +256,8 @@ export class TemplateError extends Error {}
 export const GENERATOR_WERSJA = 1;
 
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
+/** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */
+const FLOP_REDEALS = 2000;
 export const MAX_CONSECUTIVE_REJECTIONS = 5000; // BR-GEN-003 mówi 1000; po odrzuceniu gotowych rąk (06-tresci-201) sc-19 miał ok. 0,5% rozdań dla poziomu, więc 1000 kończyło się sporadycznym błędem szablonu (D-665, do weta)
 
 /** Blindy wpłacone przez miejsce przy stole w bb (SB 0,5, BB 1; reszta 0). */
@@ -384,6 +388,26 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       options: spot.actions.map((a, i) => ({ action: a.label, f: freqs[i]!, verdict: verdicts[i]! })),
       correct: expected, freq: freqs[spot.actions.findIndex((a) => a.label === expected)]!,
     };
+  } else if (first.kind === 'cbet-case') {
+    // CS (CQ 06-tresci-004): „otworzyłeś z <pozycja>” — ręka gracza pochodzi z zakresu otwarcia tej pozycji (spot rfi.<pozycja> z danych treści, ta sama
+    // definicja co zakresy w aplikacji), losowana z wagą częstość otwarcia × liczba kombinacji klasy (suma akcji innych niż pas), a nie dowolna:
+    // ręka spoza zakresu uczyłaby c-betu po linii, której aplikacja nie gra. Losowanie z zakresu (nie odrzucanie) zachowuje pojemność wąskich poziomów.
+    if (!ctx) throw new TemplateError(`${t.id}: punkt cbet-case wymaga danych zakresów (GeneratorContext)`);
+    if (!t.positions) throw new TemplateError(`${t.id}: punkt cbet-case wymaga positions (zakres otwarcia gracza)`);
+    const spotId = `rfi.${t.positions.hero.toLowerCase()}`;
+    const otwarcie = ctx.spots.find((x) => x.id === spotId);
+    if (!otwarcie) throw new TemplateError(`${t.id}: brak spotu ${spotId} (zakres otwarcia gracza)`);
+    const wagi = HAND_CLASSES.map((hc, h) => otwarcie.actions.filter((a) => a.label !== 'fold').reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0) * classCombos(hc).length);
+    const suma = wagi.reduce((a, b) => a + b, 0);
+    if (!(suma > 0)) throw new TemplateError(`${t.id}: zakres otwarcia ${spotId} jest pusty`);
+    let los = rng() * suma;
+    let h = wagi.findIndex((w) => { los -= w; return los < 0; });
+    if (h < 0) h = wagi.map((w) => w > 0).lastIndexOf(true); // błąd zaokrąglenia na końcu zakresu
+    const combo = pick(rng, classCombos(HAND_CLASSES[h]!));
+    hero = [combo[0], combo[1]];
+    rest = dealCards(rng, 7, hero);
+    // wąska tekstura poziomu (SC-11 łatwy: ok. 0,4% flopów) razem z ręką z zakresu zjadłaby limit odrzuceń z rzędu: flop dolosowujemy do tekstury (tanio, bez klasyfikacji ręki)
+    for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
   } else {
     const cards = dealCards(rng, 9);
     hero = [cards[0]!, cards[1]!];
@@ -496,6 +520,13 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     // F5: all-in rywala na flopie to sprawdzenie całego stosu, więc rachunek na dwie karty (R-M2-002); inaczej jedna karta
     const allIn = spec.villain === 'all-in';
     const hit = allIn && spec.street === 'flop' ? hitProbability(spot.outs, 52 - 2 - stol.length, 2) : spot.hitNextCard;
+    // CS (CQ 06-tresci-003): ręka z kartą wyższą od stołu ma dodatkowe outy na parę (3 na rangę, definicja D1 w numbers.yaml; nakładanie z outami drawa
+    // nieusuwane, więc to górna granica). Odpowiedź musi być ta sama przy outach drawa (dolna granica) i z nadkartami (górna): inaczej uczylibyśmy pasu
+    // albo sprawdzenia, które przy realnych outach gracza zmienia wynik.
+    const wyzsze = new Set(hero.map(rankOf).filter((r) => r > Math.max(...stol.map(rankOf)))).size;
+    const nieznane = 52 - 2 - stol.length;
+    const outsZNadkartami = spot.outs + OUTS_PER_OVERCARD_RANK * wyzsze;
+    const hitZNadkartami = wyzsze === 0 ? hit : hitProbability(outsZNadkartami, nieznane, allIn && spec.street === 'flop' ? 2 : 1);
     // all-in = dokładnie stos gracza za pulą, bez zaokrąglenia (KO-056 ŚR-002: zaokrąglenie w górę dawało zakład większy niż stos o do 0,5 bb)
     if (typeof t.stackBb === 'number' && !t.positions) throw new TemplateError(`${t.id}: stackBb w punkcie draw-call wymaga positions (martwe blindy z pozycji)`);
     const martwe = t.positions ? deadBlindsBb(t.positions) : 0;
@@ -505,7 +536,16 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const ok = linie
       .filter((bet) => allIn || bet <= stosGracza) // all-in to z definicji cały stos (zaokrąglony)
       .map((bet) => ({ fraction: bet / pot, bet, margin: bet > 0 ? Math.abs(hit - requiredEquity(pot, bet)) : 0 }))
-      .filter((x) => inMargin(x.margin, b, i) && decide(hit, requiredEquity(pot, x.bet)) === b.expected[i]); // BR-GEN-003: tylko oczekiwana akcja
+      .filter((x) => inMargin(x.margin, b, i) && decide(hit, requiredEquity(pot, x.bet)) === b.expected[i]) // BR-GEN-003: tylko oczekiwana akcja
+      .filter((x) => {
+        if (wyzsze === 0) return true;
+        const cena = requiredEquity(pot, x.bet);
+        if (!inMargin(Math.abs(hitZNadkartami - cena), b, i) || decide(hitZNadkartami, cena) !== b.expected[i]) return false;
+        // pas odporny na implied odds także przy outach z nadkartami (R-M7-008): potrzebna wygrana po trafieniu większa niż stos za pulą po zakładzie
+        if (b.expected[i] !== 'fold' || !Number.isFinite(stosGracza)) return true;
+        const potrzeba = (x.bet * (nieznane - outsZNadkartami)) / outsZNadkartami - (pot + x.bet);
+        return potrzeba > Math.max(0, stosGracza - x.bet);
+      });
     if (ok.length === 0) return null;
     if (b.drawToBest && nutOutsShare(hero, stol) < NUT_DRAW_MIN_SHARE) return null; // F5: draw do najlepszej ręki (po tanich warunkach: nutOutsShare jest drogie)
     const chosen = pick(rng, ok);

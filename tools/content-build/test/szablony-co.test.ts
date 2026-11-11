@@ -31,6 +31,8 @@ import { blindMiejsca } from './martwe-blindy-wyrocznia';
 
 const root = resolve(import.meta.dirname, '../../..');
 const pl = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template);
+// SC-34 (icm-call) wrócił do szkiców (CS D-825, D-807): wyrocznia ICM nadal sprawdza szkic, żeby powrót nie zgubił rachunku
+const szkice = loadScenarioTemplates(join(root, 'docs', 'tresci', 'szablony-robocze')).map((x) => x.template);
 const LOSOWANIA = 10_000;
 const gen = (t: (typeof pl)[number]) => ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
 
@@ -65,7 +67,7 @@ describe('szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akc
     expect(cbet.map((t) => t.id)).toEqual(['sc-11', 'sc-12']);
   });
   for (const t of cbet) {
-    const ctx = { spots: [], thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, cbetCases };
+    const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, cbetCases };
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów`, () => {
         const b = t.bounds[level]!;
@@ -127,8 +129,9 @@ const po = (stacks: number[], h: number, v: number, d: number) => stacks.map((x,
 const eqPo = (stacks: number[], payouts: readonly number[], h: number) => (stacks[h]! <= 0 ? 0 : icm(stacks, payouts)[h]!);
 
 describe('szablony treści icm-call: equity z kart i próg ICM zgodne z wyrocznią (BR-GEN-003)', () => {
-  const icmT = pl.filter((t) => t.decisions.some((d) => d.kind === 'icm-call'));
-  it('treść ma szablon icm-call (SC-34)', () => {
+  const icmT = szkice.filter((t) => t.decisions.some((d) => d.kind === 'icm-call'));
+  it('szkic ma szablon icm-call (SC-34); w content/ go nie ma, bo ekran nie pokazuje stosów i wypłat (D-807)', () => {
+    expect(pl.some((t) => t.decisions.some((d) => d.kind === 'icm-call'))).toBe(false);
     expect(icmT.map((t) => t.id)).toEqual(['sc-34']);
   });
   const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, equity169: eqf };

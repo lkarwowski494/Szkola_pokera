@@ -5,15 +5,19 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { wybierzWariant } from '@szkola/domena';
-import { analyseOutsSpot, classOf, generateVariant, rankOf, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { analyseOutsSpot, classOf, generateVariant, OUTS_PER_OVERCARD_RANK, rankOf, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import { compileRanges } from '../src/ranges';
-import { loadScenarioTemplates } from '../src/scenariusze';
+import { checkScenarioNaEkran, loadScenarioTemplates } from '../src/scenariusze';
 import { content } from './kit';
 
-const przypadek = it.fails;
+// CS (naprawy 001–004): 001, 003 i 004 przeszły na `it`. 002: SC-34 (icm-call) wrócił do szkiców (D-825); jego test równowagi ICM zostaje
+// jako `it.fails` na szkicu: warunek powrotu do content/ (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie).
+const przypadek = it;
+const odtwarzaBlad = it.fails;
 const root = resolve(import.meta.dirname, '../../..');
 const pl = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template);
 const szablon = (id: string) => pl.find((t) => t.id === id)!;
+const szkice = loadScenarioTemplates(join(root, 'docs', 'tresci', 'szablony-robocze')).map((x) => x.template);
 const gen = (t: (typeof pl)[number]) => ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
 const eqf = JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8')) as { classes: string[]; equity: number[][]; pairs: number[][] };
 const ctx = {
@@ -23,17 +27,25 @@ const ctx = {
   cbetCases: content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!,
 };
 
-describe('06-tresci-001: szablony z treści nie startują na ekranie (aplikacja losuje wariant bez GeneratorContext)', () => {
-  // apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:88 — wybierzWariant(generator, poziom, ziarno, { historia, sesja }) bez `kontekst`;
-  // błąd generatora kończy otworzScenariusz powodem „plan_niepoprawny”. Każdy szablon z content/pl trafia do bazy treści i na listę scenariuszy.
+describe('06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: kontekst generatora składa ekran, bramka odrzuca resztę)', () => {
+  // Ekran (aktywnoscScenariusza.ts) losuje wariant z `kontekst` składanym z bazy treści (`getKontekstGeneratora`, ta sama funkcja co ctx wyżej);
+  // szablon, którego ekran nie obsługuje (icm-call, range-spot, brak akcji), odrzuca bramka `checkScenarioNaEkran` już w budowaniu.
+  // Test ekranu na prawdziwej bazie: apps/mobile .../cs-tresc-realna.test.tsx.
   for (const t of pl) {
+    it(`${t.id}: bramka ekranu nie ma zastrzeżeń`, () => {
+      expect(checkScenarioNaEkran(t)).toEqual([]);
+    });
     for (const level of t.levels as ScenarioLevel[]) {
-      const tenSamPrzypadek = t.decisions.some((d) => d.kind === 'cbet-case' || d.kind === 'icm-call') ? przypadek : it;
-      tenSamPrzypadek(`${t.id} ${level}: wariant powstaje tak jak w aplikacji`, () => {
-        expect(() => wybierzWariant(gen(t), level, 1, { historia: [], sesja: new Set() })).not.toThrow();
+      it(`${t.id} ${level}: wariant powstaje tak jak w aplikacji (z kontekstem)`, () => {
+        expect(() => wybierzWariant(gen(t), level, 1, { historia: [], sesja: new Set(), kontekst: ctx })).not.toThrow();
       });
     }
   }
+  it('szkic SC-34 (icm-call) jest odrzucany przez bramkę ekranu i nie ma go w content/ (WYS-002, D-807)', () => {
+    const sc34 = szkice.find((t) => t.id === 'sc-34')!;
+    expect(checkScenarioNaEkran(sc34).join('\n')).toMatch(/icm-call nie jest jeszcze obsługiwany na ekranie/);
+    expect(pl.some((t) => t.id === 'sc-34' || t.decisions.some((d) => d.kind === 'icm-call'))).toBe(false);
+  });
 });
 
 describe('06-tresci-002: SC-34 poziom trudny — przy ICM po obu stronach (równowaga push/fold) część wariantów ma odpowiedź „sprawdzam”', () => {
@@ -84,8 +96,8 @@ describe('06-tresci-002: SC-34 poziom trudny — przy ICM po obu stronach (równ
     }
     return p;
   }
-  przypadek('SC-34 trudny, ziarna 1–12: „pas” zostaje poprawny także wobec zakresu all-inu SB z równowagi ICM', () => {
-    const t = szablon('sc-34');
+  odtwarzaBlad('SZKIC SC-34 trudny, ziarna 1–12: „pas” zostaje poprawny także wobec zakresu all-inu SB z równowagi ICM (warunek powrotu do content/)', () => {
+    const t = szkice.find((x) => x.id === 'sc-34')!;
     const bledy: string[] = [];
     for (let seed = 1; seed <= 12; seed++) {
       const v = generateVariant(gen(t), 'trudny', seed, ctx);
@@ -101,26 +113,47 @@ describe('06-tresci-002: SC-34 poziom trudny — przy ICM po obu stronach (równ
   }, 300_000);
 });
 
-describe('06-tresci-003: SC-03 „masz 4 outy” i pas odporny tylko bez kart gracza wyższych od stołu', () => {
-  przypadek('SC-03 średni: z outami na parę z karty wyższej od stołu (3 na rangę, jak D1 w numbers.yaml) pas zostaje odporny na cenę i implied odds', () => {
-    const t = szablon('sc-03');
-    const bledy: string[] = [];
-    for (let seed = 1; seed <= 2000 && bledy.length < 5; seed++) {
-      const v = generateVariant(gen(t), 'sredni', seed);
-      const d = v.decisions[0]!;
-      const stol = v.board.slice(0, 4);
-      const top = Math.max(...stol.map(rankOf));
-      const wyzsze = new Set(v.hero.map(rankOf).filter((r) => r > top)).size;
-      if (!wyzsze) continue;
-      const outy = analyseOutsSpot(v.hero, stol)!.outs + 3 * wyzsze;
-      const szansa = outy / 46;
-      const cena = d.bet / (d.pot + 2 * d.bet);
-      const potrzeba = (d.bet * (46 - outy)) / outy - (d.pot + d.bet);
-      const zaPula = t.stackBb! - (d.pot - 0.5) / 2 - d.bet; // martwy SB 0,5 bb (BB wobec BTN)
-      if (szansa >= cena || potrzeba <= zaPula) bledy.push(`${seed}: ${outy} outów (${wyzsze} wyższe), szansa ${szansa.toFixed(3)} / cena ${cena.toFixed(3)}, implied ${potrzeba.toFixed(1)} ≤ ${zaPula.toFixed(1)} bb`);
-    }
-    expect(bledy).toEqual([]);
+describe('06-tresci-003: stała outów na parę = liczba z numbers.yaml (poker-core nie czyta plików)', () => {
+  it('OUTS_PER_OVERCARD_RANK = pair.outs.per-rank', () => {
+    expect(OUTS_PER_OVERCARD_RANK).toBe(content.numbers.find((n) => n.key === 'pair.outs.per-rank')!.value);
   });
+});
+
+describe('06-tresci-003: szablony draw-call — „pas” odporny także wtedy, gdy gracz ma karty wyższe od stołu (outy na parę jak D1 w numbers.yaml)', () => {
+  // Wyrocznia niezależna od generatora: outy drawa (analyseOutsSpot) + 3 na każdą rangę karty gracza wyższą od najwyższej karty stołu w punkcie
+  // (bez usuwania nakładania się, więc górna granica outów); pas wymaga, żeby także przy tych outach szansa nie przekraczała ceny
+  // i implied odds nie wystarczały (R-M7-008: potrzeba = zakład × nietrafiające ÷ outy − pula po zakładzie > stos za pulą).
+  // Przy oczekiwanym „call” dolna granica (same outy drawa) jest już sprawdzana testami szablony-bs.
+  for (const id of ['sc-02', 'sc-03', 'sc-19']) {
+    for (const level of ['latwy', 'sredni'] as ScenarioLevel[]) {
+      przypadek(`${id} ${level}: z kartami wyższymi od stołu pas zostaje odporny na cenę i implied odds`, () => {
+        const t = szablon(id);
+        if (!t.levels.includes(level)) return;
+        const bledy: string[] = [];
+        for (let seed = 1; seed <= 1500 && bledy.length < 5; seed++) {
+          const v = generateVariant(gen(t), level, seed);
+          let zaklady = 0;
+          v.decisions.forEach((d, i) => {
+            const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
+            const top = Math.max(...stol.map(rankOf));
+            const wyzsze = new Set(v.hero.map(rankOf).filter((r) => r > top)).size;
+            const outy = analyseOutsSpot(v.hero, stol)!.outs + 3 * wyzsze;
+            const nieznane = 52 - 2 - stol.length;
+            const spec = t.decisions[i] as { villain?: string };
+            const trafienie = spec.villain === 'all-in' && d.street === 'flop' ? 1 - ((nieznane - outy) * (nieznane - outy - 1)) / (nieznane * (nieznane - 1)) : outy / nieznane;
+            const cena = d.bet / (d.pot + 2 * d.bet);
+            zaklady += d.bet;
+            if (d.correct !== 'fold' || wyzsze === 0) return;
+            const potrzeba = (d.bet * (nieznane - outy)) / outy - (d.pot + d.bet);
+            const martwe = 0.5; // pozycje BTN–BB w sc-02, sc-03 i sc-19: martwy SB 0,5 bb
+            const zaPula = Math.max(0, t.stackBb! - (v.decisions[0]!.pot - martwe) / 2 - zaklady);
+            if (trafienie >= cena || potrzeba <= zaPula) bledy.push(`${seed}#${i + 1}: ${outy} outów (${wyzsze} wyższe), szansa ${trafienie.toFixed(3)} / cena ${cena.toFixed(3)}, implied ${potrzeba.toFixed(1)} ≤ ${zaPula.toFixed(1)} bb`);
+          });
+        }
+        expect(bledy).toEqual([]);
+      });
+    }
+  }
 });
 
 describe('06-tresci-004: SC-11 i SC-12 „Otworzyłeś z Buttona” z ręką, której zakres otwarcia BTN aplikacji nie gra', () => {
