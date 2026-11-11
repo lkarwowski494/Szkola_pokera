@@ -1,0 +1,34 @@
+# SC-06 (M3): mały blind przebija albo pasuje, potem rozmiar przebicia (F1 + F3: range-spot rfi.sb, size-spot open-size z sb). Rola 06, sesja DU,
+# 2026-11-11. Ocena: rangeVerdict na solverze projektu (R-M3-009, gto) i rozmiar z parametru R-M3-007 (zły rozmiar = niedokładność).
+# Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
+id: sc-06
+module: m3
+situation: "Vous êtes en {{t:small-blind}}, et tout le monde s'est {{t:fold|couché}} jusqu'à vous."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde s'est {{t:fold|couché}} jusqu'à vous. Vous {{t:raise|relancez}}, car vous ne jouez plus que contre la {{t:big-blind}} ; après le flop vous parlez en premier, donc vous {{t:open|ouvrez}} à peu près aussi large que depuis le bouton, environ {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} des mains, et cette main en fait partie."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde s'est {{t:fold|couché}} jusqu'à vous. Se {{t:fold|coucher}} est trop prudent : le solver {{t:raise|relance}} généralement cette main. Vous ne jouez plus que contre la {{t:big-blind}}, donc depuis la {{t:small-blind}} vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} des mains."
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous {{t:raise|relancez}}. Vous {{t:raise|relancez}} à {{n:pf.open-size-sb}}, car depuis la {{t:small-blind}} vous jouez {{t:out-of-position}}, donc vous relancez un peu plus que {{n:pf.open-size}} depuis les autres {{t:position|positions}} ; une seule taille pour toutes les mains ne révèle pas la force de votre main."
+      - action: raise-small
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous {{t:raise|relancez}}. Cette taille est une imprécision : depuis la {{t:small-blind}} vous jouez {{t:out-of-position}}, donc vous {{t:raise|relancez}} un peu plus, à {{n:pf.open-size-sb}}."
+      - action: raise-big
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous {{t:raise|relancez}}. Cette taille est une imprécision : {{n:pf.open-size-sb}} suffit ; une seule taille pour toutes les mains ne révèle pas la force de votre main."

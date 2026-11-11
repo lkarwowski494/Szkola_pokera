@@ -1,0 +1,119 @@
+// Poprawki szablonów DU po recenzji EA (rola 06, sesja EB, 2026-11-11; recenzja docs/tresci/recenzje/recenzja-du-7a7a0f1d.md
+// na gałęzi sesja-ea-recenzja). Każdy blok odtwarza jedno znalezisko i był czerwony na 7a7a0f1d.
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+import { parse as parseYaml } from 'yaml';
+import { describe, expect, it } from 'vitest';
+import { generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { compileRanges } from '../src/ranges';
+import { loadScenarioTemplates } from '../src/scenariusze';
+import { blindMiejsca } from './martwe-blindy-wyrocznia';
+
+const root = resolve(import.meta.dirname, '../../..');
+const JEZYKI = readdirSync(join(root, 'content')).filter((d) => statSync(join(root, 'content', d)).isDirectory() && d !== 'ranges');
+const szablony = (lang: string) => loadScenarioTemplates(join(root, 'content', lang, 'scenarios')).map((x) => x.template);
+const DU = ['sc-06', 'sc-32', 'sc-33', 'sc-34'];
+/** Zbiór (bez powtórzeń: przekład może powtórzyć pojęcie rzadziej) pojęć słownika ({{t:id}}, {{t:id|forma}}) i wstawek ({{w:…}}, {{n:…}}). */
+const znaczniki = (s: string) => [...new Set([...s.matchAll(/\{\{([twn]):([^}|]+)(?:\|[^}]*)?\}\}/g)].map((m) => `${m[1]}:${m[2]}`))].sort();
+
+describe('06-tresci-006: przekłady szablonów DU mają te same znaczniki co pl, w każdym języku', () => {
+  it('treść ma 12 języków', () => expect(JEZYKI.length).toBe(12));
+  const pl = szablony('pl');
+  for (const lang of JEZYKI.filter((l) => l !== 'pl')) {
+    it(`${lang}: sytuacja i każde wyjaśnienie SC-06, SC-32, SC-33, SC-34 mają zbiór znaczników jak pl`, () => {
+      const t = szablony(lang);
+      const rozbieznosci: string[] = [];
+      for (const id of DU) {
+        const a = pl.find((x) => x.id === id)!;
+        const b = t.find((x) => x.id === id);
+        if (!b) { rozbieznosci.push(`${id}: brak szablonu`); continue; }
+        if (znaczniki(b.situation).join() !== znaczniki(a.situation).join()) rozbieznosci.push(`${id} situation`);
+        a.decisions.forEach((d, i) => d.actions.forEach((x, j) => {
+          const y = b.decisions[i]?.actions[j];
+          if (y?.action !== x.action) rozbieznosci.push(`${id} ${i} ${x.action}: brak akcji`);
+          else if (znaczniki(y.explanation).join() !== znaczniki(x.explanation).join()) rozbieznosci.push(`${id} ${i} ${x.action}: ${znaczniki(y.explanation).join()} ≠ ${znaczniki(x.explanation).join()}`);
+        }));
+      }
+      expect(rozbieznosci).toEqual([]);
+    });
+  }
+});
+
+// 06-tresci-001: wyjaśnienie akcji poprawnej jest jedno dla wszystkich wariantów poziomu, więc jego przyczyna musi być prawdziwa w każdym.
+// Zdanie decyzji (to ze znacznikiem akcji) może podać {{t:payout}} (ICM) jako powód tylko wtedy, gdy w każdym wariancie gra o żetony
+// dałaby inną akcję; inaczej powodem jest equity ręki wobec progu z ICM ({{t:equity}} i {{t:icm}} w tym zdaniu). Equity i próg ICM
+// wariantu są sprawdzone wyrocznią niezależną w szablony-co; próg w żetonach (S − blind) ÷ 2S (R-M11-006) liczony tu z tabeli blindów.
+describe('06-tresci-001: SC-34 — przyczyna w zdaniu decyzji prawdziwa dla każdego wariantu generatora, w każdym języku', () => {
+  const LOSOWANIA = 10_000;
+  const t = szablony('pl').find((x) => x.id === 'sc-34')!;
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, equity169: JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8')) };
+  const zetony = (t.stackBb - blindMiejsca(t.positions.hero)) / (2 * t.stackBb);
+  /** Zdania tekstu (kropka, wykrzyknik, pytajnik albo 。), bez rozbijania znaczników {{…}}. */
+  const zdania = (s: string) => s.split(/(?<=[.!?。])\s*(?![^{]*\}\})/).filter((z) => z.trim());
+  for (const level of t.levels as ScenarioLevel[]) {
+    const poprawna = t.bounds[level]!.expected[0]!;
+    let takSamoWZetonach = 0;
+    for (let seed = 1; seed <= LOSOWANIA; seed++) {
+      const p = generateVariant(g, level, seed, ctx).points[0]!;
+      if (p.point !== 'icm-call') throw new Error(`${seed}: punkt ${p.point}`);
+      if ((p.handEquity >= zetony ? 'call' : 'fold') === p.correct) takSamoWZetonach++;
+    }
+    it(`${level}: generator ma warianty, w których gra o żetony daje tę samą akcję (${poprawna}): ${takSamoWZetonach}/${LOSOWANIA}`, () => {
+      expect(takSamoWZetonach).toBeGreaterThan(0);
+    });
+    for (const lang of JEZYKI) {
+      it(`${lang} ${level}: zdanie decyzji ${poprawna} uzasadnia equity wobec progu z ICM, nie wypłatami`, () => {
+        const tl = szablony(lang).find((x) => x.id === 'sc-34')!;
+        const wyj = tl.decisions[0]!.actions.find((a) => a.action === poprawna)!.explanation;
+        const decyzja = zdania(wyj).filter((z) => z.includes(`{{t:${poprawna}`));
+        expect(decyzja).toHaveLength(1);
+        expect({ payout: /\{\{t:payout[|}]/.test(decyzja[0]!), equity: /\{\{t:equity[|}]/.test(decyzja[0]!), icm: /\{\{t:icm[|}]/.test(decyzja[0]!) })
+          .toEqual({ payout: false, equity: true, icm: true });
+      });
+    }
+  }
+});
+
+// 06-tresci-004: zdanie „bo” nie mówi więcej niż `because` reguły. SC-06 rozmiar duży: R-M3-007 nie podaje ryzyka większego przebicia;
+// SC-32: R-M11-002 porównuje („przy krótszym stacku ryzykujesz mniej”), a nie ocenia („ryzykujesz mało”: przy 10 bb ryzykujesz 10 bb,
+// by wygrać 1,5 bb). Sprawdzane na pl i en (treść); przekłady zmienione w tym samym commicie, jakość: rola 09.
+describe('06-tresci-004: uzasadnienia SC-06 i SC-32 w granicach `because` reguły', () => {
+  const wyj = (lang: string, id: string, akcja: string) => szablony(lang).find((x) => x.id === id)!.decisions.flatMap((d) => d.actions).find((a) => a.action === akcja)!.explanation;
+  it('pl: SC-06 raise-big bez powodu „ryzykuje więcej żetonów”, SC-32 z porównaniem „krótszym … mniej”, bez „mało”', () => {
+    expect(wyj('pl', 'sc-06', 'raise-big')).not.toMatch(/ryzykuje więcej/);
+    for (const a of ['all-in', 'fold']) {
+      expect(wyj('pl', 'sc-32', a)).not.toMatch(/ryzykujesz mało/);
+      expect(wyj('pl', 'sc-32', a)).toMatch(/krótszym stacku ryzykujesz mniej względem blindów/);
+    }
+  });
+  it('en: to samo w przekładzie wzorcowym', () => {
+    expect(wyj('en', 'sc-06', 'raise-big')).not.toMatch(/risks more/);
+    for (const a of ['all-in', 'fold']) {
+      expect(wyj('en', 'sc-32', a)).not.toMatch(/risk little/);
+      expect(wyj('en', 'sc-32', a)).toMatch(/shorter stack you risk less/);
+    }
+  });
+});
+
+// 06-tresci-005: warunek `if` reguły R-M11-009 musi obejmować każdy wariant SC-34, który ją cytuje. Generator losuje stacki gracza i rywala
+// niezależnie, więc część wariantów to sprawdzenie, gdy gracz pokrywa rywala (all-in nie może go wyeliminować). Źródło reguły (bubble factor)
+// nie ma tego warunku: „Bubble factor shows you the equity you need to call an all-in” (blog.gtowizard.com, odczyt 2026-11-11).
+describe('06-tresci-005: warunek R-M11-009 obejmuje warianty SC-34, w których gracz pokrywa rywala', () => {
+  const t = szablony('pl').find((x) => x.id === 'sc-34')!;
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, equity169: JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8')) };
+  let pokrywa = 0;
+  for (const level of t.levels as ScenarioLevel[]) {
+    for (let seed = 1; seed <= 2000; seed++) {
+      const p = generateVariant(g, level, seed, ctx).points[0]!;
+      if (p.point === 'icm-call' && p.stacks[p.heroIndex]! > p.stacks[p.villainIndex]!) pokrywa++;
+    }
+  }
+  it(`generator: gracz pokrywa rywala w ${pokrywa}/4000 wariantów (Ł + Ś)`, () => expect(pokrywa).toBeGreaterThan(0));
+  const warunek = (lang: string) => (parseYaml(readFileSync(join(root, 'content', lang, 'rules.yaml'), 'utf8')) as { id: string; if: string }[]).find((r) => r.id === 'R-M11-009')!.if;
+  it.each([['pl', /wyelimin/], ['en', /eliminat/]] as const)('%s: `if` bez warunku „może cię wyeliminować”', (lang, zakaz) => {
+    expect(warunek(lang)).not.toMatch(zakaz);
+    expect(warunek(lang)).toMatch(/\{\{t:call[|}]/);
+  });
+});

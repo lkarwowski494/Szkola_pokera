@@ -1,0 +1,34 @@
+# SC-06 (M3): mały blind przebija albo pasuje, potem rozmiar przebicia (F1 + F3: range-spot rfi.sb, size-spot open-size z sb). Rola 06, sesja DU,
+# 2026-11-11. Ocena: rangeVerdict na solverze projektu (R-M3-009, gto) i rozmiar z parametru R-M3-007 (zły rozmiar = niedokładność).
+# Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
+id: sc-06
+module: m3
+situation: "Du sitzt im {{t:small-blind}}, und alle haben bis zu dir {{t:fold|gefoldet}}."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und alle haben bis zu dir {{t:fold|gefoldet}}. Du {{t:raise|raist}}, weil du nur noch gegen den {{t:big-blind}} spielst; nach dem Flop handelst du zuerst, daher {{t:open|eröffnest}} du etwa so weit wie vom Button, etwa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} der Hände, und diese Hand gehört dazu."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und alle haben bis zu dir {{t:fold|gefoldet}}. Ein {{t:fold}} ist zu vorsichtig: Der Solver {{t:raise|raist}} diese Hand meistens. Du spielst nur noch gegen den {{t:big-blind}}, daher {{t:open|eröffnest}} du aus dem {{t:small-blind}} weit, etwa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} der Hände."
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und du {{t:raise|raist}}. Du {{t:raise|raist}} auf {{n:pf.open-size-sb}}, weil du aus dem {{t:small-blind}} {{t:out-of-position|ohne Position}} spielst, also etwas mehr als {{n:pf.open-size}} von anderen {{t:position|Positionen}}; eine Größe für alle Hände verrät nicht die Stärke deiner Hand."
+      - action: raise-small
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und du {{t:raise|raist}}. Diese Größe ist eine Ungenauigkeit: Aus dem {{t:small-blind}} spielst du {{t:out-of-position|ohne Position}}, also {{t:raise|raist}} du etwas mehr, auf {{n:pf.open-size-sb}}."
+      - action: raise-big
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und du {{t:raise|raist}}. Diese Größe ist eine Ungenauigkeit: {{n:pf.open-size-sb}} reicht; eine Größe für alle Hände verrät nicht die Stärke deiner Hand."

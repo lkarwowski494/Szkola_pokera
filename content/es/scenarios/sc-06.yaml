@@ -1,0 +1,34 @@
+# SC-06 (M3): mały blind przebija albo pasuje, potem rozmiar przebicia (F1 + F3: range-spot rfi.sb, size-spot open-size z sb). Rola 06, sesja DU,
+# 2026-11-11. Ocena: rangeVerdict na solverze projektu (R-M3-009, gto) i rozmiar z parametru R-M3-007 (zły rozmiar = niedokładność).
+# Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
+id: sc-06
+module: m3
+situation: "Estás en la {{t:small-blind}} y todos se han {{t:fold|retirado}} hasta ti."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y todos se han {{t:fold|retirado}} hasta ti. {{t:raise|Subes}}, porque ya solo juegas contra la {{t:big-blind}}; después del flop hablas primero, así que {{t:open|abres}} más o menos tan amplio como desde el botón, aproximadamente {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} de las manos, y esta mano está entre ellas."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y todos se han {{t:fold|retirado}} hasta ti. {{t:fold|Retirarte}} es demasiado prudente: el solver suele {{t:raise|subir}} con esta mano. Ya solo juegas contra la {{t:big-blind}}, así que desde la {{t:small-blind}} {{t:open|abres}} amplio, aproximadamente {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} de las manos."
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y {{t:raise|subes}}. {{t:raise|Subes}} a {{n:pf.open-size-sb}}, porque desde la {{t:small-blind}} juegas {{t:out-of-position}}, así que subes un poco más que {{n:pf.open-size}} desde otras {{t:position|posiciones}}; un mismo tamaño para todas las manos no revela la fuerza de tu mano."
+      - action: raise-small
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y {{t:raise|subes}}. Este tamaño es una imprecisión: desde la {{t:small-blind}} juegas {{t:out-of-position}}, así que {{t:raise|subes}} un poco más, a {{n:pf.open-size-sb}}."
+      - action: raise-big
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y {{t:raise|subes}}. Este tamaño es una imprecisión: basta con {{n:pf.open-size-sb}}; un mismo tamaño para todas las manos no revela la fuerza de tu mano."

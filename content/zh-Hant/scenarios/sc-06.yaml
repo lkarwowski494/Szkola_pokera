@@ -1,0 +1,34 @@
+# SC-06 (M3): mały blind przebija albo pasuje, potem rozmiar przebicia (F1 + F3: range-spot rfi.sb, size-spot open-size z sb). Rola 06, sesja DU,
+# 2026-11-11. Ocena: rangeVerdict na solverze projektu (R-M3-009, gto) i rozmiar z parametru R-M3-007 (zły rozmiar = niedokładność).
+# Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
+id: sc-06
+module: m3
+situation: "你在{{t:small-blind|小盲}}，所有人都{{t:fold|棄牌}}到你。"
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，所有人都{{t:fold|棄牌}}到你。你{{t:raise|加注}}，因為現在只剩{{t:big-blind|大盲}}和你對抗；翻牌後你先行動，所以你{{t:open|開池}}的範圍大約和按鈕一樣寬，約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 的手牌，而這手牌在其中。"
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，所有人都{{t:fold|棄牌}}到你。{{t:fold|棄牌}}太保守：求解器通常會{{t:raise|加注}}這手牌。現在只剩{{t:big-blind|大盲}}和你對抗，所以你從{{t:small-blind|小盲}}寬{{t:open|開池}}，約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 的手牌。"
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你{{t:raise|加注}}。你{{t:raise|加注}}到 {{n:pf.open-size-sb}}，因為從{{t:small-blind|小盲}}你要{{t:out-of-position|無位置}}打，所以比其他{{t:position|位置}}的 {{n:pf.open-size}} 稍大一點；所有手牌用同一尺寸，不會暴露手牌強度。"
+      - action: raise-small
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你{{t:raise|加注}}。這個尺寸不夠精確：從{{t:small-blind|小盲}}你要{{t:out-of-position|無位置}}打，所以稍微{{t:raise|加注}}大一點，到 {{n:pf.open-size-sb}}。"
+      - action: raise-big
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你{{t:raise|加注}}。這個尺寸不夠精確：{{n:pf.open-size-sb}} 就夠了；所有手牌用同一尺寸不會暴露手牌強度。"

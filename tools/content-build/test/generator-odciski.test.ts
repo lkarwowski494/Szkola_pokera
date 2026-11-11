@@ -17,11 +17,14 @@ const PLIK = join(import.meta.dirname, 'generator-odciski.json');
 const POMINIETE = new Set<string>(); // D-852 cofnięte w D-854: sc-12 włączony po scaleniu CU
 const ZIARNA = 200;
 const templates = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template).filter((t) => !POMINIETE.has(t.id));
-// Kontekst jak w aplikacji i w teście CT (zakresy z content/, progi i przypadki c-betu z reguły R-M5-007).
+// Kontekst jak w aplikacji i w teście CT (zakresy z content/, progi i przypadki c-betu z reguły R-M5-007); od DU także reguły rozmiaru
+// (size-spot, SC-06) i macierz equity (icm-call, SC-34), bez których generator odmawia tych punktów.
 const ctx = {
   spots: compileRanges(join(root, 'content')).spots,
   thresholds: { mixedMin: 0.035, mixedLow: 0.25 },
   cbetCases: content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!,
+  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)),
+  equity169: JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8')),
 };
 const gen = (t: (typeof templates)[number]) => ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
 

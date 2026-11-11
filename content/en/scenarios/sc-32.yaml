@@ -1,0 +1,21 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). Rola 06, sesja DU, 2026-11-11. Ocena: rangeVerdict
+# na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|Tournament}}: you are in the {{t:small-blind}} with {{n:m11.depth.10}}, and everyone {{t:fold|folded}} to you."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "You have {{w:reka}} on the {{w:pozycja}} with {{n:m11.depth.10}}, {{w:stol}}, and everyone {{t:fold|folded}}. You go {{t:all-in}}, because with a shorter stack you risk less compared with the blinds you win when your opponent {{t:fold|folds}}; at {{n:m11.depth.10}} you {{t:shove}} about {{n:m11.push.10}} of hands, and this hand is among them."
+      - action: fold
+        explanation: "You have {{w:reka}} on the {{w:pozycja}} with {{n:m11.depth.10}}, {{w:stol}}, and everyone {{t:fold|folded}}. A {{t:fold}} is too cautious: at {{n:m11.depth.10}} you {{t:shove}} about {{n:m11.push.10}} of hands, and this hand is among them. With a shorter stack you risk less compared with the blinds you win when your opponent {{t:fold|folds}}."

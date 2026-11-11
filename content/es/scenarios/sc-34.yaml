@@ -1,0 +1,23 @@
+# SC-34 (M11): bańka, duży blind wobec all-inu małego blinda przy 10 bb (F4, punkt icm-call). Ocena: rachunek R-M11-009 (equity z kart
+# wobec zakresu push.sb-10 i próg ICM z blindem gracza). Poziomy łatwy i średni (D-1036, sesja DU); poziom trudny czeka na 06-tresci-002
+# i zostaje w szkicu docs/tresci/szablony-robocze/sc-34.yaml (bramka scenariusze.ts odrzuca icm-call z poziomem trudnym). Rola 06, sesje CO i DU.
+id: sc-34
+module: m11
+situation: "En la {{t:bubble|burbuja}} la {{t:small-blind}} va {{t:all-in}}, y tú estás en la {{t:big-blind}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy, sredni]
+bounds:
+  latwy: { marginMin: 0.1, expected: [fold] }
+  sredni: { marginMin: 0.05, marginMax: 0.15, expected: [call] }
+decisions:
+  - street: preflop
+    kind: icm-call
+    spot: push.sb-10
+    rule: R-M11-009
+    actions:
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} en la {{t:bubble|burbuja}}, {{w:stol}}, y la {{t:small-blind}} ha ido {{t:all-in}}. Te {{t:fold|retiras}}, porque contra el {{t:range|rango}} de {{t:all-in}} esta mano tiene menos {{t:equity}} de la que exige el umbral del {{t:icm}}. Ese umbral es más alto que en el juego por {{t:chips}}, porque en un {{t:tournament|torneo}} con {{t:payout|premios}} perder cuesta más dinero del que ganar suma, así que {{t:call|pagar}} debe ganar más a menudo."
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} en la {{t:bubble|burbuja}}, {{w:stol}}, y la {{t:small-blind}} ha ido {{t:all-in}}. {{t:call|Pagas}}, porque contra el {{t:range|rango}} de {{t:all-in}} esta mano tiene más {{t:equity}} de la que exige el umbral del {{t:icm}}. Ese umbral es más alto que en el juego por {{t:chips}}, porque en un {{t:tournament|torneo}} con {{t:payout|premios}} perder cuesta más dinero del que ganar suma."

@@ -1,0 +1,23 @@
+# SC-34 (M11): bańka, duży blind wobec all-inu małego blinda przy 10 bb (F4, punkt icm-call). Ocena: rachunek R-M11-009 (equity z kart
+# wobec zakresu push.sb-10 i próg ICM z blindem gracza). Poziomy łatwy i średni (D-1036, sesja DU); poziom trudny czeka na 06-tresci-002
+# i zostaje w szkicu docs/tresci/szablony-robocze/sc-34.yaml (bramka scenariusze.ts odrzuca icm-call z poziomem trudnym). Rola 06, sesje CO i DU.
+id: sc-34
+module: m11
+situation: "{{t:bubble|バブル}}で{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}し、あなたは{{t:big-blind|ビッグブラインド}}にいます。"
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy, sredni]
+bounds:
+  latwy: { marginMin: 0.1, expected: [fold] }
+  sredni: { marginMin: 0.05, marginMax: 0.15, expected: [call] }
+decisions:
+  - street: preflop
+    kind: icm-call
+    spot: push.sb-10
+    rule: R-M11-009
+    actions:
+      - action: fold
+        explanation: "あなたは{{t:bubble|バブル}}の{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。{{t:fold|フォールド}}するのは、このハンドの{{t:all-in|オールイン}}の{{t:range|レンジ}}に対する{{t:equity|エクイティ}}が、{{t:icm|ICM}}のしきい値が求める水準に届かないからです。このしきい値が{{t:chips|チップ}}だけのゲームより高いのは、{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では負けで失うお金が勝って増えるお金より大きく、{{t:call|コール}}はより高い頻度で勝つ必要があるからです。"
+      - action: call
+        explanation: "あなたは{{t:bubble|バブル}}の{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。{{t:call|コール}}するのは、このハンドが{{t:all-in|オールイン}}の{{t:range|レンジ}}に対して、{{t:icm|ICM}}のしきい値が求めるより多くの{{t:equity|エクイティ}}を持っているからです。このしきい値が{{t:chips|チップ}}だけのゲームより高いのは、{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では負けで失うお金が勝って増えるお金より大きいからです。"

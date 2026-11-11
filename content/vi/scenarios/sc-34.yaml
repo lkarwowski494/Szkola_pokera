@@ -1,0 +1,23 @@
+# SC-34 (M11): bańka, duży blind wobec all-inu małego blinda przy 10 bb (F4, punkt icm-call). Ocena: rachunek R-M11-009 (equity z kart
+# wobec zakresu push.sb-10 i próg ICM z blindem gracza). Poziomy łatwy i średni (D-1036, sesja DU); poziom trudny czeka na 06-tresci-002
+# i zostaje w szkicu docs/tresci/szablony-robocze/sc-34.yaml (bramka scenariusze.ts odrzuca icm-call z poziomem trudnym). Rola 06, sesje CO i DU.
+id: sc-34
+module: m11
+situation: "Ở {{t:bubble|bubble}}, {{t:small-blind|small blind}} {{t:all-in|all-in}}, còn bạn ở {{t:big-blind|big blind}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy, sredni]
+bounds:
+  latwy: { marginMin: 0.1, expected: [fold] }
+  sredni: { marginMin: 0.05, marginMax: 0.15, expected: [call] }
+decisions:
+  - street: preflop
+    kind: icm-call
+    spot: push.sb-10
+    rule: R-M11-009
+    actions:
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} tại {{t:bubble|bubble}}, {{w:stol}}, và {{t:small-blind|small blind}} đã {{t:all-in|all-in}}. Bạn {{t:fold|bỏ bài}}, vì trước {{t:range|range}} {{t:all-in|all-in}}, tay này có ít {{t:equity|equity}} hơn mức ngưỡng {{t:icm|ICM}} đòi hỏi. Ngưỡng này cao hơn so với chơi bằng {{t:chips|chip}}, vì trong {{t:tournament|giải đấu}} có {{t:payout|tiền thưởng}}, thua làm mất nhiều tiền hơn số tiền thắng mang lại, nên {{t:call|theo}} phải thắng thường xuyên hơn."
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} tại {{t:bubble|bubble}}, {{w:stol}}, và {{t:small-blind|small blind}} đã {{t:all-in|all-in}}. Bạn {{t:call|theo}}, vì trước {{t:range|range}} {{t:all-in|all-in}}, tay này có nhiều {{t:equity|equity}} hơn mức ngưỡng {{t:icm|ICM}} đòi hỏi. Ngưỡng này cao hơn so với chơi bằng {{t:chips|chip}}, vì trong {{t:tournament|giải đấu}} có {{t:payout|tiền thưởng}}, thua làm mất nhiều tiền hơn số tiền thắng mang lại."

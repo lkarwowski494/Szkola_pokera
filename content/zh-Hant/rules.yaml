@@ -1139,7 +1139,7 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11
-  if: "在有{{t:icm|ICM}}的{{t:tournament|錦標賽}}中，你{{t:call|跟注}}一個可能淘汰你的全下"
+  if: "在有{{t:icm|ICM}}的{{t:tournament|錦標賽}}中，你{{t:call|跟注}}一個全下"
   then: "你需要的權益是 BF ÷ （BF + 1），其中泡沫因子 BF = 輸時損失的權益 ÷ 贏時增加的權益；在課程的範例中是 {{n:m11.bf.req}}，而以{{t:chips|籌碼}}計算時是 {{n:m11.bf.req-chips}}"
   because: "在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中，輸掉時損失的錢比贏的時候增加的多，所以{{t:call|跟注}}必須比在以{{t:chips|籌碼}}計價的遊戲中更常贏"
   level: math

@@ -1,0 +1,21 @@
+# SC-33 (M11): duży blind sprawdza all-in małego blinda przy 10 bb (F1, range-spot call.bb-10). Rola 06, sesja DU, 2026-11-11. Ocena:
+# rangeVerdict na solverze push/fold projektu, reguła R-M11-007 (gto); cena z R-M11-006 (math). Jeden poziom (D-1034).
+id: sc-33
+module: m11
+situation: "{{t:tournament|Tournoi}} : vous êtes en {{t:big-blind}} avec {{n:m11.depth.10}}, et la {{t:small-blind}} est partie {{t:all-in}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [call] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: call.bb-10
+    rule: R-M11-007
+    actions:
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}} avec {{n:m11.depth.10}}, {{w:stol}}, et la {{t:small-blind}} est partie {{t:all-in}}. Vous {{t:call|suivez}}, car cette main est dans votre {{t:range}} de {{t:call|suivi}} : votre blinde est déjà dans le {{t:pot}}, donc il vous faut environ {{n:m11.call.10.eq}} d'equity. Vous {{t:call|suivez}} pourtant plus serré que vous ne feriez {{t:shove|tapis}} vous-même : environ {{n:m11.call.10}} des mains contre environ {{n:m11.push.10}}."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}} avec {{n:m11.depth.10}}, {{w:stol}}, et la {{t:small-blind}} est partie {{t:all-in}}. Se {{t:fold|coucher}} est trop prudent : cette main est dans votre {{t:range}} de {{t:call|suivi}}, environ {{n:m11.call.10}} des mains. Votre blinde est déjà dans le {{t:pot}}, donc il ne vous faut qu'environ {{n:m11.call.10.eq}} d'equity."

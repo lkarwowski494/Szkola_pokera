@@ -34,7 +34,7 @@ import { blindMiejsca } from './martwe-blindy-wyrocznia';
 
 const root = resolve(import.meta.dirname, '../../..');
 const pl = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template);
-// SC-34 (icm-call) wrócił do szkiców (CS D-825, D-807): wyrocznia ICM nadal sprawdza szkic, żeby powrót nie zgubił rachunku
+// SC-34 (icm-call): w treści bez poziomu trudnego (DU, D-1036); szkic z poziomem trudnym zostaje dla 06-tresci-002 i wyrocznia ICM sprawdza oba
 const szkice = loadScenarioTemplates(join(root, 'docs', 'tresci', 'szablony-robocze')).map((x) => x.template);
 const LOSOWANIA = 10_000;
 const gen = (t: (typeof pl)[number]) => ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
@@ -213,18 +213,21 @@ const po = (stacks: number[], h: number, v: number, d: number) => stacks.map((x,
 const eqPo = (stacks: number[], payouts: readonly number[], h: number) => (stacks[h]! <= 0 ? 0 : icm(stacks, payouts)[h]!);
 
 describe('szablony treści icm-call: equity z kart i próg ICM zgodne z wyrocznią (BR-GEN-003)', () => {
-  const icmT = szkice.filter((t) => t.decisions.some((d) => d.kind === 'icm-call'));
-  it('szkic ma szablon icm-call (SC-34); w content/ go nie ma, bo poziom trudny czeka na 06-tresci-002 (ekran ma widok stosów i wypłat od D-889; D-807, D-825)', () => {
-    expect(pl.some((t) => t.decisions.some((d) => d.kind === 'icm-call'))).toBe(false);
-    expect(icmT.map((t) => t.id)).toEqual(['sc-34']);
+  const icmPl = pl.filter((t) => t.decisions.some((d) => d.kind === 'icm-call'));
+  const icmSzkic = szkice.filter((t) => t.decisions.some((d) => d.kind === 'icm-call'));
+  it('treść ma SC-34 bez poziomu trudnego (D-1036), a szkic SC-34 z poziomem trudnym czeka na 06-tresci-002 (D-825, D-986)', () => {
+    expect(icmPl.map((t) => t.id)).toEqual(['sc-34']);
+    expect(icmPl[0]!.levels).toEqual(['latwy', 'sredni']);
+    expect(icmSzkic.map((t) => t.id)).toEqual(['sc-34']);
+    expect(icmSzkic[0]!.levels).toContain('trudny');
   });
   const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, equity169: eqf };
-  for (const t of icmT) {
+  for (const [zrodlo, t] of [...icmPl.map((x) => ['treść', x] as const), ...icmSzkic.map((x) => ['szkic', x] as const)]) {
     const spot = (t.decisions[0] as { spot: string }).spot; // push.sb-10
     const node = push.spots.find((s) => s.path === `${spot.replace('push.sb-', '')}bb|` && s.player === 'SB')!;
     const wagi = node.strategy[node.actions.indexOf('all-in')]!;
     for (const level of t.levels as ScenarioLevel[]) {
-      it(`${t.id} ${level}: ${LOSOWANIA} wariantów`, () => {
+      it(`${zrodlo} ${t.id} ${level}: ${LOSOWANIA} wariantów`, () => {
         const b = t.bounds[level]!;
         const bledy: string[] = [];
         for (let seed = 1; seed <= LOSOWANIA && bledy.length < 5; seed++) {

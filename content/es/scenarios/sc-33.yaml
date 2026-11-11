@@ -1,0 +1,21 @@
+# SC-33 (M11): duży blind sprawdza all-in małego blinda przy 10 bb (F1, range-spot call.bb-10). Rola 06, sesja DU, 2026-11-11. Ocena:
+# rangeVerdict na solverze push/fold projektu, reguła R-M11-007 (gto); cena z R-M11-006 (math). Jeden poziom (D-1034).
+id: sc-33
+module: m11
+situation: "{{t:tournament|Torneo}}: estás en la {{t:big-blind}} con {{n:m11.depth.10}} y la {{t:small-blind}} ha ido {{t:all-in}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [call] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: call.bb-10
+    rule: R-M11-007
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, y la {{t:small-blind}} ha ido {{t:all-in}}. {{t:call|Pagas}}, porque esta mano está en tu {{t:range|rango}} de {{t:call|pago}}: tu ciega ya está en el {{t:pot}}, así que necesitas aproximadamente {{n:m11.call.10.eq}} de equity. Aun así, {{t:call|pagas}} más ajustado de lo que harías {{t:shove|push}} tú mismo: aproximadamente {{n:m11.call.10}} de las manos frente a aproximadamente {{n:m11.push.10}}."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, y la {{t:small-blind}} ha ido {{t:all-in}}. {{t:fold|Retirarte}} es demasiado prudente: esta mano está en tu {{t:range|rango}} de {{t:call|pago}}, aproximadamente {{n:m11.call.10}} de las manos. Tu ciega ya está en el {{t:pot}}, así que solo necesitas aproximadamente {{n:m11.call.10.eq}} de equity."
