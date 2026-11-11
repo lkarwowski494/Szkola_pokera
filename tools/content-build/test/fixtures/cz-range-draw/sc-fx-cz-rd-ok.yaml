@@ -1,0 +1,28 @@
+# Fixture testu CZ (ŚR-006, 06-tresci-006): punkt range-spot przed punktem draw-call. Rachunek D-630 (szablony-bs.test.ts) ma
+# sprawdzić punkt draw-call także wtedy, gdy szablon ma inny punkt przed nim. Wersja zgodna: sprawdzenie małego zakładu. Nie jest treścią aplikacji.
+id: sc-fx-cz-rd-ok
+module: m3
+situation: "Fixture: otwarcie z Buttona, potem draw do koloru na flopie."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.9, max: 1 }, null], draws: [flush], marginMin: 0.02, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: ["raise 2.5", call] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.btn
+    rule: R-M3-003
+    actions:
+      - { action: "raise 2.5", explanation: "Fixture: otwierasz." }
+      - { action: fold, explanation: "Fixture: pas." }
+  - street: flop
+    kind: draw-call
+    pots: [20, 24]
+    fractions: [0.1, 0.2]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - { action: call, explanation: "Fixture: sprawdzasz." }
+      - { action: fold, explanation: "Fixture: pas." }
