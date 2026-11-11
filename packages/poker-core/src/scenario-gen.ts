@@ -179,6 +179,8 @@ export interface LevelBounds {
   holding?: readonly HoldingFilter[];
   /** F1: przedział częstości akcji oczekiwanej na punkt decyzji range-spot (null = inny rodzaj punktu); min ≤ f ≤ max. */
   freqs?: readonly ({ min: number; max: number } | null)[];
+  /** KO-076: minimalny margin equity (ułamek) klasy ręki range-spot od granicy akcji oczekiwanej, `equityMarginPp` (D-1141); wymaga `ctx.equity169`. */
+  equityMarginMin?: number;
   /**
    * Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). Granice losowania
    * mają ją gwarantować: generator odrzuca wariant, w którym rachunek daje inną akcję, więc w poziomie decyzja się nie zmienia.
@@ -383,8 +385,50 @@ function inMargin(margin: number, b: LevelBounds, i: number): boolean {
   return margin > 0 && margin >= m.min && (m.max === null || margin < m.max);
 }
 
+/**
+ * KO-076 (D-1141): margines klasy ręki od granicy akcji oczekiwanej, w equity wobec losowej ręki (ułamek; 0,02 = 2 pp): odległość od najbliższej klasy,
+ * w której akcja oczekiwana ma częstość ≤ 0,5 (druga strona granicy). Uproszczenie: miara siły ręki to equity wobec losowej ręki, nie wobec zakresu rywala
+ * danego spotu (ten wymagałby osobnego odwzorowania spot → zakres rywala); dla klas dalekich od granicy w rankingu siły daje większy margines.
+ */
+const SILA_CACHE = new WeakMap<Equity169Data, number[]>();
+/** Equity klasy wobec losowej ręki (wszystkie 169 klas ważone liczbą par kombinacji); liczone raz na macierz. */
+function silaKlas(m: Equity169Data): number[] {
+  let c = SILA_CACHE.get(m);
+  if (!c) {
+    c = m.classes.map((_x, k) => {
+      let w = 0;
+      let s = 0;
+      m.classes.forEach((_y, j) => { w += m.pairs[k]![j]!; s += m.pairs[k]![j]! * m.equity[k]![j]!; });
+      return s / w;
+    });
+    SILA_CACHE.set(m, c);
+  }
+  return c;
+}
+const MARGINES = new WeakMap<RangeSpotData, Map<string, number>>();
+export function equityMargin(spot: RangeSpotData, expected: string, hc: string, m: Equity169Data): number {
+  const klucz = `${expected}|${hc}`;
+  let pamiec = MARGINES.get(spot);
+  if (!pamiec) { pamiec = new Map(); MARGINES.set(spot, pamiec); }
+  const znany = pamiec.get(klucz);
+  if (znany !== undefined) return znany;
+  const wynik = policzMargines(spot, expected, hc, m);
+  pamiec.set(klucz, wynik);
+  return wynik;
+}
+function policzMargines(spot: RangeSpotData, expected: string, hc: string, m: Equity169Data): number {
+  const a = spot.actions.findIndex((x) => x.label === expected);
+  const i = m.classes.indexOf(hc);
+  if (a < 0 || i < 0) throw new TemplateError(`equityMargin: brak akcji ${expected} albo klasy ${hc}`);
+  const sila = silaKlas(m);
+  let best = Infinity;
+  m.classes.forEach((c, j) => { if ((spot.actions[a]!.freqs[HAND_CLASSES.indexOf(c)] ?? 0) <= 0.5) best = Math.min(best, Math.abs(sila[i]! - sila[j]!)); });
+  return best;
+}
+
 /** F1: klasy rąk, w których akcja oczekiwana ma częstość z przedziału poziomu i werdykt „zgodna” (ADR-26); klasy niepewne pominięte. */
-export function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext): { hc: string; h: number }[] {
+export function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext, equityMarginMin?: number): { hc: string; h: number }[] {
+  if (equityMarginMin !== undefined && !ctx.equity169) throw new TemplateError('equityMarginMin wymaga macierzy equity w kontekście generatora (GeneratorContext.equity169)');
   const idx = spot.actions.findIndex((a) => a.label === expected);
   if (idx < 0) return [];
   const out: { hc: string; h: number }[] = [];
@@ -392,7 +436,7 @@ export function eligibleClasses(spot: RangeSpotData, expected: string, range: { 
     if (spot.uncertain.includes(hc)) return;
     const freqs = spot.actions.map((a) => a.freqs[h]!);
     const f = freqs[idx]!;
-    if (f >= range.min && f <= range.max && rangeVerdict(freqs, ctx.thresholds)[idx] === 'correct') out.push({ hc, h });
+    if (f >= range.min && f <= range.max && rangeVerdict(freqs, ctx.thresholds)[idx] === 'correct' && (equityMarginMin === undefined || equityMargin(spot, expected, hc, ctx.equity169!) >= equityMarginMin)) out.push({ hc, h });
   });
   return out;
 }
@@ -409,7 +453,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const expected = b.expected[0]!;
     const range = b.freqs?.[0];
     if (!range) throw new TemplateError(`${t.id}: poziom ${level}: punkt range-spot bez przedziału freqs`);
-    const classes = eligibleClasses(spot, expected, range, ctx);
+    const classes = eligibleClasses(spot, expected, range, ctx, b.equityMarginMin);
     if (classes.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna klasa rąk nie spełnia przedziału częstości ${range.min}–${range.max} dla ${expected} w spocie ${spot.id}`);
     const chosen = pick(rng, classes);
     const combo = pick(rng, classCombos(chosen.hc));

@@ -543,6 +543,8 @@ export const ScenarioLevelBounds = z
     holding: z.array(ScenarioHolding).min(1).optional(),
     /** F1: przedział częstości akcji oczekiwanej w spocie solvera na punkt decyzji (null = punkt nie jest range-spot); min ≤ f ≤ max. */
     freqs: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1) }).strict().nullable()).min(1).max(2).optional(),
+    /** KO-076 / BR-POZ-001: range-spot nie losuje klas rąk, których equity wobec losowej ręki leży bliżej niż tyle (ułamek, 0,02 = 2 pp) od najbliższej klasy po drugiej stronie granicy akcji oczekiwanej (D-1141). Wymaga macierzy equity w kontekście generatora. */
+    equityMarginMin: z.number().min(0).max(1).optional(),
     reject: z.array(ScenarioReject).default([]),
     /** Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). */
     /** draw-call: `call` albo `fold`; range-spot: etykieta akcji węzła solvera spotu (np. `raise 2.5`, `fold`; sprawdza build). */

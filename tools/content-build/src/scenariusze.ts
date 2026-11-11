@@ -249,6 +249,11 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
   });
 }
 
+/** Czy szablony wymagają macierzy equity w bazie treści: punkt icm-call (F4, CN D-781) albo poziom z `equityMarginMin` (KO-076, D-1141). */
+export function potrzebujeMacierzyEquity(szablony: readonly ScenarioTemplate[]): boolean {
+  return szablony.some((t) => t.decisions.some((d) => d.kind === 'icm-call') || Object.values(t.bounds).some((b) => b?.equityMarginMin !== undefined));
+}
+
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */
 export const POJEMNOSC_MIN = 40;
 export const PROBY_POJEMNOSCI = 2000;
@@ -278,7 +283,7 @@ export function checkScenarioGenerator(
       const spot = ctx.spots.find((x) => x.id === pierwszy.spot);
       const zakres = b.freqs?.[0];
       const oczekiwana = b.expected[0];
-      if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);
+      if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx, b.equityMarginMin).length);
     }
     if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }

@@ -29,7 +29,7 @@ import {
   type ScenarioTemplate,
 } from '@szkola/content-schema';
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
-import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
+import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates, potrzebujeMacierzyEquity } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
 import { buildGeneratorContext, classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type Equity169Data, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
@@ -510,7 +510,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
   exams.sort((a, b) => modules.find((m) => m.id === a.module)!.order - modules.find((m) => m.id === b.module)!.order);
   // `scenarios` tylko gdy są szablony: treść bez nich ma ten sam hash co dotąd (zapis szablonów do bazy treści: krok F)
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, tekst, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled, ...(scenarios.length ? { scenarios } : {}), ...(equity169 && scenarios.some((t) => t.decisions.some((d) => d.kind === 'icm-call')) ? { equity169 } : {}) };
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, tekst, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled, ...(scenarios.length ? { scenarios } : {}), ...(equity169 && potrzebujeMacierzyEquity(scenarios) ? { equity169 } : {}) };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, helplines, hash, warnings };
 }
