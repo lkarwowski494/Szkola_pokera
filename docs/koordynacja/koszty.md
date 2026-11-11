@@ -73,3 +73,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | CM | 08 audit (recenzja CL) | — | 5,36 | 25,4 | 00:02 → 00:05 → 00:22 → — → 00:40 | — | |
 | CN | 08 build (kontekst) | — | 3,44 | 32,3 | 00:40 → 00:42 → 01:16 → CI w toku → (CP) | — | kontekst ponad 30% na końcu pracy |
 | CO | 06 build (krok C) | — | 8,74 | 32,6 | 00:40 → 00:45 → 01:22 → CI w toku → (CQ) | — | kontekst ponad 30% na końcu |
+| CP | 08 audit (recenzja CN) | — | 5,98 | 29,6 | 01:18 → 01:21 → 01:40 → — → 01:42 | — | |
