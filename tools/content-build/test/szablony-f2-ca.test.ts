@@ -19,6 +19,7 @@ import {
   type ScenarioLevel,
   type TableConfig,
 } from '@szkola/poker-core';
+import { compileRanges } from '../src/ranges';
 import { loadScenarioTemplates } from '../src/scenariusze';
 import { content, kit, number } from './kit';
 
@@ -27,7 +28,7 @@ const LOSOWANIA = 10_000;
 const BB = 100;
 const cfg: TableConfig = { stacks: Array(6).fill(100 * BB), smallBlind: BB / 2, bigBlind: BB, button: 3 };
 const cbetCases = content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!;
-const ctx = { spots: [], thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, cbetCases };
+const ctx = { spots: compileRanges(join(resolve(import.meta.dirname), '..', '..', '..', 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, cbetCases };
 const AKCJE = ['check', 'bet-small', 'bet-big'] as const;
 
 /** Rozdanie: UTG, HJ, CO pasują, BTN (miejsce 3) otwiera 2,5 bb, SB pasuje, BB (5) sprawdza i czeka; decyzja BTN na flopie. */
