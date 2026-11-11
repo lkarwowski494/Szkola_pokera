@@ -1,0 +1,14 @@
+# Sesja DL: recenzja niezależna DK (poprawki 07-jakosc-001…003 po recenzji DF) — Szkoła Pokera
+Koordynator: session_01T66VBvMJxHkBqzn7iJjEuv (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; po wiadomości o zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko do odczytu).
+
+1. Rola 08-programista w trybie audit; prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz. Kontrolę transportu promptu pomiń.
+2. Start: gałąź `sesja-dl-recenzja` @ 64eea6c712e429045601603bbbec2ab943c5ccdc (= `origin/sesja-dk-poprawki`; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów wg CLAUDE.md. CI 43006543702 na tym SHA: success.
+3. Zadania:
+   1. Recenzja niezależna zmian 1834b144..64eea6c7 (sesja DK). Wejście: znaleziska z `docs/jakosc/recenzje/recenzja-cz-ee7f991.md` (DF): WYS 07-jakosc-001 (flow Maestro 07 dopasowywał stały tekst „Zakończ” i porzucał lekcję), ŚR 002 i 003 (mutanty przeżywały). Sprawdź dla każdego: naprawione / naprawione z uwagą / nienaprawione; czy testy łapią błąd (własne mutacje, nie tylko te z dowodów autora); czy żaden test nie został poluzowany ani dopasowany do kodu; czy nowy `testID` (np. „sesja-dalej”) nie zmienia zachowania ekranu ani tekstów (zasada 15) i czy flow po id zgadza się z ekranem — Maestro nie uruchomisz (Linux): oceń statycznie i wypisz, co musi potwierdzić E2E; czy ścieżki wrażliwe z CLAUDE.md (D-043) są nietknięte. Raportu autora (`docs/decyzje/DK.md`, pliki stanu DK) nie czytaj przed własną oceną. Gotowe: `docs/programista/recenzje/recenzja-dk-64eea6c7.md` z werdyktem PRZYJĄĆ / PRZYJĄĆ Z WARUNKIEM / ODRZUCIĆ i znaleziskami KRYT/WYS/ŚR/NIS (plik:linia, dowód, realność).
+   2. KRYT/WYS: test odtwarzający (czerwony) na gałęzi, bez poprawki; wtedy `pnpm run ci` z plikiem `docs/programista/dowody/dl-ci-<sha8>.txt`.
+   Dozwolone ścieżki: `docs/programista/recenzje/`, `docs/programista/stan-dl.md`, `docs/programista/dowody/`, `docs/decyzje/DL.md`, nowe testy odtwarzające.
+4. Zakazy: nie scalasz do gałęzi roboczej ani `main`, nie poprawiasz pracy DK (tylko raport i testy), nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela (bez AskUserQuestion); STOP-y roli i punkt czyszczenia → raport do koordynatora i czekasz.
+5. Decyzje: techniczne sam, do weta (analogia z lkarwowski494/trening, `repo:plik:linia`). Pula D-950…D-954, wpisy w `docs/decyzje/DL.md`.
+6. Kontekst: od 30% okna kończysz krok, stan w `docs/programista/stan-dl.md`, push, PRZEKAZANIE. Koszt: bez pułapu (mandat), raport kosztu w PRZEKAZANIU.
+7. Push zbiorczo na `sesja-dl-recenzja`.
+8. Raport ≤ 10 linii przez send_message: PRZEKAZANIE (SHA, werdykt, liczby znalezisk, decyzje do weta, koszt).
