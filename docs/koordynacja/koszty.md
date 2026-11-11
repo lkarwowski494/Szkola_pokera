@@ -109,3 +109,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | DO | 08 audit opus/high | — | 5,45 | 25,3 | 15:58 → 16:03 → 16:24 → (ci w sesji kod 0) → przyjęte 16:26 | 0 | recenzja DN ok. 21 min |
 | DP | 08 build sonnet | — | 3,84 | 28,9 | 16:03 → 16:06 → … → 16:52 PRZEKAZANIE → CI 17:07 → poprawki (DR) | 42 min recenzja DQ | 3 pełne ci lokalnie po ok. 12 min |
 | DQ | 08 audit opus/high | — | 4,96 | 25,0 | 16:55 → 16:58 → 17:34 PRZEKAZANIE → (ci w sesji kod 0) → przyjęte 17:40 | 0 | recenzja DP ok. 36 min |
+| DR | 08 fix sonnet | — | 1,66 | 20,1 | 17:36 → 17:38 → … → 17:53 PRZEKAZANIE → (ci w sesji kod 0) → przyjęte 17:58 | 0 | szybka poprawka z gotowymi sondami recenzji |
