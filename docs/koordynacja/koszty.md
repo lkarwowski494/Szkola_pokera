@@ -69,3 +69,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | CH | 08 audit (recenzja CD) | — | 4,67 | 22,6 | 22:25 → 22:27 → 23:00 → — → 23:40 | — | |
 | CJ | 08 fix (CE) | — | 2,31 | 23,4 | 22:30 → 22:28 → 22:47 → CI 23:15 → 23:40 | timeout CI (WG-11) +20 min | |
 | CK | 08 fix (CH) | — | 1,24 | 18,5 | 23:02 → 23:05 → 23:18 → CI 23:29 → 23:40 | — | |
+| CL | 08 build (scalenie) | — | 1,12 | 16,6 | 23:36 → 23:39 → 00:00 → CI w toku → (CM) | — | |
