@@ -1,0 +1,16 @@
+# CZ 08-programista-004 — dowód mutacji istniejącego testu CK (bez nowego pliku, zgoda koordynatora 2026-11-11)
+Test: apps/mobile/src/features/scenariusz/__tests__/wybor-pusta-lista-ck.test.tsx (93ccfba3). Mutacje w kopii roboczej, cofnięte.
+
+## Bez mutacji
+    ✓ grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku (2587 ms)
+Tests:       1 passed, 1 total
+
+## Mutant 1: gałąź „wkrótce” bez tekstu (null)
+    ✕ grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku (221 ms)
+Tests:       1 failed, 1 total
+
+## Mutant 2: w gałęzi „wkrótce” dodatkowy przycisk
+    ✕ grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku (363 ms)
+    Expected length: 0
+    Received length: 1
+Tests:       1 failed, 1 total
