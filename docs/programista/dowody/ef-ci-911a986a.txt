@@ -1,0 +1,28 @@
+pnpm run ci @ 911a986a (sesja EF, 2026-11-11), kod wyjścia 0
+Testy: poker-core 226, domena 347 (+1 expected fail), content-build 552 (+1 expected fail), postep 160, srs 21, jezyki 144, preflop-solver 44, kontrole 35; typecheck/i18n/content:check/tresci:rejestr bez błędów.
+--- ogon wyjścia ---
+
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+(node:12066) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+
+wpisy: 1060, bez twierdzeń: 139, wymagane: 1139, brak pokrycia: 0
+status: {"potwierdzone":1004,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":705,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1047,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+EXIT=0

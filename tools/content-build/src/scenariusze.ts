@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, eligibleClasses, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, eligibleClasses, groupedSpot, HAND_CLASSES, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -15,6 +15,8 @@ export interface ScenarioCheckContext {
   spots?: ReadonlyMap<string, readonly string[]>;
   /** Przypadki c-betu z reguł cbet-case (F2); bez nich punkty cbet-case są błędem. */
   cbetCases?: readonly CbetCaseData[];
+  /** 08-N5: id reguły cbet-case → `params.position` (ip/oop; brak = ip): pozycja gracza po flopie musi się zgadzać z regułą. */
+  cbetPositions?: ReadonlyMap<string, string | number | undefined>;
   /** Reguły rozmiaru (open-size, three-bet-size, no-limp) z parametrami (F3); bez nich punkty size-spot są błędem. */
   sizeRules?: readonly SizeRuleData[];
 }
@@ -58,6 +60,8 @@ function sprawdzPozycjeSizeSpot(pos: { hero: string; villain: string }, check: s
     const ip = post(pos.hero) > post(pos.villain);
     if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${pos.hero} wobec ${pos.villain})`);
     if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${pos.hero} wobec ${pos.villain})`);
+  } else if (check === 'iso-size') {
+    // 08-N3: limperzy są przed graczem, rywal (np. blind) nie ma osobnej roli w ocenie; gracz może być na dowolnym miejscu poza BB-bez-akcji, więc tylko różne pozycje
   } else {
     // CJ ŚR-004: zły mały rozmiar (0,8 × standard = 2,0 bb) to rozmiar solvera z UTG (GTO Wizard, Range Morphology: UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb)
     if (check === 'open-size' && pos.hero !== 'BTN' && pos.hero !== 'SB') e.push(`${p} open-size tylko z BTN i SB (rozmiar solvera z ${pos.hero} jest mniejszy lub równy 2,0–2,3 bb, więc mały rozmiar nie byłby błędny)`);
@@ -91,7 +95,14 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     }
     if (d.calc !== undefined && !ctx.numberKeys.has(d.calc)) e.push(`${p} nieznany rachunek ${d.calc}`);
     if (d.kind === 'range-spot') {
-      const labels = ctx.spots?.get(d.spot);
+      const labelsSpotu = ctx.spots?.get(d.spot);
+      // 08-N1: grupa play łączy wskazane akcje spotu w jedną akcję `play`; ekran i ocena widzą wtedy etykiety grupy
+      if (d.play && labelsSpotu) {
+        const brak = d.play.filter((l) => !labelsSpotu.includes(l));
+        if (brak.length) e.push(`${p} grupa play: akcje spoza spotu ${d.spot}: ${brak.join(', ')} (są: ${labelsSpotu.join(', ')})`);
+        if (labelsSpotu.includes('play')) e.push(`${p} grupa play: etykieta play jest zarezerwowana, a spot ${d.spot} ma taką akcję`);
+      }
+      const labels = d.play && labelsSpotu ? [...labelsSpotu.filter((l) => !d.play!.includes(l)), 'play'] : labelsSpotu;
       if (!labels) e.push(`${p} nieznany spot zakresu ${d.spot}`);
       else {
         const nieznane = d.actions.map((a) => a.action).filter((a) => !labels.includes(a));
@@ -107,10 +118,60 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const bezWyjasnienia = labels.filter((l) => !d.actions.some((a) => a.action === l));
         if (bezWyjasnienia.length) e.push(`${p} ekran pokazuje wszystkie akcje spotu ${d.spot}, a brak wyjaśnienia akcji: ${bezWyjasnienia.join(', ')} (BR-OCE-002)`);
       }
+    } else if (d.kind === 'turn-bet') {
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'bet-big,bet-small') e.push(`${p} akcje to dokładnie bet-small i bet-big, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu turn-bet to bet-big (R-M7-006: duży zakład odbiera drawowi cenę), jest ${ex}`);
+        if (b.draws.length === 0) e.push(`${p} poziom ${l}: punkt turn-bet wymaga listy draws (draw rywala)`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt turn-bet wymaga marginMin > 0 (szansa drawa bliska ceny nie ma jednoznacznej odpowiedzi)`);
+      }
+    } else if (d.kind === 'defend') {
+      if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const f of d.fractions) if (f > 0.4 && f < 0.7) e.push(`${p} ułamek c-betu ${f} leży między małym (≤ 0,4) a dużym (≥ 0,7): źródło (R-M6-006/007) nie rozstrzyga, wariant byłby zawsze odrzucony`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu defend to call albo fold, jest ${ex}`);
+      }
+    } else if (d.kind === 'river-catch') {
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu river-catch to call albo fold, jest ${ex}`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt river-catch wymaga marginMin > 0 (udział blefów bliski progu nie ma jednoznacznej odpowiedzi)`);
+      }
+    } else if (d.kind === 'list-hand') {
+      const klasy = new Set<string>();
+      for (const en of d.entries) for (const hc of en.hands) {
+        if (!HAND_CLASSES.includes(hc)) e.push(`${p} list-hand: nieznana klasa ręki ${hc}`);
+        else if (klasy.has(hc)) e.push(`${p} list-hand: klasa ${hc} w więcej niż jednym wpisie listy (akcja oczekiwana musi być jednoznaczna)`);
+        klasy.add(hc);
+      }
+      const akcje = new Set(d.actions.map((a) => a.action));
+      if (akcje.size !== d.actions.length) e.push(`${p} akcja powtórzona`);
+      for (const en of d.entries) for (const a of [en.correct, ...(en.acceptable ?? [])]) {
+        if (!akcje.has(a)) e.push(`${p} akcja ${a} z listy rąk nie ma wyjaśnienia (BR-OCE-002)`);
+      }
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && !d.entries.some((en) => en.correct === ex)) e.push(`${p} poziom ${l}: żaden wpis listy nie ma akcji oczekiwanej ${ex}`);
+      }
     } else if (d.kind === 'cbet-case') {
       const przypadki = (ctx.cbetCases ?? []).filter((c) => c.rule === d.rule);
       if (przypadki.length === 0) e.push(`${p} reguła ${d.rule} nie ma przypadku c-betu (zadanie c-btn: cases z rule: ${d.rule}); punkt cbet-case ocenia przypadek, nie rachunek`);
       const mozliwe = new Set(przypadki.map((c) => CBET_AKCJE[c.best]));
+      {
+        const post = (x: string) => (KOLEJNOSC_PO_FLOPIE as readonly string[]).indexOf(x);
+        const ip = post(t.positions.hero) > post(t.positions.villain);
+        const regulaPozycja = ctx.cbetPositions?.get(d.rule) ?? 'ip';
+        if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${t.positions.hero} wobec ${t.positions.villain})`);
+        if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${t.positions.hero} wobec ${t.positions.villain})`);
+      }
       if (new Set(d.actions.map((a) => a.action)).size !== d.actions.length) e.push(`${p} akcja powtórzona`);
       for (const l of SCENARIO_LEVELS_LIST) {
         const b = t.bounds[l];
@@ -138,9 +199,16 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       if (!r || r.check.kind !== d.check) e.push(`${p} reguła ${d.rule} nie jest regułą ${d.check} (rozmiar liczy się z jej parametrów)`);
       if (d.check === 'three-bet-size' && d.openBb === undefined) e.push(`${p} three-bet-size wymaga openBb (otwarcie rywala w bb)`);
       if (d.check !== 'three-bet-size' && d.openBb !== undefined) e.push(`${p} openBb tylko dla three-bet-size`);
+      if (d.check === 'iso-size' && d.limpers === undefined) e.push(`${p} iso-size wymaga limpers (liczba limperów przed graczem)`);
+      if (d.check !== 'iso-size' && d.limpers !== undefined) e.push(`${p} limpers tylko dla iso-size`);
+      if (d.check === 'iso-size' && d.limpers !== undefined) {
+        const miejsca = (KOLEJNOSC_PREFLOP as readonly string[]).filter((x) => t.table === '9max' || !['UTG1', 'UTG2', 'LJ'].includes(x));
+        const przed = ['SB', 'BB'].includes(t.positions.hero) ? miejsca.length - 2 : miejsca.indexOf(t.positions.hero);
+        if (d.limpers > przed) e.push(`${p} iso-size: ${d.limpers} limperów przed graczem na ${t.positions.hero} (miejsc przed nim: ${przed})`);
+      }
       if (d.sb !== undefined && d.check === 'three-bet-size') e.push(`${p} sb tylko dla open-size i no-limp`);
       if (d.sb === true && t.positions.hero !== 'SB') e.push(`${p} sb: true wymaga pozycji gracza SB, jest ${t.positions.hero}`);
-      if (d.sb !== true && d.check !== 'three-bet-size' && t.positions.hero === 'SB') e.push(`${p} gracz z SB wymaga sb: true (rozmiar openSb)`);
+      if (d.sb !== true && d.check !== 'three-bet-size' && d.check !== 'iso-size' && t.positions.hero === 'SB') e.push(`${p} gracz z SB wymaga sb: true (rozmiar openSb)`);
       e.push(...sprawdzPozycjeSizeSpot(t.positions, d.check, r?.check.params.position, p));
       const akcje = d.actions.map((a) => a.action);
       if (new Set(akcje).size !== akcje.length) e.push(`${p} akcja powtórzona`);
@@ -223,6 +291,12 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
     if (!RODZAJE_NA_EKRANIE.includes(kind)) {
       return [`szablon ${t.id}: punkt ${i + 1} ${kind} nie jest jeszcze obsługiwany na ekranie scenariusza (obsługiwane: ${RODZAJE_NA_EKRANIE.join(', ')}; ${kind}: ${POWOD_POZA_EKRANEM[kind] ?? 'brak obsługi'}); szablon nie może trafić do bazy treści`];
     }
+    if (d.kind === 'size-spot' && d.check === 'iso-size') {
+      return [`szablon ${t.id}: punkt ${i + 1} iso-size nie jest jeszcze obsługiwany na ekranie scenariusza (ekran nie pokazuje limperów przed graczem; widok: zadanie dla roli 04 i EkranScenariusza); szablon nie może trafić do bazy treści`];
+    }
+    if (d.kind === 'range-spot' && d.play) {
+      return [`szablon ${t.id}: punkt ${i + 1} range-spot z grupą play nie jest jeszcze obsługiwany na ekranie scenariusza (ekran nazywa akcje z etykiet węzła solvera; widok grupy „gram”: zadanie dla roli 04); szablon nie może trafić do bazy treści`];
+    }
     if (kind === 'icm-call' && t.levels.includes('trudny')) {
       return [`szablon ${t.id}: punkt ${i + 1} icm-call: poziom trudny czeka na 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie; docs/tresci/szablony-robocze/README.md, SC-34, D-825); szablon nie może trafić do bazy treści`];
     }
@@ -235,6 +309,11 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
       ? [`szablon ${t.id}: punkt ${i + 1} ${kind}: ekran pokazuje akcje ${wymagane.join(', ')} i każda wymaga wyjaśnienia (BR-OCE-002)${brak.length ? `; brak: ${brak.join(', ')}` : ''}${nadmiar.length ? `; nadmiar: ${nadmiar.join(', ')}` : ''}`]
       : [];
   });
+}
+
+/** Czy szablony wymagają macierzy equity w bazie treści: punkt icm-call (F4, CN D-781) albo poziom z `equityMarginMin` (KO-076, D-1141). */
+export function potrzebujeMacierzyEquity(szablony: readonly ScenarioTemplate[]): boolean {
+  return szablony.some((t) => t.decisions.some((d) => d.kind === 'icm-call') || Object.values(t.bounds).some((b) => b?.equityMarginMin !== undefined));
 }
 
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */
@@ -263,10 +342,15 @@ export function checkScenarioGenerator(
     const pierwszy = t.decisions[0];
     const b = t.bounds[level];
     if (ctx && b && pierwszy?.kind === 'range-spot' && t.decisions.every((d) => d.kind === 'range-spot' || d.kind === 'size-spot')) {
-      const spot = ctx.spots.find((x) => x.id === pierwszy.spot);
+      const spot0 = ctx.spots.find((x) => x.id === pierwszy.spot);
+      const spot = spot0 && pierwszy.play ? groupedSpot(spot0, pierwszy.play) : spot0;
       const zakres = b.freqs?.[0];
       const oczekiwana = b.expected[0];
-      if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx).length);
+      if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx, b.equityMarginMin).length);
+    }
+    // 08-N4: lista rąk bez flopu: odcisk to klasa ręki, więc próg to min(próg, liczba klas listy z akcją oczekiwaną poziomu)
+    if (b && pierwszy?.kind === 'list-hand' && b.expected[0] !== undefined && t.decisions.length === 1) {
+      prog = Math.min(prog, pierwszy.entries.filter((en) => en.correct === b.expected[0]).reduce((n, en) => n + en.hands.length, 0));
     }
     if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }

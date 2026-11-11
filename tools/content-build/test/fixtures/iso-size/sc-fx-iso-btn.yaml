@@ -1,0 +1,20 @@
+# Fixture testu EF (08-N3): iso-size w size-spot (reguła R-M4-012). Nie jest treścią aplikacji.
+id: sc-fx-iso-btn
+module: m4
+situation: "Fixture: iso-size z BTN, dwóch limperów."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: iso-size
+    rule: R-M4-012
+    limpers: 2
+    actions:
+      - { action: raise, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, dwóch limperów, dobijasz standardowym rozmiarem." }
+      - { action: raise-small, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, za mały rozmiar daje limperom tanią cenę." }
+      - { action: raise-big, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, za duży rozmiar odstrasza limperów." }

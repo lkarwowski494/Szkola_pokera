@@ -543,6 +543,8 @@ export const ScenarioLevelBounds = z
     holding: z.array(ScenarioHolding).min(1).optional(),
     /** F1: przedział częstości akcji oczekiwanej w spocie solvera na punkt decyzji (null = punkt nie jest range-spot); min ≤ f ≤ max. */
     freqs: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1) }).strict().nullable()).min(1).max(2).optional(),
+    /** KO-076 / BR-POZ-001: range-spot nie losuje klas rąk, których equity wobec losowej ręki leży bliżej niż tyle (ułamek, 0,02 = 2 pp) od najbliższej klasy po drugiej stronie granicy akcji oczekiwanej (D-1141). Wymaga macierzy equity w kontekście generatora. */
+    equityMarginMin: z.number().min(0).max(1).optional(),
     reject: z.array(ScenarioReject).default([]),
     /** Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). */
     /** draw-call: `call` albo `fold`; range-spot: etykieta akcji węzła solvera spotu (np. `raise 2.5`, `fold`; sprawdza build). */
@@ -582,6 +584,8 @@ export const ScenarioRangeSpotDecision = z
     kind: z.literal('range-spot'),
     /** Spot z content/ranges/spots.yaml (hero i ścieżka akcji z węzła solvera). */
     spot: id,
+    /** 08-N1: akcje spotu liczone jako jedna akcja `play` („gram”: np. sprawdzenie i 3-bet jak w siatce grupy); etykiety akcji punktu to wtedy `play` i akcje spoza listy (pas). */
+    play: z.array(z.string().min(1)).min(2).optional(),
     rule: id.optional(),
     calc: id.optional(),
     actions: z.array(z.object({ action: z.string().min(1), explanation: z.string().min(1) }).strict()).min(2),
@@ -613,11 +617,13 @@ export const ScenarioSizeSpotDecision = z
   .object({
     street: z.literal('preflop'),
     kind: z.literal('size-spot'),
-    check: z.enum(['open-size', 'three-bet-size', 'no-limp']),
+    check: z.enum(['open-size', 'three-bet-size', 'no-limp', 'iso-size']),
     rule: id,
     calc: z.never().optional(),
     /** open-size: gracz jest w małym blindzie (rozmiar openSb). */
     sb: z.boolean().optional(),
+    /** iso-size (08-N3, R-M4-012): liczba limperów przed graczem; standard = base + n × perLimper (+ oopExtra z SB i BB). */
+    limpers: z.number().int().min(1).max(4).optional(),
     /** three-bet-size: rozmiar otwarcia rywala w bb. */
     openBb: z.number().positive().optional(),
     actions: z.array(z.object({ action: z.enum(['raise', 'raise-small', 'raise-big', 'limp']), explanation: z.string().min(1) }).strict()).min(2).max(4),
@@ -641,7 +647,78 @@ export const ScenarioIcmCallDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision]);
+/**
+ * 08-N4 (R-M4-010): „lista rąk”. Oczekiwana akcja wynika z jawnej listy klas w szablonie (`entries`: klasy, akcja poprawna, akcje dopuszczalne);
+ * generator losuje tylko klasy z listy, a każda akcja z listy ma wyjaśnienie (BR-OCE-002).
+ */
+export const ScenarioListHandDecision = z
+  .object({
+    street: z.literal('preflop'),
+    kind: z.literal('list-hand'),
+    rule: id.optional(),
+    calc: id.optional(),
+    entries: z.array(z.object({ hands: z.array(z.string().min(1)).min(1), correct: z.string().min(1), acceptable: z.array(z.string().min(1)).optional() }).strict()).min(1),
+    actions: z.array(z.object({ action: z.string().min(1), explanation: z.string().min(1) }).strict()).min(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+/**
+ * 08-N7 (R-M8-010, math): sprawdzenie bluff-catcherem na riverze po zakładzie rywala. Udział blefów w zakresie rywala to dana zadania (`bluffShares`),
+ * a nie twierdzenie o rywalu; poprawna akcja: call, gdy udział > bet ÷ (pula + 2·bet). Ręka gracza: jedna para z kartą gracza (D-1143).
+ */
+export const ScenarioRiverCatchDecision = z
+  .object({
+    street: z.literal('river'),
+    kind: z.literal('river-catch'),
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    fractions: z.array(z.number().positive()).min(1),
+    bluffShares: z.array(z.number().min(0).max(1)).min(1),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+/**
+ * 08-N2 (R-M6-006 mały, R-M6-007 duży c-bet): obrona gracza (BB) wobec c-betu na flopie. Ręka z zakresu obrony spotu `spot`, rywal stawia ułamek puli
+ * z `fractions` (≤ 0,4 albo ≥ 0,7: między nimi źródło nie rozstrzyga); poprawna akcja z klasy ręki (`defendVsCbet`), wariant bez odpowiedzi jest odrzucany.
+ */
+export const ScenarioDefendDecision = z
+  .object({
+    street: z.literal('flop'),
+    kind: z.literal('defend'),
+    spot: id,
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    fractions: z.array(z.number().positive()).min(1),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+/**
+ * 08-N6 (R-M7-006, math): zakład gracza na turnie z silną ręką wobec drawa rywala (rodzaj z `draws` poziomu); wybór między małym (`small`) a dużym (`big`)
+ * ułamkiem puli; poprawny jest duży, gdy rywal ma cenę przy małym i nie ma jej przy dużym (cena = bet ÷ (pula + 2·bet)).
+ */
+export const ScenarioTurnBetDecision = z
+  .object({
+    street: z.literal('turn'),
+    kind: z.literal('turn-bet'),
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    small: z.number().positive(),
+    big: z.number().positive(),
+    actions: z.array(z.object({ action: z.enum(['bet-small', 'bet-big']), explanation: z.string().min(1) }).strict()).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG)
+  .refine((d) => d.small < d.big, 'small musi być mniejsze od big');
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z

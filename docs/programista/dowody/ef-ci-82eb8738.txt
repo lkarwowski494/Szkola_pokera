@@ -1,0 +1,25 @@
+pnpm run ci @ 82eb8738 (sesja EF, 2026-11-11), kod wyjścia 0
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  230 passed (230)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  559 passed | 1 expected fail (560)
+      Tests  35 passed (35)
+--- ogon ---
+(node:16349) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+
+wpisy: 1060, bez twierdzeń: 139, wymagane: 1139, brak pokrycia: 0
+status: {"potwierdzone":1004,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":705,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1047,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+EXIT=0

@@ -1,6 +1,24 @@
 # Stan sesji DX/ED (08-programista, build): silnik scenariuszy (kontynuuje sesja ED; stan ED na górze)
 Gałąź `sesja-dx-silnik` od b3963e9a. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/DX.md` @ 100319bb. Stan na 2026-11-11. Pula decyzji D-1065…D-1079 (`docs/decyzje/DX.md`).
 
+## Stan sesji EF (2026-11-11 ~22:00 UTC; polecenie `origin/koordynacja:docs/koordynacja/polecenia/EF.md`, pula D-1140…D-1159 w `docs/decyzje/EF.md`)
+Start 539919af; HEAD sesji patrz plik dowodu `docs/programista/dowody/ef-ci-*.txt` (pnpm run ci kod 0 @ 82eb8738 (`ef-ci-82eb8738.txt`)). KO-078: cięcie A/B zatwierdzone (silnik+bramka, ekran zablokowany; widoki po decyzji 04).
+| Zadanie | Stan | Dowód |
+|---|---|---|
+| N3 iso-size (size-spot) | A zrobione (eb269882, D-1140) | `ef-iso-size.test.ts` |
+| KO-076 filtr marginesu | zrobione (4adf0453, D-1141): pole `equityMarginMin`; **06 dopisuje `0.02` do łatwych SC-06/32/33** | `ef-margines-ko076.test.ts` |
+| N4 list-hand | A zrobione (02e74b0b, D-1142) | `ef-list-hand*.test.ts` |
+| N7 river-catch | A zrobione (1a80fad2, D-1143) | `ef-river-catch*.test.ts` |
+| N2 defend | A zrobione (e1174cf8, D-1144) | `ef-defend*.test.ts` |
+| N5 cbet-case OOP | zrobione (375c0b7f, D-1145): `params.position: oop`; **06: R-M5-012 bez `check`** | `ef-n5-oop.test.ts` |
+| N1 gram/pas (`play`) | A zrobione (911a986a, D-1146) | `ef-gram-pas*.test.ts` |
+| N6 turn-bet (R-M7-006) | A zrobione (82eb8738, D-1147); semi-blef (gracz z drawem) poza zakresem (do 06) | `ef-turn-bet*.test.ts` |
+| KO-072 (SC-23a/b wybór jednej z dwóch rąk) | niezaczęte | |
+| Testy EE ŚR-009, NIS-010, NIS-011 | zrobione (commit przed 82eb8738); mutant k-10 czerwony | recenzja `origin/sesja-ee-recenzja:docs/programista/recenzje/recenzja-ed-539919af.md` |
+| nocny.yml | „niepotrzebne”: wszystkie nowe rodzaje dopisane do `scenario-gen.ts`, brak nowych plików src | |
+| GENERATOR_WERSJA | bez podniesienia (3): nowe rodzaje to nowe gałęzie `kind`, odciski starych szablonów bez różnic (generator-odciski), refaktor `handFromRange` zachowuje kolejność losowania | |
+Wszystkie nowe rodzaje poza `RODZAJE_NA_EKRANIE` (bramka `checkScenarioNaEkran`; mobile rzuca głośny błąd). Widoki = zadania dla 04.
+
 ## Stan sesji ED (2026-11-11 ~20:55 UTC; polecenie `origin/koordynacja:docs/koordynacja/polecenia/ED.md`, pula D-1115…D-1134 w `docs/decyzje/ED.md`)
 | Zadanie | Stan | Dowód |
 |---|---|---|

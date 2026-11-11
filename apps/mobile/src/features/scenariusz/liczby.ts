@@ -23,6 +23,10 @@ export function zdaniaLiczb(s: SesjaScenariusza, i: number, wybor: Akcja, t: TFn
       equity: formatujProcent(d.handEquity, j), na10: Math.round(10 * d.handEquity), prog: formatujProcent(d.required, j), progZetony: formatujProcent(d.requiredChips, j),
     })];
     case 'range-spot': return [];
+    case 'list-hand':
+    case 'river-catch':
+    case 'defend':
+    case 'turn-bet': return []; // brak liczb: ocena z listy klas (08-N4); widoku jeszcze nie ma
   }
 }
 

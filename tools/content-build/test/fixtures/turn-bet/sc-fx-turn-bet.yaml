@@ -1,0 +1,20 @@
+# Fixture testu EF (08-N6): zakład na turnie z silną ręką wobec drawa (R-M7-006). Nie jest treścią aplikacji.
+id: sc-fx-turn-bet
+module: m7
+situation: "Fixture: zakład na turnie."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M4-004
+    pots: [8, 16, 24, 40]
+    small: 0.25
+    big: 0.75
+    actions:
+      - { action: "bet-small", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, mały zakład daje drawowi dobrą cenę." }
+      - { action: "bet-big", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, duży zakład odbiera drawowi cenę." }

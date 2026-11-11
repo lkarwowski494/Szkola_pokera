@@ -391,7 +391,9 @@ const CHECKS: Record<string, Check> = {
     const live = st.seats.filter((s) => !s.folded);
     if (live.length !== 2) return null;
     const opp = live.find((s) => s.seat !== ctx.seat)!;
-    if (postflopOrder(st, ctx.seat) < postflopOrder(st, opp.seat)) return null;
+    // 08-N5 (R-M5-012): reguła z `params.position: oop` ocenia gracza, który mówi przed rywalem po flopie; bez parametru (albo ip) tylko gracz z pozycją, jak dotąd
+    const oop = rule.check.params?.position === 'oop';
+    if ((postflopOrder(st, ctx.seat) < postflopOrder(st, opp.seat)) !== oop) return null;
     const tex = classifyFlop(st.board);
     const c = (rule.check.cases ?? []).find((x) => textureMatches(tex, x.when));
     if (!c || c.rule !== rule.id) return null;

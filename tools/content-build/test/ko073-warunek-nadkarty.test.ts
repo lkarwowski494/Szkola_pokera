@@ -32,6 +32,10 @@ describe('zdanie o nadkartach: wszystkie wystąpienia w bloku warunkowym (KO-073
         const bloki = [...w.tekst.matchAll(/\{\{jesli:nadkarty\}\}([\s\S]*?)\{\{\/jesli\}\}/g)];
         expect(bloki.length, w.gdzie).toBe(1);
         expect(bloki[0]![1], w.gdzie).toContain(KLUCZ);
+        // EE 08-programista-010: blok to dokładnie jedno zdanie (po usunięciu znaczników {{…}} jeden znak końca zdania, na końcu); blok połykający poprzednie zdanie ma ich więcej
+        const zdanie = bloki[0]![1]!.replace(/\{\{[^}]*\}\}/g, '').trim();
+        expect((zdanie.match(/[.。!?！？]/g) ?? []).length, `${w.gdzie}: blok ma więcej niż jedno zdanie: ${zdanie}`).toBe(1);
+        expect(/[.。!?！？]$/.test(zdanie), `${w.gdzie}: blok nie kończy się końcem zdania`).toBe(true);
         expect(w.tekst.replace(/\{\{jesli:nadkarty\}\}[\s\S]*?\{\{\/jesli\}\}/, ''), w.gdzie).not.toContain(KLUCZ);
         expect(w.tekst.trimEnd().endsWith('{{/jesli}}'), `${w.gdzie}: zdanie jest ostatnie`).toBe(true);
       }

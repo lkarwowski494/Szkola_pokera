@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 // KO-073 (D-1115): zdanie o nadkartach w wyjaśnieniu draw-call tylko, gdy gracz ma kartę wyższą od stołu (jedna definicja z liczbami).
-import { generateVariant, overcardOutsAt, type ScenarioVariant } from '@szkola/poker-core';
+import { generateVariant, overcardOutsAt, parseCards, type ScenarioVariant } from '@szkola/poker-core';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { naGenerator, bloki, warunkiWariantu, widokDecyzji } from '../wariant';
 import { SC01 } from '@/test-utils/szablonSc01';
@@ -30,6 +30,14 @@ function warianty(): { z: ScenarioVariant; bez: ScenarioVariant } {
 
 describe('zdanie o nadkartach w wyjaśnieniu (KO-073)', () => {
   const { z, bez } = warianty();
+  it('wektor wpisany ręcznie (EE 08-programista-009): J♠9♠ na 7♠2♦5♠ (flop) ma nadkarty, na turnie Q♥ już nie', () => {
+    // wyrocznia niezależna od kodu: nadkarta = karta gracza wyższa od najwyższej karty stołu PUNKTU (flop: 7, turn: Q), liczona z kart wpisanych w teście
+    const v: ScenarioVariant = { ...z, hero: parseCards('Js 9s') as ScenarioVariant['hero'], board: parseCards('7s 2d 5s Qh 9c') };
+    expect(v.points[0]!.street).toBe('flop');
+    expect(v.points[1]!.street).toBe('turn');
+    expect(warunkiWariantu(v, 0).nadkarty).toBe(true);
+    expect(warunkiWariantu(v, 1).nadkarty).toBe(false);
+  });
   it('warunek wariantu = overcardOutsAt > 0 dla każdego punktu', () => {
     expect(warunkiWariantu(z, 0).nadkarty).toBe(true);
     expect(warunkiWariantu(bez, 0).nadkarty).toBe(false);
