@@ -534,3 +534,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 13:58 | koordynator | Przekazane do session_01T66VBvPqFB6GZD3a2Yg9AF (opus/medium, start bez błędu; prompt 452 linie przepisany subagentem, porównanie niesprawdzone — WG-07). Moje przypomnienie 05:00 usunięte (kontrola i 14:00 już wykonane); „kontrola przekazania” za 30 min | czekam na PRZEJĄŁEM |
 | 13:56 | koordynator | przejęcie przez session_01T66VBvPqFB6GZD3a2Yg9AF (lineage 7/8); prompts @ 9553f6b; CI 43032964359 + E2E 43032964388 na 709f6947 w toku; 3 przypomnienia utworzone | kontrola 14:35 |
 | 14:00 | koordynator | poprzednik: koszt 20,33 USD, kontekst max 39,6% → koszty.md; archiwizuje się sam | kontrola 14:35 |
+| 14:36 | kontrola | CI 43032964359 **success** na 709f6947; E2E 43032964388 w toku (45 min). Koordynator 16,3%, 2,06 USD. get_session: rate_limit seven_day **allowed_warning** (limit tygodniowy konta blisko) | kontrola 14:51 |
