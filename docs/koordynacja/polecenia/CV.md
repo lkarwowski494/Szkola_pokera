@@ -1,0 +1,12 @@
+# Sesja CV: ŚR-002 recenzji CT — GENERATOR_WERSJA po zmianie wyniku generatora (rola 08 fix) — Szkoła Pokera
+Koordynator: session_01T66VBwEUTZQc2qYQfck1rc (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; przy zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko odczyt).
+
+1. Rola: 08-programista w trybie fix. Prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-cv-wersja` @ 5839a90 (= sesja-ct-recenzja: CS 8133a8c + raport i testy CT; inny HEAD: zgłoś). `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>; obowiązuje mimo hooka sesji).
+3. Zadania (raport: `docs/programista/recenzje/recenzja-cs-8133a8c.md`, D-841 w `docs/decyzje/CT.md`):
+   1. ŚR-002: CS zmienił wynik generatora dla 35–63% ziaren sc-01/02/19 bez podniesienia `GENERATOR_WERSJA` (powrót ŚR-001 CG/KO-058/KO-059). Podnieś wersję; zastąp/uzupełnij kontrolę trwałą (wzorzec na syntetycznym szablonie nie złapał) wzorcami z prawdziwych szablonów treści (odciski wyników dla stałych ziaren), tak by każda zmiana wyniku bez podniesienia wersji dawała czerwony test. Gotowe: test `it.fails` ŚR-002 w `tools/content-build/test/recenzja-ct-odtworzenie.test.ts` → `it` zielony; nowa kontrola czerwona na kodzie z cofniętym podniesieniem wersji (pokaż w stanie: komenda i wynik); migracja bazy tylko jeśli wymagana (packages/postep — ścieżka wrażliwa: transakcja + test na kopii poprzedniej wersji).
+   2. `pnpm run ci` kod 0, dowód `docs/programista/dowody/cv-ci-<sha>.txt`, stan `docs/programista/stan-cv.md`, decyzje `docs/decyzje/CV.md`, push na `sesja-cv-wersja`.
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, nie zmieniasz `content/` (WYS-001 SC-12 robi równolegle sesja CU), bez --no-verify i force-push, nie podnosisz limitów czasu, nie osłabiasz testów, bez AskUserQuestion; STOP-y roli → raport do koordynatora.
+5. Decyzje: tryb analogia (lkarwowski494/trening, oczko, piekarz; `repo:plik:linia`; do weta). Pula **D-850…D-854**, zapis w `docs/decyzje/CV.md`.
+6. Kontekst: od 30% kończysz krok, stan, push, PRZEKAZANIE. Bez pułapu kosztu.
+7. Raporty ≤ 10 linii przez send_message: PYTANIE (pełna treść, opcje, rekomendacja); PRZEKAZANIE (SHA, ci, decyzje do weta, otwarte).
