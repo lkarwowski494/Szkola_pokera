@@ -49,6 +49,36 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
 export function poprawnaAkcja(p: VariantDecision): Akcja {
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
+/**
+ * Liczba przebić przed graczem w spocie solvera (D-886: „przebicie” wobec „3-bet”). `GeneratorContext` nie niesie ścieżki akcji spotu,
+ * więc liczba wynika z rodziny spotu w `content/ranges/spots.yaml` (id): otwarcia i push/fold bez przebicia (0), obrona przed otwarciem z jednym (1);
+ * `call.*` (sprawdzenie all-inu) nie ma podbicia. Nieznana rodzina (np. spot z 4-betem) to błąd z nazwą spotu, bez cichej nazwy „przebicie”;
+ * 4-bet (`scenario.action.fourBet`) dochodzi razem z pierwszym takim spotem.
+ */
+export function przebiciaWSpocie(spot: string): number {
+  const rodzina = spot.replace(/^nine\./, '').split('.')[0];
+  if (rodzina === 'rfi' || rodzina === 'push' || rodzina === 'call') return 0;
+  if (rodzina === 'vs-open') return 1;
+  throw new Error(`Spot ${spot}: nieznana liczba przebić przed graczem (D-886: nazwa „przebicie” albo „3-bet”)`);
+}
+/** Rodzaj kwoty przy akcji (D-886): `pay` = dopłata (sprawdzenie, limp), `to` = rozmiar całkowity (przebicie, 3-bet), `all` = cały stos. */
+export type RodzajKwoty = 'pay' | 'to' | 'all';
+/** Klucz nazwy z grupy `scenario.action` i rodzaj kwoty akcji w punkcie (docs/design/scenariusz-akcje-i-liczby.md §1). */
+export interface OpisAkcji { readonly klucz: string; readonly kwota: RodzajKwoty | null }
+export function opisAkcji(p: VariantDecision, a: Akcja): OpisAkcji {
+  const nazwa = (klucz: string, kwota: RodzajKwoty | null): OpisAkcji => ({ klucz: `scenario.action.${klucz}`, kwota });
+  if (a === 'fold') return nazwa('fold', null);
+  if (a === 'check') return nazwa('check', null);
+  if (a === 'bet-small') return nazwa('betSmall', null);
+  if (a === 'bet-big') return nazwa('betBig', null);
+  if (a === 'limp') return nazwa('limp', 'pay');
+  if (a === 'all-in') return nazwa('allIn', 'all');
+  if (a === 'call' || a.startsWith('call ')) return nazwa('call', 'pay');
+  // podbicie: size-spot wg rodzaju kontroli, range-spot wg liczby przebić w spocie
+  if (p.point === 'size-spot') return nazwa(p.check === 'three-bet-size' ? 'threeBet' : 'raise', 'to');
+  if (p.point === 'range-spot') return nazwa(przebiciaWSpocie(p.spot) === 0 ? 'raise' : 'threeBet', 'to');
+  return nazwa('raise', 'to');
+}
 type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
 /**
  * Kwota akcji w bb do jej nazwy: sprawdzenie draw-call = zakład rywala; sprawdzenie icm-call = cały stos za blindem gracza (pas kosztuje

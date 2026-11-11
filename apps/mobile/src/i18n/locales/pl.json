@@ -1104,6 +1104,21 @@
       "showdownYou": "Na riverze wychodzi {{river}}. Rywal pokazuje {{karty}}: twój układ jest wyższy.",
       "showdownVillain": "Na riverze wychodzi {{river}}. Rywal pokazuje {{karty}}: układ rywala jest wyższy.",
       "showdownTie": "Na riverze wychodzi {{river}}. Rywal pokazuje {{karty}}: układy są równe."
+    },
+    "action": {
+      "fold": "{{t:fold|pas}}",
+      "check": "{{t:check|czekanie}}",
+      "call": "{{t:call|sprawdzenie}}",
+      "limp": "limp",
+      "raise": "{{t:raise|przebicie}}",
+      "threeBet": "3-bet",
+      "allIn": "all-in",
+      "betSmall": "mały {{t:c-bet|c-bet}}",
+      "betBig": "duży {{t:c-bet|c-bet}}",
+      "amountPay": "{{bb}} bb",
+      "amountTo": "do {{bb}} bb",
+      "amountAll": "{{bb}} bb",
+      "withAmount": "{{akcja}} {{kwota}}"
     }
   }
 }

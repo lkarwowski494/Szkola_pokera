@@ -31,12 +31,12 @@ describe('c-bet (cbet-case)', () => {
   it('trzy akcje (czekam, mały c-bet, duży c-bet), flop z kartami, bez puli i kwot', async () => {
     const onWybierz = await decyzja(CBET);
     expect(tekstEkranu()).not.toMatch(/W puli/);
-    expect(screen.getByRole('button', { name: /^Czekam/ })).toBeTruthy();
+    expect(screen.getByRole('button', { name: /^Czekanie/ })).toBeTruthy();
     await fireEvent.press(screen.getByRole('button', { name: /^Mały/ }));
     expect(onWybierz).toHaveBeenCalledWith('bet-small');
     await fireEvent.press(screen.getByRole('button', { name: /^Duży/ }));
     expect(onWybierz).toHaveBeenCalledWith('bet-big');
-    await fireEvent.press(screen.getByRole('button', { name: /^Czekam/ }));
+    await fireEvent.press(screen.getByRole('button', { name: /^Czekanie/ }));
     expect(onWybierz).toHaveBeenCalledWith('check');
   });
   it('ocena dopuszczalna (CR WYS-002: rzadsza akcja c-betu to nie błąd): słabsze i lepsze z szablonu, bez „Liczb” (tylko draw-call), pasek ocen trzech akcji', async () => {
@@ -48,7 +48,7 @@ describe('c-bet (cbet-case)', () => {
     expect(t).toMatch(/Wyjaśnienie akcji bet-small/);
     expect(t).not.toContain('{{w:');
     expect(screen.queryByTestId('liczby')).toBeNull();
-    expect(screen.getByRole('image', { name: /Oceny akcji: .*Czekam.*dopuszczalna.*twój wybór.*zgodna.*niedokładność/i })).toBeTruthy();
+    expect(screen.getByRole('image', { name: /Oceny akcji: .*Czekanie.*dopuszczalna.*twój wybór.*zgodna.*niedokładność/i })).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Zobacz podsumowanie' })).toBeTruthy();
   });
   it('ocena zgodna: „dlaczego nie” dla każdej z dwóch pozostałych akcji', async () => {
@@ -63,16 +63,16 @@ describe('rozmiar (size-spot)', () => {
     const onWybierz = await decyzja(TROJBET);
     expect(tekstEkranu()).not.toMatch(/W puli/);
     expect(tekstEkranu()).toMatch(/CO: przebicie.*do 2.5bb/);
-    const przyciski = screen.getAllByRole('button', { name: /^Przebicie.*do/ });
+    const przyciski = screen.getAllByRole('button', { name: /^3-bet[\s\S]*do/ });
     expect(przyciski).toHaveLength(3);
     await fireEvent.press(przyciski[1]!);
     expect(onWybierz).toHaveBeenCalledWith('raise');
   });
   it('bez limpu (SB): limp jako dopłata 0,5 bb i przebicie; bez wpisu rywala przed twoim ruchem', async () => {
     const onWybierz = await decyzja(BEZ_LIMPU);
-    await fireEvent.press(screen.getByRole('button', { name: /^Sprawdzam.*0.5bb/ }));
+    await fireEvent.press(screen.getByRole('button', { name: /^Limp[\s\S]*0[.,]5\sbb/ }));
     expect(onWybierz).toHaveBeenCalledWith('limp');
-    expect(screen.getAllByRole('button', { name: /^Przebicie.*do/ })).toHaveLength(1);
+    expect(screen.getAllByRole('button', { name: /^Przebicie[\s\S]*do/ })).toHaveLength(1);
   });
 });
 
@@ -81,7 +81,7 @@ describe('ICM (icm-call)', () => {
     const onWybierz = await decyzja(ICM);
     expect(tekstEkranu()).toMatch(/W puli[^·]*11 bb · do sprawdzenia[^·]*9 bb/);
     expect(tekstEkranu()).toMatch(/SB: all-in 10bb/);
-    await fireEvent.press(screen.getByRole('button', { name: /^Sprawdzam.*9bb/ }));
+    await fireEvent.press(screen.getByRole('button', { name: /^Sprawdzenie[\s\S]*9\sbb/ }));
     expect(onWybierz).toHaveBeenCalledWith('call');
     await fireEvent.press(screen.getByRole('button', { name: /^Pas/ }));
     expect(onWybierz).toHaveBeenCalledWith('fold');

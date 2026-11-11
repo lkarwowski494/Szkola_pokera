@@ -143,7 +143,7 @@ describe('CP WYS-002: ocena akcji ekranu F2/F3 zgodna z oceną reguły w silniku
   it('ekran oceny: wybór dopuszczalnej akcji pokazuje „Dopuszczalna” i pasek ocen z całą listą akcji (dopuszczalna, zgodna, niedokładność)', async () => {
     await ekran(sesja(CBET, ['check']), 'ocena');
     expect(tekstEkranu()).toMatch(/Ocena: Dopuszczalna/);
-    expect(tekstEkranu()).toMatch(/Czekam \(check\) dopuszczalna, twój wybór, Mały c-bet zgodna, Duży c-bet niedokładność/);
+    expect(tekstEkranu()).toMatch(/Czekanie \(check\) dopuszczalna, twój wybór, Mały c-bet zgodna, Duży c-bet niedokładność/);
   });
   for (const [nazwa, t] of [['c-bet', CBET], ['3-bet', TROJBET], ['bez limpu', BEZ_LIMPU]] as const) {
     it(`${nazwa}: oceny ekranu = oceny silnika gry (5 ziaren)`, () => {

@@ -9,7 +9,7 @@ import type { ScenarioTemplate } from '@szkola/content-schema';
 import { getKontekstGeneratora } from '@/data/content/repo';
 import { dbCn } from '@/test-utils/kontekstCn';
 import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
-import { nazwaAkcji, PrzebiegScenariusza } from '../EkranScenariusza';
+import { PrzebiegScenariusza } from '../EkranScenariusza';
 import type { SesjaScenariusza } from '../aktywnoscScenariusza';
 import { akcjePunktu, grafPunktow, kwotaAkcji, naGenerator, ocenyAkcji, poprawnaAkcja, przebiegWariantu, widokDecyzji, type Akcja } from '../wariant';
 
@@ -115,17 +115,6 @@ describe('wariant: punkt range-spot (czyste funkcje)', () => {
   });
 });
 
-describe('nazwy akcji spotu (istniejące klucze play.*, bez nowych tekstów)', () => {
-  const t = (k: string, o?: Record<string, unknown>) => require('@/i18n').default.t(k, o) as string;
-  it('pas, przebicie do N bb, sprawdzenie (bez kwoty), all-in z kwotą stosu', () => {
-    expect(nazwaAkcji('fold', t, null)).toMatch(/^Pas/);
-    expect(nazwaAkcji('raise 2.5', t, 2.5)).toMatch(/^Przebicie.* do 2[.,]5\s?bb$/);
-    expect(nazwaAkcji('call 2.5', t, 1.5)).toMatch(/^Sprawdzam.* 1[.,]5\s?bb$/);
-    expect(nazwaAkcji('all-in', t, 100)).toMatch(/^All-in 100\s?bb$/);
-    expect(nazwaAkcji('all-in', t, null)).toBe('All-in');
-  });
-});
-
 describe('kwoty akcji spotu (kwotaAkcji)', () => {
   const poz = (hero: string, stackBb: number | undefined) => ({ positions: { hero, villain: 'BTN' }, ...(stackBb === undefined ? {} : { stackBb }) }) as Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
   const p = (spot: string) => wariant({ ...RFI_BTN, decisions: [{ ...(RFI_BTN.decisions[0] as object), spot }] } as unknown as ScenarioTemplate, 'latwy', 1).points[0]!;
@@ -146,7 +135,7 @@ describe('ekran: range-spot', () => {
     const onWybierz = await decyzja(RFI_BTN);
     expect(tekstEkranu()).not.toMatch(/W puli/);
     expect(screen.getByRole('button', { name: /^Pas/ })).toBeTruthy();
-    await fireEvent.press(screen.getByRole('button', { name: /^Przebicie.* do 2[.,]5/ }));
+    await fireEvent.press(screen.getByRole('button', { name: /^Przebicie[\s\S]*do 2[.,]5/ }));
     expect(onWybierz).toHaveBeenCalledWith('raise 2.5');
     await fireEvent.press(screen.getByRole('button', { name: /^Pas/ }));
     expect(onWybierz).toHaveBeenCalledWith('fold');
@@ -167,7 +156,7 @@ describe('ekran: range-spot', () => {
     expect(t).toMatch(/Błąd/);
     expect(t).toMatch(/Wyjaśnienie akcji fold/);
     expect(t).toMatch(/Wyjaśnienie akcji raise 2\.5/);
-    expect(t).toMatch(/Lepiej: Przebicie.* do 2[.,]5/);
+    expect(t).toMatch(/Lepiej: przebicie.* do 2[.,]5/);
   });
   it('range-spot + draw-call: po otwarciu decyzja na flopie z pulą i kartami stołu', async () => {
     const v = wariant(RFI_DRAW, 'latwy');

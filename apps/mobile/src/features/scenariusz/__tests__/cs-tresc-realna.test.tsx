@@ -33,7 +33,7 @@ describe('treść z bazy: SC-11 i SC-12 na ekranie (CQ 06-tresci-001)', () => {
         const szablon = szablony.find((t) => t.id === id)!;
         const onWybierz = jest.fn();
         await render(<PrzebiegScenariusza sesja={sesja(szablon, poziom, 7, [])} faza="decyzja" koniec={false} bladZapisu={false} onWybierz={onWybierz} onDalej={jest.fn()} onZakoncz={jest.fn()} />);
-        for (const [nazwa, akcja] of [[/^Czekam/, 'check'], [/^Mały/, 'bet-small'], [/^Duży/, 'bet-big']] as const) {
+        for (const [nazwa, akcja] of [[/^Czekanie/, 'check'], [/^Mały/, 'bet-small'], [/^Duży/, 'bet-big']] as const) {
           await fireEvent.press(screen.getByRole('button', { name: nazwa }));
           expect(onWybierz).toHaveBeenLastCalledWith(akcja);
         }
