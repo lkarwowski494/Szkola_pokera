@@ -1,0 +1,15 @@
+// DD: ile punktów draw-call (ziarna 1–2000 na poziom) nie ma żadnej karty gracza wyższej od stołu (zdanie NIS-003 mówi wtedy o kartach, których nie ma).
+import { generateVariant, rankOf, type GeneratorTemplate, type ScenarioLevel } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze.ts';
+const pl = loadScenarioTemplates('/home/user/Szkola_pokera/content/pl/scenarios').map((x) => x.template);
+let wsz = 0, bez = 0;
+for (const id of ['sc-01', 'sc-02', 'sc-03', 'sc-19']) {
+  const t: any = pl.find((x) => x.id === id)!; let p = 0, b = 0;
+  const gen = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  for (const level of t.levels as ScenarioLevel[]) for (let seed = 1; seed <= 2000; seed++) {
+    const v: any = generateVariant(gen, level, seed);
+    for (const d of v.decisions) { const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4); const top = Math.max(...stol.map(rankOf)); p++; if (!v.hero.some((c: number) => rankOf(c) > top)) b++; }
+  }
+  console.log(id, 'punktów', p, 'bez karty wyższej od stołu', b, (100 * b / p).toFixed(1) + '%'); wsz += p; bez += b;
+}
+console.log('razem', wsz, bez, (100 * bez / wsz).toFixed(1) + '%');

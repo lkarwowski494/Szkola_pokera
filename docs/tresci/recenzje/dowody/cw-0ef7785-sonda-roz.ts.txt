@@ -1,0 +1,11 @@
+import { classifyFlop, FULL_DECK, rankOf, cardToString } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+const poz = (r: number) => (r === 12 ? [1, 14] : [r + 2]);
+const strit = (rs: number[]) => { const s = new Set(rs.flatMap(poz)); for (let lo = 1; lo <= 10; lo++) if ([0,1,2,3,4].every(k => s.has(lo+k))) return true; return false; };
+const R='23456789TJQKA'; const m = new Map<string,string>();
+for (let i = 0; i < 52; i++) for (let j = i+1; j < 52; j++) for (let k = j+1; k < 52; k++) {
+  const f=[FULL_DECK[i]!,FULL_DECK[j]!,FULL_DECK[k]!]; const r=f.map(rankOf);
+  let oesd=false, okno=false;
+  for (let a=0;a<13;a++) for (let b=a;b<13;b++){ const rs=[...r,a,b]; const s=new Set(rs.flatMap(poz)); let w=false; for (let lo=2;lo<=10;lo++) if([0,1,2,3].every(q=>s.has(lo+q))) w=true; if(w) okno=true; if(w && !strit(rs)) oesd=true; }
+  const t:any=classifyFlop(f as any); if (oesd!==t.oesdPossible) m.set([...r].sort((x,y)=>y-x).map(x=>R[x]).join(''), `app=${t.oesdPossible} prawdziwy=${oesd} okno4=${okno} ${t.height} ${t.ranks}`);
+}
+for (const [k,v] of m) console.log(k,v);

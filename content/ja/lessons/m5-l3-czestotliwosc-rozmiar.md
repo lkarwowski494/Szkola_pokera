@@ -17,7 +17,7 @@ drills:
       small: "Cベットを頻繁に小さく：{{t:pot|ポット}}の{{n:cbet.size.small}}（{{n:cbet.btn.small}}）"
       big: "Cベットを頻繁に大きく：{{t:pot|ポット}}の{{n:cbet.size.big}}（{{n:cbet.btn.big}}）"
     cases:
-      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
+      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
         best: small
         rule: R-M5-007
         why:

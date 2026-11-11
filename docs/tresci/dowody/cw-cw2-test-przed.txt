@@ -1,0 +1,6 @@
+     × sc-fx-cbet-low trudny: 10000 wariantów, ocena silnika gry zgodna z oczekiwaną akcją 196ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
++   "2: ręka draw, pare=true poza filtrem draw",
++   "2: ręka draw poza filtrem draw",
++   "35: ręka draw, pare=true poza filtrem draw",
++   "35: ręka draw poza filtrem draw",

@@ -1,5 +1,5 @@
 {
-  "wersja": 2,
+  "wersja": 3,
   "ziarna": 200,
   "odciski": {
     "sc-01|latwy": {
@@ -35,8 +35,8 @@
       "ziarno1": "sc-11|latwy|Q091/K28321"
     },
     "sc-11|sredni": {
-      "sha": "4ed71352e095be4a",
-      "ziarno1": "sc-11|sredni|Q091/K17243"
+      "sha": "44543d6b56125b37",
+      "ziarno1": "sc-11|sredni|K0J1/Q08132"
     },
     "sc-12|latwy": {
       "sha": "e86c8a15524d4771",

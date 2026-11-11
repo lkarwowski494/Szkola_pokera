@@ -1,0 +1,22 @@
+$ npx tsx oesd.ts   # skrypt niezależnej wyrocznii DD (prawdziwy OESD: 5 kart bez strita, dwie rangi domykające z okna 4; double gutshot osobno), commit 0ef7785
+RÓŻNICA 0,4,16 false true
+RÓŻNICA 0,4,17 false true
+RÓŻNICA 0,4,18 false true
+RÓŻNICA 0,4,19 false true
+flopy 22100 różnice oesdPossible vs prawdziwy OESD: 512
+układy high semi-connected 138 z OESD 90
+układy rang z double gutshotem bez OESD (rangi, wysokość, połączenie): 2
+  A73 high semi-connected
+  AQ8 high semi-connected
+exit 0
+
+$ npx tsx roz.ts   # układy rang, na których oesdPossible ≠ prawdziwy OESD
+632 app=true prawdziwy=false okno4=true low connected
+A32 app=true prawdziwy=false okno4=true high connected
+A42 app=true prawdziwy=false okno4=true high connected
+A52 app=true prawdziwy=false okno4=true high connected
+KQ9 app=true prawdziwy=false okno4=true high connected
+AKT app=true prawdziwy=false okno4=true high connected
+AKJ app=true prawdziwy=false okno4=true high connected
+AKQ app=true prawdziwy=false okno4=true high connected
+exit 0

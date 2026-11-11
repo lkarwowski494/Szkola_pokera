@@ -76,7 +76,7 @@ drills:
       small: "C-bet frequente e pequeno: {{n:cbet.size.small}} do {{t:pot|pote}} ({{n:cbet.btn.small}})"
       big: "C-bet frequente e grande: {{n:cbet.size.big}} do {{t:pot|pote}} ({{n:cbet.btn.big}})"
     cases:
-      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
+      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
         best: small
         rule: R-M5-007
         why:

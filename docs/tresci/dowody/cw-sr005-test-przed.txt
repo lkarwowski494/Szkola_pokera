@@ -1,0 +1,172 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+(node:1736) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/cw-sc11-oesd.test.ts (8 tests | 6 failed) 4035ms
+   ❯ CW ŚR-005: tekstura zna możliwy OESD (pole oesdPossible = wyrocznia z rang) (3)
+     × na wszystkich 22 100 flopach classifyFlop(...).oesdPossible równa się wyroczni 1086ms
+     × rachunek recenzji CQ: z 138 układów rang wysokich flopów półpołączonych 84 pozwala na OESD 584ms
+     × filtr tekstury oesdPossible: false przepuszcza tylko flopy bez możliwego OESD 1ms
+   ❯ CW ŚR-005: SC-11 średni nie uczy „często i mało” na flopie z możliwym OESD (3)
+     × sredni: ziarna 1–400 dają flopy bez możliwego OESD (wyrocznia z rang) 7ms
+     × granice poziomu średniego są takie same w 12 językach treści (pl + 11 przekładów) 3ms
+   ❯ CW-1 (D-858): zadanie m5.l3.c-btn nie ocenia flopu z możliwym OESD jako R-M5-007 „często i mało” (2)
+     × w treści pl żaden przypadek R-M5-007 nie pasuje do flopu z możliwym OESD 1183ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/cw-sc11-oesd.test.ts > CW ŚR-005: tekstura zna możliwy OESD (pole oesdPossible = wyrocznia z rang) > na wszystkich 22 100 flopach classifyFlop(...).oesdPossible równa się wyroczni
+AssertionError: expected [ '0,1,2: wyrocznia false', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0,1,2: wyrocznia false",
++   "0,1,3: wyrocznia false",
++   "0,1,4: wyrocznia true",
++   "0,1,5: wyrocznia true",
++   "0,1,6: wyrocznia true",
++ ]
+
+ ❯ test/cw-sc11-oesd.test.ts:44:19
+     42|       if ((classifyFlop(f) as { oesdPossible?: unknown }).oesdPossible…
+     43|     }
+     44|     expect(bledy).toEqual([]);
+       |                   ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  test/cw-sc11-oesd.test.ts > CW ŚR-005: tekstura zna możliwy OESD (pole oesdPossible = wyrocznia z rang) > rachunek recenzji CQ: z 138 układów rang wysokich flopów półpołączonych 84 pozwala na OESD
+AssertionError: expected 90 to be 84 // Object.is equality
+
+- Expected
++ Received
+
+- 84
++ 90
+
+ ❯ test/cw-sc11-oesd.test.ts:56:57
+     54|     }
+     55|     expect(uklady.size).toBe(138);
+     56|     expect([...uklady.values()].filter(Boolean).length).toBe(84);
+       |                                                         ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  test/cw-sc11-oesd.test.ts > CW ŚR-005: tekstura zna możliwy OESD (pole oesdPossible = wyrocznia z rang) > filtr tekstury oesdPossible: false przepuszcza tylko flopy bez możliwego OESD
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ test/cw-sc11-oesd.test.ts:61:99
+     59|   it('filtr tekstury oesdPossible: false przepuszcza tylko flopy bez m…
+     60|     const filtr = { oesdPossible: false } as TextureFilter;
+     61|     for (const f of wszystkieFlopy.slice(0, 3000)) expect(textureMatch…
+       |                                                                                                   ^
+     62|   });
+     63| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  test/cw-sc11-oesd.test.ts > CW ŚR-005: SC-11 średni nie uczy „często i mało” na flopie z możliwym OESD > sredni: ziarna 1–400 dają flopy bez możliwego OESD (wyrocznia z rang)
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "ziarno 1: flop 23,10,45 pozwala na OESD, a oczekiwana akcja to bet-small",
++   "ziarno 5: flop 38,47,21 pozwala na OESD, a oczekiwana akcja to bet-small",
++   "ziarno 6: flop 31,50,32 pozwala na OESD, a oczekiwana akcja to bet-small",
++   "ziarno 9: flop 14,51,17 pozwala na OESD, a oczekiwana akcja to bet-small",
++   "ziarno 11: flop 7,45,16 pozwala na OESD, a oczekiwana akcja to bet-small",
++ ]
+
+ ❯ test/cw-sc11-oesd.test.ts:81:21
+     79|         if (oesdMozliwyZRang(flop.map(rankOf))) bledy.push(`ziarno ${s…
+     80|       }
+     81|       expect(bledy).toEqual([]);
+       |                     ^
+     82|     }, 120_000);
+     83|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  test/cw-sc11-oesd.test.ts > CW ŚR-005: SC-11 średni nie uczy „często i mało” na flopie z możliwym OESD > granice poziomu średniego są takie same w 12 językach treści (pl + 11 przekładów)
+AssertionError: expected { height: [ 'high' ], …(2) } to match object { oesdPossible: false }
+(3 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "oesdPossible": false,
++   "height": [
++     "high",
++   ],
++   "ranks": [
++     "semi-connected",
++   ],
++   "suits": [
++     "rainbow",
++   ],
+  }
+
+ ❯ test/cw-sc11-oesd.test.ts:87:22
+     85|   it('granice poziomu średniego są takie same w 12 językach treści (pl…
+     86|     const plSredni = t.bounds.sredni?.flop;
+     87|     expect(plSredni).toMatchObject({ oesdPossible: false });
+       |                      ^
+     88|     for (const j of JEZYKI_TRESCI) {
+     89|       const x = loadScenarioTemplates(join(root, 'content', j, 'scenar…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  test/cw-sc11-oesd.test.ts > CW-1 (D-858): zadanie m5.l3.c-btn nie ocenia flopu z możliwym OESD jako R-M5-007 „często i mało” > w treści pl żaden przypadek R-M5-007 nie pasuje do flopu z możliwym OESD
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0,5,42: przypadek R-M5-007 (small)",
++   "0,5,43: przypadek R-M5-007 (small)",
++   "0,5,46: przypadek R-M5-007 (small)",
++   "0,5,47: przypadek R-M5-007 (small)",
++   "0,6,41: przypadek R-M5-007 (small)",
++ ]
+
+ ❯ test/cw-sc11-oesd.test.ts:106:19
+    104|       if (c && (c.rule === 'R-M5-007' || c.best === 'small') && classi…
+    105|     }
+    106|     expect(bledy).toEqual([]);
+       |                   ^
+    107|   });
+    108|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 2 passed (8)
+   Start at  07:28:57
+   Duration  6.59s (tests 62%, import 29%, transform 8%)
+
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

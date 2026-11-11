@@ -1,0 +1,27 @@
+// DD: czy w wariantach sc-01/sc-19 (draw do koloru) oraz sc-02/sc-03 zdarza się, że „3 outy na rangę wyższą od stołu” nakładają się z outami drawa
+// albo karta gracza jest parą kieszonkową; ziarna 1–2000 na poziom.
+import { generateVariant, rankOf, suitOf, type GeneratorTemplate, type ScenarioLevel } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze.ts';
+const pl = loadScenarioTemplates('/home/user/Szkola_pokera/content/pl/scenarios').map((x) => x.template);
+for (const id of ['sc-01', 'sc-02', 'sc-03', 'sc-19']) {
+  const t: any = pl.find((x) => x.id === id)!;
+  const gen = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const st = { warianty: 0, punkty: 0, zNadkarta: 0, nakladanie: 0, paraKiesz: 0, monotone: 0, przyklad: '' };
+  for (const level of t.levels as ScenarioLevel[]) for (let seed = 1; seed <= 2000; seed++) {
+    const v: any = generateVariant(gen, level, seed); st.warianty++;
+    if (rankOf(v.hero[0]) === rankOf(v.hero[1])) st.paraKiesz++;
+    v.decisions.forEach((d: any) => {
+      st.punkty++;
+      const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4); const top = Math.max(...stol.map(rankOf));
+      const suits = stol.map(suitOf); const maxSuit = Math.max(...[0,1,2,3].map(s => suits.filter((x: number) => x === s).length));
+      if (maxSuit >= 3) st.monotone++;
+      for (const c of v.hero) if (rankOf(c) > top) {
+        st.zNadkarta++;
+        // outy drawa koloru: kolor, w którym gracz ma razem ze stołem 4 karty
+        const all = [...v.hero, ...stol]; const fs = [0,1,2,3].find(s => all.filter((x: number) => suitOf(x) === s).length === 4);
+        if (fs !== undefined && suitOf(c) !== fs) { st.nakladanie++; if (!st.przyklad) st.przyklad = `${level} ${seed} hero ${v.hero} stół ${stol}`; }
+      }
+    });
+  }
+  console.log(id, JSON.stringify(st));
+}

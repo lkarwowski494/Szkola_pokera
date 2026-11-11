@@ -1,0 +1,75 @@
+$ (cd tools/content-build && npx vitest run test/recenzja-cw-odtworzenie.test.ts)   # 431cb885 + `odtwarzaBlad = it`, treść przed poprawką
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+(node:619) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/recenzja-cw-odtworzenie.test.ts (5 tests | 2 failed) 3420ms
+   ❯ DD-WYS-001: zdanie NIS-003 „każda karta wyższa od stołu daje jeszcze 3 outy” jest prawdziwe w każdym wariancie (5)
+     × sc-01: ziarna 1–300, każda ranga wyższa od stołu daje dokładnie 3 nowe outy 1283ms
+     × sc-19: ziarna 1–300, każda ranga wyższa od stołu daje dokładnie 3 nowe outy 1198ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/recenzja-cw-odtworzenie.test.ts > DD-WYS-001: zdanie NIS-003 „każda karta wyższa od stołu daje jeszcze 3 outy” jest prawdziwe w każdym wariancie > sc-01: ziarna 1–300, każda ranga wyższa od stołu daje dokładnie 3 nowe outy
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "latwy ziarno 2 punkt 1: ręka 49,10, stół 34,6,26, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 2 punkt 2: ręka 49,10, stół 34,6,26,41, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 4 punkt 1: ręka 27,50, stół 15,31,39, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 4 punkt 2: ręka 27,50, stół 15,31,39,2, ranga 12: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 17 punkt 1: ręka 31,48, stół 47,3,23, ranga 12: nowych outów 2, zdanie mówi 3",
++ ]
+
+ ❯ test/recenzja-cw-odtworzenie.test.ts:76:21
+     74|       const { bledy, punkty } = nadkartyBezNakladania(id, 300);
+     75|       expect(punkty).toBeGreaterThan(0);
+     76|       expect(bledy).toEqual([]);
+       |                     ^
+     77|     }, 120_000);
+     78|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/recenzja-cw-odtworzenie.test.ts > DD-WYS-001: zdanie NIS-003 „każda karta wyższa od stołu daje jeszcze 3 outy” jest prawdziwe w każdym wariancie > sc-19: ziarna 1–300, każda ranga wyższa od stołu daje dokładnie 3 nowe outy
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "latwy ziarno 1 punkt 1: ręka 36,25, stół 33,1,5, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 10 punkt 1: ręka 17,39, stół 29,21,1, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 38 punkt 1: ręka 42,36, stół 2,18,6, ranga 9: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 111 punkt 1: ręka 37,34, stół 13,1,9, ranga 8: nowych outów 2, zdanie mówi 3",
++   "latwy ziarno 212 punkt 1: ręka 44,38, stół 20,16,4, ranga 9: nowych outów 2, zdanie mówi 3",
++ ]
+
+ ❯ test/recenzja-cw-odtworzenie.test.ts:76:21
+     74|       const { bledy, punkty } = nadkartyBezNakladania(id, 300);
+     75|       expect(punkty).toBeGreaterThan(0);
+     76|       expect(bledy).toEqual([]);
+       |                     ^
+     77|     }, 120_000);
+     78|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+   Start at  09:49:35
+   Duration  5.14s (tests 68%, import 25%, transform 7%)
+
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+kod wyjścia: 1

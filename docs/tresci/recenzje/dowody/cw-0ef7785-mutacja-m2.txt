@@ -1,0 +1,5 @@
+$ mutacja M2: okno OESD z asem (low 1…11), vitest test/cw-sc11-oesd.test.ts
+     × na wszystkich 22 100 flopach classifyFlop(...).oesdPossible równa się wyroczni 772ms
+     × filtr tekstury oesdPossible: false przepuszcza tylko flopy bez możliwego OESD 5ms
+      Tests  2 failed | 9 passed (11)
+exit 1

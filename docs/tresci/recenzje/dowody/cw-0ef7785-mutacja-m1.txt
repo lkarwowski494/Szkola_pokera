@@ -1,0 +1,4 @@
+$ mutacja M1: cofnięcie poprawki CW-2 (h.cls === 'draw' bez && h.pairKind === null), vitest test/szablony-f2-ca.test.ts
+     × sc-fx-cbet-low trudny: 10000 wariantów, ocena silnika gry zgodna z oczekiwaną akcją 86ms
+      Tests  1 failed | 12 passed (13)
+exit 1

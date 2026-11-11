@@ -255,7 +255,7 @@ export class TemplateError extends Error {}
  * wariantów zapisuje ją przy każdym wpisie, a „to samo rozdanie” wolno ponowić tylko przy wersji równej bieżącej.
  * 0 jest zarezerwowane dla wpisów sprzed wprowadzenia wersji. Pilnują tego test wzorca w scenario-gen.test.ts i odciski prawdziwych szablonów z content/pl (tools/content-build/test/generator-odciski.test.ts, ŚR-002).
  */
-export const GENERATOR_WERSJA = 2; // 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
+export const GENERATOR_WERSJA = 3; // 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
 
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */
@@ -296,7 +296,7 @@ const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'chec
 
 /** Filtr klasy ręki (F2): air = klasa `air` (bez pary i drawa); pair = jedna para z kartą gracza (także kieszonkowa); draw = klasa `draw` (od HOLDING_LIMITS.drawOutsMin outów, bez pary). */
 function holdingMatches(f: HoldingFilter, h: ReturnType<typeof classifyHolding>): boolean {
-  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
+  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw' && h.pairKind === null; // CW-2: klasa draw obejmuje też niską parę z drawem (holding.ts), filtr „bez pary” jak w opisie (D-859)
 }
 const RANK_CHARS = '23456789TJQKA';
 

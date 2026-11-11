@@ -322,10 +322,24 @@
     "cytat": "you should be c-betting around 43% of the time and can stick to a one-third pot size bet in these situations.",
     "odczyt": "2026-11-04",
     "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Connectedness, OESD possible (granica zakresu R-M5-007; BTN vs BB, cash)",
+    "cytat": "This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity.",
+    "odczyt": "2026-11-11",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "słowniczek OESD (definicja klasy „OESD possible”)",
+    "cytat": "will make a straight if a card at either end their four completes; an 8-out straight draw.",
+    "odczyt": "2026-11-11",
+    "szczebel": 2
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": "pominięty overbet: serwis komercyjnego solvera na flopach disconnected podaje także częsty rozmiar 130% („the 130% sizing is common as well”)",
+  "uproszczenie": "pominięty overbet: serwis komercyjnego solvera na flopach disconnected podaje także częsty rozmiar 130% („the 130% sizing is common as well”); flopy półpołączone z samym gutshotem (bez możliwego OESD) liczone jak „Disconnected” źródła, bo źródło dzieli flopy bez możliwego strita tylko według możliwego OESD (D-856)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -333,7 +347,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "„Często” jest względne: na suchych flopach z asem PokerCoaching podaje ok. 43% c-betu; GTO Wizard podaje też overbet 130% na flopach rozłączonych (rozmiar mieszany). | E3 S3 2026-11-04 (A2): then nazywa uproszczenie (overbet); m5-l3 (case c-btn big, q-kj big, l. 110): „Większy bet spasuje mniej więcej te same ręce, a ryzykuje więcej” zamiast „nie spasuje więcej rąk”."
+  "uwagi": "„Często” jest względne: na suchych flopach z asem PokerCoaching podaje ok. 43% c-betu; GTO Wizard podaje też overbet 130% na flopach rozłączonych (rozmiar mieszany). | E3 S3 2026-11-04 (A2): then nazywa uproszczenie (overbet); m5-l3 (case c-btn big, q-kj big, l. 110): „Większy bet spasuje mniej więcej te same ręce, a ryzykuje więcej” zamiast „nie spasuje więcej rąk”. | CW 2026-11-11 (ŚR-005 = CQ 06-tresci-005, D-856, D-858): zakres R-M5-007 w ćwiczeniach to wysokie flopy bez możliwego OESD (filtr `oesdPossible: false` w SC-11 średni i w przypadku 1 zadania m5.l3.c-btn); flopy z możliwym OESD należą do R-M5-008 (większy rozmiar, rzadszy c-bet). Rachunek: z 138 układów rang wysokich flopów półpołączonych 90 pozwala na OESD (recenzja CQ podała 84 bez okna 2-3-4-5); test `tools/content-build/test/cw-sc11-oesd.test.ts`."
  },
  {
   "id": "R-M5-008",
@@ -1277,7 +1291,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "w ćwiczeniach scenariuszowych (sc-01, sc-02, sc-03, sc-19) outy i szansa liczone tylko z drawa; każda karta gracza wyższa od stołu daje jeszcze najwyżej 3 niepewne outy na parę (D1, numbers.yaml pair.outs.per-rank; 2, gdy jedna z trzech kart tej rangi jest w kolorze drawa i liczy się już w jego outach, 06-tresci-001, D-917), a generator dopuszcza tylko warianty, w których te outy nie zmieniają odpowiedzi; uproszczenie nazwane w każdym wyjaśnieniu draw-call (NIS-003, D-857)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -1285,7 +1299,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "S3 E3 2026-11-04: „a nie 35,0% jak z flopu do rivera” zamiast „jak na flopie” (na flopie wobec zakładu M2 liczy jedną kartę, 19,1%)."
+  "uwagi": "S3 E3 2026-11-04: „a nie 35,0% jak z flopu do rivera” zamiast „jak na flopie” (na flopie wobec zakładu M2 liczy jedną kartę, 19,1%). | CW 2026-11-11 (NIS-003, D-857): zdanie o kartach wyższych od stołu w 14 wyjaśnieniach × 12 języków; test tools/content-build/test/cw-nadkarty.test.ts (wyrocznia: odpowiedź z outami + 3 na rangę = odpowiedź wariantu). | DG 2026-11-11 (06-tresci-001, D-917): „daje jeszcze najwyżej 3” w 14 wyjaśnieniach pl (sc-01, sc-02, sc-03, sc-19); przy drawie do koloru z trzema kartami koloru na stole nadkarta w innym kolorze daje 2 nowe outy (rachunek kart, test tools/content-build/test/recenzja-cw-odtworzenie.test.ts z `it`)."
  },
  {
   "id": "R-M7-008",
@@ -1302,7 +1316,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "w ćwiczeniach scenariuszowych (sc-01, sc-02, sc-03, sc-19) outy i szansa liczone tylko z drawa; każda karta gracza wyższa od stołu daje jeszcze najwyżej 3 niepewne outy na parę (D1, numbers.yaml pair.outs.per-rank; 2, gdy jedna z trzech kart tej rangi jest w kolorze drawa i liczy się już w jego outach, 06-tresci-001, D-917), a generator dopuszcza tylko warianty, w których te outy nie zmieniają odpowiedzi; uproszczenie nazwane w każdym wyjaśnieniu draw-call (NIS-003, D-857)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -1310,7 +1324,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "CW 2026-11-11 (NIS-003, D-857): zdanie o kartach wyższych od stołu w 14 wyjaśnieniach × 12 języków; test tools/content-build/test/cw-nadkarty.test.ts (wyrocznia: odpowiedź z outami + 3 na rangę = odpowiedź wariantu). | DG 2026-11-11 (06-tresci-001, D-917): „daje jeszcze najwyżej 3” w 14 wyjaśnieniach pl (sc-01, sc-02, sc-03, sc-19); przy drawie do koloru z trzema kartami koloru na stole nadkarta w innym kolorze daje 2 nowe outy (rachunek kart, test tools/content-build/test/recenzja-cw-odtworzenie.test.ts z `it`)."
  },
  {
   "id": "R-M7-009",

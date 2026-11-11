@@ -1,0 +1,33 @@
+// Niezależna wyrocznia DD: prawdziwy OESD = 5 kart (flop + 2 karty gracza), brak strita, istnieją DWIE różne rangi domykające strita
+// i są to oba końce czterech kolejnych rang (lo..lo+3). Double gutshot = 2 rangi domykające, ale nie z jednego okna 4.
+import { classifyFlop, FULL_DECK, rankOf } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+const poz = (r: number) => (r === 12 ? [1, 14] : [r + 2]);
+const strit = (rs: number[]) => { const s = new Set(rs.flatMap(poz)); for (let lo = 1; lo <= 10; lo++) if ([0,1,2,3,4].every(k => s.has(lo+k))) return true; return false; };
+function domykajace(rs: number[]): number[] { const out: number[] = []; for (let r = 0; r < 13; r++) if (strit([...rs, r])) out.push(r); return out; }
+function klasa(flop: number[], a: number, b: number): 'strit'|'oesd'|'dg'|null {
+  const rs = [...flop, a, b];
+  if (strit(rs)) return 'strit';
+  const d = domykajace(rs);
+  if (d.length < 2) return null;
+  const s = new Set(rs.flatMap(poz));
+  for (let lo = 2; lo <= 10; lo++) if ([0,1,2,3].every(k => s.has(lo+k))) return 'oesd';
+  return 'dg';
+}
+const flopy: string[][] = [];
+for (let i = 0; i < 52; i++) for (let j = i+1; j < 52; j++) for (let k = j+1; k < 52; k++) flopy.push([FULL_DECK[i]!, FULL_DECK[j]!, FULL_DECK[k]!]);
+let roznice = 0, dgBezOesd = new Map<string, any>(); const uklady = new Map<string, boolean>();
+for (const f of flopy) {
+  const r = f.map(rankOf); const t = classifyFlop(f as any);
+  let oesd = false, dg = false;
+  for (let a = 0; a < 13; a++) for (let b = a; b < 13; b++) { const k = klasa(r, a, b); if (k === 'oesd') oesd = true; if (k === 'dg') dg = true; }
+  if (oesd !== (t as any).oesdPossible) { roznice++; if (roznice < 5) console.log('RÓŻNICA', f.join(','), oesd, (t as any).oesdPossible); }
+  const key = [...r].sort((x,y)=>y-x).join('-');
+  if (t.height === 'high' && t.ranks === 'semi-connected') uklady.set(key, oesd);
+  if (!oesd && dg) dgBezOesd.set(key + ' ' + t.height + ' ' + t.ranks + ' ' + t.suits, 1);
+}
+console.log('flopy', flopy.length, 'różnice oesdPossible vs prawdziwy OESD:', roznice);
+console.log('układy high semi-connected', uklady.size, 'z OESD', [...uklady.values()].filter(Boolean).length);
+const R = '23456789TJQKA';
+const dgk = [...new Set([...dgBezOesd.keys()].map(k => k.split(' ').slice(0,3).join(' ')))];
+console.log('układy rang z double gutshotem bez OESD (rangi, wysokość, połączenie):', dgk.length);
+for (const k of dgk) { const [rs, h, c] = k.split(' '); console.log(' ', rs!.split('-').map(x => R[+x]).join(''), h, c); }
