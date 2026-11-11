@@ -17,7 +17,7 @@ drills:
       small: "자주, 작게 C벳: {{t:pot|팟}}의 {{n:cbet.size.small}} ({{n:cbet.btn.small}})"
       big: "자주, 크게 C벳: {{t:pot|팟}}의 {{n:cbet.size.big}} ({{n:cbet.btn.big}})"
     cases:
-      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
+      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
         best: small
         rule: R-M5-007
         why:
