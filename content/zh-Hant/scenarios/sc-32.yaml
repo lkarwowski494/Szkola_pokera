@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，有 {{n:m11.depth.10}}，{{w:stol}}，所有人都{{t:fold|棄牌}}了。你{{t:all-in|全下}}，因為籌碼這麼短時，和對手{{t:fold|棄牌}}時贏到的盲注相比，你冒的風險很小；在 {{n:m11.depth.10}} 時你{{t:shove|推全下}}約 {{n:m11.push.10}} 的手牌，而這手牌在其中。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，有 {{n:m11.depth.10}}，{{w:stol}}，所有人都{{t:fold|棄牌}}了。你{{t:all-in|全下}}，因為籌碼越短，和對手{{t:fold|棄牌}}時贏到的盲注相比，你冒的風險越小；在 {{n:m11.depth.10}} 時你{{t:shove|推全下}}約 {{n:m11.push.10}} 的手牌，而這手牌在其中。"
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，有 {{n:m11.depth.10}}，{{w:stol}}，所有人都{{t:fold|棄牌}}了。{{t:fold|棄牌}}太保守：在 {{n:m11.depth.10}} 時你{{t:shove|推全下}}約 {{n:m11.push.10}} 的手牌，而這手牌在其中。籌碼短時，和對手{{t:fold|棄牌}}時贏到的盲注相比，你冒的風險很小。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，有 {{n:m11.depth.10}}，{{w:stol}}，所有人都{{t:fold|棄牌}}了。{{t:fold|棄牌}}太保守：在 {{n:m11.depth.10}} 時你{{t:shove|推全下}}約 {{n:m11.push.10}} 的手牌，而這手牌在其中。籌碼越短，和對手{{t:fold|棄牌}}時贏到的盲注相比，你冒的風險越小。"

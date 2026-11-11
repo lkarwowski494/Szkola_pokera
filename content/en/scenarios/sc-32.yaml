@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "You have {{w:reka}} on the {{w:pozycja}} with {{n:m11.depth.10}}, {{w:stol}}, and everyone {{t:fold|folded}}. You go {{t:all-in}}, because with such a short stack you risk little compared with the blinds you win when your opponent {{t:fold|folds}}; at {{n:m11.depth.10}} you {{t:shove}} about {{n:m11.push.10}} of hands, and this hand is among them."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}} with {{n:m11.depth.10}}, {{w:stol}}, and everyone {{t:fold|folded}}. You go {{t:all-in}}, because with a shorter stack you risk less compared with the blinds you win when your opponent {{t:fold|folds}}; at {{n:m11.depth.10}} you {{t:shove}} about {{n:m11.push.10}} of hands, and this hand is among them."
       - action: fold
-        explanation: "You have {{w:reka}} on the {{w:pozycja}} with {{n:m11.depth.10}}, {{w:stol}}, and everyone {{t:fold|folded}}. A {{t:fold}} is too cautious: at {{n:m11.depth.10}} you {{t:shove}} about {{n:m11.push.10}} of hands, and this hand is among them. With a short stack you risk little compared with the blinds you win when your opponent {{t:fold|folds}}."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}} with {{n:m11.depth.10}}, {{w:stol}}, and everyone {{t:fold|folded}}. A {{t:fold}} is too cautious: at {{n:m11.depth.10}} you {{t:shove}} about {{n:m11.push.10}} of hands, and this hand is among them. With a shorter stack you risk less compared with the blinds you win when your opponent {{t:fold|folds}}."

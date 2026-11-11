@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} với {{n:m11.depth.10}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}}. Bạn {{t:all-in|all-in}}, vì với stack ngắn như vậy bạn mạo hiểm ít so với số blind thắng được khi đối thủ {{t:fold|bỏ bài}}; ở {{n:m11.depth.10}} bạn {{t:shove|push}} khoảng {{n:m11.push.10}} số tay bài, và tay này nằm trong đó."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} với {{n:m11.depth.10}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}}. Bạn {{t:all-in|all-in}}, vì với stack ngắn hơn bạn mạo hiểm ít hơn so với số blind thắng được khi đối thủ {{t:fold|bỏ bài}}; ở {{n:m11.depth.10}} bạn {{t:shove|push}} khoảng {{n:m11.push.10}} số tay bài, và tay này nằm trong đó."
       - action: fold
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} với {{n:m11.depth.10}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}}. {{t:fold|Bỏ bài}} là quá thận trọng: ở {{n:m11.depth.10}} bạn {{t:shove|push}} khoảng {{n:m11.push.10}} số tay bài, và tay này nằm trong đó. Với stack ngắn, bạn mạo hiểm ít so với số blind thắng được khi đối thủ {{t:fold|bỏ bài}}."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} với {{n:m11.depth.10}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}}. {{t:fold|Bỏ bài}} là quá thận trọng: ở {{n:m11.depth.10}} bạn {{t:shove|push}} khoảng {{n:m11.push.10}} số tay bài, và tay này nằm trong đó. Với stack ngắn hơn, bạn mạo hiểm ít hơn so với số blind thắng được khi đối thủ {{t:fold|bỏ bài}}."

@@ -31,4 +31,4 @@ decisions:
       - action: raise-small
         explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you {{t:raise}}. This size is an inaccuracy: from the {{t:small-blind}} you play {{t:out-of-position}}, so you {{t:raise}} a little more, to {{n:pf.open-size-sb}}."
       - action: raise-big
-        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you {{t:raise}}. This size is an inaccuracy: {{n:pf.open-size-sb}} is enough; one size for all hands does not reveal the strength of your hand, and a bigger {{t:raise}} risks more {{t:chips}} with the same hand."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you {{t:raise}}. This size is an inaccuracy: {{n:pf.open-size-sb}} is enough; one size for all hands does not reveal the strength of your hand."

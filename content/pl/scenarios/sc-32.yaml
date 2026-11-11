@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, wszyscy {{t:fold|spasowali}}. Grasz {{t:all-in}}, bo przy tak krótkim stacku ryzykujesz mało względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}; przy {{n:m11.depth.10}} {{t:shove|pushujesz}} ok. {{n:m11.push.10}} rąk, a ta ręka się w tym mieści."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, wszyscy {{t:fold|spasowali}}. Grasz {{t:all-in}}, bo przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}; przy {{n:m11.depth.10}} {{t:shove|pushujesz}} ok. {{n:m11.push.10}} rąk, a ta ręka się w tym mieści."
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, wszyscy {{t:fold|spasowali}}. {{t:fold|Pas}} jest za ostrożny: przy {{n:m11.depth.10}} {{t:shove|pushujesz}} ok. {{n:m11.push.10}} rąk, a ta ręka się w tym mieści. Przy krótkim stacku ryzykujesz mało względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, wszyscy {{t:fold|spasowali}}. {{t:fold|Pas}} jest za ostrożny: przy {{n:m11.depth.10}} {{t:shove|pushujesz}} ok. {{n:m11.push.10}} rąk, a ta ręka się w tym mieści. Przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}."

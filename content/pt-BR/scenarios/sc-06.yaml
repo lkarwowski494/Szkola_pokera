@@ -31,4 +31,4 @@ decisions:
       - action: raise-small
         explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. Este tamanho é uma imprecisão: do {{t:small-blind}} você joga {{t:out-of-position}}, então {{t:raise|aumenta}} um pouco mais, para {{n:pf.open-size-sb}}."
       - action: raise-big
-        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. Este tamanho é uma imprecisão: {{n:pf.open-size-sb}} basta; um só tamanho para todas as mãos não revela a força da sua mão, e um {{t:raise|aumento}} maior arrisca mais {{t:chips|fichas}} com a mesma mão."
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. Este tamanho é uma imprecisão: {{n:pf.open-size-sb}} basta; um só tamanho para todas as mãos não revela a força da sua mão."

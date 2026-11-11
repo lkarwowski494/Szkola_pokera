@@ -31,4 +31,4 @@ decisions:
       - action: raise-small
         explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。このサイズは不正確です。{{t:small-blind|スモールブラインド}}からは{{t:out-of-position|アウトオブポジション}}でプレイするので、少し大きく{{n:pf.open-size-sb}}まで{{t:raise|レイズ}}します。"
       - action: raise-big
-        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。このサイズは不正確です。{{n:pf.open-size-sb}}で十分です。すべてのハンドで同じサイズならハンドの強さを明かさず、大きな{{t:raise|レイズ}}は同じハンドでより多くの{{t:chips|チップ}}をリスクにさらします。"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。このサイズは不正確です。{{n:pf.open-size-sb}}で十分です。すべてのハンドで同じサイズならハンドの強さを明かしません。"

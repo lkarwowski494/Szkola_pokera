@@ -31,4 +31,4 @@ decisions:
       - action: raise-small
         explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und du {{t:raise|raist}}. Diese Größe ist eine Ungenauigkeit: Aus dem {{t:small-blind}} spielst du {{t:out-of-position|ohne Position}}, also {{t:raise|raist}} du etwas mehr, auf {{n:pf.open-size-sb}}."
       - action: raise-big
-        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und du {{t:raise|raist}}. Diese Größe ist eine Ungenauigkeit: {{n:pf.open-size-sb}} reicht; eine Größe für alle Hände verrät nicht die Stärke deiner Hand, und ein größerer {{t:raise}} riskiert mit derselben Hand mehr {{t:chips}}."
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und du {{t:raise|raist}}. Diese Größe ist eine Ungenauigkeit: {{n:pf.open-size-sb}} reicht; eine Größe für alle Hände verrät nicht die Stärke deiner Hand."

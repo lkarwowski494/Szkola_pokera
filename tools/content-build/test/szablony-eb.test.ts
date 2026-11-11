@@ -73,3 +73,24 @@ describe('06-tresci-001: SC-34 — przyczyna w zdaniu decyzji prawdziwa dla każ
     }
   }
 });
+
+// 06-tresci-004: zdanie „bo” nie mówi więcej niż `because` reguły. SC-06 rozmiar duży: R-M3-007 nie podaje ryzyka większego przebicia;
+// SC-32: R-M11-002 porównuje („przy krótszym stacku ryzykujesz mniej”), a nie ocenia („ryzykujesz mało”: przy 10 bb ryzykujesz 10 bb,
+// by wygrać 1,5 bb). Sprawdzane na pl i en (treść); przekłady zmienione w tym samym commicie, jakość: rola 09.
+describe('06-tresci-004: uzasadnienia SC-06 i SC-32 w granicach `because` reguły', () => {
+  const wyj = (lang: string, id: string, akcja: string) => szablony(lang).find((x) => x.id === id)!.decisions.flatMap((d) => d.actions).find((a) => a.action === akcja)!.explanation;
+  it('pl: SC-06 raise-big bez powodu „ryzykuje więcej żetonów”, SC-32 z porównaniem „krótszym … mniej”, bez „mało”', () => {
+    expect(wyj('pl', 'sc-06', 'raise-big')).not.toMatch(/ryzykuje więcej/);
+    for (const a of ['all-in', 'fold']) {
+      expect(wyj('pl', 'sc-32', a)).not.toMatch(/ryzykujesz mało/);
+      expect(wyj('pl', 'sc-32', a)).toMatch(/krótszym stacku ryzykujesz mniej względem blindów/);
+    }
+  });
+  it('en: to samo w przekładzie wzorcowym', () => {
+    expect(wyj('en', 'sc-06', 'raise-big')).not.toMatch(/risks more/);
+    for (const a of ['all-in', 'fold']) {
+      expect(wyj('en', 'sc-32', a)).not.toMatch(/risk little/);
+      expect(wyj('en', 'sc-32', a)).toMatch(/shorter stack you risk less/);
+    }
+  });
+});

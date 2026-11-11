@@ -31,4 +31,4 @@ decisions:
       - action: raise-small
         explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你{{t:raise|加注}}。這個尺寸不夠精確：從{{t:small-blind|小盲}}你要{{t:out-of-position|無位置}}打，所以稍微{{t:raise|加注}}大一點，到 {{n:pf.open-size-sb}}。"
       - action: raise-big
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你{{t:raise|加注}}。這個尺寸不夠精確：{{n:pf.open-size-sb}} 就夠了；所有手牌用同一尺寸不會暴露手牌強度，而更大的{{t:raise|加注}}會用同一手牌冒更多{{t:chips|籌碼}}的風險。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，你{{t:raise|加注}}。這個尺寸不夠精確：{{n:pf.open-size-sb}} 就夠了；所有手牌用同一尺寸不會暴露手牌強度。"

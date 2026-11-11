@@ -31,4 +31,4 @@ decisions:
       - action: raise-small
         explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, i {{t:raise|przebijasz}}. Ten rozmiar to niedokładność: z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, więc {{t:raise|przebijasz}} trochę więcej, do {{n:pf.open-size-sb}}."
       - action: raise-big
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, i {{t:raise|przebijasz}}. Ten rozmiar to niedokładność: wystarczy {{n:pf.open-size-sb}}; jeden rozmiar dla wszystkich rąk nie zdradza siły ręki, a większe {{t:raise|przebicie}} ryzykuje więcej {{t:chips|żetonów}} tą samą ręką."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, i {{t:raise|przebijasz}}. Ten rozmiar to niedokładność: wystarczy {{n:pf.open-size-sb}}; jeden rozmiar dla wszystkich rąk nie zdradza siły ręki."

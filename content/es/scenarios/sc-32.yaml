@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, y todos se han {{t:fold|retirado}}. Vas {{t:all-in}}, porque con un stack tan corto arriesgas poco en comparación con las ciegas que ganas cuando tu rival se {{t:fold|retira}}; con {{n:m11.depth.10}} haces {{t:shove|push}} con aproximadamente {{n:m11.push.10}} de las manos, y esta mano está entre ellas."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, y todos se han {{t:fold|retirado}}. Vas {{t:all-in}}, porque con un stack más corto arriesgas menos en comparación con las ciegas que ganas cuando tu rival se {{t:fold|retira}}; con {{n:m11.depth.10}} haces {{t:shove|push}} con aproximadamente {{n:m11.push.10}} de las manos, y esta mano está entre ellas."
       - action: fold
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, y todos se han {{t:fold|retirado}}. {{t:fold|Retirarte}} es demasiado prudente: con {{n:m11.depth.10}} haces {{t:shove|push}} con aproximadamente {{n:m11.push.10}} de las manos, y esta mano está entre ellas. Con un stack corto arriesgas poco en comparación con las ciegas que ganas cuando tu rival se {{t:fold|retira}}."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, y todos se han {{t:fold|retirado}}. {{t:fold|Retirarte}} es demasiado prudente: con {{n:m11.depth.10}} haces {{t:shove|push}} con aproximadamente {{n:m11.push.10}} de las manos, y esta mano está entre ellas. Con un stack más corto arriesgas menos en comparación con las ciegas que ganas cuando tu rival se {{t:fold|retira}}."

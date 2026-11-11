@@ -31,4 +31,4 @@ decisions:
       - action: raise-small
         explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. Questa misura è un'imprecisione: dallo {{t:small-blind}} giochi {{t:out-of-position}}, quindi {{t:raise|rilanci}} un po' di più, a {{n:pf.open-size-sb}}."
       - action: raise-big
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. Questa misura è un'imprecisione: bastano {{n:pf.open-size-sb}}; una sola misura per tutte le mani non rivela la forza della tua mano, e un {{t:raise|rilancio}} più grande rischia più {{t:chips|chip}} con la stessa mano."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. Questa misura è un'imprecisione: bastano {{n:pf.open-size-sb}}; una sola misura per tutte le mani non rivela la forza della tua mano."
