@@ -742,6 +742,23 @@
       "icm": "Ekran scenariusza („Liczby”, icm-call). Parametry: equity i na10 (ręki), prog (według ICM), progZetony (w grze o żetony, z blindem, D-890; procenty). „w N rozdaniach na 10”: N od 2 do 9. Ok. 330 znaków. [DN, 2026-11-11, D-888]",
       "overcardsFold": "Ekran scenariusza („Liczby”, draw-call z nadkartami, poprawny pas). Parametry: nadkarty i nieznane (liczby kart), trafiszRazem i potrzeba (procenty). Ok. 300 znaków. [DN, 2026-11-11, D-888]",
       "overcardsCall": "Ekran scenariusza („Liczby”, draw-call z nadkartami, poprawne sprawdzenie). Parametry: nadkarty i nieznane (liczby kart). Ok. 230 znaków. [DN, 2026-11-11, D-888]"
+    },
+    "icm": {
+      "tableLabel": "Ekran scenariusza, punkt icm-call (EkranScenariusza.tsx, StolIcm). Etykieta VoiceOver rysunku stołu, pierwsze zdanie: {{ty}} = twoja pozycja (BB), {{reka}} = karty nazwami po przecinku, {{rywal}} = pozycja rywala (SB). Zdanie o graczach, którzy spasowali, dochodzi z foldedOne/foldedMany. [DP, 2026-11-11, D-889]",
+      "foldedOne": "VoiceOver stołu icm-call: jeden gracz spoza pary spasował; {{kto}} = „Gracz A” (drill.icm.player). Forma wg rodzaju/liczby w języku. [DP, D-889]",
+      "foldedMany": "VoiceOver stołu icm-call: dwóch graczy spoza pary spasowało; {{kto}} = „Gracz A i Gracz B” (table.listAnd). [DP, D-889]",
+      "bubble": "Ekran scenariusza icm-call: nagłówek grupy turniejowej (rola nagłówka dla czytnika). Parametry: platne (liczba płatnych miejsc: 2 albo 3), gracze (liczba graczy: 3 albo 4). Termin bubble z glosariusza. [DP, D-889]",
+      "prizes": "Ekran scenariusza icm-call: nagrody jednym zdaniem. {{lista}} = pozycje place oddzielone przecinkiem; {{brak}} = zdanie noPrizeThird/noPrizeFourth. Procenty puli nagród, nigdy kwoty pieniężne. [DP, D-889]",
+      "place": "Jedna pozycja listy nagród: {{n}} = numer miejsca (1–3), {{procent}} = udział w puli nagród (np. 50%). pl: spacja nierozdzielająca U+00A0 po liczebniku porządkowym. [DP, D-889]",
+      "noPrizeThird": "Zdanie kończące listę nagród dla 3 graczy: trzecie miejsce nic nie dostaje. [DP, D-889]",
+      "noPrizeFourth": "Zdanie kończące listę nagród dla 4 graczy: czwarte miejsce nic nie dostaje. [DP, D-889]",
+      "stacksLabel": "Nazwa listy stosów (rola listy dla czytnika) i tytuł grupy: stosy graczy przed rozdaniem (z blindami). [DP, D-889]",
+      "you": "Opis wiersza listy stosów: ty i twoja pozycja ({{pozycja}} = BB). [DP, D-889]",
+      "rival": "Opis wiersza listy stosów: rywal, który wszedł all-in, i jego pozycja ({{pozycja}} = SB). [DP, D-889]",
+      "stackValue": "Wartość wiersza listy stosów: {{bb}} bb (jedno miejsce po przecinku, bez końcowego zera). U+00A0 przed „bb”, żeby liczba nie została oddzielona od jednostki. [DP, D-889]",
+      "rowLabel": "Etykieta VoiceOver wiersza listy stosów: {{kto}} (np. „Ty, BB”) i {{wartosc}} (np. „10 bb”), np. „Ty, BB, 10 bb”. [DP, D-889]",
+      "wholeStack": "Przypis pod wierszem puli, gdy twój stos ≤ stosu rywala. {{kwota}} = „9 bb” (zapis stackValue). [DP, D-889]",
+      "rewards": "Tytuł zwiniętego wiersza w ocenie punktu icm-call: po rozwinięciu lista stosów i zdanie nagród. [DP, D-889]"
     }
   }
 }

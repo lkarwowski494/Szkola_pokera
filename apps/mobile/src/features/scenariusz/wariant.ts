@@ -1,6 +1,6 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { KONFIGURACJA, przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
-import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, type GeneratorTemplate, type ScenarioVariant, type VariantDecision, type VariantMarker, type WerdyktAkcji } from '@szkola/poker-core';
+import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantMarker, type WerdyktAkcji } from '@szkola/poker-core';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 
@@ -87,7 +87,7 @@ type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
  */
 export function kwotaAkcji(p: VariantDecision, a: Akcja, s: Pozycje): number | null {
   if (p.point === 'draw-call') return a === 'call' ? p.bet : null;
-  if (p.point === 'icm-call') return a === 'call' && typeof s.stackBb === 'number' ? s.stackBb - blindBb(s.positions.hero) : null;
+  if (p.point === 'icm-call') return a === 'call' ? (ukladIcm(p, s)?.doSprawdzeniaBb ?? null) : null;
   if (p.point === 'size-spot') return a === 'limp' ? 1 - blindBb(s.positions.hero) : (p.options.find((o) => o.action === a)?.bb ?? null);
   if (p.point === 'range-spot') {
     // Kwoty z etykiety węzła solvera (spots.yaml): „raise N” = podbicie do N bb; „call N” = dopłata do N bb za blindem gracza; bez liczby: all-in = stos,
@@ -227,15 +227,66 @@ export interface WidokDecyzji {
   /** Ile bb trzeba dopłacić, żeby sprawdzić; null: punkt bez sprawdzenia. */
   doSprawdzeniaBb: number | null;
 }
+/** Wiersz listy stosów punktu icm-call (D-889): stos w bb, udział względem największego stołu (pasek) i rola gracza. */
+export interface WierszStosuIcm {
+  rola: 'ty' | 'rywal' | 'inny';
+  /** Litera gracza spoza pary (A, B) jak w `drill.icm.player`; null dla ciebie i rywala. */
+  litera: string | null;
+  /** Stos w bb z wariantu, zaokrąglony do jednego miejsca po przecinku (zapis bez końcowego zera robi formatowanie liczby). */
+  stosBb: number;
+  /** Stos ÷ największy stos przy stole (0…1): długość paska stosu. */
+  udzial: number;
+}
+export interface UkladIcm {
+  /** Kolejność miejsc od ciebie: ty, rywal, potem pozostali (A, B) w kolejności stosów wariantu. */
+  wiersze: readonly WierszStosuIcm[];
+  wyplaty: readonly number[];
+  liczbaGraczy: number;
+  /** Stos rywala w bb: ile wszedł all-in (dziennik); może przekraczać twój stos. */
+  stosRywalaBb: number;
+  /** Twój stos ≤ stosu rywala: sprawdzenie stawia cały twój stos, przegrana kończy turniej bez nagrody. */
+  caleStosTy: boolean;
+  /** Pula do wygrania po sprawdzeniu (przed twoją dopłatą): mniejszy stos pary + twój blind; nadwyżka rywala ponad twój stos wraca do niego (D-985). */
+  pulaBb: number;
+  /** Dopłata: mniejszy stos pary − twój blind. */
+  doSprawdzeniaBb: number;
+}
+const miejsce1 = (x: number): number => Math.round(x * 10) / 10;
+/**
+ * Układ punktu icm-call z wariantu (D-889): stosy wszystkich graczy w bb (1 bb = mniejszy stos pary ÷ `stackBb`, generator `scenario-gen.ts`),
+ * pula i dopłata z jednej funkcji (kryterium 3). Bez `stackBb` w szablonie null (generator takiego szablonu nie zbuduje: wymaga stackBb).
+ */
+export function ukladIcm(d: IcmCallVariantDecision, s: Pozycje): UkladIcm | null {
+  if (typeof s.stackBb !== 'number' || !(s.stackBb > 0)) return null;
+  const mojStos = d.stacks[d.heroIndex];
+  const stosRywala = d.stacks[d.villainIndex];
+  if (mojStos === undefined || stosRywala === undefined) return null;
+  const mniejszy = Math.min(mojStos, stosRywala);
+  const bbNaZeton = s.stackBb / mniejszy;
+  const najwiekszy = Math.max(...d.stacks);
+  const inni = d.stacks.map((_, i) => i).filter((i) => i !== d.heroIndex && i !== d.villainIndex);
+  const wiersz = (i: number, rola: WierszStosuIcm['rola'], litera: string | null): WierszStosuIcm => ({ rola, litera, stosBb: miejsce1((d.stacks[i] ?? 0) * bbNaZeton), udzial: (d.stacks[i] ?? 0) / najwiekszy });
+  const blind = blindBb(s.positions.hero);
+  return {
+    wiersze: [wiersz(d.heroIndex, 'ty', null), wiersz(d.villainIndex, 'rywal', null), ...inni.map((i, k) => wiersz(i, 'inny', 'ABC'[k] ?? null))],
+    wyplaty: d.payouts,
+    liczbaGraczy: d.stacks.length,
+    stosRywalaBb: miejsce1(stosRywala * bbNaZeton),
+    caleStosTy: mojStos <= stosRywala,
+    pulaBb: s.stackBb + blind,
+    doSprawdzeniaBb: s.stackBb - blind,
+  };
+}
+
 /** `s` potrzebne tylko dla icm-call (stos i blind gracza wchodzą do puli i dopłaty); bez niego icm-call nie ma kwot. */
 export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): WidokDecyzji {
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
   const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : 4).map(cardToString);
   if (d.point === 'draw-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
-  if (d.point === 'icm-call' && s && typeof s.stackBb === 'number') {
-    const blind = blindBb(s.positions.hero);
-    return { indeks, ulica: 'preflop', stol, pulaBb: s.stackBb + blind, doSprawdzeniaBb: s.stackBb - blind };
+  if (d.point === 'icm-call' && s) {
+    const u = ukladIcm(d, s);
+    if (u) return { indeks, ulica: 'preflop', stol, pulaBb: u.pulaBb, doSprawdzeniaBb: u.doSprawdzeniaBb };
   }
   return { indeks, ulica: d.street, stol, pulaBb: null, doSprawdzeniaBb: null };
 }
