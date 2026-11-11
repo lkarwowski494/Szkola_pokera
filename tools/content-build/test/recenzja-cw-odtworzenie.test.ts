@@ -1,6 +1,6 @@
 // Test odtwarzający recenzji DD (rola 06, audit) zmian CW 46197812..0ef77858: DD-WYS-001 (NIS-003).
 // Raport: docs/tresci/recenzje/recenzja-cw-0ef7785.md. `it.fails` = błąd istnieje (wzór: recenzja-cq-odtworzenie.test.ts);
-// po naprawie zamienić `odtwarzaBlad` na `it` w obu przypadkach.
+// po naprawie zamienić `odtwarzaBlad` na `it` w obu przypadkach. Naprawa „najwyżej 3” (opcja a raportu) przechodzi bez zmiany testu (D-899).
 // Zdanie NIS-003 w wyjaśnieniach draw-call mówi: „Każda twoja karta wyższa od stołu daje jeszcze {{n:pair.outs.per-rank}} (= 3)
 // niepewne outy na parę”. Wyrocznia liczona od zera z kart (bez classifyHolding i bez generatora poza losowaniem wariantu):
 // nowe outy rangi = niewidoczne karty tej rangi, które same nie domykają już koloru ani strita (te są policzone w outach drawa).
@@ -17,6 +17,7 @@ const root = resolve(import.meta.dirname, '../../..');
 const pl = loadScenarioTemplates(join(root, 'content', 'pl', 'scenarios')).map((x) => x.template);
 const NA_RANGE = number('pair.outs.per-rank');
 const ZDANIE = '{{n:pair.outs.per-rank}}';
+const GORNA_GRANICA = /(?:najwyżej|maksymalnie|nie więcej niż|do) \{\{n:pair\.outs\.per-rank\}\}/;
 
 /** Pozycje rangi 1…14 (as także jako 1); rangi 0 = 2 … 12 = A. */
 const poz = (r: number) => (r === 12 ? [1, 14] : [r + 2]);
@@ -39,14 +40,17 @@ function nadkartyBezNakladania(id: string, ziarna: number) {
       const v = generateVariant(gen, level, seed);
       v.decisions.forEach((d, i) => {
         const wyjasnienia = (t.decisions[i] as { actions?: { explanation: string }[] }).actions ?? [];
-        if (!wyjasnienia.some((a) => a.explanation.includes(ZDANIE))) return;
+        const zZdaniem = wyjasnienia.filter((a) => a.explanation.includes(ZDANIE));
+        if (!zZdaniem.length) return;
+        // Zdanie z górną granicą („najwyżej 3”, D-899) jest prawdziwe przy nowe ≤ 3; bez niej mówi dokładnie 3.
+        const granica = zZdaniem.every((a) => GORNA_GRANICA.test(a.explanation));
         const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
         const top = Math.max(...stol.map(rankOf));
         for (const r of new Set(v.hero.map(rankOf).filter((x) => x > top))) {
           punkty++;
           const widoczne = new Set<Card>([...v.hero, ...stol]);
           const nowe = FULL_DECK.filter((c) => rankOf(c) === r && !widoczne.has(c) && !domykaDraw(v.hero, stol, c)).length;
-          if (nowe !== NA_RANGE && bledy.length < 5) bledy.push(`${level} ziarno ${seed} punkt ${i + 1}: ręka ${v.hero.join(',')}, stół ${stol.join(',')}, ranga ${r}: nowych outów ${nowe}, zdanie mówi ${NA_RANGE}`);
+          if ((granica ? nowe > NA_RANGE : nowe !== NA_RANGE) && bledy.length < 5) bledy.push(`${level} ziarno ${seed} punkt ${i + 1}: ręka ${v.hero.join(',')}, stół ${stol.join(',')}, ranga ${r}: nowych outów ${nowe}, zdanie mówi ${granica ? 'najwyżej ' : ''}${NA_RANGE}`);
         }
       });
     }

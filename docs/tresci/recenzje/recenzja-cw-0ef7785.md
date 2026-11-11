@@ -90,7 +90,7 @@ Soczewki: laik czyta „daje jeszcze 3” dosłownie i doda 3 do 9. Ekspert szuk
 - Wzorzec lub źródło: rachunek (szczebel 1): w talii są 4 karty rangi, 1 trzyma gracz, zostają 3 (`content/numbers.yaml:222`). Jeśli jedna z nich jest w kolorze drawa, liczy się już w 9 outach koloru. Lekcja M2 liczy outy bez nakładania (`content/pl/lessons/m2-l2-pot-odds.md:25`, A♥ przy drawie kierowym).
 - Kroki w aplikacji: Scenariusze → sc-01 („draw do koloru”) albo sc-19 → wariant z trzema kartami koloru na stole i nadkartą w innym kolorze → wyjaśnienie dowolnej akcji.
 - Opcje: (a) „daje jeszcze najwyżej {{n:pair.outs.per-rank}} niepewne outy” w 12 plikach × 4 szablony. To tylko tekst, generator bez zmian, ale zdanie mniej konkretne. (b) liczba nowych outów liczona w wariancie (zmienna `{{w:…}}`, rola 08). Wynik dokładny i łączy się z 06-tresci-002, ale trzeba zmienić kod ekranu i szablonu. (c) generator odrzuca warianty z nakładaniem. Tekst zostaje, ale zmienia się rozkład rąk, trzeba podnieść `GENERATOR_WERSJA` i uczy to mniej typowych sytuacji. Rekomendacja (merytoryczna, moja): (a) teraz, bo to minimalna prawdziwa poprawka. (b) rozważyć razem z 06-tresci-002.
-- Test akceptacyjny: `recenzja-cw-odtworzenie.test.ts` z `it` zamiast `it.fails` przechodzi. Przy opcji (a) asercja w teście sprawdza `nowe <= 3`, gdy zdanie zawiera „najwyżej”. Tę zmianę testu trzeba nazwać w commicie, bo inaczej będzie wyglądać jak dopasowanie testu do kodu. Oprócz tego `pnpm run ci` kod 0.
+- Test akceptacyjny: `recenzja-cw-odtworzenie.test.ts` z `it` zamiast `it.fails` przechodzi. Test bez zmian przyjmuje opcję (a): gdy zdanie mówi „najwyżej”, sprawdza `nowe ≤ 3` (D-899). Sonda w worktree z „najwyżej” w 4 plikach pl dała 5/5 zielonych. Opcje (b) i (c) wymagają nazwanej zmiany wyroczni. Do tego `pnpm run ci` kod 0.
 - Status: otwarte
 
 ### 06-tresci-002 · Zdanie o kartach wyższych od stołu pokazywane, gdy takich kart nie ma
@@ -140,4 +140,4 @@ Brak decyzji wymagających właściciela teraz (zakaz pytań w poleceniu DD). De
 `node tools/assemble.mjs 06-tresci --tryb fix --zadania 06-tresci-001,06-tresci-003` (treść i rejestr). 06-tresci-002 dopiero po decyzji produktowej; przy opcji (a) zadanie dla roli 08 (kod ekranu) i 04 (brzmienie).
 
 ## Wynik kontroli raportu
-(uzupełniane po uruchomieniu skryptu)
+`node sprawdz-raport.mjs docs/tresci/recenzje/recenzja-cw-0ef7785.md . docs/tresci/recenzje --rola 06-tresci` → „OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 06-tresci”, kod 0. `pnpm run ci` @f029231 kod 0 (`docs/tresci/dowody/dd-ci-f0292319.txt`); końcowy przebieg po uodpornieniu testu: plik `dd-ci-<sha8>` końcowego commita.
