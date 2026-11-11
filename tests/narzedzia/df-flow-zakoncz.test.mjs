@@ -1,4 +1,4 @@
-// DF (recenzja CZ ee7f991a, znalezisko recenzja-cz-ee7f991-001): test odtwarzający, celowo czerwony do naprawy flow 07.
+// DF (recenzja CZ ee7f991a, znalezisko 07-jakosc-001 w docs/jakosc/recenzje/recenzja-cz-ee7f991.md): test odtwarzający, celowo czerwony do naprawy flow 07.
 // Ekran sesji (apps/mobile/src/app/session.tsx) ma stały przycisk „Zakończ” u góry (session.end, porzuca aktywność) i pod oceną
 // „Dalej” / „Zakończ” (session.next / session.finish); session.end jest w drzewie widoku przed przyciskiem pod oceną.
 // Maestro przy kilku dopasowaniach selektora bez `index` bierze pierwsze w kolejności drzewa po sortowaniu `clickableFirst`

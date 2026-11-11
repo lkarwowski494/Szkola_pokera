@@ -1,0 +1,199 @@
+# mutacja D-every: plik tools/content-build/test/szablony-bs.test.ts
+# perl -0pi -e 's/t\.decisions\.some\(\(d\) => d\.kind === .draw-call.\)/t.decisions.every((d) => d.kind === "draw-call")/'
+diff --git a/tools/content-build/test/szablony-bs.test.ts b/tools/content-build/test/szablony-bs.test.ts
+index f84cf4e9..048aeadf 100644
+--- a/tools/content-build/test/szablony-bs.test.ts
++++ b/tools/content-build/test/szablony-bs.test.ts
+@@ -18,7 +18,7 @@ type Szablon = (typeof pl)[number]['template'];
+  * pozostałe sprawdzają ich testy: cbet-case i icm-call szablony-co.test.ts (sesja CO, D-791), range-spot szablony-f1-bu.test.ts.
+  * Wcześniej `every(draw-call)`: szablon range-spot + draw-call wypadał z D-630 bez czerwonego testu (CZ, 06-tresci-006).
+  */
+-const maDrawCall = (t: Szablon): boolean => t.decisions.some((d) => d.kind === 'draw-call');
++const maDrawCall = (t: Szablon): boolean => t.decisions.every((d) => d.kind === "draw-call");
+ const plDraw = pl.filter((x) => maDrawCall(x.template));
+ /** Fixture CZ: range-spot przed draw-call (zgodny i z pasem łamiącym D-630); nie jest treścią aplikacji. */
+ const fxRangeDraw = loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'cz-range-draw'));
+# komenda: (cd tools/content-build) npx vitest run test/cz-pokrycie-szablonow.test.ts test/szablony-bs.test.ts -t CZ
+
+ RUN  v5.0.3 <scratchpad>/kopia/tools/content-build
+
+ ❯ test/cz-pokrycie-szablonow.test.ts (6 tests | 1 failed) 10ms
+   ❯ CZ: pokrycie szablonów pl testami zgodności (06-tresci-006 b) (6)
+     × szablony-bs.test.ts wybiera szablony pl filtrem some(draw-call), nie every 5ms
+ ❯ test/szablony-bs.test.ts (25 tests | 1 failed | 22 skipped) 4908ms
+   ❯ CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) (3)
+     × fixture z range-spot przed draw-call trafiają do szablonów sprawdzanych rachunkiem 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/cz-pokrycie-szablonow.test.ts > CZ: pokrycie szablonów pl testami zgodności (06-tresci-006 b) > szablony-bs.test.ts wybiera szablony pl filtrem some(draw-call), nie every
+AssertionError: expected '// Szablony scenariuszy z treści (rol…' to match /decisions\.some\(\(d\) => d\.kind ===…/
+
+- Expected:
+/decisions\.some\(\(d\) => d\.kind === 'draw-call'\)/
+
++ Received:
+"// Szablony scenariuszy z treści (rola 06, sesja BS): BR-GEN-003 na 10 000 losowaniach na poziom z wyrocznią niezależną od
+// generatora (outy z analyseOutsSpot na kartach wariantu, cena z requiredEquity), margines poziomu (BR-GEN-003, D-551) i warunek
+// merytoryczny D-630: ocena „pas” drawem tylko wtedy, gdy pas daje też rachunek R-M7-008 z całym stosem za pulą
+// (ten sam warunek co mathOk w packages/poker-core/src/grading.ts, reguła implied-odds). Przekłady: ta sama struktura co pl.
+import { readdirSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { analyseOutsSpot, generateVariant, requiredEquity, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { compileRanges } from '../src/ranges';
+import { loadScenarioTemplates } from '../src/scenariusze';
+import { martweBlindy } from './martwe-blindy-wyrocznia';
+
+const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
+const pl = loadScenarioTemplates(join(contentDir, 'pl', 'scenarios'));
+type Szablon = (typeof pl)[number]['template'];
+/**
+ * Szablony z co najmniej jednym punktem draw-call (rachunek ceny); sprawdzane są tylko te punkty (indeks punktu w szablonie),
+ * pozostałe sprawdzają ich testy: cbet-case i icm-call szablony-co.test.ts (sesja CO, D-791), range-spot szablony-f1-bu.test.ts.
+ * Wcześniej `every(draw-call)`: szablon range-spot + draw-call wypadał z D-630 bez czerwonego testu (CZ, 06-tresci-006).
+ */
+const maDrawCall = (t: Szablon): boolean => t.decisions.every((d) => d.kind === \"draw-call\");
+const plDraw = pl.filter((x) => maDrawCall(x.template));
+/** Fixture CZ: range-spot przed draw-call (zgodny i z pasem łamiącym D-630); nie jest treścią aplikacji. */
+const fxRangeDraw = loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'cz-range-draw'));
+// punkt range-spot generator losuje z zakresu (dane spoza szablonu, D-661); progi jak w content/numbers.yaml (szablony-f1-bu)
+const ctx = { spots: compileRanges(contentDir).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } };
+const LOSOWANIA = 10_000;
+/** Martwe blindy z pozycji szablonu (martwe-blindy-wyrocznia.ts): wkład gracza preflop = (pula − martwe) ÷ 2. */
+
+/** Stos za pulą po sprawdzeniu punktu decyzji: górna granica (najwięcej, co gracz może jeszcze wygrać po trafieniu). */
+function zaPula(stackBb: number, pulaFlop: number, zaklady: number, p: { hero: string; villain: string }): number {
+  return Math.max(0, stackBb - (pulaFlop - martweBlindy(p)) / 2 - zaklady);
+}
+
+/** BR-GEN-003 i D-630 dla punktów draw-call szablonu: pierwsze błędy (najwyżej 5) z `losowania` wariantów poziomu. */
+function bledyD630(t: Szablon, level: ScenarioLevel, losowania: number): string[] {
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const b = t.bounds[level]!;
+  const bledy: string[] = [];
+  for (let seed = 1; seed <= losowania && bledy.length < 5; seed++) {
+    const v = generateVariant(g, level, seed, ctx);
+    let zaklady = 0;
+    // indeks i = indeks punktu w szablonie i w `expected` poziomu (v.points), nie numer punktu draw-call (v.decisions)
+    v.points.forEach((d, i) => {
+      if (d.point !== 'draw-call') return;
+      const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
+      const spot = analyseOutsSpot(v.hero, stol);
+      if (!spot || !(b.draws as readonly string[]).includes(spot.draw.kind)) { bledy.push(`${seed}#${i + 1}: brak drawa z granic`); return; }
+      const cena = requiredEquity(d.pot, d.bet);
+      const akcja = spot.hitNextCard > cena ? 'call' : 'fold';
+      const margines = Math.abs(spot.hitNextCard - cena);
+      if (akcja !== b.expected[i]) bledy.push(`${seed}#${i + 1}: rachunek ${akcja}, szablon ${b.expected[i]}`);
+      if (!(margines > 0 && margines >= (b.marginMin ?? 0) && (b.marginMax === null || margines < b.marginMax))) bledy.push(`${seed}#${i + 1}: margines ${margines}`);
+      zaklady += d.bet;
+      if (akcja === 'fold') {
+        // R-M7-008: po trafieniu trzeba wygrać łącznie dopłata × (nietrafiające ÷ outy); ponad pulę po zakładzie to implied odds
+        const nieznane = 52 - 2 - stol.length;
+        const potrzeba = (d.bet * (nieznane - spot.outs)) / spot.outs - (d.pot + d.bet);
+        // pojedyncza decyzja draw-call na flopie: gracz mógłby zobaczyć turn i river, więc liczona szansa na dwie karty (hojnie)
+        if (d.street === 'flop' && v.decisions.length === 1) bledy.push(`${seed}#${i + 1}: pas na flopie bez rachunku na dwie karty (D-630)`);
+        const dostepne = zaPula(t.stackBb, v.decisions[0]!.pot, zaklady, t.positions);
+        if (potrzeba <= dostepne) bledy.push(`${seed}#${i + 1}: pas nieodporny: implied odds ${potrzeba.toFixed(1)} ≤ ${dostepne.toFixed(1)} bb za pulą`);
+      }
+    });
+  }
+  return bledy;
+}
+
+describe('CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call)', () => {
+  const ok = fxRangeDraw.find((x) => x.template.id === 'sc-fx-cz-rd-ok')!.template;
+  const zly = fxRangeDraw.find((x) => x.template.id === 'sc-fx-cz-rd-zly')!.template;
+  it('fixture z range-spot przed draw-call trafiają do szablonów sprawdzanych rachunkiem', () => {
+    expect(ok.decisions.map((d) => d.kind)).toEqual(['range-spot', 'draw-call']);
+    expect(fxRangeDraw.filter((x) => maDrawCall(x.template)).map((x) => x.template.id).sort()).toEqual(['sc-fx-cz-rd-ok', 'sc-fx-cz-rd-zly']);
+  });
+  it('zgodny: 2000 wariantów bez błędu', () => {
+    expect(bledyD630(ok, 'latwy', 2_000)).toEqual([]);
+  }, 120_000);
+  it('pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2', () => {
+    const b = bledyD630(zly, 'latwy', 50);
+    expect(b.length).toBeGreaterThan(0);
+    expect(b.every((x) => /#2: pas na flopie bez rachunku na dwie karty \\(D-630\\)/.test(x) || /#2: pas nieodporny/.test(x))).toBe(true);
+  }, 120_000);
+});
+
+describe('szablony scenariuszy z treści: decyzja niezmienna i oceny zgodne z rachunkiem (BR-GEN-003, D-630)', () => {
+  it('treść pl ma szablony', () => {
+    expect(pl.length).toBeGreaterThanOrEqual(3);
+  });
+
+  for (const { template: t } of plDraw) {
+    for (const level of t.levels as ScenarioLevel[]) {
+      it(`${t.id} ${level}: ${LOSOWANIA} wariantów, oczekiwana akcja w każdym punkcie, margines poziomu, pas odporny na implied odds`, () => {
+        expect(bledyD630(t, level, LOSOWANIA)).toEqual([]);
+      }, 120_000);
+    }
+  }
+
+  it('ŚR-103: w module nie wszystkie poziomy łatwe mają tę samą odpowiedź', () => {
+    const wgModulu = new Map<string, Set<string>>();
+    for (const { template: t } of pl) {
+      const e = t.bounds.latwy?.expected.join(',');
+      if (e) wgModulu.set(t.module, new Set([...(wgModulu.get(t.module) ?? []), e]));
+    }
+    const jedna = [...wgModulu].filter(([m, s]) => s.size === 1 && pl.filter((x) => x.template.module === m).length > 1);
+    expect(jedna.map(([m]) => m)).toEqual([]);
+  });
+});
+
+describe('przekłady szablonów: ta sama struktura co pl (zmienia się tylko tekst)', () => {
+  const jezyki = readdirSync(contentDir, { withFileTypes: true }).filter((d) => d.isDirectory() && d.name !== 'pl' && d.name !== 'ranges').map((d) => d.name);
+  const bezTekstu = (t: (typeof pl)[number]['template']) => ({
+    ...t, situation: '', decisions: t.decisions.map((d) => ({ ...d, actions: d.actions.map((a) => ({ ...a, explanation: '' })) })),
+  });
+  for (const j of jezyki) {
+    it(`${j}: szablony jak w pl`, () => {
+      const inne = loadScenarioTemplates(join(contentDir, j, 'scenarios'));
+      if (inne.length === 0) return; // brak katalogu = język zastępczy (łańcuch treści)
+      expect(inne.map((x) => x.template.id)).toEqual(pl.map((x) => x.template.id));
+      inne.forEach((x, i) => expect(bezTekstu(x.template)).toEqual(bezTekstu(pl[i]!.template)));
+    });
+  }
+});
+"
+
+ ❯ test/cz-pokrycie-szablonow.test.ts:31:24
+     29|         const zrodlo = readFileSync(join(import.meta.dirname, plik), '…
+     30|         expect(zrodlo).toContain("'pl', 'scenarios'");
+     31|         expect(zrodlo).toMatch(new RegExp(`decisions\\.some\\(\\(d\\) …
+       |                        ^
+     32|         expect(zrodlo).not.toMatch(/decisions\.every\(/);
+     33|       });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/szablony-bs.test.ts > CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) > fixture z range-spot przed draw-call trafiają do szablonów sprawdzanych rachunkiem
+AssertionError: expected [] to deeply equal [ 'sc-fx-cz-rd-ok', 'sc-fx-cz-rd-zly' ]
+
+- Expected
++ Received
+
+- [
+-   "sc-fx-cz-rd-ok",
+-   "sc-fx-cz-rd-zly",
+- ]
++ []
+
+ ❯ test/szablony-bs.test.ts:74:96
+     72|   it('fixture z range-spot przed draw-call trafiają do szablonów spraw…
+     73|     expect(ok.decisions.map((d) => d.kind)).toEqual(['range-spot', 'dr…
+     74|     expect(fxRangeDraw.filter((x) => maDrawCall(x.template)).map((x) =…
+       |                                                                                                ^
+     75|   });
+     76|   it('zgodny: 2000 wariantów bez błędu', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 7 passed | 22 skipped (31)
+   Start at  09:48:58
+   Duration  6.08s (tests 77%, import 14%, transform 10%)
+
+exit 1

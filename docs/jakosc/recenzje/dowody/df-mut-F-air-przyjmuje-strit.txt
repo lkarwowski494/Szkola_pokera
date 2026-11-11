@@ -1,0 +1,59 @@
+# mutacja F-air-przyjmuje-strit: plik packages/poker-core/src/scenario-gen.ts
+# perl -0pi -e 's/f === 'air' \? h\.cls === 'air'/f === 'air' ? (h.cls === 'air' || h.category === 4)/'
+diff --git a/packages/poker-core/src/scenario-gen.ts b/packages/poker-core/src/scenario-gen.ts
+index 291c34e6..bc0acb4c 100644
+--- a/packages/poker-core/src/scenario-gen.ts
++++ b/packages/poker-core/src/scenario-gen.ts
+@@ -296,7 +296,7 @@ const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'chec
+ 
+ /** Filtr klasy ręki (F2): air = klasa `air` (bez pary i drawa); pair = jedna para z kartą gracza (także kieszonkowa); draw = klasa `draw` (od HOLDING_LIMITS.drawOutsMin outów, bez pary). */
+ function holdingMatches(f: HoldingFilter, h: ReturnType<typeof classifyHolding>): boolean {
+-  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
++  return f === 'air' ? (h.cls === 'air' || h.category === 4) : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
+ }
+ const RANK_CHARS = '23456789TJQKA';
+ 
+# komenda: (cd tools/content-build) npx vitest run test/szablony-co.test.ts
+
+ RUN  v5.0.3 <scratchpad>/kopia/tools/content-build
+
+(node:1425) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/szablony-co.test.ts (16 tests | 1 failed) 99316ms
+   ❯ szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) (5)
+     × sc-12 sredni: 10000 wariantów 596ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 sredni: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "188: ręka poza filtrem air (draw, 9 outów)",
++   "232: ręka poza filtrem air (draw, 9 outów)",
++   "415: ręka poza filtrem air (draw, 9 outów)",
++   "474: ręka poza filtrem air (draw, 9 outów)",
++   "788: ręka poza filtrem air (draw, 9 outów)",
++ ]
+
+ ❯ test/szablony-co.test.ts:154:23
+    152|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    153|         }
+    154|         expect(bledy).toEqual([]);
+       |                       ^
+    155|       }, 300_000);
+    156|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 15 passed (16)
+   Start at  09:50:22
+   Duration  102.63s (tests 97%, import 3%, transform 1%)
+
+exit 1

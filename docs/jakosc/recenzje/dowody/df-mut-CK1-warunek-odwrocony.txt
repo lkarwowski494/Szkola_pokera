@@ -1,0 +1,52 @@
+# mutacja CK1-warunek-odwrocony: plik apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
+# perl -0pi -e 's/grupy\.length === 0 \?/grupy.length < 0 ?/'
+diff --git a/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx b/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
+index 1d90f479..e4080a11 100644
+--- a/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
++++ b/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
+@@ -21,7 +21,7 @@ export function WyborScenariusza({ grupy, onWybierz }: { grupy: readonly GrupaSc
+   return (
+     <Screen padTop={false}>
+       <Title>{t('scenarios.title')}</Title>
+-      {grupy.length === 0 ? (
++      {grupy.length < 0 ? (
+         <Surface>
+           <Muted>{t('scenarios.soon')}</Muted>
+         </Surface>
+# komenda: (apps/mobile) npx jest --ci src/features/scenariusz/__tests__/wybor-pusta-lista-ck.test.tsx
+FAIL src/features/scenariusz/__tests__/wybor-pusta-lista-ck.test.tsx (8.134 s)
+  WyborScenariusza: pusta lista (CK, 08-programista-004)
+    ✕ grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku (1884 ms)
+
+  ● WyborScenariusza: pusta lista (CK, 08-programista-004) › grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku
+
+    Unable to find an element with text: Scenariusze będą dostępne wkrótce. Do tego czasu ćwicz decyzje w sesji ćwiczeń.
+
+    [36m<RCTScrollView>[39m
+      [36m<View>[39m
+        [36m<Text[39m
+          [33maccessibilityRole[39m=[32m"header"[39m
+        [36m>[39m
+          [0mScenariusze[0m
+        [36m</Text>[39m
+      [36m</View>[39m
+    [36m</RCTScrollView>[39m
+
+      11 |   it('grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku', async () => {
+      12 |     await render(<WyborScenariusza grupy={[]} onWybierz={jest.fn()} />);
+    > 13 |     expect(screen.getByText(i18n.t('scenarios.soon'))).toBeTruthy();
+         |                   ^
+      14 |     expect(screen.queryAllByRole('button')).toHaveLength(0);
+      15 |   });
+      16 | });
+
+      at Object.getByText (src/features/scenariusz/__tests__/wybor-pusta-lista-ck.test.tsx:13:19)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        8.396 s
+Ran all test suites matching /src\/features\/scenariusz\/__tests__\/wybor-pusta-lista-ck.test.tsx/i.
+exit 1

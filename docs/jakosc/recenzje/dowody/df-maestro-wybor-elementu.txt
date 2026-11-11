@@ -1,0 +1,47 @@
+# Maestro (mobile-dev-inc/maestro, gałąź main, odczyt 2026-11-11 przez curl raw.githubusercontent.com)
+## maestro-orchestra/src/main/java/maestro/orchestra/Orchestra.kt, linie 1762-1774
+        var resultFilter = Filters.intersect(allFilters)
+
+        resultFilter = selector.index
+            ?.let { NumericFields.parseIndex(it) }
+            ?.let {
+                Filters.compose(
+                    resultFilter,
+                    Filters.index(it)
+                )
+            } ?: Filters.compose(
+            resultFilter,
+            Filters.clickableFirst()
+        )
+## maestro-client/src/main/java/maestro/Filters.kt, linie 58-69, 254-258, 284-297
+    fun textMatches(regex: Regex): ElementFilter {
+        return { nodes ->
+            val textMatches = nodes.filter {
+                it.attributes["text"]?.let { value ->
+                    val strippedValue = value.replace('\n', ' ')
+
+                    regex.matches(value)
+                            || regex.pattern == value
+                            || regex.matches(strippedValue)
+                            || regex.pattern == strippedValue
+                } ?: false
+            }.toSet()
+    fun clickableFirst(): ElementFilter {
+        return { nodes ->
+            nodes.sortedByDescending { it.clickable }
+        }
+    }
+    fun deepestMatchingElement(filter: ElementFilter): ElementFilter {
+        return { nodes ->
+            nodes.flatMap { node ->
+                val matchingChildren = deepestMatchingElement(filter)(node.children)
+                if (matchingChildren.isNotEmpty()) {
+                    matchingChildren
+                } else if (filter(listOf(node)).isNotEmpty()) {
+                    listOf(node)
+                } else {
+                    emptyList()
+                }
+            }.distinct()
+        }
+    }

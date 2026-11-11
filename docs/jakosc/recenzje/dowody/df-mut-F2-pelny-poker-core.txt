@@ -1,0 +1,26 @@
+# mutacja F2-pelny-poker-core: plik packages/poker-core/src/scenario-gen.ts
+# perl -0pi -e 's/f === 'air' \? h\.cls === 'air'/f === 'air' ? (h.cls === 'air' || h.category === 4)/'
+diff --git a/packages/poker-core/src/scenario-gen.ts b/packages/poker-core/src/scenario-gen.ts
+index 291c34e6..bc0acb4c 100644
+--- a/packages/poker-core/src/scenario-gen.ts
++++ b/packages/poker-core/src/scenario-gen.ts
+@@ -296,7 +296,7 @@ const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'chec
+ 
+ /** Filtr klasy ręki (F2): air = klasa `air` (bez pary i drawa); pair = jedna para z kartą gracza (także kieszonkowa); draw = klasa `draw` (od HOLDING_LIMITS.drawOutsMin outów, bez pary). */
+ function holdingMatches(f: HoldingFilter, h: ReturnType<typeof classifyHolding>): boolean {
+-  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
++  return f === 'air' ? (h.cls === 'air' || h.category === 4) : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
+ }
+ const RANK_CHARS = '23456789TJQKA';
+ 
+# komenda: (cd packages/poker-core) npx vitest run 
+
+ RUN  v5.0.3 <scratchpad>/kopia/packages/poker-core
+
+
+ Test Files  14 passed (14)
+      Tests  179 passed (179)
+   Start at  09:56:03
+   Duration  160.48s (tests 96%, import 3%, transform 1%)
+
+exit 0
