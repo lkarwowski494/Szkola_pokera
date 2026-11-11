@@ -250,7 +250,7 @@
     "none": "Nada aguarda revisão. Faça uma nova lição ou volte mais tarde.",
     "start": "Começar revisão",
     "speed": "Treino contra o tempo",
-    "speedHint": "Os mesmos exercícios com limite de tempo. Treina decisões automáticas.",
+    "speedHint": "Os mesmos exercícios com limite de tempo. Treine decisões automáticas.",
     "next": "Próxima revisão: {{when}}"
   },
   "rules": {
@@ -1027,10 +1027,10 @@
       "trudny": "Difícil"
     },
     "start": {
-      "about": "Tu: {{ty}}, adversário: {{rywal}}. Profundidade {{bb}} bb.",
-      "nowAuto": "Agora: {{poziom}}. O nível ajusta-se aos teus resultados.",
+      "about": "Eu: {{ty}}, adversário: {{rywal}}. Profundidade {{bb}} bb.",
+      "nowAuto": "Agora: {{poziom}}. O nível ajusta-se aos seus resultados.",
       "nowManual": "Nível escolhido: {{poziom}}.",
-      "missing": "Esta mão não tem o nível “{{wybrany}}”. Vais jogá-la em “{{poziom}}”.",
+      "missing": "Esta mão não tem o nível “{{wybrany}}”. Vai jogá-la em “{{poziom}}”.",
       "hint": "Cada mão tem cartas novas. O resultado são as avaliações das decisões, não um ganho.",
       "begin": "Começar a mão"
     },
@@ -1044,19 +1044,19 @@
       "label": "Etapas da mão"
     },
     "table": {
-      "label": "Tu: {{ty}}, cartas {{reka}}. Adversário: {{rywal}}. Cartas viradas: {{stol}}.",
+      "label": "Eu: {{ty}}, cartas {{reka}}. Adversário: {{rywal}}. Cartas viradas: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
-      "you": "tu",
+      "you": "Eu",
       "villain": "adversário"
     },
     "pot": "{{t:pot|Pote}} {{pula}} bb · para {{t:call|pagar}} {{kwota}} bb",
     "log": {
       "label": "Andamento da mão"
     },
-    "yourMove": "A tua vez",
+    "yourMove": "A sua vez",
     "verdict": {
-      "yours": "A tua escolha: {{akcja}}. Melhor: {{lepiej}}.",
-      "yoursGood": "A tua escolha: {{akcja}}."
+      "yours": "A sua escolha: {{akcja}}. Melhor: {{lepiej}}.",
+      "yoursGood": "A sua escolha: {{akcja}}."
     },
     "why": {
       "weaker": "Porque “{{akcja}}” é a jogada mais fraca",
@@ -1066,11 +1066,11 @@
     },
     "scale": {
       "label": "Avaliação das ações: {{lista}}.",
-      "yourChoice": "a tua escolha"
+      "yourChoice": "a sua escolha"
     },
     "numbers": {
       "title": "Números",
-      "line": "O {{t:pot|pote}} é de {{pula}} bb e {{t:call|pagar}} custa {{kwota}} bb, por isso precisas de {{potrzeba}} de equity, ou seja, ganhar cerca de uma vez em {{razPotrzeba}}. Outs: {{outy}} de {{nieznane}} cartas não vistas: completas o draw em {{trafisz}} dos casos, cerca de uma vez em {{razTrafisz}}.",
+      "line": "O {{t:pot|pote}} é de {{pula}} bb e {{t:call|pagar}} custa {{kwota}} bb, por isso precisa de {{potrzeba}} de equity, ou seja, ganhar cerca de uma vez em {{razPotrzeba}}. Outs: {{outy}} de {{nieznane}} cartas não vistas: completa o draw em {{trafisz}} dos casos, cerca de uma vez em {{razTrafisz}}.",
       "cbet": "Um {{t:c-bet}} pequeno é de cerca de {{maly}} do {{t:pot|pote}}, e um grande de cerca de {{duzy}}. Para {{t:call|pagar}}, o adversário precisa de {{cenaMaly}} de equity contra o pequeno, ou seja, ganhar cerca de uma vez em {{razMaly}}, e de {{cenaDuzy}} contra o grande, cerca de uma vez em {{razDuzy}}.",
       "sizeOpen": "Com um {{t:raise|aumento}} para {{bb}} bb, o {{t:big-blind|big blind}} acrescenta {{doplata}} bb a um {{t:pot|pote}} de {{pula}} bb (se todos os outros {{t:fold|desistirem}}), por isso precisa de {{cena}} de equity, ou seja, ganhar cerca de uma vez em {{raz}}.",
       "size3bet": "Com um 3-bet para {{bb}} bb, quem fez a {{t:open|abertura}} acrescenta {{doplata}} bb a um {{t:pot|pote}} de {{pula}} bb, por isso precisa de {{cena}} de equity, ou seja, ganhar cerca de uma vez em {{raz}}.",
@@ -1090,7 +1090,7 @@
       "newDeal": "Nova mão",
       "again": "Jogar a mesma mão outra vez",
       "close": "Fechar",
-      "showdownYou": "O river é {{river}}. O adversário mostra {{karty}}: a tua mão é mais alta.",
+      "showdownYou": "O river é {{river}}. O adversário mostra {{karty}}: a sua mão é mais alta.",
       "showdownVillain": "O river é {{river}}. O adversário mostra {{karty}}: a mão dele é mais alta.",
       "showdownTie": "O river é {{river}}. O adversário mostra {{karty}}: as mãos são iguais."
     },
