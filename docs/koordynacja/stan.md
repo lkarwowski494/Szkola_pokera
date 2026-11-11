@@ -217,11 +217,11 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 ## Czeka na właściciela (pytanie zbiorcze 07:00)
 - **Z linii 14:00 (13:55, poprzednik session_01T66VBvMJxHkBqzn7iJjEuv):** 06-tresci-002 (niżej) oraz reguła add_repo prompts (opcje a/b — treść w czacie poprzednika; odpowiedź do niego przekaże ją dosłownie tutaj).
 - **09:20 Start DF zablokowany klasyfikatorem** — opcje: 1 ponowna próba (rek.), 2 recenzja CZ w DD, 3 fala bez CZ.
-- **06-tresci-002 (DD, produktowe):** zdanie o nadkartach widoczne w 88% wariantów, w których gracz nie ma karty wyższej od stołu — zostawić / pokazywać warunkowo (do linii 14:00).
+- ~~06-tresci-002~~ rozstrzygnięte KO-073 (warunkowo). Stare: **06-tresci-002 (DD, produktowe):** zdanie o nadkartach widoczne w 88% wariantów, w których gracz nie ma karty wyższej od stołu — zostawić / pokazywać warunkowo (do linii 14:00).
 - Fakty: W-04 e-mail wsparcia + dostawca skrzynki; administrator (imię i nazwisko, forma); W-05 Apple ID aplikacji; W-07 dane sprzedawcy JP (wariant A potwierdzony 2026-11-10). Uwaga: `site/` na `main` ma w tych miejscach publicznie tekst „[DO USTALENIA: …]” (było tak też przed ddb0108).
 - Znaki towarowe „pokergym” / „poker gym” (USPTO, EUIPO, WIPO GBD w przeglądarce) przed zapisem nazwy w ASC (D-378, D-382) — krok po kroku do podania.
 - Wpis ręczny kategorii w ASC (Education + Games/Card) po wyniku AM.
-- Wysłanie pytania do Apple Developer Support w sprawie Wietnamu: tekst w `docs/prawo/kr-vn-ponowna-ocena-2026-11-10.md` §7 (gałąź robocza); ścieżka przeczytana tylko do developer.apple.com/contact/ (dalej logowanie). Właściciel poproszony 06:20: „napisz »Wietnam«” — bez odpowiedzi.
+- ~~Wietnam~~ KO-075: po wydaniu 1.0. Stare: Wysłanie pytania do Apple Developer Support w sprawie Wietnamu: tekst w `docs/prawo/kr-vn-ponowna-ocena-2026-11-10.md` §7 (gałąź robocza); ścieżka przeczytana tylko do developer.apple.com/contact/ (dalej logowanie). Właściciel poproszony 06:20: „napisz »Wietnam«” — bez odpowiedzi.
 - Koszt: właściciel poinformowany o koszcie przeglądu (AQ 98,37 + AR 121,31 USD; AP w toku) — patrz `koszty.md`.
 - Build TestFlight po poprawkach; potem listy telefonu.
 - Konto Apple Search Ads (D-377; po premierze).
@@ -594,3 +594,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 18:59 | kontrola | **E2E 43072503219 success na roboczej @ b3963e9a** (CI 43072503409 success) — robocza zielona; DT 20,5%, 1,69 USD, claude/dt-e2e @ 516882e3, E2E pomiarowy 43080852450 w kolejce; DU @ 74f82455 przenosi SC-06/32/33/34 (KO-070); DV @ b3963e9a, ci w toku; DW start @ 081c6ef3 | kontrola ok. 19:45 (E2E DT, raporty DU/DV/DW) |
 | 19:20 | DV, DW → koordynator | **DV przyjęta** (sesja-dv-zrodla @ 29130d39, autor zgodny, 3 pliki docs +195; D-1050…D-1057; krok E 15/15 ze źródłem/rachunkiem; M10 BRAK danych → pytanie do właściciela; SC-23 wymaga nowego typu decyzji → pytanie do właściciela). **DW: recenzja DS PRZYJĄĆ** (a1ab9a54, `docs/lokalizacja/recenzje/recenzja-ds-081c6ef3.md`; 0 KRYT/WYS, ŚR-001 fr tu/vous, ŚR-002 pt, ŚR-003 {{t:board}} w tableLabel → 06/04/08; NIS 004–007) → **DS przyjęta**. Scalenie DS+DV(+DW dowody) do roboczej w partii z DU (zgoda 18:30: E2E raz na partię). DV i DW zarchiwizowane (5,59 / 4,52 USD). Kolejka: 09 fix ŚR-001/002 + NIS-004/006/007; 08: NIS-005 join, ŚR-003 T-01; 08: N1…N7, 08-A, typ „wybór ręki” (jeśli właściciel), D-1035 | pytanie M10/SC-23 do właściciela |
 | 19:25 | właściciel | KO-071 M10 = rachunek; KO-072 SC-23 = nowy typ decyzji (08) | 08: N1…N7 + 08-A + typ „wybór ręki”; 06: szablony E |
+| 19:40 | właściciel | KO-073 nadkarty warunkowo (→ 08 przy DX albo osobno), KO-074 SC-08 próg = klasy rąk (→ DU), KO-075 Wietnam po 1.0 | przekazać DU KO-074; KO-073 do kolejki 08 |
