@@ -18,6 +18,6 @@ decisions:
     rule: R-M11-009
     actions:
       - action: fold
-        explanation: "Tem {{w:reka}} no {{w:pozycja}} na {{t:bubble|bolha}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. {{t:fold|Desiste}}, porque num {{t:tournament|torneio}} com {{t:payout|prémios}} perder custa mais dinheiro do que ganhar acrescenta, por isso o {{t:call}} tem de ganhar mais vezes do que no jogo a {{t:chips}}. Contra o {{t:range}} de {{t:all-in}} esta mão tem {{t:equity}} a menos para passar este limiar mais alto do {{t:icm|ICM}}."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}} na {{t:bubble|bolha}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. {{t:fold|Desiste}}, porque contra o {{t:range}} de {{t:all-in}} esta mão tem menos {{t:equity}} do que o limiar do {{t:icm|ICM}} exige. Esse limiar é mais alto do que no jogo a {{t:chips}}, porque num {{t:tournament|torneio}} com {{t:payout|prémios}} perder custa mais dinheiro do que ganhar acrescenta, por isso o {{t:call}} tem de ganhar mais vezes."
       - action: call
         explanation: "Tem {{w:reka}} no {{w:pozycja}} na {{t:bubble|bolha}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. Faz {{t:call}}, porque contra o {{t:range}} de {{t:all-in}} esta mão tem mais {{t:equity}} do que o limiar do {{t:icm|ICM}} exige. Esse limiar é mais alto do que no jogo a {{t:chips}}, porque num {{t:tournament|torneio}} com {{t:payout|prémios}} perder custa mais dinheiro do que ganhar acrescenta."

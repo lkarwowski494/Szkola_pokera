@@ -18,6 +18,6 @@ decisions:
     rule: R-M11-009
     actions:
       - action: fold
-        explanation: "Du hast {{w:reka}} am {{w:pozycja}} auf der {{t:bubble}}, {{w:stol}}, und der {{t:small-blind}} ist {{t:all-in}} gegangen. Du {{t:fold|foldest}}, weil in einem {{t:tournament|Turnier}} mit {{t:payout|Auszahlungen}} eine Niederlage mehr Geld kostet, als ein Sieg einbringt, also muss ein {{t:call}} öfter gewinnen als im Spiel um {{t:chips}}. Gegen die {{t:all-in}}-{{t:range}} hat diese Hand zu wenig {{t:equity}}, um diese höhere {{t:icm}}-Schwelle zu erreichen."
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}} auf der {{t:bubble}}, {{w:stol}}, und der {{t:small-blind}} ist {{t:all-in}} gegangen. Du {{t:fold|foldest}}, weil diese Hand gegen die {{t:all-in}}-{{t:range}} weniger {{t:equity}} hat, als die {{t:icm}}-Schwelle verlangt. Diese Schwelle ist höher als im Spiel um {{t:chips}}, weil in einem {{t:tournament|Turnier}} mit {{t:payout|Auszahlungen}} eine Niederlage mehr Geld kostet, als ein Sieg einbringt, also muss ein {{t:call}} öfter gewinnen."
       - action: call
         explanation: "Du hast {{w:reka}} am {{w:pozycja}} auf der {{t:bubble}}, {{w:stol}}, und der {{t:small-blind}} ist {{t:all-in}} gegangen. Du {{t:call|callst}}, weil diese Hand gegen die {{t:all-in}}-{{t:range}} mehr {{t:equity}} hat, als die {{t:icm}}-Schwelle verlangt. Diese Schwelle ist höher als im Spiel um {{t:chips}}, weil in einem {{t:tournament|Turnier}} mit {{t:payout|Auszahlungen}} eine Niederlage mehr Geld kostet, als ein Sieg einbringt."

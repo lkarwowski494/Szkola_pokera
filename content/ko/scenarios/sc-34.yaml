@@ -18,6 +18,6 @@ decisions:
     rule: R-M11-009
     actions:
       - action: fold
-        explanation: "당신은 {{t:bubble|버블}}에서 {{w:pozycja}} 위치에 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, {{t:small-blind|스몰 블라인드}}가 {{t:all-in|올인}}했습니다. {{t:fold|폴드}}하는 이유는 {{t:payout|상금}}이 있는 {{t:tournament|토너먼트}}에서는 지면 잃는 돈이 이겨서 얻는 돈보다 크므로, {{t:call|콜}}은 {{t:chips|칩}}만 걸린 게임보다 더 자주 이겨야 하기 때문입니다. 이 핸드는 {{t:all-in|올인}} {{t:range|레인지}}에 대한 {{t:equity|에퀴티}}가 부족해 이 더 높은 {{t:icm|ICM}} 기준을 넘지 못합니다."
+        explanation: "당신은 {{t:bubble|버블}}에서 {{w:pozycja}} 위치에 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, {{t:small-blind|스몰 블라인드}}가 {{t:all-in|올인}}했습니다. {{t:fold|폴드}}하는 이유는 이 핸드가 {{t:all-in|올인}} {{t:range|레인지}}에 대해 {{t:icm|ICM}} 기준이 요구하는 것보다 적은 {{t:equity|에퀴티}}를 가지고 있기 때문입니다. 이 기준은 {{t:chips|칩}}만 걸린 게임보다 높은데, {{t:payout|상금}}이 있는 {{t:tournament|토너먼트}}에서는 지면 잃는 돈이 이겨서 얻는 돈보다 커서 {{t:call|콜}}은 더 자주 이겨야 하기 때문입니다."
       - action: call
         explanation: "당신은 {{t:bubble|버블}}에서 {{w:pozycja}} 위치에 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, {{t:small-blind|스몰 블라인드}}가 {{t:all-in|올인}}했습니다. {{t:call|콜}}하는 이유는 이 핸드가 {{t:all-in|올인}} {{t:range|레인지}}에 대해 {{t:icm|ICM}} 기준이 요구하는 것보다 많은 {{t:equity|에퀴티}}를 가지고 있기 때문입니다. 이 기준은 {{t:chips|칩}}만 걸린 게임보다 높은데, {{t:payout|상금}}이 있는 {{t:tournament|토너먼트}}에서는 지면 잃는 돈이 이겨서 얻는 돈보다 크기 때문입니다."

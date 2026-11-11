@@ -18,6 +18,6 @@ decisions:
     rule: R-M11-009
     actions:
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}} na {{t:bubble|bańce}}, {{w:stol}}, a {{t:small-blind}} wszedł {{t:all-in}}. {{t:fold|Pasujesz}}, bo w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc {{t:call|sprawdzenie}} musi wygrywać częściej niż w grze o {{t:chips|żetony}}. Ta ręka ma wobec {{t:range|zakresu}} {{t:all-in|all-inu}} za mało {{t:equity}}, żeby przejść ten wyższy próg z {{t:icm}}."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} na {{t:bubble|bańce}}, {{w:stol}}, a {{t:small-blind}} wszedł {{t:all-in}}. {{t:fold|Pasujesz}}, bo ta ręka ma wobec {{t:range|zakresu}} {{t:all-in|all-inu}} mniej {{t:equity}}, niż wymaga próg z {{t:icm}}. Ten próg jest wyższy niż w grze o {{t:chips|żetony}}, bo w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc {{t:call|sprawdzenie}} musi wygrywać częściej."
       - action: call
         explanation: "Masz {{w:reka}} na {{w:pozycja}} na {{t:bubble|bańce}}, {{w:stol}}, a {{t:small-blind}} wszedł {{t:all-in}}. {{t:call|Sprawdzasz}}, bo ta ręka ma wobec {{t:range|zakresu}} {{t:all-in|all-inu}} więcej {{t:equity}}, niż wymaga próg z {{t:icm}}. Ten próg jest wyższy niż w grze o {{t:chips|żetony}}, bo w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje."

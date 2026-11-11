@@ -18,6 +18,6 @@ decisions:
     rule: R-M11-009
     actions:
       - action: fold
-        explanation: "あなたは{{t:bubble|バブル}}の{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。{{t:fold|フォールド}}するのは、{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では負けで失うお金が勝って増えるお金より大きく、{{t:call|コール}}は{{t:chips|チップ}}だけのゲームより高い頻度で勝つ必要があるからです。このハンドは{{t:all-in|オールイン}}の{{t:range|レンジ}}に対する{{t:equity|エクイティ}}が足りず、{{t:icm|ICM}}のこの高いしきい値に届きません。"
+        explanation: "あなたは{{t:bubble|バブル}}の{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。{{t:fold|フォールド}}するのは、このハンドの{{t:all-in|オールイン}}の{{t:range|レンジ}}に対する{{t:equity|エクイティ}}が、{{t:icm|ICM}}のしきい値が求める水準に届かないからです。このしきい値が{{t:chips|チップ}}だけのゲームより高いのは、{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では負けで失うお金が勝って増えるお金より大きく、{{t:call|コール}}はより高い頻度で勝つ必要があるからです。"
       - action: call
         explanation: "あなたは{{t:bubble|バブル}}の{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:small-blind|スモールブラインド}}が{{t:all-in|オールイン}}しました。{{t:call|コール}}するのは、このハンドが{{t:all-in|オールイン}}の{{t:range|レンジ}}に対して、{{t:icm|ICM}}のしきい値が求めるより多くの{{t:equity|エクイティ}}を持っているからです。このしきい値が{{t:chips|チップ}}だけのゲームより高いのは、{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では負けで失うお金が勝って増えるお金より大きいからです。"

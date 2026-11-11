@@ -18,6 +18,6 @@ decisions:
     rule: R-M11-009
     actions:
       - action: fold
-        explanation: "You have {{w:reka}} on the {{w:pozycja}} on the {{t:bubble}}, {{w:stol}}, and the {{t:small-blind}} went {{t:all-in}}. You {{t:fold}}, because in a {{t:tournament}} with {{t:payout|payouts}} a loss costs more money than a win adds, so a {{t:call}} must win more often than in a game for {{t:chips}}. Against the {{t:all-in}} {{t:range}} this hand has too little {{t:equity}} to clear this higher {{t:icm}} threshold."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}} on the {{t:bubble}}, {{w:stol}}, and the {{t:small-blind}} went {{t:all-in}}. You {{t:fold}}, because against the {{t:all-in}} {{t:range}} this hand has less {{t:equity}} than the {{t:icm}} threshold requires. That threshold is higher than in a game for {{t:chips}}, because in a {{t:tournament}} with {{t:payout|payouts}} a loss costs more money than a win adds, so a {{t:call}} must win more often."
       - action: call
         explanation: "You have {{w:reka}} on the {{w:pozycja}} on the {{t:bubble}}, {{w:stol}}, and the {{t:small-blind}} went {{t:all-in}}. You {{t:call}}, because against the {{t:all-in}} {{t:range}} this hand has more {{t:equity}} than the {{t:icm}} threshold requires. That threshold is higher than in a game for {{t:chips}}, because in a {{t:tournament}} with {{t:payout|payouts}} a loss costs more money than a win adds."
