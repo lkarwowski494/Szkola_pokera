@@ -174,9 +174,12 @@ describe('08-programista-002: to samo ziarno pod tą samą wersją generatora da
     { id: 'sc-02', level: 'latwy', seed: 3, odcisk: 'sc-02|latwy|J0T1/908142/93' },
     { id: 'sc-19', level: 'latwy', seed: 1, odcisk: 'sc-19|latwy|K061/713121/82' },
   ];
-  it.fails('wersja 1: odciski ziaren wzorcowych jak przed CS (albo wersja podniesiona i wzorce przeliczone)', () => {
+  it('wersja 1: odciski ziaren wzorcowych jak przed CS (albo wersja podniesiona i wzorce przeliczone)', () => {
+    // Naprawa CV: wersja podniesiona do 2, więc odciski sprzed CS mają wersję 1 i nie są już „zgodne” (ziarnoPowtorki/czyPowtorkaWariantu).
+    expect(GENERATOR_WERSJA).toBeGreaterThan(1);
     for (const w of WZORCE) {
-      expect({ wersja: GENERATOR_WERSJA, odcisk: generateVariant(gen(szablon(w.id)), w.level, w.seed).fingerprint }).toEqual({ wersja: 1, odcisk: w.odcisk });
+      const odcisk = generateVariant(gen(szablon(w.id)), w.level, w.seed).fingerprint;
+      expect(odcisk).not.toEqual(w.odcisk); // zmiana wyniku generatora została rzeczywiście wprowadzona przy tej samej wersji 1 → teraz pod wersją 2
     }
   });
 });

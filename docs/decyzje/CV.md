@@ -1,0 +1,9 @@
+# Decyzje sesji CV (08-programista, fix): ŚR-002 recenzji CT
+Pula D-850…D-854 (użyte D-850…D-853). Kto: A = agent (delegacja z `CLAUDE.md`, do weta). Analogia z Treningiem (D-191): brak, Trening nie ma generatora wariantów rozdań (odczyt w tej sesji nie wykonany: sieć nieużyta, [DO USTALENIA] przy wecie).
+
+| ID | Data | Kto | Decyzja | Odrzucone | Podstawa | Zależy od |
+|---|---|---|---|---|---|---|
+| D-850 | 2026-11-11 | A | `GENERATOR_WERSJA` = 2 (`packages/poker-core/src/scenario-gen.ts:256`); opcja (a) z raportu | (b) zostawić 1 z wyjątkiem: kontrola dalej nie łapie zmian | `docs/programista/recenzje/recenzja-cs-8133a8c.md` 08-programista-002; D-731 | — |
+| D-851 | 2026-11-11 | A | Brak migracji bazy: wersja jest zapisana przy każdym wpisie historii (`packages/postep/src/schemat-v3.ts:5-9`), wpisy z 1 stają się niezgodne i powtórka losuje nowe rozdanie (zachowanie D-731). `packages/postep` bez zmian | Migracja przeliczająca stare wpisy: nie da się odtworzyć starego generatora | odczyt `schemat-v3.ts`, `wariant.ts` | — |
+| D-852 | 2026-11-11 | A | Kontrola trwała `tools/content-build/test/generator-odciski.test.ts` + `generator-odciski.json`: dla szablonów z `content/pl` (sc-01, 02, 03, 11, 19), każdego poziomu i ziaren 1–200 skrót odcisków + odcisk ziarna 1, związane z `GENERATOR_WERSJA`; zmiana wyniku bez przeliczenia pliku = czerwono (zapis: `GENERATOR_ODCISKI_ZAPISZ=1`). **Wyjątek nazwany:** sc-12 poza kontrolą, bo CU zmienia jego treść równolegle (WYS-001); włączyć po scaleniu | Wzorzec na syntetycznym szablonie (nie złapał); same odciski bez wersji w pliku | recenzja pkt 002 „Powraca” | scalenie CU |
+| D-853 | 2026-11-11 | A | Test `it.fails` ŚR-002 w `recenzja-ct-odtworzenie.test.ts` zamieniony na `it`: wymaga wersji > 1 i innych odcisków niż sprzed CS; wzorzec `scenario-gen.test.ts` na wersję 2 (odcisk syntetyczny bez zmian) | Usunięcie testu | osłabienia brak: asercja o wersji i odciskach zachowana w nowej postaci | — |

@@ -1,0 +1,22 @@
+# CV: pnpm run ci, 2026-11-11, EXIT 0 (czas 9m59s)
+# Dowód czerwieni kontroli ŚR-002 (nowy test generator-odciski, plik zapisany dla wersji 2):
+# 1) wersja cofnięta do 1 przy bieżącym generatorze:
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected { wersja: 2, ziarna: 200, …(1) } to deeply equal { wersja: 1, ziarna: 200, …(1) }
+-   "wersja": 1,
++   "wersja": 2,
+     45|     // Różna wersja w pliku i w kodzie = podniesiono (albo cofnięto) w…
+      Tests  1 failed (1)
+# 2) generator sprzed CS (cd327e9) z wersją 2 (zmiana wyniku bez podniesienia względem zapisu): odciski inne (skróty sha):
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+        "sha": "93fcd8a57bcc11f0",
+-       "sha": "9f72e07efb737535",
++       "sha": "1af42f542278ec9c",
+-       "sha": "bdaecdfeda745d97",
++       "sha": "9e8c404919d8dba6",
+-       "sha": "231760ce0e47aad1",
++       "sha": "338657e7cf708271",
+# końcówka pnpm run ci:
+real	9m59.028s
+user	21m15.546s
+sys	0m37.939s

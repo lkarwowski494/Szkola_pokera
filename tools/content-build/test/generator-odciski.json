@@ -1,0 +1,50 @@
+{
+  "wersja": 2,
+  "ziarna": 200,
+  "odciski": {
+    "sc-01|latwy": {
+      "sha": "93fcd8a57bcc11f0",
+      "ziarno1": "sc-01|latwy|4030/K19060/92"
+    },
+    "sc-01|sredni": {
+      "sha": "1af42f542278ec9c",
+      "ziarno1": "sc-01|sredni|Q090/A17020/82"
+    },
+    "sc-01|trudny": {
+      "sha": "9e8c404919d8dba6",
+      "ziarno1": "sc-01|trudny|6051/J1T121/90"
+    },
+    "sc-02|latwy": {
+      "sha": "338657e7cf708271",
+      "ziarno1": "sc-02|latwy|3020/K15140/81"
+    },
+    "sc-02|sredni": {
+      "sha": "631b0384b3a7220d",
+      "ziarno1": "sc-02|sredni|3020/K15140/81"
+    },
+    "sc-03|latwy": {
+      "sha": "9787868664b4a6ff",
+      "ziarno1": "sc-03|latwy|J061/K0Q032/93"
+    },
+    "sc-03|sredni": {
+      "sha": "5ce7d59145159a4b",
+      "ziarno1": "sc-03|sredni|J061/K0Q032/93"
+    },
+    "sc-11|latwy": {
+      "sha": "6923f11f841d0256",
+      "ziarno1": "sc-11|latwy|Q091/K28321"
+    },
+    "sc-11|sredni": {
+      "sha": "4ed71352e095be4a",
+      "ziarno1": "sc-11|sredni|Q091/K17243"
+    },
+    "sc-19|latwy": {
+      "sha": "ef62155bfab621c2",
+      "ziarno1": "sc-19|latwy|J081/T13121/K2"
+    },
+    "sc-19|sredni": {
+      "sha": "34c7960555bcdf57",
+      "ziarno1": "sc-19|sredni|6051/J1T121/90"
+    }
+  }
+}
