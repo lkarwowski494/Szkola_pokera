@@ -35,3 +35,6 @@ Wyjątek nazwany (zasada wspólna 7): pełny zestaw uruchomiony raz po wszystkic
 - `pnpm run ci` na 9c38b12e: kod 0 (mobile 910/910, content-build 430 + 1 oczekiwany fail, domena 347 + 1, postep 160, poker-core 179, node --test 194/0); `docs/programista/dowody/cz-ci-9c38b12e.txt`. Pliki generowane bez zmian (`git status` czysty po CI).
 - Kontrola dowodów i sekretów (skrypt roli, kopia w scratchpadzie) na tym pliku i `docs/decyzje/CZ.md`: OK. Odwołania do Treningu sprawdzone ręcznie na klonie @ 2e4b0f8.
 - Przegląd ścieżki wrażliwej (D-043): nie dotyczy — zmienione tylko testy, fixture, flow oczekujący i dokumenty (`tools/content-build/test/` nie jest na liście, `tools/content-build/` src nietknięty).
+
+## PRZEKAZANIE (2026-11-11; send_message do session_01T66VBz4mtBEPwdkS219BVy odrzucony: sesja nieaktywna)
+SHA cdc397c7 (+ ten commit z samym stanem). Commity: ŚR-006 63dfd1a1, NIS-007 6f7ae630, 08-programista-004 b7b23e47, flow 07 9c38b12e, stan/decyzje/CI cdc397c7. Decyzje do weta D-881…D-885. Do roli 06: gutshot jako „air” (D-882). Prośba: przebieg E2E z flowem 07 po scaleniu (decyzja o minutach macOS). Status „zweryfikowane” nadaje reaudit. Otwarte: brak.
