@@ -255,7 +255,7 @@ export class TemplateError extends Error {}
  * wariantów zapisuje ją przy każdym wpisie, a „to samo rozdanie” wolno ponowić tylko przy wersji równej bieżącej.
  * 0 jest zarezerwowane dla wpisów sprzed wprowadzenia wersji. Pilnują tego test wzorca w scenario-gen.test.ts i odciski prawdziwych szablonów z content/pl (tools/content-build/test/generator-odciski.test.ts, ŚR-002).
  */
-export const GENERATOR_WERSJA = 2; // 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
+export const GENERATOR_WERSJA = 3; // 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
 
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */

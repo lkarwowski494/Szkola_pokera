@@ -1,0 +1,18 @@
+$ curl -sS -L -o fh-ip.html -w "%{http_code}" https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/   # odczyt 2026-11-11, sesja CW
+200
+# tekst po zdjęciu znaczników HTML (python re + html.unescape), wiersze 146-160:
+Flop Connectedness
+We classify flops as connected if it allows for the possibility of a flopped straight.
+Disconnected
+Disconnected boards are the hardest for either player to connect with. This preserves IP’s preflop advantage better than other board types. This texture sees the frequent use of the 33% sizing, but the 130% sizing is common as well.
+OESD possible
+What classifies as a strong hand on an {{tooltip-title: OESD}}-possible board is likely to change on later streets, so sizing up for additional fold equity and protection on the flop can be a good play. This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity.
+Connected
+Connected boards are a unique case due to flopped straights often being in the BB’s range. In order to be respectful of this, we size down; Connected boards see the least amount of the 133% pot sizing.
+{{tooltip-content: OESD}}
+OESD
+A straight draw where the player already has four consecutive cards, using the board and their hand, and will make a straight if a card at either end their four completes; an 8-out straight draw. For example, a player with
+56
+on a board of
+K872
+has an open-ended straight draw as they have

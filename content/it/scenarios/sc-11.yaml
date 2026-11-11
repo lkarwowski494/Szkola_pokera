@@ -12,7 +12,7 @@ bounds:
     holding: [air]
     expected: [bet-small]
   sredni:
-    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected], oesdPossible: false }
     holding: [air]
     expected: [bet-small]
 decisions:

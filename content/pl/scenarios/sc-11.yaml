@@ -2,6 +2,8 @@
 # R-M5-007 (best: small) z zadania m5.l3.c-btn, jak grading.ts. Reguła c-betu jest częstotliwościowa: oczekiwana akcja to akcja
 # zakresu (zgodna), czekanie jest dopuszczalne, duży zakład to niedokładność (D-793, ŚR-005). Ręka bez pary i drawa (holding air):
 # pary z asem i słabym kickerem oraz KK–JJ solver na suchym flopie z asem częściej czeka (D-792). Rola 06, sesja CO, 2026-11-11.
+# Średni: flopy półpołączone tylko bez możliwego OESD (sam gutshot, w podziale źródła „Disconnected”); na flopach „OESD possible”
+# źródło podaje większy rozmiar i rzadszy c-bet, więc „często i mało” byłoby tam sprzeczne (ŚR-005, D-856, sesja CW).
 id: sc-11
 module: m5
 situation: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i na {{t:dry|suchym}} wysokim flopie {{t:check|czeka}}."
@@ -15,7 +17,7 @@ bounds:
     holding: [air]
     expected: [bet-small]
   sredni:
-    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected], oesdPossible: false }
     holding: [air]
     expected: [bet-small]
 decisions:
