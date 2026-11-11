@@ -126,11 +126,13 @@ describe('06-tresci-003: szablony draw-call — „pas” odporny także wtedy, 
   // Przy oczekiwanym „call” dolna granica (same outy drawa) jest już sprawdzana testami szablony-bs.
   for (const id of ['sc-02', 'sc-03', 'sc-19']) {
     for (const level of ['latwy', 'sredni'] as ScenarioLevel[]) {
-      przypadek(`${id} ${level}: z kartami wyższymi od stołu pas zostaje odporny na cenę i implied odds`, () => {
+      // CV (CI 42958391331): sc-19 łatwy ~4 s przy limicie 5 s → timeout na obciążonym runnerze. Te same ziarna 1–1500, w 3 zakresach po 500
+      // (każdy ~1,3 s), limit czasu bez zmian i bez osłabienia pokrycia.
+      for (const [od, doZiarna] of [[1, 500], [501, 1000], [1001, 1500]] as const) przypadek(`${id} ${level}: z kartami wyższymi od stołu pas zostaje odporny na cenę i implied odds (ziarna ${od}–${doZiarna})`, () => {
         const t = szablon(id);
         if (!t.levels.includes(level)) return;
         const bledy: string[] = [];
-        for (let seed = 1; seed <= 1500 && bledy.length < 5; seed++) {
+        for (let seed = od; seed <= doZiarna && bledy.length < 5; seed++) {
           const v = generateVariant(gen(t), level, seed);
           let zaklady = 0;
           v.decisions.forEach((d, i) => {
