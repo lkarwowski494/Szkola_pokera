@@ -1,0 +1,22 @@
+# SC-33 (M11): duży blind sprawdza all-in małego blinda przy 10 bb (F1, range-spot call.bb-10). SZKIC sesji DU (2026-11-11), gotowy do content/
+# po kroku 08 (testy, D-1033). Ocena: rangeVerdict na solverze push/fold projektu, reguła R-M11-007 (gto); liczba ceny z R-M11-006 (math).
+# Jeden poziom (łatwy): rozkład solvera prawie czysty, więc poziomu średniego nie da się wyznaczyć częstością (D-1034).
+id: sc-33
+module: m11
+situation: "{{t:tournament|Turniej}}: jesteś na {{t:big-blind|dużym blindzie}} z {{n:m11.depth.10}}, a {{t:small-blind}} wszedł {{t:all-in}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [call] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: call.bb-10
+    rule: R-M11-007
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, a {{t:small-blind}} wszedł {{t:all-in}}. {{t:call|Sprawdzasz}}, bo ta ręka jest w {{t:range|zakresie}} {{t:call|sprawdzenia}}: blind już leży w {{t:pot|puli}}, więc potrzebujesz ok. {{n:m11.call.10.eq}} equity. {{t:call|Sprawdzasz}} jednak węziej, niż sam {{t:shove|pushowałbyś}}: ok. {{n:m11.call.10}} rąk wobec ok. {{n:m11.push.10}}."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, a {{t:small-blind}} wszedł {{t:all-in}}. {{t:fold|Pas}} jest za ostrożny: ta ręka jest w {{t:range|zakresie}} {{t:call|sprawdzenia}}, ok. {{n:m11.call.10}} rąk. Blind już leży w {{t:pot|puli}}, więc potrzebujesz tylko ok. {{n:m11.call.10.eq}} equity."

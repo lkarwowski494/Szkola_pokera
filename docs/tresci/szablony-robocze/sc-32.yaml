@@ -1,0 +1,22 @@
+# SC-32 (M11): push/fold z małego blinda przy 10 bb (F1, range-spot push.sb-10). SZKIC sesji DU (2026-11-11), gotowy do content/ po kroku 08
+# (testy, D-1033). Ocena: rangeVerdict na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002.
+# Jeden poziom (łatwy): rozkład solvera prawie czysty, więc poziomu średniego nie da się wyznaczyć częstością (D-1034).
+id: sc-32
+module: m11
+situation: "{{t:tournament|Turniej}}: jesteś na {{t:small-blind|małym blindzie}} z {{n:m11.depth.10}}, wszyscy {{t:fold|spasowali}} do ciebie."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 10
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: push.sb-10
+    rule: R-M11-002
+    actions:
+      - action: all-in
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, wszyscy {{t:fold|spasowali}}. Grasz {{t:all-in}}, bo przy tak krótkim stacku ryzykujesz mało względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}; przy {{n:m11.depth.10}} {{t:shove|pushujesz}} ok. {{n:m11.push.10}} rąk, a ta ręka się w tym mieści."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} przy {{n:m11.depth.10}}, {{w:stol}}, wszyscy {{t:fold|spasowali}}. {{t:fold|Pas}} jest za ostrożny: przy {{n:m11.depth.10}} {{t:shove|pushujesz}} ok. {{n:m11.push.10}} rąk, a ta ręka się w tym mieści. Przy krótkim stacku ryzykujesz mało względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}."

@@ -1,0 +1,35 @@
+# SC-06 (M3): mały blind przebija albo pasuje, rozmiar przebicia (F1 + F3: range-spot rfi.sb, potem size-spot open-size z sb). SZKIC sesji DU
+# (2026-11-11), gotowy do content/ po kroku 08 (testy, D-1033). Węzeł solvera rfi.sb nie ma limpu (raise-or-fold, R-M3-009), więc punkt no-limp
+# z planu zastępuje rozmiar R-M3-007 (D-1032). Rozmiar: standard z reguły (pf.open-size-sb), zły rozmiar = niedokładność (sizeVerdict).
+# Jeden poziom (łatwy): rozkład solvera prawie czysty, więc poziomu średniego nie da się wyznaczyć częstością (D-1034).
+id: sc-06
+module: m3
+situation: "Jesteś na {{t:small-blind|małym blindzie}}, wszyscy {{t:fold|spasowali}} do ciebie."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy {{t:fold|spasowali}} do ciebie. {{t:raise|Przebijasz}}, bo grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}; po flopie mówisz pierwszy, więc {{t:open|otwierasz}} mniej więcej tak szeroko jak z Buttona, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, a ta ręka się w tym mieści."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy {{t:fold|spasowali}} do ciebie. {{t:fold|Pas}} jest za ostrożny: solver tę rękę zwykle {{t:raise|przebija}}. Grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc z {{t:small-blind|małego blinda}} {{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk."
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, i {{t:raise|przebijasz}}. {{t:raise|Przebijasz}} do {{n:pf.open-size-sb}}, bo z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, więc {{t:raise|przebijasz}} trochę więcej niż {{n:pf.open-size}} z innych {{t:position|pozycji}}; jeden rozmiar dla wszystkich rąk nie zdradza siły ręki."
+      - action: raise-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, i {{t:raise|przebijasz}}. Ten rozmiar to niedokładność: z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, więc {{t:raise|przebijasz}} trochę więcej, do {{n:pf.open-size-sb}}."
+      - action: raise-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, i {{t:raise|przebijasz}}. Ten rozmiar to niedokładność: wystarczy {{n:pf.open-size-sb}}; jeden rozmiar dla wszystkich rąk nie zdradza siły ręki, a większe {{t:raise|przebicie}} ryzykuje więcej {{t:chips|żetonów}} tą samą ręką."
