@@ -138,6 +138,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| DS | session_01T66VBymkCU3U6RPvD5J9oD | 09 build (sonnet/medium) | sesja-ds-przeklad @ b3963e9a | 0 | 0 | w toku od 18:05: przekład 7 scenario.numbers.* + 15 scenario.icm.* (DS.md @ 29162f74, D-1010…D-1019) |
 | DQ | session_01T66VBvLpB9q2t7Chfq96FR | 08 audit (opus/high) | sesja-dq-recenzja @ 2d5e53f0 | 25,0 | 4,96 | PRZEKAZANIE 17:34: PRZYJĄĆ PO POPRAWKACH (0 KRYT/WYS, 4 ŚR, 2 NIS); autor zgodny, tylko docs; ci kod 0 (`dowody/dq-ci-007e23ad.txt`); KO-068 potwierdzone niezależnie; zarchiwizowana 17:52 |
 | DR | session_01T66VBzn4LpNpykcN2CRS96 | 08 fix (sonnet/medium) | sesja-dp-icm @ b3963e9a | 20,1 | 1,66 | **przyjęta 17:58** (autor 7/7, ci kod 0 `dr-ci-4afed12e.txt`, b3963e9a = +docs, mutanty `dr-mutanty.txt`; recenzje DO/DQ scalone); zarchiwizowana. **DN + DP + DR przyjęte** |
 | DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | 25,3 | 5,45 | przyjęta 16:26 (PRZYJĄĆ DN); zarchiwizowana 16:55 |
@@ -563,3 +564,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 17:40 | DQ → koordynator | PRZEKAZANIE 2d5e53f0: PRZYJĄĆ PO POPRAWKACH (ŚR 4, NIS 2), ci 0, KO-068 potwierdzone (pula 11, 45% = D-890); pierwszy ci kod 1 = limit czasu terms-nazwy-09 pod obciążeniem. Sprawdzone: autor, tylko docs. DP 28,9% → następca DR (08 fix) na sesja-dp-icm; DP zarchiwizowana (3,84 USD) | start DR; kontrola 17:51 |
 | 17:52 | kontrola | DQ zarchiwizowana (4,96 USD, 25,0%); DR pracuje (19,7%, 1,56 USD, uruchamia ci) | kontrola 18:35 |
 | 17:58 | DR → koordynator | PRZEKAZANIE b3963e9a: DQ 001/002/003/005/006, DO 001/003/004/006 poprawione; ci kod 0 na 4afed12e (reszta docs); D-1000…D-1003 do weta. Sprawdzone: autor 7/7, is-ancestor robocza. **Robocza ff 709f6947 → b3963e9a** (push 17:58). DR zarchiwizowana (1,66 USD) | CI/E2E roboczej; start DS |
+| 18:05 | DS | start session_01T66VBymkCU3U6RPvD5J9oD przez subagenta | kontrola 18:36 |
+| 18:10 | właściciel | pytanie „Jak idzie praca? Kiedy wersja 1.0” — odpowiedź: 6/34 szablonów w content, ścieżka krytyczna C→D→E→I→J→audyt M1→build; pytanie o zakres 1.0 | odpowiedź właściciela |
