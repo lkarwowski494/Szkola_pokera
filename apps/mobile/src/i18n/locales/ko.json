@@ -1035,13 +1035,13 @@
     "numbers": {
       "title": "숫자",
       "line": "{{t:pot|팟}}은 {{pula}}bb이고 {{t:call|콜}}에 {{kwota}}bb가 들어서 필요한 승률은 {{potrzeba}}, 즉 약 {{razPotrzeba}}번에 한 번 이겨야 합니다. 아웃츠는 보이지 않는 {{nieznane}}장 중 {{outy}}장이며, 완성될 확률은 {{trafisz}}, 약 {{razTrafisz}}번에 한 번입니다.",
-      "cbet": "A small {{t:c-bet}} is about {{maly}} of the {{t:pot}}, a big one about {{duzy}}. To {{t:call}}, your opponent needs {{cenaMaly}} equity against the small one, that is, to win about once in {{razMaly}}, and {{cenaDuzy}} against the big one, about once in {{razDuzy}}.",
-      "sizeOpen": "With a {{t:raise|raise}} to {{bb}} bb, the {{t:big-blind}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb (if everyone else {{t:fold|folds}}), so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "size3bet": "With a 3-bet to {{bb}} bb, the {{t:open|opener}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb, so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "limp": "A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.",
-      "icm": "Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.",
-      "overcardsFold": "If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.",
-      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own."
+      "cbet": "작은 {{t:c-bet}}은 {{t:pot|팟}}의 약 {{maly}}, 큰 것은 약 {{duzy}}입니다. 상대가 {{t:call|콜}}하려면 작은 쪽에는 승률 {{cenaMaly}}, 즉 약 {{razMaly}}번에 한 번 이겨야 하고, 큰 쪽에는 {{cenaDuzy}}, 즉 약 {{razDuzy}}번에 한 번 이겨야 합니다.",
+      "sizeOpen": "{{bb}}bb로 {{t:raise|레이즈}}하면 {{t:big-blind|빅 블라인드}}는 {{pula}}bb의 {{t:pot|팟}}에 {{doplata}}bb를 더 내야 합니다(나머지가 모두 {{t:fold|폴드}}한 경우). 따라서 필요한 승률은 {{cena}}, 즉 약 {{raz}}번에 한 번 이겨야 합니다.",
+      "size3bet": "{{bb}}bb로 3벳을 하면 {{t:open|오픈}}한 플레이어는 {{pula}}bb의 {{t:pot|팟}}에 {{doplata}}bb를 더 내야 합니다. 따라서 필요한 승률은 {{cena}}, 즉 약 {{raz}}번에 한 번 이겨야 합니다.",
+      "limp": "림프는 {{kwota}}bb가 들고, {{t:big-blind|빅 블라인드}}는 추가로 내지 않고 플랍을 볼 수 있습니다.",
+      "icm": "내 핸드는 {{t:all-in|올인}}한 상대의 {{t:range|레인지}}에 대해 {{t:equity|에퀴티}} {{equity}}로, 10번 중 약 {{na10}}번 이깁니다. {{t:icm|ICM}} 기준으로는 {{prog}}부터 {{t:call|콜}}이 이득이고, {{t:chips|칩}}을 겨루는 게임이라면 {{progZetony}}로 충분합니다. {{t:bubble|버블}}에서는 지면 잃는 {{t:prize-pool|상금 풀}}의 몫이 이길 때 늘어나는 몫보다 크기 때문입니다.",
+      "overcardsFold": "{{t:board|보드}}의 어떤 카드보다 높은 {{t:pair|페어}}를 만들어 주는 카드까지 세면(보이지 않는 {{nieznane}}장 중 {{nadkarty}}장), 맞힐 확률은 {{trafiszRazem}}로, 가격이 요구하는 확률({{potrzeba}})에는 여전히 못 미칩니다. 그런 {{t:pair|페어}}는 상대의 더 강한 핸드에 질 수도 있습니다.",
+      "overcardsCall": "{{t:board|보드}}의 어떤 카드보다 높은 {{t:pair|페어}}를 만들어 주는 카드(보이지 않는 {{nieznane}}장 중 {{nadkarty}}장)는 계산에서 뺍니다. 그런 {{t:pair|페어}}는 더 강한 핸드에 질 수 있고, 드로의 아웃츠만으로도 충분하기 때문입니다."
     },
     "next": {
       "street": "다음: {{ulica}}",
@@ -1074,21 +1074,21 @@
       "withAmount": "{{kwota}} {{akcja}}"
     },
     "icm": {
-      "tableLabel": "{{t:board|Table}}: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in.",
-      "foldedOne": "{{kto}} {{t:fold|folded}}.",
-      "foldedMany": "{{kto}} {{t:fold|folded}}.",
-      "bubble": "{{t:bubble|Bubble}}: {{platne}} of {{gracze}} places are paid",
-      "prizes": "Prizes: {{lista}} of the {{t:prize-pool|prize pool}}. {{brak}}",
-      "place": "place {{n}} {{procent}}",
-      "noPrizeThird": "Place 3 gets nothing.",
-      "noPrizeFourth": "Place 4 gets nothing.",
-      "stacksLabel": "Stacks at the start of the hand",
-      "you": "You, {{pozycja}}",
-      "rival": "Opponent, {{pozycja}}",
+      "tableLabel": "{{t:board|테이블}}: 나는 {{ty}}, 카드는 {{reka}}입니다. {{rywal}}에 앉은 상대가 올인했습니다.",
+      "foldedOne": "{{t:fold|폴드}}한 플레이어: {{kto}}.",
+      "foldedMany": "{{t:fold|폴드}}한 플레이어: {{kto}}.",
+      "bubble": "{{t:bubble|버블}}: {{gracze}}명 중 {{platne}}위까지 상금",
+      "prizes": "상금: {{lista}} ({{t:prize-pool|상금 풀}}에 대한 비율). {{brak}}",
+      "place": "{{n}}위 {{procent}}",
+      "noPrizeThird": "3위는 상금이 없습니다.",
+      "noPrizeFourth": "4위는 상금이 없습니다.",
+      "stacksLabel": "핸드 시작 시 스택",
+      "you": "나, {{pozycja}}",
+      "rival": "상대, {{pozycja}}",
       "stackValue": "{{bb}} bb",
       "rowLabel": "{{kto}}, {{wartosc}}",
-      "wholeStack": "{{kwota}} is your whole stack: if you lose, you are out of the {{t:tournament|tournament}} with no prize.",
-      "rewards": "Stacks and prizes"
+      "wholeStack": "{{kwota}}는 내 스택 전부입니다. 지면 상금 없이 {{t:tournament|토너먼트}}에서 탈락합니다.",
+      "rewards": "스택과 상금"
     }
   }
 }

@@ -1035,13 +1035,13 @@
     "numbers": {
       "title": "数字",
       "line": "{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。アウツは見えていない{{nieznane}}枚中{{outy}}枚で、完成するのは{{trafisz}}、約{{razTrafisz}}回に1回です。",
-      "cbet": "A small {{t:c-bet}} is about {{maly}} of the {{t:pot}}, a big one about {{duzy}}. To {{t:call}}, your opponent needs {{cenaMaly}} equity against the small one, that is, to win about once in {{razMaly}}, and {{cenaDuzy}} against the big one, about once in {{razDuzy}}.",
-      "sizeOpen": "With a {{t:raise|raise}} to {{bb}} bb, the {{t:big-blind}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb (if everyone else {{t:fold|folds}}), so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "size3bet": "With a 3-bet to {{bb}} bb, the {{t:open|opener}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb, so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "limp": "A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.",
-      "icm": "Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.",
-      "overcardsFold": "If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.",
-      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own."
+      "cbet": "小さな{{t:c-bet}}は{{t:pot|ポット}}の約{{maly}}、大きなものは約{{duzy}}です。相手が{{t:call|コール}}するには、小さい方なら{{cenaMaly}}の勝率、つまり約{{razMaly}}回に1回勝つ必要があり、大きい方なら{{cenaDuzy}}、約{{razDuzy}}回に1回です。",
+      "sizeOpen": "{{bb}}bbへの{{t:raise|レイズ}}では、{{t:big-blind|ビッグブラインド}}は{{pula}}bbの{{t:pot|ポット}}に{{doplata}}bbを追加で支払います（他の全員が{{t:fold|フォールド}}した場合）。必要な勝率は{{cena}}、つまり約{{raz}}回に1回勝てればよい計算です。",
+      "size3bet": "{{bb}}bbへの3ベットでは、{{t:open|オープン}}した側が{{pula}}bbの{{t:pot|ポット}}に{{doplata}}bbを追加で支払います。必要な勝率は{{cena}}、つまり約{{raz}}回に1回勝てればよい計算です。",
+      "limp": "リンプは{{kwota}}bbかかり、{{t:big-blind|ビッグブラインド}}は追加で支払わずにフロップを見られます。",
+      "icm": "あなたのハンドは、{{t:all-in|オールイン}}してきた相手の{{t:range|レンジ}}に対して{{equity}}の{{t:equity|エクイティ}}があり、10回中約{{na10}}回勝ちます。{{t:icm}}では{{t:call|コール}}が得になるのは{{prog}}からで、{{t:chips|チップ}}を争うゲームなら{{progZetony}}で足ります。{{t:bubble|バブル}}では、負けて失う{{t:prize-pool|プライズプール}}の取り分の方が、勝って増える分より大きいためです。",
+      "overcardsFold": "{{t:board|ボード}}のどのカードよりも高い{{t:pair|ペア}}になるカードも数えると（見えていない{{nieznane}}枚中{{nadkarty}}枚）、当たるのは{{trafiszRazem}}で、価格が求める確率（{{potrzeba}}）にはまだ届きません。そのような{{t:pair|ペア}}は、相手のより強いハンドに負けることもあります。",
+      "overcardsCall": "{{t:board|ボード}}のどのカードよりも高い{{t:pair|ペア}}になるカード（見えていない{{nieznane}}枚中{{nadkarty}}枚）は計算に含めていません。そのような{{t:pair|ペア}}はより強いハンドに負けることがあり、ドローのアウツだけで十分だからです。"
     },
     "next": {
       "street": "次へ：{{ulica}}",
@@ -1074,21 +1074,21 @@
       "withAmount": "{{kwota}}{{akcja}}"
     },
     "icm": {
-      "tableLabel": "{{t:board|Table}}: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in.",
-      "foldedOne": "{{kto}} {{t:fold|folded}}.",
-      "foldedMany": "{{kto}} {{t:fold|folded}}.",
-      "bubble": "{{t:bubble|Bubble}}: {{platne}} of {{gracze}} places are paid",
-      "prizes": "Prizes: {{lista}} of the {{t:prize-pool|prize pool}}. {{brak}}",
-      "place": "place {{n}} {{procent}}",
-      "noPrizeThird": "Place 3 gets nothing.",
-      "noPrizeFourth": "Place 4 gets nothing.",
-      "stacksLabel": "Stacks at the start of the hand",
-      "you": "You, {{pozycja}}",
-      "rival": "Opponent, {{pozycja}}",
+      "tableLabel": "{{t:board|テーブル}}：あなたは{{ty}}、カードは{{reka}}。{{rywal}}の相手がオールインしています。",
+      "foldedOne": "{{kto}}が{{t:fold|フォールド}}しました。",
+      "foldedMany": "{{kto}}が{{t:fold|フォールド}}しました。",
+      "bubble": "{{t:bubble|バブル}}：{{gracze}}人中{{platne}}位まで賞金あり",
+      "prizes": "賞金：{{lista}}（{{t:prize-pool|プライズプール}}に対する割合）。{{brak}}",
+      "place": "{{n}}位 {{procent}}",
+      "noPrizeThird": "3位は賞金なしです。",
+      "noPrizeFourth": "4位は賞金なしです。",
+      "stacksLabel": "ハンド開始時のスタック",
+      "you": "あなた、{{pozycja}}",
+      "rival": "相手、{{pozycja}}",
       "stackValue": "{{bb}} bb",
-      "rowLabel": "{{kto}}, {{wartosc}}",
-      "wholeStack": "{{kwota}} is your whole stack: if you lose, you are out of the {{t:tournament|tournament}} with no prize.",
-      "rewards": "Stacks and prizes"
+      "rowLabel": "{{kto}}、{{wartosc}}",
+      "wholeStack": "{{kwota}}はあなたのスタック全部です。負けると賞金なしで{{t:tournament|トーナメント}}から脱落します。",
+      "rewards": "スタックと賞金"
     }
   }
 }

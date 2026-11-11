@@ -1035,13 +1035,13 @@
     "numbers": {
       "title": "Con số",
       "line": "{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Outs: {{outy}} trên {{nieznane}} lá chưa thấy: bạn hoàn thành bài ở {{trafisz}} số trường hợp, khoảng 1 lần trong {{razTrafisz}}.",
-      "cbet": "A small {{t:c-bet}} is about {{maly}} of the {{t:pot}}, a big one about {{duzy}}. To {{t:call}}, your opponent needs {{cenaMaly}} equity against the small one, that is, to win about once in {{razMaly}}, and {{cenaDuzy}} against the big one, about once in {{razDuzy}}.",
-      "sizeOpen": "With a {{t:raise|raise}} to {{bb}} bb, the {{t:big-blind}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb (if everyone else {{t:fold|folds}}), so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "size3bet": "With a 3-bet to {{bb}} bb, the {{t:open|opener}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb, so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "limp": "A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.",
-      "icm": "Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.",
-      "overcardsFold": "If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.",
-      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own."
+      "cbet": "{{t:c-bet}} nhỏ khoảng {{maly}} {{t:pot|pot}}, còn loại lớn khoảng {{duzy}}. Để {{t:call|theo}}, đối thủ cần {{cenaMaly}} equity trước loại nhỏ, tức là thắng khoảng 1 lần trong {{razMaly}}, và {{cenaDuzy}} trước loại lớn, khoảng 1 lần trong {{razDuzy}}.",
+      "sizeOpen": "Khi {{t:raise|tố}} lên {{bb}} bb, {{t:big-blind|big blind}} phải bù thêm {{doplata}} bb vào {{t:pot|pot}} {{pula}} bb (nếu mọi người còn lại {{t:fold|bỏ bài}}), nên cần {{cena}} equity, tức là thắng khoảng 1 lần trong {{raz}}.",
+      "size3bet": "Khi 3-bet lên {{bb}} bb, người {{t:open|mở cược}} phải bù thêm {{doplata}} bb vào {{t:pot|pot}} {{pula}} bb, nên cần {{cena}} equity, tức là thắng khoảng 1 lần trong {{raz}}.",
+      "limp": "Limp tốn {{kwota}} bb, và {{t:big-blind|big blind}} có thể xem flop mà không phải trả thêm.",
+      "icm": "Tay bài của bạn có {{equity}} {{t:equity|equity}} so với {{t:range|range}} mà đối thủ dùng để {{t:all-in|all-in}}, tức là thắng khoảng {{na10}} trên 10 ván. Theo {{t:icm}}, {{t:call|theo}} có lời từ {{prog}}, còn ở trò chơi tính bằng {{t:chips|chip}} thì {{progZetony}} là đủ: ở {{t:bubble|bubble}}, thua lấy đi của bạn nhiều {{t:prize-pool|tổng giải thưởng}} hơn so với phần thắng mang lại.",
+      "overcardsFold": "Nếu tính cả những lá cho bạn một {{t:pair|đôi}} cao hơn mọi lá trên {{t:board|board}} ({{nadkarty}} trên {{nieznane}} lá chưa thấy), bạn trúng ở {{trafiszRazem}} số trường hợp, vẫn ít hơn mức giá yêu cầu ({{potrzeba}}). {{t:pair|Đôi}} như vậy cũng có thể thua tay bài mạnh hơn của đối thủ.",
+      "overcardsCall": "Những lá cho bạn một {{t:pair|đôi}} cao hơn mọi lá trên {{t:board|board}} ({{nadkarty}} trên {{nieznane}} lá chưa thấy) không được tính vào phép tính: {{t:pair|đôi}} như vậy có thể thua tay bài mạnh hơn, và outs của draw đã đủ."
     },
     "next": {
       "street": "Tiếp: {{ulica}}",
@@ -1074,21 +1074,21 @@
       "withAmount": "{{akcja}} {{kwota}}"
     },
     "icm": {
-      "tableLabel": "{{t:board|Table}}: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in.",
-      "foldedOne": "{{kto}} {{t:fold|folded}}.",
-      "foldedMany": "{{kto}} {{t:fold|folded}}.",
-      "bubble": "{{t:bubble|Bubble}}: {{platne}} of {{gracze}} places are paid",
-      "prizes": "Prizes: {{lista}} of the {{t:prize-pool|prize pool}}. {{brak}}",
-      "place": "place {{n}} {{procent}}",
-      "noPrizeThird": "Place 3 gets nothing.",
-      "noPrizeFourth": "Place 4 gets nothing.",
-      "stacksLabel": "Stacks at the start of the hand",
-      "you": "You, {{pozycja}}",
-      "rival": "Opponent, {{pozycja}}",
+      "tableLabel": "{{t:board|Bàn}}: bạn ở {{ty}}, bài {{reka}}. Đối thủ ở {{rywal}} đang all-in.",
+      "foldedOne": "{{kto}} đã {{t:fold|bỏ bài}}.",
+      "foldedMany": "{{kto}} đã {{t:fold|bỏ bài}}.",
+      "bubble": "{{t:bubble|Bubble}}: {{gracze}} người chơi, {{platne}} hạng đầu có thưởng",
+      "prizes": "Giải thưởng: {{lista}} của {{t:prize-pool|tổng giải thưởng}}. {{brak}}",
+      "place": "hạng {{n}}: {{procent}}",
+      "noPrizeThird": "Hạng ba không nhận được gì.",
+      "noPrizeFourth": "Hạng tư không nhận được gì.",
+      "stacksLabel": "Stack đầu ván",
+      "you": "Bạn, {{pozycja}}",
+      "rival": "Đối thủ, {{pozycja}}",
       "stackValue": "{{bb}} bb",
       "rowLabel": "{{kto}}, {{wartosc}}",
-      "wholeStack": "{{kwota}} is your whole stack: if you lose, you are out of the {{t:tournament|tournament}} with no prize.",
-      "rewards": "Stacks and prizes"
+      "wholeStack": "{{kwota}} là toàn bộ stack của bạn: nếu thua, bạn bị loại khỏi {{t:tournament|giải đấu}} mà không có giải thưởng.",
+      "rewards": "Stack và giải thưởng"
     }
   }
 }

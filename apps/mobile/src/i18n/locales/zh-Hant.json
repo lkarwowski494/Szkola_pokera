@@ -1035,13 +1035,13 @@
     "numbers": {
       "title": "數字",
       "line": "{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。補牌數是未見的 {{nieznane}} 張中的 {{outy}} 張：成牌機率 {{trafisz}}，大約每 {{razTrafisz}} 次 1 次。",
-      "cbet": "A small {{t:c-bet}} is about {{maly}} of the {{t:pot}}, a big one about {{duzy}}. To {{t:call}}, your opponent needs {{cenaMaly}} equity against the small one, that is, to win about once in {{razMaly}}, and {{cenaDuzy}} against the big one, about once in {{razDuzy}}.",
-      "sizeOpen": "With a {{t:raise|raise}} to {{bb}} bb, the {{t:big-blind}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb (if everyone else {{t:fold|folds}}), so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "size3bet": "With a 3-bet to {{bb}} bb, the {{t:open|opener}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb, so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "limp": "A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.",
-      "icm": "Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.",
-      "overcardsFold": "If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.",
-      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own."
+      "cbet": "小額{{t:c-bet}}約為{{t:pot|底池}}的 {{maly}}，大額約為 {{duzy}}。要{{t:call|跟注}}，對手面對小額需要 {{cenaMaly}} 的勝率，也就是大約每 {{razMaly}} 次贏 1 次；面對大額需要 {{cenaDuzy}}，大約每 {{razDuzy}} 次贏 1 次。",
+      "sizeOpen": "{{t:raise|加注}}到 {{bb}} bb 時，{{t:big-blind|大盲}}要再補 {{doplata}} bb 進 {{pula}} bb 的{{t:pot|底池}}（如果其他人都{{t:fold|棄牌}}），所以需要 {{cena}} 的勝率，也就是大約每 {{raz}} 次贏 1 次。",
+      "size3bet": "3-bet 到 {{bb}} bb 時，{{t:open|開池}}者要再補 {{doplata}} bb 進 {{pula}} bb 的{{t:pot|底池}}，所以需要 {{cena}} 的勝率，也就是大約每 {{raz}} 次贏 1 次。",
+      "limp": "溜入要 {{kwota}} bb，而{{t:big-blind|大盲}}不用再補錢就能看翻牌。",
+      "icm": "你的手牌對上對手{{t:all-in|全下}}的{{t:range|範圍}}有 {{equity}} 的{{t:equity|權益}}，也就是 10 手牌大約贏 {{na10}} 手。依{{t:icm}}，{{t:call|跟注}}要從 {{prog}} 起才划算；若是以{{t:chips|籌碼}}計的遊戲，{{progZetony}} 就夠了：在{{t:bubble|泡沫}}上，輸掉損失的{{t:prize-pool|獎金池}}份額比贏了增加的更多。",
+      "overcardsFold": "如果再把能讓你湊成比{{t:board|牌面}}上任何一張都大的{{t:pair|對子}}的牌也算進去（未見的 {{nieznane}} 張中有 {{nadkarty}} 張），你會在 {{trafiszRazem}} 的情況中成牌，仍然低於價格所要求的 {{potrzeba}}。這樣的{{t:pair|對子}}也可能輸給對手更強的牌。",
+      "overcardsCall": "能讓你湊成比{{t:board|牌面}}上任何一張都大的{{t:pair|對子}}的牌（未見的 {{nieznane}} 張中有 {{nadkarty}} 張）不計入算式：這樣的{{t:pair|對子}}可能輸給更強的牌，而聽牌的補牌數本身就已足夠。"
     },
     "next": {
       "street": "下一步：{{ulica}}",
@@ -1074,21 +1074,21 @@
       "withAmount": "{{akcja}}{{kwota}}"
     },
     "icm": {
-      "tableLabel": "{{t:board|Table}}: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in.",
-      "foldedOne": "{{kto}} {{t:fold|folded}}.",
-      "foldedMany": "{{kto}} {{t:fold|folded}}.",
-      "bubble": "{{t:bubble|Bubble}}: {{platne}} of {{gracze}} places are paid",
-      "prizes": "Prizes: {{lista}} of the {{t:prize-pool|prize pool}}. {{brak}}",
-      "place": "place {{n}} {{procent}}",
-      "noPrizeThird": "Place 3 gets nothing.",
-      "noPrizeFourth": "Place 4 gets nothing.",
-      "stacksLabel": "Stacks at the start of the hand",
-      "you": "You, {{pozycja}}",
-      "rival": "Opponent, {{pozycja}}",
+      "tableLabel": "{{t:board|牌桌}}：你在 {{ty}}，手牌 {{reka}}。{{rywal}} 位置的對手全下了。",
+      "foldedOne": "{{kto}}已{{t:fold|棄牌}}。",
+      "foldedMany": "{{kto}}已{{t:fold|棄牌}}。",
+      "bubble": "{{t:bubble|泡沫}}：{{gracze}} 人中前 {{platne}} 名有獎金",
+      "prizes": "獎金：{{lista}}（占{{t:prize-pool|獎金池}}的比例）。{{brak}}",
+      "place": "第 {{n}} 名 {{procent}}",
+      "noPrizeThird": "第 3 名沒有獎金。",
+      "noPrizeFourth": "第 4 名沒有獎金。",
+      "stacksLabel": "手牌開始時的籌碼量",
+      "you": "你，{{pozycja}}",
+      "rival": "對手，{{pozycja}}",
       "stackValue": "{{bb}} bb",
-      "rowLabel": "{{kto}}, {{wartosc}}",
-      "wholeStack": "{{kwota}} is your whole stack: if you lose, you are out of the {{t:tournament|tournament}} with no prize.",
-      "rewards": "Stacks and prizes"
+      "rowLabel": "{{kto}}，{{wartosc}}",
+      "wholeStack": "{{kwota}} 是你的全部籌碼：輸了就會失去{{t:tournament|錦標賽}}資格，且沒有獎金。",
+      "rewards": "籌碼量與獎金"
     }
   }
 }

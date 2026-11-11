@@ -1071,13 +1071,13 @@
     "numbers": {
       "title": "Números",
       "line": "El {{t:pot|bote}} es de {{pula}} bb e {{t:call|igualar}} cuesta {{kwota}} bb, así que necesitas {{potrzeba}} de equity, es decir, ganar una de cada {{razPotrzeba}} veces. Outs: {{outy}} de {{nieznane}} cartas que no ves: completas tu proyecto en el {{trafisz}} de los casos, una de cada {{razTrafisz}} veces.",
-      "cbet": "A small {{t:c-bet}} is about {{maly}} of the {{t:pot}}, a big one about {{duzy}}. To {{t:call}}, your opponent needs {{cenaMaly}} equity against the small one, that is, to win about once in {{razMaly}}, and {{cenaDuzy}} against the big one, about once in {{razDuzy}}.",
-      "sizeOpen": "With a {{t:raise|raise}} to {{bb}} bb, the {{t:big-blind}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb (if everyone else {{t:fold|folds}}), so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "size3bet": "With a 3-bet to {{bb}} bb, the {{t:open|opener}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb, so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "limp": "A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.",
-      "icm": "Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.",
-      "overcardsFold": "If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.",
-      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own."
+      "cbet": "Un {{t:c-bet}} pequeño es de aprox. {{maly}} del {{t:pot|bote}}, y uno grande, de aprox. {{duzy}}. Para {{t:call|igualar}}, tu rival necesita {{cenaMaly}} de equity contra el pequeño, es decir, ganar una de cada {{razMaly}} veces, y {{cenaDuzy}} contra el grande, una de cada {{razDuzy}} veces.",
+      "sizeOpen": "Con una {{t:raise|subida}} a {{bb}} bb, la {{t:big-blind|ciega grande}} añade {{doplata}} bb a un {{t:pot|bote}} de {{pula}} bb (si el resto se {{t:fold|retira}}), así que necesita {{cena}} de equity, es decir, ganar una de cada {{raz}} veces.",
+      "size3bet": "Con un 3-bet a {{bb}} bb, quien hizo la {{t:open|apertura}} añade {{doplata}} bb a un {{t:pot|bote}} de {{pula}} bb, así que necesita {{cena}} de equity, es decir, ganar una de cada {{raz}} veces.",
+      "limp": "Un limp cuesta {{kwota}} bb, y la {{t:big-blind|ciega grande}} puede ver el flop sin pagar más.",
+      "icm": "Tu mano tiene {{equity}} de {{t:equity|equity}} contra el {{t:range|rango}} con el que tu rival va {{t:all-in|all-in}}, es decir, gana más o menos {{na10}} de cada 10 manos. Según el {{t:icm|ICM}}, {{t:call|igualar}} compensa a partir de {{prog}}, mientras que en una partida por {{t:chips|fichas}} bastaría con {{progZetony}}: en la {{t:bubble|burbuja}}, perder te quita más de la {{t:prize-pool|bolsa de premios}} de lo que ganar te añade.",
+      "overcardsFold": "Si cuentas también las cartas que te dan una {{t:pair|pareja}} más alta que cualquier carta de la {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} que no ves), aciertas en el {{trafiszRazem}} de los casos, aún menos de lo que exige el precio ({{potrzeba}}). Una {{t:pair|pareja}} así también puede perder contra una mano mejor del rival.",
+      "overcardsCall": "Las cartas que te dan una {{t:pair|pareja}} más alta que cualquier carta de la {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} que no ves) quedan fuera del cálculo: una {{t:pair|pareja}} así puede perder contra una mano mejor, y los outs de tu proyecto bastan por sí solos."
     },
     "next": {
       "street": "Siguiente: {{ulica}}",
@@ -1110,21 +1110,21 @@
       "withAmount": "{{akcja}} {{kwota}}"
     },
     "icm": {
-      "tableLabel": "{{t:board|Table}}: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in.",
-      "foldedOne": "{{kto}} {{t:fold|folded}}.",
-      "foldedMany": "{{kto}} {{t:fold|folded}}.",
-      "bubble": "{{t:bubble|Bubble}}: {{platne}} of {{gracze}} places are paid",
-      "prizes": "Prizes: {{lista}} of the {{t:prize-pool|prize pool}}. {{brak}}",
-      "place": "place {{n}} {{procent}}",
-      "noPrizeThird": "Place 3 gets nothing.",
-      "noPrizeFourth": "Place 4 gets nothing.",
-      "stacksLabel": "Stacks at the start of the hand",
-      "you": "You, {{pozycja}}",
-      "rival": "Opponent, {{pozycja}}",
+      "tableLabel": "{{t:board|Mesa}}: tú en {{ty}}, cartas {{reka}}. Tu rival en {{rywal}} va all-in.",
+      "foldedOne": "{{kto}} {{t:fold|se ha retirado}}.",
+      "foldedMany": "{{kto}} {{t:fold|se han retirado}}.",
+      "bubble": "{{t:bubble|Burbuja}}: se pagan {{platne}} puestos de {{gracze}}",
+      "prizes": "Premios: {{lista}} de la {{t:prize-pool|bolsa de premios}}. {{brak}}",
+      "place": "puesto {{n}}: {{procent}}",
+      "noPrizeThird": "El tercer puesto no recibe nada.",
+      "noPrizeFourth": "El cuarto puesto no recibe nada.",
+      "stacksLabel": "Stacks al inicio de la mano",
+      "you": "Tú, {{pozycja}}",
+      "rival": "Rival, {{pozycja}}",
       "stackValue": "{{bb}} bb",
       "rowLabel": "{{kto}}, {{wartosc}}",
-      "wholeStack": "{{kwota}} is your whole stack: if you lose, you are out of the {{t:tournament|tournament}} with no prize.",
-      "rewards": "Stacks and prizes"
+      "wholeStack": "{{kwota}} es todo tu stack: si pierdes, quedas fuera del {{t:tournament|torneo}} sin premio.",
+      "rewards": "Stacks y premios"
     }
   }
 }

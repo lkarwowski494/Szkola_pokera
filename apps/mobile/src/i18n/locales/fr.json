@@ -1071,13 +1071,13 @@
     "numbers": {
       "title": "Chiffres",
       "line": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il te faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Outs : {{outy}} sur {{nieznane}} cartes non vues : tu touches ton tirage dans {{trafisz}} des cas, environ une fois sur {{razTrafisz}}.",
-      "cbet": "A small {{t:c-bet}} is about {{maly}} of the {{t:pot}}, a big one about {{duzy}}. To {{t:call}}, your opponent needs {{cenaMaly}} equity against the small one, that is, to win about once in {{razMaly}}, and {{cenaDuzy}} against the big one, about once in {{razDuzy}}.",
-      "sizeOpen": "With a {{t:raise|raise}} to {{bb}} bb, the {{t:big-blind}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb (if everyone else {{t:fold|folds}}), so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "size3bet": "With a 3-bet to {{bb}} bb, the {{t:open|opener}} adds {{doplata}} bb to a {{t:pot|pot}} of {{pula}} bb, so they need {{cena}} equity, that is, to win about once in {{raz}}.",
-      "limp": "A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.",
-      "icm": "Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.",
-      "overcardsFold": "If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.",
-      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own."
+      "cbet": "Un petit {{t:c-bet}} représente environ {{maly}} du {{t:pot|pot}}, un gros environ {{duzy}}. Pour {{t:call|suivre}}, votre adversaire a besoin de {{cenaMaly}} d'équité contre le petit, soit gagner environ une fois sur {{razMaly}}, et de {{cenaDuzy}} contre le gros, soit environ une fois sur {{razDuzy}}.",
+      "sizeOpen": "Avec une {{t:raise|relance}} à {{bb}} bb, la {{t:big-blind|grosse blinde}} ajoute {{doplata}} bb à un {{t:pot|pot}} de {{pula}} bb (si tous les autres {{t:fold|se couchent}}), il lui faut donc {{cena}} d'équité, soit gagner environ une fois sur {{raz}}.",
+      "size3bet": "Avec un 3-bet à {{bb}} bb, le joueur qui a fait l'{{t:open|ouverture}} ajoute {{doplata}} bb à un {{t:pot|pot}} de {{pula}} bb, il lui faut donc {{cena}} d'équité, soit gagner environ une fois sur {{raz}}.",
+      "limp": "Un limp coûte {{kwota}} bb, et la {{t:big-blind|grosse blinde}} peut voir le flop sans payer de plus.",
+      "icm": "Votre main a {{equity}} d'{{t:equity|équité}} contre la {{t:range|range}} avec laquelle votre adversaire fait {{t:all-in|all-in}}, soit environ {{na10}} mains gagnées sur 10. Selon l'{{t:icm|ICM}}, {{t:call|suivre}} est rentable à partir de {{prog}}, alors que dans une partie pour des {{t:chips|jetons}} {{progZetony}} suffiraient : dans la {{t:bubble|bulle}}, perdre vous retire plus du {{t:prize-pool|prize pool}} que gagner ne vous apporte.",
+      "overcardsFold": "Si vous comptez aussi les cartes qui vous donnent une {{t:pair|paire}} plus haute que toutes les cartes du {{t:board|board}} ({{nadkarty}} sur {{nieznane}} non vues), vous touchez dans {{trafiszRazem}} des cas, soit encore moins souvent que ce qu'exige le prix ({{potrzeba}}). Une telle {{t:pair|paire}} peut aussi perdre contre une meilleure main de l'adversaire.",
+      "overcardsCall": "Les cartes qui vous donnent une {{t:pair|paire}} plus haute que toutes les cartes du {{t:board|board}} ({{nadkarty}} sur {{nieznane}} non vues) sont laissées de côté dans le calcul : une telle {{t:pair|paire}} peut perdre contre une meilleure main, et les outs de votre tirage suffisent à eux seuls."
     },
     "next": {
       "street": "Suite : {{ulica}}",
@@ -1110,21 +1110,21 @@
       "withAmount": "{{akcja}} {{kwota}}"
     },
     "icm": {
-      "tableLabel": "{{t:board|Table}}: you are {{ty}}, cards {{reka}}. Your opponent in the {{rywal}} is all-in.",
-      "foldedOne": "{{kto}} {{t:fold|folded}}.",
-      "foldedMany": "{{kto}} {{t:fold|folded}}.",
-      "bubble": "{{t:bubble|Bubble}}: {{platne}} of {{gracze}} places are paid",
-      "prizes": "Prizes: {{lista}} of the {{t:prize-pool|prize pool}}. {{brak}}",
-      "place": "place {{n}} {{procent}}",
-      "noPrizeThird": "Place 3 gets nothing.",
-      "noPrizeFourth": "Place 4 gets nothing.",
-      "stacksLabel": "Stacks at the start of the hand",
-      "you": "You, {{pozycja}}",
-      "rival": "Opponent, {{pozycja}}",
+      "tableLabel": "{{t:board|Table}} : vous en {{ty}}, cartes {{reka}}. Votre adversaire en {{rywal}} fait all-in.",
+      "foldedOne": "{{kto}} {{t:fold|s'est couché}}.",
+      "foldedMany": "{{kto}} {{t:fold|se sont couchés}}.",
+      "bubble": "{{t:bubble|Bulle}} : {{platne}} places payées sur {{gracze}}",
+      "prizes": "Gains : {{lista}} du {{t:prize-pool|prize pool}}. {{brak}}",
+      "place": "place {{n}} : {{procent}}",
+      "noPrizeThird": "La troisième place ne gagne rien.",
+      "noPrizeFourth": "La quatrième place ne gagne rien.",
+      "stacksLabel": "Stacks en début de main",
+      "you": "Vous, {{pozycja}}",
+      "rival": "Adversaire, {{pozycja}}",
       "stackValue": "{{bb}} bb",
       "rowLabel": "{{kto}}, {{wartosc}}",
-      "wholeStack": "{{kwota}} is your whole stack: if you lose, you are out of the {{t:tournament|tournament}} with no prize.",
-      "rewards": "Stacks and prizes"
+      "wholeStack": "{{kwota}} correspond à tout votre stack : en cas de défaite, vous êtes éliminé du {{t:tournament|tournoi}} sans gain.",
+      "rewards": "Stacks et gains"
     }
   }
 }
