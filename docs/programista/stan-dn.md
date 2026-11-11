@@ -10,6 +10,17 @@ Gałąź `sesja-dn-liczby` @ 709f6947. Inwentaryzacja z 2026-11-11 (czytane plik
 | D-889 widok punktu ICM | **Brak** | w `EkranScenariusza.tsx` icm-call ma tylko dziennik `play.log.allin` (`:132`) i kwoty `wariant.ts:236-239`; brak stołu 3–4 miejsc, listy stosów, nagród, przypisu | cała sekcja (komponent widoku, klucze, ocena „Stosy i nagrody”) |
 | D-890 próg `(S − b) ÷ (2S)` | **Brak** | `scenario-gen.ts:278` `ICM_CHIPS_REQUIRED = 0.5`, wpisane w `:464` jako `requiredChips`; pole czytane też w `icm.ts`, `drills/text.ts` | zmiana wartości `requiredChips` (S = `stackBb`, b = `blindBb(hero)`), test niezależny; uwaga: `chipsDiffer` (`:461`) zostaje na 0,5 zgodnie z D-890 |
 
+## Stan po sesji (2026-11-11)
+| Decyzja | Stan | Dowód |
+|---|---|---|
+| D-890 | zrobione | commit ac071adc; `tools/content-build/test/dn-prog-zetony-d890.test.ts` (czerwony 0,5 ≠ 0,45, potem zielony) |
+| D-888 | zrobione (F2–F4 + nadkarty; range-spot bez zdań, jak w §3) | commit 4005a7f4 + poprawka b4297223; `apps/mobile/src/features/scenariusz/liczby.ts`; testy `dn-liczby-d888.test.tsx` (15), `packages/poker-core/test/nadkarty-dn.test.ts` (5) |
+| D-889 | **NIE ZROBIONE** (osobny, duży krok UI) | spec: `docs/design/design-spec.md` „Scenariusz: punkt ICM” (kryteria 1–6), makieta `docs/design/ekrany/scenariusz-icm.html`, wzorce zrzutów `wzorce-zrzuty/scenariusz-icm/` |
+| D-886/D-887 | bez braków | patrz inwentaryzacja |
+| CI | `pnpm run ci` kod 0 na b4297223 | `docs/programista/dowody/dn-ci-b4297223.txt`; czerwone na 4005a7f4: `dn-ci-4005a7f4.txt` (terms.test.ts, naprawione) |
+
+Uwagi do D-889: `icm-call` wraca na `RODZAJE_NA_EKRANIE` dopiero z widokiem i warunkiem SC-34 (06-tresci-002, CQ); stos „ty” i dopłata z twojego stosu (kryterium 2) wymagają stosów w wariancie (`stacks`, `heroIndex`) zamiast `stackBb`; kolejność kroków: komponent widoku → klucze → RNTL → zrzuty AX5.
+
 ## Szacunek reszty (czas agenta)
 D-890: ok. 0,5 h. D-888: ok. 3–4 h (7 kluczy pl i en, parametry w kodzie, `nadkarty` w wariancie wymaga decyzji: pole w wariancie zmienia odcisk albo liczenie po stronie ekranu). D-889: ok. 3–4 h (komponent, klucze, RNTL). Czekanie: pełne CI ok. kilkanaście minut na przebieg.
 
