@@ -140,7 +140,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| DS | session_01T66VBymkCU3U6RPvD5J9oD | 09 build (sonnet/medium) | sesja-ds-przeklad @ b3963e9a | 0 | 0 | w toku od 18:05: przekład 7 scenario.numbers.* + 15 scenario.icm.* (DS.md @ 29162f74, D-1010…D-1019) |
+| DS | session_01T66VBymkCU3U6RPvD5J9oD | 09 build (sonnet/medium) | sesja-ds-przeklad @ 081c6ef3 | 28,1 | 4,04 | PRZEKAZANIE 18:25: 22 klucze × 10 słowników, ci kod 0 wg DS (`ds-ci-b3963e9a.txt`), przekład zwrotny; autor zgodny, ścieżki: locales + test + docs. CI dispatch 18:26 [wynik do odczytu]. **Do zrobienia:** recenzja 09 audit (niezależna) + znaleziska DS (04/06: {{t:board}} w tableLabel; 06: pt „Bubble” vs „bolha”; fr/pt „tu” vs „vous”; ko/zh equity; 08: komponenty.tsx:170 join ASCII dla ja/zh); zarchiwizowana |
 | DQ | session_01T66VBvLpB9q2t7Chfq96FR | 08 audit (opus/high) | sesja-dq-recenzja @ 2d5e53f0 | 25,0 | 4,96 | PRZEKAZANIE 17:34: PRZYJĄĆ PO POPRAWKACH (0 KRYT/WYS, 4 ŚR, 2 NIS); autor zgodny, tylko docs; ci kod 0 (`dowody/dq-ci-007e23ad.txt`); KO-068 potwierdzone niezależnie; zarchiwizowana 17:52 |
 | DR | session_01T66VBzn4LpNpykcN2CRS96 | 08 fix (sonnet/medium) | sesja-dp-icm @ b3963e9a | 20,1 | 1,66 | **przyjęta 17:58** (autor 7/7, ci kod 0 `dr-ci-4afed12e.txt`, b3963e9a = +docs, mutanty `dr-mutanty.txt`; recenzje DO/DQ scalone); zarchiwizowana. **DN + DP + DR przyjęte** |
 | DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | 25,3 | 5,45 | przyjęta 16:26 (PRZYJĄĆ DN); zarchiwizowana 16:55 |
@@ -570,3 +570,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 18:10 | właściciel | pytanie „Jak idzie praca? Kiedy wersja 1.0” — odpowiedź: 6/34 szablonów w content, ścieżka krytyczna C→D→E→I→J→audyt M1→build; pytanie o zakres 1.0 | odpowiedź właściciela |
 | 18:15 | właściciel | „2. Pełen zestaw, pracuj równolegle” + pytanie o wąskie gardła / E2E w Treningu → wpis w mandacie; sprawdzone: Poker ma już rozwiązania E2E z Treningu (D-170 wyzwalacze, D-273 aplikacja z innego przebiegu); Trening @ main e2e-ios.yml odczyt 18:15 | plan przyspieszenia E2E (WG-02/09) + sesje równoległe C/D |
 | 18:32 | koordynator | właściciel: zgoda na 4 przyspieszenia, „Ruszaj” → KO-069 (metoda źródeł); polecenia DT, DU, DV @ b3963e9a | start 3 sesji (subagent) |
+| 18:26 | DS → koordynator | PRZEKAZANIE 081c6ef3 (D-1010…D-1013 do weta); sprawdzone autor i ścieżki; CI dispatch ci.yml na sesja-ds-przeklad; DS zarchiwizowana (4,04 USD). Koordynator 28,8% kontekstu → przekazanie E6 po starcie DT/DU/DV | następca |
