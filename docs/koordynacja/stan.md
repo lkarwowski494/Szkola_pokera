@@ -428,3 +428,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-11 05:17 | koordynator | CI 42962783076 success @ 4619781, E2E 42958391277 success @ ed2cfec → ff roboczej 4619781; CU, CV przyjęte i zarchiwizowane; kontekst 21% | kontrola 06:10 (CI+E2E 4619781); zgoda prompts |
 | 11-11 06:12 | koordynator | CI 42964699775 + E2E 42964699807 success @ 4619781 (robocza); kontekst 26% | czekam na zgodę prompts; linie 14:00 i 05:00 |
 | 11-11 06:20 | koordynator | zgoda właściciela na prompts (06:15) → dołączona @ 9553f6b; przekazanie E6 (kontekst ok. 27%, WG-13) | start następcy |
+| 11-11 06:24 | koordynator session_01T66VBvNWsjkbVAczFtS9nm | przekazane do session_01T66VBz4mtBEPwdkS219BVy (start bez błędu); moje przypomnienia 05:00/14:00 usunięte, została „kontrola przekazania” 06:54 | następca: przejęcie E6 pkt 5 |
