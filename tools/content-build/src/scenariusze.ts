@@ -15,6 +15,8 @@ export interface ScenarioCheckContext {
   spots?: ReadonlyMap<string, readonly string[]>;
   /** Przypadki c-betu z reguł cbet-case (F2); bez nich punkty cbet-case są błędem. */
   cbetCases?: readonly CbetCaseData[];
+  /** 08-N5: id reguły cbet-case → `params.position` (ip/oop; brak = ip): pozycja gracza po flopie musi się zgadzać z regułą. */
+  cbetPositions?: ReadonlyMap<string, string | number | undefined>;
   /** Reguły rozmiaru (open-size, three-bet-size, no-limp) z parametrami (F3); bez nich punkty size-spot są błędem. */
   sizeRules?: readonly SizeRuleData[];
 }
@@ -146,6 +148,13 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       const przypadki = (ctx.cbetCases ?? []).filter((c) => c.rule === d.rule);
       if (przypadki.length === 0) e.push(`${p} reguła ${d.rule} nie ma przypadku c-betu (zadanie c-btn: cases z rule: ${d.rule}); punkt cbet-case ocenia przypadek, nie rachunek`);
       const mozliwe = new Set(przypadki.map((c) => CBET_AKCJE[c.best]));
+      {
+        const post = (x: string) => (KOLEJNOSC_PO_FLOPIE as readonly string[]).indexOf(x);
+        const ip = post(t.positions.hero) > post(t.positions.villain);
+        const regulaPozycja = ctx.cbetPositions?.get(d.rule) ?? 'ip';
+        if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${t.positions.hero} wobec ${t.positions.villain})`);
+        if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${t.positions.hero} wobec ${t.positions.villain})`);
+      }
       if (new Set(d.actions.map((a) => a.action)).size !== d.actions.length) e.push(`${p} akcja powtórzona`);
       for (const l of SCENARIO_LEVELS_LIST) {
         const b = t.bounds[l];
