@@ -59,6 +59,21 @@ const akcja = (a: Akcja): PlayerAction =>
   a === 'check' ? { type: 'check' } : { type: 'bet', to: Math.round(pula * number(a === 'bet-small' ? 'cbet.size.small' : 'cbet.size.big')) };
 const maPare = (hero: readonly Card[], flop: readonly Card[]) => rankOf(hero[0]!) === rankOf(hero[1]!) || hero.some((c) => flop.some((f) => rankOf(f) === rankOf(c)));
 /**
+ * Gotowy układ z pięciu kart (ręka + flop), z samych rang i kolorów (07-jakosc-003): kolor (5 kart w jednym kolorze) albo strit
+ * (5 kolejnych rang, as także nisko). Ręka z takim układem nie „chybiła”, więc nie jest air, mimo że outyDrawa dla niej daje 0.
+ */
+function gotowyUklad(hero: readonly Card[], flop: readonly Card[]): 'kolor' | 'strit' | null {
+  const karty = [...hero, ...flop];
+  if (karty.length !== 5) return null;
+  if (new Set(karty.map(suitOf)).size === 1) return 'kolor';
+  const rangi = new Set(karty.map(rankOf));
+  if (rangi.size !== 5) return null;
+  const posortowane = [...rangi].sort((x, y) => x - y);
+  const kolejne = posortowane[4]! - posortowane[0]! === 4;
+  const kolo = posortowane.join() === '0,1,2,3,12'; // A2345
+  return kolejne || kolo ? 'strit' : null;
+}
+/**
  * Outy drawa liczone z samych rang i kolorów (CZ, 06-tresci-007), bez classifyHolding, którego używa generator: niewidziane karty,
  * które dają kolor (4 karty w kolorze z kartą gracza) albo strit (5 kolejnych rang, as także nisko). Stół ma 3 karty, więc strit
  * z jedną dobraną kartą zawsze używa karty gracza. Próg „draw” to parametr klas rąk HOLDING_LIMITS.drawOutsMin (kolor 9, strit
@@ -114,6 +129,13 @@ describe('CZ (06-tresci-007): wyrocznia outów drawa z rang i kolorów, rachunek
     ['9h 8h', '7h 6c 2h', 15], // kolor 9 + T i 5 bez dwóch kierów (6)
     ['Ks Qd', '9c 5h 2s', 0], // bez drawa
   ] as const)('%s na %s: %i outów', (h, f, n) => expect(o(h, f)).toBe(n));
+  it.each([
+    ['9s 8d', '7c 6h 5s', 'strit'],
+    ['As 2d', '3c 4h 5s', 'strit'], // koło
+    ['Ah 5h', 'Kh 8h 3h', 'kolor'],
+    ['9s 8d', '7c 6h 2s', null], // dopiero draw
+    ['Ks Qd', '9c 5h 2s', null],
+  ] as const)('gotowy układ %s na %s: %s', (h, f, n) => expect(gotowyUklad(h.split(' ').map(k), f.split(' ').map(k))).toBe(n));
   it('próg drawa z parametru klas rąk: gutshot poniżej, strit otwarty od progu', () => {
     expect(HOLDING_LIMITS.drawOutsMin).toBeGreaterThan(4);
     expect(HOLDING_LIMITS.drawOutsMin).toBeLessThanOrEqual(8);
@@ -141,6 +163,7 @@ describe('szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akc
           if (b.flop && !textureMatches(classifyFlop(flop), b.flop)) bledy.push(`${seed}: tekstura poza filtrem`);
           // holding air: bez pary i bez drawa, oba z samych rang i kolorów (CZ, 06-tresci-007: bez classifyHolding generatora)
           if ((b.holding ?? []).join() === 'air' && maPare(v.hero, flop)) bledy.push(`${seed}: ręka poza filtrem air (para)`);
+          if ((b.holding ?? []).join() === 'air' && gotowyUklad(v.hero, flop)) bledy.push(`${seed}: ręka poza filtrem air (gotowy ${gotowyUklad(v.hero, flop)})`);
           if ((b.holding ?? []).join() === 'air' && outyDrawa(v.hero, flop) >= HOLDING_LIMITS.drawOutsMin) bledy.push(`${seed}: ręka poza filtrem air (draw, ${outyDrawa(v.hero, flop)} outów)`);
           if (t.positions && !otwiera(t.positions.hero, classOf(v.hero[0], v.hero[1]))) bledy.push(`${seed}: ${classOf(v.hero[0], v.hero[1])} poza zakresem otwarcia ${t.positions.hero}`);
           const st = flopBtn(v.hero, v.villain, flop);
