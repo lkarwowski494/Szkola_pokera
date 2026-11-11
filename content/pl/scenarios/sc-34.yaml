@@ -1,0 +1,23 @@
+# SC-34 (M11): bańka, duży blind wobec all-inu małego blinda przy 10 bb (F4, punkt icm-call). Ocena: rachunek R-M11-009 (equity z kart
+# wobec zakresu push.sb-10 i próg ICM z blindem gracza). Poziomy łatwy i średni (D-1036, sesja DU); poziom trudny czeka na 06-tresci-002
+# i zostaje w szkicu docs/tresci/szablony-robocze/sc-34.yaml (bramka scenariusze.ts odrzuca icm-call z poziomem trudnym). Rola 06, sesje CO i DU.
+id: sc-34
+module: m11
+situation: "Na {{t:bubble|bańce}} {{t:small-blind}} wchodzi {{t:all-in}}, a ty jesteś na {{t:big-blind|dużym blindzie}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy, sredni]
+bounds:
+  latwy: { marginMin: 0.1, expected: [fold] }
+  sredni: { marginMin: 0.05, marginMax: 0.15, expected: [call] }
+decisions:
+  - street: preflop
+    kind: icm-call
+    spot: push.sb-10
+    rule: R-M11-009
+    actions:
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} na {{t:bubble|bańce}}, {{w:stol}}, a {{t:small-blind}} wszedł {{t:all-in}}. {{t:fold|Pasujesz}}, bo w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc {{t:call|sprawdzenie}} musi wygrywać częściej niż w grze o {{t:chips|żetony}}. Ta ręka ma wobec {{t:range|zakresu}} {{t:all-in|all-inu}} za mało {{t:equity}}, żeby przejść ten wyższy próg z {{t:icm}}."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}} na {{t:bubble|bańce}}, {{w:stol}}, a {{t:small-blind}} wszedł {{t:all-in}}. {{t:call|Sprawdzasz}}, bo ta ręka ma wobec {{t:range|zakresu}} {{t:all-in|all-inu}} więcej {{t:equity}}, niż wymaga próg z {{t:icm}}. Ten próg jest wyższy niż w grze o {{t:chips|żetony}}, bo w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje."

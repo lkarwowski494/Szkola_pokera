@@ -1,0 +1,11 @@
+# Sesja DU (06-tresci), 2026-11-11: mutant w generatorze dla testu tools/content-build/test/szablony-du.test.ts (D-1038)
+# Mutant (tymczasowy, niezacommitowany, cofnięty `git checkout packages/poker-core/src/scenario-gen.ts`):
+#   packages/poker-core/src/scenario-gen.ts eligibleClasses: `if (spot.uncertain.includes(hc)) return;` → `if (false && spot.uncertain.includes(hc)) return;`
+# Komenda: cd tools/content-build && npx vitest run test/szablony-du.test.ts
+# Wynik z mutantem (czerwony):
+     × sc-06 latwy: 10000 wariantów 20ms
+AssertionError: expected [ '2: 97s to klasa niepewna', …(4) ] to deeply equal []
++   "2: 97s to klasa niepewna",
++   "20: A8o to klasa niepewna",
+# Bez mutanta: Test Files 1 passed (1), Tests 14 passed (14).
+# Drugi mutant (treść): en SC-32 różny od pl (przedział freqs w pl 0,0–1) → czerwony test „sc-32: en ma te same poziomy, granice, punkty i akcje co pl”; treść przywrócona.

@@ -1,0 +1,34 @@
+# SC-06 (M3): mały blind przebija albo pasuje, potem rozmiar przebicia (F1 + F3: range-spot rfi.sb, size-spot open-size z sb). Rola 06, sesja DU,
+# 2026-11-11. Ocena: rangeVerdict na solverze projektu (R-M3-009, gto) i rozmiar z parametru R-M3-007 (zły rozmiar = niedokładność).
+# Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
+id: sc-06
+module: m3
+situation: "You are in the {{t:small-blind}}, and everyone {{t:fold|folded}} to you."
+table: 6max
+positions: { hero: SB, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.97, max: 1 }, null], expected: ["raise 3", raise] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.sb
+    rule: R-M3-009
+    actions:
+      - action: "raise 3"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and everyone {{t:fold|folded}} to you. You {{t:raise}}, because you now play only against the {{t:big-blind}}; after the flop you act first, so you {{t:open}} about as wide as from the Button, about {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} of hands, and this hand is among them."
+      - action: fold
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and everyone {{t:fold|folded}} to you. A {{t:fold}} is too cautious: the solver usually {{t:raise|raises}} this hand. You now play only against the {{t:big-blind}}, so from the {{t:small-blind}} you {{t:open}} wide, about {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} of hands."
+  - street: preflop
+    kind: size-spot
+    check: open-size
+    rule: R-M3-007
+    sb: true
+    actions:
+      - action: raise
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you {{t:raise}}. You {{t:raise}} to {{n:pf.open-size-sb}}, because from the {{t:small-blind}} you play {{t:out-of-position}}, so you {{t:raise}} a little more than {{n:pf.open-size}} from other {{t:position|positions}}; one size for all hands does not reveal the strength of your hand."
+      - action: raise-small
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you {{t:raise}}. This size is an inaccuracy: from the {{t:small-blind}} you play {{t:out-of-position}}, so you {{t:raise}} a little more, to {{n:pf.open-size-sb}}."
+      - action: raise-big
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, {{w:stol}}, and you {{t:raise}}. This size is an inaccuracy: {{n:pf.open-size-sb}} is enough; one size for all hands does not reveal the strength of your hand, and a bigger {{t:raise}} risks more {{t:chips}} with the same hand."

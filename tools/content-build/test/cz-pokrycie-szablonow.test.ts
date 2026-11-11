@@ -8,10 +8,13 @@ import { describe, expect, it } from 'vitest';
 import { loadScenarioTemplates } from '../src/scenariusze';
 
 const pl = loadScenarioTemplates(join(resolve(import.meta.dirname, '../../..'), 'content', 'pl', 'scenarios')).map((x) => x.template);
-/** Testy zgodności na treści pl według rodzaju punktu. range-spot i size-spot mają dziś testy tylko na fixture (F1, F3), więc szablon pl z nimi jest luką. */
+/** Testy zgodności na treści pl według rodzaju punktu (range-spot, size-spot i icm-call od sesji DU, KO-070: SC-06, SC-32, SC-33, SC-34). */
 const TESTY: Record<string, readonly string[]> = {
   'draw-call': ['szablony-bs.test.ts', 'stos-zakladu-bu.test.ts', 'bv-gotowa-reka.test.ts'],
   'cbet-case': ['szablony-co.test.ts'],
+  'range-spot': ['szablony-du.test.ts'],
+  'size-spot': ['szablony-du.test.ts'],
+  'icm-call': ['szablony-co.test.ts'],
 };
 const rodzaj = (d: { kind?: string }) => d.kind ?? 'draw-call';
 

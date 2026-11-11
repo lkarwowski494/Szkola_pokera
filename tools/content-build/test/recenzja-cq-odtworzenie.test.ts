@@ -25,6 +25,8 @@ const ctx = {
   thresholds: { mixedMin: 0.035, mixedLow: 0.25 },
   equity169: eqf,
   cbetCases: content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!,
+  // size-spot (SC-06, DU): reguły rozmiaru jak w getKontekstGeneratora na ekranie
+  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)),
 };
 
 describe('06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: kontekst generatora składa ekran, bramka odrzuca resztę)', () => {
@@ -41,10 +43,10 @@ describe('06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: ko
       });
     }
   }
-  it('szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002 i nie ma go w content/ (WYS-002; D-889, D-986)', () => {
+  it('szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002, a w content/ jest tylko bez poziomu trudnego (WYS-002; D-889, D-986, D-1036)', () => {
     const sc34 = szkice.find((t) => t.id === 'sc-34')!;
     expect(checkScenarioNaEkran(sc34).join('\n')).toMatch(/poziom trudny.*06-tresci-002/);
-    expect(pl.some((t) => t.id === 'sc-34' || t.decisions.some((d) => d.kind === 'icm-call'))).toBe(false);
+    expect(pl.filter((t) => t.decisions.some((d) => d.kind === 'icm-call')).map((t) => [t.id, t.levels])).toEqual([['sc-34', ['latwy', 'sredni']]]);
   });
 });
 

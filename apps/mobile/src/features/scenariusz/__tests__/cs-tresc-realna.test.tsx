@@ -1,6 +1,7 @@
 /// <reference types="jest" />
 // CS (CQ 06-tresci-001): szablony SC-11 i SC-12 z prawdziwej bazy treści pl (nie fixtury) startują na ekranie z kontekstem generatora:
-// trzy akcje c-betu, każda ma ocenę i wyjaśnienie z szablonu, bez surowych znaczników. Szablonu z punktem icm-call w bazie nie ma (D-807).
+// trzy akcje c-betu, każda ma ocenę i wyjaśnienie z szablonu, bez surowych znaczników. Od DU (KO-070) baza ma też range-spot (SC-06, SC-32,
+// SC-33; ekran od D-866) i icm-call (SC-34 bez poziomu trudnego; ekran od D-889, bramka D-986).
 import '@/i18n';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { generateVariant } from '@szkola/poker-core';
@@ -22,10 +23,10 @@ const sesja = (szablon: ScenarioTemplate, poziom: 'latwy' | 'sredni', ziarno: nu
 } as unknown as SesjaScenariusza);
 
 describe('treść z bazy: SC-11 i SC-12 na ekranie (CQ 06-tresci-001)', () => {
-  it('baza nie ma szablonu z punktem icm-call ani range-spot (ekran ich nie obsługuje)', () => {
-    expect(szablony.flatMap((t) => t.decisions.map((d) => d.kind)).filter((k) => k === 'icm-call' || k === 'range-spot')).toEqual([]);
+  it('baza ma SC-11 i SC-12, a SC-34 (icm-call) tylko bez poziomu trudnego (D-986, D-1036)', () => {
     expect(szablony.map((t) => t.id)).toEqual(expect.arrayContaining(['sc-11', 'sc-12']));
-    expect(szablony.map((t) => t.id)).not.toContain('sc-34');
+    expect(szablony.filter((t) => t.decisions.some((d) => d.kind === 'icm-call')).map((t) => [t.id, t.levels])).toEqual([['sc-34', ['latwy', 'sredni']]]);
+    expect(szablony.filter((t) => t.decisions.some((d) => d.kind === 'range-spot')).map((t) => t.id)).toEqual(['sc-06', 'sc-32', 'sc-33']);
   });
   for (const id of ['sc-11', 'sc-12']) {
     for (const poziom of ['latwy', 'sredni'] as const) {
