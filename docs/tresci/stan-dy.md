@@ -42,7 +42,7 @@ N1…N7 i typ KO-072 są w poleceniu DX. Nowe albo doprecyzowane (zachowanie i t
 - **Zad. 3–4:** 15 szkiców `docs/tresci/szablony-robocze/krok-e/sc-{16,17,18,20…31}.yaml` + `README.md` (tabela szkiców, rodzaje punktów z testem akceptacji, projekt reguły R-M7-013, otwarte pytania OP-DY-1…3). Zmiany względem DV: SC-18 tylko nadkarta A/K (D-1081), SC-23 blokery na obu poziomach (D-1082), SC-20 bez T (D-1086). M10 wg KO-071: SC-29 = rachunek value bet z szerokim zakresem sprawdzenia, SC-30 = equity wobec górnych x% (D-1083), SC-31 = rachunek bluff-catch; typ rywala opisany zachowaniem i „załóż, że…” (D-1087), bez `villainType` i reguł exploit.
 - **Kontrola szkiców (skrypt node w sesji, nie w repo):** 33 odwołania `{{n:…}}` i 332 `{{t:…}}` — wszystkie istnieją w `content/numbers.yaml` i słowniku terminów; reguły w `rules.yaml`; liczb z % / bb wpisanych ręcznie 0; jedyny brakujący klucz: `eq.call-3bet` (SC-30, do dodania przy przenoszeniu).
 - **Zad. 5:** ZAL-013 w `docs/zalozenia.md` → „potwierdzone w wersji zawężonej (M6–M9)” z listą wykluczeń D-1053 (D-1088).
-- **Zad. 6:** pierwszy przebieg `pnpm run ci` kod 1 (szkice w katalogu walidowanym przez testy) → przeniesienie do podkatalogu (D-1085); wynik drugiego przebiegu: `docs/tresci/dowody/dy-ci-<sha>.txt`.
+- **Zad. 6:** pierwszy przebieg `pnpm run ci` kod 1 (szkice w katalogu walidowanym przez testy) → przeniesienie do podkatalogu (D-1085); wynik drugiego przebiegu: `docs/tresci/dowody/dy-ci-c9efdd3d.txt` (kod 0).
 
 ## Następny krok
 Koordynator: N7a/N7b i N8…N12 do kolejki 08 (D-1084); OP-DY-3 do 03. Po scaleniu DX: 06 przenosi szkice kroku E do `content/{pl,en}` (testy treści wg KO-070, `pnpm content:build`), dodaje `eq.call-3bet` i ewentualnie R-M7-013.

@@ -1,0 +1,28 @@
+Dowód: pnpm run ci, sesja DY, 2026-11-11
+Drzewo robocze = treść commita c9efdd3d (bez docs/tresci/stan-dy.md: sekcję „Wynik zadań 2–6” dopisano w trakcie przebiegu; plik nie jest wejściem testów).
+Komenda: pnpm run ci > ci2.log; kod wyjścia: 0
+Poprzedni przebieg (szkice w szablony-robocze/, przed D-1085): kod 1, 2 pliki testów (szablony-co, recenzja-cq-odtworzenie): 'szablon sc-16: bounds.sredni Unrecognized key: "drawOutsMin"'
+
+Podsumowanie testów:
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  15 passed (15)
+packages/poker-core test:       Tests  184 passed (184)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  47 passed (47)
+tools/content-build test:       Tests  481 passed | 1 expected fail (482)
+Test Files  6 passed (6)
+Tests  35 passed (35)
+
+Koniec logu:
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+kod=0
