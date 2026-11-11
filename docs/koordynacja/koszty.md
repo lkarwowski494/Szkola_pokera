@@ -117,3 +117,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | DU | 06 build opus/high | — | 13,64 | 42,5 | 18:28 → 18:31 → 18:52 raport → 19:40 PRZEKAZANIE (ci w sesji kod 0 na cbdd2ff2) → CI dispatch 19:42 → recenzja EA | 0 | **przekroczony budżet 38% (42,5%)**: przekazanie dopiero po skończeniu kroku; kontrola 18:59 widziała 0 (licznik nie odświeżony) |
 | DZ | 09 fix sonnet/medium | — | 1,28 | 18,0 | 19:20 → 19:30 → 19:44 PRZEKAZANIE (ci w sesji kod 0 na a25d15f0) → CI dispatch 19:46 | 0 | 5 znalezisk, testy czerwone→zielone |
 | koordynator session_01T66VBwmproZFQjCLcWHQy4 | M9 | — | 12,79 (19:45) | ok. 28 | 18:39 → 19:52 | — | przekazanie do session_01T66VBwtbeXie1cCrPGeeBK; poprzednik archiwizuje się sam |
+| DY | 06 build | — | brak licznika | brak licznika | 19:20 → 19:26 → 0a57f924 → verify c9efdd3d kod 0 → 19:59 | — | docs, przyjęta bez recenzji |
