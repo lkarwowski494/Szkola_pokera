@@ -12,7 +12,7 @@ bounds:
     holding: [air]
     expected: [check]
   sredni:
-    flop: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+    flop: { height: [low], suits: [two-tone], ranks: [connected] }
     holding: [air]
     expected: [check]
 decisions:
