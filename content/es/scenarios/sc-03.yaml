@@ -1,0 +1,23 @@
+# sc-03: Spanish text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "Con stacks cortos, tras un {{t:3-bet}} los dos {{t:check|pasáis}} en el flop; en el turn tienes un {{t:gutshot}}, y tu rival {{t:bet|apuesta}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}}. Te {{t:fold|retiras}}, porque queda una carta hasta el river y solo un valor completa el {{t:gutshot}}: tienes {{n:outs.gutshot}} {{t:outs}}, así que el river liga en aproximadamente {{n:odds.gutshot.turn-river}} de los casos, con menos frecuencia de lo que exige el precio. Las {{t:implied-odds}} no lo salvan: con stacks cortos detrás del {{t:pot}} quedan demasiado pocas {{t:chips}} para que lo ganado tras ligar compense los {{t:call|calls}} perdidos."
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}}. Al {{t:call|pagar}}, pagas por una carta que completa la {{t:straight}} solo en aproximadamente {{n:odds.gutshot.turn-river}} de los casos, con menos frecuencia de lo que exige el precio. Tampoco lo salvan las {{t:implied-odds}}: con stacks cortos detrás del {{t:pot}} quedan demasiado pocas {{t:chips}} para que lo ganado tras ligar compense los {{t:call|calls}} perdidos."

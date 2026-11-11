@@ -1,0 +1,23 @@
+# sc-03: Vietnamese text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "Với stack ngắn, sau một {{t:3-bet|3-bet}} cả hai cùng {{t:check|check}} ở flop; ở turn bạn có {{t:gutshot|gutshot}}, còn đối thủ {{t:bet|cược}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}}. Bạn {{t:fold|bỏ bài}}, vì đến river chỉ còn một lá và chỉ một hạng bài hoàn thành {{t:gutshot|gutshot}}: bạn có {{n:outs.gutshot}} {{t:outs|out}}, nên river trúng trong khoảng {{n:odds.gutshot.turn-river}} trường hợp, ít hơn mức giá đòi hỏi. {{t:implied-odds|Implied odds}} cũng không cứu được: với stack ngắn, ngoài {{t:pot|pot}} chỉ còn quá ít {{t:chips|chip}} để khoản thắng sau khi trúng bù lại các lần {{t:call|theo}} đã thua."
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}}. {{t:call|Theo}} là trả tiền cho một lá chỉ hoàn thành {{t:straight|sảnh}} trong khoảng {{n:odds.gutshot.turn-river}} trường hợp, ít hơn mức giá đòi hỏi. {{t:implied-odds|Implied odds}} cũng không cứu được: với stack ngắn, ngoài {{t:pot|pot}} chỉ còn quá ít {{t:chips|chip}} để khoản thắng sau khi trúng bù lại các lần {{t:call|theo}} đã thua."

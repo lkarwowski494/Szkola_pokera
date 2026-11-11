@@ -1,0 +1,26 @@
+# sc-12: Vietnamese text of content/pl/scenarios/sc-12.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-12
+module: m5
+situation: "Bạn đã {{t:open|mở cược}} từ Button, {{t:big-blind|big blind}} đã {{t:call|theo}} và {{t:check|check}} trên một flop thấp và {{t:connected|liên kết}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+    holding: [air]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. Bạn {{t:check|check}}, vì {{t:big-blind|big blind}} bảo vệ nhiều {{t:connectors|connector}} và tay bài có lá nhỏ trúng flop thấp, còn tay bài không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}} của bạn đã trượt. Trên flop như vậy bạn {{t:c-bet|c-bet}} ít hơn so với flop cao."
+      - action: bet-small
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. Một khoản {{t:bet|cược}} nhỏ là chấp nhận được nhưng ít gặp hơn: trên flop thấp và {{t:connected|liên kết}} bạn {{t:c-bet|c-bet}} ít hơn so với flop cao, vì {{t:big-blind|big blind}} bảo vệ nhiều {{t:connectors|connector}} và tay bài có lá nhỏ trúng flop này."

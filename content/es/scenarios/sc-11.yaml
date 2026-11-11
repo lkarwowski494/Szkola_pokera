@@ -1,0 +1,28 @@
+# sc-11: Spanish text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-11
+module: m5
+situation: "Has {{t:open|abierto}} desde el Button, la {{t:big-blind}} ha {{t:call|pagado}} y {{t:check|pasa}} en un flop alto y {{t:dry|seco}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. {{t:bet|Apuestas}} poco, aproximadamente {{n:cbet.size.small}} del {{t:pot}}, porque tienes la {{t:range-advantage}} y las manos débiles de tu rival casi no tienen opciones: una {{t:bet|apuesta}} pequeña basta para que las {{t:fold|tire}}. La {{t:big-blind}} {{t:raise|sube}} la mayoría de AA, KK y AK antes del flop, así que tras solo pagar tiene pocas."
+      - action: check
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. {{t:check|Pasar}} es aceptable, pero menos frecuente: en un flop alto y {{t:dry|seco}} haces {{t:c-bet}} a menudo y pequeño, porque tienes la {{t:range-advantage}} y las manos débiles de tu rival ya se {{t:fold|retirarían}} ante una {{t:bet|apuesta}} pequeña. Al {{t:check|pasar}}, les das una carta gratis."
+      - action: bet-big
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. Una {{t:bet|apuesta}} grande es aquí una imprecisión: en un flop alto y {{t:dry|seco}} sueles hacer {{t:c-bet}} pequeño, aproximadamente {{n:cbet.size.small}} del {{t:pot}}, porque las manos débiles de tu rival ya se {{t:fold|retiran}} ante esa {{t:bet|apuesta}}."

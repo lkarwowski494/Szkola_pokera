@@ -1,0 +1,26 @@
+# sc-12: Spanish text of content/pl/scenarios/sc-12.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-12
+module: m5
+situation: "Has {{t:open|abierto}} desde el Button, la {{t:big-blind}} ha {{t:call|pagado}} y {{t:check|pasa}} en un flop bajo y {{t:connected|conectado}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+    holding: [air]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. {{t:check|Pasas}}, porque la {{t:big-blind}} defiende muchos {{t:connectors}} y manos con cartas bajas que ligan un flop bajo, y tu mano sin {{t:pair|pareja}} ni {{t:draw|proyecto}} no ha ligado. En un flop así haces {{t:c-bet}} con menos frecuencia que en flops altos."
+      - action: bet-small
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y la {{t:big-blind}} {{t:check|pasa}}. Una {{t:bet|apuesta}} pequeña es aceptable, pero menos frecuente: en un flop bajo y {{t:connected|conectado}} haces {{t:c-bet}} con menos frecuencia que en los altos, porque la {{t:big-blind}} defiende muchos {{t:connectors}} y manos con cartas bajas que ligan este flop."

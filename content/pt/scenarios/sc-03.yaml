@@ -1,0 +1,23 @@
+# sc-03: Portuguese text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "Com stacks curtos, depois de um {{t:3-bet}}, ambos fazem {{t:check}} no flop; no turn tem um {{t:gutshot}}, e o adversário {{t:bet|aposta}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}}. {{t:fold|Desiste}}, porque falta uma carta até ao river e só um valor completa o {{t:gutshot}}: tem {{n:outs.gutshot}} {{t:outs|outs}}, por isso o river acerta em cerca de {{n:odds.gutshot.turn-river}} dos casos, menos vezes do que o preço exige. As {{t:implied-odds}} não o salvam: com stacks curtos restam demasiado poucas {{t:chips}} atrás do {{t:pot}} para que o ganho depois de acertar compense os {{t:call|calls}} perdidos."
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}}. O {{t:call}} paga por uma carta que completa a {{t:straight}} só em cerca de {{n:odds.gutshot.turn-river}} dos casos, menos vezes do que o preço exige. Também não o salvam as {{t:implied-odds}}: com stacks curtos restam demasiado poucas {{t:chips}} atrás do {{t:pot}} para que o ganho depois de acertar compense os {{t:call|calls}} perdidos."

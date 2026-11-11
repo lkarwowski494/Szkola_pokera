@@ -6,7 +6,9 @@ import { generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@sz
 import { loadScenarioTemplates } from '../src/scenariusze';
 import { martweBlindy } from './martwe-blindy-wyrocznia';
 
-const pl = loadScenarioTemplates(join(resolve(import.meta.dirname, '../../..'), 'content', 'pl', 'scenarios'));
+const pl = loadScenarioTemplates(join(resolve(import.meta.dirname, '../../..'), 'content', 'pl', 'scenarios'))
+  // zakład rywala ma tylko punkt draw-call; cbet-case (gracz agresorem) i icm-call (all-in = stos efektywny) nie mają zakładu do porównania (sesja CO, D-791)
+  .filter((x) => x.template.decisions.every((d) => d.kind === 'draw-call'));
 const LOSOWANIA = 2_000;
 
 describe('ŚR-203: zakład nie większy niż stos gracza', () => {

@@ -1,0 +1,23 @@
+# sc-03: Italian text of content/pl/scenarios/sc-03.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-03
+module: m2
+situation: "Con stack corti, dopo un {{t:3-bet}} fate entrambi {{t:check}} al flop; al turn hai un {{t:gutshot}}, e il tuo avversario {{t:bet|punta}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 25
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.25, 0.33, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}}. {{t:fold|Foldi}}, perché fino al river resta una carta e un solo valore chiude il {{t:gutshot}}: hai {{n:outs.gutshot}} {{t:outs}}, quindi il river chiude in circa {{n:odds.gutshot.turn-river}} dei casi, meno spesso di quanto richieda il prezzo. Le {{t:implied-odds}} non lo salvano: con stack corti dietro al {{t:pot}} restano troppo poche {{t:chips}} perché la vincita dopo aver chiuso compensi i {{t:call}} persi."
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}}. Il {{t:call}} paga una carta che chiude la {{t:straight}} solo in circa {{n:odds.gutshot.turn-river}} dei casi, meno spesso di quanto richieda il prezzo. Nemmeno le {{t:implied-odds}} lo salvano: con stack corti dietro al {{t:pot}} restano troppo poche {{t:chips}} perché la vincita dopo aver chiuso compensi i {{t:call}} persi."

@@ -1,0 +1,28 @@
+# sc-11: Vietnamese text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-11
+module: m5
+situation: "Bạn đã {{t:open|mở cược}} từ Button, {{t:big-blind|big blind}} đã {{t:call|theo}} và {{t:check|check}} trên một flop cao và {{t:dry|khô}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. Bạn {{t:bet|cược}} nhỏ, khoảng {{n:cbet.size.small}} {{t:pot|pot}}, vì bạn có {{t:range-advantage|lợi thế range}}, còn các tay yếu của đối thủ hầu như không có cơ hội: một khoản {{t:bet|cược}} nhỏ là đủ để họ {{t:fold|bỏ bài}}. {{t:big-blind|big blind}} {{t:raise|tố}} phần lớn AA, KK và AK trước flop, nên sau khi chỉ {{t:call|theo}} họ có ít các tay này."
+      - action: check
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. {{t:check|Check}} là chấp nhận được nhưng ít gặp hơn: trên flop cao và {{t:dry|khô}} bạn {{t:c-bet|c-bet}} thường xuyên và nhỏ, vì bạn có {{t:range-advantage|lợi thế range}}, còn các tay yếu của đối thủ đã {{t:fold|bỏ bài}} trước một khoản {{t:bet|cược}} nhỏ. Khi {{t:check|check}}, bạn cho họ một lá bài miễn phí."
+      - action: bet-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn {{t:big-blind|big blind}} {{t:check|check}}. Một khoản {{t:bet|cược}} lớn ở đây là thiếu chính xác: trên flop cao và {{t:dry|khô}} bạn thường {{t:c-bet|c-bet}} nhỏ, khoảng {{n:cbet.size.small}} {{t:pot|pot}}, vì các tay yếu của đối thủ đã {{t:fold|bỏ bài}} trước khoản {{t:bet|cược}} như vậy."

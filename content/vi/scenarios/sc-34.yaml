@@ -1,0 +1,22 @@
+# sc-34: Vietnamese text of content/pl/scenarios/sc-34.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-34
+module: m11
+situation: "Ở {{t:bubble|bubble}}, {{t:small-blind|small blind}} {{t:all-in|all-in}}, còn bạn ở {{t:big-blind|big blind}}."
+table: 6max
+positions: { hero: BB, villain: SB }
+stackBb: 10
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { marginMin: 0.1, expected: [fold] }
+  sredni: { marginMin: 0.05, marginMax: 0.15, expected: [call] }
+  trudny: { marginMin: 0.01, marginMax: 0.1, chipsDiffer: true, expected: [fold] }
+decisions:
+  - street: preflop
+    kind: icm-call
+    spot: push.sb-10
+    rule: R-M11-009
+    actions:
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} tại {{t:bubble|bubble}}, {{w:stol}}, và {{t:small-blind|small blind}} đã {{t:all-in|all-in}}. Bạn {{t:fold|bỏ bài}}, vì trong {{t:tournament|giải đấu}} có {{t:payout|tiền thưởng}}, thua làm mất nhiều tiền hơn số tiền thắng mang lại, nên {{t:call|theo}} phải thắng thường xuyên hơn so với chơi bằng {{t:chips|chip}}. Trước {{t:range|range}} {{t:all-in|all-in}}, tay này có quá ít {{t:equity|equity}} để vượt ngưỡng {{t:icm|ICM}} cao hơn này."
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}} tại {{t:bubble|bubble}}, {{w:stol}}, và {{t:small-blind|small blind}} đã {{t:all-in|all-in}}. Bạn {{t:call|theo}}, vì trước {{t:range|range}} {{t:all-in|all-in}}, tay này có nhiều {{t:equity|equity}} hơn mức ngưỡng {{t:icm|ICM}} đòi hỏi. Ngưỡng này cao hơn so với chơi bằng {{t:chips|chip}}, vì trong {{t:tournament|giải đấu}} có {{t:payout|tiền thưởng}}, thua làm mất nhiều tiền hơn số tiền thắng mang lại."

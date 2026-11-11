@@ -1,0 +1,26 @@
+# sc-12: Traditional Chinese text of content/pl/scenarios/sc-12.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-12
+module: m5
+situation: "你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}{{t:call|跟注}}後，在低牌{{t:connected|連張}}翻牌上{{t:check|過牌}}。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+    holding: [air]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - action: check
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。你{{t:check|過牌}}，因為{{t:big-blind|大盲}}防守很多能擊中低牌翻牌的{{t:connectors|連張}}和小牌，而你沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}的手牌沒有擊中。在這樣的翻牌上，你{{t:c-bet|持續下注}}的頻率比高牌翻牌低。"
+      - action: bet-small
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，{{t:big-blind|大盲}}{{t:check|過牌}}。小額{{t:bet|下注}}可以接受，但比較少見：在低牌{{t:connected|連張}}翻牌上，你{{t:c-bet|持續下注}}的頻率比高牌翻牌低，因為{{t:big-blind|大盲}}防守很多能擊中這個翻牌的{{t:connectors|連張}}和小牌。"

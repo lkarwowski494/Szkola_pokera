@@ -1,0 +1,28 @@
+# sc-11: Italian text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-11
+module: m5
+situation: "Hai {{t:open|aperto}} dal Button, il {{t:big-blind}} ha fatto {{t:call}} e fa {{t:check}} su un flop alto e {{t:dry|secco}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [semi-connected] }
+    holding: [air]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - action: bet-small
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il {{t:big-blind}} fa {{t:check}}. {{t:bet|Punti}} poco, circa {{n:cbet.size.small}} del {{t:pot}}, perché hai il {{t:range-advantage}} e le mani deboli del tuo avversario non hanno quasi chance: una {{t:bet|puntata}} piccola basta perché le {{t:fold|foldi}}. Il {{t:big-blind}} {{t:raise|rilancia}} la maggior parte di AA, KK e AK prima del flop, quindi dopo un semplice {{t:call}} ne ha pochi."
+      - action: check
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il {{t:big-blind}} fa {{t:check}}. Il {{t:check}} è accettabile, ma più raro: su un flop alto e {{t:dry|secco}} fai spesso {{t:c-bet}} con una {{t:bet|puntata}} piccola, perché hai il {{t:range-advantage}} e le mani deboli del tuo avversario {{t:fold|folderebbero}} già a una {{t:bet|puntata}} piccola. Facendo {{t:check}}, dai loro una carta gratis."
+      - action: bet-big
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il {{t:big-blind}} fa {{t:check}}. Una {{t:bet|puntata}} grande qui è un'imprecisione: su un flop alto e {{t:dry|secco}} di solito fai {{t:c-bet}} con una {{t:bet|puntata}} piccola, circa {{n:cbet.size.small}} del {{t:pot}}, perché le mani deboli del tuo avversario {{t:fold|foldano}} già a una tale {{t:bet|puntata}}."

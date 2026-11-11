@@ -1,5 +1,16 @@
 # Szkice 11 szablonów spoza formatu kroku B (rola 06, sesja BS, 2026-11-10)
-Status: **szkic dla roli 08** (wzór rozszerzenia formatu, PYTANIE BS wariant (a)); nie jest treścią aplikacji i nie przechodzi `content:build`. Po rozszerzeniu formatu sesja 06 przenosi je do `content/{pl,en}/scenarios/` i dopisuje test jak `tools/content-build/test/szablony-bs.test.ts`.
+Status (do sesji CO): **szkic dla roli 08** (wzór rozszerzenia formatu, PYTANIE BS wariant (a)); nie jest treścią aplikacji i nie przechodzi `content:build`. Po rozszerzeniu formatu sesja 06 przenosi je do `content/{pl,en}/scenarios/` i dopisuje test jak `tools/content-build/test/szablony-bs.test.ts`.
+
+## Stan po sesji CO (rola 06, 2026-11-11; decyzje `docs/decyzje/CO.md`)
+| Szkic | Stan | Powód / warunek powrotu |
+|---|---|---|
+| SC-03 | **w treści** `content/*/scenarios/sc-03.yaml` (draw-call od turnu, 25 bb, Ł Ś `fold`) | D-790 |
+| SC-11 | **w treści** `sc-11.yaml` (cbet-case R-M5-007, ręka bez pary i drawa, Ł Ś `bet-small`; czekanie dopuszczalne) | D-792, D-793 |
+| SC-12 | **w treści** `sc-12.yaml` (cbet-case R-M5-004, ręka bez pary i drawa, Ł Ś `check`; mały zakład dopuszczalny) | D-792, D-793 |
+| SC-34 | **w treści** `sc-34.yaml` (icm-call BB wobec SB, 10 bb, Ł `fold`, Ś `call`, T `fold` z chipsDiffer) | D-794 |
+| SC-04, SC-05, SC-32, SC-33 | **szkic**: punkt `range-spot` (F1) | budowanie odrzuca range-spot, dopóki ekran go nie obsłuży (D-755, `checkScenarioNaEkran`); wraca po pracy 08 nad ekranem (kontekst spotów, interfejs wielu akcji) |
+| SC-06, SC-08 | **szkic**: `size-spot` (F3) | generator size-spot losuje dowolną rękę, a ręka spoza zakresu przy `raise` to „mistake” reguły zakresu (D-698: 32s z BTN); wraca razem z range-spot (pierwszy punkt `range-spot` ogranicza ręce) albo po filtrze rąk dla size-spot (zadanie 08) |
+| SC-13 | **szkic, otwarte pytanie** | R-M5-008 nie ma przypadku `cbet-case` z `best: big`, a przeczytane źródło (GTO Wizard, Flop Heuristics IP, 2026-11-11) mówi o większym rozmiarze, ale „decreased overall betting frequency” — bez źródła, czy na takiej teksturze akcją zakresu jest zakład; D-795 |
 
 Zasady wspólne (z D-630 i formatu B): jedna oczekiwana akcja na punkt decyzji we wszystkich poziomach szablonu (wyjaśnienia są jedne na akcję); pierwsze zdanie każdej akcji ma `{{w:reka}}`, `{{w:pozycja}}`, `{{w:stol}}` (preflop: `{{w:stol}}` = „przed flopem”, do ustalenia przez 08); liczby tylko `{{n:…}}`; powód „bo” tylko z pola `because` reguły (D-565, D-567). Poziomy dla decyzji z zakresu solvera (ADR-26, skala `rangeVerdict`): **Ł** = ręka grana tą akcją w ≥ 90% i daleko od granicy zakresu (np. para ≥ 99, AK–AQ przy otwarciu; śmieci przy pasie), **Ś** = ręka zgodna, ale z drugiej połowy zakresu (wymaga znajomości szerokości zakresu, „procent otwarć”), **T** = ręka mieszana (akcja oczekiwana „zgodna”, druga „dopuszczalna”, BR-POZ-001).
 

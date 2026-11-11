@@ -11,6 +11,8 @@ import { martweBlindy } from './martwe-blindy-wyrocznia';
 
 const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
 const pl = loadScenarioTemplates(join(contentDir, 'pl', 'scenarios'));
+/** Szablony tylko z punktami draw-call (rachunek ceny); cbet-case i icm-call sprawdza szablony-co.test.ts (sesja CO, D-791). */
+const plDraw = pl.filter((x) => x.template.decisions.every((d) => d.kind === 'draw-call'));
 const LOSOWANIA = 10_000;
 /** Martwe blindy z pozycji szablonu (martwe-blindy-wyrocznia.ts): wkład gracza preflop = (pula − martwe) ÷ 2. */
 
@@ -24,7 +26,7 @@ describe('szablony scenariuszy z treści: decyzja niezmienna i oceny zgodne z ra
     expect(pl.length).toBeGreaterThanOrEqual(3);
   });
 
-  for (const { template: t } of pl) {
+  for (const { template: t } of plDraw) {
     const g = { id: t.id, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów, oczekiwana akcja w każdym punkcie, margines poziomu, pas odporny na implied odds`, () => {
