@@ -188,6 +188,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | backlog | en-US opis „correct”→„Aligned” (ŚR, rola 10); pt-PT NISKIE N-1…N-3 (recenzja 1db8449), flow E2E CJK, zrzuty 320 pt/AX5 ja/fr, NISKIE z D-043 AE/AK/AL, terms-nazwy [DO USTALENIA] (ko 25, it 52, vi 48 + 22), zh-Hant limp 溜入, notatki recenzenta po W-04 | sesje 08/09 | — | — |
 
 ## Czeka na właściciela (pytanie zbiorcze 07:00)
+- **Z linii 14:00 (13:55, poprzednik session_01T66VBvMJxHkBqzn7iJjEuv):** 06-tresci-002 (niżej) oraz reguła add_repo prompts (opcje a/b — treść w czacie poprzednika; odpowiedź do niego przekaże ją dosłownie tutaj).
 - **09:20 Start DF zablokowany klasyfikatorem** — opcje: 1 ponowna próba (rek.), 2 recenzja CZ w DD, 3 fala bez CZ.
 - **06-tresci-002 (DD, produktowe):** zdanie o nadkartach widoczne w 88% wariantów, w których gracz nie ma karty wyższej od stołu — zostawić / pokazywać warunkowo (do linii 14:00).
 - Fakty: W-04 e-mail wsparcia + dostawca skrzynki; administrator (imię i nazwisko, forma); W-05 Apple ID aplikacji; W-07 dane sprzedawcy JP (wariant A potwierdzony 2026-11-10). Uwaga: `site/` na `main` ma w tych miejscach publicznie tekst „[DO USTALENIA: …]” (było tak też przed ddb0108).
@@ -532,3 +533,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 13:55 | koordynator | linia 14:00 wysłana; kontekst 34,4% → przekazanie E6 | start następcy |
 | 13:58 | koordynator | Przekazane do session_01T66VBvPqFB6GZD3a2Yg9AF (opus/medium, start bez błędu; prompt 452 linie przepisany subagentem, porównanie niesprawdzone — WG-07). Moje przypomnienie 05:00 usunięte (kontrola i 14:00 już wykonane); „kontrola przekazania” za 30 min | czekam na PRZEJĄŁEM |
 | 13:56 | koordynator | przejęcie przez session_01T66VBvPqFB6GZD3a2Yg9AF (lineage 7/8); prompts @ 9553f6b; CI 43032964359 + E2E 43032964388 na 709f6947 w toku; 3 przypomnienia utworzone | kontrola 14:35 |
+| 14:00 | koordynator | poprzednik: koszt 20,33 USD, kontekst max 39,6% → koszty.md; archiwizuje się sam | kontrola 14:35 |
