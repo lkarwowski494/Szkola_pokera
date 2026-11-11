@@ -62,7 +62,7 @@ describe('rozmiar (size-spot)', () => {
   it('3-bet: trzy rozmiary „Przebicie do N bb”, ruch rywala (otwarcie) w dzienniku, bez puli', async () => {
     const onWybierz = await decyzja(TROJBET);
     expect(tekstEkranu()).not.toMatch(/W puli/);
-    expect(tekstEkranu()).toMatch(/CO: przebicie.*do 2.5bb/);
+    expect(tekstEkranu()).toMatch(/CO: przebicie.*do 2.5 bb/);
     const przyciski = screen.getAllByRole('button', { name: /^3-bet[\s\S]*do/ });
     expect(przyciski).toHaveLength(3);
     await fireEvent.press(przyciski[1]!);
@@ -80,7 +80,7 @@ describe('ICM (icm-call)', () => {
   it('pas i sprawdzenie all-inu: pula i dopłata z stosu, all-in rywala w dzienniku, karty tylko ręka (przed flopem)', async () => {
     const onWybierz = await decyzja(ICM);
     expect(tekstEkranu()).toMatch(/W puli[^·]*11 bb · do sprawdzenia[^·]*9 bb/);
-    expect(tekstEkranu()).toMatch(/SB: all-in 10bb/);
+    expect(tekstEkranu()).toMatch(/SB: all-in 10 bb/);
     await fireEvent.press(screen.getByRole('button', { name: /^Sprawdzenie[\s\S]*9\sbb/ }));
     expect(onWybierz).toHaveBeenCalledWith('call');
     await fireEvent.press(screen.getByRole('button', { name: /^Pas/ }));
