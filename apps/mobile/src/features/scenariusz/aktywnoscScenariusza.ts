@@ -41,6 +41,8 @@ export interface SesjaScenariusza {
   wariant: ScenarioVariant;
   /** Odpowiedzi do tej pory (kolejne decyzje po kolei). */
   wybory: readonly Akcja[];
+  /** Rozmiary c-betu (ułamek puli, numbers.yaml) do zdania „Liczby” (D-888); brak = zdania o c-becie nie ma, bez zgadywanych wartości. */
+  rozmiaryCbet?: { small: number; big: number };
 }
 
 function parsujWybor(json: string): Akcja | null {
@@ -73,7 +75,7 @@ async function wznow(port: PortBazy, id: string, a: AktywnoscWToku, szablon: Sce
     if (akcja === null || o.krok !== wybory.length) return { ok: true, wartosc: null };
     wybory.push(akcja);
   }
-  return { ok: true, wartosc: { id, aktywnosc: a, szablon, poziom: w.poziom, wariant, wybory } };
+  return { ok: true, wartosc: { id, aktywnosc: a, szablon, poziom: w.poziom, wariant, wybory, ...(kontekst?.cbetSizes ? { rozmiaryCbet: kontekst.cbetSizes } : {}) } };
 }
 
 export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): Promise<Wynik<SesjaScenariusza, PowodScenariusza>> {
@@ -115,7 +117,7 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   // Odcisk po starcie aktywności: jego brak nie psuje rozdania (najwyżej wariant wróci wcześniej), więc błąd tylko do dziennika.
   const odcisk = await zapiszOdcisk(port, { szablonId: w.szablon.id, poziom: w.poziom, odcisk: wariant.fingerprint, ziarno: wariant.seed, terazMs: teraz, generatorWersja: GENERATOR_WERSJA });
   if (!odcisk.ok) zapiszBladPostepu(odcisk.powod, 'scenariusz');
-  return { ok: true, wartosc: { id, aktywnosc: start.wartosc, szablon: w.szablon, poziom: w.poziom, wariant, wybory: [] } };
+  return { ok: true, wartosc: { id, aktywnosc: start.wartosc, szablon: w.szablon, poziom: w.poziom, wariant, wybory: [], ...(w.kontekst?.cbetSizes ? { rozmiaryCbet: w.kontekst.cbetSizes } : {}) } };
 }
 
 const ocenaNa = (o: OcenaOdpowiedzi): 0 | 1 => (o === 'zgodne' || o === 'dopuszczalne' ? 1 : 0);

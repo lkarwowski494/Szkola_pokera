@@ -16,6 +16,7 @@ import { ADRES_KONTAKTOWY } from '@/platform/adresy';
 import { odstep, styl, useTokens } from '@/theme/tokens';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolRozdania, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
+import { zdaniaLiczb } from './liczby';
 import type { WyborPoziomu } from './poziom';
 import { akcjePunktu, bloki, kwotaAkcji, ocenyAkcji, opisAkcji, poprawnaAkcja, przebiegWariantu, widokDecyzji, type Akcja } from './wariant';
 
@@ -170,18 +171,6 @@ function wpisyDziennika(s: SesjaScenariusza, doIndeksu: number, t: TFn, oceny: r
   return wpisy;
 }
 
-/** „Liczby” (BR-OCE-001): każda liczba z przełożeniem na sens w tym samym zdaniu; rachunek z wariantu (rachunek, nie treść). */
-function zdanieLiczb(s: SesjaScenariusza, i: number, t: TFn): string {
-  const d = s.wariant.points[i];
-  if (d?.point !== 'draw-call') return ''; // „Liczby” tylko dla linii draw-call; teksty rachunku c-betu, rozmiaru i ICM do roli 04 (CN D-785)
-  const j = jezykZadan();
-  const nieznane = 52 - 2 - widokDecyzji(s.wariant, i).stol.length;
-  return t('scenario.numbers.line', {
-    kwota: d.bet, pula: d.pot + d.bet, potrzeba: formatujProcent(d.required, j), razPotrzeba: Math.max(1, Math.round(1 / d.required)),
-    outy: d.outs, nieznane, trafisz: formatujProcent(d.hit, j, { miejsca: 1 }), razTrafisz: Math.max(1, Math.round(1 / d.hit)),
-  });
-}
-
 export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const tk = useTokens();
   const { t, i18n } = useTranslation();
@@ -196,6 +185,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const ocenaWyboru = ocenaMode ? oceny[indeks] : undefined;
   const ulicaDecyzji = d?.street;
   const ocenyAk = ocenaMode && d ? ocenyAkcjiSesji(s, indeks) : null;
+  const zdaniaLiczbPunktu = ocenaMode && d && wybor ? zdaniaLiczb(s, indeks, wybor, t) : []; // D-888: sekcja „Liczby” tylko, gdy punkt ma zdania
   const opisAkcjiEkranu = (a: Akcja): TekstAkcji => tekstAkcji(s.wariant, indeks, a, s.szablon, t);
   const nastepna = s.wariant.points[indeks + 1];
   // VoiceOver: po decyzji ocena z werdyktem, przed decyzją nowy wpis rywala (ulica i jego zakład, A04-11/D-283)
@@ -249,9 +239,11 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
             <BlokDlaczego key={`${b.rodzaj}-${b.akcja}`} blok={b} nazwa={fraza(b.akcja)} t={t} />
           ))}
           <PasekOcenAkcji akcje={ocenyAk} wybor={wybor} nazwy={nazwy} />
-          {d.point === 'draw-call' ? (
+          {zdaniaLiczbPunktu.length > 0 ? (
             <Rozwijany tytul={t('scenario.numbers.title')} testID="liczby">
-              <Text style={[styl.tresc, { color: tk.ink }]}>{zdanieLiczb(s, indeks, t)}</Text>
+              {zdaniaLiczbPunktu.map((z, k) => (
+                <Text key={k} style={[styl.tresc, { color: tk.ink }]}>{z}</Text>
+              ))}
             </Rozwijany>
           ) : null}
           {ADRES_KONTAKTOWY ? (

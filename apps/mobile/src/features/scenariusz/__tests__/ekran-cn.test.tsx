@@ -17,6 +17,7 @@ jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { 
 
 const sesja = (szablon: ScenarioTemplate, wybory: Akcja[]): SesjaScenariusza => ({
   id: 's1', szablon, poziom: 'latwy', wariant: generateVariant(naGenerator(szablon), 'latwy', 5, getKontekstGeneratora(dbCn, szablon)), wybory,
+  ...(getKontekstGeneratora(dbCn, szablon)?.cbetSizes ? { rozmiaryCbet: getKontekstGeneratora(dbCn, szablon)!.cbetSizes! } : {}), // jak otworzScenariusz (D-888)
   aktywnosc: { stan: 'w_toku', rodzaj: 'scenariusz', zLimitu: true, dzienLokalny: '2026-11-11', strefa: 'Europe/Warsaw', startMs: 0, krok: wybory.length, plan: { liczbaKrokow: 1, trescId: szablon.id } },
 });
 const decyzja = async (szablon: ScenarioTemplate, onWybierz = jest.fn()) => {
@@ -39,7 +40,7 @@ describe('c-bet (cbet-case)', () => {
     await fireEvent.press(screen.getByRole('button', { name: /^Czekanie/ }));
     expect(onWybierz).toHaveBeenCalledWith('check');
   });
-  it('ocena dopuszczalna (CR WYS-002: rzadsza akcja c-betu to nie błąd): słabsze i lepsze z szablonu, bez „Liczb” (tylko draw-call), pasek ocen trzech akcji', async () => {
+  it('ocena dopuszczalna (CR WYS-002: rzadsza akcja c-betu to nie błąd): słabsze i lepsze z szablonu, „Liczby” z rozmiarami c-betu (D-888; wcześniej tylko draw-call), pasek ocen trzech akcji', async () => {
     await ocena(CBET, 'check');
     const t = tekstEkranu();
     expect(t).toMatch(/Ocena: Dopuszczalna/);
@@ -47,7 +48,7 @@ describe('c-bet (cbet-case)', () => {
     expect(t).toMatch(/Wyjaśnienie akcji check/);
     expect(t).toMatch(/Wyjaśnienie akcji bet-small/);
     expect(t).not.toContain('{{w:');
-    expect(screen.queryByTestId('liczby')).toBeNull();
+    expect(screen.getByTestId('liczby')).toBeTruthy(); // D-888 (zmiana testu: specyfikacja §3 dodaje „Liczby” dla cbet-case)
     expect(screen.getByRole('image', { name: /Oceny akcji: .*Czekanie.*dopuszczalna.*twój wybór.*zgodna.*niedokładność/i })).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Zobacz podsumowanie' })).toBeTruthy();
   });

@@ -733,6 +733,15 @@
       "amountTo": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku: rozmiar całkowity po przebiciu („do N bb”); przyimek/partykuła wg języka (de „auf”, ja „に”, ko „로”). U+00A0 przed „bb”.",
       "amountAll": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku all-in: cały stos „N bb”. U+00A0 przed „bb”.",
       "withAmount": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Fraza w zdaniu (werdykt, nagłówki „dlaczego”, VoiceOver): {{akcja}} = nazwa małą literą, {{kwota}} = tekst amountPay/amountTo/amountAll. Szyk do zmiany w przekładzie (ja i ko: kwota przed akcją)."
+    },
+    "numbers": {
+      "cbet": "Ekran scenariusza (EkranScenariusza.tsx, rozwijane „Liczby”, cbet-case). Jedno zdanie: rozmiary c-betu (parametry maly, duzy: procent puli) i cena rywala (cenaMaly, cenaDuzy: procent; razMaly, razDuzy: „raz na N”). Ok. 260 znaków. [DN, 2026-11-11, D-888]",
+      "sizeOpen": "Ekran scenariusza („Liczby”, size-spot: otwarcie i brak limpu). Cena, jaką rozmiar przebicia daje dużemu blindowi (parametry bb, doplata, pula: kwoty w bb; cena: procent; raz: „raz na N”). Ok. 190 znaków. [DN, 2026-11-11, D-888]",
+      "size3bet": "Ekran scenariusza („Liczby”, size-spot: rozmiar 3-betu). Cena, jaką rozmiar 3-betu daje otwierającemu (parametry jak w sizeOpen). Ok. 150 znaków. [DN, 2026-11-11, D-888]",
+      "limp": "Ekran scenariusza („Liczby”, size-spot, gdy gracz wybrał limp). Parametr kwota: dopłata w bb. Ok. 85 znaków. [DN, 2026-11-11, D-888]",
+      "icm": "Ekran scenariusza („Liczby”, icm-call). Parametry: equity i na10 (ręki), prog (według ICM), progZetony (w grze o żetony, z blindem, D-890; procenty). „w N rozdaniach na 10”: N od 2 do 9. Ok. 330 znaków. [DN, 2026-11-11, D-888]",
+      "overcardsFold": "Ekran scenariusza („Liczby”, draw-call z nadkartami, poprawny pas). Parametry: nadkarty i nieznane (liczby kart), trafiszRazem i potrzeba (procenty). Ok. 300 znaków. [DN, 2026-11-11, D-888]",
+      "overcardsCall": "Ekran scenariusza („Liczby”, draw-call z nadkartami, poprawne sprawdzenie). Parametry: nadkarty i nieznane (liczby kart). Ok. 230 znaków. [DN, 2026-11-11, D-888]"
     }
   }
 }

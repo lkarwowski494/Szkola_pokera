@@ -303,5 +303,8 @@ export function getKontekstGeneratora(db: Pick<SQLiteDatabase, 'getAllSync' | 'g
     id: r.id, actions: parsuj('ranges.actions', r.actions, GeneratorRangeActions), uncertain: parsuj('ranges.uncertain', r.uncertain, GeneratorUncertain),
   }));
   const equity169 = kit('equity169', GeneratorEquity169);
-  return buildGeneratorContext({ spots, thresholds: { mixedMin, mixedLow }, evalRules, ...(equity169 ? { equity169 } : {}) });
+  const cbetMaly = liczba('cbet.size.small');
+  const cbetDuzy = liczba('cbet.size.big');
+  const cbetSizes = cbetMaly !== null && cbetDuzy !== null ? { small: cbetMaly, big: cbetDuzy } : undefined; // D-888: do zdania „Liczby”, bez wpływu na losowanie
+  return buildGeneratorContext({ spots, thresholds: { mixedMin, mixedLow }, evalRules, ...(equity169 ? { equity169 } : {}), cbetSizes });
 }

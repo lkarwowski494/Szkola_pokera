@@ -2,7 +2,7 @@
 // przed pierwszą decyzją. Czysta logika, bez React Native. Rodzaj oceny w tym kroku: draw-call (rachunek: szansa na jedną
 // kartę wobec ceny sprawdzenia, reguła draw-price), jak generateDrawCall.
 import type { Card } from './cards';
-import { dealCards, rankOf, suitOf } from './cards';
+import { dealCards, makeCard, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
 import { cbetVerdict, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
@@ -116,6 +116,8 @@ export interface GeneratorContext {
   sizeRules?: readonly SizeRuleData[];
   /** F4: equity klas wobec klas (poker-core nie czyta plików, D-661). */
   equity169?: Equity169Data;
+  /** D-888: rozmiary c-betu (cbet.size.small i cbet.size.big z numbers.yaml, ułamek puli) do zdania „Liczby”; nie wpływają na losowanie wariantu. */
+  cbetSizes?: { small: number; big: number };
 }
 /**
  * Jedna definicja kontekstu generatora dla budowania treści i ekranu (CN, D-780): z danych treści (spoty, progi, reguły oceny,
@@ -128,10 +130,29 @@ export function buildGeneratorContext(d: {
   thresholds: { mixedMin: number; mixedLow: number };
   evalRules: readonly { id: string; check: { kind: string; params: Readonly<Record<string, number | string>>; cases?: readonly CbetCaseData[] } }[];
   equity169?: Equity169Data | undefined;
+  cbetSizes?: { small: number; big: number } | undefined;
 }): GeneratorContext {
   const cbetCases = [...new Map(d.evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()];
   const sizeRules = d.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)).map((r) => ({ id: r.id, check: { kind: r.check.kind, params: r.check.params } }));
-  return { spots: d.spots, thresholds: d.thresholds, cbetCases, sizeRules, ...(d.equity169 ? { equity169: d.equity169 } : {}) };
+  return { spots: d.spots, thresholds: d.thresholds, cbetCases, sizeRules, ...(d.equity169 ? { equity169: d.equity169 } : {}), ...(d.cbetSizes ? { cbetSizes: d.cbetSizes } : {}) };
+}
+
+/**
+ * Nadkarty w draw-call (D-888, CS): niewidziane karty tej samej rangi co karta gracza wyższa od najwyższej karty stołu (po 3 na rangę,
+ * `OUTS_PER_OVERCARD_RANK`), bez kart już policzonych jako outy drawa. Para w ręce nie ma nadkart. Generator używa górnej granicy 3 × liczba rang
+ * (nakładanie z outami nieusuwane), więc wartość stąd jest nie większa i zdanie „trafisz razem” pozostaje po właściwej stronie ceny.
+ */
+export function overcardOuts(hero: readonly Card[], board: readonly Card[], drawOuts: readonly Card[]): number {
+  if (hero.length !== 2 || board.length === 0 || rankOf(hero[0]!) === rankOf(hero[1]!)) return 0;
+  const najwyzszaNaStole = Math.max(...board.map(rankOf));
+  let n = 0;
+  for (const r of new Set(hero.map(rankOf).filter((x) => x > najwyzszaNaStole))) {
+    for (let suit = 0; suit < 4; suit++) {
+      const c = makeCard(r, suit);
+      if (!hero.includes(c) && !board.includes(c) && !drawOuts.includes(c)) n++;
+    }
+  }
+  return n;
 }
 
 export interface LevelBounds {
