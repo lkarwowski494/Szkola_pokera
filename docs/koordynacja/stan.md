@@ -432,3 +432,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-11 06:20 | koordynator | zgoda właściciela na prompts (06:15) → dołączona @ 9553f6b; przekazanie E6 (kontekst ok. 27%, WG-13) | start następcy |
 | 11-11 06:24 | koordynator session_01T66VBvNWsjkbVAczFtS9nm | przekazane do session_01T66VBz4mtBEPwdkS219BVy (start bez błędu); moje przypomnienia 05:00/14:00 usunięte, została „kontrola przekazania” 06:54 | następca: przejęcie E6 pkt 5 |
 | 06:31 | session_01T66VBz4mtBEPwdkS219BVy | przejęcie koordynacji (stan @ ecb9d79); add_repo prompts odrzucone przez klasyfikator; przypomnienia 13:51 i 05:00 | prośba do właściciela o dołączenie prompts; potem sesje planu BD §3 od 4619781 |
+| 06:34 | session_01T66VBz4mtBEPwdkS219BVy | poprzednik zarchiwizowany (9,85 USD, 31,7% — koszty.md); wariant B (prompty od poprzednika) niedostępny | czekam na A/C właściciela (prompts) |
