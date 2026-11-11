@@ -18,9 +18,9 @@ decisions:
     rule: R-M2-005
     actions:
       - action: call
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手相對於{{t:pot|底池}}小額{{t:bet|下注}}。你{{t:call|跟注}}，因為你只為一張牌付錢，而{{t:flush-draw|同花聽牌}}在這張牌上命中的頻率，高於這麼低的價格所要求的。轉牌出{{t:flush|同花}}的機率約 {{n:odds.flush.flop-turn}}，大約每五張一張。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手相對於{{t:pot|底池}}小額{{t:bet|下注}}。你{{t:call|跟注}}，因為你只為一張牌付錢，而{{t:flush-draw|同花聽牌}}在這張牌上命中的頻率，高於這麼低的價格所要求的。轉牌出{{t:flush|同花}}的機率約 {{n:odds.flush.flop-turn}}，大約每五張一張。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，最多還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手相對於{{t:pot|底池}}小額{{t:bet|下注}}。{{t:fold|棄牌}}等於放棄一個{{t:call|跟注}}能賺錢的{{t:pot|底池}}：面對這麼小的{{t:bet|下注}}，{{t:flush-draw|同花聽牌}}命中的頻率高於價格所要求的。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手相對於{{t:pot|底池}}小額{{t:bet|下注}}。{{t:fold|棄牌}}等於放棄一個{{t:call|跟注}}能賺錢的{{t:pot|底池}}：面對這麼小的{{t:bet|下注}}，{{t:flush-draw|同花聽牌}}命中的頻率高於價格所要求的。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，最多還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
   - street: turn
     kind: draw-call
     pots: []
@@ -29,6 +29,6 @@ decisions:
     rule: R-M7-008
     actions:
       - action: call
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}：轉牌沒有帶來{{t:flush|同花}}，位於 {{w:rywal}} 的對手大額{{t:bet|下注}}。{{t:call|跟注}}指望的是{{t:implied-odds|隱含賠率}}，但這裡沒有：{{t:spr|SPR}}低時，{{t:pot|底池}}之外剩下的{{t:chips|籌碼}}少到即使命中後你把它們全部贏下，也彌補不了輸掉的那些{{t:call|跟注}}。只有當對手還拿得出東西付給你時，隱含賠率才有意義。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}：轉牌沒有帶來{{t:flush|同花}}，位於 {{w:rywal}} 的對手大額{{t:bet|下注}}。{{t:call|跟注}}指望的是{{t:implied-odds|隱含賠率}}，但這裡沒有：{{t:spr|SPR}}低時，{{t:pot|底池}}之外剩下的{{t:chips|籌碼}}少到即使命中後你把它們全部贏下，也彌補不了輸掉的那些{{t:call|跟注}}。只有當對手還拿得出東西付給你時，隱含賠率才有意義。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，最多還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}：轉牌沒有帶來{{t:flush|同花}}，位於 {{w:rywal}} 的對手大額{{t:bet|下注}}。你{{t:fold|棄牌}}，因為最後一張牌命中的頻率低於價格所要求的，而{{t:implied-odds|隱含賠率}}也改變不了這一點：{{t:spr|SPR}}低時，{{t:pot|底池}}之外剩下的{{t:chips|籌碼}}太少，命中後贏的錢補不回輸掉的那些{{t:call|跟注}}。河牌出{{t:flush|同花}}的機率約 {{n:odds.flush.turn-river}}，大約每五張一張。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}：轉牌沒有帶來{{t:flush|同花}}，位於 {{w:rywal}} 的對手大額{{t:bet|下注}}。你{{t:fold|棄牌}}，因為最後一張牌命中的頻率低於價格所要求的，而{{t:implied-odds|隱含賠率}}也改變不了這一點：{{t:spr|SPR}}低時，{{t:pot|底池}}之外剩下的{{t:chips|籌碼}}太少，命中後贏的錢補不回輸掉的那些{{t:call|跟注}}。河牌出{{t:flush|同花}}的機率約 {{n:odds.flush.turn-river}}，大約每五張一張。這是簡化：這裡只算聽牌的補牌。你每張比牌面大的牌，最多還能多出 {{n:pair.outs.per-rank}} 張不確定的補牌湊成{{t:pair|對子}}，但在這裡不會改變答案。"
