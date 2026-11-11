@@ -1,0 +1,40 @@
+$ npx vitest run test/_sonda/sonda.test.ts  (sonda tymczasowa CM, plik usunięty po pomiarze; treść sondy niżej)
+import { join, resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { it } from 'vitest';
+import { equityAfter, generateVariant, type GeneratorTemplate } from '@szkola/poker-core';
+import { checkScenarioGenerator, checkScenarioNaEkran, loadScenarioTemplates } from '../../src/scenariusze';
+import { compileRanges } from '../../src/ranges';
+const root = resolve(import.meta.dirname, '../../../..');
+const fxd = join(resolve(import.meta.dirname, '..'), 'fixtures');
+const log = (...a: unknown[]) => process.stderr.write('\nSONDA ' + a.join(' '));
+it('sonda', { timeout: 60_000 }, () => {
+  for (const k of ['cbet-case', 'size-spot', 'icm-call']) for (const { template: t } of loadScenarioTemplates(join(fxd, k))) {
+    const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+    let blad = 'brak';
+    try { generateVariant(g, t.levels[0] as never, 1); } catch (e) { blad = String(e).slice(0, 110); }
+    log(k, t.id, 'naEkran=', checkScenarioNaEkran(t).length, 'bezCtx:', blad);
+  }
+  const eq = JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8'));
+  const ctx = { spots: compileRanges(join(root, 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, equity169: eq };
+  const t = loadScenarioTemplates(join(fxd, 'icm-call'))[0]!.template;
+  log('icm BB wobec SB (fixture):', JSON.stringify(checkScenarioGenerator(t as never, 40, 600, ctx)));
+  log('icm SB wobec BB:', JSON.stringify(checkScenarioGenerator({ ...t, positions: { hero: 'SB', villain: 'BB' } } as never, 40, 600, ctx)));
+  const fold = equityAfter([5200, 3000, 1800], [0.6, 0.4], 2), win = equityAfter([3000, 3000, 4000], [0.6, 0.4], 2);
+  log('rachunek: fold', fold, 'win', win, 'wymagane', fold / win);
+});
+--- wynik
+SONDA cbet-case sc-fx-cbet-dry naEkran= 0 bezCtx: Error: sc-fx-cbet-dry: punkt cbet-case wymaga przypadków c-betu (GeneratorContext.cbetCases)
+SONDA cbet-case sc-fx-cbet-low naEkran= 0 bezCtx: Error: sc-fx-cbet-low: punkt cbet-case wymaga przypadków c-betu (GeneratorContext.cbetCases)
+SONDA size-spot sc-fx-3bet-ip naEkran= 0 bezCtx: Error: sc-fx-3bet-ip: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)
+SONDA size-spot sc-fx-3bet-oop naEkran= 0 bezCtx: Error: sc-fx-3bet-oop: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)
+SONDA size-spot sc-fx-no-limp naEkran= 0 bezCtx: Error: sc-fx-no-limp: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)
+SONDA size-spot sc-fx-open-size-sb naEkran= 0 bezCtx: Error: sc-fx-open-size-sb: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)
+SONDA size-spot sc-fx-open-size naEkran= 0 bezCtx: Error: sc-fx-open-size: punkt size-spot wymaga reguł rozmiaru (GeneratorContext.sizeRules)
+SONDA icm-call sc-fx-icm-call naEkran= 0 bezCtx: Error: sc-fx-icm-call: punkt icm-call wymaga macierzy equity (GeneratorContext.equity169)
+SONDA icm BB wobec SB (fixture): []
+SONDA icm SB wobec BB: []
+SONDA rachunek: fold 0.21685714285714286 win 0.3771428571428571 wymagane 0.5750000000000001
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+kod wyjścia: 0

@@ -1,0 +1,25 @@
+$ sed "s/it\.fails(/it(/" test/cm-recenzja-cl.test.ts > test/cm-czerwony-tmp.test.ts && npx vitest run test/cm-czerwony-tmp.test.ts   (plik tymczasowy usunięty po przebiegu)
+     × sc-fx-cbet-dry: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 5ms
+     × sc-fx-cbet-low: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 2ms
+     × sc-fx-3bet-ip: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 1ms
+     × sc-fx-3bet-oop: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 1ms
+     × sc-fx-no-limp: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 0ms
+     × sc-fx-open-size-sb: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 0ms
+     × sc-fx-open-size: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 0ms
+     × sc-fx-icm-call: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002) 0ms
+     × SB wobec all-inu BB jest odrzucony (BB wchodzi all-in dopiero po akcji SB: pas kosztuje wkład SB ≥ 1 bb, nie blind 0,5 bb; zakres push.sb-10 nie jest zakresem BB) 3677ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-cbet-dry: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-cbet-low: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-3bet-ip: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-3bet-oop: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-no-limp: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-open-size-sb: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-open-size: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-001: budowanie przepuszcza szablony, których ekran scenariusza nie wygeneruje (cbet-case, size-spot, icm-call) > sc-fx-icm-call: checkScenarioNaEkran odrzuca szablon (jak range-spot, CK 08-programista-002)
+AssertionError: expected [] to not deeply equal []
+ FAIL  test/cm-czerwony-tmp.test.ts > CM ŚR-002: icm-call przyjmuje gracza SB wobec all-inu BB (pas liczony jako strata 0,5 bb, zakres all-inu z pozycji SB) > SB wobec all-inu BB jest odrzucony (BB wchodzi all-in dopiero po akcji SB: pas kosztuje wkład SB ≥ 1 bb, nie blind 0,5 bb; zakres push.sb-10 nie jest zakresem BB)
+AssertionError: expected [] to not deeply equal []
+ Test Files  1 failed (1)
+      Tests  9 failed | 10 passed (19)
+kod wyjścia: 1

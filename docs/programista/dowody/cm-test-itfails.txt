@@ -1,0 +1,11 @@
+$ npx vitest run test/cm-recenzja-cl.test.ts
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed | 9 expected fail (19)
+   Start at  00:13:25
+   Duration  9.14s (tests 77%, import 19%, transform 4%)
+
+kod wyjścia: 0
