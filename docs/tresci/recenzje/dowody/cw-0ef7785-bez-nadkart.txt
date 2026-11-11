@@ -1,0 +1,7 @@
+$ npx tsx bez.ts   # commit 0ef7785
+sc-01 punktów 12000 bez karty wyższej od stołu 9780 81.5%
+sc-02 punktów 8000 bez karty wyższej od stołu 7610 95.1%
+sc-03 punktów 4000 bez karty wyższej od stołu 3343 83.6%
+sc-19 punktów 8000 bez karty wyższej od stołu 7424 92.8%
+razem 32000 28157 88.0%
+exit 0

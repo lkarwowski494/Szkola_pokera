@@ -1,0 +1,10 @@
+import { classifyFlop, FULL_DECK, textureMatches } from '/home/user/Szkola_pokera/packages/poker-core/src/index.ts';
+const filtry: Record<string, any> = {
+  'sc-11 latwy (przed i po)': null, 
+  'sc-11 sredni po CW': { height: ['high'], suits: ['rainbow'], ranks: ['semi-connected'], oesdPossible: false },
+  'sc-11 sredni przed CW': { height: ['high'], suits: ['rainbow'], ranks: ['semi-connected'] },
+  'R-M5-007 przypadek po CW': { height: ['high'], suits: ['rainbow'], ranks: ['disconnected', 'semi-connected'], oesdPossible: false },
+};
+for (const [n, f] of Object.entries(filtry)) { if (!f) continue; const w: Record<string, number> = {}; let all = 0;
+  for (let a = 0; a < 52; a++) for (let b = a+1; b < 52; b++) for (let c = b+1; c < 52; c++) { const t = classifyFlop([FULL_DECK[a]!, FULL_DECK[b]!, FULL_DECK[c]!] as any); if (textureMatches(t, f)) { all++; w[t.wetness] = (w[t.wetness] ?? 0) + 1; } }
+  console.log(n, 'flopów', all, JSON.stringify(w)); }

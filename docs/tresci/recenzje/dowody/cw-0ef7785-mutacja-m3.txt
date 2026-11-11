@@ -1,0 +1,4 @@
+$ mutacja M3: sc-11 pl średni bez oesdPossible: false, vitest test/cw-sc11-oesd.test.ts
+     × granice poziomu średniego są takie same w 12 językach treści (pl + 11 przekładów) 10ms
+      Tests  1 failed | 10 passed (11)
+exit 1
