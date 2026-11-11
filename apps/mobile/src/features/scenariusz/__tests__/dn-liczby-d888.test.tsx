@@ -59,7 +59,7 @@ describe('size-spot: cena rozmiaru dla rywala (kryterium 1, 5)', () => {
     const z = zdaniaLiczb(s, 0, 'raise', t);
     expect(z).toHaveLength(1);
     expect(z[0]).toContain(`do ${bb(R)} bb`);
-    expect(z[0]).toContain(`dopłaca ${bb(R - 1)} bb do puli ${bb(2 * R)} bb`);
+    expect(z[0]).toContain(`dopłaca ${bb(R - 1)} bb do puli (pot) ${bb(2 * R)} bb`);
     expect(z[0]).toContain(`potrzebuje ${procent(cena)} szans`);
     expect(z[0]).toContain(`raz na ${Math.round(1 / cena)}`);
     const l = zdaniaLiczb(sesja(BEZ_LIMPU, 'latwy', 5, ['limp']), 0, 'limp', t);
@@ -79,7 +79,7 @@ describe('size-spot: cena rozmiaru dla rywala (kryterium 1, 5)', () => {
     const M = deadBlindsBb({ hero: 'BTN', villain: 'CO' });
     const cena = (R - 2.5) / (2 * R + M);
     const z = zdaniaLiczb(s, 0, 'raise', t);
-    expect(z[0]).toContain(`dopłaca ${bb(R - 2.5)} bb do puli ${bb(2 * R + M)} bb`);
+    expect(z[0]).toContain(`dopłaca ${bb(R - 2.5)} bb do puli (pot) ${bb(2 * R + M)} bb`);
     expect(z[0]).toContain(`potrzebuje ${procent(cena)} szans`);
   });
 });

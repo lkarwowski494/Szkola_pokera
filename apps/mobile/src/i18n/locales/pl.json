@@ -1090,12 +1090,12 @@
       "title": "Liczby",
       "line": "{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Outy to {{outy}} z {{nieznane}} niewidzianych kart: układ trafisz w {{trafisz}} przypadków, czyli mniej więcej raz na {{razTrafisz}}.",
       "cbet": "Mały {{t:c-bet|c-bet}} to ok. {{maly}} {{t:pot|puli}}, a duży ok. {{duzy}}. Rywal, żeby {{t:call|sprawdzić}}, potrzebuje przy małym {{cenaMaly}} szans, czyli wygrać mniej więcej raz na {{razMaly}}, a przy dużym {{cenaDuzy}}, czyli raz na {{razDuzy}}.",
-      "sizeOpen": "Przy przebiciu do {{bb}} bb {{t:big-blind|duży blind}} dopłaca {{doplata}} bb do puli {{pula}} bb (gdy reszta spasuje), więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.",
-      "size3bet": "Przy 3-becie do {{bb}} bb otwierający dopłaca {{doplata}} bb do puli {{pula}} bb, więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.",
+      "sizeOpen": "Przy {{t:raise|przebiciu}} do {{bb}} bb {{t:big-blind|duży blind}} dopłaca {{doplata}} bb do {{t:pot|puli}} {{pula}} bb (gdy reszta {{t:fold|spasuje}}), więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.",
+      "size3bet": "Przy 3-becie do {{bb}} bb {{t:open|otwierający}} dopłaca {{doplata}} bb do {{t:pot|puli}} {{pula}} bb, więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.",
       "limp": "Limp kosztuje {{kwota}} bb, a {{t:big-blind|duży blind}} może zobaczyć flop bez dopłaty.",
       "icm": "Twoja ręka ma {{equity}} {{t:equity}} wobec {{t:range|zakresu}} {{t:all-in|all-inu}} rywala, czyli wygrywa mniej więcej w {{na10}} rozdaniach na 10. Według {{t:icm}} {{t:call|sprawdzenie}} opłaca się od {{prog}}, a w grze o {{t:chips|żetony}} wystarczyłoby {{progZetony}}: na {{t:bubble|bańce}} przegrana zabiera ci więcej z {{t:prize-pool|puli nagród}}, niż wygrana dodaje.",
-      "overcardsFold": "Jeśli doliczysz karty, które dają ci parę wyższą od każdej karty na stole ({{nadkarty}} z {{nieznane}} niewidzianych), trafisz w {{trafiszRazem}} przypadków, czyli wciąż rzadziej, niż wymaga cena ({{potrzeba}}). Taka {{t:pair|para}} może też przegrać z lepszym układem rywala.",
-      "overcardsCall": "Karty, które dają ci parę wyższą od każdej karty na stole ({{nadkarty}} z {{nieznane}} niewidzianych), rachunek pomija: taka {{t:pair|para}} może przegrać z lepszym układem rywala, a same outy drawa wystarczają."
+      "overcardsFold": "Jeśli doliczysz karty, które dają ci {{t:pair|parę}} wyższą od każdej karty na {{t:board|stole}} ({{nadkarty}} z {{nieznane}} niewidzianych), trafisz w {{trafiszRazem}} przypadków, czyli wciąż rzadziej, niż wymaga cena ({{potrzeba}}). Taka {{t:pair|para}} może też przegrać z lepszym układem rywala.",
+      "overcardsCall": "Karty, które dają ci {{t:pair|parę}} wyższą od każdej karty na {{t:board|stole}} ({{nadkarty}} z {{nieznane}} niewidzianych), rachunek pomija: taka {{t:pair|para}} może przegrać z lepszym układem rywala, a same outy drawa wystarczają."
     },
     "next": {
       "street": "Dalej: {{ulica}}",
