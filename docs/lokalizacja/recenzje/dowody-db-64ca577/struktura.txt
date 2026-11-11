@@ -1,0 +1,50 @@
+$ node struk.mjs (porównanie {{n:}}, {{t:}} i cyfr poza znacznikami: why poprawnej opcji q1/q2/q3/q8, pl vs 11 języków) @ 64ca577b
+pl m12.exam.q1 n: = t: = cyfry: 
+pl m12.exam.q2 n: = t: = cyfry: 
+pl m12.exam.q3 n: = t: = cyfry: 
+pl m12.exam.q8 n: = t: = cyfry: 2
+en m12.exam.q1 n: = t: = cyfry: 
+en m12.exam.q2 n: = t: = cyfry: 
+en m12.exam.q3 n: = t: DIFF pl=standard-deviation en=standard-deviation,standard-deviation cyfry: 
+en m12.exam.q8 n: = t: = cyfry: 2
+de m12.exam.q1 n: = t: = cyfry: 
+de m12.exam.q2 n: = t: = cyfry: 
+de m12.exam.q3 n: = t: DIFF pl=standard-deviation de=standard-deviation,standard-deviation cyfry: 
+de m12.exam.q8 n: = t: = cyfry: 2
+es m12.exam.q1 n: = t: = cyfry: 
+es m12.exam.q2 n: = t: = cyfry: 
+es m12.exam.q3 n: = t: DIFF pl=standard-deviation es=standard-deviation,standard-deviation cyfry: 
+es m12.exam.q8 n: = t: = cyfry: 2
+fr m12.exam.q1 n: = t: = cyfry: 
+fr m12.exam.q2 n: = t: = cyfry: 
+fr m12.exam.q3 n: = t: DIFF pl=standard-deviation fr=standard-deviation,standard-deviation cyfry: 
+fr m12.exam.q8 n: = t: = cyfry: 2
+it m12.exam.q1 n: = t: = cyfry: 
+it m12.exam.q2 n: = t: = cyfry: 
+it m12.exam.q3 n: = t: DIFF pl=standard-deviation it=standard-deviation,standard-deviation cyfry: 
+it m12.exam.q8 n: = t: = cyfry: 2
+ja m12.exam.q1 n: = t: = cyfry: 
+ja m12.exam.q2 n: = t: = cyfry: 
+ja m12.exam.q3 n: = t: DIFF pl=standard-deviation ja=standard-deviation,standard-deviation cyfry: 2
+ja m12.exam.q8 n: = t: = cyfry: 2
+ko m12.exam.q1 n: = t: = cyfry: 
+ko m12.exam.q2 n: = t: = cyfry: 000
+ko m12.exam.q3 n: = t: DIFF pl=standard-deviation ko=standard-deviation,standard-deviation cyfry: 000
+ko m12.exam.q8 n: = t: = cyfry: 0,2
+pt-BR m12.exam.q1 n: = t: = cyfry: 
+pt-BR m12.exam.q2 n: = t: = cyfry: 
+pt-BR m12.exam.q3 n: = t: DIFF pl=standard-deviation pt-BR=standard-deviation,standard-deviation cyfry: 
+pt-BR m12.exam.q8 n: = t: = cyfry: 2
+pt m12.exam.q1 n: = t: = cyfry: 
+pt m12.exam.q2 n: = t: = cyfry: 
+pt m12.exam.q3 n: = t: DIFF pl=standard-deviation pt=standard-deviation,standard-deviation cyfry: 
+pt m12.exam.q8 n: = t: = cyfry: 2
+vi m12.exam.q1 n: = t: = cyfry: 
+vi m12.exam.q2 n: = t: = cyfry: 
+vi m12.exam.q3 n: = t: DIFF pl=standard-deviation vi=standard-deviation,standard-deviation cyfry: 
+vi m12.exam.q8 n: = t: = cyfry: 0,2
+zh-Hant m12.exam.q1 n: = t: = cyfry: 
+zh-Hant m12.exam.q2 n: = t: = cyfry: 
+zh-Hant m12.exam.q3 n: = t: DIFF pl=standard-deviation zh-Hant=standard-deviation,standard-deviation cyfry: 
+zh-Hant m12.exam.q8 n: = t: = cyfry: 2
+kod=0

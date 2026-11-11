@@ -1,0 +1,68 @@
+$ sonda (worktree): zmiana pl q8 + przeglad.sha pl odnowione + usunięte przeglad_jezyki.en.sha_pl w R-M12-009; node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy
+wpisy: 1060, bez twierdzeń: 139, wymagane: 1139, brak pokrycia: 0
+status: {"potwierdzone":1004,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":705,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1047,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.vpip.high, n:hud.opps.look, n:hud.opps.sure, n:study.beginner, n:study.winner, n:study.min, n:var.wr.typical.high, n:cbet.range.small.low, n:cbet.range.small.high, n:cbet.range.big.low, n:cbet.range.big.high, n:xr.mult.example, n:xr.mult.low, n:cbet.oop.a94.check, n:hud.hands.3bet.high, n:hud.hands.3bet.low, n:hud.hands.random, n:hud.hands.rough.high, n:hud.vpip.reg.high, n:m11.depth.15, n:m11.m.red, n:mda.all.fcb, n:mda.period.months, n:mda.rec.def, n:mda.rec.def.wr, n:mda.rec.f3b, n:mda.rec.pfr, n:mda.rec.vpip, n:mda.rec.wr, n:mda.rec.wsd, n:mda.rec.wtsd, n:mda.reg.def.high, n:mda.reg.def.low, n:mda.reg.def.wr, n:mda.reg.f3b, n:mda.reg.pfr, n:mda.reg.vpip, n:mda.reg.wr, n:mda.reg.wsd, n:mda.reg.wtsd, n:rake.micro.high, n:rake.nl500.high, n:rake.nl500.low, n:rake.pop.nl10.loss, n:rake.pop.nl100.loss, n:rake.pop.nl500.loss, n:rake.pop.reg.hands, n:rake.pop.reg.postrake, n:rake.pop.reg.prerake, n:hud.hands.3bet.overall.low, n:rake.pop.reg.prerake.raw, n:rake.pop.reg.postrake.raw, t:preflop, t:out-of-position, t:late-position, t:outs, t:draw, t:gutshot, t:backdoor, t:pot-odds, t:implied-odds, t:equity, t:combo, t:range, t:suited, t:offsuit, t:pocket-pair, t:limp, t:isolation, t:rainbow, t:two-tone, t:monotone, t:second-pair, t:overpair, t:c-bet, t:range-advantage, t:nuts-advantage, t:polarized, t:value-bet, t:bluff, t:blocker, t:bluff-catcher, t:probe-bet, t:donk-bet, t:overbet, t:mdf, t:tilt, t:winrate, t:downswing, t:session, t:standard-deviation, t:risk-of-ruin, t:mental-game, t:shove, t:bubble, t:bubble-factor, t:fold-equity, t:chip-ev, t:final-table, t:nash-equilibrium, t:overcall, t:stack-off, t:exploit, t:vpip, t:wtsd, t:nit, t:tag, t:lag, t:calling-station, t:maniac, t:rake, t:rake-cap)
+krytyczne: 56
+BŁĄD rejestr R-M12-011: przegląd dotyczy innej wersji zdań (19c1b4f5e103, teraz 9b41807b3c4c)
+BŁĄD rejestr n:br.bi.base: przegląd dotyczy innej wersji zdań (a71835be76ac, teraz 5c033afea4ba)
+BŁĄD rejestr n:br.bi.beginner: przegląd dotyczy innej wersji zdań (90bfff53762f, teraz 4813dc1e1a47)
+BŁĄD rejestr n:ror.two: przegląd dotyczy innej wersji zdań (27580214ffed, teraz 5ebada975ffb)
+BŁĄD rejestr R-M12-009: przekład w de powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w de powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w de powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w de powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w de powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w en powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w en powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w en powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w en powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w es powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w es powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w es powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w es powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w es powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w fr powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w fr powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w fr powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w fr powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w fr powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w it powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w it powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w it powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w it powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w it powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w ja powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w ja powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w ja powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w ja powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w ja powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w ko powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w ko powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w ko powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w ko powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w ko powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w pt powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w pt powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w pt powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w pt powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w pt powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w pt-BR powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w pt-BR powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w pt-BR powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w pt-BR powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w pt-BR powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w vi powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w vi powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w vi powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w vi powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w vi powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-009: przekład w zh-Hant powstał z innej wersji pl (081d35e3337f, teraz f5e1df57438f): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr R-M12-011: przekład w zh-Hant powstał z innej wersji pl (19c1b4f5e103, teraz 9b41807b3c4c): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.base: przekład w zh-Hant powstał z innej wersji pl (a71835be76ac, teraz 5c033afea4ba): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:br.bi.beginner: przekład w zh-Hant powstał z innej wersji pl (90bfff53762f, teraz 4813dc1e1a47): przetłumacz zmiany i zapisz nowy sha_pl
+BŁĄD rejestr n:ror.two: przekład w zh-Hant powstał z innej wersji pl (27580214ffed, teraz 5ebada975ffb): przetłumacz zmiany i zapisz nowy sha_pl
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 67 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+58 błędów, 1 uwag
+kod=1

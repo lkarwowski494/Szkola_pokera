@@ -1,0 +1,7 @@
+import {readFileSync} from 'node:fs'; import YAML from 'yaml';
+const L=['pl','en','de','es','fr','it','ja','ko','pt-BR','pt','vi','zh-Hant'];
+const ids=['m12.exam.q1','m12.exam.q2','m12.exam.q3','m12.exam.q8'];
+const get=(l)=>{const y=YAML.parse(readFileSync(`content/${l}/exams/m12.yaml`,'utf8'));const m={};for(const d of y.drills){const i=d.options.findIndex(o=>o.correct);m[d.id]=d.options[i].why;}return m;};
+const P=get('pl');
+const tok=s=>{const n=(s.match(/\{\{n:[^}]+\}\}/g)||[]).sort();const t=(s.match(/\{\{t:([^}|]+)/g)||[]).map(x=>x.slice(4)).sort();const dig=s.replace(/\{\{[^}]+\}\}/g,'').match(/\d+/g)||[];return {n,t,dig};};
+for(const l of L){const M=get(l);for(const id of ids){const a=tok(P[id]),b=tok(M[id]);const ok=JSON.stringify(a.n)===JSON.stringify(b.n);const tok2=JSON.stringify(a.t)===JSON.stringify(b.t);console.log(l,id,'n:',ok?'=':'DIFF '+JSON.stringify([a.n.length,b.n.length]),'t:',tok2?'=':`DIFF pl=${a.t} ${l}=${b.t}`,'cyfry:',b.dig.join(','));}}
