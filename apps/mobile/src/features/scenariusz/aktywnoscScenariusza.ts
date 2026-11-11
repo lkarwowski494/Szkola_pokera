@@ -7,7 +7,7 @@ import {
 } from '@szkola/postep';
 import { wybierzWariant, ziarnoPowtorki } from '@szkola/domena';
 import { zapiszBladPostepu } from '@/data/postep';
-import { AKCJE, grafPunktow, naGenerator, odciskWariantu, przebiegWariantu, type Akcja } from './wariant';
+import { grafPunktow, jestAkcja, naGenerator, odciskWariantu, przebiegWariantu, type Akcja } from './wariant';
 
 /**
  * Scenariusz jako aktywność (ADR 0010; PR-05, BR-GEN-001, BR-GEN-002, KO-043). Wariant = szablon + poziom + ziarno: plan
@@ -43,7 +43,6 @@ export interface SesjaScenariusza {
   wybory: readonly Akcja[];
 }
 
-const jestAkcja = (a: unknown): a is Akcja => AKCJE.some((x) => x === a);
 function parsujWybor(json: string): Akcja | null {
   try {
     const v: unknown = JSON.parse(json);

@@ -16,9 +16,19 @@ import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
  * Akcje punktów decyzji na ekranie (CN, D-783): pas i sprawdzenie (draw-call, icm-call), czekanie i c-bet mały/duży (cbet-case),
  * rozmiar podbicia albo limp (size-spot). Identyfikatory jak w szablonie (`actions[].action`) i w wyborze zapisanym w bazie.
  */
-export type Akcja = 'fold' | 'call' | 'check' | 'bet-small' | 'bet-big' | 'raise' | 'raise-small' | 'raise-big' | 'limp';
-/** Wszystkie akcje, jakie ekran zna (walidacja wyboru odczytanego z bazy). */
-export const AKCJE: readonly Akcja[] = ['fold', 'call', 'check', 'bet-small', 'bet-big', 'raise', 'raise-small', 'raise-big', 'limp'];
+export type Akcja = 'fold' | 'call' | 'check' | 'bet-small' | 'bet-big' | 'raise' | 'raise-small' | 'raise-big' | 'limp' | 'all-in' | `raise ${number}` | `call ${number}`;
+/**
+ * Akcje stałe, jakie ekran zna. Punkt range-spot (CX, F1) ma akcje o nazwach z węzła solvera spotu (`content/ranges/spots.yaml`): `fold`, `call`,
+ * `all-in` oraz `raise N` i `call N` z rozmiarem w bb (np. `raise 2.5`); te dwie ostatnie rozpoznaje `jestAkcja` wzorcem, bo lista rozmiarów należy do danych.
+ */
+export const AKCJE: readonly Akcja[] = ['fold', 'call', 'check', 'bet-small', 'bet-big', 'raise', 'raise-small', 'raise-big', 'limp', 'all-in'];
+const ROZMIAR_SPOTU = /^(raise|call) \d+(\.\d+)?$/;
+/** Czy napis to akcja ekranu (walidacja wyboru odczytanego z bazy i etykiet spotu na granicy z danymi). */
+export const jestAkcja = (a: unknown): a is Akcja => typeof a === 'string' && (AKCJE.some((x) => x === a) || ROZMIAR_SPOTU.test(a));
+const akcjaSpotu = (etykieta: string): Akcja => {
+  if (!jestAkcja(etykieta)) throw new Error(`Akcja spotu spoza znanych etykiet: ${etykieta}`);
+  return etykieta;
+};
 
 /** Kolejność akcji na pasku: najtańsza pierwsza (jak w makiecie 04); dla size-spot limp, mały rozmiar, standard, duży. */
 const KOLEJNOSC_SIZE: readonly Akcja[] = ['limp', 'raise-small', 'raise', 'raise-big'];
@@ -32,13 +42,12 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
     case 'size-spot':
       return KOLEJNOSC_SIZE.filter((a) => p.options.some((o) => o.action === a));
     case 'range-spot':
-      throw new Error('range-spot nie jest obsługiwany na ekranie scenariusza (D-755)');
+      return p.options.map((o) => akcjaSpotu(o.action)); // kolejność węzła solvera: pas, sprawdzenie, rosnące podbicia, all-in
   }
 }
-/** Poprawna akcja punktu (rachunek generatora). */
+/** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'range-spot') throw new Error('range-spot nie jest obsługiwany na ekranie scenariusza (D-755)');
-  return p.correct;
+  return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
 type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
 /**
@@ -50,6 +59,16 @@ export function kwotaAkcji(p: VariantDecision, a: Akcja, s: Pozycje): number | n
   if (p.point === 'draw-call') return a === 'call' ? p.bet : null;
   if (p.point === 'icm-call') return a === 'call' && typeof s.stackBb === 'number' ? s.stackBb - blindBb(s.positions.hero) : null;
   if (p.point === 'size-spot') return a === 'limp' ? 1 - blindBb(s.positions.hero) : (p.options.find((o) => o.action === a)?.bb ?? null);
+  if (p.point === 'range-spot') {
+    // Kwoty z etykiety węzła solvera (spots.yaml): „raise N” = podbicie do N bb; „call N” = dopłata do N bb za blindem gracza; bez liczby: all-in = stos,
+    // „call” (spoty call.*: sprawdzenie all-inu rywala) = stos za blindem gracza, jak w icm-call.
+    const stos = typeof s.stackBb === 'number' ? s.stackBb : null;
+    if (a === 'all-in') return stos;
+    if (a === 'call') return stos === null ? null : stos - blindBb(s.positions.hero);
+    const m = /^(raise|call) (\d+(?:\.\d+)?)$/.exec(a);
+    if (!m) return null;
+    return m[1] === 'raise' ? Number(m[2]) : Number(m[2]) - blindBb(s.positions.hero);
+  }
   return null;
 }
 
@@ -89,7 +108,15 @@ export function grafWariantu(liczbaDecyzji: number): AkcjaPlanu[][] {
  */
 export function grafPunktow(v: ScenarioVariant): AkcjaPlanu[][] {
   if (v.points.every((p) => p.point === 'draw-call')) return grafWariantu(v.points.length);
-  return v.points.map((p) => akcjePunktu(p).map((akcja): AkcjaPlanu => ({ akcja, dalej: 'koniec' })));
+  const ostatni = v.points.length - 1;
+  return v.points.map((p, i) =>
+    akcjePunktu(p).map((akcja): AkcjaPlanu => {
+      // linia preflop → flop (CX): pas i all-in kończą rozdanie, pozostałe akcje range-spot prowadzą do następnej decyzji (draw-call); ostatnie sprawdzenie pokazuje karty
+      if (p.point === 'range-spot') return { akcja, dalej: i < ostatni && akcja !== 'fold' && akcja !== 'all-in' ? i + 1 : 'koniec' };
+      if (p.point === 'draw-call') return { akcja, dalej: akcja === 'fold' ? 'koniec' : i < ostatni ? i + 1 : 'pokazanie' };
+      return { akcja, dalej: 'koniec' };
+    }),
+  );
 }
 
 /**
@@ -97,8 +124,15 @@ export function grafPunktow(v: ScenarioVariant): AkcjaPlanu[][] {
  * `sizeVerdict`), więc ekran ocenia jak tryb gry (zgodne / dopuszczalne / niedokładność / błąd), a nie „błąd” dla każdej akcji poza najlepszą.
  * Draw-call i icm-call to rachunek z dwiema akcjami: poprawna zgodne, druga błąd.
  */
+const NA_OCENE_SPOTU = { correct: 'zgodne', acceptable: 'dopuszczalne', inaccuracy: 'niedokladnosc', wrong: 'blad' } as const;
 const NA_OCENE_EKRANU = { compliant: 'zgodne', acceptable: 'dopuszczalne', inaccuracy: 'niedokladnosc', mistake: 'blad' } as const;
 function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
+  if (d.point === 'range-spot') {
+    // werdykt rangeVerdict z wariantu (ADR-26): zgodna / dopuszczalna (ręka mieszana, ADR-04) / niedokładność / błąd
+    const o = d.options.find((x) => x.action === a);
+    if (o === undefined) throw new Error(`Akcja ${a} nie należy do punktu range-spot`);
+    return NA_OCENE_SPOTU[o.verdict];
+  }
   if (d.point === 'cbet-case' || d.point === 'size-spot') {
     const w = (d.verdicts as Partial<Record<string, WerdyktAkcji>>)[a];
     if (w === undefined) throw new Error(`Akcja ${a} nie należy do punktu ${d.point}`);
@@ -166,7 +200,7 @@ export interface WidokDecyzji {
 /** `s` potrzebne tylko dla icm-call (stos i blind gracza wchodzą do puli i dopłaty); bez niego icm-call nie ma kwot. */
 export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): WidokDecyzji {
   const d = v.points[indeks];
-  if (!d || d.point === 'range-spot') throw new Error(`Wariant nie ma decyzji ${indeks}`);
+  if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
   const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : 4).map(cardToString);
   if (d.point === 'draw-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
   if (d.point === 'icm-call' && s && typeof s.stackBb === 'number') {

@@ -41,6 +41,9 @@ export const nazwaAkcji = (a: Akcja, t: TFn, bb: number | null): string => {
     case 'raise':
     case 'raise-small':
     case 'raise-big': return t('play.raise', { bb: bb ?? 0 });
+    // akcje punktu range-spot (CX, F1; etykiety węzła solvera, kwoty z `kwotaAkcji`): „raise N” jak podbicie, „call N” jak sprawdzenie, all-in ze stosem
+    case 'all-in': return bb === null ? wielka(t('play.allInTag')) : t('play.allin', { bb });
+    default: return a.startsWith('raise ') ? t('play.raise', { bb: bb ?? 0 }) : t('play.call', { bb: bb ?? 0 });
   }
 };
 
@@ -130,8 +133,9 @@ function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn):
 function reakcjaGracza(a: Akcja, pos: string, bb: number | null, t: TFn): string {
   if (a === 'fold') return t('play.log.fold', { pos });
   if (a === 'check') return t('play.log.check', { pos });
-  if (a === 'call' || a === 'limp') return t('play.log.call', { pos, bb: bb ?? 0 });
-  if (a === 'raise' || a === 'raise-small' || a === 'raise-big') return t('play.log.raise', { pos, bb: bb ?? 0 });
+  if (a === 'call' || a === 'limp' || (a.startsWith('call ') && bb !== null)) return t('play.log.call', { pos, bb: bb ?? 0 });
+  if (a === 'raise' || a === 'raise-small' || a === 'raise-big' || (a.startsWith('raise ') && bb !== null)) return t('play.log.raise', { pos, bb: bb ?? 0 });
+  if (a === 'all-in' && bb !== null) return t('play.log.allin', { pos, bb });
   return `${pos}: ${nazwaAkcji(a, t, bb).toLowerCase()}`;
 }
 
@@ -140,7 +144,7 @@ function wpisyDziennika(s: SesjaScenariusza, doIndeksu: number, t: TFn, oceny: r
   const wpisy: WpisDziennika[] = [];
   for (let i = 0; i <= doIndeksu; i++) {
     const d = s.wariant.points[i];
-    if (!d || d.point === 'range-spot') break;
+    if (!d) break;
     const karta = d.point === 'draw-call' && d.street === 'turn' ? `[[${cardToString(s.wariant.board[3] as number)}]] ` : '';
     const odp = s.wybory[i];
     const rywal = ruchRywala(s, d, i, t);
@@ -179,7 +183,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const d = s.wariant.points[indeks];
   const przebieg = przebiegWariantu(s.wariant, s.wybory);
   const oceny = przebieg.ok ? przebieg.wartosc.kroki.map((k) => k.ocena) : [];
-  const widok = d && d.point !== 'range-spot' ? widokDecyzji(s.wariant, indeks, s.szablon) : null;
+  const widok = d ? widokDecyzji(s.wariant, indeks, s.szablon) : null;
   const wybor = ocenaMode ? s.wybory[indeks] : undefined;
   const ocenaWyboru = ocenaMode ? oceny[indeks] : undefined;
   const ulicaDecyzji = d?.street;
@@ -284,7 +288,7 @@ export function KoniecScenariusza(p: PropsKonca): React.JSX.Element {
         {kroki.map((k, i) => {
           const d = s.wariant.points[i];
           const wyb = s.wybory[i];
-          if (!d || d.point === 'range-spot' || !wyb) return null;
+          if (!d || !wyb) return null;
           const lepiej = k.ocena !== 'zgodne' && k.ocena !== 'dopuszczalne';
           const poprawna = poprawnaAkcja(d);
           return (
