@@ -114,3 +114,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | M9 session_01T66VBwchgoN1YcMZZCKBS6 | koordynator opus/medium | — | ok. 13 (12,83 przy 18:24) | ok. 30 | 15:58 → przekazanie 18:36 → PRZEJĄŁEM 18:40 → archiwizacja | 0 | wg wiadomości poprzednika 18:40 |
 | DV | 06 build opus/high | — | 5,59 | 25,9 | 18:28 → 18:34 → 19:06 PRZEKAZANIE (ci w sesji kod 0, docs) → przyjęte 19:20 | 0 | źródła kroku E 15/15 + M10 bez danych |
 | DW | 09 audit opus/medium | — | 4,52 | 23,4 | 18:45 → 18:52 → 19:09 PRZEKAZANIE (ci w sesji kod 0, 1270 testów) → przyjęte 19:20 | 0 | recenzja DS: PRZYJĄĆ, 3 ŚR, 4 NIS |
+| DU | 06 build opus/high | — | 13,64 | 42,5 | 18:28 → 18:31 → 18:52 raport → 19:40 PRZEKAZANIE (ci w sesji kod 0 na cbdd2ff2) → CI dispatch 19:42 → recenzja EA | 0 | **przekroczony budżet 38% (42,5%)**: przekazanie dopiero po skończeniu kroku; kontrola 18:59 widziała 0 (licznik nie odświeżony) |
