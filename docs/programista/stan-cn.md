@@ -8,7 +8,7 @@ Gałąź `sesja-cn-kontekst` od 9143dec; decyzje `docs/decyzje/CN.md` (D-780…D
 - ŚR-001 CM: test `cm-recenzja-cl.test.ts` zmieniony z „odrzuca F2–F4” na „bramka zgodna z ekranem” (D-782, powód zapisany).
 
 ## Dowody
-- `docs/programista/dowody/cn-ci-<sha>.txt`: `pnpm run ci` kod 0 na czystym HEAD kodu (nazwa pliku zawiera sha).
+- `docs/programista/dowody/cn-ci-08abdad.txt`: `pnpm run ci` kod 0 na czystym HEAD 08abdad3 (kod i decyzje); liczby: mobile 115 zestawów / 861 testów, content-build 322, postep 160, domena 347 (+1 oczekiwany fail CG), poker-core 179.
 - Testy nowe: `apps/mobile/src/features/scenariusz/__tests__/kontekst-cn.test.ts` (30: kontekst z bazy, plan, odpowiedzi, wznowienie, kwoty), `ekran-cn.test.tsx` (7: render F2–F4), `wznowienie-cn.test.ts` (3; czerwony bez porównania odcisku), `packages/postep/test/plan-odcisk-cn.test.ts` (3), `tools/content-build/test/cm-recenzja-cl.test.ts` (ŚR-001/002).
 - Czerwień przed kodem: testy „bez kontekstu → plan_niepoprawny” dokumentują stan sprzed CN; ŚR-002: `it.fails` CM był dowodem czerwieni; NIS-004: porównanie odcisku wyłączone na próbę → „Expected: not "w3"” (to samo id wznowione), po przywróceniu zielone.
 - Zmieniony istniejący test: `aktywnoscScenariusza.test.ts:33` (plan zawiera teraz `odcisk`, D-787).
