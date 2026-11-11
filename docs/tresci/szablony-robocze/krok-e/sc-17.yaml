@@ -1,0 +1,26 @@
+# SC-17 (M6): suchy flop z asem, słaba ręka bez pary i drawa wobec dużego c-betu: pas. SZKIC DY (2026-11-11; krok D, DU nie szkicował).
+# Czeka na: 08-N2 (punkt obrony wobec c-betu, akcje call / fold). Reguła R-M6-007 (heuristic, szczebel 2): fold `compliant`,
+# call `inaccuracy` (D-1052). Wyjątek z reguły („na suchych flopach z królem solver sprawdza wiele rąk z asem”) nie zachodzi:
+# as leży na stole (boardHas), a ręka gracza bez pary nie ma asa. Duży c-bet = ułamek ≥ 0,75.
+# Test akceptacji: ręka bez pary z kartą gracza, bez drawa (outs < 4, bez backdooru do najwyższego koloru), obie karty ≥ T (dwie wysokie karty), żadna nie jest asem,
+# flop `wetness: dry`, as na stole; c-bet z `fractions` (≥ 0,75); oczekiwane fold w 100% wariantów.
+id: sc-17
+module: m6
+situation: "Bronisz {{t:big-blind|dużego blinda}} przeciw otwarciu z {{t:button|Buttona}}; na suchym flopie z asem rywal stawia duży {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { holding: [air], flop: { height: [high], wetness: [dry] }, boardHas: [A], expected: [fold] }
+  sredni: { holding: [air], flop: { height: [high], wetness: [dry, semi-wet] }, boardHas: [A], expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend-cbet            # 08-N2
+    fractions: [0.75, 1]
+    rule: R-M6-007
+    actions:
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} stawia duży {{t:c-bet}}. Zwykle {{t:fold|pasujesz}}, bo {{t:out-of-position}} taka ręka rzadko dochodzi do showdownu, a {{t:pair}} z wysokiej karty często i tak przegrywa."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} stawia duży {{t:c-bet}}. {{t:call|Sprawdzenie}} to niedokładność: {{t:out-of-position}} taka ręka rzadko dochodzi do showdownu, a {{t:pair}} z wysokiej karty często i tak przegrywa. {{t:call|Sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}."

@@ -1,0 +1,28 @@
+# SC-26 (M9): niski SPR na flopie, najwyższa para albo lepsza wobec all-inu: sprawdzenie. SZKIC DY (2026-11-11).
+# Czeka na: 08-N10 (punkt flop: rywal all-in, gracz call / fold; SPR wariantu z przedziału szablonu przez rozmiar 3-betu; filtr ręki
+# „najwyższa para (dowolny kicker), overpara albo lepsza”). Warunek zrodla-krok-e.md §2 SC-26; R-M9-001 (math), R-M9-003 (heuristic).
+# Ocena: call `compliant`, fold `mistake` (D-1052: przykład solvera bez wyjątków w strefie, GW stack-to-pot-ratio:53–54).
+# SPR 3–6 i druga para: bez decyzji (D-1053, generator nie losuje). Linia: 40 bb, BTN otwiera, BB 3-betuje ok. 8–10 bb, BTN sprawdza
+# → SPR ok. 1,5–2,5 (08 dobiera rozmiar 3-betu do przedziału).
+# Test akceptacji: SPR = stack efektywny ÷ pula liczone niezależnie; ręka z evaluatora (para z najwyższą kartą stołu, overpara, dwie pary,
+# set, strit, kolor); 10 000 losowań, 1,5 ≤ SPR ≤ 2,5, expected call w 100%.
+id: sc-26
+module: m9
+situation: "Przy {{t:effective-stack|stackach}} ok. {{w:stack}} {{t:big-blind}} {{t:3-bet|3-betował}} twoje {{t:open|otwarcie}} z {{t:button|Buttona}}, a ty {{t:call|sprawdziłeś}}. Na flopie rywal wchodzi all-in."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 40
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { spr: { min: 1.5, max: 2 }, holding: [overpair, two-pair-plus], expected: [call] }
+  sredni: { spr: { min: 1.5, max: 2.5 }, holding: [top-pair-good-kicker], expected: [call] }
+  trudny: { spr: { min: 2, max: 2.5 }, holding: [top-pair-weak-kicker], expected: [call] }
+decisions:
+  - street: flop
+    kind: spr-call               # 08-N10 (propozycja nazwy)
+    rule: R-M9-003
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} wchodzi all-in. {{t:call|Sprawdzasz}}, bo {{t:spr}} jest niższy niż ok. {{n:spr.zone.low}}, a z {{t:top-pair|najwyższą parą}} albo lepszą ręką grasz wtedy o cały stack: na przykład przy {{t:spr}} {{n:spr.commit}} na all-in potrzebujesz najwyżej ok. {{n:eq.jam.spr2}} equity."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} wchodzi all-in. {{t:fold|Pas}} to błąd: przy {{t:spr}} niższym niż ok. {{n:spr.zone.low}} z {{t:top-pair|najwyższą parą}} albo lepszą ręką grasz o cały stack i zwykle nie {{t:fold|pasujesz}} na all-in; na przykład przy {{t:spr}} {{n:spr.commit}} potrzebujesz najwyżej ok. {{n:eq.jam.spr2}} equity."

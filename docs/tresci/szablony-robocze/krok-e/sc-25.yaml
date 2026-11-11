@@ -1,0 +1,28 @@
+# SC-25 (M8): river in position, ręka średnia, gorsze ręce nie zapłacą: czekanie do showdownu. SZKIC DY (2026-11-11).
+# Czeka na: 08-N7b (ten sam punkt co SC-22). Warunek zrodla-krok-e.md §2 SC-25: w ≤ value.threshold − δ → check `compliant`, bet `mistake`
+# (rachunek R-M8-001; R-M8-002 heuristic jako wniosek: jego pole because daje „bo”). Zakres sprawdzenia = dana zadania (D-1050).
+# Test akceptacji: jak SC-22, expected = check, w ≤ 0,5 − δ poziomu; ręka gracza: jedna para (druga albo trzecia), żeby „ręka średnia”
+# była prawdą (pairKind ∈ {second, low}), a zakres sprawdzenia z przewagą rąk lepszych.
+id: sc-25
+module: m8
+situation: "{{t:open|Otworzyłeś}} z {{t:button|Buttona}}, {{t:big-blind}} {{t:call|sprawdzał}} do rivera. Na riverze {{t:check|czeka}}. Załóż, że na twój {{t:bet}} {{t:call|sprawdzi}} tylko rękami: {{w:zakres}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { holding: [pair-second, pair-low], margins: [{ min: 0.1, max: null }], expected: [check] }
+  sredni: { holding: [pair-second, pair-low], margins: [{ min: 0.02, max: 0.1 }], expected: [check] }
+decisions:
+  - street: river
+    kind: river-value            # 08-N7b
+    betFraction: 0.5
+    callRanges:
+      - [top-pair, overpair, two-pair, set]
+      - [top-pair, second-pair-good-kicker, two-pair]
+    rule: R-M8-002
+    actions:
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:check|Czekasz}} i idziesz do showdownu za darmo, bo po {{t:bet|becie}} gorsze ręce {{t:fold|pasują}}, a płacą lepsze, więc {{t:bet}} zamienia rękę z wartością przy showdownie w {{t:bluff}}. Tu mniej niż {{n:value.threshold}} rąk, którymi rywal {{t:call|sprawdzi}}, to ręce gorsze od twojej."
+      - action: bet
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Bet}} traci: ręce, którymi rywal {{t:call|sprawdzi}}, to w większości ręce lepsze od twojej, a gorsze {{t:fold|spasują}}. {{t:bet|Bet}} zamienia rękę z wartością przy showdownie w {{t:bluff}}."

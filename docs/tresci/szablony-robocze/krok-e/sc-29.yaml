@@ -1,0 +1,29 @@
+# SC-29 (M10): rywal, który sprawdza szeroko: cieńszy value bet na riverze. SZKIC DY (2026-11-11), wariant rachunkowy KO-071.
+# KO-071 (właściciel 2026-11-11): typ rywala jest daną zadania, bez reguły eksploatacyjnej o populacji (R-M10-006 nie jest użyta,
+# villainType nie jest ustawiony: schemat wymaga reguły exploit z populacją, scenariusze.ts:191). Warunek = SC-22 (rachunek R-M8-001,
+# D-1050, D-1051) z szerokim zakresem sprawdzenia podanym w opisie: ten sam rachunek daje „bet” ręką, która przeciw ciasnemu
+# zakresowi by czekała (SC-25). Uproszczenie dydaktyczne nazwane w tekście: „zakładasz, że rywal sprawdzi tak jak dotąd”.
+# Czeka na: 08-N7b. Test akceptacji jak SC-22: ręka gracza = druga para albo najwyższa para ze słabym kickerem; w ≥ 0,5 + δ; 100% bet.
+id: sc-29
+module: m10
+situation: "{{t:open|Otworzyłeś}} z {{t:button|Buttona}}, {{t:big-blind}} {{t:call|sprawdzał}} do rivera i na riverze {{t:check|czeka}}. W tej sesji ten rywal {{t:call|sprawdzał}} river prawie każdą {{t:pair|parą}}. Załóż, że tak samo zrobi teraz i {{t:call|sprawdzi}} rękami: {{w:zakres}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { holding: [pair-second], margins: [{ min: 0.1, max: null }], expected: [bet] }
+  sredni: { holding: [pair-second, top-pair-weak-kicker], margins: [{ min: 0.02, max: 0.1 }], expected: [bet] }
+decisions:
+  - street: river
+    kind: river-value            # 08-N7b
+    betFraction: 0.5
+    callRanges:                  # szeroki zakres sprawdzenia: dana zadania (KO-071)
+      - [any-pair, ace-high]
+      - [any-pair]
+    calc: value.threshold
+    actions:
+      - action: bet
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Stawiasz}} {{t:value|dla wartości}} nawet tą ręką, bo ten rywal {{t:call|sprawdza}} także słabszymi {{t:pair|parami}}: ponad {{n:value.threshold}} rąk, którymi {{t:call|sprawdzi}}, to ręce gorsze od twojej. Liczysz tylko ręce, które zapłacą. To uproszczenie: zakładasz, że rywal {{t:call|sprawdzi}} tak jak dotąd w tej sesji."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:check|Czekanie}} oddaje zarobek: ten rywal {{t:call|sprawdza}} także słabszymi {{t:pair|parami}}, więc ponad {{n:value.threshold}} rąk, którymi {{t:call|sprawdzi}}, to ręce gorsze od twojej, a każde {{t:call}} gorszą ręką wygrywa jeden {{t:bet}}."

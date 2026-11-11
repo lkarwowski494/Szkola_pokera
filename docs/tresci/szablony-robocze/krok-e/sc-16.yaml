@@ -1,0 +1,39 @@
+# SC-16 (M6): check-raise z mocnym drawem albo z setem / dwiema parami na flopie. SZKIC DY (2026-11-11), poza content:build.
+# Czeka na: 08-N2 (punkt obrony wobec c-betu) + 08-N8 (akcja raise w tym punkcie i drugi punkt: rozmiar jako krotność c-betu).
+# Warunki: zrodla-krok-e.md §2 SC-16a (draw, outs ≥ 8), SC-16b (set / dwie pary z obu kart, flop bez gotowego koloru i strita),
+# SC-16c (rozmiar). Reguły R-M6-008 (heuristic), R-M6-010 (heuristic, cena z rachunku). Ocena wg D-1052: raise `compliant`,
+# call `acceptable` (ręka mieszana, ADR-04), fold oceniany rachunkiem draw-price (Ś) / `mistake` dla setu (T, D-1052 nie daje
+# mistake heurystyce → fold setem `inaccuracy`, do potwierdzenia przez 08). Średnie pary: bez decyzji (D-1053), generator ich nie losuje.
+# Test akceptacji (BR-GEN-003, 10 000 losowań, wyrocznia niezależna): Ś — ręka bez pary z kartą gracza i outs ≥ 8 (kolor albo strit
+# otwarty, liczone z rang i kolorów jak outyDrawa w szablony-co.test.ts), c-bet z `fractions`; T — set albo dwie pary z obu kart,
+# `classifyFlop`: suits ≠ monotone i straightPossible = false. Punkt 2: m = rozmiar ÷ c-bet; m ≥ xr.mult.low zgodne, m < xr.mult.low niedokładność.
+id: sc-16
+module: m6
+situation: "Bronisz {{t:big-blind|dużego blinda}} przeciw otwarciu z {{t:button|Buttona}}; na flopie {{t:check|czekasz}}, a rywal stawia {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { holding: [draw], drawOutsMin: 8, expected: [raise, raise] }
+  trudny: { holding: [set, two-pair-both], flop: { suits: [rainbow, two-tone], straightPossible: false }, expected: [raise, raise] }
+decisions:
+  - street: flop
+    kind: defend-cbet            # 08-N2 + N8 (propozycja nazwy)
+    fractions: [0.25, 0.333333, 0.5]
+    rule: R-M6-008
+    actions:
+      - action: raise
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} stawia {{t:c-bet}}. Robisz {{t:check-raise}}, bo po nim gorsze ręce zwykle {{t:fold|pasują}}, a lepsze płacą: silna ręka buduje {{t:pot|pulę}}, a {{t:draw}} ma dwie drogi do wygranej, {{t:fold}} rywala albo trafienie. Według serwisu szkoleniowego drawy do {{t:flush|koloru}} i otwarte strity oraz sety dobrze nadają się do {{t:check-raise|check-raise'u}}."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} stawia {{t:c-bet}}. {{t:call|Sprawdzenie}} jest dopuszczalne: tę rękę czasem tylko {{t:call|sprawdzasz}}. Częściej jednak robisz {{t:check-raise}}, bo silna ręka buduje wtedy {{t:pot|pulę}}, a {{t:draw}} dostaje drugą drogę do wygranej: {{t:fold}} rywala."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} stawia {{t:c-bet}}. {{t:fold|Pas}} oddaje rękę, z którą {{t:check-raise}} jest pierwszym wyborem: silna ręka chce budować {{t:pot|pulę}}, a {{t:draw}} wygrywa, gdy rywal {{t:fold|spasuje}} albo gdy trafisz."
+  - street: flop
+    kind: raise-size             # 08-N8: krotność c-betu
+    rule: R-M6-010
+    actions:
+      - action: raise
+        explanation: "{{t:raise|Przebijasz}} ok. {{n:xr.mult.low}}–{{n:xr.mult.example}} c-betu, tym więcej, im mniejszy c-bet, bo przy {{t:check-raise|check-raise'ie}} do {{n:xr.mult.example}} c-betu Button potrzebuje do {{t:call|sprawdzenia}} ok. {{n:eq.vs-xr.example}} equity, a przy {{n:xr.too-small.mult}} c-betu tylko {{n:eq.vs-xr.too-small}}."
+      - action: raise-small
+        explanation: "Małe przebicie to niedokładność: przy {{n:xr.too-small.mult}} c-betu Button potrzebuje do {{t:call|sprawdzenia}} tylko ok. {{n:eq.vs-xr.too-small}} equity, więc tak tanio zapłaci każdym {{t:draw|drawem}}. {{t:raise|Przebijasz}} ok. {{n:xr.mult.low}}–{{n:xr.mult.example}} c-betu."

@@ -1,0 +1,31 @@
+# SC-22 (M8): river in position, cienki value bet z zakresu sprawdzenia rywala podanego jako dana. SZKIC DY (2026-11-11).
+# Czeka na: 08-N7b (punkt river-value: rywal czeka, gracz bet albo czeka; zakres sprawdzenia w szablonie jako lista klas rąk;
+# wyrocznia: w = gorsze ÷ (gorsze + lepsze) kombinacji po usunięciu kart gracza i stołu, remisy pominięte; D-1050, D-1051).
+# Ocena (rachunek R-M8-001, math): bet `compliant` ⇔ w ≥ value.threshold + δ; czekanie wtedy `mistake`; pas |w − 0,5| < δ odrzucany.
+# Rozmiar thin value (R-M8-003): bez decyzji (D-1053) — punkt ma jedną akcję bet bez wyboru rozmiaru (½ puli w opisie linii).
+# Zakres sprawdzenia to dana zadania, nie twierdzenie o graczach (D-1050); zdanie „załóż, że…” nazywa to uproszczeniem.
+# Test akceptacji (BR-GEN-003): w liczone niezależnie od generatora (wyliczenie kombinacji z listy klas, ocena rąk evaluatorem
+# poker-core), 10 000 losowań: expected = bet w 100%, w ≥ 0,5 + δ poziomu.
+id: sc-22
+module: m8
+situation: "{{t:open|Otworzyłeś}} z {{t:button|Buttona}}, {{t:big-blind}} {{t:call|sprawdzał}} do rivera. Na riverze {{t:check|czeka}}. Załóż, że na twój {{t:bet}} {{t:call|sprawdzi}} tylko rękami: {{w:zakres}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { margins: [{ min: 0.1, max: null }], expected: [bet] }
+  trudny: { margins: [{ min: 0.02, max: 0.1 }], expected: [bet] }
+decisions:
+  - street: river
+    kind: river-value            # 08-N7b (propozycja nazwy)
+    betFraction: 0.5
+    callRanges:                  # dana zadania, wybierana przez generator; klasy rąk względem stołu (08: format listy)
+      - [top-pair, second-pair, overpair-low]
+      - [top-pair, second-pair, third-pair]
+    calc: value.threshold
+    actions:
+      - action: bet
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Stawiasz}} {{t:value|dla wartości}}, bo ponad {{n:value.threshold}} rąk, którymi {{t:call|sprawdzi}}, to ręce gorsze od twojej: każde {{t:call}} gorszą ręką wygrywa jeden {{t:bet}}, a każde {{t:call}} lepszą przegrywa jeden. Liczysz tylko ręce, które zapłacą, a nie wszystkie ręce rywala. To uproszczenie: zakładasz, że wiesz, czym rywal {{t:call|sprawdzi}}."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:check|Czekanie}} oddaje zarobek: ponad {{n:value.threshold}} rąk, którymi rywal {{t:call|sprawdzi}}, to ręce gorsze od twojej, a każde {{t:call}} gorszą ręką wygrywa jeden {{t:bet}}. Gdy rywal {{t:fold|pasuje}} gorszą ręką, wygrywasz tę samą {{t:pot|pulę}}, którą wygrałbyś po {{t:check|czekaniu}}."

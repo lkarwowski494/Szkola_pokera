@@ -1,0 +1,31 @@
+# SC-30 (M10): ciasny rywal 3-betuje: pas ręką zdominowaną. SZKIC DY (2026-11-11), wariant rachunkowy KO-071 (D-1055 SC-30).
+# Bez R-M10-007 (exploit bez populacji szczebla 5, zrodla-krok-e.md §3). Typ rywala jako dana: „załóż, że 3-betuje tylko górne x% rąk”.
+# Rachunek: equity ręki gracza wobec górnych x% rąk (handEquity w poker-core; ranking rąk do ustalenia przez 08 — ten sam co w zakresach
+# „górne x%” aplikacji, jeśli istnieje) wobec ceny sprawdzenia = dopłata ÷ (pula po sprawdzeniu). Fold `compliant` ⇔ equity ≤ cena − δ;
+# call `mistake`. Tylko ręce zdominowane (offsuit broadway: AJo, ATo, KQo, KJo, QJo), bez małych par i suited connectorów (implied odds
+# poza rachunkiem, D-1055). Dwa uproszczenia nazwane w tekście: (1) rywal gra dokładnie górne x%; (2) equity liczone tak, jakby żetony
+# weszły teraz, bez gry po flopie. [DO USTALENIA] źródło, że ręce zdominowane realizują OOP mniej niż swoje equity (bez niego tekst tego
+# nie twierdzi; oczekiwany fold nie zależy od tego tylko wtedy, gdy realizacja ≤ 100% — OP-DY-1).
+# Czeka na: 08-N12 (punkt preflop vs 3-bet z equity wobec górnych x%; calc: klucz do dodania w numbers.yaml, np. eq.call-3bet, D-1083).
+# Test akceptacji: equity liczone niezależnie (pełne wyliczenie kombinacji albo Monte Carlo z ustalonym ziarnem i błędem < δ/4);
+# 10 000 losowań, x ∈ {3, 5} %, expected fold w 100%.
+id: sc-30
+module: m10
+situation: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, a {{t:button}} {{t:3-bet|3-betuje}}. W tej sesji ten rywal grał bardzo mało rąk. Załóż, że {{t:3-bet|3-betuje}} tylko górne {{w:procent}} rąk."
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { topPercent: [0.03], hands: [AJo, KQo, KJo, QJo], margins: [{ min: 0.1, max: null }], expected: [fold] }
+  sredni: { topPercent: [0.03, 0.05], hands: [AJo, ATo, KQo, KJo, QJo], margins: [{ min: 0.02, max: 0.1 }], expected: [fold] }
+decisions:
+  - street: preflop
+    kind: vs-3bet-equity         # 08-N12 (propozycja nazwy)
+    threeBetBb: 9
+    calc: eq.call-3bet           # do dodania (D-1083)
+    actions:
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:fold|Pasujesz}}, bo przeciw górnym {{w:procent}} rąk ta ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}. To uproszczenie: zakładasz, że rywal gra dokładnie te ręce, i liczysz equity tak, jakby wszystkie karty miały zaraz wyjść."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:call|Sprawdzenie}} traci: przeciw górnym {{w:procent}} rąk ta ręka ma mniej equity, niż wymaga cena. To uproszczenie: zakładasz, że rywal gra dokładnie te ręce, i liczysz equity tak, jakby wszystkie karty miały zaraz wyjść."

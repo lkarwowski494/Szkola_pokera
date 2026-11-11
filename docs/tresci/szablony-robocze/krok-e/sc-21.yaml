@@ -1,0 +1,28 @@
+# SC-21 (M7): średnia ręka na turnie po sprawdzonym c-becie: czekanie. SZKIC DY (2026-11-11), poza content:build.
+# Czeka na: 08-N9 (ten sam punkt co SC-18). Warunek: zrodla-krok-e.md §2 SC-21: jedna para z pairKind ∈ {second, low}, outs < 8,
+# stack 100 bb → check `compliant`, bet `inaccuracy` (D-1052). Najwyższa para ze słabym kickerem: bez decyzji (D-1053, nie losować).
+# Reguły: R-M7-003 (heuristic, szczeble 2/4), R-M7-005 (średnie ręce czekają).
+# Test akceptacji: pairKind z classifyHolding (holding.ts:42) liczony niezależnie (para z kartą gracza, ranga = druga albo niższa
+# ranga stołu, bez pary w ręce wyższej od stołu); turn bez klasy „nadkarta-ak” (żeby nie mieszać z SC-18); 10 000 losowań, 100% check.
+id: sc-21
+module: m7
+situation: "{{t:open|Otworzyłeś}} z {{t:button|Buttona}}, {{t:big-blind}} {{t:call|sprawdził}} przed flopem i twój {{t:c-bet}} na flopie. Na turnie {{t:check|czeka}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { holding: [pair-low], drawOutsMax: 7, turnClass: [niska, parujaca, neutralna], expected: [check] }
+  sredni: { holding: [pair-second], drawOutsMax: 7, turnClass: [niska, parujaca, neutralna], expected: [check] }
+decisions:
+  - street: turn
+    kind: turn-barrel            # 08-N9
+    sizes: { bet-small: 0.333333, bet-big: 0.75 }
+    rule: R-M7-003
+    actions:
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:check|Czekasz}}, bo po {{t:call|sprawdzeniu}} flopu rywal ma {{t:range}} silniejszy niż przed nim: na {{t:bet}} {{t:fold|spasuje}} gorsze ręce, a zapłaci lepszymi. {{t:check|Czekając}}, trzymasz {{t:pot|pulę}} małą i dochodzisz do showdownu."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. Drugi {{t:bet}} średnią ręką to niedokładność: po {{t:call|sprawdzeniu}} flopu rywal ma {{t:range}} silniejszy niż przed nim, więc na {{t:bet}} {{t:fold|spasuje}} gorsze ręce, a zapłaci lepszymi."
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. Duży {{t:bet}} średnią ręką to niedokładność: na {{t:bet}} rywal {{t:fold|spasuje}} gorsze ręce, a zapłaci lepszymi, a średnia ręka nie zyskuje na dużej {{t:pot|puli}}."

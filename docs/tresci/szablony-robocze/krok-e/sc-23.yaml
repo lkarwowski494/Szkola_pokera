@@ -1,0 +1,29 @@
+# SC-23 (M8): river, wybór jednej z dwóch rąk do blefu (SDV, potem blokery). SZKIC DY (2026-11-11).
+# Czeka na: typ decyzji KO-072 „wybór jednej z dwóch rąk” (08, DX). Warunki zrodla-krok-e.md §2 SC-23a (Ś), SC-23b (T), D-1054.
+# Reguła R-M8-007 (heuristic, szczebel 2) na obu poziomach (tytuł planu: „blef nietrafionym drawem z blokerem”); jedna oczekiwana akcja
+# i jeden tekst na akcję (D-630). Ocena D-1052: wybór poprawny `compliant`, drugi `inaccuracy`.
+# Obie ręce SDV = 0 (nie wygrywają z żadną ręką zakresu rywala; R-M8-006 spełniona z góry); V(h) = kombinacje rywala, które sprawdzą,
+# F(h) = kombinacje, które spasują (po usunięciu kart h); poprawna ręka z mniejszym V i nie mniejszym F; brak dominacji → odrzucony.
+# Ś: różnica V ≥ 3 kombinacje; T: różnica V 1–2 kombinacje. Kandydaci raczej nietrafione strity niż kolory (GW blockers:86).
+# Wariant SC-23a (SDV: ręka z SDV > 0 nie blefuje, R-M8-006) poza tym szablonem: osobny szablon albo poziom łatwy po decyzji 03 (D-1082).
+# Zakres rywala (sprawdzi / spasuje) = dana zadania (D-1050). Gracz nie ma koloru ani strita.
+# Test akceptacji: SDV, V, F liczone niezależnie (kombinacje z listy klas, evaluator poker-core); 10 000 losowań, poprawna ręka zgodna z wyrocznią w 100%.
+id: sc-23
+module: m8
+situation: "Jesteś na {{t:button|Buttonie}}, na riverze {{t:big-blind}} {{t:check|czeka}}. Chcesz {{t:bluff|zablefować}} jedną z dwóch rąk. Załóż, że rywal ma tylko ręce: {{w:zakres}}; {{t:call|sprawdzi}} rękami: {{w:zakres-call}}, a pozostałe {{t:fold|spasuje}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { pick: blockers, vGapMin: 3, expected: [pick-best] }
+  trudny: { pick: blockers, vGapMin: 1, vGapMax: 2, expected: [pick-best] }
+decisions:
+  - street: river
+    kind: pick-hand              # KO-072 (propozycja nazwy); akcje: wybór ręki poprawnej / drugiej
+    rule: R-M8-007
+    actions:
+      - action: pick-best
+        explanation: "Na {{t:board|stole}} {{w:stol}} {{t:bluff|blefujesz}} ręką {{w:reka-dobra}}, a nie {{w:reka-zla}}. Obie nie wygrają przy showdownie, ale {{w:reka-dobra}} trzyma kartę z najsilniejszych rąk rywala, czyli tych, którymi zapłaci: ma ich mniej {{t:combo|kombinacji}}, więc częściej zostaje mu ręka do spasowania."
+      - action: pick-other
+        explanation: "Na {{t:board|stole}} {{w:stol}} wybrałeś do {{t:bluff|blefu}} {{w:reka-zla}}, a lepszy jest {{w:reka-dobra}}. Obie nie wygrają przy showdownie, ale {{w:reka-dobra}} blokuje więcej rąk, którymi rywal zapłaci: gdy trzymasz kartę z jego najsilniejszych rąk, ma ich mniej {{t:combo|kombinacji}}, więc częściej zostaje mu ręka do spasowania."

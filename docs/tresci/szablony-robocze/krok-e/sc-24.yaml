@@ -1,0 +1,31 @@
+# SC-24 (M8): river, bluff-catcher wobec betu wielkości puli; skład zakładów rywala podany jako dana. SZKIC DY (2026-11-11).
+# Czeka na: 08-N7a (punkt river-catch: rywal stawia, gracz call / fold). Warunek zrodla-krok-e.md §2 SC-24 (rachunek R-M8-010, math):
+# b = blefy ÷ (blefy + value) kombinacji po usunięciu zablokowanych kartami gracza; potrzebne = bet ÷ (pula + 2·bet);
+# call `compliant` ⇔ b ≥ potrzebne + δ, fold `compliant` ⇔ b ≤ potrzebne − δ, zła strona `mistake`; pas ±δ odrzucany (D-1051).
+# Ten szablon: expected call (tytuł planu „sprawdzenie bluff-catcherem”); wariant fold poza 1.0 (jedna akcja oczekiwana na punkt, D-630).
+# Ręka gracza: bluff-catcher = przegrywa z każdą ręką value ze składu i wygrywa z każdym blefem (sprawdza wyrocznia).
+# Test akceptacji: wyrocznia liczy kombinacje z listy klas i kart (bez generatora) i requiredEquity; 10 000 losowań, 100% call.
+id: sc-24
+module: m8
+situation: "{{t:big-blind|Bronisz dużego blinda}} przeciw {{t:button|Buttonowi}} i {{t:check|czekasz}} do rivera. Na riverze rywal {{t:bet|stawia}} wielkość {{t:pot|puli}}. Załóż, że {{t:bet|stawia}} tylko z rękami: {{w:value}} dla wartości i {{w:blefy}} jako {{t:bluff}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { margins: [{ min: 0.1, max: null }], expected: [call] }
+  sredni: { margins: [{ min: 0.04, max: 0.1 }], expected: [call] }
+  trudny: { margins: [{ min: 0.02, max: 0.04 }], blockerMatters: true, expected: [call] }
+decisions:
+  - street: river
+    kind: river-catch            # 08-N7a (propozycja nazwy)
+    betFraction: 1
+    betComposition:              # dana zadania: klasy value i blefów względem stołu (08: format)
+      - { value: [two-pair, set], bluffs: [missed-flush-draw, missed-oesd] }
+      - { value: [set, straight], bluffs: [missed-flush-draw] }
+    rule: R-M8-010
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} wielkość {{t:pot|puli}}. {{t:call|Sprawdzasz}}, bo twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|betach}}: wygrywasz z każdym {{t:bluff|blefem}}, przegrywasz z każdą ręką {{t:value|dla wartości}}. Tu {{t:bluff|blefy}} to więcej niż potrzebne ok. {{n:eq.bet-pot}} przy {{t:bet|becie}} wielkości {{t:pot|puli}}; licz {{t:combo|kombinacje}} bez tych, które blokują twoje karty."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} wielkość {{t:pot|puli}}. {{t:fold|Pas}} traci: {{t:bluff|blefy}} to tu więcej niż potrzebne ok. {{n:eq.bet-pot}}, a twoje equity to właśnie udział {{t:bluff|blefów}} w jego {{t:bet|betach}}."

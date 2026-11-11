@@ -1,0 +1,33 @@
+# SC-18 (M7): second barrel na turnie, który pomaga otwierającemu (as albo król na niższym stole); czekanie na turnie niskim
+# albo parującym. SZKIC DY (2026-11-11), poza content:build.
+# Jedna oczekiwana akcja na punkt we wszystkich poziomach (D-630): szablon uczy second barrelu na asie albo królu (R-M7-001), plan: Ś T.
+# Czeka na: 08-N9 (punkt otwierającego na turnie po c-becie flopu i sprawdzeniu; klasa turnu: nadkarta / parująca / niska /
+# neutralna — neutralna odrzucana, D-1053; filtr ręki: pairKind, outs; akcje check / bet-small / bet-big).
+# Warunki: zrodla-krok-e.md §2 SC-18a (Ś), SC-18b (Ł), SC-18c (rozmiar w akcjach). Reguły: R-M7-001 (heuristic) dla nadkarty,
+# R-M7-005 (heuristic) dla rozmiaru. Ocena D-1052: bet-big `compliant`, check `acceptable`, bet-small `inaccuracy` (GW :81: stół tęczowy,
+# flop.suits = rainbow i turn nie daje dwóch kart koloru). Turn: ranga ∈ {A, K} i > max(flop) (dokładnie warunek R-M7-001).
+# Ś: ręka bez pary z kartą gracza z drawem (outs ≥ 4) albo para trafiona na turnie; T: ręka bez pary i bez drawa (blef second barrelem).
+# SC-18b (turn niski / parujący → czekanie) poza szablonem: brak reguły w rules.yaml; projekt R-M7-013 w krok-e/README.md §3 (D-1081).
+# Test akceptacji: klasa turnu liczona z rang niezależnie od generatora; 10 000 losowań, expected zgodne z klasą w 100%.
+id: sc-18
+module: m7
+situation: "{{t:open|Otworzyłeś}} z {{t:button|Buttona}}, {{t:big-blind}} {{t:call|sprawdził}}, na flopie postawiłeś {{t:c-bet}}, a on znów {{t:call|sprawdził}}. Na turnie {{t:check|czeka}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { turnClass: [nadkarta-ak], flop: { suits: [rainbow] }, holding: [draw, pair-on-turn], expected: [bet-big] }
+  trudny: { turnClass: [nadkarta-ak], flop: { suits: [rainbow] }, holding: [air], expected: [bet-big] }
+decisions:
+  - street: turn
+    kind: turn-barrel            # 08-N9 (propozycja nazwy)
+    sizes: { bet-small: 0.333333, bet-big: 0.75 }
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Stawiasz}} {{t:second-barrel}} i to duży, bo ta karta zwykle częściej trafia twój {{t:range}} {{t:open|otwarcia}} niż {{t:range}} obrońcy, a każda {{t:pair}} rywala spada o jedno miejsce niżej. Duży rozmiar, bo silne ręce chcą zbudować {{t:pot|pulę}} przed riverem, a {{t:bluff|blefy}} potrzebują {{t:fold|pasów}}."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. Mały {{t:bet}} na turnie to tu niedokładność: zakład na turnie robisz {{t:range|zakresem}} {{t:polarized|spolaryzowanym}}, a wtedy wybierasz duży rozmiar, bo silne ręce chcą zbudować {{t:pot|pulę}} przed riverem, a {{t:bluff|blefy}} potrzebują {{t:fold|pasów}}."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. Na takim turnie {{t:check|czekanie}} jest dopuszczalne, ale częściej {{t:bet|stawiasz}} {{t:second-barrel}}, bo ta karta zwykle częściej trafia twój {{t:range}} {{t:open|otwarcia}} niż {{t:range}} obrońcy, a każda {{t:pair}} rywala spada o jedno miejsce niżej."

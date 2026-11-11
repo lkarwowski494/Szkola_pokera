@@ -1,0 +1,27 @@
+# SC-20 (M7): semi-blef drawem na turnie i rozmiar wobec drawa. SZKIC DY (2026-11-11; krok D, DU nie szkicował).
+# Czeka na: 08-N6 (zakład gracza na turnie; wyrocznia ceny bet ÷ (pula + 2·bet)). Reguły: R-M7-002 (heuristic, 2/4), R-M7-006 (math, 1/4).
+# Ś: gracz otwierający IP po sprawdzonym c-becie, ręka z drawem do koloru albo stritu otwartego bez pary → bet `compliant`,
+#    check `inaccuracy` (D-1052; R-M7-002 „zwykle”). T: silna ręka (set, dwie pary), stół z dwiema kartami w kolorze na turnie (rywal
+#    może mieć flush draw) → bet-big (3/4) `compliant`, bet-small (1/4) `mistake` z rachunku R-M7-006 (cena drawa wobec odds.flush.turn-river).
+# T (R-M7-006) w tym szkicu pominięty: wyjaśnienie małego betu dotyczy drawa rywala, a na Ś draw ma gracz — jeden tekst na akcję
+# nie pasuje do obu (zasada D-630). Powrót: osobny szablon albo punkt z akcjami bet-small/bet-big przy silnej ręce (decyzja 06 przy przenoszeniu).
+# Test akceptacji: Ś — outs z rang i kolorów (≥ 8); T — wyrocznia: requiredEquity(bet) wobec odds.flush.turn-river liczona osobno dla 1/4 i 3/4.
+id: sc-20
+module: m7
+situation: "{{t:open|Otworzyłeś}} z {{t:button|Buttona}}, {{t:big-blind}} {{t:call|sprawdził}} przed flopem i twój {{t:c-bet}}. Na turnie {{t:check|czeka}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [sredni]
+bounds:
+  sredni: { holding: [draw], drawOutsMin: 8, holdingPair: false, expected: [bet-big] }
+decisions:
+  - street: turn
+    kind: turn-barrel            # 08-N6 (ten sam kształt co N9)
+    sizes: { bet-big: 0.75 }
+    rule: R-M7-002
+    actions:
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Stawiasz}}, bo {{t:semi-bluff}} wygrywa na dwa sposoby: gdy rywal {{t:fold|spasuje}} albo gdy trafisz na riverze; {{t:bluff}} bez outów ma tylko pierwszą drogę."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:check|Czekanie}} to niedokładność: z outami zwykle {{t:bet|stawiasz}} {{t:second-barrel}}, bo {{t:semi-bluff}} wygrywa na dwa sposoby: gdy rywal {{t:fold|spasuje}} albo gdy trafisz na riverze."

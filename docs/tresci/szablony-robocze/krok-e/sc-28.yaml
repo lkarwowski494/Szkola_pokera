@@ -1,0 +1,30 @@
+# SC-28 (M9): trzecia ulica wartości z overparą: decyzja na riverze z zakresu sprawdzenia podanego jako dana. SZKIC DY (2026-11-11).
+# Czeka na: 08-N7b (punkt river-value jak SC-22). Warunek zrodla-krok-e.md §2 SC-28: rachunek R-M8-001 (w ≥ value.threshold + δ → bet);
+# kierunek R-M9-008 (heuristic, uproszczenie D-149: „trzecią wtedy, gdy rywal płaci słabszymi rękami”). Pytanie „ile ulic” na flopie:
+# bez decyzji (D-1053). Linia: BTN otwiera, BB broni, gracz stawia na flopie i turnie, BB sprawdza; na riverze czeka.
+# Test akceptacji: jak SC-22 z ręką gracza = overpara (para w ręce wyższa od każdej karty stołu, stół bez pary, koloru i strita
+# lepszego od overpary w zakresie sprawdzenia nie wyklucza wyrocznia — liczy w); expected bet w 100%.
+id: sc-28
+module: m9
+situation: "{{t:open|Otworzyłeś}} z {{t:button|Buttona}} i {{t:bet|stawiałeś}} na flopie i turnie, a {{t:big-blind}} za każdym razem {{t:call|sprawdzał}}. Na riverze {{t:check|czeka}}. Załóż, że na twój trzeci {{t:bet}} {{t:call|sprawdzi}} tylko rękami: {{w:zakres}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { holding: [overpair], margins: [{ min: 0.1, max: null }], expected: [bet] }
+  sredni: { holding: [overpair], margins: [{ min: 0.02, max: 0.1 }], expected: [bet] }
+decisions:
+  - street: river
+    kind: river-value            # 08-N7b
+    betFraction: 0.5
+    callRanges:
+      - [top-pair, second-pair, overpair-lower]
+      - [top-pair, two-pair-low]
+    rule: R-M9-008
+    calcCheck: value.threshold   # wyrocznia: rachunek R-M8-001
+    actions:
+      - action: bet
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Stawiasz}} trzeci raz, bo rywal płaci tu słabszymi rękami: ponad {{n:value.threshold}} rąk, którymi {{t:call|sprawdzi}}, to ręce gorsze od twojej. {{t:overpair}} zwykle zniesie dwie {{t:value|ulice wartości}}, a trzecią wtedy, gdy rywal płaci słabszymi rękami; liczba {{t:street|ulic}} to uproszczenie."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:check|Czekanie}} oddaje zarobek: ponad {{n:value.threshold}} rąk, którymi rywal {{t:call|sprawdzi}}, to ręce gorsze od twojej, a każde {{t:call}} gorszą ręką wygrywa jeden {{t:bet}}."

@@ -1,0 +1,27 @@
+# SC-31 (M10): rywal, który bardzo często blefuje: sprawdzenie bluff-catcherem na riverze. SZKIC DY (2026-11-11), wariant rachunkowy KO-071.
+# Bez R-M10-008 (exploit bez populacji). Warunek = SC-24 (rachunek R-M8-010, D-1051) ze składem zakładów podanym w opisie jako dana:
+# dużo blefów → b ≥ potrzebne + δ → call `compliant`, fold `mistake`. Uproszczenie nazwane w tekście.
+# Różnica wobec SC-24: rozmiar 3/4 puli (inna cena) i opis zachowania rywala w tej sesji zamiast neutralnego „załóż”.
+# Czeka na: 08-N7a. Test akceptacji jak SC-24 (requiredEquity dla 0,75 puli), 100% call.
+id: sc-31
+module: m10
+situation: "{{t:big-blind|Bronisz dużego blinda}} przeciw {{t:button|Buttonowi}} i {{t:check|czekasz}} do rivera. W tej sesji ten rywal często {{t:bet|stawiał}} na riverze i pokazywał {{t:bluff|blefy}}. Załóż, że teraz {{t:bet|stawia}} 3/4 {{t:pot|puli}} z rękami: {{w:value}} dla wartości i {{w:blefy}} jako {{t:bluff}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { margins: [{ min: 0.1, max: null }], expected: [call] }
+  sredni: { margins: [{ min: 0.02, max: 0.1 }], expected: [call] }
+decisions:
+  - street: river
+    kind: river-catch            # 08-N7a
+    betFraction: 0.75
+    betComposition:
+      - { value: [two-pair, set], bluffs: [missed-flush-draw, missed-oesd, missed-gutshot, ace-high-no-pair] }
+    rule: R-M8-010
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}}. {{t:call|Sprawdzasz}}, bo twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|betach}}, a ten rywal ma ich tyle, że to więcej niż potrzebne ok. {{n:eq.bet-three-quarters}} przy {{t:bet|becie}} 3/4 {{t:pot|puli}}. To uproszczenie: zakładasz, że rywal {{t:bluff|blefuje}} tak jak dotąd w tej sesji."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}}. {{t:fold|Pas}} traci: twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|betach}}, a ten rywal ma ich więcej niż potrzebne ok. {{n:eq.bet-three-quarters}} przy {{t:bet|becie}} 3/4 {{t:pot|puli}}."
