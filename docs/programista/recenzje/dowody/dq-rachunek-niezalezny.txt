@@ -1,0 +1,39 @@
+$ python3 -I icm_niezalezny.py   (kod 0)
+makieta 4 graczy (A,B,SB,BB): stosy bb=[17.5, 10.0, 12.5, 10.0] pula=11.0 doplata=9.0 cały stos=True próg ICM=59.2% próg żetony=45.0% (D-890 (S-b)/(2S)=45.0%) suma nagród=100%
+   pula wg dokumentu=13.5 -> próg z tej puli 40.0% (sprzeczny z D-890, gdy rywal > ty)
+makieta 3 graczy (A,BB,SB): stosy bb=[11.7, 11.7, 10.0] pula=11.0 doplata=9.0 cały stos=False próg ICM=55.1% próg żetony=45.0% (D-890 (S-b)/(2S)=45.0%) suma nagród=100%
+   pula wg dokumentu=11.0 -> próg z tej puli 45.0% (sprzeczny z D-890, gdy rywal > ty)
+KOD WYJŚCIA: 0
+
+# Wynik ukladIcm dla tych samych stosów (sonda dq-uklad.test.ts):
+4 graczy: wiersze ty 10, rywal 12.5, A 17.5, B 10; pula 11; dopłata 9; all-in rywala 12.5; caleStosTy true; kwota call 9
+3 graczy: wiersze ty 11.7, rywal 10, A 11.7; pula 11; dopłata 9; caleStosTy false
+
+# Skrypt
+# Niezależny rachunek (DQ): Malmuth-Harville rekurencyjnie, pula/dopłata z definicji all-in i stosu efektywnego.
+from fractions import Fraction as F
+from functools import lru_cache
+def icm(stacks, payouts):
+    n=len(stacks); tot=sum(stacks)
+    def rec(rem, place, prob, eq):
+        if place>=len(payouts): return
+        s=sum(stacks[i] for i in rem)
+        for i in rem:
+            p=prob*F(stacks[i],s); eq[i]+=p*payouts[place]
+            rec([j for j in rem if j!=i], place+1, p, eq)
+    eq=[F(0)]*n; rec([i for i in range(n) if stacks[i]>0],0,F(1),eq); return eq
+def przyklad(nazwa, stacks, payouts, hero, vil, stackBb=10, blind=1):
+    eff=min(stacks[hero],stacks[vil]); chip_per_bb=F(eff,stackBb)
+    bb=[F(x)/chip_per_bb for x in stacks]
+    pula=F(stackBb)+blind          # rywal stawia efektywnie eff (=stackBb bb), ty masz już blind w puli
+    doplata=F(stackBb)-blind
+    def after(d): return [x+d if j==hero else x-d if j==vil else x for j,x in enumerate(stacks)]
+    P=[F(int(p*100),100) for p in payouts]
+    w=icm(after(eff),P)[hero]; l=icm(after(-eff),P)[hero]; f=icm(after(-blind*chip_per_bb),P)[hero]
+    req=(f-l)/(w-l); chips=doplata/(pula+doplata)
+    print(f"{nazwa}: stosy bb={[float(round(x,1)) for x in bb]} pula={float(pula)} doplata={float(doplata)} "
+          f"cały stos={stacks[hero]<=stacks[vil]} próg ICM={float(req)*100:.1f}% próg żetony={float(chips)*100:.1f}% (D-890 (S-b)/(2S)={(stackBb-blind)/(2*stackBb)*100:.1f}%) suma nagród={float(sum(P))*100:.0f}%")
+    # pula wg dokumentu (stos rywala + blind) dałaby:
+    pd=bb[vil]+blind; print(f"   pula wg dokumentu={float(pd)} -> próg z tej puli {float(doplata/(pd+doplata))*100:.1f}% (sprzeczny z D-890, gdy rywal > ty)")
+przyklad("makieta 4 graczy (A,B,SB,BB)", [3500,2000,2500,2000],[0.5,0.3,0.2],3,2)
+przyklad("makieta 3 graczy (A,BB,SB)", [3500,3500,3000],[0.6,0.4],1,2)

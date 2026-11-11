@@ -1,0 +1,80 @@
+# Sondy DQ (jest, worktree @ 007e23ad, katalog apps/mobile/src/dqsonda; tu jako .txt, żeby nie wpadły w typecheck i testy)
+$ npx jest --ci src/dqsonda  → Tests: 7 passed, 7 total (kod 0)
+Wyjście sondy AX5: DQ fontScale=1: z ukrytymi=4, bez ukrytych=0 | DQ fontScale=3.1: z ukrytymi=0, bez ukrytych=0
+
+===== dq-uklad.test.ts
+/// <reference types="jest" />
+// DQ: sonda ukladIcm na stosach z makiety (rachunek niezależny: dowody-dq/icm-niezalezny.txt, Python, Malmuth-Harville)
+import type { IcmCallVariantDecision } from '@szkola/poker-core';
+import { kwotaAkcji, ukladIcm, widokDecyzji } from '@/features/scenariusz/wariant';
+const S = { stackBb: 10, positions: { hero: 'BB', villain: 'SB' } } as const;
+const d = (stacks: number[], payouts: number[], heroIndex: number, villainIndex: number): IcmCallVariantDecision =>
+  ({ point: 'icm-call', street: 'preflop', spot: 'x', payouts, stacks, heroIndex, villainIndex, handClass: 'A7o', handEquity: 0.5, required: 0.5, requiredChips: 0.45, correct: 'fold', margin: 0.05 } as IcmCallVariantDecision);
+it('4 graczy z makiety', () => {
+  const p = d([3500, 2000, 2500, 2000], [0.5, 0.3, 0.2], 3, 2);
+  const u = ukladIcm(p, S as never)!;
+  console.log(JSON.stringify({ wiersze: u.wiersze, pula: u.pulaBb, doplata: u.doSprawdzeniaBb, rywal: u.stosRywalaBb, caly: u.caleStosTy, kwotaCall: kwotaAkcji(p, 'call', S as never) }));
+  expect(u.wiersze.map((w) => w.stosBb)).toEqual([10, 12.5, 17.5, 10]);
+  expect([u.pulaBb, u.doSprawdzeniaBb, u.stosRywalaBb, u.caleStosTy]).toEqual([11, 9, 12.5, true]);
+  expect(u.doSprawdzeniaBb / (u.pulaBb + u.doSprawdzeniaBb)).toBeCloseTo(0.45, 10); // = requiredChips (S − b) ÷ (2S), D-890
+});
+it('3 graczy z makiety (ty większy)', () => {
+  const p = d([3500, 3500, 3000], [0.6, 0.4], 1, 2);
+  const u = ukladIcm(p, S as never)!;
+  console.log(JSON.stringify({ wiersze: u.wiersze, pula: u.pulaBb, doplata: u.doSprawdzeniaBb, caly: u.caleStosTy }));
+  expect(u.wiersze.map((w) => w.stosBb)).toEqual([11.7, 10, 11.7]);
+  expect([u.pulaBb, u.doSprawdzeniaBb, u.caleStosTy]).toEqual([11, 9, false]);
+});
+it('równe stosy pary: przypis o całym stosie', () => {
+  const u = ukladIcm(d([2000, 2000, 6000], [0.6, 0.4], 0, 1), S as never)!;
+  expect(u.caleStosTy).toBe(true);
+});
+it('brzeg: stackBb brak → null, widok bez kwot (nie zgaduje)', () => {
+  const p = d([2000, 2000, 6000], [0.6, 0.4], 0, 1);
+  expect(ukladIcm(p, { positions: S.positions } as never)).toBeNull();
+  expect(widokDecyzji({ points: [p], board: [], hero: [] } as never, 0, { positions: S.positions } as never).pulaBb).toBeNull();
+});
+
+===== dq-ax5.test.tsx
+/// <reference types="jest" />
+// DQ sonda: czy test AX5 z dp-icm-d889 potrafi paść? Liczymy paski Z includeHiddenElements przy fontScale 1 i 3,1.
+import '@/i18n';
+import { Dimensions } from 'react-native';
+import { render, screen } from '@testing-library/react-native';
+import { generateVariant, type ScenarioVariant } from '@szkola/poker-core';
+import type { ScenarioTemplate } from '@szkola/content-schema';
+import { getKontekstGeneratora } from '@/data/content/repo';
+import { dbCn, ICM } from '@/test-utils/kontekstCn';
+import { PrzebiegScenariusza } from '@/features/scenariusz/EkranScenariusza';
+import { naGenerator } from '@/features/scenariusz/wariant';
+import { cardToString } from '@szkola/poker-core';
+import { nazwaKarty } from '@/features/stol/uklad';
+import i18n from '@/i18n';
+jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
+jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
+const ctx = getKontekstGeneratora(dbCn, ICM);
+function w4(): ScenarioVariant {
+  for (const p of ['latwy', 'sredni', 'trudny'] as const) for (let z = 1; z <= 400; z++) { try { const w = generateVariant(naGenerator(ICM), p, z, ctx); const d = w.points[0]!; if (d.point === 'icm-call' && d.stacks.length === 4) return w; } catch { /* odrzucone */ } }
+  throw new Error('brak');
+}
+const s = (w: ScenarioVariant) => ({ id: 's1', szablon: ICM as ScenarioTemplate, poziom: 'latwy', wariant: w, wybory: [], aktywnosc: { stan: 'w_toku', rodzaj: 'scenariusz', zLimitu: true, dzienLokalny: '2026-11-11', strefa: 'Europe/Warsaw', startMs: 0, krok: 0, plan: { liczbaKrokow: 1, trescId: ICM.id } } }) as never;
+for (const fs of [1, 3.1]) {
+  it(`fontScale ${fs}: paski (z ukrytymi) i paski (bez ukrytych, jak w dp-icm-d889)`, async () => {
+    const spy = jest.spyOn(Dimensions, 'get').mockReturnValue({ width: 390, height: 844, scale: 3, fontScale: fs });
+    try {
+      await render(<PrzebiegScenariusza sesja={s(w4())} faza="decyzja" koniec={false} bladZapisu={false} onWybierz={jest.fn()} onDalej={jest.fn()} onZakoncz={jest.fn()} />);
+      const zUkrytymi = screen.queryAllByTestId('pasek-stosu', { includeHiddenElements: true }).length;
+      const bezUkrytych = screen.queryAllByTestId('pasek-stosu').length;
+      console.log(`DQ fontScale=${fs}: z ukrytymi=${zUkrytymi}, bez ukrytych=${bezUkrytych}`);
+      expect(zUkrytymi).toBe(fs < 2.5 ? 4 : 0);
+    } finally { spy.mockRestore(); }
+  });
+}
+
+it('etykieta stołu zawiera nazwy obu twoich kart (kryterium 4, „karty nazwami”)', async () => {
+  const w = w4();
+  await render(<PrzebiegScenariusza sesja={s(w)} faza="decyzja" koniec={false} bladZapisu={false} onWybierz={jest.fn()} onDalej={jest.fn()} onZakoncz={jest.fn()} />);
+  const eti = String(screen.getByRole('image', { name: /^Stół/ }).props.accessibilityLabel);
+  const t = (k: string, o?: Record<string, unknown>) => i18n.t(k, o) as string;
+  for (const c of w.hero.map(cardToString)) expect(eti).toContain(nazwaKarty(c, t));
+});

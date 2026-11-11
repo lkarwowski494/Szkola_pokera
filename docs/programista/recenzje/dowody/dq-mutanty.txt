@@ -1,0 +1,131 @@
+# Mutanty DQ na 007e23ad (worktree w scratchpadzie; plik przywracany po każdym). Komenda: node mutanty.mjs <worktree>
+# Zestawy: mobile = jest --ci src/features/scenariusz/__tests__ (20 plików, 235 testów bazowo zielonych); content-build = vitest run (47 plików, 481 + 1 expected fail bazowo)
+
+## M1 pula wg dokumentu (stos rywala + blind)
+apps/mobile/src/features/scenariusz/wariant.ts: „pulaBb: s.stackBb + blind,” → „pulaBb: miejsce1(stosRywala * bbNaZeton) + blind,”
+WYNIK: ZABITY
+Tests:       2 failed, 233 passed, 235 total
+
+## M2 przypis „cały stos” tylko przy ściśle mniejszym (< zamiast <=)
+apps/mobile/src/features/scenariusz/wariant.ts: „caleStosTy: mojStos <= stosRywala,” → „caleStosTy: mojStos < stosRywala,”
+WYNIK: PRZEŻYŁ
+Tests:       235 passed, 235 total
+
+## M3 1 bb liczony z twojego stosu zamiast mniejszego stosu pary
+apps/mobile/src/features/scenariusz/wariant.ts: „const bbNaZeton = s.stackBb / mniejszy;” → „const bbNaZeton = s.stackBb / mojStos;”
+WYNIK: ZABITY
+Tests:       1 failed, 234 passed, 235 total
+
+## M4 dopłata z twojego stosu (stos ty − blind)
+apps/mobile/src/features/scenariusz/wariant.ts: „doSprawdzeniaBb: s.stackBb - blind,” → „doSprawdzeniaBb: miejsce1(mojStos * bbNaZeton) - blind,”
+WYNIK: ZABITY
+Tests:       3 failed, 232 passed, 235 total
+
+## M5 pasek: udział we wszystkich żetonach zamiast względem największego
+apps/mobile/src/features/scenariusz/wariant.ts: „udzial: (d.stacks[i] ?? 0) / najwiekszy” → „udzial: (d.stacks[i] ?? 0) / d.stacks.reduce((a, b) => a + b, 0)”
+WYNIK: PRZEŻYŁ
+Tests:       235 passed, 235 total
+
+## M6 zaokrąglenie stosu w dół (floor)
+apps/mobile/src/features/scenariusz/wariant.ts: „const miejsce1 = (x: number): number => Math.round(x * 10) / 10;” → „const miejsce1 = (x: number): number => Math.floor(x * 10) / 10;”
+WYNIK: PRZEŻYŁ
+Tests:       235 passed, 235 total
+
+## M7 etykieta stołu bez kart
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx: „reka: reka.map((c) => nazwaKarty(c, t)).join(', ')” → „reka: ''”
+WYNIK: PRZEŻYŁ
+Tests:       235 passed, 235 total
+
+## M8 dziennik bez pasów graczy spoza pary
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx: „return [...pasy, t('play.log.allin'” → „return [t('play.log.allin'”
+WYNIK: ZABITY
+Tests:       2 failed, 233 passed, 235 total
+
+## M9 pasek widoczny dla czytnika
+apps/mobile/src/features/scenariusz/komponenty.tsx: „testID="pasek-stosu" accessibilityElementsHidden importantForAccessibility="no-hide-descendants"” → „testID="pasek-stosu"”
+WYNIK: ZABITY
+Tests:       1 failed, 234 passed, 235 total
+
+## M10 próg AX5 = 4 (pasek zostaje przy AX5)
+apps/mobile/src/features/scenariusz/komponenty.tsx: „const SKALA_BEZ_PASKA = 2.5;” → „const SKALA_BEZ_PASKA = 4;”
+WYNIK: PRZEŻYŁ
+Tests:       235 passed, 235 total
+
+## M11 lista stosów bez roli listy
+apps/mobile/src/features/scenariusz/komponenty.tsx: „accessibilityRole="list" accessibilityLabel={t('scenario.icm.stacksLabel')}” → „accessibilityLabel={t('scenario.icm.stacksLabel')}”
+WYNIK: ZABITY
+Tests:       4 failed, 231 passed, 235 total
+
+## M12 nagrody: pominięte ostatnie płatne miejsce
+apps/mobile/src/features/scenariusz/komponenty.tsx: „const miejsca = uklad.wyplaty.map(” → „const miejsca = uklad.wyplaty.slice(0, -1).map(”
+WYNIK: ZABITY
+Tests:       2 failed, 233 passed, 235 total
+
+## M13 bramka bez warunku SC-34 (trudny przechodzi)
+tools/content-build/src/scenariusze.ts: „if (kind === 'icm-call' && t.levels.includes('trudny')) {” → „if (false) {”
+WYNIK: ZABITY
+× szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002 i nie ma go w content/ (WYS-002; D-889, D-986) 8ms
+     × bramka odrzuca icm-call z poziomem trudnym z powodem 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM) 12ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/cp-recenzja-cn.test.ts > CP WYS-003 (CR, D-807) → DP D-889: icm-call na ekranie (widok stosów i nagród); poziom trudny czeka na 06-tresci-002 (SC-34, D-825) > bramka odrzuca icm-call z poziomem trudnym z powodem 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM)
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: kontekst generatora składa ekran, bramka odrzuca resztę) > szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002 i nie ma go w content/ (WYS-002; D-889, D-986)
+      Tests  2 failed | 479 passed | 1 expected fail (482)
+
+## M14 bramka: warunek na zły poziom (sredni)
+tools/content-build/src/scenariusze.ts: „if (kind === 'icm-call' && t.levels.includes('trudny')) {” → „if (kind === 'icm-call' && t.levels.includes('sredni')) {”
+WYNIK: ZABITY
+× bramka ekranu przyjmuje icm-call bez poziomu trudnego 10ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/cp-recenzja-cn.test.ts > CP WYS-003 (CR, D-807) → DP D-889: icm-call na ekranie (widok stosów i nagród); poziom trudny czeka na 06-tresci-002 (SC-34, D-825) > bramka ekranu przyjmuje icm-call bez poziomu trudnego
+      Tests  1 failed | 480 passed | 1 expected fail (482)
+
+## M15 bramka: icm-call usunięty z RODZAJE_NA_EKRANIE
+tools/content-build/src/scenariusze.ts: „'range-spot', 'icm-call'];” → „'range-spot'];”
+WYNIK: ZABITY
+× bramka ekranu przyjmuje icm-call bez poziomu trudnego 5ms
+     × bramka odrzuca icm-call z poziomem trudnym z powodem 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM) 2ms
+     × szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002 i nie ma go w content/ (WYS-002; D-889, D-986) 6ms
+     × lista dozwolonych: draw-call, cbet-case, size-spot, range-spot, icm-call (range-spot od CX, D-866; icm-call od DP, D-889: widok stosów i nagród) 7ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/cm-recenzja-cl.test.ts > CM ŚR-001 (naprawa CN, D-782): bramka ekranu przepuszcza tylko rodzaje, które ekran faktycznie wygeneruje > lista dozwolonych: draw-call, cbet-case, size-spot, range-spot, icm-call (range-spot od CX, D-866; icm-call od DP, D-889: widok stosów i nagród)
+ FAIL  test/cp-recenzja-cn.test.ts > CP WYS-003 (CR, D-807) → DP D-889: icm-call na ekranie (widok stosów i nagród); poziom trudny czeka na 06-tresci-002 (SC-34, D-825) > bramka ekranu przyjmuje icm-call bez poziomu trudnego
+ FAIL  test/cp-recenzja-cn.test.ts > CP WYS-003 (CR, D-807) → DP D-889: icm-call na ekranie (widok stosów i nagród); poziom trudny czeka na 06-tresci-002 (SC-34, D-825) > bramka odrzuca icm-call z poziomem trudnym z powodem 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM)
+KOD 0
+
+# Skrypt
+// Mutanty DQ: każdy = (plik, stary, nowy, zestaw testów). Uruchamiane w worktree; plik przywracany po każdym.
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const WT = process.argv[2];
+const W = 'apps/mobile/src/features/scenariusz/wariant.ts', K = 'apps/mobile/src/features/scenariusz/komponenty.tsx', E = 'apps/mobile/src/features/scenariusz/EkranScenariusza.tsx', S = 'tools/content-build/src/scenariusze.ts';
+const MOB = 'cd apps/mobile && npx jest --ci src/features/scenariusz/__tests__ 2>&1 | grep -E "^Tests:|✕" | head -8';
+const CB = 'cd tools/content-build && npx vitest run 2>&1 | grep -E "Tests |FAIL|×" | head -8';
+const M = [
+  ['M1 pula wg dokumentu (stos rywala + blind)', W, 'pulaBb: s.stackBb + blind,', 'pulaBb: miejsce1(stosRywala * bbNaZeton) + blind,', MOB],
+  ['M2 przypis „cały stos” tylko przy ściśle mniejszym (< zamiast <=)', W, 'caleStosTy: mojStos <= stosRywala,', 'caleStosTy: mojStos < stosRywala,', MOB],
+  ['M3 1 bb liczony z twojego stosu zamiast mniejszego stosu pary', W, 'const bbNaZeton = s.stackBb / mniejszy;', 'const bbNaZeton = s.stackBb / mojStos;', MOB],
+  ['M4 dopłata z twojego stosu (stos ty − blind)', W, 'doSprawdzeniaBb: s.stackBb - blind,', 'doSprawdzeniaBb: miejsce1(mojStos * bbNaZeton) - blind,', MOB],
+  ['M5 pasek: udział we wszystkich żetonach zamiast względem największego', W, 'udzial: (d.stacks[i] ?? 0) / najwiekszy', 'udzial: (d.stacks[i] ?? 0) / d.stacks.reduce((a, b) => a + b, 0)', MOB],
+  ['M6 zaokrąglenie stosu w dół (floor)', W, 'const miejsce1 = (x: number): number => Math.round(x * 10) / 10;', 'const miejsce1 = (x: number): number => Math.floor(x * 10) / 10;', MOB],
+  ['M7 etykieta stołu bez kart', E, "reka: reka.map((c) => nazwaKarty(c, t)).join(', ')", "reka: ''", MOB],
+  ['M8 dziennik bez pasów graczy spoza pary', E, "return [...pasy, t('play.log.allin'", "return [t('play.log.allin'", MOB],
+  ['M9 pasek widoczny dla czytnika', K, 'testID="pasek-stosu" accessibilityElementsHidden importantForAccessibility="no-hide-descendants"', 'testID="pasek-stosu"', MOB],
+  ['M10 próg AX5 = 4 (pasek zostaje przy AX5)', K, 'const SKALA_BEZ_PASKA = 2.5;', 'const SKALA_BEZ_PASKA = 4;', MOB],
+  ['M11 lista stosów bez roli listy', K, 'accessibilityRole="list" accessibilityLabel={t(\'scenario.icm.stacksLabel\')}', "accessibilityLabel={t('scenario.icm.stacksLabel')}", MOB],
+  ['M12 nagrody: pominięte ostatnie płatne miejsce', K, 'const miejsca = uklad.wyplaty.map(', 'const miejsca = uklad.wyplaty.slice(0, -1).map(', MOB],
+  ['M13 bramka bez warunku SC-34 (trudny przechodzi)', S, "if (kind === 'icm-call' && t.levels.includes('trudny')) {", 'if (false) {', CB],
+  ['M14 bramka: warunek na zły poziom (sredni)', S, "if (kind === 'icm-call' && t.levels.includes('trudny')) {", "if (kind === 'icm-call' && t.levels.includes('sredni')) {", CB],
+  ['M15 bramka: icm-call usunięty z RODZAJE_NA_EKRANIE', S, "'range-spot', 'icm-call'];", "'range-spot'];", CB],
+];
+const only = process.argv[3]?.split(',');
+for (const [nazwa, plik, stary, nowy, cmd] of M) {
+  if (only && !only.some((o) => nazwa.startsWith(o + ' '))) continue;
+  const p = `${WT}/${plik}`; const orig = readFileSync(p, 'utf8');
+  const n = orig.split(stary).length - 1;
+  if (n !== 1) { console.log(`${nazwa}: BŁĄD wzorca (${n} trafień)`); continue; }
+  writeFileSync(p, orig.replace(stary, nowy));
+  let out; try { out = execSync(cmd, { cwd: WT, encoding: 'utf8', shell: '/bin/bash', timeout: 900000 }); } catch (e) { out = String(e.stdout ?? e); }
+  writeFileSync(p, orig);
+  const zabity = /failed|FAIL|✕|×/.test(out);
+  console.log(`\n## ${nazwa}\n${plik}: „${stary}” → „${nowy}”\nWYNIK: ${zabity ? 'ZABITY' : 'PRZEŻYŁ'}\n${out.trim()}`);
+}

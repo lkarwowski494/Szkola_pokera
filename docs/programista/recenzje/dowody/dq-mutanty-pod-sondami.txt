@@ -1,0 +1,19 @@
+# Mutanty, które przeżyły testy DP, uruchomione pod sondami DQ (apps/mobile/src/dqsonda w worktree, poza repo). Komenda: node mut-sondy.mjs <worktree>
+## M2 pod sondami DQ (src/dqsonda): ZABITY
+Tests:       1 failed, 6 passed, 7 total
+## M6 pod sondami DQ (src/dqsonda): ZABITY
+Tests:       1 failed, 6 passed, 7 total
+## M7 pod sondami DQ (src/dqsonda): ZABITY
+Tests:       1 failed, 6 passed, 7 total
+## M10 pod sondami DQ (src/dqsonda): ZABITY
+Tests:       1 failed, 6 passed, 7 total
+
+import { readFileSync, writeFileSync } from 'node:fs'; import { execSync } from 'node:child_process';
+const WT = process.argv[2]; const W = 'apps/mobile/src/features/scenariusz/wariant.ts', K = 'apps/mobile/src/features/scenariusz/komponenty.tsx', E = 'apps/mobile/src/features/scenariusz/EkranScenariusza.tsx';
+const M = [
+ ['M2', W, 'caleStosTy: mojStos <= stosRywala,', 'caleStosTy: mojStos < stosRywala,'],
+ ['M6', W, 'const miejsce1 = (x: number): number => Math.round(x * 10) / 10;', 'const miejsce1 = (x: number): number => Math.floor(x * 10) / 10;'],
+ ['M7', E, "reka: reka.map((c) => nazwaKarty(c, t)).join(', ')", "reka: ''"],
+ ['M10', K, 'const SKALA_BEZ_PASKA = 2.5;', 'const SKALA_BEZ_PASKA = 4;'],
+];
+for (const [n, f, a, b] of M) { const p = `${WT}/${f}`, o = readFileSync(p, 'utf8'); writeFileSync(p, o.replace(a, b)); let out; try { out = execSync('cd apps/mobile && npx jest --ci src/dqsonda 2>&1 | grep -E "Tests:|✕"', { cwd: WT, encoding: 'utf8', shell: '/bin/bash' }); } catch (e) { out = String(e.stdout); } writeFileSync(p, o); console.log(`## ${n} pod sondami DQ (src/dqsonda): ${/failed|✕/.test(out) ? 'ZABITY' : 'PRZEŻYŁ'}\n${out.trim()}`); }
