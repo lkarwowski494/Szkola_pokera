@@ -1,8 +1,11 @@
-# PR-05, R-45: scenariusz całego rozdania (krok F, sesja BT): kafelek → lista → start z poziomem → decyzja (pas, błąd w SC-01) →
-# ocena „dlaczego źle / dlaczego dobrze” → podsumowanie → „Zagraj to samo jeszcze raz”. Na ekranie decyzji i oceny bez żetonów,
-# salda i wygranej (design-spec.md „Znaczenie kolorów”: bez hazardu); zdanie „nie wygrana” na ekranie startu jest w projekcie (D-545).
-# Zostaje w oczekujace/ (poza bramką CI, D-189) do kroku J (rola 07): wymaga (a) szablonów w bazie treści (zapis tabeli `scenarios`
-# w content-build) i (b) stanu z ukończoną lekcją modułu 2, żeby SC-01 był odblokowany (D-647); stan przygotuje krok J.
+# PR-05, R-45: scenariusz całego rozdania (krok F, sesja BT; krok J, sesja CZ): kafelek → lista → start z poziomem → decyzja
+# (pas = błąd w SC-01, gdzie poziom łatwy oczekuje sprawdzenia) → ocena „dlaczego słabsze / dlaczego lepsze” → podsumowanie (pas
+# kończy rozdanie) → „Zagraj to samo jeszcze raz” (poza limitem dnia, KO-043). Na ekranie decyzji i oceny bez żetonów, salda
+# i wygranej (design-spec.md „Znaczenie kolorów”: bez hazardu); zdanie „nie wygrana” na ekranie startu jest w projekcie (D-545).
+# Stan (krok J, CZ): SC-01 (moduł m2) jest odblokowany po ukończeniu lekcji modułu 2 (D-647), więc flow najpierw kończy lekcję
+# m2.l1 przez interfejs (lekcja nie zużywa limitu dnia, flow 09). Odpowiedzi w lekcji są dowolne: lekcja jest ukończona po
+# ostatnim zadaniu niezależnie od wyniku (zakonczAktywnosc, packages/postep/src/aktywnosci.ts).
+# Zostaje w oczekujace/ (poza bramką CI, D-189), dopóki nie przejdzie na symulatorze (przebieg E2E po scaleniu CZ).
 appId: pl.lkarwowski.szkolapokera
 name: Scenariusz
 ---
@@ -11,8 +14,77 @@ name: Scenariusz
     arguments:
       AppleLanguages: '(pl)'
 - runFlow: ../wspolne/za-powitaniem.yaml
+# --- stan: ukończona lekcja m2.l1 (D-647) ---
+- tapOn:
+    id: 'zakladka-lekcje'
+- scrollUntilVisible:
+    element:
+      id: 'modul-m2'
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
+- tapOn:
+    id: 'modul-m2'
+- scrollUntilVisible:
+    element:
+      id: 'lesson-m2.l1'
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
+- tapOn:
+    id: 'lesson-m2.l1'
+- scrollUntilVisible:
+    element: 'Ćwiczenia'
+    direction: DOWN
+    timeout: 30000
+- tapOn: 'Ćwiczenia'
+- assertVisible: '1 z \d+'
+# zadanie wyboru (option-0) albo liczbowe (pole „Twoja odpowiedź liczbowa”), potem „Dalej” / „Zakończ” do ekranu „Wynik”
+- repeat:
+    while:
+      notVisible: 'Wynik'
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: 'option-0'
+          commands:
+            - tapOn:
+                id: 'option-0'
+      - runFlow:
+          when:
+            visible: 'Twoja odpowiedź liczbowa'
+          commands:
+            - tapOn: 'Twoja odpowiedź liczbowa'
+            - inputText: '8'
+            - tapOn: 'Sprawdź'
+      - scrollUntilVisible:
+          element: '(Dalej|Zakończ)'
+          direction: DOWN
+          timeout: 30000
+          centerElement: true
+      - tapOn: '(Dalej|Zakończ)'
+- assertVisible: 'Wynik'
+# ekran lekcji leży poza zakładkami: ponowne uruchomienie bez clearState otwiera „Dziś” z zapisanym postępem
+- stopApp
+- launchApp:
+    clearState: false
+    arguments:
+      AppleLanguages: '(pl)'
+# --- scenariusz ---
+- extendedWaitUntil:
+    visible:
+      id: 'dzis-scenariusz'
+    timeout: 30000
 - tapOn:
     id: 'dzis-scenariusz'
+- scrollUntilVisible:
+    element:
+      id: 'scenariusz-sc-01'
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
+- assertNotVisible: 'Po pierwszej lekcji modułu 2'
 - tapOn:
     id: 'scenariusz-sc-01'
 - assertVisible: 'Automatycznie'
@@ -26,17 +98,24 @@ name: Scenariusz
 - assertNotVisible: '.*(wygran|żeton|\$|€|saldo).*'
 - assertVisible: '.* bb.*'
 - takeScreenshot: 07-przed-decyzja
+# akcje punktu draw-call: option-0 = pas, option-1 = sprawdzenie (akcjePunktu, features/scenariusz/wariant.ts)
 - tapOn:
     id: 'option-0'
-- assertVisible: 'Błąd'
+# stopień oceny to jeden element dostępności z etykietą „Ocena: Błąd” (StopienOceny); „Zgłoś błąd” tylko z adresem kontaktowym (dziś brak)
+- assertVisible: '(Ocena: )?Błąd'
 - assertVisible: 'Dlaczego .* słabsze zagranie'
 - assertVisible: 'Dlaczego .* lepsze zagranie'
-- assertVisible: 'Zgłoś błąd.*'
 - takeScreenshot: 07-ocena
+- scrollUntilVisible:
+    element: 'Zobacz podsumowanie'
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
 - tapOn: 'Zobacz podsumowanie'
 - assertVisible: 'Rozdanie zakończone'
-- assertVisible: 'Dobre decyzje: .*'
+- assertVisible: 'Dobre decyzje: 0 z 1\.'
 - assertNotVisible: '.*(wygran|żeton|\$|€|saldo).*'
+- takeScreenshot: 07-podsumowanie
 - tapOn: 'Zagraj to samo jeszcze raz'
 - extendedWaitUntil:
     visible:
