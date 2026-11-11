@@ -43,10 +43,13 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
       return KOLEJNOSC_SIZE.filter((a) => p.options.some((o) => o.action === a));
     case 'range-spot':
       return p.options.map((o) => akcjaSpotu(o.action)); // kolejność węzła solvera: pas, sprawdzenie, rosnące podbicia, all-in
+    case 'list-hand':
+      throw new Error('list-hand nie ma jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   }
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
+  if (p.point === 'list-hand') throw new Error('list-hand nie ma jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
 /**

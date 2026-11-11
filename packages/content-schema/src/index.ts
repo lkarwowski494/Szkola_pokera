@@ -645,7 +645,23 @@ export const ScenarioIcmCallDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision]);
+/**
+ * 08-N4 (R-M4-010): „lista rąk”. Oczekiwana akcja wynika z jawnej listy klas w szablonie (`entries`: klasy, akcja poprawna, akcje dopuszczalne);
+ * generator losuje tylko klasy z listy, a każda akcja z listy ma wyjaśnienie (BR-OCE-002).
+ */
+export const ScenarioListHandDecision = z
+  .object({
+    street: z.literal('preflop'),
+    kind: z.literal('list-hand'),
+    rule: id.optional(),
+    calc: id.optional(),
+    entries: z.array(z.object({ hands: z.array(z.string().min(1)).min(1), correct: z.string().min(1), acceptable: z.array(z.string().min(1)).optional() }).strict()).min(1),
+    actions: z.array(z.object({ action: z.string().min(1), explanation: z.string().min(1) }).strict()).min(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z

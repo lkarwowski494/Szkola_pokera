@@ -60,7 +60,13 @@ export interface IcmCallSpec {
   street: 'preflop';
   spot: string;
 }
-export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec;
+/** 08-N4 (R-M4-010): punkt „lista rąk”: oczekiwana akcja z jawnej listy klas w szablonie (`entries`); generator losuje tylko klasy z listy. */
+export interface ListHandSpec {
+  kind: 'list-hand';
+  street: 'preflop';
+  entries: readonly ListEntry[];
+}
+export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -262,7 +268,15 @@ export interface IcmCallVariantDecision {
   correct: 'call' | 'fold';
   margin: number;
 }
-export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision;
+export interface ListHandVariantDecision {
+  point: 'list-hand';
+  street: 'preflop';
+  handClass: string;
+  /** Akcja poprawna (zgodna) i dopuszczalne z wpisu listy, w którym jest klasa ręki. */
+  correct: string;
+  acceptable: string[];
+}
+export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -357,10 +371,10 @@ export function variantFingerprint(templateId: string, level: ScenarioLevel, her
 
 function validateTemplate(t: GeneratorTemplate): void {
   const all = t.decisions;
-  const ranges = all.filter((x) => x.kind === 'range-spot');
+  const ranges = all.filter((x) => x.kind === 'range-spot' || x.kind === 'list-hand');
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
-  if (ranges.length > 1 || (ranges.length === 1 && all[0]!.kind !== 'range-spot')) throw new TemplateError(`${t.id}: punkt range-spot jest najwyżej jeden i pierwszy`);
+  if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
   const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
@@ -446,6 +460,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   let hero: [Card, Card];
   let rest: Card[];
   let preflop: RangeSpotVariantDecision | null = null;
+  let listPoint: ListHandVariantDecision | null = null;
   if (first.kind === 'range-spot') {
     if (!ctx) throw new TemplateError(`${t.id}: punkt range-spot wymaga danych zakresów (GeneratorContext)`);
     const spot = ctx.spots.find((x) => x.id === first.spot);
@@ -466,6 +481,24 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       options: spot.actions.map((a, i) => ({ action: a.label, f: freqs[i]!, verdict: verdicts[i]! })),
       correct: expected, freq: freqs[spot.actions.findIndex((a) => a.label === expected)]!,
     };
+  } else if (first.kind === 'list-hand') {
+    // 08-N4: klasa ręki z listy szablonu, której wpis daje oczekiwaną akcję poziomu; wpisy bez powtórzeń klas (jednoznaczna akcja)
+    const expected = b.expected[0]!;
+    const widziane = new Set<string>();
+    for (const e of first.entries) for (const hc of e.hands) {
+      if (!HAND_CLASSES.includes(hc)) throw new TemplateError(`${t.id}: list-hand: nieznana klasa ręki ${hc}`);
+      if (widziane.has(hc)) throw new TemplateError(`${t.id}: list-hand: klasa ${hc} w więcej niż jednym wpisie listy`);
+      widziane.add(hc);
+    }
+    const klasy = first.entries.filter((e) => e.correct === expected).flatMap((e) => e.hands);
+    if (klasy.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żaden wpis listy nie ma akcji oczekiwanej ${expected}`);
+    const hc = pick(rng, klasy);
+    const combo = pick(rng, classCombos(hc));
+    hero = [combo[0], combo[1]];
+    rest = dealCards(rng, 7, hero);
+    const w = listHandVerdicts(hc, first.entries)!;
+    preflop = null;
+    listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, acceptable: w.acceptable };
   } else if (first.kind === 'cbet-case') {
     // CS (CQ 06-tresci-004): „otworzyłeś z <pozycja>” — ręka gracza pochodzi z zakresu otwarcia tej pozycji (spot rfi.<pozycja> z danych treści, ta sama
     // definicja co zakresy w aplikacji), losowana z wagą częstość otwarcia × liczba kombinacji klasy (suma akcji innych niż pas), a nie dowolna:
@@ -497,14 +530,14 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   if (!textureMatches(classifyFlop(flop), b.flop ?? {})) return null;
   if (b.reject.includes('stol-sparowany') && new Set(flop.map(rankOf)).size < 3) return null;
 
-  const points: VariantDecision[] = preflop ? [preflop] : [];
+  const points: VariantDecision[] = preflop ? [preflop] : listPoint ? [listPoint] : [];
   let icmSuffix = '';
   const draws: DrawCallVariantDecision[] = [];
   const outCards: Card[] = [];
   let pot = 0;
   let previousOuts: readonly Card[] = [];
   for (const [i, spec] of t.decisions.entries()) {
-    if (spec.kind === 'range-spot') continue;
+    if (spec.kind === 'range-spot' || spec.kind === 'list-hand') continue;
     if (spec.kind === 'icm-call') {
       if (!ctx?.equity169) throw new TemplateError(`${t.id}: punkt icm-call wymaga macierzy equity (GeneratorContext.equity169)`);
       const spot = ctx.spots.find((x) => x.id === spec.spot);

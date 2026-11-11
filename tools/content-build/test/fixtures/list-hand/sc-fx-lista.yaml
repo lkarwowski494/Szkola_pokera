@@ -1,0 +1,22 @@
+# Fixture testu EF (08-N4): punkt „lista rąk” (R-M4-004). Nie jest treścią aplikacji.
+id: sc-fx-lista
+module: m4
+situation: "Fixture: lista rąk."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-004
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+      - { hands: [JJ, TT], correct: call }
+    actions:
+      - { action: "4bet", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, to ręka do 4-betu." }
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, to ręka do sprawdzenia." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, pas." }

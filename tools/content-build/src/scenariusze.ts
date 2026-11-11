@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, eligibleClasses, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, eligibleClasses, HAND_CLASSES, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -108,6 +108,22 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         // CX (D-866): ekran pokazuje wszystkie akcje węzła spotu, a wyjaśnienie każdej pokazanej akcji to BR-OCE-002
         const bezWyjasnienia = labels.filter((l) => !d.actions.some((a) => a.action === l));
         if (bezWyjasnienia.length) e.push(`${p} ekran pokazuje wszystkie akcje spotu ${d.spot}, a brak wyjaśnienia akcji: ${bezWyjasnienia.join(', ')} (BR-OCE-002)`);
+      }
+    } else if (d.kind === 'list-hand') {
+      const klasy = new Set<string>();
+      for (const en of d.entries) for (const hc of en.hands) {
+        if (!HAND_CLASSES.includes(hc)) e.push(`${p} list-hand: nieznana klasa ręki ${hc}`);
+        else if (klasy.has(hc)) e.push(`${p} list-hand: klasa ${hc} w więcej niż jednym wpisie listy (akcja oczekiwana musi być jednoznaczna)`);
+        klasy.add(hc);
+      }
+      const akcje = new Set(d.actions.map((a) => a.action));
+      if (akcje.size !== d.actions.length) e.push(`${p} akcja powtórzona`);
+      for (const en of d.entries) for (const a of [en.correct, ...(en.acceptable ?? [])]) {
+        if (!akcje.has(a)) e.push(`${p} akcja ${a} z listy rąk nie ma wyjaśnienia (BR-OCE-002)`);
+      }
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && !d.entries.some((en) => en.correct === ex)) e.push(`${p} poziom ${l}: żaden wpis listy nie ma akcji oczekiwanej ${ex}`);
       }
     } else if (d.kind === 'cbet-case') {
       const przypadki = (ctx.cbetCases ?? []).filter((c) => c.rule === d.rule);
@@ -284,6 +300,10 @@ export function checkScenarioGenerator(
       const zakres = b.freqs?.[0];
       const oczekiwana = b.expected[0];
       if (spot && zakres && oczekiwana !== undefined) prog = Math.min(prog, eligibleClasses(spot, oczekiwana, zakres, ctx, b.equityMarginMin).length);
+    }
+    // 08-N4: lista rąk bez flopu: odcisk to klasa ręki, więc próg to min(próg, liczba klas listy z akcją oczekiwaną poziomu)
+    if (b && pierwszy?.kind === 'list-hand' && b.expected[0] !== undefined && t.decisions.length === 1) {
+      prog = Math.min(prog, pierwszy.entries.filter((en) => en.correct === b.expected[0]).reduce((n, en) => n + en.hands.length, 0));
     }
     if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }
