@@ -818,7 +818,7 @@
       "player": "Jogador {{letter}}",
       "stack": "{{name}} {{chips}}",
       "table": "{{players}} jogadores, {{paid}} lugares pagos ({{payouts}} da {{t:prize-pool|bolsa de prémios}}). Stacks: {{stacks}}.",
-      "callPrompt": "{{t:bubble|Bubble}}: {{table}} {{villain}} vai all-in; estão em jogo entre ambos {{atRisk}} {{t:chips|fichas}}. A sua mão tem {{equity}} de equity contra o {{t:range|range}} dele. Ignoramos os blinds. O que faz?",
+      "callPrompt": "{{t:bubble|Bolha}}: {{table}} {{villain}} vai all-in; estão em jogo entre ambos {{atRisk}} {{t:chips|fichas}}. A sua mão tem {{equity}} de equity contra o {{t:range|range}} dele. Ignoramos os blinds. O que faz?",
       "callRight": "Sim. A sua mão ganha mais vezes do que o preço exige na {{t:bubble|bolha}}: tem {{equity}} e, segundo o {{t:icm}}, precisa de {{required}}.",
       "callWrong": "Não. A sua mão ganha poucas vezes demais mesmo num jogo a {{t:chips|fichas}}, e na {{t:bubble|bolha}} o limiar é ainda mais alto: segundo o {{t:icm}} precisa de {{required}} e tem {{equity}}.",
       "callWrongChips": "Não. Na {{t:bubble|bolha}}, perder tira-lhe mais da {{t:prize-pool|bolsa de prémios}} do que ganhar acrescenta, por isso só {{t:call|paga}} com uma mão que ganha claramente mais vezes. Segundo o {{t:icm}} precisa de {{required}} e tem {{equity}}; num jogo a {{t:chips|fichas}}, este {{t:call}} compensaria.",

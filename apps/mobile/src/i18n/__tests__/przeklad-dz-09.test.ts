@@ -56,3 +56,10 @@ describe("zh-Hant wholeStack (09-lokalizacja-006)", () => {
   });
 });
 
+
+describe("pt: „Bolha” zamiast „Bubble” (09-lokalizacja-007, D-1011)", () => {
+  it("żaden tekst pt nie ma nazwy terminu „Bubble”", () => {
+    const trafienia = Object.entries(slownik("pt")).filter(([, v]) => /\{\{t:bubble\|Bubble\}\}/.test(v)).map(([k]) => k);
+    expect(trafienia).toEqual([]);
+  });
+});
