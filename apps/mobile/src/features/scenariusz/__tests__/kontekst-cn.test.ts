@@ -9,7 +9,7 @@ import { utworzZegar } from '@/platform/zegar';
 import { BEZ_LIMPU, CBET, dbCn, ICM, TROJBET } from '@/test-utils/kontekstCn';
 import { portTestowy } from '@/test-utils/postepTestowy';
 import { SC01 } from '@/test-utils/szablonSc01';
-import { getKontekstGeneratora } from '@/data/content/repo';
+import { BladOdczytuTresci, getKontekstGeneratora } from '@/data/content/repo';
 import { akcjePunktu, bloki, grafPunktow, kwotaAkcji, naGenerator, poprawnaAkcja, widokDecyzji } from '../wariant';
 import { odpowiedzWScenariuszu, otworzScenariusz, type WejscieScenariusza } from '../aktywnoscScenariusza';
 
@@ -45,6 +45,15 @@ describe('getKontekstGeneratora: kontekst z bazy treści', () => {
     expect(k?.cbetCases?.length).toBeGreaterThan(0);
     expect(k?.sizeRules?.map((r) => r.check.kind)).toEqual(expect.arrayContaining(['open-size', 'three-bet-size', 'no-limp']));
     expect(k?.equity169?.classes.length).toBe(169);
+  });
+  it('CR NIS-005: uszkodzony JSON w bazie treści (equity169, reguły oceny, akcje zakresu) daje typowany błąd odczytu z nazwą pola, nie wyjątek generatora', () => {
+    const wiersz = (klucz: string, wartosc: string) => ({ ...db, getFirstSync: ((q: string, ...p: unknown[]) => (/FROM game_kit/.test(q) && p[0] === klucz ? { value: wartosc } : (db.getFirstSync as (q: string, ...p: unknown[]) => unknown)(q, ...p))) as typeof db.getFirstSync });
+    expect(() => getKontekstGeneratora(wiersz('equity169', '{"classes":1}'), ICM)).toThrow(BladOdczytuTresci);
+    expect(() => getKontekstGeneratora(wiersz('equity169', '{"classes":1}'), ICM)).toThrow(/game_kit\.equity169/);
+    expect(() => getKontekstGeneratora(wiersz('evalRules', '[{"id":7}]'), CBET)).toThrow(/game_kit\.evalRules/);
+    expect(() => getKontekstGeneratora(wiersz('evalRules', 'nie json'), CBET)).toThrow(BladOdczytuTresci);
+    const zakresy = { ...db, getAllSync: ((q: string, ...p: unknown[]) => (/FROM ranges/.test(q) ? [{ id: 'x', actions: '[{"label":5}]', uncertain: '[]' }] : (db.getAllSync as (q: string, ...p: unknown[]) => unknown)(q, ...p))) as typeof db.getAllSync };
+    expect(() => getKontekstGeneratora(zakresy, CBET)).toThrow(/ranges\.actions/);
   });
   it('baza bez progów oceny zakresów: undefined (generator odmówi punktu, bez zgadywanych wartości)', () => {
     const bez = { ...db, getFirstSync: ((q: string, ...p: never[]) => (/FROM numbers/.test(q) ? null : (db.getFirstSync as (q: string, ...p: never[]) => unknown)(q, ...p))) as typeof db.getFirstSync };

@@ -436,6 +436,25 @@ export interface CompiledEvalRule {
   families: string[];
 }
 
+/**
+ * Dane generatora scenariuszy odczytywane z bazy treści w aplikacji (CR NIS-005): kształt wierszy `ranges.actions`, `ranges.uncertain`
+ * i `game_kit` (`evalRules`, `equity169`) sprawdzany schematem zamiast asercji `as`. `evalRules` to podzbiór `CompiledEvalRule`, którego
+ * używa `buildGeneratorContext` (id, rodzaj sprawdzenia, parametry, przypadki c-betu); pozostałe pola reguły są pomijane.
+ */
+export const GeneratorRangeActions = z.array(z.object({ label: z.string(), freqs: z.array(z.number()) }));
+export const GeneratorUncertain = z.array(z.string());
+export const GeneratorEvalRules = z.array(
+  z.object({
+    id: z.string(),
+    check: z.object({
+      kind: z.string(),
+      params: z.record(z.string(), z.union([z.number(), z.string()])),
+      cases: z.array(z.object({ when: TextureFilter, best: CbetAction, rule: z.string().optional() })).optional(),
+    }),
+  }),
+);
+export const GeneratorEquity169 = z.object({ classes: z.array(z.string()), equity: z.array(z.array(z.number())), pairs: z.array(z.array(z.number())) });
+
 /** Obszar trybu gry (content/pl/areas.yaml, dokument 14, 4.3). */
 export const AreaGenerator = z.enum(['flop-draw', 'rfi', 'vs-open', 'cbet-ip', 'turn-draw']);
 export type AreaGenerator = z.infer<typeof AreaGenerator>;

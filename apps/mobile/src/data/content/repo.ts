@@ -1,5 +1,5 @@
-import { ScenarioTemplate, type Block, type Drill, type RuleSourceSummary } from '@szkola/content-schema';
-import { buildGeneratorContext, type Equity169Data, type GeneratorContext, type RangeSpotData } from '@szkola/poker-core';
+import { GeneratorEquity169, GeneratorEvalRules, GeneratorRangeActions, GeneratorUncertain, ScenarioTemplate, type Block, type Drill, type RuleSourceSummary } from '@szkola/content-schema';
+import { buildGeneratorContext, type GeneratorContext, type RangeSpotData } from '@szkola/poker-core';
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 /** Odczyt treści z content-vN.db (tylko do odczytu, ADR-08). */
@@ -260,6 +260,14 @@ export function getScenarioTemplates(db: Pick<SQLiteDatabase, 'getAllSync'>): Sc
   });
 }
 
+/** Wiersz bazy treści niezgodny ze schematem (uszkodzony JSON albo inny kształt); `pole` to `tabela.kolumna` albo `game_kit.klucz`. */
+export class BladOdczytuTresci extends Error {
+  constructor(readonly pole: string) {
+    super(`Baza treści: pole ${pole} niezgodne ze schematem`);
+    this.name = 'BladOdczytuTresci';
+  }
+}
+
 /**
  * Kontekst generatora dla szablonów z punktami range-spot, cbet-case, size-spot i icm-call (CN D-780, 08-programista-001 CM): spoty
  * (`ranges`), progi (`numbers`), reguły oceny i macierz equity (`game_kit`) składa ta sama funkcja co kontrola w budowaniu treści
@@ -272,15 +280,28 @@ export function getKontekstGeneratora(db: Pick<SQLiteDatabase, 'getAllSync' | 'g
   const mixedMin = liczba('range.mixed.min');
   const mixedLow = liczba('range.mixed.low');
   if (mixedMin === null || mixedLow === null) return undefined;
-  const kit = (key: string): unknown => {
-    const w = db.getFirstSync<{ value: string }>('SELECT value FROM game_kit WHERE key = ?', key);
-    return w ? (JSON.parse(w.value) as unknown) : null;
+  // Wiersze z bazy treści parsowane schematem (CR NIS-005): uszkodzony JSON albo inny kształt to `BladOdczytuTresci` z nazwą pola,
+  // a nie wyjątek w środku generatora ani cicho zły kontekst.
+  const parsuj = <T,>(pole: string, tekst: string, schemat: { safeParse: (v: unknown) => { success: true; data: T } | { success: false } }): T => {
+    let surowy: unknown;
+    try {
+      surowy = JSON.parse(tekst);
+    } catch {
+      throw new BladOdczytuTresci(pole);
+    }
+    const w = schemat.safeParse(surowy);
+    if (!w.success) throw new BladOdczytuTresci(pole);
+    return w.data;
   };
-  const evalRules = kit('evalRules');
-  if (!Array.isArray(evalRules)) return undefined;
+  const kit = <T,>(key: string, schemat: { safeParse: (v: unknown) => { success: true; data: T } | { success: false } }): T | null => {
+    const w = db.getFirstSync<{ value: string }>('SELECT value FROM game_kit WHERE key = ?', key);
+    return w ? parsuj(`game_kit.${key}`, w.value, schemat) : null;
+  };
+  const evalRules = kit('evalRules', GeneratorEvalRules);
+  if (evalRules === null) return undefined;
   const spots = db.getAllSync<{ id: string; actions: string; uncertain: string }>('SELECT id, actions, uncertain FROM ranges').map((r): RangeSpotData => ({
-    id: r.id, actions: JSON.parse(r.actions) as RangeSpotData['actions'], uncertain: JSON.parse(r.uncertain) as string[],
+    id: r.id, actions: parsuj('ranges.actions', r.actions, GeneratorRangeActions), uncertain: parsuj('ranges.uncertain', r.uncertain, GeneratorUncertain),
   }));
-  const equity169 = kit('equity169');
-  return buildGeneratorContext({ spots, thresholds: { mixedMin, mixedLow }, evalRules: evalRules as Parameters<typeof buildGeneratorContext>[0]['evalRules'], ...(equity169 ? { equity169: equity169 as Equity169Data } : {}) });
+  const equity169 = kit('equity169', GeneratorEquity169);
+  return buildGeneratorContext({ spots, thresholds: { mixedMin, mixedLow }, evalRules, ...(equity169 ? { equity169 } : {}) });
 }
