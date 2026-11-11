@@ -76,7 +76,7 @@ drills:
       small: "經常小額 C-bet：{{t:pot|底池}}的 {{n:cbet.size.small}}（{{n:cbet.btn.small}}）"
       big: "經常大額 C-bet：{{t:pot|底池}}的 {{n:cbet.size.big}}（{{n:cbet.btn.big}}）"
     cases:
-      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
+      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
         best: small
         rule: R-M5-007
         why:

@@ -95,27 +95,33 @@ describe('CW ŚR-005: SC-11 średni nie uczy „często i mało” na flopie z m
   });
 });
 
-describe('CW-1 (D-858): zadanie m5.l3.c-btn nie ocenia flopu z możliwym OESD jako R-M5-007 „często i mało”', () => {
-  const drill = content.lessons.flatMap((l) => l.drills).find((d) => d.id === 'm5.l3.c-btn');
-  it('w treści pl żaden przypadek R-M5-007 nie pasuje do flopu z możliwym OESD', () => {
-    expect(drill?.kind).toBe('cbet');
-    const cases = drill!.kind === 'cbet' ? drill!.cases : [];
-    const bledy: string[] = [];
-    for (const f of wszystkieFlopy) {
-      if (!oesdMozliwyZRang(f.map(rankOf))) continue;
-      const c = cases.find((x) => textureMatches(classifyFlop(f), x.when as TextureFilter));
-      if (c && (c.rule === 'R-M5-007' || c.best === 'small') && classifyFlop(f).ranks !== 'paired' && bledy.length < 5) bledy.push(`${f.join(',')}: przypadek ${c.rule} (${c.best})`);
-    }
-    expect(bledy).toEqual([]);
+describe('CW-1 (D-858): żadne zadanie c-betu nie ocenia flopu z możliwym OESD jako R-M5-007 „często i mało”', () => {
+  // m5.l3.c-btn i jego powtórka m5.l4.c-review (ta sama definicja przypadku; powtórka wyszła w CI przez obszar M5 trybu gry, play.test.ts)
+  const drille = content.lessons.flatMap((l) => l.drills).flatMap((d) => (d.kind === 'cbet' && d.cases.some((c) => c.rule === 'R-M5-007') ? [d] : []));
+  it('w treści pl są oba zadania z przypadkiem R-M5-007', () => {
+    expect(drille.map((d) => d.id).sort()).toEqual(['m5.l3.c-btn', 'm5.l4.c-review']);
   });
+  for (const d of drille) {
+    it(`${d.id}: żaden przypadek R-M5-007 nie pasuje do flopu z możliwym OESD`, () => {
+      const bledy: string[] = [];
+      for (const f of wszystkieFlopy) {
+        if (!oesdMozliwyZRang(f.map(rankOf))) continue;
+        const c = d.cases.find((x) => textureMatches(classifyFlop(f), x.when as TextureFilter));
+        if (c?.rule === 'R-M5-007' && bledy.length < 5) bledy.push(`${f.join(',')}: przypadek ${c.rule} (${c.best})`);
+      }
+      expect(bledy).toEqual([]);
+    });
+  }
 
-  it('przypadki zadania (when) są takie same w 12 językach treści', () => {
-    const czytaj = (j: string) => {
-      const md = readFileSync(join(root, 'content', j, 'lessons', 'm5-l3-czestotliwosc-rozmiar.md'), 'utf8');
-      const fm = parseYaml(md.split(/^---$/m)[1]!) as { drills: { id: string; cases?: { when: unknown }[] }[] };
-      return fm.drills.find((d) => d.id === 'm5.l3.c-btn')!.cases!.map((c) => c.when);
-    };
-    const wzor = czytaj('pl');
-    for (const j of JEZYKI_TRESCI) expect(czytaj(j), j).toEqual(wzor);
-  });
+  for (const [plik, id] of [['m5-l3-czestotliwosc-rozmiar.md', 'm5.l3.c-btn'], ['m5-l4-bez-pozycji.md', 'm5.l4.c-review']] as const) {
+    it(`${id}: przypadki zadania (when) są takie same w 12 językach treści`, () => {
+      const czytaj = (j: string) => {
+        const md = readFileSync(join(root, 'content', j, 'lessons', plik), 'utf8');
+        const fm = parseYaml(md.split(/^---$/m)[1]!) as { drills: { id: string; cases?: { when: unknown }[] }[] };
+        return fm.drills.find((x) => x.id === id)!.cases!.map((c) => c.when);
+      };
+      const wzor = czytaj('pl');
+      for (const j of JEZYKI_TRESCI) expect(czytaj(j), j).toEqual(wzor);
+    });
+  }
 });

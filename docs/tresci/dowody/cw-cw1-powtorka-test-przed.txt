@@ -1,0 +1,8 @@
+     × m5.l4.c-review: żaden przypadek R-M5-007 nie pasuje do flopu z możliwym OESD 1195ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/cw-sc11-oesd.test.ts > CW-1 (D-858): żadne zadanie c-betu nie ocenia flopu z możliwym OESD jako R-M5-007 „często i mało” > m5.l4.c-review: żaden przypadek R-M5-007 nie pasuje do flopu z możliwym OESD
++   "0,5,42: przypadek R-M5-007 (small)",
++   "0,5,43: przypadek R-M5-007 (small)",
++   "0,5,46: przypadek R-M5-007 (small)",
++   "0,5,47: przypadek R-M5-007 (small)",
++   "0,6,41: przypadek R-M5-007 (small)",

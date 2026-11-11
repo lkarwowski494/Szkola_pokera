@@ -76,7 +76,7 @@ drills:
       small: "C-bet spesso e piccola: {{n:cbet.size.small}} del {{t:pot|piatto}} ({{n:cbet.btn.small}})"
       big: "C-bet spesso e grande: {{n:cbet.size.big}} del {{t:pot|piatto}} ({{n:cbet.btn.big}})"
     cases:
-      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
+      - when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
         best: small
         rule: R-M5-007
         why:
