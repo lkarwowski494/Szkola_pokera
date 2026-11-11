@@ -140,7 +140,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 |---|---|---|---|---|---|---|
 | DQ | session_01T66VBvLpB9q2t7Chfq96FR | 08 audit (opus/high) | sesja-dq-recenzja @ 007e23ad | 0 | 0 | w toku od 16:58: recenzja niezależna DP (DQ.md @ 3fc19596, D-995…D-999) |
 | DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 24e86242 | 25,3 | 5,45 | przyjęta 16:26 (PRZYJĄĆ DN); zarchiwizowana 16:55 |
-| DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 007e23ad | <30 | ? | PRZEKAZANIE 16:52 (ci 0 wg DP na 1b3e5e19, autor 5/5, 007e23ad = +docs); CI dispatch 16:55; recenzja DQ; czeka bezczynnie |
+| DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 007e23ad | <30 | ? | PRZEKAZANIE 16:52 (ci 0 wg DP na 1b3e5e19, autor 5/5, 007e23ad = +docs); CI 43062601716 **success** na 007e23ad (17:07); recenzja DQ; czeka bezczynnie |
 | DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 370a1548 | 32,5 | 5,11 | **przyjęta 16:26** (autor 6/6, CI 43050740393 success na 370a1548, recenzja DO PRZYJĄĆ 24e86242); zarchiwizowana; scalenie do roboczej razem z DP (DP ⊃ DN) |
 | CW | session_01T66VBwYnHtTiKoR8cjnqsi | 06 fix, treść (opus/high) | sesja-cw-tresci @ 4619781 (start) | — | — | w toku od 07:05 |
 | CX | session_01T66VBybgy9yDNgu92usB38 | 08 build, kod (sonnet) | sesja-cx-range-spot @ 4619781 (start) | — | — | E0 07:25 |
@@ -558,3 +558,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 16:26 | DO → koordynator | PRZEKAZANIE 24e86242: PRZYJĄĆ, ŚR 2, NIS 4, ci 0 (`dowody/do-ci-370a1548.txt` kod 0), D-890 niezależnie potwierdzone; sprawdzone: autor, tylko docs (8 plików) → **DN przyjęta**, DN zarchiwizowana (5,11 USD, kontekst końcowy 32,5%) | DO archiwizacja po koszcie; DP w toku |
 | 16:55 | DP → koordynator | PRZEKAZANIE 007e23ad: D-889 widok icm-call, D-985…D-990 do weta; dług 09: 15 kluczy scenario.icm.*; kryteria 5–6 (AX5, zrzut) niewykonalne w Linuksie; dla 04: przypis „nadwyżka wraca”, stół rząd zamiast owalu. Sprawdzone: autor 5/5, różnica 1b3e5e19→007e23ad tylko docs. CI dispatch ci.yml na sesja-dp-icm. DO zarchiwizowana (5,45 USD). Polecenie DQ @ 3fc19596, gałąź sesja-dq-recenzja @ 007e23ad | start DQ (subagent), kontrola 17:07 |
 | 16:58 | DQ | start session_01T66VBvLpB9q2t7Chfq96FR (opus/high) przez subagenta | kontrola 17:07: CI DP, DQ |
+| 17:08 | kontrola | CI 43062601716 success na sesja-dp-icm @ 007e23ad; DQ pracuje (wg task_summary: lokalnie `pnpm run ci` kod 1 w tools/content-build — diagnozuje, rozbieżność z CI do wyjaśnienia w raporcie); koordynator kontekst 20,0%, 6,39 USD | kontrola 17:50 |
