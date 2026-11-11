@@ -8,9 +8,9 @@ Gałąź `sesja-dx-silnik` od b3963e9a. Polecenie: `origin/koordynacja:docs/koor
 | 2. 08-N1…N7 | **częściowo: czyste funkcje oceny** N2, N3, N4, N7 w `packages/poker-core/src/scenario-gen.ts` (koniec pliku; osobny plik łamał test nocny.yml „grupy mutacji obejmują każdy plik src/”, a workflowów nie zmieniam) + testy `test/scenario-dx.test.ts` (8 testów, wyrocznia z rang i kolorów, 10 000 losowań dla N2); **brak**: schemat `ScenarioDecision`, generator (`scenario-gen.ts`), bramka budowania (`scenariusze.ts`), widok. Nic nie jest w `RODZAJE_NA_EKRANIE` (brak widoku). N1, N5, N6 bez kodu. |
 | 3. KO-072 wybór jednej z dwóch rąk | nie zaczęte | |
 | 4. `GENERATOR_WERSJA` | patrz niżej | |
-| 5. `pnpm run ci` | patrz „Dowód” | |
+| 5. `pnpm run ci` | kod 0 na 7350d60a | `docs/programista/dowody/dx-ci-7350d60a.txt` |
 
-## Co zrobione w `scenario-dx.ts` (czyste, bez RN, bez plików)
+## Co zrobione (koniec scenario-gen.ts; czyste, bez RN, bez plików)
 - `isoSizeStandardBb`, `isoSizeOptions` (N3): standard = base + n × perLimper (+ oopExtra), złe rozmiary 0,8× i 1,6× jak size-spot, werdykt `sizeVerdict` (0,05 bb).
 - `defendVsCbet` (N2): mały c-bet (≤ 0,4 puli): call przy parze/dwóch parach+ (`improvesBoard`), drawie (≥ `HOLDING_LIMITS.drawOutsMin` outów), backdoorze kolorowym z obiema kartami ≥ T i asie w ręce, inaczej fold; duży (≥ 0,7): call para/draw, fold reszta, as + król na suchym flopie → `null` (wariant odrzucany, wyjątek źródła); rozmiar 0,4–0,7 → `null` (źródło nie rozstrzyga).
 - `listHandVerdicts` (N4): akcja oczekiwana i dopuszczalne z listy klas; spoza listy `null`.
