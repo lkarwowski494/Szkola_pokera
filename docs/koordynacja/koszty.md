@@ -79,4 +79,6 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | CS | 08 fix (CQ) | — | 4,23 | 28,2 | 02:13 → 02:15 → 03:03 → CI w toku → (CT) | — | |
 | Koordynator …SdwmmCy2rQJHrxEQ | M9 (opus, medium) | — | 36,77 | 41 | 11-10 21:12 → 11-11 03:29 (przekazanie) | — | próg 30% przekroczony niezauważony (WG-12); zarchiwizowana przez siebie po PRZEJĄŁEM |
 | CT | 08 audit (recenzja CR+CS) | — | 7,85 | 32,3 | 03:07 → 03:12 → 17b1a3a → (docs+testy; ci 0 wg sesji ct-ci-17b1a3a6.txt) → 03:35 przyjąć warunkowo | — | zarchiwizowana 03:42 |
-| Koordynator …EUTZQc2qYQfck1rc | M9 (opus, medium) | — | 10,09 | 29,5 | 11-11 03:28 → 04:45 (przekazanie) | — | wg wiadomości poprzednika 04:48; zarchiwizował się sam po PRZEJĄŁEM |
+| Koordynator …EUTZQc2qYQfck1rc | M9 (opus, medium) | — | 14,18 | 34,9 | 11-11 03:28 → 04:45 (przekazanie) | — | get_session po archiwizacji 05:16 (poprzednik podał 10,09 / 29,5% w chwili przekazania); zarchiwizował się sam po PRZEJĄŁEM |
+| CU session_01T66VBwjM2vHiZJSFWJBHGs | 06 fix (opus/high) | — | 9,12 | 29,3 | 11-11 03:40 → cd6aef3 → CI 42956975964 zielone 04:15 → scalone ed2cfec 04:20 → przyjęte 05:17 | ok. 60 min: CI ed2cfec czerwone (timeout testu), E2E | zarchiwizowana 05:17 |
+| CV session_01T66VBzLn4T52XUoCLBNRjM | 08 fix (sonnet) | — | 1,45 | 19,5 | 11-11 03:40 → ed2cfec 04:18 → poprawka 4619781 04:59 → CI 42962783076 zielone 05:06 → przyjęte 05:17 | ok. 40 min: diagnoza timeoutu CI | zarchiwizowana 05:17 |
