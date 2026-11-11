@@ -39,15 +39,16 @@ describe('c-bet (cbet-case)', () => {
     await fireEvent.press(screen.getByRole('button', { name: /^Czekam/ }));
     expect(onWybierz).toHaveBeenCalledWith('check');
   });
-  it('ocena błędu: słabsze i lepsze z szablonu, bez „Liczb” (tylko draw-call), pasek ocen trzech akcji', async () => {
+  it('ocena dopuszczalna (CR WYS-002: rzadsza akcja c-betu to nie błąd): słabsze i lepsze z szablonu, bez „Liczb” (tylko draw-call), pasek ocen trzech akcji', async () => {
     await ocena(CBET, 'check');
     const t = tekstEkranu();
-    expect(t).toMatch(/Błąd/);
+    expect(t).toMatch(/Ocena: Dopuszczalna/);
+    expect(t).not.toMatch(/Błąd/);
     expect(t).toMatch(/Wyjaśnienie akcji check/);
     expect(t).toMatch(/Wyjaśnienie akcji bet-small/);
     expect(t).not.toContain('{{w:');
     expect(screen.queryByTestId('liczby')).toBeNull();
-    expect(screen.getByRole('image', { name: /Oceny akcji: .*Czekam.*błąd.*twój wybór.*zgodna/i })).toBeTruthy();
+    expect(screen.getByRole('image', { name: /Oceny akcji: .*Czekam.*dopuszczalna.*twój wybór.*zgodna.*niedokładność/i })).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Zobacz podsumowanie' })).toBeTruthy();
   });
   it('ocena zgodna: „dlaczego nie” dla każdej z dwóch pozostałych akcji', async () => {
