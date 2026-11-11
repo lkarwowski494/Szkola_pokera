@@ -1,0 +1,65 @@
+$ node mutanty.mjs <worktree 174dc00b>  # każdy mutant: podmiana w packages/poker-core/src/scenario-gen.ts, potem pnpm exec vitest run test/scenario-dx.test.ts; skrypt poniżej wyniku
+$ (bez mutanta) vitest run test/scenario-dx.test.ts → Tests 8 passed (8), kod 0
+iso-1 bez oopExtra: ZABITY (czerwony, kod 1)
+iso-2 perLimper×(n−1): ZABITY (czerwony, kod 1)
+iso-3 zamiana współczynników: ZABITY (czerwony, kod 1)
+def-1 próg małego 0,3: ZABITY (czerwony, kod 1)
+def-2 próg dużego 0,8: ZABITY (czerwony, kod 1)
+def-3 bez asa przy małym: ZABITY (czerwony, kod 1)
+def-4 backdoor >=1 karta koloru: PRZEŻYŁ (zielony)
+def-5 backdoor od K: ZABITY (czerwony, kod 1)
+def-6 backdoor od 2: PRZEŻYŁ (zielony)
+def-7 wyjątek bez warunku suchy: PRZEŻYŁ (zielony)
+def-8 wyjątek bez warunku król: PRZEŻYŁ (zielony)
+def-9 draw od 4 outów (gutshot): ZABITY (czerwony, kod 1)
+def-10 przedział pośredni → duży: PRZEŻYŁ (zielony)
+def-11 duży: fold → call dla reszty: ZABITY (czerwony, kod 1)
+def-12 para nie liczy się przy dużym (tylko small): ZABITY (czerwony, kod 1)
+list-1 acceptable zawsze puste: ZABITY (czerwony, kod 1)
+list-2 brak → pierwszy wpis: ZABITY (czerwony, kod 1)
+river-1 > → >=: PRZEŻYŁ (zielony)
+river-2 < → <= w marginesie: PRZEŻYŁ (zielony)
+river-3 cena bet/(pula+bet): ZABITY (czerwony, kod 1)
+river-4 bez marginesu: ZABITY (czerwony, kod 1)
+river-5 margines ×2: PRZEŻYŁ (zielony)
+kod wyjścia skryptu: 0
+
+--- skrypt ---
+// użycie: node mutanty.mjs <worktree>; każdy mutant: podmiana w scenario-gen.ts, vitest scenario-dx, przywrócenie
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const wt = process.argv[2], f = `${wt}/packages/poker-core/src/scenario-gen.ts`, orig = readFileSync(f, 'utf8');
+const M = [
+ ['iso-1 bez oopExtra', '+ (oop ? p.oopExtra : 0);\n}', '+ 0;\n}'],
+ ['iso-2 perLimper×(n−1)', 'p.perLimper * limpers +', 'p.perLimper * (limpers - 1) +'],
+ ['iso-3 zamiana współczynników', "['raise-small', round1(standard * SIZE_SMALL_FACTOR)], ['raise-big', round1(standard * SIZE_BIG_FACTOR)]] as const).map(([action, bb]) => ({ action, bb, verdict", "['raise-small', round1(standard * SIZE_BIG_FACTOR)], ['raise-big', round1(standard * SIZE_SMALL_FACTOR)]] as const).map(([action, bb]) => ({ action, bb, verdict"],
+ ['def-1 próg małego 0,3', 'const DEFEND_SMALL_MAX = 0.4;', 'const DEFEND_SMALL_MAX = 0.3;'],
+ ['def-2 próg dużego 0,8', 'const DEFEND_BIG_MIN = 0.7;', 'const DEFEND_BIG_MIN = 0.8;'],
+ ['def-3 bez asa przy małym', "  if (hasAce) return 'call';\n", ''],
+ ['def-4 backdoor >=1 karta koloru', "suitOf(hero[0])).length === 1 &&", "suitOf(hero[0])).length >= 1 &&"],
+ ['def-5 backdoor od K', 'const BACKDOOR_HIGH_MIN = RANK_T;', 'const BACKDOOR_HIGH_MIN = RANK_K;'],
+ ['def-6 backdoor od 2', 'const BACKDOOR_HIGH_MIN = RANK_T;', 'const BACKDOOR_HIGH_MIN = 0;'],
+ ['def-7 wyjątek bez warunku suchy', " && tex.wetness === 'dry' ? null", " ? null"],
+ ['def-8 wyjątek bez warunku król', "hasAce && flop.some((c) => rankOf(c) === RANK_K) && tex", "hasAce && tex"],
+ ['def-9 draw od 4 outów (gutshot)', '>= HOLDING_LIMITS.drawOutsMin) return', '>= 4) return'],
+ ['def-10 przedział pośredni → duży', "if (!small && fraction < DEFEND_BIG_MIN) return null;", ''],
+ ['def-11 duży: fold → call dla reszty', ": 'fold';\n  }\n  if (hasAce)", ": 'call';\n  }\n  if (hasAce)"],
+ ['def-12 para nie liczy się przy dużym (tylko small)', "if (h.improvesBoard || h.pairKind !== null ||", "if (small && h.improvesBoard || h.pairKind !== null ||"],
+ ['list-1 acceptable zawsze puste', 'acceptable: [...(e.acceptable ?? [])]', 'acceptable: []'],
+ ['list-2 brak → pierwszy wpis', 'const e = entries.find((x) => x.hands.includes(handClass));', 'const e = entries.find((x) => x.hands.includes(handClass)) ?? entries[0];'],
+ ['river-1 > → >=', "return bluffShare > need ? 'call'", "return bluffShare >= need ? 'call'"],
+ ['river-2 < → <= w marginesie', 'Math.abs(bluffShare - need) < marginMin', 'Math.abs(bluffShare - need) <= marginMin'],
+ ['river-3 cena bet/(pula+bet)', 'const need = requiredEquity(pot, bet);', 'const need = bet / (pot + bet);'],
+ ['river-4 bez marginesu', 'if (Math.abs(bluffShare - need) < marginMin) return null;', ''],
+ ['river-5 margines ×2', 'Math.abs(bluffShare - need) < marginMin', 'Math.abs(bluffShare - need) < 2 * marginMin'],
+];
+let wynik = [];
+for (const [n, a, b] of M) {
+  if (!orig.includes(a)) { wynik.push(`${n}: WZORZEC NIE ZNALEZIONY`); continue; }
+  writeFileSync(f, orig.replace(a, b));
+  let kod = 0;
+  try { execSync('pnpm exec vitest run test/scenario-dx.test.ts', { cwd: `${wt}/packages/poker-core`, stdio: 'pipe' }); } catch (e) { kod = e.status; }
+  wynik.push(`${n}: ${kod ? 'ZABITY (czerwony, kod ' + kod + ')' : 'PRZEŻYŁ (zielony)'}`);
+}
+writeFileSync(f, orig);
+console.log(wynik.join('\n'));

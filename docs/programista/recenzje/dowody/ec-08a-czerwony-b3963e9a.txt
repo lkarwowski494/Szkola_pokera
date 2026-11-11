@@ -1,0 +1,41 @@
+$ (worktree b3963e9a + test i fixture z 174dc00b) pnpm exec vitest run test/dx-bramka-holding.test.ts
+
+ RUN  v5.0.3 /tmp/claude-0/-home-user-Szkola-pokera/e1df6c0c-38fe-5b00-ac09-67230fc3ce7e/scratchpad/wt-b/tools/content-build
+
+(node:2395) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/dx-bramka-holding.test.ts (2 tests | 1 failed) 9ms
+   ❯ 08-A: holding w szablonie range-spot → cbet-case (2)
+     × szablon range-spot → cbet-case z filtrem holding przechodzi bramkę 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/dx-bramka-holding.test.ts > 08-A: holding w szablonie range-spot → cbet-case > szablon range-spot → cbet-case z filtrem holding przechodzi bramkę
+AssertionError: expected [ …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "szablon sc-fx-range-cbet: punkt decyzji 1: poziom latwy: holding tylko dla punktu cbet-case",
++   "szablon sc-fx-range-cbet: punkt decyzji 1: poziom sredni: holding tylko dla punktu cbet-case",
++ ]
+
+ ❯ test/dx-bramka-holding.test.ts:25:71
+     23|   it('szablon range-spot → cbet-case z filtrem holding przechodzi bram…
+     24|     expect(baza.bounds.latwy!.holding).toEqual(['air']);
+     25|     expect(checkScenarioTemplate(baza, 'sc-fx-range-cbet.yaml', ctx)).…
+       |                                                                       ^
+     26|   });
+     27|   it('szablon bez punktu cbet-case z holding nadal jest odrzucany', ()…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  20:26:13
+   Duration  2.76s (import 82%, transform 18%)
+
+kod wyjścia: 1

@@ -1,0 +1,30 @@
+$ pnpm exec vitest run test/sonda.test.ts --silent=false (sonda tymczasowa w worktree 174dc00b, usunięta po przebiegu; treść poniżej)
+Jd Tc | Qh 8c 2s | 0.3333333333333333 → fold | outs 4 null
+9d 7c | Kh 8c 6s | 0.3333333333333333 → call | outs 8 null
+5d 4c | Kh 7c 3s | 0.3333333333333333 → fold | outs 4 null
+Kd Qc | 8h 5c 2s | 0.3333333333333333 → fold | outs 0 null
+2d 2c | Ah Kc Qs | 0.75 → call | outs 0 underpair
+3d 2c | Ah Kc 2s | 0.75 → call | outs 0 low
+Ah 5d | Kh 8c 2d | NaN → null | outs 0 null
+Ah 5d | Kh 8c 2d | 0.55 → null | outs 0 null
+Kd Qd | Jh 7c 2s | 0.33 → fold | outs 0 null
+      Tests  1 passed (1)
+kod wyjścia: 0
+--- sonda ---
+import { it } from 'vitest';
+import { defendVsCbet, parseCards, classifyHolding, type Card } from '../src';
+const H = (s: string) => parseCards(s) as [Card, Card];
+it('sonda', () => {
+  const c: [string, string, number][] = [
+    ['Jd Tc', 'Qh 8c 2s', 1/3], // gutshot bez nadkart
+    ['9d 7c', 'Kh 8c 6s', 1/3], // oesd? 9876 -> otwarty
+    ['5d 4c', 'Kh 7c 3s', 1/3], // gutshot (6)
+    ['Kd Qc', '8h 5c 2s', 1/3], // dwie nadkarty bez backdoora
+    ['2d 2c', 'Ah Kc Qs', 0.75], // underpair wobec dużego
+    ['3d 2c', 'Ah Kc 2s', 0.75], // najniższa para wobec dużego
+    ['Ah 5d', 'Kh 8c 2d', NaN],
+    ['Ah 5d', 'Kh 8c 2d', 0.55],
+    ['Kd Qd', 'Jh 7c 2s', 0.33], // nadkarty jednokolorowe bez karty koloru na flopie
+  ];
+  for (const [h, f, x] of c) { const hl = classifyHolding(H(h), parseCards(f)); console.log(h, '|', f, '|', x, '→', defendVsCbet(H(h), parseCards(f), x), '| outs', hl.draw?.all.length, hl.pairKind); }
+});
