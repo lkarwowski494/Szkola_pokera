@@ -1,0 +1,108 @@
+# Źródła sond DO (poza repo, uruchamiane w worktree @ 370a1548; tu jako .txt, żeby nie weszły do testów)
+
+===== sonda-do.test.tsx =====
+/// <reference types="jest" />
+// Sonda DO (recenzja DN, 08-programista audit): przegląd wariantów icm-call i tekstów „Liczby” pl/en. Poza repo (worktree).
+import '@/i18n';
+import i18n from '@/i18n';
+import { blindBb, generateVariant, type ScenarioLevel } from '@szkola/poker-core';
+import { getKontekstGeneratora } from '@/data/content/repo';
+import { CBET, dbCn, ICM, TROJBET, BEZ_LIMPU } from '@/test-utils/kontekstCn';
+import { zdaniaLiczb } from '../liczby';
+import { naGenerator, type Akcja } from '../wariant';
+import type { SesjaScenariusza } from '../aktywnoscScenariusza';
+
+const pr = (x: number) => Math.round(x * 100);
+it('icm-call: ziarna 1–400 na poziom; próg ICM vs próg w żetonach, na10, zaokrąglenia', () => {
+  const kontekst = getKontekstGeneratora(dbCn, ICM)!;
+  const wiersze: string[] = [];
+  for (const poziom of ['latwy', 'sredni', 'trudny'] as ScenarioLevel[]) {
+    let n = 0, icmPonizej = 0, rowneProgi = 0, rowneEqProg = 0, na10Poza = 0, rozneNa10 = 0, prZly = 0, eqMin = 1, eqMax = 0, rqMin = 1, rqMax = 0;
+    for (let z = 1; z <= 400; z++) {
+      let w; try { w = generateVariant(naGenerator(ICM), poziom, z, kontekst); } catch { continue; }
+      const p = w.points[0]!; if (p.point !== 'icm-call') continue;
+      n++;
+      if (p.required < p.requiredChips) icmPonizej++;
+      if (pr(p.required) === pr(p.requiredChips)) rowneProgi++;
+      if (pr(p.handEquity) === pr(p.required)) rowneEqProg++;
+      const na10 = Math.round(10 * p.handEquity); if (na10 < 2 || na10 > 9) na10Poza++;
+      if (Math.abs(p.requiredChips - (10 - blindBb('BB')) / 20) > 1e-12) prZly++;
+      eqMin = Math.min(eqMin, p.handEquity); eqMax = Math.max(eqMax, p.handEquity); rqMin = Math.min(rqMin, p.required); rqMax = Math.max(rqMax, p.required);
+      void rozneNa10;
+    }
+    wiersze.push(`${poziom}: warianty=${n} required<requiredChips=${icmPonizej} round(required)=round(requiredChips)=${rowneProgi} round(eq)=round(required)=${rowneEqProg} na10 poza 2–9=${na10Poza} requiredChips≠0,45=${prZly} equity ${eqMin.toFixed(3)}–${eqMax.toFixed(3)} required ${rqMin.toFixed(3)}–${rqMax.toFixed(3)}`);
+  }
+  console.log(wiersze.join('\n'));
+});
+
+it('teksty „Liczby” pl i en po podstawieniu (widok użytkownika)', async () => {
+  const sesja = (szablon: typeof CBET, poziom: ScenarioLevel, ziarno: number, wybory: Akcja[]): SesjaScenariusza => {
+    const k = getKontekstGeneratora(dbCn, szablon);
+    return { id: 's', szablon, poziom, wariant: generateVariant(naGenerator(szablon), poziom, ziarno, k), wybory, ...(k?.cbetSizes ? { rozmiaryCbet: k.cbetSizes } : {}) } as unknown as SesjaScenariusza;
+  };
+  const out: string[] = [];
+  for (const j of ['pl', 'en']) {
+    await i18n.changeLanguage(j);
+    const t = (k: string, o?: Record<string, unknown>) => i18n.t(k, o) as string;
+    out.push(`[${j}] cbet: ${zdaniaLiczb(sesja(CBET, 'latwy', 5, ['check']), 0, 'check', t).join(' / ')}`);
+    out.push(`[${j}] 3bet: ${zdaniaLiczb(sesja(TROJBET, 'latwy', 5, ['raise-big']), 0, 'raise-big', t).join(' / ')}`);
+    out.push(`[${j}] nolimp: ${zdaniaLiczb(sesja(BEZ_LIMPU, 'latwy', 5, ['limp']), 0, 'limp', t).join(' / ')}`);
+    out.push(`[${j}] icm: ${zdaniaLiczb(sesja(ICM, 'trudny', 3, ['call']), 0, 'call', t).join(' / ')}`);
+  }
+  await i18n.changeLanguage('pl');
+  console.log(out.join('\n'));
+});
+
+===== sonda-d890.test.ts =====
+// Sonda DO: niezależne sprawdzenie D-890 przez model ICM z wypłatą „zwycięzca bierze wszystko” (ICM = udział w żetonach),
+// więc próg ICM liczony tym samym kodem co generator (equityAfter) musi się równać progowi w żetonach (S − b) ÷ (2S).
+import { describe, expect, it } from 'vitest';
+import { equityAfter } from '../src/icm';
+describe('D-890: granica ICM przy wypłacie liniowej = (S − b) ÷ (2S)', () => {
+  for (const [stosy, gracz, rywal, S, b] of [
+    [[10, 10, 30], 0, 1, 10, 1], [[25, 10, 15], 0, 1, 10, 1], [[15, 15, 20], 1, 0, 15, 1], [[20, 40], 0, 1, 20, 1],
+  ] as const) {
+    it(`stosy ${stosy.join('/')}, S = ${S}, b = ${b}`, () => {
+      const po = (delta: number) => stosy.map((x, j) => (j === gracz ? x + delta : j === rywal ? x - delta : x));
+      const wyg = equityAfter(po(S), [1], gracz), prz = equityAfter(po(-S), [1], gracz), pas = equityAfter(po(-b), [1], gracz);
+      const prog = (pas - prz) / (wyg - prz); // ten sam wzór co scenario-gen.ts (required)
+      console.log(`stosy ${stosy.join('/')}: próg ICM(wypłata 1) = ${prog.toFixed(6)}, (S − b) ÷ (2S) = ${((S - b) / (2 * S)).toFixed(6)}`);
+      expect(prog).toBeCloseTo((S - b) / (2 * S), 9);
+    });
+  }
+});
+
+===== mutanty.mjs =====
+// Mutanty kodu DN w worktree (poza repo): podmiana jednego fragmentu, uruchomienie testów, przywrócenie pliku.
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const W = process.argv[2];
+const GEN = 'packages/poker-core/src/scenario-gen.ts', LIC = 'apps/mobile/src/features/scenariusz/liczby.ts';
+const T = {
+  core: 'pnpm --filter @szkola/poker-core exec vitest run test/nadkarty-dn.test.ts',
+  d890: 'pnpm --filter ./tools/content-build exec vitest run test/dn-prog-zetony-d890.test.ts',
+  ekran: 'pnpm --filter ./apps/mobile exec jest --ci src/features/scenariusz/__tests__/dn-liczby-d888.test.tsx',
+};
+const M = [
+  ['M1 requiredChips = stałe 0,5 (stan sprzed D-890)', GEN, 'requiredChips: (t.stackBb! - heroBlind) / (2 * t.stackBb!)', 'requiredChips: ICM_CHIPS_REQUIRED', ['d890', 'ekran']],
+  ['M2 próg z blindem rywala (SB 0,5) zamiast gracza', GEN, 'requiredChips: (t.stackBb! - heroBlind) / (2 * t.stackBb!)', 'requiredChips: (t.stackBb! - blindBb(pos.villain)) / (2 * t.stackBb!)', ['d890', 'ekran']],
+  ['M3 cena c-betu f ÷ (1 + f) zamiast f ÷ (1 + 2f)', LIC, 'f / (1 + 2 * f)', 'f / (1 + f)', ['ekran']],
+  ['M4 pula otwarcia z SB 2R + 0,5 (blind gracza liczony dwa razy)', LIC, "pozycje.hero === 'SB' ? 2 * r : 2 * r + 0.5", '2 * r + 0.5', ['ekran']],
+  ['M5 dopłata 3-betu R − 1 zamiast R − O', LIC, 'r - (otwarcie ?? 0)', 'r - 1', ['ekran']],
+  ['M6 nadkarty bez odejmowania outów drawa', GEN, '&& !drawOuts.includes(c)', '', ['core', 'ekran']],
+  ['M7 zawsze zdanie overcardsFold (także przy correct = call)', LIC, "if (d.correct === 'call') return [linia, t('scenario.numbers.overcardsCall', { nadkarty, nieznane })];", '', ['ekran']],
+  ['M8 trafiszRazem zawsze na jedną kartę (all-in na flopie też)', LIC, 'dwieKarty ? 2 : 1', '1', ['ekran']],
+  ['M9 na10 przez Math.floor zamiast Math.round', LIC, 'na10: Math.round(10 * d.handEquity)', 'na10: Math.floor(10 * d.handEquity)', ['ekran']],
+  ['M10 drugie zdanie size-spot także przy wyborze = standard', LIC, 'wybrany !== null && wybrany !== standard', 'wybrany !== null', ['ekran']],
+  ['M11 progZetony na ekranie = 0,5 (pole pominięte)', LIC, 'progZetony: formatujProcent(d.requiredChips, j)', 'progZetony: formatujProcent(0.5, j)', ['ekran']],
+  ['M12 zdanie nadkart także przy nadkarty = 0', LIC, 'if (nadkarty === 0) return [linia];', '', ['ekran']],
+];
+for (const [nazwa, plik, z, na, testy] of M) {
+  const p = `${W}/${plik}`, org = readFileSync(p, 'utf8');
+  if (org.split(z).length !== 2) { console.log(`${nazwa}: BŁĄD fragment nie występuje dokładnie raz`); continue; }
+  writeFileSync(p, org.replace(z, na));
+  const wyn = testy.map((k) => { try { execSync(T[k], { cwd: W, stdio: 'pipe', timeout: 600000 }); return `${k}=ZIELONY`; } catch (e) { return `${k}=CZERWONY(kod ${e.status})`; } });
+  writeFileSync(p, org);
+  const zabity = wyn.some((x) => x.includes('CZERWONY'));
+  console.log(`${nazwa} | ${plik}: „${z}” → „${na}” | ${wyn.join(' ')} | ${zabity ? 'ZABITY' : 'PRZEŻYŁ'}`);
+}

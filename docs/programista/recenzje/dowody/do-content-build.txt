@@ -1,0 +1,4 @@
+$ pnpm content:build && git status --porcelain  # @ 370a1548
+content:build kod: 0
+git status --porcelain (pliki śledzone):
+koniec

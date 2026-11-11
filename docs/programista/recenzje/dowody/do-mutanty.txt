@@ -1,0 +1,12 @@
+M1 requiredChips = stałe 0,5 (stan sprzed D-890) | packages/poker-core/src/scenario-gen.ts: „requiredChips: (t.stackBb! - heroBlind) / (2 * t.stackBb!)” → „requiredChips: ICM_CHIPS_REQUIRED” | d890=CZERWONY(kod 1) ekran=CZERWONY(kod 1) | ZABITY
+M2 próg z blindem rywala (SB 0,5) zamiast gracza | packages/poker-core/src/scenario-gen.ts: „requiredChips: (t.stackBb! - heroBlind) / (2 * t.stackBb!)” → „requiredChips: (t.stackBb! - blindBb(pos.villain)) / (2 * t.stackBb!)” | d890=CZERWONY(kod 1) ekran=CZERWONY(kod 1) | ZABITY
+M3 cena c-betu f ÷ (1 + f) zamiast f ÷ (1 + 2f) | apps/mobile/src/features/scenariusz/liczby.ts: „f / (1 + 2 * f)” → „f / (1 + f)” | ekran=CZERWONY(kod 1) | ZABITY
+M4 pula otwarcia z SB 2R + 0,5 (blind gracza liczony dwa razy) | apps/mobile/src/features/scenariusz/liczby.ts: „pozycje.hero === 'SB' ? 2 * r : 2 * r + 0.5” → „2 * r + 0.5” | ekran=CZERWONY(kod 1) | ZABITY
+M5 dopłata 3-betu R − 1 zamiast R − O | apps/mobile/src/features/scenariusz/liczby.ts: „r - (otwarcie ?? 0)” → „r - 1” | ekran=CZERWONY(kod 1) | ZABITY
+M6 nadkarty bez odejmowania outów drawa | packages/poker-core/src/scenario-gen.ts: „&& !drawOuts.includes(c)” → „” | core=CZERWONY(kod 1) ekran=ZIELONY | ZABITY
+M7 zawsze zdanie overcardsFold (także przy correct = call) | apps/mobile/src/features/scenariusz/liczby.ts: „if (d.correct === 'call') return [linia, t('scenario.numbers.overcardsCall', { nadkarty, nieznane })];” → „” | ekran=ZIELONY | PRZEŻYŁ
+M8 trafiszRazem zawsze na jedną kartę (all-in na flopie też) | apps/mobile/src/features/scenariusz/liczby.ts: „dwieKarty ? 2 : 1” → „1” | ekran=ZIELONY | PRZEŻYŁ
+M9 na10 przez Math.floor zamiast Math.round | apps/mobile/src/features/scenariusz/liczby.ts: „na10: Math.round(10 * d.handEquity)” → „na10: Math.floor(10 * d.handEquity)” | ekran=ZIELONY | PRZEŻYŁ
+M10 drugie zdanie size-spot także przy wyborze = standard | apps/mobile/src/features/scenariusz/liczby.ts: „wybrany !== null && wybrany !== standard” → „wybrany !== null” | ekran=CZERWONY(kod 1) | ZABITY
+M11 progZetony na ekranie = 0,5 (pole pominięte) | apps/mobile/src/features/scenariusz/liczby.ts: „progZetony: formatujProcent(d.requiredChips, j)” → „progZetony: formatujProcent(0.5, j)” | ekran=CZERWONY(kod 1) | ZABITY
+M12 zdanie nadkart także przy nadkarty = 0 | apps/mobile/src/features/scenariusz/liczby.ts: „if (nadkarty === 0) return [linia];” → „” | ekran=CZERWONY(kod 1) | ZABITY

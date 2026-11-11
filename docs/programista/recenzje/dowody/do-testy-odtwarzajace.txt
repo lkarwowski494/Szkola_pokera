@@ -1,0 +1,52 @@
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/do-odtworzenie.test.tsx  # worktree @ 370a1548; test poza repo, źródło niżej
+== kod DN bez zmian (370a1548)
+  ✓ 001: przy correct = call zdanie nadkart to overcardsCall („rachunek pomija”), przy fold overcardsFold (3544 ms)
+  ✓ 003: na10 = Math.round(10 × equity), także gdy część ułamkowa ≥ 0,5 (4987 ms)
+Tests:       2 passed, 2 total
+== mutant M7 (zawsze overcardsFold)
+  ✕ 001: przy correct = call zdanie nadkart to overcardsCall („rachunek pomija”), przy fold overcardsFold (60 ms)
+  ✓ 003: na10 = Math.round(10 × equity), także gdy część ułamkowa ≥ 0,5 (4903 ms)
+Tests:       1 failed, 1 passed, 2 total
+== mutant M9 (na10 Math.floor)
+  ✓ 001: przy correct = call zdanie nadkart to overcardsCall („rachunek pomija”), przy fold overcardsFold (3968 ms)
+  ✕ 003: na10 = Math.round(10 × equity), także gdy część ułamkowa ≥ 0,5 (204 ms)
+Tests:       1 failed, 1 passed, 2 total
+kody: oryginał 0, M7 1, M9 1
+
+===== do-odtworzenie.test.tsx =====
+/// <reference types="jest" />
+// Testy odtwarzające DO (recenzja DN): 08-programista-001 (wybór zdania nadkart) i 003 (na10 = Math.round). Poza repo.
+import '@/i18n';
+import i18n from '@/i18n';
+import { generateVariant, type ScenarioLevel } from '@szkola/poker-core';
+import { getKontekstGeneratora, getScenarioTemplates } from '@/data/content/repo';
+import { dbCn, ICM } from '@/test-utils/kontekstCn';
+import { zdaniaLiczb } from '../liczby';
+import { naGenerator } from '../wariant';
+import type { SesjaScenariusza } from '../aktywnoscScenariusza';
+const t = (k: string, o?: Record<string, unknown>) => i18n.t(k, o) as string;
+const sesja = (szablon: typeof ICM, poziom: ScenarioLevel, ziarno: number) =>
+  ({ id: 's', szablon, poziom, wybory: [], wariant: generateVariant(naGenerator(szablon), poziom, ziarno, getKontekstGeneratora(dbCn, szablon)) }) as unknown as SesjaScenariusza;
+
+it('001: przy correct = call zdanie nadkart to overcardsCall („rachunek pomija”), przy fold overcardsFold', () => {
+  let call = 0, fold = 0;
+  for (const sz of getScenarioTemplates(dbCn).filter((x) => x.decisions.some((d) => d.kind === 'draw-call' || d.kind === undefined)))
+    for (const poziom of sz.levels as ScenarioLevel[]) for (let z = 1; z <= 60; z++) {
+      let s: SesjaScenariusza; try { s = sesja(sz, poziom, z); } catch { continue; }
+      const d = s.wariant.points[0]!; if (d.point !== 'draw-call') continue;
+      const zd = zdaniaLiczb(s, 0, 'fold', t); if (zd.length < 2) continue;
+      if (d.correct === 'call') { call++; expect(zd[1]).toContain('rachunek pomija'); } else { fold++; expect(zd[1]).toContain('Jeśli doliczysz'); }
+    }
+  expect(call).toBeGreaterThan(0); expect(fold).toBeGreaterThan(0);
+});
+
+it('003: na10 = Math.round(10 × equity), także gdy część ułamkowa ≥ 0,5', () => {
+  let zGora = 0;
+  for (const poziom of ['latwy', 'sredni', 'trudny'] as ScenarioLevel[]) for (let z = 1; z <= 40; z++) {
+    let s: SesjaScenariusza; try { s = sesja(ICM, poziom, z); } catch { continue; }
+    const p = s.wariant.points[0]!; if (p.point !== 'icm-call') continue;
+    if ((10 * p.handEquity) % 1 >= 0.5) zGora++;
+    expect(zdaniaLiczb(s, 0, 'call', t)[0]).toContain(`w ${Math.round(10 * p.handEquity)} rozdaniach na 10`);
+  }
+  expect(zGora).toBeGreaterThan(0);
+});
