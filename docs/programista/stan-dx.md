@@ -1,6 +1,16 @@
 # Stan sesji DX/ED (08-programista, build): silnik scenariuszy (kontynuuje sesja ED; stan ED na górze)
 Gałąź `sesja-dx-silnik` od b3963e9a. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/DX.md` @ 100319bb. Stan na 2026-11-11. Pula decyzji D-1065…D-1079 (`docs/decyzje/DX.md`).
 
+## Stan sesji EF (2026-11-11; polecenie `origin/koordynacja:docs/koordynacja/polecenia/EF.md`, pula D-1140…D-1159 w `docs/decyzje/EF.md`)
+Start: 539919af. Baza: poker-core 207 testów zielonych (181 s), typecheck kod 0.
+| Zadanie | Stan | Dowód |
+|---|---|---|
+| 1. N3 (iso-size) warstwa schemat+generator+bramka | **zrobione** (eb269882) | `tools/content-build/test/ef-iso-size.test.ts` (8 testów; blokada ekranu czerwona przed kodem, reszta czerwona z powodu schematu: „Unrecognized key limpers”); D-1140; odciski starych szablonów bez różnic (`generator-odciski.test.ts` 14/14 z szablony-f3-ca) |
+| 1. N3 widok (limperzy na ekranie) | **niezrobione**; iso-size zablokowane w `checkScenarioNaEkran` do czasu widoku → zadanie dla 04 | |
+| 1. N1, N2, N4, N5, N6, N7 (schemat, generator, bramka, wariant, widok) | **niezaczęte** (są tylko czyste funkcje N2/N3/N4/N7a w `scenario-gen.ts`) | wzór: commit eb269882 (schemat `ScenarioDecision` + `SizeSpotSpec`, `tryVariant`, `checkScenarioTemplate`, blokada w `checkScenarioNaEkran`) |
+| 2. KO-072, 3. nocny.yml, 4. KO-076, 5. GENERATOR_WERSJA, 6. `pnpm run ci` | niezaczęte | |
+Wnioski do planu: jeden rodzaj przez cały stos dotyka ~25 plików (schemat, poker-core, content-build, domena `wariant.ts`, mobile `wariant.ts`/`liczby.ts`/`EkranScenariusza.tsx`/`repo.ts`, `pl.kontekst.json`, testy); proponuję cięcie warstwami: A = silnik (schemat, generator, bramka, ekran zablokowany) dla N1/N2/N4/N5/N6/N7, potem B = widok (wymaga 04 przy nowym wyglądzie). KO-076 jest mały i niezależny (jedna zmiana w generatorze zakresowym + test 10 000 losowań), dobry do wykonania przed N-warstwą A.
+
 ## Stan sesji ED (2026-11-11 ~20:55 UTC; polecenie `origin/koordynacja:docs/koordynacja/polecenia/ED.md`, pula D-1115…D-1134 w `docs/decyzje/ED.md`)
 | Zadanie | Stan | Dowód |
 |---|---|---|
