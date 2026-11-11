@@ -296,7 +296,7 @@ const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'chec
 
 /** Filtr klasy ręki (F2): air = klasa `air` (bez pary i drawa); pair = jedna para z kartą gracza (także kieszonkowa); draw = klasa `draw` (od HOLDING_LIMITS.drawOutsMin outów, bez pary). */
 function holdingMatches(f: HoldingFilter, h: ReturnType<typeof classifyHolding>): boolean {
-  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
+  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw' && h.pairKind === null; // CW-2: klasa draw obejmuje też niską parę z drawem (holding.ts), filtr „bez pary” jak w opisie (D-859)
 }
 const RANK_CHARS = '23456789TJQKA';
 

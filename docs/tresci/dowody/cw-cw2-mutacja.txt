@@ -1,0 +1,10 @@
+# Mutacja filtra draw (scenario-gen.ts:299 → true) przy fixture sc-fx-cbet-low trudny holding [draw]; plik przywrócony po teście (diff --stat poniżej sprzed przywrócenia)
+  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : true; // CW-2: klasa draw obejmuje też ni
+     × sc-fx-cbet-low trudny: 10000 wariantów, ocena silnika gry zgodna z oczekiwaną akcją 8ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
++   "1: ręka strong, pare=true poza filtrem draw",
++   "1: ręka strong poza filtrem draw",
++   "2: ręka strong, pare=true poza filtrem draw",
++   "2: ręka strong poza filtrem draw",
+ packages/poker-core/src/scenario-gen.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)

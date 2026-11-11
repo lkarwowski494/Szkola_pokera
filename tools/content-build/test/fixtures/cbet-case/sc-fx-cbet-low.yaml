@@ -17,6 +17,7 @@ bounds:
     expected: [check]
   trudny:
     flop: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+    holding: [draw]
     expected: [check]
 decisions:
   - street: flop
