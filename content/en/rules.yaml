@@ -518,15 +518,15 @@
   then: "you continue with almost every {{t:pair}}, {{t:draw|draws}}, high cards with an additional {{t:draw}} (backdoor) and usually also ace-high; you {{t:fold}} the weakest hands without a {{t:pair}} and without a {{t:draw}}"
   because: "you need only about {{n:eq.bet-third}} equity, and these hands either already beat {{t:bluff|bluffs}} or can improve"
   level: heuristic
-  source: "training site, Defending the BB on High Card Boards (solver: “we will continue with pretty much all pairs including the underpairs and even A-high hands”)"
-  sources: [{ kind: training }]
+  source: "training site, Defending the BB on High Card Boards (https://pokercoaching.com/blog/defending-bb-on-high-card-boards/; solver: “we will continue with pretty much all pairs including he underpairs and even A-high hands”); backdoor with a high card: training site, 6 Tips for Playing Backdoor Flush & Straight Draws (https://upswingpoker.com/backdoor-flush-straight-draw-tips/, BB vs an SB c-bet: “Unless you start calling with these non-made, backdoor plus overcard of hands, you will not reach the desired defense frequency”)"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/defending-bb-on-high-card-boards/" }, { kind: training, url: "https://upswingpoker.com/backdoor-flush-straight-draw-tips/" }]
 - id: R-M6-007
   module: m6
   if: "you have two high cards without a {{t:pair}} and without a {{t:draw}}, and the c-bet is big (3/4 of the {{t:pot}} or more)"
   then: "you usually {{t:fold}} (on {{t:dry}} king-high flops, however, the solver {{t:call|calls}} many hands with an ace)"
   because: "{{t:out-of-position|out of position}} such a hand rarely gets to showdown, and a {{t:pair}} made with a high card often loses anyway; you {{t:call}} rather when you have an additional {{t:draw}}, ideally to the nut {{t:flush}}"
   level: heuristic
-  source: "training site, When to Call With Ace-High (J42, 66%: “the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); training site, Defending the BB on High Card Boards (K84: the solver calls some aces even against 2/3 pot)"
+  source: "training site, When to Call With Ace-High (J42, 66%: “the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); training site, Defending the BB on High Card Boards (K84 against a bigger c-bet, size not given in the text: the solver calls “any pair and most of our Ax holdings”)"
   sources: [{ kind: training }, { kind: training }]
 - id: R-M6-008
   module: m6
@@ -605,11 +605,11 @@
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M7-006
   module: m7
-  if: "you have a strong hand on the turn, and your opponent may have a {{t:flush-draw}}"
+  if: "you have a strong hand on the turn ({{t:top-pair}} or better), and your opponent may have a {{t:flush-draw}} that beats you when it hits"
   then: "you bet big: against a 3/4-{{t:pot}} bet the {{t:draw}} needs {{n:eq.bet-three-quarters}} equity, and it has about {{n:odds.flush.turn-river}}"
   because: "against a 1/4-{{t:pot}} bet {{n:eq.bet-quarter}} would be enough, so a small bet gives the {{t:draw}} a good price"
   level: math
-  source: "calculation: required equity = bet/(pot+2·bet), chance = outs ÷ unknown cards; direction (a strong, vulnerable hand bets big): training site, How Much Should You Bet on Connected Boards?"
+  source: "calculation: required equity = bet/(pot+2·bet), chance = outs ÷ unknown cards; direction (a strong, vulnerable hand bets big; strong = top pair and better): training site, How Much Should You Bet on Connected Boards? (https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/: “Strong and vulnerable bets big”; “Pot-size bets with your strong top pairs and better are standard”)"
   sources: [{ kind: training }, { kind: math }]
 - id: R-M7-007
   module: m7

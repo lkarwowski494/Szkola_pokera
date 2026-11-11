@@ -8,7 +8,7 @@ positions: { hero: SB, villain: BB }
 stackBb: 10
 levels: [latwy]
 bounds:
-  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in] }
+  latwy: { freqs: [{ min: 0.97, max: 1 }], expected: [all-in], equityMarginMin: 0.02 }
 decisions:
   - street: preflop
     kind: range-spot
