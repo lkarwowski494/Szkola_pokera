@@ -25,7 +25,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- **15:58 przejęcie przez session_01T66VBwchgoN1YcMZZCKBS6 (nowy łańcuch, lineage 0/8; stan @ 61c97e2).** Prompts @ 9553f6b. DN bezczynna (28,8%, 3,87 USD), `sesja-dn-liczby` @ 370a1548 (autor zgodny, CI 43050740393 success). Przypomnienia moje: linia 05:00 12.11 (04:51) trig_01PPRnj16mFcp5oRadwxvhBz, linia 14:00 12.11 (13:51) trig_01XUWHeCjJ5yxwXou6WcW6V7; kontrola po starcie DO/DP. Poprzednika (sprząta on): trig_01FuLzHxcLEr4caLyd9UPGh5, trig_017agQSCSiHt86o2D1GbV7em, trig_01GL8cTVVncNpAncyLFSeWJR. Następne: DO (recenzja DN) i DP (D-889 widok ICM, osobna gałąź od 370a1548) równolegle.
+- **15:58 przejęcie przez session_01T66VBwchgoN1YcMZZCKBS6 (nowy łańcuch, lineage 0/8; stan @ 61c97e2).** Prompts @ 9553f6b. DN bezczynna (28,8%, 3,87 USD), `sesja-dn-liczby` @ 370a1548 (autor zgodny, CI 43050740393 success). Przypomnienia moje: linia 05:00 12.11 (04:51) trig_01PPRnj16mFcp5oRadwxvhBz, linia 14:00 12.11 (13:51) trig_01XUWHeCjJ5yxwXou6WcW6V7; kontrola po starcie DO/DP. Poprzednika (sprząta on): trig_01FuLzHxcLEr4caLyd9UPGh5, trig_017agQSCSiHt86o2D1GbV7em, trig_01GL8cTVVncNpAncyLFSeWJR. 16:03 start DO session_01T66VBwYbNrXHj3rRH7bWR3 (recenzja DN) i DP session_01T66VBvWMfShSyKQ1PVQgeE (D-889, sesja-dp-icm od 370a1548); prompty ról przez subagenta (WG-13). DN potwierdziła zmianę koordynatora, czeka. Poprzednik zarchiwizował się sam (13,53 USD, max 39,0%). Następna litera **DQ**, D-995, KO-068.
 - **15:45 PRZEKAZANIE koordynatora session_01T66VBvPqFB6GZD3a2Yg9AF (kontekst 30,5%, 7,26 USD; lineage 7/8 → nowy łańcuch: prośba do właściciela, prompt w `docs/koordynacja/przekazanie-M9.md`).** Mandat bez zmian; tryb dzienny.
   - **DN session_01T66VBzXVjJK9cDjoCtKbMC: PRZEKAZANIE częściowe** (kontekst 28,8%, 3,87 USD, bezczynna, NIE zarchiwizowana — praca do odbioru): `sesja-dn-liczby` @ 370a1548 (autor 6/6 zgodny z CLAUDE.md; 26 plików, +5568/−36). D-890 (requiredChips=(S−b)/(2S)) i D-888 („Liczby” cbet/sizeOpen/size3bet/limp/icm/nadkarty) gotowe; `pnpm run ci` kod 0 wg DN na b4297223 (`docs/programista/dowody/dn-ci-b4297223.txt`). CI 43050740393 **success** na 370a1548 (15:55). **Niesprawdzone:** recenzja niezależna — brak.
   - Decyzje DN do weta: D-965…D-969 (`docs/decyzje/DN.md`); D-966 odstępstwo od tekstu 04 (znaczniki {{t:…}}, na ekranie „przebiciu (raise)”, „puli (pot)”) → akceptacja roli 04; D-967 dług: 7 kluczy scenario.numbers.* z kopią en w 10 słownikach → rola 09; D-968 zmieniony ekran-cn.test.
@@ -138,6 +138,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| DO | session_01T66VBwYbNrXHj3rRH7bWR3 | 08 audit (opus/high) | sesja-do-recenzja @ 370a1548 | 0 | 0 | w toku od 16:03: recenzja niezależna DN (polecenie DO.md @ b1f0f56, D-980…D-984) |
+| DP | session_01T66VBvWMfShSyKQ1PVQgeE | 08 build (sonnet/medium) | sesja-dp-icm @ 370a1548 | 0 | 0 | w toku od 16:03: D-889 widok ICM (polecenie DP.md @ b1f0f56, D-985…D-994) |
 | DN | session_01T66VBzXVjJK9cDjoCtKbMC | 08 build (sonnet/medium) | sesja-dn-liczby @ 370a1548 | 28,8 | 3,87 | PRZEKAZANIE częściowe 15:40; do odbioru (CI dispatch 15:45, recenzja) |
 | CW | session_01T66VBwYnHtTiKoR8cjnqsi | 06 fix, treść (opus/high) | sesja-cw-tresci @ 4619781 (start) | — | — | w toku od 07:05 |
 | CX | session_01T66VBybgy9yDNgu92usB38 | 08 build, kod (sonnet) | sesja-cx-range-spot @ 4619781 (start) | — | — | E0 07:25 |
@@ -550,3 +552,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 15:45 | koordynator | CI dispatch ci.yml na sesja-dn-liczby; kontekst 30,5% → przekazanie E6; lineage 7/8 → prośba do właściciela o nowy łańcuch (`przekazanie-M9.md`) | właściciel |
 | 15:55 | kontrola | CI 43050740393 **success** na sesja-dn-liczby @ 370a1548; DN czeka na recenzję niezależną (następca) | czekam na nowy łańcuch |
 | 15:58 | koordynator | przejęcie przez session_01T66VBwchgoN1YcMZZCKBS6 (nowy łańcuch 0/8); prompts @ 9553f6b; 2 linie utworzone | start DO, DP |
+| 16:03 | DO, DP | start DO session_01T66VBwYbNrXHj3rRH7bWR3 (opus/high) i DP session_01T66VBvWMfShSyKQ1PVQgeE (sonnet/medium), polecenia @ b1f0f56; poprzednik: koszt 13,53 USD, max 39,0%, zarchiwizowany przez siebie | kontrola 17:05 |
