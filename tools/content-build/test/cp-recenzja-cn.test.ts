@@ -1,6 +1,6 @@
-// Recenzja CP (D-043) zmian CN 9143dec..3ab616b, test odtwarzający WYS-001 (raport docs/programista/recenzje/recenzja-cn-3ab616b.md).
-// Warunek wstępny jako zwykły `it` (zielony, pokazuje mechanizm), oczekiwane zachowanie jako `it.fails` (dziś pada, więc `pnpm run ci`
-// zostaje zielone). Po naprawie: zamienić `it.fails` na `it`.
+// Recenzja CP (D-043) zmian CN 9143dec..3ab616b, testy odtwarzające WYS-001 i WYS-003 (raport docs/programista/recenzje/recenzja-cn-3ab616b.md).
+// Naprawione w CR (docs/decyzje/CR.md): `it.fails` zamienione na `it`; warunek wstępny WYS-001 sprawdza teraz, że szablon z dwiema akcjami jest
+// poprawny wg schematu i generatora (D-815: bramka ekranu wymaga pełnego zestawu akcji, więc to ona go odrzuca).
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { buildGeneratorContext } from '@szkola/poker-core';
@@ -37,16 +37,32 @@ describe('CP WYS-001: bramka przepuszcza punkt c-betu albo rozmiaru z niepełną
   // dla size-spot (bez no-limp) opcje generatora raise, raise-small, raise-big; wyjaśnienie spoza szablonu → bloki() rzuca wyjątek
   const cbet = bez('cbet-case', 'sc-fx-cbet-dry', 'bet-big');
   const trojbet = bez('size-spot', 'sc-fx-3bet-ip', 'raise-big');
-  it('warunek wstępny: szablony z dwiema akcjami są zgodne ze schematem i przechodzą całą bramkę budowania', () => {
+  it('warunek wstępny: szablony z dwiema akcjami są zgodne ze schematem, walidacją treści i generatorem (odrzuca je dopiero bramka ekranu)', () => {
     expect(cbet.decisions[0]!.actions.map((a) => a.action)).toEqual(['bet-small', 'check']);
     expect(trojbet.decisions[0]!.actions.map((a) => a.action)).toEqual(['raise', 'raise-small']);
-    expect(bramka(cbet)).toEqual([]);
-    expect(bramka(trojbet)).toEqual([]);
+    for (const t of [cbet, trojbet]) {
+      expect(checkScenarioTemplate(t, `${t.id}.yaml`, sctx)).toEqual([]);
+      expect(checkScenarioGenerator(t, 1, 200, ctx)).toEqual([]);
+    }
   }, 300_000);
-  it.fails('c-bet bez akcji bet-big jest odrzucony w budowaniu (ekran pokaże „Duży c-bet” bez wyjaśnienia)', () => {
-    expect(bramka(cbet)).not.toEqual([]);
+  it('c-bet bez akcji bet-big jest odrzucony w budowaniu (ekran pokaże „Duży c-bet” bez wyjaśnienia)', () => {
+    expect(bramka(cbet)).toEqual([expect.stringContaining('brak: bet-big')]);
   }, 300_000);
-  it.fails('3-bet bez akcji raise-big jest odrzucony w budowaniu (ekran pokaże trzeci rozmiar bez wyjaśnienia)', () => {
-    expect(bramka(trojbet)).not.toEqual([]);
+  it('3-bet bez akcji raise-big jest odrzucony w budowaniu (ekran pokaże trzeci rozmiar bez wyjaśnienia)', () => {
+    expect(bramka(trojbet)).toEqual([expect.stringContaining('brak: raise-big')]);
   }, 300_000);
+  it('pełne zestawy akcji (c-bet: 3, rozmiar: 3, no-limp: raise i limp) przechodzą bramkę ekranu', () => {
+    for (const [f, id] of [['cbet-case', 'sc-fx-cbet-dry'], ['size-spot', 'sc-fx-3bet-ip'], ['size-spot', 'sc-fx-no-limp']] as const) {
+      const t = loadScenarioTemplates(join(fixtures, f)).find((x) => x.template.id === id)!.template;
+      expect(checkScenarioNaEkran(t)).toEqual([]);
+    }
+  });
+});
+
+describe('CP WYS-003 (CR, D-807): icm-call poza ekranem do czasu projektu roli 04 (ekran nie pokazuje stosów i wypłat)', () => {
+  const icm = loadScenarioTemplates(join(fixtures, 'icm-call'))[0]!.template;
+  it('bramka ekranu odrzuca szablon icm-call z powodem', () => {
+    expect(checkScenarioNaEkran(icm)).toEqual([expect.stringContaining('icm-call nie jest jeszcze obsługiwany na ekranie scenariusza')]);
+    expect(checkScenarioNaEkran(icm)[0]).toContain('stosów i wypłat');
+  });
 });

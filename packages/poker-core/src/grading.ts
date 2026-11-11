@@ -265,6 +265,20 @@ function postflopOrder(st: HandState, seat: number): number {
 
 const near = (a: number, b: number) => Math.abs(a - b) < 0.05;
 
+/**
+ * Werdykt c-betu (R-M5-007, ADR-04; CR WYS-002): jedna definicja dla oceny w grze (`cbet-case` niżej) i dla wariantu scenariusza.
+ * Reguły c-betu są częstotliwościowe („często”, „rzadziej”): rzadsza akcja jest dopuszczalna, zły rozmiar to niedokładność.
+ */
+export type CbetBest = 'check' | 'small' | 'big';
+export function cbetVerdict(best: CbetBest, chosen: CbetBest): 'compliant' | 'acceptable' | 'inaccuracy' {
+  if (best === 'check') return chosen === 'check' ? 'compliant' : 'acceptable';
+  return chosen === 'check' ? 'acceptable' : chosen === best ? 'compliant' : 'inaccuracy';
+}
+/** Werdykt rozmiaru podbicia (open-size, three-bet-size, iso-size): zgodny z regułą w granicach 0,05 bb, inny rozmiar to niedokładność. */
+export function sizeVerdict(expectedBb: number, actualBb: number): 'compliant' | 'inaccuracy' {
+  return near(expectedBb, actualBb) ? 'compliant' : 'inaccuracy';
+}
+
 const CHECKS: Record<string, Check> = {
   'free-check-fold': (ctx, rule) => (ctx.canCheck && ctx.action.type === 'fold' ? { rule, verdict: 'mistake', detail: { kind: 'free-check' } } : null),
 
@@ -381,9 +395,7 @@ const CHECKS: Record<string, Check> = {
       chosen = frac <= (ctx.kit.cbet.small + ctx.kit.cbet.big) / 2 ? 'small' : 'big';
     } else return null;
     // reguły c-betu są częstotliwościowe („często”, „rzadziej”): rzadsza akcja jest dopuszczalna, nie błędem (5.2)
-    let verdict: Verdict;
-    if (c.best === 'check') verdict = chosen === 'check' ? 'compliant' : 'acceptable';
-    else verdict = chosen === 'check' ? 'acceptable' : chosen === c.best ? 'compliant' : 'inaccuracy';
+    const verdict: Verdict = cbetVerdict(c.best, chosen);
     return { rule, verdict, detail: { kind: 'cbet', best: c.best, chosen, betFraction: frac } };
   },
 
@@ -418,7 +430,7 @@ const CHECKS: Record<string, Check> = {
 };
 
 function sizeCandidate(rule: EvalRule, expectedBb: number, actualBb: number): Candidate {
-  return { rule, verdict: near(expectedBb, actualBb) ? 'compliant' : 'inaccuracy', detail: { kind: 'size', expectedBb, actualBb }, sizeOnly: true };
+  return { rule, verdict: sizeVerdict(expectedBb, actualBb), detail: { kind: 'size', expectedBb, actualBb }, sizeOnly: true };
 }
 
 /** Fakty o drawie wobec zakładu (dokument 14, 5.4): outy z samych drawów, dokładna szansa z kart nieznanych. */

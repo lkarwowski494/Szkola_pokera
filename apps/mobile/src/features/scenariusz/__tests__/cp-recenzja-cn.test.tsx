@@ -1,23 +1,24 @@
 /// <reference types="jest" />
 // Recenzja CP (D-043) zmian CN 9143dec..3ab616b (raport docs/programista/recenzje/recenzja-cn-3ab616b.md): testy odtwarzające WYS-001…003
-// i wyrocznie niezależne od generatora. Warunek wstępny i wyrocznie jako zwykły `it` (zielone), oczekiwane zachowanie jako `it.failing`
-// (dziś pada, więc `pnpm run ci` zostaje zielone). Po naprawie: zamienić `it.failing` na `it`.
+// i wyrocznie niezależne od generatora. Naprawione w CR (docs/decyzje/CR.md): WYS-002 `it.failing` → `it`; WYS-001: bramka budowania wymaga pełnego
+// zestawu akcji (D-815, test w tools/content-build/test/cp-recenzja-cn.test.ts), więc ekran nie dostaje szablonu z niepełnymi akcjami, a tu zostaje
+// kontrakt ekranu dla pełnych szablonów (ŚR-004); WYS-003: icm-call poza ekranem do czasu projektu roli 04 (D-807, D-817), test bramki w content-build.
 import '@/i18n';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { render, screen } from '@testing-library/react-native';
 import {
-  applyAction, generateVariant, gradeDecision, gradingKitFrom, HAND_CLASSES, startHand,
+  akcjeSzablonu, applyAction, generateVariant, gradeDecision, gradingKitFrom, HAND_CLASSES, startHand,
   type Card, type EvalRule, type HandState, type PlayerAction, type ScenarioLevel, type TableConfig, type Verdict,
 } from '@szkola/poker-core';
 import type { OcenaOdpowiedzi } from '@szkola/domena';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { getKontekstGeneratora } from '@/data/content/repo';
-import { CBET, dbCn, ICM, TROJBET } from '@/test-utils/kontekstCn';
+import { BEZ_LIMPU, CBET, dbCn, ICM, TROJBET } from '@/test-utils/kontekstCn';
 import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
 import { PrzebiegScenariusza } from '../EkranScenariusza';
 import type { SesjaScenariusza } from '../aktywnoscScenariusza';
-import { kwotaAkcji, naGenerator, ocenyAkcji, type Akcja } from '../wariant';
+import { akcjePunktu, kwotaAkcji, naGenerator, ocenyAkcji, przebiegWariantu, type Akcja } from '../wariant';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
@@ -37,26 +38,26 @@ const bezAkcji = (t: ScenarioTemplate, akcja: string): ScenarioTemplate => {
   return b;
 };
 
-// ---------- WYS-001: akcje ekranu spoza szablonu ----------
-describe('CP WYS-001: punkt z dwiema akcjami szablonu (przechodzi bramkę, test tools/content-build/test/cp-recenzja-cn.test.ts)', () => {
-  const cbet2 = bezAkcji(CBET, 'bet-big');
-  const trojbet2 = bezAkcji(TROJBET, 'raise-big');
-  it('warunek wstępny: szablony mają po dwie akcje z wyjaśnieniem', () => {
-    expect(cbet2.decisions[0]!.actions.map((a) => a.action)).toEqual(['bet-small', 'check']);
-    expect(trojbet2.decisions[0]!.actions.map((a) => a.action)).toEqual(['raise', 'raise-small']);
+// ---------- WYS-001 / ŚR-004: kontrakt ekranu dla szablonów, które przechodzą bramkę (pełny zestaw akcji, D-815) ----------
+describe.each([['c-bet', CBET], ['3-bet', TROJBET], ['bez limpu', BEZ_LIMPU]] as const)('CR ŚR-004: kontrakt bramka ⇔ ekran, %s', (_nazwa, szablon) => {
+  const akcje = akcjeSzablonu(szablon.decisions[0]!.kind, szablon.decisions[0]!.kind === 'size-spot' ? szablon.decisions[0]!.check : undefined) ?? [];
+  it('akcje ekranu = akcje wymagane przez bramkę = akcje szablonu (jedna definicja, poker-core `akcjeSzablonu`)', () => {
+    for (let z = 1; z <= 5; z++) {
+      const v = wariant(szablon, 'latwy', z);
+      expect([...akcjePunktu(v.points[0]!)].sort()).toEqual([...akcje].sort());
+    }
+    expect(szablon.decisions[0]!.actions.map((a) => a.action).sort()).toEqual([...akcje].sort());
   });
-  it.failing('c-bet: ekran decyzji pokazuje tylko akcje szablonu (bez „Duży c-bet”)', async () => {
-    await ekran(sesja(cbet2, []), 'decyzja');
-    expect(screen.queryByRole('button', { name: /^Duży/ })).toBeNull();
+  it('ekran decyzji pokazuje przycisk każdej akcji', async () => {
+    await ekran(sesja(szablon, []), 'decyzja');
+    expect(screen.getAllByRole('button').length).toBeGreaterThanOrEqual(akcje.length);
   });
-  it.failing('c-bet: ocena zgodnej akcji renderuje się (dziś bloki() rzuca „brak wyjaśnienia akcji bet-big”)', async () => {
-    await ekran(sesja(cbet2, ['bet-small']), 'ocena');
-    expect(tekstEkranu()).toMatch(/Zgodna/);
-  });
-  it.failing('3-bet: ocena zgodnej akcji renderuje się (dziś bloki() rzuca „brak wyjaśnienia akcji raise-big”)', async () => {
-    await ekran(sesja(trojbet2, ['raise']), 'ocena');
-    expect(tekstEkranu()).toMatch(/Zgodna/);
-  });
+  for (const a of akcje) {
+    it(`ocena akcji ${a} renderuje się i niesie ocenę silnika gry (bloki z wyjaśnieniem własnej akcji)`, async () => {
+      await ekran(sesja(szablon, [a as Akcja]), 'ocena');
+      expect(tekstEkranu()).toMatch(new RegExp(`Wyjaśnienie akcji ${a}\\.`));
+    });
+  }
 });
 
 // ---------- WYS-002: ocena ekranu vs ocena reguły w silniku gry ----------
@@ -105,6 +106,14 @@ function ocenaSilnika(t: ScenarioTemplate, poziom: ScenarioLevel, ziarno: number
       regula = f.ruleId ?? '';
       oceny[o.action] = naOcene(f.verdict);
     }
+  } else if (p.point === 'size-spot' && p.check === 'no-limp') {
+    // UTG, HJ, CO, BTN pas; decyzja SB (4): limp (sprawdzenie dużego blinda) albo podbicie
+    const st = rozdanie(Array(6).fill(null), [], [{ type: 'fold' }, { type: 'fold' }, { type: 'fold' }, { type: 'fold' }]);
+    for (const o of p.options) {
+      const f = gradeDecision(st, o.action === 'limp' ? { type: 'call' } : { type: 'raise', to: Math.round((o.bb ?? 0) * BB) }, kit);
+      regula = f.ruleId ?? '';
+      oceny[o.action] = naOcene(f.verdict);
+    }
   }
   return { regula, oceny };
 }
@@ -118,11 +127,26 @@ describe('CP WYS-002: ocena akcji ekranu F2/F3 zgodna z oceną reguły w silniku
     expect(r.regula).toBe('R-M4-001');
     expect(r.oceny).toEqual({ raise: 'zgodne', 'raise-small': 'niedokladnosc', 'raise-big': 'niedokladnosc' });
   });
-  it('mechanizm: ekran ocenia każdą akcję poza najlepszą jako błąd (częstość 0 w trescZWariantu)', () => {
-    expect(ocenyAkcji(wariant(CBET, 'latwy', 5), 0)).toEqual({ 'bet-small': 'zgodne', check: 'blad', 'bet-big': 'blad' });
+  it('ekran niesie werdykty reguły: c-bet rzadsza akcja dopuszczalna, zły rozmiar niedokładność (D-793, ADR-04)', () => {
+    expect(ocenyAkcji(wariant(CBET, 'latwy', 5), 0)).toEqual({ 'bet-small': 'zgodne', check: 'dopuszczalne', 'bet-big': 'niedokladnosc' });
   });
-  for (const [nazwa, t] of [['c-bet', CBET], ['3-bet', TROJBET]] as const) {
-    it.failing(`${nazwa}: oceny ekranu = oceny silnika gry (5 ziaren)`, () => {
+  it('ocena kroku (przebiegWariantu, RD-11) = pasek ocen akcji, także dla dopuszczalnej i niedokładności', () => {
+    for (const [t, wybory] of [[CBET, ['bet-small', 'check', 'bet-big']], [TROJBET, ['raise', 'raise-small', 'raise-big']]] as const) {
+      const v = wariant(t, 'latwy', 5);
+      const pasek = ocenyAkcji(v, 0);
+      for (const a of wybory) {
+        const p = przebiegWariantu(v, [a]);
+        expect(p.ok && p.wartosc.kroki[0]!.ocena).toBe(pasek[a]);
+      }
+    }
+  });
+  it('ekran oceny: wybór dopuszczalnej akcji pokazuje „Dopuszczalna” i pasek ocen z całą listą akcji (dopuszczalna, zgodna, niedokładność)', async () => {
+    await ekran(sesja(CBET, ['check']), 'ocena');
+    expect(tekstEkranu()).toMatch(/Ocena: Dopuszczalna/);
+    expect(tekstEkranu()).toMatch(/Czekam \(check\) dopuszczalna, twój wybór, Mały c-bet zgodna, Duży c-bet niedokładność/);
+  });
+  for (const [nazwa, t] of [['c-bet', CBET], ['3-bet', TROJBET], ['bez limpu', BEZ_LIMPU]] as const) {
+    it(`${nazwa}: oceny ekranu = oceny silnika gry (5 ziaren)`, () => {
       for (let z = 1; z <= 5; z++) expect(ocenyAkcji(wariant(t, 'latwy', z), 0)).toEqual(ocenaSilnika(t, 'latwy', z).oceny);
     });
   }
@@ -188,14 +212,5 @@ describe('CP ICM: ocena icm-call zgodna z niezależnym rachunkiem, kwoty ekranu 
     expect(p.handEquity).toBeGreaterThanOrEqual(0.5);
     expect(new Set(p.stacks).size).toBeGreaterThan(1);
   });
-  it.failing('ekran decyzji icm-call pokazuje wypłaty i stosy graczy, od których zależy ocena (dziś tylko all-in rywala, pula i ręka)', async () => {
-    const s = sesja(ICM, [], 'trudny', 5);
-    const p = s.wariant.points[0]!;
-    if (p.point !== 'icm-call') throw new Error('nie icm-call');
-    await ekran(s, 'decyzja');
-    const tekst = tekstEkranu();
-    for (const w of p.payouts) expect(tekst).toMatch(new RegExp(`${Math.round(w * 100)}\\s?%`));
-    const bbZet = Math.min(p.stacks[p.heroIndex]!, p.stacks[p.villainIndex]!) / ICM.stackBb;
-    p.stacks.forEach((x, j) => { if (j !== p.heroIndex && j !== p.villainIndex) expect(tekst).toContain(String(Math.round(x / bbZet))); });
-  });
+  // WYS-003 (CR, D-817): ekran decyzji ICM nie pokazuje wypłat i stosów, więc icm-call jest poza `RODZAJE_NA_EKRANIE` (bramka); test odrzucenia: tools/content-build/test/cp-recenzja-cn.test.ts.
 });

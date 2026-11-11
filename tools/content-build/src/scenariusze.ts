@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -190,17 +190,37 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
 }
 
 /**
- * Rodzaje punktów decyzji, które ekran scenariusza faktycznie obsługuje (CN, D-782; 08-programista-001 CM): lista dozwolonych,
+ * Rodzaje punktów decyzji, które ekran scenariusza faktycznie obsługuje (CN, D-782; 08-programista-001 CM; CR WYS-003): lista dozwolonych,
  * nie zakazanych, więc nowy rodzaj punktu jest odrzucany w budowaniu, dopóki ekran go nie obsłuży. Ekran składa kontekst generatora
- * z bazy treści (`buildGeneratorContext`, jak kontrola generatora) i ma akcje dla `draw-call`, `cbet-case`, `size-spot` i `icm-call`.
- * `range-spot` (F1) czeka na osobną pracę: akcje z etykiet spotu (rozmiary, 3-bet, all-in) i teksty interfejsu od roli 04 (D-755).
+ * z bazy treści (`buildGeneratorContext`, jak kontrola generatora) i ma akcje dla `draw-call`, `cbet-case` i `size-spot`.
+ * Poza listą: `range-spot` (F1; akcje z etykiet spotu i teksty od roli 04, D-755) oraz `icm-call` (F4; ocena zależy od stosów i wypłat,
+ * których ekran nie pokazuje, a teksty i układ tego widoku projektuje rola 04, D-807).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'icm-call'];
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot'];
+const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {
+  'range-spot': 'brak akcji spotu i tekstów',
+  'icm-call': 'ekran nie pokazuje stosów i wypłat, na których opiera się ocena (czeka na projekt roli 04, D-807)',
+};
 
+/**
+ * Bramka ekranu (CN, CR WYS-001): rodzaj punktu jest obsługiwany, a punkt c-betu albo rozmiaru ma dokładnie ten zestaw akcji, który ekran
+ * pokazuje (`akcjeSzablonu` z poker-core, ta sama definicja co w generatorze i na ekranie), bo wyjaśnienie każdej akcji to BR-OCE-002.
+ */
 export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
-  return t.decisions.flatMap((d, i) => RODZAJE_NA_EKRANIE.includes(d.kind ?? 'draw-call')
-    ? []
-    : [`szablon ${t.id}: punkt ${i + 1} ${d.kind} nie jest jeszcze obsługiwany na ekranie scenariusza (obsługiwane: ${RODZAJE_NA_EKRANIE.join(', ')}; range-spot: brak akcji spotu i tekstów); szablon nie może trafić do bazy treści`]);
+  return t.decisions.flatMap((d, i) => {
+    const kind = d.kind ?? 'draw-call';
+    if (!RODZAJE_NA_EKRANIE.includes(kind)) {
+      return [`szablon ${t.id}: punkt ${i + 1} ${kind} nie jest jeszcze obsługiwany na ekranie scenariusza (obsługiwane: ${RODZAJE_NA_EKRANIE.join(', ')}; ${kind}: ${POWOD_POZA_EKRANEM[kind] ?? 'brak obsługi'}); szablon nie może trafić do bazy treści`];
+    }
+    const wymagane = akcjeSzablonu(kind, d.kind === 'size-spot' ? d.check : undefined);
+    if (!wymagane) return [];
+    const maja = d.actions.map((a) => a.action);
+    const brak = wymagane.filter((a) => !maja.includes(a));
+    const nadmiar = maja.filter((a) => !wymagane.includes(a));
+    return brak.length || nadmiar.length
+      ? [`szablon ${t.id}: punkt ${i + 1} ${kind}: ekran pokazuje akcje ${wymagane.join(', ')} i każda wymaga wyjaśnienia (BR-OCE-002)${brak.length ? `; brak: ${brak.join(', ')}` : ''}${nadmiar.length ? `; nadmiar: ${nadmiar.join(', ')}` : ''}`]
+      : [];
+  });
 }
 
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */

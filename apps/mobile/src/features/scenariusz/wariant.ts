@@ -1,6 +1,6 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
-import { przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
-import { blindBb, cardToString, fillVariantMarkers, type GeneratorTemplate, type ScenarioVariant, type VariantDecision, type VariantMarker } from '@szkola/poker-core';
+import { KONFIGURACJA, przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
+import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, type GeneratorTemplate, type ScenarioVariant, type VariantDecision, type VariantMarker, type WerdyktAkcji } from '@szkola/poker-core';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 
@@ -28,7 +28,7 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
     case 'icm-call':
       return ['fold', 'call'];
     case 'cbet-case':
-      return ['check', 'bet-small', 'bet-big'];
+      return AKCJE_CBET;
     case 'size-spot':
       return KOLEJNOSC_SIZE.filter((a) => p.options.some((o) => o.action === a));
     case 'range-spot':
@@ -92,7 +92,32 @@ export function grafPunktow(v: ScenarioVariant): AkcjaPlanu[][] {
   return v.points.map((p) => akcjePunktu(p).map((akcja): AkcjaPlanu => ({ akcja, dalej: 'koniec' })));
 }
 
-/** Treść wariantu dla `przebiegScenariusza`: częstość 1 dla poprawnej akcji, 0 dla drugiej (ocena z rachunku, nie z solvera). */
+/**
+ * Ocena akcji punktu wariantu (CR WYS-002): c-bet i rozmiar niosą werdykty reguły silnika gry (`verdicts` wariantu, poker-core: `cbetVerdict`,
+ * `sizeVerdict`), więc ekran ocenia jak tryb gry (zgodne / dopuszczalne / niedokładność / błąd), a nie „błąd” dla każdej akcji poza najlepszą.
+ * Draw-call i icm-call to rachunek z dwiema akcjami: poprawna zgodne, druga błąd.
+ */
+const NA_OCENE_EKRANU = { compliant: 'zgodne', acceptable: 'dopuszczalne', inaccuracy: 'niedokladnosc', mistake: 'blad' } as const;
+function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
+  if (d.point === 'cbet-case' || d.point === 'size-spot') {
+    const w = (d.verdicts as Partial<Record<string, WerdyktAkcji>>)[a];
+    if (w === undefined) throw new Error(`Akcja ${a} nie należy do punktu ${d.point}`);
+    return NA_OCENE_EKRANU[w];
+  }
+  return a === poprawnaAkcja(d) ? 'zgodne' : 'blad';
+}
+/**
+ * Częstość do `przebiegScenariusza` (RD-11, `rangeVerdict`): ocena akcji zamieniona na częstość leżącą w jej przedziale progów z konfiguracji domeny,
+ * żeby ocena kroku (`przebiegWariantu`) i pasek ocen (`ocenyAkcji`) pochodziły z tej samej tabeli `ocenaAkcji`.
+ */
+const CZESTOSC_OCENY: Readonly<Record<OcenaOdpowiedzi, number>> = {
+  zgodne: 1,
+  dopuszczalne: (KONFIGURACJA.OCENA_PROG_DOPUSZCZALNE + KONFIGURACJA.OCENA_PROG_MIESZANA_DOLNY) / 2,
+  niedokladnosc: KONFIGURACJA.OCENA_PROG_DOPUSZCZALNE / 2,
+  blad: 0,
+};
+
+/** Treść wariantu dla `przebiegScenariusza`: częstość z oceny akcji (reguła silnika gry albo rachunek, nie solver). */
 export function trescZWariantu(v: ScenarioVariant): TrescScenariusza {
   const graf = grafPunktow(v);
   const [h0, h1] = v.hero;
@@ -108,7 +133,7 @@ export function trescZWariantu(v: ScenarioVariant): TrescScenariusza {
       ulica: d.street,
       akcje: (graf[i] ?? []).map((a) => ({
         akcja: a.akcja,
-        czestosc: a.akcja === poprawnaAkcja(d) ? 1 : 0,
+        czestosc: CZESTOSC_OCENY[ocenaAkcji(d, a.akcja)],
         rywal: null,
         dalej: a.dalej,
         wyjasnienie: '', // teksty składa `bloki` z szablonu (wyjaśnienia własnej akcji, BR-OCE-002)
@@ -121,12 +146,11 @@ export function przebiegWariantu(v: ScenarioVariant, wybory: readonly Akcja[]): 
   return przebiegScenariusza(trescZWariantu(v), wybory);
 }
 
-/** Oceny akcji w punkcie decyzji (pasek ocen po decyzji): poprawna „zgodne”, pozostałe „błąd” (RD-11, częstości 1 i 0). */
+/** Oceny akcji w punkcie decyzji (pasek ocen po decyzji): z tabeli `ocenaAkcji`, jak ocena kroku w `przebiegWariantu`. */
 export function ocenyAkcji(v: ScenarioVariant, indeks: number): Readonly<Partial<Record<Akcja, OcenaOdpowiedzi>>> {
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
-  const poprawna = poprawnaAkcja(d);
-  return Object.fromEntries(akcjePunktu(d).map((a): [Akcja, OcenaOdpowiedzi] => [a, a === poprawna ? 'zgodne' : 'blad']));
+  return Object.fromEntries(akcjePunktu(d).map((a): [Akcja, OcenaOdpowiedzi] => [a, ocenaAkcji(d, a)]));
 }
 
 export interface WidokDecyzji {

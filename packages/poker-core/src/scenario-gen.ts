@@ -5,7 +5,7 @@ import type { Card } from './cards';
 import { dealCards, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
-import { nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict } from './grading';
+import { cbetVerdict, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
 import { classifyHolding, type HoldingClass } from './holding';
 import { hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
@@ -71,6 +71,21 @@ export interface SizeRuleData {
 
 /** Akcje punktu cbet-case (bet-small/bet-big to rozmiar c-betu małym/dużym, grading.ts `chosen`). */
 export type CbetCaseAction = 'check' | 'bet-small' | 'bet-big';
+/**
+ * Pełny zestaw akcji punktu na ekranie scenariusza (CR WYS-001): jedna definicja dla generatora (opcje wariantu), ekranu (przyciski)
+ * i bramki budowania (szablon musi mieć wyjaśnienie każdej akcji, BR-OCE-002). `check` dotyczy tylko `no-limp`.
+ */
+export const AKCJE_CBET: readonly CbetCaseAction[] = ['check', 'bet-small', 'bet-big'];
+export const AKCJE_ROZMIARU = ['raise', 'raise-small', 'raise-big'] as const;
+export const AKCJE_BEZ_LIMPU = ['raise', 'limp'] as const;
+/** Akcje punktu cbet-case albo size-spot wg rodzaju; `null` dla pozostałych rodzajów (pas i sprawdzenie, F1). */
+export function akcjeSzablonu(kind: string | undefined, check?: string): readonly string[] | null {
+  if (kind === 'cbet-case') return AKCJE_CBET;
+  if (kind === 'size-spot') return check === 'no-limp' ? AKCJE_BEZ_LIMPU : AKCJE_ROZMIARU;
+  return null;
+}
+/** Ocena akcji punktu przez regułę silnika gry (grading.ts): zgodne, dopuszczalne (ADR-04), niedokładność albo błąd (limp). */
+export type WerdyktAkcji = 'compliant' | 'acceptable' | 'inaccuracy' | 'mistake';
 /** Klasa ręki gracza względem flopu dla filtru poziomu (F2). */
 export type HoldingFilter = 'air' | 'pair' | 'draw';
 /** Przypadek c-betu z treści (EvalRule.check.cases): tekstura flopu → najlepszy plan; `rule` wskazuje regułę, z której wynika. */
@@ -181,6 +196,8 @@ export interface CbetCaseVariantDecision {
   correct: CbetCaseAction;
   /** Klasa ręki gracza względem flopu (classifyHolding.cls). */
   holding: HoldingClass;
+  /** Werdykt każdej akcji wg reguły c-betu (`cbetVerdict`, jak ocena w grze): rzadsza akcja jest dopuszczalna, zły rozmiar to niedokładność (CR WYS-002). */
+  verdicts: Record<CbetCaseAction, WerdyktAkcji>;
 }
 export interface SizeSpotVariantDecision {
   point: 'size-spot';
@@ -190,6 +207,8 @@ export interface SizeSpotVariantDecision {
   /** Akcje do wyboru; `bb` to całkowity rozmiar podbicia (null: limp). */
   options: { action: 'raise' | 'raise-small' | 'raise-big' | 'limp'; bb: number | null }[];
   correct: 'raise';
+  /** Werdykt każdej akcji z `options` wg reguły silnika gry: standardowy rozmiar zgodny, inny rozmiar niedokładność (`sizeVerdict`), limp błąd (no-limp) (CR WYS-002). */
+  verdicts: Partial<Record<'raise' | 'raise-small' | 'raise-big' | 'limp', WerdyktAkcji>>;
 }
 export interface IcmCallVariantDecision {
   point: 'icm-call';
@@ -443,8 +462,9 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const mozliwe = { raise: standard, 'raise-small': round1(standard * SIZE_SMALL_FACTOR), 'raise-big': round1(standard * SIZE_BIG_FACTOR), limp: null } as const;
       points.push({
         point: 'size-spot', street: 'preflop', check: spec.check, rule: spec.rule,
-        options: (spec.check === 'no-limp' ? (['raise', 'limp'] as const) : (['raise', 'raise-small', 'raise-big'] as const)).map((a) => ({ action: a, bb: mozliwe[a] })),
+        options: (spec.check === 'no-limp' ? AKCJE_BEZ_LIMPU : AKCJE_ROZMIARU).map((a) => ({ action: a, bb: mozliwe[a] })),
         correct: 'raise',
+        verdicts: Object.fromEntries((spec.check === 'no-limp' ? AKCJE_BEZ_LIMPU : AKCJE_ROZMIARU).map((a): [string, WerdyktAkcji] => [a, mozliwe[a] === null ? 'mistake' : sizeVerdict(standard, mozliwe[a])])),
       });
       continue;
     }
@@ -457,7 +477,11 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (correct !== b.expected[i]) return null; // BR-GEN-003: tylko oczekiwana akcja
       const h = classifyHolding(hero, flop);
       if (b.holding && !b.holding.some((f) => holdingMatches(f, h))) return null;
-      points.push({ point: 'cbet-case', street: 'flop', rule: spec.rule, correct, holding: h.cls });
+      const najlepsza = c.best;
+      points.push({
+        point: 'cbet-case', street: 'flop', rule: spec.rule, correct, holding: h.cls,
+        verdicts: { check: cbetVerdict(najlepsza, 'check'), 'bet-small': cbetVerdict(najlepsza, 'small'), 'bet-big': cbetVerdict(najlepsza, 'big') },
+      });
       continue;
     }
     const k = draws.length; // numer punktu draw-call (pierwszy losuje pulę, drugi liczy ją z linii)

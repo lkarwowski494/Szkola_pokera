@@ -25,3 +25,4 @@ decisions:
     actions:
       - { action: check, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Czekasz, bo duży blind broni wielu konektorów, które trafiają taki flop." }
       - { action: bet-small, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Mały zakład na niskim połączonym flopie płaci rękom, które ten flop trafiły." }
+      - { action: bet-big, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Duży zakład na niskim połączonym flopie zamyka ręce, które ten flop trafiły, a tobie zostawia tylko mocniejsze." }
