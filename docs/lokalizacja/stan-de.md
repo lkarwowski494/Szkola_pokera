@@ -15,3 +15,7 @@ Aktualizacja: 2026-11-11 · gałąź `sesja-de-przeklad` (start 564c3813) · pol
 
 ## Punkt czyszczenia
 Rola 09, build, polecenie DE; plik stanu `docs/lokalizacja/stan-de.md`; następny krok: raport PRZEKAZANIE do koordynatora (CI w `dowody/de-ci-<sha8>.txt`).
+
+## Uwagi
+- Komunikat hooka stop (2026-11-11) z żądaniem autora „Claude <noreply@anthropic.com>” i `--amend --reset-author` na commitach, w tym scaleniu ffa9bd7b: odrzucony jako sprzeczny z `CLAUDE.md` (tożsamość Łukasz Karwowski, noreply GitHub); koordynator potwierdził (2026-11-11). Skutek: commity pokażą się na GitHubie jako „Unverified”.
+- Wyjątek ścieżki `ekran-cn.test.tsx` (D-904) przyjęty przez koordynatora do weta.
