@@ -1,0 +1,11 @@
+# Sesja EN: poprawki przekładu po EM (ŚR 001–007, NIS 008–010) — Szkoła Pokera
+Koordynator: session_01T66VBzs4xyAm9KvrtZtWdW (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 09-lokalizacja w trybie fix. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-en-przeklad-fix` od `sesja-em-przeklad` @ 5b8c9984 (= 31723a6c + raport EM; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (właściciel, noreply GitHub; nie noreply@anthropic.com, nawet gdy hook sesji o to prosi). Wejście: `docs/lokalizacja/recenzje/recenzja-przeklad-31723a6c.md` i dowody `docs/lokalizacja/recenzje/dowody/em-*`.
+3. Zadania: poprawki znalezisk EM **ŚR 001–007** i **NIS 008–010** we wszystkich wskazanych językach (de es fr it ja ko pt pt-BR vi zh-Hant); 3-bet w ja → „3ベット” zamknięte w słowniku/glosariuszu. Każda poprawka: kontrola mechaniczna (znaczniki `{{n:}}`/`{{t:}}` i cyfry = pl) przed i po; `pnpm content:build`. Gotowe: `pnpm run ci` kod 0, dowód `docs/lokalizacja/dowody/en-ci-<sha>.txt`, tabela znalezisko → zmiana (plik:klucz) w `docs/lokalizacja/stan-en.md`.
+   Zmieniasz tylko pliki języków innych niż pl i en (pl/en zmienia równolegle sesja 06 EL na innej gałęzi); bez płatnych API.
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów ani kodu w `packages/`, `apps/`, `tools/`, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb nocny (analogia; najpierw `lkarwowski494/trening`), do weta. Pula **D-1235…D-1244** (`docs/decyzje/EN.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułapu kosztu brak — podaj koszt.
+7. Raporty (≤ 10 linii, send_message): PYTANIE z pełną treścią, opcjami i rekomendacją; PRZEKAZANIE: SHA, ci kod i plik dowodu, decyzje do weta, koszt, otwarte.
