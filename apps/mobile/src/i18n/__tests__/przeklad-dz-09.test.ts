@@ -36,3 +36,15 @@ describe("pt: jedna forma zwracania się w całym słowniku (09-lokalizacja-002)
     expect(slownik("pt")["scenario.table.you"]).toBe("Eu");
   });
 });
+
+describe("fr: spacja nierozdzielająca przed ? ! : ; i w « » w scenario.* (09-lokalizacja-004)", () => {
+  it("brak spacji ASCII przed „:”, „;”, „?”, „!”", () => {
+    const trafienia = Object.entries(slownik("fr")).filter(([k, v]) => k.startsWith("scenario.") && / [:;?!]/.test(v)).map(([k]) => k);
+    expect(trafienia).toEqual([]);
+  });
+  it("brak spacji ASCII w „ … ” (cudzysłowy francuskie)", () => {
+    const trafienia = Object.entries(slownik("fr")).filter(([k, v]) => k.startsWith("scenario.") && /« | »/.test(v)).map(([k]) => k);
+    expect(trafienia).toEqual([]);
+  });
+});
+
