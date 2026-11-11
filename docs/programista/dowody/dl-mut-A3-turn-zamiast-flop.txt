@@ -1,0 +1,14 @@
+# mutant A3-turn-zamiast-flop · 64eea6c7 · plik tools/content-build/test/szablony-bs.test.ts
+# stary: if (d.street === 'flop' && v.decisions.length === 1) bledy
+# nowy:  if (d.street === 'turn' && v.decisions.length === 1) bledy
+mutant zastosowany: tools/content-build/test/szablony-bs.test.ts
+$ cd tools/content-build && npx vitest run test/szablony-bs.test.ts -t "CZ \(06-tresci-006\)"
+     × pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2 43ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/szablony-bs.test.ts > CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) > pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2
+AssertionError: expected false to be true // Object.is equality
+- Expected
++ Received
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed | 22 skipped (25)
+kod: 1

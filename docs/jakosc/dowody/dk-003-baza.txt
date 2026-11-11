@@ -1,0 +1,12 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+(node:1111) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  14 passed | 7 skipped (21)
+   Start at  10:36:38
+   Duration  12.16s (tests 81%, import 16%, transform 3%)
+
+kod wyjścia: 0

@@ -1,0 +1,69 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+(node:1314) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/szablony-co.test.ts (21 tests | 2 failed | 7 skipped) 189ms
+   ❯ szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) (5)
+     × sc-12 latwy: 10000 wariantów 109ms
+     × sc-12 sredni: 10000 wariantów 75ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 latwy: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "19: ręka poza filtrem air (gotowy strit)",
++   "36: ręka poza filtrem air (gotowy strit)",
++   "41: ręka poza filtrem air (gotowy strit)",
++   "83: ręka poza filtrem air (gotowy strit)",
++   "116: ręka poza filtrem air (gotowy strit)",
++ ]
+
+ ❯ test/szablony-co.test.ts:177:23
+    175|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    176|         }
+    177|         expect(bledy).toEqual([]);
+       |                       ^
+    178|       }, 300_000);
+    179|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 sredni: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "52: ręka poza filtrem air (gotowy strit)",
++   "72: ręka poza filtrem air (gotowy strit)",
++   "89: ręka poza filtrem air (gotowy strit)",
++   "99: ręka poza filtrem air (gotowy strit)",
++   "116: ręka poza filtrem air (gotowy strit)",
++ ]
+
+ ❯ test/szablony-co.test.ts:177:23
+    175|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    176|         }
+    177|         expect(bledy).toEqual([]);
+       |                       ^
+    178|       }, 300_000);
+    179|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 12 passed | 7 skipped (21)
+   Start at  10:37:11
+   Duration  2.65s (import 79%, transform 13%, tests 7%)
+
+kod wyjścia: 1

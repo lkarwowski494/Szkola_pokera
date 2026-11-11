@@ -1,0 +1,57 @@
+# mutacja CK2-zly-klucz: plik apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
+# perl -0pi -e 's/t\('scenarios\.soon'\)/t('scenarios.title')/'
+diff --git a/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx b/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
+index 1d90f479..ec1bd66e 100644
+--- a/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
++++ b/apps/mobile/src/features/scenariusz/WyborScenariusza.tsx
+@@ -23,7 +23,7 @@ export function WyborScenariusza({ grupy, onWybierz }: { grupy: readonly GrupaSc
+       <Title>{t('scenarios.title')}</Title>
+       {grupy.length === 0 ? (
+         <Surface>
+-          <Muted>{t('scenarios.soon')}</Muted>
++          <Muted>{t('scenarios.title')}</Muted>
+         </Surface>
+       ) : (
+         grupy.map((g) => (
+# komenda: (apps/mobile) npx jest --ci src/features/scenariusz/__tests__/wybor-pusta-lista-ck.test.tsx
+FAIL src/features/scenariusz/__tests__/wybor-pusta-lista-ck.test.tsx
+  WyborScenariusza: pusta lista (CK, 08-programista-004)
+    ✕ grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku (224 ms)
+
+  ● WyborScenariusza: pusta lista (CK, 08-programista-004) › grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku
+
+    Unable to find an element with text: Scenariusze będą dostępne wkrótce. Do tego czasu ćwicz decyzje w sesji ćwiczeń.
+
+    [36m<RCTScrollView>[39m
+      [36m<View>[39m
+        [36m<Text[39m
+          [33maccessibilityRole[39m=[32m"header"[39m
+        [36m>[39m
+          [0mScenariusze[0m
+        [36m</Text>[39m
+        [36m<View>[39m
+          [36m<Text>[39m
+            [0mScenariusze[0m
+          [36m</Text>[39m
+        [36m</View>[39m
+      [36m</View>[39m
+    [36m</RCTScrollView>[39m
+
+      11 |   it('grupy=[]: pokazuje „wkrótce” i nie ma żadnego przycisku', async () => {
+      12 |     await render(<WyborScenariusza grupy={[]} onWybierz={jest.fn()} />);
+    > 13 |     expect(screen.getByText(i18n.t('scenarios.soon'))).toBeTruthy();
+         |                   ^
+      14 |     expect(screen.queryAllByRole('button')).toHaveLength(0);
+      15 |   });
+      16 | });
+
+      at Object.getByText (src/features/scenariusz/__tests__/wybor-pusta-lista-ck.test.tsx:13:19)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        1.962 s, estimated 9 s
+Ran all test suites matching /src\/features\/scenariusz\/__tests__\/wybor-pusta-lista-ck.test.tsx/i.
+exit 1

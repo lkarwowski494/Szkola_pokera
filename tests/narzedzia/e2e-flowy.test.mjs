@@ -72,14 +72,14 @@ test('e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (str
 
 // Flow 02 w przebiegu 42508961244: dwa cele pod tym samym tekstem („Powtórki” na „Dziś” i zakładka) — flow stuka po id.
 // Literówka w id daje na runnerze „not found” po ~45 min; tu wychodzi w Node. Id ze wzorca (`lesson-${l.id}`) liczy się po przedrostku.
-test('każde id we flowach bramki ma testID w kodzie aplikacji (apps/mobile/src)', () => {
+test('każde id we flowach (bramka i oczekujace/) ma testID w kodzie aplikacji (apps/mobile/src)', () => {
   const zrodla = (kat) => readdirSync(kat).flatMap((f) => (statSync(join(kat, f)).isDirectory() ? zrodla(join(kat, f)) : /\.tsx?$/.test(f) && !/\.test\.tsx?$/.test(f) ? [join(kat, f)] : []));
   const kod = zrodla(join(E2E, '../src')).map((f) => readFileSync(f, 'utf8')).join('\n');
   const stale = new Set([...kod.matchAll(/testID=(?:"([^"]+)"|\{?'([^']+)'\}?)/g)].map((m) => m[1] ?? m[2]));
   const przedrostki = [...kod.matchAll(/testID=\{`([^`$]*)\$\{/g)].map((m) => m[1]).filter(Boolean);
-  const bramka = wszystkie.filter((f) => !f.includes('/oczekujace/'));
+  // CZ (krok J): także flowy oczekujące, żeby flow przenoszony do bramki nie czekał ~45 min na runnerze na „not found”
   let ile = 0;
-  for (const f of bramka) for (const [, , id] of readFileSync(f, 'utf8').matchAll(/\bid:\s*(['"])([^'"]+)\1/g)) {
+  for (const f of wszystkie) for (const [, , id] of readFileSync(f, 'utf8').matchAll(/\bid:\s*(['"])([^'"]+)\1/g)) {
     ile++;
     assert.ok(stale.has(id) || przedrostki.some((p) => id.startsWith(p)), `${relative(E2E, f)}: id '${id}' bez testID w apps/mobile/src`);
   }
@@ -162,4 +162,27 @@ test('tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na za
     });
   }
   assert.deepEqual(bledy, []);
+});
+
+// CZ (krok J, plan scenariusze-plan.md:73): flow 07 przygotowuje stan sam (D-647: szablon modułu odblokowany po lekcji tego
+// modułu) i zakłada, że pas na flopie poziomu łatwego jest błędem. Obie przesłanki wynikają z treści, więc zmiana treści
+// (inny moduł szablonu, inna pierwsza lekcja, inna oczekiwana akcja) psuje ten test w Node, a nie dopiero przebieg na runnerze.
+test('07-scenariusz.yaml: szablon z flowu istnieje, flow kończy pierwszą lekcję jego modułu, a pas jest na łatwym błędem', () => {
+  const tekst = readFileSync(join(E2E, 'oczekujace/07-scenariusz.yaml'), 'utf8');
+  const id = tekst.match(/id:\s*'scenariusz-([\w-]+)'/)?.[1];
+  assert.ok(id, 'flow 07 nie wybiera szablonu po id scenariusz-<id>');
+  const tresc = join(E2E, '../../../content/pl');
+  const szablon = parseAllDocuments(readFileSync(join(tresc, 'scenarios', `${id}.yaml`), 'utf8'))[0].toJSON();
+  const lekcje = readdirSync(join(tresc, 'lessons')).filter((f) => f.endsWith('.md')).map((f) => {
+    const t = readFileSync(join(tresc, 'lessons', f), 'utf8');
+    return parseAllDocuments(t.slice(3, t.indexOf('\n---', 3)))[0].toJSON();
+  });
+  const pierwsza = lekcje.filter((l) => l.module === szablon.module).sort((a, b) => a.order - b.order)[0];
+  assert.ok(pierwsza, `brak lekcji modułu ${szablon.module}`);
+  assert.match(tekst, new RegExp(`id:\\s*'modul-${szablon.module}'`), `flow nie rozwija modułu ${szablon.module}`);
+  assert.match(tekst, new RegExp(`id:\\s*'lesson-${pierwsza.id.replace('.', '\\.')}'`), `flow nie kończy lekcji ${pierwsza.id}`);
+  assert.ok(szablon.levels.includes('latwy') && /id:\s*'poziom-latwy'/.test(tekst), 'flow wybiera poziom łatwy, którego szablon nie ma');
+  assert.equal(szablon.decisions[0].kind ?? 'draw-call', 'draw-call', 'option-0 = pas tylko w punkcie draw-call');
+  assert.equal(szablon.bounds.latwy.expected[0], 'call', 'pas na flopie poziomu łatwego nie jest błędem');
+  assert.match(tekst, /Dobre decyzje: 0 z 1/, 'pas kończy rozdanie po jednej decyzji');
 });

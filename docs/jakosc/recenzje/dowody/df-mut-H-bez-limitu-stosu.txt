@@ -1,0 +1,83 @@
+# mutacja H-bez-limitu-stosu: plik packages/poker-core/src/scenario-gen.ts
+# perl -0pi -e 's/\.filter\(\(bet\) => allIn \|\| bet <= stosGracza\)/.filter((bet) => true)/'
+diff --git a/packages/poker-core/src/scenario-gen.ts b/packages/poker-core/src/scenario-gen.ts
+index 291c34e6..6139f14b 100644
+--- a/packages/poker-core/src/scenario-gen.ts
++++ b/packages/poker-core/src/scenario-gen.ts
+@@ -537,7 +537,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds,
+     // ŚR-203: zakład nie jest większy niż stos gracza za pulą (stackBb − wkład przed flopem − wcześniejsze zakłady); bez stackBb bez ograniczenia
+     const stosGracza = typeof t.stackBb === 'number' ? t.stackBb - ((k === 0 ? pot : draws[0]!.pot) - martwe) / 2 - draws.reduce((sum, x) => sum + x.bet, 0) : Infinity;
+     const ok = linie
+-      .filter((bet) => allIn || bet <= stosGracza) // all-in to z definicji cały stos (zaokrąglony)
++      .filter((bet) => true) // all-in to z definicji cały stos (zaokrąglony)
+       .map((bet) => ({ fraction: bet / pot, bet, margin: bet > 0 ? Math.abs(hit - requiredEquity(pot, bet)) : 0 }))
+       .filter((x) => inMargin(x.margin, b, i) && decide(hit, requiredEquity(pot, x.bet)) === b.expected[i]) // BR-GEN-003: tylko oczekiwana akcja
+       .filter((x) => {
+# komenda: (cd tools/content-build) npx vitest run test/stos-zakladu-bu.test.ts
+
+ RUN  v5.0.3 <scratchpad>/kopia/tools/content-build
+
+ ❯ test/stos-zakladu-bu.test.ts (9 tests | 2 failed) 27386ms
+   ❯ ŚR-203: zakład nie większy niż stos gracza (9)
+     × sc-02 latwy: zakład ≤ stos za pulą w każdym punkcie 3251ms
+     × sc-19 latwy: zakład ≤ stos za pulą w każdym punkcie 5499ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/stos-zakladu-bu.test.ts > ŚR-203: zakład nie większy niż stos gracza > sc-02 latwy: zakład ≤ stos za pulą w każdym punkcie
+AssertionError: expected [ '2#2: zakład 24 > stos 23.25', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "2#2: zakład 24 > stos 23.25",
++   "5#2: zakład 24 > stos 23.25",
++   "13#2: zakład 24 > stos 23.25",
++   "18#2: zakład 24 > stos 23.25",
++   "22#2: zakład 24 > stos 23.25",
++ ]
+
+ ❯ test/stos-zakladu-bu.test.ts:34:33
+     32|           });
+     33|         }
+     34|         expect(zle.slice(0, 5)).toEqual([]);
+       |                                 ^
+     35|         expect(zle.length).toBe(0);
+     36|       }, 120_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/stos-zakladu-bu.test.ts > ŚR-203: zakład nie większy niż stos gracza > sc-19 latwy: zakład ≤ stos za pulą w każdym punkcie
+AssertionError: expected [ '7#2: zakład 26 > stos 22.25', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "7#2: zakład 26 > stos 22.25",
++   "10#2: zakład 26 > stos 22.25",
++   "18#2: zakład 24 > stos 23.25",
++   "20#2: zakład 26 > stos 22.25",
++   "24#2: zakład 26 > stos 22.25",
++ ]
+
+ ❯ test/stos-zakladu-bu.test.ts:34:33
+     32|           });
+     33|         }
+     34|         expect(zle.slice(0, 5)).toEqual([]);
+       |                                 ^
+     35|         expect(zle.length).toBe(0);
+     36|       }, 120_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 7 passed (9)
+   Start at  09:53:08
+   Duration  28.55s (tests 96%, import 2%, transform 1%)
+
+exit 1

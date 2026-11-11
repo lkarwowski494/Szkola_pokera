@@ -1,0 +1,78 @@
+# mutacja C-indeks-decisions: plik tools/content-build/test/szablony-bs.test.ts
+# perl -0pi -e 's/v\.points\.forEach\(\(d, i\) => \{\n\s*if \(d\.point !== .draw-call.\) return;/v.decisions.forEach((d, i) => {/'
+diff --git a/tools/content-build/test/szablony-bs.test.ts b/tools/content-build/test/szablony-bs.test.ts
+index f84cf4e9..a14c85f9 100644
+--- a/tools/content-build/test/szablony-bs.test.ts
++++ b/tools/content-build/test/szablony-bs.test.ts
+@@ -41,8 +41,7 @@ function bledyD630(t: Szablon, level: ScenarioLevel, losowania: number): string[
+     const v = generateVariant(g, level, seed, ctx);
+     let zaklady = 0;
+     // indeks i = indeks punktu w szablonie i w `expected` poziomu (v.points), nie numer punktu draw-call (v.decisions)
+-    v.points.forEach((d, i) => {
+-      if (d.point !== 'draw-call') return;
++    v.decisions.forEach((d, i) => {
+       const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
+       const spot = analyseOutsSpot(v.hero, stol);
+       if (!spot || !(b.draws as readonly string[]).includes(spot.draw.kind)) { bledy.push(`${seed}#${i + 1}: brak drawa z granic`); return; }
+# komenda: (cd tools/content-build) npx vitest run test/szablony-bs.test.ts -t CZ
+
+ RUN  v5.0.3 <scratchpad>/kopia/tools/content-build
+
+ ❯ test/szablony-bs.test.ts (25 tests | 2 failed | 22 skipped) 54ms
+   ❯ CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) (3)
+     × zgodny: 2000 wariantów bez błędu 32ms
+     × pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2 19ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/szablony-bs.test.ts > CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) > zgodny: 2000 wariantów bez błędu
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1#1: rachunek call, szablon raise 2.5",
++   "2#1: rachunek call, szablon raise 2.5",
++   "3#1: rachunek call, szablon raise 2.5",
++   "4#1: rachunek call, szablon raise 2.5",
++   "5#1: rachunek call, szablon raise 2.5",
++ ]
+
+ ❯ test/szablony-bs.test.ts:76:43
+     74|   });
+     75|   it('zgodny: 2000 wariantów bez błędu', () => {
+     76|     expect(bledyD630(ok, 'latwy', 2_000)).toEqual([]);
+       |                                           ^
+     77|   }, 120_000);
+     78|   it('pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/szablony-bs.test.ts > CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) > pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ test/szablony-bs.test.ts:81:126
+     79|     const b = bledyD630(zly, 'latwy', 50);
+     80|     expect(b.length).toBeGreaterThan(0);
+     81|     expect(b.every((x) => /#2: pas na flopie bez rachunku na dwie kart…
+       |                                                                                                                              ^
+     82|   }, 120_000);
+     83| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed | 22 skipped (25)
+   Start at  09:48:56
+   Duration  1.22s (import 62%, transform 33%, tests 5%)
+
+exit 1

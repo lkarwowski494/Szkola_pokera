@@ -10,8 +10,13 @@ Uruchomienie lokalne (macOS z Xcode, aplikacja zbudowana na symulator):
 Kontrakt z ekranami (to samo co w testach RNTL, `tests/akceptacja/ekrany/teksty.ts`): nazwy przycisków ze słownika
 interakcji roli 04 („Zacznij od początku”, „Nie wiem”, „Dalej”, „Zacznij”, „Zakończ”, „Wróć do lekcji”), odpowiedzi `option-<i>` i lekcje
 `lesson-<id>` jak w obecnej aplikacji; nowe identyfikatory: `dzis-cwiczenia`, `dzis-powtorki`, `dzis-scenariusz`
-(wejścia z ekranu „Dziś” do startu aktywności), `akcja-<i>` (akcje scenariusza), `ustawienia`, `ustawienia-jezyk`,
-`jezyk-<kod>`. Teksty treści przychodzą z `content/` przez `helplines-env.mjs` (`-e`), nie są wpisane w YAML.
+(wejścia z ekranu „Dziś” do startu aktywności), `option-<i>` (akcje scenariusza: ten sam `PasekStrategii` co w zadaniach;
+wcześniej planowane `akcja-<i>` nie powstało), `scenariusz-<id>`, `poziom-<poziom>`, `ustawienia`, `ustawienia-jezyk`,
+`jezyk-<kod>`. Każde id we flowie, także oczekującym, ma `testID` w `apps/mobile/src` (`tests/narzedzia/e2e-flowy.test.mjs`). Teksty treści przychodzą z `content/` przez `helplines-env.mjs` (`-e`), nie są wpisane w YAML.
 
 Po wdrożeniu ekranu powitania i oceny poziomu (BR-ONB) flowy 01–04 zaczynają się od powitania: dodaj w nich po
 `launchApp` krok `runFlow: wspolne/za-powitaniem.yaml` (podprzepływ w `apps/mobile/e2e/wspolne/`, poza `*.yaml`; flowy oczekujące wołają `../wspolne/`) (warunkowy, nie psuje przebiegu bez powitania).
+
+`07-scenariusz.yaml` (krok J, sesja CZ, 2026-11-11): stan przygotowuje sam flow (ukończenie lekcji m2.l1 przez interfejs, D-647),
+bez specjalnego wejścia w aplikacji. Statycznie sprawdzone w Node (szablon z flowu w `content/pl/scenarios`, jego moduł, pierwsza
+lekcja modułu we flowie, oczekiwane sprawdzenie na flopie poziomu łatwego, więc pas = błąd); przebieg na symulatorze: po scaleniu.

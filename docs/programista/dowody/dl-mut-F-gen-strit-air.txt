@@ -1,0 +1,19 @@
+# mutant F-gen-strit-air · 64eea6c7 · plik packages/poker-core/src/scenario-gen.ts
+# stary: f === 'air' ? h.cls === 'air' :
+# nowy:  f === 'air' ? (h.cls === 'air' || h.category === 4) :
+mutant zastosowany: packages/poker-core/src/scenario-gen.ts
+$ cd tools/content-build && npx vitest run test/szablony-co.test.ts
+     × sc-12 latwy: 10000 wariantów 69ms
+     × sc-12 sredni: 10000 wariantów 61ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 latwy: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+- Expected
++ Received
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 sredni: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+- Expected
++ Received
+ Test Files  1 failed (1)
+      Tests  2 failed | 19 passed (21)
+kod: 1

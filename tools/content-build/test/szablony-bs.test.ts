@@ -6,13 +6,24 @@ import { readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { analyseOutsSpot, generateVariant, requiredEquity, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { compileRanges } from '../src/ranges';
 import { loadScenarioTemplates } from '../src/scenariusze';
 import { martweBlindy } from './martwe-blindy-wyrocznia';
 
 const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
 const pl = loadScenarioTemplates(join(contentDir, 'pl', 'scenarios'));
-/** Szablony tylko z punktami draw-call (rachunek ceny); cbet-case i icm-call sprawdza szablony-co.test.ts (sesja CO, D-791). */
-const plDraw = pl.filter((x) => x.template.decisions.every((d) => d.kind === 'draw-call'));
+type Szablon = (typeof pl)[number]['template'];
+/**
+ * Szablony z co najmniej jednym punktem draw-call (rachunek ceny); sprawdzane są tylko te punkty (indeks punktu w szablonie),
+ * pozostałe sprawdzają ich testy: cbet-case i icm-call szablony-co.test.ts (sesja CO, D-791), range-spot szablony-f1-bu.test.ts.
+ * Wcześniej `every(draw-call)`: szablon range-spot + draw-call wypadał z D-630 bez czerwonego testu (CZ, 06-tresci-006).
+ */
+const maDrawCall = (t: Szablon): boolean => t.decisions.some((d) => d.kind === 'draw-call');
+const plDraw = pl.filter((x) => maDrawCall(x.template));
+/** Fixture CZ: range-spot przed draw-call (zgodny i z pasem łamiącym D-630); nie jest treścią aplikacji. */
+const fxRangeDraw = loadScenarioTemplates(join(import.meta.dirname, 'fixtures', 'cz-range-draw'));
+// punkt range-spot generator losuje z zakresu (dane spoza szablonu, D-661); progi jak w content/numbers.yaml (szablony-f1-bu)
+const ctx = { spots: compileRanges(contentDir).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } };
 const LOSOWANIA = 10_000;
 /** Martwe blindy z pozycji szablonu (martwe-blindy-wyrocznia.ts): wkład gracza preflop = (pula − martwe) ÷ 2. */
 
@@ -21,42 +32,68 @@ function zaPula(stackBb: number, pulaFlop: number, zaklady: number, p: { hero: s
   return Math.max(0, stackBb - (pulaFlop - martweBlindy(p)) / 2 - zaklady);
 }
 
+/** BR-GEN-003 i D-630 dla punktów draw-call szablonu: pierwsze błędy (najwyżej 5) z `losowania` wariantów poziomu. */
+function bledyD630(t: Szablon, level: ScenarioLevel, losowania: number): string[] {
+  const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const b = t.bounds[level]!;
+  const bledy: string[] = [];
+  for (let seed = 1; seed <= losowania && bledy.length < 5; seed++) {
+    const v = generateVariant(g, level, seed, ctx);
+    let zaklady = 0;
+    // indeks i = indeks punktu w szablonie i w `expected` poziomu (v.points), nie numer punktu draw-call (v.decisions)
+    v.points.forEach((d, i) => {
+      if (d.point !== 'draw-call') return;
+      const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
+      const spot = analyseOutsSpot(v.hero, stol);
+      if (!spot || !(b.draws as readonly string[]).includes(spot.draw.kind)) { bledy.push(`${seed}#${i + 1}: brak drawa z granic`); return; }
+      const cena = requiredEquity(d.pot, d.bet);
+      const akcja = spot.hitNextCard > cena ? 'call' : 'fold';
+      const margines = Math.abs(spot.hitNextCard - cena);
+      if (akcja !== b.expected[i]) bledy.push(`${seed}#${i + 1}: rachunek ${akcja}, szablon ${b.expected[i]}`);
+      if (!(margines > 0 && margines >= (b.marginMin ?? 0) && (b.marginMax === null || margines < b.marginMax))) bledy.push(`${seed}#${i + 1}: margines ${margines}`);
+      zaklady += d.bet;
+      if (akcja === 'fold') {
+        // R-M7-008: po trafieniu trzeba wygrać łącznie dopłata × (nietrafiające ÷ outy); ponad pulę po zakładzie to implied odds
+        const nieznane = 52 - 2 - stol.length;
+        const potrzeba = (d.bet * (nieznane - spot.outs)) / spot.outs - (d.pot + d.bet);
+        // pojedyncza decyzja draw-call na flopie: gracz mógłby zobaczyć turn i river, więc liczona szansa na dwie karty (hojnie)
+        if (d.street === 'flop' && v.decisions.length === 1) bledy.push(`${seed}#${i + 1}: pas na flopie bez rachunku na dwie karty (D-630)`);
+        const dostepne = zaPula(t.stackBb, v.decisions[0]!.pot, zaklady, t.positions);
+        if (potrzeba <= dostepne) bledy.push(`${seed}#${i + 1}: pas nieodporny: implied odds ${potrzeba.toFixed(1)} ≤ ${dostepne.toFixed(1)} bb za pulą`);
+      }
+    });
+  }
+  return bledy;
+}
+
+describe('CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call)', () => {
+  const ok = fxRangeDraw.find((x) => x.template.id === 'sc-fx-cz-rd-ok')!.template;
+  const zly = fxRangeDraw.find((x) => x.template.id === 'sc-fx-cz-rd-zly')!.template;
+  it('fixture z range-spot przed draw-call trafiają do szablonów sprawdzanych rachunkiem', () => {
+    expect(ok.decisions.map((d) => d.kind)).toEqual(['range-spot', 'draw-call']);
+    expect(fxRangeDraw.filter((x) => maDrawCall(x.template)).map((x) => x.template.id).sort()).toEqual(['sc-fx-cz-rd-ok', 'sc-fx-cz-rd-zly']);
+  });
+  it('zgodny: 2000 wariantów bez błędu', () => {
+    expect(bledyD630(ok, 'latwy', 2_000)).toEqual([]);
+  }, 120_000);
+  it('pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2', () => {
+    const b = bledyD630(zly, 'latwy', 50);
+    expect(b.length).toBeGreaterThan(0);
+    // 07-jakosc-002: warunek D-630 musi sam zgłosić błąd przy punkcie #2 (alternatywa „pas nieodporny” go nie zastępuje)
+    expect(b.some((x) => /^\d+#2: pas na flopie bez rachunku na dwie karty \(D-630\)$/.test(x))).toBe(true);
+    expect(b.every((x) => /#2: pas na flopie bez rachunku na dwie karty \(D-630\)/.test(x) || /#2: pas nieodporny/.test(x))).toBe(true);
+  }, 120_000);
+});
+
 describe('szablony scenariuszy z treści: decyzja niezmienna i oceny zgodne z rachunkiem (BR-GEN-003, D-630)', () => {
   it('treść pl ma szablony', () => {
     expect(pl.length).toBeGreaterThanOrEqual(3);
   });
 
   for (const { template: t } of plDraw) {
-    const g = { id: t.id, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów, oczekiwana akcja w każdym punkcie, margines poziomu, pas odporny na implied odds`, () => {
-        const b = t.bounds[level]!;
-        const bledy: string[] = [];
-        for (let seed = 1; seed <= LOSOWANIA && bledy.length < 5; seed++) {
-          const v = generateVariant(g, level, seed);
-          let zaklady = 0;
-          v.decisions.forEach((d, i) => {
-            const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
-            const spot = analyseOutsSpot(v.hero, stol);
-            if (!spot || !(b.draws as readonly string[]).includes(spot.draw.kind)) { bledy.push(`${seed}#${i + 1}: brak drawa z granic`); return; }
-            const cena = requiredEquity(d.pot, d.bet);
-            const akcja = spot.hitNextCard > cena ? 'call' : 'fold';
-            const margines = Math.abs(spot.hitNextCard - cena);
-            if (akcja !== b.expected[i]) bledy.push(`${seed}#${i + 1}: rachunek ${akcja}, szablon ${b.expected[i]}`);
-            if (!(margines > 0 && margines >= (b.marginMin ?? 0) && (b.marginMax === null || margines < b.marginMax))) bledy.push(`${seed}#${i + 1}: margines ${margines}`);
-            zaklady += d.bet;
-            if (akcja === 'fold') {
-              // R-M7-008: po trafieniu trzeba wygrać łącznie dopłata × (nietrafiające ÷ outy); ponad pulę po zakładzie to implied odds
-              const nieznane = 52 - 2 - stol.length;
-              const potrzeba = (d.bet * (nieznane - spot.outs)) / spot.outs - (d.pot + d.bet);
-              // pojedyncza decyzja na flopie: gracz mógłby zobaczyć turn i river, więc liczona szansa na dwie karty (hojnie)
-              if (d.street === 'flop' && v.decisions.length === 1) bledy.push(`${seed}#${i + 1}: pas na flopie bez rachunku na dwie karty (D-630)`);
-              const dostepne = zaPula(t.stackBb, v.decisions[0]!.pot, zaklady, t.positions);
-              if (potrzeba <= dostepne) bledy.push(`${seed}#${i + 1}: pas nieodporny: implied odds ${potrzeba.toFixed(1)} ≤ ${dostepne.toFixed(1)} bb za pulą`);
-            }
-          });
-        }
-        expect(bledy).toEqual([]);
+        expect(bledyD630(t, level, LOSOWANIA)).toEqual([]);
       }, 120_000);
     }
   }

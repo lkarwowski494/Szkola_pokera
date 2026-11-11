@@ -1,0 +1,27 @@
+# mutacja A-bez-D630: plik tools/content-build/test/szablony-bs.test.ts
+# perl -0pi -e 's/if \(d\.street === .flop. && v\.decisions\.length === 1\) bledy\.push[^\n]*\n//'
+diff --git a/tools/content-build/test/szablony-bs.test.ts b/tools/content-build/test/szablony-bs.test.ts
+index f84cf4e9..41b06b4d 100644
+--- a/tools/content-build/test/szablony-bs.test.ts
++++ b/tools/content-build/test/szablony-bs.test.ts
+@@ -57,8 +57,7 @@ function bledyD630(t: Szablon, level: ScenarioLevel, losowania: number): string[
+         const nieznane = 52 - 2 - stol.length;
+         const potrzeba = (d.bet * (nieznane - spot.outs)) / spot.outs - (d.pot + d.bet);
+         // pojedyncza decyzja draw-call na flopie: gracz mógłby zobaczyć turn i river, więc liczona szansa na dwie karty (hojnie)
+-        if (d.street === 'flop' && v.decisions.length === 1) bledy.push(`${seed}#${i + 1}: pas na flopie bez rachunku na dwie karty (D-630)`);
+-        const dostepne = zaPula(t.stackBb, v.decisions[0]!.pot, zaklady, t.positions);
++                const dostepne = zaPula(t.stackBb, v.decisions[0]!.pot, zaklady, t.positions);
+         if (potrzeba <= dostepne) bledy.push(`${seed}#${i + 1}: pas nieodporny: implied odds ${potrzeba.toFixed(1)} ≤ ${dostepne.toFixed(1)} bb za pulą`);
+       }
+     });
+# komenda: (cd tools/content-build) npx vitest run test/szablony-bs.test.ts -t CZ
+
+ RUN  v5.0.3 <scratchpad>/kopia/tools/content-build
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed | 22 skipped (25)
+   Start at  09:48:40
+   Duration  7.29s (tests 86%, import 9%, transform 5%)
+
+exit 0

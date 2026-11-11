@@ -1,0 +1,8 @@
+# mutant Fk-gen-kolor-air · 64eea6c7 · plik packages/poker-core/src/scenario-gen.ts
+# stary: f === 'air' ? h.cls === 'air' :
+# nowy:  f === 'air' ? (h.cls === 'air' || h.category === 3) :
+mutant zastosowany: packages/poker-core/src/scenario-gen.ts
+$ cd tools/content-build && npx vitest run test/szablony-co.test.ts
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+kod: 0

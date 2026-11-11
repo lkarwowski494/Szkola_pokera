@@ -1,0 +1,24 @@
+# CZ ŚR-006 (06-tresci-006) — dowody, 2026-11-11, baza 46197812
+
+## Po zmianie: szablony-bs.test.ts (pełny, 10 000 losowań)
+      Tests  25 passed (25)
+   Duration  198.04s (tests 99%)
+stos-zakladu-bu + bv-gotowa-reka: Tests 15 passed (15), 39,8 s
+cz-pokrycie-szablonow: Tests 6 passed (6)
+
+## Mutant 1 (kopia robocza w scratchpadzie): maDrawCall = every(draw-call) — stary filtr
+     × szablony-bs.test.ts wybiera szablony pl filtrem some(draw-call), nie every 8ms
+     × fixture z range-spot przed draw-call trafiają do szablonów sprawdzanych rachunkiem 10ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+        // R-M7-008: po trafieniu trzeba wygrać łącznie dopłata × (nietrafiające ÷ outy); ponad pulę po zakładzie to implied odds
+      Tests  2 failed | 7 passed | 22 skipped (31)
+
+## Mutant 2: pętla po v.decisions z numerem punktu draw-call (stare indeksowanie expected)
+ ❯ test/szablony-bs.test.ts (25 tests | 2 failed | 22 skipped) 96ms
+   ❯ CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) (3)
+     × zgodny: 2000 wariantów bez błędu 49ms
+     × pas na flopie przy jednej decyzji draw-call: D-630 zgłasza błąd przy punkcie #2 41ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/szablony-bs.test.ts > CZ (06-tresci-006): rachunek D-630 obejmuje punkt draw-call po innym punkcie (fixture range-spot + draw-call) > zgodny: 2000 wariantów bez błędu
++   "1#1: rachunek call, szablon raise 2.5",
++   "2#1: rachunek call, szablon raise 2.5",

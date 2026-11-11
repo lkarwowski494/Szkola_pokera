@@ -60,6 +60,7 @@ export function Button({
   style,
   accessibilityLabel,
   accessibilityRole = 'button',
+  testID,
 }: {
   label: string;
   onPress: () => void;
@@ -69,11 +70,14 @@ export function Button({
   accessibilityLabel?: string;
   /** „link” dla przycisków otwierających stronę w przeglądarce. */
   accessibilityRole?: 'button' | 'link';
+  /** Stały identyfikator dla flowów E2E (selektor po id, nie po tekście). */
+  testID?: string;
 }) {
   const tk = useTokens();
   const primary = variant === 'primary';
   return (
     <Pressable
+      testID={testID}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
       onPress={onPress}

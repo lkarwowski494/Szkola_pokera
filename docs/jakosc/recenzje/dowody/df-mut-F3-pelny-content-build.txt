@@ -1,0 +1,210 @@
+# mutacja F3-pelny-content-build: plik packages/poker-core/src/scenario-gen.ts
+# perl -0pi -e 's/f === 'air' \? h\.cls === 'air'/f === 'air' ? (h.cls === 'air' || h.category === 4)/'
+diff --git a/packages/poker-core/src/scenario-gen.ts b/packages/poker-core/src/scenario-gen.ts
+index 291c34e6..bc0acb4c 100644
+--- a/packages/poker-core/src/scenario-gen.ts
++++ b/packages/poker-core/src/scenario-gen.ts
+@@ -296,7 +296,7 @@ const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'chec
+ 
+ /** Filtr klasy ręki (F2): air = klasa `air` (bez pary i drawa); pair = jedna para z kartą gracza (także kieszonkowa); draw = klasa `draw` (od HOLDING_LIMITS.drawOutsMin outów, bez pary). */
+ function holdingMatches(f: HoldingFilter, h: ReturnType<typeof classifyHolding>): boolean {
+-  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
++  return f === 'air' ? (h.cls === 'air' || h.category === 4) : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
+ }
+ const RANK_CHARS = '23456789TJQKA';
+ 
+# komenda: (cd tools/content-build) npx vitest run 
+
+ RUN  v5.0.3 <scratchpad>/kopia/tools/content-build
+
+(node:2169) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2162) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2163) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2183) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2191) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2208) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2215) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2222) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2229) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2239) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/szablony-co.test.ts (16 tests | 1 failed) 108036ms
+   ❯ szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) (5)
+     × sc-12 sredni: 10000 wariantów 510ms
+(node:2259) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2266) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2274) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2281) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2293) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2300) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2307) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2314) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2328) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2335) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2354) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2361) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2368) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/szablony-f2-ca.test.ts (13 tests | 2 failed) 99252ms
+   ❯ F2: cbet-case (7)
+     × sc-fx-cbet-low latwy: 10000 wariantów, ocena silnika gry zgodna z oczekiwaną akcją 49ms
+     × sc-fx-cbet-low sredni: 10000 wariantów, ocena silnika gry zgodna z oczekiwaną akcją 136ms
+(node:2388) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2395) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/generator-odciski.test.ts (1 test | 1 failed) 4045ms
+   ❯ ŚR-002: odciski prawdziwych szablonów są związane z GENERATOR_WERSJA (1)
+     × ziarna 1–200 każdego szablonu i poziomu dają odciski zapisane dla tej wersji 4044ms
+(node:2413) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2434) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2465) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2458) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2479) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/generator-odciski.test.ts > ŚR-002: odciski prawdziwych szablonów są związane z GENERATOR_WERSJA > ziarna 1–200 każdego szablonu i poziomu dają odciski zapisane dla tej wersji
+AssertionError: expected { wersja: 2, ziarna: 200, …(1) } to deeply equal { wersja: 2, ziarna: 200, …(1) }
+
+- Expected
++ Received
+
+@@ -35,15 +35,15 @@
+      "sc-11|sredni": {
+        "sha": "4ed71352e095be4a",
+        "ziarno1": "sc-11|sredni|Q091/K17243",
+      },
+      "sc-12|latwy": {
+-       "sha": "83d607ca4c18d82d",
++       "sha": "e86c8a15524d4771",
+        "ziarno1": "sc-12|latwy|Q091/816253",
+      },
+      "sc-12|sredni": {
+-       "sha": "8ea1cfe2794e001c",
++       "sha": "c7e90b05e198f44e",
+        "ziarno1": "sc-12|sredni|Q091/604220",
+      },
+      "sc-19|latwy": {
+        "sha": "ef62155bfab621c2",
+        "ziarno1": "sc-19|latwy|J081/T13121/K2",
+
+ ❯ test/generator-odciski.test.ts:46:19
+     44|     const zapis: unknown = JSON.parse(readFileSync(PLIK, 'utf8'));
+     45|     // Różna wersja w pliku i w kodzie = podniesiono (albo cofnięto) w…
+     46|     expect(zapis).toEqual(teraz);
+       |                   ^
+     47|   }, 600_000);
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 sredni: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "188: ręka poza filtrem air (draw, 9 outów)",
++   "232: ręka poza filtrem air (draw, 9 outów)",
++   "415: ręka poza filtrem air (draw, 9 outów)",
++   "474: ręka poza filtrem air (draw, 9 outów)",
++   "788: ręka poza filtrem air (draw, 9 outów)",
++ ]
+
+ ❯ test/szablony-co.test.ts:154:23
+    152|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    153|         }
+    154|         expect(bledy).toEqual([]);
+       |                       ^
+    155|       }, 300_000);
+    156|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/szablony-f2-ca.test.ts > F2: cbet-case > sc-fx-cbet-low latwy: 10000 wariantów, ocena silnika gry zgodna z oczekiwaną akcją
+AssertionError: expected [ …(6) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "19: ręka very-strong, pare=false poza filtrem air",
++   "19: ręka very-strong poza filtrem air",
++   "36: ręka very-strong, pare=false poza filtrem air",
++   "36: ręka very-strong poza filtrem air",
++   "41: ręka very-strong, pare=false poza filtrem air",
++   "41: ręka very-strong poza filtrem air",
++ ]
+
+ ❯ test/szablony-f2-ca.test.ts:84:23
+     82|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+     83|         }
+     84|         expect(bledy).toEqual([]);
+       |                       ^
+     85|       }, 300_000);
+     86|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  test/szablony-f2-ca.test.ts > F2: cbet-case > sc-fx-cbet-low sredni: 10000 wariantów, ocena silnika gry zgodna z oczekiwaną akcją
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "176: ręka very-strong poza filtrem air,pair",
++   "192: ręka very-strong poza filtrem air,pair",
++   "369: ręka very-strong poza filtrem air,pair",
++   "453: ręka very-strong poza filtrem air,pair",
++   "454: ręka very-strong poza filtrem air,pair",
++ ]
+
+ ❯ test/szablony-f2-ca.test.ts:84:23
+     82|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+     83|         }
+     84|         expect(bledy).toEqual([]);
+       |                       ^
+     85|       }, 300_000);
+     86|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  3 failed | 39 passed (42)
+      Tests  4 failed | 426 passed | 1 expected fail (431)
+   Start at  09:58:45
+   Duration  278.62s (tests 89%, import 11%)
+
+exit 1

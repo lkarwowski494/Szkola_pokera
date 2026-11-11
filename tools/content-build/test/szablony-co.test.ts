@@ -6,15 +6,18 @@
 // - icm-call: equity z surowego equity169.json wobec zakresu push z pushfold.json i ICM Malmutha-Harville'a liczony od zera.
 import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { parse as parseYaml } from 'yaml';
 import { describe, expect, it } from 'vitest';
 import {
   applyAction,
   classifyFlop,
-  classifyHolding,
   classOf,
   generateVariant,
   gradeDecision,
+  HOLDING_LIMITS,
+  makeCard,
   rankOf,
+  suitOf,
   startHand,
   textureMatches,
   type Card,
@@ -56,6 +59,57 @@ const akcja = (a: Akcja): PlayerAction =>
   a === 'check' ? { type: 'check' } : { type: 'bet', to: Math.round(pula * number(a === 'bet-small' ? 'cbet.size.small' : 'cbet.size.big')) };
 const maPare = (hero: readonly Card[], flop: readonly Card[]) => rankOf(hero[0]!) === rankOf(hero[1]!) || hero.some((c) => flop.some((f) => rankOf(f) === rankOf(c)));
 /**
+ * Gotowy układ z pięciu kart (ręka + flop), z samych rang i kolorów (07-jakosc-003): kolor (5 kart w jednym kolorze) albo strit
+ * (5 kolejnych rang, as także nisko). Ręka z takim układem nie „chybiła”, więc nie jest air, mimo że outyDrawa dla niej daje 0.
+ */
+function gotowyUklad(hero: readonly Card[], flop: readonly Card[]): 'kolor' | 'strit' | null {
+  const karty = [...hero, ...flop];
+  if (karty.length !== 5) return null;
+  if (new Set(karty.map(suitOf)).size === 1) return 'kolor';
+  const rangi = new Set(karty.map(rankOf));
+  if (rangi.size !== 5) return null;
+  const posortowane = [...rangi].sort((x, y) => x - y);
+  const kolejne = posortowane[4]! - posortowane[0]! === 4;
+  const kolo = posortowane.join() === '0,1,2,3,12'; // A2345
+  return kolejne || kolo ? 'strit' : null;
+}
+/**
+ * Outy drawa liczone z samych rang i kolorów (CZ, 06-tresci-007), bez classifyHolding, którego używa generator: niewidziane karty,
+ * które dają kolor (4 karty w kolorze z kartą gracza) albo strit (5 kolejnych rang, as także nisko). Stół ma 3 karty, więc strit
+ * z jedną dobraną kartą zawsze używa karty gracza. Próg „draw” to parametr klas rąk HOLDING_LIMITS.drawOutsMin (kolor 9, strit
+ * otwarty 8), nie wartość z kodu generatora; gutshot (4 outy) i backdoory zostają poniżej progu.
+ */
+function outyDrawa(hero: readonly Card[], flop: readonly Card[]): number {
+  const widziane = new Set([...hero, ...flop]);
+  const outy = new Set<Card>();
+  for (let s = 0; s < 4; s++) {
+    const wKolorze = [...widziane].filter((c) => suitOf(c) === s);
+    if (wKolorze.length === 4 && hero.some((c) => suitOf(c) === s)) for (let r = 0; r < 13; r++) if (!widziane.has(makeCard(r, s))) outy.add(makeCard(r, s));
+  }
+  const rangi = new Set([...widziane].map(rankOf));
+  const strit = (rs: Set<number>) => {
+    const z = (r: number) => rs.has(r) || (r === -1 && rs.has(12)); // -1 = as nisko (A-2-3-4-5)
+    for (let lo = -1; lo <= 8; lo++) if ([0, 1, 2, 3, 4].every((k) => z(lo + k))) return true;
+    return false;
+  };
+  if (!strit(rangi)) {
+    for (let r = 0; r < 13; r++) {
+      if (rangi.has(r) || !strit(new Set([...rangi, r]))) continue;
+      for (let s = 0; s < 4; s++) if (!widziane.has(makeCard(r, s))) outy.add(makeCard(r, s));
+    }
+  }
+  return outy.size;
+}
+// Zakres otwarcia BTN wprost z pliku solvera (węzeł wg path i gracza ze spots.yaml), nie z compileRanges ani z losowania generatora:
+// „otworzyłeś z Buttona” wymaga klasy ręki z niezerową częstością akcji innej niż pas (CS, 06-tresci-004).
+const solver6 = JSON.parse(readFileSync(join(root, 'content/ranges/preflop-6max-100bb.json'), 'utf8')) as { spots: { path: string; player: string; actions: string[]; strategy: Record<string, number>[] }[] };
+const defSpotow = parseYaml(readFileSync(join(root, 'content/ranges/spots.yaml'), 'utf8')) as { id: string; hero: string; path: string }[];
+function otwiera(pozycja: string, hc: string): boolean {
+  const def = defSpotow.find((x) => x.id === `rfi.${pozycja.toLowerCase()}`)!;
+  const wezel = solver6.spots.find((n) => n.path === def.path && n.player === def.hero)!;
+  return wezel.actions.some((a, i) => a !== 'fold' && (wezel.strategy[i]![hc] ?? 0) > 0);
+}
+/**
  * Oceny silnika gry dla akcji przy przypadku c-betu (D-793): best small → check dopuszczalne, big niedokładne; best check → mały zakład
  * dopuszczalny, a duży na flopie połączonym niedokładny (D-845, `sizeDown` przypadku R-M5-004; SC-12 ma tylko flopy połączone).
  */
@@ -63,6 +117,30 @@ const OCENY: Record<string, Record<Akcja, string>> = {
   'bet-small': { 'bet-small': 'compliant', check: 'acceptable', 'bet-big': 'inaccuracy' },
   check: { check: 'compliant', 'bet-small': 'acceptable', 'bet-big': 'inaccuracy' },
 };
+
+describe('CZ (06-tresci-007): wyrocznia outów drawa z rang i kolorów, rachunek ręczny', () => {
+  const k = (x: string) => makeCard('23456789TJQKA'.indexOf(x[0]!), 'shdc'.indexOf(x[1]!));
+  const o = (h: string, f: string) => outyDrawa(h.split(' ').map(k), f.split(' ').map(k));
+  it.each([
+    ['Ah 5h', 'Kh 8h 3c', 9], // kolor: 13 − 4 widziane kiery
+    ['9s 8d', '7c 6h 2s', 8], // strit otwarty: T i 5, po 4
+    ['9s 8d', 'Jc 7h 2s', 4], // gutshot: T
+    ['5s 4d', 'Ac 3h Kd', 4], // as nisko: 2
+    ['9h 8h', '7h 6c 2h', 15], // kolor 9 + T i 5 bez dwóch kierów (6)
+    ['Ks Qd', '9c 5h 2s', 0], // bez drawa
+  ] as const)('%s na %s: %i outów', (h, f, n) => expect(o(h, f)).toBe(n));
+  it.each([
+    ['9s 8d', '7c 6h 5s', 'strit'],
+    ['As 2d', '3c 4h 5s', 'strit'], // koło
+    ['Ah 5h', 'Kh 8h 3h', 'kolor'],
+    ['9s 8d', '7c 6h 2s', null], // dopiero draw
+    ['Ks Qd', '9c 5h 2s', null],
+  ] as const)('gotowy układ %s na %s: %s', (h, f, n) => expect(gotowyUklad(h.split(' ').map(k), f.split(' ').map(k))).toBe(n));
+  it('próg drawa z parametru klas rąk: gutshot poniżej, strit otwarty od progu', () => {
+    expect(HOLDING_LIMITS.drawOutsMin).toBeGreaterThan(4);
+    expect(HOLDING_LIMITS.drawOutsMin).toBeLessThanOrEqual(8);
+  });
+});
 
 describe('szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793)', () => {
   const cbet = pl.filter((t) => t.decisions.some((d) => d.kind === 'cbet-case'));
@@ -83,8 +161,11 @@ describe('szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akc
           const flop = v.board.slice(0, 3);
           if (new Set([...v.hero, ...v.villain, ...v.board]).size !== 9) bledy.push(`${seed}: karty się powtarzają`);
           if (b.flop && !textureMatches(classifyFlop(flop), b.flop)) bledy.push(`${seed}: tekstura poza filtrem`);
-          // holding air: bez pary (z samych rang) i klasa air
-          if ((b.holding ?? []).join() === 'air' && (maPare(v.hero, flop) || classifyHolding(v.hero, flop).cls !== 'air')) bledy.push(`${seed}: ręka poza filtrem air`);
+          // holding air: bez pary i bez drawa, oba z samych rang i kolorów (CZ, 06-tresci-007: bez classifyHolding generatora)
+          if ((b.holding ?? []).join() === 'air' && maPare(v.hero, flop)) bledy.push(`${seed}: ręka poza filtrem air (para)`);
+          if ((b.holding ?? []).join() === 'air' && gotowyUklad(v.hero, flop)) bledy.push(`${seed}: ręka poza filtrem air (gotowy ${gotowyUklad(v.hero, flop)})`);
+          if ((b.holding ?? []).join() === 'air' && outyDrawa(v.hero, flop) >= HOLDING_LIMITS.drawOutsMin) bledy.push(`${seed}: ręka poza filtrem air (draw, ${outyDrawa(v.hero, flop)} outów)`);
+          if (t.positions && !otwiera(t.positions.hero, classOf(v.hero[0], v.hero[1]))) bledy.push(`${seed}: ${classOf(v.hero[0], v.hero[1])} poza zakresem otwarcia ${t.positions.hero}`);
           const st = flopBtn(v.hero, v.villain, flop);
           for (const a of wTresci) {
             const f = gradeDecision(st, akcja(a), kit);

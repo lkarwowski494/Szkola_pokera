@@ -1,0 +1,8 @@
+# mutant F4k-holding-kolor · 64eea6c7 · plik packages/poker-core/src/holding.ts
+# stary: categoryRank(category) >= categoryRank(HandCategory.TwoPair) && !onePairWithHole) cls
+# nowy:  categoryRank(category) >= categoryRank(HandCategory.TwoPair) && !onePairWithHole && category !== HandCategory.Flush) cls
+mutant zastosowany: packages/poker-core/src/holding.ts
+$ cd tools/content-build && npx vitest run test/szablony-co.test.ts
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+kod: 0

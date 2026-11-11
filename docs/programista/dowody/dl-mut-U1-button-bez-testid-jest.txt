@@ -1,0 +1,17 @@
+# mutant U1-button-bez-testid-jest · 64eea6c7 · plik apps/mobile/src/components/ui.tsx
+# stary:       testID={testID}
+
+# nowy:  
+mutant zastosowany: apps/mobile/src/components/ui.tsx
+$ cd apps/mobile && npx jest --ci
+  ● Console
+  ● Console
+  ● Console
+  ● Console
+  ● Console
+  ● Console
+  ● Console
+  ● Console
+Test Suites: 118 passed, 118 total
+Tests:       910 passed, 910 total
+kod: 0

@@ -1,0 +1,137 @@
+# mutacja E-air-przyjmuje-weak: plik packages/poker-core/src/scenario-gen.ts
+# perl -0pi -e 's/f === 'air' \? h\.cls === 'air'/f === 'air' ? (h.cls === 'air' || h.cls === 'weak')/'
+diff --git a/packages/poker-core/src/scenario-gen.ts b/packages/poker-core/src/scenario-gen.ts
+index 291c34e6..17f8a7e8 100644
+--- a/packages/poker-core/src/scenario-gen.ts
++++ b/packages/poker-core/src/scenario-gen.ts
+@@ -296,7 +296,7 @@ const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'chec
+ 
+ /** Filtr klasy ręki (F2): air = klasa `air` (bez pary i drawa); pair = jedna para z kartą gracza (także kieszonkowa); draw = klasa `draw` (od HOLDING_LIMITS.drawOutsMin outów, bez pary). */
+ function holdingMatches(f: HoldingFilter, h: ReturnType<typeof classifyHolding>): boolean {
+-  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
++  return f === 'air' ? (h.cls === 'air' || h.cls === 'weak') : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
+ }
+ const RANK_CHARS = '23456789TJQKA';
+ 
+# komenda: (cd tools/content-build) npx vitest run test/szablony-co.test.ts
+
+ RUN  v5.0.3 <scratchpad>/kopia/tools/content-build
+
+(node:1350) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ test/szablony-co.test.ts (16 tests | 4 failed) 61545ms
+   ❯ szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) (5)
+     × sc-11 latwy: 10000 wariantów 167ms
+     × sc-11 sredni: 10000 wariantów 12ms
+     × sc-12 latwy: 10000 wariantów 41ms
+     × sc-12 sredni: 10000 wariantów 31ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-11 latwy: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "34: ręka poza filtrem air (para)",
++   "41: ręka poza filtrem air (para)",
++   "48: ręka poza filtrem air (para)",
++   "50: ręka poza filtrem air (para)",
++   "54: ręka poza filtrem air (para)",
++ ]
+
+ ❯ test/szablony-co.test.ts:154:23
+    152|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    153|         }
+    154|         expect(bledy).toEqual([]);
+       |                       ^
+    155|       }, 300_000);
+    156|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-11 sredni: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "5: ręka poza filtrem air (para)",
++   "7: ręka poza filtrem air (para)",
++   "15: ręka poza filtrem air (para)",
++   "17: ręka poza filtrem air (para)",
++   "18: ręka poza filtrem air (para)",
++ ]
+
+ ❯ test/szablony-co.test.ts:154:23
+    152|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    153|         }
+    154|         expect(bledy).toEqual([]);
+       |                       ^
+    155|       }, 300_000);
+    156|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 latwy: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "16: ręka poza filtrem air (para)",
++   "29: ręka poza filtrem air (para)",
++   "30: ręka poza filtrem air (para)",
++   "36: ręka poza filtrem air (para)",
++   "43: ręka poza filtrem air (para)",
++ ]
+
+ ❯ test/szablony-co.test.ts:154:23
+    152|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    153|         }
+    154|         expect(bledy).toEqual([]);
+       |                       ^
+    155|       }, 300_000);
+    156|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  test/szablony-co.test.ts > szablony treści cbet-case: ocena silnika gry zgodna z oczekiwaną akcją i z wyjaśnieniami (BR-GEN-003, D-793) > sc-12 sredni: 10000 wariantów
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "3: ręka poza filtrem air (para)",
++   "9: ręka poza filtrem air (para)",
++   "27: ręka poza filtrem air (para)",
++   "36: ręka poza filtrem air (para)",
++   "43: ręka poza filtrem air (para)",
++ ]
+
+ ❯ test/szablony-co.test.ts:154:23
+    152|           if (v.points[0]!.correct !== oczekiwana) bledy.push(`${seed}…
+    153|         }
+    154|         expect(bledy).toEqual([]);
+       |                       ^
+    155|       }, 300_000);
+    156|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 12 passed (16)
+   Start at  09:49:16
+   Duration  64.91s (tests 95%, import 4%, transform 1%)
+
+exit 1

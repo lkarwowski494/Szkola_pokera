@@ -1,0 +1,7 @@
+# sonda F: mutant (h.cls === 'air' || h.category === 4) w scenario-gen.ts holdingMatches; komenda: npx vitest run test/zz-sonda-f.test.ts (asercja celowo pada, żeby wypisać wynik)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
++   "sc-11 latwy: strit w 0/10000 wariantach air; ziarna ",
++   "sc-11 sredni: strit w 0/10000 wariantach air; ziarna ",
++   "sc-12 latwy: strit w 413/10000 wariantach air; ziarna 19,36,41",
++   "sc-12 sredni: strit w 415/10000 wariantach air; ziarna 52,72,89",
+      Tests  1 failed (1)

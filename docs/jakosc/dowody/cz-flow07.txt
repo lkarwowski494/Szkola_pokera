@@ -1,0 +1,18 @@
+# CZ flow 07-scenariusz (krok J) — dowody statyczne, 2026-11-11
+Maestro i symulator iOS niedostępne w chmurze: przebieg flowu NIE SPRAWDZONY (prośba o E2E po scaleniu do koordynatora).
+
+## node --test tests/narzedzia/e2e-flowy.test.mjs i mutacje w kopii roboczej
+== bez mutacji
+# fail 0
+== mutant: flow kończy inną lekcję (m2.l2)
+  error: 'flow nie kończy lekcji m2.l1'
+# fail 1
+== mutant: literówka id dzis-scenariuszx we flowie oczekującym
+  error: "oczekujace/07-scenariusz.yaml: id 'dzis-scenariuszx' bez testID w apps/mobile/src"
+# fail 1
+== mutant treści: SC-01 łatwy oczekuje pasu (1 zmiana)
+    pas na flopie poziomu łatwego nie jest błędem
+# fail 1
+== stara wersja e2e-flowy.test.mjs (46197812) z tą samą literówką: przepuszcza
+# pass 10
+# fail 0

@@ -1,0 +1,26 @@
+# mutacja F4-classifyHolding-strit-air: plik packages/poker-core/src/holding.ts
+# perl -0pi -e 's/if \(improvesBoard && categoryRank\(category\)/if (improvesBoard && category !== HandCategory.Straight && categoryRank(category)/'
+diff --git a/packages/poker-core/src/holding.ts b/packages/poker-core/src/holding.ts
+index fb75f683..da5738e2 100644
+--- a/packages/poker-core/src/holding.ts
++++ b/packages/poker-core/src/holding.ts
+@@ -75,7 +75,7 @@ export function classifyHolding(hole: readonly [Card, Card], board: readonly Car
+   const outs = draw?.all.length ?? 0;
+   let cls: HoldingClass;
+   const L = HOLDING_LIMITS;
+-  if (improvesBoard && categoryRank(category) >= categoryRank(HandCategory.TwoPair) && !onePairWithHole) cls = 'very-strong';
++  if (improvesBoard && category !== HandCategory.Straight && categoryRank(category) >= categoryRank(HandCategory.TwoPair) && !onePairWithHole) cls = 'very-strong';
+   else if (pairKind === 'overpair' || (pairKind === 'top' && (kicker ?? 0) >= L.strongKickerMin)) cls = 'strong';
+   else if (outs >= L.comboOutsMin) cls = 'strong';
+   else if (pairKind === 'top' || pairKind === 'second') cls = 'medium';
+# komenda: (cd packages/poker-core) npx vitest run 
+
+ RUN  v5.0.3 <scratchpad>/kopia/packages/poker-core
+
+
+ Test Files  14 passed (14)
+      Tests  179 passed (179)
+   Start at  10:03:37
+   Duration  163.55s (tests 97%, import 3%, transform 1%)
+
+exit 0
