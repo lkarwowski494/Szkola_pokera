@@ -121,3 +121,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | EA | 06 audit | — | 7,11 | 29,1 | 19:45 → 19:48 → 0257debc → d490fc69 (docs) → 20:13 | — | recenzja DU |
 | DX | 08 build | — | 2,96 | 25,5 | 19:20 → 19:23 → af871e32 → CI 43092392739 (174dc00b) → odbiór po EC | — | następca ED; 2 przekazania |
 | EC | 08 audit | — | brak licznika | ~30 | 20:20 → 20:23 → e03b5cf3 20:36 → db4779a0 20:48 → przyjęta | — | recenzja DX 2 części |
+| ED | 08 build | — | 3,06 | 24,9 | 20:28 → 20:30 → 701b6d18 → ci 6fde2216 (sesja) → po EE | — | następca EF |
+| EB | 06 fix | — | 5,67 | 25,0 | 20:18 → 20:20 → d77ab171 → ci f08cabe4 (sesja) → CI dispatch 21:01 | — | — |
