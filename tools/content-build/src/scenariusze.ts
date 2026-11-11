@@ -165,7 +165,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       }
       if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
     }
-    if (d.kind !== 'cbet-case') {
+    // 08-A (DX): filtr holding jest na poziomie szablonu i generator stosuje go w punkcie cbet-case (także po range-spot), więc błąd tylko,
+    // gdy żaden punkt szablonu nie jest cbet-case; zgłaszany raz na punkt niebędący cbet-case, jak dotąd
+    if (d.kind !== 'cbet-case' && !t.decisions.some((x) => x.kind === 'cbet-case')) {
       for (const l of SCENARIO_LEVELS_LIST) if (t.bounds[l]?.holding !== undefined) e.push(`${p} poziom ${l}: holding tylko dla punktu cbet-case`);
     }
     if (d.kind !== 'icm-call') {
