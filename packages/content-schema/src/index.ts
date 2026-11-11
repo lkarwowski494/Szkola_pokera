@@ -613,11 +613,13 @@ export const ScenarioSizeSpotDecision = z
   .object({
     street: z.literal('preflop'),
     kind: z.literal('size-spot'),
-    check: z.enum(['open-size', 'three-bet-size', 'no-limp']),
+    check: z.enum(['open-size', 'three-bet-size', 'no-limp', 'iso-size']),
     rule: id,
     calc: z.never().optional(),
     /** open-size: gracz jest w małym blindzie (rozmiar openSb). */
     sb: z.boolean().optional(),
+    /** iso-size (08-N3, R-M4-012): liczba limperów przed graczem; standard = base + n × perLimper (+ oopExtra z SB i BB). */
+    limpers: z.number().int().min(1).max(4).optional(),
     /** three-bet-size: rozmiar otwarcia rywala w bb. */
     openBb: z.number().positive().optional(),
     actions: z.array(z.object({ action: z.enum(['raise', 'raise-small', 'raise-big', 'limp']), explanation: z.string().min(1) }).strict()).min(2).max(4),

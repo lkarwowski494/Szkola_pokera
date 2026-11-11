@@ -47,10 +47,12 @@ export interface CbetCaseSpec {
 export interface SizeSpotSpec {
   kind: 'size-spot';
   street: 'preflop';
-  check: 'open-size' | 'three-bet-size' | 'no-limp';
+  check: 'open-size' | 'three-bet-size' | 'no-limp' | 'iso-size';
   rule: string;
   sb?: boolean;
   openBb?: number;
+  /** iso-size: liczba limperów przed graczem (08-N3). */
+  limpers?: number;
 }
 /** F4: sprawdzenie all-inu przy ICM; zakres rywala ze spotu push (akcja all-in). */
 export interface IcmCallSpec {
@@ -133,7 +135,7 @@ export function buildGeneratorContext(d: {
   cbetSizes?: { small: number; big: number } | undefined;
 }): GeneratorContext {
   const cbetCases = [...new Map(d.evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()];
-  const sizeRules = d.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)).map((r) => ({ id: r.id, check: { kind: r.check.kind, params: r.check.params } }));
+  const sizeRules = d.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp', 'iso-size'].includes(r.check.kind)).map((r) => ({ id: r.id, check: { kind: r.check.kind, params: r.check.params } }));
   return { spots: d.spots, thresholds: d.thresholds, cbetCases, sizeRules, ...(d.equity169 ? { equity169: d.equity169 } : {}), ...(d.cbetSizes ? { cbetSizes: d.cbetSizes } : {}) };
 }
 
@@ -232,7 +234,7 @@ export interface CbetCaseVariantDecision {
 export interface SizeSpotVariantDecision {
   point: 'size-spot';
   street: 'preflop';
-  check: 'open-size' | 'three-bet-size' | 'no-limp';
+  check: 'open-size' | 'three-bet-size' | 'no-limp' | 'iso-size';
   rule: string;
   /** Akcje do wyboru; `bb` to całkowity rozmiar podbicia (null: limp). */
   options: { action: 'raise' | 'raise-small' | 'raise-big' | 'limp'; bb: number | null }[];
@@ -509,6 +511,11 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       else if (spec.check === 'three-bet-size') {
         if (spec.openBb === undefined) throw new TemplateError(`${t.id}: three-bet-size wymaga openBb`);
         standard = round1(num(rule.check.params.mult, 'mult') * spec.openBb);
+      } else if (spec.check === 'iso-size') {
+        // 08-N3: dobicie limperów (R-M4-012): standard z parametrów reguły; gracz z SB i BB gra po flopie przed limperami (oopExtra)
+        if (spec.limpers === undefined || !t.positions) throw new TemplateError(`${t.id}: iso-size wymaga limpers i positions`);
+        const p = rule.check.params;
+        standard = isoSizeStandardBb({ base: num(p.base, 'base'), perLimper: num(p.perLimper, 'perLimper'), oopExtra: num(p.oopExtra, 'oopExtra') }, spec.limpers, t.positions.hero === 'SB' || t.positions.hero === 'BB');
       } else {
         // no-limp: oceniana jest sama akcja; podbicie o standardowy rozmiar otwarcia z reguły open-size
         const open = ctx.sizeRules.find((r) => r.check.kind === 'open-size');

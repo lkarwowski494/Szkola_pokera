@@ -58,6 +58,8 @@ function sprawdzPozycjeSizeSpot(pos: { hero: string; villain: string }, check: s
     const ip = post(pos.hero) > post(pos.villain);
     if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${pos.hero} wobec ${pos.villain})`);
     if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${pos.hero} wobec ${pos.villain})`);
+  } else if (check === 'iso-size') {
+    // 08-N3: limperzy są przed graczem, rywal (np. blind) nie ma osobnej roli w ocenie; gracz może być na dowolnym miejscu poza BB-bez-akcji, więc tylko różne pozycje
   } else {
     // CJ ŚR-004: zły mały rozmiar (0,8 × standard = 2,0 bb) to rozmiar solvera z UTG (GTO Wizard, Range Morphology: UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb)
     if (check === 'open-size' && pos.hero !== 'BTN' && pos.hero !== 'SB') e.push(`${p} open-size tylko z BTN i SB (rozmiar solvera z ${pos.hero} jest mniejszy lub równy 2,0–2,3 bb, więc mały rozmiar nie byłby błędny)`);
@@ -138,9 +140,16 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       if (!r || r.check.kind !== d.check) e.push(`${p} reguła ${d.rule} nie jest regułą ${d.check} (rozmiar liczy się z jej parametrów)`);
       if (d.check === 'three-bet-size' && d.openBb === undefined) e.push(`${p} three-bet-size wymaga openBb (otwarcie rywala w bb)`);
       if (d.check !== 'three-bet-size' && d.openBb !== undefined) e.push(`${p} openBb tylko dla three-bet-size`);
+      if (d.check === 'iso-size' && d.limpers === undefined) e.push(`${p} iso-size wymaga limpers (liczba limperów przed graczem)`);
+      if (d.check !== 'iso-size' && d.limpers !== undefined) e.push(`${p} limpers tylko dla iso-size`);
+      if (d.check === 'iso-size' && d.limpers !== undefined) {
+        const miejsca = (KOLEJNOSC_PREFLOP as readonly string[]).filter((x) => t.table === '9max' || !['UTG1', 'UTG2', 'LJ'].includes(x));
+        const przed = ['SB', 'BB'].includes(t.positions.hero) ? miejsca.length - 2 : miejsca.indexOf(t.positions.hero);
+        if (d.limpers > przed) e.push(`${p} iso-size: ${d.limpers} limperów przed graczem na ${t.positions.hero} (miejsc przed nim: ${przed})`);
+      }
       if (d.sb !== undefined && d.check === 'three-bet-size') e.push(`${p} sb tylko dla open-size i no-limp`);
       if (d.sb === true && t.positions.hero !== 'SB') e.push(`${p} sb: true wymaga pozycji gracza SB, jest ${t.positions.hero}`);
-      if (d.sb !== true && d.check !== 'three-bet-size' && t.positions.hero === 'SB') e.push(`${p} gracz z SB wymaga sb: true (rozmiar openSb)`);
+      if (d.sb !== true && d.check !== 'three-bet-size' && d.check !== 'iso-size' && t.positions.hero === 'SB') e.push(`${p} gracz z SB wymaga sb: true (rozmiar openSb)`);
       e.push(...sprawdzPozycjeSizeSpot(t.positions, d.check, r?.check.params.position, p));
       const akcje = d.actions.map((a) => a.action);
       if (new Set(akcje).size !== akcje.length) e.push(`${p} akcja powtórzona`);
@@ -222,6 +231,9 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
     const kind = d.kind ?? 'draw-call';
     if (!RODZAJE_NA_EKRANIE.includes(kind)) {
       return [`szablon ${t.id}: punkt ${i + 1} ${kind} nie jest jeszcze obsługiwany na ekranie scenariusza (obsługiwane: ${RODZAJE_NA_EKRANIE.join(', ')}; ${kind}: ${POWOD_POZA_EKRANEM[kind] ?? 'brak obsługi'}); szablon nie może trafić do bazy treści`];
+    }
+    if (d.kind === 'size-spot' && d.check === 'iso-size') {
+      return [`szablon ${t.id}: punkt ${i + 1} iso-size nie jest jeszcze obsługiwany na ekranie scenariusza (ekran nie pokazuje limperów przed graczem; widok: zadanie dla roli 04 i EkranScenariusza); szablon nie może trafić do bazy treści`];
     }
     if (kind === 'icm-call' && t.levels.includes('trudny')) {
       return [`szablon ${t.id}: punkt ${i + 1} icm-call: poziom trudny czeka na 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie; docs/tresci/szablony-robocze/README.md, SC-34, D-825); szablon nie może trafić do bazy treści`];

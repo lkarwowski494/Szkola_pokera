@@ -1,0 +1,4 @@
+# Decyzje sesji EF (08-programista, następca ED); pula D-1140…D-1159
+| ID | Data | Decyzja | Odrzucone | Powód / zależność |
+|---|---|---|---|---|
+| D-1140 | 2026-11-11 | N3 jako kontrola `iso-size` w istniejącym `size-spot` (schemat: `check: 'iso-size'` + `limpers` 1–4; liczba bb z parametrów reguły R-M4-012 przez `isoSizeStandardBb`; „oop” z pozycji gracza: SB i BB grają po flopie przed limperami). Bramka budowania: `limpers` tylko i wymagane dla iso-size, nie więcej niż miejsc przed graczem. Bramka ekranu odrzuca iso-size do czasu widoku limperów (RODZAJE_NA_EKRANIE tylko z widokiem): wymaga zadania dla roli 04 (nowy wygląd: limperzy w dzienniku i na stole). | Osobny rodzaj `iso-spot` (powielenie size-spot: akcje, werdykty, wariant, ekran). Pole `oop` w szablonie (dane do rozjazdu z pozycją gracza). | Analogia wewnętrzna: size-spot (CA, F3); w Treningu odpowiednika nie sprawdzano (poza zakresem sesji, nieprzeczytane). Do weta. |
