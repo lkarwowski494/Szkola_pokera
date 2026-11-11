@@ -1,18 +1,19 @@
 // KO-049 (sesja CA): GeneratorContext przechodzi przez wybierzWariant do generatora (punkty range-spot, cbet-case, size-spot, icm-call
 // potrzebują danych spoza szablonu, D-661). Bez kontekstu takie punkty kończą się TemplateError.
 import { describe, expect, it } from 'vitest';
-import { generateVariant, TemplateError, type GeneratorContext, type GeneratorTemplate } from '@szkola/poker-core';
+import { generateVariant, HAND_CLASSES, TemplateError, type GeneratorContext, type GeneratorTemplate } from '@szkola/poker-core';
 import { wybierzWariant } from '../src';
 
 const SZABLON: GeneratorTemplate = {
   id: 'test-ctx',
+  positions: { hero: 'BTN', villain: 'BB' }, // CS (WYS-004): ręka gracza z zakresu otwarcia jego pozycji (spot rfi.btn w kontekście)
   levels: {
     latwy: { draws: [], marginMin: 0, marginMax: null, reject: [], flop: { height: ['high'], suits: ['rainbow'], ranks: ['disconnected'] }, expected: ['bet-small'] },
   },
   decisions: [{ kind: 'cbet-case', street: 'flop', rule: 'R-M5-007' }],
 };
 const KONTEKST: GeneratorContext = {
-  spots: [],
+  spots: [{ id: 'rfi.btn', uncertain: [], actions: [{ label: 'fold', freqs: HAND_CLASSES.map(() => 0) }, { label: 'raise 2.5', freqs: HAND_CLASSES.map(() => 1) }] }],
   thresholds: { mixedMin: 0.035, mixedLow: 0.25 },
   cbetCases: [{ when: { height: ['high'], suits: ['rainbow'], ranks: ['disconnected', 'semi-connected'] }, best: 'small', rule: 'R-M5-007' }],
 };
