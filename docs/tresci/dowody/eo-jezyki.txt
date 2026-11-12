@@ -1,0 +1,13 @@
+$ node scratchpad/jez.mjs  (spójność {{n:…}} i '2/3' w R-M6-006/R-M6-007/R-M7-006 względem pl)
+en R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=false if-top-pair=false | R-M7-006: src2/3=false if-top-pair=true
+de R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+es R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+fr R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+it R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+ja R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+ko R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+pt R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+pt-BR R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+vi R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+zh-Hant R-M6-006: src2/3=false if-top-pair=false | R-M6-007: src2/3=true if-top-pair=false | R-M7-006: src2/3=false if-top-pair=false
+kod 0
