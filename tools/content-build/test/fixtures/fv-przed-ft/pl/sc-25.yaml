@@ -1,0 +1,26 @@
+# SC-25 (M8): średnia ręka (druga para) na riverze z pozycji — czekanie do showdownu (punkt river-value, 08-FD-4, D-1302, D-1417).
+# Ocena: rachunek R-M8-001 (math): czekanie ⇔ w ≤ 0,5 − δ, w = gorsze ÷ (gorsze + lepsze) wśród kombinacji sprawdzających po usunięciu
+# kart; wyjaśnienie z R-M8-002 (heuristic, wniosek z R-M8-001: „bet zamienia rękę z wartością przy showdownie w blef”). Pasujące ręce
+# są gorsze od gracza w każdym wariancie (D-1302 war. 2), więc zdanie „i tak przegrałyby przy showdownie” jest prawdą. Zakres rywala
+# to dana zadania (D-1300). Szkic sesji FQ (D-1462). ZALEŻNOŚĆ: river-value bez widoku (D-1420, rola 04).
+id: sc-25
+module: m8
+situation: "Na riverze masz {{t:second-pair|drugą parę}}, jesteś na Buttonie, a {{t:big-blind}} {{t:check|czeka}}. Załóż, że rywal nie {{t:raise|przebija}}: {{t:call|sprawdzi}} z AA, KK i z każdym AK, AQ i KQ, a {{t:fold|spasuje}} z każdym QJ i JT. {{t:bet|Stawiasz}} czy {{t:check|czekasz}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na riverze. {{t:check|Czekasz}} i idziesz do {{t:showdown|showdownu}} za darmo, bo większość rąk, które {{t:call|sprawdzą}}, to ręce lepsze od twojej: każde {{t:call|sprawdzenie}} lepszą ręką przegrywa jeden {{t:bet|zakład}}, a gorszą wygrywa tylko jeden. Po {{t:check|czekaniu}} wygrywasz {{t:pot|pulę}} z każdą gorszą ręką rywala."
+      - action: "bet"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na riverze. {{t:bet|Zakład}} traci: większość rąk, które {{t:call|sprawdzą}}, to ręce lepsze od twojej, a ręce, które {{t:fold|spasują}}, i tak przegrałyby z tobą przy {{t:showdown|showdownie}}. Tak {{t:bet}} zamienia rękę z wartością przy {{t:showdown|showdownie}} w {{t:bluff|blef}}."
