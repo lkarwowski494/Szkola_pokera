@@ -1,0 +1,14 @@
+# B4: zielone, 2026-11-12 (npx vitest run test/flop-native.test.ts test/flop-w2.test.ts)
+ ✓ test/flop-w2.test.ts > W2: K1 i K2 z wagą preflop × kombinacje (KK: 3 kombinacje, AA: 6, 72o: 7 po usunięciu kart stołu) 3ms
+ ✓ test/flop-native.test.ts > B4 solver flopu w C: zgodność z TS > flop z jednym turnem i jednym riverem = wynik TS (B3) 4812ms
+ ✓ test/flop-native.test.ts > B4 solver flopu w C: zgodność z TS > turn z 44 riverami = wynik TS (B3) 8643ms
+ ✓ test/flop-native.test.ts > B4 solver flopu w C: zgodność z TS > pełny flop (wszystkie turny i rivery): NashConv poniżej 0,5% puli 48252ms
+      Tests  4 passed (4)
+pełny flop po zmniejszeniu zakresów testu: 29,7 s
+
+# Diagnoza rozbieżności C–TS przy pierwszym przebiegu (float32 w C):
+# river-only: różnica 0; turn z 1–2 riverami: 3e-5; turn ze wszystkimi riverami: 0,081 (rivery 6x, 7x, 8h przy Kd 9c 5h 2s, tylko z przebiciami na turnie).
+# Z regretami w double (-DREAL=double): turn 66% + przebicia, river 6s: maxD 0,0000, wartość 15,87784 = 15,87784.
+# Wniosek: zaokrąglenia float32 rozstrzygają inaczej remisy regretów w sytuacjach obojętnych; model identyczny.
+# Testy różnicowe używają wariantu double (tolerancja 1e-6), produkcja float (pamięć); jakość float pilnuje NashConv.
+# Ranking eval7 (C) vs poker-core: 0 niezgodności na 200 000 losowych rękach 7-kartowych.

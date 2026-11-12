@@ -1,0 +1,13 @@
+# B4: przebieg czerwony na zaślepkach src/flop/native.ts i src/flop/w2.ts, 2026-11-12
+ × test/flop-w2.test.ts > W2: K1 i K2 z wagą preflop × kombinacje (KK: 3 kombinacje, AA: 6, 72o: 7 po usunięciu kart stołu) 8ms
+ × test/flop-native.test.ts > B4 solver flopu w C: zgodność z TS > flop z jednym turnem i jednym riverem = wynik TS (B3) 3292ms
+ × test/flop-native.test.ts > B4 solver flopu w C: zgodność z TS > turn z 44 riverami = wynik TS (B3) 8523ms
+ × test/flop-native.test.ts > B4 solver flopu w C: zgodność z TS > pełny flop (wszystkie turny i rivery): NashConv poniżej 0,5% puli 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected +0 to be 200 // Object.is equality
+AssertionError: expected +0 to be 60 // Object.is equality
+AssertionError: expected +0 to be 150 // Object.is equality
+ FAIL  test/flop-w2.test.ts > W2: K1 i K2 z wagą preflop × kombinacje (KK: 3 kombinacje, AA: 6, 72o: 7 po usunięciu kart stołu)
+AssertionError: expected +0 to be close to 0.86, received difference is 0.86, but expected 5e-11
+     24|   // wagi: AA 6, KK 3, 72o 0,5 × 7 = 3,5 (7s/7h/7c × 2s/2h/2d bez 7s2s…
+      Tests  4 failed (4)

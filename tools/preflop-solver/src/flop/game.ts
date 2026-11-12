@@ -37,6 +37,8 @@ export interface GameSpec {
   readonly ipBetAfterCheck?: boolean;
   /** OOP już czekał na pierwszej ulicy (SRP: BB czeka na flopie; strona pokazuje decyzję otwierającego). */
   readonly oopCheckedFirst?: boolean;
+  /** Tylko do testów (B4): ogranicza karty turnu do tej listy (równe prawdopodobieństwa). */
+  readonly turnCards?: readonly Card[];
   /** Tylko do testów (B3): ogranicza karty rivera do tej listy (równe prawdopodobieństwa). */
   readonly riverCards?: readonly Card[];
 }
@@ -151,7 +153,7 @@ export class FlopGame {
     if (st.board.length === 5) return { k: 't', winner: -1, c0: st.c[0], c1: st.c[1], board: st.board };
     const cards: Card[] = [];
     const ch: Node[] = [];
-    const allowed = st.board.length === 4 ? this.spec.riverCards : undefined;
+    const allowed = st.board.length === 4 ? this.spec.riverCards : st.board.length === 3 ? this.spec.turnCards : undefined;
     for (let card = 0; card < 52; card++) {
       if (st.board.includes(card) || (allowed && !allowed.includes(card))) continue;
       cards.push(card);
