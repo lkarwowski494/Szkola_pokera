@@ -1,0 +1,61 @@
+# porównanie plików scaleń cb4f541d i bd9a5159 z obu rodzicami (git diff --quiet), 2026-11-12; OBA-RÓŻNE = różny od obu rodziców; UTRACONE? = zmiana strony 2 nieobecna w wyniku
+== cb4f541d base=31723a6c
+-- zmiany strony 2 względem bazy nieobecne w scaleniu:
+== bd9a5159 base=31723a6c
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-bg.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-cs.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-da.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-de.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-el.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-en.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-es-419.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-es.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-et.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-fi.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-fr.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-hr.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-hu.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-id.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-it.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-ja.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-ko.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-lt.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-lv.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-ms.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-nb.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-nl.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-pl.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-pt-BR.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-pt.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-ro.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-ru.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-sk.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-sl.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-sr.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-sv.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-tr.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-uk.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-vi.db
+OBA-RÓŻNE apps/mobile/assets/content/tresc-c9a9ca907a-zh-Hant.db
+OBA-RÓŻNE apps/mobile/src/data/content/tresc.generated.ts
+-- zmiany strony 2 względem bazy nieobecne w scaleniu:
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-bg.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-cs.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-da.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-de.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-el.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-en.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-es-419.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-es.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-et.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-fi.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-fr.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-hr.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-hu.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-id.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-it.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-ja.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-ko.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-lt.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-lv.db
+UTRACONE? apps/mobile/assets/content/tresc-331c1917cc-ms.db

@@ -1,0 +1,22 @@
+# bash mutanty.sh <worktree f0434ab2 w scratchpadzie>, 2026-11-12; każdy mutant: sed, test celowany, przywrócenie; git status worktree po: tylko nieśledzone node_modules (dowiązania)
+M1-overkarta-every: ZABITY (vitest kod 1;  Tests 2 failed | 15 passed (17))
+M2-backdoor-koloru-bez-overkarty: ZABITY (vitest kod 1;  Tests 4 failed | 13 passed (17))
+M3-backdoor-strita-bez-overkarty: ZABITY (vitest kod 1;  Tests 4 failed | 13 passed (17))
+M4-overkarta-ge: PRZEŻYŁ
+M5-overkarta-min-zamiast-max: ZABITY (vitest kod 1;  Tests 4 failed | 13 passed (17))
+M6-kicker-J: ZABITY (vitest kod 1;  Tests 1 failed | 2 passed (3))
+M7-kicker-T: ZABITY (vitest kod 1;  Tests 1 failed | 2 passed (3))
+M8-kicker-K: PRZEŻYŁ
+M9-kicker-warunek-usuniety: ZABITY (vitest kod 1;  Tests 1 failed | 2 passed (3))
+M10-rola-odwrocona: ZABITY (jest kod 1; Tests:       2 failed, 5 passed, 7 total)
+M11-etykieta-czytnika-usunieta: ZABITY (jest kod 1; Tests:       1 failed, 6 passed, 7 total)
+M12-pasek-ocen-bez-etykiet: PRZEŻYŁ
+M13-el-kontrola-de-sc06: PRZEŻYŁ (kontrola sprawdza tylko pl, en)
+M14-el-kontrola-en-sc06: ZABITY
+# M13 uzupełnienie: ta sama mutacja (de sc-06 bez equityMarginMin) + vitest content-build w worktree:
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/szablony-bs.test.ts > przekłady szablonów: ta sama struktura co pl (zmienia się tylko tekst) > de: szablony jak w pl
+ Test Files  2 failed | 61 passed (63)
+      Tests  1 failed | 674 passed | 1 expected fail (676)
+kod 1
+# (k06-content-build pada w worktree z powodu dowiązań node_modules: Cannot find package '@szkola/poker-core' z packages/domena — artefakt środowiska sondy, nie mutanta)

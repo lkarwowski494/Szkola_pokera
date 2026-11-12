@@ -1,0 +1,36 @@
+#!/bin/bash
+# Mutanty ET: uruchamiane w worktree f0434ab2 (scratchpad), każdy mutant: zmiana, test, przywrócenie
+WT=$1; cd $WT
+SG=packages/poker-core/src/scenario-gen.ts
+run() { # nazwa plik sed-wyrażenie katalog testy...
+  local n=$1 f=$2 e=$3 dir=$4; shift 4
+  cp $f /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak; sed -i "$e" $f
+  if cmp -s $f /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak; then echo "$n: MUTACJA NIE ZASZŁA"; return; fi
+  (cd $dir && npx vitest run "$@" >/tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.log 2>&1); k=$?
+  cp /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak $f
+  if [ $k -ne 0 ]; then echo "$n: ZABITY (vitest kod $k; $(grep -E 'Tests .*failed' /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.log | head -1 | tr -s ' '))"; else echo "$n: PRZEŻYŁ"; fi
+}
+run M1-overkarta-every $SG 's/const overkarta = hero.some(/const overkarta = hero.every(/' packages/poker-core test/scenario-dx.test.ts
+run M2-backdoor-koloru-bez-overkarty $SG 's/flop.filter((c) => suitOf(c) === suitOf(hero\[0\])).length === 1 \&\& overkarta;/flop.filter((c) => suitOf(c) === suitOf(hero[0])).length === 1;/' packages/poker-core test/scenario-dx.test.ts
+run M3-backdoor-strita-bez-overkarty $SG 's/if (hasStraightBackdoor(hero, flop) \&\& overkarta) return/if (hasStraightBackdoor(hero, flop)) return/' packages/poker-core test/scenario-dx.test.ts
+run M4-overkarta-ge $SG 's/rankOf(c) > Math.max(...flop.map(rankOf))/rankOf(c) >= Math.max(...flop.map(rankOf))/' packages/poker-core test/scenario-dx.test.ts
+run M5-overkarta-min-zamiast-max $SG 's/rankOf(c) > Math.max(...flop.map(rankOf))/rankOf(c) > Math.min(...flop.map(rankOf))/' packages/poker-core test/scenario-dx.test.ts
+run M6-kicker-J $SG 's/const TURN_BET_KICKER_MIN = 10;/const TURN_BET_KICKER_MIN = 9;/' packages/poker-core test/ei-turn-bet-zywe-outy.test.ts
+run M7-kicker-T $SG 's/const TURN_BET_KICKER_MIN = 10;/const TURN_BET_KICKER_MIN = 8;/' packages/poker-core test/ei-turn-bet-zywe-outy.test.ts
+run M8-kicker-K $SG 's/const TURN_BET_KICKER_MIN = 10;/const TURN_BET_KICKER_MIN = 11;/' packages/poker-core test/ei-turn-bet-zywe-outy.test.ts
+run M9-kicker-warunek-usuniety $SG "s/(h.pairKind === 'top' \&\& (h.kicker ?? -1) >= TURN_BET_KICKER_MIN)/h.pairKind === 'top'/" packages/poker-core test/ei-turn-bet-zywe-outy.test.ts
+W=apps/mobile/src/features/scenariusz/wariant.ts
+runj() { local n=$1 f=$2 e=$3; shift 3; cp $f /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak; sed -i "$e" $f
+  if cmp -s $f /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak; then echo "$n: MUTACJA NIE ZASZŁA"; return; fi
+  (cd apps/mobile && npx jest --ci "$@" >/tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.log 2>&1); k=$?; cp /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak $f
+  if [ $k -ne 0 ]; then echo "$n: ZABITY (jest kod $k; $(grep -E '^Tests:' /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.log | head -1))"; else echo "$n: PRZEŻYŁ"; fi; }
+runj M10-rola-odwrocona $W "s/(a === d.correct ? 'best-hand' : 'other-hand')/(a === d.correct ? 'other-hand' : 'best-hand')/" ek-pick-hand-ekran
+runj M11-etykieta-czytnika-usunieta apps/mobile/src/components/PasekStrategii.tsx "s/accessibilityLabel={o.etykieta ?? o.text}/accessibilityLabel={o.text}/" ek-pick-hand-ekran
+runj M12-pasek-ocen-bez-etykiet apps/mobile/src/features/scenariusz/komponenty.tsx 's/`${etykiety?.\[a\] ?? nazwy\[a\]} /`${nazwy[a]} /' ek-pick-hand-ekran
+# el-kontrola: usunięcie equityMarginMin z de sc-06 (język spoza pl/en)
+cp content/de/scenarios/sc-06.yaml /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak; sed -i 's/equityMarginMin: 0.02, //' content/de/scenarios/sc-06.yaml
+node docs/tresci/narzedzia/el-kontrola.mjs --ko076 >/tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.log 2>&1; k=$?; cp /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak content/de/scenarios/sc-06.yaml
+[ $k -ne 0 ] && echo "M13-el-kontrola-de-sc06: ZABITY" || echo "M13-el-kontrola-de-sc06: PRZEŻYŁ (kontrola sprawdza tylko pl, en)"
+cp content/en/scenarios/sc-06.yaml /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak; sed -i 's/equityMarginMin: 0.02, //' content/en/scenarios/sc-06.yaml
+node docs/tresci/narzedzia/el-kontrola.mjs --ko076 >/tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.log 2>&1; k=$?; cp /tmp/claude-0/-home-user-Szkola-pokera/f328ce7e-d1c6-5bb7-8499-4bc5f085326f/scratchpad/mut/tmp.bak content/en/scenarios/sc-06.yaml
+[ $k -ne 0 ] && echo "M14-el-kontrola-en-sc06: ZABITY" || echo "M14-el-kontrola-en-sc06: PRZEŻYŁ"

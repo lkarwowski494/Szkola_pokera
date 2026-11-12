@@ -1,0 +1,64 @@
+# pnpm run ci na f0434ab2 (gałąź sesja-et-recenzja), kontener ET, 2026-11-12; pnpm install --frozen-lockfile kod 0
+# komenda: pnpm run ci; pełny log 3689 linii w scratchpadzie; tu podsumowania
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> szkola-pokera@ test /home/user/Szkola_pokera
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  24 passed (24)
+packages/poker-core test:       Tests  245 passed (245)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  63 passed (63)
+tools/content-build test:       Tests  678 passed | 1 expected fail (679)
+apps/mobile test: Test Suites: 128 passed, 128 total
+apps/mobile test: Tests:       1313 passed, 1313 total
+> szkola-pokera@ test:skrypty /home/user/Szkola_pokera
+# Subtest: 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+ok 7 - 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 112 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 132 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 160 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 167 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+# Subtest: każdy workflow parsuje się bez błędów
+ok 178 - każdy workflow parsuje się bez błędów
+# tests 201
+# pass 201
+# fail 0
+> szkola-pokera@ test:kontrole /home/user/Szkola_pokera
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+> szkola-pokera@ k08 /home/user/Szkola_pokera
+> szkola-pokera@ i18n:kod /home/user/Szkola_pokera
+błędy: 0, uwagi: 560; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 860
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+
+
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+(node:5148) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+0 błędów, 1 uwag
+> szkola-pokera@ tresci:el-kontrola /home/user/Szkola_pokera
+0 braków
+real	10m55.254s
+KOD WYJŚCIA: 0
