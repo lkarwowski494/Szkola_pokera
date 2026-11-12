@@ -298,7 +298,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
  * `icm-call` (F4) wszedł z widokiem stosów wszystkich graczy i nagród (DP, D-889; projekt roli 04). Warunek SC-34 (D-825): poziom trudny icm-call czeka na 06-tresci-002
  * (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie), więc bramka odrzuca szablon icm-call z poziomem trudnym (`checkScenarioNaEkran`, D-986).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'river-catch', 'defend']; // pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend: FG (apps/mobile fg-*-ekran.test.tsx)
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'river-catch', 'defend', 'list-hand']; // pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend, list-hand: FG (apps/mobile fg-*-ekran.test.tsx)
+/** Zamknięte słownictwo akcji punktu list-hand na ekranie (FG, D-1142): lustro `AKCJE_LISTY` w apps/mobile/src/features/scenariusz/wariant.ts (test przypięcia po obu stronach). */
+export const AKCJE_LISTY_EKRANU: readonly string[] = ['fold', 'check', 'call', 'limp', 'raise', '4bet', 'all-in'];
 const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {};
 
 /**
@@ -319,6 +321,10 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
     }
     if (kind === 'icm-call' && t.levels.includes('trudny')) {
       return [`szablon ${t.id}: punkt ${i + 1} icm-call: poziom trudny czeka na 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie; docs/tresci/szablony-robocze/README.md, SC-34, D-825); szablon nie może trafić do bazy treści`];
+    }
+    if (d.kind === 'list-hand') {
+      const obce = d.actions.map((a) => a.action).filter((a) => !AKCJE_LISTY_EKRANU.includes(a));
+      if (obce.length) return [`szablon ${t.id}: punkt ${i + 1} list-hand: ekran nie nazywa akcji ${obce.join(', ')} (znane: ${AKCJE_LISTY_EKRANU.join(', ')}); nowa akcja wymaga nazwy w słowniku (scenario.action) i wpisu w AKCJE_LISTY; szablon nie może trafić do bazy treści`];
     }
     const wymagane = akcjeSzablonu(kind, d.kind === 'size-spot' ? d.check : undefined);
     if (!wymagane) return [];

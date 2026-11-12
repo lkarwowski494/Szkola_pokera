@@ -198,7 +198,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const ocenaMode = p.faza === 'ocena';
   const indeks = ocenaMode ? s.wybory.length - 1 : s.wybory.length;
   const d = s.wariant.points[indeks];
-  const przebieg = przebiegWariantu(s.wariant, s.wybory);
+  const przebieg = przebiegWariantu(s.wariant, s.wybory, s.szablon);
   const oceny = przebieg.ok ? przebieg.wartosc.kroki.map((k) => k.ocena) : [];
   const widok = d ? widokDecyzji(s.wariant, indeks, s.szablon) : null;
   const wybor = ocenaMode ? s.wybory[indeks] : undefined;
@@ -213,7 +213,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const opisRywala = d && ulicaDecyzji ? [t(`scenario.street.${ulicaDecyzji}`), ruch].filter((x) => x).join('. ') : null;
   useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '' }) : t('scenario.verdict.yours', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '', lepiej: d ? opisAkcjiEkranu(poprawnaAkcja(d)).fraza : '' }) }) : ocenaMode ? null : opisRywala);
   if (!d || !widok) return <Screen>{null}</Screen>;
-  const akcje = akcjePunktu(d);
+  const akcje = akcjePunktu(d, s.szablon.decisions[indeks]);
   const teksty: Partial<Record<Akcja, TekstAkcji>> = Object.fromEntries(akcje.map((a) => [a, opisAkcjiEkranu(a)]));
   const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, teksty[a]?.nazwa ?? '']));
   const etykiety: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.flatMap((a) => { const e = teksty[a]?.czytnik; return e ? [[a, e]] : []; }));
@@ -247,6 +247,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         stosBb={s.szablon.stackBb}
       />
       )}
+      {d.point === 'list-hand' ? <Text testID="list-hand-sytuacja" style={[styl.tresc, { color: tk.ink }]}>{s.szablon.situation}</Text> : null}
       {d.point === 'pick-hand' ? (
         <View testID="pick-hand-rece" style={{ flexDirection: 'row', justifyContent: 'space-around', gap: odstep.m }}>
           {d.hands.map((h, k) => <CardRow key={k} cards={h.map(cardToString)} size="lg" />)}
@@ -309,7 +310,7 @@ function StolIcmEkranu({ uklad, s, reka, t }: { uklad: UkladIcm; s: SesjaScenari
     />
   );
 }
-const ocenyAkcjiSesji = (s: SesjaScenariusza, i: number) => ocenyAkcji(s.wariant, i);
+const ocenyAkcjiSesji = (s: SesjaScenariusza, i: number) => ocenyAkcji(s.wariant, i, s.szablon);
 
 // ---------- Koniec ----------
 export interface PropsKonca {
@@ -332,7 +333,7 @@ export function KoniecScenariusza(p: PropsKonca): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   const { sesja: s } = p;
-  const przebieg = przebiegWariantu(s.wariant, s.wybory);
+  const przebieg = przebiegWariantu(s.wariant, s.wybory, s.szablon);
   const kroki = przebieg.ok ? przebieg.wartosc.kroki : [];
   const dobre = kroki.filter((k) => k.ocena === 'zgodne' || k.ocena === 'dopuszczalne').length;
   const pokaz = przebieg.ok ? przebieg.wartosc.pokazanie : null;
