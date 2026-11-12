@@ -914,3 +914,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 21:47 | FJ → koordynator | PRZEKAZANIE @ 78f6d1f0 (A wpisane, C po 1.0); bez scalenia; FJ 8,26 USD → zarchiwizowana | FU |
 | 21:50 | koordynator | start FU session_01T66VBvPdLsESzcYgNioFpm, cmp identyczny 61014 B | kontrola 22:50 |
 | 22:30 | FU → koordynator | PRZEKAZANIE @ b26c26e7: PRZYJĄĆ Z UWAGAMI (0/0/2/3), ci kod 0 5dac38b3 → FP+FR przyjęte; E6 przekazanie (36,5%) | następca: scalenie |
+| 22:40 | koordynator | **przekazane do session_01T66VByxxQ4VaznS4NWFuhb** (start OK; prompt przez subagenta, cmp identyczny 54246 B); moje przypomnienia kontrola/05:00/14:00 usunięte; zostaje „kontrola przekazania” za 30 min | PRZEJĄŁEM od następcy |
