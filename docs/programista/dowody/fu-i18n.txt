@@ -1,0 +1,20 @@
+$ node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src  # @5ec4f912 i @83b03fdc, kopia robocza
+5ec4f912: błędy: 0, uwagi: 561; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 861 (kod 0)
+83b03fdc: błędy: 0, uwagi: 564; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 863 (kod 0)
+$ diff <(sort i18n-5ec4f912) <(sort i18n-83b03fdc) | grep -v "EkranScenariusza.tsx"  # numery linii kodu pominięte
+> UWAGA ja scenario.potOnly: brak liter pisma języka („{{t:pot|Pot}} {{pula}} bb”)
+> UWAGA ko scenario.potOnly: brak liter pisma języka („{{t:pot|Pot}} {{pula}} bb”)
+> UWAGA zh-Hant scenario.potOnly: brak liter pisma języka („{{t:pot|Pot}} {{pula}} bb”)
+< błędy: 0, uwagi: 561; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 861
+> błędy: 0, uwagi: 564; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 863
+
+$ git checkout b419ebdf && node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src
+BŁĄD de scenario.potOnly: brak tłumaczenia
+BŁĄD de scenario.action.bet: brak tłumaczenia
+BŁĄD es scenario.potOnly: brak tłumaczenia
+BŁĄD es scenario.action.bet: brak tłumaczenia
+błędy: 18, uwagi: 561; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 863
+kod wyjścia: 1
+$ git checkout 3156267a && node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src
+błędy: 0, uwagi: 564; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 863
+kod wyjścia: 0

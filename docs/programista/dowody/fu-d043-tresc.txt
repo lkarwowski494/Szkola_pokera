@@ -1,0 +1,24 @@
+$ git diff --stat 5ec4f912..83b03fdc -- content apps/mobile/assets apps/mobile/src/data
+kod wyjścia: 0 (pusto = brak zmian treści i baz)
+
+$ git diff 5ec4f912..83b03fdc -- tools/content-build/src | grep -E "^[-+].*(\bid\b|hash|sha|klucz.*id|identyfikator)" 
+56:+        if (Math.abs(r - w) > 1e-9) e.push(`szablon ${t.id}: punkt decyzji ${i + 1} (${d.kind}): rozmiar ${klucz === 'cbet.size.small' && d.kind !== 'defend' ? 'small' : klucz === 'cbet.size.big' && d.kind !== 'defend' ? 'big' : 'fractions'} ${r} w decyzji, a tekst podaje {{n:${klucz}}} = ${w} (06-tresci-008)`);
+kod wyjścia grep: 0 (1 = brak trafień)
+
+$ pnpm content:check (wycinek z pnpm run ci @ 83b03fdc, kod całości 0; dowody/fu-ci-baseline-83b03fdc.txt)
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> pnpm --filter @szkola/content-build check
+
+
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+(node:4310) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
