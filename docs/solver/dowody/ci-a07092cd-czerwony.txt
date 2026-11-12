@@ -1,0 +1,11 @@
+# Przebieg CI na a07092cd (B2), 2026-11-12: kod 1. Przyczyny (naprawione w afd0e3e8): test W1(a) > 5 s pod obciążeniem, limity.test.ts łapał '}, 5000);', plus czerwony test B3 dopisany w trakcie przebiegu.
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  255 passed (255)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+tools/preflop-solver test:  FAIL  test/flop-river.test.ts > W1(a) zakres spolaryzowany kontra łapacz blefów (R-M8-010, R-M6-001) > zakład 1 puli: udział blefów B÷(P+2B), obrona P÷(P+B), tolerancja 0,5 pp
+tools/preflop-solver test:  FAIL  test/flop-turn.test.ts > B3 turn + river > turn bez zakładów z jednym riverem daje ten sam wynik co river z B2
+tools/preflop-solver test:  FAIL  test/limity.test.ts > limity czasu testów solvera > LIMIT_CIEZKI_MS ≥ 180 s; żaden test nie ma limitu wpisanego liczbą poniżej niego
+tools/preflop-solver test:       Tests  3 failed | 49 passed (52)
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/preflop-solver@0.1.0 test: `vitest run`
