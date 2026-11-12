@@ -459,7 +459,7 @@
   because: "擁有{{t:position|位置}}的{{t:call|跟注}}者，其{{t:range|範圍}}是{{t:condensed|壓縮}}的：弱牌他已經{{t:fold|棄牌}}，最強的一部分他已經{{t:raise|加注}}，所以剩下的主要是中等和好牌；再加上翻牌後每一{{t:street|街}}都是你先行動"
   level: heuristic
   check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
-  source: "商業求解器網站，C-Betting As the OOP Preflop Raiser（UTG vs BTN c-bet 28%；「Even a hand like top pair top kicker is preferred to be played as a check-call」）；訓練網站，C-Betting On Ace-High Boards（CO vs BTN，A94r：「we will check over 96% of the time」）; training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: 「The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on」)"
+  source: "商業求解器網站，C-Betting As the OOP Preflop Raiser（UTG vs BTN c-bet 28%；「Even a hand like top pair top kicker is preferred to be played as a check-call」）；訓練網站，C-Betting On Ace-High Boards（CO vs BTN，A94r：「we will check over 96% of the time」）; 訓練網站，C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, 從中間位置開池，按鈕位跟注：「The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on」)"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
@@ -716,7 +716,7 @@
 - id: R-M8-006
   module: m8
   if: "你在選擇河牌要用哪些手牌{{t:bluff|詐唬}}"
-  then: "你用攤牌時贏不了的最弱手牌{{t:bluff|詐唬}}（例如沒中的{{t:straight|順子}}{{t:draw|聽牌}}，或毫無勝算的高牌）；有攤牌價值的手牌{{t:check|過牌}}"
+  then: "你用攤牌時既贏不了、也無法平分{{t:pot|底池}}的最弱手牌{{t:bluff|詐唬}}（例如沒中的{{t:straight|順子}}{{t:draw|聽牌}}，或毫無勝算的高牌）；有攤牌價值的手牌{{t:check|過牌}}"
   because: "用{{t:check|過牌}}後常常能贏的牌{{t:bluff|詐唬}}，等於放棄那份勝利；毫無勝算的牌在{{t:bluff|詐唬}}失敗時沒有任何損失"
   level: heuristic
   source: "商業求解器網站，We're At The River. Our Hand Can't Win. Now What?；訓練網站，Polarized vs Linear Ranges"

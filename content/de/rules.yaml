@@ -459,7 +459,7 @@
   because: "die {{t:range|Range}} eines Spielers, der mit {{t:position|Position}} {{t:call|callt}}, ist {{t:condensed|kondensiert}}: schwache Hände hat er {{t:fold|gefoldet}}, einen Teil der stärksten {{t:raise|geraist}}, also bleiben ihm vor allem mittlere und gute Hände; dazu handelst du nach dem Flop auf jeder {{t:street|Street}} als Erster"
   level: heuristic
   check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
-  source: "Seite eines kommerziellen Solvers, C-Betting As the OOP Preflop Raiser (UTG vs BTN C-Bet 28%; „Even a hand like top pair top kicker is preferred to be played as a check-call“); Trainingsseite, C-Betting On Ace-High Boards (CO vs BTN, A94r: „we will check over 96% of the time“); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: „The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on“)"
+  source: "Seite eines kommerziellen Solvers, C-Betting As the OOP Preflop Raiser (UTG vs BTN C-Bet 28%; „Even a hand like top pair top kicker is preferred to be played as a check-call“); Trainingsseite, C-Betting On Ace-High Boards (CO vs BTN, A94r: „we will check over 96% of the time“); Trainingsseite, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, Eröffnung aus mittlerer Position, Button called: „The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on“)"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
@@ -716,7 +716,7 @@
 - id: R-M8-006
   module: m8
   if: "du wählst, mit welchen Händen du auf dem River {{t:bluff|bluffst}}"
-  then: "du {{t:bluff|bluffst}} mit den schwächsten Händen, die beim Showdown nicht gewinnen (z. B. verpassten {{t:draw|Draws}} zur {{t:straight|Straße}} oder hohen Karten ohne Chance); Hände mit Showdown-Value {{t:check|checken}}"
+  then: "du {{t:bluff|bluffst}} mit den schwächsten Händen, die beim Showdown weder gewinnen noch den {{t:pot|Pot}} teilen (z. B. verpassten {{t:draw|Draws}} zur {{t:straight|Straße}} oder hohen Karten ohne Chance); Hände mit Showdown-Value {{t:check|checken}}"
   because: "ein {{t:bluff|Bluff}} mit einer Hand, die nach einem {{t:check|Check}} oft gewinnt, gibt diesen Gewinn auf; eine Hand ohne Chance verliert nichts, wenn der {{t:bluff|Bluff}} nicht klappt"
   level: heuristic
   source: "Seite eines kommerziellen Solvers, We're At The River. Our Hand Can't Win. Now What?; Trainingsseite, Polarized vs Linear Ranges"

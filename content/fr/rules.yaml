@@ -459,7 +459,7 @@
   because: "la {{t:range|range}} d'un joueur qui {{t:call|suit}} en {{t:position|position}} est {{t:condensed|condensée}} : il s'est {{t:fold|couché}} avec les mains faibles et a {{t:raise|relancé}} une partie des plus fortes, donc il lui reste surtout des mains moyennes et bonnes ; de plus, après le flop, vous parlez en premier à chaque {{t:street|street}}"
   level: heuristic
   check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
-  source: "site de solveur commercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28% ; « Even a hand like top pair top kicker is preferred to be played as a check-call ») ; site de formation, C-Betting On Ace-High Boards (CO vs BTN, A94r : « we will check over 96% of the time »); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: «The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on»)"
+  source: "site de solveur commercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28% ; « Even a hand like top pair top kicker is preferred to be played as a check-call ») ; site de formation, C-Betting On Ace-High Boards (CO vs BTN, A94r : « we will check over 96% of the time »); site de formation, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, ouverture depuis une position intermédiaire, le Bouton suit : «The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on»)"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
@@ -716,7 +716,7 @@
 - id: R-M8-006
   module: m8
   if: "vous choisissez avec quelles mains {{t:bluff|bluffer}} à la river"
-  then: "vous {{t:bluff|bluffez}} avec les mains les plus faibles, qui ne gagneront pas au showdown (p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des hautes cartes sans chance) ; les mains qui ont de la valeur au showdown {{t:check|checkent}}"
+  then: "vous {{t:bluff|bluffez}} avec les mains les plus faibles, qui ne gagneront ni ne partageront le {{t:pot|pot}} au showdown (p. ex. des {{t:draw|tirages}} à la {{t:straight|quinte}} ratés ou des hautes cartes sans chance) ; les mains qui ont de la valeur au showdown {{t:check|checkent}}"
   because: "un {{t:bluff|bluff}} avec une main qui gagne souvent après un {{t:check|check}} sacrifie ce gain ; une main sans chance ne perd rien quand le {{t:bluff|bluff}} échoue"
   level: heuristic
   source: "site de solveur commercial, We're At The River. Our Hand Can't Win. Now What? ; site de formation, Polarized vs Linear Ranges"

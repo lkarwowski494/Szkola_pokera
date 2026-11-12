@@ -20,20 +20,20 @@ drills:
     id: m5.l4.c-oop
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    prompt: "{{t:hijack|HJ}}から{{t:open|オープン}}し、ボタンが{{t:call|コール}}、残りは全員{{t:fold|フォールド}}しました。あなたが先にアクションします。このフロップに合うプランはどれですか？"
     position: HJ
     options:
-      check: "I {{t:check}}"
-      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
-      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+      check: "{{t:check|チェック}}する"
+      small: "小さいCベット：{{t:pot|ポット}}の{{n:cbet.size.small}}"
+      big: "大きいCベット：{{t:pot|ポット}}の{{n:cbet.size.big}}"
     cases:
       - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
         best: check
         rule: R-M5-012
         why:
-          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
-          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
-          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          check: "はい。{{t:pair|ペア}}のない低いフロップ（最も高いカードが9以下）では、ソルバーはこの状況で{{t:range|レンジ}}全体を{{t:check|チェック}}します。あなたの広い{{t:range}}にはここで外れた高いカードが多く、一方、{{t:position|ポジション}}を持って{{t:call|コール}}したボタンには、勝ち目のないハンドが少なくなります。"
+          small: "頻度が高すぎます。{{t:pair|ペア}}のない低いフロップでは、ソルバーはこの状況でCベットせず、強いハンドも含めて{{t:range|レンジ}}全体を{{t:check|チェック}}します。ボタンが{{t:bet|ベット}}すると、強いハンドの一部は{{t:check|チェック}}の後に{{t:raise|レイズ}}します（チェックレイズ）。"
+          big: "頻度が高すぎる上に、コストも高すぎます。{{t:pair|ペア}}のない低いフロップでは、ソルバーはこの状況でCベットせず、強いハンドも含めて{{t:range|レンジ}}全体を{{t:check|チェック}}します。ボタンが{{t:bet|ベット}}すると、強いハンドの一部は{{t:check|チェック}}の後に{{t:raise|レイズ}}します（チェックレイズ）。"
     count: 3
   - kind: choice
     id: m5.l4.q-oop-why

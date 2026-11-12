@@ -20,20 +20,20 @@ drills:
     id: m5.l4.c-oop
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    prompt: "{{t:open|Has abierto}} desde el {{t:hijack|HJ}}, el Button {{t:call|ha igualado}} y todos los demás {{t:fold|se han retirado}}. Hablas primero. ¿Qué plan encaja con este flop?"
     position: HJ
     options:
-      check: "I {{t:check}}"
-      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
-      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+      check: "{{t:check|Paso}}"
+      small: "C-bet pequeño: {{n:cbet.size.small}} del {{t:pot|bote}}"
+      big: "C-bet grande: {{n:cbet.size.big}} del {{t:pot|bote}}"
     cases:
       - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
         best: check
         rule: R-M5-012
         why:
-          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
-          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
-          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          check: "Sí: en un flop bajo sin {{t:pair|pareja}} (la carta más alta es un nueve o menos), el solver {{t:check|pasa}} con todo su {{t:range|rango}} en esta situación. Tu {{t:range|rango}} amplio tiene muchas cartas altas que aquí han fallado, mientras que el Button, que {{t:call|ha igualado}} con {{t:position|posición}}, tiene menos manos sin opciones."
+          small: "Demasiado a menudo: en un flop bajo sin {{t:pair|pareja}}, el solver no hace c-bet en esta situación, sino que {{t:check|pasa}} con todo su {{t:range|rango}}, también con manos fuertes. Cuando el Button {{t:bet|apuesta}}, parte de las manos fuertes {{t:raise|sube}} tras {{t:check|pasar}} (check-raise)."
+          big: "Demasiado a menudo y demasiado caro: en un flop bajo sin {{t:pair|pareja}}, el solver no hace c-bet en esta situación, sino que {{t:check|pasa}} con todo su {{t:range|rango}}, también con manos fuertes. Cuando el Button {{t:bet|apuesta}}, parte de las manos fuertes {{t:raise|sube}} tras {{t:check|pasar}} (check-raise)."
     count: 3
   - kind: choice
     id: m5.l4.q-oop-why
