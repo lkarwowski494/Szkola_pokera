@@ -17,6 +17,6 @@ decisions:
     folds: [KQs, KJs, QJs, QTs, JTs]
     actions:
       - action: best-hand
-        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}. This is the better {{t:bluff}}: both hands lose at {{t:showdown}}, but this one holds more cards from the hands your opponent {{t:call|calls}} with, and leaves them no fewer hands that {{t:fold}}. When you hold a card from their strong hands, they have fewer {{t:combo|combos}} of them, so more often they're left with a hand to fold."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}. This is the better {{t:bluff}}: both hands lose at {{t:showdown}}, but this one leaves your opponent fewer {{t:combo|combos}} to {{t:call}} with, and no fewer that {{t:fold}}. When you hold a card from their strong hands, they have fewer {{t:combo|combos}} of them, so more often they're left with a hand to fold."
       - action: other-hand
-        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}. This hand is the weaker {{t:bluff}}: both lose at {{t:showdown}}, but the other hand leaves your opponent fewer hands to {{t:call}} with and no fewer hands to {{t:fold}}. For a {{t:bluff}}, you pick a hand with a {{t:blocker}} to their strong hands that doesn't block the hands that fold."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}. This hand is the weaker {{t:bluff}}: both lose at {{t:showdown}}, but the other hand leaves your opponent fewer hands to {{t:call}} with and no fewer hands to {{t:fold}}. For a {{t:bluff}}, you pick a hand with a {{t:blocker}} to their strong hands that doesn't block more of the hands that fold than the other one does."

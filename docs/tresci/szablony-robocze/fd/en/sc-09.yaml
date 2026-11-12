@@ -3,7 +3,7 @@ id: sc-09
 module: m4
 situation: "The player before you only called the {{t:big-blind}} (a {{t:limp}}), and everyone else {{t:fold|folded}}. You have a hand you {{t:raise}} with (an {{t:isolation}} raise). What raise size do you choose?"
 table: 6max
-positions: { hero: CO, villain: BB }
+positions: { hero: CO, villain: HJ }
 stackBb: 100
 levels: [latwy]
 bounds:

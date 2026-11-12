@@ -1,5 +1,5 @@
 # SC-17 (M6): duży c-bet, dwie wysokie karty bez pary, drawa i backdoora: pas (punkt defend, gałąź „duży” ≥ 0,75 puli, D-1166).
-# Ocena: defendVsCbet (R-M6-007; źródło pokercoaching When to Call With Ace-High, D-1211). Inne ręce wobec dużego zakładu: null
+# Ocena: defendVsCbet (R-M6-007; źródło Upswing „When to Call With Ace-High”, upswingpoker.com, D-1211). Inne ręce wobec dużego zakładu: null
 # (źródło nie rozstrzyga), więc jedyna oczekiwana akcja to fold. Szkic sesji FD (D-1353): defend poza ekranem.
 id: sc-17
 module: m6
@@ -15,8 +15,8 @@ decisions:
     kind: defend
     rule: R-M6-007
     spot: vs-open.bb-vs-btn
-    pots: [5, 6]
-    fractions: [0.75, 1]
+    pots: [8]
+    fractions: [0.75]
     actions:
       - action: fold
         explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} duży {{t:c-bet}}. {{t:fold|Pasujesz}}, bo masz dwie wysokie karty bez {{t:pair|pary}} i bez {{t:draw|drawa}}: {{t:out-of-position}} taka ręka rzadko dochodzi do {{t:showdown|showdownu}}, a {{t:pair}} z wysokiej karty często i tak przegrywa. Wobec {{t:bet|zakładu}} ok. {{n:cbet.size.big}} {{t:pot|puli}} potrzebujesz już ok. {{n:eq.bet-three-quarters}} equity."

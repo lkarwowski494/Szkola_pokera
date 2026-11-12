@@ -1,4 +1,6 @@
 # sc-10: English text of pl/sc-10.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+# FN (D-1435): źródła tego spotu (CO vs 3-bet BTN) — Pailiku: AKo 4-bet, AKs call; Deepfold: AKs i AKo mixed — AKs to ręka mieszana;
+# dziś 4-bet `correct` i call `acceptable` (ten sam punkt), docelowo obie zgodne po 08-FN-1.
 id: sc-10
 module: m4
 situation: "You {{t:open|opened}} from the {{t:cutoff|CO}}, the Button made a {{t:3-bet}}, and the blinds {{t:fold|folded}}. What do you do?"

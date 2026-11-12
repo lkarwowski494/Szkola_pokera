@@ -16,10 +16,10 @@ decisions:
     kind: defend
     rule: R-M6-006
     spot: vs-open.bb-vs-btn
-    pots: [5, 6]
+    pots: [6, 9]
     fractions: [0.33]
     actions:
       - action: call
         explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:call|Sprawdzasz}}, bo wobec {{t:bet|zakładu}} ok. {{n:cbet.size.small}} {{t:pot|puli}} potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a ta ręka albo już wygrywa z {{t:bluff|blefami}}, albo może się poprawić. Kontynuujesz prawie każdą {{t:pair|parą}}, {{t:draw|drawem}}, dodatkowym {{t:draw|drawem}} ({{t:backdoor}}) z kartą wyższą od kart {{t:board|stołu}} i zwykle także asem jako najwyższą kartą."
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:fold|Pasujesz}}, bo to jedna z najsłabszych rąk: bez {{t:pair|pary}}, bez {{t:draw|drawa}}, nawet dodatkowego ({{t:backdoor}}), i bez asa. Wobec małego {{t:c-bet|c-betu}} bronisz szeroko, ale takie ręce ani nie wygrywają z {{t:bluff|blefami}}, ani nie mają się z czego poprawić."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:fold|Pasujesz}}, bo to jedna z najsłabszych rąk: bez {{t:pair|pary}}, bez {{t:draw|drawa}}, nawet dodatkowego ({{t:backdoor}}), i bez asa. Wobec małego {{t:c-bet|c-betu}} bronisz szeroko, ale najsłabsze ręce bez {{t:pair|pary}} i bez {{t:draw|drawa}} {{t:fold|pasujesz}}."

@@ -1,0 +1,14 @@
+$ node -e (odtworzenie `const bet = Math.round(pot * pick(rng, spec.fractions))`, packages/poker-core/src/scenario-gen.ts:774)
+SC-07	pula 5	ułamek 0.33	zakład 2	faktyczny ułamek 0.400	potrzebne equity 22.2%
+SC-07	pula 6	ułamek 0.33	zakład 2	faktyczny ułamek 0.333	potrzebne equity 20.0%
+SC-15	pula 5	ułamek 0.25	zakład 1	faktyczny ułamek 0.200	potrzebne equity 14.3%
+SC-15	pula 5	ułamek 0.33	zakład 2	faktyczny ułamek 0.400	potrzebne equity 22.2%
+SC-15	pula 6	ułamek 0.25	zakład 2	faktyczny ułamek 0.333	potrzebne equity 20.0%
+SC-15	pula 6	ułamek 0.33	zakład 2	faktyczny ułamek 0.333	potrzebne equity 20.0%
+SC-17	pula 5	ułamek 0.75	zakład 4	faktyczny ułamek 0.800	potrzebne equity 30.8%
+SC-17	pula 5	ułamek 1	zakład 5	faktyczny ułamek 1.000	potrzebne equity 33.3%
+SC-17	pula 6	ułamek 0.75	zakład 5	faktyczny ułamek 0.833	potrzebne equity 31.3%
+SC-17	pula 6	ułamek 1	zakład 6	faktyczny ułamek 1.000	potrzebne equity 33.3%
+tekst SC-17 fold: „Wobec zakładu ok. {{n:cbet.size.big}} puli potrzebujesz już ok. {{n:eq.bet-three-quarters}} equity” → 75% i 30%
+tekst SC-07 call: „wobec zakładu ok. {{n:cbet.size.small}} puli potrzebujesz tylko ok. {{n:eq.bet-third}} equity” → 33% i 20%
+kod wyjścia: 0
