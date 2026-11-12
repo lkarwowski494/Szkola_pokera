@@ -54,10 +54,17 @@ describe('EV-1 (D-1285, EP-002): remis w SDV = ½ wygranej', () => {
   it('wektor A, tryb showdown: ręka z samym remisem nie jest blefem (SDV > 0) → nie jest poprawną ręką A', () => {
     const x = r('showdown', 'Ts 9h 4d 3c 2s', '7h 6h', '8c 8d', ['76s'], ['76o']);
     expect(x.sdv[0]).toBe(0.5);
-    expect(x.correct).not.toBe(0);
+    expect(x.correct).toBeNull(); // FC FA-003: 8c8d też ma SDV > 0 (wygrywa z 76), więc żadna ręka nie jest czystym blefem → brak poprawnej
   });
   it('wektor A, tryb blockers: wariant z 7h6h (SDV 0,5) jest odrzucany (null)', () => {
     const x = r('blockers', 'Ts 9h 4d 3c 2s', '7h 6h', '8c 8d', ['76s'], ['76o']);
+    expect(x.correct).toBeNull();
+  });
+  // FC FA-003 (recenzja FA, 08-programista-003): wektor rozróżniający nową definicję SDV (remis = ½): obie ręce mają SDV 0,5 tylko z remisów (W = 0, T = 9);
+  // przy starej definicji (remis = przegrana) obie miałyby SDV 0 i byłyby blefami, a tryb blockers zwróciłby poprawną rękę (mutant M1)
+  it('wektor A, tryb blockers, rozróżniający: 7h6h vs 7d6c wobec 76s/76o: obie z SDV 0,5 → brak poprawnej (null)', () => {
+    const x = r('blockers', 'Ts 9h 4d 3c 2s', '7h 6h', '7d 6c', ['76s'], ['76o']);
+    expect(x.sdv[0]).toBe(0.5);
     expect(x.correct).toBeNull();
   });
   it('wektor B: 7h6h wobec KQ: SDV 0', () => {

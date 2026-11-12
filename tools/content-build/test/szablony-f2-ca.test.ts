@@ -104,6 +104,8 @@ describe('F2: walidacja szablonu cbet-case w budowaniu', () => {
     // EV-3 (D-1287): lista z danych, nie na sztywno: każda reguła kind cbet-case ma przypadek własnej reguły (zadanie z cases: rule: <id>); R-M5-012 (check) wśród nich
     expect([...cbetRules].sort()).toEqual(content.evalRules.filter((r) => r.check.kind === 'cbet-case').map((r) => r.id).sort());
     expect(cbetRules.has('R-M5-012')).toBe(true);
+    // FC FA-004 (recenzja FA, 08-programista-004): przypięcie reguł c-betu (przed EV-3 test wymagał dokładnie tych trzech), żeby zniknięcie `check` któregokolwiek nie przeszło po cichu; nowa reguła = świadoma zmiana listy
+    expect([...cbetRules].sort()).toEqual(['R-M5-004', 'R-M5-007', 'R-M5-009', 'R-M5-012']);
     for (const { template, file } of fx) expect(checkScenarioTemplate(template, file, sctx)).toEqual([]);
   });
   it('oczekiwana akcja bez wyjaśnienia jest błędem', () => {

@@ -581,6 +581,24 @@ export function eligibleClasses(spot: RangeSpotData, expected: string, range: { 
   return out;
 }
 
+/**
+ * D-1286: karty rivera, po których rywal wygrywa z graczem, gdy są dokładnie nominalnymi outami drawa i nie ma żadnego remisu (z niewidzianych kart); inaczej null.
+ * Czysta funkcja (FC, FA-001: wektory remisu i OESD w teście). Nominalny out wśród kart znanych też daje null.
+ */
+export function czysteOuty(hero: readonly Card[], villain: readonly Card[], turn: readonly Card[], nominalne: readonly Card[]): ReadonlySet<Card> | null {
+  const znane = new Set<Card>([...hero, ...villain, ...turn]);
+  const wygrywajace = new Set<Card>();
+  for (const c of FULL_DECK) {
+    if (znane.has(c)) continue;
+    const [r, h] = [strength([...villain, ...turn, c]), strength([...hero, ...turn, c])]; // mniejsza siła = lepsza ręka
+    if (r === h) return null; // remis to nie czysty out
+    if (r < h) wygrywajace.add(c);
+  }
+  const nom = new Set<Card>(nominalne);
+  if (wygrywajace.size !== nom.size || ![...wygrywajace].every((c) => nom.has(c))) return null;
+  return wygrywajace;
+}
+
 function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, seed: number, rng: () => number, ctx: GeneratorContext | undefined): ScenarioVariant | null {
   const first = t.decisions[0]!;
   let hero: [Card, Card];
@@ -722,15 +740,8 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       // D-1286 (EP-003, powraca z EI-001): CZYSTE outy. Karty rivera, po których rywal wygrywa albo remisuje (z 44 niewidzianych), muszą być dokładnie nominalnymi outami drawa,
       // bez remisów; wtedy equity rywala e = N/44, a pokazywane hit = N/46 (R-M7-006/007) jest prawdą. Martwe i częściowo martwe outy (full, kareta, wyższy kolor gracza) odpadają.
       const znane = new Set<Card>([...hero, ...villain, ...turn]);
-      const wygrywajace = new Set<Card>();
-      for (const c of FULL_DECK) {
-        if (znane.has(c)) continue;
-        const [r, h] = [strength([...villain, ...turn, c]), strength([...hero, ...turn, c])]; // mniejsza siła = lepsza ręka
-        if (r === h) return null; // remis to nie czysty out
-        if (r < h) wygrywajace.add(c);
-      }
-      const nominalne = new Set<Card>(draw.draw.all);
-      if (wygrywajace.size !== nominalne.size || ![...wygrywajace].every((c) => nominalne.has(c))) return null;
+      const wygrywajace = czysteOuty(hero, villain, turn, draw.draw.all);
+      if (!wygrywajace) return null;
       const pot = pick(rng, spec.pots);
       const betSmall = Math.round(pot * spec.small);
       const betBig = Math.round(pot * spec.big);
