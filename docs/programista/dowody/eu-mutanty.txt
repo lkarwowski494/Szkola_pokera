@@ -1,0 +1,28 @@
+# 08-programista-002: mutanty kroku cache CocoaPods w e2e-ios.yml po wzmocnieniu testu, 2026-11-12 (EU)
+# M4 i M7 z es-mutanty.txt (ES) przeniesione na krok CocoaPods: w ES dotyczyły klucza/ścieżki obu kroków, tu po usunięciu DD zostaje jeden krok.
+#   M4 = klucz bez apps/mobile/app.json (key i restore-keys); M4b = tylko key; M7 = zła ścieżka (ES: apps/mobile/build dla DD; tu ~/Library/Caches/Pods dla CocoaPods).
+#   M5 (klucz bez SHA) poza zakresem zadania: kod 0, zostaje bez asercji (klucz bez SHA tylko wyłącza ponowny zapis; brak ryzyka poprawności).
+# test: node --test --test-name-pattern='e2e-ios.yml: cache CocoaPods' tests/narzedzia/workflowy.test.mjs ; skrypt: mut.sh (perl na kopii pliku poza drzewem)
+
+uruchom M0-oryginal ''
+uruchom M1-usun-cache-cocoapods 's/      - name: Cache CocoaPods\n.*?(      - name: Projekt iOS)/$1/s'
+uruchom M4-klucz-bez-app-json "s/, 'apps\/mobile\/app.json'//g"
+uruchom M4b-tylko-key-bez-app-json "s/(key: cocoapods[^\n]*?), 'apps\/mobile\/app.json'/\$1/"
+uruchom M5-klucz-bez-sha 's/-\$\{\{ github.sha \}\}//g'
+uruchom M6-restore-sam-przedrostek 's/restore-keys: cocoapods-v1-\$\{\{[^\n]*/restore-keys: cocoapods-v1-/g'
+uruchom M7-zla-sciezka-pods 's#path: ~/Library/Caches/CocoaPods#path: ~/Library/Caches/Pods#'
+uruchom M8-bez-if 's/(      - name: Cache CocoaPods\n)        if:[^\n]*\n/$1/'
+uruchom M9-pods-po-prebuild 's/(      - name: Cache CocoaPods\n.*?)(      - name: Projekt iOS \(expo prebuild\)\n.*?)(      - name: CocoaPods\n)/$2$1$3/s'
+uruchom M11-wraca-DD 's/(      - name: Kompilacja)/      - name: Cache DerivedData\n        if: inputs.aplikacja_z_przebiegu == '"''"'\n        uses: actions\/cache\@v4\n        with:\n          path: apps\/mobile\/ios\/build\n          key: xcode-dd-v1-x\n$1/'
+
+## Wynik (oczekiwane: M0 kod 0, reszta kod 1 poza M5)
+M0-oryginal                        bez zmiany pliku   kod=0  # pass 1 # fail 0 
+M1-usun-cache-cocoapods            plik zmieniony     kod=1  # pass 0 # fail 1 
+M4-klucz-bez-app-json              plik zmieniony     kod=1  # pass 0 # fail 1 
+M4b-tylko-key-bez-app-json         plik zmieniony     kod=1  # pass 0 # fail 1 
+M5-klucz-bez-sha                   plik zmieniony     kod=0  # pass 1 # fail 0 
+M6-restore-sam-przedrostek         plik zmieniony     kod=1  # pass 0 # fail 1 
+M7-zla-sciezka-pods                plik zmieniony     kod=1  # pass 0 # fail 1 
+M8-bez-if                          plik zmieniony     kod=1  # pass 0 # fail 1 
+M9-pods-po-prebuild                plik zmieniony     kod=1  # pass 0 # fail 1 
+M11-wraca-DD                       plik zmieniony     kod=1  # pass 0 # fail 1 

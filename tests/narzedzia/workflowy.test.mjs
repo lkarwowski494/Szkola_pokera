@@ -317,3 +317,23 @@ test('asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczy
   for (const x of k) assert.doesNotMatch(x.run ?? '', /\$\{\{/, x.name);
   assert.doesNotMatch(tekst, /environment:|--zapis|--apply/);
 });
+
+// DT (2026-11-11, D-1021) + EU (2026-11-12, D-1280): cache CocoaPods — klucz zależny od lockfile'a, tylko gdy aplikacja jest budowana
+// w tym przebiegu; zapis bez zmiany wyniku buildu. Cache DerivedData wycofany (D-1280: nie skraca kompilacji, 2,2 GB na push);
+// brak jakiegokolwiek drugiego kroku `actions/cache` wymusza ten test. Podział na części wycofany (D-1024).
+test('e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, bez cache DerivedData', () => {
+  const kroki = json('e2e-ios.yml').jobs.e2e.steps;
+  const cache = kroki.filter((k) => k.uses?.startsWith('actions/cache'));
+  assert.equal(cache.length, 1, 'jedyny cache to CocoaPods (D-1280: brak cache DerivedData)');
+  const [pods] = cache;
+  // EU, 08-programista-002: oba wejścia klucza (lockfile i konfiguracja aplikacji, od której zależy Podfile) i ścieżka cache.
+  assert.equal(pods.with.path, '~/Library/Caches/CocoaPods');
+  for (const pole of ['key', 'restore-keys']) {
+    assert.match(pods.with[pole], /hashFiles\([^)]*pnpm-lock\.yaml/, `${pole}: pnpm-lock.yaml`);
+    assert.match(pods.with[pole], /hashFiles\([^)]*apps\/mobile\/app\.json/, `${pole}: apps/mobile/app.json`);
+  }
+  assert.equal(pods.if, "inputs.aplikacja_z_przebiegu == ''");
+  const idx = (re) => kroki.findIndex((k) => re.test(k.run ?? ''));
+  assert.ok(kroki.indexOf(pods) < idx(/expo prebuild/), 'cache CocoaPods przed prebuild');
+  assert.ok(!kroki.some((k) => /DerivedData|ios\/build|xcode-dd/.test(`${k.name ?? ''} ${k.with?.path ?? ''} ${k.with?.key ?? ''}`)), 'brak kroku DerivedData');
+});

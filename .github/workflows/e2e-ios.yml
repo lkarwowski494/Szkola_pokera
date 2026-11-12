@@ -12,6 +12,8 @@
 # może tylko administrator) pod nazwę z Treningu; nowy plik jest aktywny bez kroku właściciela. Push także na claude/**
 # (odstępstwo od Treningu: gałąź agenta jest tu gałęzią integracyjną przebudowy, a workflow_dispatch nie widzi workflowu
 # nieobecnego na main, zanim raz się uruchomi); informacyjnie, poprzedni przebieg tej gałęzi anulowany.
+# DT (2026-11-11, zgoda właściciela „Zgoda na przyspieszenia”, KO-079): cache CocoaPods (D-1021); cache DerivedData wycofany (EU, D-1280). Podział na 2 części
+# flowów wypróbowany i wycofany: pomiar 3 przebiegów ≈ 0 zysku, wrażliwość na kolejkę macOS (docs/jakosc/e2e-przyspieszenie.md, D-1020/D-1024).
 name: E2E iOS (symulator)
 # D-273: przebieg z aplikacją z innego przebiegu ma dopisek w tytule — bramka TestFlight (scripts/ci/bramka-e2e.mjs) go nie liczy.
 # Bez wejścia tytuł jest stały (wzór Trening e2e-ios.yml:15, odczyt 2026-11-08); commit widać w kolumnie przebiegu.
@@ -86,6 +88,14 @@ jobs:
       - name: Treść aktualna
         run: pnpm content:check
 
+      # D-1021: klucz zależy od lockfile'a (pnpm-lock.yaml) i konfiguracji aplikacji; zapis pod kluczem z SHA, odczyt z przedrostka.
+      - name: Cache CocoaPods
+        if: inputs.aplikacja_z_przebiegu == ''
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/CocoaPods
+          key: cocoapods-v1-${{ hashFiles('pnpm-lock.yaml', 'apps/mobile/app.json') }}-${{ github.sha }}
+          restore-keys: cocoapods-v1-${{ hashFiles('pnpm-lock.yaml', 'apps/mobile/app.json') }}-
       - name: Projekt iOS (expo prebuild)
         if: inputs.aplikacja_z_przebiegu == ''
         working-directory: apps/mobile
