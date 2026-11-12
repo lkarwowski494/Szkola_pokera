@@ -158,4 +158,6 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | FK | 06 audit (opus) recenzja szkiców FD + werdykt 08-FD-5 | — | 6,26 | 29,1 | 14:45 → 14:50 → ok. 15:05 → ci kod 0 e5e2e90 (lokalnie, dowód fk-ci-e5e2e90.txt) → przyjęte 15:16 (8d0e2356, tylko docs/, autor zgodny) | 0 | PO POPRAWKACH: 0 KRYT, 3 WYS → FN (06 fix) |
 | FM | 04 build (opus) etykiety turn-bet + przegląd widoków FG | — | 4,24 | 22,0 | 14:45 → 14:50 → ok. 15:05 → ci kod 0 deb01e55 (lokalnie) → przyjęte 15:19 (b55429c8, tylko docs/) | 0 | spec fm-turn-bet.md → 08 fix po FL |
 | FL | 08 build (sonnet) silnik FD-2/3/4 (EX-1/2/4) + widok flop-size | — | 5,50 | 33,4 | 14:45 → 14:50 → ok. 15:00 → ci kod 0 08b92f1 (lokalnie, fl-ci-08b92f1.txt) → recenzja FO w toku | 0 | przekroczyło 30% przy zamykaniu kroku; niesprawdzone: CI GitHub, recenzja |
-| FN | 06 fix (opus) poprawki szkiców FD po FK | — | 4,69+ | 24,3 | 15:12 → 15:17 → ok. 15:30 → ci kod 0 fa979e4 (lokalnie) → przyjęte 15:49 (7806362e, tylko docs/) | 0 | test fn-kontrola 9/9 |
+| FN | 06 fix (opus) poprawki szkiców FD po FK | — | 5,04 | 24,3 | 15:12 → 15:17 → ok. 15:30 → ci kod 0 fa979e4 (lokalnie) → przyjęte 15:49 (7806362e, tylko docs/) | 0 | test fn-kontrola 9/9 |
+| FO | 08 audit (opus) recenzja kodu FL | — | 4,76 | 25,6 | 15:30 → 15:35 → ok. 15:50 → ci kod 0 be1e44ae (lokalnie) → przyjęte 15:56 (52281e9a, tylko docs/) | 0 | PRZYJĄĆ Z UWAGAMI, mutanty 18/23 |
+| koordynator 4/8 | M9 | — | 14,83 | 33,7 | 14:55 → 16:05 | 0 | E6 przy 33,7% (zakończenie scalenia) |
