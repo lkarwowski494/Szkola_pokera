@@ -134,3 +134,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | EO | 06 audit | — | 4,47 | 24,0 | 00:12 → 00:13 → 333af15d → ci f5780bb3 (sesja, kod 0) → przyjęta 00:36 | — | recenzja EL: PRZYJĄĆ Z POPRAWKAMI (WYS 001, ŚR 002/003, NIS 004 naprawione w rejestrze) |
 | EK | 08 build | — | 4,74 | 29,9 | 23:10 → 23:11 → fc2a31e6 → ci 88e873a0 (sesja, kod 0) → do recenzji EP 00:36 | — | partia 2 + EI-001…006 + 08-EH-1…3 + KO-072 |
 | EN | 09 fix | — | 3,67 | 27,3 | 00:00 → 00:01 → … → ci 056638fa (sesja, KOD_WYJSCIA=0) → przyjęta 00:44 | — | EM ŚR 001–007, NIS 008–010; 13 commitów |
+| EP | 08 audit | — | 4,40 | 23,7 | 00:33 → 00:34 → ddbe1bc2 → ci 24f32fb5 (sesja, kod 0) → przyjęta 00:58 | — | recenzja EK: PRZYJĘTE Z ZASTRZEŻENIAMI; mutanty 13/14 |
