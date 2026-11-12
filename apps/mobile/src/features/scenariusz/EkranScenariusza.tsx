@@ -143,7 +143,7 @@ export interface PropsPrzebiegu {
 /** Ruch rywala przed twoją decyzją (tekst dziennika) albo null: zakład (draw-call), all-in (icm-call), otwarcie (3-bet), czekanie (c-bet). */
 function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn): string | null {
   const rywal = s.szablon.positions.villain;
-  if (d.point === 'draw-call') return t('play.log.bet', { pos: rywal, bb: d.bet });
+  if (d.point === 'draw-call' || d.point === 'river-catch') return t('play.log.bet', { pos: rywal, bb: d.bet });
   if (d.point === 'icm-call') {
     const u = ukladIcm(d, s.szablon);
     if (!u) return null;
