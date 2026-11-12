@@ -39,8 +39,10 @@ Dane: `DefendVariantDecision` (`scenario-gen.ts:359-366`): `pot` (przed c-betem)
 Sprawdzenie: pula 12 i zakład 4 (⅓) → cena 20 %, MDF 75 % = `mdf.bet-third`; pula 10 i zakład 5 → 25 % i 66,7 % (`fq-liczby-rachunek.txt`).
 
 Klucz `scenario.numbers.defend`:
-- pl: „{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Przy takim {{t:bet|zakładzie}} {{t:mdf}} to {{obrona}}: tyle całego {{t:range|zakresu}} bronisz w teorii, a o jednej ręce decyduje to, co mówi wyjaśnienie.”
-- en: „The {{t:pot|pot}} is {{pula}} bb and a {{t:call|call}} costs {{kwota}} bb, so you need {{potrzeba}} equity, that is, to win about once in {{razPotrzeba}}. Against a {{t:bet}} this size, {{t:mdf}} is {{obrona}}: that is how much of your whole {{t:range}} you defend in theory; for a single hand, the explanation decides.”
+- pl: „{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Przy takim {{t:bet|zakładzie}} {{t:mdf}} to {{obrona}}: to punkt odniesienia dla całego {{t:range|zakresu}}; na flopie możesz bronić trochę mniej, a o jednej ręce decyduje wyjaśnienie.”
+- en: „The {{t:pot|pot}} is {{pula}} bb and a {{t:call|call}} costs {{kwota}} bb, so you need {{potrzeba}} equity, that is, to win about once in {{razPotrzeba}}. Against a {{t:bet}} this size, {{t:mdf}} is {{obrona}}: a reference point for your whole {{t:range}}; on the flop you can defend a little less, and for a single hand, the explanation decides.”
+
+Brzmienie MDF (FT, D-1474, 06-tresci-005): punkty defend to BB poza pozycją na flopie (SC-07, SC-15, SC-17: `hero: BB`, `street: flop`), więc obowiązuje R-M6-003 („{{t:mdf}} traktujesz jako punkt odniesienia, nie obowiązek”; GTO Wizard MDF & Alpha, odczyt 2026-11-12: “On average, BB is consistently over-folding to all bet sizes on the flop.”) i lekcja m6-l1 (`content/pl/lessons/m6-l1-mdf-alpha.md:82-83`). Zdanie nie podaje MDF jako normy obrony.
 
 Gdzie w widoku: sekcja „Liczby” punktu `defend` (`liczby.ts:31`, dziś `[]`), jedno zdanie, niezależne od wyboru. Test 08: pula przed c-betem 12, zakład 4 → „16 bb”, „4 bb”, 20 %, „raz na 5”, 75 %.
 
