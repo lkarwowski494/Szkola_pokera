@@ -730,3 +730,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 04:55 | koordynator | linia 05:00: poprzednik zarchiwizowany (OK); brak aktywnych sesji; recenzje DT (ES) i ER (ET, polecenie gotowe) czekają na start — WG-14; własny kontekst 27,5% (przekazanie od 30% też wymaga startu sesji) | odpowiedź właściciela; linia 14:00 |
 | 05:05 | koordynator | właściciel: „Zobacz jak to rozwiązaliśmy w treningu” → KO-080: ponowny start ES i ET przez subagentów opus (analogia trening stan.md:142–143) | wynik startu |
 | 05:08 | koordynator | ES start OK: session_01T66VByDTFnw87h4QGwGkuG (opus, auto, claude/dt-e2e → sesja-es-recenzja; prompt wklejony z odczytu, nieporównany bajtowo — WG-14) | ET start; kontrola |
+| 05:10 | koordynator | ET start OK: session_01T66VBxfjXQYtUraoeRogV2 (opus, auto, sesja-er-fix → sesja-et-recenzja; prompt z odczytu, nieporównany bajtowo — WG-14). KO-080 zadziałało 2/2 | kontrola ok. 06:10 |
