@@ -1,0 +1,6 @@
+# 08-programista-203 (FV, 2026-11-12): mutant MU5 ginie
+Test: tools/content-build/test/fv-203-bramka-rozmiaru-build.test.ts (kopia content/ + szkic SC-20 z big 0,6 → błąd budowy 06-tresci-008).
+Kod bazowy (HEAD): 2 testy zielone (vitest, kod 0).
+Mutant MU5: usunięcie linii `numberValue: (k: string) => numbers.get(k)?.value,` z tools/content-build/src/build.ts (kontekst bramki, ok. linii 422).
+Wynik z mutantem: "× SC-20 z big 0,6 przy {{n:cbet.size.big}} w tekście: błąd budowy 06-tresci-008", Tests 1 failed | 1 passed → mutant zabity.
+build.ts przywrócony (git status src/ czysty).
