@@ -197,7 +197,7 @@ function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
     if (w === undefined) throw new Error(`Akcja ${a} nie należy do punktu ${d.point}`);
     return NA_OCENE_EKRANU[w];
   }
-  if (d.point === 'list-hand') return a === d.correct ? 'zgodne' : d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'; // FG: akcja dopuszczalna z wpisu listy (ADR-04, D-1142)
+  if (d.point === 'list-hand') return a === d.correct || (d.alsoCorrect?.includes(a) ?? false) ? 'zgodne' : d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'; // FG: akcja dopuszczalna z wpisu listy (ADR-04, D-1142)
   if (d.point === 'turn-bet' || d.point === 'flop-size') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // FG: mały zakład to zły rozmiar, nie błąd (analogia size-spot/cbet-case, CR WYS-002; D-1375)
   if (d.point === 'pick-hand') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // SC-23a/b: druga ręka to niedokładność, nie błąd (D-1054, zrodla-krok-e.md)
   return a === poprawnaAkcja(d) ? 'zgodne' : 'blad';

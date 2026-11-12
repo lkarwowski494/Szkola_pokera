@@ -384,6 +384,8 @@ export interface ListHandVariantDecision {
   handClass: string;
   /** Akcja poprawna (zgodna) i dopuszczalne z wpisu listy, w którym jest klasa ręki. */
   correct: string;
+  /** 08-FN-1 (ręka mieszana, ADR-04): pozostałe akcje poprawne wpisu z `correct: [..]`; pole tylko przy ręce mieszanej (kształt wariantu bez zmian dla wpisów z jedną). */
+  alsoCorrect?: string[];
   acceptable: string[];
 }
 export interface PickHandVariantDecision {
@@ -694,7 +696,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (widziane.has(hc)) throw new TemplateError(`${t.id}: list-hand: klasa ${hc} w więcej niż jednym wpisie listy`);
       widziane.add(hc);
     }
-    const klasy = first.entries.filter((e) => e.correct === expected).flatMap((e) => e.hands);
+    const klasy = first.entries.filter((e) => pierwszaPoprawna(e) === expected).flatMap((e) => e.hands);
     if (klasy.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żaden wpis listy nie ma akcji oczekiwanej ${expected}`);
     const hc = pick(rng, klasy);
     const combo = pick(rng, classCombos(hc));
@@ -702,7 +704,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     rest = dealCards(rng, 7, hero);
     const w = listHandVerdicts(hc, first.entries)!;
     preflop = null;
-    listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, acceptable: w.acceptable };
+    listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, ...(w.alsoCorrect ? { alsoCorrect: w.alsoCorrect } : {}), acceptable: w.acceptable };
   } else if (first.kind === 'defend') {
     // 08-N2: ręka z zakresu obrony spotu (jak zakres otwarcia w cbet-case); flop dolosowany do tekstury poziomu
     if (!ctx) throw new TemplateError(`${t.id}: punkt defend wymaga danych zakresów (GeneratorContext)`);
@@ -1301,12 +1303,16 @@ export function defendVsCbet(hero: readonly [Card, Card], flop: readonly Card[],
 }
 
 /** R-M4-010: punkt „lista rąk”: oczekiwana akcja z jawnej listy klas w szablonie; ręka spoza listy → null (generator losuje tylko z listy). */
-export interface ListEntry { hands: readonly string[]; correct: string; acceptable?: readonly string[] }
-export function listHandVerdicts(handClass: string, entries: readonly ListEntry[]): { correct: string; acceptable: string[] } | null {
+/** 08-FN-1: `correct` może być listą (ręka mieszana, ADR-04); pierwsza jest akcją oczekiwaną (bounds `expected`). */
+export interface ListEntry { hands: readonly string[]; correct: string | readonly string[]; acceptable?: readonly string[] }
+export const pierwszaPoprawna = (e: ListEntry): string => (typeof e.correct === 'string' ? e.correct : e.correct[0] ?? '');
+export function listHandVerdicts(handClass: string, entries: readonly ListEntry[]): { correct: string; alsoCorrect?: string[]; acceptable: string[] } | null {
   const trafione = entries.filter((x) => x.hands.includes(handClass));
   if (trafione.length > 1) throw new Error(`listHandVerdicts: klasa ${handClass} w ${trafione.length} wpisach listy (jednoznaczna akcja oczekiwana)`);
   const e = trafione[0];
-  return e ? { correct: e.correct, acceptable: [...(e.acceptable ?? [])] } : null;
+  if (!e) return null;
+  const reszta = typeof e.correct === 'string' ? [] : e.correct.slice(1);
+  return { correct: pierwszaPoprawna(e), ...(reszta.length > 0 ? { alsoCorrect: reszta } : {}), acceptable: [...(e.acceptable ?? [])] };
 }
 
 /** R-M8-010 (math): sprawdzenie bluff-catcherem, gdy udział blefów > bet ÷ (pula + 2·bet); w marginesie marginMin od progu odpowiedzi brak (null, jak draw-call). */

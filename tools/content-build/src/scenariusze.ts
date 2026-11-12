@@ -5,12 +5,14 @@ import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { komunikatBledu } from './blad';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, DRAW_CALL_MIN_GAP, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { pierwszaPoprawna, akcjeSzablonu, DRAW_CALL_MIN_GAP, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
   ruleLevels: ReadonlyMap<string, RuleLevel>;
   numberKeys: ReadonlySet<string>;
+  /** Wartość liczby z numbers.yaml (06-tresci-008: rozmiar zakładu w decyzji = klucz `cbet.size.*` w tekście); bez niego kontrola rozmiaru pominięta. */
+  numberValue?: (klucz: string) => number | undefined;
   moduleIds: ReadonlySet<string>;
   /** id spotu zakresu → etykiety akcji węzła solvera (F1); bez tego punkty range-spot są błędem. */
   spots?: ReadonlyMap<string, readonly string[]>;
@@ -70,6 +72,32 @@ function sprawdzPozycjeSizeSpot(pos: { hero: string; villain: string }, check: s
     if (check === 'open-size' && pos.hero !== 'BTN' && pos.hero !== 'SB') e.push(`${p} open-size tylko z BTN i SB (rozmiar solvera z ${pos.hero} jest mniejszy lub równy 2,0–2,3 bb, więc mały rozmiar nie byłby błędny)`);
     if (pos.hero === 'BB' || pre(pos.hero) > pre(pos.villain)) e.push(`${p} ${check}: otwierający (gracz, ${pos.hero}) działa przed rywalem (${pos.villain}); BB nie otwiera`);
   }
+  return e;
+}
+
+/**
+ * 06-tresci-008 (FR, opcja a): rozmiar zakładu w tekście wyjaśnienia (`{{n:cbet.size.small|big}}`) musi być równy rozmiarowi w decyzji szablonu:
+ * turn-bet i flop-size (`small`, `big`) oraz defend (każda z `fractions`). Zmiana klucza w `numbers.yaml` nie może po cichu rozjechać tekstu z rozmiarem wariantu.
+ * `wartosc` zwraca liczbę klucza (ułamek puli) albo undefined (nieznany klucz zgłasza osobna kontrola).
+ */
+export function kluczeRozmiaruZgodne(t: ScenarioTemplate, wartosc: (klucz: string) => number | undefined): string[] {
+  const e: string[] = [];
+  const KLUCZE = ['cbet.size.small', 'cbet.size.big'] as const;
+  t.decisions.forEach((d, i) => {
+    let rozmiary: Record<(typeof KLUCZE)[number], readonly number[]>;
+    if (d.kind === 'turn-bet' || d.kind === 'flop-size') rozmiary = { 'cbet.size.small': [d.small], 'cbet.size.big': [d.big] };
+    else if (d.kind === 'defend') rozmiary = { 'cbet.size.small': d.fractions, 'cbet.size.big': d.fractions };
+    else return;
+    const tekst = d.actions.map((a) => a.explanation).join('\n');
+    for (const klucz of KLUCZE) {
+      if (!tekst.includes(`{{n:${klucz}}}`)) continue;
+      const w = wartosc(klucz);
+      if (w === undefined) continue;
+      for (const r of rozmiary[klucz]) {
+        if (Math.abs(r - w) > 1e-9) e.push(`szablon ${t.id}: punkt decyzji ${i + 1} (${d.kind}): rozmiar ${klucz === 'cbet.size.small' && d.kind !== 'defend' ? 'small' : klucz === 'cbet.size.big' && d.kind !== 'defend' ? 'big' : 'fractions'} ${r} w decyzji, a tekst podaje {{n:${klucz}}} = ${w} (06-tresci-008)`);
+      }
+    }
+  });
   return e;
 }
 
@@ -202,12 +230,12 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       }
       const akcje = new Set(d.actions.map((a) => a.action));
       if (akcje.size !== d.actions.length) e.push(`${p} akcja powtórzona`);
-      for (const en of d.entries) for (const a of [en.correct, ...(en.acceptable ?? [])]) {
+      for (const en of d.entries) for (const a of [...(typeof en.correct === 'string' ? [en.correct] : en.correct), ...(en.acceptable ?? [])]) {
         if (!akcje.has(a)) e.push(`${p} akcja ${a} z listy rąk nie ma wyjaśnienia (BR-OCE-002)`);
       }
       for (const l of SCENARIO_LEVELS_LIST) {
         const ex = t.bounds[l]?.expected[i];
-        if (ex !== undefined && !d.entries.some((en) => en.correct === ex)) e.push(`${p} poziom ${l}: żaden wpis listy nie ma akcji oczekiwanej ${ex}`);
+        if (ex !== undefined && !d.entries.some((en) => pierwszaPoprawna(en) === ex)) e.push(`${p} poziom ${l}: żaden wpis listy nie ma akcji oczekiwanej ${ex}`);
       }
     } else if (d.kind === 'cbet-case') {
       const przypadki = (ctx.cbetCases ?? []).filter((c) => c.rule === d.rule);
@@ -318,6 +346,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     if (d.kind === 'range-spot' && i !== 0) e.push(`${p} punkt range-spot jest pierwszy`);
   });
   if (t.villainType !== undefined && !exploit) e.push(`${pre} typ rywala wymaga reguły exploit z populacją (ADR-24, szczebel 5)`);
+  if (ctx.numberValue) e.push(...kluczeRozmiaruZgodne(t, ctx.numberValue));
   return e;
 }
 
@@ -407,7 +436,7 @@ export function checkScenarioGenerator(
     }
     // 08-N4: lista rąk bez flopu: odcisk to klasa ręki, więc próg to min(próg, liczba klas listy z akcją oczekiwaną poziomu)
     if (b && pierwszy?.kind === 'list-hand' && b.expected[0] !== undefined && t.decisions.length === 1) {
-      prog = Math.min(prog, pierwszy.entries.filter((en) => en.correct === b.expected[0]).reduce((n, en) => n + en.hands.length, 0));
+      prog = Math.min(prog, pierwszy.entries.filter((en) => pierwszaPoprawna(en) === b.expected[0]).reduce((n, en) => n + en.hands.length, 0));
     }
     if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }

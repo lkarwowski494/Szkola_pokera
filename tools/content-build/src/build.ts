@@ -419,6 +419,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     const errs = checkScenarioTemplate(template, file, {
       ruleLevels: new Map(rules.map((r) => [r.id, r.level])),
       numberKeys: new Set(numbers.keys()),
+      numberValue: (k: string) => numbers.get(k)?.value,
       moduleIds,
       spots: new Map(ranges.map((r) => [r.id, r.actions.map((a) => a.label)])),
       cbetCases,
