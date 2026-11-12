@@ -16,7 +16,7 @@ decisions:
     kind: defend
     rule: R-M6-006
     spot: vs-open.bb-vs-btn
-    pots: [5, 6]
+    pots: [6, 9]
     fractions: [0.33]
     actions:
       - action: call
