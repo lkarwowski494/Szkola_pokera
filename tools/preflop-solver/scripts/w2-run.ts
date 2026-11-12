@@ -2,9 +2,9 @@ import { mkdirSync, readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parseCard } from '@szkola/poker-core';
 import { rangeFromClasses } from '../src/flop/combos';
-import type { GameSpec } from '../src/flop/game';
 import { solveNative } from '../src/flop/native';
 import { w2Metrics } from '../src/flop/w2';
+import { w2Game } from '../src/flop/w2models';
 // użycie: tsx scripts/w2-run.ts STÓŁ [STÓŁ…]   (np. btn-vs-bb-srp-k72-rainbow)
 // Etapy B5/B6 planu B: rozwiązuje stół solverem C i porównuje z siatką BeyondGTO według kryteriów W2 (D-1332).
 // Model gry: D-1333. Zakresy: D-1334. Wynik każdego stołu w targets/w2-results/<stół>.json (poza gitem);
@@ -79,20 +79,8 @@ for (const slug of process.argv.slice(2)) {
     board: string[]; mainSizeBb: number; sizesPrinted: { bb: number }[]; classes: Freqs;
   };
   const board = target.board.map(parseCard);
-  const large = pair.srp ? 4.4 : target.mainSizeBb === 5.6 ? 14.4 : 14; // rozmiary ze stron (w2-cel.md)
   const heroW = pair.hero === 'ip' ? pair.ip() : pair.oop();
-  const spec: GameSpec = {
-    board,
-    ranges: [rangeFromClasses(pair.oop(), board), rangeFromClasses(pair.ip(), board)],
-    pot: pair.pot,
-    stack: pair.stack,
-    streets: [{ betsBb: [target.mainSizeBb, large] }, { betsPot: [0.66] }, { betsPot: [0.66] }],
-    raiseMult: 3,
-    allinFrac: 2 / 3,
-    rakeRate: 0.05,
-    rakeCap: 3,
-    oopCheckedFirst: pair.srp,
-  };
+  const { spec } = w2Game('d1333', pair, board, [rangeFromClasses(pair.oop(), board), rangeFromClasses(pair.ip(), board)], target.mainSizeBb);
   const t0 = Date.now();
   const res = solveNative(spec, MAX_IT, { threads: 4, reportEvery: STEP, targetNashConvPot: NC_LIMIT, progress: true });
   const it = res.iterations;
