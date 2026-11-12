@@ -902,3 +902,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 18:38 | FT → koordynator | PRZEKAZANIE przyjęte (docs) @ 86fd8f4c; ft-test czerwony→zielony, ci kod 0 e78d0550; FT 5,01 USD → zarchiwizowana | kontrola 18:45 (FJ D2, FR) |
 | 18:48 | FJ, FR → koordynator | FJ D2 2/7 → STOP, PYTANIE A/C do właściciela; FR 31,8% → polecenie PRZEKAZANIA po ci 975e8763 | kontrola 19:33 |
 | 19:35 | FR → koordynator | PRZEKAZANIE @ 83b03fdc, ci kod 0 975e8763, autor zgodny; niesprawdzone (recenzja 08 audit czeka na prompts); FR 4,84 USD → zarchiwizowana | kontrola 20:35 |
+| 20:35 | koordynator | kontrola: brak odpowiedzi właściciela (solver A/C, prompts); FJ i FE czekają; brak nowych kontroli do odpowiedzi — zostają linie 04:51 i 13:51 | linia 05:00 |
