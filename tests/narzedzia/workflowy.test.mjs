@@ -318,19 +318,18 @@ test('asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczy
   assert.doesNotMatch(tekst, /environment:|--zapis|--apply/);
 });
 
-// DT (2026-11-11, D-1021/D-1022): cache buildu — klucz zależny od lockfile'a, tylko gdy aplikacja jest budowana w tym przebiegu;
-// zapis bez zmiany wyniku buildu (CocoaPods i DerivedData tylko przyspieszają). Podział na części wycofany (D-1024).
-test('e2e-ios.yml: cache buildu (CocoaPods przed prebuild, DerivedData po pod install) z kluczem od pnpm-lock.yaml', () => {
+// DT (2026-11-11, D-1021) + EU (2026-11-12, D-1280): cache CocoaPods — klucz zależny od lockfile'a, tylko gdy aplikacja jest budowana
+// w tym przebiegu; zapis bez zmiany wyniku buildu. Cache DerivedData wycofany (D-1280: nie skraca kompilacji, 2,2 GB na push);
+// brak jakiegokolwiek drugiego kroku `actions/cache` wymusza ten test. Podział na części wycofany (D-1024).
+test('e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, bez cache DerivedData', () => {
   const kroki = json('e2e-ios.yml').jobs.e2e.steps;
   const cache = kroki.filter((k) => k.uses?.startsWith('actions/cache'));
-  assert.equal(cache.length, 2);
-  for (const k of cache) {
-    assert.match(k.with.key, /hashFiles\([^)]*pnpm-lock\.yaml/);
-    assert.match(k.with['restore-keys'], /hashFiles\([^)]*pnpm-lock\.yaml/);
-    assert.equal(k.if, "inputs.aplikacja_z_przebiegu == ''");
-  }
+  assert.equal(cache.length, 1, 'jedyny cache to CocoaPods (D-1280: brak cache DerivedData)');
+  const [pods] = cache;
+  assert.match(pods.with.key, /hashFiles\([^)]*pnpm-lock\.yaml/);
+  assert.match(pods.with['restore-keys'], /hashFiles\([^)]*pnpm-lock\.yaml/);
+  assert.equal(pods.if, "inputs.aplikacja_z_przebiegu == ''");
   const idx = (re) => kroki.findIndex((k) => re.test(k.run ?? ''));
-  const [pods, dd] = [kroki.indexOf(cache[0]), kroki.indexOf(cache[1])];
-  assert.ok(pods < idx(/expo prebuild/), 'cache CocoaPods przed prebuild');
-  assert.ok(dd > idx(/^pod install/m) && dd < idx(/xcodebuild -workspace/), 'cache DerivedData po pod install, przed xcodebuild (prebuild --clean kasuje ios/)');
+  assert.ok(kroki.indexOf(pods) < idx(/expo prebuild/), 'cache CocoaPods przed prebuild');
+  assert.ok(!kroki.some((k) => /DerivedData|ios\/build|xcode-dd/.test(`${k.name ?? ''} ${k.with?.path ?? ''} ${k.with?.key ?? ''}`)), 'brak kroku DerivedData');
 });

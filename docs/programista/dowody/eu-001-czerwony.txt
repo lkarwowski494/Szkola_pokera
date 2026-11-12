@@ -1,0 +1,9 @@
+# 08-programista-001: test czerwony na fb99729e (DD obecny), 2026-11-12
+# komenda: node --test --test-name-pattern='cache CocoaPods' tests/narzedzia/workflowy.test.mjs
+not ok 1 - e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, bez cache DerivedData
+    jedyny cache to CocoaPods (D-1280: brak cache DerivedData)
+  expected: 1
+  actual: 2
+# pass 0
+# fail 1
+KOD_WYJSCIA=1

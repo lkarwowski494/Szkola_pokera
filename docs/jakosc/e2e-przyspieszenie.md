@@ -53,3 +53,9 @@ Split wycofany; `e2e-ios.yml` = struktura z b3963e9a + dwa cache (commit 5997fd6
 | 43126163648 | 26:21 | 55:24 | 1:24 | 30:56 | 3:47 | 13:18 | 81:46 |
 
 Wniosek: cache nie dał mierzalnego zysku w tym przebiegu — xcodebuild 30:56 mimo ciepłego DerivedData (przywrócenie 1:11), pod install −0:41; czas joba 55:24 mieści się w rozrzucie runnerów macOS (przed: 40–52 min; build 26:52–33:22 przy tym samym kodzie). Kolejka macOS 26 min wynika z obciążenia kont/innych przebiegów (jeden job, więc nie z podziału). Zysk z cache widziany w przebiegach 43110722675 → 43117974356 (xcodebuild 27:02 → 24:32) nie powtórzył się; pomiar nie rozstrzyga, czy cache pomaga (hipoteza: kilka minut, w granicach szumu). Cache zostaje (koszt: ok. 1 min na przywrócenie i zapis), do weryfikacji na kolejnych przebiegach z `main`/`claude/**`.
+
+## 6. Korekta po recenzji ES (EU, 2026-11-12, D-1280): cache DerivedData wycofany
+
+Recenzja ES (08-programista-001) policzyła linie „Compiling” w logach xcodebuild: 1147 bez cache, 1147 i 1144 przy trafieniu DerivedData. `expo prebuild --clean` i `pod install` odtwarzają `ios/`, więc Xcode kompiluje wszystko od nowa i przywrócone produkty nie są używane. Koszt: przywrócenie 1:11, zapis 1:23, wpis 2,2 GB przy każdym nowym SHA (limit repozytorium 10 GB, wypychanie mniejszych wpisów). Warunek wycofania z D-1022 („jeśli nie — zostaje cache CocoaPods”) jest spełniony.
+
+Stan końcowy: jeden job, cache CocoaPods (pod install 2:22 → 1:24 wg recenzji) i cache pnpm; bez cache DerivedData. Test `workflowy.test.mjs` wymusza brak drugiego kroku `actions/cache`. Weryfikacja: pierwszy przebieg E2E po scaleniu (xcodebuild w zakresie 25–31 min); wcześniejsze zdania tego dokumentu o cache DerivedData (sekcje 4–5) są historyczne.
