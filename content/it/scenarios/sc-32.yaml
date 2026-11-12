@@ -2,7 +2,7 @@
 # na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
 id: sc-32
 module: m11
-situation: "{{t:tournament|Torneo}}: sei sullo {{t:small-blind}} con {{n:m11.depth.10}} e tutti hanno {{t:fold|foldato}} fino a te."
+situation: "{{t:tournament|Torneo}}: sei in {{t:small-blind}} con {{n:m11.depth.10}} e tutti hanno {{t:fold|foldato}} fino a te."
 table: 6max
 positions: { hero: SB, villain: BB }
 stackBb: 10
@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "Hai {{w:reka}} in {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}}. Vai {{t:all-in}}, perché con uno stack più corto rischi meno rispetto ai bui che vinci quando l'avversario {{t:fold|folda}}; con {{n:m11.depth.10}} fai {{t:shove|push}} con circa {{n:m11.push.10}} delle mani, e questa mano è tra queste."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}}. Vai {{t:all-in}}, perché con uno stack più corto rischi meno rispetto ai blind che vinci quando l'avversario {{t:fold|folda}}; con {{n:m11.depth.10}} fai {{t:shove|push}} con circa {{n:m11.push.10}} delle mani, e questa mano è tra queste."
       - action: fold
-        explanation: "Hai {{w:reka}} in {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}}. Il {{t:fold}} è troppo prudente: con {{n:m11.depth.10}} fai {{t:shove|push}} con circa {{n:m11.push.10}} delle mani, e questa mano è tra queste. Con uno stack più corto rischi meno rispetto ai bui che vinci quando l'avversario {{t:fold|folda}}."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}} con {{n:m11.depth.10}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}}. Il {{t:fold}} è troppo prudente: con {{n:m11.depth.10}} fai {{t:shove|push}} con circa {{n:m11.push.10}} delle mani, e questa mano è tra queste. Con uno stack più corto rischi meno rispetto ai blind che vinci quando l'avversario {{t:fold|folda}}."

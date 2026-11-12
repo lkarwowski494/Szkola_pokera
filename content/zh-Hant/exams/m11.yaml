@@ -54,18 +54,18 @@ drills:
     id: m11.exam.q7
     family: m11.bf
     rules: [R-M11-009, R-M11-008]
-    prompt: "{{t:bubble|泡沫}}：四名玩家，前三名有獎（分別為{{t:prize-pool|獎金池}}的 {{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。籌碼量：{{n:exam.m11.bf.s1}}、你的 {{n:exam.m11.bf.s2}}、全下的對手 {{n:exam.m11.bf.s3}}，以及 {{n:exam.m11.bf.s4}}。依 {{t:icm}}，你{{t:call|跟注}}後若輸會損失{{t:prize-pool|獎金池}}的 {{n:exam.m11.bf.loss}}，若贏則增加 {{n:exam.m11.bf.gain}}。泡沫因子是多少？請輸入保留兩位小數的數字。"
+    prompt: "{{t:bubble|泡沫}}：四名玩家，前三名有獎（分別為{{t:prize-pool|獎金池}}的 {{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。籌碼量：{{n:exam.m11.bf.s1}}、你的 {{n:exam.m11.bf.s2}}、全下的對手 {{n:exam.m11.bf.s3}}，以及 {{n:exam.m11.bf.s4}}。依 {{t:icm}}，你{{t:call|跟注}}後若輸會損失{{t:prize-pool|獎金池}}的 {{n:exam.m11.bf.loss}}，若贏則增加 {{n:exam.m11.bf.gain}}。泡沫係數是多少？請輸入保留兩位小數的數字。"
     answer: exam.m11.bf.value
-    explanation: "泡沫因子 = 損失 ÷ 收益 = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}。你現在的權益是 {{n:exam.m11.bf.eq.now}}，贏了變成 {{n:exam.m11.bf.eq.win}}，輸了變成 {{n:exam.m11.bf.eq.lose}}：輸掉的代價大於贏得的增加。{{t:icm}} 不考慮{{t:position|位置}}或玩家技術，所以這個估值只是近似值。"
+    explanation: "泡沫係數 = 損失 ÷ 收益 = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}。你現在的權益是 {{n:exam.m11.bf.eq.now}}，贏了變成 {{n:exam.m11.bf.eq.win}}，輸了變成 {{n:exam.m11.bf.eq.lose}}：輸掉的代價大於贏得的增加。{{t:icm}} 不考慮{{t:position|位置}}或玩家技術，所以這個估值只是近似值。"
   - kind: choice
     id: m11.exam.q8
     family: m11.bf
     rules: [R-M11-009]
-    prompt: "同一局面：泡沫因子 {{n:exam.m11.bf.value}}。若只打{{t:chips|籌碼}}，有 {{n:exam.m11.bf.req-chips}} 的權益就足以{{t:call|跟注}}。依 {{t:icm}}，你需要多少？"
+    prompt: "同一局面：泡沫係數 {{n:exam.m11.bf.value}}。若只打{{t:chips|籌碼}}，有 {{n:exam.m11.bf.req-chips}} 的權益就足以{{t:call|跟注}}。依 {{t:icm}}，你需要多少？"
     options:
       - { text: "約 {{n:exam.m11.bf.req}}", correct: true, why: "所需權益 = BF ÷（BF + 1）= 損失 ÷（損失 + 收益）= {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}。與 {{n:exam.m11.bf.req-chips}} 的差距就是{{t:risk-premium|風險溢價}}。" }
       - { text: "{{n:exam.m11.bf.req-chips}}，和用{{t:chips|籌碼}}計算時一樣", why: "在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中，輸掉的錢比贏到的多，所以{{t:call}}必須更常獲勝：約 {{n:exam.m11.bf.req}}。" }
-      - { text: "少於 {{n:exam.m11.bf.req-chips}}，因為{{t:bubble|泡沫}}會逼對手{{t:bluff|詐唬}}", why: "泡沫因子大於 1 時，所需權益一定會高於以{{t:chips|籌碼}}計算的價格。這裡提高到約 {{n:exam.m11.bf.req}}。" }
+      - { text: "少於 {{n:exam.m11.bf.req-chips}}，因為{{t:bubble|泡沫}}會逼對手{{t:bluff|詐唬}}", why: "泡沫係數大於 1 時，所需權益一定會高於以{{t:chips|籌碼}}計算的價格。這裡提高到約 {{n:exam.m11.bf.req}}。" }
   - kind: choice
     id: m11.exam.q9
     family: m11.icm.call

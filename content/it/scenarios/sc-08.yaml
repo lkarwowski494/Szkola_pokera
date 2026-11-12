@@ -2,7 +2,7 @@
 # Rola 06, sesja EH, 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-08.yaml); jeden poziom (D-1034), pojemność wg D-1040.
 id: sc-08
 module: m4
-situation: "Sei sullo {{t:small-blind}} e il Button ha {{t:open|aperto}} a {{n:pf.open-size}}."
+situation: "Sei in {{t:small-blind}} e il Button ha {{t:open|aperto}} a {{n:pf.open-size}}."
 table: 6max
 positions: { hero: SB, villain: BTN }
 stackBb: 100

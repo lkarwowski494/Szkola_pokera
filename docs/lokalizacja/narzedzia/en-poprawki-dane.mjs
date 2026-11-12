@@ -79,4 +79,35 @@ export const DEFINICJE = (z, k) => ({
     ],
     kontrole: [k('vi', '.', 'mở\\}\\} rộng', 'vi: „{{t:open|mở}} rộng” (czyta się „rozszerzać”)')],
   },
+  '007': {
+    zamiany: [
+      // it: „sei in” jak w sc-34 i korpusie; „blind” zamiast „bui/buio”
+      z('it', 'scenarios/sc-06.yaml', 'Sei sullo {{t:small-blind}}', 'Sei in {{t:small-blind}}'),
+      z('it', 'scenarios/sc-08.yaml', 'Sei sullo {{t:small-blind}}', 'Sei in {{t:small-blind}}'),
+      z('it', 'scenarios/sc-32.yaml', 'sei sullo {{t:small-blind}}', 'sei in {{t:small-blind}}'),
+      z('it', 'scenarios/sc-33.yaml', 'sei sul {{t:big-blind}}', 'sei in {{t:big-blind}}'),
+      z('it', 'scenarios/sc-32.yaml', 'ai bui che vinci', 'ai blind che vinci', 2),
+      z('it', 'scenarios/sc-33.yaml', 'il tuo buio', 'il tuo blind'),
+      z('it', 'scenarios/sc-33.yaml', 'Il tuo buio', 'Il tuo blind'),
+      // fr: stack zamiast „tapis” (= shove), „range de call”, „équité”
+      z('fr', 'scenarios/sc-32.yaml', 'un tapis plus court', 'un stack plus court', 2),
+      z('fr', 'scenarios/sc-33.yaml', 'range}} de {{t:call|suivi}}', 'range}} de {{t:call|call}}', 2),
+      z('fr', 'scenarios/sc-33.yaml', "d'equity", "d'équité", 2),
+      // zh-Hant: 權益 (nie 勝率), 泡沫係數 (nie 泡沫因子), 入池 (nie 入局), BF ÷ (BF + 1)
+      z('zh-Hant', 'scenarios/sc-33.yaml', '的勝率', '的權益', 2),
+      z('zh-Hant', 'scenarios/sc-04.yaml', '還沒有人入局', '還沒有人入池', 3),
+      z('zh-Hant', 'rules.yaml', 'BF ÷ （BF + 1），其中泡沫因子 BF', 'BF ÷ (BF + 1)，其中泡沫係數 BF'),
+      z('zh-Hant', 'exams/m11.yaml', '泡沫因子', '泡沫係數', 4),
+      // de: zdanie sc-06 raise z czasownikiem po „also”
+      z('de', 'scenarios/sc-06.yaml', '{{t:out-of-position|ohne Position}} spielst, also etwas mehr als {{n:pf.open-size}}', '{{t:out-of-position|ohne Position}} spielst; deshalb {{t:raise|raist}} du etwas mehr als {{n:pf.open-size}}'),
+    ],
+    kontrole: [
+      k('it', 'scenarios', '[Ss]ei (sul|sullo) \\{\\{t:(small|big)-blind|\\bbui\\b|\\bbuio\\b', 'it scenariusze: „sei sul(lo)”, „bui/buio”'),
+      k('fr', 'scenarios', 'tapis plus court|\\|suivi\\}\\}|d.equity', 'fr scenariusze: „tapis plus court”, „range de suivi”, „d equity”'),
+      k('zh-Hant', 'scenarios', '勝率|入局', 'zh-Hant scenariusze: „勝率”, „入局”'),
+      k('zh-Hant', 'rules.yaml', '泡沫因子|（BF', 'zh-Hant rules: „泡沫因子”, „（BF”'),
+      k('zh-Hant', 'exams/m11.yaml', '泡沫因子', 'zh-Hant exam m11: „泡沫因子”'),
+      k('de', 'scenarios/sc-06.yaml', 'spielst, also etwas mehr', 'de sc-06 raise: zdanie bez czasownika po „also”'),
+    ],
+  },
 });
