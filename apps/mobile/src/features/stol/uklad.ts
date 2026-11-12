@@ -85,6 +85,11 @@ export function opisReki(m: readonly Miejsce[], reka: readonly string[], t: TFn)
 const SYMBOL: Record<string, string> = { s: '♠', h: '♥', d: '♦', c: '♣' };
 const WARTOSCI = new Set(['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']);
 
+/** Zapis kart do tekstu widocznego bez rysunku karty: figura i symbol koloru („A♥ 4♥”, T jako 10), bez angielskich liter kolorów (EP-004); zły kod zostaje kodem. */
+export function zapisKart(cs: readonly string[]): string {
+  return cs.map((c) => { const [r = '', s = ''] = c; return WARTOSCI.has(r) && s in SYMBOL ? `${r === 'T' ? '10' : r}${SYMBOL[s]}` : c; }).join(' ');
+}
+
 /** Nazwa karty dla czytnika z kluczy `card.rank.*` i `card.suit.*` („as pik”, A04-10/A04-11, D-284); zły kod zostaje kodem, bez zgadywania. */
 export function nazwaKarty(c: string, t: TFn): string {
   const [r = '', s = ''] = c;

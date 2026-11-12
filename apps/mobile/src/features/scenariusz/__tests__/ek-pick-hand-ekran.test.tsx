@@ -10,6 +10,7 @@ import { PrzebiegScenariusza } from '../EkranScenariusza';
 import type { SesjaScenariusza } from '../aktywnoscScenariusza';
 import { bloki, naGenerator, ocenyAkcji, poprawnaAkcja, widokDecyzji, type Akcja } from '../wariant';
 import i18n from '@/i18n';
+import { nazwaKarty } from '@/features/stol/uklad';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
@@ -82,10 +83,25 @@ describe('KO-072: pick-hand — ekran', () => {
     const onWybierz = jest.fn();
     await render(<PrzebiegScenariusza sesja={sesja(w, [])} faza="decyzja" koniec={false} onWybierz={onWybierz} {...props} />);
     expect(screen.getByTestId('pick-hand-rece')).toBeTruthy();
-    await fireEvent.press(screen.getByText(reka(p.hands[1])));
+    await fireEvent.press(screen.getByTestId('option-1'));
     expect(onWybierz).toHaveBeenCalledWith('hand-b');
-    await fireEvent.press(screen.getByText(reka(p.hands[0])));
+    await fireEvent.press(screen.getByTestId('option-0'));
     expect(onWybierz).toHaveBeenCalledWith('hand-a');
+  });
+  it('EP-004: przycisk ma etykietę czytnika z nazw kart (card.*), a w tekście nie ma surowego zapisu „Ah 4h”', async () => {
+    const w = wariant(5);
+    const p = punkt(w);
+    await render(<PrzebiegScenariusza sesja={sesja(w, [])} faza="decyzja" koniec={false} onWybierz={jest.fn()} {...props} />);
+    for (const [i, h] of p.hands.entries()) {
+      const przycisk = screen.getByTestId(`option-${i}`);
+      expect(przycisk.props.accessibilityLabel).toBe(h.map((c) => nazwaKarty(cardToString(c), t)).join(', '));
+    }
+    expect(screen.queryByText(/\b[2-9TJQKA][hdcs]\b/)).toBeNull();
+  });
+  it('EP-004: dziennik i lista końcowa nie pokazują surowego zapisu kart', async () => {
+    const w = wariant(8);
+    await render(<PrzebiegScenariusza sesja={sesja(w, [punkt(w).correct])} faza="ocena" koniec onWybierz={jest.fn()} {...props} />);
+    expect(screen.queryByText(/\b[2-9TJQKA][hdcs]\b/)).toBeNull();
   });
   for (const wybierzPoprawna of [true, false]) {
     it(`ocena (${wybierzPoprawna ? 'poprawna' : 'druga'} ręka): ekran pokazuje werdykt i wyjaśnienie wybranej ręki`, async () => {

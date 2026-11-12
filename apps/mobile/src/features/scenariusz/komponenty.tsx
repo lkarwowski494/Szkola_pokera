@@ -89,11 +89,11 @@ export function Dziennik({ wpisy }: { wpisy: readonly WpisDziennika[] }): React.
 }
 
 /** Pasek ocen akcji po decyzji: słowo stopnia przy każdej akcji, twój wybór w złotej obwódce z dopiskiem; bez procentów (D-544). */
-export function PasekOcenAkcji({ akcje, wybor, nazwy }: { akcje: Readonly<Partial<Record<Akcja, OcenaOdpowiedzi>>>; wybor: Akcja; nazwy: Readonly<Partial<Record<Akcja, string>>> }): React.JSX.Element {
+export function PasekOcenAkcji({ akcje, wybor, nazwy, etykiety }: { akcje: Readonly<Partial<Record<Akcja, OcenaOdpowiedzi>>>; wybor: Akcja; nazwy: Readonly<Partial<Record<Akcja, string>>>; etykiety?: Readonly<Partial<Record<Akcja, string>>> }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   const wpisy = (Object.keys(nazwy) as Akcja[]).flatMap((a) => { const o = akcje[a]; return o ? [{ a, o }] : []; });
-  const lista = wpisy.map(({ a, o }) => `${nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
+  const lista = wpisy.map(({ a, o }) => `${etykiety?.[a] ?? nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
   return (
     <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={styles.pasekOcen}>
       {wpisy.map(({ a, o }) => (

@@ -13,7 +13,7 @@ import { wykonajHaptyke } from '@/features/session/haptyka';
  * kreskowana — najbliższe kreskowaniu w RN bez grafiki; 08-F27), złoty znacznik nad twoim wyborem (`ruch.znacznik`),
  * podpisy z procentami. „Ogranicz ruch”: bez przesunięć, tylko przenikanie (`ruch.ograniczRuch`).
  */
-export type OpcjaPaskaUI = OpcjaPaska & { readonly pas?: boolean };
+export type OpcjaPaskaUI = OpcjaPaska & { readonly pas?: boolean; /** Etykieta czytnika zamiast tekstu widocznego (np. nazwy kart zamiast „A♥ 4♥”). */ readonly etykieta?: string };
 const CEL_AKCJI = 64; // design-spec: akcje decyzji ≥ 64 pt
 
 function useOgraniczRuch(): boolean {
@@ -52,7 +52,7 @@ export function PasekStrategii({
             key={`${o.text}-${i}`}
             testID={`option-${i}`}
             accessibilityRole="button"
-            accessibilityLabel={o.text}
+            accessibilityLabel={o.etykieta ?? o.text}
             onPress={() => {
               void wykonajHaptyke(haptyka.wyborAkcji).catch(() => undefined);
               onWybierz?.(i);

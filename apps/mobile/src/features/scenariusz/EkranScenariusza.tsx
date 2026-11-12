@@ -11,7 +11,7 @@ import { jezykZadan } from '@/features/drills/text';
 import { useAnnounce } from '@/features/dostepnosc/announce';
 import { ZglosBlad } from '@/features/opinie/Opinie';
 import { godzinaWStrefie } from '@/features/start/EkranStartu';
-import { nazwaKarty, nazwaPozycji } from '@/features/stol/uklad';
+import { nazwaKarty, nazwaPozycji, zapisKart } from '@/features/stol/uklad';
 import { ADRES_KONTAKTOWY } from '@/platform/adresy';
 import { odstep, styl, useTokens } from '@/theme/tokens';
 import { CardRow } from '@/components/PlayingCard';
@@ -37,6 +37,8 @@ export interface TekstAkcji {
   przycisk: string;
   /** Fraza do zdania małą literą: „przebicie (raise) do 2,5 bb”. */
   fraza: string;
+  /** Etykieta dla czytnika ekranu, gdy nazwa widoczna nie nadaje się do czytania (pick-hand: nazwy kart z `card.*`); brak = czytnik czyta tekst. */
+  czytnik?: string;
 }
 /**
  * Nazwy akcji z grupy `scenario.action` (D-886, docs/design/scenariusz-akcje-i-liczby.md §1 @ 49abc289), kwoty wg tabeli DA (`kwotaAkcji`),
@@ -47,9 +49,10 @@ export function tekstAkcji(v: ScenarioVariant, indeks: number, a: Akcja, s: Pick
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
   if (d.point === 'pick-hand') {
-    // KO-072: nazwa akcji to karty wybranej ręki (bez nowego klucza i18n); zapis kart jak w wariancie, np. „Ah 4h”
-    const nazwa = d.hands[a === 'hand-b' ? 1 : 0].map(cardToString).join(' ');
-    return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa };
+    // KO-072: nazwa akcji to karty wybranej ręki (bez nowego klucza i18n); EP-004: tekst ze znakami kolorów („A♥ 4♥”), czytnik dostaje nazwy z `card.*`
+    const karty = d.hands[a === 'hand-b' ? 1 : 0].map(cardToString);
+    const nazwa = zapisKart(karty);
+    return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa, czytnik: karty.map((c) => nazwaKarty(c, t)).join(', ') };
   }
   const o = opisAkcji(d, a);
   const baza = t(o.klucz);
@@ -208,6 +211,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const akcje = akcjePunktu(d);
   const teksty: Partial<Record<Akcja, TekstAkcji>> = Object.fromEntries(akcje.map((a) => [a, opisAkcjiEkranu(a)]));
   const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, teksty[a]?.nazwa ?? '']));
+  const etykiety: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.flatMap((a) => { const e = teksty[a]?.czytnik; return e ? [[a, e]] : []; }));
   const fraza = (a: Akcja): string => teksty[a]?.fraza ?? '';
   const najlepsza: Akcja = poprawnaAkcja(d);
   const idxUlicy = ULICE.indexOf(widok.ulica);
@@ -251,7 +255,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
       {!ocenaMode ? (
         <View style={{ gap: odstep.s }}>
           <Text style={[styl.drobny, { color: tk.muted, fontWeight: '600' }]}>{t('scenario.yourMove')}</Text>
-          <PasekStrategii opcje={akcje.map((a) => ({ text: teksty[a]?.przycisk ?? '' }))} wybor={null} klasa="" onWybierz={(i) => { const a = akcje[i]; if (a) p.onWybierz(a); }} />
+          <PasekStrategii opcje={akcje.map((a) => ({ text: teksty[a]?.przycisk ?? '', ...(teksty[a]?.czytnik ? { etykieta: teksty[a]?.czytnik } : {}) }))} wybor={null} klasa="" onWybierz={(i) => { const a = akcje[i]; if (a) p.onWybierz(a); }} />
         </View>
       ) : wybor && ocenaWyboru && ocenyAk ? (
         <View style={{ gap: odstep.l }}>
@@ -262,7 +266,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
           {bloki(s.wariant, s.szablon, indeks, wybor, t).map((b) => (
             <BlokDlaczego key={`${b.rodzaj}-${b.akcja}`} blok={b} nazwa={fraza(b.akcja)} t={t} />
           ))}
-          <PasekOcenAkcji akcje={ocenyAk} wybor={wybor} nazwy={nazwy} />
+          <PasekOcenAkcji akcje={ocenyAk} wybor={wybor} nazwy={nazwy} etykiety={etykiety} />
           {zdaniaLiczbPunktu.length > 0 ? (
             <Rozwijany tytul={t('scenario.numbers.title')} testID="liczby">
               {zdaniaLiczbPunktu.map((z, k) => (
