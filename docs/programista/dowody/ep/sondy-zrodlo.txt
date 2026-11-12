@@ -1,0 +1,12 @@
+// Sondy EP (uruchamiane w worktree 24f32fb5 jako packages/poker-core/test/ep-sonda*.test.ts; tu jako .txt, poza typecheck i testami).
+// Wynik: sondy-wynik.txt. Komenda: cd packages/poker-core && npx vitest run test/ep-sonda.test.ts test/ep-sonda-turn.test.ts --reporter=verbose
+// --- ep-sonda.test.ts: pick-hand, strona poprawnej ręki i remisy przy „SDV = 0” (fixture CALLS/FOLDS z ek-pick-hand.test.ts, ziarna 1–300)
+function remisy(h, board) { // kombinacje calls ∪ folds (classCombos) bez kart h i stołu; r = remisy (strength równe), w = wygrane h
+  const m = new Set([...h, ...board]); const s = strength([...h, ...board]); let r = 0, w = 0, n = 0;
+  for (const c of [...CALLS, ...FOLDS].flatMap((x) => classCombos(x))) { if (m.has(c[0]) || m.has(c[1])) continue; n++; const o = strength([...c, ...board]); if (o === s) r++; if (s < o) w++; }
+  return { r, w, n };
+}
+// dla mode ∈ {showdown, blockers}: generateVariant(szablon(mode), 'latwy', seed); zlicz p.correct; dla ręki poprawnej (blef, SDV = 0) policz remisy(blef, board).
+// --- ep-sonda-turn.test.ts: turn-bet po EI-001 (draws flush, oesd; pots 8,16,24,40; small 0,25; big 0,75; ziarna 1–3000)
+// zywe = |{c ∉ hero ∪ villain ∪ turn : strength(villain+turn+c) < strength(hero+turn+c)}|; zyweP = zywe/44 (karty obu graczy znane)
+// liczniki: zyweP < p.hit (brudne outy), zyweP ≤ p.requiredSmall (mały zakład nie daje ceny wobec żywych outów).

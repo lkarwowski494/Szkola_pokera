@@ -1,0 +1,6 @@
+R1-EI-001 (3d5183e8^ src): CZERWONY (kod 1)       Tests  3 failed | 5 passed (8)
+R2-EH2-EH3 (becd739e^ src): CZERWONY (kod 1)       Tests  3 failed | 13 passed (16)
+R3-EI-003 (becd739e^ src): CZERWONY (kod 1)       Tests  3 failed | 7 passed (10)
+R4-EI-006 (738fefc9^ src): CZERWONY (kod 1)       Tests  1 failed | 9 passed (10)
+R5-EH-1 (ac6bde33^ src): CZERWONY (kod 1)       Tests  1 failed (1)
+R6-ekran-pick-hand (1503e4c5^ src): CZERWONY (kod 1) Tests:       5 failed, 5 total

@@ -1,0 +1,81 @@
+pnpm run ci na 24f32fb5 (sesja-ek-partia2), kontener sesji EP, 2026-11-12, Node v22.23.4, kod wyjścia: 0
+Instalacja: pnpm install --frozen-lockfile, kod 0
+--- podsumowania pakietów i kroków ---
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> szkola-pokera@ test /home/user/Szkola_pokera
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  24 passed (24)
+packages/poker-core test:       Tests  241 passed (241)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  63 passed (63)
+tools/content-build test:       Tests  678 passed | 1 expected fail (679)
+apps/mobile test: Test Suites: 128 passed, 128 total
+apps/mobile test: Tests:       1311 passed, 1311 total
+> szkola-pokera@ test:skrypty /home/user/Szkola_pokera
+# Subtest: przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+ok 3 - przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+# Subtest: 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+ok 7 - 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+# Subtest: ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+ok 9 - ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+# Subtest: ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+ok 10 - ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+# Subtest: czekaj: przejściowy błąd API w trakcie czekania nie kończy bramki (przegląd D-043 pkt 1); 3 błędy z rzędu → 1 z komunikatem o API
+ok 16 - czekaj: przejściowy błąd API w trakcie czekania nie kończy bramki (przegląd D-043 pkt 1); 3 błędy z rzędu → 1 z komunikatem o API
+# Subtest: liczby: separatory języka nie dają fałszywych różnic, zmiana wartości jest błędem tylko w treści z twierdzeniem
+ok 92 - liczby: separatory języka nie dają fałszywych różnic, zmiana wartości jest błędem tylko w treści z twierdzeniem
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 112 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: metadane: pozostała wstawka [DO USTALENIA], limit podtytułu, adres bez https i brak mapowania są błędami; brak marketingUrl nie jest błędem
+ok 113 - metadane: pozostała wstawka [DO USTALENIA], limit podtytułu, adres bez https i brak mapowania są błędami; brak marketingUrl nie jest błędem
+# Subtest: metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+ok 117 - metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 132 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: 07-scenariusz.yaml: szablon z flowu istnieje, flow kończy pierwszą lekcję jego modułu, a pas jest na łatwym błędem
+ok 146 - 07-scenariusz.yaml: szablon z flowu istnieje, flow kończy pierwszą lekcję jego modułu, a pas jest na łatwym błędem
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 160 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 167 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+# Subtest: każdy workflow parsuje się bez błędów
+ok 178 - każdy workflow parsuje się bez błędów
+# Subtest: store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+ok 197 - store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+# tests 201
+# pass 201
+# fail 0
+> szkola-pokera@ test:kontrole /home/user/Szkola_pokera
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+> szkola-pokera@ k08 /home/user/Szkola_pokera
+> szkola-pokera@ i18n:kod /home/user/Szkola_pokera
+błędy: 0, uwagi: 560; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 860
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+0 błędów, 1 uwag
+--- ostatnie 15 linii ---
+(node:3502) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+
+wpisy: 1060, bez twierdzeń: 139, wymagane: 1139, brak pokrycia: 0
+status: {"potwierdzone":1004,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":705,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1047,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.vpip.high, n:hud.opps.look, n:hud.opps.sure, n:study.beginner, n:study.winner, n:study.min, n:var.wr.typical.high, n:cbet.range.small.low, n:cbet.range.small.high, n:cbet.range.big.low, n:cbet.range.big.high, n:xr.mult.example, n:xr.mult.low, n:cbet.oop.a94.check, n:hud.hands.3bet.high, n:hud.hands.3bet.low, n:hud.hands.random, n:hud.hands.rough.high, n:hud.vpip.reg.high, n:m11.depth.15, n:m11.m.red, n:mda.all.fcb, n:mda.period.months, n:mda.rec.def, n:mda.rec.def.wr, n:mda.rec.f3b, n:mda.rec.pfr, n:mda.rec.vpip, n:mda.rec.wr, n:mda.rec.wsd, n:mda.rec.wtsd, n:mda.reg.def.high, n:mda.reg.def.low, n:mda.reg.def.wr, n:mda.reg.f3b, n:mda.reg.pfr, n:mda.reg.vpip, n:mda.reg.wr, n:mda.reg.wsd, n:mda.reg.wtsd, n:rake.micro.high, n:rake.nl500.high, n:rake.nl500.low, n:rake.pop.nl10.loss, n:rake.pop.nl100.loss, n:rake.pop.nl500.loss, n:rake.pop.reg.hands, n:rake.pop.reg.postrake, n:rake.pop.reg.prerake, n:hud.hands.3bet.overall.low, n:rake.pop.reg.prerake.raw, n:rake.pop.reg.postrake.raw, t:preflop, t:out-of-position, t:late-position, t:outs, t:draw, t:gutshot, t:backdoor, t:pot-odds, t:implied-odds, t:equity, t:combo, t:range, t:suited, t:offsuit, t:pocket-pair, t:limp, t:isolation, t:rainbow, t:two-tone, t:monotone, t:second-pair, t:overpair, t:c-bet, t:range-advantage, t:nuts-advantage, t:polarized, t:value-bet, t:bluff, t:blocker, t:bluff-catcher, t:probe-bet, t:donk-bet, t:overbet, t:mdf, t:tilt, t:winrate, t:downswing, t:session, t:standard-deviation, t:risk-of-ruin, t:mental-game, t:shove, t:bubble, t:bubble-factor, t:fold-equity, t:chip-ev, t:final-table, t:nash-equilibrium, t:overcall, t:stack-off, t:exploit, t:vpip, t:wtsd, t:nit, t:tag, t:lag, t:calling-station, t:maniac, t:rake, t:rake-cap)
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+EXIT 0
