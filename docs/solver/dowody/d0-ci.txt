@@ -1,0 +1,18 @@
+# pnpm run ci na 28087a65 (sesja FB3, D0), 2026-11-12
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  25 passed (25)
+packages/poker-core test:       Tests  255 passed (255)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  15 passed (15)
+tools/preflop-solver test:       Tests  64 passed (64)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  65 passed (65)
+tools/content-build test:       Tests  688 passed | 1 expected fail (689)
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+kod wyjścia: 0
