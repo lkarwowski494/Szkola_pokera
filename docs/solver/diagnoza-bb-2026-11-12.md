@@ -4,7 +4,7 @@ Wejście: `docs/tresci/walidacja-solvera.json`. Niezgodne są dwie liczby: `solv
 
 ## Wynik w skrócie
 
-- **Gra po flopie nie jest przyczyną.** Bez rake'u realizacja equity zakresów kanonu w pulach z jednym podbiciem zgadza się z raportami realizacji solvera: BTN–BB 82/114% (cel 81/115), SB–BB 99/102% (cel 97/104). Drobniejsza abstrakcja zmienia ją najwyżej o 1,5 pp.
+- **Gra po flopie nie jest przyczyną.** Bez rake'u realizacja equity zakresów kanonu w pulach z jednym podbiciem zgadza się z raportami realizacji solvera: BTN–BB 82/114% (cel 81/115), SB–BB 99/102% (cel 97/104). Drobniejsza abstrakcja zmienia ją najwyżej o 2,5 pp (więcej runoutów: BB bez pozycji w BTN–BB −2,5 pp).
 - **Rake modelu wykazanie przesuwa podział sprawdzenie / 3-bet.** Rake 5% z limitem 3bb zabiera ok. 9% puli w SRP i ok. 5% w puli 3-betowanej. Sprawdzenie traci więc względem 3-betu. Ten kierunek odpowiada błędowi podziału w BB vs SB (sprawdzenie 27 wobec 39%, 3-bet 26 wobec 17%) i brakowi sprawdzeń BTN vs CO.
 - **Nadmiernej obrony BB vs BTN rake nie tłumaczy.** Mniejszy rake poszerza obronę, więc różnicę +4,6 pp by zwiększył. Przyczyny nie wykazano.
 - **Poprawki kanonu nie ma.** Wynik na 24 liczbach przed i po jest ten sam (tabela w pkt 4). Jedyną dostępną drogą do zmiany byłoby dopasowanie parametru rake'u bez źródła (pkt 3).
@@ -24,7 +24,7 @@ Cele realizacji pochodzą z `scripts/fit-eqr.ts:16-24` (rangeconverter, 6-max 10
 | — (kanon) | 60 flopów × 2 × 2, 24 koszyki | 73,4 / 105,9 | 90,1 / 90,9 | 89,0 / 91,4 | punkt odniesienia |
 | H1a abstrakcja: koszyki | 48 koszyków | 74,4 / 105,8 | 91,7 / 89,8 | 89,9 / 91,5 | odrzucona (≤ 1,6 pp) |
 | H1b abstrakcja: próbka flopów | 120 flopów, inne ziarno | 73,0 / 106,2 | 90,4 / 90,0 | 88,6 / 92,1 | odrzucona (≤ 0,9 pp) |
-| H1c abstrakcja: runouty | 4 turny × 4 rivery | ZOB. NIŻEJ | | | ZOB. NIŻEJ |
+| H1c abstrakcja: runouty | 4 turny × 4 rivery | 70,9 / 107,0 | 90,1 / 89,1 | 87,3 / 91,7 | mały efekt (≤ 2,5 pp); BB bez pozycji realizuje mniej, kierunek zgodny z nadmierną obroną BB vs BTN, wielkości wpływu na obronę nie zmierzono |
 | H2 rake modelu | kanon bez rake'u | 82,4 / 114,5 | 98,8 / 101,5 | 99,3 / 100,3 | gra po flopie zgodna z celami (≤ 2,2 pp w pulach BB); różnica wynika z rake'u |
 | cel (rangeconverter) | — | 81,4 / 115,2 | 96,7 / 103,7 | 92,6 / 106,9 | — |
 
@@ -73,7 +73,7 @@ cd tools/preflop-solver
 gcc -O3 -march=native -fopenmp ../equity/boards.c -o /tmp/boards -lm
 /tmp/boards 60 2 2 48 1 | gzip -1 > /tmp/b-60-2-2-48.bin.gz        # 85 s na 4 rdzeniach
 /tmp/boards 120 2 2 24 2 | gzip -1 > /tmp/b-120-2-2-24-s2.bin.gz   # 113 s
-/tmp/boards 60 4 4 24 1 | gzip -1 > /tmp/b-60-4-4-24.bin.gz        # 51 s
+/tmp/boards 60 4 4 24 1 | gzip -1 > /tmp/b-60-4-4-24.bin.gz        # 51 s; pomiar realizacji ok. 31 min
 npx tsx scripts/fb-srp-realization.ts ../../content/ranges/preflop-6max-100bb.json ../equity/boards.bin.gz 400          # ok. 10 min
 npx tsx scripts/fb-srp-realization.ts ../../content/ranges/preflop-6max-100bb.json ../equity/boards.bin.gz 400 --rake0  # ok. 9 min
 ```
