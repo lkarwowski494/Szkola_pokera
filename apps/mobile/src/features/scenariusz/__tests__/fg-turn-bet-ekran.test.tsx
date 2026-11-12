@@ -68,6 +68,9 @@ describe('FG turn-bet — logika widoku', () => {
   it('FH NIS-004: akcja bez kwoty zakładu to błąd, nie „Zakład 0bb”', () => {
     expect(() => tekstAkcji(wariant(3), 0, 'fold', SZABLON, t)).toThrow(/kwot/i);
   });
+  it('08-programista-005: komunikat nazywa rodzaj widoku (turn-bet)', () => {
+    expect(() => tekstAkcji(wariant(3), 0, 'fold', SZABLON, t)).toThrow(/^turn-bet: akcja fold/);
+  });
   it('nazwy akcji: „Zakład” z kwotą zakładu w bb z wariantu (play.bet), kwota nie w osobnej linii', () => {
     const p = punkt(3);
     const w = wariant(3);
