@@ -1,0 +1,13 @@
+# Sesja EP: recenzja niezależna EK (poprawki EI-001…006, 08-EH-1…3, KO-072 pick-hand) — Szkoła Pokera
+Koordynator: session_01T66VBwqjWSzpapzyq8BU9G (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie audit. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-ep-recenzja` od `sesja-ek-partia2` @ 24f32fb5 (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md. Raportu autora (EK) nie czytasz przed własną oceną; `docs/decyzje/EK.md` i plik stanu EK tylko jako opis zamiaru.
+3. Zadania:
+   1. Recenzja kodu **fc2a31e6..24f32fb5** (scalenie fc2a31e6 już zrecenzowane przez EI i EJ): EI-001 (turn-bet: ręka zrobiona + żywy out rywala; czy wynik zgodny z rachunkiem — szczebel 1 ADR-24), EI-002 (mutanty), EI-003/005/006, 08-EH-1 (dolosowanie flopu po range-spot, brak odrzuceń seryjnych, GENERATOR_WERSJA 4 i zmiana tylko odcisków sc-04/sc-05), 08-EH-2 (próg 0,75), 08-EH-3 (gutshot/backdoor strita ≥T → call), KO-072 pick-hand SC-23a/b (silnik, wyrocznia niezależna, schemat, bramka, widok minimalny, RNTL). Testy czerwone przed kodem (historia commitów), niezależność wyroczni od implementacji, brak osłabionych asercji, `poker-core`/`srs`/`content-schema` bez React Native. Własne mutanty na krytycznych gałęziach (min. 6), wynik w raporcie. Gotowe: raport `docs/programista/recenzje/recenzja-ek-24f32fb5.md` z werdyktem i znaleziskami KRYT/WYS/ŚR/NIS z `plik:linia`.
+   2. `pnpm run ci` kod 0 na 24f32fb5 we własnym kontenerze, pełny wynik (podsumowania pakietów) w `docs/programista/dowody/ep-ci-24f32fb5.txt`.
+   Kodu nie poprawiasz (tylko raport, dowody, ewentualne testy-mutanty poza drzewem źródeł).
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, bez płatnych API, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb nocny (analogia; najpierw `lkarwowski494/trening`, potem oczko, piekarz), do weta; merytoryczne pokerowe → ADR-24. Pula **D-1250…D-1254** (`docs/decyzje/EP.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułapu kosztu brak — podaj koszt.
+7. Raporty (≤ 10 linii, send_message): PYTANIE z pełną treścią, opcjami i rekomendacją; PRZEKAZANIE: SHA, ci kod i plik dowodu, werdykt, znaleziska wg wagi, decyzje do weta, koszt.
