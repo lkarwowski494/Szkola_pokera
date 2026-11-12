@@ -33,4 +33,22 @@ export const DEFINICJE = (z, k) => ({
       k('pt-BR', 'scenarios', '(dá|faz) \\{\\{t:call', 'sc-33/34: „dá/faz call” zamiast „paga”'),
     ],
   },
+  '003': {
+    zamiany: [
+      ...['sc-04', 'sc-05', 'sc-11', 'sc-12'].flatMap((f) => [
+        z('de', `scenarios/${f}.yaml`, 'Ein kleiner {{t:bet}}', 'Eine kleine {{t:bet}}'),
+        z('de', `scenarios/${f}.yaml`, 'Ein großer {{t:bet}}', 'Eine große {{t:bet}}'),
+      ]),
+      ...['sc-04', 'sc-11'].flatMap((f) => [
+        z('de', `scenarios/${f}.yaml`, 'einen kleinen {{t:bet}}', 'eine kleine {{t:bet}}'),
+        z('de', `scenarios/${f}.yaml`, 'einen solchen {{t:bet}}', 'eine solche {{t:bet}}'),
+      ]),
+      z('de', 'lessons/m7-l4-probe-obrona.md', 'gegen den {{t:bet|Bet}}', 'gegen die {{t:bet|Bet}}'),
+    ],
+    kontrole: [
+      // Dotyczy wyświetlanej formy „Bet” (r. f): `{{t:bet}}` bez formy i `{{t:bet|Bet}}`. Forma „Einsatz” (r. m) przy rodzaju męskim jest poprawna.
+      k('de', '.', '\\b[Ee]in(en)? (kleine[rn]|große[rn]|solche[rn]) \\{\\{t:bet(\\|Bet)?\\}\\}', 'męski rodzajnik przed „Bet” (r. f)'),
+      k('de', '.', '\\bden \\{\\{t:bet\\|Bet\\}\\}', '„den Bet” (r. f)'),
+    ],
+  },
 });
