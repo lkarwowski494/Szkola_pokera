@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "Du hast {{w:reka}} am {{w:pozycja}} mit {{n:m11.depth.10}}, {{w:stol}}, und alle haben {{t:fold|gefoldet}}. Du gehst {{t:all-in}}, weil du mit kürzerem Stack weniger riskierst im Vergleich zu den Blinds, die du gewinnst, wenn dein Gegner {{t:fold|foldet}}; bei {{n:m11.depth.10}} {{t:shove|pushst}} du etwa {{n:m11.push.10}} der Hände, und diese Hand gehört dazu."
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}} mit {{n:m11.depth.10}}, {{w:stol}}, und alle haben {{t:fold|gefoldet}}. Du gehst {{t:all-in}}, weil du mit kürzerem Stack im Vergleich zu den Blinds, die du gewinnst, wenn dein Gegner {{t:fold|foldet}}, weniger riskierst; bei {{n:m11.depth.10}} {{t:shove|pushst}} du etwa {{n:m11.push.10}} der Hände, und diese Hand gehört dazu."
       - action: fold
         explanation: "Du hast {{w:reka}} am {{w:pozycja}} mit {{n:m11.depth.10}}, {{w:stol}}, und alle haben {{t:fold|gefoldet}}. Ein {{t:fold}} ist zu vorsichtig: Bei {{n:m11.depth.10}} {{t:shove|pushst}} du etwa {{n:m11.push.10}} der Hände, und diese Hand gehört dazu. Mit kürzerem Stack riskierst du weniger im Vergleich zu den Blinds, die du gewinnst, wenn dein Gegner {{t:fold|foldet}}."

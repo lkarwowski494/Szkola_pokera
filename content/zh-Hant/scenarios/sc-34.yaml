@@ -18,6 +18,6 @@ decisions:
     rule: R-M11-009
     actions:
       - action: fold
-        explanation: "你在{{t:bubble|泡沫}}期的 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，{{t:small-blind|小盲}}已經{{t:all-in|全下}}。你{{t:fold|棄牌}}，因為這手牌對{{t:all-in|全下}}{{t:range|範圍}}的{{t:equity|權益}}低於 {{t:icm|ICM}} 門檻的要求。這個門檻比只算{{t:chips|籌碼}}時高，因為在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}裡，輸掉損失的錢比贏得增加的錢多，所以{{t:call|跟注}}必須贏得更頻繁。"
+        explanation: "你在{{t:bubble|泡沫}}期的 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，{{t:small-blind|小盲}}已經{{t:all-in|全下}}。你{{t:fold|棄牌}}，因為這手牌對{{t:all-in|全下}}{{t:range|範圍}}的{{t:equity|權益}}低於 {{t:icm|ICM}} 門檻的要求。這個門檻比以{{t:chips|籌碼}}計價的遊戲高，因為在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}裡，輸掉損失的錢比贏得增加的錢多，所以{{t:call|跟注}}必須贏得更頻繁。"
       - action: call
-        explanation: "你在{{t:bubble|泡沫}}期的 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，{{t:small-blind|小盲}}已經{{t:all-in|全下}}。你{{t:call|跟注}}，因為這手牌對{{t:all-in|全下}}{{t:range|範圍}}的{{t:equity|權益}}高於 {{t:icm|ICM}} 門檻的要求。這個門檻比只算{{t:chips|籌碼}}時高，因為在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}裡，輸掉損失的錢比贏得增加的錢多。"
+        explanation: "你在{{t:bubble|泡沫}}期的 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，{{t:small-blind|小盲}}已經{{t:all-in|全下}}。你{{t:call|跟注}}，因為這手牌對{{t:all-in|全下}}{{t:range|範圍}}的{{t:equity|權益}}高於 {{t:icm|ICM}} 門檻的要求。這個門檻比以{{t:chips|籌碼}}計價的遊戲高，因為在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}裡，輸掉損失的錢比贏得增加的錢多。"

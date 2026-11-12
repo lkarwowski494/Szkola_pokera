@@ -1141,7 +1141,7 @@
   module: m11
   if: "trong {{t:tournament|giải đấu}} có {{t:icm|ICM}}, bạn {{t:call|theo}} một lần all-in"
   then: "bạn cần equity BF ÷ (BF + 1), trong đó bubble factor BF = equity mất khi thua ÷ equity được khi thắng; trong ví dụ của bài học là {{n:m11.bf.req}} thay vì {{n:m11.bf.req-chips}} khi tính bằng {{t:chips|chip}}"
-  because: "trong {{t:tournament|giải đấu}} có {{t:payout|tiền thưởng}}, thua mất nhiều tiền hơn mức thắng thêm được, nên {{t:call|theo}} phải thắng thường hơn so với khi chơi vì {{t:chips|chip}}"
+  because: "trong {{t:tournament|giải đấu}} có {{t:payout|tiền thưởng}}, thua mất nhiều tiền hơn mức thắng thêm được, nên {{t:call|theo}} phải thắng thường xuyên hơn so với khi chơi vì {{t:chips|chip}}"
   level: math
   source: "tính toán ICM (numbers.yaml, các khóa m11.bf.*); trang của một solver thương mại, What Is the Bubble Factor (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/): “$EV lost when you lose / $EV gained when you win = Bubble Factor”, “Required Equity = Bubble Factor / (Bubble Factor + 1)”"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/" }, { kind: math }]

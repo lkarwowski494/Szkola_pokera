@@ -2,7 +2,7 @@
 # 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
 id: sc-04
 module: m3
-situation: "Sei in {{t:utg|UTG}} e nessuno è ancora entrato in gioco; se {{t:open|apri}}, il {{t:big-blind}} farà {{t:call}} e al flop farà {{t:check}}."
+situation: "Sei in {{t:utg|UTG}} e nessuno è ancora entrato in gioco; se {{t:open|apri}}, il {{t:big-blind}} {{t:call|chiamerà}} e al flop farà {{t:check}}."
 table: 6max
 positions: { hero: UTG, villain: BB }
 stackBb: 100

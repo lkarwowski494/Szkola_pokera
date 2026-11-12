@@ -17,9 +17,9 @@ decisions:
     rule: R-M3-009
     actions:
       - action: "raise 3"
-        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 당신 차례까지 모두 {{t:fold|폴드}}했습니다. {{t:raise|레이즈}}하는 이유는 이제 {{t:big-blind|빅 블라인드}}하고만 겨루기 때문입니다. 플롭 이후에는 먼저 행동하므로 버튼과 비슷하게 넓게, 핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}로 {{t:open|오픈}}하며, 이 핸드는 그 안에 들어갑니다."
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 당신 차례까지 모두 {{t:fold|폴드}}했습니다. {{t:raise|레이즈}}하는 이유는 이제 {{t:big-blind|빅 블라인드}}와만 겨루기 때문입니다. 플롭 이후에는 먼저 행동하므로 버튼과 비슷하게 넓게, 핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}로 {{t:open|오픈}}하며, 이 핸드는 그 안에 들어갑니다."
       - action: fold
-        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 당신 차례까지 모두 {{t:fold|폴드}}했습니다. {{t:fold|폴드}}는 너무 신중합니다. 솔버는 이 핸드를 대개 {{t:raise|레이즈}}합니다. 이제 {{t:big-blind|빅 블라인드}}하고만 겨루므로 {{t:small-blind|스몰 블라인드}}에서는 핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}로 넓게 {{t:open|오픈}}합니다."
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 당신 차례까지 모두 {{t:fold|폴드}}했습니다. {{t:fold|폴드}}는 너무 신중합니다. 솔버는 이 핸드를 대개 {{t:raise|레이즈}}합니다. 이제 {{t:big-blind|빅 블라인드}}와만 겨루므로 {{t:small-blind|스몰 블라인드}}에서는 핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}로 넓게 {{t:open|오픈}}합니다."
   - street: preflop
     kind: size-spot
     check: open-size

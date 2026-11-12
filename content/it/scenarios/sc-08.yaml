@@ -18,7 +18,7 @@ decisions:
       - action: "raise 10"
         explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e il Button ha {{t:open|aperto}}. Fai 3-bet, perché questa mano è nella parte alta del {{t:range}} con cui fai 3-bet dallo {{t:small-blind}}: dopo un {{t:call}} giocheresti {{t:out-of-position}}, e il {{t:big-blind}} dietro di te può ancora {{t:raise|rilanciare}}; il 3-bet ti dà l'{{t:initiative}} e la possibilità di vincere subito il {{t:pot}}."
       - action: "call 2.5"
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e il Button ha {{t:open|aperto}}. Dallo {{t:small-blind}} contro il Button non fai quasi mai {{t:call}}: dopo un {{t:call}} giochi {{t:out-of-position}}, e il {{t:big-blind}} dietro di te può ancora {{t:raise|rilanciare}}. Con questa mano fai 3-bet, perché il 3-bet ti dà l'{{t:initiative}} e la possibilità di vincere subito il {{t:pot}}."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e il Button ha {{t:open|aperto}}. Dallo {{t:small-blind}} contro il Button non {{t:call|chiami}} quasi mai: dopo un {{t:call}} giochi {{t:out-of-position}}, e il {{t:big-blind}} dietro di te può ancora {{t:raise|rilanciare}}. Con questa mano fai 3-bet, perché il 3-bet ti dà l'{{t:initiative}} e la possibilità di vincere subito il {{t:pot}}."
       - action: fold
         explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e il Button ha {{t:open|aperto}}. Il {{t:fold}} è troppo prudente: questa mano è nella parte alta del {{t:range}} con cui fai 3-bet dallo {{t:small-blind}} (circa {{n:pf.3bet-freq.sb-vs-btn}} delle mani). Il 3-bet ti dà l'{{t:initiative}} e la possibilità di vincere subito il {{t:pot}}."
   - street: preflop
