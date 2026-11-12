@@ -121,7 +121,7 @@ Wobec małego c-betu (ok. 1/3 {{t:pot|puli}}) kontynuujesz:
 
 - prawie każdą {{t:pair|parą}}, także środkową i najniższą,
 - {{t:flush-draw|drawami do koloru}} i {{t:straight|strita}}, także gutshotem z wysoką kartą,
-- wysokimi kartami z dodatkowym {{t:draw|drawem}} (backdoor), np. trzema kartami w jednym kolorze,
+- dodatkowym {{t:draw|drawem}} (backdoor), np. trzema kartami w jednym kolorze, gdy co najmniej jedna twoja karta jest wyższa od wszystkich kart {{t:board|stołu}},
 - zwykle także asem jako najwyższą kartą.
 
 Pamiętaj z M2: {{t:call}} {{t:bet|zakładu}} na flopie kupuje jedną kartę, więc {{t:draw}} porównujesz z szansą na turnie. Ta szansa bywa trochę niższa od ceny małego c-betu. {{t:call|Sprawdzenie}} i tak się opłaca, gdy po trafieniu wygrasz więcej niż to, co jest teraz w {{t:pot|puli}} (to tzw. implied odds, policzysz je w M7), albo gdy ręka czasem wygrywa bez trafienia, np. dzięki wysokiej karcie.

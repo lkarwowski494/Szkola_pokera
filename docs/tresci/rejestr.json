@@ -21900,7 +21900,7 @@
   "id": "R-M6-006",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "na dużym blindzie dostajesz mały c-bet (ok. 1/3 puli) → kontynuujesz prawie każdą parą, drawami, wysokimi kartami z dodatkowym drawem (backdoor) i zwykle także asem jako najwyższą kartą; pasujesz najsłabszymi rękami bez pary i bez drawa, bo potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z blefami, albo mogą się poprawić",
+  "twierdzenie": "na dużym blindzie dostajesz mały c-bet (ok. 1/3 puli) → kontynuujesz prawie każdą parą, drawami, dodatkowym drawem (backdoor) z co najmniej jedną kartą wyższą od wszystkich kart stołu i zwykle także asem jako najwyższą kartą; pasujesz najsłabszymi rękami bez pary i bez drawa, bo potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z blefami, albo mogą się poprawić",
   "zrodla": [
    {
     "adres": "https://pokercoaching.com/blog/defending-bb-on-high-card-boards/",
@@ -21922,10 +21922,17 @@
     "cytat": "Unless you start calling with these non-made, backdoor plus overcard of hands, you will not reach the desired defense frequency and your opponent’s bluffs (of which he has a lot because the ranges are wide) will be basically printing money.",
     "odczyt": "2026-11-11",
     "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/backdoor-flush-straight-draw-tips/",
+    "miejsce": "Tip 4, nagłówek i pierwsze zdanie (zakres: BB wobec SB, pula z jednym podbiciem, heads-up)",
+    "cytat": "4. Float on the flop with backdoor plus overcard hands in blind vs blind battles. When playing in the big blind against the small blind in a heads-up single raised pot, you will need to defend the majority of your range against a c-bet.",
+    "odczyt": "2026-11-12",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "Zakres źródła Upswing Tip 4: blind vs blind (BB wobec c-betu SB, pula z jednym podbiciem, heads-up). Reguła stosuje część o backdoorze do BB wobec małego c-betu z każdej pozycji; kierunek z rachunku MDF (wobec 1/3 puli obrona ok. 75 %, R-M6-001) i wyniku solvera BB vs BTN (PeakGTO K84: 56 % sprawdzenia + 17 % check-raise’u), D-1210. „Overcard” czytane wąsko: karta wyższa od wszystkich kart stołu (przykład źródła Q♥4♥ na T♣9♥2♠); Tip 5 nazywa też Q♣8♣ na K♦T♣6♦ „overcard to middle pair” (wobec 66 % puli) — takich rąk reguła nie obejmuje (węziej niż źródło; generator zwraca dla nich null, D-1258).",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -21933,7 +21940,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło z wynikiem solvera (szczebel 2) i jedno szczebla 4. Cytat zawiera literówkę źródła („he underpairs”). | EL 2026-11-11 (EJ NIS-003, D-1212): część „wysokimi kartami z backdoorem” ma cytat o sprawdzaniu (Upswing, Tip 4, szczebel 4); cytat PeakGTO o gutshotach i runner-runner dotyczy blefów check-raise’em, nie sprawdzenia (D-1210).",
+  "uwagi": "Jedno źródło z wynikiem solvera (szczebel 2) i jedno szczebla 4. Cytat zawiera literówkę źródła („he underpairs”). | EL 2026-11-11 (EJ NIS-003, D-1212): część „wysokimi kartami z backdoorem” ma cytat o sprawdzaniu (Upswing, Tip 4, szczebel 4); cytat PeakGTO o gutshotach i runner-runner dotyczy blefów check-raise’em, nie sprawdzenia (D-1210). | EQ 2026-11-12 (06-tresci-002, D-1258): backdoor → kontynuacja tylko z co najmniej jedną kartą wyższą od wszystkich kart stołu (źródło „backdoor plus overcard”); zakres BvB nazwany w polu uproszczenie; odczyt docs/tresci/odczyty/eq-2026-11-12.tsv.",
   "partia": [
    "m5-m8"
   ]
