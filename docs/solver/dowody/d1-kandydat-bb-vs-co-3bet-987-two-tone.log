@@ -1,0 +1,8 @@
+drzewo: 620056 węzłów decyzji, 3027 MB tablic, 1.4 s; aktywne kombinacje OOP 299, IP 269
+it 50: 124.6 s, NashConv 3.9534% puli
+drzewo: 620056 węzłów decyzji, 3027 MB tablic, 2.8 s; aktywne kombinacje OOP 299, IP 269
+it 50: 127.3 s, NashConv 3.9534% puli
+it 100: 258.0 s, NashConv 1.3244% puli
+it 150: 388.0 s, NashConv 0.5915% puli
+it 200: 517.8 s, NashConv 0.3219% puli
+kandydat bb-vs-co-3bet-987-two-tone: K1 22.7 pp (nasz 69.3%, strona 46.6%), K2 76.8%, NashConv 0.322%, NIE PRZESZEDŁ

@@ -1,0 +1,8 @@
+drzewo: 864270 węzłów decyzji, 8442 MB tablic, 13.8 s; aktywne kombinacje OOP 549, IP 548
+it 50: 303.0 s, NashConv 5.5821% puli
+it 100: 598.0 s, NashConv 1.8529% puli
+it 150: 894.2 s, NashConv 0.8782% puli
+it 200: 1191.8 s, NashConv 0.5231% puli
+it 250: 1491.6 s, NashConv 0.3478% puli
+kandydat btn-vs-bb-srp-k72-rainbow: K1 9.5 pp (nasz 90.4%, strona 99.9%), K2 90.5%, NashConv 0.348%, NIE PRZESZEDŁ
+btn-vs-bb-srp-k72-rainbow: wynik istnieje, pomijam

@@ -1,0 +1,5 @@
+drzewo: 620056 węzłów decyzji, 3758 MB tablic, 2.2 s; aktywne kombinacje OOP 253, IP 452
+it 50: 148.1 s, NashConv 4.3192% puli
+it 100: 296.5 s, NashConv 0.8954% puli
+it 150: 444.8 s, NashConv 0.3577% puli
+kandydat sb-vs-btn-3bet-a52-rainbow: K1 4.6 pp (nasz 78.8%, strona 74.1%), K2 87.9%, NashConv 0.358%, PRZESZEDŁ

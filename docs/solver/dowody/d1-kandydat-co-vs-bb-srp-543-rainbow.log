@@ -1,0 +1,7 @@
+drzewo: 864270 węzłów decyzji, 6957 MB tablic, 3.2 s; aktywne kombinacje OOP 491, IP 413
+it 50: 243.9 s, NashConv 3.9068% puli
+it 100: 491.1 s, NashConv 1.1629% puli
+it 150: 742.4 s, NashConv 0.5635% puli
+it 200: 994.7 s, NashConv 0.3515% puli
+kandydat co-vs-bb-srp-543-rainbow: K1 4.1 pp (nasz 45.1%, strona 41.0%), K2 86.7%, NashConv 0.351%, PRZESZEDŁ
+co-vs-bb-srp-543-rainbow: wynik istnieje, pomijam
