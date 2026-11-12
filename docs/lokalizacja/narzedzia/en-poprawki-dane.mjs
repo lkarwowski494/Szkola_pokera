@@ -65,4 +65,11 @@ export const DEFINICJE = (z, k) => ({
       k('pt', 'scenarios/sc-34.yaml', '^situation: "Na ', 'sc-34 situation: „Na bolha o small blind vai all-in, e está…”'),
     ],
   },
+  '005': {
+    zamiany: [
+      z('ko', 'scenarios/sc-06.yaml', '모두 당신까지 {{t:fold|폴드}}', '당신 차례까지 모두 {{t:fold|폴드}}', 3),
+      z('ko', 'scenarios/sc-32.yaml', '모두 당신까지 {{t:fold|폴드}}', '당신 차례까지 모두 {{t:fold|폴드}}'),
+    ],
+    kontrole: [k('ko', '.', '당신까지', 'ko: „당신까지” (dwuznaczne: „łącznie z tobą”)')],
+  },
 });
