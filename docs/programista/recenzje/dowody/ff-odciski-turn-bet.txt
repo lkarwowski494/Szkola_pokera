@@ -1,0 +1,30 @@
+== da1e02db
+flush marginMin=0: ok=200 bledy=0 sha=54a90701857a1f4a
+flush marginMin=0.02: ok=200 bledy=0 sha=54a90701857a1f4a
+oesd marginMin=0: ok=200 bledy=0 sha=3d7fc71c915d34b8
+oesd marginMin=0.02: ok=0 bledy=200 sha=b361756dae684e31
+flush+oesd marginMin=0: ok=200 bledy=0 sha=a4349f31ccd931e9
+flush+oesd marginMin=0.02: ok=200 bledy=0 sha=707a340c6eb20777
+gutshot marginMin=0: ok=0 bledy=200 sha=9d207ead97457c62
+gutshot marginMin=0.02: ok=0 bledy=200 sha=9d207ead97457c62
+real	4m17.383s
+== 28fdb1b0
+flush marginMin=0: ok=200 bledy=0 sha=54a90701857a1f4a
+flush marginMin=0.02: ok=200 bledy=0 sha=54a90701857a1f4a
+oesd marginMin=0: ok=200 bledy=0 sha=3d7fc71c915d34b8
+oesd marginMin=0.02: ok=0 bledy=200 sha=b361756dae684e31
+flush+oesd marginMin=0: ok=200 bledy=0 sha=a4349f31ccd931e9
+flush+oesd marginMin=0.02: ok=200 bledy=0 sha=707a340c6eb20777
+gutshot marginMin=0: ok=0 bledy=200 sha=9d207ead97457c62
+gutshot marginMin=0.02: ok=0 bledy=200 sha=9d207ead97457c62
+real	2m42.285s
+== c4110310
+flush marginMin=0: ok=200 bledy=0 sha=54a90701857a1f4a
+flush marginMin=0.02: ok=200 bledy=0 sha=54a90701857a1f4a
+oesd marginMin=0: ok=200 bledy=0 sha=3d7fc71c915d34b8
+oesd marginMin=0.02: ok=0 bledy=200 sha=b361756dae684e31
+flush+oesd marginMin=0: ok=200 bledy=0 sha=a4349f31ccd931e9
+flush+oesd marginMin=0.02: ok=200 bledy=0 sha=707a340c6eb20777
+gutshot marginMin=0: ok=0 bledy=200 sha=9d207ead97457c62
+gutshot marginMin=0.02: ok=0 bledy=200 sha=9d207ead97457c62
+real	2m46.928s

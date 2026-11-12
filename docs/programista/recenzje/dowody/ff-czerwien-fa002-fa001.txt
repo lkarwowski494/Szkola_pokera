@@ -1,0 +1,31 @@
+=== FA-002: test fc-fa002 na build.ts sprzed dd685d2b (git show dd685d2b~1:tools/content-build/src/build.ts), reszta drzewa c4110310
+     × pusty napis → błąd builda z ID reguły 1147ms
+     × liczba zamiast napisu → błąd builda z ID reguły 1112ms
+     × małe litery („hj,co”) → błąd builda z ID reguły 1127ms
+     × literówka („C0” z zerem) → błąd builda z ID reguły 958ms
+AssertionError: expected [Function] to throw an error
+      Tests  4 failed | 1 passed (5)
+kod: 1
+=== FA-002 na c4110310 (bez zmian)
+      Tests  5 passed (5)
+kod: 0
+=== FA-001 mutant M3 (usunięty 'if (r === h) return null;' w czysteOuty), sonda FF
+ packages/poker-core/src/scenario-gen.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+     × remis na riverze: 7d5s vs 5h3h na QsQh7hAs: W = 9 = N, ale T = 2 → odrzucone (M3, M6) 10ms
+     × remis na riverze: 7d4d vs 4c7c na 6sJc9cAd: W = 9 = N, T = 35 → odrzucone 2ms
+      Tests  2 failed | 3 passed (5)
+kod: 1
+=== FA-001 mutant M7 FF: porównanie zbiorów tylko po liczności (bez every)
+ packages/poker-core/src/scenario-gen.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+      Tests  9 passed (9)
+kod: 0
+po cofnięciu:
+?? node_modules
+?? packages/content-schema/node_modules
+?? packages/domena/node_modules
+?? packages/jezyki/node_modules
+?? packages/poker-core/node_modules
+?? packages/srs/node_modules
+?? tools/content-build/node_modules

@@ -1,0 +1,75 @@
+$ git rev-parse HEAD: c41103103f84109dd0c41a257a0d5a3b6dee4a1e
+$ pnpm run ci
+
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr && pnpm tresci:el-kontrola
+
+
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+
+Scope: 9 of 10 workspace projects
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/srs typecheck: Done
+packages/jezyki typecheck: Done
+packages/content-schema typecheck: Done
+packages/poker-core typecheck: Done
+packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/preflop-solver typecheck$ tsc -p tsconfig.json
+tools/preflop-solver typecheck: Done
+packages/domena typecheck: Done
+packages/postep typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/content-build typecheck$ tsc -p tsconfig.json
+tools/content-build typecheck: Done
+packages/postep typecheck: Done
+apps/mobile typecheck$ tsc --noEmit
+apps/mobile typecheck: Done
+
+> szkola-pokera@ test /home/user/Szkola_pokera
+> pnpm -r --if-present test
+
+Scope: 9 of 10 workspace projects
+packages/jezyki test$ vitest run
+packages/srs test$ vitest run
+packages/poker-core test$ vitest run
+packages/poker-core test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/poker-core
+packages/jezyki test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/jezyki
+packages/srs test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/srs
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/srs test:    Start at  10:51:06
+packages/srs test:    Duration  713ms (transform 55%, tests 19%, setup 16%, import 8%, worker 2%)
+packages/srs test: Done
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/jezyki test:    Start at  10:51:06
+packages/jezyki test:    Duration  1.04s (tests 51%, transform 31%, import 15%, worker 3%)
+packages/jezyki test: Done
+packages/poker-core test:  ❯ test/fc-turn-bet-wydajnosc.test.ts (1 test | 1 failed) 2276ms
+packages/poker-core test:    ❯ FC: wydajność turn-bet (1)
+packages/poker-core test:      × 100 wariantów w najlepszym z 3 przebiegów < 700 ms 2275ms
+packages/poker-core test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+packages/poker-core test:  FAIL  test/fc-turn-bet-wydajnosc.test.ts > FC: wydajność turn-bet > 100 wariantów w najlepszym z 3 przebiegów < 700 ms
+packages/poker-core test: AssertionError: czasy: 846, 714, 709 ms: expected 709 to be less than 700
+packages/poker-core test:  ❯ test/fc-turn-bet-wydajnosc.test.ts:23:90
+packages/poker-core test:      21|       czasy.push(Date.now() - t0);
+packages/poker-core test:      22|     }
+packages/poker-core test:      23|     expect(Math.min(...czasy), `czasy: ${czasy.map((c) => c.toFixed(0)…
+packages/poker-core test:        |                                                                                          ^
+packages/poker-core test:      24|   }, 60_000);
+packages/poker-core test:      25| });
+packages/poker-core test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+packages/poker-core test:  Test Files  1 failed | 26 passed (27)
+packages/poker-core test:       Tests  1 failed | 261 passed (262)
+packages/poker-core test:    Start at  10:51:06
+packages/poker-core test:    Duration  195.53s (tests 98%, import 2%, transform 1%)
+packages/poker-core test: Failed
+/home/user/Szkola_pokera/packages/poker-core:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/poker-core@0.1.0 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
+KOD WYJŚCIA: 1

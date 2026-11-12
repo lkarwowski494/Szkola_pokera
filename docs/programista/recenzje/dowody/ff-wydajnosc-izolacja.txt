@@ -1,0 +1,15 @@
+$ pnpm --filter @szkola/poker-core exec vitest run test/fc-turn-bet-wydajnosc.test.ts  (przebieg 1, sam plik)
+      Tests  1 passed (1)
+kod: 0
+$ pnpm --filter @szkola/poker-core exec vitest run test/fc-turn-bet-wydajnosc.test.ts  (przebieg 2, sam plik)
+      Tests  1 passed (1)
+kod: 0
+$ pnpm --filter @szkola/poker-core exec vitest run test/fc-turn-bet-wydajnosc.test.ts  (przebieg 3, sam plik)
+      Tests  1 passed (1)
+kod: 0
+$ pnpm --filter @szkola/poker-core exec vitest run  (przebieg 1, cały pakiet, równolegle pliki)
+      Tests  262 passed (262)
+kod: 0
+$ pnpm --filter @szkola/poker-core exec vitest run  (przebieg 2, cały pakiet, równolegle pliki)
+      Tests  262 passed (262)
+kod: 0
