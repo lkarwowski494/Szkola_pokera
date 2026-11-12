@@ -1,0 +1,4 @@
+Mutanty EW (baza 91573ab6 + testy z commitow cfc262d, 1c232d5), 2026-11-12. Mutacja: sed na kodzie produkcyjnym, test, przywrocenie (git checkout / kopia).
+M12 (komponenty.tsx: etykiety?.[a] ?? nazwy[a] -> nazwy[a]): ZABITY przez ek-pick-hand-ekran (jest --ci: 1 failed, 7 passed); na kodzie niezmienionym 8/8 zielone.
+M8 (scenario-gen.ts: TURN_BET_KICKER_MIN 10 -> 11): ZABITY przez ei-turn-bet-zywe-outy (vitest: "expected 0 to be greater than 0", 1 failed, 2 passed); na kodzie niezmienionym 3/3 zielone.
+Kod produkcyjny po mutantach przywrocony (git status czysty).
