@@ -1,0 +1,5 @@
+FH ŚR-002 (2026-11-12). Testy: fg-river-catch-ekran.test.tsx i fg-defend-ekran.test.tsx, pierwszy test (pętla po obu rozstrzygnięciach: call/latwy, fold/sredni).
+Mutant M5 (wariant.ts:70: poprawnaAkcja zwraca 'call' dla river-catch i defend):
+  stare testy: Tests 20 passed (mutant przeżywa); nowe testy: Tests 2 failed, 18 passed.
+Kod: Tests 20 passed. wariant.ts przywrócony (git status: tylko pliki testów).
+POZIOM_AKCJI: użyte w river-catch (usunięty martwy symbol — brak). 
