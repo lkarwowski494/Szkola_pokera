@@ -1,0 +1,21 @@
+FC zadanie 0: CI run 43192365903, test ef-turn-bet.test.ts:43 „odciski różnią się…" (300 × generateVariant turn-bet) — Test timed out in 5000ms
+Maszyna: Linux 6.18, 4 rdzenie, Node v22.23.4; szablon jak w teście (draws flush, pule 8/16/24/40, small 0,25, big 0,75, poziom latwy); 3 powtórzenia po 300 wariantów (ziarna 1..300), generateVariant tylko.
+
+Stan                     | ms / 300 wariantów (3 powtórzenia)  | ms / wariant
+91573ab6 (przed EV-2)    | 1053, 976, 1016                     | ok. 3,4
+da1e02db (po EV-2)       | 3525, 3571, 3529                    | ok. 11,8   (×3,5)
+da1e02db + poprawka FC   | 1228, 1347, 1293                    | ok. 4,3    (×1,3 względem 91573ab6)
+
+Przyczyna (profil --cpu-prof, tsx; liczniki prób na 300 wariantów): 304 718 prób dochodzi do gałęzi turn-bet (ok. 1016 na wariant; akceptacja ok. 0,1%, D-1310),
+32 636 (10,7%) przechodzi klasyfikację ręki gracza, 1330 (0,4%) ma draw rywala, 300 jest przyjętych. EV-2 (a3b18da2, czyste outy) odrzuca 78% prób z drawem,
+więc potrzeba ok. 3,5× więcej prób. Pętla 44 kart (czyste outy) dotyczy tylko 1330 prób — nie jest wąskim gardłem (wczesne wyjście z niej nie dało przyspieszenia, wycofane).
+Koszt jednej próby: klasyfikacja ręki gracza (classifyHolding) na każdej próbie, także gdy gracz nie ma karty z pary (zKarta) albo rywal nie ma 4 kart koloru.
+
+Poprawka: w gałęzi turn-bet tryVariant tanie warunki konieczne przed classifyHolding: zKarta oraz (gdy poziom dopuszcza tylko draw „flush") 4 karty jednego koloru rywala z turnu.
+Te same odrzucenia, w innej kolejności; brak losowań między nimi, więc rozkład bez zmian.
+Odciski przed/po (ta sama maszyna, ziarna 1..400 × 2 szablony: small .25/big .75 pule 8-40 oraz small .25/big .42 pula 40): cmp fc odciski przed == po → IDENTYCZNE (800 linii).
+Test odtwarzający: packages/poker-core/test/fc-turn-bet-wydajnosc.test.ts (najlepszy z 3 przebiegów po 100 wariantów < 700 ms): da1e02db 1313 ms CZERWONY; 91573ab6 zielony; po poprawce zielony.
+Limit czasu testu ef-turn-bet zostaje domyślny (5000 ms), niepodniesiony.
+
+Realność dla użytkownika: turn-bet nie jest na ekranie (RODZAJE_NA_EKRANIE, D-1250), więc dziś brzegowy. Po włączeniu: ok. 4,3 ms/wariant na tej maszynie po poprawce
+(przed poprawką 11,8 ms); telefon bywa kilka–kilkanaście razy wolniejszy (szacunek, niezmierzony; [DO USTALENIA] pomiar na urządzeniu) → rzędu 50 ms/wariant, poniżej progu zauważalności przy jednym wariancie na ćwiczenie.
