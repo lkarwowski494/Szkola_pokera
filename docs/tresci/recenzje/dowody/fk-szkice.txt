@@ -1,0 +1,6 @@
+$ bash docs/tresci/narzedzia/fd-kontrola-szkicow.sh <scratchpad>/wt-fk  (2026-11-12, HEAD 56a7ac70; pasek postępu git pominięty)
+Preparing worktree (detached HEAD 56a7ac7)
+Zapisano 35 baz treści w /tmp/claude-0/-home-user-Szkola-pokera/861e0be6-5a9a-5dc2-b6aa-71c5eba8797e/scratchpad/wt-fk/apps/mobile/assets/content: 44 lekcji, 146 reguł, 829 liczb, 162 terminów.
+struktura pl/en: zgodna
+kod wyjścia: 0
+exit 0

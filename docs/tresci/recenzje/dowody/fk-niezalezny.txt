@@ -1,0 +1,66 @@
+$ python3 -I fk-niezalezny.py  (własny ewaluator 5 z 7, bez importu z repo; kod poniżej)
+ceny 1/4 1/3 2/3 3/4: [0.1667, 0.2, 0.2857, 0.3]
+A 9 2h 3h 4h 6h 7h 9h Th Kh Ah N/47=0.1915 N/45=0.2000 marg1/4(N/47)=+0.0248 marg2/3(N/47)=+0.0942 marg1/4(N/45)=+0.0333 marg2/3(N/45)=+0.0857
+B 8 2h 3h 4h 6h 7h 9h Th Kh N/47=0.1702 N/45=0.1778 marg1/4(N/47)=+0.0035 marg2/3(N/47)=+0.1155 marg1/4(N/45)=+0.0111 marg2/3(N/45)=+0.1079
+C 15 2h 3h 4s 4h 4d 4c 9s 9h 9d 9c Th Jh Qh Kh Ah N/47=0.3191 N/45=0.3333 marg1/4(N/47)=+0.1525 marg2/3(N/47)=-0.0334 marg1/4(N/45)=+0.1667 marg2/3(N/45)=-0.0476
+G W=48 L=6 rem=0 pasujace=16 lepsze_wsrod_pasujacych=0 w=0.8889
+H W=12 L=21 rem=0 pasujace=16 lepsze_wsrod_pasujacych=0 w=0.3636
+E W=24 L=21 rem=0 pasujace=16 lepsze_wsrod_pasujacych=0 w=0.5333
+D W=48 L=6 rem=0 pasujace=32 lepsze_wsrod_pasujacych=16 w=0.8889
+F W=24 L=0 rem=0 pasujace=6 lepsze_wsrod_pasujacych=6 w=1.0000
+kod wyjścia: 0
+
+----- kod -----
+# FK: niezależny rachunek wektorów FD (bez importu z repo). Ewaluator 5 z 7 przez itertools.
+import itertools
+R='23456789TJQKA'; S='shdc'
+DECK=[r+s for r in R for s in S]
+def rank5(c):
+    rs=sorted((R.index(x[0]) for x in c),reverse=True); su=[x[1] for x in c]
+    cnt={r:rs.count(r) for r in set(rs)}; grp=sorted(cnt.items(),key=lambda x:(-x[1],-x[0]))
+    fl=len(set(su))==1; u=sorted(set(rs),reverse=True); st=None
+    if len(u)==5 and u[0]-u[4]==4: st=u[0]
+    if u==[12,3,2,1,0]: st=3
+    if st is not None and fl: return (8,st)
+    if grp[0][1]==4: return (7,grp[0][0],grp[1][0])
+    if grp[0][1]==3 and grp[1][1]==2: return (6,grp[0][0],grp[1][0])
+    if fl: return (5,*rs)
+    if st is not None: return (4,st)
+    if grp[0][1]==3: return (3,grp[0][0],*[g for g,_ in grp[1:]])
+    if grp[0][1]==2 and grp[1][1]==2: return (2,grp[0][0],grp[1][0],grp[2][0])
+    if grp[0][1]==2: return (1,grp[0][0],*[g for g,_ in grp[1:]])
+    return (0,*rs)
+def best(c): return max(rank5(x) for x in itertools.combinations(c,5))
+def combos(hc):
+    if len(hc)==2: return [ (hc[0]+a,hc[1]+b) for a,b in itertools.combinations(S,2)]
+    a,b,t=hc[0],hc[1],hc[2]
+    if t=='s': return [(a+s,b+s) for s in S]
+    return [(a+x,b+y) for x in S for y in S if x!=y]
+def flop_vec(hero,vil,board):
+    known=set(hero+vil+board); unseen=[c for c in DECK if c not in known]
+    win=[c for c in unseen if best(vil+board+[c])>=best(hero+board+[c])]
+    return win,len(unseen)
+price=lambda f: f/(1+2*f)
+print('ceny 1/4 1/3 2/3 3/4:',[round(price(f),4) for f in (0.25,1/3,2/3,0.75)])
+for name,h,v in [('A',['As','Kd'],['Qh','Jh']),('B',['Ah','Kd'],['Qh','Jh']),('C',['As','Kd'],['7h','6h'])]:
+    w,n=flop_vec(h,v,['Ks','8h','5h']); 
+    print(name,len(w),' '.join(w),f'N/47={len(w)/47:.4f} N/{n}={len(w)/n:.4f}', f'marg1/4(N/47)={len(w)/47-price(.25):+.4f} marg2/3(N/47)={price(2/3)-len(w)/47:+.4f}', f'marg1/4(N/{n})={len(w)/n-price(.25):+.4f} marg2/3(N/{n})={price(2/3)-len(w)/n:+.4f}')
+hero=['Qh','Qd']; board=['Js','8c','5d','3h','2s']; hs=best(hero+board)
+def wl(calls,folds):
+    dead=set(hero+board); W=L=T=0; fb=0; fn=0
+    for hc in calls:
+        for c in combos(hc):
+            if dead & set(c): continue
+            s=best(list(c)+board); W+=s<hs; L+=s>hs; T+=s==hs
+    for hc in folds:
+        for c in combos(hc):
+            if dead & set(c): continue
+            fn+=1; fb+= best(list(c)+board)>hs
+    return W,L,T,fn,fb
+V={'G':(['AJo','AJs','KJo','KJs','JTo','JTs','J9o','J9s','88','55'],['76o','76s']),
+   'H':(['AJo','AJs','88','55','JJ','AA','KK'],['76o','76s']),
+   'E':(['AJo','AJs','KJo','KJs','88','55','JJ','AA','KK'],['76o','76s']),
+   'D':(['AJo','AJs','KJo','KJs','JTo','JTs','J9o','J9s','88','55'],['76o','76s','A4o','A4s']),
+   'F':(['AJo','AJs','KJo','KJs'],['KK'])}
+for k,(c,f) in V.items():
+    W,L,T,fn,fb=wl(c,f); print(k,f'W={W} L={L} rem={T} pasujace={fn} lepsze_wsrod_pasujacych={fb} w={W/(W+L):.4f}')
