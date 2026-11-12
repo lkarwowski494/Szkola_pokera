@@ -1,0 +1,21 @@
+# FO: wektory FD, rachunek odniesienia (sesja FO, 2026-11-12, HEAD be1e44ae)
+$ cd docs/tresci/narzedzia/rachunki && python3 fd_wektory.py
+== SC-13 (08-EX-4): rozmiar silną ręką na flopie wobec drawa do koloru; jedna karta (turn), D-1306 ==
+  cena przy 1/4 puli: 0.1667
+  cena przy 1/3 puli: 0.2000
+  cena przy 2/3 puli: 0.2857
+  cena przy 3/4 puli: 0.3000
+  A: AsKd vs QhJh, Ks8h5h (czyste 9 outów): kart turnu wygrywających/remisujących rywala = 9 (2h 3h 4h 6h 7h 9h Th Kh Ah); e = 9/47 = 0.1915; margines przy 1/4 = +0.0248, przy 2/3 = +0.0942
+  B: AhKd vs QhJh, Ks8h5h (gracz trzyma Ah: 8 outów): kart turnu wygrywających/remisujących rywala = 8 (2h 3h 4h 6h 7h 9h Th Kh); e = 8/47 = 0.1702; margines przy 1/4 = +0.0035, przy 2/3 = +0.1155
+  C: AsKd vs 7h6h, Ks8h5h (kolor + strit: outy nieczyste): kart turnu wygrywających/remisujących rywala = 15 (2h 3h 4s 4h 4d 4c 9s 9h 9d 9c Th Jh Qh Kh Ah); e = 15/47 = 0.3191; margines przy 1/4 = +0.1525, przy 2/3 = -0.0334
+
+== SC-28 (08-EX-1/2, river-value): w = W/(W+L) wśród kombinacji sprawdzających po usunięciu kart; bet ⇔ w ≥ 0,5 + δ, czekanie ⇔ w ≤ 0,5 − δ ==
+  D: QhQd na Js8c5d3h2s; sprawdzi AJ KJ JT J9 88 55; pasuje 76 A4 (A4 to strit, lepszy od gracza → odrzucenie, D-1302): W = 48, L = 6, remisy = 0, pasujące = 32, lepsze wśród pasujących = 16; w = 8/9 = 0.8889
+  G: QhQd na Js8c5d3h2s; sprawdzi AJ KJ JT J9 88 55; pasuje 76 (bet): W = 48, L = 6, remisy = 0, pasujące = 16, lepsze wśród pasujących = 0; w = 8/9 = 0.8889
+  E: QhQd na Js8c5d3h2s; sprawdzi AJ KJ 88 55 JJ AA KK; pasuje 76 (w w pasie ±δ → odrzucenie): W = 24, L = 21, remisy = 0, pasujące = 16, lepsze wśród pasujących = 0; w = 8/15 = 0.5333
+  H: QhQd na Js8c5d3h2s; sprawdzi AJ 88 55 JJ AA KK; pasuje 76 (czekanie): W = 12, L = 21, remisy = 0, pasujące = 16, lepsze wśród pasujących = 0; w = 4/11 = 0.3636
+  F: QhQd na Js8c5d3h2s; sprawdzi AJ KJ; pasuje KK (lepsza ręka pasuje → odrzucenie, D-1302): W = 24, L = 0, remisy = 0, pasujące = 6, lepsze wśród pasujących = 6; w = 1 = 1.0000
+kod=0
+
+$ diff <(python3 fd_wektory.py) docs/tresci/dowody/fd-wektory.txt
+kod=0

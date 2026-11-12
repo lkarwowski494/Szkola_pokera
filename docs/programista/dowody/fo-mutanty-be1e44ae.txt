@@ -1,0 +1,151 @@
+# FO: mutanty i testy czerwone przed poprawką (sesja FO, 2026-11-12, kopia be1e44ae w worktree poza repo; ścieżka kopii skrócona do <wt>)
+Skrypt: docs/programista/dowody/fo-mutanty-skrypt.txt (node mutanty.mjs <wt>); każdy mutant: podmiana jednego napisu, test celowany, przywrócenie pliku.
+
+## Mutanty M01–M21
+M01 classComboSplit: remis liczony jako gorsza ręka: ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    ❯ test/fl-river-value.test.ts (16 tests | 2 failed) 820ms
+    × remis: ręka grająca stołem; gracz i rywal dzielą (osobny licznik, nie wygrana) 9ms
+    × pełne przejście po talii zgadza się z funkcją dla 300 losowych układów (wyrocznia b) 12ms
+M02 classComboSplit: bez usuwania kart martwych: ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    ❯ test/fl-river-value.test.ts (16 tests | 8 failed) 33ms
+    × G: sprawdza AJ KJ JT J9 88 55 → gorsze 48, lepsze 6, remisy 0; pasuje 76 → 16 kombinacji, 0 lepszych 9ms
+    × H: sprawdza AJ 88 55 JJ AA KK → gorsze 12, lepsze 21 1ms
+    × E: sprawdza AJ KJ 88 55 JJ AA KK → gorsze 24, lepsze 21 3ms
+M03 riverValueVerdict: próg bet bez δ (w ≥ 0,5): ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    ❯ test/fl-river-value.test.ts (16 tests | 3 failed) 878ms
+    × G: w = 8/9 → bet; H: w = 4/11 → czekanie; E: w = 8/15 w pasie ±δ → null 7ms
+    × granice włącznie: w = 0,55 przy δ 0,05 to bet, w = 0,45 to czekanie; tuż wewnątrz pasa null 1ms
+    × 120 wariantów „bet”: w z wyroczni po obu stronach progu, żadna pasująca ręka lepsza od gracza 92ms
+M04 riverValueVerdict: granica bet wyłączna: ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    ❯ test/fl-river-value.test.ts (16 tests | 1 failed) 901ms
+    × granice włącznie: w = 0,55 przy δ 0,05 to bet, w = 0,45 to czekanie; tuż wewnątrz pasa null 7ms
+    FAIL  test/fl-river-value.test.ts > 08-EX-2: riverValueVerdict (wektory fd-wektory.txt, δ = 0,05) > granice włącznie: w = 0,55 przy δ 0,05 to bet, w = 0,45 to czekanie; tuż wewnątrz pasa null
+M05 generator river-value: bez odrzucenia lepszej ręki wśród folds (D-1302 war. 2): ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    ❯ test/fl-river-value.test.ts (16 tests | 2 failed) 303ms
+    × 120 wariantów „bet”: w z wyroczni po obu stronach progu, żadna pasująca ręka lepsza od gracza 12ms
+    × 120 wariantów „check”: w z wyroczni po obu stronach progu, żadna pasująca ręka lepsza od gracza 1ms
+M06 generator river-value: dryBoard bez warunku koloru: PRZEŻYŁ (kod 0)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    Tests  16 passed (16)
+M07 generator river-value: dryBoard bez warunku strita: PRZEŻYŁ (kod 0)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    Tests  16 passed (16)
+M08 generator river-value: bez filtra pairKind: ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-river-value.test.ts
+    ❯ test/fl-river-value.test.ts (16 tests | 1 failed) 583ms
+    × filtr ręki overpair i stół bez koloru (3 karty jednej barwy) i bez strita: SC-28 w miniaturze 7ms
+    FAIL  test/fl-river-value.test.ts > 08-EX-2: generator river-value > filtr ręki overpair i stół bez koloru (3 karty jednej barwy) i bez strita: SC-28 w miniaturze
+M09 flopSizeAnalysis: e = N/45 zamiast N/47: ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-flop-size.test.ts
+    ❯ test/fl-flop-size.test.ts (7 tests | 4 failed) 1228ms
+    × A: AsKd vs QhJh → 9 kart (2h 3h 4h 6h 7h 9h Th Kh Ah), e = 0,1915, marginesy +0,0248 / +0,0942, czyste outy 8ms
+    × B: AhKd vs QhJh (gracz trzyma Ah) → 8 kart, e = 0,1702, margines przy ¼ = +0,0035 < 0,02 2ms
+    × C: AsKd vs 7h6h (kolor + strit) → 15 kart, e = 0,3191 > cena ⅔, margines przy ⅔ = −0,0334 1ms
+M10 flopSizeAnalysis: czyste outy bez warunku 0 remisów: PRZEŻYŁ (kod 0)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-flop-size.test.ts
+    Tests  7 passed (7)
+M11 flopSizeAnalysis: czyste outy bez równości zbiorów (tylko liczność): PRZEŻYŁ (kod 0)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-flop-size.test.ts
+    Tests  7 passed (7)
+M12 generator flop-size: margines dużego wobec N/47 zamiast N/45 (D-1421): PRZEŻYŁ (kod 0)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-flop-size.test.ts
+    Tests  7 passed (7)
+M13 generator flop-size: bez warunku silnej ręki: ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-flop-size.test.ts
+    ❯ test/fl-flop-size.test.ts (7 tests | 1 failed) 396ms
+    × 100 wariantów: N = 9 czystych outów koloru, 0 remisów, e = 9/47, marginesy ≥ 0,02, silna ręka, flop two-tone 382ms
+    FAIL  test/fl-flop-size.test.ts > 08-EX-4: generator flop-size > 100 wariantów: N = 9 czystych outów koloru, 0 remisów, e = 9/47, marginesy ≥ 0,02, silna ręka, flop two-tone
+M14 generator flop-size: bez warunku całej kwoty zakładu: ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-flop-size.test.ts
+    ❯ test/fl-flop-size.test.ts (7 tests | 1 failed) 1096ms
+    × szablon: ułamek puli, który nie daje całego zakładu, margines < 0,02, zła akcja oczekiwana i 0 < small < big to błędy 7ms
+    FAIL  test/fl-flop-size.test.ts > 08-EX-4: generator flop-size > szablon: ułamek puli, który nie daje całego zakładu, margines < 0,02, zła akcja oczekiwana i 0 < small < big to błędy
+M15 generator iso-size: ręka z całej talii (cofnięcie 08-FD-2): ZABITY (kod 1)
+  komenda: cd <wt>/packages/poker-core && npx vitest run test/fl-iso-size-zakres.test.ts
+    ❯ test/fl-iso-size-zakres.test.ts (4 tests | 2 failed) 121ms
+    × 2000 ziaren: każda klasa ręki ma częstość otwarcia > 0 w rfi.co 118ms
+    × brak spotu rfi.<pozycja> w kontekście to błąd szablonu, nie ręka z całej talii 1ms
+M16 bramka flop-size: margines > 0 zamiast ≥ 0,02: ZABITY (kod 1)
+  komenda: cd <wt>/tools/content-build && npx vitest run test/fl-bramka-flop-size-river-value.test.ts
+    ❯ test/fl-bramka-flop-size-river-value.test.ts (15 tests | 1 failed) 10920ms
+    × wymaga marginMin ≥ 0,02 (D-1051) i listy draws 5ms
+    FAIL  test/fl-bramka-flop-size-river-value.test.ts > 08-FD-3: bramka flop-size > wymaga marginMin ≥ 0,02 (D-1051) i listy draws
+M17 bramka flop-size: bez kontroli całej kwoty: ZABITY (kod 1)
+  komenda: cd <wt>/tools/content-build && npx vitest run test/fl-bramka-flop-size-river-value.test.ts
+    ❯ test/fl-bramka-flop-size-river-value.test.ts (15 tests | 1 failed) 10809ms
+    × pula, z której ułamek nie daje całego zakładu (pula 10: ¼ = 2,5), to błąd bramki 5ms
+    FAIL  test/fl-bramka-flop-size-river-value.test.ts > 08-FD-3: bramka flop-size > pula, z której ułamek nie daje całego zakładu (pula 10: ¼ = 2,5), to błąd bramki
+M18 bramka ekranu: river-value przepuszczony: ZABITY (kod 1)
+  komenda: cd <wt>/tools/content-build && npx vitest run test/fl-bramka-flop-size-river-value.test.ts
+    ❯ test/fl-bramka-flop-size-river-value.test.ts (15 tests | 1 failed) 10813ms
+    × ekran nie ma widoku river-value (brak akcji „bet”, projekt roli 04): bramka ekranu odrzuca szablon z powodem 5ms
+    FAIL  test/fl-bramka-flop-size-river-value.test.ts > 08-FD-4: bramka river-value > ekran nie ma widoku river-value (brak akcji „bet”, projekt roli 04): bramka ekranu odrzuca szablon z powodem
+M19 bramka river-value: bez kontroli powtórzonych klas: ZABITY (kod 1)
+  komenda: cd <wt>/tools/content-build && npx vitest run test/fl-bramka-flop-size-river-value.test.ts
+    ❯ test/fl-bramka-flop-size-river-value.test.ts (15 tests | 1 failed) 11569ms
+    × klasy: nieznana, wspólna dla calls i folds, powtórzona 7ms
+    FAIL  test/fl-bramka-flop-size-river-value.test.ts > 08-FD-4: bramka river-value > klasy: nieznana, wspólna dla calls i folds, powtórzona
+M20 mobile: mały zakład flop-size oceniany jako błąd: ZABITY (kod 1)
+  komenda: cd <wt>/apps/mobile && npx jest --ci src/features/scenariusz/__tests__/fl-flop-size-ekran.test.tsx
+    FAIL src/features/scenariusz/__tests__/fl-flop-size-ekran.test.tsx (19.283 s)
+    Received string:    "Zakończ Scenariusz Flop Etapy rozdania ✓ Preflop Flop Turn River Ty: BTN, karty dama kier, 7 trefl. Rywal: BB. Odkryte karty: 7 karo, 9 trefl, dama karo. BB · rywal · 100 bb 7 kar
+    Test Suites: 1 failed, 1 total
+    Tests:       3 failed, 8 passed, 11 total
+M21 mobile: widok flop-size z ulicą turn: ZABITY (kod 1)
+  komenda: cd <wt>/apps/mobile && npx jest --ci src/features/scenariusz/__tests__/fl-flop-size-ekran.test.tsx
+    FAIL src/features/scenariusz/__tests__/fl-flop-size-ekran.test.tsx
+    Test Suites: 1 failed, 1 total
+    Tests:       1 failed, 10 passed, 11 total
+exit=0
+
+## Mutanty M22–M23 (wyczerpujące switche w mobile: usunięty case river-value, tsc --noEmit w apps/mobile)
+src/features/scenariusz/liczby.ts(14,84): error TS2366: Function lacks ending return statement and return type does not include 'undefined'.
+M22 tsc kod=2
+src/features/scenariusz/wariant.ts(41,69): error TS2366: Function lacks ending return statement and return type does not include 'undefined'.
+M23 tsc kod=2
+
+## Sonda (test spoza repo, źródło: fo-sonda-test.txt) na oryginale i na mutantach, które przeżyły
+      Tests  2 passed (2)
+oryginał kod=0
+M06 z sondą: ZABITY (kod 1)
+   × 200 ziaren: stół bez 3 kart jednej barwy i bez strita 564ms
+   Tests  1 failed | 1 passed (2)
+M07 z sondą: PRZEŻYŁ (kod 0)
+   Tests  2 passed (2)
+M12 z sondą: ZABITY (kod 1)
+   × δ = 0,055: żaden wariant (dokładne equity N/45 nie ma marginesu) 8ms
+   Tests  1 failed | 1 passed (2)
+
+## Testy czerwone przed poprawką (kod sprzed commitu, test z commitu)
+## R1: test fl-iso-size-zakres.test.ts (b734fc15) na scenario-gen.ts sprzed poprawki (b734fc15^)
+     × 2000 ziaren: każda klasa ręki ma częstość otwarcia > 0 w rfi.co 182ms
+     × brak spotu rfi.<pozycja> w kontekście to błąd szablonu, nie ręka z całej talii 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected [ '1: K8s', '2: 32s', '3: T5s', …(2) ] to deeply equal []
+- Expected
++ Received
+AssertionError: expected function to throw an error, but it didn't
+      Tests  2 failed | 2 passed (4)
+kod=1
+## R2: test fl-flop-size.test.ts z 08b92f11 na scenario-gen.ts sprzed poprawki D-1421 (08b92f11^)
+     × A: AsKd vs QhJh → 9 kart (2h 3h 4h 6h 7h 9h Th Kh Ah), e = 0,1915, marginesy +0,0248 / +0,0942, czyste outy 9ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected undefined to be close to 0.2, received difference is NaN, but expected 5e-13
+      Tests  1 failed | 6 passed (7)
+kod=1
+## R3: ef-iso-size.test.ts w wersji sprzed b734fc15 (spots: []) na kodzie be1e44ae
+     × sc-fx-iso-btn latwy: 2000 wariantów, rozmiary z rachunku i ocena silnika gry 14ms
+     × sc-fx-iso-sb latwy: 2000 wariantów, rozmiary z rachunku i ocena silnika gry 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+    594|   if (!spot) throw new TemplateError(`${templateId}: brak spotu ${spot…
+    594|   if (!spot) throw new TemplateError(`${templateId}: brak spotu ${spot…
+      Tests  2 failed | 6 passed (8)
+kod=1
+
+## Stan kopii po sondach: git status --porcelain (pusto = pliki przywrócone)
+kod=0
