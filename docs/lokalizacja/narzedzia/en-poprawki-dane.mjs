@@ -180,4 +180,9 @@ export const DEFINICJE = (z, k) => ({
       k('zh-Hant', 'scenarios/sc-34.yaml', '只算', 'zh-Hant sc-34: „只算”'),
     ],
   },
+  'ja-3bet': {
+    // Zadanie dodatkowe koordynatora: 3-bet w ja zamknięte jako „3ベット” (276 × w content/ja, 0 × „スリーベット”; wpis już miał tę wartość, brakowało zamknięcia [DO USTALENIA]).
+    zamiany: [z('ja', 'terms-nazwy.yaml', '3-bet: "3ベット"  # 3-bet; bez formy 0; formy: — [DO USTALENIA]', '3-bet: "3ベット"  # 3-bet; bez formy 0; formy: —; ZAMKNIĘTE 2026-11-12 (EN, D-1238): forma korpusu, 276 × „3ベット”, 0 × zapis pełny katakaną')],
+    kontrole: [k('ja', 'terms-nazwy.yaml', '^3-bet:.*DO USTALENIA', 'ja terms-nazwy: 3-bet nadal [DO USTALENIA]'), k('ja', '.', 'スリーベット', 'ja: „スリーベット” w treści')],
+  },
 });
