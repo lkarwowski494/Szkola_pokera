@@ -17,7 +17,7 @@ decisions:
     rule: R-M3-009
     actions:
       - action: "raise 3"
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，所有人都{{t:fold|棄牌}}到你。你{{t:raise|加注}}，因為現在只剩{{t:big-blind|大盲}}和你對抗；翻牌後你先行動，所以你{{t:open|開池}}的範圍大約和按鈕一樣寬，約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 的手牌，而這手牌在其中。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，所有人都{{t:fold|棄牌}}到你。你{{t:raise|加注}}，因為現在只剩{{t:big-blind|大盲}}和你對抗；翻牌後你先行動，所以你{{t:open|開池}}的範圍大約和按鈕位一樣寬，約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 的手牌，而這手牌在其中。"
       - action: fold
         explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，所有人都{{t:fold|棄牌}}到你。{{t:fold|棄牌}}太保守：求解器通常會{{t:raise|加注}}這手牌。現在只剩{{t:big-blind|大盲}}和你對抗，所以你從{{t:small-blind|小盲}}寬{{t:open|開池}}，約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 的手牌。"
   - street: preflop

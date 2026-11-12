@@ -67,7 +67,7 @@ suited: "スーテッド"  # suited; bez formy 0; formy: — [DO USTALENIA]
 offsuit: "オフスート"  # offsuit; bez formy 0; formy: — [DO USTALENIA]
 pocket-pair: "ポケットペア"  # pocket pair; bez formy 0; formy: ポケットペア×3
 connectors: "コネクター"  # connectors; bez formy 4; formy: コネクター×20
-3-bet: "3ベット"  # 3-bet; bez formy 0; formy: — [DO USTALENIA]
+3-bet: "3ベット"  # 3-bet; bez formy 0; formy: —; ZAMKNIĘTE 2026-11-12 (EN, D-1238): forma korpusu, 276 × „3ベット”, 0 × zapis pełny katakaną
 4-bet: "4ベット"  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
 limp: "リンプ"  # limp; bez formy 1; formy: リンプ×1
 isolation: "アイソレーション"  # isolation raise; bez formy 0; formy: アイソレーション×6, アイソレート×1 [WIELE FORM]

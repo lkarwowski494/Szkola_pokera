@@ -27,7 +27,7 @@ decisions:
     sb: true
     actions:
       - action: raise
-        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。{{n:pf.open-size-sb}}まで{{t:raise|レイズ}}するのは、{{t:small-blind|スモールブラインド}}からは{{t:out-of-position|アウトオブポジション}}でプレイするので、他の{{t:position|ポジション}}の{{n:pf.open-size}}より少し大きくするためです。すべてのハンドで同じサイズにすれば、ハンドの強さを明かしません。"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。{{n:pf.open-size-sb}}まで{{t:raise|レイズ}}するのは、{{t:small-blind|スモールブラインド}}からは{{t:out-of-position|アウトオブポジション}}でプレイするからです。そのため、他の{{t:position|ポジション}}の{{n:pf.open-size}}より少し大きくします。すべてのハンドで同じサイズにすれば、ハンドの強さを明かしません。"
       - action: raise-small
         explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{t:raise|レイズ}}します。このサイズは不正確です。{{t:small-blind|スモールブラインド}}からは{{t:out-of-position|アウトオブポジション}}でプレイするので、少し大きく{{n:pf.open-size-sb}}まで{{t:raise|レイズ}}します。"
       - action: raise-big

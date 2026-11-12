@@ -1,7 +1,7 @@
 # sc-12: French text of content/pl/scenarios/sc-12.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-12
 module: m5
-situation: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|payé}} et fait {{t:check}} sur un flop bas et {{t:connected|connecté}}."
+situation: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|payé}} et fait {{t:check}} sur un flop bas et {{t:connected|connecté}}."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -23,6 +23,6 @@ decisions:
       - action: check
         explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Vous faites {{t:check}}, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent un flop bas, et votre main sans {{t:pair|paire}} ni {{t:draw|tirage}} a manqué. Sur un tel flop, vous faites un {{t:c-bet}} moins souvent que sur les flops hauts."
       - action: bet-small
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une petite {{t:bet|mise}} est acceptable, mais plus rare : sur un flop bas et {{t:connected|connecté}}, vous faites un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une petite {{t:bet|mise}} est acceptable, mais plus rare : sur un flop bas et {{t:connected|connecté}}, vous faites un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."
       - action: bet-big
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une grosse {{t:bet|mise}} est ici une imprécision : sur un flop {{t:connected|connecté}}, la {{t:big-blind}} peut déjà avoir une {{t:straight|quinte}}, donc quand vous misez, misez petit. Sur un flop bas, vous faites aussi un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une grosse {{t:bet|mise}} est ici une imprécision : sur un flop {{t:connected|connecté}}, la {{t:big-blind}} peut déjà avoir une {{t:straight|quinte}}, donc quand vous misez, misez petit. Sur un flop bas, vous faites aussi un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."

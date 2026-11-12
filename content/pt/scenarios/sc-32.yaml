@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-002
     actions:
       - action: all-in
-        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e todos {{t:fold|desistiram}}. Vai {{t:all-in}}, porque com um stack mais curto arrisca menos em comparação com as blinds que ganha quando o adversário {{t:fold|desiste}}; com {{n:m11.depth.10}} faz {{t:shove|push}} com cerca de {{n:m11.push.10}} das mãos, e esta mão está entre elas."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e todos {{t:fold|desistiram}}. Vai {{t:all-in}}, porque com um stack mais curto arrisca menos em comparação com os blinds que ganha quando o adversário {{t:fold|desiste}}; com {{n:m11.depth.10}} faz {{t:shove|shove}} com cerca de {{n:m11.push.10}} das mãos, e esta mão está entre elas."
       - action: fold
-        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e todos {{t:fold|desistiram}}. {{t:fold|Desistir}} é demasiado cauteloso: com {{n:m11.depth.10}} faz {{t:shove|push}} com cerca de {{n:m11.push.10}} das mãos, e esta mão está entre elas. Com um stack mais curto arrisca menos em comparação com as blinds que ganha quando o adversário {{t:fold|desiste}}."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e todos {{t:fold|desistiram}}. {{t:fold|Desistir}} é demasiado cauteloso: com {{n:m11.depth.10}} faz {{t:shove|shove}} com cerca de {{n:m11.push.10}} das mãos, e esta mão está entre elas. Com um stack mais curto arrisca menos em comparação com os blinds que ganha quando o adversário {{t:fold|desiste}}."

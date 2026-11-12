@@ -2,7 +2,7 @@
 # Struktura jak pl (content/pl/scenarios/sc-05.yaml).
 id: sc-05
 module: m3
-situation: "Vous êtes au Button, et tout le monde avant vous s'est {{t:fold|couché}}."
+situation: "Vous êtes au Bouton, et tout le monde avant vous s'est {{t:fold|couché}}."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -25,9 +25,9 @@ decisions:
     rule: R-M3-003
     actions:
       - action: "raise 2.5"
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Vous {{t:open|ouvrez}}, car il ne reste que les blindes et après le flop vous aurez la {{t:position}} ; depuis le Button, vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Vous {{t:open|ouvrez}}, car il ne reste que les blindes et après le flop vous aurez la {{t:position}} ; depuis le Bouton, vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
       - action: fold
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Se {{t:fold|coucher}} est trop prudent : le solver {{t:open|ouvre}} généralement cette main. Il ne reste que les blindes et après le flop vous aurez la {{t:position}}, donc depuis le Button vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Se {{t:fold|coucher}} est trop prudent : le solver {{t:open|ouvre}} généralement cette main. Il ne reste que les blindes et après le flop vous aurez la {{t:position}}, donc depuis le Bouton vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
   - street: flop
     kind: cbet-case
     rule: R-M5-004
@@ -35,6 +35,6 @@ decisions:
       - action: check
         explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Vous faites {{t:check}}, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent un flop bas, et votre main sans {{t:pair|paire}} ni {{t:draw|tirage}} a manqué. Sur un tel flop, vous faites un {{t:c-bet}} moins souvent que sur les flops hauts."
       - action: bet-small
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une petite {{t:bet|mise}} est acceptable, mais plus rare : sur un flop bas et {{t:connected|connecté}}, vous faites un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une petite {{t:bet|mise}} est acceptable, mais plus rare : sur un flop bas et {{t:connected|connecté}}, vous faites un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."
       - action: bet-big
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une grosse {{t:bet|mise}} est ici une imprécision : sur un flop {{t:connected|connecté}}, la {{t:big-blind}} peut déjà avoir une {{t:straight|quinte}}, donc quand vous misez, misez petit. Sur un flop bas, vous faites aussi un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et la {{t:big-blind}} fait {{t:check}}. Une grosse {{t:bet|mise}} est ici une imprécision : sur un flop {{t:connected|connecté}}, la {{t:big-blind}} peut déjà avoir une {{t:straight|quinte}}, donc quand vous misez, misez petit. Sur un flop bas, vous faites aussi un {{t:c-bet}} moins souvent que sur les flops hauts, car la {{t:big-blind}} défend beaucoup de {{t:connectors}} et de mains à petites cartes qui touchent ce flop."

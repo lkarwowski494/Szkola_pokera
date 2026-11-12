@@ -1,0 +1,86 @@
+$ node zestaw.mjs <scratch>  (kontrola znaczników {{n:}}/{{w:}}/{{t:}} i cyfr poza znacznikami vs pl; 37 kluczy × 12 języków; commit 31723a6c; 2026-11-11)
+t: it scenarios/sc-04.yaml:decisions.1:cbet-case.actions.check.explanation
+   pl: bet big-blind board c-bet check check check dry fold range-advantage
+   it: bet bet big-blind board c-bet check check check dry fold range-advantage
+t: it scenarios/sc-04.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind board c-bet check dry fold pot
+   it: bet bet bet big-blind board c-bet check dry fold pot
+t: en scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   en: bet bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: de scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   de: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: es scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   es: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: fr scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   fr: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: it scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   it: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: ja scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   ja: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: ko scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   ko: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: pt scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   pt: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: pt-BR scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   pt-BR: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: vi scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   vi: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: zh-Hant scenarios/sc-05.yaml:decisions.1:cbet-case.actions.bet-big.explanation
+   pl: bet bet big-blind big-blind big-blind board c-bet check connected connectors straight
+   zh-Hant: bet big-blind big-blind big-blind board c-bet check connected connectors straight
+t: de scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   de: out-of-position position raise raise small-blind
+t: es scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   es: out-of-position position raise raise small-blind
+t: fr scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   fr: out-of-position position raise raise small-blind
+t: it scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   it: out-of-position position raise raise small-blind
+t: ja scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   ja: out-of-position position raise raise small-blind
+t: ko scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   ko: out-of-position position raise raise small-blind
+t: pt scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   pt: out-of-position position raise raise small-blind
+t: pt-BR scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   pt-BR: out-of-position position raise raise small-blind
+t: vi scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   vi: out-of-position position raise raise small-blind
+t: zh-Hant scenarios/sc-06.yaml:decisions.1:size-spot.actions.raise.explanation
+   pl: out-of-position position raise raise raise small-blind
+   zh-Hant: out-of-position position raise raise small-blind
+kluczy: 37
+KOD WYJŚCIA: 0
+
+== Zbiory unikalnych terminów {{t:}} vs pl: 0 różnic (różnice wyżej to tylko liczba powtórzeń terminu w zdaniu) ==
+
+== Stosunek długości do en (średnia na język) ==
+de śr 1.08 maks 1.28
+es śr 1.09 maks 1.22
+fr śr 1.13 maks 1.45
+it śr 1.02 maks 1.30
+ja śr 0.80 maks 1.02
+ko śr 0.84 maks 1.01
+pt śr 1.01 maks 1.21
+pt-BR śr 1.05 maks 1.24
+vi śr 1.07 maks 1.29
+zh-Hant śr 0.65 maks 0.86

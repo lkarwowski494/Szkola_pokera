@@ -15,7 +15,7 @@ drills:
     options:
       - { text: "Probe Bet", correct: true, why: "Ja: Ein Probe Bet ist eine {{t:bet}} {{t:out-of-position}} am Turn, nachdem der Preflop-{{t:aggressor}} keinen C-Bet gemacht und {{t:check|gecheckt}} hat." }
       - { text: "C-Bet", why: "Einen C-Bet {{t:bet|setzt}} der Spieler, der vor dem Flop {{t:raise|geraist}} hat. Du hast nur {{t:call|gecallt}}." }
-      - { text: "Check-Raise", why: "Ein Check-Raise ist ein {{t:check}} und danach ein {{t:raise}} gegen den {{t:bet|Bet}} des Gegners. Hier setzt du als Erster und {{t:raise|raist}} niemanden." }
+      - { text: "Check-Raise", why: "Ein Check-Raise ist ein {{t:check}} und danach ein {{t:raise}} gegen die {{t:bet|Bet}} des Gegners. Hier setzt du als Erster und {{t:raise|raist}} niemanden." }
   - kind: choice
     id: m7.l4.q-probe-why
     family: m7.probe.concept

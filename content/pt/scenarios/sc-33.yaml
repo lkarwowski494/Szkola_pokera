@@ -16,6 +16,6 @@ decisions:
     rule: R-M11-007
     actions:
       - action: call
-        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. Faz {{t:call}}, porque esta mão está no seu {{t:range}} de {{t:call}}: a sua blind já está no {{t:pot}}, por isso precisa de cerca de {{n:m11.call.10.eq}} de equity. Ainda assim, faz {{t:call}} mais apertado do que faria {{t:shove|push}}: cerca de {{n:m11.call.10}} das mãos contra cerca de {{n:m11.push.10}}."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. Faz {{t:call}}, porque esta mão está no seu {{t:range}} de {{t:call}}: o seu blind já está no {{t:pot}}, por isso precisa de cerca de {{n:m11.call.10.eq}} de equity. Ainda assim, faz {{t:call}} mais apertado do que faria {{t:shove|shove}}: cerca de {{n:m11.call.10}} das mãos contra cerca de {{n:m11.push.10}}."
       - action: fold
-        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. {{t:fold|Desistir}} é demasiado cauteloso: esta mão está no seu {{t:range}} de {{t:call}}, cerca de {{n:m11.call.10}} das mãos. A sua blind já está no {{t:pot}}, por isso só precisa de cerca de {{n:m11.call.10.eq}} de equity."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}} com {{n:m11.depth.10}}, {{w:stol}}, e o {{t:small-blind}} foi {{t:all-in}}. {{t:fold|Desistir}} é demasiado cauteloso: esta mão está no seu {{t:range}} de {{t:call}}, cerca de {{n:m11.call.10}} das mãos. O seu blind já está no {{t:pot}}, por isso só precisa de cerca de {{n:m11.call.10.eq}} de equity."

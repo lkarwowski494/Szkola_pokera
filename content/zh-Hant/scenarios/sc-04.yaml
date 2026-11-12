@@ -2,7 +2,7 @@
 # 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
 id: sc-04
 module: m3
-situation: "你在 {{t:utg|UTG}}，還沒有人入局；如果你{{t:open|開池}}，{{t:big-blind|大盲}}會{{t:call|跟注}}，並在翻牌上{{t:check|過牌}}。"
+situation: "你在 {{t:utg|UTG}}，還沒有人入池；如果你{{t:open|開池}}，{{t:big-blind|大盲}}會{{t:call|跟注}}，並在翻牌上{{t:check|過牌}}。"
 table: 6max
 positions: { hero: UTG, villain: BB }
 stackBb: 100
@@ -20,9 +20,9 @@ decisions:
     rule: R-M3-002
     actions:
       - action: "raise 2.5"
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，還沒有人入局。你{{t:open|開池}}，因為這手牌在 {{t:utg|UTG}} 很窄的{{t:range|範圍}}之內：你後面還有五位玩家，所以更常會有人拿著更好的牌，因此從 {{t:utg|UTG}} 你只{{t:open|開池}}約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 的手牌。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，還沒有人入池。你{{t:open|開池}}，因為這手牌在 {{t:utg|UTG}} 很窄的{{t:range|範圍}}之內：你後面還有五位玩家，所以更常會有人拿著更好的牌，因此從 {{t:utg|UTG}} 你只{{t:open|開池}}約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 的手牌。"
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，還沒有人入局。{{t:fold|棄牌}}太保守：求解器通常即使在 {{t:utg|UTG}} 也會{{t:open|開池}}這手牌。你後面還有五位玩家，所以 {{t:utg|UTG}} 的{{t:range|範圍}}很窄，約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 的手牌，但這手牌在其中。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，還沒有人入池。{{t:fold|棄牌}}太保守：求解器通常即使在 {{t:utg|UTG}} 也會{{t:open|開池}}這手牌。你後面還有五位玩家，所以 {{t:utg|UTG}} 的{{t:range|範圍}}很窄，約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 的手牌，但這手牌在其中。"
   - street: flop
     kind: cbet-case
     rule: R-M5-007

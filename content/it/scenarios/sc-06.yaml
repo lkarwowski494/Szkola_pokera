@@ -3,7 +3,7 @@
 # Węzeł solvera rfi.sb nie ma limpu (raise-or-fold), więc zamiast no-limp z planu jest rozmiar (D-1032). Jeden poziom (D-1034).
 id: sc-06
 module: m3
-situation: "Sei sullo {{t:small-blind}} e tutti hanno {{t:fold|foldato}} fino a te."
+situation: "Sei in {{t:small-blind}} e tutti hanno {{t:fold|foldato}} fino a te."
 table: 6max
 positions: { hero: SB, villain: BB }
 stackBb: 100
@@ -17,7 +17,7 @@ decisions:
     rule: R-M3-009
     actions:
       - action: "raise 3"
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}} fino a te. {{t:raise|Rilanci}}, perché ormai giochi solo contro il {{t:big-blind}}; dopo il flop parli per primo, quindi {{t:open|apri}} più o meno largo come dal bottone, circa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} delle mani, e questa mano è tra queste."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}} fino a te. {{t:raise|Rilanci}}, perché ormai giochi solo contro il {{t:big-blind}}; dopo il flop parli per primo, quindi {{t:open|apri}} più o meno largo come dal Button, circa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} delle mani, e questa mano è tra queste."
       - action: fold
         explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}} fino a te. Il {{t:fold}} è troppo prudente: il solver di solito {{t:raise|rilancia}} questa mano. Ormai giochi solo contro il {{t:big-blind}}, quindi dallo {{t:small-blind}} {{t:open|apri}} largo, circa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} delle mani."
   - street: preflop
@@ -27,7 +27,7 @@ decisions:
     sb: true
     actions:
       - action: raise
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. {{t:raise|Rilanci}} a {{n:pf.open-size-sb}}, perché dallo {{t:small-blind}} giochi {{t:out-of-position}}, quindi rilanci un po' di più di {{n:pf.open-size}} dalle altre {{t:position|posizioni}}; una sola misura per tutte le mani non rivela la forza della tua mano."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. {{t:raise|Rilanci}} a {{n:pf.open-size-sb}}, perché dallo {{t:small-blind}} giochi {{t:out-of-position}}, quindi {{t:raise|rilanci}} un po' di più di {{n:pf.open-size}} dalle altre {{t:position|posizioni}}; una sola misura per tutte le mani non rivela la forza della tua mano."
       - action: raise-small
         explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. Questa misura è un'imprecisione: dallo {{t:small-blind}} giochi {{t:out-of-position}}, quindi {{t:raise|rilanci}} un po' di più, a {{n:pf.open-size-sb}}."
       - action: raise-big

@@ -2,7 +2,7 @@
 # na solverze push/fold projektu (pushfold.json, walidacja przy 10 bb, dokument 10), reguła R-M11-002 (gto). Jeden poziom (D-1034).
 id: sc-32
 module: m11
-situation: "{{t:tournament|토너먼트}}: 당신은 {{n:m11.depth.10}}로 {{t:small-blind|스몰 블라인드}}에 있고, 모두 당신까지 {{t:fold|폴드}}했습니다."
+situation: "{{t:tournament|토너먼트}}: 당신은 {{n:m11.depth.10}}로 {{t:small-blind|스몰 블라인드}}에 있고, 당신 차례까지 모두 {{t:fold|폴드}}했습니다."
 table: 6max
 positions: { hero: SB, villain: BB }
 stackBb: 10
