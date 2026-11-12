@@ -1313,3 +1313,13 @@ Polecenie: `docs/koordynacja/polecenia/AZ.md` @ ec11f18; start `sesja-az-pozycja
 - Z2: `e2e/05-ocena-poziomu.yaml` (scroll do „Nie wiem”, powrót do `option-0`, zrzut `05-pytanie-ze-stolem`), strażnik w `e2e-flowy.test.mjs`; pozostałe flowy używają `option-0` bez „Nie wiem” — bez zmian.
 - Z3 (do roli 04): brakuje ok. 118 / 133 / 137 pt na 402×874 / 390×844 / 393×852 (oszacowanie, założenia w D-496).
 - Nie zrobiono: zrzut „po” (brak symulatora; zrobi go E2E dzięki nowemu `takeScreenshot`).
+
+## Sesja FP (08-programista, tryb fix) — stan 2026-11-12
+Gałąź `sesja-fp-poprawki` od 5ec4f912. Baza: CI na 5ec4f912 kod 0 (E2E koordynatora 43253310595 success).
+- Zadanie 1 (recenzja FO): 001, 002, 003, 005, 006 naprawione (e157b28, 63e8591, 8f7f7b4, 8380bee), mutanty M06/M07/M10/M11/M12 giną, CI kod 0 (`dowody/fp-ci-8380bee-partia1.txt`). 004 tylko odnotowane (historia, bez zmian).
+- Zadanie 2 (FM-01, FM-02, FM-08, D-1430/1431, kryteria §1): NIE ZACZĘTE.
+- Zadanie 3 (widok river-value, KO-091, klucz `scenario.action.bet`): NIE ZACZĘTE.
+- Zadanie 4 (06-tresci-008, 08-FN-1): NIE ZACZĘTE.
+- Dodatkowe od koordynatora: 08-FQ-1 (flop-size 20 000 odrzuceń na ziarnie 1108, także fixture `sc-fx-flop-size`): NIE ZACZĘTE; najpierw odtworzyć na fiksturze, test czerwony.
+- Zadanie 5 (końcowe CI + dowód `fp-ci-<sha>.txt`): po 2–4.
+- Wyjątki: 001 i 003 w jednym commicie (wspólny plik wyroczni); 002 i 003 poprawka to sam test.

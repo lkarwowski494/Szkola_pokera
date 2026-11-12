@@ -6,12 +6,12 @@ Recenzja niezależna zmian sesji FL `56a7ac70..be1e44ae` (silnik 08-FD-2/3/4). C
 
 | ID | Poziom | Rodzaj | Tytuł | Status |
 |---|---|---|---|---|
-| 08-programista-001 | ŚR (P2) | D | flop-size: warunek D-1421 (N/45) i warunki czystych outów bez testu, który potrafi paść; wyrocznia pokrycia liczy tylko N/47 | otwarte |
-| 08-programista-002 | ŚR (P2) | D | river-value: filtr `dryBoard` bez testu, który potrafi paść (pasujące ręce w kolorze maskują warunek) | otwarte |
-| 08-programista-003 | NIS (P2) | D | Wyrocznie pokrycia biorą δ tylko z `marginMin`, generator najpierw z `margins[i].min` | otwarte |
+| 08-programista-001 | ŚR (P2) | D | flop-size: warunek D-1421 (N/45) i warunki czystych outów bez testu, który potrafi paść; wyrocznia pokrycia liczy tylko N/47 | naprawione (8380bee) |
+| 08-programista-002 | ŚR (P2) | D | river-value: filtr `dryBoard` bez testu, który potrafi paść (pasujące ręce w kolorze maskują warunek) | naprawione (8f7f7b4) |
+| 08-programista-003 | NIS (P2) | D | Wyrocznie pokrycia biorą δ tylko z `marginMin`, generator najpierw z `margins[i].min` | naprawione (8380bee) |
 | 08-programista-004 | NIS (P2) | D | Commit 05653964 zostawił czerwony test przypięcia `RODZAJE_NA_EKRANIE` do 0895fa03 | otwarte |
-| 08-programista-005 | NIS (P2) | D | Komunikat błędu widoku flop-size mówi „turn-bet” | otwarte |
-| 08-programista-006 | NIS (P2) | D | river-value: δ ≥ 0,5 daje w generatorze zwykły `Error` zamiast `TemplateError`, bramka tego nie sprawdza | otwarte |
+| 08-programista-005 | NIS (P2) | D | Komunikat błędu widoku flop-size mówi „turn-bet” | naprawione (e157b28) |
+| 08-programista-006 | NIS (P2) | D | river-value: δ ≥ 0,5 daje w generatorze zwykły `Error` zamiast `TemplateError`, bramka tego nie sprawdza | naprawione (63e8591) |
 
 ## Linia bazowa i założenia
 Linię bazową zbudowałem z kodu i specyfikacji (`docs/tresci/stan-fd.md:22-35`, `fd-wektory.txt`, recenzja FK 06-tresci-009), zanim przeczytałem uzasadnienia w `docs/decyzje/FL.md`. Najlepszy w klasie silnik scenariuszy: każda reguła z wektorem ma test z tym wektorem; każdy warunek odrzucenia wariantu ma test, który pada po jego usunięciu; wyrocznia pokrycia treści liczy niezależnie te same warunki, które egzekwuje generator; nowy rodzaj bez widoku nie może wejść do bazy (bramka).
@@ -91,7 +91,7 @@ Decyzje FL (D-1415…D-1421), ocena recenzenta:
 - Kroki w aplikacji: dziś brak (żaden szablon flop-size w treści). Po wejściu SC-13 z innymi ułamkami albo drawem do strita regresja tych warunków przeszłaby CI, a ekran uczyłby rozmiaru z liczbą po złej stronie ceny.
 - Opcje: (a) dodać do `fl-flop-size.test.ts` przypadek sondy (½ i ⅛, δ 0,055 → brak wariantu) i wektor z remisem albo z zablokowanym outem przy tej samej liczności, a w wyroczni pokrycia liczyć duży zakład wobec N/45 i porównywać zbiór kart z outami — pełna ochrona, ok. 30 linii testów; (b) tylko przypadek sondy — zabija M12, M10 i M11 zostają. Rekomendacja: (a).
 - Test akceptacyjny: mutanty M10, M11, M12 ze skryptu `dowody/fo-mutanty-skrypt.txt` giną.
-- Status: otwarte
+- Status: naprawione (8380bee); FP: mutanty giną (`docs/programista/dowody/fp-mutanty-M06-M12.txt`), CI kod 0 (`docs/programista/dowody/fp-ci-8380bee-partia1.txt`)
 
 ### 08-programista-002 · river-value: filtr `dryBoard` można usunąć bez czerwonego testu
 - Pozycja listy kontrolnej: DEV-01
@@ -105,7 +105,7 @@ Decyzje FL (D-1415…D-1421), ocena recenzenta:
 - Kroki w aplikacji: dziś brak (SC-28 nie ma szablonu w treści). Szablon SC-28 z pasującymi rękami spoza koloru po regresji dostałby mokre stoły, a „sucho, betuj overparą” uczyłoby na stole, którego lekcja nie dotyczy.
 - Opcje: (a) test z pasującymi rękami bez koloru (jak sonda) plus przypadek `dryBoard` bez `pairKind` dla strita; wyrocznia pokrycia sprawdza oba filtry — pełna ochrona; (b) tylko test koloru, a w D-1418 zapisać, że warunek strita jest nadmiarowy przy `pairKind` — mniej kodu testów, warunek strita bez testu. Rekomendacja: (a).
 - Test akceptacyjny: M06 i M07 giną (M07 w teście bez `pairKind`).
-- Status: otwarte
+- Status: naprawione (8f7f7b4); FP: mutanty giną (`docs/programista/dowody/fp-mutanty-M06-M12.txt`), CI kod 0 (`docs/programista/dowody/fp-ci-8380bee-partia1.txt`)
 
 ### 08-programista-003 · Wyrocznie pokrycia biorą δ tylko z `marginMin`
 - Pozycja listy kontrolnej: DEV-07
@@ -119,7 +119,7 @@ Decyzje FL (D-1415…D-1421), ocena recenzenta:
 - Kroki w aplikacji: brak (test).
 - Opcje: (a) δ jak w generatorze: `margins?.[idx]?.min ?? marginMin`, brak to błąd testu; (b) zostawić, dopóki treść nie używa `margins`. Rekomendacja: (a), przy okazji 001.
 - Test akceptacyjny: wyrocznia na fixture z `margins: [{ min: 0.05 }]` i bez `marginMin` sprawdza δ = 0,05.
-- Status: otwarte
+- Status: naprawione (8380bee); FP: mutanty giną (`docs/programista/dowody/fp-mutanty-M06-M12.txt`), CI kod 0 (`docs/programista/dowody/fp-ci-8380bee-partia1.txt`)
 
 ### 08-programista-004 · Commit 05653964 zostawił czerwony test przypięcia do następnego commitu
 - Pozycja listy kontrolnej: DEV-04
@@ -147,7 +147,7 @@ Decyzje FL (D-1415…D-1421), ocena recenzenta:
 - Kroki w aplikacji: brak (błąd programisty, nie użytkownika).
 - Opcje: (a) `${d.point}: akcja …`; (b) zostawić. Rekomendacja: (a).
 - Test akceptacyjny: test „FH NIS-004” w `fl-flop-size-ekran.test.tsx` oczekuje komunikatu z „flop-size”.
-- Status: otwarte
+- Status: naprawione (e157b28); FP: mutanty giną (`docs/programista/dowody/fp-mutanty-M06-M12.txt`), CI kod 0 (`docs/programista/dowody/fp-ci-8380bee-partia1.txt`)
 
 ### 08-programista-006 · river-value: δ ≥ 0,5 to zwykły `Error`, nie błąd szablonu
 - Pozycja listy kontrolnej: DEV-10
@@ -161,7 +161,7 @@ Decyzje FL (D-1415…D-1421), ocena recenzenta:
 - Kroki w aplikacji: brak.
 - Opcje: (a) w generatorze `TemplateError` dla δ ≥ 0,5 i błąd bramki z miejscem; (b) zostawić. Rekomendacja: (a).
 - Test akceptacyjny: bramka zwraca błąd dla `marginMin: 0.5` w river-value.
-- Status: otwarte
+- Status: naprawione (63e8591); FP: mutanty giną (`docs/programista/dowody/fp-mutanty-M06-M12.txt`), CI kod 0 (`docs/programista/dowody/fp-ci-8380bee-partia1.txt`)
 
 ## Do sprawdzenia (pewność ≤ 80%)
 - Enum `pairKind` w `packages/content-schema/src/index.ts` i typ `PairKind` w `packages/poker-core/src/holding.ts:15` są dziś równe, ale przejście przez `as GeneratorTemplate` (`tools/content-build/src/scenariusze.ts:389`) nie wykryje rozjazdu. Brakuje: decyzji, czy content-schema może importować typ z poker-core albo czy wystarczy test przypięcia.
