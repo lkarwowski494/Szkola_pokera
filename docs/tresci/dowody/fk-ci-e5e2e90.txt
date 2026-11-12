@@ -1,0 +1,42 @@
+$ pnpm run ci  (HEAD e5e2e90, gałąź sesja-fk-recenzja; zmiany tylko w docs/)
+Thu Nov 12 14:55:15 UTC 2026
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  67 passed (67)
+tools/content-build test:       Tests  698 passed | 1 expected fail (699)
+# Subtest: przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+ok 3 - przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+# Subtest: 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+ok 7 - 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+# Subtest: ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+ok 10 - ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+# Subtest: czekaj: przejściowy błąd API w trakcie czekania nie kończy bramki (przegląd D-043 pkt 1); 3 błędy z rzędu → 1 z komunikatem o API
+ok 16 - czekaj: przejściowy błąd API w trakcie czekania nie kończy bramki (przegląd D-043 pkt 1); 3 błędy z rzędu → 1 z komunikatem o API
+# Subtest: liczby: separatory języka nie dają fałszywych różnic, zmiana wartości jest błędem tylko w treści z twierdzeniem
+ok 92 - liczby: separatory języka nie dają fałszywych różnic, zmiana wartości jest błędem tylko w treści z twierdzeniem
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 112 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: metadane: pozostała wstawka [DO USTALENIA], limit podtytułu, adres bez https i brak mapowania są błędami; brak marketingUrl nie jest błędem
+ok 113 - metadane: pozostała wstawka [DO USTALENIA], limit podtytułu, adres bez https i brak mapowania są błędami; brak marketingUrl nie jest błędem
+# Subtest: metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+ok 117 - metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 132 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: 07-scenariusz.yaml: szablon z flowu istnieje, flow kończy pierwszą lekcję jego modułu, a pas jest na łatwym błędem
+ok 146 - 07-scenariusz.yaml: szablon z flowu istnieje, flow kończy pierwszą lekcję jego modułu, a pas jest na łatwym błędem
+# Subtest: braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+ok 156 - braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 160 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 167 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+# Subtest: każdy workflow parsuje się bez błędów
+ok 178 - każdy workflow parsuje się bez błędów
+# Subtest: store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+ok 197 - store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:204 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:207 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+błędy: 0, uwagi: 561; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 861
+0 błędów, 1 uwag
+kod wyjścia: 0
