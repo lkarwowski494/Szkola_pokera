@@ -453,7 +453,7 @@ export const GENERATOR_WERSJA = 5; // 5: backdoor w obronie BB tylko z overkart�
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */
 const FLOP_REDEALS = 2000;
-export const MAX_CONSECUTIVE_REJECTIONS = 20_000; // BR-GEN-003 mówi 1000; D-665: 5000 przy ok. 0,5% rozdań (sc-19); D-1310: czyste outy turn-bet (D-1286) dają ok. 0,09% prób, 5000 kończyło się błędem szablonu dla 1,3% ziaren; ten sam prefiks losowań, więc istniejące warianty bez zmian
+export const MAX_CONSECUTIVE_REJECTIONS = 60_000; // BR-GEN-003 mówi 1000; D-665: 5000 przy ok. 0,5% rozdań (sc-19); D-1310: czyste outy turn-bet (D-1286) dają ok. 0,09% prób, 5000 kończyło się błędem szablonu dla 1,3% ziaren; ten sam prefiks losowań, więc istniejące warianty bez zmian; 08-FQ-1 (FR): flop-size ok. 0,024% prób, 20 000 kończyło się błędem dla ok. 0,8% ziaren (1108), 60 000 ≈ 5e-7; prefiks bez zmian
 
 /** Blindy wpłacone przez miejsce przy stole w bb (SB 0,5, BB 1; reszta 0). */
 export function blindBb(position: string): number {
