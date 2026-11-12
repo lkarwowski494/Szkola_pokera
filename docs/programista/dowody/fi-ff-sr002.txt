@@ -1,0 +1,4 @@
+FF ŚR-002 (D-1371). Test: fc-fa001-czyste-outy-wektory.test.ts "W = N, ale inny zbiór: Kh8h vs Jc5d na 6h Td 4h 7c".
+Wektor znaleziony przeszukaniem ziaren (OESD, W = N = 8, T = 0, W != nominalne); sprawdzony niezależną pełną talią + strength.
+Mutant (usunięte `|| ![...wygrywajace].every((c) => nom.has(c))` w scenario-gen.ts:598): 1 failed | 5 passed — AssertionError: expected Set{ 4, 6, 7, 24, 26, 27, 36, 38 } to be null.
+Kod: 6 passed.

@@ -43,4 +43,15 @@ describe('FC FA-001: czysteOuty — wektory', () => {
     expect([r.w, r.t, r.n, r.kind]).toEqual([8, 0, 8, 'oesd']);
     expect(r.wynik?.size).toBe(8);
   });
+  // FF ŚR-002 (D-1371): mutant „tylko liczność” (bez every) przechodził wszystkie wektory: żaden nie miał W = N przy innym zbiorze.
+  it('W = N, ale inny zbiór: Kh8h vs Jc5d na 6h Td 4h 7c: W = 8 = N, T = 0; martwe 3h i 8h (kolor gracza), dochodzą Js i Jd (para waletów) → odrzucone', () => {
+    const r = wt('Kh 8h', 'Jc 5d', '6h Td 4h 7c');
+    expect([r.w, r.t, r.n, r.kind]).toEqual([8, 0, 8, 'oesd']);
+    const znane = new Set<Card>([...parseCards('Kh 8h'), ...parseCards('Jc 5d'), ...parseCards('6h Td 4h 7c')]);
+    const nom = new Set<Card>(analyseOutsSpot(parseCards('Jc 5d'), parseCards('6h Td 4h 7c'))?.draw.all ?? []);
+    const zwyciezcy = new Set<Card>(FULL_DECK.filter((c) => !znane.has(c) && strength([...parseCards('Jc 5d'), ...parseCards('6h Td 4h 7c'), c]) < strength([...parseCards('Kh 8h'), ...parseCards('6h Td 4h 7c'), c])));
+    expect(zwyciezcy.size).toBe(nom.size);
+    expect([...zwyciezcy].sort()).not.toEqual([...nom].sort()); // ta sama liczność, różne zbiory
+    expect(r.wynik).toBeNull();
+  });
 });
