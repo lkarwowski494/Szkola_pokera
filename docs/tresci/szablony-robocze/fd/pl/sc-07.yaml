@@ -1,0 +1,25 @@
+# SC-07 (M4): BB broni wobec Buttona, flop: mały c-bet (punkt defend, 08-N2, D-1144). Ręka z zakresu obrony spotu vs-open.bb-vs-btn
+# (R-M4-004, solver preflop). Ocena: defendVsCbet, gałąź „mały” (R-M6-006; D-1167, D-1210, D-1258). Łatwy: kontynuacja (call),
+# średni: najsłabsze ręce bez pary, drawa, backdoora i asa (fold). Szkic sesji FD (D-1353): defend poza ekranem.
+id: sc-07
+module: m4
+situation: "Jesteś na {{t:big-blind|dużym blindzie}}. Button {{t:open|otworzył}}, {{t:small-blind}} {{t:fold|spasował}}, a ty {{t:call|sprawdziłeś}}. Na flopie {{t:check|czekasz}}, a Button {{t:bet|stawia}} mały {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [5, 6]
+    fractions: [0.33]
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:call|Sprawdzasz}}, bo wobec {{t:bet|zakładu}} ok. {{n:cbet.size.small}} {{t:pot|puli}} potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a ta ręka albo już wygrywa z {{t:bluff|blefami}}, albo może się poprawić. Kontynuujesz prawie każdą {{t:pair|parą}}, {{t:draw|drawem}}, dodatkowym {{t:draw|drawem}} ({{t:backdoor}}) z kartą wyższą od kart {{t:board|stołu}} i zwykle także asem jako najwyższą kartą."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:fold|Pasujesz}}, bo to jedna z najsłabszych rąk: bez {{t:pair|pary}}, bez {{t:draw|drawa}}, nawet dodatkowego ({{t:backdoor}}), i bez asa. Wobec małego {{t:c-bet|c-betu}} bronisz szeroko, ale takie ręce ani nie wygrywają z {{t:bluff|blefami}}, ani nie mają się z czego poprawić."

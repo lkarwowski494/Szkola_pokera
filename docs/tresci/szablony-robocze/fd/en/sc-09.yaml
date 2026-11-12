@@ -1,0 +1,23 @@
+# sc-09: English text of pl/sc-09.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+id: sc-09
+module: m4
+situation: "The player before you only called the {{t:big-blind}} (a {{t:limp}}), and everyone else {{t:fold|folded}}. You have a hand you {{t:raise}} with (an {{t:isolation}} raise). What raise size do you choose?"
+table: 6max
+positions: { hero: CO, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: iso-size
+    rule: R-M4-012
+    limpers: 1
+    actions:
+      - action: raise
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, with one {{t:limp|limper}} before you. You {{t:raise}} to {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} per limper, because a smaller raise gives the limper too good a price and doesn't take the hand away from them."
+      - action: raise-small
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, with one {{t:limp|limper}} before you. This raise is too small: it gives the limper too good a price and doesn't take the hand away from them. The standard is {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} per limper."
+      - action: raise-big
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, with one {{t:limp|limper}} before you. This size departs from the standard: you {{t:raise}} to {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} per limper, {{n:pf.iso.oop-extra}} more {{t:out-of-position}}."

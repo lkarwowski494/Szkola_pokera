@@ -1,0 +1,24 @@
+# sc-10: English text of pl/sc-10.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+id: sc-10
+module: m4
+situation: "You {{t:open|opened}} from the {{t:cutoff|CO}}, the Button made a {{t:3-bet}}, and the blinds {{t:fold|folded}}. What do you do?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and the Button made a {{t:3-bet}}. You {{t:4-bet}} for {{t:value}}, because this hand wants to get the whole stack in and dominates most hands that {{t:call}} a {{t:4-bet}}."
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and the Button made a {{t:3-bet}}. With AA, KK and AK you usually {{t:4-bet}} for {{t:value}}, because these hands want to get the whole stack in and dominate most hands that {{t:call}} a {{t:4-bet}}; AK is sometimes {{t:call|called}} too."
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and the Button made a {{t:3-bet}}. A {{t:fold}} gives up one of your strongest hands: with AA, KK and AK you usually {{t:4-bet}} for {{t:value}}, because these hands want to get the whole stack in and dominate most hands that {{t:call}} a {{t:4-bet}}."

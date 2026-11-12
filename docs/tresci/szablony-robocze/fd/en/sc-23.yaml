@@ -1,0 +1,22 @@
+# sc-23: English text of content/pl/scenarios/sc-23.yaml (role 06, session FD, 2026-11-12; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-23
+module: m8
+situation: "You're on the Button, and on the river the {{t:big-blind}} {{t:check|checks}}. You're considering a {{t:bluff}} with one of two hands that won't beat any of your opponent's hands at {{t:showdown}}. Assume your opponent {{t:call|calls}} with AA, KK, QQ, JJ, AK and {{t:suited}} AQ, and {{t:fold|folds}} {{t:suited}} KQ, KJ, QJ, QT and JT. Which hand do you pick for the bluff?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [best-hand] }
+decisions:
+  - street: river
+    kind: pick-hand
+    rule: R-M8-007
+    mode: blockers
+    calls: [AA, KK, QQ, JJ, AKs, AKo, AQs]
+    folds: [KQs, KJs, QJs, QTs, JTs]
+    actions:
+      - action: best-hand
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}. This is the better {{t:bluff}}: both hands lose at {{t:showdown}}, but this one holds more cards from the hands your opponent {{t:call|calls}} with, and leaves them no fewer hands that {{t:fold}}. When you hold a card from their strong hands, they have fewer {{t:combo|combos}} of them, so more often they're left with a hand to fold."
+      - action: other-hand
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}. This hand is the weaker {{t:bluff}}: both lose at {{t:showdown}}, but the other hand leaves your opponent fewer hands to {{t:call}} with and no fewer hands to {{t:fold}}. For a {{t:bluff}}, you pick a hand with a {{t:blocker}} to their strong hands that doesn't block the hands that fold."

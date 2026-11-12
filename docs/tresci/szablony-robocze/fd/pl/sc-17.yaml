@@ -1,0 +1,24 @@
+# SC-17 (M6): duży c-bet, dwie wysokie karty bez pary, drawa i backdoora: pas (punkt defend, gałąź „duży” ≥ 0,75 puli, D-1166).
+# Ocena: defendVsCbet (R-M6-007; źródło pokercoaching When to Call With Ace-High, D-1211). Inne ręce wobec dużego zakładu: null
+# (źródło nie rozstrzyga), więc jedyna oczekiwana akcja to fold. Szkic sesji FD (D-1353): defend poza ekranem.
+id: sc-17
+module: m6
+situation: "Jesteś na {{t:big-blind|dużym blindzie}} i {{t:call|sprawdziłeś}} {{t:open|otwarcie}} Buttona. Na flopie {{t:check|czekasz}}, a Button {{t:bet|stawia}} duży {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-007
+    spot: vs-open.bb-vs-btn
+    pots: [5, 6]
+    fractions: [0.75, 1]
+    actions:
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} duży {{t:c-bet}}. {{t:fold|Pasujesz}}, bo masz dwie wysokie karty bez {{t:pair|pary}} i bez {{t:draw|drawa}}: {{t:out-of-position}} taka ręka rzadko dochodzi do {{t:showdown|showdownu}}, a {{t:pair}} z wysokiej karty często i tak przegrywa. Wobec {{t:bet|zakładu}} ok. {{n:cbet.size.big}} {{t:pot|puli}} potrzebujesz już ok. {{n:eq.bet-three-quarters}} equity."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} duży {{t:c-bet}}. {{t:call|Sprawdzenie}} płaci dużo za rękę, która {{t:out-of-position}} rzadko dochodzi do {{t:showdown|showdownu}}: dwie wysokie karty bez {{t:pair|pary}} i bez {{t:draw|drawa}}, a {{t:pair}} z wysokiej karty często i tak przegrywa. Wobec dużego {{t:c-bet|c-betu}} {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}."

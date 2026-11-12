@@ -1,0 +1,32 @@
+# SC-14 (M5): c-bet bez pozycji. HJ otwiera, Button sprawdza, flop niski bez pary (najwyższa karta 9 albo niższa): czekanie
+# (F2, punkt cbet-case, przypadek R-M5-012 z zadania m5.l4.c-oop, best: check). Źródło: Upswing, C-betting Out Of Position
+# (szczebel 4, odczyt 2026-11-12, `docs/tresci/odczyty/ev-2026-11-12.tsv`): „The solver checks nine-high and below unpaired flops”.
+# W 1.0 tylko flopy niskie bez pary (KO-085 P2a, D-1287); zakład oceniany jako dopuszczalny (uproszczenie nazwane w D-1287).
+# Łatwy: ręka bez pary i drawa; średni: para albo draw (czekasz także dobrymi rękami). Rola 06, sesja FD, 2026-11-12 (D-1350).
+id: sc-14
+module: m5
+situation: "{{t:open|Otworzyłeś}} z {{t:hijack|HJ}}, Button {{t:call|sprawdził}}, reszta {{t:fold|spasowała}}. Na niskim flopie bez {{t:pair|pary}} mówisz pierwszy."
+table: 6max
+positions: { hero: HJ, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], ranks: [connected, semi-connected, disconnected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], ranks: [connected, semi-connected, disconnected] }
+    holding: [pair, draw]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-012
+    actions:
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a Button ma {{t:position|pozycję}}. {{t:check|Czekasz}}, bo na niskim flopie bez {{t:pair|pary}} solver w tym układzie {{t:check|czeka}} całym {{t:range|zakresem}}, także z dobrymi rękami. {{t:range|Zakres}} Buttona, który {{t:call|sprawdził}} z {{t:position|pozycji}}, jest {{t:condensed|skondensowany}}: słabe ręce {{t:fold|pasował}}, a część najsilniejszych {{t:raise|przebijał}}, więc zostały mu głównie ręce średnie i dobre."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a Button ma {{t:position|pozycję}}. Mały {{t:bet}} to tu za częsty c-bet: na niskim flopie bez {{t:pair|pary}} solver w tym układzie nie c-betuje, tylko {{t:check|czeka}} całym {{t:range|zakresem}}, także z dobrymi rękami. {{t:out-of-position|Bez pozycji}} mówisz pierwszy na każdej {{t:street|ulicy}}, a Button po {{t:call|sprawdzeniu}} z {{t:position|pozycji}} ma głównie ręce średnie i dobre."
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a Button ma {{t:position|pozycję}}. Duży {{t:bet}} to tu za częsty i drogi c-bet: na niskim flopie bez {{t:pair|pary}} solver w tym układzie nie c-betuje, tylko {{t:check|czeka}} całym {{t:range|zakresem}}, także z dobrymi rękami. {{t:out-of-position|Bez pozycji}} mówisz pierwszy na każdej {{t:street|ulicy}}, a Button po {{t:call|sprawdzeniu}} z {{t:position|pozycji}} ma głównie ręce średnie i dobre."

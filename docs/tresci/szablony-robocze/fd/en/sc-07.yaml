@@ -1,0 +1,23 @@
+# sc-07: English text of pl/sc-07.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+id: sc-07
+module: m4
+situation: "You're in the {{t:big-blind}}. The Button {{t:open|opened}}, the {{t:small-blind}} {{t:fold|folded}}, and you {{t:call|called}}. On the flop you {{t:check}}, and the Button makes a small {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [5, 6]
+    fractions: [0.33]
+    actions:
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. You {{t:call}}, because against a bet of about {{n:cbet.size.small}} of the {{t:pot}} you only need about {{n:eq.bet-third}} equity, and this hand either already beats {{t:bluff|bluffs}} or can improve. You continue with almost every {{t:pair}}, {{t:draw}}, {{t:backdoor}} draw with a card higher than every {{t:board}} card, and usually with ace high."
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. You {{t:fold}}, because this is one of your weakest hands: no {{t:pair}}, no {{t:draw}}, not even a {{t:backdoor}} one, and no ace. Against a small {{t:c-bet}} you defend wide, but hands like this neither beat {{t:bluff|bluffs}} nor have anything to improve to."

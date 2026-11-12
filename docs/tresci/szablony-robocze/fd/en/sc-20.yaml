@@ -1,0 +1,22 @@
+# sc-20: English text of pl/sc-20.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+id: sc-20
+module: m7
+situation: "On the turn you have a strong hand: {{t:top-pair}} with a good {{t:kicker}} or better. There are two cards of one suit on the {{t:board}}, so your opponent may have a {{t:flush-draw}}. What bet size do you choose?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big: against a bet of {{n:cbet.size.big}} of the {{t:pot}} the {{t:draw}} needs {{n:eq.bet-three-quarters}} equity and has about {{n:odds.flush.turn-river}}, so it doesn't get a good price."
+      - action: "bet-small"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. A small bet gives the {{t:draw}} a good price: against a quarter-{{t:pot}} bet it would only need {{n:eq.bet-quarter}} equity, and it has about {{n:odds.flush.turn-river}}. With a strong hand against a {{t:draw}}, you {{t:bet}} big."

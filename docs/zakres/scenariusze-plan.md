@@ -1,5 +1,5 @@
 # Scenariusze 1.0: rozkład szablonów, kolejność budowy, analogia z Treningu, skutki poza aplikacją
-Stan: 2026-11-10 · Rola 03 build, sesja BD (zadania 4–6) · Decyzje właściciela: KO-035…KO-041 (gałąź `koordynacja`, `docs/koordynacja/decyzje.md:43-49`) · Decyzje agenta: D-530…D-536 (`docs/decyzje.md`, do weta) · Wymagania: `docs/brd/wymagania-scenariusze.md`
+Stan: 2026-11-10 · Rola 03 build, sesja BD (zadania 4–6); wiersze SC-13, 14, 20, 28 zmienione 2026-11-12 według KO-085 (sesja FD, D-1355) · Decyzje właściciela: KO-035…KO-041 (gałąź `koordynacja`, `docs/koordynacja/decyzje.md:43-49`) · Decyzje agenta: D-530…D-536 (`docs/decyzje.md`, do weta) · Wymagania: `docs/brd/wymagania-scenariusze.md`
 
 ## 1. Co już umie silnik (odczyt kodu @ 00b0566)
 | Element | Gdzie | Co losuje / liczy | Dla scenariuszy |
@@ -33,14 +33,14 @@ Kryterium doboru: każdy moduł M2–M11 ma 3–4 sytuacje „od prostej do trud
 | SC-10 | M4 | otwarcie wobec 3-betu: pas, sprawdzenie albo 4-bet | R-M4-007, R-M4-010 | Ł Ś T | częściowo | spot „vs 3-bet” wycofany z solvera (`spots.yaml:3`) → reguła heuristic |
 | SC-11 | M5 | c-bet na suchym wysokim flopie z pozycją | R-M5-007, R-M5-003 | Ł Ś T | umie | — |
 | SC-12 | M5 | niski połączony flop: czekanie | R-M5-004 | Ł Ś T | umie | — |
-| SC-13 | M5 | mokry flop: rzadziej, większy rozmiar | R-M5-008, R-M5-011 | Ł Ś T | umie | — |
-| SC-14 | M5 | c-bet bez pozycji | R-M5-012, R-M5-013 | Ł Ś | częściowo | sprawdzenie R-M5-012 |
+| SC-13 | M5 | mokry flop, silna ręka wobec drawa do koloru: rozmiar ¼ czy ⅔ puli (KO-085 P1a, D-1306, D-1355) | R-M5-008, rachunek ceny jednej karty | Ł Ś | brakuje | 08-FD-3 (= 08-EX-4, rozmiar na flopie) |
+| SC-14 | M5 | c-bet bez pozycji: HJ wobec BTN, w 1.0 tylko flopy niesparowane ≤ 9 → czekanie (KO-085 P2a, D-1287, D-1350) | R-M5-012 | Ł Ś | umie | gotowy szkic `docs/tresci/szablony-robocze/fd/`; wejście po 08-FD-5 i 09 (D-1358) |
 | SC-15 | M6 | obrona wobec małego c-betu (nie pasuj za łatwo) | R-M6-003, R-M6-001 | Ł Ś T | częściowo | warunek R-M6-003 |
 | SC-16 | M6 | check-raise z mocnym drawem | R-M6-008, R-M6-010 | Ś T | brakuje | warunek R-M6-008, rozmiar R-M6-010 |
 | SC-17 | M6 | suchy flop z asem, słaba ręka: pas | R-M6-007 | Ł Ś | częściowo | warunek R-M6-007 |
 | SC-18 | M7 | second barrel na karcie dobrej dla otwierającego | R-M7-001, R-M7-005 | Ś T | brakuje | klasyfikacja karty turnu |
 | SC-19 | M7 | draw na turnie: cena wobec implied odds | R-M7-008, R-M7-009 | Ł Ś T | umie | — (`implied-odds`) |
-| SC-20 | M7 | semi-blef drawem na turnie | R-M7-006, R-M7-002 | Ś T | częściowo | warunek R-M7-002 |
+| SC-20 | M7 | silna ręka na turnie wobec drawa do koloru: zakład ¼ czy ¾ puli (KO-085 P4a, zastępuje semi-blef, D-1289, D-1355) | R-M7-006 | Ł | umie | widok turn-bet (04/08); szkic `docs/tresci/szablony-robocze/fd/` |
 | SC-21 | M7 | średnia ręka na turnie: czekanie | R-M7-003, R-M7-012 | Ł Ś | brakuje | warunek R-M7-003 |
 | SC-22 | M8 | river: cienki value bet | R-M8-001, R-M8-003 | Ś T | brakuje | rachunek „ręce, które zapłacą” na zakresie rywala |
 | SC-23 | M8 | river: blef nietrafionym drawem z blokerem | R-M8-006, R-M8-007 | Ś T | brakuje | warunek blokera |
@@ -48,7 +48,7 @@ Kryterium doboru: każdy moduł M2–M11 ma 3–4 sytuacje „od prostej do trud
 | SC-25 | M8 | river: czekanie do showdownu ręką średnią | R-M8-002 | Ł Ś | brakuje | warunek R-M8-002 |
 | SC-26 | M9 | niski SPR: top para gra o cały stack | R-M9-001, R-M9-003, R-M9-010 | Ł Ś T | brakuje | rachunek SPR jest (F-09), warunek strefy |
 | SC-27 | M9 | 3-bet pot: rozmiar geometryczny | R-M9-006, R-M9-009 | Ś T | brakuje | rachunek jest (R-M9-006 math), linia 3 ulic |
-| SC-28 | M9 | ile ulic wartości z overparą | R-M9-008 | Ł Ś | brakuje | warunek R-M9-008 (uproszczenie nazwane) |
+| SC-28 | M9 | trzecia ulica wartości overparą: bet czy czekanie na riverze, zakres sprawdzenia jako dana (KO-085 P3a, D-1302, D-1355) | R-M8-001, R-M9-008 | Ł Ś | brakuje | 08-FD-4 (= 08-EX-1/2, `river-value`) |
 | SC-29 | M10 | rywal pasywny: więcej value, mniej blefów | R-M10-006, R-M10-004 | Ł Ś | brakuje | `typRywala` z populacją (exploit) |
 | SC-30 | M10 | nit 3-betuje: pas ręką z dołu zakresu | R-M10-007 | Ł Ś | brakuje | jw. |
 | SC-31 | M10 | rywal agresywny: pozwól mu betować | R-M10-008 | Ś T | brakuje | jw. |
