@@ -1,0 +1,13 @@
+# Sesja ET: recenzja niezależna ER (poprawki EP, 08-EH-3, 08-EL-1/3/4, scalenie EQ+EN) — Szkoła Pokera
+Koordynator: session_01T66VBzw3L1xwG6oRg6TFQA (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie audit. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-et-recenzja` od `sesja-er-fix` @ f0434ab2 (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md. Raportu autora (`docs/decyzje/ER.md`, stan ER) nie czytasz przed własną oceną kodu.
+3. Zadania:
+   1. Recenzja kodu **24f32fb5..f0434ab2**: EP-001 (pick-hand kluczowany best-hand/other-hand), EP-004 (i18n/VoiceOver kart), EP-005/006 (wektory, mutant M07), EP-007; 08-EH-3 (backdoor koloru/strita → call tylko z overkartą; wektory `docs/tresci/dowody/eq-ek-wektory.txt`, D-1258); 08-EL-1 (top pair tylko z kickerem ≥ Q, D-1256); 08-EL-3 (krok `tresci:el-kontrola` w ci — czy realnie łapie braki); 08-EL-4 (equityMarginMin 0,02 w łatwych SC-06/32/33, GENERATOR_WERSJA 5, odciski); poprawność scalenia `sesja-eq-tresci` @ 1bef600b i `sesja-en-przeklad-fix` @ b429eb33 (pliki generowane odbudowane, nic nie zgubione). Rachunek pokerowy (szczebel 1 ADR-24) sprawdź niezależnie. „Gotowe”: werdykt PRZYJĘTE / PRZYJĘTE Z ZASTRZEŻENIAMI / PO POPRAWKACH, znaleziska z wagą wg progu wydania z CLAUDE.md, mutanty dla kluczowych warunków.
+   2. `pnpm run ci` kod 0 na f0434ab2 we własnym kontenerze, wynik (podsumowania) w `docs/programista/dowody/et-ci-f0434ab2.txt`.
+   Kodu nie poprawiasz (tylko raport w `docs/programista/recenzja-et.md`, dowody, mutanty poza drzewem źródeł).
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, bez płatnych API, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: najpierw analogia (`lkarwowski494/trening`, potem oczko, piekarz), do weta; merytoryczne pokerowe → ADR-24. Pula **D-1275…D-1279** (`docs/decyzje/ET.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułapu kosztu brak — podaj koszt.
+7. Raporty (≤ 10 linii, send_message): PYTANIE z pełną treścią, opcjami i rekomendacją; PRZEKAZANIE: SHA, ci kod i plik dowodu, werdykt, znaleziska wg wagi, decyzje do weta, koszt.
