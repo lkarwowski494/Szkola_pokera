@@ -1,0 +1,11 @@
+# EV-2 (D-1286): ey-turn-bet-czyste-outy.test.ts + ef-turn-bet.test.ts (EI-002 D-1286); przed = src z d9e28a48, po = z poprawką (2026-11-12)
+## PRZED
+     × ziarna 1–3000: każdy przyjęty wariant ma W = N (nominalne outy), 0 remisów, N/46 > cena małego i N/44 < cena dużego 8851ms
+     × EI-002 (D-1286): pula 40, big 0,4 → zakład 16, cena 0,222, margines od e = 9/44 0,018 < 0,02 → brak wariantów (błąd szablonu) 3ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected function to throw an error, but it didn't
+AssertionError: expected [ 'seed 1: W=8 T=0 N=9', …(2263) ] to deeply equal []
+      Tests  2 failed | 9 passed (11)
+## PO
+ Test Files  3 passed (3)
+      Tests  14 passed (14)

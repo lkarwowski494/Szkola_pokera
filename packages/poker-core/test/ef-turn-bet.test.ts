@@ -50,12 +50,16 @@ describe('08-N6: turn-bet', () => {
   it('EI-002: margines od progu dużego zakładu: pula 40, big 0,36 → zakład 14, cena 0,206, margines 0,010 < 0,02 → brak wariantów (błąd szablonu)', () => {
     expect(() => generateVariant(szablon(0.02, 0.25, 0.36, [40]), 'latwy', 1)).toThrow(TemplateError);
   });
-  it('EI-002: tuż nad marginesem od progu dużego zakładu: pula 40, big 0,4 → zakład 16, cena 0,222, margines 0,027 ≥ 0,02 → warianty są', () => {
+  // D-1286: margines od progu dużego zakładu liczony od e = N/44 (równe outy 9: 0,2045), nie od hit = N/46; dawny wektor big 0,4 (cena 0,222, margines od e 0,018 < 0,02) nie daje już wariantów
+  it('EI-002 (D-1286): tuż nad marginesem od progu dużego zakładu: pula 40, big 0,42 → zakład 17, cena 0,2297, margines od e = 9/44 0,025 ≥ 0,02 → warianty są', () => {
     for (let seed = 1; seed <= 50; seed++) {
-      const p = generateVariant(szablon(0.02, 0.25, 0.4, [40]), 'latwy', seed).points[0];
-      expect(p?.point === 'turn-bet' && p.betBig === 16 && p.hit < p.requiredBig - 0.02).toBe(true);
+      const p = generateVariant(szablon(0.02, 0.25, 0.42, [40]), 'latwy', seed).points[0];
+      expect(p?.point === 'turn-bet' && p.betBig === 17 && (p.hit * 46) / 44 < p.requiredBig - 0.02).toBe(true);
     }
-  });
+  }, 120_000);
+  it('EI-002 (D-1286): pula 40, big 0,4 → zakład 16, cena 0,222, margines od e = 9/44 0,018 < 0,02 → brak wariantów (błąd szablonu)', () => {
+    expect(() => generateVariant(szablon(0.02, 0.25, 0.4, [40]), 'latwy', 1)).toThrow(TemplateError);
+  }, 120_000);
   it('ten sam seed daje ten sam wariant', () => {
     expect(generateVariant(szablon(), 'latwy', 4).fingerprint).toBe(generateVariant(szablon(), 'latwy', 4).fingerprint);
   });

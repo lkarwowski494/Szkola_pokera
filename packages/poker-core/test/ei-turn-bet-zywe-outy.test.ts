@@ -21,7 +21,7 @@ describe('EI-001: turn-bet: draw rywala ma żywe outy', () => {
       if (zywe === 0) martwe.push(`seed ${seed}: ${v.hero.map(cardToString).join('')} vs ${v.villain.map(cardToString).join('')} na ${turn.map(cardToString).join('')}`);
     }
     expect(martwe).toEqual([]);
-  });
+  }, 120_000);
 });
 describe('EI-001: turn-bet: „silna ręka” to ręka zrobiona, nie draw', () => {
   it('ziarna 1–3000 (draws flush, oesd): brak wariantów, w których klasa strong wynika tylko z outów (para niższa niż najwyższa albo underpair)', async () => {

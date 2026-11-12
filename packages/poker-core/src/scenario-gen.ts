@@ -402,7 +402,7 @@ export const GENERATOR_WERSJA = 5; // 5: backdoor w obronie BB tylko z overkart�
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */
 const FLOP_REDEALS = 2000;
-export const MAX_CONSECUTIVE_REJECTIONS = 5000; // BR-GEN-003 mówi 1000; po odrzuceniu gotowych rąk (06-tresci-201) sc-19 miał ok. 0,5% rozdań dla poziomu, więc 1000 kończyło się sporadycznym błędem szablonu (D-665, do weta)
+export const MAX_CONSECUTIVE_REJECTIONS = 20_000; // BR-GEN-003 mówi 1000; D-665: 5000 przy ok. 0,5% rozdań (sc-19); D-1310: czyste outy turn-bet (D-1286) dają ok. 0,09% prób, 5000 kończyło się błędem szablonu dla 1,3% ziaren; ten sam prefiks losowań, więc istniejące warianty bez zmian
 
 /** Blindy wpłacone przez miejsce przy stole w bb (SB 0,5, BB 1; reszta 0). */
 export function blindBb(position: string): number {
@@ -715,17 +715,27 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (!zrobiona || !zKarta) return null;
       const draw = analyseOutsSpot(villain, turn);
       if (!draw || !(b.draws as readonly string[]).includes(draw.draw.kind) || classifyHolding(villain, turn).improvesBoard) return null;
-      // draw rywala musi mieć żywy out: karta, po której rywal wygrywa z ręką gracza (full, kareta albo wyższy kolor gracza zabijają draw; EI-001)
+      // D-1286 (EP-003, powraca z EI-001): CZYSTE outy. Karty rivera, po których rywal wygrywa albo remisuje (z 44 niewidzianych), muszą być dokładnie nominalnymi outami drawa,
+      // bez remisów; wtedy equity rywala e = N/44, a pokazywane hit = N/46 (R-M7-006/007) jest prawdą. Martwe i częściowo martwe outy (full, kareta, wyższy kolor gracza) odpadają.
       const znane = new Set<Card>([...hero, ...villain, ...turn]);
-      if (!FULL_DECK.some((c) => !znane.has(c) && strength([...villain, ...turn, c]) < strength([...hero, ...turn, c]))) return null;
+      const wygrywajace = new Set<Card>();
+      for (const c of FULL_DECK) {
+        if (znane.has(c)) continue;
+        const [r, h] = [strength([...villain, ...turn, c]), strength([...hero, ...turn, c])]; // mniejsza siła = lepsza ręka
+        if (r === h) return null; // remis to nie czysty out
+        if (r < h) wygrywajace.add(c);
+      }
+      const nominalne = new Set<Card>(draw.draw.all);
+      if (wygrywajace.size !== nominalne.size || ![...wygrywajace].every((c) => nominalne.has(c))) return null;
       const pot = pick(rng, spec.pots);
       const betSmall = Math.round(pot * spec.small);
       const betBig = Math.round(pot * spec.big);
       if (betSmall <= 0 || betBig <= betSmall) return null;
       const reqSmall = requiredEquity(pot, betSmall);
       const reqBig = requiredEquity(pot, betBig);
-      const hit = draw.hitNextCard;
-      if (!(hit > reqSmall && hit < reqBig) || !inMargin(hit - reqSmall, b, i) || !inMargin(reqBig - hit, b, i)) return null; // BR-GEN-003: tylko oczekiwana akcja i margines od obu progów
+      const hit = draw.hitNextCard; // N/46: liczba pokazywana (zgodna z odds.flush.turn-river)
+      const equityRywala = wygrywajace.size / (FULL_DECK.length - znane.size); // N/44: dokładne equity rywala przy znanych kartach obu graczy (D-1286)
+      if (!(hit > reqSmall && equityRywala < reqBig) || !inMargin(hit - reqSmall, b, i) || !inMargin(reqBig - equityRywala, b, i)) return null; // BR-GEN-003: tylko oczekiwana akcja i margines od obu progów
       if (b.expected[i] !== 'bet-big') return null;
       points.push({ point: 'turn-bet', street: 'turn', pot, betSmall, betBig, requiredSmall: reqSmall, requiredBig: reqBig, hit, drawKind: draw.draw.kind as DrawKind, correct: 'bet-big' });
       icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
