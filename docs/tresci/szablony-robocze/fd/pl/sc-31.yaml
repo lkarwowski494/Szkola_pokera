@@ -1,25 +1,28 @@
 # SC-31 (M10): rywal agresywny, sprawdzenie bluff-catcherem (punkt river-catch, jak SC-24, wyższe udziały blefów i większe zakłady).
 # KO-071: M10 rachunkowo; zachowanie rywala to dana zadania (D-1300), nie twierdzenie o populacji; część R-M10-008 „pozwól mu betować
 # silną ręką” wyłączona (brak populacji). Ocena: R-M8-010 (math). Szkic sesji FD (D-1352): river-catch poza ekranem.
+# FN (D-1413, D-1438): opis rywala tylko jako założenie; poziom trudny z pasem, bo werdykt idzie za udziałem blefów, nie za etykietą;
+# jeden tekst na akcję (wariant.ts:374), więc oba wyjaśnienia są warunkowe.
 id: sc-31
 module: m10
-situation: "Ten rywal często {{t:bet|stawia}} i {{t:raise|przebija}}. Na riverze masz jedną {{t:pair|parę}}, która wygrywa tylko z jego {{t:bluff|blefami}}, a on {{t:bet|stawia}} dużo. Załóż, że udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest taki, jak podaje rozdanie."
+situation: "Załóż, że ten rywal często {{t:bet|stawia}} i {{t:raise|przebija}}. Na riverze masz jedną {{t:pair|parę}}, która wygrywa tylko z jego {{t:bluff|blefami}}, a on {{t:bet|stawia}} dużo. Załóż też, że udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest taki, jak podaje rozdanie."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
-levels: [latwy, sredni]
+levels: [latwy, sredni, trudny]
 bounds:
   latwy: { marginMin: 0.1, expected: [call] }
   sredni: { marginMin: 0.03, marginMax: 0.1, expected: [call] }
+  trudny: { marginMin: 0.03, expected: [fold] }
 decisions:
   - street: river
     kind: river-catch
     rule: R-M8-010
     pots: [10, 14, 20, 30]
     fractions: [0.75, 1, 1.5]
-    bluffShares: [0.35, 0.4, 0.45, 0.5, 0.55]
+    bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:call|Sprawdzasz}}, bo twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}}, a w tym rozdaniu jest ich więcej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}. Większy {{t:bet|zakład}} wymaga więcej {{t:bluff|blefów}}: przy {{t:bet|zakładzie}} wielkości {{t:pot|puli}} ok. {{n:eq.bet-pot}}."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:call|Sprawdzenie}} zarabia tylko wtedy, gdy udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest większy niż potrzebne equity przy tym {{t:bet|zakładzie}}, bo twoje equity to właśnie udział {{t:bluff|blefów}}. Opis rywala tego nie zmienia: porównujesz liczby z rozdania. Większy {{t:bet|zakład}} wymaga więcej {{t:bluff|blefów}}: przy {{t:bet|zakładzie}} wielkości {{t:pot|puli}} ok. {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:fold|Pas}} oddaje {{t:pot|pulę}}, na której {{t:call|sprawdzenie}} zarabia: twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}}, a tu jest ich więcej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:fold|Pas}} jest dobry tylko wtedy, gdy udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest mniejszy niż potrzebne equity przy tym {{t:bet|zakładzie}}: wtedy {{t:call|sprawdzenie}} traci, także wobec rywala, który często {{t:bet|stawia}}. Gdy {{t:bluff|blefów}} jest więcej, {{t:fold|pas}} oddaje {{t:pot|pulę}}, na której {{t:call|sprawdzenie}} zarabia."
