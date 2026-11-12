@@ -1,0 +1,10 @@
+M06 generator river-value: dryBoard bez warunku koloru: ZABITY (kod 1)
+    × M06: pasujące ręce bez koloru (72o) nie maskują warunku: stół bez 3 kart jednej barwy i bez strita 707ms
+M07 generator river-value: dryBoard bez warunku strita: ZABITY (kod 1)
+    × M07: dryBoard bez pairKind odrzuca stół ze stritem (przy pairKind: overpair warunek jest nadmiarowy) 161ms
+M10 flopSizeAnalysis: czyste outy bez warunku 0 remisów: ZABITY (kod 1)
+    × M10: te same ręce co rywal (8d Jh vs Js 8c) na flopie 7c4c2c: 9 wygrywających = 9 nominalnych outów, ale 36 remisów → nie czyste 10ms
+M11 flopSizeAnalysis: czyste outy bez równości zbiorów (tylko liczność): ZABITY (kod 1)
+    × M11: 8s6s vs 2sQs na flopie 5s8h4s: 9 wygrywających = 9 nominalnych co do liczby, ale inny zbiór kart → nie czyste 10ms
+M12 generator flop-size: margines dużego wobec N/47 zamiast N/45 (D-1421): ZABITY (kod 1)
+    × δ = 0,055: margines wobec N/45 (0,05) nie wystarcza, więc żaden wariant (przy N/47 byłby 0,0585) 14ms
