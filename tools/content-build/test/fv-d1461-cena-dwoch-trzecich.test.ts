@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parse as parseYaml } from 'yaml';
-import { number } from './kit';
+import { LICZBY_ZAREZERWOWANE } from '../src/build';
+import { content, number } from './kit';
 
 const raw = parseYaml(readFileSync(join(resolve(import.meta.dirname, '../../..'), 'content', 'numbers.yaml'), 'utf8')) as Record<string, Record<string, unknown>>;
 
@@ -22,5 +23,13 @@ describe('D-1461: cena ⅔ puli', () => {
     expect(zaklad).toBeCloseTo(100 * f, 9);
     expect(number('eq.bet-two-thirds')).toBeCloseTo(zaklad / (100 + 2 * zaklad), 9);
     expect(number('eq.bet-two-thirds')).toBeCloseTo(2 / 7, 4);
+  });
+});
+
+describe('D-1490: lista liczb zarezerwowanych pod treść', () => {
+  it('klucze D-1461 są na liście (build nie zgłasza ich jako nieużywanych), a lista nie trzyma liczb już użytych ani nieistniejących', () => {
+    for (const k of ['ex.frac.two-thirds', 'ex.bet.two-thirds', 'eq.bet-two-thirds']) expect(LICZBY_ZAREZERWOWANE).toHaveProperty(k);
+    for (const k of Object.keys(LICZBY_ZAREZERWOWANE)) expect(raw).toHaveProperty(k);
+    expect(content.warnings.filter((w) => /nie jest nigdzie używana|jest już używana/.test(w))).toEqual([]);
   });
 });
