@@ -18,3 +18,8 @@ Zgoda właściciela 2026-11-11 ok. 18:30: „Zgoda na przyspieszenia”; zakres:
 
 ## D-1023 (2026-11-11): wagi podziału z zmierzonych czasów
 - Przebieg 43080852450 (liczba kroków jako waga): część 1 flowy 10:45, część 2 7:30 — nierówno (08-drugi-jezyk 3:45 przy 64 liniach). Teraz wagi = czasy flowów z logu Maestro (`WAGI_S` w `e2e-podzial.mjs`, części 384 s i 408 s); flow bez wagi: liczba kroków × 5 s. Zgodnie z Treningiem (`e2e-shards.json`).
+
+## D-1024 (2026-11-12, KO-079): powrót do jednego joba E2E, cache zostaje
+- Decyzja koordynatora (KO-079, rekomendacja DT): `e2e-ios.yml` wraca do jednego zadania `e2e` (struktura z b3963e9a: bez `build`/macierzy/`e2e-razem`), z dodanymi cache CocoaPods (przed prebuild) i DerivedData (po pod install, przed xcodebuild), oba tylko gdy aplikacja jest budowana w tym przebiegu. Te same flowy 9/9 i ta sama kontrola `podsumuj` (każdy flow z katalogu wymagany w raporcie).
+- Powód: pomiar 3 przebiegów (43080852450, 43110722675, 43117974356): split ≈ 0 zysku (47:21 vs 47:48) i wrażliwy na kolejkę macOS (run 1: 80 min, 2 zadania czekały 10 i 22 min).
+- Wycofane: `scripts/ci/e2e-podzial.mjs` i jego test (martwy kod bez macierzy), wpis w `test:skrypty`, testy macierzy/zbiorcze w `workflowy.test.mjs` (przywrócony stan z b3963e9a + nowy test cache). Zakres edycji poza listą ścieżek (testy, package.json) = przywrócenie wersji z b3963e9a plus jeden nowy test; nic nie osłabione względem b3963e9a. D-1020 i D-1023 historyczne (wycofane); D-1021, D-1022 obowiązują.

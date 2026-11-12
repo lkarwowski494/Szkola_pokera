@@ -12,9 +12,8 @@
 # może tylko administrator) pod nazwę z Treningu; nowy plik jest aktywny bez kroku właściciela. Push także na claude/**
 # (odstępstwo od Treningu: gałąź agenta jest tu gałęzią integracyjną przebudowy, a workflow_dispatch nie widzi workflowu
 # nieobecnego na main, zanim raz się uruchomi); informacyjnie, poprzedni przebieg tej gałęzi anulowany.
-# DT (2026-11-11, zgoda właściciela „Zgoda na przyspieszenia”, D-1020…D-1023): zadanie `build` (raz, cache CocoaPods i DerivedData) →
-# artefakt szkola-sim-app → zadanie `e2e` w macierzy `czesc` 1–2 (połowa flowów każda; podział: scripts/ci/e2e-podzial.mjs) →
-# zadanie `e2e-razem` (wszystkie flowy wykonane i zielone). Te same flowy, progi i ponowienia (D-178). Wzór: Trening e2e-ios.yml:121–133.
+# DT (2026-11-11, zgoda właściciela „Zgoda na przyspieszenia”, KO-079): cache CocoaPods i DerivedData (D-1021, D-1022). Podział na 2 części
+# flowów wypróbowany i wycofany: pomiar 3 przebiegów ≈ 0 zysku, wrażliwość na kolejkę macOS (docs/jakosc/e2e-przyspieszenie.md, D-1020/D-1024).
 name: E2E iOS (symulator)
 # D-273: przebieg z aplikacją z innego przebiegu ma dopisek w tytule — bramka TestFlight (scripts/ci/bramka-e2e.mjs) go nie liczy.
 # Bez wejścia tytuł jest stały (wzór Trening e2e-ios.yml:15, odczyt 2026-11-08); commit widać w kolumnie przebiegu.
@@ -59,14 +58,14 @@ concurrency:
   group: e2e-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: ${{ github.event_name == 'push' }}
 jobs:
-  build:
-    if: github.repository == 'lkarwowski494/szkola_pokera' && inputs.aplikacja_z_przebiegu == ''
+  e2e:
+    if: github.repository == 'lkarwowski494/szkola_pokera'
     # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak w iphone-local.yml)
     runs-on: macos-26
-    # wzór (strategia.md §5.1): 30 + 3 × liczba flowów w apps/mobile/e2e/*.yaml + 10 (zapas); 9 flowów → 67 (08-drugi-jezyk, D-353)
-    # (08 cz. 5b krok 7: 05, 06, 09 przeniesione z oczekujace/). Limit zostaje wzorem dla CAŁEGO przebiegu (build + część flowów):
-    # po podziale (DT) build to ~30 min, a część ~10 min, więc 67 daje zapas także na zimny cache. Pilnuje tests/narzedzia/e2e-flowy.test.mjs.
-    # D-258 (08-F14): stały składnik 20 → 30 — build SDK 58 28 min 46 s; limit 42 minął w sprzątaniu (42485850361).
+    # wzór (strategia.md §5.1): 30 + 3 × liczba flowów w apps/mobile/e2e/*.yaml + 10 (zapas na ponowienia); 9 flowów → 67 (08-drugi-jezyk, D-353)
+    # (08 cz. 5b krok 7: 05, 06, 09 przeniesione z oczekujace/).
+    # Przelicz przy przeniesieniu flowu z oczekujace/ (pilnuje tests/narzedzia/e2e-flowy.test.mjs). Pomiar 20.10.2026: build 13:41 + 4 flowy 8:30.
+    # D-258 (08-F14): stały składnik 20 → 30 — build SDK 58 28 min 46 s, 4 flowy 12 min 50 s; limit 42 minął w sprzątaniu (42485850361).
     timeout-minutes: 67
     steps:
       - uses: actions/checkout@v5
@@ -88,32 +87,34 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Treść aktualna
         run: pnpm content:check
-      - name: Podział flowów (lista przed = po)
-        run: node scripts/ci/e2e-podzial.mjs sprawdz 2 apps/mobile/e2e
 
-      # D-1021/D-1022: klucz zależy od lockfile'a (pnpm-lock.yaml) i konfiguracji aplikacji; zapis pod kluczem z SHA, odczyt z przedrostka.
+      # D-1021: klucz zależy od lockfile'a (pnpm-lock.yaml) i konfiguracji aplikacji; zapis pod kluczem z SHA, odczyt z przedrostka.
       - name: Cache CocoaPods
+        if: inputs.aplikacja_z_przebiegu == ''
         uses: actions/cache@v4
         with:
           path: ~/Library/Caches/CocoaPods
           key: cocoapods-v1-${{ hashFiles('pnpm-lock.yaml', 'apps/mobile/app.json') }}-${{ github.sha }}
           restore-keys: cocoapods-v1-${{ hashFiles('pnpm-lock.yaml', 'apps/mobile/app.json') }}-
       - name: Projekt iOS (expo prebuild)
+        if: inputs.aplikacja_z_przebiegu == ''
         working-directory: apps/mobile
         run: npx expo prebuild --platform ios --no-install --clean
       - name: CocoaPods
+        if: inputs.aplikacja_z_przebiegu == ''
         working-directory: apps/mobile/ios
         run: pod install
-      # D-1022 (po przebiegu 43080852450): ccache nie zadziałał (0,0 GB po buildzie), więc zamiast niego cache DerivedData (derivedDataPath
-      # `build` w ios/); przywracany PO prebuild i pod install (prebuild --clean kasuje ios/), Xcode dobuduje tylko zmienione cele.
+      # D-1022: DerivedData (derivedDataPath `build` w ios/) przywracane PO prebuild i pod install (prebuild --clean kasuje ios/); Xcode
+      # dobudowuje różnicę, wynik ten sam. Zmierzone: xcodebuild 27:02 → 24:32 (przebiegi 43110722675, 43117974356).
       - name: Cache DerivedData
-        id: dd
+        if: inputs.aplikacja_z_przebiegu == ''
         uses: actions/cache@v4
         with:
           path: apps/mobile/ios/build
           key: xcode-dd-v1-${{ hashFiles('pnpm-lock.yaml', 'apps/mobile/app.json') }}-${{ github.sha }}
           restore-keys: xcode-dd-v1-${{ hashFiles('pnpm-lock.yaml', 'apps/mobile/app.json') }}-
       - name: Kompilacja na symulator (bez podpisu)
+        if: inputs.aplikacja_z_przebiegu == ''
         working-directory: apps/mobile/ios
         run: |
           set -o pipefail
@@ -126,84 +127,33 @@ jobs:
           APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -1)
           test -n "$APP" && test -f "$APP/main.jsbundle"
           echo "APP_PATH=$PWD/$APP" >> "$GITHUB_ENV"
-      - name: Cache DerivedData — wynik
-        if: always()
-        run: |
-          echo "- cache DerivedData: ${{ steps.dd.outputs.cache-hit == 'true' && 'trafienie (dokładny klucz)' || 'brak dokładnego klucza (odczyt z przedrostka albo zimny)' }}" >> "$GITHUB_STEP_SUMMARY"
-          du -sh apps/mobile/ios/build 2>/dev/null | tee -a "$GITHUB_STEP_SUMMARY" || true
+          echo "E2E_BUILT=$(date +%s)" >> "$GITHUB_ENV"
       - name: Zapis aplikacji (do ponownego użycia, D-273)
+        if: inputs.aplikacja_z_przebiegu == ''
         run: cd "$(dirname "$APP_PATH")" && zip -qry "$GITHUB_WORKSPACE/szkola-sim.zip" "$(basename "$APP_PATH")"
       - uses: actions/upload-artifact@v5
+        if: inputs.aplikacja_z_przebiegu == ''
         with:
           name: szkola-sim-app
           path: szkola-sim.zip
           retention-days: 1
-      - name: Czas buildu
-        if: always()
-        run: |
-          b=$(( $(date +%s) - E2E_START ))
-          { echo "## Build"; echo; echo "- build i zależności: $((b / 60)) min $((b % 60)) s"; } >> "$GITHUB_STEP_SUMMARY"
-          echo "::notice title=Czas buildu::$((b / 60)) min $((b % 60)) s"
-      - uses: actions/upload-artifact@v5
-        if: always()
-        with:
-          name: xcodebuild-log
-          path: apps/mobile/ios/xcodebuild.log
-          retention-days: 7
-          if-no-files-found: ignore
-
-  e2e:
-    name: e2e (część ${{ matrix.czesc }}/2)
-    needs: build
-    # build pominięty (wejście aplikacja_z_przebiegu) = aplikacja z innego przebiegu; build nieudany = części się nie uruchamiają
-    if: ${{ !cancelled() && github.repository == 'lkarwowski494/szkola_pokera' && (needs.build.result == 'success' || needs.build.result == 'skipped') }}
-    runs-on: macos-26
-    strategy:
-      fail-fast: false  # porażka jednej części nie przerywa drugiej — wynik wszystkich flowów w jednym przebiegu
-      matrix:
-        czesc: [1, 2]  # liczba części = argument M w e2e-podzial.mjs (pilnuje tests/narzedzia/workflowy.test.mjs)
-    # część to ok. połowa flowów: 3 min na flow (strategia.md §5.1) × 9 + 10 zapasu; pilnuje tests/narzedzia/workflowy.test.mjs
-    timeout-minutes: 40
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-      - name: Start pomiaru
-        run: echo "E2E_START=$(date +%s)" >> "$GITHUB_ENV"
-      - uses: pnpm/action-setup@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - name: Treść aktualna
-        run: pnpm content:check
-      - name: Część flowów
-        env:
-          CZESC: ${{ matrix.czesc }}
-        run: |
-          node scripts/ci/e2e-podzial.mjs sprawdz 2 apps/mobile/e2e
-          node scripts/ci/e2e-podzial.mjs czesc "$CZESC" 2 apps/mobile/e2e "$RUNNER_TEMP/e2e-czesc" | tee flowy-czesci.txt
-          echo "E2E_CZESC_DIR=$RUNNER_TEMP/e2e-czesc" >> "$GITHUB_ENV"
       - uses: actions/download-artifact@v5
         if: inputs.aplikacja_z_przebiegu != ''
         with:
           name: szkola-sim-app
           run-id: ${{ inputs.aplikacja_z_przebiegu }}
           github-token: ${{ github.token }}
-      - uses: actions/download-artifact@v5
-        if: inputs.aplikacja_z_przebiegu == ''
-        with:
-          name: szkola-sim-app
-      - name: Rozpakowanie aplikacji
+      - name: Rozpakowanie aplikacji z innego przebiegu
+        if: inputs.aplikacja_z_przebiegu != ''
         env:
           Z_PRZEBIEGU: ${{ inputs.aplikacja_z_przebiegu }}
         run: |
-          [ -z "$Z_PRZEBIEGU" ] || echo "::notice title=Aplikacja z innego przebiegu::#$Z_PRZEBIEGU — flowy na aplikacji z tamtego commitu; ten przebieg nie otwiera bramki TestFlight"
+          echo "::notice title=Aplikacja z innego przebiegu::#$Z_PRZEBIEGU — flowy na aplikacji z tamtego commitu; ten przebieg nie otwiera bramki TestFlight"
           mkdir -p "$RUNNER_TEMP/aplikacja" && unzip -q szkola-sim.zip -d "$RUNNER_TEMP/aplikacja"
           APP=$(ls -d "$RUNNER_TEMP"/aplikacja/*.app | head -1)
           test -n "$APP" && test -f "$APP/main.jsbundle"
           echo "APP_PATH=$APP" >> "$GITHUB_ENV"
+          echo "E2E_BUILT=$(date +%s)" >> "$GITHUB_ENV"
 
       - uses: actions/setup-java@v5
         with:
@@ -252,14 +202,14 @@ jobs:
           printf '%s\n' "${ENV_ARGS[@]}" > e2e-env.txt
           mkdir -p e2e-out
           maestro --device "$SIM_UDID" test "${ENV_ARGS[@]}" --format junit --output e2e-out/report.xml \
-            --test-output-dir e2e-out "$E2E_CZESC_DIR" < /dev/null
+            --test-output-dir e2e-out apps/mobile/e2e < /dev/null
       - name: Ponowienie nieudanych flowów (raz, D-178)
         if: steps.flowy.outcome == 'failure'
         run: |
           ENV_ARGS=(); while IFS= read -r l; do ENV_ARGS+=("$l"); done < e2e-env.txt
           # lista jak w Treningu (e2e-ios.yml:232–238): `for` po wyniku, nie `while read` z pliku — Maestro nie zje stdin;
           # nazwy plików flowów bez spacji (NN-nazwa.yaml)
-          NIEUDANE=$(node scripts/ci/e2e-ponowienia.mjs nieudane e2e-out/report.xml "$E2E_CZESC_DIR" || true)
+          NIEUDANE=$(node scripts/ci/e2e-ponowienia.mjs nieudane e2e-out/report.xml apps/mobile/e2e || true)
           i=0
           for flow in $NIEUDANE; do
             i=$((i + 1))
@@ -274,55 +224,23 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p e2e-out
-          # kod pierwszego przebiegu: porażka Maestro bez nieudanego flowu albo brak flowu CZĘŚCI w raporcie = porażka zadania
+          # kod pierwszego przebiegu: porażka Maestro bez nieudanego flowu albo brak flowu w raporcie = porażka zadania
           [ "$PIERWSZY" = "success" ] && KOD=0 || KOD=1
-          node scripts/ci/e2e-ponowienia.mjs podsumuj e2e-out/report.xml "$E2E_CZESC_DIR" "$KOD" e2e-out/ponowienie-*.xml | tee e2e-out/podsumowanie.md >> "$GITHUB_STEP_SUMMARY"
-      - name: Czas części
+          node scripts/ci/e2e-ponowienia.mjs podsumuj e2e-out/report.xml apps/mobile/e2e "$KOD" e2e-out/ponowienie-*.xml | tee e2e-out/podsumowanie.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Czas przebiegu
         if: always()
         run: |
-          b=$(( $(date +%s) - E2E_START ))
-          { echo "## E2E część ${{ matrix.czesc }}/2"; echo; echo "- zależności, symulator i flowy: $((b / 60)) min $((b % 60)) s"; } >> "$GITHUB_STEP_SUMMARY"
-          echo "::notice title=Czas E2E (część ${{ matrix.czesc }})::$((b / 60)) min $((b % 60)) s"
+          end=$(date +%s)
+          b=$(( ${E2E_BUILT:-$end} - E2E_START )); t=$(( end - ${E2E_BUILT:-$end} ))
+          { echo "## E2E"; echo; echo "- build i instalacja zależności: $((b / 60)) min $((b % 60)) s"; echo "- symulator i flowy: $((t / 60)) min $((t % 60)) s"; } >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice title=Czas E2E::build $((b / 60)) min $((b % 60)) s, flowy $((t / 60)) min $((t % 60)) s"
       - uses: actions/upload-artifact@v5
         if: always()
         with:
-          name: e2e-wyniki-${{ matrix.czesc }}
-          path: e2e-out
+          name: e2e-wyniki
+          path: |
+            e2e-out
+            apps/mobile/ios/xcodebuild.log
           # zrzuty i logi w repo publicznym są publiczne: flowy bez danych osobowych (moduł e2e-mobilne)
           retention-days: 7
           if-no-files-found: ignore
-
-  # DT: „wynik łączny = wszystkie flowy; część padnięta = przebieg czerwony”. Zadanie czerwone, gdy którakolwiek część (albo build)
-  # nie jest zielona; zielone tylko, gdy raporty części razem zawierają KAŻDY flow bramki (lista przed = po).
-  e2e-razem:
-    name: e2e (razem)
-    needs: [build, e2e]
-    if: ${{ always() && github.repository == 'lkarwowski494/szkola_pokera' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-      - uses: pnpm/action-setup@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - uses: actions/download-artifact@v5
-        if: ${{ !cancelled() }}
-        with:
-          pattern: e2e-wyniki-*
-          path: wyniki
-        continue-on-error: true
-      - name: Wszystkie flowy wykonane i zielone
-        env:
-          BUILD: ${{ needs.build.result }}
-          CZESCI: ${{ needs.e2e.result }}
-        run: |
-          echo "build: $BUILD, części: $CZESCI"
-          { [ "$BUILD" = success ] || [ "$BUILD" = skipped ]; } || { echo "::error::build: $BUILD"; exit 1; }
-          [ "$CZESCI" = success ] || { echo "::error::części E2E: $CZESCI"; exit 1; }
-          node scripts/ci/e2e-podzial.mjs sprawdz 2 apps/mobile/e2e
-          node scripts/ci/e2e-podzial.mjs razem apps/mobile/e2e wyniki | tee -a "$GITHUB_STEP_SUMMARY"

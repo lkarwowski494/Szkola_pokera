@@ -183,26 +183,20 @@ test('e2e-ios.yml: wejście aplikacja_z_przebiegu pomija budowanie i pobiera apl
   for (const wyz of ['workflow_dispatch', 'workflow_call']) assert.ok(w.on[wyz]?.inputs?.aplikacja_z_przebiegu, `${wyz}: brak wejścia`);
   assert.match(w['run-name'] ?? '', /inputs\.aplikacja_z_przebiegu != ''[^}]*aplikacja z innego przebiegu/, 'tytuł przebiegu z dopiskiem (czyta go bramka TestFlight)');
   assert.equal(w.permissions?.actions, 'read', 'pobranie artefaktu z innego przebiegu wymaga actions: read');
-  // DT (2026-11-11, D-1020): build raz w zadaniu `build` (pomijanym wejściem aplikacja_z_przebiegu), flowy w zadaniu `e2e` (macierz części)
-  assert.equal(w.jobs.build.if.includes("inputs.aplikacja_z_przebiegu == ''"), true, 'zadanie build pomijane, gdy aplikacja przychodzi z innego przebiegu');
-  assert.equal(w.jobs.e2e.needs, 'build');
-  const budowa = w.jobs.build.steps.filter((k) => /prebuild|pod install|xcodebuild -workspace/.test(k.run ?? ''));
+  const kroki = w.jobs.e2e.steps;
+  const budowa = kroki.filter((k) => /prebuild|pod install|xcodebuild -workspace/.test(k.run ?? ''));
   assert.equal(budowa.length, 3, 'prebuild, pod install, xcodebuild');
-  const up = w.jobs.build.steps.find((k) => k.uses?.startsWith('actions/upload-artifact') && k.with?.name === 'szkola-sim-app');
+  for (const k of budowa) assert.equal(k.if, "inputs.aplikacja_z_przebiegu == ''", k.name);
+  const up = kroki.find((k) => k.uses?.startsWith('actions/upload-artifact') && k.with?.name === 'szkola-sim-app');
   assert.ok(up, 'brak zapisu aplikacji');
   assert.equal(up.with['retention-days'], 1);
-  const kroki = w.jobs.e2e.steps;
-  const pobrania = kroki.filter((k) => k.uses?.startsWith('actions/download-artifact'));
-  assert.equal(pobrania.length, 2, 'pobranie z innego przebiegu i z tego przebiegu');
-  const down = pobrania.find((k) => k.with['run-id']);
+  assert.equal(up.if, "inputs.aplikacja_z_przebiegu == ''");
+  const down = kroki.find((k) => k.uses?.startsWith('actions/download-artifact'));
   assert.ok(down, 'brak pobrania aplikacji');
   assert.equal(down.if, "inputs.aplikacja_z_przebiegu != ''");
   assert.equal(down.with.name, 'szkola-sim-app');
   assert.equal(down.with['run-id'], '${{ inputs.aplikacja_z_przebiegu }}');
   assert.equal(down.with['github-token'], '${{ github.token }}');
-  const biezace = pobrania.find((k) => !k.with['run-id']);
-  assert.equal(biezace.if, "inputs.aplikacja_z_przebiegu == ''");
-  assert.equal(biezace.with.name, 'szkola-sim-app');
   const iPobr = kroki.indexOf(down);
   const iSym = kroki.findIndex((k) => k.name === 'Symulator');
   assert.ok(iPobr < iSym, 'aplikacja pobrana przed instalacją w symulatorze');
@@ -324,26 +318,19 @@ test('asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczy
   assert.doesNotMatch(tekst, /environment:|--zapis|--apply/);
 });
 
-// DT (2026-11-11, D-1020…D-1023): podział E2E na części. Lista flowów przed i po identyczna (scripts/ci/e2e-podzial.test.mjs);
-// tu: macierz części zgodna z argumentem M skryptu, zadanie zbiorcze i limity.
-test('e2e-ios.yml: macierz części = argument M skryptu podziału; zadanie e2e-razem czeka na build i części i sprawdza „razem”', () => {
-  const w = json('e2e-ios.yml');
-  const m = w.jobs.e2e.strategy.matrix.czesc;
-  assert.deepEqual(m, Array.from({ length: m.length }, (_, i) => i + 1));
-  assert.equal(w.jobs.e2e.strategy['fail-fast'], false, 'część padnięta nie przerywa drugiej');
-  const tekst = readFileSync(new URL('e2e-ios.yml', KAT), 'utf8');
-  for (const [, n] of tekst.matchAll(/e2e-podzial\.mjs (?:sprawdz|czesc "\$CZESC") (\d+)/g)) assert.equal(Number(n), m.length, 'argument M skryptu podziału');
-  assert.deepEqual([...w.jobs['e2e-razem'].needs].sort(), ['build', 'e2e']);
-  assert.match(w.jobs['e2e-razem'].if, /always\(\)/, 'zbiorcze zadanie liczy się także przy padniętej części');
-  assert.match(JSON.stringify(w.jobs['e2e-razem'].steps), /e2e-podzial\.mjs razem/);
-});
-
-// Cache buildu (D-1021/D-1022): klucz zależny od lockfile'a, bez zmiany wyniku buildu (CocoaPods i DerivedData tylko przyspieszają).
-test('e2e-ios.yml: cache buildu (CocoaPods, DerivedData) z kluczem od pnpm-lock.yaml', () => {
-  const kroki = json('e2e-ios.yml').jobs.build.steps.filter((k) => k.uses?.startsWith('actions/cache'));
-  assert.equal(kroki.length, 2);
-  for (const k of kroki) {
+// DT (2026-11-11, D-1021/D-1022): cache buildu — klucz zależny od lockfile'a, tylko gdy aplikacja jest budowana w tym przebiegu;
+// zapis bez zmiany wyniku buildu (CocoaPods i DerivedData tylko przyspieszają). Podział na części wycofany (D-1024).
+test('e2e-ios.yml: cache buildu (CocoaPods przed prebuild, DerivedData po pod install) z kluczem od pnpm-lock.yaml', () => {
+  const kroki = json('e2e-ios.yml').jobs.e2e.steps;
+  const cache = kroki.filter((k) => k.uses?.startsWith('actions/cache'));
+  assert.equal(cache.length, 2);
+  for (const k of cache) {
     assert.match(k.with.key, /hashFiles\([^)]*pnpm-lock\.yaml/);
     assert.match(k.with['restore-keys'], /hashFiles\([^)]*pnpm-lock\.yaml/);
+    assert.equal(k.if, "inputs.aplikacja_z_przebiegu == ''");
   }
+  const idx = (re) => kroki.findIndex((k) => re.test(k.run ?? ''));
+  const [pods, dd] = [kroki.indexOf(cache[0]), kroki.indexOf(cache[1])];
+  assert.ok(pods < idx(/expo prebuild/), 'cache CocoaPods przed prebuild');
+  assert.ok(dd > idx(/^pod install/m) && dd < idx(/xcodebuild -workspace/), 'cache DerivedData po pod install, przed xcodebuild (prebuild --clean kasuje ios/)');
 });
