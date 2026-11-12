@@ -1,0 +1,13 @@
+# D-043 (FV, D-1461): identyfikatory w bazie pl przed (HEAD) i po pnpm content:build; zniknęły_id = ID z bazy sprzed, których brak po
+drills wiersze 393 -> 393 kolumna_id id zniknęły_id: 0
+exam_drills wiersze 137 -> 137 kolumna_id id zniknęły_id: 0
+game_kit wiersze 4 -> 4 kolumna_id key zniknęły_id: 0
+lessons wiersze 44 -> 44 kolumna_id id zniknęły_id: 0
+meta wiersze 7 -> 7 kolumna_id key zniknęły_id: 0
+modules wiersze 14 -> 14 kolumna_id id zniknęły_id: 0
+numbers wiersze 829 -> 832 kolumna_id key zniknęły_id: 0
+ranges wiersze 34 -> 34 kolumna_id id zniknęły_id: 0
+rules wiersze 146 -> 146 kolumna_id id zniknęły_id: 0
+scenarios wiersze 13 -> 13 kolumna_id id zniknęły_id: 0
+terms wiersze 162 -> 162 kolumna_id key zniknęły_id: 0
+wniosek: tylko numbers +3 (ex.frac.two-thirds, ex.bet.two-thirds, eq.bet-two-thirds); żaden identyfikator nie zniknął; pozostałych 34 baz nie porównywano osobno (ten sam generator, te same pliki źródłowe)
