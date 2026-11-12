@@ -24,6 +24,6 @@ decisions:
     big: 0.6666666666666666
     actions:
       - action: "bet-big"
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo, bo {{t:draw|drawy}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę. {{t:flush-draw|Draw do koloru}} trafia na turnie w ok. {{n:odds.flush.flop-turn}} przypadków, a przy {{t:bet|zakładzie}} dwóch trzecich {{t:pot|puli}} potrzebuje więcej equity, niż ma."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo, bo {{t:draw|drawy}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę. {{t:flush-draw|Draw do koloru}} trafia na turnie w ok. {{n:odds.flush.flop-turn}} przypadków, a przy {{t:bet|zakładzie}} dwóch trzecich {{t:pot|puli}} cena za następną kartę jest wyższa niż jego szansa na nią."
       - action: "bet-small"
         explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. Mały {{t:bet|zakład}} daje {{t:draw|drawowi}} dobrą cenę: przy {{t:bet|zakładzie}} ćwierć {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}} equity, a na turnie trafia w ok. {{n:odds.flush.flop-turn}} przypadków. Silną rękę wobec {{t:draw|drawów}} na takim flopie {{t:bet|stawiasz}} większym rozmiarem."

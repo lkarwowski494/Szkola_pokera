@@ -17,6 +17,6 @@ decisions:
     big: 0.6666666666666666
     actions:
       - action: "bet-big"
-        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big because your opponent's {{t:draw|draws}} have a lot of equity, so a big {{t:bet}} makes them pay a lot for the next card. A {{t:flush-draw}} hits on the turn about {{n:odds.flush.flop-turn}} of the time, and against a bet of two thirds of the {{t:pot}} it needs more equity than it has."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big because your opponent's {{t:draw|draws}} have a lot of equity, so a big {{t:bet}} makes them pay a lot for the next card. A {{t:flush-draw}} hits on the turn about {{n:odds.flush.flop-turn}} of the time, and against a bet of two thirds of the {{t:pot}} the price of the next card is higher than its chance of hitting it."
       - action: "bet-small"
         explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. A small bet gives the {{t:draw}} a good price: against a quarter-{{t:pot}} bet it would only need {{n:eq.bet-quarter}} equity, and it hits on the turn about {{n:odds.flush.flop-turn}} of the time. With a strong hand against {{t:draw|draws}} on a flop like this, you {{t:bet}} a bigger size."
