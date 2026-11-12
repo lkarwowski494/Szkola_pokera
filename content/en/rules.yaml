@@ -605,11 +605,11 @@
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M7-006
   module: m7
-  if: "you have a strong hand on the turn ({{t:top-pair}} or better), and your opponent may have a {{t:flush-draw}} that beats you when it hits"
+  if: "you have a strong hand on the turn ({{t:top-pair}} with a good {{t:kicker}} or better), and your opponent may have a {{t:flush-draw}} that beats you when it hits"
   then: "you bet big: against a 3/4-{{t:pot}} bet the {{t:draw}} needs {{n:eq.bet-three-quarters}} equity, and it has about {{n:odds.flush.turn-river}}"
   because: "against a 1/4-{{t:pot}} bet {{n:eq.bet-quarter}} would be enough, so a small bet gives the {{t:draw}} a good price"
   level: math
-  source: "calculation: required equity = bet/(pot+2·bet), chance = outs ÷ unknown cards; direction (a strong, vulnerable hand bets big; strong = top pair and better): training site, How Much Should You Bet on Connected Boards? (https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/: “Strong and vulnerable bets big”; “Pot-size bets with your strong top pairs and better are standard”)"
+  source: "calculation: required equity = bet/(pot+2·bet), chance = outs ÷ unknown cards; direction (a strong, vulnerable hand bets big; strong = top pair with a good kicker and better): training site, How Much Should You Bet on Connected Boards? (https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/: “Strong and vulnerable bets big”; “Pot-size bets with your strong top pairs and better are standard”)"
   sources: [{ kind: training }, { kind: math }]
 - id: R-M7-007
   module: m7

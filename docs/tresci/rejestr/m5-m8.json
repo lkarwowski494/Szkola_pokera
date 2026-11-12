@@ -1255,7 +1255,7 @@
   "id": "R-M7-006",
   "rodzaj": "regula",
   "level": "math",
-  "twierdzenie": "masz na turnie silną rękę (najwyższą parę albo lepszą), a rywal może mieć flush-draw, który po trafieniu cię pokona (żywe outy) → betujesz dużo: przy becie 3/4 puli draw potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, bo przy becie 1/4 puli wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje drawie dobrą cenę",
+  "twierdzenie": "masz na turnie silną rękę (najwyższą parę z dobrym kickerem albo lepszą), a rywal może mieć flush-draw, który po trafieniu cię pokona (żywe outy) → betujesz dużo: przy becie 3/4 puli draw potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, bo przy becie 1/4 puli wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje drawie dobrą cenę",
   "zrodla": [
    {
     "adres": "rachunek: eq = bet/(pula+2·bet): 75/250 i 25/150; kolor turn→river 9/46",
@@ -1273,9 +1273,9 @@
    },
    {
     "adres": "https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/",
-    "miejsce": "Tip #1 (definicja silnej ręki)",
+    "miejsce": "Tip #2 (definicja silnej ręki: „strong top pairs”; Tip #1 wymienia „overpairs, two pairs, and sets”)",
     "cytat": "Pot-size bets with your strong top pairs and better are standard, because your big hands are vulnerable but nothing on the board has you beaten yet.",
-    "odczyt": "2026-11-11",
+    "odczyt": "2026-11-12",
     "szczebel": 4
    }
   ],
@@ -1288,7 +1288,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": " | EL 2026-11-11 (EI-001, D-1214): warunek reguły zawężony do silnej ręki (najwyższa para i lepsze) i żywego drawa."
+  "uwagi": " | EL 2026-11-11 (EI-001, D-1214): warunek reguły zawężony do silnej ręki (najwyższa para i lepsze) i żywego drawa. | EQ 2026-11-12 (06-tresci-001, D-1255): „silna” zawężona do brzmienia źródła „strong top pairs and better” = najwyższa para z dobrym kickerem albo lepsza; najwyższa para ze słabym kickerem to średnia ręka (content/pl/lessons/m7-l2-polaryzacja.md:64). Cytat Tip #2 odczytany ponownie 2026-11-12 (docs/tresci/odczyty/eq-2026-11-12.tsv); miejsce poprawione z „Tip #1” na „Tip #2”."
  },
  {
   "id": "R-M7-007",

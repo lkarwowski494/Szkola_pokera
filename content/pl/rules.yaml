@@ -606,11 +606,11 @@
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M7-006
   module: m7
-  if: "masz na turnie silną rękę ({{t:top-pair|najwyższą parę}} albo lepszą), a rywal może mieć {{t:flush-draw}}, który po trafieniu cię pokona"
+  if: "masz na turnie silną rękę ({{t:top-pair|najwyższą parę}} z dobrym {{t:kicker|kickerem}} albo lepszą), a rywal może mieć {{t:flush-draw}}, który po trafieniu cię pokona"
   then: "betujesz dużo: przy becie 3/4 {{t:pot|puli}} {{t:draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}"
   because: "przy becie 1/4 {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje {{t:draw|drawie}} dobrą cenę"
   level: math
-  source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty; kierunek (silna, wrażliwa ręka betuje dużo; silna = najwyższa para i lepsze): serwis szkoleniowy, How Much Should You Bet on Connected Boards? (https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/: „Strong and vulnerable bets big”; „Pot-size bets with your strong top pairs and better are standard”)"
+  source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty; kierunek (silna, wrażliwa ręka betuje dużo; silna = najwyższa para z dobrym kickerem i lepsze): serwis szkoleniowy, How Much Should You Bet on Connected Boards? (https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/: „Strong and vulnerable bets big”; „Pot-size bets with your strong top pairs and better are standard”)"
   sources: [{ kind: training }, { kind: math }]
 - id: R-M7-007
   module: m7
