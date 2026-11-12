@@ -1,0 +1,21 @@
+# EZ 2026-11-12: odczyt źródeł na surowym tekście (curl -sSL → usunięcie tagów → grep -F). Kod 0 = cytat jest dosłownie.
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | Suppose you raise in middle position and the button calls, what are some flops that warrant checking your entire range?
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | Even if we look at a disconnected 7-3-2 rainbow for example, the hijack again has only got 47.2% equity.
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | when you’ve raised pre-flop from one of those middle or late positions
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | We are not going to be talking about blind versus blind play
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | So on those boards you actually do get to do a little bit more c-betting
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | bloating the pot and then getting to the turn with too wide of a range
+kod 0 | upswingpoker_com_podcast_ep24-cbetting-oop_.txt | we must back it up with a solid check-raising strategy as well
+kod 0 | blog_gtowizard_com_were-at-the-river-our-hand-cant-win-now-what_.txt | this way we’re not giving up whatever percentage of the pot we might be winning if we check
+kod 0 | blog_gtowizard_com_were-at-the-river-our-hand-cant-win-now-what_.txt | We may as well use hands that never win at showdown instead
+kod 0 | blog_gtowizard_com_from-gutshots-to-airballs-choosing-your-bluffs_.txt | This is a tough exercise because there is no clear pattern to the answers.
+kod 0 | blog_gtowizard_com_from-gutshots-to-airballs-choosing-your-bluffs_.txt | A gutshot to the nuts is a pure check, while a gutshot to a lower straight is a pure bet.
+kod 0 | blog_gtowizard_com_from-gutshots-to-airballs-choosing-your-bluffs_.txt | The solver advises a mostly check-or-overbet strategy here on the turn.
+kod 0 | blog_gtowizard_com_from-gutshots-to-airballs-choosing-your-bluffs_.txt | Bluff with draws when you expect your opponent to respond mostly by folding or calling
+
+# sha256 surowego HTML (strony dynamiczne, inne niż w EV — to oczekiwane):
+d64e9adfe86ca813d1d83c74ed07f01f6dad5e961cdf08229b06cafd9d2feb16  blog_gtowizard_com_from-gutshots-to-airballs-choosing-your-bluffs_.html
+bcf15e8051edacf53162d0cfd877a364794cccc0e19b202c17a6eb078aa5a61a  blog_gtowizard_com_were-at-the-river-our-hand-cant-win-now-what_.html
+85bd3174fc2e53eb77c133cad596b2172019dd5b8ee6a9fa5694697972f74101  upswingpoker_com_podcast_ep24-cbetting-oop_.html
+kod 0 | blog_gtowizard_com_from-gutshots-to-airballs-choosing-your-bluffs_.txt | if you’re currently playing in weak fields (dopisane po raporcie, R-M7-002 Do sprawdzenia)
