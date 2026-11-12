@@ -1,0 +1,125 @@
+# HEAD kopii: 83b03fdc, 2026-11-12T22:01:51Z
+
+## MU1 — 08-programista-006: δ ≥ 0,5 bez TemplateError (warunek < 0,5 usunięty z generatora)
+$ sed -i 's/delta >= DRAW_CALL_MIN_GAP - 1e-12 \&\& delta < 0.5/delta >= DRAW_CALL_MIN_GAP - 1e-12/' packages/poker-core/src/scenario-gen.ts
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ (cd packages/poker-core && npx vitest run test/fp-fl-006.test.ts)
+ ❯ test/fp-fl-006.test.ts (2 tests | 2 failed) 12ms
+     × δ = 0.5 9ms
+     × δ = 0.7 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/fp-fl-006.test.ts > 08-programista-006: δ ≥ 0,5 w river-value to TemplateError z nazwą szablonu > δ = 0.5
+ FAIL  test/fp-fl-006.test.ts > 08-programista-006: δ ≥ 0,5 w river-value to TemplateError z nazwą szablonu > δ = 0.7
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+kod wyjścia: 1 → mutant ZABITY (test czerwony)
+(kopia przywrócona)
+
+## MU2 — 08-FN-1: ocena list-hand bez alsoCorrect (ręka mieszana)
+$ sed -i 's/a === d.correct || (d.alsoCorrect?.includes(a) ?? false) ?/a === d.correct ?/' apps/mobile/src/features/scenariusz/wariant.ts
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ (cd apps/mobile && npx jest --ci src/features/scenariusz/__tests__/fn-list-hand-mieszana.test.tsx)
+FAIL src/features/scenariusz/__tests__/fn-list-hand-mieszana.test.tsx (6.395 s)
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+kod wyjścia: 1 → mutant ZABITY (test czerwony)
+(kopia przywrócona)
+
+## MU3 — FM-08 (D-1434): pasek ocen bez kwoty przy powtórzonej nazwie
+$ sed -i 's/powtorzona(a) ? teksty\[a\]?.przycisk ?? .. : teksty\[a\]?.nazwa/teksty[a]?.nazwa/' apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ (cd apps/mobile && npx jest --ci src/features/scenariusz/__tests__/fm-turn-bet-ekran.test.tsx)
+FAIL src/features/scenariusz/__tests__/fm-turn-bet-ekran.test.tsx (11.786 s)
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 4 passed, 5 total
+kod wyjścia: 1 → mutant ZABITY (test czerwony)
+(kopia przywrócona)
+
+## MU4 — 08-FQ-1: limit odrzuceń z powrotem 20 000
+$ sed -i 's/MAX_CONSECUTIVE_REJECTIONS = 60_000/MAX_CONSECUTIVE_REJECTIONS = 20_000/' packages/poker-core/src/scenario-gen.ts
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ (cd packages/poker-core && npx vitest run test/fq-08-fq-1.test.ts -t 'ziarno 1108')
+ ❯ test/fq-08-fq-1.test.ts (3 tests | 1 failed | 2 skipped) 164ms
+     × ziarno 1108 daje wariant flop-size (przed poprawką: 20 000 odrzuceń z rzędu) 163ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/fq-08-fq-1.test.ts > 08-FQ-1: flop-size nie odmawia na ziarnach z ogona rozkładu > ziarno 1108 daje wariant flop-size (przed poprawką: 20 000 odrzuceń z rzędu)
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 skipped (3)
+kod wyjścia: 1 → mutant ZABITY (test czerwony)
+(kopia przywrócona)
+
+## MU5 — 06-tresci-008: kontrola niewpięta w budowanie (linia numberValue w build.ts usunięta)
+$ sed -i '/numberValue: (k: string) => numbers.get(k)?.value,/d' tools/content-build/src/build.ts
+ 1 file changed, 1 deletion(-)
+$ (cd tools/content-build && npx vitest run test/fr-klucze-rozmiaru.test.ts test/fl-bramka-flop-size-river-value.test.ts)
+ Test Files  2 passed (2)
+      Tests  22 passed (22)
+kod wyjścia: 0 → mutant PRZEŻYŁ (test zielony)
+(kopia przywrócona)
+
+## MU6 — KO-091: river-value z powrotem poza bramką ekranu
+$ sed -i "s/'list-hand', 'river-value'\]; \/\/ flop-size/'list-hand']; \/\/ flop-size/" tools/content-build/src/scenariusze.ts
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ (cd tools/content-build && npx vitest run test/fl-bramka-flop-size-river-value.test.ts)
+ ❯ test/fl-bramka-flop-size-river-value.test.ts (16 tests | 1 failed) 12833ms
+     × KO-091 (FR): ekran ma widok river-value (apps/mobile fr-river-value-ekran.test.tsx), więc bramka ekranu przepuszcza szablon 5ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/fl-bramka-flop-size-river-value.test.ts > 08-FD-4: bramka river-value > KO-091 (FR): ekran ma widok river-value (apps/mobile fr-river-value-ekran.test.tsx), więc bramka ekranu przepuszcza szablon
+ Test Files  1 failed (1)
+      Tests  1 failed | 15 passed (16)
+kod wyjścia: 1 → mutant ZABITY (test czerwony)
+(kopia przywrócona)
+
+## MU7 — 08-programista-005: komunikat punktu końcowego bez nazw rodzajów
+$ sed -i 's/punkt końcowy (${koncowe.map((x) => x.kind).join(.\, .)}) jest/punkt cbet-case albo size-spot jest/' packages/poker-core/src/scenario-gen.ts
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ (cd packages/poker-core && npx vitest run test/fp-fl-005.test.ts)
+ ❯ test/fp-fl-005.test.ts (1 test | 1 failed) 11ms
+     × dwa punkty końcowe: komunikat wymienia ich rodzaje (river-value), nie tylko „cbet-case albo size-spot” 10ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/fp-fl-005.test.ts > 08-programista-005: komunikat punktu końcowego nazywa rodzaje > dwa punkty końcowe: komunikat wymienia ich rodzaje (river-value), nie tylko „cbet-case albo size-spot”
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+kod wyjścia: 1 → mutant ZABITY (test czerwony)
+(kopia przywrócona)
+
+# Skrypt mutantów (kopia):
+    #!/usr/bin/env bash
+    # Mutanty FU: każda poprawka cofnięta osobno w kopii roboczej @ 83b03fdc, uruchomiony jej test; oczekiwany kod ≠ 0 (test czerwony).
+    set -u
+    WT=<scratchpad>/wt
+    cd "$WT"
+    echo "# HEAD kopii: $(git rev-parse --short HEAD), $(date -u +%FT%TZ)"
+    uruchom() { # nazwa, opis, komenda mutacji (sed), katalog, komenda testu
+      local n="$1" opis="$2" mut="$3" kat="$4" test="$5"
+      echo; echo "## $n — $opis"
+      echo "\$ $mut"; eval "$mut"
+      git diff --stat | tail -1
+      echo "\$ (cd $kat && $test)"
+      (cd "$kat" && eval "$test") > "<scratchpad>/mut-$n.log" 2>&1
+      local k=$?
+      grep -E "Tests:|Tests +[0-9]|✗|×|FAIL|failed|passed" "<scratchpad>/mut-$n.log" | grep -v "^\s*$" | head -8
+      echo "kod wyjścia: $k → $([ $k -ne 0 ] && echo 'mutant ZABITY (test czerwony)' || echo 'mutant PRZEŻYŁ (test zielony)')"
+      git checkout -- . ; git diff --quiet && echo "(kopia przywrócona)"
+    }
+    uruchom MU1 "08-programista-006: δ ≥ 0,5 bez TemplateError (warunek < 0,5 usunięty z generatora)" \
+      "sed -i 's/delta >= DRAW_CALL_MIN_GAP - 1e-12 \&\& delta < 0.5/delta >= DRAW_CALL_MIN_GAP - 1e-12/' packages/poker-core/src/scenario-gen.ts" \
+      packages/poker-core "npx vitest run test/fp-fl-006.test.ts"
+    uruchom MU2 "08-FN-1: ocena list-hand bez alsoCorrect (ręka mieszana)" \
+      "sed -i 's/a === d.correct || (d.alsoCorrect?.includes(a) ?? false) ?/a === d.correct ?/' apps/mobile/src/features/scenariusz/wariant.ts" \
+      apps/mobile "npx jest --ci src/features/scenariusz/__tests__/fn-list-hand-mieszana.test.tsx"
+    uruchom MU3 "FM-08 (D-1434): pasek ocen bez kwoty przy powtórzonej nazwie" \
+      "sed -i 's/powtorzona(a) ? teksty\[a\]?.przycisk ?? .. : teksty\[a\]?.nazwa/teksty[a]?.nazwa/' apps/mobile/src/features/scenariusz/EkranScenariusza.tsx" \
+      apps/mobile "npx jest --ci src/features/scenariusz/__tests__/fm-turn-bet-ekran.test.tsx"
+    uruchom MU4 "08-FQ-1: limit odrzuceń z powrotem 20 000" \
+      "sed -i 's/MAX_CONSECUTIVE_REJECTIONS = 60_000/MAX_CONSECUTIVE_REJECTIONS = 20_000/' packages/poker-core/src/scenario-gen.ts" \
+      packages/poker-core "npx vitest run test/fq-08-fq-1.test.ts -t 'ziarno 1108'"
+    uruchom MU5 "06-tresci-008: kontrola niewpięta w budowanie (linia numberValue w build.ts usunięta)" \
+      "sed -i '/numberValue: (k: string) => numbers.get(k)?.value,/d' tools/content-build/src/build.ts" \
+      tools/content-build "npx vitest run test/fr-klucze-rozmiaru.test.ts test/fl-bramka-flop-size-river-value.test.ts"
+    uruchom MU6 "KO-091: river-value z powrotem poza bramką ekranu" \
+      "sed -i \"s/'list-hand', 'river-value'\]; \/\/ flop-size/'list-hand']; \/\/ flop-size/\" tools/content-build/src/scenariusze.ts" \
+      tools/content-build "npx vitest run test/fl-bramka-flop-size-river-value.test.ts"
+    uruchom MU7 "08-programista-005: komunikat punktu końcowego bez nazw rodzajów" \
+      "sed -i 's/punkt końcowy (\${koncowe.map((x) => x.kind).join(.\, .)}) jest/punkt cbet-case albo size-spot jest/' packages/poker-core/src/scenario-gen.ts" \
+      packages/poker-core "npx vitest run test/fp-fl-005.test.ts"
