@@ -43,6 +43,9 @@ Przeniesienie szkicu do bazy: skopiuj `fd/{pl,en}/sc-NN.yaml` do `content/{pl,en
 - `szablony-bs.test.ts`: 10 języków bez sc-14/sc-23 → 09 (przekład) w tym samym commicie co wejście do bazy.
 - Przypadek: po przeniesieniu `fd/{pl,en}/sc-14.yaml`, `sc-23.yaml` do `content/` i zmianach wyżej `pnpm run ci` kod 0.
 
+**08-FN-1 (SC-10, ręka mieszana w `list-hand`; 06-tresci-007, D-1435):** dziś wpis listy ma jedną `correct` i listę `acceptable` (`packages/poker-core/src/scenario-gen.ts:1102`); „dopuszczalne” daje 1 punkt jak „zgodne” (`packages/poker-core/src/grading.ts:53`), różni się etykieta (`apps/mobile/src/features/scenariusz/wariant.ts:196`). Dwóch akcji poprawnych silnik nie obsługuje. Zmiana: schemat wpisu dopuszcza `correct: string | string[]` (albo `mixed: [..]`), `listHandVerdicts` zwraca listę, ocena ekranu „zgodne” dla każdej akcji z listy (jak range-spot, ADR-04, DC WYS-001), `poprawnaAkcja` i bounds `expected` biorą pierwszą z listy. Potem 06 rozdziela AKs (`correct: [4bet, call]`) od AKo (`correct: 4bet`, `acceptable: [call]`).
+- Przypadek: SC-10, ręka AKs, wybór `call` → „zgodne”; AKo, wybór `call` → „dopuszczalne”; test schematu: dotychczasowe wpisy z jednym `correct` bez zmian.
+
 ## Dla roli 04
 - Widoki rodzajów `river-catch`, `defend`, `list-hand`, `turn-bet`, `iso-size` (limperzy) — wymagane przez szkice; w `river-catch` dana zadania (udział blefów) musi być widoczna (D-1357).
 - `pick-hand` (SC-23): zdania „Liczby” z V/F po usunięciu kart — dziś brak (`liczby.ts:26`); klucze do zaprojektowania, potem 09.

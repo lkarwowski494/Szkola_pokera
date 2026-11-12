@@ -2,6 +2,8 @@
 # AK „should be 4-bet with 100% frequency” BTN vs BB; Deepfold: „4-bet value KK+, AKs (mixed), AKo (mixed)”): AA i KK → 4-bet,
 # AK → 4-bet, sprawdzenie dopuszczalne („AK bywa też sprawdzane”). Pozostałe ręce poza listą (R-M4-007 to częstości, nie ręka).
 # Szkic sesji FD (D-1354): list-hand poza ekranem. Pojemność = liczba klas z akcją oczekiwaną (4), jak 08-N4.
+# FN (D-1435): źródła tego spotu (CO vs 3-bet BTN) — Pailiku: AKo 4-bet, AKs call; Deepfold: AKs i AKo mixed — AKs to ręka mieszana;
+# dziś 4-bet `correct` i call `acceptable` (ten sam punkt), docelowo obie zgodne po 08-FN-1.
 id: sc-10
 module: m4
 situation: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, Button zrobił {{t:3-bet}}, blindy {{t:fold|spasowały}}. Co robisz?"
