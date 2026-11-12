@@ -742,3 +742,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 05:08 | koordynator | ES start OK: session_01T66VByDTFnw87h4QGwGkuG (opus, auto, claude/dt-e2e → sesja-es-recenzja; prompt wklejony z odczytu, nieporównany bajtowo — WG-14) | ET start; kontrola |
 | 05:10 | koordynator | ET start OK: session_01T66VBxfjXQYtUraoeRogV2 (opus, auto, sesja-er-fix → sesja-et-recenzja; prompt z odczytu, nieporównany bajtowo — WG-14). KO-080 zadziałało 2/2 | kontrola ok. 06:10 |
 | 06:20 | koordynator | kontekst 33,6% → E6: stan zapisany, start następcy (subagent opus, KO-080) | następca: PRZEJĄŁEM |
+| 06:25 | koordynator (stary) | następca session_01T66VBz8VshtVqwg6bHotLi wystartował (opus, env_01UqnYjJioW2M2VbFHc8YvAV, auto; subagent, jedna próba); moje przypomnienia usunięte (kontrola 07:18, 14:00, 05:00 13.11); kontrola przekazania za 30 min. Przekazane do session_01T66VBz8VshtVqwg6bHotLi | następca: PRZEJĄŁEM |
