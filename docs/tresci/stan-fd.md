@@ -1,4 +1,4 @@
-# Stan sesji FD (06-tresci, build): KO-085 i treści fali 1–2 — 2026-11-12
+# Stan sesji FD (06-tresci, build): KO-085 i treści fali 1–2 — 2026-11-12 (uzupełnienie sesji FQ, ten sam dzień: sekcja „Sesja FQ”)
 Gałąź `sesja-fd-tresci` od `claude/sleepy-brahmagupta-2065nu` @ da1e02db + `origin/sesja-ex-rachunek`. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/FD.md` @ 267abcd4. Decyzje: `docs/decyzje/FD.md` (D-1350…D-1357). Odczyty: `docs/tresci/odczyty/fd-2026-11-12.tsv` (7/7 dosłownie w surowym tekście w dniu pracy, + R-M5-012 z EV tego dnia). Rachunek: `docs/tresci/narzedzia/rachunki/fd_wektory.py` → `docs/tresci/dowody/fd-wektory.txt`. Kontrola szkiców: `docs/tresci/narzedzia/fd-kontrola-szkicow.sh` → `docs/tresci/dowody/fd-szkice.txt` (D-1356, kod 0). CI: `docs/tresci/dowody/fd-ci-416d9f5.txt` (kod 0).
 
 ## Wynik
@@ -6,12 +6,15 @@ Gałąź `sesja-fd-tresci` od `claude/sleepy-brahmagupta-2065nu` @ da1e02db + `o
 |---|---|---|---|
 | SC-14 (P2a) | **gotowy szkic** (build z pełnym kontekstem kod 0), Ł/Ś `check`, pl+en | `docs/tresci/szablony-robocze/fd/` | 08-FD-5 (testy `tools/`), 09 (10 języków) — D-1358 |
 | SC-23 | **gotowy szkic** (rodzaj na ekranie), Ł `best-hand` (blockers), pl+en | `docs/tresci/szablony-robocze/fd/` | 08-FD-5 (test pokrycia `pick-hand`), 09 (10 języków) — D-1358 |
-| SC-24, SC-31 | szkic, pl+en (SC-31 z poziomem pasa, D-1438; SC-24: nowe znalezisko FN-N1) | `docs/tresci/szablony-robocze/fd/` | widok `river-catch` z udziałem blefów i ceną (D-1357) |
+| SC-24, SC-31 | szkic, pl+en (SC-31 z poziomem pasa, D-1438; SC-24: FN-N1 naprawione w FQ, D-1464) | `docs/tresci/szablony-robocze/fd/` | widok `river-catch` z udziałem blefów i ceną (D-1357) |
 | SC-07, SC-15, SC-17 | szkic, pl+en | jw. | widok `defend` |
 | SC-09 | szkic, pl+en | jw. | widok limperów (`iso-size`) + 08-FD-2 |
 | SC-10 | szkic, pl+en | jw. | widok `list-hand` |
 | SC-20 (P4a) | szkic `turn-bet`, pl+en | jw. | widok `turn-bet` |
-| SC-13 (P1a), SC-28 (P3a) | spec dla 08 (niżej), treść po silniku | ten plik | 08-FD-3, 08-FD-4 |
+| SC-13 (P1a) | **szkic FQ**, pl+en, `flop-size` Ł `bet-big` (D-1460) | `docs/tresci/szablony-robocze/fq/` | 08-programista-001 (FP) i **08-FQ-1** (ziarno 1108: 20 000 odrzuceń, bramka kod 1) |
+| SC-28 (P3a) | **szkic FQ**, pl+en, `river-value` Ł `bet`, overpara, `dryBoard` (D-1462) | jw. | widok `river-value` (04) i 08-programista-002 (FP) |
+| SC-22, SC-25 | **szkic FQ**, pl+en, `river-value` Ł (`bet` / `check`, D-1462) | jw. | widok `river-value` (04); Ś/T po 08-FQ-2 |
+| SC-29 | **szkic FQ**, pl+en, `river-value` Ł `bet`, R-M10-006 (D-1463) | jw. | widok `river-value` (04) |
 
 Przeniesienie szkicu do bazy: skopiuj `fd/{pl,en}/sc-NN.yaml` do `content/{pl,en}/scenarios/`, dodaj rodzaj do `RODZAJE_NA_EKRANIE` (08), `pnpm content:build`; struktura pl = en jest już sprawdzona.
 
@@ -62,10 +65,18 @@ Przeniesienie szkicu do bazy: skopiuj `fd/{pl,en}/sc-NN.yaml` do `content/{pl,en
 ## Rejestr twierdzeń
 Teksty nowych szablonów i szkiców składają się wyłącznie z pól `then`/`because` reguł już potwierdzonych w `docs/tresci/rejestr.json` (R-M5-012, R-M8-007, R-M8-010, R-M6-001, R-M6-003, R-M6-006, R-M6-007, R-M4-010, R-M4-012, R-M7-006) i liczb z `numbers.yaml` (`{{n:}}`); nowych twierdzeń merytorycznych FD nie wprowadza. Źródła tych reguł przeczytane ponownie dosłownie w dniu pracy (`odczyty/fd-2026-11-12.tsv`). Nowe są tylko: dane zadania (zakresy i udziały blefów, D-1300 — nie twierdzenia) i rachunki wektorów (szczebel 1, `fd_wektory.py`).
 
+## Sesja FQ (2026-11-12, decyzje `docs/decyzje/FQ.md` D-1460…D-1467)
+- **Szkice** `docs/tresci/szablony-robocze/fq/{pl,en}/sc-13, sc-22, sc-25, sc-28, sc-29.yaml`. Bramka: `bash docs/tresci/narzedzia/fq-kontrola-szkicow.sh <wt> fq` → kod 1 tylko przez sc-13 (`dowody/fq-szkice.txt`); bez sc-13 kod 0 (`dowody/fq-szkice-bez-sc13.txt`); struktura pl = en zgodna. Przyczyna sc-13 w silniku: fikstura FL pada na tym samym ziarnie (`dowody/fq-08-fq-1-odtworzenie.txt`, 08-FQ-1).
+- **Źródła:** teksty tylko z pól reguł R-M5-008, R-M8-001, R-M8-002, R-M10-006 (+ progi R-M10-004/005 w sytuacji SC-29) i liczb `{{n:}}`; nowych twierdzeń brak. Źródła tych reguł przeczytane dosłownie 2026-11-12: `odczyty/fq-2026-11-12.tsv` (6/6). Zakresy rywala to dane zadania (D-1300).
+- **FN-N1 (SC-24): naprawione-do-weryfikacji** (D-1464): wyjaśnienia warunkowe pl i en; grep kierunku bez warunku 4 → 0 (`dowody/fq-fn-n1-przed.txt`, `fq-fn-n1-po.txt`); kontrola szkiców FD kod 0 (`dowody/fq-fd-szkice-po-fn-n1.txt`).
+- **Zdania „Liczby” river-catch i defend** (FM-07, D-1465): szkic `docs/tresci/liczby-river-catch-defend.md` (klucze pl/en, wzory zgodne z `requiredEquity` i `mdf` z `numbers.yaml`, miejsce w `liczby.ts`, przypadki testowe dla 08); rachunek `dowody/fq-liczby-rachunek.txt` (1200 wariantów, 0 rozbieżności).
+- **Dla 08:** 08-FQ-1 (pojemność `flop-size`), 08-FQ-2 (`marginMax` w `river-value`), klucz ceny ⅔ (D-1461), podpięcie zdań „Liczby” (D-1465).
+- **Przeniesienie do bazy:** jak FD (skopiuj `fq/{pl,en}/sc-NN.yaml` do `content/{pl,en}/scenarios/`), SC-13 po 08-programista-001 i 08-FQ-1, SC-28 po 08-programista-002 i widoku, SC-22/25/29 po widoku `river-value` (04).
+
 ## Otwarte
 - [DO USTALENIA] (produkt, 03): SC-23 tryb `showdown` (R-M8-006) jako drugi szablon M8 albo poziom — dziś jeden tryb na punkt.
 - [DO USTALENIA] (04): czy dziś pokazywać SC-23 bez zdań „Liczby” (V/F) — tekst wyjaśnienia jest kompletny bez nich.
 - Niezależna weryfikacja (E3) treści SC-14 i SC-23 oraz szkiców: przy najbliższym audycie 06 (fala 2 według `rachunek-szablonow.md` §5).
 
 ## Następny krok
-08: 08-FD-1…4 (widoki z 04, ręka z zakresu dla iso, `flop-size`, `river-value`); 06: przeniesienie szkiców po widokach, treść SC-13 i SC-28 po 08-FD-3/4, fala 3–4 (SC-22, 25, 29, 27, 26, 30, 16, 18, 21).
+Po FQ: 08 — 08-FQ-1, 08-FQ-2, podpięcie „Liczby” (D-1465), klucz ⅔ (D-1461); 04 — widok `river-value`; 06 — fala 3–4 bez SC-22/25/28/29/13 (SC-27, 26, 30, 16, 18, 21). Przed FQ: 08: 08-FD-1…4 (widoki z 04, ręka z zakresu dla iso, `flop-size`, `river-value`); 06: przeniesienie szkiców po widokach, treść SC-13 i SC-28 po 08-FD-3/4, fala 3–4 (SC-22, 25, 29, 27, 26, 30, 16, 18, 21).
