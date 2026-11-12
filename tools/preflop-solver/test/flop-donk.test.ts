@@ -61,3 +61,36 @@ describe('D0: donk OOP na flopie i strategia w węźle ze ścieżki', () => {
     expect(() => solveNative(DONK, 1, { threads: 1, real: 'double', path: ['b9.9'] })).toThrow();
   });
 });
+
+describe('D0: ulica bez przebicia (reguła 12 GB z D-1335)', () => {
+  const turn = parseCards('Kd 9c 5h 2s');
+  const spec: GameSpec = {
+    ...DONK,
+    board: turn,
+    ranges: [rangeFromClasses(OOP, turn), rangeFromClasses(IP, turn)],
+    streets: [{ betsPot: [0.33, 0.75] }, { betsPot: [0.33, 0.75], noRaise: true }],
+    turnCards: undefined,
+    riverCards: [parseCard('Js'), parseCard('3c')],
+  };
+  it('TS: wobec zakładu na riverze tylko pas i sprawdzenie, na turnie przebicie zostaje', () => {
+    const g = new FlopGame(spec);
+    expect(g.strategyAt(['b1.82']).actions).toEqual(['f', 'c', 'r5.45']);
+    expect(g.strategyAt(['x', 'x', '=Js', 'b1.82']).actions).toEqual(['f', 'c']);
+  });
+  it(
+    'C = TS (double) przy riverze bez przebicia',
+    () => {
+      const ts = new FlopGame(spec);
+      ts.run(ITERACJE);
+      const c = solveNative(spec, ITERACJE, { threads: 2, real: 'double' });
+      const r = ts.strategyAt([]);
+      expect(c.root.actions).toEqual(r.actions);
+      let maxD = 0;
+      for (let i = 0; i < r.freqs.length; i++) maxD = Math.max(maxD, Math.abs(r.freqs[i]! - c.root.freqs[i]!));
+      expect(maxD).toBeLessThan(1e-6);
+      expect(Math.abs(c.nashConvPot - ts.stats().nashConvPot)).toBeLessThan(1e-6);
+    },
+    LIMIT_CIEZKI_MS,
+  );
+});
+

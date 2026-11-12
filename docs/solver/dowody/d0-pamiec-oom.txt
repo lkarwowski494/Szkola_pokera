@@ -1,0 +1,4 @@
+[  437.383320] Memory cgroup out of memory: Killed process 1588 (flop-43a4485595) total-vm:13859436kB, anon-rss:13855488kB, file-rss:2076kB, shmem-rss:0kB, UID:0 pgtables:27160kB oom_score_adj:0
+# kontekst: model kandydat (M1 turn/river {33%,75%} z przebiciem ×3 + M3 donk) na btn-vs-bb-srp-k72-rainbow,
+# binarka float, 2026-11-12 ok. 14:38 UTC; proces zabity w budowie drzewa (przed wierszem „drzewo: … MB tablic”),
+# limit cgroup kontenera ok. 14 GB. Wniosek: tablice SRP > 12 GB → reguła D-1335: river bez przebicia (D-1400).

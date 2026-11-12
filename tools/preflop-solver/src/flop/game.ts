@@ -16,6 +16,8 @@ export interface StreetSpec {
   readonly betsPot?: readonly number[];
   /** Pierwszy zakład OOP na tej ulicy (lead, na flopie SRP: donk BB), w bb; brak = rozmiary ulicy (D-1335, M3). */
   readonly oopLeadBb?: readonly number[];
+  /** Bez przebić na tej ulicy (reguła 12 GB z D-1335: river kandydata, D-1400). */
+  readonly noRaise?: boolean;
 }
 
 export interface GameSpec {
@@ -205,7 +207,7 @@ export class FlopGame {
     const called = this.put(st, p, Math.min(st.s[o], st.s[p] + this.remaining(st, p)), st.hist);
     items.push(['c', this.nextStreet(called)]);
     const facingAllIn = this.remaining(st, o) <= 1e-9;
-    if (st.hist === 'b' && this.spec.raiseMult > 0 && !facingAllIn && this.remaining(st, p) > st.s[o] - st.s[p]) {
+    if (st.hist === 'b' && this.spec.raiseMult > 0 && this.spec.streets[st.street]!.noRaise !== true && !facingAllIn && this.remaining(st, p) > st.s[o] - st.s[p]) {
       const amt = this.sized(st, p, this.spec.raiseMult * st.s[o]);
       items.push([`r${fmt(amt)}`, this.build(this.put(st, p, amt, 'r'))]);
     }

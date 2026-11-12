@@ -91,7 +91,7 @@ static double range_[2][NC];
 static double POT, STACK, RAISE_MULT, ALLIN_FRAC, RAKE_RATE, RAKE_CAP;
 static int IP_BET_AFTER_CHECK = 1, OOP_CHECKED_FIRST = 0;
 static int nbets[3], bets_bb[3]; static double bets[3][8];
-static int nlead[3]; static double lead[3][8]; /* pierwszy zakład OOP na ulicy w bb (donk, D-1335 M3); 0 = rozmiary ulicy */
+static int nlead[3]; static double lead[3][8]; static int noraise[3]; /* 1 = ulica bez przebić (D-1400) */ /* pierwszy zakład OOP na ulicy w bb (donk, D-1335 M3); 0 = rozmiary ulicy */
 static int turn_allowed[52], river_allowed[52], has_turn_allowed, has_river_allowed;
 static double ALPHA = 1.5, BETA = 0, GAMMA = 2;
 
@@ -203,7 +203,7 @@ static Node *build(const St *st) {
   double callTo = st->s[o] < st->s[p] + remaining(st, p) ? st->s[o] : st->s[p] + remaining(st, p);
   St c = put(st, p, callTo, st->hist); lab[nA] = strdup("c"); ch[nA++] = next_street(&c);
   int facingAllIn = remaining(st, o) <= 1e-9;
-  if (st->hist == 'b' && RAISE_MULT > 0 && !facingAllIn && remaining(st, p) > st->s[o] - st->s[p]) {
+  if (st->hist == 'b' && RAISE_MULT > 0 && !noraise[st->street] && !facingAllIn && remaining(st, p) > st->s[o] - st->s[p]) {
     double amt = sized(st, p, RAISE_MULT * st->s[o]); St r = put(st, p, amt, 'r');
     lab[nA] = fmt_label('r', amt); ch[nA++] = build(&r);
   }
@@ -382,6 +382,7 @@ int main(int argc, char **argv) {
     bets_bb[s] = bb != NULL; nbets[s] = src ? src->n : 0;
     if (nbets[s] > 8) { fprintf(stderr, "streets: najwyżej 8 rozmiarów\n"); return 1; }
     for (int i = 0; i < nbets[s]; i++) bets[s][i] = src->v[i]->num;
+    noraise[s] = (int)jnum(sts->v[s], "noRaise", 0);
     J *ld = jget(sts->v[s], "oopLeadBb"); nlead[s] = ld ? ld->n : 0;
     if (nlead[s] > 8) { fprintf(stderr, "oopLeadBb: najwyżej 8 rozmiarów\n"); return 1; }
     for (int i = 0; i < nlead[s]; i++) lead[s][i] = ld->v[i]->num;

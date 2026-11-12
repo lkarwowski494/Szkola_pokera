@@ -1,0 +1,41 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+
+ ❯ test/flop-donk.test.ts (5 tests | 1 failed | 3 skipped) 5101ms
+   ❯ D0: ulica bez przebicia (reguła 12 GB z D-1335) (2)
+     × TS: wobec zakładu na riverze tylko pas i sprawdzenie, na turnie przebicie zostaje 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/flop-donk.test.ts > D0: ulica bez przebicia (reguła 12 GB z D-1335) > TS: wobec zakładu na riverze tylko pas i sprawdzenie, na turnie przebicie zostaje
+AssertionError: expected [ 'f', 'c', 'r5.45' ] to deeply equal [ 'f', 'c' ]
+
+- Expected
++ Received
+
+  [
+    "f",
+    "c",
++   "r5.45",
+  ]
+
+ ❯ test/flop-donk.test.ts:78:62
+     76|     const g = new FlopGame(spec);
+     77|     expect(g.strategyAt(['b1.82']).actions).toEqual(['f', 'c', 'r5.45'…
+     78|     expect(g.strategyAt(['x', 'x', '=Js', 'b1.82']).actions).toEqual([…
+       |                                                              ^
+     79|   });
+     80|   it(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed | 3 skipped (5)
+   Start at  14:43:00
+   Duration  5.67s (tests 92%, transform 6%, import 1%)
+
+     × C = TS (double) przy riverze bez przebicia 3205ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected 0.6762867378691451 to be less than 0.000001
+      Tests  1 failed | 1 passed | 3 skipped (5)

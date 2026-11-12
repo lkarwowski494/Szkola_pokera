@@ -1,0 +1,9 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  14:36:33
+   Duration  432ms (transform 83%, import 15%, tests 1%, worker 1%)
+

@@ -4,16 +4,22 @@ import { parseCard } from '@szkola/poker-core';
 import { rangeFromClasses } from '../src/flop/combos';
 import { solveNative } from '../src/flop/native';
 import { w2Metrics } from '../src/flop/w2';
-import { w2Game } from '../src/flop/w2models';
-// użycie: tsx scripts/w2-run.ts STÓŁ [STÓŁ…]   (np. btn-vs-bb-srp-k72-rainbow)
-// Etapy B5/B6 planu B: rozwiązuje stół solverem C i porównuje z siatką BeyondGTO według kryteriów W2 (D-1332).
-// Model gry: D-1333. Zakresy: D-1334. Wynik każdego stołu w targets/w2-results/<stół>.json (poza gitem);
+import { w2Game, W2_MODELS, type W2Model } from '../src/flop/w2models';
+// użycie: tsx scripts/w2-run.ts --model d1333|kandydat|rake0 STÓŁ [STÓŁ…]   (np. btn-vs-bb-srp-k72-rainbow)
+// Etapy B5/B6 planu B i D1/D2 opcji B: rozwiązuje stół solverem C i porównuje z siatką BeyondGTO według kryteriów W2 (D-1332).
+// Model gry: `src/flop/w2models.ts` (D-1333, D-1335). Zakresy: D-1334. Wynik każdego stołu w targets/w2-results/<model>/<stół>.json (poza gitem);
 // istniejący wynik jest pomijany (punkt kontrolny na poziomie stołu).
 // Zbieżność (reguła ustalona przed pomiarem): NashConv sprawdzany co 50 iteracji, stop przy < 0,5% puli, najwyżej 1000.
 
 const ROOT = resolve(import.meta.dirname, '..');
 const TARGETS = resolve(ROOT, 'targets/beyondgto-spots');
-const OUT = resolve(ROOT, 'targets/w2-results');
+const args = process.argv.slice(2);
+const mi = args.indexOf('--model');
+const modelArg = mi >= 0 ? args[mi + 1] : undefined;
+const model = W2_MODELS.find((m) => m === modelArg);
+if (!model) throw new Error(`podaj --model ${W2_MODELS.join('|')} (jest: ${String(modelArg)})`);
+const slugs = args.filter((_, i) => i !== mi && i !== mi + 1);
+const OUT = resolve(ROOT, 'targets/w2-results', model);
 const CANON = resolve(ROOT, '../../content/ranges/preflop-6max-100bb.json');
 const STEP = 50;
 const MAX_IT = 1000;
@@ -66,7 +72,7 @@ const PAIRS: Record<string, { oop: () => Record<string, number>; ip: () => Recor
 };
 
 mkdirSync(OUT, { recursive: true });
-for (const slug of process.argv.slice(2)) {
+for (const slug of slugs) {
   const file = resolve(OUT, `${slug}.json`);
   if (existsSync(file)) {
     console.log(`${slug}: wynik istnieje, pomijam`);
@@ -80,12 +86,12 @@ for (const slug of process.argv.slice(2)) {
   };
   const board = target.board.map(parseCard);
   const heroW = pair.hero === 'ip' ? pair.ip() : pair.oop();
-  const { spec } = w2Game('d1333', pair, board, [rangeFromClasses(pair.oop(), board), rangeFromClasses(pair.ip(), board)], target.mainSizeBb);
+  const { spec, path } = w2Game(model satisfies W2Model, pair, board, [rangeFromClasses(pair.oop(), board), rangeFromClasses(pair.ip(), board)], target.mainSizeBb);
   const t0 = Date.now();
-  const res = solveNative(spec, MAX_IT, { threads: 4, reportEvery: STEP, targetNashConvPot: NC_LIMIT, progress: true });
+  const res = solveNative(spec, MAX_IT, { threads: 4, reportEvery: STEP, targetNashConvPot: NC_LIMIT, progress: true, path });
   const it = res.iterations;
-  const m = w2Metrics(board, heroW, res.root, target.classes);
+  const m = w2Metrics(board, heroW, res.node, target.classes);
   const pass = res.nashConvPot < NC_LIMIT && m.k1 <= 0.05 && m.k2 >= 0.85;
-  writeFileSync(file, JSON.stringify({ slug, spec: { ...spec, ranges: undefined }, iterations: it, nashConvPot: res.nashConvPot, seconds: (Date.now() - t0) / 1000, tableMB: res.tableMB, metrics: m, pass, root: res.root }, null, 1));
-  console.log(`${slug}: K1 ${(m.k1 * 100).toFixed(1)} pp (nasz ${(m.oursBet * 100).toFixed(1)}%, strona ${(m.pageBet * 100).toFixed(1)}%), K2 ${(m.k2 * 100).toFixed(1)}%, NashConv ${(res.nashConvPot * 100).toFixed(3)}%, ${pass ? 'PRZESZEDŁ' : 'NIE PRZESZEDŁ'}`);
+  writeFileSync(file, JSON.stringify({ slug, model, path, spec: { ...spec, ranges: undefined }, iterations: it, nashConvPot: res.nashConvPot, seconds: (Date.now() - t0) / 1000, tableMB: res.tableMB, metrics: m, pass, node: res.node }, null, 1));
+  console.log(`${model} ${slug}: K1 ${(m.k1 * 100).toFixed(1)} pp (nasz ${(m.oursBet * 100).toFixed(1)}%, strona ${(m.pageBet * 100).toFixed(1)}%), K2 ${(m.k2 * 100).toFixed(1)}%, NashConv ${(res.nashConvPot * 100).toFixed(3)}%, ${pass ? 'PRZESZEDŁ' : 'NIE PRZESZEDŁ'}`);
 }

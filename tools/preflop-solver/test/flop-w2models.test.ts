@@ -21,4 +21,24 @@ describe('modele gry W2', () => {
     expect(s.streets[0]).toEqual({ betsBb: [5.6, 14.4] });
     expect(w2Game('d1333', BB3, board, R, 5.4).spec.streets[0]).toEqual({ betsBb: [5.4, 14] });
   });
+
+  it('kandydat (D-1335, D-1400): turn i river 33%/75% puli, river bez przebicia (tablice SRP > 12 GB), SRP z donkiem BB 1,4bb i porównaniem w węźle [x]', () => {
+    const g = w2Game('kandydat', SRP, board, R, 1.4);
+    expect(g.spec.oopCheckedFirst).toBe(false);
+    expect(g.path).toEqual(['x']);
+    expect(g.spec.streets).toEqual([{ betsBb: [1.4, 4.4], oopLeadBb: [1.4] }, { betsPot: [0.33, 0.75] }, { betsPot: [0.33, 0.75], noRaise: true }]);
+    expect([g.spec.raiseMult, g.spec.rakeRate, g.spec.rakeCap]).toEqual([3, 0.05, 3]);
+    const t = w2Game('kandydat', BB3, board, R, 5.4);
+    expect(t.path).toEqual([]);
+    expect(t.spec.oopCheckedFirst).toBe(false);
+    expect(t.spec.streets).toEqual([{ betsBb: [5.4, 14] }, { betsPot: [0.33, 0.75] }, { betsPot: [0.33, 0.75], noRaise: true }]);
+  });
+
+  it('rake0: D-1333 z rake 0, reszta bez zmian', () => {
+    const g = w2Game('rake0', SRP, board, R, 1.4);
+    const d = w2Game('d1333', SRP, board, R, 1.4);
+    expect([g.spec.rakeRate, g.spec.rakeCap]).toEqual([0, 0]);
+    expect({ ...g.spec, rakeRate: 0.05, rakeCap: 3 }).toEqual(d.spec);
+    expect(g.path).toEqual(d.path);
+  });
 });

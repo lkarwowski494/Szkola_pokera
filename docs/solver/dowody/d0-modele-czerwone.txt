@@ -1,0 +1,58 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+
+ ❯ test/flop-w2models.test.ts (3 tests | 2 failed) 9ms
+   ❯ modele gry W2 (3)
+     × kandydat (D-1335): turn i river 33%/75% puli, SRP z donkiem BB 1,4bb i porównaniem w węźle [x] 4ms
+     × rake0: D-1333 z rake 0, reszta bez zmian 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/flop-w2models.test.ts > modele gry W2 > kandydat (D-1335): turn i river 33%/75% puli, SRP z donkiem BB 1,4bb i porównaniem w węźle [x]
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ test/flop-w2models.test.ts:27:36
+     25|   it('kandydat (D-1335): turn i river 33%/75% puli, SRP z donkiem BB 1…
+     26|     const g = w2Game('kandydat', SRP, board, R, 1.4);
+     27|     expect(g.spec.oopCheckedFirst).toBe(false);
+       |                                    ^
+     28|     expect(g.path).toEqual(['x']);
+     29|     expect(g.spec.streets).toEqual([{ betsBb: [1.4, 4.4], oopLeadBb: […
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/flop-w2models.test.ts > modele gry W2 > rake0: D-1333 z rake 0, reszta bez zmian
+AssertionError: expected [ 0.05, 3 ] to deeply equal [ +0, +0 ]
+
+- Expected
++ Received
+
+  [
+-   0,
+-   0,
++   0.05,
++   3,
+  ]
+
+ ❯ test/flop-w2models.test.ts:40:47
+     38|     const g = w2Game('rake0', SRP, board, R, 1.4);
+     39|     const d = w2Game('d1333', SRP, board, R, 1.4);
+     40|     expect([g.spec.rakeRate, g.spec.rakeCap]).toEqual([0, 0]);
+       |                                               ^
+     41|     expect({ ...g.spec, rakeRate: 0.05, rakeCap: 3 }).toEqual(d.spec);
+     42|     expect(g.path).toEqual(d.path);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  14:36:25
+   Duration  357ms (transform 78%, import 17%, tests 4%, worker 1%)
+
