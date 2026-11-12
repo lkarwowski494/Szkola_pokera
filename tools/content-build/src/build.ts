@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { komunikatBledu } from './blad';
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
@@ -102,9 +103,7 @@ function readYaml(path: string): unknown {
   return parseYaml(readFileSync(path, 'utf8'));
 }
 
-function fmt(err: unknown): string {
-  return err instanceof Error ? err.message : String(err);
-}
+const fmt = komunikatBledu;
 
 /** Zamienia błędy Zod na czytelną listę ścieżek. */
 function parseOrThrow<T>(schema: { safeParse(v: unknown): { success: true; data: T } | { success: false; error: { issues: { path: PropertyKey[]; message: string }[] } } }, value: unknown, where: string): T {
@@ -750,7 +749,7 @@ export function compileEvalRules(
       // FC FA-002 (D-1340): params.heroPositions sprawdzane przy kompilacji reguły, nie dopiero w grze (zła wartość psułaby ocenę albo po cichu wyłączała regułę);
       // pozycje muszą należeć do nazw stołów reguły (check.players; bez niego do wszystkich stołów 2–9), wielkość liter ma znaczenie („HJ”, nie „hj”)
       let pozycje: string[] | null;
-      try { pozycje = parseHeroPositions(params.heroPositions); } catch (e) { throw new Error(`${where}: ${(e as Error).message}`); }
+      try { pozycje = parseHeroPositions(params.heroPositions); } catch (e) { throw new Error(`${where}: ${komunikatBledu(e)}`); }
       const nazwyStolow = new Set((c.players ?? Object.keys(POSITION_NAMES).map(Number)).flatMap((n) => positionNames(n)));
       for (const poz of pozycje ?? []) if (!nazwyStolow.has(poz)) throw new Error(`${where}: heroPositions: nieznana pozycja ${poz} (dozwolone: ${[...nazwyStolow].join(', ')})`);
     }

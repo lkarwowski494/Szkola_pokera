@@ -3,6 +3,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
+import { komunikatBledu } from './blad';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
 import { akcjeSzablonu, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
@@ -189,7 +190,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${t.positions.hero} wobec ${t.positions.villain})`);
         if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${t.positions.hero} wobec ${t.positions.villain})`);
         let lista: string[] | null = null;
-        try { lista = parseHeroPositions(ctx.cbetHeroPositions?.get(d.rule)); } catch (err) { e.push(`${p} reguła ${d.rule}: ${(err as Error).message}`); }
+        try { lista = parseHeroPositions(ctx.cbetHeroPositions?.get(d.rule)); } catch (err) { e.push(`${p} reguła ${d.rule}: ${komunikatBledu(err)}`); }
         if (lista && !lista.includes(t.positions.hero)) e.push(`${p} reguła ${d.rule} ma heroPositions ${lista.join(',')}, a gracz jest na ${t.positions.hero}`);
       }
       if (new Set(d.actions.map((a) => a.action)).size !== d.actions.length) e.push(`${p} akcja powtórzona`);
@@ -360,7 +361,7 @@ export function checkScenarioGenerator(
     try {
       for (let seed = 1; seed <= proby; seed++) odciski.add(generateVariant(g, level, seed, ctx).fingerprint);
     } catch (err) {
-      e.push(`szablon ${t.id}: poziom ${level}: generator nie wytwarza wariantów (${err instanceof Error ? err.message : String(err)})`);
+      e.push(`szablon ${t.id}: poziom ${level}: generator nie wytwarza wariantów (${komunikatBledu(err)})`);
       continue;
     }
     // D-1040 / KO-074: szablon bez flopu (tylko range-spot i size-spot): odcisk to klasa ręki, więc próg to min(próg, liczba klas z eligibleClasses)
