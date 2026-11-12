@@ -1,0 +1,6 @@
+FI zad. 0 — ef-margines-ko076.test.ts, test "z equityMarginMin 0.02: 0 wariantów..." (Linux, node v22.23.4, vitest, 2026-11-12)
+Przed (262e8af0): 2758 ms (test 1: 2657 ms); limit 5000 ms; CI ubuntu-latest przekroczył go (Test timed out in 5000ms).
+Profil: generateVariant x10000 = 1181 ms (118 µs/wariant, nie jest wolny); wyrocznia margines() ≈ 1,5 s — dla każdego losowania
+  przeszukuje 169 klas z HAND_CLASSES.indexOf (O(169*169) na losowanie), choć wynik zależy tylko od (spot, akcja, klasa) = 169 wartości.
+Poprawka: pamięć podręczna wyroczni po (spot|akcja|klasa); te same 10 000 losowań, te same asercje, limit czasu bez zmian.
+Po: 911 ms (test 1: 835 ms), 4/4 zielone. Zysk ≈ 3x; zapas do limitu 5 s ≈ 5,5x.

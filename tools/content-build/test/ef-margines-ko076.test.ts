@@ -24,7 +24,16 @@ const wobecLosowej = (i: number): number => {
   return s / w;
 };
 const e = eq.classes.map((_c, i) => wobecLosowej(i));
+const pamiec = new Map<string, number>(); // margines zależy tylko od (spot, akcja, klasa): 169 klas, nie 10 000 losowań
 function margines(spotId: string, expected: string, hc: string): number {
+  const klucz = `${spotId}|${expected}|${hc}`;
+  const znany = pamiec.get(klucz);
+  if (znany !== undefined) return znany;
+  const m = marginesWprost(spotId, expected, hc);
+  pamiec.set(klucz, m);
+  return m;
+}
+function marginesWprost(spotId: string, expected: string, hc: string): number {
   const spot = spots.find((x) => x.id === spotId)!;
   const a = spot.actions.findIndex((x) => x.label === expected);
   const i = eq.classes.indexOf(hc);
