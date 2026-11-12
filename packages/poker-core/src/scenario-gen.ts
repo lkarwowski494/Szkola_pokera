@@ -624,6 +624,10 @@ export function czysteOuty(hero: readonly Card[], villain: readonly Card[], turn
   return wygrywajace;
 }
 
+/** Silna gotowa ręka gracza (turn-bet, flop-size): układ od dwóch par wzwyż albo nadpara / najwyższa para z kickerem ≥ Q (08-EL-1, D-1256). */
+function silnaZrobiona(h: ReturnType<typeof classifyHolding>): boolean {
+  return h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || (h.pairKind === 'top' && (h.kicker ?? -1) >= TURN_BET_KICKER_MIN)));
+}
 function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, seed: number, rng: () => number, ctx: GeneratorContext | undefined): ScenarioVariant | null {
   const first = t.decisions[0]!;
   let hero: [Card, Card];
@@ -765,7 +769,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const h = classifyHolding(hero, turn);
       // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143); „strong” tylko z pary (nadpara, najwyższa para z kickerem ≥ Q), nie z samych outów (EI-001)
       // 08-EL-1 (D-1256): najwyższa para tylko z kickerem ≥ Q (bez TPWK i średniego kickera)
-      const zrobiona = h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || (h.pairKind === 'top' && (h.kicker ?? -1) >= TURN_BET_KICKER_MIN)));
+      const zrobiona = silnaZrobiona(h);
       if (!zrobiona || !zKarta) return null;
       const draw = analyseOutsSpot(villain, turn);
       if (!draw || !(b.draws as readonly string[]).includes(draw.draw.kind) || classifyHolding(villain, turn).improvesBoard) return null;
