@@ -1,0 +1,23 @@
+pnpm run ci @ 1555f486, kod wyjścia 0, 2026-11-12 (merge EQ 1bef600b + EN b429eb33; EH-3, EL-1, EL-3, EL-4)
+Pierwszy przebieg na ce5006a8: kod 1 (scenario-gen.test.ts wzorzec wersji 4), naprawione w 1555f486.
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  24 passed (24)
+packages/poker-core test:       Tests  245 passed (245)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  63 passed (63)
+tools/content-build test:       Tests  678 passed | 1 expected fail (679)
+apps/mobile test: Test Suites: 128 passed, 128 total
+apps/mobile test: Tests:       1313 passed, 1313 total
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+0 błędów, 1 uwag
+0 braków
+exit 0
