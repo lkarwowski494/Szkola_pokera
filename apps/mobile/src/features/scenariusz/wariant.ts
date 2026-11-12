@@ -387,3 +387,12 @@ export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, w
     ? [{ rodzaj: 'dobrze', akcja: wybor, tekst: tekst(wybor) }, ...akcjePunktu(d, spec).filter((a) => a !== wybor).map((a): Blok => ({ rodzaj: 'dlaczego_nie', akcja: a, tekst: tekst(a) }))]
     : [{ rodzaj: 'slabsza', akcja: wybor, tekst: tekst(wybor) }, { rodzaj: 'lepsza', akcja: poprawna, tekst: tekst(poprawna) }];
 }
+
+/**
+ * FW-01 (D-1501, logika): zakres sprawdzenia rywala w punkcie river-value to dana zadania (klasy `calls` w kolejności szablonu); `folds` nie są pokazywane.
+ * null dla innego punktu albo indeksu poza szablonem. Zdanie `scenario.riverValue.calls` czeka na klucze we wszystkich słownikach (09, KO-097).
+ */
+export function zakresSprawdzenia(szablon: ScenarioTemplate, i: number): readonly string[] | null {
+  const spec = szablon.decisions[i];
+  return spec?.kind === 'river-value' ? spec.calls : null;
+}

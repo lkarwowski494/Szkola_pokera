@@ -151,6 +151,7 @@ function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn):
     return [...pasy, t('play.log.allin', { pos: rywal, bb: formatujLiczbe(u.stosRywalaBb, jezykZadan()) })].join('. ');
   }
   if (d.point === 'cbet-case') return t('play.log.check', { pos: rywal });
+  if (d.point === 'river-value') return t('play.log.check', { pos: rywal }); // FW-02 (D-1501): river-value jest z pozycji, rywal czekał przed twoją decyzją
   const spec = s.szablon.decisions[i];
   return d.point === 'size-spot' && spec?.kind === 'size-spot' && d.check === 'three-bet-size' && spec.openBb !== undefined ? t('play.log.raise', { pos: rywal, bb: formatujLiczbe(spec.openBb, jezykZadan()) }) : null;
 }
