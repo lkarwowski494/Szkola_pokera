@@ -665,6 +665,13 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     rest = dealCards(rng, 7, hero);
     // wąska tekstura poziomu (SC-11 łatwy: ok. 0,4% flopów) razem z ręką z zakresu zjadłaby limit odrzuceń z rzędu: flop dolosowujemy do tekstury (tanio, bez klasyfikacji ręki)
     for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
+  } else if (first.kind === 'size-spot' && first.check === 'iso-size') {
+    // 08-FD-2 (SC-09, D-1415): „masz rękę, którą przebijasz” — ręka gracza pochodzi z zakresu otwarcia jego pozycji (spot rfi.<pozycja>, jak w cbet-case),
+    // a nie z całej talii (72o z CO uczyłoby izolacji ręką spoza zakresu). Brak spotu (np. BB: nie ma rfi.bb) to błąd szablonu, nie cichy powrót do talii.
+    if (!ctx) throw new TemplateError(`${t.id}: punkt iso-size wymaga danych zakresów (GeneratorContext)`);
+    if (!t.positions) throw new TemplateError(`${t.id}: punkt iso-size wymaga positions (zakres otwarcia gracza)`);
+    hero = handFromRange(t.id, ctx, `rfi.${t.positions.hero.toLowerCase()}`, rng, 'zakres otwarcia gracza');
+    rest = dealCards(rng, 7, hero);
   } else {
     const cards = dealCards(rng, 9);
     hero = [cards[0]!, cards[1]!];
