@@ -14,7 +14,15 @@ export interface NativeResult {
   readonly seconds: number;
   readonly decisionNodes: number;
   readonly tableMB: number;
-  readonly root: { readonly player: 0 | 1; readonly actions: readonly string[]; readonly freqs: readonly number[] };
+  readonly root: NativeStrategy;
+  /** Średnia strategia w węźle ze ścieżki `NativeOpts.path` (bez ścieżki = korzeń). */
+  readonly node: NativeStrategy;
+}
+
+export interface NativeStrategy {
+  readonly player: 0 | 1;
+  readonly actions: readonly string[];
+  readonly freqs: readonly number[];
 }
 
 export interface NativeOpts {
@@ -27,6 +35,8 @@ export interface NativeOpts {
   readonly progress?: boolean;
   /** Typ regretów w C: float (domyślnie, mniej pamięci) albo double (testy różnicowe z TS, który liczy w float64). */
   readonly real?: 'float' | 'double';
+  /** Ścieżka akcji od korzenia do węzła, którego strategię zwraca `node` (np. ['x'] = IP po czekaniu OOP w SRP z donkiem). */
+  readonly path?: readonly string[];
 }
 
 const SOURCE = resolve(import.meta.dirname, '../../native/flop.c');
@@ -52,15 +62,19 @@ function num(o: object, k: string): number {
   return v;
 }
 
+function parseStrategy(raw: object, key: 'root' | 'node'): NativeStrategy {
+  const s: unknown = key in raw ? Reflect.get(raw, key) : undefined;
+  if (typeof s !== 'object' || s === null) throw new Error(`solver C: brak ${key}`);
+  if (!('actions' in s) || !Array.isArray(s.actions) || !s.actions.every((a): a is string => typeof a === 'string')) throw new Error(`solver C: ${key}.actions`);
+  if (!('freqs' in s) || !Array.isArray(s.freqs) || !s.freqs.every((a): a is number => typeof a === 'number')) throw new Error(`solver C: ${key}.freqs`);
+  const player = num(s, 'player');
+  if (player !== 0 && player !== 1) throw new Error(`solver C: ${key}.player`);
+  return { player, actions: s.actions, freqs: s.freqs };
+}
+
 /** Sprawdza wynik solvera C przy wejściu do TS (dane z pliku = unknown). */
 export function parseNativeResult(raw: unknown): NativeResult {
   if (typeof raw !== 'object' || raw === null) throw new Error('solver C: wynik nie jest obiektem');
-  if (!('root' in raw) || typeof raw.root !== 'object' || raw.root === null) throw new Error('solver C: brak root');
-  const root = raw.root;
-  if (!('actions' in root) || !Array.isArray(root.actions) || !root.actions.every((a): a is string => typeof a === 'string')) throw new Error('solver C: root.actions');
-  if (!('freqs' in root) || !Array.isArray(root.freqs) || !root.freqs.every((a): a is number => typeof a === 'number')) throw new Error('solver C: root.freqs');
-  const player = num(root, 'player');
-  if (player !== 0 && player !== 1) throw new Error('solver C: root.player');
   return {
     iterations: num(raw, 'iterations'),
     nashConv: num(raw, 'nashConv'),
@@ -69,7 +83,8 @@ export function parseNativeResult(raw: unknown): NativeResult {
     seconds: num(raw, 'seconds'),
     decisionNodes: num(raw, 'decisionNodes'),
     tableMB: num(raw, 'tableMB'),
-    root: { player, actions: root.actions, freqs: root.freqs },
+    root: parseStrategy(raw, 'root'),
+    node: parseStrategy(raw, 'node'),
   };
 }
 
@@ -93,6 +108,7 @@ export function nativeInput(spec: GameSpec, iterations: number, opts: NativeOpts
     threads: opts.threads ?? 0,
     reportEvery: opts.reportEvery ?? 0,
     targetNashConvPot: opts.targetNashConvPot ?? 0,
+    path: opts.path ?? [],
   });
 }
 

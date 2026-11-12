@@ -91,6 +91,7 @@ static double range_[2][NC];
 static double POT, STACK, RAISE_MULT, ALLIN_FRAC, RAKE_RATE, RAKE_CAP;
 static int IP_BET_AFTER_CHECK = 1, OOP_CHECKED_FIRST = 0;
 static int nbets[3], bets_bb[3]; static double bets[3][8];
+static int nlead[3]; static double lead[3][8]; /* pierwszy zakład OOP na ulicy w bb (donk, D-1335 M3); 0 = rozmiary ulicy */
 static int turn_allowed[52], river_allowed[52], has_turn_allowed, has_river_allowed;
 static double ALPHA = 1.5, BETA = 0, GAMMA = 2;
 
@@ -186,8 +187,10 @@ static Node *build(const St *st) {
     else { lab[nA] = strdup("x"); ch[nA++] = next_street(st); }
     if (st->hist == 0 || IP_BET_AFTER_CHECK) {
       double potNow = POT + st->c[0] + st->c[1]; double seen[8]; int ns = 0;
-      for (int i = 0; i < nbets[st->street]; i++) {
-        double raw = bets_bb[st->street] ? bets[st->street][i] : bets[st->street][i] * potNow;
+      int useLead = p == 0 && st->hist == 0 && nlead[st->street] > 0;
+      int nb = useLead ? nlead[st->street] : nbets[st->street];
+      for (int i = 0; i < nb; i++) {
+        double raw = useLead ? lead[st->street][i] : bets_bb[st->street] ? bets[st->street][i] : bets[st->street][i] * potNow;
         double amt = sized(st, p, raw); double key = round(amt * 1e6); int dup = 0;
         for (int j = 0; j < ns; j++) if (seen[j] == key) dup = 1;
         if (amt <= 0 || dup) continue;
@@ -335,6 +338,31 @@ static double value(const Node *root, int p, int mode) {
   free(v); return s / pairs_weight();
 }
 
+/* średnia strategia węzła decyzji jako "nazwa":{player, actions, freqs[kombinacja × akcja]} */
+static void write_strategy(FILE *o, const char *name, const Node *r) {
+  double *sig = malloc((size_t)nact[r->p] * r->nA * sizeof(double)); sigma(r, 1, sig);
+  fprintf(o, "\"%s\":{\"player\":%d,\"actions\":[", name, r->p);
+  for (int a = 0; a < r->nA; a++) fprintf(o, "%s\"%s\"", a ? "," : "", r->labels[a]);
+  fprintf(o, "],\"freqs\":[");
+  for (int i = 0; i < NC; i++) for (int a = 0; a < r->nA; a++) {
+    int q = pos[r->p][i]; double x = q >= 0 ? sig[q * r->nA + a] : 0;
+    fprintf(o, "%s%.7g", (i || a) ? "," : "", x);
+  }
+  fprintf(o, "]}");
+  free(sig);
+}
+
+/* węzeł decyzji po ścieżce akcji (etykiety jak w game.ts strategyAt, bez gałęzi losowych); NULL = brak */
+static const Node *node_at(const Node *n, J *path) {
+  for (int k = 0; path && k < path->n; k++) {
+    if (n->k != 'd' || path->v[k]->t != 's') return NULL;
+    int found = -1; for (int a = 0; a < n->nA; a++) if (!strcmp(n->labels[a], path->v[k]->str)) found = a;
+    if (found < 0) return NULL;
+    n = n->ch[found];
+  }
+  return n->k == 'd' ? n : NULL;
+}
+
 int main(int argc, char **argv) {
   if (argc < 3) { fprintf(stderr, "użycie: flop wejście.json wyjście.json\n"); return 1; }
   FILE *f = fopen(argv[1], "rb"); if (!f) { perror(argv[1]); return 1; }
@@ -352,7 +380,11 @@ int main(int argc, char **argv) {
   for (int s = 0; s < sts->n; s++) {
     J *bb = jget(sts->v[s], "betsBb"), *bp = jget(sts->v[s], "betsPot"), *src = bb ? bb : bp;
     bets_bb[s] = bb != NULL; nbets[s] = src ? src->n : 0;
+    if (nbets[s] > 8) { fprintf(stderr, "streets: najwyżej 8 rozmiarów\n"); return 1; }
     for (int i = 0; i < nbets[s]; i++) bets[s][i] = src->v[i]->num;
+    J *ld = jget(sts->v[s], "oopLeadBb"); nlead[s] = ld ? ld->n : 0;
+    if (nlead[s] > 8) { fprintf(stderr, "oopLeadBb: najwyżej 8 rozmiarów\n"); return 1; }
+    for (int i = 0; i < nlead[s]; i++) lead[s][i] = ld->v[i]->num;
   }
   J *tc = jget(in, "turnCards"); if (tc) { has_turn_allowed = 1; for (int i = 0; i < tc->n; i++) turn_allowed[(int)tc->v[i]->num] = 1; }
   J *rc = jget(in, "riverCards"); if (rc) { has_river_allowed = 1; for (int i = 0; i < rc->n; i++) river_allowed[(int)rc->v[i]->num] = 1; }
@@ -377,6 +409,8 @@ int main(int argc, char **argv) {
   St st; memset(&st, 0, sizeof st); for (int i = 0; i < nb0; i++) st.board[i] = board0[i]; st.nb = nb0;
   if (OOP_CHECKED_FIRST) { st.toAct = 1; st.hist = 'x'; }
   Node *root = build(&st);
+  const Node *node = node_at(root, jget(in, "path"));
+  if (!node) { fprintf(stderr, "path: brak węzła decyzji na tej ścieżce\n"); return 4; }
   clock_gettime(CLOCK_MONOTONIC, &t1);
   fprintf(stderr, "drzewo: %ld węzłów decyzji, %zu MB tablic, %.1f s; aktywne kombinacje OOP %d, IP %d\n", n_dec, bytes_tab >> 20,
           (t1.tv_sec - t0.tv_sec) + (t1.tv_nsec - t0.tv_nsec) / 1e9, nact[0], nact[1]);
@@ -402,16 +436,10 @@ int main(int argc, char **argv) {
   FILE *o = fopen(argv[2], "w"); if (!o) { perror(argv[2]); return 1; }
   fprintf(o, "{\"iterations\":%d,\"nashConv\":%.10g,\"nashConvPot\":%.10g,\"valueOop\":%.10g,\"seconds\":%.3f,\"decisionNodes\":%ld,\"tableMB\":%zu,\n",
           iters, nashconv, nashconv / POT, v0, secs, n_dec, bytes_tab >> 20);
-  const Node *r = root;
-  double *sig = malloc((size_t)nact[r->p] * r->nA * sizeof(double)); sigma(r, 1, sig);
-  fprintf(o, "\"root\":{\"player\":%d,\"actions\":[", r->p);
-  for (int a = 0; a < r->nA; a++) fprintf(o, "%s\"%s\"", a ? "," : "", r->labels[a]);
-  fprintf(o, "],\"freqs\":[");
-  for (int i = 0; i < NC; i++) for (int a = 0; a < r->nA; a++) {
-    int q = pos[r->p][i]; double x = q >= 0 ? sig[q * r->nA + a] : 0;
-    fprintf(o, "%s%.7g", (i || a) ? "," : "", x);
-  }
-  fprintf(o, "]}}\n");
+  write_strategy(o, "root", root);
+  fprintf(o, ",\n");
+  write_strategy(o, "node", node);
+  fprintf(o, "}\n");
   fclose(o);
   return 0;
 }

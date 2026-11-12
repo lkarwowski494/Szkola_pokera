@@ -14,6 +14,8 @@ import { DEFAULT_DCFR, type DcfrParams } from '../solver';
 export interface StreetSpec {
   readonly betsBb?: readonly number[];
   readonly betsPot?: readonly number[];
+  /** Pierwszy zakład OOP na tej ulicy (lead, na flopie SRP: donk BB), w bb; brak = rozmiary ulicy (D-1335, M3). */
+  readonly oopLeadBb?: readonly number[];
 }
 
 export interface GameSpec {
@@ -173,7 +175,8 @@ export class FlopGame {
   private bets(st: StreetState, p: 0 | 1): [string, Node][] {
     const sp = this.spec.streets[st.street]!;
     const potNow = this.spec.pot + st.c[0] + st.c[1];
-    const raw = sp.betsBb ? [...sp.betsBb] : (sp.betsPot ?? []).map((f) => f * potNow);
+    const lead = p === 0 && st.hist === '' ? sp.oopLeadBb : undefined;
+    const raw = lead ? [...lead] : sp.betsBb ? [...sp.betsBb] : (sp.betsPot ?? []).map((f) => f * potNow);
     const seen = new Set<number>();
     const out: [string, Node][] = [];
     for (const b of raw) {

@@ -1,0 +1,63 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+
+ ❯ test/flop-donk.test.ts (3 tests | 3 failed) 26780ms
+   ❯ D0: donk OOP na flopie i strategia w węźle ze ścieżki (3)
+     × drzewo TS: OOP ma własne rozmiary pierwszego zakładu, IP po czekaniu rozmiary ulicy 41ms
+     × C = TS (double): korzeń i węzeł [x] przy donku 26696ms
+     × C: ścieżka do nieistniejącej akcji kończy się błędem, nie strategią korzenia 41ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/flop-donk.test.ts > D0: donk OOP na flopie i strategia w węźle ze ścieżki > drzewo TS: OOP ma własne rozmiary pierwszego zakładu, IP po czekaniu rozmiary ulicy
+AssertionError: expected [ 'x', 'b1.4', 'b4.4' ] to deeply equal [ 'x', 'b1.4' ]
+
+- Expected
++ Received
+
+  [
+    "x",
+    "b1.4",
++   "b4.4",
+  ]
+
+ ❯ test/flop-donk.test.ts:33:38
+     31|   it('drzewo TS: OOP ma własne rozmiary pierwszego zakładu, IP po czek…
+     32|     const g = new FlopGame(DONK);
+     33|     expect(g.strategyAt([]).actions).toEqual(['x', 'b1.4']);
+       |                                      ^
+     34|     expect(g.strategyAt(['x']).actions).toEqual(['x', 'b1.4', 'b4.4']);
+     35|     expect(g.strategyAt(['b1.4']).actions).toEqual(['f', 'c', 'r4.2']);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/flop-donk.test.ts > D0: donk OOP na flopie i strategia w węźle ze ścieżki > C = TS (double): korzeń i węzeł [x] przy donku
+TypeError: Cannot read properties of undefined (reading 'player')
+ ❯ test/flop-donk.test.ts:49:21
+     47|       const tx = ts.strategyAt(['x']);
+     48|       expect(c.root.actions).toEqual(tr.actions);
+     49|       expect(c.node.player).toBe(1);
+       |                     ^
+     50|       expect(c.node.actions).toEqual(tx.actions);
+     51|       expect(c.node.freqs.length).toBe(NC * tx.actions.length);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  test/flop-donk.test.ts > D0: donk OOP na flopie i strategia w węźle ze ścieżki > C: ścieżka do nieistniejącej akcji kończy się błędem, nie strategią korzenia
+AssertionError: expected [Function] to throw an error
+ ❯ test/flop-donk.test.ts:61:88
+     59|
+     60|   it('C: ścieżka do nieistniejącej akcji kończy się błędem, nie strate…
+     61|     expect(() => solveNative(DONK, 1, { threads: 1, real: 'double', pa…
+       |                                                                                        ^
+     62|   });
+     63| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  14:33:50
+   Duration  27.34s (tests 98%, transform 1%)
+
