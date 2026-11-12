@@ -1,0 +1,10 @@
+pnpm run ci @ 08b92f1 (sesja FL), kod wyjścia 0, 2026-11-12
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  290 passed (290)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  720 passed | 1 expected fail (721)
+      Tests  35 passed (35)
+CI_EXIT=0

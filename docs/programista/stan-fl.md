@@ -1,0 +1,3 @@
+# Stan sesji FL (08-programista, build) — 2026-11-12
+Gałąź `sesja-fl-silnik` od 56a7ac7. Zrobione: 08-FD-2 (iso-size), 08-FD-4/EX-1/2 (classComboSplit, river-value), 08-FD-3/EX-4 (flop-size), schemat + bramka + test CZ, widok flop-size (jak turn-bet, `play.bet`). river-value: tylko silnik (brak widoku, czeka na FM). Decyzje D-1415…D-1421 w `docs/decyzje/FL.md`. CI: `docs/programista/dowody/fl-ci-08b92f1.txt` (kod 0). Przegląd świeżym kontekstem content-build: brak uwag.
+Otwarte: widok river-value (rola 04/FM); „Liczby” dla flop-size i river-value (klucze i18n, 06/09); GENERATOR_WERSJA bez zmiany (brak treści z nowymi rodzajami).
