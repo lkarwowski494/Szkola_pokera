@@ -1,0 +1,938 @@
+
+===== pl decyzja (correct=bet) =====
+      <View role=button>
+        <Text>
+          "Zakończ"
+      <Text role=header>
+        "Scenariusz"
+      <Text>
+        "River"
+    <View role=list label="Etapy rozdania">
+      <Text>
+        "✓ Preflop"
+      <Text>
+        "✓ Flop"
+      <Text>
+        "✓ Turn"
+      <Text>
+        "River"
+    <View role=image label="Ty: BTN, karty król pik, król karo. Rywal: BB. Odkryte karty: 2 kier, walet trefl, 6 trefl, 4 pik, dama kier.">
+          <Text>
+            "BB · rywal · 100 bb"
+          <View label="2 kier">
+            <Text>
+              "2"
+            <Text>
+              "♥"
+          <View label="walet trefl">
+            <Text>
+              "J"
+            <Text>
+              "♣"
+          <View label="6 trefl">
+            <Text>
+              "6"
+            <Text>
+              "♣"
+          <View label="4 pik">
+            <Text>
+              "4"
+            <Text>
+              "♠"
+          <View label="dama kier">
+            <Text>
+              "Q"
+            <Text>
+              "♥"
+          <View label="król pik">
+            <Text>
+              "K"
+            <Text>
+              "♠"
+          <View label="król karo">
+            <Text>
+              "K"
+            <Text>
+              "♦"
+          <Text>
+            "BTN · ty · 100 bb"
+    <View role=list label="Przebieg rozdania">
+      <Text>
+        "Twój ruch"
+      <View role=none>
+        <View role=button label="Czekanie (check)" id=option-0>
+          <Text>
+            "Czekanie (check)"
+        <View role=button label="Zakład (bet)" id=option-1>
+          <Text>
+            "Zakład (bet)"
+
+===== pl ocena-zgodna (correct=bet) =====
+      <View role=button>
+        <Text>
+          "Zakończ"
+      <Text role=header>
+        "Scenariusz"
+      <Text>
+        "River"
+    <View role=list label="Etapy rozdania">
+      <Text>
+        "✓ Preflop"
+      <Text>
+        "✓ Flop"
+      <Text>
+        "✓ Turn"
+      <Text>
+        "River"
+    <View role=image label="Ty: BTN, karty król pik, król karo. Rywal: BB. Odkryte karty: 2 kier, walet trefl, 6 trefl, 4 pik, dama kier.">
+          <Text>
+            "BB · rywal · 100 bb"
+          <View label="2 kier">
+            <Text>
+              "2"
+            <Text>
+              "♥"
+          <View label="walet trefl">
+            <Text>
+              "J"
+            <Text>
+              "♣"
+          <View label="6 trefl">
+            <Text>
+              "6"
+            <Text>
+              "♣"
+          <View label="4 pik">
+            <Text>
+              "4"
+            <Text>
+              "♠"
+          <View label="dama kier">
+            <Text>
+              "Q"
+            <Text>
+              "♥"
+          <View label="król pik">
+            <Text>
+              "K"
+            <Text>
+              "♠"
+          <View label="król karo">
+            <Text>
+              "K"
+            <Text>
+              "♦"
+          <Text>
+            "BTN · ty · 100 bb"
+    <View role=list label="Przebieg rozdania">
+      <View role=none>
+        <Text>
+          "River"
+          <Text>
+            "BTN: zakład (bet)"
+        <Text>
+          "✓ Zgodna"
+          <View label="Ocena: Zgodna">
+            <Text>
+              "✓"
+            <Text>
+              "Zgodna"
+          <Text>
+            "Twój wybór: zakład (bet)."
+        <Text role=header>
+          "Dlaczego „zakład (bet)” to dobre zagranie"
+          <Text>
+            "Masz"
+            " "
+              <View label="król pik">
+                <Text>
+                  "K"
+                <Text>
+                  "♠"
+              <View label="król karo">
+                <Text>
+                  "K"
+                <Text>
+                  "♦"
+          <Text>
+            "na"
+            " "
+          <Text>
+            "Button"
+            " "
+          <Text>
+            "(BTN),"
+            " "
+              <View label="2 kier">
+                <Text>
+                  "2"
+                <Text>
+                  "♥"
+              <View label="walet trefl">
+                <Text>
+                  "J"
+                <Text>
+                  "♣"
+              <View label="6 trefl">
+                <Text>
+                  "6"
+                <Text>
+                  "♣"
+              <View label="4 pik">
+                <Text>
+                  "4"
+                <Text>
+                  "♠"
+              <View label="dama kier">
+                <Text>
+                  "Q"
+                <Text>
+                  "♥"
+          <Text>
+            ","
+            " "
+          <Text>
+            "więcej"
+            " "
+          <Text>
+            "sprawdzających"
+            " "
+          <Text>
+            "rąk"
+            " "
+          <Text>
+            "jest"
+            " "
+          <Text>
+            "gorszych"
+            " "
+          <Text>
+            "od"
+            " "
+          <Text>
+            "twojej"
+            " "
+          <Text>
+            "niż"
+            " "
+          <Text>
+            "lepszych."
+            " "
+        <View role=button id=dlaczego-nie>
+          <Text>
+            "Dlaczego nie „czekanie (check)”"
+          <Text>
+            "⌄"
+      <View role=image label="Oceny akcji: Czekanie (check) błąd, Zakład (bet) zgodna, twój wybór.">
+          <Text>
+            "Czekanie (check)"
+          <Text>
+            "✗ Błąd"
+          <Text>
+            "Zakład (bet)"
+          <Text>
+            "✓ Zgodna"
+          <Text>
+            "twój wybór"
+      <View role=button>
+        <Text>
+          "Zobacz podsumowanie"
+
+===== pl ocena-blad (correct=bet) =====
+      <View role=button>
+        <Text>
+          "Zakończ"
+      <Text role=header>
+        "Scenariusz"
+      <Text>
+        "River"
+    <View role=list label="Etapy rozdania">
+      <Text>
+        "✓ Preflop"
+      <Text>
+        "✓ Flop"
+      <Text>
+        "✓ Turn"
+      <Text>
+        "River"
+    <View role=image label="Ty: BTN, karty król pik, król karo. Rywal: BB. Odkryte karty: 2 kier, walet trefl, 6 trefl, 4 pik, dama kier.">
+          <Text>
+            "BB · rywal · 100 bb"
+          <View label="2 kier">
+            <Text>
+              "2"
+            <Text>
+              "♥"
+          <View label="walet trefl">
+            <Text>
+              "J"
+            <Text>
+              "♣"
+          <View label="6 trefl">
+            <Text>
+              "6"
+            <Text>
+              "♣"
+          <View label="4 pik">
+            <Text>
+              "4"
+            <Text>
+              "♠"
+          <View label="dama kier">
+            <Text>
+              "Q"
+            <Text>
+              "♥"
+          <View label="król pik">
+            <Text>
+              "K"
+            <Text>
+              "♠"
+          <View label="król karo">
+            <Text>
+              "K"
+            <Text>
+              "♦"
+          <Text>
+            "BTN · ty · 100 bb"
+    <View role=list label="Przebieg rozdania">
+      <View role=none>
+        <Text>
+          "River"
+          <Text>
+            "BTN: czeka (check)"
+        <Text>
+          "✗ Błąd"
+          <View label="Ocena: Błąd">
+            <Text>
+              "✗"
+            <Text>
+              "Błąd"
+          <Text>
+            "Twój wybór: czekanie (check). Lepiej: zakład (bet)."
+        <Text role=header>
+          "Dlaczego „czekanie (check)” to słabsze zagranie"
+          <Text>
+            "Masz"
+            " "
+              <View label="król pik">
+                <Text>
+                  "K"
+                <Text>
+                  "♠"
+              <View label="król karo">
+                <Text>
+                  "K"
+                <Text>
+                  "♦"
+          <Text>
+            "na"
+            " "
+          <Text>
+            "Button"
+            " "
+          <Text>
+            "(BTN),"
+            " "
+              <View label="2 kier">
+                <Text>
+                  "2"
+                <Text>
+                  "♥"
+              <View label="walet trefl">
+                <Text>
+                  "J"
+                <Text>
+                  "♣"
+              <View label="6 trefl">
+                <Text>
+                  "6"
+                <Text>
+                  "♣"
+              <View label="4 pik">
+                <Text>
+                  "4"
+                <Text>
+                  "♠"
+              <View label="dama kier">
+                <Text>
+                  "Q"
+                <Text>
+                  "♥"
+          <Text>
+            ","
+            " "
+          <Text>
+            "sprawdzą"
+            " "
+          <Text>
+            "głównie"
+            " "
+          <Text>
+            "lepsze"
+            " "
+          <Text>
+            "ręce."
+            " "
+        <Text role=header>
+          "Dlaczego „zakład (bet)” to lepsze zagranie"
+          <Text>
+            "Masz"
+            " "
+              <View label="król pik">
+                <Text>
+                  "K"
+                <Text>
+                  "♠"
+              <View label="król karo">
+                <Text>
+                  "K"
+                <Text>
+                  "♦"
+          <Text>
+            "na"
+            " "
+          <Text>
+            "Button"
+            " "
+          <Text>
+            "(BTN),"
+            " "
+              <View label="2 kier">
+                <Text>
+                  "2"
+                <Text>
+                  "♥"
+              <View label="walet trefl">
+                <Text>
+                  "J"
+                <Text>
+                  "♣"
+              <View label="6 trefl">
+                <Text>
+                  "6"
+                <Text>
+                  "♣"
+              <View label="4 pik">
+                <Text>
+                  "4"
+                <Text>
+                  "♠"
+              <View label="dama kier">
+                <Text>
+                  "Q"
+                <Text>
+                  "♥"
+          <Text>
+            ","
+            " "
+          <Text>
+            "więcej"
+            " "
+          <Text>
+            "sprawdzających"
+            " "
+          <Text>
+            "rąk"
+            " "
+          <Text>
+            "jest"
+            " "
+          <Text>
+            "gorszych"
+            " "
+          <Text>
+            "od"
+            " "
+          <Text>
+            "twojej"
+            " "
+          <Text>
+            "niż"
+            " "
+          <Text>
+            "lepszych."
+            " "
+      <View role=image label="Oceny akcji: Czekanie (check) błąd, twój wybór, Zakład (bet) zgodna.">
+          <Text>
+            "Czekanie (check)"
+          <Text>
+            "✗ Błąd"
+          <Text>
+            "twój wybór"
+          <Text>
+            "Zakład (bet)"
+          <Text>
+            "✓ Zgodna"
+      <View role=button>
+        <Text>
+          "Zobacz podsumowanie"
+
+===== en decyzja (correct=bet) =====
+      <View role=button>
+        <Text>
+          "Finish"
+      <Text role=header>
+        "Scenario"
+      <Text>
+        "River"
+    <View role=list label="Stages of the hand">
+      <Text>
+        "✓ Preflop"
+      <Text>
+        "✓ Flop"
+      <Text>
+        "✓ Turn"
+      <Text>
+        "River"
+    <View role=image label="You: BTN, cards king of spades, king of diamonds. Opponent: BB. Cards on the table: 2 of hearts, jack of clubs, 6 of clubs, 4 of spades, queen of hearts.">
+          <Text>
+            "BB · opponent · 100 bb"
+          <View label="2 of hearts">
+            <Text>
+              "2"
+            <Text>
+              "♥"
+          <View label="jack of clubs">
+            <Text>
+              "J"
+            <Text>
+              "♣"
+          <View label="6 of clubs">
+            <Text>
+              "6"
+            <Text>
+              "♣"
+          <View label="4 of spades">
+            <Text>
+              "4"
+            <Text>
+              "♠"
+          <View label="queen of hearts">
+            <Text>
+              "Q"
+            <Text>
+              "♥"
+          <View label="king of spades">
+            <Text>
+              "K"
+            <Text>
+              "♠"
+          <View label="king of diamonds">
+            <Text>
+              "K"
+            <Text>
+              "♦"
+          <Text>
+            "BTN · you · 100 bb"
+    <View role=list label="Hand history">
+      <Text>
+        "Your move"
+      <View role=none>
+        <View role=button label="Check" id=option-0>
+          <Text>
+            "Check"
+        <View role=button label="Bet" id=option-1>
+          <Text>
+            "Bet"
+
+===== en ocena-zgodna (correct=bet) =====
+      <View role=button>
+        <Text>
+          "Finish"
+      <Text role=header>
+        "Scenario"
+      <Text>
+        "River"
+    <View role=list label="Stages of the hand">
+      <Text>
+        "✓ Preflop"
+      <Text>
+        "✓ Flop"
+      <Text>
+        "✓ Turn"
+      <Text>
+        "River"
+    <View role=image label="You: BTN, cards king of spades, king of diamonds. Opponent: BB. Cards on the table: 2 of hearts, jack of clubs, 6 of clubs, 4 of spades, queen of hearts.">
+          <Text>
+            "BB · opponent · 100 bb"
+          <View label="2 of hearts">
+            <Text>
+              "2"
+            <Text>
+              "♥"
+          <View label="jack of clubs">
+            <Text>
+              "J"
+            <Text>
+              "♣"
+          <View label="6 of clubs">
+            <Text>
+              "6"
+            <Text>
+              "♣"
+          <View label="4 of spades">
+            <Text>
+              "4"
+            <Text>
+              "♠"
+          <View label="queen of hearts">
+            <Text>
+              "Q"
+            <Text>
+              "♥"
+          <View label="king of spades">
+            <Text>
+              "K"
+            <Text>
+              "♠"
+          <View label="king of diamonds">
+            <Text>
+              "K"
+            <Text>
+              "♦"
+          <Text>
+            "BTN · you · 100 bb"
+    <View role=list label="Hand history">
+      <View role=none>
+        <Text>
+          "River"
+          <Text>
+            "BTN: bet"
+        <Text>
+          "✓ Aligned"
+          <View label="Grade: Aligned">
+            <Text>
+              "✓"
+            <Text>
+              "Aligned"
+          <Text>
+            "Your choice: bet."
+        <Text role=header>
+          "Why “bet” is a good play"
+          <Text>
+            "Masz"
+            " "
+              <View label="king of spades">
+                <Text>
+                  "K"
+                <Text>
+                  "♠"
+              <View label="king of diamonds">
+                <Text>
+                  "K"
+                <Text>
+                  "♦"
+          <Text>
+            "na"
+            " "
+          <Text>
+            "button"
+            " "
+          <Text>
+            "(BTN),"
+            " "
+              <View label="2 of hearts">
+                <Text>
+                  "2"
+                <Text>
+                  "♥"
+              <View label="jack of clubs">
+                <Text>
+                  "J"
+                <Text>
+                  "♣"
+              <View label="6 of clubs">
+                <Text>
+                  "6"
+                <Text>
+                  "♣"
+              <View label="4 of spades">
+                <Text>
+                  "4"
+                <Text>
+                  "♠"
+              <View label="queen of hearts">
+                <Text>
+                  "Q"
+                <Text>
+                  "♥"
+          <Text>
+            ","
+            " "
+          <Text>
+            "więcej"
+            " "
+          <Text>
+            "sprawdzających"
+            " "
+          <Text>
+            "rąk"
+            " "
+          <Text>
+            "jest"
+            " "
+          <Text>
+            "gorszych"
+            " "
+          <Text>
+            "od"
+            " "
+          <Text>
+            "twojej"
+            " "
+          <Text>
+            "niż"
+            " "
+          <Text>
+            "lepszych."
+            " "
+        <View role=button id=dlaczego-nie>
+          <Text>
+            "Why not “check”"
+          <Text>
+            "⌄"
+      <View role=image label="Grades of the actions: Check mistake, Bet aligned, your choice.">
+          <Text>
+            "Check"
+          <Text>
+            "✗ Mistake"
+          <Text>
+            "Bet"
+          <Text>
+            "✓ Aligned"
+          <Text>
+            "your choice"
+      <View role=button>
+        <Text>
+          "See the summary"
+
+===== en ocena-blad (correct=bet) =====
+      <View role=button>
+        <Text>
+          "Finish"
+      <Text role=header>
+        "Scenario"
+      <Text>
+        "River"
+    <View role=list label="Stages of the hand">
+      <Text>
+        "✓ Preflop"
+      <Text>
+        "✓ Flop"
+      <Text>
+        "✓ Turn"
+      <Text>
+        "River"
+    <View role=image label="You: BTN, cards king of spades, king of diamonds. Opponent: BB. Cards on the table: 2 of hearts, jack of clubs, 6 of clubs, 4 of spades, queen of hearts.">
+          <Text>
+            "BB · opponent · 100 bb"
+          <View label="2 of hearts">
+            <Text>
+              "2"
+            <Text>
+              "♥"
+          <View label="jack of clubs">
+            <Text>
+              "J"
+            <Text>
+              "♣"
+          <View label="6 of clubs">
+            <Text>
+              "6"
+            <Text>
+              "♣"
+          <View label="4 of spades">
+            <Text>
+              "4"
+            <Text>
+              "♠"
+          <View label="queen of hearts">
+            <Text>
+              "Q"
+            <Text>
+              "♥"
+          <View label="king of spades">
+            <Text>
+              "K"
+            <Text>
+              "♠"
+          <View label="king of diamonds">
+            <Text>
+              "K"
+            <Text>
+              "♦"
+          <Text>
+            "BTN · you · 100 bb"
+    <View role=list label="Hand history">
+      <View role=none>
+        <Text>
+          "River"
+          <Text>
+            "BTN: checks"
+        <Text>
+          "✗ Mistake"
+          <View label="Grade: Mistake">
+            <Text>
+              "✗"
+            <Text>
+              "Mistake"
+          <Text>
+            "Your choice: check. Better: bet."
+        <Text role=header>
+          "Why “check” is the weaker play"
+          <Text>
+            "Masz"
+            " "
+              <View label="king of spades">
+                <Text>
+                  "K"
+                <Text>
+                  "♠"
+              <View label="king of diamonds">
+                <Text>
+                  "K"
+                <Text>
+                  "♦"
+          <Text>
+            "na"
+            " "
+          <Text>
+            "button"
+            " "
+          <Text>
+            "(BTN),"
+            " "
+              <View label="2 of hearts">
+                <Text>
+                  "2"
+                <Text>
+                  "♥"
+              <View label="jack of clubs">
+                <Text>
+                  "J"
+                <Text>
+                  "♣"
+              <View label="6 of clubs">
+                <Text>
+                  "6"
+                <Text>
+                  "♣"
+              <View label="4 of spades">
+                <Text>
+                  "4"
+                <Text>
+                  "♠"
+              <View label="queen of hearts">
+                <Text>
+                  "Q"
+                <Text>
+                  "♥"
+          <Text>
+            ","
+            " "
+          <Text>
+            "sprawdzą"
+            " "
+          <Text>
+            "głównie"
+            " "
+          <Text>
+            "lepsze"
+            " "
+          <Text>
+            "ręce."
+            " "
+        <Text role=header>
+          "Why “bet” is the better play"
+          <Text>
+            "Masz"
+            " "
+              <View label="king of spades">
+                <Text>
+                  "K"
+                <Text>
+                  "♠"
+              <View label="king of diamonds">
+                <Text>
+                  "K"
+                <Text>
+                  "♦"
+          <Text>
+            "na"
+            " "
+          <Text>
+            "button"
+            " "
+          <Text>
+            "(BTN),"
+            " "
+              <View label="2 of hearts">
+                <Text>
+                  "2"
+                <Text>
+                  "♥"
+              <View label="jack of clubs">
+                <Text>
+                  "J"
+                <Text>
+                  "♣"
+              <View label="6 of clubs">
+                <Text>
+                  "6"
+                <Text>
+                  "♣"
+              <View label="4 of spades">
+                <Text>
+                  "4"
+                <Text>
+                  "♠"
+              <View label="queen of hearts">
+                <Text>
+                  "Q"
+                <Text>
+                  "♥"
+          <Text>
+            ","
+            " "
+          <Text>
+            "więcej"
+            " "
+          <Text>
+            "sprawdzających"
+            " "
+          <Text>
+            "rąk"
+            " "
+          <Text>
+            "jest"
+            " "
+          <Text>
+            "gorszych"
+            " "
+          <Text>
+            "od"
+            " "
+          <Text>
+            "twojej"
+            " "
+          <Text>
+            "niż"
+            " "
+          <Text>
+            "lepszych."
+            " "
+      <View role=image label="Grades of the actions: Check mistake, your choice, Bet aligned.">
+          <Text>
+            "Check"
+          <Text>
+            "✗ Mistake"
+          <Text>
+            "your choice"
+          <Text>
+            "Bet"
+          <Text>
+            "✓ Aligned"
+      <View role=button>
+        <Text>
+          "See the summary"
