@@ -1,0 +1,10 @@
+# CI na ed6369be (B4), 2026-11-12: kod 1 — limity.test.ts potraktował „}, 60);” w flop-native.test.ts jak limit czasu; naprawione w b0926e55.
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  255 passed (255)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+tools/preflop-solver test:  FAIL  test/limity.test.ts > limity czasu testów solvera > LIMIT_CIEZKI_MS ≥ 180 s; żaden test nie ma limitu wpisanego liczbą poniżej niego
+tools/preflop-solver test:       Tests  1 failed | 55 passed (56)
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/preflop-solver@0.1.0 test: `vitest run`
+exit=1
