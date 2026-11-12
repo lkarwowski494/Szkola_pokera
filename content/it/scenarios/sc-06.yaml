@@ -17,7 +17,7 @@ decisions:
     rule: R-M3-009
     actions:
       - action: "raise 3"
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}} fino a te. {{t:raise|Rilanci}}, perché ormai giochi solo contro il {{t:big-blind}}; dopo il flop parli per primo, quindi {{t:open|apri}} più o meno largo come dal bottone, circa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} delle mani, e questa mano è tra queste."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}} fino a te. {{t:raise|Rilanci}}, perché ormai giochi solo contro il {{t:big-blind}}; dopo il flop parli per primo, quindi {{t:open|apri}} più o meno largo come dal Button, circa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} delle mani, e questa mano è tra queste."
       - action: fold
         explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e tutti hanno {{t:fold|foldato}} fino a te. Il {{t:fold}} è troppo prudente: il solver di solito {{t:raise|rilancia}} questa mano. Ormai giochi solo contro il {{t:big-blind}}, quindi dallo {{t:small-blind}} {{t:open|apri}} largo, circa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} delle mani."
   - street: preflop

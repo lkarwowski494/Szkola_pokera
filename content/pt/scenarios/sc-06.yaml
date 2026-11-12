@@ -17,7 +17,7 @@ decisions:
     rule: R-M3-009
     actions:
       - action: "raise 3"
-        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e todos {{t:fold|desistiram}} até si. {{t:raise|Aumenta}}, porque já só joga contra o {{t:big-blind}}; depois do flop fala primeiro, por isso {{t:open|abre}} mais ou menos tão largo como do botão, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos, e esta mão está entre elas."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e todos {{t:fold|desistiram}} até si. {{t:raise|Aumenta}}, porque já só joga contra o {{t:big-blind}}; depois do flop fala primeiro, por isso {{t:open|abre}} mais ou menos tão largo como do Button, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos, e esta mão está entre elas."
       - action: fold
         explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e todos {{t:fold|desistiram}} até si. {{t:fold|Desistir}} é demasiado cauteloso: o solver costuma {{t:raise|aumentar}} com esta mão. Já só joga contra o {{t:big-blind}}, por isso do {{t:small-blind}} {{t:open|abre}} largo, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos."
   - street: preflop

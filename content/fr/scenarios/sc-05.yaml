@@ -2,7 +2,7 @@
 # Struktura jak pl (content/pl/scenarios/sc-05.yaml).
 id: sc-05
 module: m3
-situation: "Vous êtes au Button, et tout le monde avant vous s'est {{t:fold|couché}}."
+situation: "Vous êtes au Bouton, et tout le monde avant vous s'est {{t:fold|couché}}."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -25,9 +25,9 @@ decisions:
     rule: R-M3-003
     actions:
       - action: "raise 2.5"
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Vous {{t:open|ouvrez}}, car il ne reste que les blindes et après le flop vous aurez la {{t:position}} ; depuis le Button, vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Vous {{t:open|ouvrez}}, car il ne reste que les blindes et après le flop vous aurez la {{t:position}} ; depuis le Bouton, vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
       - action: fold
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Se {{t:fold|coucher}} est trop prudent : le solver {{t:open|ouvre}} généralement cette main. Il ne reste que les blindes et après le flop vous aurez la {{t:position}}, donc depuis le Button vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et tout le monde avant vous s'est {{t:fold|couché}}. Se {{t:fold|coucher}} est trop prudent : le solver {{t:open|ouvre}} généralement cette main. Il ne reste que les blindes et après le flop vous aurez la {{t:position}}, donc depuis le Bouton vous {{t:open|ouvrez}} large, environ {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} des mains."
   - street: flop
     kind: cbet-case
     rule: R-M5-004

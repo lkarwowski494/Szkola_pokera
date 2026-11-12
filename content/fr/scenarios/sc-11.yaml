@@ -1,7 +1,7 @@
 # sc-11: French text of content/pl/scenarios/sc-11.yaml (role 06, session CO, 2026-11-11; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-11
 module: m5
-situation: "Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind}} a {{t:call|payé}} et fait {{t:check}} sur un flop haut et {{t:dry|sec}}."
+situation: "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|payé}} et fait {{t:check}} sur un flop haut et {{t:dry|sec}}."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100

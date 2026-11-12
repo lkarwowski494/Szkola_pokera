@@ -2,7 +2,7 @@
 # Rola 06, sesja EH, 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-08.yaml); jeden poziom (D-1034), pojemność wg D-1040.
 id: sc-08
 module: m4
-situation: "Vous êtes en {{t:small-blind}}, et le Button a {{t:open|ouvert}} à {{n:pf.open-size}}."
+situation: "Vous êtes en {{t:small-blind}}, et le Bouton a {{t:open|ouvert}} à {{n:pf.open-size}}."
 table: 6max
 positions: { hero: SB, villain: BTN }
 stackBb: 100
@@ -16,11 +16,11 @@ decisions:
     rule: R-M4-003
     actions:
       - action: "raise 10"
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Button a {{t:open|ouvert}}. Vous 3-bettez, car cette main est dans le haut de la {{t:range}} que vous 3-bettez depuis la {{t:small-blind}} : après un {{t:call}}, vous joueriez {{t:out-of-position}}, et la {{t:big-blind}} derrière vous peut encore {{t:raise|relancer}} ; le 3-bet vous donne l'{{t:initiative}} et une chance de remporter le {{t:pot}} tout de suite."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Bouton a {{t:open|ouvert}}. Vous 3-bettez, car cette main est dans le haut de la {{t:range}} que vous 3-bettez depuis la {{t:small-blind}} : après un {{t:call}}, vous joueriez {{t:out-of-position}}, et la {{t:big-blind}} derrière vous peut encore {{t:raise|relancer}} ; le 3-bet vous donne l'{{t:initiative}} et une chance de remporter le {{t:pot}} tout de suite."
       - action: "call 2.5"
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Button a {{t:open|ouvert}}. Depuis la {{t:small-blind}} face au Button, vous ne {{t:call|suivez}} presque jamais : après un {{t:call}}, vous jouez {{t:out-of-position}}, et la {{t:big-blind}} derrière vous peut encore {{t:raise|relancer}}. Cette main, vous la 3-bettez, car le 3-bet vous donne l'{{t:initiative}} et une chance de remporter le {{t:pot}} tout de suite."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Bouton a {{t:open|ouvert}}. Depuis la {{t:small-blind}} face au Bouton, vous ne {{t:call|suivez}} presque jamais : après un {{t:call}}, vous jouez {{t:out-of-position}}, et la {{t:big-blind}} derrière vous peut encore {{t:raise|relancer}}. Cette main, vous la 3-bettez, car le 3-bet vous donne l'{{t:initiative}} et une chance de remporter le {{t:pot}} tout de suite."
       - action: fold
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Button a {{t:open|ouvert}}. Se {{t:fold|coucher}} est trop prudent : cette main est dans le haut de la {{t:range}} que vous 3-bettez depuis la {{t:small-blind}} (environ {{n:pf.3bet-freq.sb-vs-btn}} des mains). Le 3-bet vous donne l'{{t:initiative}} et une chance de remporter le {{t:pot}} tout de suite."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Bouton a {{t:open|ouvert}}. Se {{t:fold|coucher}} est trop prudent : cette main est dans le haut de la {{t:range}} que vous 3-bettez depuis la {{t:small-blind}} (environ {{n:pf.3bet-freq.sb-vs-btn}} des mains). Le 3-bet vous donne l'{{t:initiative}} et une chance de remporter le {{t:pot}} tout de suite."
   - street: preflop
     kind: size-spot
     check: three-bet-size
@@ -28,8 +28,8 @@ decisions:
     openBb: 2.5
     actions:
       - action: raise
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous 3-bettez l'{{t:open|ouverture}} du Button. Vous {{t:raise|relancez}} à environ {{n:pf.3bet.size-oop}} l'{{t:open|ouverture}}, soit à {{n:pf.3bet.oop-total}}, car après le flop vous parlerez en premier ; avec une {{t:raise|relance}} plus grande, vous privez donc votre adversaire d'un {{t:call}} bon marché {{t:in-position}}."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous 3-bettez l'{{t:open|ouverture}} du Bouton. Vous {{t:raise|relancez}} à environ {{n:pf.3bet.size-oop}} l'{{t:open|ouverture}}, soit à {{n:pf.3bet.oop-total}}, car après le flop vous parlerez en premier ; avec une {{t:raise|relance}} plus grande, vous privez donc votre adversaire d'un {{t:call}} bon marché {{t:in-position}}."
       - action: raise-small
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous 3-bettez l'{{t:open|ouverture}} du Button. Cette taille est une imprécision : après le flop vous parlerez en premier, donc vous {{t:raise|relancez}} à environ {{n:pf.3bet.size-oop}} l'{{t:open|ouverture}} ({{n:pf.3bet.oop-total}}) ; une {{t:raise|relance}} plus petite offre à votre adversaire un {{t:call}} bon marché {{t:in-position}}."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous 3-bettez l'{{t:open|ouverture}} du Bouton. Cette taille est une imprécision : après le flop vous parlerez en premier, donc vous {{t:raise|relancez}} à environ {{n:pf.3bet.size-oop}} l'{{t:open|ouverture}} ({{n:pf.3bet.oop-total}}) ; une {{t:raise|relance}} plus petite offre à votre adversaire un {{t:call}} bon marché {{t:in-position}}."
       - action: raise-big
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous 3-bettez l'{{t:open|ouverture}} du Button. Cette taille est une imprécision : environ {{n:pf.3bet.size-oop}} l'{{t:open|ouverture}} ({{n:pf.3bet.oop-total}}) suffit ; cette taille prive déjà votre adversaire d'un {{t:call}} bon marché {{t:in-position}}, et une plus grande risque plus de {{t:chips}} avec la même main."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous 3-bettez l'{{t:open|ouverture}} du Bouton. Cette taille est une imprécision : environ {{n:pf.3bet.size-oop}} l'{{t:open|ouverture}} ({{n:pf.3bet.oop-total}}) suffit ; cette taille prive déjà votre adversaire d'un {{t:call}} bon marché {{t:in-position}}, et une plus grande risque plus de {{t:chips}} avec la même main."
