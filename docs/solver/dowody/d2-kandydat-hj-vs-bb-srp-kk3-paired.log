@@ -1,0 +1,6 @@
+drzewo: 864270 węzłów decyzji, 5164 MB tablic, 2.4 s; aktywne kombinacje OOP 374, IP 297
+it 50: 192.7 s, NashConv 5.6669% puli
+it 100: 384.0 s, NashConv 1.6512% puli
+it 150: 573.5 s, NashConv 0.6318% puli
+it 200: 763.3 s, NashConv 0.3445% puli
+kandydat hj-vs-bb-srp-kk3-paired: K1 0.6 pp (nasz 99.4%, strona 100.0%), K2 99.4%, NashConv 0.344%, PRZESZEDŁ

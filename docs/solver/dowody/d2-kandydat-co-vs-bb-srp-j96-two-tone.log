@@ -1,0 +1,5 @@
+drzewo: 864270 węzłów decyzji, 6611 MB tablic, 3.2 s; aktywne kombinacje OOP 473, IP 386
+it 50: 244.7 s, NashConv 3.8053% puli
+it 100: 492.6 s, NashConv 0.9314% puli
+it 150: 742.1 s, NashConv 0.4192% puli
+kandydat co-vs-bb-srp-j96-two-tone: K1 10.6 pp (nasz 46.2%, strona 56.8%), K2 84.2%, NashConv 0.419%, NIE PRZESZEDŁ

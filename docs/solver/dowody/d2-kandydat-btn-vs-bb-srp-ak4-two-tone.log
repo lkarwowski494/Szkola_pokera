@@ -1,0 +1,5 @@
+drzewo: 864270 węzłów decyzji, 7996 MB tablic, 12.0 s; aktywne kombinacje OOP 528, IP 511
+it 50: 318.3 s, NashConv 3.1027% puli
+it 100: 599.3 s, NashConv 0.8513% puli
+it 150: 879.0 s, NashConv 0.4470% puli
+kandydat btn-vs-bb-srp-ak4-two-tone: K1 5.3 pp (nasz 34.2%, strona 39.5%), K2 89.9%, NashConv 0.447%, NIE PRZESZEDŁ

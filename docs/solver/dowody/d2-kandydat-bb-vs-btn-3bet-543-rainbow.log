@@ -1,0 +1,6 @@
+drzewo: 620056 węzłów decyzji, 3827 MB tablic, 1.7 s; aktywne kombinacje OOP 370, IP 348
+it 50: 140.8 s, NashConv 3.6986% puli
+it 100: 283.3 s, NashConv 1.1094% puli
+it 150: 427.6 s, NashConv 0.5093% puli
+it 200: 570.7 s, NashConv 0.2749% puli
+kandydat bb-vs-btn-3bet-543-rainbow: K1 47.5 pp (nasz 60.5%, strona 13.1%), K2 52.5%, NashConv 0.275%, NIE PRZESZEDŁ

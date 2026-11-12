@@ -50,3 +50,25 @@ Obserwacje (bez wniosku o modelu):
 - Pierwszy przebieg tła został przerwany limitem 2 h po 5 stołach kandydata; brakujące 2 stoły dokończono w osobnym przebiegu (skrypt pomija gotowe stoły, stąd linia „wynik istnieje, pomijam” w części logów).
 
 Następny krok: D2 (7 stołów odłożonych, model kandydujący bez zmian), kryteria D-1332, próg ≥ 5/7.
+
+## D2: nowy przesiew na 7 stołach odłożonych (model kandydujący, kryteria D-1332)
+
+Stoły z reguły mechanicznej (`plan-b5-diagnoza.md` pkt 3), model bez zmian po D1. NashConv < 0,5% puli na wszystkich (maks. 0,47%).
+
+| Stół | Zakład nasz / strona | K1 | K2 | Wynik |
+|---|---|---|---|---|
+| `btn-vs-bb-srp-ak4-two-tone` | 34,2% / 39,5% | 5,3 pp | 89,9% | nie (K1) |
+| `co-vs-bb-srp-j96-two-tone` | 46,2% / 56,8% | 10,6 pp | 84,2% | nie |
+| `hj-vs-bb-srp-kk3-paired` | 99,4% / 100,0% | 0,6 pp | 99,4% | przeszedł |
+| `utg-vs-bb-srp-qjt-two-tone` | 97,1% / 93,0% | 4,1 pp | 95,4% | przeszedł |
+| `bb-vs-btn-3bet-543-rainbow` | 60,5% / 13,1% | 47,5 pp | 52,5% | nie |
+| `bb-vs-co-3bet-873-two-tone` | 80,3% / 47,7% | 32,6 pp | 67,3% | nie |
+| `sb-vs-btn-3bet-987-two-tone` | 24,2% / 0,1% | 24,1 pp | 75,9% | nie |
+| **Przeszło** | | | | **2/7 (próg 5/7): STOP** |
+
+Źródło: ostatnie linie `docs/solver/dowody/d2-kandydat-<stół>.log`.
+
+Obserwacje (bez zmiany modelu):
+- SRP: 2/4 przeszły, ak4 o 0,3 pp ponad progiem K1, j96 o 5,6 pp. Średnie |K1| w SRP 5,2 pp.
+- 3BP: 0/3, a rozjazd jest duży i w jedną stronę: nasz 3-betujący zakłada dużo częściej niż strona (+24…+47 pp). Strona na niskich, połączonych flopach (543, 987) prawie nie c-betuje. W D1 też najgorsze 3BP to 987 (+22,7 pp). To zgodne z H-B w wariancie 3BP: zakres sprawdzającego 3-bet pochodzi z kanonu (D-1334), a nie z drzewa BeyondGTO; inny zakres obrońcy zmienia przewagę zakresu na niskich flopach. Hipotezy nie da się sprawdzić bez opublikowanego zakresu (otwarte pytanie).
+- Koszt D2: 80,2 min CPU (7 stołów, 8,8–14,7 min), 0 zł.
