@@ -13,7 +13,10 @@ const blad = (t: ScenarioTemplate) => checkScenarioTemplate(t, 'sc-fx-pick-hand.
 describe('KO-072: bramka pick-hand', () => {
   it('fixture przechodzi', () => { expect(checkScenarioTemplate(fx.template, fx.file, sctx)).toEqual([]); });
   it('tryb spoza showdown/blockers odrzuca schemat', () => { expect(() => kopia((b) => { b.decisions[0].mode = 'inny'; })).toThrow(); });
-  it('akcje to dokładnie hand-a i hand-b', () => { expect(blad(kopia((b) => { b.decisions[0].actions[1].action = 'hand-a'; }))).toMatch(/dokładnie hand-a i hand-b/); });
+  it('wyjaśnienia to dokładnie best-hand i other-hand (rola, nie strona A/B; EP-001)', () => {
+    expect(() => kopia((b) => { b.decisions[0].actions[0].action = 'hand-a'; })).toThrow();
+    expect(blad(kopia((b) => { b.decisions[0].actions[1].action = 'best-hand'; }))).toMatch(/dokładnie best-hand i other-hand/);
+  });
   it('klasa w calls i w folds naraz', () => { expect(blad(kopia((b) => { b.decisions[0].folds = ['AA', '76s']; }))).toMatch(/klasa AA w calls i w folds/); });
   it('nieznana klasa ręki', () => { expect(blad(kopia((b) => { b.decisions[0].calls = ['AAx']; }))).toMatch(/nieznana klasa ręki AAx/); });
   it('oczekiwana akcja punktu to best-hand', () => { expect(blad(kopia((b) => { b.bounds.latwy.expected = ['call']; }))).toMatch(/best-hand/); });

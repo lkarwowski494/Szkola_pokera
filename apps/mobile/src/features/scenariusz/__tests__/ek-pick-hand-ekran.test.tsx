@@ -22,8 +22,8 @@ const SZABLON = {
     street: 'river', kind: 'pick-hand', calc: 'bluff.share.bet-half', mode: 'blockers',
     calls: ['AA', 'KK', 'QQ', 'JJ', 'TT', 'AKs', 'AKo', 'AQs'], folds: ['98s', '87s', '76s', '65s', 'T9s', 'J9s', 'QJs'],
     actions: [
-      { action: 'hand-a', explanation: 'Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: ta ręka blokuje sprawdzające.' },
-      { action: 'hand-b', explanation: 'Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: ta ręka zasłania pasujące.' },
+      { action: 'best-hand', explanation: 'Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: ta ręka jest lepsza, blokuje sprawdzające.' },
+      { action: 'other-hand', explanation: 'Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: ta ręka jest gorsza, zasłania pasujące.' },
     ],
   }],
 } as unknown as ScenarioTemplate;
@@ -54,13 +54,24 @@ describe('KO-072: pick-hand — logika widoku', () => {
       expect(widokDecyzji(w, 0).ulica).toBe('river');
     }
   });
-  it('wyjaśnienia: {{w:reka}} to ręka tej akcji (A albo B), nie zawsze pierwsza', () => {
-    const w = wariant(3);
-    const p = punkt(w);
-    const b = bloki(w, SZABLON, 0, p.correct, t);
-    const tekst = b.find((x) => x.akcja === 'hand-b')?.tekst ?? '';
-    expect(tekst).toContain(`[[${reka(p.hands[1])}]]`);
-    expect(b.find((x) => x.akcja === 'hand-a')?.tekst ?? '').toContain(`[[${reka(p.hands[0])}]]`);
+  it('wyjaśnienia kluczowane rolą (EP-001): tekst „lepszej” przy poprawnej stronie, „gorszej” przy drugiej, z kartami tej strony, dla obu losowych stron', () => {
+    const strony = new Set<string>();
+    for (let z = 1; z <= 40; z++) {
+      const w = wariant(z);
+      const p = punkt(w);
+      strony.add(p.correct);
+      const druga: Akcja = p.correct === 'hand-a' ? 'hand-b' : 'hand-a';
+      const idx = (a: Akcja) => (a === 'hand-b' ? 1 : 0);
+      const b = bloki(w, SZABLON, 0, druga, t);
+      const lepsza = b.find((x) => x.rodzaj === 'lepsza');
+      const slabsza = b.find((x) => x.rodzaj === 'slabsza');
+      expect(lepsza?.akcja).toBe(p.correct);
+      expect(lepsza?.tekst).toContain('ta ręka jest lepsza');
+      expect(lepsza?.tekst).toContain(`[[${reka(p.hands[idx(p.correct)])}]]`);
+      expect(slabsza?.tekst).toContain('ta ręka jest gorsza');
+      expect(slabsza?.tekst).toContain(`[[${reka(p.hands[idx(druga)])}]]`);
+    }
+    expect([...strony].sort()).toEqual(['hand-a', 'hand-b']);
   });
 });
 
@@ -84,7 +95,7 @@ describe('KO-072: pick-hand — ekran', () => {
       await render(<PrzebiegScenariusza sesja={sesja(w, [wybor])} faza="ocena" koniec onWybierz={jest.fn()} {...props} />);
       const ekran = tekstEkranu();
       expect(ekran).toContain(t(`grade.${wybierzPoprawna ? 'zgodne' : 'niedokladnosc'}`));
-      expect(ekran).toContain(wybor === 'hand-a' ? 'blokuje sprawdzające' : 'zasłania pasujące');
+      expect(ekran).toContain(wybierzPoprawna ? 'ta ręka jest lepsza' : 'ta ręka jest gorsza');
     });
   }
 });

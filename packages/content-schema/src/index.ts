@@ -720,7 +720,7 @@ export const ScenarioTurnBetDecision = z
 
 /**
  * KO-072 (D-1054, SC-23a/b): wybór jednej z dwóch rąk do blefu na riverze. Zakres rywala to dana zadania: klasy rąk sprawdzających (`calls`) i pasujących (`folds`);
- * tryb `showdown`: ręka bez wartości na showdownie (SDV = 0), `blockers`: obie SDV = 0, mniej sprawdzających zablokowanych, nie mniej pasujących. Akcje: hand-a, hand-b.
+ * tryb `showdown`: ręka bez wartości na showdownie (SDV = 0), `blockers`: obie SDV = 0, mniej sprawdzających zablokowanych, nie mniej pasujących. Wyjaśnienia kluczowane rolą ręki, nie stroną A/B (strona poprawnej ręki jest losowa; EP-001): best-hand = poprawna, other-hand = druga.
  */
 export const ScenarioPickHandDecision = z
   .object({
@@ -731,7 +731,7 @@ export const ScenarioPickHandDecision = z
     mode: z.enum(['showdown', 'blockers']),
     calls: z.array(z.string().min(1)).min(1),
     folds: z.array(z.string().min(1)).min(1),
-    actions: z.array(z.object({ action: z.enum(['hand-a', 'hand-b']), explanation: z.string().min(1) }).strict()).length(2),
+    actions: z.array(z.object({ action: z.enum(['best-hand', 'other-hand']), explanation: z.string().min(1) }).strict()).length(2),
   })
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);

@@ -352,8 +352,10 @@ export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, w
   const wartosci = wartosciZnacznikow(v, s, indeks, t);
   const warunki = warunkiWariantu(v, indeks);
   const tekst = (a: Akcja): string => {
-    const wyjasnienie = spec.actions.find((x) => x.action === a)?.explanation;
-    if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${a}`);
+    // EP-001: w pick-hand tekst wybiera rola ręki (poprawna = best-hand, druga = other-hand), bo strona A/B jest losowa
+    const klucz = d.point === 'pick-hand' ? (a === d.correct ? 'best-hand' : 'other-hand') : a;
+    const wyjasnienie = spec.actions.find((x) => (x.action as string) === klucz)?.explanation;
+    if (wyjasnienie === undefined) throw new Error(`${s.id}: brak wyjaśnienia akcji ${klucz}`);
     // KO-072: w pick-hand {{w:reka}} to ręka tej akcji (hand-a = A, hand-b = B), nie zawsze pierwsza
     const reka = d.point === 'pick-hand' ? d.hands[a === 'hand-b' ? 1 : 0] : null;
     return fillVariantMarkers(wyjasnienie, reka ? { ...wartosci, reka: karty(reka.map(cardToString)) } : wartosci, warunki);

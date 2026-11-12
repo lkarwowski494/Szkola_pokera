@@ -144,7 +144,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu defend to call albo fold, jest ${ex}`);
       }
     } else if (d.kind === 'pick-hand') {
-      if (d.actions.map((a) => a.action).sort().join(',') !== 'hand-a,hand-b') e.push(`${p} akcje to dokładnie hand-a i hand-b, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'best-hand,other-hand') e.push(`${p} wyjaśnienia to dokładnie best-hand i other-hand (rola poprawnej i drugiej ręki, nie strona A/B), każde z własnym tekstem (BR-OCE-002)`);
       for (const hc of [...d.calls, ...d.folds]) if (!HAND_CLASSES.includes(hc)) e.push(`${p} pick-hand: nieznana klasa ręki ${hc}`);
       for (const hc of d.calls.filter((x) => d.folds.includes(x))) e.push(`${p} pick-hand: klasa ${hc} w calls i w folds naraz (zakres rywala musi być rozłączny)`);
       for (const l of SCENARIO_LEVELS_LIST) {

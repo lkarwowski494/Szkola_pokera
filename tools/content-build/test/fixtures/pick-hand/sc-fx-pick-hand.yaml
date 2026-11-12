@@ -16,5 +16,5 @@ decisions:
     calls: [AA, KK, QQ, JJ, TT, AKs, AKo, AQs]
     folds: [98s, 87s, 76s, 65s, T9s, J9s, QJs]
     actions:
-      - { action: hand-a, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}; ta ręka blokuje ręce rywala, które sprawdzą, i nie zasłania tych, które spasują." }
-      - { action: hand-b, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}; ta ręka zasłania ręce rywala, które spasowałyby, albo blokuje za mało sprawdzających." }
+      - { action: best-hand, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}; ta ręka (lepsza) blokuje ręce rywala, które sprawdzą, i nie zasłania tych, które spasują." }
+      - { action: other-hand, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}; ta ręka (gorsza) zasłania ręce rywala, które spasowałyby, albo blokuje za mało sprawdzających." }
