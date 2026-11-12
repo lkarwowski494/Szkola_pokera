@@ -71,6 +71,7 @@ Teksty nowych szablonów i szkiców składają się wyłącznie z pól `then`/`b
 - **FN-N1 (SC-24): naprawione-do-weryfikacji** (D-1464): wyjaśnienia warunkowe pl i en; grep kierunku bez warunku 4 → 0 (`dowody/fq-fn-n1-przed.txt`, `fq-fn-n1-po.txt`); kontrola szkiców FD kod 0 (`dowody/fq-fd-szkice-po-fn-n1.txt`).
 - **Zdania „Liczby” river-catch i defend** (FM-07, D-1465): szkic `docs/tresci/liczby-river-catch-defend.md` (klucze pl/en, wzory zgodne z `requiredEquity` i `mdf` z `numbers.yaml`, miejsce w `liczby.ts`, przypadki testowe dla 08); rachunek `dowody/fq-liczby-rachunek.txt` (1200 wariantów, 0 rozbieżności).
 - **Dla 08:** 08-FQ-1 (pojemność `flop-size`), 08-FQ-2 (`marginMax` w `river-value`), klucz ceny ⅔ (D-1461), podpięcie zdań „Liczby” (D-1465).
+- **CI:** `pnpm run ci` na b11f2d6 kod 0 (`dowody/fq-ci-b11f2d6.txt`).
 - **Przeniesienie do bazy:** jak FD (skopiuj `fq/{pl,en}/sc-NN.yaml` do `content/{pl,en}/scenarios/`), SC-13 po 08-programista-001 i 08-FQ-1, SC-28 po 08-programista-002 i widoku, SC-22/25/29 po widoku `river-value` (04).
 
 ## Otwarte
