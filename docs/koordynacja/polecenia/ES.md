@@ -1,0 +1,13 @@
+# Sesja ES: recenzja niezależna DT (E2E: jeden job + cache CocoaPods/DerivedData, KO-079) — Szkoła Pokera
+Koordynator: session_01T66VBzw3L1xwG6oRg6TFQA (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie audit. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-es-recenzja` od `claude/dt-e2e` @ fb99729e (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md. Raportu autora (`docs/jakosc/stan-dt.md`, `docs/jakosc/e2e-przyspieszenie.md`, `docs/decyzje/DT.md`) nie czytasz przed własną oceną kodu.
+3. Zadania:
+   1. Recenzja **b3963e9a..fb99729e** (merge-base z roboczą `claude/sleepy-brahmagupta-2065nu`): `.github/workflows/e2e-ios.yml` (2 kroki cache) i `tests/narzedzia/workflowy.test.mjs` (nowy test). Sprawdź: klucz cache (czy obejmuje wszystko, od czego zależy build: lockfile, Podfile.lock, wersja Xcode, app.json/natywne moduły) — ryzyko zatrutego cache, który przepuści E2E na nieaktualnym buildzie; czy cache nie zawiera sekretów ani podpisów; zgodność z zasadą „wybór wersji narzędzia pada głośno”; czy test realnie łapie usunięcie kroku (mutant: usuń krok cache, test ma być czerwony); czy żadna kontrola nie została osłabiona względem b3963e9a (liczba flowów 9, progi, timeouty). „Gotowe”: werdykt PRZYJĘTE / PRZYJĘTE Z ZASTRZEŻENIAMI / PO POPRAWKACH, znaleziska z wagą wg progu wydania z CLAUDE.md.
+   2. `pnpm run ci` kod 0 na fb99729e we własnym kontenerze, wynik (podsumowania) w `docs/programista/dowody/es-ci-fb99729e.txt`.
+   Kodu nie poprawiasz (tylko raport w `docs/programista/recenzja-es.md`, dowody, mutanty poza drzewem źródeł).
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, nie uruchamiasz workflowów (E2E zużywa macOS), bez płatnych API, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb nocny (analogia; najpierw `lkarwowski494/trening`, potem oczko, piekarz), do weta. Pula **D-1270…D-1274** (`docs/decyzje/ES.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułapu kosztu brak — podaj koszt.
+7. Raporty (≤ 10 linii, send_message): PYTANIE z pełną treścią, opcjami i rekomendacją; PRZEKAZANIE: SHA, ci kod i plik dowodu, werdykt, znaleziska wg wagi, decyzje do weta, koszt.

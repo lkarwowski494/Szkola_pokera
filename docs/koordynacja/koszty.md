@@ -136,3 +136,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | EN | 09 fix | — | 3,67 | 27,3 | 00:00 → 00:01 → … → ci 056638fa (sesja, KOD_WYJSCIA=0) → przyjęta 00:44 | — | EM ŚR 001–007, NIS 008–010; 13 commitów |
 | EP | 08 audit | — | 4,40 | 23,7 | 00:33 → 00:34 → ddbe1bc2 → ci 24f32fb5 (sesja, kod 0) → przyjęta 00:58 | — | recenzja EK: PRZYJĘTE Z ZASTRZEŻENIAMI; mutanty 13/14 |
 | EQ | 06 fix | — | 4,57 | 23,8 | 00:37 → 00:38 → 2eb8e6f1 → ci a578f41a (sesja, ci 0, eq-ci-a578f41a.txt) → przyjęta 01:34 | — | 06-tresci-001/002; D-1255…1259; 08-EL-1/08-EH-3 wektory dla ER; recenzja 06 audit treści po ER etap B |
+| DT | 08 build | — | 5,92 | 27,8 | 11.11 18:27 → … → E2E 43126163648 success 5997fd68 (01:38) → przekazane 01:40 | kolejka macOS 26 min (E2E) | KO-079: split wycofany, cache; zysk niemierzalny; 5 przebiegów E2E; recenzja ES |
