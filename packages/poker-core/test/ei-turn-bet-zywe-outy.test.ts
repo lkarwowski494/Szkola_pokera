@@ -43,6 +43,7 @@ describe('08-EL-1 (D-1256): turn-bet: najwyższa para tylko z kickerem ≥ Q (be
     const t2: GeneratorTemplate = { ...t, levels: { latwy: { draws: ['flush', 'oesd'], reject: [], marginMin: 0.02, expected: ['bet-big'] } } };
     const zle: string[] = [];
     let topZKickerem = 0;
+    let topZKickeremQ = 0;
     for (let seed = 1; seed <= 3000; seed++) {
       const v = generateVariant(t2, 'latwy', seed);
       const turn = v.board.slice(0, 4);
@@ -51,8 +52,11 @@ describe('08-EL-1 (D-1256): turn-bet: najwyższa para tylko z kickerem ≥ Q (be
       const drugaKarta = h.kicker ?? -1;
       if (drugaKarta < KICKER_MIN_Q) zle.push(`seed ${seed}: ${v.hero.map(cardToString).join('')} na ${turn.map(cardToString).join('')} (kicker ${drugaKarta})`);
       else topZKickerem++;
+      if (drugaKarta === KICKER_MIN_Q) topZKickeremQ++;
     }
     expect(zle).toEqual([]);
     expect(topZKickerem).toBeGreaterThan(0);
+    // 08-programista-002: granica włącznie (Q dopuszczona); próg K (mutant M8) zostawia tylko K/A
+    expect(topZKickeremQ).toBeGreaterThan(0);
   }, 120000);
 });

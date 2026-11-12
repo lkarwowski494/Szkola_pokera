@@ -98,6 +98,17 @@ describe('KO-072: pick-hand — ekran', () => {
     }
     expect(screen.queryByText(/\b[2-9TJQKA][hdcs]\b/)).toBeNull();
   });
+  it('EP-004 (08-programista-001): pasek ocen ma etykietę czytnika z nazw kart obu rąk (card.*), bez symboli kolorów', async () => {
+    const w = wariant(8);
+    const p = punkt(w);
+    await render(<PrzebiegScenariusza sesja={sesja(w, [p.correct])} faza="ocena" koniec onWybierz={jest.fn()} {...props} />);
+    const prefiks = t('scenario.scale.label', { lista: '§' }).split('§')[0]!;
+    const pasek = screen.getAllByRole('image').find((e) => typeof e.props.accessibilityLabel === 'string' && e.props.accessibilityLabel.startsWith(prefiks));
+    expect(pasek).toBeTruthy();
+    const etykieta = pasek!.props.accessibilityLabel as string;
+    for (const h of p.hands) expect(etykieta).toContain(h.map((c) => nazwaKarty(cardToString(c), t)).join(', '));
+    expect(etykieta).not.toMatch(/[♠♥♦♣]/);
+  });
   it('EP-004: dziennik i lista końcowa nie pokazują surowego zapisu kart', async () => {
     const w = wariant(8);
     await render(<PrzebiegScenariusza sesja={sesja(w, [punkt(w).correct])} faza="ocena" koniec onWybierz={jest.fn()} {...props} />);
