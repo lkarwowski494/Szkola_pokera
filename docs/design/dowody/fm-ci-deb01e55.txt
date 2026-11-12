@@ -1,0 +1,21 @@
+pnpm run ci @ deb01e55 (sesja FM, 2026-11-12); pierwszy przebieg przerwany limitem czasu narzędzia (SIGTERM), ten jest drugim, pełnym
+39:packages/srs test:  Test Files  3 passed (3)
+40:packages/srs test:       Tests  21 passed (21)
+44:packages/jezyki test:  Test Files  6 passed (6)
+45:packages/jezyki test:       Tests  144 passed (144)
+49:packages/poker-core test:  Test Files  27 passed (27)
+50:packages/poker-core test:       Tests  263 passed (263)
+62:packages/domena test:  Test Files  27 passed (27)
+63:packages/domena test:       Tests  347 passed | 1 expected fail (348)
+69:tools/preflop-solver test:  Test Files  9 passed (9)
+70:tools/preflop-solver test:       Tests  44 passed (44)
+124:packages/postep test:  Test Files  21 passed (21)
+125:packages/postep test:       Tests  160 passed (160)
+219:tools/content-build test:  Test Files  67 passed (67)
+220:tools/content-build test:       Tests  698 passed | 1 expected fail (699)
+2379:# Subtest: braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+2380:ok 156 - braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+2681: Test Files  6 passed (6)
+2682:      Tests  35 passed (35)
+3293:0 braków
+3294:kod wyjścia: 0
