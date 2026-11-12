@@ -20,4 +20,17 @@ export const DEFINICJE = (z, k) => ({
       k('zh-Hant', 'scenarios', '按鈕(?!位)', '„按鈕” bez „位” w scenariuszach'),
     ],
   },
+  '002': {
+    zamiany: [
+      z('fr', 'scenarios/sc-34.yaml', '{{t:call|payez}}', '{{t:call|suivez}}'),
+      z('it', 'scenarios/sc-34.yaml', 'Fai {{t:call}}', '{{t:call|Chiami}}'),
+      z('pt-BR', 'scenarios/sc-33.yaml', 'dá {{t:call}}', '{{t:call|paga}}', 2),
+      z('pt-BR', 'scenarios/sc-34.yaml', 'faz {{t:call}}', '{{t:call|paga}}'),
+    ],
+    kontrole: [
+      k('fr', 'scenarios/sc-34.yaml', 'payez', 'sc-34: „payez” zamiast „suivez”'),
+      k('it', 'scenarios/sc-34.yaml', 'Fai \\{\\{t:call', 'sc-34: „Fai call” zamiast „Chiami”'),
+      k('pt-BR', 'scenarios', '(dá|faz) \\{\\{t:call', 'sc-33/34: „dá/faz call” zamiast „paga”'),
+    ],
+  },
 });
