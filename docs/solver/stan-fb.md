@@ -16,9 +16,11 @@
 | Opcja B (KO-090): D0 kod (donk, węzeł ścieżki, parametr modelu) | gotowe (FB3), CI kod 0 na 28087a65 | `dowody/d0-*.txt`, D-1400 |
 | D1 diagnoza (7 stołów B5) | gotowe: d1333 2/7, rake0 1/7, kandydat 3/7; bez decyzji o modelu | `docs/solver/w2-diagnoza.md`, `dowody/d1-*.log` |
 | D2 nowy przesiew (7 odłożonych) | **STOP: 2/7 przeszło** (SRP 2/4, 3BP 0/3) | `w2-diagnoza.md` sekcja D2, `dowody/d2-*.log` |
+| **Plan B zakończony** | decyzja właściciela **A** (2026-11-12 ok. 20:40 UTC, „1A”, przez koordynatora session_01T66VBwaHaH9KUGwFzdADtW): do 1.0 nic z solvera postflop | — |
+| Po 1.0: wariant C | pozycja do backlogu: walidacja W3 wobec celu ze znanym drzewem i zakresami (usuwa H-B) | plan do napisania; punkt wyjścia: ten plik i `w2-diagnoza.md` |
 | B6, B7 | po D2 | — |
 
-## PYTANIE do koordynatora (STOP D2, FB3)
+## PYTANIE do koordynatora (STOP D2, FB3); odpowiedź: A (właściciel, 2026-11-12 ok. 20:40 UTC)
 
 - **A: zakończyć plan B.** Solver nie przeszedł W2 ani w B5 (2/7), ani w D2 (2/7), więc do treści 1.0 nic z niego nie trafia (KO-084). SC-13, SC-14 i SC-20 idą drogami bez solvera. Kod i testy zostają w repo. Dalszy koszt: 0.
 - **C: walidacja wobec celu ze znanym drzewem i zakresami (W3, np. opublikowane analizy solvera dla konkretnych stołów).** Usuwa H-B (nieznane zakresy), która w D2 najmocniej wskazuje na 3BP (+24…+47 pp). [OCENA] 0,5 sesji na wyszukanie i odczyt plus 1 sesja obliczeń. Ryzyko: celu może nie dać się przeczytać.
@@ -47,4 +49,4 @@ npx tsx scripts/w2-run.ts --model kandydat btn-vs-bb-srp-k72-rainbow   # wynik �
 
 - Koszt FB2 do B5: ok. 4 h agenta, ok. 2,5 h CPU. FB3 (D0–D2): ok. 2 h agenta, ok. 3,5 h CPU kontenera (D1 2,2 h, D2 1,3 h), 0 zł.
 - Decyzje do weta: D-1330, D-1331 (FB); D-1332…D-1335 (FB2); D-1400 (FB3). Pula FB3 D-1401…D-1409 niewykorzystana.
-- Następny krok: odpowiedź koordynatora na PYTANIE (A albo C). Prompt kontynuacji: `docs/solver/prompt-kontynuacji-fb.md` (dla C wymaga nowego planu W3).
+- Następny krok: brak w planie B (zakończony decyzją A). Kod i testy solvera zostają w repo. Wariant C po 1.0 wymaga nowego planu W3 i nowego polecenia; `docs/solver/prompt-kontynuacji-fb.md` opisuje plan B i nie służy do C.
