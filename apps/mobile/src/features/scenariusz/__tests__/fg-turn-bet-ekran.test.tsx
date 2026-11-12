@@ -65,6 +65,9 @@ describe('FG turn-bet — logika widoku', () => {
     const r2 = przebiegWariantu(w, ['bet-small']);
     expect(r2.ok && r2.wartosc.kroki[0]?.ocena).toBe('niedokladnosc');
   });
+  it('FH NIS-004: akcja bez kwoty zakładu to błąd, nie „Zakład 0bb”', () => {
+    expect(() => tekstAkcji(wariant(3), 0, 'fold', SZABLON, t)).toThrow(/kwot/i);
+  });
   it('nazwy akcji: „Zakład” z kwotą zakładu w bb z wariantu (play.bet), kwota nie w osobnej linii', () => {
     const p = punkt(3);
     const w = wariant(3);
