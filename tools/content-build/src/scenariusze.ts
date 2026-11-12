@@ -329,12 +329,10 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
  * `icm-call` (F4) wszedł z widokiem stosów wszystkich graczy i nagród (DP, D-889; projekt roli 04). Warunek SC-34 (D-825): poziom trudny icm-call czeka na 06-tresci-002
  * (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie), więc bramka odrzuca szablon icm-call z poziomem trudnym (`checkScenarioNaEkran`, D-986).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand']; // flop-size: widok jak turn-bet (FL, apps/mobile fl-flop-size-ekran.test.tsx); pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend, list-hand: FG (apps/mobile fg-*-ekran.test.tsx)
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand', 'river-value']; // flop-size: widok jak turn-bet (FL, apps/mobile fl-flop-size-ekran.test.tsx); pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend, list-hand: FG (apps/mobile fg-*-ekran.test.tsx)
 /** Zamknięte słownictwo akcji punktu list-hand na ekranie (FG, D-1142): lustro `AKCJE_LISTY` w apps/mobile/src/features/scenariusz/wariant.ts (test przypięcia po obu stronach). */
 export const AKCJE_LISTY_EKRANU: readonly string[] = ['fold', 'check', 'call', 'limp', 'raise', '4bet', 'all-in'];
-const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {
-  'river-value': 'ekran nie ma akcji „bet” (scenariusz-akcje-i-liczby.md nie nazywa jej, brak projektu roli 04); silnik i bramka szablonu gotowe (08-FD-4)',
-};
+const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {}; // wszystkie rodzaje mają widok (river-value od FR, KO-091)
 
 /**
  * Bramka ekranu (CN, CR WYS-001): rodzaj punktu jest obsługiwany, a punkt c-betu albo rozmiaru ma dokładnie ten zestaw akcji, który ekran

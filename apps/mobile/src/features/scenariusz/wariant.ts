@@ -16,12 +16,12 @@ import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
  * Akcje punktów decyzji na ekranie (CN, D-783): pas i sprawdzenie (draw-call, icm-call), czekanie i c-bet mały/duży (cbet-case),
  * rozmiar podbicia albo limp (size-spot). Identyfikatory jak w szablonie (`actions[].action`) i w wyborze zapisanym w bazie.
  */
-export type Akcja = '4bet' | 'hand-a' | 'hand-b' | 'fold' | 'call' | 'check' | 'bet-small' | 'bet-big' | 'raise' | 'raise-small' | 'raise-big' | 'limp' | 'all-in' | `raise ${number}` | `call ${number}`;
+export type Akcja = '4bet' | 'hand-a' | 'hand-b' | 'fold' | 'call' | 'check' | 'bet' | 'bet-small' | 'bet-big' | 'raise' | 'raise-small' | 'raise-big' | 'limp' | 'all-in' | `raise ${number}` | `call ${number}`;
 /**
  * Akcje stałe, jakie ekran zna. Punkt range-spot (CX, F1) ma akcje o nazwach z węzła solvera spotu (`content/ranges/spots.yaml`): `fold`, `call`,
  * `all-in` oraz `raise N` i `call N` z rozmiarem w bb (np. `raise 2.5`); te dwie ostatnie rozpoznaje `jestAkcja` wzorcem, bo lista rozmiarów należy do danych.
  */
-export const AKCJE: readonly Akcja[] = ['4bet', 'hand-a', 'hand-b', 'fold', 'call', 'check', 'bet-small', 'bet-big', 'raise', 'raise-small', 'raise-big', 'limp', 'all-in'];
+export const AKCJE: readonly Akcja[] = ['4bet', 'hand-a', 'hand-b', 'fold', 'call', 'check', 'bet', 'bet-small', 'bet-big', 'raise', 'raise-small', 'raise-big', 'limp', 'all-in'];
 /**
  * Zamknięte słownictwo akcji punktu list-hand (FG, D-1142): zbiór akcji niesie szablon (`decisions[i].actions`), ekran pokazuje te z listy w tej kolejności (najtańsza pierwsza);
  * akcja spoza listy to błąd treści (bramka budowania odrzuca ją wcześniej, `AKCJE_LISTY` w tools/content-build/src/scenariusze.ts; test przypięcia po obu stronach).
@@ -56,8 +56,8 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
     case 'turn-bet':
     case 'flop-size': // FL (08-FD-3, D-1419): ten sam widok co turn-bet, ulica flop
       return ['bet-small', 'bet-big']; // FG (D-1147): mały albo duży zakład na turnie, najtańszy pierwszy
-    case 'river-value':
-      throw new Error('river-value: brak widoku (ekran nie ma akcji „bet”, projekt roli 04); szablon z tym rodzajem odrzuca bramka treści (RODZAJE_NA_EKRANIE)');
+    case 'river-value': // KO-091 (FR): bet albo czekanie na riverze, bez kwoty; najtańsza (czekanie) pierwsza
+      return ['check', 'bet'];
     case 'list-hand': {
       // FG: zbiór akcji z szablonu (wariant niesie tylko akcję poprawną i dopuszczalne), bez szablonu nie zgadujemy zbioru
       if (spec?.kind !== 'list-hand') throw new Error('list-hand: zbiór akcji pochodzi z szablonu punktu (przekaż specyfikację decyzji)');
@@ -70,8 +70,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'river-value') throw new Error('river-value: brak widoku (ekran nie ma akcji „bet”, projekt roli 04)');
-  if (p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend') return p.correct;
+  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend') return p.correct;
   if (p.point === 'list-hand') return akcjaSpotu(p.correct); // FG: akcja poprawna wpisu listy; spoza znanych etykiet błąd z nazwą
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
@@ -97,6 +96,7 @@ export function opisAkcji(p: VariantDecision, a: Akcja): OpisAkcji {
   if (a === '4bet') return nazwa('fourBet', null); // FG: list-hand (D-1142); bez kwoty, szablon nie podaje rozmiaru
   if (a === 'fold') return nazwa('fold', null);
   if (a === 'check') return nazwa('check', null);
+  if (a === 'bet') return nazwa('bet', null); // KO-091 (FR): river-value, zakład bez kwoty (wariant jej nie niesie)
   // FM (D-1430): turn-bet i flop-size to dwa rozmiary tego samego zagrania: ta sama nazwa „zakład”, kwota w drugiej linii; „c-bet” tylko w cbet-case
   if (a === 'bet-small' || a === 'bet-big') return p.point === 'turn-bet' || p.point === 'flop-size' ? nazwa('bet', 'pay') : nazwa(a === 'bet-small' ? 'betSmall' : 'betBig', null);
   if (a === 'limp') return nazwa('limp', 'pay');
