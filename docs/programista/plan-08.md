@@ -1323,3 +1323,11 @@ Gałąź `sesja-fp-poprawki` od 5ec4f912. Baza: CI na 5ec4f912 kod 0 (E2E koordy
 - Dodatkowe od koordynatora: 08-FQ-1 (flop-size 20 000 odrzuceń na ziarnie 1108, także fixture `sc-fx-flop-size`): NIE ZACZĘTE; najpierw odtworzyć na fiksturze, test czerwony.
 - Zadanie 5 (końcowe CI + dowód `fp-ci-<sha>.txt`): po 2–4.
 - Wyjątki: 001 i 003 w jednym commicie (wspólny plik wyroczni); 002 i 003 poprawka to sam test.
+
+## Sesja FR (08-programista, tryb fix) — stan 2026-11-12, następczyni FP
+Gałąź `sesja-fp-poprawki`; CI kod 0 na 975e8763 (`dowody/fr-ci-975e8763.txt`). Decyzje D-1450…D-1452 w `docs/decyzje/FR.md`.
+- 08-FQ-1: 87ffa871 (limit odrzuceń 60 000, test `fq-08-fq-1.test.ts`; ey-ev4 limit czasu).
+- FM-01, FM-02, FM-08 (zad. 2): b419ebdf, 3156267a (klucze pl/en + 10 locale zastępczo, KO-096).
+- KO-091 river-value (zad. 3): fba3f8dc.
+- 06-tresci-008 i 08-FN-1 (zad. 4): 905f241e; status FN-1 w `docs/tresci/stan-fd.md`.
+- Otwarte: flop-size objęty FM (D-1451, do potwierdzenia 04); `play.log.call/raise/allin` z surową liczbą (nowe znalezisko NIS); „ćwierć puli” słowem w SC-20 (06); „Liczby” river-value (06/09); tożsamość commitów vs hook „Unverified”.

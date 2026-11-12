@@ -1,0 +1,31 @@
+# pnpm run ci @ 975e8763 (sesja FR), kod wyjścia 0, 2026-11-12
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> szkola-pokera@ test /home/user/Szkola_pokera
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  36 passed (36)
+packages/poker-core test:       Tests  306 passed (306)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  72 passed (72)
+tools/content-build test:       Tests  735 passed | 1 expected fail (736)
+apps/mobile test: Test Suites: 136 passed, 136 total
+> szkola-pokera@ test:skrypty /home/user/Szkola_pokera
+> szkola-pokera@ test:kontrole /home/user/Szkola_pokera
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+> szkola-pokera@ k08 /home/user/Szkola_pokera
+> szkola-pokera@ i18n:kod /home/user/Szkola_pokera
+błędy: 0, uwagi: 564; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 863
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> szkola-pokera@ tresci:el-kontrola /home/user/Szkola_pokera
+0 braków
+EXIT=0
