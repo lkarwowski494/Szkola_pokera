@@ -1,0 +1,13 @@
+# B2 W1: przebieg czerwony na zaślepce src/flop/game.ts (przed implementacją), 2026-11-12
+npx vitest run test/flop-river.test.ts
+     × zakład 1 puli: udział blefów B÷(P+2B), obrona P÷(P+B), tolerancja 0,5 pp 8ms
+     × zakład 0.5 puli: udział blefów B÷(P+2B), obrona P÷(P+B), tolerancja 0,5 pp 1ms
+     × gra spolaryzowana 4ms
+     × river z szerokimi zakresami, przebiciami i rake 3ms
+     × wartość gry i częstości w korzeniu 705ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected -1 to be greater than or equal to 0
+AssertionError: expected +0 to be 3000 // Object.is equality
+AssertionError: expected +0 to be 1000 // Object.is equality
+AssertionError: expected 2.9754739058060458 to be less than 0.1
+      Tests  5 failed | 1 passed (6)

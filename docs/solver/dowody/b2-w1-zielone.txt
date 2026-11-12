@@ -1,0 +1,13 @@
+# B2 W1: przebieg zielony po implementacji, 2026-11-12
+npx vitest run test/flop-river.test.ts --reporter=verbose
+ ✓ test/flop-river.test.ts > W1(a) zakres spolaryzowany kontra łapacz blefów (R-M8-010, R-M6-001) > zakład 1 puli: udział blefów B÷(P+2B), obrona P÷(P+B), tolerancja 0,5 pp 3870ms
+ ✓ test/flop-river.test.ts > W1(a) zakres spolaryzowany kontra łapacz blefów (R-M8-010, R-M6-001) > zakład 0.5 puli: udział blefów B÷(P+2B), obrona P÷(P+B), tolerancja 0,5 pp 3443ms
+ ✓ test/flop-river.test.ts > W1(b) zbieżność: NashConv poniżej 0,1% puli > gra spolaryzowana 4003ms
+ ✓ test/flop-river.test.ts > W1(b) zbieżność: NashConv poniżej 0,1% puli > river z szerokimi zakresami, przebiciami i rake 6679ms
+ ✓ test/flop-river.test.ts > W1(c) zgodność z niezależnym skalarnym CFR (test/flop-ref.ts) > wartość gry i częstości w korzeniu 1287ms
+ ✓ test/flop-river.test.ts > wektor zakresu ma 1326 pozycji i zeruje kombinacje z kartami stołu 1ms
+      Tests  6 passed (6)
+
+# W1(c) pomiar: wzorzec skalarny CFR 20000 it. wartość OOP 2.9754739, nasz DCFR 4000 it. 2.9754895 (NashConv 0.001% puli); blef 0.217 w obu
+# Ewaluator (pkt B2):
+evaluateHand(7 kart): 2000000 ocen w 136 ms = 14.66 mln/s (suma 12216505921)
