@@ -152,3 +152,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | FF | 08 audit | — | 3,32 | 20,9 | 10:49 → 11:31 PRZEKAZANIE (PO POPRAWKACH: WYS-001 test 700 ms → naprawione 71c72d6e; ŚR-002, NIS-003 → sesja 08 fix) | — | D-1370, D-1371 |
 | FG | 08 build | — | 4,26 | 29,9 | 10:49 → 11:20 PRZEKAZANIE fb712515 → FH → scalone 262e8af0 12:20 | — | widoki 4 rodzajów, 45 testów RNTL; D-1375…1381 |
 | FH | 08 audit | — | 3,81 | 22,6 | 11:26 → 12:13 PRZYJĄĆ Z UWAGAMI (ŚR-001 → 04, ŚR-002 + NIS-004 → 08 fix, NIS-003 → 09) | restart kontenera koordynatora 11:30–12:13 (odbiór opóźniony ok. 40 min) | D-1385…1387 |
+| FB | 08 build (opus) solver: rozpoznanie, diagnoza BB, plan postflop + plan B | — | 7,92 | 29,3 | 09:57 → 09:57 → ok. 11:00 → ci kod 0 bc7c68fb (lokalnie) → przyjęte 12:40 | ok. 65 min: odpowiedź właściciela A/B/C (pytanie 11:25 przerwane restartem kontenera, WG-15, ponowione 12:27) | docs-only po bc7c68fb; plan B → FB2 |
