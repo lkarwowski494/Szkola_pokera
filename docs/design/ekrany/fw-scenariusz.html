@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scenariusz: river-value i ręka mieszana</title>
+<!-- Sesja FW (rola 04, 2026-11-12). Ekrany:
+     rv-dzis — widok river-value wdrożony przez FR (fba3f8dc, KO-091), odtworzony z drzewa komponentu PrzebiegScenariusza (pl, ziarno 8, fixture
+       `fr-river-value-ekran.test.tsx`; zapis: docs/design/dowody/fw-river-value-drzewo.txt); rv-po — ten sam punkt po poprawkach D-1501;
+     mix-zgodna, mix-blad — ręka mieszana list-hand (D-1502), szablon SC-10 (docs/tresci/szablony-robocze/fd/pl/sc-10.yaml:9, :22–29), AKs z `correct: [4bet, call]`
+       (stan docelowy wg komentarza sc-10.yaml:5–6, FN D-1435).
+     [PRZYKŁAD]: karty, zakres sprawdzenia rywala (klasy z fixture testu FR, nie z treści), brzmienie wyjaśnień (sc-10 wg stanu roboczego; ostateczne: rola 06 wg ADR-24).
+     Teksty interfejsu: klucze z docs/design/fw-river-value-i-mieszana.md. -->
+<link rel="stylesheet" href="e3.css">
+<link rel="stylesheet" href="scenariusz.css">
+<style>
+.zakres { margin: 60px 20px 0; font-size: var(--t-przypis); line-height: 1.42; color: var(--ink); }
+.zakres + .dziennik { margin-top: 12px; }
+.przyklad { color: var(--muted); font-size: var(--t-drobny); }
+.znacznik-dzis { margin: 8px 20px 0; font-size: var(--t-drobny); color: var(--muted); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="trefl" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4.6"/><circle cx="6.6" cy="13.4" r="4.6"/><circle cx="17.4" cy="13.4" r="4.6"/><path d="M11 13h2c0 3.5.8 6 2.8 8.5H8.2C10.2 19 11 16.5 11 13z"/></symbol>
+  <symbol id="karo" viewBox="0 0 24 24"><path d="M12 2l8 10-8 10-8-10z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+  <symbol id="szewron" viewBox="0 0 10 16"><path d="M2 2l6 6-6 6"/></symbol>
+</svg>
+
+<main data-ekran="rv-dzis" aria-label="river-value, decyzja: stan FR">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">River</span></nav>
+  <ol class="ulice" aria-label="Etapy rozdania"><li class="byla">Preflop</li><li class="byla">Flop</li><li class="byla">Turn</li><li aria-current="step">River</li></ol>
+  <section class="stol hu" role="img" aria-label="Ty: BTN, karty król pik, król karo. Rywal: BB. Odkryte karty: 2 kier, walet trefl, 6 trefl, 4 pik, dama kier.">
+    <div class="owal"></div>
+    <div class="karty wspolne"><div class="karta czerwona"><b>2</b><svg><use href="#kier"/></svg></div><div class="karta"><b>J</b><svg><use href="#trefl"/></svg></div><div class="karta"><b>6</b><svg><use href="#trefl"/></svg></div><div class="karta"><b>4</b><svg><use href="#pik"/></svg></div><div class="karta czerwona"><b>Q</b><svg><use href="#kier"/></svg></div></div>
+    <div class="miejsce" style="left:50%;top:0%">BB<small>rywal · 100 bb</small></div>
+    <div class="miejsce ty" style="left:16%;top:88%">BTN<small>ty · 100 bb</small></div>
+    <div class="karty twoje"><div class="karta"><b>K</b><svg><use href="#pik"/></svg></div><div class="karta czerwona"><b>K</b><svg><use href="#karo"/></svg></div></div>
+  </section>
+  <ol class="dziennik" aria-label="Przebieg rozdania" style="margin-top:72px;min-height:8px"></ol>
+  <section class="akcje">
+    <p class="etykieta">Twój ruch</p>
+    <div class="pasek" role="group" aria-label="Akcje"><a href="#">Czekanie (check)</a><a href="#">Zakład (bet)</a></div>
+  </section>
+</main>
+
+<main data-ekran="rv-po" aria-label="river-value, decyzja: po poprawkach D-1501">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">River</span></nav>
+  <ol class="ulice" aria-label="Etapy rozdania"><li class="byla">Preflop</li><li class="byla">Flop</li><li class="byla">Turn</li><li aria-current="step">River</li></ol>
+  <section class="stol hu" role="img" aria-label="Ty: BTN, karty król pik, król karo. Rywal: BB. Odkryte karty: 2 kier, walet trefl, 6 trefl, 4 pik, dama kier.">
+    <div class="owal"></div>
+    <div class="karty wspolne"><div class="karta czerwona"><b>2</b><svg><use href="#kier"/></svg></div><div class="karta"><b>J</b><svg><use href="#trefl"/></svg></div><div class="karta"><b>6</b><svg><use href="#trefl"/></svg></div><div class="karta"><b>4</b><svg><use href="#pik"/></svg></div><div class="karta czerwona"><b>Q</b><svg><use href="#kier"/></svg></div></div>
+    <div class="miejsce" style="left:50%;top:0%">BB<small>rywal · 100 bb</small></div>
+    <div class="miejsce ty" style="left:16%;top:88%">BTN<small>ty · 100 bb</small></div>
+    <div class="karty twoje"><div class="karta"><b>K</b><svg><use href="#pik"/></svg></div><div class="karta czerwona"><b>K</b><svg><use href="#karo"/></svg></div></div>
+  </section>
+  <p class="zakres">Na zakład (bet) rywal sprawdza (call) z: AJs, AJo, KJs, KJo, JTs, JTo, J9s, J9o, 88, 55, AKs, AKo, AQs, AQo, KQs, KQo.</p>
+  <ol class="dziennik" aria-label="Przebieg rozdania">
+    <li class="teraz" aria-live="polite"><span class="u">River</span><span>Q♥. BB: czeka (check)</span></li>
+  </ol>
+  <section class="akcje">
+    <p class="etykieta">Twój ruch</p>
+    <div class="pasek" role="group" aria-label="Akcje"><a href="#">Czekanie (check)</a><a href="#">Zakład (bet)</a></div>
+  </section>
+</main>
+
+<main data-ekran="rv-ocena" aria-label="river-value, ocena zgodna: stan FR (akceptowany)">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">River</span></nav>
+  <section class="werdykt" aria-live="polite"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">✓</span>Zgodna</h2>
+    <p>Twój wybór: <b>zakład (bet)</b>.</p>
+  </div></section>
+  <section class="dlaczego">
+    <h2>Dlaczego „zakład (bet)” to dobre zagranie</h2>
+    <p><span class="syt">Masz K♠ K♦ na Button (BTN), 2♥ J♣ 6♣ 4♠ Q♥,</span> więcej sprawdzających rąk jest gorszych od twojej niż lepszych. <span class="przyklad">[PRZYKŁAD: fixture testu]</span></p>
+  </section>
+  <div class="rozwin"><a href="#" aria-expanded="false">Dlaczego nie „czekanie (check)”<span class="strzalka" aria-hidden="true">⌄</span></a></div>
+  <div class="oceny-akcji" role="img" aria-label="Oceny akcji: Czekanie (check) błąd, Zakład (bet) zgodna, twój wybór.">
+    <span>Czekanie (check)<small>✗ Błąd</small></span><span class="twoj">Zakład (bet)<small>✓ Zgodna</small></span>
+  </div>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zobacz podsumowanie</a></div>
+</main>
+
+<main data-ekran="mix-zgodna" aria-label="Ręka mieszana, wybór zgodny">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="werdykt" aria-live="polite"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">✓</span>Zgodna</h2>
+    <p>Twój wybór: <b>sprawdzenie (call)</b>. Też dobrze: 4-bet.</p>
+  </div></section>
+  <section class="dlaczego">
+    <h2>Dlaczego „sprawdzenie (call)” to dobre zagranie</h2>
+    <p><span class="syt">Masz A♠ K♠ na Cutoff (CO), a Button zrobił 3-bet.</span> AK bywa też sprawdzane. <span class="przyklad">[PRZYKŁAD: treść rola 06]</span></p>
+  </section>
+  <section class="dlaczego">
+    <h2>Dlaczego „4-bet” to też dobre zagranie</h2>
+    <p><span class="syt">Masz A♠ K♠ na Cutoff (CO), a Button zrobił 3-bet.</span> Robisz 4-bet dla wartości, bo ta ręka chce wpłacić cały stack i dominuje większość rąk, które sprawdzą 4-bet. <span class="przyklad">[PRZYKŁAD: treść rola 06]</span></p>
+  </section>
+  <div class="rozwin"><a href="#" aria-expanded="false">Dlaczego nie „pas (fold)”<span class="strzalka" aria-hidden="true">⌄</span></a></div>
+  <div class="oceny-akcji" role="img" aria-label="Oceny akcji: Pas (fold) błąd, Sprawdzenie (call) zgodna, twój wybór, 4-bet zgodna.">
+    <span>Pas (fold)<small>✗ Błąd</small></span><span class="twoj">Sprawdzenie (call)<small>✓ Zgodna</small></span><span>4-bet<small>✓ Zgodna</small></span>
+  </div>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zobacz podsumowanie</a></div>
+</main>
+
+<main data-ekran="mix-blad" aria-label="Ręka mieszana, wybór błędny">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="werdykt" aria-live="polite"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">✗</span>Błąd</h2>
+    <p>Twój wybór: <b>pas (fold)</b>. Lepiej: 4-bet albo sprawdzenie (call).</p>
+  </div></section>
+  <section class="dlaczego">
+    <h2>Dlaczego „pas (fold)” to słabsze zagranie</h2>
+    <p><span class="syt">Masz A♠ K♠ na Cutoff (CO), a Button zrobił 3-bet.</span> Pas oddaje jedną z najsilniejszych rąk. <span class="przyklad">[PRZYKŁAD: treść rola 06]</span></p>
+  </section>
+  <section class="dlaczego">
+    <h2>Dlaczego „4-bet” to lepsze zagranie</h2>
+    <p>Robisz 4-bet dla wartości, bo ta ręka chce wpłacić cały stack. <span class="przyklad">[PRZYKŁAD]</span></p>
+  </section>
+  <section class="dlaczego">
+    <h2>Dlaczego „sprawdzenie (call)” to lepsze zagranie</h2>
+    <p>AK bywa też sprawdzane. <span class="przyklad">[PRZYKŁAD]</span></p>
+  </section>
+  <div class="oceny-akcji" role="img" aria-label="Oceny akcji: Pas (fold) błąd, twój wybór, Sprawdzenie (call) zgodna, 4-bet zgodna.">
+    <span class="twoj">Pas (fold)<small>✗ Błąd</small></span><span>Sprawdzenie (call)<small>✓ Zgodna</small></span><span>4-bet<small>✓ Zgodna</small></span>
+  </div>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zobacz podsumowanie</a></div>
+</main>
+</body>
+</html>
