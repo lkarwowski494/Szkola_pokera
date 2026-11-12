@@ -1331,3 +1331,11 @@ Gałąź `sesja-fp-poprawki`; CI kod 0 na 975e8763 (`dowody/fr-ci-975e8763.txt`)
 - KO-091 river-value (zad. 3): fba3f8dc.
 - 06-tresci-008 i 08-FN-1 (zad. 4): 905f241e; status FN-1 w `docs/tresci/stan-fd.md`.
 - Otwarte: flop-size objęty FM (D-1451, do potwierdzenia 04); `play.log.call/raise/allin` z surową liczbą (nowe znalezisko NIS); „ćwierć puli” słowem w SC-20 (06); „Liczby” river-value (06/09); tożsamość commitów vs hook „Unverified”.
+
+## Sesja FV (08-programista, tryb fix) — stan 2026-11-12, następczyni FR
+Gałąź `sesja-fv-poprawki` od a79ad506. Decyzje D-1490…D-1494 i KO-097 w `docs/decyzje/FV.md`.
+- 201 (opcja b): e679dbb7 · 204: 500b20c5 · 203: 8cd2b4da (`dowody/fv-203-mutant-mu5.txt`) · 08-FQ-2: eb90b221 · D-1461: b8f21f76 + 2fc01437 (D-043: `dowody/fv-d043-d1461.txt`) · FS-001/005: 955dcdae · FW-01 (logika) i FW-02: patrz `git log`.
+- ODŁOŻONE (KO-097): D-1465 podpięcie zdań „Liczby” river-catch/defend (`zdaniaLiczb` zostaje `[]`) do po fali 2 09 (klucze `scenario.numbers.riverCatch/More/Less/defend` w 12 locale); FW-01 zdanie `scenario.riverValue.calls/sep` pod stołem (jest `zakresSprawdzenia` w `wariant.ts` + test).
+- NIE ZACZĘTE: zadanie 9 (ręka mieszana §3 FW, D-1502; bramka z 201 zostaje do jego wdrożenia, klucze `scenario.verdict.yoursGoodAlso`, `scenario.why.alsoGood`, `scenario.or` też wymagają 12 locale).
+- 202 (potOnly w 10 locale) i 205 poza zakresem FV (09 / proces).
+
