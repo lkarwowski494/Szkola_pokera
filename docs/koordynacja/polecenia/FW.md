@@ -1,0 +1,15 @@
+# Sesja FW: akceptacja projektowa D-1451, widok river-value, ręka mieszana — Szkoła Pokera
+Koordynator: session_01T66VByxxQ4VaznS4NWFuhb (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego; aktualny ID zawsze w `origin/koordynacja:docs/koordynacja/stan.md`, wiersz „Koordynator aktywny”). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 04-studio-projektowe w trybie build. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-fw-projekt` od robocza `claude/sleepy-brahmagupta-2065nu` @ a79ad506. Inny HEAD: zgłoś. Instalacja: `pnpm install --frozen-lockfile` (zrzuty przez Expo web/Playwright, jeśli potrzebne). Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem.
+3. Zadania (kontekst: `docs/design/design-spec.md`, `docs/design/fm-turn-bet.md`, recenzja `docs/programista/recenzje/recenzja-fp-fr-83b03fdc.md`):
+   1. **D-1451** (FR: etykiety FM zastosowane też na flop-size): przyjmij albo odrzuć z uzasadnieniem w `docs/design/`. Gotowe: wpis decyzji + kryterium akceptacji.
+   2. **Widok river-value minimalny** (wdrożony przez FR, KO-091): przegląd wobec design-spec, zrzut, lista poprawek albo akceptacja. Gotowe: werdykt z kryteriami akceptacji dla 08.
+   3. **Ręka mieszana (FU-201, ADR-04):** projekt pokazania drugiej poprawnej akcji jako poprawnej (nie „Dlaczego nie”) w list-hand/scenariuszu; teksty interfejsu pl i en jako klucze do przekładu. Gotowe: spec z kryteriami akceptacji dla 08 (bramka content-build odblokuje `correct: [..]` dopiero po wdrożeniu).
+   4. Na koniec `pnpm run ci` kod 0 (dowód `docs/design/dowody/fw-ci-<sha>.txt`) i stan w pliku stanu roli 04 w `docs/design/`.
+4. Zakazy: zmieniasz tylko `docs/design/**` i `docs/decyzje/FW.md`; nie zmieniasz kodu, `content/`, plików językowych (FV pracuje równolegle); nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia z zasady wspólnej 19 zamieniasz na raport do koordynatora i czekasz na odpowiedź.
+5. Decyzje: wygląd to sprawa produktowa — tryb mandatu koordynatora (noc: analogia, najpierw repo lkarwowski494/trening, potem oczko, piekarz, `repo:plik:linia`, wpis do weta); sprawy merytoryczne pokerowe rozstrzyga hierarchia ADR-24, nie wygląd. Numery decyzji tylko D-1500…D-1504.
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułap kosztu: brak (mandat), koszt w raportach.
+7. Push: zbiorczo na `sesja-fw-projekt`.
+8. Raporty (≤ 10 linii, przez send_message): po pierwszym zadaniu czas i szacunek reszty; PYTANIE: pełna treść, opcje, rekomendacja; PRZEKAZANIE: zrobione (SHA, dowód ci), dowody (pliki), decyzje do weta, koszt, otwarte, następny krok.
