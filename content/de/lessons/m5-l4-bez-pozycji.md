@@ -16,6 +16,25 @@ drills:
       - { text: "{{t:check|Ich checke}} öfter als {{t:in-position}}", correct: true, why: "Ja: Der Button hat mit {{t:position|Position}} {{t:call|gecallt}}, also hat er eine starke {{t:range|Range}}, und ein mittelhoher, {{t:connected|verbundener}} Flop trifft seine {{t:pair|Paare}} und {{t:connectors|Connectors}} gut. {{t:out-of-position|Out of Position}} {{t:check|checkst}} du hier sehr oft, auch mit starken Händen." }
       - { text: "C-Bet oft und klein, wie am Button", why: "Das ist der Plan {{t:in-position}} auf einem {{t:dry|trockenen}}, hohen Flop. Hier hast du keine {{t:position|Position}}, und der Flop begünstigt deine {{t:range|Range}} nicht." }
       - { text: "C-Bet mit allen Händen, um die {{t:initiative|Initiative}} nicht zu verlieren", why: "Die {{t:initiative|Initiative}} gewinnt nicht von allein: Die {{t:range|Range}} des Buttons ist hier stark, und nach jeder {{t:bet|Bet}} bist du auch am Turn und am River zuerst dran." }
+  - kind: cbet
+    id: m5.l4.c-oop
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    position: HJ
+    options:
+      check: "I {{t:check}}"
+      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
+      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+    cases:
+      - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
+        best: check
+        rule: R-M5-012
+        why:
+          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
+          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+    count: 3
   - kind: choice
     id: m5.l4.q-oop-why
     family: m5.cbet.oop

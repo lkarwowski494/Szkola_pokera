@@ -458,8 +458,9 @@
   then: "你 c-bet 比{{t:in-position|有位置}}時少，更常{{t:check|過牌}}，好牌也一樣"
   because: "擁有{{t:position|位置}}的{{t:call|跟注}}者，其{{t:range|範圍}}是{{t:condensed|壓縮}}的：弱牌他已經{{t:fold|棄牌}}，最強的一部分他已經{{t:raise|加注}}，所以剩下的主要是中等和好牌；再加上翻牌後每一{{t:street|街}}都是你先行動"
   level: heuristic
-  source: "商業求解器網站，C-Betting As the OOP Preflop Raiser（UTG vs BTN c-bet 28%；「Even a hand like top pair top kicker is preferred to be played as a check-call」）；訓練網站，C-Betting On Ace-High Boards（CO vs BTN，A94r：「we will check over 96% of the time」）"
-  sources: [{ kind: solver-pub }, { kind: training }]
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
+  source: "商業求解器網站，C-Betting As the OOP Preflop Raiser（UTG vs BTN c-bet 28%；「Even a hand like top pair top kicker is preferred to be played as a check-call」）；訓練網站，C-Betting On Ace-High Boards（CO vs BTN，A94r：「we will check over 96% of the time」）; training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: 「The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on」)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
   if: "翻牌時你有兩位以上的對手"

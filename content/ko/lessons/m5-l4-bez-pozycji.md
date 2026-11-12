@@ -16,6 +16,25 @@ drills:
       - { text: "{{t:in-position}}일 때보다 더 자주 {{t:check|체크합니다}}", correct: true, why: "맞습니다. 버튼은 {{t:position|포지션}}을 가진 채 {{t:call|콜했으므로}} 강한 {{t:range}}를 가지고 있고, 중간 높이의 {{t:connected}} 플롭은 버튼의 {{t:pair|페어}}와 {{t:connectors|커넥터}}에 잘 맞습니다. {{t:out-of-position|아웃 오브 포지션}}에서는 여기서 강한 핸드로도 매우 자주 {{t:check|체크합니다}}." }
       - { text: "버튼에서처럼 자주, 작게 C벳", why: "그것은 {{t:dry|드라이하고}} 높은 플롭에서 {{t:in-position}}일 때의 플랜입니다. 여기서는 {{t:position|포지션}}이 없고, 플롭도 당신의 {{t:range|레인지}}에 유리하지 않습니다." }
       - { text: "{{t:initiative|주도권}}을 잃지 않도록 모든 핸드로 C벳", why: "{{t:initiative|주도권}}만으로는 이기지 못합니다. 여기서는 버튼의 {{t:range}}가 강하고, 당신은 {{t:bet|베팅}}할 때마다 턴과 리버에서도 먼저 행동합니다." }
+  - kind: cbet
+    id: m5.l4.c-oop
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    position: HJ
+    options:
+      check: "I {{t:check}}"
+      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
+      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+    cases:
+      - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
+        best: check
+        rule: R-M5-012
+        why:
+          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
+          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+    count: 3
   - kind: choice
     id: m5.l4.q-oop-why
     family: m5.cbet.oop

@@ -458,8 +458,9 @@
   then: "{{t:in-position}}のときより低い頻度でCベットし、良いハンドでも、より多く{{t:check|チェック}}します"
   because: "{{t:position|ポジション}}のある状態で{{t:call|コール}}したプレイヤーの{{t:range}}は{{t:condensed|コンデンスド}}だからです：弱いハンドは{{t:fold|フォールド}}し、最強ハンドの一部は{{t:raise|レイズ}}していたので、残っているのは主に中くらいのハンドと良いハンドです。さらに、フロップ後はどの{{t:street|ストリート}}でもあなたが先にアクションします"
   level: heuristic
-  source: "商用ソルバーのサイト、C-Betting As the OOP Preflop Raiser (UTG vs BTNのCベット28%；「Even a hand like top pair top kicker is preferred to be played as a check-call」)；トレーニングサイト、C-Betting On Ace-High Boards (CO vs BTN、A94r：「we will check over 96% of the time」)"
-  sources: [{ kind: solver-pub }, { kind: training }]
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
+  source: "商用ソルバーのサイト、C-Betting As the OOP Preflop Raiser (UTG vs BTNのCベット28%；「Even a hand like top pair top kicker is preferred to be played as a check-call」)；トレーニングサイト、C-Betting On Ace-High Boards (CO vs BTN、A94r：「we will check over 96% of the time」); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: 「The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on」)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
   if: "フロップで相手が2人以上いる場合"

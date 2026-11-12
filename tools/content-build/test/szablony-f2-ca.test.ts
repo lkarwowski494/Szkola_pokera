@@ -101,7 +101,9 @@ describe('F2: walidacja szablonu cbet-case w budowaniu', () => {
   const baza = fx.find((x) => x.template.id === 'sc-fx-cbet-dry')!.template;
   const kopia = (f: (b: any) => void) => { const b = structuredClone(baza) as any; f(b); return ScenarioTemplate.parse(b); };
   it('fixture przechodzi, a reguły c-betu mają przypadki', () => {
-    expect([...cbetRules].sort()).toEqual(['R-M5-004', 'R-M5-007', 'R-M5-009']);
+    // EV-3 (D-1287): lista z danych, nie na sztywno: każda reguła kind cbet-case ma przypadek własnej reguły (zadanie z cases: rule: <id>); R-M5-012 (check) wśród nich
+    expect([...cbetRules].sort()).toEqual(content.evalRules.filter((r) => r.check.kind === 'cbet-case').map((r) => r.id).sort());
+    expect(cbetRules.has('R-M5-012')).toBe(true);
     for (const { template, file } of fx) expect(checkScenarioTemplate(template, file, sctx)).toEqual([]);
   });
   it('oczekiwana akcja bez wyjaśnienia jest błędem', () => {

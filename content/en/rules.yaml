@@ -458,8 +458,9 @@
   then: "you c-bet less often than {{t:in-position|in position}} and {{t:check}} more often, also with good hands"
   because: "the {{t:range}} of a player who {{t:call|called}} with {{t:position}} is {{t:condensed}}: they {{t:fold|folded}} weak hands and {{t:raise|raised}} some of the strongest, so they're left mostly with medium and good hands; on top of that, after the flop you act first on every {{t:street}}"
   level: heuristic
-  source: "commercial solver site, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); training site, C-Betting On Ace-High Boards (CO vs BTN, A94r: “we will check over 96% of the time”)"
-  sources: [{ kind: solver-pub }, { kind: training }]
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
+  source: "commercial solver site, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); training site, C-Betting On Ace-High Boards (CO vs BTN, A94r: “we will check over 96% of the time”); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: “The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on”)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
   if: "on the flop you have two or more opponents"

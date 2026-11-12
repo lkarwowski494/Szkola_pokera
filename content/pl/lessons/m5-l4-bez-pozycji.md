@@ -16,6 +16,25 @@ drills:
       - { text: "{{t:check|Czekam}} częściej niż {{t:in-position}}", correct: true, why: "Tak: Button {{t:call|sprawdził}} z {{t:position|pozycji}}, więc ma silny {{t:range}}, a flop średni i {{t:connected}} dobrze trafia jego {{t:pair|pary}} i {{t:connectors|konektory}}. {{t:out-of-position|Bez pozycji}} {{t:check|czekasz}} tu bardzo często, także z silnymi rękami." }
       - { text: "C-bet często i mało, jak na Buttonie", why: "To plan {{t:in-position}} na {{t:dry|suchym}}, wysokim flopie. Tu nie masz {{t:position|pozycji}}, a flop nie sprzyja twojemu {{t:range|zakresowi}}." }
       - { text: "C-bet ze wszystkimi rękami, żeby nie stracić {{t:initiative|inicjatywy}}", why: "{{t:initiative|Inicjatywa}} nie wygrywa sama: {{t:range}} Buttona jest tu silny, a ty po każdym {{t:bet|zakładzie}} mówisz pierwszy także na turnie i riverze." }
+  - kind: cbet
+    id: m5.l4.c-oop
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "{{t:open|Otworzyłeś}} z {{t:hijack|HJ}}, Button {{t:call|sprawdził}}, reszta {{t:fold|spasowała}}. Mówisz pierwszy. Jaki plan pasuje do tego flopu?"
+    position: HJ
+    options:
+      check: "{{t:check|Czekam}}"
+      small: "C-bet mały: {{n:cbet.size.small}} {{t:pot|puli}}"
+      big: "C-bet duży: {{n:cbet.size.big}} {{t:pot|puli}}"
+    cases:
+      - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
+        best: check
+        rule: R-M5-012
+        why:
+          check: "Tak: na niskim flopie bez {{t:pair|pary}} (najwyższa karta to dziewiątka albo niższa) solver w tym układzie {{t:check|czeka}} całym {{t:range|zakresem}}. Twój szeroki {{t:range}} ma tu dużo wysokich kart, które chybiły, a Button, który {{t:call|sprawdził}} z {{t:position|pozycji}}, ma mniej rąk bez szans."
+          small: "Za często: na niskim flopie bez {{t:pair|pary}} solver w tym układzie nie c-betuje, tylko {{t:check|czeka}} całym {{t:range|zakresem}}, także z silnymi rękami. Gdy Button {{t:bet|postawi}}, część silnych rąk {{t:raise|przebija}} po {{t:check|czekaniu}} (check-raise)."
+          big: "Za często i za drogo: na niskim flopie bez {{t:pair|pary}} solver w tym układzie nie c-betuje, tylko {{t:check|czeka}} całym {{t:range|zakresem}}, także z silnymi rękami. Gdy Button {{t:bet|postawi}}, część silnych rąk {{t:raise|przebija}} po {{t:check|czekaniu}} (check-raise)."
+    count: 3
   - kind: choice
     id: m5.l4.q-oop-why
     family: m5.cbet.oop

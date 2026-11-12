@@ -458,8 +458,9 @@
   then: "bạn c-bet ít thường xuyên hơn so với khi {{t:in-position|có vị trí}} và {{t:check|xem bài}} thường hơn, kể cả với tay tốt"
   because: "{{t:range|range}} của người {{t:call|theo}} khi có {{t:position|vị trí}} là {{t:condensed|cô đặc}}: họ đã {{t:fold|bỏ bài}} tay yếu và {{t:raise|tố}} một phần tay mạnh nhất, nên chủ yếu còn lại tay trung bình và tay tốt; thêm vào đó, sau flop bạn hành động trước ở mọi {{t:street|vòng cược}}"
   level: heuristic
-  source: "trang của một solver thương mại, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); trang đào tạo, C-Betting On Ace-High Boards (CO vs BTN, A94r: “we will check over 96% of the time”)"
-  sources: [{ kind: solver-pub }, { kind: training }]
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
+  source: "trang của một solver thương mại, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); trang đào tạo, C-Betting On Ace-High Boards (CO vs BTN, A94r: “we will check over 96% of the time”); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: “The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on”)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
   if: "ở flop bạn có hai đối thủ trở lên"

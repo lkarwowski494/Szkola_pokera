@@ -458,8 +458,9 @@
   then: "faz c-bet menos vezes do que {{t:in-position|em posição}} e {{t:check|passa}} mais vezes, também com boas mãos"
   because: "o {{t:range|range}} de quem {{t:call|paga}} com {{t:position|posição}} é {{t:condensed|condensado}}: com as mãos fracas {{t:fold|desistiu}} e com parte das mais fortes {{t:raise|aumentou}}, por isso ficou sobretudo com mãos médias e boas; além disso, depois do flop é a si que cabe falar primeiro em todas as {{t:street|rondas}}"
   level: heuristic
-  source: "site de um solver comercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; «Even a hand like top pair top kicker is preferred to be played as a check-call»); site de formação, C-Betting On Ace-High Boards (CO vs BTN, A94r: «we will check over 96% of the time»)"
-  sources: [{ kind: solver-pub }, { kind: training }]
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
+  source: "site de um solver comercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; «Even a hand like top pair top kicker is preferred to be played as a check-call»); site de formação, C-Betting On Ace-High Boards (CO vs BTN, A94r: «we will check over 96% of the time»); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: «The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on»)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
   if: "no flop tem dois ou mais adversários"

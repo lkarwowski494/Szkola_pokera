@@ -16,6 +16,25 @@ drills:
       - { text: "比{{t:in-position}}時更常{{t:check|過牌}}", correct: true, why: "對：按鈕位在有{{t:position|位置}}的情況下{{t:call|跟注}}，所以他的{{t:range}}很強，而中等且{{t:connected}}的翻牌很容易擊中他的{{t:pair|對子}}和{{t:connectors|連張}}。{{t:out-of-position|沒有位置}}時，你在這裡非常常{{t:check|過牌}}，即使拿著強牌也一樣。" }
       - { text: "經常小額 C-bet，就像在按鈕位時一樣", why: "這是{{t:in-position}}時在{{t:dry|乾燥}}的高牌翻牌上的打法。這裡你沒有{{t:position|位置}}，翻牌也不利於你的{{t:range|範圍}}。" }
       - { text: "所有牌都 C-bet，以免失去{{t:initiative|主動權}}", why: "{{t:initiative|主動權}}本身不會讓你贏：按鈕位的{{t:range}}在這裡很強，而你每次{{t:bet|下注}}之後，在轉牌和河牌也都要先行動。" }
+  - kind: cbet
+    id: m5.l4.c-oop
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    position: HJ
+    options:
+      check: "I {{t:check}}"
+      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
+      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+    cases:
+      - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
+        best: check
+        rule: R-M5-012
+        why:
+          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
+          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+    count: 3
   - kind: choice
     id: m5.l4.q-oop-why
     family: m5.cbet.oop
