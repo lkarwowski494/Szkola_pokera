@@ -1,0 +1,13 @@
+pnpm run ci na 8f5adcc (Linux, node v22.23.4, 2026-11-12): exit 0, 13m52s
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  67 passed (67)
+tools/content-build test:       Tests  698 passed | 1 expected fail (699)
+apps/mobile test: Test Suites: 132 passed, 132 total
+apps/mobile test: Tests:       1360 passed, 1360 total
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
