@@ -983,9 +983,11 @@ export function pickHandAnalysis(mode: PickHandSpec['mode'], hands: readonly [re
     const v = callCombos.filter(wolne);
     const f = foldCombos.filter(wolne);
     const moja = strength([...h, ...board]);
-    const wygrywa = [...v, ...f].filter((c) => moja < strength([...c, ...board])).length; // mniejsza siła = lepsza ręka
+    const silyRywali = [...v, ...f].map((c) => strength([...c, ...board]));
+    const wygrywa = silyRywali.filter((s) => moja < s).length; // mniejsza siła = lepsza ręka
+    const remisy = silyRywali.filter((s) => moja === s).length; // remis: pula dzielona po równo (D-1285, EP-002)
     const razem = v.length + f.length;
-    return { v: v.length, f: f.length, sdv: razem === 0 ? 0 : wygrywa / razem };
+    return { v: v.length, f: f.length, sdv: razem === 0 ? 0 : (wygrywa + remisy / 2) / razem };
   };
   const [a, b] = [licz(hands[0]), licz(hands[1])];
   let correct: 0 | 1 | null = null;

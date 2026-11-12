@@ -16,7 +16,7 @@ type Reka = readonly [Card, Card];
 /** Wyrocznia: V, F i SDV ręki h na stole board, z zakresu calls ∪ folds, przez pełne przejście po parach talii. */
 function wyrocznia(h: Reka, board: readonly Card[], calls: readonly string[], folds: readonly string[]) {
   const martwe = new Set<Card>([...h, ...board]);
-  let v = 0, f = 0, wygrywa = 0, wszystkie = 0;
+  let v = 0, f = 0, wygrywa = 0, remisy = 0, wszystkie = 0;
   for (let a = 0; a < FULL_DECK.length; a++) for (let b = a + 1; b < FULL_DECK.length; b++) {
     const x = FULL_DECK[a]!, y = FULL_DECK[b]!;
     if (martwe.has(x) || martwe.has(y)) continue;
@@ -25,9 +25,11 @@ function wyrocznia(h: Reka, board: readonly Card[], calls: readonly string[], fo
     if (!czySprawdzi && !czyPas) continue;
     wszystkie++;
     if (czySprawdzi) v++; else f++;
-    if (strength([...h, ...board]) < strength([x, y, ...board])) wygrywa++; // mniejsza siła = lepsza ręka (jak w EI-001)
+    const [moja, jego] = [strength([...h, ...board]), strength([x, y, ...board])];
+    if (moja < jego) wygrywa++; // mniejsza siła = lepsza ręka (jak w EI-001)
+    else if (moja === jego) remisy++; // remis liczony jawnie, osobnym licznikiem (D-1285)
   }
-  return { v, f, sdv: wszystkie === 0 ? 0 : wygrywa / wszystkie };
+  return { v, f, wygrywa, remisy, sdv: wszystkie === 0 ? 0 : (wygrywa + remisy / 2) / wszystkie };
 }
 function oczekiwana(mode: 'showdown' | 'blockers', hands: readonly [Reka, Reka], board: readonly Card[]): 0 | 1 | null {
   const [a, b] = [wyrocznia(hands[0], board, CALLS, FOLDS), wyrocznia(hands[1], board, CALLS, FOLDS)];
@@ -38,16 +40,50 @@ function oczekiwana(mode: 'showdown' | 'blockers', hands: readonly [Reka, Reka],
   return null;
 }
 
+describe('EV-1 (D-1285, EP-002): remis w SDV = ½ wygranej', () => {
+  const O76 = ['76o'];  // 76s jest już w FOLDS
+  const r = (m: 'showdown' | 'blockers', board: string, a: string, b: string, calls: readonly string[], folds: readonly string[]) =>
+    pickHandAnalysis(m, [parseCards(a) as [Card, Card], parseCards(b) as [Card, Card]], parseCards(board) as Card[], calls, folds);
+  it('wektor A: 7h6h na Ts9h4d3c2s wobec wszystkich 76: W = 0, T = 9, N = 9 → SDV 0,5 (wpisane ręcznie)', () => {
+    const w = wyrocznia(parseCards('7h 6h') as [Card, Card], parseCards('Ts 9h 4d 3c 2s') as Card[], ['76s'], ['76o']);
+    expect([w.wygrywa, w.remisy]).toEqual([0, 9]);
+    const x = r('showdown', 'Ts 9h 4d 3c 2s', '7h 6h', 'Tc 5c', ['76s'], ['76o']);
+    expect(x.sdv[0]).toBe(0.5);
+    expect(x.calls[0] + x.folds[0]).toBe(9);
+  });
+  it('wektor A, tryb showdown: ręka z samym remisem nie jest blefem (SDV > 0) → nie jest poprawną ręką A', () => {
+    const x = r('showdown', 'Ts 9h 4d 3c 2s', '7h 6h', '8c 8d', ['76s'], ['76o']);
+    expect(x.sdv[0]).toBe(0.5);
+    expect(x.correct).not.toBe(0);
+  });
+  it('wektor A, tryb blockers: wariant z 7h6h (SDV 0,5) jest odrzucany (null)', () => {
+    const x = r('blockers', 'Ts 9h 4d 3c 2s', '7h 6h', '8c 8d', ['76s'], ['76o']);
+    expect(x.correct).toBeNull();
+  });
+  it('wektor B: 7h6h wobec KQ: SDV 0', () => {
+    const x = r('showdown', 'Ts 9h 4d 3c 2s', '7h 6h', 'Tc 5c', ['KQs'], ['KQo']);
+    expect(x.sdv[0]).toBe(0);
+  });
+  it('remis nie jest przegraną: SDV rośnie o ½ za każdy remis (porównanie z wyrocznią na pełnym przejściu talii)', () => {
+    const h = parseCards('7h 6h') as [Card, Card];
+    const board = parseCards('Ts 9h 4d 3c 2s') as Card[];
+    const w = wyrocznia(h, board, CALLS, [...FOLDS, ...O76]);
+    const x = r('showdown', 'Ts 9h 4d 3c 2s', '7h 6h', 'Tc 5c', CALLS, [...FOLDS, ...O76]);
+    expect(x.sdv[0]).toBeCloseTo(w.sdv, 12);
+  });
+});
+
 describe('KO-072: pickHandAnalysis na wektorach ręcznych (oczekiwane wartości wpisane, nie wyliczane; EP-006)', () => {
   const r2 = (m: 'showdown' | 'blockers', board: string, a: string, b: string) => pickHandAnalysis(m, [parseCards(a) as [Card, Card], parseCards(b) as [Card, Card]], parseCards(board) as Card[], CALLS, FOLDS);
+  // D-1285 (EP-002): dawna ręka A 7h6h remisuje z 76s z FOLDS (SDV 0,022), więc nie ma już SDV = 0; wektor przeniesiony na 7h5h (bez remisów z zakresem), 7h6h ma wektory A/B w bloku EV-1
   it('SC-23a: siódemka-high bez SDV kontra para dziesiątek z SDV > 0 → poprawna jest ręka A', () => {
-    const r = r2('showdown', 'Ts 9h 4d 3c 2s', '7h 6h', 'Tc 5c');
+    const r = r2('showdown', 'Ts 9h 4d 3c 2s', '7h 5h', 'Tc 5c');
     expect(r.sdv[0]).toBe(0);
     expect(r.sdv[1]).toBeGreaterThan(0.5);
     expect(r.calls).toEqual([47, 45]);
     expect(r.folds).toEqual([21, 22]);
     expect(r.correct).toBe(0);
-    const wa = wyrocznia(parseCards('7h 6h') as [Card, Card], parseCards('Ts 9h 4d 3c 2s') as Card[], CALLS, FOLDS);
+    const wa = wyrocznia(parseCards('7h 5h') as [Card, Card], parseCards('Ts 9h 4d 3c 2s') as Card[], CALLS, FOLDS);
     expect([r.calls[0], r.folds[0], r.sdv[0]]).toEqual([wa.v, wa.f, wa.sdv]); // zgodność z wyrocznią
   });
   it('SC-23a: obie ręce z SDV > 0 → null', () => {

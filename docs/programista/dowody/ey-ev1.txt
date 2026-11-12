@@ -1,0 +1,14 @@
+# EV-1 (D-1285): test ek-pick-hand.test.ts blok EV-1; przed = src sprzed poprawki, po = z poprawką (2026-11-12)
+## PRZED
+     × wektor A: 7h6h na Ts9h4d3c2s wobec wszystkich 76: W = 0, T = 9, N = 9 → SDV 0,5 (wpisane ręcznie) 9ms
+     × wektor A, tryb showdown: ręka z samym remisem nie jest blefem (SDV > 0) → nie jest poprawną ręką A 1ms
+     × remis nie jest przegraną: SDV rośnie o ½ za każdy remis (porównanie z wyrocznią na pełnym przejściu talii) 2ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected +0 to be 0.5 // Object.is equality
+AssertionError: expected +0 to be 0.5 // Object.is equality
+AssertionError: expected +0 to be close to 0.060810810810810814, received difference is 0.060810810810810814, but expected 5e-13
+      Tests  3 failed | 2 passed | 9 skipped (14)
+kod wyjścia przed: 0
+## PO
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
