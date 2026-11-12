@@ -1,0 +1,20 @@
+# eq-kontrola.mjs na 333af15d (przed poprawkami), 2026-11-12
+BRAK pl R-M7-006: warunek bez „najwyższa para z dobrym kickerem” (06-tresci-001)
+BRAK pl R-M7-006: source nadal definiuje silną rękę jako każdą najwyższą parę (06-tresci-001)
+BRAK en R-M7-006: warunek bez „najwyższa para z dobrym kickerem” (06-tresci-001)
+BRAK en R-M7-006: source nadal definiuje silną rękę jako każdą najwyższą parę (06-tresci-001)
+BRAK rejestr R-M7-006: twierdzenie bez „z dobrym kickerem”
+BRAK rejestr R-M7-006: brak cytatu „strong top pairs and better” (Tip #2) z odczytem 2026-11-12
+BRAK stan-eq.md: brak specyfikacji filtra 08-EL-1 bez TPWK
+BRAK pl R-M6-006: then bez warunku overkarty przy backdoorze (06-tresci-002)
+BRAK pl R-M6-006: then nadal „wysokimi kartami z dodatkowym drawem”
+BRAK pl m6-l2: lista „Czym sprawdzasz” bez warunku overkarty
+BRAK en R-M6-006: then bez warunku overkarty przy backdoorze (06-tresci-002)
+BRAK en R-M6-006: then nadal „wysokimi kartami z dodatkowym drawem”
+BRAK en m6-l2: lista „Czym sprawdzasz” bez warunku overkarty
+BRAK rejestr R-M6-006: twierdzenie bez warunku overkarty
+BRAK rejestr R-M6-006: brak cytatu „blind vs blind” (Tip 4) z odczytem 2026-11-12
+BRAK rejestr R-M6-006: uproszczenie bez nazwanego zakresu źródła (BvB)
+BRAK stan-eq.md: brak specyfikacji zmiany 08-EH-3 (overkarta)
+17 braków
+kod 1
