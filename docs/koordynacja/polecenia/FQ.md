@@ -1,0 +1,15 @@
+# Sesja FQ: szkice SC-13/22/25/28/29 i SC-24, zdania „Liczby” — Szkoła Pokera
+Koordynator: session_01T66VBwVqBvUz9W9xFX1d8L (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego; aktualny ID zawsze w `origin/koordynacja:docs/koordynacja/stan.md`, wiersz „Koordynator aktywny”). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 06-tresci w trybie build. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź robocza `claude/sleepy-brahmagupta-2065nu` @ 5ec4f912 (inny HEAD: zgłoś); pracujesz na własnej gałęzi `sesja-fq-szkice`. Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem.
+3. Zadania (wzór formatu i procesu: szkice FD w `docs/tresci/szablony-robocze/fd/{pl,en}/`, recenzja FK `docs/tresci/recenzje/recenzja-fd-fc16e128.md`, stan `docs/tresci/stan-fd.md`):
+   1. Szkice SC-13, SC-22, SC-25, SC-28, SC-29 (pl i en) do nowego silnika z FL (flop-size, river-value; kod w robocza @ 5ec4f912, tylko odczyt). Uwaga z recenzji FO: SC-13/SC-28 trafią do `content/` dopiero po naprawie 08-programista-001/002 (FP) — w szkicu zaznacz zależność. Gotowe: każdy szkic przechodzi bramkę szablonów (komenda i wynik), każde twierdzenie z przeczytanym źródłem (ADR-24), liczby tylko `{{n:…}}`.
+   2. FN-N1 (SC-24) według `docs/tresci/stan-fd.md`. Gotowe: status w stan-fd.md.
+   3. Zdania „Liczby” (D-1380) dla river-catch i defend (FM-07 w `docs/design/fm-turn-bet.md` §2), pl i en, jako szkic w `docs/tresci/`. Gotowe: wzór rachunku zgodny z formułą w `content/numbers.yaml` (refs), opis dla 08, gdzie trafiają w widoku.
+   4. Na koniec `pnpm run ci` kod 0, dowód w `docs/tresci/dowody/fq-ci-<sha>.txt`.
+4. Zakazy: tylko `docs/tresci/**` i `docs/decyzje/FQ.md`; nie zmieniasz `content/`, kodu ani plików językowych aplikacji (to 08 i 09); nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia z zasady wspólnej 19 zamieniasz na raport do koordynatora i czekasz na odpowiedź.
+5. Decyzje: produktowe do właściciela przez koordynatora (PYTANIE z ≥ 2 opcjami i rekomendacją); techniczne: najpierw analogia z repo lkarwowski494/trening (także oczko, piekarz), `repo:plik:linia`, wpis do weta. Sprawy merytoryczne pokerowe: hierarchia źródeł ADR-24 z CLAUDE.md (nie właściciel). Numery decyzji tylko D-1460…D-1469.
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w `docs/tresci/stan-fd.md`, push, PRZEKAZANIE. Pułap kosztu: brak (mandat), koszt w raportach.
+7. Push: zbiorczo na `sesja-fq-szkice`.
+8. Raporty (≤ 10 linii, przez send_message): po pierwszym zadaniu czas i szacunek reszty; PYTANIE: pełna treść, opcje, rekomendacja; PRZEKAZANIE: zrobione (SHA, dowód ci), dowody (pliki), decyzje do weta, koszt, otwarte, następny krok, ścieżka promptu kontynuacji.
