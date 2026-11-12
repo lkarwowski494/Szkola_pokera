@@ -1,0 +1,14 @@
+# Sesja EQ: poprawki treści po recenzji EO (06-tresci-001 WYS, 002 ŚR) — Szkoła Pokera
+Koordynator: session_01T66VBwqjWSzpapzyq8BU9G (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 06-tresci w trybie fix (zadania 06-tresci-001, 06-tresci-002). Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-eq-tresci` od `sesja-eo-recenzja` @ 333af15d (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem. Wejście: raport `docs/tresci/recenzje/recenzja-el-f5780bb3.md`, `docs/decyzje/EO.md` (D-1245 rekomendacje 001a/002a), `docs/decyzje/EL.md`.
+3. Zadania:
+   1. **06-tresci-001 (WYS):** R-M7-006 i D-1213 — „silna” zawęzić do źródła („strong top pairs and better” → najwyższa para z dobrym kickerem albo lepsza), spójnie z m7-l2:64 (TPWK = średnia ręka); pl i en; w pozostałych językach tylko zgodność liczb/placeholderów, a zmienione zdania oznacz do przekładu 09 (lista kluczy w raporcie). Zapisz dla 08 specyfikację filtra 08-EL-1 (bez TPWK) w `docs/tresci/stan-eq.md`. Gotowe: test lub kontrola czerwona przed zmianą, zielona po; cytat dosłowny ze źródła z datą odczytu.
+   2. **06-tresci-002 (ŚR):** backdoor strita ≥T → call tylko z overkartą (źródło: „backdoor plus overcard”, kontekst BvB — nazwij zakres stosowania). Treść i rejestr; dla 08 specyfikacja zmiany 08-EH-3 w kodzie (EK zaimplementował „gutshot i backdoor ≥T → call” na `sesja-ek-partia2`) w `docs/tresci/stan-eq.md`. Gotowe jak wyżej.
+   3. `pnpm content:build`, `pnpm run ci` kod 0 na końcowym SHA, pełny wynik w `docs/tresci/dowody/eq-ci-<sha>.txt`.
+   Kodu w `packages/` i `tools/` nie zmieniasz (to 08); ŚR 003 (el-kontrola w CI) i 08-EL-3/4 nie są twoje.
+4. Zakazy: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, bez płatnych API, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb nocny (analogia; najpierw `lkarwowski494/trening`, potem oczko, piekarz), do weta; merytoryczne pokerowe → ADR-24. Pula **D-1255…D-1259** (`docs/decyzje/EQ.md`).
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan, push, PRZEKAZANIE. Pułapu kosztu brak — podaj koszt.
+7. Raporty (≤ 10 linii, send_message): PYTANIE z pełną treścią, opcjami i rekomendacją; PRZEKAZANIE: SHA, ci kod i plik dowodu, zrobione, specyfikacje dla 08, klucze do przekładu 09, decyzje do weta, koszt.
