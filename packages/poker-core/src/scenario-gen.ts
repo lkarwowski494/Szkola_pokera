@@ -852,6 +852,9 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (oczekiwana !== 'bet' && oczekiwana !== 'check') throw new TemplateError(`${t.id}: poziom ${level}: river-value: oczekiwana akcja to bet albo check, jest ${String(oczekiwana)}`);
       const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
       if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12 && delta < 0.5)) throw new TemplateError(`${t.id}: poziom ${level}: river-value wymaga marginesu δ w [${DRAW_CALL_MIN_GAP}; 0,5) (D-1051, D-1417), jest ${delta}`); // 08-programista-006: δ ≥ 0,5 to błąd szablonu, nie zwykły Error z riverValueVerdict
+      // 08-FQ-2 (FQ D-1467): górna granica odległości w od połowy (marginMax; null = bez granicy): δ ≤ |w − 0,5| < marginMax, żeby poziomy Ś/T różniły się od Ł
+      const deltaMax = b.margins?.[i]?.max ?? b.marginMax ?? null;
+      if (deltaMax !== null && !(deltaMax > delta)) throw new TemplateError(`${t.id}: poziom ${level}: river-value: marginMax ${deltaMax} musi być większy od δ ${delta} (08-FQ-2)`);
       if (spec.pairKind) {
         const rodzaj = classifyHolding(hero, board).pairKind;
         if (rodzaj === null || !spec.pairKind.includes(rodzaj)) return null;
@@ -863,6 +866,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (classComboSplit(hero, board, spec.folds).better > 0) return null; // D-1302 war. 2: lepsza ręka wśród pasujących
       const sprawdza = classComboSplit(hero, board, spec.calls);
       if (riverValueVerdict(sprawdza, delta) !== oczekiwana) return null; // BR-GEN-003: tylko oczekiwana akcja, pas ±δ odrzucany
+      if (deltaMax !== null && Math.abs(sprawdza.worse / (sprawdza.worse + sprawdza.better) - 0.5) >= deltaMax) return null; // W + L > 0: werdykt wyżej nie jest null (08-FQ-2)
       points.push({ point: 'river-value', street: 'river', worse: sprawdza.worse, better: sprawdza.better, ties: sprawdza.ties, w: sprawdza.worse / (sprawdza.worse + sprawdza.better), correct: oczekiwana });
       continue;
     }
