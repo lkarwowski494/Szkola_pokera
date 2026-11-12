@@ -1,0 +1,61 @@
+pnpm run ci @ 76224158 (kod źródłowy; 42b22d9c dodaje tylko docs/decyzje/ER.md), kod wyjścia 0, 2026-11-12
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:88 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:180 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:208 t(`scenario.street.${ulicaDecyzji}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:209 t(`grade.${ocenaWyboru}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:225 t(`scenario.street.${widok.ulica}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:231 t(`scenario.street.${u}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:285 t(`scenario.street.${nastepna.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:294 t(inni.length === 1 ? 'scenario.icm.foldedOne' : 'scenario.icm.foldedMany'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:322 t(klucz): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:336 t(`scenario.level.${p.poziom}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:347 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:350 t(`grade.${k.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:45 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:40 t(`scenario.level.${w}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:84 t(`grade.${w.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:96 t(`grade.${o}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:102 t(`grade.${o}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:171 t(uklad.liczbaGraczy === 3 ? 'scenario.icm.noPrizeThird' : 'scenario.icm.noPrizeFourth'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:204 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:207 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/liczby.ts:83 t(trojbet ? 'scenario.numbers.size3bet' : 'scenario.numbers.sizeOpen'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/start/EkranStartu.tsx:37 t(`start.title.${TYTUL[rodzaj]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/PanelDecyzji.tsx:35 t(`grade.${ocenaDecyzji(rekord.grade)}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:23 t(`grade.${stopien}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:33 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:97 t(`card.rank.${r}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:97 t(`card.suit.${s}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:105 t(`table.position.${p.toLowerCase()}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:108 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+błędy: 0, uwagi: 560; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 860
+
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> pnpm --filter @szkola/content-build check
+
+
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+(node:6461) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+
+wpisy: 1060, bez twierdzeń: 139, wymagane: 1139, brak pokrycia: 0
+status: {"potwierdzone":1004,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":705,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1047,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.vpip.high, n:hud.opp
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+exit 0
