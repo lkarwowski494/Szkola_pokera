@@ -31,7 +31,7 @@ import {
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
 import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates, potrzebujeMacierzyEquity } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
-import { buildGeneratorContext, classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type Equity169Data, type TextureFilter } from '@szkola/poker-core';
+import { buildGeneratorContext, classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, parseHeroPositions, POSITION_NAMES, positionNames, textureMatches, type Equity169Data, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
 import { compileHandRanking, compileRanges } from './ranges';
@@ -747,6 +747,12 @@ export function compileEvalRules(
       if (!d || d.kind !== 'cbet') throw new Error(`${where}: drill musi wskazywać zadanie kind: cbet (jest ${c.drill})`);
       cases = d.cases.map((x) => ({ when: x.when, best: x.best, ...(x.rule ? { rule: x.rule } : {}), ...(x.sizeDown ? { sizeDown: x.sizeDown } : {}) }));
       if (!cases.some((x) => x.rule === r.id)) throw new Error(`${where}: zadanie ${c.drill} nie ma przypadku z rule: ${r.id}`);
+      // FC FA-002 (D-1340): params.heroPositions sprawdzane przy kompilacji reguły, nie dopiero w grze (zła wartość psułaby ocenę albo po cichu wyłączała regułę);
+      // pozycje muszą należeć do nazw stołów reguły (check.players; bez niego do wszystkich stołów 2–9), wielkość liter ma znaczenie („HJ”, nie „hj”)
+      let pozycje: string[] | null;
+      try { pozycje = parseHeroPositions(params.heroPositions); } catch (e) { throw new Error(`${where}: ${(e as Error).message}`); }
+      const nazwyStolow = new Set((c.players ?? Object.keys(POSITION_NAMES).map(Number)).flatMap((n) => positionNames(n)));
+      for (const poz of pozycje ?? []) if (!nazwyStolow.has(poz)) throw new Error(`${where}: heroPositions: nieznana pozycja ${poz} (dozwolone: ${[...nazwyStolow].join(', ')})`);
     }
     const need: Partial<Record<string, string[]>> = {
       'open-size': ['open', 'openSb'],
