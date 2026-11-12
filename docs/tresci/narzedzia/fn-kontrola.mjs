@@ -53,7 +53,8 @@ const testy = {
     const f = 'docs/decyzje/FN.md';
     return existsSync(f) && /D-1435[^\n]*pailiku\.com\/charts\/co-vs-btn-3bet[^\n]*deepfold/i.test(readFileSync(f, 'utf8')) ? [] : ['D-1435 nie nazywa sprzeczności źródeł spotu CO vs BTN (Pailiku, Deepfold)'];
   },
-  '06-tresci-010': () => ['pl', 'en'].flatMap((j) => /pokercoaching When to Call/.test(surowy(j, 'sc-17')) || !/Upswing/.test(surowy(j, 'sc-17').split('\nid:')[0]) ? [`${j}/sc-17: nagłówek nie przypisuje „When to Call With Ace-High” Upswingowi`] : []),
+  // en ma tylko nagłówek-odsyłacz do pl (bez atrybucji; FK podało „pl i en”, grep: tylko pl), więc w en sprawdzany jest brak błędnej atrybucji
+  '06-tresci-010': () => ['pl', 'en'].flatMap((j) => /pokercoaching When to Call/.test(surowy(j, 'sc-17')) || (j === 'pl' && !/Upswing/.test(surowy(j, 'sc-17').split('\nid:')[0])) ? [`${j}/sc-17: nagłówek nie przypisuje „When to Call With Ace-High” Upswingowi`] : []),
   '06-tresci-011': () => [['pl', /trzyma więcej kart|nie zasłania rąk do spasowania/], ['en', /holds more cards|doesn't block the hands that fold/]].flatMap(([j, re]) => {
     const t = sz(j, 'sc-23');
     return re.test(expl(t, 'best-hand') + expl(t, 'other-hand')) ? [`${j}/sc-23: wyjaśnienie mocniejsze niż kryterium a.v < b.v && a.f >= b.f`] : [];

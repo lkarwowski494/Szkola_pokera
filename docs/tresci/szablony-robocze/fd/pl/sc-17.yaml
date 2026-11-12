@@ -1,5 +1,5 @@
 # SC-17 (M6): duży c-bet, dwie wysokie karty bez pary, drawa i backdoora: pas (punkt defend, gałąź „duży” ≥ 0,75 puli, D-1166).
-# Ocena: defendVsCbet (R-M6-007; źródło pokercoaching When to Call With Ace-High, D-1211). Inne ręce wobec dużego zakładu: null
+# Ocena: defendVsCbet (R-M6-007; źródło Upswing „When to Call With Ace-High”, upswingpoker.com, D-1211). Inne ręce wobec dużego zakładu: null
 # (źródło nie rozstrzyga), więc jedyna oczekiwana akcja to fold. Szkic sesji FD (D-1353): defend poza ekranem.
 id: sc-17
 module: m6
