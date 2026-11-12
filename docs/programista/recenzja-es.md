@@ -41,7 +41,7 @@ Soczewki: „recenzent szukający ścieżki bez testu” (mutanty), „przerwany
 ## Kontrola dowodów i sekretów
 `node sprawdz-raport.mjs docs/programista/recenzja-es.md . --rola 08-programista` (kopia skryptu w scratchpadzie): wynik w ostatniej linii sekcji, wklejony po przebiegu.
 
-WYNIK_SPRAWDZ_RAPORT
+Wynik: `OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 08-programista` (kod 0).
 
 ## Stosowalność listy kontrolnej
 | Pozycja | Status (dotyczy / nie dotyczy + powód / decyzja D-xx) | Wynik (ok / znalezisko ID / nie sprawdzono + powód) |
@@ -111,4 +111,4 @@ Brak decyzji produktowych. Decyzje merytoryczne i techniczne tej recenzji są w 
 `node tools/assemble.mjs 08-programista --tryb fix --zadania 08-programista-001,08-programista-002`
 
 ## Stan plików śledzonych
-`git status --porcelain` przed commitem tej recenzji: tylko nowe pliki `docs/programista/recenzja-es.md`, `docs/programista/dowody/es-*.txt`, `docs/decyzje/ES.md` (kod i workflowy nietknięte).
+`git status --porcelain` przed pierwszym commitem recenzji: `?? docs/decyzje/ES.md`, `?? docs/programista/dowody/es-mutanty.txt`, `?? docs/programista/dowody/es-przebiegi-cache.txt`, `?? docs/programista/recenzja-es.md`; kod, testy i workflowy nietknięte (`git diff fb99729e --stat -- .github apps packages tests scripts` pusty).

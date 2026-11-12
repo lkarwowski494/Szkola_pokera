@@ -1,0 +1,42 @@
+# pnpm run ci na fb99729e (gałąź sesja-es-recenzja = claude/dt-e2e @ fb99729e), kontener sesji ES, 2026-11-12
+# komenda: pnpm install --frozen-lockfile (kod 0) && pnpm run ci > ci-full.txt 2>&1; pełny log w scratchpadzie (3752 linii)
+# v22.23.4, pnpm 10.28.0
+
+## Podsumowania
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> szkola-pokera@ test /home/user/Szkola_pokera
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  15 passed (15)
+packages/poker-core test:       Tests  184 passed (184)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  47 passed (47)
+tools/content-build test:       Tests  481 passed | 1 expected fail (482)
+apps/mobile test: Test Suites: 124 passed, 124 total
+apps/mobile test: Tests:       1039 passed, 1039 total
+> szkola-pokera@ test:skrypty /home/user/Szkola_pokera
+# tests 202
+# pass 202
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+> szkola-pokera@ test:kontrole /home/user/Szkola_pokera
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+> szkola-pokera@ k08 /home/user/Szkola_pokera
+> szkola-pokera@ i18n:kod /home/user/Szkola_pokera
+błędy: 0, uwagi: 621; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 860
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+0 błędów, 1 uwag
+
+KOD_WYJSCIA=0
