@@ -36,3 +36,23 @@ describe('EI-001: turn-bet: „silna ręka” to ręka zrobiona, nie draw', () =
     expect(zle).toEqual([]);
   }, 120000);
 });
+describe('08-EL-1 (D-1256): turn-bet: najwyższa para tylko z kickerem ≥ Q (bez TPWK)', () => {
+  it('ziarna 1–3000 (draws flush, oesd): żaden wariant z pairKind top nie ma kickera niższego niż Q; wariant z top i kickerem ≥ Q istnieje', async () => {
+    const { classifyHolding } = await import('../src');
+    const KICKER_MIN_Q = 10; // indeks rangi Q w 23456789TJQKA
+    const t2: GeneratorTemplate = { ...t, levels: { latwy: { draws: ['flush', 'oesd'], reject: [], marginMin: 0.02, expected: ['bet-big'] } } };
+    const zle: string[] = [];
+    let topZKickerem = 0;
+    for (let seed = 1; seed <= 3000; seed++) {
+      const v = generateVariant(t2, 'latwy', seed);
+      const turn = v.board.slice(0, 4);
+      const h = classifyHolding(v.hero, turn);
+      if (h.pairKind !== 'top') continue;
+      const drugaKarta = h.kicker ?? -1;
+      if (drugaKarta < KICKER_MIN_Q) zle.push(`seed ${seed}: ${v.hero.map(cardToString).join('')} na ${turn.map(cardToString).join('')} (kicker ${drugaKarta})`);
+      else topZKickerem++;
+    }
+    expect(zle).toEqual([]);
+    expect(topZKickerem).toBeGreaterThan(0);
+  }, 120000);
+});

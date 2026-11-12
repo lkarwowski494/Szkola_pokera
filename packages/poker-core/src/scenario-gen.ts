@@ -709,8 +709,9 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const h = classifyHolding(hero, turn);
       const rangiTurnu = turn.map(rankOf);
       const zKarta = rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiTurnu.includes(rankOf(c)));
-      // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143); „strong” tylko z pary (nadpara, najwyższa para z kickerem), nie z samych outów (EI-001)
-      const zrobiona = h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || h.pairKind === 'top'));
+      // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143); „strong” tylko z pary (nadpara, najwyższa para z kickerem ≥ Q), nie z samych outów (EI-001)
+      // 08-EL-1 (D-1256): najwyższa para tylko z kickerem ≥ Q (bez TPWK i średniego kickera)
+      const zrobiona = h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || (h.pairKind === 'top' && (h.kicker ?? -1) >= TURN_BET_KICKER_MIN)));
       if (!zrobiona || !zKarta) return null;
       const draw = analyseOutsSpot(villain, turn);
       if (!draw || !(b.draws as readonly string[]).includes(draw.draw.kind) || classifyHolding(villain, turn).improvesBoard) return null;
@@ -998,6 +999,7 @@ export function pickHandAnalysis(mode: PickHandSpec['mode'], hands: readonly [re
 
 const RANK_A = 12; // as
 const RANK_T = 8;
+const TURN_BET_KICKER_MIN = 10; // Q w 23456789TJQKA; 08-EL-1, D-1256
 /** Granica „mały / duży” c-bet w obronie: mały to ≤ 0,4 puli (≈ 1/3, R-M6-006), duży ≥ 0,75 (≥ 3/4, R-M6-007); pomiędzy źródło nie rozstrzyga. */
 const DEFEND_SMALL_MAX = 0.4;
 /** D-1166 / NIS-004: = `cbet.size.big` z content/numbers.yaml (0,75, włącznie); zgodność pilnuje szablony-eh.test.ts w content-build. */
