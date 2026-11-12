@@ -1,0 +1,22 @@
+# sc-17: English text of pl/sc-17.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+id: sc-17
+module: m6
+situation: "You're in the {{t:big-blind}} and {{t:call|called}} the Button's {{t:open}}. On the flop you {{t:check}}, and the Button makes a big {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-007
+    spot: vs-open.bb-vs-btn
+    pots: [5, 6]
+    fractions: [0.75, 1]
+    actions:
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a big {{t:c-bet}}. You {{t:fold}}, because you have two high cards with no {{t:pair}} and no {{t:draw}}: {{t:out-of-position}} a hand like this rarely gets to {{t:showdown}}, and a {{t:pair}} made with a high card often loses anyway. Against a bet of about {{n:cbet.size.big}} of the {{t:pot}} you already need about {{n:eq.bet-three-quarters}} equity."
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a big {{t:c-bet}}. A {{t:call}} pays a lot for a hand that rarely gets to {{t:showdown}} {{t:out-of-position}}: two high cards with no {{t:pair}} and no {{t:draw}}, and a {{t:pair}} made with a high card often loses anyway. Against a big {{t:c-bet}} you rather {{t:call}} when you also have a backdoor {{t:draw}}, ideally to the nut {{t:flush}}."

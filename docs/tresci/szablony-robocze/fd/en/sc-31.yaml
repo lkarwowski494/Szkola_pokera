@@ -1,0 +1,23 @@
+# sc-31: English text of pl/sc-31.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+id: sc-31
+module: m10
+situation: "This opponent often {{t:bet|bets}} and {{t:raise|raises}}. On the river you have one {{t:pair}} that only beats their {{t:bluff|bluffs}}, and they {{t:bet}} big. Assume the share of {{t:bluff|bluffs}} in their bets is what the hand shows."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { marginMin: 0.1, expected: [call] }
+  sredni: { marginMin: 0.03, marginMax: 0.1, expected: [call] }
+decisions:
+  - street: river
+    kind: river-catch
+    rule: R-M8-010
+    pots: [10, 14, 20, 30]
+    fractions: [0.75, 1, 1.5]
+    bluffShares: [0.35, 0.4, 0.45, 0.5, 0.55]
+    actions:
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:bet|bets}} big on the river. You {{t:call}}, because your equity is the share of {{t:bluff|bluffs}} in their bets, and in this hand there are more of them than the equity this bet requires. A bigger bet requires more {{t:bluff|bluffs}}: against a {{t:pot}}-sized bet, about {{n:eq.bet-pot}}."
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:bet|bets}} big on the river. A {{t:fold}} gives up a {{t:pot}} where {{t:call|calling}} makes money: your equity is the share of {{t:bluff|bluffs}} in their bets, and here there are more of them than the equity this bet requires."

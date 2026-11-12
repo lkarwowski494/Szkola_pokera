@@ -1,0 +1,26 @@
+# SC-09 (M4): izolacja limpera, rozmiar przebicia (punkt size-spot iso-size, 08-N3, D-1140). Ocena: isoSizeOptions z parametrów
+# R-M4-012 (standard = pf.iso.base + limperzy × pf.iso.per-limper, bez pozycji + pf.iso.oop-extra); inny rozmiar to niedokładność.
+# Szkic sesji FD (D-1354): iso-size poza ekranem (brak widoku limperów, rola 04); dziś generator losuje rękę z całej talii, więc
+# szablon czeka też na 08-FD-2 (ręka z zakresu otwarcia pozycji, jak cbet-case); R-M4-013 (którą ręką izolować) nie jest oceniane.
+id: sc-09
+module: m4
+situation: "Gracz przed tobą tylko wyrównał {{t:big-blind}} ({{t:limp}}), reszta {{t:fold|spasowała}}. Masz rękę, którą {{t:raise|przebijasz}} ({{t:isolation|izolacja}}). Jaki rozmiar {{t:raise|przebicia}} wybierasz?"
+table: 6max
+positions: { hero: CO, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: iso-size
+    rule: R-M4-012
+    limpers: 1
+    actions:
+      - action: raise
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, przed tobą jeden {{t:limp|limper}}. {{t:raise|Przebijasz}} do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego limpera, bo mniejsze {{t:raise|przebicie}} daje limperowi zbyt dobrą cenę i nie odbiera mu rozdania."
+      - action: raise-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, przed tobą jeden {{t:limp|limper}}. To {{t:raise|przebicie}} jest za małe: daje limperowi zbyt dobrą cenę i nie odbiera mu rozdania. Standard to {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego limpera."
+      - action: raise-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, przed tobą jeden {{t:limp|limper}}. Ten rozmiar odbiega od standardu: {{t:raise|przebijasz}} do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego limpera, {{t:out-of-position}} o {{n:pf.iso.oop-extra}} więcej."

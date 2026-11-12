@@ -1,0 +1,25 @@
+# SC-20 (M7) po KO-085 P4a: silna ręka na turnie wobec możliwego drawa do koloru, zakład 1/4 czy 3/4 puli (punkt turn-bet, 08-N6,
+# D-1213). Ocena: rachunek R-M7-006 (math): cena dla drawa = zakład ÷ (pula + 2·zakład); czyste outy, e = N/44 (D-1286, D-1310),
+# najwyższa para z kickerem ≥ Q albo lepsza (D-1256). Zastępuje „semi-blef drawem” (D-1289: źródło przeczy regule według klasy ręki).
+# Szkic sesji FD (D-1355): turn-bet poza ekranem (08-EV-2 zrobione w EY: a3b18da; brak widoku, rola 04).
+id: sc-20
+module: m7
+situation: "Na turnie masz silną rękę: {{t:top-pair|najwyższą parę}} z dobrym {{t:kicker|kickerem}} albo lepszą. Na {{t:board|stole}} są dwie karty w jednym kolorze, więc rywal może mieć {{t:flush-draw}}. Jaki rozmiar {{t:bet|zakładu}} wybierasz?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo: przy {{t:bet|zakładzie}} {{n:cbet.size.big}} {{t:pot|puli}} {{t:draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, więc nie dostaje dobrej ceny."
+      - action: "bet-small"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. Mały {{t:bet|zakład}} daje {{t:draw|drawowi}} dobrą cenę: przy {{t:bet|zakładzie}} ćwierć {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}} equity, a ma ok. {{n:odds.flush.turn-river}}. Silną rękę wobec {{t:draw|drawa}} {{t:bet|stawiasz}} dużo."

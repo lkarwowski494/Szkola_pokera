@@ -1,0 +1,22 @@
+# sc-15: English text of pl/sc-15.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
+id: sc-15
+module: m6
+situation: "You're in the {{t:big-blind}} and {{t:call|called}} the Button's {{t:open}}. On the flop you {{t:check}}, and the Button makes a small {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [5, 6]
+    fractions: [0.25, 0.33]
+    actions:
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. You {{t:call}}, because this hand either already beats {{t:bluff|bluffs}} or can improve, and a small bet requires little equity. In theory, against a bet of {{n:cbet.size.small}} of the {{t:pot}} you defend about {{n:mdf.bet-third}} of your {{t:range}}; if you {{t:fold}} more than {{n:alpha.bet-third}}, your opponent profits by {{t:bluff|bluffing}} with any two cards."
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. A {{t:fold}} gives up a hand with enough equity against such a small bet: it either already beats {{t:bluff|bluffs}} or can improve. You don't {{t:fold}} en masse to small c-bets: if you {{t:fold}} more than {{n:alpha.bet-third}}, your opponent profits by {{t:bluff|bluffing}} with any two cards."

@@ -1,0 +1,27 @@
+# SC-23 (M8): blef na riverze — wybór jednej z dwóch rąk bez wartości przy showdownie (KO-072, punkt pick-hand, tryb blockers).
+# Ocena: pickHandAnalysis (poker-core): obie ręce mają SDV = 0 wobec zakresu z sytuacji; poprawna ręka ma mniej kombinacji, które
+# sprawdzą (V), i nie mniej tych, które spasują (F); brak dominacji = wariant odrzucony (D-1054). Reguła R-M8-007 (heuristic):
+# GTO Wizard, Blockers & Unblockers: „A good bluff should simultaneously block very strong hands and unblock the hands that we want
+# to fold out.” (odczyt 2026-11-12, `docs/tresci/odczyty/fd-2026-11-12.tsv`). Zgodność z rachunkiem EV: D-1303. Zakres rywala to
+# dana zadania (D-1300): sytuacja mówi wprost „załóż”, wyjaśnienie nie uogólnia jej na typ gracza. Rola 06, sesja FD (D-1351).
+id: sc-23
+module: m8
+situation: "Jesteś na Buttonie, na riverze {{t:big-blind}} {{t:check|czeka}}. Rozważasz {{t:bluff|blef}} jedną z dwóch rąk, które przy {{t:showdown|showdownie}} nie wygrają z żadną ręką rywala. Załóż, że rywal {{t:call|sprawdzi}} z AA, KK, QQ, JJ, AK i AQ {{t:suited|w kolorze}}, a {{t:fold|spasuje}} z KQ, KJ, QJ, QT i JT {{t:suited|w kolorze}}. Którą rękę wybierasz do {{t:bluff|blefu}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [best-hand] }
+decisions:
+  - street: river
+    kind: pick-hand
+    rule: R-M8-007
+    mode: blockers
+    calls: [AA, KK, QQ, JJ, AKs, AKo, AQs]
+    folds: [KQs, KJs, QJs, QTs, JTs]
+    actions:
+      - action: best-hand
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}. To lepszy {{t:bluff|blef}}: obie ręce przy {{t:showdown|showdownie}} przegrywają, ale ta trzyma więcej kart z rąk, którymi rywal {{t:call|sprawdzi}}, a nie mniej zostawia mu rąk, które {{t:fold|spasuje}}. Gdy trzymasz kartę z jego silnych rąk, rywal ma ich mniej {{t:combo|kombinacji}}, więc częściej zostaje mu ręka do spasowania."
+      - action: other-hand
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}. Ta ręka to słabszy {{t:bluff|blef}}: obie przy {{t:showdown|showdownie}} przegrywają, ale druga ręka zostawia rywalowi mniej rąk, którymi {{t:call|sprawdzi}}, a nie mniej rąk, które {{t:fold|spasuje}}. Do {{t:bluff|blefu}} wybierasz rękę z {{t:blocker|blokerem}} jego silnych rąk, która nie zasłania rąk do spasowania."

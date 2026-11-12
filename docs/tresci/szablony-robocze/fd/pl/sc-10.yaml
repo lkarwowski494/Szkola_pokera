@@ -1,0 +1,27 @@
+# SC-10 (M4): otwarcie wobec 3-betu z AA, KK, AK (punkt list-hand, 08-N4, D-1142). Ocena: lista z R-M4-010 (heuristic; Upswing:
+# AK „should be 4-bet with 100% frequency” BTN vs BB; Deepfold: „4-bet value KK+, AKs (mixed), AKo (mixed)”): AA i KK → 4-bet,
+# AK → 4-bet, sprawdzenie dopuszczalne („AK bywa też sprawdzane”). Pozostałe ręce poza listą (R-M4-007 to częstości, nie ręka).
+# Szkic sesji FD (D-1354): list-hand poza ekranem. Pojemność = liczba klas z akcją oczekiwaną (4), jak 08-N4.
+id: sc-10
+module: m4
+situation: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, Button zrobił {{t:3-bet}}, blindy {{t:fold|spasowały}}. Co robisz?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a Button zrobił {{t:3-bet}}. Robisz {{t:4-bet}} {{t:value|dla wartości}}, bo ta ręka chce wpłacić cały stack i dominuje większość rąk, które {{t:call|sprawdzą}} {{t:4-bet}}."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a Button zrobił {{t:3-bet}}. Z AA, KK i AK zwykle robisz {{t:4-bet}} {{t:value|dla wartości}}, bo te ręce chcą wpłacić cały stack i dominują większość rąk, które {{t:call|sprawdzą}} {{t:4-bet}}; AK bywa też {{t:call|sprawdzane}}."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a Button zrobił {{t:3-bet}}. {{t:fold|Pas}} oddaje jedną z najsilniejszych rąk: z AA, KK i AK zwykle robisz {{t:4-bet}} {{t:value|dla wartości}}, bo te ręce chcą wpłacić cały stack i dominują większość rąk, które {{t:call|sprawdzą}} {{t:4-bet}}."

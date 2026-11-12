@@ -1,0 +1,28 @@
+# sc-14: English text of content/pl/scenarios/sc-14.yaml (role 06, session FD, 2026-11-12; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-14
+module: m5
+situation: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. On a low unpaired flop, you act first."
+table: 6max
+positions: { hero: HJ, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy:
+    flop: { height: [low], ranks: [connected, semi-connected, disconnected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], ranks: [connected, semi-connected, disconnected] }
+    holding: [pair, draw]
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-012
+    actions:
+      - action: check
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the Button has {{t:position}}. You {{t:check}}, because on a low unpaired flop the solver {{t:check|checks}} its entire {{t:range}} in this spot, good hands included. The Button {{t:call|called}} from {{t:position}}, so their {{t:range}} is {{t:condensed}}: they {{t:fold|folded}} their weak hands and {{t:raise|raised}} some of their strongest, so they're left mostly with medium and good hands."
+      - action: bet-small
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the Button has {{t:position}}. A small {{t:bet}} is a c-bet too often here: on a low unpaired flop the solver doesn't c-bet in this spot, it {{t:check|checks}} its entire {{t:range}}, good hands included. {{t:out-of-position|Out of position}} you act first on every {{t:street}}, and after {{t:call|calling}} from {{t:position}} the Button has mostly medium and good hands."
+      - action: bet-big
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and the Button has {{t:position}}. A big {{t:bet}} is a c-bet too often and too expensive here: on a low unpaired flop the solver doesn't c-bet in this spot, it {{t:check|checks}} its entire {{t:range}}, good hands included. {{t:out-of-position|Out of position}} you act first on every {{t:street}}, and after {{t:call|calling}} from {{t:position}} the Button has mostly medium and good hands."
