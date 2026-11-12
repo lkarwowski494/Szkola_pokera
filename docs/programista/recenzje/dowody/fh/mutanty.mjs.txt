@@ -1,0 +1,37 @@
+// Mutanty logiki oceny FG: podmiana tekstu, uruchomienie testów, przywrócenie. Użycie: node mutanty.mjs <worktree>
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const W = process.argv[2];
+const WAR = `${W}/apps/mobile/src/features/scenariusz/wariant.ts`;
+const REPO = `${W}/apps/mobile/src/data/content/repo.ts`;
+const SCN = `${W}/tools/content-build/src/scenariusze.ts`;
+const FG = 'src/features/scenariusz/__tests__/fg-';
+const M = [
+  ['M1 turn-bet: mały zakład błąd zamiast niedokładności', WAR, "if (d.point === 'turn-bet') return a === d.correct ? 'zgodne' : 'niedokladnosc';", "if (d.point === 'turn-bet') return a === d.correct ? 'zgodne' : 'blad';", 'mobile', FG],
+  ['M2 list-hand: dopuszczalna jako błąd', WAR, "d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'", "d.acceptable.includes(a) ? 'blad' : 'blad'", 'mobile', FG],
+  ['M3 list-hand: każda niepoprawna dopuszczalna', WAR, "d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'", "'dopuszczalne'", 'mobile', FG],
+  ['M4 river-catch/defend: druga akcja niedokładność zamiast błędu', WAR, "return a === poprawnaAkcja(d) ? 'zgodne' : 'blad';\n}", "return a === poprawnaAkcja(d) ? 'zgodne' : 'niedokladnosc';\n}", 'mobile', FG],
+  ['M5 river-catch/defend: poprawna zawsze call', WAR, "if (p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'river-catch' || p.point === 'defend') return p.correct;", "if (p.point === 'river-catch' || p.point === 'defend') return 'call';\n  if (p.point === 'pick-hand' || p.point === 'turn-bet') return p.correct;", 'mobile', FG],
+  ['M6 turn-bet: kwoty zamienione', WAR, "a === 'bet-small' ? p.betSmall : a === 'bet-big' ? p.betBig : null", "a === 'bet-small' ? p.betBig : a === 'bet-big' ? p.betSmall : null", 'mobile', FG],
+  ['M7 river-catch/defend: pula bez zakładu rywala', WAR, "if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet", "if (d.point === 'river-catch' || d.point === 'defend') return { indeks, ulica: d.street, stol, pulaBb: d.pot, doSprawdzeniaBb: d.bet };\n  if (d.point === 'draw-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet", 'mobile', FG],
+  ['M8 turn-bet: duży zakład też niedokładność (ocena niezależna od correct)', WAR, "if (d.point === 'turn-bet') return a === d.correct ? 'zgodne' : 'niedokladnosc';", "if (d.point === 'turn-bet') return a === 'bet-small' ? 'niedokladnosc' : 'zgodne';", 'mobile', FG],
+  ['M9 repo: defend bez kontekstu generatora', REPO, " || d.kind === 'icm-call' || d.kind === 'defend')) return undefined;", " || d.kind === 'icm-call')) return undefined;", 'mobile', 'fg-defend kontekst-cn'],
+  ['M10 bramka: list-hand bez kontroli słownictwa', SCN, "if (obce.length) return [`szablon ${t.id}: punkt ${i + 1} list-hand", "if (false) return [`szablon ${t.id}: punkt ${i + 1} list-hand", 'cb', 'test/'],
+  ['M11 bramka: iso-size przepuszczony', SCN, "if (d.kind === 'size-spot' && d.check === 'iso-size') {", "if (false) {", 'cb', 'test/'],
+  ['M12 bramka: range-spot play przepuszczony', SCN, "if (d.kind === 'range-spot' && d.play) {", "if (false) {", 'cb', 'test/'],
+  ['M13 bramka: icm-call trudny przepuszczony', SCN, "if (kind === 'icm-call' && t.levels.includes('trudny')) {", "if (false) {", 'cb', 'test/'],
+];
+const tylko = process.argv[3];
+for (const [nazwa, plik, z, na, pakiet, wzor] of M) {
+  if (tylko && !nazwa.startsWith(tylko + ' ')) continue;
+  const org = readFileSync(plik, 'utf8');
+  if (org.split(z).length !== 2) { console.log(`${nazwa}: WZORZEC NIE WYSTĘPUJE RAZ (${org.split(z).length - 1})`); continue; }
+  writeFileSync(plik, org.replace(z, na));
+  const cmd = pakiet === 'mobile' ? `cd ${W}/apps/mobile && npx jest --ci ${wzor}` : `cd ${W}/tools/content-build && npx vitest run ${wzor}`;
+  let kod = 0, out = '';
+  try { out = execSync(cmd + ' 2>&1', { encoding: 'utf8', maxBuffer: 1 << 28 }); } catch (e) { kod = e.status; out = e.stdout; }
+  writeFileSync(plik, org);
+  const pad = (out.match(/^.*(✕|×|FAIL ).*$/gm) ?? []).slice(0, 6).join('\n   ');
+  const sum = (out.match(/^Tests:.*$|^\s*Tests\s+.*$/m) ?? [''])[0];
+  console.log(`${nazwa}: ${kod === 0 ? 'PRZEŻYŁ' : 'ZABITY'} (kod ${kod}) ${sum.trim()}\n   ${pad}`);
+}
