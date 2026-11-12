@@ -121,7 +121,7 @@ Against a small c-bet (about 1/3 {{t:pot}}) you continue with:
 
 - almost any {{t:pair}}, including middle and bottom pair,
 - {{t:flush-draw|flush draws}} and {{t:straight}} draws, including a gutshot with a high card,
-- high cards with a backdoor {{t:draw}}, e.g. three cards of one suit,
+- a backdoor {{t:draw}}, e.g. three cards of one suit, when at least one of your cards is higher than every {{t:board}} card,
 - usually also ace-high.
 
 Remember from M2: a {{t:call}} of a {{t:bet}} on the flop buys one card, so you compare a {{t:draw}} with your chance on the turn. That chance is sometimes a little lower than the price of a small c-bet. {{t:call|Calling}} still pays off when you'll win more after hitting than what's in the {{t:pot}} now (so-called implied odds, which you'll calculate in M7), or when the hand sometimes wins without hitting, e.g. thanks to a high card.

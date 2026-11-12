@@ -1,0 +1,50 @@
+$ python3 -I docs/tresci/narzedzia/rachunki/el_ko076_pushfold.py && python3 -I docs/tresci/narzedzia/rachunki/el_ko076_sc06.py
+push actions ['fold', 'all-in'] 2
+
+== call: klas Ł 70, po filtrze EVR>=2pp 55
+najblizej granicy wg miary bezposredniej eq-0.45 (pp)
+  Q6s   EVRmarg= 0.01pp direct=  0.029 odpada
+  K5o   EVRmarg= 0.06pp direct=  0.373 odpada
+  Q7s   EVRmarg= 0.70pp direct=  0.686 odpada
+  J8s   EVRmarg= 0.42pp direct=  0.790 odpada
+  K2s   EVRmarg= 0.04pp direct=  1.043 odpada
+  K6o   EVRmarg= 0.62pp direct=  1.520 odpada
+  K3s   EVRmarg= 0.46pp direct=  1.701 odpada
+  T9s   EVRmarg= 0.43pp direct=  1.757 odpada
+  Q9o   EVRmarg= 1.76pp direct=  2.061 odpada
+  JTo   EVRmarg= 1.65pp direct=  2.422 odpada
+  K4s   EVRmarg= 1.28pp direct=  2.450 odpada
+  22    EVRmarg= 0.16pp direct=  2.789 odpada
+  J9s   EVRmarg= 2.06pp direct=  2.819 ZOSTAJE
+  Q8s   EVRmarg= 2.42pp direct=  2.820 ZOSTAJE
+  K7o   EVRmarg= 1.59pp direct=  3.006 odpada
+  zostaje mimo marginesu bezposredniego <2pp: 0 []
+  odpada mimo marginesu bezposredniego >=2pp: 7 ['K4s', 'JTo', 'Q9o', 'K7o', '33', 'A2o', '22']
+
+== push: klas Ł 113, po filtrze EVR>=2pp 71
+najblizej granicy wg miary bezposredniej EVpush-EVpas (bb)
+  43s   EVRmarg= 0.09pp direct= -0.007 odpada
+  84s   EVRmarg= 0.03pp direct= -0.001 odpada
+  Q7o   EVRmarg= 0.74pp direct=  0.012 odpada
+  T4s   EVRmarg= 0.34pp direct=  0.014 odpada
+  J3s   EVRmarg= 0.01pp direct=  0.015 odpada
+  76o   EVRmarg= 0.09pp direct=  0.020 odpada
+  97o   EVRmarg= 0.11pp direct=  0.025 odpada
+  T5s   EVRmarg= 0.04pp direct=  0.030 odpada
+  53s   EVRmarg= 0.16pp direct=  0.040 odpada
+  74s   EVRmarg= 0.18pp direct=  0.050 odpada
+  J4s   EVRmarg= 0.06pp direct=  0.060 odpada
+  95s   EVRmarg= 0.03pp direct=  0.065 odpada
+  J8o   EVRmarg= 0.47pp direct=  0.074 odpada
+  87o   EVRmarg= 0.21pp direct=  0.075 odpada
+  Q2s   EVRmarg= 0.05pp direct=  0.082 odpada
+  prog 0.05 bb: zostaje mimo EV<prog 0 []; odpada mimo EV>=prog 32
+  prog 0.1 bb: zostaje mimo EV<prog 0 []; odpada mimo EV>=prog 26
+  prog 0.2 bb: zostaje mimo EV<prog 1 ['Q8o']; odpada mimo EV>=prog 13
+['meta', 'spots']
+SC-06 L klas 87 po filtrze 36
+najsilniejsze (EVR) klasy pasu: [('A4o', 0.567), ('A3o', 0.558), ('A2o', 0.549), ('K6o', 0.542), ('K5o', 0.533), ('K4o', 0.523), ('Q7o', 0.518), ('J8o', 0.515)]
+najslabsze (EVR) klasy L po filtrze: [(0.588, 'A7o'), (0.59, 'A4s'), (0.595, 'QTs'), (0.597, 'KTo'), (0.599, 'A5s'), (0.599, 'A6s'), (0.599, 'A8o'), (0.6, 'K9s'), (0.603, '55'), (0.603, 'QJs')]
+klasy L odpadajace: ['33', '44', '52s', '53s', '54s', '64s', '65s', '75s', '76s', '86s', '87s', '96s', '97s', '98s', 'A2s', 'A3s', 'A5o', 'A6o', 'J5s', 'J6s', 'J8s', 'J9o', 'J9s', 'JTo', 'JTs', 'K2s', 'K3s', 'K4s', 'K5s', 'K6s', 'K7o', 'K7s', 'K8o', 'K8s', 'K9o', 'Q4s', 'Q5s', 'Q6s', 'Q7s', 'Q8s', 'Q9o', 'Q9s', 'QJo', 'QTo', 'T5s', 'T6s', 'T7s', 'T8o', 'T8s', 'T9o', 'T9s']
+kod 0
+$ diff <(tail -n +2 docs/tresci/dowody/el-ko076.txt) wynik → brak różnic (IDENTYCZNE)

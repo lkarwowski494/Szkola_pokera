@@ -21900,7 +21900,7 @@
   "id": "R-M6-006",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "na dużym blindzie dostajesz mały c-bet (ok. 1/3 puli) → kontynuujesz prawie każdą parą, drawami, wysokimi kartami z dodatkowym drawem (backdoor) i zwykle także asem jako najwyższą kartą; pasujesz najsłabszymi rękami bez pary i bez drawa, bo potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z blefami, albo mogą się poprawić",
+  "twierdzenie": "na dużym blindzie dostajesz mały c-bet (ok. 1/3 puli) → kontynuujesz prawie każdą parą, drawami, dodatkowym drawem (backdoor) z co najmniej jedną kartą wyższą od wszystkich kart stołu i zwykle także asem jako najwyższą kartą; pasujesz najsłabszymi rękami bez pary i bez drawa, bo potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z blefami, albo mogą się poprawić",
   "zrodla": [
    {
     "adres": "https://pokercoaching.com/blog/defending-bb-on-high-card-boards/",
@@ -21915,10 +21915,24 @@
     "cytat": "Ace-highs often go from folding hands to calling/raising hands when they have a backdoor flush draw.",
     "odczyt": "2026-11-04",
     "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/backdoor-flush-straight-draw-tips/",
+    "miejsce": "Tip 4 (BB wobec c-betu SB, rozdanie heads-up)",
+    "cytat": "Unless you start calling with these non-made, backdoor plus overcard of hands, you will not reach the desired defense frequency and your opponent’s bluffs (of which he has a lot because the ranges are wide) will be basically printing money.",
+    "odczyt": "2026-11-11",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/backdoor-flush-straight-draw-tips/",
+    "miejsce": "Tip 4, nagłówek i pierwsze zdanie (zakres: BB wobec SB, pula z jednym podbiciem, heads-up)",
+    "cytat": "4. Float on the flop with backdoor plus overcard hands in blind vs blind battles. When playing in the big blind against the small blind in a heads-up single raised pot, you will need to defend the majority of your range against a c-bet.",
+    "odczyt": "2026-11-12",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "Zakres źródła Upswing Tip 4: blind vs blind (BB wobec c-betu SB, pula z jednym podbiciem, heads-up). Reguła stosuje część o backdoorze do BB wobec małego c-betu z każdej pozycji; kierunek z rachunku MDF (wobec 1/3 puli obrona ok. 75 %, R-M6-001) i wyniku solvera BB vs BTN (PeakGTO K84: 56 % sprawdzenia + 17 % check-raise’u), D-1210. „Overcard” czytane wąsko: karta wyższa od wszystkich kart stołu (przykład źródła Q♥4♥ na T♣9♥2♠); Tip 5 nazywa też Q♣8♣ na K♦T♣6♦ „overcard to middle pair” (wobec 66 % puli) — takich rąk reguła nie obejmuje (węziej niż źródło; generator zwraca dla nich null, D-1258).",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -21926,7 +21940,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło z wynikiem solvera (szczebel 2) i jedno szczebla 4. Cytat zawiera literówkę źródła („he underpairs”).",
+  "uwagi": "Jedno źródło z wynikiem solvera (szczebel 2) i jedno szczebla 4. Cytat zawiera literówkę źródła („he underpairs”). | EL 2026-11-11 (EJ NIS-003, D-1212): część „wysokimi kartami z backdoorem” ma cytat o sprawdzaniu (Upswing, Tip 4, szczebel 4); cytat PeakGTO o gutshotach i runner-runner dotyczy blefów check-raise’em, nie sprawdzenia (D-1210). | EQ 2026-11-12 (06-tresci-002, D-1258): backdoor → kontynuacja tylko z co najmniej jedną kartą wyższą od wszystkich kart stołu (źródło „backdoor plus overcard”); zakres BvB nazwany w polu uproszczenie; odczyt docs/tresci/odczyty/eq-2026-11-12.tsv.",
   "partia": [
    "m5-m8"
   ]
@@ -21961,7 +21975,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dane źródeł dotyczą c-betu 66%; reguła mówi „3/4 i więcej” (pas przy większym becie wynika tym bardziej z rachunku MDF). Wyjątek z K84 uzasadnia „zwykle”. | E3 S3 2026-11-04 (A2): reguła i m6-l2:132 nazywają sprzeczność na tym samym szczeblu (K84: „any pair and most of our Ax holdings”).",
+  "uwagi": "Dane źródeł dotyczą c-betu 66%; reguła mówi „3/4 i więcej” (pas przy większym becie wynika tym bardziej z rachunku MDF). Wyjątek z K84 uzasadnia „zwykle”. | E3 S3 2026-11-04 (A2): reguła i m6-l2:132 nazywają sprzeczność na tym samym szczeblu (K84: „any pair and most of our Ax holdings”). | EL 2026-11-11 (EJ NIS-002, D-1211): rozmiar „większego c-betu” w K84 nie jest podany w tekście artykułu (tylko w sekcji streszczenia AI strony, która nie jest źródłem); źródło reguły mówi „against a bigger c-bet”.",
   "partia": [
    "m5-m8"
   ]
@@ -22383,7 +22397,7 @@
   "id": "R-M7-006",
   "rodzaj": "regula",
   "level": "math",
-  "twierdzenie": "masz silną rękę na turnie, a rywal może mieć flush-draw → betujesz dużo: przy becie 3/4 puli draw potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, bo przy becie 1/4 puli wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje drawie dobrą cenę",
+  "twierdzenie": "masz na turnie silną rękę (najwyższą parę z dobrym kickerem albo lepszą), a rywal może mieć flush-draw, który po trafieniu cię pokona (żywe outy) → betujesz dużo: przy becie 3/4 puli draw potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, bo przy becie 1/4 puli wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje drawie dobrą cenę",
   "zrodla": [
    {
     "adres": "rachunek: eq = bet/(pula+2·bet): 75/250 i 25/150; kolor turn→river 9/46",
@@ -22398,10 +22412,17 @@
     "cytat": "Strong and safe bets small. Strong and vulnerable bets big",
     "odczyt": "2026-11-04",
     "szczebel": 4
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/",
+    "miejsce": "Tip #2 (definicja silnej ręki: „strong top pairs”; Tip #1 wymienia „overpairs, two pairs, and sets”)",
+    "cytat": "Pot-size bets with your strong top pairs and better are standard, because your big hands are vulnerable but nothing on the board has you beaten yet.",
+    "odczyt": "2026-11-12",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "Warunek „draw, który po trafieniu cię pokona” zakłada 9 żywych outów (9/46); gdy część outów daje graczowi lepszy układ albo gracz trzyma kartę koloru, szansa drawa jest mniejsza i przesłanka „mały bet daje dobrą cenę” może nie zachodzić (D-1214).",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -22409,7 +22430,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | EL 2026-11-11 (EI-001, D-1214): warunek reguły zawężony do silnej ręki (najwyższa para i lepsze) i żywego drawa. | EQ 2026-11-12 (06-tresci-001, D-1255): „silna” zawężona do brzmienia źródła „strong top pairs and better” = najwyższa para z dobrym kickerem albo lepsza; najwyższa para ze słabym kickerem to średnia ręka (content/pl/lessons/m7-l2-polaryzacja.md:64). Cytat Tip #2 odczytany ponownie 2026-11-12 (docs/tresci/odczyty/eq-2026-11-12.tsv); miejsce poprawione z „Tip #1” na „Tip #2”.",
   "partia": [
    "m5-m8"
   ]

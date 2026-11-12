@@ -516,18 +516,18 @@
 - id: R-M6-006
   module: m6
   if: "na {{t:big-blind|dużym blindzie}} dostajesz mały c-bet (ok. 1/3 {{t:pot|puli}})"
-  then: "kontynuujesz prawie każdą {{t:pair|parą}}, {{t:draw|drawami}}, wysokimi kartami z dodatkowym {{t:draw|drawem}} (backdoor) i zwykle także asem jako najwyższą kartą; {{t:fold|pasujesz}} najsłabszymi rękami bez {{t:pair|pary}} i bez {{t:draw|drawa}}"
+  then: "kontynuujesz prawie każdą {{t:pair|parą}}, {{t:draw|drawami}}, dodatkowym {{t:draw|drawem}} (backdoor) z co najmniej jedną kartą wyższą od wszystkich kart {{t:board|stołu}} i zwykle także asem jako najwyższą kartą; {{t:fold|pasujesz}} najsłabszymi rękami bez {{t:pair|pary}} i bez {{t:draw|drawa}}"
   because: "potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z {{t:bluff|blefami}}, albo mogą się poprawić"
   level: heuristic
-  source: "serwis szkoleniowy, Defending the BB on High Card Boards (solver: „we will continue with pretty much all pairs including the underpairs and even A-high hands”)"
-  sources: [{ kind: training }]
+  source: "serwis szkoleniowy, Defending the BB on High Card Boards (https://pokercoaching.com/blog/defending-bb-on-high-card-boards/; solver: „we will continue with pretty much all pairs including he underpairs and even A-high hands”); backdoor z kartą wyższą od stołu (źródło: blind vs blind): serwis szkoleniowy, 6 Tips for Playing Backdoor Flush & Straight Draws (https://upswingpoker.com/backdoor-flush-straight-draw-tips/, BB wobec c-betu SB: „Unless you start calling with these non-made, backdoor plus overcard of hands, you will not reach the desired defense frequency”)"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/defending-bb-on-high-card-boards/" }, { kind: training, url: "https://upswingpoker.com/backdoor-flush-straight-draw-tips/" }]
 - id: R-M6-007
   module: m6
   if: "masz dwie wysokie karty bez {{t:pair|pary}} i bez {{t:draw|drawa}}, a c-bet jest duży (3/4 {{t:pot|puli}} i więcej)"
   then: "zwykle {{t:fold|pasujesz}} (na {{t:dry|suchych}} flopach z królem solver {{t:call|sprawdza}} jednak wiele rąk z asem)"
   because: "{{t:out-of-position}} taka ręka rzadko dochodzi do showdownu, a {{t:pair}} z wysokiej karty często i tak przegrywa; {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}"
   level: heuristic
-  source: "serwis szkoleniowy, When to Call With Ace-High (J42, 66%: „the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); serwis szkoleniowy, Defending the BB on High Card Boards (K84: solver sprawdza część asów także wobec 2/3 puli)"
+  source: "serwis szkoleniowy, When to Call With Ace-High (J42, 66%: „the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); serwis szkoleniowy, Defending the BB on High Card Boards (K84 wobec większego c-betu, rozmiar w tekście niepodany: solver sprawdza „any pair and most of our Ax holdings”)"
   sources: [{ kind: training }, { kind: training }]
 - id: R-M6-008
   module: m6
@@ -606,11 +606,11 @@
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M7-006
   module: m7
-  if: "masz silną rękę na turnie, a rywal może mieć {{t:flush-draw}}"
+  if: "masz na turnie silną rękę ({{t:top-pair|najwyższą parę}} z dobrym {{t:kicker|kickerem}} albo lepszą), a rywal może mieć {{t:flush-draw}}, który po trafieniu cię pokona"
   then: "betujesz dużo: przy becie 3/4 {{t:pot|puli}} {{t:draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}"
   because: "przy becie 1/4 {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje {{t:draw|drawie}} dobrą cenę"
   level: math
-  source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty; kierunek (silna, wrażliwa ręka betuje dużo): serwis szkoleniowy, How Much Should You Bet on Connected Boards?"
+  source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty; kierunek (silna, wrażliwa ręka betuje dużo; silna = najwyższa para z dobrym kickerem i lepsze): serwis szkoleniowy, How Much Should You Bet on Connected Boards? (https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/: „Strong and vulnerable bets big”; „Pot-size bets with your strong top pairs and better are standard”)"
   sources: [{ kind: training }, { kind: math }]
 - id: R-M7-007
   module: m7

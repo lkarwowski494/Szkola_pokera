@@ -1,0 +1,34 @@
+# EO 2026-11-12: cytaty z docs/tresci/odczyty/el-2026-11-11.tsv sprawdzone na surowym tekście (curl -sSL, HTML→tekst, grep -F)
+blog_gtowizard_com_c-betting-as-the-oop-preflop-raiser_.txt sha256=89d43bd996ee6cfb
+deepfold_co_en_blog_bluff-catching-principles.txt sha256=08c659acbb748c28
+pokercoaching_com_blog_bet-sizing-on-connected-boards-pot-it-or-slow-down_.txt sha256=1714fa96d309d808
+pokercoaching_com_blog_defending-bb-on-high-card-boards_.txt sha256=fc6607a99054b098
+upswingpoker_com_backdoor-flush-straight-draw-tips_.txt sha256=6485b3b8e5a326ff
+upswingpoker_com_bet-size-strategy-tips-rules_.txt sha256=6c6ca9cd1a2fb614
+upswingpoker_com_when-to-call-with-ace-high_.txt sha256=73b6912268a04c59
+D-1210 | https://pokercoaching.com/blog/defending-bb-on-high-card-boards/ | znaleziono=1 | Versus a small c-bet, we are calling 56% of the time and check-raising 17% of the hands.
+D-1210 | https://pokercoaching.com/blog/defending-bb-on-high-card-boards/ | znaleziono=1 | This strategy lets us bluff quite a lot.
+D-1211 | https://pokercoaching.com/blog/defending-bb-on-high-card-boards/ | znaleziono=1 | TLDR: See AI summary of this article.
+D-1211 | https://pokercoaching.com/blog/defending-bb-on-high-card-boards/ | znaleziono=1 | Things changes quite a bit against a bigger c-bet, where we need to defend less often because of the MDF concept.
+D-1211 | https://pokercoaching.com/blog/defending-bb-on-high-card-boards/ | znaleziono=1 | We call with a similar range as when facing a small c-bet putting out chips in the middle any pair and most of our Ax holdings.
+D-1211 | https://upswingpoker.com/when-to-call-with-ace-high/ | znaleziono=1 | The Button c-bets 66% of the pot.
+D-1212 | https://upswingpoker.com/backdoor-flush-straight-draw-tips/ | znaleziono=1 | Unless you start calling with these non-made, backdoor plus overcard of hands, you will not reach the desired defense frequency
+D-1216 | https://upswingpoker.com/backdoor-flush-straight-draw-tips/ | znaleziono=1 | Maybe you could call versus a literal min bet
+D-1213 | https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/ | znaleziono=1 | Pot-size bets with your strong top pairs and better are standard
+D-1213 | https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/ | znaleziono=1 | Strong and vulnerable bets big
+D-1216 | https://upswingpoker.com/bet-size-strategy-tips-rules/ | znaleziono=2 | Bet small (25-35% pot) on dry, static board textures
+D-1217 | https://deepfold.co/en/blog/bluff-catching-principles | znaleziono=1 | If your hand can beat some of villain's value combos
+D-1217 | https://deepfold.co/en/blog/bluff-catching-principles | znaleziono=1 | Top pair good kicker beats every bluff. Call.
+D-1218 | https://blog.gtowizard.com/c-betting-as-the-oop-preflop-raiser/ | znaleziono=1 | we’ll explore which flops we can continue to be aggressive on, which flops we should be checking often
+# kontekst
+96:TLDR: See AI summary of this article.
+98:Dry High-Card Boards (e.g., K♠8♥4♣) vs vs large c-bet (~2/3 pot): Call ~56% with similar hands; check-raise ~5% focusing on top-tier holdings and occasional bluffs.
+100:Connected/Wet High-Card Boards (e.g., Q♥9♥8♦) vs large c-bet (~2/3 pot): Call ~52% focusing on hands with solid equity; check-raise ~9% with top pairs, strong draws, and select bluffs.
+113:This strategy lets us bluff quite a lot. Therefore, we can use our lower equity hands such as guthosts and runner runner draws to to put back the breasu to the BTN, who is going to be c-betting a very wide range in this situation.
+115:Things changes quite a bit against a bigger c-bet, where we need to defend less often because of the MDF concept.
+117:We call with a similar range as when facing a small c-bet putting out chips in the middle any pair and most of our Ax holdings.
+134:When facing a smaller c-bet, our check-raising range increases to include more bottom pars with combo draws and additional guthosts. On top of that, our calling range increases quite a bit with some a-highs and even underpairs now become a defence.
+180:4. Float on the flop with backdoor plus overcard hands in blind vs blind battles
+188:For example, building off of the previous tips, say you defend the big blind with 9♣ 5♣ against a small blind open. The flop comes K ♦ T♣ 6 ♦ and your opponent bets 66% of the pot. Despite having multiple backdoor draws, this is not a hand with which to call.
+106:Drop the board to eight-seven-three and everything changes. You still hold the overpairs, two pairs, and sets, but now a huge chunk of your opponent’s range is drawing live with plenty of outs a
+110:When the board has straight draws but no made straight, like eight-six-two or jack-eight-six, blast it. Pot-size bets with your strong top pairs and better are standard, because your big hands are
