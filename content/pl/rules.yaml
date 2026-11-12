@@ -716,7 +716,7 @@
 - id: R-M8-006
   module: m8
   if: "wybierasz, którymi rękami {{t:bluff|blefować}} na riverze"
-  then: "{{t:bluff|blefujesz}} najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi {{t:draw|drawami}} do {{t:straight|strita}} albo wysokimi kartami bez szans); ręce z wartością przy showdownie {{t:check|czekają}}"
+  then: "{{t:bluff|blefujesz}} najsłabszymi rękami, które przy showdownie nie wygrają ani nie podzielą {{t:pot|puli}} (np. nietrafionymi {{t:draw|drawami}} do {{t:straight|strita}} albo wysokimi kartami bez szans); ręce z wartością przy showdownie {{t:check|czekają}}"
   because: "{{t:bluff}} z ręką, która często wygrywa po {{t:check|czekaniu}}, oddaje tę wygraną; ręka bez szans nic nie traci, gdy {{t:bluff}} nie wyjdzie"
   level: heuristic
   source: "serwis komercyjnego solvera, We're At The River. Our Hand Can't Win. Now What?; serwis szkoleniowy, Polarized vs Linear Ranges"

@@ -715,7 +715,7 @@
 - id: R-M8-006
   module: m8
   if: "you're choosing which hands to {{t:bluff}} with on the river"
-  then: "you {{t:bluff}} with the weakest hands that won't win at showdown (e.g. missed {{t:straight}} {{t:draw|draws}} or high cards with no chance); hands with showdown value {{t:check}}"
+  then: "you {{t:bluff}} with the weakest hands that won't win or split the {{t:pot}} at showdown (e.g. missed {{t:straight}} {{t:draw|draws}} or high cards with no chance); hands with showdown value {{t:check}}"
   because: "a {{t:bluff}} with a hand that often wins after a {{t:check}} gives up that win; a hand with no chance loses nothing when the {{t:bluff}} fails"
   level: heuristic
   source: "commercial solver site, We're At The River. Our Hand Can't Win. Now What?; training site, Polarized vs Linear Ranges"
