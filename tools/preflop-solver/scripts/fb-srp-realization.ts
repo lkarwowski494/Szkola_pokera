@@ -13,7 +13,8 @@ import { buildTree, type ShowdownTerminal } from '../src/tree';
 // przy STAŁYCH zakresach preflop z pliku wynikowego, z grą po flopie rozwiązywaną od zera na podanych tablicach plansz.
 // Porównanie dwóch tablic (np. kanon 60×2×2×24 i drobniejsza abstrakcja) mierzy wpływ abstrakcji na realizację
 // przy tych samych zakresach; preflopu nie liczy się od nowa.
-// użycie: tsx scripts/fb-srp-realization.ts WYNIK.json PLANSZE.bin.gz [iteracje=300]
+// użycie: tsx scripts/fb-srp-realization.ts WYNIK.json PLANSZE.bin.gz [iteracje=300] [--rake0]
+// --rake0: gra po flopie i pomiar bez rake'u (porównanie z raportami realizacji; ich założenia o rake'u: docs/solver/diagnoza-bb-2026-11-12.md)
 
 // [nazwa, ścieżka końca drzewa, EQR bez pozycji, EQR z pozycją] — cele jak w scripts/fit-eqr.ts (rangeconverter, 6-max 100bb)
 const TARGETS: [string, string, number, number][] = [
@@ -22,7 +23,8 @@ const TARGETS: [string, string, number, number][] = [
   ['CO-BTN flat', 'UTG:fold,HJ:fold,CO:raise2.5,BTN:call,SB:fold,BB:fold', 92.64, 106.91],
 ];
 const root = resolve(import.meta.dirname, '../../..');
-const [file, boardsFile, itA] = process.argv.slice(2);
+const rake0 = process.argv.includes('--rake0');
+const [file, boardsFile, itA] = process.argv.slice(2).filter((a) => a !== '--rake0');
 const iters = Number(itA ?? 300);
 type Meta = { eqr: EqrParams; tree: never; postflop: { highSprTree?: StreetTreeConfig; sprHigh?: number } };
 const j = JSON.parse(readFileSync(resolve(file!), 'utf8')) as { meta: Meta; spots: { path: string; strategy: Record<string, number>[] }[] };
@@ -34,7 +36,8 @@ const high = j.meta.postflop.highSprTree ?? null;
 const sprHigh = j.meta.postflop.sprHigh ?? 8;
 const cfg = (spr: number): StreetTreeConfig => (high && spr >= sprHigh ? high : V3B_TREE);
 // pule z jednym podbiciem rozgrywane grą po flopie (minRaises 1, maxRaises 1); reszta na modelu EQR — nieistotne, bo czytamy tylko te końce
-const s = new PreflopSolver(buildTree(j.meta.tree), equity, j.meta.eqr, undefined, tw, boards, 1, 1, cfg);
+const eqr: EqrParams = rake0 ? { ...j.meta.eqr, rakeRate: 0, rakeCap: 0 } : j.meta.eqr;
+const s = new PreflopSolver(buildTree(j.meta.tree), equity, eqr, undefined, tw, boards, 1, 1, cfg);
 const tables = (s as unknown as { tables: Map<number, { stratSum: Float64Array; nA: number }> }).tables;
 const byPath = new Map(j.spots.map((x) => [x.path, x]));
 for (const n of s.nodes) {
@@ -47,7 +50,7 @@ for (const n of s.nodes) {
 const pm = s.postflop as StreetModel;
 const pIndex = (s as unknown as { postflopIndex: Map<number, number> }).postflopIndex;
 const D = s.dcfr;
-console.log(`plansze ${boardsFile}: ${boards.F}×${boards.T}×${boards.R}, ${boards.B} koszyków; ${iters} iteracji CFR gry po flopie`);
+console.log(`plansze ${boardsFile}: ${boards.F}×${boards.T}×${boards.R}, ${boards.B} koszyków; ${iters} iteracji CFR gry po flopie${rake0 ? ', bez rake' : ""}`);
 for (const [name, path, to, ti] of TARGETS) {
   const node = s.nodes.find((n): n is ShowdownTerminal => n.kind === 'showdown' && n.path === path)!;
   const reach = playerReach(s, node);

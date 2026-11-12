@@ -1,0 +1,4 @@
+plansze ../equity/boards.bin.gz: 60×2×2, 24 koszyków; 400 iteracji CFR gry po flopie
+BTN-BB SRP: EQR OOP 73.4% (cel 81.38), IP 105.9% (cel 115.15); equity OOP 45.4%; zysk BR OOP 0.0034 IP 0.0028 bb; 209 s
+SB-BB SRP: EQR OOP 90.1% (cel 96.69), IP 90.9% (cel 103.66); equity OOP 55.7%; zysk BR OOP 0.0027 IP 0.0029 bb; 194 s
+CO-BTN flat: EQR OOP 89.0% (cel 92.64), IP 91.4% (cel 106.91); equity OOP 44.2%; zysk BR OOP 0.0000 IP 0.0022 bb; 191 s
