@@ -120,7 +120,7 @@
 - id: R-M3-001
   module: m3
   if: "bạn ở Button và mọi người trước bạn đều đã {{t:fold|bỏ bài}}"
-  then: "bạn {{t:open|mở}} rộng nhất trong tất cả các {{t:position|vị trí}} trước các vị trí mù; chỉ {{t:small-blind|small blind}} {{t:open|mở}} rộng tương tự"
+  then: "bạn {{t:open|mở cược}} rộng nhất trong tất cả các {{t:position|vị trí}} trước các vị trí mù; chỉ {{t:small-blind|small blind}} {{t:open|mở cược}} rộng tương tự"
   because: "từ flop trở đi bạn hành động cuối cùng, và sau bạn chỉ còn hai người ở vị trí mù"
   level: gto
   source: "trang bảng solver, 6-max 100bb NL500 (https://beyondgto.com/ranges/btn-open-6max-100bb, https://beyondgto.com/ranges/sb-open-6max-100bb): BTN 42%, SB 44%; trang đào tạo, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): SB rộng hơn Button một chút, 40–50%; trang bảng preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): BTN 40–45%, SB 39–47% (tài liệu 12, D2)"
@@ -163,7 +163,7 @@
 - id: R-M3-006
   module: m3
   if: "mọi người đã {{t:fold|bỏ bài}} tới bạn ở {{t:hijack|HJ}} hoặc {{t:cutoff|CO}}"
-  then: "bạn {{t:open|mở}} rộng hơn so với khi ở {{t:utg|UTG}} nhưng hẹp hơn so với khi ở Button; từ {{t:cutoff|CO}} rộng hơn so với từ {{t:hijack|HJ}}"
+  then: "bạn {{t:open|mở cược}} rộng hơn so với khi ở {{t:utg|UTG}} nhưng hẹp hơn so với khi ở Button; từ {{t:cutoff|CO}} rộng hơn so với từ {{t:hijack|HJ}}"
   because: "càng ít người chơi sau bạn, càng ít khi có người cầm bài tốt hơn và bạn càng thường có {{t:position|vị trí}} sau flop"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.hj, rfi.co, nine.rfi.hj, nine.rfi.co] }
@@ -189,8 +189,8 @@
 - id: R-M3-009
   module: m3
   if: "mọi người đã {{t:fold|bỏ bài}} tới bạn ở {{t:small-blind|small blind}}"
-  then: "bạn {{t:open|mở}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài, bằng cách {{t:raise|tố}} lên {{n:pf.open-size-sb}} hoặc {{t:fold|bỏ bài}} (đơn giản hóa: một số lời giải solver limp một phần tay bài từ {{t:small-blind|small blind}})"
-  because: "bạn chỉ còn đấu với {{t:big-blind|big blind}}; sau flop bạn hành động trước, nên bạn {{t:open|mở}} rộng gần bằng từ Button, chứ không rộng hơn nhiều"
+  then: "bạn {{t:open|mở cược}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài, bằng cách {{t:raise|tố}} lên {{n:pf.open-size-sb}} hoặc {{t:fold|bỏ bài}} (đơn giản hóa: một số lời giải solver limp một phần tay bài từ {{t:small-blind|small blind}})"
+  because: "bạn chỉ còn đấu với {{t:big-blind|big blind}}; sau flop bạn hành động trước, nên bạn {{t:open|mở cược}} rộng gần bằng từ Button, chứ không rộng hơn nhiều"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.sb, nine.rfi.sb] }
   source: "trang bảng solver, SB open 6-max 100bb NL500 (https://beyondgto.com/ranges/sb-open-6max-100bb): khoảng 44%, raise-or-fold; trang đào tạo, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; trang bảng preflop (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; khoảng 40–45% là phần chung của các chiến lược không limp (tài liệu 12, D3). Đơn giản hóa raise-or-fold (D-144): trang đào tạo có bảng solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics): “The small blind raises (3bb) 33.1% : completes (limps) 20.5%”"

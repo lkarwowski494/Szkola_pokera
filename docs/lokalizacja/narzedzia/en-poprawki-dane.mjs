@@ -72,4 +72,11 @@ export const DEFINICJE = (z, k) => ({
     ],
     kontrole: [k('ko', '.', '당신까지', 'ko: „당신까지” (dwuznaczne: „łącznie z tobą”)')],
   },
+  '006': {
+    zamiany: [
+      z('vi', 'scenarios/sc-06.yaml', '{{t:open|mở}} rộng', '{{t:open|mở cược}} rộng', 2),
+      z('vi', 'rules.yaml', '{{t:open|mở}} rộng', '{{t:open|mở cược}} rộng', 5),
+    ],
+    kontrole: [k('vi', '.', 'mở\\}\\} rộng', 'vi: „{{t:open|mở}} rộng” (czyta się „rozszerzać”)')],
+  },
 });

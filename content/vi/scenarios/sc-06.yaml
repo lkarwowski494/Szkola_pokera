@@ -17,9 +17,9 @@ decisions:
     rule: R-M3-009
     actions:
       - action: "raise 3"
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}} đến lượt bạn. Bạn {{t:raise|tố}}, vì giờ bạn chỉ còn đấu với {{t:big-blind|big blind}}; sau flop bạn hành động trước, nên bạn {{t:open|mở}} rộng gần bằng từ Button, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài, và tay này nằm trong đó."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}} đến lượt bạn. Bạn {{t:raise|tố}}, vì giờ bạn chỉ còn đấu với {{t:big-blind|big blind}}; sau flop bạn hành động trước, nên bạn {{t:open|mở cược}} rộng gần bằng từ Button, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài, và tay này nằm trong đó."
       - action: fold
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}} đến lượt bạn. {{t:fold|Bỏ bài}} là quá thận trọng: solver thường {{t:raise|tố}} tay này. Giờ bạn chỉ còn đấu với {{t:big-blind|big blind}}, nên từ {{t:small-blind|small blind}} bạn {{t:open|mở}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và mọi người đã {{t:fold|bỏ bài}} đến lượt bạn. {{t:fold|Bỏ bài}} là quá thận trọng: solver thường {{t:raise|tố}} tay này. Giờ bạn chỉ còn đấu với {{t:big-blind|big blind}}, nên từ {{t:small-blind|small blind}} bạn {{t:open|mở cược}} rộng, khoảng {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} số tay bài."
   - street: preflop
     kind: size-spot
     check: open-size
