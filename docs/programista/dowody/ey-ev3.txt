@@ -1,0 +1,11 @@
+# EV-3 (heroPositions): tools/content-build/test/ey-ev3-hero-positions.test.ts; przed = HEAD (a3b18da2 + EV-4), po = z poprawką (2026-11-12)
+## PRZED
+     × gracz z CO, lista UTG,HJ → reguła nie ocenia (null) 4ms
+     × UTG poza listą HJ,CO jest błędem 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected 'R-OOP-X' to be null
+AssertionError: expected '' to match /heroPositions.*UTG/
+      Tests  2 failed | 5 passed (7)
+## PO
+ Test Files  2 passed (2)
+      Tests  13 passed (13)

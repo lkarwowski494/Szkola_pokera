@@ -9,6 +9,7 @@ import { classOf, HAND_CLASSES } from './ranges';
 import {
   applyAction,
   legalActions,
+  positionOf,
   startHand,
   tableSeats,
   type HandPreset,
@@ -273,6 +274,18 @@ function postflopOrder(st: HandState, seat: number): number {
 const near = (a: number, b: number) => Math.abs(a - b) < 0.05;
 
 /**
+ * `params.heroPositions` reguły cbet-case (D-1287): lista pozycji gracza po przecinku („HJ,CO”). Brak parametru = bez ograniczenia (null);
+ * pusty napis albo nie-napis to błąd danych (reguła nie mogłaby się nigdy zastosować). Jedna definicja dla oceny i bramki szablonu.
+ */
+export function parseHeroPositions(v: unknown): string[] | null {
+  if (v === undefined) return null;
+  if (typeof v !== 'string') throw new Error(`heroPositions: oczekiwano napisu z listą pozycji po przecinku, jest ${typeof v}`);
+  const lista = v.split(',').map((x) => x.trim()).filter((x) => x !== '');
+  if (lista.length === 0) throw new Error('heroPositions: pusta lista pozycji');
+  return lista;
+}
+
+/**
  * Werdykt c-betu (R-M5-007, ADR-04; CR WYS-002): jedna definicja dla oceny w grze (`cbet-case` niżej) i dla wariantu scenariusza.
  * Reguły c-betu są częstotliwościowe („często”, „rzadziej”): rzadsza akcja jest dopuszczalna, zły rozmiar to niedokładność.
  * `sizeDown`: flop pasuje do `sizeDown` przypadku (źródło każe tam zmniejszać rozmiar), więc duży zakład przy `best: check` to
@@ -394,6 +407,9 @@ const CHECKS: Record<string, Check> = {
     // 08-N5 (R-M5-012): reguła z `params.position: oop` ocenia gracza, który mówi przed rywalem po flopie; bez parametru (albo ip) tylko gracz z pozycją, jak dotąd
     const oop = rule.check.params?.position === 'oop';
     if ((postflopOrder(st, ctx.seat) < postflopOrder(st, opp.seat)) !== oop) return null;
+    // D-1287 (R-M5-012): `params.heroPositions` zawęża regułę do wymienionych pozycji gracza (źródło: otwarcie ze środkowej pozycji, bez UTG i blind vs blind)
+    const dozwolone = parseHeroPositions(rule.check.params?.heroPositions);
+    if (dozwolone && !dozwolone.includes(positionOf(st.seats.length, st.config.button, ctx.seat))) return null;
     const tex = classifyFlop(st.board);
     const c = (rule.check.cases ?? []).find((x) => textureMatches(tex, x.when));
     if (!c || c.rule !== rule.id) return null;

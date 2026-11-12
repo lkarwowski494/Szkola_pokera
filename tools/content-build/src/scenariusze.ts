@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, eligibleClasses, groupedSpot, HAND_CLASSES, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -17,6 +17,8 @@ export interface ScenarioCheckContext {
   cbetCases?: readonly CbetCaseData[];
   /** 08-N5: id reguły cbet-case → `params.position` (ip/oop; brak = ip): pozycja gracza po flopie musi się zgadzać z regułą. */
   cbetPositions?: ReadonlyMap<string, string | number | undefined>;
+  /** D-1287: id reguły cbet-case → `params.heroPositions` (lista po przecinku; brak = bez ograniczenia): positions.hero musi być na liście. */
+  cbetHeroPositions?: ReadonlyMap<string, string | number | undefined>;
   /** Reguły rozmiaru (open-size, three-bet-size, no-limp) z parametrami (F3); bez nich punkty size-spot są błędem. */
   sizeRules?: readonly SizeRuleData[];
 }
@@ -186,6 +188,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const regulaPozycja = ctx.cbetPositions?.get(d.rule) ?? 'ip';
         if (regulaPozycja === 'ip' && !ip) e.push(`${p} reguła ma position ip, a gracz jest poza pozycją (${t.positions.hero} wobec ${t.positions.villain})`);
         if (regulaPozycja === 'oop' && ip) e.push(`${p} reguła ma position oop, a gracz ma pozycję (${t.positions.hero} wobec ${t.positions.villain})`);
+        let lista: string[] | null = null;
+        try { lista = parseHeroPositions(ctx.cbetHeroPositions?.get(d.rule)); } catch (err) { e.push(`${p} reguła ${d.rule}: ${(err as Error).message}`); }
+        if (lista && !lista.includes(t.positions.hero)) e.push(`${p} reguła ${d.rule} ma heroPositions ${lista.join(',')}, a gracz jest na ${t.positions.hero}`);
       }
       if (new Set(d.actions.map((a) => a.action)).size !== d.actions.length) e.push(`${p} akcja powtórzona`);
       for (const l of SCENARIO_LEVELS_LIST) {

@@ -424,6 +424,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
       spots: new Map(ranges.map((r) => [r.id, r.actions.map((a) => a.label)])),
       cbetCases,
       cbetPositions: new Map(evalRules.filter((r) => r.check.kind === 'cbet-case').map((r) => [r.id, r.check.params?.position] as const)),
+      cbetHeroPositions: new Map(evalRules.filter((r) => r.check.kind === 'cbet-case').map((r) => [r.id, r.check.params?.heroPositions] as const)),
       sizeRules,
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
