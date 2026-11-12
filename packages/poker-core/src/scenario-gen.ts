@@ -817,9 +817,10 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     }
     if (spec.kind === 'cbet-case') {
       if (!ctx?.cbetCases) throw new TemplateError(`${t.id}: punkt cbet-case wymaga przypadków c-betu (GeneratorContext.cbetCases)`);
-      // jak grading.ts `cbet-case`: pierwszy przypadek pasujący do tekstury; liczy się tylko, gdy wskazuje regułę punktu
-      const c = ctx.cbetCases.find((x) => textureMatches(classifyFlop(flop), x.when));
-      if (!c || c.rule !== spec.rule) return null;
+      // jak grading.ts `cbet-case`: pierwszy przypadek REGUŁY PUNKTU pasujący do tekstury (grading szuka w przypadkach jednej reguły); pula zawiera
+      // przypadki wszystkich reguł, więc przypadek innej reguły o tej samej teksturze (np. R-M5-004 IP na niskim flopie) nie może zasłaniać (EV-4)
+      const c = ctx.cbetCases.find((x) => x.rule === spec.rule && textureMatches(classifyFlop(flop), x.when));
+      if (!c) return null;
       const correct = CBET_ACTION[c.best];
       if (correct !== b.expected[i]) return null; // BR-GEN-003: tylko oczekiwana akcja
       const h = classifyHolding(hero, flop);

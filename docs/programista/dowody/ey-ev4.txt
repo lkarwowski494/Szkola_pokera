@@ -1,0 +1,11 @@
+# EV-4: tools/content-build/test/ey-ev4-przypadek-reguly.test.ts; przed = src z a3b18da2 (scenario-gen.ts), po = z poprawką (2026-11-12)
+## PRZED
+     × flop niski, wcześniejszy przypadek innej reguły o tej samej teksturze nie zasłania przypadku R-B → wariant z check z R-B 1197ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+Error: sc-fx-cbet-oop: 20000 odrzuceń z rzędu na poziomie latwy
+      Tests  1 failed | 2 passed (3)
+## PO
+ Test Files  2 passed (2)
+      Tests  4 passed (4)
+      Tests  13 passed (13)
+(odciski prawdziwych szablonów i wzorzec GENERATOR_WERSJA bez zmian: GENERATOR_WERSJA zostaje 5)
