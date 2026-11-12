@@ -736,7 +736,46 @@ export const ScenarioPickHandDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-FD-3 (SC-13, D-1306): rozmiar zakładu silną ręką na flopie wobec drawa rywala (rodzaj z `draws` poziomu); wybór między małym (`small`, np. ¼) a dużym (`big`, np. ⅔)
+ * ułamkiem puli; poprawny jest duży, gdy rywal ma cenę przy małym i nie ma jej przy dużym. Pula × ułamek musi dać całą kwotę (generator odrzuca szablon inaczej).
+ */
+export const ScenarioFlopSizeDecision = z
+  .object({
+    street: z.literal('flop'),
+    kind: z.literal('flop-size'),
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    small: z.number().positive(),
+    big: z.number().positive(),
+    actions: z.array(z.object({ action: z.enum(['bet-small', 'bet-big']), explanation: z.string().min(1) }).strict()).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG)
+  .refine((d) => d.small < d.big, 'small musi być mniejsze od big');
+
+/**
+ * 08-FD-4 (SC-22, 25, 28, 29; R-M8-001, D-1302): bet albo czekanie na riverze z pozycji. Zakres rywala to dana zadania: klasy rąk sprawdzających (`calls`) i pasujących (`folds`);
+ * w = gorsze ÷ (gorsze + lepsze) wśród `calls`; bet ⇔ w ≥ 0,5 + δ, czekanie ⇔ w ≤ 0,5 − δ (δ = margines poziomu, ≥ 0,02). Opcjonalnie `pairKind` (rodzaj pary gracza)
+ * i `dryBoard` (stół bez trzech kart jednego koloru i bez strita na stole).
+ */
+export const ScenarioRiverValueDecision = z
+  .object({
+    street: z.literal('river'),
+    kind: z.literal('river-value'),
+    rule: id.optional(),
+    calc: id.optional(),
+    calls: z.array(z.string().min(1)).min(1),
+    folds: z.array(z.string().min(1)).min(1),
+    pairKind: z.array(z.enum(['overpair', 'top', 'second', 'low', 'underpair'])).min(1).optional(),
+    dryBoard: z.boolean().optional(),
+    actions: z.array(z.object({ action: z.enum(['bet', 'check']), explanation: z.string().min(1) }).strict()).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z

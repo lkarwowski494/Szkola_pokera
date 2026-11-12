@@ -15,6 +15,8 @@ const TESTY: Record<string, readonly string[]> = {
   'range-spot': ['szablony-du.test.ts'],
   'size-spot': ['szablony-du.test.ts'],
   'icm-call': ['szablony-co.test.ts'],
+  'flop-size': ['fl-pokrycie-flop-size-river-value.test.ts'], // FL (08-FD-3)
+  'river-value': ['fl-pokrycie-flop-size-river-value.test.ts'], // FL (08-FD-4)
 };
 const rodzaj = (d: { kind?: string }) => d.kind ?? 'draw-call';
 

@@ -54,7 +54,10 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
     case 'pick-hand':
       return ['hand-a', 'hand-b']; // KO-072: wybór jednej z dwóch rąk; nazwa akcji to karty ręki (EkranScenariusza.tekstAkcji)
     case 'turn-bet':
+    case 'flop-size': // FL (08-FD-3, D-1419): ten sam widok co turn-bet, ulica flop
       return ['bet-small', 'bet-big']; // FG (D-1147): mały albo duży zakład na turnie, najtańszy pierwszy
+    case 'river-value':
+      throw new Error('river-value: brak widoku (ekran nie ma akcji „bet”, projekt roli 04); szablon z tym rodzajem odrzuca bramka treści (RODZAJE_NA_EKRANIE)');
     case 'list-hand': {
       // FG: zbiór akcji z szablonu (wariant niesie tylko akcję poprawną i dopuszczalne), bez szablonu nie zgadujemy zbioru
       if (spec?.kind !== 'list-hand') throw new Error('list-hand: zbiór akcji pochodzi z szablonu punktu (przekaż specyfikację decyzji)');
@@ -67,7 +70,8 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'river-catch' || p.point === 'defend') return p.correct;
+  if (p.point === 'river-value') throw new Error('river-value: brak widoku (ekran nie ma akcji „bet”, projekt roli 04)');
+  if (p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend') return p.correct;
   if (p.point === 'list-hand') return akcjaSpotu(p.correct); // FG: akcja poprawna wpisu listy; spoza znanych etykiet błąd z nazwą
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
@@ -111,7 +115,7 @@ type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
  */
 export function kwotaAkcji(p: VariantDecision, a: Akcja, s: Pozycje): number | null {
   if (p.point === 'draw-call' || p.point === 'river-catch' || p.point === 'defend') return a === 'call' ? p.bet : null;
-  if (p.point === 'turn-bet') return a === 'bet-small' ? p.betSmall : a === 'bet-big' ? p.betBig : null;
+  if (p.point === 'turn-bet' || p.point === 'flop-size') return a === 'bet-small' ? p.betSmall : a === 'bet-big' ? p.betBig : null;
   if (p.point === 'icm-call') return a === 'call' ? (ukladIcm(p, s)?.doSprawdzeniaBb ?? null) : null;
   if (p.point === 'size-spot') return a === 'limp' ? 1 - blindBb(s.positions.hero) : (p.options.find((o) => o.action === a)?.bb ?? null);
   if (p.point === 'range-spot') {
@@ -194,7 +198,7 @@ function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
     return NA_OCENE_EKRANU[w];
   }
   if (d.point === 'list-hand') return a === d.correct ? 'zgodne' : d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'; // FG: akcja dopuszczalna z wpisu listy (ADR-04, D-1142)
-  if (d.point === 'turn-bet') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // FG: mały zakład to zły rozmiar, nie błąd (analogia size-spot/cbet-case, CR WYS-002; D-1375)
+  if (d.point === 'turn-bet' || d.point === 'flop-size') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // FG: mały zakład to zły rozmiar, nie błąd (analogia size-spot/cbet-case, CR WYS-002; D-1375)
   if (d.point === 'pick-hand') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // SC-23a/b: druga ręka to niedokładność, nie błąd (D-1054, zrodla-krok-e.md)
   return a === poprawnaAkcja(d) ? 'zgodne' : 'blad';
 }
@@ -312,7 +316,7 @@ export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): W
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
   const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : d.street === 'turn' ? 4 : 5).map(cardToString);
   if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
-  if (d.point === 'turn-bet') return { indeks, ulica: 'turn', stol, pulaBb: d.pot, doSprawdzeniaBb: null }; // FG: gracz stawia, więc sama pula (bez „do sprawdzenia”)
+  if (d.point === 'turn-bet' || d.point === 'flop-size') return { indeks, ulica: d.street, stol, pulaBb: d.pot, doSprawdzeniaBb: null }; // FG: gracz stawia, więc sama pula (bez „do sprawdzenia”)
   if (d.point === 'icm-call' && s) {
     const u = ukladIcm(d, s);
     if (u) return { indeks, ulica: 'preflop', stol, pulaBb: u.pulaBb, doSprawdzeniaBb: u.doSprawdzeniaBb };

@@ -54,7 +54,7 @@ export function tekstAkcji(v: ScenarioVariant, indeks: number, a: Akcja, s: Pick
     const nazwa = zapisKart(karty);
     return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa, czytnik: karty.map((c) => nazwaKarty(c, t)).join(', ') };
   }
-  if (d.point === 'turn-bet') {
+  if (d.point === 'turn-bet' || d.point === 'flop-size') {
     // FG: nazwa z `play.bet` („Zakład 2bb”, kwota z wariantu), bo `scenario.action.betSmall/betBig` to „c-bet”, zły termin na turnie
     const bb = kwotaAkcji(d, a, s);
     if (bb === null) throw new Error(`turn-bet: akcja ${a} nie ma kwoty zakładu`); // brak zostaje brakiem (FH NIS-004), bez „Zakład 0bb”
