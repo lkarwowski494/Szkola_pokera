@@ -61,8 +61,9 @@ function oczekiwana(hero: [Card, Card], flop: Card[], frac: number): 'call' | 'f
   if (para || kolor >= 4 || okno >= 4 || as) return 'call'; // para, draw do koloru (9 outów), strit/gutshot (D-1167), as w ręce
   if (czysta) return 'fold';
   const kolorowaBoth = suitOf(hero[0]) === suitOf(hero[1]);
-  if (dwieWysokie && ((kolorowaBoth && kolor === 3) || okno === 3)) return 'call'; // backdoor koloru albo strita z kartami ≥ T (D-1168)
-  return null; // backdoor z kartą niższą niż T: źródło nie rozstrzyga
+  const nadkarta = hero.some((c) => rankOf(c) > Math.max(...ranks)); // 08-EH-3 (D-1258): karta gracza wyższa od najwyższej karty flopu
+  if (nadkarta && ((kolorowaBoth && kolor === 3) || okno === 3)) return 'call'; // backdoor koloru albo strita z overkartą (D-1168 → D-1258)
+  return null; // backdoor bez overkarty: źródło nie rozstrzyga
 }
 
 describe('08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007)', () => {
@@ -79,6 +80,14 @@ describe('08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007)', () => {
     expect(defendVsCbet(H('Jh Th'), F('Qd 8c 2s'), 1 / 3)).toBe('call'); // jednokolorowe, J-T-Q to backdoor strita, obie ≥ T (D-1168)
     expect(defendVsCbet(H('6d 5c'), F('Kh 4s 9d'), 1 / 3)).toBeNull(); // sam backdoor strita niskich kart: null (D-1168, otwarte pytanie)
     expect(defendVsCbet(H('7h 6h'), F('Kc 9h 2s'), 1 / 3)).toBeNull(); // niskie karty jednego koloru: backdoor, ale nie „wysokie karty”
+  });
+  it('08-EH-3 (D-1258): backdoor → call tylko z overkartą (karta gracza wyższa od najwyższej karty flopu); bez niej null, nigdy fold', () => {
+    expect(defendVsCbet(H('Js Ts'), F('Ks 8d 4c'), 1 / 3)).toBeNull(); // backdoor koloru i strita, brak overkarty (wcześniej call z dwiema kartami ≥ T)
+    expect(defendVsCbet(H('Qh 4h'), F('Tc 9h 2s'), 1 / 3)).toBe('call'); // przykład źródła: Q jest overkartą (wcześniej null, bo 4 < T)
+    expect(defendVsCbet(H('Kd Qd'), F('Jh 7c 2d'), 1 / 3)).toBe('call'); // overkarty, backdoor koloru i strita
+    expect(defendVsCbet(H('6d 5d'), F('Kh 4s 9d'), 1 / 3)).toBeNull(); // backdoor bez overkarty
+    expect(defendVsCbet(H('Jd Tc'), F('Qh 8c 2s'), 1 / 3)).toBe('call'); // gutshot (D-1167)
+    expect(defendVsCbet(H('7c 2d'), F('Kh 9s 4c'), 1 / 3)).toBe('fold'); // bez pary, drawa i backdoora
   });
   it('08-programista-002: duży c-bet ≥ 3/4 — para i draw poza zakresem R-M6-007 → null; tylko dwie wysokie karty bez pary, drawa i backdoora → fold', () => {
     expect(defendVsCbet(H('2d 2c'), F('Ah Kc Qs'), 0.75)).toBeNull(); // underpara
@@ -97,9 +106,9 @@ describe('08-N2: obrona BB wobec c-betu (R-M6-006, R-M6-007)', () => {
     for (const f of [0.41, 0.55, 0.69, 0.7, 0.74, 0.749]) expect(defendVsCbet(H('Qh Jd'), F('7c 3d 2s'), f), `ułamek ${f}`).toBeNull(); // ręka, która przy „dużym” dawałaby fold
     for (const f of [0, -0.5, Number.NaN, Infinity]) expect(() => defendVsCbet(H('9h 3d'), F('Kh 7c 2d'), f)).toThrow(/rozmiar c-betu/);
   });
-  it('backdoor kolorowy tylko z obiema kartami ≥ T i dokładnie jedną kartą koloru na flopie', () => {
+  it('backdoor kolorowy tylko z overkartą i dokładnie jedną kartą koloru na flopie', () => {
     expect(defendVsCbet(H('Jh Th'), F('Qh 8c 2s'), 1 / 3)).toBe('call');
-    expect(defendVsCbet(H('Th 4h'), F('Kh 9c 2s'), 1 / 3)).toBeNull(); // 4h niska: nie „wysokie karty”
+    expect(defendVsCbet(H('Th 4h'), F('Kh 9c 2s'), 1 / 3)).toBeNull(); // brak overkarty (K na flopie)
     expect(defendVsCbet(H('Jh Th'), F('Qh 8h 2s'), 1 / 3)).toBe('call'); // dwie karty koloru na flopie = draw do koloru (9 outów)
   });
   it('wyrocznia 20 000 losowań (rangi i kolory, trzy wartości): fold i call tylko tam, gdzie reguła je daje; reszta null albo call z drawu', () => {

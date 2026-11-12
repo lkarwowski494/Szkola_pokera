@@ -1002,8 +1002,6 @@ const RANK_T = 8;
 const DEFEND_SMALL_MAX = 0.4;
 /** D-1166 / NIS-004: = `cbet.size.big` z content/numbers.yaml (0,75, włącznie); zgodność pilnuje szablony-eh.test.ts w content-build. */
 const DEFEND_BIG_MIN = 0.75;
-/** „Wysokie karty” backdoora: obie karty gracza od dziesiątki (nazwane uproszczenie D-1066, do weta). */
-const BACKDOOR_HIGH_MIN = RANK_T;
 
 export interface IsoOption { action: 'raise' | 'raise-small' | 'raise-big'; bb: number; verdict: WerdyktAkcji }
 export function isoSizeOptions(p: IsoParams, limpers: number, oop: boolean): IsoOption[] {
@@ -1040,8 +1038,8 @@ function hasAnyBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boo
 
 /**
  * Obrona BB wobec c-betu na flopie (R-M6-006 mały, R-M6-007 duży; heur). Oceniamy tylko to, co reguły mówią wprost; resztę odrzucamy (null, D-1116, 08-programista-001/002).
- * Mały (≤ 0,4 puli): call przy parze, dwóch parach i lepszych, drawie od {@link HOLDING_LIMITS}.drawOutsMin outów, backdoorze kolorowym obu kart ≥ T i asie w ręce;
- * gutshot bez pary: call (D-1167); backdoor strita z obiema kartami ≥ T: call (D-1168); fold tylko „bez pary i bez drawa” (bez żadnego drawa ani backdoora); backdoor strita lub koloru z kartą < T: null.
+ * Mały (≤ 0,4 puli): call przy parze, dwóch parach i lepszych, drawie od {@link HOLDING_LIMITS}.drawOutsMin outów, backdoorze kolorowym z overkartą i asie w ręce;
+ * gutshot bez pary: call (D-1167); backdoor strita z overkartą: call (D-1258, zastępuje „obie karty ≥ T” z D-1168); overkarta = karta gracza wyższa od najwyższej karty flopu; fold tylko „bez pary i bez drawa” (bez żadnego drawa ani backdoora); backdoor strita lub koloru bez overkarty: null.
  * Duży (≥ 0,75, D-1166): tylko zakres R-M6-007: dwie karty ≥ T, bez pary, drawa i backdoora → fold; wszystko inne (para, draw, backdoor, niższe karty, as z królem na stole): null.
  * Rozmiar między „małym” a „dużym” źródło nie rozstrzyga (null).
  */
@@ -1061,11 +1059,13 @@ export function defendVsCbet(hero: readonly [Card, Card], flop: readonly Card[],
   if (made || outs >= HOLDING_LIMITS.drawOutsMin) return 'call'; // para, dwie pary i więcej (układ lepszy niż stół), draw
   if (hasAce) return 'call';
   const suited = suitOf(hero[0]) === suitOf(hero[1]);
-  const backdoor = suited && flop.filter((c) => suitOf(c) === suitOf(hero[0])).length === 1 && hero.every((c) => rankOf(c) >= BACKDOOR_HIGH_MIN);
+  // 08-EH-3 (D-1258): backdoor daje kontynuację tylko z overkartą = karta gracza wyższa od najwyższej karty flopu (źródło: backdoor z kartą wyższą od stołu)
+  const overkarta = hero.some((c) => rankOf(c) > Math.max(...flop.map(rankOf)));
+  const backdoor = suited && flop.filter((c) => suitOf(c) === suitOf(hero[0])).length === 1 && overkarta;
   if (backdoor) return 'call';
   if (outs > 0) return 'call'; // gutshot bez pary (D-1167): solver gutshotów nie pasuje; uproszczenie: „kontynuujesz” = call
-  if (hasStraightBackdoor(hero, flop) && hero.every((c) => rankOf(c) >= BACKDOOR_HIGH_MIN)) return 'call'; // backdoor strita z dwiema kartami ≥ T (D-1168)
-  return hasAnyBackdoor(hero, flop) ? null : 'fold'; // backdoor z kartą < T: null (otwarte pytanie D-1168)
+  if (hasStraightBackdoor(hero, flop) && overkarta) return 'call'; // backdoor strita z overkartą (D-1168 → D-1258)
+  return hasAnyBackdoor(hero, flop) ? null : 'fold'; // backdoor bez overkarty: null (źródło nie rozstrzyga)
 }
 
 /** R-M4-010: punkt „lista rąk”: oczekiwana akcja z jawnej listy klas w szablonie; ręka spoza listy → null (generator losuje tylko z listy). */
