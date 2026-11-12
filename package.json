@@ -16,7 +16,8 @@
     "k08": "node tests/narzedzia/k08-manifesty.mjs || echo 'K-08 (informacyjnie, strategia.md §8.1): braki w manifeście prywatności — przegląd roli 10'",
     "i18n": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl",
     "i18n:kod": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src",
-    "ci": "pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr",
+    "tresci:el-kontrola": "node docs/tresci/narzedzia/el-kontrola.mjs --ko076",
+    "ci": "pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr && pnpm tresci:el-kontrola",
     "test:akceptacja": "a=0; pnpm test:akceptacja:domena || a=1; pnpm test:akceptacja:ekrany || a=1; exit $a",
     "test:akceptacja:domena": "tsc -p tests/akceptacja && vitest run --root tests/akceptacja",
     "test:akceptacja:ekrany": "ls tests/akceptacja/ekrany/*.test.tsx >/dev/null 2>&1 || { echo 'Brak testów oczekujących ekranów (wszystkie w apps/mobile, D-175).'; exit 0; }; tsc -p tests/akceptacja/ekrany && pnpm --filter @szkola/mobile exec jest -c jest.akceptacja.config.js"
