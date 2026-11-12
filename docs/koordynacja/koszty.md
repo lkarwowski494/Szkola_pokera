@@ -165,3 +165,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | FQ | 06 build (opus) szkice SC-13/22/25/28/29, SC-24, Liczby | — | 8,16 | 31,8 | 16:50 → 17:00 → ok. 17:15 → ci kod 0 b11f2d6 (lokalnie) → przyjęte 17:33 (42673fb4, tylko docs/tresci + decyzje/FQ.md) | 0 | recenzja → FS; 08-FQ-1/2 dla 08 |
 | FS | 06 audit (opus) recenzja szkiców FQ | — | 5,73 | 28,9 | 17:35 → 17:35 → ok. 18:00 → ci kod 0 c675eb72 (lokalnie) → przyjęte 18:05 (d8df4a9d, tylko docs) | 0 | 4 WYS → FT |
 | FT | 06 fix (opus) poprawki szkiców FQ po FS | — | 5,01 | 23,4 | 18:05 → 18:05 → ok. 18:15 → ci kod 0 e78d0550 (lokalnie) → przyjęte 18:38 (86fd8f4c, tylko docs) | 0 | 001–005 test odtwarzający |
+| FR | 08 fix (sonnet) FQ-1, FM, river-value, 06-008, FN-1 | — | 4,84 | 32,5 | 17:32 → 17:35 → 17:38 (87ffa871) → ci kod 0 975e8763 (lokalnie) → oddane 18:48, recenzja czeka | recenzja: brak prompts od 18:12 | niesprawdzone |
