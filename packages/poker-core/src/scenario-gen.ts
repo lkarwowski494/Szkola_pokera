@@ -397,7 +397,7 @@ export class TemplateError extends Error {}
  * (np. `requiredChips`). Zmiana pola pochodnego bez zmiany rozdania nie wymaga podniesienia wersji: unieważnia tylko rozdania w toku (zaczynają się od nowa), nie historię (recenzja DO 08-programista-004).
  * 0 jest zarezerwowane dla wpisów sprzed wprowadzenia wersji. Pilnują tego test wzorca w scenario-gen.test.ts i odciski prawdziwych szablonów z content/pl (tools/content-build/test/generator-odciski.test.ts, ŚR-002).
  */
-export const GENERATOR_WERSJA = 4; // 4: dolosowanie flopu po range-spot, gdy szablon ma cbet-case (EK 08-EH-1, D-1165; zmieniają się tylko sc-04 i sc-05); 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
+export const GENERATOR_WERSJA = 5; // 5: backdoor w obronie BB tylko z overkartą (08-EH-3, D-1258), turn-bet: najwyższa para z kickerem ≥ Q (08-EL-1, D-1256), equityMarginMin 0,02 w Ł SC-06/32/33 (08-EL-4, D-1215); 4: dolosowanie flopu po range-spot, gdy szablon ma cbet-case (EK 08-EH-1, D-1165; zmieniają się tylko sc-04 i sc-05); 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
 
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */

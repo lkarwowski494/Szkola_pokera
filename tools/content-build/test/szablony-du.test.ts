@@ -8,7 +8,7 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { describe, expect, it } from 'vitest';
-import { classOf, generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { classOf, generateVariant, type Equity169Data, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import { compileRanges } from '../src/ranges';
 import { loadScenarioTemplates } from '../src/scenariusze';
 import { content, number } from './kit';
@@ -44,7 +44,24 @@ const param = (rule: string, p: string): number => {
 };
 const r1 = (x: number) => Math.round(x * 10) / 10;
 
+// 08-EL-4 (D-1215): poziom łatwy SC-06/32/33 ma equityMarginMin 0,02 (KO-076), więc generator potrzebuje macierzy equity jak w buildGeneratorContext;
+// wyrocznia marginesu liczona tu wprost z equity169.json (jak ef-margines-ko076.test.ts): odległość equity klasy od najbliższej klasy z częstością akcji oczekiwanej ≤ 0,5.
+const eq169 = JSON.parse(readFileSync(join(root, 'tools', 'equity', 'equity169.json'), 'utf8')) as Equity169Data;
+const eqWobecLosowej = eq169.classes.map((_c, i) => {
+  let w = 0, sum = 0;
+  for (let j = 0; j < eq169.classes.length; j++) { w += eq169.pairs[i]![j]!; sum += eq169.pairs[i]![j]! * eq169.equity[i]![j]!; }
+  return sum / w;
+});
+function marginesEquity(w: Wezel, oczekiwana: string, hc: string): number {
+  const a = w.actions.indexOf(oczekiwana);
+  const i = eq169.classes.indexOf(hc);
+  let best = Infinity;
+  eq169.classes.forEach((c, j) => { if ((w.strategy[a]![c] ?? 0) <= 0.5) best = Math.min(best, Math.abs(eqWobecLosowej[i]! - eqWobecLosowej[j]!)); });
+  return best;
+}
+
 const ctx = {
+  equity169: eq169,
   spots: compileRanges(join(root, 'content')).spots,
   thresholds: { mixedMin: progi.min, mixedLow: progi.niski },
   sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)),
@@ -78,6 +95,7 @@ describe('szablony treści range-spot: ręka i ocena zgodne z plikiem solvera (B
           if (niepewne.includes(hc)) bledy.push(`${seed}: ${hc} to klasa niepewna`);
           if (!(freqs[io]! >= przedzial.min && freqs[io]! <= przedzial.max)) bledy.push(`${seed}: ${hc}: częstość ${oczekiwana} ${freqs[io]} poza ${przedzial.min}–${przedzial.max}`);
           if (werdykt(freqs, io) !== 'correct') bledy.push(`${seed}: ${hc}: ${oczekiwana} nie jest zgodna`);
+          if (b.equityMarginMin !== undefined && marginesEquity(w, oczekiwana, hc) < b.equityMarginMin) bledy.push(`${seed}: ${hc}: margines equity ${marginesEquity(w, oczekiwana, hc).toFixed(4)} < ${b.equityMarginMin}`);
           for (const a of d.actions) {
             const i = w.actions.indexOf(a.action);
             // wyjaśnienia akcji innych niż oczekiwana mówią „za ostrożny” / „prawie nie sprawdzasz”: nie mogą być zgodne

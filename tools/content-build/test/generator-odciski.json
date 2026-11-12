@@ -1,5 +1,5 @@
 {
-  "wersja": 4,
+  "wersja": 5,
   "ziarna": 200,
   "odciski": {
     "sc-01|latwy": {
@@ -43,8 +43,8 @@
       "ziarno1": "sc-05|sredni|Q0T1/423220"
     },
     "sc-06|latwy": {
-      "sha": "f02bcad3622368d1",
-      "ziarno1": "sc-06|latwy|Q0T1/"
+      "sha": "fa8f6afb4f6c807c",
+      "ziarno1": "sc-06|latwy|Q0T0/"
     },
     "sc-08|latwy": {
       "sha": "1ffd079472a0a0b6",
@@ -75,12 +75,12 @@
       "ziarno1": "sc-19|sredni|6051/J1T121/90"
     },
     "sc-32|latwy": {
-      "sha": "437a1e16700aa5c1",
-      "ziarno1": "sc-32|latwy|9060/"
+      "sha": "c25d5c0fd9e893f3",
+      "ziarno1": "sc-32|latwy|Q0T1/"
     },
     "sc-33|latwy": {
-      "sha": "8fb7a8fc80874fb1",
-      "ziarno1": "sc-33|latwy|K0T1/"
+      "sha": "f6b51dba069582fa",
+      "ziarno1": "sc-33|latwy|J0T0/"
     },
     "sc-34|latwy": {
       "sha": "68cbe0054bfc6299",
