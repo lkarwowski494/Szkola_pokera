@@ -269,13 +269,13 @@ export class BladOdczytuTresci extends Error {
 }
 
 /**
- * Kontekst generatora dla szablonów z punktami range-spot, cbet-case, size-spot i icm-call (CN D-780, 08-programista-001 CM): spoty
+ * Kontekst generatora dla szablonów z punktami range-spot, cbet-case, size-spot, icm-call i defend (FG: zakres obrony; CN D-780, 08-programista-001 CM): spoty
  * (`ranges`), progi (`numbers`), reguły oceny i macierz equity (`game_kit`) składa ta sama funkcja co kontrola w budowaniu treści
  * (`buildGeneratorContext`), więc ekran losuje te same warianty co kontrola. `undefined`, gdy szablon go nie potrzebuje (sama linia
  * draw-call) albo bazie brakuje progów: generator odmawia wtedy punktu wymagającego danych (TemplateError), bez zgadywanych wartości.
  */
 export function getKontekstGeneratora(db: Pick<SQLiteDatabase, 'getAllSync' | 'getFirstSync'>, szablon: ScenarioTemplate): GeneratorContext | undefined {
-  if (!szablon.decisions.some((d) => d.kind === 'range-spot' || d.kind === 'cbet-case' || d.kind === 'size-spot' || d.kind === 'icm-call')) return undefined;
+  if (!szablon.decisions.some((d) => d.kind === 'range-spot' || d.kind === 'cbet-case' || d.kind === 'size-spot' || d.kind === 'icm-call' || d.kind === 'defend')) return undefined;
   const liczba = (key: string): number | null => db.getFirstSync<{ value: number }>('SELECT value FROM numbers WHERE key = ?', key)?.value ?? null;
   const mixedMin = liczba('range.mixed.min');
   const mixedLow = liczba('range.mixed.low');

@@ -37,6 +37,7 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
     case 'draw-call':
     case 'icm-call':
     case 'river-catch': // FG (D-1143): jak draw-call na riverze, pas albo sprawdzenie zakładu rywala
+    case 'defend': // FG (D-1144): jak draw-call na flopie, pas albo sprawdzenie c-betu rywala
       return ['fold', 'call'];
     case 'cbet-case':
       return AKCJE_CBET;
@@ -49,14 +50,13 @@ export function akcjePunktu(p: VariantDecision): readonly Akcja[] {
     case 'turn-bet':
       return ['bet-small', 'bet-big']; // FG (D-1147): mały albo duży zakład na turnie, najtańszy pierwszy
     case 'list-hand':
-    case 'defend':
-      throw new Error('list-hand i defend nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
+      throw new Error('list-hand nie ma jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   }
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'river-catch') return p.correct;
-  if (p.point === 'list-hand' || p.point === 'defend') throw new Error('list-hand i defend nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
+  if (p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'river-catch' || p.point === 'defend') return p.correct;
+  if (p.point === 'list-hand') throw new Error('list-hand nie ma jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
 /**
@@ -97,7 +97,7 @@ type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
  * null: akcja bez kwoty (pas, czekanie, c-bet bez puli w wariancie).
  */
 export function kwotaAkcji(p: VariantDecision, a: Akcja, s: Pozycje): number | null {
-  if (p.point === 'draw-call' || p.point === 'river-catch') return a === 'call' ? p.bet : null;
+  if (p.point === 'draw-call' || p.point === 'river-catch' || p.point === 'defend') return a === 'call' ? p.bet : null;
   if (p.point === 'turn-bet') return a === 'bet-small' ? p.betSmall : a === 'bet-big' ? p.betBig : null;
   if (p.point === 'icm-call') return a === 'call' ? (ukladIcm(p, s)?.doSprawdzeniaBb ?? null) : null;
   if (p.point === 'size-spot') return a === 'limp' ? 1 - blindBb(s.positions.hero) : (p.options.find((o) => o.action === a)?.bb ?? null);
@@ -296,9 +296,9 @@ export function ukladIcm(d: IcmCallVariantDecision, s: Pozycje): UkladIcm | null
 export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): WidokDecyzji {
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
-  if (d.point === 'list-hand' || d.point === 'defend') throw new Error('list-hand i defend nie mają jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania je odrzuca)');
+  if (d.point === 'list-hand') throw new Error('list-hand nie ma jeszcze widoku (RODZAJE_NA_EKRANIE; bramka budowania go odrzuca)');
   const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : d.street === 'turn' ? 4 : 5).map(cardToString);
-  if (d.point === 'draw-call' || d.point === 'river-catch') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
+  if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
   if (d.point === 'turn-bet') return { indeks, ulica: 'turn', stol, pulaBb: d.pot, doSprawdzeniaBb: null }; // FG: gracz stawia, więc sama pula (bez „do sprawdzenia”)
   if (d.point === 'icm-call' && s) {
     const u = ukladIcm(d, s);

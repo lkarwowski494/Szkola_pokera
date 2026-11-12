@@ -26,8 +26,8 @@ export function zdaniaLiczb(s: SesjaScenariusza, i: number, wybor: Akcja, t: TFn
     case 'pick-hand': return []; // KO-072: liczby SDV/V/F wymagają nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
     case 'turn-bet': return []; // FG: ceny drawa przy obu zakładach (requiredSmall/Big, hit) wymagają nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
     case 'river-catch': return []; // FG: udział blefów i próg bet ÷ (pula + 2·bet) wymagają nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
-    case 'list-hand':
-    case 'defend': return []; // brak liczb: ocena z listy klas (08-N4); widoku jeszcze nie ma
+    case 'defend': return []; // FG: próg obrony wobec zakładu (MDF, R-M6-006/007) wymaga nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
+    case 'list-hand': return []; // brak liczb: ocena z listy klas (08-N4); widoku jeszcze nie ma
   }
 }
 
