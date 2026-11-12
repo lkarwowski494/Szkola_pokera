@@ -223,7 +223,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Mechanizm: `grep -n "Tu {{t:bluff|blefów}} jest więcej\|a tu jest ich mniej" docs/tresci/szablony-robocze/fd/pl/sc-24.yaml` → 2 trafienia (+ en).
 - Opcje: (a) wyjaśnienia warunkowe jak SC-31 po D-1438 („sprawdzenie zarabia tylko wtedy, gdy…”) — sam tekst; (b) warunek wariantu w tekście (jak `nadkarty`, `scenario-gen.ts:986`) z flagą „blefów więcej/mniej” — dokładniej, wymaga kodu 08. Rekomendacja: (a).
 - Test akceptacyjny: żaden tekst akcji SC-24 nie stwierdza kierunku nierówności bez warunku.
-- Status: otwarte (zgłoszone koordynatorowi; poza zakresem FN)
+- Status: naprawione-do-weryfikacji (sesja FQ, D-1464: opcja (a); grep kierunku bez warunku 4 → 0, `docs/tresci/dowody/fq-fn-n1-przed.txt`, `fq-fn-n1-po.txt`; kontrola szkiców FD kod 0, `fq-fd-szkice-po-fn-n1.txt`)
 
 ## Do sprawdzenia
 - Czy `list-hand` umie oznaczyć dwie akcje jako poprawne (007 opcja a) — nie sprawdzałem silnika ocen poza generatorem; pytanie do 08.

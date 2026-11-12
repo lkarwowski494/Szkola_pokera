@@ -1,5 +1,6 @@
 # SC-24 (M8): river, bluff-catcher wobec zakładu rywala (punkt river-catch, 08-N7). Ocena: rachunek R-M8-010 (math): call, gdy udział
 # blefów > zakład ÷ (pula + 2·zakład). Udział blefów to dana zadania (D-1143, D-1300): sytuacja mówi „załóż”, wyjaśnienie nie uogólnia.
+# FN-N1 (sesja FQ, D-1464): wyjaśnienia warunkowe jak SC-31 po D-1438 (poziomy mają raz call, raz fold; ekran bierze jeden tekst na akcję).
 # Szkic sesji FD (D-1352): river-catch poza ekranem (RODZAJE_NA_EKRANIE); widok musi pokazać udział blefów i potrzebne equity (04/08).
 id: sc-24
 module: m8
@@ -21,6 +22,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} na riverze. {{t:call|Sprawdzasz}}, bo twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}}: wygrywasz z każdym {{t:bluff|blefem}}, przegrywasz z każdą ręką {{t:value|dla wartości}}. Tu {{t:bluff|blefów}} jest więcej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}, więc {{t:call|sprawdzenie}} zarabia."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} na riverze. Twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}}: wygrywasz z każdym {{t:bluff|blefem}}, przegrywasz z każdą ręką {{t:value|dla wartości}}. {{t:call|Sprawdzenie}} zarabia tylko wtedy, gdy {{t:bluff|blefów}} jest więcej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}; gdy jest ich mniej, traci."
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} na riverze. {{t:fold|Pasujesz}}, bo twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}}, a tu jest ich mniej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}. Przy {{t:bet|zakładzie}} wielkości {{t:pot|puli}} {{t:call|sprawdzenie}} wychodzi na zero dopiero przy ok. {{n:eq.bet-pot}} {{t:bluff|blefów}}."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} na riverze. Twoje equity to udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}}. {{t:fold|Pas}} jest dobry tylko wtedy, gdy {{t:bluff|blefów}} jest mniej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}; gdy jest ich więcej, {{t:fold|pas}} oddaje {{t:pot|pulę}}, na której {{t:call|sprawdzenie}} zarabia. Przy {{t:bet|zakładzie}} wielkości {{t:pot|puli}} {{t:call|sprawdzenie}} wychodzi na zero dopiero przy ok. {{n:eq.bet-pot}} {{t:bluff|blefów}}."
