@@ -459,7 +459,7 @@
   because: "el {{t:range|rango}} de quien {{t:call|iguala}} con {{t:position|posición}} es {{t:condensed|condensado}}: con las manos débiles se {{t:fold|retiró}} y con parte de las más fuertes {{t:raise|subió}}, así que le quedan sobre todo manos medias y buenas; además, después del flop tú hablas primero en cada {{t:street|calle}}"
   level: heuristic
   check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
-  source: "web de un solver comercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; «Even a hand like top pair top kicker is preferred to be played as a check-call»); web de formación, C-Betting On Ace-High Boards (CO vs BTN, A94r: «we will check over 96% of the time»); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: «The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on»)"
+  source: "web de un solver comercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; «Even a hand like top pair top kicker is preferred to be played as a check-call»); web de formación, C-Betting On Ace-High Boards (CO vs BTN, A94r: «we will check over 96% of the time»); web de formación, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, apertura desde posición media, el Button iguala: «The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on»)"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
@@ -716,7 +716,7 @@
 - id: R-M8-006
   module: m8
   if: "eliges con qué manos {{t:bluff|farolear}} en el river"
-  then: "{{t:bluff|faroleas}} con las manos más débiles, las que no ganarán en el showdown (p. ej. {{t:draw|proyectos}} de {{t:straight|escalera}} fallidos o cartas altas sin opciones); las manos con valor de showdown {{t:check|pasan}}"
+  then: "{{t:bluff|faroleas}} con las manos más débiles, las que en el showdown no ganarán ni dividirán el {{t:pot|bote}} (p. ej. {{t:draw|proyectos}} de {{t:straight|escalera}} fallidos o cartas altas sin opciones); las manos con valor de showdown {{t:check|pasan}}"
   because: "un {{t:bluff|farol}} con una mano que a menudo gana tras {{t:check|pasar}} renuncia a esa ganancia; una mano sin opciones no pierde nada si el {{t:bluff|farol}} no sale"
   level: heuristic
   source: "web de un solver comercial, We're At The River. Our Hand Can't Win. Now What?; web de formación, Polarized vs Linear Ranges"

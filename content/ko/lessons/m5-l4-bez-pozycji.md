@@ -20,20 +20,20 @@ drills:
     id: m5.l4.c-oop
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    prompt: "{{t:hijack|HJ}}에서 {{t:open|오픈했고}}, 버튼이 {{t:call|콜했으며}}, 나머지는 모두 {{t:fold|폴드했습니다}}. 당신이 먼저 행동합니다. 이 플롭에는 어떤 플랜이 맞습니까?"
     position: HJ
     options:
-      check: "I {{t:check}}"
-      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
-      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+      check: "{{t:check|체크합니다}}"
+      small: "작은 C벳: {{t:pot|팟}}의 {{n:cbet.size.small}}"
+      big: "큰 C벳: {{t:pot|팟}}의 {{n:cbet.size.big}}"
     cases:
       - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
         best: check
         rule: R-M5-012
         why:
-          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
-          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
-          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          check: "맞습니다. {{t:pair|페어}}가 없는 낮은 플롭(가장 높은 카드가 9 이하)에서는 솔버가 이 상황에서 {{t:range|레인지}} 전체로 {{t:check|체크합니다}}. 당신의 넓은 {{t:range}}에는 여기서 빗나간 높은 카드가 많은 반면, {{t:position|포지션}}을 가진 채 {{t:call|콜한}} 버튼은 가망 없는 핸드가 더 적습니다."
+          small: "너무 자주 합니다. {{t:pair|페어}}가 없는 낮은 플롭에서 솔버는 이 상황에서 C벳을 하지 않고, 강한 핸드까지 포함해 {{t:range|레인지}} 전체로 {{t:check|체크합니다}}. 버튼이 {{t:bet|베팅하면}}, 강한 핸드 일부는 {{t:check|체크}}한 뒤 {{t:raise|레이즈합니다}}(체크레이즈)."
+          big: "너무 자주 하고 너무 비쌉니다. {{t:pair|페어}}가 없는 낮은 플롭에서 솔버는 이 상황에서 C벳을 하지 않고, 강한 핸드까지 포함해 {{t:range|레인지}} 전체로 {{t:check|체크합니다}}. 버튼이 {{t:bet|베팅하면}}, 강한 핸드 일부는 {{t:check|체크}}한 뒤 {{t:raise|레이즈합니다}}(체크레이즈)."
     count: 3
   - kind: choice
     id: m5.l4.q-oop-why

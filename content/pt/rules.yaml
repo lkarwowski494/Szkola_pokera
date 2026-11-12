@@ -459,7 +459,7 @@
   because: "o {{t:range|range}} de quem {{t:call|paga}} com {{t:position|posição}} é {{t:condensed|condensado}}: com as mãos fracas {{t:fold|desistiu}} e com parte das mais fortes {{t:raise|aumentou}}, por isso ficou sobretudo com mãos médias e boas; além disso, depois do flop é a si que cabe falar primeiro em todas as {{t:street|rondas}}"
   level: heuristic
   check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
-  source: "site de um solver comercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; «Even a hand like top pair top kicker is preferred to be played as a check-call»); site de formação, C-Betting On Ace-High Boards (CO vs BTN, A94r: «we will check over 96% of the time»); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: «The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on»)"
+  source: "site de um solver comercial, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; «Even a hand like top pair top kicker is preferred to be played as a check-call»); site de formação, C-Betting On Ace-High Boards (CO vs BTN, A94r: «we will check over 96% of the time»); site de formação, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, abertura de posição intermédia, o Button paga: «The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on»)"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
@@ -716,7 +716,7 @@
 - id: R-M8-006
   module: m8
   if: "escolhe com que mãos fazer {{t:bluff|bluff}} no river"
-  then: "faz {{t:bluff|bluff}} com as mãos mais fracas, que não ganham no showdown (p. ex. {{t:draw|draws}} de {{t:straight|sequência}} falhados ou cartas altas sem hipóteses); as mãos com valor de showdown {{t:check|passam}}"
+  then: "faz {{t:bluff|bluff}} com as mãos mais fracas, que no showdown não ganham nem dividem o {{t:pot|pote}} (p. ex. {{t:draw|draws}} de {{t:straight|sequência}} falhados ou cartas altas sem hipóteses); as mãos com valor de showdown {{t:check|passam}}"
   because: "um {{t:bluff|bluff}} com uma mão que muitas vezes ganha depois de {{t:check|passar}} abdica dessa vitória; uma mão sem hipóteses não perde nada quando o {{t:bluff|bluff}} não resulta"
   level: heuristic
   source: "site de um solver comercial, We're At The River. Our Hand Can't Win. Now What?; site de formação, Polarized vs Linear Ranges"

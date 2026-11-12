@@ -20,20 +20,20 @@ drills:
     id: m5.l4.c-oop
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    prompt: "Bạn {{t:open|mở pot}} từ {{t:hijack|HJ}}, Button {{t:call|theo}}, những người còn lại {{t:fold|bỏ bài}}. Bạn hành động trước. Kế hoạch nào hợp với flop này?"
     position: HJ
     options:
-      check: "I {{t:check}}"
-      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
-      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+      check: "{{t:check|Xem bài}}"
+      small: "C-bet nhỏ: {{n:cbet.size.small}} {{t:pot|pot}}"
+      big: "C-bet lớn: {{n:cbet.size.big}} {{t:pot|pot}}"
     cases:
       - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
         best: check
         rule: R-M5-012
         why:
-          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
-          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
-          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          check: "Đúng: trên flop thấp không có {{t:pair|đôi}} (lá cao nhất là 9 hoặc thấp hơn), solver trong tình huống này {{t:check|xem bài}} toàn bộ {{t:range}} của nó. {{t:range}} rộng của bạn có nhiều lá cao đã trượt ở đây, còn Button, người đã {{t:call|theo}} khi có {{t:position|vị trí}}, có ít tay bài không còn cơ hội hơn."
+          small: "Quá thường xuyên: trên flop thấp không có {{t:pair|đôi}}, solver trong tình huống này không c-bet mà {{t:check|xem bài}} toàn bộ {{t:range}}, kể cả tay bài mạnh. Khi Button {{t:bet|cược}}, một phần tay bài mạnh {{t:raise|tố}} sau khi {{t:check|xem bài}} (check-raise)."
+          big: "Quá thường xuyên và quá tốn kém: trên flop thấp không có {{t:pair|đôi}}, solver trong tình huống này không c-bet mà {{t:check|xem bài}} toàn bộ {{t:range}}, kể cả tay bài mạnh. Khi Button {{t:bet|cược}}, một phần tay bài mạnh {{t:raise|tố}} sau khi {{t:check|xem bài}} (check-raise)."
     count: 3
   - kind: choice
     id: m5.l4.q-oop-why

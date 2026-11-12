@@ -20,20 +20,20 @@ drills:
     id: m5.l4.c-oop
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, and everyone else {{t:fold|folded}}. You act first. Which plan fits this flop?"
+    prompt: "你從 {{t:hijack|HJ}} {{t:open|開池}}，按鈕位{{t:call|跟注}}，其他人都{{t:fold|棄牌}}。你先行動。哪個打法適合這個翻牌？"
     position: HJ
     options:
-      check: "I {{t:check}}"
-      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
-      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
+      check: "{{t:check|過牌}}"
+      small: "小額 C-bet：{{t:pot|底池}}的 {{n:cbet.size.small}}"
+      big: "大額 C-bet：{{t:pot|底池}}的 {{n:cbet.size.big}}"
     cases:
       - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
         best: check
         rule: R-M5-012
         why:
-          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
-          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
-          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
+          check: "對：在沒有{{t:pair|對子}}的低牌翻牌上（最大的牌是 9 或更小），求解器在這個情境會用整個{{t:range|範圍}}{{t:check|過牌}}。你寬廣的{{t:range}}有很多在這裡沒中的高牌，而在有{{t:position|位置}}時{{t:call|跟注}}的按鈕位，沒有勝算的牌比較少。"
+          small: "太常了：在沒有{{t:pair|對子}}的低牌翻牌上，求解器在這個情境不會 C-bet，而是用整個{{t:range|範圍}}{{t:check|過牌}}，連強牌也一樣。當按鈕位{{t:bet|下注}}時，一部分強牌會在{{t:check|過牌}}後{{t:raise|加注}}（過牌加注）。"
+          big: "太常了，而且太貴：在沒有{{t:pair|對子}}的低牌翻牌上，求解器在這個情境不會 C-bet，而是用整個{{t:range|範圍}}{{t:check|過牌}}，連強牌也一樣。當按鈕位{{t:bet|下注}}時，一部分強牌會在{{t:check|過牌}}後{{t:raise|加注}}（過牌加注）。"
     count: 3
   - kind: choice
     id: m5.l4.q-oop-why

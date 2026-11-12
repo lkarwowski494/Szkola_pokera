@@ -459,7 +459,7 @@
   because: "{{t:position|포지션}}에서 {{t:call|콜}}한 플레이어의 {{t:range|레인지}}는 {{t:condensed|컨덴스드}}입니다: 약한 핸드는 {{t:fold|폴드}}했고 가장 강한 핸드 일부는 {{t:raise|레이즈}}했으므로 주로 중간 핸드와 좋은 핸드가 남아 있습니다. 게다가 플롭 이후 모든 {{t:street|스트리트}}에서 내가 먼저 행동합니다"
   level: heuristic
   check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
-  source: "상용 솔버 사이트, C-Betting As the OOP Preflop Raiser(UTG vs BTN C벳 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); 교육 사이트, C-Betting On Ace-High Boards(CO vs BTN, A94r: “we will check over 96% of the time”); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: “The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on”)"
+  source: "상용 솔버 사이트, C-Betting As the OOP Preflop Raiser(UTG vs BTN C벳 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); 교육 사이트, C-Betting On Ace-High Boards(CO vs BTN, A94r: “we will check over 96% of the time”); 교육 사이트, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, 미들 포지션 오픈, 버튼이 콜: “The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on”)"
   sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-013
   module: m5
@@ -716,7 +716,7 @@
 - id: R-M8-006
   module: m8
   if: "리버에서 어떤 핸드로 {{t:bluff|블러프}}할지 고를 때"
-  then: "쇼다운에서 이길 수 없는 가장 약한 핸드로 {{t:bluff|블러프}}합니다(예: 빗나간 {{t:straight|스트레이트}} {{t:draw|드로우}}나 승산 없는 하이카드). 쇼다운 가치가 있는 핸드는 {{t:check|체크}}합니다"
+  then: "쇼다운에서 이기지도 {{t:pot|팟}}을 나누지도 못하는 가장 약한 핸드로 {{t:bluff|블러프}}합니다(예: 빗나간 {{t:straight|스트레이트}} {{t:draw|드로우}}나 승산 없는 하이카드). 쇼다운 밸류가 있는 핸드는 {{t:check|체크}}합니다"
   because: "{{t:check|체크}}하면 자주 이기는 핸드로 {{t:bluff|블러프}}하면 그 승리를 버리게 됩니다. 승산 없는 핸드는 {{t:bluff|블러프}}가 실패해도 잃을 것이 없습니다"
   level: heuristic
   source: "상용 솔버 사이트, We're At The River. Our Hand Can't Win. Now What?; 교육 사이트, Polarized vs Linear Ranges"
