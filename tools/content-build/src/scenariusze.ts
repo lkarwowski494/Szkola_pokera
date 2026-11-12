@@ -383,6 +383,10 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
       return [`szablon ${t.id}: punkt ${i + 1} icm-call: poziom trudny czeka na 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie; docs/tresci/szablony-robocze/README.md, SC-34, D-825); szablon nie może trafić do bazy treści`];
     }
     if (d.kind === 'list-hand') {
+      // 08-programista-201 (FU, opcja b): widok oceny nie pokazuje drugiej poprawnej akcji jako poprawnej (wybór pod „Dlaczego nie”, sprzeczne z ADR-04); do projektu 04 (FW)
+      if (d.entries.some((en) => Array.isArray(en.correct))) {
+        return [`szablon ${t.id}: punkt ${i + 1} list-hand: ręka mieszana czeka na projekt 04 (FW): wpis z listą w correct nie może trafić do bazy treści, dopóki widok oceny nie pokazuje drugiej poprawnej akcji jako poprawnej (08-programista-201); użyj correct + acceptable albo osobnych wpisów`];
+      }
       const obce = d.actions.map((a) => a.action).filter((a) => !AKCJE_LISTY_EKRANU.includes(a));
       if (obce.length) return [`szablon ${t.id}: punkt ${i + 1} list-hand: ekran nie nazywa akcji ${obce.join(', ')} (znane: ${AKCJE_LISTY_EKRANU.join(', ')}); nowa akcja wymaga nazwy w słowniku (scenario.action) i wpisu w AKCJE_LISTY; szablon nie może trafić do bazy treści`];
     }
