@@ -1,5 +1,5 @@
 # Stan sesji FD (06-tresci, build): KO-085 i treści fali 1–2 — 2026-11-12
-Gałąź `sesja-fd-tresci` od `claude/sleepy-brahmagupta-2065nu` @ da1e02db + `origin/sesja-ex-rachunek`. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/FD.md` @ 267abcd4. Decyzje: `docs/decyzje/FD.md` (D-1350…D-1357). Odczyty: `docs/tresci/odczyty/fd-2026-11-12.tsv` (7/7 dosłownie w surowym tekście w dniu pracy, + R-M5-012 z EV tego dnia). Rachunek: `docs/tresci/narzedzia/rachunki/fd_wektory.py` → `docs/tresci/dowody/fd-wektory.txt`. Kontrola szkiców: `docs/tresci/narzedzia/fd-kontrola-szkicow.sh` → `docs/tresci/dowody/fd-szkice.txt` (D-1356).
+Gałąź `sesja-fd-tresci` od `claude/sleepy-brahmagupta-2065nu` @ da1e02db + `origin/sesja-ex-rachunek`. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/FD.md` @ 267abcd4. Decyzje: `docs/decyzje/FD.md` (D-1350…D-1357). Odczyty: `docs/tresci/odczyty/fd-2026-11-12.tsv` (7/7 dosłownie w surowym tekście w dniu pracy, + R-M5-012 z EV tego dnia). Rachunek: `docs/tresci/narzedzia/rachunki/fd_wektory.py` → `docs/tresci/dowody/fd-wektory.txt`. Kontrola szkiców: `docs/tresci/narzedzia/fd-kontrola-szkicow.sh` → `docs/tresci/dowody/fd-szkice.txt` (D-1356, kod 0). CI: `docs/tresci/dowody/fd-ci-416d9f5.txt` (kod 0).
 
 ## Wynik
 | Szablon | Stan | Gdzie | Blokuje wejście do bazy |
