@@ -3695,6 +3695,56 @@
   "uwagi": ""
  },
  {
+  "id": "n:ex.bet.two-thirds",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "ex.bet.two-thirds = (formuła product) [count]; obliczenie: zakład 2/3 puli (D-1461)",
+  "zrodla": [
+   {
+    "adres": "rachunek: product(ex.pot, ex.frac.two-thirds)",
+    "miejsce": "tools/content-build/test/fv-d1461-cena-dwoch-trzecich.test.ts",
+    "cytat": "niezależny rachunek w teście: zakład 100·(2/3), potrzeba = zakład ÷ (100 + 2·zakład) = 2/7 ≈ 28,57%; zgodne z content-build",
+    "odczyt": "2026-11-12",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "ex.bet.two-thirds",
+  "wartosc": null,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:eq.bet-two-thirds",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "eq.bet-two-thirds = (formuła requiredEquity) [percent]; obliczenie: bet/(pula+2·bet) przy zakładzie 2/3 puli (D-1461)",
+  "zrodla": [
+   {
+    "adres": "rachunek: requiredEquity(ex.pot, ex.bet.two-thirds)",
+    "miejsce": "tools/content-build/test/fv-d1461-cena-dwoch-trzecich.test.ts",
+    "cytat": "niezależny rachunek w teście: zakład 100·(2/3), potrzeba = zakład ÷ (100 + 2·zakład) = 2/7 ≈ 28,57%; zgodne z content-build",
+    "odczyt": "2026-11-12",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "eq.bet-two-thirds",
+  "wartosc": null,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
   "id": "n:eq.bet-overbet",
   "rodzaj": "liczba",
   "level": "math",

@@ -28,6 +28,13 @@
   "source": "przykład: zakład = ćwierć puli"
  },
  {
+  "klucz": "ex.frac.two-thirds",
+  "wartosc": 0.666667,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: zakład = 2/3 puli (D-1461)"
+ },
+ {
   "klucz": "ex.third.pot",
   "wartosc": 90,
   "jednostka": "count",
