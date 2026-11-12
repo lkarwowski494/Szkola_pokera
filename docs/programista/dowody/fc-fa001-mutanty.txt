@@ -1,0 +1,6 @@
+FC FA-001: test packages/poker-core/test/fc-fa001-czyste-outy-wektory.test.ts (5 wektorów, W i T wpisane ręcznie, oracle: ewaluator 7 kart po talii)
+Kod bez mutacji: 5 passed.
+M3 (usunięty `if (r === h) return null;`): 2 failed | 3 passed  → ZABITY (wektory remisu 7d5s/5h3h/QsQh7hAs i 7d4d/4c7c/6sJc9cAd)
+M6 (warunek remisu nieosiągalny `r !== h && r > h && false`): 2 failed | 3 passed → ZABITY
+Wektor OESD: AhAd vs 9c8d na Ts7h2cKd: W=8=N, T=0, kind oesd → przyjęty (ścieżka OESD ćwiczona; fixture generatora z small 0,25 jej nie dosięga).
+Mutanty zastosowane w kopii pliku scenario-gen.ts i cofnięte (git diff --stat src puste po przebiegu).
