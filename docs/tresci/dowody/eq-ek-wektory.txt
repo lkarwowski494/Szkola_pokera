@@ -1,0 +1,8 @@
+# defendVsCbet(…, 1/3) na kodzie EK origin/sesja-ek-partia2 @ 24f32fb5 (tsx, 2026-11-12) — stan PRZED zmianą 08-EH-3
+Js Ts | Ks 8d 4c → call
+Qh 4h | Tc 9h 2s → null
+Kd Qd | Jh 7c 2d → call
+6d 5d | Kh 4s 9d → null
+Jd Tc | Qh 8c 2s → call
+7c 2d | Kh 9s 4c → fold
+# oczekiwane po 08-EH-3 (D-1258): JsTs null, Qh4h call, reszta bez zmian
