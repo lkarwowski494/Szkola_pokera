@@ -1,0 +1,13 @@
+# pnpm run ci na fa979e4 (gałąź sesja-fn-poprawki), 2026-11-12, sesja FN
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  263 passed (263)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  698 passed | 1 expected fail (699)
+# Subtest: braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+ok 156 - braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+      Tests  35 passed (35)
+0 braków
+kod wyjścia: 0
