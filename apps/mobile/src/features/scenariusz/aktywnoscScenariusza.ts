@@ -106,7 +106,7 @@ export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): P
   const start = startAktywnosci({
     rodzaj: 'scenariusz', pierwszePodejscieTestu: false, limit: w.limit, teraz, strefa, dzienLokalny: w.zegar.dzienLokalny(teraz, strefa),
     wariant: { historia: h, odcisk: wariant.fingerprint },
-    plan: { liczbaKrokow: liczba, trescId: w.szablon.id, decyzje: grafPunktow(wariant), wariant: { poziom: w.poziom, ziarno: wariant.seed, odcisk: odciskWariantu(wariant) } },
+    plan: { liczbaKrokow: liczba, trescId: w.szablon.id, decyzje: grafPunktow(wariant, w.szablon), wariant: { poziom: w.poziom, ziarno: wariant.seed, odcisk: odciskWariantu(wariant) } },
   });
   if (!start.ok) return start;
   const id = w.noweId();
@@ -134,7 +134,7 @@ export async function odpowiedzWScenariuszu(
   if (krok !== s.aktywnosc.krok) return { ok: false, powod: 'krok_niezgodny' };
   const nast = przejscieAktywnosci(s.aktywnosc, { typ: 'odpowiedz', krok, akcja, teraz });
   const wybory = [...s.wybory, akcja];
-  const przebieg = przebiegWariantu(s.wariant, wybory);
+  const przebieg = przebiegWariantu(s.wariant, wybory, s.szablon);
   const ostatni = przebieg.ok ? przebieg.wartosc.kroki[krok] : undefined;
   if (!nast.ok || !przebieg.ok || !ostatni) return { ok: false, powod: 'krok_niezgodny' };
   const odp: OdpowiedzKroku = {

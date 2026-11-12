@@ -1,4 +1,4 @@
-// 08-N2 (sesja EF): schemat i bramka budowania punktu defend; ekran go jeszcze nie obsługuje.
+// 08-N2 (sesja EF): schemat i bramka budowania punktu defend; ekran go obsługuje od FG.
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
@@ -32,7 +32,7 @@ describe('08-N2: bramka defend', () => {
     expect(blad(kopia((b) => { b.positions.hero = 'CO'; b.positions.villain = 'BTN'; }))).toMatch(/defend: gracz to BB/);
     expect(blad(kopia((b) => { b.decisions[0].spot = 'rfi.co'; }))).toMatch(/defend: spot vs-open\.bb-\*/);
   });
-  it('ekran jeszcze nie obsługuje defend', () => { expect(checkScenarioNaEkran(fx.template).join('\n')).toMatch(/defend nie jest jeszcze obsługiwany na ekranie/); });
+  it('ekran obsługuje defend (FG: apps/mobile fg-defend-ekran.test.tsx), więc bramka ekranu przepuszcza fixture', () => { expect(checkScenarioNaEkran(fx.template)).toEqual([]); });
   it('generator wytwarza ≥ 40 odcisków (z prawdziwym zakresem obrony BB)', () => {
     expect(checkScenarioGenerator(fx.template, undefined, 2000, { spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } })).toEqual([]);
   });

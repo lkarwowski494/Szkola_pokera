@@ -1083,6 +1083,7 @@
       "limp": "limp",
       "raise": "{{t:raise}}",
       "threeBet": "3-bet",
+      "fourBet": "4-bet",
       "allIn": "all-in",
       "betSmall": "small {{t:c-bet}}",
       "betBig": "big {{t:c-bet}}",

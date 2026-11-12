@@ -54,6 +54,11 @@ export function tekstAkcji(v: ScenarioVariant, indeks: number, a: Akcja, s: Pick
     const nazwa = zapisKart(karty);
     return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa, czytnik: karty.map((c) => nazwaKarty(c, t)).join(', ') };
   }
+  if (d.point === 'turn-bet') {
+    // FG: nazwa z `play.bet` („Zakład 2bb”, kwota z wariantu), bo `scenario.action.betSmall/betBig` to „c-bet”, zły termin na turnie
+    const nazwa = t('play.bet', { bb: kwotaAkcji(d, a, s) ?? 0 });
+    return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa };
+  }
   const o = opisAkcji(d, a);
   const baza = t(o.klucz);
   const bezKwoty = d.point === 'range-spot' && o.kwota === 'to' && v.points[indeks + 1]?.point === 'size-spot';
@@ -138,7 +143,7 @@ export interface PropsPrzebiegu {
 /** Ruch rywala przed twoją decyzją (tekst dziennika) albo null: zakład (draw-call), all-in (icm-call), otwarcie (3-bet), czekanie (c-bet). */
 function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn): string | null {
   const rywal = s.szablon.positions.villain;
-  if (d.point === 'draw-call') return t('play.log.bet', { pos: rywal, bb: d.bet });
+  if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return t('play.log.bet', { pos: rywal, bb: d.bet });
   if (d.point === 'icm-call') {
     const u = ukladIcm(d, s.szablon);
     if (!u) return null;
@@ -193,7 +198,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const ocenaMode = p.faza === 'ocena';
   const indeks = ocenaMode ? s.wybory.length - 1 : s.wybory.length;
   const d = s.wariant.points[indeks];
-  const przebieg = przebiegWariantu(s.wariant, s.wybory);
+  const przebieg = przebiegWariantu(s.wariant, s.wybory, s.szablon);
   const oceny = przebieg.ok ? przebieg.wartosc.kroki.map((k) => k.ocena) : [];
   const widok = d ? widokDecyzji(s.wariant, indeks, s.szablon) : null;
   const wybor = ocenaMode ? s.wybory[indeks] : undefined;
@@ -208,7 +213,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const opisRywala = d && ulicaDecyzji ? [t(`scenario.street.${ulicaDecyzji}`), ruch].filter((x) => x).join('. ') : null;
   useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '' }) : t('scenario.verdict.yours', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '', lepiej: d ? opisAkcjiEkranu(poprawnaAkcja(d)).fraza : '' }) }) : ocenaMode ? null : opisRywala);
   if (!d || !widok) return <Screen>{null}</Screen>;
-  const akcje = akcjePunktu(d);
+  const akcje = akcjePunktu(d, s.szablon.decisions[indeks]);
   const teksty: Partial<Record<Akcja, TekstAkcji>> = Object.fromEntries(akcje.map((a) => [a, opisAkcjiEkranu(a)]));
   const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, teksty[a]?.nazwa ?? '']));
   const etykiety: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.flatMap((a) => { const e = teksty[a]?.czytnik; return e ? [[a, e]] : []; }));
@@ -242,12 +247,14 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         stosBb={s.szablon.stackBb}
       />
       )}
+      {d.point === 'list-hand' ? <Text testID="list-hand-sytuacja" style={[styl.tresc, { color: tk.ink }]}>{s.szablon.situation}</Text> : null}
       {d.point === 'pick-hand' ? (
         <View testID="pick-hand-rece" style={{ flexDirection: 'row', justifyContent: 'space-around', gap: odstep.m }}>
           {d.hands.map((h, k) => <CardRow key={k} cards={h.map(cardToString)} size="lg" />)}
         </View>
       ) : null}
       {widok.pulaBb !== null && widok.doSprawdzeniaBb !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: widok.pulaBb, kwota: widok.doSprawdzeniaBb })}</Text> : null}
+      {widok.pulaBb !== null && widok.doSprawdzeniaBb === null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('play.potLabel', { bb: widok.pulaBb })}</Text> : null}
       {icm && icm.caleStosTy && widok.doSprawdzeniaBb !== null ? <Text style={[styl.przypis, { color: tk.muted, textAlign: 'center' }]}>{t('scenario.icm.wholeStack', { kwota: t('scenario.icm.stackValue', { bb: formatujLiczbe(widok.doSprawdzeniaBb, jezykZadan()) }) })}</Text> : null}
       {icm && !ocenaMode ? <TurniejIcm uklad={icm} pozycjaTy={s.szablon.positions.hero} pozycjaRywal={s.szablon.positions.villain} formatBb={(x) => formatujLiczbe(x, jezykZadan())} formatProcent={(x) => formatujProcent(x, jezykZadan())} naglowek /> : null}
       <Dziennik wpisy={doDziennika} />
@@ -303,7 +310,7 @@ function StolIcmEkranu({ uklad, s, reka, t }: { uklad: UkladIcm; s: SesjaScenari
     />
   );
 }
-const ocenyAkcjiSesji = (s: SesjaScenariusza, i: number) => ocenyAkcji(s.wariant, i);
+const ocenyAkcjiSesji = (s: SesjaScenariusza, i: number) => ocenyAkcji(s.wariant, i, s.szablon);
 
 // ---------- Koniec ----------
 export interface PropsKonca {
@@ -326,7 +333,7 @@ export function KoniecScenariusza(p: PropsKonca): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   const { sesja: s } = p;
-  const przebieg = przebiegWariantu(s.wariant, s.wybory);
+  const przebieg = przebiegWariantu(s.wariant, s.wybory, s.szablon);
   const kroki = przebieg.ok ? przebieg.wartosc.kroki : [];
   const dobre = kroki.filter((k) => k.ocena === 'zgodne' || k.ocena === 'dopuszczalne').length;
   const pokaz = przebieg.ok ? przebieg.wartosc.pokazanie : null;

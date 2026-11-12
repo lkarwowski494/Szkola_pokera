@@ -1,8 +1,8 @@
-// 08-N4 (sesja EF): schemat i bramka budowania punktu list-hand; ekran go jeszcze nie obsługuje (RODZAJE_NA_EKRANIE tylko z widokiem).
+// 08-N4 (sesja EF): schemat i bramka budowania punktu list-hand; ekran go obsługuje od FG.
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
-import { checkScenarioNaEkran, checkScenarioTemplate, loadScenarioTemplates } from '../src/scenariusze';
+import { AKCJE_LISTY_EKRANU, checkScenarioNaEkran, checkScenarioTemplate, loadScenarioTemplates } from '../src/scenariusze';
 import { content } from './kit';
 
 const fx = loadScenarioTemplates(join(resolve(import.meta.dirname), 'fixtures', 'list-hand'))[0]!;
@@ -16,7 +16,13 @@ describe('08-N4: bramka list-hand', () => {
   it('klasa w dwóch wpisach', () => { expect(blad(kopia((b) => { b.decisions[0].entries[2].hands = ['AA']; }))).toMatch(/AA.*więcej niż jednym/); });
   it('akcja wpisu bez wyjaśnienia (BR-OCE-002)', () => { expect(blad(kopia((b) => { b.decisions[0].entries[0].correct = 'raise'; }))).toMatch(/raise.*nie ma wyjaśnienia/); });
   it('oczekiwana akcja poziomu, której żaden wpis nie ma jako poprawnej', () => { expect(blad(kopia((b) => { b.bounds.latwy.expected = ['fold']; }))).toMatch(/żaden wpis listy nie ma akcji oczekiwanej fold/); });
-  it('ekran jeszcze nie obsługuje list-hand', () => { expect(checkScenarioNaEkran(fx.template).join('\n')).toMatch(/list-hand nie jest jeszcze obsługiwany na ekranie/); });
+  it('ekran obsługuje list-hand (FG: apps/mobile fg-list-hand-ekran.test.tsx), więc bramka ekranu przepuszcza fixture', () => { expect(checkScenarioNaEkran(fx.template)).toEqual([]); });
+  it('akcja spoza słownictwa ekranu jest odrzucana przez bramkę ekranu (nazwy akcji list-hand zna tylko słownik scenario.action)', () => {
+    expect(checkScenarioNaEkran(kopia((b) => { b.decisions[0].actions[2] = { action: 'squeeze', explanation: 'x' }; })).join('\n')).toMatch(/list-hand: ekran nie nazywa akcji squeeze/);
+  });
+  it('słownictwo akcji list-hand ekranu: przypięcie (to samo literalnie w apps/mobile AKCJE_LISTY)', () => {
+    expect([...AKCJE_LISTY_EKRANU]).toEqual(['fold', 'check', 'call', 'limp', 'raise', '4bet', 'all-in']);
+  });
 });
 
 describe('08-N4: pojemność list-hand (próg = liczba klas z listy dla akcji oczekiwanej, jak D-1040)', () => {

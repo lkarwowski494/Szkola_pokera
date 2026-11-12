@@ -1,4 +1,4 @@
-// 08-N7 (sesja EF): schemat i bramka budowania river-catch; ekran go jeszcze nie obsługuje.
+// 08-N7 (sesja EF): schemat i bramka budowania river-catch; ekran go obsługuje od FG.
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
@@ -17,6 +17,6 @@ describe('08-N7: bramka river-catch', () => {
   it('oczekiwana akcja call albo fold', () => { expect(blad(kopia((b) => { b.bounds.latwy.expected = ['raise']; }))).toMatch(/call albo fold/); });
   it('bez marginMin (ŚR-003: decyzja bliska progu nie ma jednoznacznej odpowiedzi)', () => { expect(blad(kopia((b) => { delete b.bounds.latwy.marginMin; }))).toMatch(/marginMin/); });
   it('udział blefów poza 0–1 odrzuca schemat', () => { expect(() => kopia((b) => { b.decisions[0].bluffShares = [1.2]; })).toThrow(); });
-  it('ekran jeszcze nie obsługuje river-catch', () => { expect(checkScenarioNaEkran(fx.template).join('\n')).toMatch(/river-catch nie jest jeszcze obsługiwany na ekranie/); });
+  it('ekran obsługuje river-catch (FG: apps/mobile fg-river-catch-ekran.test.tsx), więc bramka ekranu przepuszcza fixture', () => { expect(checkScenarioNaEkran(fx.template)).toEqual([]); });
   it('generator wytwarza ≥ 40 odcisków', () => { expect(checkScenarioGenerator(fx.template, undefined, 2000)).toEqual([]); });
 });
