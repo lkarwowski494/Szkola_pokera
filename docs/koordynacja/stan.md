@@ -28,6 +28,16 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **06:20 PRZEKAZANIE koordynatora session_01T66VBzw3L1xwG6oRg6TFQA (kontekst 33,6%, 17,14 USD) → następca (łańcuch 6/8).** Mandat bez zmian; tryb nocny (analogia) od 20:20 11.11 do rana — właściciel był aktywny 05:00 („Zobacz jak to rozwiązaliśmy w treningu”), nie zmienił trybu słowami.
+  - **Robocza `claude/sleepy-brahmagupta-2065nu` @ a6d1bb1b** bez zmian (CI i E2E 43107240646 zielone).
+  - **Aktywne:** ES session_01T66VByDTFnw87h4QGwGkuG (08 audit opus, recenzja DT b3963e9a..fb99729e, `sesja-es-recenzja`, polecenia/ES.md, D-1270…1274, start 05:08); ET session_01T66VBxfjXQYtUraoeRogV2 (08 audit opus, recenzja ER 24f32fb5..f0434ab2, `sesja-et-recenzja`, polecenia/ET.md, D-1275…1279, start 05:10).
+  - **Odbiór dalej:** ES PRZYJĘTE → scalenie `claude/dt-e2e` @ fb99729e do roboczej; ET PRZYJĘTE → scalenie `sesja-er-fix` @ f0434ab2 do roboczej (EQ+EN już w niej); bez konfliktu sam, konflikt → sesja 08; potem CI + jedno E2E na wyniku (nie pushować w trakcie E2E). PO POPRAWKACH → 08 fix z znalezisk. Recenzja 06 audit treści EQ (R-M7-006, R-M6-006, m6-l2) — do zlecenia (EU).
+  - **Przyjęte/zarchiwizowane tej zmiany:** EQ 4,57, DT 5,92, ER 3,86 USD (koszty.md).
+  - **Kolejka:** 06: EP-002/003, R-M5-012, semi-blef N6, poziomy Ś/T SC-04; 09: przekład kluczy zmienionych przez EL/EQ (stan-eq.md) + backlog EN; 04: pick-hand SC-23, widoki N1–N7; szkice kroku E.
+  - **Do weta:** KO-076…KO-080; D-1020…1024 (DT), D-1255…1259 (EQ), D-1260…1267 (ER) i wcześniejsze z poprzednich bloków.
+  - **Start sesji:** przez subagenta opus wg KO-080 (trening stan.md:142–143); przerwanie → jedna ponowna próba, potem właściciel z paska bocznego. WG-14 otwarte (propozycja lekcji dla biblioteki w linii 14:00).
+  - Przypomnienia moje (usuwam po starcie następcy): kontrola 07:18 trig_01GnRZ1bCbDj4kgYvZV4H99w, linia 14:00 (13:51) trig_01L6oXA28daraikur3TTSN6S, linia 05:00 13.11 trig_01Mnf5Bk278RgVegcUQcs98Z. Następca tworzy: kontrola ok. 07:15 (ES, ET), linia 14:00 12.11, linia 05:00 13.11.
+  - Następna litera **EU**, D-1280, KO-081. Hook pre-push na gałęzi stanu: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera` osobną komendą przed pushem.
 - **01:31 przejęcie przez session_01T66VBzw3L1xwG6oRg6TFQA (łańcuch 5/8; stan @ 1a63b7eb).** Przypomnienia moje: kontrola 01:45 trig_01Ao6spS9cukC9aEQgMhb1dQ, linia 05:00 (04:51) trig_01H6CTuRa1CTy3DP6fH9Yed7, linia 14:00 (13:51) trig_01L6oXA28daraikur3TTSN6S. Poprzednika: kontrola przekazania trig_01FJV7aCSge4u5RM4BwNC7iq 01:59 (sprząta on; jego 05:00/14:00 już usunięte). Sesje 01:29: ER idle/completed 19,4% 1,62 USD (czeka na EQ); EQ working 21,8% 3,28 USD (002 wypchnięte a578f41a, sprawdza wektory 08-EH-3); DT idle 27,2% 4,87 USD (czeka na E2E 43126163648; blisko 30% — następca po wyniku). ER, EQ, DT powiadomione o zmianie koordynatora.
 - **01:27 PRZEKAZANIE koordynatora session_01T66VBwqjWSzpapzyq8BU9G (kontekst 27,7%, 11,15 USD) → następca (łańcuch 5/8).** Mandat bez zmian; **tryb nocny (analogia) od 20:20 do rana**.
   - **Robocza `claude/sleepy-brahmagupta-2065nu` @ a6d1bb1b** (CI i E2E 43107240646 zielone) — bez zmian od 22:45.
@@ -731,3 +741,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 05:05 | koordynator | właściciel: „Zobacz jak to rozwiązaliśmy w treningu” → KO-080: ponowny start ES i ET przez subagentów opus (analogia trening stan.md:142–143) | wynik startu |
 | 05:08 | koordynator | ES start OK: session_01T66VByDTFnw87h4QGwGkuG (opus, auto, claude/dt-e2e → sesja-es-recenzja; prompt wklejony z odczytu, nieporównany bajtowo — WG-14) | ET start; kontrola |
 | 05:10 | koordynator | ET start OK: session_01T66VBxfjXQYtUraoeRogV2 (opus, auto, sesja-er-fix → sesja-et-recenzja; prompt z odczytu, nieporównany bajtowo — WG-14). KO-080 zadziałało 2/2 | kontrola ok. 06:10 |
+| 06:20 | koordynator | kontekst 33,6% → E6: stan zapisany, start następcy (subagent opus, KO-080) | następca: PRZEJĄŁEM |
