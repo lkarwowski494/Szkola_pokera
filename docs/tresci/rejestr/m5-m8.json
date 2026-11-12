@@ -553,6 +553,13 @@
     "cytat": "When you open from early position and get called by the button, c-bet frequencies drop because you cannot realize equity as effectively.",
     "odczyt": "2026-11-04",
     "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/podcast/ep24-cbetting-oop/",
+    "miejsce": "Gary Blackwood (03:35), otwarcie ze środkowej pozycji, Button sprawdza; przypadek m5.l4.c-oop (flop niski bez pary → check; planowany, D-1287 warunkowe, łatka docs/tresci/szablony-robocze/ev-m5-l4-c-oop.patch); zakres: bez blind vs blind (00:18), UTG c-betuje tu trochę częściej (04:36), stąd HJ i CO (D-1287)",
+    "cytat": "The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on",
+    "odczyt": "2026-11-12",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1748,7 +1755,7 @@
   "id": "R-M8-006",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "wybierasz, którymi rękami blefować na riverze → blefujesz najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi drawami do strita albo wysokimi kartami bez szans); ręce z wartością przy showdownie czekają, bo bluff z ręką, która często wygrywa po czekaniu, oddaje tę wygraną; ręka bez szans nic nie traci, gdy bluff nie wyjdzie",
+  "twierdzenie": "wybierasz, którymi rękami blefować na riverze → blefujesz najsłabszymi rękami, które przy showdownie nie wygrają ani nie podzielą puli (np. nietrafionymi drawami do strita albo wysokimi kartami bez szans); ręce z wartością przy showdownie czekają, bo bluff z ręką, która często wygrywa po czekaniu, oddaje tę wygraną; ręka bez szans nic nie traci, gdy bluff nie wyjdzie",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what/",
@@ -1763,6 +1770,13 @@
     "cytat": "These hands are good bluffs because they have no showdown value and block some of your opponent's likely calling hands",
     "odczyt": "2026-11-04",
     "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what/",
+    "miejsce": "akapit o wyborze blefów; remis = część puli (D-1285, rachunek szczebla 1)",
+    "cytat": "this way we’re not giving up whatever percentage of the pot we might be winning if we check",
+    "odczyt": "2026-11-12",
+    "szczebel": 2
    }
   ],
   "status": "potwierdzone",

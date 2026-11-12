@@ -1,0 +1,92 @@
+
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr && pnpm tresci:el-kontrola
+
+
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+
+Scope: 9 of 10 workspace projects
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/srs typecheck: Done
+packages/jezyki typecheck: Done
+packages/content-schema typecheck: Done
+packages/poker-core typecheck: Done
+packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/preflop-solver typecheck$ tsc -p tsconfig.json
+tools/preflop-solver typecheck: Done
+packages/domena typecheck: Done
+packages/postep typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/content-build typecheck$ tsc -p tsconfig.json
+tools/content-build typecheck: Done
+packages/postep typecheck: Done
+apps/mobile typecheck$ tsc --noEmit
+apps/mobile typecheck: Done
+
+> szkola-pokera@ test /home/user/Szkola_pokera
+> pnpm -r --if-present test
+
+Scope: 9 of 10 workspace projects
+packages/jezyki test$ vitest run
+packages/poker-core test$ vitest run
+packages/srs test$ vitest run
+packages/jezyki test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/jezyki
+packages/poker-core test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/poker-core
+packages/srs test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/srs
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/srs test:    Start at  07:31:57
+packages/srs test:    Duration  635ms (transform 49%, setup 20%, tests 15%, import 12%, worker 2%)
+packages/srs test: Done
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/jezyki test:    Start at  07:31:57
+packages/jezyki test:    Duration  1000ms (tests 44%, transform 37%, import 16%, worker 3%)
+packages/jezyki test: Done
+packages/poker-core test:  Test Files  24 passed (24)
+packages/poker-core test:       Tests  245 passed (245)
+packages/poker-core test:    Start at  07:31:57
+packages/poker-core test:    Duration  168.63s (tests 97%, import 2%, transform 1%)
+packages/poker-core test: Done
+packages/domena test$ vitest run
+tools/preflop-solver test$ vitest run
+tools/preflop-solver test:  RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+packages/domena test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/domena
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+packages/domena test:    Start at  07:34:46
+packages/domena test:    Duration  9.76s (tests 69%, transform 14%, import 13%, setup 4%, worker 1%)
+packages/domena test:     Isolate  27 workers spawned · ~185ms startup each (spawn + environment, per file)
+packages/domena test:              at least ~1.48s faster with isolate: false — reuses workers across files instead of one per file
+packages/domena test: Done
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+tools/preflop-solver test:    Start at  07:34:46
+tools/preflop-solver test:    Duration  58.89s (tests 98%, transform 1%, import 1%)
+tools/preflop-solver test: Done
+packages/postep test$ vitest run
+tools/content-build test$ vitest run
+tools/content-build test:  RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+packages/postep test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/postep
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+packages/postep test:    Start at  07:35:45
+packages/postep test:    Duration  6.89s (tests 69%, import 16%, transform 14%, worker 1%)
+packages/postep test:     Isolate  21 workers spawned · ~192ms startup each (spawn + environment, per file)
+packages/postep test:              at least ~1.15s faster with isolate: false — reuses workers across files instead of one per file
+packages/postep test: Done
+tools/content-build test:  ❯ test/k06-content-build.test.ts (3 tests | 1 failed) 981ms
+tools/content-build test:    ❯ AK-K-06: wyjście content-build (baza na język) (3)
+tools/content-build test:      × AK-K-06-t, AK-BR-JEZ-002-a te same identyfikatory, liczby i struktura (zakresy, szkielet zadań) we wszystkich językach (NFR-JEZ-002) 485ms
+tools/content-build test:  ❯ test/szablony-f2-ca.test.ts (13 tests | 1 failed) 86443ms
+tools/content-build test:    ❯ F2: walidacja szablonu cbet-case w budowaniu (6)
+tools/content-build test:      × fixture przechodzi, a reguły c-betu mają przypadki 10ms
+tools/content-build test: Failed
+ ELIFECYCLE  Command failed.
+ ELIFECYCLE  Test failed. See above for more details.
+/home/user/Szkola_pokera/tools/content-build:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/content-build@0.1.0 test: `vitest run`
+Command failed with signal "SIGTERM"

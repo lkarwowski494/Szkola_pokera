@@ -1,0 +1,27 @@
+# D-1287 (warunkowe): wiersz check R-M5-012 do wstawienia we wszystkich 12 językach razem z zadaniem m5.l4.c-oop (ev-m5-l4-c-oop.patch)
+# Warunki: 08 dopisuje R-M5-012 do listy w tools/content-build/test/szablony-f2-ca.test.ts:104 i wdraża heroPositions (08-EV-3); 09 tłumaczy zadanie na 10 języków.
+# content/pl/rules.yaml: wstaw po linii R-M5-012 „level: heuristic…”, przed `source:`
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
+
+# content/en/rules.yaml: wstaw po linii R-M5-012 „level: heuristic…”, przed `source:`
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l4.c-oop, params: { position: oop, heroPositions: "HJ,CO" } }
+
+# content/pl/rules.yaml: blok R-M5-012 po zmianie (trzecie źródło; wiersz check wyżej wstaw przed `source:`); zastępuje cały blok
+- id: R-M5-012
+  module: m5
+  if: "{{t:open|otworzyłeś}} przed flopem, a rywal {{t:call|sprawdził}} z {{t:position|pozycji}} (np. Button wobec twojego {{t:open|otwarcia}} z {{t:cutoff|CO}})"
+  then: "c-betujesz rzadziej niż {{t:in-position}} i częściej {{t:check|czekasz}}, także z dobrymi rękami"
+  because: "{{t:range}} {{t:call|sprawdzającego}} z {{t:position|pozycji}} jest {{t:condensed}}: słabe ręce {{t:fold|pasował}}, a część najsilniejszych {{t:raise|przebijał}}, więc zostały mu głównie ręce średnie i dobre; do tego ty po flopie mówisz pierwszy na każdej {{t:street|ulicy}}"
+  level: heuristic
+  source: "serwis komercyjnego solvera, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; „Even a hand like top pair top kicker is preferred to be played as a check-call”); serwis szkoleniowy, C-Betting On Ace-High Boards (CO vs BTN, A94r: „we will check over 96% of the time”); serwis szkoleniowy, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, otwarcie ze środkowej pozycji, Button sprawdza: „The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on”)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+
+# content/en/rules.yaml: blok R-M5-012 po zmianie (trzecie źródło; wiersz check wyżej wstaw przed `source:`); zastępuje cały blok
+- id: R-M5-012
+  module: m5
+  if: "you {{t:open|opened}} preflop, and your opponent {{t:call|called}} with {{t:position}} (e.g. the Button against your {{t:open}} from the {{t:cutoff|CO}})"
+  then: "you c-bet less often than {{t:in-position|in position}} and {{t:check}} more often, also with good hands"
+  because: "the {{t:range}} of a player who {{t:call|called}} with {{t:position}} is {{t:condensed}}: they {{t:fold|folded}} weak hands and {{t:raise|raised}} some of the strongest, so they're left mostly with medium and good hands; on top of that, after the flop you act first on every {{t:street}}"
+  level: heuristic
+  source: "commercial solver site, C-Betting As the OOP Preflop Raiser (UTG vs BTN c-bet 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); training site, C-Betting On Ace-High Boards (CO vs BTN, A94r: “we will check over 96% of the time”); training site, C-betting Out Of Position (https://upswingpoker.com/podcast/ep24-cbetting-oop/, middle-position open, Button calls: “The solver checks nine-high and below unpaired flops, which is so many flops that we’re just checking our entire range on”)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]

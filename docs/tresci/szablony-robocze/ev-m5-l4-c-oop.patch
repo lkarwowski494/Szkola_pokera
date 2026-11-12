@@ -1,0 +1,60 @@
+diff --git a/content/en/lessons/m5-l4-bez-pozycji.md b/content/en/lessons/m5-l4-bez-pozycji.md
+index 315f4c0..f1394a5 100644
+--- a/content/en/lessons/m5-l4-bez-pozycji.md
++++ b/content/en/lessons/m5-l4-bez-pozycji.md
+@@ -16,6 +16,25 @@ drills:
+       - { text: "{{t:check|Check}} more often than {{t:in-position}}", correct: true, why: "Yes: the Button {{t:call|called}} with {{t:position}}, so they have a strong {{t:range}}, and a middle, {{t:connected}} flop hits their {{t:pair|pairs}} and {{t:connectors}} well. {{t:out-of-position|Out of position}}, you {{t:check}} here very often, even with strong hands." }
+       - { text: "C-bet often and small, like on the Button", why: "That's the plan {{t:in-position}} on a {{t:dry}}, high flop. Here you don't have {{t:position}}, and the flop doesn't favor your {{t:range}}." }
+       - { text: "C-bet with every hand so you don't lose the {{t:initiative}}", why: "{{t:initiative|Initiative}} doesn't win on its own: the Button's {{t:range}} is strong here, and after every {{t:bet}} you also act first on the turn and river." }
++  - kind: cbet
++    id: m5.l4.c-oop
++    family: m5.cbet.oop
++    rules: [R-M5-012]
++    prompt: "You {{t:open|opened}} from the {{t:cutoff|CO}}, the Button {{t:call|called}}, and the blinds {{t:fold|folded}}. You act first. Which plan fits this flop?"
++    position: CO
++    options:
++      check: "I {{t:check}}"
++      small: "Small c-bet: {{n:cbet.size.small}} of the {{t:pot}}"
++      big: "Big c-bet: {{n:cbet.size.big}} of the {{t:pot}}"
++    cases:
++      - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
++        best: check
++        rule: R-M5-012
++        why:
++          check: "Yes: on a low unpaired flop (the highest card is a nine or lower), the solver {{t:check|checks}} its whole {{t:range}} in this spot. Your wide {{t:range}} has lots of high cards that missed here, while the Button, who {{t:call|called}} with {{t:position}}, has fewer hands with no chance."
++          small: "Too often: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
++          big: "Too often and too expensive: on a low unpaired flop, the solver doesn't c-bet in this spot; it {{t:check|checks}} its whole {{t:range}}, strong hands included. When the Button {{t:bet|bets}}, some of the strong hands {{t:raise}} after {{t:check|checking}} (check-raise)."
++    count: 3
+   - kind: choice
+     id: m5.l4.q-oop-why
+     family: m5.cbet.oop
+diff --git a/content/pl/lessons/m5-l4-bez-pozycji.md b/content/pl/lessons/m5-l4-bez-pozycji.md
+index 2d65229..c3df97e 100644
+--- a/content/pl/lessons/m5-l4-bez-pozycji.md
++++ b/content/pl/lessons/m5-l4-bez-pozycji.md
+@@ -16,6 +16,25 @@ drills:
+       - { text: "{{t:check|Czekam}} częściej niż {{t:in-position}}", correct: true, why: "Tak: Button {{t:call|sprawdził}} z {{t:position|pozycji}}, więc ma silny {{t:range}}, a flop średni i {{t:connected}} dobrze trafia jego {{t:pair|pary}} i {{t:connectors|konektory}}. {{t:out-of-position|Bez pozycji}} {{t:check|czekasz}} tu bardzo często, także z silnymi rękami." }
+       - { text: "C-bet często i mało, jak na Buttonie", why: "To plan {{t:in-position}} na {{t:dry|suchym}}, wysokim flopie. Tu nie masz {{t:position|pozycji}}, a flop nie sprzyja twojemu {{t:range|zakresowi}}." }
+       - { text: "C-bet ze wszystkimi rękami, żeby nie stracić {{t:initiative|inicjatywy}}", why: "{{t:initiative|Inicjatywa}} nie wygrywa sama: {{t:range}} Buttona jest tu silny, a ty po każdym {{t:bet|zakładzie}} mówisz pierwszy także na turnie i riverze." }
++  - kind: cbet
++    id: m5.l4.c-oop
++    family: m5.cbet.oop
++    rules: [R-M5-012]
++    prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, Button {{t:call|sprawdził}}, blindy {{t:fold|spasowały}}. Mówisz pierwszy. Jaki plan pasuje do tego flopu?"
++    position: CO
++    options:
++      check: "{{t:check|Czekam}}"
++      small: "C-bet mały: {{n:cbet.size.small}} {{t:pot|puli}}"
++      big: "C-bet duży: {{n:cbet.size.big}} {{t:pot|puli}}"
++    cases:
++      - when: { height: [low], ranks: [connected, semi-connected, disconnected] }
++        best: check
++        rule: R-M5-012
++        why:
++          check: "Tak: na niskim flopie bez {{t:pair|pary}} (najwyższa karta to dziewiątka albo niższa) solver w tym układzie {{t:check|czeka}} całym {{t:range|zakresem}}. Twój szeroki {{t:range}} ma tu dużo wysokich kart, które chybiły, a Button, który {{t:call|sprawdził}} z {{t:position|pozycji}}, ma mniej rąk bez szans."
++          small: "Za często: na niskim flopie bez {{t:pair|pary}} solver w tym układzie nie c-betuje, tylko {{t:check|czeka}} całym {{t:range|zakresem}}, także z silnymi rękami. Gdy Button {{t:bet|postawi}}, część silnych rąk {{t:raise|przebija}} po {{t:check|czekaniu}} (check-raise)."
++          big: "Za często i za drogo: na niskim flopie bez {{t:pair|pary}} solver w tym układzie nie c-betuje, tylko {{t:check|czeka}} całym {{t:range|zakresem}}, także z silnymi rękami. Gdy Button {{t:bet|postawi}}, część silnych rąk {{t:raise|przebija}} po {{t:check|czekaniu}} (check-raise)."
++    count: 3
+   - kind: choice
+     id: m5.l4.q-oop-why
+     family: m5.cbet.oop
