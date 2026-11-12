@@ -1,0 +1,10 @@
+sc-24 latwy pula 25 kwota 11 potrzeba 0.3056 raz na 3 udział 0.5 raz na 2 → call
+sc-24 sredni pula 28 kwota 14 potrzeba 0.3333 raz na 3 udział 0.25 raz na 4 → fold
+sc-24 trudny pula 25 kwota 11 potrzeba 0.3056 raz na 3 udział 0.35 raz na 3 → call
+sc-31 latwy pula 28 kwota 14 potrzeba 0.3333 raz na 3 udział 0.55 raz na 2 → call
+sc-31 sredni pula 28 kwota 14 potrzeba 0.3333 raz na 3 udział 0.4 raz na 3 → call
+sc-31 trudny pula 35 kwota 21 potrzeba 0.3750 raz na 3 udział 0.2 raz na 5 → fold
+river-catch: 1200 wariantów, rozbieżności 0
+defend pula przed 10, zakład 5: cena 0.2500 = requiredEquity 0.2500; MDF 0.6667 = mdf 0.6667
+defend pula przed 12, zakład 4: cena 0.2000 = requiredEquity 0.2000; MDF 0.7500 = mdf 0.7500
+defend pula przed 100, zakład 33.333333: cena 0.2000 = requiredEquity 0.2000; MDF 0.7500 = mdf 0.7500
