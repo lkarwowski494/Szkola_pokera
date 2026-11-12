@@ -1,0 +1,30 @@
+// Mutanty FA: każdy mutant = jedna zamiana dosłownego tekstu w pliku źródłowym worktree (poza repo), uruchomienie wskazanych testów, przywrócenie pliku.
+import { readFileSync, writeFileSync, appendFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const WT = process.argv[2], OUT = process.argv[3], tylko = process.argv[4];
+const SG = 'packages/poker-core/src/scenario-gen.ts', GR = 'packages/poker-core/src/grading.ts', SZ = 'tools/content-build/src/scenariusze.ts';
+const PC = (pliki) => `pnpm --filter @szkola/poker-core exec vitest run ${pliki}`;
+const CB = (pliki) => `pnpm --filter @szkola/content-build exec vitest run ${pliki}`;
+const M = [
+  ['M1 EV-1: remis = przegrana (stara definicja SDV)', SG, '(wygrywa + remisy / 2) / razem', 'wygrywa / razem', PC('test/ek-pick-hand.test.ts')],
+  ['M2 EV-1: remis = wygrana', SG, '(wygrywa + remisy / 2) / razem', '(wygrywa + remisy) / razem', PC('test/ek-pick-hand.test.ts')],
+  ['M3 EV-2: remis rivera przepuszczony', SG, 'if (r === h) return null; // remis to nie czysty out', '// mutant', PC('test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts test/ei-turn-bet-zywe-outy.test.ts')],
+  ['M4 EV-2: próg dużego od hit = N/46 zamiast e = N/44', SG, '!(hit > reqSmall && equityRywala < reqBig) || !inMargin(hit - reqSmall, b, i) || !inMargin(reqBig - equityRywala, b, i)', '!(hit > reqSmall && hit < reqBig) || !inMargin(hit - reqSmall, b, i) || !inMargin(reqBig - hit, b, i)', PC('test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts')],
+  ['M5 EV-2: bez równości zbioru wygrywających i nominalnych outów', SG, 'if (wygrywajace.size !== nominalne.size || ![...wygrywajace].every((c) => nominalne.has(c))) return null;', 'if (wygrywajace.size === 0) return null;', PC('test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts test/ei-turn-bet-zywe-outy.test.ts')],
+  ['M6 EV-2: odwrócony warunek remisu (r !== h)', SG, 'if (r === h) return null; // remis to nie czysty out', 'if (r !== h && r > h && false) return null;', PC('test/ey-turn-bet-czyste-outy.test.ts')],
+  ['M7 EV-4: stary wybór przypadku (pierwszy z puli)', SG, 'const c = ctx.cbetCases.find((x) => x.rule === spec.rule && textureMatches(classifyFlop(flop), x.when));\n      if (!c) return null;', 'const c = ctx.cbetCases.find((x) => textureMatches(classifyFlop(flop), x.when));\n      if (!c || c.rule !== spec.rule) return null;', CB('test/ey-ev4-przypadek-reguly.test.ts')],
+  ['M8 EV-3: ocena ignoruje heroPositions', GR, 'if (dozwolone && !dozwolone.includes(', 'if (false && dozwolone && !dozwolone.includes(', CB('test/ey-ev3-hero-positions.test.ts')],
+  ['M9 EV-3: bramka szablonu ignoruje heroPositions', SZ, 'if (lista && !lista.includes(t.positions.hero))', 'if (false && lista && !lista.includes(t.positions.hero))', CB('test/ey-ev3-hero-positions.test.ts')],
+  ['M10 limit odrzuceń z powrotem 5000', SG, 'export const MAX_CONSECUTIVE_REJECTIONS = 20_000;', 'export const MAX_CONSECUTIVE_REJECTIONS = 5000;', PC('test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts test/ei-turn-bet-zywe-outy.test.ts')],
+];
+for (const [nazwa, plik, z, na, cmd] of M) {
+  if (tylko && !nazwa.startsWith(tylko + ' ')) continue;
+  const p = `${WT}/${plik}`, orig = readFileSync(p, 'utf8');
+  if (orig.split(z).length !== 2) { appendFileSync(OUT, `${nazwa}: BŁĄD SONDY — tekst nie występuje dokładnie raz\n`); continue; }
+  writeFileSync(p, orig.replace(z, na));
+  const t0 = Date.now(); let kod = 0, wy = '';
+  try { wy = execSync(cmd, { cwd: WT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 1 << 26 }); } catch (e) { kod = e.status ?? 1; wy = (e.stdout ?? '') + (e.stderr ?? ''); }
+  writeFileSync(p, orig);
+  const fail = wy.split('\n').filter((l) => /✗|×|FAIL|Tests .*(failed|passed)/.test(l)).slice(0, 8).map((l) => '    ' + l.trim()).join('\n');
+  appendFileSync(OUT, `${nazwa}\n  komenda: ${cmd}\n  kod wyjścia: ${kod} (${kod ? 'ZABITY: testy czerwone' : 'PRZEŻYŁ: testy zielone'}), ${Math.round((Date.now() - t0) / 1000)} s\n${fail}\n`);
+}

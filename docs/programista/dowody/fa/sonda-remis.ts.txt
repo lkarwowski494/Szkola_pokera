@@ -1,0 +1,18 @@
+import { writeFileSync } from 'node:fs';
+import { it } from 'vitest';
+import { analyseOutsSpot, cardToString, FULL_DECK, strength, createRng, type Card } from '../src';
+it('szukaj wektora: W = nominalne outy, remisów > 0', () => {
+  const rng = createRng(7); const znal: string[] = []; let prob = 0;
+  while (znal.length < 5 && prob < 3_000_000) {
+    prob++;
+    const talia = [...FULL_DECK]; for (let i = 0; i < 8; i++) { const j = i + Math.floor(rng() * (talia.length - i)); [talia[i], talia[j]] = [talia[j]!, talia[i]!]; }
+    const [h1, h2, v1, v2, t1, t2, t3, t4] = talia as Card[]; const hero = [h1!, h2!], villain = [v1!, v2!], turn = [t1!, t2!, t3!, t4!];
+    const d = analyseOutsSpot(villain, turn); if (!d) continue;
+    if (strength([...hero, ...turn]) > strength([...villain, ...turn])) continue; // gracz prowadzi
+    const znane = new Set([...hero, ...villain, ...turn]); const W = new Set<Card>(); let T = 0;
+    for (const c of FULL_DECK) { if (znane.has(c)) continue; const r = strength([...villain, ...turn, c]), h = strength([...hero, ...turn, c]); if (r === h) T++; else if (r < h) W.add(c); }
+    const nom = new Set(d.draw.all);
+    if (T > 0 && W.size === nom.size && [...W].every((c) => nom.has(c))) znal.push(`${d.draw.kind}: ${hero.map(cardToString).join('')} vs ${villain.map(cardToString).join('')} na ${turn.map(cardToString).join('')}: W=${W.size}=N, T=${T}`);
+  }
+  writeFileSync('/tmp/claude-0/-home-user-Szkola-pokera/a18cfa6c-b633-5b6d-9556-28b811652037/scratchpad/remis-wektory.txt', 'PRÓB ' + prob + '\n' + znal.join('\n') + '\n');
+}, 600_000);

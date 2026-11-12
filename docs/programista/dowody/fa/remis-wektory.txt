@@ -1,0 +1,7 @@
+# FA: wektory W = N (czyste outy) z remisem T > 0; losowe rozdania (createRng(7)), wyrocznia strength 7 kart po 44 kartach rivera; vitest kod 0
+PRÓB 4209
+flush: 7d5s vs 5h3h na QsQh7hAs: W=9=N, T=2
+flush: 7d4d vs 4c7c na 6sJc9cAd: W=9=N, T=35
+flush: 6cQs vs Qd6d na Td5dJcQh: W=9=N, T=35
+flush: 8h4c vs 8d4s na Jd2hKd5d: W=9=N, T=35
+gutshot: 5hTs vs 8c5c na JdQsJsTd: W=4=N, T=3

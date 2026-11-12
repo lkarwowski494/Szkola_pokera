@@ -1,0 +1,29 @@
+// Sonda FA: odciski wariantów z kontekstem jak w aplikacji (buildGeneratorContext z evalRules wszystkich reguł), seeds 1..N.
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+import { it } from 'vitest';
+import { buildGeneratorContext, generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { compileContent } from '../src/build';
+import { compileRanges } from '../src/ranges';
+import { loadScenarioTemplates } from '../src/scenariusze';
+
+const root = resolve(import.meta.dirname, '../../..');
+const contentDir = process.env.SONDA_CONTENT ?? join(root, 'content');
+const OUT = process.env.SONDA_OUT!;
+const N = Number(process.env.SONDA_N ?? 200);
+const IDS = (process.env.SONDA_IDS ?? 'sc-04,sc-05,sc-11,sc-12').split(',');
+it('odciski', () => {
+  const c = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
+  const ctx = buildGeneratorContext({ spots: compileRanges(contentDir).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, evalRules: c.evalRules as any, equity169: JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8')) });
+  const wynik: Record<string, string[]> = {};
+  for (const { template: t } of loadScenarioTemplates(join(contentDir, 'pl', 'scenarios'))) {
+    if (!IDS.includes(t.id)) continue;
+    const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+    for (const level of t.levels as ScenarioLevel[]) {
+      const lista: string[] = [];
+      for (let s = 1; s <= N; s++) { try { lista.push(generateVariant(g, level, s, ctx).fingerprint); } catch (e) { lista.push('ERR ' + (e as Error).message); } }
+      wynik[`${t.id}|${level}`] = lista;
+    }
+  }
+  writeFileSync(OUT, JSON.stringify({ cbetCases: ctx.cbetCases, wynik }, null, 1));
+}, 1_200_000);

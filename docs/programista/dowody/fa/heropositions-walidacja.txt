@@ -1,0 +1,6 @@
+# FA: walidacja params.heroPositions: kopia content/pl/rules.yaml w worktree 0ef0fcc0 (scratchpad) z podmienioną wartością, compileContent(...,'pl',{kontrolaGeneratora:false}), potem gradeDecision dla HJ (otwiera), BTN sprawdza, flop 7c4d2s, akcja check; vitest kod 0, plik przywracany
+heroPositions: "HJ,CO" → budowanie OK; params={"position":"oop","heroPositions":"HJ,CO"}; ocena HJ check na 7c4d2s: ruleId=R-M5-012 verdict=compliant
+heroPositions: "HJ,C0" → budowanie OK; params={"position":"oop","heroPositions":"HJ,C0"}; ocena HJ check na 7c4d2s: ruleId=R-M5-012 verdict=compliant
+heroPositions: "hj,co" → budowanie OK; params={"position":"oop","heroPositions":"hj,co"}; ocena HJ check na 7c4d2s: ruleId=null verdict=unrated
+heroPositions: "" → budowanie OK; params={"position":"oop","heroPositions":""}; ocena HJ check na 7c4d2s: WYJĄTEK w gradeDecision: heroPositions: pusta lista pozycji
+heroPositions: 5 → budowanie OK; params={"position":"oop","heroPositions":5}; ocena HJ check na 7c4d2s: WYJĄTEK w gradeDecision: heroPositions: oczekiwano napisu z listą pozycji po przecinku, jest number

@@ -1,0 +1,30 @@
+import { cpSync, readFileSync, writeFileSync } from 'node:fs';
+import { it } from 'vitest';
+import { applyAction, gradeDecision, gradingKitFrom, parseCards, startHand, BOT_SOLVER_FILE, BOT_SOLVER_PLAYERS, type Card, type PlayerAction } from '@szkola/poker-core';
+import { compileContent } from '../src/build';
+const wyniki: string[] = [];
+function scenariusz(wartosc: string) {
+  const p = '/tmp/claude-0/-home-user-Szkola-pokera/a18cfa6c-b633-5b6d-9556-28b811652037/scratchpad/wt-new/content/pl/rules.yaml';
+  const orig = readFileSync(p, 'utf8');
+  writeFileSync(p, orig.replace('heroPositions: "HJ,CO"', 'heroPositions: ' + wartosc));
+  try {
+    const c = compileContent('/tmp/claude-0/-home-user-Szkola-pokera/a18cfa6c-b633-5b6d-9556-28b811652037/scratchpad/wt-new/content', 'pl', { kontrolaGeneratora: false });
+    const r = c.evalRules.find((x) => x.id === 'R-M5-012')!;
+    const nums = new Map(c.numbers.map((n) => [n.key, n.value]));
+    const kit = gradingKitFrom({ number: (k: string) => nums.get(k)!, rules: [r], spots: c.ranges, solverFile: BOT_SOLVER_FILE, players: BOT_SOLVER_PLAYERS });
+    // HJ (miejsce 1) otwiera, BTN (3) sprawdza; 6 graczy, button 3; flop niski bez pary 7c4d2s
+    const BB = 100; const cfg = { stacks: Array(6).fill(100 * BB), smallBlind: 50, bigBlind: BB, button: 3 };
+    const holes: ([Card, Card] | null)[] = Array(6).fill(null); holes[1] = parseCards('AhKd') as [Card, Card]; holes[3] = parseCards('QcJs') as [Card, Card];
+    let st = startHand(cfg, 1, { holes, board: parseCards('7c4d2s') });
+    const F: PlayerAction = { type: 'fold' };
+    for (const a of [F, { type: 'raise', to: 250 } as PlayerAction, F, { type: 'call' } as PlayerAction, F, F]) st = applyAction(st, a);
+    let ocena: string;
+    try { const f = gradeDecision(st, { type: 'check' }, kit); ocena = 'ruleId=' + f.ruleId + ' verdict=' + f.verdict; } catch (e) { ocena = 'WYJĄTEK w gradeDecision: ' + (e as Error).message; }
+    wyniki.push('heroPositions: ' + wartosc + ' → budowanie OK; params=' + JSON.stringify(r.check.params) + '; ocena HJ check na 7c4d2s: ' + ocena);
+  } catch (e) { wyniki.push('heroPositions: ' + wartosc + ' → budowanie BŁĄD: ' + (e as Error).message.slice(0, 200)); }
+  writeFileSync(p, orig);
+}
+it('typo', () => {
+  for (const w of ['"HJ,CO"', '"HJ,C0"', '"hj,co"', '""', '5']) scenariusz(w);
+  writeFileSync('/tmp/claude-0/-home-user-Szkola-pokera/a18cfa6c-b633-5b6d-9556-28b811652037/scratchpad/typo-wynik.txt', wyniki.join('\n') + '\n');
+}, 600_000);

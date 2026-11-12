@@ -1,0 +1,82 @@
+# FA mutanty: node sondy/mutanty.mjs <worktree 0ef0fcc0 w scratchpadzie> <wynik>; każdy mutant = jedna zamiana w src, testy wskazane w 'komenda', plik przywracany; kod wyjścia skryptu 0
+M1 EV-1: remis = przegrana (stara definicja SDV)
+  komenda: pnpm --filter @szkola/poker-core exec vitest run test/ek-pick-hand.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 1 s
+    × wektor A: 7h6h na Ts9h4d3c2s wobec wszystkich 76: W = 0, T = 9, N = 9 → SDV 0,5 (wpisane ręcznie) 14ms
+    × wektor A, tryb showdown: ręka z samym remisem nie jest blefem (SDV > 0) → nie jest poprawną ręką A 2ms
+    × remis nie jest przegraną: SDV rośnie o ½ za każdy remis (porównanie z wyrocznią na pełnym przejściu talii) 4ms
+    × showdown: 300 wariantów zgodnych z wyrocznią (poprawna ręka, V, F, SDV, rozłączne karty) 8ms
+    × blockers: 300 wariantów zgodnych z wyrocznią (poprawna ręka, V, F, SDV, rozłączne karty) 12ms
+    Tests  5 failed | 9 passed (14)
+    ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/ek-pick-hand.test.ts
+    FAIL  test/ek-pick-hand.test.ts > EV-1 (D-1285, EP-002): remis w SDV = ½ wygranej > wektor A: 7h6h na Ts9h4d3c2s wobec wszystkich 76: W = 0, T = 9, N = 9 → SDV 0,5 (wpisane ręcznie)
+M2 EV-1: remis = wygrana
+  komenda: pnpm --filter @szkola/poker-core exec vitest run test/ek-pick-hand.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 4 s
+    × wektor A: 7h6h na Ts9h4d3c2s wobec wszystkich 76: W = 0, T = 9, N = 9 → SDV 0,5 (wpisane ręcznie) 10ms
+    × wektor A, tryb showdown: ręka z samym remisem nie jest blefem (SDV > 0) → nie jest poprawną ręką A 1ms
+    × remis nie jest przegraną: SDV rośnie o ½ za każdy remis (porównanie z wyrocznią na pełnym przejściu talii) 2ms
+    × showdown: 300 wariantów zgodnych z wyrocznią (poprawna ręka, V, F, SDV, rozłączne karty) 6ms
+    Tests  4 failed | 10 passed (14)
+    ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/ek-pick-hand.test.ts
+    FAIL  test/ek-pick-hand.test.ts > EV-1 (D-1285, EP-002): remis w SDV = ½ wygranej > wektor A: 7h6h na Ts9h4d3c2s wobec wszystkich 76: W = 0, T = 9, N = 9 → SDV 0,5 (wpisane ręcznie)
+    FAIL  test/ek-pick-hand.test.ts > EV-1 (D-1285, EP-002): remis w SDV = ½ wygranej > wektor A, tryb showdown: ręka z samym remisem nie jest blefem (SDV > 0) → nie jest poprawną ręką A
+M3 EV-2: remis rivera przepuszczony
+  komenda: pnpm --filter @szkola/poker-core exec vitest run test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts test/ei-turn-bet-zywe-outy.test.ts
+  kod wyjścia: 0 (PRZEŻYŁ: testy zielone), 102 s
+    Tests  14 passed (14)
+M4 EV-2: próg dużego od hit = N/46 zamiast e = N/44
+  komenda: pnpm --filter @szkola/poker-core exec vitest run test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 52 s
+    × EI-002 (D-1286): pula 40, big 0,4 → zakład 16, cena 0,222, margines od e = 9/44 0,018 < 0,02 → brak wariantów (błąd szablonu) 4ms
+    Tests  1 failed | 10 passed (11)
+    ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts
+    FAIL  test/ef-turn-bet.test.ts > 08-N6: turn-bet > EI-002 (D-1286): pula 40, big 0,4 → zakład 16, cena 0,222, margines od e = 9/44 0,018 < 0,02 → brak wariantów (błąd szablonu)
+M5 EV-2: bez równości zbioru wygrywających i nominalnych outów
+  komenda: pnpm --filter @szkola/poker-core exec vitest run test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts test/ei-turn-bet-zywe-outy.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 27 s
+    × ziarna 1–3000: każdy przyjęty wariant ma W = N (nominalne outy), 0 remisów, N/46 > cena małego i N/44 < cena dużego 12581ms
+    × niemożliwy rachunek (cena dużego zakładu poniżej szansy drawa) to błąd szablonu 11ms
+    × EI-002: margines od progu dużego zakładu: pula 40, big 0,36 → zakład 14, cena 0,206, margines 0,010 < 0,02 → brak wariantów (błąd szablonu) 1ms
+    × EI-002 (D-1286): pula 40, big 0,4 → zakład 16, cena 0,222, margines od e = 9/44 0,018 < 0,02 → brak wariantów (błąd szablonu) 1ms
+    Tests  4 failed | 10 passed (14)
+    ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts test/ei-turn-bet-zywe-outy.test.ts
+    FAIL  test/ef-turn-bet.test.ts > 08-N6: turn-bet > niemożliwy rachunek (cena dużego zakładu poniżej szansy drawa) to błąd szablonu
+    FAIL  test/ef-turn-bet.test.ts > 08-N6: turn-bet > EI-002: margines od progu dużego zakładu: pula 40, big 0,36 → zakład 14, cena 0,206, margines 0,010 < 0,02 → brak wariantów (błąd szablonu)
+M6 EV-2: odwrócony warunek remisu (r !== h)
+  komenda: pnpm --filter @szkola/poker-core exec vitest run test/ey-turn-bet-czyste-outy.test.ts
+  kod wyjścia: 0 (PRZEŻYŁ: testy zielone), 46 s
+    Tests  4 passed (4)
+M7 EV-4: stary wybór przypadku (pierwszy z puli)
+  komenda: pnpm --filter @szkola/content-build exec vitest run test/ey-ev4-przypadek-reguly.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 6 s
+    × flop niski, wcześniejszy przypadek innej reguły o tej samej teksturze nie zasłania przypadku R-B → wariant z check z R-B 2133ms
+    Tests  1 failed | 2 passed (3)
+    ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/ey-ev4-przypadek-reguly.test.ts
+    FAIL  test/ey-ev4-przypadek-reguly.test.ts > EY EV-4: cbet-case wybiera przypadek reguły punktu > flop niski, wcześniejszy przypadek innej reguły o tej samej teksturze nie zasłania przypadku R-B → wariant z check z R-B
+M8 EV-3: ocena ignoruje heroPositions
+  komenda: pnpm --filter @szkola/content-build exec vitest run test/ey-ev3-hero-positions.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 3 s
+    × gracz z CO, lista UTG,HJ → reguła nie ocenia (null) 7ms
+    Tests  1 failed | 6 passed (7)
+    ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/ey-ev3-hero-positions.test.ts
+    FAIL  test/ey-ev3-hero-positions.test.ts > EY EV-3: heroPositions w ocenie cbet-case > gracz z CO, lista UTG,HJ → reguła nie ocenia (null)
+M9 EV-3: bramka szablonu ignoruje heroPositions
+  komenda: pnpm --filter @szkola/content-build exec vitest run test/ey-ev3-hero-positions.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 3 s
+    × UTG poza listą HJ,CO jest błędem 5ms
+    Tests  1 failed | 6 passed (7)
+    ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/ey-ev3-hero-positions.test.ts
+    FAIL  test/ey-ev3-hero-positions.test.ts > EY EV-3: heroPositions w bramce szablonu > UTG poza listą HJ,CO jest błędem
+M10 limit odrzuceń z powrotem 5000
+  komenda: pnpm --filter @szkola/poker-core exec vitest run test/ey-turn-bet-czyste-outy.test.ts test/ef-turn-bet.test.ts test/ei-turn-bet-zywe-outy.test.ts
+  kod wyjścia: 1 (ZABITY: testy czerwone), 6 s
+    × 3000 wariantów: draw koloru rywala, cena z rachunku, duży zakład odbiera cenę, mały ją daje 710ms
+    × odciski różnią się liczbą zakładów i pulą (zakład pokazany w decyzji) 514ms
+    × EI-002 (D-1286): tuż nad marginesem od progu dużego zakładu: pula 40, big 0,42 → zakład 17, cena 0,2297, margines od e = 9/44 0,025 ≥ 0,02 → warianty są 616ms
+    × ziarna 1–3000: każdy przyjęty wariant ma W = N (nominalne outy), 0 remisów, N/46 > cena małego i N/44 < cena dużego 2219ms
+    × ziarna 1–500: każdy wariant ma co najmniej jeden out, po którym rywal wygrywa 681ms
+    × ziarna 1–3000 (draws flush, oesd): brak wariantów, w których klasa strong wynika tylko z outów (para niższa niż najwyższa albo underpair) 2390ms
+    × ziarna 1–3000 (draws flush, oesd): żaden wariant z pairKind top nie ma kickera niższego niż Q; wariant z top i kickerem ≥ Q istnieje 1802ms
+    Tests  7 failed | 7 passed (14)
+exit 0

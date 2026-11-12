@@ -1,0 +1,7 @@
+# FA: próby generatora na wariant turn-bet (licznik dopisany tylko w kopii scenario-gen.ts w worktree, przywrócony; vitest kod 0)
+ziarna 1-1000, fixture ey/ef (flush+oesd, small 0,25, big 0,75)
+średnio prób na wariant: 1111 (akceptacja 0.090%)
+mediana 758, p99 5699, maks 7346
+rodzaje drawa: {"flush":1000}
+unikalne odciski: 1000/1000
+ziaren z > 5000 prób: 13

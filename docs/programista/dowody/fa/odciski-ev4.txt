@@ -1,0 +1,19 @@
+# FA: odciski wariantów szablonów cbet-case (sc-04, sc-05, sc-11, sc-12), ziarna 1-200, kontekst jak w aplikacji: buildGeneratorContext(evalRules wszystkich reguł) — repo.ts getKontekstGeneratora
+# komenda: SONDA_OUT=... SONDA_CONTENT=<content> pnpm --filter @szkola/content-build exec vitest run test/sonda-odciski.test.ts (plik sondy tylko w worktree scratchpadu); A=7e667066 kod+treść, B=0ef0fcc0 kod + treść 7e667066, C=0ef0fcc0 kod+treść; wszystkie kod 0
+przypadki c-betu w puli A/B/C: 3 3 4 reguły C: R-M5-007,R-M5-009,R-M5-004,R-M5-012
+A (stary kod, stara treść) vs B (nowy kod, stara treść) — wpływ samego kodu
+  sc-04|latwy: różnych 0/200, ERR 0
+  sc-05|latwy: różnych 0/200, ERR 0
+  sc-05|sredni: różnych 0/200, ERR 0
+  sc-11|latwy: różnych 0/200, ERR 0
+  sc-11|sredni: różnych 0/200, ERR 0
+  sc-12|latwy: różnych 0/200, ERR 0
+  sc-12|sredni: różnych 0/200, ERR 0
+A vs C (nowy kod, nowa treść) — wpływ łączny
+  sc-04|latwy: różnych 0/200, ERR 0
+  sc-05|latwy: różnych 0/200, ERR 0
+  sc-05|sredni: różnych 0/200, ERR 0
+  sc-11|latwy: różnych 0/200, ERR 0
+  sc-11|sredni: różnych 0/200, ERR 0
+  sc-12|latwy: różnych 0/200, ERR 0
+  sc-12|sredni: różnych 0/200, ERR 0

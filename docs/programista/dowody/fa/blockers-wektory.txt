@@ -1,0 +1,15 @@
+# FA: wektor rozróżniający EV-1 w trybie blockers (pickHandAnalysis, calls ['76s'], folds ['76o'], stół Ts9h4d3c2s); vitest kod 0 w obu przebiegach; mutant M1 tylko w kopii worktree, przywrócony
+== kod 0ef0fcc0 (remis = ½)
+7h6h vs 6c 5c: sdv [0.5,1] calls [3,3] folds [6,9] correct null
+7h6h vs 6d 5s: sdv [0.5,1] calls [3,3] folds [6,9] correct null
+7h6h vs 8c 5d: sdv [0.5,1] calls [3,4] folds [6,12] correct null
+7h6h vs 7c 5d: sdv [0.5,0] calls [3,3] folds [6,9] correct null
+7h6h vs 6s 2c: sdv [0.5,1] calls [3,3] folds [6,9] correct null
+7h6h vs 7d 6c: sdv [0.5,0.5] calls [3,2] folds [6,7] correct null
+== mutant M1 (remis = przegrana)
+7h6h vs 6c 5c: sdv [0,1] calls [3,3] folds [6,9] correct null
+7h6h vs 6d 5s: sdv [0,1] calls [3,3] folds [6,9] correct null
+7h6h vs 8c 5d: sdv [0,1] calls [3,4] folds [6,12] correct null
+7h6h vs 7c 5d: sdv [0,0] calls [3,3] folds [6,9] correct null
+7h6h vs 6s 2c: sdv [0,1] calls [3,3] folds [6,9] correct null
+7h6h vs 7d 6c: sdv [0,0] calls [3,2] folds [6,7] correct 1

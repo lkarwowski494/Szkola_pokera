@@ -1,0 +1,10 @@
+import { DatabaseSync } from 'node:sqlite';
+const [a, b] = process.argv.slice(2).map((p) => new DatabaseSync(p, { readOnly: true }));
+for (const [tab, kol] of [['drills', 'id, lesson_id, family, kind'], ['exam_drills', 'id, module_id, family, kind'], ['lessons', 'id'], ['rules', 'id'], ['scenarios', 'id']]) {
+  const A = new Map(a.prepare(`SELECT ${kol} FROM ${tab}`).all().map((r) => [r.id, JSON.stringify(r)]));
+  const B = new Map(b.prepare(`SELECT ${kol} FROM ${tab}`).all().map((r) => [r.id, JSON.stringify(r)]));
+  const usuniete = [...A.keys()].filter((k) => !B.has(k)), dodane = [...B.keys()].filter((k) => !A.has(k)), zmienione = [...A.keys()].filter((k) => B.has(k) && A.get(k) !== B.get(k));
+  console.log(`${tab}: stare ${A.size}, nowe ${B.size}, usunięte ${JSON.stringify(usuniete)}, dodane ${JSON.stringify(dodane)}, zmienione klucze/rodziny ${JSON.stringify(zmienione)}`);
+}
+const ev = (d) => JSON.parse(d.prepare("SELECT value FROM game_kit WHERE key='evalRules'").get().value).filter((r) => r.check.kind === 'cbet-case').map((r) => r.id + ':' + JSON.stringify(r.check.params));
+console.log('cbet-case stare', ev(a)); console.log('cbet-case nowe', ev(b));
