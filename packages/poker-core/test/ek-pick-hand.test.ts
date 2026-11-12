@@ -38,37 +38,39 @@ function oczekiwana(mode: 'showdown' | 'blockers', hands: readonly [Reka, Reka],
   return null;
 }
 
-describe('KO-072: pickHandAnalysis na wektorach ręcznych', () => {
-  it('SC-23a: ręka bez SDV (A♣ K♣ → tu 7♣ 2♦ na stole z asami u rywala) kontra ręka z parą wygrywającą z częścią zakresu', () => {
-    const board = parseCards('Ts 9h 4d 3c 2s') as Card[];
-    const a = parseCards('7h 6h') as [Card, Card]; // siódemka-high: przegrywa z każdą ręką zakresu? (rywal ma pary od TT i AK/AQ, a 98s, 87s... mają parę)
-    const b = parseCards('Tc 5c') as [Card, Card]; // para dziesiątek: bije część rąk zakresu
-    const r = pickHandAnalysis('showdown', [a, b], board, CALLS, FOLDS);
-    const [wa, wb] = [wyrocznia(a, board, CALLS, FOLDS), wyrocznia(b, board, CALLS, FOLDS)];
-    expect(r.sdv).toEqual([wa.sdv, wb.sdv]);
-    expect(r.calls).toEqual([wa.v, wb.v]);
-    expect(r.folds).toEqual([wa.f, wb.f]);
-    expect(r.correct).toBe(wa.sdv === 0 && wb.sdv > 0 ? 0 : null);
+describe('KO-072: pickHandAnalysis na wektorach ręcznych (oczekiwane wartości wpisane, nie wyliczane; EP-006)', () => {
+  const r2 = (m: 'showdown' | 'blockers', board: string, a: string, b: string) => pickHandAnalysis(m, [parseCards(a) as [Card, Card], parseCards(b) as [Card, Card]], parseCards(board) as Card[], CALLS, FOLDS);
+  it('SC-23a: siódemka-high bez SDV kontra para dziesiątek z SDV > 0 → poprawna jest ręka A', () => {
+    const r = r2('showdown', 'Ts 9h 4d 3c 2s', '7h 6h', 'Tc 5c');
+    expect(r.sdv[0]).toBe(0);
+    expect(r.sdv[1]).toBeGreaterThan(0.5);
+    expect(r.calls).toEqual([47, 45]);
+    expect(r.folds).toEqual([21, 22]);
+    expect(r.correct).toBe(0);
+    const wa = wyrocznia(parseCards('7h 6h') as [Card, Card], parseCards('Ts 9h 4d 3c 2s') as Card[], CALLS, FOLDS);
+    expect([r.calls[0], r.folds[0], r.sdv[0]]).toEqual([wa.v, wa.f, wa.sdv]); // zgodność z wyrocznią
   });
-  it('SC-23b: bloker — ręka z asem blokuje sprawdzające (AA, AKs, AKo, AQs), nie zasłania pasujących; druga blokuje pasujące', () => {
-    const board = parseCards('Kd 9s 5h 3d 2c') as Card[];
-    const a = parseCards('Ah 4h') as [Card, Card]; // blokuje A: mniej sprawdzających; pasujące 98s itd. nietknięte
-    const b = parseCards('8c 7c') as [Card, Card]; // zasłania pasujące 87s, 98s
-    const wa = wyrocznia(a, board, CALLS, FOLDS), wb = wyrocznia(b, board, CALLS, FOLDS);
-    const r = pickHandAnalysis('blockers', [a, b], board, CALLS, FOLDS);
-    expect(r.calls).toEqual([wa.v, wb.v]);
-    expect(r.folds).toEqual([wa.f, wb.f]);
-    expect(wa.v).toBeLessThan(wb.v);
-    expect(wa.f).toBeGreaterThanOrEqual(wb.f);
-    expect(r.correct).toBe(oczekiwana('blockers', [a, b], board));
+  it('SC-23a: obie ręce z SDV > 0 → null', () => {
+    expect(r2('showdown', 'Ts 9h 4d 3c 2s', 'Jh Qh', 'Tc 5c').correct).toBeNull();
   });
-  it('brak dominacji w obu liczbach → null (D-1054)', () => {
-    const board = parseCards('Kd 9s 5h 3d 2c') as Card[];
-    const a = parseCards('Ah 4h') as [Card, Card]; // mniej V
-    const b = parseCards('Qc 4c') as [Card, Card];
-    const wa = wyrocznia(a, board, CALLS, FOLDS), wb = wyrocznia(b, board, CALLS, FOLDS);
-    expect(pickHandAnalysis('blockers', [a, b], board, CALLS, FOLDS).correct).toBe(oczekiwana('blockers', [a, b], board));
-    expect(wa.v + wb.v).toBeGreaterThan(0);
+  it('SC-23b: obie bez SDV, mniej sprawdzających (V 39 < 42) przy równych pasujących (F 23 = 23) → poprawna ręka B (granica „nie mniej pasujących”, EP-005)', () => {
+    const r = r2('blockers', 'Ad 8s 6h 3d 2c', '4s 7s', '4s Ts');
+    expect(r.sdv).toEqual([0, 0]);
+    expect(r.calls).toEqual([42, 39]);
+    expect(r.folds).toEqual([23, 23]);
+    expect(r.correct).toBe(1);
+    const r3 = r2('blockers', 'Ad 8s 6h 3d 2c', '4s Ts', '4s 7s'); // strony zamienione: poprawna ręka A
+    expect(r3.correct).toBe(0);
+  });
+  it('SC-23b: brak dominacji w obu liczbach (mniej V, ale mniej F) → null (D-1054)', () => {
+    const r = r2('blockers', 'Ad 8s 6h 3d 2c', '4s 7s', '5s Ts');
+    expect(r.sdv).toEqual([0, 0]);
+    expect(r.calls).toEqual([42, 39]);
+    expect(r.folds).toEqual([23, 22]);
+    expect(r.correct).toBeNull();
+  });
+  it('SC-23b: ręka z SDV > 0 wyklucza tryb blockers → null', () => {
+    expect(r2('blockers', 'Kd 9s 5h 3d 2c', 'Ah 4h', '8c 7c').correct).toBeNull(); // Ah 4h: wheel (A-2-3-4-5), SDV = 1
   });
 });
 
