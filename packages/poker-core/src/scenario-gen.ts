@@ -799,7 +799,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (!silnaZrobiona(classifyHolding(hero, flop)) || classifyHolding(villain, flop).improvesBoard) return null;
       const r = flopSizeAnalysis(hero, villain, flop, spec.small, spec.big);
       if (!r || !(b.draws as readonly string[]).includes(r.drawKind) || !r.clean) return null;
-      if (!(r.marginSmall > 0 && r.marginBig > 0) || !inMargin(r.marginSmall, b, i) || !inMargin(r.marginBig, b, i)) return null; // BR-GEN-003: margines od obu progów
+      if (!(r.marginSmall > 0 && r.marginBigExact > 0) || !inMargin(r.marginSmall, b, i) || !inMargin(r.marginBigExact, b, i)) return null; // BR-GEN-003, D-1286: pokazywane e (N/47) wobec ceny małego, dokładne (N/45) wobec ceny dużego
       const pot = pick(rng, spec.pots);
       points.push({ point: 'flop-size', street: 'flop', pot, betSmall: Math.round(pot * spec.small), betBig: Math.round(pot * spec.big), requiredSmall: r.requiredSmall, requiredBig: r.requiredBig, hit: r.e, drawKind: r.drawKind, correct: 'bet-big' });
       icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
@@ -1195,6 +1195,9 @@ export interface FlopSizeAnalysis {
   /** e − cena(mały) i cena(duży) − e: dodatnie = rywal ma cenę przy małym i nie ma jej przy dużym. */
   marginSmall: number;
   marginBig: number;
+  /** Dokładne equity rywala przy znanych kartach obu graczy: (winners + ties) ÷ (unseen − 2) = N/45 (jak N/44 na turnie, D-1286) i margines ceny dużego zakładu wobec niego. */
+  eExact: number;
+  marginBigExact: number;
 }
 /**
  * 08-EX-4: rachunek rozmiaru zakładu silną ręką wobec drawa rywala na flopie; `small` i `big` to ułamki puli (R-M7-006). Pełne przejście po niewidzianych
@@ -1216,8 +1219,9 @@ export function flopSizeAnalysis(hero: readonly [Card, Card], villain: readonly 
   const nominalne = new Set<Card>(draw.draw.all);
   const clean = ties === 0 && wygrywajace.size === nominalne.size && [...wygrywajace].every((c) => nominalne.has(c));
   const e = (wygrywajace.size + ties) / draw.unseen;
+  const eExact = (wygrywajace.size + ties) / (draw.unseen - 2); // rywal zna swoje karty, więc z talii znika też ręka gracza
   const [requiredSmall, requiredBig] = [requiredEquity(1, small), requiredEquity(1, big)];
-  return { drawKind: draw.draw.kind as DrawKind, nominalOuts: draw.outs, winners: wygrywajace.size, ties, clean, e, requiredSmall, requiredBig, marginSmall: e - requiredSmall, marginBig: requiredBig - e };
+  return { drawKind: draw.draw.kind as DrawKind, nominalOuts: draw.outs, winners: wygrywajace.size, ties, clean, e, requiredSmall, requiredBig, marginSmall: e - requiredSmall, marginBig: requiredBig - e, eExact, marginBigExact: requiredBig - eExact };
 }
 
 // ---------- Rodzaje punktów 08-N1…N7 (sesja DX): czyste funkcje oceny; w tym pliku, bo grupy mutacji nocny.yml wymieniają pliki src/ ----------

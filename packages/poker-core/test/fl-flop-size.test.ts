@@ -39,6 +39,8 @@ describe('08-EX-4: wektory z fd-wektory.txt (cena ¼ = 0,1667, ⅔ = 0,2857; flo
     expect(a!.e).toBeCloseTo(0.1915, 4);
     expect(a!.marginSmall).toBeCloseTo(0.0248, 4);
     expect(a!.marginBig).toBeCloseTo(0.0942, 4);
+    expect(a!.eExact).toBeCloseTo(9 / 45, 12); // dokładne equity przy znanych kartach (45 niewidzianych), jak N/44 na turnie (D-1286)
+    expect(a!.marginBigExact).toBeCloseTo(2 / 7 - 9 / 45, 12);
   });
   it('B: AhKd vs QhJh (gracz trzyma Ah) → 8 kart, e = 0,1702, margines przy ¼ = +0,0035 < 0,02', () => {
     expect(turnCards(R('Ah Kd'), R('Qh Jh'), FLOP).wygrywa).toHaveLength(8);
@@ -96,6 +98,8 @@ describe('08-EX-4: generator flop-size', () => {
         t.wygrywa.length !== 9 && `N=${t.wygrywa.length}`,
         t.remisuje.length !== 0 && 'remisy',
         Math.abs(p.hit - 9 / 47) > 1e-12 && `hit=${p.hit}`,
+        !(p.requiredBig - 9 / 45 >= 0.02) && 'margines ⅔ wobec dokładnego equity',
+        !(9 / 45 - p.requiredSmall >= 0.02) && 'margines ¼ wobec dokładnego equity',
         p.betSmall !== p.pot / 4 && 'betSmall',
         Math.abs(p.betBig - (p.pot * 2) / 3) > 1e-9 && 'betBig',
         Math.abs(p.requiredSmall - cena(MALY)) > 1e-9 && 'requiredSmall',
