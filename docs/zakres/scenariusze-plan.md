@@ -34,7 +34,7 @@ Kryterium doboru: każdy moduł M2–M11 ma 3–4 sytuacje „od prostej do trud
 | SC-11 | M5 | c-bet na suchym wysokim flopie z pozycją | R-M5-007, R-M5-003 | Ł Ś T | umie | — |
 | SC-12 | M5 | niski połączony flop: czekanie | R-M5-004 | Ł Ś T | umie | — |
 | SC-13 | M5 | mokry flop, silna ręka wobec drawa do koloru: rozmiar ¼ czy ⅔ puli (KO-085 P1a, D-1306, D-1355) | R-M5-008, rachunek ceny jednej karty | Ł Ś | brakuje | 08-FD-3 (= 08-EX-4, rozmiar na flopie) |
-| SC-14 | M5 | c-bet bez pozycji: HJ wobec BTN, w 1.0 tylko flopy niesparowane ≤ 9 → czekanie (KO-085 P2a, D-1287, D-1350) | R-M5-012 | Ł Ś | umie | — (w treści, sesja FD) |
+| SC-14 | M5 | c-bet bez pozycji: HJ wobec BTN, w 1.0 tylko flopy niesparowane ≤ 9 → czekanie (KO-085 P2a, D-1287, D-1350) | R-M5-012 | Ł Ś | umie | gotowy szkic `docs/tresci/szablony-robocze/fd/`; wejście po 08-FD-5 i 09 (D-1358) |
 | SC-15 | M6 | obrona wobec małego c-betu (nie pasuj za łatwo) | R-M6-003, R-M6-001 | Ł Ś T | częściowo | warunek R-M6-003 |
 | SC-16 | M6 | check-raise z mocnym drawem | R-M6-008, R-M6-010 | Ś T | brakuje | warunek R-M6-008, rozmiar R-M6-010 |
 | SC-17 | M6 | suchy flop z asem, słaba ręka: pas | R-M6-007 | Ł Ś | częściowo | warunek R-M6-007 |

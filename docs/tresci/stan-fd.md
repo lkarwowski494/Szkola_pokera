@@ -4,8 +4,8 @@ Gałąź `sesja-fd-tresci` od `claude/sleepy-brahmagupta-2065nu` @ da1e02db + `o
 ## Wynik
 | Szablon | Stan | Gdzie | Blokuje wejście do bazy |
 |---|---|---|---|
-| SC-14 (P2a) | **w treści**, Ł/Ś `check`, pl+en | `content/{pl,en}/scenarios/sc-14.yaml` | — |
-| SC-23 | **w treści**, Ł `best-hand` (blockers), pl+en | `content/{pl,en}/scenarios/sc-23.yaml` | — (liczby V/F na ekranie: 04/09, `liczby.ts:26`) |
+| SC-14 (P2a) | **gotowy szkic** (build z pełnym kontekstem kod 0), Ł/Ś `check`, pl+en | `docs/tresci/szablony-robocze/fd/` | 08-FD-5 (testy `tools/`), 09 (10 języków) — D-1358 |
+| SC-23 | **gotowy szkic** (rodzaj na ekranie), Ł `best-hand` (blockers), pl+en | `docs/tresci/szablony-robocze/fd/` | 08-FD-5 (test pokrycia `pick-hand`), 09 (10 języków) — D-1358 |
 | SC-24, SC-31 | szkic, pl+en | `docs/tresci/szablony-robocze/fd/` | widok `river-catch` z udziałem blefów i ceną (D-1357) |
 | SC-07, SC-15, SC-17 | szkic, pl+en | jw. | widok `defend` |
 | SC-09 | szkic, pl+en | jw. | widok limperów (`iso-size`) + 08-FD-2 |
@@ -36,17 +36,24 @@ Przeniesienie szkicu do bazy: skopiuj `fd/{pl,en}/sc-NN.yaml` do `content/{pl,en
   - D: jak G, pasuje też A4 (strit A–5, lepszy od QQ; 16 kombinacji lepszych wśród pasujących) → **odrzucony** (D-1302).
   - F: sprawdza AJ, KJ; pasuje KK (6 lepszych pasujących) → **odrzucony**.
 
+**08-FD-5 (wejście SC-14 i SC-23 do bazy, D-1358):** CI na cbf1d41 z SC-14 i SC-23 w `content/` czerwone (`docs/tresci/dowody/fd-ci-czerwone-cbf1d41.txt`, 17 testów):
+- `recenzja-cq-odtworzenie.test.ts:27` i `generator-odciski.test.ts` (kontekst testu): `cbetCases` tylko z R-M5-007 → SC-14 (przypadek R-M5-012) daje 20 000 odrzuceń; poprawka: kontekst jak `buildGeneratorContext` (wszystkie reguły cbet-case), plus odciski SC-14 i SC-23 dla bieżącej `GENERATOR_WERSJA`.
+- `szablony-co.test.ts`: lista szablonów cbet-case (SC-04, 05, 11, 12) → dopisać SC-14; test 10 000 wariantów SC-14 z oceną `cbetVerdict` przypadku R-M5-012.
+- `cz-pokrycie-szablonow.test.ts:25`: `pick-hand` bez testu zgodności na treści → test SC-23 (wyrocznia jak `ek-pick-hand.test.ts`, zakres z szablonu).
+- `szablony-bs.test.ts`: 10 języków bez sc-14/sc-23 → 09 (przekład) w tym samym commicie co wejście do bazy.
+- Przypadek: po przeniesieniu `fd/{pl,en}/sc-14.yaml`, `sc-23.yaml` do `content/` i zmianach wyżej `pnpm run ci` kod 0.
+
 ## Dla roli 04
 - Widoki rodzajów `river-catch`, `defend`, `list-hand`, `turn-bet`, `iso-size` (limperzy) — wymagane przez szkice; w `river-catch` dana zadania (udział blefów) musi być widoczna (D-1357).
 - `pick-hand` (SC-23): zdania „Liczby” z V/F po usunięciu kart — dziś brak (`liczby.ts:26`); klucze do zaprojektowania, potem 09.
 
 ## Klucze nowe w FD dla roli 09 (wzorzec pl i en; pozostałe języki biorą dziś en)
-- `content/{lang}/scenarios/sc-14.yaml`: `situation`, `decisions[0].actions[check|bet-small|bet-big].explanation`.
-- `content/{lang}/scenarios/sc-23.yaml`: `situation`, `decisions[0].actions[best-hand|other-hand].explanation`.
+- `sc-14.yaml` (wzorzec `docs/tresci/szablony-robocze/fd/{pl,en}/`): `situation`, `decisions[0].actions[check|bet-small|bet-big].explanation` — do przełożenia razem z 08-FD-5.
+- `sc-23.yaml` (jw.): `situation`, `decisions[0].actions[best-hand|other-hand].explanation`.
 - Szkice (przekład dopiero po wejściu do bazy): `docs/tresci/szablony-robocze/fd/{pl,en}/sc-07, sc-09, sc-10, sc-15, sc-17, sc-20, sc-24, sc-31.yaml` — `situation` i wszystkie `explanation`.
 
 ## Rejestr twierdzeń
-Teksty nowych szablonów składają się wyłącznie z pól `then`/`because` reguł już potwierdzonych w `docs/tresci/rejestr.json` (R-M5-012, R-M8-007, R-M8-010, R-M6-001, R-M6-003, R-M6-006, R-M6-007, R-M4-010, R-M4-012, R-M7-006) i liczb z `numbers.yaml` (`{{n:}}`); nowych twierdzeń merytorycznych FD nie wprowadza. Źródła tych reguł przeczytane ponownie dosłownie w dniu pracy (`odczyty/fd-2026-11-12.tsv`). Nowe są tylko: dane zadania (zakresy i udziały blefów, D-1300 — nie twierdzenia) i rachunki wektorów (szczebel 1, `fd_wektory.py`).
+Teksty nowych szablonów i szkiców składają się wyłącznie z pól `then`/`because` reguł już potwierdzonych w `docs/tresci/rejestr.json` (R-M5-012, R-M8-007, R-M8-010, R-M6-001, R-M6-003, R-M6-006, R-M6-007, R-M4-010, R-M4-012, R-M7-006) i liczb z `numbers.yaml` (`{{n:}}`); nowych twierdzeń merytorycznych FD nie wprowadza. Źródła tych reguł przeczytane ponownie dosłownie w dniu pracy (`odczyty/fd-2026-11-12.tsv`). Nowe są tylko: dane zadania (zakresy i udziały blefów, D-1300 — nie twierdzenia) i rachunki wektorów (szczebel 1, `fd_wektory.py`).
 
 ## Otwarte
 - [DO USTALENIA] (produkt, 03): SC-23 tryb `showdown` (R-M8-006) jako drugi szablon M8 albo poziom — dziś jeden tryb na punkt.
