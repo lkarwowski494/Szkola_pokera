@@ -1,4 +1,4 @@
-import { strengthUnchecked, type Card } from '@szkola/poker-core';
+import { parseCard, strengthUnchecked, type Card } from '@szkola/poker-core';
 import { COMBO_C1, COMBO_C2, NC } from './combos';
 import { DEFAULT_DCFR, type DcfrParams } from '../solver';
 
@@ -37,6 +37,8 @@ export interface GameSpec {
   readonly ipBetAfterCheck?: boolean;
   /** OOP już czekał na pierwszej ulicy (SRP: BB czeka na flopie; strona pokazuje decyzję otwierającego). */
   readonly oopCheckedFirst?: boolean;
+  /** Tylko do testów (B3): ogranicza karty rivera do tej listy (równe prawdopodobieństwa). */
+  readonly riverCards?: readonly Card[];
 }
 
 export interface SolveStats {
@@ -149,15 +151,16 @@ export class FlopGame {
     if (st.board.length === 5) return { k: 't', winner: -1, c0: st.c[0], c1: st.c[1], board: st.board };
     const cards: Card[] = [];
     const ch: Node[] = [];
+    const allowed = st.board.length === 4 ? this.spec.riverCards : undefined;
     for (let card = 0; card < 52; card++) {
-      if (st.board.includes(card)) continue;
+      if (st.board.includes(card) || (allowed && !allowed.includes(card))) continue;
       cards.push(card);
       const board = [...st.board, card];
       const allIn = this.remaining(st, 0) <= 1e-9 || this.remaining(st, 1) <= 1e-9;
       const next: StreetState = { board, street: st.street + 1, c: st.c, s: [0, 0], toAct: 0, hist: '' };
       ch.push(allIn ? this.nextStreet(next) : this.build(next));
     }
-    return { k: 'c', cards, ch, div: 52 - st.board.length - 4 };
+    return { k: 'c', cards, ch, div: allowed ? allowed.length : 52 - st.board.length - 4 };
   }
 
   private dec(p: 0 | 1, items: [string, Node][]): Decision {
@@ -446,6 +449,13 @@ export class FlopGame {
   strategyAt(path: readonly string[]): { player: 0 | 1; actions: string[]; freqs: Float64Array } {
     let n: Node = this.root;
     for (const a of path) {
+      if (a.startsWith('=') && n.k === 'c') {
+        // '=Js' = gałąź węzła losowego z tą kartą
+        const ci = n.cards.indexOf(parseCard(a.slice(1)));
+        if (ci < 0) throw new Error(`ścieżka ${path.join(',')}: brak karty ${a}`);
+        n = n.ch[ci]!;
+        continue;
+      }
       if (n.k !== 'd') throw new Error(`ścieżka ${path.join(',')}: węzeł nie jest decyzją`);
       const i: number = n.actions.indexOf(a);
       if (i < 0) throw new Error(`ścieżka ${path.join(',')}: brak akcji ${a} (są: ${n.actions.join(',')})`);

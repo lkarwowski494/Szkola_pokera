@@ -1,0 +1,18 @@
+# B2+B3 zielone po przyspieszeniu pętli (aktywne kombinacje), 2026-11-12
+ ✓ test/flop-turn.test.ts > B3 turn + river > turn bez zakładów z jednym riverem daje ten sam wynik co river z B2 474ms
+ ✓ test/flop-river.test.ts > W1(a) zakres spolaryzowany kontra łapacz blefów (R-M8-010, R-M6-001) > zakład 1 puli: udział blefów B÷(P+2B), obrona P÷(P+B), tolerancja 0,5 pp 577ms
+ ✓ test/flop-river.test.ts > W1(a) zakres spolaryzowany kontra łapacz blefów (R-M8-010, R-M6-001) > zakład 0.5 puli: udział blefów B÷(P+2B), obrona P÷(P+B), tolerancja 0,5 pp 508ms
+ ✓ test/flop-river.test.ts > W1(b) zbieżność: NashConv poniżej 0,1% puli > gra spolaryzowana 534ms
+ ✓ test/flop-river.test.ts > W1(b) zbieżność: NashConv poniżej 0,1% puli > river z szerokimi zakresami, przebiciami i rake 1981ms
+ ✓ test/flop-river.test.ts > W1(c) zgodność z niezależnym skalarnym CFR (test/flop-ref.ts) > wartość gry i częstości w korzeniu 407ms
+ ✓ test/flop-river.test.ts > wektor zakresu ma 1326 pozycji i zeruje kombinacje z kartami stołu 2ms
+ ✓ test/flop-turn.test.ts > B3 turn + river > NashConv turnu z 44 riverami poniżej 0,5% puli 26107ms
+      Tests  8 passed (8)
+
+# Czas jednego stołu turn (scripts/flop-time.ts, BTN vs BB, zakresy BeyondGTO, 1 wątek Node):
+it 20: 5.9 s, NashConv 7.222% puli
+it 40: 11.6 s, NashConv 1.657% puli
+it 60: 16.8 s, NashConv 0.778% puli
+it 80: 23.1 s, NashConv 0.468% puli
+it 100: 29.8 s, NashConv 0.329% puli
+turn Ks 7d 2c 9h: 100 iteracji w 29.8 s (298 ms/iterację, z pomiarami NashConv)

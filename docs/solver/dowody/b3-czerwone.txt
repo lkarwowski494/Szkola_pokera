@@ -1,0 +1,12 @@
+# B3: przebieg czerwony (riverCards jeszcze nieobsługiwane), 2026-11-12
+npx vitest run test/flop-turn.test.ts --reporter=verbose
+ × test/flop-turn.test.ts > B3 turn + river > turn bez zakładów z jednym riverem daje ten sam wynik co river z B2 51740ms
+   → expected 3.0842596996531526 to be less than 0.000019999999999999998
+ ✓ test/flop-turn.test.ts > B3 turn + river > NashConv turnu z 44 riverami poniżej 0,5% puli 114433ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected 3.0842596996531526 to be less than 0.000019999999999999998
+      Tests  1 failed | 1 passed (2)
+
+# Wyjątek nazwany (zasada 7): mechanika wielu ulic powstała w commicie B2 (a07092cd), więc test NashConv turnu nie był czerwony przed kodem.
+# Kontrola zastępcza (mutacja: 5 iteracji zamiast 150 — test musi umieć paść):
+MUT 5 iteracji: NashConv 30.260% puli (próg testu 0,5%)
