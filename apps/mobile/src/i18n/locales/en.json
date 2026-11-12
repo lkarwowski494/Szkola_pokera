@@ -1032,6 +1032,7 @@
       "villain": "opponent"
     },
     "pot": "{{t:pot|Pot}} {{pula}} bb · to {{t:call|call}} {{kwota}} bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Hand history"
     },
@@ -1085,6 +1086,7 @@
       "threeBet": "3-bet",
       "fourBet": "4-bet",
       "allIn": "all-in",
+      "bet": "{{t:bet}}",
       "betSmall": "small {{t:c-bet}}",
       "betBig": "big {{t:c-bet}}",
       "amountPay": "{{bb}} bb",

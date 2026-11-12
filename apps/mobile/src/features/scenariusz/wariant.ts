@@ -97,8 +97,8 @@ export function opisAkcji(p: VariantDecision, a: Akcja): OpisAkcji {
   if (a === '4bet') return nazwa('fourBet', null); // FG: list-hand (D-1142); bez kwoty, szablon nie podaje rozmiaru
   if (a === 'fold') return nazwa('fold', null);
   if (a === 'check') return nazwa('check', null);
-  if (a === 'bet-small') return nazwa('betSmall', null);
-  if (a === 'bet-big') return nazwa('betBig', null);
+  // FM (D-1430): turn-bet i flop-size to dwa rozmiary tego samego zagrania: ta sama nazwa „zakład”, kwota w drugiej linii; „c-bet” tylko w cbet-case
+  if (a === 'bet-small' || a === 'bet-big') return p.point === 'turn-bet' || p.point === 'flop-size' ? nazwa('bet', 'pay') : nazwa(a === 'bet-small' ? 'betSmall' : 'betBig', null);
   if (a === 'limp') return nazwa('limp', 'pay');
   if (a === 'all-in') return nazwa('allIn', 'all');
   if (a === 'call' || a.startsWith('call ')) return nazwa('call', 'pay');

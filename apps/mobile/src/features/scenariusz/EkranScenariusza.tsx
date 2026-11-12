@@ -55,11 +55,8 @@ export function tekstAkcji(v: ScenarioVariant, indeks: number, a: Akcja, s: Pick
     return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa, czytnik: karty.map((c) => nazwaKarty(c, t)).join(', ') };
   }
   if (d.point === 'turn-bet' || d.point === 'flop-size') {
-    // FG: nazwa z `play.bet` („Zakład 2bb”, kwota z wariantu), bo `scenario.action.betSmall/betBig` to „c-bet”, zły termin na turnie
-    const bb = kwotaAkcji(d, a, s);
-    if (bb === null) throw new Error(`${d.point}: akcja ${a} nie ma kwoty zakładu`); // brak zostaje brakiem (FH NIS-004), bez „Zakład 0bb”
-    const nazwa = t('play.bet', { bb });
-    return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa };
+    // FM (D-1430): dalej ogólna ścieżka (nazwa `scenario.action.bet` + kwota `amountPay`); tu tylko brak kwoty to błąd, nie „zakład 0 bb” (FH NIS-004)
+    if (kwotaAkcji(d, a, s) === null) throw new Error(`${d.point}: akcja ${a} nie ma kwoty zakładu`);
   }
   const o = opisAkcji(d, a);
   const baza = t(o.klucz);
@@ -145,7 +142,7 @@ export interface PropsPrzebiegu {
 /** Ruch rywala przed twoją decyzją (tekst dziennika) albo null: zakład (draw-call), all-in (icm-call), otwarcie (3-bet), czekanie (c-bet). */
 function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn): string | null {
   const rywal = s.szablon.positions.villain;
-  if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return t('play.log.bet', { pos: rywal, bb: d.bet });
+  if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return t('play.log.bet', { pos: rywal, bb: formatujLiczbe(d.bet, jezykZadan()) });
   if (d.point === 'icm-call') {
     const u = ukladIcm(d, s.szablon);
     if (!u) return null;
@@ -165,6 +162,7 @@ function reakcjaGracza(a: Akcja, pos: string, bb: number | null, fraza: string, 
   if (a === 'call' || a === 'limp' || (a.startsWith('call ') && bb !== null)) return t('play.log.call', { pos, bb: bb ?? 0 });
   if (a === 'raise' || a === 'raise-small' || a === 'raise-big' || (a.startsWith('raise ') && bb !== null)) return t('play.log.raise', { pos, bb: bb ?? 0 });
   if (a === 'all-in' && bb !== null) return t('play.log.allin', { pos, bb });
+  if ((a === 'bet-small' || a === 'bet-big') && bb !== null) return t('play.log.bet', { pos, bb: formatujLiczbe(bb, jezykZadan()) }); // FM-01 (D-1430): turn-bet i flop-size; cbet-case ma bb = null
   return `${pos}: ${fraza}`;
 }
 
@@ -217,8 +215,10 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   if (!d || !widok) return <Screen>{null}</Screen>;
   const akcje = akcjePunktu(d, s.szablon.decisions[indeks]);
   const teksty: Partial<Record<Akcja, TekstAkcji>> = Object.fromEntries(akcje.map((a) => [a, opisAkcjiEkranu(a)]));
-  const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, teksty[a]?.nazwa ?? '']));
-  const etykiety: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.flatMap((a) => { const e = teksty[a]?.czytnik; return e ? [[a, e]] : []; }));
+  // D-1434: przy powtórzonej nazwie (turn-bet, size-spot) pasek ocen pokazuje tekst przycisku (nazwa, pod nią kwota), czytnik „nazwa, kwota”
+  const powtorzona = (a: Akcja): boolean => akcje.filter((b) => teksty[b]?.nazwa === teksty[a]?.nazwa).length > 1 && teksty[a]?.kwota != null;
+  const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, powtorzona(a) ? teksty[a]?.przycisk ?? '' : teksty[a]?.nazwa ?? '']));
+  const etykiety: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.flatMap((a) => { const x = teksty[a]; const e = x?.czytnik ?? (powtorzona(a) ? `${x?.nazwa}, ${x?.kwota}` : undefined); return e ? [[a, e]] : []; }));
   const fraza = (a: Akcja): string => teksty[a]?.fraza ?? '';
   const najlepsza: Akcja = poprawnaAkcja(d);
   const idxUlicy = ULICE.indexOf(widok.ulica);
@@ -255,8 +255,8 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
           {d.hands.map((h, k) => <CardRow key={k} cards={h.map(cardToString)} size="lg" />)}
         </View>
       ) : null}
-      {widok.pulaBb !== null && widok.doSprawdzeniaBb !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: widok.pulaBb, kwota: widok.doSprawdzeniaBb })}</Text> : null}
-      {widok.pulaBb !== null && widok.doSprawdzeniaBb === null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('play.potLabel', { bb: widok.pulaBb })}</Text> : null}
+      {widok.pulaBb !== null && widok.doSprawdzeniaBb !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: formatujLiczbe(widok.pulaBb, jezykZadan()), kwota: formatujLiczbe(widok.doSprawdzeniaBb, jezykZadan()) })}</Text> : null}
+      {widok.pulaBb !== null && widok.doSprawdzeniaBb === null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.potOnly', { pula: formatujLiczbe(widok.pulaBb, jezykZadan()) })}</Text> : null}
       {icm && icm.caleStosTy && widok.doSprawdzeniaBb !== null ? <Text style={[styl.przypis, { color: tk.muted, textAlign: 'center' }]}>{t('scenario.icm.wholeStack', { kwota: t('scenario.icm.stackValue', { bb: formatujLiczbe(widok.doSprawdzeniaBb, jezykZadan()) }) })}</Text> : null}
       {icm && !ocenaMode ? <TurniejIcm uklad={icm} pozycjaTy={s.szablon.positions.hero} pozycjaRywal={s.szablon.positions.villain} formatBb={(x) => formatujLiczbe(x, jezykZadan())} formatProcent={(x) => formatujProcent(x, jezykZadan())} naglowek /> : null}
       <Dziennik wpisy={doDziennika} />
