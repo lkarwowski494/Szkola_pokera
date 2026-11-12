@@ -1,0 +1,29 @@
+# SC-13 (M5) po KO-085 P1a: silna ręka na flopie two-tone wobec drawa do koloru, zakład 1/4 czy 2/3 puli (punkt flop-size, 08-FD-3,
+# D-1306, D-1419, D-1421). Ocena: rachunek (szczebel 1): cena dla drawa = zakład ÷ (pula + 2·zakład); czyste outy, pokazywane e = N/47,
+# dokładne N/45 wobec ceny dużego. Kierunek: R-M5-008 (GTO Wizard, Flop Heuristics IP: „increased use of the 66% pot bet size”).
+# Szkic sesji FQ (D-1460). flop-size ma widok (D-1420). ZALEŻNOŚĆ: do content/ dopiero po naprawie 08-programista-001 (sesja FP;
+# recenzja FO, D-1445: wejście przed naprawą podnosi znalezisko do WYS). Pule podzielne przez 12 (D-1419). Zakład 2/3 puli bez
+# liczby w tekście: brak klucza ceny 2/3 w numbers.yaml (D-1461, propozycja klucza dla 08).
+# FT (D-1473, 06-tresci-003): tylko flopy bez pary i bez możliwego strita (ranks: semi-connected, disconnected) = zakres R-M5-008;
+# GW Flop Heuristics IP: connected „we size down”, paired „only be bet for small sizing”. Pojemność: wymaga limitu odrzuceń FR (08-FQ-1).
+id: sc-13
+module: m5
+situation: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na flopie są dwie karty w jednym kolorze, a ty masz silną rękę: {{t:top-pair|najwyższą parę}} z dobrym {{t:kicker|kickerem}} albo lepszą. Rywal {{t:check|czeka}} i może mieć {{t:flush-draw}}. Jaki rozmiar {{t:bet|zakładu}} wybierasz?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo, bo {{t:draw|drawy}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę. {{t:flush-draw|Draw do koloru}} trafia na turnie w ok. {{n:odds.flush.flop-turn}} przypadków, a przy {{t:bet|zakładzie}} dwóch trzecich {{t:pot|puli}} cena za następną kartę jest wyższa niż jego szansa na nią."
+      - action: "bet-small"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. Mały {{t:bet|zakład}} daje {{t:draw|drawowi}} dobrą cenę: przy {{t:bet|zakładzie}} ćwierć {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}} equity, a na turnie trafia w ok. {{n:odds.flush.flop-turn}} przypadków. Silną rękę wobec {{t:draw|drawów}} na takim flopie {{t:bet|stawiasz}} większym rozmiarem."

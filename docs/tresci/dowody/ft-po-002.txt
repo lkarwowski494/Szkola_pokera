@@ -1,0 +1,32 @@
+# FT test odtwarzający 06-tresci-001…005; commit c8408df6 + zmiany w docs/tresci; 2026-11-12
+# komenda: cd packages/poker-core && npx tsx .ft-tmp/ft-test.ts ../../docs/tresci/szablony-robocze/fq/pl ../../docs/tresci/liczby-river-catch-defend.md 1000
+== sc-13 (1000 ziaren): warianty=1000; flop ranks=paired=166; flop poza zakresem R-M5-008 (paired/connected)=267; flop ranks=semi-connected=725; equity do rivera > cena ⅔=977; flop ranks=connected=101; flop ranks=disconnected=8
+== sc-22 (1000 ziaren): warianty=1000; gorsze÷wszystkie≤50%=113; pasujące: remis albo lepsza=274
+== sc-25 (1000 ziaren): warianty=1000; gorsze÷wszystkie≤50%=1000; W≤L=1000; pasujące: remis albo lepsza=261
+== sc-28 (1000 ziaren): warianty=1000
+== sc-29 (1000 ziaren): warianty=1000; pasujące: remis albo lepsza=136
+CZERWONY 06-tresci-003 — sc-13: flop poza zakresem R-M5-008 (paired/connected) = 267 [pierwszy: ziarno 1: gracz Js2d stół Jc3cJd9d3s]
+CZERWONY 06-tresci-004 — sc-13: zdanie „potrzebuje więcej equity, niż ma” (equity do rivera > cena ⅔) obecne; licznik „equity do rivera > cena ⅔” = 977 [pierwszy: ziarno 2: gracz QsKs stół 9c5cQd4d7s]
+ZIELONY 06-tresci-001 — sc-22: zdanie „gorszych jest więcej niż lepszych” (W > L) obecne; licznik „W≤L” = 0
+ZIELONY 06-tresci-002 — sc-25: zdanie „pasujące i tak nie wygrałyby” (0 lepszych wśród pasujących) obecne; licznik „pasujące: lepsza” = 0
+ZIELONY 06-tresci-001 — sc-28: zdanie „gorszych jest więcej niż lepszych” (W > L) obecne; licznik „W≤L” = 0
+ZIELONY 06-tresci-001 — sc-29: zdanie „gorszych jest więcej niż lepszych” (W > L) obecne; licznik „W≤L” = 0
+CZERWONY 06-tresci-005 — liczby: zdania „w teorii bronisz” = 2; zdania MDF defend = 2, z zastrzeżeniem flopu = 0
+CZERWONE: 06-tresci-003, 06-tresci-004, 06-tresci-005
+kod wyjścia (pl): 1
+# komenda: cd packages/poker-core && npx tsx .ft-tmp/ft-test.ts ../../docs/tresci/szablony-robocze/fq/en ../../docs/tresci/liczby-river-catch-defend.md 1000
+== sc-13 (1000 ziaren): warianty=1000; flop ranks=paired=166; flop poza zakresem R-M5-008 (paired/connected)=267; flop ranks=semi-connected=725; equity do rivera > cena ⅔=977; flop ranks=connected=101; flop ranks=disconnected=8
+== sc-22 (1000 ziaren): warianty=1000; gorsze÷wszystkie≤50%=113; pasujące: remis albo lepsza=274
+== sc-25 (1000 ziaren): warianty=1000; gorsze÷wszystkie≤50%=1000; W≤L=1000; pasujące: remis albo lepsza=261
+== sc-28 (1000 ziaren): warianty=1000
+== sc-29 (1000 ziaren): warianty=1000; pasujące: remis albo lepsza=136
+CZERWONY 06-tresci-003 — sc-13: flop poza zakresem R-M5-008 (paired/connected) = 267 [pierwszy: ziarno 1: gracz Js2d stół Jc3cJd9d3s]
+CZERWONY 06-tresci-004 — sc-13: zdanie „potrzebuje więcej equity, niż ma” (equity do rivera > cena ⅔) obecne; licznik „equity do rivera > cena ⅔” = 977 [pierwszy: ziarno 2: gracz QsKs stół 9c5cQd4d7s]
+ZIELONY 06-tresci-001 — sc-22: zdanie „gorszych jest więcej niż lepszych” (W > L) obecne; licznik „W≤L” = 0
+ZIELONY 06-tresci-002 — sc-25: zdanie „pasujące i tak nie wygrałyby” (0 lepszych wśród pasujących) obecne; licznik „pasujące: lepsza” = 0
+ZIELONY 06-tresci-001 — sc-28: zdanie „gorszych jest więcej niż lepszych” (W > L) obecne; licznik „W≤L” = 0
+ZIELONY 06-tresci-001 — sc-29: zdanie „gorszych jest więcej niż lepszych” (W > L) obecne; licznik „W≤L” = 0
+CZERWONY 06-tresci-005 — liczby: zdania „w teorii bronisz” = 2; zdania MDF defend = 2, z zastrzeżeniem flopu = 0
+CZERWONE: 06-tresci-003, 06-tresci-004, 06-tresci-005
+kod wyjścia (en): 1
+kod wyjścia łącznie: 1

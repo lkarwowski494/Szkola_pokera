@@ -1,0 +1,13 @@
+# FS 06-tresci-005: test odtwarzający (grep). Oczekiwane po naprawie: 0 trafień zdania, które podaje MDF jako normę obrony na flopie bez zastrzeżenia.
+# komenda: grep -n "bronisz w teorii\|you defend in theory" docs/tresci/liczby-river-catch-defend.md
+42:- pl: „{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Przy takim {{t:bet|zakładzie}} {{t:mdf}} to {{obrona}}: tyle całego {{t:range|zakresu}} bronisz w teorii, a o jednej ręce decyduje to, co mówi wyjaśnienie.”
+43:- en: „The {{t:pot|pot}} is {{pula}} bb and a {{t:call|call}} costs {{kwota}} bb, so you need {{potrzeba}} equity, that is, to win about once in {{razPotrzeba}}. Against a {{t:bet}} this size, {{t:mdf}} is {{obrona}}: that is how much of your whole {{t:range}} you defend in theory; for a single hand, the explanation decides.”
+kod wyjścia grep: 0 (0 = trafienia = CZERWONY)
+
+# kontekst: punkty defend są na flopie
+docs/tresci/szablony-robocze/fd/pl/sc-07.yaml:15:  - street: flop
+docs/tresci/szablony-robocze/fd/pl/sc-15.yaml:15:  - street: flop
+docs/tresci/szablony-robocze/fd/pl/sc-17.yaml:14:  - street: flop
+# lekcja m6-l1: odpowiedź poprawna i błędna dla flopu
+82:      - { text: "Nie, możesz bronić trochę mniej", correct: true, why: "{{t:mdf}} zakłada {{t:bluff}} bez żadnych szans. Na flopie {{t:bluff|blefy}} Buttona mają jeszcze equity ({{t:draw|drawy}}, wysokie karty), a ty {{t:out-of-position}} nie zrealizujesz całego equity słabych rąk. Dlatego możesz bronić trochę mniej niż {{t:mdf}}, ale na mały c-bet nie {{t:fold|pasujesz}} masowo." }
+83:      - { text: "Tak, inaczej Button zarabia każdą ręką", why: "Na riverze tak by było. Na flopie Button nie {{t:bluff|blefuje}} ręką bez szans: nawet gdy go {{t:call|sprawdzisz}}, może trafić. {{t:mdf}} to punkt odniesienia, nie obowiązek." }

@@ -1,0 +1,4 @@
+# FT: bash docs/tresci/narzedzia/fq-kontrola-szkicow.sh <wt> fq na fe20c098 (po 001–005), 2026-11-12; linia bazowa FQ/FS: kod 1 tylko sc-13 (08-FQ-1)
+szablon sc-13: poziom latwy: generator nie wytwarza wariantów (sc-13: 20000 odrzuceń z rzędu na poziomie latwy)
+struktura pl/en: zgodna
+kod wyjścia: 1

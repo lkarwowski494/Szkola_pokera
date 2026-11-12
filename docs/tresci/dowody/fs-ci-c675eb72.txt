@@ -1,0 +1,41 @@
+# pnpm run ci na c675eb72 (drzewo = commit c675eb72, przed commitem dowodu); ostatnie linie logu
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:68 t(o.kwota === 'pay' ? 'scenario.action.amountPay' : o.kwota === 'to' ? 'scenario.action.amountTo' : 'scenario.action.amountAll'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:95 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:187 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:215 t(`scenario.street.${ulicaDecyzji}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:216 t(`grade.${ocenaWyboru}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:232 t(`scenario.street.${widok.ulica}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:238 t(`scenario.street.${u}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:294 t(`scenario.street.${nastepna.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:303 t(inni.length === 1 ? 'scenario.icm.foldedOne' : 'scenario.icm.foldedMany'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:331 t(klucz): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:345 t(`scenario.level.${p.poziom}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:356 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:359 t(`grade.${k.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:45 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:40 t(`scenario.level.${w}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:84 t(`grade.${w.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:96 t(`grade.${o}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:102 t(`grade.${o}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:171 t(uklad.liczbaGraczy === 3 ? 'scenario.icm.noPrizeThird' : 'scenario.icm.noPrizeFourth'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:204 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:207 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/liczby.ts:85 t(trojbet ? 'scenario.numbers.size3bet' : 'scenario.numbers.sizeOpen'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/start/EkranStartu.tsx:37 t(`start.title.${TYTUL[rodzaj]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/PanelDecyzji.tsx:35 t(`grade.${ocenaDecyzji(rekord.grade)}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:23 t(`grade.${stopien}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:33 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:97 t(`card.rank.${r}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:97 t(`card.suit.${s}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:105 t(`table.position.${p.toLowerCase()}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:108 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> pnpm --filter @szkola/content-build check
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+> szkola-pokera@ tresci:el-kontrola /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/el-kontrola.mjs --ko076
+kod 0

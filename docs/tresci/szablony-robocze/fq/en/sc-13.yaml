@@ -1,0 +1,22 @@
+# SC-13 (M5): wersja en szkicu pl (struktura identyczna, `fd-kontrola-szkicow.sh`). Nagłówek i zależności: `../pl/sc-13.yaml`.
+id: sc-13
+module: m5
+situation: "You {{t:open|opened}} from the Button and the {{t:big-blind}} {{t:call|called}}. The flop has two cards of one suit, and you have a strong hand: {{t:top-pair}} with a good {{t:kicker}} or better. Your opponent {{t:check|checks}} and may have a {{t:flush-draw}}. What {{t:bet}} size do you choose?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big because your opponent's {{t:draw|draws}} have a lot of equity, so a big {{t:bet}} makes them pay a lot for the next card. A {{t:flush-draw}} hits on the turn about {{n:odds.flush.flop-turn}} of the time, and against a bet of two thirds of the {{t:pot}} the price of the next card is higher than its chance of hitting it."
+      - action: "bet-small"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. A small bet gives the {{t:draw}} a good price: against a quarter-{{t:pot}} bet it would only need {{n:eq.bet-quarter}} equity, and it hits on the turn about {{n:odds.flush.flop-turn}} of the time. With a strong hand against {{t:draw|draws}} on a flop like this, you {{t:bet}} a bigger size."

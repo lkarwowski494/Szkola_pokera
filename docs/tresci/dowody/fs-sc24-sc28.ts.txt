@@ -1,0 +1,15 @@
+// FS: (1) SC-28 dryBoard na 1000 wariantach; (2) SC-24 liczby river-catch ręcznie dla ziaren 1–3 każdego poziomu (wzór: kwota ÷ (pula po zakładzie + kwota)).
+import { readFileSync } from 'node:fs';
+import { parse } from 'yaml';
+import { generateVariant, suitOf, rankOf, cardToString } from '../src/index';
+const wczytaj = (p: string) => { const y = parse(readFileSync(p, 'utf8')); for (const b of Object.values<any>(y.bounds)) { b.reject ??= []; b.draws ??= []; } return { id: y.id, stackBb: y.stackBb, positions: y.positions, levels: y.bounds, decisions: y.decisions } as any; };
+const g28 = wczytaj('../../docs/tresci/szablony-robocze/fq/pl/sc-28.yaml'); let kolor = 0, strit = 0;
+const stritNaStole = (b: number[]) => { const r = new Set(b.flatMap((c) => rankOf(c) === 12 ? [12, -1] : [rankOf(c)])); for (let lo = -1; lo <= 8; lo++) if ([0,1,2,3,4].every((i) => r.has(lo + i))) return true; return false; };
+for (let s = 1; s <= 1000; s++) { const v = generateVariant(g28, 'latwy', s); const b = [...v.board]; if (Math.max(...[0,1,2,3].map((su) => b.filter((c) => suitOf(c) === su).length)) >= 3) kolor++; if (stritNaStole(b)) strit++; }
+console.log(`SC-28 (1000 wariantów): stół z ≥3 kartami koloru: ${kolor}; strit na stole: ${strit}`);
+const g24 = wczytaj('../../docs/tresci/szablony-robocze/fd/pl/sc-24.yaml');
+for (const lvl of ['latwy', 'sredni', 'trudny']) for (const s of [1, 2, 3]) {
+  const p: any = generateVariant(g24, lvl as any, s).points[0];
+  const pula = p.pot + p.bet, potrzeba = p.bet / (pula + p.bet), raz = Math.max(1, Math.round(1 / potrzeba));
+  console.log(`SC-24 ${lvl} ziarno ${s}: pula przed ${p.pot}, zakład ${p.bet}, pula na ekranie ${pula}; potrzeba ${p.bet}/(${pula}+${p.bet}) = ${(100*potrzeba).toFixed(1)}% (generator ${(100*p.required).toFixed(1)}%); raz na ${raz}; blefy ${(100*p.bluffShare).toFixed(0)}% → ${p.bluffShare > potrzeba ? 'więcej' : 'mniej'}; poprawna ${p.correct}`);
+}

@@ -1,0 +1,61 @@
+// FS (06-tresci audit): niezależny rachunek wariantów szkiców FQ. Własne kombinacje klas i własny podział W/L/T; z poker-core tylko generateVariant i strength (ewaluator).
+import { readFileSync } from 'node:fs';
+import { parse } from 'yaml';
+import { generateVariant, strength, rankOf, suitOf, cardToString, classifyFlop } from '../src/index';
+const DIR = process.argv[2]; const N = Number(process.argv[3] ?? 400);
+const RANKS = '23456789TJQKA';
+const card = (r: number, s: number) => r * 4 + s; // sprawdzone niżej względem rankOf/suitOf
+function combos(hc: string): [number, number][] {
+  const a = RANKS.indexOf(hc[0]), b = RANKS.indexOf(hc[1]); const out: [number, number][] = [];
+  if (hc.length === 2) { for (let s = 0; s < 4; s++) for (let t = s + 1; t < 4; t++) out.push([card(a, s), card(a, t)]); }
+  else if (hc[2] === 's') { for (let s = 0; s < 4; s++) out.push([card(a, s), card(b, s)]); }
+  else { for (let s = 0; s < 4; s++) for (let t = 0; t < 4; t++) if (s !== t) out.push([card(a, s), card(b, t)]); }
+  return out;
+}
+const c0 = card(12, 3); if (rankOf(c0) !== 12 || suitOf(c0) !== 3) throw new Error('kodowanie kart inne niż r*4+s');
+function split(hero: number[], board: number[], classes: string[]) {
+  const dead = new Set([...hero, ...board]); const me = strength([...hero, ...board]); let w = 0, l = 0, t = 0;
+  for (const hc of classes) for (const c of combos(hc)) { if (dead.has(c[0]) || dead.has(c[1])) continue; const v = strength([...c, ...board]); if (me < v) w++; else if (me > v) l++; else t++; }
+  return { w, l, t };
+}
+const straightPossible = (cards: number[]) => { const rs = new Set(cards.flatMap((c) => rankOf(c) === 12 ? [12, -1] : [rankOf(c)])); for (let lo = -1; lo <= 8; lo++) { let k = 0; for (let i = 0; i < 5; i++) if (rs.has(lo + i)) k++; if (k >= 3) return true; } return false; };
+const oesdPossible = (cards: number[]) => { const rs = [...new Set(cards.map(rankOf))].sort((a,b)=>a-b); return rs[rs.length-1]-rs[0] <= 4 || false; };
+for (const f of ['sc-13', 'sc-22', 'sc-25', 'sc-28', 'sc-29']) {
+  const y = parse(readFileSync(`${DIR}/${f}.yaml`, 'utf8'));
+  for (const b of Object.values<any>(y.bounds)) { b.reject ??= []; b.draws ??= []; }
+  const g = { id: y.id, stackBb: y.stackBb, positions: y.positions, levels: y.bounds, decisions: y.decisions } as any;
+  const stat: Record<string, number> = {}; const pierwszy: Record<string, string> = {}; let biez = ''; const inc = (k: string) => { stat[k] = (stat[k] ?? 0) + 1; pierwszy[k] ??= biez; };
+  const przyklady: string[] = []; const ws: number[] = [];
+  for (let seed = 1; seed <= N; seed++) {
+    const v = generateVariant(g, 'latwy', seed);
+    const p: any = v.points[0]; const hero = [...v.hero]; const board = [...v.board]; biez = `seed ${seed}: gracz ${hero.map(cardToString).join('')} rywal ${[...v.villain].map(cardToString).join('')} stół ${board.map(cardToString).join('')}`;
+    inc('warianty');
+    if (p.point === 'flop-size') {
+      const flop = board.slice(0, 3); const vil = [...v.villain];
+      inc('flop ranks=' + classifyFlop(flop).ranks + ' (poker-core classifyFlop)');
+      if (straightPossible(flop)) inc('flop: strit możliwy po 2 kartach (3 rangi w oknie 5)');
+      // equity rywala do rivera (dwie karty), dokładnie
+      const known = new Set([...hero, ...vil, ...flop]); const rest = [...Array(52).keys()].filter((c) => !known.has(c)); let win = 0, tie = 0, n = 0;
+      for (let i = 0; i < rest.length; i++) for (let j = i + 1; j < rest.length; j++) { const b = [...flop, rest[i], rest[j]]; const a = strength([...vil, ...b]), h = strength([...hero, ...b]); n++; if (a < h) win++; else if (a === h) tie++; }
+      const eq2 = (win + tie / 2) / n; ws.push(eq2);
+      if (eq2 > p.requiredBig) inc('equity rywala do rivera > cena ⅔ (zdanie „potrzebuje więcej equity, niż ma” fałszywe dla equity do rivera)');
+      if (przyklady.length < 4) przyklady.push(`seed ${seed}: gracz ${hero.map(cardToString).join('')} rywal ${vil.map(cardToString).join('')} flop ${flop.map(cardToString).join('')} pula ${p.pot} e1=${p.hit.toFixed(4)} cenaMała=${p.requiredSmall.toFixed(4)} cenaDuża=${p.requiredBig.toFixed(4)} equityDoRivera=${eq2.toFixed(4)} stritMożliwy=${straightPossible(flop)}`);
+      continue;
+    }
+    const d = y.decisions[0]; const s = split(hero, board, d.calls), sf = split(hero, board, d.folds);
+    if (s.w !== p.worse || s.l !== p.better || s.t !== p.ties) inc('ROZBIEŻNOŚĆ z generatorem (W/L/T)');
+    const wGen = s.w / (s.w + s.l), wTot = s.w / (s.w + s.l + s.t), lTot = s.l / (s.w + s.l + s.t); ws.push(wGen);
+    if (s.t > 0) inc('remisy wśród sprawdzających > 0');
+    if (wTot <= 0.5) inc('gorsze ÷ WSZYSTKIE sprawdzające ≤ 50% (zdanie „ponad 50% rąk, które sprawdzą, to gorsze” fałszywe)');
+    if (lTot <= 0.5) inc('lepsze ÷ WSZYSTKIE sprawdzające ≤ 50% (zdanie „większość rąk, które sprawdzą, to lepsze” fałszywe)');
+    if (sf.l > 0) inc('pasujące: lepsza kombinacja (war. 2 złamany)');
+    if (sf.t > 0) inc('pasujące: remis z graczem (zdanie „i tak przegrałyby” fałszywe)');
+    if (sf.w + sf.l + sf.t === 0) inc('pasujące: 0 kombinacji (wszystkie zablokowane)');
+    if (przyklady.length < 4) przyklady.push(`seed ${seed}: gracz ${hero.map(cardToString).join('')} stół ${board.map(cardToString).join('')} sprawdza W=${s.w} L=${s.l} T=${s.t} w=${wGen.toFixed(3)} pasuje W=${sf.w} L=${sf.l} T=${sf.t}`);
+  }
+  ws.sort((a, b) => a - b);
+  console.log(`== ${f} (${y.decisions[0].kind}, poziom latwy, ziarna 1–${N})`);
+  for (const [k, n] of Object.entries(stat)) console.log(`  ${k}: ${n}   [pierwszy: ${pierwszy[k]}]`);
+  console.log(`  ${y.decisions[0].kind === 'flop-size' ? 'equity rywala do rivera' : 'w = W÷(W+L)'}: min ${ws[0].toFixed(3)}, mediana ${ws[ws.length >> 1].toFixed(3)}, max ${ws[ws.length - 1].toFixed(3)}`);
+  for (const p of przyklady) console.log('  ' + p);
+}

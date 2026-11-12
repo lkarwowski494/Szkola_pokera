@@ -1,0 +1,7 @@
+# FN-N1 po (sesja FQ): ten sam grep
+trafień: 0
+# zdania warunkowe (tylko wtedy / only when):
+docs/tresci/szablony-robocze/fd/pl/sc-24.yaml:zarabia tylko wtedy, gdy {{t:bluff|blefów}} jest więcej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}
+docs/tresci/szablony-robocze/fd/pl/sc-24.yaml:jest dobry tylko wtedy, gdy {{t:bluff|blefów}} jest mniej, niż wynosi potrzebne equity przy tym {{t:bet|zakładzie}}
+docs/tresci/szablony-robocze/fd/en/sc-24.yaml:makes money only when there are more {{t:bluff|bluffs}} than the equity this bet requires
+docs/tresci/szablony-robocze/fd/en/sc-24.yaml:is right only when there are fewer {{t:bluff|bluffs}} than the equity this bet requires

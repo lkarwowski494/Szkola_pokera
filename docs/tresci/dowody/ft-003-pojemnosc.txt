@@ -1,0 +1,7 @@
+# FT 06-tresci-003: pojemność SC-13 (poziom latwy) po filtrze ranks: [semi-connected, disconnected], 2000 ziaren, 2026-11-12
+# narzędzie: docs/tresci/narzedzia/ft-pojemnosc-sc13.ts (kopiowane do packages/poker-core/.ft-tmp/, uruchomienie: npx tsx .ft-tmp/ft-pojemnosc-sc13.ts <sc-13.yaml> 2000)
+# (a) kod tej gałęzi (sesja-ft-poprawki, generator jak d8df4a9d, MAX_CONSECUTIVE_REJECTIONS = 20 000):
+docs/tresci/szablony-robocze/fq/pl/sc-13.yaml: limit 20000; ziarna 1–2000: warianty 1991, błąd szablonu 9 (ziarna 494, 677, 807, 916, 926, 932, 980, 1108, 1916); flop ranks: {"semi-connected":1951,"disconnected":40}; czas 26 s
+# (b) kod FR (origin/sesja-fp-poprawki @ 87ffa871, naprawa 08-FQ-1, limit 60 000; worktree tylko do odczytu):
+docs/tresci/szablony-robocze/fq/en/sc-13.yaml: limit 60000; ziarna 1–2000: warianty 2000, błąd szablonu 0; flop ranks: {"semi-connected":1960,"disconnected":40}; czas 26 s
+# wniosek: filtr sam nie łamie bramki 2000 ziaren, jeśli SC-13 wejdzie po naprawie FR (08-FQ-1); na starym limicie 9/2000 ziaren to błąd szablonu

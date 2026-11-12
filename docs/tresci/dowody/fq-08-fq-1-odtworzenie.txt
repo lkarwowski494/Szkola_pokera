@@ -1,0 +1,4 @@
+# 08-FQ-1: fikstura FL sc-fx-flop-size (tools/content-build/test/fixtures/flop-size), generateVariant(latwy, ziarno) @ 5ec4f91, 2026-11-12T17:15:11Z
+1107 ok
+1108 Error: sc-fx-flop-size: 20000 odrzuceń z rzędu na poziomie latwy
+1109 ok
