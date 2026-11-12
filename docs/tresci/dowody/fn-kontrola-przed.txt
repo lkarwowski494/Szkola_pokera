@@ -1,0 +1,39 @@
+CZERWONY 06-tresci-001
+  - pl/sc-15: klauzula alpha.bet-third (próg rivera na flopie)
+  - pl/sc-15: klauzula alpha.bet-third (próg rivera na flopie)
+  - en/sc-15: klauzula alpha.bet-third (próg rivera na flopie)
+  - en/sc-15: klauzula alpha.bet-third (próg rivera na flopie)
+CZERWONY 06-tresci-002
+  - pl/sc-07: pula 5, ułamek 0.33 → zakład 2 = 0.400 puli, tekst cbet.size.small = 0.333333
+  - en/sc-07: pula 5, ułamek 0.33 → zakład 2 = 0.400 puli, tekst cbet.size.small = 0.333333
+  - pl/sc-17: pula 5, ułamek 0.75 → zakład 4 = 0.800 puli, tekst cbet.size.big = 0.75
+  - pl/sc-17: pula 5, ułamek 1 → zakład 5 = 1.000 puli, tekst cbet.size.big = 0.75
+  - pl/sc-17: pula 6, ułamek 0.75 → zakład 5 = 0.833 puli, tekst cbet.size.big = 0.75
+  - pl/sc-17: pula 6, ułamek 1 → zakład 6 = 1.000 puli, tekst cbet.size.big = 0.75
+  - en/sc-17: pula 5, ułamek 0.75 → zakład 4 = 0.800 puli, tekst cbet.size.big = 0.75
+  - en/sc-17: pula 5, ułamek 1 → zakład 5 = 1.000 puli, tekst cbet.size.big = 0.75
+  - en/sc-17: pula 6, ułamek 0.75 → zakład 5 = 0.833 puli, tekst cbet.size.big = 0.75
+  - en/sc-17: pula 6, ułamek 1 → zakład 6 = 1.000 puli, tekst cbet.size.big = 0.75
+CZERWONY 06-tresci-003
+  - pl/sc-09: rywal BB nie działa preflop przed graczem CO, a sytuacja mówi, że limpował przed nim
+  - en/sc-09: rywal BB nie działa preflop przed graczem CO, a sytuacja mówi, że limpował przed nim
+CZERWONY 06-tresci-004
+  - pl/sc-23: zasięg „w kolorze” dwuznaczny (AK; lista pasujących)
+CZERWONY 06-tresci-005
+  - pl/sc-31: sytuacja nie zaczyna się ramą założenia
+  - pl/sc-31: brak poziomu z expected [fold]
+  - en/sc-31: sytuacja nie zaczyna się ramą założenia
+  - en/sc-31: brak poziomu z expected [fold]
+CZERWONY 06-tresci-006
+  - pl/sc-07: pas uzasadniony zaprzeczeniem bezwzględnym (ani… ani)
+  - en/sc-07: pas uzasadniony zaprzeczeniem bezwzględnym (ani… ani)
+CZERWONY 06-tresci-007
+  - D-1435 nie nazywa sprzeczności źródeł spotu CO vs BTN (Pailiku, Deepfold)
+CZERWONY 06-tresci-010
+  - pl/sc-17: nagłówek nie przypisuje „When to Call With Ace-High” Upswingowi
+  - en/sc-17: nagłówek nie przypisuje „When to Call With Ace-High” Upswingowi
+CZERWONY 06-tresci-011
+  - pl/sc-23: wyjaśnienie mocniejsze niż kryterium a.v < b.v && a.f >= b.f
+  - en/sc-23: wyjaśnienie mocniejsze niż kryterium a.v < b.v && a.f >= b.f
+9 czerwonych z 9
+kod=1
