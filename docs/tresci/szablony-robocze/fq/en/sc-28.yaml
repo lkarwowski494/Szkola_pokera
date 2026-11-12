@@ -1,0 +1,23 @@
+# SC-28 (M9): wersja en szkicu pl (struktura identyczna). Nagłówek i zależności: `../pl/sc-28.yaml`.
+id: sc-28
+module: m9
+situation: "You have an {{t:overpair}}. You {{t:bet}} the flop and the turn, and the {{t:big-blind}} {{t:call|called}} both times; on the river they {{t:check}}. Assume your opponent doesn't {{t:raise}}: they {{t:call}} with every AK, AQ, AJ, KQ, KJ and QJ, and {{t:fold}} every JT. Do you take a third {{t:street}} of {{t:value}} or {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.2, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo, KJs, KJo, QJs, QJo]
+    folds: [JTs, JTo]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - action: "bet"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. You {{t:bet}} a third time because here your opponent pays with weaker hands: more than {{n:value.threshold}} of the hands that will {{t:call}} are worse than yours. Every {{t:call}} with a worse hand wins one {{t:bet}}, and every {{t:call}} with a better hand loses one; when your opponent {{t:fold|folds}} a worse hand, you win the same {{t:pot}} you would have won by {{t:check|checking}}."
+      - action: "check"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. {{t:check|Checking}} gives up value here: more than {{n:value.threshold}} of the hands that will {{t:call}} are worse than yours, so a {{t:bet}} wins more from them than it loses to better ones. You take a third {{t:street}} of {{t:value}} with an {{t:overpair}} when your opponent pays with weaker hands, and here they do."

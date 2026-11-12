@@ -1,0 +1,22 @@
+# SC-25 (M8): wersja en szkicu pl (struktura identyczna). Nagłówek i zależności: `../pl/sc-25.yaml`.
+id: sc-25
+module: m8
+situation: "On the river you have {{t:second-pair}}, you're on the Button, and the {{t:big-blind}} {{t:check|checks}}. Assume your opponent doesn't {{t:raise}}: they {{t:call}} with AA, KK and every AK, AQ and KQ, and {{t:fold}} every QJ and JT. Do you {{t:bet}} or {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. You {{t:check}} and go to {{t:showdown}} for free, because most of the hands that will {{t:call}} are better than yours: every {{t:call}} with a better hand loses one {{t:bet}}, and a worse one wins only one. After a {{t:check}} you win the {{t:pot}} against every worse hand your opponent has."
+      - action: "bet"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. A {{t:bet}} loses: most of the hands that will {{t:call}} are better than yours, and the hands that will {{t:fold}} would have lost to you at {{t:showdown}} anyway. That way a {{t:bet}} turns a hand with showdown value into a {{t:bluff}}."

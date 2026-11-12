@@ -1,0 +1,28 @@
+# SC-28 (M9) po KO-085 P3a: trzecia ulica wartości overparą — bet czy czekanie na riverze z pozycji (punkt river-value, 08-FD-4,
+# D-1302, D-1417, D-1418). Ocena: rachunek R-M8-001 (math): w = gorsze ÷ (gorsze + lepsze) wśród kombinacji sprawdzających po
+# usunięciu kart gracza i stołu, remisy pominięte; bet ⇔ w ≥ 0,5 + δ. Zakres rywala to dana zadania (D-1300): sytuacja mówi „załóż”,
+# wyjaśnienie nie uogólnia jej na typ gracza. Kierunek R-M9-008 („trzecią wtedy, gdy rywal płaci słabszymi rękami”).
+# Szkic sesji FQ (D-1462). ZALEŻNOŚCI: river-value bez widoku (D-1420, projekt roli 04); do content/ dopiero po naprawie
+# 08-programista-002 (filtr dryBoard bez czerwonego testu; sesja FP; recenzja FO, D-1445).
+id: sc-28
+module: m9
+situation: "Masz {{t:overpair|overparę}}. {{t:bet|Stawiałeś}} na flopie i na turnie, a {{t:big-blind}} za każdym razem {{t:call|sprawdzał}}; na riverze {{t:check|czeka}}. Załóż, że rywal nie {{t:raise|przebija}}: {{t:call|sprawdzi}} z każdym AK, AQ, AJ, KQ, KJ i QJ, a {{t:fold|spasuje}} z każdym JT. Grasz trzecią {{t:street|ulicę}} {{t:value|dla wartości}} czy {{t:check|czekasz}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.2, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo, KJs, KJo, QJs, QJo]
+    folds: [JTs, JTo]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - action: "bet"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na riverze. {{t:bet|Stawiasz}} trzeci raz, bo rywal płaci tu słabszymi rękami: ponad {{n:value.threshold}} rąk, które {{t:call|sprawdzą}}, to ręce gorsze od twojej. Każde {{t:call|sprawdzenie}} gorszą ręką wygrywa jeden {{t:bet|zakład}}, a każde lepszą przegrywa jeden; gdy rywal {{t:fold|pasuje}} gorszą ręką, wygrywasz tę samą {{t:pot|pulę}}, którą wygrałbyś po {{t:check|czekaniu}}."
+      - action: "check"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na riverze. {{t:check|Czekanie}} oddaje tu wartość: ponad {{n:value.threshold}} rąk, które {{t:call|sprawdzą}}, to ręce gorsze od twojej, więc {{t:bet|zakład}} wygrywa od nich więcej, niż traci na lepszych. {{t:overpair|Overparą}} grasz trzecią {{t:street|ulicę}} {{t:value|dla wartości}} wtedy, gdy rywal płaci słabszymi rękami, a tu tak jest."

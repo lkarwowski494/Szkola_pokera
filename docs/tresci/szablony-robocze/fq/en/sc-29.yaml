@@ -1,0 +1,22 @@
+# SC-29 (M10): wersja en szkicu pl (struktura identyczna). Nagłówek i zależności: `../pl/sc-29.yaml`.
+id: sc-29
+module: m10
+situation: "On the river you have {{t:top-pair}}, you're on the Button, and the {{t:big-blind}} {{t:check|checks}}. Your opponent is a passive {{t:recreational|recreational player}}: {{t:vpip}} of about {{n:hud.vpip.loose}} or more, and a {{t:pfr}} more than {{n:hud.gap.passive}} points lower. Assume they don't {{t:raise}}: they {{t:call}} with JJ, TT and every AK, AQ, AJ, AT, KQ, KJ, QJ and JT, and {{t:fold}} every KT and QT. Do you {{t:bet}} or {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. You {{t:bet}} for {{t:value}} because here this opponent also {{t:call|calls}} with weaker hands: more than {{n:value.threshold}} of the hands that will {{t:call}} are worse than yours. Against a passive {{t:recreational|recreational player}} you value bet more hands, including thinner ones."
+      - action: "check"
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. {{t:check|Checking}} gives up value here: more than {{n:value.threshold}} of the hands that will {{t:call}} are worse than yours, so a {{t:bet}} wins more from them than it loses to better ones. Against a passive {{t:recreational|recreational player}} you value bet more hands, including thinner ones."
