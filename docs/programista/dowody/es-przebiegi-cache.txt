@@ -1,0 +1,50 @@
+# Przebiegi E2E iOS (odczyt API GitHub, job logs, 2026-11-12), tylko odczyt, nic nie uruchomiono
+# b3963e9a: run 43072503219 job 130703797198 (bez cache) | a076a05: run 43117974356 job 130850789450 (build, DD z 43110722675) | 5997fd68: run 43126163648 job 130878645490 (konfiguracja = fb99729e)
+
+## Czasy kroków (z API list_workflow_jobs)
+b3963e9a: job 17:53:39–18:45:14 = 51:35; pod install 17:55:47–17:58:09 = 2:22; xcodebuild 17:58:09–18:27:07 = 28:58
+a076a05 (build): pod install 1:08; restore DD 23:14:51–23:15:29 = 0:38; xcodebuild 23:15:29–23:40:01 = 24:32; Post Cache DD 0:01 (trafienie klucza głównego, bez zapisu)
+5997fd68: job 00:43:30–01:38:54 = 55:24; restore pods 0:11; pod install 1:24; restore DD 00:46:52–00:48:03 = 1:11; xcodebuild 00:48:03–01:18:59 = 30:56; Post Cache DD 01:36:47–01:38:10 = 1:23; Post Cache CocoaPods 0:19
+
+## grep w logach (komenda: grep -c Compiling; grep -A1 'Xcode 2'; grep 'Cache restored from key|Cache hit occurred|Cache saved with')
+== job-b396.txt
+Xcode 26.6
+Build version 17F113
+liczba linii 'Compiling': 1147
+Cache Size: ~180 MB (188653787 B)
+Cache restored from key: node-cache-macOS-arm64-pnpm-6bae1c4e78a1a66b2a1ad9a2788da3d8b6c66659d8888593f9aa2bddffc02e9a
+Cache hit occurred on the primary key node-cache-macOS-arm64-pnpm-6bae1c4e78a1a66b2a1ad9a2788da3d8b6c66659d8888593f9aa2bddffc02e9a, not saving cache.
+== job-a076.txt
+Xcode 26.6
+Build version 17F113
+liczba linii 'Compiling': 1147
+Cache Size: ~180 MB (188700972 B)
+Cache restored from key: node-cache-macOS-arm64-pnpm-6bae1c4e78a1a66b2a1ad9a2788da3d8b6c66659d8888593f9aa2bddffc02e9a
+Cache Size: ~161 MB (168573741 B)
+Cache restored from key: cocoapods-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-a076a05bb0984ae0c76408bc2ac2f583b1bc796f
+Cache Size: ~2214 MB (2321993974 B)
+Cache restored from key: xcode-dd-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-a076a05bb0984ae0c76408bc2ac2f583b1bc796f
+Cache hit occurred on the primary key xcode-dd-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-a076a05bb0984ae0c76408bc2ac2f583b1bc796f, not saving cache.
+Cache hit occurred on the primary key cocoapods-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-a076a05bb0984ae0c76408bc2ac2f583b1bc796f, not saving cache.
+Cache hit occurred on the primary key node-cache-macOS-arm64-pnpm-6bae1c4e78a1a66b2a1ad9a2788da3d8b6c66659d8888593f9aa2bddffc02e9a, not saving cache.
+== job-5997.txt
+Xcode 26.6
+Build version 17F113
+liczba linii 'Compiling': 1144
+Cache Size: ~180 MB (188700972 B)
+Cache restored from key: node-cache-macOS-arm64-pnpm-6bae1c4e78a1a66b2a1ad9a2788da3d8b6c66659d8888593f9aa2bddffc02e9a
+Cache Size: ~161 MB (168573741 B)
+Cache restored from key: cocoapods-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-a076a05bb0984ae0c76408bc2ac2f583b1bc796f
+Cache Size: ~2214 MB (2321993974 B)
+Cache restored from key: xcode-dd-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-a076a05bb0984ae0c76408bc2ac2f583b1bc796f
+Cache saved with key: xcode-dd-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-5997fd68bba146c79eba82d452bbee4edf1c90b5
+Cache saved with key: cocoapods-v1-3c022a93eca473348aa0ab792076e9a0a292c19a93487cd6709dc7321bedf0d4-5997fd68bba146c79eba82d452bbee4edf1c90b5
+Cache hit occurred on the primary key node-cache-macOS-arm64-pnpm-6bae1c4e78a1a66b2a1ad9a2788da3d8b6c66659d8888593f9aa2bddffc02e9a, not saving cache.
+
+## Bundle JS wykonany mimo ciepłego DerivedData (job-5997.txt)
+6810:2026-11-12T01:18:58.5562500Z [PokerGym] Running script Bundle React Native code and images
+6936:2026-11-12T01:18:59.3108780Z note: Run script build phase 'Bundle React Native code and images' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'PokerGym' from pr
+
+## Szablon prebuild expo-template-bare-minimum 58.0.33 (npm pack), ios/HelloWorld.xcodeproj/project.pbxproj
+23:169-			alwaysOutOfDate = 1;
+31:177:			name = "Bundle React Native code and images";

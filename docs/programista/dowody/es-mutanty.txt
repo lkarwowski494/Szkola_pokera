@@ -1,0 +1,40 @@
+# Mutanty e2e-ios.yml (kopie poza drzewem źródeł, /tmp/claude-0/-home-user-Szkola-pokera/d35d7259-bd6d-5921-bb30-ab1195b0b546/scratchpad/m*), commit fb99729e, 2026-11-12
+# komenda: bash mutanty.sh <scratch> <repo>; test: node --test --test-name-pattern='e2e-ios.yml: cache buildu' workflowy.test.mjs
+
+#!/bin/bash
+# Mutanty e2e-ios.yml poza drzewem źródeł; uruchamia tylko test „cache buildu” z workflowy.test.mjs.
+S=$1; R=$2; T='e2e-ios.yml: cache buildu'
+uruchom() { # $1 nazwa, $2 skrypt perl na pliku
+  M=$S/m; rm -rf $M; mkdir -p $M/tests/narzedzia $M/.github; cp -r $R/.github/workflows $M/.github/; cp $R/tests/narzedzia/workflowy.test.mjs $M/tests/narzedzia/; ln -s $R/node_modules $M/node_modules
+  [ -n "$2" ] && perl -0pi -e "$2" $M/.github/workflows/e2e-ios.yml
+  cmp -s $M/.github/workflows/e2e-ios.yml $R/.github/workflows/e2e-ios.yml && zm="bez zmiany pliku" || zm="plik zmieniony"
+  node --test --test-name-pattern="$T" $M/tests/narzedzia/workflowy.test.mjs > $S/m-$1.log 2>&1; k=$?
+  printf '%-34s %-18s kod=%s  %s\n' "$1" "$zm" "$k" "$(grep -E '^# (pass|fail)' $S/m-$1.log | tr '\n' ' ')"
+}
+uruchom M0-oryginal ''
+uruchom M1-usun-cache-cocoapods 's/      - name: Cache CocoaPods\n.*?(      - name: Projekt iOS)/$1/s'
+uruchom M2-usun-cache-deriveddata 's/      - name: Cache DerivedData\n.*?(      - name: Kompilacja)/$1/s'
+uruchom M3-usun-oba 's/      - name: Cache CocoaPods\n.*?(      - name: Projekt iOS)/$1/s; s/      - name: Cache DerivedData\n.*?(      - name: Kompilacja)/$1/s'
+uruchom M4-klucz-bez-app-json "s/, 'apps\/mobile\/app.json'//g"
+uruchom M5-klucz-bez-sha 's/-\$\{\{ github.sha \}\}//g'
+uruchom M6-restore-sam-przedrostek 's/restore-keys: (cocoapods|xcode-dd)-v1-\$\{\{[^\n]*/restore-keys: $1-/g'
+uruchom M7-zla-sciezka-dd 's#path: apps/mobile/ios/build#path: apps/mobile/build#'
+uruchom M8-bez-if 's/(      - name: Cache DerivedData\n)        if:[^\n]*\n/$1/'
+uruchom M9-dd-przed-prebuild 's/(      - name: Cache DerivedData\n.*?)(      - name: Kompilacja)/$2/s; s/(      - name: Projekt iOS)/      - name: Cache DerivedData\n        if: inputs.aplikacja_z_przebiegu == '"''"'\n        uses: actions\/cache\@v4\n        with:\n          path: apps\/mobile\/ios\/build\n          key: xcode-dd-v1-\$\{\{ hashFiles('"'pnpm-lock.yaml'"') \}\}-x\n          restore-keys: xcode-dd-v1-\$\{\{ hashFiles('"'pnpm-lock.yaml'"') \}\}-\n$1/s'
+uruchom M10-timeout-30 's/timeout-minutes: 67/timeout-minutes: 30/'
+
+## Wynik
+M0-oryginal                        bez zmiany pliku   kod=0  # pass 1 # fail 0 
+M1-usun-cache-cocoapods            plik zmieniony     kod=1  # pass 0 # fail 1 
+M2-usun-cache-deriveddata          plik zmieniony     kod=1  # pass 0 # fail 1 
+M3-usun-oba                        plik zmieniony     kod=1  # pass 0 # fail 1 
+M4-klucz-bez-app-json              plik zmieniony     kod=0  # pass 1 # fail 0 
+M5-klucz-bez-sha                   plik zmieniony     kod=0  # pass 1 # fail 0 
+M6-restore-sam-przedrostek         plik zmieniony     kod=1  # pass 0 # fail 1 
+M7-zla-sciezka-dd                  plik zmieniony     kod=0  # pass 1 # fail 0 
+M8-bez-if                          plik zmieniony     kod=1  # pass 0 # fail 1 
+M9-dd-przed-prebuild               plik zmieniony     kod=1  # pass 0 # fail 1 
+M10-timeout-30                     plik zmieniony     kod=0  # pass 1 # fail 0 
+
+## M10 (timeout 67→30) na tests/narzedzia/e2e-flowy.test.mjs (kopia; inne czerwienie = brak kopii src/ w mutancie)
+not ok 5 - e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)  → kod=1
