@@ -1,0 +1,47 @@
+// Mutanty na kopii (worktree w scratchpadzie). Każdy: podmiana dokładnego napisu (musi wystąpić raz), test celowany, przywrócenie pliku.
+import { readFileSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+const WT = process.argv[2];
+const only = process.argv[3];
+const SG = 'packages/poker-core/src/scenario-gen.ts';
+const CB = 'tools/content-build/src/scenariusze.ts';
+const WA = 'apps/mobile/src/features/scenariusz/wariant.ts';
+const PC = (f) => `cd ${WT}/packages/poker-core && npx vitest run ${f}`;
+const TB = (f) => `cd ${WT}/tools/content-build && npx vitest run ${f}`;
+const MO = (f) => `cd ${WT}/apps/mobile && npx jest --ci ${f}`;
+const M = [
+  ['M01 classComboSplit: remis liczony jako gorsza ręka', SG, 'if (moja < jego) wynik.worse++;', 'if (moja <= jego) wynik.worse++;', PC('test/fl-river-value.test.ts')],
+  ['M02 classComboSplit: bez usuwania kart martwych', SG, 'if (martwe.has(c[0]) || martwe.has(c[1])) continue;', 'if (false) continue;', PC('test/fl-river-value.test.ts')],
+  ['M03 riverValueVerdict: próg bet bez δ (w ≥ 0,5)', SG, 'return odPolowy >= delta - RIVER_VALUE_EPS ?', 'return odPolowy >= 0 ?', PC('test/fl-river-value.test.ts')],
+  ['M04 riverValueVerdict: granica bet wyłączna', SG, 'return odPolowy >= delta - RIVER_VALUE_EPS ?', 'return odPolowy > delta + RIVER_VALUE_EPS ?', PC('test/fl-river-value.test.ts')],
+  ['M05 generator river-value: bez odrzucenia lepszej ręki wśród folds (D-1302 war. 2)', SG, 'if (classComboSplit(hero, board, spec.folds).better > 0) return null;', '', PC('test/fl-river-value.test.ts')],
+  ['M06 generator river-value: dryBoard bez warunku koloru', SG, 'if (Math.max(...kolory) >= 3 || categoryOf', 'if (Math.max(...kolory) >= 9 || categoryOf', PC('test/fl-river-value.test.ts')],
+  ['M07 generator river-value: dryBoard bez warunku strita', SG, '|| categoryOf(strength(board)) === HandCategory.Straight) return null;', ') return null;', PC('test/fl-river-value.test.ts')],
+  ['M08 generator river-value: bez filtra pairKind', SG, 'if (rodzaj === null || !spec.pairKind.includes(rodzaj)) return null;', '', PC('test/fl-river-value.test.ts')],
+  ['M09 flopSizeAnalysis: e = N/45 zamiast N/47', SG, 'const e = (wygrywajace.size + ties) / draw.unseen;', 'const e = (wygrywajace.size + ties) / (draw.unseen - 2);', PC('test/fl-flop-size.test.ts')],
+  ['M10 flopSizeAnalysis: czyste outy bez warunku 0 remisów', SG, 'const clean = ties === 0 && wygrywajace', 'const clean = wygrywajace', PC('test/fl-flop-size.test.ts')],
+  ['M11 flopSizeAnalysis: czyste outy bez równości zbiorów (tylko liczność)', SG, '&& [...wygrywajace].every((c) => nominalne.has(c));', ';', PC('test/fl-flop-size.test.ts')],
+  ['M12 generator flop-size: margines dużego wobec N/47 zamiast N/45 (D-1421)', SG, '!inMargin(r.marginBigExact, b, i)) return null;', '!inMargin(r.marginBig, b, i)) return null;', PC('test/fl-flop-size.test.ts')],
+  ['M13 generator flop-size: bez warunku silnej ręki', SG, 'if (!silnaZrobiona(classifyHolding(hero, flop)) || classifyHolding(villain, flop).improvesBoard) return null;', 'if (classifyHolding(villain, flop).improvesBoard) return null;', PC('test/fl-flop-size.test.ts')],
+  ['M14 generator flop-size: bez warunku całej kwoty zakładu', SG, "if (Math.abs(pot * f - Math.round(pot * f)) > 1e-9 || Math.round(pot * f) <= 0) throw new TemplateError(`${t.id}: flop-size: pula", "if (false) throw new TemplateError(`${t.id}: flop-size: pula", PC('test/fl-flop-size.test.ts')],
+  ['M15 generator iso-size: ręka z całej talii (cofnięcie 08-FD-2)', SG, "} else if (first.kind === 'size-spot' && first.check === 'iso-size') {", "} else if (false) {", PC('test/fl-iso-size-zakres.test.ts')],
+  ['M16 bramka flop-size: margines > 0 zamiast ≥ 0,02', CB, "if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt flop-size", "if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt flop-size", TB('test/fl-bramka-flop-size-river-value.test.ts')],
+  ['M17 bramka flop-size: bez kontroli całej kwoty', CB, 'if (Math.abs(pot * f - Math.round(pot * f)) > 1e-9) e.push(', 'if (false) e.push(', TB('test/fl-bramka-flop-size-river-value.test.ts')],
+  ['M18 bramka ekranu: river-value przepuszczony', CB, "'turn-bet', 'flop-size', 'river-catch'", "'turn-bet', 'flop-size', 'river-value', 'river-catch'", TB('test/fl-bramka-flop-size-river-value.test.ts')],
+  ['M19 bramka river-value: bez kontroli powtórzonych klas', CB, "if (new Set(d.calls).size !== d.calls.length || new Set(d.folds).size !== d.folds.length) e.push(", 'if (false) e.push(', TB('test/fl-bramka-flop-size-river-value.test.ts')],
+  ['M20 mobile: mały zakład flop-size oceniany jako błąd', WA, "if (d.point === 'turn-bet' || d.point === 'flop-size') return a === d.correct ? 'zgodne' : 'niedokladnosc';", "if (d.point === 'turn-bet') return a === d.correct ? 'zgodne' : 'niedokladnosc';", MO('src/features/scenariusz/__tests__/fl-flop-size-ekran.test.tsx')],
+  ['M21 mobile: widok flop-size z ulicą turn', WA, "if (d.point === 'turn-bet' || d.point === 'flop-size') return { indeks, ulica: d.street,", "if (d.point === 'turn-bet' || d.point === 'flop-size') return { indeks, ulica: 'turn',", MO('src/features/scenariusz/__tests__/fl-flop-size-ekran.test.tsx')],
+];
+for (const [nazwa, plik, stary, nowy, cmd] of M) {
+  if (only && !nazwa.startsWith(only)) continue;
+  const p = `${WT}/${plik}`;
+  const orig = readFileSync(p, 'utf8');
+  const n = orig.split(stary).length - 1;
+  if (n !== 1) { console.log(`${nazwa}: BŁĄD SONDY (napis występuje ${n} razy)`); continue; }
+  writeFileSync(p, orig.replace(stary, nowy));
+  let kod = 0, out = '';
+  try { out = execSync(cmd + ' 2>&1', { encoding: 'utf8', maxBuffer: 1 << 26, timeout: 900_000 }); } catch (e) { kod = e.status ?? -1; out = String(e.stdout ?? ''); }
+  writeFileSync(p, orig);
+  const lin = out.split('\n').filter((l) => /Tests:|Tests +\d|✗|×|FAIL|failed/.test(l)).slice(0, 4).map((l) => '    ' + l.trim().slice(0, 200));
+  console.log(`${nazwa}: ${kod === 0 ? 'PRZEŻYŁ' : 'ZABITY'} (kod ${kod})\n  komenda: ${cmd}\n${lin.join('\n')}`);
+}

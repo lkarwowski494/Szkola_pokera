@@ -1,0 +1,20 @@
+# Fixture testu FL (08-FD-3): rozmiar zakładu na flopie silną ręką wobec drawa do koloru (R-M7-006, D-1306). Nie jest treścią aplikacji.
+id: sc-fx-flop-size
+module: m5
+situation: "Fixture: zakład na flopie."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: ["two-tone"] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M4-004
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - { action: "bet-small", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, mały zakład daje drawowi dobrą cenę." }
+      - { action: "bet-big", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, duży zakład odbiera drawowi cenę." }

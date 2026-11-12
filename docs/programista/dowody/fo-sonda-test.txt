@@ -1,0 +1,29 @@
+// Sonda FO (poza repo): czy da się napisać test, który zabija mutanty M06, M07, M12. Uruchamiana w kopii (worktree), nie commitowana.
+import { describe, expect, it } from 'vitest';
+import { categoryOf, generateVariant, HandCategory, strength, suitOf, type GeneratorTemplate } from '../src';
+const rv = (folds: string[]): GeneratorTemplate => ({
+  id: 'sonda-rv', positions: { hero: 'BTN', villain: 'BB' },
+  levels: { latwy: { draws: [], reject: [], expected: ['bet'], marginMin: 0.05 } },
+  decisions: [{ kind: 'river-value', street: 'river', calls: ['AJo', 'KJo', 'JTo', 'J9o', '88', '55', 'AKo', 'AQo', 'KQo'], folds, pairKind: ['overpair'], dryBoard: true }],
+} as unknown as GeneratorTemplate);
+describe('sonda dryBoard (folds bez rąk w kolorze)', () => {
+  it('200 ziaren: stół bez 3 kart jednej barwy i bez strita', () => {
+    const zle: string[] = [];
+    for (let seed = 1; seed <= 200; seed++) {
+      const v = generateVariant(rv(['72o']), 'latwy', seed);
+      const kolory = [0, 1, 2, 3].map((su) => v.board.filter((c) => suitOf(c) === su).length);
+      if (Math.max(...kolory) >= 3) zle.push(`${seed}: kolor`);
+      if (categoryOf(strength(v.board)) === HandCategory.Straight) zle.push(`${seed}: strit na stole`);
+    }
+    expect(zle).toEqual([]);
+  }, 300_000);
+});
+const fs = (big: number, small: number, delta: number): GeneratorTemplate => ({
+  id: 'sonda-fs', levels: { latwy: { draws: ['flush'], reject: [], marginMin: delta, expected: ['bet-big'], flop: { suits: ['two-tone'] } } },
+  decisions: [{ kind: 'flop-size', street: 'flop', pots: [8, 16, 24], small, big }],
+} as unknown as GeneratorTemplate);
+describe('sonda D-1421 (duży = ½ puli: cena 0,25; 9/47 → margines 0,0585, 9/45 → 0,05)', () => {
+  it('δ = 0,055: żaden wariant (dokładne equity N/45 nie ma marginesu)', () => {
+    expect(() => generateVariant(fs(0.5, 0.125, 0.055), 'latwy', 1)).toThrow();
+  }, 300_000);
+});

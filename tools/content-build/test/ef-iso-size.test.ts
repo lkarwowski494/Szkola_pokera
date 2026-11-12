@@ -13,7 +13,8 @@ const BB = 100;
 const cfg: TableConfig = { stacks: Array(6).fill(100 * BB), smallBlind: BB / 2, bigBlind: BB, button: 3 };
 const reguly = kit.rules.filter((r) => ['open-size', 'three-bet-size', 'no-limp', 'iso-size'].includes(r.check.kind));
 const kitIso = { ...kit, rules: reguly.filter((r) => r.check.kind === 'iso-size') };
-const ctx = { spots: [], thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, sizeRules: reguly };
+// 08-FD-2 (sesja FL): iso-size losuje rękę z zakresu rfi.<pozycja>, więc kontekst niesie prawdziwe zakresy treści (dawniej spots: [])
+const ctx = { spots: kit.spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 }, sizeRules: reguly };
 const C: PlayerAction = { type: 'call' };
 const F: PlayerAction = { type: 'fold' };
 const R = (bb: number): PlayerAction => ({ type: 'raise', to: Math.round(bb * BB) });

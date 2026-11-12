@@ -4,10 +4,10 @@
 import type { Card } from './cards';
 import { dealCards, FULL_DECK, makeCard, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
-import { analyseOutsSpot, type DrawKind } from './drills';
+import { analyseOutsSpot, DRAW_CALL_MIN_GAP, type DrawKind } from './drills';
 import { cbetVerdict, isoSizeStandardBb, type IsoParams, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
-import { classifyHolding, HOLDING_LIMITS, type HoldingClass } from './holding';
-import { strength } from './evaluate';
+import { classifyHolding, HOLDING_LIMITS, type HoldingClass, type PairKind } from './holding';
+import { categoryOf, HandCategory, strength } from './evaluate';
 import { hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
 import { createRng, pick } from './rng';
@@ -115,7 +115,33 @@ export interface PickHandSpec {
   calls: readonly string[];
   folds: readonly string[];
 }
-export type DecisionSpec = PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
+/**
+ * 08-FD-4 (R-M8-001, D-1302, D-1355): bet albo czekanie na riverze z pozycji. Zakres rywala to dana zadania: klasy rąk, które sprawdzą (`calls`) i które spasują (`folds`);
+ * werdykt z w = gorsze ÷ (gorsze + lepsze) wśród `calls` (remisy pominięte), δ z marginesu poziomu (≥ 0,02, D-1051). Wariant odrzucany, gdy któraś klasa z `folds` ma
+ * kombinację lepszą od ręki gracza (wzór zaniżałby zysk z bet, D-1302 war. 2). Opcjonalne filtry szkicu SC-28: `pairKind` (rodzaj pary gracza, np. overpair)
+ * i `dryBoard` (stół bez trzech kart jednego koloru i bez strita na stole).
+ */
+export interface RiverValueSpec {
+  kind: 'river-value';
+  street: 'river';
+  calls: readonly string[];
+  folds: readonly string[];
+  pairKind?: readonly PairKind[];
+  dryBoard?: boolean;
+}
+/**
+ * 08-FD-3 (SC-13, D-1306): rozmiar zakładu silną ręką na flopie wobec drawa rywala (rodzaj z `draws` poziomu, w praktyce draw do koloru z 9 czystymi outami).
+ * Dwa rozmiary: `small` i `big` (ułamki puli, np. ¼ i ⅔); poprawny jest `bet-big`, gdy rywal ma cenę przy małym (e − cena ≥ δ) i nie ma jej przy dużym (cena − e ≥ δ).
+ * Zakłady muszą być całymi kwotami (pula × ułamek całkowita), żeby pokazane liczby były dokładnymi ułamkami puli.
+ */
+export interface FlopSizeSpec {
+  kind: 'flop-size';
+  street: 'flop';
+  pots: readonly number[];
+  small: number;
+  big: number;
+}
+export type DecisionSpec = FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -372,7 +398,32 @@ export interface PickHandVariantDecision {
   folds: readonly [number, number];
   correct: 'hand-a' | 'hand-b';
 }
-export type VariantDecision = PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
+export interface FlopSizeVariantDecision {
+  point: 'flop-size';
+  street: 'flop';
+  pot: number;
+  betSmall: number;
+  betBig: number;
+  /** Cena drawa rywala przy każdym zakładzie: zakład ÷ (pula + 2·zakład). */
+  requiredSmall: number;
+  requiredBig: number;
+  /** e = N/47: szansa rywala na trafienie na turnie (konwencja jednej karty, = nominalne outy drawa przy czystych outach). */
+  hit: number;
+  drawKind: DrawKind;
+  correct: 'bet-big';
+}
+export interface RiverValueVariantDecision {
+  point: 'river-value';
+  street: 'river';
+  /** Kombinacje sprawdzające po usunięciu kart martwych: gorsze (W), lepsze (L) i remisy od ręki gracza. */
+  worse: number;
+  better: number;
+  ties: number;
+  /** w = W ÷ (W + L); dla wariantu zawsze poza pasem ±δ od 0,5. */
+  w: number;
+  correct: 'bet' | 'check';
+}
+export type VariantDecision = FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -471,7 +522,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
   }
@@ -599,6 +650,10 @@ export function czysteOuty(hero: readonly Card[], villain: readonly Card[], turn
   return wygrywajace;
 }
 
+/** Silna gotowa ręka gracza (turn-bet, flop-size): układ od dwóch par wzwyż albo nadpara / najwyższa para z kickerem ≥ Q (08-EL-1, D-1256). */
+function silnaZrobiona(h: ReturnType<typeof classifyHolding>): boolean {
+  return h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || (h.pairKind === 'top' && (h.kicker ?? -1) >= TURN_BET_KICKER_MIN)));
+}
 function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, seed: number, rng: () => number, ctx: GeneratorContext | undefined): ScenarioVariant | null {
   const first = t.decisions[0]!;
   let hero: [Card, Card];
@@ -665,6 +720,13 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     rest = dealCards(rng, 7, hero);
     // wąska tekstura poziomu (SC-11 łatwy: ok. 0,4% flopów) razem z ręką z zakresu zjadłaby limit odrzuceń z rzędu: flop dolosowujemy do tekstury (tanio, bez klasyfikacji ręki)
     for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
+  } else if (first.kind === 'size-spot' && first.check === 'iso-size') {
+    // 08-FD-2 (SC-09, D-1415): „masz rękę, którą przebijasz” — ręka gracza pochodzi z zakresu otwarcia jego pozycji (spot rfi.<pozycja>, jak w cbet-case),
+    // a nie z całej talii (72o z CO uczyłoby izolacji ręką spoza zakresu). Brak spotu (np. BB: nie ma rfi.bb) to błąd szablonu, nie cichy powrót do talii.
+    if (!ctx) throw new TemplateError(`${t.id}: punkt iso-size wymaga danych zakresów (GeneratorContext)`);
+    if (!t.positions) throw new TemplateError(`${t.id}: punkt iso-size wymaga positions (zakres otwarcia gracza)`);
+    hero = handFromRange(t.id, ctx, `rfi.${t.positions.hero.toLowerCase()}`, rng, 'zakres otwarcia gracza');
+    rest = dealCards(rng, 7, hero);
   } else {
     const cards = dealCards(rng, 9);
     hero = [cards[0]!, cards[1]!];
@@ -721,6 +783,28 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       icmSuffix = `|${stacks.join('-')}|${heroIndex}${villainIndex}`; // stacki są pokazane w decyzji: ta sama ręka przy innych stackach to inne rozdanie
       continue;
     }
+    if (spec.kind === 'flop-size') {
+      // 08-FD-3 (D-1306): silna ręka gracza na flopie two-tone wobec drawa rywala; konwencja jednej karty (e = N/47) i czyste outy jak turn-bet (D-1286)
+      if (spec.pots.length === 0 || !(spec.small > 0) || !(spec.big > spec.small)) throw new TemplateError(`${t.id}: flop-size wymaga pots i 0 < small < big`);
+      for (const pot of spec.pots) for (const f of [spec.small, spec.big]) {
+        if (Math.abs(pot * f - Math.round(pot * f)) > 1e-9 || Math.round(pot * f) <= 0) throw new TemplateError(`${t.id}: flop-size: pula ${pot} × ${f} nie daje zakładu będącego całą kwotą (ceny drawa z dokładnych ułamków puli)`);
+      }
+      if (b.expected[i] !== 'bet-big') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu flop-size to bet-big (R-M7-006: duży zakład odbiera drawowi cenę), jest ${String(b.expected[i])}`);
+      const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
+      if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12)) throw new TemplateError(`${t.id}: poziom ${level}: flop-size wymaga marginesu ≥ ${DRAW_CALL_MIN_GAP} (D-1051, D-1306), jest ${delta}`);
+      // tanie warunki konieczne przed klasyfikacją (jak turn-bet): ręka gracza z kartą z pary i, gdy poziom dopuszcza tylko draw koloru, cztery karty jednego koloru rywala z flopu
+      const rangiFlopu = flop.map(rankOf);
+      if (!(rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiFlopu.includes(rankOf(c))))) return null;
+      if ((b.draws as readonly string[]).every((d) => d === 'flush') && ![0, 1, 2, 3].some((su) => [...villain, ...flop].filter((c) => suitOf(c) === su).length === 4)) return null;
+      if (!silnaZrobiona(classifyHolding(hero, flop)) || classifyHolding(villain, flop).improvesBoard) return null;
+      const r = flopSizeAnalysis(hero, villain, flop, spec.small, spec.big);
+      if (!r || !(b.draws as readonly string[]).includes(r.drawKind) || !r.clean) return null;
+      if (!(r.marginSmall > 0 && r.marginBigExact > 0) || !inMargin(r.marginSmall, b, i) || !inMargin(r.marginBigExact, b, i)) return null; // BR-GEN-003, D-1286: pokazywane e (N/47) wobec ceny małego, dokładne (N/45) wobec ceny dużego
+      const pot = pick(rng, spec.pots);
+      points.push({ point: 'flop-size', street: 'flop', pot, betSmall: Math.round(pot * spec.small), betBig: Math.round(pot * spec.big), requiredSmall: r.requiredSmall, requiredBig: r.requiredBig, hit: r.e, drawKind: r.drawKind, correct: 'bet-big' });
+      icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
+      continue;
+    }
     if (spec.kind === 'turn-bet') {
       if (spec.pots.length === 0 || !(spec.small > 0) || !(spec.big > spec.small)) throw new TemplateError(`${t.id}: turn-bet wymaga pots i 0 < small < big`);
       const turn = board.slice(0, 4);
@@ -733,7 +817,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const h = classifyHolding(hero, turn);
       // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143); „strong” tylko z pary (nadpara, najwyższa para z kickerem ≥ Q), nie z samych outów (EI-001)
       // 08-EL-1 (D-1256): najwyższa para tylko z kickerem ≥ Q (bez TPWK i średniego kickera)
-      const zrobiona = h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || (h.pairKind === 'top' && (h.kicker ?? -1) >= TURN_BET_KICKER_MIN)));
+      const zrobiona = silnaZrobiona(h);
       if (!zrobiona || !zKarta) return null;
       const draw = analyseOutsSpot(villain, turn);
       if (!draw || !(b.draws as readonly string[]).includes(draw.draw.kind) || classifyHolding(villain, turn).improvesBoard) return null;
@@ -754,6 +838,30 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (b.expected[i] !== 'bet-big') return null;
       points.push({ point: 'turn-bet', street: 'turn', pot, betSmall, betBig, requiredSmall: reqSmall, requiredBig: reqBig, hit, drawKind: draw.draw.kind as DrawKind, correct: 'bet-big' });
       icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
+      continue;
+    }
+    if (spec.kind === 'river-value') {
+      // 08-FD-4 (D-1302): rywal dany zakresem (calls sprawdzą, folds pasują); karty rywala wariantu nie są używane (jak w pick-hand)
+      if (spec.calls.length === 0 || spec.folds.length === 0) throw new TemplateError(`${t.id}: river-value wymaga calls i folds (klasy rąk rywala)`);
+      const wspolne = spec.calls.filter((hc) => spec.folds.includes(hc));
+      if (wspolne.length > 0) throw new TemplateError(`${t.id}: river-value: klasa ${wspolne[0]} w calls i w folds naraz`);
+      for (const hc of [...spec.calls, ...spec.folds]) if (!HAND_CLASSES.includes(hc)) throw new TemplateError(`${t.id}: river-value: nieznana klasa ręki ${hc}`);
+      const oczekiwana = b.expected[i];
+      if (oczekiwana !== 'bet' && oczekiwana !== 'check') throw new TemplateError(`${t.id}: poziom ${level}: river-value: oczekiwana akcja to bet albo check, jest ${String(oczekiwana)}`);
+      const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
+      if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12)) throw new TemplateError(`${t.id}: poziom ${level}: river-value wymaga marginesu δ ≥ ${DRAW_CALL_MIN_GAP} (D-1051), jest ${delta}`);
+      if (spec.pairKind) {
+        const rodzaj = classifyHolding(hero, board).pairKind;
+        if (rodzaj === null || !spec.pairKind.includes(rodzaj)) return null;
+      }
+      if (spec.dryBoard) {
+        const kolory = [0, 1, 2, 3].map((su) => board.filter((c) => suitOf(c) === su).length);
+        if (Math.max(...kolory) >= 3 || categoryOf(strength(board)) === HandCategory.Straight) return null;
+      }
+      if (classComboSplit(hero, board, spec.folds).better > 0) return null; // D-1302 war. 2: lepsza ręka wśród pasujących
+      const sprawdza = classComboSplit(hero, board, spec.calls);
+      if (riverValueVerdict(sprawdza, delta) !== oczekiwana) return null; // BR-GEN-003: tylko oczekiwana akcja, pas ±δ odrzucany
+      points.push({ point: 'river-value', street: 'river', worse: sprawdza.worse, better: sprawdza.better, ties: sprawdza.ties, w: sprawdza.worse / (sprawdza.worse + sprawdza.better), correct: oczekiwana });
       continue;
     }
     if (spec.kind === 'pick-hand') {
@@ -901,7 +1009,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
   const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand') ? board : t.decisions.some((x) => x.kind === 'turn-bet') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend') ? flop : [];
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand' || x.kind === 'river-value') ? board : t.decisions.some((x) => x.kind === 'turn-bet') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend' || x.kind === 'flop-size') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 
@@ -1020,6 +1128,100 @@ export function pickHandAnalysis(mode: PickHandSpec['mode'], hands: readonly [re
   if (mode === 'showdown') correct = a.sdv === 0 && b.sdv > 0 ? 0 : b.sdv === 0 && a.sdv > 0 ? 1 : null; // SC-23a: ręka z SDV > 0 nie jest blefem (GW were-at-the-river:53)
   else if (a.sdv === 0 && b.sdv === 0) correct = a.v < b.v && a.f >= b.f ? 0 : b.v < a.v && b.f >= a.f ? 1 : null; // SC-23b: mniej sprawdzających, nie mniej pasujących (GW blockers-unblockers:32)
   return { sdv: [a.sdv, b.sdv], calls: [a.v, b.v], folds: [a.f, b.f], correct };
+}
+
+// ---------- 08-FD-4 (= 08-EX-1/2, D-1302, D-1355): river-value ----------
+/** Podział kombinacji klas rąk wobec ręki gracza na riverze: rywal gorszy / lepszy / remis (pula dzielona); `total` = worse + better + ties. */
+export interface ComboSplit {
+  worse: number;
+  better: number;
+  ties: number;
+  total: number;
+}
+/**
+ * 08-EX-1: kombinacje podanych klas rąk rywala po usunięciu kart martwych (ręka gracza i pięć kart stołu), podzielone według showdownu z ręką gracza
+ * (ewaluator 7 kart: mniejsza siła = lepsza ręka). Czysta funkcja, wspólna dla `river-value` i (dawniej wewnątrz) `pickHandAnalysis`. Klasy bez powtórzeń.
+ */
+export function classComboSplit(hero: readonly [Card, Card], board: readonly Card[], classes: readonly string[]): ComboSplit {
+  if (board.length !== 5) throw new Error(`classComboSplit: stół ma ${board.length} kart, showdown wymaga 5 kart`);
+  const martwe = new Set<Card>([...hero, ...board]);
+  if (martwe.size !== 7) throw new Error('classComboSplit: karta powtarza się w ręce gracza i na stole');
+  if (new Set(classes).size !== classes.length) throw new Error('classComboSplit: klasa powtórzona na liście');
+  const moja = strength([...hero, ...board]);
+  const wynik: ComboSplit = { worse: 0, better: 0, ties: 0, total: 0 };
+  for (const hc of classes) {
+    if (!HAND_CLASSES.includes(hc)) throw new Error(`classComboSplit: nieznana klasa ręki ${hc}`);
+    for (const c of classCombos(hc)) {
+      if (martwe.has(c[0]) || martwe.has(c[1])) continue;
+      const jego = strength([...c, ...board]);
+      if (moja < jego) wynik.worse++;
+      else if (moja > jego) wynik.better++;
+      else wynik.ties++;
+      wynik.total++;
+    }
+  }
+  return wynik;
+}
+/** Tolerancja porównania progu w ułamkach (granica pasa δ włącznie mimo błędu zapisu zmiennoprzecinkowego). */
+const RIVER_VALUE_EPS = 1e-9;
+/**
+ * 08-EX-2 (R-M8-001, D-1302): w = gorsze ÷ (gorsze + lepsze) wśród kombinacji sprawdzających, remisy pominięte; bet ⇔ w ≥ 0,5 + δ, czekanie ⇔ w ≤ 0,5 − δ,
+ * w pasie ±δ albo bez kombinacji (W + L = 0) null (wariant odrzucany). δ ≥ DRAW_CALL_MIN_GAP (D-1051).
+ */
+export function riverValueVerdict(split: ComboSplit, delta: number): 'bet' | 'check' | null {
+  if (!Number.isFinite(delta) || delta < DRAW_CALL_MIN_GAP - RIVER_VALUE_EPS || delta >= 0.5) throw new Error(`riverValueVerdict: margines δ ${delta} poza [${DRAW_CALL_MIN_GAP}; 0,5) (D-1051)`);
+  const razem = split.worse + split.better;
+  if (razem === 0) return null;
+  const odPolowy = split.worse / razem - 0.5;
+  return odPolowy >= delta - RIVER_VALUE_EPS ? 'bet' : odPolowy <= -delta + RIVER_VALUE_EPS ? 'check' : null;
+}
+
+// ---------- 08-FD-3 (= 08-EX-4, D-1306, D-1355): flop-size ----------
+/** Rachunek jednej karty turnu dla rywala z drawem na flopie (konwencja `draw-price`: e = N/47, N = karty turnu, po których rywal wygrywa albo remisuje z graczem). */
+export interface FlopSizeAnalysis {
+  drawKind: DrawKind;
+  /** Nominalne outy drawa (z `analyseOutsSpot` rywala na flopie, bez kart gracza). */
+  nominalOuts: number;
+  /** Karty turnu (z 45 niewidzianych), po których rywal wygrywa; remisy osobno. */
+  winners: number;
+  ties: number;
+  /** Czyste outy (D-1286, jak D-1306): zbiór kart wygrywających równy nominalnym outom i 0 remisów. */
+  clean: boolean;
+  /** e = (winners + ties) ÷ 47. */
+  e: number;
+  /** Cena drawa przy małym i dużym zakładzie: zakład ÷ (pula + 2·zakład). */
+  requiredSmall: number;
+  requiredBig: number;
+  /** e − cena(mały) i cena(duży) − e: dodatnie = rywal ma cenę przy małym i nie ma jej przy dużym. */
+  marginSmall: number;
+  marginBig: number;
+  /** Dokładne equity rywala przy znanych kartach obu graczy: (winners + ties) ÷ (unseen − 2) = N/45 (jak N/44 na turnie, D-1286) i margines ceny dużego zakładu wobec niego. */
+  eExact: number;
+  marginBigExact: number;
+}
+/**
+ * 08-EX-4: rachunek rozmiaru zakładu silną ręką wobec drawa rywala na flopie; `small` i `big` to ułamki puli (R-M7-006). Pełne przejście po niewidzianych
+ * kartach (ewaluator 6 kart). null, gdy rywal nie ma drawa do koloru albo strita korzystającego z jego kart (`analyseOutsSpot`).
+ */
+export function flopSizeAnalysis(hero: readonly [Card, Card], villain: readonly [Card, Card], flop: readonly Card[], small: number, big: number): FlopSizeAnalysis | null {
+  if (flop.length !== 3) throw new Error(`flopSizeAnalysis: flop ma ${flop.length} kart, potrzeba 3`);
+  const draw = analyseOutsSpot(villain, flop);
+  if (!draw) return null;
+  const znane = new Set<Card>([...hero, ...villain, ...flop]);
+  const wygrywajace = new Set<Card>();
+  let ties = 0;
+  for (const c of FULL_DECK) {
+    if (znane.has(c)) continue;
+    const [r, h] = [strength([...villain, ...flop, c]), strength([...hero, ...flop, c])]; // mniejsza siła = lepsza ręka
+    if (r < h) wygrywajace.add(c);
+    else if (r === h) ties++;
+  }
+  const nominalne = new Set<Card>(draw.draw.all);
+  const clean = ties === 0 && wygrywajace.size === nominalne.size && [...wygrywajace].every((c) => nominalne.has(c));
+  const e = (wygrywajace.size + ties) / draw.unseen;
+  const eExact = (wygrywajace.size + ties) / (draw.unseen - 2); // rywal zna swoje karty, więc z talii znika też ręka gracza
+  const [requiredSmall, requiredBig] = [requiredEquity(1, small), requiredEquity(1, big)];
+  return { drawKind: draw.draw.kind as DrawKind, nominalOuts: draw.outs, winners: wygrywajace.size, ties, clean, e, requiredSmall, requiredBig, marginSmall: e - requiredSmall, marginBig: requiredBig - e, eExact, marginBigExact: requiredBig - eExact };
 }
 
 // ---------- Rodzaje punktów 08-N1…N7 (sesja DX): czyste funkcje oceny; w tym pliku, bo grupy mutacji nocny.yml wymieniają pliki src/ ----------

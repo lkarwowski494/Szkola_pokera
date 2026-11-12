@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { komunikatBledu } from './blad';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { akcjeSzablonu, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { akcjeSzablonu, DRAW_CALL_MIN_GAP, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -130,6 +130,35 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (ex !== undefined && ex !== 'bet-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu turn-bet to bet-big (R-M7-006: duży zakład odbiera drawowi cenę), jest ${ex}`);
         if (b.draws.length === 0) e.push(`${p} poziom ${l}: punkt turn-bet wymaga listy draws (draw rywala)`);
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt turn-bet wymaga marginMin > 0 (szansa drawa bliska ceny nie ma jednoznacznej odpowiedzi)`);
+      }
+    } else if (d.kind === 'flop-size') {
+      // 08-FD-3 (D-1306): jak turn-bet, ale na flopie; zakład = cała kwota (generator rzuca TemplateError, tu błąd bramki z miejscem w treści)
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'bet-big,bet-small') e.push(`${p} akcje to dokładnie bet-small i bet-big, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const pot of d.pots) for (const f of [d.small, d.big]) {
+        if (Math.abs(pot * f - Math.round(pot * f)) > 1e-9) e.push(`${p} pula ${pot} × ${f} nie daje zakładu będącego całą kwotą (ceny drawa z dokładnych ułamków puli; np. pule podzielne przez 12 dla ¼ i ⅔)`);
+      }
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu flop-size to bet-big (R-M7-006: duży zakład odbiera drawowi cenę), jest ${ex}`);
+        if (b.draws.length === 0) e.push(`${p} poziom ${l}: punkt flop-size wymaga listy draws (draw rywala)`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt flop-size wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (D-1051, D-1306)`);
+      }
+    } else if (d.kind === 'river-value') {
+      // 08-FD-4 (D-1302, D-1417): zakres rywala jako dana zadania; margines δ ≥ 0,02; oczekiwana akcja bet albo check
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'bet,check') e.push(`${p} akcje to dokładnie bet i check, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      const nieznane = [...d.calls, ...d.folds].filter((hc) => !HAND_CLASSES.includes(hc));
+      if (nieznane.length) e.push(`${p} river-value: nieznana klasa ręki ${nieznane.join(', ')}`);
+      const wspolne = d.calls.filter((hc) => d.folds.includes(hc));
+      if (wspolne.length) e.push(`${p} river-value: klasa ${wspolne[0]} w calls i w folds naraz`);
+      if (new Set(d.calls).size !== d.calls.length || new Set(d.folds).size !== d.folds.length) e.push(`${p} river-value: klasa powtórzona na liście calls albo folds`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet' && ex !== 'check') e.push(`${p} poziom ${l}: oczekiwana akcja punktu river-value to bet albo check, jest ${ex}`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
       }
     } else if (d.kind === 'defend') {
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
@@ -299,10 +328,12 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
  * `icm-call` (F4) wszedł z widokiem stosów wszystkich graczy i nagród (DP, D-889; projekt roli 04). Warunek SC-34 (D-825): poziom trudny icm-call czeka na 06-tresci-002
  * (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie), więc bramka odrzuca szablon icm-call z poziomem trudnym (`checkScenarioNaEkran`, D-986).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'river-catch', 'defend', 'list-hand']; // pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend, list-hand: FG (apps/mobile fg-*-ekran.test.tsx)
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand']; // flop-size: widok jak turn-bet (FL, apps/mobile fl-flop-size-ekran.test.tsx); pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend, list-hand: FG (apps/mobile fg-*-ekran.test.tsx)
 /** Zamknięte słownictwo akcji punktu list-hand na ekranie (FG, D-1142): lustro `AKCJE_LISTY` w apps/mobile/src/features/scenariusz/wariant.ts (test przypięcia po obu stronach). */
 export const AKCJE_LISTY_EKRANU: readonly string[] = ['fold', 'check', 'call', 'limp', 'raise', '4bet', 'all-in'];
-const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {};
+const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {
+  'river-value': 'ekran nie ma akcji „bet” (scenariusz-akcje-i-liczby.md nie nazywa jej, brak projektu roli 04); silnik i bramka szablonu gotowe (08-FD-4)',
+};
 
 /**
  * Bramka ekranu (CN, CR WYS-001): rodzaj punktu jest obsługiwany, a punkt c-betu albo rozmiaru ma dokładnie ten zestaw akcji, który ekran

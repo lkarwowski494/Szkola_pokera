@@ -1,0 +1,21 @@
+# Fixture testu FL (08-FD-4): bet albo czekanie na riverze z overparą wobec zakresu sprawdzającego (R-M8-001, D-1302). Nie jest treścią aplikacji.
+id: sc-fx-river-value
+module: m8
+situation: "Fixture: river z pozycji."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [], marginMin: 0.05, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M4-004
+    calls: [AJs, AJo, KJs, KJo, JTs, JTo, J9s, J9o, "88", "55", AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [76s, 65s, 54s, T9s, 98s]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - { action: "bet", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, więcej sprawdzających rąk jest gorszych od twojej niż lepszych." }
+      - { action: "check", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, sprawdzą głównie lepsze ręce." }
