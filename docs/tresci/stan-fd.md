@@ -6,7 +6,7 @@ Gałąź `sesja-fd-tresci` od `claude/sleepy-brahmagupta-2065nu` @ da1e02db + `o
 |---|---|---|---|
 | SC-14 (P2a) | **gotowy szkic** (build z pełnym kontekstem kod 0), Ł/Ś `check`, pl+en | `docs/tresci/szablony-robocze/fd/` | 08-FD-5 (testy `tools/`), 09 (10 języków) — D-1358 |
 | SC-23 | **gotowy szkic** (rodzaj na ekranie), Ł `best-hand` (blockers), pl+en | `docs/tresci/szablony-robocze/fd/` | 08-FD-5 (test pokrycia `pick-hand`), 09 (10 języków) — D-1358 |
-| SC-24, SC-31 | szkic, pl+en | `docs/tresci/szablony-robocze/fd/` | widok `river-catch` z udziałem blefów i ceną (D-1357) |
+| SC-24, SC-31 | szkic, pl+en (SC-31 z poziomem pasa, D-1438; SC-24: nowe znalezisko FN-N1) | `docs/tresci/szablony-robocze/fd/` | widok `river-catch` z udziałem blefów i ceną (D-1357) |
 | SC-07, SC-15, SC-17 | szkic, pl+en | jw. | widok `defend` |
 | SC-09 | szkic, pl+en | jw. | widok limperów (`iso-size`) + 08-FD-2 |
 | SC-10 | szkic, pl+en | jw. | widok `list-hand` |
@@ -14,6 +14,10 @@ Gałąź `sesja-fd-tresci` od `claude/sleepy-brahmagupta-2065nu` @ da1e02db + `o
 | SC-13 (P1a), SC-28 (P3a) | spec dla 08 (niżej), treść po silniku | ten plik | 08-FD-3, 08-FD-4 |
 
 Przeniesienie szkicu do bazy: skopiuj `fd/{pl,en}/sc-NN.yaml` do `content/{pl,en}/scenarios/`, dodaj rodzaj do `RODZAJE_NA_EKRANIE` (08), `pnpm content:build`; struktura pl = en jest już sprawdzona.
+
+## Poprawki FN po recenzji FK (2026-11-12, sesja FN, decyzje `docs/decyzje/FN.md` D-1435…D-1438)
+06-tresci-001…007, 010, 011: naprawione-do-weryfikacji (commity w raporcie `docs/tresci/recenzje/recenzja-fd-fc16e128.md`); test `docs/tresci/narzedzia/fn-kontrola.mjs`: 9/9 czerwone przed (`dowody/fn-kontrola-przed.txt`), 9/9 zielone po (`dowody/fn-kontrola-po.txt`); kontrola szkiców `dowody/fn-szkice.txt`. 002 nie wymaga generatora (same dane szablonu, D-1436). 008 i 009 zostają u 08.
+**Warunek 08-FD-5 (D-1410): SC-14 i SC-23 gotowe do `content/`.** SC-14 bez zmian (D-1410 pkt 1). SC-23 pl poprawione: 004 (cb1ae089, „każdym AK i z AQ w kolorze… KQ, KJ, QJ, QT i JT, wszystkimi w kolorze” = dane `calls`/`folds`) i 011 (04289ccb); en zgodne: sytuacja bez zmian („AK and suited AQ”, „folds suited KQ…”), wyjaśnienia en poprawione razem z pl (011); struktura pl = en (`dowody/fn-szkice.txt`). Przekład 09 bierze pl i en z tego stanu (D-1410 pkt 4).
 
 ## Specyfikacja dla roli 08 (bez zmian kodu w FD)
 **08-FD-1 (widoki, z 04):** `river-catch`: sekcja „Liczby” pokazuje udział blefów wariantu (dana zadania) i potrzebne equity zakład ÷ (pula + 2·zakład) — bez tego wyjaśnienie odwołuje się do liczby niewidocznej (D-1357). `defend`, `list-hand`, `turn-bet`, `iso-size` (limperzy przed graczem): widoki według projektu 04; wtedy rodzaj trafia do `RODZAJE_NA_EKRANIE`.

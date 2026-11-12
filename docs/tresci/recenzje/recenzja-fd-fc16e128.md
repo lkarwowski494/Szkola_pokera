@@ -12,17 +12,17 @@ Skala: KRYT = P0, WYS = P1, ŚR = P2, NIS = P2 bez zmiany działania (szlif zapi
 
 | ID | Poziom | Rodzaj | Tytuł | Status |
 |---|---|---|---|---|
-| 06-tresci-001 | P1 (WYS) | M | SC-15: próg alpha na flopie podany jako norma obrony; sprzeczne z lekcją m6-l1 i z GTO Wizard (szczebel 2) | otwarte |
-| 06-tresci-002 | P1 (WYS) | M | SC-17 (i SC-07): tekst podaje stały rozmiar zakładu i cenę, a generator po zaokrągleniu stawia 80–100% puli (SC-07: 40%) | otwarte |
-| 06-tresci-003 | P1 (WYS) | M | SC-09: ekran pokazuje rywala „Big blind”, a sytuacja mówi, że limpował przed tobą (CO) | otwarte |
-| 06-tresci-004 | P2 (ŚR) | M | SC-23 pl: „AK i AQ w kolorze” i „KQ, KJ, QJ, QT i JT w kolorze” — ta sama składnia, inny zasięg „w kolorze” | otwarte |
-| 06-tresci-005 | P2 (ŚR) | M | SC-31: etykieta „ten rywal często stawia i przebija” bez „załóż” i oba poziomy z odpowiedzią call | otwarte |
-| 06-tresci-006 | P2 (ŚR) | M | SC-07 Ś: „ani nie wygrywają z blefami, ani nie mają się z czego poprawić” mocniej niż reguła | otwarte |
-| 06-tresci-007 | P2 (ŚR) | M | SC-10: AKs CO wobec 3-betu BTN — źródło dla tego spotu (Pailiku) mówi call; D-1354 nie nazywa sprzeczności | otwarte |
+| 06-tresci-001 | P1 (WYS) | M | SC-15: próg alpha na flopie podany jako norma obrony; sprzeczne z lekcją m6-l1 i z GTO Wizard (szczebel 2) | naprawione-do-weryfikacji (FN, 03609a6a) |
+| 06-tresci-002 | P1 (WYS) | M | SC-17 (i SC-07): tekst podaje stały rozmiar zakładu i cenę, a generator po zaokrągleniu stawia 80–100% puli (SC-07: 40%) | naprawione-do-weryfikacji (FN, 3c7a7a7a) |
+| 06-tresci-003 | P1 (WYS) | M | SC-09: ekran pokazuje rywala „Big blind”, a sytuacja mówi, że limpował przed tobą (CO) | naprawione-do-weryfikacji (FN, 70c7b3a9) |
+| 06-tresci-004 | P2 (ŚR) | M | SC-23 pl: „AK i AQ w kolorze” i „KQ, KJ, QJ, QT i JT w kolorze” — ta sama składnia, inny zasięg „w kolorze” | naprawione-do-weryfikacji (FN, cb1ae089) |
+| 06-tresci-005 | P2 (ŚR) | M | SC-31: etykieta „ten rywal często stawia i przebija” bez „załóż” i oba poziomy z odpowiedzią call | naprawione-do-weryfikacji (FN, b8da70f8) |
+| 06-tresci-006 | P2 (ŚR) | M | SC-07 Ś: „ani nie wygrywają z blefami, ani nie mają się z czego poprawić” mocniej niż reguła | naprawione-do-weryfikacji (FN, 2461866e) |
+| 06-tresci-007 | P2 (ŚR) | M | SC-10: AKs CO wobec 3-betu BTN — źródło dla tego spotu (Pailiku) mówi call; D-1354 nie nazywa sprzeczności | naprawione-do-weryfikacji (FN, 2b933eaf (dane bez zmian, D-1435; spec 08-FN-1)) |
 | 06-tresci-008 | P2 (NIS) | D | SC-20, SC-17: rozmiar zakładu z szablonu, a w tekście klucz `cbet.size.big`; „ćwierć puli” słowem poza `{{n:}}` | otwarte |
 | 06-tresci-009 | P2 (NIS) | M | 08-FD-3: tylko e = N/47; D-1286 na turnie sprawdza dwie liczby (pokazywaną i dokładną) | otwarte |
-| 06-tresci-010 | P2 (NIS) | D | Nagłówek SC-17 przypisuje „When to Call With Ace-High” serwisowi pokercoaching; to Upswing | otwarte |
-| 06-tresci-011 | P2 (NIS) | M | SC-23: „trzyma więcej kart” i „nie zasłania rąk do spasowania” mocniej niż kryterium D-1054 | otwarte |
+| 06-tresci-010 | P2 (NIS) | D | Nagłówek SC-17 przypisuje „When to Call With Ace-High” serwisowi pokercoaching; to Upswing | naprawione-do-weryfikacji (FN, 62e01f31) |
+| 06-tresci-011 | P2 (NIS) | M | SC-23: „trzyma więcej kart” i „nie zasłania rąk do spasowania” mocniej niż kryterium D-1054 | naprawione-do-weryfikacji (FN, 04289ccb) |
 
 ## Werdykt 08-FD-5: czy SC-14 i SC-23 mogą wejść do `content/`
 **TAK, z warunkami** (decyzja D-1410):
@@ -112,7 +112,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Kroki w aplikacji: po wejściu SC-15 do bazy — BB, mały c-bet, wybór „pas” → wyjaśnienie podaje próg 25% jako granicę błędu.
 - Opcje: (a) zastąpić klauzulę alpha brzmieniem lekcji i R-M6-003: „{{t:mdf}} ({{n:mdf.bet-third}}) to punkt odniesienia: na flopie {{t:out-of-position}} możesz bronić trochę mniej, ale na mały c-bet nie {{t:fold|pasujesz}} masowo” — zgodne ze szczeblem 2 i lekcją; (b) usunąć zdanie o MDF/alpha i zostać przy R-M6-006 — prostsze, ale SC-15 traci kotwicę M6. Rekomendacja: (a) (D-1411).
 - Test akceptacyjny: `grep -n "alpha.bet-third" docs/tresci/szablony-robocze/fd/*/sc-15.yaml` → 0 trafień albo tylko w zdaniu „punkt odniesienia”; `fd-kontrola-szkicow.sh` kod 0.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit 03609a6a; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-001` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-002 · SC-17 (i SC-07) podaje stały rozmiar zakładu i cenę, a generator stawia inny
 - Pozycja listy kontrolnej: TRE-06
@@ -123,7 +123,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Kroki w aplikacji: SC-17, ziarno z pulą 6 i ułamkiem 1 → ekran: zakład 6 do puli 6; wyjaśnienie: „ok. 75% puli … ok. 30%”.
 - Opcje: (a) SC-17 `fractions: [0.75]` i pule dające dokładny ułamek (np. 4, 8, 12 → 3, 6, 9); SC-07 pule 6, 9 (→ 2, 3) — liczba w tekście równa się ekranowi; zmienia tylko dane szablonu; (b) zdanie bez stałego rozmiaru: „Wobec dużego {{t:c-bet|c-betu}} potrzebujesz dużo equity (przy {{n:cbet.size.big}} {{t:pot|puli}}: {{n:eq.bet-three-quarters}})” — warunkowe jak SC-15, działa przy każdym rozmiarze, mniej konkretne; (c) wartości z wariantu w sekcji „Liczby” (08/04) — najdokładniejsze, wymaga kodu. Rekomendacja: (a) dla SC-07 i SC-17 (D-1412); (c) jako dalszy krok razem z 08-FD-1.
 - Test akceptacyjny: dla każdego wariantu SC-07 i SC-17 (2000 ziaren) |bet/pot − ułamek z tekstu| < 0,02 albo tekst bez stałego rozmiaru.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit 3c7a7a7a; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-002` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-003 · SC-09 pokazuje rywala „Big blind”, a sytuacja mówi, że limpował przed graczem z CO
 - Pozycja listy kontrolnej: TRE-08
@@ -134,7 +134,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Kroki w aplikacji: po wejściu SC-09 — ekran startu „Ty: Cutoff, rywal: Big blind” + sytuacja „gracz przed tobą wyrównał”.
 - Opcje: (a) `villain: HJ` (najbliższa pozycja przed CO; izolacja jednego limpera z pozycją, bez dopłaty OOP — zgodne z `isoSizeStandardBb`) — jedna zmiana danych; (b) `villain: UTG` — też poprawne, dalej od CO. Rekomendacja: (a) (D-1412).
 - Test akceptacyjny: test schematu albo kontrola szkiców: dla `iso-size` pozycja rywala działa preflop przed graczem (kolejność UTG, HJ, CO, BTN, SB, BB).
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit 70c7b3a9; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-003` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-004 · SC-23 pl: zakres rywala dwuznaczny („w kolorze” raz dla jednej ręki, raz dla wszystkich)
 - Pozycja listy kontrolnej: TRE-08
@@ -145,7 +145,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Kroki w aplikacji: SC-23 — liczenie blokerów z zakresu w sytuacji.
 - Opcje: (a) „…sprawdzi z AA, KK, QQ, JJ, każdym AK i z AQ {{t:suited|w kolorze}}, a {{t:fold|spasuje}} z KQ, KJ, QJ, QT i JT, wszystkimi {{t:suited|w kolorze}}” — minimalna zmiana; (b) przenieść „w kolorze” przed listę („…spasuje z rękami w kolorze: KQ, KJ…”) — czytelniej, większa zmiana. Rekomendacja: (a).
 - Test akceptacyjny: zdanie pl ma jeden możliwy odczyt (przegląd 06 przy wejściu 08-FD-5); przekład 09 z poprawionego pl i en.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit cb1ae089; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-004` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-005 · SC-31: etykieta rywala bez „załóż” i odpowiedź zawsze call uczą wniosku z etykiety, nie z liczby
 - Pozycja listy kontrolnej: TRE-08 (D-1300 war. 1 i 2)
@@ -156,7 +156,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Kroki w aplikacji: SC-31 na obu poziomach — za każdym razem poprawny call.
 - Opcje: (a) „Załóż, że ten rywal często stawia i przebija…” oraz poziom z pasem przy udziale blefów poniżej ceny (np. 0,25–0,3 przy zakładzie 1–1½ puli) — werdykt idzie za liczbą, etykieta jest tylko ramą; zmienia zakres szablonu; (b) tylko „Załóż, że…” — spełnia war. 1, wzorzec „zawsze call” zostaje; (c) usunąć zdanie o rywalu — SC-31 staje się SC-24 z większymi zakładami. Rekomendacja: (a) (D-1413); D-1352 odrzuciło pas „wobec rywala opisanego jako agresywny”, ale właśnie ten wariant pokazuje, że decyduje udział blefów.
 - Test akceptacyjny: sytuacja zaczyna się ramą założenia; co najmniej jeden poziom z `expected: [fold]`; `fd-kontrola-szkicow.sh` kod 0 (pojemność).
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit b8da70f8; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-005` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-006 · SC-07 Ś: pas uzasadniony zdaniem mocniejszym niż reguła
 - Pozycja listy kontrolnej: TRE-08
@@ -167,7 +167,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Kroki w aplikacji: SC-07 poziom średni, pas.
 - Opcje: (a) skrócić do brzmienia reguły: „Wobec małego c-betu bronisz szeroko, ale najsłabsze ręce bez pary i bez drawa pasujesz” — bez nowego twierdzenia; (b) „rzadko wygrywają … i rzadko się poprawiają” — wymaga źródła na „rzadko”. Rekomendacja: (a).
 - Test akceptacyjny: zdanie pas SC-07 nie zawiera zaprzeczenia bezwzględnego („ani … ani”); przegląd 06.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit 2461866e; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-006` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-007 · SC-10: dla AKs w spocie CO wobec 3-betu BTN źródło spotu podaje call, a D-1354 tego nie nazywa
 - Pozycja listy kontrolnej: TRE-03, TRE-05
@@ -178,7 +178,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Kroki w aplikacji: SC-10 z AKs, wybór „call” → „dopuszczalne”.
 - Opcje: (a) AKs i AKo: oba zagrania poprawne (ręka mieszana, ADR-04), jeśli `list-hand` to obsługuje — zgodne z częścią wspólną; (b) zostawić werdykt i dopisać w D-1354 sprzeczność i rozstrzygnięcie („zwykle 4-bet” z R-M4-010) — bez zmiany działania. Rekomendacja: (b) teraz (zapis), (a) gdy silnik dopuści dwie poprawne akcje w `list-hand`.
 - Test akceptacyjny: D-1354 (albo decyzja następcza) wymienia Pailiku CO vs BTN i rozstrzygnięcie.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit 2b933eaf (dane bez zmian, D-1435; spec 08-FN-1); test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-007` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-008 · SC-20 i SC-17: rozmiar zakładu w szablonie, a w tekście klucz c-betu; „ćwierć puli” słowem
 - Pozycja listy kontrolnej: TRE-06
@@ -205,7 +205,7 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Mechanizm: `grep -rn "pokercoaching When to Call" docs/tresci/szablony-robocze/fd` → pl/sc-17 linia 2 i en.
 - Opcje: (a) poprawić na „Upswing” przy przeniesieniu; (b) zostawić — tylko komentarz. Rekomendacja: (a).
 - Test akceptacyjny: nagłówek zgodny z rejestrem.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit 62e01f31; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-010` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
 
 ### 06-tresci-011 · SC-23: wyjaśnienia mówią trochę więcej niż kryterium wyboru ręki
 - Pozycja listy kontrolnej: TRE-08
@@ -214,7 +214,16 @@ Soczewki: laik czytający dosłownie (004, 002, 003), ekspert szukający szkodli
 - Mechanizm: dwa zdania w jednym pliku (+ en).
 - Opcje: (a) „ta zostawia rywalowi mniej {{t:combo|kombinacji}}, którymi {{t:call|sprawdzi}}, i nie mniej tych, które {{t:fold|spasuje}}” oraz „…która nie zasłania ich więcej” — zgodne z kryterium; (b) zostawić jako uproszczenie dydaktyczne i nazwać je w D-1351. Rekomendacja: (a) razem z 004.
 - Test akceptacyjny: brzmienie zgodne z warunkiem `a.v < b.v && a.f >= b.f`.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FN, commit 04289ccb; test `docs/tresci/narzedzia/fn-kontrola.mjs 06-tresci-011` czerwony przed, zielony po: `docs/tresci/dowody/fn-kontrola-przed.txt`, `fn-kontrola-po.txt`)
+
+### FN-N1 (nowe w sesji FN, bez naprawy) · SC-24: wyjaśnienia napisane jak dla akcji poprawnej, a poziomy mają raz call, raz fold
+- Pozycja listy kontrolnej: TRE-08
+- Poziom: P2 (ŚR) · Realność: realny (po wejściu SC-24 na ekran) · Pewność: wysoka · Rodzaj: M
+- Dowód: `docs/tresci/szablony-robocze/fd/pl/sc-24.yaml:12-14` (łatwy i trudny `expected: [call]`, średni `[fold]`); `:24` „Tu {{t:bluff|blefów}} jest więcej, niż wynosi potrzebne equity” i `:26` „a tu jest ich mniej”. Ekran bierze jeden tekst na akcję bez względu na werdykt (`apps/mobile/src/features/scenariusz/wariant.ts:374`): na poziomie średnim wybór call pokazuje blok „słabsza” z tekstem „blefów jest więcej… sprawdzenie zarabia”, czyli fałsz w tym rozdaniu (en tak samo).
+- Mechanizm: `grep -n "Tu {{t:bluff|blefów}} jest więcej\|a tu jest ich mniej" docs/tresci/szablony-robocze/fd/pl/sc-24.yaml` → 2 trafienia (+ en).
+- Opcje: (a) wyjaśnienia warunkowe jak SC-31 po D-1438 („sprawdzenie zarabia tylko wtedy, gdy…”) — sam tekst; (b) warunek wariantu w tekście (jak `nadkarty`, `scenario-gen.ts:986`) z flagą „blefów więcej/mniej” — dokładniej, wymaga kodu 08. Rekomendacja: (a).
+- Test akceptacyjny: żaden tekst akcji SC-24 nie stwierdza kierunku nierówności bez warunku.
+- Status: otwarte (zgłoszone koordynatorowi; poza zakresem FN)
 
 ## Do sprawdzenia
 - Czy `list-hand` umie oznaczyć dwie akcje jako poprawne (007 opcja a) — nie sprawdzałem silnika ocen poza generatorem; pytanie do 08.
