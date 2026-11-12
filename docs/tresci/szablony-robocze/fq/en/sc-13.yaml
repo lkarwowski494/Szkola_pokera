@@ -7,7 +7,7 @@ positions: { hero: BTN, villain: BB }
 stackBb: 100
 levels: [latwy]
 bounds:
-  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone] } }
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
 decisions:
   - street: flop
     kind: flop-size

@@ -47,7 +47,9 @@ for (const f of ['sc-13', 'sc-22', 'sc-25', 'sc-28', 'sc-29']) {
   const c: Licz = {}; const pierwszy: Record<string, string> = {};
   const inc = (k: string, gdzie: string) => { c[k] = (c[k] ?? 0) + 1; pierwszy[k] ??= gdzie; };
   for (let seed = 1; seed <= N; seed++) {
-    const v = generateVariant(g, 'latwy', seed); const p: any = v.points[0];
+    let v;
+    try { v = generateVariant(g, 'latwy', seed); } catch (e) { inc('błąd szablonu (limit odrzuceń, 08-FQ-1)', `ziarno ${seed}: ${(e as Error).message}`); continue; }
+    const p: any = v.points[0];
     const hero = [...v.hero], board = [...v.board];
     const gdzie = `ziarno ${seed}: gracz ${hero.map(cardToString).join('')} stół ${board.map(cardToString).join('')}`;
     inc('warianty', gdzie);
@@ -71,6 +73,7 @@ for (const f of ['sc-13', 'sc-22', 'sc-25', 'sc-28', 'sc-29']) {
   }
   console.log(`== ${f} (${N} ziaren): ` + Object.entries(c).map(([k, n]) => `${k}=${n}`).join('; '));
   if (c['ROZBIEŻNOŚĆ z generatorem']) wynik.push({ id: 'rachunek', ok: false, linia: `${f}: rozbieżność W/L/T z generatorem (${pierwszy['ROZBIEŻNOŚĆ z generatorem']})` });
+  if (c['błąd szablonu (limit odrzuceń, 08-FQ-1)']) console.log(`  UWAGA ${f}: ${c['błąd szablonu (limit odrzuceń, 08-FQ-1)']} ziaren bez wariantu (pojemność, rola 08; nie wynik treści), pierwsze: ${pierwszy['błąd szablonu (limit odrzuceń, 08-FQ-1)']}`);
   if (f === 'sc-13') {
     const k = 'flop poza zakresem R-M5-008 (paired/connected)', n = c[k] ?? 0;
     wynik.push({ id: '06-tresci-003', ok: n === 0, linia: `${f}: ${k} = ${n}${n ? ` [pierwszy: ${pierwszy[k]}]` : ''}` });

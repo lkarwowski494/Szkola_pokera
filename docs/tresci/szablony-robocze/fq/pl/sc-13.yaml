@@ -4,6 +4,8 @@
 # Szkic sesji FQ (D-1460). flop-size ma widok (D-1420). ZALEŻNOŚĆ: do content/ dopiero po naprawie 08-programista-001 (sesja FP;
 # recenzja FO, D-1445: wejście przed naprawą podnosi znalezisko do WYS). Pule podzielne przez 12 (D-1419). Zakład 2/3 puli bez
 # liczby w tekście: brak klucza ceny 2/3 w numbers.yaml (D-1461, propozycja klucza dla 08).
+# FT (D-1473, 06-tresci-003): tylko flopy bez pary i bez możliwego strita (ranks: semi-connected, disconnected) = zakres R-M5-008;
+# GW Flop Heuristics IP: connected „we size down”, paired „only be bet for small sizing”. Pojemność: wymaga limitu odrzuceń FR (08-FQ-1).
 id: sc-13
 module: m5
 situation: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na flopie są dwie karty w jednym kolorze, a ty masz silną rękę: {{t:top-pair|najwyższą parę}} z dobrym {{t:kicker|kickerem}} albo lepszą. Rywal {{t:check|czeka}} i może mieć {{t:flush-draw}}. Jaki rozmiar {{t:bet|zakładu}} wybierasz?"
@@ -12,7 +14,7 @@ positions: { hero: BTN, villain: BB }
 stackBb: 100
 levels: [latwy]
 bounds:
-  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone] } }
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
 decisions:
   - street: flop
     kind: flop-size
