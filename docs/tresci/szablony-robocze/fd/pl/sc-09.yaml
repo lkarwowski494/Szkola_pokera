@@ -6,7 +6,7 @@ id: sc-09
 module: m4
 situation: "Gracz przed tobą tylko wyrównał {{t:big-blind}} ({{t:limp}}), reszta {{t:fold|spasowała}}. Masz rękę, którą {{t:raise|przebijasz}} ({{t:isolation|izolacja}}). Jaki rozmiar {{t:raise|przebicia}} wybierasz?"
 table: 6max
-positions: { hero: CO, villain: BB }
+positions: { hero: CO, villain: HJ }
 stackBb: 100
 levels: [latwy]
 bounds:
