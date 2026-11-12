@@ -298,7 +298,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
  * `icm-call` (F4) wszedł z widokiem stosów wszystkich graczy i nagród (DP, D-889; projekt roli 04). Warunek SC-34 (D-825): poziom trudny icm-call czeka na 06-tresci-002
  * (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie), więc bramka odrzuca szablon icm-call z poziomem trudnym (`checkScenarioNaEkran`, D-986).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand']; // pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx)
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet']; // pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet: FG (apps/mobile fg-turn-bet-ekran.test.tsx)
 const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {};
 
 /**

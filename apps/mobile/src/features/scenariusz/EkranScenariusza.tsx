@@ -54,6 +54,11 @@ export function tekstAkcji(v: ScenarioVariant, indeks: number, a: Akcja, s: Pick
     const nazwa = zapisKart(karty);
     return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa, czytnik: karty.map((c) => nazwaKarty(c, t)).join(', ') };
   }
+  if (d.point === 'turn-bet') {
+    // FG: nazwa z `play.bet` („Zakład 2bb”, kwota z wariantu), bo `scenario.action.betSmall/betBig` to „c-bet”, zły termin na turnie
+    const nazwa = t('play.bet', { bb: kwotaAkcji(d, a, s) ?? 0 });
+    return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa };
+  }
   const o = opisAkcji(d, a);
   const baza = t(o.klucz);
   const bezKwoty = d.point === 'range-spot' && o.kwota === 'to' && v.points[indeks + 1]?.point === 'size-spot';
@@ -248,6 +253,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         </View>
       ) : null}
       {widok.pulaBb !== null && widok.doSprawdzeniaBb !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('scenario.pot', { pula: widok.pulaBb, kwota: widok.doSprawdzeniaBb })}</Text> : null}
+      {widok.pulaBb !== null && widok.doSprawdzeniaBb === null ? <Text style={[styl.tresc, { color: tk.ink }]}>{t('play.potLabel', { bb: widok.pulaBb })}</Text> : null}
       {icm && icm.caleStosTy && widok.doSprawdzeniaBb !== null ? <Text style={[styl.przypis, { color: tk.muted, textAlign: 'center' }]}>{t('scenario.icm.wholeStack', { kwota: t('scenario.icm.stackValue', { bb: formatujLiczbe(widok.doSprawdzeniaBb, jezykZadan()) }) })}</Text> : null}
       {icm && !ocenaMode ? <TurniejIcm uklad={icm} pozycjaTy={s.szablon.positions.hero} pozycjaRywal={s.szablon.positions.villain} formatBb={(x) => formatujLiczbe(x, jezykZadan())} formatProcent={(x) => formatujProcent(x, jezykZadan())} naglowek /> : null}
       <Dziennik wpisy={doDziennika} />

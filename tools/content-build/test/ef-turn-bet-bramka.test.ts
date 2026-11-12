@@ -1,4 +1,4 @@
-// 08-N6 (sesja EF): schemat i bramka budowania turn-bet; ekran go jeszcze nie obsługuje.
+// 08-N6 (sesja EF): schemat i bramka budowania turn-bet; ekran go obsługuje od FG.
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
@@ -19,6 +19,6 @@ describe('08-N6: bramka turn-bet', () => {
     expect(blad(kopia((b) => { delete b.bounds.latwy.marginMin; }))).toMatch(/marginMin/);
     expect(blad(kopia((b) => { b.bounds.latwy.draws = []; }))).toMatch(/draws/);
   });
-  it('ekran jeszcze nie obsługuje turn-bet', () => { expect(checkScenarioNaEkran(fx.template).join('\n')).toMatch(/turn-bet nie jest jeszcze obsługiwany na ekranie/); });
+  it('ekran obsługuje turn-bet (FG: apps/mobile fg-turn-bet-ekran.test.tsx), więc bramka ekranu przepuszcza fixture', () => { expect(checkScenarioNaEkran(fx.template)).toEqual([]); });
   it('generator wytwarza ≥ 40 odcisków', () => { expect(checkScenarioGenerator(fx.template, undefined, 2000)).toEqual([]); }, 120_000);
 });
