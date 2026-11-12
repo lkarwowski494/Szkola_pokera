@@ -384,6 +384,8 @@ export interface ListHandVariantDecision {
   handClass: string;
   /** Akcja poprawna (zgodna) i dopuszczalne z wpisu listy, w którym jest klasa ręki. */
   correct: string;
+  /** 08-FN-1 (ręka mieszana, ADR-04): pozostałe akcje poprawne wpisu z `correct: [..]`; pole tylko przy ręce mieszanej (kształt wariantu bez zmian dla wpisów z jedną). */
+  alsoCorrect?: string[];
   acceptable: string[];
 }
 export interface PickHandVariantDecision {
@@ -453,7 +455,7 @@ export const GENERATOR_WERSJA = 5; // 5: backdoor w obronie BB tylko z overkart�
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */
 const FLOP_REDEALS = 2000;
-export const MAX_CONSECUTIVE_REJECTIONS = 20_000; // BR-GEN-003 mówi 1000; D-665: 5000 przy ok. 0,5% rozdań (sc-19); D-1310: czyste outy turn-bet (D-1286) dają ok. 0,09% prób, 5000 kończyło się błędem szablonu dla 1,3% ziaren; ten sam prefiks losowań, więc istniejące warianty bez zmian
+export const MAX_CONSECUTIVE_REJECTIONS = 60_000; // BR-GEN-003 mówi 1000; D-665: 5000 przy ok. 0,5% rozdań (sc-19); D-1310: czyste outy turn-bet (D-1286) dają ok. 0,09% prób, 5000 kończyło się błędem szablonu dla 1,3% ziaren; ten sam prefiks losowań, więc istniejące warianty bez zmian; 08-FQ-1 (FR): flop-size ok. 0,024% prób, 20 000 kończyło się błędem dla ok. 0,8% ziaren (1108), 60 000 ≈ 5e-7; prefiks bez zmian
 
 /** Blindy wpłacone przez miejsce przy stole w bb (SB 0,5, BB 1; reszta 0). */
 export function blindBb(position: string): number {
@@ -524,7 +526,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
   const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
-    throw new TemplateError(`${t.id}: punkt cbet-case albo size-spot jest najwyżej jeden, ostatni i bez punktów draw-call`);
+    throw new TemplateError(`${t.id}: punkt końcowy (${koncowe.map((x) => x.kind).join(', ')}) jest najwyżej jeden, ostatni i bez punktów draw-call`); // 08-programista-005: nazwy rodzajów z szablonu
   }
   if (all.some((x) => x.kind === 'defend') && all.length !== 1) throw new TemplateError(`${t.id}: punkt defend jest jedynym punktem szablonu`);
   if (d.length > 0) {
@@ -694,7 +696,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (widziane.has(hc)) throw new TemplateError(`${t.id}: list-hand: klasa ${hc} w więcej niż jednym wpisie listy`);
       widziane.add(hc);
     }
-    const klasy = first.entries.filter((e) => e.correct === expected).flatMap((e) => e.hands);
+    const klasy = first.entries.filter((e) => pierwszaPoprawna(e) === expected).flatMap((e) => e.hands);
     if (klasy.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żaden wpis listy nie ma akcji oczekiwanej ${expected}`);
     const hc = pick(rng, klasy);
     const combo = pick(rng, classCombos(hc));
@@ -702,7 +704,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     rest = dealCards(rng, 7, hero);
     const w = listHandVerdicts(hc, first.entries)!;
     preflop = null;
-    listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, acceptable: w.acceptable };
+    listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, ...(w.alsoCorrect ? { alsoCorrect: w.alsoCorrect } : {}), acceptable: w.acceptable };
   } else if (first.kind === 'defend') {
     // 08-N2: ręka z zakresu obrony spotu (jak zakres otwarcia w cbet-case); flop dolosowany do tekstury poziomu
     if (!ctx) throw new TemplateError(`${t.id}: punkt defend wymaga danych zakresów (GeneratorContext)`);
@@ -849,7 +851,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const oczekiwana = b.expected[i];
       if (oczekiwana !== 'bet' && oczekiwana !== 'check') throw new TemplateError(`${t.id}: poziom ${level}: river-value: oczekiwana akcja to bet albo check, jest ${String(oczekiwana)}`);
       const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
-      if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12)) throw new TemplateError(`${t.id}: poziom ${level}: river-value wymaga marginesu δ ≥ ${DRAW_CALL_MIN_GAP} (D-1051), jest ${delta}`);
+      if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12 && delta < 0.5)) throw new TemplateError(`${t.id}: poziom ${level}: river-value wymaga marginesu δ w [${DRAW_CALL_MIN_GAP}; 0,5) (D-1051, D-1417), jest ${delta}`); // 08-programista-006: δ ≥ 0,5 to błąd szablonu, nie zwykły Error z riverValueVerdict
       if (spec.pairKind) {
         const rodzaj = classifyHolding(hero, board).pairKind;
         if (rodzaj === null || !spec.pairKind.includes(rodzaj)) return null;
@@ -1301,12 +1303,16 @@ export function defendVsCbet(hero: readonly [Card, Card], flop: readonly Card[],
 }
 
 /** R-M4-010: punkt „lista rąk”: oczekiwana akcja z jawnej listy klas w szablonie; ręka spoza listy → null (generator losuje tylko z listy). */
-export interface ListEntry { hands: readonly string[]; correct: string; acceptable?: readonly string[] }
-export function listHandVerdicts(handClass: string, entries: readonly ListEntry[]): { correct: string; acceptable: string[] } | null {
+/** 08-FN-1: `correct` może być listą (ręka mieszana, ADR-04); pierwsza jest akcją oczekiwaną (bounds `expected`). */
+export interface ListEntry { hands: readonly string[]; correct: string | readonly string[]; acceptable?: readonly string[] }
+export const pierwszaPoprawna = (e: ListEntry): string => (typeof e.correct === 'string' ? e.correct : e.correct[0] ?? '');
+export function listHandVerdicts(handClass: string, entries: readonly ListEntry[]): { correct: string; alsoCorrect?: string[]; acceptable: string[] } | null {
   const trafione = entries.filter((x) => x.hands.includes(handClass));
   if (trafione.length > 1) throw new Error(`listHandVerdicts: klasa ${handClass} w ${trafione.length} wpisach listy (jednoznaczna akcja oczekiwana)`);
   const e = trafione[0];
-  return e ? { correct: e.correct, acceptable: [...(e.acceptable ?? [])] } : null;
+  if (!e) return null;
+  const reszta = typeof e.correct === 'string' ? [] : e.correct.slice(1);
+  return { correct: pierwszaPoprawna(e), ...(reszta.length > 0 ? { alsoCorrect: reszta } : {}), acceptable: [...(e.acceptable ?? [])] };
 }
 
 /** R-M8-010 (math): sprawdzenie bluff-catcherem, gdy udział blefów > bet ÷ (pula + 2·bet); w marginesie marginMin od progu odpowiedzi brak (null, jak draw-call). */

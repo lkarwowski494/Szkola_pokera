@@ -32,5 +32,5 @@ describe('EY EV-4: cbet-case wybiera przypadek reguły punktu', () => {
   });
   it('reguła bez przypadku dla flopu nadal odrzuca wariant (błąd szablonu przy braku jakiegokolwiek)', () => {
     expect(() => generateVariant(g, 'latwy', 1, ctx([przypadki[0]!]))).toThrow();
-  });
+  }, 60_000); // 08-FQ-1 (D-1450): limit odrzuceń 60 000 zamiast 20 000, więc odmowa trwa ok. 3× dłużej (ok. 9 s)
 });

@@ -6,6 +6,8 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import type { ScenarioLevel, FlopSizeVariantDecision } from '@szkola/poker-core';
 import { ScenarioTemplate } from '@szkola/content-schema';
 import i18n from '@/i18n';
+import { formatujLiczbe } from '@szkola/jezyki';
+import { jezykZadan } from '@/features/drills/text';
 import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
 import { propsFg, sesjaFg, wariantFg } from '@/test-utils/fgScenariusz';
 import { PrzebiegScenariusza, tekstAkcji } from '../EkranScenariusza';
@@ -68,14 +70,23 @@ describe('FL flop-size — logika widoku', () => {
   it('FH NIS-004: akcja bez kwoty zakładu to błąd, nie „Zakład 0bb”', () => {
     expect(() => tekstAkcji(wariant(3), 0, 'fold', SZABLON, t)).toThrow(/kwot/i);
   });
-  it('nazwy akcji: „Zakład” z kwotą zakładu w bb z wariantu (play.bet), kwota nie w osobnej linii', () => {
+  it('08-programista-005: komunikat błędu nazywa rodzaj widoku (flop-size), nie turn-bet', () => {
+    expect(() => tekstAkcji(wariant(3), 0, 'fold', SZABLON, t)).toThrow(/^flop-size: akcja fold/);
+  });
+  it('FM-01 (D-1430): nazwa „Zakład (bet)” z `scenario.action.bet`, kwota w drugiej linii przycisku (`amountPay`), fraza małą literą', () => {
     const p = punkt(3);
     const w = wariant(3);
-    const mala = tekstAkcji(w, 0, 'bet-small', SZABLON, t);
-    const duza = tekstAkcji(w, 0, 'bet-big', SZABLON, t);
-    expect(mala.przycisk).toBe(t('play.bet', { bb: p.betSmall }));
-    expect(duza.przycisk).toBe(t('play.bet', { bb: p.betBig }));
-    expect(mala.nazwa).not.toMatch(/c-bet/i);
+    const baza = t('scenario.action.bet');
+    for (const [a, bb] of [['bet-small', p.betSmall], ['bet-big', p.betBig]] as const) {
+      const x = tekstAkcji(w, 0, a, SZABLON, t);
+      const kwota = t('scenario.action.amountPay', { bb: formatujLiczbe(bb, jezykZadan()) });
+      expect(x.nazwa).toBe(baza.charAt(0).toLocaleUpperCase() + baza.slice(1));
+      expect(x.kwota).toBe(kwota);
+      expect(x.przycisk).toBe(`${x.nazwa}\n${kwota}`);
+      expect(x.fraza).toBe(t('scenario.action.withAmount', { akcja: baza, kwota }));
+      expect(x.fraza.charAt(0)).toBe(x.fraza.charAt(0).toLocaleLowerCase());
+    }
+    expect(tekstAkcji(w, 0, 'bet-small', SZABLON, t).nazwa).not.toMatch(/c-bet/i);
     expect(p.betSmall).toBeLessThan(p.betBig);
   });
   it('wyjaśnienia: błąd rozmiaru daje dwa bloki (słabszy: mały, lepszy: duży), zgodny — „dobrze” + „dlaczego nie” małego', () => {
@@ -96,9 +107,9 @@ describe('FL flop-size — ekran', () => {
     const p = punkt(5);
     const onWybierz = jest.fn();
     await render(<PrzebiegScenariusza sesja={sesja(5, [])} faza="decyzja" koniec={false} onWybierz={onWybierz} {...propsFg()} />);
-    expect(screen.getByText(t('play.potLabel', { bb: p.pot }))).toBeTruthy();
-    const mala = screen.getByLabelText(t('play.bet', { bb: p.betSmall }));
-    const duza = screen.getByLabelText(t('play.bet', { bb: p.betBig }));
+    expect(screen.getByText(t('scenario.potOnly', { pula: formatujLiczbe(p.pot, jezykZadan()) }))).toBeTruthy();
+    const mala = screen.getByLabelText(new RegExp(`^${t('scenario.action.bet').charAt(0).toLocaleUpperCase()}.*\\s${p.betSmall} bb$`, 's'));
+    const duza = screen.getByLabelText(new RegExp(`^${t('scenario.action.bet').charAt(0).toLocaleUpperCase()}.*\\s${p.betBig} bb$`, 's'));
     expect(mala.props.accessibilityRole).toBe('button');
     await fireEvent.press(mala);
     expect(onWybierz).toHaveBeenLastCalledWith('bet-small');

@@ -1,9 +1,9 @@
 // 08-FD-3 / 08-FD-4 (sesja FL): schemat i bramka budowania rodzajów flop-size i river-value (jak ef-turn-bet-bramka.test.ts dla turn-bet).
-// flop-size ma widok (apps/mobile fl-flop-size-ekran.test.tsx), river-value nie (brak akcji „bet” w projekcie 04): bramka ekranu go odrzuca z powodem.
+// flop-size ma widok (apps/mobile fl-flop-size-ekran.test.tsx); river-value też od FR (fr-river-value-ekran.test.tsx, KO-091): bramka ekranu przepuszcza oba rodzaje.
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
-import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioTemplate, loadScenarioTemplates } from '../src/scenariusze';
+import { checkScenarioGenerator, checkScenarioNaEkran, RODZAJE_NA_EKRANIE, checkScenarioTemplate, loadScenarioTemplates } from '../src/scenariusze';
 import { content } from './kit';
 
 const ladujFx = (katalog: string) => loadScenarioTemplates(join(resolve(import.meta.dirname), 'fixtures', katalog))[0]!;
@@ -42,13 +42,17 @@ describe('08-FD-4: bramka river-value', () => {
     expect(blad(kopia((b) => { delete b.bounds.latwy.marginMin; }))).toMatch(/marginMin ≥ 0\.02/);
     expect(blad(kopia((b) => { b.bounds.latwy.marginMin = 0.01; }))).toMatch(/marginMin ≥ 0\.02/);
   });
+  it('08-programista-006: margines δ ≥ 0,5 to błąd bramki z poziomem i nazwą pola', () => {
+    expect(blad(kopia((b) => { b.bounds.latwy.marginMin = 0.5; }))).toMatch(/poziom latwy: punkt river-value wymaga marginMin < 0,5/);
+  });
   it('klasy: nieznana, wspólna dla calls i folds, powtórzona', () => {
     expect(blad(kopia((b) => { b.decisions[0].calls.push('ZZ'); }))).toMatch(/nieznana klasa ręki ZZ/);
     expect(blad(kopia((b) => { b.decisions[0].folds.push('AKs'); }))).toMatch(/klasa AKs w calls i w folds naraz/);
     expect(blad(kopia((b) => { b.decisions[0].calls.push('AKs'); }))).toMatch(/powtórzona/);
   });
-  it('ekran nie ma widoku river-value (brak akcji „bet”, projekt roli 04): bramka ekranu odrzuca szablon z powodem', () => {
-    expect(checkScenarioNaEkran(fx.template).join('\n')).toMatch(/river-value nie jest jeszcze obsługiwany na ekranie.*ekran nie ma akcji „bet”/);
+  it('KO-091 (FR): ekran ma widok river-value (apps/mobile fr-river-value-ekran.test.tsx), więc bramka ekranu przepuszcza szablon', () => {
+    expect(RODZAJE_NA_EKRANIE).toContain('river-value');
+    expect(checkScenarioNaEkran(fx.template)).toEqual([]);
   });
   it('generator wytwarza ≥ 40 odcisków', () => { expect(checkScenarioGenerator(fx.template, undefined, 150)).toEqual([]); }, 300_000);
 });

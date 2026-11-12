@@ -1068,6 +1068,7 @@
       "villain": "rywal"
     },
     "pot": "W {{t:pot|puli}} {{pula}} bb · do {{t:call|sprawdzenia}} {{kwota}} bb",
+    "potOnly": "W {{t:pot|puli}} {{pula}} bb",
     "log": {
       "label": "Przebieg rozdania"
     },
@@ -1121,6 +1122,7 @@
       "threeBet": "3-bet",
       "fourBet": "4-bet",
       "allIn": "all-in",
+      "bet": "{{t:bet|zakład}}",
       "betSmall": "mały {{t:c-bet|c-bet}}",
       "betBig": "duży {{t:c-bet|c-bet}}",
       "amountPay": "{{bb}} bb",

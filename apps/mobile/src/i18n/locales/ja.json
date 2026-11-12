@@ -1014,6 +1014,7 @@
       "villain": "相手"
     },
     "pot": "{{t:pot|ポット}}{{pula}}bb ・ {{t:call|コール}}に{{kwota}}bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "ハンドの流れ"
     },
@@ -1067,6 +1068,7 @@
       "threeBet": "3ベット",
       "fourBet": "4ベット",
       "allIn": "オールイン",
+      "bet": "{{t:bet}}",
       "betSmall": "小さな{{t:c-bet}}",
       "betBig": "大きな{{t:c-bet}}",
       "amountPay": "{{bb}} bb",

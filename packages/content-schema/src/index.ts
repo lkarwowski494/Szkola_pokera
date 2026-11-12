@@ -657,7 +657,8 @@ export const ScenarioListHandDecision = z
     kind: z.literal('list-hand'),
     rule: id.optional(),
     calc: id.optional(),
-    entries: z.array(z.object({ hands: z.array(z.string().min(1)).min(1), correct: z.string().min(1), acceptable: z.array(z.string().min(1)).optional() }).strict()).min(1),
+    // 08-FN-1 (ADR-04): `correct` to akcja albo lista co najmniej dwóch różnych akcji (ręka mieszana); pierwsza z listy jest oczekiwaną (bounds `expected`)
+    entries: z.array(z.object({ hands: z.array(z.string().min(1)).min(1), correct: z.union([z.string().min(1), z.array(z.string().min(1)).min(2).refine((a) => new Set(a).size === a.length, 'akcje poprawne bez powtórzeń')]), acceptable: z.array(z.string().min(1)).optional() }).strict()).min(1),
     actions: z.array(z.object({ action: z.string().min(1), explanation: z.string().min(1) }).strict()).min(2),
   })
   .strict()

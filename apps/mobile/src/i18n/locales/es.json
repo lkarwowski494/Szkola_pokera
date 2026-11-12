@@ -1050,6 +1050,7 @@
       "villain": "rival"
     },
     "pot": "{{t:pot|Bote}} {{pula}} bb · para {{t:call|igualar}} {{kwota}} bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Desarrollo de la mano"
     },
@@ -1103,6 +1104,7 @@
       "threeBet": "3-bet",
       "fourBet": "4-bet",
       "allIn": "all-in",
+      "bet": "{{t:bet}}",
       "betSmall": "{{t:c-bet}} pequeño",
       "betBig": "{{t:c-bet}} grande",
       "amountPay": "{{bb}} bb",

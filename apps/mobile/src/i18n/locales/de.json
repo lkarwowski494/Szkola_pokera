@@ -1032,6 +1032,7 @@
       "villain": "Gegner"
     },
     "pot": "Im {{t:pot|Pot}} {{pula}} bb · zum {{t:call|Call}} {{kwota}} bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Handverlauf"
     },
@@ -1085,6 +1086,7 @@
       "threeBet": "3-Bet",
       "fourBet": "4-Bet",
       "allIn": "All-in",
+      "bet": "{{t:bet}}",
       "betSmall": "kleine {{t:c-bet}}",
       "betBig": "große {{t:c-bet}}",
       "amountPay": "{{bb}} bb",
