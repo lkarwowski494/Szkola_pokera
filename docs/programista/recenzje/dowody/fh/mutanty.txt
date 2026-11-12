@@ -1,0 +1,36 @@
+# komenda: node narz/mutanty.mjs mut  (worktree @ fb712515, Thu Nov 12 11:42:12 UTC 2026)
+M1 turn-bet: mały zakład błąd zamiast niedokładności: ZABITY (kod 1) Tests:       3 failed, 42 passed, 45 total
+   FAIL src/features/scenariusz/__tests__/fg-turn-bet-ekran.test.tsx
+M2 list-hand: dopuszczalna jako błąd: ZABITY (kod 1) Tests:       3 failed, 42 passed, 45 total
+   FAIL src/features/scenariusz/__tests__/fg-list-hand-ekran.test.tsx
+M3 list-hand: każda niepoprawna dopuszczalna: ZABITY (kod 1) Tests:       3 failed, 42 passed, 45 total
+   FAIL src/features/scenariusz/__tests__/fg-list-hand-ekran.test.tsx
+M4 river-catch/defend: druga akcja niedokładność zamiast błędu: ZABITY (kod 1) Tests:       6 failed, 39 passed, 45 total
+   FAIL src/features/scenariusz/__tests__/fg-defend-ekran.test.tsx
+   FAIL src/features/scenariusz/__tests__/fg-river-catch-ekran.test.tsx
+M5 river-catch/defend: poprawna zawsze call: PRZEŻYŁ (kod 0) Tests:       45 passed, 45 total
+   
+M6 turn-bet: kwoty zamienione: ZABITY (kod 1) Tests:       2 failed, 43 passed, 45 total
+   FAIL src/features/scenariusz/__tests__/fg-turn-bet-ekran.test.tsx
+M7 river-catch/defend: pula bez zakładu rywala: ZABITY (kod 1) Tests:       4 failed, 41 passed, 45 total
+   FAIL src/features/scenariusz/__tests__/fg-defend-ekran.test.tsx
+   FAIL src/features/scenariusz/__tests__/fg-river-catch-ekran.test.tsx
+M8 turn-bet: duży zakład też niedokładność (ocena niezależna od correct): PRZEŻYŁ (kod 0) Tests:       45 passed, 45 total
+   
+M9 repo: defend bez kontekstu generatora: ZABITY (kod 1) Tests:       10 failed, 31 passed, 41 total
+   FAIL src/features/scenariusz/__tests__/fg-defend-ekran.test.tsx
+M10 bramka: list-hand bez kontroli słownictwa: ZABITY (kod 1) Tests  1 failed | 689 passed | 1 expected fail (691)
+        × akcja spoza słownictwa ekranu jest odrzucana przez bramkę ekranu (nazwy akcji list-hand zna tylko słownik scenario.action) 6ms
+    FAIL  test/ef-list-hand-bramka.test.ts > 08-N4: bramka list-hand > akcja spoza słownictwa ekranu jest odrzucana przez bramkę ekranu (nazwy akcji list-hand zna tylko słownik scenario.action)
+M11 bramka: iso-size przepuszczony: ZABITY (kod 1) Tests  1 failed | 689 passed | 1 expected fail (691)
+        × iso-size nie trafia do bazy treści, dopóki ekran nie pokazuje limperów (RODZAJE_NA_EKRANIE tylko z widokiem) 6ms
+    FAIL  test/ef-iso-size.test.ts > 08-N3: bramka szablonu iso-size > iso-size nie trafia do bazy treści, dopóki ekran nie pokazuje limperów (RODZAJE_NA_EKRANIE tylko z widokiem)
+M12 bramka: range-spot play przepuszczony: ZABITY (kod 1) Tests  1 failed | 689 passed | 1 expected fail (691)
+        × ekran jeszcze nie obsługuje grupy play 6ms
+    FAIL  test/ef-gram-pas-bramka.test.ts > 08-N1: bramka grupy play > ekran jeszcze nie obsługuje grupy play
+M13 bramka: icm-call trudny przepuszczony: ZABITY (kod 1) Tests  2 failed | 688 passed | 1 expected fail (691)
+        × szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002, a w content/ jest tylko bez poziomu trudnego (WYS-002; D-889, D-986, D-1036) 5ms
+        × bramka odrzuca icm-call z poziomem trudnym z powodem 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM) 7ms
+    FAIL  test/cp-recenzja-cn.test.ts > CP WYS-003 (CR, D-807) → DP D-889: icm-call na ekranie (widok stosów i nagród); poziom trudny czeka na 06-tresci-002 (SC-34, D-825) > bramka odrzuca icm-call z poziomem trudnym z powodem 06-tresci-002 (odpowiedź odporna na zakres all-inu z równowagi ICM)
+    FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: kontekst generatora składa ekran, bramka odrzuca resztę) > szkic SC-34 (icm-call z poziomem trudnym) jest odrzucany przez bramkę ekranu do czasu 06-tresci-002, a w content/ jest tylko bez poziomu trudnego (WYS-002; D-889, D-986, D-1036)
+KOD WYJŚCIA: 0
