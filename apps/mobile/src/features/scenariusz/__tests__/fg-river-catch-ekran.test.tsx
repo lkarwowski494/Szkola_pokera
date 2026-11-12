@@ -39,14 +39,17 @@ const druga = (a: 'call' | 'fold'): Akcja => (a === 'call' ? 'fold' : 'call');
 const POZIOM_AKCJI = { call: 'latwy', fold: 'sredni' } as const;
 
 describe('FG river-catch — logika widoku', () => {
-  it('akcje pas i sprawdzenie; poprawna akcja z rachunku wariantu; oceny: poprawna zgodna, druga błąd', () => {
-    for (let z = 1; z <= 30; z++) {
-      const p = punkt(z);
-      expect(akcjePunktu(p)).toEqual(['fold', 'call']);
-      expect(poprawnaAkcja(p)).toBe(p.correct);
-      const o = ocenyAkcji(wariant(z), 0);
-      expect(o[p.correct]).toBe('zgodne');
-      expect(o[druga(p.correct)]).toBe('blad');
+  it('akcje pas i sprawdzenie; poprawna akcja z rachunku wariantu; oceny: poprawna zgodna, druga błąd (oba rozstrzygnięcia: call na łatwym, fold na średnim; FH ŚR-002)', () => {
+    for (const [poprawna, poziom] of Object.entries(POZIOM_AKCJI) as [keyof typeof POZIOM_AKCJI, ScenarioLevel][]) {
+      for (let z = 1; z <= 30; z++) {
+        const p = punkt(z, poziom);
+        expect(p.correct).toBe(poprawna);
+        expect(akcjePunktu(p)).toEqual(['fold', 'call']);
+        expect(poprawnaAkcja(p)).toBe(poprawna);
+        const o = ocenyAkcji(wariant(z, poziom), 0);
+        expect(o[poprawna]).toBe('zgodne');
+        expect(o[druga(poprawna)]).toBe('blad');
+      }
     }
   });
   it('poziom wybiera rozstrzygnięcie: łatwy call, średni fold (oba rodzaje ekranu: pas i sprawdzenie jako poprawna)', () => {
