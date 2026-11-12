@@ -1,0 +1,8 @@
+Źródło: GitHub Actions, run 43200552809 (CI, workflow_dispatch, gałąź sesja-fc-fix, head_sha 28fdb1b0), job 131122540651 „check”, krok „Run pnpm run ci”: conclusion failure (MCP github get_job_logs, odczyt 2026-11-12).
+Na c4110310 brak przebiegu CI na GitHub (list_workflow_runs branch=sesja-fc-fix: total_count 1).
+Fragment logu:
+packages/poker-core test: FAIL test/fc-turn-bet-wydajnosc.test.ts > FC: wydajność turn-bet > 100 wariantów w najlepszym z 3 przebiegów < 700 ms
+packages/poker-core test: AssertionError: czasy: 789, 761, 991 ms: expected 761 to be less than 700
+packages/poker-core test: Test Files 1 failed | 25 passed (26)
+packages/poker-core test: Tests 1 failed | 255 passed (256)
+##[error]Process completed with exit code 1.

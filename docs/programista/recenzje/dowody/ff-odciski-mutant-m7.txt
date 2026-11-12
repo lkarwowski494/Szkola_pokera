@@ -1,0 +1,12 @@
+$ tsx odciski.mts wt-c4110310 200 z mutantem M7 (czysteOuty: tylko liczność)
+-  if (wygrywajace.size !== nom.size || ![...wygrywajace].every((c) => nom.has(c))) return null;
++  if (wygrywajace.size !== nom.size) return null;
+flush marginMin=0: ok=200 bledy=0 sha=54a90701857a1f4a
+flush marginMin=0.02: ok=200 bledy=0 sha=54a90701857a1f4a
+oesd marginMin=0: ok=200 bledy=0 sha=e66dc4cce59e01dd
+oesd marginMin=0.02: ok=0 bledy=200 sha=b361756dae684e31
+flush+oesd marginMin=0: ok=200 bledy=0 sha=7dc5290db1c0bff9
+flush+oesd marginMin=0.02: ok=200 bledy=0 sha=711723b5bccd076e
+gutshot marginMin=0: ok=0 bledy=200 sha=9d207ead97457c62
+gutshot marginMin=0.02: ok=0 bledy=200 sha=9d207ead97457c62
+kod: 0
