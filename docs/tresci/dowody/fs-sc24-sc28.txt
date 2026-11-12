@@ -1,0 +1,12 @@
+# komenda: cd packages/poker-core && npx tsx .fs-tmp/fs-sc24-sc28.ts (skrypt: docs/tresci/dowody/fs-sc24-sc28.ts.txt)
+SC-28 (1000 wariantów): stół z ≥3 kartami koloru: 0; strit na stole: 0
+SC-24 latwy ziarno 1: pula przed 14, zakład 11, pula na ekranie 25; potrzeba 11/(25+11) = 30.6% (generator 30.6%); raz na 3; blefy 50% → więcej; poprawna call
+SC-24 latwy ziarno 2: pula przed 14, zakład 11, pula na ekranie 25; potrzeba 11/(25+11) = 30.6% (generator 30.6%); raz na 3; blefy 50% → więcej; poprawna call
+SC-24 latwy ziarno 3: pula przed 30, zakład 23, pula na ekranie 53; potrzeba 23/(53+23) = 30.3% (generator 30.3%); raz na 3; blefy 50% → więcej; poprawna call
+SC-24 sredni ziarno 1: pula przed 14, zakład 14, pula na ekranie 28; potrzeba 14/(28+14) = 33.3% (generator 33.3%); raz na 3; blefy 25% → mniej; poprawna fold
+SC-24 sredni ziarno 2: pula przed 14, zakład 14, pula na ekranie 28; potrzeba 14/(28+14) = 33.3% (generator 33.3%); raz na 3; blefy 25% → mniej; poprawna fold
+SC-24 sredni ziarno 3: pula przed 30, zakład 30, pula na ekranie 60; potrzeba 30/(60+30) = 33.3% (generator 33.3%); raz na 3; blefy 25% → mniej; poprawna fold
+SC-24 trudny ziarno 1: pula przed 14, zakład 11, pula na ekranie 25; potrzeba 11/(25+11) = 30.6% (generator 30.6%); raz na 3; blefy 35% → więcej; poprawna call
+SC-24 trudny ziarno 2: pula przed 14, zakład 11, pula na ekranie 25; potrzeba 11/(25+11) = 30.6% (generator 30.6%); raz na 3; blefy 35% → więcej; poprawna call
+SC-24 trudny ziarno 3: pula przed 30, zakład 23, pula na ekranie 53; potrzeba 23/(53+23) = 30.3% (generator 30.3%); raz na 3; blefy 35% → więcej; poprawna call
+kod wyjścia: 0

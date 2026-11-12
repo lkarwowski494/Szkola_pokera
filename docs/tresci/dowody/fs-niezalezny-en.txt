@@ -1,0 +1,54 @@
+# komenda: cd packages/poker-core && npx tsx .fs-tmp/fs-niezalezny.ts ../../docs/tresci/szablony-robocze/fq/en 1000  (skrypt: docs/tresci/dowody/fs-niezalezny.ts.txt; commit 42673fb4)
+== sc-13 (flop-size, poziom latwy, ziarna 1–1000)
+  warianty: 1000   [pierwszy: seed 1: gracz Js2d rywal 2cQc stół Jc3cJd9d3s]
+  flop ranks=paired (poker-core classifyFlop): 166   [pierwszy: seed 1: gracz Js2d rywal 2cQc stół Jc3cJd9d3s]
+  flop ranks=semi-connected (poker-core classifyFlop): 725   [pierwszy: seed 2: gracz QsKs rywal Jc7c stół 9c5cQd4d7s]
+  equity rywala do rivera > cena ⅔ (zdanie „potrzebuje więcej equity, niż ma” fałszywe dla equity do rivera): 977   [pierwszy: seed 2: gracz QsKs rywal Jc7c stół 9c5cQd4d7s]
+  flop ranks=connected (poker-core classifyFlop): 101   [pierwszy: seed 3: gracz KcAh rywal Ad3d stół 9dKsJd9h6d]
+  flop: strit możliwy po 2 kartach (3 rangi w oknie 5): 101   [pierwszy: seed 3: gracz KcAh rywal Ad3d stół 9dKsJd9h6d]
+  flop ranks=disconnected (poker-core classifyFlop): 8   [pierwszy: seed 32: gracz Qs2s rywal 4hTh stół 2hQh7dAc6h]
+  equity rywala do rivera: min 0.282, mediana 0.371, max 0.398
+  seed 1: gracz Js2d rywal 2cQc flop Jc3cJd pula 36 e1=0.1915 cenaMała=0.1667 cenaDuża=0.2857 equityDoRivera=0.2848 stritMożliwy=false
+  seed 2: gracz QsKs rywal Jc7c flop 9c5cQd pula 12 e1=0.1915 cenaMała=0.1667 cenaDuża=0.2857 equityDoRivera=0.3899 stritMożliwy=false
+  seed 3: gracz KcAh rywal Ad3d flop 9dKsJd pula 48 e1=0.1915 cenaMała=0.1667 cenaDuża=0.2857 equityDoRivera=0.3621 stritMożliwy=true
+  seed 4: gracz 8sJs rywal 9d8d flop JdJh5d pula 24 e1=0.1915 cenaMała=0.1667 cenaDuża=0.2857 equityDoRivera=0.3091 stritMożliwy=false
+== sc-22 (river-value, poziom latwy, ziarna 1–1000)
+  warianty: 1000   [pierwszy: seed 1: gracz AsKs rywal 2cTd stół 5h5cQd3hAc]
+  remisy wśród sprawdzających > 0: 726   [pierwszy: seed 1: gracz AsKs rywal 2cTd stół 5h5cQd3hAc]
+  lepsze ÷ WSZYSTKIE sprawdzające ≤ 50% (zdanie „większość rąk, które sprawdzą, to lepsze” fałszywe): 1000   [pierwszy: seed 1: gracz AsKs rywal 2cTd stół 5h5cQd3hAc]
+  gorsze ÷ WSZYSTKIE sprawdzające ≤ 50% (zdanie „ponad 50% rąk, które sprawdzą, to gorsze” fałszywe): 113   [pierwszy: seed 6: gracz TdAc rywal 9s8d stół 8h2dAs2cKh]
+  pasujące: remis z graczem (zdanie „i tak przegrałyby” fałszywe): 274   [pierwszy: seed 11: gracz JcKc rywal 8h6h stół 2c3hKdQd7c]
+  w = W÷(W+L): min 0.600, mediana 0.739, max 1.000
+  seed 1: gracz AsKs stół 5h5cQd3hAc sprawdza W=17 L=6 T=6 w=0.739 pasuje W=40 L=0 T=0
+  seed 2: gracz AdQc stół ThAs4s7h6c sprawdza W=20 L=8 T=6 w=0.714 pasuje W=40 L=0 T=0
+  seed 3: gracz AsKs stół Ts5cAh4h7s sprawdza W=28 L=0 T=6 w=1.000 pasuje W=40 L=0 T=0
+  seed 4: gracz QdAd stół 6sAh6d8h8d sprawdza W=20 L=8 T=6 w=0.714 pasuje W=44 L=0 T=0
+== sc-25 (river-value, poziom latwy, ziarna 1–1000)
+  warianty: 1000   [pierwszy: seed 1: gracz KcTs rywal KhQs stół 6sAh5cKd5h]
+  remisy wśród sprawdzających > 0: 174   [pierwszy: seed 1: gracz KcTs rywal KhQs stół 6sAh5cKd5h]
+  gorsze ÷ WSZYSTKIE sprawdzające ≤ 50% (zdanie „ponad 50% rąk, które sprawdzą, to gorsze” fałszywe): 1000   [pierwszy: seed 1: gracz KcTs rywal KhQs stół 6sAh5cKd5h]
+  pasujące: remis z graczem (zdanie „i tak przegrałyby” fałszywe): 261   [pierwszy: seed 4: gracz Qh2h rywal 5c7h stół KhQs4c8s8d]
+  w = W÷(W+L): min 0.000, mediana 0.286, max 0.400
+  seed 1: gracz KcTs stół 6sAh5cKd5h sprawdza W=0 L=22 T=8 w=0.000 pasuje W=28 L=0 T=0
+  seed 2: gracz 5h7h stół 2cKs2d5d3s sprawdza W=16 L=33 T=0 w=0.327 pasuje W=32 L=0 T=0
+  seed 3: gracz JdAh stół 3sKcJh6s3h sprawdza W=12 L=27 T=0 w=0.308 pasuje W=16 L=0 T=0
+  seed 4: gracz Qh2h stół KhQs4c8s8d sprawdza W=0 L=35 T=0 w=0.000 pasuje W=16 L=0 T=8
+== sc-28 (river-value, poziom latwy, ziarna 1–1000)
+  warianty: 1000   [pierwszy: seed 1: gracz AcAs rywal 3s7s stół 9s6h4cJd9c]
+  lepsze ÷ WSZYSTKIE sprawdzające ≤ 50% (zdanie „większość rąk, które sprawdzą, to lepsze” fałszywe): 1000   [pierwszy: seed 1: gracz AcAs rywal 3s7s stół 9s6h4cJd9c]
+  w = W÷(W+L): min 0.742, mediana 1.000, max 1.000
+  seed 1: gracz AcAs stół 9s6h4cJd9c sprawdza W=62 L=0 T=0 w=1.000 pasuje W=12 L=0 T=0
+  seed 2: gracz KhKc stół Qh9cTd2s2d sprawdza W=54 L=8 T=0 w=0.871 pasuje W=12 L=0 T=0
+  seed 3: gracz 8c8s stół 7s3c2h7d5s sprawdza W=96 L=0 T=0 w=1.000 pasuje W=16 L=0 T=0
+  seed 4: gracz TsTh stół 9d9s8d4c8c sprawdza W=96 L=0 T=0 w=1.000 pasuje W=8 L=0 T=0
+== sc-29 (river-value, poziom latwy, ziarna 1–1000)
+  warianty: 1000   [pierwszy: seed 1: gracz AsKs rywal 2cTd stół 5h5cQd3hAc]
+  remisy wśród sprawdzających > 0: 582   [pierwszy: seed 1: gracz AsKs rywal 2cTd stół 5h5cQd3hAc]
+  lepsze ÷ WSZYSTKIE sprawdzające ≤ 50% (zdanie „większość rąk, które sprawdzą, to lepsze” fałszywe): 1000   [pierwszy: seed 1: gracz AsKs rywal 2cTd stół 5h5cQd3hAc]
+  pasujące: remis z graczem (zdanie „i tak przegrałyby” fałszywe): 136   [pierwszy: seed 17: gracz QdTc rywal 7d7h stół 2sQc5s3h5d]
+  w = W÷(W+L): min 0.611, mediana 0.747, max 1.000
+  seed 1: gracz AsKs stół 5h5cQd3hAc sprawdza W=77 L=6 T=6 w=0.928 pasuje W=24 L=0 T=0
+  seed 2: gracz AdQc stół ThAs4s7h6c sprawdza W=66 L=17 T=6 w=0.795 pasuje W=21 L=0 T=0
+  seed 3: gracz JhAd stół 4d9sAs7c2h sprawdza W=69 L=16 T=6 w=0.812 pasuje W=32 L=0 T=0
+  seed 4: gracz Ac2c stół 6cAs5s3d5c sprawdza W=76 L=32 T=0 w=0.704 pasuje W=32 L=0 T=0
+kod wyjścia: 0

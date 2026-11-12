@@ -1,0 +1,15 @@
+# FS 2026-11-12: cytaty dosłownie na surowym tekście (curl -sSL + usunięcie tagów HTML, grep -c). Format: adres | cytat | liczba trafień
+https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/ | „This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity.” | 1
+https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/ | „We classify flops as connected if it allows for the possibility of a flopped straight.” | 1
+https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/ | „Connected boards are a unique case due to flopped straights often being in the BB’s range. In order to be respectful of this, we size down” | 1
+https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/ | „Paired flops are bet significantly more often than unpaired flops. However, they tend to only be bet for small sizing.” | 1
+https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/ | „Flush draw flops see a decrease in overall betting frequency but a slight increase in polarity.” | 1
+https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/ | „Polarize with larger and less frequent bets on flops where draws are present but not yet completed.” | 1
+https://upswingpoker.com/thin-value-bet-poker-strategy/ | „A thin value bet is a bet that, when your opponent calls, you expect to win the pot a little over 50% of the time.” | 1
+https://thepokerbank.com/strategy/hand-guide/river | „Don't bet marginal hands on the river. You are only going to get called by better hands the majority of the time.” | 1
+https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/ | „Although they can get called by worse, they can also have their value reduced to 0 by a check-raise, so a free showdown is more appealing.” | 1
+https://pokercoaching.com/blog/poker-stats/ | „value bet them more across all betting streets, especially on the river.” | 1
+https://pokercoaching.com/blog/poker-stats/ | „When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little.” | 1
+https://deepfold.co/en/blog/hud-stats-guide | „>30% → Calling station. Value bet thinly, never bluff river.” | 1
+https://blog.gtowizard.com/mdf-alpha/ | „On average, BB is consistently over-folding to all bet sizes on the flop.” | 1
+kod wyjścia: 0
