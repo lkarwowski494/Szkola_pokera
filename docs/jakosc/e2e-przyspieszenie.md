@@ -42,3 +42,14 @@ Przyspieszenie < 5 min: ciepły przebieg 47:21 vs średnia przed 47:47 (zakres p
 - Ponowienie D-178 w run 2 (flaky flow w części 2) dodało 4:35, niezależnie od zmian.
 
 Wariant prostszy do pozostawienia (rekomendacja): jeden job jak dotąd + cache CocoaPods i DerivedData (≈ −3,5 min buildu, bez dodatkowego narzutu macOS ani ryzyka kolejki). Podział na 2 części ma sens dopiero przy dłuższych flowach (≥ 25 min samych flowów) albo wolnym buildzie po stronie Maestro; obecna konfiguracja (split) działa poprawnie i zostaje na gałęzi `claude/dt-e2e` do decyzji koordynatora.
+
+## 5. Wariant końcowy (KO-079, D-1024): jeden job + cache CocoaPods i DerivedData
+
+Split wycofany; `e2e-ios.yml` = struktura z b3963e9a + dwa cache (commit 5997fd68). Przebieg weryfikacyjny 43126163648 (push, zielony, 9/9 flowów, ponowień brak):
+
+| | Kolejka macOS | Job | Pods | xcodebuild | Symulator | Flowy | Całość od utworzenia |
+|---|---|---|---|---|---|---|---|
+| przed (śr. 5) | 0:02 | 47:48 | 2:05 | 25–30 min | 2–5 min | 8:37–12:50 | 47:49 |
+| 43126163648 | 26:21 | 55:24 | 1:24 | 30:56 | 3:47 | 13:18 | 81:46 |
+
+Wniosek: cache nie dał mierzalnego zysku w tym przebiegu — xcodebuild 30:56 mimo ciepłego DerivedData (przywrócenie 1:11), pod install −0:41; czas joba 55:24 mieści się w rozrzucie runnerów macOS (przed: 40–52 min; build 26:52–33:22 przy tym samym kodzie). Kolejka macOS 26 min wynika z obciążenia kont/innych przebiegów (jeden job, więc nie z podziału). Zysk z cache widziany w przebiegach 43110722675 → 43117974356 (xcodebuild 27:02 → 24:32) nie powtórzył się; pomiar nie rozstrzyga, czy cache pomaga (hipoteza: kilka minut, w granicach szumu). Cache zostaje (koszt: ok. 1 min na przywrócenie i zapis), do weryfikacji na kolejnych przebiegach z `main`/`claude/**`.

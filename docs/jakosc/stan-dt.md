@@ -1,5 +1,5 @@
 # Stan DT (przyspieszenie E2E iOS), 2026-11-12
-Gałąź `claude/dt-e2e`; koniec pracy: PRZEKAZANIE do koordynatora (session_01T66VBzs4xyAm9KvrtZtWdW).
-- Zad. 1 (pomiar przed), 2 (split 2 jobów, test listy flowów), 3 (cache), 4 (pomiar po, 3 przebiegi zielone): gotowe, tabela w `docs/jakosc/e2e-przyspieszenie.md`.
-- Wynik: przyspieszenie < 5 min (47:21 vs 47:48). Rekomendacja: wariant prostszy (jeden job + cache CocoaPods/DerivedData); decyzja o zostawieniu splitu u koordynatora.
-- Przebiegi: 43080852450, 43110722675, 43117974356 (zielone); 43095186010 zawieszony po stronie GitHub (queued, nie do anulowania).
+Gałąź `claude/dt-e2e`; PRZEKAZANIE do koordynatora (session_01T66VBzw3L1xwG6oRg6TFQA).
+- Zad. 1–4 gotowe (split 2 jobów: ≈ 0 zysku, wycofany); zad. 5 (KO-079, D-1024) gotowe: jeden job + cache CocoaPods/DerivedData, commit 5997fd68, przebieg 43126163648 zielony 9/9 (job 55:24, kolejka 26:21, bez mierzalnego zysku).
+- Tabela przed/po: `docs/jakosc/e2e-przyspieszenie.md`; decyzje D-1020…D-1024: `docs/decyzje/DT.md`.
+- Zawieszony: 43095186010 (queued po stronie GitHub, do ignorowania).
