@@ -1,0 +1,13 @@
+# Sesja FB2: solver postflop, plan B (pełny flop, KO-088) — Szkoła Pokera
+Koordynator: session_01T66VBzrrZfFbE7GoxYVNTB (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego; aktualny ID zawsze w `origin/koordynacja:docs/koordynacja/stan.md`, wiersz „Koordynator aktywny”). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+Kontekst: właściciel 2026-11-12 ok. 12:30 UTC, pytanie „Solver (sesja FB): ile pracy nad solverem przed wydaniem 1.0?” → „B: pełny flop” (KO-088). KO-084 obowiązuje: do treści aplikacji tylko wyniki po walidacji.
+
+1. Rola: 08-programista w trybie build. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-fb-solver` @ 1fbd77c2 (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>).
+3. Zadanie: wykonaj `docs/solver/prompt-kontynuacji-fb.md` na tej gałęzi w całości (przeczytaj najpierw wszystkie pliki z jego punktu 3); specyfikacja: `docs/solver/plan-b-etapy.md`, etapy B0 → B7, każdy z kryterium „gotowe” z tego pliku. Raport po każdym etapie.
+4. Zakazy: tylko `tools/preflop-solver/**`, `docs/solver/**`, `docs/decyzje/FB.md`; bez `content/` i `numbers.yaml`; nie scalasz do integracji ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia z zasady wspólnej 19 zamieniasz na raport do koordynatora i czekasz na odpowiedź.
+5. Decyzje: tryb z mandatu koordynatora (produktowe do właściciela przez koordynatora; techniczne: najpierw analogia z repo lkarwowski494/trening, oczko, piekarz, `repo:plik:linia`, wpis do weta). Sprawy merytoryczne pokerowe: hierarchia źródeł ADR-24 z CLAUDE.md. Numery decyzji tylko D-1332…D-1339; zabraknie — poproś o pulę.
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w `docs/solver/stan-fb.md`, push, PRZEKAZANIE z promptem kontynuacji. Pułap kosztu: brak (mandat), raportuj koszt przy każdym raporcie. Obliczenia > 2 h w odcinkach z punktem kontrolnym.
+7. Push: zbiorczo; `pnpm run ci` kod 0 przed każdym pushem kodu, dowód w `docs/solver/dowody/`.
+8. Raporty (≤ 10 linii, przez send_message): po B0 czas i szacunek reszty; PYTANIE: pełna treść, opcje, rekomendacja (STOP w B5 i decyzja „105 stołów czy próbka” przy B6); PRZEKAZANIE: zrobione (SHA, dowód ci), decyzje do weta, koszt, otwarte, następny krok, ścieżka promptu kontynuacji.
