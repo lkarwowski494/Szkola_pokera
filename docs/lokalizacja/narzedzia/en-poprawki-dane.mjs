@@ -130,4 +130,22 @@ export const DEFINICJE = (z, k) => ({
       k('vi', 'scenarios/sc-06.yaml', 'nên bạn tố nhiều hơn', 'vi sc-06: „tố” bez znacznika'),
     ],
   },
+  '009': {
+    // Spacja nierozdzielająca U+00A0 (jak w korpusie fr: 2789 × U+00A0, 0 × U+202F; REJESTR fr, scripts/i18n/wspolne.mjs) przed : ; ! ? » i po «.
+    zamiany: [
+      z('fr', 'scenarios/sc-01.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 8, true),
+      z('fr', 'scenarios/sc-02.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 10, true),
+      z('fr', 'scenarios/sc-03.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 6, true),
+      z('fr', 'scenarios/sc-04.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 7, true),
+      z('fr', 'scenarios/sc-05.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 4, true),
+      z('fr', 'scenarios/sc-06.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 6, true),
+      z('fr', 'scenarios/sc-08.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 9, true),
+      z('fr', 'scenarios/sc-11.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 3, true),
+      z('fr', 'scenarios/sc-12.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 2, true),
+      z('fr', 'scenarios/sc-19.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 10, true),
+      z('fr', 'scenarios/sc-32.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 3, true),
+      z('fr', 'scenarios/sc-33.yaml', ' (?=[:;!?»])|(?<=«) ', '\u00a0', 4, true),
+    ],
+    kontrole: [k('fr', 'scenarios', ' [:;!?»]|« ', 'fr scenariusze: zwykła spacja przed : ; ! ? » i po «')],
+  },
 });
