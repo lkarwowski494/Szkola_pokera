@@ -20,7 +20,7 @@ describe('08-N2: bramka defend', () => {
   it('nieznany spot obrony', () => { expect(blad(kopia((b) => { b.decisions[0].spot = 'nie-ma'; }))).toMatch(/nieznany spot zakresu nie-ma/); });
   it('akcje to dokładnie call i fold', () => { expect(blad(kopia((b) => { b.decisions[0].actions[1].action = 'call'; }))).toMatch(/dokładnie call i fold/); });
   it('oczekiwana akcja call albo fold', () => { expect(() => kopia((b) => { b.bounds.latwy.expected = ['raise']; })).not.toThrow(); expect(blad(kopia((b) => { b.bounds.latwy.expected = ['raise']; }))).toMatch(/call albo fold/); });
-  it('ułamek c-betu między małym a dużym (0,4–0,7) nie ma odpowiedzi w źródle', () => { expect(blad(kopia((b) => { b.decisions[0].fractions = [0.5]; }))).toMatch(/0\.5.*między/); });
+  it('ułamek c-betu między małym a dużym (0,4–0,75) nie ma odpowiedzi w źródle', () => { expect(blad(kopia((b) => { b.decisions[0].fractions = [0.5]; }))).toMatch(/0\.5.*między/); });
   it('D-1166: ułamek 0,7 to już luka (duży od 0,75), 0,75 jest dozwolony', () => {
     expect(blad(kopia((b) => { b.decisions[0].fractions = [0.7]; }))).toMatch(/0\.7.*między/);
     expect(blad(kopia((b) => { b.decisions[0].fractions = [0.75]; b.decisions[0].pots = [20]; }))).toBe('');

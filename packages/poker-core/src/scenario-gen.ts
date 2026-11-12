@@ -1042,7 +1042,7 @@ function hasAnyBackdoor(hero: readonly [Card, Card], flop: readonly Card[]): boo
  * Obrona BB wobec c-betu na flopie (R-M6-006 mały, R-M6-007 duży; heur). Oceniamy tylko to, co reguły mówią wprost; resztę odrzucamy (null, D-1116, 08-programista-001/002).
  * Mały (≤ 0,4 puli): call przy parze, dwóch parach i lepszych, drawie od {@link HOLDING_LIMITS}.drawOutsMin outów, backdoorze kolorowym obu kart ≥ T i asie w ręce;
  * gutshot bez pary: call (D-1167); backdoor strita z obiema kartami ≥ T: call (D-1168); fold tylko „bez pary i bez drawa” (bez żadnego drawa ani backdoora); backdoor strita lub koloru z kartą < T: null.
- * Duży (≥ 0,7): tylko zakres R-M6-007: dwie karty ≥ T, bez pary, drawa i backdoora → fold; wszystko inne (para, draw, backdoor, niższe karty, as z królem na stole): null.
+ * Duży (≥ 0,75, D-1166): tylko zakres R-M6-007: dwie karty ≥ T, bez pary, drawa i backdoora → fold; wszystko inne (para, draw, backdoor, niższe karty, as z królem na stole): null.
  * Rozmiar między „małym” a „dużym” źródło nie rozstrzyga (null).
  */
 export function defendVsCbet(hero: readonly [Card, Card], flop: readonly Card[], fraction: number): DefendAction | null {
