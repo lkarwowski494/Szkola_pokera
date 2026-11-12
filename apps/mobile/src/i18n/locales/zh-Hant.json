@@ -1014,6 +1014,7 @@
       "villain": "對手"
     },
     "pot": "{{t:pot|底池}} {{pula}} bb · {{t:call|跟注}}需 {{kwota}} bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "牌局過程"
     },
@@ -1067,6 +1068,7 @@
       "threeBet": "3-bet",
       "fourBet": "4-bet",
       "allIn": "全下",
+      "bet": "{{t:bet}}",
       "betSmall": "小額{{t:c-bet}}",
       "betBig": "大額{{t:c-bet}}",
       "amountPay": "{{bb}} bb",

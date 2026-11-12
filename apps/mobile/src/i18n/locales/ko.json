@@ -1014,6 +1014,7 @@
       "villain": "상대"
     },
     "pot": "{{t:pot|팟}} {{pula}}bb · {{t:call|콜}} 금액 {{kwota}}bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "핸드 진행"
     },
@@ -1067,6 +1068,7 @@
       "threeBet": "3벳",
       "fourBet": "4벳",
       "allIn": "올인",
+      "bet": "{{t:bet}}",
       "betSmall": "작은 {{t:c-bet}}",
       "betBig": "큰 {{t:c-bet}}",
       "amountPay": "{{bb}} bb",

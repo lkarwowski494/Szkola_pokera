@@ -1050,6 +1050,7 @@
       "villain": "adversaire"
     },
     "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Déroulement de la main"
     },
@@ -1103,6 +1104,7 @@
       "threeBet": "3-bet",
       "fourBet": "4-bet",
       "allIn": "all-in",
+      "bet": "{{t:bet}}",
       "betSmall": "petit {{t:c-bet}}",
       "betBig": "gros {{t:c-bet}}",
       "amountPay": "{{bb}} bb",

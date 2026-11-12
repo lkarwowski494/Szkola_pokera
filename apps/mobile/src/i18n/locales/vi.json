@@ -1014,6 +1014,7 @@
       "villain": "đối thủ"
     },
     "pot": "{{t:pot|Pot}} {{pula}} bb · cần {{t:call|theo}} {{kwota}} bb",
+    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Diễn biến ván"
     },
@@ -1067,6 +1068,7 @@
       "threeBet": "3-bet",
       "fourBet": "4-bet",
       "allIn": "all-in",
+      "bet": "{{t:bet}}",
       "betSmall": "{{t:c-bet}} nhỏ",
       "betBig": "{{t:c-bet}} lớn",
       "amountPay": "{{bb}} bb",
