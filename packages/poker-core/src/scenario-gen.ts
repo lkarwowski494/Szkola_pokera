@@ -849,7 +849,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const oczekiwana = b.expected[i];
       if (oczekiwana !== 'bet' && oczekiwana !== 'check') throw new TemplateError(`${t.id}: poziom ${level}: river-value: oczekiwana akcja to bet albo check, jest ${String(oczekiwana)}`);
       const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
-      if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12)) throw new TemplateError(`${t.id}: poziom ${level}: river-value wymaga marginesu δ ≥ ${DRAW_CALL_MIN_GAP} (D-1051), jest ${delta}`);
+      if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12 && delta < 0.5)) throw new TemplateError(`${t.id}: poziom ${level}: river-value wymaga marginesu δ w [${DRAW_CALL_MIN_GAP}; 0,5) (D-1051, D-1417), jest ${delta}`); // 08-programista-006: δ ≥ 0,5 to błąd szablonu, nie zwykły Error z riverValueVerdict
       if (spec.pairKind) {
         const rodzaj = classifyHolding(hero, board).pairKind;
         if (rodzaj === null || !spec.pairKind.includes(rodzaj)) return null;

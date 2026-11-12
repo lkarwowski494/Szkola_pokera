@@ -159,6 +159,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const ex = b.expected[i];
         if (ex !== undefined && ex !== 'bet' && ex !== 'check') e.push(`${p} poziom ${l}: oczekiwana akcja punktu river-value to bet albo check, jest ${ex}`);
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
+        if ((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.5) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin < 0,5 (δ ≥ 0,5 wyklucza obie akcje, D-1417)`); // 08-programista-006
       }
     } else if (d.kind === 'defend') {
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);

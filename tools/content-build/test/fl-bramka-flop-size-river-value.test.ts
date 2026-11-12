@@ -42,6 +42,9 @@ describe('08-FD-4: bramka river-value', () => {
     expect(blad(kopia((b) => { delete b.bounds.latwy.marginMin; }))).toMatch(/marginMin ≥ 0\.02/);
     expect(blad(kopia((b) => { b.bounds.latwy.marginMin = 0.01; }))).toMatch(/marginMin ≥ 0\.02/);
   });
+  it('08-programista-006: margines δ ≥ 0,5 to błąd bramki z poziomem i nazwą pola', () => {
+    expect(blad(kopia((b) => { b.bounds.latwy.marginMin = 0.5; }))).toMatch(/poziom latwy: punkt river-value wymaga marginMin < 0,5/);
+  });
   it('klasy: nieznana, wspólna dla calls i folds, powtórzona', () => {
     expect(blad(kopia((b) => { b.decisions[0].calls.push('ZZ'); }))).toMatch(/nieznana klasa ręki ZZ/);
     expect(blad(kopia((b) => { b.decisions[0].folds.push('AKs'); }))).toMatch(/klasa AKs w calls i w folds naraz/);
