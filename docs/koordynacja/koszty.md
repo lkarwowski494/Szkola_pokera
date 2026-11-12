@@ -163,3 +163,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | koordynator 4/8 | M9 | — | 14,83 | 33,7 | 14:55 → 16:05 | 0 | E6 przy 33,7% (zakończenie scalenia) |
 | FP | 08 fix (sonnet) FO 001–006 | — | 2,58 | 23,1 (30 wg raportu) | 16:50 → 16:56 → ok. 17:05 → ci kod 0 8380bee (lokalnie) → przyjęte częściowo 17:32 (fd11090c; recenzja niezależna po FR) | ok. 6 min (start przez subagenta) | zadania 2–5 → FR; CI GitHub na gałęziach sesji brak |
 | FQ | 06 build (opus) szkice SC-13/22/25/28/29, SC-24, Liczby | — | 8,16 | 31,8 | 16:50 → 17:00 → ok. 17:15 → ci kod 0 b11f2d6 (lokalnie) → przyjęte 17:33 (42673fb4, tylko docs/tresci + decyzje/FQ.md) | 0 | recenzja → FS; 08-FQ-1/2 dla 08 |
+| FS | 06 audit (opus) recenzja szkiców FQ | — | 5,73 | 28,9 | 17:35 → 17:35 → ok. 18:00 → ci kod 0 c675eb72 (lokalnie) → przyjęte 18:05 (d8df4a9d, tylko docs) | 0 | 4 WYS → FT |
