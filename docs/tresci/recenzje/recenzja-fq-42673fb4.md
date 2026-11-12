@@ -12,12 +12,12 @@ Skala: KRYT = P0, WYS = P1, ŚR = P2, NIS = P2 bez zmiany działania.
 
 | ID | Poziom | Rodzaj | Tytuł | Status |
 |---|---|---|---|---|
-| 06-tresci-001 | P1 (WYS) | M | SC-22: „ponad 50% rąk, które sprawdzą, to ręce gorsze” fałszywe w 11,3% wariantów (remisy wśród sprawdzających) | otwarte |
-| 06-tresci-002 | P1 (WYS) | M | SC-25 „i tak przegrałyby z tobą” i SC-22 „po czekaniu też wygrałbyś od nich pulę” fałszywe, gdy pasująca ręka remisuje (26,1% i 27,4% wariantów) | otwarte |
-| 06-tresci-003 | P1 (WYS) | M | SC-13: duży rozmiar uczony też na flopach sparowanych i z możliwym stritem, gdzie źródło reguły mówi „size down” / „small sizing” | otwarte |
-| 06-tresci-005 | P1 (WYS) | M | Zdanie „Liczby” defend: „tyle całego zakresu bronisz w teorii” — MDF na flopie jako norma, sprzeczne z R-M6-003, lekcją m6-l1 i GTO Wizard | otwarte |
-| 06-tresci-004 | P2 (ŚR) | M | SC-13: „potrzebuje więcej equity, niż ma” — equity do rivera draw ma większe niż cena ⅔ (977/1000 wariantów); chodzi o szansę na jedną kartę | otwarte |
-| 06-tresci-006 | P2 (NIS) | M | SC-29: zadanie exploit ma tę samą odpowiedź co baza SC-22, więc „betujesz więcej rąk, także cieńszych” nie jest w nim ćwiczone | otwarte |
+| 06-tresci-001 | P1 (WYS) | M | SC-22: „ponad 50% rąk, które sprawdzą, to ręce gorsze” fałszywe w 11,3% wariantów (remisy wśród sprawdzających) | naprawione-do-weryfikacji (FT c8408df6) |
+| 06-tresci-002 | P1 (WYS) | M | SC-25 „i tak przegrałyby z tobą” i SC-22 „po czekaniu też wygrałbyś od nich pulę” fałszywe, gdy pasująca ręka remisuje (26,1% i 27,4% wariantów) | naprawione-do-weryfikacji (FT 85ead107) |
+| 06-tresci-003 | P1 (WYS) | M | SC-13: duży rozmiar uczony też na flopach sparowanych i z możliwym stritem, gdzie źródło reguły mówi „size down” / „small sizing” | naprawione-do-weryfikacji (FT cd4dbe23) |
+| 06-tresci-005 | P1 (WYS) | M | Zdanie „Liczby” defend: „tyle całego zakresu bronisz w teorii” — MDF na flopie jako norma, sprzeczne z R-M6-003, lekcją m6-l1 i GTO Wizard | naprawione-do-weryfikacji (FT fe20c098) |
+| 06-tresci-004 | P2 (ŚR) | M | SC-13: „potrzebuje więcej equity, niż ma” — equity do rivera draw ma większe niż cena ⅔ (977/1000 wariantów); chodzi o szansę na jedną kartę | naprawione-do-weryfikacji (FT 150c6a83) |
+| 06-tresci-006 | P2 (NIS) | M | SC-29: zadanie exploit ma tę samą odpowiedź co baza SC-22, więc „betujesz więcej rąk, także cieńszych” nie jest w nim ćwiczone | otwarte — backlog, fala 3–4 (FT D-1476) |
 
 ## Weryfikacja twierdzeń
 Zakres: całość (5 szkiców pl + en, SC-24 pl + en, `liczby-river-catch-defend.md`, 8 decyzji D-1460…D-1467, 8 reguł użytych w szkicach) · Hierarchia: z `CLAUDE.md` (ADR-24) · Skrypty: własny rachunek bez narzędzi autora `dowody/fs-niezalezny-pl.txt` i `dowody/fs-niezalezny-en.txt` (kod 0, 1000 ziaren na szkic, pl i en identyczne; W/L/T własnymi kombinacjami równe generatorowi we wszystkich 4000 wariantach `river-value`); `dowody/fs-sc24-sc28.txt` (kod 0); 13/13 cytatów dosłownie (`dowody/fs-zrodla.txt`); kontrola szkiców autora uruchomiona przeze mnie (`dowody/fs-fq-kontrola.txt`).
@@ -110,7 +110,7 @@ Wynik `sprawdz-raport.mjs --rola 06-tresci`: w sekcji „Wynik kontroli” na ko
 - Kroki w aplikacji: SC-22, rozdanie z kickerem na stole (np. ziarno 6); gracz czyta, że ponad połowa sprawdzających to gorsze ręce, a dwie trzecie z nich dzieli pulę.
 - Opcje: (a) tekst: „wśród rąk, które {{t:call|sprawdzą}}, gorszych od twojej jest więcej niż lepszych (remis dzieli {{t:pot|pulę}} i nie zmienia rachunku)” — dokładne w każdym wariancie, bez kodu; (b) generator: werdykt bet także przy W ÷ (W + L + T) ≥ 0,5 + δ — zostawia obecne zdanie, ale wymaga kodu 08 i nowych odcisków. Rekomendacja: (a) (D-1471), dla SC-22, SC-28 i SC-29 jednakowo (spójność między modułami).
 - Test akceptacyjny: `dowody/fs-niezalezny.ts.txt` (uruchomienie jak w nagłówku `dowody/fs-niezalezny-pl.txt`) po poprawce tekstu nie dotyczy już licznika „gorsze ÷ WSZYSTKIE”; trwała kontrola: test 08 w content-build, który dla każdego szablonu `river-value` z frazą „ponad … rąk, które sprawdzą” wymaga 0 wariantów z W ÷ (W + L + T) ≤ 0,5 na 2000 ziarnach.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FT, commit c8408df6; test `docs/tresci/dowody/ft-przed.txt` kod 1 → `docs/tresci/dowody/ft-po.txt` kod 0)
 
 ### 06-tresci-002 · SC-25 i SC-22: zdania o rękach, które spasują, fałszywe, gdy pasująca ręka remisuje
 - Pozycja listy kontrolnej: TRE-08
@@ -122,7 +122,7 @@ Wynik `sprawdz-raport.mjs --rola 06-tresci`: w sekcji „Wynik kontroli” na ko
 - Kroki w aplikacji: SC-25 z kartą stołu, która paruje kicker; gracz czyta, że QJ przegrałby, a w rzeczywistości podzieliłby pulę.
 - Opcje: (a) tekst: SC-25 „…i tak nie wygrałyby z tobą przy showdownie” (prawdziwe w każdym wariancie, bo lepszych wśród pasujących jest 0); SC-22 „Ręce, które spasują, nie płacą {{t:bet|zakładu}}, więc nie liczysz ich w tym rachunku” — bez kodu; (b) generator: war. 2 rozszerzony o remis (odrzucić wariant, gdy `classComboSplit(folds).ties > 0`) — obecne zdania stają się prawdziwe, ale zmienia D-1417 i wymaga kodu 08 oraz odcisków. Rekomendacja: (a) (D-1472).
 - Test akceptacyjny: grep z „Mechanizm” → 0 trafień zdań, które twierdzą przegraną pasujących albo wygraną całej puli po czekaniu; albo przy (b) licznik „pasujące: remis z graczem” w `dowody/fs-niezalezny-pl.txt` = 0 dla SC-22 i SC-25.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FT, commit 85ead107; test `docs/tresci/dowody/ft-przed.txt` kod 1 → `docs/tresci/dowody/ft-po.txt` kod 0)
 
 ### 06-tresci-003 · SC-13: duży rozmiar uczony na flopach sparowanych i z możliwym stritem
 - Pozycja listy kontrolnej: TRE-03
@@ -134,7 +134,7 @@ Wynik `sprawdz-raport.mjs --rola 06-tresci`: w sekcji „Wynik kontroli” na ko
 - Kroki w aplikacji: SC-13, flop K-J-9 dwukolorowy albo J-J-3 dwukolorowy; aplikacja uznaje mały zakład za błąd i uzasadnia to ogólną regułą.
 - Opcje: (a) filtr `flop: { suits: [two-tone], ranks: [semi-connected, disconnected] }` w pl i en — zakres wariantów = zakres źródła; mniej przyjęć (ok. 27%), co pogarsza 08-FQ-1; (b) zostawić flopy i zawęzić tekst („na flopie bez pary i bez możliwego strita”) — wtedy na tych flopach oczekiwana odpowiedź `bet-big` nie ma źródła. Rekomendacja: (a) (D-1473).
 - Test akceptacyjny: `dowody/fs-niezalezny.ts.txt` dla SC-13: liczniki „flop ranks=paired” i „flop ranks=connected” = 0 na 1000 ziarnach; kontrola szkiców (pojemność 2000 ziaren) kod 0 po naprawie 08-FQ-1.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FT, commit cd4dbe23; test `docs/tresci/dowody/ft-przed.txt` kod 1 → `docs/tresci/dowody/ft-po.txt` kod 0)
 
 ### 06-tresci-005 · Zdanie „Liczby” defend podaje MDF na flopie jako normę obrony
 - Pozycja listy kontrolnej: TRE-02
@@ -146,7 +146,7 @@ Wynik `sprawdz-raport.mjs --rola 06-tresci`: w sekcji „Wynik kontroli” na ko
 - Kroki w aplikacji: SC-15 po podpięciu „Liczb”: gracz czyta, że w teorii broni 75% zakresu wobec c-betu ⅓, choć lekcja m6-l1 uczy, że na flopie może mniej.
 - Opcje: (a) „{{t:mdf}} to {{obrona}}: to punkt odniesienia dla całego {{t:range|zakresu}}; na flopie możesz bronić trochę mniej, a o jednej ręce decyduje wyjaśnienie” — brzmienie lekcji, bez kodu; (b) usunąć MDF z „Liczb” defend i zostawić samą cenę — prostsze, ale traci powiązanie z M6. Rekomendacja: (a) (D-1474).
 - Test akceptacyjny: grep z `dowody/fs-005-test.txt` → 0 trafień; nowe zdanie pl i en zawiera zastrzeżenie flopu.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FT, commit fe20c098; test `docs/tresci/dowody/ft-przed.txt` kod 1 → `docs/tresci/dowody/ft-po.txt` kod 0)
 
 ### 06-tresci-004 · SC-13: „potrzebuje więcej equity, niż ma” — equity do rivera draw ma większe niż cena
 - Pozycja listy kontrolnej: TRE-07
@@ -158,7 +158,7 @@ Wynik `sprawdz-raport.mjs --rola 06-tresci`: w sekcji „Wynik kontroli” na ko
 - Kroki w aplikacji: SC-13, wybór dowolny; gracz po M2 wie, że kolor ma ok. 35% do rivera, i czyta, że ma mniej niż 28,6%.
 - Opcje: (a) „…a przy zakładzie dwóch trzecich puli cena za następną kartę jest wyższa niż jego szansa na nią”; (b) zostawić i dopisać uproszczenie do R-M5-008 w rejestrze. Rekomendacja: (a) (D-1474).
 - Test akceptacyjny: grep z „Mechanizm” → 0; nowe zdanie wiąże cenę z jedną kartą w pl i en.
-- Status: otwarte
+- Status: naprawione-do-weryfikacji (sesja FT, commit 150c6a83; test `docs/tresci/dowody/ft-przed.txt` kod 1 → `docs/tresci/dowody/ft-po.txt` kod 0)
 
 ### 06-tresci-006 · SC-29: zadanie exploit ma tę samą odpowiedź co baza SC-22
 - Pozycja listy kontrolnej: TRE-08
@@ -170,7 +170,7 @@ Wynik `sprawdz-raport.mjs --rola 06-tresci`: w sekcji „Wynik kontroli” na ko
 - Kroki w aplikacji: SC-29 po SC-22 — gracz nie widzi, co zmienia typ rywala.
 - Opcje: (a) słabsza ręka gracza (np. `pairKind: [second]`), która wobec rywala z SC-22 byłaby czekaniem, a wobec szerokiego zakresu SC-29 betem — ćwiczy exploit, wymaga nowego rachunku pojemności; (b) zostawić — treść prawdziwa, ćwiczenie słabsze. Rekomendacja: (a) przy następnej fali (decyzja zakresu ćwiczenia należy do 03, zgłoszenie do backlogu).
 - Test akceptacyjny: SC-29 ma rękę, dla której ten sam zakres sprawdzenia z SC-22 daje czekanie (rachunek na 1000 ziarnach).
-- Status: otwarte
+- Status: otwarte — bez zmian w szkicu, backlog z wersją docelową w `docs/tresci/stan-fd.md` (sesja FT, D-1476)
 
 ## Do sprawdzenia
 - Pojemność SC-13 po filtrze z 003: semi-connected + disconnected to 73,3% dzisiejszych przyjęć; czy po naprawie 08-FQ-1 bramka 2000 ziaren przejdzie — do sprawdzenia przez 08 po obu zmianach.
