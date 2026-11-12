@@ -27,7 +27,7 @@ decisions:
     sb: true
     actions:
       - action: raise
-        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. {{t:raise|Aumenta}} para {{n:pf.open-size-sb}}, porque do {{t:small-blind}} joga {{t:out-of-position}}, por isso aumenta um pouco mais do que {{n:pf.open-size}} das outras {{t:position|posições}}; um só tamanho para todas as mãos não revela a força da sua mão."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. {{t:raise|Aumenta}} para {{n:pf.open-size-sb}}, porque do {{t:small-blind}} joga {{t:out-of-position}}, por isso {{t:raise|aumenta}} um pouco mais do que {{n:pf.open-size}} das outras {{t:position|posições}}; um só tamanho para todas as mãos não revela a força da sua mão."
       - action: raise-small
         explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e {{t:raise|aumenta}}. Este tamanho é uma imprecisão: do {{t:small-blind}} joga {{t:out-of-position}}, por isso {{t:raise|aumenta}} um pouco mais, para {{n:pf.open-size-sb}}."
       - action: raise-big

@@ -110,4 +110,24 @@ export const DEFINICJE = (z, k) => ({
       k('de', 'scenarios/sc-06.yaml', 'spielst, also etwas mehr', 'de sc-06 raise: zdanie bez czasownika po „also”'),
     ],
   },
+  '008': {
+    // Trzeci czasownik „przebijasz” w sc-06 raise (pl ma 3 × {{t:raise}}). de zrobione w 007. ja, ko, zh-Hant: zdanie nie ma trzeciego czasownika
+    // (przyczyna i skutek wyrażone przymiotnikiem „większy”); bez przebudowy zdania nie ma czego oznaczyć (D-1236).
+    zamiany: [
+      z('es', 'scenarios/sc-06.yaml', 'así que subes un poco más', 'así que {{t:raise|subes}} un poco más'),
+      z('fr', 'scenarios/sc-06.yaml', 'donc vous relancez un peu plus', 'donc vous {{t:raise|relancez}} un peu plus'),
+      z('it', 'scenarios/sc-06.yaml', "quindi rilanci un po' di più", "quindi {{t:raise|rilanci}} un po' di più"),
+      z('pt', 'scenarios/sc-06.yaml', 'por isso aumenta um pouco mais', 'por isso {{t:raise|aumenta}} um pouco mais'),
+      z('pt-BR', 'scenarios/sc-06.yaml', 'então aumenta um pouco mais', 'então {{t:raise|aumenta}} um pouco mais'),
+      z('vi', 'scenarios/sc-06.yaml', 'nên bạn tố nhiều hơn một chút so với', 'nên bạn {{t:raise|tố}} nhiều hơn một chút so với'),
+    ],
+    kontrole: [
+      k('es', 'scenarios/sc-06.yaml', 'así que subes un poco', 'es sc-06: „subes” bez znacznika'),
+      k('fr', 'scenarios/sc-06.yaml', 'donc vous relancez un peu', 'fr sc-06: „relancez” bez znacznika'),
+      k('it', 'scenarios/sc-06.yaml', 'quindi rilanci un po', 'it sc-06: „rilanci” bez znacznika'),
+      k('pt', 'scenarios/sc-06.yaml', 'por isso aumenta um pouco', 'pt sc-06: „aumenta” bez znacznika'),
+      k('pt-BR', 'scenarios/sc-06.yaml', 'então aumenta um pouco', 'pt-BR sc-06: „aumenta” bez znacznika'),
+      k('vi', 'scenarios/sc-06.yaml', 'nên bạn tố nhiều hơn', 'vi sc-06: „tố” bez znacznika'),
+    ],
+  },
 });

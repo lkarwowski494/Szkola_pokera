@@ -27,7 +27,7 @@ decisions:
     sb: true
     actions:
       - action: raise
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. {{t:raise|Rilanci}} a {{n:pf.open-size-sb}}, perché dallo {{t:small-blind}} giochi {{t:out-of-position}}, quindi rilanci un po' di più di {{n:pf.open-size}} dalle altre {{t:position|posizioni}}; una sola misura per tutte le mani non rivela la forza della tua mano."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. {{t:raise|Rilanci}} a {{n:pf.open-size-sb}}, perché dallo {{t:small-blind}} giochi {{t:out-of-position}}, quindi {{t:raise|rilanci}} un po' di più di {{n:pf.open-size}} dalle altre {{t:position|posizioni}}; una sola misura per tutte le mani non rivela la forza della tua mano."
       - action: raise-small
         explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e {{t:raise|rilanci}}. Questa misura è un'imprecisione: dallo {{t:small-blind}} giochi {{t:out-of-position}}, quindi {{t:raise|rilanci}} un po' di più, a {{n:pf.open-size-sb}}."
       - action: raise-big

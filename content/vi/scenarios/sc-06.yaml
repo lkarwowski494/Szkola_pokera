@@ -27,7 +27,7 @@ decisions:
     sb: true
     actions:
       - action: raise
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và bạn {{t:raise|tố}}. Bạn {{t:raise|tố}} lên {{n:pf.open-size-sb}}, vì từ {{t:small-blind|small blind}} bạn chơi {{t:out-of-position|không có vị trí}}, nên bạn tố nhiều hơn một chút so với {{n:pf.open-size}} từ các {{t:position|vị trí}} khác; một mức cho mọi tay bài không để lộ sức mạnh tay bài của bạn."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và bạn {{t:raise|tố}}. Bạn {{t:raise|tố}} lên {{n:pf.open-size-sb}}, vì từ {{t:small-blind|small blind}} bạn chơi {{t:out-of-position|không có vị trí}}, nên bạn {{t:raise|tố}} nhiều hơn một chút so với {{n:pf.open-size}} từ các {{t:position|vị trí}} khác; một mức cho mọi tay bài không để lộ sức mạnh tay bài của bạn."
       - action: raise-small
         explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và bạn {{t:raise|tố}}. Mức này là thiếu chính xác: từ {{t:small-blind|small blind}} bạn chơi {{t:out-of-position|không có vị trí}}, nên bạn {{t:raise|tố}} nhiều hơn một chút, lên {{n:pf.open-size-sb}}."
       - action: raise-big

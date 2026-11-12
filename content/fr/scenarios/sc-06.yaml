@@ -27,7 +27,7 @@ decisions:
     sb: true
     actions:
       - action: raise
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous {{t:raise|relancez}}. Vous {{t:raise|relancez}} à {{n:pf.open-size-sb}}, car depuis la {{t:small-blind}} vous jouez {{t:out-of-position}}, donc vous relancez un peu plus que {{n:pf.open-size}} depuis les autres {{t:position|positions}} ; une seule taille pour toutes les mains ne révèle pas la force de votre main."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous {{t:raise|relancez}}. Vous {{t:raise|relancez}} à {{n:pf.open-size-sb}}, car depuis la {{t:small-blind}} vous jouez {{t:out-of-position}}, donc vous {{t:raise|relancez}} un peu plus que {{n:pf.open-size}} depuis les autres {{t:position|positions}} ; une seule taille pour toutes les mains ne révèle pas la force de votre main."
       - action: raise-small
         explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et vous {{t:raise|relancez}}. Cette taille est une imprécision : depuis la {{t:small-blind}} vous jouez {{t:out-of-position}}, donc vous {{t:raise|relancez}} un peu plus, à {{n:pf.open-size-sb}}."
       - action: raise-big
