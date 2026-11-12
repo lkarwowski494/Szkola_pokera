@@ -72,6 +72,13 @@ interface Chance {
 }
 type Node = Decision | Terminal | Chance;
 
+/** Kombinacje zawierające daną kartę (węzeł losowy zeruje ich zasięg). */
+const WITH_CARD: readonly Int32Array[] = Array.from({ length: 52 }, (_, c) => {
+  const out: number[] = [];
+  for (let i = 0; i < NC; i++) if (COMBO_C1[i] === c || COMBO_C2[i] === c) out.push(i);
+  return Int32Array.from(out);
+});
+
 const fmt = (x: number): string => String(Math.round(x * 100) / 100);
 
 interface StreetState {
@@ -91,6 +98,9 @@ export class FlopGame {
   private iteration = 0;
   private readonly dcfr: DcfrParams;
   private readonly strengthCache = new Map<string, Int32Array>();
+  /** Kombinacje z dodatnią wagą w zakresie gracza (bez kart stołu); pętle idą tylko po nich. */
+  private readonly act: readonly [Int32Array, Int32Array];
+  private readonly actAll: Int32Array;
 
   constructor(
     readonly spec: GameSpec,
@@ -98,6 +108,15 @@ export class FlopGame {
   ) {
     if (spec.board.length + spec.streets.length !== 6) throw new Error('streets: jeden wpis na każdą ulicę do rivera');
     this.dcfr = dcfr;
+    const active = (r: Float64Array): number[] => {
+      const out: number[] = [];
+      for (let i = 0; i < NC; i++) if (r[i]! > 0 && !spec.board.includes(COMBO_C1[i]!) && !spec.board.includes(COMBO_C2[i]!)) out.push(i);
+      return out;
+    };
+    const a0 = active(spec.ranges[0]);
+    const a1 = active(spec.ranges[1]);
+    this.act = [Int32Array.from(a0), Int32Array.from(a1)];
+    this.actAll = Int32Array.from([...new Set([...a0, ...a1])].sort((x, y) => x - y));
     const start: StreetState = spec.oopCheckedFirst
       ? { board: spec.board, street: 0, c: [0, 0], s: [0, 0], toAct: 1, hist: 'x' }
       : { board: spec.board, street: 0, c: [0, 0], s: [0, 0], toAct: 0, hist: '' };
@@ -215,7 +234,7 @@ export class FlopGame {
     if (cached) return cached;
     const st = this.strengths(board);
     const idx: number[] = [];
-    for (let i = 0; i < NC; i++) if (st[i]! >= 0) idx.push(i);
+    for (const i of this.actAll) if (st[i]! >= 0) idx.push(i);
     idx.sort((x, y) => st[y]! - st[x]!); // od najsłabszej
     const out = Int32Array.from(idx);
     this.orderCache.set(key, out);
@@ -227,14 +246,14 @@ export class FlopGame {
   private compatSum(board: readonly Card[], opp: Float64Array, out: Float64Array): void {
     const card = new Float64Array(52);
     let tot = 0;
-    for (let i = 0; i < NC; i++) {
+    for (const i of this.actAll) {
       const r = opp[i]!;
       if (r === 0) continue;
       tot += r;
       { const q = COMBO_C1[i]!; card[q] = card[q]! + r; }
       { const q = COMBO_C2[i]!; card[q] = card[q]! + r; }
     }
-    for (let i = 0; i < NC; i++) {
+    for (const i of this.actAll) {
       const a = COMBO_C1[i]!;
       const b = COMBO_C2[i]!;
       out[i] = board.includes(a) || board.includes(b) ? 0 : tot - card[a]! - card[b]! + opp[i]!;
@@ -250,7 +269,7 @@ export class FlopGame {
       const R = new Float64Array(NC);
       this.compatSum(t.board, opp, R);
       const pay = (t.winner === p ? net : 0) - own;
-      for (let i = 0; i < NC; i++) out[i] = pay * R[i]!;
+      for (const i of this.actAll) out[i] = pay * R[i]!;
       return out;
     }
     const st = this.strengths(t.board);
@@ -293,7 +312,7 @@ export class FlopGame {
     if (own !== 0) {
       const R = new Float64Array(NC);
       this.compatSum(t.board, opp, R);
-      for (let i = 0; i < NC; i++) out[i] = out[i]! - own * R[i]!;
+      for (const i of this.actAll) out[i] = out[i]! - own * R[i]!;
     }
     return out;
   }
@@ -304,7 +323,7 @@ export class FlopGame {
     const nA = d.actions.length;
     const src = avg ? d.sum : d.reg;
     const out = new Float64Array(NC * nA);
-    for (let h = 0; h < NC; h++) {
+    for (const h of this.act[d.p]) {
       let tot = 0;
       for (let a = 0; a < nA; a++) {
         const v = src[h * nA + a]!;
@@ -330,11 +349,12 @@ export class FlopGame {
         const card = n.cards[ci]!;
         const r0 = Float64Array.from(reach[0]);
         const r1 = Float64Array.from(reach[1]);
-        for (let i = 0; i < NC; i++) if (COMBO_C1[i] === card || COMBO_C2[i] === card) { r0[i] = 0; r1[i] = 0; }
+        for (const i of WITH_CARD[card]!) { r0[i] = 0; r1[i] = 0; }
         const v = this.walk(n.ch[ci]!, p, [r0, r1], mode);
-        for (let i = 0; i < NC; i++) if (COMBO_C1[i] !== card && COMBO_C2[i] !== card) out[i] = out[i]! + v[i]!;
+        for (const i of WITH_CARD[card]!) v[i] = 0;
+        for (const i of this.act[p]) out[i] = out[i]! + v[i]!;
       }
-      for (let i = 0; i < NC; i++) out[i] = out[i]! / n.div;
+      for (const i of this.act[p]) out[i] = out[i]! / n.div;
       return out;
     }
     const nA = n.actions.length;
@@ -342,38 +362,40 @@ export class FlopGame {
     if (n.p !== p) {
       const out = new Float64Array(NC);
       const opp = reach[n.p];
+      const actO = this.act[n.p];
+      const actP = this.act[p];
       for (let a = 0; a < nA; a++) {
         const r = new Float64Array(NC);
-        for (let h = 0; h < NC; h++) r[h] = opp[h]! * sig[h * nA + a]!;
+        for (const h of actO) r[h] = opp[h]! * sig[h * nA + a]!;
         const v = this.walk(n.ch[a]!, p, n.p === 0 ? [r, reach[1]] : [reach[0], r], mode);
-        for (let h = 0; h < NC; h++) out[h] = out[h]! + v[h]!;
+        for (const h of actP) out[h] = out[h]! + v[h]!;
       }
       return out;
     }
     const own = reach[p];
+    const actP = this.act[p];
     const vals: Float64Array[] = [];
     for (let a = 0; a < nA; a++) {
       const r = new Float64Array(NC);
-      for (let h = 0; h < NC; h++) r[h] = own[h]! * sig[h * nA + a]!;
+      for (const h of actP) r[h] = own[h]! * sig[h * nA + a]!;
       vals.push(this.walk(n.ch[a]!, p, p === 0 ? [r, reach[1]] : [reach[0], r], mode));
     }
     const out = new Float64Array(NC);
     if (mode === 'br') {
-      for (let h = 0; h < NC; h++) {
+      for (const h of actP) {
         let best = -Infinity;
         for (let a = 0; a < nA; a++) best = Math.max(best, vals[a]![h]!);
         out[h] = best;
       }
       return out;
     }
-    for (let h = 0; h < NC; h++) for (let a = 0; a < nA; a++) out[h] = out[h]! + sig[h * nA + a]! * vals[a]![h]!;
+    for (const h of actP) for (let a = 0; a < nA; a++) out[h] = out[h]! + sig[h * nA + a]! * vals[a]![h]!;
     if (mode !== 'train') return out;
     const t = this.iteration;
     const posW = t ** this.dcfr.alpha / (t ** this.dcfr.alpha + 1);
     const negW = t ** this.dcfr.beta / (t ** this.dcfr.beta + 1);
     const avgW = (t / (t + 1)) ** this.dcfr.gamma;
-    for (let h = 0; h < NC; h++) {
-      if (own[h] === 0 && n.reg[h * nA] === 0 && n.sum[h * nA] === 0) continue;
+    for (const h of actP) {
       for (let a = 0; a < nA; a++) {
         const i = h * nA + a;
         const r = n.reg[i]! + (vals[a]![h]! - out[h]!);

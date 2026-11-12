@@ -61,7 +61,7 @@ describe('W1(a) zakres spolaryzowany kontra łapacz blefów (R-M8-010, R-M6-001)
       const call = resp.actions.indexOf('c');
       expect(call).toBeGreaterThanOrEqual(0);
       expect(Math.abs(freqOf(resp.freqs, resp.actions.length, call, CATCH) - P / (P + B))).toBeLessThan(0.005);
-    });
+    }, LIMIT_CIEZKI_MS);
   }
 });
 
@@ -71,7 +71,7 @@ describe('W1(b) zbieżność: NashConv poniżej 0,1% puli', () => {
     g.run(3000);
     expect(g.stats().iterations).toBe(3000);
     expect(g.stats().nashConvPot).toBeLessThan(0.001);
-  });
+  }, LIMIT_CIEZKI_MS);
 
   it(
     'river z szerokimi zakresami, przebiciami i rake',
@@ -107,7 +107,8 @@ describe('W1(c) zgodność z niezależnym skalarnym CFR (test/flop-ref.ts)', () 
     const pairs = (l: string[]) => l.map((s) => [parseCard(s.slice(0, 2)), parseCard(s.slice(2, 4))] as const);
     const oopL = ['AsAh', 'JsJh', 'Js9s', 'Ts9s', '7s6s', 'KsQs'];
     const ipL = ['JdTd', 'QhQd', '8s8h', 'AdKd', '9h9d', '6h4h'];
-    const ref = solveRef({ board, oop: pairs(oopL), ip: pairs(ipL), pot: 10, bet: 7 }, 5000);
+    const refIterations = 5000;
+    const ref = solveRef({ board, oop: pairs(oopL), ip: pairs(ipL), pot: 10, bet: 7 }, refIterations);
     const g = new FlopGame({
       board,
       ranges: [rangeFromCombos(oopL), rangeFromCombos(ipL)],
