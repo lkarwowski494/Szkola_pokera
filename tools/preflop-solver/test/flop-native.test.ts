@@ -53,7 +53,8 @@ describe('B4 solver flopu w C: zgodność z TS', () => {
     'turn z 44 riverami = wynik TS (B3)',
     () => {
       const turn = parseCards('Kd 9c 5h 2s');
-      compare({ ...COMMON, board: turn, ranges: [rangeFromClasses(OOP, turn), rangeFromClasses(IP, turn)], streets: [{ betsPot: [0.66] }, { betsPot: [0.66] }] }, 60);
+      const iterations = 60;
+      compare({ ...COMMON, board: turn, ranges: [rangeFromClasses(OOP, turn), rangeFromClasses(IP, turn)], streets: [{ betsPot: [0.66] }, { betsPot: [0.66] }] }, iterations);
     },
     LIMIT_CIEZKI_MS,
   );
