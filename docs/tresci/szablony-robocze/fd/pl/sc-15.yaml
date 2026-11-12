@@ -1,5 +1,6 @@
 # SC-15 (M6): obrona wobec małego c-betu — nie pasuj za łatwo (punkt defend, D-1144). Ocena: defendVsCbet, gałąź „mały” (R-M6-006);
-# kotwica wyjaśnienia: MDF przy 1/3 puli (R-M6-001, math) i R-M6-003 (GW MDF & Alpha: BB „consistently over-folding” na flopie).
+# kotwica wyjaśnienia: MDF przy 1/3 puli (R-M6-001, math) jako punkt odniesienia według R-M6-003 (GW MDF & Alpha: BB „consistently over-folding” na flopie);
+# bez progu alpha (próg rivera, lekcja m6-l1 q-flop-mdf; FN, D-1411).
 # Szkic sesji FD (D-1353): defend poza ekranem; 08-EL-2 (próg małego c-betu) nie zmienia ułamków 0,25 i 0,33 tego szkicu.
 id: sc-15
 module: m6
@@ -19,6 +20,6 @@ decisions:
     fractions: [0.25, 0.33]
     actions:
       - action: call
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:call|Sprawdzasz}}, bo ta ręka albo już wygrywa z {{t:bluff|blefami}}, albo może się poprawić, a mały {{t:bet|zakład}} wymaga niewiele equity. W teorii przy {{t:bet|zakładzie}} {{n:cbet.size.small}} {{t:pot|puli}} bronisz ok. {{n:mdf.bet-third}} {{t:range|zakresu}}; jeśli {{t:fold|pasujesz}} częściej niż {{n:alpha.bet-third}}, rywal zarabia, {{t:bluff|blefując}} dowolnymi kartami."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:call|Sprawdzasz}}, bo ta ręka albo już wygrywa z {{t:bluff|blefami}}, albo może się poprawić, a mały {{t:bet|zakład}} wymaga niewiele equity. {{t:mdf}} przy {{t:bet|zakładzie}} {{n:cbet.size.small}} {{t:pot|puli}} ({{n:mdf.bet-third}} {{t:range|zakresu}}) to punkt odniesienia: na flopie {{t:out-of-position}} możesz bronić trochę mniej, ale na mały {{t:c-bet}} nie {{t:fold|pasujesz}} masowo."
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:fold|Pas}} oddaje rękę, która ma dość equity wobec tak małego {{t:bet|zakładu}}: albo już wygrywa z {{t:bluff|blefami}}, albo może się poprawić. Na małe c-bety nie {{t:fold|pasujesz}} masowo: jeśli {{t:fold|pasujesz}} częściej niż {{n:alpha.bet-third}}, rywal zarabia, {{t:bluff|blefując}} dowolnymi kartami."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:fold|Pas}} oddaje rękę, która ma dość equity wobec tak małego {{t:bet|zakładu}}: albo już wygrywa z {{t:bluff|blefami}}, albo może się poprawić. Na flopie {{t:out-of-position}} możesz bronić trochę mniej, niż wskazuje {{t:mdf}}, ale na małe c-bety nie {{t:fold|pasujesz}} masowo."
