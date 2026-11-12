@@ -3,7 +3,7 @@
 # i zostaje w szkicu docs/tresci/szablony-robocze/sc-34.yaml (bramka scenariusze.ts odrzuca icm-call z poziomem trudnym). Rola 06, sesje CO i DU.
 id: sc-34
 module: m11
-situation: "Na {{t:bubble|bolha}} o {{t:small-blind}} vai {{t:all-in}}, e está no {{t:big-blind}}."
+situation: "Está no {{t:big-blind}} e, na {{t:bubble|bolha}}, o {{t:small-blind}} vai {{t:all-in}}."
 table: 6max
 positions: { hero: BB, villain: SB }
 stackBb: 10

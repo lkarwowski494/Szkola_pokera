@@ -51,4 +51,18 @@ export const DEFINICJE = (z, k) => ({
       k('de', '.', '\\bden \\{\\{t:bet\\|Bet\\}\\}', '„den Bet” (r. f)'),
     ],
   },
+  '004': {
+    zamiany: [
+      z('pt', 'scenarios/sc-32.yaml', 'as blinds', 'os blinds', 2),
+      z('pt', 'scenarios/sc-32.yaml', 'faz {{t:shove|push}}', 'faz {{t:shove|shove}}', 2),
+      z('pt', 'scenarios/sc-33.yaml', 'faria {{t:shove|push}}', 'faria {{t:shove|shove}}'),
+      z('pt', 'scenarios/sc-33.yaml', 'a sua blind', 'o seu blind'),
+      z('pt', 'scenarios/sc-33.yaml', 'A sua blind', 'O seu blind'),
+      z('pt', 'scenarios/sc-34.yaml', 'Na {{t:bubble|bolha}} o {{t:small-blind}} vai {{t:all-in}}, e está no {{t:big-blind}}.', 'Está no {{t:big-blind}} e, na {{t:bubble|bolha}}, o {{t:small-blind}} vai {{t:all-in}}.'),
+    ],
+    kontrole: [
+      k('pt', 'scenarios', '[Aa]s blinds|[Aa] sua blind|\\{\\{t:shove\\|push', 'pt scenariusze: „as blinds”, „a sua blind”, „shove|push” (push/fold jako nazwa strategii zostaje)'),
+      k('pt', 'scenarios/sc-34.yaml', '^situation: "Na ', 'sc-34 situation: „Na bolha o small blind vai all-in, e está…”'),
+    ],
+  },
 });
