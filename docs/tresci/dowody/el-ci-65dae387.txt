@@ -1,0 +1,30 @@
+# pnpm run ci na 65dae387 (sesja EL, 2026-11-12), Node v22.23.4
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  22 passed (22)
+packages/poker-core test:       Tests  230 passed (230)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  61 passed (61)
+tools/content-build test:       Tests  665 passed | 1 expected fail (666)
+# Subtest: braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+ok 156 - braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+kod wyjścia: 0
+
+# pierwszy przebieg na acbbe7b4 (equityMarginMin w treści): kod 1
+tools/content-build test:  FAIL  test/generator-odciski.test.ts > ŚR-002: odciski prawdziwych szablonów są związane z GENERATOR_WERSJA > ziarna 1–200 każdego szablonu i poziomu dają odciski zapisane dla tej wersji
+tools/content-build test:  FAIL  test/szablony-du.test.ts > szablony treści range-spot: ręka i ocena zgodne z plikiem solvera (BR-GEN-003, D-1034) > sc-06 latwy: 10000 wariantów
+tools/content-build test:  FAIL  test/szablony-du.test.ts > szablony treści range-spot: ręka i ocena zgodne z plikiem solvera (BR-GEN-003, D-1034) > sc-32 latwy: 10000 wariantów
+tools/content-build test:  FAIL  test/szablony-du.test.ts > szablony treści range-spot: ręka i ocena zgodne z plikiem solvera (BR-GEN-003, D-1034) > sc-33 latwy: 10000 wariantów
+tools/content-build test:  FAIL  test/szablony-du.test.ts > szablony treści size-spot: rozmiary i oceny z parametru reguły (BR-GEN-003, D-1032) > sc-06 latwy: 10000 wariantów
+tools/content-build test:       Tests  5 failed | 660 passed | 1 expected fail (666)
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/content-build@0.1.0 test: `vitest run`
+kod wyjścia: 1

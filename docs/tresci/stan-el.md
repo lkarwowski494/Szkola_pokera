@@ -8,7 +8,7 @@ Gałąź `sesja-el-tresci` od 31723a6c. Polecenie: `origin/koordynacja:docs/koor
 | 3. EJ NIS-003 (cytat Upswing w R-M6-006) | zrobione: Tip 4 (D-1212), `sources` z adresami, rejestr m5-m8 | jw. |
 | 4. EI do 06 (R-M7-006, KO-076) | zrobione: warunek reguły pl/en (silna = najwyższa para i lepsze; draw, który po trafieniu wygrywa), zadanie 08-EL-1 (żywe outy, D-1213); KO-076 miara przyjęta dla Ł jako zachowawcza, nie do poziomu trudnego (D-1214) | `dowody/el-ko076.txt`, `narzedzia/rachunki/el_ko076_*.py` |
 | 5. Kolejka EF | `equityMarginMin: 0.02` w Ł SC-06/32/33: **warunkowe** (D-1215; wpis cofnięty, bo testy w `tools/` wymagają poprawki 08-EL-4); progi N2 [0,25; 0,35] i ≥ 0,75 (D-1216, 08-EL-2); bluff-catcher (D-1217); R-M5-012 `check`: **otwarte** (D-1218); semi-blef N6: **otwarte** (niżej) | `pnpm content:build` kod 0 |
-| 6. `pnpm run ci` | patrz `dowody/el-ci-<sha>.txt` | |
+| 6. `pnpm run ci` | kod 0 na 65dae387 (pierwszy przebieg na acbbe7b4: kod 1, przyczyna D-1215) | `dowody/el-ci-65dae387.txt` |
 
 ## Otwarte pytania
 - [DO USTALENIA] R-M5-012 `check` (N5): potrzebne przeczytane źródło z wynikiem solvera per tekstura flopu dla otwierającego bez pozycji (np. CO/UTG wobec BTN); GTO Wizard „C-Betting As the OOP Preflop Raiser” ma odpowiedzi tylko w elementach interaktywnych. Bez tego szablon N5 nie ma przypadków (D-1218).
