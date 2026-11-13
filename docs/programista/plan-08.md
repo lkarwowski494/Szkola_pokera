@@ -1347,3 +1347,10 @@ Stan: zadania 1–5 wykonane na `claude/sesja-gb-kod` (start 40e66ab). Decyzje D
 - Nie sprawdzono: zrzuty 390 i 320/AX5 (brak react-native-web / symulatora w środowisku), telefon i VoiceOver.
 - Do 04/08: wiersze stołu „BB · rywal · 12.5 bb” (`komponenty.tsx:59,64`) bez `formatujLiczbe` (kropka w pl); `scenario.numbers.line` przekazuje liczby bez formatowania.
 Następny krok: recenzja niezależna zakresu (poker-core `scenario-gen.ts` river-value margins; `liczby.ts`; `wariant.ts` bloki; `EkranScenariusza.tsx` werdykt/ogłoszenie/lista końcowa).
+
+## Sesja HE (2026-11-13, 08-programista fix; polecenie HE.md @ 40709ef5, od eaa44e46)
+- 08-programista-HD-1 (D-1590): `scenario-gen.ts` — `river-value` odrzuca wariant, gdy ręka z `folds` jest lepsza **albo remisuje**; `GENERATOR_WERSJA` 6 (D-1600). Test odtwarzający czerwony na eaa44e46 (75/300 wariantów z remisem), zielony po zmianie (`dowody/he-hd1-test.txt`).
+- Pojemność: SC-22/25/29 bez błędów limitu, odciski 1998/2000/1998 na 2000 ziaren (próg 40), maks. prób 3061 przy limicie 60 000 (`dowody/he-pojemnosc.txt`).
+- Odciski: zmienione tylko sha SC-22/25/29; `content:build`: 35/35 baz identycznych bajtowo, żadne ID nie zniknęło (`dowody/he-odciski-d043.txt`).
+- 06-tresci-001: rachunek HD po zmianie 0/2000 remisów pasujących; pełny rachunek EV: werdykt zgodny w 2000/2000 (SC-22, SC-25, SC-29) dla zakładów 1/4…2 pule (`dowody/he-remisy-rachunek.txt`). Tekst treści bez zmian.
+- Otwarte (poza zakresem plików HE): komentarz nagłówka `content/pl/scenarios/sc-25.yaml:4` „remis możliwy, D-1417” jest po D-1590 nieaktualny (zadanie dla 06); test trwały w `tools/content-build/test/` z raportu HD (D-1601).

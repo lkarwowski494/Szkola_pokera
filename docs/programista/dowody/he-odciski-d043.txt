@@ -1,0 +1,17 @@
+# HE: odciski generatora (tools/content-build/test/generator-odciski.json) przeliczone: GENERATOR_ODCISKI_ZAPISZ=1 vitest run test/generator-odciski.test.ts (kod 0)
+# zmiana: wersja 5 -> 6; sha zmienione tylko dla sc-22|latwy, sc-25|latwy, sc-29|latwy (ziarno1 bez zmian); sc-28 i pozostałe bez zmian
+ tools/content-build/test/generator-odciski.json | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+-  "wersja": 5,
++  "wersja": 6,
+-      "sha": "3b4c4fe961dd17ec",
++      "sha": "ba91b611ca33195e",
+-      "sha": "cbf8d093f9535730",
++      "sha": "08ab1ae4bfea3112",
+-      "sha": "54b5be564053cdc4",
++      "sha": "5daea0d33f197e31",
+
+# D-043: pnpm content:build (kod 0) -> 35 baz; porównanie ID: node docs/tresci/narzedzia/hd-d043-bazy.mjs <bazy eaa44e46> <bazy po build>
+baz przed 35, po 35; OK: żadne ID, tabela ani baza nie zniknęła
+kod 0
+bazy identyczne bajtowo z eaa44e46: 35/35 (bazy niosą szablony, nie warianty; git status apps/: pusty)
