@@ -184,3 +184,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | HE | 08 fix (opus) HD-1 + 06-tresci-001, bez promptu roli (KO-103) | 4 | 3,57 | 18,6 | 12:07 → 12:12 → 969c38a3 → CI 43428408615 success → 13:10 | — | przyjęta przeglądem koordynatora; scalona w b7bc12e6; zarchiwizowana 13:52 |
 | HF | 09 fix (sonnet) przekłady 09-HD-1…4 + 4-bet + mdf | 5 | 2,19 | 21,2 | 14:58 → 15:00 → b4d170a4 → CI 43459616375 success (034b2dfb) → 16:31 | 25 min (E2E HF zdublowane) | przyjęta, nie scalona (partia z następną pracą); zarchiwizowana 16:31 |
 | koordynator 2/8 | M9 session_01T66VBwsHXCc4m15f9KDM4H | — | 15,76 | 29,7 | 11:57 → 22:57 | — | 4 subagenci startu (~140k tokenów każdy) |
+| HH | 04 audit (opus) ekrany vs FW 390/320/AX5 | — | 6,01 | 27,1 | 16:45 → 22:53 (start sesji) → f0121218 23:09 → CI 43524950237 … | — | PRZEKAZANIE 23:09; render jest→HTML zamiast Expo web (D-1630) |
