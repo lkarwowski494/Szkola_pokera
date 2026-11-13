@@ -54,7 +54,19 @@ Koszt: repo publiczne, standardowe runnery bez opłat (strategia.md §5). Minuty
 
 ## 4. Dowody (zad. 4)
 - `pnpm run ci` lokalnie: `docs/jakosc/dowody/fz-ci-<sha>.txt`.
-- CI na końcowym SHA: sekcja niżej (uzupełniana po przebiegu).
+- CI na końcowym SHA kodu fb4e6e0f: przebieg 43389167128, wszystkie 7 jobów `success` (odczyt `list_workflow_jobs` i logów jobów, 2026-11-13 08:06 UTC). Commit z tym zapisem ma `[skip ci]` (tylko ten plik), więc ostatnie SHA z CI to fb4e6e0f.
+
+| Job | Czas joba (start→koniec) | Krok testów | Testy (CI fb4e6e0f) | Przed (CI ac2ed2e3) |
+|---|---|---|---|---|
+| `ci-kontrole` | 1 min 37 s | content:check 45 s, typecheck 15 s, test:skrypty 15 s | skrypty 204, kontrole 35 | skrypty 202, kontrole 35 |
+| `ci-testy-tresci` | 8 min 01 s | content-build 7 min 40 s (vitest 459,66 s) | 748 + 1 expected fail | 748 + 1 expected fail |
+| `ci-testy-silnik` | 4 min 13 s | poker-core 2 min 47 s, preflop-solver 1 min 03 s | 310; 44 | 310; 44 |
+| `ci-testy-aplikacja` | 2 min 15 s | mobile 1 min 39 s, domena 9 s, postep 5 s, srs 1 s, jezyki 1 s | 1395; 347 + 1 ef; 160; 21; 144 | 1395; 347 + 1 ef; 160; 21; 144 |
+| `check` | 2 s (start 08:03:01 po częściach) | `jq -e`: 4 × success | — | — |
+| `rachunki`, `akceptacja` (bez zmian) | 53 s; 31 s | — | — | — |
+
+Całość przebiegu: 07:54:56 → 08:03:03 = **8 min 07 s** (przed: 43337711819 12 min 54 s; 43343782691 anulowany po 15 min). Najdłuższy job 8 min 01 s wobec limitu 15 min: zapas ~7 min. Uwaga: content-build w CI urósł z 382 s (ac2ed2e3, w łańcuchu) do 460 s (fb4e6e0f, osobny runner; zawiera 13 nowych plików locale z FY) — przy tym tempie wzrostu zapas wystarczy na kilka kolejnych fal przekładu; próg ponownej decyzji: krok content-build > 10 min.
+- Różnica liczby testów przed/po: tylko `test:skrypty` +2 (testy D-1521); reszta identyczna.
 
 ## Stan
-- [x] zad. 1 pomiar · [x] zad. 2 `ci.yml` · [x] zad. 3 test + mutacje · [ ] zad. 4 CI na gałęzi · [x] zad. 5 `docs/decyzje/FZ.md`
+- [x] zad. 1 pomiar · [x] zad. 2 `ci.yml` · [x] zad. 3 test + mutacje · [x] zad. 4 CI na gałęzi (43389167128) · [x] zad. 5 `docs/decyzje/FZ.md`
