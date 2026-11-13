@@ -1,0 +1,16 @@
+# Sesja GC: recenzja niezależna kodu GB (08 audit) — Szkoła Pokera
+Koordynator: session_01T66VByiENqzzSU25cPeXBV (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; aktualny ID zawsze w `origin/koordynacja:docs/koordynacja/stan.md`, sekcja Mandat). Gałąź stanu: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie audit. Prompt roli jest w Twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości. Biblioteki prompts nie dołączasz. Recenzujesz w świeżym kontekście: najpierw kod i testy, dopiero potem raporty autora (`docs/decyzje/GB.md`, `docs/programista/plan-08.md` sekcja GB).
+2. Start: gałąź `claude/sesja-gc-recenzja` od `claude/sesja-gb-kod` @ 0ac2679877df5b78c78a584e34d52339843e93f5 (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md.
+3. Zakres: `git diff 40e66ab4..0ac2679` (24 pliki). Zlecenie GB: polecenie `origin/koordynacja:docs/koordynacja/polecenia/GB.md` (301–304 z recenzji FX, 07-jakosc-002, D-1465 „Liczby”, FW-01 river-value, §3 ręka mieszana według `docs/design/fw-river-value-i-mieszana.md`, KO-102 formatowanie liczb stołu).
+4. Zadania (każde z kryterium „gotowe”):
+   1. Poprawność i zgodność ze specyfikacją: scenario-gen.ts (marginPunktu, **D-1536 zmiana zachowania**: margins[i] zastępuje globalny marginMax — czy nie zmienia wygenerowanych wariantów obecnej treści; dowód: porównanie wyjścia generatora/baz przed i po), liczby.ts (liczby tylko z `content/numbers.yaml`, formatowanie według locale, także `scenario.numbers.line`), wariant.ts (bloki/zgodneAkcje/inneZgodne, ręka mieszana §3 i zdjęcie bramki FU-201), EkranScenariusza.tsx, komponenty.tsx (formatBb).
+   2. Testy: czy nowe i **zmienione** istniejące testy (fg-river-catch-ekran, fg-defend-ekran, fv-201-reka-mieszana-bramka) nadal bronią wymagań, a nie tylko dopasowano je do kodu (zasada wspólna 11); mutanty na kluczowych gałęziach (wynik: zabity/przeżył).
+   3. Ścieżka wrażliwa D-043 (`tools/content-build/src/scenariusze.ts`): identyfikatory w powtórkach i baza na język — ID nie znikają (dowód w pliku).
+   4. Dostępność i teksty: ogłoszenia czytnika ekranu, brak tekstów zaszytych w kodzie (wszystko przez i18n), brak twierdzeń pokerowych spoza zatwierdzonych źródeł.
+   5. Werdykt PRZYJĄĆ / PRZYJĄĆ Z UWAGAMI / ODRZUCIĆ, znaleziska z wagą według progu CLAUDE.md „Audyty i wydania” pkt 1. Raport `docs/programista/recenzje/recenzja-gb-0ac2679.md`, dowody `docs/programista/dowody/gc-*`, decyzje `docs/decyzje/GC.md`; `pnpm run ci` kod 0 na Twoim końcowym SHA (plik dowodu).
+5. Zakazy: nie poprawiasz kodu GB (tylko znaleziska), nie scalasz, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nigdy `--no-verify` ani force-push, bez AskUserQuestion. STOP-y roli i punkt czyszczenia → raport do koordynatora.
+6. Decyzje: techniczne przez analogię z lkarwowski494/trening (publiczne, klon `--depth 1`), `repo:plik:linia`; merytoryczne pokerowe według hierarchii ADR-24 z CLAUDE.md; do weta. Numery tylko D-1550…D-1559.
+7. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w raporcie, push, PRZEKAZANIE. Orientacyjnie ok. 6 USD; powyżej 8 USD raport do koordynatora.
+8. Raporty (≤ 10 linii, send_message): PYTANIE z opcjami i rekomendacją; PRZEKAZANIE: werdykt, SHA, dowody, decyzje do weta, koszt.
