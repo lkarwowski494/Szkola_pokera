@@ -1,0 +1,8 @@
+# hb-401: mutant G4 (ogłoszenie czytnika po staremu: yoursGood/yours z jedną akcją, ekran po nowemu) — 2026-11-13
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+  ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór niezgodny (AKs fold): ogłasza yours z wszystkimi zgodnymi połączonymi scenario.or
+  ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór zgodny (AKs call): ogłasza yoursGoodAlso z drugą zgodną akcją, nie yoursGood
+Tests:       2 failed, 11 passed, 13 total
+kod wyjścia (mutant): 1
+
+# kod poprawny (bez mutanta): 13 passed, 13 total, kod 0 (po dodaniu 2 testów; przed: 11 testów, mutant G4 przeżywał — docs/programista/dowody/gc-mutanty.txt, przebieg 3)
