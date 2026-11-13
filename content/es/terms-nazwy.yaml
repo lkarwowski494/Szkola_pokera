@@ -23,7 +23,7 @@ all-in: "all-in"  # all-in; bez formy 1; formy: —; źr. C:Push; D:PN-reglas
 pot: "bote"  # pot; bez formy 7; formy: bote×829, botes×30, Bote×27; źr. A:Texas_hold_em; D:PN-reglas; C:Pot; es-ES; [B] „pozo” (Ameryka Łacińska)
 side-pot: "bote secundario"  # side pot; bez formy 0; formy: bote secundario×2; źr. C:Pot
 split-pot: "bote dividido"  # split pot; bez formy 0; formy: Bote dividido×11, el bote se divide×5, os repartís el bote×1; źr. C:Split-Pot-Bote-dividido
-playing-the-board: "jugar la mesa"  # playing the board; bez formy 0; formy: jugar la mesa×2, jugando la mesa×1, juegan la mesa×1; źr. brak [DO USTALENIA]
+playing-the-board: "jugar la mesa"  # playing the board; bez formy 0; formy: jugar la mesa×2, jugando la mesa×1, juegan la mesa×1; źr. 09-HD-1: „Segunda pareja Hacer una pareja con la segunda carta comunitaria más alta y una de tus cartas de mano.” casino.org/replaypoker/es/como-jugar-al-poker/terminos-de-poker, odczyt 2026-11-13 (szczebel 4, jedno źródło); D-1610
 board: "mesa"  # board; bez formy 4; formy: mesa×90, board×8; źr. C:Mesa; E:PN-art (board); bez formy „en la/de la {{t:board}}” (ż) — „board” (m) dałby „en la board” [WIELE FORM]
 community-cards: "cartas comunitarias"  # community cards; bez formy 0; formy: cartas comunitarias×11, carta comunitaria×1; źr. A:Texas_hold_em; D:PN-reglas
 hole-cards: "cartas propias"  # hole cards; bez formy 0; formy: cartas propias×3; źr. D:PN-reglas (dos cartas propias); A:Texas_hold_em (cartas de mano)
