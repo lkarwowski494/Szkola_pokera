@@ -1085,7 +1085,7 @@
       "riverCatch": "Il {{t:pot|piatto}} è {{pula}} bb e la {{t:call|chiamata}} costa {{kwota}} bb, quindi ti serve il {{potrzeba}} di equity, cioè vincere circa una volta su {{razPotrzeba}}. Batti solo i {{t:bluff|bluff}}, e in questa mano i {{t:bluff|bluff}} sono il {{udzial}} delle loro {{t:bet|puntate}}.",
       "riverCatchMore": "Ci sono più {{t:bluff|bluff}} di quanti ne servano, quindi la {{t:call|chiamata}} guadagna.",
       "riverCatchLess": "Ci sono meno {{t:bluff|bluff}} di quanti ne servano, quindi la {{t:call|chiamata}} perde.",
-      "defend": "Il {{t:pot|piatto}} è {{pula}} bb e la {{t:call|chiamata}} costa {{kwota}} bb, quindi ti serve il {{potrzeba}} di equity, cioè vincere circa una volta su {{razPotrzeba}}. Contro una {{t:bet|puntata}} di questa misura, l’{{t:mdf}} è {{obrona}}: un punto di riferimento per tutto il tuo {{t:range|range}}; sul flop puoi difendere un po’ meno, e per una singola mano decide la spiegazione."
+      "defend": "Il {{t:pot|piatto}} è {{pula}} bb e la {{t:call|chiamata}} costa {{kwota}} bb, quindi ti serve il {{potrzeba}} di equity, cioè vincere circa una volta su {{razPotrzeba}}. Contro una {{t:bet|puntata}} di questa dimensione, la {{t:mdf}} è {{obrona}}: un punto di riferimento per tutto il tuo {{t:range|range}}; sul flop puoi difendere un po’ meno, e per una singola mano decide la spiegazione."
     },
     "riverValue": {
       "calls": "Contro una {{t:bet|puntata}}, il tuo avversario {{t:call|chiama}} con: {{lista}}.",

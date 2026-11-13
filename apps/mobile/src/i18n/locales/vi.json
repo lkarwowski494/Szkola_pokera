@@ -1047,8 +1047,8 @@
       "overcardsFold": "Nếu tính cả những lá cho bạn một {{t:pair|đôi}} cao hơn mọi lá trên {{t:board|board}} ({{nadkarty}} trên {{nieznane}} lá chưa thấy), bạn trúng ở {{trafiszRazem}} số trường hợp, vẫn ít hơn mức giá yêu cầu ({{potrzeba}}). {{t:pair|Đôi}} như vậy cũng có thể thua tay bài mạnh hơn của đối thủ.",
       "overcardsCall": "Những lá cho bạn một {{t:pair|đôi}} cao hơn mọi lá trên {{t:board|board}} ({{nadkarty}} trên {{nieznane}} lá chưa thấy) không được tính vào phép tính: {{t:pair|đôi}} như vậy có thể thua tay bài mạnh hơn, và outs của draw đã đủ.",
       "riverCatch": "{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Bạn chỉ thắng được {{t:bluff|bluff}}, và ở ván này {{t:bluff|bluff}} chiếm {{udzial}} số {{t:bet|cược}} của đối thủ.",
-      "riverCatchMore": "{{t:bluff|Bluff}} nhiều hơn mức bạn cần, nên {{t:call|theo}} có lãi.",
-      "riverCatchLess": "{{t:bluff|Bluff}} ít hơn mức bạn cần, nên {{t:call|theo}} bị lỗ.",
+      "riverCatchMore": "{{t:bluff|Bluff}} nhiều hơn mức bạn cần, nên việc {{t:call|theo}} có lãi.",
+      "riverCatchLess": "{{t:bluff|Bluff}} ít hơn mức bạn cần, nên việc {{t:call|theo}} bị lỗ.",
       "defend": "{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Trước một {{t:bet|cược}} cỡ này, {{t:mdf}} là {{obrona}}: mốc tham chiếu cho cả {{t:range|range}} của bạn; ở flop bạn có thể bảo vệ ít hơn một chút, còn với một tay bài cụ thể thì lời giải thích sẽ quyết định."
     },
     "riverValue": {
