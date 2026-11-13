@@ -175,3 +175,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | FY | 09 build (sonnet) przekład fala 2 + FU-202 + KO-097/098 | — | 2,91 | 24,7 | 00:03 → 00:04 → 1b0b9a4a → ci kod 0 f05ef675 (lokalnie) → przyjęte do scalenia 00:37 | 0 | scalenie po E2E ac2ed2e3; zarchiwizowana 00:56 |
 | FZ | 07 build (opus) | 6 | 4,42 | 23,6 | 07:12 → 07:15 → ok. 07:50 → 08:03 (CI 43389167128) → 08:15 | ok. 10 min (CI na gałęzi) | podział CI, 12:55 → 8:05 |
 | GA | 07 audit (opus) | 5 | 4,51 | 22,4 | 08:13 → 08:15 → ok. 08:25 → — (docs) → 08:45 | — | recenzja D-043, PRZYJĄĆ Z UWAGAMI |
+| GB | 08 build (sonnet) 301–304, Liczby, river-value, ręka mieszana, KO-102 | 10 | 11,25 | 32,9 | 09:10 → 09:12 → f5600e6d → CI 43406023822 (0ac2679) → 10:45 (scalone 7740eeab) | ok. 40 min (recenzja GC) | E2E 43406023892 anulowane (zastąpione E2E na 7740eeab); zarchiwizowana 10:50 |
+| GC | 08 audit (opus) recenzja GB | 6 | 3,33 | 26,5 | 10:06 → 10:08 → 132eb151 → ci kod 0 lokalnie (docs) → 10:45 | — | PRZYJĄĆ Z UWAGAMI (D-1550), 401–403 → HB; zarchiwizowana 10:50 |

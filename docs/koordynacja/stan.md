@@ -30,6 +30,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **10:52: GB przyjęta** (GC: PRZYJĄĆ Z UWAGAMI D-1550; CI 43406023822 success na 0ac2679; diff GC tylko docs) → scalenie --no-ff **7740eeab** na roboczej; CI 43411564566 + E2E 43411564574 w toku; E2E 43406023892 (gałąź GB) anulowane jako zdublowane. GB i GC zarchiwizowane (11,25 + 3,33 USD). **Aktywne:** HA session_01T66VBz3nrTXL8BJSNzfhDV (06 build opus/high, `claude/sesja-ha-tresci`, D-1560…1574: SC-22/25/28/29+SC-13 do content/, przegląd D-1495) · HB session_01T66VBymMeSJKouGiXpveHj (08 fix sonnet/medium, `claude/sesja-hb-fix`, D-1575…1584: 401–403). Pliki rozłączne (HA content/+tools testy, HB apps/+content-schema). Kolejka dalej: (3) 04 audit vs fw, (4) 06/09 4-bet/mdf, (6) hook Stop vs tożsamość, (7) 07-jakosc-001.
 - **10:27 przejęcie: koordynator session_01T66VByKjXi3s5FFnXyD7C2.** Przypomnienia: trig_01Y3sLNwbzSGfwhnXVLy6BX5 „kontrola” 10:55 · trig_0197GxDnvAyRoznyg1qhfeUK „linia 14:00” 13.11 (13:51) · trig_01WMGmKFUEmGYFaAsRt9grDz „linia 05:00” 14.11 (04:51). GC powiadomiona; wiadomości poprzednika po 10:20: brak. Kolejka bez zmian (wpis 10:20 niżej).
 - **10:20 E6: przekazanie koordynatora session_01T66VByiENqzzSU25cPeXBV (kontekst 50,7% — ponad próg, przegapiony przy kontrolach; 32,61 USD).** Mandat bez zmian. Lineage 0/8 → następca 1/8.
   - **Aktywne:** **GC** session_01T66VBvtZtR1Uno4vbdBw2o (08 audit opus, recenzja GB 40e66ab4..0ac2679, `claude/sesja-gc-recenzja`, D-1550…D-1559). **GB** session_01T66VBvatkqAfkGSQ3qq4x1 bezczynna (11,25 USD, 32,9%) — archiwizacja po werdykcie GC (wpis kosztu do koszty.md).
@@ -332,6 +333,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
+| HA | session_01T66VBz3nrTXL8BJSNzfhDV | 06 build | claude/sesja-ha-tresci @ 7740eeab | 0 | 0 | start 10:51 |
+| HB | session_01T66VBymMeSJKouGiXpveHj | 08 fix | claude/sesja-hb-fix @ 7740eeab | 0 | 0 | start 10:51 |
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | GC | session_01T66VBvtZtR1Uno4vbdBw2o | 08 audit (opus) | claude/sesja-gc-recenzja @ 0ac2679 (start) | 0 | 0 | w toku od 10:07: recenzja GB (D-1550…D-1559) |
@@ -462,7 +465,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-056**. Pule po 15:45: BF/BM D-550…D-564, BG D-565…D-579, BI D-580…D-594, BN D-595…D-609; następny wolny **D-645** (BQ D-610…D-624, BR D-625…D-629, BS D-630…D-644, BT D-645…D-659, BU D-660…D-674); następny wolny **D-675**. Starsze: Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
+- **13.11 10:51: pule GC D-1550…1559, HA D-1560…1574, HB D-1575…1584; następny wolny D-1585; KO następny KO-103.** KO następny (dawny wpis): **KO-056**. Pule po 15:45: BF/BM D-550…D-564, BG D-565…D-579, BI D-580…D-594, BN D-595…D-609; następny wolny **D-645** (BQ D-610…D-624, BR D-625…D-629, BS D-630…D-644, BT D-645…D-659, BU D-660…D-674); następny wolny **D-675**. Starsze: Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -966,3 +969,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 22:40 | koordynator | **przekazane do session_01T66VByxxQ4VaznS4NWFuhb** (start OK; prompt przez subagenta, cmp identyczny 54246 B); moje przypomnienia kontrola/05:00/14:00 usunięte; zostaje „kontrola przekazania” za 30 min | PRZEJĄŁEM od następcy |
 | 00:30 | koordynator | **przekazane do session_01T66VBwwWmwpSWFhjnLZ7Jx** (start OK; prompt przez subagenta, cmp identyczny 54415 B, sha256 c05ea9f0…); moje przypomnienia kontrola/05:00/14:00 usunięte; zostaje „kontrola przekazania” za 30 min | PRZEJĄŁEM od następcy |
 | 10:27 | koordynator 1/8 | PRZEJĘCIE od session_01T66VByiENqzzSU25cPeXBV @ b3f85f05; przypomnienia własne 3; GC powiadomiona | kontrola 10:55 (GC) |
+| 10:45 | koordynator | GC PRZEKAZANIE (D-1550 PRZYJĄĆ Z UWAGAMI) → scalenie 7740eeab na roboczej (CI 43411564566, E2E 43411564574) | CI/E2E |
+| 10:51 | koordynator | start HA i HB (polecenia @ 0dbe5ad7, prompt przez subagenta, sha256 plików 8c5fc30f/f79ebd54); GB, GC zarchiwizowane | kontrola 10:55 |
