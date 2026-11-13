@@ -1,0 +1,12 @@
+# GC: scenario.numbers.line — czy kwota/pula bywa ułamkowa (liczby.ts zdaniaDrawCall przekazuje d.bet i d.pot + d.bet bez formatujLiczbe)
+$ tsx ulamki.mts content/pl/scenarios/*.yaml  # punkty draw-call, ziarna 1–200: czy kwota/pula w scenario.numbers.line bywa ułamkowa (wtedy brak formatujLiczbe = kropka w pl)
+sc-01.yaml latwy: punktów draw-call 400, z kwotą/pulą ułamkową 0 
+sc-01.yaml sredni: punktów draw-call 400, z kwotą/pulą ułamkową 0 
+sc-01.yaml trudny: punktów draw-call 400, z kwotą/pulą ułamkową 0 
+sc-02.yaml latwy: punktów draw-call 400, z kwotą/pulą ułamkową 0 
+sc-02.yaml sredni: punktów draw-call 400, z kwotą/pulą ułamkową 0 
+sc-03.yaml latwy: punktów draw-call 200, z kwotą/pulą ułamkową 0 
+sc-03.yaml sredni: punktów draw-call 200, z kwotą/pulą ułamkową 0 
+sc-19.yaml latwy: punktów draw-call 400, z kwotą/pulą ułamkową 0 
+sc-19.yaml sredni: punktów draw-call 400, z kwotą/pulą ułamkową 0 
+kod 0
