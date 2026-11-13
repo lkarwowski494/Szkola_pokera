@@ -30,6 +30,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **07:40 kontrola.** FZ RUNNING („czekam na dowód niezależności części, ~10 min”), gałąź claude/sesja-fz-ci jeszcze nie wypchnięta. Kontrola 08:21 trig_01AQRTWarvGhacVwqJP3rDf8 (push + CI FZ).
 - **07:29 FZ raport po zad. 1:** lokalnie `pnpm test` 575 s z 690 s (~95%); podział po komendach nie daje zapasu → D-1520: 4 joby po pakietach (ci-kontrole 8 komend ~2 min; ci-testy-tresci content-build ~6,5 min; ci-testy-silnik poker-core+preflop-solver ~3 min; ci-testy-aplikacja mobile/domena/postep/srs/jezyki ~2 min), każdy timeout 15, `check` = needs + if: always() + sprawdzenie wyników. Ten sam zestaw testów (rozpisanie `pnpm -r test` na `--filter` pakietów); test rozjazdu D-1521 (7 mutacji czerwonych, 27/27). Odrzucone: shard vitest (zmienia komendy). Ocena koordynatora: w granicach KO-101 — do sprawdzenia przy odbiorze: liczba testów przed/po równa, każdy pakiet z testem objęty. Bez push jeszcze.
 - **07:35 właściciel: „Zgoda na zmiany zgodne z rekomendacją”** (odpowiedź na wybór podział vs limit 25) → KO-101 przyjęte: podział joba check (FZ) kontynuowany.
 - **07:30 właściciel: „Zgoda na dołączenie repo trening”** → repo publiczne, odczyt przez klon `--depth 1` w /home/user/lkarwowski494/trening @ 2d97581 (add_repo: read_available). KO-101 uzupełnione o analogię częściową (Trening tests.yml:20 — jeden job, limit 60 min); decyzja bez zmian (zasada 7).
