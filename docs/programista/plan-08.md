@@ -1354,3 +1354,4 @@ Następny krok: recenzja niezależna zakresu (poker-core `scenario-gen.ts` river
 - Odciski: zmienione tylko sha SC-22/25/29; `content:build`: 35/35 baz identycznych bajtowo, żadne ID nie zniknęło (`dowody/he-odciski-d043.txt`).
 - 06-tresci-001: rachunek HD po zmianie 0/2000 remisów pasujących; pełny rachunek EV: werdykt zgodny w 2000/2000 (SC-22, SC-25, SC-29) dla zakładów 1/4…2 pule (`dowody/he-remisy-rachunek.txt`). Tekst treści bez zmian.
 - Otwarte (poza zakresem plików HE): komentarz nagłówka `content/pl/scenarios/sc-25.yaml:4` „remis możliwy, D-1417” jest po D-1590 nieaktualny (zadanie dla 06); test trwały w `tools/content-build/test/` z raportu HD (D-1601).
+- KO-104 (D-1602): `fv-fs-trwale-kontrole.test.ts` — asercja SC-25 06-tresci-002 na fixture → `not.toMatch`, nowy test licznika na przykładzie HD, mutant ginie (`dowody/he-mutant-remis.txt`); testy pliku 9 → 10.
