@@ -853,7 +853,8 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
       if (!(delta >= DRAW_CALL_MIN_GAP - 1e-12 && delta < 0.5)) throw new TemplateError(`${t.id}: poziom ${level}: river-value wymaga marginesu δ w [${DRAW_CALL_MIN_GAP}; 0,5) (D-1051, D-1417), jest ${delta}`); // 08-programista-006: δ ≥ 0,5 to błąd szablonu, nie zwykły Error z riverValueVerdict
       // 08-FQ-2 (FQ D-1467): górna granica odległości w od połowy (marginMax; null = bez granicy): δ ≤ |w − 0,5| < marginMax, żeby poziomy Ś/T różniły się od Ł
-      const deltaMax = b.margins?.[i]?.max ?? b.marginMax ?? null;
+      const marginPunktu = b.margins?.[i]; // 08-programista-304 (GB): margins[i] ZASTĘPUJE marginMin/marginMax (schemat; jak inMargin), więc max: null = bez górnej granicy, nie spadek na globalny marginMax
+      const deltaMax = marginPunktu ? marginPunktu.max : (b.marginMax ?? null);
       if (deltaMax !== null && !(deltaMax > delta)) throw new TemplateError(`${t.id}: poziom ${level}: river-value: marginMax ${deltaMax} musi być większy od δ ${delta} (08-FQ-2)`);
       if (spec.pairKind) {
         const rodzaj = classifyHolding(hero, board).pairKind;
