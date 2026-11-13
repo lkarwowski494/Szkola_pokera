@@ -1,0 +1,17 @@
+# Sonda na żywo: celowo czerwony test packages/srs/test/ga-sonda-czerwona.test.ts (expect(1).toBe(2)), commit d21b580b na claude/sesja-ga-recenzja,
+# cofnięty następnym commitem. Odczyt: MCP GitHub actions_get get_workflow_run + get_job_logs(failed_only), 2026-11-13.
+Przebieg 43392410775 (push, d21b580b): status completed, conclusion failure (08:20:08–08:27:07)
+Joby z porażką: 2 z 7
+- ci-testy-aplikacja (131775246789): failure
+    ❯ test/ga-sonda-czerwona.test.ts:3:53
+    ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/srs@0.1.0 test: `vitest run`
+    ##[error]Process completed with exit code 1.
+    (krok @szkola/jezyki po srs nie wykonany: bash -e / kolejne kroki pominięte po porażce, jak pnpm -r z bail)
+- check (131778148915): failure, uruchomiony po zakończeniu wszystkich części (08:27:04), log:
+    ci-kontrole: success
+    ci-testy-tresci: success
+    ci-testy-silnik: success
+    ci-testy-aplikacja: failure
+    ##[error]Process completed with exit code 1.
+Pozostałe joby (ci-kontrole, ci-testy-tresci, ci-testy-silnik, rachunki, akceptacja): success
+kod: nie dotyczy (wynik przebiegu CI)

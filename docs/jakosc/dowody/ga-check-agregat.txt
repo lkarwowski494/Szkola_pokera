@@ -1,0 +1,11 @@
+# Krok joba check (wyciągnięty z ci.yml @31011f9c) uruchomiony jak w GitHub Actions: bash -e, NEEDS_JSON z env
+echo "$NEEDS_JSON" | jq -r 'to_entries[] | "\(.key): \(.value.result)"'
+echo "$NEEDS_JSON" | jq -e 'length == 4 and (to_entries | all(.value.result == "success"))' > /dev/null
+
+wyniki części [success success success success] -> kod kroku 0
+wyniki części [failure success success success] -> kod kroku 1
+wyniki części [success cancelled success success] -> kod kroku 1
+wyniki części [success success skipped success] -> kod kroku 1
+wyniki części [success success success failure] -> kod kroku 1
+wyniki części [cancelled cancelled cancelled cancelled] -> kod kroku 1
+wyniki części [success success success -] -> kod kroku 1

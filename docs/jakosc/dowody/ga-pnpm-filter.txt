@@ -1,0 +1,14 @@
+$ pnpm --filter @szkola/nieistnieje test
+No projects matched the filters in "/home/user/Szkola_pokera"
+kod 0
+$ pnpm -r --if-present exec node -e "console.log(require(\"./package.json\").name)" (lista pakietów objętych pnpm -r)
+@szkola/content-schema test=-
+@szkola/poker-core test=vitest run
+@szkola/jezyki test=vitest run
+@szkola/srs test=vitest run
+@szkola/domena test=vitest run
+@szkola/preflop-solver test=vitest run
+@szkola/content-build test=vitest run
+@szkola/postep test=vitest run
+@szkola/mobile test=jest
+kod 0
