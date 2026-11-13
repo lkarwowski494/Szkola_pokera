@@ -177,3 +177,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | GA | 07 audit (opus) | 5 | 4,51 | 22,4 | 08:13 → 08:15 → ok. 08:25 → — (docs) → 08:45 | — | recenzja D-043, PRZYJĄĆ Z UWAGAMI |
 | GB | 08 build (sonnet) 301–304, Liczby, river-value, ręka mieszana, KO-102 | 10 | 11,25 | 32,9 | 09:10 → 09:12 → f5600e6d → CI 43406023822 (0ac2679) → 10:45 (scalone 7740eeab) | ok. 40 min (recenzja GC) | E2E 43406023892 anulowane (zastąpione E2E na 7740eeab); zarchiwizowana 10:50 |
 | GC | 08 audit (opus) recenzja GB | 6 | 3,33 | 26,5 | 10:06 → 10:08 → 132eb151 → ci kod 0 lokalnie (docs) → 10:45 | — | PRZYJĄĆ Z UWAGAMI (D-1550), 401–403 → HB; zarchiwizowana 10:50 |
+| HB | 08 fix (sonnet/medium) 401–403 | 5 | 1,35 | 18,7 | 10:51 → 10:54 → 4282bce → CI 43415202458 (d1f4e99) → 11:40 | ok. 25 min (CI 25 min, recenzja HC 20 min) | E2E 43413754456 anulowane (KO-069); zarchiwizowana 11:41 |
+| HC | 08 audit (opus/high) recenzja HB | 3 | 3,85 | 20,7 | 11:14 → 11:17 → c5a37cb9 (docs) → ci kod 0 lokalnie → 11:40 | — | PRZYJĄĆ Z UWAGAMI (D-1585), 404 NISKIE → backlog; zarchiwizowana 11:41 |
