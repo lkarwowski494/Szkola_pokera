@@ -333,6 +333,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
+| HC | session_01T66VBzgo57oqeJshUtNyTH | 08 audit (opus/high) | claude/sesja-hc-recenzja @ d1f4e99d | 0 | 0 | start 11:20, recenzja HB |
 | HA | session_01T66VBz3nrTXL8BJSNzfhDV | 06 build | claude/sesja-ha-tresci @ 7740eeab | 0 | 0 | start 10:51 |
 | HB | session_01T66VBymMeSJKouGiXpveHj | 08 fix | claude/sesja-hb-fix @ 7740eeab | 0 | 0 | start 10:51 |
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
@@ -972,3 +973,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 10:45 | koordynator | GC PRZEKAZANIE (D-1550 PRZYJĄĆ Z UWAGAMI) → scalenie 7740eeab na roboczej (CI 43411564566, E2E 43411564574) | CI/E2E |
 | 10:51 | koordynator | start HA i HB (polecenia @ 0dbe5ad7, prompt przez subagenta, sha256 plików 8c5fc30f/f79ebd54); GB, GC zarchiwizowane | kontrola 10:55 |
 | 10:56 | koordynator | CI 43411564566 success na 7740eeab; E2E 43411564574 w kolejce; HA raport po zad. 1 (D-1560: D-1495 poparte, 2dfd492 lokalnie), wyjątki HA (bazy generowane w apps/, LICZBY_ZAREZERWOWANE) dopuszczone; przypomnienia: tylko moje 14:00/05:00 + kontrola 11:55 (trig poprzednika usunięte); kontekst własny 17,8% | kontrola 11:55 |
+| 11:20 | koordynator | HB PRZEKAZANIE @ d1f4e99d (401–403, D-1575…1577 do weta; 1,35 USD; autor OK, kod tylko apps/+content-schema); CI 43415202458 w toku; E2E 43413754456 (aa2b34e) anulowane — E2E po scaleniu (KO-069); start HC (polecenie @ 56ef2a91; prompt przepisany przez subagenta, zgodność bajtowa **niesprawdzona**) | werdykt HC → scalenie HB |
