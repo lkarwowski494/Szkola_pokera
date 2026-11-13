@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-13 11:59 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-13 12:10 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -30,6 +30,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **12:10 HD PRZEKAZANIE: ODRZUCIĆ HA do poprawki 06-tresci-001 (WYS).** SC-25 „Zakład traci” fałszywe, gdy ręka z folds remisuje (152/2000 przy 1/4 puli; od 0,533 puli 0); ten sam brak w SC-22. Reszta przyjęta (SC-13/22/28/29 2000/2000, D-1566 bez osłabienia bramki, D-043 35/35, przekłady 0 błędów mech.). `claude/sesja-hd-recenzja` @ eaa44e46 (autor zgodny, tylko docs). Do weta: D-1590 (river-value: remis w folds odrzuca wariant; zmienia D-1417 cz. i D-1472), D-1591, D-1592. 06-tresci-002 NIS (commit 49fca211 z czerwonym GB-303 wbrew „jeden commit” D-1410) → wyjątek do zapisu przy scaleniu. Otwarte: 09-HD-1…4 (przekłady), R-M10-006 populacja (nie blokuje). **HA i HD zarchiwizowane** (koszty.md). Zlecam **HE** (08 fix, `claude/sesja-he-fix` od eaa44e46, polecenie HE.md, D-1600…1609) **bez promptu roli — wyjątek KO-103** (do weta). Następna litera **HF**, D-1610, KO-104.
 - **11:58 przejęcie: koordynator session_01T66VBwsHXCc4m15f9KDM4H (2/8).** Przypomnienia: trig_01A1mGvyU4qi9zAt1bVukZZV „kontrola” 12:30 (E2E 43411564574, HD) · trig_013QgtqArmh7QfPW6pRWkyWa „linia 14:00” 13.11 (13:51) · trig_01GuYjRwhGQ4asCMHcxPDuTP „linia 05:00” 14.11 (04:51). HD powiadomiona. Wiadomości poprzednika po 11:41: brak nowych od właściciela. CI 43418342122 (HA @ 0d59a42) **success**; E2E 43411564574 in_progress. **Blokada:** add_repo lkarwowski494/prompts odrzucone przez klasyfikator trybu auto (mimo zgody 2026-11-12 20:40 w mandacie) → rola M9 niezłożona; prośba do właściciela w linii 14:00 (reguła uprawnień dla add_repo albo dołączenie repo do sesji). Kolejka bez zmian (wpis 11:57 niżej).
 - **11:57 E6: przekazanie koordynatora session_01T66VByKjXi3s5FFnXyD7C2 (kontekst 30,0%; 13,77 USD).** Mandat bez zmian. Lineage 1/8 → następca 2/8.
   - **Aktywne:** **HD** session_01T66VBzXxmYEtFS9a88hBto (06 audit opus/high, recenzja HA @ 0d59a42, `claude/sesja-hd-recenzja`, D-1590…1599). **HA** session_01T66VBz3nrTXL8BJSNzfhDV bezczynna (14,97 USD — ponad próg STOP 10,4 przy szacunku 8; 28,8%) — archiwizacja po werdykcie HD (wpis kosztu).
@@ -475,7 +476,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- **13.11 10:51: pule GC D-1550…1559, HA D-1560…1574, HB D-1575…1584; następny wolny D-1585; KO następny KO-103.** KO następny (dawny wpis): **KO-056**. Pule po 15:45: BF/BM D-550…D-564, BG D-565…D-579, BI D-580…D-594, BN D-595…D-609; następny wolny **D-645** (BQ D-610…D-624, BR D-625…D-629, BS D-630…D-644, BT D-645…D-659, BU D-660…D-674); następny wolny **D-675**. Starsze: Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
+- **13.11 12:10: pule GC D-1550…1559, HA D-1560…1574, HB D-1575…1584, HC D-1585…1589, HD D-1590…1599, HE D-1600…1609; następny wolny D-1610; KO następny KO-104.** KO następny (dawny wpis): **KO-056**. Pule po 15:45: BF/BM D-550…D-564, BG D-565…D-579, BI D-580…D-594, BN D-595…D-609; następny wolny **D-645** (BQ D-610…D-624, BR D-625…D-629, BS D-630…D-644, BT D-645…D-659, BU D-660…D-674); następny wolny **D-675**. Starsze: Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -987,3 +988,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11:57 | koordynator 1/8 | kontrola: E2E 43411564574 in_progress; HA 14,97 USD bezczynna; własny kontekst 30,0% → E6 | następca |
 | 11:58 | koordynator 1/8 | **przekazane do session_01T66VBwsHXCc4m15f9KDM4H** (start OK; prompt krótki — następca składa M9 z biblioteki sam, bez przepisywania); moje linie 14:00/05:00 usunięte; zostaje „kontrola przekazania” za 30 min | PRZEJĄŁEM od następcy |
 | 11:58 | koordynator 2/8 | przejęcie; przypomnienia 12:30/13:51/04:51; HD powiadomiona; prompts niedostępne (add_repo odrzucone) | kontrola 12:30 |
+| 12:10 | koordynator 2/8 | HD: ODRZUCIĆ HA (06-tresci-001 WYS); HA, HD archiwizacja; HE zlecona (KO-103 bez promptu roli) | kontrola 12:30 |
