@@ -337,3 +337,70 @@ test('e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, b
   assert.ok(kroki.indexOf(pods) < idx(/expo prebuild/), 'cache CocoaPods przed prebuild');
   assert.ok(!kroki.some((k) => /DerivedData|ios\/build|xcode-dd/.test(`${k.name ?? ''} ${k.with?.path ?? ''} ${k.with?.key ?? ''}`)), 'brak kroku DerivedData');
 });
+
+// FZ (D-1521, KO-101, zasada wspólna 21): job `check` z ci.yml podzielony na równoległe części (needs). Części łącznie wykonują
+// dokładnie komendy skryptu `ci` z package.json (multizbiór, bez pominięć i dopisków); `pnpm test` (`pnpm -r --if-present test`)
+// może być rozpisane na `pnpm --filter <pakiet> test` dla każdego pakietu obszaru roboczego ze skryptem test, każdy dokładnie raz.
+// Bez łagodzenia: każda część z limitem 15 min i bez continue-on-error; check czerwony przy każdym wyniku części innym niż success.
+const ROOT = new URL('../../', import.meta.url);
+export function komendyCi(pkg) {
+  return pkg.scripts.ci.split('&&').map((c) => c.trim());
+}
+export function pakietyZTestem(root = ROOT) {
+  const globy = parseDocument(readFileSync(new URL('pnpm-workspace.yaml', root), 'utf8')).toJSON().packages;
+  const nazwy = [];
+  for (const g of globy) {
+    assert.match(g, /^[\w-]+\/\*$/, `pnpm-workspace.yaml: obsługiwany tylko wzorzec katalog/* (jest ${g})`);
+    const kat = new URL(g.slice(0, -1), root);
+    for (const d of readdirSync(kat, { withFileTypes: true })) {
+      if (!d.isDirectory()) continue;
+      let p; try { p = JSON.parse(readFileSync(new URL(`${d.name}/package.json`, kat), 'utf8')); } catch { continue; }
+      if (p.scripts?.test) nazwy.push(p.name);
+    }
+  }
+  return nazwy.sort();
+}
+export function komendyCzesci(w) {
+  const czesci = [w.jobs.check.needs].flat();
+  return czesci.flatMap((id) => (w.jobs[id].steps ?? []).flatMap((k) => (k.run ?? '').split('\n')).map((l) => l.trim())
+    .filter((l) => l.startsWith('pnpm ') && l !== 'pnpm install --frozen-lockfile'));
+}
+export function rozjazdCi(pkg, w, pakiety) {
+  const oczek = komendyCi(pkg);
+  let jest = komendyCzesci(w);
+  const filtr = jest.filter((l) => /^pnpm --filter \S+ test$/.test(l));
+  if (filtr.length) {
+    const nazwy = filtr.map((l) => l.split(' ')[2]).sort();
+    if (JSON.stringify(nazwy) === JSON.stringify(pakiety)) jest = [...jest.filter((l) => !filtr.includes(l)), 'pnpm test'];
+  }
+  const licz = (a) => a.reduce((m, x) => m.set(x, (m.get(x) ?? 0) + 1), new Map());
+  const a = licz(oczek), b = licz(jest), roz = [];
+  for (const k of new Set([...a.keys(), ...b.keys()])) if ((a.get(k) ?? 0) !== (b.get(k) ?? 0)) roz.push(`${k}: package.json ci ×${a.get(k) ?? 0}, części CI ×${b.get(k) ?? 0}`);
+  return roz.sort();
+}
+
+test('ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)', () => {
+  const pkg = JSON.parse(readFileSync(new URL('package.json', ROOT), 'utf8'));
+  assert.deepEqual(rozjazdCi(pkg, json('ci.yml'), pakietyZTestem()), []);
+});
+
+test('ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success', () => {
+  const w = json('ci.yml');
+  const c = w.jobs.check;
+  const czesci = [c.needs].flat();
+  assert.ok(czesci.length >= 2, 'check bez części');
+  for (const id of czesci) {
+    const j = w.jobs[id];
+    assert.equal(j['timeout-minutes'], 15, `${id}: limit 15 min (KO-101: bez podnoszenia)`);
+    assert.equal(j['continue-on-error'], undefined, id);
+    assert.equal(j.if, undefined, `${id}: część pominięta warunkiem nie wykonałaby komend`);
+    for (const k of j.steps) { assert.equal(k['continue-on-error'], undefined, `${id}: ${k.run ?? k.uses}`); assert.equal(k.if, undefined, `${id}: ${k.run ?? k.uses}`); }
+    assert.ok(!['rachunki', 'akceptacja'].includes(id), id);
+  }
+  assert.equal(c.if, '${{ always() }}', 'bez always() check jest pominięty po porażce części, a pominięty wymagany status liczy się jak sukces');
+  assert.equal(c['continue-on-error'], undefined);
+  assert.equal(c.steps.length, 1);
+  assert.equal(c.steps[0].env?.NEEDS_JSON, '${{ toJSON(needs) }}');
+  assert.ok(c.steps[0].run.includes(`length == ${czesci.length} and (to_entries | all(.value.result == "success"))`), 'jq -e: liczba części i wynik success każdej');
+  assert.match(c.steps[0].run, /jq -e /);
+});
