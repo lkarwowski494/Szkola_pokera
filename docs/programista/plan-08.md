@@ -1339,3 +1339,11 @@ Gałąź `sesja-fv-poprawki` od a79ad506. Decyzje D-1490…D-1494 i KO-097 w `do
 - NIE ZACZĘTE: zadanie 9 (ręka mieszana §3 FW, D-1502; bramka z 201 zostaje do jego wdrożenia, klucze `scenario.verdict.yoursGoodAlso`, `scenario.why.alsoGood`, `scenario.or` też wymagają 12 locale).
 - 202 (potOnly w 10 locale) i 205 poza zakresem FV (09 / proces).
 
+
+## Sesja GB (2026-11-13, 08-programista build; polecenie koordynatora GB.md @ a50e50ce)
+Stan: zadania 1–5 wykonane na `claude/sesja-gb-kod` (start 40e66ab). Decyzje D-1535…D-1538 w `docs/decyzje/GB.md`; dowody: `docs/programista/dowody/gb-mutanty-301-304.txt`, `gb-ci-f85770c.txt`.
+- 301–304: testy czerwone na mutantach → zielone; 304 zmiana zachowania `margins[i]` (D-1536). 07-jakosc-002: FZ.md:6 „8 pakietów”.
+- D-1465: `zdaniaLiczb` river-catch/defend (D-1537). FW-01: zdanie zakresu river-value. §3 ręka mieszana + zdjęcie bramki FU-201 (D-1538); przegląd D-043 `tools/content-build`: „brak uwag”.
+- Nie sprawdzono: zrzuty 390 i 320/AX5 (brak react-native-web / symulatora w środowisku), telefon i VoiceOver.
+- Do 04/08: wiersze stołu „BB · rywal · 12.5 bb” (`komponenty.tsx:59,64`) bez `formatujLiczbe` (kropka w pl); `scenario.numbers.line` przekazuje liczby bez formatowania.
+Następny krok: recenzja niezależna zakresu (poker-core `scenario-gen.ts` river-value margins; `liczby.ts`; `wariant.ts` bloki; `EkranScenariusza.tsx` werdykt/ogłoszenie/lista końcowa).
