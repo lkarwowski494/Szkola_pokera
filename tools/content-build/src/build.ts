@@ -128,6 +128,8 @@ export interface CompileOptions {
   transitional?: string | null;
   /** Kontrola generatora szablonów (2000 prób na poziom, najdroższy krok kompilacji pl); domyślnie włączona. Wyłączają ją tylko testy, które sprawdzają treść innych kontroli, a generator ma własne testy i bramkę w `content:build` (CJ, zadanie 6). */
   kontrolaGeneratora?: boolean;
+  /** Lista liczb zarezerwowanych (D-1490); domyślnie `LICZBY_ZAREZERWOWANE`. Podają ją tylko testy gałęzi ostrzeżenia, gdy lista w kodzie jest pusta (HA, D-1566). */
+  liczbyZarezerwowane?: Readonly<Record<string, string>>;
   /** Czas kontroli generatora jednego szablonu (ms); do testu budżetu czasu (CL, ŚR-003 CH). */
   naCzasKontroliSzablonu?: (id: string, ms: number) => void;
 }
@@ -481,7 +483,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   }
   // D-1490 (FV): liczba zarezerwowana pod treść, która jeszcze nie weszła do content/ (powód i ID decyzji w wartości); po użyciu w treści wpis trzeba usunąć (ostrzeżenie), więc lista się nie rozrasta
   for (const key of numbers.keys()) {
-    const powod = LICZBY_ZAREZERWOWANE[key];
+    const powod = (opts.liczbyZarezerwowane ?? LICZBY_ZAREZERWOWANE)[key];
     if (powod !== undefined) {
       if (used.has(key)) warnings.push(`liczba ${key} jest już używana: usuń ją z LICZBY_ZAREZERWOWANE (build.ts)`);
       continue;
