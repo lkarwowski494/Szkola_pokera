@@ -1,0 +1,48 @@
+# Mutanty HC dla poprawek HB 401–403. Użycie: python3 mutanty.py <worktree>
+import subprocess, sys, pathlib
+wt = pathlib.Path(sys.argv[1])
+E = 'apps/mobile/src/features/scenariusz/EkranScenariusza.tsx'
+L = 'apps/mobile/src/features/scenariusz/liczby.ts'
+S = 'packages/content-schema/src/index.ts'
+T401 = 'src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx'
+T402 = 'src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts'
+T403 = 'src/features/scenariusz/__tests__/hb-liczby-line-403.test.tsx'
+M = {
+ # 401: ogłoszenie po staremu (jedna akcja), ekran bez zmian
+ 'H401a': (E, "opis: d ? zdanieWerdyktu(ocenaWyboru, d, s.szablon.decisions[indeks], wybor, (a) => opisAkcjiEkranu(a).fraza, t) : ''",
+           "opis: d ? (ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: opisAkcjiEkranu(wybor).fraza }) : t('scenario.verdict.yours', { akcja: opisAkcjiEkranu(wybor).fraza, lepiej: opisAkcjiEkranu(d.correct as Akcja).fraza })) : ''", T401),
+ # 401: brak opisu w ogłoszeniu (sama ocena)
+ 'H401b': (E, "opis: d ? zdanieWerdyktu(ocenaWyboru, d, s.szablon.decisions[indeks], wybor, (a) => opisAkcjiEkranu(a).fraza, t) : ''", "opis: ''", T401),
+ # 401: ogłoszenie z odwróconą oceną słowa
+ 'H401c': (E, "t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) })", "t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru === 'zgodne' ? 'blad' : 'zgodne'}`) })", T401),
+ # 402: brak sprawdzenia (warunek nigdy)
+ 'H402a': (S, "if (m !== undefined && m < RIVER_CATCH_MARGIN_MIN) {", "if (m !== undefined && m < 0) {", T402),
+ # 402: tylko marginMin (ignoruje margins[i])
+ 'H402b': (S, "const m = b?.margins?.[i]?.min ?? b?.marginMin;", "const m = b?.marginMin;", T402),
+ # 402: <= zamiast < (odrzuca równo 0,01)
+ 'H402c': (S, "m < RIVER_CATCH_MARGIN_MIN) {", "m <= RIVER_CATCH_MARGIN_MIN) {", T402),
+ # 402: zły indeks margins (zawsze [0]) — fixture ma jeden punkt, oczekiwane przeżycie
+ 'H402d': (S, "const m = b?.margins?.[i]?.min ?? b?.marginMin;", "const m = b?.margins?.[0]?.min ?? b?.marginMin;", T402),
+ # 402: tylko poziom latwy
+ 'H402e': (S, "for (const l of ['latwy', 'sredni', 'trudny'] as const) {", "for (const l of ['latwy'] as const) {", T402),
+ # 403: kwota bez formatowania
+ 'H403a': (L, "kwota: formatujLiczbe(d.bet, j), pula: formatujLiczbe(d.pot + d.bet, j), potrzeba: formatujProcent(d.required", "kwota: d.bet, pula: formatujLiczbe(d.pot + d.bet, j), potrzeba: formatujProcent(d.required", T403),
+ # 403: pula bez formatowania
+ 'H403b': (L, "pula: formatujLiczbe(d.pot + d.bet, j), potrzeba: formatujProcent(d.required", "pula: d.pot + d.bet, potrzeba: formatujProcent(d.required", T403),
+ # 403: pula = sam pot (zła wielkość)
+ 'H403c': (L, "pula: formatujLiczbe(d.pot + d.bet, j), potrzeba: formatujProcent(d.required", "pula: formatujLiczbe(d.pot, j), potrzeba: formatujProcent(d.required", T403),
+}
+wybrane = sys.argv[2:] or list(M)
+for k in wybrane:
+    plik, stare, nowe, test = M[k]
+    p = wt / plik; src = p.read_text()
+    assert src.count(stare) == 1, (k, src.count(stare))
+    p.write_text(src.replace(stare, nowe))
+    try:
+        r = subprocess.run(['pnpm', '--filter', '@szkola/mobile', 'exec', 'jest', '--ci', test], cwd=wt, capture_output=True, text=True)
+        out = r.stdout + r.stderr
+        linie = [l for l in out.splitlines() if l.strip().startswith(('●', 'Tests:')) and 'Console' not in l]
+        print(f'== {k} ({plik}) test {test}: kod {r.returncode} → {"ZABITY" if r.returncode else "PRZEŻYŁ"}')
+        for l in dict.fromkeys(linie): print('   ', l.strip())
+    finally:
+        p.write_text(src)

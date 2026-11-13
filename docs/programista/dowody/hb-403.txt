@@ -1,0 +1,6 @@
+# hb-403 przed poprawką
+    Received string:    "Pula (pot) to 12.5 bb, a sprawdzenie (call) kosztuje 2.5 bb, więc potrzebujesz 9% szans, czyli wygrać mniej więcej raz na 11. Outy to 9 z 47 niewidzianych kart: układ trafisz w 19,1% przypadków, czyli mniej więcej raz na 5."
+Tests:       1 failed, 1 total
+# po poprawce
+Test Suites: 36 passed, 36 total
+Tests:       390 passed, 390 total

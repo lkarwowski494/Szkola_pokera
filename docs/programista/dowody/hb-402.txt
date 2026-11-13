@@ -1,0 +1,7 @@
+# hb-402: bramka river-catch w schemacie (RIVER_CATCH_MARGIN_MIN = 0,01), 2026-11-13
+Przed poprawką (test apps/mobile/src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts na kodzie bez stałej i bez superRefine):
+  ✕ stała = 0,01 ...   ✕ marginMin 0,005 odrzucony   ✕ margins[0].min 0,005 odrzucony
+  Tests: 3 failed, 3 passed, 6 total  (czerwień: stała undefined; schemat przyjmuje 0,005)
+Po poprawce: Tests: 5 passed, 5 total (test bez kontrolnego „inne rodzaje punktów” — usunięty jako asercja warunkowa).
+Rachunek: odstęp x − y ≥ 0,01 ⇒ round(100x) ≥ round(100y + 1) = round(100y) + 1, więc procenty bez miejsc po przecinku różne.
+Tego samego progu „> 0” w tools/content-build/src/scenariusze.ts:160, :222, :274 NIE zmieniano (zakaz HB; schemat odrzuca wcześniej). Zalecenie dla HA: opcjonalnie dopisać 0,01 w komunikacie bramki.

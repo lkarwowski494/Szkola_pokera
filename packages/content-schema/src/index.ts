@@ -779,6 +779,9 @@ export const ScenarioRiverValueDecision = z
 export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
+/** Najmniejszy margines (ułamek, 0,01 = 1 pp) punktu river-catch: odstęp ≥ 1 pp daje różne procenty bez miejsc po przecinku (round monotoniczne, round(y + 1) = round(y) + 1). */
+export const RIVER_CATCH_MARGIN_MIN = 0.01;
+
 export const ScenarioTemplate = z
   .object({
     id,
@@ -795,5 +798,18 @@ export const ScenarioTemplate = z
     bounds: z.object({ latwy: ScenarioLevelBounds.optional(), sredni: ScenarioLevelBounds.optional(), trudny: ScenarioLevelBounds.optional() }).strict(),
     decisions: z.array(ScenarioDecision).min(1).max(2),
   })
-  .strict();
+  .strict()
+  .superRefine((t, ctx) => {
+    // 08-programista-402 (HB, D-1575): zdanie river-catch podaje procenty bez miejsc po przecinku, a „więcej/mniej” liczy z wartości dokładnych; odstęp ≥ 1 pp daje różne liczby.
+    t.decisions.forEach((d, i) => {
+      if (d.kind !== 'river-catch') return;
+      for (const l of ['latwy', 'sredni', 'trudny'] as const) {
+        const b = t.bounds[l];
+        const m = b?.margins?.[i]?.min ?? b?.marginMin;
+        if (m !== undefined && m < RIVER_CATCH_MARGIN_MIN) {
+          ctx.addIssue({ code: 'custom', path: ['bounds', l, b?.margins?.[i] ? 'margins' : 'marginMin'], message: `punkt river-catch (decyzja ${i + 1}), poziom ${l}: marginMin ${m} < ${RIVER_CATCH_MARGIN_MIN} (procent ceny i udział blefów mogłyby wyjść równe przy zdaniu „więcej/mniej”)` });
+        }
+      }
+    });
+  });
 export type ScenarioTemplate = z.infer<typeof ScenarioTemplate>;

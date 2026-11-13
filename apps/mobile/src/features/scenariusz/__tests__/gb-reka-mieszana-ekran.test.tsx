@@ -2,6 +2,7 @@
 // 08 GB (FW §3, D-1502; kryteria akceptacji 1–4 dla 08; 08-programista-201 / sonda FU docs/programista/dowody/fu-sonda-reka-mieszana.txt): ręka mieszana w list-hand.
 // O bloku decyduje ocena akcji („zgodne”), nie równość z `correct`: druga poprawna akcja to widoczny blok „też dobre”, nie „Dlaczego nie”.
 import '@/i18n';
+import { AccessibilityInfo } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 import { classOf, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
 import { ScenarioTemplate } from '@szkola/content-schema';
@@ -83,6 +84,26 @@ describe('GB kryterium 3: werdykt i ogłoszenie', () => {
     await ocena('AA', '4bet');
     expect(bezNbsp(tekstEkranu())).toContain(bezNbsp(t('scenario.verdict.yoursGood', { akcja: fraza('AA', '4bet') })));
     expect(tekstEkranu()).not.toMatch(/Też dobrze/);
+  });
+});
+
+// 08-programista-401 (D-1552; wzorzec Trening tests/m3-p2-matrix.test.tsx:45 — szpieg announceForAccessibility): ogłoszenie czytnika ma to samo zdanie werdyktu co ekran.
+describe('GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej', () => {
+  const ogloszenie = (slowoOceny: string, opis: string) => t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${slowoOceny}`) }), opis });
+  const ogloszone = (): string[] => spy.mock.calls.map((c) => bezNbsp(String(c[0])));
+  let spy: jest.SpyInstance;
+  beforeEach(() => { spy = jest.spyOn(AccessibilityInfo, 'announceForAccessibility').mockImplementation(() => {}); });
+  afterEach(() => spy.mockRestore());
+  it('wybór zgodny (AKs call): ogłasza yoursGoodAlso z drugą zgodną akcją, nie yoursGood', async () => {
+    await ocena('AKs', 'call');
+    const oczekiwane = ogloszenie('zgodne', t('scenario.verdict.yoursGoodAlso', { akcja: fraza('AKs', 'call'), inne: fraza('AKs', '4bet') }));
+    expect(ogloszone()).toContain(bezNbsp(oczekiwane));
+  });
+  it('wybór niezgodny (AKs fold): ogłasza yours z wszystkimi zgodnymi połączonymi scenario.or', async () => {
+    await ocena('AKs', 'fold');
+    const lepiej = t('scenario.or', { a: fraza('AKs', 'call'), b: fraza('AKs', '4bet') });
+    const oczekiwane = ogloszenie('blad', t('scenario.verdict.yours', { akcja: fraza('AKs', 'fold'), lepiej }));
+    expect(ogloszone()).toContain(bezNbsp(oczekiwane));
   });
 });
 

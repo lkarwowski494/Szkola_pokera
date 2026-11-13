@@ -63,7 +63,7 @@ function zdaniaDrawCall(s: SesjaScenariusza, i: number, t: TFn, j: Jezyk): strin
   const stol = s.wariant.board.slice(0, d.street === 'flop' ? 3 : 4);
   const nieznane = 52 - 2 - widokDecyzji(s.wariant, i).stol.length;
   const linia = t('scenario.numbers.line', {
-    kwota: d.bet, pula: d.pot + d.bet, potrzeba: formatujProcent(d.required, j), razPotrzeba: raz(d.required),
+    kwota: formatujLiczbe(d.bet, j), pula: formatujLiczbe(d.pot + d.bet, j), potrzeba: formatujProcent(d.required, j), razPotrzeba: raz(d.required),
     outy: d.outs, nieznane, trafisz: formatujProcent(d.hit, j, { miejsca: 1 }), razTrafisz: raz(d.hit),
   });
   const nadkarty = nadkartyPunktu(s.wariant, i); // ta sama definicja co warunek {{jesli:nadkarty}} w wyjaśnieniu (KO-073)

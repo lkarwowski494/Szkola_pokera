@@ -1,0 +1,25 @@
+# HC: wszystkie szablony content/ i szkice docs/tresci/szablony-robocze przez nowy ScenarioTemplate (superRefine 402), kod @ d1f4e99d
+$ node_modules/.bin/tsx sonda-szkice.ts /home/user/Szkola_pokera docs/tresci/szablony-robocze content
+szablonów: 187, przyjęte 187, odrzucone 0, w tym z river-catch: 4
+kod 0
+
+## skrypt
+// Sonda: czy wszystkie szkice szablonów (docs/tresci/szablony-robocze) i szablony content/ przechodzą nowy schemat ScenarioTemplate (superRefine 402).
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+import { createRequire } from 'node:module';
+const { parse } = createRequire('/home/user/Szkola_pokera/tools/content-build/package.json')('yaml') as { parse: (s: string) => unknown };
+import { ScenarioTemplate } from '/home/user/Szkola_pokera/packages/content-schema/src/index.ts';
+const korzen = process.argv[2]!;
+const pliki: string[] = [];
+const chodz = (d: string) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) chodz(p); else if (f.endsWith('.yaml')) pliki.push(p); } };
+for (const d of process.argv.slice(3)) chodz(join(korzen, d));
+let ok = 0, zle = 0, rc = 0;
+for (const p of pliki) {
+  const y = parse(readFileSync(p, 'utf8'));
+  if (!y || typeof y !== 'object' || !('decisions' in y)) continue;
+  const r = ScenarioTemplate.safeParse(y);
+  if (Array.isArray((y as { decisions: unknown[] }).decisions) && JSON.stringify(y).includes('"river-catch"')) rc++;
+  if (r.success) ok++; else { zle++; console.log('ODRZUCONY', p.replace(korzen + '/', ''), r.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join(' | ')); }
+}
+console.log(`szablonów: ${ok + zle}, przyjęte ${ok}, odrzucone ${zle}, w tym z river-catch: ${rc}`);
