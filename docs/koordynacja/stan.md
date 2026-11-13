@@ -333,6 +333,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
+| HD | session_01T66VBzXxmYEtFS9a88hBto | 06 audit (opus/high) | claude/sesja-hd-recenzja @ 0d59a42 | 0 | 0 | start 11:42, recenzja HA (prompt przepisany, zgodność niesprawdzona) |
 | HC | session_01T66VBzgo57oqeJshUtNyTH | 08 audit (opus/high) | claude/sesja-hc-recenzja @ d1f4e99d | 0 | 0 | start 11:20, recenzja HB |
 | HA | session_01T66VBz3nrTXL8BJSNzfhDV | 06 build | claude/sesja-ha-tresci @ 7740eeab | 0 | 0 | start 10:51 |
 | HB | session_01T66VBymMeSJKouGiXpveHj | 08 fix | claude/sesja-hb-fix @ 7740eeab | 0 | 0 | start 10:51 |
