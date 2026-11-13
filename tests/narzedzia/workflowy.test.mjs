@@ -422,3 +422,45 @@ test('e2e-ios.yml: push tylko na main i gałęzi roboczej (bez wzorców), ręczn
   assert.ok('workflow_call' in on, 'nocny.yml woła E2E');
   assert.equal(on.pull_request, undefined, 'bez pull_request (D-170)');
 });
+
+// 07-jakosc-001 (recenzja GA, HG D-1621): test rozjazdu porównuje tekst linii `pnpm …`, więc łagodzenie przez semantykę powłoki
+// albo środowisko kroku przechodziło (mutanty M15 `set +e`, M16 `shell: bash {0}`, M20 `env`). Kształt części jest więc zamknięty:
+// krok to `uses` (+ `with`) albo `run` z jedną linią `pnpm …`; zadanie części ma tylko runs-on, timeout-minutes i steps; ci.yml bez
+// `env` i `defaults` na poziomie workflowu. Domyślna powłoka kroku bez `shell` to `bash -e {0}` (docs.github.com, Workflow syntax,
+// „jobs.<job_id>.steps[*].shell”, tabela: „Linux / macOS | unspecified | … | bash -e {0}”, odczyt 2026-11-13), więc pierwsza porażka
+// komendy kończy krok porażką tylko wtedy, gdy nic tej powłoki nie zmienia.
+export function luzneKsztaltyCzesci(w) {
+  const bledy = [];
+  for (const k of ['env', 'defaults']) if (w[k] !== undefined) bledy.push(`workflow: ${k}`);
+  for (const id of [w.jobs.check.needs].flat()) {
+    const j = w.jobs[id];
+    for (const k of Object.keys(j)) if (!['runs-on', 'timeout-minutes', 'steps'].includes(k)) bledy.push(`${id}: klucz zadania ${k}`);
+    for (const [i, s] of (j.steps ?? []).entries()) {
+      const klucze = Object.keys(s).filter((k) => k !== 'name');
+      if ('uses' in s) { if (klucze.some((k) => !['uses', 'with'].includes(k))) bledy.push(`${id}#${i + 1} ${s.uses}: klucze ${klucze}`); continue; }
+      if (klucze.join() !== 'run') bledy.push(`${id}#${i + 1}: klucze ${klucze} (dozwolone tylko run)`);
+      if (typeof s.run !== 'string' || !/^pnpm [^\n;&|`$]+$/.test(s.run.trim())) bledy.push(`${id}#${i + 1}: run nie jest jedną komendą pnpm: ${JSON.stringify(s.run)}`);
+    }
+  }
+  return bledy;
+}
+test('ci.yml: części check bez łagodzenia przez powłokę i środowisko (07-jakosc-001): krok = uses albo jedna linia pnpm, bez shell/env/defaults/working-directory', () => {
+  assert.deepEqual(luzneKsztaltyCzesci(json('ci.yml')), []);
+});
+test('07-jakosc-001: kontrola kształtu wykrywa set +e, shell, env kroku, zadania i workflowu, defaults i working-directory', () => {
+  const baza = json('ci.yml');
+  const kopia = () => structuredClone(baza);
+  const krok = (w) => w.jobs['ci-testy-aplikacja'].steps.find((s) => s.run === 'pnpm --filter @szkola/mobile test');
+  const mutanty = {
+    'set +e': (w) => { krok(w).run = 'set +e\npnpm --filter @szkola/mobile test\ntrue'; },
+    'shell: bash {0}': (w) => { krok(w).shell = 'bash {0}'; },
+    'env kroku': (w) => { krok(w).env = { CI: false }; },
+    'working-directory': (w) => { krok(w)['working-directory'] = 'packages/domena'; },
+    'env zadania': (w) => { w.jobs['ci-testy-aplikacja'].env = { CI: false }; },
+    'defaults zadania': (w) => { w.jobs['ci-testy-aplikacja'].defaults = { run: { shell: 'bash {0}' } }; },
+    'env workflowu': (w) => { w.env = { CI: false }; },
+    'defaults workflowu': (w) => { w.defaults = { run: { shell: 'bash {0}' } }; },
+    'dwie komendy w jednym run': (w) => { krok(w).run = 'pnpm --filter @szkola/mobile test; pnpm --filter @szkola/domena test'; },
+  };
+  for (const [nazwa, m] of Object.entries(mutanty)) { const w = kopia(); m(w); assert.notDeepEqual(luzneKsztaltyCzesci(w), [], nazwa); }
+});
