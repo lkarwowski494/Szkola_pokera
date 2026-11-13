@@ -132,6 +132,13 @@ export interface CompileOptions {
   naCzasKontroliSzablonu?: (id: string, ms: number) => void;
 }
 
+/** Liczby w numbers.yaml bez użycia w content/ z powodu, który wygasa po wejściu treści (D-1490; klucz → powód). */
+export const LICZBY_ZAREZERWOWANE: Readonly<Record<string, string>> = {
+  'ex.frac.two-thirds': 'D-1461: cena zakładu 2/3 puli dla SC-13 (flop-size); liczba wejdzie z szablonem do content/ (06)',
+  'ex.bet.two-thirds': 'D-1461: jw.',
+  'eq.bet-two-thirds': 'D-1461: jw.',
+};
+
 export function compileContent(contentDir: string, locale = 'pl', opts: CompileOptions = {}): CompiledContent {
   const warnings: string[] = [];
   /** Użycia liczb, reguł i twierdzeń pomocy w tekście aplikacji: do strażnika rejestru (D-141, registry.ts). */
@@ -476,7 +483,15 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     areaModules.add(a.module);
     for (const r of a.rules) if (!checked.has(r)) throw new Error(`areas.yaml: obszar ${a.module}: reguła ${r} nie ma pola check`);
   }
-  for (const key of numbers.keys()) if (!used.has(key)) warnings.push(`liczba ${key} nie jest nigdzie używana`);
+  // D-1490 (FV): liczba zarezerwowana pod treść, która jeszcze nie weszła do content/ (powód i ID decyzji w wartości); po użyciu w treści wpis trzeba usunąć (ostrzeżenie), więc lista się nie rozrasta
+  for (const key of numbers.keys()) {
+    const powod = LICZBY_ZAREZERWOWANE[key];
+    if (powod !== undefined) {
+      if (used.has(key)) warnings.push(`liczba ${key} jest już używana: usuń ją z LICZBY_ZAREZERWOWANE (build.ts)`);
+      continue;
+    }
+    if (!used.has(key)) warnings.push(`liczba ${key} nie jest nigdzie używana`);
+  }
   if (helplinesUsed.count === 0) warnings.push('telefony pomocy (helplines.yaml) nie są użyte w żadnej lekcji ({{helplines}})');
   if (misuseErrors.length) {
     throw new Error(`Znacznik terminu na zwykłym słowie (${misuseErrors.length} miejsc; D-376, tools/content-build/src/znaczniki.ts):\n${misuseErrors.map((e) => `  - ${e}`).join('\n')}`);

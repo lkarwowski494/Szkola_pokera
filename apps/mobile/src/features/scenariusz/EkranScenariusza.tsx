@@ -151,17 +151,19 @@ function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn):
     return [...pasy, t('play.log.allin', { pos: rywal, bb: formatujLiczbe(u.stosRywalaBb, jezykZadan()) })].join('. ');
   }
   if (d.point === 'cbet-case') return t('play.log.check', { pos: rywal });
+  if (d.point === 'river-value') return t('play.log.check', { pos: rywal }); // FW-02 (D-1501): river-value jest z pozycji, rywal czekał przed twoją decyzją
   const spec = s.szablon.decisions[i];
-  return d.point === 'size-spot' && spec?.kind === 'size-spot' && d.check === 'three-bet-size' && spec.openBb !== undefined ? t('play.log.raise', { pos: rywal, bb: spec.openBb }) : null;
+  return d.point === 'size-spot' && spec?.kind === 'size-spot' && d.check === 'three-bet-size' && spec.openBb !== undefined ? t('play.log.raise', { pos: rywal, bb: formatujLiczbe(spec.openBb, jezykZadan()) }) : null;
 }
 
 /** Twoja akcja w dzienniku, klucze `play.log.*` jak w trybie gry (czas teraźniejszy trzeciej osoby). */
 function reakcjaGracza(a: Akcja, pos: string, bb: number | null, fraza: string, t: TFn): string {
   if (a === 'fold') return t('play.log.fold', { pos });
   if (a === 'check') return t('play.log.check', { pos });
-  if (a === 'call' || a === 'limp' || (a.startsWith('call ') && bb !== null)) return t('play.log.call', { pos, bb: bb ?? 0 });
-  if (a === 'raise' || a === 'raise-small' || a === 'raise-big' || (a.startsWith('raise ') && bb !== null)) return t('play.log.raise', { pos, bb: bb ?? 0 });
-  if (a === 'all-in' && bb !== null) return t('play.log.allin', { pos, bb });
+  // 08-programista-204 (DEV-07, DEV-16): kwota przez formatujLiczbe; brak kwoty zostaje brakiem (fraza akcji), nie „0 bb”
+  if ((a === 'call' || a === 'limp' || a.startsWith('call ')) && bb !== null) return t('play.log.call', { pos, bb: formatujLiczbe(bb, jezykZadan()) });
+  if ((a === 'raise' || a === 'raise-small' || a === 'raise-big' || a.startsWith('raise ')) && bb !== null) return t('play.log.raise', { pos, bb: formatujLiczbe(bb, jezykZadan()) });
+  if (a === 'all-in' && bb !== null) return t('play.log.allin', { pos, bb: formatujLiczbe(bb, jezykZadan()) });
   if ((a === 'bet-small' || a === 'bet-big') && bb !== null) return t('play.log.bet', { pos, bb: formatujLiczbe(bb, jezykZadan()) }); // FM-01 (D-1430): turn-bet i flop-size; cbet-case ma bb = null
   return `${pos}: ${fraza}`;
 }

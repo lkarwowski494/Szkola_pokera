@@ -86,3 +86,20 @@ describe('FM-08: size-spot, pasek ocen z kwotą przy powtórzonej nazwie; range-
     }
   });
 });
+
+// 08-programista-204 (FU; FV): dziennik size-spotu — `play.log.raise/call/allin` z kwotą przez formatujLiczbe (pl: przecinek), bez `bb ?? 0`.
+describe('08-programista-204: dziennik size-spotu z liczbami wg języka', () => {
+  it('3-bet: otwarcie rywala 2,5 bb i twoje przebicie z kwotą z przecinkiem (nie „2.5”)', async () => {
+    const wz = generateVariant(naGenerator(TROJBET), 'latwy', 5, getKontekstGeneratora(dbCn, TROJBET));
+    const sp = wz.points.find((x): x is SizeSpotVariantDecision => x.point === 'size-spot')!;
+    const sesja = { id: 's1', szablon: TROJBET, poziom: 'latwy', wariant: wz, wybory: ['raise'], aktywnosc: { stan: 'w_toku', rodzaj: 'scenariusz', zLimitu: true, dzienLokalny: '2026-11-12', strefa: 'Europe/Warsaw', startMs: 0, krok: 1, plan: { liczbaKrokow: 1, trescId: TROJBET.id } } } as unknown as SesjaScenariusza;
+    await render(<PrzebiegScenariusza sesja={sesja} faza="ocena" koniec onWybierz={jest.fn()} {...propsFg()} />);
+    const tekst = bezNbsp(tekstEkranu());
+    expect(fmt(2.5)).toBe('2,5');
+    expect(tekst).toContain(bezNbsp(t('play.log.raise', { pos: 'CO', bb: fmt(2.5) })));
+    const hero = sp.options.find((o) => o.action === 'raise')!;
+    expect(hero.bb).not.toBeNull();
+    expect(tekst).toContain(bezNbsp(t('play.log.raise', { pos: 'BTN', bb: fmt(hero.bb ?? Number.NaN) })));
+    expect(tekst).not.toMatch(/\d\.\d+ bb/);
+  });
+});

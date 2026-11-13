@@ -246,6 +246,9 @@ ex.frac.overbet: { value: 1.5, unit: ratio, decimals: 1, source: "przykład: zak
 ex.bet.three-quarters: { formula: product, refs: [ex.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
 ex.bet.overbet: { formula: product, refs: [ex.pot, ex.frac.overbet], unit: count, source: "obliczenie: zakład 1,5 puli" }
 eq.bet-three-quarters: { formula: requiredEquity, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+ex.frac.two-thirds: { value: 0.666667, unit: ratio, decimals: 2, source: "przykład: zakład = 2/3 puli (D-1461)" }
+ex.bet.two-thirds: { formula: product, refs: [ex.pot, ex.frac.two-thirds], unit: count, source: "obliczenie: zakład 2/3 puli (D-1461)" }
+eq.bet-two-thirds: { formula: requiredEquity, refs: [ex.pot, ex.bet.two-thirds], unit: percent, source: "obliczenie: bet/(pula+2·bet) przy zakładzie 2/3 puli (D-1461)" }
 eq.bet-overbet: { formula: requiredEquity, refs: [ex.pot, ex.bet.overbet], unit: percent, decimals: 1, source: "obliczenie: bet/(pula+2·bet)" }
 mdf.bet-quarter: { formula: mdf, refs: [ex.pot, ex.bet.quarter], unit: percent, source: "obliczenie: pula/(pula+bet)" }
 mdf.bet-third: { formula: mdf, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: pula/(pula+bet)" }
