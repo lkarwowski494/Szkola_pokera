@@ -483,7 +483,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- **13.11 12:10: pule GC D-1550…1559, HA D-1560…1574, HB D-1575…1584, HC D-1585…1589, HD D-1590…1599, HE D-1600…1609; następny wolny D-1620 (HF D-1610…1619); KO następny KO-105.** KO następny (dawny wpis): **KO-056**. Pule po 15:45: BF/BM D-550…D-564, BG D-565…D-579, BI D-580…D-594, BN D-595…D-609; następny wolny **D-645** (BQ D-610…D-624, BR D-625…D-629, BS D-630…D-644, BT D-645…D-659, BU D-660…D-674); następny wolny **D-675**. Starsze: Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
+- **13.11 12:10: pule GC D-1550…1559, HA D-1560…1574, HB D-1575…1584, HC D-1585…1589, HD D-1590…1599, HE D-1600…1609; następny wolny D-1620 (HF D-1610…1619); KO następny KO-106.** KO następny (dawny wpis): **KO-056**. Pule po 15:45: BF/BM D-550…D-564, BG D-565…D-579, BI D-580…D-594, BN D-595…D-609; następny wolny **D-645** (BQ D-610…D-624, BR D-625…D-629, BS D-630…D-644, BT D-645…D-659, BU D-660…D-674); następny wolny **D-675**. Starsze: Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -1001,3 +1001,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 13:55 | koordynator 2/8 | linia 14:00; CI b7bc12e6 success, E2E w kolejce; HE zarchiwizowana; nowe sesje wstrzymane (prompts) | kontrola 14:50 |
 | 14:51 | koordynator 2/8 | E2E 43428408523 (HE) success 14:30; E2E 43430296746 (b7bc12e6) in_progress od 14:31; odpowiedzi właściciela brak | kontrola 15:20 |
 | 15:12 | koordynator 2/8 | HF start session_01T66VBwHx4jUZ3TfhDmssdj; prompt cmp niesprawdzone → kontrola nagłówków | kontrola 15:20 |
+| 15:16 | koordynator 2/8 | HF kontrola startu zgodna (9/34/```); 09-HD-1 de/es zrobione (D-1610); PYTANIE → KO-105; E2E 43430296746 in_progress | kontrola 15:20 |
