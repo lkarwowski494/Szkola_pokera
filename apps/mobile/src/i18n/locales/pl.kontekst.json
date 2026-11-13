@@ -767,7 +767,7 @@
       "wholeStack": "Przypis pod wierszem puli, gdy twój stos ≤ stosu rywala. {{kwota}} = „9 bb” (zapis stackValue). [DP, D-889]",
       "rewards": "Tytuł zwiniętego wiersza w ocenie punktu icm-call: po rozwinięciu lista stosów i zdanie nagród. [DP, D-889]"
     },
-    "pot": "Wiersz pod stołem (EkranScenariusza.tsx, widokDecyzji): pula i kwota do sprawdzenia. Parametry: pula, kwota (liczby w bb). Spacja przed „bb” nierozdzielająca (U+00A0; w ja i ko „bb” bez spacji). Ok. 40–60 znaków. [NBSP: FY, D-1511]",
+    "pot": "Wiersz pod stołem (EkranScenariusza.tsx, widokDecyzji): pula i kwota do sprawdzenia. Parametry: pula, kwota (liczby w bb). Ok. 40–60 znaków. [FY: NBSP przed „bb” wycofane, D-1511]",
     "verdict": {
       "yoursGoodAlso": "Ekran scenariusza (EkranScenariusza.tsx, werdykt przy ręce mieszanej; projekt FW docs/design/fw-river-value-i-mieszana.md, KO-098). Gracz wybrał jedną z kilku poprawnych akcji. Parametry: akcja (wybrana), inne (pozostałe poprawne, połączone kluczem scenario.or). Ok. 40 znaków. [FY, D-1514]"
     },

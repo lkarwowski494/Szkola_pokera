@@ -1013,7 +1013,7 @@
       "you": "你",
       "villain": "對手"
     },
-    "pot": "{{t:pot|底池}} {{pula}} bb · {{t:call|跟注}}需 {{kwota}} bb",
+    "pot": "{{t:pot|底池}} {{pula}} bb · {{t:call|跟注}}需 {{kwota}} bb",
     "potOnly": "{{t:pot|底池}} {{pula}} bb",
     "log": {
       "label": "牌局過程"

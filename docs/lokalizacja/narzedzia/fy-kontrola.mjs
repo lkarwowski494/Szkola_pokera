@@ -6,7 +6,7 @@ const D = 'apps/mobile/src/i18n/locales/';
 const L = ['en', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pt', 'pt-BR', 'vi', 'zh-Hant'];
 const plat = (o, p = '', w = {}) => { for (const [k, v] of Object.entries(o)) typeof v === 'object' ? plat(v, p + k + '.', w) : (w[p + k] = v); return w; };
 const dict = Object.fromEntries(['pl', ...L].map((l) => [l, plat(JSON.parse(readFileSync(D + l + '.json', 'utf8')))]));
-const KEYS = ['scenario.potOnly', 'scenario.pot', 'scenario.numbers.riverCatch', 'scenario.numbers.riverCatchMore', 'scenario.numbers.riverCatchLess', 'scenario.numbers.defend',
+const KEYS = ['scenario.potOnly', 'scenario.numbers.riverCatch', 'scenario.numbers.riverCatchMore', 'scenario.numbers.riverCatchLess', 'scenario.numbers.defend',
   'scenario.verdict.yoursGoodAlso', 'scenario.why.alsoGood', 'scenario.or', 'scenario.riverValue.calls', 'scenario.riverValue.sep', 'scenario.action.fourBet'];
 const ZN = /\{\{\s*([^{},\s|]+)(?:\|[^}]*)?\}\}/g;
 const znaczniki = (s) => [...s.matchAll(ZN)].map((m) => m[1]).sort().join(',');

@@ -1031,7 +1031,7 @@
       "you": "du",
       "villain": "Gegner"
     },
-    "pot": "Im {{t:pot|Pot}} {{pula}} bb · zum {{t:call|Call}} {{kwota}} bb",
+    "pot": "Im {{t:pot|Pot}} {{pula}} bb · zum {{t:call|Call}} {{kwota}} bb",
     "potOnly": "Im {{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Handverlauf"

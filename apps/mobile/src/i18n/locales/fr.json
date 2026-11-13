@@ -1049,7 +1049,7 @@
       "you": "vous",
       "villain": "adversaire"
     },
-    "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
+    "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
     "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Déroulement de la main"
@@ -1058,13 +1058,13 @@
     "verdict": {
       "yours": "Votre choix : {{akcja}}. Mieux : {{lepiej}}.",
       "yoursGood": "Votre choix : {{akcja}}.",
-      "yoursGoodAlso": "Votre choix : {{akcja}}. Également bon : {{inne}}."
+      "yoursGoodAlso": "Votre choix : {{akcja}}. Également bon : {{inne}}."
     },
     "why": {
       "weaker": "Pourquoi « {{akcja}} » est le coup le plus faible",
       "better": "Pourquoi « {{akcja}} » est le meilleur coup",
       "good": "Pourquoi « {{akcja}} » est un bon coup",
-      "alsoGood": "Pourquoi « {{akcja}} » est aussi un bon coup",
+      "alsoGood": "Pourquoi « {{akcja}} » est aussi un bon coup",
       "whyNot": "Pourquoi pas « {{akcja}} »"
     },
     "or": "{{a}} ou {{b}}",
@@ -1085,10 +1085,10 @@
       "riverCatch": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il vous faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Vous ne battez que des {{t:bluff|bluffs}}, et dans cette main les {{t:bluff|bluffs}} représentent {{udzial}} de leurs {{t:bet|mises}}.",
       "riverCatchMore": "Il y a plus de {{t:bluff|bluffs}} qu’il ne vous en faut, donc {{t:call|suivre}} rapporte.",
       "riverCatchLess": "Il y a moins de {{t:bluff|bluffs}} qu’il ne vous en faut, donc {{t:call|suivre}} fait perdre de l’argent.",
-      "defend": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il vous faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Face à une {{t:bet|mise}} de cette taille, la {{t:mdf}} est de {{obrona}} : un repère pour toute votre {{t:range|range}} ; au flop, vous pouvez défendre un peu moins, et pour une main isolée, c’est l’explication qui tranche."
+      "defend": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il vous faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Face à une {{t:bet|mise}} de cette taille, la {{t:mdf}} est de {{obrona}} : un repère pour toute votre {{t:range|range}} ; au flop, vous pouvez défendre un peu moins, et pour une main isolée, c’est l’explication qui tranche."
     },
     "riverValue": {
-      "calls": "Face à une {{t:bet|mise}}, votre adversaire {{t:call|suit}} avec : {{lista}}.",
+      "calls": "Face à une {{t:bet|mise}}, votre adversaire {{t:call|suit}} avec : {{lista}}.",
       "sep": ", "
     },
     "next": {

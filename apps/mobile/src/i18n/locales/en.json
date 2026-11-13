@@ -1031,7 +1031,7 @@
       "you": "you",
       "villain": "opponent"
     },
-    "pot": "{{t:pot|Pot}} {{pula}} bb · to {{t:call|call}} {{kwota}} bb",
+    "pot": "{{t:pot|Pot}} {{pula}} bb · to {{t:call|call}} {{kwota}} bb",
     "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Hand history"

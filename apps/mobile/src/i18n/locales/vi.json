@@ -1013,7 +1013,7 @@
       "you": "bạn",
       "villain": "đối thủ"
     },
-    "pot": "{{t:pot|Pot}} {{pula}} bb · cần {{t:call|theo}} {{kwota}} bb",
+    "pot": "{{t:pot|Pot}} {{pula}} bb · cần {{t:call|theo}} {{kwota}} bb",
     "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Diễn biến ván"
