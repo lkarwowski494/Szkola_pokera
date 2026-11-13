@@ -1031,22 +1031,25 @@
       "you": "du",
       "villain": "Gegner"
     },
-    "pot": "Im {{t:pot|Pot}} {{pula}} bb · zum {{t:call|Call}} {{kwota}} bb",
-    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
+    "pot": "Im {{t:pot|Pot}} {{pula}} bb · zum {{t:call|Call}} {{kwota}} bb",
+    "potOnly": "Im {{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Handverlauf"
     },
     "yourMove": "Dein Zug",
     "verdict": {
       "yours": "Deine Wahl: {{akcja}}. Besser: {{lepiej}}.",
-      "yoursGood": "Deine Wahl: {{akcja}}."
+      "yoursGood": "Deine Wahl: {{akcja}}.",
+      "yoursGoodAlso": "Deine Wahl: {{akcja}}. Auch gut: {{inne}}."
     },
     "why": {
       "weaker": "Warum „{{akcja}}“ der schwächere Zug ist",
       "better": "Warum „{{akcja}}“ der bessere Zug ist",
       "good": "Warum „{{akcja}}“ ein guter Zug ist",
+      "alsoGood": "Warum „{{akcja}}“ auch ein guter Zug ist",
       "whyNot": "Warum nicht „{{akcja}}“"
     },
+    "or": "{{a}} oder {{b}}",
     "scale": {
       "label": "Bewertung der Aktionen: {{lista}}.",
       "yourChoice": "deine Wahl"
@@ -1060,7 +1063,15 @@
       "limp": "Ein Limp kostet {{kwota}} bb, und der {{t:big-blind|Big Blind}} kann den Flop sehen, ohne etwas nachzuzahlen.",
       "icm": "Deine Hand hat {{equity}} {{t:equity|Equity}} gegen die {{t:range|Range}}, mit der dein Gegner {{t:all-in|All-in}} geht, also gewinnt sie etwa {{na10}} von 10 Händen. Nach {{t:icm|ICM}} lohnt sich ein {{t:call|Call}} ab {{prog}}, bei einem Spiel um {{t:chips|Chips}} würden {{progZetony}} reichen: Auf der {{t:bubble|Bubble}} nimmt dir eine Niederlage mehr vom {{t:prize-pool|Preispool}}, als ein Sieg hinzufügt.",
       "overcardsFold": "Wenn du auch die Karten mitzählst, die dir ein {{t:pair|Paar}} ergeben, das höher ist als jede Karte auf dem {{t:board|Board}} ({{nadkarty}} von {{nieznane}} unbekannten), triffst du in {{trafiszRazem}} der Fälle, also immer noch seltener, als der Preis verlangt ({{potrzeba}}). Ein solches {{t:pair|Paar}} kann außerdem gegen eine stärkere Hand des Gegners verlieren.",
-      "overcardsCall": "Die Karten, die dir ein {{t:pair|Paar}} ergeben, das höher ist als jede Karte auf dem {{t:board|Board}} ({{nadkarty}} von {{nieznane}} unbekannten), bleiben in der Rechnung außen vor: Ein solches {{t:pair|Paar}} kann gegen eine stärkere Hand verlieren, und die Outs deines Draws reichen allein aus."
+      "overcardsCall": "Die Karten, die dir ein {{t:pair|Paar}} ergeben, das höher ist als jede Karte auf dem {{t:board|Board}} ({{nadkarty}} von {{nieznane}} unbekannten), bleiben in der Rechnung außen vor: Ein solches {{t:pair|Paar}} kann gegen eine stärkere Hand verlieren, und die Outs deines Draws reichen allein aus.",
+      "riverCatch": "Der {{t:pot|Pot}} beträgt {{pula}} bb und der {{t:call|Call}} kostet {{kwota}} bb, du brauchst also {{potrzeba}} Equity, also etwa jedes {{razPotrzeba}}. Mal zu gewinnen. Du schlägst nur {{t:bluff|Bluffs}}, und in dieser Hand machen {{t:bluff|Bluffs}} {{udzial}} ihrer {{t:bet|Bets}} aus.",
+      "riverCatchMore": "Es gibt mehr {{t:bluff|Bluffs}}, als du brauchst, also verdient der {{t:call|Call}} Geld.",
+      "riverCatchLess": "Es gibt weniger {{t:bluff|Bluffs}}, als du brauchst, also verliert der {{t:call|Call}} Geld.",
+      "defend": "Der {{t:pot|Pot}} beträgt {{pula}} bb und der {{t:call|Call}} kostet {{kwota}} bb, du brauchst also {{potrzeba}} Equity, also etwa jedes {{razPotrzeba}}. Mal zu gewinnen. Bei einer {{t:bet|Bet}} dieser Größe beträgt die {{t:mdf}} {{obrona}}: ein Richtwert für deine gesamte {{t:range|Range}}; auf dem Flop darfst du etwas weniger verteidigen, und über eine einzelne Hand entscheidet die Erklärung."
+    },
+    "riverValue": {
+      "calls": "Gegen eine {{t:bet|Bet}} {{t:call|callt}} dein Gegner mit: {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "Weiter: {{ulica}}",

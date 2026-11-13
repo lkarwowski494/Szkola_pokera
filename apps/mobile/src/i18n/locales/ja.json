@@ -1014,21 +1014,24 @@
       "villain": "相手"
     },
     "pot": "{{t:pot|ポット}}{{pula}}bb ・ {{t:call|コール}}に{{kwota}}bb",
-    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
+    "potOnly": "{{t:pot|ポット}}{{pula}}bb",
     "log": {
       "label": "ハンドの流れ"
     },
     "yourMove": "あなたの番",
     "verdict": {
       "yours": "あなたの選択：{{akcja}}。より良い選択：{{lepiej}}。",
-      "yoursGood": "あなたの選択：{{akcja}}。"
+      "yoursGood": "あなたの選択：{{akcja}}。",
+      "yoursGoodAlso": "あなたの選択：{{akcja}}。こちらも良い選択：{{inne}}。"
     },
     "why": {
       "weaker": "「{{akcja}}」が弱い理由",
       "better": "「{{akcja}}」が良い理由",
       "good": "「{{akcja}}」が良い理由",
+      "alsoGood": "「{{akcja}}」も良い理由",
       "whyNot": "なぜ「{{akcja}}」ではないのか"
     },
+    "or": "{{a}}または{{b}}",
     "scale": {
       "label": "各アクションの評価：{{lista}}。",
       "yourChoice": "あなたの選択"
@@ -1042,7 +1045,15 @@
       "limp": "リンプは{{kwota}}bbかかり、{{t:big-blind|ビッグブラインド}}は追加で支払わずにフロップを見られます。",
       "icm": "あなたのハンドは、{{t:all-in|オールイン}}してきた相手の{{t:range|レンジ}}に対して{{equity}}の{{t:equity|エクイティ}}があり、10回中約{{na10}}回勝ちます。{{t:icm}}では{{t:call|コール}}が得になるのは{{prog}}からで、{{t:chips|チップ}}を争うゲームなら{{progZetony}}で足ります。{{t:bubble|バブル}}では、負けて失う{{t:prize-pool|プライズプール}}の取り分の方が、勝って増える分より大きいためです。",
       "overcardsFold": "{{t:board|ボード}}のどのカードよりも高い{{t:pair|ペア}}になるカードも数えると（見えていない{{nieznane}}枚中{{nadkarty}}枚）、当たるのは{{trafiszRazem}}で、価格が求める確率（{{potrzeba}}）にはまだ届きません。そのような{{t:pair|ペア}}は、相手のより強いハンドに負けることもあります。",
-      "overcardsCall": "{{t:board|ボード}}のどのカードよりも高い{{t:pair|ペア}}になるカード（見えていない{{nieznane}}枚中{{nadkarty}}枚）は計算に含めていません。そのような{{t:pair|ペア}}はより強いハンドに負けることがあり、ドローのアウツだけで十分だからです。"
+      "overcardsCall": "{{t:board|ボード}}のどのカードよりも高い{{t:pair|ペア}}になるカード（見えていない{{nieznane}}枚中{{nadkarty}}枚）は計算に含めていません。そのような{{t:pair|ペア}}はより強いハンドに負けることがあり、ドローのアウツだけで十分だからです。",
+      "riverCatch": "{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。勝てるのは{{t:bluff|ブラフ}}だけで、このハンドでは{{t:bluff|ブラフ}}が相手の{{t:bet|ベット}}の{{udzial}}を占めます。",
+      "riverCatchMore": "{{t:bluff|ブラフ}}は必要な割合より多いので、{{t:call|コール}}は利益になります。",
+      "riverCatchLess": "{{t:bluff|ブラフ}}は必要な割合より少ないので、{{t:call|コール}}は損になります。",
+      "defend": "{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。この大きさの{{t:bet|ベット}}に対する{{t:mdf}}は{{obrona}}で、{{t:range|レンジ}}全体の目安です。フロップでは少し少なめに守ってもよく、1つのハンドについてはその解説が決め手になります。"
+    },
+    "riverValue": {
+      "calls": "{{t:bet|ベット}}に対して、相手が{{t:call|コール}}するのは次のハンドです：{{lista}}。",
+      "sep": "、"
     },
     "next": {
       "street": "次へ：{{ulica}}",

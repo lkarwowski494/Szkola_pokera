@@ -1014,21 +1014,24 @@
       "villain": "상대"
     },
     "pot": "{{t:pot|팟}} {{pula}}bb · {{t:call|콜}} 금액 {{kwota}}bb",
-    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
+    "potOnly": "{{t:pot|팟}} {{pula}}bb",
     "log": {
       "label": "핸드 진행"
     },
     "yourMove": "내 차례",
     "verdict": {
       "yours": "내 선택: {{akcja}}. 더 나은 선택: {{lepiej}}.",
-      "yoursGood": "내 선택: {{akcja}}."
+      "yoursGood": "내 선택: {{akcja}}.",
+      "yoursGoodAlso": "내 선택: {{akcja}}. 이것도 좋은 선택: {{inne}}."
     },
     "why": {
       "weaker": "“{{akcja}}”이(가) 더 약한 이유",
       "better": "“{{akcja}}”이(가) 더 나은 이유",
       "good": "“{{akcja}}”이(가) 좋은 이유",
+      "alsoGood": "“{{akcja}}”도 좋은 이유",
       "whyNot": "왜 “{{akcja}}”이(가) 아닌가"
     },
+    "or": "{{a}} 또는 {{b}}",
     "scale": {
       "label": "행동별 평가: {{lista}}.",
       "yourChoice": "내 선택"
@@ -1042,7 +1045,15 @@
       "limp": "림프는 {{kwota}}bb가 들고, {{t:big-blind|빅 블라인드}}는 추가로 내지 않고 플랍을 볼 수 있습니다.",
       "icm": "내 핸드는 {{t:all-in|올인}}한 상대의 {{t:range|레인지}}에 대해 {{t:equity|에퀴티}} {{equity}}로, 10번 중 약 {{na10}}번 이깁니다. {{t:icm|ICM}} 기준으로는 {{prog}}부터 {{t:call|콜}}이 이득이고, {{t:chips|칩}}을 겨루는 게임이라면 {{progZetony}}로 충분합니다. {{t:bubble|버블}}에서는 지면 잃는 {{t:prize-pool|상금 풀}}의 몫이 이길 때 늘어나는 몫보다 크기 때문입니다.",
       "overcardsFold": "{{t:board|보드}}의 어떤 카드보다 높은 {{t:pair|페어}}를 만들어 주는 카드까지 세면(보이지 않는 {{nieznane}}장 중 {{nadkarty}}장), 맞힐 확률은 {{trafiszRazem}}로, 가격이 요구하는 확률({{potrzeba}})에는 여전히 못 미칩니다. 그런 {{t:pair|페어}}는 상대의 더 강한 핸드에 질 수도 있습니다.",
-      "overcardsCall": "{{t:board|보드}}의 어떤 카드보다 높은 {{t:pair|페어}}를 만들어 주는 카드(보이지 않는 {{nieznane}}장 중 {{nadkarty}}장)는 계산에서 뺍니다. 그런 {{t:pair|페어}}는 더 강한 핸드에 질 수 있고, 드로의 아웃츠만으로도 충분하기 때문입니다."
+      "overcardsCall": "{{t:board|보드}}의 어떤 카드보다 높은 {{t:pair|페어}}를 만들어 주는 카드(보이지 않는 {{nieznane}}장 중 {{nadkarty}}장)는 계산에서 뺍니다. 그런 {{t:pair|페어}}는 더 강한 핸드에 질 수 있고, 드로의 아웃츠만으로도 충분하기 때문입니다.",
+      "riverCatch": "{{t:pot|팟}}은 {{pula}}bb이고 {{t:call|콜}}에 {{kwota}}bb가 들어서 필요한 승률은 {{potrzeba}}, 즉 약 {{razPotrzeba}}번에 한 번 이겨야 합니다. 이길 수 있는 상대는 {{t:bluff|블러프}}뿐이며, 이 핸드에서 {{t:bluff|블러프}}는 상대 {{t:bet|베팅}}의 {{udzial}}를 차지합니다.",
+      "riverCatchMore": "{{t:bluff|블러프}}가 필요한 만큼보다 많아서 {{t:call|콜}}이 이득입니다.",
+      "riverCatchLess": "{{t:bluff|블러프}}가 필요한 만큼보다 적어서 {{t:call|콜}}이 손해입니다.",
+      "defend": "{{t:pot|팟}}은 {{pula}}bb이고 {{t:call|콜}}에 {{kwota}}bb가 들어서 필요한 승률은 {{potrzeba}}, 즉 약 {{razPotrzeba}}번에 한 번 이겨야 합니다. 이 크기의 {{t:bet|베팅}}에 대한 {{t:mdf}}는 {{obrona}}이며, 전체 {{t:range|레인지}}의 기준점입니다. 플롭에서는 조금 덜 방어해도 되고, 한 핸드에 대해서는 해설이 결정합니다."
+    },
+    "riverValue": {
+      "calls": "{{t:bet|베팅}}에 대해 상대는 다음 핸드로 {{t:call|콜}}합니다: {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "다음: {{ulica}}",

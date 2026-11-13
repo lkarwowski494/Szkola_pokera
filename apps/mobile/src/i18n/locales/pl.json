@@ -1067,7 +1067,7 @@
       "you": "ty",
       "villain": "rywal"
     },
-    "pot": "W {{t:pot|puli}} {{pula}} bb · do {{t:call|sprawdzenia}} {{kwota}} bb",
+    "pot": "W {{t:pot|puli}} {{pula}} bb · do {{t:call|sprawdzenia}} {{kwota}} bb",
     "potOnly": "W {{t:pot|puli}} {{pula}} bb",
     "log": {
       "label": "Przebieg rozdania"
@@ -1075,14 +1075,17 @@
     "yourMove": "Twój ruch",
     "verdict": {
       "yours": "Twój wybór: {{akcja}}. Lepiej: {{lepiej}}.",
-      "yoursGood": "Twój wybór: {{akcja}}."
+      "yoursGood": "Twój wybór: {{akcja}}.",
+      "yoursGoodAlso": "Twój wybór: {{akcja}}. Też dobrze: {{inne}}."
     },
     "why": {
       "weaker": "Dlaczego „{{akcja}}” to słabsze zagranie",
       "better": "Dlaczego „{{akcja}}” to lepsze zagranie",
       "good": "Dlaczego „{{akcja}}” to dobre zagranie",
+      "alsoGood": "Dlaczego „{{akcja}}” to też dobre zagranie",
       "whyNot": "Dlaczego nie „{{akcja}}”"
     },
+    "or": "{{a}} albo {{b}}",
     "scale": {
       "label": "Oceny akcji: {{lista}}.",
       "yourChoice": "twój wybór"
@@ -1096,7 +1099,15 @@
       "limp": "Limp kosztuje {{kwota}} bb, a {{t:big-blind|duży blind}} może zobaczyć flop bez dopłaty.",
       "icm": "Twoja ręka ma {{equity}} {{t:equity}} wobec {{t:range|zakresu}} {{t:all-in|all-inu}} rywala, czyli wygrywa mniej więcej w {{na10}} rozdaniach na 10. Według {{t:icm}} {{t:call|sprawdzenie}} opłaca się od {{prog}}, a w grze o {{t:chips|żetony}} wystarczyłoby {{progZetony}}: na {{t:bubble|bańce}} przegrana zabiera ci więcej z {{t:prize-pool|puli nagród}}, niż wygrana dodaje.",
       "overcardsFold": "Jeśli doliczysz karty, które dają ci {{t:pair|parę}} wyższą od każdej karty na {{t:board|stole}} ({{nadkarty}} z {{nieznane}} niewidzianych), trafisz w {{trafiszRazem}} przypadków, czyli wciąż rzadziej, niż wymaga cena ({{potrzeba}}). Taka {{t:pair|para}} może też przegrać z lepszym układem rywala.",
-      "overcardsCall": "Karty, które dają ci {{t:pair|parę}} wyższą od każdej karty na {{t:board|stole}} ({{nadkarty}} z {{nieznane}} niewidzianych), rachunek pomija: taka {{t:pair|para}} może przegrać z lepszym układem rywala, a same outy drawa wystarczają."
+      "overcardsCall": "Karty, które dają ci {{t:pair|parę}} wyższą od każdej karty na {{t:board|stole}} ({{nadkarty}} z {{nieznane}} niewidzianych), rachunek pomija: taka {{t:pair|para}} może przegrać z lepszym układem rywala, a same outy drawa wystarczają.",
+      "riverCatch": "{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Wygrywasz tylko z {{t:bluff|blefami}}, a w tym rozdaniu {{t:bluff|blefy}} to {{udzial}} jego {{t:bet|zakładów}}.",
+      "riverCatchMore": "{{t:bluff|Blefów}} jest więcej, niż potrzebujesz, więc {{t:call|sprawdzenie}} zarabia.",
+      "riverCatchLess": "{{t:bluff|Blefów}} jest mniej, niż potrzebujesz, więc {{t:call|sprawdzenie}} traci.",
+      "defend": "{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Przy takim {{t:bet|zakładzie}} {{t:mdf}} to {{obrona}}: to punkt odniesienia dla całego {{t:range|zakresu}}; na flopie możesz bronić trochę mniej, a o jednej ręce decyduje wyjaśnienie."
+    },
+    "riverValue": {
+      "calls": "Na {{t:bet|zakład}} rywal {{t:call|sprawdza}} z: {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "Dalej: {{ulica}}",

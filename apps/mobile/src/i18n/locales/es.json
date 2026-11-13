@@ -1049,22 +1049,25 @@
       "you": "tú",
       "villain": "rival"
     },
-    "pot": "{{t:pot|Bote}} {{pula}} bb · para {{t:call|igualar}} {{kwota}} bb",
-    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
+    "pot": "{{t:pot|Bote}} {{pula}} bb · para {{t:call|igualar}} {{kwota}} bb",
+    "potOnly": "{{t:pot|Bote}} {{pula}} bb",
     "log": {
       "label": "Desarrollo de la mano"
     },
     "yourMove": "Tu jugada",
     "verdict": {
       "yours": "Tu elección: {{akcja}}. Mejor: {{lepiej}}.",
-      "yoursGood": "Tu elección: {{akcja}}."
+      "yoursGood": "Tu elección: {{akcja}}.",
+      "yoursGoodAlso": "Tu elección: {{akcja}}. También está bien: {{inne}}."
     },
     "why": {
       "weaker": "Por qué «{{akcja}}» es la jugada más débil",
       "better": "Por qué «{{akcja}}» es la mejor jugada",
       "good": "Por qué «{{akcja}}» es una buena jugada",
+      "alsoGood": "Por qué «{{akcja}}» también es una buena jugada",
       "whyNot": "Por qué no «{{akcja}}»"
     },
+    "or": "{{a}} o {{b}}",
     "scale": {
       "label": "Evaluación de las acciones: {{lista}}.",
       "yourChoice": "tu elección"
@@ -1078,7 +1081,15 @@
       "limp": "Un limp cuesta {{kwota}} bb, y la {{t:big-blind|ciega grande}} puede ver el flop sin pagar más.",
       "icm": "Tu mano tiene {{equity}} de {{t:equity|equity}} contra el {{t:range|rango}} con el que tu rival va {{t:all-in|all-in}}, es decir, gana más o menos {{na10}} de cada 10 manos. Según el {{t:icm|ICM}}, {{t:call|igualar}} compensa a partir de {{prog}}, mientras que en una partida por {{t:chips|fichas}} bastaría con {{progZetony}}: en la {{t:bubble|burbuja}}, perder te quita más de la {{t:prize-pool|bolsa de premios}} de lo que ganar te añade.",
       "overcardsFold": "Si cuentas también las cartas que te dan una {{t:pair|pareja}} más alta que cualquier carta de la {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} que no ves), aciertas en el {{trafiszRazem}} de los casos, aún menos de lo que exige el precio ({{potrzeba}}). Una {{t:pair|pareja}} así también puede perder contra una mano mejor del rival.",
-      "overcardsCall": "Las cartas que te dan una {{t:pair|pareja}} más alta que cualquier carta de la {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} que no ves) quedan fuera del cálculo: una {{t:pair|pareja}} así puede perder contra una mano mejor, y los outs de tu proyecto bastan por sí solos."
+      "overcardsCall": "Las cartas que te dan una {{t:pair|pareja}} más alta que cualquier carta de la {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} que no ves) quedan fuera del cálculo: una {{t:pair|pareja}} así puede perder contra una mano mejor, y los outs de tu proyecto bastan por sí solos.",
+      "riverCatch": "El {{t:pot|bote}} es de {{pula}} bb e {{t:call|igualar}} cuesta {{kwota}} bb, así que necesitas {{potrzeba}} de equity, es decir, ganar una de cada {{razPotrzeba}} veces. Solo ganas a los {{t:bluff|faroles}}, y en esta mano los {{t:bluff|faroles}} son el {{udzial}} de sus {{t:bet|apuestas}}.",
+      "riverCatchMore": "Hay más {{t:bluff|faroles}} de los que necesitas, así que {{t:call|igualar}} gana dinero.",
+      "riverCatchLess": "Hay menos {{t:bluff|faroles}} de los que necesitas, así que {{t:call|igualar}} pierde dinero.",
+      "defend": "El {{t:pot|bote}} es de {{pula}} bb e {{t:call|igualar}} cuesta {{kwota}} bb, así que necesitas {{potrzeba}} de equity, es decir, ganar una de cada {{razPotrzeba}} veces. Ante una {{t:bet|apuesta}} de este tamaño, la {{t:mdf}} es {{obrona}}: un punto de referencia para todo tu {{t:range|rango}}; en el flop puedes defender algo menos, y para una sola mano decide la explicación."
+    },
+    "riverValue": {
+      "calls": "Ante una {{t:bet|apuesta}}, tu rival {{t:call|iguala}} con: {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "Siguiente: {{ulica}}",

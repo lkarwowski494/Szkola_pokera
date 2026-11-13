@@ -1049,7 +1049,7 @@
       "you": "vous",
       "villain": "adversaire"
     },
-    "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
+    "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
     "potOnly": "{{t:pot|Pot}} {{pula}} bb",
     "log": {
       "label": "Déroulement de la main"
@@ -1057,14 +1057,17 @@
     "yourMove": "À vous de jouer",
     "verdict": {
       "yours": "Votre choix : {{akcja}}. Mieux : {{lepiej}}.",
-      "yoursGood": "Votre choix : {{akcja}}."
+      "yoursGood": "Votre choix : {{akcja}}.",
+      "yoursGoodAlso": "Votre choix : {{akcja}}. Également bon : {{inne}}."
     },
     "why": {
       "weaker": "Pourquoi « {{akcja}} » est le coup le plus faible",
       "better": "Pourquoi « {{akcja}} » est le meilleur coup",
       "good": "Pourquoi « {{akcja}} » est un bon coup",
+      "alsoGood": "Pourquoi « {{akcja}} » est aussi un bon coup",
       "whyNot": "Pourquoi pas « {{akcja}} »"
     },
+    "or": "{{a}} ou {{b}}",
     "scale": {
       "label": "Évaluation des actions : {{lista}}.",
       "yourChoice": "votre choix"
@@ -1078,7 +1081,15 @@
       "limp": "Un limp coûte {{kwota}} bb, et la {{t:big-blind|grosse blinde}} peut voir le flop sans payer de plus.",
       "icm": "Votre main a {{equity}} d'{{t:equity|équité}} contre la {{t:range|range}} avec laquelle votre adversaire fait {{t:all-in|all-in}}, soit environ {{na10}} mains gagnées sur 10. Selon l'{{t:icm|ICM}}, {{t:call|suivre}} est rentable à partir de {{prog}}, alors que dans une partie pour des {{t:chips|jetons}} {{progZetony}} suffiraient : dans la {{t:bubble|bulle}}, perdre vous retire plus du {{t:prize-pool|prize pool}} que gagner ne vous apporte.",
       "overcardsFold": "Si vous comptez aussi les cartes qui vous donnent une {{t:pair|paire}} plus haute que toutes les cartes du {{t:board|board}} ({{nadkarty}} sur {{nieznane}} non vues), vous touchez dans {{trafiszRazem}} des cas, soit encore moins souvent que ce qu'exige le prix ({{potrzeba}}). Une telle {{t:pair|paire}} peut aussi perdre contre une meilleure main de l'adversaire.",
-      "overcardsCall": "Les cartes qui vous donnent une {{t:pair|paire}} plus haute que toutes les cartes du {{t:board|board}} ({{nadkarty}} sur {{nieznane}} non vues) sont laissées de côté dans le calcul : une telle {{t:pair|paire}} peut perdre contre une meilleure main, et les outs de votre tirage suffisent à eux seuls."
+      "overcardsCall": "Les cartes qui vous donnent une {{t:pair|paire}} plus haute que toutes les cartes du {{t:board|board}} ({{nadkarty}} sur {{nieznane}} non vues) sont laissées de côté dans le calcul : une telle {{t:pair|paire}} peut perdre contre une meilleure main, et les outs de votre tirage suffisent à eux seuls.",
+      "riverCatch": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il vous faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Vous ne battez que des {{t:bluff|bluffs}}, et dans cette main les {{t:bluff|bluffs}} représentent {{udzial}} de leurs {{t:bet|mises}}.",
+      "riverCatchMore": "Il y a plus de {{t:bluff|bluffs}} qu’il ne vous en faut, donc {{t:call|suivre}} rapporte.",
+      "riverCatchLess": "Il y a moins de {{t:bluff|bluffs}} qu’il ne vous en faut, donc {{t:call|suivre}} fait perdre de l’argent.",
+      "defend": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il vous faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Face à une {{t:bet|mise}} de cette taille, la {{t:mdf}} est de {{obrona}} : un repère pour toute votre {{t:range|range}} ; au flop, vous pouvez défendre un peu moins, et pour une main isolée, c’est l’explication qui tranche."
+    },
+    "riverValue": {
+      "calls": "Face à une {{t:bet|mise}}, votre adversaire {{t:call|suit}} avec : {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "Suite : {{ulica}}",
