@@ -1,0 +1,6 @@
+# Decyzje sesji HA (06-tresci, build): przegląd D-1495 i wejście SC-22/25/28/29/13 do `content/`; pula D-1560…D-1574
+Kto: M = merytoryczna według ADR-24 (rozstrzyga rola 06), A = agent (delegacja z `CLAUDE.md`); wszystkie do weta właściciela przez koordynatora. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/HA.md` @ 0dbe5ad7. Start: `claude/sleepy-brahmagupta-2065nu` @ 7740eeab. Analogia z Treningiem (D-191): Trening nie ma reguł pokerowych (`docs/decyzje/EH.md:2`), więc w sprawach merytorycznych rozstrzyga hierarchia ADR-24; wzór procesu: wcześniejsze sesje 06 w tym repo (FK, FS).
+
+| ID | Data | Kto | Decyzja | Odrzucone | Podstawa | Zależy od |
+|---|---|---|---|---|---|---|
+| D-1560 | 2026-11-13 | M | **Przegląd D-1495: wpisy 3 liczb D-1461 POPARTE.** `n:ex.bet.two-thirds` i `n:eq.bet-two-thirds` (auto.json) utrzymane, dopisane drugie źródło: rachunek 06 niezależny od autora wpisu; `ex.frac.two-thirds` zostaje daną zadania (bez-twierdzen.json). Brzmienie bez zmian. | (a) zostawić tylko źródło autora (test 08): weryfikator = autor; (b) zmienić wpis na 2/3 dokładnie (`value: 0.666667` → ułamek): schemat liczb nie ma ułamków, różnica 6e-8 nie zmienia pokazu. | rachunek szczebel 1: `docs/tresci/dowody/ha-d1495.txt` (Python, ułamki dokładne = build co do 1e-9). | — |

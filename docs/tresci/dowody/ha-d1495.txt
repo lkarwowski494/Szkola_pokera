@@ -1,0 +1,43 @@
+# HA (06-tresci, build): przegląd D-1495 — 3 liczby D-1461 (ceny zakładu 2/3 puli), 2026-11-13
+# Werdykt: POPARTE (wszystkie 3). Decyzja: D-1560 (docs/decyzje/HA.md).
+# Podstawa: ADR-24 szczebel 1 (rachunek), wzór requiredEquity = bet/(pot+2·bet) (packages/poker-core/src/math.ts:7), ten sam co n:eq.bet-three-quarters (potwierdzony 2026-11-04).
+
+## 1. Rachunek niezależny (python3 -I docs/tresci/narzedzia/rachunki/ha_d1495.py):
+dokładnie 2/3: zakład = 66.666667 (pokaz 67), equity = 2/7 = 0.285714286 -> 29%
+wpis 0.666667: zakład = 66.666700 (pokaz 67), equity = 666667/2333334 = 0.285714347 -> 29%
+2/7 = 0.2857142857142857
+różnica wpis - dokładnie = 6.1224472303212e-08
+ułamek 1/4: equity = 0.166667
+ułamek 3/4: equity = 0.300000
+kod wyjścia: 0
+
+## 2. Wartości z content-build (compileContent, locale pl i en, @ 7740eea):
+pl ex.pot {"key":"ex.pot","value":100,"display":"100"}
+pl ex.frac.two-thirds {"key":"ex.frac.two-thirds","value":0.666667,"display":"0,67"}
+pl ex.bet.two-thirds {"key":"ex.bet.two-thirds","value":66.6667,"display":"67"}
+pl eq.bet-two-thirds {"key":"eq.bet-two-thirds","value":0.285714346938758,"display":"29%"}
+pl eq.bet-quarter {"key":"eq.bet-quarter","value":0.16666666666666666,"display":"17%"}
+pl eq.bet-three-quarters {"key":"eq.bet-three-quarters","value":0.3,"display":"30%"}
+en ex.pot {"key":"ex.pot","value":100,"display":"100"}
+en ex.frac.two-thirds {"key":"ex.frac.two-thirds","value":0.666667,"display":"0.67"}
+en ex.bet.two-thirds {"key":"ex.bet.two-thirds","value":66.6667,"display":"67"}
+en eq.bet-two-thirds {"key":"eq.bet-two-thirds","value":0.285714346938758,"display":"29%"}
+en eq.bet-quarter {"key":"eq.bet-quarter","value":0.16666666666666666,"display":"17%"}
+en eq.bet-three-quarters {"key":"eq.bet-three-quarters","value":0.3,"display":"30%"}
+
+## 3. Porównanie
+- ex.frac.two-thirds: wpis 0.666667 = dana zadania (bez-twierdzen.json:31, powód „dane zadania”), |0.666667 − 2/3| = 3,3e-7; pokaz 0,67 / 0.67 — OK.
+- ex.bet.two-thirds: python 66.6667 = build 66.6667; pokaz 67 — OK (twierdzenie: formuła product(ex.pot, ex.frac.two-thirds), auto.json).
+- eq.bet-two-thirds: python 666667/2333334 = 0.285714347 = build 0.285714346938758; od dokładnego 2/7 różnica 6,1e-8, pokaz 29% w pl i en identyczny dla 2/7 — OK.
+- Spójność rozmiarów: 1/4 → 16,67% < 2/3 → 28,57% < 3/4 → 30,00% (monotoniczne, zgodne z eq.bet-quarter 17% i eq.bet-three-quarters 30% w build).
+
+## 4. Wpisy rejestru
+- auto.json n:ex.bet.two-thirds i n:eq.bet-two-thirds: twierdzenie (formuła i jednostka) zgodne z content/numbers.yaml:250-251; status potwierdzone, szczebel 1 — utrzymane.
+- Źródło autora (08, FV) wskazywało test 08; dopisane drugie źródło: rachunek 06 niezależny od autora (ha_d1495.py), odczyt 2026-11-13; uwagi: „przegląd 06 (HA, D-1560): POPARTE”.
+- bez-twierdzen.json ex.frac.two-thirds: dana zadania, nie twierdzenie — utrzymane.
+- Brzmienie: bez zmian (twierdzenia formalne jak pozostałe wpisy n:eq.*).
+
+## 5. Kontrola rejestru po zmianie: pnpm tresci:rejestr
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+kod wyjścia: 0
