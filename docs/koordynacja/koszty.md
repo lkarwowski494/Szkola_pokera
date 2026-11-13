@@ -179,3 +179,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | GC | 08 audit (opus) recenzja GB | 6 | 3,33 | 26,5 | 10:06 → 10:08 → 132eb151 → ci kod 0 lokalnie (docs) → 10:45 | — | PRZYJĄĆ Z UWAGAMI (D-1550), 401–403 → HB; zarchiwizowana 10:50 |
 | HB | 08 fix (sonnet/medium) 401–403 | 5 | 1,35 | 18,7 | 10:51 → 10:54 → 4282bce → CI 43415202458 (d1f4e99) → 11:40 | ok. 25 min (CI 25 min, recenzja HC 20 min) | E2E 43413754456 anulowane (KO-069); zarchiwizowana 11:41 |
 | HC | 08 audit (opus/high) recenzja HB | 3 | 3,85 | 20,7 | 11:14 → 11:17 → c5a37cb9 (docs) → ci kod 0 lokalnie → 11:40 | — | PRZYJĄĆ Z UWAGAMI (D-1585), 404 NISKIE → backlog; zarchiwizowana 11:41 |
+| HA | 06 build (opus/high) SC-13/22/25/28/29 + D-1495 | 8 | 14,97 (sesja nadal otwarta) | 28,8 | 10:51 → 10:54 → 2dfd492 → CI 43418342122 (0d59a42, niesprawdzone) → — | — | ponad próg STOP 10,4 (5 subagentów przekładu ~0,6 mln tokenów); w recenzji HD |
