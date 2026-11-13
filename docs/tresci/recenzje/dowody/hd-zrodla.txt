@@ -1,0 +1,51 @@
+# HD: cytaty dosłowne ze źródeł otwartych 2026-11-13 (curl + usunięcie znaczników HTML + grep; pełne strony nie są commitowane, TRE-14)
+
+## gw-flop-ip (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/)
+grep: increased use of the 66% pot
+ board is likely to change on later streets, so sizing up for additional fold equity and protection on the flop can be a good play. This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity. Connected Connected boards are a unique case due to flopped straights often bei
+
+## gw-flop-ip (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/)
+grep: Polarize with larger and less frequent bets
+etting in single-raised pots. C-bet more on high card flops that maintain your advantage as the preflop aggressor. C-bet more on paired and disconnected flops. Polarize with larger and less frequent bets on flops where draws are present but not yet completed. Size down and bet less on flops that complete straights and flushes in your opponent’s range. Thanks 
+
+## gw-flop-ip (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/)
+grep: only be bet for small sizing
+er OOP’s tight value range. Flop Pairing {{grid: 3fr 2fr}} {{/grid}} Paired flops are bet significantly more often than unpaired flops. However, they tend to only be bet for small sizing. This is mostly due to our preflop equity advantage but reduced nut advantage from trips being in both player’s ranges. On paired boards, it’s also much ha
+
+## pc-connected (https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/)
+grep: Strong and vulnerable bets big, because
+ts, but now a huge chunk of your opponent’s range is drawing live with plenty of outs against you. That is the moment to size up. Strong and safe bets small. Strong and vulnerable bets big, because every chip you charge a live draw is money earned twice, once when they fold and once when they call with bad odds. Tip #2. Ask Whether a Straight Is Already P
+
+## pc-stats (https://pokercoaching.com/blog/poker-stats/)
+grep: 6-max cash 22 to 28 35+
+ion, and anyone significantly below is a nit whose raises you can nearly always fold to. Format Typical solid player VPIP Warning: too loose Warning: too tight 6-max cash 22 to 28 35+ 14 or below Full ring 15 to 20 28+ 10 or below 6-max MTT 20 to 30 (varies with stack depth) 40+ 12 or below For deeper reading on how to apply VPIP in-game, se
+
+## pc-stats (https://pokercoaching.com/blog/poker-stats/)
+grep: more than 10 points below their VPIP
+n categorizing a player: in 6-max, a PFR of around 17 to 22 is normal for an aggressive regular. In full ring, that drops to 10 to 15. When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little. When the gap is less than 3 points, I flag them as highly aggressive and
+
+## pc-stats (https://pokercoaching.com/blog/poker-stats/)
+grep: bluff them less and value bet them more
+o go all the way too often just because you entered the pot to begin with. Yet, quite a few players play an incredibly high WTSD%, which instantly tells you to bluff them less and value bet them more across all betting streets, especially on the river. A player with a very high WTSD% is likely to call bets across the board and be suspicious, so anytime you 
+
+## deepfold (https://deepfold.co/en/blog/hud-stats-guide)
+grep: 35%+ Loose (likely recreational)
+ 18-22% Tight-aggressive (TAG) Solid reg baseline; play straightforwardly 25-30% Loose-aggressive (LAG) Wider opens; less protected ranges; bluff-catch lighter 35%+ Loose (likely recreational) Plays too many hands; value-bet heavier and bluff less 2. PFR (Preflop Raise %) How often they raise preflop (open raise, isolation raise, or 3-bet — anythin
+
+## deepfold (https://deepfold.co/en/blog/hud-stats-guide)
+grep: Gap > 10 → Passive player
+ than a call). Key metric: The gap between VPIP and PFR. Gap < 5 → Aggressive player who rarely limps. Most regs. Gap 5-10 → Normal mix of opens and calls. Gap > 10 → Passive player. Lots of cold-calls and limps. Crucial signal — passive players have wide, weak calling ranges and you can value-bet them thinly while almost never bluffing 
+
+## deepfold (https://deepfold.co/en/blog/hud-stats-guide)
+grep: Value bet thinly, never bluff river
+ffing them entirely; value bet only. WTSD (Went to Showdown) The percentage of hands a player saw a flop with that ended in showdown. >30% → Calling station. Value bet thinly, never bluff river. 22-28% → Standard reg. <22% → Folds too much postflop. Aggressive multi-street bluffs work; barreling river is profitable. Aggression Factor (AF) and Aggr
+
+## upswing-top-pair (https://upswingpoker.com/when-to-check-top-pair/)
+grep: too high to comfortably get 3 streets
+ Bet Sizing Most of the situations in which you should check with some top pairs are single raised pots. In single raised pots, the stack-to-pot ratio (SPR) is too high to comfortably get 3 streets of value with many top pair hands. Thus, you need to consider which of the following 3 plans makes the most sense with your top pair: Bet 3 streets for value C
+
+## gw-thin (https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/)
+grep: too much {{tooltip-title: showdown value}} to bluff
+ very strong hands less likely, but it also makes very weak hands less likely. The hands with the most incentive to check are medium-strength hands, those with too much {{tooltip-title: showdown value}} to bluff but not so much value that they want to grow the pot. {{tooltip-content: condensing}} Condensed A capped range that is also tight. This range does not contain 
+
+kod 0 (wszystkie wzorce znalezione; brak trafienia oznaczałby pustą linię pod grep)
