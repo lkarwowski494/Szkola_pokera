@@ -97,3 +97,7 @@ Tests:       3 failed, 5 passed, 8 total
 Tests:       4 failed, 4 passed, 8 total
 ## kod właściwy
 Tests:       8 passed, 8 total
+
+# FW-01 (GB): render zdania zakresu river-value
+## Czerwień przed kodem (fv-fw-river-value.test.tsx, 3 nowe testy): „Received string: … BB: czeka (check) Twój ruch …” bez zdania „Na zakład rywal sprawdza z: …” — Tests: 3 failed | 3 passed (6)
+## Po kodzie: Tests: 6 passed (6)

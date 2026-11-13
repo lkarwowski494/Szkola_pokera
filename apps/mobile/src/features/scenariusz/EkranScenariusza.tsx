@@ -19,7 +19,7 @@ import type { SesjaScenariusza } from './aktywnoscScenariusza';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
 import type { WyborPoziomu } from './poziom';
-import { akcjePunktu, bloki, kwotaAkcji, ocenyAkcji, opisAkcji, poprawnaAkcja, przebiegWariantu, ukladIcm, widokDecyzji, type Akcja, type UkladIcm } from './wariant';
+import { akcjePunktu, bloki, kwotaAkcji, ocenyAkcji, opisAkcji, poprawnaAkcja, przebiegWariantu, ukladIcm, widokDecyzji, zakresSprawdzenia, type Akcja, type UkladIcm } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
@@ -208,6 +208,9 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const ulicaDecyzji = d?.street;
   const ocenyAk = ocenaMode && d ? ocenyAkcjiSesji(s, indeks) : null;
   const zdaniaLiczbPunktu = ocenaMode && d && wybor ? zdaniaLiczb(s, indeks, wybor, t) : []; // D-888: sekcja „Liczby” tylko, gdy punkt ma zdania
+  // FW-01 (D-1501, GB): zakres sprawdzenia rywala w river-value to dana zadania; pod stołem, przed dziennikiem; `folds` nie są pokazywane
+  const klasyRywala = zakresSprawdzenia(s.szablon, indeks);
+  const zakresRywala = klasyRywala ? t('scenario.riverValue.calls', { lista: klasyRywala.join(t('scenario.riverValue.sep')) }) : null;
   const opisAkcjiEkranu = (a: Akcja): TekstAkcji => tekstAkcji(s.wariant, indeks, a, s.szablon, t);
   const nastepna = s.wariant.points[indeks + 1];
   // VoiceOver: po decyzji ocena z werdyktem, przed decyzją nowy wpis rywala (ulica i jego zakład, A04-11/D-283)
@@ -252,6 +255,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
       />
       )}
       {d.point === 'list-hand' ? <Text testID="list-hand-sytuacja" style={[styl.tresc, { color: tk.ink }]}>{s.szablon.situation}</Text> : null}
+      {zakresRywala ? <Text testID="river-value-zakres" style={[styl.tresc, { color: tk.ink }]}>{zakresRywala}</Text> : null}
       {d.point === 'pick-hand' ? (
         <View testID="pick-hand-rece" style={{ flexDirection: 'row', justifyContent: 'space-around', gap: odstep.m }}>
           {d.hands.map((h, k) => <CardRow key={k} cards={h.map(cardToString)} size="lg" />)}
