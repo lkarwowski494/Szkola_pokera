@@ -73,7 +73,7 @@ Czas: stary krok `pnpm run ci` 12 min 28 s przy limicie 15 (dowody/ga-liczby-tes
 Pełna lista z kodami: dowody/ga-mutanty-rozjazdu.txt (plik). Zabite: M1 usunięcie komendy, M2 usunięcie pakietu, M3 komenda tylko w `package.json`, M4 komenda tylko w `ci.yml`, M5 nowy pakiet z testem bez kroku, M6 dubel pakietu, M7 `|| true`, M8 `continue-on-error`, M9 `if: false` na części, M10 `check` bez `always()`, M11 część usunięta z `needs`, M12 `jq` bez `-e`, M13 dodatkowa flaga, M14 limit 30 min, M18 literówka w nazwie pakietu, M19 słabszy warunek `jq`. Przeżyły: M15 (`set +e` + końcowe `true`), M16 (`shell: bash {0}` i dwie komendy w jednym `run`), M20 (`env: CI: false` na kroku testów) → 07-jakosc-001; M17 (spójna zmiana nazwy pakietu w obu miejscach) to poprawne zachowanie, nie luka.
 
 ## Sonda na żywo
-SONDA_WYNIK
+Commit d21b580b na `claude/sesja-ga-recenzja` dodał celowo czerwony test w `@szkola/srs` (`expect(1).toBe(2)`); cofnięty commitem d3a1c724 (drzewo kodu znowu równe 31011f9c: `git diff 31011f9c d3a1c724 -- packages .github tests` pusty). Przebieg 43392410775: `ci-testy-aplikacja` failure (`ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL @szkola/srs`), pozostałe 3 części success, `check` uruchomiony po wszystkich częściach i **failure** z logiem „ci-testy-aplikacja: failure”; cały przebieg failure. Dowód: dowody/ga-sonda-check.txt. Krok `@szkola/jezyki` po `srs` nie wykonał się (jak `pnpm -r` z przerwaniem), co nie zmienia wyniku bramki.
 
 ## Twierdzenia projektu vs stan
 | Twierdzenie (plik:linia) | Jak sprawdzone | Potwierdzone / obalone |
