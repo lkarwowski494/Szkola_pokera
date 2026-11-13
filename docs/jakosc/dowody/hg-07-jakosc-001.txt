@@ -1,0 +1,104 @@
+# HG zad. 3: 07-jakosc-001 (recenzja GA), 2026-11-13. ci.yml bez zmian; zmiana tylko w tests/narzedzia/workflowy.test.mjs.
+Metoda: skrypt mutantów z docs/jakosc/dowody/ga-mutanty-rozjazdu.txt (M1–M20) + M21–M24 (defaults/env workflowu i zadania, working-directory) + kontrola „NIEZASTOSOWANY”, na worktree w scratchpadzie; node --test tests/narzedzia/workflowy.test.mjs po każdym mutancie, potem git checkout.
+
+## PRZED (worktree @ 8288537b = HEAD przed testem 07-jakosc-001)
+M1   ZABITY   (kod 1, fail 1) usunięcie kroku 'pnpm k08' z ci-kontrole
+M2   ZABITY   (kod 1, fail 1) usunięcie 'pnpm --filter @szkola/srs test'
+M3   ZABITY   (kod 1, fail 1) dodanie '&& pnpm lint' tylko w package.json ci
+M4   ZABITY   (kod 1, fail 1) dodanie kroku 'pnpm lint' tylko w ci.yml
+M5   ZABITY   (kod 1, fail 1) nowy pakiet packages/nowy ze skryptem test, bez kroku w CI
+M6   ZABITY   (kod 1, fail 1) dubel 'pnpm --filter @szkola/srs test' w innym jobie
+M7   ZABITY   (kod 1, fail 1) 'pnpm typecheck || true'
+M8   ZABITY   (kod 1, fail 1) continue-on-error: true na kroku typecheck
+M9   ZABITY   (kod 1, fail 1) if: false na jobie ci-testy-silnik
+M10  ZABITY   (kod 1, fail 1) check bez 'if: always()'
+M11  ZABITY   (kod 1, fail 1) ci-testy-tresci usunięty z check.needs (job zostaje)
+M12  ZABITY   (kod 1, fail 1) jq bez -e (zawsze kod 0)
+M13  ZABITY   (kod 1, fail 1) flaga: 'pnpm --filter @szkola/mobile test -- --passWithNoTests'
+M14  ZABITY   (kod 1, fail 1) timeout-minutes 30 na ci-testy-tresci
+M15  PRZEŻYŁ (kod 0, fail 0) łagodzenie przez set +e i 'true' w wieloliniowym run (typecheck)
+M16  PRZEŻYŁ (kod 0, fail 0) shell bez -e: 'shell: bash {0}' i wieloliniowy run z dwoma testami (pierwszy może paść)
+M17  PRZEŻYŁ (kod 0, fail 0) zmiana nazwy pakietu srs w package.json i w CI (spójnie)
+M18  ZABITY   (kod 1, fail 1) literówka w nazwie pakietu w CI (@szkola/srss)
+M19  ZABITY   (kod 1, fail 1) check: jq sprawdza != "failure" zamiast == "success" (skipped przechodzi)
+M20  PRZEŻYŁ (kod 0, fail 0) env w kroku testów: CI=false (zmiana środowiska)
+M21  PRZEŻYŁ (kod 0, fail 0) defaults.run.shell: bash {0} na poziomie workflowu
+M22  PRZEŻYŁ (kod 0, fail 0) env na poziomie zadania części: CI=false
+M23  PRZEŻYŁ (kod 0, fail 0) working-directory na kroku testów
+M24  PRZEŻYŁ (kod 0, fail 0) env na poziomie workflowu: CI=false
+
+## PO (worktree @ cfb8d1dd)
+M1   ZABITY   (kod 1, fail 1) usunięcie kroku 'pnpm k08' z ci-kontrole
+M2   ZABITY   (kod 1, fail 1) usunięcie 'pnpm --filter @szkola/srs test'
+M3   ZABITY   (kod 1, fail 1) dodanie '&& pnpm lint' tylko w package.json ci
+M4   ZABITY   (kod 1, fail 1) dodanie kroku 'pnpm lint' tylko w ci.yml
+M5   ZABITY   (kod 1, fail 1) nowy pakiet packages/nowy ze skryptem test, bez kroku w CI
+M6   ZABITY   (kod 1, fail 1) dubel 'pnpm --filter @szkola/srs test' w innym jobie
+M7   ZABITY   (kod 1, fail 2) 'pnpm typecheck || true'
+M8   ZABITY   (kod 1, fail 2) continue-on-error: true na kroku typecheck
+M9   ZABITY   (kod 1, fail 2) if: false na jobie ci-testy-silnik
+M10  ZABITY   (kod 1, fail 1) check bez 'if: always()'
+M11  ZABITY   (kod 1, fail 1) ci-testy-tresci usunięty z check.needs (job zostaje)
+M12  ZABITY   (kod 1, fail 1) jq bez -e (zawsze kod 0)
+M13  ZABITY   (kod 1, fail 2) flaga: 'pnpm --filter @szkola/mobile test -- --passWithNoTests'
+M14  ZABITY   (kod 1, fail 1) timeout-minutes 30 na ci-testy-tresci
+M15  ZABITY   (kod 1, fail 1) łagodzenie przez set +e i 'true' w wieloliniowym run (typecheck)
+M16  ZABITY   (kod 1, fail 1) shell bez -e: 'shell: bash {0}' i wieloliniowy run z dwoma testami (pierwszy może paść)
+M17  PRZEŻYŁ (kod 0, fail 0) zmiana nazwy pakietu srs w package.json i w CI (spójnie)
+M18  ZABITY   (kod 1, fail 1) literówka w nazwie pakietu w CI (@szkola/srss)
+M19  ZABITY   (kod 1, fail 1) check: jq sprawdza != "failure" zamiast == "success" (skipped przechodzi)
+M20  ZABITY   (kod 1, fail 1) env w kroku testów: CI=false (zmiana środowiska)
+M21  ZABITY   (kod 1, fail 1) defaults.run.shell: bash {0} na poziomie workflowu
+M22  ZABITY   (kod 1, fail 1) env na poziomie zadania części: CI=false
+M23  ZABITY   (kod 1, fail 1) working-directory na kroku testów
+M24  ZABITY   (kod 1, fail 1) env na poziomie workflowu: CI=false
+
+Wynik: M15, M16, M20 (i M21–M24) czerwone po zmianie; M1–M14, M18, M19 dalej czerwone; M17 zielony (poprawne zachowanie: spójna zmiana nazwy) — zgodnie z testem akceptacyjnym z recenzji GA.
+
+## Niezmieniony ci.yml: node --test tests/narzedzia/workflowy.test.mjs
+# tests 30
+# pass 30
+# fail 0
+ok 29 - ci.yml: części check bez łagodzenia przez powłokę i środowisko (07-jakosc-001): krok = uses albo jedna linia pnpm, bez shell/env/defaults/working-directory
+ok 30 - 07-jakosc-001: kontrola kształtu wykrywa set +e, shell, env kroku, zadania i workflowu, defaults i working-directory
+
+## Mutanty dodane jako stały test w Node (test „07-jakosc-001: kontrola kształtu wykrywa …”): 9 przekształceń kopii ci.yml, każde musi dać ≥ 1 błąd.
+
+--- skrypt ---
+#!/bin/bash
+# Mutanty testu rozjazdu na kopii (worktree 31011f9c). Każdy: zmiana -> node --test workflowy.test.mjs -> git checkout.
+cd "$1"
+run() { # $1 nazwa; reszta: komenda modyfikująca
+  local n="$1"; shift; "$@"
+  if git diff --quiet && [ ! -d packages/nowy ]; then printf '%-4s NIEZASTOSOWANY %s\n' "$n" "$OPIS"; return; fi
+  out=$(node --test tests/narzedzia/workflowy.test.mjs 2>&1); kod=$?
+  fail=$(echo "$out" | grep -E '^# fail' | awk '{print $3}')
+  if [ $kod -ne 0 ]; then w="ZABITY"; else w="PRZEŻYŁ"; fi
+  printf '%-4s %-8s (kod %s, fail %s) %s\n' "$n" "$w" "$kod" "$fail" "$OPIS"
+  git checkout -q -- . ; rm -rf packages/nowy
+}
+CI=.github/workflows/ci.yml
+OPIS="usunięcie kroku 'pnpm k08' z ci-kontrole"; run M1 sed -i '/- run: pnpm k08$/d' $CI
+OPIS="usunięcie 'pnpm --filter @szkola/srs test'"; run M2 sed -i '/filter @szkola\/srs test$/d' $CI
+OPIS="dodanie '&& pnpm lint' tylko w package.json ci"; run M3 node -e 'const f="package.json",p=JSON.parse(require("fs").readFileSync(f));p.scripts.ci+=" && pnpm lint";require("fs").writeFileSync(f,JSON.stringify(p,null,2))'
+OPIS="dodanie kroku 'pnpm lint' tylko w ci.yml"; run M4 sed -i 's/      - run: pnpm tresci:el-kontrola/      - run: pnpm tresci:el-kontrola\n      - run: pnpm lint/' $CI
+OPIS="nowy pakiet packages/nowy ze skryptem test, bez kroku w CI"; run M5 bash -c 'mkdir -p packages/nowy && echo "{\"name\":\"@szkola/nowy\",\"scripts\":{\"test\":\"vitest run\"}}" > packages/nowy/package.json'
+OPIS="dubel 'pnpm --filter @szkola/srs test' w innym jobie"; run M6 sed -i 's/      - run: pnpm --filter @szkola\/content-build test/      - run: pnpm --filter @szkola\/content-build test\n      - run: pnpm --filter @szkola\/srs test/' $CI
+OPIS="'pnpm typecheck || true'"; run M7 sed -i 's/- run: pnpm typecheck$/- run: pnpm typecheck || true/' $CI
+OPIS="continue-on-error: true na kroku typecheck"; run M8 sed -i 's/      - run: pnpm typecheck$/      - run: pnpm typecheck\n        continue-on-error: true/' $CI
+OPIS="if: false na jobie ci-testy-silnik"; run M9 sed -i 's/^  ci-testy-silnik:$/  ci-testy-silnik:\n    if: false/' $CI
+OPIS="check bez 'if: always()'"; run M10 sed -i '/    if: \${{ always() }}/d' $CI
+OPIS="ci-testy-tresci usunięty z check.needs (job zostaje)"; run M11 sed -i 's/needs: \[ci-kontrole, ci-testy-tresci, /needs: [ci-kontrole, /; s/length == 4/length == 3/' $CI
+OPIS="jq bez -e (zawsze kod 0)"; run M12 sed -i 's/jq -e .length == 4/jq .length == 4/' $CI
+OPIS="flaga: 'pnpm --filter @szkola/mobile test -- --passWithNoTests'"; run M13 sed -i 's/filter @szkola\/mobile test$/filter @szkola\/mobile test -- --passWithNoTests/' $CI
+OPIS="timeout-minutes 30 na ci-testy-tresci"; run M14 sed -i '0,/timeout-minutes: 15/! {0,/timeout-minutes: 15/ s/timeout-minutes: 15/timeout-minutes: 30/}' $CI
+OPIS="łagodzenie przez set +e i 'true' w wieloliniowym run (typecheck)"; run M15 sed -i 's/      - run: pnpm typecheck$/      - run: |\n          set +e\n          pnpm typecheck\n          true/' $CI
+OPIS="shell bez -e: 'shell: bash {0}' i wieloliniowy run z dwoma testami (pierwszy może paść)"; run M16 sed -i 's/      - run: pnpm --filter @szkola\/poker-core test$/      - shell: bash {0}\n        run: |\n          pnpm --filter @szkola\/poker-core test\n          pnpm --filter @szkola\/preflop-solver test/; /      - run: pnpm --filter @szkola\/preflop-solver test$/d' $CI
+OPIS="zmiana nazwy pakietu srs w package.json i w CI (spójnie)"; run M17 bash -c 'sed -i "s/\"@szkola\/srs\"/\"@szkola\/srs2\"/" packages/srs/package.json; sed -i "s/filter @szkola\/srs test/filter @szkola\/srs2 test/" '$CI
+OPIS="literówka w nazwie pakietu w CI (@szkola/srss)"; run M18 sed -i 's/filter @szkola\/srs test$/filter @szkola\/srss test/' $CI
+OPIS="check: jq sprawdza != \"failure\" zamiast == \"success\" (skipped przechodzi)"; run M19 sed -i 's/all(.value.result == "success")/all(.value.result != "failure")/' $CI
+OPIS="env w kroku testów: CI=false (zmiana środowiska)"; run M20 sed -i 's/      - run: pnpm --filter @szkola\/mobile test$/      - run: pnpm --filter @szkola\/mobile test\n        env:\n          CI: false/' $CI
+OPIS="defaults.run.shell: bash {0} na poziomie workflowu"; run M21 sed -i 's/^jobs:$/defaults:\n  run:\n    shell: bash {0}\njobs:/' $CI
+OPIS="env na poziomie zadania części: CI=false"; run M22 sed -i 's/^  ci-testy-aplikacja:$/  ci-testy-aplikacja:\n    env:\n      CI: false/' $CI
+OPIS="working-directory na kroku testów"; run M23 sed -i 's|      - run: pnpm --filter @szkola/domena test$|      - run: pnpm --filter @szkola/domena test\n        working-directory: packages/domena|' $CI
+OPIS="env na poziomie workflowu: CI=false"; run M24 sed -i 's/^jobs:$/env:\n  CI: false\njobs:/' $CI
