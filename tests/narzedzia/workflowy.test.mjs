@@ -372,6 +372,7 @@ export function rozjazdCi(pkg, w, pakiety) {
   if (filtr.length) {
     const nazwy = filtr.map((l) => l.split(' ')[2]).sort();
     if (JSON.stringify(nazwy) === JSON.stringify(pakiety)) jest = [...jest.filter((l) => !filtr.includes(l)), 'pnpm test'];
+    else return [`pnpm test rozpisany niezgodnie z pakietami z testami: brak [${pakiety.filter((x) => !nazwy.includes(x))}], nadmiar/dubel [${nazwy.filter((x, i) => !pakiety.includes(x) || nazwy.indexOf(x) !== i)}]`];
   }
   const licz = (a) => a.reduce((m, x) => m.set(x, (m.get(x) ?? 0) + 1), new Map());
   const a = licz(oczek), b = licz(jest), roz = [];
