@@ -1,0 +1,23 @@
+#!/bin/bash
+# Mutanty na kluczowych zmianach FV (a966a876). Każdy: zmiana sed w worktree, uruchomienie testów celowanych, przywrócenie (git checkout).
+cd "$1"
+run() { # nazwa plik sed-wyrazenie pakiet testy...
+  local n="$1" f="$2" e="$3" p="$4"; shift 4
+  cp "$f" /tmp/mut.bak; sed -i "$e" "$f"
+  if cmp -s "$f" /tmp/mut.bak; then echo "$n: MUTACJA NIE ZASTOSOWANA"; return; fi
+  if [ "$p" = mobile ]; then (cd apps/mobile && npx jest --ci "$@" >/tmp/mut.log 2>&1); else (cd "$p" && npx vitest run "$@" >/tmp/mut.log 2>&1); fi
+  local k=$?; git checkout -q -- "$f"
+  echo "$n: kod $k → $([ $k -ne 0 ] && echo ZABITY || echo PRZEŻYŁ) ($(grep -E 'Tests:|Tests  ' /tmp/mut.log | tail -1 | tr -s ' '))"
+}
+run M1-bramka201-usunieta tools/content-build/src/scenariusze.ts 's/if (d.entries.some((en) => Array.isArray(en.correct))) {/if (false) {/' tools/content-build test/fv-201-reka-mieszana-bramka.test.ts
+run M2-ostrzezenie-juz-uzywana-usuniete tools/content-build/src/build.ts '490s/.*/      \/\/ mutant/' tools/content-build test/fv-d1461-cena-dwoch-trzecich.test.ts test/fv-203-bramka-rozmiaru-build.test.ts
+run M3-continue-usuniete tools/content-build/src/build.ts '491s/.*/      \/\/ mutant/' tools/content-build test/fv-d1461-cena-dwoch-trzecich.test.ts
+run M4-filtr-marginMax-usuniety packages/poker-core/src/scenario-gen.ts 's/      if (deltaMax !== null \&\& Math.abs/      if (false \&\& Math.abs/' packages/poker-core test/fv-fq2-river-value-margin-max.test.ts
+run M5-granica-marginMax-wlacznie packages/poker-core/src/scenario-gen.ts 's/- 0.5) >= deltaMax) return null/- 0.5) > deltaMax) return null/' packages/poker-core test/fv-fq2-river-value-margin-max.test.ts
+run M6-margins-max-ignorowane packages/poker-core/src/scenario-gen.ts 's/const deltaMax = b.margins?.\[i\]?.max ?? b.marginMax ?? null;/const deltaMax = b.marginMax ?? null;/' packages/poker-core test
+run M7-throw-marginMax-usuniety packages/poker-core/src/scenario-gen.ts 's/if (deltaMax !== null \&\& !(deltaMax > delta)) throw/if (false) throw/' packages/poker-core test/fv-fq2-river-value-margin-max.test.ts
+run M8-wpis-rywala-river-value-usuniety apps/mobile/src/features/scenariusz/EkranScenariusza.tsx "/d.point === 'river-value') return t('play.log.check'/d" mobile src/features/scenariusz/__tests__/fv-fw-river-value.test.tsx
+run M9-call-bez-formatowania apps/mobile/src/features/scenariusz/EkranScenariusza.tsx "164s/bb: formatujLiczbe(bb, jezykZadan())/bb/" mobile src/features/scenariusz
+run M10-allin-bez-formatowania apps/mobile/src/features/scenariusz/EkranScenariusza.tsx "/a === 'all-in' \&\& bb !== null) return/s/bb: formatujLiczbe(bb, jezykZadan())/bb/" mobile src/features/scenariusz
+run M11-call-bez-null-bb-zero apps/mobile/src/features/scenariusz/EkranScenariusza.tsx "164s/ \&\& bb !== null) return t('play.log.call', { pos, bb: formatujLiczbe(bb, jezykZadan()) })/) return t('play.log.call', { pos, bb: bb ?? 0 })/" mobile src/features/scenariusz
+run M12-raise-rywala-bez-formatowania apps/mobile/src/features/scenariusz/EkranScenariusza.tsx "s/t('play.log.raise', { pos: rywal, bb: formatujLiczbe(spec.openBb, jezykZadan()) })/t('play.log.raise', { pos: rywal, bb: spec.openBb })/" mobile src/features/scenariusz/__tests__/fm-turn-bet-ekran.test.tsx

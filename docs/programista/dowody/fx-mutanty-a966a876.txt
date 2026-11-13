@@ -1,0 +1,15 @@
+# FX: mutanty na kluczowych zmianach FV (worktree odłączony @ a966a876 w scratchpadzie, pliki przywracane git checkout po każdym)
+# komenda: mutanty.sh <worktree> (skrypt: fx-mutanty-skrypt.txt); kod 1 = test czerwony = mutant zabity
+M1-bramka201-usunieta: kod 1 → ZABITY ( Tests 1 failed | 1 passed (2))
+M2-ostrzezenie-juz-uzywana-usuniete: kod 0 → PRZEŻYŁ ( Tests 5 passed (5))
+M3-continue-usuniete: kod 1 → ZABITY ( Tests 1 failed | 2 passed (3))
+M4-filtr-marginMax-usuniety: kod 1 → ZABITY ( Tests 2 failed | 2 passed (4))
+M5-granica-marginMax-wlacznie: kod 0 → PRZEŻYŁ ( Tests 4 passed (4))
+M6-margins-max-ignorowane: kod 0 → PRZEŻYŁ ( Tests 310 passed (310))
+M7-throw-marginMax-usuniety: kod 1 → ZABITY ( Tests 1 failed | 3 passed (4))
+M8-wpis-rywala-river-value-usuniety: kod 1 → ZABITY (Tests: 2 failed, 1 passed, 3 total)
+M9-call-bez-formatowania: kod 0 → PRZEŻYŁ (Tests: 358 passed, 358 total)
+M10-allin-bez-formatowania: kod 0 → PRZEŻYŁ (Tests: 358 passed, 358 total)
+M11-call-bez-null-bb-zero: kod 0 → PRZEŻYŁ (Tests: 358 passed, 358 total)
+M12-raise-rywala-bez-formatowania: kod 1 → ZABITY (Tests: 1 failed, 5 passed, 6 total)
+exit 0
