@@ -211,3 +211,18 @@ Szacunek API (`--szacuj`, Opus 5.5, Batch, cennik ze stanu 2026-10-06 — ponown
 - Forma `{{t:klucz|forma}}` dla języków fali 1 (K-05) i przewodnik głosu dla języków docelowych (prompt K3a używa rejestru z Treningu) — decyzja 09 z 04/06 przed K-04.
 - `content/pl/rules.yaml` (ok. 141 tys. znaków) idzie jednym żądaniem; przy ucięciu odpowiedzi podzielić plik.
 - Przegląd D-043 zmian K2 (świeży kontekst, 2026-11-09): 0 KRYTYCZNYCH/WYSOKICH; baza pl i teksty zadań pl bez zmian (test różnicowy, 399 ziaren). Naprawione: wrongSizes w nakładce, kolejka przygotowań bazy. Do backlogu (ŚREDNIE, przed wydaniem drugiego języka, rola 08; **zrobione 2026-11-09, sesja Q, D-324**): zmiana języka zmienia `databaseName` i `SQLiteProvider` przemontowuje całe drzewo (użytkownik wraca na ekran startowy; przy zimnym starcie z zapisanym językiem innym niż systemowy — dwie kopie bazy przy każdym starcie: zastosować zapisany język przed pierwszym `useTresc`). NISKIE: „Różnica” grupuje cyfry od 10 000; `scal-rejestr.mjs` uznaje każdy podkatalog `content/` z 2–3 liter za język; pola nakładki `helplines.regions`/`operator`/`name` nieprzekładalne.
+
+## 14. Sesja FY (fala 2, 2026-11-13): potOnly, KO-097, KO-098, fourBet
+Gałąź `sesja-fy-przeklad` od `sesja-fv-poprawki` @ a966a876. Decyzje D-1510…D-1516 (`docs/decyzje/FY.md`). Tłumaczenie maszynowe (agent, bez płatnych API), drugi przegląd AI w świeżym kontekście (93/100 pozycji bez uwag; przyjęte: it „la MDF” i „dimensione”, de „der Bets deines Gegners”, ko „이기는 경우는 상대가 블러프일 때뿐”, vi „việc theo” tylko w riverCatchMore/Less; odrzucone: vi „việc theo” w `line`-podobnych zdaniach (spójność z `scenario.numbers.line`), pt „Também boa”), przegląd człowieka: brak (zastępczy, D-1516).
+
+| Zadanie | Stan | Dowód |
+|---|---|---|
+| 1 `scenario.potOnly` ×10 | zrobione (pierwsza część `scenario.pot`) | `narzedzia/fy-kontrola.mjs` 0 różnic |
+| 1 NBSP w `scenario.pot` | **nie wprowadzone**: testy ekranów porównują ze zwykłą spacją (D-1511) — PYTANIE | CI 47b51824 kod 1 |
+| 1 `fourBet` ×10, `pl.kontekst.json` | wartości zgodne z terms-nazwy; opisy dopisane (D-1512) | — |
+| 2 KO-097 (4 klucze ×12 locale) | zrobione | `fy-kontrola.mjs` |
+| 3 KO-098 (5 kluczy ×12 locale) | zrobione; `i18n:kod` 0 błędów (uwagi o nieużywanych) | `pnpm i18n:kod` |
+| 4 przepełnienie | tabela długości i szerokości CJK; zrzutów/AX na ekranie brak (nie uruchomiono aplikacji) — dla roli 04: `riverValue.calls` ja 2,0× pl, `riverCatchLess` fr 1,5×, wszystkie to zdania zawijane; wiersze jednolinijkowe (`potOnly`, `or`) ≤ 1,1× | `dowody/fy-przepelnienie.md` |
+| CI | `pnpm run ci` kod 0 | `dowody/fy-ci-<sha>.txt` |
+
+Otwarte: NBSP w `scenario.pot` (kod/testy 08); mechaniczna kontrola zastępczości (recenzja FU-202 opcja c); nazwa 4-bet `[DO USTALENIA]` w ja, vi, pt-BR, zh-Hant i brak klucza `mdf` w fr, pt, pt-BR `terms-nazwy.yaml` (06); commity mają tożsamość projektu, nie `noreply@anthropic.com` (hook GitHub „Unverified”; zgodnie z `CLAUDE.md`).

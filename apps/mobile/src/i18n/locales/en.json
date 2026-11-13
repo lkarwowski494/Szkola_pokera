@@ -1039,14 +1039,17 @@
     "yourMove": "Your move",
     "verdict": {
       "yours": "Your choice: {{akcja}}. Better: {{lepiej}}.",
-      "yoursGood": "Your choice: {{akcja}}."
+      "yoursGood": "Your choice: {{akcja}}.",
+      "yoursGoodAlso": "Your choice: {{akcja}}. Also good: {{inne}}."
     },
     "why": {
       "weaker": "Why “{{akcja}}” is the weaker play",
       "better": "Why “{{akcja}}” is the better play",
       "good": "Why “{{akcja}}” is a good play",
+      "alsoGood": "Why “{{akcja}}” is also a good play",
       "whyNot": "Why not “{{akcja}}”"
     },
+    "or": "{{a}} or {{b}}",
     "scale": {
       "label": "Grades of the actions: {{lista}}.",
       "yourChoice": "your choice"
@@ -1060,7 +1063,15 @@
       "limp": "A limp costs {{kwota}} bb, and the {{t:big-blind}} can see the flop without paying more.",
       "icm": "Your hand has {{equity}} {{t:equity}} against your opponent's {{t:all-in}} {{t:range}}, so it wins about {{na10}} hands in 10. Under {{t:icm}}, a {{t:call}} pays off from {{prog}}, while in a game for {{t:chips}} {{progZetony}} would be enough: on the {{t:bubble}}, losing takes more of the {{t:prize-pool}} from you than winning adds.",
       "overcardsFold": "If you also count the cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen), you hit in {{trafiszRazem}} of cases, still less often than the price requires ({{potrzeba}}). Such a pair can also lose to a stronger hand.",
-      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own."
+      "overcardsCall": "The cards that give you a {{t:pair}} higher than every card on the {{t:board|board}} ({{nadkarty}} of {{nieznane}} unseen) are left out of the math: such a pair can lose to a stronger hand, and the outs of your draw are enough on their own.",
+      "riverCatch": "The {{t:pot|pot}} is {{pula}} bb and a {{t:call|call}} costs {{kwota}} bb, so you need {{potrzeba}} equity, that is, to win about once in {{razPotrzeba}}. You beat only {{t:bluff|bluffs}}, and in this hand {{t:bluff|bluffs}} make up {{udzial}} of their {{t:bet|bets}}.",
+      "riverCatchMore": "There are more {{t:bluff|bluffs}} than you need, so {{t:call|calling}} makes money.",
+      "riverCatchLess": "There are fewer {{t:bluff|bluffs}} than you need, so {{t:call|calling}} loses money.",
+      "defend": "The {{t:pot|pot}} is {{pula}} bb and a {{t:call|call}} costs {{kwota}} bb, so you need {{potrzeba}} equity, that is, to win about once in {{razPotrzeba}}. Against a {{t:bet}} this size, {{t:mdf}} is {{obrona}}: a reference point for your whole {{t:range}}; on the flop you can defend a little less, and for a single hand, the explanation decides."
+    },
+    "riverValue": {
+      "calls": "Against a {{t:bet}}, your opponent {{t:call|calls}} with: {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "Next: {{ulica}}",

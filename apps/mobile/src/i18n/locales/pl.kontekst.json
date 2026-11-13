@@ -719,7 +719,7 @@
   "today.afterFirstLessonM2": "Stan kafelka Scenariusze do czasu pierwszej lekcji modułu 2 (BR-MENU-001). Użyty w: app/(tabs)/index.tsx. [BI, 2026-11-10]",
   "today.courseDoneTitle": "Tytuł kafelka na suknie, gdy wszystkie lekcje są ukończone (nad today.courseDone). Użyty w: features/dzis/BlokLekcji.tsx. [BI, 2026-11-10]",
   "scenario": {
-    "potOnly": "Wiersz pod stołem (EkranScenariusza.tsx; FM D-1430): ile jest w puli przed twoim zakładem, bez „do sprawdzenia”; ten sam szyk co pierwsza część scenario.pot. {{pula}} = liczba sformatowana wg języka; przed „bb” spacja nierozdzielająca (U+00A0). W 10 językach poza pl i en wartość zastępcza (tekst en), do przekładu 09 (KO-096).",
+    "potOnly": "Wiersz pod stołem (EkranScenariusza.tsx; FM D-1430): ile jest w puli przed twoim zakładem, bez „do sprawdzenia”; ten sam szyk co pierwsza część scenario.pot (w każdym języku to ta część, ze spacją nierozdzielającą przed „bb”, tam gdzie język ją pisze). {{pula}} = liczba sformatowana wg języka; przed „bb” spacja nierozdzielająca (U+00A0). Ok. 14–22 znaków. [przekład 11 języków: FY, D-1510]",
     "action": {
       "fold": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji pas na przycisku, w pasku ocen i w zdaniach; forma do zdania, pierwszą literę podnosi kod. Ok. 3–12 znaków. [DE, 2026-11-11]",
       "check": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji czekanie (bez dokładania). Ok. 8–12 znaków.",
@@ -734,7 +734,8 @@
       "amountPay": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku: kwota, którą wkładasz do puli: sprawdzenie, limp, zakład. {{bb}} = liczba sformatowana wg języka; między liczbą a „bb” spacja nierozdzielająca (U+00A0). Ok. 8 znaków.",
       "amountTo": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku: rozmiar całkowity po przebiciu („do N bb”); przyimek/partykuła wg języka (de „auf”, ja „に”, ko „로”). U+00A0 przed „bb”.",
       "amountAll": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Druga linia przycisku all-in: cały stos „N bb”. U+00A0 przed „bb”.",
-      "withAmount": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Fraza w zdaniu (werdykt, nagłówki „dlaczego”, VoiceOver): {{akcja}} = nazwa małą literą, {{kwota}} = tekst amountPay/amountTo/amountAll. Szyk do zmiany w przekładzie (ja i ko: kwota przed akcją)."
+      "withAmount": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Fraza w zdaniu (werdykt, nagłówki „dlaczego”, VoiceOver): {{akcja}} = nazwa małą literą, {{kwota}} = tekst amountPay/amountTo/amountAll. Szyk do zmiany w przekładzie (ja i ko: kwota przed akcją).",
+      "fourBet": "Ekran scenariusza (EkranScenariusza.tsx, tekstAkcji). Nazwa akcji 4-bet (czwarte podniesienie stawki przed flopem po open i 3-becie); termin jak w terms-nazwy.yaml klucz 4-bet (de „4-Bet”, ja „4ベット”, ko „4벳”, reszta „4-bet”; zh-Hant bez nazwy, zostaje „4-bet”). Ok. 5–6 znaków. [przegląd 10 przekładów: FY, D-1512]"
     },
     "numbers": {
       "cbet": "Ekran scenariusza (EkranScenariusza.tsx, rozwijane „Liczby”, cbet-case). Jedno zdanie: rozmiary c-betu (parametry maly, duzy: procent puli) i cena rywala (cenaMaly, cenaDuzy: procent; razMaly, razDuzy: „raz na N”). Ok. 260 znaków. [DN, 2026-11-11, D-888]",
@@ -743,7 +744,11 @@
       "limp": "Ekran scenariusza („Liczby”, size-spot, gdy gracz wybrał limp). Parametr kwota: dopłata w bb. Ok. 85 znaków. [DN, 2026-11-11, D-888]",
       "icm": "Ekran scenariusza („Liczby”, icm-call). Parametry: equity i na10 (ręki), prog (według ICM), progZetony (w grze o żetony, z blindem, D-890; procenty). „w N rozdaniach na 10”: N od 2 do 9. Ok. 330 znaków. [DN, 2026-11-11, D-888]",
       "overcardsFold": "Ekran scenariusza („Liczby”, draw-call z nadkartami, poprawny pas). Parametry: nadkarty i nieznane (liczby kart), trafiszRazem i potrzeba (procenty). Ok. 300 znaków. [DN, 2026-11-11, D-888]",
-      "overcardsCall": "Ekran scenariusza („Liczby”, draw-call z nadkartami, poprawne sprawdzenie). Parametry: nadkarty i nieznane (liczby kart). Ok. 230 znaków. [DN, 2026-11-11, D-888]"
+      "overcardsCall": "Ekran scenariusza („Liczby”, draw-call z nadkartami, poprawne sprawdzenie). Parametry: nadkarty i nieznane (liczby kart). Ok. 230 znaków. [DN, 2026-11-11, D-888]",
+      "riverCatch": "Ekran scenariusza („Liczby”, river-catch: SC-24, SC-31; szkic roli 06 docs/tresci/liczby-river-catch-defend.md §1, KO-097). Pierwsze z dwóch zdań. Parametry: pula, kwota (kwoty w bb), potrzeba (procent), razPotrzeba („raz na N”), udzial (procent; udział blefów w zakładach rywala, dana zadania). Termin bluff nazywa blef rywala, nie twój. Ok. 260 znaków. [FY, D-1513]",
+      "riverCatchMore": "Ekran scenariusza („Liczby”, river-catch). Drugie zdanie, gdy udział blefów jest większy niż potrzebny (sprawdzenie zarabia). Bez parametrów. Ok. 70 znaków. [FY, D-1513]",
+      "riverCatchLess": "Ekran scenariusza („Liczby”, river-catch). Drugie zdanie, gdy udział blefów jest mniejszy niż potrzebny (sprawdzenie traci). Bez parametrów. Ok. 70 znaków. [FY, D-1513]",
+      "defend": "Ekran scenariusza („Liczby”, defend: SC-07, SC-15, SC-17; szkic roli 06 §2, KO-097). Jedno zdanie: cena sprawdzenia (pula, kwota w bb; potrzeba, razPotrzeba) i MDF jako punkt odniesienia dla całego zakresu, nie nakaz dla jednej ręki (obrona: procent; R-M6-003). Zachowaj zastrzeżenie o zakresie i o wyjaśnieniu. Ok. 330 znaków. [FY, D-1513]"
     },
     "icm": {
       "tableLabel": "Ekran scenariusza, punkt icm-call (EkranScenariusza.tsx, StolIcm). Etykieta VoiceOver rysunku stołu, pierwsze zdanie: {{ty}} = twoja pozycja (BB), {{reka}} = karty nazwami po przecinku, {{rywal}} = pozycja rywala (SB). Zdanie o graczach, którzy spasowali, dochodzi z foldedOne/foldedMany. [DP, 2026-11-11, D-889]",
@@ -761,6 +766,18 @@
       "rowLabel": "Etykieta VoiceOver wiersza listy stosów: {{kto}} (np. „Ty, BB”) i {{wartosc}} (np. „10 bb”), np. „Ty, BB, 10 bb”. [DP, D-889]",
       "wholeStack": "Przypis pod wierszem puli, gdy twój stos ≤ stosu rywala. {{kwota}} = „9 bb” (zapis stackValue). [DP, D-889]",
       "rewards": "Tytuł zwiniętego wiersza w ocenie punktu icm-call: po rozwinięciu lista stosów i zdanie nagród. [DP, D-889]"
+    },
+    "pot": "Wiersz pod stołem (EkranScenariusza.tsx, widokDecyzji): pula i kwota do sprawdzenia. Parametry: pula, kwota (liczby w bb). Ok. 40–60 znaków. [FY: NBSP przed „bb” wycofane, D-1511]",
+    "verdict": {
+      "yoursGoodAlso": "Ekran scenariusza (EkranScenariusza.tsx, werdykt przy ręce mieszanej; projekt FW docs/design/fw-river-value-i-mieszana.md, KO-098). Gracz wybrał jedną z kilku poprawnych akcji. Parametry: akcja (wybrana), inne (pozostałe poprawne, połączone kluczem scenario.or). Ok. 40 znaków. [FY, D-1514]"
+    },
+    "why": {
+      "alsoGood": "Ekran scenariusza (blok „dlaczego”, ręka mieszana; KO-098). Nagłówek bloku drugiej poprawnej akcji, wzór scenario.why.good: „też” zaznacza, że obie akcje są dobre (nie ma lepszej). Parametr: akcja. Ok. 45 znaków. [FY, D-1514]"
+    },
+    "or": "Ekran scenariusza (KO-098). Łączy dwie poprawne akcje w jednym zdaniu („4-bet albo sprawdzenie”); dla trzech kod łączy parami. Parametry: a, b (nazwy akcji). Ok. 4–8 znaków.",
+    "riverValue": {
+      "calls": "Ekran scenariusza (river-value, SC-28; projekt FW, KO-098). Zdanie pod stołem: z jakimi klasami rąk rywal zapłaci za twój zakład. Parametr lista = zapis klas rąk (AJs, 88) łączony kluczem riverValue.sep; zapisu klas nie tłumaczyć. Ok. 70 znaków.",
+      "sep": "Ekran scenariusza (river-value, KO-098). Separator listy klas rąk (w ja i zh-Hant „、”). Jeden lub dwa znaki; spacja po przecinku zamierzona."
     }
   }
 }

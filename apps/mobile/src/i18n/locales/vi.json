@@ -1021,14 +1021,17 @@
     "yourMove": "Lượt của bạn",
     "verdict": {
       "yours": "Lựa chọn của bạn: {{akcja}}. Tốt hơn: {{lepiej}}.",
-      "yoursGood": "Lựa chọn của bạn: {{akcja}}."
+      "yoursGood": "Lựa chọn của bạn: {{akcja}}.",
+      "yoursGoodAlso": "Lựa chọn của bạn: {{akcja}}. Cũng tốt: {{inne}}."
     },
     "why": {
       "weaker": "Vì sao “{{akcja}}” là nước đi yếu hơn",
       "better": "Vì sao “{{akcja}}” là nước đi tốt hơn",
       "good": "Vì sao “{{akcja}}” là nước đi tốt",
+      "alsoGood": "Vì sao “{{akcja}}” cũng là nước đi tốt",
       "whyNot": "Vì sao không phải “{{akcja}}”"
     },
+    "or": "{{a}} hoặc {{b}}",
     "scale": {
       "label": "Đánh giá các hành động: {{lista}}.",
       "yourChoice": "lựa chọn của bạn"
@@ -1042,7 +1045,15 @@
       "limp": "Limp tốn {{kwota}} bb, và {{t:big-blind|big blind}} có thể xem flop mà không phải trả thêm.",
       "icm": "Tay bài của bạn có {{equity}} {{t:equity|equity}} so với {{t:range|range}} mà đối thủ dùng để {{t:all-in|all-in}}, tức là thắng khoảng {{na10}} trên 10 ván. Theo {{t:icm}}, {{t:call|theo}} có lời từ {{prog}}, còn ở trò chơi tính bằng {{t:chips|chip}} thì {{progZetony}} là đủ: ở {{t:bubble|bubble}}, thua lấy đi của bạn nhiều {{t:prize-pool|tổng giải thưởng}} hơn so với phần thắng mang lại.",
       "overcardsFold": "Nếu tính cả những lá cho bạn một {{t:pair|đôi}} cao hơn mọi lá trên {{t:board|board}} ({{nadkarty}} trên {{nieznane}} lá chưa thấy), bạn trúng ở {{trafiszRazem}} số trường hợp, vẫn ít hơn mức giá yêu cầu ({{potrzeba}}). {{t:pair|Đôi}} như vậy cũng có thể thua tay bài mạnh hơn của đối thủ.",
-      "overcardsCall": "Những lá cho bạn một {{t:pair|đôi}} cao hơn mọi lá trên {{t:board|board}} ({{nadkarty}} trên {{nieznane}} lá chưa thấy) không được tính vào phép tính: {{t:pair|đôi}} như vậy có thể thua tay bài mạnh hơn, và outs của draw đã đủ."
+      "overcardsCall": "Những lá cho bạn một {{t:pair|đôi}} cao hơn mọi lá trên {{t:board|board}} ({{nadkarty}} trên {{nieznane}} lá chưa thấy) không được tính vào phép tính: {{t:pair|đôi}} như vậy có thể thua tay bài mạnh hơn, và outs của draw đã đủ.",
+      "riverCatch": "{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Bạn chỉ thắng được {{t:bluff|bluff}}, và ở ván này {{t:bluff|bluff}} chiếm {{udzial}} số {{t:bet|cược}} của đối thủ.",
+      "riverCatchMore": "{{t:bluff|Bluff}} nhiều hơn mức bạn cần, nên việc {{t:call|theo}} có lãi.",
+      "riverCatchLess": "{{t:bluff|Bluff}} ít hơn mức bạn cần, nên việc {{t:call|theo}} bị lỗ.",
+      "defend": "{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Trước một {{t:bet|cược}} cỡ này, {{t:mdf}} là {{obrona}}: mốc tham chiếu cho cả {{t:range|range}} của bạn; ở flop bạn có thể bảo vệ ít hơn một chút, còn với một tay bài cụ thể thì lời giải thích sẽ quyết định."
+    },
+    "riverValue": {
+      "calls": "Trước một {{t:bet|cược}}, đối thủ {{t:call|theo}} với: {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "Tiếp: {{ulica}}",

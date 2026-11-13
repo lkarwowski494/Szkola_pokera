@@ -1050,21 +1050,24 @@
       "villain": "adversário"
     },
     "pot": "{{t:pot|Pote}} {{pula}} bb · para {{t:call|pagar}} {{kwota}} bb",
-    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
+    "potOnly": "{{t:pot|Pote}} {{pula}} bb",
     "log": {
       "label": "Andamento da mão"
     },
     "yourMove": "Sua vez",
     "verdict": {
       "yours": "Sua escolha: {{akcja}}. Melhor: {{lepiej}}.",
-      "yoursGood": "Sua escolha: {{akcja}}."
+      "yoursGood": "Sua escolha: {{akcja}}.",
+      "yoursGoodAlso": "Sua escolha: {{akcja}}. Também é boa: {{inne}}."
     },
     "why": {
       "weaker": "Por que “{{akcja}}” é a jogada mais fraca",
       "better": "Por que “{{akcja}}” é a melhor jogada",
       "good": "Por que “{{akcja}}” é uma boa jogada",
+      "alsoGood": "Por que “{{akcja}}” também é uma boa jogada",
       "whyNot": "Por que não “{{akcja}}”"
     },
+    "or": "{{a}} ou {{b}}",
     "scale": {
       "label": "Avaliação das ações: {{lista}}.",
       "yourChoice": "sua escolha"
@@ -1078,7 +1081,15 @@
       "limp": "Um limp custa {{kwota}} bb, e o {{t:big-blind|big blind}} pode ver o flop sem pagar mais.",
       "icm": "Sua mão tem {{equity}} de {{t:equity|equity}} contra o {{t:range|range}} com que o adversário vai {{t:all-in|all-in}}, ou seja, ganha cerca de {{na10}} mãos em 10. Pelo {{t:icm|ICM}}, {{t:call|pagar}} compensa a partir de {{prog}}, enquanto num jogo em que só contam as {{t:chips|fichas}} bastariam {{progZetony}}: na {{t:bubble|bolha}}, perder tira de você mais da {{t:prize-pool|premiação}} do que ganhar acrescenta.",
       "overcardsFold": "Se você contar também as cartas que dão um {{t:pair|par}} mais alto do que qualquer carta da {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} não vistas), você acerta em {{trafiszRazem}} dos casos, ainda menos vezes do que o preço exige ({{potrzeba}}). Um {{t:pair|par}} assim também pode perder para uma mão melhor do adversário.",
-      "overcardsCall": "As cartas que dão um {{t:pair|par}} mais alto do que qualquer carta da {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} não vistas) ficam fora da conta: um {{t:pair|par}} assim pode perder para uma mão melhor, e os outs do seu draw bastam por si só."
+      "overcardsCall": "As cartas que dão um {{t:pair|par}} mais alto do que qualquer carta da {{t:board|mesa}} ({{nadkarty}} de {{nieznane}} não vistas) ficam fora da conta: um {{t:pair|par}} assim pode perder para uma mão melhor, e os outs do seu draw bastam por si só.",
+      "riverCatch": "O {{t:pot|pote}} é de {{pula}} bb e {{t:call|pagar}} custa {{kwota}} bb, então você precisa de {{potrzeba}} de equity, ou seja, ganhar cerca de uma vez em {{razPotrzeba}}. Você só ganha de {{t:bluff|blefes}}, e nesta mão os {{t:bluff|blefes}} são {{udzial}} das {{t:bet|apostas}} do adversário.",
+      "riverCatchMore": "Há mais {{t:bluff|blefes}} do que você precisa, então {{t:call|pagar}} dá lucro.",
+      "riverCatchLess": "Há menos {{t:bluff|blefes}} do que você precisa, então {{t:call|pagar}} dá prejuízo.",
+      "defend": "O {{t:pot|pote}} é de {{pula}} bb e {{t:call|pagar}} custa {{kwota}} bb, então você precisa de {{potrzeba}} de equity, ou seja, ganhar cerca de uma vez em {{razPotrzeba}}. Contra uma {{t:bet|aposta}} desse tamanho, a {{t:mdf}} é {{obrona}}: um ponto de referência para todo o seu {{t:range|range}}; no flop você pode defender um pouco menos, e para uma única mão a explicação decide."
+    },
+    "riverValue": {
+      "calls": "Contra uma {{t:bet|aposta}}, o adversário {{t:call|paga}} com: {{lista}}.",
+      "sep": ", "
     },
     "next": {
       "street": "Próximo: {{ulica}}",

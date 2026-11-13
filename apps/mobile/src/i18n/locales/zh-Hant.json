@@ -1014,21 +1014,24 @@
       "villain": "對手"
     },
     "pot": "{{t:pot|底池}} {{pula}} bb · {{t:call|跟注}}需 {{kwota}} bb",
-    "potOnly": "{{t:pot|Pot}} {{pula}} bb",
+    "potOnly": "{{t:pot|底池}} {{pula}} bb",
     "log": {
       "label": "牌局過程"
     },
     "yourMove": "輪到你",
     "verdict": {
       "yours": "你的選擇：{{akcja}}。更好的是：{{lepiej}}。",
-      "yoursGood": "你的選擇：{{akcja}}。"
+      "yoursGood": "你的選擇：{{akcja}}。",
+      "yoursGoodAlso": "你的選擇：{{akcja}}。同樣不錯的是：{{inne}}。"
     },
     "why": {
       "weaker": "為什麼「{{akcja}}」較弱",
       "better": "為什麼「{{akcja}}」較好",
       "good": "為什麼「{{akcja}}」是好的打法",
+      "alsoGood": "為什麼「{{akcja}}」也是好的打法",
       "whyNot": "為什麼不是「{{akcja}}」"
     },
+    "or": "{{a}}或{{b}}",
     "scale": {
       "label": "各行動的評價：{{lista}}。",
       "yourChoice": "你的選擇"
@@ -1042,7 +1045,15 @@
       "limp": "溜入要 {{kwota}} bb，而{{t:big-blind|大盲}}不用再補錢就能看翻牌。",
       "icm": "你的手牌對上對手{{t:all-in|全下}}的{{t:range|範圍}}有 {{equity}} 的{{t:equity|權益}}，也就是 10 手牌大約贏 {{na10}} 手。依{{t:icm}}，{{t:call|跟注}}要從 {{prog}} 起才划算；若是以{{t:chips|籌碼}}計的遊戲，{{progZetony}} 就夠了：在{{t:bubble|泡沫}}上，輸掉損失的{{t:prize-pool|獎金池}}份額比贏了增加的更多。",
       "overcardsFold": "如果再把能讓你湊成比{{t:board|牌面}}上任何一張都大的{{t:pair|對子}}的牌也算進去（未見的 {{nieznane}} 張中有 {{nadkarty}} 張），你會在 {{trafiszRazem}} 的情況中成牌，仍然低於價格所要求的 {{potrzeba}}。這樣的{{t:pair|對子}}也可能輸給對手更強的牌。",
-      "overcardsCall": "能讓你湊成比{{t:board|牌面}}上任何一張都大的{{t:pair|對子}}的牌（未見的 {{nieznane}} 張中有 {{nadkarty}} 張）不計入算式：這樣的{{t:pair|對子}}可能輸給更強的牌，而聽牌的補牌數本身就已足夠。"
+      "overcardsCall": "能讓你湊成比{{t:board|牌面}}上任何一張都大的{{t:pair|對子}}的牌（未見的 {{nieznane}} 張中有 {{nadkarty}} 張）不計入算式：這樣的{{t:pair|對子}}可能輸給更強的牌，而聽牌的補牌數本身就已足夠。",
+      "riverCatch": "{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。你只贏得過{{t:bluff|詐唬}}，而這手牌中{{t:bluff|詐唬}}佔對手{{t:bet|下注}}的 {{udzial}}。",
+      "riverCatchMore": "{{t:bluff|詐唬}}比你需要的多，所以{{t:call|跟注}}會賺錢。",
+      "riverCatchLess": "{{t:bluff|詐唬}}比你需要的少，所以{{t:call|跟注}}會虧錢。",
+      "defend": "{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。面對這個大小的{{t:bet|下注}}，{{t:mdf}}是 {{obrona}}：這是你整個{{t:range|範圍}}的參考點；在翻牌時可以稍微少防守一些，單一手牌則由解說決定。"
+    },
+    "riverValue": {
+      "calls": "面對{{t:bet|下注}}，對手會用這些牌{{t:call|跟注}}：{{lista}}。",
+      "sep": "、"
     },
     "next": {
       "street": "下一步：{{ulica}}",

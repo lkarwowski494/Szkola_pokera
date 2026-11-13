@@ -1,0 +1,22 @@
+pnpm run ci @ f05ef675 (po commicie f05ef67 z poprawkami), kod wyjścia 0, 2026-11-13
+Poprzednie przebiegi: 47b51824 kod 1 (fg-river-catch-ekran, fg-defend-ekran: NBSP w scenario.pot; przeklad-dz-09: fr bez NBSP przed „:”), naprawione w f05ef67
+---
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  37 passed (37)
+packages/poker-core test:       Tests  310 passed (310)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  76 passed (76)
+tools/content-build test:       Tests  748 passed | 1 expected fail (749)
+apps/mobile test: Test Suites: 137 passed, 137 total
+apps/mobile test: Tests:       1395 passed, 1395 total
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+EXIT=0
