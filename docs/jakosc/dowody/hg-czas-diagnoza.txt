@@ -1,0 +1,39 @@
+# HG zad. 2: diagnoza testu „kontrola generatora mieści się w budżecie czasu na szablon” (tools/content-build/test/build.test.ts:101), 2026-11-13, b7bc12e6, kontener Linux 4 rdzenie, Node 22.23.4
+
+Co mierzy: czas ścienny (performance.now) wywołania checkScenarioGenerator na szablon (tools/content-build/src/build.ts:439-441): 2000 ziaren × poziomy, każde ziarno generateVariant z pętlą odrzuceń do 60 000 prób (packages/poker-core/src/scenario-gen.ts:458, 1036). Budżet 45 000 ms (build.test.ts:81) = ok. 4,5× sc-01 9,8 s z CH (D-766), sprzed sc-13.
+
+## 1. Jeden proces, bezczynny kontener (npx tsx scratchpad/czasy.ts): id, ms
+[["sc-01",15272],["sc-02",8478],["sc-11",6879],["sc-13",34028],["sc-19",13532],["sc-22",8360],["sc-28",7482],["sc-34",7576], …] razem 116969 ms
+
+## 2. Liczniki (tymczasowa instrumentacja poker-core w kopii roboczej, cofnięta git checkout): id, ms, próby tryVariant, losowania rng, µs/próbę
+sc-01	14703	1035253	52849136	14.2
+sc-02	8781	593518	30301279	14.8
+sc-03	1155	60520	3097408	19.1
+sc-04	1602	9861	9001128	162.5
+sc-05	2210	11459	14702142	192.8
+sc-06	184	2000	102000	91.9
+sc-08	152	2000	102000	76.2
+sc-11	5318	10550	69783037	504.1
+sc-12	2042	10937	14222907	186.7
+sc-13	25720	7174531	365903081	3.6
+sc-19	13259	927735	47358537	14.3
+sc-22	7396	698511	35624061	10.6
+sc-25	2088	226232	11537832	9.2
+sc-28	6475	527299	26892249	12.3
+sc-29	2921	220942	11268042	13.2
+sc-32	168	2000	102000	84.2
+sc-33	153	2000	102000	76.5
+sc-34	7077	43434	2909998	162.9
+
+## 3. Obciążenie: 6 kompilacji równolegle na 4 rdzeniach (jak pnpm -r test w pnpm run ci): ściana vs CPU procesu (process.cpuUsage)
+obc6 sc-01 wall=24172 cpu=18201 | sc-13 wall=58725 cpu=37934 | sc-19 wall=20516 cpu=14043 | sc-34 wall=9989 cpu=6783
+obc1 sc-01 wall=24180 cpu=18817 | sc-13 wall=56643 cpu=37172 | sc-19 wall=21141 cpu=13980 | sc-34 wall=10045 cpu=7031
+obc4 sc-01 wall=24873 cpu=18515 | sc-13 wall=57294 cpu=38035 | sc-19 wall=20758 cpu=13902 | sc-34 wall=11170 cpu=7035
+obc5 sc-01 wall=25011 cpu=18393 | sc-13 wall=55957 cpu=37613 | sc-19 wall=21248 cpu=14094 | sc-34 wall=9200 cpu=7031
+obc2 sc-01 wall=27096 cpu=18090 | sc-13 wall=59986 cpu=37956 | sc-19 wall=19943 cpu=13708 | sc-34 wall=8521 cpu=7240
+obc3 sc-01 wall=25095 cpu=18308 | sc-13 wall=58110 cpu=38030 | sc-19 wall=21937 cpu=13946 | sc-34 wall=7786 cpu=6827
+
+## Wniosek
+- Test mierzy czas ścienny, więc zależy od szybkości maszyny i od obciążenia: sc-13 34 s sam / 56-60 s przy 6 procesach (budżet 45 s). Czas CPU też rośnie pod obciążeniem (26-34 s → 37-38 s; rywalizacja o pamięć podręczną), więc process.cpuUsage nie jest naprawą.
+- sc-13 kosztuje realnie: 7,17 mln prób (1 poziom × 2000 ziaren, ok. 3 590 prób na wariant, akceptacja ok. 0,028%), 366 mln losowań; to 3,5× pomiar odniesienia CH. Test nie jest błędny co do kierunku: budżet jest prawie wyczerpany przez prawdziwą treść.
+- Koszt na próbę różni się 140× między szablonami (sc-13 3,6 µs, sc-11 504 µs), więc licznik prób albo losowań nie przelicza się na czas jednym współczynnikiem: każda miara licznikowa wymaga nowego progu (decyzja).
