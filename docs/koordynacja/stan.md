@@ -971,3 +971,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 10:27 | koordynator 1/8 | PRZEJĘCIE od session_01T66VByiENqzzSU25cPeXBV @ b3f85f05; przypomnienia własne 3; GC powiadomiona | kontrola 10:55 (GC) |
 | 10:45 | koordynator | GC PRZEKAZANIE (D-1550 PRZYJĄĆ Z UWAGAMI) → scalenie 7740eeab na roboczej (CI 43411564566, E2E 43411564574) | CI/E2E |
 | 10:51 | koordynator | start HA i HB (polecenia @ 0dbe5ad7, prompt przez subagenta, sha256 plików 8c5fc30f/f79ebd54); GB, GC zarchiwizowane | kontrola 10:55 |
+| 10:56 | koordynator | CI 43411564566 success na 7740eeab; E2E 43411564574 w kolejce; HA raport po zad. 1 (D-1560: D-1495 poparte, 2dfd492 lokalnie), wyjątki HA (bazy generowane w apps/, LICZBY_ZAREZERWOWANE) dopuszczone; przypomnienia: tylko moje 14:00/05:00 + kontrola 11:55 (trig poprzednika usunięte); kontekst własny 17,8% | kontrola 11:55 |
