@@ -1,0 +1,10 @@
+# HC: koniec-do-końca — content:build z szablonem river-catch marginMin 0,005 (fixture tools/content-build/test/fixtures/river-catch/sc-fx-river.yaml, 0.03→0.005) w content/pl/scenarios worktree d1f4e99d; plik usunięty po przebiegu, git status worktree: 0
+$ pnpm content:build
+> @szkola/content-build@0.1.0 build wt/tools/content-build
+> tsx src/cli.ts build
+szablon sc-fx-river: bounds.latwy.marginMin punkt river-catch (decyzja 1), poziom latwy: marginMin 0.005 < 0.01 (procent ceny i udział blefów mogłyby wyjść równe przy zdaniu „więcej/mniej”)
+wt/tools/content-build:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/content-build@0.1.0 build: `tsx src/cli.ts build`
+Exit status 1
+ ELIFECYCLE  Command failed with exit code 1.
+kod 1

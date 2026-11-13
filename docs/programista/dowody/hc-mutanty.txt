@@ -1,0 +1,41 @@
+# HC: mutanty poprawek HB 401–403 (worktree d1f4e99d, 2026-11-13). Skrypt: dowody/hc-mutanty-skrypt.txt
+$ python3 mutanty.py <worktree>   (każdy mutant: pnpm --filter @szkola/mobile exec jest --ci <test>; po mutancie plik przywrócony, git status worktree pusty)
+== H401a (apps/mobile/src/features/scenariusz/EkranScenariusza.tsx) test src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx: kod 1 → ZABITY
+    ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór zgodny (AKs call): ogłasza yoursGoodAlso z drugą zgodną akcją, nie yoursGood
+    ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór niezgodny (AKs fold): ogłasza yours z wszystkimi zgodnymi połączonymi scenario.or
+    Tests:       2 failed, 11 passed, 13 total
+== H401b (apps/mobile/src/features/scenariusz/EkranScenariusza.tsx) test src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx: kod 1 → ZABITY
+    ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór zgodny (AKs call): ogłasza yoursGoodAlso z drugą zgodną akcją, nie yoursGood
+    ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór niezgodny (AKs fold): ogłasza yours z wszystkimi zgodnymi połączonymi scenario.or
+    Tests:       2 failed, 11 passed, 13 total
+== H401c (apps/mobile/src/features/scenariusz/EkranScenariusza.tsx) test src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx: kod 1 → ZABITY
+    ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór zgodny (AKs call): ogłasza yoursGoodAlso z drugą zgodną akcją, nie yoursGood
+    ● GB kryterium 3 (VoiceOver): ogłoszenie werdyktu ręki mieszanej › wybór niezgodny (AKs fold): ogłasza yours z wszystkimi zgodnymi połączonymi scenario.or
+    Tests:       2 failed, 11 passed, 13 total
+== H402a (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › marginMin 0,005 odrzucony
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › margins[0].min 0,005 odrzucony (margins zastępuje marginMin)
+    Tests:       2 failed, 3 passed, 5 total
+== H402b (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › margins[0].min 0,005 odrzucony (margins zastępuje marginMin)
+    Tests:       1 failed, 4 passed, 5 total
+== H402c (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › marginMin 0,01 i 0,03 przyjęte; margins[0].min 0,02 przyjęty
+    Tests:       1 failed, 4 passed, 5 total
+== H402d (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 0 → PRZEŻYŁ
+    Tests:       5 passed, 5 total
+== H402e (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 0 → PRZEŻYŁ
+    Tests:       5 passed, 5 total
+== H403a (apps/mobile/src/features/scenariusz/liczby.ts) test src/features/scenariusz/__tests__/hb-liczby-line-403.test.tsx: kod 1 → ZABITY
+    ● 403: linia draw-call z ułamkową kwotą i pulą (locale z przecinkiem) › kwota 2,5 bb i pula 12,5 bb (pot 10 + bet 2,5) pokazane z przecinkiem, nie z kropką
+    Tests:       1 failed, 1 total
+== H403b (apps/mobile/src/features/scenariusz/liczby.ts) test src/features/scenariusz/__tests__/hb-liczby-line-403.test.tsx: kod 1 → ZABITY
+    ● 403: linia draw-call z ułamkową kwotą i pulą (locale z przecinkiem) › kwota 2,5 bb i pula 12,5 bb (pot 10 + bet 2,5) pokazane z przecinkiem, nie z kropką
+    Tests:       1 failed, 1 total
+== H403c (apps/mobile/src/features/scenariusz/liczby.ts) test src/features/scenariusz/__tests__/hb-liczby-line-403.test.tsx: kod 1 → ZABITY
+    ● 403: linia draw-call z ułamkową kwotą i pulą (locale z przecinkiem) › kwota 2,5 bb i pula 12,5 bb (pot 10 + bet 2,5) pokazane z przecinkiem, nie z kropką
+    Tests:       1 failed, 1 total
+
+Podsumowanie: 401 3/3 zabite (H401a = G4 z gc-mutanty), 403 3/3 zabite, 402 3/5 zabite; H402d (indeks margins zawsze [0]) i H402e (tylko poziom latwy) PRZEŻYŁY → 08-programista-401 (HC).
+Czerwień z właściwego powodu: wszystkie zabite mutanty padają na asercjach (toContain ogłoszenia / safeParse.success / toContain '12,5 bb'), nie na imporcie ani typie.
+git status --porcelain worktree po przebiegu: 0 plików

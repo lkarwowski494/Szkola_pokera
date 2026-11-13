@@ -1,0 +1,41 @@
+# HC: D-043 — bazy treści przed (7740eeab) i po (d1f4e99d), pnpm content:build w osobnych worktree
+wt-przed: Zapisano 35 baz treści w wt-przed/apps/mobile/assets/content: 44 lekcji, 146 reguł, 832 liczb, 162 terminów.
+wt-przed: kod 0
+wt: Zapisano 35 baz treści w wt/apps/mobile/assets/content: 44 lekcji, 146 reguł, 832 liczb, 162 terminów.
+wt: kod 0
+tresc-1bd3a2e996-bg.db przed=51fd807a28cd7fe0 po=51fd807a28cd7fe0 identyczne
+tresc-1bd3a2e996-cs.db przed=7a728d4b12cffd6f po=7a728d4b12cffd6f identyczne
+tresc-1bd3a2e996-da.db przed=a12f579559933ed4 po=a12f579559933ed4 identyczne
+tresc-1bd3a2e996-de.db przed=80521f9620456842 po=80521f9620456842 identyczne
+tresc-1bd3a2e996-el.db przed=1e201019da09a5d5 po=1e201019da09a5d5 identyczne
+tresc-1bd3a2e996-en.db przed=93fab9e8b940d18c po=93fab9e8b940d18c identyczne
+tresc-1bd3a2e996-es-419.db przed=ec5c79ccc21dbe6b po=ec5c79ccc21dbe6b identyczne
+tresc-1bd3a2e996-es.db przed=12c1df470e7cfb85 po=12c1df470e7cfb85 identyczne
+tresc-1bd3a2e996-et.db przed=5e85d7532e1d4036 po=5e85d7532e1d4036 identyczne
+tresc-1bd3a2e996-fi.db przed=e6bad97ad96b3dc1 po=e6bad97ad96b3dc1 identyczne
+tresc-1bd3a2e996-fr.db przed=bc337d465eddd208 po=bc337d465eddd208 identyczne
+tresc-1bd3a2e996-hr.db przed=65763bfb38a71481 po=65763bfb38a71481 identyczne
+tresc-1bd3a2e996-hu.db przed=629a83a2d45f1759 po=629a83a2d45f1759 identyczne
+tresc-1bd3a2e996-id.db przed=2ac242e1c876aed9 po=2ac242e1c876aed9 identyczne
+tresc-1bd3a2e996-it.db przed=d7d1a7bda068013f po=d7d1a7bda068013f identyczne
+tresc-1bd3a2e996-ja.db przed=473727ddd3ae403a po=473727ddd3ae403a identyczne
+tresc-1bd3a2e996-ko.db przed=60a0b63247994470 po=60a0b63247994470 identyczne
+tresc-1bd3a2e996-lt.db przed=5a01dc6292372e65 po=5a01dc6292372e65 identyczne
+tresc-1bd3a2e996-lv.db przed=321a9c61858bfa3f po=321a9c61858bfa3f identyczne
+tresc-1bd3a2e996-ms.db przed=99318798acd12442 po=99318798acd12442 identyczne
+tresc-1bd3a2e996-nb.db przed=638281b58170f529 po=638281b58170f529 identyczne
+tresc-1bd3a2e996-nl.db przed=45f2451e1350e9d7 po=45f2451e1350e9d7 identyczne
+tresc-1bd3a2e996-pl.db przed=e71e85b31c7855be po=e71e85b31c7855be identyczne
+tresc-1bd3a2e996-pt-BR.db przed=05d6d97925fd84e6 po=05d6d97925fd84e6 identyczne
+tresc-1bd3a2e996-pt.db przed=d05e1ca409905aff po=d05e1ca409905aff identyczne
+tresc-1bd3a2e996-ro.db przed=87eb4f916fbeb08d po=87eb4f916fbeb08d identyczne
+tresc-1bd3a2e996-ru.db przed=7894ab90ab711864 po=7894ab90ab711864 identyczne
+tresc-1bd3a2e996-sk.db przed=14b1b8081b9eb676 po=14b1b8081b9eb676 identyczne
+tresc-1bd3a2e996-sl.db przed=acd54b76846da129 po=acd54b76846da129 identyczne
+tresc-1bd3a2e996-sr.db przed=bb528994ba7ccd48 po=bb528994ba7ccd48 identyczne
+tresc-1bd3a2e996-sv.db przed=32ae1db29b9c73de po=32ae1db29b9c73de identyczne
+tresc-1bd3a2e996-tr.db przed=88dfad3647cd5ab8 po=88dfad3647cd5ab8 identyczne
+tresc-1bd3a2e996-uk.db przed=44cf8e8daa73f1e8 po=44cf8e8daa73f1e8 identyczne
+tresc-1bd3a2e996-vi.db przed=c38e109e703226d1 po=c38e109e703226d1 identyczne
+tresc-1bd3a2e996-zh-Hant.db przed=f22ff93325c46d33 po=f22ff93325c46d33 identyczne
+Wynik: 35/35 baz identycznych bajtowo → żadne ID nie znika.
