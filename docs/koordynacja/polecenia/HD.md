@@ -1,0 +1,14 @@
+# Sesja HD: recenzja niezależna HA (treść SC-13/22/25/28/29 + build.ts) — Szkoła Pokera
+Koordynator: session_01T66VByKjXi3s5FFnXyD7C2 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego; aktualny ID zawsze w `origin/koordynacja:docs/koordynacja/stan.md`, wiersz „Koordynator aktywny”). Gałąź stanu: `koordynacja` (tylko do odczytu).
+
+1. Rola: 06-tresci w trybie audit (recenzja niezależna, E3 roli 06; raportu autora nie czytasz przed własnym przeglądem). Prompt roli jest w Twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `claude/sesja-hd-recenzja` od `claude/sesja-ha-tresci` @ 0d59a42ddc (pełny SHA: `git rev-parse origin/claude/sesja-ha-tresci`; inny HEAD: zgłoś). Zakres: diff `7740eeab..0d59a42` — `content/*/scenarios/sc-{13,22,25,28,29}*`, `tools/content-build/src/build.ts` (D-1566: opcja compileContent liczbyZarezerwowane — wyjątek poza zgodą koordynatora na same 3 wpisy LICZBY_ZAREZERWOWANE), testy `tools/content-build/test/{fv-d1461-cena-dwoch-trzecich,gb-303-zarezerwowane-uzyta}.test.ts`, `generator-odciski.json`, `docs/decyzje/HA.md`. Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md.
+3. Zadania:
+   1. Merytorycznie (ADR-24, standard przeczytanego źródła): każde twierdzenie 5 szablonów pl i en ma przeczytane źródło; liczby tylko `{{n:…}}`, wielkości policzalne formułą z `refs` (rachunek sprawdź niezależnie); jedna nazwa na pojęcie (terminologia); zgodność ze szkicami (D-1536) i warunkami D-1410 (`docs/decyzje/FK.md:6`).
+   2. D-1566 i zmiana w `build.ts`: czy nie osłabia bramki (mutanty, test najpierw czerwony z właściwego powodu); czy prostsza zgodna z poleceniem opcja istniała. Przegląd D-043: ID nie znikają w 35 bazach.
+   3. Przekłady 10 języków: tylko kontrola mechaniczna (liczby, klucze, `{{n:…}}`); ocena językowa należy do roli 09 — wypisz miejsca niepewne (second-pair, recreational, ułamki słownie ja/ko) jako zadania 09.
+   4. Werdykt PRZYJĄĆ / PRZYJĄĆ Z UWAGAMI / ODRZUCIĆ (KRYT/WYS blokują wg CLAUDE.md) w `docs/tresci/recenzje/recenzja-ha-0d59a42.md`; `pnpm run ci` kod 0 (`docs/tresci/dowody/hd-ci-<sha>.txt`).
+4. Zakazy: tylko `docs/tresci/**` i `docs/decyzje/HD.md`; treści i kodu nie zmieniasz (znaleziska jako zadania 06-tresci-NNN / 08-programista-NNN). Nie scalasz, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nigdy `--no-verify` ani force-push, bez AskUserQuestion. STOP-y roli → raport do koordynatora.
+5. Decyzje: merytoryczne według ADR-24 (rozstrzygasz sam); numery tylko D-1590…D-1599.
+6. Kontekst i koszt: od 30% okna PRZEKAZANIE. Orientacyjnie ok. 5 USD; powyżej 6,5 USD raport.
+7. Raport PRZEKAZANIE (≤ 10 linii, send_message): werdykt, znaleziska z wagą, SHA, dowody, decyzje do weta, koszt, zadania dla 06/08/09.
