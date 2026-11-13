@@ -324,7 +324,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| GB | session_01T66VBvatkqAfkGSQ3qq4x1 | 08 build (sonnet) | claude/sesja-gb-kod @ 40e66ab4 (start) | 0 | 0 | w toku od 09:12: 301–304, 07-jakosc-002, D-1465, FW-01, §3 (D-1535…D-1549) |
+| GB | session_01T66VBvatkqAfkGSQ3qq4x1 | 08 build (sonnet) | claude/sesja-gb-kod @ 0ac2679 | 32,9 | 11,25 | PRZEKAZANIE 10:02; czeka na recenzję GC; kontekst >30% → bez dalszej pracy, archiwizacja po werdykcie |
 | DT | session_01T66VBxpkFpHtapFsanwTT3 | 08 build (sonnet/medium) | claude/dt-e2e @ a076a05b | 23,7 | 3,00 | w toku: E2E 43080852450 success na 516882e3 (18:45→20:06, z kolejką macOS ok. 65 min); poprawka a076a05b (DerivedData zamiast ccache — ccache 0,0 GB; wagi podziału, D-1022 zm., D-1023) → E2E 43095186010 w kolejce od 20:18 (zimny cache), potem ciepły |
 | DU | session_01T66VBwRxXRPfEEZsufw8YB | 06 build (opus/high) | sesja-du-szablony @ b3963e9a | ? | ? | w toku od 18:28: szablony C (SC-04/05/06/08/13/32/33/34) + D (SC-07/09/10/14/15/17/20…) do content/ (DU.md, D-1030…D-1049) |
 | DV | session_01T66VBwT41RQwVjMb4TfADw | 06 build (opus/high) | sesja-dv-zrodla @ b3963e9a | ? | ? | w toku od 18:28: źródła kroku E (SC-16…28) + dane populacji M10 (DV.md, D-1050…D-1059), tylko docs |
