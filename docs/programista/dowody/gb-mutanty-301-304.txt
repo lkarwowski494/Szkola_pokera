@@ -69,3 +69,31 @@ AssertionError: expected 0.5 to be less than 0.1
       Tests  3 failed | 1 passed (4)
 ## 304 · kod właściwy (po poprawce)
       Tests  4 passed (4)
+
+# D-1465 (GB): testy „Liczby” river-catch i defend
+## Czerwień przed kodem: 6 z 6 testów logiki czerwone (zdaniaLiczb zwracało [] — „Expected length: 2, Received length: 0”) — wynik z uruchomienia przed zmianą liczby.ts
+## M-L1: odwrócony kierunek (więcej ↔ mniej)
+    ✕ SC-24-podobny wariant: pula 14 + zakład 11 → „25 bb”, „11 bb”, 31 %, raz na 3, udział 50 %, więcej blefów niż trzeba (rachunek ręczny: 11 ÷ 36 = 30,6 %) (21 ms)
+    ✕ udział blefów poniżej progu → „mniej”, niezależnie od wyboru gracza (rachunek dotyczy rozdania) (6 ms)
+    ✕ wariant z generatora (obie rozstrzygnięcia, ziarna 1–30): zdania zgodne z niezależnym rachunkiem, kierunek zdania = poprawna akcja (3 ms)
+    ✕ river-catch: po rozwinięciu cena, „Wygrywasz tylko z blefami” i zdanie kierunku (więcej) (80 ms)
+Tests:       4 failed, 4 passed, 8 total
+## M-L2: pula wyświetlana = pot zamiast pot + bet (river-catch)
+    ✕ SC-24-podobny wariant: pula 14 + zakład 11 → „25 bb”, „11 bb”, 31 %, raz na 3, udział 50 %, więcej blefów niż trzeba (rachunek ręczny: 11 ÷ 36 = 30,6 %) (19 ms)
+    ✕ udział blefów poniżej progu → „mniej”, niezależnie od wyboru gracza (rachunek dotyczy rozdania) (9 ms)
+    ✕ wariant z generatora (obie rozstrzygnięcia, ziarna 1–30): zdania zgodne z niezależnym rachunkiem, kierunek zdania = poprawna akcja (3 ms)
+    ✕ river-catch: po rozwinięciu cena, „Wygrywasz tylko z blefami” i zdanie kierunku (więcej) (74 ms)
+Tests:       4 failed, 4 passed, 8 total
+## M-L3: MDF z puli wyświetlanej (pot + bet) zamiast puli przed zakładem
+    ✕ pula przed c-betem 12, zakład 4 → „16 bb”, „4 bb”, 20 %, raz na 5, MDF 75 % (MDF z puli PRZED zakładem, nie z wyświetlanej puli 16) (52 ms)
+    ✕ pula 10, zakład 5 → 25 %, raz na 4, MDF 67 % (66,7 %) (40 ms)
+    ✕ wariant z generatora (ziarna 1–30): jedno zdanie zgodne z niezależnym rachunkiem (41 ms)
+Tests:       3 failed, 5 passed, 8 total
+## M-L4: defend: razPotrzeba z MDF zamiast z ceny
+    ✕ pula przed c-betem 12, zakład 4 → „16 bb”, „4 bb”, 20 %, raz na 5, MDF 75 % (MDF z puli PRZED zakładem, nie z wyświetlanej puli 16) (47 ms)
+    ✕ pula 10, zakład 5 → 25 %, raz na 4, MDF 67 % (66,7 %) (38 ms)
+    ✕ wariant z generatora (ziarna 1–30): jedno zdanie zgodne z niezależnym rachunkiem (41 ms)
+    ✕ defend: po rozwinięciu cena i MDF z zastrzeżeniem flopu (58 ms)
+Tests:       4 failed, 4 passed, 8 total
+## kod właściwy
+Tests:       8 passed, 8 total

@@ -88,8 +88,9 @@ describe('FG river-catch — logika widoku', () => {
     expect(dobrze.map((b) => `${b.rodzaj}:${b.akcja}`)).toEqual(['dobrze:call', 'dlaczego_nie:fold']);
     expect(dobrze[0]!.tekst).toContain('rywal blefuje dość często');
   });
-  it('„Liczby”: brak zdania zamiast zgadniętego (klucze i18n dla udziału blefów i progu to zadanie dla 06/09)', () => {
-    expect(zdaniaLiczb(sesja(4, [punkt(4).correct]), 0, punkt(4).correct, t)).toEqual([]);
+  // GB (D-1465): zmiana istniejącego testu — klucze KO-098 są w locale i zdania podpięte, więc „brak zdania” (stan FG) przestał być oczekiwanym zachowaniem; treść zdań: gb-liczby-d1465.test.tsx
+  it('„Liczby”: dwa zdania (cena i udział blefów; kierunek) — treść sprawdza gb-liczby-d1465', () => {
+    expect(zdaniaLiczb(sesja(4, [punkt(4).correct]), 0, punkt(4).correct, t)).toHaveLength(2);
   });
 });
 
