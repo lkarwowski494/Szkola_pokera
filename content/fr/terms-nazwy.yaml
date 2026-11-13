@@ -82,7 +82,7 @@ disconnected: "déconnecté"  # disconnected; bez formy 0; formy: déconnecté×
 semi-connected: "semi-connecté"  # semi-connected; bez formy 0; formy: semi-connecté×5, semi-connectés×1, Semi-connecté×1; źr. brak [DO USTALENIA]
 wetness: "humidité"  # wetness; bez formy 0; formy: humidité×5; źr. brak [DO USTALENIA]
 top-pair: "top paire"  # top pair; bez formy 3; formy: top paire×74, Top paire×3, top paires×3, paires les plus hautes×1, Top paires×1; źr. A:Top-paire [WIELE FORM]
-second-pair: "deuxième paire"  # second pair; bez formy 0; formy: deuxième paire×9; źr. A:Middle-pair („middle paire”); HF D-1612: pokerstrategy.com/fr/glossary/Middle-pair, odczyt 2026-11-13: „on parle de middle paire lorsqu'un joueur à une paire entre une des cartes de sa main de départ et la deuxième carte ou une des cartes du milieu” — pojęcie potwierdzone, nazwa „deuxième paire” (kalka) bez źródła [DO USTALENIA, lista do recenzji]
+second-pair: "deuxième paire"  # second pair; bez formy 0; formy: deuxième paire×9; źr. A:Middle-pair („middle paire”); HF D-1612: pokerstrategy.com/fr/glossary/Middle-pair, odczyt 2026-11-13: „on parle de middle paire lorsqu'un joueur à une paire entre une des cartes de sa main de départ et la deuxième carte ou une des cartes du milieu” — pojęcie potwierdzone, nazwa „deuxième paire” (kalka) bez źródła; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1642: nazwa potw. ggpoker.com/fr/poker-basics/poker-terms/ „La deuxième paire est une paire intermédiaire”
 overpair: "overpaire"  # overpair; bez formy 0; formy: overpaire×9, overpairs×1; źr. A:Overpair („overpair”)
 c-bet: "c-bet"  # c-bet; bez formy 0; formy: c-bet×2; źr. A:Continuation-bet („continuation bet”)
 aggressor: "agresseur"  # aggressor; bez formy 0; formy: agresseur×10; źr. A:Agresseur
@@ -106,6 +106,7 @@ probe-bet: "probe bet"  # probe bet; bez formy 0; formy: —; źr. A:Probe-Bet
 donk-bet: "donk bet"  # donk bet; bez formy 0; formy: —; źr. A:Donkbet („donkbet”)
 overbet: "overbet"  # overbet; bez formy 1; formy: overbet×2; źr. A:Overbet
 effective-stack: "stack effectif"  # effective stack; bez formy 0; formy: stack effectif×5, tapis effectif×1; źr. brak [DO USTALENIA]
+mdf: null  # minimum defense frequency; klucz dodany HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1645: null = skrót „MDF” (renderTermsBare, jak dotąd); źr. pokerqz.com/fr/tools/glossary/mdf „Le MDF (Minimum Defense Frequency) fait référence”
 alpha: "alpha"  # alpha; bez formy 4; formy: alpha×2; źr. brak [DO USTALENIA]
 variance: "variance"  # variance; bez formy 11; formy: variance×15; źr. A:Variance; D:PokerNews (combattre la variance)
 buy-in: "buy-in"  # buy-in; bez formy 2; formy: buy-ins×80, buy-in×1; źr. A:Buy-In
@@ -147,7 +148,7 @@ stack-off: "stack off"  # stack off; bez formy 0; formy: —; źr. brak [DO USTA
 exploit: "exploitation"  # exploit; bez formy 0; formy: exploitation×8, Exploitation×1; źr. A:Exploiter_2026 („Exploiter”)
 nit: "nit"  # nit; bez formy 12; formy: nit×6, nits×1, Nit×1; źr. A:Nit
 regular: "reg"  # regular; bez formy 0; formy: regs×4, régulier×2, Reg×2, Regs×2, réguliers×1, reg×1; źr. brak [WIELE FORM] [DO USTALENIA]
-recreational: "joueur récréatif"  # recreational player; bez formy 0; formy: joueur récréatif×10, joueurs récréatifs×8, Joueurs récréatifs×2, Joueur récréatif×1; źr. brak [DO USTALENIA]
+recreational: "joueur récréatif"  # recreational player; bez formy 0; formy: joueur récréatif×10, joueurs récréatifs×8, Joueurs récréatifs×2, Joueur récréatif×1; źr. brak; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1643: potw. fr.pokernews.com/strategie/strategie-poker-bluff-joueurs-recreatifs-23426.htm „ne jamais bluffer les fishs (ou joueurs récréatifs”
 calling-station: "calling station"  # calling station; bez formy 1; formy: calling station×1; źr. A:Calling-Station
 maniac: "maniaque"  # maniac; bez formy 0; formy: maniaque×17, Maniaque×1; źr. A:Maniaque
 rake: "rake"  # rake; bez formy 38; formy: rake×18; źr. A:Rake

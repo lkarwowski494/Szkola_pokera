@@ -108,7 +108,7 @@ donk-bet: "donk bet"  # donk bet; bez formy 0; formy: —; źr. C:Donkbet
 overbet: "overbet"  # overbet; bez formy 1; formy: sobreapuesta×2; źr. C:Overbet; tłumacz „sobreapuesta”×2 (ż) — „un {{t:overbet}}” wymaga m [WIELE FORM]
 effective-stack: "stack efectivo"  # effective stack; bez formy 0; formy: stack efectivo×6; źr. brak [DO USTALENIA]
 spr: "SPR"  # stack-to-pot ratio; bez formy 150; formy: SPR×39; źr. C:SPR-Stack-to-Pot-Ratio_1728
-mdf: "MDF"  # minimum defense frequency; bez formy 52; formy: MDF×22; źr. brak [DO USTALENIA]
+mdf: "MDF"  # minimum defense frequency; bez formy 52; formy: MDF×22; źr. brak; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1645: potw. pokerqz.com/es/tools/glossary/mdf „MDF (Minimum Defense Frequency, o Frecuencia Mínima de Defensa)”
 alpha: "alpha"  # alpha; bez formy 2; formy: alfa×2, alpha×2; źr. brak; tłumacz alfa×2, alpha×2 [DO USTALENIA]
 variance: "varianza"  # variance; bez formy 0; formy: varianza×26; źr. C:Varianza; C:Downswing
 buy-in: "buy-in"  # buy-in; bez formy 2; formy: buy-ins×80, buy-in×1; źr. C:Buy-in
@@ -157,7 +157,7 @@ nit: "nit"  # nit; bez formy 14; formy: nit×3, Nit×2, nits×1; źr. C:Nit
 regular: "regular"  # regular; bez formy 0; formy: regulares×5, reg×2, Regulares×2, Regular×1, regular×1, Reg×1; źr. E:PN-art (regulares)
 tag: "TAG"  # tight aggressive; bez formy 1; formy: —; źr. C:TAG
 lag: "LAG"  # loose aggressive; bez formy 1; formy: —; źr. C:LAG
-recreational: "jugador recreativo"  # recreational player; bez formy 0; formy: jugadores recreativos×8, jugador recreativo×7, jugador recreacional×3, Jugadores recreativos×2, Jugador recreativo×1; źr. brak; [E] „jugador recreacional”/„recreacionales”; tłumacz recreativo×18, recreacional×10 [WIELE FORM] [DO USTALENIA]
+recreational: "jugador recreativo"  # recreational player; bez formy 0; formy: jugadores recreativos×8, jugador recreativo×7, jugador recreacional×3, Jugadores recreativos×2, Jugador recreativo×1; źr. brak; [E] „jugador recreacional”/„recreacionales”; tłumacz recreativo×18, recreacional×10 [WIELE FORM]; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1643: potw. deucescracked.com/co/poker „buscan mesas con jugadores recreativos”; recreacional w treści 0×
 calling-station: "calling station"  # calling station; bez formy 1; formy: calling station×1; źr. C:Calling-station
 maniac: "maníaco"  # maniac; bez formy 0; formy: maníaco×17, Maníaco×1; źr. C:Maniaco; E:PN-art
 rake: "rake"  # rake; bez formy 39; formy: rake×17; źr. C:Rake

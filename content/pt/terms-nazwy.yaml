@@ -106,6 +106,7 @@ probe-bet: "probe bet"  # bez formy 0; formy: —
 donk-bet: "donk bet"  # bez formy 0; formy: —
 overbet: "overbet"  # bez formy 1; formy: overbet×2
 effective-stack: "stack efetivo"  # bez formy 1; formy: stack efetivo×5
+mdf: null  # minimum defense frequency; klucz dodany HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1645: null = skrót „MDF” (renderTermsBare, jak dotąd); źr. pokerqz.com/pt/tools/glossary/mdf „MDF (Minimum Defense Frequency) refere-se à porcentagem mínima”
 alpha: "alpha"  # bez formy 4; formy: alpha×2
 variance: "variância"  # bez formy 3; formy: variância×23
 buy-in: "buy-in"  # bez formy 0; formy: buy-ins×80 · buy-in×3
@@ -147,7 +148,7 @@ stack-off: "stack off"  # bez formy 0; formy: —
 exploit: "exploração"  # bez formy 0; formy: exploração×7
 nit: "nit"  # bez formy 14; formy: nit×3 · Nit×2
 regular: "regular"  # bez formy 0; formy: regulares×5 · regular×2 · Regulares×2 · Regular×1
-recreational: "jogador recreativo"  # bez formy 0; formy: jogador recreativo×10 · jogadores recreativos×8 · Jogadores recreativos×2
+recreational: "jogador recreativo"  # bez formy 0; formy: jogador recreativo×10 · jogadores recreativos×8 · Jogadores recreativos×2; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1643: potw. pt.pokernews.com/888poker-pt/ „pensada tanto para jogadores recreativos como regulares”
 calling-station: "calling station"  # bez formy 1; formy: calling station×1
 maniac: "maníaco"  # bez formy 0; formy: maníaco×16
 rake: "rake"  # bez formy 37; formy: rake×19
