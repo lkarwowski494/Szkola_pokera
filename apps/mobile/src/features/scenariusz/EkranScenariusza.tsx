@@ -19,7 +19,7 @@ import type { SesjaScenariusza } from './aktywnoscScenariusza';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
 import type { WyborPoziomu } from './poziom';
-import { akcjePunktu, bloki, kwotaAkcji, ocenyAkcji, opisAkcji, poprawnaAkcja, przebiegWariantu, ukladIcm, widokDecyzji, zakresSprawdzenia, type Akcja, type UkladIcm } from './wariant';
+import { akcjePunktu, bloki, inneZgodne, kwotaAkcji, ocenyAkcji, opisAkcji, przebiegWariantu, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
@@ -168,6 +168,21 @@ function reakcjaGracza(a: Akcja, pos: string, bb: number | null, fraza: string, 
   return `${pos}: ${fraza}`;
 }
 
+/** FW §3 (D-1502): akcje połączone `scenario.or` lewostronnie („a albo b albo c”); przy jednej bez zmian. */
+const lacz = (frazy: readonly string[], t: TFn): string => frazy.reduce((acc, x) => t('scenario.or', { a: acc, b: x }));
+
+/**
+ * Zdanie werdyktu (ekran i ogłoszenie czytnika): wybór zgodny przy ręce mieszanej → „Też dobrze: …”; niezgodny → „Lepiej: …” ze wszystkimi akcjami zgodnymi;
+ * poza ręką mieszaną (jedna akcja zgodna) teksty bez zmian (`yoursGood`, `yours`).
+ */
+function zdanieWerdyktu(ocena: OcenaOdpowiedzi, d: VariantDecision, spec: ScenarioTemplate['decisions'][number] | undefined, wybor: Akcja, fraza: (a: Akcja) => string, t: TFn): string {
+  if (ocena === 'zgodne') {
+    const inne = inneZgodne(d, wybor, spec);
+    return inne.length > 0 ? t('scenario.verdict.yoursGoodAlso', { akcja: fraza(wybor), inne: lacz(inne.map(fraza), t) }) : t('scenario.verdict.yoursGood', { akcja: fraza(wybor) });
+  }
+  return t('scenario.verdict.yours', { akcja: fraza(wybor), lepiej: lacz(zgodneAkcje(d, spec).map(fraza), t) });
+}
+
 /** Wiersze dziennika do decyzji `do` (włącznie): akcja rywala, karta nowej ulicy, twoja odpowiedź i jej ocena. */
 function wpisyDziennika(s: SesjaScenariusza, doIndeksu: number, t: TFn, oceny: readonly OcenaOdpowiedzi[]): WpisDziennika[] {
   const wpisy: WpisDziennika[] = [];
@@ -216,7 +231,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   // VoiceOver: po decyzji ocena z werdyktem, przed decyzją nowy wpis rywala (ulica i jego zakład, A04-11/D-283)
   const ruch = d ? ruchRywala(s, d, Math.max(0, indeks), t) : null;
   const opisRywala = d && ulicaDecyzji ? [t(`scenario.street.${ulicaDecyzji}`), ruch].filter((x) => x).join('. ') : null;
-  useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '' }) : t('scenario.verdict.yours', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '', lepiej: d ? opisAkcjiEkranu(poprawnaAkcja(d)).fraza : '' }) }) : ocenaMode ? null : opisRywala);
+  useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: d ? zdanieWerdyktu(ocenaWyboru, d, s.szablon.decisions[indeks], wybor, (a) => opisAkcjiEkranu(a).fraza, t) : '' }) : ocenaMode ? null : opisRywala);
   if (!d || !widok) return <Screen>{null}</Screen>;
   const akcje = akcjePunktu(d, s.szablon.decisions[indeks]);
   const teksty: Partial<Record<Akcja, TekstAkcji>> = Object.fromEntries(akcje.map((a) => [a, opisAkcjiEkranu(a)]));
@@ -225,7 +240,6 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, powtorzona(a) ? teksty[a]?.przycisk ?? '' : teksty[a]?.nazwa ?? '']));
   const etykiety: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.flatMap((a) => { const x = teksty[a]; const e = x?.czytnik ?? (powtorzona(a) ? `${x?.nazwa}, ${x?.kwota}` : undefined); return e ? [[a, e]] : []; }));
   const fraza = (a: Akcja): string => teksty[a]?.fraza ?? '';
-  const najlepsza: Akcja = poprawnaAkcja(d);
   const idxUlicy = ULICE.indexOf(widok.ulica);
   const icm = d.point === 'icm-call' ? ukladIcm(d, s.szablon) : null; // D-889: stół 3–4 miejsc, stosy i nagrody z wariantu
   const doDziennika = wpisyDziennika(s, indeks, t, ocenaMode ? oceny : oceny.slice(0, indeks));
@@ -276,7 +290,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         <View style={{ gap: odstep.l }}>
           <Werdykt
             ocena={ocenaWyboru}
-            zdanie={ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: fraza(wybor) }) : t('scenario.verdict.yours', { akcja: fraza(wybor), lepiej: fraza(najlepsza) })}
+            zdanie={zdanieWerdyktu(ocenaWyboru, d, s.szablon.decisions[indeks], wybor, fraza, t)}
           />
           {bloki(s.wariant, s.szablon, indeks, wybor, t).map((b) => (
             <BlokDlaczego key={`${b.rodzaj}-${b.akcja}`} blok={b} nazwa={fraza(b.akcja)} t={t} />
@@ -355,12 +369,11 @@ export function KoniecScenariusza(p: PropsKonca): React.JSX.Element {
           const wyb = s.wybory[i];
           if (!d || !wyb) return null;
           const lepiej = k.ocena !== 'zgodne' && k.ocena !== 'dopuszczalne';
-          const poprawna = poprawnaAkcja(d);
           return (
             <View key={i} style={{ flexDirection: 'row', justifyContent: 'space-between', gap: odstep.m }}>
               <View style={{ flex: 1 }}>
                 <Text style={[styl.tresc, { color: tk.ink }]}>{`${t(`scenario.street.${d.street}`)}: ${tekstAkcji(s.wariant, i, wyb, s.szablon, t).fraza}`}</Text>
-                {lepiej ? <Text style={[styl.przypis, { color: tk.muted }]}>{t('scenario.end.better', { akcja: tekstAkcji(s.wariant, i, poprawna, s.szablon, t).fraza })}</Text> : null}
+                {lepiej ? <Text style={[styl.przypis, { color: tk.muted }]}>{t('scenario.end.better', { akcja: lacz(zgodneAkcje(d, s.szablon.decisions[i]).map((a) => tekstAkcji(s.wariant, i, a, s.szablon, t).fraza), t) })}</Text> : null}
               </View>
               <Text style={[styl.naglowek, { color: tk.ink }]}>{`${t(`grade.${k.ocena}`)}`}</Text>
             </View>

@@ -358,7 +358,7 @@ export function warunkiWariantu(v: ScenarioVariant, indeks: number): VariantCond
   return { nadkarty: nadkartyPunktu(v, indeks) > 0 };
 }
 
-export type RodzajBloku = 'slabsza' | 'lepsza' | 'dobrze' | 'dlaczego_nie';
+export type RodzajBloku = 'slabsza' | 'lepsza' | 'dobrze' | 'tez_dobrze' | 'dlaczego_nie';
 export interface Blok { rodzaj: RodzajBloku; akcja: Akcja; tekst: string }
 
 /**
@@ -382,10 +382,31 @@ export function bloki(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, w
     return fillVariantMarkers(wyjasnienie, reka ? { ...wartosci, reka: karty(reka.map(cardToString)) } : wartosci, warunki);
   };
   // „dobrze” wynika z oceny wyboru, nie z równości z jedną „poprawną” akcją: w ręce mieszanej (range-spot, ADR-04) kilka akcji jest zgodnych (DC WYS-001)
-  const poprawna = poprawnaAkcja(d);
-  return ocenaAkcji(d, wybor) === 'zgodne'
-    ? [{ rodzaj: 'dobrze', akcja: wybor, tekst: tekst(wybor) }, ...akcjePunktu(d, spec).filter((a) => a !== wybor).map((a): Blok => ({ rodzaj: 'dlaczego_nie', akcja: a, tekst: tekst(a) }))]
-    : [{ rodzaj: 'slabsza', akcja: wybor, tekst: tekst(wybor) }, { rodzaj: 'lepsza', akcja: poprawna, tekst: tekst(poprawna) }];
+  if (ocenaAkcji(d, wybor) === 'zgodne') {
+    // FW §3 (D-1502, GB): druga zgodna akcja ręki mieszanej to widoczny blok „też dobre”, „Dlaczego nie” tylko dla akcji niezgodnych
+    const inne = inneZgodne(d, wybor, spec);
+    return [
+      { rodzaj: 'dobrze', akcja: wybor, tekst: tekst(wybor) },
+      ...inne.map((a): Blok => ({ rodzaj: 'tez_dobrze', akcja: a, tekst: tekst(a) })),
+      ...akcjePunktu(d, spec).filter((a) => a !== wybor && !inne.includes(a)).map((a): Blok => ({ rodzaj: 'dlaczego_nie', akcja: a, tekst: tekst(a) })),
+    ];
+  }
+  return [{ rodzaj: 'slabsza', akcja: wybor, tekst: tekst(wybor) }, ...zgodneAkcje(d, spec).map((a): Blok => ({ rodzaj: 'lepsza', akcja: a, tekst: tekst(a) }))];
+}
+
+/**
+ * FW §3 (D-1502, GB): akcje poprawne punktu w kolejności akcji na ekranie (`akcjePunktu`), do „Lepiej” i bloków „lepsza”. Ręka mieszana (ADR-04) jest tylko w list-hand
+ * (`alsoCorrect`): tam wszystkie akcje ocenione „zgodne”; w pozostałych punktach jedna, `poprawnaAkcja` (range-spot bez zmian: druga akcja jest „dopuszczalna”).
+ */
+export function zgodneAkcje(d: VariantDecision, spec?: SpecPunktu): readonly Akcja[] {
+  if (d.point !== 'list-hand') return [poprawnaAkcja(d)];
+  const zgodne = akcjePunktu(d, spec).filter((a) => ocenaAkcji(d, a) === 'zgodne');
+  return zgodne.length > 0 ? zgodne : [poprawnaAkcja(d)];
+}
+
+/** Pozostałe akcje zgodne poza wyborem gracza („Też dobrze”); puste poza ręką mieszaną. */
+export function inneZgodne(d: VariantDecision, wybor: Akcja, spec?: SpecPunktu): readonly Akcja[] {
+  return d.point === 'list-hand' ? akcjePunktu(d, spec).filter((a) => a !== wybor && ocenaAkcji(d, a) === 'zgodne') : [];
 }
 
 /**

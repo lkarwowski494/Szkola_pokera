@@ -195,7 +195,7 @@ export function TurniejIcm({ uklad, pozycjaTy, pozycjaRywal, formatBb, formatPro
   );
 }
 
-const TYTUL_BLOKU: Record<RodzajBloku, string> = { slabsza: 'scenario.why.weaker', lepsza: 'scenario.why.better', dobrze: 'scenario.why.good', dlaczego_nie: 'scenario.why.whyNot' };
+const TYTUL_BLOKU: Record<RodzajBloku, string> = { slabsza: 'scenario.why.weaker', lepsza: 'scenario.why.better', dobrze: 'scenario.why.good', tez_dobrze: 'scenario.why.alsoGood', dlaczego_nie: 'scenario.why.whyNot' };
 
 /** Blok „dlaczego” (BR-OCE-002): zdanie sytuacji na pierwszym planie (tekst z wariantu), potem „grasz …, bo …”. */
 export function BlokDlaczego({ blok, nazwa, t }: { blok: Blok; nazwa: string; t: TFn }): React.JSX.Element {
