@@ -1,0 +1,23 @@
+# GC: D-1536 — wyjście generatora przed (40e66ab4) i po (0ac2679) zmianie marginPunktu w river-value
+# Skrypt: scratchpad gen-porownanie.mts (generateVariant + ScenarioTemplate.parse; szablon → generator jak naGenerator, wariant.ts:139-143)
+# Content: grep -rln 'kind: river-value' content/ → 0 plików; grep -rln 'margins:' content/ → 0 (zmieniona linia jest tylko w gałęzi river-value)
+$ tsx gen-porownanie.mts <scenario-gen.ts przed 40e66ab4 | po 0ac2679> <szkice river-value FQ pl + fixture gb-301 + syntetyczny (margins[0].max=null, marginMax 0.2)>; ziarna 1–150 na poziom; skrót sha256 wszystkich wariantów
+== PRZED (40e66ab4)
+fq/pl/sc-22.yaml latwy ok=150 err=0 583708f5999b4a8e
+fq/pl/sc-25.yaml latwy ok=150 err=0 a8b7f75bbf1ea837
+fq/pl/sc-28.yaml latwy ok=150 err=0 d9ac1468d6b27621
+fq/pl/sc-29.yaml latwy ok=150 err=0 a44e0613d8f3c6f5
+pl/scenarios/sc-22.yaml latwy ok=150 err=0 583708f5999b4a8e
+pl/scenarios/sc-22.yaml sredni ok=150 err=0 743fcd2c73ac10d4
+syntetyczny-margins-null.yaml latwy ok=150 err=0 ef113e9876eb52b2
+kod 0
+== PO (0ac2679)
+fq/pl/sc-22.yaml latwy ok=150 err=0 583708f5999b4a8e
+fq/pl/sc-25.yaml latwy ok=150 err=0 a8b7f75bbf1ea837
+fq/pl/sc-28.yaml latwy ok=150 err=0 d9ac1468d6b27621
+fq/pl/sc-29.yaml latwy ok=150 err=0 a44e0613d8f3c6f5
+pl/scenarios/sc-22.yaml latwy ok=150 err=0 583708f5999b4a8e
+pl/scenarios/sc-22.yaml sredni ok=150 err=0 743fcd2c73ac10d4
+syntetyczny-margins-null.yaml latwy ok=150 err=0 583708f5999b4a8e
+kod 0
+# Wniosek: 6/6 poziomów prawdziwych szkiców i fixture identyczne bajtowo (skrót sha256 150 wariantów); różni się tylko syntetyczny przypadek margins[0].max=null + marginMax (zamierzona zmiana D-1536: po = jak bez marginMax, skrót 583708f5… = sc-22 bez granicy).

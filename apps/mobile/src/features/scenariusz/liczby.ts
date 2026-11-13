@@ -1,5 +1,5 @@
 import { formatujLiczbe, formatujProcent, type Jezyk } from '@szkola/jezyki';
-import { deadBlindsBb, hitProbability, type SizeSpotVariantDecision } from '@szkola/poker-core';
+import { deadBlindsBb, hitProbability, mdf, requiredEquity, type DefendVariantDecision, type RiverCatchVariantDecision, type SizeSpotVariantDecision } from '@szkola/poker-core';
 import { jezykZadan } from '@/features/drills/text';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
 import { kwotaAkcji, nadkartyPunktu, widokDecyzji, type Akcja } from './wariant';
@@ -27,13 +27,35 @@ export function zdaniaLiczb(s: SesjaScenariusza, i: number, wybor: Akcja, t: TFn
     case 'flop-size': return []; // FL (08-FD-3): jak turn-bet, ceny drawa (requiredSmall/Big, hit) wymagają nowych kluczy i18n (zadanie dla 06/09)
     case 'river-value': return []; // FL (08-FD-4): bez widoku (brak akcji „bet”); liczby W, L, w wymagają kluczy i18n po projekcie 04
     case 'turn-bet': return []; // FG: ceny drawa przy obu zakładach (requiredSmall/Big, hit) wymagają nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
-    case 'river-catch': return []; // FG: udział blefów i próg bet ÷ (pula + 2·bet) wymagają nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
-    case 'defend': return []; // FG: próg obrony wobec zakładu (MDF, R-M6-006/007) wymaga nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
+    case 'river-catch': return zdaniaRiverCatch(d, t, j); // D-1465 (GB; klucze KO-098): cena sprawdzenia, udział blefów i kierunek; niezależnie od wyboru (rachunek dotyczy rozdania)
+    case 'defend': return zdanieDefend(d, t, j); // D-1465/D-1474 (GB): cena sprawdzenia i MDF z puli przed zakładem, jako punkt odniesienia zakresu
     case 'list-hand': return []; // brak liczb: ocena z listy klas (08-N4); widoku jeszcze nie ma
   }
 }
 
 const raz = (p: number): number => Math.max(1, Math.round(1 / p)); // „raz na N”, jak dotąd w linii draw-call
+
+/**
+ * river-catch (docs/tresci/liczby-river-catch-defend.md §1, R-M8-010): pula na ekranie = pot + bet, potrzebne equity = bet ÷ (pot + 2·bet) (`requiredEquity`, = `required` wariantu),
+ * udział blefów to dana zadania (nie twierdzenie). Zdanie sensu: blefów więcej niż potrzeba → sprawdzenie zarabia; generator gwarantuje odstęp ≥ marginMin, więc równości nie ma.
+ */
+function zdaniaRiverCatch(d: RiverCatchVariantDecision, t: TFn, j: Jezyk): string[] {
+  const potrzeba = requiredEquity(d.pot, d.bet);
+  return [
+    t('scenario.numbers.riverCatch', {
+      pula: formatujLiczbe(d.pot + d.bet, j), kwota: formatujLiczbe(d.bet, j), potrzeba: formatujProcent(potrzeba, j), razPotrzeba: raz(potrzeba), udzial: formatujProcent(d.bluffShare, j),
+    }),
+    t(d.bluffShare > potrzeba ? 'scenario.numbers.riverCatchMore' : 'scenario.numbers.riverCatchLess'),
+  ];
+}
+
+/** defend (§2, R-M6-001/006): `obrona` = MDF z puli PRZED zakładem rywala (`mdf(pot, bet)`), nie z wyświetlanej puli; zastrzeżenie flopu w treści klucza (D-1474). */
+function zdanieDefend(d: DefendVariantDecision, t: TFn, j: Jezyk): string[] {
+  const potrzeba = requiredEquity(d.pot, d.bet);
+  return [t('scenario.numbers.defend', {
+    pula: formatujLiczbe(d.pot + d.bet, j), kwota: formatujLiczbe(d.bet, j), potrzeba: formatujProcent(potrzeba, j), razPotrzeba: raz(potrzeba), obrona: formatujProcent(mdf(d.pot, d.bet), j),
+  })];
+}
 
 function zdaniaDrawCall(s: SesjaScenariusza, i: number, t: TFn, j: Jezyk): string[] {
   const d = s.wariant.points[i];

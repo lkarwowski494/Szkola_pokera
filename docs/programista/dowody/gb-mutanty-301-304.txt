@@ -1,0 +1,109 @@
+# GB: dowody mutantów dla 08-programista-301…304 (każdy test najpierw czerwony na mutancie, potem zielony). Data 2026-11-13.
+
+## 301 · mutant M-301a: poziomy tylko 'latwy' (Object.keys(y.bounds) → ['latwy'])
+     × szablon river-value w content/ z poziomem sredni (expected check) i zdaniem „gorszych jest więcej niż lepszych”: wykryty na poziomie sredni 610ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/fv-fs-trwale-kontrole.test.ts > 08-programista-301 (GB): kontrola obejmuje wszystkie poziomy i wszystkie szablony river-value, także z content/ > szablon river-value w content/ z poziomem sredni (expected check) i zdaniem „gorszych jest więcej niż lepszych”: wykryty na poziomie sredni
+AssertionError: expected '' to match /06-tresci-001 sc-22 \[poziom sredni\]…/
+      Tests  1 failed | 8 passed (9)
+## 301 · mutant M-301b: odkrywanie bez content/ (katalogiTresci pomija content)
+     × szablon river-value w content/ z poziomem sredni (expected check) i zdaniem „gorszych jest więcej niż lepszych”: wykryty na poziomie sredni 7ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/fv-fs-trwale-kontrole.test.ts > 08-programista-301 (GB): kontrola obejmuje wszystkie poziomy i wszystkie szablony river-value, także z content/ > szablon river-value w content/ z poziomem sredni (expected check) i zdaniem „gorszych jest więcej niż lepszych”: wykryty na poziomie sredni
+AssertionError: expected [] to deeply equal [ [ 'sc-22' ] ]
+    143|   it('szablon river-value w content/ z poziomem sredni (expected check…
+      Tests  1 failed | 8 passed (9)
+## 301 · kod właściwy (zielony)
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+
+## 302 · M9: call bez formatujLiczbe
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ call z ułamkiem (SB, stos 100): „99,5 bb” przez formatujLiczbe (M9: bez formatowania daje „99.5”) (82 ms)
+    ✓ all-in (SB, stos 12,5): „12,5 bb” przez formatujLiczbe (M10: bez formatowania daje „12.5”) (14 ms)
+    ✓ call bez stackBb w szablonie: kwota zostaje brakiem (fraza akcji), nie „0 bb” (M11: powrót do bb ?? 0) (12 ms)
+    Received string:    "Zakończ Scenariusz Preflop Etapy rozdania Preflop Flop Turn River Ty: SB, karty as pik, król pik. Rywal: BB. Odkryte karty: . BB · rywal · 100 bb as pik A ♠ król pik K ♠ SB · ty · 100 bb Przebieg rozdania Preflop SB: sprawdza (call) 99.5 bb ✓ Zgodna Ocena: Zgodna ✓ Zgodna Twój wybór: sprawdzenie (call) 99,5 bb. Dlaczego „sprawdzenie (call) 99,5 bb” to dobre zagranie Masz as pik A ♠ król pik K ♠ na mały blind (small blind, SB), preflop. Wyjaśnienie call. Dlaczego nie „pas (fold)” ⌄ Dlaczego nie „all-in 100 bb” ⌄ Oceny akcji: Pas (fold) zgodna, Sprawdzenie (call) zgodna, twój wybór, All-in zgodna. Pas (fold) ✓ Zgodna Sprawdzenie (call) ✓ Zgodna twój wybór All-in ✓ Zgodna Zobacz podsumowanie"
+Tests:       1 failed, 2 passed, 3 total
+## 302 · M10: all-in bez formatujLiczbe
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✓ call z ułamkiem (SB, stos 100): „99,5 bb” przez formatujLiczbe (M9: bez formatowania daje „99.5”) (81 ms)
+    ✕ all-in (SB, stos 12,5): „12,5 bb” przez formatujLiczbe (M10: bez formatowania daje „12.5”) (14 ms)
+    ✓ call bez stackBb w szablonie: kwota zostaje brakiem (fraza akcji), nie „0 bb” (M11: powrót do bb ?? 0) (12 ms)
+    Received string:    "Zakończ Scenariusz Preflop Etapy rozdania Preflop Flop Turn River Ty: SB, karty as pik, król pik. Rywal: BB. Odkryte karty: . BB · rywal · 12.5 bb as pik A ♠ król pik K ♠ SB · ty · 12.5 bb Przebieg rozdania Preflop SB: all-in 12.5 bb ✓ Zgodna Ocena: Zgodna ✓ Zgodna Twój wybór: all-in 12,5 bb. Dlaczego „all-in 12,5 bb” to dobre zagranie Masz as pik A ♠ król pik K ♠ na mały blind (small blind, SB), preflop. Wyjaśnienie all-in. Dlaczego nie „pas (fold)” ⌄ Dlaczego nie „sprawdzenie (call) 12 bb” ⌄ Oceny akcji: Pas (fold) zgodna, Sprawdzenie (call) zgodna, All-in zgodna, twój wybór. Pas (fold) ✓ Zgodna Sprawdzenie (call) ✓ Zgodna All-in ✓ Zgodna twój wybór Zobacz podsumowanie"
+Tests:       1 failed, 2 passed, 3 total
+## 302 · M11: call z powrotem bb ?? 0 (brak kwoty daje 0 bb)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✓ call z ułamkiem (SB, stos 100): „99,5 bb” przez formatujLiczbe (M9: bez formatowania daje „99.5”) (78 ms)
+    ✓ all-in (SB, stos 12,5): „12,5 bb” przez formatujLiczbe (M10: bez formatowania daje „12.5”) (14 ms)
+    ✕ call bez stackBb w szablonie: kwota zostaje brakiem (fraza akcji), nie „0 bb” (M11: powrót do bb ?? 0) (17 ms)
+    Received string:        "Zakończ Scenariusz Preflop Etapy rozdania Preflop Flop Turn River Ty: SB, karty as pik, król pik. Rywal: BB. Odkryte karty: . BB · rywal · bb as pik A ♠ król pik K ♠ SB · ty · bb Przebieg rozdania Preflop SB: sprawdza (call) 0 bb ✓ Zgodna Ocena: Zgodna ✓ Zgodna Twój wybór: sprawdzenie (call). Dlaczego „sprawdzenie (call)” to dobre zagranie Masz as pik A ♠ król pik K ♠ na mały blind (small blind, SB), preflop. Wyjaśnienie call. Dlaczego nie „pas (fold)” ⌄ Dlaczego nie „all-in” ⌄ Oceny akcji: Pas (fold) zgodna, Sprawdzenie (call) zgodna, twój wybór, All-in zgodna. Pas (fold) ✓ Zgodna Sprawdzenie (call) ✓ Zgodna twój wybór All-in ✓ Zgodna Zobacz podsumowanie"
+Tests:       1 failed, 2 passed, 3 total
+## 302 · kod właściwy
+Tests:       3 passed, 3 total
+
+## 303 · M2: usunięta linia ostrzeżenia „jest już używana” (build.ts:490)
+ 1 file changed, 1 deletion(-)
+     × eq.bet-two-thirds użyte w lekcji pl: ostrzeżenie „jest już używana: usuń ją z LICZBY_ZAREZERWOWANE” (M2: bez gałęzi ostrzeżenia brak wpisu) 1347ms
+AssertionError: expected [] to have a length of 1 but got +0
+      Tests  1 failed (1)
+## 303 · kod właściwy
+      Tests  1 passed (1)
+
+## 304 · test (3) „margins zastępuje marginMax” na kodzie PRZED poprawką: czerwony (fallback na globalny marginMax)
+     × margins[0] zastępuje marginMax: { min, max: null } przy globalnym marginMax 0,1 nie ma górnej granicy (jak inMargin) 740ms
+AssertionError: expected false to be true // Object.is equality
+      Tests  1 failed | 3 passed (4)
+## 304 · M5: granica „>=” → „>” (|w − 0,5| = marginMax przepuszczane)
+1
+     × granica: |w − 0,5| równe marginMax jest odrzucane (M5: „>=” → „>” przepuszcza wariant dokładnie na granicy) 113ms
+AssertionError: expected 0.5 to be less than 0.5
+      Tests  1 failed | 3 passed (4)
+## 304 · M6: margins[i].max pominięte (deltaMax = b.marginMax ?? null)
+1
+     × margins[0].max bez globalnego marginMax ogranicza odległość od góry (M6: pominięte margins?.[i]?.max → bez górnej granicy) 40ms
+     × margins[0] zastępuje marginMax: { min, max: null } przy globalnym marginMax 0,1 nie ma górnej granicy (jak inMargin) 530ms
+     × margins[0].min zastępuje globalny marginMin (dolna granica z punktu) 54ms
+AssertionError: expected 0.5 to be less than 0.2
+AssertionError: expected false to be true // Object.is equality
+AssertionError: expected 0.5 to be less than 0.1
+      Tests  3 failed | 1 passed (4)
+## 304 · kod właściwy (po poprawce)
+      Tests  4 passed (4)
+
+# D-1465 (GB): testy „Liczby” river-catch i defend
+## Czerwień przed kodem: 6 z 6 testów logiki czerwone (zdaniaLiczb zwracało [] — „Expected length: 2, Received length: 0”) — wynik z uruchomienia przed zmianą liczby.ts
+## M-L1: odwrócony kierunek (więcej ↔ mniej)
+    ✕ SC-24-podobny wariant: pula 14 + zakład 11 → „25 bb”, „11 bb”, 31 %, raz na 3, udział 50 %, więcej blefów niż trzeba (rachunek ręczny: 11 ÷ 36 = 30,6 %) (21 ms)
+    ✕ udział blefów poniżej progu → „mniej”, niezależnie od wyboru gracza (rachunek dotyczy rozdania) (6 ms)
+    ✕ wariant z generatora (obie rozstrzygnięcia, ziarna 1–30): zdania zgodne z niezależnym rachunkiem, kierunek zdania = poprawna akcja (3 ms)
+    ✕ river-catch: po rozwinięciu cena, „Wygrywasz tylko z blefami” i zdanie kierunku (więcej) (80 ms)
+Tests:       4 failed, 4 passed, 8 total
+## M-L2: pula wyświetlana = pot zamiast pot + bet (river-catch)
+    ✕ SC-24-podobny wariant: pula 14 + zakład 11 → „25 bb”, „11 bb”, 31 %, raz na 3, udział 50 %, więcej blefów niż trzeba (rachunek ręczny: 11 ÷ 36 = 30,6 %) (19 ms)
+    ✕ udział blefów poniżej progu → „mniej”, niezależnie od wyboru gracza (rachunek dotyczy rozdania) (9 ms)
+    ✕ wariant z generatora (obie rozstrzygnięcia, ziarna 1–30): zdania zgodne z niezależnym rachunkiem, kierunek zdania = poprawna akcja (3 ms)
+    ✕ river-catch: po rozwinięciu cena, „Wygrywasz tylko z blefami” i zdanie kierunku (więcej) (74 ms)
+Tests:       4 failed, 4 passed, 8 total
+## M-L3: MDF z puli wyświetlanej (pot + bet) zamiast puli przed zakładem
+    ✕ pula przed c-betem 12, zakład 4 → „16 bb”, „4 bb”, 20 %, raz na 5, MDF 75 % (MDF z puli PRZED zakładem, nie z wyświetlanej puli 16) (52 ms)
+    ✕ pula 10, zakład 5 → 25 %, raz na 4, MDF 67 % (66,7 %) (40 ms)
+    ✕ wariant z generatora (ziarna 1–30): jedno zdanie zgodne z niezależnym rachunkiem (41 ms)
+Tests:       3 failed, 5 passed, 8 total
+## M-L4: defend: razPotrzeba z MDF zamiast z ceny
+    ✕ pula przed c-betem 12, zakład 4 → „16 bb”, „4 bb”, 20 %, raz na 5, MDF 75 % (MDF z puli PRZED zakładem, nie z wyświetlanej puli 16) (47 ms)
+    ✕ pula 10, zakład 5 → 25 %, raz na 4, MDF 67 % (66,7 %) (38 ms)
+    ✕ wariant z generatora (ziarna 1–30): jedno zdanie zgodne z niezależnym rachunkiem (41 ms)
+    ✕ defend: po rozwinięciu cena i MDF z zastrzeżeniem flopu (58 ms)
+Tests:       4 failed, 4 passed, 8 total
+## kod właściwy
+Tests:       8 passed, 8 total
+
+# FW-01 (GB): render zdania zakresu river-value
+## Czerwień przed kodem (fv-fw-river-value.test.tsx, 3 nowe testy): „Received string: … BB: czeka (check) Twój ruch …” bez zdania „Na zakład rywal sprawdza z: …” — Tests: 3 failed | 3 passed (6)
+## Po kodzie: Tests: 6 passed (6)
+
+# KO-102 (GB): stos w wierszu stołu przez formatujLiczbe
+## Czerwień przed kodem (gb-stol-stos-ko102.test.tsx, prawdziwa ścieżka ekranu):
+##   pl: Expected substring: "BB · rywal · 12,5 bb" / Received: "… BB · rywal · 12.5 bb … BTN · ty · 12.5 bb … Przebicie (raise) do 2,5 bb"
+##   de: Received: "… BB · Gegner · 12.5 bb … BTN · du · 12.5 bb …"  → Tests: 2 failed, 2 passed (4)
+## Po kodzie (formatBb z ekranu, jak TurniejIcm): Tests: 4 passed (4); cały katalog scenariusz: 35 plików, 387 testów zielonych

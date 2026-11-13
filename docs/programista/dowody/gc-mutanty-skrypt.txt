@@ -1,0 +1,46 @@
+# (kopia skryptu jako .txt, nie kod repo; uruchamiany: python3 mutanty.py <worktree> [G..])
+# Mutanty GC na kopii 0ac2679 (worktree wt-po). Każdy: podmiana tekstu (dokładnie 1 wystąpienie), testy wskazane, przywrócenie pliku.
+import subprocess, sys, os
+W = sys.argv[1]
+E='apps/mobile/src/features/scenariusz/EkranScenariusza.tsx'; WA='apps/mobile/src/features/scenariusz/wariant.ts'; K='apps/mobile/src/features/scenariusz/komponenty.tsx'; L='apps/mobile/src/features/scenariusz/liczby.ts'; SC='tools/content-build/src/scenariusze.ts'
+T_MIX='src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx'
+T_LISTA='src/features/scenariusz/__tests__/fn-list-hand-mieszana.test.tsx'
+T_STOL='src/features/scenariusz/__tests__/gb-stol-stos-ko102.test.tsx'
+T_LICZ='src/features/scenariusz/__tests__/gb-liczby-d1465.test.tsx'
+T_RV='src/features/scenariusz/__tests__/fv-fw-river-value.test.tsx'
+T_ANN='src/features'
+M = [
+ ('G1 inneZgodne zawsze []', WA, "return d.point === 'list-hand' ? akcjePunktu(d, spec).filter((a) => a !== wybor && ocenaAkcji(d, a) === 'zgodne') : [];", "return [];", [T_MIX]),
+ ('G2 „Dlaczego nie” także dla innych zgodnych (bez filtra !inne.includes)', WA, "filter((a) => a !== wybor && !inne.includes(a))", "filter((a) => a !== wybor)", [T_MIX]),
+ ('G3 zgodneAkcje: zawsze jedna poprawnaAkcja', WA, "if (d.point !== 'list-hand') return [poprawnaAkcja(d)];", "return [poprawnaAkcja(d)];", [T_MIX]),
+ ('G4 ogłoszenie czytnika po staremu (yoursGood/yours z jedną akcją), ekran po nowemu', E, "opis: d ? zdanieWerdyktu(ocenaWyboru, d, s.szablon.decisions[indeks], wybor, (a) => opisAkcjiEkranu(a).fraza, t) : ''", "opis: ocenaWyboru === 'zgodne' ? t('scenario.verdict.yoursGood', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '' }) : t('scenario.verdict.yours', { akcja: d ? opisAkcjiEkranu(wybor).fraza : '', lepiej: d ? opisAkcjiEkranu(zgodneAkcje(d, s.szablon.decisions[indeks])[0]!).fraza : '' })", [T_ANN]),
+ ('G5 lista końcowa: tylko pierwsza zgodna', E, "akcja: lacz(zgodneAkcje(d, s.szablon.decisions[i]).map(", "akcja: lacz(zgodneAkcje(d, s.szablon.decisions[i]).slice(0, 1).map(", [T_MIX]),
+ ('G6 lacz: odwrócona kolejność (b albo a)', E, "t('scenario.or', { a: acc, b: x })", "t('scenario.or', { a: x, b: acc })", [T_MIX]),
+ ('G7 werdykt zgodny bez „Też dobrze” (zawsze yoursGood)', E, "return inne.length > 0 ? t('scenario.verdict.yoursGoodAlso'", "return inne.length < 0 ? t('scenario.verdict.yoursGoodAlso'", [T_MIX]),
+ ('G8 KO-102: stos rywala surową liczbą', K, "rola: t('scenario.table.villain'), bb: formatBb(stosBb)", "rola: t('scenario.table.villain'), bb: stosBb", [T_STOL]),
+ ('G9 KO-102: ekran podaje formatBb = String', E, "formatBb={(x) => formatujLiczbe(x, jezykZadan())}", "formatBb={(x) => String(x)}", [T_STOL]),
+ ('G10 river-catch: kwota = pot', L, "kwota: formatujLiczbe(d.bet, j), potrzeba: formatujProcent(potrzeba, j), razPotrzeba: raz(potrzeba), udzial", "kwota: formatujLiczbe(d.pot, j), potrzeba: formatujProcent(potrzeba, j), razPotrzeba: raz(potrzeba), udzial", [T_LICZ]),
+ ('G11 FW-01: zdanie zakresu pokazuje też folds (wszystkie klasy szablonu)', E, "const klasyRywala = zakresSprawdzenia(s.szablon, indeks);", "const klasyRywala = zakresSprawdzenia(s.szablon, indeks)?.concat((s.szablon.decisions[indeks] as { folds?: string[] }).folds ?? []) ?? null;", [T_RV]),
+ ('G12 FW-01: zdanie zakresu tylko przed decyzją (nie w ocenie)', E, "{zakresRywala ? <Text testID=\"river-value-zakres\"", "{zakresRywala && !ocenaMode ? <Text testID=\"river-value-zakres\"", [T_RV]),
+ ('G13 bramka FU-201 przywrócona', SC, "      const obce = d.actions.map((a) => a.action).filter((a) => !AKCJE_LISTY_EKRANU.includes(a));", "      if (d.entries.some((en) => Array.isArray(en.correct))) return [`szablon ${t.id}: ręka mieszana czeka`];\n      const obce = d.actions.map((a) => a.action).filter((a) => !AKCJE_LISTY_EKRANU.includes(a));", ['test/fv-201-reka-mieszana-bramka.test.ts']),
+]
+only = sys.argv[2:] 
+for nazwa, plik, stare, nowe, testy in M:
+    if only and nazwa.split()[0] not in only: continue
+    p = os.path.join(W, plik); src = open(p).read()
+    n = src.count(stare)
+    if n != 1: print(f'## {nazwa}: BŁĄD wzorca (wystąpień {n})'); continue
+    open(p, 'w').write(src.replace(stare, nowe))
+    try:
+        if plik.startswith('tools/'):
+            cmd = ['pnpm', '--filter', '@szkola/content-build', 'exec', 'vitest', 'run', *testy]
+        else:
+            cmd = ['pnpm', '--filter', '@szkola/mobile', 'exec', 'jest', '--ci', *testy]
+        r = subprocess.run(cmd, cwd=W, capture_output=True, text=True, timeout=900)
+        out = r.stdout + r.stderr
+        podsum = [l.strip() for l in out.splitlines() if l.strip().startswith(('Tests:', 'Test Files', 'Tests  '))]
+        pierwszy = next((l.strip() for l in out.splitlines() if '●' in l and '›' in l), '')
+        print(f'## {nazwa} · {plik}\n$ {" ".join(cmd)}\nkod wyjścia: {r.returncode} → {"ZABITY" if r.returncode else "PRZEŻYŁ"}\n{" | ".join(podsum)}\n{pierwszy[:220]}\n')
+    finally:
+        open(p, 'w').write(src)
+    sys.stdout.flush()

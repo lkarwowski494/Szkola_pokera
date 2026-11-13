@@ -46,7 +46,8 @@ export function WyborPoziomuUI({ wybor, dostepne, onWybierz }: { wybor: WyborPoz
 }
 
 /** Stół z góry, jeden rywal (makieta „hu”): ty na dole ze złotą obwódką, rywal u góry, karty wspólne pośrodku, bez żetonów i kwot na stole. */
-export function StolRozdania({ stol, reka, pozycjaTy, pozycjaRywal, stosBb }: { stol: readonly string[]; reka: readonly string[]; pozycjaTy: string; pozycjaRywal: string; stosBb: number }): React.JSX.Element {
+// KO-102 (GB): stos przez `formatBb` ekranu (ta sama droga co TurniejIcm i kwoty akcji), żeby wiersz stołu nie pokazywał surowej liczby JS („12.5 bb” w pl).
+export function StolRozdania({ stol, reka, pozycjaTy, pozycjaRywal, stosBb, formatBb }: { stol: readonly string[]; reka: readonly string[]; pozycjaTy: string; pozycjaRywal: string; stosBb: number; formatBb: (bb: number) => string }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   const etykieta = t('scenario.table.label', {
@@ -56,12 +57,12 @@ export function StolRozdania({ stol, reka, pozycjaTy, pozycjaRywal, stosBb }: { 
     <View accessible accessibilityRole="image" accessibilityLabel={etykieta} style={[styles.rama, { backgroundColor: tk.frame }]}>
       <View style={[styles.sukno, { backgroundColor: tk.felt1, borderColor: tk.felt2 }]}>
         <View style={[styles.miejsce, { borderColor: tk.onFeltMuted }]}>
-          <Text style={[styl.drobny, { color: tk.onFelt, fontWeight: '600' }]}>{t('scenario.table.seat', { pozycja: pozycjaRywal, rola: t('scenario.table.villain'), bb: stosBb })}</Text>
+          <Text style={[styl.drobny, { color: tk.onFelt, fontWeight: '600' }]}>{t('scenario.table.seat', { pozycja: pozycjaRywal, rola: t('scenario.table.villain'), bb: formatBb(stosBb) })}</Text>
         </View>
         <CardRow cards={stol} size="md" />
         <CardRow cards={reka} size="lg" />
         <View style={[styles.miejsce, { borderColor: tk.gold, borderWidth: 2 }]}>
-          <Text style={[styl.drobny, { color: tk.goldText, fontWeight: '700' }]}>{t('scenario.table.seat', { pozycja: pozycjaTy, rola: t('scenario.table.you'), bb: stosBb })}</Text>
+          <Text style={[styl.drobny, { color: tk.goldText, fontWeight: '700' }]}>{t('scenario.table.seat', { pozycja: pozycjaTy, rola: t('scenario.table.you'), bb: formatBb(stosBb) })}</Text>
         </View>
       </View>
     </View>
@@ -195,7 +196,7 @@ export function TurniejIcm({ uklad, pozycjaTy, pozycjaRywal, formatBb, formatPro
   );
 }
 
-const TYTUL_BLOKU: Record<RodzajBloku, string> = { slabsza: 'scenario.why.weaker', lepsza: 'scenario.why.better', dobrze: 'scenario.why.good', dlaczego_nie: 'scenario.why.whyNot' };
+const TYTUL_BLOKU: Record<RodzajBloku, string> = { slabsza: 'scenario.why.weaker', lepsza: 'scenario.why.better', dobrze: 'scenario.why.good', tez_dobrze: 'scenario.why.alsoGood', dlaczego_nie: 'scenario.why.whyNot' };
 
 /** Blok „dlaczego” (BR-OCE-002): zdanie sytuacji na pierwszym planie (tekst z wariantu), potem „grasz …, bo …”. */
 export function BlokDlaczego({ blok, nazwa, t }: { blok: Blok; nazwa: string; t: TFn }): React.JSX.Element {

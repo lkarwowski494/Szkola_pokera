@@ -90,8 +90,9 @@ describe('FG defend — logika widoku', () => {
     expect(dobrze.map((b) => `${b.rodzaj}:${b.akcja}`)).toEqual(['dobrze:call', 'dlaczego_nie:fold']);
     expect(dobrze[0]!.tekst).toContain('ma dość, żeby sprawdzić mały zakład');
   });
-  it('„Liczby”: brak zdania zamiast zgadniętego (klucze i18n to zadanie dla 06/09)', () => {
-    expect(zdaniaLiczb(sesja(4, ['call']), 0, 'call', t)).toEqual([]);
+  // GB (D-1465): zmiana istniejącego testu — klucz scenario.numbers.defend jest w locale i podpięty; treść zdania: gb-liczby-d1465.test.tsx
+  it('„Liczby”: jedno zdanie (cena i MDF z zastrzeżeniem flopu) — treść sprawdza gb-liczby-d1465', () => {
+    expect(zdaniaLiczb(sesja(4, ['call']), 0, 'call', t)).toHaveLength(1);
   });
 });
 

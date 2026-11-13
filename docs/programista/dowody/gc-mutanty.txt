@@ -1,0 +1,87 @@
+# GC: mutanty na kopii 0ac2679 (git worktree w scratchpadzie; plik przywracany po każdym mutancie; git status worktree po przebiegu: czysty)
+# Skrypt: gc-mutanty-skrypt.txt. Przebieg 1: G1–G3 (wariant.ts). Wyniki G4–G13 z przebiegu 1 odrzucone: ręczna próba recenzenta zmieniała ten sam plik równolegle; przebieg 2 czysty.
+# G4 w przebiegu 2 rzucał wyjątek (zgodneAkcje bez specyfikacji punktu → 'list-hand: zbiór akcji pochodzi z szablonu') — mutant wadliwy, poprawiony (przebieg 3).
+
+## --- przebieg 1 (G1–G3)
+## G1 inneZgodne zawsze [] · apps/mobile/src/features/scenariusz/wariant.ts
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       4 failed, 7 passed, 11 total
+● GB kryterium 1: bloki przy wyborze zgodnym ręki mieszanej › AKs, wybór call: „dobrze:call”, „tez_dobrze:4bet”, „dlaczego_nie:fold”; żaden „dlaczego_nie” nie dotyczy akcji ocenionej „zgodne” (sonda FU)
+
+## G2 „Dlaczego nie” także dla innych zgodnych (bez filtra !inne.includes) · apps/mobile/src/features/scenariusz/wariant.ts
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       3 failed, 8 passed, 11 total
+● GB kryterium 1: bloki przy wyborze zgodnym ręki mieszanej › AKs, wybór call: „dobrze:call”, „tez_dobrze:4bet”, „dlaczego_nie:fold”; żaden „dlaczego_nie” nie dotyczy akcji ocenionej „zgodne” (sonda FU)
+
+## G3 zgodneAkcje: zawsze jedna poprawnaAkcja · apps/mobile/src/features/scenariusz/wariant.ts
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       3 failed, 8 passed, 11 total
+● GB kryterium 2: bloki przy wyborze niezgodnym › AKs, wybór fold: „slabsza:fold” i po jednym „lepsza” na każdą zgodną w kolejności akcji punktu (pas, sprawdzenie, 4-bet: akcjePunktu)
+
+## --- przebieg 2 (G5–G13; G4 wadliwy pominięty)
+## G5 lista końcowa: tylko pierwsza zgodna · apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       1 failed, 10 passed, 11 total
+● GB kryterium 4: lista na końcu › AKs, wybór fold: „Lepiej: sprawdzenie (call) albo 4-bet.” (kolejność akcji punktu) z tym samym połączeniem
+
+## G6 lacz: odwrócona kolejność (b albo a) · apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       2 failed, 9 passed, 11 total
+● GB kryterium 3: werdykt i ogłoszenie › wybór niezgodny: „Lepiej” zawiera wszystkie zgodne połączone scenario.or
+
+## G7 werdykt zgodny bez „Też dobrze” (zawsze yoursGood) · apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       1 failed, 10 passed, 11 total
+● GB kryterium 3: werdykt i ogłoszenie › wybór zgodny przy ręce mieszanej: scenario.verdict.yoursGoodAlso z „inne” = druga zgodna
+
+## G8 KO-102: stos rywala surową liczbą · apps/mobile/src/features/scenariusz/komponenty.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-stol-stos-ko102.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       2 failed, 2 passed, 4 total
+● KO-102: stos w wierszu stołu przez formatujLiczbe › pl: stos 12,5 bb z przecinkiem w obu wierszach (ty i rywal), nigdzie „12.5”
+
+## G9 KO-102: ekran podaje formatBb = String: BŁĄD wzorca (wystąpień 3)
+## G10 river-catch: kwota = pot · apps/mobile/src/features/scenariusz/liczby.ts
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-liczby-d1465.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       3 failed, 5 passed, 8 total
+● 08 GB (D-1465): „Liczby” river-catch › SC-24-podobny wariant: pula 14 + zakład 11 → „25 bb”, „11 bb”, 31 %, raz na 3, udział 50 %, więcej blefów niż trzeba (rachunek ręczny: 11 ÷ 36 = 30,6 %)
+
+## G11 FW-01: zdanie zakresu pokazuje też folds (wszystkie klasy szablonu) · apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/fv-fw-river-value.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       3 failed, 3 passed, 6 total
+● FW-01 (GB, kryteria 1 i 4 §2): zdanie zakresu sprawdzenia pod stołem › kryterium 1: zdanie z każdą klasą z calls dokładnie raz, w kolejności szablonu; żadna klasa z folds nie występuje na ekranie
+
+## G12 FW-01: zdanie zakresu tylko przed decyzją (nie w ocenie) · apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/fv-fw-river-value.test.tsx
+kod wyjścia: 1 → ZABITY
+Tests:       1 failed, 5 passed, 6 total
+● FW-01 (GB, kryteria 1 i 4 §2): zdanie zakresu sprawdzenia pod stołem › zdanie jest też na ekranie oceny (zakres to dana zadania, nie wynik)
+
+## G13 bramka FU-201 przywrócona · tools/content-build/src/scenariusze.ts
+$ pnpm --filter @szkola/content-build exec vitest run test/fv-201-reka-mieszana-bramka.test.ts
+kod wyjścia: 1 → ZABITY
+Test Files  1 failed (1) | Tests  2 failed | 1 passed (3)
+
+
+kod 0
+## --- przebieg 3 (G4 poprawiony): tylko plik testów ręki mieszanej, potem cały src/features
+## G4 ogłoszenie czytnika po staremu (yoursGood/yours z jedną akcją), ekran po nowemu · apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features/scenariusz/__tests__/gb-reka-mieszana-ekran.test.tsx
+kod wyjścia: 0 → PRZEŻYŁ
+Tests:       11 passed, 11 total
+
+
+## G4 ogłoszenie czytnika po staremu (yoursGood/yours z jedną akcją), ekran po nowemu · apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+$ pnpm --filter @szkola/mobile exec jest --ci src/features
+kod wyjścia: 0 → PRZEŻYŁ
+Tests:       894 passed, 894 total
+
+

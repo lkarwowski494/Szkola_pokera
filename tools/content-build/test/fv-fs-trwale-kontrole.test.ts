@@ -2,7 +2,7 @@
 // Zdanie jest dozwolone tylko, gdy jest prawdziwe w KAŻDYM wariancie generatora (remisy wśród sprawdzających i pasujących SC-22/25/28/29), a zdanie „Liczby” defend
 // nie podaje MDF na flopie jako normy (R-M6-003, lekcja m6-l1). Rachunek W/L/T własnymi kombinacjami klas, niezależny od `classComboSplit`.
 // Czerwone na treści sprzed FT (fixtures/fv-przed-ft = ae21e380 i 8bb6dfad), zielone na obecnej (docs/tresci/szablony-robocze/fq).
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parse } from 'yaml';
@@ -10,6 +10,9 @@ import { generateVariant, strength, type GeneratorTemplate } from '@szkola/poker
 
 const root = resolve(import.meta.dirname, '../../..');
 const AKT = join(root, 'docs', 'tresci', 'szablony-robocze', 'fq');
+const ROBOCZE = join(root, 'docs', 'tresci', 'szablony-robocze');
+const CONTENT = join(root, 'content');
+const GB301 = join(import.meta.dirname, 'fixtures', 'gb-301', 'content');
 const PRZED = join(import.meta.dirname, 'fixtures', 'fv-przed-ft');
 const LICZBY = join(root, 'docs', 'tresci', 'liczby-river-catch-defend.md');
 const ZIARNA = 300;
@@ -45,7 +48,7 @@ const ZDANIA: readonly { id: string; opis: string; fraza: RegExp; licznik: 'gors
   { id: '06-tresci-002', opis: '„pasujące i tak nie wygrałyby”', fraza: /i tak nie wygrałyby|would not have beaten you/, licznik: 'pasujące: lepsza' },
 ];
 
-/** Naruszenia: lista „id szablon: zdanie; licznik = n [pierwsze ziarno]” dla zdań obecnych w szkicu i fałszywych w którymś wariancie. */
+/** Naruszenia: lista „id szablon [poziom]: zdanie; licznik = n [pierwsze ziarno]” dla zdań obecnych w szablonie i fałszywych w którymś wariancie KAŻDEGO poziomu (08-programista-301, GB). */
 function naruszenia(dir: string, szablony: readonly string[]): string[] {
   const out: string[] = [];
   for (const f of szablony) {
@@ -56,20 +59,40 @@ function naruszenia(dir: string, szablony: readonly string[]): string[] {
     for (const b of Object.values<Record<string, unknown>>(y.bounds)) { b.reject ??= []; b.draws ??= []; }
     const g = { id: y.id, stackBb: y.stackBb, positions: y.positions, levels: y.bounds, decisions: y.decisions } as unknown as GeneratorTemplate;
     const d = y.decisions[0] as { calls: string[]; folds: string[] };
-    const licz: Record<string, number> = {}; const pierwsze: Record<string, number> = {};
-    const inc = (k: string, seed: number) => { licz[k] = (licz[k] ?? 0) + 1; pierwsze[k] ??= seed; };
-    for (let seed = 1; seed <= ZIARNA; seed++) {
-      const v = generateVariant(g, 'latwy', seed);
-      const s = podzial(v.hero, v.board, d.calls), sf = podzial(v.hero, v.board, d.folds);
-      if (s.w / (s.w + s.l + s.t) <= 0.5) inc('gorsze÷wszystkie≤50%', seed);
-      if (s.w <= s.l) inc('W≤L', seed);
-      if (sf.t > 0 || sf.l > 0) inc('pasujące: remis albo lepsza', seed);
-      if (sf.l > 0) inc('pasujące: lepsza', seed);
+    for (const poziom of Object.keys(y.bounds)) {
+      const licz: Record<string, number> = {}; const pierwsze: Record<string, number> = {};
+      const inc = (k: string, seed: number) => { licz[k] = (licz[k] ?? 0) + 1; pierwsze[k] ??= seed; };
+      for (let seed = 1; seed <= ZIARNA; seed++) {
+        const v = generateVariant(g, poziom as 'latwy', seed);
+        const s = podzial(v.hero, v.board, d.calls), sf = podzial(v.hero, v.board, d.folds);
+        if (s.w / (s.w + s.l + s.t) <= 0.5) inc('gorsze÷wszystkie≤50%', seed);
+        if (s.w <= s.l) inc('W≤L', seed);
+        if (sf.t > 0 || sf.l > 0) inc('pasujące: remis albo lepsza', seed);
+        if (sf.l > 0) inc('pasujące: lepsza', seed);
+      }
+      for (const z of obecne) { const n = licz[z.licznik] ?? 0; if (n > 0) out.push(`${z.id} ${f} [poziom ${poziom}]: zdanie ${z.opis}; „${z.licznik}” = ${n} [ziarno ${pierwsze[z.licznik]}]`); }
     }
-    for (const z of obecne) { const n = licz[z.licznik] ?? 0; if (n > 0) out.push(`${z.id} ${f}: zdanie ${z.opis}; „${z.licznik}” = ${n} [ziarno ${pierwsze[z.licznik]}]`); }
   }
   return out;
 }
+
+/** Szablony river-value (decyzja 0) w katalogach: kopie robocze (docs/tresci/szablony-robocze/<sesja>/<język>) i treść aplikacji (content/<język>/scenarios). Katalog → pliki bez rozszerzenia. */
+function szablonyRiverValue(katalogi: readonly string[]): { dir: string; pliki: string[] }[] {
+  const wynik: { dir: string; pliki: string[] }[] = [];
+  for (const dir of katalogi) {
+    if (!existsSync(dir)) continue;
+    const pliki = readdirSync(dir).filter((n) => n.endsWith('.yaml')).map((n) => n.slice(0, -5)).filter((n) => {
+      const y = parse(readFileSync(join(dir, `${n}.yaml`), 'utf8')) as { decisions?: { kind?: string }[] } | null;
+      return y?.decisions?.[0]?.kind === 'river-value';
+    });
+    if (pliki.length > 0) wynik.push({ dir, pliki });
+  }
+  return wynik;
+}
+const katalogiTresci = (korzenRoboczych: string, korzenContent: string): string[] => [
+  ...(existsSync(korzenRoboczych) ? readdirSync(korzenRoboczych, { withFileTypes: true }).filter((e) => e.isDirectory()).flatMap((s) => readdirSync(join(korzenRoboczych, s.name), { withFileTypes: true }).filter((e) => e.isDirectory()).map((j) => join(korzenRoboczych, s.name, j.name))) : []),
+  ...(existsSync(korzenContent) ? readdirSync(korzenContent, { withFileTypes: true }).filter((e) => e.isDirectory()).map((j) => join(korzenContent, j.name, 'scenarios')) : []),
+];
 
 /** 06-tresci-005: zdanie „Liczby” defend z {{t:mdf}} musi mieć zastrzeżenie flopu, a „bronisz w teorii” (MDF jako norma) nie może wystąpić. */
 function naruszeniaMdf(plik: string): string[] {
@@ -104,4 +127,24 @@ describe('FS-005: „Liczby” defend bez MDF jako normy', () => {
     expect(n).toMatch(/bronisz w teorii. = 2/);
     expect(n).toMatch(/bez zastrzeżenia flopu = 2/);
   });
+});
+
+describe('08-programista-301 (GB): kontrola obejmuje wszystkie poziomy i wszystkie szablony river-value, także z content/', () => {
+  it('odkrywanie: znajduje sc-22/25/28/29 w kopiach roboczych (pl i en), a każdy znaleziony szablon z content/ jest kontrolowany', () => {
+    const znalezione = szablonyRiverValue(katalogiTresci(ROBOCZE, CONTENT));
+    const roboczePl = znalezione.find((z) => z.dir === join(AKT, 'pl'));
+    expect(roboczePl?.pliki.sort()).toEqual(['sc-22', 'sc-25', 'sc-28', 'sc-29']);
+    expect(znalezione.some((z) => z.dir === join(AKT, 'en'))).toBe(true);
+  });
+  it('treść aplikacji i kopie robocze (wszystkie): 0 naruszeń na wszystkich poziomach szablonu', () => {
+    const naruszone = szablonyRiverValue(katalogiTresci(ROBOCZE, CONTENT)).flatMap((z) => naruszenia(z.dir, z.pliki));
+    expect(naruszone).toEqual([]);
+  }, 240_000);
+  it('szablon river-value w content/ z poziomem sredni (expected check) i zdaniem „gorszych jest więcej niż lepszych”: wykryty na poziomie sredni', () => {
+    const znalezione = szablonyRiverValue(katalogiTresci(join(GB301, 'brak'), GB301));
+    expect(znalezione.map((z) => z.pliki)).toEqual([['sc-22']]);
+    const n = znalezione.flatMap((z) => naruszenia(z.dir, z.pliki)).join('\n');
+    expect(n).toMatch(/06-tresci-001 sc-22 \[poziom sredni\].*W≤L/);
+    expect(n).not.toMatch(/\[poziom latwy\]/);
+  }, 120_000);
 });
