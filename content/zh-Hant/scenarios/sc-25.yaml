@@ -1,0 +1,22 @@
+# sc-25: Traditional Chinese text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-25
+module: m8
+situation: "在河牌你有{{t:second-pair|第二對}}，你在按鈕位，{{t:big-blind|大盲}}{{t:check|過牌}}。假設對手不會{{t:raise|加注}}：他拿到 AA、KK 以及任何 AK、AQ 和 KQ 組合都會{{t:call|跟注}}，拿到任何 QJ 和 JT 組合都會{{t:fold|棄牌}}。你{{t:bet|下注}}還是{{t:check|過牌}}？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。你{{t:check|過牌}}，免費進入{{t:showdown|攤牌}}，因為會{{t:call|跟注}}的牌大多比你好：每次被較好的牌{{t:call|跟注}}，你輸掉一個{{t:bet|下注}}，而被較差的牌跟注，你只贏一個。{{t:check|過牌}}之後，對手每一手較差的牌你都能贏下{{t:pot|底池}}。"
+      - action: "bet"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。{{t:bet|下注}}會虧：會{{t:call|跟注}}的牌大多比你好，而會{{t:fold|棄牌}}的牌在{{t:showdown|攤牌}}時本來就贏不了你。這樣{{t:bet|下注}}會把一手有{{t:showdown|攤牌}}價值的牌變成{{t:bluff|詐唬}}。"

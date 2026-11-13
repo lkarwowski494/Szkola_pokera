@@ -1,0 +1,22 @@
+# sc-22: Brazilian Portuguese text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "No river você tem {{t:top-pair}}, está no Button, e o {{t:big-blind}} faz {{t:check}}. Suponha que o adversário não {{t:raise|aumenta}}: ele vai {{t:call|pagar}} com todos os AK, AQ, AJ e KQ e vai {{t:fold|largar}} todos os KJ, QJ e JT. Você {{t:bet|aposta}} ou faz {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. Você {{t:bet|aposta}} {{t:value|por valor}}, porque, entre as mãos que vão {{t:call|pagar}}, as piores que a sua são mais numerosas que as melhores (um empate divide o {{t:pot}} e não muda o cálculo). Cada {{t:call|pagamento}} com uma mão pior ganha uma {{t:bet|aposta}}, e cada um com uma mão melhor perde uma. Você conta só as mãos que vão pagar: quando o adversário {{t:fold|larga}} uma mão pior, você ganha o mesmo {{t:pot}} que ganharia depois de fazer {{t:check}}."
+      - action: "check"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. Fazer {{t:check}} aqui desperdiça valor: entre as mãos que vão {{t:call|pagar}}, as piores que a sua são mais numerosas que as melhores (um empate divide o {{t:pot}} e não muda o cálculo), então uma {{t:bet|aposta}} ganha mais delas do que perde para as melhores. As mãos que vão {{t:fold|largar}} não pagam a {{t:bet|aposta}}, então você não as conta neste cálculo."

@@ -1,0 +1,25 @@
+# HA: content-build vitest z SC-13/22/25/28/29 w content/{pl,en} przed zmianami testów/odcisków i przed przekładem (2026-11-13, @ 2dfd492 + zmiany robocze)
+ ❯ test/generator-odciski.test.ts (1 test | 1 failed) 9351ms
+     × ziarna 1–200 każdego szablonu i poziomu dają odciski zapisane dla tej wersji 9350ms
+ ❯ test/szablony-bs.test.ts (25 tests | 10 failed) 138649ms
+     × de: szablony jak w pl 40ms
+     × es: szablony jak w pl 12ms
+     × fr: szablony jak w pl 20ms
+     × it: szablony jak w pl 16ms
+     × ja: szablony jak w pl 20ms
+     × ko: szablony jak w pl 20ms
+     × pt: szablony jak w pl 19ms
+     × pt-BR: szablony jak w pl 16ms
+     × vi: szablony jak w pl 13ms
+     × zh-Hant: szablony jak w pl 17ms
+ ❯ test/fv-d1461-cena-dwoch-trzecich.test.ts (3 tests | 1 failed) 9ms
+     × klucze D-1461 są na liście (build nie zgłasza ich jako nieużywanych), a lista nie trzyma liczb już użytych ani nieistniejących 5ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected [ …(3) ] to deeply equal []
+ ❯ test/fv-d1461-cena-dwoch-trzecich.test.ts:33:97
+AssertionError: expected { wersja: 5, ziarna: 200, …(1) } to deeply equal { wersja: 5, ziarna: 200, …(1) }
+ ❯ test/generator-odciski.test.ts:49:19
+AssertionError: expected [ 'sc-01', 'sc-02', 'sc-03', …(10) ] to deeply equal [ 'sc-01', 'sc-02', 'sc-03', …(15) ]
+ ❯ test/szablony-bs.test.ts:121:46
+ Test Files  3 failed | 74 passed (77)
+      Tests  12 failed | 756 passed | 1 expected fail (769)

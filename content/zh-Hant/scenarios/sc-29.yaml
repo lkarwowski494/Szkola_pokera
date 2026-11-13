@@ -1,0 +1,22 @@
+# sc-29: Traditional Chinese text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "在河牌你有{{t:top-pair|頂對}}，你在按鈕位，{{t:big-blind|大盲}}{{t:check|過牌}}。對手是被動的{{t:recreational|娛樂玩家}}：{{t:vpip|VPIP}}約 {{n:hud.vpip.loose}} 起，{{t:pfr|PFR}}比它低超過 {{n:hud.gap.passive}} 點。假設他不會{{t:raise|加注}}：他拿到 JJ、TT 以及任何 AK、AQ、AJ、AT、KQ、KJ、QJ 和 JT 組合都會{{t:call|跟注}}，拿到任何 KT 和 QT 組合都會{{t:fold|棄牌}}。你{{t:bet|下注}}還是{{t:check|過牌}}？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。你為了{{t:value|價值}}{{t:bet|下注}}，因為這個對手在這裡也會用較弱的牌{{t:call|跟注}}：在會{{t:call|跟注}}的牌中，比你差的牌多於比你好的牌（平手會平分{{t:pot|底池}}，不改變計算）。面對被動的{{t:recreational|娛樂玩家}}，你用更多手牌為了{{t:value|價值}}下注，包括更薄的價值。"
+      - action: "check"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。{{t:check|過牌}}在這裡會放掉價值：在會{{t:call|跟注}}的牌中，比你差的牌多於比你好的牌（平手會平分{{t:pot|底池}}，不改變計算），所以{{t:bet|下注}}從它們身上贏到的，多於輸給較好牌的。面對被動的{{t:recreational|娛樂玩家}}，你用更多手牌為了{{t:value|價值}}下注，包括更薄的價值。"

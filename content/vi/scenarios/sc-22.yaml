@@ -1,0 +1,22 @@
+# sc-22: Vietnamese text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "Ở river bạn có {{t:top-pair|đôi cao nhất}}, bạn ở Button, còn {{t:big-blind|big blind}} {{t:check|check}}. Giả sử đối thủ không {{t:raise|tố}}: họ sẽ {{t:call|theo}} với mọi tổ hợp AK, AQ, AJ và KQ, và sẽ {{t:fold|bỏ bài}} với mọi tổ hợp KJ, QJ và JT. Bạn {{t:bet|cược}} hay {{t:check|check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. Bạn {{t:bet|cược}} {{t:value|lấy giá trị}}, vì trong số các tay sẽ {{t:call|theo}}, tay yếu hơn tay bạn nhiều hơn tay mạnh hơn (hòa thì chia {{t:pot|pot}} và không làm thay đổi phép tính). Mỗi lần bị {{t:call|theo}} bởi tay yếu hơn, bạn thắng một {{t:bet|cược}}, còn mỗi lần bị theo bởi tay mạnh hơn, bạn thua một. Bạn chỉ đếm những tay sẽ trả tiền: khi đối thủ {{t:fold|bỏ bài}} với tay yếu hơn, bạn thắng cùng một {{t:pot|pot}} mà bạn sẽ thắng nếu {{t:check|check}}."
+      - action: "check"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. {{t:check|Check}} ở đây là bỏ lỡ giá trị: trong số các tay sẽ {{t:call|theo}}, tay yếu hơn tay bạn nhiều hơn tay mạnh hơn (hòa thì chia {{t:pot|pot}} và không làm thay đổi phép tính), nên một khoản {{t:bet|cược}} thắng từ chúng nhiều hơn mức thua trước các tay mạnh hơn. Những tay sẽ {{t:fold|bỏ bài}} không trả tiền cho khoản {{t:bet|cược}}, nên bạn không đếm chúng trong phép tính này."

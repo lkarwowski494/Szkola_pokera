@@ -1,0 +1,22 @@
+# sc-13: Italian text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-13
+module: m5
+situation: "Hai {{t:open|aperto}} dal Button e il {{t:big-blind}} ha fatto {{t:call}}. Sul flop ci sono due carte dello stesso seme, e hai una mano forte: una {{t:top-pair}} con un buon {{t:kicker}} o meglio. L'avversario fa {{t:check}} e può avere un {{t:flush-draw}}. Che dimensione di {{t:bet|puntata}} scegli?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} può avere un {{t:flush-draw}}. {{t:bet|Punti}} molto, perché i {{t:draw|progetti}} dell'avversario hanno molta equity, quindi una {{t:bet|puntata}} grande li costringe a pagare caro la carta successiva. Un {{t:flush-draw}} chiude al turn in circa il {{n:odds.flush.flop-turn}} dei casi, e contro una {{t:bet|puntata}} di due terzi del {{t:pot}} il prezzo della carta successiva ({{n:eq.bet-two-thirds}} di equity) è più alto della sua probabilità di chiudere con quella carta."
+      - action: "bet-small"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} può avere un {{t:flush-draw}}. Una {{t:bet|puntata}} piccola dà al {{t:draw|progetto}} un buon prezzo: contro una {{t:bet|puntata}} di un quarto del {{t:pot}} gli basterebbe il {{n:eq.bet-quarter}} di equity, e al turn chiude in circa il {{n:odds.flush.flop-turn}} dei casi. Con una mano forte contro i {{t:draw|progetti}} su un flop così {{t:bet|punti}} con una dimensione più grande."

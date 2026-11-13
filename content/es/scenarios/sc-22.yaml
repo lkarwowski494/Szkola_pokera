@@ -1,0 +1,22 @@
+# sc-22: Spanish text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "En el river tienes {{t:top-pair|pareja mayor}}, estás en el Button y la {{t:big-blind}} {{t:check|pasa}}. Supón que tu rival no {{t:raise|sube}}: {{t:call|pagará}} con todos los AK, AQ, AJ y KQ, y se {{t:fold|retirará}} con todos los KJ, QJ y JT. ¿{{t:bet|Apuestas}} o {{t:check|pasas}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}} en el river. {{t:bet|Apuestas}} {{t:value|por valor}}, porque entre las manos que {{t:call|pagarán}} hay más peores que la tuya que mejores (un empate divide el {{t:pot}} y no cambia el cálculo). Cada {{t:call|pago}} con una mano peor gana una {{t:bet|apuesta}}, y cada uno con una mejor pierde una. Solo cuentas las manos que pagarán: cuando tu rival se {{t:fold|retira}} con una mano peor, ganas el mismo {{t:pot}} que habrías ganado al {{t:check|pasar}}."
+      - action: "check"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}} en el river. {{t:check|Pasar}} aquí renuncia a valor: entre las manos que {{t:call|pagarán}} hay más peores que la tuya que mejores (un empate divide el {{t:pot}} y no cambia el cálculo), así que una {{t:bet|apuesta}} les gana más de lo que pierde contra las mejores. Las manos que se {{t:fold|retirarán}} no pagan la {{t:bet|apuesta}}, así que no las cuentas en este cálculo."

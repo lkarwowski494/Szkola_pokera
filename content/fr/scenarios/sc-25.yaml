@@ -1,0 +1,22 @@
+# sc-25: French text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-25
+module: m8
+situation: "À la river, vous avez une {{t:second-pair|deuxième paire}}, vous êtes au Bouton, et la {{t:big-blind}} fait {{t:check}}. Supposez que votre adversaire ne {{t:raise|relance}} pas : il {{t:call|suivra}} avec AA, KK et tous les AK, AQ et KQ, et se {{t:fold|couchera}} avec tous les QJ et JT. Vous {{t:bet|misez}} ou vous faites {{t:check}} ?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Vous faites {{t:check}} et allez gratuitement au {{t:showdown}}, car la plupart des mains qui vont {{t:call|suivre}} sont meilleures que la vôtre : chaque {{t:call}} avec une meilleure main perd une {{t:bet|mise}}, et chaque {{t:call}} avec une moins bonne n'en gagne qu'une. Après un {{t:check}}, vous gagnez le {{t:pot}} contre toutes les mains moins bonnes de votre adversaire."
+      - action: "bet"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Une {{t:bet|mise}} perd : la plupart des mains qui vont {{t:call|suivre}} sont meilleures que la vôtre, et les mains qui vont se {{t:fold|coucher}} ne vous auraient de toute façon pas battu au {{t:showdown}}. Ainsi, une telle {{t:bet|mise}} transforme une main qui a de la valeur au {{t:showdown}} en {{t:bluff}}."

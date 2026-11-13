@@ -1,0 +1,22 @@
+# sc-13: Brazilian Portuguese text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-13
+module: m5
+situation: "Você fez {{t:open|abertura}} do Button, e o {{t:big-blind}} fez {{t:call}}. No flop há duas cartas do mesmo naipe, e você tem uma mão forte: {{t:top-pair}} com um bom {{t:kicker}} ou melhor. O adversário faz {{t:check}} e pode ter um {{t:flush-draw|projeto de flush}}. Que tamanho de {{t:bet|aposta}} você escolhe?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} pode ter um {{t:flush-draw|projeto de flush}}. Você {{t:bet|aposta}} alto, porque os {{t:draw|projetos}} do adversário têm muita equity, então uma {{t:bet|aposta}} grande os obriga a pagar caro pela próxima carta. Um {{t:flush-draw|projeto de flush}} acerta no turn em cerca de {{n:odds.flush.flop-turn}} dos casos, e diante de uma {{t:bet|aposta}} de dois terços do {{t:pot}} o preço da próxima carta ({{n:eq.bet-two-thirds}} de equity) é mais alto do que a chance que o projeto tem de acertá-la."
+      - action: "bet-small"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} pode ter um {{t:flush-draw|projeto de flush}}. Uma {{t:bet|aposta}} pequena dá ao {{t:draw|projeto}} um bom preço: diante de uma {{t:bet|aposta}} de um quarto do {{t:pot}} ele só precisaria de {{n:eq.bet-quarter}} de equity, e no turn ele acerta em cerca de {{n:odds.flush.flop-turn}} dos casos. Com uma mão forte contra {{t:draw|projetos}} em um flop assim, você {{t:bet|aposta}} um tamanho maior."

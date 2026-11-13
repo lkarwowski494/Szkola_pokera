@@ -1,0 +1,23 @@
+# sc-28: Traditional Chinese text of content/pl/scenarios/sc-28.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-28
+module: m9
+situation: "你有{{t:overpair|超對}}。你在翻牌和轉牌都{{t:bet|下注}}了，{{t:big-blind|大盲}}每次都{{t:call|跟注}}；到了河牌他{{t:check|過牌}}。假設對手不會{{t:raise|加注}}：他拿到任何 AK、AQ、AJ、KQ、KJ 和 QJ 組合都會{{t:call|跟注}}，拿到任何 JT 組合都會{{t:fold|棄牌}}。你要打第三條{{t:street|街}}的{{t:value|價值}}，還是{{t:check|過牌}}？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.2, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo, KJs, KJo, QJs, QJo]
+    folds: [JTs, JTo]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - action: "bet"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。你第三次{{t:bet|下注}}，因為對手在這裡會用較弱的牌付錢：在會{{t:call|跟注}}的牌中，比你差的牌多於比你好的牌（平手會平分{{t:pot|底池}}，不改變計算）。每次被較差的牌{{t:call|跟注}}，你贏下這次{{t:bet|下注}}；每次被較好的牌跟注，你輸掉這次下注；對手用較差的牌{{t:fold|棄牌}}時，你贏到的{{t:pot|底池}}和{{t:check|過牌}}後會贏到的相同。"
+      - action: "check"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。{{t:check|過牌}}在這裡會放掉價值：在會{{t:call|跟注}}的牌中，比你差的牌多於比你好的牌（平手會平分{{t:pot|底池}}，不改變計算），所以{{t:bet|下注}}從它們身上贏到的，多於輸給較好牌的。拿著{{t:overpair|超對}}，當對手會用較弱的牌付錢時，你就打第三條{{t:street|街}}的{{t:value|價值}}，而這裡正是如此。"

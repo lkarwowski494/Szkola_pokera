@@ -1,0 +1,22 @@
+# sc-22: Portuguese text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "No river tem {{t:top-pair}}, está no Button, e o {{t:big-blind}} faz {{t:check}}. Suponha que o adversário não {{t:raise|aumenta}}: {{t:call|pagará}} com todos os AK, AQ, AJ e KQ, e {{t:fold|largará}} todos os KJ, QJ e JT. {{t:bet|Aposta}} ou faz {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. {{t:bet|Aposta}} {{t:value|por valor}}, porque entre as mãos que vão {{t:call|pagar}}, as piores do que a sua são mais numerosas do que as melhores (um empate divide o {{t:pot}} e não muda o cálculo). Cada {{t:call|pagamento}} com uma mão pior ganha uma {{t:bet|aposta}}, e cada um com uma mão melhor perde uma. Conta só as mãos que vão pagar: quando o adversário {{t:fold|larga}} uma mão pior, ganha o mesmo {{t:pot}} que ganharia depois de fazer {{t:check}}."
+      - action: "check"
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. Fazer {{t:check}} desperdiça aqui valor: entre as mãos que vão {{t:call|pagar}}, as piores do que a sua são mais numerosas do que as melhores (um empate divide o {{t:pot}} e não muda o cálculo), por isso uma {{t:bet|aposta}} ganha-lhes mais do que perde contra as melhores. As mãos que vão {{t:fold|largar}} não pagam a {{t:bet|aposta}}, por isso não as conta neste cálculo."

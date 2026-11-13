@@ -1,0 +1,22 @@
+# sc-13: German text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-13
+module: m5
+situation: "Du hast vom Button {{t:open|eröffnet}}, der {{t:big-blind}} hat {{t:call|gecallt}}. Auf dem Flop liegen zwei Karten derselben Farbe, und du hast eine starke Hand: {{t:top-pair|Top Pair}} mit einem guten {{t:kicker}} oder besser. Dein Gegner {{t:check|checkt}} und kann einen {{t:flush-draw}} haben. Welche Größe wählst du für deine {{t:bet}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Du {{t:bet|setzt}} viel, weil die {{t:draw|Draws}} deines Gegners viel Equity haben, also lässt eine große {{t:bet}} sie teuer für die nächste Karte zahlen. Ein {{t:flush-draw}} trifft am Turn in etwa {{n:odds.flush.flop-turn}} der Fälle, und bei einer {{t:bet}} von zwei Dritteln des {{t:pot|Pots}} ist der Preis für die nächste Karte ({{n:eq.bet-two-thirds}} Equity) höher als seine Chance, mit ihr zu treffen."
+      - action: "bet-small"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Eine kleine {{t:bet}} gibt dem {{t:draw}} einen guten Preis: Bei einer {{t:bet}} von einem Viertel des {{t:pot|Pots}} würden ihm {{n:eq.bet-quarter}} Equity reichen, und am Turn trifft er in etwa {{n:odds.flush.flop-turn}} der Fälle. Mit einer starken Hand gegen {{t:draw|Draws}} {{t:bet|setzt}} du auf so einem Flop größer."

@@ -1,0 +1,22 @@
+# sc-25: Brazilian Portuguese text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-25
+module: m8
+situation: "No river você tem {{t:second-pair}}, está no Button, e o {{t:big-blind}} faz {{t:check}}. Suponha que o adversário não {{t:raise|aumenta}}: ele vai {{t:call|pagar}} com AA, KK e com todos os AK, AQ e KQ e vai {{t:fold|largar}} todos os QJ e JT. Você {{t:bet|aposta}} ou faz {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. Você faz {{t:check}} e vai ao {{t:showdown}} de graça, porque a maioria das mãos que vão {{t:call|pagar}} são melhores que a sua: cada {{t:call|pagamento}} com uma mão melhor perde uma {{t:bet|aposta}}, e com uma pior ganha só uma. Depois do {{t:check}}, você ganha o {{t:pot}} contra cada mão pior do adversário."
+      - action: "bet"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. A {{t:bet|aposta}} perde: a maioria das mãos que vão {{t:call|pagar}} são melhores que a sua, e as mãos que vão {{t:fold|largar}} não ganhariam de você no {{t:showdown}} de qualquer jeito. Assim, a {{t:bet|aposta}} transforma uma mão com valor de {{t:showdown}} em um {{t:bluff|blefe}}."

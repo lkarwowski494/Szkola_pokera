@@ -1,0 +1,22 @@
+# sc-13: Spanish text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-13
+module: m5
+situation: "Has {{t:open|abierto}} desde el Button y la {{t:big-blind}} ha {{t:call|pagado}}. En el flop hay dos cartas del mismo palo, y tú tienes una mano fuerte: {{t:top-pair|pareja mayor}} con un buen {{t:kicker}} o algo mejor. Tu rival {{t:check|pasa}} y puede tener un {{t:flush-draw}}. ¿Qué tamaño de {{t:bet|apuesta}} eliges?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} puede tener un {{t:flush-draw}}. {{t:bet|Apuestas}} mucho, porque los {{t:draw|proyectos}} de tu rival tienen mucha equity, así que una {{t:bet|apuesta}} grande les hace pagar caro la siguiente carta. Un {{t:flush-draw}} liga en el turn en aproximadamente el {{n:odds.flush.flop-turn}} de los casos, y ante una {{t:bet|apuesta}} de dos tercios del {{t:pot}} el precio de la siguiente carta ({{n:eq.bet-two-thirds}} de equity) es mayor que su probabilidad de ligar con ella."
+      - action: "bet-small"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} puede tener un {{t:flush-draw}}. Una {{t:bet|apuesta}} pequeña le da al {{t:draw|proyecto}} un buen precio: ante una {{t:bet|apuesta}} de un cuarto del {{t:pot}} le bastaría {{n:eq.bet-quarter}} de equity, y en el turn liga en aproximadamente el {{n:odds.flush.flop-turn}} de los casos. Con una mano fuerte frente a {{t:draw|proyectos}} en un flop así, {{t:bet|apuestas}} con un tamaño mayor."

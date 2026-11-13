@@ -1,0 +1,22 @@
+# sc-25: Japanese text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-25
+module: m8
+situation: "リバーであなたは{{t:second-pair|セカンドペア}}を持ってボタンにいて、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}します。相手は{{t:raise|レイズ}}しないと仮定します：AA、KK、そしてすべてのAK、AQ、KQで{{t:call|コール}}し、すべてのQJ、JTで{{t:fold|フォールド}}します。{{t:bet|ベット}}しますか、それとも{{t:check|チェック}}しますか？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手はリバーで{{t:check|チェック}}しています。{{t:check|チェック}}して無料で{{t:showdown|ショーダウン}}に進むのは、{{t:call|コール}}するハンドの大半があなたより強いハンドだからです：強いハンドによる{{t:call|コール}}はそれぞれ{{t:bet|ベット}}一回分を負け、弱いハンドによる{{t:call|コール}}は一回分しか勝ちません。{{t:check|チェック}}すれば、相手の弱いハンドすべてに対して{{t:pot|ポット}}を勝ちます。"
+      - action: "bet"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手はリバーで{{t:check|チェック}}しています。{{t:bet|ベット}}は損をします：{{t:call|コール}}するハンドの大半はあなたより強いハンドで、{{t:fold|フォールド}}するハンドはどのみち{{t:showdown|ショーダウン}}であなたに勝てなかったハンドです。こうして{{t:bet|ベット}}は、{{t:showdown|ショーダウン}}で価値のあるハンドを{{t:bluff|ブラフ}}に変えてしまいます。"

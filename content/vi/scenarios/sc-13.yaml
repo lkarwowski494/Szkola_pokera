@@ -1,0 +1,22 @@
+# sc-13: Vietnamese text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-13
+module: m5
+situation: "Bạn đã {{t:open|mở cược}} từ Button, {{t:big-blind|big blind}} đã {{t:call|theo}}. Trên flop có hai lá cùng một chất, và bạn có tay bài mạnh: {{t:top-pair|đôi cao nhất}} với {{t:kicker|kicker}} tốt hoặc mạnh hơn. Đối thủ {{t:check|check}} và có thể có {{t:flush-draw|bài chờ thùng}}. Bạn chọn kích thước {{t:bet|cược}} nào?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} có thể có {{t:flush-draw|bài chờ thùng}}. Bạn {{t:bet|cược}} lớn, vì các {{t:draw|bài chờ}} của đối thủ có nhiều equity, nên một khoản {{t:bet|cược}} lớn buộc chúng phải trả giá đắt cho lá bài tiếp theo. {{t:flush-draw|Bài chờ thùng}} trúng ở turn trong khoảng {{n:odds.flush.flop-turn}} trường hợp, còn với khoản {{t:bet|cược}} bằng hai phần ba {{t:pot|pot}}, giá cho lá bài tiếp theo ({{n:eq.bet-two-thirds}} equity) cao hơn cơ hội trúng lá đó của nó."
+      - action: "bet-small"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} có thể có {{t:flush-draw|bài chờ thùng}}. Một khoản {{t:bet|cược}} nhỏ cho {{t:draw|bài chờ}} một mức giá tốt: với khoản {{t:bet|cược}} bằng một phần tư {{t:pot|pot}}, nó cần {{n:eq.bet-quarter}} equity là đủ, trong khi ở turn nó trúng trong khoảng {{n:odds.flush.flop-turn}} trường hợp. Với tay bài mạnh trước các {{t:draw|bài chờ}} trên flop như vậy, bạn {{t:bet|cược}} với kích thước lớn hơn."

@@ -1,0 +1,22 @@
+# sc-29: Vietnamese text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "Ở river bạn có {{t:top-pair|đôi cao nhất}}, bạn ở Button, còn {{t:big-blind|big blind}} {{t:check|check}}. Đối thủ là một {{t:recreational|người chơi giải trí}} thụ động: {{t:vpip|VPIP}} từ khoảng {{n:hud.vpip.loose}}, còn {{t:pfr|PFR}} thấp hơn nó trên {{n:hud.gap.passive}} điểm. Giả sử họ không {{t:raise|tố}}: họ sẽ {{t:call|theo}} với JJ, TT và mọi tổ hợp AK, AQ, AJ, AT, KQ, KJ, QJ và JT, và sẽ {{t:fold|bỏ bài}} với mọi tổ hợp KT và QT. Bạn {{t:bet|cược}} hay {{t:check|check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. Bạn {{t:bet|cược}} {{t:value|lấy giá trị}}, vì đối thủ này ở đây cũng {{t:call|theo}} bằng các tay yếu hơn: trong số các tay sẽ {{t:call|theo}}, tay yếu hơn tay bạn nhiều hơn tay mạnh hơn (hòa thì chia {{t:pot|pot}} và không làm thay đổi phép tính). Trước một {{t:recreational|người chơi giải trí}} thụ động, bạn cược {{t:value|lấy giá trị}} với nhiều tay hơn, kể cả tay mỏng hơn."
+      - action: "check"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. {{t:check|Check}} ở đây là bỏ lỡ giá trị: trong số các tay sẽ {{t:call|theo}}, tay yếu hơn tay bạn nhiều hơn tay mạnh hơn (hòa thì chia {{t:pot|pot}} và không làm thay đổi phép tính), nên một khoản {{t:bet|cược}} thắng từ chúng nhiều hơn mức thua trước các tay mạnh hơn. Trước một {{t:recreational|người chơi giải trí}} thụ động, bạn cược {{t:value|lấy giá trị}} với nhiều tay hơn, kể cả tay mỏng hơn."

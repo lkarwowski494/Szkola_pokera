@@ -27,8 +27,10 @@ describe('D-1461: cena ⅔ puli', () => {
 });
 
 describe('D-1490: lista liczb zarezerwowanych pod treść', () => {
-  it('klucze D-1461 są na liście (build nie zgłasza ich jako nieużywanych), a lista nie trzyma liczb już użytych ani nieistniejących', () => {
-    for (const k of ['ex.frac.two-thirds', 'ex.bet.two-thirds', 'eq.bet-two-thirds']) expect(LICZBY_ZAREZERWOWANE).toHaveProperty(k);
+  // HA (D-1562): SC-13 weszło do content/ z {{n:eq.bet-two-thirds}} (refs: ex.bet.two-thirds, ex.frac.two-thirds), więc wpisy D-1461 wygasły
+  it('klucze D-1461 są użyte w SC-13 i nie ma ich na liście, a lista nie trzyma liczb już użytych ani nieistniejących', () => {
+    for (const k of ['ex.frac.two-thirds', 'ex.bet.two-thirds', 'eq.bet-two-thirds']) expect(LICZBY_ZAREZERWOWANE).not.toHaveProperty(k);
+    for (const j of ['pl', 'en']) expect(readFileSync(join(resolve(import.meta.dirname, '../../..'), 'content', j, 'scenarios', 'sc-13.yaml'), 'utf8')).toContain('{{n:eq.bet-two-thirds}}');
     for (const k of Object.keys(LICZBY_ZAREZERWOWANE)) expect(raw).toHaveProperty(k);
     expect(content.warnings.filter((w) => /nie jest nigdzie używana|jest już używana/.test(w))).toEqual([]);
   });
