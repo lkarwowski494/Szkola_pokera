@@ -266,6 +266,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         pozycjaTy={s.szablon.positions.hero}
         pozycjaRywal={s.szablon.positions.villain}
         stosBb={s.szablon.stackBb}
+        formatBb={(x) => formatujLiczbe(x, jezykZadan())}
       />
       )}
       {d.point === 'list-hand' ? <Text testID="list-hand-sytuacja" style={[styl.tresc, { color: tk.ink }]}>{s.szablon.situation}</Text> : null}

@@ -101,3 +101,9 @@ Tests:       8 passed, 8 total
 # FW-01 (GB): render zdania zakresu river-value
 ## Czerwień przed kodem (fv-fw-river-value.test.tsx, 3 nowe testy): „Received string: … BB: czeka (check) Twój ruch …” bez zdania „Na zakład rywal sprawdza z: …” — Tests: 3 failed | 3 passed (6)
 ## Po kodzie: Tests: 6 passed (6)
+
+# KO-102 (GB): stos w wierszu stołu przez formatujLiczbe
+## Czerwień przed kodem (gb-stol-stos-ko102.test.tsx, prawdziwa ścieżka ekranu):
+##   pl: Expected substring: "BB · rywal · 12,5 bb" / Received: "… BB · rywal · 12.5 bb … BTN · ty · 12.5 bb … Przebicie (raise) do 2,5 bb"
+##   de: Received: "… BB · Gegner · 12.5 bb … BTN · du · 12.5 bb …"  → Tests: 2 failed, 2 passed (4)
+## Po kodzie (formatBb z ekranu, jak TurniejIcm): Tests: 4 passed (4); cały katalog scenariusz: 35 plików, 387 testów zielonych
