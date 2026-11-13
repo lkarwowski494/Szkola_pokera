@@ -1,0 +1,6 @@
+# Decyzje sesji HG (07-jakosc, build: WG-19, test czasowy build.test.ts, 07-jakosc-001); pula D-1620…D-1629
+Kto: A = agent (delegacja z `CLAUDE.md`); wszystkie do weta właściciela przez koordynatora. Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/HG.md` @ 6ccb1f90. Analogia z Treningiem (D-191): `lkarwowski494/trening` @ 2d97581, odczyt 2026-11-13.
+
+| ID | Data | Kto | Decyzja | Odrzucone | Podstawa | Zależy od |
+|---|---|---|---|---|---|---|
+| D-1620 | 2026-11-13 | A | WG-19: `e2e-ios.yml` na push tylko `main` i gałąź robocza `claude/sleepy-brahmagupta-2065nu` (lista bez wzorców); `integration/**` i `claude/**` usunięte; ręcznie `workflow_dispatch` (ref z formularza GitHuba), `workflow_call` z nocnego bez zmian. Kroki, progi i limity E2E bez zmian. Test `workflowy.test.mjs` „push tylko na main i gałęzi roboczej” (czerwony przed zmianą). Zmiana gałęzi roboczej wymaga zmiany listy i stałej `GALAZ_ROBOCZA` w teście | (a) `branches-ignore: ['claude/sesja-*']` — nowa konwencja nazw gałęzi znów uruchomiłaby E2E; (b) zostawić `claude/**` — ok. 40 min macOS na każdy push sesji bez sygnału | Trening `.github/workflows/e2e-ios.yml:18-19` (push `[main, 'integration/**']`, gałąź integracyjna = robocza); dowód `docs/jakosc/dowody/hg-wg19.txt` | D-170, D-194 |

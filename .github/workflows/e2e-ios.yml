@@ -19,8 +19,10 @@ name: E2E iOS (symulator)
 # Bez wejścia tytuł jest stały (wzór Trening e2e-ios.yml:15, odczyt 2026-11-08); commit widać w kolumnie przebiegu.
 run-name: ${{ inputs.aplikacja_z_przebiegu != '' && 'E2E iOS · aplikacja z innego przebiegu' || 'E2E iOS (symulator)' }}
 on:
+  # WG-19 (D-1620, 2026-11-13): push tylko main i gałąź robocza; gałęzie sesji (claude/sesja-*) bez E2E, ręcznie przez
+  # workflow_dispatch z wyborem ref (zastępuje „push także na claude/**” z D-194 i integration/** z D-170).
   push:
-    branches: [main, 'integration/**', 'claude/**']
+    branches: [main, 'claude/sleepy-brahmagupta-2065nu']
     paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**', 'store/**'] # store/: tekst sklepu, nie wchodzi do aplikacji (D-327)
   workflow_dispatch:
     inputs:

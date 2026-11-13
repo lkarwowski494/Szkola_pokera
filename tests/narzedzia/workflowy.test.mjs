@@ -405,3 +405,20 @@ test('ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-erro
   assert.ok(c.steps[0].run.includes(`length == ${czesci.length} and (to_entries | all(.value.result == "success"))`), 'jq -e: liczba części i wynik success każdej');
   assert.match(c.steps[0].run, /jq -e /);
 });
+
+// WG-19 (HG, D-1620): E2E na push tylko na gałęzi roboczej i main; gałęzie sesji (`claude/sesja-*`) bez E2E (~40 min runnera
+// macOS na każdy push sesji). Ręcznie: workflow_dispatch (ref wybierany w formularzu GitHuba). Wzór: Trening e2e-ios.yml:18–19
+// (push tylko main i gałąź integracyjna, odczyt 2026-11-13 @ 2d97581). Zmiana gałęzi roboczej = zmiana tej listy i tego testu.
+export const GALAZ_ROBOCZA = 'claude/sleepy-brahmagupta-2065nu';
+export const pasujeDoWzorca = (wzorzec, galaz) =>
+  new RegExp(`^${wzorzec.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*\*/g, '\u0000').replace(/\*/g, '[^/]*').replace(/\u0000/g, '.*')}$`).test(galaz);
+test('e2e-ios.yml: push tylko na main i gałęzi roboczej (bez wzorców), ręcznie przez workflow_dispatch; gałęzie sesji bez E2E', () => {
+  const on = json('e2e-ios.yml').on;
+  assert.deepEqual([...on.push.branches].sort(), [GALAZ_ROBOCZA, 'main'].sort());
+  assert.equal(on.push['branches-ignore'], undefined);
+  for (const g of ['claude/sesja-hg-ci', 'claude/sesja-gf-e2e', 'integration/x', 'claude/inna'])
+    assert.ok(!on.push.branches.some((w) => pasujeDoWzorca(w, g)), `push na ${g} uruchomiłby E2E`);
+  assert.ok('workflow_dispatch' in on, 'ręczne uruchomienie (wybór ref w formularzu)');
+  assert.ok('workflow_call' in on, 'nocny.yml woła E2E');
+  assert.equal(on.pull_request, undefined, 'bez pull_request (D-170)');
+});
