@@ -30,6 +30,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **07:35 właściciel: „Zgoda na zmiany zgodne z rekomendacją”** (odpowiedź na wybór podział vs limit 25) → KO-101 przyjęte: podział joba check (FZ) kontynuowany.
 - **07:30 właściciel: „Zgoda na dołączenie repo trening”** → repo publiczne, odczyt przez klon `--depth 1` w /home/user/lkarwowski494/trening @ 2d97581 (add_repo: read_available). KO-101 uzupełnione o analogię częściową (Trening tests.yml:20 — jeden job, limit 60 min); decyzja bez zmian (zasada 7).
 - **07:25 poprzednik session_01T66VBwwWmwpSWFhjnLZ7Jx zarchiwizowany przez właściciela** (get_session: ARCHIVED; koszt 11,34 USD, kontekst 15,7%). Aktywne: FZ.
 - **07:16 FZ wystartowała:** session_01T66VBzAEJsLSiR29aM7mBj (07 build, opus, env_0166YQ…, `claude/sesja-fz-ci` od robocza, polecenie FZ.md @ 79f6b570); prompt przez subagenta, cmp identyczny 68832 B, bez znaków niewidocznych. **Archiwizacja poprzednika session_01T66VBwwWmwpSWFhjnLZ7Jx:** właściciel 07:15 polecił zarchiwizować niedziałające sesje Szkoły Pokera → archive_session **odrzucone klasyfikatorem trybu auto**; właściciel poinformowany (archiwizuje ręcznie albo reguła uprawnień). Poprzednik wyłączył swoją linię 14:00 (trig_017nTtmGCUGeRuLyeVT3hJGA, enabled=false). Kontrola 07:39.
