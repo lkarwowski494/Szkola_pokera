@@ -1,0 +1,10 @@
+# Zachowanie check przy anulowaniu przez concurrency (cancel-in-progress na claude/**). Odczyt: MCP GitHub list_workflow_jobs, 2026-11-13.
+Przebieg 43393756431 (push d3a1c724, 08:30:32) anulowany pushem 7a303993 (przebieg 43394042554, 08:32:43): conclusion cancelled
+- ci-kontrole: cancelled (krok content:check cancelled 08:32:56; tresci:rejestr, tresci:el-kontrola skipped)
+- ci-testy-silnik: cancelled (preflop-solver cancelled)
+- ci-testy-tresci: cancelled
+- ci-testy-aplikacja: success (skończył 08:32:17, przed anulowaniem)
+- rachunki, akceptacja: success
+- check (131780663452): uruchomiony 08:33:02 MIMO anulowania (if: always()), krok „Wszystkie części CI zielone”: failure → job failure
+Wniosek: superseded commit dostaje czerwony status check (nie szary); bramka bezpieczna (nie zielona), szum wizualny.
+kod: nie dotyczy (wynik przebiegu CI)

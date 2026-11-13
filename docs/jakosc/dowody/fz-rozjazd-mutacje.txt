@@ -1,0 +1,60 @@
+# FZ: test rozjazdu ci.yml ↔ package.json ci — czerwień na celowych mutacjach (2026-11-13, baza 83ec896)
+# Komenda: node --test tests/narzedzia/workflowy.test.mjs; każda mutacja cofnięta git checkout przed następną.
+
+## M1: usunięta komenda pnpm tresci:el-kontrola z ci.yml (jest tylko w package.json)
+ 1 file changed, 1 deletion(-)
+EXIT=1
+not ok 26 - ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+# pass 26
+# fail 1
+    +   'pnpm tresci:el-kontrola: package.json ci ×1, części CI ×0'
+
+## M2: usunięty pakiet srs z części testów (pnpm test nie w pełni rozpisany)
+ 1 file changed, 1 deletion(-)
+EXIT=1
+not ok 26 - ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+# pass 26
+# fail 1
+    +   'pnpm test rozpisany niezgodnie z pakietami z testami: brak [@szkola/srs], nadmiar/dubel []'
+
+## M3: komenda dopisana tylko w package.json ci
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+EXIT=1
+not ok 26 - ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+# pass 26
+# fail 1
+    +   'pnpm test:akceptacja: package.json ci ×1, części CI ×0'
+
+## M4: komenda zdublowana w CI (k08 w dwóch częściach)
+ 1 file changed, 1 insertion(+)
+EXIT=1
+not ok 26 - ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+# pass 26
+# fail 1
+    +   'pnpm k08: package.json ci ×1, części CI ×2'
+
+## M5: check bez if: always()
+ 1 file changed, 1 deletion(-)
+EXIT=1
+not ok 27 - ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success
+# pass 26
+# fail 1
+
+## M6: continue-on-error w części
+ 1 file changed, 1 insertion(+)
+EXIT=1
+not ok 27 - ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success
+# pass 26
+# fail 1
+
+## M7: podniesiony limit części do 20 min
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+EXIT=1
+not ok 27 - ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success
+# pass 26
+# fail 1
+
+## Po cofnięciu mutacji
+# pass 27
+# fail 0
+git status: 0 zmian

@@ -18,11 +18,14 @@ concurrency:
   cancel-in-progress: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
 
 jobs:
-  check:
+  # FZ (D-1520, KO-101): `pnpm run ci` podzielone na równoległe części, które łącznie wykonują dokładnie komendy skryptu `ci`
+  # z package.json; `pnpm test` (`pnpm -r --if-present test`) rozpisane na pakiety. Zgodność pilnuje
+  # tests/narzedzia/workflowy.test.mjs („ci.yml: części check…”). Lokalnie dalej `pnpm run ci` (jedna komenda).
+  ci-kontrole:
+    # typy, skrypty, kontrole, K-08 (informacyjnie), i18n, treść, rejestr (CI ac2ed2e3: ok. 2 min)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      # najniższe wersje główne działające na Node 24 (pnpm/action-setup v5: pnpm 10 z pola packageManager)
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
@@ -32,9 +35,83 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      # typy, testy (silnik, powtórki, treść, aplikacja), skrypty (K-07, K-08, flowy E2E, hook), i18n, treść, rejestr;
-      # `pnpm run ci`, bo samo `pnpm ci` to zarezerwowane, niezaimplementowane polecenie pnpm
-      - run: pnpm run ci
+      - run: pnpm typecheck
+      - run: pnpm test:skrypty
+      - run: pnpm test:kontrole
+      - run: pnpm k08
+      - run: pnpm i18n:kod
+      - run: pnpm content:check
+      - run: pnpm tresci:rejestr
+      - run: pnpm tresci:el-kontrola
+
+  ci-testy-tresci:
+    # najdłuższa część: testy budowania treści (CI ac2ed2e3: 382 s; rośnie z liczbą języków)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @szkola/content-build test
+
+  ci-testy-silnik:
+    # silnik i solver (CI ac2ed2e3: 135 s + 52 s)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @szkola/poker-core test
+      - run: pnpm --filter @szkola/preflop-solver test
+
+  ci-testy-aplikacja:
+    # aplikacja i pakiety domeny (CI ac2ed2e3: 75 s + ok. 25 s)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @szkola/mobile test
+      - run: pnpm --filter @szkola/domena test
+      - run: pnpm --filter @szkola/postep test
+      - run: pnpm --filter @szkola/srs test
+      - run: pnpm --filter @szkola/jezyki test
+
+  check:
+    # Nazwa zachowana (może być wymaganym statusem). `if: always()`, bo zadanie pominięte po porażce części liczy się
+    # w wymaganych statusach jak sukces; tu każda część musi mieć wynik success (porażka, anulowanie, pominięcie = czerwone).
+    # Wzór agregacji przez needs + always(): Trening nightly.yml:141–142 (odczyt 2026-11-13).
+    needs: [ci-kontrole, ci-testy-tresci, ci-testy-silnik, ci-testy-aplikacja]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Wszystkie części CI zielone
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: |
+          echo "$NEEDS_JSON" | jq -r 'to_entries[] | "\(.key): \(.value.result)"'
+          echo "$NEEDS_JSON" | jq -e 'length == 4 and (to_entries | all(.value.result == "success"))' > /dev/null
 
   rachunki:
     # D-173 (JAK-E1-02): 3 rachunki niezależne liczb z treści (167 sprawdzeń). Bramka od 2026-11-07: pierwszy przebieg

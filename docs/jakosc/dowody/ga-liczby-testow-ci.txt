@@ -1,0 +1,94 @@
+# Liczby testów z logów CI (zip logów pobrany przez get_workflow_run_logs_url, 2026-11-13). Filtr: grep linii podsumowań vitest/jest/node --test.
+## Przebieg 43337711819 (ac2ed2e3, stary job check, krok 'pnpm run ci' 00:31:39–00:44:07 = 12 min 28 s, limit 15)
+Scope: all 10 workspace projects
+> szkola-pokera@ ci /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ typecheck /home/runner/work/Szkola_pokera/Szkola_pokera
+Scope: 9 of 10 workspace projects
+> szkola-pokera@ test /home/runner/work/Szkola_pokera/Szkola_pokera
+Scope: 9 of 10 workspace projects
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  37 passed (37)
+packages/poker-core test:       Tests  310 passed (310)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  76 passed (76)
+tools/content-build test:       Tests  748 passed | 1 expected fail (749)
+apps/mobile test: Test Suites: 137 passed, 137 total
+apps/mobile test: Tests:       1395 passed, 1395 total
+> szkola-pokera@ test:skrypty /home/runner/work/Szkola_pokera/Szkola_pokera
+# tests 202
+# pass 202
+# fail 0
+> szkola-pokera@ test:kontrole /home/runner/work/Szkola_pokera/Szkola_pokera
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+> szkola-pokera@ k08 /home/runner/work/Szkola_pokera/Szkola_pokera
+K-08: pakiety natywne 40, z manifestem 7, trafienia w kodzie bez manifestu 53
+> szkola-pokera@ i18n:kod /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ content:check /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ tresci:rejestr /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ tresci:el-kontrola /home/runner/work/Szkola_pokera/Szkola_pokera
+
+## Przebieg 43389167128 (fb4e6e0f, 4 części + check; całość 07:54:56–08:03:03)
+-- 0_check.txt
+ci-kontrole: success
+ci-testy-tresci: success
+ci-testy-silnik: success
+ci-testy-aplikacja: success
+-- 1_akceptacja.txt
+> szkola-pokera@ test:akceptacja /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ test:akceptacja:domena /home/runner/work/Szkola_pokera/Szkola_pokera
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+> szkola-pokera@ test:akceptacja:ekrany /home/runner/work/Szkola_pokera/Szkola_pokera
+-- 2_ci-testy-aplikacja.txt
+> @szkola/mobile@1.0.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/apps/mobile
+Test Suites: 137 passed, 137 total
+Tests:       1395 passed, 1395 total
+> @szkola/domena@0.1.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/packages/domena
+ Test Files  27 passed (27)
+      Tests  347 passed | 1 expected fail (348)
+> @szkola/postep@0.1.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/packages/postep
+ Test Files  21 passed (21)
+      Tests  160 passed (160)
+> @szkola/srs@0.1.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/packages/srs
+ Test Files  3 passed (3)
+      Tests  21 passed (21)
+> @szkola/jezyki@0.1.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/packages/jezyki
+ Test Files  6 passed (6)
+      Tests  144 passed (144)
+-- 3_ci-testy-silnik.txt
+> @szkola/poker-core@0.1.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/packages/poker-core
+ Test Files  37 passed (37)
+      Tests  310 passed (310)
+> @szkola/preflop-solver@0.1.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/tools/preflop-solver
+ Test Files  9 passed (9)
+      Tests  44 passed (44)
+-- 4_rachunki.txt
+-- 5_ci-testy-tresci.txt
+> @szkola/content-build@0.1.0 test /home/runner/work/Szkola_pokera/Szkola_pokera/tools/content-build
+ Test Files  76 passed (76)
+      Tests  748 passed | 1 expected fail (749)
+-- 6_ci-kontrole.txt
+> szkola-pokera@ typecheck /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ test:skrypty /home/runner/work/Szkola_pokera/Szkola_pokera
+# tests 204
+# pass 204
+# fail 0
+> szkola-pokera@ test:kontrole /home/runner/work/Szkola_pokera/Szkola_pokera
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+> szkola-pokera@ k08 /home/runner/work/Szkola_pokera/Szkola_pokera
+K-08: pakiety natywne 40, z manifestem 7, trafienia w kodzie bez manifestu 53
+> szkola-pokera@ i18n:kod /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ content:check /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ tresci:rejestr /home/runner/work/Szkola_pokera/Szkola_pokera
+> szkola-pokera@ tresci:el-kontrola /home/runner/work/Szkola_pokera/Szkola_pokera
+kod 0
