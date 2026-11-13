@@ -82,7 +82,7 @@ disconnected: "déconnecté"  # disconnected; bez formy 0; formy: déconnecté×
 semi-connected: "semi-connecté"  # semi-connected; bez formy 0; formy: semi-connecté×5, semi-connectés×1, Semi-connecté×1; źr. brak [DO USTALENIA]
 wetness: "humidité"  # wetness; bez formy 0; formy: humidité×5; źr. brak [DO USTALENIA]
 top-pair: "top paire"  # top pair; bez formy 3; formy: top paire×74, Top paire×3, top paires×3, paires les plus hautes×1, Top paires×1; źr. A:Top-paire [WIELE FORM]
-second-pair: "deuxième paire"  # second pair; bez formy 0; formy: deuxième paire×9; źr. A:Middle-pair („middle paire”) [DO USTALENIA]
+second-pair: "deuxième paire"  # second pair; bez formy 0; formy: deuxième paire×9; źr. A:Middle-pair („middle paire”); HF D-1612: pokerstrategy.com/fr/glossary/Middle-pair, odczyt 2026-11-13: „on parle de middle paire lorsqu'un joueur à une paire entre une des cartes de sa main de départ et la deuxième carte ou une des cartes du milieu” — pojęcie potwierdzone, nazwa „deuxième paire” (kalka) bez źródła [DO USTALENIA, lista do recenzji]
 overpair: "overpaire"  # overpair; bez formy 0; formy: overpaire×9, overpairs×1; źr. A:Overpair („overpair”)
 c-bet: "c-bet"  # c-bet; bez formy 0; formy: c-bet×2; źr. A:Continuation-bet („continuation bet”)
 aggressor: "agresseur"  # aggressor; bez formy 0; formy: agresseur×10; źr. A:Agresseur

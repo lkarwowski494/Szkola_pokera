@@ -83,7 +83,7 @@ disconnected: "sconnesso"  # disconnected; r. m; bez formy 2; formy: sconnesso×
 semi-connected: "semi-connesso"  # semi-connected; r. m; bez formy 0; formy: semi-connesso×5, semi-connessi×1, Semi-connesso×1; źr. brak; [DO USTALENIA]
 wetness: "bagnatura"  # wetness; r. f; bez formy 0; formy: bagnatura×3, umidità×2; źr. brak (C:Texture_1952 „coordinato”); tłumacz bagnatura×3, umidità×2 [WIELE FORM] [DO USTALENIA]
 top-pair: "top pair"  # top pair; r. f; bez formy 24; formy: coppia massima×34, top pair×21, Top pair×4, coppie massime×1; źr. C:Top-Pair („una top pair è una coppia”); tłumacz „coppia massima”×35 — brak w źródłach [WIELE FORM]
-second-pair: "seconda coppia"  # second pair; r. f; bez formy 0; formy: seconda coppia×9; źr. brak (C:Middle-pair „middle pair”); [DO USTALENIA]
+second-pair: "seconda coppia"  # second pair; r. f; bez formy 0; formy: seconda coppia×9; źr. brak (C:Middle-pair „middle pair”); HF D-1612: pokerstrategy.com/it/glossary/Middle-pair, odczyt 2026-11-13: „una coppia formata da una delle carte del giocatore e dalla seconda carta comune più alta o carta comune centrale, viene definita middle pair” — pojęcie potwierdzone, nazwa „seconda coppia” (kalka) bez źródła [DO USTALENIA, lista do recenzji]
 overpair: "overpair"  # overpair; r. f; bez formy 9; formy: overpair×1; źr. C:Pair (odnośnik „Overpair”); bez formy „un'{{t:overpair}}” 7× — wymaga ż.
 c-bet: "c-bet"  # c-bet; r. f; bez formy 0; formy: c-bet×2; źr. C:Continuation-Bet („continuation bet , una puntata continuativa”)
 aggressor: "aggressore"  # aggressor; r. m; bez formy 3; formy: aggressore×7; źr. C:Float („l´aggressore viene soltanto visto”)
