@@ -1,0 +1,9 @@
+# komenda: node docs/design/narzedzia/kontrast.mjs docs/design/dowody/hh-kontrast.json (motyw jasny; kolory z drzewa render pl-mix-ocena-call)
+OK   15.49:1 (min 4.5) zdanie zakresu (tk.ink) na tle ekranu #0A1430 na #E9EDF5
+OK   6.30:1 (min 4.5) dziennik, etykieta ulicy (tk.muted) na tle #46557A na #E9EDF5
+OK   18.17:1 (min 4.5) pasek ocen: nazwa akcji na tk.surface #0A1430 na #FFFFFF
+OK   6.20:1 (min 4.5) pasek ocen: twój wybór (goldOnBg) na tk.surface #7E5B0C na #FFFFFF
+OK   6.45:1 (min 4.5) werdykt: tekst na suknie #FFFDF7 na #23694D
+BRAK 1.87:1 (min 3) obwódka wyboru (gold) do tła segmentu, element UI #E2B850 na #FFFFFF
+BRAK 1.53:1 (min 3) obwódka segmentu (separator) do tła, element UI #C9D1E3 na #FFFFFF
+# kod wyjścia: 1

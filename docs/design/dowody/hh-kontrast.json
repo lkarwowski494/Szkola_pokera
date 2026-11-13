@@ -1,0 +1,7 @@
+{"zdanie zakresu (tk.ink) na tle ekranu": ["#0A1430", "#E9EDF5"],
+ "dziennik, etykieta ulicy (tk.muted) na tle": ["#46557A", "#E9EDF5"],
+ "pasek ocen: nazwa akcji na tk.surface": ["#0A1430", "#FFFFFF"],
+ "pasek ocen: twój wybór (goldOnBg) na tk.surface": ["#7E5B0C", "#FFFFFF"],
+ "werdykt: tekst na suknie": ["#FFFDF7", "#23694D"],
+ "obwódka wyboru (gold) do tła segmentu, element UI": ["#E2B850", "#FFFFFF", 3],
+ "obwódka segmentu (separator) do tła, element UI": ["#C9D1E3", "#FFFFFF", 3]}
