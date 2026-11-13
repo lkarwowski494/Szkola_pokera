@@ -1,0 +1,14 @@
+# komenda: cp docs/tresci/narzedzia/hd-remisy.ts tools/content-build/.hd-tmp/ && (cd tools/content-build && npx tsx .hd-tmp/hd-remisy.ts) @ 0d59a42, 2000 ziaren
+sc-22 ziarno 11: gracz Jc Kc stół 2c 3h Kd Qd 7c | sprawdzające W=24 L=14 T=0 | pasujące gorsze=21 remis=6
+sc-22 ziarno 14: gracz Js Kh stół Kd 4s 4h 7c 7h | sprawdzające W=28 L=16 T=0 | pasujące gorsze=24 remis=6
+sc-22 ziarno 17: gracz Kc Jc stół 3h Kd 6s 6h 7d | sprawdzające W=28 L=16 T=0 | pasujące gorsze=24 remis=6
+sc-22: warianty z remisem wśród pasujących 521/2000
+sc-25 ziarno 4: gracz Qh 2h stół Kh Qs 4c 8s 8d | sprawdzające W=0 L=35 T=0 | pasujące gorsze=16 remis=8
+sc-25 ziarno 7: gracz Qd Jh stół Qh 7c 8s 6h Kh | sprawdzające W=0 L=35 T=0 | pasujące gorsze=12 remis=6
+sc-25 ziarno 8: gracz 2c Qd stół Jd 8d Qc Ad Ac | sprawdzające W=0 L=27 T=0 | pasujące gorsze=12 remis=6
+sc-25: warianty z remisem wśród pasujących 575/2000; EV(bet) > EV(check) przy zakładzie 1/2 puli: 9, przy zakładzie = pula: 0, przy 1/4 puli: 152; najmniejszy zakład (ułamek puli), od którego czekanie jest lepsze we wszystkich wariantach: 0.533
+sc-29 ziarno 17: gracz Qd Tc stół 2s Qc 5s 3h 5d | sprawdzające W=81 L=24 T=0 | pasujące gorsze=12 remis=6
+sc-29 ziarno 19: gracz Kd Jh stół 9d 9c Kh Qh 6c | sprawdzające W=58 L=26 T=6 | pasujące gorsze=12 remis=8
+sc-29 ziarno 24: gracz Kd 9c stół Ks 2c Qc 4s 4d | sprawdzające W=84 L=14 T=8 | pasujące gorsze=12 remis=8
+sc-29: warianty z remisem wśród pasujących 293/2000
+kod 0

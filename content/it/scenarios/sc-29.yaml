@@ -1,0 +1,22 @@
+# sc-29: Italian text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "Al river hai una {{t:top-pair}}, sei sul Button e il {{t:big-blind}} fa {{t:check}}. L'avversario è un {{t:recreational|giocatore ricreativo}} passivo: {{t:vpip}} da circa {{n:hud.vpip.loose}}, e un {{t:pfr}} più basso di oltre {{n:hud.gap.passive}} punti. Supponi che non {{t:raise|rilanci}}: {{t:call|chiamerà}} con JJ, TT e con tutti gli AK, AQ, AJ, AT, KQ, KJ, QJ e JT, e {{t:fold|folderà}} con tutti i KT e QT. {{t:bet|Punti}} o fai {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} fa {{t:check}} al river. {{t:bet|Punti}} {{t:value|per valore}}, perché qui questo avversario {{t:call|chiama}} anche con mani più deboli: tra le mani che {{t:call|chiameranno}} quelle peggiori della tua sono più numerose di quelle migliori (un pareggio divide il {{t:pot}} e non cambia il calcolo). Contro un {{t:recreational|giocatore ricreativo}} passivo punti {{t:value|per valore}} con più mani, anche quelle più sottili."
+      - action: "check"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} fa {{t:check}} al river. Il {{t:check}} qui rinuncia a valore: tra le mani che {{t:call|chiameranno}} quelle peggiori della tua sono più numerose di quelle migliori (un pareggio divide il {{t:pot}} e non cambia il calcolo), quindi una {{t:bet|puntata}} vince da loro più di quanto perda contro quelle migliori. Contro un {{t:recreational|giocatore ricreativo}} passivo punti {{t:value|per valore}} con più mani, anche quelle più sottili."

@@ -81,6 +81,13 @@ Teksty nowych szablonów i szkiców składają się wyłącznie z pól `then`/`b
 - **Dla 08 (trwałe kontrole z 001 i 005, rekomendacja FS):** test w content-build: dla szablonu `river-value` z frazą „gorszych od twojej jest więcej niż lepszych” 0 wariantów z W ≤ L na 2000 ziarnach; dla klucza `scenario.numbers.defend` tekst zawiera zastrzeżenie flopu. Do tego czasu tę rolę pełni `ft-test.sh` (D-1475).
 - **Backlog (06-tresci-006, NIS, bez zmian w szkicu):** SC-29 — ręka gracza, dla której zakres sprawdzenia z SC-22 daje czekanie, a szeroki zakres SC-29 bet (np. `pairKind: [second]`), z rachunkiem pojemności na 1000 ziarnach. Wersja docelowa: następna fala treści M10 (06 build, fala 3–4, razem z poziomem Ś SC-29), nie blokuje wejścia SC-29 (D-1476). Zakres ćwiczenia: rola 03.
 
+## Sesja HA (2026-11-13, 06-tresci build; decyzje `docs/decyzje/HA.md` D-1560…D-1565)
+- **D-1495 przegląd:** 3 liczby D-1461 POPARTE (D-1560, `dowody/ha-d1495.txt`).
+- **SC-13, SC-22, SC-25, SC-28, SC-29 w `content/`** (pl, en + 10 przekładów agenta do przeglądu 09, D-1561, D-1564); dane generatora = szkice FQ/FT (`dowody/ha-szkice-vs-content.txt`); SC-13 z ceną `{{n:eq.bet-two-thirds}}` (D-1563, `dowody/ha-sc13-cena.txt`, 2000/2000). Szkice `szablony-robocze/fq/` zostają tylko jako wejście testów; źródło prawdy: `content/`.
+- **tools/:** odciski 5 szablonów (dopisane), `LICZBY_ZAREZERWOWANE` puste (D-1562), test `fv-d1461`. Czerwone przed: `dowody/ha-testy-przed.txt`.
+- **D-043:** `dowody/ha-bazy-d043.txt` (0 usuniętych ID, zmiana tylko `ord`). Kontrola przekładów: `narzedzia/ha-kontrola-przekladow.mjs` kod 0.
+- **Dla 09:** przegląd przekładów 5 szablonów × 10 języków (miejsca niepewne w raporcie HA: etykiety `second-pair`, `recreational` [DO USTALENIA] w `terms-nazwy`; ułamki słownie w ja/ko). **Dla 06 (E3):** niezależna weryfikacja treści SC-13/22/25/28/29 w `content/` przy najbliższym audycie.
+
 ## Otwarte
 - [DO USTALENIA] (produkt, 03): SC-23 tryb `showdown` (R-M8-006) jako drugi szablon M8 albo poziom — dziś jeden tryb na punkt.
 - [DO USTALENIA] (04): czy dziś pokazywać SC-23 bez zdań „Liczby” (V/F) — tekst wyjaśnienia jest kompletny bez nich.

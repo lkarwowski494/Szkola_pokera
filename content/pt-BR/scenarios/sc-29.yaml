@@ -1,0 +1,22 @@
+# sc-29: Brazilian Portuguese text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "No river você tem {{t:top-pair}}, está no Button, e o {{t:big-blind}} faz {{t:check}}. O adversário é um {{t:recreational}} passivo: {{t:vpip}} a partir de cerca de {{n:hud.vpip.loose}} e {{t:pfr}} mais de {{n:hud.gap.passive}} pontos abaixo. Suponha que ele não {{t:raise|aumenta}}: ele vai {{t:call|pagar}} com JJ, TT e com todos os AK, AQ, AJ, AT, KQ, KJ, QJ e JT e vai {{t:fold|largar}} todos os KT e QT. Você {{t:bet|aposta}} ou faz {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. Você {{t:bet|aposta}} {{t:value|por valor}}, porque aqui esse adversário {{t:call|paga}} também com mãos mais fracas: entre as mãos que vão {{t:call|pagar}}, as piores que a sua são mais numerosas que as melhores (um empate divide o {{t:pot}} e não muda o cálculo). Contra um {{t:recreational}} passivo, você aposta {{t:value|por valor}} com mais mãos, inclusive mais finas."
+      - action: "check"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no river. Fazer {{t:check}} aqui desperdiça valor: entre as mãos que vão {{t:call|pagar}}, as piores que a sua são mais numerosas que as melhores (um empate divide o {{t:pot}} e não muda o cálculo), então uma {{t:bet|aposta}} ganha mais delas do que perde para as melhores. Contra um {{t:recreational}} passivo, você aposta {{t:value|por valor}} com mais mãos, inclusive mais finas."

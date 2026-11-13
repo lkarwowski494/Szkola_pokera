@@ -1,0 +1,37 @@
+# komenda: diff <(grep -v '^#' szkic) <(grep -v '^#' content) dla pl i en, @ 0d59a42
+== pl/sc-13
+19c19
+<         explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo, bo {{t:draw|drawy}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę. {{t:flush-draw|Draw do koloru}} trafia na turnie w ok. {{n:odds.flush.flop-turn}} przypadków, a przy {{t:bet|zakładzie}} dwóch trzecich {{t:pot|puli}} cena za następną kartę jest wyższa niż jego szansa na nią."
+---
+>         explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo, bo {{t:draw|drawy}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę. {{t:flush-draw|Draw do koloru}} trafia na turnie w ok. {{n:odds.flush.flop-turn}} przypadków, a przy {{t:bet|zakładzie}} dwóch trzecich {{t:pot|puli}} cena za następną kartę ({{n:eq.bet-two-thirds}} equity) jest wyższa niż jego szansa na nią."
+diff kod 1
+== en/sc-13
+19c19
+<         explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big because your opponent's {{t:draw|draws}} have a lot of equity, so a big {{t:bet}} makes them pay a lot for the next card. A {{t:flush-draw}} hits on the turn about {{n:odds.flush.flop-turn}} of the time, and against a bet of two thirds of the {{t:pot}} the price of the next card is higher than its chance of hitting it."
+---
+>         explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big because your opponent's {{t:draw|draws}} have a lot of equity, so a big {{t:bet}} makes them pay a lot for the next card. A {{t:flush-draw}} hits on the turn about {{n:odds.flush.flop-turn}} of the time, and against a bet of two thirds of the {{t:pot}} the price of the next card ({{n:eq.bet-two-thirds}} equity) is higher than its chance of hitting it."
+diff kod 1
+== pl/sc-22
+diff kod 0
+== en/sc-22
+diff kod 0
+== pl/sc-25
+diff kod 0
+== en/sc-25
+diff kod 0
+== pl/sc-28
+diff kod 0
+== en/sc-28
+diff kod 0
+== pl/sc-29
+diff kod 0
+== en/sc-29
+19c19
+<         explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. You {{t:bet}} for {{t:value}} because here this opponent also {{t:call|calls}} with weaker hands: among the hands that will {{t:call}}, more are worse than yours than better (a tie splits the {{t:pot}} and doesn't change the math). Against a passive {{t:recreational|recreational player}} you value bet more hands, including thinner ones."
+---
+>         explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. You {{t:bet}} for {{t:value}} because here this opponent also {{t:call|calls}} with weaker hands: among the hands that will {{t:call}}, more are worse than yours than better (a tie splits the {{t:pot}} and doesn't change the math). Against a passive {{t:recreational|recreational player}} you {{t:bet}} more hands for {{t:value}}, including thinner ones."
+21c21
+<         explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. {{t:check|Checking}} gives up value here: among the hands that will {{t:call}}, more are worse than yours than better (a tie splits the {{t:pot}} and doesn't change the math), so a {{t:bet}} wins more from them than it loses to better ones. Against a passive {{t:recreational|recreational player}} you value bet more hands, including thinner ones."
+---
+>         explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:check|checks}} the river. {{t:check|Checking}} gives up value here: among the hands that will {{t:call}}, more are worse than yours than better (a tie splits the {{t:pot}} and doesn't change the math), so a {{t:bet}} wins more from them than it loses to better ones. Against a passive {{t:recreational|recreational player}} you {{t:bet}} more hands for {{t:value}}, including thinner ones."
+diff kod 1

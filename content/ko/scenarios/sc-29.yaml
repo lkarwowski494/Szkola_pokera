@@ -1,0 +1,22 @@
+# sc-29: Korean text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "리버에서 당신은 {{t:top-pair|탑 페어}}를 들고 버튼에 있고, {{t:big-blind|빅 블라인드}}가 {{t:check|체크}}합니다. 상대는 패시브한 {{t:recreational|레크리에이션 플레이어}}입니다: {{t:vpip|VPIP}} 수치는 약 {{n:hud.vpip.loose}}부터이고, {{t:pfr|PFR}} 수치는 그보다 {{n:hud.gap.passive}}포인트 넘게 낮습니다. 상대가 {{t:raise|레이즈}}하지 않는다고 가정하세요: JJ, TT와 모든 AK, AQ, AJ, AT, KQ, KJ, QJ, JT로는 {{t:call|콜}}하고, 모든 KT, QT로는 {{t:fold|폴드}}합니다. {{t:bet|베팅}}하겠습니까, {{t:check|체크}}하겠습니까?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:check|체크}}합니다. {{t:value|밸류}}를 위해 {{t:bet|베팅}}하는 이유는 이 상대가 여기서 더 약한 핸드로도 {{t:call|콜}}하기 때문입니다: {{t:call|콜}}할 핸드 중에서 당신보다 약한 핸드가 강한 핸드보다 많습니다(무승부는 {{t:pot|팟}}을 나누며 계산을 바꾸지 않습니다). 패시브한 {{t:recreational|레크리에이션 플레이어}}를 상대로는 더 얇은 핸드까지 포함해 더 많은 핸드로 {{t:value|밸류}} 베팅을 합니다."
+      - action: "check"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:check|체크}}합니다. 여기서 {{t:check|체크}}는 밸류를 포기합니다: {{t:call|콜}}할 핸드 중에서 당신보다 약한 핸드가 강한 핸드보다 많으므로(무승부는 {{t:pot|팟}}을 나누며 계산을 바꾸지 않습니다), {{t:bet|베팅}}은 그 핸드들에게서 강한 핸드에 잃는 것보다 더 많이 땁니다. 패시브한 {{t:recreational|레크리에이션 플레이어}}를 상대로는 더 얇은 핸드까지 포함해 더 많은 핸드로 {{t:value|밸류}} 베팅을 합니다."

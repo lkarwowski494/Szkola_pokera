@@ -1,0 +1,4 @@
+# HA: rachunek niezależny zdania SC-13 o cenie 2/3 (D-1563), content/pl/scenarios/sc-13.yaml, 2026-11-13
+# komenda: cp docs/tresci/narzedzia/ha-sc13-cena.ts tools/content-build/.ha-tmp/ && cd tools/content-build && npx tsx .ha-tmp/ha-sc13-cena.ts
+2000 wariantów: 0 błędów; najmniejszy odstęp cena − N/47 = 0.0942; największe N/45 = 0.2000; cena 2/7 = 0.2857
+kod wyjścia: 0

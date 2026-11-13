@@ -1,0 +1,22 @@
+# sc-22: German text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "Am River hast du {{t:top-pair|Top Pair}}, du sitzt am Button, und der {{t:big-blind}} {{t:check|checkt}}. Nimm an, dass dein Gegner nicht {{t:raise|raist}}: Er {{t:call|callt}} mit jedem AK, AQ, AJ und KQ und {{t:fold|foldet}} jedes KJ, QJ und JT. {{t:bet|Setzt}} du oder {{t:check|checkst}} du?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am River. Du {{t:bet|setzt}} {{t:value|auf Value}}, weil es unter den Händen, die {{t:call|callen}} werden, mehr schlechtere als deine gibt als bessere (ein Unentschieden teilt den {{t:pot}} und ändert die Rechnung nicht). Jeder {{t:call}} mit einer schlechteren Hand gewinnt eine {{t:bet}}, und jeder mit einer besseren verliert eine. Du zählst nur die Hände, die zahlen werden: Wenn dein Gegner eine schlechtere Hand {{t:fold|foldet}}, gewinnst du denselben {{t:pot}}, den du nach einem {{t:check}} gewonnen hättest."
+      - action: "check"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am River. {{t:check|Checken}} verschenkt hier Wert: Unter den Händen, die {{t:call|callen}} werden, gibt es mehr schlechtere als deine als bessere (ein Unentschieden teilt den {{t:pot}} und ändert die Rechnung nicht), also gewinnt eine {{t:bet}} von ihnen mehr, als sie gegen die besseren verliert. Die Hände, die {{t:fold|folden}} werden, zahlen die {{t:bet}} nicht, also zählst du sie in dieser Rechnung nicht."

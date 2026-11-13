@@ -1,0 +1,22 @@
+# sc-29: German text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "Am River hast du {{t:top-pair|Top Pair}}, du sitzt am Button, und der {{t:big-blind}} {{t:check|checkt}}. Dein Gegner ist ein passiver {{t:recreational}}: {{t:vpip}} ab etwa {{n:hud.vpip.loose}} und ein um mehr als {{n:hud.gap.passive}} Punkte niedrigerer {{t:pfr}}. Nimm an, dass er nicht {{t:raise|raist}}: Er {{t:call|callt}} mit JJ, TT und jedem AK, AQ, AJ, AT, KQ, KJ, QJ und JT und {{t:fold|foldet}} jedes KT und QT. {{t:bet|Setzt}} du oder {{t:check|checkst}} du?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am River. Du {{t:bet|setzt}} {{t:value|auf Value}}, weil dieser Gegner hier auch mit schwächeren Händen {{t:call|callt}}: Unter den Händen, die {{t:call|callen}} werden, gibt es mehr schlechtere als deine als bessere (ein Unentschieden teilt den {{t:pot}} und ändert die Rechnung nicht). Gegen einen passiven {{t:recreational|Freizeitspieler}} bettest du mehr Hände {{t:value|auf Value}}, auch dünnere."
+      - action: "check"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am River. {{t:check|Checken}} verschenkt hier Wert: Unter den Händen, die {{t:call|callen}} werden, gibt es mehr schlechtere als deine als bessere (ein Unentschieden teilt den {{t:pot}} und ändert die Rechnung nicht), also gewinnt eine {{t:bet}} von ihnen mehr, als sie gegen die besseren verliert. Gegen einen passiven {{t:recreational|Freizeitspieler}} bettest du mehr Hände {{t:value|auf Value}}, auch dünnere."

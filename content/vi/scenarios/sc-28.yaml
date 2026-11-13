@@ -1,0 +1,23 @@
+# sc-28: Vietnamese text of content/pl/scenarios/sc-28.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-28
+module: m9
+situation: "Bạn có {{t:overpair|overpair}}. Bạn đã {{t:bet|cược}} ở flop và turn, và {{t:big-blind|big blind}} lần nào cũng {{t:call|theo}}; ở river họ {{t:check|check}}. Giả sử đối thủ không {{t:raise|tố}}: họ sẽ {{t:call|theo}} với mọi tổ hợp AK, AQ, AJ, KQ, KJ và QJ, và sẽ {{t:fold|bỏ bài}} với mọi tổ hợp JT. Bạn cược {{t:value|lấy giá trị}} ở {{t:street|vòng cược}} thứ ba hay {{t:check|check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.2, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo, KJs, KJo, QJs, QJo]
+    folds: [JTs, JTo]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - action: "bet"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. Bạn {{t:bet|cược}} lần thứ ba, vì ở đây đối thủ trả tiền bằng các tay yếu hơn: trong số các tay sẽ {{t:call|theo}}, tay yếu hơn tay bạn nhiều hơn tay mạnh hơn (hòa thì chia {{t:pot|pot}} và không làm thay đổi phép tính). Mỗi lần bị {{t:call|theo}} bởi tay yếu hơn, bạn thắng một {{t:bet|cược}}, còn mỗi lần bị theo bởi tay mạnh hơn, bạn thua một; khi đối thủ {{t:fold|bỏ bài}} với tay yếu hơn, bạn thắng cùng một {{t:pot|pot}} mà bạn sẽ thắng nếu {{t:check|check}}."
+      - action: "check"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. {{t:check|Check}} ở đây là bỏ lỡ giá trị: trong số các tay sẽ {{t:call|theo}}, tay yếu hơn tay bạn nhiều hơn tay mạnh hơn (hòa thì chia {{t:pot|pot}} và không làm thay đổi phép tính), nên một khoản {{t:bet|cược}} thắng từ chúng nhiều hơn mức thua trước các tay mạnh hơn. Với {{t:overpair|overpair}}, bạn cược {{t:value|lấy giá trị}} ở {{t:street|vòng cược}} thứ ba khi đối thủ trả tiền bằng các tay yếu hơn, và ở đây đúng là như vậy."

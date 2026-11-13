@@ -1,0 +1,22 @@
+# sc-25: German text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-25
+module: m8
+situation: "Am River hast du {{t:second-pair|Second Pair}}, du sitzt am Button, und der {{t:big-blind}} {{t:check|checkt}}. Nimm an, dass dein Gegner nicht {{t:raise|raist}}: Er {{t:call|callt}} mit AA, KK und jedem AK, AQ und KQ und {{t:fold|foldet}} jedes QJ und JT. {{t:bet|Setzt}} du oder {{t:check|checkst}} du?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am River. Du {{t:check|checkst}} und gehst kostenlos zum {{t:showdown}}, weil die meisten Hände, die {{t:call|callen}} werden, besser als deine sind: Jeder {{t:call}} mit einer besseren Hand verliert eine {{t:bet}}, und einer mit einer schlechteren gewinnt nur eine. Nach einem {{t:check}} gewinnst du den {{t:pot}} gegen jede schlechtere Hand deines Gegners."
+      - action: "bet"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am River. Eine {{t:bet}} verliert: Die meisten Hände, die {{t:call|callen}} werden, sind besser als deine, und die Hände, die {{t:fold|folden}} werden, hätten dich beim {{t:showdown}} ohnehin nicht geschlagen. So macht eine {{t:bet}} aus einer Hand, die beim {{t:showdown}} Wert hat, einen {{t:bluff}}."

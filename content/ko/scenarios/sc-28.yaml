@@ -1,0 +1,23 @@
+# sc-28: Korean text of content/pl/scenarios/sc-28.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-28
+module: m9
+situation: "당신은 {{t:overpair|오버페어}}를 들고 있습니다. 플롭과 턴에서 {{t:bet|베팅}}했고, {{t:big-blind|빅 블라인드}}는 매번 {{t:call|콜}}했으며, 리버에서는 {{t:check|체크}}합니다. 상대가 {{t:raise|레이즈}}하지 않는다고 가정하세요: 모든 AK, AQ, AJ, KQ, KJ, QJ로는 {{t:call|콜}}하고, 모든 JT로는 {{t:fold|폴드}}합니다. 세 번째 {{t:street|스트리트}}에서 {{t:value|밸류}}를 얻겠습니까, {{t:check|체크}}하겠습니까?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.2, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo, KJs, KJo, QJs, QJo]
+    folds: [JTs, JTo]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - action: "bet"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:check|체크}}합니다. 세 번째로 {{t:bet|베팅}}하는 이유는 여기서 상대가 더 약한 핸드로 지불하기 때문입니다: {{t:call|콜}}할 핸드 중에서 당신보다 약한 핸드가 강한 핸드보다 많습니다(무승부는 {{t:pot|팟}}을 나누며 계산을 바꾸지 않습니다). 약한 핸드의 {{t:call|콜}}은 매번 {{t:bet|베팅}} 하나를 따고, 강한 핸드의 {{t:call|콜}}은 매번 하나를 잃습니다. 상대가 약한 핸드로 {{t:fold|폴드}}하면, {{t:check|체크}}했을 때 이겼을 것과 같은 {{t:pot|팟}}을 이깁니다."
+      - action: "check"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:check|체크}}합니다. 여기서 {{t:check|체크}}는 밸류를 포기합니다: {{t:call|콜}}할 핸드 중에서 당신보다 약한 핸드가 강한 핸드보다 많으므로(무승부는 {{t:pot|팟}}을 나누며 계산을 바꾸지 않습니다), {{t:bet|베팅}}은 그 핸드들에게서 강한 핸드에 잃는 것보다 더 많이 땁니다. {{t:overpair|오버페어}}로 세 번째 {{t:street|스트리트}}에서 {{t:value|밸류}}를 얻는 것은 상대가 더 약한 핸드로 지불할 때이며, 여기가 바로 그렇습니다."

@@ -1,0 +1,23 @@
+// HA (06, D-043): porównanie baz treści przed (7740eea) i po zmianie; kopia narzędzia FX (docs/programista/dowody/fx-porownaj-bazy.txt). Użycie: node ha-porownaj-bazy.mjs <katalog przed> <katalog po> (pliki <język>.db).
+import { DatabaseSync } from 'node:sqlite';
+import { readdirSync } from 'node:fs';
+const [przed, po] = process.argv.slice(2);
+let bledy = 0;
+for (const plik of readdirSync(po).sort()) {
+  const a = new DatabaseSync(`${przed}/${plik}`, { readOnly: true }), b = new DatabaseSync(`${po}/${plik}`, { readOnly: true });
+  const tabele = b.prepare("select name from sqlite_master where type='table' order by name").all().map((r) => r.name);
+  const tabA = a.prepare("select name from sqlite_master where type='table' order by name").all().map((r) => r.name);
+  const linia = [];
+  if (JSON.stringify(tabA) !== JSON.stringify(tabele)) { linia.push(`TABELE ${tabA}→${tabele}`); bledy++; }
+  for (const t of tabele) {
+    const pk = t === 'meta' || t === 'game_kit' || t === 'numbers' || t === 'terms' ? 'key' : 'id';
+    const m = (db) => new Map(db.prepare(`select * from ${t}`).all().map((r) => [r[pk], JSON.stringify(r)]));
+    const ma = m(a), mb = m(b);
+    const usuniete = [...ma.keys()].filter((k) => !mb.has(k)), dodane = [...mb.keys()].filter((k) => !ma.has(k)), zmienione = [...mb.keys()].filter((k) => ma.has(k) && ma.get(k) !== mb.get(k));
+    if (usuniete.length) bledy++;
+    if (usuniete.length || dodane.length || zmienione.length) linia.push(`${t}: -${usuniete.length}[${usuniete.join(',')}] +${dodane.length}[${dodane.join(',')}] ~${zmienione.length}[${zmienione.slice(0, 6).join(',')}]`);
+  }
+  console.log(`${plik}: ${linia.join(' | ') || 'bez zmian'}`);
+}
+console.log(bledy ? `USUNIĘTE ID / TABELE: ${bledy}` : 'OK: żadne ID nie zniknęło');
+process.exit(bledy ? 1 : 0);

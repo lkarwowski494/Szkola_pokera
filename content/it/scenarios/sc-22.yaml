@@ -1,0 +1,22 @@
+# sc-22: Italian text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "Al river hai una {{t:top-pair}}, sei sul Button e il {{t:big-blind}} fa {{t:check}}. Supponi che l'avversario non {{t:raise|rilanci}}: {{t:call|chiamerà}} con tutti gli AK, AQ, AJ e KQ, e {{t:fold|folderà}} con tutti i KJ, QJ e JT. {{t:bet|Punti}} o fai {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} fa {{t:check}} al river. {{t:bet|Punti}} {{t:value|per valore}}, perché tra le mani che {{t:call|chiameranno}} quelle peggiori della tua sono più numerose di quelle migliori (un pareggio divide il {{t:pot}} e non cambia il calcolo). Ogni {{t:call}} con una mano peggiore vince una {{t:bet|puntata}}, e ogni {{t:call}} con una mano migliore ne perde una. Conti solo le mani che pagheranno: quando l'avversario {{t:fold|folda}} una mano peggiore, vinci lo stesso {{t:pot}} che avresti vinto facendo {{t:check}}."
+      - action: "check"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} fa {{t:check}} al river. Il {{t:check}} qui rinuncia a valore: tra le mani che {{t:call|chiameranno}} quelle peggiori della tua sono più numerose di quelle migliori (un pareggio divide il {{t:pot}} e non cambia il calcolo), quindi una {{t:bet|puntata}} vince da loro più di quanto perda contro quelle migliori. Le mani che {{t:fold|folderanno}} non pagano la {{t:bet|puntata}}, quindi non le conti in questo calcolo."

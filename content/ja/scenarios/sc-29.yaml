@@ -1,0 +1,22 @@
+# sc-29: Japanese text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "リバーであなたは{{t:top-pair|トップペア}}を持ってボタンにいて、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}します。相手はパッシブな{{t:recreational|レクリエーショナルプレイヤー}}です：{{t:vpip}}は約{{n:hud.vpip.loose}}から、{{t:pfr}}はそれより{{n:hud.gap.passive}}ポイントを超えて低くなっています。相手は{{t:raise|レイズ}}しないと仮定します：JJ、TT、そしてすべてのAK、AQ、AJ、AT、KQ、KJ、QJ、JTで{{t:call|コール}}し、すべてのKT、QTで{{t:fold|フォールド}}します。{{t:bet|ベット}}しますか、それとも{{t:check|チェック}}しますか？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手はリバーで{{t:check|チェック}}しています。{{t:value|バリュー}}のために{{t:bet|ベット}}するのは、この相手がここではより弱いハンドでも{{t:call|コール}}するからです：{{t:call|コール}}するハンドの中では、あなたより弱いハンドのほうが強いハンドより多くあります（引き分けは{{t:pot|ポット}}を分け合い、計算を変えません）。パッシブな{{t:recreational|レクリエーショナルプレイヤー}}に対しては、より薄いハンドも含めて、より多くのハンドで{{t:value|バリュー}}ベットします。"
+      - action: "check"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手はリバーで{{t:check|チェック}}しています。{{t:check|チェック}}はここでバリューを手放します：{{t:call|コール}}するハンドの中では、あなたより弱いハンドのほうが強いハンドより多いので（引き分けは{{t:pot|ポット}}を分け合い、計算を変えません）、{{t:bet|ベット}}はそれらのハンドから、強いハンドに負ける分より多くを勝ちます。パッシブな{{t:recreational|レクリエーショナルプレイヤー}}に対しては、より薄いハンドも含めて、より多くのハンドで{{t:value|バリュー}}ベットします。"

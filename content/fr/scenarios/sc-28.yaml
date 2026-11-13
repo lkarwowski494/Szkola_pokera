@@ -1,0 +1,23 @@
+# sc-28: French text of content/pl/scenarios/sc-28.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-28
+module: m9
+situation: "Vous avez une {{t:overpair|overpaire}}. Vous avez {{t:bet|misé}} au flop et au turn, et la {{t:big-blind}} a {{t:call|suivi}} à chaque fois ; à la river, elle fait {{t:check}}. Supposez que votre adversaire ne {{t:raise|relance}} pas : il {{t:call|suivra}} avec tous les AK, AQ, AJ, KQ, KJ et QJ, et se {{t:fold|couchera}} avec tous les JT. Jouez-vous une troisième {{t:street}} {{t:value|de valeur}} ou faites-vous {{t:check}} ?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.2, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo, KJs, KJo, QJs, QJo]
+    folds: [JTs, JTo]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - action: "bet"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Vous {{t:bet|misez}} une troisième fois, car ici votre adversaire paie avec des mains plus faibles : parmi les mains qui vont {{t:call|suivre}}, celles qui sont moins bonnes que la vôtre sont plus nombreuses que les meilleures (une égalité partage le {{t:pot}} et ne change pas le calcul). Chaque {{t:call}} avec une main moins bonne gagne une {{t:bet|mise}}, et chaque {{t:call}} avec une meilleure main en perd une ; quand votre adversaire se {{t:fold|couche}} avec une main moins bonne, vous gagnez le même {{t:pot}} que vous auriez gagné en faisant {{t:check}}."
+      - action: "check"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Faire {{t:check}} abandonne ici de la valeur : parmi les mains qui vont {{t:call|suivre}}, celles qui sont moins bonnes que la vôtre sont plus nombreuses que les meilleures (une égalité partage le {{t:pot}} et ne change pas le calcul), donc une {{t:bet|mise}} gagne plus contre elles qu'elle ne perd contre les meilleures. Avec une {{t:overpair|overpaire}}, vous jouez une troisième {{t:street}} {{t:value|de valeur}} quand votre adversaire paie avec des mains plus faibles, et c'est le cas ici."

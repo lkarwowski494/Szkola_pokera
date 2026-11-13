@@ -4147,6 +4147,13 @@
     "cytat": "niezależny rachunek w teście: zakład 100·(2/3), potrzeba = zakład ÷ (100 + 2·zakład) = 2/7 ≈ 28,57%; zgodne z content-build",
     "odczyt": "2026-11-12",
     "szczebel": 1
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/rachunki/ha_d1495.py (ułamki dokładne, bez kodu content-build)",
+    "miejsce": "docs/tresci/dowody/ha-d1495.txt",
+    "cytat": "zakład = 100 · 0.666667 = 66.6667 (pokaz 67); build: 66.6667",
+    "odczyt": "2026-11-13",
+    "szczebel": 1
    }
   ],
   "status": "potwierdzone",
@@ -4158,7 +4165,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "przegląd 06 (HA, D-1560, 2026-11-13): POPARTE; rachunek niezależny od autora wpisu (08, D-1495)",
   "partia": [
    "auto"
   ]
@@ -4175,6 +4182,13 @@
     "cytat": "niezależny rachunek w teście: zakład 100·(2/3), potrzeba = zakład ÷ (100 + 2·zakład) = 2/7 ≈ 28,57%; zgodne z content-build",
     "odczyt": "2026-11-12",
     "szczebel": 1
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/rachunki/ha_d1495.py (ułamki dokładne, bez kodu content-build)",
+    "miejsce": "docs/tresci/dowody/ha-d1495.txt",
+    "cytat": "equity = 666667/2333334 = 0.285714347 (dokładnie 2/7 = 0.285714286); build: 0.285714346938758, pokaz 29%",
+    "odczyt": "2026-11-13",
+    "szczebel": 1
    }
   ],
   "status": "potwierdzone",
@@ -4186,7 +4200,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "przegląd 06 (HA, D-1560, 2026-11-13): POPARTE; rachunek niezależny od autora wpisu (08, D-1495)",
   "partia": [
    "auto"
   ]

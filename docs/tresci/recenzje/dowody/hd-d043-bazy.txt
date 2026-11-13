@@ -1,0 +1,4 @@
+# komenda: node docs/tresci/narzedzia/hd-d043-bazy.mjs <bazy 7740eeab> <bazy 0d59a42> (bazy z git show apps/mobile/assets/content/*.db)
+nowe w scenarios (suma po bazach, unikalne): sc-13, sc-22, sc-25, sc-28, sc-29
+baz przed 35, po 35; OK: żadne ID, tabela ani baza nie zniknęła
+kod 0

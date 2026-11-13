@@ -1,0 +1,13 @@
+# HE 06-tresci-001: rachunek HD powtórzony po zmianie (ta sama metoda i komenda co docs/tresci/recenzje/dowody/hd-remisy.txt)
+# komenda: cp docs/tresci/narzedzia/hd-remisy.ts tools/content-build/.hd-tmp/ && (cd tools/content-build && npx tsx .hd-tmp/hd-remisy.ts), 2000 ziaren
+sc-22: warianty z remisem wśród pasujących 0/2000
+sc-25: warianty z remisem wśród pasujących 0/2000; EV(bet) > EV(check) przy zakładzie 1/2 puli: 0, przy zakładzie = pula: 0, przy 1/4 puli: 0; najmniejszy zakład (ułamek puli), od którego czekanie jest lepsze we wszystkich wariantach: 0.000
+sc-29: warianty z remisem wśród pasujących 0/2000
+kod 0
+
+# pełny rachunek EV dla każdego wariantu (nie tylko z remisem): docs/programista/narzedzia/he-rachunek.ts
+sc-22|latwy (oczekiwane bet): pasująca lepsza 0/2000, pasująca remisuje 0/2000, werdykt zgodny z EV przy zakładzie k·pula dla k ∈ {0.250, 0.500, 0.667, 1.000, 2.000}: 2000/2000
+sc-25|latwy (oczekiwane check): pasująca lepsza 0/2000, pasująca remisuje 0/2000, werdykt zgodny z EV przy zakładzie k·pula dla k ∈ {0.250, 0.500, 0.667, 1.000, 2.000}: 2000/2000
+sc-29|latwy (oczekiwane bet): pasująca lepsza 0/2000, pasująca remisuje 0/2000, werdykt zgodny z EV przy zakładzie k·pula dla k ∈ {0.250, 0.500, 0.667, 1.000, 2.000}: 2000/2000
+OK
+kod 0

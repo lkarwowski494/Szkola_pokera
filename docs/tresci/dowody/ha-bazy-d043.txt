@@ -1,0 +1,44 @@
+# HA D-043: porównanie 35 baz treści przed (7740eea, tresc-1bd3a2e996-*) i po (zmiany HA, d89e3e917e) — 2026-11-13
+# komenda: node docs/tresci/narzedzia/ha-porownaj-bazy.mjs <przed> <po> (pliki <język>.db); format: tabela: -usunięte +dodane ~zmienione [klucze]
+bg.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+cs.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+da.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+de.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+el.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+en.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+es-419.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+es.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+et.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+fi.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+fr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+hr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+hu.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+id.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+it.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+ja.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+ko.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+lt.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+lv.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+ms.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+nb.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+nl.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+pl.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+pt-BR.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+pt.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+ro.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+ru.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+sk.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+sl.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+sr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+sv.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+tr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+uk.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+vi.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+zh-Hant.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +5[sc-13,sc-22,sc-25,sc-28,sc-29] ~4[sc-19,sc-32,sc-33,sc-34]
+OK: żadne ID nie zniknęło
+kod wyjścia: 0
+
+# Ocena zmian ~4 [sc-19, sc-32, sc-33, sc-34] (sprawdzone na pl.db): różni się tylko kolumna `ord` (np. sc-19 9 → 10, sc-34 12 → 17),
+# bo nowe szablony wchodzą do kolejności przed nimi; `data` (szablon) bez zmian. `ord` służy wyłącznie do sortowania listy
+# (`apps/mobile/src/data/content/repo.ts:256` ORDER BY m.ord, s.ord, s.id); postęp i powtórki wiążą się z `id`, które się nie zmienia.
+# Wniosek D-043: 0 usuniętych ID w 35 bazach, +5 scenariuszy w każdej, istniejące treści scenariuszy bez zmian — brak ryzyka dla danych użytkownika.

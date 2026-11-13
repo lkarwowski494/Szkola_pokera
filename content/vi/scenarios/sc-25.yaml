@@ -1,0 +1,22 @@
+# sc-25: Vietnamese text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-25
+module: m8
+situation: "Ở river bạn có {{t:second-pair|đôi thứ hai}}, bạn ở Button, còn {{t:big-blind|big blind}} {{t:check|check}}. Giả sử đối thủ không {{t:raise|tố}}: họ sẽ {{t:call|theo}} với AA, KK và mọi tổ hợp AK, AQ và KQ, và sẽ {{t:fold|bỏ bài}} với mọi tổ hợp QJ và JT. Bạn {{t:bet|cược}} hay {{t:check|check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. Bạn {{t:check|check}} và đi đến {{t:showdown|showdown}} miễn phí, vì phần lớn các tay sẽ {{t:call|theo}} là tay mạnh hơn tay bạn: mỗi lần bị {{t:call|theo}} bởi tay mạnh hơn, bạn thua một {{t:bet|cược}}, còn bởi tay yếu hơn, bạn chỉ thắng một. Sau khi {{t:check|check}}, bạn thắng {{t:pot|pot}} trước mọi tay yếu hơn của đối thủ."
+      - action: "bet"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở river. Khoản {{t:bet|cược}} bị lỗ: phần lớn các tay sẽ {{t:call|theo}} là tay mạnh hơn tay bạn, còn các tay sẽ {{t:fold|bỏ bài}} thì dù sao cũng không thắng được bạn ở {{t:showdown|showdown}}. Như vậy {{t:bet|cược}} biến một tay có giá trị ở {{t:showdown|showdown}} thành một {{t:bluff|bluff}}."

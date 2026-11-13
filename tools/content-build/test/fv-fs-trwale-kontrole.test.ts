@@ -39,6 +39,9 @@ function podzial(hero: readonly number[], board: readonly number[], klasy: reado
   return { w, l, t };
 }
 
+/** Licznik „pasujące: remis albo lepsza” (06-tresci-002); osobna funkcja, żeby test KO-104 sprawdzał go bez generatora. */
+const pasujaceRemisAlboLepsza = (sf: { l: number; t: number }): boolean => sf.t > 0 || sf.l > 0;
+
 /** Zdania pod kontrolą: fraza (pl | en) → licznik, który musi być 0, gdy fraza jest w wyjaśnieniach szablonu. */
 const ZDANIA: readonly { id: string; opis: string; fraza: RegExp; licznik: 'gorsze÷wszystkie≤50%' | 'W≤L' | 'pasujące: remis albo lepsza' | 'pasujące: lepsza' }[] = [
   { id: '06-tresci-001', opis: '„ponad X rąk, które sprawdzą, to gorsze”', fraza: /ponad \{\{n:value\.threshold\}\} rąk|more than \{\{n:value\.threshold\}\} of the hands/, licznik: 'gorsze÷wszystkie≤50%' },
@@ -67,7 +70,7 @@ function naruszenia(dir: string, szablony: readonly string[]): string[] {
         const s = podzial(v.hero, v.board, d.calls), sf = podzial(v.hero, v.board, d.folds);
         if (s.w / (s.w + s.l + s.t) <= 0.5) inc('gorsze÷wszystkie≤50%', seed);
         if (s.w <= s.l) inc('W≤L', seed);
-        if (sf.t > 0 || sf.l > 0) inc('pasujące: remis albo lepsza', seed);
+        if (pasujaceRemisAlboLepsza(sf)) inc('pasujące: remis albo lepsza', seed);
         if (sf.l > 0) inc('pasujące: lepsza', seed);
       }
       for (const z of obecne) { const n = licz[z.licznik] ?? 0; if (n > 0) out.push(`${z.id} ${f} [poziom ${poziom}]: zdanie ${z.opis}; „${z.licznik}” = ${n} [ziarno ${pierwsze[z.licznik]}]`); }
@@ -112,12 +115,23 @@ describe('FS-001/002: zdania SC-22/25/28/29 prawdziwe w każdym wariancie (remis
     it(`obecna treść (${j}): 0 naruszeń na ${ZIARNA} ziarnach`, () => {
       expect(naruszenia(join(AKT, j), ['sc-22', 'sc-25', 'sc-28', 'sc-29'])).toEqual([]);
     }, 120_000);
-    it(`treść sprzed FT (${j}, fixtures): wykrywa 06-tresci-001 w SC-22 i 06-tresci-002 w SC-25`, () => {
+    it(`treść sprzed FT (${j}, fixtures): wykrywa 06-tresci-001 w SC-22; 06-tresci-002 w SC-25 już prawdziwe (D-1590)`, () => {
       const n = naruszenia(join(PRZED, j), ['sc-22', 'sc-25']).join('\n');
       expect(n).toMatch(/06-tresci-001 sc-22/);
-      expect(n).toMatch(/06-tresci-002 sc-25/);
+      // KO-104 (sesja HE): po D-1590 generator river-value odrzuca wariant z remisem (i lepszą) ręką pasującą, więc zdanie SC-25
+      // „pasujące i tak przegrałyby” jest prawdziwe w każdym wariancie; zdolność wykrywania remisu pilnuje test niżej (przykład HD).
+      expect(n).not.toMatch(/06-tresci-002 sc-25/);
     }, 120_000);
   }
+  it('KO-104: licznik „pasujące: remis albo lepsza” wykrywa remis na przykładzie HD (Q♥2♥ / K♥ Q♠ 4♣ 8♠ 8♦, QJ pasuje)', () => {
+    const k = (r: string, s: string) => karta(RANGI.indexOf(r), 'shdc'.indexOf(s)); // kolor: indeks jak SUITS w cards.ts (s h d c)
+    const hero = [k('Q', 'h'), k('2', 'h')];
+    const stol = [k('K', 'h'), k('Q', 's'), k('4', 'c'), k('8', 's'), k('8', 'd')];
+    const sf = podzial(hero, stol, ['QJs', 'QJo', 'JTs', 'JTo']);
+    expect(sf.l).toBe(0);
+    expect(sf.t).toBeGreaterThan(0);
+    expect(pasujaceRemisAlboLepsza(sf)).toBe(true);
+  });
 });
 
 describe('FS-005: „Liczby” defend bez MDF jako normy', () => {

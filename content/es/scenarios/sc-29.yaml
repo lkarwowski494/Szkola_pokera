@@ -1,0 +1,22 @@
+# sc-29: Spanish text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "En el river tienes {{t:top-pair|pareja mayor}}, estás en el Button y la {{t:big-blind}} {{t:check|pasa}}. Tu rival es un {{t:recreational}} pasivo: {{t:vpip}} a partir de aproximadamente {{n:hud.vpip.loose}} y un {{t:pfr}} más de {{n:hud.gap.passive}} puntos más bajo. Supón que no {{t:raise|sube}}: {{t:call|pagará}} con JJ, TT y con todos los AK, AQ, AJ, AT, KQ, KJ, QJ y JT, y se {{t:fold|retirará}} con todos los KT y QT. ¿{{t:bet|Apuestas}} o {{t:check|pasas}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}} en el river. {{t:bet|Apuestas}} {{t:value|por valor}}, porque este rival aquí también {{t:call|paga}} con manos más débiles: entre las manos que {{t:call|pagarán}} hay más peores que la tuya que mejores (un empate divide el {{t:pot}} y no cambia el cálculo). Contra un {{t:recreational}} pasivo apuestas {{t:value|por valor}} con más manos, también más finas."
+      - action: "check"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}} en el river. {{t:check|Pasar}} aquí renuncia a valor: entre las manos que {{t:call|pagarán}} hay más peores que la tuya que mejores (un empate divide el {{t:pot}} y no cambia el cálculo), así que una {{t:bet|apuesta}} les gana más de lo que pierde contra las mejores. Contra un {{t:recreational}} pasivo apuestas {{t:value|por valor}} con más manos, también más finas."

@@ -1,0 +1,22 @@
+# sc-22: Japanese text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "リバーであなたは{{t:top-pair|トップペア}}を持ってボタンにいて、{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}します。相手は{{t:raise|レイズ}}しないと仮定します：すべてのAK、AQ、AJ、KQで{{t:call|コール}}し、すべてのKJ、QJ、JTで{{t:fold|フォールド}}します。{{t:bet|ベット}}しますか、それとも{{t:check|チェック}}しますか？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手はリバーで{{t:check|チェック}}しています。{{t:value|バリュー}}のために{{t:bet|ベット}}するのは、{{t:call|コール}}するハンドの中では、あなたより弱いハンドのほうが強いハンドより多いからです（引き分けは{{t:pot|ポット}}を分け合い、計算を変えません）。弱いハンドによる{{t:call|コール}}はそれぞれ{{t:bet|ベット}}一回分を勝ち、強いハンドによる{{t:call|コール}}はそれぞれ一回分を負けます。数えるのは払ってくれるハンドだけです：相手が弱いハンドで{{t:fold|フォールド}}したときは、{{t:check|チェック}}した場合に勝つのと同じ{{t:pot|ポット}}を勝ちます。"
+      - action: "check"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手はリバーで{{t:check|チェック}}しています。{{t:check|チェック}}はここでバリューを手放します：{{t:call|コール}}するハンドの中では、あなたより弱いハンドのほうが強いハンドより多いので（引き分けは{{t:pot|ポット}}を分け合い、計算を変えません）、{{t:bet|ベット}}はそれらのハンドから、強いハンドに負ける分より多くを勝ちます。{{t:fold|フォールド}}するハンドは{{t:bet|ベット}}を払わないので、この計算には数えません。"

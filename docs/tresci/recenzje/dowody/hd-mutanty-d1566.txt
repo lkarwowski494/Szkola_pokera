@@ -1,0 +1,23 @@
+# komenda: docs/tresci/narzedzia/hd-mutanty-d1566.sh <git worktree @ 0d59a42> (2026-11-13T12:02:07Z)
+== M0 bez zmian (oczekiwane: oba zielone)
+     Test Files  2 passed (2)
+          Tests  4 passed (4)
+== M2 bez gałęzi ostrzeżenia (oczekiwane: gb-303 czerwony)
+1
+         × eq.bet-two-thirds użyte w lekcji pl: ostrzeżenie „jest już używana: usuń ją z LICZBY_ZAREZERWOWANE” (M2: bez gałęzi ostrzeżenia brak wpisu) 1829ms
+    ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+     Test Files  1 failed | 1 passed (2)
+          Tests  1 failed | 3 passed (4)
+== M3 opcja ignorowana (oczekiwane: gb-303 czerwony)
+1
+         × eq.bet-two-thirds użyte w lekcji pl: ostrzeżenie „jest już używana: usuń ją z LICZBY_ZAREZERWOWANE” (M2: bez gałęzi ostrzeżenia brak wpisu) 1910ms
+    ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+     Test Files  1 failed | 1 passed (2)
+          Tests  1 failed | 3 passed (4)
+== M4 wpisy D-1461 przywrócone (oczekiwane: fv-d1461 czerwony)
+1
+         × klucze D-1461 są użyte w SC-13 i nie ma ich na liście, a lista nie trzyma liczb już użytych ani nieistniejących 5ms
+    ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+     Test Files  1 failed | 1 passed (2)
+          Tests  1 failed | 3 passed (4)
+kod 0

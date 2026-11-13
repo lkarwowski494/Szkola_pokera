@@ -1,0 +1,22 @@
+# sc-25: Spanish text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-25
+module: m8
+situation: "En el river tienes {{t:second-pair|segunda pareja}}, estás en el Button y la {{t:big-blind}} {{t:check|pasa}}. Supón que tu rival no {{t:raise|sube}}: {{t:call|pagará}} con AA, KK y con todos los AK, AQ y KQ, y se {{t:fold|retirará}} con todos los QJ y JT. ¿{{t:bet|Apuestas}} o {{t:check|pasas}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["check"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-002
+    calls: [AA, KK, AKs, AKo, AQs, AQo, KQs, KQo]
+    folds: [QJs, QJo, JTs, JTo]
+    pairKind: [second]
+    actions:
+      - action: "check"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}} en el river. {{t:check|Pasas}} y vas gratis al {{t:showdown}}, porque la mayoría de las manos que {{t:call|pagarán}} son mejores que la tuya: cada {{t:call|pago}} con una mano mejor pierde una {{t:bet|apuesta}}, y uno con una peor gana solo una. Después de {{t:check|pasar}}, ganas el {{t:pot}} contra cada mano peor de tu rival."
+      - action: "bet"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}} en el river. Una {{t:bet|apuesta}} pierde: la mayoría de las manos que {{t:call|pagarán}} son mejores que la tuya, y las manos que se {{t:fold|retirarán}} de todos modos no te habrían ganado en el {{t:showdown}}. Así, la {{t:bet|apuesta}} convierte una mano con valor en el {{t:showdown}} en un {{t:bluff|farol}}."

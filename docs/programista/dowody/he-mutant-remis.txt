@@ -1,0 +1,12 @@
+# HE (KO-104): mutant licznika „pasujące: remis albo lepsza” — wyłączone zliczanie remisów
+# mutacja: sed 's/sf.t > 0 || sf.l > 0/sf.l > 0/' tools/content-build/test/fv-fs-trwale-kontrole.test.ts (tylko na czas pomiaru, potem przywrócone)
+43:const pasujaceRemisAlboLepsza = (sf: { l: number; t: number }): boolean => sf.l > 0;
+     × KO-104: licznik „pasujące: remis albo lepsza” wykrywa remis na przykładzie HD (Q♥2♥ / K♥ Q♠ 4♣ 8♠ 8♦, QJ pasuje) 10ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected false to be true // Object.is equality
+      Tests  1 failed | 9 skipped (10)
+kod mutanta 1 (oczekiwany 1: mutant ginie)
+# po przywróceniu:
+      Tests  10 passed (10)
+kod 0
+# liczba testów pliku: przed 9 (eaa44e46), po 10; inne pliki testów content-build bez zmian

@@ -1,0 +1,22 @@
+# sc-22: Traditional Chinese text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "在河牌你有{{t:top-pair|頂對}}，你在按鈕位，{{t:big-blind|大盲}}{{t:check|過牌}}。假設對手不會{{t:raise|加注}}：他拿到任何 AK、AQ、AJ 和 KQ 組合都會{{t:call|跟注}}，拿到任何 KJ、QJ 和 JT 組合都會{{t:fold|棄牌}}。你{{t:bet|下注}}還是{{t:check|過牌}}？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。你為了{{t:value|價值}}{{t:bet|下注}}，因為在會{{t:call|跟注}}的牌中，比你差的牌多於比你好的牌（平手會平分{{t:pot|底池}}，不改變計算）。每次被較差的牌{{t:call|跟注}}，你贏下這次{{t:bet|下注}}；每次被較好的牌跟注，你輸掉這次下注。你只算會付錢的牌：對手用較差的牌{{t:fold|棄牌}}時，你贏到的{{t:pot|底池}}和{{t:check|過牌}}後會贏到的相同。"
+      - action: "check"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:check|過牌}}。{{t:check|過牌}}在這裡會放掉價值：在會{{t:call|跟注}}的牌中，比你差的牌多於比你好的牌（平手會平分{{t:pot|底池}}，不改變計算），所以{{t:bet|下注}}從它們身上贏到的，多於輸給較好牌的。會{{t:fold|棄牌}}的牌不會支付這次{{t:bet|下注}}，所以你不把它們算進這個計算。"

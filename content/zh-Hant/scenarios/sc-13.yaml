@@ -1,0 +1,22 @@
+# sc-13: Traditional Chinese text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-13
+module: m5
+situation: "你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}{{t:call|跟注}}。翻牌上有兩張同一花色的牌，而你有一手強牌：配好{{t:kicker|踢腳}}的{{t:top-pair|頂對}}或更好的牌。對手{{t:check|過牌}}，可能有{{t:flush-draw|同花聽牌}}。你選擇多大的{{t:bet|下注}}？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手可能有{{t:flush-draw|同花聽牌}}。你大額{{t:bet|下注}}，因為對手的{{t:draw|聽牌}}有很多權益，所以大額{{t:bet|下注}}會讓它們為下一張牌付出高昂的代價。{{t:flush-draw|同花聽牌}}在轉牌命中的機率約 {{n:odds.flush.flop-turn}}，而面對三分之二{{t:pot|底池}}的{{t:bet|下注}}，下一張牌的價格（{{n:eq.bet-two-thirds}} 的權益）高於它命中這張牌的機會。"
+      - action: "bet-small"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手可能有{{t:flush-draw|同花聽牌}}。小額{{t:bet|下注}}給{{t:draw|聽牌}}很好的價格：面對四分之一{{t:pot|底池}}的{{t:bet|下注}}，它只要有 {{n:eq.bet-quarter}} 的權益就夠了，而它在轉牌命中的機率約 {{n:odds.flush.flop-turn}}。在這樣的翻牌上，用強牌對抗{{t:draw|聽牌}}時，你用較大的尺寸{{t:bet|下注}}。"

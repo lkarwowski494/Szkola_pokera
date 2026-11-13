@@ -128,16 +128,14 @@ export interface CompileOptions {
   transitional?: string | null;
   /** Kontrola generatora szablonów (2000 prób na poziom, najdroższy krok kompilacji pl); domyślnie włączona. Wyłączają ją tylko testy, które sprawdzają treść innych kontroli, a generator ma własne testy i bramkę w `content:build` (CJ, zadanie 6). */
   kontrolaGeneratora?: boolean;
+  /** Lista liczb zarezerwowanych (D-1490); domyślnie `LICZBY_ZAREZERWOWANE`. Podają ją tylko testy gałęzi ostrzeżenia, gdy lista w kodzie jest pusta (HA, D-1566). */
+  liczbyZarezerwowane?: Readonly<Record<string, string>>;
   /** Czas kontroli generatora jednego szablonu (ms); do testu budżetu czasu (CL, ŚR-003 CH). */
   naCzasKontroliSzablonu?: (id: string, ms: number) => void;
 }
 
 /** Liczby w numbers.yaml bez użycia w content/ z powodu, który wygasa po wejściu treści (D-1490; klucz → powód). */
-export const LICZBY_ZAREZERWOWANE: Readonly<Record<string, string>> = {
-  'ex.frac.two-thirds': 'D-1461: cena zakładu 2/3 puli dla SC-13 (flop-size); liczba wejdzie z szablonem do content/ (06)',
-  'ex.bet.two-thirds': 'D-1461: jw.',
-  'eq.bet-two-thirds': 'D-1461: jw.',
-};
+export const LICZBY_ZAREZERWOWANE: Readonly<Record<string, string>> = {}; // HA (D-1562): wpisy D-1461 wygasły, SC-13 w content/ używa eq.bet-two-thirds
 
 export function compileContent(contentDir: string, locale = 'pl', opts: CompileOptions = {}): CompiledContent {
   const warnings: string[] = [];
@@ -485,7 +483,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   }
   // D-1490 (FV): liczba zarezerwowana pod treść, która jeszcze nie weszła do content/ (powód i ID decyzji w wartości); po użyciu w treści wpis trzeba usunąć (ostrzeżenie), więc lista się nie rozrasta
   for (const key of numbers.keys()) {
-    const powod = LICZBY_ZAREZERWOWANE[key];
+    const powod = (opts.liczbyZarezerwowane ?? LICZBY_ZAREZERWOWANE)[key];
     if (powod !== undefined) {
       if (used.has(key)) warnings.push(`liczba ${key} jest już używana: usuń ją z LICZBY_ZAREZERWOWANE (build.ts)`);
       continue;

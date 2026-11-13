@@ -118,7 +118,7 @@ export interface PickHandSpec {
 /**
  * 08-FD-4 (R-M8-001, D-1302, D-1355): bet albo czekanie na riverze z pozycji. Zakres rywala to dana zadania: klasy rąk, które sprawdzą (`calls`) i które spasują (`folds`);
  * werdykt z w = gorsze ÷ (gorsze + lepsze) wśród `calls` (remisy pominięte), δ z marginesu poziomu (≥ 0,02, D-1051). Wariant odrzucany, gdy któraś klasa z `folds` ma
- * kombinację lepszą od ręki gracza (wzór zaniżałby zysk z bet, D-1302 war. 2). Opcjonalne filtry szkicu SC-28: `pairKind` (rodzaj pary gracza, np. overpair)
+ * kombinację lepszą od ręki gracza (wzór zaniżałby zysk z bet, D-1302 war. 2) albo remisującą z nią (po zakładzie remis oddaje całą pulę, 08-programista-HD-1, D-1590). Opcjonalne filtry szkicu SC-28: `pairKind` (rodzaj pary gracza, np. overpair)
  * i `dryBoard` (stół bez trzech kart jednego koloru i bez strita na stole).
  */
 export interface RiverValueSpec {
@@ -450,7 +450,7 @@ export class TemplateError extends Error {}
  * (np. `requiredChips`). Zmiana pola pochodnego bez zmiany rozdania nie wymaga podniesienia wersji: unieważnia tylko rozdania w toku (zaczynają się od nowa), nie historię (recenzja DO 08-programista-004).
  * 0 jest zarezerwowane dla wpisów sprzed wprowadzenia wersji. Pilnują tego test wzorca w scenario-gen.test.ts i odciski prawdziwych szablonów z content/pl (tools/content-build/test/generator-odciski.test.ts, ŚR-002).
  */
-export const GENERATOR_WERSJA = 5; // 5: backdoor w obronie BB tylko z overkartą (08-EH-3, D-1258), turn-bet: najwyższa para z kickerem ≥ Q (08-EL-1, D-1256), equityMarginMin 0,02 w Ł SC-06/32/33 (08-EL-4, D-1215); 4: dolosowanie flopu po range-spot, gdy szablon ma cbet-case (EK 08-EH-1, D-1165; zmieniają się tylko sc-04 i sc-05); 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
+export const GENERATOR_WERSJA = 6; // 6: river-value odrzuca wariant z remisem ręki pasującej (08-programista-HD-1, D-1590; zmieniają się sc-22, sc-25, sc-29); 5: backdoor w obronie BB tylko z overkartą (08-EH-3, D-1258), turn-bet: najwyższa para z kickerem ≥ Q (08-EL-1, D-1256), equityMarginMin 0,02 w Ł SC-06/32/33 (08-EL-4, D-1215); 4: dolosowanie flopu po range-spot, gdy szablon ma cbet-case (EK 08-EH-1, D-1165; zmieniają się tylko sc-04 i sc-05); 3: SC-11 średni bez flopów z możliwym OESD (CW, ŚR-005, D-856); 2: nadkarty w draw-call, ręka z zakresu i dolosowanie flopu w cbet-case (CS, ŚR-002 CT, D-850)
 
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 /** Ile razy w jednej próbie punktu cbet-case dolosowujemy flop do tekstury poziomu (rozkład flopów bez zmian: tylko ten warunek). */
@@ -864,7 +864,8 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
         const kolory = [0, 1, 2, 3].map((su) => board.filter((c) => suitOf(c) === su).length);
         if (Math.max(...kolory) >= 3 || categoryOf(strength(board)) === HandCategory.Straight) return null;
       }
-      if (classComboSplit(hero, board, spec.folds).better > 0) return null; // D-1302 war. 2: lepsza ręka wśród pasujących
+      const pasuje = classComboSplit(hero, board, spec.folds);
+      if (pasuje.better > 0 || pasuje.ties > 0) return null; // D-1302 war. 2: lepsza ręka wśród pasujących; 08-programista-HD-1 (D-1590): także remis (po zakładzie oddaje całą pulę, wzór R-M8-001 tego nie liczy)
       const sprawdza = classComboSplit(hero, board, spec.calls);
       if (riverValueVerdict(sprawdza, delta) !== oczekiwana) return null; // BR-GEN-003: tylko oczekiwana akcja, pas ±δ odrzucany
       if (deltaMax !== null && Math.abs(sprawdza.worse / (sprawdza.worse + sprawdza.better) - 0.5) >= deltaMax) return null; // W + L > 0: werdykt wyżej nie jest null (08-FQ-2)

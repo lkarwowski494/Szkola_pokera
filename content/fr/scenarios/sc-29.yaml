@@ -1,0 +1,22 @@
+# sc-29: French text of content/pl/scenarios/sc-29.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-29
+module: m10
+situation: "À la river, vous avez une {{t:top-pair|top paire}}, vous êtes au Bouton, et la {{t:big-blind}} fait {{t:check}}. Votre adversaire est un {{t:recreational|joueur récréatif}} passif : {{t:vpip}} à partir d'environ {{n:hud.vpip.loose}}, et un {{t:pfr}} inférieur de plus de {{n:hud.gap.passive}} points. Supposez qu'il ne {{t:raise|relance}} pas : il {{t:call|suivra}} avec JJ, TT et tous les AK, AQ, AJ, AT, KQ, KJ, QJ et JT, et se {{t:fold|couchera}} avec tous les KT et QT. Vous {{t:bet|misez}} ou vous faites {{t:check}} ?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.1, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M10-006
+    calls: [JJ, TT, AKs, AKo, AQs, AQo, AJs, AJo, ATs, ATo, KQs, KQo, KJs, KJo, QJs, QJo, JTs, JTo]
+    folds: [KTs, KTo, QTs, QTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Vous {{t:bet|misez}} {{t:value|pour la valeur}}, car ici cet adversaire {{t:call|suit}} aussi avec des mains plus faibles : parmi les mains qui vont {{t:call|suivre}}, celles qui sont moins bonnes que la vôtre sont plus nombreuses que les meilleures (une égalité partage le {{t:pot}} et ne change pas le calcul). Contre un {{t:recreational|joueur récréatif}} passif, vous misez {{t:value|pour la valeur}} avec plus de mains, y compris des mains plus fines."
+      - action: "check"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Faire {{t:check}} abandonne ici de la valeur : parmi les mains qui vont {{t:call|suivre}}, celles qui sont moins bonnes que la vôtre sont plus nombreuses que les meilleures (une égalité partage le {{t:pot}} et ne change pas le calcul), donc une {{t:bet|mise}} gagne plus contre elles qu'elle ne perd contre les meilleures. Contre un {{t:recreational|joueur récréatif}} passif, vous misez {{t:value|pour la valeur}} avec plus de mains, y compris des mains plus fines."

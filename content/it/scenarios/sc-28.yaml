@@ -1,0 +1,23 @@
+# sc-28: Italian text of content/pl/scenarios/sc-28.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-28
+module: m9
+situation: "Hai un'{{t:overpair}}. Hai {{t:bet|puntato}} al flop e al turn, e il {{t:big-blind}} ha {{t:call|chiamato}} ogni volta; al river fa {{t:check}}. Supponi che l'avversario non {{t:raise|rilanci}}: {{t:call|chiamerà}} con tutti gli AK, AQ, AJ, KQ, KJ e QJ, e {{t:fold|folderà}} con tutti i JT. Giochi una terza {{t:street}} {{t:value|di valore}} o fai {{t:check}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.2, expected: ["bet"] }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo, KJs, KJo, QJs, QJo]
+    folds: [JTs, JTo]
+    pairKind: [overpair]
+    dryBoard: true
+    actions:
+      - action: "bet"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} fa {{t:check}} al river. {{t:bet|Punti}} per la terza volta, perché qui l'avversario paga con mani più deboli: tra le mani che {{t:call|chiameranno}} quelle peggiori della tua sono più numerose di quelle migliori (un pareggio divide il {{t:pot}} e non cambia il calcolo). Ogni {{t:call}} con una mano peggiore vince una {{t:bet|puntata}}, e ogni {{t:call}} con una mano migliore ne perde una; quando l'avversario {{t:fold|folda}} una mano peggiore, vinci lo stesso {{t:pot}} che avresti vinto facendo {{t:check}}."
+      - action: "check"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} fa {{t:check}} al river. Il {{t:check}} qui rinuncia a valore: tra le mani che {{t:call|chiameranno}} quelle peggiori della tua sono più numerose di quelle migliori (un pareggio divide il {{t:pot}} e non cambia il calcolo), quindi una {{t:bet|puntata}} vince da loro più di quanto perda contro quelle migliori. Con un'{{t:overpair}} giochi una terza {{t:street}} {{t:value|di valore}} quando l'avversario paga con mani più deboli, e qui è così."

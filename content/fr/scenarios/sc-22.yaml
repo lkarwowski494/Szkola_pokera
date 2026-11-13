@@ -1,0 +1,22 @@
+# sc-22: French text of content/pl/scenarios/sc-22.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-22
+module: m8
+situation: "À la river, vous avez une {{t:top-pair|top paire}}, vous êtes au Bouton, et la {{t:big-blind}} fait {{t:check}}. Supposez que votre adversaire ne {{t:raise|relance}} pas : il {{t:call|suivra}} avec tous les AK, AQ, AJ et KQ, et se {{t:fold|couchera}} avec tous les KJ, QJ et JT. Vous {{t:bet|misez}} ou vous faites {{t:check}} ?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Vous {{t:bet|misez}} {{t:value|pour la valeur}}, car parmi les mains qui vont {{t:call|suivre}}, celles qui sont moins bonnes que la vôtre sont plus nombreuses que les meilleures (une égalité partage le {{t:pot}} et ne change pas le calcul). Chaque {{t:call}} avec une main moins bonne gagne une {{t:bet|mise}}, et chaque {{t:call}} avec une meilleure main en perd une. Vous ne comptez que les mains qui paieront : quand votre adversaire se {{t:fold|couche}} avec une main moins bonne, vous gagnez le même {{t:pot}} que vous auriez gagné en faisant {{t:check}}."
+      - action: "check"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} à la river. Faire {{t:check}} abandonne ici de la valeur : parmi les mains qui vont {{t:call|suivre}}, celles qui sont moins bonnes que la vôtre sont plus nombreuses que les meilleures (une égalité partage le {{t:pot}} et ne change pas le calcul), donc une {{t:bet|mise}} gagne plus contre elles qu'elle ne perd contre les meilleures. Les mains qui vont se {{t:fold|coucher}} ne paient pas la {{t:bet|mise}}, donc vous ne les comptez pas dans ce calcul."

@@ -1,0 +1,22 @@
+# sc-13: French text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-13
+module: m5
+situation: "Vous avez {{t:open|ouvert}} depuis le Bouton, et la {{t:big-blind}} a {{t:call|payé}}. Le flop comporte deux cartes de la même couleur, et vous avez une main forte : une {{t:top-pair|top paire}} avec un bon {{t:kicker}} ou mieux. Votre adversaire fait {{t:check}} et peut avoir un {{t:flush-draw}}. Quelle taille de {{t:bet|mise}} choisissez-vous ?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"], flop: { suits: [two-tone], ranks: [semi-connected, disconnected] } }
+decisions:
+  - street: flop
+    kind: flop-size
+    rule: R-M5-008
+    pots: [12, 24, 36, 48]
+    small: 0.25
+    big: 0.6666666666666666
+    actions:
+      - action: "bet-big"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} peut avoir un {{t:flush-draw}}. Vous {{t:bet|misez}} gros, car les {{t:draw|tirages}} de votre adversaire ont beaucoup d'équité, donc une grosse {{t:bet|mise}} les oblige à payer cher la carte suivante. Un {{t:flush-draw}} touche au turn dans environ {{n:odds.flush.flop-turn}} des cas, et face à une {{t:bet|mise}} des deux tiers du {{t:pot}}, le prix de la carte suivante ({{n:eq.bet-two-thirds}} d'équité) est plus élevé que sa chance de toucher sur cette carte."
+      - action: "bet-small"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} peut avoir un {{t:flush-draw}}. Une petite {{t:bet|mise}} donne un bon prix au {{t:draw|tirage}} : face à une {{t:bet|mise}} d'un quart du {{t:pot}}, il lui suffirait de {{n:eq.bet-quarter}} d'équité, et il touche au turn dans environ {{n:odds.flush.flop-turn}} des cas. Avec une main forte face aux {{t:draw|tirages}} sur un tel flop, vous {{t:bet|misez}} plus gros."

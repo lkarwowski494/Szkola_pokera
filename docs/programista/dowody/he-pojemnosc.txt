@@ -1,0 +1,11 @@
+# HE: pojemność i liczba prób generatora przed (eaa44e46) i po D-1590; 2000 ziaren = PROBY_POJEMNOSCI, próg pojemności POJEMNOSC_MIN = 40, limit MAX_CONSECUTIVE_REJECTIONS = 60000
+# komenda: docs/programista/narzedzia/he-pomiar-pojemnosci.ts (instrukcja w nagłówku)
+sc-22|latwy przed: odciski 1998/2000, błędy limitu 0, próby śr. 252.9, maks. 2102 (limit 60000), warianty z remisem pasującej 521, czas 3914 ms
+sc-22|latwy po: odciski 1998/2000, błędy limitu 0, próby śr. 349.3, maks. 3061 (limit 60000), warianty z remisem pasującej 0, czas 5771 ms
+sc-25|latwy przed: odciski 2000/2000, błędy limitu 0, próby śr. 79.1, maks. 697 (limit 60000), warianty z remisem pasującej 575, czas 1125 ms
+sc-25|latwy po: odciski 2000/2000, błędy limitu 0, próby śr. 113.1, maks. 875 (limit 60000), warianty z remisem pasującej 0, czas 1861 ms
+sc-28|latwy przed: odciski 2000/2000, błędy limitu 0, próby śr. 263.6, maks. 2516 (limit 60000), warianty z remisem pasującej 0, czas 4821 ms
+sc-28|latwy po: odciski 2000/2000, błędy limitu 0, próby śr. 263.6, maks. 2516 (limit 60000), warianty z remisem pasującej 0, czas 4646 ms
+sc-29|latwy przed: odciski 1998/2000, błędy limitu 0, próby śr. 94.7, maks. 844 (limit 60000), warianty z remisem pasującej 293, czas 1657 ms
+sc-29|latwy po: odciski 1998/2000, błędy limitu 0, próby śr. 110.5, maks. 844 (limit 60000), warianty z remisem pasującej 0, czas 2116 ms
+kod 0

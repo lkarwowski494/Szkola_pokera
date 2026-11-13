@@ -1,0 +1,12 @@
+# HE 08-programista-HD-1: test odtwarzający packages/poker-core/test/he-hd1-remis-pasujacych.test.ts
+# CZERWONY na eaa44e46 (kod generatora bez zmiany, test dodany): (cd packages/poker-core && npx vitest run test/he-hd1-remis-pasujacych.test.ts)
+     × 300 wariantów szablonu SC-25: żadna ręka pasująca nie jest lepsza ani nie remisuje z ręką gracza 267ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/he-hd1-remis-pasujacych.test.ts > 08-programista-HD-1 (D-1590): remis ręki pasującej odrzuca wariant river-value > 300 wariantów szablonu SC-25: żadna ręka pasująca nie jest lepsza ani nie remisuje z ręką gracza
+AssertionError: expected 75 to be +0 // Object.is equality
+      Tests  1 failed | 1 passed (2)
+kod 1
+
+# ZIELONY po zmianie scenario-gen.ts (ta sama komenda):
+      Tests  2 passed (2)
+kod 0

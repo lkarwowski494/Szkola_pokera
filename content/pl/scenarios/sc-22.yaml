@@ -1,0 +1,25 @@
+# SC-22 (M8): cienki value bet na riverze z pozycji najwyższą parą (punkt river-value, 08-FD-4, D-1302, D-1417). Ocena: rachunek
+# R-M8-001 (math): bet ⇔ w ≥ 0,5 + δ, w = gorsze ÷ (gorsze + lepsze) wśród kombinacji sprawdzających po usunięciu kart, remisy
+# pominięte. Wąski zakres sprawdzenia (tylko ręce z asem albo królem i drugą kartą od waleta w górę) daje w zwykle 0,6–0,8: cienki
+# value bet. Zakres rywala to dana zadania (D-1300). Szkic sesji FQ (D-1462), w content/ od sesji HA (D-1561; widok river-value od FR, KO-091).
+id: sc-22
+module: m8
+situation: "Na riverze masz {{t:top-pair|najwyższą parę}}, jesteś na Buttonie, a {{t:big-blind}} {{t:check|czeka}}. Załóż, że rywal nie {{t:raise|przebija}}: {{t:call|sprawdzi}} z każdym AK, AQ, AJ i KQ, a {{t:fold|spasuje}} z każdym KJ, QJ i JT. {{t:bet|Stawiasz}} czy {{t:check|czekasz}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { marginMin: 0.05, expected: ["bet"], flop: { height: [high] } }
+decisions:
+  - street: river
+    kind: river-value
+    rule: R-M8-001
+    calls: [AKs, AKo, AQs, AQo, AJs, AJo, KQs, KQo]
+    folds: [KJs, KJo, QJs, QJo, JTs, JTo]
+    pairKind: [top]
+    actions:
+      - action: "bet"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na riverze. {{t:bet|Stawiasz}} {{t:value|dla wartości}}, bo wśród rąk, które {{t:call|sprawdzą}}, gorszych od twojej jest więcej niż lepszych (remis dzieli {{t:pot|pulę}} i nie zmienia rachunku). Każde {{t:call|sprawdzenie}} gorszą ręką wygrywa jeden {{t:bet|zakład}}, a każde lepszą przegrywa jeden. Liczysz tylko ręce, które zapłacą: gdy rywal {{t:fold|pasuje}} gorszą ręką, wygrywasz tę samą {{t:pot|pulę}}, którą wygrałbyś po {{t:check|czekaniu}}."
+      - action: "check"
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na riverze. {{t:check|Czekanie}} oddaje tu wartość: wśród rąk, które {{t:call|sprawdzą}}, gorszych od twojej jest więcej niż lepszych (remis dzieli {{t:pot|pulę}} i nie zmienia rachunku), więc {{t:bet|zakład}} wygrywa od nich więcej, niż traci na lepszych. Ręce, które {{t:fold|spasują}}, nie płacą {{t:bet|zakładu}}, więc nie liczysz ich w tym rachunku."
