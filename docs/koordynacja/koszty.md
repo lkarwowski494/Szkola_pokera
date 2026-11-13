@@ -185,4 +185,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | HF | 09 fix (sonnet) przekłady 09-HD-1…4 + 4-bet + mdf | 5 | 2,19 | 21,2 | 14:58 → 15:00 → b4d170a4 → CI 43459616375 success (034b2dfb) → 16:31 | 25 min (E2E HF zdublowane) | przyjęta, nie scalona (partia z następną pracą); zarchiwizowana 16:31 |
 | koordynator 2/8 | M9 session_01T66VBwsHXCc4m15f9KDM4H | — | 15,76 | 29,7 | 11:57 → 22:57 | — | 4 subagenci startu (~140k tokenów każdy) |
 | HH | 04 audit (opus) ekrany vs FW 390/320/AX5 | — | 6,01 | 27,1 | 16:45 → 22:53 (start sesji) → f0121218 23:09 → CI 43524950237 success → 23:25 | — | przyjęta, zarchiwizowana 23:25; render jest→HTML zamiast Expo web (D-1630) |
-| HI | 09 audit (opus) kontrola zastępcza przekładów | — | ≥0,96 (licznik po restarcie) | 11,5 | 16:45 → 22:53 → 9372e454 23:21 → CI 43526473242 success → 23:32 | — | przyjęta 23:32 |
+| HI | 09 audit (opus) kontrola zastępcza przekładów | — | 7,67 | 28,7 | 16:45 → 22:53 → 9372e454 23:21 → CI 43526473242 success → 23:32 | — | przyjęta 23:32; zarchiwizowana 00:00 |
+| HG | 07 build (opus) WG-19, budżet testu (KO-106), 07-jakosc-001 | — | 7,91 | 28,7 | 16:45 → 22:54 → 0c1c952f 23:08 → CI 43529298036 success (6874fd9c) → czeka na recenzję 07 | recenzja: blokada assemble.mjs | bezczynna, nie zarchiwizowana |
