@@ -30,6 +30,7 @@ Podział joba `check` na 4 równoległe części wykonuje w CI dokładnie komend
 | `pnpm --filter @szkola/nieistnieje test` | 0 | „No projects matched the filters” | dowody/ga-pnpm-filter.txt; ryzyko pokryte testem (M18) |
 | logi przebiegów 43337711819 i 43389167128 (zip z API) | — | tabela niżej | dowody/ga-liczby-testow-ci.txt |
 | przebieg sondy (czerwony test w srs) | — | sekcja „Sonda na żywo” | dowody/ga-sonda-check.txt |
+| przebieg anulowany przez `concurrency` (43393756431) | — | `check` failure, przebieg cancelled | dowody/ga-anulowanie-check.txt |
 
 ### Zadanie 1: równoważność zestawu kontroli
 Skrypt `ci` (`package.json`): `pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr && pnpm tresci:el-kontrola`. `pnpm test` = `pnpm -r --if-present test`; w obu przebiegach „Scope: 9 of 10 workspace projects” (korzeń wyłączony), z czego `@szkola/content-schema` nie ma skryptu `test` (dowody/ga-pnpm-filter.txt), więc pakietów z testem jest 8.
@@ -59,7 +60,7 @@ Czas: stary krok `pnpm run ci` 12 min 28 s przy limicie 15 (dowody/ga-liczby-tes
 |---|---|---|
 | wszystkie 4 części success | check success | dowody/ga-check-agregat.txt; przebieg 43389167128 |
 | jedna część failure | check failure | dowody/ga-check-agregat.txt; sonda na żywo |
-| jedna część cancelled | check failure | dowody/ga-check-agregat.txt |
+| jedna część cancelled | check failure | dowody/ga-check-agregat.txt; na żywo dowody/ga-anulowanie-check.txt |
 | jedna część skipped | check failure | dowody/ga-check-agregat.txt; mutant M19 (`!= "failure"`) zabity |
 | brak części w `needs` (3 zamiast 4) | check failure (`length == 4`) | dowody/ga-check-agregat.txt; mutant M11 zabity |
 | `check` bez `always()` | test czerwony (M10) | GitHub Docs: pominięty job raportuje „Success” (cytat w D-1520, nie sprawdzałem drugi raz źródła; zachowanie zgodne z dokumentacją Actions) |
@@ -73,7 +74,7 @@ Czas: stary krok `pnpm run ci` 12 min 28 s przy limicie 15 (dowody/ga-liczby-tes
 Pełna lista z kodami: dowody/ga-mutanty-rozjazdu.txt (plik). Zabite: M1 usunięcie komendy, M2 usunięcie pakietu, M3 komenda tylko w `package.json`, M4 komenda tylko w `ci.yml`, M5 nowy pakiet z testem bez kroku, M6 dubel pakietu, M7 `|| true`, M8 `continue-on-error`, M9 `if: false` na części, M10 `check` bez `always()`, M11 część usunięta z `needs`, M12 `jq` bez `-e`, M13 dodatkowa flaga, M14 limit 30 min, M18 literówka w nazwie pakietu, M19 słabszy warunek `jq`. Przeżyły: M15 (`set +e` + końcowe `true`), M16 (`shell: bash {0}` i dwie komendy w jednym `run`), M20 (`env: CI: false` na kroku testów) → 07-jakosc-001; M17 (spójna zmiana nazwy pakietu w obu miejscach) to poprawne zachowanie, nie luka.
 
 ## Sonda na żywo
-Commit d21b580b na `claude/sesja-ga-recenzja` dodał celowo czerwony test w `@szkola/srs` (`expect(1).toBe(2)`); cofnięty commitem d3a1c724 (drzewo kodu znowu równe 31011f9c: `git diff 31011f9c d3a1c724 -- packages .github tests` pusty). Przebieg 43392410775: `ci-testy-aplikacja` failure (`ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL @szkola/srs`), pozostałe 3 części success, `check` uruchomiony po wszystkich częściach i **failure** z logiem „ci-testy-aplikacja: failure”; cały przebieg failure. Dowód: dowody/ga-sonda-check.txt. Krok `@szkola/jezyki` po `srs` nie wykonał się (jak `pnpm -r` z przerwaniem), co nie zmienia wyniku bramki.
+Commit d21b580b na `claude/sesja-ga-recenzja` dodał celowo czerwony test w `@szkola/srs` (`expect(1).toBe(2)`); cofnięty commitem d3a1c724 (drzewo kodu znowu równe 31011f9c: `git diff 31011f9c d3a1c724 -- packages .github tests` pusty). Przebieg 43392410775: `ci-testy-aplikacja` failure (`ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL @szkola/srs`), pozostałe 3 części success, `check` uruchomiony po wszystkich częściach i **failure** z logiem „ci-testy-aplikacja: failure”; cały przebieg failure. Dowód: dowody/ga-sonda-check.txt (plik). Krok `@szkola/jezyki` po `srs` nie wykonał się (jak `pnpm -r` z przerwaniem), co nie zmienia wyniku bramki.
 
 ## Twierdzenia projektu vs stan
 | Twierdzenie (plik:linia) | Jak sprawdzone | Potwierdzone / obalone |
@@ -109,7 +110,9 @@ Wymiary pokrycia: rejestr ryzyk — 5 ryzyk wyżej, każde z dowodem; wyrocznie 
 | pozostałe workflowy (`e2e-ios.yml` itd.) | poza zakresem | — |
 
 ## Kontrola dowodów i sekretów
-SPRAWDZ_WYNIK
+`node sprawdz-raport.mjs docs/jakosc/recenzje/recenzja-fz-ci-31011f9c.md . docs/jakosc --rola 07-jakosc` (katalog dowodów: `docs/jakosc`, zgodnie z poleceniem GA): kod 0, „OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 07-jakosc”. Sekrety: brak (wzorce skryptu). Sonda d21b580b cofnięta; drzewo kodu na gałęzi równe 31011f9c.
+
+`git status --porcelain` na początku: pusty (gałąź utworzona od 31011f9c). Na końcu przed commitem raportu: tylko pliki GA (`docs/jakosc/recenzje/recenzja-fz-ci-31011f9c.md`, `docs/jakosc/dowody/ga-*`, `docs/decyzje/GA.md`); `ci.yml` i `workflowy.test.mjs` nietknięte.
 
 ## Stosowalność listy kontrolnej
 | Pozycja | Status (dotyczy / nie dotyczy + powód / decyzja D-xx) | Wynik (ok / znalezisko ID / nie sprawdzono + powód) |
@@ -164,7 +167,7 @@ SPRAWDZ_WYNIK
 - Status: otwarte
 
 ## Do sprawdzenia (pewność ≤ 80%)
-- Zachowanie `check` przy anulowaniu przebiegu przez `concurrency` (nowy push na tę samą gałąź): `always()` uruchamia `check` także w anulowanym przebiegu, więc superseded commit może dostać czerwony `check` zamiast szarego „cancelled”. To szum wizualny, nie luka bramki (czerwień jest bezpieczna). ANULOWANIE_WYNIK Alternatywa `!cancelled()` (wzór Trening `e2e-ios.yml`, linia 126) dałaby pominięty `check`, a pominięty wymagany status liczy się jak sukces, więc `always()` jest bezpieczniejsze (D-1530).
+- Brak pozycji poniżej progu pewności. Zachowanie `check` przy anulowaniu przez `concurrency` było tu jako przypuszczenie i zostało sprawdzone na żywo: przebieg 43393756431 anulowany nowym pushem, trzy części `cancelled`, a `check` (z `always()`) uruchomił się i dał **failure** (dowody/ga-anulowanie-check.txt). Superseded commit dostaje więc czerwony `check` zamiast szarego „cancelled”. To szum wizualny, nie luka bramki; nie zgłaszam jako znaleziska, bo alternatywa `!cancelled()` (wzór Trening `e2e-ios.yml`, linia 126) dałaby pominięty `check`, a pominięty wymagany status liczy się jak sukces (D-1530).
 
 ## Co działa dobrze i należy zachować
 - Agregat wymaga `success` każdej części i liczby części (`length == 4`), a nie tylko braku `failure`: łapie `skipped` i `cancelled` (M19, M11).

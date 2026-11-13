@@ -1,0 +1,3 @@
+$ node sprawdz-raport.mjs docs/jakosc/recenzje/recenzja-fz-ci-31011f9c.md . docs/jakosc --rola 07-jakosc
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 07-jakosc
+kod 0
