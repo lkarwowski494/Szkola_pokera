@@ -1,0 +1,14 @@
+# Sesja HB: poprawki uwag 401–403 z recenzji GC — Szkoła Pokera
+Koordynator: session_01T66VByKjXi3s5FFnXyD7C2 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego; aktualny ID zawsze w `origin/koordynacja:docs/koordynacja/stan.md`, wiersz „Koordynator aktywny”). Gałąź stanu: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie fix (zadania 08-programista-401, 402, 403). Prompt roli jest w Twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `claude/sesja-hb-fix` od roboczej `claude/sleepy-brahmagupta-2065nu` @ 7740eeab2c947879e2d927a255d092e42c30de1e (inny HEAD: zgłoś). CI 43411564566 i E2E 43411564574 na tym SHA w toku. Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md.
+3. Zadania (wejście: `docs/programista/recenzje/recenzja-gb-0ac2679.md`, `docs/decyzje/GC.md`; test najpierw czerwony na mutancie, dowód w pliku):
+   1. **401** test ogłoszenia VoiceOver ręki mieszanej (FW §3 kryt. 3; mutant G4 GC musi zginąć; wzorzec: Trening `tests/m3-p2-matrix.test.tsx:45`). Gotowe: test zabija G4, dowód `docs/programista/dowody/hb-401.txt`.
+   2. **403** `scenario.numbers.line` przez `formatujLiczbe` według locale (jak KO-102). Gotowe: test z kwotą niecałkowitą i locale z przecinkiem.
+   3. **402** bramka river-catch: `marginMin` < 0,01 nie może dawać równych procentów ze zdaniem „więcej/mniej”. Jeśli poprawka leży w `packages/content-schema` albo `apps/` — zrób; jeśli wymaga zmian w `tools/content-build/` lub `content/` — nie zmieniaj (tam pracuje sesja HA), opisz poprawkę w raporcie.
+   4. Dowód końcowy: `pnpm run ci` kod 0 (`docs/programista/dowody/hb-ci-<sha>.txt`), CI na końcowym SHA zielone. Zregenerowanych baz treści nie commitujesz; gdy się zmieniły — raport.
+4. Zakazy: pliki tylko `apps/**`, `packages/content-schema/**` (tylko 402), `docs/programista/**`, `docs/decyzje/HB.md`; nie dotykasz `content/`, `tools/`, workflowów. Nie scalasz, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nigdy `--no-verify` ani force-push, bez AskUserQuestion. Wygląd tylko według specyfikacji (zasada 15). STOP-y roli i punkt czyszczenia → raport do koordynatora.
+5. Decyzje: techniczne przez analogię z lkarwowski494/trening (publiczne, klon `--depth 1`), `repo:plik:linia`, do weta. Numery tylko D-1575…D-1584.
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w `docs/programista/plan-08.md` (sekcja HB), push, PRZEKAZANIE. Orientacyjnie ok. 5 USD; powyżej 6,5 USD raport do koordynatora.
+7. Raporty (≤ 10 linii, send_message): PYTANIE z opcjami i rekomendacją; PRZEKAZANIE: SHA, run CI, dowody, decyzje do weta, koszt, otwarte, zakres do recenzji niezależnej.
