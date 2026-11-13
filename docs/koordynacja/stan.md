@@ -1020,3 +1020,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 16:10 | koordynator 2/8 | HF PRZEKAZANIE 034b2dfb; CI 43459616375 w toku; znalezisko 07 build.test.ts:101 flaky | kontrola 16:30 |
 | 16:31 | koordynator 2/8 | HF CI success, przyjęta; zarchiwizowana; 0 aktywnych | linia 05:00 (04:51) |
 | 22:57 | koordynator 2/8 | E6: kontekst 29,7%; HG/HH/HI aktywne; stan wypchnięty | następca 3/8 |
+| 22:58 | koordynator 2/8 | **przekazane do session_01T66VByLRhPb6XTrNCYoUC8** (start OK; prompt krótki — następca składa M9 z biblioteki sam); moja linia 05:00 usunięta; kontrola przekazania 23:28 | następca |
