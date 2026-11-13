@@ -8,4 +8,4 @@ Gałąź `claude/sesja-hg-ci` od `claude/sleepy-brahmagupta-2065nu` @ b7bc12e6. 
 | 3 07-jakosc-001 | zrobione, D-1621 | `docs/jakosc/dowody/hg-07-jakosc-001.txt` |
 | 4 `pnpm run ci` + CI | czeka | — |
 
-Następny krok: zad. 3 (kształt kroków części CI), potem zad. 2 według odpowiedzi, potem `pnpm run ci` i push.
+Następny krok: czekam na odpowiedź koordynatora (session_01T66VByLRhPb6XTrNCYoUC8) w sprawie zad. 2 (opcje A/B/C, rekomendacja A: budżet losowań rng przez vi.mock tylko w build.test.ts; wykonalność sprawdzona). Potem `pnpm run ci` (kod 0) i CI na końcowym SHA.
