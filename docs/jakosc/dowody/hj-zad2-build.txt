@@ -1,0 +1,34 @@
+HJ zad. 2 — build.ts hook naStartKontroliSzablonu + budżet losowań (D-1622, KO-106); kopia git worktree @ ba9a0fa5, 2026-11-14
+
+## A. Hook nie zmienia wyniku budowania (35 baz bajtowo)
+1) ba9a0fa5: pnpm content:build → kod 0; „Zapisano 35 baz treści … 44 lekcji, 146 reguł, 832 liczb, 162 terminów.” (2 min 3 s)
+   git status --porcelain po buildzie: pusto (35 baz i 3 moduły *.generated.ts = pliki w repo).
+   sha256sum apps/mobile/assets/content/* + apps/mobile/src/data/content/*.generated.ts → 38 sum (sha-po)
+2) git checkout b7bc12e6 -- tools/content-build/src/build.ts (bez hooka); pnpm content:build → kod 0, ten sam komunikat; 38 sum (sha-przed)
+3) cmp sha-przed sha-po → IDENTYCZNE (wszystkie 35 baz i 3 moduły). build.ts przywrócony; git status kopii pusty.
+Przykład sum (pierwsze wiersze, posortowane po nazwie):
+e6a9a013c48b789b7da7db3b3c6a8ccd5a0177c50e9f4abf331fe3452e41d8e7  apps/mobile/src/data/content/helplines.generated.ts
+d870b09b34489882c4567e34a32a42a86e7fbb87356ab18b43265cdbe5ce84c7  apps/mobile/src/data/content/terms.generated.ts
+a764271b1a6fcad3978f783c1e54667b9dd369ed432945caba711b72ac367e38  apps/mobile/src/data/content/tresc.generated.ts
+
+## B. Determinizm liczby losowań
+npx vitest run test/build.test.ts -t "budżecie losowań" --silent=false --reporter=verbose, 2 przebiegi: kod 0 i 0;
+listy „sc-NN <n> losowań” (18 szablonów) identyczne (cmp); sc-13 365903081 w obu (czas 26257 ms i 26602 ms — różny, nieasertowany).
+Zgodne z deklaracją HG (hg-budzet-losowan.txt: sc-13 365 903 081, maks.). Próg 731 806 162 = 2 × 365 903 081 (rachunek: zgadza się).
+Kolejne: sc-11 69 783 037, sc-01 52 849 136.
+
+## C. Mutanty hooka (build.ts na kopii, przywrócone)
+H1 usunięte wywołanie opts.naStartKontroliSzablonu → -t "losowań": kod 0, Tests 3 passed | 40 skipped — PRZEŻYŁ.
+   Liczby stają się narastające: maks. sc-34 695 858 837, sc-33 692 948 839 (< 731 806 162, zapas ~5%).
+   Kierunek błędu: narastająca ≥ rzeczywista, więc może dać tylko fałszywą czerwień, nigdy fałszywą zieleń.
+H2 wywołanie hooka przeniesione za kontrolę → kod 1, „expected [ 'sc-01', 'sc-02', 'sc-03', …(15) ] to deeply equal []” — ZŁAPANY (test „licznik widzi generator”).
+
+## D. Liczba testów i czas ścienny
+b7bc12e6 (build.ts + build.test.ts z bazy): npx vitest run test/build.test.ts → kod 0, Tests 42 passed (42)
+ba9a0fa5: dwa przebiegi → kod 0, Tests 43 passed (43) (każdy). Liczba testów 42 → 43, nie maleje.
+grep -nE "expect\(.*(czas|ms|performance)" test/build.test.ts → jedyne trafienie czasu: :129 porównanie zbiorów kluczy (bez wartości ms).
+Czas ścienny nie jest asercją.
+
+## E. „Czasy są wypisywane” (komentarz tools/content-build/test/build.test.ts:97, kontrola zastępcza dla nazwanego ograniczenia)
+Domyślny przebieg (npx vitest run test/build.test.ts, vitest 5.0.3; tak też biegnie pnpm test): grep -c "kontrola generatora (informacyjnie" → 0 w obu przebiegach.
+Linia console.info widoczna tylko z --silent=false (bt3/bt4: 1). W CI kontrola zastępcza jest więc niewidoczna.
