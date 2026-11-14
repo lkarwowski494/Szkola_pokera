@@ -1051,3 +1051,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 00:45 | HJ/scalenie | HJ PRZYJĄĆ Z UWAGAMI; robocza 0b0855ef (HG+HJ+HF+HI+HH), CI+E2E w toku; HG, HJ zarchiwizowane | kontrola 01:05 |
 | 00:50 | koordynator 3/8 | E6: kontekst 32,4%; 0 aktywnych; robocza 0b0855ef CI+E2E w toku; stan wypchnięty | następca 4/8 |
 | 00:52 | koordynator 3/8 | **przekazane do session_01T66VBzNwHnihoV8f9DCJeC** (start PENDING bez błędu; prompt krótki — następca składa M9 sam); moje 3 przypomnienia usunięte; kontrola przekazania 01:15 trig_01YbVJn2ELq7wkTyLVX84gGB | następca |
+| 00:55 | koordynator 4/8 | przejęcie session_01T66VBzNwHnihoV8f9DCJeC; add_repo prompts odrzucone [Unauthorized Access] → M9 niezłożona, nowe sesje wstrzymane; CI+E2E 0b0855ef in_progress | kontrola 01:30 |
