@@ -17,6 +17,6 @@ decisions:
     big: 0.6666666666666666
     actions:
       - action: "bet-big"
-        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:flush-draw|フラッシュドロー}}を持っている可能性があります。大きく{{t:bet|ベット}}するのは、相手の{{t:draw|ドロー}}には多くのエクイティがあるので、大きな{{t:bet|ベット}}で次のカードに高い代価を払わせるためです。{{t:flush-draw|フラッシュドロー}}がターンで完成するのは約{{n:odds.flush.flop-turn}}で、{{t:pot|ポット}}の三分の二の{{t:bet|ベット}}に対しては、次のカードの価格（エクイティ{{n:eq.bet-two-thirds}}）が、ドローがそのカードで当たる確率より高くなります。"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:flush-draw|フラッシュドロー}}を持っている可能性があります。大きく{{t:bet|ベット}}するのは、相手の{{t:draw|ドロー}}には多くのエクイティがあるので、大きな{{t:bet|ベット}}で次のカードに高い代価を払わせるためです。{{t:flush-draw|フラッシュドロー}}がターンで完成するのは約{{n:odds.flush.flop-turn}}で、{{t:pot|ポット}}の3分の2の{{t:bet|ベット}}に対しては、次のカードの価格（エクイティ{{n:eq.bet-two-thirds}}）が、ドローがそのカードで当たる確率より高くなります。"
       - action: "bet-small"
-        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:flush-draw|フラッシュドロー}}を持っている可能性があります。小さな{{t:bet|ベット}}は{{t:draw|ドロー}}に良い価格を与えます：{{t:pot|ポット}}の四分の一の{{t:bet|ベット}}なら、ドローに必要なエクイティは{{n:eq.bet-quarter}}で済み、ターンでは約{{n:odds.flush.flop-turn}}で当たります。このようなフロップで{{t:draw|ドロー}}に対して強いハンドを持つときは、より大きなサイズで{{t:bet|ベット}}します。"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手は{{t:flush-draw|フラッシュドロー}}を持っている可能性があります。小さな{{t:bet|ベット}}は{{t:draw|ドロー}}に良い価格を与えます：{{t:pot|ポット}}の4分の1の{{t:bet|ベット}}なら、ドローに必要なエクイティは{{n:eq.bet-quarter}}で済み、ターンでは約{{n:odds.flush.flop-turn}}で当たります。このようなフロップで{{t:draw|ドロー}}に対して強いハンドを持つときは、より大きなサイズで{{t:bet|ベット}}します。"

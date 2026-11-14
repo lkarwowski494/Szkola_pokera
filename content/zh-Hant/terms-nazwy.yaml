@@ -68,7 +68,7 @@ offsuit: null  # offsuit; bez formy 0; formy: — [DO USTALENIA]
 pocket-pair: "口袋對"  # pocket pair; bez formy 0; formy: 口袋對×3
 connectors: "連張"  # connectors; bez formy 0; formy: 連張×24
 3-bet: null  # 3-bet; bez formy 0; formy: — [DO USTALENIA]
-4-bet: null  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
+4-bet: null  # 4-bet; bez formy 0; formy: — [DO USTALENIA]; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1644: zostaje (null = „4-bet”, spójne z 3-bet), brak źródła na 4-bet; GGPoker zh-tw ma „三次加注” dla 3-bet → przegląd eksperta dla obu
 limp: "溜入"  # limp; bez formy 1; formy: 溜入×1 [AB: Z2: przeczytane źródło TW (pokerqz) ma 平跟, ale 平跟 = też flat call; 溜入 [DO USTALENIA] źródło, decyzja przy K-05; ujednolicić 跛入 i łacińskie limp; D-392: przeczytane kpoker.org (zh-TW) „平跟進池 / Limp”; 溜入 bez źródła, ale 48× w tekście — zmiana nazwy tylko z ujednoliceniem tekstu (backlog)]
 isolation: "隔離加注"  # isolation raise; bez formy 0; formy: 隔離加注×7
 texture: "牌面結構"  # texture; bez formy 0; formy: 牌面結構×8
@@ -83,7 +83,7 @@ disconnected: "不連張"  # disconnected; bez formy 0; formy: 不連張×4
 semi-connected: "半連張"  # semi-connected; bez formy 0; formy: 半連張×6, 半連接×1 [WIELE FORM]
 wetness: "濕潤度"  # wetness; bez formy 0; formy: 濕潤度×3, 潮濕度×2 [WIELE FORM]
 top-pair: "頂對"  # top pair; bez formy 23; formy: 頂對×62
-second-pair: "第二對"  # second pair; bez formy 0; formy: 第二對×9
+second-pair: "第二對"  # second pair; bez formy 0; formy: 第二對×9; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1642: potw. ggpoker.com/zh-tw/poker-basics/poker-terms/ „第二高牌組成的一對稱為第二對”
 overpair: "超對"  # overpair; bez formy 8; formy: 超對×2
 c-bet: "持續下注"  # c-bet; bez formy 0; formy: 持續下注×2
 aggressor: "進攻者"  # aggressor; bez formy 2; formy: 進攻者×5, 主動進攻者×1, 主動方×1, 進攻方×1 [WIELE FORM]
@@ -157,7 +157,7 @@ nit: "岩石型玩家"  # nit; bez formy 9; formy: 岩石玩家×7, 岩石型玩
 regular: "常規玩家"  # regular; bez formy 1; formy: 常客×6, 常規玩家×5 [AB: Z2: terms-def; 常客 w UI ujednolicić]
 tag: null  # tight aggressive; bez formy 1; formy: — [SKRÓT TAG]
 lag: null  # loose aggressive; bez formy 1; formy: — [SKRÓT LAG]
-recreational: "娛樂玩家"  # recreational player; bez formy 0; formy: 娛樂玩家×19, 休閒玩家×2 [AB: Z2: 19× w treści; 休閒玩家 w UI ujednolicić]
+recreational: "娛樂玩家"  # recreational player; bez formy 0; formy: 娛樂玩家×19, 休閒玩家×2 [AB: Z2: 19× w treści; 休閒玩家 w UI ujednolicić]; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1643: zostaje, brak źródła zh-Hant (a+b); 休閒玩家 w treści 0×
 calling-station: "跟注站"  # calling station; bez formy 1; formy: 跟注站×1
 maniac: "瘋子"  # maniac; bez formy 0; formy: 瘋子×14, 瘋狂玩家×4 [AB: większość form]
 rake: "抽水"  # rake; bez formy 36; formy: 抽水×20

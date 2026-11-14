@@ -83,7 +83,7 @@ disconnected: "sconnesso"  # disconnected; r. m; bez formy 2; formy: sconnesso×
 semi-connected: "semi-connesso"  # semi-connected; r. m; bez formy 0; formy: semi-connesso×5, semi-connessi×1, Semi-connesso×1; źr. brak; [DO USTALENIA]
 wetness: "bagnatura"  # wetness; r. f; bez formy 0; formy: bagnatura×3, umidità×2; źr. brak (C:Texture_1952 „coordinato”); tłumacz bagnatura×3, umidità×2 [WIELE FORM] [DO USTALENIA]
 top-pair: "top pair"  # top pair; r. f; bez formy 24; formy: coppia massima×34, top pair×21, Top pair×4, coppie massime×1; źr. C:Top-Pair („una top pair è una coppia”); tłumacz „coppia massima”×35 — brak w źródłach [WIELE FORM]
-second-pair: "seconda coppia"  # second pair; r. f; bez formy 0; formy: seconda coppia×9; źr. brak (C:Middle-pair „middle pair”); [DO USTALENIA]
+second-pair: "seconda coppia"  # second pair; r. f; bez formy 0; formy: seconda coppia×9; źr. brak (C:Middle-pair „middle pair”); HF D-1612: pokerstrategy.com/it/glossary/Middle-pair, odczyt 2026-11-13: „una coppia formata da una delle carte del giocatore e dalla seconda carta comune più alta o carta comune centrale, viene definita middle pair” — pojęcie potwierdzone, nazwa „seconda coppia” (kalka) bez źródła [DO USTALENIA, lista do recenzji]
 overpair: "overpair"  # overpair; r. f; bez formy 9; formy: overpair×1; źr. C:Pair (odnośnik „Overpair”); bez formy „un'{{t:overpair}}” 7× — wymaga ż.
 c-bet: "c-bet"  # c-bet; r. f; bez formy 0; formy: c-bet×2; źr. C:Continuation-Bet („continuation bet , una puntata continuativa”)
 aggressor: "aggressore"  # aggressor; r. m; bez formy 3; formy: aggressore×7; źr. C:Float („l´aggressore viene soltanto visto”)
@@ -108,7 +108,7 @@ donk-bet: "donk bet"  # donk bet; r. f; bez formy 0; formy: —; źr. brak; [DO 
 overbet: "overbet"  # overbet; r. m; bez formy 2; formy: overbet×1; źr. C:Polarizzare_2023 („un'over-bet”, ż.); bez formy „Un {{t:overbet}}” 1× wymaga m.; [C] ż. — rozbieżność rodzaju, bez konfliktu przy m.
 effective-stack: "stack effettivo"  # effective stack; r. m; bez formy 0; formy: stack effettivo×6; źr. brak; [DO USTALENIA]
 spr: "SPR"  # stack-to-pot ratio; r. m; bez formy 160; formy: SPR×29; źr. C:SPR (hasło „SPR (Stack to Pot Ratio)”); rodzajnik w przekładzie: „l'SPR”×42, „lo SPR”×10 — oba poprawne, niespójne (NISKIE)
-mdf: "MDF"  # minimum defense frequency; r. f; bez formy 60; formy: MDF×14; źr. brak; [DO USTALENIA]
+mdf: "MDF"  # minimum defense frequency; r. f; bez formy 60; formy: MDF×14; źr. brak;; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1645: potw. pokerqz.com/it/tools/glossary/mdf „MDF (Minimum Defense Frequency) si riferisce alla percentuale minima”
 alpha: "alpha"  # alpha; r. m; bez formy 2; formy: alpha×4; źr. brak; [DO USTALENIA]
 variance: "varianza"  # variance; r. f; bez formy 7; formy: varianza×19; źr. C:Varianza
 buy-in: "buy-in"  # buy-in; r. m; bez formy 0; formy: buy-in×83; źr. C:Buy-in
@@ -157,7 +157,7 @@ nit: "nit"  # nit; r. m; bez formy 14; formy: nit×3, Nit×2; źr. C:Weak-tight 
 regular: "regular"  # regular; r. m; bez formy 1; formy: regular×6, Regular×3, Reg×1, reg×1; źr. brak; [DO USTALENIA]
 tag: "TAG"  # tight aggressive; r. m; bez formy 1; formy: —; źr. C:TAG („TAG sta per Tight-Aggressive”)
 lag: "LAG"  # loose aggressive; r. m; bez formy 1; formy: —; źr. C:LAG („LAG sta per Loose-Aggressive”)
-recreational: "giocatore ricreativo"  # recreational player; r. m; bez formy 0; formy: giocatore ricreativo×10, giocatori ricreativi×8, Giocatori ricreativi×2, Giocatore ricreativo×1; źr. brak (C: „fish”); [DO USTALENIA]
+recreational: "giocatore ricreativo"  # recreational player; r. m; bez formy 0; formy: giocatore ricreativo×10, giocatori ricreativi×8, Giocatori ricreativi×2, Giocatore ricreativo×1; źr. brak (C: „fish”);; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1643: potw. assopoker.com/…/poker-online-le-prime-letture-come-capire-chi-hai-di-fronte_250674/ „I giocatori ricreativi, d'altra parte”
 calling-station: "calling station"  # calling station; r. f; bez formy 1; formy: calling station×1; źr. C:Calling-station („Con calling station (in breve, station) si definisce un giocatore”)
 maniac: "maniac"  # maniac; r. m; bez formy 2; formy: maniaco×14, Maniac×1, maniac×1; źr. C:Maniac („Un maniac è un giocatore estremamente aggressivo”); lekcje: maniac×45, maniaco×16 [WIELE FORM]
 rake: "rake"  # rake; r. m; bez formy 39; formy: rake×17; źr. C:Rake („Il rake oppure il "chop"”)

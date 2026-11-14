@@ -68,7 +68,7 @@ offsuit: "khác chất"  # offsuit; bez formy 0; formy: —; źr. brak (antonim 
 pocket-pair: "pocket pair"  # pocket pair; bez formy 0; formy: đôi túi×3, đôi tẩy×1; źr. C:Pocket pair; tłumacz „đôi túi”×3, „đôi tẩy”×1 — brak w źródłach [WIELE FORM]
 connectors: "connector"  # connectors; bez formy 1; formy: bài liên tiếp×10, connector×8, bài liền×4, bài liền nhau×1; źr. C:Connectors; tłumacz „bài liên tiếp”×10, „connector”×8 [WIELE FORM]
 3-bet: "3-bet"  # 3-bet; bez formy 0; formy: —; źr. brak w C (C:Squeeze play „tố lại”) [DO USTALENIA]
-4-bet: "4-bet"  # 4-bet; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+4-bet: "4-bet"  # 4-bet; bez formy 0; formy: —; źr. brak [DO USTALENIA]; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1644: zostaje, brak źródła vi; spójne z 3-bet (a+b)
 limp: "limp"  # limp; bez formy 1; formy: limp×1; źr. C:Limp, limp in
 isolation: "tố cô lập"  # isolation raise; bez formy 0; formy: tố cô lập×6, cô lập×1; źr. C:Isolation („ý định cô lập một người chơi”)
 texture: "kết cấu"  # texture; bez formy 0; formy: kết cấu×4, Kết cấu×3, cấu trúc×1; źr. C:Dry board („Kết cấu của các lá bài chung”)
@@ -83,7 +83,7 @@ disconnected: "rời rạc"  # disconnected; bez formy 1; formy: rời rạc×2,
 semi-connected: "bán liên kết"  # semi-connected; bez formy 0; formy: bán liên kết×6, Bán liên kết×1; źr. brak [DO USTALENIA]
 wetness: "độ ướt"  # wetness; bez formy 0; formy: độ ướt×5; źr. C:Wet board — częściowo
 top-pair: "top pair"  # top pair; bez formy 22; formy: đôi cao nhất×44, Đôi cao nhất×17, Đôi lớn nhất×1; źr. C:Top pair; tłumacz „đôi cao nhất”×62 — w D to „wyższa para w dwóch parach” [WIELE FORM]
-second-pair: "đôi thứ hai"  # second pair; bez formy 0; formy: đôi thứ hai×6, Đôi thứ hai×3; źr. C:Second pair („Cặp thứ hai”) — częściowo
+second-pair: "đôi thứ hai"  # second pair; bez formy 0; formy: đôi thứ hai×6, Đôi thứ hai×3; źr. C:Second pair („Cặp thứ hai”) — częściowo; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1642: zostaje; ggpoker.com/vi/poker-basics/poker-terms/ „Cặp thứ hai là cặp trung bình” (cặp = đôi, pair w aplikacji „đôi”)
 overpair: "overpair"  # overpair; bez formy 8; formy: overpair×2; źr. C:Overpair
 c-bet: "c-bet"  # c-bet; bez formy 0; formy: c-bet×2; źr. C:Continuation bet
 aggressor: "người tấn công"  # aggressor; bez formy 0; formy: người tấn công×9, người chủ động×1; źr. brak; terms-def „aggressor”×4 [DO USTALENIA] [WIELE FORM]
@@ -157,7 +157,7 @@ nit: "nit"  # nit; bez formy 10; formy: nit×6, Nit×3; źr. C:Nit
 regular: "reg"  # regular; bez formy 1; formy: reg×7, Reg×4; źr. brak; UI „Reg” [DO USTALENIA]
 tag: "TAG"  # tight aggressive; bez formy 1; formy: —; źr. skrót
 lag: "LAG"  # loose aggressive; bez formy 1; formy: —; źr. skrót
-recreational: "người chơi giải trí"  # recreational player; bez formy 0; formy: người chơi giải trí×14, Người chơi giải trí×7; źr. brak; C ma tylko „Fish” [DO USTALENIA]
+recreational: "người chơi giải trí"  # recreational player; bez formy 0; formy: người chơi giải trí×14, Người chơi giải trí×7; źr. brak; C ma tylko „Fish” [DO USTALENIA]; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1643: zostaje, brak źródła vi (a+b)
 calling-station: "calling station"  # calling station; bez formy 1; formy: calling station×1; źr. C:Calling station
 maniac: "maniac"  # maniac; bez formy 0; formy: maniac×13, Maniac×5; źr. C:Maniac
 rake: "rake"  # rake; bez formy 35; formy: rake×20, phí rake×1; źr. C:Rakeback („tiền cào”) — częściowo

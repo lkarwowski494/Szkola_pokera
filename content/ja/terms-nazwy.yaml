@@ -68,7 +68,7 @@ offsuit: "オフスート"  # offsuit; bez formy 0; formy: — [DO USTALENIA]
 pocket-pair: "ポケットペア"  # pocket pair; bez formy 0; formy: ポケットペア×3
 connectors: "コネクター"  # connectors; bez formy 4; formy: コネクター×20
 3-bet: "3ベット"  # 3-bet; bez formy 0; formy: —; ZAMKNIĘTE 2026-11-12 (EN, D-1238): forma korpusu, 276 × „3ベット”, 0 × zapis pełny katakaną
-4-bet: "4ベット"  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
+4-bet: "4ベット"  # 4-bet; bez formy 0; formy: —; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1644: zostaje; źr. pokerqz.com/ja/tools/glossary/4bet „4bet,リリレイズ,4ベット,４ベット,フォーベット”
 limp: "リンプ"  # limp; bez formy 1; formy: リンプ×1
 isolation: "アイソレーション"  # isolation raise; bez formy 0; formy: アイソレーション×6, アイソレート×1 [WIELE FORM]
 texture: "テクスチャー"  # texture; bez formy 0; formy: テクスチャー×7, テクスチャ×1 [WIELE FORM]
@@ -83,7 +83,7 @@ disconnected: "ディスコネクテッド"  # disconnected; bez formy 2; formy:
 semi-connected: "セミコネクテッド"  # semi-connected; bez formy 0; formy: セミコネクト×5, セミコネクテッド×2 [WIELE FORM]
 wetness: "ウェット度"  # wetness; bez formy 0; formy: ウェット度×4, ウェットさ×1 [WIELE FORM]
 top-pair: "トップペア"  # top pair; bez formy 28; formy: トップペア×57
-second-pair: "セカンドペア"  # second pair; bez formy 0; formy: セカンドペア×9
+second-pair: "セカンドペア"  # second pair; bez formy 0; formy: セカンドペア×9; [DO USTALENIA] HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1642: źr. pokerqz.com/ja/tools/glossary/second-hit „セカンドヒット”, …/middle-pair „ミドルペア”; セカンドペア bez źródła, zmiana razem z top-pair → przegląd eksperta
 overpair: "オーバーペア"  # overpair; bez formy 9; formy: オーバーペア×1
 c-bet: "Cベット"  # c-bet; bez formy 0; formy: Cベット×2
 aggressor: "アグレッサー"  # aggressor; bez formy 6; formy: アグレッサー×4
@@ -157,7 +157,7 @@ nit: "ニット"  # nit; bez formy 12; formy: ニット×7
 regular: "レギュラー"  # regular; bez formy 2; formy: レギュラー×10
 tag: null  # tight aggressive; bez formy 1; formy: — [SKRÓT TAG]
 lag: null  # loose aggressive; bez formy 1; formy: — [SKRÓT LAG]
-recreational: "レクリエーショナルプレイヤー"  # recreational player; bez formy 0; formy: レクリエーショナルプレイヤー×21
+recreational: "レクリエーショナルプレイヤー"  # recreational player; bez formy 0; formy: レクリエーショナルプレイヤー×21; HI 2026-11-13 (docs/lokalizacja/kontrola-zastepcza-hi.md) D-1643: zostaje; źr. częściowe rangecraftpoker.com/ja/help-center/poker-tools-poker-lexicon „Reg / Rec: レギュラー / レクリエーション”
 calling-station: "コーリングステーション"  # calling station; bez formy 2; formy: — [zmiana D-392: https://mpj-portal.jp/forbeginners/beginner-pokerglossary/, odczyt 2026-11-09]
 maniac: "マニアック"  # maniac; bez formy 0; formy: マニアック×18
 rake: "レーキ"  # rake; bez formy 42; formy: レーキ×14
