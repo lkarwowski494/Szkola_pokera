@@ -1,7 +1,15 @@
 import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+// HG (D-1622, KO-106): koszt kontroli generatora liczony losowaniami rng, nie zegarem. Moduł rng z poker-core podmieniony tylko w tym
+// pliku na ten sam mulberry32 z licznikiem (ciąg liczb bez zmian, więc warianty, hashe i wyniki pozostałych testów też bez zmian).
+const losowania = vi.hoisted(() => ({ n: 0 }));
+vi.mock('../../../packages/poker-core/src/rng', async (oryginal) => {
+  const m = await oryginal<typeof import('../../../packages/poker-core/src/rng')>();
+  return { ...m, createRng: (seed: number) => { const r = m.createRng(seed); return () => { losowania.n++; return r(); }; } };
+});
 import { parse as parseYaml } from 'yaml';
 import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TermsFile, TextureAxis } from '@szkola/content-schema';
 import { TEXTURE_AXES, TEXTURE_VALUES, WETNESS_POINTS, WETNESS_THRESHOLDS, classifyFlop, parseCards } from '@szkola/poker-core';
@@ -75,11 +83,21 @@ describe('schemat', () => {
 /** Pełna kompilacja pl (z generatorem) raz na plik testu: bramka generatora zostaje, bez powtarzania ~20 s. */
 let pelna: ReturnType<typeof compileContent> | undefined;
 const czasyKontroli = new Map<string, number>();
-const skompilowana = () => (pelna ??= compileContent(contentDir, 'pl', { naCzasKontroliSzablonu: (id, ms) => czasyKontroli.set(id, ms) }));
+const losowaniaKontroli = new Map<string, number>();
+let losowaniaStart = 0;
+const skompilowana = () => (pelna ??= compileContent(contentDir, 'pl', {
+  naStartKontroliSzablonu: () => { losowaniaStart = losowania.n; },
+  naCzasKontroliSzablonu: (id, ms) => { czasyKontroli.set(id, ms); losowaniaKontroli.set(id, losowania.n - losowaniaStart); },
+}));
 
-/** Szablony, których kontrola generatora przekracza budżet (ms); budżet ok. 4,5× najwolniejszy pomiar CH (9,8 s) ze względu na wolniejsze runnery CI. */
-export const BUDZET_KONTROLI_SZABLONU_MS = 45_000;
-export const ponadBudzet = (czasy: ReadonlyMap<string, number>, budzetMs: number): string[] => [...czasy].filter(([, ms]) => ms > budzetMs).map(([id]) => id);
+/**
+ * Budżet kosztu kontroli generatora na szablon w losowaniach rng (HG, D-1622, KO-106): 2× maksimum zmierzone na b7bc12e6
+ * (sc-13: 365 903 081 losowań, `docs/jakosc/dowody/hg-budzet-losowan.txt`). Zastępuje budżet 45 s czasu ściennego (D-766), który
+ * zależał od maszyny i obciążenia (sc-13: 34 s sam, 56–60 s przy 6 procesach; `docs/jakosc/dowody/hg-czas-diagnoza.txt`).
+ * Ograniczenie (nazwane, backlog NISKIE): nie łapie wzrostu kosztu jednej próby bez wzrostu liczby losowań; czasy są wypisywane.
+ */
+export const BUDZET_LOSOWAN_SZABLONU = 731_806_162;
+export const ponadBudzet = (koszty: ReadonlyMap<string, number>, budzet: number): string[] => [...koszty].filter(([, n]) => n > budzet).map(([id]) => id);
 
 describe('treść projektu', () => {
   it('kompiluje się bez błędów i bez liczb wpisanych ręcznie', () => {
@@ -98,13 +116,21 @@ describe('treść projektu', () => {
     const a = compileContent(contentDir, 'pl', { kontrolaGeneratora: false });
     expect(compileContent(contentDir, 'pl', { kontrolaGeneratora: false }).hash).toBe(a.hash);
   }, 30_000);
-  it('kontrola generatora mieści się w budżecie czasu na szablon', () => {
+  it('kontrola generatora mieści się w budżecie losowań na szablon (czasy tylko wypisane)', () => {
     skompilowana();
-    expect(czasyKontroli.size).toBeGreaterThan(0);
-    expect(ponadBudzet(czasyKontroli, BUDZET_KONTROLI_SZABLONU_MS)).toEqual([]);
+    expect(losowaniaKontroli.size).toBeGreaterThan(0);
+    console.info(`kontrola generatora (informacyjnie, bez asercji; HG D-1622): ${[...losowaniaKontroli].map(([id, n]) => `${id} ${n} losowań / ${Math.round(czasyKontroli.get(id) ?? NaN)} ms`).join('; ')}`);
+    expect(ponadBudzet(losowaniaKontroli, BUDZET_LOSOWAN_SZABLONU)).toEqual([]);
   }, 120_000);
-  it('budżet czasu wykrywa spowolniony szablon', () => {
-    expect(ponadBudzet(new Map([['sc-a', 1_000], ['sc-b', 60_000]]), BUDZET_KONTROLI_SZABLONU_MS)).toEqual(['sc-b']);
+  it('licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze)', () => {
+    skompilowana();
+    expect(losowaniaKontroli.size).toBeGreaterThan(0);
+    expect([...losowaniaKontroli].filter(([, n]) => n <= 0).map(([id]) => id)).toEqual([]);
+    expect([...losowaniaKontroli.keys()].sort()).toEqual([...czasyKontroli.keys()].sort());
+  }, 120_000);
+  it('budżet losowań wykrywa droższy szablon (sc-13 z podwojonym kosztem ponad budżet)', () => {
+    expect(ponadBudzet(new Map([['sc-a', 1_000], ['sc-13', BUDZET_LOSOWAN_SZABLONU + 1]]), BUDZET_LOSOWAN_SZABLONU)).toEqual(['sc-13']);
+    expect(ponadBudzet(new Map([['sc-13', BUDZET_LOSOWAN_SZABLONU]]), BUDZET_LOSOWAN_SZABLONU)).toEqual([]);
   });
 });
 

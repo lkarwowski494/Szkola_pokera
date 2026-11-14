@@ -1,0 +1,26 @@
+HJ zad. 4 — pnpm run ci (kontener HJ), 2026-11-14
+Kod aplikacji = ba9a0fa5 (HEAD w chwili startu; w trakcie doszedł tylko commit HJ z plikami docs/, poza zakresem kontroli kodu).
+Start/koniec UTC: 2026-11-14T00:24:48Z 2026-11-14T00:38:34Z 
+Komenda: ( time pnpm run ci ) > log 2>&1; echo KOD_WYJSCIA=$?   — jeden proces, bez innych ciężkich przebiegów
+
+Liczby:
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  316 passed (316)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  770 passed | 1 expected fail (771)
+# tests 207
+# pass 207
+# fail 0
+      Tests  35 passed (35)
+0 braków
+
+Koniec logu:
+0 braków
+
+real	13m46.031s
+user	33m12.780s
+sys	0m44.399s
+KOD_WYJSCIA=0

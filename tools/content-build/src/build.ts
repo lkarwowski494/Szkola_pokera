@@ -132,6 +132,8 @@ export interface CompileOptions {
   liczbyZarezerwowane?: Readonly<Record<string, string>>;
   /** Czas kontroli generatora jednego szablonu (ms); do testu budżetu czasu (CL, ŚR-003 CH). */
   naCzasKontroliSzablonu?: (id: string, ms: number) => void;
+  /** Start kontroli generatora jednego szablonu; test budżetu losowań (HG, D-1622, KO-106) zeruje tu licznik, żeby losowania spoza kontroli nie liczyły się szablonowi. */
+  naStartKontroliSzablonu?: (id: string) => void;
 }
 
 /** Liczby w numbers.yaml bez użycia w content/ z powodu, który wygasa po wejściu treści (D-1490; klucz → powód). */
@@ -436,6 +438,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     seenScenarioIds.add(template.id);
     errs.push(...checkScenarioNaEkran(template));
     if (locale === 'pl' && opts.kontrolaGeneratora !== false && errs.length === 0) {
+      opts.naStartKontroliSzablonu?.(template.id);
       const t0 = performance.now();
       errs.push(...checkScenarioGenerator(template, undefined, undefined, kontekstGeneratora()));
       opts.naCzasKontroliSzablonu?.(template.id, performance.now() - t0);

@@ -1,0 +1,20 @@
+HJ zad. 3 — 07-jakosc-001 (D-1621): test kształtu części CI; mutanty powtórzone niezależnie na kopii (git worktree @ ba9a0fa5), 2026-11-14
+ci.yml bez zmian w zakresie: git diff --stat b7bc12e6..ba9a0fa5 -- .github/workflows/ci.yml → pusto.
+Komenda: node --test tests/narzedzia/workflowy.test.mjs po każdej mutacji pliku .github/workflows/ci.yml (sed), potem git checkout.
+Mutacje pisane od nowa (krok „pnpm --filter @szkola/mobile test” zamiast kroków użytych przez HG), nie skryptem HG.
+
+| Mutant | Opis | Test z b7bc12e6 (przed) | Test z ba9a0fa5 (po) |
+|---|---|---|---|
+| M15 | set +e + true w wieloliniowym run (typecheck) | kod 0, tests 27, fail 0 (przeżył) | kod 1, fail 1 (zabity) |
+| M16 | shell: bash {0} na kroku mobile | kod 0, fail 0 (przeżył) | kod 1, fail 1 (zabity) |
+| M20 | env CI: false na kroku mobile | kod 0, fail 0 (przeżył) | kod 1, fail 1 (zabity) |
+| M21 | defaults.run.shell: bash {0} workflowu | — | kod 1, fail 1 (zabity) |
+| M23 | working-directory na kroku mobile | — | kod 1, fail 1 (zabity) |
+| X1 (HJ) | continue-on-error: true na kroku | — | kod 1, fail 2 |
+| X2 (HJ) | if: false na kroku | — | kod 1, fail 2 |
+| X3 (HJ) | „pnpm … test || true” w jednej linii | — | kod 1, fail 3 |
+| X4 (HJ) | „pnpm … test -- --passWithNoTests” | — | kod 1, fail 2 |
+| X5 (HJ) | continue-on-error: true na zadaniu części | — | kod 1, fail 2 |
+| X6 (HJ) | krok uses (pnpm/action-setup) z continue-on-error | — | kod 1, fail 2 |
+Bazowo ba9a0fa5: tests 30, fail 0 (hj-zad1). git status --porcelain kopii po mutacjach: tylko „?? node_modules”-podobne nieśledzone (brak zmian śledzonych).
+Wniosek: 5 z 10 mutantów M15–M24 powtórzone (wymagane ≥ 3), wszystkie zabite po zmianie; 3 z nich przeżywały na teście sprzed zmiany (czerwień przed / zieleń po potwierdzona). 6 dodatkowych mutantów HJ zabitych.

@@ -1,0 +1,30 @@
+HJ zad. 1 — e2e-ios.yml (WG-19, D-1620): mutanty na kopii (git worktree @ ba9a0fa5 w scratchpadzie), 2026-11-14
+Komenda na każdy mutant: node --test tests/narzedzia/workflowy.test.mjs  (linia „# fail N”); po każdym przywrócony oryginał.
+Bazowo (bez mutacji): # tests 30 / # pass 30 / # fail 0
+
+M1  branches + 'claude/**'                         | # fail 1  (złapany)
+M2  branches + 'integration/**'                    | # fail 1  (złapany)
+M3  'claude/s*' zamiast gałęzi roboczej            | # fail 1  (złapany)
+M4  usunięta gałąź robocza (tylko main)            | # fail 1  (złapany)
+M5  workflow_dispatch → workflow_dispatch_x        | # fail 2  (złapany)
+M6  usunięte paths-ignore                          | # fail 1  (złapany, test store/** z D-327)
+M7  paths-ignore bez 'docs/**'                     | # fail 1  (złapany)
+M8  usunięty blok concurrency                      | # fail 0  (PRZEŻYŁ; blok niezmieniony w diffie, brak testu sprzed HG)
+M9  cancel-in-progress: false                      | # fail 0  (PRZEŻYŁ; jw.)
+M10 dodany pull_request                            | # fail 1  (złapany)
+M11 bez workflow_call                              | # fail 3  (złapany)
+M12 dodane tags: ['v*'] do push                    | # fail 0  (PRZEŻYŁ; teoretyczny — projekt nie pushuje tagów)
+M13 dodana jawna gałąź sesji 'claude/sesja-hg-ci'  | # fail 1  (złapany)
+git status --porcelain kopii po mutacjach: tylko „?? node_modules” (dowiązanie), pliki śledzone przywrócone.
+
+Diff b7bc12e6..ba9a0fa5 w e2e-ios.yml: zmieniona wyłącznie linia push.branches (+2 linie komentarza); paths-ignore,
+workflow_dispatch (3 wejścia), workflow_call, permissions, env, concurrency (e2e-${{ github.ref }}-${{ github.event_name }},
+cancel-in-progress przy push) bez zmian — `git diff b7bc12e6..ba9a0fa5 -- .github/workflows/e2e-ios.yml`: 1 hunk @@ -19,8 +19,10 @@.
+
+Analogia Trening (git clone lkarwowski494/trening, commit 2d97581, odczyt 2026-11-14):
+  .github/workflows/e2e-ios.yml:17–20 „push: branches: [main, 'integration/**'] paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**']”
+  :70–72 concurrency identyczne jak w Szkole. Gałąź robocza Szkoły pełni rolę gałęzi integracyjnej → analogia zachowana.
+Gałąź robocza istnieje: git ls-remote origin claude/sleepy-brahmagupta-2065nu → b7bc12e6 (= baza zakresu).
+Bramka TestFlight (scripts/ci/bramka-e2e.mjs:105) szuka przebiegów e2e-ios.yml po head_sha bez filtra zdarzenia → przebieg
+workflow_dispatch się liczy; TestFlight z innej gałęzi niż main/robocza wymaga wcześniejszego ręcznego E2E.
+Komentarz nagłówka e2e-ios.yml:7–8 i :11–14 nadal opisuje push na integration/** i claude/** (nieaktualny po D-1620).

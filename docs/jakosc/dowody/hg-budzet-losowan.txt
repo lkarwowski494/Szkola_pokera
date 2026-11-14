@@ -1,0 +1,18 @@
+# HG zad. 2: budżet losowań rng na szablon zamiast czasu ściennego (D-1622, KO-106), 2026-11-13
+Pomiar na b7bc12e6 (treść bez zmian), npx vitest run test/build.test.ts -t "budżecie losowań|licznik losowań" --silent=false, kontener Linux 4 rdzenie:
+kontrola generatora (informacyjnie, bez asercji; HG D-1622): sc-01 52849136 losowań / 12107 ms; sc-02 30301279 losowań / 7068 ms; sc-03 3097408 losowań / 896 ms; sc-04 9001128 losowań / 1451 ms; sc-05 14702142 losowań / 2411 ms; sc-06 102000 losowań / 237 ms; sc-08 102000 losowań / 162 ms; sc-11 69783037 losowań / 7683 ms; sc-12 14222907 losowań / 2302 ms; sc-13 365903081 losowań / 32844 ms; sc-19 47358537 losowań / 10326 ms; sc-22 35624061 losowań / 8022 ms; sc-25 11537832 losowań / 2597 ms; sc-28 26892249 losowań / 7463 ms; sc-29 11268042 losowań / 3196 ms; sc-32 102000 losowań / 164 ms; sc-33 102000 losowań / 156 ms; sc-34 2909998 losowań / 7089 ms
+ ✓ test/build.test.ts > treść projektu > kontrola generatora mieści się w budżecie losowań na szablon (czasy tylko wypisane) 3ms
+ ✓ test/build.test.ts > treść projektu > licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze) 1ms
+      Tests  2 passed | 41 skipped (43)
+kod 0
+
+Maksimum: sc-13 365 903 081 → BUDZET_LOSOWAN_SZABLONU = 2 × 365 903 081 = 731 806 162 (próg globalny). Liczby identyczne z niezależnym pomiarem przez instrumentację poker-core (hg-czas-diagnoza.txt §2) — licznik w teście nie gubi losowań.
+
+## Mutant: sc-13 z podwojoną liczbą prób (build.ts: proby 4000 dla sc-13; kopia robocza, przywrócona)
+sc-13 739008841 losowań
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected [ 'sc-13' ] to deeply equal []
+      Tests  1 failed | 1 passed | 41 skipped (43)
+kod 1 (czerwony z właściwego powodu: sc-13 ponad budżet). Uwaga: zapas tylko ok. 1% (739,0 mln vs 731,8 mln), bo próg = dokładnie 2× — kolejne ziarna 2001–4000 są nieco droższe od pierwszych.
+
+## Pełny plik build.test.ts po zmianie: Tests 43 passed (43), kod 0; przed zmianą (git stash): Tests 42 passed (42) — liczba testów +1 (nowy: licznik widzi generator każdego szablonu).

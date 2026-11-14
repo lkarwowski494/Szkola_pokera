@@ -1,0 +1,17 @@
+# HG zad. 4: pnpm run ci na 0d299bc2, 2026-11-13, kontener Linux 4 rdzenie
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  316 passed (316)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  770 passed | 1 expected fail (771)
+apps/mobile test: Test Suites: 143 passed, 143 total
+apps/mobile test: Tests:       1437 passed, 1437 total
+# tests 207
+# pass 207
+# fail 0
+      Tests  35 passed (35)
+0 braków
+KOD=0
+CI GitHub: run 43529298036 na 6874fd9c, conclusion success (odczyt MCP GitHub 2026-11-13 23:55 UTC); E2E iOS: 0 przebiegów na claude/sesja-hg-ci (WG-19).
