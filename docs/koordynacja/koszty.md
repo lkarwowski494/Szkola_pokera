@@ -188,3 +188,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | HI | 09 audit (opus) kontrola zastępcza przekładów | — | 7,67 | 28,7 | 16:45 → 22:53 → 9372e454 23:21 → CI 43526473242 success → 23:32 | — | przyjęta 23:32; zarchiwizowana 00:00 |
 | HG | 07 build (opus) WG-19, budżet testu (KO-106), 07-jakosc-001 | — | 7,91 | 28,7 | 16:45 → 22:54 → 0c1c952f 23:08 → CI 43529298036 success (6874fd9c) → recenzja HJ PRZYJĄĆ Z UWAGAMI 00:41 → scalona 0b0855ef 00:44 | recenzja: blokada assemble.mjs 00:00–00:05 (do zgody właściciela) | zarchiwizowana 00:45 |
 | HJ | 07 audit (opus) recenzja HG | 6 | 4,16 | 21,4 | 00:03 → 00:06 → 64e9f98b → CI 43534578339 success → 00:45 | — | PRZYJĄĆ Z UWAGAMI; zarchiwizowana 00:45; start: 4 części przez subagenta, zgodność bajtowa sprawdzona |
+| koordynator 3/8 | M9 session_01T66VByLRhPb6XTrNCYoUC8 | — | 11,63 | 32,4 | 22:58 → 00:50 | 00:00–00:05 blokada assemble (zgoda właściciela) | 1 subagent startu (171k tokenów) |
