@@ -24,7 +24,7 @@ Wszystkie trzy zmiany HG robią to, co deklarują, i mają dowody odtworzone nie
 | `pnpm content:build` ×2 (z build.ts po i przed) | 0, 0 | 35 baz, sumy sha256 identyczne (38 plików) | dowody/hj-zad2-build.txt §A |
 | `npx vitest run test/build.test.ts` ×2 (ba9a0fa5) | 0, 0 | Tests 43 passed (43) | przed (b7bc12e6): 42 passed |
 | `vitest … -t "budżecie losowań" --silent=false` ×2 | 0, 0 | 18 szablonów, liczby identyczne; sc-13 365 903 081 | dowody/hj-zad2-build.txt §B |
-| `pnpm run ci` (ba9a0fa5) | patrz dowody/hj-ci-pelne.txt | — | jeden proces, bez innych ciężkich przebiegów |
+| `pnpm run ci` (ba9a0fa5) | 0 | vitest: 21+144+316+348 (1 expected fail)+44+160+771 (1 expected fail)+35; node --test 207/207; el-kontrola 0 braków | 13 min 46 s, jeden proces; dowody/hj-ci-pelne.txt |
 | CI GitHub, przebieg 43530873449 (push, ba9a0fa5) | success | — | `actions_list` 2026-11-14 |
 
 ## Linia bazowa i założenia
@@ -153,4 +153,4 @@ Brak decyzji produktowych. Do weta: D-1650 (werdykt PRZYJĄĆ Z UWAGAMI). Kolejn
 `node tools/assemble.mjs 07-jakosc --tryb fix --zadania 07-jakosc-301,07-jakosc-302,07-jakosc-303,07-jakosc-304` (P2, backlog; 07-jakosc-305 tylko komentarz progu). Nie blokuje przyjęcia HG.
 
 ## git status --porcelain
-Na początku: pusto (HEAD ba9a0fa5). Na końcu: tylko nowe pliki HJ w `docs/` (wynik w dowody/hj-ci-pelne.txt i w PRZEKAZANIU).
+Na początku: pusto (HEAD ba9a0fa5). Na końcu: pusto po commicie HJ (zmiany wyłącznie w `docs/`: raport, dowody hj-*, `docs/decyzje/HJ.md`); pliki kodu nietknięte, worktree w scratchpadzie usunięty.
