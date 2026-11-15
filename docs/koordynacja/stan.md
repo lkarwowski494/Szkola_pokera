@@ -33,6 +33,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **04:55 (15.11) linia 05:00 napisana.** Bez zmian od 14.11 00:44: brak odpowiedzi właściciela (4 pytania z 14.11 05:00), 0 aktywnych sesji, robocza @ 0b0855ef. Koordynator: kontekst 14,9%, 3,04 USD (ok. 0,85 USD na linię bezczynności). Przypomnienie: linia 14:00 15.11 trig_01GJiZx7M9uESWVRqvEnPga3.
 - **13:55 linia 14:00 napisana.** Od 05:00 bez zmian: brak odpowiedzi właściciela na 4 pytania z linii 05:00, 0 aktywnych sesji, robocza @ 0b0855ef (zielona). Koordynator: kontekst 14,0%, 2,17 USD. Przypomnienie: linia 05:00 15.11 trig_01TWvdmCbPUce79TGCui4UPf.
 - **04:55 linia 05:00 napisana.** Noc: partia HG+HJ+HF+HI+HH na roboczej 0b0855ef, CI+E2E zielone. Aktywnych sesji: 0; od 01:30 bez zmian (brak słów właściciela). Do właściciela: (1) reguła add_repo (A rek.) — blokuje HK; (2) zrzuty: react-native-web (a, rek. HH) vs render z drzewa (b); (3) 006: (a) tytuł = pierwsze zdanie (rek.) / (b) pole tytułu w 35 szablonach / (c) zostawić; (4) reguła anulowania przebiegów (2a, nadal brak). Do weta: KO-106, D-1600…1613, D-1620…1622, D-1630…1632, D-1640…1647, D-1650. Koordynator: kontekst 13,0%, 1,33 USD.
 - **01:30 kontrola.** Robocza @ **0b0855ef potwierdzona**: CI 43535955130 **success** (00:49) + E2E 43535954922 **success** (01:26) — partia HG+HJ+HF+HI+HH scalona i zielona. Aktywnych sesji podrzędnych: 0. Kolejka bez zmian (HK pierwsza), **wstrzymana** do reguły właściciela dla add_repo prompts (prośba wysłana 00:58; powtórka w linii 05:00). Koordynator: kontekst 12,1%, 1,10 USD.
@@ -1058,3 +1059,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 01:30 | kontrola | CI+E2E 0b0855ef success; 0 aktywnych; HK wstrzymana (add_repo prompts) | linia 05:00 |
 | 04:55 | linia 05:00 | raport nocy + 4 prośby/pytania; 0 aktywnych | linia 14:00 |
 | 13:55 | linia 14:00 | bez zmian; 4 pytania otwarte; 0 aktywnych | linia 05:00 15.11 |
+| 04:55 (15.11) | linia 05:00 | bez zmian; 4 pytania otwarte; 0 aktywnych | linia 14:00 15.11 |
