@@ -3,12 +3,14 @@
 // Ekrany: start, decyzja, ocena-zgodna, ocena-blad; szerokości 390 i 320 pt; rozmiar domyślny i „AX5”.
 // „AX5” to PRZYBLIŻENIE: react-native-web nie stosuje skali czcionki systemu, więc zrzutowe `Text` (apps/mobile/zrzuty-web/rn.tsx) mnoży fontSize i lineHeight
 // przez 3,12 (53/17 pt, Dynamic Type AX5) z sufitem maxFontSizeMultiplier i bez allowFontScaling={false}, jak iOS. Jeden mnożnik, bez krzywej stylów Dynamic Type.
-// Kontrola: tekst poza szerokością ekranu i przewijanie poziome. Przy rozmiarze domyślnym → kod wyjścia 1; przy AX5 tylko INFO (znane znaleziska audytu HH).
+// Wysokość widoku = wysokość treści (HW, 08-programista-502): ekran przewija się wewnątrz ScrollView, więc `fullPage` sam ucinałby zrzut do okna.
+// Kontrole: tekst poza szerokością ekranu, przewijanie poziome, na ekranach oceny pasek ocen i „Zobacz podsumowanie” w kadrze, żadne dwa zrzuty z tym samym md5. Przy rozmiarze domyślnym → kod wyjścia 1; przy AX5 tylko INFO (znane znaleziska audytu HH).
 import { execFileSync } from 'node:child_process';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { dopasujWysokosc, powtorzoneZrzuty } from './hl-zrzuty-lib.mjs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const korzen = path.resolve(import.meta.dirname, '../..');
 const dist = process.env.HL_DIST ?? path.join(korzen, '.expo/zrzuty-web');
@@ -38,7 +40,8 @@ for (const ekran of ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
       strona.on('pageerror', (e) => bledy.push(String(e).slice(0, 200)));
       await strona.goto(`http://localhost:${port}/?ekran=${ekran}&fs=${ax5 ? AX5 : 1}`, { waitUntil: 'networkidle' });
       await strona.waitForTimeout(500);
-      const wynik = await strona.evaluate(() => {
+      await dopasujWysokosc(strona, szer);
+      const wynik = await strona.evaluate(({ ocena, przebieg, ax5: duzy }) => {
         const W = document.documentElement.clientWidth; const out = [];
         for (const e of document.querySelectorAll('*')) {
           const txt = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent.trim()).join(' ').trim();
@@ -47,16 +50,35 @@ for (const ekran of ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
           if (r.width && (r.right > W + 1 || r.left < -1)) out.push(`poza ekranem: „${txt.slice(0, 30)}”`);
         }
         if (document.documentElement.scrollWidth > W + 1) out.push(`przewijanie poziome ${document.documentElement.scrollWidth}>${W}`);
+        if (ocena) {
+          const H = window.innerHeight;
+          const pasek = document.querySelector('[role="img"][aria-label]');
+          if (!pasek) out.push('brak paska ocen');
+          else if (pasek.getBoundingClientRect().bottom > H) out.push('pasek ocen poza kadrem zrzutu');
+          const przycisk = [...document.querySelectorAll('*')].find((e) => e.childElementCount === 0 && e.textContent.trim() === 'Zobacz podsumowanie');
+          if (!przycisk) out.push('brak „Zobacz podsumowanie”');
+          else if (przycisk.getBoundingClientRect().bottom > H) out.push('„Zobacz podsumowanie” poza kadrem zrzutu');
+        }
+        if (przebieg) {
+          // HW (08-programista-501): przy AX5 nagłówek przebiegu musi się ułożyć w kolumnę (gałąź układu zależna od fontScale), przy tekście domyślnym w wiersz.
+          const naglowek = [...document.querySelectorAll('[role="heading"]')].find((e) => e.textContent.trim() === 'Scenariusz');
+          const kierunek = naglowek ? getComputedStyle(naglowek.parentElement).flexDirection : 'brak nagłówka';
+          const oczekiwany = duzy ? 'column' : 'row';
+          if (kierunek !== oczekiwany) out.push(`brak układu dużego tekstu: nagłówek przebiegu flexDirection=${kierunek}, oczekiwano ${oczekiwany}`);
+        }
         return { out, tekst: document.body.innerText.length };
-      });
+      }, { ocena: ekran.startsWith('ocena'), przebieg: ekran !== 'start', ax5 });
       const nazwa = `hl-${ekran}-${szer}${ax5 ? '-ax5' : ''}.png`;
       if (wynik.tekst < 20) bledy.push('pusty ekran');
       await strona.screenshot({ path: path.join(wyjscie, nazwa), fullPage: true });
-      for (const x of [...wynik.out, ...bledy]) { console.log(`${ax5 ? 'INFO ' : ''}${nazwa}: ${x}`); if (!ax5 || bledy.includes(x)) problemy++; }
+      const twarde = (x) => !ax5 || bledy.includes(x) || /kadrem|brak |układu/.test(x);
+      for (const x of [...wynik.out, ...bledy]) { console.log(`${twarde(x) ? '' : 'INFO '}${nazwa}: ${x}`); if (twarde(x)) problemy++; }
       await ctx.close();
     }
   }
 }
 await przeglad.close(); srv.close();
+const nazwyZrzutow = ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad'].flatMap((e) => [390, 320].flatMap((w) => [`hl-${e}-${w}.png`, `hl-${e}-${w}-ax5.png`]));
+for (const grupa of powtorzoneZrzuty(wyjscie, nazwyZrzutow)) { console.log(`identyczne zrzuty (md5): ${grupa.join(', ')}`); problemy++; }
 console.log(problemy ? `problemy: ${problemy}` : `OK: 16 zrzutów w ${path.relative(korzen, wyjscie)}`);
 process.exit(problemy ? 1 : 0);

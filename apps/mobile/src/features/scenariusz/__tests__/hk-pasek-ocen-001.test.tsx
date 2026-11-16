@@ -56,4 +56,14 @@ describe('04-studio-projektowe-001: pasek ocen akcji w segmentach jak przed decy
     expect(styl(segment('Pas')).borderColor).not.toBe(tk.gold);
     expect(screen.getAllByText(/twój wybór/i)).toHaveLength(1);
   });
+  // 08-programista-504 (mutanty M3, M4 recenzji HM): teksty na granatowym pasku mają tokeny napisów na granacie, nie ciemne `ink` ani `goldOnBg` (jasne tło).
+  it('nazwa akcji i stopień na granacie: actionInk (nie ink); dopisek „twój wybór”: goldText (nie goldOnBg)', async () => {
+    skala(1);
+    const tk = await tokeny();
+    expect(tk.actionInk).not.toBe(tk.ink);
+    expect(tk.goldText).not.toBe(tk.goldOnBg);
+    await pokaz();
+    for (const n of Object.values(NAZWY)) expect(styl(screen.getByText(n)).color).toBe(tk.actionInk);
+    expect(styl(screen.getByText(/twój wybór/i)).color).toBe(tk.goldText);
+  });
 });
