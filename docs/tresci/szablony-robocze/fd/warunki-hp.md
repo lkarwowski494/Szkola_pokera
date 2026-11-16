@@ -17,7 +17,7 @@ Nowe znaczniki tekstu `{{w:…}}` (wartości z wariantu, nie liczby treści): `{
 
 ## SC-16 (M6) check-raise mocnym drawem — Ś T
 - Linia: 6-max, 100 bb; BTN otwiera (`pf.open-size`), SB pas, BB (gracz) sprawdza; flop: BB czeka, BTN c-bet 1/3 puli (`cbet.size.small`). Decyzja gracza na flopie.
-- Ręka gracza (losowana z zakresu obrony `vs-open.bb-vs-btn`): bez pary z kartą gracza (`pairKind = null`) i draw z kartą gracza: kolor (4 karty koloru, w tym ≥ 1 gracza... dokładniej: obie karty gracza w kolorze) albo strit otwarty (`outs ≥ 8`).
+- Ręka gracza (losowana z zakresu obrony `vs-open.bb-vs-btn`): bez pary z kartą gracza (`pairKind = null`) i draw z kartą gracza: draw do koloru (obie karty gracza w jednym kolorze i dwie karty tego koloru na flopie) albo strit otwarty z kartą gracza; w obu przypadkach `outs ≥ 8`.
 - Stół (odrzucanie): niesparowany; nie trzy karty jednego koloru; bez gotowego strita (`straightPossible = false`); nie trzy karty od dziesiątki w górę (UP ep1: na stołach broadway wobec BTN 3,2×; przy tej regule obie krotności i tak są ≥ `xr.mult.low`, ale szkic trzyma się przykładu 4,5×).
 - Akcje i werdykty:
 
