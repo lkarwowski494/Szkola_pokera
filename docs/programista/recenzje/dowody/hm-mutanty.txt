@@ -1,0 +1,16 @@
+# komenda: python3 -I hm-mutanty.py wt (HEAD 39d90fb9, lokalne scalenie HK+HL)
+M1 | 001: stała podstawa 96 zamiast podstawaSegmentu(fontScale) | ZABITY (jest kod 1; Tests:       2 failed, 2 passed, 4 total)
+M2 | 001: segmenty znów na białych kaflach (tło paska surface) | ZABITY (jest kod 1; Tests:       1 failed, 3 passed, 4 total)
+M3 | 001: dopisek „twój wybór” kolorem goldOnBg (tekst na jasnym tle) na granacie | PRZEŻYŁ (jest kod 0; Tests:       4 passed, 4 total)
+M4 | 001: nazwa akcji kolorem ink (ciemny) na granacie | PRZEŻYŁ (jest kod 0; Tests:       4 passed, 4 total)
+M5 | 002: próg dużego tekstu nigdy nie osiągnięty (> 4) | ZABITY (jest kod 1; Tests:       1 failed, 1 passed, 2 total)
+M6 | 002: ulica w kolumnie zachowuje minWidth 64 i textAlign right | PRZEŻYŁ (jest kod 0; Tests:       2 passed, 2 total)
+M7 | 003: width 64 także przy dużym tekście | ZABITY (jest kod 1; Tests:       1 failed, 1 passed, 2 total)
+M8 | 003: wiersz dziennika bez wariantu pionowego | ZABITY (jest kod 1; Tests:       1 failed, 1 passed, 2 total)
+M9 | 006: ekran startu pokazuje całą sytuację w tytule | ZABITY (jest kod 1; Tests:       1 failed, 1 passed, 2 total)
+M10 | 006: bez warunku cyfry przed kropką („3. Mai”) | ZABITY (jest kod 1; Tests:       1 failed, 6 passed, 7 total)
+M11 | 006: bez warunku małej litery po kropce („np. króle”) | ZABITY (jest kod 1; Tests:       2 failed, 5 passed, 7 total)
+M12 | 006: znaki CJK wymagają spacji (bez KONIEC_BEZ_SPACJI) | ZABITY (jest kod 1; Tests:       1 failed, 6 passed, 7 total)
+M13 | 006: zamykające nawiasy nie wchodzą do zdania | PRZEŻYŁ (jest kod 0; Tests:       7 passed, 7 total)
+git status --porcelain po przebiegu: ''
+# kod wyjścia: 0

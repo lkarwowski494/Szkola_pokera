@@ -1,0 +1,39 @@
+# HM: mutanty własne na poprawkach HK (kod produkcyjny), każdy wstawiany i cofany w finally; po przebiegu git status musi być pusty.
+# Użycie: python3 -I hm-mutanty.py <drzewo-repo>
+import subprocess, sys, pathlib
+repo = pathlib.Path(sys.argv[1])
+K = 'apps/mobile/src/features/scenariusz/komponenty.tsx'
+E = 'apps/mobile/src/features/scenariusz/EkranScenariusza.tsx'
+Z = 'apps/mobile/src/features/scenariusz/zdanie.ts'
+T = 'src/features/scenariusz/__tests__/'
+MUT = [
+  ('M1', '001: stała podstawa 96 zamiast podstawaSegmentu(fontScale)', K, 'flexBasis: podstawaSegmentu(PixelRatio.getFontScale())', 'flexBasis: 96', T + 'hk-pasek-ocen-001'),
+  ('M2', '001: segmenty znów na białych kaflach (tło paska surface)', K, "{ backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>\n      {wpisy.map", "{ backgroundColor: tk.surface, borderColor: tk.actionOutline }]}>\n      {wpisy.map", T + 'hk-pasek-ocen-001'),
+  ('M3', '001: dopisek „twój wybór” kolorem goldOnBg (tekst na jasnym tle) na granacie', K, "color: tk.goldText, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}", "color: tk.goldOnBg, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}", T + 'hk-pasek-ocen-001'),
+  ('M4', '001: nazwa akcji kolorem ink (ciemny) na granacie', K, "<Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>", "<Text style={[styl.naglowek, { color: tk.ink, textAlign: 'center' }]}>{nazwy[a]}</Text>", T + 'hk-pasek-ocen-001'),
+  ('M5', '002: próg dużego tekstu nigdy nie osiągnięty (> 4)', E, 'useWindowDimensions().fontScale >= SKALA_BEZ_PASKA; // AX4–AX5: nagłówek', 'useWindowDimensions().fontScale > 4; // AX4–AX5: nagłówek', T + 'hk-naglowek-ax5-002'),
+  ('M6', '002: ulica w kolumnie zachowuje minWidth 64 i textAlign right', E, "duzyTekst ? null : { minWidth: 64, textAlign: 'right' }", "{ minWidth: 64, textAlign: 'right' }", T + 'hk-naglowek-ax5-002'),
+  ('M7', '003: width 64 także przy dużym tekście', K, "duzyTekst ? null : { width: 64 }", "{ width: 64 }", T + 'hk-dziennik-ax5-003'),
+  ('M8', '003: wiersz dziennika bez wariantu pionowego', K, 'duzyTekst ? styles.wierszPionowy : null, { borderColor', 'null, { borderColor', T + 'hk-dziennik-ax5-003'),
+  ('M9', '006: ekran startu pokazuje całą sytuację w tytule', E, '<Title>{sytuacja.tytul}</Title>', '<Title>{p.szablon.situation}</Title>', T + 'hk-start-tytul-006'),
+  ('M10', '006: bez warunku cyfry przed kropką („3. Mai”)', Z, "if (i > 0 && CYFRA.test(znaki[i - 1] as string)) continue;", "", T + 'hk-zdanie-006'),
+  ('M11', '006: bez warunku małej litery po kropce („np. króle”)', Z, "if (nast < znaki.length && MALA_LUB_CYFRA.test(znaki[nast] as string)) continue;", "", T + 'hk-zdanie-006'),
+  ('M12', '006: znaki CJK wymagają spacji (bez KONIEC_BEZ_SPACJI)', Z, "const bezSpacji = KONIEC_BEZ_SPACJI.has(z);", "const bezSpacji = false && KONIEC_BEZ_SPACJI.has(z);", T + 'hk-zdanie-006'),
+  ('M13', '006: zamykające nawiasy nie wchodzą do zdania', Z, "(ZAMYKAJACE.has(znaki[koniec] as string) || ", "(false || ", T + 'hk-zdanie-006'),
+]
+wyniki = []
+for mid, opis, plik, stare, nowe, test in MUT:
+  p = repo / plik
+  orig = p.read_text(encoding='utf8')
+  if orig.count(stare) != 1:
+    wyniki.append((mid, opis, f'NIE WSTAWIONY (wystąpień: {orig.count(stare)})')); continue
+  try:
+    p.write_text(orig.replace(stare, nowe), encoding='utf8')
+    r = subprocess.run(['pnpm', '--filter', '@szkola/mobile', 'exec', 'jest', '--ci', test], cwd=repo, capture_output=True, text=True, timeout=600)
+    ost = [l for l in (r.stdout + r.stderr).splitlines() if l.startswith('Tests:')]
+    wyniki.append((mid, opis, ('ZABITY' if r.returncode != 0 else 'PRZEŻYŁ') + f" (jest kod {r.returncode}; {ost[-1] if ost else 'brak linii Tests'})"))
+  finally:
+    p.write_text(orig, encoding='utf8')
+for w in wyniki: print(' | '.join(w))
+s = subprocess.run(['git', 'status', '--porcelain'], cwd=repo, capture_output=True, text=True).stdout
+print('git status --porcelain po przebiegu:', repr(s))

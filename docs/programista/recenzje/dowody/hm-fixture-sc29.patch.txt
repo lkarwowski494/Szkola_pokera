@@ -1,0 +1,17 @@
+diff --git a/apps/mobile/zrzuty-web/wejscie.tsx b/apps/mobile/zrzuty-web/wejscie.tsx
+index 3510ffa7..bb43962e 100644
+--- a/apps/mobile/zrzuty-web/wejscie.tsx
++++ b/apps/mobile/zrzuty-web/wejscie.tsx
+@@ -30,8 +30,10 @@ const poprawna = (punkt && 'correct' in punkt ? punkt.correct : 'bet') as Akcja;
+ const bledna: Akcja = poprawna === 'bet' ? 'check' : 'bet';
+ 
+ function Ekran({ ekran }: { ekran: string }) {
+-  if (ekran === 'start') {
+-    return <StartScenariusza szablon={SZABLON} tytulModulu="Moduł 8" wybor="auto" poziom="latwy" zastapiony={false} limit={{ bezLimitu: true }} strefa="Europe/Warsaw" onWybierz={brak} onStart={brak} onLimitWyczerpany={brak} onWroc={brak} />;
++  if (ekran === 'start' || ekran === 'start-sc29') {
++    // HM (pomiar lokalny, niecommitowany): sytuacja SC-29 pl dosłownie z bazy treści tresc-595ef75ad5-pl.db
++    const SC29 = 'Na riverze masz najwyższą parę (top pair), jesteś na Buttonie, a duży blind (big blind, BB) czeka (check). Rywal to pasywny gracz rekreacyjny (recreational player): VPIP (voluntarily put in pot) od ok. 35%, a PFR (preflop raise) niższy o ponad 10 punktów. Załóż, że nie przebija (raise): sprawdzi (call) z JJ, TT i z każdym AK, AQ, AJ, AT, KQ, KJ, QJ i JT, a spasuje (fold) z każdym KT i QT. Stawiasz (bet) czy czekasz?';
++    return <StartScenariusza szablon={ekran === 'start-sc29' ? { ...SZABLON, situation: SC29 } : SZABLON}tytulModulu="Moduł 8" wybor="auto" poziom="latwy" zastapiony={false} limit={{ bezLimitu: true }} strefa="Europe/Warsaw" onWybierz={brak} onStart={brak} onLimitWyczerpany={brak} onWroc={brak} />;
+   }
+   const wybory: Akcja[] = ekran === 'decyzja' ? [] : [ekran === 'ocena-blad' ? bledna : poprawna];
+   return <PrzebiegScenariusza sesja={sesjaFg(SZABLON, 'latwy', wariant, wybory)} faza={ekran === 'decyzja' ? 'decyzja' : 'ocena'} koniec bladZapisu={false} onWybierz={brak} onDalej={brak} onZakoncz={brak} />;
