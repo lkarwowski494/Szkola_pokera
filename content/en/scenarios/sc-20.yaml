@@ -1,7 +1,7 @@
 # sc-20: English text of pl/sc-20.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
 id: sc-20
 module: m7
-situation: "On the turn you have a strong hand: {{t:top-pair}} with a good {{t:kicker}} or better. There are two cards of one suit on the {{t:board}}, so your opponent may have a {{t:flush-draw}}. What bet size do you choose?"
+situation: "On the turn you have a strong hand: {{t:top-pair}} with a good {{t:kicker}} or better. There are two cards of one suit on the {{t:board}}, so your opponent may have a {{t:flush-draw}}. What {{t:bet}} size do you choose?"
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
