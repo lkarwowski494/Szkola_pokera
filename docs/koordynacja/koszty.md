@@ -189,3 +189,7 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | HG | 07 build (opus) WG-19, budżet testu (KO-106), 07-jakosc-001 | — | 7,91 | 28,7 | 16:45 → 22:54 → 0c1c952f 23:08 → CI 43529298036 success (6874fd9c) → recenzja HJ PRZYJĄĆ Z UWAGAMI 00:41 → scalona 0b0855ef 00:44 | recenzja: blokada assemble.mjs 00:00–00:05 (do zgody właściciela) | zarchiwizowana 00:45 |
 | HJ | 07 audit (opus) recenzja HG | 6 | 4,16 | 21,4 | 00:03 → 00:06 → 64e9f98b → CI 43534578339 success → 00:45 | — | PRZYJĄĆ Z UWAGAMI; zarchiwizowana 00:45; start: 4 części przez subagenta, zgodność bajtowa sprawdzona |
 | koordynator 3/8 | M9 session_01T66VByLRhPb6XTrNCYoUC8 | — | 11,63 | 32,4 | 22:58 → 00:50 | 00:00–00:05 blokada assemble (zgoda właściciela) | 1 subagent startu (171k tokenów) |
+| HK | 08 fix (sonnet) 04-studio-projektowe-001…006 + 404 | — | 2,89 | 65,9 | 10:18 → 375efeff → recenzja HM → scalona 14fdc7c6 11:39 | — | zarchiwizowana 12:20 (gałąź zostaje) |
+| HL | 08 build (sonnet) react-native-web, zrzuty Expo web | — | 1,83 | 56,0 | 10:21 → cf296709 → recenzja HM → scalona 14fdc7c6 11:39 | — | zarchiwizowana 12:20; 501/502 do poprawki osobno |
+| HM | 08 audit (opus) recenzja HK+HL | — | 6,81 | 32,7 | 11:09 → d4e66c66 → scalona 14fdc7c6 11:39 | — | PRZYJĄĆ Z UWAGAMI; zarchiwizowana 12:20 |
+| HP | 06 build (opus) szkice SC-16/18/21/26/27/30 | — | 9,65 | 41,1 | 11:16 → 24533007 11:51 | — | zarchiwizowana 12:20; gałąź claude/sesja-hp-szkice do scalenia po E2E roboczej, recenzja 06 audit przy przenoszeniu do content |
