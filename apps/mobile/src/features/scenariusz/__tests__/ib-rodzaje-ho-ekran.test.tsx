@@ -11,7 +11,7 @@ import { formatujLiczbe } from '@szkola/jezyki';
 import i18n from '@/i18n';
 import { getKontekstGeneratora } from '@/data/content/repo';
 import { jezykZadan } from '@/features/drills/text';
-import { dbCn } from '@/test-utils/kontekstCn';
+import { dbCn, ISO_CO, ISO_SB } from '@/test-utils/kontekstCn';
 import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
 import { propsFg, sesjaFg } from '@/test-utils/fgScenariusz';
 import { PrzebiegScenariusza, tekstAkcji } from '../EkranScenariusza';
@@ -71,6 +71,11 @@ const nazwa = (k: string) => { const x = t(k); return x.charAt(0).toLocaleUpperC
 describe('IB: kontekst generatora w aplikacji dla rodzajów HO (getKontekstGeneratora)', () => {
   it.each([SPR_CALL, CHECK_RAISE, TURN_ACTION, GEO_SIZE, NIT_3BET].map((s) => [s.decisions[0]!.kind, s] as const))('%s: wariant powstaje z kontekstem aplikacji', (_k, s) => {
     for (let z = 1; z <= 5; z++) expect(wariant(s, z).points[0]!.point).toBe(s.decisions[0]!.kind);
+  });
+  // koordynator (odpowiedź na PYTANIE 3): ten sam test także dla iso-size (SC-09; fikstury HX), losowanie z kontekstem z bazy treści
+  it.each([['iso-co', ISO_CO], ['iso-sb', ISO_SB]] as const)('%s (size-spot iso-size): wariant powstaje z kontekstem aplikacji', (_k, s) => {
+    expect(getKontekstGeneratora(dbCn, s)).toBeDefined();
+    for (let z = 1; z <= 5; z++) expect(wariant(s, z).points[0]!).toMatchObject({ point: 'size-spot', check: 'iso-size' });
   });
 });
 
