@@ -1,5 +1,6 @@
 // HO (D-1722, HP): w SC-16 `call` to zagranie zgodne (ręka mieszana, ADR-04); fold i zbyt małe podbicie to niedokładność (R-M6-006/010).
-import type { ScenarioTemplate, ScenarioVariant } from '@szkola/content-schema';
+import type { ScenarioTemplate } from '@szkola/content-schema';
+import type { ScenarioVariant } from '@szkola/poker-core';
 import { ocenyAkcji } from '../wariant';
 
 const wariant = {

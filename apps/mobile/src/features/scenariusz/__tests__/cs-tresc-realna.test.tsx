@@ -67,7 +67,10 @@ describe('treść z bazy: każdy szablon, poziom, punkt i akcja na ekranie oceny
           const przed = oczekiwane.slice(0, k);
           await render(<PrzebiegScenariusza sesja={sesja(szablon, poziom, 3, przed)} faza="decyzja" koniec={false} bladZapisu={false} onWybierz={jest.fn()} onDalej={jest.fn()} onZakoncz={jest.fn()} />);
           expect(tekstEkranu()).not.toContain('{{');
-          for (const a of szablon.decisions[k]!.actions) {
+          // pick-hand: wybory w wariancie to hand-a/hand-b (scenario-gen.ts), a `actions` szablonu to opis best-hand/other-hand
+          const dk = szablon.decisions[k]!;
+          const wybory = dk.kind === 'pick-hand' ? ['hand-a', 'hand-b'] : dk.actions.map((x) => x.action);
+          for (const a of wybory.map((action) => ({ action }))) {
             await render(<PrzebiegScenariusza sesja={sesja(szablon, poziom, 3, [...przed, a.action as Akcja])} faza="ocena" koniec={k === szablon.decisions.length - 1} bladZapisu={false} onWybierz={jest.fn()} onDalej={jest.fn()} onZakoncz={jest.fn()} />);
             const t = tekstEkranu();
             expect(`${a.action}: ${t}`).toMatch(/Ocena: /);
