@@ -55,6 +55,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
     case 'pick-hand':
       return ['hand-a', 'hand-b']; // KO-072: wybór jednej z dwóch rąk; nazwa akcji to karty ręki (EkranScenariusza.tekstAkcji)
     case 'turn-bet':
+    case 'geo-size': // HO (08-EX-4, SC-27): mały albo geometryczny zakład na flopie (widok: zadanie dla roli 04)
     case 'flop-size': // FL (08-FD-3, D-1419): ten sam widok co turn-bet, ulica flop
       return ['bet-small', 'bet-big']; // FG (D-1147): mały albo duży zakład na turnie, najtańszy pierwszy
     case 'river-value': // KO-091 (FR): bet albo czekanie na riverze, bez kwoty; najtańsza (czekanie) pierwsza
@@ -71,7 +72,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend' || p.point === 'spr-call') return p.correct;
+  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend' || p.point === 'spr-call' || p.point === 'geo-size') return p.correct;
   if (p.point === 'list-hand') return akcjaSpotu(p.correct); // FG: akcja poprawna wpisu listy; spoza znanych etykiet błąd z nazwą
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
@@ -340,6 +341,7 @@ const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length 
  */
 function wartosciPunktu(d: ScenarioVariant['points'][number] | undefined): Partial<Record<'spr' | 'rozmiar' | 'vpip', string>> {
   if (d?.point === 'spr-call') return { spr: d.spr.toFixed(1) };
+  if (d?.point === 'geo-size') return { spr: d.spr.toFixed(1), rozmiar: String(Math.round(d.fractionBig * 100)) };
   return {};
 }
 

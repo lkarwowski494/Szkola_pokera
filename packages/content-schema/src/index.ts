@@ -803,7 +803,26 @@ export const ScenarioSprCallDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-EX-4 (SC-27, R-M9-006/009, sesja HO): rozmiar zakładu z setem na flopie, który wpłaca cały stack `streets` równymi zakładami; `bet-big` = ułamek geometryczny z SPR,
+ * `bet-small` = `small` puli. Pula (`pots`) i stack za pulą (`stacks`, bb) dają SPR (granice poziomu: `sprRange`).
+ */
+export const ScenarioGeoSizeDecision = z
+  .object({
+    street: z.literal('flop'),
+    kind: z.literal('geo-size'),
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    stacks: z.array(z.number().positive()).min(1),
+    streets: z.number().int().min(1).max(3),
+    small: z.number().positive().lt(1),
+    actions: z.array(z.object({ action: z.enum(['bet-small', 'bet-big']), explanation: z.string().min(1) }).strict()).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioGeoSizeDecision, ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 /** Najmniejszy margines (ułamek, 0,01 = 1 pp) punktu river-catch: odstęp ≥ 1 pp daje różne procenty bez miejsc po przecinku (round monotoniczne, round(y + 1) = round(y) + 1). */

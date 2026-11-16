@@ -86,6 +86,7 @@ export function kluczeRozmiaruZgodne(t: ScenarioTemplate, wartosc: (klucz: strin
   t.decisions.forEach((d, i) => {
     let rozmiary: Record<(typeof KLUCZE)[number], readonly number[]>;
     if (d.kind === 'turn-bet' || d.kind === 'flop-size') rozmiary = { 'cbet.size.small': [d.small], 'cbet.size.big': [d.big] };
+    else if (d.kind === 'geo-size') rozmiary = { 'cbet.size.small': [d.small], 'cbet.size.big': [] }; // HO: duży zakład jest geometryczny (z SPR), nie z numbers.yaml
     else if (d.kind === 'defend') rozmiary = { 'cbet.size.small': d.fractions, 'cbet.size.big': d.fractions };
     else return;
     const tekst = d.actions.map((a) => a.explanation).join('\n');
@@ -188,6 +189,22 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (ex !== undefined && ex !== 'bet' && ex !== 'check') e.push(`${p} poziom ${l}: oczekiwana akcja punktu river-value to bet albo check, jest ${ex}`);
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
         if ((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.5) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin < 0,5 (δ ≥ 0,5 wyklucza obie akcje, D-1417)`); // 08-programista-006
+      }
+    } else if (d.kind === 'geo-size') {
+      // 08-EX-4 (SC-27, R-M9-006/009): set z rozmiarem geometrycznym na flopie; mały zakład nie może wpłacać stacku, a geometryczny ma być większy od małego
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'bet-big,bet-small') e.push(`${p} akcje to dokładnie bet-small i bet-big, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu geo-size to bet-big (R-M9-009: rozmiar geometryczny), jest ${ex}`);
+        const lancuch = (pot: number) => { let q = pot; let razem = 0; for (let k = 0; k < d.streets; k++) { const bet = q * d.small; razem += bet; q += 2 * bet; } return razem; };
+        const pasuje = d.pots.some((pot) => d.stacks.some((st) => {
+          const spr = st / pot;
+          const wZakresie = !b.sprRange || (spr >= b.sprRange[0] - 1e-12 && spr <= b.sprRange[1] + 1e-12);
+          return wZakresie && ((1 + 2 * spr) ** (1 / d.streets) - 1) / 2 > d.small && lancuch(pot) < st - 0.5;
+        }));
+        if (!pasuje) e.push(`${p} poziom ${l}: żadna para (pula, stack) nie daje SPR w sprRange z małym zakładem niewpłacającym stacku`);
       }
     } else if (d.kind === 'spr-call') {
       // 08-EX-5 (SC-26, R-M9-002/003): rywal all-in na flopie przy niskim SPR; ręka z zakresu obrony, oczekiwana akcja call

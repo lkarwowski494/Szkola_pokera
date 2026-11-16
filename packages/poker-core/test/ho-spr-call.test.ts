@@ -1,7 +1,7 @@
 // 08-EX-5 (sesja HO, SC-26, R-M9-001/002/003): punkt „sprawdzenie all-inu przy niskim SPR”. Wyrocznia niezależna od generatora i od math.ts:
 // SPR = stack za pulą ÷ pula (R-M9-001), potrzebne equity = S ÷ (P + 2S) (R-M9-002; przy SPR 2 równo 0,4), ręka i stół sprawdzane z rang i kolorów kart.
 import { describe, expect, it } from 'vitest';
-import { classOf, generateVariant, HAND_CLASSES, rankOf, suitOf, TemplateError, type GeneratorContext, type GeneratorTemplate, type LevelBounds } from '../src';
+import { classOf, generateVariant, variantFingerprint, HAND_CLASSES, rankOf, suitOf, TemplateError, type GeneratorContext, type GeneratorTemplate, type LevelBounds } from '../src';
 
 const rangiTekst = '23456789TJQKA';
 const broadway = (hc: string) => hc.length === 2 || /^[AKQJT]{2}[so]$/.test(hc); // zakres obrony BB (fixture)
@@ -87,7 +87,7 @@ describe('08-EX-5: spr-call', () => {
     expect(generateVariant(t, 'latwy', 9, ctx)).toEqual(a);
     const p = a.points[0];
     if (p?.point !== 'spr-call') throw new Error('spr-call');
-    expect(a.fingerprint.endsWith(`|${p.pot}-${p.stack}`)).toBe(true);
+    expect(a.fingerprint).toBe(`${variantFingerprint(t.id, 'latwy', a.hero, a.board.slice(0, 3))}|${p.pot}-${p.stack}`); // odcisk obejmuje flop (pokazany w decyzji), pulę i stack
   });
   it('błędy szablonu: brak zakresu obrony, zła akcja oczekiwana, brak sprRange, brak kombinacji w przedziale', () => {
     expect(() => generateVariant(szablon(poziom({})), 'latwy', 1)).toThrow(TemplateError);

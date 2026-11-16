@@ -8,7 +8,7 @@ import { analyseOutsSpot, DRAW_CALL_MIN_GAP, type DrawKind } from './drills';
 import { cbetVerdict, isoSizeStandardBb, type IsoParams, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
 import { classifyHolding, HOLDING_LIMITS, type HoldingClass, type PairKind } from './holding';
 import { categoryOf, HandCategory, strength } from './evaluate';
-import { hitProbability, requiredEquity } from './math';
+import { geometricFraction, hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
@@ -153,7 +153,20 @@ export interface SprCallSpec {
   pots: readonly number[];
   stacks: readonly number[];
 }
-export type DecisionSpec = SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
+/**
+ * 08-EX-4 (SC-27, R-M9-006/009 math, sesja HO): rozmiar zakładu na flopie z setem, który wpłaca cały stack `streets` równymi zakładami do rivera (przesłanka to dana zadania, D-1300).
+ * Pula (`pots`) i stack za pulą (`stacks`, bb) dają SPR z `sprRange` poziomu (brak = bez zawężenia). `bet-big` = ułamek geometryczny ((1 + 2·SPR)^(1/n) − 1) / 2 (`compliant`);
+ * `bet-small` = `small` puli (np. 1/3), który po `streets` zakładach wpłaca tylko część stacku (`inaccuracy`). Ręka: set z karty kieszonkowej, stół niesparowany i bez trzech kart koloru.
+ */
+export interface GeoSizeSpec {
+  kind: 'geo-size';
+  street: 'flop';
+  pots: readonly number[];
+  stacks: readonly number[];
+  streets: number;
+  small: number;
+}
+export type DecisionSpec = GeoSizeSpec | SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -444,6 +457,20 @@ export interface SprCallVariantDecision {
   pairKind: PairKind;
   correct: 'call';
 }
+export interface GeoSizeVariantDecision {
+  point: 'geo-size';
+  street: 'flop';
+  pot: number;
+  stack: number;
+  spr: number;
+  streets: number;
+  /** Ułamek geometryczny (duży zakład, poprawny) i mały ułamek z szablonu. */
+  fractionBig: number;
+  fractionSmall: number;
+  /** Ile wpłaci `streets` zakładów po `fractionSmall` puli (każdy sprawdzony), bb; zawsze mniej niż stack. */
+  smallTotal: number;
+  correct: 'bet-big';
+}
 export interface RiverValueVariantDecision {
   point: 'river-value';
   street: 'river';
@@ -455,7 +482,7 @@ export interface RiverValueVariantDecision {
   w: number;
   correct: 'bet' | 'check';
 }
-export type VariantDecision = SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
+export type VariantDecision = GeoSizeVariantDecision | SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -554,7 +581,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt końcowy (${koncowe.map((x) => x.kind).join(', ')}) jest najwyżej jeden, ostatni i bez punktów draw-call`); // 08-programista-005: nazwy rodzajów z szablonu
   }
@@ -914,6 +941,28 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       icmSuffix = `|${villain[0]}-${villain[1]}`; // druga ręka jest pokazana w decyzji
       continue;
     }
+    if (spec.kind === 'geo-size') {
+      // 08-EX-4 (SC-27): set na flopie niesparowanym; rachunek R-M9-006 (math, `geometricFraction`) vs mały ułamek; przesłanka „wpłacić cały stack” to dana zadania
+      if (spec.pots.length === 0 || spec.stacks.length === 0) throw new TemplateError(`${t.id}: geo-size wymaga pots i stacks`);
+      if (!Number.isInteger(spec.streets) || spec.streets < 1) throw new TemplateError(`${t.id}: geo-size: streets to liczba całkowita ≥ 1, jest ${spec.streets}`);
+      if (!(spec.small > 0)) throw new TemplateError(`${t.id}: geo-size: small > 0`);
+      if (b.expected[i] !== 'bet-big') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu geo-size to bet-big (R-M9-009: rozmiar geometryczny), jest ${String(b.expected[i])}`);
+      const zakres = b.sprRange;
+      if (zakres && !(zakres[0] > 0 && zakres[1] >= zakres[0])) throw new TemplateError(`${t.id}: poziom ${level}: sprRange [min, max] z 0 < min ≤ max`);
+      const lancuchMaly = (pot: number) => { let p = pot; let razem = 0; for (let k = 0; k < spec.streets; k++) { const bet = p * spec.small; razem += bet; p += 2 * bet; } return razem; };
+      const pary = spec.pots.flatMap((pot) => spec.stacks.map((stack) => ({ pot, stack, spr: stack / pot })))
+        .filter((x) => x.pot > 0 && x.stack > 0 && (!zakres || (x.spr >= zakres[0] - 1e-12 && x.spr <= zakres[1] + 1e-12)))
+        .filter((x) => geometricFraction(x.spr, spec.streets) > spec.small && lancuchMaly(x.pot) < x.stack - 0.5); // mały zakład naprawdę nie wpłaca stacku, a geometryczny jest większy od małego
+      if (pary.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna para (pula, stack) nie daje SPR w przedziale z małym zakładem niewpłacającym stacku`);
+      if (rankOf(hero[0]) !== rankOf(hero[1])) return null; // para kieszonkowa
+      const rangi = flop.map(rankOf);
+      if (new Set(rangi).size < 3 || rangi.filter((r) => r === rankOf(hero[0])).length !== 1) return null; // stół niesparowany, set z jednej karty stołu
+      if ([0, 1, 2, 3].some((su) => flop.filter((c) => suitOf(c) === su).length === 3)) return null; // bez gotowego koloru na stole
+      const c = pick(rng, pary);
+      points.push({ point: 'geo-size', street: 'flop', pot: c.pot, stack: c.stack, spr: c.spr, streets: spec.streets, fractionBig: geometricFraction(c.spr, spec.streets), fractionSmall: spec.small, smallTotal: lancuchMaly(c.pot), correct: 'bet-big' });
+      icmSuffix = `|${c.pot}-${c.stack}`; // pula i stack są pokazane w decyzji
+      continue;
+    }
     if (spec.kind === 'spr-call') {
       // 08-EX-5 (SC-26): rywal all-in na flopie przy niskim SPR; ocena = rachunek (R-M9-002) + strefa SPR (R-M9-003); ręka z zakresu obrony (first.kind)
       if (spec.pots.length === 0 || spec.stacks.length === 0) throw new TemplateError(`${t.id}: spr-call wymaga pots i stacks`);
@@ -1070,7 +1119,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
   const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand' || x.kind === 'river-value') ? board : t.decisions.some((x) => x.kind === 'turn-bet') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend' || x.kind === 'flop-size') ? flop : [];
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand' || x.kind === 'river-value') ? board : t.decisions.some((x) => x.kind === 'turn-bet') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 
