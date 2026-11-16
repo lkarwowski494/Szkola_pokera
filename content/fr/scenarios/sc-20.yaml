@@ -1,0 +1,22 @@
+# sc-20: French text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "Au turn, vous avez une main forte : une {{t:top-pair|top paire}} avec un bon {{t:kicker}} ou mieux. Le {{t:board}} comporte deux cartes de la même couleur, donc votre adversaire peut avoir un {{t:flush-draw}}. Quelle taille de {{t:bet|mise}} choisissez-vous ?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} peut avoir un {{t:flush-draw}}. Vous {{t:bet|misez}} gros : face à une {{t:bet|mise}} de {{n:cbet.size.big}} du {{t:pot}}, le {{t:draw|tirage}} a besoin de {{n:eq.bet-three-quarters}} d'équité, et il en a environ {{n:odds.flush.turn-river}}, donc il n'obtient pas un bon prix."
+      - action: "bet-small"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} peut avoir un {{t:flush-draw}}. Une petite {{t:bet|mise}} donne un bon prix au {{t:draw|tirage}} : face à une {{t:bet|mise}} d'un quart du {{t:pot}}, il lui suffirait de {{n:eq.bet-quarter}} d'équité, et il en a environ {{n:odds.flush.turn-river}}. Avec une main forte face à un {{t:draw|tirage}}, vous {{t:bet|misez}} gros."

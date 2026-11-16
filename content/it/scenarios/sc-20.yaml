@@ -1,0 +1,22 @@
+# sc-20: Italian text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "Al turn hai una mano forte: una {{t:top-pair}} con un buon {{t:kicker}} o meglio. Sul {{t:board}} ci sono due carte dello stesso seme, quindi l'avversario può avere un {{t:flush-draw}}. Che dimensione di {{t:bet|puntata}} scegli?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} può avere un {{t:flush-draw}}. {{t:bet|Punti}} molto: contro una {{t:bet|puntata}} di {{n:cbet.size.big}} del {{t:pot}} il {{t:draw|progetto}} ha bisogno del {{n:eq.bet-three-quarters}} di equity, e ne ha circa il {{n:odds.flush.turn-river}}, quindi non riceve un buon prezzo."
+      - action: "bet-small"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} può avere un {{t:flush-draw}}. Una {{t:bet|puntata}} piccola dà al {{t:draw|progetto}} un buon prezzo: contro una {{t:bet|puntata}} di un quarto del {{t:pot}} gli basterebbe il {{n:eq.bet-quarter}} di equity, e ne ha circa il {{n:odds.flush.turn-river}}. Con una mano forte contro un {{t:draw|progetto}} {{t:bet|punti}} molto."

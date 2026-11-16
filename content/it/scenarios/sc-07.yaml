@@ -1,0 +1,23 @@
+# sc-07: Italian text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-07
+module: m4
+situation: "Sei in {{t:big-blind}}. Il Button ha {{t:open|aperto}}, lo {{t:small-blind}} ha {{t:fold|foldato}} e tu hai fatto {{t:call}}. Sul flop fai {{t:check}} e il Button {{t:bet|punta}} una {{t:c-bet}} piccola."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. Fai {{t:call}}, perché contro una {{t:bet|puntata}} di circa {{n:cbet.size.small}} del {{t:pot}} ti serve solo circa il {{n:eq.bet-third}} di equity, e questa mano o batte già i {{t:bluff}}, o può migliorare. Continui con quasi ogni {{t:pair|coppia}}, {{t:draw|progetto}}, {{t:draw|progetto}} aggiuntivo ({{t:backdoor}}) con una carta più alta delle carte del {{t:board}} e di solito anche con l'asso come carta più alta."
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. {{t:fold|Foldi}}, perché è una delle mani più deboli: senza {{t:pair|coppia}}, senza {{t:draw|progetto}}, nemmeno aggiuntivo ({{t:backdoor}}), e senza asso. Contro una {{t:c-bet}} piccola difendi largo, ma le mani più deboli senza {{t:pair|coppia}} e senza {{t:draw|progetto}} le {{t:fold|foldi}}."

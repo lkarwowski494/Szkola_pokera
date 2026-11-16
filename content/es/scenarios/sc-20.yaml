@@ -1,0 +1,22 @@
+# sc-20: Spanish text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "En el turn tienes una mano fuerte: {{t:top-pair|pareja mayor}} con un buen {{t:kicker}} o algo mejor. En la {{t:board}} hay dos cartas del mismo palo, así que tu rival puede tener un {{t:flush-draw}}. ¿Qué tamaño de {{t:bet|apuesta}} eliges?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} puede tener un {{t:flush-draw}}. {{t:bet|Apuestas}} mucho: ante una {{t:bet|apuesta}} de {{n:cbet.size.big}} del {{t:pot}}, el {{t:draw|proyecto}} necesita {{n:eq.bet-three-quarters}} de equity y tiene aproximadamente {{n:odds.flush.turn-river}}, así que no recibe un buen precio."
+      - action: "bet-small"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} puede tener un {{t:flush-draw}}. Una {{t:bet|apuesta}} pequeña le da al {{t:draw|proyecto}} un buen precio: ante una {{t:bet|apuesta}} de un cuarto del {{t:pot}} le bastaría {{n:eq.bet-quarter}} de equity, y tiene aproximadamente {{n:odds.flush.turn-river}}. Con una mano fuerte frente a un {{t:draw|proyecto}}, {{t:bet|apuestas}} mucho."

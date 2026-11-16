@@ -1,0 +1,22 @@
+# sc-15: Italian text of content/pl/scenarios/sc-15.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-15
+module: m6
+situation: "Sei in {{t:big-blind}} e hai fatto {{t:call}} sull'{{t:open|apertura}} del Button. Sul flop fai {{t:check}} e il Button {{t:bet|punta}} una {{t:c-bet}} piccola."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. Fai {{t:call}}, perché questa mano o batte già i {{t:bluff}}, o può migliorare, e una {{t:bet|puntata}} piccola richiede poca equity. La {{t:mdf}} contro una {{t:bet|puntata}} di {{n:cbet.size.small}} del {{t:pot}} ({{n:mdf.bet-third}} del {{t:range}}) è un punto di riferimento: sul flop, {{t:out-of-position|fuori posizione}}, puoi difendere un po' meno, ma contro una {{t:c-bet}} piccola non {{t:fold|foldi}} in massa."
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. Il {{t:fold}} rinuncia a una mano che ha abbastanza equity contro una {{t:bet|puntata}} così piccola: o batte già i {{t:bluff}}, o può migliorare. Sul flop, {{t:out-of-position|fuori posizione}}, puoi difendere un po' meno di quanto indichi la {{t:mdf}}, ma contro le c-bet piccole non {{t:fold|foldi}} in massa."
