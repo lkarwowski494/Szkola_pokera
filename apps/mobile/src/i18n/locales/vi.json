@@ -450,7 +450,8 @@
       "bet": "{{pos}}: {{t:bet|cược}} {{bb}} bb",
       "raise": "{{pos}}: {{t:raise|tố}} lên {{bb}} bb",
       "allin": "{{pos}}: all-in {{bb}} bb",
-      "blinds": "Blind {{sb}}/{{bb}} bb"
+      "blinds": "Blind {{sb}}/{{bb}} bb",
+      "limp": "{{pos}}: {{t:limp|limp}} {{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -577,7 +578,11 @@
     "stateHero": "bạn",
     "stateFold": "{{t:fold|bỏ bài}}",
     "stateAfter": "sau bạn",
-    "stateRaise": "{{t:raise|tố}}"
+    "stateRaise": "{{t:raise|tố}}",
+    "stateLimp": "limp",
+    "seatLimp": "{{pos}} {{t:limp|limp}}",
+    "limped_other": "{{list}} {{t:limp|limp}}",
+    "seatHeroCards": "bạn ở {{pos}}, bài {{cards}}"
   },
   "strategy": {
     "label": "Chiến lược solver cho {{hand}}: {{list}}.",

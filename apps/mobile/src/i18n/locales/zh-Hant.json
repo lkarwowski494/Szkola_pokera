@@ -450,7 +450,8 @@
       "bet": "{{pos}}：{{t:bet|下注}} {{bb}} bb",
       "raise": "{{pos}}：{{t:raise|加注}}到 {{bb}} bb",
       "allin": "{{pos}}：全下 {{bb}} bb",
-      "blinds": "盲注 {{sb}}/{{bb}} bb"
+      "blinds": "盲注 {{sb}}/{{bb}} bb",
+      "limp": "{{pos}}：以 {{bb}} bb {{t:limp|溜入}}"
     },
     "streets": {
       "preflop": "{{t:preflop|翻牌前}}",
@@ -577,7 +578,11 @@
     "stateHero": "你",
     "stateFold": "{{t:fold|棄牌}}",
     "stateAfter": "在你之後",
-    "stateRaise": "{{t:raise|加注}}"
+    "stateRaise": "{{t:raise|加注}}",
+    "stateLimp": "溜入",
+    "seatLimp": "{{pos}} {{t:limp|溜入}}",
+    "limped_other": "{{list}} {{t:limp|溜入}}",
+    "seatHeroCards": "你在 {{pos}}，牌是 {{cards}}"
   },
   "strategy": {
     "label": "求解器對 {{hand}} 的策略：{{list}}。",

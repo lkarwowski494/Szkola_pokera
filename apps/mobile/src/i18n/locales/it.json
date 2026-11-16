@@ -472,7 +472,8 @@
       "bet": "{{pos}}: {{t:bet|punta}} {{bb}} bb",
       "raise": "{{pos}}: {{t:raise|rilancia}} a {{bb}} bb",
       "allin": "{{pos}}: all-in {{bb}} bb",
-      "blinds": "Blind {{sb}}/{{bb}} bb"
+      "blinds": "Blind {{sb}}/{{bb}} bb",
+      "limp": "{{pos}}: {{t:limp|limpa}} {{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -605,7 +606,13 @@
     "stateHero": "tu",
     "stateFold": "{{t:fold|fold}}",
     "stateAfter": "dopo di te",
-    "stateRaise": "{{t:raise|rilancia}}"
+    "stateRaise": "{{t:raise|rilancia}}",
+    "stateLimp": "limp",
+    "seatLimp": "{{pos}} {{t:limp|limpa}}",
+    "limped_one": "{{list}} {{t:limp|limpa}}",
+    "limped_many": "{{list}} {{t:limp|limpano}}",
+    "limped_other": "{{list}} {{t:limp|limpano}}",
+    "seatHeroCards": "tu in {{pos}}, carte {{cards}}"
   },
   "strategy": {
     "label": "Strategia del solver per {{hand}}: {{list}}.",
