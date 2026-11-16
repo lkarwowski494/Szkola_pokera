@@ -1,0 +1,22 @@
+# Fixture testu HO (08-EX-4, SC-27): rozmiar geometryczny z setem w puli 3-betowanej. Nie jest treścią aplikacji.
+id: sc-fx-geo-size
+module: m9
+situation: "Fixture: set na flopie, rozmiar zakładu."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, trudny]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5, 6] }
+  trudny: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [20, 25, 30]
+    stacks: [100, 110, 120, 130, 150, 190]
+    streets: 3
+    small: 0.3333333333333333
+    actions:
+      - { action: bet-small, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, SPR {{w:spr}}: zakład {{w:rozmiar}}% puli nie wpłaci stacku." }
+      - { action: bet-big, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, SPR {{w:spr}}: zakład {{w:rozmiar}}% puli wpłaci cały stack." }

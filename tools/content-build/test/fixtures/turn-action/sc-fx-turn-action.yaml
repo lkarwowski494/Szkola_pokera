@@ -1,0 +1,18 @@
+# Fixture testu HO (08-EX-6, SC-18/SC-21): czekanie albo zakład na turnie. Nie jest treścią aplikacji.
+id: sc-fx-turn-action
+module: m7
+situation: "Fixture: turn, rywal czeka."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+  sredni: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - { action: check, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: czekanie jest dopuszczalne." }
+      - { action: bet-big, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: nadkarta paruje twoją rękę, duży zakład." }

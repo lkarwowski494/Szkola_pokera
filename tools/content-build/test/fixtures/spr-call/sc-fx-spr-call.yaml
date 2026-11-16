@@ -1,0 +1,21 @@
+# Fixture testu HO (08-EX-5, SC-26): niski SPR, rywal all-in na flopie. Nie jest treścią aplikacji.
+id: sc-fx-spr-call
+module: m9
+situation: "Fixture: niski SPR, rywal all-in na flopie."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, SPR ok. {{w:spr}}: sprawdzasz." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, SPR ok. {{w:spr}}: pas oddaje pulę zbyt łatwo." }
