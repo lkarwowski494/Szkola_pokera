@@ -23,7 +23,7 @@ Rola 04, build E3, 2026-11-04. Decyzje: D-114 (ekran kluczowy), D-116 (pasek str
 
 ## Typografia
 - Tytuły: Literata 600 (D-120): tytuł zadania, słowo stopnia, indeksy kart, opis ręki, duże tytuły ekranów. Treść: krój systemowy (SF Pro) z Dynamic Type. Cyfry: tabelaryczne w licznikach i cenach, wersalikowe w tytułach.
-- **Duży tekst** (D-122): treść skaluje się bez limitu do AX5. Tytuły od rozmiaru AX1 przechodzą na krój systemowy (semibold) i mają sufit jako ułamek szerokości ekranu (`typografia.skala.*.maxW`: tytuł 10%, duży tytuł 10%, słowo stopnia na suknie 8,5%), żeby najdłuższe słowo mieściło się w wierszu bez dzielenia. Przy tekście domyślnym sufit nie działa (28 i 34 pt są poniżej). Dzielenie wyrazów nie jest warunkiem układu: React Native na iOS nie daje go jako właściwości `Text` `[DO USTALENIA: rola 08 sprawdza w dokumentacji RN 0.8x; jeśli jest — włączyć dla pl]`.
+- **Duży tekst** (D-122): treść skaluje się bez limitu do AX5. Tytuły od rozmiaru AX1 przechodzą na krój systemowy (semibold) i mają sufit jako ułamek szerokości ekranu (`typografia.skala.*.maxW`: tytuł 10%, duży tytuł 10%, słowo stopnia na suknie 8,5%), żeby najdłuższe słowo mieściło się w wierszu bez dzielenia. Przy tekście domyślnym sufit nie działa (28 i 34 pt są poniżej). Dzielenie wyrazów nie jest warunkiem układu: React Native na iOS nie daje go jako właściwości `Text` `[DO USTALENIA: rola 08 sprawdza w dokumentacji RN 0.8x; jeśli jest — włączyć dla pl]`. Długi tytuł sytuacji na starcie scenariusza: styl `tytulDlugi` 20/25 według progu długości (D-1730, D-1731, `scenariusz-i-ocena.md`).
 - Łamanie w środku wyrazu dozwolone tylko przy AX3–AX5 na 320 pt (wyjątek nazwany w D-122); pomiar: `narzedzia/przepelnienie.mjs` raportuje je jako INFO (12 wyrazów na 5 ekranach, 0 przy 390 i 430 pt).
 - Miejsca przy stole i indeksy kart mają stały rozmiar (rysunek); informację niosą też tekstem, który skaluje się z treścią: opis ręki pod stołem („różne kolory; UTG i HJ spasowali, po tobie BTN, SB i BB”) i etykieta VoiceOver stołu.
 
@@ -44,6 +44,7 @@ Rola 04, build E3, 2026-11-04. Decyzje: D-114 (ekran kluczowy), D-116 (pasek str
 | `BlokLekcji` (sukno na „Dziś”) | własny, prosty | rama + sukno, bez kart i miejsc |
 
 ### `Stol`: zależy od danych zadania (D-119)
+Stan miejsca „limp” (iso-size, D-1734): obwódka ciągła 2,5 pt `seatInk` + słowo „limp”, jak „all-in” w ICM; szczegóły `scenariusz-i-ocena.md`.
 - Zadanie ma pozycję i stan graczy (sytuacja z przebiegiem akcji, np. `spots.yaml` z `path`): owal z miejscami w kolejności zgodnej z ruchem wskazówek zegara, ty na dole; miejsce: nazwa pozycji + stan („pas” z obwódką kreskowaną, „przebija”, „po tobie”, „ty” ze złotą obwódką 2,5 pt; D-275, D-284). Liczba miejsc = `meta.players`.
 - Zadanie bez pozycji (outy, szanse, pot odds, kombinatoryka, siła ręki, np. `m2.exam.q2`): owal bez miejsc; karty wspólne na suknie, twoje przy krawędzi stołu; pod stołem opis tekstem („Twoje karty: J♣ 9♦. Na stole: 10♠ 7♥ 2♣.”). Nie ma pustych ani wyszarzonych miejsc.
 - Karty rywala (`opp`): rząd z podpisem „Rywal” nad nim, karty wspólne z podpisem „Na stole”; opis i etykieta zawierają każdą narysowaną kartę (D-282). Sama pozycja bez kart i przebiegu: bez owalu, wiersz „Twoja pozycja: BB”; pozycja z kartami bez przebiegu: dopisek pozycji w opisie (D-282).
