@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Linking, Text, useWindowDimensions, View } from 'react-native';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import type { Limit, OcenaOdpowiedzi } from '@szkola/domena';
-import { cardToString, type ScenarioLevel, type ScenarioVariant, type VariantDecision } from '@szkola/poker-core';
+import { cardToString, zakresGlebokosciStartu, type ScenarioLevel, type ScenarioVariant, type VariantDecision } from '@szkola/poker-core';
 import { formatujLiczbe, formatujProcent } from '@szkola/jezyki';
 import { PasekStrategii } from '@/components/PasekStrategii';
 import { Button, Muted, Screen, Title } from '@/components/ui';
@@ -24,7 +24,7 @@ import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdani
 import { zdaniaLiczb } from './liczby';
 import { ruchRywalaHo } from './rodzajeHo';
 import type { WyborPoziomu } from './poziom';
-import { akcjePunktu, bloki, inneZgodne, kwotaAkcji, limperzyPunktu, ocenyAkcji, opisAkcji, przebiegWariantu, stosNaStoleBb, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
+import { akcjePunktu, bloki, naGenerator, inneZgodne, kwotaAkcji, limperzyPunktu, ocenyAkcji, opisAkcji, przebiegWariantu, stosNaStoleBb, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
@@ -89,6 +89,16 @@ export interface PropsStartuScenariusza {
   onWroc(): void;
 }
 
+/**
+ * Głębokość startu na ekranie startu (D-1894, KO-117): jedna liczba, gdy min = max, inaczej „min–max” (en dash) przez formatter kwot. Przedział liczy `zakresGlebokosciStartu`
+ * z poziomu zagranego teraz (punkty spr-call i geo-size mają stosy wariantów, nie `stackBb`); brak danych zostaje `stackBb` szablonu (treść wymaga go w schemacie).
+ */
+export function glebokoscStartu(szablon: ScenarioTemplate, poziom: ScenarioLevel): string {
+  const j = jezykZadan();
+  const z = zakresGlebokosciStartu(naGenerator(szablon), poziom) ?? { min: szablon.stackBb, max: szablon.stackBb };
+  return z.min === z.max ? formatujLiczbe(z.min, j) : `${formatujLiczbe(z.min, j)}–${formatujLiczbe(z.max, j)}`;
+}
+
 export function StartScenariusza(p: PropsStartuScenariusza): React.JSX.Element {
   const tk = useTokens();
   const { t, i18n } = useTranslation();
@@ -111,7 +121,7 @@ export function StartScenariusza(p: PropsStartuScenariusza): React.JSX.Element {
         <Title rozmiar={stylTytuluSytuacji(sytuacja.tytul, szerokosc)}>{sytuacja.tytul}</Title>
         {sytuacja.reszta === null ? null : <Text style={[styl.tresc, { color: tk.ink }]}>{sytuacja.reszta}</Text>}
         <Text style={[styl.tresc, { color: tk.ink }]}>
-          {t('scenario.start.about', { ty: pozycjaTekst(p.szablon.positions.hero, t), rywal: pozycjaTekst(p.szablon.positions.villain, t), bb: p.szablon.stackBb })}
+          {t('scenario.start.about', { ty: pozycjaTekst(p.szablon.positions.hero, t), rywal: pozycjaTekst(p.szablon.positions.villain, t), bb: glebokoscStartu(p.szablon, p.poziom) })}
         </Text>
       </View>
       <View style={{ gap: odstep.s }}>
