@@ -1,0 +1,3 @@
+# komenda: node <scratchpad>/sprawdz-raport.mjs docs/tresci/recenzje/recenzja-hs.md . --rola 06-tresci (skrypt z promptu roli 06-tresci)
+# kod wyjścia: 0
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 06-tresci
