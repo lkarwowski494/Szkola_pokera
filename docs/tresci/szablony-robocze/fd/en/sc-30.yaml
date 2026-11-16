@@ -1,0 +1,20 @@
+# sc-30: English text of pl/sc-30.yaml (role 06, session HP, 2026-11-16; draft, for review by role 09); structure must match pl.
+id: sc-30
+module: m10
+situation: "A very tight opponent {{t:3-bet|3-bets}}. You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:3-bet|3-bets}}. Assume this opponent has a {{t:vpip}} of about {{w:vpip}} over at least about {{n:hud.hands.vpip.low}} hands, and that their {{t:3-bet}} fits within those hands."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.03, vpip: [0.08, 0.10] }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    calc: R-M2-005
+    spot: rfi.btn
+    actions:
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and your opponent on the {{w:rywal}} {{t:3-bet|3-bets}}. You {{t:fold}}, because a player who plays only about {{w:vpip}} of hands holds mostly pairs and the best aces, and against them your hand has less equity than the price of a {{t:call}} requires. Their {{t:3-bet}} can't be wider than all the hands they play, so against the {{t:3-bet}} itself your hand does no better."
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and your opponent on the {{w:rywal}} {{t:3-bet|3-bets}}. A {{t:call}} loses money: even against all the hands this opponent plays, your hand has less equity than the price of a {{t:call}} requires, and their {{t:3-bet}} can't be wider than those hands."

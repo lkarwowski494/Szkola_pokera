@@ -1,0 +1,26 @@
+# sc-18: English text of pl/sc-18.yaml (role 06, session HP, 2026-11-16; draft, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "A {{t:second-barrel}} on a high card. You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. On the flop you made a small {{t:c-bet}}, and they {{t:call|called}} again. The turn is higher than every flop card and gives you {{t:top-pair}}, and the {{t:big-blind}} {{t:check|checks}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { expected: [bet-big], actions: [check, bet-big], flop: { suits: [rainbow] } }
+  trudny: { expected: [bet-big], actions: [check, bet-small, bet-big], flop: { suits: [rainbow] } }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    spot: rfi.btn
+    turnClass: overcard
+    hand: turned-top-pair
+    sizes: { bet-small: 0.33, bet-big: 0.67 }
+    actions:
+      - action: bet-big
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}} on the turn. You fire a big {{t:second-barrel}}, because a card higher than the flop usually helps the opener's {{t:range}} slightly more than the defender's: many of your hands that missed the flop now have {{t:top-pair}}, and every {{t:pair}} your opponent holds just dropped one place. On such a card the opener {{t:bet|bets}} more often, and your {{t:pair}} beats those worse pairs."
+      - action: check
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}} on the turn. A {{t:check}} is acceptable, but it misses a chance: on a card higher than the flop the opener {{t:bet|bets}} more often, because this card fits their {{t:range}} better. Your {{t:top-pair}} beats your opponent's worse pairs, which dropped lower on this card."
+      - action: bet-small
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}} on the turn. A small {{t:bet}} is a weak choice here: on the turn {{t:in-position}}, when the flop was {{t:rainbow}}, value hands want to bet more and medium hands do better by checking. You choose between a {{t:check}} and a big {{t:bet}}."

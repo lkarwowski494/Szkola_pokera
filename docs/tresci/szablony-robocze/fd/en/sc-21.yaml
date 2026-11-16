@@ -1,0 +1,24 @@
+# sc-21: English text of pl/sc-21.yaml (role 06, session HP, 2026-11-16; draft, for review by role 09); structure must match pl.
+id: sc-21
+module: m7
+situation: "A medium {{t:pair}} on the turn. You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. On the flop you made a small {{t:c-bet}}, and they {{t:call|called}} again. On the turn the {{t:big-blind}} {{t:check|checks}}, and you have {{t:second-pair}} or a weaker {{t:pair}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [check], actions: [check, bet-big], pairKind: [low], flop: { height: [high], suits: [rainbow] } }
+  sredni: { expected: [check], actions: [check, bet-big], pairKind: [second], flop: { height: [high], suits: [rainbow] } }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-003
+    spot: rfi.btn
+    turnClass: blank
+    hand: one-pair
+    sizes: { bet-big: 0.67 }
+    actions:
+      - action: check
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}} on the turn. You {{t:check}}, because after calling the flop your opponent has a stronger {{t:range}}, so you can no longer {{t:bet}} without worry. With one card to come, this hand gains little from protection, and by checking you keep the {{t:pot}} small and reach {{t:showdown}} cheaply."
+      - action: bet-big
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}} on the turn. A {{t:bet}} with this hand gains little: after calling the flop your opponent has a stronger {{t:range}}, and with one card to come, protection is worth little. On the turn medium hands usually {{t:check}} to reach {{t:showdown}} cheaply, while strong hands and some {{t:draw|draws}} {{t:bet}}."

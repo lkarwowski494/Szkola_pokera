@@ -1,0 +1,28 @@
+# sc-16: English text of pl/sc-16.yaml (role 06, session HP, 2026-11-16; draft, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "You have a strong {{t:draw}} against a small {{t:c-bet}}. You are in the {{t:big-blind}} and {{t:call|called}} the Button's {{t:open}}. On the flop you {{t:check}}, and the Button makes a small {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { expected: [raise-big], actions: [fold, call, raise-big] }
+  trudny: { expected: [raise-big], actions: [fold, call, raise-small, raise-big] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.33]
+    multipliers: { raise-small: 1.5, raise-big: 4.5 }
+    actions:
+      - action: raise-big
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. You {{t:check-raise}} to about {{n:xr.mult.example}} their {{t:bet}}, because a {{t:draw}} has two ways to win: your opponent may {{t:fold}} right away, and when they {{t:call}}, you can still hit your {{t:draw}}. According to a training site, flush draws and open-ended straight draws are good hands to {{t:check-raise}}, and against a small {{t:c-bet}} you raise to about {{n:xr.mult.example}}, not the minimum."
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. A {{t:call}} is good too: against a small {{t:c-bet}} you need only about {{n:eq.bet-third}} equity, and this hand can improve. According to a training site, you don't have to raise every strong {{t:draw}}, but a {{t:check-raise}} adds the chance that your opponent {{t:fold|folds}} right away."
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. A {{t:fold}} gives up too much: against a small {{t:c-bet}} you need only about {{n:eq.bet-third}} equity, and a {{t:draw}} can still improve. Against a small {{t:c-bet}} you continue with {{t:draw|draws}}: you {{t:call}} or {{t:check-raise}}."
+      - action: raise-small
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} makes a small {{t:c-bet}}. A {{t:check-raise}} is a good idea, but to about {{n:xr.too-small.mult}} the {{t:c-bet}} it is too small: the Button then needs only about {{n:eq.vs-xr.too-small}} equity to {{t:call}} and will pay that cheaply with every {{t:draw}}. You raise to about {{n:xr.mult.low}}–{{n:xr.mult.example}} the {{t:c-bet}}, more the smaller the {{t:c-bet}}."

@@ -1,0 +1,26 @@
+# SC-21 (M7): średnia para na turnie po sprawdzonym c-becie: czekanie (proponowany punkt turn-action, 08-EX-6; warunki: ../warunki-hp.md).
+# Ocena: check compliant, bet-big inaccuracy (R-M7-003 heuristic; GW Principles of Turn Strategy, szczebel 2). Ł: trzecia lub niższa para,
+# Ś: druga para; tylko ok. 100 bb (przy 20 bb GW: „Second pair bets more often.”). Najwyższa para bez decyzji (D-1053). Szkic sesji HP (D-1718).
+id: sc-21
+module: m7
+situation: "Średnia {{t:pair}} na turnie. {{t:open|Otworzyłeś}} z Buttona, a {{t:big-blind|duży blind}} {{t:call|sprawdził}}. Na flopie postawiłeś mały {{t:c-bet}}, a on znowu {{t:call|sprawdził}}. Na turnie {{t:big-blind|duży blind}} {{t:check|czeka}}, a ty masz {{t:second-pair|drugą parę}} albo słabszą {{t:pair|parę}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [check], actions: [check, bet-big], pairKind: [low], flop: { height: [high], suits: [rainbow] } }
+  sredni: { expected: [check], actions: [check, bet-big], pairKind: [second], flop: { height: [high], suits: [rainbow] } }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-003
+    spot: rfi.btn
+    turnClass: blank
+    hand: one-pair
+    sizes: { bet-big: 0.67 }
+    actions:
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na turnie. {{t:check|Czekasz}}, bo po {{t:call|sprawdzeniu}} flopu rywal ma silniejszy {{t:range}}, więc nie możesz już {{t:bet|stawiać}} bez obaw. Do rivera została jedna karta, więc ta ręka mało zyskuje na ochronie, a czekając, trzymasz {{t:pot|pulę}} małą i tanio dochodzisz do {{t:showdown|showdownu}}."
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na turnie. {{t:bet|Zakład}} tą ręką mało zyskuje: po {{t:call|sprawdzeniu}} flopu rywal ma silniejszy {{t:range}}, a do rivera została jedna karta, więc ochrona daje niewiele. Na turnie ręce średnie zwykle {{t:check|czekają}}, żeby tanio dojść do {{t:showdown|showdownu}}, a {{t:bet|stawiają}} ręce silne i część {{t:draw|drawów}}."

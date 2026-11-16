@@ -1,0 +1,28 @@
+# SC-18 (M7): second barrel na turnie, który jest nadkartą i paruje kartę gracza (proponowany punkt turn-action, 08-EX-6; warunki: ../warunki-hp.md).
+# Ocena: bet-big compliant (R-M7-001: GW szczebel 2, PC szczebel 4), check acceptable (heuristic, D-1052), bet-small inaccuracy (R-M7-005: GW).
+# T = dodatkowa akcja bet-small, nie inna karta turnu: DV SC-18b podważone (D-1716). Szkic sesji HP.
+id: sc-18
+module: m7
+situation: "{{t:second-barrel|Second barrel}} na wysokiej karcie. {{t:open|Otworzyłeś}} z Buttona, a {{t:big-blind|duży blind}} {{t:call|sprawdził}}. Na flopie postawiłeś mały {{t:c-bet}}, a on znowu {{t:call|sprawdził}}. Na turnie spada karta wyższa od kart flopu i daje ci {{t:top-pair|najwyższą parę}}, a {{t:big-blind|duży blind}} {{t:check|czeka}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { expected: [bet-big], actions: [check, bet-big], flop: { suits: [rainbow] } }
+  trudny: { expected: [bet-big], actions: [check, bet-small, bet-big], flop: { suits: [rainbow] } }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    spot: rfi.btn
+    turnClass: overcard
+    hand: turned-top-pair
+    sizes: { bet-small: 0.33, bet-big: 0.67 }
+    actions:
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na turnie. {{t:bet|Stawiasz}} duży {{t:second-barrel}}, bo karta wyższa od flopu zwykle nieco bardziej pomaga {{t:range|zakresowi}} otwierającego niż obrońcy: wiele twoich rąk, które na flopie chybiły, ma teraz {{t:top-pair|najwyższą parę}}, a każda {{t:pair}} rywala spadła o jedno miejsce niżej. Na takiej karcie otwierający {{t:bet|stawia}} częściej, a twoja {{t:pair}} wygrywa z tymi gorszymi parami."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na turnie. {{t:check|Czekanie}} jest dopuszczalne, ale oddaje okazję: na karcie wyższej od flopu otwierający {{t:bet|stawia}} częściej, bo ta karta lepiej pasuje do jego {{t:range|zakresu}}. Twoja {{t:top-pair|najwyższa para}} wygrywa z gorszymi parami rywala, które po tej karcie spadły niżej."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na turnie. Mały {{t:bet|zakład}} to tu słaby wybór: na turnie {{t:in-position|z pozycją}}, gdy flop był {{t:rainbow}}, ręce na {{t:value|wartość}} chcą stawiać więcej, a ręce średnie lepiej {{t:check|czekają}}. Wybierasz między {{t:check|czekaniem}} a dużym {{t:bet|zakładem}}."
