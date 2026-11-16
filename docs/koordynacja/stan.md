@@ -467,6 +467,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BX**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
+- **Aktualny (16.11):** HK, HL → recenzja niezależna HM (08 audit) → scalenie do roboczej, CI+E2E → **sesja 07 JAK-19 bramka scenariuszy (zasada 22, pierwsze wdrożenie)** → recenzja 07 → dopiero potem build TestFlight 1011. Tabela niżej: archiwalna (10.11).
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
 |---|---|---|---|---|
 | 06:25 → ok. 07:30 | AM: kategoria Education + Games/Card w repo, kontrola zgodności z ankietą wiekową i notatkami recenzenta | AM (10) | — | ewent. odpowiedź na PYTANIE; potem wpis ręczny w ASC |
@@ -498,6 +499,12 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 - Konto Apple Search Ads (D-377; po premierze).
 - Zarchiwizowanie sesji poprzednika session_01T66VBvZebfV7GaciZqtW3H, jeśli jest widoczna (dla koordynatora „not found”).
 - Decyzje nocy nieomówione pojedynczo (techniczne i wykonawcze z listy D-343–D-394): zostają „do weta”.
+
+## Bramka scenariuszy (zasada 22)
+- **Dopisane do planu przed wydaniem 2026-11-16 ok. 10:55 UTC, słowa właściciela:** „Do planu przed wydaniem dopisz element ktory wczoraj wrzucilismy do prompts jako obowiazkowy przeglad przypadkow uzytkownika.” = zasada wspólna 22 (prompts D-060, D-063 z 15.11; wykonanie C-058).
+- Stan w repo (16.11, robocza 0b0855ef): **brak** `docs/jakosc/przypadki-uzycia.md` i `sprawdz-scenariusze.mjs` → pierwsze wdrożenie.
+- Kroki: (1) sesja 07: `07-jakosc --tryb fix --zadania JAK-19 --moduly scenariusze-skrypt,e2e-mobilne` od SHA po scaleniu HK+HL — katalog przypadków użycia (pełna lista, klasy A/B/F), skrypt `sprawdz-scenariusze.mjs`, kroki workflowu, protokół F; recenzja niezależna 07 audit; (2) przy każdym buildzie TestFlight (E3 pkt 5): aktualizacja listy, `sprawdz-scenariusze.mjs --build <n> --wykonane <E2E>` kod 0 na SHA kandydata; (3) test fizyczny F właściciela na buildzie z TestFlight — wynik albo `POMINIĘTE: <uzasadnienie>` słowami właściciela przed buildem N+1 i App Review.
+- Blokuje: następny build TestFlight (1011) i wysyłkę do App Review do zielonej bramki.
 
 ## Przypomnienia
 - **Koordynatora session_01T66VBwf1bNLY6pRHh6Xc12 (aktywne, 16.11):** trig_014rCHa4YYxduqaFoBXe7MYS „Koordynator Szkoła Pokera: linia 14:00” 16.11 13:51 · trig_01WMv7A5QioyEnHhRpHkmjBZ „…: linia 05:00” 17.11 04:51. Kontrola: brak (nic nie trwa). Starsze wpisy niżej — nieaktualne (list_triggers 16.11: brak przypomnień Pokera).
@@ -1072,3 +1079,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 10:25 (16.11) | koordynator | HK i HL wystartowały (prompt 3+3 części); KO-107 plan HK przyjęty | kontrola 11:25 |
 | 10:32 (16.11) | HK | 001–006, 404 w commitach (87ede1d4, niewypchnięte); PYTANIE 006 → KO-108 | PRZEKAZANIE HK |
 | 10:50 (16.11) | HL | PRZEKAZANIE: claude/sesja-hl-web @ cf296709 (3 commity, autor zgodny; kod 0e9a6cb5; pnpm run ci kod 0 w kontenerze wg hl-ci-0e9a6cb5.txt); CI 43852260074 queued; do weta D-1670…1672. Niesprawdzone do CI + recenzji niezależnej | recenzja HM (08 audit) razem z HK po jej PRZEKAZANIU |
+| 10:55 (16.11) | właściciel | dopisać do planu przed wydaniem obowiązkowy przegląd przypadków użycia (zasada 22, D-060) → sekcja Bramka scenariuszy, sesja 07 JAK-19 po scaleniu HK+HL | — |
