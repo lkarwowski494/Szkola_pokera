@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Długi tytuł sytuacji</title>
+<!-- Sesja HQ (rola 04, 2026-11-16): reguła stylu długiego tytułu ekranu startu scenariusza (08-programista-503, decyzja właściciela „A”, D-1730).
+     Teksty sytuacji: bazy treści apps/mobile/assets/content/tresc-595ef75ad5-{pl,de,ja}.db, tabela scenarios, pole situation (odczyt 2026-11-16);
+     podział na tytuł i resztę jak podzielSytuacje (apps/mobile/src/features/scenariusz/zdanie.ts). Treść jest prawdziwa (z bazy), nie [PRZYKŁAD].
+     Pozostałe teksty ekranu: klucze scenario.start.* z apps/mobile/src/i18n/locales/pl.json; „Moduł N”, poziomy i licznik jak w aplikacji.
+     Rozmiary tytułu liczone jak sufitTytulu (apps/mobile/src/theme/skalowanie.ts:22): min(rozmiar × skala, max(maxW × szerokość, rozmiar)).
+     Duży tekst: --dt-tytul i --dt-tresc = 3.12 (fontScale AX5 jak w aplikacji, D-1680), nie 1.8 z zrzuty.mjs: tytuły w aplikacji mnoży ten sam fontScale co treść. -->
+<link rel="stylesheet" href="e3.css">
+<link rel="stylesheet" href="scenariusz.css">
+<style>
+  /* tytuł: 28/34, sufit 10% szerokości; tytulDlugi: 20/25 (iOS title3), ten sam sufit (D-1731) */
+  .sc-opis h1 { font-size: min(calc(1.75rem * var(--dt-tytul)), max(calc(var(--w) * 0.10), 1.75rem)); line-height: 1.2142; margin: 4px 0 8px; }
+  .sc-opis h1.dlugi { font-size: min(calc(1.25rem * var(--dt-tytul)), max(calc(var(--w) * 0.10), 1.25rem)); line-height: 1.25; }
+  .sc-opis p.reszta { font-size: var(--t-tresc); color: var(--ink); line-height: 1.41; margin: 0 0 8px; }
+  .sc-opis p.modul { color: var(--muted); }
+  /* jak aplikacja: Screen paddingHorizontal = odstep.l 16 pt (components/ui.tsx:23), bez dzielenia wyrazów (iOS RN) */
+  .sc-opis { padding-left: 16px; padding-right: 16px; hyphens: manual; }
+  @container style(--dt-tresc: 3.12) { .sc-opis { margin-left: 0; margin-right: 0; } }
+  /* od AX1 tytuły krojem systemowym (D-122); tu AX5 = 3.12 */
+  @container style(--dt-tytul: 3.12) { .sc-opis h1 { font-family: var(--tresc); } }
+  :lang(ja) .sc-opis h1, :lang(ja) .sc-opis p { font-family: 'IPAGothic', sans-serif; }
+  .podpis { width: var(--w); font: 13px/1.35 var(--tresc); color: #3a3f4a; margin: 0 0 6px; }
+  .podpis b { color: #11141a; }
+  figure { margin: 0; }
+</style>
+</head>
+<body>
+
+<figure>
+<p class="podpis"><b>Przed</b> (dziś): SC-29 pl, styl <code>tytul</code> 28 pt, 106 znaków</p>
+<main data-ekran="sc29-przed" aria-label="Start scenariusza SC-29, styl dzisiejszy">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">‹ Scenariusze</a><span></span></nav>
+  <section class="sc-opis">
+    <p class="modul">Moduł 10</p>
+    <h1 class="tytul">Na riverze masz najwyższą parę (top pair), jesteś na Buttonie, a duży blind (big blind, BB) czeka (check).</h1>
+    <p class="reszta">Rywal to pasywny gracz rekreacyjny (recreational player): VPIP (voluntarily put in pot) od ok. 35%, a PFR (preflop raise) niższy o ponad 10 punktów. Załóż, że nie przebija (raise): sprawdzi (call) z JJ, TT i z każdym AK, AQ, AJ, AT, KQ, KJ, QJ i JT, a spasuje (fold) z każdym KT i QT. Stawiasz (bet) czy czekasz?</p>
+    <p class="reszta">Ty: Button (BTN), rywal: duży blind (big blind, BB). Głębokość 100 bb.</p>
+  </section>
+  <p class="etykieta">Poziom</p>
+  <div class="segment" role="radiogroup" aria-label="Poziom trudności"><a href="#" role="radio" aria-checked="true">Automatycznie</a><a href="#" role="radio" aria-checked="false">Łatwy</a></div>
+  <p class="podpowiedz">Teraz: łatwy. Poziom dobiera się sam z twoich wyników.</p>
+  <p class="podpowiedz">Każde rozdanie ma nowe karty. Wynik to oceny decyzji, nie wygrana.</p>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zacznij rozdanie</a></div>
+</main>
+</figure>
+
+<figure>
+<p class="podpis"><b>Po</b>: SC-29 pl, 106 &gt; próg 68 przy 390 pt → <code>tytulDlugi</code> 20 pt</p>
+<main data-ekran="sc29-po" aria-label="Start scenariusza SC-29, styl długiego tytułu">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">‹ Scenariusze</a><span></span></nav>
+  <section class="sc-opis">
+    <p class="modul">Moduł 10</p>
+    <h1 class="tytul dlugi">Na riverze masz najwyższą parę (top pair), jesteś na Buttonie, a duży blind (big blind, BB) czeka (check).</h1>
+    <p class="reszta">Rywal to pasywny gracz rekreacyjny (recreational player): VPIP (voluntarily put in pot) od ok. 35%, a PFR (preflop raise) niższy o ponad 10 punktów. Załóż, że nie przebija (raise): sprawdzi (call) z JJ, TT i z każdym AK, AQ, AJ, AT, KQ, KJ, QJ i JT, a spasuje (fold) z każdym KT i QT. Stawiasz (bet) czy czekasz?</p>
+    <p class="reszta">Ty: Button (BTN), rywal: duży blind (big blind, BB). Głębokość 100 bb.</p>
+  </section>
+  <p class="etykieta">Poziom</p>
+  <div class="segment" role="radiogroup" aria-label="Poziom trudności"><a href="#" role="radio" aria-checked="true">Automatycznie</a><a href="#" role="radio" aria-checked="false">Łatwy</a></div>
+  <p class="podpowiedz">Teraz: łatwy. Poziom dobiera się sam z twoich wyników.</p>
+  <p class="podpowiedz">Każde rozdanie ma nowe karty. Wynik to oceny decyzji, nie wygrana.</p>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zacznij rozdanie</a></div>
+</main>
+</figure>
+
+<figure>
+<p class="podpis"><b>Krótki</b>: SC-05 pl, 56 znaków ≤ próg → <code>tytul</code> 28 pt bez zmian</p>
+<main data-ekran="sc05-krotki" aria-label="Start scenariusza SC-05, krótki tytuł">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">‹ Scenariusze</a><span></span></nav>
+  <section class="sc-opis">
+    <p class="modul">Moduł 3</p>
+    <h1 class="tytul">Jesteś na Buttonie, wszyscy przed tobą spasowali (fold).</h1>
+    <p class="reszta">Ty: Button (BTN), rywal: duży blind (big blind, BB). Głębokość 100 bb.</p>
+  </section>
+  <p class="etykieta">Poziom</p>
+  <div class="segment" role="radiogroup" aria-label="Poziom trudności"><a href="#" role="radio" aria-checked="true">Automatycznie</a><a href="#" role="radio" aria-checked="false">Łatwy</a><a href="#" role="radio" aria-checked="false">Średni</a><a href="#" role="radio" aria-checked="false">Trudny</a></div>
+  <p class="podpowiedz">Teraz: łatwy. Poziom dobiera się sam z twoich wyników.</p>
+  <p class="podpowiedz">Każde rozdanie ma nowe karty. Wynik to oceny decyzji, nie wygrana.</p>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zacznij rozdanie</a></div>
+</main>
+</figure>
+
+<figure>
+<p class="podpis"><b>Najdłuższy</b>: SC-04 pl, 158 znaków, jedno zdanie (reszty brak) → <code>tytulDlugi</code></p>
+<main data-ekran="sc04-najdluzszy" aria-label="Start scenariusza SC-04, najdłuższy tytuł">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">‹ Scenariusze</a><span></span></nav>
+  <section class="sc-opis">
+    <p class="modul">Moduł 3</p>
+    <h1 class="tytul dlugi">Jesteś na UTG (under the gun), nikt jeszcze nie wszedł do gry; jeśli otworzysz (open), duży blind (big blind, BB) sprawdzi (call) i na flopie poczeka (check).</h1>
+    <p class="reszta">Ty: UTG (under the gun), rywal: duży blind (big blind, BB). Głębokość 100 bb.</p>
+  </section>
+  <p class="etykieta">Poziom</p>
+  <div class="segment" role="radiogroup" aria-label="Poziom trudności"><a href="#" role="radio" aria-checked="true">Automatycznie</a><a href="#" role="radio" aria-checked="false">Łatwy</a></div>
+  <p class="podpowiedz">Teraz: łatwy. Poziom dobiera się sam z twoich wyników.</p>
+  <p class="podpowiedz">Każde rozdanie ma nowe karty. Wynik to oceny decyzji, nie wygrana.</p>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zacznij rozdanie</a></div>
+</main>
+</figure>
+
+<figure>
+<p class="podpis"><b>de</b>: SC-04, 129 znaków → <code>tytulDlugi</code> (teksty interfejsu po polsku, tylko tytuł z bazy de)</p>
+<main data-ekran="sc04-de" lang="de" aria-label="Start scenariusza SC-04, niemiecki">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">‹ Szenarien</a><span></span></nav>
+  <section class="sc-opis">
+    <p class="modul">Modul 3</p>
+    <h1 class="tytul dlugi">Du sitzt UTG, und noch niemand ist ins Spiel eingestiegen; wenn du eröffnest, wird der Big Blind callen und auf dem Flop checken.</h1>
+    <p class="reszta">[PRZYKŁAD] Du: UTG, Gegner: Big Blind (BB). Tiefe 100 bb.</p>
+  </section>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">[PRZYKŁAD] Hand starten</a></div>
+</main>
+</figure>
+
+<figure>
+<p class="podpis"><b>ja</b>: SC-19, 63 znaki CJK = długość ważona 127 → <code>tytulDlugi</code> (krój zastępczy IPAGothic; na iOS systemowy)</p>
+<main data-ekran="sc19-ja" lang="ja" aria-label="Start scenariusza SC-19, japoński">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">‹ シナリオ</a><span></span></nav>
+  <section class="sc-opis">
+    <p class="modul">モジュール 7</p>
+    <h1 class="tytul dlugi">スタックが浅い状態で3ベットの後、あなたはフラッシュドローを持っていて、相手はフロップでは小さく、ターンでは大きくベットします。</h1>
+    <p class="reszta">[PRZYKŁAD] あなた：ボタン（BTN）、相手：ビッグブラインド（BB）。スタック 35 bb。</p>
+  </section>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">[PRZYKŁAD] ハンドを始める</a></div>
+</main>
+</figure>
+
+</body>
+</html>

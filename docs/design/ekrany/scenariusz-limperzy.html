@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scenariusz z limperami</title>
+<!-- Sesja HQ (rola 04, 2026-11-16): widok punktu size-spot iso-size (SC-09, izolacja limpera), D-1734…D-1736.
+     Szablon: docs/tresci/szablony-robocze/fd/pl/sc-09.yaml (hero CO, rywal HJ, limpers 1, akcje raise / raise-small / raise-big; szkic roli 06).
+     Liczby: R-M4-012 (content/pl/rules.yaml:335) i content/numbers.yaml:146–150: standard = pf.iso.base 3&nbsp;bb + pf.iso.per-limper 1&nbsp;bb × limperzy
+     (+ pf.iso.oop-extra 1&nbsp;bb z SB i BB); opcje = standard × SIZE_SMALL_FACTOR 0,8 i × SIZE_BIG_FACTOR 1,6 (packages/poker-core/src/scenario-gen.ts:490, 1247).
+     Rachunek tej makiety: 1 limper z CO: 4&nbsp;bb, opcje 3,2 / 4 / 6,4&nbsp;bb; 2 limperów z SB: 3 + 2 + 1 = 6&nbsp;bb, opcje 4,8 / 6 / 9,6&nbsp;bb.
+     Pula przed decyzją = 0,5 + 1 (blindy) + 1&nbsp;bb za każdego limpera spoza blindów: 2,5&nbsp;bb i 3,5&nbsp;bb.
+     [PRZYKŁAD]: karty gracza, wariant z dwoma limperami (SC-09 w szkicu ma 1 limpera; drugi ekran pokazuje, że widok działa dla 1–4, content-schema limpers ≤ 4)
+     i brzmienie wyjaśnienia (szkic sc-09.yaml, ostateczne: rola 06 wg ADR-24). -->
+<link rel="stylesheet" href="e3.css">
+<link rel="stylesheet" href="scenariusz.css">
+<link rel="stylesheet" href="scenariusz-icm.css">
+<style>
+  /* Stół 6-max przed flopem: owal jak w E3 (miejsca na krawędzi, ty na dole, dalej zgodnie z ruchem wskazówek zegara), karty gracza na środku sukna */
+  .stol.iso { height: 200px; margin: 40px 40px 0; }
+  .stol.iso .owal { border-radius: 100px; }
+  .stol.iso .owal::before { border-radius: 88px; }
+  .stol.iso .srodek { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .stol.iso .srodek .karta { width: 52px; height: 72px; padding: 3px 7px; }
+  .stol.iso .srodek .karta b { font-size: 26px; }
+  .stol.iso .srodek .karta svg { width: 18px; height: 18px; }
+  .stol.iso .miejsce small { white-space: nowrap; }
+  /* Limper: gracz w puli przed tobą. Obwódka ciągła 2,5 pt w kolorze tekstu miejsca (jak „all-in” w ICM: aktywny rywal) + słowo „limp”;
+     pas = obwódka kreskowana + „pas”; po tobie = obwódka zwykła + „po tobie”. Rozróżnia słowo i kształt obwódki, nie kolor. */
+  .miejsce.limp { border-width: 2.5px; border-color: var(--seat-ink); }
+  .stol.iso + .w-puli { margin-top: 36px; }
+  .dziennik .u { font-feature-settings: 'tnum'; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="trefl" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4.6"/><circle cx="6.6" cy="13.4" r="4.6"/><circle cx="17.4" cy="13.4" r="4.6"/><path d="M11 13h2c0 3.5.8 6 2.8 8.5H8.2C10.2 19 11 16.5 11 13z"/></symbol>
+  <symbol id="karo" viewBox="0 0 24 24"><path d="M12 2l8 10-8 10-8-10z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="iso-1-limper" aria-label="Scenariusz, izolacja jednego limpera">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="stol iso" role="img" aria-label="Przy stole: UTG pas (fold), HJ limp, ty na CO z asem pik i waletem karo, po tobie BTN, SB i BB.">
+    <div class="owal"></div>
+    <div class="miejsce ty" style="left:50%;top:100%">CO<small>ty</small></div>
+    <div class="miejsce" style="left:6%;top:78%">BTN<small>po tobie</small></div>
+    <div class="miejsce" style="left:6%;top:22%">SB<small>po tobie</small></div>
+    <div class="miejsce" style="left:50%;top:0%">BB<small>po tobie</small></div>
+    <div class="miejsce pas" style="left:94%;top:22%">UTG<small>pas</small></div>
+    <div class="miejsce limp" style="left:94%;top:78%">HJ<small>limp</small></div>
+    <div class="karty srodek"><div class="karta"><b>A</b><svg><use href="#pik"/></svg></div><div class="karta czerwona"><b>J</b><svg><use href="#karo"/></svg></div></div>
+  </section>
+  <p class="w-puli">W puli <b>2,5&nbsp;bb</b></p>
+  <ol class="dziennik" aria-label="Przebieg rozdania">
+    <li class="teraz" aria-live="polite"><span class="u">Preflop</span><span>Blindy 0,5/1&nbsp;bb. UTG: pas. HJ: limp&nbsp;1&nbsp;bb</span></li>
+  </ol>
+  <section class="akcje">
+    <p class="etykieta">Twój ruch</p>
+    <div class="pasek" role="group" aria-label="Akcje"><a href="#">Przebicie<small>do&nbsp;3,2&nbsp;bb</small></a><a href="#">Przebicie<small>do&nbsp;4&nbsp;bb</small></a><a href="#">Przebicie<small>do&nbsp;6,4&nbsp;bb</small></a></div>
+  </section>
+</main>
+
+<main data-ekran="iso-2-limperow-sb" aria-label="Scenariusz, izolacja dwóch limperów z małego blinda">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="stol iso" role="img" aria-label="Przy stole: UTG pas (fold), HJ i CO limp, BTN pas (fold), ty na SB z dziewiątką kier i dziewiątką trefl, po tobie BB.">
+    <div class="owal"></div>
+    <div class="miejsce ty" style="left:50%;top:100%">SB<small>ty</small></div>
+    <div class="miejsce" style="left:6%;top:78%">BB<small>po tobie</small></div>
+    <div class="miejsce pas" style="left:6%;top:22%">UTG<small>pas</small></div>
+    <div class="miejsce limp" style="left:50%;top:0%">HJ<small>limp</small></div>
+    <div class="miejsce limp" style="left:94%;top:22%">CO<small>limp</small></div>
+    <div class="miejsce pas" style="left:94%;top:78%">BTN<small>pas</small></div>
+    <div class="karty srodek"><div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div><div class="karta"><b>9</b><svg><use href="#trefl"/></svg></div></div>
+  </section>
+  <p class="w-puli">W puli <b>3,5&nbsp;bb</b></p>
+  <ol class="dziennik" aria-label="Przebieg rozdania">
+    <li class="teraz" aria-live="polite"><span class="u">Preflop</span><span>Blindy 0,5/1&nbsp;bb. UTG: pas. HJ: limp&nbsp;1&nbsp;bb. CO: limp&nbsp;1&nbsp;bb. BTN: pas</span></li>
+  </ol>
+  <section class="akcje">
+    <p class="etykieta">Twój ruch</p>
+    <div class="pasek" role="group" aria-label="Akcje"><a href="#">Przebicie<small>do&nbsp;4,8&nbsp;bb</small></a><a href="#">Przebicie<small>do&nbsp;6&nbsp;bb</small></a><a href="#">Przebicie<small>do&nbsp;9,6&nbsp;bb</small></a></div>
+  </section>
+</main>
+
+<main data-ekran="iso-ocena" aria-label="Ocena decyzji: niedokładność, za małe przebicie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Scenariusz</b><span class="licznik">Preflop</span></nav>
+  <section class="werdykt" aria-live="polite"><div class="sukno">
+    <h2 class="stopien tytul"><span class="znak" aria-hidden="true">~</span>Niedokładność</h2>
+    <p>Twój wybór: <b>przebicie do&nbsp;3,2&nbsp;bb</b>. Lepiej: przebicie do&nbsp;4&nbsp;bb.</p>
+  </div></section>
+  <section class="dlaczego">
+    <h2>Dlaczego przebicie do&nbsp;3,2&nbsp;bb jest słabsze</h2>
+    <p><span class="syt">Masz A♠ J♦ na CO, UTG spasował, przed tobą jeden limper.</span> To przebicie jest za małe: daje limperowi zbyt dobrą cenę i nie odbiera mu rozdania. Standard to 3&nbsp;bb plus 1&nbsp;bb za każdego limpera.</p>
+  </section>
+  <div class="oceny-akcji" role="img" aria-label="Oceny akcji: przebicie do&nbsp;3,2&nbsp;bb niedokładność, twój wybór; przebicie do&nbsp;4&nbsp;bb zgodna; przebicie do&nbsp;6,4&nbsp;bb niedokładność.">
+    <span class="twoj">Przebicie do&nbsp;3,2&nbsp;bb<small>~ Niedokładność</small></span><span>Przebicie do&nbsp;4&nbsp;bb<small>✓ Zgodna</small></span><span>Przebicie do&nbsp;6,4&nbsp;bb<small>~ Niedokładność</small></span>
+  </div>
+  <ol class="dziennik" aria-label="Przebieg rozdania">
+    <li><span class="u">Preflop</span><span>Blindy 0,5/1&nbsp;bb. UTG: pas. HJ: limp&nbsp;1&nbsp;bb. CO: przebicie do&nbsp;3,2&nbsp;bb</span><b class="ocena">~ Niedokładność</b></li>
+  </ol>
+  <div class="rozwin"><a href="#" aria-expanded="false">Liczby<span class="strzalka" aria-hidden="true">⌄</span></a></div>
+  <a class="link" style="margin:4px 20px 0" href="#">Zgłoś błąd w tym zadaniu</a>
+  <div class="przyciski sc"><a class="przycisk glowny" href="#">Zobacz podsumowanie</a></div>
+</main>
+
+</body>
+</html>
