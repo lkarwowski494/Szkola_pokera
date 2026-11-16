@@ -190,6 +190,26 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
         if ((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.5) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin < 0,5 (δ ≥ 0,5 wyklucza obie akcje, D-1417)`); // 08-programista-006
       }
+    } else if (d.kind === 'check-raise') {
+      // 08-EX-7 (SC-16): BB wobec c-betu BTN, ręka z zakresu obrony; krotności z numbers.yaml (jedno źródło prawdy), akcje fold/call/raise-big (+raise-small)
+      if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      if (t.positions.hero !== 'BB') e.push(`${p} check-raise: gracz to BB (check-raise wobec c-betu), jest ${t.positions.hero}`);
+      if (!d.spot.startsWith('vs-open.bb-')) e.push(`${p} check-raise: spot vs-open.bb-* (obrona BB wobec otwarcia), jest ${d.spot}`);
+      const akcje = d.actions.map((a) => a.action);
+      if (new Set(akcje).size !== akcje.length || !['fold', 'call', 'raise-big'].every((a) => akcje.includes(a as 'fold'))) e.push(`${p} akcje to fold, call, raise-big i opcjonalnie raise-small, każda raz i z własnym wyjaśnieniem (BR-OCE-002)`);
+      if ((d.multipliers.small !== undefined) !== akcje.includes('raise-small')) e.push(`${p} akcja raise-small i krotność multipliers.small występują razem`);
+      const liczba = ctx.numberValue;
+      if (liczba) {
+        if (liczba('xr.mult.example') !== undefined && Math.abs(liczba('xr.mult.example')! - d.multipliers.big) > 1e-9) e.push(`${p} multipliers.big ${d.multipliers.big} różni się od xr.mult.example ${liczba('xr.mult.example')} (jedno źródło prawdy)`);
+        if (d.multipliers.small !== undefined && liczba('xr.too-small.mult') !== undefined && Math.abs(liczba('xr.too-small.mult')! - d.multipliers.small) > 1e-9) e.push(`${p} multipliers.small ${d.multipliers.small} różni się od xr.too-small.mult ${liczba('xr.too-small.mult')}`);
+      }
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'raise-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu check-raise to raise-big (R-M6-008/010), jest ${ex}`);
+        if (b.draws.length === 0) e.push(`${p} poziom ${l}: punkt check-raise wymaga listy draws (kolor, strit otwarty)`);
+      }
     } else if (d.kind === 'turn-action') {
       // 08-EX-6 (SC-18/21): decyzja z granic poziomu (heurystyka bez rachunku); lista akcji to check, bet-big i opcjonalnie bet-small, każda z wyjaśnieniem (BR-OCE-002)
       const akcje = d.actions.map((a) => a.action);

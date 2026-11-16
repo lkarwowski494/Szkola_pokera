@@ -175,7 +175,20 @@ export interface TurnActionSpec {
   kind: 'turn-action';
   street: 'turn';
 }
-export type DecisionSpec = TurnActionSpec | GeoSizeSpec | SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
+/**
+ * 08-EX-7 (SC-16, R-M6-008/010, sesja HO): BB z drawem (kolor albo strit otwarty z kartą gracza, od 8 outów, bez pary) wobec małego c-betu BTN; poprawne jest duże check-raise.
+ * `cbet` = ułamek puli flopu, `multipliers` = krotność c-betu: `big` (np. xr.mult.example) i opcjonalnie `small` (np. xr.too-small.mult, tylko T). Ręka z zakresu obrony spotu.
+ * Rachunek ceny BTN po podbiciu do R: (R − c) ÷ (pula + 2R), c = c-bet (tak samo z żetonów: pula + c + R + dopłata).
+ */
+export interface CheckRaiseSpec {
+  kind: 'check-raise';
+  street: 'flop';
+  spot: string;
+  pots: readonly number[];
+  cbet: number;
+  multipliers: { big: number; small?: number };
+}
+export type DecisionSpec = CheckRaiseSpec | TurnActionSpec | GeoSizeSpec | SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -305,6 +318,8 @@ export interface LevelBounds {
   flopMiss?: boolean;
   /** 08-EX-6: najwyższa karta flopu ma rangę co najmniej taką (znak z `23456789TJQKA`), SC-21: flop z kartą od króla. */
   flopHighMin?: string;
+  /** 08-EX-7 (SC-16): najwyżej tyle kart flopu od dziesiątki w górę (UP ep1: na stołach broadway BTN ma 3,2×, nie 4,5×). */
+  flopBroadwayMax?: number;
   /** F1: przedział częstości akcji oczekiwanej na punkt decyzji range-spot (null = inny rodzaj punktu); min ≤ f ≤ max. */
   freqs?: readonly ({ min: number; max: number } | null)[];
   /** KO-076: minimalny margin equity (ułamek) klasy ręki range-spot od granicy akcji oczekiwanej, `equityMarginPp` (D-1141); wymaga `ctx.equity169`. */
@@ -472,6 +487,21 @@ export interface SprCallVariantDecision {
   pairKind: PairKind;
   correct: 'call';
 }
+export interface CheckRaiseVariantDecision {
+  point: 'check-raise';
+  street: 'flop';
+  pot: number;
+  /** C-bet BTN (bb) i podbicia gracza „do” (bb): krotność × c-bet; `raiseSmall` tylko, gdy szablon ma małą krotność (T). */
+  cbet: number;
+  raiseBig: number;
+  raiseSmall: number | null;
+  /** Cena BTN po podbiciu: (R − c) ÷ (pula + 2R). */
+  requiredBig: number;
+  requiredSmall: number | null;
+  drawKind: DrawKind;
+  outs: number;
+  correct: 'raise-big';
+}
 export interface TurnActionVariantDecision {
   point: 'turn-action';
   street: 'turn';
@@ -505,7 +535,7 @@ export interface RiverValueVariantDecision {
   w: number;
   correct: 'bet' | 'check';
 }
-export type VariantDecision = TurnActionVariantDecision | GeoSizeVariantDecision | SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
+export type VariantDecision = CheckRaiseVariantDecision | TurnActionVariantDecision | GeoSizeVariantDecision | SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -604,7 +634,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size' || x.kind === 'turn-action');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size' || x.kind === 'turn-action' || x.kind === 'check-raise');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt końcowy (${koncowe.map((x) => x.kind).join(', ')}) jest najwyżej jeden, ostatni i bez punktów draw-call`); // 08-programista-005: nazwy rodzajów z szablonu
   }
@@ -797,7 +827,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const w = listHandVerdicts(hc, first.entries)!;
     preflop = null;
     listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, ...(w.alsoCorrect ? { alsoCorrect: w.alsoCorrect } : {}), acceptable: w.acceptable };
-  } else if (first.kind === 'defend' || first.kind === 'spr-call') {
+  } else if (first.kind === 'defend' || first.kind === 'spr-call' || first.kind === 'check-raise') {
     // 08-N2: ręka z zakresu obrony spotu (jak zakres otwarcia w cbet-case); flop dolosowany do tekstury poziomu
     if (!ctx) throw new TemplateError(`${t.id}: punkt ${first.kind} wymaga danych zakresów (GeneratorContext)`);
     hero = handFromRange(t.id, ctx, first.spot, rng, 'zakres obrony gracza');
@@ -896,6 +926,26 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (!(r.marginSmall > 0 && r.marginBigExact > 0) || !inMargin(r.marginSmall, b, i) || !inMargin(r.marginBigExact, b, i)) return null; // BR-GEN-003, D-1286: pokazywane e (N/47) wobec ceny małego, dokładne (N/45) wobec ceny dużego
       const pot = pick(rng, spec.pots);
       points.push({ point: 'flop-size', street: 'flop', pot, betSmall: Math.round(pot * spec.small), betBig: Math.round(pot * spec.big), requiredSmall: r.requiredSmall, requiredBig: r.requiredBig, hit: r.e, drawKind: r.drawKind, correct: 'bet-big' });
+      icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
+      continue;
+    }
+    if (spec.kind === 'check-raise') {
+      // 08-EX-7 (SC-16): draw z kartą gracza (kolor albo strit otwarty, od 8 outów) bez pary; stół i krotności z granic szablonu
+      if (spec.pots.length === 0 || !(spec.cbet > 0 && spec.cbet < 1)) throw new TemplateError(`${t.id}: check-raise wymaga pots i 0 < cbet < 1`);
+      const { big, small } = spec.multipliers;
+      if (!(big > 1) || (small !== undefined && !(small > 1 && small < big))) throw new TemplateError(`${t.id}: check-raise wymaga krotności big > 1 i opcjonalnie 1 < small < big`);
+      if (b.expected[i] !== 'raise-big') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu check-raise to raise-big (R-M6-008/010), jest ${String(b.expected[i])}`);
+      const rangiFlopu = flop.map(rankOf);
+      if (b.flopBroadwayMax !== undefined && rangiFlopu.filter((r) => r >= RANK_CHARS.indexOf('T')).length > b.flopBroadwayMax) return null;
+      const h = classifyHolding(hero, flop);
+      if (h.pairKind || h.improvesBoard || !h.draw || h.draw.all.length < HOLDING_LIMITS.drawOutsMin || !(b.draws as readonly string[]).includes(h.draw.kind)) return null;
+      if (rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiFlopu.includes(rankOf(c)))) return null; // bez pary z kartą gracza (także kieszonkowej)
+      const pot = pick(rng, spec.pots);
+      const cbet = pot * spec.cbet;
+      const price = (r: number): number => (r - cbet) / (pot + 2 * r);
+      const raiseBig = cbet * big;
+      const raiseSmall = small === undefined ? null : cbet * small;
+      points.push({ point: 'check-raise', street: 'flop', pot, cbet, raiseBig, raiseSmall, requiredBig: price(raiseBig), requiredSmall: raiseSmall === null ? null : price(raiseSmall), drawKind: h.draw.kind as DrawKind, outs: h.draw.all.length, correct: 'raise-big' });
       icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
       continue;
     }
@@ -1177,7 +1227,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
   const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand' || x.kind === 'river-value') ? board : t.decisions.some((x) => x.kind === 'turn-bet' || x.kind === 'turn-action') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size') ? flop : [];
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand' || x.kind === 'river-value') ? board : t.decisions.some((x) => x.kind === 'turn-bet' || x.kind === 'turn-action') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend' || x.kind === 'check-raise' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 

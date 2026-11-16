@@ -560,6 +560,8 @@ export const ScenarioLevelBounds = z
     flopMiss: z.boolean().optional(),
     /** 08-EX-6: najwyższa karta flopu co najmniej tej rangi. */
     flopHighMin: ScenarioRank.optional(),
+    /** 08-EX-7 (SC-16): najwyżej tyle kart flopu od dziesiątki w górę. */
+    flopBroadwayMax: z.number().int().min(0).max(3).optional(),
     reject: z.array(ScenarioReject).default([]),
     /** Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). */
     /** draw-call: `call` albo `fold`; range-spot: etykieta akcji węzła solvera spotu (np. `raise 2.5`, `fold`; sprawdza build). */
@@ -843,7 +845,28 @@ export const ScenarioTurnActionDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioTurnActionDecision, ScenarioGeoSizeDecision, ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-EX-7 (SC-16, R-M6-008/010, sesja HO): check-raise BB z drawem wobec małego c-betu BTN. Ręka z zakresu obrony spotu `spot`; c-bet = `cbet` puli z `pots`;
+ * krotności c-betu (`multipliers`): `big` (duże podbicie, np. xr.mult.example) i opcjonalnie `small` (zbyt małe, tylko T). Cena BTN po podbiciu jest liczona w wariancie.
+ * Akcje: fold, call, raise-big i opcjonalnie raise-small (BR-OCE-002).
+ */
+export const ScenarioCheckRaiseDecision = z
+  .object({
+    street: z.literal('flop'),
+    kind: z.literal('check-raise'),
+    spot: id,
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    cbet: z.number().positive().lt(1),
+    multipliers: z.object({ big: z.number().gt(1), small: z.number().gt(1).optional() }).strict(),
+    actions: z.array(z.object({ action: z.enum(['fold', 'call', 'raise-small', 'raise-big']), explanation: z.string().min(1) }).strict()).min(3).max(4),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG)
+  .refine((d) => d.multipliers.small === undefined || d.multipliers.small < d.multipliers.big, 'multipliers.small musi być mniejsze od big');
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioCheckRaiseDecision, ScenarioTurnActionDecision, ScenarioGeoSizeDecision, ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 /** Najmniejszy margines (ułamek, 0,01 = 1 pp) punktu river-catch: odstęp ≥ 1 pp daje różne procenty bez miejsc po przecinku (round monotoniczne, round(y + 1) = round(y) + 1). */
