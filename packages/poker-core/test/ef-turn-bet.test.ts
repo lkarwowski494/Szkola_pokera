@@ -10,6 +10,20 @@ const szablon = (marginMin = 0.02, small = 0.25, big = 0.75, pots: number[] = [8
 });
 const LOSOWANIA = 3_000;
 
+describe('HT 06-tresci-301 (D-1751): turn-bet z drawem koloru: na turnie dokładnie dwie karty koloru drawa', () => {
+  it('300 wariantów: rywal ma dwie karty koloru drawa, turn dokładnie dwie (nigdy trzy)', () => {
+    const t = szablon(0.02, 0.25, 0.75, [8, 12, 16, 24]);
+    for (let seed = 1; seed <= 300; seed++) {
+      const v = generateVariant(t, 'latwy', seed);
+      const turn = v.board.slice(0, 4);
+      const naTurnie = [0, 1, 2, 3].map((s) => turn.filter((c) => suitOf(c) === s).length);
+      expect(Math.max(...naTurnie), `ziarno ${seed}`).toBe(2);
+      const drawKoloru = [0, 1, 2, 3].filter((k) => naTurnie[k] === 2 && v.villain.filter((c) => suitOf(c) === k).length === 2);
+      expect(drawKoloru.length, `ziarno ${seed}`).toBeGreaterThanOrEqual(1);
+    }
+  }, 300_000);
+});
+
 describe('08-N6: turn-bet', () => {
   it(`${LOSOWANIA} wariantów: draw koloru rywala, cena z rachunku, duży zakład odbiera cenę, mały ją daje`, () => {
     const t = szablon();

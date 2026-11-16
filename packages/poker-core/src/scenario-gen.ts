@@ -1049,7 +1049,8 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const rangiTurnu = turn.map(rankOf);
       const zKarta = rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiTurnu.includes(rankOf(c)));
       if (!zKarta) return null;
-      if ((b.draws as readonly string[]).every((d) => d === 'flush') && ![0, 1, 2, 3].some((su) => [...villain, ...turn].filter((c) => suitOf(c) === su).length === 4)) return null;
+      if ([0, 1, 2, 3].some((su) => turn.filter((c) => suitOf(c) === su).length === 3 && villain.filter((c) => suitOf(c) === su).length === 1)) return null; // HT (D-1751): tanio, przed klasyfikacją: 1 + 3 karty koloru to draw na trzech kartach koloru stołu (tekst SC-20: dwie karty), odrzucane i tak niżej
+      if ((b.draws as readonly string[]).every((d) => d === 'flush') && ![0, 1, 2, 3].some((su) => villain.filter((c) => suitOf(c) === su).length === 2 && turn.filter((c) => suitOf(c) === su).length === 2)) return null; // HT (D-1751): rywal ma dwie karty koloru, turn dokładnie dwie (tekst SC-20: „dwie karty w jednym kolorze”)
       const h = classifyHolding(hero, turn);
       // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143); „strong” tylko z pary (nadpara, najwyższa para z kickerem ≥ Q), nie z samych outów (EI-001)
       // 08-EL-1 (D-1256): najwyższa para tylko z kickerem ≥ Q (bez TPWK i średniego kickera)
@@ -1057,6 +1058,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (!zrobiona || !zKarta) return null;
       const draw = analyseOutsSpot(villain, turn);
       if (!draw || !(b.draws as readonly string[]).includes(draw.draw.kind) || classifyHolding(villain, turn).improvesBoard) return null;
+      if (draw.draw.flush.length > 0 && turn.filter((c) => suitOf(c) === suitOf(draw.draw.flush[0]!)).length !== 2) return null; // HT (D-1751): draw koloru = dokładnie dwie karty koloru na turnie, nie trzy
       // D-1286 (EP-003, powraca z EI-001): CZYSTE outy. Karty rivera, po których rywal wygrywa albo remisuje (z 44 niewidzianych), muszą być dokładnie nominalnymi outami drawa,
       // bez remisów; wtedy equity rywala e = N/44, a pokazywane hit = N/46 (R-M7-006/007) jest prawdą. Martwe i częściowo martwe outy (full, kareta, wyższy kolor gracza) odpadają.
       const znane = new Set<Card>([...hero, ...villain, ...turn]);
