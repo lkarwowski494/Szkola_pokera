@@ -372,7 +372,9 @@ export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje & P
   if (d.point === 'spr-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.stack, doSprawdzeniaBb: d.stack };
   if (d.point === 'check-raise') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.cbet, doSprawdzeniaBb: d.cbet };
   if (d.point === 'geo-size') return { indeks, ulica: d.street, stol, pulaBb: d.pot, doSprawdzeniaBb: null };
-  if (d.point === 'nit-3bet' && s) {
+  if (d.point === 'nit-3bet') {
+    // Martwe blindy zależą od pozycji z szablonu (`s`), a wariant ich nie niesie: bez `s` kwot nie zgadujemy (brak zostaje brakiem, jak icm-call), widok niesie tylko stół.
+    if (!s) return { indeks, ulica: d.street, stol, pulaBb: null, doSprawdzeniaBb: null };
     // pula = otwarcie + 3-bet + martwe blindy spoza pary (BTN vs BB: SB 0,5 bb), jak cena w generatorze (scenario-gen.ts: (3B − open) ÷ (2·3B + 0,5))
     const martwe = 1.5 - blindBb(s.positions.hero) - blindBb(s.positions.villain);
     return { indeks, ulica: d.street, stol, pulaBb: d.open + d.threeBet + martwe, doSprawdzeniaBb: d.threeBet - d.open };
