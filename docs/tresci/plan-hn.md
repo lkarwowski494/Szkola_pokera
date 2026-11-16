@@ -17,3 +17,9 @@ logi w scratchpad sesji (nie w repo). Bazowo (bez szkiców) `content:check` kod 
 
 ## Następny krok
 Po odpowiedzi koordynatora: przeniesienie 7 gotowych + SC-07, SC-15 po poprawce, `pnpm content:build`, testy, `pnpm run ci`.
+
+## Stan po E2 (2026-11-16, @ 154a960a + dowód)
+- W `content/` (11 języków): SC-07, 10, 15, 17, 20, 23, 24, 31 (D-1690 rozmiar 1/3, D-1692 przekłady agenta do przeglądu 09, D-1693 en `{{t:bet}}`).
+- SC-14 wycofany (D-1691, R-M5-012 / 08-FD-5); SC-09 czeka na widok limperów (iso-size). Szkice obu zostają w `docs/tresci/szablony-robocze/fd/`.
+- CI: `docs/tresci/dowody/hn-ci-154a960a.txt` — kod 1; 3 czerwone testy czekają na HO (KO-111): pokrycie CZ (5 rodzajów bez wyroczni), `generator-odciski.json` (przelicza HO po scaleniu), `cs-tresc-realna` sc-23 (pętla podaje akcje szablonu zamiast hand-a/hand-b). Testy z winy treści: 0.
+- Następny krok: po scaleniu z HO powtórzyć `pnpm run ci` (kod 0 = gotowe); rola 09: przegląd 80 przekładów agenta.
