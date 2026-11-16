@@ -16,7 +16,10 @@ const SHA = 'a'.repeat(40);
 /** Uruchamia bramkę w katalogu `cwd`; GITHUB_SHA zastępuje `git rev-parse HEAD` (fikstura nie jest repozytorium git). */
 function bramka(cwd, args, env = {}) {
   const r = spawnSync(process.execPath, [SKRYPT, ...args], { cwd, encoding: 'utf8', env: { ...process.env, GITHUB_SHA: SHA, ...env } });
-  return { kod: r.status, wynik: `${r.stdout}${r.stderr}` };
+  const wynik = `${r.stdout}${r.stderr}`;
+  // czerwień tylko z bramki: wyjątek (stos z tekstem komunikatu z kodu) nie może udawać wykrycia (mutant M4, sesja HV)
+  if (r.status !== 0) assert.match(wynik, /^BRAMKA CZERWONA/m, `skrypt zakończył się bez werdyktu bramki:\n${wynik}`);
+  return { kod: r.status, wynik };
 }
 
 const NAGLOWEK = '| ID | Funkcja | Cel użytkownika od początku do końca | Warianty i błędy | Ekrany | Klasa | Test albo kroki | Powrót |\n|---|---|---|---|---|---|---|---|';
