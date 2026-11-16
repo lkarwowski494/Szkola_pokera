@@ -74,11 +74,12 @@ export interface WpisDziennika { ulica: string; tekst: string; ocena?: OcenaOdpo
 export function Dziennik({ wpisy }: { wpisy: readonly WpisDziennika[] }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
+  const duzyTekst = useWindowDimensions().fontScale >= SKALA_BEZ_PASKA; // AX4–AX5: ulica nad wpisem, bez stałej szerokości (04-studio-projektowe-003)
   return (
     <View accessibilityRole="list" accessibilityLabel={t('scenario.log.label')} style={{ gap: odstep.s }}>
       {wpisy.map((w) => (
-        <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, { borderColor: tk.separator }]}>
-          <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700', width: 64 }]}>{w.ulica}</Text>
+        <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, duzyTekst ? styles.wierszPionowy : null, { borderColor: tk.separator }]}>
+          <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700' }, duzyTekst ? null : { width: 64 }]}>{w.ulica}</Text>
           <View style={{ flex: 1 }}>
             <RichText text={w.tekst} style={styl.drobny} />
           </View>
@@ -231,6 +232,7 @@ const styles = StyleSheet.create({
   sukno: { borderRadius: promien.sukno, borderWidth: StyleSheet.hairlineWidth * 2, padding: odstep.l, gap: odstep.m, alignItems: 'center' },
   miejsce: { borderWidth: 1, borderRadius: 999, paddingHorizontal: odstep.m, paddingVertical: odstep.xs },
   wiersz: { flexDirection: 'row', alignItems: 'flex-start', gap: odstep.s, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingBottom: odstep.s },
+  wierszPionowy: { flexDirection: 'column', alignItems: 'stretch', gap: odstep.xs },
   pasekOcen: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
   segmentOceny: { flexGrow: 1, flexBasis: 96, borderRadius: promien.przycisk, padding: odstep.m, gap: odstep.xs },
   rzadMiejsc: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: odstep.s },
