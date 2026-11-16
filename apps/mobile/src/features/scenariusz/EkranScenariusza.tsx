@@ -280,7 +280,9 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
       </View>
       )}
       {icm ? <StolIcmEkranu uklad={icm} s={s} reka={s.wariant.hero.map(cardToString)} t={t} /> : przebiegLimpow !== null && pozycjaGracza ? (
-      <Stol scenariusz table={{ hand: s.wariant.hero.map(cardToString), position: pozycjaGracza, path: przebiegLimpow }} />
+      <View style={{ marginTop: odstep.m }}>{/* miejsce wystaje nad owal o pół wysokości: bez odstępu dotyka wiersza etapów */}
+        <Stol scenariusz table={{ hand: s.wariant.hero.map(cardToString), position: pozycjaGracza, path: przebiegLimpow }} />
+      </View>
       ) : (
       <StolRozdania
         stol={widok.stol}

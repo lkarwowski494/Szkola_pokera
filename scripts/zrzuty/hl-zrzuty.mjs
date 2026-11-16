@@ -1,6 +1,8 @@
 // HL (D-1670): zrzuty ekranów scenariusza z Expo web + Playwright Chromium. Użycie: pnpm zrzuty:web
 // 1) eksport web z wejściem zastępczym (SZKOLA_ZRZUTY=1 → apps/mobile/zrzuty-web/wejscie.tsx), 2) serwer statyczny, 3) zrzuty do docs/design/dowody/hl-*.png.
 // Ekrany: start, decyzja, ocena-zgodna, ocena-blad; szerokości 390 i 320 pt; rozmiar domyślny i „AX5”.
+// HX (D-1730, D-1734): `HL_EKRANY=start-sc29,start-sc04,iso-co` wybiera ekrany (nazwy z apps/mobile/zrzuty-web/wejscie.tsx), `HL_PREFIKS=hx` zmienia przedrostek plików (domyślnie hl);
+// dla ekranów `start-*` skrypt wypisuje też liczbę wierszy tytułu (wiersze liczone z prostokątów tekstu tytułu).
 // „AX5” to PRZYBLIŻENIE: react-native-web nie stosuje skali czcionki systemu, więc zrzutowe `Text` (apps/mobile/zrzuty-web/rn.tsx) mnoży fontSize i lineHeight
 // przez 3,12 (53/17 pt, Dynamic Type AX5) z sufitem maxFontSizeMultiplier i bez allowFontScaling={false}, jak iOS. Jeden mnożnik, bez krzywej stylów Dynamic Type.
 // Wysokość widoku = wysokość treści (HW, 08-programista-502): ekran przewija się wewnątrz ScrollView, więc `fullPage` sam ucinałby zrzut do okna.
@@ -31,7 +33,8 @@ const port = srv.address().port;
 fs.mkdirSync(wyjscie, { recursive: true });
 const przeglad = await chromium.launch();
 let problemy = 0;
-for (const ekran of ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
+const przedrostek = process.env.HL_PREFIKS ?? 'hl';
+for (const ekran of process.env.HL_EKRANY ? process.env.HL_EKRANY.split(',') : ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
   for (const szer of [390, 320]) {
     for (const ax5 of [false, true]) {
       const ctx = await przeglad.newContext({ viewport: { width: szer, height: 844 }, deviceScaleFactor: 2, colorScheme: 'light', locale: 'pl-PL' });
@@ -41,7 +44,7 @@ for (const ekran of ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
       await strona.goto(`http://localhost:${port}/?ekran=${ekran}&fs=${ax5 ? AX5 : 1}`, { waitUntil: 'networkidle' });
       await strona.waitForTimeout(500);
       await dopasujWysokosc(strona, szer);
-      const wynik = await strona.evaluate(({ ocena, przebieg, ax5: duzy }) => {
+      const wynik = await strona.evaluate(({ ocena, przebieg, ax5: duzy, tytul }) => {
         const W = document.documentElement.clientWidth; const out = [];
         for (const e of document.querySelectorAll('*')) {
           const txt = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent.trim()).join(' ').trim();
@@ -66,9 +69,19 @@ for (const ekran of ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
           const oczekiwany = duzy ? 'column' : 'row';
           if (kierunek !== oczekiwany) out.push(`brak układu dużego tekstu: nagłówek przebiegu flexDirection=${kierunek}, oczekiwano ${oczekiwany}`);
         }
-        return { out, tekst: document.body.innerText.length };
-      }, { ocena: ekran.startsWith('ocena'), przebieg: ekran !== 'start', ax5 });
-      const nazwa = `hl-${ekran}-${szer}${ax5 ? '-ax5' : ''}.png`;
+        let wiersze = null; let rozmiarTytulu = null;
+        if (tytul) {
+          const h = document.querySelector('[role="heading"]');
+          if (h) {
+            const rg = document.createRange(); rg.selectNodeContents(h);
+            wiersze = new Set([...rg.getClientRects()].filter((q) => q.width).map((q) => Math.round(q.top))).size;
+            rozmiarTytulu = getComputedStyle(h).fontSize;
+          }
+        }
+        return { out, tekst: document.body.innerText.length, wiersze, rozmiarTytulu };
+      }, { ocena: ekran.startsWith('ocena'), przebieg: !ekran.startsWith('start'), ax5, tytul: ekran.startsWith('start-') });
+      const nazwa = `${przedrostek}-${ekran}-${szer}${ax5 ? '-ax5' : ''}.png`;
+      if (wynik.wiersze !== null) console.log(`TYTUL ${nazwa}: wierszy ${wynik.wiersze}, rozmiar ${wynik.rozmiarTytulu}`);
       if (wynik.tekst < 20) bledy.push('pusty ekran');
       await strona.screenshot({ path: path.join(wyjscie, nazwa), fullPage: true });
       const twarde = (x) => !ax5 || bledy.includes(x) || /kadrem|brak |układu/.test(x);
