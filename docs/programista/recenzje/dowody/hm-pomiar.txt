@@ -1,0 +1,57 @@
+# komenda: node hm-pomiar.mjs dist zrzuty (eksport web: SZKOLA_ZRZUTY=1 expo export --platform web na 39d90fb9 + lokalny fixture SC-29, kod 0)
+łatka fontScale: 4 wystąpień
+hm-start-sc29-390.png	błędy=0	poza=0	nagłówki=Na riverze masz na…:5w,28px,column	pasek=-
+hm-start-sc29-390-ax5.png	błędy=0	poza=1	nagłówki=Na riverze masz na…:7w,39px,column	pasek=-
+hm-start-sc29-320.png	błędy=0	poza=0	nagłówki=Na riverze masz na…:6w,28px,column	pasek=-
+hm-start-sc29-320-ax5.png	błędy=0	poza=2	nagłówki=Na riverze masz na…:7w,32px,column	pasek=-
+hm-start-390.png	błędy=0	poza=0	nagłówki=River z pozycji: m…:3w,28px,column	pasek=-
+hm-start-390-ax5.png	błędy=0	poza=1	nagłówki=River z pozycji: m…:4w,39px,column	pasek=-
+hm-start-320.png	błędy=0	poza=0	nagłówki=River z pozycji: m…:3w,28px,column	pasek=-
+hm-start-320-ax5.png	błędy=0	poza=2	nagłówki=River z pozycji: m…:4w,32px,column	pasek=-
+hm-decyzja-390.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row	pasek=334@28,121
+hm-decyzja-390-ax5.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,53.04px,column	pasek=334@28,387
+hm-decyzja-320.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row	pasek=264@28,121
+hm-decyzja-320-ax5.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,53.04px,column	pasek=264@28,448
+hm-ocena-zgodna-390.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „zakład (…:1w,17px,column	pasek=334@28,121
+hm-ocena-zgodna-390-ax5.png	błędy=0	poza=2	nagłówki=Scenariusz…:1w,53.04px,column | Dlaczego „zakład (…:4w,53.04px,column	pasek=334@28,387
+hm-ocena-zgodna-320.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „zakład (…:2w,17px,column	pasek=264@28,121
+hm-ocena-zgodna-320-ax5.png	błędy=0	poza=2	nagłówki=Scenariusz…:1w,53.04px,column | Dlaczego „zakład (…:5w,53.04px,column	pasek=264@28,448
+hm-ocena-blad-390.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „czekanie…:2w,17px,column | Dlaczego „zakład (…:1w,17px,column	pasek=334@28,121
+hm-ocena-blad-390-ax5.png	błędy=0	poza=2	nagłówki=Scenariusz…:1w,53.04px,column | Dlaczego „czekanie…:5w,53.04px,column | Dlaczego „zakład (…:4w,53.04px,column	pasek=334@28,387
+hm-ocena-blad-320.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „czekanie…:2w,17px,column | Dlaczego „zakład (…:2w,17px,column	pasek=264@28,121
+hm-ocena-blad-320-ax5.png	błędy=0	poza=2	nagłówki=Scenariusz…:1w,53.04px,column | Dlaczego „czekanie…:5w,53.04px,column | Dlaczego „zakład (…:5w,53.04px,column	pasek=264@28,448
+# kod wyjścia: 0
+
+# bez łatki fontScale (jak HL): node hm-pomiar.mjs dist-bezfs zrzuty-bezfs --bez-fontscale
+łatka fontScale: wyłączona
+hm-start-sc29-390.png	błędy=0	poza=0	nagłówki=Na riverze masz na…:5w,28px,column	pasek=-
+hm-start-sc29-390-ax5.png	błędy=0	poza=1	nagłówki=Na riverze masz na…:17w,87.36px,column	pasek=-
+hm-start-sc29-320.png	błędy=0	poza=0	nagłówki=Na riverze masz na…:6w,28px,column	pasek=-
+hm-start-sc29-320-ax5.png	błędy=0	poza=2	nagłówki=Na riverze masz na…:21w,87.36px,column	pasek=-
+hm-start-390.png	błędy=0	poza=0	nagłówki=River z pozycji: m…:3w,28px,column	pasek=-
+hm-start-390-ax5.png	błędy=0	poza=1	nagłówki=River z pozycji: m…:9w,87.36px,column	pasek=-
+hm-start-320.png	błędy=0	poza=0	nagłówki=River z pozycji: m…:3w,28px,column	pasek=-
+hm-start-320-ax5.png	błędy=0	poza=2	nagłówki=River z pozycji: m…:11w,87.36px,column	pasek=-
+hm-decyzja-390.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row	pasek=334@28,121
+hm-decyzja-390-ax5.png	błędy=0	poza=3	nagłówki=Scenariusz…:1w,53.04px,row	pasek=334@28,280
+hm-decyzja-320.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row	pasek=264@28,121
+hm-decyzja-320-ax5.png	błędy=0	poza=3	nagłówki=Scenariusz…:1w,53.04px,row	pasek=264@28,341
+hm-ocena-zgodna-390.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „zakład (…:1w,17px,column	pasek=334@28,121
+hm-ocena-zgodna-390-ax5.png	błędy=0	poza=6	nagłówki=Scenariusz…:1w,53.04px,row | Dlaczego „zakład (…:4w,53.04px,column	pasek=334@28,280
+hm-ocena-zgodna-320.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „zakład (…:2w,17px,column	pasek=264@28,121
+hm-ocena-zgodna-320-ax5.png	błędy=0	poza=6	nagłówki=Scenariusz…:1w,53.04px,row | Dlaczego „zakład (…:5w,53.04px,column	pasek=264@28,341
+hm-ocena-blad-390.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „czekanie…:2w,17px,column | Dlaczego „zakład (…:1w,17px,column	pasek=334@28,121
+hm-ocena-blad-390-ax5.png	błędy=0	poza=5	nagłówki=Scenariusz…:1w,53.04px,row | Dlaczego „czekanie…:5w,53.04px,column | Dlaczego „zakład (…:4w,53.04px,column	pasek=334@28,280
+hm-ocena-blad-320.png	błędy=0	poza=0	nagłówki=Scenariusz…:1w,17px,row | Dlaczego „czekanie…:2w,17px,column | Dlaczego „zakład (…:2w,17px,column	pasek=264@28,121
+hm-ocena-blad-320-ax5.png	błędy=0	poza=6	nagłówki=Scenariusz…:1w,53.04px,row | Dlaczego „czekanie…:5w,53.04px,column | Dlaczego „zakład (…:5w,53.04px,column	pasek=264@28,341
+# kod wyjścia: 0
+
+# pliki poza ekranem (AX5):
+hm-start-sc29-390-ax5.png ["Automatycznie"]
+hm-start-sc29-320-ax5.png ["Scenariusze","Automatycznie"]
+hm-start-390-ax5.png ["Automatycznie"]
+hm-start-320-ax5.png ["Scenariusze","Automatycznie"]
+hm-ocena-zgodna-390-ax5.png ["sprawdzających","Zobacz podsumowanie"]
+hm-ocena-zgodna-320-ax5.png ["sprawdzających","Zobacz podsumowanie"]
+hm-ocena-blad-390-ax5.png ["sprawdzających","Zobacz podsumowanie"]
+hm-ocena-blad-320-ax5.png ["sprawdzających","Zobacz podsumowanie"]

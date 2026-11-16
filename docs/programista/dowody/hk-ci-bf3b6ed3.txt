@@ -1,0 +1,44 @@
+# pnpm run ci na SHA bf3b6ed3 (HK, 2026-11-16), Linux, Node 22.23.4, pnpm 10.28.0
+Przebieg 1: kod 1 — timeout 5000 ms testu tools/content-build/test/terms-nazwy-09.test.ts (ja) pod obciążeniem równoległego przebiegu; ten test osobno: 9/9 w 3 s; moje zmiany nie dotykają tools/ ani packages/ (git diff 0b0855ef -- tools packages: puste).
+Przebieg 2 (poniżej, bez zmian w kodzie): kod 0.
+
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:97 t(`card.rank.${r}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:97 t(`card.suit.${s}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:105 t(`table.position.${p.toLowerCase()}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:108 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+błędy: 0, uwagi: 571; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 872
+
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> pnpm --filter @szkola/content-build check
+
+
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+(node:9926) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> szkola-pokera@ tresci:rejestr /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+
+wpisy: 1062, bez twierdzeń: 140, wymagane: 1142, brak pokrycia: 0
+status: {"potwierdzone":1006,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":707,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1049,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+
+> szkola-pokera@ tresci:el-kontrola /home/user/Szkola_pokera
+> node docs/tresci/narzedzia/el-kontrola.mjs --ko076
+
+0 braków
+EXIT=0

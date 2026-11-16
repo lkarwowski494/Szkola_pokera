@@ -1,0 +1,632 @@
+# komenda: node --no-warnings podzial-db.mjs apps/mobile/assets/content zdanie.ts (zdanie.ts z 375efeff; 35 baz tresc-595ef75ad5-*.db, wszystkie szablony scenariuszy); kolumny: język, id, znaki sytuacji, znaki tytułu, reszta, tytuł
+# kod wyjścia: 0; podzielonych: 178 z 630
+bg	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+bg	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+bg	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+bg	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+bg	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+bg	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+bg	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+bg	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+bg	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+bg	sc-13	232	52	ok	You opened from the Button and the big blind called.
+bg	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+bg	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+bg	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+bg	sc-28	263	21	ok	You have an overpair.
+bg	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+bg	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+bg	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+bg	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+cs	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+cs	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+cs	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+cs	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+cs	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+cs	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+cs	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+cs	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+cs	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+cs	sc-13	232	52	ok	You opened from the Button and the big blind called.
+cs	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+cs	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+cs	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+cs	sc-28	263	21	ok	You have an overpair.
+cs	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+cs	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+cs	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+cs	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+da	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+da	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+da	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+da	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+da	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+da	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+da	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+da	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+da	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+da	sc-13	232	52	ok	You opened from the Button and the big blind called.
+da	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+da	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+da	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+da	sc-28	263	21	ok	You have an overpair.
+da	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+da	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+da	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+da	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+de	sc-01	96	96	NULL	Nach einer 3-Bet hast du einen Flush-Draw, und dein Gegner setzt auf dem Flop und am Turn wenig.
+de	sc-02	109	109	NULL	Mit kurzen Stacks hast du nach einer 3-Bet einen OESD; dein Gegner setzt auf dem Flop wenig und am Turn viel.
+de	sc-03	115	115	NULL	Mit kurzen Stacks nach einer 3-Bet checkt ihr beide den Flop; am Turn hast du einen Gutshot, und dein Gegner setzt.
+de	sc-04	129	129	NULL	Du sitzt UTG, und noch niemand ist ins Spiel eingestiegen; wenn du eröffnest, wird der Big Blind callen und auf dem Flop checken.
+de	sc-05	52	52	NULL	Du sitzt am Button, und alle vor dir haben gefoldet.
+de	sc-06	60	60	NULL	Du sitzt im Small Blind, und alle haben bis zu dir gefoldet.
+de	sc-08	63	63	NULL	Du sitzt im Small Blind, und der Button hat auf 2,5bb eröffnet.
+de	sc-11	97	97	NULL	Du hast vom Button eröffnet, der Big Blind hat gecallt und checkt auf einem trockenen hohen Flop.
+de	sc-12	103	103	NULL	Du hast vom Button eröffnet, der Big Blind hat gecallt und checkt auf einem niedrigen verbundenen Flop.
+de	sc-13	269	55	ok	Du hast vom Button eröffnet, der Big Blind hat gecallt.
+de	sc-19	115	115	NULL	Mit kurzen Stacks hast du nach einer 3-Bet einen Flush-Draw; dein Gegner setzt auf dem Flop wenig und am Turn viel.
+de	sc-22	206	72	ok	Am River hast du Top Pair, du sitzt am Button, und der Big Blind checkt.
+de	sc-25	212	75	ok	Am River hast du Second Pair, du sitzt am Button, und der Big Blind checkt.
+de	sc-28	286	21	ok	Du hast ein Overpair.
+de	sc-29	331	72	ok	Am River hast du Top Pair, du sitzt am Button, und der Big Blind checkt.
+de	sc-32	78	78	NULL	Turnier: Du sitzt mit 10bb im Small Blind, und alle haben bis zu dir gefoldet.
+de	sc-33	81	81	NULL	Turnier: Du sitzt mit 10bb im Big Blind, und der Small Blind ist All-in gegangen.
+de	sc-34	70	70	NULL	Auf der Bubble geht der Small Blind All-in, und du sitzt im Big Blind.
+el	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+el	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+el	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+el	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+el	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+el	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+el	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+el	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+el	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+el	sc-13	232	52	ok	You opened from the Button and the big blind called.
+el	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+el	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+el	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+el	sc-28	263	21	ok	You have an overpair.
+el	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+el	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+el	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+el	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+en	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+en	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+en	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+en	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+en	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+en	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+en	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2.5bb.
+en	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+en	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+en	sc-13	232	52	ok	You opened from the Button and the big blind called.
+en	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+en	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+en	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+en	sc-28	263	21	ok	You have an overpair.
+en	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+en	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+en	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+en	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+es-419	sc-01	91	91	NULL	Tras un 3-bet tienes un proyecto de color, y tu rival apuesta poco en el flop y en el turn.
+es-419	sc-02	125	125	NULL	Con stacks cortos, tras un 3-bet tienes un proyecto de escalera abierta; tu rival apuesta poco en el flop y mucho en el turn.
+es-419	sc-03	109	109	NULL	Con stacks cortos, tras un 3-bet los dos pasáis en el flop; en el turn tienes un gutshot, y tu rival apuesta.
+es-419	sc-04	106	106	NULL	Estás en UTG y nadie ha entrado todavía en el juego; si abres, la ciega grande pagará y en el flop pasará.
+es-419	sc-05	56	56	NULL	Estás en el Button y todos antes que tú se han retirado.
+es-419	sc-06	59	59	NULL	Estás en la ciega pequeña y todos se han retirado hasta ti.
+es-419	sc-08	57	57	NULL	Estás en la ciega pequeña y el Button ha abierto a 2.5bb.
+es-419	sc-11	85	85	NULL	Has abierto desde el Button, la ciega grande ha pagado y pasa en un flop alto y seco.
+es-419	sc-12	90	90	NULL	Has abierto desde el Button, la ciega grande ha pagado y pasa en un flop bajo y conectado.
+es-419	sc-13	254	56	ok	Has abierto desde el Button y la ciega grande ha pagado.
+es-419	sc-19	114	114	NULL	Con stacks cortos, tras un 3-bet tienes un proyecto de color; tu rival apuesta poco en el flop y mucho en el turn.
+es-419	sc-22	201	75	ok	En el river tienes pareja mayor, estás en el Button y la ciega grande pasa.
+es-419	sc-25	208	77	ok	En el river tienes segunda pareja, estás en el Button y la ciega grande pasa.
+es-419	sc-28	267	23	ok	Tienes una sobrepareja.
+es-419	sc-29	332	75	ok	En el river tienes pareja mayor, estás en el Button y la ciega grande pasa.
+es-419	sc-32	76	76	NULL	Torneo: estás en la ciega pequeña con 10bb y todos se han retirado hasta ti.
+es-419	sc-33	75	75	NULL	Torneo: estás en la ciega grande con 10bb y la ciega pequeña ha ido all-in.
+es-419	sc-34	72	72	NULL	En la burbuja la ciega pequeña va all-in, y tú estás en la ciega grande.
+es	sc-01	91	91	NULL	Tras un 3-bet tienes un proyecto de color, y tu rival apuesta poco en el flop y en el turn.
+es	sc-02	125	125	NULL	Con stacks cortos, tras un 3-bet tienes un proyecto de escalera abierta; tu rival apuesta poco en el flop y mucho en el turn.
+es	sc-03	109	109	NULL	Con stacks cortos, tras un 3-bet los dos pasáis en el flop; en el turn tienes un gutshot, y tu rival apuesta.
+es	sc-04	106	106	NULL	Estás en UTG y nadie ha entrado todavía en el juego; si abres, la ciega grande pagará y en el flop pasará.
+es	sc-05	56	56	NULL	Estás en el Button y todos antes que tú se han retirado.
+es	sc-06	59	59	NULL	Estás en la ciega pequeña y todos se han retirado hasta ti.
+es	sc-08	57	57	NULL	Estás en la ciega pequeña y el Button ha abierto a 2,5bb.
+es	sc-11	85	85	NULL	Has abierto desde el Button, la ciega grande ha pagado y pasa en un flop alto y seco.
+es	sc-12	90	90	NULL	Has abierto desde el Button, la ciega grande ha pagado y pasa en un flop bajo y conectado.
+es	sc-13	254	56	ok	Has abierto desde el Button y la ciega grande ha pagado.
+es	sc-19	114	114	NULL	Con stacks cortos, tras un 3-bet tienes un proyecto de color; tu rival apuesta poco en el flop y mucho en el turn.
+es	sc-22	201	75	ok	En el river tienes pareja mayor, estás en el Button y la ciega grande pasa.
+es	sc-25	208	77	ok	En el river tienes segunda pareja, estás en el Button y la ciega grande pasa.
+es	sc-28	267	23	ok	Tienes una sobrepareja.
+es	sc-29	333	75	ok	En el river tienes pareja mayor, estás en el Button y la ciega grande pasa.
+es	sc-32	76	76	NULL	Torneo: estás en la ciega pequeña con 10bb y todos se han retirado hasta ti.
+es	sc-33	75	75	NULL	Torneo: estás en la ciega grande con 10bb y la ciega pequeña ha ido all-in.
+es	sc-34	72	72	NULL	En la burbuja la ciega pequeña va all-in, y tú estás en la ciega grande.
+et	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+et	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+et	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+et	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+et	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+et	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+et	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+et	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+et	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+et	sc-13	232	52	ok	You opened from the Button and the big blind called.
+et	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+et	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+et	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+et	sc-28	263	21	ok	You have an overpair.
+et	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+et	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+et	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+et	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+fi	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+fi	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+fi	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+fi	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+fi	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+fi	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+fi	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+fi	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+fi	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+fi	sc-13	232	52	ok	You opened from the Button and the big blind called.
+fi	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+fi	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+fi	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+fi	sc-28	263	21	ok	You have an overpair.
+fi	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+fi	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+fi	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+fi	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+fr	sc-01	95	95	NULL	Après un 3-bet, vous avez un tirage couleur, et votre adversaire mise petit au flop et au turn.
+fr	sc-02	131	131	NULL	Avec des stacks courts, après un 3-bet, vous avez un tirage quinte bilatéral ; votre adversaire mise petit au flop et gros au turn.
+fr	sc-03	137	137	NULL	Avec des stacks courts, après un 3-bet, vous faites tous les deux check au flop ; au turn vous avez un gutshot, et votre adversaire mise.
+fr	sc-04	126	126	NULL	Vous êtes en UTG, et personne n'est encore entré dans le coup ; si vous ouvrez, la grosse blinde suivra et fera check au flop.
+fr	sc-05	62	62	NULL	Vous êtes au Bouton, et tout le monde avant vous s'est couché.
+fr	sc-06	71	71	NULL	Vous êtes en petite blinde, et tout le monde s'est couché jusqu'à vous.
+fr	sc-08	58	58	NULL	Vous êtes en petite blinde, et le Bouton a ouvert à 2,5bb.
+fr	sc-11	97	97	NULL	Vous avez ouvert depuis le Bouton, la grosse blinde a payé et fait check sur un flop haut et sec.
+fr	sc-12	101	101	NULL	Vous avez ouvert depuis le Bouton, la grosse blinde a payé et fait check sur un flop bas et connecté.
+fr	sc-13	285	62	ok	Vous avez ouvert depuis le Bouton, et la grosse blinde a payé.
+fr	sc-19	122	122	NULL	Avec des stacks courts, après un 3-bet, vous avez un tirage couleur ; votre adversaire mise petit au flop et gros au turn.
+fr	sc-22	255	89	ok	À la river, vous avez une top paire, vous êtes au Bouton, et la grosse blinde fait check.
+fr	sc-25	262	94	ok	À la river, vous avez une deuxième paire, vous êtes au Bouton, et la grosse blinde fait check.
+fr	sc-28	327	24	ok	Vous avez une overpaire.
+fr	sc-29	384	89	ok	À la river, vous avez une top paire, vous êtes au Bouton, et la grosse blinde fait check.
+fr	sc-32	91	91	NULL	Tournoi : vous êtes en petite blinde avec 10bb, et tout le monde s'est couché jusqu'à vous.
+fr	sc-33	86	86	NULL	Tournoi : vous êtes en grosse blinde avec 10bb, et la petite blinde est partie all-in.
+fr	sc-34	75	75	NULL	Dans la bulle, la petite blinde part all-in, et vous êtes en grosse blinde.
+hr	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+hr	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+hr	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+hr	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+hr	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+hr	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+hr	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+hr	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+hr	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+hr	sc-13	232	52	ok	You opened from the Button and the big blind called.
+hr	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+hr	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+hr	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+hr	sc-28	263	21	ok	You have an overpair.
+hr	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+hr	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+hr	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+hr	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+hu	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+hu	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+hu	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+hu	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+hu	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+hu	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+hu	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+hu	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+hu	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+hu	sc-13	232	52	ok	You opened from the Button and the big blind called.
+hu	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+hu	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+hu	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+hu	sc-28	263	21	ok	You have an overpair.
+hu	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+hu	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+hu	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+hu	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+id	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+id	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+id	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+id	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+id	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+id	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+id	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+id	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+id	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+id	sc-13	232	52	ok	You opened from the Button and the big blind called.
+id	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+id	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+id	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+id	sc-28	263	21	ok	You have an overpair.
+id	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+id	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+id	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+id	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+it	sc-01	90	90	NULL	Dopo un 3-bet hai un progetto di colore, e il tuo avversario punta poco al flop e al turn.
+it	sc-02	97	97	NULL	Con stack corti, dopo un 3-bet hai un OESD; il tuo avversario punta poco al flop e molto al turn.
+it	sc-03	110	110	NULL	Con stack corti, dopo un 3-bet fate entrambi check al flop; al turn hai un gutshot, e il tuo avversario punta.
+it	sc-04	100	100	NULL	Sei in UTG e nessuno è ancora entrato in gioco; se apri, il big blind chiamerà e al flop farà check.
+it	sc-05	49	49	NULL	Sei sul Button e tutti prima di te hanno foldato.
+it	sc-06	51	51	NULL	Sei in small blind e tutti hanno foldato fino a te.
+it	sc-08	49	49	NULL	Sei in small blind e il Button ha aperto a 2,5bb.
+it	sc-11	85	85	NULL	Hai aperto dal Button, il big blind ha fatto call e fa check su un flop alto e secco.
+it	sc-12	89	89	NULL	Hai aperto dal Button, il big blind ha fatto call e fa check su un flop basso e connesso.
+it	sc-13	252	51	ok	Hai aperto dal Button e il big blind ha fatto call.
+it	sc-19	111	111	NULL	Con stack corti, dopo un 3-bet hai un progetto di colore; il tuo avversario punta poco al flop e molto al turn.
+it	sc-22	198	66	ok	Al river hai una top pair, sei sul Button e il big blind fa check.
+it	sc-25	209	72	ok	Al river hai una seconda coppia, sei sul Button e il big blind fa check.
+it	sc-28	264	16	ok	Hai un'overpair.
+it	sc-29	315	66	ok	Al river hai una top pair, sei sul Button e il big blind fa check.
+it	sc-32	68	68	NULL	Torneo: sei in small blind con 10bb e tutti hanno foldato fino a te.
+it	sc-33	67	67	NULL	Torneo: sei in big blind con 10bb e lo small blind è andato all-in.
+it	sc-34	60	60	NULL	Sulla bolla lo small blind va all-in, e tu sei in big blind.
+ja	sc-01	50	50	NULL	3ベットの後、あなたはフラッシュドローを持っていて、相手はフロップでもターンでも小さくベットします。
+ja	sc-02	60	60	NULL	スタックが浅い状態で3ベットの後、あなたはOESDを持っていて、相手はフロップでは小さく、ターンでは大きくベットします。
+ja	sc-03	67	35	ok	スタックが浅い状態で3ベットの後、フロップは二人ともチェックしました。
+ja	sc-04	59	24	ok	あなたはUTGにいて、まだ誰も参加していません。
+ja	sc-05	26	26	NULL	あなたはボタンにいて、前の全員がフォールドしました。
+ja	sc-06	35	35	NULL	あなたはスモールブラインドにいて、全員があなたまでフォールドしました。
+ja	sc-08	36	36	NULL	あなたはスモールブラインドにいて、ボタンが2.5bbにオープンしました。
+ja	sc-11	53	53	NULL	あなたはボタンからオープンし、ビッグブラインドがコールして、ハイカードのドライなフロップでチェックします。
+ja	sc-12	56	56	NULL	あなたはボタンからオープンし、ビッグブラインドがコールして、ローカードのコネクテッドなフロップでチェックします。
+ja	sc-13	137	32	ok	あなたはボタンからオープンし、ビッグブラインドがコールしました。
+ja	sc-19	64	64	NULL	スタックが浅い状態で3ベットの後、あなたはフラッシュドローを持っていて、相手はフロップでは小さく、ターンでは大きくベットします。
+ja	sc-22	121	41	ok	リバーであなたはトップペアを持ってボタンにいて、ビッグブラインドがチェックします。
+ja	sc-25	125	42	ok	リバーであなたはセカンドペアを持ってボタンにいて、ビッグブラインドがチェックします。
+ja	sc-28	160	18	ok	あなたはオーバーペアを持っています。
+ja	sc-29	203	41	ok	リバーであなたはトップペアを持ってボタンにいて、ビッグブラインドがチェックします。
+ja	sc-32	47	47	NULL	トーナメント：あなたは10bbでスモールブラインドにいて、全員があなたまでフォールドしました。
+ja	sc-33	48	48	NULL	トーナメント：あなたは10bbでビッグブラインドにいて、スモールブラインドがオールインしました。
+ja	sc-34	38	38	NULL	バブルでスモールブラインドがオールインし、あなたはビッグブラインドにいます。
+ko	sc-01	47	47	NULL	3벳 후 당신은 플러시 드로우를 가지고 있고, 상대는 플롭과 턴에서 작게 베팅합니다.
+ko	sc-02	70	70	NULL	스택이 짧은 상황에서 3벳 후 당신은 양방향 스트레이트 드로우를 가지고 있고, 상대는 플롭에서 작게, 턴에서 크게 베팅합니다.
+ko	sc-03	63	63	NULL	스택이 짧은 상태에서 3벳 후 플롭에서 둘 다 체크했고, 턴에서 당신은 거트샷을 가지고 있으며 상대가 베팅합니다.
+ko	sc-04	68	35	ok	당신은 UTG에 있고, 아직 아무도 핸드에 참여하지 않았습니다.
+ko	sc-05	31	31	NULL	당신은 버튼에 있고, 앞의 모든 플레이어가 폴드했습니다.
+ko	sc-06	35	35	NULL	당신은 스몰 블라인드에 있고, 당신 차례까지 모두 폴드했습니다.
+ko	sc-08	35	35	NULL	당신은 스몰 블라인드에 있고, 버튼이 2.5bb로 오픈했습니다.
+ko	sc-11	46	46	NULL	당신은 버튼에서 오픈했고, 빅 블라인드가 콜한 뒤 높은 드라이 플롭에서 체크합니다.
+ko	sc-12	47	47	NULL	당신은 버튼에서 오픈했고, 빅 블라인드가 콜한 뒤 낮은 커넥티드 플롭에서 체크합니다.
+ko	sc-13	154	29	ok	당신은 버튼에서 오픈했고, 빅 블라인드가 콜했습니다.
+ko	sc-19	64	64	NULL	스택이 짧은 상황에서 3벳 후 당신은 플러시 드로우를 가지고 있고, 상대는 플롭에서 작게, 턴에서 크게 베팅합니다.
+ko	sc-22	128	40	ok	리버에서 당신은 탑 페어를 들고 버튼에 있고, 빅 블라인드가 체크합니다.
+ko	sc-25	130	42	ok	리버에서 당신은 세컨드 페어를 들고 버튼에 있고, 빅 블라인드가 체크합니다.
+ko	sc-28	164	18	ok	당신은 오버페어를 들고 있습니다.
+ko	sc-29	220	40	ok	리버에서 당신은 탑 페어를 들고 버튼에 있고, 빅 블라인드가 체크합니다.
+ko	sc-32	47	47	NULL	토너먼트: 당신은 10bb로 스몰 블라인드에 있고, 당신 차례까지 모두 폴드했습니다.
+ko	sc-33	44	44	NULL	토너먼트: 당신은 10bb로 빅 블라인드에 있고, 스몰 블라인드가 올인했습니다.
+ko	sc-34	37	37	NULL	버블에서 스몰 블라인드가 올인하고, 당신은 빅 블라인드에 있습니다.
+lt	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+lt	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+lt	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+lt	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+lt	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+lt	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+lt	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+lt	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+lt	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+lt	sc-13	232	52	ok	You opened from the Button and the big blind called.
+lt	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+lt	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+lt	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+lt	sc-28	263	21	ok	You have an overpair.
+lt	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+lt	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+lt	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+lt	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+lv	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+lv	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+lv	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+lv	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+lv	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+lv	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+lv	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+lv	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+lv	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+lv	sc-13	232	52	ok	You opened from the Button and the big blind called.
+lv	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+lv	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+lv	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+lv	sc-28	263	21	ok	You have an overpair.
+lv	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+lv	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+lv	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+lv	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+ms	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+ms	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+ms	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+ms	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+ms	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+ms	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+ms	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2.5bb.
+ms	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+ms	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+ms	sc-13	232	52	ok	You opened from the Button and the big blind called.
+ms	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+ms	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+ms	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+ms	sc-28	263	21	ok	You have an overpair.
+ms	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+ms	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+ms	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+ms	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+nb	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+nb	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+nb	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+nb	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+nb	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+nb	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+nb	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+nb	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+nb	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+nb	sc-13	232	52	ok	You opened from the Button and the big blind called.
+nb	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+nb	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+nb	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+nb	sc-28	263	21	ok	You have an overpair.
+nb	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+nb	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+nb	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+nb	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+nl	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+nl	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+nl	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+nl	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+nl	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+nl	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+nl	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+nl	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+nl	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+nl	sc-13	232	52	ok	You opened from the Button and the big blind called.
+nl	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+nl	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+nl	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+nl	sc-28	263	21	ok	You have an overpair.
+nl	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+nl	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+nl	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+nl	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+pl	sc-01	93	93	NULL	Po 3-becie masz draw do koloru (flush draw), a rywal na flopie i na turnie stawia (bet) mało.
+pl	sc-02	122	122	NULL	Przy krótkich stosach po 3-becie masz OESD (open-ended straight draw); rywal stawia (bet) mało na flopie i dużo na turnie.
+pl	sc-03	112	112	NULL	Przy krótkich stosach po 3-becie na flopie oboje czekacie (check); na turnie masz gutshot, a rywal stawia (bet).
+pl	sc-04	158	158	NULL	Jesteś na UTG (under the gun), nikt jeszcze nie wszedł do gry; jeśli otworzysz (open), duży blind (big blind, BB) sprawdzi (call) i na flopie poczeka (check).
+pl	sc-05	56	56	NULL	Jesteś na Buttonie, wszyscy przed tobą spasowali (fold).
+pl	sc-06	79	79	NULL	Jesteś na małym blindzie (small blind, SB), wszyscy spasowali (fold) do ciebie.
+pl	sc-08	78	78	NULL	Jesteś na małym blindzie (small blind, SB), a Button otworzył (open) na 2,5bb.
+pl	sc-11	120	120	NULL	Otworzyłeś (open) z Buttona, duży blind (big blind, BB) sprawdził (call) i na suchym (dry) wysokim flopie czeka (check).
+pl	sc-12	129	129	NULL	Otworzyłeś (open) z Buttona, duży blind (big blind, BB) sprawdził (call) i na niskim połączonym (connected) flopie czeka (check).
+pl	sc-13	293	73	ok	Otworzyłeś (open) z Buttona, duży blind (big blind, BB) sprawdził (call).
+pl	sc-19	118	118	NULL	Przy krótkich stosach po 3-becie masz draw do koloru (flush draw); rywal stawia (bet) mało na flopie i dużo na turnie.
+pl	sc-22	253	106	ok	Na riverze masz najwyższą parę (top pair), jesteś na Buttonie, a duży blind (big blind, BB) czeka (check).
+pl	sc-25	255	105	ok	Na riverze masz drugą parę (second pair), jesteś na Buttonie, a duży blind (big blind, BB) czeka (check).
+pl	sc-28	327	25	ok	Masz overparę (overpair).
+pl	sc-29	419	106	ok	Na riverze masz najwyższą parę (top pair), jesteś na Buttonie, a duży blind (big blind, BB) czeka (check).
+pl	sc-32	108	108	NULL	Turniej (tournament): jesteś na małym blindzie (small blind, SB) z 10bb, wszyscy spasowali (fold) do ciebie.
+pl	sc-33	116	116	NULL	Turniej (tournament): jesteś na dużym blindzie (big blind, BB) z 10bb, a mały blind (small blind, SB) wszedł all-in.
+pl	sc-34	100	100	NULL	Na bańce mały blind (small blind, SB) wchodzi all-in, a ty jesteś na dużym blindzie (big blind, BB).
+pt-BR	sc-01	95	95	NULL	Depois de um 3-bet você tem um projeto de flush, e o adversário aposta pouco no flop e no turn.
+pt-BR	sc-02	106	106	NULL	Com stacks curtos, depois de um 3-bet você tem um OESD; o adversário aposta pouco no flop e muito no turn.
+pt-BR	sc-03	122	122	NULL	Com stacks curtos, depois de um 3-bet, vocês dois fazem check no flop; no turn você tem um gutshot, e o adversário aposta.
+pt-BR	sc-04	128	128	NULL	Você está no UTG e ninguém entrou no jogo ainda; se você fizer abertura, o big blind vai fazer call e, no flop, vai fazer check.
+pt-BR	sc-05	53	53	NULL	Você está no Button e todos antes de você desistiram.
+pt-BR	sc-06	53	53	NULL	Você está no small blind e todos desistiram até você.
+pt-BR	sc-08	60	60	NULL	Você está no small blind e o Button fez abertura para 2,5bb.
+pt-BR	sc-11	85	85	NULL	Você fez abertura do Button, o big blind fez call e faz check em um flop alto e seco.
+pt-BR	sc-12	91	91	NULL	Você fez abertura do Button, o big blind fez call e faz check em um flop baixo e conectado.
+pt-BR	sc-13	246	52	ok	Você fez abertura do Button, e o big blind fez call.
+pt-BR	sc-19	118	118	NULL	Com stacks curtos, depois de um 3-bet você tem um projeto de flush; o adversário aposta pouco no flop e muito no turn.
+pt-BR	sc-22	210	68	ok	No river você tem top pair, está no Button, e o big blind faz check.
+pt-BR	sc-25	218	71	ok	No river você tem segundo par, está no Button, e o big blind faz check.
+pt-BR	sc-28	275	21	ok	Você tem um overpair.
+pt-BR	sc-29	334	68	ok	No river você tem top pair, está no Button, e o big blind faz check.
+pt-BR	sc-32	71	71	NULL	Torneio: você está no small blind com 10bb e todos desistiram até você.
+pt-BR	sc-33	68	68	NULL	Torneio: você está no big blind com 10bb e o small blind foi all-in.
+pt-BR	sc-34	60	60	NULL	Na bolha o small blind vai all-in, e você está no big blind.
+pt	sc-01	84	84	NULL	Depois de um 3-bet tem um flush draw, e o adversário aposta pouco no flop e no turn.
+pt	sc-02	101	101	NULL	Com stacks curtos, depois de um 3-bet tem um OESD; o adversário aposta pouco no flop e muito no turn.
+pt	sc-03	112	112	NULL	Com stacks curtos, depois de um 3-bet, ambos fazem check no flop; no turn tem um gutshot, e o adversário aposta.
+pt	sc-04	108	108	NULL	Está em UTG e ninguém entrou ainda no jogo; se fizer abertura, o big blind fará call e, no flop, fará check.
+pt	sc-05	46	46	NULL	Está no Button e todos antes de si desistiram.
+pt	sc-06	46	46	NULL	Está no small blind e todos desistiram até si.
+pt	sc-08	55	55	NULL	Está no small blind e o Button fez abertura para 2,5bb.
+pt	sc-11	78	78	NULL	Fez abertura do Button, o big blind fez call e faz check num flop alto e seco.
+pt	sc-12	84	84	NULL	Fez abertura do Button, o big blind fez call e faz check num flop baixo e conectado.
+pt	sc-13	224	46	ok	Fez abertura do Button e o big blind fez call.
+pt	sc-19	107	107	NULL	Com stacks curtos, depois de um 3-bet tem um flush draw; o adversário aposta pouco no flop e muito no turn.
+pt	sc-22	191	63	ok	No river tem top pair, está no Button, e o big blind faz check.
+pt	sc-25	199	66	ok	No river tem segundo par, está no Button, e o big blind faz check.
+pt	sc-28	249	16	ok	Tem um overpair.
+pt	sc-29	311	63	ok	No river tem top pair, está no Button, e o big blind faz check.
+pt	sc-32	64	64	NULL	Torneio: está no small blind com 10bb e todos desistiram até si.
+pt	sc-33	63	63	NULL	Torneio: está no big blind com 10bb e o small blind foi all-in.
+pt	sc-34	56	56	NULL	Está no big blind e, na bolha, o small blind vai all-in.
+ro	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+ro	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+ro	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+ro	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+ro	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+ro	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+ro	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+ro	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+ro	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+ro	sc-13	232	52	ok	You opened from the Button and the big blind called.
+ro	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+ro	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+ro	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+ro	sc-28	263	21	ok	You have an overpair.
+ro	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+ro	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+ro	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+ro	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+ru	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+ru	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+ru	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+ru	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+ru	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+ru	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+ru	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+ru	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+ru	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+ru	sc-13	232	52	ok	You opened from the Button and the big blind called.
+ru	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+ru	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+ru	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+ru	sc-28	263	21	ok	You have an overpair.
+ru	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+ru	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+ru	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+ru	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+sk	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+sk	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+sk	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+sk	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+sk	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+sk	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+sk	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+sk	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+sk	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+sk	sc-13	232	52	ok	You opened from the Button and the big blind called.
+sk	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+sk	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sk	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+sk	sc-28	263	21	ok	You have an overpair.
+sk	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sk	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+sk	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+sk	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+sl	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+sl	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+sl	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+sl	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+sl	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+sl	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+sl	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+sl	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+sl	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+sl	sc-13	232	52	ok	You opened from the Button and the big blind called.
+sl	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+sl	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sl	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+sl	sc-28	263	21	ok	You have an overpair.
+sl	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sl	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+sl	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+sl	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+sr	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+sr	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+sr	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+sr	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+sr	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+sr	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+sr	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+sr	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+sr	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+sr	sc-13	232	52	ok	You opened from the Button and the big blind called.
+sr	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+sr	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sr	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+sr	sc-28	263	21	ok	You have an overpair.
+sr	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sr	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+sr	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+sr	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+sv	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+sv	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+sv	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+sv	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+sv	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+sv	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+sv	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+sv	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+sv	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+sv	sc-13	232	52	ok	You opened from the Button and the big blind called.
+sv	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+sv	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sv	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+sv	sc-28	263	21	ok	You have an overpair.
+sv	sc-29	331	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+sv	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+sv	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+sv	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+tr	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+tr	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+tr	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+tr	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+tr	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+tr	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+tr	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+tr	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+tr	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+tr	sc-13	232	52	ok	You opened from the Button and the big blind called.
+tr	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+tr	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+tr	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+tr	sc-28	263	21	ok	You have an overpair.
+tr	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+tr	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+tr	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+tr	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+uk	sc-01	94	94	NULL	After a 3-bet you have a flush draw, and your opponent bets small on the flop and on the turn.
+uk	sc-02	107	107	NULL	With short stacks after a 3-bet you have an OESD; your opponent bets small on the flop and big on the turn.
+uk	sc-03	112	112	NULL	With short stacks after a 3-bet you both check the flop; on the turn you have a gutshot, and your opponent bets.
+uk	sc-04	108	108	NULL	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+uk	sc-05	54	54	NULL	You are on the Button, and everyone before you folded.
+uk	sc-06	55	55	NULL	You are in the small blind, and everyone folded to you.
+uk	sc-08	59	59	NULL	You are in the small blind, and the Button opened to 2,5bb.
+uk	sc-11	79	79	NULL	You opened from the Button, the big blind called and checks on a dry high flop.
+uk	sc-12	84	84	NULL	You opened from the Button, the big blind called and checks on a low connected flop.
+uk	sc-13	232	52	ok	You opened from the Button and the big blind called.
+uk	sc-19	112	112	NULL	With short stacks after a 3-bet you have a flush draw; your opponent bets small on the flop and big on the turn.
+uk	sc-22	206	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+uk	sc-25	212	82	ok	On the river you have second pair, you're on the Button, and the big blind checks.
+uk	sc-28	263	21	ok	You have an overpair.
+uk	sc-29	330	79	ok	On the river you have top pair, you're on the Button, and the big blind checks.
+uk	sc-32	77	77	NULL	Tournament: you are in the small blind with 10bb, and everyone folded to you.
+uk	sc-33	80	80	NULL	Tournament: you are in the big blind with 10bb, and the small blind went all-in.
+uk	sc-34	72	72	NULL	On the bubble the small blind goes all-in, and you are in the big blind.
+vi	sc-01	75	75	NULL	Sau một 3-bet, bạn có bài chờ thùng, còn đối thủ cược nhỏ ở flop và ở turn.
+vi	sc-02	81	81	NULL	Khi stack ngắn, sau một 3-bet bạn có OESD; đối thủ cược nhỏ ở flop và lớn ở turn.
+vi	sc-03	96	96	NULL	Với stack ngắn, sau một 3-bet cả hai cùng check ở flop; ở turn bạn có gutshot, còn đối thủ cược.
+vi	sc-04	82	82	NULL	Bạn ở UTG, chưa ai vào ván; nếu bạn mở cược, big blind sẽ theo và check trên flop.
+vi	sc-05	47	47	NULL	Bạn ở Button, và mọi người trước bạn đã bỏ bài.
+vi	sc-06	55	55	NULL	Bạn ở small blind, và mọi người đã bỏ bài đến lượt bạn.
+vi	sc-08	50	50	NULL	Bạn ở small blind, và Button đã mở cược lên 2,5bb.
+vi	sc-11	78	78	NULL	Bạn đã mở cược từ Button, big blind đã theo và check trên một flop cao và khô.
+vi	sc-12	84	84	NULL	Bạn đã mở cược từ Button, big blind đã theo và check trên một flop thấp và liên kết.
+vi	sc-13	218	44	ok	Bạn đã mở cược từ Button, big blind đã theo.
+vi	sc-19	90	90	NULL	Khi stack ngắn, sau một 3-bet bạn có bài chờ thùng; đối thủ cược nhỏ ở flop và lớn ở turn.
+vi	sc-22	194	63	ok	Ở river bạn có đôi cao nhất, bạn ở Button, còn big blind check.
+vi	sc-25	195	62	ok	Ở river bạn có đôi thứ hai, bạn ở Button, còn big blind check.
+vi	sc-28	254	16	ok	Bạn có overpair.
+vi	sc-29	310	63	ok	Ở river bạn có đôi cao nhất, bạn ở Button, còn big blind check.
+vi	sc-32	74	74	NULL	Giải đấu: bạn ở small blind với 10bb, và mọi người đã bỏ bài đến lượt bạn.
+vi	sc-33	61	61	NULL	Giải đấu: bạn ở big blind với 10bb, và small blind đã all-in.
+vi	sc-34	50	50	NULL	Ở bubble, small blind all-in, còn bạn ở big blind.
+zh-Hant	sc-01	29	29	NULL	3-bet之後你拿到同花聽牌，對手在翻牌和轉牌都小額下注。
+zh-Hant	sc-02	42	42	NULL	籌碼量較短時，3-bet之後你拿到兩頭順子聽牌；對手在翻牌小額下注，在轉牌大額下注。
+zh-Hant	sc-03	36	36	NULL	籌碼較短時，3-bet之後翻牌圈雙方都過牌；轉牌時你拿到卡順，對手下注。
+zh-Hant	sc-04	34	34	NULL	你在 UTG，還沒有人入池；如果你開池，大盲會跟注，並在翻牌上過牌。
+zh-Hant	sc-05	18	18	NULL	你在按鈕位，你前面的所有人都棄牌了。
+zh-Hant	sc-06	14	14	NULL	你在小盲，所有人都棄牌到你。
+zh-Hant	sc-08	18	18	NULL	你在小盲，按鈕位開池到 2.5bb。
+zh-Hant	sc-11	26	26	NULL	你從按鈕位開池，大盲跟注後，在乾燥的高牌翻牌上過牌。
+zh-Hant	sc-12	25	25	NULL	你從按鈕位開池，大盲跟注後，在低牌連張翻牌上過牌。
+zh-Hant	sc-13	69	13	ok	你從按鈕位開池，大盲跟注。
+zh-Hant	sc-19	40	40	NULL	籌碼量較短時，3-bet之後你拿到同花聽牌；對手在翻牌小額下注，在轉牌大額下注。
+zh-Hant	sc-22	86	19	ok	在河牌你有頂對，你在按鈕位，大盲過牌。
+zh-Hant	sc-25	90	20	ok	在河牌你有第二對，你在按鈕位，大盲過牌。
+zh-Hant	sc-28	106	5	ok	你有超對。
+zh-Hant	sc-29	140	19	ok	在河牌你有頂對，你在按鈕位，大盲過牌。
+zh-Hant	sc-32	25	25	NULL	錦標賽：你在小盲，有 10bb，所有人都棄牌到你。
+zh-Hant	sc-33	23	23	NULL	錦標賽：你在大盲，有 10bb，小盲已經全下。
+zh-Hant	sc-34	15	15	NULL	泡沫期，小盲全下，而你在大盲。

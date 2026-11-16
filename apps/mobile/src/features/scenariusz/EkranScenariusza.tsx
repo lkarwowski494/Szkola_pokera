@@ -1,6 +1,6 @@
 import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
-import { Linking, Text, View } from 'react-native';
+import { Linking, Text, useWindowDimensions, View } from 'react-native';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import type { Limit, OcenaOdpowiedzi } from '@szkola/domena';
 import { cardToString, type ScenarioLevel, type ScenarioVariant, type VariantDecision } from '@szkola/poker-core';
@@ -16,7 +16,8 @@ import { ADRES_KONTAKTOWY } from '@/platform/adresy';
 import { odstep, styl, useTokens } from '@/theme/tokens';
 import { CardRow } from '@/components/PlayingCard';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
-import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
+import { podzielSytuacje } from './zdanie';
+import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, SKALA_BEZ_PASKA, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
 import type { WyborPoziomu } from './poziom';
 import { akcjePunktu, bloki, inneZgodne, kwotaAkcji, ocenyAkcji, opisAkcji, przebiegWariantu, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
@@ -87,6 +88,7 @@ export interface PropsStartuScenariusza {
 export function StartScenariusza(p: PropsStartuScenariusza): React.JSX.Element {
   const tk = useTokens();
   const { t, i18n } = useTranslation();
+  const sytuacja = podzielSytuacje(p.szablon.situation); // D-1660: tytuł = pierwsze zdanie, reszta zwykłą treścią (04-studio-projektowe-006)
   const wyczerpany = !p.limit.bezLimitu && p.limit.pozostalo <= 0;
   const poziomy: WyborPoziomu[] = ['auto', ...p.szablon.levels];
   const nazwaPoz = (l: ScenarioLevel) => t(`scenario.level.${l}`).toLowerCase();
@@ -101,7 +103,8 @@ export function StartScenariusza(p: PropsStartuScenariusza): React.JSX.Element {
       <View style={{ gap: odstep.s }}>
         <Button variant="ghost" label={t('scenario.nav.back')} onPress={p.onWroc} style={{ alignSelf: 'flex-start', minHeight: 44 }} />
         <Muted>{p.tytulModulu}</Muted>
-        <Title>{p.szablon.situation}</Title>
+        <Title>{sytuacja.tytul}</Title>
+        {sytuacja.reszta === null ? null : <Text style={[styl.tresc, { color: tk.ink }]}>{sytuacja.reszta}</Text>}
         <Text style={[styl.tresc, { color: tk.ink }]}>
           {t('scenario.start.about', { ty: pozycjaTekst(p.szablon.positions.hero, t), rywal: pozycjaTekst(p.szablon.positions.villain, t), bb: p.szablon.stackBb })}
         </Text>
@@ -212,6 +215,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const tk = useTokens();
   const { t, i18n } = useTranslation();
   const { sesja: s } = p;
+  const duzyTekst = useWindowDimensions().fontScale >= SKALA_BEZ_PASKA; // AX4–AX5: nagłówek w kolumnę (04-studio-projektowe-002)
   const ocenaMode = p.faza === 'ocena';
   const indeks = ocenaMode ? s.wybory.length - 1 : s.wybory.length;
   const d = s.wariant.points[indeks];
@@ -245,10 +249,10 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const doDziennika = wpisyDziennika(s, indeks, t, ocenaMode ? oceny : oceny.slice(0, indeks));
   return (
     <Screen>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+      <View style={duzyTekst ? { flexDirection: 'column', alignItems: 'flex-start', gap: odstep.xs } : { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
         <Button variant="ghost" label={t('scenario.nav.finish')} onPress={p.onZakoncz} style={{ minHeight: 44 }} />
         <Text accessibilityRole="header" style={[styl.naglowek, { color: tk.ink }]}>{t('scenario.nav.title')}</Text>
-        <Text style={[styl.drobny, { color: tk.muted, minWidth: 64, textAlign: 'right' }]}>{t(`scenario.street.${widok.ulica}`)}</Text>
+        <Text style={[styl.drobny, { color: tk.muted }, duzyTekst ? null : { minWidth: 64, textAlign: 'right' }]}>{t(`scenario.street.${widok.ulica}`)}</Text>
       </View>
       {icm ? null : (
       <View accessibilityRole="list" accessibilityLabel={t('scenario.streets.label')} style={{ flexDirection: 'row', gap: odstep.s, flexWrap: 'wrap' }}>
