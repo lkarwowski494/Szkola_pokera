@@ -123,3 +123,6 @@ Decyzje operacyjne koordynatora bez numeru D (zapis w `plan-08.md` „Koordynacj
 
 ## KO-115 (2026-11-16): bramka ekranu dla rodzajów HO i iso-size osobną sesją 08 (IB)
 Pytanie HZ: bramka `tools/content-build/src/scenariusze.ts:450/:465` odrzuca 7 szablonów HZ. Decyzja (rekomendacja HZ, opcja A): osobna sesja 08 (IB) dopina 5 rodzajów na ekranie i w bramce, zdejmuje odrzucenie iso-size, odwraca 2 testy, z dowodem ekranu i przeglądem w świeżym kontekście (ścieżka wrażliwa D-043); HZ trzyma szablony w `docs/tresci/szablony-robocze/hz/`, przeniesienie do `content/` po scaleniu IB. Podstawa: inwentarz 04 `docs/design/scenariusz-i-ocena.md:97-109` (widoki wystarczają). Odrzucone: (B) nazwany wyjątek w bramce — treść bez widoku trafiłaby do użytkownika; (C) HZ kończy bez content/ i temat wraca później — opóźnia 7 z 8 brakujących szablonów do 1.0. Weto: właściciel.
+
+## KO-116 (2026-11-16): pułapy sesji poprawkowych 6/8 USD i kontrola kosztu przez koordynatora
+Po WG-24 (HZ 25,87 przy STOP 15,6; IB 11,66 przy 10,4): sesje IC i ID dostają węższy zakres i pułap 6 USD / STOP 8 USD; koordynator czyta `cost_usd` przy każdej kontroli i pytaniu, rozszerzenie zakresu = jawny nowy pułap. Odrzucone: (b) bez zmian pułapów — powtórka przekroczeń; (c) samokontrola kosztu przez sesję — sesja nie widzi swojego kosztu. Weto: właściciel.
