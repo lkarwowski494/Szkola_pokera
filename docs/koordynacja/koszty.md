@@ -197,3 +197,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | HN | 06 build (opus) 8 szablonów do content, 12 języków | — | 11,29 | 62,4 | 11:13 → 6db279ab 12:43 (ci kod 1: 0 z winy treści, 3 czekają na HO) | 12:10 pytanie o wyrocznie (KO-111) | przyjęta 12:45 warunkowo (recenzja 06 audit + przegląd 09); zarchiwizowana 12:45 |
 | HO | 08 build (sonnet) silnik SC-16/18/21/26/27/30 + KO-111 wyrocznie | — | 8,08 | 41,6 | 11:17 → b41aca41 12:35 → 9677c41c 13:13 (ci kod 0 na 8b701ea7; scalone HN+HP) | — | przyjęta warunkowo 13:20 (recenzja HR); zarchiwizowana 13:20 |
 | HS | 06 audit (opus/high) treść HN + D-1705 + szkice HP | — | 5,17 | 71,6 | 13:16 → f217fc96 13:31 | — | PRZYJĄĆ (HN z uwagami P1×2); zarchiwizowana 13:45 |
+| HR | 08 audit (opus) recenzja kodu HO | — | 4,21 | 63,8 | 13:16 → 03a8910a 13:40 (ci kod 0 @ 9677c41c) | — | PRZYJĄĆ Z UWAGAMI; zarchiwizowana 13:55 |
+Przegląd przepływu 2026-11-16 (14:00): największa strata 84 min — E2E scalenia 14fdc7c6 w kolejce macOS 11:39→13:03 → WG-19 (nawrót). Koszt 24 h ok. 80 USD (sesje 56,70 + koordynator 23,37; HT i HU w toku).
