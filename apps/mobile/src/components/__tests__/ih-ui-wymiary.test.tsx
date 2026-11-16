@@ -5,9 +5,9 @@
 import '@/i18n';
 import { Dimensions, StyleSheet } from 'react-native';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
-import { Button } from '@/components/ui';
+import { Button, RzadPrzyciskow, Surface } from '@/components/ui';
 import { PasekStrategii } from '@/components/PasekStrategii';
-import { styl } from '@/theme/tokens';
+import { odstep, styl } from '@/theme/tokens';
 import { podstawaSegmentu } from '@/theme/skalowanie';
 import { rozmiarDoSzerokosci } from '../dopasowanie';
 
@@ -42,13 +42,25 @@ describe('IH P2-1: skala i szerokość okna reagują na zmianę (useWindowDimens
   });
 });
 
-describe('IH P2-2: Button dopasowany do szerokości swojego pola', () => {
-  it('po układzie (para flex:1, 140 pt) rozmiar liczony z 140 pt, nie z szerokości ekranu', async () => {
+describe('IH P2-2: Button dopasowany do szerokości pola z kontekstu rodzica (nie ekranu)', () => {
+  const pole = (szerokosc: number) => rozmiarDoSzerokosci(ETYKIETA, szerokosc - POLE_NA_PRZEWIN, 3.12, styl.tresc).fontSize;
+  it('para flex:1 (RzadPrzyciskow) w ekranie 390 pt: po układzie wiersza 358 pt każdy przycisk ma pole (358 − odstep.m) ÷ 2', async () => {
     okno(390, 3.12);
-    await render(<Button label={ETYKIETA} onPress={() => undefined} />);
-    const naEkranie = rozmiarEtykiety();
-    await fireEvent(screen.getByRole('button'), 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 140, height: 48 } } });
-    expect(rozmiarEtykiety()).toBeCloseTo(rozmiarDoSzerokosci(ETYKIETA, 140 - POLE_NA_PRZEWIN, 3.12, styl.tresc).fontSize, 5);
-    expect(rozmiarEtykiety()).toBeLessThan(naEkranie);
+    await render(<RzadPrzyciskow><Button label={ETYKIETA} onPress={() => undefined} style={{ flex: 1 }} /><Button label="Wyczyść" variant="ghost" onPress={() => undefined} style={{ flex: 1 }} /></RzadPrzyciskow>);
+    await fireEvent(screen.getByTestId('rzad-przyciskow'), 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 358, height: 48 } } });
+    expect(rozmiarEtykiety()).toBeCloseTo(pole((358 - odstep.m) / 2), 5);
+    expect(rozmiarEtykiety()).toBeLessThan(pole(390 - 32));
+  });
+  it('przycisk w Surface: pole = ekran − 2 × 16 − 2 × 16 (padding) − obrys ramki', async () => {
+    okno(390, 3.12);
+    await render(<Surface><Button label={ETYKIETA} onPress={() => undefined} /></Surface>);
+    expect(rozmiarEtykiety()).toBeCloseTo(pole(390 - 32 - 32 - 2 * StyleSheet.hairlineWidth * 2), 5);
+  });
+  it('przycisk o szerokości zależnej od treści (bez kontekstu) nie kurczy się po układzie (brak pętli pomiaru)', async () => {
+    okno(390, 1);
+    await render(<Button label="Zakończ" variant="ghost" onPress={() => undefined} style={{ alignSelf: 'flex-start' }} />);
+    const przed = StyleSheet.flatten(screen.getByText('Zakończ').props.style).fontSize;
+    await fireEvent(screen.getByRole('button'), 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 90, height: 44 } } });
+    expect(StyleSheet.flatten(screen.getByText('Zakończ').props.style).fontSize).toBe(przed);
   });
 });

@@ -1,4 +1,4 @@
-import { useState, type ReactNode, type Ref } from 'react';
+import { Children, createContext, useContext, useState, type ReactNode, type Ref } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View, type ScrollViewInstance, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
@@ -77,11 +77,11 @@ export function Button({
 }) {
   const tk = useTokens();
   const { width: szerokoscOkna, fontScale } = useWindowDimensions(); // IH (IF P2-1): reaktywnie, wzór Trening `components/Segmented.tsx:36`
-  const [szerokoscPola, ustawSzerokoscPola] = useState(0);
   const primary = variant === 'primary';
-  // IF (D-1880), IH (IF P2-2): etykieta z długim wyrazem („Zobacz podsumowanie”) nie wychodzi poza przycisk przy 320 pt i AX5: rozmiar dopasowany do pola przycisku
-  // (jego szerokość z układu − 2 × padding − 2 × obrys; para flex:1 i Surface dają węższe pole niż ekran); przed pierwszym układem szerokość ekranu − 2 × `odstep.l`.
-  const szerokoscPrzycisku = szerokoscPola > 0 ? szerokoscPola : szerokoscOkna - 2 * odstep.l;
+  // IF (D-1880), IH (IF P2-2, D-1905): etykieta z długim wyrazem („Zobacz podsumowanie”) nie wychodzi poza przycisk przy 320 pt i AX5: rozmiar dopasowany do pola przycisku =
+  // szerokość pola z kontekstu rodzica (`RzadPrzyciskow`: para flex:1; `Surface`: wnętrze ramki) − 2 × 24 (padding) − 2 × 1,5 (obrys); bez kontekstu ekran − 2 × `odstep.l`.
+  const polaRodzica = useContext(SzerokoscPolaContext);
+  const szerokoscPrzycisku = polaRodzica ?? szerokoscOkna - 2 * odstep.l;
   const rozmiar = rozmiarDoSzerokosci(label, szerokoscPrzycisku - 2 * odstep.xxl - 2 * BUTTON_OBRYS, fontScale, styl.tresc);
   return (
     <Pressable
@@ -89,7 +89,6 @@ export function Button({
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
       onPress={onPress}
-      onLayout={(e) => { const x = Math.round(e.nativeEvent.layout.width); if (x > 0 && x !== szerokoscPola) ustawSzerokoscPola(x); }}
       disabled={disabled}
       style={({ pressed }) => [
         styles.button,
@@ -116,9 +115,36 @@ export function ProgressBar({ value, height = 6 }: { value: number; height?: num
   );
 }
 
+/** Szerokość pola (pt), jakie rodzic daje dzieciom-przyciskom; `null` = nieznana (wtedy szerokość okna − 2 × `odstep.l`). IH (IF P2-2). */
+export const SzerokoscPolaContext = createContext<number | null>(null);
+
+/** Wiersz przycisków równej szerokości (`flex: 1`): mierzy własną szerokość (wiersz rozciąga rodzic, nie treść) i podaje każdemu przyciskowi jego pole. */
+export function RzadPrzyciskow({ children, style }: { children: ReactNode; style?: ViewStyle }) {
+  const { width: szerokoscOkna } = useWindowDimensions();
+  const rodzic = useContext(SzerokoscPolaContext);
+  const [szerokosc, ustawSzerokosc] = useState(0);
+  const odstepMiedzy = odstep.m;
+  const calosc = szerokosc > 0 ? szerokosc : (rodzic ?? szerokoscOkna - 2 * odstep.l);
+  const pole = (calosc - odstepMiedzy * (Children.count(children) - 1)) / Math.max(1, Children.count(children));
+  return (
+    <SzerokoscPolaContext.Provider value={pole}>
+      <View testID="rzad-przyciskow" onLayout={(e) => { const x = Math.round(e.nativeEvent.layout.width); if (x > 0 && x !== szerokosc) ustawSzerokosc(x); }} style={[{ flexDirection: 'row', gap: odstepMiedzy }, style]}>{children}</View>
+    </SzerokoscPolaContext.Provider>
+  );
+}
+
 export function Surface({ children, style }: { children: ReactNode; style?: ViewStyle }) {
   const tk = useTokens();
-  return <View style={[{ backgroundColor: tk.surface, borderColor: tk.separator, borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: promien.przycisk, padding: odstep.l }, style]}>{children}</View>;
+  const { width: szerokoscOkna } = useWindowDimensions();
+  const rodzic = useContext(SzerokoscPolaContext);
+  const obrys = StyleSheet.hairlineWidth * 2;
+  const wypelnienie = StyleSheet.flatten(style)?.paddingHorizontal ?? StyleSheet.flatten(style)?.padding ?? odstep.l;
+  const pole = (rodzic ?? szerokoscOkna - 2 * odstep.l) - 2 * obrys - 2 * (typeof wypelnienie === 'number' ? wypelnienie : odstep.l); // wnętrze ramki, w którym stoją dzieci (IH, IF P2-2)
+  return (
+    <SzerokoscPolaContext.Provider value={pole}>
+      <View style={[{ backgroundColor: tk.surface, borderColor: tk.separator, borderWidth: obrys, borderRadius: promien.przycisk, padding: odstep.l }, style]}>{children}</View>
+    </SzerokoscPolaContext.Provider>
+  );
 }
 
 /** Obrys przycisku (pt); wchodzi do pola etykiety w `Button`. */
