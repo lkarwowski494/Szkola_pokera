@@ -22,8 +22,9 @@ import { Stol } from '@/components/Stol';
 import { przebiegLimperow, przedGraczem } from './limperzy';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, SKALA_BEZ_PASKA, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
+import { ruchRywalaHo } from './rodzajeHo';
 import type { WyborPoziomu } from './poziom';
-import { akcjePunktu, bloki, inneZgodne, kwotaAkcji, limperzyPunktu, ocenyAkcji, opisAkcji, przebiegWariantu, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
+import { akcjePunktu, bloki, inneZgodne, kwotaAkcji, limperzyPunktu, ocenyAkcji, opisAkcji, przebiegWariantu, stosNaStoleBb, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
@@ -149,6 +150,8 @@ export interface PropsPrzebiegu {
 /** Ruch rywala przed twoją decyzją (tekst dziennika) albo null: zakład (draw-call), all-in (icm-call), otwarcie (3-bet), czekanie (c-bet). */
 function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn): string | null {
   const rywal = s.szablon.positions.villain;
+  const ho = ruchRywalaHo(d, s.szablon.positions, t); // IB (D-1841): rodzaje HO
+  if (ho !== undefined) return ho;
   if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return t('play.log.bet', { pos: rywal, bb: formatujLiczbe(d.bet, jezykZadan()) });
   if (d.point === 'icm-call') {
     const u = ukladIcm(d, s.szablon);
@@ -289,11 +292,11 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         reka={d.point === 'pick-hand' ? [] : s.wariant.hero.map(cardToString)}
         pozycjaTy={s.szablon.positions.hero}
         pozycjaRywal={s.szablon.positions.villain}
-        stosBb={s.szablon.stackBb}
+        stosBb={stosNaStoleBb(d, s.szablon)}
         formatBb={(x) => formatujLiczbe(x, jezykZadan())}
       />
       )}
-      {d.point === 'list-hand' ? <Text testID="list-hand-sytuacja" style={[styl.tresc, { color: tk.ink }]}>{s.szablon.situation}</Text> : null}
+      {d.point === 'list-hand' || d.point === 'nit-3bet' ? <Text testID={`${d.point}-sytuacja`} style={[styl.tresc, { color: tk.ink }]}>{s.szablon.situation}</Text> : null}
       {zakresRywala ? <Text testID="river-value-zakres" style={[styl.tresc, { color: tk.ink }]}>{zakresRywala}</Text> : null}
       {d.point === 'pick-hand' ? (
         <View testID="pick-hand-rece" style={{ flexDirection: 'row', justifyContent: 'space-around', gap: odstep.m }}>
