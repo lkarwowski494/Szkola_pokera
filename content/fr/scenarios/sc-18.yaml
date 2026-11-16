@@ -1,0 +1,19 @@
+# sc-18: French text of content/pl/scenarios/sc-18.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "Un {{t:second-barrel}} sur une carte haute. Vous avez {{t:open|ouvert}} depuis le Bouton, et la {{t:big-blind}} a {{t:call|payé}}. Au flop, vous avez {{t:bet|misé}} petit avec un {{t:c-bet}}, et elle a de nouveau {{t:call|suivi}}. Au turn tombe une carte plus haute que les cartes du flop, qui vous donne une {{t:top-pair|top paire}}, et la {{t:big-blind}} fait {{t:check}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} au turn. Vous {{t:bet|misez}} gros en {{t:second-barrel}}, car une carte plus haute que le flop aide généralement un peu plus la {{t:range}} de l'{{t:open|ouvreur}} que celle du défenseur : beaucoup de vos mains qui ont manqué le flop ont maintenant une {{t:top-pair|top paire}}, et chaque {{t:pair|paire}} de votre adversaire a reculé d'un rang. Sur une telle carte, l'{{t:open|ouvreur}} {{t:bet|mise}} plus souvent, et votre {{t:pair|paire}} bat ces {{t:pair|paires}} moins bonnes."
+      - action: check
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} au turn. Faire {{t:check}} est acceptable, mais laisse passer une occasion : sur une carte plus haute que le flop, l'{{t:open|ouvreur}} {{t:bet|mise}} plus souvent, car cette carte convient généralement un peu mieux à sa {{t:range}}. Votre {{t:top-pair|top paire}} bat les {{t:pair|paires}} moins bonnes de votre adversaire, qui ont reculé avec cette carte."

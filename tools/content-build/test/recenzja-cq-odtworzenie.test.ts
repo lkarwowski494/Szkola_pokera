@@ -26,7 +26,7 @@ const ctx = {
   equity169: eqf,
   cbetCases: content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!,
   // size-spot (SC-06, DU): reguły rozmiaru jak w getKontekstGeneratora na ekranie
-  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)),
+  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp', 'iso-size'].includes(r.check.kind)),
 };
 
 describe('06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: kontekst generatora składa ekran, bramka odrzuca resztę)', () => {

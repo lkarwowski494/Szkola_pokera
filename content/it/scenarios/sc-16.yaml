@@ -1,0 +1,27 @@
+# sc-16: Italian text of content/pl/scenarios/sc-16.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "Hai un {{t:draw|progetto}} forte contro una {{t:c-bet}} piccola. Sei in {{t:big-blind}} e hai fatto {{t:call}} sull'{{t:open|apertura}} del Button. Sul flop fai {{t:check}} e il Button {{t:bet|punta}} una {{t:c-bet}} piccola."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    cbet: 0.333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - action: raise-big
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. Fai {{t:check-raise}} a circa {{n:xr.mult.example}} la sua {{t:bet|puntata}}, perché un {{t:draw|progetto}} ha due modi per vincere: l'avversario può {{t:fold|foldare}} subito e, se fa {{t:call}}, puoi ancora chiudere il tuo {{t:draw|progetto}}. Secondo un sito di formazione, i {{t:flush-draw|progetti di colore}} e i progetti di {{t:straight|scala}} aperti sono buone mani per fare {{t:check-raise}}, e contro una {{t:c-bet}} piccola {{t:raise|rilanci}} a circa {{n:xr.mult.example}}, non al minimo."
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. Anche il {{t:call}} va bene: contro una {{t:c-bet}} piccola ti serve solo circa il {{n:eq.bet-third}} di equity, e questa mano può migliorare. Secondo un sito di formazione, non devi {{t:raise|rilanciare}} ogni {{t:draw|progetto}} forte, ma il {{t:check-raise}} aggiunge la possibilità che l'avversario {{t:fold|foldi}} subito."
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. Il {{t:fold}} rinuncia a troppo: contro una {{t:c-bet}} piccola ti serve solo circa il {{n:eq.bet-third}} di equity, e il {{t:draw|progetto}} può ancora migliorare. Contro una {{t:c-bet}} piccola continui con i {{t:draw|progetti}}: fai {{t:call}} o {{t:check-raise}}."
+      - action: raise-small
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} piccola. Il {{t:check-raise}} è una buona idea, ma a circa {{n:xr.too-small.mult}} la {{t:c-bet}} è troppo piccolo: il Button ha allora bisogno solo di circa il {{n:eq.vs-xr.too-small}} di equity per fare {{t:call}} e pagherà poco con ogni {{t:draw|progetto}}. {{t:raise|Rilanci}} a circa {{n:xr.mult.low}}–{{n:xr.mult.example}} la {{t:c-bet}}, tanto più quanto più piccola è la {{t:c-bet}}."

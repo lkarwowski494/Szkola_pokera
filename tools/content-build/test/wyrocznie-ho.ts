@@ -11,10 +11,10 @@ export type Generuj = typeof generateVariantSilnik;
 const gen = (t: ScenarioTemplate) => ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
 const T = 8, Q = 10, A = 12; // rangi: 2 = 0 … A = 12
 
-const piec = (r: number[]): boolean => { const z = new Set(r); if (z.has(12)) z.add(-1); for (let lo = -1; lo <= 8; lo++) { let n = 0; for (let x = lo; x < lo + 5; x++) if (z.has(x)) n++; if (n === 5) return true; } return false; };
-const kolor5 = (c: readonly Card[]): boolean => [0, 1, 2, 3].some((s) => c.filter((x) => suitOf(x) === s).length >= 5);
+export const piec = (r: number[]): boolean => { const z = new Set(r); if (z.has(12)) z.add(-1); for (let lo = -1; lo <= 8; lo++) { let n = 0; for (let x = lo; x < lo + 5; x++) if (z.has(x)) n++; if (n === 5) return true; } return false; };
+export const kolor5 = (c: readonly Card[]): boolean => [0, 1, 2, 3].some((s) => c.filter((x) => suitOf(x) === s).length >= 5);
 /** Outy kolor/strit ręki na flopie: karty, po których 6 kart daje kolor albo strit, a 5 kart (ręka + flop) ich jeszcze nie ma. */
-function outyFlopu(hero: readonly Card[], flop: readonly Card[]): number {
+export function outyFlopu(hero: readonly Card[], flop: readonly Card[]): number {
   const base = [...hero, ...flop];
   if (kolor5(base) || piec(base.map(rankOf))) return 0;
   return FULL_DECK.filter((c) => !base.includes(c) && (kolor5([...base, c]) || piec([...base, c].map(rankOf)))).length;
@@ -39,7 +39,7 @@ function backdoorStrita(hero: readonly Card[], flop: readonly Card[]): boolean {
   return false;
 }
 
-function zakresObrony(ctx: GeneratorContext, spot: string): (hc: string) => boolean {
+export function zakresObrony(ctx: GeneratorContext, spot: string): (hc: string) => boolean {
   const s = ctx.spots.find((x) => x.id === spot)!;
   return (hc) => s.actions.filter((a) => a.label !== 'fold').some((a) => (a.freqs[HAND_CLASSES.indexOf(hc)] ?? 0) > 0);
 }

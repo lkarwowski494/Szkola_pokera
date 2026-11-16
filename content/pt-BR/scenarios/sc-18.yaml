@@ -1,0 +1,19 @@
+# sc-18: Brazilian Portuguese text of content/pl/scenarios/sc-18.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "{{t:second-barrel|Second barrel}} em uma carta alta. Você fez {{t:open|abertura}} do Button, e o {{t:big-blind}} {{t:call|pagou}}. No flop você {{t:bet|apostou}} um {{t:c-bet}} pequeno, e ele {{t:call|pagou}} de novo. No turn sai uma carta mais alta que as cartas do flop, que te dá {{t:top-pair}}, e o {{t:big-blind}} faz {{t:check}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no turn. Você {{t:bet|aposta}} um {{t:second-barrel}} grande, porque uma carta mais alta que o flop geralmente ajuda um pouco mais o {{t:range}} de quem fez {{t:open|abertura}} do que o de quem defende: muitas das suas mãos que erraram o flop agora têm {{t:top-pair}}, e cada {{t:pair|par}} do adversário caiu uma posição. Em uma carta assim, quem fez {{t:open|abertura}} {{t:bet|aposta}} com mais frequência, e o seu {{t:pair|par}} ganha desses {{t:pair|pares}} piores."
+      - action: check
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no turn. Fazer {{t:check}} é aceitável, mas desperdiça uma oportunidade: em uma carta mais alta que o flop, quem fez {{t:open|abertura}} {{t:bet|aposta}} com mais frequência, porque essa carta geralmente se encaixa um pouco melhor no {{t:range}} dele. O seu {{t:top-pair}} ganha dos {{t:pair|pares}} piores do adversário, que caíram com essa carta."

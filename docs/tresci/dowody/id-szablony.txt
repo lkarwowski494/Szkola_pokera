@@ -1,0 +1,80 @@
+# ID (06, D-1860, D-1861): kontrola przekładów 7 szablonów HZ po przeniesieniu do content/<j>/scenarios/ (node docs/tresci/narzedzia/hz-kontrola-przekladow.mjs), 2026-11-16
+# Wszystkie BŁĘDY dotyczą sc-24 (szablon HY sprzed HZ, poza zakresem ID): część HY narzędzia porównuje z HEAD, który od scalenia HZ zawiera już zmiany HY, więc „zmienione” = puste i sprawdzany jest tytuł sprzed HZ (stan sc-24 bez zmian od ca2fdfdc). 7 szablonów HZ × 11 języków: 0 błędów.
+
+BŁĄD content/en/scenarios/sc-24.yaml: tytuł 94 > 68: „On the river you have one pair that only beats your opponent's bluffs, and your opponent bets.”
+BŁĄD content/de/scenarios/sc-24.yaml: tytuł 98 > 68: „Am River hast du ein Paar, das nur gegen die Bluffs deines Gegners gewinnt, und dein Gegner setzt.”
+BŁĄD content/es/scenarios/sc-24.yaml: tytuł 90 > 68: „En el river tienes una pareja que solo gana a los faroles de tu rival, y tu rival apuesta.”
+BŁĄD content/fr/scenarios/sc-24.yaml: tytuł 104 > 68: „À la river, vous avez une paire qui ne bat que les bluffs de votre adversaire, et votre adversaire mise.”
+BŁĄD content/it/scenarios/sc-24.yaml: tytuł 85 > 68: „Al river hai una coppia che batte solo i bluff dell'avversario, e l'avversario punta.”
+BŁĄD content/ja/scenarios/sc-24.yaml: tytuł 83 > 68: „リバーであなたは相手のブラフにしか勝てないペアを一つ持っていて、相手がベットします。”
+BŁĄD content/ko/scenarios/sc-24.yaml: tytuł 86 > 68: „리버에서 당신은 상대의 블러프만 이길 수 있는 페어 하나를 들고 있고, 상대가 베팅합니다.”
+BŁĄD content/pt/scenarios/sc-24.yaml: tytuł 81 > 68: „No river tem um par que só ganha aos bluffs do adversário, e o adversário aposta.”
+BŁĄD content/pt-BR/scenarios/sc-24.yaml: tytuł 86 > 68: „No river você tem um par que só ganha dos blefes do adversário, e o adversário aposta.”
+BŁĄD content/vi/scenarios/sc-24.yaml: tytuł 77 > 68: „Ở river bạn có một đôi chỉ thắng được các bluff của đối thủ, và đối thủ cược.”
+122 plików OK, 10 z błędami (11 języków: en, de, es, fr, it, ja, ko, pt, pt-BR, vi, zh-Hant; 7 szablonów hz + 5 HY)
+kod=1 (tylko sc-24, jw.)
+
+## pnpm content:build (po D-1861)
+
+> szkola-pokera@ content:build /home/user/Szkola_pokera
+> pnpm --filter @szkola/content-build build
+
+
+> @szkola/content-build@0.1.0 build /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts build
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Zapisano 35 baz treści w /home/user/Szkola_pokera/apps/mobile/assets/content: 44 lekcji, 146 reguł, 834 liczb, 162 terminów.
+kod=0
+
+## pnpm content:check
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+kod=0
+
+## pnpm tresci:rejestr
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+kod=0
+
+## jest ib-rodzaje-ho-ekran.test.tsx (D-1862)
+    ✓ spr-call: wariant powstaje z kontekstem aplikacji (220 ms)
+    ✓ check-raise: wariant powstaje z kontekstem aplikacji (204 ms)
+    ✓ turn-action: wariant powstaje z kontekstem aplikacji (242 ms)
+    ✓ geo-size: wariant powstaje z kontekstem aplikacji (13 ms)
+    ✓ nit-3bet: wariant powstaje z kontekstem aplikacji (193 ms)
+    ✓ iso-co (size-spot iso-size): wariant powstaje z kontekstem aplikacji (223 ms)
+    ✓ iso-sb (size-spot iso-size): wariant powstaje z kontekstem aplikacji (222 ms)
+    ✓ decyzja: dziennik „BTN: all-in S bb”, pula P+S i do sprawdzenia S, stos na stole = stack wariantu; przyciski pas i „Sprawdzenie S bb” (112 ms)
+    ✓ ocena: call zgodne, fold błąd; wyjaśnienia obu akcji z SPR wariantu (BR-OCE-002) (58 ms)
+    ✓ decyzja: dziennik „BTN: zakład c bb”, pula P+c / do sprawdzenia c; cztery przyciski: pas, sprawdzenie c, przebicie do Rs, przebicie do Rb (58 ms)
+    ✓ ocena: raise-big i call zgodne, fold i raise-small niedokładność; po złym rozmiarze dziennik „BB: przebicie do Rs bb” i dwa bloki (60 ms)
+    ✓ decyzja: cztery karty, dziennik „BB: czeka”, bez puli; przyciski „Czekanie” i „Zakład” (nie „duży c-bet”) (91 ms)
+    ✓ ocena: bet-big zgodne, check dopuszczalne; wyjaśnienia obu akcji (104 ms)
+    ✓ decyzja: dziennik „CO: czeka”, „W puli P bb”, stos = stack wariantu; przyciski „Zakład” z kwotą P·ułamek (0,1 bb) (22 ms)
+    ✓ ocena: bet-big zgodne, bet-small niedokładność; wyjaśnienia z SPR i rozmiarem wariantu (27 ms)
+    ✓ decyzja: sytuacja widoczna, dziennik „BTN: przebicie do 2,5 bb. BB: przebicie do 10 bb”, pula 13 bb / do sprawdzenia 7,5 bb; sprawdzenie 7,5 bb (50 ms)
+    ✓ ocena: fold zgodne, call niedokładność; wyjaśnienie z VPIP wariantu (53 ms)
+    ✓ baza pl ma wszystkie 7 szablonów z oczekiwanym rodzajem punktu
+    ✓ sc-09 (size-spot): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10) (41 ms)
+    ✓ sc-16 (check-raise): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10) (62 ms)
+    ✓ sc-18 (turn-action): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10) (159 ms)
+    ✓ sc-21 (turn-action): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10) (230 ms)
+    ✓ sc-26 (spr-call): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10) (88 ms)
+    ✓ sc-27 (geo-size): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10) (70 ms)
+    ✓ sc-30 (nit-3bet): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10) (44 ms)
+    ✓ sc-09 (size-spot): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}} (108 ms)
+    ✓ sc-16 (check-raise): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}} (105 ms)
+    ✓ sc-18 (turn-action): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}} (189 ms)
+    ✓ sc-21 (turn-action): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}} (124 ms)
+    ✓ sc-26 (spr-call): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}} (101 ms)
+    ✓ sc-27 (geo-size): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}} (31 ms)
+    ✓ sc-30 (nit-3bet): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}} (104 ms)
+    ✓ RODZAJE_PUNKTOW_EKRANU
+Tests:       33 passed, 33 total

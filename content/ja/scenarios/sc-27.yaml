@@ -1,0 +1,24 @@
+# sc-27: Japanese text of content/pl/scenarios/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "スタック全部を入れるサイズ。あなたはボタンで{{t:cutoff|CO}}の{{t:open|オープン}}に{{t:3-bet|3ベット}}し、相手は{{t:call|コール}}しました。フロップであなたは{{t:set|セット}}を持っていて、{{t:cutoff|CO}}は{{t:check|チェック}}します。あなたのハンドは三つのストリートで{{t:value|バリュー}}を取れるもので、フロップ、ターン、リバーで同じ大きさの{{t:bet|ベット}}をして、リバーまでにスタック全部を入れたいと仮定します。"
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が{{t:check|チェック}}しています。{{t:pot|ポット}}の約{{w:rozmiar}}を{{t:bet|ベット}}します。各{{t:street|ストリート}}で{{t:pot|ポット}}の同じ割合を賭けると、ちょうどリバーでスタック全部が入るからです。理論上、同じ大きさの{{t:bet|ベット}}は相手に最も広く守らせるので、相手は{{t:pot|ポット}}に最も多くを払い込みます。"
+      - action: bet-small
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が{{t:check|チェック}}しています。小さな{{t:bet|ベット}}ではスタックが入りきりません：{{t:pot|ポット}}の三分の一の{{t:bet|ベット}}を三回しても、入るのはスタックの一部だけです。たとえば{{t:3-bet|3ベット}}ポットで{{t:pot|ポット}}の後ろに{{n:spr.3bet-ip.stack}}のスタックがある場合、入るのは約{{n:g3b.third.total}}だけです。リバーで{{t:all-in|オールイン}}に到達するには、フロップからすでにジオメトリックサイズ、つまり{{t:pot|ポット}}の約{{w:rozmiar}}で{{t:bet|ベット}}します。"

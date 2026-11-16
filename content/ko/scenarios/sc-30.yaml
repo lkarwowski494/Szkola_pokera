@@ -1,0 +1,22 @@
+# sc-30: Korean text of content/pl/scenarios/sc-30.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-30
+module: m10
+situation: "매우 타이트한 상대가 {{t:3-bet|3벳}}합니다. 당신은 버튼에서 {{t:open|오픈}}했고, {{t:big-blind|빅 블라인드}}가 {{t:3-bet|3벳}}합니다. 최소 약 {{n:hud.hands.vpip.low}} 핸드 기준으로 이 상대의 {{t:vpip|VPIP}}가 {{n:hud.ex.nit3bet.vpip.low}}에서 {{n:hud.ex.nit3bet.vpip.high}} 사이이고, 상대의 {{t:3-bet|3벳}}이 그 핸드들 안에 들어간다고 가정하세요."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.04 }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    rule: R-M2-005
+    open: 2.5
+    threeBet: 10
+    vpips: [0.1]
+    actions:
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, {{w:rywal}} 위치의 상대가 {{t:3-bet|3벳}}합니다. {{t:fold|폴드}}합니다. 상대가 가장 강한 약 {{n:hud.ex.nit3bet.vpip.low}}–{{n:hud.ex.nit3bet.vpip.high}}의 핸드만 플레이한다면 그것은 주로 {{t:pair|페어}}와 가장 좋은 에이스이고, 그 핸드들을 상대로 당신의 핸드는 {{t:call|콜}}의 가격이 요구하는 것보다 에퀴티가 적기 때문입니다(단순화한 계산이며, 플롭 이후의 플레이는 고려하지 않습니다). 가정에 따라 상대의 {{t:3-bet|3벳}}은 그 핸드들 안에 들어가므로, {{t:3-bet|3벳}} 자체를 상대로도 당신의 핸드가 더 나을 것은 없습니다."
+      - action: call
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, {{w:rywal}} 위치의 상대가 {{t:3-bet|3벳}}합니다. 단순화해서 플롭 이후의 플레이를 고려하지 않으면 {{t:call|콜}}은 손해입니다: 이 상대가 플레이하는 모든 핸드를 상대로도 당신의 핸드는 {{t:call|콜}}의 가격이 요구하는 것보다 에퀴티가 적고, 가정에 따라 상대의 {{t:3-bet|3벳}}은 그 핸드들 안에 들어갑니다."

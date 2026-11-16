@@ -43,6 +43,9 @@ const param = (rule: string, p: string): number => {
   return typeof v === 'number' ? v : number(String(v).replace(/^n:/, ''));
 };
 const r1 = (x: number) => Math.round(x * 10) / 10;
+// ID (D-1870): wyrocznia iso-size jak w ef-iso-size.test.ts: base + liczba limperów × perLimper (+ oopExtra, gdy gracz na SB albo BB) wprost z parametrów reguły.
+const isoStandard = (t: (typeof pl)[number], d: { rule: string; limpers?: number }): number =>
+  param(d.rule, 'base') + param(d.rule, 'perLimper') * d.limpers! + (t.positions?.hero === 'SB' || t.positions?.hero === 'BB' ? param(d.rule, 'oopExtra') : 0);
 
 // 08-EL-4 (D-1215): poziom łatwy SC-06/32/33 ma equityMarginMin 0,02 (KO-076), więc generator potrzebuje macierzy equity jak w buildGeneratorContext;
 // wyrocznia marginesu liczona tu wprost z equity169.json (jak ef-margines-ko076.test.ts): odległość equity klasy od najbliższej klasy z częstością akcji oczekiwanej ≤ 0,5.
@@ -64,7 +67,7 @@ const ctx = {
   equity169: eq169,
   spots: compileRanges(join(root, 'content')).spots,
   thresholds: { mixedMin: progi.min, mixedLow: progi.niski },
-  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)),
+  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp', 'iso-size'].includes(r.check.kind)),
   // EH: SC-04 i SC-05 mają po range-spot punkt cbet-case (ocena c-betu sprawdzana w szablony-co.test.ts); przypadki jak w buildGeneratorContext
   cbetCases: [...new Map(content.evalRules.filter((r) => r.check.kind === 'cbet-case').flatMap((r) => r.check.cases ?? []).map((c) => [JSON.stringify(c), c] as const)).values()],
 };
@@ -113,14 +116,14 @@ describe('szablony treści range-spot: ręka i ocena zgodne z plikiem solvera (B
 
 describe('szablony treści size-spot: rozmiary i oceny z parametru reguły (BR-GEN-003, D-1032)', () => {
   const rozmiar = pl.filter((t) => t.decisions.some((d) => d.kind === 'size-spot'));
-  it('treść ma szablony size-spot (SC-06, SC-08 z EH)', () => {
-    expect(rozmiar.map((t) => t.id)).toEqual(['sc-06', 'sc-08']);
+  it('treść ma szablony size-spot (SC-06, SC-08 z EH; SC-09 iso-size z ID)', () => {
+    expect(rozmiar.map((t) => t.id)).toEqual(['sc-06', 'sc-08', 'sc-09']);
   });
   for (const t of rozmiar) {
     const i = t.decisions.findIndex((d) => d.kind === 'size-spot');
     const d = t.decisions[i]!;
     if (d.kind !== 'size-spot') throw new Error('size-spot');
-    const standard = d.check === 'open-size' ? param(d.rule, d.sb ? 'openSb' : 'open') : d.check === 'three-bet-size' ? r1(param(d.rule, 'mult') * d.openBb!) : NaN;
+    const standard = d.check === 'open-size' ? param(d.rule, d.sb ? 'openSb' : 'open') : d.check === 'three-bet-size' ? r1(param(d.rule, 'mult') * d.openBb!) : d.check === 'iso-size' ? isoStandard(t, d) : NaN;
     it(`${t.id}: przebicie w punkcie range-spot przed rozmiarem ma kwotę równą standardowi reguły (${standard} bb)`, () => {
       const prev = t.decisions[i - 1];
       if (prev?.kind === 'range-spot') {

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# HISTORYCZNE (ID, D-1860, 2026-11-16): katalog hz/ przeniesiony do content/ i usunięty; kontrola szablonów = pnpm content:build / content:check (bramka ekranu IB). Skrypt działał na c478cfa6.
 # HZ (06, D-1826): kontrola szablonów roboczych docs/tresci/szablony-robocze/hz/{pl,en} pełną kompilacją treści (checkScenarioTemplate, checkScenarioGenerator ≥ 40 odcisków,
 # znaczniki terminów, rejestr, 35 baz) na KOPII tymczasowej: content/ + szablony hz + liczby-hz.yaml w katalogu tymczasowym, src content-build skopiowane do
 # tools/content-build/.hz-kopia (usuwane na wyjściu) z bramką ekranu otwartą tak, jak zrobi to rola 08 (5 rodzajów HO + iso-size). Kod repo i content/ bez zmian.

@@ -1,0 +1,22 @@
+# sc-30: European Portuguese text of content/pl/scenarios/sc-30.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-30
+module: m10
+situation: "Um adversário muito apertado faz {{t:3-bet}}. Fez {{t:open|abertura}} do Button e o {{t:big-blind}} faz {{t:3-bet}}. Suponha que este adversário tem um {{t:vpip}} de {{n:hud.ex.nit3bet.vpip.low}} a {{n:hud.ex.nit3bet.vpip.high}} em pelo menos cerca de {{n:hud.hands.vpip.low}} mãos e que o {{t:3-bet}} dele cabe dentro dessas mãos."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.04 }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    rule: R-M2-005
+    open: 2.5
+    threeBet: 10
+    vpips: [0.1]
+    actions:
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:3-bet}}. {{t:fold|Desiste}}, porque, se ele joga só as mãos mais fortes, cerca de {{n:hud.ex.nit3bet.vpip.low}}–{{n:hud.ex.nit3bet.vpip.high}}, são sobretudo {{t:pair|pares}} e os melhores ases, e contra elas a sua mão tem menos equity do que o preço do {{t:call}} exige (de forma simplificada, sem o jogo depois do flop). Por pressuposto, o {{t:3-bet}} dele cabe dentro dessas mãos, por isso, contra o próprio {{t:3-bet}}, a sua mão não se sai melhor."
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:3-bet}}. De forma simplificada, sem o jogo depois do flop, fazer {{t:call}} dá prejuízo: mesmo contra todas as mãos que este adversário joga, a sua mão tem menos equity do que o preço do {{t:call}} exige, e, por pressuposto, o {{t:3-bet}} dele cabe dentro dessas mãos."

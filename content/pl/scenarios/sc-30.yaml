@@ -1,0 +1,25 @@
+# SC-30 (M10): nit 3-betuje otwarcie z Buttona, ręka offsuit z dołu zakresu: pas (punkt nit-3bet, 08-EX-8). Treść ze szkicu HP po recenzji HS (304: uproszczenie nazwane).
+# Ocena: rule R-M2-005 (math): equity klasy wobec górnych x% (x = VPIP, dana zadania; equity169) ≤ cena − 0,03 → fold compliant, call inaccuracy (D-1305, D-1721).
+# VPIP: situation bez {{w:vpip}} (bramka IB/KO-115); zakres hud.ex.nit3bet.vpip.low–high (content/numbers.yaml; przeniesione z liczby-hz.yaml przez ID, D-1860); vpips = górna granica, dolna: dowód hz-szablony (HZ D-1822); marginMin 0,04 przy 0,10, bo przy 0,09 KTo i JTo mają margines < 0,03 (HZ D-1829).
+# open = pf.open-size, threeBet = pf.3bet.oop-total. Tylko Ł (D-1721). R-M10-007 (exploit) tylko w tle (D-1300).
+id: sc-30
+module: m10
+situation: "Bardzo ciasny rywal {{t:3-bet|3-betuje}}. {{t:open|Otworzyłeś}} z Buttona, a {{t:big-blind|duży blind}} {{t:3-bet|3-betuje}}. Załóż, że ten rywal ma {{t:vpip}} od {{n:hud.ex.nit3bet.vpip.low}} do {{n:hud.ex.nit3bet.vpip.high}} po co najmniej ok. {{n:hud.hands.vpip.low}} rękach i że jego {{t:3-bet}} mieści się w tych rękach."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.04 }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    rule: R-M2-005
+    open: 2.5
+    threeBet: 10
+    vpips: [0.1]
+    actions:
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:fold|Pasujesz}}, bo jeśli gra on najsilniejsze ok. {{n:hud.ex.nit3bet.vpip.low}}–{{n:hud.ex.nit3bet.vpip.high}} rąk, to są to głównie {{t:pair|pary}} i najlepsze asy, a wobec nich twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}} (w uproszczeniu, bez gry po flopie). Z założenia jego {{t:3-bet}} mieści się w tych rękach, więc wobec samego {{t:3-bet|3-betu}} twoja ręka nie wypada lepiej."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. W uproszczeniu, bez gry po flopie, {{t:call|sprawdzenie}} traci: nawet wobec wszystkich rąk, które gra ten rywal, twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}, a z założenia jego {{t:3-bet}} mieści się w tych rękach."

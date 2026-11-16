@@ -1,0 +1,23 @@
+# sc-26: German text of content/pl/scenarios/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "Niedrige {{t:spr}} und {{t:all-in}} des Gegners. Turnierspiel ohne {{t:icm}}-Druck, kurze Stacks: Du sitzt im {{t:big-blind}} und hast die {{t:open|Eröffnung}} des Buttons {{t:call|gecallt}}. Auf dem Flop {{t:check|checkst}} du, und der Button geht bei einer {{t:spr}} von etwa {{n:spr.commit}} {{t:all-in}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} geht bei einer {{t:spr}} von etwa {{w:spr}} {{t:all-in}}. Du {{t:call|callst}}, weil der Stack im Verhältnis zum {{t:pot}} klein ist: Bei so einer {{t:spr}} reichen {{t:top-pair}} und bessere Hände, um um den ganzen Stack zu spielen. Je niedriger die {{t:spr}}, desto besser der Preis, den du bekommst: Bei einer {{t:spr}} von {{n:spr.commit}} brauchst du etwa {{n:eq.jam.spr2}} Equity, es reicht also, seltener als jedes zweite Mal zu gewinnen."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} geht bei einer {{t:spr}} von etwa {{w:spr}} {{t:all-in}}. Ein {{t:fold}} gibt den {{t:pot}} zu leicht auf: Bei einer so niedrigen {{t:spr}} spielen {{t:top-pair}} und bessere Hände um den ganzen Stack. Für einen {{t:call}} musst du nicht Favorit sein: Bei einer {{t:spr}} von {{n:spr.commit}} reichen etwa {{n:eq.jam.spr2}} Equity."

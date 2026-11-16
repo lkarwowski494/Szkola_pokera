@@ -1,0 +1,19 @@
+# sc-18: German text of content/pl/scenarios/sc-18.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "Ein {{t:second-barrel}} auf einer hohen Karte. Du hast vom Button {{t:open|eröffnet}}, und der {{t:big-blind}} hat {{t:call|gecallt}}. Auf dem Flop hast du eine kleine {{t:c-bet}} {{t:bet|gesetzt}}, und er hat wieder {{t:call|gecallt}}. Am Turn kommt eine Karte, die höher ist als die Flopkarten, und gibt dir {{t:top-pair}}, und der {{t:big-blind}} {{t:check|checkt}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am Turn. Du {{t:bet|setzt}} einen großen {{t:second-barrel}}, weil eine Karte, die höher als der Flop ist, der {{t:range}} des {{t:open|Eröffners}} meist etwas mehr hilft als der des Verteidigers: Viele deiner Hände, die den Flop verfehlt haben, haben jetzt {{t:top-pair}}, und jedes {{t:pair|Paar}} deines Gegners ist um einen Platz nach unten gerutscht. Auf so einer Karte {{t:bet|setzt}} der {{t:open|Eröffner}} öfter, und dein {{t:pair|Paar}} schlägt diese schlechteren {{t:pair|Paare}}."
+      - action: check
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am Turn. {{t:check|Checken}} ist akzeptabel, verschenkt aber eine Gelegenheit: Auf einer Karte, die höher als der Flop ist, {{t:bet|setzt}} der {{t:open|Eröffner}} öfter, weil diese Karte meist etwas besser zu seiner {{t:range}} passt. Dein {{t:top-pair}} schlägt die schlechteren {{t:pair|Paare}} deines Gegners, die mit dieser Karte nach unten gerutscht sind."

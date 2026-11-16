@@ -1,0 +1,24 @@
+# sc-27: Brazilian Portuguese text of content/pl/scenarios/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "Um tamanho que coloca o stack inteiro. No Button você deu {{t:3-bet}} na {{t:open|abertura}} do {{t:cutoff|CO}}, e ele {{t:call|pagou}}. No flop você tem um {{t:set}}, e o {{t:cutoff|CO}} faz {{t:check}}. Suponha que você tem uma mão para três {{t:value|streets de valor}} e quer colocar o stack inteiro até o river com {{t:bet|apostas}} iguais no flop, no turn e no river."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}}. Você {{t:bet|aposta}} cerca de {{w:rozmiar}} do {{t:pot}}, porque a mesma fração do {{t:pot}} em cada {{t:street}} coloca o stack inteiro exatamente no river. Na teoria, {{t:bet|apostas}} iguais fazem o adversário defender da forma mais ampla, então ele coloca no {{t:pot}} o máximo."
+      - action: bet-small
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}}. Uma {{t:bet|aposta}} pequena não coloca o stack: três {{t:bet|apostas}} de um terço do {{t:pot}} colocam só uma parte dele; por exemplo, em um {{t:pot}} de {{t:3-bet}} com {{n:spr.3bet-ip.stack}} de stack atrás, só cerca de {{n:g3b.third.total}}. Para chegar ao {{t:all-in}} no river, você já {{t:bet|aposta}} no flop o tamanho geométrico, cerca de {{w:rozmiar}} do {{t:pot}}."

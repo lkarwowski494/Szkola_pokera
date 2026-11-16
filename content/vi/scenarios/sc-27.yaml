@@ -1,0 +1,24 @@
+# sc-27: Vietnamese text of content/pl/scenarios/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "Kích thước đưa toàn bộ stack vào. Ở Button bạn đã {{t:3-bet|3-bet}} lượt {{t:open|mở cược}} từ {{t:cutoff|CO}}, và họ đã {{t:call|theo}}. Ở flop bạn có {{t:set|set}}, còn {{t:cutoff|CO}} {{t:check|check}}. Giả sử bạn có tay đủ cho ba {{t:value|vòng giá trị}} và muốn đến river thì đưa hết stack vào bằng các khoản {{t:bet|cược}} bằng nhau ở flop, turn và river."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}}. Bạn {{t:bet|cược}} khoảng {{w:rozmiar}} {{t:pot|pot}}, vì cùng một tỉ lệ {{t:pot|pot}} ở mỗi {{t:street|vòng cược}} sẽ đưa hết stack vào đúng ở river. Về lý thuyết, các khoản {{t:bet|cược}} bằng nhau khiến đối thủ phòng thủ rộng nhất, nên họ bỏ vào {{t:pot|pot}} nhiều nhất."
+      - action: bet-small
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}}. Một khoản {{t:bet|cược}} nhỏ sẽ không đưa hết stack vào: ba khoản {{t:bet|cược}}, mỗi lần một phần ba {{t:pot|pot}}, chỉ đưa vào một phần của nó, ví dụ trong {{t:pot|pot}} sau {{t:3-bet|3-bet}} với stack {{n:spr.3bet-ip.stack}} phía sau {{t:pot|pot}}, chỉ khoảng {{n:g3b.third.total}}. Để đến được {{t:all-in|all-in}} ở river, ngay từ flop bạn đã {{t:bet|cược}} kích thước hình học, khoảng {{w:rozmiar}} {{t:pot|pot}}."

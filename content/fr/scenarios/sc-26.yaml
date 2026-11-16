@@ -1,0 +1,23 @@
+# sc-26: French text of content/pl/scenarios/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "Un {{t:spr}} bas et l'{{t:all-in}} de l'adversaire. Jeu en tournoi sans pression d'{{t:icm|ICM}}, stacks courts : vous êtes en {{t:big-blind}} et vous avez {{t:call|payé}} l'{{t:open|ouverture}} du Bouton. Au flop, vous faites {{t:check}}, et le Bouton part {{t:all-in}} avec un {{t:spr}} d'environ {{n:spr.commit}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} part {{t:all-in}} avec un {{t:spr}} d'environ {{w:spr}}. Vous {{t:call|suivez}}, car le stack est petit par rapport au {{t:pot}} : avec un tel {{t:spr}}, une {{t:top-pair|top paire}} et les mains meilleures suffisent pour jouer tout le stack. Plus le {{t:spr}} est bas, meilleur est le prix que vous obtenez : avec un {{t:spr}} de {{n:spr.commit}}, il vous faut environ {{n:eq.jam.spr2}} d'équité, donc il suffit de gagner moins d'une fois sur deux."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} part {{t:all-in}} avec un {{t:spr}} d'environ {{w:spr}}. Se {{t:fold|coucher}} abandonne le {{t:pot}} trop facilement : avec un {{t:spr}} aussi bas, une {{t:top-pair|top paire}} et les mains meilleures jouent tout le stack. Pour {{t:call|suivre}}, vous n'avez pas besoin d'être favori : avec un {{t:spr}} de {{n:spr.commit}}, environ {{n:eq.jam.spr2}} d'équité suffit."

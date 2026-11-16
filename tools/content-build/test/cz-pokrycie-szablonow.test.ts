@@ -22,6 +22,11 @@ const TESTY: Record<string, readonly string[]> = {
   'turn-bet': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
   'pick-hand': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
   'river-catch': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
+  'spr-call': ['hz-pokrycie-wyrocznie.test.ts'], // HZ/ID (IE, D-1872)
+  'check-raise': ['hz-pokrycie-wyrocznie.test.ts'], // HZ/ID (IE, D-1872)
+  'turn-action': ['hz-pokrycie-wyrocznie.test.ts'], // HZ/ID (IE, D-1872)
+  'geo-size': ['hz-pokrycie-wyrocznie.test.ts'], // HZ/ID (IE, D-1872)
+  'nit-3bet': ['hz-pokrycie-wyrocznie.test.ts'], // HZ/ID (IE, D-1872)
 };
 const rodzaj = (d: { kind?: string }) => d.kind ?? 'draw-call';
 

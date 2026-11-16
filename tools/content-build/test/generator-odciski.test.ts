@@ -23,7 +23,7 @@ const ctx = {
   spots: compileRanges(join(root, 'content')).spots,
   thresholds: { mixedMin: 0.035, mixedLow: 0.25 },
   cbetCases: content.evalRules.find((r) => r.id === 'R-M5-007')!.check.cases!,
-  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp'].includes(r.check.kind)),
+  sizeRules: content.evalRules.filter((r) => ['open-size', 'three-bet-size', 'no-limp', 'iso-size'].includes(r.check.kind)),
   equity169: JSON.parse(readFileSync(join(root, 'tools/equity/equity169.json'), 'utf8')),
 };
 const gen = (t: (typeof templates)[number]) => ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
