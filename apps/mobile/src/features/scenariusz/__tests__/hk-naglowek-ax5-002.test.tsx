@@ -4,12 +4,14 @@
 import '@/i18n';
 import { Dimensions, StyleSheet } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
-import type { ReactTestInstance } from 'react-test-renderer';
 import i18n from '@/i18n';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { propsFg } from '@/test-utils/fgScenariusz';
 import { PrzebiegScenariusza } from '../EkranScenariusza';
 import type { SesjaScenariusza } from '../aktywnoscScenariusza';
+
+/** Węzeł drzewa testowego RNTL, wprost z typu `screen`. */
+type ReactTestInstance = NonNullable<ReturnType<typeof screen.getByText>['parent']>;
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
