@@ -1,0 +1,22 @@
+# SC-30 (M10): nit 3-betuje otwarcie z Buttona, ręka offsuit z dołu zakresu: pas (proponowany punkt nit-3bet, 08-EX-8; warunki: ../warunki-hp.md).
+# Ocena: calc R-M2-005 (math): equity klasy wobec górnych x% (x = VPIP, dana zadania; equity169) ≤ cena − 0,03 → fold compliant, call inaccuracy.
+# Tylko werdykt „pas” (D-1305) i tylko Ł (D-1721: Ś niewykonalny). R-M10-007 (exploit) tylko w tle, bez uogólnienia na populację (D-1300). Szkic sesji HP.
+id: sc-30
+module: m10
+situation: "Bardzo ciasny rywal {{t:3-bet|3-betuje}}. {{t:open|Otworzyłeś}} z Buttona, a {{t:big-blind|duży blind}} {{t:3-bet|3-betuje}}. Załóż, że ten rywal ma {{t:vpip}} ok. {{w:vpip}} po co najmniej ok. {{n:hud.hands.vpip.low}} rękach i że jego {{t:3-bet}} mieści się w tych rękach."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.03, vpip: [0.08, 0.10] }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    calc: R-M2-005
+    spot: rfi.btn
+    actions:
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:fold|Pasujesz}}, bo jeśli gra on najsilniejsze ok. {{w:vpip}} rąk, to są to głównie pary i najlepsze asy, a wobec nich twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}. Z założenia jego {{t:3-bet}} mieści się w tych rękach, więc wobec samego {{t:3-bet|3-betu}} twoja ręka nie wypada lepiej."
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:call|Sprawdzenie}} traci: nawet wobec wszystkich rąk, które gra ten rywal, twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}, a z założenia jego {{t:3-bet}} mieści się w tych rękach."

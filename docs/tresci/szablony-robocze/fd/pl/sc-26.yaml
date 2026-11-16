@@ -1,0 +1,23 @@
+# SC-26 (M9): niski SPR, rywal all-in na flopie, najwyższa para albo lepsza: sprawdzenie (proponowany punkt spr-call, 08-EX-5; warunki: ../warunki-hp.md).
+# Ocena: calc R-M9-002 (cena s ÷ (1 + 2s)); werdykt call compliant, fold mistake ze źródła szczebla 2 (GW Stack-to-Pot Ratio: SPR „just over 2”,
+# „Any top pair or better is good enough to stack off”; R-M9-003). SPR 1,8–2,3 (D-1719). Bez T do 08-EX-3 (D-1304). Szkic sesji HP.
+id: sc-26
+module: m9
+situation: "Niski {{t:spr}} i {{t:all-in}} rywala. Gra turniejowa, krótkie stacki: jesteś na {{t:big-blind|dużym blindzie}} i {{t:call|sprawdziłeś}} {{t:open|otwarcie}} Buttona. Na flopie {{t:check|czekasz}}, a Button wchodzi {{t:all-in}} przy {{t:spr}} ok. {{w:spr}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kicker: [A, K] }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    calc: R-M9-002
+    spot: vs-open.bb-vs-btn
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} wchodzi {{t:all-in}} przy {{t:spr}} ok. {{w:spr}}. {{t:call|Sprawdzasz}}, bo stack jest mały względem {{t:pot|puli}}: przy takim {{t:spr}} {{t:top-pair|najwyższa para}} i lepsze ręce wystarczają, żeby grać o cały stack. Im niższy {{t:spr}}, tym lepszą cenę dostajesz: przy {{t:spr}} {{n:spr.commit}} potrzebujesz ok. {{n:eq.jam.spr2}} equity, czyli wystarczy wygrywać rzadziej niż co drugi raz."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} wchodzi {{t:all-in}} przy {{t:spr}} ok. {{w:spr}}. {{t:fold|Pas}} oddaje {{t:pot|pulę}} zbyt łatwo: przy tak niskim {{t:spr}} {{t:top-pair|najwyższa para}} i lepsze ręce grają o cały stack. Do {{t:call|sprawdzenia}} nie musisz być faworytem: przy {{t:spr}} {{n:spr.commit}} wystarcza ok. {{n:eq.jam.spr2}} equity."
