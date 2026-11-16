@@ -525,6 +525,8 @@ export const ScenarioHolding = z.enum(['air', 'pair', 'draw']);
 export const ScenarioReject = z.enum(['rywal-ma-out-gracza', 'stol-sparowany']);
 
 /** Granice losowania poziomu: z czego losuje ręka gracza i stół, margines od progu decyzji, warunki odrzucenia. */
+/** Ranga karty jako znak z `23456789TJQKA` (kicker w granicach poziomu). */
+const ScenarioRank = z.enum(['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']);
 export const ScenarioLevelBounds = z
   .object({
     /** Rodzaje drawów dla punktów draw-call; pusta lista dopuszczalna w szablonie bez takich punktów (sprawdza build). */
@@ -545,6 +547,13 @@ export const ScenarioLevelBounds = z
     freqs: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1) }).strict().nullable()).min(1).max(2).optional(),
     /** KO-076 / BR-POZ-001: range-spot nie losuje klas rąk, których equity wobec losowej ręki leży bliżej niż tyle (ułamek, 0,02 = 2 pp) od najbliższej klasy po drugiej stronie granicy akcji oczekiwanej (D-1141). Wymaga macierzy equity w kontekście generatora. */
     equityMarginMin: z.number().min(0).max(1).optional(),
+    /** 08-EX-5 (SC-26): przedział SPR [min, max] punktu spr-call (stack za pulą ÷ pula na flopie). */
+    sprRange: z.tuple([z.number().positive(), z.number().positive()]).refine(([a, b]) => b >= a, 'sprRange: max musi być ≥ min').optional(),
+    /** 08-EX-5: rodzaj pary gracza dozwolony na poziomie (punkty spr-call). */
+    pairKind: z.array(z.enum(['overpair', 'top', 'second', 'low', 'underpair'])).min(1).optional(),
+    /** 08-EX-5: kicker najwyższej pary jako ranga 2…A (włącznie); nie dotyczy nadpary. */
+    kickerMin: ScenarioRank.optional(),
+    kickerMax: ScenarioRank.optional(),
     reject: z.array(ScenarioReject).default([]),
     /** Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). */
     /** draw-call: `call` albo `fold`; range-spot: etykieta akcji węzła solvera spotu (np. `raise 2.5`, `fold`; sprawdza build). */
@@ -776,7 +785,25 @@ export const ScenarioRiverValueDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-EX-5 (SC-26, R-M9-002/003): rywal all-in na flopie przy niskim SPR; ręka gracza z zakresu obrony spotu `spot`, najwyższa para albo lepsza; pula (`pots`) i stack za pulą
+ * (`stacks`, bb) dają SPR z `sprRange` poziomu. Poprawna akcja to sprawdzenie; cena S ÷ (P + 2S) jest liczona w wariancie.
+ */
+export const ScenarioSprCallDecision = z
+  .object({
+    street: z.literal('flop'),
+    kind: z.literal('spr-call'),
+    spot: id,
+    rule: id.optional(),
+    calc: id.optional(),
+    pots: z.array(z.number().positive()).min(1),
+    stacks: z.array(z.number().positive()).min(1),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 /** Najmniejszy margines (ułamek, 0,01 = 1 pp) punktu river-catch: odstęp ≥ 1 pp daje różne procenty bez miejsc po przecinku (round monotoniczne, round(y + 1) = round(y) + 1). */

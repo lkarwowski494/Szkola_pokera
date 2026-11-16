@@ -189,6 +189,19 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
         if ((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.5) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin < 0,5 (δ ≥ 0,5 wyklucza obie akcje, D-1417)`); // 08-programista-006
       }
+    } else if (d.kind === 'spr-call') {
+      // 08-EX-5 (SC-26, R-M9-002/003): rywal all-in na flopie przy niskim SPR; ręka z zakresu obrony, oczekiwana akcja call
+      if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'call') e.push(`${p} poziom ${l}: oczekiwana akcja punktu spr-call to call (R-M9-003: najwyższa para przy niskim SPR gra o stack), jest ${ex}`);
+        if (!b.sprRange) e.push(`${p} poziom ${l}: punkt spr-call wymaga sprRange [min, max]`);
+        else if (!d.pots.some((pot) => d.stacks.some((st) => st / pot >= b.sprRange![0] - 1e-12 && st / pot <= b.sprRange![1] + 1e-12))) e.push(`${p} poziom ${l}: żadna para (pula, stack) nie daje SPR w [${b.sprRange[0]}; ${b.sprRange[1]}]`);
+        if (b.kickerMin !== undefined && b.kickerMax !== undefined && '23456789TJQKA'.indexOf(b.kickerMin) > '23456789TJQKA'.indexOf(b.kickerMax)) e.push(`${p} poziom ${l}: kickerMin ${b.kickerMin} wyższy niż kickerMax ${b.kickerMax}`);
+      }
     } else if (d.kind === 'defend') {
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
       if (t.positions.hero !== 'BB') e.push(`${p} defend: gracz to BB (obrona BB wobec c-betu, D-1144), jest ${t.positions.hero}`);

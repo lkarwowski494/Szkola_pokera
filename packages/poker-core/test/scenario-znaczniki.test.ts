@@ -1,7 +1,7 @@
 // BR-OCE-002 (08-programista-004, D-557): wyjaśnienie akcji ma znaczniki wariantu ({{w:reka}}, {{w:stol}}, {{w:pozycja}}, {{w:rywal}}),
 // podstawiane przy wyświetleniu kartami i pozycją z wylosowanego wariantu, a nie z przykładu w treści. Formatowanie kart (język) podaje wołający.
 import { describe, expect, it } from 'vitest';
-import { fillVariantMarkers, findVariantMarkers, VARIANT_MARKERS } from '../src';
+import { fillVariantMarkers, findVariantMarkers, TemplateError, VARIANT_MARKERS } from '../src';
 
 const WARTOSCI = { reka: 'A♥ K♥', stol: 'Q♥ 7♥ 2♣', pozycja: 'BB', rywal: 'BTN' };
 
@@ -25,6 +25,11 @@ describe('znaczniki wariantu w wyjaśnieniu', () => {
   });
   it('findVariantMarkers zwraca nazwy znaczników z tekstu (także nieznane) w kolejności występowania', () => {
     expect(findVariantMarkers('{{w:stol}} a {{w:xyz}} i {{w:reka}}')).toEqual(['stol', 'xyz', 'reka']);
-    expect(VARIANT_MARKERS).toEqual(['reka', 'stol', 'pozycja', 'rywal']);
+    expect(VARIANT_MARKERS).toEqual(['reka', 'stol', 'pozycja', 'rywal', 'spr', 'rozmiar', 'vpip']); // HO 08-EX-5…8: dopisane trzy znaczniki liczbowe punktów SC-26/27/30 (zmiana przypięcia listy, nie osłabienie)
+  });
+  it('znacznik liczbowy bez wartości w punkcie to błąd treści, nie pusty napis (HO)', () => {
+    const w = { reka: 'x', stol: 'y', pozycja: 'z', rywal: 'v' };
+    expect(() => fillVariantMarkers('SPR {{w:spr}}', w)).toThrow(TemplateError);
+    expect(fillVariantMarkers('SPR {{w:spr}}', { ...w, spr: '2,1' })).toBe('SPR 2,1');
   });
 });

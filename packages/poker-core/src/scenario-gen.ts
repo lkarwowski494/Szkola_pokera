@@ -141,7 +141,19 @@ export interface FlopSizeSpec {
   small: number;
   big: number;
 }
-export type DecisionSpec = FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
+/**
+ * 08-EX-5 (SC-26, R-M9-001/002/003, sesja HO): rywal wchodzi all-in na flopie przy niskim SPR, gracz (BB) ma najwyższą parę albo lepszą. Ręka z zakresu obrony spotu `spot`
+ * (jak defend). Stack za pulą (`stacks`, bb) i pula na flopie (`pots`, bb) tworzą SPR = stack ÷ pula (R-M9-001); wariant ma SPR z `sprRange` poziomu. Poprawna akcja to
+ * `call` (R-M9-003: strefa SPR poniżej ok. 3, najwyższa para; GW Stack-to-Pot Ratio); `required` = S ÷ (P + 2S) (R-M9-002).
+ */
+export interface SprCallSpec {
+  kind: 'spr-call';
+  street: 'flop';
+  spot: string;
+  pots: readonly number[];
+  stacks: readonly number[];
+}
+export type DecisionSpec = SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -258,6 +270,13 @@ export interface LevelBounds {
   chipsDiffer?: boolean;
   /** F2: ręka gracza z jednej z tych klas względem flopu (brak = dowolna). */
   holding?: readonly HoldingFilter[];
+  /** 08-EX-5 (SC-26): przedział SPR [min, max] punktu spr-call (stack za pulą ÷ pula na flopie). */
+  sprRange?: readonly [number, number];
+  /** 08-EX-5: rodzaj pary gracza (po flopie) dozwolony na poziomie; brak = bez filtra. Dotyczy punktów spr-call. */
+  pairKind?: readonly PairKind[];
+  /** 08-EX-5: kicker najwyższej pary (ranga 2…A jako znak z `23456789TJQKA`); minimum i maksimum, włącznie; nie dotyczy nadpary. */
+  kickerMin?: string;
+  kickerMax?: string;
   /** F1: przedział częstości akcji oczekiwanej na punkt decyzji range-spot (null = inny rodzaj punktu); min ≤ f ≤ max. */
   freqs?: readonly ({ min: number; max: number } | null)[];
   /** KO-076: minimalny margin equity (ułamek) klasy ręki range-spot od granicy akcji oczekiwanej, `equityMarginPp` (D-1141); wymaga `ctx.equity169`. */
@@ -414,6 +433,17 @@ export interface FlopSizeVariantDecision {
   drawKind: DrawKind;
   correct: 'bet-big';
 }
+export interface SprCallVariantDecision {
+  point: 'spr-call';
+  street: 'flop';
+  /** Pula na flopie i stack za pulą (bb); `spr` = stack ÷ pula; `required` = S ÷ (P + 2S): equity potrzebne do sprawdzenia all-inu. */
+  pot: number;
+  stack: number;
+  spr: number;
+  required: number;
+  pairKind: PairKind;
+  correct: 'call';
+}
 export interface RiverValueVariantDecision {
   point: 'river-value';
   street: 'river';
@@ -425,7 +455,7 @@ export interface RiverValueVariantDecision {
   w: number;
   correct: 'bet' | 'check';
 }
-export type VariantDecision = FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
+export type VariantDecision = SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -524,7 +554,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt końcowy (${koncowe.map((x) => x.kind).join(', ')}) jest najwyżej jeden, ostatni i bez punktów draw-call`); // 08-programista-005: nazwy rodzajów z szablonu
   }
@@ -705,9 +735,9 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const w = listHandVerdicts(hc, first.entries)!;
     preflop = null;
     listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, ...(w.alsoCorrect ? { alsoCorrect: w.alsoCorrect } : {}), acceptable: w.acceptable };
-  } else if (first.kind === 'defend') {
+  } else if (first.kind === 'defend' || first.kind === 'spr-call') {
     // 08-N2: ręka z zakresu obrony spotu (jak zakres otwarcia w cbet-case); flop dolosowany do tekstury poziomu
-    if (!ctx) throw new TemplateError(`${t.id}: punkt defend wymaga danych zakresów (GeneratorContext)`);
+    if (!ctx) throw new TemplateError(`${t.id}: punkt ${first.kind} wymaga danych zakresów (GeneratorContext)`);
     hero = handFromRange(t.id, ctx, first.spot, rng, 'zakres obrony gracza');
     rest = dealCards(rng, 7, hero);
     for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
@@ -884,6 +914,29 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       icmSuffix = `|${villain[0]}-${villain[1]}`; // druga ręka jest pokazana w decyzji
       continue;
     }
+    if (spec.kind === 'spr-call') {
+      // 08-EX-5 (SC-26): rywal all-in na flopie przy niskim SPR; ocena = rachunek (R-M9-002) + strefa SPR (R-M9-003); ręka z zakresu obrony (first.kind)
+      if (spec.pots.length === 0 || spec.stacks.length === 0) throw new TemplateError(`${t.id}: spr-call wymaga pots i stacks`);
+      if (b.expected[i] !== 'call') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu spr-call to call (R-M9-003: najwyższa para przy niskim SPR gra o stack), jest ${String(b.expected[i])}`);
+      if (!b.sprRange || !(b.sprRange[0] > 0 && b.sprRange[1] >= b.sprRange[0])) throw new TemplateError(`${t.id}: poziom ${level}: spr-call wymaga sprRange [min, max] z 0 < min ≤ max`);
+      const [sprMin, sprMax] = b.sprRange;
+      const pary = spec.pots.flatMap((pot) => spec.stacks.map((stack) => ({ pot, stack, spr: stack / pot }))).filter((x) => x.pot > 0 && x.stack > 0 && x.spr >= sprMin - 1e-12 && x.spr <= sprMax + 1e-12);
+      if (pary.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna para (pula, stack) nie daje SPR w [${sprMin}; ${sprMax}]`);
+      if (new Set(flop.map(rankOf)).size < 3) return null; // stół niesparowany
+      if ([0, 1, 2, 3].some((su) => flop.filter((c) => suitOf(c) === su).length === 3)) return null; // bez gotowego koloru na stole
+      const h = classifyHolding(hero, flop);
+      if (h.pairKind !== 'overpair' && h.pairKind !== 'top') return null; // najwyższa para albo lepsza z kartą gracza (R-M9-003)
+      if (b.pairKind && !b.pairKind.includes(h.pairKind)) return null;
+      if (h.pairKind === 'top') {
+        const kicker = h.kicker ?? -1;
+        if (b.kickerMin !== undefined && kicker < RANK_CHARS.indexOf(b.kickerMin)) return null;
+        if (b.kickerMax !== undefined && kicker > RANK_CHARS.indexOf(b.kickerMax)) return null;
+      }
+      const c = pick(rng, pary);
+      points.push({ point: 'spr-call', street: 'flop', pot: c.pot, stack: c.stack, spr: c.spr, required: requiredEquity(c.pot, c.stack), pairKind: h.pairKind, correct: 'call' });
+      icmSuffix = `|${c.pot}-${c.stack}`; // pula i stack są pokazane w decyzji
+      continue;
+    }
     if (spec.kind === 'defend') {
       if (spec.pots.length === 0 || spec.fractions.length === 0) throw new TemplateError(`${t.id}: defend wymaga pots i fractions`);
       const pot = pick(rng, spec.pots);
@@ -1045,8 +1098,10 @@ export function generateVariant(template: GeneratorTemplate, level: ScenarioLeve
  * decyzji), {{w:pozycja}} i {{w:rywal}} (pozycje z szablonu). Podstawiane przy wyświetleniu; formatowanie kart i nazw pozycji
  * (język) podaje wołający, bo poker-core nie zna języków interfejsu.
  */
-export const VARIANT_MARKERS = ['reka', 'stol', 'pozycja', 'rywal'] as const;
+export const VARIANT_MARKERS = ['reka', 'stol', 'pozycja', 'rywal', 'spr', 'rozmiar', 'vpip'] as const; // spr, rozmiar, vpip: 08-EX-5…8 (HO), wartości z punktu decyzji (SC-26, SC-27, SC-30)
 export type VariantMarker = (typeof VARIANT_MARKERS)[number];
+/** Wartości znaczników: cztery podstawowe zawsze; `spr`, `rozmiar`, `vpip` tylko w punktach, które je mają (brak wartości przy użyciu znacznika to błąd treści, nie pusty napis). */
+export type VariantMarkerValues = Record<'reka' | 'stol' | 'pozycja' | 'rywal', string> & Partial<Record<'spr' | 'rozmiar' | 'vpip', string>>;
 
 const VARIANT_MARKER_RE = /\{\{w:([^{}]*)\}\}/g;
 const NIEDOMKNIETY = '{{w:(niedomknięty)';
@@ -1099,11 +1154,13 @@ function resolveConditions(text: string, conditions: Partial<VariantConditionVal
  * Podstawia bloki warunkowe i znaczniki wartościami wariantu; nieznany znacznik lub warunek to błąd (nie cichy napis w treści dla
  * użytkownika). Bloki rozstrzygane przed znacznikami, więc znacznik w ukrytym bloku nie jest podstawiany.
  */
-export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>, conditions?: Partial<VariantConditionValues>): string {
+export function fillVariantMarkers(text: string, values: VariantMarkerValues, conditions?: Partial<VariantConditionValues>): string {
   const widoczny = resolveConditions(text, conditions);
   const wynik = widoczny.replace(VARIANT_MARKER_RE, (_all, name: string) => {
     if (!(VARIANT_MARKERS as readonly string[]).includes(name)) throw new TemplateError(`nieznany znacznik wariantu {{w:${name}}}`);
-    return values[name as VariantMarker];
+    const w = values[name as VariantMarker];
+    if (w === undefined) throw new TemplateError(`brak wartości znacznika wariantu {{w:${name}}} w tym punkcie decyzji`);
+    return w;
   });
   if (wynik.includes('{{w:')) throw new TemplateError('niedomknięty znacznik wariantu {{w:');
   return wynik;

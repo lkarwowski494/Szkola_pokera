@@ -1,6 +1,6 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { KONFIGURACJA, przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
-import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, overcardOutsAt, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantConditionValues, type VariantMarker, type WerdyktAkcji } from '@szkola/poker-core';
+import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, overcardOutsAt, type VariantMarkerValues, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantConditionValues, type WerdyktAkcji } from '@szkola/poker-core';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 
@@ -44,6 +44,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
     case 'icm-call':
     case 'river-catch': // FG (D-1143): jak draw-call na riverze, pas albo sprawdzenie zakładu rywala
     case 'defend': // FG (D-1144): jak draw-call na flopie, pas albo sprawdzenie c-betu rywala
+    case 'spr-call': // HO (08-EX-5, SC-26): pas albo sprawdzenie all-inu rywala na flopie (widok: zadanie dla roli 04)
       return ['fold', 'call'];
     case 'cbet-case':
       return AKCJE_CBET;
@@ -70,7 +71,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend') return p.correct;
+  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend' || p.point === 'spr-call') return p.correct;
   if (p.point === 'list-hand') return akcjaSpotu(p.correct); // FG: akcja poprawna wpisu listy; spoza znanych etykiet błąd z nazwą
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
@@ -333,13 +334,23 @@ const karty = (cs: readonly string[]) => `[[${cs.join(' ')}]]`;
 /** {{w:stol}}: karty stołu; przed flopem nazwa ulicy (CN D-784: bez nowego klucza, `scenario.street.preflop` małymi literami). */
 const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length === 0 ? t('scenario.street.preflop').toLowerCase() : karty(stol));
 
+/**
+ * Znaczniki liczbowe punktu (08-EX-5…8, HO): `spr` (SC-26), `rozmiar` (SC-27, procent puli), `vpip` (SC-30, procent). Poza tymi punktami brak wartości (tekst z takim znacznikiem
+ * w innym punkcie to błąd treści: `fillVariantMarkers` rzuca TemplateError, nie cichy fallback). Format liczby dla języka (przecinek) to zadanie widoku (rola 04), tu kropka dziesiętna.
+ */
+function wartosciPunktu(d: ScenarioVariant['points'][number] | undefined): Partial<Record<'spr' | 'rozmiar' | 'vpip', string>> {
+  if (d?.point === 'spr-call') return { spr: d.spr.toFixed(1) };
+  return {};
+}
+
 /** Wartości znaczników {{w:…}} w punkcie decyzji: karty jako [[…]] dla RichText, pozycje z szablonu (D-557). */
-export function wartosciZnacznikow(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, t: TFn): Record<VariantMarker, string> {
+export function wartosciZnacznikow(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, t: TFn): VariantMarkerValues {
   return {
     reka: karty(v.hero.map(cardToString)),
     stol: stolZnacznika(widokDecyzji(v, indeks).stol, t),
     pozycja: pozycja(s.positions.hero, t),
     rywal: s.positions.villain, // skrót (D-650): w szablonie stoi po przyimku („rywal z BB”), pełna nazwa zepsułaby odmianę
+    ...wartosciPunktu(v.points[indeks]),
   };
 }
 
