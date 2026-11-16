@@ -1,7 +1,9 @@
 # K7 (plan-09), R-52, R-57, BR-JEZ-001; D-353. Wydanie en (D-349): (1) telefon po angielsku → powitanie, „Dziś” i lekcja po
 # angielsku (wybór „Jak w telefonie”, treść z bazy en, ADR 0005); (2) ręczny wybór polskiego w ustawieniach zmienia teksty bez
 # restartu; (3) po ponownym uruchomieniu z telefonem nadal po angielsku ustawienie ręczne wygrywa (polska lekcja na „Dziś”).
-# Teksty z słowników aplikacji i content/ przez helplines-env.mjs (*_EN, LEKCJA_START_TYTUL*), nie wpisane w YAML.
+# Teksty z słowników aplikacji i content/ przez helplines-env.mjs (*_EN, LEKCJA_START_TYTUL*), nie wpisane w YAML. (PU-008)
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
 appId: pl.lkarwowski.szkolapokera
 name: Drugi język
 ---
@@ -20,6 +22,8 @@ name: Drugi język
 # lista lekcji jest w zakładce „Lekcje” (D-542, KO-045)
 - tapOn:
     id: 'zakladka-lekcje'
+- assertVisible:
+    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'
@@ -30,7 +34,14 @@ name: Drugi język
     id: 'lesson-m0.l1'
 - assertVisible: '${LEKCJA_START_TYTUL_EN}'
 - assertNotVisible: '${LEKCJA_START_TYTUL}'
+- assertVisible:
+    id: 'ekran:lesson/\[id\]' # ekran:lesson/[id]
 - takeScreenshot: 08-lekcja-en
+# powrót: lesson/[id]
+- tapOn: '${WROC_EN}'
+# powrót: (tabs)/lessons
+- assertVisible:
+    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
 # powrót z lekcji na „Dziś” przez ponowne uruchomienie (bez zapisanego wyboru: dalej telefon en)
 - stopApp
 - launchApp:
@@ -42,8 +53,12 @@ name: Drugi język
     timeout: 30000
 - tapOn:
     id: 'ustawienia'
+- assertVisible:
+    id: 'ekran:settings'
 - tapOn:
     id: 'ustawienia-jezyk'
+- assertVisible:
+    id: 'ekran:language'
 - assertVisible: '${JEZYK_TYTUL_EN}'
 # (2) zmiana w aplikacji bez restartu: interfejs („Język”) po polsku zaraz po wyborze; polski tytuł pojawia się dopiero po
 # zapisie ustawienia (language.tsx: zapiszJezyk → ustawJezyk), więc stopApp niżej nie gubi wyboru
@@ -52,6 +67,14 @@ name: Drugi język
 - extendedWaitUntil:
     visible: '${JEZYK_TYTUL_PL}'
     timeout: 15000
+# powrót: language (interfejs już po polsku: „Wróć”)
+- tapOn: 'Wróć'
+- assertVisible:
+    id: 'ekran:settings'
+# powrót: settings
+- tapOn: 'Wróć'
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
 # (3) ustawienie ręczne zapisane: telefon dalej po angielsku, aplikacja po polsku
 - stopApp
 - launchApp:

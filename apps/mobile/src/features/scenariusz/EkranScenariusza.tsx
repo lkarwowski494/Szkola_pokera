@@ -155,7 +155,7 @@ function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn):
     if (!u) return null;
     // gracze spoza pary spasowali przed all-inem rywala (D-889: „Gracz A: pas. Gracz B: pas. SB: all-in 12,5 bb”), stos rywala w bb z wariantu
     const pasy = u.wiersze.filter((w) => w.rola === 'inny').map((w) => t('play.log.fold', { pos: t('drill.icm.player', { letter: w.litera }) }));
-    return [...pasy, t('play.log.allin', { pos: rywal, bb: formatujLiczbe(u.stosRywalaBb, jezykZadan()) })].join('. ');
+    return [...pasy, t('play.log.allin', { pos: rywal, bb: formatujLiczbe(u.stosRywalaBb, jezykZadan()) })].join(t('play.log.sep'));
   }
   if (d.point === 'cbet-case') return t('play.log.check', { pos: rywal });
   if (d.point === 'river-value') return t('play.log.check', { pos: rywal }); // FW-02 (D-1501): river-value jest z pozycji, rywal czekał przed twoją decyzją
@@ -166,7 +166,7 @@ function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn):
     // iso-size (HX, D-1736): „Blindy 0,5/1 bb. UTG: pas. HJ: limp 1 bb” w jednym wierszu; kwota limpa = 1 bb minus blind miejsca (SB 0,5 bb)
     const blindy = t('play.log.blinds', { sb: formatujLiczbe(0.5, jezykZadan()), bb: formatujLiczbe(1, jezykZadan()) });
     const wpisy = przed.map((w) => (w.akcja === 'limp' ? t('play.log.limp', { pos: w.pozycja, bb: formatujLiczbe(w.kwotaBb, jezykZadan()) }) : t('play.log.fold', { pos: w.pozycja })));
-    return [blindy, ...wpisy].join('. ');
+    return [blindy, ...wpisy].join(t('play.log.sep'));
   }
   return d.point === 'size-spot' && spec?.kind === 'size-spot' && d.check === 'three-bet-size' && spec.openBb !== undefined ? t('play.log.raise', { pos: rywal, bb: formatujLiczbe(spec.openBb, jezykZadan()) }) : null;
 }
@@ -246,7 +246,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const nastepna = s.wariant.points[indeks + 1];
   // VoiceOver: po decyzji ocena z werdyktem, przed decyzją nowy wpis rywala (ulica i jego zakład, A04-11/D-283)
   const ruch = d ? ruchRywala(s, d, Math.max(0, indeks), t) : null;
-  const opisRywala = d && ulicaDecyzji ? [t(`scenario.street.${ulicaDecyzji}`), ruch].filter((x) => x).join('. ') : null;
+  const opisRywala = d && ulicaDecyzji ? [t(`scenario.street.${ulicaDecyzji}`), ruch].filter((x) => x).join(t('play.log.sep')) : null;
   useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: d ? zdanieWerdyktu(ocenaWyboru, d, s.szablon.decisions[indeks], wybor, (a) => opisAkcjiEkranu(a).fraza, t) : '' }) : ocenaMode ? null : opisRywala);
   if (!d || !widok) return <Screen>{null}</Screen>;
   const akcje = akcjePunktu(d, s.szablon.decisions[indeks]);

@@ -10,8 +10,9 @@ import { getLesson, getLessonDrills, getRulesByIds } from '@/data/content/repo';
 import { oznaczTeoriePrzeczytana } from '@szkola/postep';
 import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
 import { odstep } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
-export default function LessonScreen() {
+function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const db = useBazaTresci();
   const { t } = useTranslation();
@@ -65,3 +66,5 @@ export default function LessonScreen() {
     </Screen>
   );
 }
+
+export default znacznikEkranu('lesson/[id]', LessonScreen);

@@ -12,11 +12,12 @@ import { pliki } from '@/platform/pliki';
 import { powiadomieniaExpo } from '@/platform/powiadomienia';
 import { zegarTelefonu } from '@/platform/zegar';
 import { useSettings } from '@/state/settings';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 type Stan = { maPostep: boolean; ostatniEksportMs: number | null } | null;
 
 /** Dane (PR-07): eksport i import postępu (ADR 0008); po imporcie ustawienia interfejsu i przypomnienie z nowych danych. */
-export default function DataRoute() {
+function DataRoute() {
   const port = usePortPostepu();
   const { t } = useTranslation();
   const loadSettings = useSettings((s) => s.load);
@@ -52,3 +53,5 @@ export default function DataRoute() {
   if (!dane) return <Screen>{null}</Screen>;
   return <EkranDanych dane={dane} strefa={zegarTelefonu.strefa()} />;
 }
+
+export default znacznikEkranu('data', DataRoute);

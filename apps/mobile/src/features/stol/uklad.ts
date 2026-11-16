@@ -69,7 +69,7 @@ export function etykietaStolu(m: readonly Miejsce[], reka: readonly string[], t:
     if (x.stan === 'pas') czesci.push(t('table.seatFold', { pos: x.pozycja }));
     else if (x.stan === 'przebija') czesci.push(t('table.seatRaise', { pos: x.pozycja }));
     else if (x.stan === 'limp') {
-      if (!limpyOpisane) czesci.push(limperzy.length === 1 ? t('table.seatLimp', { pos: limperzy[0] }) : t('table.limped', { count: limperzy.length, list: lista(limperzy, t) }));
+      if (!limpyOpisane) czesci.push(t('table.limped', { count: limperzy.length, list: lista(limperzy, t) }));
       limpyOpisane = true;
     } else if (x.stan === 'ty') {
       czesci.push(opcje.kartyNazwami ? t('table.seatHeroCards', { pos: x.pozycja, cards: lista(reka.map((c) => nazwaKarty(c, t)), t) }) : t('table.seatHero', { pos: x.pozycja, hand: klasaReki(reka) }));

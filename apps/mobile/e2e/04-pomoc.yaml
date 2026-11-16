@@ -1,5 +1,7 @@
 # Postęp → Pomoc. Numery i teksty przychodzą z content/helplines.yaml przez helplines-env.mjs (maestro test -e …),
-# więc flow ich nie powiela. Nie dzwonimy: symulator nie ma aplikacji Telefon.
+# więc flow ich nie powiela. Nie dzwonimy: symulator nie ma aplikacji Telefon. (PU-006)
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
 appId: pl.lkarwowski.szkolapokera
 name: Pomoc
 ---
@@ -15,10 +17,14 @@ name: Pomoc
       id: 'dzis-lekcja'
     timeout: 30000
 - tapOn: 'Postęp'
+- assertVisible:
+    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress
 - scrollUntilVisible:
     element: 'Pomoc: gdy granie wymyka się spod kontroli'
     direction: DOWN
 - tapOn: 'Pomoc: gdy granie wymyka się spod kontroli'
+- assertVisible:
+    id: 'ekran:help'
 # D-158: bez numerów; zdanie ogólne, pomoc międzynarodowa online (link) i data sprawdzenia
 - assertVisible: '${HELP_ABROAD}'
 - assertVisible: '${HELP_LINK}'
@@ -26,3 +32,24 @@ name: Pomoc
     element: '${HELP_CHECKED}'
     direction: DOWN
 - assertNotVisible: 'Zadzwoń pod numer.*'
+# powrót: help
+- tapOn: 'Wróć'
+# powrót: (tabs)/progress
+- assertVisible:
+    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress
+# drugie wejście (PU-006): „Dziś” → ustawienia → „Pomoc” (settings.help)
+- tapOn:
+    id: 'zakladka-dzis'
+- tapOn:
+    id: 'ustawienia'
+- assertVisible:
+    id: 'ekran:settings'
+- tapOn: 'Pomoc'
+- assertVisible:
+    id: 'ekran:help'
+- assertVisible: '${HELP_ABROAD}'
+# powrót: help
+- tapOn: 'Wróć'
+# powrót: settings
+- assertVisible:
+    id: 'ekran:settings'

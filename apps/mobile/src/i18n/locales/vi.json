@@ -451,7 +451,8 @@
       "raise": "{{pos}}: {{t:raise|tố}} lên {{bb}} bb",
       "allin": "{{pos}}: all-in {{bb}} bb",
       "blinds": "Blind {{sb}}/{{bb}} bb",
-      "limp": "{{pos}}: {{t:limp|limp}} {{bb}} bb"
+      "limp": "{{pos}}: {{t:limp|limp}} {{bb}} bb",
+      "sep": ". "
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -580,7 +581,6 @@
     "stateAfter": "sau bạn",
     "stateRaise": "{{t:raise|tố}}",
     "stateLimp": "limp",
-    "seatLimp": "{{pos}} {{t:limp|limp}}",
     "limped_other": "{{list}} {{t:limp|limp}}",
     "seatHeroCards": "bạn ở {{pos}}, bài {{cards}}"
   },

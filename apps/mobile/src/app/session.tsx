@@ -51,6 +51,7 @@ import { zapiszBlad } from '@/platform/dziennik';
 import { zegarTelefonu } from '@/platform/zegar';
 import { useSettings } from '@/state/settings';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 interface Record_ {
   item: DrillInstance;
@@ -77,7 +78,7 @@ type Stan =
  * powtórki i test powtórny przez `EkranStartu` z licznikiem; wyczerpany limit → `EkranZakupu` jako stan przepływu.
  * „Zakończ” porzuca aktywność w toku (moduly.md `porzuc`); odpowiedzi zostają zapisane.
  */
-export default function SessionScreen() {
+function SessionScreen() {
   const { mode = 'lesson', lessonId, moduleId } = useLocalSearchParams<{ mode?: SessionMode; lessonId?: string; moduleId?: string }>();
   const db = useBazaTresci();
   const port = usePortPostepu();
@@ -660,3 +661,5 @@ const styles = StyleSheet.create({
   input: { flex: 1, fontSize: 28, fontWeight: '700', paddingVertical: odstep.m, fontVariant: ['tabular-nums'] },
   score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
 });
+
+export default znacznikEkranu('session', SessionScreen);

@@ -1,7 +1,9 @@
 # 10-D01-02 (D-325): ekran zakupu z ustawień — wiersz „Pełny dostęp” w sekcji Zakupy (bez pełnego dostępu, bez wyczerpanego
 # limitu) otwiera ten sam ekran zakupu co stan po limicie (flow 09), ale bez „Wróć do lekcji”; „Zamknij” wraca do ustawień.
 # Bez StoreKit w symulatorze (lista telefonu T-05): ceny się nie pobiorą („Pobieranie cen…” albo błąd pobrania), więc flow
-# sprawdza stałe elementy ekranu: tytuł, opis odblokowania, „Przywróć zakupy”. Wejście przez testID 'ustawienia' (ekran „Dziś”).
+# sprawdza stałe elementy ekranu: tytuł, opis odblokowania, „Przywróć zakupy”. Wejście przez testID 'ustawienia' (ekran „Dziś”). (PU-010)
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
 appId: pl.lkarwowski.szkolapokera
 name: Zakup z ustawień
 ---
@@ -10,18 +12,32 @@ name: Zakup z ustawień
     arguments:
       AppleLanguages: '(pl)'
 - runFlow: wspolne/za-powitaniem.yaml
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
 - tapOn:
     id: 'ustawienia'
+- assertVisible:
+    id: 'ekran:settings'
 - assertVisible: 'Zakupy'
 # wiersz pojawia się po odczycie dostępu (D-247); bez zakupu zawsze
 - extendedWaitUntil:
     visible: 'Pełny dostęp'
     timeout: 15000
 - tapOn: 'Pełny dostęp'
+- assertVisible:
+    id: 'ekran:purchase'
 - assertVisible: 'Bez dziennego limitu.*'
 - assertVisible: 'Przywróć zakupy'
 - assertNotVisible: 'Wróć do lekcji'
 - takeScreenshot: 10-zakup-z-ustawien
+# powrót: purchase
 - tapOn: 'Zamknij'
 - assertVisible: 'Zakupy'
+- assertVisible:
+    id: 'ekran:settings'
 - assertNotVisible: 'Bez dziennego limitu.*'
+# powrót: settings
+- tapOn: 'Wróć'
+# powrót: (tabs)/index
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index

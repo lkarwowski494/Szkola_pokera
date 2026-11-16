@@ -10,9 +10,10 @@ import { BladOdczytu } from '@/components/BladOdczytu';
 import { useOdczytPostepu } from '@/data/postep';
 import { czytajHistorie } from '@/features/advancement/historia';
 import { odstep, styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 /** Rozbicie wskaźnika zaawansowania na obszary (moduły kursu); tylko wiedza — część „gra” usunięta z trybem gry (ADR 0011). */
-export default function AdvancementScreen() {
+function AdvancementScreen() {
   const db = useBazaTresci();
   const tk = useTokens();
   const { t } = useTranslation();
@@ -96,3 +97,5 @@ const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: odstep.m },
   big: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
 });
+
+export default znacznikEkranu('advancement', AdvancementScreen);

@@ -451,7 +451,8 @@
       "raise": "{{pos}}：{{t:raise|加注}}到 {{bb}} bb",
       "allin": "{{pos}}：全下 {{bb}} bb",
       "blinds": "盲注 {{sb}}/{{bb}} bb",
-      "limp": "{{pos}}：以 {{bb}} bb {{t:limp|溜入}}"
+      "limp": "{{pos}}：以 {{bb}} bb {{t:limp|溜入}}",
+      "sep": "。"
     },
     "streets": {
       "preflop": "{{t:preflop|翻牌前}}",
@@ -580,7 +581,6 @@
     "stateAfter": "在你之後",
     "stateRaise": "{{t:raise|加注}}",
     "stateLimp": "溜入",
-    "seatLimp": "{{pos}} {{t:limp|溜入}}",
     "limped_other": "{{list}} {{t:limp|溜入}}",
     "seatHeroCards": "你在 {{pos}}，牌是 {{cards}}"
   },

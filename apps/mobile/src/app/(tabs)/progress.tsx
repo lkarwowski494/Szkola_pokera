@@ -11,6 +11,7 @@ import { useOdczytPostepu } from '@/data/postep';
 import { zegarTelefonu } from '@/platform/zegar';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { odstep, styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 // Statystyki z odpowiedzi w postep.db (część 5); seria dni z dni lokalnych aktywności (D-251).
 async function czytajPostep(port: PortBazy) {
@@ -22,7 +23,7 @@ async function czytajPostep(port: PortBazy) {
 }
 
 /** Postęp (FR-09); ustawienia przeniesione do ekranu „Ustawienia” (ikona na „Dziś”, 08 cz. 5b krok 5); zostają słowniczek i Pomoc (flow 04). */
-export default function ProgressScreen() {
+function ProgressScreen() {
   const db = useBazaTresci();
   const tk = useTokens();
   const { t } = useTranslation();
@@ -95,3 +96,5 @@ export default function ProgressScreen() {
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: odstep.m },
 });
+
+export default znacznikEkranu('(tabs)/progress', ProgressScreen);

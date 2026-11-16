@@ -1,4 +1,6 @@
-# Postęp → Słowniczek → wyszukiwanie po angielsku.
+# Postęp → Słowniczek → wyszukiwanie po angielsku (PU-005).
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
 appId: pl.lkarwowski.szkolapokera
 name: Słowniczek
 ---
@@ -14,10 +16,14 @@ name: Słowniczek
       id: 'dzis-lekcja'
     timeout: 30000
 - tapOn: 'Postęp'
+- assertVisible:
+    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress
 - scrollUntilVisible:
     element: 'Słowniczek PL–EN'
     direction: DOWN
 - tapOn: 'Słowniczek PL–EN'
+- assertVisible:
+    id: 'ekran:glossary'
 - tapOn: 'Szukaj po polsku albo po angielsku'
 - inputText: '${GLOSS_QUERY}'
 # nazwa polska z content/terms.yaml (helplines-env.mjs), nie wpisana tutaj (JAK-E0-01).
@@ -26,3 +32,8 @@ name: Słowniczek
 - extendedWaitUntil:
     visible: '${GLOSS_PL}'
     timeout: 20000
+# powrót: glossary
+- tapOn: 'Wróć'
+# powrót: (tabs)/progress
+- assertVisible:
+    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress

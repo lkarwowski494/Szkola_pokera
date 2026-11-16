@@ -10,6 +10,7 @@ import { ustawJezyk } from '@/i18n';
 import { WYDANE } from '@/i18n/slowniki';
 import i18n from 'i18next';
 import { styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 /**
  * Język aplikacji (F-16, BR-JEZ-001; ADR 0014 pkt 3, D-132; D-269): „Jak w telefonie” albo jeden z wydanych języków; zapis
@@ -17,7 +18,7 @@ import { styl, useTokens } from '@/theme/tokens';
  * „Jak w telefonie” + języki, nazwa języka w nim samym), odczyt 2026-11-08. Treść w nowym języku: baza na język przy starcie
  * (ADR 0005) — przełączenie bazy w trakcie działania razem z drugim językiem treści (flow 08 oczekujący, rola 09).
  */
-export default function LanguageRoute() {
+function LanguageRoute() {
   const port = usePortPostepu();
   const tk = useTokens();
   const { t } = useTranslation();
@@ -60,3 +61,5 @@ export default function LanguageRoute() {
     </Screen>
   );
 }
+
+export default znacznikEkranu('language', LanguageRoute);

@@ -38,6 +38,7 @@ function tekstyEn() {
     POWITANIE_EN: `.*${re(klucz(en, 'welcome.noMoney'))}.*`,
     OD_POCZATKU_EN: re(klucz(en, 'welcome.startFresh')),
     JEZYK_TYTUL_EN: re(klucz(en, 'language.title')),
+    WROC_EN: re(klucz(en, 'nav.back')), // tytuł przycisku wstecz w nagłówku stosu (headerBackTitle, app/_layout.tsx)
     JEZYK_TYTUL_PL: re(klucz(pl, 'language.title')),
   };
 }

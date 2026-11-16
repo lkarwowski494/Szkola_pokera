@@ -6,6 +6,8 @@
 # m2.l1 przez interfejs (lekcja nie zużywa limitu dnia, flow 09). Odpowiedzi w lekcji są dowolne: lekcja jest ukończona po
 # ostatnim zadaniu niezależnie od wyniku (zakonczAktywnosc, packages/postep/src/aktywnosci.ts).
 # Zostaje w oczekujace/ (poza bramką CI, D-189), dopóki nie przejdzie na symulatorze (przebieg E2E po scaleniu CZ).
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831). (PU-011)
 appId: pl.lkarwowski.szkolapokera
 name: Scenariusz
 ---
@@ -78,8 +80,12 @@ name: Scenariusz
     visible:
       id: 'dzis-scenariusz'
     timeout: 30000
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
 - tapOn:
     id: 'dzis-scenariusz'
+- assertVisible:
+    id: 'ekran:scenarios'
 - scrollUntilVisible:
     element:
       id: 'scenariusz-sc-01'
@@ -90,6 +96,8 @@ name: Scenariusz
 - tapOn:
     id: 'scenariusz-sc-01'
 - assertVisible: 'Automatycznie'
+- assertVisible:
+    id: 'ekran:scenario'
 - tapOn:
     id: 'poziom-latwy'
 - tapOn: 'Zacznij rozdanie'
@@ -123,3 +131,12 @@ name: Scenariusz
     visible:
       id: 'option-0'
     timeout: 30000
+# powrót: scenario
+- tapOn: 'Zakończ'
+- assertVisible:
+    id: 'ekran:scenarios'
+# powrót: scenarios
+- tapOn: 'Wróć'
+# powrót: (tabs)/index
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index

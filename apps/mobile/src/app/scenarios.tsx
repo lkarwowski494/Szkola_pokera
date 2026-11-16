@@ -11,12 +11,13 @@ import { czytajFaktyKursu } from '@/features/kurs/faktyKursu';
 import { szablonOdblokowany } from '@/features/scenariusz/dostep';
 import { WyborScenariusza, type GrupaScenariuszy } from '@/features/scenariusz/WyborScenariusza';
 import { zapiszBlad } from '@/platform/dziennik';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 /**
  * Scenariusze (kafelek na „Dziś”, KO-045; krok F, BR-SCN): lista szablonów pogrupowana w modułach, pod spodem ekran przebiegu
  * `scenario`. Treść bez szablonów (brak tabeli `scenarios` albo pusta) daje „wkrótce” bez przycisków.
  */
-export default function ScenariosScreen() {
+function ScenariosScreen() {
   const { t } = useTranslation();
   const db = useBazaTresci();
   const fakty = useOdczytPostepu(czytajFaktyKursu, 'scenariusze');
@@ -52,3 +53,5 @@ export default function ScenariosScreen() {
   }
   return <WyborScenariusza grupy={grupy} onWybierz={(id) => router.push({ pathname: '/scenario', params: { id } })} />;
 }
+
+export default znacznikEkranu('scenarios', ScenariosScreen);
