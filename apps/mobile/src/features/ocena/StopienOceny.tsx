@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Text, View } from 'react-native';
+import { Dimensions, PixelRatio, Text, View } from 'react-native';
 import { odstep, styl, useTokens } from '@/theme/tokens';
+import { rozmiarSlowaStopnia } from './slowoStopnia';
 
 /**
  * Stopień oceny zagrania po decyzji (PR-03, BR-CWI-001, NFR-DOST-001): słowo i znak, nie sam kolor
@@ -21,10 +22,13 @@ export default function StopienOceny({ ocena, naSuknie = false }: PropsStopniaOc
   const { t } = useTranslation();
   const slowo = t(`grade.${ocena}`);
   const kolor = naSuknie ? tk.onFelt : tk.ink;
+  // Na suknie słowo nie zawija się w obrębie wyrazu: rozmiar ze skali (`slowoStopnia`, potem `tytulDlugi`) wg szerokości ekranu i skali tekstu (IC, D-1850).
+  const rozmiar = naSuknie ? rozmiarSlowaStopnia(ZNAK[ocena], slowo, Dimensions.get('window').width, PixelRatio.getFontScale(), [styl.slowoStopnia, styl.tytulDlugi]) : null;
+  const wymiary = rozmiar ?? {};
   return (
-    <View accessible accessibilityLabel={t('grade.label', { slowo })} style={{ flexDirection: 'row', alignItems: 'baseline', gap: odstep.s }}>
-      <Text style={[styl.slowoStopnia, { color: kolor }]}>{ZNAK[ocena]}</Text>
-      <Text style={[styl.slowoStopnia, { color: kolor }]}>{slowo}</Text>
+    <View accessible accessibilityLabel={t('grade.label', { slowo })} style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'baseline', gap: odstep.s }}>
+      <Text style={[styl.slowoStopnia, wymiary, { color: kolor }]}>{ZNAK[ocena]}</Text>
+      <Text style={[styl.slowoStopnia, wymiary, { color: kolor, flexShrink: 1 }]}>{slowo}</Text>
     </View>
   );
 }
