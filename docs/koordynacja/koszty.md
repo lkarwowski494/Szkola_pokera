@@ -200,3 +200,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | HR | 08 audit (opus) recenzja kodu HO | — | 4,21 | 63,8 | 13:16 → 03a8910a 13:40 (ci kod 0 @ 9677c41c) | — | PRZYJĄĆ Z UWAGAMI; zarchiwizowana 13:55 |
 Przegląd przepływu 2026-11-16 (14:00): największa strata 84 min — E2E scalenia 14fdc7c6 w kolejce macOS 11:39→13:03 → WG-19 (nawrót). Koszt 24 h ok. 80 USD (sesje 56,70 + koordynator 23,37; HT i HU w toku).
 | HU | 06 build (opus/high) poprawki treści HS-302/305/303/304, SC-04 | 6 | 5,43 | 65,4 | 13:42 → 545e6ada 14:01 (kontrole treści kod 0; pełne ci po scaleniu w HT) | — | przyjęta 14:05, zarchiwizowana; D-1770…1773 do weta |
+| HT | 08 fix (sonnet) poprawki silnika HR-001…007, D-1750, HS-301, odciski | 6 | 4,90 | 38,2 | 13:43 → 0e53d271 14:50 (ci kod 0) | — | przyjęta 14:55, zarchiwizowana; D-1760…1769 do weta |
