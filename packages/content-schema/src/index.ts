@@ -554,6 +554,12 @@ export const ScenarioLevelBounds = z
     /** 08-EX-5: kicker najwyższej pary jako ranga 2…A (włącznie); nie dotyczy nadpary. */
     kickerMin: ScenarioRank.optional(),
     kickerMax: ScenarioRank.optional(),
+    /** 08-EX-6 (SC-18/21): klasa karty turnu punktu turn-action (overcard = wyższa od każdej karty flopu; other = niższa od najwyższej karty flopu, nie paruje stołu). */
+    turnClass: z.enum(['overcard', 'other']).optional(),
+    /** 08-EX-6: na flopie gracz bez pary z własną kartą i bez drawa od 8 outów. */
+    flopMiss: z.boolean().optional(),
+    /** 08-EX-6: najwyższa karta flopu co najmniej tej rangi. */
+    flopHighMin: ScenarioRank.optional(),
     reject: z.array(ScenarioReject).default([]),
     /** Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). */
     /** draw-call: `call` albo `fold`; range-spot: etykieta akcji węzła solvera spotu (np. `raise 2.5`, `fold`; sprawdza build). */
@@ -822,7 +828,22 @@ export const ScenarioGeoSizeDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioGeoSizeDecision, ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-EX-6 (SC-18/SC-21, R-M7-001/003/005, sesja HO): zakład albo czekanie na turnie z pozycji (c-bet sprawdzony, rywal czeka). Bez rachunku (reguła heurystyczna, D-1052);
+ * granice poziomu: `turnClass`, `pairKind`, `flopMiss`, `flopHighMin`, `expected` (`bet-big` albo `check`). Każda akcja ma własne wyjaśnienie (BR-OCE-002).
+ */
+export const ScenarioTurnActionDecision = z
+  .object({
+    street: z.literal('turn'),
+    kind: z.literal('turn-action'),
+    rule: id.optional(),
+    calc: id.optional(),
+    actions: z.array(z.object({ action: z.enum(['check', 'bet-small', 'bet-big']), explanation: z.string().min(1) }).strict()).min(2).max(3),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioTurnActionDecision, ScenarioGeoSizeDecision, ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 /** Najmniejszy margines (ułamek, 0,01 = 1 pp) punktu river-catch: odstęp ≥ 1 pp daje różne procenty bez miejsc po przecinku (round monotoniczne, round(y + 1) = round(y) + 1). */

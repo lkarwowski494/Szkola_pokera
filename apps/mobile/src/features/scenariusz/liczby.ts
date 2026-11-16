@@ -29,6 +29,7 @@ export function zdaniaLiczb(s: SesjaScenariusza, i: number, wybor: Akcja, t: TFn
     case 'turn-bet': return []; // FG: ceny drawa przy obu zakładach (requiredSmall/Big, hit) wymagają nowych kluczy i18n (zadanie dla 06/09); brak zdania zamiast zgadniętego
     case 'river-catch': return zdaniaRiverCatch(d, t, j); // D-1465 (GB; klucze KO-098): cena sprawdzenia, udział blefów i kierunek; niezależnie od wyboru (rachunek dotyczy rozdania)
     case 'defend': return zdanieDefend(d, t, j); // D-1465/D-1474 (GB): cena sprawdzenia i MDF z puli przed zakładem, jako punkt odniesienia zakresu
+    case 'turn-action': return []; // HO (08-EX-6): bez rachunku (heurystyka)
     case 'geo-size': return []; // HO (08-EX-4): ułamek geometryczny i łańcuch zakładów wymagają kluczy i18n po projekcie widoku (rola 04/06/09)
     case 'spr-call': return []; // HO (08-EX-5): cena S ÷ (P + 2S) i SPR wymagają kluczy i18n po projekcie widoku (rola 04/06/09); brak zdania zamiast zgadniętego
     case 'list-hand': return []; // brak liczb: ocena z listy klas (08-N4); widoku jeszcze nie ma

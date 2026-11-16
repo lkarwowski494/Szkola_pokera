@@ -190,6 +190,19 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
         if ((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.5) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin < 0,5 (δ ≥ 0,5 wyklucza obie akcje, D-1417)`); // 08-programista-006
       }
+    } else if (d.kind === 'turn-action') {
+      // 08-EX-6 (SC-18/21): decyzja z granic poziomu (heurystyka bez rachunku); lista akcji to check, bet-big i opcjonalnie bet-small, każda z wyjaśnieniem (BR-OCE-002)
+      const akcje = d.actions.map((a) => a.action);
+      if (new Set(akcje).size !== akcje.length || !akcje.includes('check') || !akcje.includes('bet-big')) e.push(`${p} akcje to check, bet-big i opcjonalnie bet-small, każda raz i z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet-big' && ex !== 'check') e.push(`${p} poziom ${l}: oczekiwana akcja punktu turn-action to bet-big albo check, jest ${ex}`);
+        if (ex !== undefined && !akcje.includes(ex as 'check')) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie ma wyjaśnienia w akcjach punktu`);
+        if (!b.turnClass) e.push(`${p} poziom ${l}: punkt turn-action wymaga turnClass`);
+        if (!b.pairKind || b.pairKind.length === 0) e.push(`${p} poziom ${l}: punkt turn-action wymaga pairKind (rodzaj pary po turnie)`);
+      }
     } else if (d.kind === 'geo-size') {
       // 08-EX-4 (SC-27, R-M9-006/009): set z rozmiarem geometrycznym na flopie; mały zakład nie może wpłacać stacku, a geometryczny ma być większy od małego
       if (d.actions.map((a) => a.action).sort().join(',') !== 'bet-big,bet-small') e.push(`${p} akcje to dokładnie bet-small i bet-big, każda z własnym wyjaśnieniem (BR-OCE-002)`);
