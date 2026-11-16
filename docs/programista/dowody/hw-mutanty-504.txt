@@ -1,0 +1,15 @@
+# HW 08-programista-504: mutanty M3, M4, M6, M13 (skrypt: docs/programista/recenzje/dowody/hm-mutanty-skrypt.txt, filtr na te cztery; 2026-11-16, HEAD 7f51a9b + testy)
+
+## Przed (stare testy HK; test czerwony = mutant ZABITY, tu wszystkie przeżyły)
+M3 | 001: dopisek „twój wybór” kolorem goldOnBg (tekst na jasnym tle) na granacie | PRZEŻYŁ (jest kod 0; Tests:       4 passed, 4 total)
+M4 | 001: nazwa akcji kolorem ink (ciemny) na granacie | PRZEŻYŁ (jest kod 0; Tests:       4 passed, 4 total)
+M6 | 002: ulica w kolumnie zachowuje minWidth 64 i textAlign right | PRZEŻYŁ (jest kod 0; Tests:       2 passed, 2 total)
+M13 | 006: zamykające nawiasy nie wchodzą do zdania | PRZEŻYŁ (jest kod 0; Tests:       7 passed, 7 total)
+git status --porcelain po przebiegu: ''
+
+## Po (nowe asercje)
+M3 | 001: dopisek „twój wybór” kolorem goldOnBg (tekst na jasnym tle) na granacie | ZABITY (jest kod 1; Tests:       1 failed, 4 passed, 5 total)
+M4 | 001: nazwa akcji kolorem ink (ciemny) na granacie | ZABITY (jest kod 1; Tests:       1 failed, 4 passed, 5 total)
+M6 | 002: ulica w kolumnie zachowuje minWidth 64 i textAlign right | ZABITY (jest kod 1; Tests:       1 failed, 3 passed, 4 total)
+M13 | 006: zamykające nawiasy nie wchodzą do zdania | ZABITY (jest kod 1; Tests:       1 failed, 7 passed, 8 total)
+git status --porcelain po przebiegu: ' M apps/mobile/src/features/scenariusz/__tests__/hk-naglowek-ax5-002.test.tsx\n M apps/mobile/src/features/scenariusz/__tests__/hk-pasek-ocen-001.test.tsx\n M apps/mobile/src/features/scenariusz/__tests__/hk-zdanie-006.test.ts\n'

@@ -21,6 +21,12 @@ describe('04-studio-projektowe-006: pierwsze zdanie sytuacji jako tytuł', () =>
     expect(podzielSytuacje('在河牌你有頂對，你在按鈕位。對手是被動的玩家：VPIP約 35%。')).toEqual({ tytul: '在河牌你有頂對，你在按鈕位。', reszta: '對手是被動的玩家：VPIP約 35%。' });
     expect(podzielSytuacje('你有頂對（top pair）。對手過牌！你下注嗎？')).toEqual({ tytul: '你有頂對（top pair）。', reszta: '對手過牌！你下注嗎？' });
   });
+  // 08-programista-504 (mutant M13 recenzji HM): nawias lub cudzysłów PO znaku końca zdania należy do tytułu (dotąd fixture miał nawias przed „。”).
+  it('nawias i cudzysłów po znaku końca wchodzą do tytułu: „(… .)”, „「…。」”', () => {
+    expect(podzielSytuacje('Masz parę (top pair.) Rywal czeka.')).toEqual({ tytul: 'Masz parę (top pair.)', reszta: 'Rywal czeka.' });
+    expect(podzielSytuacje('Rywal mówi „Czekam.” Co robisz?')).toEqual({ tytul: 'Rywal mówi „Czekam.”', reszta: 'Co robisz?' });
+    expect(podzielSytuacje('相手は「パッシブです。」あなたはどうしますか。')).toEqual({ tytul: '相手は「パッシブです。」', reszta: 'あなたはどうしますか。' });
+  });
   it('ko, vi: kropka i spacja (bez wielkich liter w hangulu)', () => {
     expect(podzielSytuacje('리버에서 당신은 탑 페어를 들고 버튼에 있습니다. 상대는 패시브합니다.')).toEqual({ tytul: '리버에서 당신은 탑 페어를 들고 버튼에 있습니다.', reszta: '상대는 패시브합니다.' });
     expect(podzielSytuacje('Ở river bạn có đôi cao nhất. Đối thủ là người chơi giải trí.')).toEqual({ tytul: 'Ở river bạn có đôi cao nhất.', reszta: 'Đối thủ là người chơi giải trí.' });

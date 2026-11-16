@@ -3,7 +3,7 @@
 // bez stałej szerokości 64 pt (zrzut „Riv/er”, „Pr/efl/op”). Przy tekście domyślnym układ bez zmian.
 import '@/i18n';
 import { Dimensions, StyleSheet } from 'react-native';
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, within } from '@testing-library/react-native';
 import i18n from '@/i18n';
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { propsFg } from '@/test-utils/fgScenariusz';
@@ -42,6 +42,21 @@ describe('04-studio-projektowe-002: nagłówek przebiegu przy dużym tekście', 
   };
   it('AX5: Zakończ, tytuł i ulica jeden pod drugim (kolumna), ulica bez minWidth 64 obok tytułu', async () => {
     expect(kierunek(await naglowek(AX5))).toBe('column');
+  });
+  // 08-programista-504 (mutant M6 recenzji HM): nazwa testu obiecuje „ulica bez minWidth 64”, więc asercja sprawdza styl ulicy, nie tylko kierunek.
+  /** Styl napisu ulicy w tym samym układzie co tytuł (ten sam napis jest też gdzie indziej na ekranie). */
+  const ulica = async (fontScale: number) => {
+    const uklad = wiersz(await naglowek(fontScale));
+    if (!uklad) throw new Error('brak układu nagłówka');
+    return StyleSheet.flatten(within(uklad).getByText(t('scenario.street.preflop')).props.style);
+  };
+  it('AX5: ulica bez minWidth 64 i bez wyrównania do prawej', async () => {
+    const st = await ulica(AX5);
+    expect(st?.minWidth).toBeUndefined();
+    expect(st?.textAlign).toBeUndefined();
+  });
+  it('tekst domyślny: ulica z minWidth 64 i wyrównaniem do prawej', async () => {
+    expect(await ulica(1)).toMatchObject({ minWidth: 64, textAlign: 'right' });
   });
   it('tekst domyślny: wiersz jak dotąd (row, space-between)', async () => {
     const w = wiersz(await naglowek(1));
