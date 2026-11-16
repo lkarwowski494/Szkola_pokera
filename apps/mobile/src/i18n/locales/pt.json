@@ -472,7 +472,8 @@
       "bet": "{{pos}}: {{t:bet|aposta}} {{bb}} bb",
       "raise": "{{pos}}: {{t:raise|aumenta}} para {{bb}} bb",
       "allin": "{{pos}}: all-in {{bb}} bb",
-      "blinds": "Blinds {{sb}}/{{bb}} bb"
+      "blinds": "Blinds {{sb}}/{{bb}} bb",
+      "limp": "{{pos}}: {{t:limp|faz limp}} {{bb}} bb"
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -605,7 +606,13 @@
     "stateHero": "eu",
     "stateFold": "{{t:fold|desistiu}}",
     "stateAfter": "a seguir",
-    "stateRaise": "{{t:raise|aumenta}}"
+    "stateRaise": "{{t:raise|aumenta}}",
+    "stateLimp": "limp",
+    "seatLimp": "{{pos}} {{t:limp|faz limp}}",
+    "limped_one": "{{list}} {{t:limp|faz limp}}",
+    "limped_many": "{{list}} {{t:limp|fazem limp}}",
+    "limped_other": "{{list}} {{t:limp|fazem limp}}",
+    "seatHeroCards": "o seu lugar: {{pos}}, cartas {{cards}}"
   },
   "strategy": {
     "label": "Estratégia do solver para {{hand}}: {{list}}.",

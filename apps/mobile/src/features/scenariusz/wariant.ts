@@ -5,6 +5,7 @@ import { formatujLiczbe } from '@szkola/jezyki';
 import { jezykZadan } from '@/features/drills/text';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
+import { pulaPrzedDecyzjaBb } from './limperzy';
 
 /**
  * Wariant scenariusza na ekranie (PR-05; BR-GEN-001, BR-OCE-001/002, D-557). Czyste funkcje: wariant (karty, pule, zakłady)
@@ -325,8 +326,19 @@ export function ukladIcm(d: IcmCallVariantDecision, s: Pozycje): UkladIcm | null
   };
 }
 
-/** `s` potrzebne tylko dla icm-call (stos i blind gracza wchodzą do puli i dopłaty); bez niego icm-call nie ma kwot. */
-export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): WidokDecyzji {
+/**
+ * Liczba limperów przed graczem w punkcie `iso-size` (HX, D-1734): z szablonu (`limpers`), bo wariant jej nie niesie; inne punkty null.
+ * Gdy punkt jest iso-size, ale szablon nie ma `limpers` (bramka treści tego nie przepuści), też null: widok stołu zostaje jak dla size-spot.
+ */
+export function limperzyPunktu(d: VariantDecision, spec: ScenarioTemplate['decisions'][number] | undefined): number | null {
+  return d.point === 'size-spot' && d.check === 'iso-size' && spec?.kind === 'size-spot' && spec.limpers !== undefined ? spec.limpers : null;
+}
+
+/**
+ * `s` potrzebne dla icm-call (stos i blind gracza wchodzą do puli i dopłaty) i dla iso-size (pozycja gracza, `decisions[].limpers`: pula = blindy + limpy,
+ * HX D-1736); bez niego te punkty nie mają kwot.
+ */
+export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje & Partial<Pick<ScenarioTemplate, 'decisions'>>): WidokDecyzji {
   const d = v.points[indeks];
   if (!d) throw new Error(`Wariant nie ma decyzji ${indeks}`);
   const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : d.street === 'turn' ? 4 : 5).map(cardToString);
@@ -336,6 +348,8 @@ export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje): W
     const u = ukladIcm(d, s);
     if (u) return { indeks, ulica: 'preflop', stol, pulaBb: u.pulaBb, doSprawdzeniaBb: u.doSprawdzeniaBb };
   }
+  const limperzy = s ? limperzyPunktu(d, s.decisions?.[indeks]) : null;
+  if (s && limperzy !== null) return { indeks, ulica: d.street, stol, pulaBb: pulaPrzedDecyzjaBb(s.positions.hero, limperzy), doSprawdzeniaBb: null }; // iso-size: sama pula, bez „do sprawdzenia”
   return { indeks, ulica: d.street, stol, pulaBb: null, doSprawdzeniaBb: null };
 }
 

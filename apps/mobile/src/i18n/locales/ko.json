@@ -450,7 +450,8 @@
       "bet": "{{pos}}: {{t:bet|벳}} {{bb}} bb",
       "raise": "{{pos}}: {{bb}} bb로 {{t:raise|레이즈}}",
       "allin": "{{pos}}: 올인 {{bb}} bb",
-      "blinds": "블라인드 {{sb}}/{{bb}} bb"
+      "blinds": "블라인드 {{sb}}/{{bb}} bb",
+      "limp": "{{pos}}: {{bb}} bb {{t:limp|림프}}"
     },
     "streets": {
       "preflop": "{{t:preflop|프리플롭}}",
@@ -577,7 +578,11 @@
     "stateHero": "나",
     "stateFold": "{{t:fold|폴드}}",
     "stateAfter": "내 뒤 순서",
-    "stateRaise": "{{t:raise|레이즈}}"
+    "stateRaise": "{{t:raise|레이즈}}",
+    "stateLimp": "림프",
+    "seatLimp": "{{pos}} {{t:limp|림프}}",
+    "limped_other": "{{list}} {{t:limp|림프}}",
+    "seatHeroCards": "나: {{pos}}, 카드 {{cards}}"
   },
   "strategy": {
     "label": "{{hand}}에 대한 솔버 전략: {{list}}.",

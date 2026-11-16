@@ -29,10 +29,11 @@ export function Screen({
   );
 }
 
-export function Title({ children }: { children: ReactNode }) {
+/** `rozmiar="tytulDlugi"`: mniejszy styl długiego tytułu sytuacji na starcie scenariusza (HX, D-1730); domyślnie `tytul`. */
+export function Title({ children, rozmiar = 'tytul' }: { children: ReactNode; rozmiar?: 'tytul' | 'tytulDlugi' }) {
   const tk = useTokens();
   return (
-    <Text accessibilityRole="header" style={[styl.tytul, { color: tk.ink }]}>
+    <Text accessibilityRole="header" style={[styl[rozmiar], { color: tk.ink }]}>
       {children}
     </Text>
   );

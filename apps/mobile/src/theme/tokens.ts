@@ -90,6 +90,10 @@ export const styl = {
   get tytul() {
     return { ...sufit(s.tytul), fontWeight: '600' as const, fontFamily: krojTytulowy() };
   },
+  /** Długi tytuł sytuacji na starcie scenariusza (HX, D-1731: 20/25, ten sam sufit szerokości co `tytul`). */
+  get tytulDlugi() {
+    return { ...sufit(s.tytulDlugi), fontWeight: '600' as const, fontFamily: krojTytulowy() };
+  },
   /** Słowo stopnia na suknie (D-122: 34/38, sufit 8,5% szerokości; A04-07). */
   get slowoStopnia() {
     return { ...sufit(s.slowoStopnia), fontWeight: '600' as const, fontFamily: krojTytulowy() };

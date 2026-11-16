@@ -6,7 +6,7 @@ import type { Position } from '@/features/drills/types';
  * Czyste funkcje: komponent `Stol` rysuje miejsca w slotach, a etykieta VoiceOver i opis pod stołem powstają z tych
  * samych danych. Stół 6-osobowy (wszystkie `content/ranges/spots.yaml`); slot 0 = dół (ty), dalej wskazówki zegara.
  */
-export type StanMiejsca = 'ty' | 'pas' | 'czeka' | 'przebija';
+export type StanMiejsca = 'ty' | 'pas' | 'czeka' | 'przebija' | 'limp';
 export interface Miejsce {
   readonly pozycja: Position;
   readonly stan: StanMiejsca;
@@ -22,13 +22,15 @@ const jestPozycja = (p: string): p is Position => (KOLEJNOSC as readonly string[
  * Przebieg `UTG:fold,HJ:raise2.5` → miejsca; złe dane → null (stół bez miejsc, nie zgadnięty układ).
  * Stół zna tylko pas (`fold`) i przebicie (`raise…`); inna akcja (call, limp, allin, check) też daje null, bo nazwanie jej
  * „przebija” byłoby błędnym twierdzeniem (D-314, D-338). Nowy stan miejsca wymaga tekstu od roli 04.
+ * Wyjątek: z opcją `limp` (widok limperów, HX D-1734; tekst od roli 04: `table.stateLimp`) akcja `limp` daje stan „limp”;
+ * bez opcji nadal null, więc zadania z `spots.yaml` zachowują kontrakt 08.
  */
-export function ukladStolu(ty: Position, przebieg: string): Miejsce[] | null {
-  const akcje = new Map<Position, 'pas' | 'przebija'>();
+export function ukladStolu(ty: Position, przebieg: string, opcje: { limp?: boolean } = {}): Miejsce[] | null {
+  const akcje = new Map<Position, 'pas' | 'przebija' | 'limp'>();
   for (const wpis of przebieg.split(',').map((s) => s.trim()).filter(Boolean)) {
     const [p, a] = wpis.split(':');
     if (!p || !a || !jestPozycja(p) || p === ty || akcje.has(p)) return null;
-    const stan = a === 'fold' ? 'pas' : /^raise\d*(\.\d+)?$/.test(a) ? 'przebija' : null;
+    const stan = a === 'fold' ? 'pas' : /^raise\d*(\.\d+)?$/.test(a) ? 'przebija' : a === 'limp' && opcje.limp ? 'limp' : null;
     if (!stan) return null;
     akcje.set(p, stan);
   }
@@ -54,14 +56,24 @@ export function klasaReki(reka: readonly string[]): string {
   return a && b ? classOf(parseCard(a), parseCard(b)) : '';
 }
 
-export function etykietaStolu(m: readonly Miejsce[], reka: readonly string[], t: TFn): string {
+/**
+ * `kartyNazwami` (scenariusz, HX D-1735): ty „na CO, karty as pik i walet karo” (nazwy kart dla czytnika) zamiast klasy ręki,
+ * bo pod stołem scenariusza nie stoi opis ręki. Limperzy tworzą jedną frazę („HJ i CO limp”) w miejscu pierwszego z nich.
+ */
+export function etykietaStolu(m: readonly Miejsce[], reka: readonly string[], t: TFn, opcje: { kartyNazwami?: boolean } = {}): string {
   const czesci: string[] = [];
   const czekaja: string[] = [];
+  const limperzy = wgAkcji(m).filter((x) => x.stan === 'limp').map((x) => x.pozycja);
+  let limpyOpisane = false;
   for (const x of wgAkcji(m)) {
     if (x.stan === 'pas') czesci.push(t('table.seatFold', { pos: x.pozycja }));
     else if (x.stan === 'przebija') czesci.push(t('table.seatRaise', { pos: x.pozycja }));
-    else if (x.stan === 'ty') czesci.push(t('table.seatHero', { pos: x.pozycja, hand: klasaReki(reka) }));
-    else czekaja.push(x.pozycja);
+    else if (x.stan === 'limp') {
+      if (!limpyOpisane) czesci.push(limperzy.length === 1 ? t('table.seatLimp', { pos: limperzy[0] }) : t('table.limped', { count: limperzy.length, list: lista(limperzy, t) }));
+      limpyOpisane = true;
+    } else if (x.stan === 'ty') {
+      czesci.push(opcje.kartyNazwami ? t('table.seatHeroCards', { pos: x.pozycja, cards: lista(reka.map((c) => nazwaKarty(c, t)), t) }) : t('table.seatHero', { pos: x.pozycja, hand: klasaReki(reka) }));
+    } else czekaja.push(x.pozycja);
   }
   if (czekaja.length) czesci.push(t('table.after', { list: lista(czekaja, t) }));
   return t('table.label', { list: czesci.join(', ') });
