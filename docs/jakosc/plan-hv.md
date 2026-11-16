@@ -7,7 +7,7 @@ Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/HV.md` @ e177e0f4 · g
 - Plan: (1) skrypt z modułu + test na fiksturach, (2) katalog PU, `ostatni-build.txt`, protokół 1010 bez pozycji, szablon i lista F, (3) krok w `testflight.yml` + test w `workflowy.test.mjs`, (4) dowody mutacji, `pnpm run ci`, przekazanie. Ryzyko: ścieżka wrażliwa `.github/workflows/` (D-043) — recenzję niezależną zleca koordynator.
 
 ## Stan
-- [x] 1 skrypt i test · [x] 2 katalog (21 PU: A 0, B 14, F 7) · [x] 3 workflow · [ ] 4 dowody i przekazanie
+- [x] 1 skrypt i test · [x] 2 katalog (21 PU: A 0, B 14, F 7) · [x] 3 workflow · [x] 4 dowody (`docs/jakosc/dowody/hv-ci-8ea9161.txt`, ci kod 0, push bea7ffb5) · [x] przekazanie koordynatorowi
 
 ## Otwarte
 - Rola 08: testID `ekran:<trasa>` na korzeniu 15 ekranów (D-1780); potem 07: kroki `assertVisible`/`# powrót:` w flowach i klasa A (termin 1013).
