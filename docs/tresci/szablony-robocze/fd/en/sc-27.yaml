@@ -1,7 +1,7 @@
 # sc-27: English text of pl/sc-27.yaml (role 06, session HP, 2026-11-16; draft, for review by role 09); structure must match pl.
 id: sc-27
 module: m9
-situation: "A size that gets the whole stack in. On the Button you {{t:3-bet}} the open from the CO, and they {{t:call|called}}. On the flop you have a {{t:set}}, and the CO {{t:check|checks}}. Assume you want to get the whole stack in by the river with equal {{t:bet|bets}} on the flop, turn and river."
+situation: "A size that gets the whole stack in. On the Button you {{t:3-bet}} the open from the CO, and they {{t:call|called}}. On the flop you have a {{t:set}}, and the CO {{t:check|checks}}. Assume you have a hand for three {{t:street|streets}} of {{t:value}} and want to get the whole stack in by the river with equal {{t:bet|bets}} on the flop, turn and river."
 table: 6max
 positions: { hero: BTN, villain: CO }
 stackBb: 100
@@ -18,6 +18,6 @@ decisions:
     small: 0.33
     actions:
       - action: bet-big
-        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}}. You {{t:bet}} about {{w:rozmiar}} of the {{t:pot}}, because the same fraction of the {{t:pot}} on every {{t:street}} gets the whole stack in exactly on the river. You have a hand for three {{t:street|streets}} of {{t:value}}, and in theory equal {{t:bet|bets}} make your opponent defend widest, so they put the most into the {{t:pot}}."
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}}. You {{t:bet}} about {{w:rozmiar}} of the {{t:pot}}, because the same fraction of the {{t:pot}} on every {{t:street}} gets the whole stack in exactly on the river. In theory, equal {{t:bet|bets}} make your opponent defend widest, so they put the most into the {{t:pot}}."
       - action: bet-small
         explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}}. A small {{t:bet}} won't get the stack in: three {{t:bet|bets}} of a third of the {{t:pot}} put in only part of it, for example in a {{t:3-bet}} {{t:pot}} with {{n:spr.3bet-ip.stack}} behind, only about {{n:g3b.third.total}}. To reach {{t:all-in}} on the river, you already {{t:bet}} the geometric size on the flop, about {{w:rozmiar}} of the {{t:pot}}."

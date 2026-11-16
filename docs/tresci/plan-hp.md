@@ -12,3 +12,9 @@ Stan: 2026-11-16 · Gałąź `claude/sesja-hp-szkice` od 0b0855ef · Polecenie: 
 2. Szkice pl i en (6 × 2 pliki) w `fd/`, format jak `sc-31.yaml`: sytuacja z krótkim pierwszym zdaniem (tytuł), poziomy wg planu zawężone do wariantów ze źródłem (D-1053), wyjaśnienia BR-OCE-001/002, reguła z poziomem pewności, liczby tylko `{{n:}}` istniejących kluczy.
 3. Lista warunków generatora dla HO: `docs/tresci/szablony-robocze/fd/warunki-hp.md`.
 4. Niezależna weryfikacja (subagent, świeży kontekst): cytat w surowym tekście, zdanie nie mówi więcej niż źródło. Nie dotykam `content/` ani kodu.
+
+## Stan wykonania (2026-11-16)
+- Gotowe: 6 szkiców pl+en (`fd/{pl,en}/sc-{16,18,21,26,27,30}.yaml`), rejestr twierdzeń `fd/rejestr-hp.md` (T-HP-01…30), odczyty `docs/tresci/odczyty/hp-2026-11-16.tsv`, warunki dla HO `fd/warunki-hp.md` (5f383a7c + D-1722).
+- Kontrole: klucze `{{n:}}`/`{{t:}}`, brak gołych cyfr, zgodność struktury pl/en: zielone dla 12 plików.
+- Weryfikacja niezależna (świeży kontekst, każde zdanie u źródła): 0 błędów cytatu i liczb; 8 zdań za mocnych, 1 błędne (SC-26 „płacisz mało względem puli”), 3 bez wpisu: poprawione; skutek merytoryczny: D-1722 (SC-16 call `compliant`).
+- Otwarte: SC-26 T po 08-EX-3; SC-30 Ś niewykonalne (D-1721); DV SC-18b podważone (D-1716); nowe znaczniki `{{w:spr}}`, `{{w:rozmiar}}`, `{{w:vpip}}` dla HO.

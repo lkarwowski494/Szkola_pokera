@@ -24,7 +24,7 @@ Nowe znaczniki tekstu `{{w:…}}` (wartości z wariantu, nie liczby treści): `{
 | Akcja | Krotność c-betu | Werdykt | Podstawa |
 |---|---|---|---|
 | `raise-big` | `xr.mult.example` (4,5) | `compliant` | R-M6-008 (UP „Flush draws make for good check-raises”, „Open-enders should check-raise often”); R-M6-010 (UP ep1 „Use a 4.5x raise vs. smaller c-bets”) |
-| `call` | — | `acceptable` | UP ep1 „You don’t always want to raise your high-equity draws” (ręka mieszana, ADR-04) |
+| `call` | — | `compliant` | ręka mieszana (ADR-04, D-1722): UP ep1 „You don’t always want to raise your high-equity draws”; UP check-raise-lucid Tip #3 (solver, Q94 dwukolorowy): „check-calling is still preferred” |
 | `fold` | — | `inaccuracy` | R-M6-006 (kontynuujesz drawami wobec małego c-betu); **nie** `draw-price` (D-1301) |
 | `raise-small` (tylko T) | `xr.too-small.mult` (1,5) | `inaccuracy` | R-M6-010: krotność < `xr.mult.low`; BTN potrzebuje tylko ok. `eq.vs-xr.too-small` equity |
 

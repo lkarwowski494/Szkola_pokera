@@ -17,6 +17,6 @@ decisions:
     spot: rfi.btn
     actions:
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:fold|Pasujesz}}, bo gracz, który gra tylko ok. {{w:vpip}} rąk, ma w nich głównie pary i najlepsze asy, a wobec nich twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}. Jego {{t:3-bet}} nie może być szerszy niż wszystkie ręce, które gra, więc wobec samego {{t:3-bet|3-betu}} twoja ręka nie wypada lepiej."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:fold|Pasujesz}}, bo jeśli gra on najsilniejsze ok. {{w:vpip}} rąk, to są to głównie pary i najlepsze asy, a wobec nich twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}. Z założenia jego {{t:3-bet}} mieści się w tych rękach, więc wobec samego {{t:3-bet|3-betu}} twoja ręka nie wypada lepiej."
       - action: call
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:call|Sprawdzenie}} traci: nawet wobec wszystkich rąk, które gra ten rywal, twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}, a jego {{t:3-bet}} nie może być szerszy niż te ręce."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, a rywal z {{w:rywal}} {{t:3-bet|3-betuje}}. {{t:call|Sprawdzenie}} traci: nawet wobec wszystkich rąk, które gra ten rywal, twoja ręka ma mniej equity, niż wymaga cena {{t:call|sprawdzenia}}, a z założenia jego {{t:3-bet}} mieści się w tych rękach."

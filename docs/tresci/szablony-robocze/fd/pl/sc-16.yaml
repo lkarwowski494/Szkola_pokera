@@ -1,5 +1,5 @@
 # SC-16 (M6): check-raise mocnym drawem wobec małego c-betu (proponowany punkt check-raise, 08-EX-7; warunki: ../warunki-hp.md).
-# Ocena: raise-big compliant (R-M6-008, UP szczebel 4 → atrybucja w tekście), call acceptable (UP ep1, ręka mieszana), fold inaccuracy
+# Ocena: raise-big compliant (R-M6-008, UP szczebel 4 → atrybucja w tekście), call compliant (ręka mieszana ADR-04: UP ep1 + UP Tip #3 „check-calling is still preferred”, D-1722), fold inaccuracy
 # (R-M6-006, D-1301: nie draw-price), raise-small inaccuracy (rachunek R-M6-010). Ś bez raise-small, T z nim (D-1717). Szkic sesji HP.
 id: sc-16
 module: m6
@@ -21,7 +21,7 @@ decisions:
     multipliers: { raise-small: 1.5, raise-big: 4.5 }
     actions:
       - action: raise-big
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. Robisz {{t:check-raise}} do ok. {{n:xr.mult.example}} jego {{t:bet|zakładu}}, bo {{t:draw}} ma dwie drogi do wygranej: rywal może od razu {{t:fold|spasować}}, a gdy {{t:call|sprawdzi}}, nadal możesz trafić swój {{t:draw}}. Według serwisu szkoleniowego drawy do koloru i strity otwarte to dobre ręce do {{t:check-raise|check-raise'u}}, a wobec małego {{t:c-bet|c-betu}} przebijasz o ok. {{n:xr.mult.example}}, nie minimalnie."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. Robisz {{t:check-raise}} do ok. {{n:xr.mult.example}} jego {{t:bet|zakładu}}, bo {{t:draw}} ma dwie drogi do wygranej: rywal może od razu {{t:fold|spasować}}, a gdy {{t:call|sprawdzi}}, nadal możesz trafić swój {{t:draw}}. Według serwisu szkoleniowego drawy do koloru i strity otwarte to dobre ręce do {{t:check-raise|check-raise'u}}, a wobec małego {{t:c-bet|c-betu}} przebijasz do ok. {{n:xr.mult.example}}, nie minimalnie."
       - action: call
         explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mały {{t:c-bet}}. {{t:call|Sprawdzenie}} też jest dobre: wobec małego {{t:c-bet|c-betu}} potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a ta ręka może się poprawić. Według serwisu szkoleniowego nie każdy mocny {{t:draw}} trzeba przebijać, ale {{t:check-raise}} dodaje szansę, że rywal od razu {{t:fold|spasuje}}."
       - action: fold
