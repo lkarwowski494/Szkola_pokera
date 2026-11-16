@@ -26,7 +26,7 @@ describe('CM ŚR-001 (naprawa CN, D-782): bramka ekranu przepuszcza tylko rodzaj
     expect(szablony.length).toBeGreaterThanOrEqual(7);
     expect(rangeSpot.length).toBeGreaterThanOrEqual(2);
   });
-  it('lista dozwolonych: draw-call, cbet-case, size-spot, range-spot, icm-call, pick-hand, turn-bet, river-catch, defend, list-hand (range-spot od CX, D-866; icm-call od DP, D-889: widok stosów i nagród; pick-hand od KO-072: widok minimalny, EK; turn-bet, river-catch, defend i list-hand od FG; flop-size od FL, D-1420: widok jak turn-bet; river-value od FR, KO-091)', () => expect(RODZAJE_NA_EKRANIE).toEqual(['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand', 'river-value']));
+  it('lista dozwolonych: draw-call, cbet-case, size-spot, range-spot, icm-call, pick-hand, turn-bet, river-catch, defend, list-hand (range-spot od CX, D-866; icm-call od DP, D-889: widok stosów i nagród; pick-hand od KO-072: widok minimalny, EK; turn-bet, river-catch, defend i list-hand od FG; flop-size od FL, D-1420: widok jak turn-bet; river-value od FR, KO-091; spr-call, check-raise, turn-action, geo-size, nit-3bet od IB, KO-115: widoki z inwentarza 04)', () => expect(RODZAJE_NA_EKRANIE).toEqual(['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand', 'river-value', 'spr-call', 'check-raise', 'turn-action', 'geo-size', 'nit-3bet']));
   for (const t of rangeSpot) {
     it(`${t.id}: range-spot przepuszczony przez bramkę (CX, D-866), więc ekran z kontekstem generuje wariant i ocenę każdej akcji na każdym poziomie, a bez kontekstu odmawia`, () => {
       expect(checkScenarioNaEkran(t)).toEqual([]);
