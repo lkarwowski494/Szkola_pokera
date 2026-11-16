@@ -1,0 +1,21 @@
+# HN: pnpm run ci @ 154a960a (2026-11-16) — kod 1; po scaleniu z HO do powtórzenia
+pnpm content:build: kod 0. pnpm run ci: kod 1 (721 s) — pierwszy czerwony krok: pnpm test (tools/content-build). Kroki po nim uruchomione osobno:
+tools/content-build test:  Test Files  2 failed | 75 passed (77)
+tools/content-build test:       Tests  2 failed | 789 passed | 1 expected fail (792)
+pnpm --filter @szkola/mobile test => 1
+test:skrypty => 0
+test:kontrole => 0
+k08 => 0
+i18n:kod => 0
+content:check => 0
+tresci:rejestr => 0
+tresci:el-kontrola => 0
+
+## Czerwone testy (wszystkie czekają na HO / 08, żaden z winy treści)
+- tools/content-build test:      × ziarna 1–200 każdego szablonu i poziomu dają odciski zapisane dla tej wersji 17990ms
+- tools/content-build test:      × każdy szablon pl ma punkt objęty testem zgodności na treści 7ms
+- apps/mobile cs-tresc-realna.test.tsx › sc-23 latwy: ogólna pętla podaje akcje szablonu (best-hand/other-hand), a generator pick-hand ma wybory hand-a/hand-b (packages/poker-core/src/scenario-gen.ts:883); test ekranu ek-pick-hand-ekran z p.correct przechodzi
+
+## Kontrole treści
+content:check 0, tresci:rejestr 0, tresci:el-kontrola 0, i18n:kod 0
+node docs/tresci/narzedzia/hn-kontrola-przekladow.mjs: 88 plików OK, 0 z błędami (11 języków × 8 szablonów)
