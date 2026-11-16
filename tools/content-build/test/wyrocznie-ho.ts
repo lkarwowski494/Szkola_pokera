@@ -1,8 +1,9 @@
 // KO-111 (sesja HO): wyrocznie zgodności na treści pl dla rodzajów defend, list-hand, turn-bet, pick-hand i river-catch. Niezależne od generatora i od scenariusze.ts:
-// ręce, outy, pary i showdown liczone tu od zera z kart (pełne przejście po talii, ewaluator 7 kart), reguły z tekstu R-M6-006/007, R-M7-006, R-M8-007, R-M8-010, R-M4-010.
+// ręce, outy, pary i showdown liczone tu od zera z kart (pełne przejście po talii, własny ewaluator 7 kart: `ocena-reki-wyrocznia.ts`, bez ewaluatora silnika; HT HR-003), reguły z tekstu R-M6-006/007, R-M7-006, R-M8-007, R-M8-010, R-M4-010.
 // Dane zakresów (spoty) to dane treści, nie logika generatora. Każda funkcja zwraca listę błędów (pusta = zgodne).
-import { classOf, FULL_DECK, generateVariant as generateVariantSilnik, HAND_CLASSES, rankOf, strength, suitOf, type Card, type GeneratorContext, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { classOf, FULL_DECK, generateVariant as generateVariantSilnik, HAND_CLASSES, rankOf, suitOf, type Card, type GeneratorContext, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import type { ScenarioTemplate } from '@szkola/content-schema';
+import { silaReki } from './ocena-reki-wyrocznia';
 
 export const LOSOWANIA_HO = 60;
 /** Generator wariantów; test mutacyjny podstawia zepsuty, żeby pokazać, że wyrocznia widzi błąd silnika. */
@@ -137,7 +138,7 @@ export function bledyTurnBet(t: ScenarioTemplate, ctx: GeneratorContext, generat
       const wygrywa = new Set<Card>();
       for (const c of FULL_DECK) {
         if (znane.has(c)) continue;
-        const [r, h] = [strength([...v.villain, ...turn, c]), strength([...v.hero, ...turn, c])];
+        const [r, h] = [silaReki([...v.villain, ...turn, c]), silaReki([...v.hero, ...turn, c])];
         if (r < h) { n++; wygrywa.add(c); } else if (r === h) remisy++;
       }
       const kolor = [0, 1, 2, 3].find((s) => [...v.villain, ...turn].filter((c) => suitOf(c) === s).length === 4);
@@ -153,7 +154,7 @@ export function bledyTurnBet(t: ScenarioTemplate, ctx: GeneratorContext, generat
       if (!(cena(bb) - n / 44 >= delta - 1e-12)) e.push(`${m}: cena dużego nie przewyższa N/44 o ${delta}`);
       if (p.correct !== 'bet-big') e.push(`${m}: poprawna ${(p as { correct: string }).correct}`);
       // ręka gracza: na prowadzeniu i zrobiona z kartą gracza (para kieszonkowa albo karta w parze ze stołem, w tym dwie pary i wyżej)
-      if (!(strength([...v.hero, ...turn]) < strength([...v.villain, ...turn]))) e.push(`${m}: ręka gracza nie prowadzi wobec rywala na turnie`);
+      if (!(silaReki([...v.hero, ...turn]) < silaReki([...v.villain, ...turn]))) e.push(`${m}: ręka gracza nie prowadzi wobec rywala na turnie`);
       const hr = v.hero.map(rankOf), tr = turn.map(rankOf);
       if (!(hr[0] === hr[1] || hr.some((r) => tr.includes(r)))) e.push(`${m}: ręka gracza bez pary z kartą gracza`);
     }
@@ -175,7 +176,7 @@ export function bledyPickHand(t: ScenarioTemplate, ctx: GeneratorContext, genera
       if (p?.point !== 'pick-hand') { e.push(`${m}: punkt ${p?.point}`); continue; }
       const licz = (h: readonly [Card, Card]) => {
         const martwe = new Set<Card>([...h, ...v.board]);
-        const moja = strength([...h, ...v.board]);
+        const moja = silaReki([...h, ...v.board]);
         let V = 0, F = 0, w = 0, r = 0;
         for (let a = 0; a < 52; a++) for (let c = a + 1; c < 52; c++) {
           if (martwe.has(a) || martwe.has(c)) continue;
@@ -183,7 +184,7 @@ export function bledyPickHand(t: ScenarioTemplate, ctx: GeneratorContext, genera
           const kal = d.calls.includes(hc), fol = d.folds.includes(hc);
           if (!kal && !fol) continue;
           if (kal) V++; else F++;
-          const s = strength([a, c, ...v.board]);
+          const s = silaReki([a, c, ...v.board]);
           if (moja < s) w++; else if (moja === s) r++;
         }
         return { V, F, sdv: V + F === 0 ? 0 : (w + r / 2) / (V + F) };
