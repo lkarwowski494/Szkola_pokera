@@ -10,7 +10,7 @@ Etap (odpowiedź koordynatora 2026-11-16, opcja A): szablony robocze w `docs/tre
 | 4. Przekład 7 szablonów | `hz/<j>/` dla 10 języków, agent, do kontroli 09 | `hz-kontrola-przekladow.mjs` |
 | 5. Build i ci | gotowe: `content:build` z poprawkami HY, D-043 (bez nowych ID), `env -u NODE_PATH pnpm run ci` kod 0 na c478cfa6 | `docs/tresci/dowody/hz-ci-c478cfa6.txt` |
 
-Przeniesienie do `content/` (12 języków), liczby i bez-twierdzeń: sesja ID, 2026-11-16 (`docs/decyzje/ID.md` D-1860…D-1864); katalog `hz/` usunięty.
+Przeniesienie do `content/` (12 języków), liczby i bez-twierdzeń: sesja ID, 2026-11-16 (`docs/decyzje/ID.md` D-1860…D-1865); katalog `hz/` usunięty. ci czerwone do testów `tools/content-build` (sesja 08, D-1865).
 
 Otwarte (do PRZEKAZANIA):
 - SC-30: 21 klas (D-1829) z pasem przy VPIP 8–10% < POJEMNOSC_MIN 40 → opcja A przyjęta przez koordynatora 2026-11-16: wyjątek pojemności nit-3bet robi sesja IB (jak D-1040).

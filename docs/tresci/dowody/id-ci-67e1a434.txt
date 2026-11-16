@@ -1,0 +1,41 @@
+# ID 3.5: env -u NODE_PATH pnpm run ci na 67e1a434 (2026-11-16) — kod 1 (CZERWONE). Decyzja koordynatora: wariant B (D-1865): testy tools/content-build dopisze osobna sesja 08 od gałęzi claude/sesja-id-szablony; ID nie zmienia tools/.
+Drzewo: 67e1a434 bez zmian w tools/, packages/, apps/mobile/src poza ib-rodzaje-ho-ekran.test.tsx (polecenie 3.3).
+
+## Wynik
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  43 passed (43)
+packages/poker-core test:       Tests  341 passed (341)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+tools/content-build test:  Test Files  4 failed | 78 passed (82)
+tools/content-build test:       Tests  5 failed | 879 passed | 1 expected fail (885)
+kod_ci=1
+Przebieg zatrzymał się na pnpm test (tools/content-build); dalsze kroki ci (test:skrypty, test:kontrole, k08, i18n:kod, content:check, tresci:rejestr, tresci:el-kontrola) nie wykonane w tym przebiegu; content:check i tresci:rejestr osobno kod 0 (id-szablony.txt); jest aplikacji: ib-rodzaje-ho-ekran 33/33 osobno.
+
+## 5 czerwonych testów i przyczyna (analiza ID; poprawka próbna sprawdzona na żywo i cofnięta)
+1. test/generator-odciski.test.ts:44 „ziarna 1–200 … odciski zapisane dla tej wersji” — Error „sc-09: reguła R-M4-012 nie jest regułą iso-size” (packages/poker-core/src/scenario-gen.ts:1200). Przyczyna: kontekst testu filtruje sizeRules do open-size/three-bet-size/no-limp (generator-odciski.test.ts:26), bez iso-size; poza tym generator-odciski.json nie ma kluczy 7 nowych szablonów (próbnie: GENERATOR_ODCISKI_ZAPISZ=1 → +10 kluczy, 0 zmienionych).
+2. test/recenzja-cq-odtworzenie.test.ts:41 „sc-09 latwy: wariant powstaje tak jak w aplikacji (z kontekstem)” — ten sam błąd; filtr sizeRules bez iso-size (recenzja-cq-odtworzenie.test.ts:29). Aplikacja buduje kontekst poprawnie (ib-rodzaje-ho-ekran: sc-09 z bazy pl zielony).
+3. test/szablony-du.test.ts:117 „treść ma szablony size-spot (SC-06, SC-08 z EH)” — lista przypięta [sc-06, sc-08], treść ma też sc-09.
+4. test/szablony-du.test.ts „sc-09 latwy: 10000 wariantów” — najpierw filtr sizeRules bez iso-size (szablony-du.test.ts:67); po próbnym dodaniu iso-size: „raise: 4 bb, wyrocznia NaN”, bo wyrocznia rozmiaru zna tylko open-size i three-bet-size (szablony-du.test.ts:123); potrzebna wyrocznia iso-size (wzór: ef-iso-size.test.ts, base + n × perLimper + oopExtra).
+5. test/cz-pokrycie-szablonow.test.ts:31 „każdy szablon pl ma punkt objęty testem zgodności na treści” — sc-16 (check-raise), sc-18/sc-21 (turn-action), sc-26 (spr-call), sc-27 (geo-size), sc-30 (nit-3bet) bez wpisu w mapie TESTY (cz-pokrycie-szablonow.test.ts:12); wyrocznie tych rodzajów istnieją tylko na fiksturach (ho-nit-3bet.test.ts, ho-bramki.test.ts) — potrzebny test zgodności na content/pl i 5 wpisów mapy.
+
+## Log błędów (wycinek)
+ FAIL  test/cz-pokrycie-szablonow.test.ts > CZ: pokrycie szablonów pl testami zgodności (06-tresci-006 b) > każdy szablon pl ma punkt objęty testem zgodności na treści
+AssertionError: expected [ 'sc-16 (check-raise)', …(5) ] to deeply equal []
+ FAIL  test/generator-odciski.test.ts > ŚR-002: odciski prawdziwych szablonów są związane z GENERATOR_WERSJA > ziarna 1–200 każdego szablonu i poziomu dają odciski zapisane dla tej wersji
+Error: sc-09: reguła R-M4-012 nie jest regułą iso-size
+ FAIL  test/recenzja-cq-odtworzenie.test.ts > 06-tresci-001: każdy szablon z treści startuje na ekranie (CN/CR: kontekst generatora składa ekran, bramka odrzuca resztę) > sc-09 latwy: wariant powstaje tak jak w aplikacji (z kontekstem)
+AssertionError: expected [Function] to not throw an error but 'Error: sc-09: reguła R-M4-012 nie jes…' was thrown
+"Error: sc-09: reguła R-M4-012 nie jest regułą iso-size"
+ FAIL  test/szablony-du.test.ts > szablony treści size-spot: rozmiary i oceny z parametru reguły (BR-GEN-003, D-1032) > treść ma szablony size-spot (SC-06, SC-08 z EH)
+AssertionError: expected [ 'sc-06', 'sc-08', 'sc-09' ] to deeply equal [ 'sc-06', 'sc-08' ]
+ FAIL  test/szablony-du.test.ts > szablony treści size-spot: rozmiary i oceny z parametru reguły (BR-GEN-003, D-1032) > sc-09 latwy: 10000 wariantów
+Error: sc-09: reguła R-M4-012 nie jest regułą iso-size
