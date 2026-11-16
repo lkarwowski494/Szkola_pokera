@@ -65,9 +65,11 @@ for (const p of pu) {
   if (p.klasa === 'A') {
     const pliki = kody(p.test);
     const tresc = pliki.filter(plikOk).map((f) => readFileSync(f, 'utf8')).join('\n');
+    // id w Maestro to regex: trasa z nawiasami stoi jako `ekran:\(tabs\)/index`; znacznik rozpoznajemy po zdjęciu ukośników sprzed znaków specjalnych (IC, zadanie 4)
+    const trescZnacznikow = tresc.replace(/\\([^\w\s])/g, '$1');
     if (!pliki.length || pliki.some((f) => !plikOk(f) || !readFileSync(f, 'utf8').includes(p.id))) bledy.push(`${p.id}: klasa A wymaga pliku scenariusza, który zawiera „${p.id}” (${p.test || 'pusto'})`);
     else for (const e of p.ekrany) {
-      if (!tresc.includes(`ekran:${e}`)) bledy.push(`${p.id}: scenariusz nie odwiedza ekranu \`${e}\` (brak „ekran:${e}”: testID korzenia ekranu)`);
+      if (!trescZnacznikow.includes(`ekran:${e}`)) bledy.push(`${p.id}: scenariusz nie odwiedza ekranu \`${e}\` (brak „ekran:${e}”: testID korzenia ekranu)`);
       if (p.powrot === 'tak' && !tresc.includes(`powrót: ${e}`)) bledy.push(`${p.id}: brak kroku powrotu z \`${e}\` („# powrót: ${e}” przy akcji wstecz)`);
     }
   }

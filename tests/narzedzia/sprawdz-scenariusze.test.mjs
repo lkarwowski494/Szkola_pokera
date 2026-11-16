@@ -222,3 +222,21 @@ test('docs/wydanie/ostatni-build.txt nadąża za protokołami F (D-1783)', () =>
   assert.ok(najnowszy >= ostatni, `najnowszy protokół ${najnowszy} < ostatni wysłany ${ostatni}`);
   for (const n of numery.slice(0, -1)) assert.ok(n <= ostatni, `protokół ${n} jest starszy niż najnowszy, a ostatni-build.txt = ${ostatni}: po wysyłce buildu ${n} wpisz jego numer`);
 });
+
+// IC (zadanie 4): id w Maestro to regex, więc trasa z nawiasami stoi we flow jako `ekran:\(tabs\)/index`; bramka rozpoznaje ją bez komentarza-obejścia z literałem.
+const PU_NAWIAS = PU_A.replace('`lista`, `lekcja`', '`(tabs)/index`, `lekcja`');
+const FLOW_REGEX = (id) => `appId: x\n# PU-001\n---\n- assertVisible: { id: '${id}' }\n- assertVisible: { id: 'ekran:lekcja' }\n# powrót: lekcja\n- back\n- assertVisible: { id: '${id}' }\n# powrót: (tabs)/index\n- back\n`;
+const fiksturaNawias = (id) => fikstura({ ekrany: '`(tabs)/index`, `lekcja`, `zakup`', wiersze: [PU_NAWIAS, PU_F], flow: FLOW_REGEX(id) });
+
+test('IC: znacznik ekranu jako regex Maestro (ekran:\\(tabs\\)/index) bez komentarza z literałem → zielona', () => {
+  const r = bramka(fiksturaNawias('ekran:\\(tabs\\)/index'), ['--statycznie']);
+  assert.equal(r.kod, 0, r.wynik);
+  assert.match(r.wynik, /BRAMKA ZIELONA/);
+});
+test('IC: regex trafiający w inną trasę albo szeroki (ekran:.*) nie liczy się jako odwiedzenie ekranu → czerwona', () => {
+  for (const id of ['ekran:\\(tabs\\)/inne', 'ekran:.*']) {
+    const r = bramka(fiksturaNawias(id), ['--statycznie']);
+    assert.equal(r.kod, 1, `${id}: ${r.wynik}`);
+    assert.match(r.wynik, /scenariusz nie odwiedza ekranu `\(tabs\)\/index`/);
+  }
+});
