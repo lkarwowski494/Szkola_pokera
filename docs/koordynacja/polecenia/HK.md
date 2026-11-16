@@ -1,0 +1,18 @@
+# Sesja HK: poprawki audytu HH (04) + 08-programista-404 (08 fix, kod) — Szkoła Pokera
+Koordynator: session_01T66VBwf1bNLY6pRHh6Xc12 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: koordynacja (tylko do odczytu).
+
+1. Rola: 08-programista w trybie fix. Prompt roli jest w twojej pierwszej wiadomości (albo kolejnych częściach) po linii `=== PROMPT ROLI ===`; zacznij pracę dopiero po ostatniej części; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `claude/sesja-hk-fix` od `claude/sleepy-brahmagupta-2065nu` @ 0b0855ef (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>), ustaw i sprawdź przed pierwszym commitem.
+3. Zadania (źródło: `docs/design/audyt-hh-b7bc12e6.md` i `docs/programista/recenzje/recenzja-hb-d1f4e99.md` na gałęzi startu; test najpierw czerwony):
+   1. 04-studio-projektowe-001 (ŚR): pasek ocen akcji (`komponenty.tsx:235`) zgodny ze spec `docs/design/scenariusz-i-ocena.md:20` — bez łamania nazw akcji w środku wyrazu przy 390 pt. Gotowe: test + zrzut/render dowodu.
+   2. 04-studio-projektowe-002 (ŚR): nagłówek `EkranScenariusza.tsx:248` przy AX5 — tytuł bez pionowego łamania litera po literze, etykieta ulicy nie nachodzi. Gotowe: test przy fontScale AX5.
+   3. 04-studio-projektowe-003 (NIS): etykieta ulicy w dzienniku bez stałej szerokości 64 pt (AX5 „Preflop” w jednym kawałku). Gotowe: test.
+   4. 04-studio-projektowe-006 — **decyzja właściciela 2026-11-16 ok. 10:20 UTC: „(a) 1. zdanie tytułem”**: tytuł = pierwsze zdanie sytuacji, reszta zwykłą treścią (styl.tresc), bez zmiany treści w content/; dotyczy wszystkich języków (podział zdania odporny na ja/zh/ko — kropka pełnej szerokości itp.). Zapisz w `docs/decyzje.md` z cytatem słów. Gotowe: test akceptacyjny z raportu (start SC-29 przy 390: tytuł ≤ 3 wiersze) + test podziału zdania dla języków CJK.
+   5. 08-programista-404 (NIS): test bramki 402 obejmuje poziomy średni i trudny oraz punkt 1 (mutant pętli poziomów/indeksu czerwony). Gotowe: tabela mutant → wynik.
+   6. `pnpm run ci` na końcowym SHA we własnym kontenerze: kod wyjścia do `docs/programista/dowody/hk-ci-<sha>.txt`.
+   Poza zakresem: 04-004, 04-005 (backlog), zmiany package.json (robi HL równolegle — nie dotykaj package.json ani pnpm-lock.yaml).
+4. Zakazy: nie scalasz do integracji ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora i czekasz na odpowiedź; nie proponujesz właścicielowi nowej sesji.
+5. Decyzje: tryb analogia (najpierw lkarwowski494/trening, potem oczko, piekarz; `repo:plik:linia`, wpis do weta) dla technicznych; wygląd poza spec → PYTANIE do koordynatora z ≥ 2 opcjami i rekomendacją. Numery tylko z puli D-1660…D-1669, zapis w `docs/decyzje/HK.md`.
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w `docs/programista/plan-hk.md`, push, PRZEKAZANIE. Pułap 10 USD; próg STOP 13 USD.
+7. Push: zbiorczo na `claude/sesja-hk-fix`.
+8. Raporty (≤ 10 linii, przez send_message): po starcie — liczba linii zaczynających się od „# ” i od „#” w całym prompcie roli; po pierwszym zadaniu czas i szacunek reszty; PYTANIE (pełna treść, opcje, rekomendacja); PRZEKAZANIE (SHA, run CI, dowody, decyzje do weta, koszt, otwarte).

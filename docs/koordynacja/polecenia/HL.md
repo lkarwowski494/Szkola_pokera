@@ -1,0 +1,15 @@
+# Sesja HL: react-native-web i zrzuty z Expo web do audytów wyglądu (08 build, kod) — Szkoła Pokera
+Koordynator: session_01T66VBwf1bNLY6pRHh6Xc12 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: koordynacja (tylko do odczytu).
+
+1. Rola: 08-programista w trybie build. Prompt roli jest w twojej pierwszej wiadomości (albo kolejnych częściach) po linii `=== PROMPT ROLI ===`; zacznij dopiero po ostatniej części; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `claude/sesja-hl-web` od `claude/sleepy-brahmagupta-2065nu` @ 0b0855ef (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>), ustaw i sprawdź przed pierwszym commitem.
+3. Zadanie zatwierdzone przez właściciela 2026-11-16 ok. 10:20 UTC, słowa: „(a) Dodać (zalecane)” na pytanie o `react-native-web` (D-1630 z audytu HH, `docs/design/audyt-hh-b7bc12e6.md` sekcja „Decyzje dla właściciela” pkt 1). Wzorzec: repo lkarwowski494/trening, `package.json` wiersz ok. 85 (`react-native-web`) i jego skrypt zrzutów z Expo web.
+   1. Dodać `react-native-web` (i `react-dom`, jeśli wymaga Expo SDK projektu) w wersji zgodnej z Expo SDK (`npx expo install`), licencje sprawdzone (bez GPL/AGPL). Gotowe: `pnpm install --frozen-lockfile` kod 0 po commicie lockfile.
+   2. Skrypt zrzutów: Expo web (export albo dev) + Playwright Chromium (`require('playwright')`, bez instalacji przeglądarek) dla ekranów scenariusza przy 390 i 320 pt, domyślnie i przy dużym tekście (odpowiednik AX5 na web — nazwij przybliżenie). Gotowe: 4+ zrzuty w `docs/design/dowody/hl-*.png` + komenda w README/CLAUDE (jedna linia).
+   3. Bez wpływu na build iOS: `expo export --platform ios` albo odpowiednik z CI kod 0; `pnpm run ci` kod 0 na końcowym SHA → `docs/programista/dowody/hl-ci-<sha>.txt`.
+   Poza zakresem: kod ekranów (robi HK równolegle — nie dotykaj `apps/mobile/src/features/**`).
+4. Zakazy: nie scalasz do integracji ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora i czekasz na odpowiedź.
+5. Decyzje: tryb analogia (najpierw lkarwowski494/trening, `repo:plik:linia`, wpis do weta). Numery tylko z puli D-1670…D-1679, zapis w `docs/decyzje/HL.md`.
+6. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w `docs/programista/plan-hl.md`, push, PRZEKAZANIE. Pułap 8 USD; próg STOP 10,4 USD.
+7. Push: zbiorczo na `claude/sesja-hl-web`.
+8. Raporty (≤ 10 linii, przez send_message): po starcie — liczba linii zaczynających się od „# ” i od „#” w całym prompcie roli; po pierwszym zadaniu czas i szacunek reszty; PYTANIE; PRZEKAZANIE (SHA, run CI, dowody, decyzje do weta, koszt, otwarte).
