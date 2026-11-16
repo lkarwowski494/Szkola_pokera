@@ -1,0 +1,3 @@
+SC-20 rozkład liczby kart koloru draw-a na turnie, ziarna 1–60
+przed (e270da14): rozkład max kart jednego koloru na turnie (ziarna 1..60): {"2":18,"3":42}
+po (D-1751): rozkład max kart jednego koloru na turnie (ziarna 1..60): {"2":60}

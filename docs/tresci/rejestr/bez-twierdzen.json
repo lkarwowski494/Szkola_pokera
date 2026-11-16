@@ -23,9 +23,9 @@
  {
   "klucz": "ex.frac.quarter",
   "wartosc": 0.25,
-  "jednostka": "ratio",
+  "jednostka": "percent",
   "powod": "dane zadania (przykład), nie twierdzenie o świecie",
-  "source": "przykład: zakład = ćwierć puli"
+  "source": "przykład: zakład = ćwierć puli; procent, bo tekst SC-20 podaje rozmiar zakładu na turnie tym kluczem (D-1771)"
  },
  {
   "klucz": "ex.frac.two-thirds",
@@ -107,9 +107,9 @@
  {
   "klucz": "ex.frac.three-quarters",
   "wartosc": 0.75,
-  "jednostka": "ratio",
+  "jednostka": "percent",
   "powod": "dane zadania (przykład), nie twierdzenie o świecie",
-  "source": "przykład: zakład = 3/4 puli"
+  "source": "przykład: zakład = 3/4 puli; procent, bo tekst SC-20 podaje rozmiar zakładu na turnie tym kluczem (D-1771)"
  },
  {
   "klucz": "ex.frac.overbet",

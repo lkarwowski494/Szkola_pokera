@@ -40,6 +40,24 @@ if (process.argv.includes('--ko076')) for (const j of ['pl', 'en']) for (const s
   ok(t.bounds?.latwy?.equityMarginMin === 0.02, `${j} ${sc}: poziom łatwy bez equityMarginMin 0.02`);
 }
 
+// HU (D-1770…D-1773; recenzja HS 06-tresci-302, -305): kontrola zastępcza po stronie treści (sesja HU bez zmian w tools/, zasada 7).
+const JEZYKI_SC = ['pl', 'en', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pt', 'pt-BR', 'vi', 'zh-Hant'];
+const liczby = YAML.parse(readFileSync('content/numbers.yaml', 'utf8'));
+for (const j of JEZYKI_SC) {
+  // D-1770 (= D-1752): SC-07 poziom średni (pas) tylko na flopach wysokich; warunek identyczny w każdym języku
+  const s7 = YAML.parse(readFileSync(`content/${j}/scenarios/sc-07.yaml`, 'utf8'));
+  ok(JSON.stringify(s7.bounds?.sredni?.flop?.height) === '["high"]', `${j} sc-07: poziom średni bez flop.height [high] (D-1752)`);
+  // D-1771: SC-20 rozmiary zakładu na turnie = klucze ex.frac.* w tekście (ten sam korzeń co eq.bet-quarter / eq.bet-three-quarters)
+  const s20 = YAML.parse(readFileSync(`content/${j}/scenarios/sc-20.yaml`, 'utf8'));
+  const d = s20.decisions[0], akcja = (a) => d.actions.find((x) => x.action === a)?.explanation ?? '';
+  ok(d.small === liczby['ex.frac.quarter'].value && d.big === liczby['ex.frac.three-quarters'].value, `${j} sc-20: small/big ≠ ex.frac.quarter/three-quarters`);
+  ok(akcja('bet-small').includes('{{n:ex.frac.quarter}}') && akcja('bet-small').includes('{{n:eq.bet-quarter}}'), `${j} sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}`);
+  ok(akcja('bet-big').includes('{{n:ex.frac.three-quarters}}') && akcja('bet-big').includes('{{n:eq.bet-three-quarters}}'), `${j} sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}`);
+  ok(!/cbet\.size/.test(akcja('bet-small') + akcja('bet-big')), `${j} sc-20: klucz c-betu w zakładzie na turnie (D-1771)`);
+}
+for (const k of ['ex.frac.quarter', 'ex.frac.three-quarters']) ok(liczby[k].unit === 'percent', `numbers.yaml ${k}: jednostka ≠ percent (D-1771)`);
+for (const k of ['eq.bet-quarter', 'eq.bet-three-quarters']) ok(liczby[liczby[k].refs[1]].refs.includes(k.replace('eq.bet-', 'ex.frac.')), `numbers.yaml ${k}: nie liczy z ex.frac.* (D-1771)`);
+
 for (const b of bledy) console.log(`BRAK ${b}`);
 console.log(`${bledy.length} braków`);
 process.exitCode = bledy.length ? 1 : 0;

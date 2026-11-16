@@ -1,0 +1,32 @@
+# Sondy HS (kopie skryptów; uruchamiane z scratchpadu, nie są częścią repo)
+## gen.ts
+import { join } from 'node:path';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import { compileRanges } from '/home/user/Szkola_pokera/tools/content-build/src/ranges';
+import { generateVariant, cardsToString } from '/home/user/Szkola_pokera/packages/poker-core/src/index';
+const pl = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios')).map((x) => x.template);
+const ctx = { spots: compileRanges(join('/home/user/Szkola_pokera', 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } } as any;
+const ids = ['sc-07','sc-10','sc-15','sc-17','sc-20','sc-23','sc-24','sc-31'];
+for (const id of ids) {
+  const t = pl.find((x) => x.id === id)!;
+  const g = { id: t.id, stackBb: (t as any).stackBb, positions: (t as any).positions, levels: (t as any).bounds, decisions: t.decisions } as any;
+  for (const level of (t as any).levels) for (const seed of [11, 222, 3333]) {
+    const v = generateVariant(g, level as any, seed, ctx);
+    const p = v.points.map((q: any) => { const { point, street, ...r } = q; return JSON.stringify(r); }).join(' ');
+    console.log(id, level, seed, 'H', cardsToString(v.hero), 'V', cardsToString(v.villain), 'B', cardsToString(v.board), p);
+  }
+}
+## czest.ts
+import { join } from 'node:path';
+import { loadScenarioTemplates } from '/home/user/Szkola_pokera/tools/content-build/src/scenariusze';
+import { compileRanges } from '/home/user/Szkola_pokera/tools/content-build/src/ranges';
+import { generateVariant, cardsToString, suitOf, rankOf } from '/home/user/Szkola_pokera/packages/poker-core/src/index';
+const pl = loadScenarioTemplates(join('/home/user/Szkola_pokera', 'content', 'pl', 'scenarios')).map((x) => x.template);
+const ctx = { spots: compileRanges(join('/home/user/Szkola_pokera', 'content')).spots, thresholds: { mixedMin: 0.035, mixedLow: 0.25 } } as any;
+const g = (t: any) => ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as any;
+const t20 = pl.find((x) => x.id === 'sc-20')!; let trzy = 0;
+for (let s = 1; s <= 60; s++) { const v = generateVariant(g(t20), 'latwy' as any, s, ctx); const turn = v.board.slice(0, 4); const mx = Math.max(...[0,1,2,3].map((su) => turn.filter((c) => suitOf(c) === su).length)); if (mx >= 3) trzy++; }
+console.log('sc-20 latwy: turn z >=3 kartami koloru', trzy, '/ 60');
+const t07 = pl.find((x) => x.id === 'sc-07')!; let niski = 0, wys = 0; const przyk: string[] = [];
+for (let s = 1; s <= 60; s++) { const v = generateVariant(g(t07), 'sredni' as any, s, ctx); const flop = v.board.slice(0, 3); const top = Math.max(...flop.map(rankOf)); if (top < 10) { niski++; if (przyk.length < 6) przyk.push(cardsToString(v.hero) + ' / ' + cardsToString(flop)); } else wys++; }
+console.log('sc-07 sredni (fold): flop z najwyższą kartą <= T (indeks rangi <10):', niski, '/ 60; przykłady:', przyk.join('; '));

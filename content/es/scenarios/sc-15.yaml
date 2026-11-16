@@ -1,0 +1,22 @@
+# sc-15: Spanish text of content/pl/scenarios/sc-15.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-15
+module: m6
+situation: "Estás en la {{t:big-blind}} y has {{t:call|pagado}} la {{t:open|apertura}} del Button. En el flop {{t:check|pasas}} y el Button {{t:bet|apuesta}} un {{t:c-bet}} pequeño."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. {{t:call|Pagas}}, porque esta mano o ya gana a los {{t:bluff|faroles}} o puede mejorar, y una {{t:bet|apuesta}} pequeña requiere poca equity. El {{t:mdf}} ante una {{t:bet|apuesta}} de {{n:cbet.size.small}} del {{t:pot}} ({{n:mdf.bet-third}} del {{t:range|rango}}) es un punto de referencia: en el flop, {{t:out-of-position|fuera de posición}}, puedes defender un poco menos, pero ante un {{t:c-bet}} pequeño no te {{t:fold|retiras}} en masa."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. {{t:fold|Retirarte}} entrega una mano que tiene suficiente equity frente a una {{t:bet|apuesta}} tan pequeña: o ya gana a los {{t:bluff|faroles}} o puede mejorar. En el flop, {{t:out-of-position|fuera de posición}}, puedes defender un poco menos de lo que indica el {{t:mdf}}, pero ante c-bets pequeños no te {{t:fold|retiras}} en masa."

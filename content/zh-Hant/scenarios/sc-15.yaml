@@ -1,0 +1,22 @@
+# sc-15: Traditional Chinese text of content/pl/scenarios/sc-15.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-15
+module: m6
+situation: "你在{{t:big-blind|大盲}}，{{t:call|跟注}}了按鈕位的{{t:open|開池}}。翻牌你{{t:check|過牌}}，按鈕位{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:call|跟注}}，因為這手牌要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好，而小額{{t:bet|下注}}只需要不多的權益。面對 {{n:cbet.size.small}} {{t:pot|底池}}的{{t:bet|下注}}，{{t:mdf}}（{{t:range|範圍}}的 {{n:mdf.bet-third}}）是參考點：在翻牌{{t:out-of-position}}時，你可以防守得少一點，但面對小額{{t:c-bet|持續下注}}不會大量{{t:fold|棄牌}}。"
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。{{t:fold|棄牌}}會放掉一手面對這麼小的{{t:bet|下注}}有足夠權益的牌：它要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好。在翻牌{{t:out-of-position}}時，你可以比{{t:mdf}}所示防守得少一點，但面對小額持續下注不會大量{{t:fold|棄牌}}。"

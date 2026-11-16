@@ -1,5 +1,7 @@
 // 06-tresci-008 (FR, recenzja FD fc16e128, opcja a): trwała kontrola zgodności rozmiaru zakładu w szablonie z kluczem `cbet.size.*` użytym w tekście wyjaśnienia.
 // Szkice SC-17 (defend) i SC-20 (turn-bet) w docs/tresci/szablony-robocze/fd/pl czytane tylko do odczytu; mutacje na kopiach.
+import { copyFileSync, mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
@@ -7,7 +9,10 @@ import { kluczeRozmiaruZgodne, loadScenarioTemplates } from '../src/scenariusze'
 import { number } from './kit';
 
 const root = resolve(import.meta.dirname, '../../..');
-const szkice = loadScenarioTemplates(join(root, 'docs', 'tresci', 'szablony-robocze', 'fd', 'pl')).map((x) => x.template);
+// tylko szkice SC-17 i SC-20 (kopie do katalogu tymczasowego): pozostałe szkice robocze HP (np. SC-16 w formacie spoza schematu, D-1706/D-1710) nie są przedmiotem tego testu
+const katalog = mkdtempSync(join(tmpdir(), 'fr-szkice-'));
+for (const p of ['sc-17.yaml', 'sc-20.yaml']) copyFileSync(join(root, 'docs', 'tresci', 'szablony-robocze', 'fd', 'pl', p), join(katalog, p));
+const szkice = loadScenarioTemplates(katalog).map((x) => x.template);
 const sc = (id: string) => szkice.find((t) => t.id === id)!;
 const zmien = (t: ScenarioTemplate, f: (b: any) => void) => { const b = structuredClone(t) as any; f(b); return ScenarioTemplate.parse(b); };
 const wartosc = (k: string): number | undefined => { try { return number(k); } catch { return undefined; } };

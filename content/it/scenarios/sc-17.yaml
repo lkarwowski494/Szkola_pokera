@@ -1,0 +1,22 @@
+# sc-17: Italian text of content/pl/scenarios/sc-17.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-17
+module: m6
+situation: "Sei in {{t:big-blind}} e hai fatto {{t:call}} sull'{{t:open|apertura}} del Button. Sul flop fai {{t:check}} e il Button {{t:bet|punta}} una {{t:c-bet}} grande."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-007
+    spot: vs-open.bb-vs-btn
+    pots: [8]
+    fractions: [0.75]
+    actions:
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} grande. {{t:fold|Foldi}}, perché hai due carte alte senza {{t:pair|coppia}} e senza {{t:draw|progetto}}: {{t:out-of-position|fuori posizione}} una mano così arriva raramente allo {{t:showdown}}, e una {{t:pair|coppia}} con una carta alta spesso perde comunque. Contro una {{t:bet|puntata}} di circa {{n:cbet.size.big}} del {{t:pot}} ti serve già circa il {{n:eq.bet-three-quarters}} di equity."
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} una {{t:c-bet}} grande. Il {{t:call}} paga molto per una mano che {{t:out-of-position|fuori posizione}} arriva raramente allo {{t:showdown}}: due carte alte senza {{t:pair|coppia}} e senza {{t:draw|progetto}}, e una {{t:pair|coppia}} con una carta alta spesso perde comunque. Contro una {{t:c-bet}} grande fai {{t:call}} piuttosto quando hai un {{t:draw|progetto}} aggiuntivo, meglio se verso il {{t:flush|colore}} più alto."

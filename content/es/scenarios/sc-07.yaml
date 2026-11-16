@@ -1,0 +1,23 @@
+# sc-07: Spanish text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-07
+module: m4
+situation: "Estás en la {{t:big-blind}}. El Button ha {{t:open|abierto}}, la {{t:small-blind}} se ha {{t:fold|retirado}} y tú has {{t:call|pagado}}. En el flop {{t:check|pasas}} y el Button {{t:bet|apuesta}} un {{t:c-bet}} pequeño."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold], flop: { height: [high] } }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. {{t:call|Pagas}}, porque ante una {{t:bet|apuesta}} de aproximadamente {{n:cbet.size.small}} del {{t:pot}} solo necesitas aproximadamente {{n:eq.bet-third}} de equity, y esta mano o ya gana a los {{t:bluff|faroles}} o puede mejorar. Continúas con casi cualquier {{t:pair|pareja}}, {{t:draw|proyecto}}, {{t:draw|proyecto}} adicional ({{t:backdoor}}) con una carta más alta que las cartas de la {{t:board}} y normalmente también con as como carta más alta."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. Te {{t:fold|retiras}}, porque es una de las manos más débiles: sin {{t:pair|pareja}}, sin {{t:draw|proyecto}}, ni siquiera adicional ({{t:backdoor}}), y sin as. Ante un {{t:c-bet}} pequeño defiendes amplio, pero con las manos más débiles sin {{t:pair|pareja}} y sin {{t:draw|proyecto}} te {{t:fold|retiras}}."

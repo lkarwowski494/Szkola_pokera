@@ -1,0 +1,22 @@
+# sc-23: Japanese text of content/pl/scenarios/sc-23.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-23
+module: m8
+situation: "あなたはボタンにいて、リバーで{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}します。あなたは、{{t:showdown|ショーダウン}}では相手のどのハンドにも勝てない二つのハンドのうち一つで{{t:bluff|ブラフ}}することを考えています。相手はAA、KK、QQ、JJ、すべてのAK、そして{{t:suited|スーテッド}}のAQで{{t:call|コール}}し、KQ、KJ、QJ、QT、JT（すべて{{t:suited|スーテッド}}）で{{t:fold|フォールド}}すると仮定します。どちらのハンドで{{t:bluff|ブラフ}}しますか？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [best-hand] }
+decisions:
+  - street: river
+    kind: pick-hand
+    rule: R-M8-007
+    mode: blockers
+    calls: [AA, KK, QQ, JJ, AKs, AKo, AQs]
+    folds: [KQs, KJs, QJs, QTs, JTs]
+    actions:
+      - action: best-hand
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}です。こちらのほうが良い{{t:bluff|ブラフ}}です：どちらのハンドも{{t:showdown|ショーダウン}}では負けますが、このハンドは相手が{{t:call|コール}}する{{t:combo|コンボ}}をより少なく残し、{{t:fold|フォールド}}するコンボは減らしません。相手の強いハンドに含まれるカードをあなたが持っていると、相手のそれらの{{t:combo|コンボ}}は少なくなるので、相手にはフォールドすべきハンドが残ることが多くなります。"
+      - action: other-hand
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}です。このハンドは弱いほうの{{t:bluff|ブラフ}}です：どちらも{{t:showdown|ショーダウン}}では負けますが、もう一方のハンドのほうが、相手が{{t:call|コール}}するハンドをより少なく残し、{{t:fold|フォールド}}するハンドは減らしません。{{t:bluff|ブラフ}}には、相手の強いハンドの{{t:blocker|ブロッカー}}を持ち、もう一方よりも多くのフォールドするハンドをブロックしないハンドを選びます。"

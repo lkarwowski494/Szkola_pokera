@@ -1,0 +1,18 @@
+## seed rng repo:lkarwowski494/trening
+0
+## TemplateError repo:lkarwowski494/trening
+0
+## fingerprint repo:lkarwowski494/trening
+0
+## export repo:lkarwowski494/trening
+0
+## random repo:lkarwowski494/trening
+0
+## losuj repo:lkarwowski494/trening
+0
+(odczyt 2026-11-16T13:23:50Z, gh api search/code, gałąź domyślna)
+# Wynik: wyszukiwarka kodu GitHub nie indeksuje repo trening (0 trafień nawet dla „export”), więc analogię sprawdzono na klonie:
+$ git clone --depth 1 https://github.com/lkarwowski494/trening.git  → kod 0, HEAD 2d97581 (2026-11-11)
+- brak generatora rozdań/scenariuszy (aplikacja treningowa: komponenty ćwiczeń, obciążeń, kalendarza); RNG z ziarnem: brak trafień `createRng|mulberry` w kodzie logiki
+- praktyka testów mutacyjnych: stryker.config.json; .github/workflows/nightly.yml:68 zadanie `mutacje` (Stryker, jedno zadanie na moduł)
+- Szkoła: stryker.config.json + .github/workflows/nocny.yml:64 (grupa poker-core-reszta obejmuje scenario-gen.ts)

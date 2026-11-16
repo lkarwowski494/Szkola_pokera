@@ -1,0 +1,73 @@
+# Mutanty silnika HR @ 9677c41c (worktree w scratchpad, bez commitu). Oczekiwanie: każdy mutant daje FAIL.
+== M1 turn-bet: luźniejszy próg ceny dużego zakładu (wyrocznia KO-111)
+-      if (!(hit > reqSmall && equityRywala < reqBig) || !inMargin(hit - reqSmall, b, i) || !inMargin(reqBig - equityRywala, b, i)) return null; // BR-GEN-003: tylko oczekiwana akcja i margines od obu
++      if (!(hit > reqSmall && equityRywala < reqBig + 0.08) || !inMargin(hit - reqSmall, b, i) || !inMargin(reqBig - equityRywala, b, i)) return null; // BR-GEN-003: tylko oczekiwana akcja i margines
+ Test Files  1 passed (1)
+      Tests  19 passed (19)
+kod: 0
+== M2 river-catch: udział blefów porównany z ceną o 0,05 przesuniętą (wyrocznia KO-111)
+-        .filter((x) => inMargin(x.margin, b, i) && (x.bluffShare > x.required ? 'call' : 'fold') === b.expected[i]);
++        .filter((x) => inMargin(x.margin, b, i) && (x.bluffShare > x.required - 0.05 ? 'call' : 'fold') === b.expected[i]);
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ho-pokrycie-wyrocznie.test.ts > KO-111: szablony river-catch na treści pl zgodne z wyrocznią > sc-24: 60 ziaren na poziom
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+kod: 0
+== M3 spr-call: dopuszczona druga para
+-      if (h.pairKind !== 'overpair' && h.pairKind !== 'top') return null; // najwyższa para albo lepsza z kartą gracza (R-M9-003)
++      if (h.pairKind !== 'overpair' && h.pairKind !== 'top' && h.pairKind !== 'second') return null; // najwyższa para albo lepsza z kartą gracza (R-M9-003)
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+kod: 0
+== M4 check-raise: cena bez odjęcia c-betu
+-      const price = (r: number): number => (r - cbet) / (pot + 2 * r);
++      const price = (r: number): number => r / (pot + 2 * r);
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ho-check-raise.test.ts > 08-EX-7: check-raise > rachunek: cena BTN przy puli 6, c-becie 2 i krotności 4,5 (wyrównanie z żetonów)
+ FAIL  test/ho-check-raise.test.ts > 08-EX-7: check-raise > z małą krotnością (T): 1,5 × c-bet = 3, BTN dopłaca 1 do puli 6 + 2 + 3 = 11 → 12
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+kod: 0
+== M5 nit-3bet: cena bez martwego SB 0,5
+-      const required = (spec.threeBet - spec.open) / (2 * spec.threeBet + 0.5);
++      const required = (spec.threeBet - spec.open) / (2 * spec.threeBet);
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ho-nit-3bet.test.ts > 08-EX-8: nit-3bet > 300 wariantów: offsuit bez pary, spoza górnych x%, equity ≤ cena − 0,03, cena z żetonów
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+kod: 0
+== M6 turn-action: bez filtra czterech do strita
+-      if (czteryDoStrita(turn.map(rankOf))) return null; // turn nie domyka czterech rang do strita na stole
++       // turn nie domyka czterech rang do strita na stole
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ho-turn-action.test.ts > 08-EX-6: turn-action > SC-18 Ś: turn-nadkarta paruje kartę gracza, flop bez pary: 400 wariantów spełnia niezmienniki
+ FAIL  test/ho-turn-action.test.ts > 08-EX-6: turn-action > SC-21 Ś: druga para na turnie (nie nadkarta): 400 wariantów spełnia niezmienniki
+ FAIL  test/ho-turn-action.test.ts > 08-EX-6: turn-action > SC-21 Ł: niska para na turnie: 400 wariantów spełnia niezmienniki
+ Test Files  1 failed (1)
+      Tests  3 failed | 2 passed (5)
+kod: 0
+== M7 geo-size: bez filtra trzech kart koloru
+-      if ([0, 1, 2, 3].some((su) => flop.filter((c) => suitOf(c) === su).length === 3)) return null; // bez gotowego koloru na stole
++       // bez gotowego koloru na stole
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ho-geo-size.test.ts > 08-EX-4: geo-size > ręka: set (kieszonkowa para + karta stołu), stół niesparowany i bez trzech kart jednego koloru
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+kod: 0
+== M8 check-raise: dopuszczony gutshot (bez progu 8 outów)
+-      if (h.pairKind || h.improvesBoard || !h.draw || h.draw.all.length < HOLDING_LIMITS.drawOutsMin || !(b.draws as readonly string[]).includes(h.draw.kind)) return null;
++      if (h.pairKind || h.improvesBoard || !h.draw || false || !(b.draws as readonly string[]).includes(h.draw.kind)) return null;
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+kod: 0
+== M9 bramka: kluczeRozmiaruZgodne pomija geo-size (mały zakład bez sprawdzenia z numbers.yaml)
+-    else if (d.kind === 'geo-size') rozmiary = { 'cbet.size.small': [d.small], 'cbet.size.big': [] }; // HO: duży zakład jest geometryczny (z SPR), nie z num
++    else if (d.kind === 'geo-size') return; // MUTANT M9
+ Test Files  2 passed (2)
+      Tests  36 passed (36)
+== M10 aplikacja: regresja P0 z b41aca41 (turn-bet wypada z listy akcji zakładów)
+-    case 'turn-bet':
++    case 'turn-bet-X':
+Test Suites: 3 failed, 40 passed, 43 total
+Tests:       12 failed, 429 passed, 441 total
+# Uwaga: linie „kod:” w blokach M1–M8 to status grep, nie vitest; o wyniku mutanta decydują linie FAIL / Tests.

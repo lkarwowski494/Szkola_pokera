@@ -1,0 +1,10 @@
+== M3 (spr-call przyjmuje też 'second'): ho-spr-call
+     × HT HR-004 (M3): poziom bez pairKind i bez kickerów: 2000 wariantów to wyłącznie nadpara albo najwyższa para (druga para jest odrzucana przez strażnik silnika, nie przez filtr poziomu) 17ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+== M9 (kluczeRozmiaruZgodne pomija geo-size): ht-bramki-hr004-005
+     × small ≠ cbet.size.small (0,5 wobec 0,333333) przy kluczu w tekście: błąd z rozmiarem i kluczem 7ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)

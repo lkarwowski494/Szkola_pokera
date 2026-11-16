@@ -1,0 +1,22 @@
+# sc-17: French text of content/pl/scenarios/sc-17.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-17
+module: m6
+situation: "Vous êtes en {{t:big-blind}} et vous avez {{t:call|payé}} l'{{t:open|ouverture}} du Bouton. Au flop, vous faites {{t:check}}, et le Bouton {{t:bet|mise}} gros avec un {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-007
+    spot: vs-open.bb-vs-btn
+    pots: [8]
+    fractions: [0.75]
+    actions:
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} gros avec un {{t:c-bet}}. Vous vous {{t:fold|couchez}}, car vous avez deux cartes hautes sans {{t:pair|paire}} ni {{t:draw|tirage}} : {{t:out-of-position|hors de position}}, une telle main arrive rarement au {{t:showdown}}, et une {{t:pair|paire}} avec une carte haute perd souvent de toute façon. Face à une {{t:bet|mise}} d'environ {{n:cbet.size.big}} du {{t:pot}}, il vous faut déjà environ {{n:eq.bet-three-quarters}} d'équité."
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} gros avec un {{t:c-bet}}. Un {{t:call}} paie cher une main qui, {{t:out-of-position|hors de position}}, arrive rarement au {{t:showdown}} : deux cartes hautes sans {{t:pair|paire}} ni {{t:draw|tirage}}, et une {{t:pair|paire}} avec une carte haute perd souvent de toute façon. Face à un gros {{t:c-bet}}, vous {{t:call|suivez}} plutôt quand vous avez un {{t:draw|tirage}} supplémentaire, idéalement vers la {{t:flush|couleur}} la plus haute."

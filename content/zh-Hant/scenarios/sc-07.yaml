@@ -1,0 +1,23 @@
+# sc-07: Traditional Chinese text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-07
+module: m4
+situation: "你在{{t:big-blind|大盲}}。按鈕位{{t:open|開池}}，{{t:small-blind|小盲}}{{t:fold|棄牌}}，你{{t:call|跟注}}。翻牌你{{t:check|過牌}}，按鈕位{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold], flop: { height: [high] } }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:call|跟注}}，因為面對約 {{n:cbet.size.small}} {{t:pot|底池}}的{{t:bet|下注}}，你只需要約 {{n:eq.bet-third}} 的權益，而這手牌要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好。你幾乎會用每一個{{t:pair|對子}}、{{t:draw|聽牌}}、帶有一張比{{t:board|牌面}}上的牌都大的牌的額外{{t:draw|聽牌}}（{{t:backdoor|後門}}）繼續，通常也會用以 A 為最大牌的手牌繼續。"
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:fold|棄牌}}，因為這是最弱的手牌之一：沒有{{t:pair|對子}}，沒有{{t:draw|聽牌}}，連額外的聽牌（{{t:backdoor|後門}}）都沒有，也沒有 A。面對小額{{t:c-bet|持續下注}}，你防守得很寬，但沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}的最弱手牌，你會{{t:fold|棄牌}}。"

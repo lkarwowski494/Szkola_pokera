@@ -1,0 +1,22 @@
+# sc-15: Portuguese text of content/pl/scenarios/sc-15.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-15
+module: m6
+situation: "Está no {{t:big-blind}} e fez {{t:call}} à {{t:open|abertura}} do Button. No flop faz {{t:check}} e o Button {{t:bet|aposta}} um {{t:c-bet}} pequeno."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. Faz {{t:call}}, porque esta mão ou já ganha aos {{t:bluff|bluffs}}, ou pode melhorar, e uma {{t:bet|aposta}} pequena exige pouca equity. O {{t:mdf}} perante uma {{t:bet|aposta}} de {{n:cbet.size.small}} do {{t:pot}} ({{n:mdf.bet-third}} do {{t:range}}) é um ponto de referência: no flop, {{t:out-of-position|fora de posição}}, pode defender um pouco menos, mas perante um {{t:c-bet}} pequeno não {{t:fold|desiste}} em massa."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. {{t:fold|Desistir}} entrega uma mão que tem equity suficiente perante uma {{t:bet|aposta}} tão pequena: ou já ganha aos {{t:bluff|bluffs}}, ou pode melhorar. No flop, {{t:out-of-position|fora de posição}}, pode defender um pouco menos do que indica o {{t:mdf}}, mas perante c-bets pequenos não {{t:fold|desiste}} em massa."

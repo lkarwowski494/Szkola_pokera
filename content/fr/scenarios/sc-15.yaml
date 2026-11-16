@@ -1,0 +1,22 @@
+# sc-15: French text of content/pl/scenarios/sc-15.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-15
+module: m6
+situation: "Vous êtes en {{t:big-blind}} et vous avez {{t:call|payé}} l'{{t:open|ouverture}} du Bouton. Au flop, vous faites {{t:check}}, et le Bouton {{t:bet|mise}} petit avec un {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Vous {{t:call|suivez}}, car cette main soit bat déjà les {{t:bluff|bluffs}}, soit peut s'améliorer, et une petite {{t:bet|mise}} demande peu d'équité. La {{t:mdf}} face à une {{t:bet|mise}} de {{n:cbet.size.small}} du {{t:pot}} ({{n:mdf.bet-third}} de la {{t:range}}) est un point de référence : au flop, {{t:out-of-position|hors de position}}, vous pouvez défendre un peu moins, mais face à un petit {{t:c-bet}}, vous ne vous {{t:fold|couchez}} pas en masse."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Se {{t:fold|coucher}} abandonne une main qui a assez d'équité face à une {{t:bet|mise}} aussi petite : soit elle bat déjà les {{t:bluff|bluffs}}, soit elle peut s'améliorer. Au flop, {{t:out-of-position|hors de position}}, vous pouvez défendre un peu moins que ce qu'indique la {{t:mdf}}, mais face aux petits c-bets, vous ne vous {{t:fold|couchez}} pas en masse."

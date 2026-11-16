@@ -1,0 +1,24 @@
+# sc-31: Japanese text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-31
+module: m10
+situation: "この相手は頻繁に{{t:bet|ベット}}や{{t:raise|レイズ}}をすると仮定します。リバーであなたは相手の{{t:bluff|ブラフ}}にしか勝てない{{t:pair|ペア}}を一つ持っていて、相手が大きく{{t:bet|ベット}}します。また、相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合は、ハンドで示されたとおりだと仮定します。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { marginMin: 0.1, expected: [call] }
+  sredni: { marginMin: 0.03, marginMax: 0.1, expected: [call] }
+  trudny: { marginMin: 0.03, expected: [fold] }
+decisions:
+  - street: river
+    kind: river-catch
+    rule: R-M8-010
+    pots: [10, 14, 20, 30]
+    fractions: [0.75, 1, 1.5]
+    bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
+    actions:
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がリバーで大きく{{t:bet|ベット}}しています。{{t:call|コール}}が利益になるのは、相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合がこの{{t:bet|ベット}}で必要なエクイティより大きいときだけです。あなたのエクイティはまさにその{{t:bluff|ブラフ}}の割合だからです。相手の描写はこれを変えません：ハンドの数字を比べます。大きな{{t:bet|ベット}}ほど多くの{{t:bluff|ブラフ}}が必要です：{{t:pot|ポット}}サイズの{{t:bet|ベット}}では約{{n:eq.bet-pot}}です。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がリバーで大きく{{t:bet|ベット}}しています。{{t:fold|フォールド}}が良いのは、相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合がこの{{t:bet|ベット}}で必要なエクイティより小さいときだけです：そのときは、頻繁に{{t:bet|ベット}}する相手に対しても{{t:call|コール}}は損をします。{{t:bluff|ブラフ}}がそれより多いときは、{{t:fold|フォールド}}は{{t:call|コール}}が利益になる{{t:pot|ポット}}を手放します。"

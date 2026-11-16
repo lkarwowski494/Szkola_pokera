@@ -1,6 +1,8 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { KONFIGURACJA, przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
-import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, overcardOutsAt, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantConditionValues, type VariantMarker, type WerdyktAkcji } from '@szkola/poker-core';
+import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, overcardOutsAt, type VariantMarkerValues, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantConditionValues, type WerdyktAkcji } from '@szkola/poker-core';
+import { formatujLiczbe } from '@szkola/jezyki';
+import { jezykZadan } from '@/features/drills/text';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 
@@ -44,6 +46,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
     case 'icm-call':
     case 'river-catch': // FG (D-1143): jak draw-call na riverze, pas albo sprawdzenie zakładu rywala
     case 'defend': // FG (D-1144): jak draw-call na flopie, pas albo sprawdzenie c-betu rywala
+    case 'spr-call': // HO (08-EX-5, SC-26): pas albo sprawdzenie all-inu rywala na flopie (widok: zadanie dla roli 04)
       return ['fold', 'call'];
     case 'cbet-case':
       return AKCJE_CBET;
@@ -53,7 +56,14 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
       return p.options.map((o) => akcjaSpotu(o.action)); // kolejność węzła solvera: pas, sprawdzenie, rosnące podbicia, all-in
     case 'pick-hand':
       return ['hand-a', 'hand-b']; // KO-072: wybór jednej z dwóch rąk; nazwa akcji to karty ręki (EkranScenariusza.tekstAkcji)
+    case 'nit-3bet': // HO (08-EX-8, SC-30): pas albo sprawdzenie 3-betu nita (widok: zadanie dla roli 04)
+      return ['fold', 'call'];
+    case 'check-raise': // HO (08-EX-7, SC-16): BB z drawem wobec małego c-betu; lista poziomu T ma też raise-small (widok: zadanie dla roli 04)
+      return (['fold', 'call', 'raise-small', 'raise-big'] as const).filter((a) => spec?.kind !== 'check-raise' || spec.actions.some((x) => x.action === a)); // lista z szablonu (T ma raise-small, Ś nie)
+    case 'turn-action': // HO (08-EX-6, SC-18/21): czekanie albo zakład na turnie; lista akcji poziomu to ten sam zbiór co w c-becie (widok: zadanie dla roli 04)
+      return (['check', 'bet-small', 'bet-big'] as const).filter((x) => spec?.kind !== 'turn-action' || spec.actions.some((y) => y.action === x)); // lista z szablonu
     case 'turn-bet':
+    case 'geo-size': // HO (08-EX-4, SC-27): mały albo geometryczny zakład na flopie (widok: zadanie dla roli 04)
     case 'flop-size': // FL (08-FD-3, D-1419): ten sam widok co turn-bet, ulica flop
       return ['bet-small', 'bet-big']; // FG (D-1147): mały albo duży zakład na turnie, najtańszy pierwszy
     case 'river-value': // KO-091 (FR): bet albo czekanie na riverze, bez kwoty; najtańsza (czekanie) pierwsza
@@ -70,7 +80,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend') return p.correct;
+  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend' || p.point === 'spr-call' || p.point === 'geo-size' || p.point === 'turn-action' || p.point === 'check-raise' || p.point === 'nit-3bet') return p.correct;
   if (p.point === 'list-hand') return akcjaSpotu(p.correct); // FG: akcja poprawna wpisu listy; spoza znanych etykiet błąd z nazwą
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
@@ -199,6 +209,11 @@ function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
   }
   if (d.point === 'list-hand') return a === d.correct || (d.alsoCorrect?.includes(a) ?? false) ? 'zgodne' : d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'; // FG: akcja dopuszczalna z wpisu listy (ADR-04, D-1142)
   if (d.point === 'turn-bet' || d.point === 'flop-size') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // FG: mały zakład to zły rozmiar, nie błąd (analogia size-spot/cbet-case, CR WYS-002; D-1375)
+  if (d.point === 'geo-size') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // HT (HR-001, SC-27): mały zakład to niedokładność, nie błąd (warunki-hp.md:66; analogia turn-bet/flop-size, D-1375)
+  if (d.point === 'nit-3bet') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // HO (SC-30): sprawdzenie to niedokładność, nigdy „zgodne” (D-1305)
+  if (d.point === 'check-raise') return a === d.correct || a === 'call' ? 'zgodne' : 'niedokladnosc'; // HO (SC-16): call to zagranie zgodne (ręka mieszana, ADR-04; D-1722 HP), fold i zbyt małe podbicie to niedokładność (R-M6-006/010)
+  // HO: reguła heurystyczna daje najwyżej niedokładność (D-1052); HT (HR-002, KO-112): SC-18 (poprawny zakład) czekanie to akcja dopuszczalna (warunki-hp.md:43: check `acceptable`), SC-21 (poprawne czekanie) zakład to niedokładność
+  if (d.point === 'turn-action') return a === d.correct ? 'zgodne' : a === 'check' && d.correct === 'bet-big' ? 'dopuszczalne' : 'niedokladnosc';
   if (d.point === 'pick-hand') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // SC-23a/b: druga ręka to niedokładność, nie błąd (D-1054, zrodla-krok-e.md)
   return a === poprawnaAkcja(d) ? 'zgodne' : 'blad';
 }
@@ -333,13 +348,28 @@ const karty = (cs: readonly string[]) => `[[${cs.join(' ')}]]`;
 /** {{w:stol}}: karty stołu; przed flopem nazwa ulicy (CN D-784: bez nowego klucza, `scenario.street.preflop` małymi literami). */
 const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length === 0 ? t('scenario.street.preflop').toLowerCase() : karty(stol));
 
+/** HT (HR-006): SPR z jedną cyfrą po przecinku w zapisie języka aplikacji (pl „2,1”, en „2.1”; warunki-hp.md:16), jak pozostałe liczby zadań (`formatujLiczbe`). */
+const sprWJezyku = (spr: number): string => formatujLiczbe(Number(spr.toFixed(1)), jezykZadan(), { miejsca: 1 });
+
+/**
+ * Znaczniki liczbowe punktu (08-EX-5…8, HO): `spr` (SC-26), `rozmiar` (SC-27, procent puli), `vpip` (SC-30, procent). Poza tymi punktami brak wartości (tekst z takim znacznikiem
+ * w innym punkcie to błąd treści: `fillVariantMarkers` rzuca TemplateError, nie cichy fallback). SPR formatuje `sprWJezyku` (HT HR-006).
+ */
+function wartosciPunktu(d: ScenarioVariant['points'][number] | undefined): Partial<Record<'spr' | 'rozmiar' | 'vpip', string>> {
+  if (d?.point === 'spr-call') return { spr: sprWJezyku(d.spr) };
+  if (d?.point === 'nit-3bet') return { vpip: String(Math.round(d.vpip * 100)) };
+  if (d?.point === 'geo-size') return { spr: sprWJezyku(d.spr), rozmiar: String(Math.round(d.fractionBig * 100)) };
+  return {};
+}
+
 /** Wartości znaczników {{w:…}} w punkcie decyzji: karty jako [[…]] dla RichText, pozycje z szablonu (D-557). */
-export function wartosciZnacznikow(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, t: TFn): Record<VariantMarker, string> {
+export function wartosciZnacznikow(v: ScenarioVariant, s: ScenarioTemplate, indeks: number, t: TFn): VariantMarkerValues {
   return {
     reka: karty(v.hero.map(cardToString)),
     stol: stolZnacznika(widokDecyzji(v, indeks).stol, t),
     pozycja: pozycja(s.positions.hero, t),
     rywal: s.positions.villain, // skrót (D-650): w szablonie stoi po przyimku („rywal z BB”), pełna nazwa zepsułaby odmianę
+    ...wartosciPunktu(v.points[indeks]),
   };
 }
 

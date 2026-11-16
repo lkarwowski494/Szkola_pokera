@@ -1,0 +1,21 @@
+# sc-26: English text of pl/sc-26.yaml (role 06, session HP, 2026-11-16; draft, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "A low {{t:spr}} and your opponent goes {{t:all-in}}. Tournament play with no {{t:icm|ICM}} pressure and short stacks: you are in the {{t:big-blind}} and {{t:call|called}} the Button's {{t:open}}. On the flop you {{t:check}}, and the Button goes {{t:all-in}} at an {{t:spr}} of about {{w:spr}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    calc: R-M9-002
+    spot: vs-open.bb-vs-btn
+    actions:
+      - action: call
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} goes {{t:all-in}} at an {{t:spr}} of about {{w:spr}}. You {{t:call}}, because the stack is small compared with the {{t:pot}}: at this {{t:spr}}, {{t:top-pair}} and better hands are good enough to play for the whole stack. The lower the {{t:spr}}, the better the price you get: at an {{t:spr}} of {{n:spr.commit}} you need about {{n:eq.jam.spr2}} equity, so winning less than every other time is enough."
+      - action: fold
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} goes {{t:all-in}} at an {{t:spr}} of about {{w:spr}}. A {{t:fold}} gives up the {{t:pot}} too easily: at such a low {{t:spr}}, {{t:top-pair}} and better hands play for the whole stack. To {{t:call}} you don't need to be the favourite: at an {{t:spr}} of {{n:spr.commit}}, about {{n:eq.jam.spr2}} equity is enough."

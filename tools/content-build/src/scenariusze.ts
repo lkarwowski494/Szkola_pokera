@@ -76,25 +76,32 @@ function sprawdzPozycjeSizeSpot(pos: { hero: string; villain: string }, check: s
 }
 
 /**
- * 06-tresci-008 (FR, opcja a): rozmiar zakładu w tekście wyjaśnienia (`{{n:cbet.size.small|big}}`) musi być równy rozmiarowi w decyzji szablonu:
+ * 06-tresci-008 (FR, opcja a): rozmiar zakładu w tekście wyjaśnienia (`{{n:cbet.size.small|big}}`; dla turn-bet także `ex.frac.quarter` = small i `ex.frac.three-quarters` = big, D-1771) musi być równy rozmiarowi w decyzji szablonu:
  * turn-bet i flop-size (`small`, `big`) oraz defend (każda z `fractions`). Zmiana klucza w `numbers.yaml` nie może po cichu rozjechać tekstu z rozmiarem wariantu.
  * `wartosc` zwraca liczbę klucza (ułamek puli) albo undefined (nieznany klucz zgłasza osobna kontrola).
  */
 export function kluczeRozmiaruZgodne(t: ScenarioTemplate, wartosc: (klucz: string) => number | undefined): string[] {
   const e: string[] = [];
-  const KLUCZE = ['cbet.size.small', 'cbet.size.big'] as const;
   t.decisions.forEach((d, i) => {
-    let rozmiary: Record<(typeof KLUCZE)[number], readonly number[]>;
-    if (d.kind === 'turn-bet' || d.kind === 'flop-size') rozmiary = { 'cbet.size.small': [d.small], 'cbet.size.big': [d.big] };
-    else if (d.kind === 'defend') rozmiary = { 'cbet.size.small': d.fractions, 'cbet.size.big': d.fractions };
+    // klucz numbers.yaml → (nazwa pola rozmiaru do komunikatu, wartości rozmiaru w decyzji)
+    let rozmiary: Record<string, { pole: string; wartosci: readonly number[] }>;
+    if (d.kind === 'turn-bet') {
+      // dodatek HU (D-1771): SC-20 podaje rozmiary turnu kluczami ex.frac.* (ćwierć i trzy czwarte puli), obok cbet.size.*
+      rozmiary = {
+        'cbet.size.small': { pole: 'small', wartosci: [d.small] }, 'cbet.size.big': { pole: 'big', wartosci: [d.big] },
+        'ex.frac.quarter': { pole: 'small', wartosci: [d.small] }, 'ex.frac.three-quarters': { pole: 'big', wartosci: [d.big] },
+      };
+    } else if (d.kind === 'flop-size') rozmiary = { 'cbet.size.small': { pole: 'small', wartosci: [d.small] }, 'cbet.size.big': { pole: 'big', wartosci: [d.big] } };
+    else if (d.kind === 'geo-size') rozmiary = { 'cbet.size.small': { pole: 'small', wartosci: [d.small] }, 'cbet.size.big': { pole: 'big', wartosci: [] } }; // HO: duży zakład jest geometryczny (z SPR), nie z numbers.yaml
+    else if (d.kind === 'defend') rozmiary = { 'cbet.size.small': { pole: 'fractions', wartosci: d.fractions }, 'cbet.size.big': { pole: 'fractions', wartosci: d.fractions } };
     else return;
     const tekst = d.actions.map((a) => a.explanation).join('\n');
-    for (const klucz of KLUCZE) {
+    for (const [klucz, { pole, wartosci }] of Object.entries(rozmiary)) {
       if (!tekst.includes(`{{n:${klucz}}}`)) continue;
       const w = wartosc(klucz);
       if (w === undefined) continue;
-      for (const r of rozmiary[klucz]) {
-        if (Math.abs(r - w) > 1e-9) e.push(`szablon ${t.id}: punkt decyzji ${i + 1} (${d.kind}): rozmiar ${klucz === 'cbet.size.small' && d.kind !== 'defend' ? 'small' : klucz === 'cbet.size.big' && d.kind !== 'defend' ? 'big' : 'fractions'} ${r} w decyzji, a tekst podaje {{n:${klucz}}} = ${w} (06-tresci-008)`);
+      for (const r of wartosci) {
+        if (Math.abs(r - w) > 1e-9) e.push(`szablon ${t.id}: punkt decyzji ${i + 1} (${d.kind}): rozmiar ${pole} ${r} w decyzji, a tekst podaje {{n:${klucz}}} = ${w} (06-tresci-008)`);
       }
     }
   });
@@ -188,6 +195,88 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (ex !== undefined && ex !== 'bet' && ex !== 'check') e.push(`${p} poziom ${l}: oczekiwana akcja punktu river-value to bet albo check, jest ${ex}`);
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
         if ((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.5) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin < 0,5 (δ ≥ 0,5 wyklucza obie akcje, D-1417)`); // 08-programista-006
+      }
+    } else if (d.kind === 'nit-3bet') {
+      // 08-EX-8 (SC-30): gracz otwiera, nit z BB 3-betuje; tylko poziom łatwy (D-1721: na średnim żadna ręka nie spełnia równości z marginesem); liczby z numbers.yaml
+      if (t.positions.villain !== 'BB') e.push(`${p} nit-3bet: rywal (nit) to BB (3-bet po otwarciu z BTN), jest ${t.positions.villain}`);
+      if (!ctx.spots?.get(`rfi.${t.positions.hero.toLowerCase()}`)) e.push(`${p} nit-3bet: brak spotu zakresu otwarcia rfi.${t.positions.hero.toLowerCase()} (ręka gracza z jego zakresu otwarcia)`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      if (ctx.numberValue) {
+        const o = ctx.numberValue('pf.open-size');
+        const tb = ctx.numberValue('pf.3bet.oop-total');
+        if (o !== undefined && Math.abs(o - d.open) > 1e-9) e.push(`${p} open ${d.open} różni się od pf.open-size ${o} (jedno źródło prawdy)`);
+        if (tb !== undefined && Math.abs(tb - d.threeBet) > 1e-9) e.push(`${p} threeBet ${d.threeBet} różni się od pf.3bet.oop-total ${tb} (jedno źródło prawdy)`);
+      }
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        if (l !== 'latwy') e.push(`${p} poziom ${l}: nit-3bet ma tylko poziom łatwy (D-1721)`);
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu nit-3bet to fold (R-M2-005), jest ${ex}`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.03 - 1e-12)) e.push(`${p} poziom ${l}: punkt nit-3bet wymaga marginesu ≥ 0,03 (D-1721)`);
+      }
+    } else if (d.kind === 'check-raise') {
+      // 08-EX-7 (SC-16): BB wobec c-betu BTN, ręka z zakresu obrony; krotności z numbers.yaml (jedno źródło prawdy), akcje fold/call/raise-big (+raise-small)
+      if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      if (t.positions.hero !== 'BB') e.push(`${p} check-raise: gracz to BB (check-raise wobec c-betu), jest ${t.positions.hero}`);
+      if (!d.spot.startsWith('vs-open.bb-')) e.push(`${p} check-raise: spot vs-open.bb-* (obrona BB wobec otwarcia), jest ${d.spot}`);
+      const akcje = d.actions.map((a) => a.action);
+      if (new Set(akcje).size !== akcje.length || !['fold', 'call', 'raise-big'].every((a) => akcje.includes(a as 'fold'))) e.push(`${p} akcje to fold, call, raise-big i opcjonalnie raise-small, każda raz i z własnym wyjaśnieniem (BR-OCE-002)`);
+      if ((d.multipliers.small !== undefined) !== akcje.includes('raise-small')) e.push(`${p} akcja raise-small i krotność multipliers.small występują razem`);
+      const liczba = ctx.numberValue;
+      if (liczba) {
+        if (liczba('xr.mult.example') !== undefined && Math.abs(liczba('xr.mult.example')! - d.multipliers.big) > 1e-9) e.push(`${p} multipliers.big ${d.multipliers.big} różni się od xr.mult.example ${liczba('xr.mult.example')} (jedno źródło prawdy)`);
+        if (liczba('cbet.size.small') !== undefined && Math.abs(liczba('cbet.size.small')! - d.cbet) > 1e-9) e.push(`${p} cbet ${d.cbet} różni się od cbet.size.small ${liczba('cbet.size.small')} (jedno źródło prawdy, HT HR-005)`);
+        if (d.multipliers.small !== undefined && liczba('xr.too-small.mult') !== undefined && Math.abs(liczba('xr.too-small.mult')! - d.multipliers.small) > 1e-9) e.push(`${p} multipliers.small ${d.multipliers.small} różni się od xr.too-small.mult ${liczba('xr.too-small.mult')}`);
+      }
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'raise-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu check-raise to raise-big (R-M6-008/010), jest ${ex}`);
+        if (b.draws.length === 0) e.push(`${p} poziom ${l}: punkt check-raise wymaga listy draws (kolor, strit otwarty)`);
+      }
+    } else if (d.kind === 'turn-action') {
+      // 08-EX-6 (SC-18/21): decyzja z granic poziomu (heurystyka bez rachunku); lista akcji to check, bet-big i opcjonalnie bet-small, każda z wyjaśnieniem (BR-OCE-002)
+      const akcje = d.actions.map((a) => a.action);
+      if (new Set(akcje).size !== akcje.length || !akcje.includes('check') || !akcje.includes('bet-big')) e.push(`${p} akcje to check, bet-big i opcjonalnie bet-small, każda raz i z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet-big' && ex !== 'check') e.push(`${p} poziom ${l}: oczekiwana akcja punktu turn-action to bet-big albo check, jest ${ex}`);
+        if (ex !== undefined && !akcje.includes(ex as 'check')) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie ma wyjaśnienia w akcjach punktu`);
+        if (!b.turnClass) e.push(`${p} poziom ${l}: punkt turn-action wymaga turnClass`);
+        if (!b.pairKind || b.pairKind.length === 0) e.push(`${p} poziom ${l}: punkt turn-action wymaga pairKind (rodzaj pary po turnie)`);
+      }
+    } else if (d.kind === 'geo-size') {
+      // 08-EX-4 (SC-27, R-M9-006/009): set z rozmiarem geometrycznym na flopie; mały zakład nie może wpłacać stacku, a geometryczny ma być większy od małego
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'bet-big,bet-small') e.push(`${p} akcje to dokładnie bet-small i bet-big, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'bet-big') e.push(`${p} poziom ${l}: oczekiwana akcja punktu geo-size to bet-big (R-M9-009: rozmiar geometryczny), jest ${ex}`);
+        const lancuch = (pot: number) => { let q = pot; let razem = 0; for (let k = 0; k < d.streets; k++) { const bet = q * d.small; razem += bet; q += 2 * bet; } return razem; };
+        const pasuje = d.pots.some((pot) => d.stacks.some((st) => {
+          const spr = st / pot;
+          const wZakresie = !b.sprRange || (spr >= b.sprRange[0] - 1e-12 && spr <= b.sprRange[1] + 1e-12);
+          return wZakresie && ((1 + 2 * spr) ** (1 / d.streets) - 1) / 2 > d.small && lancuch(pot) < st - 0.5;
+        }));
+        if (!pasuje) e.push(`${p} poziom ${l}: żadna para (pula, stack) nie daje SPR w sprRange z małym zakładem niewpłacającym stacku`);
+      }
+    } else if (d.kind === 'spr-call') {
+      // 08-EX-5 (SC-26, R-M9-002/003): rywal all-in na flopie przy niskim SPR; ręka z zakresu obrony, oczekiwana akcja call
+      if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'call') e.push(`${p} poziom ${l}: oczekiwana akcja punktu spr-call to call (R-M9-003: najwyższa para przy niskim SPR gra o stack), jest ${ex}`);
+        if (!b.sprRange) e.push(`${p} poziom ${l}: punkt spr-call wymaga sprRange [min, max]`);
+        else if (!d.pots.some((pot) => d.stacks.some((st) => st / pot >= b.sprRange![0] - 1e-12 && st / pot <= b.sprRange![1] + 1e-12))) e.push(`${p} poziom ${l}: żadna para (pula, stack) nie daje SPR w [${b.sprRange[0]}; ${b.sprRange[1]}]`);
+        if (b.kickerMin !== undefined && b.kickerMax !== undefined && '23456789TJQKA'.indexOf(b.kickerMin) > '23456789TJQKA'.indexOf(b.kickerMax)) e.push(`${p} poziom ${l}: kickerMin ${b.kickerMin} wyższy niż kickerMax ${b.kickerMax}`);
       }
     } else if (d.kind === 'defend') {
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);

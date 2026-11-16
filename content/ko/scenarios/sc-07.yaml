@@ -1,0 +1,23 @@
+# sc-07: Korean text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-07
+module: m4
+situation: "당신은 {{t:big-blind|빅 블라인드}}에 있습니다. 버튼이 {{t:open|오픈}}했고, {{t:small-blind|스몰 블라인드}}는 {{t:fold|폴드}}했으며, 당신은 {{t:call|콜}}했습니다. 플롭에서 당신은 {{t:check|체크}}하고, 버튼이 작은 {{t:c-bet|C벳}}으로 {{t:bet|베팅}}합니다."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold], flop: { height: [high] } }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 작은 {{t:c-bet|C벳}}으로 {{t:bet|베팅}}합니다. {{t:call|콜}}하는 이유는 {{t:pot|팟}}의 약 {{n:cbet.size.small}} 크기 {{t:bet|베팅}}에 대해서는 약 {{n:eq.bet-third}}의 에퀴티만 있으면 되고, 이 핸드는 이미 {{t:bluff|블러프}}를 이기거나 좋아질 수 있기 때문입니다. 거의 모든 {{t:pair|페어}}, {{t:draw|드로우}}, {{t:board|보드}}의 카드보다 높은 카드가 있는 추가 {{t:draw|드로우}}({{t:backdoor|백도어}})로 계속하고, 보통 에이스 하이로도 계속합니다."
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 작은 {{t:c-bet|C벳}}으로 {{t:bet|베팅}}합니다. {{t:fold|폴드}}하는 이유는 이것이 가장 약한 핸드 중 하나이기 때문입니다: {{t:pair|페어}}도, {{t:draw|드로우}}도, 추가 드로우({{t:backdoor|백도어}})조차 없고, 에이스도 없습니다. 작은 {{t:c-bet|C벳}}에 대해서는 넓게 디펜드하지만, {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 가장 약한 핸드는 {{t:fold|폴드}}합니다."

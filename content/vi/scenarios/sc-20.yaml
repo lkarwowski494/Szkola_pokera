@@ -1,0 +1,22 @@
+# sc-20: Vietnamese text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "Ở turn bạn có tay bài mạnh: {{t:top-pair|đôi cao nhất}} với {{t:kicker|kicker}} tốt hoặc mạnh hơn. Trên {{t:board|board}} có hai lá cùng một chất, nên đối thủ có thể có {{t:flush-draw|bài chờ thùng}}. Bạn chọn kích thước {{t:bet|cược}} nào?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} có thể có {{t:flush-draw|bài chờ thùng}}. Bạn {{t:bet|cược}} lớn: với khoản {{t:bet|cược}} {{n:ex.frac.three-quarters}} {{t:pot|pot}}, {{t:draw|bài chờ}} cần {{n:eq.bet-three-quarters}} equity, trong khi nó có khoảng {{n:odds.flush.turn-river}}, nên không nhận được mức giá tốt."
+      - action: "bet-small"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} có thể có {{t:flush-draw|bài chờ thùng}}. Một khoản {{t:bet|cược}} nhỏ cho {{t:draw|bài chờ}} một mức giá tốt: với khoản {{t:bet|cược}} bằng {{n:ex.frac.quarter}} {{t:pot|pot}}, nó cần {{n:eq.bet-quarter}} equity là đủ, trong khi nó có khoảng {{n:odds.flush.turn-river}}. Với tay bài mạnh trước {{t:draw|bài chờ}}, bạn {{t:bet|cược}} lớn."

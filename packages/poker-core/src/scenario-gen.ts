@@ -8,11 +8,11 @@ import { analyseOutsSpot, DRAW_CALL_MIN_GAP, type DrawKind } from './drills';
 import { cbetVerdict, isoSizeStandardBb, type IsoParams, nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict, sizeVerdict } from './grading';
 import { classifyHolding, HOLDING_LIMITS, type HoldingClass, type PairKind } from './holding';
 import { categoryOf, HandCategory, strength } from './evaluate';
-import { hitProbability, requiredEquity } from './math';
+import { geometricFraction, hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
-import { classifyFlop, textureMatches, type TextureFilter } from './texture';
+import { classifyFlop, straightWindowCount, textureMatches, type TextureFilter } from './texture';
 
 /** Outy na parę z jednej rangi karty gracza wyższej od stołu: 3 karty tej rangi (D1, `pair.outs.per-rank` w content/numbers.yaml). */
 export const OUTS_PER_OVERCARD_RANK = 3;
@@ -141,7 +141,66 @@ export interface FlopSizeSpec {
   small: number;
   big: number;
 }
-export type DecisionSpec = FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
+/**
+ * 08-EX-5 (SC-26, R-M9-001/002/003, sesja HO): rywal wchodzi all-in na flopie przy niskim SPR, gracz (BB) ma najwyższą parę albo lepszą. Ręka z zakresu obrony spotu `spot`
+ * (jak defend). Stack za pulą (`stacks`, bb) i pula na flopie (`pots`, bb) tworzą SPR = stack ÷ pula (R-M9-001); wariant ma SPR z `sprRange` poziomu. Poprawna akcja to
+ * `call` (R-M9-003: strefa SPR poniżej ok. 3, najwyższa para; GW Stack-to-Pot Ratio); `required` = S ÷ (P + 2S) (R-M9-002).
+ */
+export interface SprCallSpec {
+  kind: 'spr-call';
+  street: 'flop';
+  spot: string;
+  pots: readonly number[];
+  stacks: readonly number[];
+}
+/**
+ * 08-EX-4 (SC-27, R-M9-006/009 math, sesja HO): rozmiar zakładu na flopie z setem, który wpłaca cały stack `streets` równymi zakładami do rivera (przesłanka to dana zadania, D-1300).
+ * Pula (`pots`) i stack za pulą (`stacks`, bb) dają SPR z `sprRange` poziomu (brak = bez zawężenia). `bet-big` = ułamek geometryczny ((1 + 2·SPR)^(1/n) − 1) / 2 (`compliant`);
+ * `bet-small` = `small` puli (np. 1/3), który po `streets` zakładach wpłaca tylko część stacku (`inaccuracy`). Ręka: set z karty kieszonkowej, stół niesparowany i bez trzech kart koloru.
+ */
+export interface GeoSizeSpec {
+  kind: 'geo-size';
+  street: 'flop';
+  pots: readonly number[];
+  stacks: readonly number[];
+  streets: number;
+  small: number;
+}
+/**
+ * 08-EX-6 (SC-18/SC-21, R-M7-001/003/005, sesja HO): decyzja gracza otwierającego IP na turnie po c-becie i sprawdzeniu, gdy rywal czeka: `check`, `bet-big` (i `bet-small` w treści T).
+ * Ręka pochodzi z zakresu otwarcia pozycji gracza; poprawna akcja to `expected` poziomu (`bet-big` albo `check`). Warunki w granicach poziomu: `turnClass`, `pairKind` (po turnie),
+ * `flopMiss`, `flopHighMin`. Rachunku nie ma (heurystyka, D-1052), więc wariant niesie tylko klasę turnu i rodzaj pary.
+ */
+export interface TurnActionSpec {
+  kind: 'turn-action';
+  street: 'turn';
+}
+/**
+ * 08-EX-7 (SC-16, R-M6-008/010, sesja HO): BB z drawem (kolor albo strit otwarty z kartą gracza, od 8 outów, bez pary) wobec małego c-betu BTN; poprawne jest duże check-raise.
+ * `cbet` = ułamek puli flopu, `multipliers` = krotność c-betu: `big` (np. xr.mult.example) i opcjonalnie `small` (np. xr.too-small.mult, tylko T). Ręka z zakresu obrony spotu.
+ * Rachunek ceny BTN po podbiciu do R: (R − c) ÷ (pula + 2R), c = c-bet (tak samo z żetonów: pula + c + R + dopłata).
+ */
+export interface CheckRaiseSpec {
+  kind: 'check-raise';
+  street: 'flop';
+  spot: string;
+  pots: readonly number[];
+  cbet: number;
+  multipliers: { big: number; small?: number };
+}
+/**
+ * 08-EX-8 (SC-30, R-M10-007 / R-M2-005, sesja HO): gracz otworzył do `open` bb z pozycji, nit z BB 3-betuje do `threeBet` bb. Dana zadania: VPIP rywala x z `vpips` po ≥ 100 rękach
+ * i założenie „jego 3-bet mieści się w jego x% rąk” (górne x% kombinacji wg equity klasy wobec losowej ręki, macierz equity169). Poprawny jest pas ręką offsuit bez pary
+ * spoza tego zakresu, gdy equity wobec niego nie przekracza ceny o co najmniej margines poziomu (≥ 0,03, D-1721). Cena = (threeBet − open) ÷ (2·threeBet + 0,5).
+ */
+export interface NitThreeBetSpec {
+  kind: 'nit-3bet';
+  street: 'preflop';
+  open: number;
+  threeBet: number;
+  vpips: readonly number[];
+}
+export type DecisionSpec = NitThreeBetSpec | CheckRaiseSpec | TurnActionSpec | GeoSizeSpec | SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -258,6 +317,21 @@ export interface LevelBounds {
   chipsDiffer?: boolean;
   /** F2: ręka gracza z jednej z tych klas względem flopu (brak = dowolna). */
   holding?: readonly HoldingFilter[];
+  /** 08-EX-5 (SC-26): przedział SPR [min, max] punktu spr-call (stack za pulą ÷ pula na flopie). */
+  sprRange?: readonly [number, number];
+  /** 08-EX-5: rodzaj pary gracza (po flopie) dozwolony na poziomie; brak = bez filtra. Dotyczy punktów spr-call. */
+  pairKind?: readonly PairKind[];
+  /** 08-EX-5: kicker najwyższej pary (ranga 2…A jako znak z `23456789TJQKA`); minimum i maksimum, włącznie; nie dotyczy nadpary. */
+  kickerMin?: string;
+  kickerMax?: string;
+  /** 08-EX-6 (SC-18/21): klasa karty turnu punktu turn-action: `overcard` = ranga turnu wyższa od każdej karty flopu, `other` = niższa od najwyższej karty flopu (nie paruje stołu). */
+  turnClass?: 'overcard' | 'other';
+  /** 08-EX-6: na flopie gracz nie ma pary z własną kartą (także kieszonkowej) ani drawa od 8 outów (SC-18: turn „dopiero” paruje kartę gracza). */
+  flopMiss?: boolean;
+  /** 08-EX-6: najwyższa karta flopu ma rangę co najmniej taką (znak z `23456789TJQKA`), SC-21: flop z kartą od króla. */
+  flopHighMin?: string;
+  /** 08-EX-7 (SC-16): najwyżej tyle kart flopu od dziesiątki w górę (UP ep1: na stołach broadway BTN ma 3,2×, nie 4,5×). */
+  flopBroadwayMax?: number;
   /** F1: przedział częstości akcji oczekiwanej na punkt decyzji range-spot (null = inny rodzaj punktu); min ≤ f ≤ max. */
   freqs?: readonly ({ min: number; max: number } | null)[];
   /** KO-076: minimalny margin equity (ułamek) klasy ręki range-spot od granicy akcji oczekiwanej, `equityMarginPp` (D-1141); wymaga `ctx.equity169`. */
@@ -414,6 +488,67 @@ export interface FlopSizeVariantDecision {
   drawKind: DrawKind;
   correct: 'bet-big';
 }
+export interface SprCallVariantDecision {
+  point: 'spr-call';
+  street: 'flop';
+  /** Pula na flopie i stack za pulą (bb); `spr` = stack ÷ pula; `required` = S ÷ (P + 2S): equity potrzebne do sprawdzenia all-inu. */
+  pot: number;
+  stack: number;
+  spr: number;
+  required: number;
+  pairKind: PairKind;
+  correct: 'call';
+}
+export interface NitThreeBetVariantDecision {
+  point: 'nit-3bet';
+  street: 'preflop';
+  handClass: string;
+  /** VPIP rywala (ułamek): górne x% kombinacji jest jego zakresem 3-betu. */
+  vpip: number;
+  open: number;
+  threeBet: number;
+  /** Cena sprawdzenia i equity ręki gracza wobec górnych x%. */
+  required: number;
+  equity: number;
+  correct: 'fold';
+}
+export interface CheckRaiseVariantDecision {
+  point: 'check-raise';
+  street: 'flop';
+  pot: number;
+  /** C-bet BTN (bb) i podbicia gracza „do” (bb): krotność × c-bet; `raiseSmall` tylko, gdy szablon ma małą krotność (T). */
+  cbet: number;
+  raiseBig: number;
+  raiseSmall: number | null;
+  /** Cena BTN po podbiciu: (R − c) ÷ (pula + 2R). */
+  requiredBig: number;
+  requiredSmall: number | null;
+  drawKind: DrawKind;
+  outs: number;
+  correct: 'raise-big';
+}
+export interface TurnActionVariantDecision {
+  point: 'turn-action';
+  street: 'turn';
+  turnClass: 'overcard' | 'other';
+  /** Rodzaj pary gracza po turnie (zawsze obecny: wariant bez pary jest odrzucany). */
+  pairKind: PairKind;
+  correct: 'bet-big' | 'check';
+}
+export interface GeoSizeVariantDecision {
+  point: 'geo-size';
+  street: 'flop';
+  pot: number;
+  stack: number;
+  spr: number;
+  streets: number;
+  /** Ułamek geometryczny (duży zakład, poprawny) i mały ułamek z szablonu. */
+  fractionBig: number;
+  fractionSmall: number;
+  /** Ile wpłaci `streets` zakładów po `fractionSmall` puli (każdy sprawdzony), bb; zawsze mniej niż stack. */
+  smallTotal: number;
+  correct: 'bet-big';
+}
 export interface RiverValueVariantDecision {
   point: 'river-value';
   street: 'river';
@@ -425,7 +560,7 @@ export interface RiverValueVariantDecision {
   w: number;
   correct: 'bet' | 'check';
 }
-export type VariantDecision = FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
+export type VariantDecision = NitThreeBetVariantDecision | CheckRaiseVariantDecision | TurnActionVariantDecision | GeoSizeVariantDecision | SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -472,7 +607,7 @@ export const SIZE_BIG_FACTOR = 1.6;
 /** F4: próg `chipsDiffer` (wariant trudny): equity ≥ 50% to sprawdzenie w grze o żetony bez blindów; D-890: pole `requiredChips` wariantu liczy blind osobno, (S − b) ÷ (2S), a ten próg odpowiedzi nie zmienia (equity ≥ 50% ⇒ ≥ 45%). */
 const ICM_CHIPS_REQUIRED = 0.5;
 /** Equity klasy ręki wobec zakresu all-inu: Σ w·pary·eq ÷ Σ w·pary po 169 klasach rywala (macierz equity169, częstości w kolejności HAND_CLASSES). */
-function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly number[]): number {
+export function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly number[]): number {
   const i = m.classes.indexOf(handClass);
   if (i < 0) throw new TemplateError(`equity169: brak klasy ${handClass}`);
   let w = 0;
@@ -484,6 +619,32 @@ function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly numb
   });
   if (w <= 0) throw new TemplateError('zakres all-inu rywala jest pusty');
   return sum / w;
+}
+/** 08-EX-8: najmniejszy margines (ułamek) ceny nad equity ręki w nit-3bet (HP D-1721: equity ≤ cena − 0,03). */
+export const NIT_FOLD_MIN_GAP = 0.03;
+const KOMBINACJE_KLASY = (hc: string): number => (hc.length === 2 ? 6 : hc.endsWith('s') ? 4 : 12);
+const GORNE_PROCENTY = new WeakMap<Equity169Data, Map<number, ReadonlySet<string>>>();
+/**
+ * 08-EX-8: górne x% rąk: klasy od najsilniejszej (equity wobec losowej ręki z macierzy: Σ pary·eq ÷ Σ pary) dopóki suma kombinacji nie przekroczy x · 1326 (klasa, która by przekroczyła,
+ * kończy zakres). Wynik zapamiętany na macierz i x (wariant losuje się w pętli odrzuceń).
+ */
+export function topRangeClasses(m: Equity169Data, x: number): ReadonlySet<string> {
+  let per = GORNE_PROCENTY.get(m);
+  if (!per) GORNE_PROCENTY.set(m, (per = new Map()));
+  const znane = per.get(x);
+  if (znane) return znane;
+  const moc = m.classes.map((_, i) => m.equity[i]!.reduce((s, e, j) => s + e * m.pairs[i]![j]!, 0) / m.pairs[i]!.reduce((a, b) => a + b, 0));
+  const kolej = m.classes.map((_, i) => i).sort((a, b) => moc[b]! - moc[a]!);
+  const wynik = new Set<string>();
+  let suma = 0;
+  for (const i of kolej) {
+    const c = KOMBINACJE_KLASY(m.classes[i]!);
+    if (suma + c > x * 1326 + 1e-9) break;
+    suma += c;
+    wynik.add(m.classes[i]!);
+  }
+  per.set(x, wynik);
+  return wynik;
 }
 const round1 = (x: number) => Math.round(x * 10) / 10;
 /** Rozmiary opcji size-spot względem standardu: jedna lista dla generatora i `isoSizeOptions` (08-programista-005). */
@@ -524,7 +685,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size' || x.kind === 'turn-action' || x.kind === 'check-raise' || x.kind === 'nit-3bet');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt końcowy (${koncowe.map((x) => x.kind).join(', ')}) jest najwyżej jeden, ostatni i bez punktów draw-call`); // 08-programista-005: nazwy rodzajów z szablonu
   }
@@ -588,6 +749,17 @@ function policzMargines(spot: RangeSpotData, expected: string, hc: string, m: Eq
   let best = Infinity;
   m.classes.forEach((c, j) => { if ((spot.actions[a]!.freqs[HAND_CLASSES.indexOf(c)] ?? 0) <= 0.5) best = Math.min(best, Math.abs(sila[i]! - sila[j]!)); });
   return best;
+}
+
+/**
+ * HT (D-1750, zastępuje D-1705): strit jest możliwy na stole, gdy trzy różne rangi stołu mieszczą się w jednym oknie pięciu kolejnych rang (as także jako 1),
+ * czyli ta sama definicja co `straightPossible` flopu (`classifyFlop`), liczona na każdej trójce rang stołu turnu. Wtedy istnieje ręka z dwiema kartami, która ma strita.
+ * Rangi muszą być różne (turn nie paruje stołu).
+ */
+export function stolZeStritem(rangi: readonly number[]): boolean {
+  const r = [...new Set(rangi)];
+  for (let i = 0; i < r.length; i++) for (let j = i + 1; j < r.length; j++) for (let k = j + 1; k < r.length; k++) if (straightWindowCount([r[i]!, r[j]!, r[k]!]) > 0) return true;
+  return false;
 }
 
 /** Ręka z zakresu spotu: klasa losowana z wagą (suma częstości akcji innych niż pas) × liczba kombinacji, potem kombinacja (CS, CQ 06-tresci-004; wspólne dla cbet-case i defend). */
@@ -705,18 +877,18 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const w = listHandVerdicts(hc, first.entries)!;
     preflop = null;
     listPoint = { point: 'list-hand', street: 'preflop', handClass: classOf(hero[0], hero[1]), correct: w.correct, ...(w.alsoCorrect ? { alsoCorrect: w.alsoCorrect } : {}), acceptable: w.acceptable };
-  } else if (first.kind === 'defend') {
+  } else if (first.kind === 'defend' || first.kind === 'spr-call' || first.kind === 'check-raise') {
     // 08-N2: ręka z zakresu obrony spotu (jak zakres otwarcia w cbet-case); flop dolosowany do tekstury poziomu
-    if (!ctx) throw new TemplateError(`${t.id}: punkt defend wymaga danych zakresów (GeneratorContext)`);
+    if (!ctx) throw new TemplateError(`${t.id}: punkt ${first.kind} wymaga danych zakresów (GeneratorContext)`);
     hero = handFromRange(t.id, ctx, first.spot, rng, 'zakres obrony gracza');
     rest = dealCards(rng, 7, hero);
     for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
-  } else if (first.kind === 'cbet-case') {
+  } else if (first.kind === 'cbet-case' || first.kind === 'turn-action' || first.kind === 'nit-3bet') {
     // CS (CQ 06-tresci-004): „otworzyłeś z <pozycja>” — ręka gracza pochodzi z zakresu otwarcia tej pozycji (spot rfi.<pozycja> z danych treści, ta sama
     // definicja co zakresy w aplikacji), losowana z wagą częstość otwarcia × liczba kombinacji klasy (suma akcji innych niż pas), a nie dowolna:
     // ręka spoza zakresu uczyłaby c-betu po linii, której aplikacja nie gra. Losowanie z zakresu (nie odrzucanie) zachowuje pojemność wąskich poziomów.
-    if (!ctx) throw new TemplateError(`${t.id}: punkt cbet-case wymaga danych zakresów (GeneratorContext)`);
-    if (!t.positions) throw new TemplateError(`${t.id}: punkt cbet-case wymaga positions (zakres otwarcia gracza)`);
+    if (!ctx) throw new TemplateError(`${t.id}: punkt ${first.kind} wymaga danych zakresów (GeneratorContext)`);
+    if (!t.positions) throw new TemplateError(`${t.id}: punkt ${first.kind} wymaga positions (zakres otwarcia gracza)`);
     const dane = handFromRange(t.id, ctx, `rfi.${t.positions.hero.toLowerCase()}`, rng, 'zakres otwarcia gracza');
     hero = dane;
     rest = dealCards(rng, 7, hero);
@@ -807,6 +979,68 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
       continue;
     }
+    if (spec.kind === 'nit-3bet') {
+      // 08-EX-8 (SC-30): pas ręką offsuit bez pary spoza górnych x% VPIP rywala; cena z żetonów, margines ≥ 0,03
+      if (!ctx?.equity169) throw new TemplateError(`${t.id}: punkt nit-3bet wymaga macierzy equity (GeneratorContext.equity169)`);
+      if (spec.vpips.length === 0 || spec.vpips.some((v) => !(v > 0 && v < 1))) throw new TemplateError(`${t.id}: nit-3bet wymaga niepustej listy vpips z przedziału (0, 1)`);
+      if (!(spec.open > 0 && spec.threeBet > spec.open)) throw new TemplateError(`${t.id}: nit-3bet wymaga 0 < open < threeBet`);
+      if (b.expected[i] !== 'fold') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu nit-3bet to fold (R-M2-005), jest ${String(b.expected[i])}`);
+      if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= NIT_FOLD_MIN_GAP - 1e-12)) throw new TemplateError(`${t.id}: poziom ${level}: nit-3bet wymaga marginesu ≥ ${NIT_FOLD_MIN_GAP} (D-1721)`);
+      const hc = classOf(hero[0], hero[1]);
+      if (!(hc.length === 3 && hc.endsWith('o'))) return null; // offsuit bez pary
+      const vpip = pick(rng, spec.vpips);
+      const top = topRangeClasses(ctx.equity169, vpip);
+      if (top.has(hc)) return null;
+      const equity = equityVsRange(ctx.equity169, hc, HAND_CLASSES.map((c) => (top.has(c) ? 1 : 0)));
+      const required = (spec.threeBet - spec.open) / (2 * spec.threeBet + 0.5);
+      if (!(required - equity > 0) || !inMargin(required - equity, b, i)) return null;
+      points.push({ point: 'nit-3bet', street: 'preflop', handClass: hc, vpip, open: spec.open, threeBet: spec.threeBet, required, equity, correct: 'fold' });
+      icmSuffix = `|${vpip}`; // VPIP jest pokazany w decyzji
+      continue;
+    }
+    if (spec.kind === 'check-raise') {
+      // 08-EX-7 (SC-16): draw z kartą gracza (kolor albo strit otwarty, od 8 outów) bez pary; stół i krotności z granic szablonu
+      if (spec.pots.length === 0 || !(spec.cbet > 0 && spec.cbet < 1)) throw new TemplateError(`${t.id}: check-raise wymaga pots i 0 < cbet < 1`);
+      const { big, small } = spec.multipliers;
+      if (!(big > 1) || (small !== undefined && !(small > 1 && small < big))) throw new TemplateError(`${t.id}: check-raise wymaga krotności big > 1 i opcjonalnie 1 < small < big`);
+      if (b.expected[i] !== 'raise-big') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu check-raise to raise-big (R-M6-008/010), jest ${String(b.expected[i])}`);
+      const rangiFlopu = flop.map(rankOf);
+      if (b.flopBroadwayMax !== undefined && rangiFlopu.filter((r) => r >= RANK_CHARS.indexOf('T')).length > b.flopBroadwayMax) return null;
+      const h = classifyHolding(hero, flop);
+      if (h.pairKind || h.improvesBoard || !h.draw || h.draw.all.length < HOLDING_LIMITS.drawOutsMin || !(b.draws as readonly string[]).includes(h.draw.kind)) return null;
+      if (rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiFlopu.includes(rankOf(c)))) return null; // bez pary z kartą gracza (także kieszonkowej)
+      const pot = pick(rng, spec.pots);
+      const cbet = pot * spec.cbet;
+      const price = (r: number): number => (r - cbet) / (pot + 2 * r);
+      const raiseBig = cbet * big;
+      const raiseSmall = small === undefined ? null : cbet * small;
+      points.push({ point: 'check-raise', street: 'flop', pot, cbet, raiseBig, raiseSmall, requiredBig: price(raiseBig), requiredSmall: raiseSmall === null ? null : price(raiseSmall), drawKind: h.draw.kind as DrawKind, outs: h.draw.all.length, correct: 'raise-big' });
+      icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
+      continue;
+    }
+    if (spec.kind === 'turn-action') {
+      // 08-EX-6 (SC-18/21): warunki konieczne z granic poziomu; poprawna akcja to expected (heurystyka bez rachunku, D-1052)
+      const exp = b.expected[i];
+      if (exp !== 'bet-big' && exp !== 'check') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu turn-action to bet-big albo check, jest ${String(exp)}`);
+      if (!b.turnClass) throw new TemplateError(`${t.id}: poziom ${level}: punkt turn-action wymaga turnClass w granicach poziomu`);
+      if (!b.pairKind || b.pairKind.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: punkt turn-action wymaga pairKind (rodzaj pary po turnie)`);
+      const turn = board.slice(0, 4);
+      const rangiFlopu = flop.map(rankOf);
+      const rangaTurnu = rankOf(turn[3]!);
+      if (rangiFlopu.includes(rangaTurnu)) return null; // turn nie paruje stołu
+      if ((rangaTurnu > Math.max(...rangiFlopu)) !== (b.turnClass === 'overcard')) return null;
+      if (b.flopHighMin && Math.max(...rangiFlopu) < RANK_CHARS.indexOf(b.flopHighMin)) return null;
+      if ([0, 1, 2, 3].some((su) => turn.filter((c) => suitOf(c) === su).length >= 3)) return null; // turn nie daje trzeciej karty koloru
+      if (stolZeStritem(turn.map(rankOf))) return null; // D-1750: na stole turnu nie ma możliwego strita (trzy rangi w oknie pięciu)
+      const hTurn = classifyHolding(hero, turn);
+      if (!hTurn.pairKind || !b.pairKind.includes(hTurn.pairKind) || (hTurn.draw?.all.length ?? 0) >= HOLDING_LIMITS.drawOutsMin) return null;
+      if (b.flopMiss) {
+        const hFlop = classifyHolding(hero, flop);
+        if (hFlop.pairKind || hFlop.improvesBoard || (hFlop.draw?.all.length ?? 0) >= HOLDING_LIMITS.drawOutsMin) return null;
+      }
+      points.push({ point: 'turn-action', street: 'turn', turnClass: b.turnClass, pairKind: hTurn.pairKind, correct: exp });
+      continue;
+    }
     if (spec.kind === 'turn-bet') {
       if (spec.pots.length === 0 || !(spec.small > 0) || !(spec.big > spec.small)) throw new TemplateError(`${t.id}: turn-bet wymaga pots i 0 < small < big`);
       const turn = board.slice(0, 4);
@@ -815,7 +1049,8 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const rangiTurnu = turn.map(rankOf);
       const zKarta = rankOf(hero[0]) === rankOf(hero[1]) || hero.some((c) => rangiTurnu.includes(rankOf(c)));
       if (!zKarta) return null;
-      if ((b.draws as readonly string[]).every((d) => d === 'flush') && ![0, 1, 2, 3].some((su) => [...villain, ...turn].filter((c) => suitOf(c) === su).length === 4)) return null;
+      if ([0, 1, 2, 3].some((su) => turn.filter((c) => suitOf(c) === su).length === 3 && villain.filter((c) => suitOf(c) === su).length === 1)) return null; // HT (D-1751): tanio, przed klasyfikacją: 1 + 3 karty koloru to draw na trzech kartach koloru stołu (tekst SC-20: dwie karty), odrzucane i tak niżej
+      if ((b.draws as readonly string[]).every((d) => d === 'flush') && ![0, 1, 2, 3].some((su) => villain.filter((c) => suitOf(c) === su).length === 2 && turn.filter((c) => suitOf(c) === su).length === 2)) return null; // HT (D-1751): rywal ma dwie karty koloru, turn dokładnie dwie (tekst SC-20: „dwie karty w jednym kolorze”)
       const h = classifyHolding(hero, turn);
       // silna ręka z kartą gracza (kicker z pary na stole nie liczy się, jak D-1143); „strong” tylko z pary (nadpara, najwyższa para z kickerem ≥ Q), nie z samych outów (EI-001)
       // 08-EL-1 (D-1256): najwyższa para tylko z kickerem ≥ Q (bez TPWK i średniego kickera)
@@ -823,6 +1058,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (!zrobiona || !zKarta) return null;
       const draw = analyseOutsSpot(villain, turn);
       if (!draw || !(b.draws as readonly string[]).includes(draw.draw.kind) || classifyHolding(villain, turn).improvesBoard) return null;
+      if (draw.draw.flush.length > 0 && turn.filter((c) => suitOf(c) === suitOf(draw.draw.flush[0]!)).length !== 2) return null; // HT (D-1751): draw koloru = dokładnie dwie karty koloru na turnie, nie trzy
       // D-1286 (EP-003, powraca z EI-001): CZYSTE outy. Karty rivera, po których rywal wygrywa albo remisuje (z 44 niewidzianych), muszą być dokładnie nominalnymi outami drawa,
       // bez remisów; wtedy equity rywala e = N/44, a pokazywane hit = N/46 (R-M7-006/007) jest prawdą. Martwe i częściowo martwe outy (full, kareta, wyższy kolor gracza) odpadają.
       const znane = new Set<Card>([...hero, ...villain, ...turn]);
@@ -882,6 +1118,51 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (r.correct === null) return null; // brak jednoznacznej odpowiedzi (D-1054)
       points.push({ point: 'pick-hand', street: 'river', mode: spec.mode, hands, sdv: r.sdv, calls: r.calls, folds: r.folds, correct: r.correct === 0 ? 'hand-a' : 'hand-b' });
       icmSuffix = `|${villain[0]}-${villain[1]}`; // druga ręka jest pokazana w decyzji
+      continue;
+    }
+    if (spec.kind === 'geo-size') {
+      // 08-EX-4 (SC-27): set na flopie niesparowanym; rachunek R-M9-006 (math, `geometricFraction`) vs mały ułamek; przesłanka „wpłacić cały stack” to dana zadania
+      if (spec.pots.length === 0 || spec.stacks.length === 0) throw new TemplateError(`${t.id}: geo-size wymaga pots i stacks`);
+      if (!Number.isInteger(spec.streets) || spec.streets < 1) throw new TemplateError(`${t.id}: geo-size: streets to liczba całkowita ≥ 1, jest ${spec.streets}`);
+      if (!(spec.small > 0)) throw new TemplateError(`${t.id}: geo-size: small > 0`);
+      if (b.expected[i] !== 'bet-big') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu geo-size to bet-big (R-M9-009: rozmiar geometryczny), jest ${String(b.expected[i])}`);
+      const zakres = b.sprRange;
+      if (zakres && !(zakres[0] > 0 && zakres[1] >= zakres[0])) throw new TemplateError(`${t.id}: poziom ${level}: sprRange [min, max] z 0 < min ≤ max`);
+      const lancuchMaly = (pot: number) => { let p = pot; let razem = 0; for (let k = 0; k < spec.streets; k++) { const bet = p * spec.small; razem += bet; p += 2 * bet; } return razem; };
+      const pary = spec.pots.flatMap((pot) => spec.stacks.map((stack) => ({ pot, stack, spr: stack / pot })))
+        .filter((x) => x.pot > 0 && x.stack > 0 && (!zakres || (x.spr >= zakres[0] - 1e-12 && x.spr <= zakres[1] + 1e-12)))
+        .filter((x) => geometricFraction(x.spr, spec.streets) > spec.small && lancuchMaly(x.pot) < x.stack - 0.5); // mały zakład naprawdę nie wpłaca stacku, a geometryczny jest większy od małego
+      if (pary.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna para (pula, stack) nie daje SPR w przedziale z małym zakładem niewpłacającym stacku`);
+      if (rankOf(hero[0]) !== rankOf(hero[1])) return null; // para kieszonkowa
+      const rangi = flop.map(rankOf);
+      if (new Set(rangi).size < 3 || rangi.filter((r) => r === rankOf(hero[0])).length !== 1) return null; // stół niesparowany, set z jednej karty stołu
+      if ([0, 1, 2, 3].some((su) => flop.filter((c) => suitOf(c) === su).length === 3)) return null; // bez gotowego koloru na stole
+      const c = pick(rng, pary);
+      points.push({ point: 'geo-size', street: 'flop', pot: c.pot, stack: c.stack, spr: c.spr, streets: spec.streets, fractionBig: geometricFraction(c.spr, spec.streets), fractionSmall: spec.small, smallTotal: lancuchMaly(c.pot), correct: 'bet-big' });
+      icmSuffix = `|${c.pot}-${c.stack}`; // pula i stack są pokazane w decyzji
+      continue;
+    }
+    if (spec.kind === 'spr-call') {
+      // 08-EX-5 (SC-26): rywal all-in na flopie przy niskim SPR; ocena = rachunek (R-M9-002) + strefa SPR (R-M9-003); ręka z zakresu obrony (first.kind)
+      if (spec.pots.length === 0 || spec.stacks.length === 0) throw new TemplateError(`${t.id}: spr-call wymaga pots i stacks`);
+      if (b.expected[i] !== 'call') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu spr-call to call (R-M9-003: najwyższa para przy niskim SPR gra o stack), jest ${String(b.expected[i])}`);
+      if (!b.sprRange || !(b.sprRange[0] > 0 && b.sprRange[1] >= b.sprRange[0])) throw new TemplateError(`${t.id}: poziom ${level}: spr-call wymaga sprRange [min, max] z 0 < min ≤ max`);
+      const [sprMin, sprMax] = b.sprRange;
+      const pary = spec.pots.flatMap((pot) => spec.stacks.map((stack) => ({ pot, stack, spr: stack / pot }))).filter((x) => x.pot > 0 && x.stack > 0 && x.spr >= sprMin - 1e-12 && x.spr <= sprMax + 1e-12);
+      if (pary.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna para (pula, stack) nie daje SPR w [${sprMin}; ${sprMax}]`);
+      if (new Set(flop.map(rankOf)).size < 3) return null; // stół niesparowany
+      if ([0, 1, 2, 3].some((su) => flop.filter((c) => suitOf(c) === su).length === 3)) return null; // bez gotowego koloru na stole
+      const h = classifyHolding(hero, flop);
+      if (h.pairKind !== 'overpair' && h.pairKind !== 'top') return null; // najwyższa para albo lepsza z kartą gracza (R-M9-003)
+      if (b.pairKind && !b.pairKind.includes(h.pairKind)) return null;
+      if (h.pairKind === 'top') {
+        const kicker = h.kicker ?? -1;
+        if (b.kickerMin !== undefined && kicker < RANK_CHARS.indexOf(b.kickerMin)) return null;
+        if (b.kickerMax !== undefined && kicker > RANK_CHARS.indexOf(b.kickerMax)) return null;
+      }
+      const c = pick(rng, pary);
+      points.push({ point: 'spr-call', street: 'flop', pot: c.pot, stack: c.stack, spr: c.spr, required: requiredEquity(c.pot, c.stack), pairKind: h.pairKind, correct: 'call' });
+      icmSuffix = `|${c.pot}-${c.stack}`; // pula i stack są pokazane w decyzji
       continue;
     }
     if (spec.kind === 'defend') {
@@ -1017,7 +1298,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
   const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand' || x.kind === 'river-value') ? board : t.decisions.some((x) => x.kind === 'turn-bet') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend' || x.kind === 'flop-size') ? flop : [];
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'river-catch' || x.kind === 'pick-hand' || x.kind === 'river-value') ? board : t.decisions.some((x) => x.kind === 'turn-bet' || x.kind === 'turn-action') ? board.slice(0, 4) : t.decisions.some((x) => x.kind === 'cbet-case' || x.kind === 'defend' || x.kind === 'check-raise' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) + icmSuffix };
 }
 
@@ -1045,8 +1326,10 @@ export function generateVariant(template: GeneratorTemplate, level: ScenarioLeve
  * decyzji), {{w:pozycja}} i {{w:rywal}} (pozycje z szablonu). Podstawiane przy wyświetleniu; formatowanie kart i nazw pozycji
  * (język) podaje wołający, bo poker-core nie zna języków interfejsu.
  */
-export const VARIANT_MARKERS = ['reka', 'stol', 'pozycja', 'rywal'] as const;
+export const VARIANT_MARKERS = ['reka', 'stol', 'pozycja', 'rywal', 'spr', 'rozmiar', 'vpip'] as const; // spr, rozmiar, vpip: 08-EX-5…8 (HO), wartości z punktu decyzji (SC-26, SC-27, SC-30)
 export type VariantMarker = (typeof VARIANT_MARKERS)[number];
+/** Wartości znaczników: cztery podstawowe zawsze; `spr`, `rozmiar`, `vpip` tylko w punktach, które je mają (brak wartości przy użyciu znacznika to błąd treści, nie pusty napis). */
+export type VariantMarkerValues = Record<'reka' | 'stol' | 'pozycja' | 'rywal', string> & Partial<Record<'spr' | 'rozmiar' | 'vpip', string>>;
 
 const VARIANT_MARKER_RE = /\{\{w:([^{}]*)\}\}/g;
 const NIEDOMKNIETY = '{{w:(niedomknięty)';
@@ -1099,11 +1382,13 @@ function resolveConditions(text: string, conditions: Partial<VariantConditionVal
  * Podstawia bloki warunkowe i znaczniki wartościami wariantu; nieznany znacznik lub warunek to błąd (nie cichy napis w treści dla
  * użytkownika). Bloki rozstrzygane przed znacznikami, więc znacznik w ukrytym bloku nie jest podstawiany.
  */
-export function fillVariantMarkers(text: string, values: Record<VariantMarker, string>, conditions?: Partial<VariantConditionValues>): string {
+export function fillVariantMarkers(text: string, values: VariantMarkerValues, conditions?: Partial<VariantConditionValues>): string {
   const widoczny = resolveConditions(text, conditions);
   const wynik = widoczny.replace(VARIANT_MARKER_RE, (_all, name: string) => {
     if (!(VARIANT_MARKERS as readonly string[]).includes(name)) throw new TemplateError(`nieznany znacznik wariantu {{w:${name}}}`);
-    return values[name as VariantMarker];
+    const w = values[name as VariantMarker];
+    if (w === undefined) throw new TemplateError(`brak wartości znacznika wariantu {{w:${name}}} w tym punkcie decyzji`);
+    return w;
   });
   if (wynik.includes('{{w:')) throw new TemplateError('niedomknięty znacznik wariantu {{w:');
   return wynik;

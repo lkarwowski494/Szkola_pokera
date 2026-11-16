@@ -1,0 +1,24 @@
+# Fixture testu HO (08-EX-7, SC-16): check-raise z drawem wobec małego c-betu. Nie jest treścią aplikacji.
+id: sc-fx-check-raise
+module: m6
+situation: "Fixture: BB z drawem wobec c-betu BTN."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, trudny]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+  trudny: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6]
+    cbet: 0.3333333333333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: pas oddaje draw." }
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: sprawdzenie jest dopuszczalne." }
+      - { action: raise-small, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: zbyt małe podbicie." }
+      - { action: raise-big, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}: duże check-raise." }

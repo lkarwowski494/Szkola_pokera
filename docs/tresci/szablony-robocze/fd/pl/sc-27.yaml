@@ -1,0 +1,25 @@
+# SC-27 (M9): rozmiar geometryczny w puli 3-betowanej z pozycji (punkt flop-size z proponowanym trybem geometric, 08-EX-4; warunki: ../warunki-hp.md).
+# Ocena: rachunek R-M9-009 / R-M9-006 (math): bet-big = f geometryczne na trzy ulice compliant, bet-small = 1/3 puli inaccuracy (D-1720).
+# Przesłanka „chcesz wpłacić cały stack do rivera” to dana zadania (D-1300). Ś: SPR spr.3bet-ip; T: SPR 4–8. Szkic sesji HP.
+id: sc-27
+module: m9
+situation: "Rozmiar, który wpłaci cały stack. Na Buttonie {{t:3-bet|3-betowałeś}} {{t:open|otwarcie}} z CO, a on {{t:call|sprawdził}}. Na flopie masz {{t:set}}, a CO {{t:check|czeka}}. Załóż, że masz rękę na trzy {{t:value|ulice wartości}} i chcesz wpłacić cały stack do rivera równymi {{t:bet|zakładami}} na flopie, turnie i riverze."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [sredni, trudny]
+bounds:
+  sredni: { expected: [bet-big] }
+  trudny: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: flop-size
+    mode: geometric
+    rule: R-M9-009
+    streets: 3
+    small: 0.33
+    actions:
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Stawiasz}} ok. {{w:rozmiar}} {{t:pot|puli}}, bo ten sam ułamek {{t:pot|puli}} na każdej {{t:street|ulicy}} wpłaca cały stack dokładnie na riverze. Równe {{t:bet|zakłady}} w teorii sprawiają, że rywal broni się najszerzej, więc wpłaca do {{t:pot|puli}} najwięcej."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. Mały {{t:bet|zakład}} nie wpłaci stacku: trzy {{t:bet|zakłady}} po trzeciej części {{t:pot|puli}} wpłacają tylko jego część, na przykład w {{t:pot|puli}} po {{t:3-bet|3-becie}} przy stacku {{n:spr.3bet-ip.stack}} za {{t:pot|pulą}} tylko ok. {{n:g3b.third.total}}. Żeby dojść do {{t:all-in|all-inu}} na riverze, już na flopie {{t:bet|stawiasz}} rozmiar geometryczny, ok. {{w:rozmiar}} {{t:pot|puli}}."

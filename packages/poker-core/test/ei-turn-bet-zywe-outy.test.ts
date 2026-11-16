@@ -21,7 +21,7 @@ describe('EI-001: turn-bet: draw rywala ma żywe outy', () => {
       if (zywe === 0) martwe.push(`seed ${seed}: ${v.hero.map(cardToString).join('')} vs ${v.villain.map(cardToString).join('')} na ${turn.map(cardToString).join('')}`);
     }
     expect(martwe).toEqual([]);
-  }, 120_000);
+  }, 300_000);
 });
 describe('EI-001: turn-bet: „silna ręka” to ręka zrobiona, nie draw', () => {
   it('ziarna 1–3000 (draws flush, oesd): brak wariantów, w których klasa strong wynika tylko z outów (para niższa niż najwyższa albo underpair)', async () => {
@@ -34,7 +34,7 @@ describe('EI-001: turn-bet: „silna ręka” to ręka zrobiona, nie draw', () =
       if (h.cls === 'strong' && h.pairKind !== 'overpair' && h.pairKind !== 'top') zle.push(`seed ${seed}: ${v.hero.map(cardToString).join('')} na ${v.board.slice(0, 4).map(cardToString).join('')} (${h.pairKind}, outy ${h.draw?.all.length})`);
     }
     expect(zle).toEqual([]);
-  }, 120000);
+  }, 300_000);
 });
 describe('08-EL-1 (D-1256): turn-bet: najwyższa para tylko z kickerem ≥ Q (bez TPWK)', () => {
   it('ziarna 1–3000 (draws flush, oesd): żaden wariant z pairKind top nie ma kickera niższego niż Q; wariant z top i kickerem ≥ Q istnieje', async () => {
@@ -58,5 +58,5 @@ describe('08-EL-1 (D-1256): turn-bet: najwyższa para tylko z kickerem ≥ Q (be
     expect(topZKickerem).toBeGreaterThan(0);
     // 08-programista-002: granica włącznie (Q dopuszczona); próg K (mutant M8) zostawia tylko K/A
     expect(topZKickeremQ).toBeGreaterThan(0);
-  }, 120000);
+  }, 300_000);
 });

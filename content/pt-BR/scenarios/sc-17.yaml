@@ -1,0 +1,22 @@
+# sc-17: Brazilian Portuguese text of content/pl/scenarios/sc-17.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-17
+module: m6
+situation: "Você está no {{t:big-blind}} e {{t:call|pagou}} a {{t:open|abertura}} do Button. No flop você faz {{t:check}}, e o Button {{t:bet|aposta}} um {{t:c-bet}} grande."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-007
+    spot: vs-open.bb-vs-btn
+    pots: [8]
+    fractions: [0.75]
+    actions:
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} grande. Você {{t:fold|desiste}}, porque tem duas cartas altas sem {{t:pair|par}} e sem {{t:draw|projeto}}: {{t:out-of-position}}, uma mão assim raramente chega ao {{t:showdown}}, e um {{t:pair|par}} com uma carta alta muitas vezes perde de qualquer forma. Diante de uma {{t:bet|aposta}} de cerca de {{n:cbet.size.big}} do {{t:pot}}, você já precisa de cerca de {{n:eq.bet-three-quarters}} de equity."
+      - action: call
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} grande. {{t:call|Pagar}} significa pagar muito por uma mão que, {{t:out-of-position}}, raramente chega ao {{t:showdown}}: duas cartas altas sem {{t:pair|par}} e sem {{t:draw|projeto}}, e um {{t:pair|par}} com uma carta alta muitas vezes perde de qualquer forma. Diante de um {{t:c-bet}} grande, você {{t:call|paga}} de preferência quando tem um {{t:draw|projeto}} adicional, idealmente para o {{t:flush}} mais alto."

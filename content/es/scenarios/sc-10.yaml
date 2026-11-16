@@ -1,0 +1,24 @@
+# sc-10: Spanish text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "Has {{t:open|abierto}} desde el {{t:cutoff|CO}}, el Button ha hecho {{t:3-bet}} y las ciegas se han {{t:fold|retirado}}. ¿Qué haces?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y el Button ha hecho {{t:3-bet}}. Haces {{t:4-bet}} {{t:value|por valor}}, porque esta mano quiere meter todo el stack y domina a la mayoría de las manos que {{t:call|pagarán}} el {{t:4-bet}}."
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y el Button ha hecho {{t:3-bet}}. Con AA, KK y AK normalmente haces {{t:4-bet}} {{t:value|por valor}}, porque estas manos quieren meter todo el stack y dominan a la mayoría de las manos que {{t:call|pagarán}} el {{t:4-bet}}; con AK a veces también {{t:call|pagas}}."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y el Button ha hecho {{t:3-bet}}. {{t:fold|Retirarte}} entrega una de las manos más fuertes: con AA, KK y AK normalmente haces {{t:4-bet}} {{t:value|por valor}}, porque estas manos quieren meter todo el stack y dominan a la mayoría de las manos que {{t:call|pagarán}} el {{t:4-bet}}."

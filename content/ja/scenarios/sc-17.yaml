@@ -1,0 +1,22 @@
+# sc-17: Japanese text of content/pl/scenarios/sc-17.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-17
+module: m6
+situation: "あなたは{{t:big-blind|ビッグブラインド}}にいて、ボタンの{{t:open|オープン}}に{{t:call|コール}}しました。フロップであなたは{{t:check|チェック}}し、ボタンが大きな{{t:c-bet|Cベット}}で{{t:bet|ベット}}します。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-007
+    spot: vs-open.bb-vs-btn
+    pots: [8]
+    fractions: [0.75]
+    actions:
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が大きな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。{{t:fold|フォールド}}するのは、{{t:pair|ペア}}も{{t:draw|ドロー}}もない高いカード二枚だからです：{{t:out-of-position|アウトオブポジション}}ではこうしたハンドが{{t:showdown|ショーダウン}}までたどり着くことはまれで、高いカードで{{t:pair|ペア}}ができても多くの場合結局負けます。{{t:pot|ポット}}の約{{n:cbet.size.big}}の{{t:bet|ベット}}に対しては、すでに約{{n:eq.bet-three-quarters}}のエクイティが必要です。"
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が大きな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。{{t:call|コール}}は、{{t:out-of-position|アウトオブポジション}}では{{t:showdown|ショーダウン}}までたどり着くことがまれなハンドに多くを払います：{{t:pair|ペア}}も{{t:draw|ドロー}}もない高いカード二枚で、高いカードで{{t:pair|ペア}}ができても多くの場合結局負けます。大きな{{t:c-bet|Cベット}}に対して{{t:call|コール}}するのは、どちらかといえば追加の{{t:draw|ドロー}}、できれば最も高い{{t:flush|フラッシュ}}へのドローがあるときです。"

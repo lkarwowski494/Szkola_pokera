@@ -1,0 +1,22 @@
+# sc-20: Traditional Chinese text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "在轉牌你有一手強牌：配好{{t:kicker|踢腳}}的{{t:top-pair|頂對}}或更好的牌。{{t:board|牌面}}上有兩張同一花色的牌，所以對手可能有{{t:flush-draw|同花聽牌}}。你選擇多大的{{t:bet|下注}}？"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手可能有{{t:flush-draw|同花聽牌}}。你大額{{t:bet|下注}}：面對 {{n:ex.frac.three-quarters}} {{t:pot|底池}}的{{t:bet|下注}}，{{t:draw|聽牌}}需要 {{n:eq.bet-three-quarters}} 的權益，而它約有 {{n:odds.flush.turn-river}}，所以得不到好價格。"
+      - action: "bet-small"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手可能有{{t:flush-draw|同花聽牌}}。小額{{t:bet|下注}}給{{t:draw|聽牌}}很好的價格：面對 {{n:ex.frac.quarter}} {{t:pot|底池}}的{{t:bet|下注}}，它只要有 {{n:eq.bet-quarter}} 的權益就夠了，而它約有 {{n:odds.flush.turn-river}}。用強牌對抗{{t:draw|聽牌}}時，你大額{{t:bet|下注}}。"
