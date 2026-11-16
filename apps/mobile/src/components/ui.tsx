@@ -1,7 +1,8 @@
 import type { ReactNode, Ref } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewInstance, type ViewStyle } from 'react-native';
+import { Dimensions, PixelRatio, Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewInstance, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
+import { rozmiarDoSzerokosci } from './dopasowanie';
 
 export function Screen({
   children,
@@ -76,6 +77,8 @@ export function Button({
 }) {
   const tk = useTokens();
   const primary = variant === 'primary';
+  // IF (D-1880): etykieta z długim wyrazem („Zobacz podsumowanie”) nie wychodzi poza przycisk przy 320 pt i AX5: rozmiar dopasowany do pola (ekran − 2 × 16 − 2 × 24 − obrys), zawijanie między wyrazami.
+  const rozmiar = rozmiarDoSzerokosci(label, Dimensions.get('window').width - 2 * odstep.l - 2 * odstep.xxl - 2 * BUTTON_OBRYS, PixelRatio.getFontScale(), styl.tresc);
   return (
     <Pressable
       testID={testID}
@@ -93,7 +96,7 @@ export function Button({
         style,
       ]}
     >
-      <Text style={[styl.tresc, { fontWeight: '700', color: primary ? tk.primaryInk : tk.link }]}>{label}</Text>
+      <Text style={[styl.tresc, rozmiar, { fontWeight: '700', color: primary ? tk.primaryInk : tk.link, textAlign: 'center' }]}>{label}</Text>
     </Pressable>
   );
 }
@@ -113,11 +116,14 @@ export function Surface({ children, style }: { children: ReactNode; style?: View
   return <View style={[{ backgroundColor: tk.surface, borderColor: tk.separator, borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: promien.przycisk, padding: odstep.l }, style]}>{children}</View>;
 }
 
+/** Obrys przycisku (pt); wchodzi do pola etykiety w `Button`. */
+const BUTTON_OBRYS = 1.5;
+
 const styles = StyleSheet.create({
   button: {
     minHeight: 48,
     borderRadius: promien.przycisk,
-    borderWidth: 1.5,
+    borderWidth: BUTTON_OBRYS,
     paddingHorizontal: odstep.xxl,
     alignItems: 'center',
     justifyContent: 'center',
