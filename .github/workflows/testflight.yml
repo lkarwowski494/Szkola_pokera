@@ -63,6 +63,22 @@ jobs:
           fi
           node scripts/ci/bramka-e2e.mjs "$GITHUB_REPOSITORY" "$GITHUB_SHA"
           echo "Bramka E2E: zielony przebieg e2e-ios.yml #$(sed -n 's/^run=//p' "$GITHUB_OUTPUT" | tail -1) na commicie $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+      # Bramka scenariuszy użytkownika (D-060, zasada wspólna 22; JAK-19, D-1782): katalog PU, linia „Przegląd: build N”, protokół F
+      # buildu N w commicie, zamknięty protokół F poprzedniego wysłanego buildu (docs/wydanie/ostatni-build.txt), wyjątki B w terminie.
+      # Scenariusze A wykonane: zielony e2e-ios.yml na tym commicie (krok wyżej) = każdy flow apps/mobile/e2e/*.yaml przeszedł
+      # (scripts/ci/e2e-ponowienia.mjs podsumuj: kod 1 przy braku flowu w raporcie); przy awaryjnym pominięciu E2E lista jest pusta.
+      - name: Bramka scenariuszy użytkownika (katalog PU i protokół F)
+        env:
+          POMIN: ${{ inputs.pomin_bramke_e2e }}
+        run: |
+          BUILD=$((1000 + GITHUB_RUN_NUMBER))
+          {
+            echo "$GITHUB_SHA"
+            if [ "$POMIN" != "true" ]; then
+              for f in apps/mobile/e2e/*.yaml; do [ "$(basename "$f")" = config.yaml ] || printf '%s\tPASS\n' "$f"; done
+            fi
+          } > "$RUNNER_TEMP/wykonane.tsv"
+          node scripts/sprawdz-scenariusze.mjs --build "$BUILD" --wykonane "$RUNNER_TEMP/wykonane.tsv"
   build:
     needs: bramka
     # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak iphone-local.yml)
