@@ -76,3 +76,6 @@ F1 z `call.bb-10`. Oczekiwane `call` (Ł: ręce mocne; Ś: dolna część zakres
 F4. Oczekiwane `fold` ręką, która w grze o żetony sprawdza, a z ICM nie (equity z kart wobec progu BF ÷ (BF + 1)). R-M11-009 (math), R-M11-010 (heuristic).
 - fold: „Masz {{w:reka}} na {{w:pozycja}} na bańce, {{w:stol}}, rywal z większym stackiem wszedł all-in. Pasujesz, bo na bańce przegrana zabiera ci więcej z puli nagród, niż wygrana dodaje, więc sprawdzenie musi wygrywać częściej niż w grze o żetony.”
 - call: „… W grze o żetony to sprawdzenie by się opłacało, ale z ICM próg jest wyższy: ok. {{n:m11.bf.req}} zamiast {{n:m11.bf.req-chips}}.”
+
+## Katalog `hz/` (rola 06, sesja HZ, 2026-11-16; decyzje `docs/decyzje/HZ.md`, stan `docs/tresci/plan-hz.md`)
+Szablony SC-09, 16, 18, 21, 26, 27, 30 w formacie schematu (pl, en i 10 przekładów), gotowe do przeniesienia do `content/<j>/scenarios/` osobnym zleceniem po otwarciu bramki ekranu przez rolę 08 (5 rodzajów HO + iso-size). Dowód: `bash docs/tresci/narzedzia/hz-kontrola-szablonow.sh` (pełna kompilacja na kopii tymczasowej) → `docs/tresci/dowody/hz-szablony.txt`; przekłady: `node docs/tresci/narzedzia/hz-kontrola-przekladow.mjs`. Przy przeniesieniu dopisać `hz/liczby-hz.yaml` do `content/numbers.yaml`. SC-30: pojemność 21 klas < 40 → wyjątek pojemności jak SC-08 (KO-074, D-1040) do decyzji koordynatora i roli 08.

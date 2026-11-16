@@ -1,7 +1,7 @@
 # sc-24: French text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-24
 module: m8
-situation: "À la river, vous avez une {{t:pair|paire}} qui ne bat que les {{t:bluff|bluffs}} de votre adversaire, et votre adversaire {{t:bet|mise}}. Supposez que la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est celle qu'indique la donne."
+situation: "À la river, vous avez une {{t:pair|paire}} qui ne bat que les {{t:bluff|bluffs}} de votre adversaire, et votre adversaire {{t:bet|mise}}. Supposez que la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est celle que donne cet exercice."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} à la river. Votre équité est la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} : vous battez chaque {{t:bluff}} et perdez contre chaque main jouée {{t:value|pour la valeur}}. Un {{t:call}} ne rapporte que lorsqu'il y a plus de {{t:bluff|bluffs}} que l'équité nécessaire face à cette {{t:bet|mise}} ; quand il y en a moins, il perd."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} à la river. Votre équité est la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} : vous battez chaque {{t:bluff}} et perdez contre chaque main jouée {{t:value|pour la valeur}}. Un {{t:call}} ne rapporte que lorsque la part de {{t:bluff|bluffs}} est supérieure à l'équité nécessaire face à cette {{t:bet|mise}} ; quand elle est inférieure, il perd."
       - action: fold
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} à la river. Votre équité est la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}}. Se {{t:fold|coucher}} n'est bon que lorsqu'il y a moins de {{t:bluff|bluffs}} que l'équité nécessaire face à cette {{t:bet|mise}} ; quand il y en a plus, se {{t:fold|coucher}} abandonne un {{t:pot}} sur lequel un {{t:call}} rapporte. Face à une {{t:bet|mise}} de la taille du {{t:pot}}, un {{t:call}} n'atteint l'équilibre qu'à environ {{n:eq.bet-pot}} de {{t:bluff|bluffs}}."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} à la river. Votre équité est la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}}. Se {{t:fold|coucher}} n'est bon que lorsque la part de {{t:bluff|bluffs}} est inférieure à l'équité nécessaire face à cette {{t:bet|mise}} ; quand elle est supérieure, se {{t:fold|coucher}} abandonne un {{t:pot}} sur lequel un {{t:call}} rapporte. Face à une {{t:bet|mise}} de la taille du {{t:pot}}, un {{t:call}} n'atteint l'équilibre que lorsque la part de {{t:bluff|bluffs}} est d'environ {{n:eq.bet-pot}}."

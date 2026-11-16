@@ -1,0 +1,20 @@
+# sc-21: German text of docs/tresci/szablony-robocze/hz/pl/sc-21.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-21
+module: m7
+situation: "Ein mittleres {{t:pair|Paar}} am Turn. Du hast vom Button {{t:open|eröffnet}}, und der {{t:big-blind}} hat {{t:call|gecallt}}. Auf dem Flop hast du eine kleine {{t:c-bet}} {{t:bet|gesetzt}}, und er hat wieder {{t:call|gecallt}}. Am Turn {{t:check|checkt}} der {{t:big-blind}}, und du hast {{t:second-pair}} oder ein schwächeres {{t:pair|Paar}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [check], turnClass: other, pairKind: [low], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+  sredni: { expected: [check], turnClass: other, pairKind: [second], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-003
+    actions:
+      - action: check
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am Turn. Du {{t:check|checkst}}, weil dein Gegner nach dem {{t:call|Callen}} auf dem Flop meist eine stärkere {{t:range}} hat als auf dem Flop, also kannst du nicht mehr bedenkenlos {{t:bet|setzen}}. Bis zum River bleibt eine Karte, also gewinnt diese Hand wenig durch Schutz, und mit einem {{t:check}} hältst du den {{t:pot}} klein und kommst billig zum {{t:showdown}}."
+      - action: bet-big
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}} am Turn. Eine {{t:bet}} mit dieser Hand bringt wenig: Nach dem {{t:call|Callen}} auf dem Flop hat dein Gegner meist eine stärkere {{t:range}} als auf dem Flop, und bis zum River bleibt eine Karte, also bringt Schutz wenig. Am Turn {{t:check|checken}} mittlere Hände meist, um billig zum {{t:showdown}} zu kommen, und es {{t:bet|setzen}} starke Hände und ein Teil der {{t:draw|Draws}}."

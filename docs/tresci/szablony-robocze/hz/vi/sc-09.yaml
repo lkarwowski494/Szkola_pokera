@@ -1,0 +1,23 @@
+# sc-09: Vietnamese text of docs/tresci/szablony-robocze/hz/pl/sc-09.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-09
+module: m4
+situation: "{{t:hijack|HJ}} chỉ bỏ vào đúng bằng {{t:big-blind|big blind}} ({{t:limp|limp}}), còn {{t:utg|UTG}} đã {{t:fold|bỏ bài}}. Bạn có một tay mà bạn sẽ {{t:raise|tố}} ({{t:isolation|tố cô lập}}). Bạn chọn kích thước {{t:raise|tố}} nào?"
+table: 6max
+positions: { hero: CO, villain: HJ }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: iso-size
+    rule: R-M4-012
+    limpers: 1
+    actions:
+      - action: raise
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và trước bạn có một người {{t:limp|limp}}. Bạn {{t:raise|tố}} lên {{n:pf.iso.base}} cộng {{n:pf.iso.per-limper}} cho mỗi người limp, vì một mức {{t:raise|tố}} nhỏ hơn cho người limp mức giá quá tốt và không giành được ván bài từ họ."
+      - action: raise-small
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và trước bạn có một người {{t:limp|limp}}. Mức {{t:raise|tố}} này quá nhỏ: nó cho người limp mức giá quá tốt và không giành được ván bài từ họ. Mức chuẩn là {{n:pf.iso.base}} cộng {{n:pf.iso.per-limper}} cho mỗi người limp."
+      - action: raise-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và trước bạn có một người {{t:limp|limp}}. Kích thước này lệch khỏi mức chuẩn: bạn {{t:raise|tố}} lên {{n:pf.iso.base}} cộng {{n:pf.iso.per-limper}} cho mỗi người limp, và khi {{t:out-of-position}} thì thêm {{n:pf.iso.oop-extra}}."

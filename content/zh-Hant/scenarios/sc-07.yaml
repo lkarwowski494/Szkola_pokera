@@ -18,6 +18,6 @@ decisions:
     fractions: [0.333333]
     actions:
       - action: call
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:call|跟注}}，因為面對約 {{n:cbet.size.small}} {{t:pot|底池}}的{{t:bet|下注}}，你只需要約 {{n:eq.bet-third}} 的權益，而這手牌要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好。你幾乎會用每一個{{t:pair|對子}}、{{t:draw|聽牌}}、帶有一張比{{t:board|牌面}}上的牌都大的牌的額外{{t:draw|聽牌}}（{{t:backdoor|後門}}）繼續，通常也會用以 A 為最大牌的手牌繼續。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:call|跟注}}，因為面對約 {{n:cbet.size.small}} {{t:pot|底池}}的{{t:bet|下注}}，你只需要約 {{n:eq.bet-third}} 的權益，而這手牌要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好。你幾乎會用每一個{{t:pair|對子}}和{{t:draw|聽牌}}繼續；當你還有一張比{{t:board|牌面}}上所有牌都大的牌時，也會用額外的{{t:draw|聽牌}}（{{t:backdoor|後門}}）繼續，通常也會用以 A 為最大牌的手牌繼續。"
       - action: fold
         explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:fold|棄牌}}，因為這是最弱的手牌之一：沒有{{t:pair|對子}}，沒有{{t:draw|聽牌}}，連額外的聽牌（{{t:backdoor|後門}}）都沒有，也沒有 A。面對小額{{t:c-bet|持續下注}}，你防守得很寬，但沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}的最弱手牌，你會{{t:fold|棄牌}}。"

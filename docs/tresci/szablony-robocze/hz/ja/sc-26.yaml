@@ -1,0 +1,23 @@
+# sc-26: Japanese text of docs/tresci/szablony-robocze/hz/pl/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "低い{{t:spr}}で相手が{{t:all-in|オールイン}}。{{t:icm}}のプレッシャーがないトーナメントで、スタックは浅めです：あなたは{{t:big-blind|ビッグブラインド}}にいて、ボタンの{{t:open|オープン}}に{{t:call|コール}}しました。フロップであなたは{{t:check|チェック}}し、ボタンが{{t:spr}}約{{w:spr}}で{{t:all-in|オールイン}}します。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が{{t:spr}}約{{w:spr}}で{{t:all-in|オールイン}}しています。{{t:call|コール}}するのは、スタックが{{t:pot|ポット}}に比べて小さいからです：この{{t:spr}}では、{{t:top-pair|トップペア}}以上のハンドならスタック全部をかけてプレイするのに十分です。{{t:spr}}が低いほど良い価格が得られます：{{t:spr}} {{n:spr.commit}}では約{{n:eq.jam.spr2}}のエクイティが必要で、つまり二回に一回より少ない頻度で勝てれば十分です。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が{{t:spr}}約{{w:spr}}で{{t:all-in|オールイン}}しています。{{t:fold|フォールド}}は{{t:pot|ポット}}をあまりに簡単に手放します：これほど低い{{t:spr}}では、{{t:top-pair|トップペア}}以上のハンドはスタック全部をかけてプレイします。{{t:call|コール}}するのに、あなたが勝つ可能性のほうが高い必要はありません：{{t:spr}} {{n:spr.commit}}では約{{n:eq.jam.spr2}}のエクイティで足ります。"

@@ -1,0 +1,38 @@
+# HZ (06): bash docs/tresci/narzedzia/hz-kontrola-szablonow.sh — 2026-11-16 — kod 0 (pełna kompilacja 35 baz na kopii tymczasowej: content/ @ drzewo robocze HZ + szablony hz/<12 języków> + hz/liczby-hz.yaml + hz/bez-twierdzen-hz.json; bramka ekranu otwarta jak zrobi to 08; SC-30: wyjątek pojemności IB emulowany jawnie)
+HZ odciski sc-09 latwy: 69 (próg 40, losowań 2000)
+HZ odciski sc-16 latwy: 1970 (próg 40, losowań 2000)
+HZ odciski sc-18 latwy: 1973 (próg 40, losowań 2000)
+HZ odciski sc-21 latwy: 1970 (próg 40, losowań 2000)
+HZ odciski sc-21 sredni: 1989 (próg 40, losowań 2000)
+HZ odciski sc-26 latwy: 1990 (próg 40, losowań 2000)
+HZ odciski sc-26 sredni: 1991 (próg 40, losowań 2000)
+HZ odciski sc-27 latwy: 1723 (próg 40, losowań 2000)
+HZ odciski sc-27 sredni: 1976 (próg 40, losowań 2000)
+HZ odciski sc-30 latwy: 21 (próg 40, losowań 2000)
+HZ EMULACJA opcji A (PYTANIE do 08): sc-30 próg min(40, liczba klas) = 21; bez wyjątku pojemności to BŁĄD 21 < 40
+HZ kompilacja: 35 baz bez błędów; szablony HZ w bazie pl: sc-09 [latwy]; sc-16 [latwy]; sc-18 [latwy]; sc-21 [latwy, sredni]; sc-26 [latwy, sredni]; sc-27 [latwy, sredni]; sc-30 [latwy]
+HZ SC-30: 21 klas rąk z generatora; margines pasu (cena − equity wobec górnych x%) przy każdym VPIP z zakresu:
+  75o	cena 0.3659	VPIP 0.08: margines 0.0959	VPIP 0.09: margines 0.0914	VPIP 0.1: margines 0.0812
+  76o	cena 0.3659	VPIP 0.08: margines 0.0856	VPIP 0.09: margines 0.0804	VPIP 0.1: margines 0.0698
+  98o	cena 0.3659	VPIP 0.08: margines 0.0657	VPIP 0.09: margines 0.0563	VPIP 0.1: margines 0.0493
+  A2o	cena 0.3659	VPIP 0.08: margines 0.0830	VPIP 0.09: margines 0.0814	VPIP 0.1: margines 0.0718
+  A3o	cena 0.3659	VPIP 0.08: margines 0.0788	VPIP 0.09: margines 0.0772	VPIP 0.1: margines 0.0676
+  A4o	cena 0.3659	VPIP 0.08: margines 0.0749	VPIP 0.09: margines 0.0734	VPIP 0.1: margines 0.0638
+  A5o	cena 0.3659	VPIP 0.08: margines 0.0712	VPIP 0.09: margines 0.0697	VPIP 0.1: margines 0.0605
+  A6o	cena 0.3659	VPIP 0.08: margines 0.0859	VPIP 0.09: margines 0.0846	VPIP 0.1: margines 0.0746
+  A7o	cena 0.3659	VPIP 0.08: margines 0.0840	VPIP 0.09: margines 0.0738	VPIP 0.1: margines 0.0650
+  A8o	cena 0.3659	VPIP 0.08: margines 0.0751	VPIP 0.09: margines 0.0655	VPIP 0.1: margines 0.0580
+  A9o	cena 0.3659	VPIP 0.08: margines 0.0674	VPIP 0.09: margines 0.0544	VPIP 0.1: margines 0.0483
+  J9o	cena 0.3659	VPIP 0.08: margines 0.0628	VPIP 0.09: margines 0.0533	VPIP 0.1: margines 0.0478
+  K5o	cena 0.3659	VPIP 0.08: margines 0.0804	VPIP 0.09: margines 0.0773	VPIP 0.1: margines 0.0718
+  K7o	cena 0.3659	VPIP 0.08: margines 0.0807	VPIP 0.09: margines 0.0694	VPIP 0.1: margines 0.0647
+  K8o	cena 0.3659	VPIP 0.08: margines 0.0749	VPIP 0.09: margines 0.0644	VPIP 0.1: margines 0.0610
+  K9o	cena 0.3659	VPIP 0.08: margines 0.0581	VPIP 0.09: margines 0.0514	VPIP 0.1: margines 0.0487
+  Q8o	cena 0.3659	VPIP 0.08: margines 0.0795	VPIP 0.09: margines 0.0674	VPIP 0.1: margines 0.0602
+  Q9o	cena 0.3659	VPIP 0.08: margines 0.0623	VPIP 0.09: margines 0.0541	VPIP 0.1: margines 0.0474
+  T7o	cena 0.3659	VPIP 0.08: margines 0.0877	VPIP 0.09: margines 0.0742	VPIP 0.1: margines 0.0750
+  T8o	cena 0.3659	VPIP 0.08: margines 0.0686	VPIP 0.09: margines 0.0559	VPIP 0.1: margines 0.0573
+  T9o	cena 0.3659	VPIP 0.08: margines 0.0509	VPIP 0.09: margines 0.0419	VPIP 0.1: margines 0.0448
+HZ SC-30: pas z marginesem ≥ 0,03 dla każdej klasy przy VPIP 0,08, 0,09 i 0,10
+
+# Przebieg poprzedni (marginMin 0,03): przy VPIP 0,09 KTo margines 0,0276 i JTo 0,0294 < 0,03 (pas nadal poprawny) → marginMin 0,04 (D-1829); 24 → 21 klas

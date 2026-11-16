@@ -1,0 +1,16 @@
+[
+ {
+  "klucz": "hud.ex.nit3bet.vpip.low",
+  "wartosc": 0.08,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: SC-30, VPIP bardzo ciasnego rywala (poniżej hud.vpip.nit-max); pas sprawdzony dla obu granic (docs/tresci/dowody/hz-szablony.txt)"
+ },
+ {
+  "klucz": "hud.ex.nit3bet.vpip.high",
+  "wartosc": 0.1,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: SC-30, górna granica zakresu VPIP; równa vpips szablonu (najtrudniejszy przypadek dla pasu)"
+ }
+]

@@ -1,0 +1,19 @@
+# sc-18: European Portuguese text of docs/tresci/szablony-robocze/hz/pl/sc-18.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "{{t:second-barrel|Second barrel}} numa carta alta. Fez {{t:open|abertura}} do Button e o {{t:big-blind}} fez {{t:call}}. No flop {{t:bet|apostou}} um {{t:c-bet}} pequeno e ele voltou a fazer {{t:call}}. No turn sai uma carta mais alta do que as cartas do flop, que lhe dá {{t:top-pair}}, e o {{t:big-blind}} faz {{t:check}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no turn. {{t:bet|Aposta}} um {{t:second-barrel}} grande, porque uma carta mais alta do que o flop normalmente ajuda um pouco mais o {{t:range}} de quem fez {{t:open|abertura}} do que o de quem defende: muitas das suas mãos que falharam o flop têm agora {{t:top-pair}}, e cada {{t:pair|par}} do adversário desceu um lugar. Numa carta assim, quem fez {{t:open|abertura}} {{t:bet|aposta}} com mais frequência, e o seu {{t:pair|par}} ganha a esses {{t:pair|pares}} piores."
+      - action: check
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no turn. Fazer {{t:check}} é aceitável, mas desperdiça uma oportunidade: numa carta mais alta do que o flop, quem fez {{t:open|abertura}} {{t:bet|aposta}} com mais frequência, porque esta carta normalmente encaixa um pouco melhor no {{t:range}} dele. O seu {{t:top-pair}} ganha aos {{t:pair|pares}} piores do adversário, que desceram com esta carta."

@@ -1,0 +1,20 @@
+# sc-21: Brazilian Portuguese text of docs/tresci/szablony-robocze/hz/pl/sc-21.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-21
+module: m7
+situation: "Um {{t:pair|par}} médio no turn. Você fez {{t:open|abertura}} do Button, e o {{t:big-blind}} {{t:call|pagou}}. No flop você {{t:bet|apostou}} um {{t:c-bet}} pequeno, e ele {{t:call|pagou}} de novo. No turn o {{t:big-blind}} faz {{t:check}}, e você tem {{t:second-pair}} ou um {{t:pair|par}} mais fraco."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [check], turnClass: other, pairKind: [low], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+  sredni: { expected: [check], turnClass: other, pairKind: [second], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-003
+    actions:
+      - action: check
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no turn. Você faz {{t:check}}, porque, depois de {{t:call|pagar}} no flop, o adversário geralmente tem um {{t:range}} mais forte do que no flop, então você já não pode {{t:bet|apostar}} sem preocupação. Falta uma carta até o river, então esta mão ganha pouco com proteção, e, fazendo {{t:check}}, você mantém o {{t:pot}} pequeno e chega barato ao {{t:showdown}}."
+      - action: bet-big
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} faz {{t:check}} no turn. Uma {{t:bet|aposta}} com esta mão ganha pouco: depois de {{t:call|pagar}} no flop, o adversário geralmente tem um {{t:range}} mais forte do que no flop, e falta uma carta até o river, então a proteção vale pouco. No turn, mãos médias geralmente fazem {{t:check}} para chegar barato ao {{t:showdown}}, enquanto mãos fortes e parte dos {{t:draw|projetos}} {{t:bet|apostam}}."

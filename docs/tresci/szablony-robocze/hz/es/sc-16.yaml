@@ -1,0 +1,27 @@
+# sc-16: Spanish text of docs/tresci/szablony-robocze/hz/pl/sc-16.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "Tienes un {{t:draw|proyecto}} fuerte ante un {{t:c-bet}} pequeño. Estás en la {{t:big-blind}} y has {{t:call|pagado}} la {{t:open|apertura}} del Button. En el flop {{t:check|pasas}} y el Button {{t:bet|apuesta}} un {{t:c-bet}} pequeño."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    cbet: 0.333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - action: raise-big
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. Haces {{t:check-raise}} a aproximadamente {{n:xr.mult.example}} su {{t:bet|apuesta}}, porque un {{t:draw|proyecto}} tiene dos formas de ganar: tu rival puede {{t:fold|retirarse}} de inmediato y, si {{t:call|paga}}, todavía puedes completar tu {{t:draw|proyecto}}. Según una web de formación, los {{t:flush-draw|proyectos de color}} y los proyectos de {{t:straight|escalera}} abiertos son buenas manos para hacer {{t:check-raise}}, y ante un {{t:c-bet}} pequeño {{t:raise|subes}} a aproximadamente {{n:xr.mult.example}}, no al mínimo."
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. {{t:call|Pagar}} también es bueno: ante un {{t:c-bet}} pequeño solo necesitas aproximadamente {{n:eq.bet-third}} de equity, y esta mano puede mejorar. Según una web de formación, no hace falta {{t:raise|subir}} con cada {{t:draw|proyecto}} fuerte, pero el {{t:check-raise}} añade la posibilidad de que tu rival se {{t:fold|retire}} de inmediato."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. {{t:fold|Retirarte}} entrega demasiado: ante un {{t:c-bet}} pequeño solo necesitas aproximadamente {{n:eq.bet-third}} de equity, y el {{t:draw|proyecto}} todavía puede mejorar. Ante un {{t:c-bet}} pequeño continúas con los {{t:draw|proyectos}}: {{t:call|pagas}} o haces {{t:check-raise}}."
+      - action: raise-small
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} un {{t:c-bet}} pequeño. El {{t:check-raise}} es buena idea, pero a aproximadamente {{n:xr.too-small.mult}} el {{t:c-bet}} es demasiado pequeño: el Button necesita entonces solo aproximadamente {{n:eq.vs-xr.too-small}} de equity para {{t:call|pagar}} y así pagará barato con cada {{t:draw|proyecto}}. {{t:raise|Subes}} a aproximadamente {{n:xr.mult.low}}–{{n:xr.mult.example}} el {{t:c-bet}}, tanto más cuanto más pequeño sea el {{t:c-bet}}."

@@ -1,7 +1,7 @@
 # sc-31: Spanish text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-31
 module: m10
-situation: "Supón que este rival {{t:bet|apuesta}} y {{t:raise|sube}} a menudo. En el river tienes una {{t:pair|pareja}} que solo gana a sus {{t:bluff|faroles}}, y él {{t:bet|apuesta}} mucho. Supón también que la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es la que indica la mano."
+situation: "Supón que este rival {{t:bet|apuesta}} y {{t:raise|sube}} a menudo. En el river tienes una {{t:pair|pareja}} que solo gana a sus {{t:bluff|faroles}}, y él {{t:bet|apuesta}} mucho. Supón también que la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es la que da este ejercicio."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho en el river. {{t:call|Pagar}} gana dinero solo cuando la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es mayor que la equity necesaria ante esta {{t:bet|apuesta}}, porque tu equity es precisamente la proporción de {{t:bluff|faroles}}. La descripción del rival no cambia esto: comparas los números de la mano. Una {{t:bet|apuesta}} mayor requiere más {{t:bluff|faroles}}: ante una {{t:bet|apuesta}} del tamaño del {{t:pot}}, aproximadamente {{n:eq.bet-pot}}."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho en el river. {{t:call|Pagar}} gana dinero solo cuando la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es mayor que la equity necesaria ante esta {{t:bet|apuesta}}, porque tu equity es precisamente la proporción de {{t:bluff|faroles}}. La descripción del rival no cambia esto: comparas los números de la mano. Una {{t:bet|apuesta}} mayor requiere una mayor proporción de {{t:bluff|faroles}}: ante una {{t:bet|apuesta}} del tamaño del {{t:pot}}, aproximadamente {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho en el river. {{t:fold|Retirarte}} es correcto solo cuando la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es menor que la equity necesaria ante esta {{t:bet|apuesta}}: entonces {{t:call|pagar}} pierde dinero, incluso contra un rival que {{t:bet|apuesta}} a menudo. Cuando hay más {{t:bluff|faroles}}, {{t:fold|retirarte}} entrega un {{t:pot}} en el que {{t:call|pagar}} gana dinero."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho en el river. {{t:fold|Retirarte}} es correcto solo cuando la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es menor que la equity necesaria ante esta {{t:bet|apuesta}}: entonces {{t:call|pagar}} pierde dinero, incluso contra un rival que {{t:bet|apuesta}} a menudo. Cuando esa proporción es mayor, {{t:fold|retirarte}} entrega un {{t:pot}} en el que {{t:call|pagar}} gana dinero."

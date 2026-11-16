@@ -1,7 +1,7 @@
 # sc-31: English text of pl/sc-31.yaml (role 06, session FD, 2026-11-12; draft, for review by role 09); structure must match pl.
 id: sc-31
 module: m10
-situation: "Assume this opponent often {{t:bet|bets}} and {{t:raise|raises}}. On the river you have one {{t:pair}} that only beats their {{t:bluff|bluffs}}, and they {{t:bet}} big. Also assume the share of {{t:bluff|bluffs}} in their bets is what the hand shows."
+situation: "Assume this opponent often {{t:bet|bets}} and {{t:raise|raises}}. On the river you have one {{t:pair}} that only beats their {{t:bluff|bluffs}}, and they {{t:bet}} big. Also assume the share of {{t:bluff|bluffs}} in their bets is the one this exercise gives."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:bet|bets}} big on the river. A {{t:call}} makes money only when the share of {{t:bluff|bluffs}} in their bets is greater than the equity this bet requires, because your equity is exactly that share of {{t:bluff|bluffs}}. The opponent's description doesn't change that: you compare the numbers in the hand. A bigger bet requires more {{t:bluff|bluffs}}: against a {{t:pot}}-sized bet, about {{n:eq.bet-pot}}."
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:bet|bets}} big on the river. A {{t:call}} makes money only when the share of {{t:bluff|bluffs}} in their bets is greater than the equity this bet requires, because your equity is exactly that share of {{t:bluff|bluffs}}. The opponent's description doesn't change that: you compare the numbers in the hand. A bigger bet requires a greater share of {{t:bluff|bluffs}}: against a {{t:pot}}-sized bet, about {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:bet|bets}} big on the river. A {{t:fold}} is right only when the share of {{t:bluff|bluffs}} in their bets is smaller than the equity this bet requires: then a {{t:call}} loses money, even against an opponent who often {{t:bet|bets}}. When there are more {{t:bluff|bluffs}}, a {{t:fold}} gives up a {{t:pot}} where {{t:call|calling}} makes money."
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:bet|bets}} big on the river. A {{t:fold}} is right only when the share of {{t:bluff|bluffs}} in their bets is smaller than the equity this bet requires: then a {{t:call}} loses money, even against an opponent who often {{t:bet|bets}}. When that share is greater, a {{t:fold}} gives up a {{t:pot}} where {{t:call|calling}} makes money."

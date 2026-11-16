@@ -1,0 +1,24 @@
+# sc-27: English text of pl/sc-27.yaml (role 06, sessions HP/HZ, 2026-11-16; draft, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "A size that gets the whole stack in. On the Button you {{t:3-bet|3-bet}} the {{t:open}} from the {{t:cutoff|CO}}, and they {{t:call|called}}. On the flop you have a {{t:set}}, and the {{t:cutoff|CO}} {{t:check|checks}}. Assume you have a hand for three streets of {{t:value}} and want to get the whole stack in by the river with equal {{t:bet|bets}} on the flop, turn and river."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}}. You {{t:bet}} about {{w:rozmiar}} of the {{t:pot}}, because the same fraction of the {{t:pot}} on every {{t:street}} gets the whole stack in exactly on the river. In theory, equal {{t:bet|bets}} make your opponent defend widest, so they put the most into the {{t:pot}}."
+      - action: bet-small
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}}. A small {{t:bet}} won't get the stack in: three {{t:bet|bets}} of a third of the {{t:pot}} put in only part of it, for example in a {{t:3-bet}} {{t:pot}} with {{n:spr.3bet-ip.stack}} behind, only about {{n:g3b.third.total}}. To reach {{t:all-in}} on the river, you already {{t:bet}} the geometric size on the flop, about {{w:rozmiar}} of the {{t:pot}}."

@@ -1,0 +1,23 @@
+# sc-26: Traditional Chinese text of docs/tresci/szablony-robocze/hz/pl/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "低{{t:spr}}，對手{{t:all-in|全下}}。這是沒有{{t:icm}}壓力的錦標賽，籌碼很短：你在{{t:big-blind|大盲}}，{{t:call|跟注}}了按鈕位的{{t:open|開池}}。翻牌你{{t:check|過牌}}，按鈕位在{{t:spr}}約 {{w:spr}} 時{{t:all-in|全下}}。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在{{t:spr}}約 {{w:spr}} 時{{t:all-in|全下}}。你{{t:call|跟注}}，因為籌碼相對於{{t:pot|底池}}很小：在這樣的{{t:spr}}下，{{t:top-pair|頂對}}和更好的牌就足以為全部籌碼而戰。{{t:spr}}越低，你得到的價格越好：{{t:spr}}為 {{n:spr.commit}} 時，你需要約 {{n:eq.jam.spr2}} 的權益，也就是說，贏的次數少於一半就夠了。"
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在{{t:spr}}約 {{w:spr}} 時{{t:all-in|全下}}。{{t:fold|棄牌}}太輕易放掉{{t:pot|底池}}：在這麼低的{{t:spr}}下，{{t:top-pair|頂對}}和更好的牌會為全部籌碼而戰。要{{t:call|跟注}}，你不需要是優勢方：{{t:spr}}為 {{n:spr.commit}} 時，約 {{n:eq.jam.spr2}} 的權益就夠了。"

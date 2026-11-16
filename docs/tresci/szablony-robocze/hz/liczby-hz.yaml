@@ -1,0 +1,3 @@
+# HZ (06, D-1822): liczby do dopisania w content/numbers.yaml przy przeniesieniu szablonów hz/ do content/ (SC-30: zakres VPIP w situation przez {{n:}}, bramka IB/KO-115).
+hud.ex.nit3bet.vpip.low: { value: 0.08, unit: percent, source: "przykład w zadaniu: SC-30, VPIP bardzo ciasnego rywala (poniżej hud.vpip.nit-max); pas sprawdzony dla obu granic (docs/tresci/dowody/hz-szablony.txt)" }
+hud.ex.nit3bet.vpip.high: { value: 0.10, unit: percent, source: "przykład w zadaniu: SC-30, górna granica zakresu VPIP; równa vpips szablonu (najtrudniejszy przypadek dla pasu)" }

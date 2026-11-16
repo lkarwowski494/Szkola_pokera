@@ -1,0 +1,27 @@
+# sc-16: French text of docs/tresci/szablony-robocze/hz/pl/sc-16.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "Vous avez un gros {{t:draw|tirage}} face à un petit {{t:c-bet}}. Vous êtes en {{t:big-blind}} et vous avez {{t:call|payé}} l'{{t:open|ouverture}} du Bouton. Au flop, vous faites {{t:check}}, et le Bouton {{t:bet|mise}} petit avec un {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    cbet: 0.333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - action: raise-big
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Vous faites un {{t:check-raise}} à environ {{n:xr.mult.example}} sa {{t:bet|mise}}, car un {{t:draw|tirage}} a deux façons de gagner : votre adversaire peut se {{t:fold|coucher}} tout de suite, et s'il {{t:call|suit}}, vous pouvez encore toucher votre {{t:draw|tirage}}. Selon un site de formation, les {{t:flush-draw|tirages couleur}} et les tirages {{t:straight|quinte}} par les deux bouts sont de bonnes mains pour un {{t:check-raise}}, et face à un petit {{t:c-bet}}, vous {{t:raise|relancez}} à environ {{n:xr.mult.example}}, pas au minimum."
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Un {{t:call}} est bon aussi : face à un petit {{t:c-bet}}, il vous faut seulement environ {{n:eq.bet-third}} d'équité, et cette main peut s'améliorer. Selon un site de formation, il n'est pas nécessaire de {{t:raise|relancer}} chaque gros {{t:draw|tirage}}, mais un {{t:check-raise}} ajoute la chance que votre adversaire se {{t:fold|couche}} tout de suite."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Se {{t:fold|coucher}} abandonne trop : face à un petit {{t:c-bet}}, il vous faut seulement environ {{n:eq.bet-third}} d'équité, et un {{t:draw|tirage}} peut encore s'améliorer. Face à un petit {{t:c-bet}}, vous continuez avec vos {{t:draw|tirages}} : vous {{t:call|suivez}} ou vous faites un {{t:check-raise}}."
+      - action: raise-small
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Un {{t:check-raise}} est une bonne idée, mais à environ {{n:xr.too-small.mult}} le {{t:c-bet}}, il est trop petit : le Bouton n'a alors besoin que d'environ {{n:eq.vs-xr.too-small}} d'équité pour {{t:call|suivre}} et paiera ainsi à bon marché avec chaque {{t:draw|tirage}}. Vous {{t:raise|relancez}} à environ {{n:xr.mult.low}}–{{n:xr.mult.example}} le {{t:c-bet}}, d'autant plus que le {{t:c-bet}} est petit."

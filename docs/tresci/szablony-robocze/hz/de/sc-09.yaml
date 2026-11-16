@@ -1,0 +1,23 @@
+# sc-09: German text of docs/tresci/szablony-robocze/hz/pl/sc-09.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-09
+module: m4
+situation: "Der {{t:hijack|HJ}} hat nur den {{t:big-blind}} bezahlt ({{t:limp}}), und {{t:utg|UTG}} hat {{t:fold|gefoldet}}. Du hast eine Hand, mit der du {{t:raise|raist}} ({{t:isolation}}). Welche Größe wählst du für deinen {{t:raise}}?"
+table: 6max
+positions: { hero: CO, villain: HJ }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: iso-size
+    rule: R-M4-012
+    limpers: 1
+    actions:
+      - action: raise
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und vor dir ist ein {{t:limp|Limper}}. Du {{t:raise|raist}} auf {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} pro Limper, weil ein kleinerer {{t:raise}} dem Limper einen zu guten Preis gibt und ihm die Hand nicht abnimmt."
+      - action: raise-small
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und vor dir ist ein {{t:limp|Limper}}. Dieser {{t:raise}} ist zu klein: Er gibt dem Limper einen zu guten Preis und nimmt ihm die Hand nicht ab. Standard sind {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} pro Limper."
+      - action: raise-big
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und vor dir ist ein {{t:limp|Limper}}. Diese Größe weicht vom Standard ab: Du {{t:raise|raist}} auf {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} pro Limper, {{t:out-of-position|ohne Position}} um {{n:pf.iso.oop-extra}} mehr."

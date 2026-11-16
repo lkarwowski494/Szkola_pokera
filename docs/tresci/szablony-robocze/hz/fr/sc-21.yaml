@@ -1,0 +1,20 @@
+# sc-21: French text of docs/tresci/szablony-robocze/hz/pl/sc-21.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-21
+module: m7
+situation: "Une {{t:pair|paire}} moyenne au turn. Vous avez {{t:open|ouvert}} depuis le Bouton, et la {{t:big-blind}} a {{t:call|payé}}. Au flop, vous avez {{t:bet|misé}} petit avec un {{t:c-bet}}, et elle a de nouveau {{t:call|suivi}}. Au turn, la {{t:big-blind}} fait {{t:check}}, et vous avez une {{t:second-pair}} ou une {{t:pair|paire}} plus faible."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [check], turnClass: other, pairKind: [low], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+  sredni: { expected: [check], turnClass: other, pairKind: [second], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-003
+    actions:
+      - action: check
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} au turn. Vous faites {{t:check}}, car après avoir {{t:call|suivi}} au flop, votre adversaire a généralement une {{t:range}} plus forte qu'au flop, donc vous ne pouvez plus {{t:bet|miser}} sans crainte. Il reste une carte avant la river, donc cette main gagne peu à être protégée, et en faisant {{t:check}}, vous gardez le {{t:pot}} petit et arrivez au {{t:showdown}} à bon marché."
+      - action: bet-big
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} fait {{t:check}} au turn. Une {{t:bet|mise}} avec cette main rapporte peu : après avoir {{t:call|suivi}} au flop, votre adversaire a généralement une {{t:range}} plus forte qu'au flop, et il reste une carte avant la river, donc la protection apporte peu. Au turn, les mains moyennes font généralement {{t:check}} pour arriver au {{t:showdown}} à bon marché, tandis que les mains fortes et une partie des {{t:draw|tirages}} {{t:bet|misent}}."

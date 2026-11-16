@@ -1,0 +1,19 @@
+# sc-18: Japanese text of docs/tresci/szablony-robocze/hz/pl/sc-18.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "高いカードでの{{t:second-barrel|セカンドバレル}}。あなたはボタンから{{t:open|オープン}}し、{{t:big-blind|ビッグブラインド}}が{{t:call|コール}}しました。フロップであなたは小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}し、相手はまた{{t:call|コール}}しました。ターンではフロップのどのカードよりも高いカードが落ちてあなたに{{t:top-pair|トップペア}}ができ、{{t:big-blind|ビッグブラインド}}は{{t:check|チェック}}します。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がターンで{{t:check|チェック}}しています。大きな{{t:second-barrel|セカンドバレル}}を{{t:bet|ベット}}します。フロップより高いカードは、通常、守る側より{{t:open|オープン}}した側の{{t:range|レンジ}}をわずかに多く助けるからです：フロップで外れたあなたのハンドの多くが今は{{t:top-pair|トップペア}}になり、相手の{{t:pair|ペア}}はどれも一段下がりました。こうしたカードでは{{t:open|オープン}}した側がより頻繁に{{t:bet|ベット}}し、あなたの{{t:pair|ペア}}はそれらの弱い{{t:pair|ペア}}に勝ちます。"
+      - action: check
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がターンで{{t:check|チェック}}しています。{{t:check|チェック}}も許容範囲ですが、チャンスを逃します：フロップより高いカードでは{{t:open|オープン}}した側がより頻繁に{{t:bet|ベット}}します。このカードは通常、オープンした側の{{t:range|レンジ}}にわずかに良く合うからです。あなたの{{t:top-pair|トップペア}}は、このカードで一段下がった相手の弱い{{t:pair|ペア}}に勝ちます。"

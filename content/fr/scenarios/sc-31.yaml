@@ -1,7 +1,7 @@
 # sc-31: French text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-31
 module: m10
-situation: "Supposez que cet adversaire {{t:bet|mise}} et {{t:raise|relance}} souvent. À la river, vous avez une {{t:pair|paire}} qui ne bat que ses {{t:bluff|bluffs}}, et il {{t:bet|mise}} gros. Supposez aussi que la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est celle qu'indique la donne."
+situation: "Supposez que cet adversaire {{t:bet|mise}} et {{t:raise|relance}} souvent. À la river, vous avez une {{t:pair|paire}} qui ne bat que ses {{t:bluff|bluffs}}, et il {{t:bet|mise}} gros. Supposez aussi que la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est celle que donne cet exercice."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} gros à la river. Un {{t:call}} ne rapporte que lorsque la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est supérieure à l'équité nécessaire face à cette {{t:bet|mise}}, car votre équité est justement la part de {{t:bluff|bluffs}}. La description de l'adversaire n'y change rien : vous comparez les chiffres de la donne. Une {{t:bet|mise}} plus grosse exige plus de {{t:bluff|bluffs}} : face à une {{t:bet|mise}} de la taille du {{t:pot}}, environ {{n:eq.bet-pot}}."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} gros à la river. Un {{t:call}} ne rapporte que lorsque la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est supérieure à l'équité nécessaire face à cette {{t:bet|mise}}, car votre équité est justement la part de {{t:bluff|bluffs}}. La description de l'adversaire n'y change rien : vous comparez les chiffres de la donne. Une {{t:bet|mise}} plus grosse exige une plus grande part de {{t:bluff|bluffs}} : face à une {{t:bet|mise}} de la taille du {{t:pot}}, environ {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} gros à la river. Se {{t:fold|coucher}} n'est bon que lorsque la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est inférieure à l'équité nécessaire face à cette {{t:bet|mise}} : alors un {{t:call}} perd, même contre un adversaire qui {{t:bet|mise}} souvent. Quand il y a plus de {{t:bluff|bluffs}}, se {{t:fold|coucher}} abandonne un {{t:pot}} sur lequel un {{t:call}} rapporte."
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} gros à la river. Se {{t:fold|coucher}} n'est bon que lorsque la part de {{t:bluff|bluffs}} dans ses {{t:bet|mises}} est inférieure à l'équité nécessaire face à cette {{t:bet|mise}} : alors un {{t:call}} perd, même contre un adversaire qui {{t:bet|mise}} souvent. Quand cette part est supérieure, se {{t:fold|coucher}} abandonne un {{t:pot}} sur lequel un {{t:call}} rapporte."

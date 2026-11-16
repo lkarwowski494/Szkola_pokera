@@ -1,0 +1,27 @@
+# sc-16: Japanese text of docs/tresci/szablony-robocze/hz/pl/sc-16.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "小さな{{t:c-bet|Cベット}}に対して、あなたは強い{{t:draw|ドロー}}を持っています。あなたは{{t:big-blind|ビッグブラインド}}にいて、ボタンの{{t:open|オープン}}に{{t:call|コール}}しました。フロップであなたは{{t:check|チェック}}し、ボタンが小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}します。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    cbet: 0.333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - action: raise-big
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。相手の{{t:bet|ベット}}の約{{n:xr.mult.example}}まで{{t:check-raise|チェックレイズ}}します。{{t:draw|ドロー}}には勝ち方が二つあるからです：相手がすぐに{{t:fold|フォールド}}することもあり、{{t:call|コール}}されても、まだ{{t:draw|ドロー}}を完成させられます。あるトレーニングサイトによると、{{t:flush-draw|フラッシュドロー}}とオープンエンドの{{t:straight|ストレート}}ドローは{{t:check-raise|チェックレイズ}}に向いたハンドで、小さな{{t:c-bet|Cベット}}に対してはミニマムではなく約{{n:xr.mult.example}}まで{{t:raise|レイズ}}します。"
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。{{t:call|コール}}も良い選択です：小さな{{t:c-bet|Cベット}}に対しては約{{n:eq.bet-third}}のエクイティしか必要なく、このハンドは改善する可能性があります。あるトレーニングサイトによると、強い{{t:draw|ドロー}}をすべて{{t:raise|レイズ}}する必要はありませんが、{{t:check-raise|チェックレイズ}}には相手がすぐに{{t:fold|フォールド}}する可能性が加わります。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。{{t:fold|フォールド}}は手放すものが多すぎます：小さな{{t:c-bet|Cベット}}に対しては約{{n:eq.bet-third}}のエクイティしか必要なく、{{t:draw|ドロー}}はまだ改善する可能性があります。小さな{{t:c-bet|Cベット}}に対しては{{t:draw|ドロー}}で続行します：{{t:call|コール}}するか、{{t:check-raise|チェックレイズ}}します。"
+      - action: raise-small
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。{{t:check-raise|チェックレイズ}}自体は良い考えですが、{{t:c-bet|Cベット}}の約{{n:xr.too-small.mult}}までは小さすぎます：その場合ボタンは{{t:call|コール}}するのに約{{n:eq.vs-xr.too-small}}のエクイティしか必要なく、どの{{t:draw|ドロー}}でも安く払ってきます。{{t:c-bet|Cベット}}の約{{n:xr.mult.low}}～{{n:xr.mult.example}}まで{{t:raise|レイズ}}し、{{t:c-bet|Cベット}}が小さいほど大きくします。"
