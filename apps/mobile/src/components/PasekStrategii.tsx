@@ -15,6 +15,14 @@ import { wykonajHaptyke } from '@/features/session/haptyka';
  */
 export type OpcjaPaskaUI = OpcjaPaska & { readonly pas?: boolean; /** Etykieta czytnika zamiast tekstu widocznego (np. nazwy kart zamiast „A♥ 4♥”). */ readonly etykieta?: string };
 const CEL_AKCJI = 64; // design-spec: akcje decyzji ≥ 64 pt
+/**
+ * IB (D-1848): wymiar segmentu paska. Do 3 segmentów podstawa = podstawaSegmentu(fontScale) (makieta e3). Przy >3 (check-raise: 4 akcje) cztery segmenty po ~84 pt
+ * w jednym wierszu ucinały słowa („Sprawdzenie”, „Niedokładność”), więc ten sam mechanizm flexWrap co przy dużym tekście: podstawa 40% (dwa w wierszu, 2×2),
+ * a minWidth = podstawaSegmentu(fontScale), więc przy dużym tekście nadal jeden segment w wierszu. Wspólne z `PasekOcenAkcji`.
+ */
+export function wymiarSegmentu(liczba: number, skala: number): { flexBasis: number | `${number}%`; minWidth?: number } {
+  return liczba > 3 ? { flexBasis: '40%', minWidth: podstawaSegmentu(skala) } : { flexBasis: podstawaSegmentu(skala) };
+}
 
 function useOgraniczRuch(): boolean {
   const [on, ustaw] = useState(false);
@@ -59,7 +67,7 @@ export function PasekStrategii({
             }}
             style={({ pressed }) => [
               styles.przycisk,
-              { flexBasis: podstawaSegmentu(PixelRatio.getFontScale()), minHeight: CEL_AKCJI, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
+              { ...wymiarSegmentu(opcje.length, PixelRatio.getFontScale()), minHeight: CEL_AKCJI, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
             ]}
           >
             <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{o.text}</Text>

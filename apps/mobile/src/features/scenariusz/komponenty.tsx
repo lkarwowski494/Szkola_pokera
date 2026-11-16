@@ -6,7 +6,7 @@ import { CardRow } from '@/components/PlayingCard';
 import { RichText } from '@/components/RichText';
 import StopienOceny, { ZNAK } from '@/features/ocena/StopienOceny';
 import { nazwaKarty } from '@/features/stol/uklad';
-import { podstawaSegmentu } from '@/theme/skalowanie';
+import { wymiarSegmentu } from '@/components/PasekStrategii';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import type { Blok, RodzajBloku, UkladIcm } from './wariant';
 import type { Akcja } from './wariant';
@@ -100,7 +100,7 @@ export function PasekOcenAkcji({ akcje, wybor, nazwy, etykiety }: { akcje: Reado
   return (
     <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={[styles.pasekOcen, { backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>
       {wpisy.map(({ a, o }, i) => (
-        <View key={a} style={[styles.segmentOceny, { flexBasis: podstawaSegmentu(PixelRatio.getFontScale()), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : i === 0 ? 0 : StyleSheet.hairlineWidth * 2 }]}>
+        <View key={a} style={[styles.segmentOceny, { ...wymiarSegmentu(wpisy.length, PixelRatio.getFontScale()), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : i === 0 ? 0 : StyleSheet.hairlineWidth * 2 }]}>
           <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>
           <Text style={[styl.drobny, { color: tk.actionInk, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
           {a === wybor ? <Text style={[styl.drobny, { color: tk.goldText, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
