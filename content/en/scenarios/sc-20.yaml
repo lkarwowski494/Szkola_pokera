@@ -17,6 +17,6 @@ decisions:
     big: 0.75
     actions:
       - action: "bet-big"
-        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big: against a bet of {{n:cbet.size.big}} of the {{t:pot}} the {{t:draw}} needs {{n:eq.bet-three-quarters}} equity and has about {{n:odds.flush.turn-river}}, so it doesn't get a good price."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. You {{t:bet}} big: against a bet of {{n:ex.frac.three-quarters}} of the {{t:pot}} the {{t:draw}} needs {{n:eq.bet-three-quarters}} equity and has about {{n:odds.flush.turn-river}}, so it doesn't get a good price."
       - action: "bet-small"
-        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. A small bet gives the {{t:draw}} a good price: against a quarter-{{t:pot}} bet it would only need {{n:eq.bet-quarter}} equity, and it has about {{n:odds.flush.turn-river}}. With a strong hand against a {{t:draw}}, you {{t:bet}} big."
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} may have a {{t:flush-draw}}. A small bet gives the {{t:draw}} a good price: against a bet of {{n:ex.frac.quarter}} of the {{t:pot}} it would only need {{n:eq.bet-quarter}} equity, and it has about {{n:odds.flush.turn-river}}. With a strong hand against a {{t:draw}}, you {{t:bet}} big."

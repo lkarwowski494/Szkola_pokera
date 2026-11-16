@@ -1,0 +1,53 @@
+# HU 2026-11-16: test czerwony→zielony kontroli HU w el-kontrola.mjs
+## na treści e270da14 (worktree), kod 1
+BRAK pl sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK pl sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK pl sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK pl sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK en sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK en sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK en sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK en sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK de sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK de sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK de sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK de sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK es sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK es sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK es sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK es sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK fr sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK fr sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK fr sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK fr sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK it sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK it sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK it sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK it sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK ja sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK ja sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK ja sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK ja sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK ko sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK ko sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK ko sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK ko sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK pt sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK pt sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK pt sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK pt sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK pt-BR sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK pt-BR sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK pt-BR sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK pt-BR sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK vi sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK vi sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK vi sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK vi sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK zh-Hant sc-07: poziom średni bez flop.height [high] (D-1752)
+BRAK zh-Hant sc-20 bet-small: bez {{n:ex.frac.quarter}} i {{n:eq.bet-quarter}}
+BRAK zh-Hant sc-20 bet-big: bez {{n:ex.frac.three-quarters}} i {{n:eq.bet-three-quarters}}
+BRAK zh-Hant sc-20: klucz c-betu w zakładzie na turnie (D-1771)
+BRAK numbers.yaml ex.frac.quarter: jednostka ≠ percent (D-1771)
+BRAK numbers.yaml ex.frac.three-quarters: jednostka ≠ percent (D-1771)
+50 braków

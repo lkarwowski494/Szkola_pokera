@@ -3,13 +3,13 @@
 # „Any top pair or better is good enough to stack off”; R-M9-003). SPR 1,8–2,3 (D-1719). Bez T do 08-EX-3 (D-1304). Szkic sesji HP.
 id: sc-26
 module: m9
-situation: "Niski {{t:spr}} i {{t:all-in}} rywala. Gra turniejowa, krótkie stacki: jesteś na {{t:big-blind|dużym blindzie}} i {{t:call|sprawdziłeś}} {{t:open|otwarcie}} Buttona. Na flopie {{t:check|czekasz}}, a Button wchodzi {{t:all-in}} przy {{t:spr}} ok. {{w:spr}}."
+situation: "Niski {{t:spr}} i {{t:all-in}} rywala. Gra turniejowa bez presji {{t:icm}}, krótkie stacki: jesteś na {{t:big-blind|dużym blindzie}} i {{t:call|sprawdziłeś}} {{t:open|otwarcie}} Buttona. Na flopie {{t:check|czekasz}}, a Button wchodzi {{t:all-in}} przy {{t:spr}} ok. {{w:spr}}."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 14
 levels: [latwy, sredni]
 bounds:
-  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kicker: [A, K] }
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
   sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
 decisions:
   - street: flop

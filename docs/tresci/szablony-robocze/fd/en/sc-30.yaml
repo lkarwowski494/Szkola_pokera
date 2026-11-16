@@ -15,6 +15,6 @@ decisions:
     spot: rfi.btn
     actions:
       - action: fold
-        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and your opponent on the {{w:rywal}} {{t:3-bet|3-bets}}. You {{t:fold}}, because if they play the strongest {{w:vpip}} or so of hands, those are mostly pairs and the best aces, and against them your hand has less equity than the price of a {{t:call}} requires. By assumption their {{t:3-bet}} fits within those hands, so against the {{t:3-bet}} itself your hand does no better."
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and your opponent on the {{w:rywal}} {{t:3-bet|3-bets}}. You {{t:fold}}, because if they play the strongest {{w:vpip}} or so of hands, those are mostly pairs and the best aces, and against them your hand has less equity than the price of a {{t:call}} requires (simplified, ignoring play after the flop). By assumption their {{t:3-bet}} fits within those hands, so against the {{t:3-bet}} itself your hand does no better."
       - action: call
-        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and your opponent on the {{w:rywal}} {{t:3-bet|3-bets}}. A {{t:call}} loses money: even against all the hands this opponent plays, your hand has less equity than the price of a {{t:call}} requires, and by assumption their {{t:3-bet}} fits within those hands."
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, {{w:stol}}, and your opponent on the {{w:rywal}} {{t:3-bet|3-bets}}. Simplified, ignoring play after the flop, a {{t:call}} loses money: even against all the hands this opponent plays, your hand has less equity than the price of a {{t:call}} requires, and by assumption their {{t:3-bet}} fits within those hands."

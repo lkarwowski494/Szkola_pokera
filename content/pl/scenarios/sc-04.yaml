@@ -8,7 +8,7 @@
 # więc szablon nie powstaje; poziom średni wraca po zadaniu 08-EH-1 (dolosowanie flopu po range-spot).
 id: sc-04
 module: m3
-situation: "Jesteś na {{t:utg|UTG}}, nikt jeszcze nie wszedł do gry; jeśli {{t:open|otworzysz}}, {{t:big-blind}} {{t:call|sprawdzi}} i na flopie {{t:check|poczeka}}."
+situation: "Jesteś na {{t:utg|UTG}}, nikt jeszcze nie wszedł do gry. Jeśli {{t:open|otworzysz}}, {{t:big-blind}} {{t:call|sprawdzi}} i na flopie {{t:check|poczeka}}."
 table: 6max
 positions: { hero: UTG, villain: BB }
 stackBb: 100

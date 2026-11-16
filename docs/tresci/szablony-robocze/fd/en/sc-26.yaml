@@ -1,13 +1,13 @@
 # sc-26: English text of pl/sc-26.yaml (role 06, session HP, 2026-11-16; draft, for review by role 09); structure must match pl.
 id: sc-26
 module: m9
-situation: "A low {{t:spr}} and your opponent goes {{t:all-in}}. Tournament play with short stacks: you are in the {{t:big-blind}} and {{t:call|called}} the Button's {{t:open}}. On the flop you {{t:check}}, and the Button goes {{t:all-in}} at an {{t:spr}} of about {{w:spr}}."
+situation: "A low {{t:spr}} and your opponent goes {{t:all-in}}. Tournament play with no {{t:icm|ICM}} pressure and short stacks: you are in the {{t:big-blind}} and {{t:call|called}} the Button's {{t:open}}. On the flop you {{t:check}}, and the Button goes {{t:all-in}} at an {{t:spr}} of about {{w:spr}}."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 14
 levels: [latwy, sredni]
 bounds:
-  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kicker: [A, K] }
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
   sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
 decisions:
   - street: flop
