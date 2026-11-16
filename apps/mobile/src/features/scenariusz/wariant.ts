@@ -1,6 +1,8 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { KONFIGURACJA, przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
 import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, overcardOutsAt, type VariantMarkerValues, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantConditionValues, type WerdyktAkcji } from '@szkola/poker-core';
+import { formatujLiczbe } from '@szkola/jezyki';
+import { jezykZadan } from '@/features/drills/text';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 
@@ -346,14 +348,17 @@ const karty = (cs: readonly string[]) => `[[${cs.join(' ')}]]`;
 /** {{w:stol}}: karty stołu; przed flopem nazwa ulicy (CN D-784: bez nowego klucza, `scenario.street.preflop` małymi literami). */
 const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length === 0 ? t('scenario.street.preflop').toLowerCase() : karty(stol));
 
+/** HT (HR-006): SPR z jedną cyfrą po przecinku w zapisie języka aplikacji (pl „2,1”, en „2.1”; warunki-hp.md:16), jak pozostałe liczby zadań (`formatujLiczbe`). */
+const sprWJezyku = (spr: number): string => formatujLiczbe(Number(spr.toFixed(1)), jezykZadan(), { miejsca: 1 });
+
 /**
  * Znaczniki liczbowe punktu (08-EX-5…8, HO): `spr` (SC-26), `rozmiar` (SC-27, procent puli), `vpip` (SC-30, procent). Poza tymi punktami brak wartości (tekst z takim znacznikiem
- * w innym punkcie to błąd treści: `fillVariantMarkers` rzuca TemplateError, nie cichy fallback). Format liczby dla języka (przecinek) to zadanie widoku (rola 04), tu kropka dziesiętna.
+ * w innym punkcie to błąd treści: `fillVariantMarkers` rzuca TemplateError, nie cichy fallback). SPR formatuje `sprWJezyku` (HT HR-006).
  */
 function wartosciPunktu(d: ScenarioVariant['points'][number] | undefined): Partial<Record<'spr' | 'rozmiar' | 'vpip', string>> {
-  if (d?.point === 'spr-call') return { spr: d.spr.toFixed(1) };
+  if (d?.point === 'spr-call') return { spr: sprWJezyku(d.spr) };
   if (d?.point === 'nit-3bet') return { vpip: String(Math.round(d.vpip * 100)) };
-  if (d?.point === 'geo-size') return { spr: d.spr.toFixed(1), rozmiar: String(Math.round(d.fractionBig * 100)) };
+  if (d?.point === 'geo-size') return { spr: sprWJezyku(d.spr), rozmiar: String(Math.round(d.fractionBig * 100)) };
   return {};
 }
 
