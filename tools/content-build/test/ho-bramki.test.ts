@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ScenarioTemplate } from '@szkola/content-schema';
-import type { Equity169Data } from '@szkola/poker-core';
+import { generateVariant, HAND_CLASSES, type Equity169Data, type GeneratorTemplate } from '@szkola/poker-core';
 import { compileRanges } from '../src/ranges';
 import { checkScenarioGenerator, checkScenarioNaEkran, checkScenarioTemplate, loadScenarioTemplates, RODZAJE_NA_EKRANIE } from '../src/scenariusze';
 
@@ -102,3 +102,25 @@ describe('IB: rodzaje HO na ekranie (bramka ekranu)', () => {
     expect(checkScenarioNaEkran(t).join('\n')).toMatch(/situation.*\{\{w:vpip\}\}/);
   });
 });
+// IB (koordynator, z pytania HZ o SC-30): nit-3bet nie ma flopu, odcisk to klasa ręki (+ |vpip), więc próg pojemności to min(40, liczba klas, które generator
+// dopuszcza, po wszystkich vpips, z częstością otwarcia ≥ mixedMin) — jak D-1040 (range-spot, rangeVerdict) i 08-N4 (list-hand). Liczba klas sprawdzona
+// niezależnie: nasycone losowanie (20 000) i częstość otwarcia klasy wprost ze spotu rfi.btn.
+describe('IB: pojemność nit-3bet (próg = liczba dopuszczalnych klas, jak D-1040 i 08-N4)', () => {
+  const { kopia } = zgodnie('nit-3bet');
+  const t = kopia((b) => { b.decisions[0].vpips = [0.1]; });
+  it('vpips [0.1] (mniej niż 40 klas) przechodzi kontrolę generatora', () => { expect(checkScenarioGenerator(t, undefined, 2000, gctx)).toEqual([]); }, 300_000);
+  it('przy liczbie odcisków mniejszej niż liczba klas — błąd; wymagana liczba = klasy z nasyconego losowania z częstością otwarcia ≥ mixedMin (niezależnie)', () => {
+    const blad = checkScenarioGenerator(t, undefined, 3, gctx).join('\n');
+    expect(blad).toMatch(/pojemność/);
+    const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as unknown as GeneratorTemplate;
+    const klasy = new Set<string>();
+    for (let z = 1; z <= 20000; z++) { const p = generateVariant(g, 'latwy', z, gctx).points[0]!; if (p.point === 'nit-3bet') klasy.add(p.handClass); }
+    const btn = spots.find((s) => s.id === 'rfi.btn')!;
+    const otwarcie = (hc: string) => btn.actions.filter((a) => a.label !== 'fold').reduce((x, a) => x + (a.freqs[HAND_CLASSES.indexOf(hc)] ?? 0), 0);
+    const uczciwe = [...klasy].filter((hc) => otwarcie(hc) >= gctx.thresholds.mixedMin).length;
+    expect(uczciwe).toBeGreaterThan(3);
+    expect(uczciwe).toBeLessThan(klasy.size); // generator losuje też klasy-szum (K6o z BTN) — dlatego próg ich nie liczy
+    expect(blad).toMatch(new RegExp(`wymagane ${uczciwe}$`));
+  }, 300_000);
+});
+

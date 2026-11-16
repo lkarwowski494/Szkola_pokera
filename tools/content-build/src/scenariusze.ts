@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { komunikatBledu } from './blad';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { pierwszaPoprawna, akcjeSzablonu, DRAW_CALL_MIN_GAP, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { pierwszaPoprawna, akcjeSzablonu, DRAW_CALL_MIN_GAP, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, topRangeClasses, equityVsRange, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -500,6 +500,26 @@ export function potrzebujeMacierzyEquity(szablony: readonly ScenarioTemplate[]):
   return szablony.some((t) => t.decisions.some((d) => d.kind === 'icm-call') || Object.values(t.bounds).some((b) => b?.equityMarginMin !== undefined));
 }
 
+/**
+ * IB: liczba odcisków, które uczciwie daje punkt nit-3bet: para (klasa, vpip) dopuszczona przez filtr generatora (`generateVariant`, gałąź nit-3bet), ale tylko
+ * dla klas z częstością otwarcia ≥ progu szumu `thresholds.mixedMin` — jak `eligibleClasses` (D-1040: `rangeVerdict`). Generator losuje też klasy z częstością
+ * solvera rzędu 0,003 (K6o z BTN: raz na 20 000 losowań), których 2000 prób kontroli nie znajdzie; aplikacja uznaje je za spoza zakresu otwarcia.
+ */
+function klasyNit3bet(t: ScenarioTemplate, d: Extract<ScenarioTemplate['decisions'][number], { kind: 'nit-3bet' }>, b: NonNullable<ScenarioTemplate['bounds'][ScenarioLevel]>, ctx: GeneratorContext): number {
+  const spot = ctx.spots.find((x) => x.id === `rfi.${t.positions.hero.toLowerCase()}`);
+  const m = ctx.equity169;
+  if (!spot || !m) return 0;
+  const margines = b.margins?.[0] ?? { min: b.marginMin ?? 0, max: b.marginMax ?? null };
+  const wMarginesie = (x: number) => x > 0 && x >= margines.min && (margines.max === null || x < margines.max);
+  const required = (d.threeBet - d.open) / (2 * d.threeBet + 0.5);
+  const wZakresie = HAND_CLASSES.filter((hc, h) => hc.length === 3 && hc.endsWith('o') && spot.actions.filter((a) => a.label !== 'fold').reduce((x, a) => x + (a.freqs[h] ?? 0), 0) >= ctx.thresholds.mixedMin);
+  return [...new Set(d.vpips)].reduce((n, vpip) => {
+    const top = topRangeClasses(m, vpip);
+    const wagi = HAND_CLASSES.map((c) => (top.has(c) ? 1 : 0));
+    return n + wZakresie.filter((hc) => !top.has(hc) && wMarginesie(required - equityVsRange(m, hc, wagi))).length;
+  }, 0);
+}
+
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */
 export const POJEMNOSC_MIN = 40;
 export const PROBY_POJEMNOSCI = 2000;
@@ -535,6 +555,11 @@ export function checkScenarioGenerator(
     // 08-N4: lista rąk bez flopu: odcisk to klasa ręki, więc próg to min(próg, liczba klas listy z akcją oczekiwaną poziomu)
     if (b && pierwszy?.kind === 'list-hand' && b.expected[0] !== undefined && t.decisions.length === 1) {
       prog = Math.min(prog, pierwszy.entries.filter((en) => pierwszaPoprawna(en) === b.expected[0]).reduce((n, en) => n + en.hands.length, 0));
+    }
+    // IB (koordynator, SC-30): nit-3bet bez flopu: odcisk to klasa ręki (+ |vpip), więc próg to min(próg, suma po vpips liczby klas, które dopuszcza generator
+    // (scenario-gen.ts, gałąź nit-3bet: ręka z rfi pozycji gracza, offsuit bez pary, spoza górnych vpip%, cena − equity w marginesie poziomu))
+    if (ctx?.equity169 && b && pierwszy?.kind === 'nit-3bet' && t.decisions.length === 1) {
+      prog = Math.min(prog, klasyNit3bet(t, pierwszy, b, ctx));
     }
     if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }
