@@ -53,3 +53,15 @@ export const ICM = {
   decisions: [{ street: 'preflop', kind: 'icm-call', spot: 'push.sb-10', rule: 'R-M11-009', actions: akcje('fold', 'call') }],
 } as unknown as ScenarioTemplate;
 
+
+// HX (D-1734…D-1736): widok limperów; szablony-fikcje punktu size-spot z `check: iso-size` jak SC-09 (treść SC-09 jeszcze nie istnieje, trafi od roli 06).
+export const ISO_CO = {
+  ...podstawa, module: 'm4', id: 'sc-hx-iso-co', positions: { hero: 'CO', villain: 'HJ' }, levels: ['latwy'],
+  bounds: { latwy: { expected: ['raise'], draws: [], reject: [] } },
+  decisions: [{ street: 'preflop', kind: 'size-spot', check: 'iso-size', rule: 'R-M4-012', limpers: 1, actions: akcje('raise', 'raise-small', 'raise-big') }],
+} as unknown as ScenarioTemplate;
+export const ISO_SB = {
+  ...podstawa, module: 'm4', id: 'sc-hx-iso-sb', positions: { hero: 'SB', villain: 'BTN' }, levels: ['latwy'],
+  bounds: { latwy: { expected: ['raise'], draws: [], reject: [] } },
+  decisions: [{ street: 'preflop', kind: 'size-spot', check: 'iso-size', rule: 'R-M4-012', limpers: 2, actions: akcje('raise', 'raise-small', 'raise-big') }],
+} as unknown as ScenarioTemplate;

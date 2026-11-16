@@ -27,17 +27,21 @@ const SLOTY: readonly (readonly [number, number])[] = [
 ];
 const PROPORCJA_OWALU = 1.7; // owal 1,7:1 (makieta e3); z układem rzędów rama dostaje jawną szerokość i wysokość, bez proporcji (Z1, E2E 42800500800)
 const MIEJSCE = { w: 72, h: 40 }; // stały rysunek (design-spec: miejsca mają stały rozmiar)
-const STAN_KLUCZ: Record<StanMiejsca, string> = { ty: 'table.stateHero', pas: 'table.stateFold', czeka: 'table.stateAfter', przebija: 'table.stateRaise' };
+const STAN_KLUCZ: Record<StanMiejsca, string> = { ty: 'table.stateHero', pas: 'table.stateFold', czeka: 'table.stateAfter', przebija: 'table.stateRaise', limp: 'table.stateLimp' };
 
-export function Stol({ table }: { table: Table }): React.JSX.Element {
+/**
+ * `scenariusz` (HX, D-1734, D-1735): stół punktu scenariusza z limperami: akcja `limp` w przebiegu daje stan „limp” (obwódka ciągła 2,5 pt `seatInk` i słowo),
+ * etykieta czytnika z nazwami kart („ty na CO, karty …”), a pod stołem nie ma opisu ręki: ekran stawia tam „W puli N bb” i dziennik.
+ */
+export function Stol({ table, scenariusz = false }: { table: Table; scenariusz?: boolean }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   const [szerokosc, ustawSzerokosc] = useState(0); // szerokość pola z onLayout; 0 = jeszcze nie zmierzona (proporcja 1,7:1)
-  const miejsca = table.position && table.path !== undefined ? ukladStolu(table.position, table.path) : null;
+  const miejsca = table.position && table.path !== undefined ? ukladStolu(table.position, table.path, { limp: scenariusz }) : null;
   const reka = table.hand ?? [];
-  const etykieta = miejsca ? etykietaStolu(miejsca, reka, t) : opisKart(table, t, { nazwy: true }); // A04-11: czytnik dostaje nazwy kart
+  const etykieta = miejsca ? etykietaStolu(miejsca, reka, t, { kartyNazwami: scenariusz }) : opisKart(table, t, { nazwy: true }); // A04-11: czytnik dostaje nazwy kart
   const tekstKart = miejsca ? '' : opisKart(table, t); // widoczny tekst pod stołem z symbolami (A04-11)
-  const opis = miejsca ? opisReki(miejsca, reka, t) : null;
+  const opis = miejsca && !scenariusz ? opisReki(miejsca, reka, t) : null;
   // A04-04 (D-282 pkt 2): bez kart i bez miejsc nie ma czego rysować — sam tekst (pozycja), żadnej pustej grafiki
   if (!miejsca && !table.opp?.length && !table.board?.length && !reka.length) {
     return tekstKart ? <Text style={[styl.tresc, { color: tk.ink }]}>{tekstKart}</Text> : <></>;
@@ -80,7 +84,7 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
           <Text style={[styl.tytul, { color: tk.ink }]}>{opis.klasa}</Text>
           <Text style={[styl.przypis, { color: tk.muted }]}>{opis.dopisek}</Text>
         </View>
-      ) : (
+      ) : miejsca ? null : (
         <Text accessibilityLabel={etykieta} style={[styl.przypis, { color: tk.ink }]}>
           {tekstKart}
         </Text>
@@ -104,6 +108,7 @@ function Siedzenie({ m }: { m: Miejsce }): React.JSX.Element {
   const { t } = useTranslation();
   const [x, y] = SLOTY[m.slot] ?? [50, 50];
   const ty = m.stan === 'ty';
+  const limp = m.stan === 'limp'; // gracz w puli przed tobą: obwódka ciągła 2,5 pt w kolorze tekstu miejsca (wzór jak „all-in” w ICM), rozróżnia słowo i kształt, nie kolor
   return (
     <View
       testID={`miejsce-${m.pozycja}`}
@@ -114,8 +119,8 @@ function Siedzenie({ m }: { m: Miejsce }): React.JSX.Element {
           left: `${x}%`,
           top: `${y}%`,
           backgroundColor: tk.seat,
-          borderColor: ty ? tk.gold : tk.seatEdge,
-          borderWidth: ty ? 2.5 : 1,
+          borderColor: ty ? tk.gold : limp ? tk.seatInk : tk.seatEdge,
+          borderWidth: ty || limp ? 2.5 : 1,
           borderStyle: m.stan === 'pas' ? 'dashed' : 'solid',
         },
       ]}

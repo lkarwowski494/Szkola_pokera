@@ -11,17 +11,19 @@ import { jezykZadan } from '@/features/drills/text';
 import { useAnnounce } from '@/features/dostepnosc/announce';
 import { ZglosBlad } from '@/features/opinie/Opinie';
 import { godzinaWStrefie } from '@/features/start/EkranStartu';
-import { nazwaKarty, nazwaPozycji, zapisKart } from '@/features/stol/uklad';
+import { KOLEJNOSC, nazwaKarty, nazwaPozycji, zapisKart } from '@/features/stol/uklad';
 import { ADRES_KONTAKTOWY } from '@/platform/adresy';
 import { odstep, styl, useTokens } from '@/theme/tokens';
 import { CardRow } from '@/components/PlayingCard';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
 import { stylTytuluSytuacji } from './tytul';
 import { podzielSytuacje } from './zdanie';
+import { Stol } from '@/components/Stol';
+import { przebiegLimperow, przedGraczem } from './limperzy';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, SKALA_BEZ_PASKA, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
 import type { WyborPoziomu } from './poziom';
-import { akcjePunktu, bloki, inneZgodne, kwotaAkcji, ocenyAkcji, opisAkcji, przebiegWariantu, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
+import { akcjePunktu, bloki, inneZgodne, kwotaAkcji, limperzyPunktu, ocenyAkcji, opisAkcji, przebiegWariantu, ukladIcm, widokDecyzji, zakresSprawdzenia, zgodneAkcje, type Akcja, type UkladIcm } from './wariant';
 
 type TFn = (k: string, o?: Record<string, unknown>) => string;
 const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
@@ -158,6 +160,14 @@ function ruchRywala(s: SesjaScenariusza, d: VariantDecision, i: number, t: TFn):
   if (d.point === 'cbet-case') return t('play.log.check', { pos: rywal });
   if (d.point === 'river-value') return t('play.log.check', { pos: rywal }); // FW-02 (D-1501): river-value jest z pozycji, rywal czekał przed twoją decyzją
   const spec = s.szablon.decisions[i];
+  const limperzy = limperzyPunktu(d, spec);
+  const przed = limperzy === null ? null : przedGraczem(s.szablon.positions.hero, limperzy);
+  if (przed) {
+    // iso-size (HX, D-1736): „Blindy 0,5/1 bb. UTG: pas. HJ: limp 1 bb” w jednym wierszu; kwota limpa = 1 bb minus blind miejsca (SB 0,5 bb)
+    const blindy = t('play.log.blinds', { sb: formatujLiczbe(0.5, jezykZadan()), bb: formatujLiczbe(1, jezykZadan()) });
+    const wpisy = przed.map((w) => (w.akcja === 'limp' ? t('play.log.limp', { pos: w.pozycja, bb: formatujLiczbe(w.kwotaBb, jezykZadan()) }) : t('play.log.fold', { pos: w.pozycja })));
+    return [blindy, ...wpisy].join('. ');
+  }
   return d.point === 'size-spot' && spec?.kind === 'size-spot' && d.check === 'three-bet-size' && spec.openBb !== undefined ? t('play.log.raise', { pos: rywal, bb: formatujLiczbe(spec.openBb, jezykZadan()) }) : null;
 }
 
@@ -223,7 +233,7 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const d = s.wariant.points[indeks];
   const przebieg = przebiegWariantu(s.wariant, s.wybory, s.szablon);
   const oceny = przebieg.ok ? przebieg.wartosc.kroki.map((k) => k.ocena) : [];
-  const widok = d ? widokDecyzji(s.wariant, indeks, s.szablon) : null;
+  const widok = d ? widokDecyzji(s.wariant, indeks, s.szablon) : null; // szablon niesie `decisions[].limpers` (pula iso-size)
   const wybor = ocenaMode ? s.wybory[indeks] : undefined;
   const ocenaWyboru = ocenaMode ? oceny[indeks] : undefined;
   const ulicaDecyzji = d?.street;
@@ -248,6 +258,10 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const fraza = (a: Akcja): string => teksty[a]?.fraza ?? '';
   const idxUlicy = ULICE.indexOf(widok.ulica);
   const icm = d.point === 'icm-call' ? ukladIcm(d, s.szablon) : null; // D-889: stół 3–4 miejsc, stosy i nagrody z wariantu
+  // HX (D-1734): iso-size z poprawnym układem 6-max → stół z limperami; inny układ (9-max, zły szablon) zostaje przy dotychczasowym stole rozdania
+  const limperzyLiczba = limperzyPunktu(d, s.szablon.decisions[indeks]);
+  const przebiegLimpow = limperzyLiczba === null ? null : przebiegLimperow(s.szablon.positions.hero, limperzyLiczba);
+  const pozycjaGracza = KOLEJNOSC.find((k) => k === s.szablon.positions.hero);
   const doDziennika = wpisyDziennika(s, indeks, t, ocenaMode ? oceny : oceny.slice(0, indeks));
   return (
     <Screen>
@@ -265,7 +279,9 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
         ))}
       </View>
       )}
-      {icm ? <StolIcmEkranu uklad={icm} s={s} reka={s.wariant.hero.map(cardToString)} t={t} /> : (
+      {icm ? <StolIcmEkranu uklad={icm} s={s} reka={s.wariant.hero.map(cardToString)} t={t} /> : przebiegLimpow !== null && pozycjaGracza ? (
+      <Stol scenariusz table={{ hand: s.wariant.hero.map(cardToString), position: pozycjaGracza, path: przebiegLimpow }} />
+      ) : (
       <StolRozdania
         stol={widok.stol}
         reka={d.point === 'pick-hand' ? [] : s.wariant.hero.map(cardToString)}
