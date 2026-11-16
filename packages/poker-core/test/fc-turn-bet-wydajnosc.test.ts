@@ -25,5 +25,5 @@ describe('FC: wydajność turn-bet (licznik pracy, nie zegar)', () => {
     for (let s = 1; s <= WARIANTY; s++) generateVariant(szablon, 'latwy', s);
     expect(wywolania, 'wywołań classifyHolding').toBeLessThan(LIMIT_WYWOLAN);
     expect(wywolania).toBeGreaterThan(0); // licznik rzeczywiście podpięty
-  });
+  }, 300_000); // jawny limit jak w ef/ei/ey-turn-bet (D-1768, IA PERF-1): test liczy pracę, nie czas; domyślne 5 s padało pod obciążeniem (15,2 s przy 24 obciążających procesach na 4 rdzeniach)
 });
