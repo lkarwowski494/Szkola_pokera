@@ -189,6 +189,26 @@ test('--protokol: zamknięty → zielona, otwarty → czerwona', () => {
   assert.equal(bramka(otwarty, ['--protokol', '11']).kod, 1);
 });
 
+// Recenzja HV P3-3: reguły skryptu modułu, których nie łapał żaden przypadek (mutacje w dowodzie hv-ci).
+test('protokół: „POMINIĘTE:” bez uzasadnienia albo zdublowana pozycja → czerwona', () => {
+  const krotkie = bramka(fikstura({ pliki: { 'docs/jakosc/test-fizyczny/11.md': protokol([['PU-002', 'POMINIĘTE: nie']]) } }), ['--protokol', '11']);
+  assert.equal(krotkie.kod, 1);
+  assert.match(krotkie.wynik, /11\.md: PU-002 bez wyniku/);
+  const dubel = bramka(fikstura({ pliki: { 'docs/jakosc/test-fizyczny/11.md': protokol([['PU-002', 'OK'], ['PU-002', 'OK']]) } }), ['--protokol', '11']);
+  assert.equal(dubel.kod, 1);
+  assert.match(dubel.wynik, /11\.md: zdublowane pozycje/);
+});
+
+test('katalog: pozycja F bez kroków albo pusta kolumna „Warianty i błędy” → czerwona', () => {
+  const bezKrokow = bramka(fikstura({ wiersze: [PU_A, '| PU-002 | `zakup` | Użytkownik kupuje dostęp w piaskownicy i widzi odblokowanie | brak sieci; anulowanie arkusza | `zakup` | F | kup | tak |'] }), ['--statycznie']);
+  assert.equal(bezKrokow.kod, 1);
+  assert.match(bezKrokow.wynik, /PU-002: klasa F bez kroków/);
+  const bezWariantow = bramka(fikstura({ wiersze: [PU_A.replace('pusta lista; anulowanie w połowie', ''), PU_F] }), ['--statycznie']);
+  assert.equal(bezWariantow.kod, 1);
+  assert.match(bezWariantow.wynik, /PU-001: kolumna „Warianty i błędy” pusta/);
+  assert.equal(bramka(fikstura({ wiersze: [PU_A.replace('pusta lista; anulowanie w połowie', 'n/d: jedna ścieżka bez wyboru'), PU_F] }), ['--statycznie']).kod, 0);
+});
+
 // Repozytorium bez tagów v*-b<N> (stan 2026-11-16): numer ostatniego wysłanego buildu jest w docs/wydanie/ostatni-build.txt.
 // Bez jego aktualizacji po wysyłce bramka buildu N+1 sprawdzałaby protokół starszego buildu zamiast N (D-1783). Kontrola:
 // każdy protokół F poza najnowszym dotyczy wysłanego buildu (≤ ostatni), a najnowszy jest ≥ ostatni.

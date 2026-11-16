@@ -29,3 +29,9 @@ M7 katalog: PU-019 usunięty                   → fail 1 (katalog PU tego repoz
 # Symulacja kroku testflight.yml (GITHUB_RUN_NUMBER=11, wykonane z listy flowów, kopia worktree):
 stan gałęzi            → BRAMKA CZERWONA (2): brak „Przegląd: build 1011 @ <sha>”, brak docs/jakosc/test-fizyczny/1011.md; kod 1
 --szkielet 1011 + Przegląd → BRAMKA ZIELONA; kod 0; protokół 1011: 7 pozycji F z wynikiem „—”
+
+# Poprawki po recenzji HV (P3-3): 4 nowe przypadki testu, mutacje na kopii w scratchpadzie (cofnięte)
+M8  „POMINIĘTE:” bez progu uzasadnienia (.size >= 0)  → fail 1 (protokół: „POMINIĘTE:” bez uzasadnienia albo zdublowana pozycja)
+M9  F bez kroków przyjęte                             → fail 1 (katalog: pozycja F bez kroków albo pusta kolumna „Warianty i błędy”)
+M10 puste „Warianty i błędy” przyjęte                 → fail 1 (j.w.)
+M11 zdublowane pozycje protokołu przyjęte             → fail 1 (protokół: … zdublowana pozycja)

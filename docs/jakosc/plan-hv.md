@@ -7,9 +7,11 @@ Polecenie: `origin/koordynacja:docs/koordynacja/polecenia/HV.md` @ e177e0f4 · g
 - Plan: (1) skrypt z modułu + test na fiksturach, (2) katalog PU, `ostatni-build.txt`, protokół 1010 bez pozycji, szablon i lista F, (3) krok w `testflight.yml` + test w `workflowy.test.mjs`, (4) dowody mutacji, `pnpm run ci`, przekazanie. Ryzyko: ścieżka wrażliwa `.github/workflows/` (D-043) — recenzję niezależną zleca koordynator.
 
 ## Stan
-- [x] 1 skrypt i test · [x] 2 katalog (21 PU: A 0, B 14, F 7) · [x] 3 workflow · [x] 4 dowody (`docs/jakosc/dowody/hv-ci-8ea9161.txt`, ci kod 0, push bea7ffb5) · [x] przekazanie koordynatorowi
+- [x] 1 skrypt i test · [x] 2 katalog (22 PU: A 0, B 14, F 8) · [x] 3 workflow · [x] 4 dowody (`docs/jakosc/dowody/hv-ci-8ea9161.txt`, ci kod 0, push bea7ffb5) · [x] przekazanie koordynatorowi
 
 ## Otwarte
 - Rola 08: testID `ekran:<trasa>` na korzeniu 15 ekranów (D-1780); potem 07: kroki `assertVisible`/`# powrót:` w flowach i klasa A (termin 1013).
 - Przed buildem 1011: `--szkielet 1011`, linia `Przegląd: build 1011 @ <sha>`; po wysyłce: `docs/wydanie/ostatni-build.txt` = numer wysłanego buildu (D-1783, test pilnuje).
-- Numer następnego buildu = 1000 + numer przebiegu `testflight.yml` `[DO USTALENIA]` (nieudane przebiegi też zwiększają numer).
+- Numer następnego buildu = 1000 + numer przebiegu `testflight.yml` `[DO USTALENIA]` (nieudane przebiegi też zwiększają numer); procedura: `docs/jakosc/test-fizyczny/README.md` „Kolejność przed buildem” (ręczne E2E na commicie samych `docs/**`, Re-run failed jobs zamiast nowego dispatchu).
+- PYTANIE do właściciela (recenzja HV P2-2): terminy B liczone w numerach buildów (1013, 1014) przepadają szybciej, gdy przebiegi TestFlight padają (każdy dispatch zużywa numer). Zostawić w numerach buildów czy liczyć w wysłanych buildach? Terminów nie przesuwam (moduł: tylko słowami właściciela).
+- Recenzja HV (2026-11-16): PRZYJĄĆ Z UWAGAMI; poprawki P2-1, P2-2, P2-3, P3-2–P3-5 w commicie po 036d2ebe; P3-1 (klasy PU = decyzja właściciela) prowadzi koordynator.
