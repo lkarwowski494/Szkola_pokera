@@ -1,7 +1,7 @@
 # sc-23: Italian text of content/pl/scenarios/sc-23.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-23
 module: m8
-situation: "Sei sul Button e al river il {{t:big-blind}} fa {{t:check}}. Stai valutando un {{t:bluff}} con una di due mani che allo {{t:showdown}} non battono nessuna mano dell'avversario. Supponi che l'avversario {{t:call|chiamerà}} con AA, KK, QQ, JJ, tutti gli AK e con AQ {{t:suited}}, e {{t:fold|folderà}} con KQ, KJ, QJ, QT e JT, tutti {{t:suited}}. Quale mano scegli per il {{t:bluff}}?"
+situation: "Sei sul Button e al river il {{t:big-blind}} fa {{t:check}}. Stai valutando un {{t:bluff}} con una di due mani che allo {{t:showdown}} non battono nessuna mano dell'avversario. Supponi che l'avversario {{t:call|chiami}} con AA, KK, QQ, JJ, tutti gli AK e con AQ {{t:suited}}, e {{t:fold|foldi}} con KQ, KJ, QJ, QT e JT, tutti {{t:suited}}. Quale mano scegli per il {{t:bluff}}?"
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100

@@ -1,0 +1,22 @@
+# HY 2026-11-16: SC-04 tytuł, długość ważona (D-1730; progi 54/68/75 przy 320/390/430) — komenda: npx tsx <scratchpad>/tytul.ts <języki> sc-04
+## przed (2b113aed)
+pl	sc-04	46	krótki	Jesteś na UTG, nikt jeszcze nie wszedł do gry.
+en	sc-04	48	krótki	You are UTG, and nobody has entered the pot yet.
+de	sc-04	129	DŁUGI przy 430	Du sitzt UTG, und noch niemand ist ins Spiel eingestiegen; wenn du eröffnest, wird der Big Blind callen und auf dem Flop checken.
+es	sc-04	106	DŁUGI przy 430	Estás en UTG y nadie ha entrado todavía en el juego; si abres, la ciega grande pagará y en el flop pasará.
+it	sc-04	100	DŁUGI przy 430	Sei in UTG e nessuno è ancora entrato in gioco; se apri, il big blind chiamerà e al flop farà check.
+pt	sc-04	108	DŁUGI przy 430	Está em UTG e ninguém entrou ainda no jogo; se fizer abertura, o big blind fará call e, no flop, fará check.
+pt-BR	sc-04	128	DŁUGI przy 430	Você está no UTG e ninguém entrou no jogo ainda; se você fizer abertura, o big blind vai fazer call e, no flop, vai fazer check.
+vi	sc-04	82	DŁUGI przy 430	Bạn ở UTG, chưa ai vào ván; nếu bạn mở cược, big blind sẽ theo và check trên flop.
+ja	sc-04	45	krótki	あなたはUTGにいて、まだ誰も参加していません。
+ko	sc-04	58	DŁUGI przy 320	당신은 UTG에 있고, 아직 아무도 핸드에 참여하지 않았습니다.
+zh-Hant	sc-04	64	DŁUGI przy 320	你在 UTG，還沒有人入池；如果你開池，大盲會跟注，並在翻牌上過牌。
+## po (HY, podział w miejscu średnika jak D-1773; słowa bez zmian, wielka litera po kropce)
+de	sc-04	58	DŁUGI przy 320	Du sitzt UTG, und noch niemand ist ins Spiel eingestiegen.
+es	sc-04	52	krótki	Estás en UTG y nadie ha entrado todavía en el juego.
+it	sc-04	47	krótki	Sei in UTG e nessuno è ancora entrato in gioco.
+pt	sc-04	43	krótki	Está em UTG e ninguém entrou ainda no jogo.
+pt-BR	sc-04	48	krótki	Você está no UTG e ninguém entrou no jogo ainda.
+vi	sc-04	27	krótki	Bạn ở UTG, chưa ai vào ván.
+fr	sc-04	62	DŁUGI przy 320	Vous êtes en UTG, et personne n'est encore entré dans le coup.
+kod=0 (oba przebiegi)

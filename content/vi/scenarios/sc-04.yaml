@@ -2,7 +2,7 @@
 # 2026-11-11. Struktura jak pl (content/pl/scenarios/sc-04.yaml); jeden poziom (D-1165).
 id: sc-04
 module: m3
-situation: "Bạn ở {{t:utg|UTG}}, chưa ai vào ván; nếu bạn {{t:open|mở cược}}, {{t:big-blind|big blind}} sẽ {{t:call|theo}} và {{t:check|check}} trên flop."
+situation: "Bạn ở {{t:utg|UTG}}, chưa ai vào ván. Nếu bạn {{t:open|mở cược}}, {{t:big-blind|big blind}} sẽ {{t:call|theo}} và {{t:check|check}} trên flop."
 table: 6max
 positions: { hero: UTG, villain: BB }
 stackBb: 100
