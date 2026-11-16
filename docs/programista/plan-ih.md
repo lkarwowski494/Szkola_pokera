@@ -10,4 +10,4 @@ Stan: 2026-11-16, gałąź `claude/sesja-ih-glebokosc` od 52572507. Decyzje: `do
 | 3. IF P2-1 (`useWindowDimensions`), P2-2 (pole z kontekstu), P3-1 (jedna definicja) | D | gotowe | `ih-ui-wymiary.test.tsx`; D-1904…D-1906 |
 | 3a. IF P3-2 („~” przy wyrazie) | P | niewdrożone: PYTANIE | D-1907 |
 | 4. `HL_LOCALE`, `HL_PODSUM`, `HL_NAGL` | D | gotowe | `scripts/zrzuty/hl-zrzuty.mjs`; D-1903 |
-| 5. `env -u NODE_PATH pnpm run ci` | — | w toku | `docs/programista/dowody/ih-ci-<sha>.txt` |
+| 5. `env -u NODE_PATH pnpm run ci` | — | zielone, kod 0 | `docs/programista/dowody/ih-ci-a76841c6.txt` |
