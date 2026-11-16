@@ -1070,3 +1070,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 04:55 (15.11) | linia 05:00 | bez zmian; 4 pytania otwarte; 0 aktywnych | linia 14:00 15.11 |
 | 10:15 (16.11) | koordynator (nowy łańcuch) | przejęcie session_01T66VBwf1bNLY6pRHh6Xc12; poprzednik not found; 0 aktywnych; robocza 0b0855ef zielona; prompts dostępne | HK + pytania do właściciela |
 | 10:25 (16.11) | koordynator | HK i HL wystartowały (prompt 3+3 części); KO-107 plan HK przyjęty | kontrola 11:25 |
+| 10:32 (16.11) | HK | 001–006, 404 w commitach (87ede1d4, niewypchnięte); PYTANIE 006 → KO-108 | PRZEKAZANIE HK |
