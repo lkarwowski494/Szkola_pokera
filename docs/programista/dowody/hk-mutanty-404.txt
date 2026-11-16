@@ -1,0 +1,15 @@
+# 08-programista-404 (HK, 2026-11-16): mutanty bramki 402 (`packages/content-schema/src/index.ts`, superRefine river-catch)
+Komenda: `python3 docs/programista/dowody/hk-mutanty-skrypt.txt . H402a … H402g` (kopia skryptu HC + mutanty H402f, H402g; każdy mutant wstawiany i cofany w `finally`, `git status` po przebiegu: plik schematu bez zmian).
+Test „przed” = `hb-river-catch-margines-402.test.ts` z HEAD przed zmianą (5 testów), „po” = plik z dopisanymi przypadkami (15 testów: każdy poziom osobno, szablon dwupunktowy draw-call + river-catch).
+
+| Mutant | Opis | Test przed | Test po |
+|---|---|---|---|
+| H402a | warunek bramki nigdy nie zachodzi (m < 0) | ZABITY | ZABITY |
+| H402b | tylko marginMin, ignoruje margins[i] | ZABITY | ZABITY |
+| H402c | <= zamiast < (odrzuca równo 0,01) | ZABITY | ZABITY |
+| H402d | margins[0] zamiast margins[i] (zły indeks punktu) | PRZEŻYŁ | ZABITY |
+| H402e | pętla poziomów tylko po latwy | PRZEŻYŁ | ZABITY |
+| H402f | pętla poziomów bez trudnego | PRZEŻYŁ | ZABITY |
+| H402g | pominięty punkt 1 (i > 0) | PRZEŻYŁ | ZABITY |
+
+Podsumowanie: przed 3/7 zabite (H402d, e, f, g przeżyły), po 7/7 zabite. Pełne wyjście: wersje robocze w scratchpadzie sesji, skrót jak wyżej.
