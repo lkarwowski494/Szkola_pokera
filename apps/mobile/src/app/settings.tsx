@@ -18,6 +18,7 @@ import { zegarTelefonu } from '@/platform/zegar';
 import { useDostep, odswiezDostep } from '@/state/dostep';
 import { useSettings } from '@/state/settings';
 import { styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 type Komunikat = 'przywrocono' | 'brak_zakupow' | 'przywracanie_blad' | 'usuwanie_blad' | 'brak_zgody' | 'przypomnienie_blad' | null;
 const KLUCZ: Record<Exclude<Komunikat, null>, string> = {
@@ -34,7 +35,7 @@ const KLUCZ: Record<Exclude<Komunikat, null>, string> = {
  * opinie, pomoc, „Usuń postęp”. Wejście z ikony na „Dziś” (`ustawienia`). Ekran z kontraktem 07 (`EkranUstawien`) + sekcje
  * trasy (D-262). Wzór Treningu: app/more/settings.tsx (lista sekcji z przełącznikami i przejściami), odczyt 2026-11-08.
  */
-export default function SettingsRoute() {
+function SettingsRoute() {
   const port = usePortPostepu();
   const tk = useTokens();
   const { t, i18n } = useTranslation();
@@ -140,3 +141,5 @@ export default function SettingsRoute() {
     />
   );
 }
+
+export default znacznikEkranu('settings', SettingsRoute);

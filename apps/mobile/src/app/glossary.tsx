@@ -7,12 +7,13 @@ import { englishLabel, GLOSSARY_SIZE, glossarySections, nazwaLokalna, zPolskimi,
 import { jezykZadan } from '@/features/drills/text';
 import type { Jezyk } from '@szkola/jezyki';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 /**
  * Słowniczek PL ↔ EN: wszystkie terminy z content/terms.yaml w obszarach, z wyszukiwaniem w obu językach. Poza pl tylko
  * termin angielski i definicja w języku aplikacji, bez polskich słów (D-347).
  */
-export default function GlossaryScreen() {
+function GlossaryScreen() {
   const tk = useTokens();
   const { t } = useTranslation(); // ponowne renderowanie po zmianie języka, więc jezykZadan() jest aktualny
   const [q, setQ] = useState('');
@@ -94,3 +95,5 @@ const styles = StyleSheet.create({
   search: { borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: promien.przycisk, paddingHorizontal: odstep.l, paddingVertical: odstep.m },
   row: { flexDirection: 'row', alignItems: 'flex-start', gap: odstep.m },
 });
+
+export default znacznikEkranu('glossary', GlossaryScreen);

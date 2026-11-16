@@ -7,6 +7,7 @@ import { Button, Muted, Screen, Surface, Title } from '@/components/ui';
 import { HELPLINES, type AppHelpline } from '@/data/content/helplines.generated';
 import { zapiszBlad } from '@/platform/dziennik';
 import { odstep, styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 const host = (url: string) => url.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
 
@@ -24,7 +25,7 @@ const deviceCountry = (): string => {
     return '';
   }
 };
-export default function HelpScreen() {
+function HelpScreen() {
   const { t } = useTranslation();
   const [failed, setFailed] = useState<string | null>(null);
   const [region, setRegion] = useState<string | undefined>(undefined);
@@ -104,3 +105,5 @@ function Entry({ entry, onOpen }: { entry: AppHelpline; onOpen: (target: string)
     </Surface>
   );
 }
+
+export default znacznikEkranu('help', HelpScreen);

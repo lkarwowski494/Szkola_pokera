@@ -14,6 +14,7 @@ import { podsumowanieLekcji, podsumowanieTestow } from '@/features/kurs/podsumow
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import { ZNAK_SKALA_MAX } from '@/theme/skalowanie';
 import { odczytajPostepLekcji, wynikiLekcji, wynikiTestow, type PortBazy } from '@szkola/postep';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 const PUSTE_LEKCJE: ReturnType<typeof podsumowanieLekcji> = new Map();
 const PUSTE_TESTY: ReturnType<typeof podsumowanieTestow> = new Map();
@@ -34,7 +35,7 @@ async function czytajLekcje(port: PortBazy) {
  * otworzyć). Moduł z następną lekcją kursu jest rozwinięty, pozostałe zwinięte; stuknięcie nagłówka rozwija w miejscu
  * (`accessibilityState.expanded`). Rozwinięcia ręczne trwają do opuszczenia ekranu.
  */
-export default function LessonsScreen() {
+function LessonsScreen() {
   const db = useBazaTresci();
   const tk = useTokens();
   const { t } = useTranslation();
@@ -138,3 +139,5 @@ const styles = StyleSheet.create({
   lesson: { flexDirection: 'row', alignItems: 'center', gap: odstep.m, padding: odstep.l, borderRadius: promien.przycisk, borderWidth: 1.5 },
   dot: { width: 26, height: 26, borderRadius: 13, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
 });
+
+export default znacznikEkranu('(tabs)/lessons', LessonsScreen);

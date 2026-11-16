@@ -23,6 +23,7 @@ import { sklepAplikacji } from '@/platform/zakupy';
 import { odswiezDostep, useDostep } from '@/state/dostep';
 import { useTranslation } from 'react-i18next';
 import type { ScenarioTemplate } from '@szkola/content-schema';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 const noweId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
 type Stan =
@@ -40,7 +41,7 @@ type Stan =
  * Wejście: wznowienie rozdania w toku od razu (bez limitu, BR-LIM-002); inaczej start z przełącznikiem poziomu i licznikiem dnia.
  * Każda odpowiedź zapisana przed pokazaniem oceny; „Zakończ” porzuca rozdanie, odpowiedzi zostają.
  */
-export default function ScenarioScreen() {
+function ScenarioScreen() {
   const { id } = useLocalSearchParams<{ id?: string }>();
   const db = useBazaTresci();
   const port = usePortPostepu();
@@ -213,3 +214,5 @@ export default function ScenarioScreen() {
     <KoniecScenariusza sesja={stan.sesja} poziom={stan.sesja.poziom} bladStartu={stan.bladStartu} onNowe={() => kolejne('nowe')} onPowtorz={() => kolejne('powtorka')} onZamknij={() => router.back()} />
   );
 }
+
+export default znacznikEkranu('scenario', ScenarioScreen);

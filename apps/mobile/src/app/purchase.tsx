@@ -5,13 +5,14 @@ import EkranZakupu from '@/features/zakup/EkranZakupu';
 import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
 import { sklepAplikacji } from '@/platform/zakupy';
 import { odswiezDostep, useDostep } from '@/state/dostep';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 /**
  * Ekran zakupu otwarty z ustawień (10-D01-02): ten sam `EkranZakupu` co stan przepływu sesji po wyczerpaniu limitu, bez
  * „Wróć do lekcji”. Dostęp po zakupie albo przywróceniu z odczytu sklepu (D-247), potem powrót do ustawień.
  * Wzór Treningu: app/paywall.tsx z wejściem `/paywall?reason=settings` (components/SubscriptionCard.tsx:25, odczyt 2026-11-09).
  */
-export default function PurchaseRoute() {
+function PurchaseRoute() {
   const port = usePortPostepu();
   return (
     <EkranZakupu
@@ -30,3 +31,5 @@ export default function PurchaseRoute() {
     />
   );
 }
+
+export default znacznikEkranu('purchase', PurchaseRoute);

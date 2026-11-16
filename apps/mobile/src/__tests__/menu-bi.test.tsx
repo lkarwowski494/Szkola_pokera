@@ -243,3 +243,16 @@ describe('„Scenariusze” po zapisie szablonów do bazy treści (BS, BU, BT)',
     expect(screen.getAllByText(/^Po pierwszej lekcji modułu \d+$/).length).toBe(przyciski.length);
   });
 });
+
+describe('znaczniki ekranów na prawdziwych ekranach (IA, D-1780/D-1830)', () => {
+  it.each([
+    ['(tabs)/index', TodayScreen],
+    ['(tabs)/lessons', LessonsScreen],
+    ['(tabs)/progress', ProgressScreen],
+    ['scenarios', ScenariosScreen],
+  ] as const)('%s: korzeń ma testID ekran:<trasa>, a zawartość jest jego dzieckiem', async (trasa, Ekran) => {
+    await otworz(Ekran);
+    const znacznik = await screen.findByTestId(`ekran:${trasa}`);
+    expect(within(znacznik).getAllByRole('header').length).toBeGreaterThan(0);
+  });
+});

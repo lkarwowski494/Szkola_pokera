@@ -17,6 +17,7 @@ import { limitZeZuzycia } from '@/features/start/wejscieStartu';
 import { zegarTelefonu } from '@/platform/zegar';
 import { useDostep } from '@/state/dostep';
 import { odstep, styl, useTokens } from '@/theme/tokens';
+import { znacznikEkranu } from '@/components/ZnacznikEkranu';
 
 // Fakty kursu, postęp lekcji (następna lekcja) i powtórki na dziś z postep.db; błąd odczytu → stan bez postępu, komunikat
 // z ponowieniem i wpis w dzienniku (useOdczytPostepu).
@@ -37,7 +38,7 @@ async function czytajDzis(port: PortBazy) {
  * Lista lekcji jest w zakładce „Lekcje” (D-542), Wskaźnik zaawansowania na „Postępie”. Limit dnia: stan kafelków i stopka (BR-LIM-001), licznik
  * na ekranie startu aktywności (EkranStartu, session.tsx).
  */
-export default function TodayScreen() {
+function TodayScreen() {
   const db = useBazaTresci();
   const tk = useTokens();
   const { t } = useTranslation();
@@ -113,3 +114,5 @@ const styles = StyleSheet.create({
   kafle: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.m },
   link: { minHeight: 44, justifyContent: 'center', alignSelf: 'flex-start' },
 });
+
+export default znacznikEkranu('(tabs)/index', TodayScreen);
