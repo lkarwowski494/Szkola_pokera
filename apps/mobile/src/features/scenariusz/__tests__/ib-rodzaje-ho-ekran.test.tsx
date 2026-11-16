@@ -9,7 +9,7 @@ import { generateVariant, type ScenarioVariant } from '@szkola/poker-core';
 import { ScenarioTemplate } from '@szkola/content-schema';
 import { formatujLiczbe } from '@szkola/jezyki';
 import i18n from '@/i18n';
-import { getKontekstGeneratora } from '@/data/content/repo';
+import { getKontekstGeneratora, getScenarioTemplates } from '@/data/content/repo';
 import { jezykZadan } from '@/features/drills/text';
 import { dbCn, ISO_CO, ISO_SB } from '@/test-utils/kontekstCn';
 import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
@@ -184,6 +184,39 @@ describe('IB nit-3bet (SC-30): widok list-hand (sytuacja w przebiegu), 3-bet w d
     const p = punkt(w, 'nit-3bet');
     expect(ocenyAkcji(w, 0, NIT_3BET)).toEqual({ fold: 'zgodne', call: 'niedokladnosc' });
     expect(tekstEkranu()).toContain(`VPIP ${Math.round(p.vpip * 100)}%: pas.`);
+  });
+});
+
+// ID (D-1862): te same rodzaje na prawdziwej treści — 7 szablonów HZ z bazy pl (content/pl/scenarios, nie fixtures), wariant z kontekstem z bazy jak w aplikacji.
+const ID_SZABLONY = [['sc-09', 'size-spot'], ['sc-16', 'check-raise'], ['sc-18', 'turn-action'], ['sc-21', 'turn-action'], ['sc-26', 'spr-call'], ['sc-27', 'geo-size'], ['sc-30', 'nit-3bet']] as const;
+describe('ID: 7 szablonów HZ z bazy treści pl — losowanie z kontekstem z bazy i ekran bez surowych znaczników', () => {
+  const zBazy = getScenarioTemplates(dbCn);
+  it('baza pl ma wszystkie 7 szablonów z oczekiwanym rodzajem punktu', () => {
+    expect(ID_SZABLONY.map(([id]) => [id, zBazy.find((x) => x.id === id)?.decisions[0]?.kind])).toEqual(ID_SZABLONY.map(([id, k]) => [id, k]));
+  });
+  it.each(ID_SZABLONY)('%s (%s): każdy poziom daje wariant z kontekstem z bazy (ziarna 1–10)', (id, rodzaj) => {
+    const s = zBazy.find((x) => x.id === id)!;
+    const ctx = getKontekstGeneratora(dbCn, s);
+    // geo-size (SC-27) losuje bez kontekstu: aplikacja go nie buduje (IB D-1843: kontekst tylko dla spr-call, check-raise, turn-action, nit-3bet + rodzajów sprzed HO)
+    if (rodzaj === 'geo-size') expect(ctx).toBeUndefined();
+    else expect(ctx).toBeDefined();
+    for (const poziom of s.levels) {
+      for (let z = 1; z <= 10; z++) {
+        const p = generateVariant(naGenerator(s), poziom, z, ctx).points[0]!;
+        expect(p.point).toBe(rodzaj);
+        if (p.point === 'size-spot') expect(p).toMatchObject({ check: 'iso-size' });
+        if (p.point === 'nit-3bet') expect(p.vpip).toBeGreaterThanOrEqual(0.08);
+        if (p.point === 'nit-3bet') expect(p.vpip).toBeLessThanOrEqual(0.1);
+      }
+    }
+  });
+  it.each(ID_SZABLONY)('%s (%s): decyzja i ocena oczekiwanej akcji na ekranie bez surowych znaczników {{…}}', async (id) => {
+    const s = zBazy.find((x) => x.id === id)!;
+    await pokaz(s);
+    expect(tekstEkranu()).not.toMatch(/\{\{|\}\}/);
+    const oczekiwana = (s.bounds.latwy as { expected: Akcja[] }).expected[0]!;
+    await pokaz(s, [oczekiwana]);
+    expect(tekstEkranu()).not.toMatch(/\{\{|\}\}/);
   });
 });
 

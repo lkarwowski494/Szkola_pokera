@@ -1,0 +1,24 @@
+# sc-27: German text of content/pl/scenarios/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "Eine Größe, mit der du den ganzen Stack einzahlst. Am Button hast du gegen die {{t:open|Eröffnung}} aus dem {{t:cutoff|CO}} eine {{t:3-bet}} gemacht, und er hat {{t:call|gecallt}}. Auf dem Flop hast du ein {{t:set}}, und der {{t:cutoff|CO}} {{t:check|checkt}}. Nimm an, dass du eine Hand für drei {{t:value}}-Streets hast und den ganzen Stack bis zum River mit gleich großen {{t:bet|Bets}} auf Flop, Turn und River einzahlen willst."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}}. Du {{t:bet|setzt}} etwa {{w:rozmiar}} des {{t:pot|Pots}}, weil derselbe Anteil des {{t:pot|Pots}} auf jeder {{t:street}} den ganzen Stack genau am River einzahlt. Gleich große {{t:bet|Bets}} sorgen in der Theorie dafür, dass dein Gegner am breitesten verteidigt und so am meisten in den {{t:pot}} einzahlt."
+      - action: bet-small
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:check|checkt}}. Mit einer kleinen {{t:bet}} zahlst du den Stack nicht ein: Drei {{t:bet|Bets}} von einem Drittel des {{t:pot|Pots}} zahlen nur einen Teil davon ein, zum Beispiel in einem {{t:pot}} nach einer {{t:3-bet}} mit einem Stack von {{n:spr.3bet-ip.stack}} hinter dem {{t:pot}} nur etwa {{n:g3b.third.total}}. Um am River {{t:all-in}} zu sein, {{t:bet|setzt}} du schon auf dem Flop die geometrische Größe, etwa {{w:rozmiar}} des {{t:pot|Pots}}."

@@ -1,0 +1,27 @@
+# sc-16: German text of content/pl/scenarios/sc-16.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "Du hast einen starken {{t:draw}} gegen eine kleine {{t:c-bet}}. Du sitzt im {{t:big-blind}} und hast die {{t:open|Eröffnung}} des Buttons {{t:call|gecallt}}. Auf dem Flop {{t:check|checkst}} du, und der Button {{t:bet|setzt}} eine kleine {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    cbet: 0.333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - action: raise-big
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} eine kleine {{t:c-bet}}. Du machst einen {{t:check-raise}} auf etwa {{n:xr.mult.example}} seiner {{t:bet}}, weil ein {{t:draw}} zwei Wege zum Gewinn hat: Dein Gegner kann sofort {{t:fold|folden}}, und wenn er {{t:call|callt}}, kannst du deinen {{t:draw}} immer noch treffen. Laut einer Trainingsseite sind {{t:flush-draw|Flush-Draws}} und offene {{t:straight|Straßen}}-Draws gute Hände für einen {{t:check-raise}}, und gegen eine kleine {{t:c-bet}} {{t:raise|raist}} du auf etwa {{n:xr.mult.example}}, nicht minimal."
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} eine kleine {{t:c-bet}}. Ein {{t:call}} ist ebenfalls gut: Gegen eine kleine {{t:c-bet}} brauchst du nur etwa {{n:eq.bet-third}} Equity, und diese Hand kann sich verbessern. Laut einer Trainingsseite musst du nicht jeden starken {{t:draw}} {{t:raise|raisen}}, aber ein {{t:check-raise}} bringt die zusätzliche Chance, dass dein Gegner sofort {{t:fold|foldet}}."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} eine kleine {{t:c-bet}}. Ein {{t:fold}} gibt zu viel auf: Gegen eine kleine {{t:c-bet}} brauchst du nur etwa {{n:eq.bet-third}} Equity, und ein {{t:draw}} kann sich noch verbessern. Gegen eine kleine {{t:c-bet}} spielst du mit {{t:draw|Draws}} weiter: Du {{t:call|callst}} oder machst einen {{t:check-raise}}."
+      - action: raise-small
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} eine kleine {{t:c-bet}}. Ein {{t:check-raise}} ist eine gute Idee, aber auf etwa {{n:xr.too-small.mult}} der {{t:c-bet}} ist er zu klein: Der Button braucht dann für einen {{t:call}} nur etwa {{n:eq.vs-xr.too-small}} Equity und zahlt so mit jedem {{t:draw}} billig. Du {{t:raise|raist}} auf etwa {{n:xr.mult.low}}–{{n:xr.mult.example}} der {{t:c-bet}}, umso mehr, je kleiner die {{t:c-bet}} ist."

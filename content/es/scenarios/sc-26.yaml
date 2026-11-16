@@ -1,0 +1,23 @@
+# sc-26: Spanish text of content/pl/scenarios/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "Un {{t:spr}} bajo y el {{t:all-in}} de tu rival. Juego de torneo sin presión de {{t:icm}}, stacks cortos: estás en la {{t:big-blind}} y has {{t:call|pagado}} la {{t:open|apertura}} del Button. En el flop {{t:check|pasas}} y el Button va {{t:all-in}} con un {{t:spr}} de aproximadamente {{n:spr.commit}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} va {{t:all-in}} con un {{t:spr}} de aproximadamente {{w:spr}}. {{t:call|Pagas}}, porque el stack es pequeño en relación con el {{t:pot}}: con este {{t:spr}}, la {{t:top-pair|pareja mayor}} y las manos mejores bastan para jugarse todo el stack. Cuanto más bajo es el {{t:spr}}, mejor precio recibes: con un {{t:spr}} de {{n:spr.commit}} necesitas aproximadamente {{n:eq.jam.spr2}} de equity, es decir, basta con ganar menos de una de cada dos veces."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} va {{t:all-in}} con un {{t:spr}} de aproximadamente {{w:spr}}. {{t:fold|Retirarte}} entrega el {{t:pot}} con demasiada facilidad: con un {{t:spr}} tan bajo, la {{t:top-pair|pareja mayor}} y las manos mejores se juegan todo el stack. Para {{t:call|pagar}} no necesitas ser favorito: con un {{t:spr}} de {{n:spr.commit}} basta aproximadamente {{n:eq.jam.spr2}} de equity."

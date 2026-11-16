@@ -1,0 +1,26 @@
+# SC-26 (M9): niski SPR, rywal all-in na flopie, najwyższa para albo lepsza: sprawdzenie (punkt spr-call, 08-EX-5). Treść ze szkicu HP po recenzji HS (303: bez presji ICM).
+# Ocena: rule R-M9-002 (math, cena s ÷ (1 + 2s); D-1702); werdykt call compliant, fold mistake (GW Stack-to-Pot Ratio, SPR „just over 2”; R-M9-003). Pula 5,5 bb (BTN 2,5 bb, BB sprawdza,
+# martwy SB), stack za pulą 10–12,5 bb → SPR 1,82–2,27 (D-1719). Bez T do 08-EX-3 (D-1304).
+# Situation: SPR wariantu przez {{n:spr.commit}} (ok. 2; zakres 1,82–2,27), nie {{w:spr}}: bramka IB odrzuca {{w:…}} w situation (D-1840; ID D-1861). {{w:spr}} zostaje w wyjaśnieniach.
+id: sc-26
+module: m9
+situation: "Niski {{t:spr}} i {{t:all-in}} rywala. Gra turniejowa bez presji {{t:icm}}, krótkie stacki: jesteś na {{t:big-blind|dużym blindzie}} i {{t:call|sprawdziłeś}} {{t:open|otwarcie}} Buttona. Na flopie {{t:check|czekasz}}, a Button wchodzi {{t:all-in}} przy {{t:spr}} ok. {{n:spr.commit}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} wchodzi {{t:all-in}} przy {{t:spr}} ok. {{w:spr}}. {{t:call|Sprawdzasz}}, bo stack jest mały względem {{t:pot|puli}}: przy takim {{t:spr}} {{t:top-pair|najwyższa para}} i lepsze ręce wystarczają, żeby grać o cały stack. Im niższy {{t:spr}}, tym lepszą cenę dostajesz: przy {{t:spr}} {{n:spr.commit}} potrzebujesz ok. {{n:eq.jam.spr2}} equity, czyli wystarczy wygrywać rzadziej niż co drugi raz."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} wchodzi {{t:all-in}} przy {{t:spr}} ok. {{w:spr}}. {{t:fold|Pas}} oddaje {{t:pot|pulę}} zbyt łatwo: przy tak niskim {{t:spr}} {{t:top-pair|najwyższa para}} i lepsze ręce grają o cały stack. Do {{t:call|sprawdzenia}} nie musisz być faworytem: przy {{t:spr}} {{n:spr.commit}} wystarcza ok. {{n:eq.jam.spr2}} equity."

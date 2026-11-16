@@ -1,0 +1,22 @@
+# sc-30: Vietnamese text of content/pl/scenarios/sc-30.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-30
+module: m10
+situation: "Một đối thủ rất chặt {{t:3-bet|3-bet}}. Bạn đã {{t:open|mở cược}} từ Button, và {{t:big-blind|big blind}} {{t:3-bet|3-bet}}. Giả sử đối thủ này có {{t:vpip|VPIP}} từ {{n:hud.ex.nit3bet.vpip.low}} đến {{n:hud.ex.nit3bet.vpip.high}} qua ít nhất khoảng {{n:hud.hands.vpip.low}} tay, và {{t:3-bet|3-bet}} của họ nằm trong những tay đó."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.04 }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    rule: R-M2-005
+    open: 2.5
+    threeBet: 10
+    vpips: [0.1]
+    actions:
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:3-bet|3-bet}}. Bạn {{t:fold|bỏ bài}}, vì nếu họ chơi khoảng {{n:hud.ex.nit3bet.vpip.low}}–{{n:hud.ex.nit3bet.vpip.high}} tay mạnh nhất, thì đó chủ yếu là các {{t:pair|đôi}} và các tay A tốt nhất, và trước chúng, tay của bạn có ít equity hơn mức mà giá của việc {{t:call|theo}} đòi hỏi (đơn giản hóa, không tính lối chơi sau flop). Theo giả định, {{t:3-bet|3-bet}} của họ nằm trong những tay đó, nên trước chính {{t:3-bet|3-bet}} đó, tay của bạn cũng không khá hơn."
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:3-bet|3-bet}}. Nói đơn giản, không tính lối chơi sau flop, {{t:call|theo}} sẽ lỗ: ngay cả trước mọi tay mà đối thủ này chơi, tay của bạn vẫn có ít equity hơn mức mà giá của việc {{t:call|theo}} đòi hỏi, và theo giả định, {{t:3-bet|3-bet}} của họ nằm trong những tay đó."

@@ -1,0 +1,24 @@
+# sc-27: Korean text of content/pl/scenarios/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "스택 전체를 넣는 베팅 크기. 당신은 버튼에서 {{t:cutoff|CO}}의 {{t:open|오픈}}에 {{t:3-bet|3벳}}했고, 상대는 {{t:call|콜}}했습니다. 플롭에서 당신은 {{t:set|셋}}을 가지고 있고, {{t:cutoff|CO}}가 {{t:check|체크}}합니다. 세 스트리트 동안 {{t:value|밸류}}를 얻을 수 있는 핸드이고, 플롭, 턴, 리버에서 같은 크기의 {{t:bet|베팅}}으로 리버까지 스택 전체를 넣고 싶다고 가정하세요."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:check|체크}}합니다. {{t:pot|팟}}의 약 {{w:rozmiar}} 크기로 {{t:bet|베팅}}합니다. 모든 {{t:street|스트리트}}에서 {{t:pot|팟}}의 같은 비율로 베팅하면 정확히 리버에서 스택 전체가 들어가기 때문입니다. 이론상 같은 크기의 {{t:bet|베팅}}은 상대가 가장 넓게 디펜드하게 만들어서, 상대가 {{t:pot|팟}}에 가장 많이 넣게 됩니다."
+      - action: bet-small
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:check|체크}}합니다. 작은 {{t:bet|베팅}}으로는 스택이 다 들어가지 않습니다: {{t:pot|팟}}의 삼분의 일씩 세 번 {{t:bet|베팅}}하면 스택의 일부만 들어갑니다. 예를 들어 {{t:3-bet|3벳}} {{t:pot|팟}}에서 {{t:pot|팟}} 뒤에 {{n:spr.3bet-ip.stack}}의 스택이 남아 있으면 약 {{n:g3b.third.total}}만 들어갑니다. 리버에서 {{t:all-in|올인}}에 도달하려면 이미 플롭에서 {{t:pot|팟}}의 약 {{w:rozmiar}}인 기하학적 사이즈로 {{t:bet|베팅}}합니다."

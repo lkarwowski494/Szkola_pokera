@@ -681,6 +681,8 @@ hud.ex.maniac.pfr: { value: 0.46, unit: percent, source: "przykład w zadaniu: m
 hud.ex.fcb.high: { value: 0.70, unit: percent, source: "przykład w zadaniu: rywal, który często pasuje na c-bet (serwis szkoleniowy: „>65% → Bluff every flop you raised preflop”)" }
 hud.ex.fcb.low: { value: 0.35, unit: percent, source: "przykład w zadaniu: rywal, który rzadko pasuje na c-bet" }
 hud.ex.mid.hands: { value: 60, unit: count, source: "przykład w zadaniu: próba między hud.hands.random a hud.hands.vpip.low" }
+hud.ex.nit3bet.vpip.low: { value: 0.08, unit: percent, source: "przykład w zadaniu: SC-30, VPIP bardzo ciasnego rywala (poniżej hud.vpip.nit-max); pas sprawdzony dla obu granic (docs/tresci/dowody/hz-szablony.txt)" }
+hud.ex.nit3bet.vpip.high: { value: 0.10, unit: percent, source: "przykład w zadaniu: SC-30, górna granica zakresu VPIP; równa vpips szablonu (najtrudniejszy przypadek dla pasu)" }
 
 # Populacja: duży pokój online, NL25 6-max (analiza bazy rąk populacji, odczyt 5.10.2026; dane z filtrów strony, NL50 i NL100 w raporcie M10).
 math.hundred: { value: 100, unit: count, source: "stała pomocnicza: zamiana ułamka na punkty procentowe" }

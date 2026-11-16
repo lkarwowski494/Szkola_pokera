@@ -1,0 +1,19 @@
+# sc-18: Korean text of content/pl/scenarios/sc-18.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "높은 카드에서의 {{t:second-barrel|세컨드 배럴}}. 당신은 버튼에서 {{t:open|오픈}}했고, {{t:big-blind|빅 블라인드}}가 {{t:call|콜}}했습니다. 플롭에서 당신은 작은 {{t:c-bet|C벳}}으로 {{t:bet|베팅}}했고, 상대는 다시 {{t:call|콜}}했습니다. 턴에서 플롭의 모든 카드보다 높은 카드가 나와 당신에게 {{t:top-pair|탑 페어}}를 만들어 주고, {{t:big-blind|빅 블라인드}}가 {{t:check|체크}}합니다."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 턴에서 {{t:check|체크}}합니다. 큰 {{t:second-barrel|세컨드 배럴}}로 {{t:bet|베팅}}합니다. 플롭보다 높은 카드는 보통 디펜드하는 쪽보다 {{t:open|오프너}}의 {{t:range|레인지}}를 조금 더 돕기 때문입니다: 플롭에서 빗나간 당신의 많은 핸드가 이제 {{t:top-pair|탑 페어}}가 되고, 상대의 모든 {{t:pair|페어}}는 한 단계 아래로 내려갔습니다. 이런 카드에서 {{t:open|오프너}}는 더 자주 {{t:bet|베팅}}하고, 당신의 {{t:pair|페어}}는 그 더 약한 {{t:pair|페어}}들을 이깁니다."
+      - action: check
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 턴에서 {{t:check|체크}}합니다. {{t:check|체크}}도 허용되지만 기회를 놓칩니다: 플롭보다 높은 카드에서는 {{t:open|오프너}}가 더 자주 {{t:bet|베팅}}합니다. 이 카드가 보통 오프너의 {{t:range|레인지}}에 조금 더 잘 맞기 때문입니다. 당신의 {{t:top-pair|탑 페어}}는 이 카드로 한 단계 내려간 상대의 더 약한 {{t:pair|페어}}들을 이깁니다."

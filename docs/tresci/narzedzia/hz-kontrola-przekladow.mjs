@@ -1,4 +1,4 @@
-// HZ (06; kopia narzędzia HN): kontrola przekładów względem pl — 7 szablonów roboczych docs/tresci/szablony-robocze/hz/<j>/ (SC-09/16/18/21/26/27/30)
+// HZ (06; kopia narzędzia HN): kontrola przekładów względem pl — 7 szablonów HZ (SC-09/16/18/21/26/27/30), od sesji ID (D-1860) w content/<j>/scenarios/
 // i 5 szablonów content/<j>/scenarios/ zmienionych uwagami HY (SC-07/15/17/24/31): struktura bez tekstu, znaczniki {{w:}} {{n:}} (multizbiór), klucze {{t:}} (zbiór),
 // kody rąk w situation, brak cyfr poza znacznikami i kodami rąk, długość ważona tytułu ≤ 68 (D-1730; tytuł = pierwsze zdanie situation, CJK/Hangul/pełna szerokość = 2),
 // a dla SC-07/15/17/24/31: zmienione są dokładnie te teksty, które zmieniły się w pl względem HEAD (git show HEAD:…).
@@ -9,7 +9,7 @@ import { createRequire } from 'node:module';
 const YAML = createRequire(new URL('../../../tools/content-build/package.json', import.meta.url))('yaml');
 const HZ = ['sc-09', 'sc-16', 'sc-18', 'sc-21', 'sc-26', 'sc-27', 'sc-30'];
 const HY = ['sc-07', 'sc-15', 'sc-17', 'sc-24', 'sc-31'];
-const KAT = 'docs/tresci/szablony-robocze/hz';
+const KAT = 'content'; // ID (D-1860): szablony przeniesione z docs/tresci/szablony-robocze/hz/<j>/
 const wszystkie = readdirSync('content', { withFileTypes: true }).filter((d) => d.isDirectory() && !['pl', 'en', 'ranges'].includes(d.name)).map((d) => d.name);
 const jezyki = process.argv[2] ? process.argv[2].split(',') : ['en', ...wszystkie];
 const teksty = (t) => [t.situation, ...t.decisions.flatMap((d) => d.actions.map((a) => a.explanation))];
@@ -51,8 +51,8 @@ const sprawdz = (id, pl, plik, j, zmienione) => {
   if (e.length) { bledy++; console.log(`BŁĄD ${plik}: ${e.join('; ')}`); } else ok++;
 };
 for (const id of HZ) {
-  const pl = YAML.parse(readFileSync(`${KAT}/pl/${id}.yaml`, 'utf8'));
-  for (const j of jezyki) sprawdz(id, pl, `${KAT}/${j}/${id}.yaml`, j, null);
+  const pl = YAML.parse(readFileSync(`${KAT}/pl/scenarios/${id}.yaml`, 'utf8'));
+  for (const j of jezyki) sprawdz(id, pl, `${KAT}/${j}/scenarios/${id}.yaml`, j, null);
 }
 for (const id of HY) {
   const p = `content/pl/scenarios/${id}.yaml`;

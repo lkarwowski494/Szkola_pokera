@@ -1,0 +1,23 @@
+# sc-26: European Portuguese text of content/pl/scenarios/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "{{t:spr}} baixo e {{t:all-in}} do adversário. Jogo de torneio sem pressão de {{t:icm|ICM}}, com stacks curtos: está no {{t:big-blind}} e fez {{t:call}} à {{t:open|abertura}} do Button. No flop faz {{t:check}} e o Button vai {{t:all-in}} com um {{t:spr}} de cerca de {{n:spr.commit}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} vai {{t:all-in}} com um {{t:spr}} de cerca de {{w:spr}}. Faz {{t:call}}, porque o stack é pequeno em relação ao {{t:pot}}: com este {{t:spr}}, {{t:top-pair}} e mãos melhores chegam para jogar pelo stack inteiro. Quanto mais baixo o {{t:spr}}, melhor o preço que recebe: com {{t:spr}} {{n:spr.commit}} precisa de cerca de {{n:eq.jam.spr2}} de equity, ou seja, basta ganhar menos de metade das vezes."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} vai {{t:all-in}} com um {{t:spr}} de cerca de {{w:spr}}. {{t:fold|Desistir}} entrega o {{t:pot}} com demasiada facilidade: com um {{t:spr}} tão baixo, {{t:top-pair}} e mãos melhores jogam pelo stack inteiro. Para fazer {{t:call}} não precisa de ser favorito: com {{t:spr}} {{n:spr.commit}} bastam cerca de {{n:eq.jam.spr2}} de equity."

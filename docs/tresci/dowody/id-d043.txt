@@ -1,0 +1,79 @@
+# ID (06, D-043, D-1864): 35 baz treści przed (ca2fdfdc, tresc-e0dcfece4b-*.db) i po przeniesieniu 7 szablonów HZ (tresc-701c0607d2-*.db), 2026-11-16
+# Kopie przemianowane na <język>.db; porównanie: node docs/tresci/narzedzia/ha-porownaj-bazy.mjs <przed> <po> (kod 0 = żadne ID nie zniknęło)
+
+bg.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+cs.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+da.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+de.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+el.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+en.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+es-419.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+es.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+et.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+fi.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+fr.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+hr.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+hu.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+id.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+it.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+ja.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+ko.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+lt.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+lv.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+ms.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+nb.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+nl.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+pl.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+pt-BR.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+pt.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+ro.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+ru.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+sk.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+sl.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+sr.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+sv.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+tr.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+uk.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+vi.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+zh-Hant.db: meta: -0[] +0[] ~2[wersja,hash] | numbers: -0[] +2[hud.ex.nit3bet.vpip.low,hud.ex.nit3bet.vpip.high] ~0[] | scenarios: -0[] +7[sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30] ~18[sc-10,sc-11,sc-12,sc-13,sc-15,sc-17]
+OK: żadne ID nie zniknęło
+kod_porownania=0
+
+## Liczba ID w scenarios na bazę i porównanie kolumny data (bez ord) dla istniejących ID
+bg.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+cs.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+da.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+de.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+el.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+en.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+es-419.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+es.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+et.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+fi.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+fr.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+hr.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+hu.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+id.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+it.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+ja.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+ko.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+lt.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+lv.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+ms.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+nb.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+nl.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+pl.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+pt-BR.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+pt.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+ro.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+ru.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+sk.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+sl.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+sr.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+sv.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+tr.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+uk.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+vi.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+zh-Hant.db: scenarios 26 -> 33 (+sc-09,sc-16,sc-18,sc-21,sc-26,sc-27,sc-30; usunięte 0; zmienione data 0); numbers 832 -> 834
+
+Wniosek: w każdej z 35 baz przyrost dokładnie o 7 szablonów (sc-09, sc-16, sc-18, sc-21, sc-26, sc-27, sc-30) i 2 liczby (hud.ex.nit3bet.vpip.low/high); 0 usuniętych ID; 0 zmienionych treści (data) istniejących szablonów; 18 istniejących wierszy różni się tylko kolumną ord (kolejność listy, D-1864).

@@ -1,0 +1,23 @@
+# sc-26: Korean text of content/pl/scenarios/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "낮은 {{t:spr|SPR}}에서 상대의 {{t:all-in|올인}}. {{t:icm|ICM}} 압박이 없는 토너먼트 게임이고 스택이 짧습니다: 당신은 {{t:big-blind|빅 블라인드}}에 있고 버튼의 {{t:open|오픈}}에 {{t:call|콜}}했습니다. 플롭에서 당신은 {{t:check|체크}}하고, 버튼이 {{t:spr|SPR}} 약 {{n:spr.commit}}에서 {{t:all-in|올인}}합니다."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:spr|SPR}} 약 {{w:spr}}에서 {{t:all-in|올인}}합니다. {{t:call|콜}}합니다. 스택이 {{t:pot|팟}}에 비해 작기 때문입니다: 이런 {{t:spr|SPR}}에서는 {{t:top-pair|탑 페어}}와 그보다 좋은 핸드로 스택 전체를 걸고 플레이하기에 충분합니다. {{t:spr|SPR}}이 낮을수록 더 좋은 가격을 얻습니다: {{t:spr|SPR}} {{n:spr.commit}}에서는 약 {{n:eq.jam.spr2}}의 에퀴티가 필요하므로, 두 번에 한 번보다 적게 이겨도 충분합니다."
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 {{t:spr|SPR}} 약 {{w:spr}}에서 {{t:all-in|올인}}합니다. {{t:fold|폴드}}는 {{t:pot|팟}}을 너무 쉽게 포기합니다: 이렇게 낮은 {{t:spr|SPR}}에서는 {{t:top-pair|탑 페어}}와 그보다 좋은 핸드가 스택 전체를 걸고 플레이합니다. {{t:call|콜}}하기 위해 이길 확률이 더 높을 필요는 없습니다: {{t:spr|SPR}} {{n:spr.commit}}에서는 약 {{n:eq.jam.spr2}}의 에퀴티로 충분합니다."

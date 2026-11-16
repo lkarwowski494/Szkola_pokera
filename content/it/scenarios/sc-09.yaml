@@ -1,0 +1,23 @@
+# sc-09: Italian text of content/pl/scenarios/sc-09.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-09
+module: m4
+situation: "L'{{t:hijack|HJ}} ha solo pagato il {{t:big-blind}} ({{t:limp}}) e {{t:utg|UTG}} ha {{t:fold|foldato}}. Hai una mano con cui {{t:raise|rilanci}} ({{t:isolation}}). Che dimensione di {{t:raise|rilancio}} scegli?"
+table: 6max
+positions: { hero: CO, villain: HJ }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: iso-size
+    rule: R-M4-012
+    limpers: 1
+    actions:
+      - action: raise
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, con un {{t:limp|limper}} prima di te. {{t:raise|Rilanci}} a {{n:pf.iso.base}} più {{n:pf.iso.per-limper}} per ogni limper, perché un {{t:raise|rilancio}} più piccolo dà al limper un prezzo troppo buono e non gli toglie la mano."
+      - action: raise-small
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, con un {{t:limp|limper}} prima di te. Questo {{t:raise|rilancio}} è troppo piccolo: dà al limper un prezzo troppo buono e non gli toglie la mano. Lo standard è {{n:pf.iso.base}} più {{n:pf.iso.per-limper}} per ogni limper."
+      - action: raise-big
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, con un {{t:limp|limper}} prima di te. Questa dimensione si discosta dallo standard: {{t:raise|rilanci}} a {{n:pf.iso.base}} più {{n:pf.iso.per-limper}} per ogni limper e, {{t:out-of-position}}, {{n:pf.iso.oop-extra}} in più."

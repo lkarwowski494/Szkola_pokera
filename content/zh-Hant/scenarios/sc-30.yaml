@@ -1,0 +1,22 @@
+# sc-30: Traditional Chinese text of content/pl/scenarios/sc-30.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-30
+module: m10
+situation: "非常緊的對手做{{t:3-bet}}。你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}做了{{t:3-bet}}。假設這個對手在至少約 {{n:hud.hands.vpip.low}} 手牌的樣本中，{{t:vpip}}介於 {{n:hud.ex.nit3bet.vpip.low}} 到 {{n:hud.ex.nit3bet.vpip.high}} 之間，而且他的{{t:3-bet}}都落在這些手牌之內。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.04 }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    rule: R-M2-005
+    open: 2.5
+    threeBet: 10
+    vpips: [0.1]
+    actions:
+      - action: fold
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，位於 {{w:rywal}} 的對手做了{{t:3-bet}}。你{{t:fold|棄牌}}，因為如果他只玩最強的約 {{n:hud.ex.nit3bet.vpip.low}}–{{n:hud.ex.nit3bet.vpip.high}} 手牌，這些主要是{{t:pair|對子}}和最好的 A，而面對它們，你這手牌的權益低於{{t:call|跟注}}價格所需（簡化來說，不考慮翻牌後的打法）。根據假設，他的{{t:3-bet}}落在這些手牌之內，所以只面對{{t:3-bet}}本身，你的牌也不會比較好。"
+      - action: call
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{w:stol}}，位於 {{w:rywal}} 的對手做了{{t:3-bet}}。簡化來說，不考慮翻牌後的打法，{{t:call|跟注}}會虧損：即使面對這個對手玩的所有手牌，你這手牌的權益也低於{{t:call|跟注}}價格所需，而根據假設，他的{{t:3-bet}}落在這些手牌之內。"
