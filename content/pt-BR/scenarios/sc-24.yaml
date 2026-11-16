@@ -1,0 +1,24 @@
+# sc-24: Brazilian Portuguese text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-24
+module: m8
+situation: "No river você tem um {{t:pair|par}} que só ganha dos {{t:bluff|blefes}} do adversário, e o adversário {{t:bet|aposta}}. Suponha que a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele é a que a mão indica."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { marginMin: 0.1, expected: [call] }
+  sredni: { marginMin: 0.03, marginMax: 0.1, expected: [fold] }
+  trudny: { marginMin: 0.02, marginMax: 0.05, expected: [call] }
+decisions:
+  - street: river
+    kind: river-catch
+    rule: R-M8-010
+    pots: [10, 14, 20, 30]
+    fractions: [0.5, 0.75, 1]
+    bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+    actions:
+      - action: call
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} no river. A sua equity é a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele: você ganha de todo {{t:bluff|blefe}} e perde para toda mão {{t:value|de valor}}. {{t:call|Pagar}} dá lucro só quando há mais {{t:bluff|blefes}} do que a equity necessária diante desta {{t:bet|aposta}}; quando há menos, dá prejuízo."
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} no river. A sua equity é a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele. {{t:fold|Desistir}} é bom só quando há menos {{t:bluff|blefes}} do que a equity necessária diante desta {{t:bet|aposta}}; quando há mais, {{t:fold|desistir}} entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro. Diante de uma {{t:bet|aposta}} do tamanho do {{t:pot}}, {{t:call|pagar}} só empata com cerca de {{n:eq.bet-pot}} de {{t:bluff|blefes}}."

@@ -1,0 +1,22 @@
+# sc-20: Korean text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "턴에서 당신은 강한 핸드를 들고 있습니다: 좋은 {{t:kicker|키커}}의 {{t:top-pair|탑 페어}} 또는 그 이상입니다. {{t:board|보드}}에 같은 무늬의 카드가 두 장 있으므로, 상대는 {{t:flush-draw|플러시 드로우}}를 가지고 있을 수 있습니다. 어떤 크기로 {{t:bet|베팅}}하겠습니까?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대는 {{t:flush-draw|플러시 드로우}}를 가지고 있을 수 있습니다. 크게 {{t:bet|베팅}}합니다: {{t:pot|팟}}의 {{n:cbet.size.big}} 크기 {{t:bet|베팅}}에 대해서는 {{t:draw|드로우}}에게 에퀴티 {{n:eq.bet-three-quarters}}가 필요한데 가진 것은 약 {{n:odds.flush.turn-river}}이므로, 좋은 가격을 얻지 못합니다."
+      - action: "bet-small"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대는 {{t:flush-draw|플러시 드로우}}를 가지고 있을 수 있습니다. 작은 {{t:bet|베팅}}은 {{t:draw|드로우}}에게 좋은 가격을 줍니다: {{t:pot|팟}}의 사분의 일 크기 {{t:bet|베팅}}이라면 에퀴티 {{n:eq.bet-quarter}}면 충분한데, 가진 것은 약 {{n:odds.flush.turn-river}}입니다. {{t:draw|드로우}}를 상대로 강한 핸드는 크게 {{t:bet|베팅}}합니다."

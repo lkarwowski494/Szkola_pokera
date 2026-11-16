@@ -1,0 +1,22 @@
+# sc-15: Vietnamese text of content/pl/scenarios/sc-15.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-15
+module: m6
+situation: "Bạn ở {{t:big-blind|big blind}} và đã {{t:call|theo}} lượt {{t:open|mở cược}} của Button. Ở flop bạn {{t:check|check}}, và Button {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [call] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. Bạn {{t:call|theo}}, vì tay này hoặc đã thắng các {{t:bluff|bluff}}, hoặc có thể cải thiện, và một khoản {{t:bet|cược}} nhỏ đòi hỏi ít equity. {{t:mdf}} với khoản {{t:bet|cược}} {{n:cbet.size.small}} {{t:pot|pot}} ({{n:mdf.bet-third}} {{t:range|range}}) là điểm tham chiếu: ở flop khi {{t:out-of-position}}, bạn có thể bảo vệ ít hơn một chút, nhưng không {{t:fold|bỏ bài}} hàng loạt trước một {{t:c-bet|c-bet}} nhỏ."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. {{t:fold|Bỏ bài}} là từ bỏ một tay có đủ equity trước khoản {{t:bet|cược}} nhỏ như vậy: tay này hoặc đã thắng các {{t:bluff|bluff}}, hoặc có thể cải thiện. Ở flop khi {{t:out-of-position}}, bạn có thể bảo vệ ít hơn một chút so với mức {{t:mdf}} chỉ ra, nhưng không {{t:fold|bỏ bài}} hàng loạt trước các c-bet nhỏ."

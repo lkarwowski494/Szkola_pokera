@@ -1,0 +1,24 @@
+# sc-10: Korean text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "당신은 {{t:cutoff|CO}}에서 {{t:open|오픈}}했고, 버튼이 {{t:3-bet|3벳}}을 했으며, 블라인드는 {{t:fold|폴드}}했습니다. 어떻게 하겠습니까?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼이 {{t:3-bet|3벳}}을 했습니다. {{t:value|밸류}}를 위해 {{t:4-bet|4벳}}을 하는 이유는 이 핸드가 스택 전부를 넣고 싶어 하고, {{t:4-bet|4벳}}에 {{t:call|콜}}할 핸드 대부분을 지배하기 때문입니다."
+      - action: call
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼이 {{t:3-bet|3벳}}을 했습니다. AA, KK, AK로는 보통 {{t:value|밸류}}를 위해 {{t:4-bet|4벳}}을 합니다. 이 핸드들은 스택 전부를 넣고 싶어 하고, {{t:4-bet|4벳}}에 {{t:call|콜}}할 핸드 대부분을 지배하기 때문입니다. AK로는 {{t:call|콜}}하기도 합니다."
+      - action: fold
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{w:stol}}, 버튼이 {{t:3-bet|3벳}}을 했습니다. {{t:fold|폴드}}는 가장 강한 핸드 중 하나를 포기하는 것입니다: AA, KK, AK로는 보통 {{t:value|밸류}}를 위해 {{t:4-bet|4벳}}을 합니다. 이 핸드들은 스택 전부를 넣고 싶어 하고, {{t:4-bet|4벳}}에 {{t:call|콜}}할 핸드 대부분을 지배하기 때문입니다."

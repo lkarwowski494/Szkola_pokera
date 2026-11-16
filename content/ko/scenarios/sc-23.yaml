@@ -1,0 +1,22 @@
+# sc-23: Korean text of content/pl/scenarios/sc-23.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-23
+module: m8
+situation: "당신은 버튼에 있고, 리버에서 {{t:big-blind|빅 블라인드}}가 {{t:check|체크}}합니다. {{t:showdown|쇼다운}}에서는 상대의 어떤 핸드도 이기지 못하는 두 핸드 중 하나로 {{t:bluff|블러프}}를 고려하고 있습니다. 상대가 AA, KK, QQ, JJ, 모든 AK와 {{t:suited|수티드}} AQ로는 {{t:call|콜}}하고, KQ, KJ, QJ, QT, JT(모두 {{t:suited|수티드}})로는 {{t:fold|폴드}}한다고 가정하세요. 어떤 핸드로 {{t:bluff|블러프}}하겠습니까?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [best-hand] }
+decisions:
+  - street: river
+    kind: pick-hand
+    rule: R-M8-007
+    mode: blockers
+    calls: [AA, KK, QQ, JJ, AKs, AKo, AQs]
+    folds: [KQs, KJs, QJs, QTs, JTs]
+    actions:
+      - action: best-hand
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}입니다. 이쪽이 더 좋은 {{t:bluff|블러프}}입니다: 두 핸드 모두 {{t:showdown|쇼다운}}에서 지지만, 이 핸드는 상대가 {{t:call|콜}}할 {{t:combo|콤보}}를 더 적게 남기고, {{t:fold|폴드}}할 콤보는 줄이지 않습니다. 상대의 강한 핸드에 들어가는 카드를 당신이 쥐고 있으면 상대는 그 {{t:combo|콤보}}가 줄어들므로, 폴드할 핸드가 남는 경우가 더 많아집니다."
+      - action: other-hand
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}입니다. 이 핸드는 더 약한 {{t:bluff|블러프}}입니다: 둘 다 {{t:showdown|쇼다운}}에서 지지만, 다른 핸드가 상대가 {{t:call|콜}}할 핸드를 더 적게 남기고, {{t:fold|폴드}}할 핸드는 줄이지 않습니다. {{t:bluff|블러프}}에는 상대의 강한 핸드에 대한 {{t:blocker|블로커}}를 가지면서, 다른 핸드보다 폴드할 핸드를 더 많이 가리지 않는 핸드를 고릅니다."

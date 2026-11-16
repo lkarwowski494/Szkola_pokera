@@ -1,0 +1,24 @@
+# sc-10: Brazilian Portuguese text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "Você fez {{t:open|abertura}} do {{t:cutoff|CO}}, o Button fez um {{t:3-bet}} e os blinds {{t:fold|desistiram}}. O que você faz?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e o Button fez um {{t:3-bet}}. Você faz um {{t:4-bet}} {{t:value|por valor}}, porque esta mão quer colocar o stack inteiro e domina a maioria das mãos que vão {{t:call|pagar}} um {{t:4-bet}}."
+      - action: call
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e o Button fez um {{t:3-bet}}. Com AA, KK e AK você geralmente faz {{t:4-bet}} {{t:value|por valor}}, porque essas mãos querem colocar o stack inteiro e dominam a maioria das mãos que vão {{t:call|pagar}} um {{t:4-bet}}; com AK às vezes você também {{t:call|paga}}."
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, {{w:stol}}, e o Button fez um {{t:3-bet}}. {{t:fold|Desistir}} entrega uma das mãos mais fortes: com AA, KK e AK você geralmente faz {{t:4-bet}} {{t:value|por valor}}, porque essas mãos querem colocar o stack inteiro e dominam a maioria das mãos que vão {{t:call|pagar}} um {{t:4-bet}}."
