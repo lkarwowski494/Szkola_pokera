@@ -82,9 +82,23 @@ describe('08-EX-8: bramka nit-3bet', () => {
   });
   it('generator wytwarza ≥ 40 odcisków', () => { expect(checkScenarioGenerator(fx.template, undefined, 2000, gctx)).toEqual([]); }, 300_000);
 });
-describe('widoki: nowe rodzaje nie trafiają do treści bez ekranu (opcja A)', () => {
-  it.each(['spr-call', 'geo-size', 'turn-action', 'check-raise', 'nit-3bet'])('%s poza RODZAJE_NA_EKRANIE', (k) => {
-    expect(RODZAJE_NA_EKRANIE).not.toContain(k);
-    expect(checkScenarioNaEkran(wczytaj(k).template).join('\n')).toMatch(new RegExp(k));
+// IB (KO-115): widoki rodzajów HO są na ekranie (apps/mobile ib-rodzaje-ho-ekran.test.tsx), więc bramka ekranu je przepuszcza; zastępuje „opcję A” (poza RODZAJE_NA_EKRANIE)
+describe('IB: rodzaje HO na ekranie (bramka ekranu)', () => {
+  it.each(['spr-call', 'geo-size', 'turn-action', 'check-raise', 'nit-3bet'])('%s w RODZAJE_NA_EKRANIE, fixture przechodzi bramkę ekranu', (k) => {
+    expect(RODZAJE_NA_EKRANIE).toContain(k);
+    expect(checkScenarioNaEkran(wczytaj(k).template)).toEqual([]);
+  });
+  it('lista rodzajów ekranu: przypięcie (to samo literalnie w apps/mobile RODZAJE_PUNKTOW_EKRANU)', () => {
+    expect([...RODZAJE_NA_EKRANIE]).toEqual(['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand', 'river-value', 'spr-call', 'check-raise', 'turn-action', 'geo-size', 'nit-3bet']);
+  });
+  it('turn-action z bet-small: ekran nie ma nazwy dwóch rozmiarów zakładu bez puli (D-1844)', () => {
+    const { kopia } = zgodnie('turn-action');
+    const t = kopia((b) => { b.decisions[0].actions.push({ action: 'bet-small', explanation: b.decisions[0].actions[0].explanation }); });
+    expect(checkScenarioNaEkran(t).join('\n')).toMatch(/turn-action.*bet-small/);
+  });
+  it('znacznik wariantu {{w:…}} w situation: ekran pokazuje sytuację przed losowaniem (start, wybór, koniec) — błąd (D-1845)', () => {
+    const { kopia } = zgodnie('nit-3bet');
+    const t = kopia((b) => { b.situation = 'Rywal z VPIP {{w:vpip}}% 3-betuje.'; });
+    expect(checkScenarioNaEkran(t).join('\n')).toMatch(/situation.*\{\{w:vpip\}\}/);
   });
 });

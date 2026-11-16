@@ -1,7 +1,7 @@
 # Fixture testu HO (08-EX-8, SC-30): nit 3-betuje, pas ręką spoza górnych x%. Nie jest treścią aplikacji.
 id: sc-fx-nit-3bet
 module: m10
-situation: "Fixture: nit z VPIP {{w:vpip}}% 3-betuje."
+situation: "Fixture: bardzo ciasny rywal 3-betuje."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
