@@ -1,0 +1,75 @@
+// HM (pomiar lokalny, poza repo): zrzuty po scaleniu HK+HL. Różnice względem scripts/zrzuty/hl-zrzuty.mjs (nazwane w recenzji):
+// 1) fontScale: react-native-web ma stałe `fontScale: 1` (dist/exports/Dimensions/index.js:17), więc gałęzie układu AX5
+//    (SKALA_BEZ_PASKA, podstawaSegmentu, sufitTytulu) nie działają; tu podmieniamy w paczce `fontScale:1` na wartość z ?fs=.
+// 2) wysokość: ekran przewija się wewnątrz ScrollView, więc fullPage ucina do 844; tu widok rośnie do wysokości treści.
+// 3) liczba wierszy tytułu (role=heading) z Range.getClientRects; kierunek flex rodzica nagłówka przebiegu.
+// Użycie: node hm-pomiar.mjs <katalog dist> <katalog wyjścia> [--bez-fontscale]
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { createRequire } from 'node:module';
+const { chromium } = createRequire(import.meta.url)('playwright');
+const [dist, wyjscie] = process.argv.slice(2);
+const bezFs = process.argv.includes('--bez-fontscale');
+const AX5 = 3.12;
+// 1) łatka paczki (kopia w dist, oryginał eksportu bez zmian w drzewie repo)
+let lataneWystapienia = 0;
+if (!bezFs) {
+  const js = path.join(dist, '_expo/static/js/web');
+  for (const f of fs.readdirSync(js).filter((x) => x.endsWith('.js'))) {
+    const p = path.join(js, f);
+    const s = fs.readFileSync(p, 'utf8');
+    const n = s.split('fontScale:1').length - 1;
+    if (n) { fs.writeFileSync(p, s.replaceAll('fontScale:1', 'fontScale:(+new URLSearchParams(globalThis.location?location.search:"").get("fs")||1)')); lataneWystapienia += n; }
+  }
+}
+console.log(`łatka fontScale: ${bezFs ? 'wyłączona' : lataneWystapienia + ' wystąpień'}`);
+const srv = http.createServer((q, r) => {
+  let p = path.join(dist, decodeURIComponent(q.url.split('?')[0]));
+  if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) p = path.join(dist, 'index.html');
+  r.writeHead(200, { 'content-type': p.endsWith('.js') ? 'text/javascript' : p.endsWith('.html') ? 'text/html' : p.endsWith('.ttf') ? 'font/ttf' : 'application/octet-stream' });
+  fs.createReadStream(p).pipe(r);
+}).listen(0);
+const port = srv.address().port;
+fs.mkdirSync(wyjscie, { recursive: true });
+const przeglad = await chromium.launch();
+const wyniki = [];
+for (const ekran of ['start-sc29', 'start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
+  for (const szer of [390, 320]) {
+    for (const ax5 of [false, true]) {
+      const ctx = await przeglad.newContext({ viewport: { width: szer, height: 844 }, deviceScaleFactor: 1, colorScheme: 'light', locale: 'pl-PL' });
+      const strona = await ctx.newPage();
+      const bledy = [];
+      strona.on('pageerror', (e) => bledy.push(String(e).slice(0, 200)));
+      await strona.goto(`http://localhost:${port}/?ekran=${ekran}&fs=${ax5 ? AX5 : 1}`, { waitUntil: 'networkidle' });
+      await strona.waitForTimeout(400);
+      const h = await strona.evaluate(() => Math.max(...[...document.querySelectorAll('*')].map((e) => e.scrollHeight)));
+      await strona.setViewportSize({ width: szer, height: Math.max(844, Math.min(h + 40, 12000)) });
+      await strona.waitForTimeout(300);
+      const m = await strona.evaluate(() => {
+        const W = document.documentElement.clientWidth;
+        const wiersze = (el) => { const r = document.createRange(); r.selectNodeContents(el); return new Set([...r.getClientRects()].filter((x) => x.width > 0).map((x) => Math.round(x.top))).size; };
+        const naglowki = [...document.querySelectorAll('[role="heading"]')].map((e) => ({ tekst: e.textContent.slice(0, 40), wiersze: wiersze(e), font: getComputedStyle(e).fontSize, kierunekRodzica: getComputedStyle(e.parentElement).flexDirection }));
+        const poza = [];
+        for (const e of document.querySelectorAll('*')) {
+          const txt = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent.trim()).join(' ').trim();
+          if (!txt) continue;
+          const r = e.getBoundingClientRect();
+          if (r.width && (r.right > W + 1 || r.left < -1)) poza.push(txt.slice(0, 30));
+        }
+        // pasek ocen akcji: segmenty to dzieci elementu z role=img (accessibilityRole image)
+        const pasek = document.querySelector('[role="img"][aria-label]');
+        const segmenty = pasek ? [...pasek.children].map((s) => { const r = s.getBoundingClientRect(); return { x: Math.round(r.left), y: Math.round(r.top), w: Math.round(r.width), tekst: s.innerText.replace(/\n/g, ' / ') }; }) : null;
+        const tlo = pasek ? getComputedStyle(pasek).backgroundColor : null;
+        return { naglowki, poza, segmenty, tlo, wysokosc: document.documentElement.scrollHeight };
+      });
+      const nazwa = `hm-${ekran}-${szer}${ax5 ? '-ax5' : ''}.png`;
+      await strona.screenshot({ path: path.join(wyjscie, nazwa), fullPage: true });
+      wyniki.push({ nazwa, bledy, ...m });
+      await ctx.close();
+    }
+  }
+}
+await przeglad.close(); srv.close();
+fs.writeFileSync(path.join(wyjscie, 'hm-pomiar.json'), JSON.stringify(wyniki, null, 1));
+for (const w of wyniki) console.log(`${w.nazwa}\tbłędy=${w.bledy.length}\tpoza=${w.poza.length}\tnagłówki=${w.naglowki.map((n) => `${n.tekst.slice(0, 18)}…:${n.wiersze}w,${n.font},${n.kierunekRodzica}`).join(' | ')}\tpasek=${w.segmenty ? w.segmenty.map((s) => `${s.w}@${s.x},${s.y}`).join(' ') : '-'}`);

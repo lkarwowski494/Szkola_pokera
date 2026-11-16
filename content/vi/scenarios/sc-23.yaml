@@ -1,0 +1,22 @@
+# sc-23: Vietnamese text of content/pl/scenarios/sc-23.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-23
+module: m8
+situation: "Bạn ở Button, ở river {{t:big-blind|big blind}} {{t:check|check}}. Bạn đang cân nhắc {{t:bluff|bluff}} bằng một trong hai tay mà khi {{t:showdown}} không thắng được tay nào của đối thủ. Giả sử đối thủ sẽ {{t:call|theo}} với AA, KK, QQ, JJ, mọi AK và AQ {{t:suited|cùng chất}}, và sẽ {{t:fold|bỏ bài}} với KQ, KJ, QJ, QT và JT, tất cả đều {{t:suited|cùng chất}}. Bạn chọn tay nào để {{t:bluff|bluff}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [best-hand] }
+decisions:
+  - street: river
+    kind: pick-hand
+    rule: R-M8-007
+    mode: blockers
+    calls: [AA, KK, QQ, JJ, AKs, AKo, AQs]
+    folds: [KQs, KJs, QJs, QTs, JTs]
+    actions:
+      - action: best-hand
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}. Đây là cú {{t:bluff|bluff}} tốt hơn: cả hai tay đều thua khi {{t:showdown}}, nhưng tay này để lại cho đối thủ ít {{t:combo|tổ hợp}} sẽ {{t:call|theo}} hơn, và không ít hơn các tổ hợp sẽ {{t:fold|bỏ bài}}. Khi bạn cầm một lá nằm trong các tay mạnh của đối thủ, đối thủ có ít {{t:combo|tổ hợp}} của các tay đó hơn, nên thường xuyên hơn họ chỉ còn lại tay phải bỏ."
+      - action: other-hand
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}. Tay này là cú {{t:bluff|bluff}} yếu hơn: cả hai đều thua khi {{t:showdown}}, nhưng tay kia để lại cho đối thủ ít tay sẽ {{t:call|theo}} hơn, và không ít hơn các tay sẽ {{t:fold|bỏ bài}}. Để {{t:bluff|bluff}}, bạn chọn tay có {{t:blocker|bài chặn}} các tay mạnh của đối thủ, mà không chặn nhiều tay sẽ bỏ bài hơn tay kia."

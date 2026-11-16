@@ -62,6 +62,7 @@ Architektura w repo: `docs/architektura/README.md`, ADR `docs/adr/` (rola 05; AD
 - Liczby w treści tylko przez `{{n:klucz}}` z `content/numbers.yaml` (jedno źródło prawdy). Wielkość, którą da się policzyć, liczona formułą z `refs`, nie wpisana ręcznie. Ta sama wielkość ma jeden klucz.
 - Po zmianie w `content/` uruchom `pnpm content:build`. Przed commitem `pnpm run ci` musi być zielone.
 - `poker-core`, `srs` i `content-schema` nie importują React Native.
+- Zrzuty ekranów scenariusza z Expo web (390/320 pt, domyślny i „AX5” jako przybliżenie): `pnpm zrzuty:web` → `docs/design/dowody/hl-*.png` (D-1670…D-1672, `docs/decyzje/HL.md`).
 - Tożsamość git w tym repozytorium: `Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>` (repozytorium jest publiczne; nigdy prywatny adres e-mail). Ustaw ją lokalnie w każdym nowym klonie i worktree przed pierwszym commitem.
 - Właściciel płaci tylko za Apple Developer. Przed użyciem płatnych usług albo dużej części darmowych limitów (EAS, GitHub Actions) uprzedź go.
 

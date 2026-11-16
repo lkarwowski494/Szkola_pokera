@@ -1,0 +1,24 @@
+# sc-10: Italian text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "Hai {{t:open|aperto}} dal {{t:cutoff|CO}}, il Button ha fatto {{t:3-bet}} e i blind hanno {{t:fold|foldato}}. Cosa fai?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e il Button ha fatto {{t:3-bet}}. Fai {{t:4-bet}} {{t:value|per valore}}, perché questa mano vuole mettere dentro tutto lo stack e domina la maggior parte delle mani che {{t:call|chiameranno}} la {{t:4-bet}}."
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e il Button ha fatto {{t:3-bet}}. Con AA, KK e AK di solito fai {{t:4-bet}} {{t:value|per valore}}, perché queste mani vogliono mettere dentro tutto lo stack e dominano la maggior parte delle mani che {{t:call|chiameranno}} la {{t:4-bet}}; con AK a volte fai anche {{t:call}}."
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, {{w:stol}}, e il Button ha fatto {{t:3-bet}}. Il {{t:fold}} rinuncia a una delle mani più forti: con AA, KK e AK di solito fai {{t:4-bet}} {{t:value|per valore}}, perché queste mani vogliono mettere dentro tutto lo stack e dominano la maggior parte delle mani che {{t:call|chiameranno}} la {{t:4-bet}}."

@@ -1,0 +1,45 @@
+# komenda: python3 -I wt/docs/programista/dowody/hk-mutanty-skrypt.txt wt H402a H402b H402c H402d H402e H402f H402g (skrypt HK, test po zmianie HK; HEAD 39d90fb9)
+== H402a (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › marginMin 0,005 odrzucony
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › margins[0].min 0,005 odrzucony (margins zastępuje marginMin)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom latwy: marginMin 0,005 odrzucony, ścieżka wskazuje ten poziom (mutant „tylko latwy”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni: marginMin 0,005 odrzucony, ścieżka wskazuje ten poziom (mutant „tylko latwy”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny: marginMin 0,005 odrzucony, ścieżka wskazuje ten poziom (mutant „tylko latwy”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom latwy, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    Tests:       8 failed, 7 passed, 15 total
+== H402b (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › margins[0].min 0,005 odrzucony (margins zastępuje marginMin)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom latwy, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    Tests:       4 failed, 11 passed, 15 total
+== H402c (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 402: margines punktu river-catch ≥ RIVER_CATCH_MARGIN_MIN › marginMin 0,01 i 0,03 przyjęte; margins[0].min 0,02 przyjęty
+    Tests:       1 failed, 14 passed, 15 total
+== H402d (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom latwy, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom latwy: margins[0].min 0,005 dla punktu draw-call przyjęty, bo bramka dotyczy tylko river-catch
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni: margins[0].min 0,005 dla punktu draw-call przyjęty, bo bramka dotyczy tylko river-catch
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny: margins[0].min 0,005 dla punktu draw-call przyjęty, bo bramka dotyczy tylko river-catch
+    Tests:       6 failed, 9 passed, 15 total
+== H402e (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni: marginMin 0,005 odrzucony, ścieżka wskazuje ten poziom (mutant „tylko latwy”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny: marginMin 0,005 odrzucony, ścieżka wskazuje ten poziom (mutant „tylko latwy”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    Tests:       4 failed, 11 passed, 15 total
+== H402f (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny: marginMin 0,005 odrzucony, ścieżka wskazuje ten poziom (mutant „tylko latwy”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    Tests:       2 failed, 13 passed, 15 total
+== H402g (packages/content-schema/src/index.ts) test src/features/scenariusz/__tests__/hb-river-catch-margines-402.test.ts: kod 1 → ZABITY
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom latwy, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom sredni, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    ● 404: bramka 402 obejmuje wszystkie poziomy i oba punkty › poziom trudny, punkt 1 (river-catch): margins[1].min 0,005 odrzucony przy poprawnym margins[0] (mutant „margins[0]”)
+    Tests:       3 failed, 12 passed, 15 total
+# kod wyjścia: 0
+# git status --porcelain: ''

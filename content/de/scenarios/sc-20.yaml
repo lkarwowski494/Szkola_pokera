@@ -1,0 +1,22 @@
+# sc-20: German text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "Am Turn hast du eine starke Hand: {{t:top-pair|Top Pair}} mit einem guten {{t:kicker}} oder besser. Auf dem {{t:board}} liegen zwei Karten derselben Farbe, also kann dein Gegner einen {{t:flush-draw}} haben. Welche Größe wählst du für deine {{t:bet}}?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Du {{t:bet|setzt}} viel: Bei einer {{t:bet}} von {{n:cbet.size.big}} des {{t:pot|Pots}} braucht der {{t:draw}} {{n:eq.bet-three-quarters}} Equity und hat etwa {{n:odds.flush.turn-river}}, also bekommt er keinen guten Preis."
+      - action: "bet-small"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Eine kleine {{t:bet}} gibt dem {{t:draw}} einen guten Preis: Bei einer {{t:bet}} von einem Viertel des {{t:pot|Pots}} würden ihm {{n:eq.bet-quarter}} Equity reichen, und er hat etwa {{n:odds.flush.turn-river}}. Mit einer starken Hand gegen einen {{t:draw}} {{t:bet|setzt}} du viel."

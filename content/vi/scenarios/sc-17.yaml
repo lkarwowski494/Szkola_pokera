@@ -1,0 +1,22 @@
+# sc-17: Vietnamese text of content/pl/scenarios/sc-17.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-17
+module: m6
+situation: "Bạn ở {{t:big-blind|big blind}} và đã {{t:call|theo}} lượt {{t:open|mở cược}} của Button. Ở flop bạn {{t:check|check}}, và Button {{t:bet|cược}} một {{t:c-bet|c-bet}} lớn."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-007
+    spot: vs-open.bb-vs-btn
+    pots: [8]
+    fractions: [0.75]
+    actions:
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} lớn. Bạn {{t:fold|bỏ bài}}, vì bạn có hai lá cao mà không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}}: khi {{t:out-of-position}}, tay như vậy hiếm khi đi đến {{t:showdown}}, và {{t:pair|đôi}} từ lá cao thường vẫn thua. Trước khoản {{t:bet|cược}} khoảng {{n:cbet.size.big}} {{t:pot|pot}}, bạn đã cần khoảng {{n:eq.bet-three-quarters}} equity."
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} lớn. {{t:call|Theo}} là trả nhiều cho một tay mà khi {{t:out-of-position}} hiếm khi đi đến {{t:showdown}}: hai lá cao không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}}, và {{t:pair|đôi}} từ lá cao thường vẫn thua. Trước một {{t:c-bet|c-bet}} lớn, bạn thiên về {{t:call|theo}} khi có thêm một {{t:draw|bài chờ}} phụ, tốt nhất là tới {{t:flush|thùng}} cao nhất."

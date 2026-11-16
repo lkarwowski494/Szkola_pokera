@@ -1,0 +1,23 @@
+# sc-07: French text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-07
+module: m4
+situation: "Vous êtes en {{t:big-blind}}. Le Bouton a {{t:open|ouvert}}, la {{t:small-blind}} s'est {{t:fold|couchée}}, et vous avez {{t:call|payé}}. Au flop, vous faites {{t:check}}, et le Bouton {{t:bet|mise}} petit avec un {{t:c-bet}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Vous {{t:call|suivez}}, car face à une {{t:bet|mise}} d'environ {{n:cbet.size.small}} du {{t:pot}}, il vous faut seulement environ {{n:eq.bet-third}} d'équité, et cette main soit bat déjà les {{t:bluff|bluffs}}, soit peut s'améliorer. Vous continuez avec presque toute {{t:pair|paire}}, tout {{t:draw|tirage}}, tout {{t:draw|tirage}} supplémentaire ({{t:backdoor}}) avec une carte plus haute que les cartes du {{t:board}}, et généralement aussi avec un as comme carte la plus haute."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, le {{t:board}} est {{w:stol}}, et votre adversaire en {{w:rywal}} {{t:bet|mise}} petit avec un {{t:c-bet}}. Vous vous {{t:fold|couchez}}, car c'est l'une des mains les plus faibles : sans {{t:pair|paire}}, sans {{t:draw|tirage}}, même supplémentaire ({{t:backdoor}}), et sans as. Face à un petit {{t:c-bet}}, vous défendez large, mais vous vous {{t:fold|couchez}} avec les mains les plus faibles sans {{t:pair|paire}} et sans {{t:draw|tirage}}."

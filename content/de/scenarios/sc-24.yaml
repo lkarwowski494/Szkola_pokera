@@ -1,0 +1,24 @@
+# sc-24: German text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-24
+module: m8
+situation: "Am River hast du ein {{t:pair|Paar}}, das nur gegen die {{t:bluff|Bluffs}} deines Gegners gewinnt, und dein Gegner {{t:bet|setzt}}. Nimm an, dass der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}} so ist, wie die Hand angibt."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { marginMin: 0.1, expected: [call] }
+  sredni: { marginMin: 0.03, marginMax: 0.1, expected: [fold] }
+  trudny: { marginMin: 0.02, marginMax: 0.05, expected: [call] }
+decisions:
+  - street: river
+    kind: river-catch
+    rule: R-M8-010
+    pots: [10, 14, 20, 30]
+    fractions: [0.5, 0.75, 1]
+    bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+    actions:
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} am River. Deine Equity ist der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}}: Du schlägst jeden {{t:bluff}} und verlierst gegen jede {{t:value|Value}}-Hand. Ein {{t:call}} verdient nur dann, wenn es mehr {{t:bluff|Bluffs}} gibt, als die nötige Equity bei dieser {{t:bet}} beträgt; wenn es weniger sind, verliert er."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} am River. Deine Equity ist der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}}. Ein {{t:fold}} ist nur dann gut, wenn es weniger {{t:bluff|Bluffs}} gibt, als die nötige Equity bei dieser {{t:bet}} beträgt; wenn es mehr sind, gibt ein {{t:fold}} einen {{t:pot}} auf, an dem ein {{t:call}} verdient. Bei einer {{t:bet}} in Höhe des {{t:pot|Pots}} ist ein {{t:call}} erst bei etwa {{n:eq.bet-pot}} {{t:bluff|Bluffs}} ausgeglichen."

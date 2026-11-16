@@ -1,0 +1,24 @@
+# sc-10: Japanese text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "あなたは{{t:cutoff|CO}}から{{t:open|オープン}}し、ボタンが{{t:3-bet|3ベット}}して、ブラインドは{{t:fold|フォールド}}しました。どうしますか？"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンが{{t:3-bet|3ベット}}しました。{{t:value|バリュー}}のために{{t:4-bet|4ベット}}するのは、このハンドはスタック全体を入れたいハンドで、{{t:4-bet|4ベット}}に{{t:call|コール}}するハンドの大半を支配しているからです。"
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンが{{t:3-bet|3ベット}}しました。AA、KK、AKでは通常、{{t:value|バリュー}}のために{{t:4-bet|4ベット}}します。これらのハンドはスタック全体を入れたいハンドで、{{t:4-bet|4ベット}}に{{t:call|コール}}するハンドの大半を支配しているからです。AKでは{{t:call|コール}}することもあります。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、ボタンが{{t:3-bet|3ベット}}しました。{{t:fold|フォールド}}は最も強いハンドの一つを手放します：AA、KK、AKでは通常、{{t:value|バリュー}}のために{{t:4-bet|4ベット}}します。これらのハンドはスタック全体を入れたいハンドで、{{t:4-bet|4ベット}}に{{t:call|コール}}するハンドの大半を支配しているからです。"

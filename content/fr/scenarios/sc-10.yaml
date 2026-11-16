@@ -1,0 +1,24 @@
+# sc-10: French text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "Vous avez {{t:open|ouvert}} depuis le {{t:cutoff|CO}}, le Bouton a fait un {{t:3-bet}}, et les blindes se sont {{t:fold|couchées}}. Que faites-vous ?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Bouton a fait un {{t:3-bet}}. Vous faites un {{t:4-bet}} {{t:value|pour la valeur}}, car cette main veut mettre tout le stack et domine la plupart des mains qui vont {{t:call|suivre}} le {{t:4-bet}}."
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Bouton a fait un {{t:3-bet}}. Avec AA, KK et AK, vous faites généralement un {{t:4-bet}} {{t:value|pour la valeur}}, car ces mains veulent mettre tout le stack et dominent la plupart des mains qui vont {{t:call|suivre}} le {{t:4-bet}} ; avec AK, vous {{t:call|suivez}} parfois aussi."
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et le Bouton a fait un {{t:3-bet}}. Se {{t:fold|coucher}} abandonne l'une des mains les plus fortes : avec AA, KK et AK, vous faites généralement un {{t:4-bet}} {{t:value|pour la valeur}}, car ces mains veulent mettre tout le stack et dominent la plupart des mains qui vont {{t:call|suivre}} le {{t:4-bet}}."

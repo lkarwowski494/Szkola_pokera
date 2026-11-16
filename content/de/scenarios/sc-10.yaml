@@ -1,0 +1,24 @@
+# sc-10: German text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "Du hast aus dem {{t:cutoff|CO}} {{t:open|eröffnet}}, der Button hat eine {{t:3-bet}} gemacht, und die Blinds haben {{t:fold|gefoldet}}. Was tust du?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und der Button hat eine {{t:3-bet}} gemacht. Du machst eine {{t:4-bet}} {{t:value|auf Value}}, weil diese Hand den ganzen Stack einzahlen will und die meisten Hände dominiert, die eine {{t:4-bet}} {{t:call|callen}}."
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und der Button hat eine {{t:3-bet}} gemacht. Mit AA, KK und AK machst du meist eine {{t:4-bet}} {{t:value|auf Value}}, weil diese Hände den ganzen Stack einzahlen wollen und die meisten Hände dominieren, die eine {{t:4-bet}} {{t:call|callen}}; mit AK {{t:call|callst}} du manchmal auch."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, {{w:stol}}, und der Button hat eine {{t:3-bet}} gemacht. Ein {{t:fold}} gibt eine der stärksten Hände auf: mit AA, KK und AK machst du meist eine {{t:4-bet}} {{t:value|auf Value}}, weil diese Hände den ganzen Stack einzahlen wollen und die meisten Hände dominieren, die eine {{t:4-bet}} {{t:call|callen}}."

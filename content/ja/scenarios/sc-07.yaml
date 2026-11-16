@@ -1,0 +1,23 @@
+# sc-07: Japanese text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-07
+module: m4
+situation: "あなたは{{t:big-blind|ビッグブラインド}}にいます。ボタンが{{t:open|オープン}}し、{{t:small-blind|スモールブラインド}}が{{t:fold|フォールド}}し、あなたは{{t:call|コール}}しました。フロップであなたは{{t:check|チェック}}し、ボタンが小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}します。"
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。{{t:call|コール}}するのは、{{t:pot|ポット}}の約{{n:cbet.size.small}}の{{t:bet|ベット}}に対しては約{{n:eq.bet-third}}のエクイティしか必要なく、このハンドはすでに{{t:bluff|ブラフ}}に勝っているか、改善する可能性があるからです。ほぼすべての{{t:pair|ペア}}、{{t:draw|ドロー}}、{{t:board|ボード}}のカードより高いカードを伴う追加の{{t:draw|ドロー}}（{{t:backdoor|バックドア}}）で続行し、通常はエースハイでも続行します。"
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手が小さな{{t:c-bet|Cベット}}で{{t:bet|ベット}}しています。{{t:fold|フォールド}}するのは、これが最も弱いハンドの一つだからです：{{t:pair|ペア}}も{{t:draw|ドロー}}もなく、追加のドロー（{{t:backdoor|バックドア}}）さえなく、エースもありません。小さな{{t:c-bet|Cベット}}に対しては広く守りますが、{{t:pair|ペア}}も{{t:draw|ドロー}}もない最も弱いハンドは{{t:fold|フォールド}}します。"

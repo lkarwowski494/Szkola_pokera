@@ -1,0 +1,24 @@
+# sc-10: Vietnamese text of content/pl/scenarios/sc-10.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-10
+module: m4
+situation: "Bạn đã {{t:open|mở cược}} từ {{t:cutoff|CO}}, Button đã {{t:3-bet}}, các blind đã {{t:fold|bỏ bài}}. Bạn làm gì?"
+table: 6max
+positions: { hero: CO, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: ["4bet"] }
+decisions:
+  - street: preflop
+    kind: list-hand
+    rule: R-M4-010
+    entries:
+      - { hands: [AA, KK], correct: "4bet" }
+      - { hands: [AKs, AKo], correct: "4bet", acceptable: [call] }
+    actions:
+      - action: "4bet"
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và Button đã {{t:3-bet}}. Bạn {{t:4-bet}} {{t:value|lấy giá trị}}, vì tay này muốn đưa cả stack vào và áp đảo phần lớn các tay sẽ {{t:call|theo}} {{t:4-bet}}."
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và Button đã {{t:3-bet}}. Với AA, KK và AK, bạn thường {{t:4-bet}} {{t:value|lấy giá trị}}, vì các tay này muốn đưa cả stack vào và áp đảo phần lớn các tay sẽ {{t:call|theo}} {{t:4-bet}}; với AK đôi khi bạn cũng {{t:call|theo}}."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{w:stol}}, và Button đã {{t:3-bet}}. {{t:fold|Bỏ bài}} là từ bỏ một trong những tay mạnh nhất: với AA, KK và AK, bạn thường {{t:4-bet}} {{t:value|lấy giá trị}}, vì các tay này muốn đưa cả stack vào và áp đảo phần lớn các tay sẽ {{t:call|theo}} {{t:4-bet}}."

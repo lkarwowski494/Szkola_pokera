@@ -1,0 +1,23 @@
+# sc-07: Vietnamese text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-07
+module: m4
+situation: "Bạn ở {{t:big-blind|big blind}}. Button đã {{t:open|mở cược}}, {{t:small-blind|small blind}} đã {{t:fold|bỏ bài}}, còn bạn đã {{t:call|theo}}. Ở flop bạn {{t:check|check}}, và Button {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call] }
+  sredni: { expected: [fold] }
+decisions:
+  - street: flop
+    kind: defend
+    rule: R-M6-006
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    fractions: [0.333333]
+    actions:
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. Bạn {{t:call|theo}}, vì trước khoản {{t:bet|cược}} khoảng {{n:cbet.size.small}} {{t:pot|pot}}, bạn chỉ cần khoảng {{n:eq.bet-third}} equity, và tay này hoặc đã thắng các {{t:bluff|bluff}}, hoặc có thể cải thiện. Bạn tiếp tục với gần như mọi {{t:pair|đôi}}, {{t:draw|bài chờ}}, {{t:draw|bài chờ}} phụ ({{t:backdoor}}) có lá cao hơn các lá trên {{t:board|board}}, và thường cũng với lá A là lá cao nhất."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. Bạn {{t:fold|bỏ bài}}, vì đây là một trong những tay yếu nhất: không có {{t:pair|đôi}}, không có {{t:draw|bài chờ}}, kể cả bài chờ phụ ({{t:backdoor}}), và không có lá A. Trước một {{t:c-bet|c-bet}} nhỏ, bạn bảo vệ rộng, nhưng các tay yếu nhất không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}} thì bạn {{t:fold|bỏ bài}}."

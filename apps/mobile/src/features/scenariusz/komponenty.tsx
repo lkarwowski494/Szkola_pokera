@@ -1,11 +1,12 @@
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { PixelRatio, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import type { OcenaOdpowiedzi } from '@szkola/domena';
 import { CardRow } from '@/components/PlayingCard';
 import { RichText } from '@/components/RichText';
 import StopienOceny, { ZNAK } from '@/features/ocena/StopienOceny';
 import { nazwaKarty } from '@/features/stol/uklad';
+import { podstawaSegmentu } from '@/theme/skalowanie';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import type { Blok, RodzajBloku, UkladIcm } from './wariant';
 import type { Akcja } from './wariant';
@@ -74,11 +75,12 @@ export interface WpisDziennika { ulica: string; tekst: string; ocena?: OcenaOdpo
 export function Dziennik({ wpisy }: { wpisy: readonly WpisDziennika[] }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
+  const duzyTekst = useWindowDimensions().fontScale >= SKALA_BEZ_PASKA; // AX4–AX5: ulica nad wpisem, bez stałej szerokości (04-studio-projektowe-003)
   return (
     <View accessibilityRole="list" accessibilityLabel={t('scenario.log.label')} style={{ gap: odstep.s }}>
       {wpisy.map((w) => (
-        <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, { borderColor: tk.separator }]}>
-          <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700', width: 64 }]}>{w.ulica}</Text>
+        <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, duzyTekst ? styles.wierszPionowy : null, { borderColor: tk.separator }]}>
+          <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700' }, duzyTekst ? null : { width: 64 }]}>{w.ulica}</Text>
           <View style={{ flex: 1 }}>
             <RichText text={w.tekst} style={styl.drobny} />
           </View>
@@ -96,12 +98,12 @@ export function PasekOcenAkcji({ akcje, wybor, nazwy, etykiety }: { akcje: Reado
   const wpisy = (Object.keys(nazwy) as Akcja[]).flatMap((a) => { const o = akcje[a]; return o ? [{ a, o }] : []; });
   const lista = wpisy.map(({ a, o }) => `${etykiety?.[a] ?? nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
   return (
-    <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={styles.pasekOcen}>
-      {wpisy.map(({ a, o }) => (
-        <View key={a} style={[styles.segmentOceny, { borderColor: a === wybor ? tk.gold : tk.separator, borderWidth: a === wybor ? 2 : 1, backgroundColor: tk.surface }]}>
-          <Text style={[styl.naglowek, { color: tk.ink, textAlign: 'center' }]}>{nazwy[a]}</Text>
-          <Text style={[styl.drobny, { color: tk.ink, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
-          {a === wybor ? <Text style={[styl.drobny, { color: tk.goldOnBg, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
+    <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={[styles.pasekOcen, { backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>
+      {wpisy.map(({ a, o }, i) => (
+        <View key={a} style={[styles.segmentOceny, { flexBasis: podstawaSegmentu(PixelRatio.getFontScale()), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : i === 0 ? 0 : StyleSheet.hairlineWidth * 2 }]}>
+          <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>
+          <Text style={[styl.drobny, { color: tk.actionInk, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
+          {a === wybor ? <Text style={[styl.drobny, { color: tk.goldText, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
         </View>
       ))}
     </View>
@@ -125,7 +127,7 @@ export function Rozwijany({ tytul, children, testID }: { tytul: string; children
 
 // ---------- Punkt ICM (D-889, docs/design/design-spec.md „Scenariusz: punkt ICM”) ----------
 /** Od tej skali tekstu (iOS: AX5 ≈ 3,1; wartość spoza spec: DA podaje „przy AX5”, próg ustawiony między AX3 a AX5) pasek stosu znika, a wartość schodzi pod nazwę; liczba niesie tę samą informację (D-987). */
-const SKALA_BEZ_PASKA = 2.5;
+export const SKALA_BEZ_PASKA = 2.5;
 
 export interface MiejsceIcm { nazwa: string; stan: string; rola: 'ty' | 'rywal' | 'inny' }
 /**
@@ -231,8 +233,10 @@ const styles = StyleSheet.create({
   sukno: { borderRadius: promien.sukno, borderWidth: StyleSheet.hairlineWidth * 2, padding: odstep.l, gap: odstep.m, alignItems: 'center' },
   miejsce: { borderWidth: 1, borderRadius: 999, paddingHorizontal: odstep.m, paddingVertical: odstep.xs },
   wiersz: { flexDirection: 'row', alignItems: 'flex-start', gap: odstep.s, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingBottom: odstep.s },
-  pasekOcen: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
-  segmentOceny: { flexGrow: 1, flexBasis: 96, borderRadius: promien.przycisk, padding: odstep.m, gap: odstep.xs },
+  wierszPionowy: { flexDirection: 'column', alignItems: 'stretch', gap: odstep.xs },
+  // 04-studio-projektowe-001: te same segmenty co pasek przed decyzją (PasekStrategii; scenariusz-i-ocena.md:20); podstawa od fontScale, zawijanie w pionowy stos przy AX5
+  pasekOcen: { flexDirection: 'row', flexWrap: 'wrap', borderRadius: promien.przycisk, borderWidth: StyleSheet.hairlineWidth * 2, overflow: 'hidden' },
+  segmentOceny: { flexGrow: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstep.s, paddingVertical: odstep.m, gap: odstep.xs },
   rzadMiejsc: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: odstep.s },
   wierszStosu: { flexDirection: 'row', alignItems: 'center', gap: odstep.m, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingVertical: odstep.xs },
   // AX4–AX5 bez paska: wartość schodzi pod nazwę (design-spec „Pasek stosu”; recenzja DQ 08-programista-005)

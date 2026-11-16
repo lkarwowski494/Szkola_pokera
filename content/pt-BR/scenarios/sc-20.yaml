@@ -1,0 +1,22 @@
+# sc-20: Brazilian Portuguese text of content/pl/scenarios/sc-20.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
+id: sc-20
+module: m7
+situation: "No turn você tem uma mão forte: {{t:top-pair}} com um bom {{t:kicker}} ou melhor. Na {{t:board|mesa}} há duas cartas do mesmo naipe, então o adversário pode ter um {{t:flush-draw|projeto de flush}}. Que tamanho de {{t:bet|aposta}} você escolhe?"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.02, expected: ["bet-big"] }
+decisions:
+  - street: turn
+    kind: turn-bet
+    rule: R-M7-006
+    pots: [8, 12, 16, 24]
+    small: 0.25
+    big: 0.75
+    actions:
+      - action: "bet-big"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} pode ter um {{t:flush-draw|projeto de flush}}. Você {{t:bet|aposta}} alto: diante de uma {{t:bet|aposta}} de {{n:cbet.size.big}} do {{t:pot}}, o {{t:draw|projeto}} precisa de {{n:eq.bet-three-quarters}} de equity e tem cerca de {{n:odds.flush.turn-river}}, então não recebe um bom preço."
+      - action: "bet-small"
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} pode ter um {{t:flush-draw|projeto de flush}}. Uma {{t:bet|aposta}} pequena dá ao {{t:draw|projeto}} um bom preço: diante de uma {{t:bet|aposta}} de um quarto do {{t:pot}}, bastariam a ele {{n:eq.bet-quarter}} de equity, e ele tem cerca de {{n:odds.flush.turn-river}}. Com uma mão forte contra um {{t:draw|projeto}}, você {{t:bet|aposta}} alto."
