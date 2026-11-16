@@ -18,7 +18,7 @@ name: Pomoc
     timeout: 30000
 - tapOn: 'Postęp'
 - assertVisible:
-    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress
+    id: 'ekran:\(tabs\)/progress'
 - scrollUntilVisible:
     element: 'Pomoc: gdy granie wymyka się spod kontroli'
     direction: DOWN
@@ -36,7 +36,7 @@ name: Pomoc
 - tapOn: 'Wróć'
 # powrót: (tabs)/progress
 - assertVisible:
-    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress
+    id: 'ekran:\(tabs\)/progress'
 # drugie wejście (PU-006): „Dziś” → ustawienia → „Pomoc” (settings.help)
 - tapOn:
     id: 'zakladka-dzis'

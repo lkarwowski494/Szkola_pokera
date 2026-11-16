@@ -3,7 +3,7 @@
 # Zakup tylko do ekranu: bez StoreKit (sandbox — lista „tylko telefon” T-05). (PU-009)
 # D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
 # `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
-# Stan zakupu po limicie to stan trasy `session` (session.tsx, stan 'zakup'), nie trasa `purchase`: asercja `ekran:session` (D-1833).
+# Stan zakupu po limicie to stan trasy `session` (session.tsx, stan 'zakup'), nie trasa `purchase`: asercja `ekran:session` (D-1835).
 appId: pl.lkarwowski.szkolapokera
 name: Limit dnia
 ---
@@ -13,7 +13,7 @@ name: Limit dnia
       AppleLanguages: '(pl)'
 - runFlow: wspolne/za-powitaniem.yaml
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 - tapOn:
     id: 'dzis-cwiczenia'
 - assertVisible: '.*1.*darmow.*'
@@ -26,7 +26,7 @@ name: Limit dnia
 - tapOn: 'Zakończ'
 # powrót: (tabs)/index
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 - tapOn:
     id: 'dzis-powtorki'
 - assertVisible: '.*0.*darmow.*'
@@ -40,7 +40,7 @@ name: Limit dnia
 - tapOn:
     id: 'zakladka-lekcje'
 - assertVisible:
-    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
+    id: 'ekran:\(tabs\)/lessons'
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'
@@ -51,11 +51,11 @@ name: Limit dnia
     id: 'lesson-m0.l1'
 - assertVisible: '${LEKCJA_START_TYTUL}'
 - assertVisible:
-    id: 'ekran:lesson/\[id\]' # ekran:lesson/[id]
+    id: 'ekran:lesson/\[id\]'
 - assertNotVisible: '.*darmow.*'
 - takeScreenshot: 09-lekcja-bez-licznika
 # powrót: lesson/[id]
 - tapOn: 'Wróć'
 # powrót: (tabs)/lessons
 - assertVisible:
-    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
+    id: 'ekran:\(tabs\)/lessons'

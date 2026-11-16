@@ -10,7 +10,7 @@ name: Przerwanie sesji
       AppleLanguages: '(pl)'
 - runFlow: wspolne/za-powitaniem.yaml
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 - tapOn:
     id: 'dzis-cwiczenia'
 - tapOn: 'Zacznij.*'
@@ -60,4 +60,4 @@ name: Przerwanie sesji
 - tapOn: 'Zakończ'
 # powrót: (tabs)/index
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'

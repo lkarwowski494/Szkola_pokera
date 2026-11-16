@@ -17,7 +17,7 @@ name: Lekcja i pierwsze zadanie
     visible: 'No-Limit Hold’em od zera.*'
     timeout: 30000
 - assertVisible:
-    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
+    id: 'ekran:\(tabs\)/lessons'
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'
@@ -28,7 +28,7 @@ name: Lekcja i pierwsze zadanie
     id: 'lesson-m0.l1'
 - assertVisible: 'Układy kart'
 - assertVisible:
-    id: 'ekran:lesson/\[id\]' # ekran:lesson/[id]
+    id: 'ekran:lesson/\[id\]'
 - scrollUntilVisible:
     element: 'Ćwiczenia'
     direction: DOWN
@@ -54,9 +54,9 @@ name: Lekcja i pierwsze zadanie
 - tapOn: 'Zakończ'
 - assertVisible: 'Układy kart'
 - assertVisible:
-    id: 'ekran:lesson/\[id\]' # ekran:lesson/[id]
+    id: 'ekran:lesson/\[id\]'
 # powrót: lesson/[id]
 - tapOn: 'Wróć'
 # powrót: (tabs)/lessons
 - assertVisible:
-    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
+    id: 'ekran:\(tabs\)/lessons'

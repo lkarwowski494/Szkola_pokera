@@ -17,7 +17,7 @@ name: Słowniczek
     timeout: 30000
 - tapOn: 'Postęp'
 - assertVisible:
-    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress
+    id: 'ekran:\(tabs\)/progress'
 - scrollUntilVisible:
     element: 'Słowniczek PL–EN'
     direction: DOWN
@@ -36,4 +36,4 @@ name: Słowniczek
 - tapOn: 'Wróć'
 # powrót: (tabs)/progress
 - assertVisible:
-    id: 'ekran:\(tabs\)/progress' # ekran:(tabs)/progress
+    id: 'ekran:\(tabs\)/progress'

@@ -47,7 +47,7 @@ describe('HX-P3: table.seatLimp dublował table.limped (count 1) — usunięty b
 });
 
 describe('HX-P3: separator wpisów dziennika zależy od języka (play.log.sep)', () => {
-  // JLREQ: „IDEOGRAPHIC FULL STOP "。" … used for full stops” (w3.org/TR/jlreq, odczyt 2026-11-16); CLREQ 4.2.3: „the full stop (。)” (w3.org/TR/clreq).
+  // Podstawa: konwencja interpunkcji z liczenia w ja.json i zh-Hant.json (D-1833: „。” bez łacińskiej kropki ze spacją). JLREQ (w3.org/TR/jlreq) i CLREQ (w3.org/TR/clreq) NIEPRZECZYTANE w tej sesji: nie cytujemy ich jako źródła, recenzja natywna pozostaje otwartym pytaniem.
   const OCZEKIWANE: Record<string, string> = { ja: '。', 'zh-Hant': '。' };
   it.each(JEZYKI)('%s: klucz play.log.sep istnieje, niepusty', (j) => {
     const sep = ((wczytaj(`${j}.json`).play as Record<string, Record<string, string>>).log ?? {}).sep;
