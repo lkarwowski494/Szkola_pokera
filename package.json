@@ -18,6 +18,7 @@
     "i18n:kod": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src",
     "tresci:el-kontrola": "node docs/tresci/narzedzia/el-kontrola.mjs --ko076",
     "ci": "pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr && pnpm tresci:el-kontrola",
+    "zrzuty:web": "node scripts/zrzuty/hl-zrzuty.mjs",
     "test:akceptacja": "a=0; pnpm test:akceptacja:domena || a=1; pnpm test:akceptacja:ekrany || a=1; exit $a",
     "test:akceptacja:domena": "tsc -p tests/akceptacja && vitest run --root tests/akceptacja",
     "test:akceptacja:ekrany": "ls tests/akceptacja/ekrany/*.test.tsx >/dev/null 2>&1 || { echo 'Brak testów oczekujących ekranów (wszystkie w apps/mobile, D-175).'; exit 0; }; tsc -p tests/akceptacja/ekrany && pnpm --filter @szkola/mobile exec jest -c jest.akceptacja.config.js"
