@@ -27,6 +27,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - **2026-11-13 ok. 16:40 UTC, właściciel:** „1C 2a 3 kontrola zastępcza” — odpowiedź na pytania koordynatora: (1) C = pełna równoległość mimo ostrzeżenia limitu tygodniowego (allowed_warning); (2) a = reguła uprawnień na anulowanie przebiegów (dodanie przez koordynatora odrzucone przez klasyfikator [Self-Modification] — regułę dodaje właściciel; do tego czasu WG-19 przez HG); (3) przekłady ja/ko/vi/zh-Hant z listy HF: kontrola zastępcza zamiast recenzenta człowieka (sesja HI).
 - **2026-11-14 ok. 00:05 UTC, właściciel:** „Zgoda na prompts” — odpowiedź na prośbę koordynatora o uruchamianie `node /home/user/prompts/tools/assemble.mjs` (blokada klasyfikatora [Code from External]); po słowach ponowna próba przeszła. Odczyt: zgoda na składanie promptów ról skryptem biblioteki (bez reguły trwałej w ustawieniach — przy ponownej blokadzie prośba o regułę).
 - **2026-11-16 ok. 10:20 UTC, właściciel** (odpowiedzi na 3 pytania koordynatora): „(a) 1. zdanie tytułem (zalecane)” — 04-studio-projektowe-006 opcja (a) → HK; „(a) Dodać (zalecane)” — react-native-web do zrzutów z Expo web → HL; „Dodam później” — reguła anulowania przebiegów (2a) nadal po stronie właściciela.
+- **2026-11-16 ok. 11:15 UTC, właściciel:** „szablony - A” — na pytanie koordynatora A = więcej sesji szablonów naraz (3–4) mimo ostrzeżenia limitu tygodniowego / B = obecne tempo.
 - Pułapy kosztu: **brak** — właściciel 2026-11-10 ok. 05:55 UTC: „Bez pułapu, tylko raport” (koszt w liniach 05:00 i 14:00; budżet kontekstu 30% bez zmian); API przekładu wg zgód wyżej.
 - Koordynator aktywny: **session_01T66VBwf1bNLY6pRHh6Xc12 (od 2026-11-16 ok. 10:20 UTC; nowy łańcuch, lineage 0/8; start właściciela przez /apps4brew: „Kontynuowac od ostatniego punktu zapisanego przez kordynatora robiac to rola M9 z prompts”; env_011LiSvPc7hKtQZSkk13hSky = mandat, claude-opus-5-5, medium, auto; repo sesji: Szkola_pokera, prompts (/home/user/prompts @ af4c0a8, assemble.mjs działa), oczko, piekarz, trening — biblioteka i portfel do analogii bez add_repo)**. Poprzednik session_01T66VBzNwHnihoV8f9DCJeC: get_session 16.11 10:15 „not found” (sesja usunięta; przypomnień poprzednika brak w list_triggers) → PRZEJĄŁEM bez adresata.
 - Dawny wpis: Koordynator aktywny: **session_01T66VBzNwHnihoV8f9DCJeC (od 2026-11-14 00:44 UTC, lineage 4/8; przejęcie E6 pkt 5 od session_01T66VByLRhPb6XTrNCYoUC8; claude-opus-5-5, auto; add_repo lkarwowski494/prompts odrzucone przez klasyfikator [Unauthorized Access] mimo słów właściciela 14:58 i 00:05 → rola M9 niezłożona i nieprzeczytana; bez nowych sesji podrzędnych do reguły właściciela)**; poprzednik session_01T66VByLRhPb6XTrNCYoUC8 (22:58–00:44).
@@ -389,6 +390,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
+| HN | (start) | 06 build | claude/sesja-hn-szablony @ 0b0855ef | — | — | szablony umie/częściowo → content |
+| HO | (start) | 08 build | claude/sesja-ho-silnik @ 0b0855ef | — | — | warunki silnika |
+| HP | (start) | 06 build docs | claude/sesja-hp-szkice @ 0b0855ef | — | — | szkice SC-16/18/21/26/27/30 |
 | HM | session_01T66VByqWvYiGwwPzE9nBaF | 08 audit (opus/high) | claude/sesja-hm-recenzja @ 0b0855ef | — | — | recenzja HK 375efeff + HL cf296709 |
 | HK | session_01T66VC12KLWid2RQWmsRSMD | 08 fix (sonnet/medium) | claude/sesja-hk-fix @ 0b0855ef | — | — | start 10:18, E1 (plan KO-107) |
 | HL | session_01T66VBzMYx4YBzdqKFLJvzF | 08 build (sonnet/medium) | claude/sesja-hl-web @ 0b0855ef | — | — | start 10:19 |
@@ -1085,3 +1089,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11:00 (16.11) | właściciel | „A” — JAK-19 po scaleniu HK+HL | — |
 | 11:10 (16.11) | HK | PRZEKAZANIE claude/sesja-hk-fix @ 375efeff (8 commitów, autor zgodny; kod bf3b6ed3; ci kod 0 w 2. przebiegu, 1. timeout terms-nazwy-09 — brzegowy); D-1660…1663; pliki rozłączne z HL (sprawdzone diff --name-only). Pyt. 3 (katalog PU) → w JAK-19 | HM recenzja |
 | 11:15 (16.11) | HM | start session_01T66VByqWvYiGwwPzE9nBaF (08 audit opus, prompt 3 części; nagłówki w pliku 9/43 — czekam na raport) | PRZEKAZANIE HM |
+| 11:20 (16.11) | właściciel | „szablony - A” → polecenia HN (06), HO (08), HP (06 docs); pule D-1690…1729; następna litera HQ, D-1730 | start HN/HO/HP |
