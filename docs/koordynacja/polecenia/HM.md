@@ -1,0 +1,16 @@
+# Sesja HM: recenzja niezależna HK i HL (08 audit) — Szkoła Pokera
+Koordynator: session_01T66VBwf1bNLY6pRHh6Xc12 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: koordynacja (tylko do odczytu).
+
+1. Rola: 08-programista w trybie audit. Prompt roli jest w twoich pierwszych wiadomościach po linii `=== PROMPT ROLI ===` (kilka części); zacznij dopiero po ostatniej; przeczytaj w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `claude/sesja-hm-recenzja` od `claude/sleepy-brahmagupta-2065nu` @ 0b0855ef. Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów wg CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>).
+3. Zadania (bez raportów autorów jako wejścia; ich pliki dowodów to deklaracje do sprawdzenia):
+   1. **HK** `claude/sesja-hk-fix` @ 375efeff, diff 0b0855ef..375efeff (apps/mobile/src/features/scenariusz/**): 04-studio-projektowe-001/002/003/006 i 08-programista-404 wg `docs/design/audyt-hh-b7bc12e6.md` i spec `docs/design/scenariusz-i-ocena.md`; testy łapią regresję (min. 3 mutanty własne); 006 podział pierwszego zdania (CJK, skróty, liczby dziesiętne); D-1660…1663 w docs/decyzje/HK.md. Gotowe: werdykt + znaleziska z poziomem.
+   2. **HL** `claude/sesja-hl-web` @ cf296709, diff 0b0855ef..cf296709: react-native-web ~0.21.4 (zgodność z SDK, licencje), `metro.config.js` — warunkowy resolver tylko przy SZKOLA_ZRZUTY=1 (build iOS i aplikacja bez zmian zachowania), `apps/mobile/zrzuty-web/`, `scripts/zrzuty/hl-zrzuty.mjs`; D-1670…1672. Gotowe: werdykt + znaleziska.
+   3. Pomiar wyglądu: lokalnie (bez pushu scalenia) scal HK i HL na swojej gałęzi roboczej w kontenerze, uruchom `pnpm zrzuty:web`; obejrzyj zrzuty ekranów po poprawkach 001/002/003/006 (390 i 320, domyślny i AX5-przybliżenie). Jeśli wejście zastępcze nie ma SC-29, dodaj fixture SC-29 tylko lokalnie i zmierz liczbę wierszy tytułu startu (kryterium audytu: ≤ 3). Zrzuty do `docs/programista/recenzje/dowody/hm-*.png` (commit na swojej gałęzi). Gotowe: tabela znalezisko → zrzut → zgodne/niezgodne.
+   4. `pnpm run ci` na lokalnym scaleniu HK+HL: kod wyjścia do `docs/programista/recenzje/dowody/hm-ci-<sha>.txt` (jedno powtórzenie przy timeoucie, z opisem).
+   Wyjście: `docs/programista/recenzje/recenzja-hm-hk-hl.md` z werdyktami PRZYJĄĆ / PRZYJĄĆ Z UWAGAMI / ODRZUCIĆ osobno dla HK i HL. Kodu HK/HL nie poprawiasz.
+4. Zakazy: nie scalasz do integracji ani `main` (scalenie lokalne tylko do pomiaru, nie wypychasz go), nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb analogia (najpierw lkarwowski494/trening, `repo:plik:linia`, do weta). Pula D-1680…D-1689, zapis w `docs/decyzje/HM.md`.
+6. Kontekst i koszt: od 30% okna kończysz krok, stan w `docs/programista/plan-hm.md`, push, PRZEKAZANIE. Pułap 8 USD; próg STOP 10,4 USD.
+7. Push: zbiorczo, tylko docs i dowody na `claude/sesja-hm-recenzja`.
+8. Raporty (≤ 10 linii, send_message): po starcie liczba linii „# ” i „#” w prompcie roli; PYTANIE; PRZEKAZANIE (SHA, werdykty, znaleziska, dowody, decyzje do weta, otwarte).

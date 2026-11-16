@@ -389,6 +389,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
+| HM | (start) | 08 audit (opus/high) | claude/sesja-hm-recenzja @ 0b0855ef | — | — | recenzja HK 375efeff + HL cf296709 |
 | HK | session_01T66VC12KLWid2RQWmsRSMD | 08 fix (sonnet/medium) | claude/sesja-hk-fix @ 0b0855ef | — | — | start 10:18, E1 (plan KO-107) |
 | HL | session_01T66VBzMYx4YBzdqKFLJvzF | 08 build (sonnet/medium) | claude/sesja-hl-web @ 0b0855ef | — | — | start 10:19 |
 | HD | session_01T66VBzXxmYEtFS9a88hBto | 06 audit (opus/high) | claude/sesja-hd-recenzja @ 0d59a42 | 0 | 0 | start 11:42, recenzja HA (prompt przepisany, zgodność niesprawdzona) |
@@ -1082,3 +1083,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 10:50 (16.11) | HL | PRZEKAZANIE: claude/sesja-hl-web @ cf296709 (3 commity, autor zgodny; kod 0e9a6cb5; pnpm run ci kod 0 w kontenerze wg hl-ci-0e9a6cb5.txt); CI 43852260074 queued; do weta D-1670…1672. Niesprawdzone do CI + recenzji niezależnej | recenzja HM (08 audit) razem z HK po jej PRZEKAZANIU |
 | 10:55 (16.11) | właściciel | dopisać do planu przed wydaniem obowiązkowy przegląd przypadków użycia (zasada 22, D-060) → sekcja Bramka scenariuszy, sesja 07 JAK-19 po scaleniu HK+HL | — |
 | 11:00 (16.11) | właściciel | „A” — JAK-19 po scaleniu HK+HL | — |
+| 11:10 (16.11) | HK | PRZEKAZANIE claude/sesja-hk-fix @ 375efeff (8 commitów, autor zgodny; kod bf3b6ed3; ci kod 0 w 2. przebiegu, 1. timeout terms-nazwy-09 — brzegowy); D-1660…1663; pliki rozłączne z HL (sprawdzone diff --name-only). Pyt. 3 (katalog PU) → w JAK-19 | HM recenzja |
