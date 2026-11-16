@@ -1106,3 +1106,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11:32 (16.11) | właściciel | „Stop. nie muysisz przekazywac.” — E6 odwołane, następca nie utworzony | kontrola 12:30 |
 | 11:35 (16.11) | właściciel | próg % kontekstu odrzucony trwale (autocompact 300k / 1M) | sesje podrzędne: informacja przy najbliższym kontakcie |
 | 11:45 (16.11) | koordynator | HK, HL, HM scalone do roboczej 14fdc7c6 (push OK) | CI+E2E, pytanie 503 |
+| 11:58 (16.11) | HP | PRZEKAZANIE 24533007 (tylko docs; autor zgodny; 6 szkiców pl+en, rejestr-hp.md, 40 cytatów, D-1715…1722); recenzja niezależna 06 audit przy wejściu do content | scalenie docs do roboczej po E2E 14fdc7c6 |
