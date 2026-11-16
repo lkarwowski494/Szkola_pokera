@@ -193,3 +193,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | HL | 08 build (sonnet) react-native-web, zrzuty Expo web | — | 1,83 | 56,0 | 10:21 → cf296709 → recenzja HM → scalona 14fdc7c6 11:39 | — | zarchiwizowana 12:20; 501/502 do poprawki osobno |
 | HM | 08 audit (opus) recenzja HK+HL | — | 6,81 | 32,7 | 11:09 → d4e66c66 → scalona 14fdc7c6 11:39 | — | PRZYJĄĆ Z UWAGAMI; zarchiwizowana 12:20 |
 | HP | 06 build (opus) szkice SC-16/18/21/26/27/30 | — | 9,65 | 41,1 | 11:16 → 24533007 11:51 | — | zarchiwizowana 12:20; gałąź claude/sesja-hp-szkice do scalenia po E2E roboczej, recenzja 06 audit przy przenoszeniu do content |
+| HQ | 04 build (opus) styl długiego tytułu (503) + widok limperów SC-09 | — | 6,57 | 39,3 | 11:59 → 0f3825bd 12:35 (ci kod 0, tylko docs/) | — | przyjęta 12:40, zarchiwizowana 12:40; D-1730…D-1737 do weta |
