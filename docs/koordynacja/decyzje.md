@@ -126,3 +126,6 @@ Pytanie HZ: bramka `tools/content-build/src/scenariusze.ts:450/:465` odrzuca 7 s
 
 ## KO-116 (2026-11-16): pułapy sesji poprawkowych 6/8 USD i kontrola kosztu przez koordynatora
 Po WG-24 (HZ 25,87 przy STOP 15,6; IB 11,66 przy 10,4): sesje IC i ID dostają węższy zakres i pułap 6 USD / STOP 8 USD; koordynator czyta `cost_usd` przy każdej kontroli i pytaniu, rozszerzenie zakresu = jawny nowy pułap. Odrzucone: (b) bez zmian pułapów — powtórka przekroczeń; (c) samokontrola kosztu przez sesję — sesja nie widzi swojego kosztu. Weto: właściciel.
+
+## KO-117 (2026-11-16): głębokość na ekranie startu jako przedział z generatora (sc-26, sc-27 Ś)
+Pytanie IG: „Głębokość N bb” na starcie (`stackBb`) nie zgadza się z głębokością wariantów (stack + (pula − martwe)/2): sc-26 12,5–15 przy 14, sc-27 Ś 100–161,75 przy 100 (błędne liczby, WYSOKIE). Decyzja: funkcja w poker-core liczy min/max głębokości startu dla szablonu i poziomu, ekran startu pokazuje przedział; test strażnik pokrycia próbki wariantów; sesja 08 po scaleniu IF; treść bez zmian. Odrzucone: (A) jeden stos w sc-26 i Ś = Ł w sc-27 — utrata wariacji i sensu poziomu; (C) hybryda — zmiana treści sc-26, zbędna po B. Weto: właściciel.
