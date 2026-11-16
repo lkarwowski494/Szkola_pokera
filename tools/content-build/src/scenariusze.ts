@@ -76,26 +76,32 @@ function sprawdzPozycjeSizeSpot(pos: { hero: string; villain: string }, check: s
 }
 
 /**
- * 06-tresci-008 (FR, opcja a): rozmiar zakładu w tekście wyjaśnienia (`{{n:cbet.size.small|big}}`) musi być równy rozmiarowi w decyzji szablonu:
+ * 06-tresci-008 (FR, opcja a): rozmiar zakładu w tekście wyjaśnienia (`{{n:cbet.size.small|big}}`; dla turn-bet także `ex.frac.quarter` = small i `ex.frac.three-quarters` = big, D-1771) musi być równy rozmiarowi w decyzji szablonu:
  * turn-bet i flop-size (`small`, `big`) oraz defend (każda z `fractions`). Zmiana klucza w `numbers.yaml` nie może po cichu rozjechać tekstu z rozmiarem wariantu.
  * `wartosc` zwraca liczbę klucza (ułamek puli) albo undefined (nieznany klucz zgłasza osobna kontrola).
  */
 export function kluczeRozmiaruZgodne(t: ScenarioTemplate, wartosc: (klucz: string) => number | undefined): string[] {
   const e: string[] = [];
-  const KLUCZE = ['cbet.size.small', 'cbet.size.big'] as const;
   t.decisions.forEach((d, i) => {
-    let rozmiary: Record<(typeof KLUCZE)[number], readonly number[]>;
-    if (d.kind === 'turn-bet' || d.kind === 'flop-size') rozmiary = { 'cbet.size.small': [d.small], 'cbet.size.big': [d.big] };
-    else if (d.kind === 'geo-size') rozmiary = { 'cbet.size.small': [d.small], 'cbet.size.big': [] }; // HO: duży zakład jest geometryczny (z SPR), nie z numbers.yaml
-    else if (d.kind === 'defend') rozmiary = { 'cbet.size.small': d.fractions, 'cbet.size.big': d.fractions };
+    // klucz numbers.yaml → (nazwa pola rozmiaru do komunikatu, wartości rozmiaru w decyzji)
+    let rozmiary: Record<string, { pole: string; wartosci: readonly number[] }>;
+    if (d.kind === 'turn-bet') {
+      // dodatek HU (D-1771): SC-20 podaje rozmiary turnu kluczami ex.frac.* (ćwierć i trzy czwarte puli), obok cbet.size.*
+      rozmiary = {
+        'cbet.size.small': { pole: 'small', wartosci: [d.small] }, 'cbet.size.big': { pole: 'big', wartosci: [d.big] },
+        'ex.frac.quarter': { pole: 'small', wartosci: [d.small] }, 'ex.frac.three-quarters': { pole: 'big', wartosci: [d.big] },
+      };
+    } else if (d.kind === 'flop-size') rozmiary = { 'cbet.size.small': { pole: 'small', wartosci: [d.small] }, 'cbet.size.big': { pole: 'big', wartosci: [d.big] } };
+    else if (d.kind === 'geo-size') rozmiary = { 'cbet.size.small': { pole: 'small', wartosci: [d.small] }, 'cbet.size.big': { pole: 'big', wartosci: [] } }; // HO: duży zakład jest geometryczny (z SPR), nie z numbers.yaml
+    else if (d.kind === 'defend') rozmiary = { 'cbet.size.small': { pole: 'fractions', wartosci: d.fractions }, 'cbet.size.big': { pole: 'fractions', wartosci: d.fractions } };
     else return;
     const tekst = d.actions.map((a) => a.explanation).join('\n');
-    for (const klucz of KLUCZE) {
+    for (const [klucz, { pole, wartosci }] of Object.entries(rozmiary)) {
       if (!tekst.includes(`{{n:${klucz}}}`)) continue;
       const w = wartosc(klucz);
       if (w === undefined) continue;
-      for (const r of rozmiary[klucz]) {
-        if (Math.abs(r - w) > 1e-9) e.push(`szablon ${t.id}: punkt decyzji ${i + 1} (${d.kind}): rozmiar ${klucz === 'cbet.size.small' && d.kind !== 'defend' ? 'small' : klucz === 'cbet.size.big' && d.kind !== 'defend' ? 'big' : 'fractions'} ${r} w decyzji, a tekst podaje {{n:${klucz}}} = ${w} (06-tresci-008)`);
+      for (const r of wartosci) {
+        if (Math.abs(r - w) > 1e-9) e.push(`szablon ${t.id}: punkt decyzji ${i + 1} (${d.kind}): rozmiar ${pole} ${r} w decyzji, a tekst podaje {{n:${klucz}}} = ${w} (06-tresci-008)`);
       }
     }
   });

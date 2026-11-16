@@ -43,3 +43,22 @@ describe('HT HR-005: check-raise: cbet wiązany z cbet.size.small', () => {
     expect(blad(kopia(fx.template, (b) => { b.decisions[0].cbet = 0.5; }))).toMatch(/cbet 0\.5.*cbet\.size\.small.*0\.333333/);
   });
 });
+
+describe('HT (dodatek HU, D-1771): kontrola 06-tresci-008 zna ex.frac.* dla turn-bet', () => {
+  const fx = wczytaj('turn-bet').template;
+  const lw: Record<string, number> = { ...liczby, 'ex.frac.quarter': 0.25, 'ex.frac.three-quarters': 0.75 };
+  const w = (k: string): number | undefined => lw[k];
+  const zTekstem = (small: number, big: number) => kopia(fx, (b) => {
+    b.decisions[0].small = small; b.decisions[0].big = big;
+    b.decisions[0].actions[0].explanation = 'Mały zakład to {{n:ex.frac.quarter}} puli, duży {{n:ex.frac.three-quarters}} puli.';
+  });
+  it('small 0,25 i big 0,75: brak błędu', () => {
+    expect(kluczeRozmiaruZgodne(zTekstem(0.25, 0.75), w)).toEqual([]);
+  });
+  it('small 0,333333 wobec ex.frac.quarter 0,25: błąd', () => {
+    expect(kluczeRozmiaruZgodne(zTekstem(0.333333, 0.75), w).join('\n')).toMatch(/turn-bet.*small 0\.333333.*ex\.frac\.quarter.*0\.25/);
+  });
+  it('big 0,5 wobec ex.frac.three-quarters 0,75: błąd', () => {
+    expect(kluczeRozmiaruZgodne(zTekstem(0.25, 0.5), w).join('\n')).toMatch(/turn-bet.*big 0\.5.*ex\.frac\.three-quarters.*0\.75/);
+  });
+});
