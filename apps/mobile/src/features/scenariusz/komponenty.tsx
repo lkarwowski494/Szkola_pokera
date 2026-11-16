@@ -125,7 +125,7 @@ export function Rozwijany({ tytul, children, testID }: { tytul: string; children
 
 // ---------- Punkt ICM (D-889, docs/design/design-spec.md „Scenariusz: punkt ICM”) ----------
 /** Od tej skali tekstu (iOS: AX5 ≈ 3,1; wartość spoza spec: DA podaje „przy AX5”, próg ustawiony między AX3 a AX5) pasek stosu znika, a wartość schodzi pod nazwę; liczba niesie tę samą informację (D-987). */
-const SKALA_BEZ_PASKA = 2.5;
+export const SKALA_BEZ_PASKA = 2.5;
 
 export interface MiejsceIcm { nazwa: string; stan: string; rola: 'ty' | 'rywal' | 'inny' }
 /**
