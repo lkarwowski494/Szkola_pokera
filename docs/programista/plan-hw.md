@@ -1,0 +1,6 @@
+# Plan i stan HW (08 fix) · 2026-11-16
+Zadanie: polecenie HW (`origin/koordynacja:docs/koordynacja/polecenia/HW.md`), znaleziska 08-programista-501, 502, 504 z `docs/programista/recenzje/recenzja-hm-hk-hl.md`. Gałąź `claude/sesja-hw-poprawki` od `7f51a9b3`.
+E0 (klasyfikacja i plan): 501 D, 502 D, 504 D; typów P i M brak; opcje (a) wskazane w poleceniu. Kolejność: 504 → 502 → 501 (502 przed 501, bo wysokość widoku jest warunkiem obejrzenia oceny AX5). Wyjątek od STOP po E0 (zasada 7): plan zatwierdzony w poleceniu koordynatora, więc bez osobnej pauzy. Ścieżki wrażliwe: brak (metro.config.js, zrzuty-web, skrypty i testy; nie dotykam `.github/`, `app.json`, `eas.json`, `content/`), przegląd świeżym kontekstem nie dotyczy.
+Stan: 504 `0d0808e2`, 502 `c270d661`, 501 `6b502dcc`, zrzuty `7b1bfb0a` (zrobione); pełne `pnpm run ci` i push: patrz niżej.
+Uwaga o stanie wyjściowym: bazowy `pnpm run ci` na `7f51a9b3` + moje testy w trakcie pisania miał 1 czerwony test (mój niedokończony test ulicy w `hk-naglowek-ax5-002`); poza nim 1485 testów aplikacji zielonych. Czysty stan końcowy: dowód ci niżej.
+Otwarte: 503 poza zakresem (decyzja właściciela); „Do sprawdzenia” z recenzji (skróty typu „z. B.”, ucięcia AX5 w Chromium, niedeterminizm .hbc) bez zmian.
