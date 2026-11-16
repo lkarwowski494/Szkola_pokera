@@ -1,4 +1,6 @@
-# Zakładka Powtórki: świeża instalacja nie ma nic do powtórki.
+# Zakładka Powtórki: świeża instalacja nie ma nic do powtórki (PU-004).
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
 appId: pl.lkarwowski.szkolapokera
 name: Powtórki
 ---
@@ -13,9 +15,18 @@ name: Powtórki
     visible:
       id: 'dzis-lekcja'
     timeout: 30000
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
 # D-541/KO-045: zakładki „Powtórki” nie ma; kolejka powtórek otwiera się z kafelka `dzis-powtorki`, przez ekran startu
 # („Zacznij”) do stanu pustej kolejki. Asercja ta sama, zmiana ścieżki dotarcia.
 - tapOn:
     id: 'dzis-powtorki'
 - tapOn: 'Zacznij.*'
 - assertVisible: 'Nic nie czeka na powtórkę.*'
+- assertVisible:
+    id: 'ekran:session'
+# powrót: session
+- tapOn: 'Zamknij'
+# powrót: (tabs)/index
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index

@@ -1,4 +1,6 @@
-# PR-03, R-07: odpowiedzi zapisane przy przerwaniu; po ponownym uruchomieniu sesja wraca do 4. zadania (BR-CWI-004).
+# PR-03, R-07: odpowiedzi zapisane przy przerwaniu; po ponownym uruchomieniu sesja wraca do 4. zadania (BR-CWI-004). (PU-007)
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
 appId: pl.lkarwowski.szkolapokera
 name: Przerwanie sesji
 ---
@@ -7,9 +9,13 @@ name: Przerwanie sesji
     arguments:
       AppleLanguages: '(pl)'
 - runFlow: wspolne/za-powitaniem.yaml
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
 - tapOn:
     id: 'dzis-cwiczenia'
 - tapOn: 'Zacznij.*'
+- assertVisible:
+    id: 'ekran:session'
 - repeat:
     times: 3
     commands:
@@ -50,3 +56,8 @@ name: Przerwanie sesji
     timeout: 30000
 - assertNotVisible: 'Wróć do lekcji'
 - takeScreenshot: 06-wznowienie
+# powrót: session
+- tapOn: 'Zakończ'
+# powrót: (tabs)/index
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index

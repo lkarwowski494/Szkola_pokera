@@ -1,6 +1,9 @@
 # PR-01, R-36, R-35: powitanie z wyborem na starcie (D-475), „Zacznij od początku” (start z pierwszej lekcji M0, bez
 # ekranu zakupu) i ocena przerwana (po ponownym uruchomieniu ekran wyboru, postęp pusty). „Nie wiem” zamiast „Pomiń”
-# na ekranie pytania. BR-ONB-001, BR-ONB-004.
+# na ekranie pytania. BR-ONB-001, BR-ONB-004. (PU-001, PU-002)
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
+# Powitanie i pytania oceny to stan nad nawigacją (BramkaStartu, app/_layout.tsx), nie trasa: bez znacznika; trasa `(tabs)/index` (D-1832).
 appId: pl.lkarwowski.szkolapokera
 name: Ocena poziomu
 ---
@@ -52,5 +55,7 @@ name: Ocena poziomu
 - extendedWaitUntil:
     visible: '${LEKCJA_START_TYTUL}'
     timeout: 30000
+- assertVisible:
+    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
 - assertNotVisible: '.*(\$|€|zł|Przywróć zakupy).*'
 - takeScreenshot: 05-dzis-po-rozpoczeciu-od-poczatku

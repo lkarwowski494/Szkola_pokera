@@ -1,4 +1,6 @@
-# Start → mapa nauki → lekcja → zadanie → odpowiedź.
+# Start → mapa nauki → lekcja → zadanie → odpowiedź (PU-003).
+# D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
+# `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
 appId: pl.lkarwowski.szkolapokera
 name: Lekcja i pierwsze zadanie
 ---
@@ -14,6 +16,8 @@ name: Lekcja i pierwsze zadanie
 - extendedWaitUntil:
     visible: 'No-Limit Hold’em od zera.*'
     timeout: 30000
+- assertVisible:
+    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'
@@ -23,12 +27,16 @@ name: Lekcja i pierwsze zadanie
 - tapOn:
     id: 'lesson-m0.l1'
 - assertVisible: 'Układy kart'
+- assertVisible:
+    id: 'ekran:lesson/\[id\]' # ekran:lesson/[id]
 - scrollUntilVisible:
     element: 'Ćwiczenia'
     direction: DOWN
     timeout: 30000
 - tapOn: 'Ćwiczenia'
 - assertVisible: '1 z \d+'
+- assertVisible:
+    id: 'ekran:session'
 - tapOn:
     id: 'option-0'
 # każda odpowiedź daje ocenę; sprawdzamy, że zadanie przyjęło odpowiedź i pokazało wyjaśnienie
@@ -42,5 +50,13 @@ name: Lekcja i pierwsze zadanie
 - tapOn: 'Dalej'
 - assertVisible: '2 z \d+'
 # „Zakończ” zamiast „Zamknij” w sesji (słownik interakcji design-spec.md:53; cz. 5b krok 4, D-267)
+# powrót: session
 - tapOn: 'Zakończ'
 - assertVisible: 'Układy kart'
+- assertVisible:
+    id: 'ekran:lesson/\[id\]' # ekran:lesson/[id]
+# powrót: lesson/[id]
+- tapOn: 'Wróć'
+# powrót: (tabs)/lessons
+- assertVisible:
+    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons

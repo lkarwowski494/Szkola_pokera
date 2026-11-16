@@ -52,3 +52,37 @@ describe('każdy ekran trasy ma znacznik ekran:<trasa> (D-1780)', () => {
     expect(tekst.match(/znacznikEkranu\(/g)?.length).toBe(1);
   });
 });
+
+/**
+ * Flowy Maestro (D-1780): asercja `ekran:<trasa>` musi stać w KODZIE kroku, nie tylko w komentarzu (Trening wycina komentarze
+ * przed sprawdzeniem, `tests/przeplywy.test.ts:25`, odczyt 2026-11-16). `id` w Maestro to regex pełnego dopasowania
+ * (`Filters.idMatches`, mobile-dev-inc/maestro, odczyt 2026-11-16), więc `ekran:(tabs)/index` bez ukośników nie trafiłby
+ * w testID z literalnymi nawiasami; stąd test dopasowuje wzorzec z flowu do prawdziwych znaczników tras.
+ */
+describe('flowy Maestro: asercje ekran:<trasa> w kodzie kroków (D-1780)', () => {
+  const E2E = join(__dirname, '..', '..', 'e2e');
+  const pliki = (dir: string): string[] => readdirSync(dir).flatMap((n) => (statSync(join(dir, n)).isDirectory() ? pliki(join(dir, n)) : n.endsWith('.yaml') && n !== 'config.yaml' ? [join(dir, n)] : []));
+  const FLOWY = pliki(E2E);
+  /** Jak Trening `stripYaml`: bez komentarzy pełnowierszowych i końcowych. */
+  const kod = (src: string) => src.split('\n').filter((l) => !/^\s*#/.test(l)).map((l) => l.replace(/\s#.*$/, '')).join('\n');
+  const znaczniki = (src: string) => [...kod(src).matchAll(/\bid:\s*(['"])(ekran:[^'"]+)\1/g)].map((m) => m[2] as string);
+  const powroty = (src: string) => [...src.matchAll(/^\s*# powrót: (\S+)/gm)].map((m) => m[1] as string);
+  const dopasowane = (wzorzec: string) => TRASY.filter((t) => new RegExp(`^(?:${wzorzec})$`).test(`ekran:${t}`));
+
+  it('flowy z znacznikami istnieją (guard przed pustym przebiegiem)', () => {
+    expect(FLOWY.filter((f) => znaczniki(readFileSync(f, 'utf8')).length > 0).length).toBeGreaterThanOrEqual(10);
+  });
+
+  it.each(FLOWY.map((f) => [f.slice(E2E.length + 1), f] as const))('%s: każdy id ekran:… dopasowuje dokładnie jedną trasę (nawiasy z ukośnikiem)', (_n, f) => {
+    for (const w of znaczniki(readFileSync(f, 'utf8'))) expect([w, dopasowane(w).length]).toEqual([w, 1]);
+  });
+
+  it.each(FLOWY.map((f) => [f.slice(E2E.length + 1), f] as const))('%s: każdy „# powrót: <trasa>” ma w tym samym flowie asercję tej trasy w kodzie', (_n, f) => {
+    const src = readFileSync(f, 'utf8');
+    const trafione = new Set(znaczniki(src).flatMap((w) => dopasowane(w)));
+    for (const trasa of powroty(src)) {
+      expect([trasa, TRASY.includes(trasa)]).toEqual([trasa, true]);
+      expect([trasa, trafione.has(trasa)]).toEqual([trasa, true]);
+    }
+  });
+});
