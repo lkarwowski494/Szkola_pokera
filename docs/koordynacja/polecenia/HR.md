@@ -1,0 +1,16 @@
+# Sesja HR: recenzja niezależna kodu HO (08 audit) — Szkoła Pokera
+Koordynator: session_01T66VBwf1bNLY6pRHh6Xc12 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: koordynacja (tylko do odczytu).
+
+1. Rola: 08-programista w trybie audit. Prompt roli jest w twoich pierwszych wiadomościach po linii `=== PROMPT ROLI ===` (kilka części); zacznij dopiero po ostatniej; przeczytaj w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `claude/sesja-hr-recenzja` od `claude/sesja-ho-silnik` @ 9677c41c (zawiera robocze 14fdc7c6 + HN 6db279ab + HP 24533007 + HO). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów wg CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>).
+3. Zadania (raporty i pliki dowodów HO to deklaracje do sprawdzenia, nie wejście):
+   1. **Kod HO**, diff `14fdc7c6..9677c41c` poza `content/`, `apps/mobile/assets/`, `docs/` (ścieżki wrażliwe D-043: `tools/content-build/`, `packages/poker-core/src/scenario-gen.ts`, `packages/content-schema/`, `apps/mobile/src/features/scenariusz/{wariant,liczby}.ts`): nowe punkty silnika spr-call (SC-26), geo-size (SC-27), turn-action (SC-18/21), check-raise (SC-16), nit-3bet (SC-30); bramki budowania; poprawka P0 z b41aca41 (turn-bet w akcjePunktu). Szukaj regresji istniejących szablonów (odciski generatora: 13 nowych kluczy, 0 zmienionych — sprawdź, że to prawda), błędnych liczb (rachunek ręczny ≥ 2 przypadków na punkt) i zmian zachowania bez testu.
+   2. **Niezależność wyroczni**: `tools/content-build/test/wyrocznie-ho.ts` i `ho-pokrycie-wyrocznie.test.ts` — czy wyrocznia nie importuje ani nie kopiuje logiki silnika (porównaj z `scenario-gen.ts`), czy 60 ziaren × poziom pokrywa gałęzie; min. 3 własne mutanty silnika (lokalnie, bez pushu), które wyrocznia musi złapać. Także zmiany testów D-1714 (cs-tresc-realna sc-23) i D-1715 (fr-klucze-rozmiaru zawężony do SC-17/20) — czy nie osłabiają bramki.
+   3. **Decyzje techniczne do weta** D-1700…D-1722 w `docs/decyzje/HO.md` (bez D-1705 — merytoryczna, robi rola 06 w HS): zgodność z analogią w Treningu, odstępstwa nazwane.
+   4. `pnpm run ci` na 9677c41c: kod wyjścia do `docs/programista/recenzje/dowody/hr-ci-<sha>.txt` (jedno powtórzenie przy timeoucie, z opisem).
+   Wyjście: `docs/programista/recenzje/recenzja-hr-ho.md`, werdykt PRZYJĄĆ / PRZYJĄĆ Z UWAGAMI / ODRZUCIĆ, znaleziska z poziomem (próg wydania z CLAUDE.md) i oceną realności. Kodu HO nie poprawiasz.
+4. Zakazy: nie scalasz do integracji ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela (bez AskUserQuestion). STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora.
+5. Decyzje: tryb analogia (najpierw lkarwowski494/trening, `repo:plik:linia`, do weta). Pula D-1740…D-1749, zapis w `docs/decyzje/HR.md`.
+6. Kontekst i koszt: stan w `docs/programista/plan-hr.md` po każdym zadaniu. Pułap 8 USD; próg STOP 10,4 USD.
+7. Push: zbiorczo, tylko docs i dowody na `claude/sesja-hr-recenzja`.
+8. Raporty (≤ 10 linii, send_message): po starcie liczba linii „# ” i „#” w prompcie roli; PYTANIE; PRZEKAZANIE (SHA, werdykt, znaleziska, dowody, decyzje do weta, otwarte).
