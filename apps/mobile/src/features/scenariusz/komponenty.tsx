@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Dimensions, PixelRatio, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import type { OcenaOdpowiedzi } from '@szkola/domena';
 import { CardRow } from '@/components/PlayingCard';
 import { RichText } from '@/components/RichText';
@@ -108,14 +108,13 @@ export function PasekOcenAkcji({ akcje, wybor, nazwy, etykiety }: { akcje: Reado
   const { t } = useTranslation();
   const wpisy = (Object.keys(nazwy) as Akcja[]).flatMap((a) => { const o = akcje[a]; return o ? [{ a, o }] : []; });
   const lista = wpisy.map(({ a, o }) => `${etykiety?.[a] ?? nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
-  const skala = PixelRatio.getFontScale();
-  const szerokoscEkranu = Dimensions.get('window').width;
+  const { width: szerokoscEkranu, fontScale: skala } = useWindowDimensions(); // IH (IF P2-1): reaktywnie
   // IF (D-1881): nazwa akcji („Sprawdzenie (call)”), stopień i dopisek mieszczą się w segmencie (rozmiar ze skali, zmniejszony tylko gdy najdłuższy wyraz nie mieści się)
   const pole = poleTekstuSegmentu(wpisy.length, skala, szerokoscEkranu);
   return (
     <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={[styles.pasekOcen, { backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>
       {wpisy.map(({ a, o }, i) => (
-        <View key={a} style={[styles.segmentOceny, { ...wymiarSegmentu(wpisy.length, PixelRatio.getFontScale()), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : lewaKrawedzSegmentu(i, wpisy.length, skala, szerokoscEkranu) }]}>
+        <View key={a} style={[styles.segmentOceny, { ...wymiarSegmentu(wpisy.length, skala), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : lewaKrawedzSegmentu(i, wpisy.length, skala, szerokoscEkranu) }]}>
           <Text style={[styl.naglowek, rozmiarDoSzerokosci(nazwy[a] ?? '', pole, skala, styl.naglowek), { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>
           <Text style={[styl.drobny, rozmiarDoSzerokosci(`${ZNAK[o]} ${t(`grade.${o}`)}`, pole, skala, styl.drobny), { color: tk.actionInk, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
           {a === wybor ? <Text style={[styl.drobny, rozmiarDoSzerokosci(t('scenario.scale.yourChoice'), pole, skala, styl.drobny), { color: tk.goldText, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}

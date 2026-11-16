@@ -1,5 +1,5 @@
-import type { ReactNode, Ref } from 'react';
-import { Dimensions, PixelRatio, Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewInstance, type ViewStyle } from 'react-native';
+import { useState, type ReactNode, type Ref } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View, type ScrollViewInstance, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import { rozmiarDoSzerokosci } from './dopasowanie';
@@ -76,15 +76,20 @@ export function Button({
   testID?: string;
 }) {
   const tk = useTokens();
+  const { width: szerokoscOkna, fontScale } = useWindowDimensions(); // IH (IF P2-1): reaktywnie, wzór Trening `components/Segmented.tsx:36`
+  const [szerokoscPola, ustawSzerokoscPola] = useState(0);
   const primary = variant === 'primary';
-  // IF (D-1880): etykieta z długim wyrazem („Zobacz podsumowanie”) nie wychodzi poza przycisk przy 320 pt i AX5: rozmiar dopasowany do pola (ekran − 2 × 16 − 2 × 24 − obrys), zawijanie między wyrazami.
-  const rozmiar = rozmiarDoSzerokosci(label, Dimensions.get('window').width - 2 * odstep.l - 2 * odstep.xxl - 2 * BUTTON_OBRYS, PixelRatio.getFontScale(), styl.tresc);
+  // IF (D-1880), IH (IF P2-2): etykieta z długim wyrazem („Zobacz podsumowanie”) nie wychodzi poza przycisk przy 320 pt i AX5: rozmiar dopasowany do pola przycisku
+  // (jego szerokość z układu − 2 × padding − 2 × obrys; para flex:1 i Surface dają węższe pole niż ekran); przed pierwszym układem szerokość ekranu − 2 × `odstep.l`.
+  const szerokoscPrzycisku = szerokoscPola > 0 ? szerokoscPola : szerokoscOkna - 2 * odstep.l;
+  const rozmiar = rozmiarDoSzerokosci(label, szerokoscPrzycisku - 2 * odstep.xxl - 2 * BUTTON_OBRYS, fontScale, styl.tresc);
   return (
     <Pressable
       testID={testID}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
       onPress={onPress}
+      onLayout={(e) => { const x = Math.round(e.nativeEvent.layout.width); if (x > 0 && x !== szerokoscPola) ustawSzerokoscPola(x); }}
       disabled={disabled}
       style={({ pressed }) => [
         styles.button,

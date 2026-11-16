@@ -3,7 +3,7 @@
 // granatowy pasek (tokeny actionBg/actionEdge/actionInk), podstawa segmentu od fontScale jak `PasekStrategii` (nie stałe 96 pt, nie białe kafle),
 // twój wybór w złotej obwódce z dopiskiem. Przy AX5 segmenty zawijają się w pionowy stos tą samą podstawą.
 import '@/i18n';
-import { PixelRatio, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { render, renderHook, screen } from '@testing-library/react-native';
 import { podstawaSegmentu } from '@/theme/skalowanie';
 import { useTokens } from '@/theme/tokens';
@@ -16,8 +16,12 @@ jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({
 
 const AKCJE = { fold: 'zgodne', call: 'niedokladnosc', '4bet': 'blad' } as const;
 const NAZWY = { fold: 'Pas', call: 'Sprawdzenie', '4bet': '4-bet' } as const;
-const skala = (s: number) => jest.spyOn(PixelRatio, 'getFontScale').mockReturnValue(s);
-afterEach(() => jest.restoreAllMocks());
+// IH (IF P2-1): komponenty czytają skalę i szerokość z `useWindowDimensions` (Dimensions.get('window')), więc test podmienia wymiary okna (wcześniej PixelRatio.getFontScale); asercje bez zmian.
+const OKNO_DOMYSLNE = { width: 750, fontScale: 1 }; // szerokość okna jak w jest-expo (750), skala 1 do czasu skala(...)
+const okno = { ...OKNO_DOMYSLNE };
+const mockOkno = () => jest.spyOn(Dimensions, 'get').mockReturnValue({ width: okno.width, height: 844, scale: 3, fontScale: okno.fontScale });
+const skala = (s: number) => { okno.fontScale = s; return mockOkno(); };
+afterEach(() => { jest.restoreAllMocks(); Object.assign(okno, OKNO_DOMYSLNE); });
 
 const styl = (n: ReactTestInstance) => StyleSheet.flatten(n.props.style) ?? {};
 /** Segment = najbliższy przodek nazwy akcji ze stylem flexBasis. */
