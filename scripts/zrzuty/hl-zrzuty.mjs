@@ -41,7 +41,7 @@ for (const ekran of ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
       await strona.goto(`http://localhost:${port}/?ekran=${ekran}&fs=${ax5 ? AX5 : 1}`, { waitUntil: 'networkidle' });
       await strona.waitForTimeout(500);
       await dopasujWysokosc(strona, szer);
-      const wynik = await strona.evaluate(({ ocena }) => {
+      const wynik = await strona.evaluate(({ ocena, przebieg, ax5: duzy }) => {
         const W = document.documentElement.clientWidth; const out = [];
         for (const e of document.querySelectorAll('*')) {
           const txt = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent.trim()).join(' ').trim();
@@ -59,12 +59,19 @@ for (const ekran of ['start', 'decyzja', 'ocena-zgodna', 'ocena-blad']) {
           if (!przycisk) out.push('brak „Zobacz podsumowanie”');
           else if (przycisk.getBoundingClientRect().bottom > H) out.push('„Zobacz podsumowanie” poza kadrem zrzutu');
         }
+        if (przebieg) {
+          // HW (08-programista-501): przy AX5 nagłówek przebiegu musi się ułożyć w kolumnę (gałąź układu zależna od fontScale), przy tekście domyślnym w wiersz.
+          const naglowek = [...document.querySelectorAll('[role="heading"]')].find((e) => e.textContent.trim() === 'Scenariusz');
+          const kierunek = naglowek ? getComputedStyle(naglowek.parentElement).flexDirection : 'brak nagłówka';
+          const oczekiwany = duzy ? 'column' : 'row';
+          if (kierunek !== oczekiwany) out.push(`brak układu dużego tekstu: nagłówek przebiegu flexDirection=${kierunek}, oczekiwano ${oczekiwany}`);
+        }
         return { out, tekst: document.body.innerText.length };
-      }, { ocena: ekran.startsWith('ocena') });
+      }, { ocena: ekran.startsWith('ocena'), przebieg: ekran !== 'start', ax5 });
       const nazwa = `hl-${ekran}-${szer}${ax5 ? '-ax5' : ''}.png`;
       if (wynik.tekst < 20) bledy.push('pusty ekran');
       await strona.screenshot({ path: path.join(wyjscie, nazwa), fullPage: true });
-      const twarde = (x) => !ax5 || bledy.includes(x) || /kadrem|brak /.test(x);
+      const twarde = (x) => !ax5 || bledy.includes(x) || /kadrem|brak |układu/.test(x);
       for (const x of [...wynik.out, ...bledy]) { console.log(`${twarde(x) ? '' : 'INFO '}${nazwa}: ${x}`); if (twarde(x)) problemy++; }
       await ctx.close();
     }

@@ -6,8 +6,7 @@ import { createElement, forwardRef, type ReactElement } from 'react';
 import type { TextProps } from 'react-native';
 import StyleSheet from 'react-native-web/dist/exports/StyleSheet';
 import TekstWeb from 'react-native-web/dist/exports/Text';
-
-const skala = Number(new URLSearchParams(globalThis.location?.search ?? '').get('fs') ?? '1') || 1;
+import { skalaTekstu as skala } from './skala';
 
 const Text = forwardRef<unknown, TextProps>(function Text(props, ref): ReactElement {
   const { style, allowFontScaling, maxFontSizeMultiplier, ...reszta } = props;
