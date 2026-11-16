@@ -220,6 +220,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       const liczba = ctx.numberValue;
       if (liczba) {
         if (liczba('xr.mult.example') !== undefined && Math.abs(liczba('xr.mult.example')! - d.multipliers.big) > 1e-9) e.push(`${p} multipliers.big ${d.multipliers.big} różni się od xr.mult.example ${liczba('xr.mult.example')} (jedno źródło prawdy)`);
+        if (liczba('cbet.size.small') !== undefined && Math.abs(liczba('cbet.size.small')! - d.cbet) > 1e-9) e.push(`${p} cbet ${d.cbet} różni się od cbet.size.small ${liczba('cbet.size.small')} (jedno źródło prawdy, HT HR-005)`);
         if (d.multipliers.small !== undefined && liczba('xr.too-small.mult') !== undefined && Math.abs(liczba('xr.too-small.mult')! - d.multipliers.small) > 1e-9) e.push(`${p} multipliers.small ${d.multipliers.small} różni się od xr.too-small.mult ${liczba('xr.too-small.mult')}`);
       }
       for (const l of SCENARIO_LEVELS_LIST) {
