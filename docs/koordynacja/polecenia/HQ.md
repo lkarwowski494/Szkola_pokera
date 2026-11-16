@@ -1,0 +1,14 @@
+# Sesja HQ: styl długiego tytułu i widok limperów (04 build, projekt) — Szkoła Pokera
+Koordynator: session_01T66VBwf1bNLY6pRHh6Xc12 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: koordynacja (tylko do odczytu).
+
+1. Rola: 04-studio-projektowe w trybie build. Prompt roli jest w twoich pierwszych wiadomościach po linii `=== PROMPT ROLI ===` (kilka części); zacznij dopiero po ostatniej; przeczytaj w całości. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `claude/sesja-hq-projekt` od `claude/sleepy-brahmagupta-2065nu` @ 14fdc7c6. Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów wg CLAUDE.md.
+3. Zadania (tylko projekt: `docs/design/**`, tokeny w specyfikacji; kod robi później rola 08):
+   1. **Styl długiego tytułu sytuacji** — decyzja właściciela 2026-11-16 ok. 12:00 UTC: „A” (= „Mniejszy styl tytułu”: rola 04 dodaje mniejszy styl dla długich tytułów). Kontekst: znalezisko 503 w `docs/programista/recenzje/recenzja-hm-hk-hl.md` (tytuł = pierwsze zdanie sytuacji, D-1660; SC-29 pl 5–7 wierszy przy 390, kryterium ≤ 3). Zaprojektuj regułę (próg długości albo liczby wierszy, token rozmiaru/wagi, zachowanie przy AX5 i 320 pt, wszystkie języki w tym CJK) w `docs/design/scenariusz-i-ocena.md`. Gotowe: reguła z tokenem + makieta/zrzut (narzędzie `pnpm zrzuty:web`; uwaga 501/502 z recenzji HM — „AX5” w tym narzędziu nie skaluje tekstu, użyj łatki fontScale jak D-1680) + kryterium akceptacji dla 08.
+   2. **Widok limperów dla SC-09 (rodzaj iso-size)**: ekran scenariusza nie pokazuje graczy, którzy weszli za wpisowe (limperów); zaprojektuj, jak ich pokazać na stole i w dzienniku akcji, spójnie z istniejącym systemem. Gotowe: specyfikacja + makieta + kryteria dla 08.
+   3. Lista „nowe rodzaje bez widoku” od HO (SC-16, 18, 21, 26, 27, 30) — tylko inwentarz: czy istniejące widoki wystarczą, czy potrzebny projekt (bez projektowania, HO jeszcze pracuje).
+4. Zakazy: bez kodu aplikacji; nie scalasz do integracji ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela (bez AskUserQuestion). STOP-y roli i punkt czyszczenia → raport do koordynatora; wybory wyglądu poza systemem → PYTANIE do koordynatora z ≥ 2 opcjami i rekomendacją.
+5. Decyzje: tryb analogia (najpierw lkarwowski494/trening, `repo:plik:linia`, do weta). Pula D-1730…D-1739, zapis w `docs/decyzje/HQ.md`.
+6. Koszt: pułap 8 USD; próg STOP 10,4 USD. Progu % kontekstu nie ma (właściciel 16.11).
+7. Push: zbiorczo na swoją gałąź.
+8. Raporty (≤ 10 linii, send_message): po starcie liczba linii „# ” i „#” w prompcie; PYTANIE; PRZEKAZANIE (SHA, pliki, decyzje do weta, kryteria dla 08, otwarte).
