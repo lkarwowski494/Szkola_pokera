@@ -1,0 +1,23 @@
+# HO: pnpm run ci @ 8b701ea7 (2026-11-16) — kod 0
+Gałąź claude/sesja-ho-silnik po scaleniu HN @ 154a960a/6db279ab i HP @ 24533007. Koniec logu:
+  packages/srs test:  Test Files  3 passed (3)
+  packages/srs test:       Tests  21 passed (21)
+  packages/jezyki test:  Test Files  6 passed (6)
+  packages/jezyki test:       Tests  144 passed (144)
+  packages/poker-core test:  Test Files  43 passed (43)
+  packages/poker-core test:       Tests  337 passed (337)
+  packages/domena test:  Test Files  27 passed (27)
+  packages/domena test:       Tests  347 passed | 1 expected fail (348)
+  tools/preflop-solver test:  Test Files  9 passed (9)
+  tools/preflop-solver test:       Tests  44 passed (44)
+  packages/postep test:  Test Files  21 passed (21)
+  packages/postep test:       Tests  160 passed (160)
+  tools/content-build test:  Test Files  80 passed (80)
+  tools/content-build test:       Tests  849 passed | 1 expected fail (850)
+   Test Files  6 passed (6)
+        Tests  35 passed (35)
+  > szkola-pokera@ tresci:el-kontrola /home/user/Szkola_pokera
+  > node docs/tresci/narzedzia/el-kontrola.mjs --ko076
+  
+  0 braków
+  exit=0
