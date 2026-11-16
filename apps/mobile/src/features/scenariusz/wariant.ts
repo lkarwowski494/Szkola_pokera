@@ -54,13 +54,13 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
       return p.options.map((o) => akcjaSpotu(o.action)); // kolejność węzła solvera: pas, sprawdzenie, rosnące podbicia, all-in
     case 'pick-hand':
       return ['hand-a', 'hand-b']; // KO-072: wybór jednej z dwóch rąk; nazwa akcji to karty ręki (EkranScenariusza.tekstAkcji)
-    case 'turn-bet':
     case 'nit-3bet': // HO (08-EX-8, SC-30): pas albo sprawdzenie 3-betu nita (widok: zadanie dla roli 04)
       return ['fold', 'call'];
     case 'check-raise': // HO (08-EX-7, SC-16): BB z drawem wobec małego c-betu; lista poziomu T ma też raise-small (widok: zadanie dla roli 04)
-      return ['fold', 'call', 'raise-small', 'raise-big'];
+      return (['fold', 'call', 'raise-small', 'raise-big'] as const).filter((a) => spec?.kind !== 'check-raise' || spec.actions.some((x) => x.action === a)); // lista z szablonu (T ma raise-small, Ś nie)
     case 'turn-action': // HO (08-EX-6, SC-18/21): czekanie albo zakład na turnie; lista akcji poziomu to ten sam zbiór co w c-becie (widok: zadanie dla roli 04)
-      return ['check', 'bet-small', 'bet-big'];
+      return (['check', 'bet-small', 'bet-big'] as const).filter((x) => spec?.kind !== 'turn-action' || spec.actions.some((y) => y.action === x)); // lista z szablonu
+    case 'turn-bet':
     case 'geo-size': // HO (08-EX-4, SC-27): mały albo geometryczny zakład na flopie (widok: zadanie dla roli 04)
     case 'flop-size': // FL (08-FD-3, D-1419): ten sam widok co turn-bet, ulica flop
       return ['bet-small', 'bet-big']; // FG (D-1147): mały albo duży zakład na turnie, najtańszy pierwszy
