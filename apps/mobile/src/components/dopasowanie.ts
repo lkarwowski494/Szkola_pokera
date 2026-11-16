@@ -6,12 +6,9 @@
  * Czyste funkcje, bez React Native.
  */
 import { dlugoscWazona } from '@/features/scenariusz/tytul';
-import { MIN_ROZMIAR_PT, SZEROKOSC_ZNAKU_EM } from '@/features/ocena/slowoStopnia';
+import { MIN_ROZMIAR_PT, SZEROKOSC_ZNAKU_EM, ZAPAS_DOPASOWANIA, type RozmiarTekstu } from '@/features/ocena/slowoStopnia';
 
-export type RozmiarTekstu = { readonly fontSize: number; readonly lineHeight: number };
-
-/** Zapas przy dopasowaniu (1 %), jak w D-1850. */
-const ZAPAS = 0.99;
+// IH (IF P3-1): `RozmiarTekstu` i zapas dopasowania (1 %, D-1850) mają jedną definicję, w `slowoStopnia.ts`.
 const SZEROKIE = /[⺀-鿿豈-﫿가-힯ᄀ-ᇿ＀-￯　-〿]/u;
 
 /**
@@ -42,6 +39,6 @@ export function szerokoscOdcinka(tekst: string, fontSize: number, skala: number)
 export function rozmiarDoSzerokosci(tekst: string, dostepna: number, skala: number, styl: RozmiarTekstu): RozmiarTekstu {
   const szerokosc = szerokoscOdcinka(tekst, styl.fontSize, skala);
   if (szerokosc <= dostepna) return { fontSize: styl.fontSize, lineHeight: styl.lineHeight };
-  const wspolczynnik = Math.min(1, Math.max((ZAPAS * dostepna) / szerokosc, MIN_ROZMIAR_PT / (skala * styl.fontSize)));
+  const wspolczynnik = Math.min(1, Math.max((ZAPAS_DOPASOWANIA * dostepna) / szerokosc, MIN_ROZMIAR_PT / (skala * styl.fontSize)));
   return { fontSize: styl.fontSize * wspolczynnik, lineHeight: styl.lineHeight * wspolczynnik };
 }

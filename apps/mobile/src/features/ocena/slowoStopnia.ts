@@ -14,7 +14,7 @@ export const MARGINESY_SUKNA = 88;
 export const MIN_ROZMIAR_PT = 15;
 
 /** Zapas przy dopasowaniu (1 %): wynik nie leży dokładnie na granicy (błąd zaokrąglenia liczb zmiennoprzecinkowych). */
-const ZAPAS_DOPASOWANIA = 0.99;
+export const ZAPAS_DOPASOWANIA = 0.99;
 
 export type RozmiarTekstu = { readonly fontSize: number; readonly lineHeight: number };
 
