@@ -1,0 +1,13 @@
+# Rachunek ręczny HR (≥ 2 przypadki na punkt), 2026-11-16. Wzory silnika: packages/poker-core/src/scenario-gen.ts @ 9677c41c; math.ts requiredEquity = bet ÷ (pot + 2·bet), geometricFraction = ((1 + 2·SPR)^(1/n) − 1) ÷ 2.
+spr-call (cena all-inu S ÷ (P + 2S)):
+  P 5,5, S 11  → SPR 2,000; cena 11 ÷ 27,5 = 0,4000. Żetony: pula 5,5 + 11 rywala = 16,5, dopłata 11 → 27,5. OK.
+  P 5,5, S 12,5 → SPR 2,273 (∈ [1,8; 2,3]); cena 12,5 ÷ 30,5 = 0,4098. OK.
+geo-size (n = 3):
+  SPR 4: f = (9^(1/3) − 1) ÷ 2 = 0,5400. Pula 10, stack 40: 5,40 → pula 20,80; 11,23 → 43,27; 23,37 → razem 40,00 = stack. OK.
+  SPR 8: f = (17^(1/3) − 1) ÷ 2 = 0,7856. Pula 10, stack 80: 7,86 → 25,71; 20,20 → 66,12; 51,94 → razem 80,00. OK.
+  Mały 1/3, pula 10: 3,33 + 5,56 + 9,26 = 18,15 < 20 (połowa stacku przy SPR 4). OK (warunek HP).
+check-raise (cena BTN (R − c) ÷ (pula + 2R)):
+  pula 6, c 2, R 4,5 × 2 = 9: dopłata 7, pula końcowa 6 + 2 + 9 + 7 = 24 → 7 ÷ 24 = 0,2917. OK.
+  pula 6, c 2, R 1,5 × 2 = 3: dopłata 1, pula 6 + 2 + 3 + 1 = 12 → 1 ÷ 12 = 0,0833. OK.
+nit-3bet: patrz hr-rachunek-nit3bet.txt (2 wartości VPIP, 11 rąk).
+turn-action: bez rachunku (heurystyka, D-1052); sprawdzone warunki zamiast liczb (mutant M6).
