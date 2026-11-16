@@ -16,7 +16,7 @@ name: Powtórki
       id: 'dzis-lekcja'
     timeout: 30000
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 # D-541/KO-045: zakładki „Powtórki” nie ma; kolejka powtórek otwiera się z kafelka `dzis-powtorki`, przez ekran startu
 # („Zacznij”) do stanu pustej kolejki. Asercja ta sama, zmiana ścieżki dotarcia.
 - tapOn:
@@ -29,4 +29,4 @@ name: Powtórki
 - tapOn: 'Zamknij'
 # powrót: (tabs)/index
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'

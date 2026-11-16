@@ -3,7 +3,7 @@
 # na ekranie pytania. BR-ONB-001, BR-ONB-004. (PU-001, PU-002)
 # D-1780/IA: znacznik ekranu = testID korzenia trasy (`ekran:<trasa>`, apps/mobile/src/components/ZnacznikEkranu.tsx); id w Maestro to regex, więc nawiasy trasy są z ukośnikiem.
 # `# powrót: <trasa>` stoi tuż przed krokiem wstecz Z tej trasy; dla zakładki (korzenia) przed asercją, która potwierdza powrót na nią (D-1831).
-# Powitanie i pytania oceny to stan nad nawigacją (BramkaStartu, app/_layout.tsx), nie trasa: bez znacznika; trasa `(tabs)/index` (D-1832).
+# Powitanie i pytania oceny to stan nad nawigacją (BramkaStartu podstawia je w app/_layout.tsx zamiast `children`), nie trasa: bez znacznika; po nich trasa `(tabs)/index` (D-1834).
 appId: pl.lkarwowski.szkolapokera
 name: Ocena poziomu
 ---
@@ -56,6 +56,6 @@ name: Ocena poziomu
     visible: '${LEKCJA_START_TYTUL}'
     timeout: 30000
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 - assertNotVisible: '.*(\$|€|zł|Przywróć zakupy).*'
 - takeScreenshot: 05-dzis-po-rozpoczeciu-od-poczatku

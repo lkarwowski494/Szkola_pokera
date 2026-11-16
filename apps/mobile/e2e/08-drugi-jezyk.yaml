@@ -23,7 +23,7 @@ name: Drugi język
 - tapOn:
     id: 'zakladka-lekcje'
 - assertVisible:
-    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
+    id: 'ekran:\(tabs\)/lessons'
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'
@@ -35,13 +35,13 @@ name: Drugi język
 - assertVisible: '${LEKCJA_START_TYTUL_EN}'
 - assertNotVisible: '${LEKCJA_START_TYTUL}'
 - assertVisible:
-    id: 'ekran:lesson/\[id\]' # ekran:lesson/[id]
+    id: 'ekran:lesson/\[id\]'
 - takeScreenshot: 08-lekcja-en
 # powrót: lesson/[id]
 - tapOn: '${WROC_EN}'
 # powrót: (tabs)/lessons
 - assertVisible:
-    id: 'ekran:\(tabs\)/lessons' # ekran:(tabs)/lessons
+    id: 'ekran:\(tabs\)/lessons'
 # powrót z lekcji na „Dziś” przez ponowne uruchomienie (bez zapisanego wyboru: dalej telefon en)
 - stopApp
 - launchApp:
@@ -74,7 +74,7 @@ name: Drugi język
 # powrót: settings
 - tapOn: 'Wróć'
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 # (3) ustawienie ręczne zapisane: telefon dalej po angielsku, aplikacja po polsku
 - stopApp
 - launchApp:

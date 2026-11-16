@@ -13,7 +13,7 @@ name: Zakup z ustawień
       AppleLanguages: '(pl)'
 - runFlow: wspolne/za-powitaniem.yaml
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 - tapOn:
     id: 'ustawienia'
 - assertVisible:
@@ -33,11 +33,12 @@ name: Zakup z ustawień
 # powrót: purchase
 - tapOn: 'Zamknij'
 - assertVisible: 'Zakupy'
-- assertVisible:
-    id: 'ekran:settings'
+# ekran zakupu jest nad ustawieniami (modal): asercja ekran:settings stałaby pod nim i nic by nie rozstrzygała, więc rozstrzyga zniknięcie znacznika zakupu (IC, P3 IA)
+- assertNotVisible:
+    id: 'ekran:purchase'
 - assertNotVisible: 'Bez dziennego limitu.*'
 # powrót: settings
 - tapOn: 'Wróć'
 # powrót: (tabs)/index
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'

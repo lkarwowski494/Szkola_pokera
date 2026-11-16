@@ -81,7 +81,7 @@ name: Scenariusz
       id: 'dzis-scenariusz'
     timeout: 30000
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
 - tapOn:
     id: 'dzis-scenariusz'
 - assertVisible:
@@ -139,4 +139,4 @@ name: Scenariusz
 - tapOn: 'Wróć'
 # powrót: (tabs)/index
 - assertVisible:
-    id: 'ekran:\(tabs\)/index' # ekran:(tabs)/index
+    id: 'ekran:\(tabs\)/index'
