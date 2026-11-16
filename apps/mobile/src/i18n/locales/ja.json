@@ -451,7 +451,8 @@
       "raise": "{{pos}}：{{bb}} bbに{{t:raise|レイズ}}",
       "allin": "{{pos}}：オールイン {{bb}} bb",
       "blinds": "ブラインド {{sb}}/{{bb}} bb",
-      "limp": "{{pos}}：{{bb}} bbで{{t:limp|リンプ}}"
+      "limp": "{{pos}}：{{bb}} bbで{{t:limp|リンプ}}",
+      "sep": "。"
     },
     "streets": {
       "preflop": "{{t:preflop|プリフロップ}}",
@@ -580,7 +581,6 @@
     "stateAfter": "あなたの後",
     "stateRaise": "{{t:raise|レイズ}}",
     "stateLimp": "リンプ",
-    "seatLimp": "{{pos}} {{t:limp|リンプ}}",
     "limped_other": "{{list}} {{t:limp|リンプ}}",
     "seatHeroCards": "あなたは{{pos}}、カードは{{cards}}"
   },

@@ -473,7 +473,8 @@
       "raise": "{{pos}} : {{t:raise|relance}} à {{bb}} bb",
       "allin": "{{pos}} : all-in {{bb}} bb",
       "blinds": "Blindes {{sb}}/{{bb}} bb",
-      "limp": "{{pos}} : {{t:limp|limpe}} {{bb}} bb"
+      "limp": "{{pos}} : {{t:limp|limpe}} {{bb}} bb",
+      "sep": ". "
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -608,7 +609,6 @@
     "stateAfter": "après vous",
     "stateRaise": "{{t:raise|relance}}",
     "stateLimp": "limp",
-    "seatLimp": "{{pos}} {{t:limp|limpe}}",
     "limped_one": "{{list}} {{t:limp|limpe}}",
     "limped_many": "{{list}} {{t:limp|limpent}}",
     "limped_other": "{{list}} {{t:limp|limpent}}",

@@ -781,7 +781,8 @@
     }
   },
   "table.stateLimp": "Użyty w: components/Stol.tsx — stan miejsca przy stole scenariusza, mały napis w pigułce 72 pt (rozmiar stały; najwyżej ok. 10 znaków). Gracz wszedł do puli przed flopem samym wyrównaniem blindu (limp). Słowo terminu, nie tłumaczyć opisowo (HX, D-1734).",
-  "table.seatLimp": "Użyty w: features/stol/uklad.ts (etykieta VoiceOver stołu scenariusza). pos = nazwa pozycji (UTG, HJ, CO, BTN, SB, BB — nie tłumaczyć). Jeden gracz wszedł do puli samym wyrównaniem blindu (limp); wersja z liczbą mnogą: table.limped_* (HX, D-1735).",
   "table.seatHeroCards": "Użyty w: features/stol/uklad.ts (etykieta VoiceOver stołu scenariusza). pos = pozycja gracza, cards = nazwy dwóch kart („as pik i walet karo”), już złożone z kluczy card.*. Odmiana kart nie jest potrzebna: karty po przecinku, nie po „z” (HX, D-1735).",
-  "play.log.limp": "Użyty w: features/scenariusz/wariant.ts (wiersz dziennika „Preflop” scenariusza iso-size). Parametry: pos (pozycja), bb (kwota wpłaty: 1 bb, SB 0,5 bb). Ok. 20 znaków. Wzór jak play.log.call (HX, D-1736)."
+  "play.log.limp": "Użyty w: features/scenariusz/EkranScenariusza.tsx (wiersz dziennika „Preflop” scenariusza iso-size, funkcja ruchRywala). Parametry: pos (pozycja), bb (kwota wpłaty: 1 bb, SB 0,5 bb). Ok. 20 znaków. Wzór jak play.log.call (HX, D-1736; ścieżkę poprawiono w IA, D-1832).",
+  "table.limped": "Użyty w: features/stol/uklad.ts (etykieta VoiceOver stołu scenariusza). list = pozycje graczy, którzy weszli do puli samym wyrównaniem blindu (limp): jedna pozycja („HJ”) albo lista z table.listAnd („HJ i CO”); pos nie tłumaczyć (UTG, HJ, CO, BTN, SB, BB). Formy liczby mnogiej _one/_few/_many/_other wg count (liczba limperów); {{t:limp|…}} = termin „limp” ze słownika (HX, D-1735; table.seatLimp scalono tu w IA, D-1832).",
+  "play.log.sep": "Użyty w: features/scenariusz/EkranScenariusza.tsx (łączy wpisy wiersza dziennika „Preflop” i opis ruchu rywala dla czytnika: „Blindy 0,5/1 bb. UTG: pas. HJ: limp 1 bb”). Tekst między wpisami: w językach z łacińską kropką „. ” (kropka i spacja); w japońskim i chińskim tradycyjnym „。” bez spacji (IA, D-1833)."
 }

@@ -473,7 +473,8 @@
       "raise": "{{pos}}: {{t:raise|sube}} a {{bb}} bb",
       "allin": "{{pos}}: all-in {{bb}} bb",
       "blinds": "Ciegas {{sb}}/{{bb}} bb",
-      "limp": "{{pos}}: {{t:limp|hace limp}} {{bb}} bb"
+      "limp": "{{pos}}: {{t:limp|hace limp}} {{bb}} bb",
+      "sep": ". "
     },
     "streets": {
       "preflop": "{{t:preflop|Preflop}}",
@@ -608,7 +609,6 @@
     "stateAfter": "tras ti",
     "stateRaise": "{{t:raise|sube}}",
     "stateLimp": "limp",
-    "seatLimp": "{{pos}} {{t:limp|hace limp}}",
     "limped_one": "{{list}} {{t:limp|hace limp}}",
     "limped_many": "{{list}} {{t:limp|hacen limp}}",
     "limped_other": "{{list}} {{t:limp|hacen limp}}",
