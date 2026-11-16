@@ -390,9 +390,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
-| HN | (start) | 06 build | claude/sesja-hn-szablony @ 0b0855ef | — | — | szablony umie/częściowo → content |
-| HO | (start) | 08 build | claude/sesja-ho-silnik @ 0b0855ef | — | — | warunki silnika |
-| HP | (start) | 06 build docs | claude/sesja-hp-szkice @ 0b0855ef | — | — | szkice SC-16/18/21/26/27/30 |
+| HN | session_01T66VByn34ySUEDLvkKsHAd | 06 build | claude/sesja-hn-szablony @ 0b0855ef | — | — | szablony umie/częściowo → content |
+| HO | session_01T66VBvs6bB6ReRDEcQhGa9 | 08 build | claude/sesja-ho-silnik @ 0b0855ef | — | — | warunki silnika |
+| HP | session_01T66VBxf46HtnMcvu56UqSQ | 06 build docs | claude/sesja-hp-szkice @ 0b0855ef | — | — | szkice SC-16/18/21/26/27/30 |
 | HM | session_01T66VByqWvYiGwwPzE9nBaF | 08 audit (opus/high) | claude/sesja-hm-recenzja @ 0b0855ef | — | — | recenzja HK 375efeff + HL cf296709 |
 | HK | session_01T66VC12KLWid2RQWmsRSMD | 08 fix (sonnet/medium) | claude/sesja-hk-fix @ 0b0855ef | — | — | start 10:18, E1 (plan KO-107) |
 | HL | session_01T66VBzMYx4YBzdqKFLJvzF | 08 build (sonnet/medium) | claude/sesja-hl-web @ 0b0855ef | — | — | start 10:19 |
@@ -1090,3 +1090,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11:10 (16.11) | HK | PRZEKAZANIE claude/sesja-hk-fix @ 375efeff (8 commitów, autor zgodny; kod bf3b6ed3; ci kod 0 w 2. przebiegu, 1. timeout terms-nazwy-09 — brzegowy); D-1660…1663; pliki rozłączne z HL (sprawdzone diff --name-only). Pyt. 3 (katalog PU) → w JAK-19 | HM recenzja |
 | 11:15 (16.11) | HM | start session_01T66VByqWvYiGwwPzE9nBaF (08 audit opus, prompt 3 części; nagłówki w pliku 9/43 — czekam na raport) | PRZEKAZANIE HM |
 | 11:20 (16.11) | właściciel | „szablony - A” → polecenia HN (06), HO (08), HP (06 docs); pule D-1690…1729; następna litera HQ, D-1730 | start HN/HO/HP |
+| 11:25 (16.11) | HN, HO, HP | start (prompt 3 części każda; HN nagłówki 10/42 zgodne) | plany E0 |
