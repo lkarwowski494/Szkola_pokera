@@ -35,6 +35,18 @@ function para(hero: readonly number[], flop: readonly number[]): { rodzaj: 'over
 }
 
 describe('08-EX-5: spr-call', () => {
+  it(`HT HR-004 (M3): poziom bez pairKind i bez kickerów: ${LOSOWANIA} wariantów to wyłącznie nadpara albo najwyższa para (druga para jest odrzucana przez strażnik silnika, nie przez filtr poziomu)`, () => {
+    const t = szablon(poziom({}));
+    const widziane = new Set<string>();
+    for (let seed = 1; seed <= LOSOWANIA; seed++) {
+      const v = generateVariant(t, 'latwy', seed, ctx);
+      const flop = v.board.slice(0, 3).map(rankOf);
+      const r = para(v.hero.map(rankOf), flop);
+      expect(r.rodzaj, `ziarno ${seed}`).not.toBe('inne');
+      widziane.add(r.rodzaj);
+    }
+    expect([...widziane].sort()).toEqual(['overpair', 'top']);
+  }, 300_000);
   it('rachunek: cena przy SPR 2 to dokładnie 0,4 (S ÷ (P + 2S))', () => {
     const t = szablon(poziom({ sprRange: [2, 2] }), [5], [10]);
     const p = generateVariant(t, 'latwy', 1, ctx).points[0];
