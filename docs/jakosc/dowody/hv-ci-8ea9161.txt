@@ -1,0 +1,37 @@
+# Sesja HV (JAK-19): pnpm run ci na 8ea9161cfcd2b58172ae32a524a18dd82698883b, 2026-11-16, Linux x86_64, Node v22.23.4
+# kod wyjścia: 0; czas: real 21m18s
+# podsumowanie (grep z pełnego logu):
+packages/srs test:  Test Files  3 passed (3)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/poker-core test:  Test Files  43 passed (43)
+packages/domena test:  Test Files  27 passed (27)
+tools/preflop-solver test:  Test Files  9 passed (9)
+packages/postep test:  Test Files  21 passed (21)
+tools/content-build test:  Test Files  82 passed (82)
+apps/mobile test: Tests:       1483 passed, 1483 total
+# tests 222
+# pass 222
+# fail 0
+ Test Files  6 passed (6)
+0 braków
+
+# Dowód, że nowe testy potrafią paść (mutacje w kopii git worktree w scratchpadzie, cofnięte; drzewo commitu nietknięte):
+M1 pętla „ekran bez PU” wyłączona            → sprawdz-scenariusze.test: fail 1 (ekran bez PU → czerwona)
+M2 termin B przesunięty o 1                   → fail 1 (klasa B: termin minął)
+M3 protokół: „—” uznane za wynik              → fail 2 (protokół bez wyniku; --protokol otwarty)
+M4 warunek SHA przebiegu E2E wyłączony        → przeżył pierwszą wersję testu (wyjątek ze stosem zawierającym tekst komunikatu);
+                                                po zaostrzeniu (commit 8ea9161: czerwień tylko z werdyktu bramki) fail 1
+M4b różnica SHA zawsze pusta                  → fail 1 (przebieg z innego SHA)
+M5 testflight.yml: krok bramki z „|| true”    → workflowy.test: fail 1 (bramka scenariuszy … bez wyciszania)
+M6 testflight.yml: PASS mimo pominięcia E2E   → workflowy.test: fail 1
+M7 katalog: PU-019 usunięty                   → fail 1 (katalog PU tego repozytorium: bramka statyczna zielona)
+
+# Symulacja kroku testflight.yml (GITHUB_RUN_NUMBER=11, wykonane z listy flowów, kopia worktree):
+stan gałęzi            → BRAMKA CZERWONA (2): brak „Przegląd: build 1011 @ <sha>”, brak docs/jakosc/test-fizyczny/1011.md; kod 1
+--szkielet 1011 + Przegląd → BRAMKA ZIELONA; kod 0; protokół 1011: 7 pozycji F z wynikiem „—”
+
+# Poprawki po recenzji HV (P3-3): 4 nowe przypadki testu, mutacje na kopii w scratchpadzie (cofnięte)
+M8  „POMINIĘTE:” bez progu uzasadnienia (.size >= 0)  → fail 1 (protokół: „POMINIĘTE:” bez uzasadnienia albo zdublowana pozycja)
+M9  F bez kroków przyjęte                             → fail 1 (katalog: pozycja F bez kroków albo pusta kolumna „Warianty i błędy”)
+M10 puste „Warianty i błędy” przyjęte                 → fail 1 (j.w.)
+M11 zdublowane pozycje protokołu przyjęte             → fail 1 (protokół: … zdublowana pozycja)

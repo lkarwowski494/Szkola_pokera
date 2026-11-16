@@ -140,6 +140,26 @@ test('testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e-ios.yml n
   assert.equal(b.outputs?.numer_e2e, `\${{ steps.${krokBramki.id}.outputs.run }}`, 'numer zielonego przebiegu E2E jako wynik zadania');
 });
 
+// JAK-19 (D-060, zasada wspólna 22; sesja HV, D-1782): pełna bramka scenariuszy w zadaniu „bramka”, po bramce E2E, przed buildem;
+// numer buildu ten sam co w zadaniu build (1000 + numer przebiegu), wykonane scenariusze tylko z zielonej bramki E2E.
+test('testflight.yml: bramka scenariuszy użytkownika (D-060) przed buildem, po bramce E2E, bez wyciszania', () => {
+  const t = json('testflight.yml');
+  const b = t.jobs.bramka;
+  const i = b.steps.findIndex((k) => /node scripts\/sprawdz-scenariusze\.mjs --build "\$BUILD" --wykonane /.test(k.run ?? ''));
+  assert.ok(i >= 0, 'brak kroku sprawdz-scenariusze.mjs --build w zadaniu bramka');
+  const e2e = b.steps.findIndex((k) => /bramka-e2e\.mjs/.test(k.run ?? ''));
+  assert.ok(e2e >= 0 && e2e < i, 'bramka scenariuszy po bramce E2E (wykonane = zielony e2e-ios.yml)');
+  const k = b.steps[i];
+  assert.equal(k['continue-on-error'], undefined);
+  assert.equal(k.if, undefined, 'krok bramki bez warunku');
+  assert.doesNotMatch(k.run, /\|\|\s*true|set \+e/);
+  assert.match(k.run, /BUILD=\$\(\(1000 \+ GITHUB_RUN_NUMBER\)\)/);
+  assert.match(String(t.jobs.build.steps.map((s) => s.run ?? '').join('\n')), /BUILD_NUMBER=\$\(\(1000 \+ GITHUB_RUN_NUMBER\)\)/, 'ten sam numer buildu co w zadaniu build');
+  assert.match(k.run, /if \[ "\$POMIN" != "true" \]/, 'awaryjne pominięcie E2E nie daje wykonanych scenariuszy A');
+  assert.equal(k.env?.POMIN, '${{ inputs.pomin_bramke_e2e }}');
+  assert.ok([t.jobs.build.needs].flat().includes('bramka'));
+});
+
 test('testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit zadania bramki ≥ czekanie + 5 min (rośnie z liczbą flowów)', () => {
   const b = json('testflight.yml').jobs.bramka;
   const env = Object.assign({}, ...b.steps.map((s) => s.env ?? {}));
