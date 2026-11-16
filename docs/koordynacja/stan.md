@@ -38,6 +38,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **11:45 (16.11) HK+HL przyjęte (HM: PRZYJĄĆ Z UWAGAMI, d4e66c66; ci kod 0 na lokalnym scaleniu 39d90fb9).** Robocza @ **14fdc7c6** = 0b0855ef + merge --no-ff HK, HL, HM (0 konfliktów, autor zgodny); CI+E2E w toku — niesprawdzone. Uwagi → backlog/fix: 501, 502 (P1, narzędzie zrzutów HL: AX5 bez fontScale, ucinanie fullPage — zrzuty AX5 HL nie są dowodem), 504 (P2, luki testów HK: mutanty M3/M4/M6/M13). 503 (P2, tytuł SC-29 5–7 wierszy vs ≤ 3) → **pytanie do właściciela** (wygląd). Do weta: D-1680…1682. Następnie: JAK-19 (07) od 14fdc7c6 po zielonym CI+E2E.
 - **11:32 przekazanie ODWOŁANE słowami właściciela (mandat); następca nie powstał (list_sessions). Koordynator nadal session_01T66VBwf1bNLY6pRHh6Xc12; przypomnienia bez zmian.** Blok niżej = stan bieżący.
 - **11:30 (16.11) E6 (odwołane): przekazanie koordynatora session_01T66VBwf1bNLY6pRHh6Xc12 (kontekst 73% — próg przekroczony, nie mierzyłem wcześniej; lekcja: get_session po każdym starcie sesji; 10,79 USD).** Mandat bez zmian (ostatnie słowa właściciela 11:15 „szablony - A”).
   - **Aktywne:** **HM** session_01T66VByqWvYiGwwPzE9nBaF (08 audit opus, recenzja HK 375efeff + HL cf296709, `claude/sesja-hm-recenzja`; 11:15 CI na lokalnym scaleniu w tle, potem mutanty i zrzuty; 3,79 USD) · **HN** session_01T66VByn34ySUEDLvkKsHAd (06 build opus, E0 — plan do akceptacji) · **HO** session_01T66VBvs6bB6ReRDEcQhGa9 (08 build sonnet, E0 — plan do akceptacji, pierwszy raport nagłówków jeszcze nie dotarł; pliki 9/39) · **HP** session_01T66VBxf46HtnMcvu56UqSQ (06 build opus, plan E0 f8720c50 przyjęty 11:24; ma wypchnąć warunki-hp.md dla HO wcześniej i zgłosić SHA).
@@ -1103,3 +1104,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11:30 (16.11) | koordynator | E6: kontekst 73%, przekazanie; 4 aktywne (HM, HN, HO, HP), 2 bezczynne do odbioru (HK, HL) | następca |
 | 11:32 (16.11) | właściciel | „Stop. nie muysisz przekazywac.” — E6 odwołane, następca nie utworzony | kontrola 12:30 |
 | 11:35 (16.11) | właściciel | próg % kontekstu odrzucony trwale (autocompact 300k / 1M) | sesje podrzędne: informacja przy najbliższym kontakcie |
+| 11:45 (16.11) | koordynator | HK, HL, HM scalone do roboczej 14fdc7c6 (push OK) | CI+E2E, pytanie 503 |
