@@ -35,6 +35,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **10:25 sesje wystartowały:** **HK** session_01T66VC12KLWid2RQWmsRSMD (08 fix sonnet, `claude/sesja-hk-fix` @ 0b0855ef; prompt 3 części, nagłówki 8/33 zgodne z plikiem; plan E0 przyjęty KO-107) · **HL** session_01T66VBzMYx4YBzdqKFLJvzF (08 build sonnet, `claude/sesja-hl-web` @ 0b0855ef; prompt 3 części, raport nagłówków czeka). Bramka opłacalności (zasada 20): brak wyniku w repo; właściciel 16.11 10:10 „Pomiń tym razem” — wyjątek nazwany, do zapisu przy najbliższej linii jako pozycja planu (02-monetyzacja audit oplacalnosc). Kontrola ok. 11:25.
 - **10:15 (16.11) przejęcie: koordynator session_01T66VBwf1bNLY6pRHh6Xc12 (nowy łańcuch).** Od 15.11 05:00 bez zmian: 0 sesji podrzędnych Pokera (list_sessions), robocza @ 0b0855ef (CI 43535955130 + E2E 43535954922 success), main @ ddb0108. **Blokada add_repo prompts rozwiązana** (biblioteka w sesji, M9 złożona 454 linie). Etap aplikacji: TestFlight (buildy 1009 @ 40e5cef i 1010 @ 57a83bf z 10.11, dziennik). Kolejka: HK (08 fix 04-studio-projektowe-001…003 + 08-programista-404) od 0b0855ef; pytania do właściciela (react-native-web, 006, reguła anulowania) ponownie w tej turze. Przypomnienia: trig_014rCHa4YYxduqaFoBXe7MYS „linia 14:00” 16.11 13:51 · trig_01WMv7A5QioyEnHhRpHkmjBZ „linia 05:00” 17.11 04:51. Następna litera HK, D-1660, KO-107.
 - **10:25 odpowiedzi właściciela** (mandat): 006 → (a), react-native-web → (a), reguła anulowania „Dodam później”. Zlecam **HK** (08 fix, `claude/sesja-hk-fix`, D-1660…1669) i **HL** (08 build, `claude/sesja-hl-web`, D-1670…1679) równolegle od 0b0855ef, rozłączne pliki. Następna litera **HM**, D-1680, KO-107.
 - **04:55 (15.11) linia 05:00 napisana.** Bez zmian od 14.11 00:44: brak odpowiedzi właściciela (4 pytania z 14.11 05:00), 0 aktywnych sesji, robocza @ 0b0855ef. Koordynator: kontekst 14,9%, 3,04 USD (ok. 0,85 USD na linię bezczynności). Przypomnienie: linia 14:00 15.11 trig_01GJiZx7M9uESWVRqvEnPga3.
@@ -388,6 +389,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
+| HK | session_01T66VC12KLWid2RQWmsRSMD | 08 fix (sonnet/medium) | claude/sesja-hk-fix @ 0b0855ef | — | — | start 10:18, E1 (plan KO-107) |
+| HL | session_01T66VBzMYx4YBzdqKFLJvzF | 08 build (sonnet/medium) | claude/sesja-hl-web @ 0b0855ef | — | — | start 10:19 |
 | HD | session_01T66VBzXxmYEtFS9a88hBto | 06 audit (opus/high) | claude/sesja-hd-recenzja @ 0d59a42 | 0 | 0 | start 11:42, recenzja HA (prompt przepisany, zgodność niesprawdzona) |
 | HC | session_01T66VBzgo57oqeJshUtNyTH | 08 audit (opus/high) | claude/sesja-hc-recenzja @ d1f4e99d | 0 | 0 | start 11:20, recenzja HB |
 | HA | session_01T66VBz3nrTXL8BJSNzfhDV | 06 build | claude/sesja-ha-tresci @ 7740eeab | 0 | 0 | start 10:51 |
@@ -1066,3 +1069,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 13:55 | linia 14:00 | bez zmian; 4 pytania otwarte; 0 aktywnych | linia 05:00 15.11 |
 | 04:55 (15.11) | linia 05:00 | bez zmian; 4 pytania otwarte; 0 aktywnych | linia 14:00 15.11 |
 | 10:15 (16.11) | koordynator (nowy łańcuch) | przejęcie session_01T66VBwf1bNLY6pRHh6Xc12; poprzednik not found; 0 aktywnych; robocza 0b0855ef zielona; prompts dostępne | HK + pytania do właściciela |
+| 10:25 (16.11) | koordynator | HK i HL wystartowały (prompt 3+3 części); KO-107 plan HK przyjęty | kontrola 11:25 |
