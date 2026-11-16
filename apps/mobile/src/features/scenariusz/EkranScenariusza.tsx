@@ -16,6 +16,7 @@ import { ADRES_KONTAKTOWY } from '@/platform/adresy';
 import { odstep, styl, useTokens } from '@/theme/tokens';
 import { CardRow } from '@/components/PlayingCard';
 import type { SesjaScenariusza } from './aktywnoscScenariusza';
+import { stylTytuluSytuacji } from './tytul';
 import { podzielSytuacje } from './zdanie';
 import { BlokDlaczego, Dziennik, PasekOcenAkcji, Rozwijany, StolIcm, StolRozdania, SKALA_BEZ_PASKA, TurniejIcm, Werdykt, WyborPoziomuUI, type WpisDziennika } from './komponenty';
 import { zdaniaLiczb } from './liczby';
@@ -88,6 +89,7 @@ export interface PropsStartuScenariusza {
 export function StartScenariusza(p: PropsStartuScenariusza): React.JSX.Element {
   const tk = useTokens();
   const { t, i18n } = useTranslation();
+  const { width: szerokosc } = useWindowDimensions();
   const sytuacja = podzielSytuacje(p.szablon.situation); // D-1660: tytuł = pierwsze zdanie, reszta zwykłą treścią (04-studio-projektowe-006)
   const wyczerpany = !p.limit.bezLimitu && p.limit.pozostalo <= 0;
   const poziomy: WyborPoziomu[] = ['auto', ...p.szablon.levels];
@@ -103,7 +105,7 @@ export function StartScenariusza(p: PropsStartuScenariusza): React.JSX.Element {
       <View style={{ gap: odstep.s }}>
         <Button variant="ghost" label={t('scenario.nav.back')} onPress={p.onWroc} style={{ alignSelf: 'flex-start', minHeight: 44 }} />
         <Muted>{p.tytulModulu}</Muted>
-        <Title>{sytuacja.tytul}</Title>
+        <Title rozmiar={stylTytuluSytuacji(sytuacja.tytul, szerokosc)}>{sytuacja.tytul}</Title>
         {sytuacja.reszta === null ? null : <Text style={[styl.tresc, { color: tk.ink }]}>{sytuacja.reszta}</Text>}
         <Text style={[styl.tresc, { color: tk.ink }]}>
           {t('scenario.start.about', { ty: pozycjaTekst(p.szablon.positions.hero, t), rywal: pozycjaTekst(p.szablon.positions.villain, t), bb: p.szablon.stackBb })}

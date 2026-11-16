@@ -168,6 +168,7 @@ export const typografia = {
     tytulDuzy: { size: 34, line: 41, kroj: 'tytul', textStyle: 'largeTitle', maxW: 0.10 }, // „Dziś”, duże tytuły ekranów
     slowoStopnia: { size: 34, line: 38, kroj: 'tytul', textStyle: 'largeTitle', maxW: 0.085 }, // na suknie: mniej miejsca (rama + sukno)
     tytul: { size: 28, line: 34, kroj: 'tytul', textStyle: 'title1', maxW: 0.10 }, // tytuł zadania, opis ręki
+    tytulDlugi: { size: 20, line: 25, kroj: 'tytul', textStyle: 'title3', maxW: 0.10 }, // długi tytuł sytuacji na starcie scenariusza (D-1731); ten sam sufit co `tytul`
     indeksKarty: { size: 36, line: 36, kroj: 'tytul', textStyle: null, maxW: null }, // stały: rysunek karty, nie tekst do czytania
     tresc: { size: 17, line: 24, kroj: 'system', textStyle: 'body', maxW: null },
     przypis: { size: 15, line: 21, kroj: 'system', textStyle: 'subheadline', maxW: null },
