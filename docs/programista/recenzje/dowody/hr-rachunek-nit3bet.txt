@@ -1,0 +1,23 @@
+x= 0.08 klas 16 kombinacji 104 top: AA KK QQ JJ TT 99 88 AKs 77 AQs AJs AKo ATs AQo AJo KQs
+   KJo poza 0.3234
+   QJo poza 0.3192
+   ATo poza 0.3226
+   KTo poza 0.3271
+   QTo poza 0.3230
+   JTo poza 0.3225
+   A9o poza 0.2985
+   AJo W ZAKRESIE 0.3678
+x= 0.1 klas 20 kombinacji 130 top: AA KK QQ JJ TT 99 88 AKs 77 AQs AJs AKo ATs AQo AJo KQs 66 A9s ATo KJs
+   KJo poza 0.3448
+   QJo poza 0.3389
+   ATo W ZAKRESIE 0.3618
+   KTo poza 0.3299
+   QTo poza 0.3315
+   JTo poza 0.3310
+   A9o poza 0.3176
+   AJo W ZAKRESIE 0.4237
+# Komenda: node -e (własny skrypt HR czytający tools/equity/equity169.json, bez importu @szkola/poker-core), kod 0.
+# Cena: open 2,5 (pf.open-size), 3-bet 2,5 × 4 = 10 (pf.3bet.oop-total = pf.open-size × pf.3bet.size-oop); (10 − 2,5) ÷ (2·10 + 0,5) = 7,5 ÷ 20,5 = 0,36585; próg pasu z marginesem: equity ≤ 0,33585.
+# x = 8%: KJo .3234, QJo .3192, ATo .3226, KTo .3271, QTo .3230, JTo .3225, A9o .2985 → wszystkie 7 ≤ 0,33585 (zgodne z D-1707/D-1721: 7 rąk).
+# x = 10%: KJo .3448 i QJo .3389 > 0,33585 (odpadają), ATo w zakresie; KTo .3299, QTo .3315, JTo .3310, A9o .3176 → 4 ręce (zgodne z D-1707/D-1721).
+# Żetony: pula 2,5 + 10 + 0,5 (SB) = 13; dopłata 7,5 → pula końcowa 20,5. Zgodne ze wzorem silnika scenario-gen.ts (gałąź nit-3bet).

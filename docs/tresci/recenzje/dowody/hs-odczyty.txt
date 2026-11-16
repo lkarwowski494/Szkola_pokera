@@ -1,0 +1,21 @@
+# HS odczyty źródeł 2026-11-16: curl -sSL (surowy HTML), tekst bez znaczników, grep cytatu; sha256 HTML (16 zn.)
+pokercoaching.com/blog/defending-bb-on-high-card-boards/ sha256 c96b2f6d0bc08a15
+105:On dry high-card boards like K♠8♥4♣ facing a 1/3 pot c-bet, call about 56% with all pairs and ace-highs and check-raise about 17% with strong top pairs, sets and gutshot or backdoor bluffs.
+107:On wet high-card boards like Q♥9♥8♦ facing a 1/3 pot c-bet, call about 70% with top pairs, middle pairs, some bottom pairs and flush draws, and check-raise about 13% with strong hands and combo draws.
+123: response quite significantly depends on the sizing our opponent uses for a c-bet, and since he should mostly go with a small bet of around one-third of the pot, we will start with this.
+124:Versus a small c-bet, we are calling 56% of the time and check-raising 17% of the hands. 
+127:As for our calling range, we will continue with pretty much all pairs including he underpairs and even A-high hands.
+
+blog.gtowizard.com/mdf-alpha/ sha256 35e0163a6e4a7577
+On average, BB is consistently over-folding to all bet sizes on the flop.
+out of position on the flop or turn (IP’s bluffs have EV when checking back)
+
+upswingpoker.com/when-to-call-with-ace-high/ sha256 6d29f29eaa86456c
+does not call with any Ace-high hand that doesn’t have a significant backdoor draw
+
+blog.gtowizard.com/pot-geometry/ sha256 e33c49150c56b841
+This strategy maximizes how much money your opponent puts into the pot. If you want to get all the money in by the river, then betting geometrically will force the widest theoretical defence from your opponent.
+
+# rachunek D-1720 (f = ((1+2·SPR)^(1/3) − 1)/2):
+SPR 4 f = 0.54
+SPR 8 f = 0.7856

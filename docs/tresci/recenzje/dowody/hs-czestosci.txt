@@ -1,0 +1,5 @@
+# HS 2026-11-16: częstości na 60 ziarnach (1..60) @ 9677c41c
+# komenda: cd tools/content-build && ../../node_modules/.bin/tsx <scratchpad>/sonda/czest.ts ; kod wyjścia 0
+# uwaga: indeks rangi rankOf: 0=2 … 8=T, 9=J, 10=Q; warunek top<10 = najwyższa karta flopu J lub niższa
+sc-20 latwy: turn z >=3 kartami koloru 42 / 60
+sc-07 sredni (fold): flop z najwyższą kartą <= T (indeks rangi <10): 36 / 60; przykłady: Kc Th / 4d 6s 5d; Kc Jh / 7d 2d 2c; Kh Td / 5c 3s 8c; Kh Jd / 8d 4c 5h; Kh 9s / 4c 5c 3c; Kd Jh / 8s 4c 2d

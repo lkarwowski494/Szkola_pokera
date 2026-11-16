@@ -1,0 +1,42 @@
+# HS 2026-11-16: 3 rozdania na poziom z silnika (generateVariant @ 9677c41c), ziarna 11, 222, 3333; treść pl
+# komenda: cd tools/content-build && ../../node_modules/.bin/tsx <scratchpad>/sonda/gen.ts ; kod wyjścia 0
+# kolumny: szablon poziom ziarno H=gracz V=rywal B=stół(flop,turn,river) punkt
+sc-07 latwy 11 H Ad Kh V Tc 6d B Js 3c Qd 4s 9h {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"weak","correct":"call"}
+sc-07 latwy 222 H Qh Qd V 2h 5s B Tc 8s Ah 7h Jh {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"medium","correct":"call"}
+sc-07 latwy 3333 H Qs 4s V 2d 7s B 8s 6h 4h 7h 6s {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"weak","correct":"call"}
+sc-07 sredni 11 H 7s 6s V Jd 5s B Ac 2d Kd 9s 4c {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"air","correct":"fold"}
+sc-07 sredni 222 H Th 8c V 8d 5c B 3s Kc 4d Qd 7d {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"air","correct":"fold"}
+sc-07 sredni 3333 H Ks Jh V Ac Js B 4h 2s 8d 2c 3s {"pot":9,"bet":3,"fraction":0.3333333333333333,"holding":"air","correct":"fold"}
+sc-10 latwy 11 H Ad Kd V Ah 8s B As 5c 3s Tc 2s {"handClass":"AKs","correct":"4bet","acceptable":["call"]}
+sc-10 latwy 222 H Ah Ad V 2h 5s B Tc 8s Kc 7h Jh {"handClass":"AA","correct":"4bet","acceptable":[]}
+sc-10 latwy 3333 H Ks Kd V 2d 6c B 7c 6s 4s 7s 5c {"handClass":"KK","correct":"4bet","acceptable":[]}
+sc-15 latwy 11 H Ad Kh V Tc 6d B Js 3c Qd 4s 9h {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"weak","correct":"call"}
+sc-15 latwy 222 H Qh Qd V 2h 5s B Tc 8s Ah 7h Jh {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"medium","correct":"call"}
+sc-15 latwy 3333 H Qs 4s V 2d 7s B 8s 6h 4h 7h 6s {"pot":6,"bet":2,"fraction":0.3333333333333333,"holding":"weak","correct":"call"}
+sc-17 latwy 11 H Qh Jh V 9d 7h B 5s 2d 6s 6d Ks {"pot":8,"bet":6,"fraction":0.75,"holding":"air","correct":"fold"}
+sc-17 latwy 222 H Kc Qc V Js 3h B 4h 5d 4d Jd 8h {"pot":8,"bet":6,"fraction":0.75,"holding":"air","correct":"fold"}
+sc-17 latwy 3333 H Ad Kd V Td 5d B 6s 8h 7h Ts 5s {"pot":8,"bet":6,"fraction":0.75,"holding":"weak","correct":"fold"}
+sc-20 latwy 11 H Jc 9h V 3d Js B 5s 9s 9c 8s Kd {"pot":12,"betSmall":3,"betBig":9,"requiredSmall":0.16666666666666666,"requiredBig":0.3,"hit":0.1956521739130435,"drawKind":"flush","correct":"bet-big"}
+sc-20 latwy 222 H 9h Ad V 5s 2c B Js 9s 8d As 2h {"pot":12,"betSmall":3,"betBig":9,"requiredSmall":0.16666666666666666,"requiredBig":0.3,"hit":0.1956521739130435,"drawKind":"flush","correct":"bet-big"}
+sc-20 latwy 3333 H Kc As V 8d Ad B Td 4h 5h Kd Th {"pot":16,"betSmall":4,"betBig":12,"requiredSmall":0.16666666666666666,"requiredBig":0.3,"hit":0.1956521739130435,"drawKind":"flush","correct":"bet-big"}
+sc-23 latwy 11 H Jc 4h V 3s As B 2d 3c Ts Js Qc {"mode":"blockers","hands":[[39,9],[4,48]],"sdv":[0,0],"calls":[35,29],"folds":[11,13],"correct":"hand-b"}
+sc-23 latwy 222 H 7h Td V Kh 5h B Js 9d Ad As Tc {"mode":"blockers","hands":[[21,34],[45,13]],"sdv":[0,0],"calls":[26,21],"folds":[13,13],"correct":"hand-b"}
+sc-23 latwy 3333 H Ac 4c V 2s 2d B Jd 9d 5s Ks Ts {"mode":"blockers","hands":[[51,11],[0,2]],"sdv":[0,0],"calls":[27,34],"folds":[13,13],"correct":"hand-a"}
+sc-24 latwy 11 H 3c Kc V 8h 6h B Ac 3d Th Js 7c {"pot":20,"bet":15,"fraction":0.75,"bluffShare":0.4,"required":0.3,"correct":"call","margin":0.10000000000000003}
+sc-24 latwy 222 H Kh Td V Kc Ks B Th 5c 5d 3c Qs {"pot":30,"bet":15,"fraction":0.5,"bluffShare":0.45,"required":0.25,"correct":"call","margin":0.2}
+sc-24 latwy 3333 H 7d Ad V 6d As B 2d 7s Qd 3c 4h {"pot":30,"bet":23,"fraction":0.75,"bluffShare":0.5,"required":0.3026315789473684,"correct":"call","margin":0.19736842105263158}
+sc-24 sredni 11 H 3c Kc V 8h 6h B Ac 3d Th Js 7c {"pot":20,"bet":15,"fraction":0.75,"bluffShare":0.25,"required":0.3,"correct":"fold","margin":0.04999999999999999}
+sc-24 sredni 222 H Kh Td V Kc Ks B Th 5c 5d 3c Qs {"pot":30,"bet":23,"fraction":0.75,"bluffShare":0.25,"required":0.3026315789473684,"correct":"fold","margin":0.05263157894736842}
+sc-24 sredni 3333 H 7d Ad V 6d As B 2d 7s Qd 3c 4h {"pot":30,"bet":30,"fraction":1,"bluffShare":0.25,"required":0.3333333333333333,"correct":"fold","margin":0.08333333333333331}
+sc-24 trudny 11 H 3c Kc V 8h 6h B Ac 3d Th Js 7c {"pot":20,"bet":10,"fraction":0.5,"bluffShare":0.3,"required":0.25,"correct":"call","margin":0.04999999999999999}
+sc-24 trudny 222 H Kh Td V Kc Ks B Th 5c 5d 3c Qs {"pot":30,"bet":15,"fraction":0.5,"bluffShare":0.3,"required":0.25,"correct":"call","margin":0.04999999999999999}
+sc-24 trudny 3333 H 7d Ad V 6d As B 2d 7s Qd 3c 4h {"pot":30,"bet":23,"fraction":0.75,"bluffShare":0.35,"required":0.3026315789473684,"correct":"call","margin":0.04736842105263156}
+sc-31 latwy 11 H 3c Kc V 8h 6h B Ac 3d Th Js 7c {"pot":20,"bet":20,"fraction":1,"bluffShare":0.45,"required":0.3333333333333333,"correct":"call","margin":0.1166666666666667}
+sc-31 latwy 222 H Kh Td V Kc Ks B Th 5c 5d 3c Qs {"pot":30,"bet":23,"fraction":0.75,"bluffShare":0.55,"required":0.3026315789473684,"correct":"call","margin":0.24736842105263163}
+sc-31 latwy 3333 H 7d Ad V 6d As B 2d 7s Qd 3c 4h {"pot":30,"bet":30,"fraction":1,"bluffShare":0.55,"required":0.3333333333333333,"correct":"call","margin":0.21666666666666673}
+sc-31 sredni 11 H 3c Kc V 8h 6h B Ac 3d Th Js 7c {"pot":20,"bet":20,"fraction":1,"bluffShare":0.4,"required":0.3333333333333333,"correct":"call","margin":0.06666666666666671}
+sc-31 sredni 222 H Kh Td V Kc Ks B Th 5c 5d 3c Qs {"pot":30,"bet":23,"fraction":0.75,"bluffShare":0.4,"required":0.3026315789473684,"correct":"call","margin":0.0973684210526316}
+sc-31 sredni 3333 H 7d Ad V 6d As B 2d 7s Qd 3c 4h {"pot":30,"bet":30,"fraction":1,"bluffShare":0.4,"required":0.3333333333333333,"correct":"call","margin":0.06666666666666671}
+sc-31 trudny 11 H 3c Kc V 8h 6h B Ac 3d Th Js 7c {"pot":20,"bet":20,"fraction":1,"bluffShare":0.2,"required":0.3333333333333333,"correct":"fold","margin":0.1333333333333333}
+sc-31 trudny 222 H Kh Td V Kc Ks B Th 5c 5d 3c Qs {"pot":30,"bet":23,"fraction":0.75,"bluffShare":0.25,"required":0.3026315789473684,"correct":"fold","margin":0.05263157894736842}
+sc-31 trudny 3333 H 7d Ad V 6d As B 2d 7s Qd 3c 4h {"pot":30,"bet":45,"fraction":1.5,"bluffShare":0.2,"required":0.375,"correct":"fold","margin":0.175}
