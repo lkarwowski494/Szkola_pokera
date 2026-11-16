@@ -4,6 +4,7 @@ import { AccessibilityInfo, Animated, Dimensions, Easing, PixelRatio, Pressable,
 import { podstawaSegmentu } from '@/theme/skalowanie';
 import { opisPaska, segmentyPaska, type OpcjaPaska } from '@/features/stol/pasek';
 import { haptyka, odstep, promien, ruch, styl, useTokens } from '@/theme/tokens';
+import { rozmiarDoSzerokosci } from './dopasowanie';
 import { wykonajHaptyke } from '@/features/session/haptyka';
 
 /**
@@ -30,9 +31,24 @@ export function wymiarSegmentu(liczba: number, skala: number): { flexBasis: numb
  * (`wymiarSegmentu`); oszacowanie jak w D-1730, bez pomiaru układu.
  */
 export function lewaKrawedzSegmentu(i: number, liczba: number, skala: number, szerokoscEkranu: number): number {
+  return i % liczbaWWierszu(liczba, skala, szerokoscEkranu) === 0 ? 0 : StyleSheet.hairlineWidth * 2;
+}
+
+/** Liczba segmentów w wierszu paska (ekran − 2 × `odstep.l`): >3 segmentów dwa albo jeden, ≤3 tyle, ile mieści podstawa segmentu. Oszacowanie jak w D-1730. */
+export function liczbaWWierszu(liczba: number, skala: number, szerokoscEkranu: number): number {
   const pasek = szerokoscEkranu - 2 * odstep.l;
-  const wWierszu = liczba > 3 ? (2 * podstawaSegmentu(skala) <= pasek ? 2 : 1) : Math.max(1, Math.min(liczba, Math.floor(pasek / podstawaSegmentu(skala))));
-  return i % wWierszu === 0 ? 0 : StyleSheet.hairlineWidth * 2;
+  return liczba > 3 ? (2 * podstawaSegmentu(skala) <= pasek ? 2 : 1) : Math.max(1, Math.min(liczba, Math.floor(pasek / podstawaSegmentu(skala))));
+}
+
+/** Obrys wybranego segmentu (2 pt po obu stronach) liczony do pola tekstu zawsze: zapas, żeby pole nie zależało od wyboru. */
+const OBRYS_SEGMENTU = 4;
+
+/**
+ * IF (D-1881): pole tekstu w segmencie paska (przycisk decyzji, segment oceny) = szerokość wiersza paska / liczba segmentów w wierszu − 2 × `odstep.s` (padding) − obrys.
+ * Segmenty rosną (flexGrow 1) do równych części wiersza, więc to najwęższy możliwy segment. Przy AX5 jeden segment w wierszu = cała szerokość paska.
+ */
+export function poleTekstuSegmentu(liczba: number, skala: number, szerokoscEkranu: number): number {
+  return (szerokoscEkranu - 2 * odstep.l) / liczbaWWierszu(liczba, skala, szerokoscEkranu) - 2 * odstep.s - OBRYS_SEGMENTU;
 }
 
 function useOgraniczRuch(): boolean {
@@ -64,6 +80,8 @@ export function PasekStrategii({
 }): React.JSX.Element {
   const tk = useTokens();
   if (wybor === null) {
+    const skala = PixelRatio.getFontScale();
+    const szerokoscEkranu = Dimensions.get('window').width;
     return (
       <View accessibilityRole="none" style={[styles.przyciski, { backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>
         {opcje.map((o, i) => (
@@ -78,10 +96,10 @@ export function PasekStrategii({
             }}
             style={({ pressed }) => [
               styles.przycisk,
-              { ...wymiarSegmentu(opcje.length, PixelRatio.getFontScale()), minHeight: CEL_AKCJI, borderLeftWidth: lewaKrawedzSegmentu(i, opcje.length, PixelRatio.getFontScale(), Dimensions.get('window').width), borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
+              { ...wymiarSegmentu(opcje.length, skala), minHeight: CEL_AKCJI, borderLeftWidth: lewaKrawedzSegmentu(i, opcje.length, skala, szerokoscEkranu), borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
             ]}
           >
-            <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{o.text}</Text>
+            <Text style={[styl.naglowek, rozmiarDoSzerokosci(o.text, poleTekstuSegmentu(opcje.length, skala, szerokoscEkranu), skala, styl.naglowek), { color: tk.actionInk, textAlign: 'center' }]}>{o.text}</Text>
           </Pressable>
         ))}
       </View>

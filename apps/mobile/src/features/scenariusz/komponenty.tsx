@@ -6,7 +6,8 @@ import { CardRow } from '@/components/PlayingCard';
 import { RichText } from '@/components/RichText';
 import StopienOceny, { ZNAK } from '@/features/ocena/StopienOceny';
 import { nazwaKarty } from '@/features/stol/uklad';
-import { lewaKrawedzSegmentu, wymiarSegmentu } from '@/components/PasekStrategii';
+import { rozmiarDoSzerokosci, szerokoscOdcinka } from '@/components/dopasowanie';
+import { lewaKrawedzSegmentu, poleTekstuSegmentu, wymiarSegmentu } from '@/components/PasekStrategii';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import type { Blok, RodzajBloku, UkladIcm } from './wariant';
 import type { Akcja } from './wariant';
@@ -70,23 +71,33 @@ export function StolRozdania({ stol, reka, pozycjaTy, pozycjaRywal, stosBb, form
   );
 }
 
+/** Stała szerokość etykiety ulicy w dzienniku (układ poziomy), pt. */
+const ULICA_W_DZIENNIKU = 64;
+
 export interface WpisDziennika { ulica: string; tekst: string; ocena?: OcenaOdpowiedzi; teraz?: boolean }
 /** Dziennik akcji: jeden wiersz na ulicę, ocena jako znak + słowo (nie sam kolor). Nowy wpis ogłasza `useAnnounce` w ekranie (strażnik D-283: ogłoszenia tylko przez pomocnik). */
 export function Dziennik({ wpisy }: { wpisy: readonly WpisDziennika[] }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
-  const duzyTekst = useWindowDimensions().fontScale >= SKALA_BEZ_PASKA; // AX4–AX5: ulica nad wpisem, bez stałej szerokości (04-studio-projektowe-003)
+  const { fontScale, width } = useWindowDimensions();
+  const duzyTekst = fontScale >= SKALA_BEZ_PASKA; // AX4–AX5: ulica nad wpisem, bez stałej szerokości (04-studio-projektowe-003)
   return (
     <View accessibilityRole="list" accessibilityLabel={t('scenario.log.label')} style={{ gap: odstep.s }}>
-      {wpisy.map((w) => (
-        <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, duzyTekst ? styles.wierszPionowy : null, { borderColor: tk.separator }]}>
-          <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700' }, duzyTekst ? null : { width: 64 }]}>{w.ulica}</Text>
-          <View style={{ flex: 1 }}>
-            <RichText text={w.tekst} style={styl.drobny} />
+      {wpisy.map((w) => {
+        const stopien = w.ocena ? `${ZNAK[w.ocena]} ${t(`grade.${w.ocena}`)}` : null;
+        // IF (D-1882): stopień dłuższy niż połowa miejsca obok etykiety ulicy („✓ Übereinstimmend” przy 320 pt) przenosi wpis do układu pionowego (jak AX4–AX5);
+        // w układzie pionowym rozmiar stopnia dopasowany do szerokości treści, żeby wyraz nie łamał się w środku („Niedokładnoś/ć”).
+        const pionowo = duzyTekst || (stopien !== null && szerokoscOdcinka(stopien, styl.drobny.fontSize, fontScale) > (width - 2 * odstep.l - ULICA_W_DZIENNIKU - odstep.s * 2) / 2);
+        return (
+          <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, pionowo ? styles.wierszPionowy : null, { borderColor: tk.separator }]}>
+            <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700' }, pionowo ? null : { width: ULICA_W_DZIENNIKU }]}>{w.ulica}</Text>
+            <View style={{ flex: 1 }}>
+              <RichText text={w.tekst} style={styl.drobny} />
+            </View>
+            {stopien !== null ? <Text style={[styl.drobny, pionowo ? rozmiarDoSzerokosci(stopien, width - 2 * odstep.l, fontScale, styl.drobny) : null, { color: tk.ink, fontWeight: '700' }]}>{stopien}</Text> : null}
           </View>
-          {w.ocena ? <Text style={[styl.drobny, { color: tk.ink, fontWeight: '700' }]}>{`${ZNAK[w.ocena]} ${t(`grade.${w.ocena}`)}`}</Text> : null}
-        </View>
-      ))}
+        );
+      })}
     </View>
   );
 }
@@ -97,13 +108,17 @@ export function PasekOcenAkcji({ akcje, wybor, nazwy, etykiety }: { akcje: Reado
   const { t } = useTranslation();
   const wpisy = (Object.keys(nazwy) as Akcja[]).flatMap((a) => { const o = akcje[a]; return o ? [{ a, o }] : []; });
   const lista = wpisy.map(({ a, o }) => `${etykiety?.[a] ?? nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
+  const skala = PixelRatio.getFontScale();
+  const szerokoscEkranu = Dimensions.get('window').width;
+  // IF (D-1881): nazwa akcji („Sprawdzenie (call)”), stopień i dopisek mieszczą się w segmencie (rozmiar ze skali, zmniejszony tylko gdy najdłuższy wyraz nie mieści się)
+  const pole = poleTekstuSegmentu(wpisy.length, skala, szerokoscEkranu);
   return (
     <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={[styles.pasekOcen, { backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>
       {wpisy.map(({ a, o }, i) => (
-        <View key={a} style={[styles.segmentOceny, { ...wymiarSegmentu(wpisy.length, PixelRatio.getFontScale()), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : lewaKrawedzSegmentu(i, wpisy.length, PixelRatio.getFontScale(), Dimensions.get('window').width) }]}>
-          <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>
-          <Text style={[styl.drobny, { color: tk.actionInk, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
-          {a === wybor ? <Text style={[styl.drobny, { color: tk.goldText, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
+        <View key={a} style={[styles.segmentOceny, { ...wymiarSegmentu(wpisy.length, PixelRatio.getFontScale()), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : lewaKrawedzSegmentu(i, wpisy.length, skala, szerokoscEkranu) }]}>
+          <Text style={[styl.naglowek, rozmiarDoSzerokosci(nazwy[a] ?? '', pole, skala, styl.naglowek), { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>
+          <Text style={[styl.drobny, rozmiarDoSzerokosci(`${ZNAK[o]} ${t(`grade.${o}`)}`, pole, skala, styl.drobny), { color: tk.actionInk, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
+          {a === wybor ? <Text style={[styl.drobny, rozmiarDoSzerokosci(t('scenario.scale.yourChoice'), pole, skala, styl.drobny), { color: tk.goldText, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
         </View>
       ))}
     </View>
