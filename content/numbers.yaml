@@ -64,7 +64,7 @@ ex.bet.half: { formula: product, refs: [ex.pot, ex.frac.half], unit: count, sour
 ex.bet.quarter: { formula: product, refs: [ex.pot, ex.frac.quarter], unit: count, source: "obliczenie: zakład ćwierć puli" }
 ex.frac.pot: { value: 1, unit: ratio, source: "przykład: zakład = pula" }
 ex.frac.half: { value: 0.5, unit: ratio, decimals: 1, source: "przykład: zakład = pół puli" }
-ex.frac.quarter: { value: 0.25, unit: ratio, decimals: 2, source: "przykład: zakład = ćwierć puli" }
+ex.frac.quarter: { value: 0.25, unit: percent, source: "przykład: zakład = ćwierć puli; procent, bo tekst SC-20 podaje rozmiar zakładu na turnie tym kluczem (D-1771)" }
 ex.half.pot-after-bet: { formula: sum, refs: [ex.pot, ex.bet.half], unit: count, source: "obliczenie: pula po zakładzie pół puli" }
 ex.half.total: { formula: sum, refs: [ex.pot, ex.bet.half, ex.bet.half], unit: count, source: "obliczenie: pula po zakładzie i sprawdzeniu" }
 ex.third.pot: { value: 90, unit: count, source: "przykład w lekcji (pula w żetonach)" }
@@ -241,7 +241,7 @@ flop.hit.one-pair: { formula: product, refs: [cards.board.flop, flop.one-pair.fi
 
 # M6: obrona na flopie. MDF = pula/(pula+bet), alpha = bet/(pula+bet), potrzebne equity = bet/(pula+2·bet).
 # Pule i zakłady z przykładów M2 (ex.*), żeby M2 i M6 liczyły z tych samych liczb. Rozmiar check-raise'u według decyzji D-29 (dokument 12 M4–M6).
-ex.frac.three-quarters: { value: 0.75, unit: ratio, decimals: 2, source: "przykład: zakład = 3/4 puli" }
+ex.frac.three-quarters: { value: 0.75, unit: percent, source: "przykład: zakład = 3/4 puli; procent, bo tekst SC-20 podaje rozmiar zakładu na turnie tym kluczem (D-1771)" }
 ex.frac.overbet: { value: 1.5, unit: ratio, decimals: 1, source: "przykład: zakład = 1,5 puli (overbet)" }
 ex.bet.three-quarters: { formula: product, refs: [ex.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
 ex.bet.overbet: { formula: product, refs: [ex.pot, ex.frac.overbet], unit: count, source: "obliczenie: zakład 1,5 puli" }

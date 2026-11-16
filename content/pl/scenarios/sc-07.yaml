@@ -1,6 +1,6 @@
 # SC-07 (M4): BB broni wobec Buttona, flop: mały c-bet (punkt defend, 08-N2, D-1144). Ręka z zakresu obrony spotu vs-open.bb-vs-btn
 # (R-M4-004, solver preflop). Ocena: defendVsCbet, gałąź „mały” (R-M6-006; D-1167, D-1210, D-1258). Łatwy: kontynuacja (call),
-# średni: najsłabsze ręce bez pary, drawa, backdoora i asa (fold). Szkic sesji FD (D-1353): defend poza ekranem.
+# średni: najsłabsze ręce bez pary, drawa, backdoora i asa (fold), tylko flopy wysokie (D-1752: źródło R-M6-006 = stoły K84, Q98). Szkic FD (D-1353).
 id: sc-07
 module: m4
 situation: "Jesteś na {{t:big-blind|dużym blindzie}}. Button {{t:open|otworzył}}, {{t:small-blind}} {{t:fold|spasował}}, a ty {{t:call|sprawdziłeś}}. Na flopie {{t:check|czekasz}}, a Button {{t:bet|stawia}} mały {{t:c-bet}}."
@@ -10,7 +10,7 @@ stackBb: 100
 levels: [latwy, sredni]
 bounds:
   latwy: { expected: [call] }
-  sredni: { expected: [fold] }
+  sredni: { expected: [fold], flop: { height: [high] } }
 decisions:
   - street: flop
     kind: defend

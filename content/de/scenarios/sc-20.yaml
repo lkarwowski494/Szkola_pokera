@@ -17,6 +17,6 @@ decisions:
     big: 0.75
     actions:
       - action: "bet-big"
-        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Du {{t:bet|setzt}} viel: Bei einer {{t:bet}} von {{n:cbet.size.big}} des {{t:pot|Pots}} braucht der {{t:draw}} {{n:eq.bet-three-quarters}} Equity und hat etwa {{n:odds.flush.turn-river}}, also bekommt er keinen guten Preis."
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Du {{t:bet|setzt}} viel: Bei einer {{t:bet}} von {{n:ex.frac.three-quarters}} des {{t:pot|Pots}} braucht der {{t:draw}} {{n:eq.bet-three-quarters}} Equity und hat etwa {{n:odds.flush.turn-river}}, also bekommt er keinen guten Preis."
       - action: "bet-small"
-        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Eine kleine {{t:bet}} gibt dem {{t:draw}} einen guten Preis: Bei einer {{t:bet}} von einem Viertel des {{t:pot|Pots}} würden ihm {{n:eq.bet-quarter}} Equity reichen, und er hat etwa {{n:odds.flush.turn-river}}. Mit einer starken Hand gegen einen {{t:draw}} {{t:bet|setzt}} du viel."
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} kann einen {{t:flush-draw}} haben. Eine kleine {{t:bet}} gibt dem {{t:draw}} einen guten Preis: Bei einer {{t:bet}} von {{n:ex.frac.quarter}} des {{t:pot|Pots}} würden ihm {{n:eq.bet-quarter}} Equity reichen, und er hat etwa {{n:odds.flush.turn-river}}. Mit einer starken Hand gegen einen {{t:draw}} {{t:bet|setzt}} du viel."

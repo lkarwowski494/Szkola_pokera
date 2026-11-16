@@ -1,0 +1,29 @@
+# HU 2026-11-16: długość ważona tytułu SC-04 (D-1730: CJK/Hangul/pełna szerokość = 2) — komenda: node <scratchpad>/hu-tytul.mjs <jezyk=plik>..., kod 0
+## przed (e270da14)
+progi 320/390/430: 54/68/75
+content/pl/scenarios/sc-04.yaml	104	DŁUGI przy 390	Jesteś na UTG, nikt jeszcze nie wszedł do gry; jeśli otworzysz, duży blind sprawdzi i na flopie poczeka.
+content/en/scenarios/sc-04.yaml	108	DŁUGI przy 390	You are UTG, and nobody has entered the pot yet; if you open, the big blind will call and check on the flop.
+content/de/scenarios/sc-04.yaml	129	DŁUGI przy 390	Du sitzt UTG, und noch niemand ist ins Spiel eingestiegen; wenn du eröffnest, wird der big blind callen und auf dem Flop checken.
+content/es/scenarios/sc-04.yaml	103	DŁUGI przy 390	Estás en UTG y nadie ha entrado todavía en el juego; si abres, la big blind pagará y en el flop pasará.
+content/fr/scenarios/sc-04.yaml	122	DŁUGI przy 390	Vous êtes en UTG, et personne n'est encore entré dans le coup ; si vous ouvrez, la big blind suivra et fera check au flop.
+content/it/scenarios/sc-04.yaml	100	DŁUGI przy 390	Sei in UTG e nessuno è ancora entrato in gioco; se apri, il big blind chiamerà e al flop farà check.
+content/ja/scenarios/sc-04.yaml	45	krótki przy 390	あなたはUTGにいて、まだ誰も参加していません。
+content/ko/scenarios/sc-04.yaml	58	krótki przy 390	당신은 UTG에 있고, 아직 아무도 핸드에 참여하지 않았습니다.
+content/pt/scenarios/sc-04.yaml	108	DŁUGI przy 390	Está em UTG e ninguém entrou ainda no jogo; se fizer abertura, o big blind fará call e, no flop, fará check.
+content/pt-BR/scenarios/sc-04.yaml	128	DŁUGI przy 390	Você está no UTG e ninguém entrou no jogo ainda; se você fizer abertura, o big blind vai fazer call e, no flop, vai fazer check.
+content/vi/scenarios/sc-04.yaml	82	DŁUGI przy 390	Bạn ở UTG, chưa ai vào ván; nếu bạn mở cược, big blind sẽ theo và check trên flop.
+content/zh-Hant/scenarios/sc-04.yaml	64	krótki przy 390	你在 UTG，還沒有人入池；如果你開池，大盲會跟注，並在翻牌上過牌。
+## po (pl, en)
+content/pl/scenarios/sc-04.yaml	46	krótki przy 390	Jesteś na UTG, nikt jeszcze nie wszedł do gry.
+content/en/scenarios/sc-04.yaml	48	krótki przy 390	You are UTG, and nobody has entered the pot yet.
+## wariant dla 09 (ten sam podział w miejscu średnika, pliki tymczasowe)
+<scratchpad>/podzial/de/sc-04.yaml	58	krótki przy 390	Du sitzt UTG, und noch niemand ist ins Spiel eingestiegen.
+<scratchpad>/podzial/es/sc-04.yaml	52	krótki przy 390	Estás en UTG y nadie ha entrado todavía en el juego.
+<scratchpad>/podzial/fr/sc-04.yaml	62	krótki przy 390	Vous êtes en UTG, et personne n'est encore entré dans le coup.
+<scratchpad>/podzial/it/sc-04.yaml	47	krótki przy 390	Sei in UTG e nessuno è ancora entrato in gioco.
+<scratchpad>/podzial/pt/sc-04.yaml	43	krótki przy 390	Está em UTG e ninguém entrou ainda no jogo.
+<scratchpad>/podzial/pt-BR/sc-04.yaml	48	krótki przy 390	Você está no UTG e ninguém entrou no jogo ainda.
+<scratchpad>/podzial/vi/sc-04.yaml	27	krótki przy 390	Bạn ở UTG, chưa ai vào ván.
+## podzielSytuacje (apps/mobile/src/features/scenariusz/zdanie.ts), tsx, kod 0
+{"tytul":"Jesteś na UTG, nikt jeszcze nie wszedł do gry.","reszta":"Jeśli otworzysz, duży blind sprawdzi i na flopie poczeka."}
+{"tytul":"You are UTG, and nobody has entered the pot yet.","reszta":"If you open, the big blind will call and check on the flop."}

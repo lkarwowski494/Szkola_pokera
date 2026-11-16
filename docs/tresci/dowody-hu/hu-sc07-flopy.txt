@@ -1,0 +1,9 @@
+# HU 2026-11-16: SC-07 wysokość flopu na ziarnach 1..60 po D-1770 (generateVariant, kontekst z compileContent pl); komenda: cd tools/content-build && ../../node_modules/.bin/tsx <scratchpad>/sonda/sc07.ts sc-07 ; kod 0
+sc-07 latwy: wysokość flopu na 60 ziarnach {"low":15,"high":30,"middle":15}
+  {"seed":1,"hero":[49,32],"board":[22,7,26,15,13],"points":["call"]}
+  {"seed":2,"hero":[25,17],"board":[42,33,21,49,50],"points":["call"]}
+  {"seed":3,"hero":[24,25],"board":[49,1,12,2,5],"points":["call"]}
+sc-07 sredni: wysokość flopu na 60 ziarnach {"high":60}
+  {"seed":1,"hero":[41,27],"board":[6,49,16,22,8],"points":["fold"]}
+  {"seed":2,"hero":[34,27],"board":[15,2,45,13,32],"points":["fold"]}
+  {"seed":3,"hero":[45,30],"board":[4,48,14,43,40],"points":["fold"]}

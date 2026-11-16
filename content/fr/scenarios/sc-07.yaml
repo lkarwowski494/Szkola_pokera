@@ -8,7 +8,7 @@ stackBb: 100
 levels: [latwy, sredni]
 bounds:
   latwy: { expected: [call] }
-  sredni: { expected: [fold] }
+  sredni: { expected: [fold], flop: { height: [high] } }
 decisions:
   - street: flop
     kind: defend

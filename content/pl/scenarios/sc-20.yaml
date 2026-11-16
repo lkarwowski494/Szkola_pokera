@@ -20,6 +20,6 @@ decisions:
     big: 0.75
     actions:
       - action: "bet-big"
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo: przy {{t:bet|zakładzie}} {{n:cbet.size.big}} {{t:pot|puli}} {{t:draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, więc nie dostaje dobrej ceny."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. {{t:bet|Stawiasz}} dużo: przy {{t:bet|zakładzie}} {{n:ex.frac.three-quarters}} {{t:pot|puli}} {{t:draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, więc nie dostaje dobrej ceny."
       - action: "bet-small"
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. Mały {{t:bet|zakład}} daje {{t:draw|drawowi}} dobrą cenę: przy {{t:bet|zakładzie}} ćwierć {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}} equity, a ma ok. {{n:odds.flush.turn-river}}. Silną rękę wobec {{t:draw|drawa}} {{t:bet|stawiasz}} dużo."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} może mieć {{t:flush-draw}}. Mały {{t:bet|zakład}} daje {{t:draw|drawowi}} dobrą cenę: przy {{t:bet|zakładzie}} {{n:ex.frac.quarter}} {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}} equity, a ma ok. {{n:odds.flush.turn-river}}. Silną rękę wobec {{t:draw|drawa}} {{t:bet|stawiasz}} dużo."
