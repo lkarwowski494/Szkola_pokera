@@ -4,10 +4,12 @@
 // Wybór ekranu: `?ekran=start|decyzja|ocena-zgodna|ocena-blad`, motyw: `?tryb=jasny|ciemny` (domyślnie z przeglądarki).
 // HX (D-1730, D-1734…D-1736): dodatkowe ekrany `start-sc29` i `start-sc04` (tytuły z bazy pl, tekst już ze znacznikami rozwiniętymi) oraz `iso-co` i `iso-sb`
 // (widok limperów: szablony-fikcje punktu iso-size jak SC-09, której treść jeszcze nie istnieje; zakres otwarcia i reguła rozmiaru złożone tu, bez bazy).
+// IB (KO-115, D-1841): ekrany `ib-spr-call`, `ib-check-raise`, `ib-turn-action`, `ib-geo-size`, `ib-nit-3bet` (decyzja) i `ocena-ib-check-raise` — warianty złożone ręcznie
+// (fikstura: karty i liczby jak z generatora, bez bazy treści i macierzy equity), szablony jak fixtures HO w tools/content-build/test/fixtures.
 import '@/i18n';
 import { registerRootComponent } from 'expo';
 import { ScenarioTemplate } from '@szkola/content-schema';
-import { HAND_CLASSES, type GeneratorContext } from '@szkola/poker-core';
+import { geometricFraction, HAND_CLASSES, parseCards, type Card, type GeneratorContext, type ScenarioVariant, type VariantDecision } from '@szkola/poker-core';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PrzebiegScenariusza, StartScenariusza } from '@/features/scenariusz/EkranScenariusza';
 import type { Akcja } from '@/features/scenariusz/wariant';
@@ -42,12 +44,49 @@ const ctxIso = (spot: string, klasa: string): GeneratorContext => ({
 });
 const ISO_CO = iso('sc-hx-iso-co', 'CO', 'HJ', 1);
 const ISO_SB = iso('sc-hx-iso-sb', 'SB', 'BTN', 2);
+const wyjIb = (a: string, z: string) => ({ action: a, explanation: `Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}. ${z}` });
+const szablonIb = (id: string, module: string, hero: string, villain: string, stackBb: number, decyzja: Record<string, unknown>) => ScenarioTemplate.parse({
+  id, module, situation: 'Fikstura zrzutu.', table: '6max', positions: { hero, villain }, stackBb, levels: ['latwy'], bounds: { latwy: { expected: ['call'] } }, decisions: [decyzja],
+});
+const wariantIb = (id: string, karty: string, point: VariantDecision): ScenarioVariant => {
+  const k = parseCards(karty);
+  return { templateId: id, level: 'latwy', seed: 1, hero: [k[0], k[1]] as [Card, Card], villain: [k[2], k[3]] as [Card, Card], board: k.slice(4), decisions: [], points: [point], fingerprint: id };
+};
+const gf = geometricFraction(130 / 25, 3);
+const IB: Record<string, { szablon: ScenarioTemplate; wariant: ScenarioVariant; wybor?: Akcja }> = {
+  'ib-spr-call': {
+    szablon: szablonIb('sc-ib-spr', 'm9', 'BB', 'BTN', 14, { street: 'flop', kind: 'spr-call', rule: 'R-M9-002', spot: 'vs-open.bb-vs-btn', pots: [5.5], stacks: [11], actions: [wyjIb('call', 'SPR ok. {{w:spr}}: sprawdzasz.'), wyjIb('fold', 'SPR ok. {{w:spr}}: pas oddaje pulę.')] }),
+    wariant: wariantIb('sc-ib-spr', 'AhKd QsQc Ks7c2dTd3h', { point: 'spr-call', street: 'flop', pot: 5.5, stack: 11, spr: 2, required: 11 / 27.5, pairKind: 'top', correct: 'call' }),
+  },
+  'ib-check-raise': {
+    szablon: szablonIb('sc-ib-xr', 'm6', 'BB', 'BTN', 100, { street: 'flop', kind: 'check-raise', rule: 'R-M6-008', spot: 'vs-open.bb-vs-btn', pots: [6], cbet: 1 / 3, multipliers: { big: 4.5, small: 1.5 }, actions: [wyjIb('fold', 'Pas oddaje draw.'), wyjIb('call', 'Sprawdzenie też jest dobre.'), wyjIb('raise-small', 'Zbyt małe podbicie.'), wyjIb('raise-big', 'Duże check-raise.')] }),
+    wariant: wariantIb('sc-ib-xr', '9h8h AsKc 7h6c2hJd4s', { point: 'check-raise', street: 'flop', pot: 6, cbet: 2, raiseBig: 9, raiseSmall: 3, requiredBig: 7 / 24, requiredSmall: 1 / 12, drawKind: 'flush', outs: 15, correct: 'raise-big' }),
+    wybor: 'raise-small',
+  },
+  'ib-turn-action': {
+    szablon: szablonIb('sc-ib-turn', 'm7', 'BTN', 'BB', 100, { street: 'turn', kind: 'turn-action', rule: 'R-M7-001', actions: [wyjIb('check', 'Czekanie jest dopuszczalne.'), wyjIb('bet-big', 'Nadkarta paruje twoją rękę, zakład.')] }),
+    wariant: wariantIb('sc-ib-turn', 'KhQd Jc9h 9c5s2dKc4h', { point: 'turn-action', street: 'turn', turnClass: 'overcard', pairKind: 'top', correct: 'bet-big' }),
+  },
+  'ib-geo-size': {
+    szablon: szablonIb('sc-ib-geo', 'm9', 'BTN', 'CO', 100, { street: 'flop', kind: 'geo-size', rule: 'R-M9-009', pots: [25], stacks: [130], streets: 3, small: 1 / 3, actions: [wyjIb('bet-small', 'SPR {{w:spr}}: zakład {{w:rozmiar}}% puli nie wpłaci stacku.'), wyjIb('bet-big', 'SPR {{w:spr}}: zakład {{w:rozmiar}}% puli wpłaci cały stack.')] }),
+    wariant: wariantIb('sc-ib-geo', '7h7d AcQc 7sKc2d9h3s', { point: 'geo-size', street: 'flop', pot: 25, stack: 130, spr: 5.2, streets: 3, fractionBig: gf, fractionSmall: 1 / 3, smallTotal: 25 / 3 + 125 / 9 + 625 / 27, correct: 'bet-big' }),
+  },
+  'ib-nit-3bet': {
+    szablon: ScenarioTemplate.parse({ ...szablonIb('sc-ib-nit', 'm10', 'BTN', 'BB', 100, { street: 'preflop', kind: 'nit-3bet', rule: 'R-M10-007', open: 2.5, threeBet: 10, vpips: [0.08], actions: [wyjIb('fold', 'VPIP {{w:vpip}}%: pas.'), wyjIb('call', 'VPIP {{w:vpip}}%: sprawdzenie to niedokładność.')] }), situation: 'Bardzo ciasny rywal 3-betuje. Otworzyłeś z Buttona, a duży blind 3-betuje.' }),
+    wariant: wariantIb('sc-ib-nit', 'Ah9d QsQd Kc8d3h2s5c', { point: 'nit-3bet', street: 'preflop', handClass: 'A9o', vpip: 0.08, open: 2.5, threeBet: 10, required: 7.5 / 20.5, equity: 0.3, correct: 'fold' }),
+  },
+};
 const wariant = wariantFg(SZABLON, 'latwy', 3);
 const punkt = wariant.points[0];
 const poprawna = (punkt && 'correct' in punkt ? punkt.correct : 'bet') as Akcja;
 const bledna: Akcja = poprawna === 'bet' ? 'check' : 'bet';
 
 function Ekran({ ekran }: { ekran: string }) {
+  const ib = IB[ekran.replace(/^ocena-/, '')];
+  if (ib) {
+    const wybory: Akcja[] = ekran.startsWith('ocena-') && ib.wybor ? [ib.wybor] : [];
+    return <PrzebiegScenariusza sesja={sesjaFg(ib.szablon, 'latwy', ib.wariant, wybory)} faza={wybory.length ? 'ocena' : 'decyzja'} koniec={wybory.length > 0} bladZapisu={false} onWybierz={brak} onDalej={brak} onZakoncz={brak} />;
+  }
   if (ekran === 'iso-co' || ekran === 'iso-sb') {
     const co = ekran === 'iso-co';
     const szablon = co ? ISO_CO : ISO_SB;
