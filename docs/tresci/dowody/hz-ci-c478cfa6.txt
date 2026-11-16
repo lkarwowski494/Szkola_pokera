@@ -1,0 +1,73 @@
+# HZ: env -u NODE_PATH pnpm run ci — 2026-11-16 — kod 0 (19 min 52 s)
+Drzewo: c478cfa6 bez różnic w content/, packages/, tools/, apps/; po przebiegu ci zmieniły się tylko pliki docs/ (D-1829: marginMin SC-30 w hz/<j>/sc-30.yaml, HZ.md, plan-hz.md, rejestr-hz.md, README szablonów, dowody).
+
+## Wyniki testów
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  43 passed (43)
+packages/poker-core test:       Tests  341 passed (341)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:  Test Files  82 passed (82)
+tools/content-build test:       Tests  859 passed | 1 expected fail (860)
+ Test Files  6 passed (6)   (test:kontrole)
+      Tests  35 passed (35)
+apps/mobile test: Test Suites: 158 passed, 158 total
+apps/mobile test: Tests:       1570 passed, 1570 total
+Kroki: typecheck, test, test:skrypty, test:kontrole, k08, i18n:kod, content:check, tresci:rejestr, tresci:el-kontrola — wszystkie przeszły (pnpm run ci kod 0).
+
+## Kontrole treści
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+0 braków
+kod_ci=0
+
+## pnpm content:build (przed ci): kod 0
+Zapisano 35 baz treści w /home/user/Szkola_pokera/apps/mobile/assets/content: 44 lekcji, 146 reguł, 832 liczb, 162 terminów.
+
+## D-043: 35 baz przed (HEAD 199fa046) i po (node docs/tresci/narzedzia/ha-porownaj-bazy.mjs)
+Bez nowych i bez usuniętych ID; zmienione sc-07, sc-17, sc-24, sc-31 (SC-15: znacznik {{t:c-bet}} nie zmienia skompilowanego tekstu, bo termin jest już oznaczony wcześniej w tym tekście). Szablony hz nie są w content/, więc przyrost ID = 0.
+bg.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+cs.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+da.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+de.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+el.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+en.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+es-419.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+es.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+et.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+fi.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+fr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+hr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+hu.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+id.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+it.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+ja.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+ko.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+lt.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+lv.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+ms.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+nb.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+nl.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+pl.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+pt-BR.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+pt.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+ro.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+ru.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+sk.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+sl.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+sr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+sv.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+tr.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+uk.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+vi.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+zh-Hant.db: meta: -0[] +0[] ~2[wersja,hash] | scenarios: -0[] +0[] ~4[sc-07,sc-17,sc-24,sc-31]
+OK: żadne ID nie zniknęło
+
+## Przekłady
+122 plików OK, 10 z błędami (11 języków: en, de, es, fr, it, ja, ko, pt, pt-BR, vi, zh-Hant; 7 szablonów hz + 5 HY)
