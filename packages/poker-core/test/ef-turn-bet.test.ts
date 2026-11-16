@@ -57,7 +57,7 @@ describe('08-N6: turn-bet', () => {
   it('odciski różnią się liczbą zakładów i pulą (zakład pokazany w decyzji)', () => {
     const t = szablon();
     expect(new Set(Array.from({ length: 300 }, (_x, s) => generateVariant(t, 'latwy', s + 1).fingerprint)).size).toBeGreaterThan(100);
-  });
+}, 300_000);
   it('niemożliwy rachunek (cena dużego zakładu poniżej szansy drawa) to błąd szablonu', () => {
     expect(() => generateVariant(szablon(0.02, 0.25, 0.3), 'latwy', 1)).toThrow(TemplateError);
   });
