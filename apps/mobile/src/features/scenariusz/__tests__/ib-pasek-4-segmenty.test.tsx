@@ -4,7 +4,7 @@
 // paska (dwa w wierszu), a minimalna szerokość = podstawaSegmentu(fontScale), więc przy AX5 nadal jeden segment w wierszu. Do 3 segmentów bez zmian.
 // Dowód wizualny: docs/design/dowody/ib-*-check-raise-*-po*.png (390 i 320, domyślny i AX5).
 import '@/i18n';
-import { PixelRatio, StyleSheet } from 'react-native';
+import { Dimensions, PixelRatio, StyleSheet } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 import { PasekStrategii } from '@/components/PasekStrategii';
 import { podstawaSegmentu } from '@/theme/skalowanie';
@@ -47,5 +47,38 @@ describe('IB (D-1848): pasek z 4 segmentami zawija się 2×2', () => {
     skala(1);
     await ocena(3);
     for (const n of TRZY) { expect(styl(segment(n)).flexBasis).toBe(podstawaSegmentu(1)); expect(styl(segment(n)).minWidth).toBeUndefined(); }
+  });
+});
+
+// IC (zadanie 2, P3 IB): lewa krawędź segmentu, który zaczyna wiersz (3. segment w 2×2, każdy segment przy dużym tekście), nie jest rysowana — w tym miejscu stoi obrys paska.
+const KRESKA = StyleSheet.hairlineWidth * 2;
+const lewe = (nazwy: string[]) => nazwy.map((n) => styl(segment(n)).borderLeftWidth);
+const szerokosc = (w: number) => jest.spyOn(Dimensions, 'get').mockReturnValue({ width: w, height: 844, scale: 3, fontScale: 1 });
+
+describe('IC (P3 IB): lewa krawędź segmentu na początku wiersza', () => {
+  it('przyciski decyzji, 4 akcje 2×2 (390 pt, tekst domyślny): kreska tylko przy segmentach 2 i 4', async () => {
+    szerokosc(390); skala(1);
+    await decyzja(CZTERY);
+    expect(lewe(CZTERY)).toEqual([0, KRESKA, 0, KRESKA]);
+  });
+  it('pasek ocen, 4 akcje 2×2 (wybrane sprawdzenie, 2. segment ma złotą obwódkę 2 pt): 3. segment bez lewej kreski, 4. z kreską', async () => {
+    szerokosc(390); skala(1);
+    await render(<PasekOcenAkcji akcje={AKCJE4} wybor="call" nazwy={NAZWY4} />);
+    expect(lewe(CZTERY)).toEqual([0, 2, 0, KRESKA]);
+  });
+  it('przy dużym tekście (AX5: jeden segment w wierszu) żaden segment nie ma lewej kreski', async () => {
+    szerokosc(390); skala(3.12);
+    await decyzja(CZTERY);
+    expect(lewe(CZTERY)).toEqual([0, 0, 0, 0]);
+  });
+  it('3 akcje, tekst domyślny (jeden wiersz): kreska przy segmentach 2 i 3 jak dotąd', async () => {
+    szerokosc(390); skala(1);
+    await decyzja(TRZY);
+    expect(lewe(TRZY)).toEqual([0, KRESKA, KRESKA]);
+  });
+  it('wybrany segment zachowuje złotą obwódkę 2 pt także na początku wiersza', async () => {
+    szerokosc(390); skala(1);
+    await render(<PasekOcenAkcji akcje={AKCJE4} wybor="raise-small" nazwy={NAZWY4} />);
+    expect(styl(segment(CZTERY[2]!)).borderLeftWidth).toBe(2);
   });
 });

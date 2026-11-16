@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AccessibilityInfo, Animated, Easing, PixelRatio, Pressable, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Animated, Dimensions, Easing, PixelRatio, Pressable, StyleSheet, Text, View } from 'react-native';
 import { podstawaSegmentu } from '@/theme/skalowanie';
 import { opisPaska, segmentyPaska, type OpcjaPaska } from '@/features/stol/pasek';
 import { haptyka, odstep, promien, ruch, styl, useTokens } from '@/theme/tokens';
@@ -22,6 +22,17 @@ const CEL_AKCJI = 64; // design-spec: akcje decyzji ≥ 64 pt
  */
 export function wymiarSegmentu(liczba: number, skala: number): { flexBasis: number | `${number}%`; minWidth?: number } {
   return liczba > 3 ? { flexBasis: '40%', minWidth: podstawaSegmentu(skala) } : { flexBasis: podstawaSegmentu(skala) };
+}
+
+/**
+ * IC (P3 IB): lewa krawędź segmentu. Segment, który zaczyna wiersz (pierwszy, 3. w układzie 2×2, każdy przy dużym tekście, gdy mieści się jeden w wierszu),
+ * jej nie ma — stoi tam obrys paska. Liczba segmentów w wierszu z szerokości ekranu (pasek = ekran − 2 × `odstep.l`) i minimalnej szerokości segmentu
+ * (`wymiarSegmentu`); oszacowanie jak w D-1730, bez pomiaru układu.
+ */
+export function lewaKrawedzSegmentu(i: number, liczba: number, skala: number, szerokoscEkranu: number): number {
+  const pasek = szerokoscEkranu - 2 * odstep.l;
+  const wWierszu = liczba > 3 ? (2 * podstawaSegmentu(skala) <= pasek ? 2 : 1) : Math.max(1, Math.min(liczba, Math.floor(pasek / podstawaSegmentu(skala))));
+  return i % wWierszu === 0 ? 0 : StyleSheet.hairlineWidth * 2;
 }
 
 function useOgraniczRuch(): boolean {
@@ -67,7 +78,7 @@ export function PasekStrategii({
             }}
             style={({ pressed }) => [
               styles.przycisk,
-              { ...wymiarSegmentu(opcje.length, PixelRatio.getFontScale()), minHeight: CEL_AKCJI, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
+              { ...wymiarSegmentu(opcje.length, PixelRatio.getFontScale()), minHeight: CEL_AKCJI, borderLeftWidth: lewaKrawedzSegmentu(i, opcje.length, PixelRatio.getFontScale(), Dimensions.get('window').width), borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
             ]}
           >
             <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{o.text}</Text>
