@@ -17,6 +17,11 @@ const TESTY: Record<string, readonly string[]> = {
   'icm-call': ['szablony-co.test.ts'],
   'flop-size': ['fl-pokrycie-flop-size-river-value.test.ts'], // FL (08-FD-3)
   'river-value': ['fl-pokrycie-flop-size-river-value.test.ts'], // FL (08-FD-4)
+  'defend': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
+  'list-hand': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
+  'turn-bet': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
+  'pick-hand': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
+  'river-catch': ['ho-pokrycie-wyrocznie.test.ts'], // HO (KO-111)
 };
 const rodzaj = (d: { kind?: string }) => d.kind ?? 'draw-call';
 

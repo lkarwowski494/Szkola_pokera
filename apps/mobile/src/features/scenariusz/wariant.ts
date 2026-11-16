@@ -208,7 +208,7 @@ function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
   if (d.point === 'list-hand') return a === d.correct || (d.alsoCorrect?.includes(a) ?? false) ? 'zgodne' : d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'; // FG: akcja dopuszczalna z wpisu listy (ADR-04, D-1142)
   if (d.point === 'turn-bet' || d.point === 'flop-size') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // FG: mały zakład to zły rozmiar, nie błąd (analogia size-spot/cbet-case, CR WYS-002; D-1375)
   if (d.point === 'nit-3bet') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // HO (SC-30): sprawdzenie to niedokładność, nigdy „zgodne” (D-1305)
-  if (d.point === 'check-raise') return a === d.correct ? 'zgodne' : a === 'call' ? 'dopuszczalne' : 'niedokladnosc'; // HO (SC-16): call = ręka mieszana (ADR-04), fold i zbyt małe podbicie to niedokładność (R-M6-006/010)
+  if (d.point === 'check-raise') return a === d.correct || a === 'call' ? 'zgodne' : 'niedokladnosc'; // HO (SC-16): call to zagranie zgodne (ręka mieszana, ADR-04; D-1722 HP), fold i zbyt małe podbicie to niedokładność (R-M6-006/010)
   if (d.point === 'turn-action') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // HO: reguła heurystyczna daje najwyżej niedokładność (D-1052)
   if (d.point === 'pick-hand') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // SC-23a/b: druga ręka to niedokładność, nie błąd (D-1054, zrodla-krok-e.md)
   return a === poprawnaAkcja(d) ? 'zgodne' : 'blad';
