@@ -1,11 +1,12 @@
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { PixelRatio, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import type { OcenaOdpowiedzi } from '@szkola/domena';
 import { CardRow } from '@/components/PlayingCard';
 import { RichText } from '@/components/RichText';
 import StopienOceny, { ZNAK } from '@/features/ocena/StopienOceny';
 import { nazwaKarty } from '@/features/stol/uklad';
+import { podstawaSegmentu } from '@/theme/skalowanie';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import type { Blok, RodzajBloku, UkladIcm } from './wariant';
 import type { Akcja } from './wariant';
@@ -97,12 +98,12 @@ export function PasekOcenAkcji({ akcje, wybor, nazwy, etykiety }: { akcje: Reado
   const wpisy = (Object.keys(nazwy) as Akcja[]).flatMap((a) => { const o = akcje[a]; return o ? [{ a, o }] : []; });
   const lista = wpisy.map(({ a, o }) => `${etykiety?.[a] ?? nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
   return (
-    <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={styles.pasekOcen}>
-      {wpisy.map(({ a, o }) => (
-        <View key={a} style={[styles.segmentOceny, { borderColor: a === wybor ? tk.gold : tk.separator, borderWidth: a === wybor ? 2 : 1, backgroundColor: tk.surface }]}>
-          <Text style={[styl.naglowek, { color: tk.ink, textAlign: 'center' }]}>{nazwy[a]}</Text>
-          <Text style={[styl.drobny, { color: tk.ink, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
-          {a === wybor ? <Text style={[styl.drobny, { color: tk.goldOnBg, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
+    <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={[styles.pasekOcen, { backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>
+      {wpisy.map(({ a, o }, i) => (
+        <View key={a} style={[styles.segmentOceny, { flexBasis: podstawaSegmentu(PixelRatio.getFontScale()), borderColor: a === wybor ? tk.gold : tk.actionEdge, borderWidth: a === wybor ? 2 : 0, borderLeftWidth: a === wybor ? 2 : i === 0 ? 0 : StyleSheet.hairlineWidth * 2 }]}>
+          <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>
+          <Text style={[styl.drobny, { color: tk.actionInk, textAlign: 'center' }]}>{`${ZNAK[o]} ${t(`grade.${o}`)}`}</Text>
+          {a === wybor ? <Text style={[styl.drobny, { color: tk.goldText, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
         </View>
       ))}
     </View>
@@ -233,8 +234,9 @@ const styles = StyleSheet.create({
   miejsce: { borderWidth: 1, borderRadius: 999, paddingHorizontal: odstep.m, paddingVertical: odstep.xs },
   wiersz: { flexDirection: 'row', alignItems: 'flex-start', gap: odstep.s, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingBottom: odstep.s },
   wierszPionowy: { flexDirection: 'column', alignItems: 'stretch', gap: odstep.xs },
-  pasekOcen: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
-  segmentOceny: { flexGrow: 1, flexBasis: 96, borderRadius: promien.przycisk, padding: odstep.m, gap: odstep.xs },
+  // 04-studio-projektowe-001: te same segmenty co pasek przed decyzją (PasekStrategii; scenariusz-i-ocena.md:20); podstawa od fontScale, zawijanie w pionowy stos przy AX5
+  pasekOcen: { flexDirection: 'row', flexWrap: 'wrap', borderRadius: promien.przycisk, borderWidth: StyleSheet.hairlineWidth * 2, overflow: 'hidden' },
+  segmentOceny: { flexGrow: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstep.s, paddingVertical: odstep.m, gap: odstep.xs },
   rzadMiejsc: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: odstep.s },
   wierszStosu: { flexDirection: 'row', alignItems: 'center', gap: odstep.m, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingVertical: odstep.xs },
   // AX4–AX5 bez paska: wartość schodzi pod nazwę (design-spec „Pasek stosu”; recenzja DQ 08-programista-005)
