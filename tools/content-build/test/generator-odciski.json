@@ -58,6 +58,10 @@
       "sha": "1ffd079472a0a0b6",
       "ziarno1": "sc-08|latwy|J0J1/"
     },
+    "sc-09|latwy": {
+      "sha": "4c170b4a60d165ab",
+      "ziarno1": "sc-09|latwy|K0T1/"
+    },
     "sc-10|latwy": {
       "sha": "e11df7b408407a0a",
       "ziarno1": "sc-10|latwy|A0K0/"
@@ -86,9 +90,17 @@
       "sha": "eda669b835732e6c",
       "ziarno1": "sc-15|latwy|A0T1/827233|6-2"
     },
+    "sc-16|latwy": {
+      "sha": "fc36c4d8d70fb5f4",
+      "ziarno1": "sc-16|latwy|J0T0/806120|6"
+    },
     "sc-17|latwy": {
       "sha": "eb726adbfd8a3e1f",
       "ziarno1": "sc-17|latwy|Q0J1/615220|8-6"
+    },
+    "sc-18|latwy": {
+      "sha": "dd604f9e671793c7",
+      "ziarno1": "sc-18|latwy|K0Q0/713022/Q2"
     },
     "sc-19|latwy": {
       "sha": "ef62155bfab621c2",
@@ -101,6 +113,14 @@
     "sc-20|latwy": {
       "sha": "6e591f8b4e6b0093",
       "ziarno1": "sc-20|latwy|A0K1/625332/K3|8"
+    },
+    "sc-21|latwy": {
+      "sha": "5378bc17baf55c1f",
+      "ziarno1": "sc-21|latwy|Q081/K2T033/80"
+    },
+    "sc-21|sredni": {
+      "sha": "5cfcd5c6e8885ae6",
+      "ziarno1": "sc-21|sredni|K0Q0/A16233/K3"
     },
     "sc-22|latwy": {
       "sha": "ba91b611ca33195e",
@@ -126,6 +146,22 @@
       "sha": "08ab1ae4bfea3112",
       "ziarno1": "sc-25|latwy|K0T1/A26150/K3/52"
     },
+    "sc-26|latwy": {
+      "sha": "48d89e270d9d5b82",
+      "ziarno1": "sc-26|latwy|J0J1/804130|5.5-10.5"
+    },
+    "sc-26|sredni": {
+      "sha": "cac194c2899da833",
+      "ziarno1": "sc-26|sredni|K090/K1Q122|5.5-12.5"
+    },
+    "sc-27|latwy": {
+      "sha": "063327c3d45a20c3",
+      "ziarno1": "sc-27|latwy|2021/925022|16.5-92.5"
+    },
+    "sc-27|sredni": {
+      "sha": "c0d6cb2e08e4067e",
+      "ziarno1": "sc-27|sredni|2021/925022|16.5-100"
+    },
     "sc-28|latwy": {
       "sha": "cb6233d257cb216a",
       "ziarno1": "sc-28|latwy|A0A1/906241/J3/91"
@@ -133,6 +169,10 @@
     "sc-29|latwy": {
       "sha": "5daea0d33f197e31",
       "ziarno1": "sc-29|latwy|A0K0/Q15253/32/A3"
+    },
+    "sc-30|latwy": {
+      "sha": "5d86211817758d6b",
+      "ziarno1": "sc-30|latwy|Q091/|0.1"
     },
     "sc-31|latwy": {
       "sha": "af0c89917d6751bf",
