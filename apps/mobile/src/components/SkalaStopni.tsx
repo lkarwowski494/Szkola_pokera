@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { PixelRatio, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { mnoznikSkaliStopni, podstawaPrzedzialu } from '@/theme/skalowanie';
 import { etykietaSkali, przedzialySkali, type OcenaDecyzji } from '@/features/stol/skala';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
@@ -12,8 +12,8 @@ import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 export function SkalaStopni({ czestosc, ocena }: { czestosc: number; ocena: OcenaDecyzji }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
-  const skala = PixelRatio.getFontScale();
-  const mnoznik = mnoznikSkaliStopni(useWindowDimensions().width); // A04-06: sufit tekstu jak makieta (e3.css:112)
+  const { width: szerokoscOkna, fontScale: skala } = useWindowDimensions(); // IH (IF P2-1): reaktywnie
+  const mnoznik = mnoznikSkaliStopni(szerokoscOkna); // A04-06: sufit tekstu jak makieta (e3.css:112)
   return (
     <View accessible accessibilityRole="image" accessibilityLabel={etykietaSkali(czestosc, ocena, t)} style={styles.rzad}>
       {przedzialySkali(ocena, t).map((p) => (

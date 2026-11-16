@@ -4,7 +4,7 @@
 // paska (dwa w wierszu), a minimalna szerokość = podstawaSegmentu(fontScale), więc przy AX5 nadal jeden segment w wierszu. Do 3 segmentów bez zmian.
 // Dowód wizualny: docs/design/dowody/ib-*-check-raise-*-po*.png (390 i 320, domyślny i AX5).
 import '@/i18n';
-import { Dimensions, PixelRatio, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 import { PasekStrategii } from '@/components/PasekStrategii';
 import { podstawaSegmentu } from '@/theme/skalowanie';
@@ -13,8 +13,12 @@ import { PasekOcenAkcji } from '../komponenty';
 type ReactTestInstance = NonNullable<ReturnType<typeof screen.getByText>['parent']>;
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 
-const skala = (s: number) => jest.spyOn(PixelRatio, 'getFontScale').mockReturnValue(s);
-afterEach(() => jest.restoreAllMocks());
+// IH (IF P2-1): komponenty czytają skalę i szerokość z `useWindowDimensions` (Dimensions.get('window')), więc test podmienia wymiary okna (wcześniej PixelRatio.getFontScale); asercje bez zmian.
+const OKNO_DOMYSLNE = { width: 750, fontScale: 1 }; // szerokość okna jak w jest-expo (750), skala 1 do czasu skala(...)
+const okno = { ...OKNO_DOMYSLNE };
+const mockOkno = () => jest.spyOn(Dimensions, 'get').mockReturnValue({ width: okno.width, height: 844, scale: 3, fontScale: okno.fontScale });
+const skala = (s: number) => { okno.fontScale = s; return mockOkno(); };
+afterEach(() => { jest.restoreAllMocks(); Object.assign(okno, OKNO_DOMYSLNE); });
 const styl = (n: ReactTestInstance) => StyleSheet.flatten(typeof n.props.style === 'function' ? n.props.style({ pressed: false }) : n.props.style) ?? {};
 const segment = (nazwa: string): ReactTestInstance => {
   for (let n: ReactTestInstance | null = screen.getByText(nazwa).parent; n; n = n.parent) if (styl(n).flexBasis !== undefined) return n;
@@ -53,7 +57,7 @@ describe('IB (D-1848): pasek z 4 segmentami zawija się 2×2', () => {
 // IC (zadanie 2, P3 IB): lewa krawędź segmentu, który zaczyna wiersz (3. segment w 2×2, każdy segment przy dużym tekście), nie jest rysowana — w tym miejscu stoi obrys paska.
 const KRESKA = StyleSheet.hairlineWidth * 2;
 const lewe = (nazwy: string[]) => nazwy.map((n) => styl(segment(n)).borderLeftWidth);
-const szerokosc = (w: number) => jest.spyOn(Dimensions, 'get').mockReturnValue({ width: w, height: 844, scale: 3, fontScale: 1 });
+const szerokosc = (w: number) => { okno.width = w; return mockOkno(); };
 
 describe('IC (P3 IB): lewa krawędź segmentu na początku wiersza', () => {
   it('przyciski decyzji, 4 akcje 2×2 (390 pt, tekst domyślny): kreska tylko przy segmentach 2 i 4', async () => {

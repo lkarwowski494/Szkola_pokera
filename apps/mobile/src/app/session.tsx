@@ -11,7 +11,7 @@ import { PaintGrid } from '@/components/PaintGrid';
 import { RichText } from '@/components/RichText';
 import { useAnnounce, useNoweZadanie } from '@/features/dostepnosc/announce';
 import { Stol } from '@/components/Stol';
-import { Button, Muted, ProgressBar, Screen, Title } from '@/components/ui';
+import { Button, Muted, ProgressBar, RzadPrzyciskow, Screen, Title } from '@/components/ui';
 import {
   getAllRangeSpots,
   getDrillById,
@@ -398,10 +398,10 @@ function SessionScreen() {
       {item.kind === 'paint' && !current ? (
         <View style={{ gap: odstep.m }}>
           <PaintGrid painted={painted} onChange={setPainted} onActive={setPainting} />
-          <View style={styles.row}>
+          <RzadPrzyciskow>
             <Button label={t('session.clear')} variant="ghost" onPress={() => setPainted(emptyGrid())} style={{ flex: 1 }} />
             <Button label={t('session.check')} onPress={() => commit({ kind: 'paint', painted })} style={{ flex: 1 }} />
-          </View>
+          </RzadPrzyciskow>
         </View>
       ) : null}
 
@@ -650,7 +650,6 @@ function PaintFeedback({ item, painted }: { item: PaintInstance; painted: boolea
 
 const styles = StyleSheet.create({
   top: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  row: { flexDirection: 'row', gap: odstep.m },
   option: { borderWidth: 1.5, borderRadius: promien.przycisk, padding: odstep.l, gap: odstep.xs },
   explain: { borderRadius: promien.przycisk, padding: odstep.l },
   reviewItem: { borderWidth: 1.5, borderRadius: promien.przycisk, padding: odstep.l, gap: odstep.s },

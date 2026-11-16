@@ -13,6 +13,7 @@ export function RichText({ text, style }: { text: string; style?: TextStyle | Te
   const parts = splitCardTokens(text);
   const base = [{ color: tk.ink }, style];
   if (parts.every((p) => p.t === 'text')) return <Text style={base}>{text}</Text>;
+  const wyraz = [...base, styles.wyraz]; // IH (IF P2-3): długi wyraz łamie się w obrębie wiersza zamiast wyjść poza krawędź ekranu (320 pt, AX5)
   return (
     <View style={styles.wrap}>
       {parts.map((p, i) => (
@@ -26,7 +27,7 @@ export function RichText({ text, style }: { text: string; style?: TextStyle | Te
               .split(/(\s+)/)
               .filter((w) => w.length > 0 && !/^\s+$/.test(w))
               .map((w, j) => (
-                <Text key={j} style={base}>
+                <Text key={j} style={wyraz}>
                   {w}{' '}
                 </Text>
               ))
@@ -38,6 +39,7 @@ export function RichText({ text, style }: { text: string; style?: TextStyle | Te
 }
 
 const styles = StyleSheet.create({
-  wrap: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' },
+  wrap: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', maxWidth: '100%' },
+  wyraz: { flexShrink: 1, maxWidth: '100%' },
   cards: { marginRight: 4, marginVertical: 2 },
 });

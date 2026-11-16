@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AccessibilityInfo, Animated, Dimensions, Easing, PixelRatio, Pressable, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { podstawaSegmentu } from '@/theme/skalowanie';
 import { opisPaska, segmentyPaska, type OpcjaPaska } from '@/features/stol/pasek';
 import { haptyka, odstep, promien, ruch, styl, useTokens } from '@/theme/tokens';
@@ -79,9 +79,8 @@ export function PasekStrategii({
   onWybierz?: (i: number) => void;
 }): React.JSX.Element {
   const tk = useTokens();
+  const { width: szerokoscEkranu, fontScale: skala } = useWindowDimensions(); // IH (IF P2-1): reaktywnie, nie `Dimensions.get` / `PixelRatio` w renderze
   if (wybor === null) {
-    const skala = PixelRatio.getFontScale();
-    const szerokoscEkranu = Dimensions.get('window').width;
     return (
       <View accessibilityRole="none" style={[styles.przyciski, { backgroundColor: tk.actionBg, borderColor: tk.actionOutline }]}>
         {opcje.map((o, i) => (
@@ -109,6 +108,7 @@ export function PasekStrategii({
 }
 
 function PoOcenie({ opcje, wybor, klasa }: { opcje: readonly OpcjaPaskaUI[]; wybor: number; klasa: string }): React.JSX.Element {
+  const { fontScale: skala } = useWindowDimensions(); // IH (IF P2-1)
   const tk = useTokens();
   const { t } = useTranslation();
   const ogranicz = useOgraniczRuch();
@@ -163,7 +163,7 @@ function PoOcenie({ opcje, wybor, klasa }: { opcje: readonly OpcjaPaskaUI[]; wyb
       </View>
       <View style={styles.podpisy}>
         {seg.map((s) => (
-          <Animated.View key={s.indeks} testID={`podpis-${s.indeks}`} style={[kolumna(s.szerokosc), styles.podpis, { minWidth: podstawaSegmentu(PixelRatio.getFontScale()) }]}>
+          <Animated.View key={s.indeks} testID={`podpis-${s.indeks}`} style={[kolumna(s.szerokosc), styles.podpis, { minWidth: podstawaSegmentu(skala) }]}>
             <Text style={[styl.przypis, styles.podpisTekst, { color: s.twoj ? tk.goldText : tk.onFelt, fontWeight: '600' }]}>{s.tekst}</Text>
             {s.procent !== null ? (
               <Text style={[styl.przypis, styles.podpisTekst, { color: s.twoj ? tk.goldText : tk.onFeltMuted, fontVariant: ['tabular-nums'] }]}>{t('strategy.pct', { pct: s.procent })}</Text>

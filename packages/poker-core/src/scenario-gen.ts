@@ -600,6 +600,48 @@ export function blindBb(position: string): number {
 export function deadBlindsBb(positions: { hero: string; villain: string }): number {
   return 1.5 - blindBb(positions.hero) - blindBb(positions.villain);
 }
+/** Para (pula na flopie, stack za pulą) punktu spr-call / geo-size z SPR = stack ÷ pula (bb). */
+export interface ParaPulaStack { pot: number; stack: number; spr: number; }
+/**
+ * Pary pula × stack punktu spr-call albo geo-size dozwolone na poziomie: SPR w `sprRange` (spr-call: wymagany; geo-size: brak = bez zawężenia); geo-size dodatkowo:
+ * ułamek geometryczny większy od małego i łańcuch małych zakładów < stack − 0,5. Jedyna definicja filtra: generator (losowanie pary) i `zakresGlebokosciStartu`
+ * (przedział na ekranie startu, IH D-1894) używają tego samego kodu, więc nie rozjadą się.
+ */
+export function paryPulaStack(spec: SprCallSpec | GeoSizeSpec, b: Pick<LevelBounds, 'sprRange'>): ParaPulaStack[] {
+  const zakres = b.sprRange;
+  const wszystkie = spec.pots.flatMap((pot) => spec.stacks.map((stack) => ({ pot, stack, spr: stack / pot })))
+    .filter((x) => x.pot > 0 && x.stack > 0 && (!zakres || (x.spr >= zakres[0] - 1e-12 && x.spr <= zakres[1] + 1e-12)));
+  if (spec.kind === 'spr-call') return wszystkie;
+  return wszystkie.filter((x) => geometricFraction(x.spr, spec.streets) > spec.small && lancuchMalychZakladow(spec, x.pot) < x.stack - 0.5); // mały zakład naprawdę nie wpłaca stacku, a geometryczny jest większy od małego
+}
+/** Suma `streets` małych zakładów (ułamek `small` rosnącej puli, obie strony wpłacają) punktu geo-size. */
+export function lancuchMalychZakladow(spec: Pick<GeoSizeSpec, 'streets' | 'small'>, pot: number): number {
+  let p = pot; let razem = 0;
+  for (let k = 0; k < spec.streets; k++) { const bet = p * spec.small; razem += bet; p += 2 * bet; }
+  return razem;
+}
+/**
+ * Głębokość startu rozdania w bb jako przedział (min, max) dla szablonu i poziomu (IH, D-1894; KO-117). Punkt spr-call / geo-size: każda dozwolona para pula × stack daje
+ * start = stack + (pula − martwe blindy) ÷ 2 (wkład gracza przed flopem), wynik to min i max po parach; pozostałe rodzaje: `stackBb` (min = max). Szablon z kilkoma punktami:
+ * min i max z punktów. `null` = brak danych (bez `stackBb` i bez punktu stosu); brak zostaje brakiem, nie zgadniętą liczbą.
+ */
+export function zakresGlebokosciStartu(t: Pick<GeneratorTemplate, 'stackBb' | 'positions' | 'levels' | 'decisions'>, level: ScenarioLevel): { min: number; max: number } | null {
+  const b = t.levels[level];
+  const starty: number[] = [];
+  let bezStosuWWariancie = false;
+  for (const spec of t.decisions) {
+    if (spec.kind === 'spr-call' || spec.kind === 'geo-size') {
+      if (!b || !t.positions) return null;
+      const martwe = deadBlindsBb(t.positions);
+      for (const p of paryPulaStack(spec, b)) starty.push(p.stack + (p.pot - martwe) / 2);
+    } else bezStosuWWariancie = true;
+  }
+  if (bezStosuWWariancie) {
+    if (typeof t.stackBb !== 'number') return null;
+    starty.push(t.stackBb);
+  }
+  return starty.length === 0 ? null : { min: Math.min(...starty), max: Math.max(...starty) };
+}
 const IDENTITY: readonly number[] = [0, 1, 2, 3];
 /** F3: złe rozmiary do wyboru jako ułamek rozmiaru standardowego (0,8 ≥ min-raise dla otwarć 2,5–3 bb i 3-betów; 1,6 mieści się w stosie 100 bb); odległość od standardu > 0,05 bb (near, grading.ts). D-695. */
 export const SIZE_SMALL_FACTOR = 0.8;
@@ -1128,17 +1170,14 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (b.expected[i] !== 'bet-big') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu geo-size to bet-big (R-M9-009: rozmiar geometryczny), jest ${String(b.expected[i])}`);
       const zakres = b.sprRange;
       if (zakres && !(zakres[0] > 0 && zakres[1] >= zakres[0])) throw new TemplateError(`${t.id}: poziom ${level}: sprRange [min, max] z 0 < min ≤ max`);
-      const lancuchMaly = (pot: number) => { let p = pot; let razem = 0; for (let k = 0; k < spec.streets; k++) { const bet = p * spec.small; razem += bet; p += 2 * bet; } return razem; };
-      const pary = spec.pots.flatMap((pot) => spec.stacks.map((stack) => ({ pot, stack, spr: stack / pot })))
-        .filter((x) => x.pot > 0 && x.stack > 0 && (!zakres || (x.spr >= zakres[0] - 1e-12 && x.spr <= zakres[1] + 1e-12)))
-        .filter((x) => geometricFraction(x.spr, spec.streets) > spec.small && lancuchMaly(x.pot) < x.stack - 0.5); // mały zakład naprawdę nie wpłaca stacku, a geometryczny jest większy od małego
+      const pary = paryPulaStack(spec, b);
       if (pary.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna para (pula, stack) nie daje SPR w przedziale z małym zakładem niewpłacającym stacku`);
       if (rankOf(hero[0]) !== rankOf(hero[1])) return null; // para kieszonkowa
       const rangi = flop.map(rankOf);
       if (new Set(rangi).size < 3 || rangi.filter((r) => r === rankOf(hero[0])).length !== 1) return null; // stół niesparowany, set z jednej karty stołu
       if ([0, 1, 2, 3].some((su) => flop.filter((c) => suitOf(c) === su).length === 3)) return null; // bez gotowego koloru na stole
       const c = pick(rng, pary);
-      points.push({ point: 'geo-size', street: 'flop', pot: c.pot, stack: c.stack, spr: c.spr, streets: spec.streets, fractionBig: geometricFraction(c.spr, spec.streets), fractionSmall: spec.small, smallTotal: lancuchMaly(c.pot), correct: 'bet-big' });
+      points.push({ point: 'geo-size', street: 'flop', pot: c.pot, stack: c.stack, spr: c.spr, streets: spec.streets, fractionBig: geometricFraction(c.spr, spec.streets), fractionSmall: spec.small, smallTotal: lancuchMalychZakladow(spec, c.pot), correct: 'bet-big' });
       icmSuffix = `|${c.pot}-${c.stack}`; // pula i stack są pokazane w decyzji
       continue;
     }
@@ -1148,7 +1187,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if (b.expected[i] !== 'call') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu spr-call to call (R-M9-003: najwyższa para przy niskim SPR gra o stack), jest ${String(b.expected[i])}`);
       if (!b.sprRange || !(b.sprRange[0] > 0 && b.sprRange[1] >= b.sprRange[0])) throw new TemplateError(`${t.id}: poziom ${level}: spr-call wymaga sprRange [min, max] z 0 < min ≤ max`);
       const [sprMin, sprMax] = b.sprRange;
-      const pary = spec.pots.flatMap((pot) => spec.stacks.map((stack) => ({ pot, stack, spr: stack / pot }))).filter((x) => x.pot > 0 && x.stack > 0 && x.spr >= sprMin - 1e-12 && x.spr <= sprMax + 1e-12);
+      const pary = paryPulaStack(spec, b);
       if (pary.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna para (pula, stack) nie daje SPR w [${sprMin}; ${sprMax}]`);
       if (new Set(flop.map(rankOf)).size < 3) return null; // stół niesparowany
       if ([0, 1, 2, 3].some((su) => flop.filter((c) => suitOf(c) === su).length === 3)) return null; // bez gotowego koloru na stole
