@@ -30,6 +30,11 @@ export const AKCJE: readonly Akcja[] = ['4bet', 'hand-a', 'hand-b', 'fold', 'cal
  * akcja spoza listy to błąd treści (bramka budowania odrzuca ją wcześniej, `AKCJE_LISTY` w tools/content-build/src/scenariusze.ts; test przypięcia po obu stronach).
  */
 export const AKCJE_LISTY = ['fold', 'check', 'call', 'limp', 'raise', '4bet', 'all-in'] as const satisfies readonly Akcja[];
+/**
+ * Rodzaje punktów decyzji, które ekran scenariusza obsługuje (widok, akcje, ocena, wyjaśnienia): lustro `RODZAJE_NA_EKRANIE` w tools/content-build/src/scenariusze.ts
+ * (bramka budowania), test przypięcia po obu stronach (IB, jak AKCJE_LISTY).
+ */
+export const RODZAJE_PUNKTOW_EKRANU = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand', 'river-value', 'spr-call', 'check-raise', 'turn-action', 'geo-size', 'nit-3bet'] as const satisfies readonly VariantDecision['point'][];
 type SpecPunktu = ScenarioTemplate['decisions'][number];
 const ROZMIAR_SPOTU = /^(raise|call) \d+(\.\d+)?$/;
 /** Czy napis to akcja ekranu (walidacja wyboru odczytanego z bazy i etykiet spotu na granicy z danymi). */
@@ -109,7 +114,12 @@ export function opisAkcji(p: VariantDecision, a: Akcja): OpisAkcji {
   if (a === 'check') return nazwa('check', null);
   if (a === 'bet') return nazwa('bet', null); // KO-091 (FR): river-value, zakład bez kwoty (wariant jej nie niesie)
   // FM (D-1430): turn-bet i flop-size to dwa rozmiary tego samego zagrania: ta sama nazwa „zakład”, kwota w drugiej linii; „c-bet” tylko w cbet-case
-  if (a === 'bet-small' || a === 'bet-big') return p.point === 'turn-bet' || p.point === 'flop-size' ? nazwa('bet', 'pay') : nazwa(a === 'bet-small' ? 'betSmall' : 'betBig', null);
+  // IB (D-1842): geo-size jak flop-size (zakład z kwotą); turn-action jak river-value na turnie: „zakład” bez kwoty (wariant nie niesie puli), „c-bet” to zły termin na turnie (D-1147)
+  if (a === 'bet-small' || a === 'bet-big') {
+    if (p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'geo-size') return nazwa('bet', 'pay');
+    if (p.point === 'turn-action') return nazwa('bet', null);
+    return nazwa(a === 'bet-small' ? 'betSmall' : 'betBig', null);
+  }
   if (a === 'limp') return nazwa('limp', 'pay');
   if (a === 'all-in') return nazwa('allIn', 'all');
   if (a === 'call' || a.startsWith('call ')) return nazwa('call', 'pay');
@@ -119,6 +129,7 @@ export function opisAkcji(p: VariantDecision, a: Akcja): OpisAkcji {
   return nazwa('raise', 'to');
 }
 type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
+const miejsce1 = (x: number): number => Math.round(x * 10) / 10;
 /**
  * Kwota akcji w bb do jej nazwy: sprawdzenie draw-call = zakład rywala; sprawdzenie icm-call = cały stos za blindem gracza (pas kosztuje
  * blind, więc sprawdzenie dopłaca resztę, jak rachunek progu w generatorze); podbicie = rozmiar z wariantu; limp = dopłata do dużego blinda.
@@ -126,6 +137,12 @@ type Pozycje = Pick<ScenarioTemplate, 'stackBb' | 'positions'>;
  */
 export function kwotaAkcji(p: VariantDecision, a: Akcja, s: Pozycje): number | null {
   if (p.point === 'draw-call' || p.point === 'river-catch' || p.point === 'defend') return a === 'call' ? p.bet : null;
+  // IB (D-1841): kwoty rodzajów HO z wariantu: spr-call sprawdza all-in (stack), check-raise sprawdza c-bet albo podbija „do” R, nit-3bet dopłaca 3-bet − otwarcie,
+  // geo-size stawia pula × ułamek (0,1 bb: ułamek geometryczny nie jest okrągły, a zaokrąglenie do 1 bb zmieniałoby rozmiar uczony w tekście {{w:rozmiar}})
+  if (p.point === 'spr-call') return a === 'call' ? p.stack : null;
+  if (p.point === 'check-raise') return a === 'call' ? p.cbet : a === 'raise-big' ? p.raiseBig : a === 'raise-small' ? p.raiseSmall : null;
+  if (p.point === 'nit-3bet') return a === 'call' ? p.threeBet - p.open : null;
+  if (p.point === 'geo-size') return a === 'bet-small' ? miejsce1(p.pot * p.fractionSmall) : a === 'bet-big' ? miejsce1(p.pot * p.fractionBig) : null;
   if (p.point === 'turn-bet' || p.point === 'flop-size') return a === 'bet-small' ? p.betSmall : a === 'bet-big' ? p.betBig : null;
   if (p.point === 'icm-call') return a === 'call' ? (ukladIcm(p, s)?.doSprawdzeniaBb ?? null) : null;
   if (p.point === 'size-spot') return a === 'limp' ? 1 - blindBb(s.positions.hero) : (p.options.find((o) => o.action === a)?.bb ?? null);
@@ -299,7 +316,6 @@ export interface UkladIcm {
   /** Dopłata: mniejszy stos pary − twój blind. */
   doSprawdzeniaBb: number;
 }
-const miejsce1 = (x: number): number => Math.round(x * 10) / 10;
 /**
  * Układ punktu icm-call z wariantu (D-889): stosy wszystkich graczy w bb (1 bb = mniejszy stos pary ÷ `stackBb`, generator `scenario-gen.ts`),
  * pula i dopłata z jednej funkcji (kryterium 3). Bez `stackBb` w szablonie null (generator takiego szablonu nie zbuduje: wymaga stackBb).
@@ -327,6 +343,14 @@ export function ukladIcm(d: IcmCallVariantDecision, s: Pozycje): UkladIcm | null
 }
 
 /**
+ * Stos na stole (IB, D-1840): punkty z losowanym stackiem (spr-call, geo-size) pokazują stack wariantu — z niego i z puli liczy się SPR, którego uczą (SC-26, SC-27;
+ * generator: „pula i stack są pokazane w decyzji”); pozostałe punkty `stackBb` szablonu jak dotąd.
+ */
+export function stosNaStoleBb(d: VariantDecision, s: Pick<ScenarioTemplate, 'stackBb'>): number {
+  return d.point === 'spr-call' || d.point === 'geo-size' ? d.stack : s.stackBb;
+}
+
+/**
  * Liczba limperów przed graczem w punkcie `iso-size` (HX, D-1734): z szablonu (`limpers`), bo wariant jej nie niesie; inne punkty null.
  * Gdy punkt jest iso-size, ale szablon nie ma `limpers` (bramka treści tego nie przepuści), też null: widok stołu zostaje jak dla size-spot.
  */
@@ -344,6 +368,15 @@ export function widokDecyzji(v: ScenarioVariant, indeks: number, s?: Pozycje & P
   const stol = v.board.slice(0, d.street === 'preflop' ? 0 : d.street === 'flop' ? 3 : d.street === 'turn' ? 4 : 5).map(cardToString);
   if (d.point === 'draw-call' || d.point === 'river-catch' || d.point === 'defend') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
   if (d.point === 'turn-bet' || d.point === 'flop-size') return { indeks, ulica: d.street, stol, pulaBb: d.pot, doSprawdzeniaBb: null }; // FG: gracz stawia, więc sama pula (bez „do sprawdzenia”)
+  // IB (D-1841): rodzaje HO jak defend (pula po ruchu rywala i dopłata) albo flop-size (sama pula); turn-action bez puli (wariant jej nie niesie)
+  if (d.point === 'spr-call') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.stack, doSprawdzeniaBb: d.stack };
+  if (d.point === 'check-raise') return { indeks, ulica: d.street, stol, pulaBb: d.pot + d.cbet, doSprawdzeniaBb: d.cbet };
+  if (d.point === 'geo-size') return { indeks, ulica: d.street, stol, pulaBb: d.pot, doSprawdzeniaBb: null };
+  if (d.point === 'nit-3bet' && s) {
+    // pula = otwarcie + 3-bet + martwe blindy spoza pary (BTN vs BB: SB 0,5 bb), jak cena w generatorze (scenario-gen.ts: (3B − open) ÷ (2·3B + 0,5))
+    const martwe = 1.5 - blindBb(s.positions.hero) - blindBb(s.positions.villain);
+    return { indeks, ulica: d.street, stol, pulaBb: d.open + d.threeBet + martwe, doSprawdzeniaBb: d.threeBet - d.open };
+  }
   if (d.point === 'icm-call' && s) {
     const u = ukladIcm(d, s);
     if (u) return { indeks, ulica: 'preflop', stol, pulaBb: u.pulaBb, doSprawdzeniaBb: u.doSprawdzeniaBb };

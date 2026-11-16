@@ -76,7 +76,11 @@ describe('08-N3: bramka szablonu iso-size', () => {
   it('więcej limperów niż miejsc przed graczem jest błędem', () => {
     expect(blad(kopia((b) => { b.positions.hero = 'CO'; b.decisions[0].limpers = 4; }))).toMatch(/4 limperów przed graczem na CO/);
   });
-  it('iso-size nie trafia do bazy treści, dopóki ekran nie pokazuje limperów (RODZAJE_NA_EKRANIE tylko z widokiem)', () => {
-    expect(checkScenarioNaEkran(kopia(() => undefined)).join('\n')).toMatch(/iso-size.*nie jest jeszcze obsługiwany na ekranie/);
+  // IB (KO-115): widok limperów jest na ekranie (HX, D-1734…1736, apps/mobile hx-limperzy-ekran.test.tsx), więc bramka ekranu przepuszcza iso-size
+  it('iso-size z bohaterem poza BB przechodzi bramkę ekranu (widok limperów HX)', () => {
+    expect(checkScenarioNaEkran(kopia(() => undefined))).toEqual([]);
+  });
+  it('iso-size z bohaterem na BB: warunek przejściowy z przeglądu HX — błąd bramki ekranu (D-1846)', () => {
+    expect(checkScenarioNaEkran(kopia((b) => { b.positions.hero = 'BB'; b.positions.villain = 'SB'; })).join('\n')).toMatch(/iso-size.*BB/);
   });
 });

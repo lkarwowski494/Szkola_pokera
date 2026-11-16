@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { komunikatBledu } from './blad';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { pierwszaPoprawna, akcjeSzablonu, DRAW_CALL_MIN_GAP, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { pierwszaPoprawna, akcjeSzablonu, DRAW_CALL_MIN_GAP, eligibleClasses, groupedSpot, HAND_CLASSES, parseHeroPositions, findVariantConditions, findVariantMarkers, generateVariant, topRangeClasses, equityVsRange, VARIANT_CONDITIONS, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -447,7 +447,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
  * `icm-call` (F4) wszedł z widokiem stosów wszystkich graczy i nagród (DP, D-889; projekt roli 04). Warunek SC-34 (D-825): poziom trudny icm-call czeka na 06-tresci-002
  * (odpowiedź odporna na zakres all-inu z równowagi ICM albo nazwane założenie), więc bramka odrzuca szablon icm-call z poziomem trudnym (`checkScenarioNaEkran`, D-986).
  */
-export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand', 'river-value']; // flop-size: widok jak turn-bet (FL, apps/mobile fl-flop-size-ekran.test.tsx); pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend, list-hand: FG (apps/mobile fg-*-ekran.test.tsx)
+export const RODZAJE_NA_EKRANIE: readonly string[] = ['draw-call', 'cbet-case', 'size-spot', 'range-spot', 'icm-call', 'pick-hand', 'turn-bet', 'flop-size', 'river-catch', 'defend', 'list-hand', 'river-value', 'spr-call', 'check-raise', 'turn-action', 'geo-size', 'nit-3bet']; // IB (KO-115): rodzaje HO z widokami z inwentarza 04 (apps/mobile ib-rodzaje-ho-ekran.test.tsx; lustro RODZAJE_PUNKTOW_EKRANU, test przypięcia po obu stronach); flop-size: widok jak turn-bet (FL, apps/mobile fl-flop-size-ekran.test.tsx); pick-hand: KO-072, widok minimalny (apps/mobile ek-pick-hand-ekran.test.tsx); turn-bet, river-catch, defend, list-hand: FG (apps/mobile fg-*-ekran.test.tsx)
 /** Zamknięte słownictwo akcji punktu list-hand na ekranie (FG, D-1142): lustro `AKCJE_LISTY` w apps/mobile/src/features/scenariusz/wariant.ts (test przypięcia po obu stronach). */
 export const AKCJE_LISTY_EKRANU: readonly string[] = ['fold', 'check', 'call', 'limp', 'raise', '4bet', 'all-in'];
 const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {}; // wszystkie rodzaje mają widok (river-value od FR, KO-091)
@@ -457,13 +457,21 @@ const POWOD_POZA_EKRANEM: Readonly<Record<string, string>> = {}; // wszystkie ro
  * pokazuje (`akcjeSzablonu` z poker-core, ta sama definicja co w generatorze i na ekranie), bo wyjaśnienie każdej akcji to BR-OCE-002.
  */
 export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
-  return t.decisions.flatMap((d, i) => {
+  // IB (D-1845): start, wybór i podsumowanie pokazują situation przed losowaniem wariantu, więc znacznik {{w:…}} zostałby na ekranie dosłownie
+  const wSytuacji = findVariantMarkers(t.situation);
+  const sytuacja = wSytuacji.length ? [`szablon ${t.id}: situation ma znaczniki wariantu ${wSytuacji.map((m) => `{{w:${m}}}`).join(', ')}; ekran pokazuje sytuację przed losowaniem wariantu (start, wybór, podsumowanie), więc liczby z wariantu tylko w wyjaśnieniach, a w sytuacji zakres przez {{n:…}}; szablon nie może trafić do bazy treści`] : [];
+  return [...sytuacja, ...t.decisions.flatMap((d, i) => {
     const kind = d.kind ?? 'draw-call';
     if (!RODZAJE_NA_EKRANIE.includes(kind)) {
       return [`szablon ${t.id}: punkt ${i + 1} ${kind} nie jest jeszcze obsługiwany na ekranie scenariusza (obsługiwane: ${RODZAJE_NA_EKRANIE.join(', ')}; ${kind}: ${POWOD_POZA_EKRANEM[kind] ?? 'brak obsługi'}); szablon nie może trafić do bazy treści`];
     }
-    if (d.kind === 'size-spot' && d.check === 'iso-size') {
-      return [`szablon ${t.id}: punkt ${i + 1} iso-size nie jest jeszcze obsługiwany na ekranie scenariusza (ekran nie pokazuje limperów przed graczem; widok: zadanie dla roli 04 i EkranScenariusza); szablon nie może trafić do bazy treści`];
+    // IB (D-1846): widok limperów jest od HX (D-1734…1736); warunek przejściowy z przeglądu HX: iso-size tylko z bohaterem poza BB
+    if (d.kind === 'size-spot' && d.check === 'iso-size' && t.positions.hero === 'BB') {
+      return [`szablon ${t.id}: punkt ${i + 1} iso-size z bohaterem na BB nie jest jeszcze obsługiwany na ekranie scenariusza (warunek przejściowy z przeglądu HX: SC-09 tylko z bohaterem poza BB); szablon nie może trafić do bazy treści`];
+    }
+    // IB (D-1844): turn-action nie niesie puli, więc ekran nazywa zakład bez kwoty („Zakład”, analogia river-value); dwa rozmiary byłyby nie do odróżnienia, a „mały/duży c-bet” to zły termin na turnie (D-1147)
+    if (d.kind === 'turn-action' && d.actions.some((a) => a.action === 'bet-small')) {
+      return [`szablon ${t.id}: punkt ${i + 1} turn-action z bet-small nie jest jeszcze obsługiwany na ekranie scenariusza (bez puli w wariancie ekran nie odróżni dwóch rozmiarów zakładu; nazwa: zadanie dla roli 04); szablon nie może trafić do bazy treści`];
     }
     if (d.kind === 'range-spot' && d.play) {
       return [`szablon ${t.id}: punkt ${i + 1} range-spot z grupą play nie jest jeszcze obsługiwany na ekranie scenariusza (ekran nazywa akcje z etykiet węzła solvera; widok grupy „gram”: zadanie dla roli 04); szablon nie może trafić do bazy treści`];
@@ -484,12 +492,32 @@ export function checkScenarioNaEkran(t: ScenarioTemplate): string[] {
     return brak.length || nadmiar.length
       ? [`szablon ${t.id}: punkt ${i + 1} ${kind}: ekran pokazuje akcje ${wymagane.join(', ')} i każda wymaga wyjaśnienia (BR-OCE-002)${brak.length ? `; brak: ${brak.join(', ')}` : ''}${nadmiar.length ? `; nadmiar: ${nadmiar.join(', ')}` : ''}`]
       : [];
-  });
+  })];
 }
 
 /** Czy szablony wymagają macierzy equity w bazie treści: punkt icm-call (F4, CN D-781) albo poziom z `equityMarginMin` (KO-076, D-1141). */
 export function potrzebujeMacierzyEquity(szablony: readonly ScenarioTemplate[]): boolean {
   return szablony.some((t) => t.decisions.some((d) => d.kind === 'icm-call') || Object.values(t.bounds).some((b) => b?.equityMarginMin !== undefined));
+}
+
+/**
+ * IB: liczba odcisków, które uczciwie daje punkt nit-3bet: para (klasa, vpip) dopuszczona przez filtr generatora (`generateVariant`, gałąź nit-3bet), ale tylko
+ * dla klas z częstością otwarcia ≥ progu szumu `thresholds.mixedMin` — jak `eligibleClasses` (D-1040: `rangeVerdict`). Generator losuje też klasy z częstością
+ * solvera rzędu 0,003 (K6o z BTN: raz na 20 000 losowań), których 2000 prób kontroli nie znajdzie; aplikacja uznaje je za spoza zakresu otwarcia.
+ */
+function klasyNit3bet(t: ScenarioTemplate, d: Extract<ScenarioTemplate['decisions'][number], { kind: 'nit-3bet' }>, b: NonNullable<ScenarioTemplate['bounds'][ScenarioLevel]>, ctx: GeneratorContext): number {
+  const spot = ctx.spots.find((x) => x.id === `rfi.${t.positions.hero.toLowerCase()}`);
+  const m = ctx.equity169;
+  if (!spot || !m) return 0;
+  const margines = b.margins?.[0] ?? { min: b.marginMin ?? 0, max: b.marginMax ?? null };
+  const wMarginesie = (x: number) => x > 0 && x >= margines.min && (margines.max === null || x < margines.max);
+  const required = (d.threeBet - d.open) / (2 * d.threeBet + 0.5);
+  const wZakresie = HAND_CLASSES.filter((hc, h) => hc.length === 3 && hc.endsWith('o') && spot.actions.filter((a) => a.label !== 'fold').reduce((x, a) => x + (a.freqs[h] ?? 0), 0) >= ctx.thresholds.mixedMin);
+  return [...new Set(d.vpips)].reduce((n, vpip) => {
+    const top = topRangeClasses(m, vpip);
+    const wagi = HAND_CLASSES.map((c) => (top.has(c) ? 1 : 0));
+    return n + wZakresie.filter((hc) => !top.has(hc) && wMarginesie(required - equityVsRange(m, hc, wagi))).length;
+  }, 0);
 }
 
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */
@@ -527,6 +555,11 @@ export function checkScenarioGenerator(
     // 08-N4: lista rąk bez flopu: odcisk to klasa ręki, więc próg to min(próg, liczba klas listy z akcją oczekiwaną poziomu)
     if (b && pierwszy?.kind === 'list-hand' && b.expected[0] !== undefined && t.decisions.length === 1) {
       prog = Math.min(prog, pierwszy.entries.filter((en) => pierwszaPoprawna(en) === b.expected[0]).reduce((n, en) => n + en.hands.length, 0));
+    }
+    // IB (koordynator, SC-30): nit-3bet bez flopu: odcisk to klasa ręki (+ |vpip), więc próg to min(próg, suma po vpips liczby klas, które dopuszcza generator
+    // (scenario-gen.ts, gałąź nit-3bet: ręka z rfi pozycji gracza, offsuit bez pary, spoza górnych vpip%, cena − equity w marginesie poziomu))
+    if (ctx?.equity169 && b && pierwszy?.kind === 'nit-3bet' && t.decisions.length === 1) {
+      prog = Math.min(prog, klasyNit3bet(t, pierwszy, b, ctx));
     }
     if (odciski.size < prog) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${prog}`);
   }
