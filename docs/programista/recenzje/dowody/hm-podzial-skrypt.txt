@@ -1,0 +1,15 @@
+import { DatabaseSync } from 'node:sqlite';
+import { readdirSync } from 'node:fs';
+const { podzielSytuacje } = await import(process.argv[3]);
+const dir = process.argv[2];
+for (const f of readdirSync(dir).filter(f=>f.endsWith('.db')).sort()) {
+  const lang = f.replace(/^tresc-[^-]+-/,'').replace('.db','');
+  const d = new DatabaseSync(`${dir}/${f}`, { readOnly: true });
+  const has = d.prepare("select count(*) n from sqlite_master where name='scenarios'").get().n;
+  if (!has) { console.log(`${lang}\tBRAK TABELI`); continue; }
+  for (const r of d.prepare('select id, data from scenarios order by id').all()) {
+    const s = JSON.parse(r.data).situation;
+    const { tytul, reszta } = podzielSytuacje(s);
+    console.log(`${lang}\t${r.id}\t${Array.from(s).length}\t${Array.from(tytul).length}\t${reszta===null?'NULL':'ok'}\t${tytul.replace(/\n/g,' ')}`);
+  }
+}

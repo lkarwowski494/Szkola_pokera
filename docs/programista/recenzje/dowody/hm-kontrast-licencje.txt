@@ -1,0 +1,8 @@
+# kontrast WCAG par paska ocen (tokeny z apps/mobile/src/theme/tokeny.ts), node kontrast.mjs, kod 0
+light goldText/actionBg 13.52 | gold/actionBg 9.70 | actionInk/actionBg 17.86 | actionOutline/bg 15.49 #F8DC8E #E2B850 #0A1430
+dark goldText/actionBg 11.15 | gold/actionBg 8.00 | actionInk/actionBg 12.93 | actionOutline/bg 7.03 #F8DC8E #E2B850 #15254C
+lightHigh goldText/actionBg 13.52 | gold/actionBg 9.70 | actionInk/actionBg 17.86 | actionOutline/bg 15.49 #F8DC8E #E2B850 #0A1430
+darkHigh goldText/actionBg 11.15 | gold/actionBg 8.00 | actionInk/actionBg 12.93 | actionOutline/bg 11.62 #F8DC8E #E2B850 #15254C
+
+# licencje react-native-web i zależności (apps/mobile, node require package.json), kod 0
+expo/bundledNativeModules.json react-native-web: ~0.21.4; rnw 0.21.4 MIT; @babel/runtime 7.29.7 MIT, @react-native/normalize-colors 0.74.89 MIT, fbjs 3.0.5 MIT, inline-style-prefixer 7.0.1 MIT, memoize-one 6.0.0 MIT, nullthrows 1.1.1 MIT, postcss-value-parser 4.2.0 MIT, styleq 0.1.3 MIT

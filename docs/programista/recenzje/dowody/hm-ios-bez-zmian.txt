@@ -1,0 +1,10 @@
+# iOS bez zmian po HL: expo export --platform ios (CI=1, --clear) w worktree 0b0855ef i cf296709
+base kod 0
+hl kod 0
+## .hbc (bajtkod Hermes): diff md5 wszystkich plików eksportu
+1c1
+< 25481a4d1f92b8ab9c2a148906c80125  ./_expo/static/js/ios/entry-183fe0c9eb269f2428a4a4564a32eed9.hbc
+---
+> eac54d7f2ae99a660fc588221896bf3c  ./_expo/static/js/ios/entry-183fe0c9eb269f2428a4a4564a32eed9.hbc
+## --no-bytecode (JS): diff md5 wszystkich plików eksportu
+IDENTYCZNE (61 plików, w tym entry-4becdfef9fc9c1aaec679f00ff587096.js)
