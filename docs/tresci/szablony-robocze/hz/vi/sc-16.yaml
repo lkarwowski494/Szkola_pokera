@@ -1,0 +1,27 @@
+# sc-16: Vietnamese text of docs/tresci/szablony-robocze/hz/pl/sc-16.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "Bạn có {{t:draw|bài chờ}} mạnh trước một {{t:c-bet|c-bet}} nhỏ. Bạn ở {{t:big-blind|big blind}} và đã {{t:call|theo}} lượt {{t:open|mở cược}} của Button. Ở flop bạn {{t:check|check}}, và Button {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    cbet: 0.333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - action: raise-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. Bạn {{t:check-raise|check-raise}} lên khoảng {{n:xr.mult.example}} khoản {{t:bet|cược}} của họ, vì {{t:draw|bài chờ}} có hai cách để thắng: đối thủ có thể {{t:fold|bỏ bài}} ngay, còn khi họ {{t:call|theo}}, bạn vẫn có thể trúng {{t:draw|bài chờ}} của mình. Theo một trang đào tạo, {{t:flush-draw|bài chờ thùng}} và bài chờ {{t:straight|sảnh}} hai đầu là những tay tốt để {{t:check-raise|check-raise}}, và trước một {{t:c-bet|c-bet}} nhỏ, bạn {{t:raise|tố}} lên khoảng {{n:xr.mult.example}}, không phải mức tối thiểu."
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. {{t:call|Theo}} cũng tốt: trước một {{t:c-bet|c-bet}} nhỏ, bạn chỉ cần khoảng {{n:eq.bet-third}} equity, và tay này có thể cải thiện. Theo một trang đào tạo, không phải {{t:draw|bài chờ}} mạnh nào cũng cần {{t:raise|tố}}, nhưng {{t:check-raise|check-raise}} thêm khả năng đối thủ {{t:fold|bỏ bài}} ngay."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. {{t:fold|Bỏ bài}} là từ bỏ quá nhiều: trước một {{t:c-bet|c-bet}} nhỏ, bạn chỉ cần khoảng {{n:eq.bet-third}} equity, và {{t:draw|bài chờ}} vẫn có thể cải thiện. Trước một {{t:c-bet|c-bet}} nhỏ, bạn tiếp tục với các {{t:draw|bài chờ}}: bạn {{t:call|theo}} hoặc {{t:check-raise|check-raise}}."
+      - action: raise-small
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ. {{t:check-raise|Check-raise}} là ý hay, nhưng lên khoảng {{n:xr.too-small.mult}} {{t:c-bet|c-bet}} thì quá nhỏ: khi đó Button chỉ cần khoảng {{n:eq.vs-xr.too-small}} equity để {{t:call|theo}} và sẽ trả rẻ như vậy với mọi {{t:draw|bài chờ}}. Bạn {{t:raise|tố}} khoảng {{n:xr.mult.low}}–{{n:xr.mult.example}} {{t:c-bet|c-bet}}, {{t:c-bet|c-bet}} càng nhỏ thì tố càng nhiều."

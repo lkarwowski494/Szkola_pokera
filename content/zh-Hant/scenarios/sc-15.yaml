@@ -19,4 +19,4 @@ decisions:
       - action: call
         explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:call|跟注}}，因為這手牌要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好，而小額{{t:bet|下注}}只需要不多的權益。面對 {{n:cbet.size.small}} {{t:pot|底池}}的{{t:bet|下注}}，{{t:mdf}}（{{t:range|範圍}}的 {{n:mdf.bet-third}}）是參考點：在翻牌{{t:out-of-position}}時，你可以防守得少一點，但面對小額{{t:c-bet|持續下注}}不會大量{{t:fold|棄牌}}。"
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。{{t:fold|棄牌}}會放掉一手面對這麼小的{{t:bet|下注}}有足夠權益的牌：它要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好。在翻牌{{t:out-of-position}}時，你可以比{{t:mdf}}所示防守得少一點，但面對小額持續下注不會大量{{t:fold|棄牌}}。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。{{t:fold|棄牌}}會放掉一手面對這麼小的{{t:bet|下注}}有足夠權益的牌：它要麼已經贏過{{t:bluff|詐唬}}，要麼可能變好。在翻牌{{t:out-of-position}}時，你可以比{{t:mdf}}所示防守得少一點，但面對小額{{t:c-bet|持續下注}}不會大量{{t:fold|棄牌}}。"

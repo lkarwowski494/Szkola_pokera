@@ -1,0 +1,19 @@
+# sc-18: English text of pl/sc-18.yaml (role 06, sessions HP/HZ, 2026-11-16; draft, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "A {{t:second-barrel}} on a high card. You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. On the flop you {{t:bet}} a small {{t:c-bet}}, and they {{t:call|called}} again. The turn is higher than every flop card and gives you {{t:top-pair}}, and the {{t:big-blind}} {{t:check|checks}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}} on the turn. You fire a big {{t:second-barrel}}, because a card higher than the flop usually helps the {{t:open|opener's}} {{t:range}} slightly more than the defender's: many of your hands that missed the flop now have {{t:top-pair}}, and every {{t:pair}} your opponent holds just dropped one place. On such a card the {{t:open|opener}} {{t:bet|bets}} more often, and your {{t:pair}} beats those worse {{t:pair|pairs}}."
+      - action: check
+        explanation: "You have {{w:reka}} in the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent on the {{w:rywal}} {{t:check|checks}} on the turn. A {{t:check}} is acceptable, but it misses a chance: on a card higher than the flop the {{t:open|opener}} {{t:bet|bets}} more often, because this card usually fits their {{t:range}} slightly better. Your {{t:top-pair}} beats your opponent's worse {{t:pair|pairs}}, which dropped lower on this card."

@@ -1,0 +1,21 @@
+# SC-18 (M7): second barrel na turnie, który jest nadkartą i daje najwyższą parę (punkt turn-action, 08-EX-6). Treść ze szkicu HP po recenzji HS.
+# Ocena: bet-big compliant (R-M7-001), check acceptable (heuristic, D-1052, KO-112); bez bet-small (ekran turn-action: check + bet-big, IB/KO-115; HZ D-1820). Turn bez trzeciej karty koloru i bez strita na stole (D-1750).
+# Jeden poziom (łatwy) z akcjami bet-big i check (D-1710 → HZ D-1820): poziomy Ś/T szkicu różniły się tylko akcją bet-small, której ekran turnu nie nazywa (otwarte: rola 04).
+id: sc-18
+module: m7
+situation: "{{t:second-barrel|Second barrel}} na wysokiej karcie. {{t:open|Otworzyłeś}} z Buttona, a {{t:big-blind|duży blind}} {{t:call|sprawdził}}. Na flopie {{t:bet|postawiłeś}} mały {{t:c-bet}}, a on znowu {{t:call|sprawdził}}. Na turnie spada karta wyższa od kart flopu i daje ci {{t:top-pair|najwyższą parę}}, a {{t:big-blind|duży blind}} {{t:check|czeka}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na turnie. {{t:bet|Stawiasz}} duży {{t:second-barrel}}, bo karta wyższa od flopu zwykle nieco bardziej pomaga {{t:range|zakresowi}} {{t:open|otwierającego}} niż obrońcy: wiele twoich rąk, które na flopie chybiły, ma teraz {{t:top-pair|najwyższą parę}}, a każda {{t:pair}} rywala spadła o jedno miejsce niżej. Na takiej karcie {{t:open|otwierający}} {{t:bet|stawia}} częściej, a twoja {{t:pair}} wygrywa z tymi gorszymi {{t:pair|parami}}."
+      - action: check
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}} na turnie. {{t:check|Czekanie}} jest dopuszczalne, ale oddaje okazję: na karcie wyższej od flopu {{t:open|otwierający}} {{t:bet|stawia}} częściej, bo ta karta zwykle nieco lepiej pasuje do jego {{t:range|zakresu}}. Twoja {{t:top-pair|najwyższa para}} wygrywa z gorszymi {{t:pair|parami}} rywala, które po tej karcie spadły niżej."

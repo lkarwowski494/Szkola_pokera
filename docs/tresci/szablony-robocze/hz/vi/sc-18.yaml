@@ -1,0 +1,19 @@
+# sc-18: Vietnamese text of docs/tresci/szablony-robocze/hz/pl/sc-18.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-18
+module: m7
+situation: "{{t:second-barrel|Second barrel}} trên lá cao. Bạn đã {{t:open|mở cược}} từ Button, và {{t:big-blind|big blind}} đã {{t:call|theo}}. Ở flop bạn đã {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ, và họ lại {{t:call|theo}}. Ở turn ra một lá cao hơn mọi lá trên flop và cho bạn {{t:top-pair|đôi cao nhất}}, còn {{t:big-blind|big blind}} {{t:check|check}}."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-001
+    actions:
+      - action: bet-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở turn. Bạn {{t:bet|cược}} một {{t:second-barrel|second barrel}} lớn, vì lá cao hơn flop thường giúp {{t:range|range}} của người {{t:open|mở cược}} nhiều hơn một chút so với người phòng thủ: nhiều tay của bạn đã trượt ở flop giờ có {{t:top-pair|đôi cao nhất}}, còn mọi {{t:pair|đôi}} của đối thủ bị tụt xuống một bậc. Trên lá như vậy, người {{t:open|mở cược}} {{t:bet|cược}} thường xuyên hơn, và {{t:pair|đôi}} của bạn thắng những {{t:pair|đôi}} yếu hơn đó."
+      - action: check
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở turn. {{t:check|Check}} là chấp nhận được, nhưng bỏ lỡ cơ hội: trên lá cao hơn flop, người {{t:open|mở cược}} {{t:bet|cược}} thường xuyên hơn, vì lá này thường hợp với {{t:range|range}} của họ hơn một chút. {{t:top-pair|Đôi cao nhất}} của bạn thắng các {{t:pair|đôi}} yếu hơn của đối thủ, vốn đã bị tụt xuống sau lá này."

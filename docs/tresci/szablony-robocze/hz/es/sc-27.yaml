@@ -1,0 +1,24 @@
+# sc-27: Spanish text of docs/tresci/szablony-robocze/hz/pl/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "Un tamaño que mete todo el stack. En el Button has hecho {{t:3-bet}} a la {{t:open|apertura}} del {{t:cutoff|CO}} y ha {{t:call|pagado}}. En el flop tienes un {{t:set}} y el {{t:cutoff|CO}} {{t:check|pasa}}. Supón que tienes una mano para tres calles {{t:value|de valor}} y quieres meter todo el stack hasta el river con {{t:bet|apuestas}} iguales en el flop, el turn y el river."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}}. {{t:bet|Apuestas}} aproximadamente {{w:rozmiar}} del {{t:pot}}, porque la misma fracción del {{t:pot}} en cada {{t:street|calle}} mete todo el stack justo en el river. En teoría, las {{t:bet|apuestas}} iguales hacen que tu rival defienda lo más amplio posible, y así mete en el {{t:pot}} lo máximo."
+      - action: bet-small
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:check|pasa}}. Una {{t:bet|apuesta}} pequeña no mete el stack: tres {{t:bet|apuestas}} de un tercio del {{t:pot}} solo meten una parte, por ejemplo, en un {{t:pot}} de {{t:3-bet}} con un stack de {{n:spr.3bet-ip.stack}} detrás del {{t:pot}}, solo aproximadamente {{n:g3b.third.total}}. Para llegar al {{t:all-in}} en el river, ya en el flop {{t:bet|apuestas}} el tamaño geométrico, aproximadamente {{w:rozmiar}} del {{t:pot}}."

@@ -1,0 +1,26 @@
+# SC-27 (M9): rozmiar geometryczny w puli 3-betowanej z pozycji (punkt geo-size, 08-EX-4, D-1700). Treść ze szkicu HP po recenzji HS.
+# Ocena: rachunek R-M9-009 / R-M9-006 (math): bet-big = ułamek geometryczny na trzy ulice compliant, bet-small = cbet.size.small puli inaccuracy (D-1720, D-1764).
+# Ł: SPR spr.3bet-ip (16,5 bb puli, 92,5 bb stacku), Ś: SPR 4–8 (poziomy Ś/T szkicu przesunięte na Ł/Ś: poziom łatwy jest wymagany, BR-SZB-002; HZ D-1821).
+id: sc-27
+module: m9
+situation: "Rozmiar, który wpłaci cały stack. Na Buttonie {{t:3-bet|3-betowałeś}} {{t:open|otwarcie}} z {{t:cutoff|CO}}, a on {{t:call|sprawdził}}. Na flopie masz {{t:set}}, a {{t:cutoff|CO}} {{t:check|czeka}}. Załóż, że masz rękę na trzy {{t:value|ulice wartości}} i chcesz wpłacić cały stack do rivera równymi {{t:bet|zakładami}} na flopie, turnie i riverze."
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. {{t:bet|Stawiasz}} ok. {{w:rozmiar}} {{t:pot|puli}}, bo ten sam ułamek {{t:pot|puli}} na każdej {{t:street|ulicy}} wpłaca cały stack dokładnie na riverze. Równe {{t:bet|zakłady}} w teorii sprawiają, że rywal broni się najszerzej, więc wpłaca do {{t:pot|puli}} najwięcej."
+      - action: bet-small
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:check|czeka}}. Mały {{t:bet|zakład}} nie wpłaci stacku: trzy {{t:bet|zakłady}} po trzeciej części {{t:pot|puli}} wpłacają tylko jego część, na przykład w {{t:pot|puli}} po {{t:3-bet|3-becie}} przy stacku {{n:spr.3bet-ip.stack}} za {{t:pot|pulą}} tylko ok. {{n:g3b.third.total}}. Żeby dojść do {{t:all-in|all-inu}} na riverze, już na flopie {{t:bet|stawiasz}} rozmiar geometryczny, ok. {{w:rozmiar}} {{t:pot|puli}}."

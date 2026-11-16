@@ -1,0 +1,20 @@
+# sc-21: Vietnamese text of docs/tresci/szablony-robocze/hz/pl/sc-21.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-21
+module: m7
+situation: "Một {{t:pair|đôi}} trung bình ở turn. Bạn đã {{t:open|mở cược}} từ Button, và {{t:big-blind|big blind}} đã {{t:call|theo}}. Ở flop bạn đã {{t:bet|cược}} một {{t:c-bet|c-bet}} nhỏ, và họ lại {{t:call|theo}}. Ở turn {{t:big-blind|big blind}} {{t:check|check}}, còn bạn có {{t:second-pair|đôi thứ hai}} hoặc một {{t:pair|đôi}} yếu hơn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [check], turnClass: other, pairKind: [low], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+  sredni: { expected: [check], turnClass: other, pairKind: [second], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-003
+    actions:
+      - action: check
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở turn. Bạn {{t:check|check}}, vì sau khi {{t:call|theo}} ở flop, đối thủ thường có {{t:range|range}} mạnh hơn so với ở flop, nên bạn không thể {{t:bet|cược}} mà không lo ngại nữa. Đến river chỉ còn một lá, nên tay này được lợi ít từ việc bảo vệ, và khi {{t:check|check}}, bạn giữ {{t:pot|pot}} nhỏ và đi đến {{t:showdown}} với giá rẻ."
+      - action: bet-big
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:check|check}} ở turn. Một khoản {{t:bet|cược}} với tay này được lợi ít: sau khi {{t:call|theo}} ở flop, đối thủ thường có {{t:range|range}} mạnh hơn so với ở flop, và đến river chỉ còn một lá, nên việc bảo vệ mang lại ít. Ở turn, các tay trung bình thường {{t:check|check}} để đi đến {{t:showdown}} với giá rẻ, còn các tay mạnh và một phần {{t:draw|bài chờ}} thì {{t:bet|cược}}."

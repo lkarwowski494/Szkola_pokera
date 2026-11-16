@@ -1,0 +1,23 @@
+# sc-26: Vietnamese text of docs/tresci/szablony-robocze/hz/pl/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "{{t:spr|SPR}} thấp và đối thủ {{t:all-in|all-in}}. Chơi giải đấu không có áp lực {{t:icm|ICM}}, stack ngắn: bạn ở {{t:big-blind|big blind}} và đã {{t:call|theo}} lượt {{t:open|mở cược}} của Button. Ở flop bạn {{t:check|check}}, và Button {{t:all-in|all-in}} với {{t:spr|SPR}} khoảng {{w:spr}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:all-in|all-in}} với {{t:spr|SPR}} khoảng {{w:spr}}. Bạn {{t:call|theo}}, vì stack nhỏ so với {{t:pot|pot}}: với {{t:spr|SPR}} như vậy, {{t:top-pair|đôi cao nhất}} và các tay mạnh hơn là đủ để chơi cả stack. {{t:spr|SPR}} càng thấp, bạn càng nhận được mức giá tốt hơn: với {{t:spr|SPR}} {{n:spr.commit}}, bạn cần khoảng {{n:eq.jam.spr2}} equity, tức là thắng ít hơn một nửa số lần là đủ."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:all-in|all-in}} với {{t:spr|SPR}} khoảng {{w:spr}}. {{t:fold|Bỏ bài}} là từ bỏ {{t:pot|pot}} quá dễ dàng: với {{t:spr|SPR}} thấp như vậy, {{t:top-pair|đôi cao nhất}} và các tay mạnh hơn chơi cả stack. Để {{t:call|theo}}, bạn không cần phải là bên có cửa thắng cao hơn: với {{t:spr|SPR}} {{n:spr.commit}}, khoảng {{n:eq.jam.spr2}} equity là đủ."

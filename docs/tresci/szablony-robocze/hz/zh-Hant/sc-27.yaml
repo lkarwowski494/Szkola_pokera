@@ -1,0 +1,24 @@
+# sc-27: Traditional Chinese text of docs/tresci/szablony-robocze/hz/pl/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-27
+module: m9
+situation: "能投入全部籌碼的下注尺寸。你在按鈕位對{{t:cutoff|CO}}的{{t:open|開池}}做了{{t:3-bet}}，他{{t:call|跟注}}。翻牌你有{{t:set|暗三條}}，{{t:cutoff|CO}}{{t:check|過牌}}。假設你的牌值得打三條街的{{t:value|價值}}，而且你想在翻牌、轉牌和河牌用相同比例的{{t:bet|下注}}，在河牌前投入全部籌碼。"
+table: 6max
+positions: { hero: BTN, villain: CO }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [bet-big], sprRange: [5.6, 5.61] }
+  sredni: { expected: [bet-big], sprRange: [4, 8] }
+decisions:
+  - street: flop
+    kind: geo-size
+    rule: R-M9-009
+    pots: [16.5, 20, 25]
+    stacks: [92.5, 100, 130, 150]
+    streets: 3
+    small: 0.333333
+    actions:
+      - action: bet-big
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:check|過牌}}。你{{t:bet|下注}}約 {{w:rozmiar}} {{t:pot|底池}}，因為每條{{t:street|街}}都下注{{t:pot|底池}}的相同比例，剛好會在河牌投入全部籌碼。理論上，相同比例的{{t:bet|下注}}會讓對手防守得最寬，所以他投入{{t:pot|底池}}的錢最多。"
+      - action: bet-small
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:check|過牌}}。小額{{t:bet|下注}}無法投入全部籌碼：三次三分之一{{t:pot|底池}}的{{t:bet|下注}}只能投入其中一部分，例如在{{t:3-bet}} {{t:pot|底池}}中，{{t:pot|底池}}後面還有 {{n:spr.3bet-ip.stack}} 籌碼時，只投入約 {{n:g3b.third.total}}。要在河牌達到{{t:all-in|全下}}，你在翻牌就要用幾何尺寸{{t:bet|下注}}，約 {{w:rozmiar}} {{t:pot|底池}}。"

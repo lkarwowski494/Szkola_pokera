@@ -1,0 +1,22 @@
+# sc-30: Japanese text of docs/tresci/szablony-robocze/hz/pl/sc-30.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-30
+module: m10
+situation: "非常にタイトな相手が{{t:3-bet|3ベット}}します。あなたはボタンから{{t:open|オープン}}し、{{t:big-blind|ビッグブラインド}}が{{t:3-bet|3ベット}}します。この相手の{{t:vpip}}は、少なくとも約{{n:hud.hands.vpip.low}}ハンドで{{n:hud.ex.nit3bet.vpip.low}}から{{n:hud.ex.nit3bet.vpip.high}}であり、その{{t:3-bet|3ベット}}はそれらのハンドの中に収まると仮定します。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.04 }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    rule: R-M2-005
+    open: 2.5
+    threeBet: 10
+    vpips: [0.1]
+    actions:
+      - action: fold
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{w:rywal}}の相手が{{t:3-bet|3ベット}}しました。{{t:fold|フォールド}}するのは、相手が最も強い約{{n:hud.ex.nit3bet.vpip.low}}～{{n:hud.ex.nit3bet.vpip.high}}のハンドをプレイしているなら、それは主に{{t:pair|ペア}}と最も良いエースで、それらに対するあなたのハンドのエクイティは{{t:call|コール}}の価格が求めるより少ないからです（単純化して、フロップ後のプレイは考えません）。仮定により相手の{{t:3-bet|3ベット}}はそれらのハンドの中に収まるので、{{t:3-bet|3ベット}}そのものに対しても、あなたのハンドが有利になることはありません。"
+      - action: call
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{w:stol}}、{{w:rywal}}の相手が{{t:3-bet|3ベット}}しました。単純化して、フロップ後のプレイを考えなければ、{{t:call|コール}}は損をします：この相手がプレイするすべてのハンドに対してさえ、あなたのハンドのエクイティは{{t:call|コール}}の価格が求めるより少なく、仮定により相手の{{t:3-bet|3ベット}}はそれらのハンドの中に収まります。"

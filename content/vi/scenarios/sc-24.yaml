@@ -1,7 +1,7 @@
 # sc-24: Vietnamese text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-24
 module: m8
-situation: "Ở river bạn có một {{t:pair|đôi}} chỉ thắng được các {{t:bluff|bluff}} của đối thủ, và đối thủ {{t:bet|cược}}. Giả sử tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ đúng như ván bài cho biết."
+situation: "Ở river bạn có một {{t:pair|đôi}} chỉ thắng được các {{t:bluff|bluff}} của đối thủ, và đối thủ {{t:bet|cược}}. Giả sử tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ đúng như bài tập này đưa ra."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} ở river. Equity của bạn là tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ: bạn thắng mọi {{t:bluff|bluff}} và thua mọi tay {{t:value|lấy giá trị}}. {{t:call|Theo}} chỉ có lãi khi số {{t:bluff|bluff}} nhiều hơn mức equity cần thiết với khoản {{t:bet|cược}} này; khi ít hơn thì lỗ."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} ở river. Equity của bạn là tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ: bạn thắng mọi {{t:bluff|bluff}} và thua mọi tay {{t:value|lấy giá trị}}. {{t:call|Theo}} chỉ có lãi khi tỉ lệ {{t:bluff|bluff}} lớn hơn mức equity cần thiết với khoản {{t:bet|cược}} này; khi nhỏ hơn thì lỗ."
       - action: fold
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} ở river. Equity của bạn là tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ. {{t:fold|Bỏ bài}} chỉ đúng khi số {{t:bluff|bluff}} ít hơn mức equity cần thiết với khoản {{t:bet|cược}} này; khi nhiều hơn, {{t:fold|bỏ bài}} là từ bỏ một {{t:pot|pot}} mà ở đó {{t:call|theo}} có lãi. Với khoản {{t:bet|cược}} bằng {{t:pot|pot}}, phải có khoảng {{n:eq.bet-pot}} {{t:bluff|bluff}} thì {{t:call|theo}} mới hòa vốn."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} ở river. Equity của bạn là tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ. {{t:fold|Bỏ bài}} chỉ đúng khi tỉ lệ {{t:bluff|bluff}} nhỏ hơn mức equity cần thiết với khoản {{t:bet|cược}} này; khi lớn hơn, {{t:fold|bỏ bài}} là từ bỏ một {{t:pot|pot}} mà ở đó {{t:call|theo}} có lãi. Với khoản {{t:bet|cược}} bằng {{t:pot|pot}}, tỉ lệ {{t:bluff|bluff}} phải khoảng {{n:eq.bet-pot}} thì {{t:call|theo}} mới hòa vốn."

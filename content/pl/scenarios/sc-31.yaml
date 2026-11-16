@@ -5,7 +5,7 @@
 # jeden tekst na akcję (wariant.ts:374), więc oba wyjaśnienia są warunkowe.
 id: sc-31
 module: m10
-situation: "Załóż, że ten rywal często {{t:bet|stawia}} i {{t:raise|przebija}}. Na riverze masz jedną {{t:pair|parę}}, która wygrywa tylko z jego {{t:bluff|blefami}}, a on {{t:bet|stawia}} dużo. Załóż też, że udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest taki, jak podaje rozdanie."
+situation: "Załóż, że ten rywal często {{t:bet|stawia}} i {{t:raise|przebija}}. Na riverze masz jedną {{t:pair|parę}}, która wygrywa tylko z jego {{t:bluff|blefami}}, a on {{t:bet|stawia}} dużo. Załóż też, że udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest taki, jak podaje to zadanie."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -23,6 +23,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:call|Sprawdzenie}} zarabia tylko wtedy, gdy udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest większy niż potrzebne equity przy tym {{t:bet|zakładzie}}, bo twoje equity to właśnie udział {{t:bluff|blefów}}. Opis rywala tego nie zmienia: porównujesz liczby z rozdania. Większy {{t:bet|zakład}} wymaga więcej {{t:bluff|blefów}}: przy {{t:bet|zakładzie}} wielkości {{t:pot|puli}} ok. {{n:eq.bet-pot}}."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:call|Sprawdzenie}} zarabia tylko wtedy, gdy udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest większy niż potrzebne equity przy tym {{t:bet|zakładzie}}, bo twoje equity to właśnie udział {{t:bluff|blefów}}. Opis rywala tego nie zmienia: porównujesz liczby z rozdania. Większy {{t:bet|zakład}} wymaga większego udziału {{t:bluff|blefów}}: przy {{t:bet|zakładzie}} wielkości {{t:pot|puli}} ok. {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:fold|Pas}} jest dobry tylko wtedy, gdy udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest mniejszy niż potrzebne equity przy tym {{t:bet|zakładzie}}: wtedy {{t:call|sprawdzenie}} traci, także wobec rywala, który często {{t:bet|stawia}}. Gdy {{t:bluff|blefów}} jest więcej, {{t:fold|pas}} oddaje {{t:pot|pulę}}, na której {{t:call|sprawdzenie}} zarabia."
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo na riverze. {{t:fold|Pas}} jest dobry tylko wtedy, gdy udział {{t:bluff|blefów}} w jego {{t:bet|zakładach}} jest mniejszy niż potrzebne equity przy tym {{t:bet|zakładzie}}: wtedy {{t:call|sprawdzenie}} traci, także wobec rywala, który często {{t:bet|stawia}}. Gdy ten udział jest większy, {{t:fold|pas}} oddaje {{t:pot|pulę}}, na której {{t:call|sprawdzenie}} zarabia."

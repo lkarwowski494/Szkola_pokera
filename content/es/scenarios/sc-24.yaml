@@ -1,7 +1,7 @@
 # sc-24: Spanish text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-24
 module: m8
-situation: "En el river tienes una {{t:pair|pareja}} que solo gana a los {{t:bluff|faroles}} de tu rival, y tu rival {{t:bet|apuesta}}. Supón que la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es la que indica la mano."
+situation: "En el river tienes una {{t:pair|pareja}} que solo gana a los {{t:bluff|faroles}} de tu rival, y tu rival {{t:bet|apuesta}}. Supón que la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}} es la que da este ejercicio."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} en el river. Tu equity es la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}}: ganas a cada {{t:bluff|farol}} y pierdes contra cada mano que apuesta {{t:value|por valor}}. {{t:call|Pagar}} gana dinero solo cuando hay más {{t:bluff|faroles}} que la equity necesaria ante esta {{t:bet|apuesta}}; cuando hay menos, pierde."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} en el river. Tu equity es la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}}: ganas a cada {{t:bluff|farol}} y pierdes contra cada mano que apuesta {{t:value|por valor}}. {{t:call|Pagar}} gana dinero solo cuando la proporción de {{t:bluff|faroles}} es mayor que la equity necesaria ante esta {{t:bet|apuesta}}; cuando es menor, pierde."
       - action: fold
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} en el river. Tu equity es la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}}. {{t:fold|Retirarte}} es correcto solo cuando hay menos {{t:bluff|faroles}} que la equity necesaria ante esta {{t:bet|apuesta}}; cuando hay más, {{t:fold|retirarte}} entrega un {{t:pot}} en el que {{t:call|pagar}} gana dinero. Ante una {{t:bet|apuesta}} del tamaño del {{t:pot}}, {{t:call|pagar}} solo alcanza el punto de equilibrio con aproximadamente {{n:eq.bet-pot}} de {{t:bluff|faroles}}."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} en el river. Tu equity es la proporción de {{t:bluff|faroles}} en sus {{t:bet|apuestas}}. {{t:fold|Retirarte}} es correcto solo cuando la proporción de {{t:bluff|faroles}} es menor que la equity necesaria ante esta {{t:bet|apuesta}}; cuando es mayor, {{t:fold|retirarte}} entrega un {{t:pot}} en el que {{t:call|pagar}} gana dinero. Ante una {{t:bet|apuesta}} del tamaño del {{t:pot}}, {{t:call|pagar}} solo alcanza el punto de equilibrio cuando la proporción de {{t:bluff|faroles}} es de aproximadamente {{n:eq.bet-pot}}."

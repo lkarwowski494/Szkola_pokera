@@ -1,7 +1,7 @@
 # sc-24: Traditional Chinese text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-24
 module: m8
-situation: "在河牌你有一個{{t:pair|對子}}，只能贏對手的{{t:bluff|詐唬}}，而對手{{t:bet|下注}}。假設他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例如牌局所示。"
+situation: "在河牌你有一個{{t:pair|對子}}，只能贏對手的{{t:bluff|詐唬}}，而對手{{t:bet|下注}}。假設他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例就是本題給出的比例。"
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:bet|下注}}。你的權益就是他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例：你贏所有{{t:bluff|詐唬}}，輸給所有{{t:value|價值}}牌。只有當{{t:bluff|詐唬}}多於這個{{t:bet|下注}}所需的權益時，{{t:call|跟注}}才會賺錢；少於時就會虧損。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:bet|下注}}。你的權益就是他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例：你贏所有{{t:bluff|詐唬}}，輸給所有{{t:value|價值}}牌。只有當{{t:bluff|詐唬}}所占的比例大於這個{{t:bet|下注}}所需的權益時，{{t:call|跟注}}才會賺錢；比例較小時就會虧損。"
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:bet|下注}}。你的權益就是他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例。只有當{{t:bluff|詐唬}}少於這個{{t:bet|下注}}所需的權益時，{{t:fold|棄牌}}才是好的；多於時，{{t:fold|棄牌}}會放掉一個{{t:call|跟注}}能賺錢的{{t:pot|底池}}。面對{{t:pot|底池}}大小的{{t:bet|下注}}，{{t:bluff|詐唬}}要約有 {{n:eq.bet-pot}}，{{t:call|跟注}}才會打平。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌{{t:bet|下注}}。你的權益就是他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例。只有當{{t:bluff|詐唬}}所占的比例小於這個{{t:bet|下注}}所需的權益時，{{t:fold|棄牌}}才是好的；比例較大時，{{t:fold|棄牌}}會放掉一個{{t:call|跟注}}能賺錢的{{t:pot|底池}}。面對{{t:pot|底池}}大小的{{t:bet|下注}}，{{t:bluff|詐唬}}所占的比例要約為 {{n:eq.bet-pot}}，{{t:call|跟注}}才會打平。"

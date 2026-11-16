@@ -1,7 +1,7 @@
 # sc-31: Vietnamese text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-31
 module: m10
-situation: "Giả sử đối thủ này thường {{t:bet|cược}} và {{t:raise|tố}}. Ở river bạn có một {{t:pair|đôi}} chỉ thắng được các {{t:bluff|bluff}} của họ, và họ {{t:bet|cược}} lớn. Cũng giả sử tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ đúng như ván bài cho biết."
+situation: "Giả sử đối thủ này thường {{t:bet|cược}} và {{t:raise|tố}}. Ở river bạn có một {{t:pair|đôi}} chỉ thắng được các {{t:bluff|bluff}} của họ, và họ {{t:bet|cược}} lớn. Cũng giả sử tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ đúng như bài tập này đưa ra."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn ở river. {{t:call|Theo}} chỉ có lãi khi tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ lớn hơn mức equity cần thiết với khoản {{t:bet|cược}} này, vì equity của bạn chính là tỉ lệ {{t:bluff|bluff}} đó. Mô tả về đối thủ không thay đổi điều này: bạn so sánh các con số trong ván bài. Khoản {{t:bet|cược}} lớn hơn đòi hỏi nhiều {{t:bluff|bluff}} hơn: với khoản {{t:bet|cược}} bằng {{t:pot|pot}} là khoảng {{n:eq.bet-pot}}."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn ở river. {{t:call|Theo}} chỉ có lãi khi tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ lớn hơn mức equity cần thiết với khoản {{t:bet|cược}} này, vì equity của bạn chính là tỉ lệ {{t:bluff|bluff}} đó. Mô tả về đối thủ không thay đổi điều này: bạn so sánh các con số trong ván bài. Khoản {{t:bet|cược}} lớn hơn đòi hỏi tỉ lệ {{t:bluff|bluff}} lớn hơn: với khoản {{t:bet|cược}} bằng {{t:pot|pot}} là khoảng {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn ở river. {{t:fold|Bỏ bài}} chỉ đúng khi tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ nhỏ hơn mức equity cần thiết với khoản {{t:bet|cược}} này: khi đó {{t:call|theo}} sẽ lỗ, kể cả trước đối thủ thường {{t:bet|cược}}. Khi số {{t:bluff|bluff}} nhiều hơn, {{t:fold|bỏ bài}} là từ bỏ một {{t:pot|pot}} mà ở đó {{t:call|theo}} có lãi."
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn ở river. {{t:fold|Bỏ bài}} chỉ đúng khi tỉ lệ {{t:bluff|bluff}} trong các lần {{t:bet|cược}} của họ nhỏ hơn mức equity cần thiết với khoản {{t:bet|cược}} này: khi đó {{t:call|theo}} sẽ lỗ, kể cả trước đối thủ thường {{t:bet|cược}}. Khi tỉ lệ đó lớn hơn, {{t:fold|bỏ bài}} là từ bỏ một {{t:pot|pot}} mà ở đó {{t:call|theo}} có lãi."

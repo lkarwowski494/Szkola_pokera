@@ -1,7 +1,7 @@
 # sc-24: Portuguese text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-24
 module: m8
-situation: "No river tem um {{t:pair|par}} que só ganha aos {{t:bluff|bluffs}} do adversário, e o adversário {{t:bet|aposta}}. Suponha que a proporção de {{t:bluff|bluffs}} nas {{t:bet|apostas}} dele é a que a mão indica."
+situation: "No river tem um {{t:pair|par}} que só ganha aos {{t:bluff|bluffs}} do adversário, e o adversário {{t:bet|aposta}}. Suponha que a proporção de {{t:bluff|bluffs}} nas {{t:bet|apostas}} dele é a que este exercício indica."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} no river. A sua equity é a proporção de {{t:bluff|bluffs}} nas {{t:bet|apostas}} dele: ganha a cada {{t:bluff}} e perde para cada mão {{t:value|de valor}}. Fazer {{t:call}} só dá lucro quando há mais {{t:bluff|bluffs}} do que a equity necessária perante esta {{t:bet|aposta}}; quando há menos, dá prejuízo."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} no river. A sua equity é a proporção de {{t:bluff|bluffs}} nas {{t:bet|apostas}} dele: ganha a cada {{t:bluff}} e perde para cada mão {{t:value|de valor}}. Fazer {{t:call}} só dá lucro quando a proporção de {{t:bluff|bluffs}} é maior do que a equity necessária perante esta {{t:bet|aposta}}; quando é menor, dá prejuízo."
       - action: fold
-        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} no river. A sua equity é a proporção de {{t:bluff|bluffs}} nas {{t:bet|apostas}} dele. {{t:fold|Desistir}} só é bom quando há menos {{t:bluff|bluffs}} do que a equity necessária perante esta {{t:bet|aposta}}; quando há mais, {{t:fold|desistir}} entrega um {{t:pot}} em que fazer {{t:call}} dá lucro. Perante uma {{t:bet|aposta}} do tamanho do {{t:pot}}, fazer {{t:call}} só atinge o ponto de equilíbrio com cerca de {{n:eq.bet-pot}} de {{t:bluff|bluffs}}."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} no river. A sua equity é a proporção de {{t:bluff|bluffs}} nas {{t:bet|apostas}} dele. {{t:fold|Desistir}} só é bom quando a proporção de {{t:bluff|bluffs}} é menor do que a equity necessária perante esta {{t:bet|aposta}}; quando é maior, {{t:fold|desistir}} entrega um {{t:pot}} em que fazer {{t:call}} dá lucro. Perante uma {{t:bet|aposta}} do tamanho do {{t:pot}}, fazer {{t:call}} só atinge o ponto de equilíbrio quando a proporção de {{t:bluff|bluffs}} é de cerca de {{n:eq.bet-pot}}."

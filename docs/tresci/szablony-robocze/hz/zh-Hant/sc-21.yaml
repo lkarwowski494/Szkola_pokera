@@ -1,0 +1,20 @@
+# sc-21: Traditional Chinese text of docs/tresci/szablony-robocze/hz/pl/sc-21.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-21
+module: m7
+situation: "轉牌上的中等{{t:pair|對子}}。你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}{{t:call|跟注}}。翻牌你{{t:bet|下注}}了小額的{{t:c-bet|持續下注}}，他又{{t:call|跟注}}。轉牌{{t:big-blind|大盲}}{{t:check|過牌}}，而你有{{t:second-pair|第二對}}或更弱的{{t:pair|對子}}。"
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [check], turnClass: other, pairKind: [low], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+  sredni: { expected: [check], turnClass: other, pairKind: [second], flopHighMin: K, flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+decisions:
+  - street: turn
+    kind: turn-action
+    rule: R-M7-003
+    actions:
+      - action: check
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在轉牌{{t:check|過牌}}。你{{t:check|過牌}}，因為對手{{t:call|跟注}}翻牌後，他的{{t:range|範圍}}通常比在翻牌時更強，所以你不能再毫無顧慮地{{t:bet|下注}}。到河牌只剩一張牌，所以這手牌從保護中得到的很少，而{{t:check|過牌}}能讓你把{{t:pot|底池}}保持得小，並便宜地打到{{t:showdown|攤牌}}。"
+      - action: bet-big
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在轉牌{{t:check|過牌}}。用這手牌{{t:bet|下注}}收穫很少：對手{{t:call|跟注}}翻牌後，他的{{t:range|範圍}}通常比在翻牌時更強，而到河牌只剩一張牌，所以保護的作用不大。在轉牌，中等手牌通常{{t:check|過牌}}，以便宜地打到{{t:showdown|攤牌}}，而強牌和部分{{t:draw|聽牌}}會{{t:bet|下注}}。"

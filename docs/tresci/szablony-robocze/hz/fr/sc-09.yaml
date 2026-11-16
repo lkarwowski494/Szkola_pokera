@@ -1,0 +1,23 @@
+# sc-09: French text of docs/tresci/szablony-robocze/hz/pl/sc-09.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-09
+module: m4
+situation: "Le {{t:hijack|HJ}} a seulement payé la {{t:big-blind}} ({{t:limp}}), et {{t:utg|UTG}} s'est {{t:fold|couché}}. Vous avez une main avec laquelle vous {{t:raise|relancez}} ({{t:isolation}}). Quelle taille de {{t:raise|relance}} choisissez-vous ?"
+table: 6max
+positions: { hero: CO, villain: HJ }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise] }
+decisions:
+  - street: preflop
+    kind: size-spot
+    check: iso-size
+    rule: R-M4-012
+    limpers: 1
+    actions:
+      - action: raise
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et il y a un {{t:limp|limpeur}} avant vous. Vous {{t:raise|relancez}} à {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} par limpeur, car une {{t:raise|relance}} plus petite donne au limpeur un trop bon prix et ne lui enlève pas le coup."
+      - action: raise-small
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et il y a un {{t:limp|limpeur}} avant vous. Cette {{t:raise|relance}} est trop petite : elle donne au limpeur un trop bon prix et ne lui enlève pas le coup. Le standard est de {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} par limpeur."
+      - action: raise-big
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et il y a un {{t:limp|limpeur}} avant vous. Cette taille s'écarte du standard : vous {{t:raise|relancez}} à {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} par limpeur, et {{n:pf.iso.oop-extra}} de plus {{t:out-of-position}}."

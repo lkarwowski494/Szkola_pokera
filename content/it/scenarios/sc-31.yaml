@@ -1,7 +1,7 @@
 # sc-31: Italian text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-31
 module: m10
-situation: "Supponi che questo avversario {{t:bet|punti}} e {{t:raise|rilanci}} spesso. Al river hai una {{t:pair|coppia}} che batte solo i suoi {{t:bluff}}, e lui {{t:bet|punta}} molto. Supponi anche che la quota di {{t:bluff}} nelle sue {{t:bet|puntate}} sia quella indicata dalla mano."
+situation: "Supponi che questo avversario {{t:bet|punti}} e {{t:raise|rilanci}} spesso. Al river hai una {{t:pair|coppia}} che batte solo i suoi {{t:bluff}}, e lui {{t:bet|punta}} molto. Supponi anche che la quota di {{t:bluff}} nelle sue {{t:bet|puntate}} sia quella data da questo esercizio."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} molto al river. Il {{t:call}} guadagna solo quando la quota di {{t:bluff}} nelle sue {{t:bet|puntate}} è maggiore dell'equity necessaria contro questa {{t:bet|puntata}}, perché la tua equity è proprio la quota di {{t:bluff}}. La descrizione dell'avversario non lo cambia: confronti i numeri della mano. Una {{t:bet|puntata}} più grande richiede più {{t:bluff}}: contro una {{t:bet|puntata}} pari al {{t:pot}}, circa il {{n:eq.bet-pot}}."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} molto al river. Il {{t:call}} guadagna solo quando la quota di {{t:bluff}} nelle sue {{t:bet|puntate}} è maggiore dell'equity necessaria contro questa {{t:bet|puntata}}, perché la tua equity è proprio la quota di {{t:bluff}}. La descrizione dell'avversario non lo cambia: confronti i numeri della mano. Una {{t:bet|puntata}} più grande richiede una quota di {{t:bluff}} maggiore: contro una {{t:bet|puntata}} pari al {{t:pot}}, circa il {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} molto al river. Il {{t:fold}} è giusto solo quando la quota di {{t:bluff}} nelle sue {{t:bet|puntate}} è minore dell'equity necessaria contro questa {{t:bet|puntata}}: allora il {{t:call}} perde, anche contro un avversario che {{t:bet|punta}} spesso. Quando i {{t:bluff}} sono di più, il {{t:fold}} rinuncia a un {{t:pot}} su cui il {{t:call}} guadagna."
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} molto al river. Il {{t:fold}} è giusto solo quando la quota di {{t:bluff}} nelle sue {{t:bet|puntate}} è minore dell'equity necessaria contro questa {{t:bet|puntata}}: allora il {{t:call}} perde, anche contro un avversario che {{t:bet|punta}} spesso. Quando questa quota è maggiore, il {{t:fold}} rinuncia a un {{t:pot}} su cui il {{t:call}} guadagna."

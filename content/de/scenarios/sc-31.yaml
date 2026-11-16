@@ -1,7 +1,7 @@
 # sc-31: German text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-31
 module: m10
-situation: "Nimm an, dass dieser Gegner oft {{t:bet|setzt}} und {{t:raise|raist}}. Am River hast du ein {{t:pair|Paar}}, das nur gegen seine {{t:bluff|Bluffs}} gewinnt, und er {{t:bet|setzt}} viel. Nimm auch an, dass der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}} so ist, wie die Hand angibt."
+situation: "Nimm an, dass dieser Gegner oft {{t:bet|setzt}} und {{t:raise|raist}}. Am River hast du ein {{t:pair|Paar}}, das nur gegen seine {{t:bluff|Bluffs}} gewinnt, und er {{t:bet|setzt}} viel. Nimm auch an, dass der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}} der ist, den diese Aufgabe angibt."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} am River viel. Ein {{t:call}} verdient nur dann, wenn der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}} größer ist als die nötige Equity bei dieser {{t:bet}}, weil deine Equity genau der Anteil der {{t:bluff|Bluffs}} ist. Die Beschreibung des Gegners ändert daran nichts: Du vergleichst die Zahlen aus der Hand. Eine größere {{t:bet}} erfordert mehr {{t:bluff|Bluffs}}: bei einer {{t:bet}} in Höhe des {{t:pot|Pots}} etwa {{n:eq.bet-pot}}."
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} am River viel. Ein {{t:call}} verdient nur dann, wenn der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}} größer ist als die nötige Equity bei dieser {{t:bet}}, weil deine Equity genau der Anteil der {{t:bluff|Bluffs}} ist. Die Beschreibung des Gegners ändert daran nichts: Du vergleichst die Zahlen aus der Hand. Eine größere {{t:bet}} erfordert einen größeren Anteil an {{t:bluff|Bluffs}}: bei einer {{t:bet}} in Höhe des {{t:pot|Pots}} etwa {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} am River viel. Ein {{t:fold}} ist nur dann gut, wenn der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}} kleiner ist als die nötige Equity bei dieser {{t:bet}}: Dann verliert ein {{t:call}}, auch gegen einen Gegner, der oft {{t:bet|setzt}}. Wenn es mehr {{t:bluff|Bluffs}} gibt, gibt ein {{t:fold}} einen {{t:pot}} auf, an dem ein {{t:call}} verdient."
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} am River viel. Ein {{t:fold}} ist nur dann gut, wenn der Anteil der {{t:bluff|Bluffs}} an seinen {{t:bet|Bets}} kleiner ist als die nötige Equity bei dieser {{t:bet}}: Dann verliert ein {{t:call}}, auch gegen einen Gegner, der oft {{t:bet|setzt}}. Wenn dieser Anteil größer ist, gibt ein {{t:fold}} einen {{t:pot}} auf, an dem ein {{t:call}} verdient."

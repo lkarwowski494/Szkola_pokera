@@ -1,0 +1,22 @@
+# sc-30: French text of docs/tresci/szablony-robocze/hz/pl/sc-30.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-30
+module: m10
+situation: "Un adversaire très serré fait un {{t:3-bet}}. Vous avez {{t:open|ouvert}} depuis le Bouton, et la {{t:big-blind}} fait un {{t:3-bet}}. Supposez que cet adversaire a un {{t:vpip}} de {{n:hud.ex.nit3bet.vpip.low}} à {{n:hud.ex.nit3bet.vpip.high}} sur au moins environ {{n:hud.hands.vpip.low}} mains, et que son {{t:3-bet}} se situe dans ces mains."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [fold], marginMin: 0.04 }
+decisions:
+  - street: preflop
+    kind: nit-3bet
+    rule: R-M2-005
+    open: 2.5
+    threeBet: 10
+    vpips: [0.1]
+    actions:
+      - action: fold
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et votre adversaire en {{w:rywal}} fait un {{t:3-bet}}. Vous vous {{t:fold|couchez}}, car s'il joue environ les {{n:hud.ex.nit3bet.vpip.low}}–{{n:hud.ex.nit3bet.vpip.high}} de mains les plus fortes, ce sont surtout des {{t:pair|paires}} et les meilleurs as, et contre elles votre main a moins d'équité que ne l'exige le prix d'un {{t:call}} (en simplifiant, sans le jeu après le flop). Par hypothèse, son {{t:3-bet}} se situe dans ces mains, donc face au {{t:3-bet}} lui-même, votre main ne s'en sort pas mieux."
+      - action: call
+        explanation: "Vous avez {{w:reka}} en {{w:pozycja}}, {{w:stol}}, et votre adversaire en {{w:rywal}} fait un {{t:3-bet}}. En simplifiant, sans le jeu après le flop, un {{t:call}} perd : même contre toutes les mains que joue cet adversaire, votre main a moins d'équité que ne l'exige le prix d'un {{t:call}}, et par hypothèse son {{t:3-bet}} se situe dans ces mains."

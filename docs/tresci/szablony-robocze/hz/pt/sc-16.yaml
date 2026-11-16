@@ -1,0 +1,27 @@
+# sc-16: European Portuguese text of docs/tresci/szablony-robocze/hz/pl/sc-16.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-16
+module: m6
+situation: "Tem um {{t:draw}} forte perante um {{t:c-bet}} pequeno. Está no {{t:big-blind}} e fez {{t:call}} à {{t:open|abertura}} do Button. No flop faz {{t:check}} e o Button {{t:bet|aposta}} um {{t:c-bet}} pequeno."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { expected: [raise-big], draws: [flush, oesd], flopBroadwayMax: 2, flop: { suits: [two-tone, rainbow], ranks: [disconnected, semi-connected] }, reject: [stol-sparowany] }
+decisions:
+  - street: flop
+    kind: check-raise
+    rule: R-M6-008
+    spot: vs-open.bb-vs-btn
+    pots: [6, 9]
+    cbet: 0.333333
+    multipliers: { big: 4.5, small: 1.5 }
+    actions:
+      - action: raise-big
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. Faz {{t:check-raise}} para cerca de {{n:xr.mult.example}} a {{t:bet|aposta}} dele, porque um {{t:draw}} tem duas formas de ganhar: o adversário pode {{t:fold|desistir}} de imediato e, quando faz {{t:call}}, ainda pode acertar o seu {{t:draw}}. Segundo um site de formação, os {{t:flush-draw|flush draws}} e os draws de {{t:straight|sequência}} abertos são boas mãos para {{t:check-raise}}, e perante um {{t:c-bet}} pequeno {{t:raise|aumenta}} para cerca de {{n:xr.mult.example}}, não para o mínimo."
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. Fazer {{t:call}} também é bom: perante um {{t:c-bet}} pequeno só precisa de cerca de {{n:eq.bet-third}} de equity, e esta mão pode melhorar. Segundo um site de formação, não tem de {{t:raise|aumentar}} com todos os {{t:draw|draws}} fortes, mas o {{t:check-raise}} acrescenta a hipótese de o adversário {{t:fold|desistir}} de imediato."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. {{t:fold|Desistir}} entrega demasiado: perante um {{t:c-bet}} pequeno só precisa de cerca de {{n:eq.bet-third}} de equity, e o {{t:draw}} ainda pode melhorar. Perante um {{t:c-bet}} pequeno continua com os {{t:draw|draws}}: faz {{t:call}} ou {{t:check-raise}}."
+      - action: raise-small
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. O {{t:check-raise}} é uma boa ideia, mas para cerca de {{n:xr.too-small.mult}} o {{t:c-bet}} é demasiado pequeno: o Button precisa então de apenas cerca de {{n:eq.vs-xr.too-small}} de equity para fazer {{t:call}} e assim paga barato com qualquer {{t:draw}}. {{t:raise|Aumenta}} para cerca de {{n:xr.mult.low}}–{{n:xr.mult.example}} o {{t:c-bet}}, tanto mais quanto menor for o {{t:c-bet}}."

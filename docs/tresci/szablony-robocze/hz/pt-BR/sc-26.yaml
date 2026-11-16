@@ -1,0 +1,23 @@
+# sc-26: Brazilian Portuguese text of docs/tresci/szablony-robocze/hz/pl/sc-26.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
+id: sc-26
+module: m9
+situation: "{{t:spr}} baixo e {{t:all-in}} do adversário. Jogo de torneio sem pressão de {{t:icm|ICM}}, com stacks curtos: você está no {{t:big-blind}} e {{t:call|pagou}} a {{t:open|abertura}} do Button. No flop você faz {{t:check}}, e o Button vai {{t:all-in}} com um {{t:spr}} de cerca de {{w:spr}}."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 14
+levels: [latwy, sredni]
+bounds:
+  latwy: { expected: [call], sprRange: [1.8, 2.3], pairKind: [overpair, top], kickerMin: K }
+  sredni: { expected: [call], sprRange: [1.8, 2.3], pairKind: [top], kickerMax: Q }
+decisions:
+  - street: flop
+    kind: spr-call
+    rule: R-M9-002
+    spot: vs-open.bb-vs-btn
+    pots: [5.5]
+    stacks: [10, 10.5, 11, 11.5, 12, 12.5]
+    actions:
+      - action: call
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} vai {{t:all-in}} com um {{t:spr}} de cerca de {{w:spr}}. Você {{t:call|paga}}, porque o stack é pequeno em relação ao {{t:pot}}: com esse {{t:spr}}, {{t:top-pair}} e mãos melhores bastam para jogar pelo stack inteiro. Quanto mais baixo o {{t:spr}}, melhor o preço que você recebe: com {{t:spr}} {{n:spr.commit}} você precisa de cerca de {{n:eq.jam.spr2}} de equity, ou seja, basta ganhar menos da metade das vezes."
+      - action: fold
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} vai {{t:all-in}} com um {{t:spr}} de cerca de {{w:spr}}. {{t:fold|Desistir}} entrega o {{t:pot}} fácil demais: com um {{t:spr}} tão baixo, {{t:top-pair}} e mãos melhores jogam pelo stack inteiro. Para {{t:call|pagar}} você não precisa ser favorito: com {{t:spr}} {{n:spr.commit}} bastam cerca de {{n:eq.jam.spr2}} de equity."

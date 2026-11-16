@@ -1,7 +1,7 @@
 # sc-24: Japanese text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-24
 module: m8
-situation: "リバーであなたは相手の{{t:bluff|ブラフ}}にしか勝てない{{t:pair|ペア}}を一つ持っていて、相手が{{t:bet|ベット}}します。相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合は、ハンドで示されたとおりだと仮定します。"
+situation: "リバーであなたは相手の{{t:bluff|ブラフ}}にしか勝てない{{t:pair|ペア}}を一つ持っていて、相手が{{t:bet|ベット}}します。相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合は、この問題で与えられたとおりだと仮定します。"
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がリバーで{{t:bet|ベット}}しています。あなたのエクイティは、相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合です：すべての{{t:bluff|ブラフ}}に勝ち、すべての{{t:value|バリュー}}ハンドに負けます。{{t:call|コール}}が利益になるのは、{{t:bluff|ブラフ}}がこの{{t:bet|ベット}}で必要なエクイティより多いときだけで、少ないときは損をします。"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がリバーで{{t:bet|ベット}}しています。あなたのエクイティは、相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合です：すべての{{t:bluff|ブラフ}}に勝ち、すべての{{t:value|バリュー}}ハンドに負けます。{{t:call|コール}}が利益になるのは、{{t:bluff|ブラフ}}の割合がこの{{t:bet|ベット}}で必要なエクイティより大きいときだけで、小さいときは損をします。"
       - action: fold
-        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がリバーで{{t:bet|ベット}}しています。あなたのエクイティは、相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合です。{{t:fold|フォールド}}が良いのは、{{t:bluff|ブラフ}}がこの{{t:bet|ベット}}で必要なエクイティより少ないときだけです。多いときは、{{t:fold|フォールド}}は{{t:call|コール}}が利益になる{{t:pot|ポット}}を手放します。{{t:pot|ポット}}サイズの{{t:bet|ベット}}では、{{t:bluff|ブラフ}}が約{{n:eq.bet-pot}}になってようやく{{t:call|コール}}が損益ゼロになります。"
+        explanation: "あなたは{{w:pozycja}}で{{w:reka}}を持ち、{{t:board|ボード}}は{{w:stol}}で、{{w:rywal}}の相手がリバーで{{t:bet|ベット}}しています。あなたのエクイティは、相手の{{t:bet|ベット}}に占める{{t:bluff|ブラフ}}の割合です。{{t:fold|フォールド}}が良いのは、{{t:bluff|ブラフ}}の割合がこの{{t:bet|ベット}}で必要なエクイティより小さいときだけです。大きいときは、{{t:fold|フォールド}}は{{t:call|コール}}が利益になる{{t:pot|ポット}}を手放します。{{t:pot|ポット}}サイズの{{t:bet|ベット}}では、{{t:bluff|ブラフ}}の割合が約{{n:eq.bet-pot}}になってようやく{{t:call|コール}}が損益ゼロになります。"

@@ -1,7 +1,7 @@
 # sc-31: Brazilian Portuguese text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-31
 module: m10
-situation: "Suponha que este adversário {{t:bet|aposta}} e {{t:raise|aumenta}} com frequência. No river você tem um {{t:pair|par}} que só ganha dos {{t:bluff|blefes}} dele, e ele {{t:bet|aposta}} alto. Suponha também que a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele é a que a mão indica."
+situation: "Suponha que este adversário {{t:bet|aposta}} e {{t:raise|aumenta}} com frequência. No river você tem um {{t:pair|par}} que só ganha dos {{t:bluff|blefes}} dele, e ele {{t:bet|aposta}} alto. Suponha também que a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele é a que este exercício indica."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} alto no river. {{t:call|Pagar}} dá lucro só quando a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele é maior que a equity necessária diante desta {{t:bet|aposta}}, porque a sua equity é justamente a proporção de {{t:bluff|blefes}}. A descrição do adversário não muda isso: você compara os números da mão. Uma {{t:bet|aposta}} maior exige mais {{t:bluff|blefes}}: diante de uma {{t:bet|aposta}} do tamanho do {{t:pot}}, cerca de {{n:eq.bet-pot}}."
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} alto no river. {{t:call|Pagar}} dá lucro só quando a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele é maior que a equity necessária diante desta {{t:bet|aposta}}, porque a sua equity é justamente a proporção de {{t:bluff|blefes}}. A descrição do adversário não muda isso: você compara os números da mão. Uma {{t:bet|aposta}} maior exige uma proporção maior de {{t:bluff|blefes}}: diante de uma {{t:bet|aposta}} do tamanho do {{t:pot}}, cerca de {{n:eq.bet-pot}}."
       - action: fold
-        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} alto no river. {{t:fold|Desistir}} é bom só quando a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele é menor que a equity necessária diante desta {{t:bet|aposta}}: aí {{t:call|pagar}} dá prejuízo, mesmo contra um adversário que {{t:bet|aposta}} com frequência. Quando há mais {{t:bluff|blefes}}, {{t:fold|desistir}} entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro."
+        explanation: "Você tem {{w:reka}} no {{w:pozycja}}, na {{t:board|mesa}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} alto no river. {{t:fold|Desistir}} é bom só quando a proporção de {{t:bluff|blefes}} nas {{t:bet|apostas}} dele é menor que a equity necessária diante desta {{t:bet|aposta}}: aí {{t:call|pagar}} dá prejuízo, mesmo contra um adversário que {{t:bet|aposta}} com frequência. Quando essa proporção é maior, {{t:fold|desistir}} entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro."

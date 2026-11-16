@@ -17,6 +17,6 @@ decisions:
     fractions: [0.75]
     actions:
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是大額的{{t:c-bet|持續下注}}。你{{t:fold|棄牌}}，因為你有兩張高牌，沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}：{{t:out-of-position}}時，這樣的手牌很少能打到{{t:showdown|攤牌}}，而用高牌組成的{{t:pair|對子}}常常還是會輸。面對約 {{n:cbet.size.big}} {{t:pot|底池}}的{{t:bet|下注}}，你已經需要約 {{n:eq.bet-three-quarters}} 的權益。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是大額的{{t:c-bet|持續下注}}。你{{t:fold|棄牌}}，因為你有兩張高牌，沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}：{{t:out-of-position}}時，這樣的手牌很少能打到{{t:showdown|攤牌}}，而即使之後你配中其中一張牌，這個{{t:pair|對子}}也常常還是會輸。面對約 {{n:cbet.size.big}} {{t:pot|底池}}的{{t:bet|下注}}，你已經需要約 {{n:eq.bet-three-quarters}} 的權益。"
       - action: call
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是大額的{{t:c-bet|持續下注}}。{{t:call|跟注}}要為一手{{t:out-of-position}}時很少能打到{{t:showdown|攤牌}}的牌付出很多：兩張高牌，沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}，而用高牌組成的{{t:pair|對子}}常常還是會輸。面對大額{{t:c-bet|持續下注}}，你比較會在有額外{{t:draw|聽牌}}時{{t:call|跟注}}，最好是聽最大的{{t:flush|同花}}。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是大額的{{t:c-bet|持續下注}}。{{t:call|跟注}}要為一手{{t:out-of-position}}時很少能打到{{t:showdown|攤牌}}的牌付出很多：兩張高牌，沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}，而即使之後你配中其中一張牌，這個{{t:pair|對子}}也常常還是會輸。面對大額{{t:c-bet|持續下注}}，你比較會在有額外{{t:draw|聽牌}}時{{t:call|跟注}}，最好是聽最大的{{t:flush|同花}}。"

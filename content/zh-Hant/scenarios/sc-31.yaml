@@ -1,7 +1,7 @@
 # sc-31: Traditional Chinese text of content/pl/scenarios/sc-31.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-31
 module: m10
-situation: "假設這個對手經常{{t:bet|下注}}和{{t:raise|加注}}。在河牌你有一個{{t:pair|對子}}，只能贏他的{{t:bluff|詐唬}}，而他大額{{t:bet|下注}}。也假設他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例如牌局所示。"
+situation: "假設這個對手經常{{t:bet|下注}}和{{t:raise|加注}}。在河牌你有一個{{t:pair|對子}}，只能贏他的{{t:bluff|詐唬}}，而他大額{{t:bet|下注}}。也假設他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例就是本題給出的比例。"
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55]
     actions:
       - action: call
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌大額{{t:bet|下注}}。只有當他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例大於這個{{t:bet|下注}}所需的權益時，{{t:call|跟注}}才會賺錢，因為你的權益正是{{t:bluff|詐唬}}所占的比例。對手的描述不會改變這一點：你比較的是牌局中的數字。{{t:bet|下注}}越大，需要的{{t:bluff|詐唬}}越多：面對{{t:pot|底池}}大小的{{t:bet|下注}}，約為 {{n:eq.bet-pot}}。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌大額{{t:bet|下注}}。只有當他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例大於這個{{t:bet|下注}}所需的權益時，{{t:call|跟注}}才會賺錢，因為你的權益正是{{t:bluff|詐唬}}所占的比例。對手的描述不會改變這一點：你比較的是牌局中的數字。{{t:bet|下注}}越大，需要的{{t:bluff|詐唬}}比例越高：面對{{t:pot|底池}}大小的{{t:bet|下注}}，約為 {{n:eq.bet-pot}}。"
       - action: fold
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌大額{{t:bet|下注}}。只有當他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例小於這個{{t:bet|下注}}所需的權益時，{{t:fold|棄牌}}才是好的：這時即使面對經常{{t:bet|下注}}的對手，{{t:call|跟注}}也會虧損。當{{t:bluff|詐唬}}比較多時，{{t:fold|棄牌}}會放掉一個{{t:call|跟注}}能賺錢的{{t:pot|底池}}。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手在河牌大額{{t:bet|下注}}。只有當他的{{t:bet|下注}}中{{t:bluff|詐唬}}所占的比例小於這個{{t:bet|下注}}所需的權益時，{{t:fold|棄牌}}才是好的：這時即使面對經常{{t:bet|下注}}的對手，{{t:call|跟注}}也會虧損。當這個比例較大時，{{t:fold|棄牌}}會放掉一個{{t:call|跟注}}能賺錢的{{t:pot|底池}}。"

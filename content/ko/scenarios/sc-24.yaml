@@ -1,7 +1,7 @@
 # sc-24: Korean text of content/pl/scenarios/sc-24.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-24
 module: m8
-situation: "리버에서 당신은 상대의 {{t:bluff|블러프}}만 이길 수 있는 {{t:pair|페어}} 하나를 들고 있고, 상대가 {{t:bet|베팅}}합니다. 상대의 {{t:bet|베팅}} 중 {{t:bluff|블러프}}의 비율은 핸드에 주어진 대로라고 가정하세요."
+situation: "리버에서 당신은 상대의 {{t:bluff|블러프}}만 이길 수 있는 {{t:pair|페어}} 하나를 들고 있고, 상대가 {{t:bet|베팅}}합니다. 상대의 {{t:bet|베팅}} 중 {{t:bluff|블러프}}의 비율은 이 문제에서 주어진 대로라고 가정하세요."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -19,6 +19,6 @@ decisions:
     bluffShares: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     actions:
       - action: call
-        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:bet|베팅}}합니다. 당신의 에퀴티는 상대의 {{t:bet|베팅}} 중 {{t:bluff|블러프}}의 비율입니다: 모든 {{t:bluff|블러프}}는 이기고, 모든 {{t:value|밸류}} 핸드에는 집니다. {{t:call|콜}}은 {{t:bluff|블러프}}가 이 {{t:bet|베팅}}에서 필요한 에퀴티보다 많을 때만 이익이 되고, 적을 때는 손해입니다."
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:bet|베팅}}합니다. 당신의 에퀴티는 상대의 {{t:bet|베팅}} 중 {{t:bluff|블러프}}의 비율입니다: 모든 {{t:bluff|블러프}}는 이기고, 모든 {{t:value|밸류}} 핸드에는 집니다. {{t:call|콜}}은 {{t:bluff|블러프}}의 비율이 이 {{t:bet|베팅}}에서 필요한 에퀴티보다 클 때만 이익이 되고, 작을 때는 손해입니다."
       - action: fold
-        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:bet|베팅}}합니다. 당신의 에퀴티는 상대의 {{t:bet|베팅}} 중 {{t:bluff|블러프}}의 비율입니다. {{t:fold|폴드}}는 {{t:bluff|블러프}}가 이 {{t:bet|베팅}}에서 필요한 에퀴티보다 적을 때만 좋은 선택입니다. 더 많을 때 {{t:fold|폴드}}하면 {{t:call|콜}}이 이익을 내는 {{t:pot|팟}}을 포기하게 됩니다. {{t:pot|팟}} 크기의 {{t:bet|베팅}}에서는 {{t:bluff|블러프}}가 약 {{n:eq.bet-pot}}이어야 비로소 {{t:call|콜}}이 본전이 됩니다."
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 리버에서 {{t:bet|베팅}}합니다. 당신의 에퀴티는 상대의 {{t:bet|베팅}} 중 {{t:bluff|블러프}}의 비율입니다. {{t:fold|폴드}}는 {{t:bluff|블러프}}의 비율이 이 {{t:bet|베팅}}에서 필요한 에퀴티보다 작을 때만 좋은 선택입니다. 그 비율이 더 클 때 {{t:fold|폴드}}하면 {{t:call|콜}}이 이익을 내는 {{t:pot|팟}}을 포기하게 됩니다. {{t:pot|팟}} 크기의 {{t:bet|베팅}}에서는 {{t:bluff|블러프}}의 비율이 약 {{n:eq.bet-pot}}이어야 비로소 {{t:call|콜}}이 본전이 됩니다."
