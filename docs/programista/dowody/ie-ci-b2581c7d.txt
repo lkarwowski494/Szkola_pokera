@@ -1,0 +1,20 @@
+# IE: env -u NODE_PATH pnpm run ci na b2581c7d (2026-11-16) — kod 0 (ZIELONE). Baza b1c010ca: kod 1, 5 testów tools/content-build (docs/tresci/dowody/id-ci-67e1a434.txt).
+Drzewo: tools/ i docs/ jak w commicie b2581c7d (dowód dodany w następnym commicie); kod src bez zmian: git diff b1c010ca..b2581c7d --stat -- packages apps tools/content-build/src = pusty.
+
+  packages/srs test:  Test Files  3 passed (3)
+  packages/srs test:       Tests  21 passed (21)
+  packages/jezyki test:  Test Files  6 passed (6)
+  packages/jezyki test:       Tests  144 passed (144)
+  packages/poker-core test:  Test Files  43 passed (43)
+  packages/poker-core test:       Tests  341 passed (341)
+  packages/domena test:  Test Files  27 passed (27)
+  packages/domena test:       Tests  347 passed | 1 expected fail (348)
+  tools/preflop-solver test:  Test Files  9 passed (9)
+  tools/preflop-solver test:       Tests  44 passed (44)
+  packages/postep test:  Test Files  21 passed (21)
+  packages/postep test:       Tests  160 passed (160)
+  tools/content-build test:  Test Files  83 passed (83)
+  tools/content-build test:       Tests  910 passed | 1 expected fail (911)
+   Test Files  6 passed (6)
+        Tests  35 passed (35)
+  kod_ci=0
