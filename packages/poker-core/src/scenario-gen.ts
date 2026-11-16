@@ -12,7 +12,7 @@ import { geometricFraction, hitProbability, requiredEquity } from './math';
 import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
-import { classifyFlop, textureMatches, type TextureFilter } from './texture';
+import { classifyFlop, straightWindowCount, textureMatches, type TextureFilter } from './texture';
 
 /** Outy na parę z jednej rangi karty gracza wyższej od stołu: 3 karty tej rangi (D1, `pair.outs.per-rank` w content/numbers.yaml). */
 export const OUTS_PER_OVERCARD_RANK = 3;
@@ -751,19 +751,18 @@ function policzMargines(spot: RangeSpotData, expected: string, hc: string, m: Eq
   return best;
 }
 
-/** Ręka z zakresu spotu: klasa losowana z wagą (suma częstości akcji innych niż pas) × liczba kombinacji, potem kombinacja (CS, CQ 06-tresci-004; wspólne dla cbet-case i defend). */
-/** Cztery rangi stołu mieszczą się w oknie pięciu kolejnych rang (as także jako 1): każda ręka z jedną kartą domyka strita. */
-function czteryDoStrita(rangi: readonly number[]): boolean {
-  const z = new Set(rangi);
-  if (z.has(12)) z.add(-1);
-  for (let lo = -1; lo <= 8; lo++) {
-    let n = 0;
-    for (let r = lo; r < lo + 5; r++) if (z.has(r)) n++;
-    if (n >= 4) return true;
-  }
+/**
+ * HT (D-1750, zastępuje D-1705): strit jest możliwy na stole, gdy trzy różne rangi stołu mieszczą się w jednym oknie pięciu kolejnych rang (as także jako 1),
+ * czyli ta sama definicja co `straightPossible` flopu (`classifyFlop`), liczona na każdej trójce rang stołu turnu. Wtedy istnieje ręka z dwiema kartami, która ma strita.
+ * Rangi muszą być różne (turn nie paruje stołu).
+ */
+export function stolZeStritem(rangi: readonly number[]): boolean {
+  const r = [...new Set(rangi)];
+  for (let i = 0; i < r.length; i++) for (let j = i + 1; j < r.length; j++) for (let k = j + 1; k < r.length; k++) if (straightWindowCount([r[i]!, r[j]!, r[k]!]) > 0) return true;
   return false;
 }
 
+/** Ręka z zakresu spotu: klasa losowana z wagą (suma częstości akcji innych niż pas) × liczba kombinacji, potem kombinacja (CS, CQ 06-tresci-004; wspólne dla cbet-case i defend). */
 function handFromRange(templateId: string, ctx: GeneratorContext, spotId: string, rng: () => number, opis: string): [Card, Card] {
   const spot = ctx.spots.find((x) => x.id === spotId);
   if (!spot) throw new TemplateError(`${templateId}: brak spotu ${spotId} (${opis})`);
@@ -1032,7 +1031,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       if ((rangaTurnu > Math.max(...rangiFlopu)) !== (b.turnClass === 'overcard')) return null;
       if (b.flopHighMin && Math.max(...rangiFlopu) < RANK_CHARS.indexOf(b.flopHighMin)) return null;
       if ([0, 1, 2, 3].some((su) => turn.filter((c) => suitOf(c) === su).length >= 3)) return null; // turn nie daje trzeciej karty koloru
-      if (czteryDoStrita(turn.map(rankOf))) return null; // turn nie domyka czterech rang do strita na stole
+      if (stolZeStritem(turn.map(rankOf))) return null; // D-1750: na stole turnu nie ma możliwego strita (trzy rangi w oknie pięciu)
       const hTurn = classifyHolding(hero, turn);
       if (!hTurn.pairKind || !b.pairKind.includes(hTurn.pairKind) || (hTurn.draw?.all.length ?? 0) >= HOLDING_LIMITS.drawOutsMin) return null;
       if (b.flopMiss) {

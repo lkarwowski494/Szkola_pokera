@@ -1,7 +1,7 @@
 // 08-EX-6 (sesja HO, SC-18/SC-21, R-M7-001/003/005): punkt `turn-action` — zakład albo czekanie na turnie z pozycji. Wyrocznia niezależna od generatora i holding.ts:
 // klasa karty turnu i para z rang i kolorów kart, nie z classifyHolding. Ręka z zakresu otwarcia pozycji gracza (spot rfi.btn).
 import { describe, expect, it } from 'vitest';
-import { classOf, generateVariant, variantFingerprint, HAND_CLASSES, rankOf, suitOf, TemplateError, type GeneratorContext, type GeneratorTemplate, type LevelBounds } from '../src';
+import { classOf, generateVariant, stolZeStritem, variantFingerprint, HAND_CLASSES, rankOf, suitOf, TemplateError, type GeneratorContext, type GeneratorTemplate, type LevelBounds } from '../src';
 
 const ctx: GeneratorContext = {
   spots: [{ id: 'rfi.btn', uncertain: [], actions: [
@@ -32,11 +32,29 @@ function paraNaTurnie(hero: readonly number[], board4: readonly number[]): 'top'
   if (trafione.length !== 1) return 'inna';
   return trafione[0] === rangi[0] ? 'top' : trafione[0] === rangi[1] ? 'second' : 'low';
 }
-function czteryDoStrita(rangi: readonly number[]): boolean {
-  const z = new Set(rangi.map((r) => r)); if (z.has(12)) z.add(-1);
-  for (let lo = -1; lo <= 8; lo++) { let n = 0; for (let r = lo; r < lo + 5; r++) if (z.has(r)) n++; if (n >= 4) return true; }
+// HT (D-1750): „turn bez możliwego strita na stole” = żadne trzy różne rangi z czterech kart stołu nie mieszczą się w oknie pięciu kolejnych rang (as jako 1 albo 14),
+// czyli `straightPossible` liczone na stole turnu. Oracle z rang, bez texture.ts.
+function stritMozliwyNaStole(rangi: readonly number[]): boolean {
+  const r = [...new Set(rangi)];
+  for (let lo = 1; lo <= 10; lo++) {
+    const wOknie = r.filter((x) => (x === 12 ? [14, 1] : [x + 2]).some((p) => p >= lo && p <= lo + 4));
+    if (wOknie.length >= 3) return true;
+  }
   return false;
 }
+
+describe('HT D-1750: oracle strita na stole turnu', () => {
+  it('przykład GW: flop J-8-5 + turn T: J, T, 8 w oknie 7–J, więc strit możliwy (stary filtr „cztery w oknie” go przepuszczał)', () => {
+    const R2 = (s: string) => [...s].map((c) => R.indexOf(c));
+    expect(stritMozliwyNaStole(R2('J85T'))).toBe(true);
+    expect(stritMozliwyNaStole(R2('J85A'))).toBe(false);
+    expect(stritMozliwyNaStole(R2('K72A'))).toBe(false);
+    expect(stritMozliwyNaStole(R2('A532'))).toBe(true); // as jako 1
+  });
+  it('generator nie zwraca turnu J-8-5 + T (3 rangi w oknie 5)', () => {
+    expect(stolZeStritem([...'J85T'].map((c) => R.indexOf(c)))).toBe(true);
+  });
+});
 
 describe('08-EX-6: turn-action', () => {
   for (const [nazwa, b] of [
@@ -60,7 +78,7 @@ describe('08-EX-6: turn-action', () => {
         expect(rF).not.toContain(rankOf(turn)); // turn nie paruje stołu
         const kolory = [0, 1, 2, 3].map((s) => v.board.slice(0, 4).filter((c) => suitOf(c) === s).length);
         expect(Math.max(...kolory)).toBeLessThan(3); // brak trzeciej karty koloru
-        expect(czteryDoStrita(board4)).toBe(false);
+        expect(stritMozliwyNaStole(board4)).toBe(false);
         const nadkarta = rankOf(turn) > Math.max(...rF);
         expect(nadkarta).toBe(b.turnClass === 'overcard');
         const rodzaj = paraNaTurnie(v.hero.map(rankOf), board4);
