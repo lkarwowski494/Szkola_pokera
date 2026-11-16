@@ -18,3 +18,6 @@ Analogia w Treningu (tryb analogia, D-191): `lkarwowski494/trening@2d97581` (odc
 ## Nowe znaleziska (nie naprawiane tu)
 - **AX5 (przybliżenie web 3,12×), inne elementy poza nagłówkiem werdyktu**: w `ic-ocena-ib-check-raise-320-ax5.png` ucięte „Sprawdzenie (call)” w pasku ocen i „Zobacz podsumowanie”, w dzienniku „~ Niedokładnoś/ć” (wiersz `drobny`) łamie wyraz; to znane znaleziska HH (skrypt zrzutów wypisuje je jako INFO przy AX5). Realność: realny przy AX5 na 320 pt; poziom: do oceny koordynatora (rola 04: układ przy AX5).
 - **Dziennik, wiersz „~ Niedokładność”** (`komponenty.tsx`, prawa kolumna wiersza dziennika, `styl.drobny` 13 pt): przy 320 pt i tekście domyślnym mieści się, przy AX5 łamie wyraz; ten sam mechanizm szacowania mógłby objąć, decyzja roli 04.
+
+## Adnotacja IF (2026-11-16, P2-2 recenzji IC; treść powyżej bez zmian)
+D-1853: zdanie „bramka `--statycznie` zielona bez [komentarzy-obejść]” dotyczy przypadków użycia klasy A; `scripts/sprawdz-scenariusze.mjs:65-73` sprawdza `ekran:<trasa>` tylko dla klasy A, a poprawność asercji `ekran:` w kodzie kroków flowów pilnuje `apps/mobile/src/__tests__/znaczniki-ekranow-ia.test.tsx:62-85`. Szczegóły: `docs/decyzje/IF.md`, D-1885.
