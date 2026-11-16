@@ -188,7 +188,19 @@ export interface CheckRaiseSpec {
   cbet: number;
   multipliers: { big: number; small?: number };
 }
-export type DecisionSpec = CheckRaiseSpec | TurnActionSpec | GeoSizeSpec | SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
+/**
+ * 08-EX-8 (SC-30, R-M10-007 / R-M2-005, sesja HO): gracz otworzył do `open` bb z pozycji, nit z BB 3-betuje do `threeBet` bb. Dana zadania: VPIP rywala x z `vpips` po ≥ 100 rękach
+ * i założenie „jego 3-bet mieści się w jego x% rąk” (górne x% kombinacji wg equity klasy wobec losowej ręki, macierz equity169). Poprawny jest pas ręką offsuit bez pary
+ * spoza tego zakresu, gdy equity wobec niego nie przekracza ceny o co najmniej margines poziomu (≥ 0,03, D-1721). Cena = (threeBet − open) ÷ (2·threeBet + 0,5).
+ */
+export interface NitThreeBetSpec {
+  kind: 'nit-3bet';
+  street: 'preflop';
+  open: number;
+  threeBet: number;
+  vpips: readonly number[];
+}
+export type DecisionSpec = NitThreeBetSpec | CheckRaiseSpec | TurnActionSpec | GeoSizeSpec | SprCallSpec | FlopSizeSpec | RiverValueSpec | PickHandSpec | DrawCallSpec | RangeSpotSpec | CbetCaseSpec | SizeSpotSpec | IcmCallSpec | ListHandSpec | RiverCatchSpec | DefendSpec | TurnBetSpec;
 /** Macierz equity 169×169 (tools/equity/equity169.json): equity[i][j] klasy i wobec klasy j, pairs[i][j] = liczba par kombinacji. */
 export interface Equity169Data {
   classes: readonly string[];
@@ -487,6 +499,19 @@ export interface SprCallVariantDecision {
   pairKind: PairKind;
   correct: 'call';
 }
+export interface NitThreeBetVariantDecision {
+  point: 'nit-3bet';
+  street: 'preflop';
+  handClass: string;
+  /** VPIP rywala (ułamek): górne x% kombinacji jest jego zakresem 3-betu. */
+  vpip: number;
+  open: number;
+  threeBet: number;
+  /** Cena sprawdzenia i equity ręki gracza wobec górnych x%. */
+  required: number;
+  equity: number;
+  correct: 'fold';
+}
 export interface CheckRaiseVariantDecision {
   point: 'check-raise';
   street: 'flop';
@@ -535,7 +560,7 @@ export interface RiverValueVariantDecision {
   w: number;
   correct: 'bet' | 'check';
 }
-export type VariantDecision = CheckRaiseVariantDecision | TurnActionVariantDecision | GeoSizeVariantDecision | SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
+export type VariantDecision = NitThreeBetVariantDecision | CheckRaiseVariantDecision | TurnActionVariantDecision | GeoSizeVariantDecision | SprCallVariantDecision | FlopSizeVariantDecision | RiverValueVariantDecision | PickHandVariantDecision | DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision | SizeSpotVariantDecision | IcmCallVariantDecision | ListHandVariantDecision | RiverCatchVariantDecision | DefendVariantDecision | TurnBetVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -582,7 +607,7 @@ export const SIZE_BIG_FACTOR = 1.6;
 /** F4: próg `chipsDiffer` (wariant trudny): equity ≥ 50% to sprawdzenie w grze o żetony bez blindów; D-890: pole `requiredChips` wariantu liczy blind osobno, (S − b) ÷ (2S), a ten próg odpowiedzi nie zmienia (equity ≥ 50% ⇒ ≥ 45%). */
 const ICM_CHIPS_REQUIRED = 0.5;
 /** Equity klasy ręki wobec zakresu all-inu: Σ w·pary·eq ÷ Σ w·pary po 169 klasach rywala (macierz equity169, częstości w kolejności HAND_CLASSES). */
-function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly number[]): number {
+export function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly number[]): number {
   const i = m.classes.indexOf(handClass);
   if (i < 0) throw new TemplateError(`equity169: brak klasy ${handClass}`);
   let w = 0;
@@ -594,6 +619,32 @@ function equityVsRange(m: Equity169Data, handClass: string, freqs: readonly numb
   });
   if (w <= 0) throw new TemplateError('zakres all-inu rywala jest pusty');
   return sum / w;
+}
+/** 08-EX-8: najmniejszy margines (ułamek) ceny nad equity ręki w nit-3bet (HP D-1721: equity ≤ cena − 0,03). */
+export const NIT_FOLD_MIN_GAP = 0.03;
+const KOMBINACJE_KLASY = (hc: string): number => (hc.length === 2 ? 6 : hc.endsWith('s') ? 4 : 12);
+const GORNE_PROCENTY = new WeakMap<Equity169Data, Map<number, ReadonlySet<string>>>();
+/**
+ * 08-EX-8: górne x% rąk: klasy od najsilniejszej (equity wobec losowej ręki z macierzy: Σ pary·eq ÷ Σ pary) dopóki suma kombinacji nie przekroczy x · 1326 (klasa, która by przekroczyła,
+ * kończy zakres). Wynik zapamiętany na macierz i x (wariant losuje się w pętli odrzuceń).
+ */
+export function topRangeClasses(m: Equity169Data, x: number): ReadonlySet<string> {
+  let per = GORNE_PROCENTY.get(m);
+  if (!per) GORNE_PROCENTY.set(m, (per = new Map()));
+  const znane = per.get(x);
+  if (znane) return znane;
+  const moc = m.classes.map((_, i) => m.equity[i]!.reduce((s, e, j) => s + e * m.pairs[i]![j]!, 0) / m.pairs[i]!.reduce((a, b) => a + b, 0));
+  const kolej = m.classes.map((_, i) => i).sort((a, b) => moc[b]! - moc[a]!);
+  const wynik = new Set<string>();
+  let suma = 0;
+  for (const i of kolej) {
+    const c = KOMBINACJE_KLASY(m.classes[i]!);
+    if (suma + c > x * 1326 + 1e-9) break;
+    suma += c;
+    wynik.add(m.classes[i]!);
+  }
+  per.set(x, wynik);
+  return wynik;
 }
 const round1 = (x: number) => Math.round(x * 10) / 10;
 /** Rozmiary opcji size-spot względem standardu: jedna lista dla generatora i `isoSizeOptions` (08-programista-005). */
@@ -634,7 +685,7 @@ function validateTemplate(t: GeneratorTemplate): void {
   const d = all.filter((x): x is DrawCallSpec => x.kind === 'draw-call' || x.kind === undefined);
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0] !== ranges[0])) throw new TemplateError(`${t.id}: punkt range-spot albo list-hand jest najwyżej jeden i pierwszy`);
-  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size' || x.kind === 'turn-action' || x.kind === 'check-raise');
+  const koncowe = all.filter((x) => x.kind === 'cbet-case' || x.kind === 'size-spot' || x.kind === 'icm-call' || x.kind === 'river-catch' || x.kind === 'defend' || x.kind === 'turn-bet' || x.kind === 'pick-hand' || x.kind === 'river-value' || x.kind === 'flop-size' || x.kind === 'spr-call' || x.kind === 'geo-size' || x.kind === 'turn-action' || x.kind === 'check-raise' || x.kind === 'nit-3bet');
   if (koncowe.length > 1 || (koncowe.length === 1 && (d.length > 0 || all[all.length - 1] !== koncowe[0]))) {
     throw new TemplateError(`${t.id}: punkt końcowy (${koncowe.map((x) => x.kind).join(', ')}) jest najwyżej jeden, ostatni i bez punktów draw-call`); // 08-programista-005: nazwy rodzajów z szablonu
   }
@@ -833,7 +884,7 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     hero = handFromRange(t.id, ctx, first.spot, rng, 'zakres obrony gracza');
     rest = dealCards(rng, 7, hero);
     for (let n = 0; n < FLOP_REDEALS && !textureMatches(classifyFlop(rest.slice(2, 5)), b.flop ?? {}); n++) rest = dealCards(rng, 7, hero);
-  } else if (first.kind === 'cbet-case' || first.kind === 'turn-action') {
+  } else if (first.kind === 'cbet-case' || first.kind === 'turn-action' || first.kind === 'nit-3bet') {
     // CS (CQ 06-tresci-004): „otworzyłeś z <pozycja>” — ręka gracza pochodzi z zakresu otwarcia tej pozycji (spot rfi.<pozycja> z danych treści, ta sama
     // definicja co zakresy w aplikacji), losowana z wagą częstość otwarcia × liczba kombinacji klasy (suma akcji innych niż pas), a nie dowolna:
     // ręka spoza zakresu uczyłaby c-betu po linii, której aplikacja nie gra. Losowanie z zakresu (nie odrzucanie) zachowuje pojemność wąskich poziomów.
@@ -927,6 +978,25 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const pot = pick(rng, spec.pots);
       points.push({ point: 'flop-size', street: 'flop', pot, betSmall: Math.round(pot * spec.small), betBig: Math.round(pot * spec.big), requiredSmall: r.requiredSmall, requiredBig: r.requiredBig, hit: r.e, drawKind: r.drawKind, correct: 'bet-big' });
       icmSuffix = `|${pot}`; // pula jest pokazana w decyzji
+      continue;
+    }
+    if (spec.kind === 'nit-3bet') {
+      // 08-EX-8 (SC-30): pas ręką offsuit bez pary spoza górnych x% VPIP rywala; cena z żetonów, margines ≥ 0,03
+      if (!ctx?.equity169) throw new TemplateError(`${t.id}: punkt nit-3bet wymaga macierzy equity (GeneratorContext.equity169)`);
+      if (spec.vpips.length === 0 || spec.vpips.some((v) => !(v > 0 && v < 1))) throw new TemplateError(`${t.id}: nit-3bet wymaga niepustej listy vpips z przedziału (0, 1)`);
+      if (!(spec.open > 0 && spec.threeBet > spec.open)) throw new TemplateError(`${t.id}: nit-3bet wymaga 0 < open < threeBet`);
+      if (b.expected[i] !== 'fold') throw new TemplateError(`${t.id}: poziom ${level}: oczekiwana akcja punktu nit-3bet to fold (R-M2-005), jest ${String(b.expected[i])}`);
+      if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= NIT_FOLD_MIN_GAP - 1e-12)) throw new TemplateError(`${t.id}: poziom ${level}: nit-3bet wymaga marginesu ≥ ${NIT_FOLD_MIN_GAP} (D-1721)`);
+      const hc = classOf(hero[0], hero[1]);
+      if (!(hc.length === 3 && hc.endsWith('o'))) return null; // offsuit bez pary
+      const vpip = pick(rng, spec.vpips);
+      const top = topRangeClasses(ctx.equity169, vpip);
+      if (top.has(hc)) return null;
+      const equity = equityVsRange(ctx.equity169, hc, HAND_CLASSES.map((c) => (top.has(c) ? 1 : 0)));
+      const required = (spec.threeBet - spec.open) / (2 * spec.threeBet + 0.5);
+      if (!(required - equity > 0) || !inMargin(required - equity, b, i)) return null;
+      points.push({ point: 'nit-3bet', street: 'preflop', handClass: hc, vpip, open: spec.open, threeBet: spec.threeBet, required, equity, correct: 'fold' });
+      icmSuffix = `|${vpip}`; // VPIP jest pokazany w decyzji
       continue;
     }
     if (spec.kind === 'check-raise') {

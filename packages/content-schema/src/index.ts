@@ -866,7 +866,26 @@ export const ScenarioCheckRaiseDecision = z
   .refine(oneSource, ONE_SOURCE_MSG)
   .refine((d) => d.multipliers.small === undefined || d.multipliers.small < d.multipliers.big, 'multipliers.small musi być mniejsze od big');
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioCheckRaiseDecision, ScenarioTurnActionDecision, ScenarioGeoSizeDecision, ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
+/**
+ * 08-EX-8 (SC-30, R-M10-007 / R-M2-005, sesja HO): nit 3-betuje po otwarciu gracza; dana zadania to VPIP rywala (`vpips`, ułamki, np. 0,08 i 0,10) i założenie, że jego 3-bet mieści się
+ * w jego górnych x% rąk. `open` i `threeBet` (bb) są takie jak w numbers.yaml (build sprawdza). Poprawny jest pas ręką offsuit spoza tego zakresu; sprawdzenie to niedokładność.
+ */
+export const ScenarioNit3betDecision = z
+  .object({
+    street: z.literal('preflop'),
+    kind: z.literal('nit-3bet'),
+    rule: id.optional(),
+    calc: id.optional(),
+    open: z.number().positive(),
+    threeBet: z.number().positive(),
+    vpips: z.array(z.number().gt(0).lt(1)).min(1),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG)
+  .refine((d) => d.open < d.threeBet, 'open musi być mniejsze od threeBet');
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioNit3betDecision, ScenarioCheckRaiseDecision, ScenarioTurnActionDecision, ScenarioGeoSizeDecision, ScenarioSprCallDecision, ScenarioFlopSizeDecision, ScenarioRiverValueDecision, ScenarioPickHandDecision, ScenarioTurnBetDecision, ScenarioDefendDecision, ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision, ScenarioSizeSpotDecision, ScenarioIcmCallDecision, ScenarioListHandDecision, ScenarioRiverCatchDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 /** Najmniejszy margines (ułamek, 0,01 = 1 pp) punktu river-catch: odstęp ≥ 1 pp daje różne procenty bez miejsc po przecinku (round monotoniczne, round(y + 1) = round(y) + 1). */

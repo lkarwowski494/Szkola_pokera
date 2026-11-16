@@ -55,6 +55,8 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
     case 'pick-hand':
       return ['hand-a', 'hand-b']; // KO-072: wybór jednej z dwóch rąk; nazwa akcji to karty ręki (EkranScenariusza.tekstAkcji)
     case 'turn-bet':
+    case 'nit-3bet': // HO (08-EX-8, SC-30): pas albo sprawdzenie 3-betu nita (widok: zadanie dla roli 04)
+      return ['fold', 'call'];
     case 'check-raise': // HO (08-EX-7, SC-16): BB z drawem wobec małego c-betu; lista poziomu T ma też raise-small (widok: zadanie dla roli 04)
       return ['fold', 'call', 'raise-small', 'raise-big'];
     case 'turn-action': // HO (08-EX-6, SC-18/21): czekanie albo zakład na turnie; lista akcji poziomu to ten sam zbiór co w c-becie (widok: zadanie dla roli 04)
@@ -76,7 +78,7 @@ export function akcjePunktu(p: VariantDecision, spec?: SpecPunktu): readonly Akc
 }
 /** Poprawna akcja punktu (rachunek generatora albo akcja oczekiwana z częstości solvera, range-spot). */
 export function poprawnaAkcja(p: VariantDecision): Akcja {
-  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend' || p.point === 'spr-call' || p.point === 'geo-size' || p.point === 'turn-action' || p.point === 'check-raise') return p.correct;
+  if (p.point === 'river-value' || p.point === 'pick-hand' || p.point === 'turn-bet' || p.point === 'flop-size' || p.point === 'river-catch' || p.point === 'defend' || p.point === 'spr-call' || p.point === 'geo-size' || p.point === 'turn-action' || p.point === 'check-raise' || p.point === 'nit-3bet') return p.correct;
   if (p.point === 'list-hand') return akcjaSpotu(p.correct); // FG: akcja poprawna wpisu listy; spoza znanych etykiet błąd z nazwą
   return p.point === 'range-spot' ? akcjaSpotu(p.correct) : p.correct;
 }
@@ -205,6 +207,7 @@ function ocenaAkcji(d: VariantDecision, a: string): OcenaOdpowiedzi {
   }
   if (d.point === 'list-hand') return a === d.correct || (d.alsoCorrect?.includes(a) ?? false) ? 'zgodne' : d.acceptable.includes(a) ? 'dopuszczalne' : 'blad'; // FG: akcja dopuszczalna z wpisu listy (ADR-04, D-1142)
   if (d.point === 'turn-bet' || d.point === 'flop-size') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // FG: mały zakład to zły rozmiar, nie błąd (analogia size-spot/cbet-case, CR WYS-002; D-1375)
+  if (d.point === 'nit-3bet') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // HO (SC-30): sprawdzenie to niedokładność, nigdy „zgodne” (D-1305)
   if (d.point === 'check-raise') return a === d.correct ? 'zgodne' : a === 'call' ? 'dopuszczalne' : 'niedokladnosc'; // HO (SC-16): call = ręka mieszana (ADR-04), fold i zbyt małe podbicie to niedokładność (R-M6-006/010)
   if (d.point === 'turn-action') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // HO: reguła heurystyczna daje najwyżej niedokładność (D-1052)
   if (d.point === 'pick-hand') return a === d.correct ? 'zgodne' : 'niedokladnosc'; // SC-23a/b: druga ręka to niedokładność, nie błąd (D-1054, zrodla-krok-e.md)
@@ -347,6 +350,7 @@ const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length 
  */
 function wartosciPunktu(d: ScenarioVariant['points'][number] | undefined): Partial<Record<'spr' | 'rozmiar' | 'vpip', string>> {
   if (d?.point === 'spr-call') return { spr: d.spr.toFixed(1) };
+  if (d?.point === 'nit-3bet') return { vpip: String(Math.round(d.vpip * 100)) };
   if (d?.point === 'geo-size') return { spr: d.spr.toFixed(1), rozmiar: String(Math.round(d.fractionBig * 100)) };
   return {};
 }

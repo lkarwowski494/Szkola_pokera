@@ -190,6 +190,25 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= DRAW_CALL_MIN_GAP - 1e-12)) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin ≥ ${DRAW_CALL_MIN_GAP} (margines δ, D-1051)`);
         if ((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.5) e.push(`${p} poziom ${l}: punkt river-value wymaga marginMin < 0,5 (δ ≥ 0,5 wyklucza obie akcje, D-1417)`); // 08-programista-006
       }
+    } else if (d.kind === 'nit-3bet') {
+      // 08-EX-8 (SC-30): gracz otwiera, nit z BB 3-betuje; tylko poziom łatwy (D-1721: na średnim żadna ręka nie spełnia równości z marginesem); liczby z numbers.yaml
+      if (t.positions.villain !== 'BB') e.push(`${p} nit-3bet: rywal (nit) to BB (3-bet po otwarciu z BTN), jest ${t.positions.villain}`);
+      if (!ctx.spots?.get(`rfi.${t.positions.hero.toLowerCase()}`)) e.push(`${p} nit-3bet: brak spotu zakresu otwarcia rfi.${t.positions.hero.toLowerCase()} (ręka gracza z jego zakresu otwarcia)`);
+      if (d.actions.map((a) => a.action).sort().join(',') !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      if (ctx.numberValue) {
+        const o = ctx.numberValue('pf.open-size');
+        const tb = ctx.numberValue('pf.3bet.oop-total');
+        if (o !== undefined && Math.abs(o - d.open) > 1e-9) e.push(`${p} open ${d.open} różni się od pf.open-size ${o} (jedno źródło prawdy)`);
+        if (tb !== undefined && Math.abs(tb - d.threeBet) > 1e-9) e.push(`${p} threeBet ${d.threeBet} różni się od pf.3bet.oop-total ${tb} (jedno źródło prawdy)`);
+      }
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        if (l !== 'latwy') e.push(`${p} poziom ${l}: nit-3bet ma tylko poziom łatwy (D-1721)`);
+        const ex = b.expected[i];
+        if (ex !== undefined && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu nit-3bet to fold (R-M2-005), jest ${ex}`);
+        if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= 0.03 - 1e-12)) e.push(`${p} poziom ${l}: punkt nit-3bet wymaga marginesu ≥ 0,03 (D-1721)`);
+      }
     } else if (d.kind === 'check-raise') {
       // 08-EX-7 (SC-16): BB wobec c-betu BTN, ręka z zakresu obrony; krotności z numbers.yaml (jedno źródło prawdy), akcje fold/call/raise-big (+raise-small)
       if (!ctx.spots?.get(d.spot)) e.push(`${p} nieznany spot zakresu ${d.spot}`);
