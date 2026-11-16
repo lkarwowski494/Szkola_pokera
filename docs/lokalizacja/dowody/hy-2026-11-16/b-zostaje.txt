@@ -1,0 +1,23 @@
+# HY 2026-11-16: (b) formy zostawione mimo uwagi (a) — wystąpienia we wszystkich plikach content/<j>/ (md + yaml) poza 8 szablonami HN; grep -hoE, wzorzec w 3. kolumnie
+de	Stack einzahlen	einzahl	19
+de	massenhaft	massenhaft	5
+de	überlegst + biernik bez dir	überlegst (eine|einen|ein) 	2
+de	ein Call verdient	verdient	40
+de	ohne Position	[Oo]hne Position	42
+de	setzt viel	setzt du viel|du viel	5
+es	entrega (oddaje)	entrega	9
+es	indica la mano	indica la mano	0
+es	Pagar (call)	\{\{t:call\|[Pp]ag	125
+fr	l'équilibre (próg opłacalności)	l'équilibre	38
+fr	mise petit	mise petit	4
+it	chiamer…	chiamer	37
+it	fai/fare call	(fai|fare) \{\{t:call	2
+it	indicata dalla mano	dalla mano	1
+ja	{{w:rywal}}の相手	\{\{w:rywal\}\}の相手	24
+pt	entrega	entrega	23
+pt	perde para	perde para	5
+pt	abertura}} do	abertura\}\} do	40
+pt	pagar (call)	\{\{t:call\|[Pp]ag	836
+pt	a mão indica	mão indica	1
+pt-BR	fez {{t:open|abertura}}	fez \{\{t:open\|abertura\}\}	7
+vi	đôi cao nhất	đôi cao nhất	50

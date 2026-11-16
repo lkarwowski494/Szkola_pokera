@@ -1,7 +1,7 @@
 # sc-07: Portuguese text of content/pl/scenarios/sc-07.yaml (role 06, session HN, 2026-11-16; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-07
 module: m4
-situation: "Está no {{t:big-blind}}. O Button fez {{t:open|abertura}}, o {{t:small-blind}} {{t:fold|desistiu}} e fez {{t:call}}. No flop faz {{t:check}} e o Button {{t:bet|aposta}} um {{t:c-bet}} pequeno."
+situation: "Está no {{t:big-blind}}. Fez {{t:call}} depois de o Button fazer {{t:open|abertura}} e de o {{t:small-blind}} {{t:fold|desistir}}. No flop faz {{t:check}} e o Button {{t:bet|aposta}} um {{t:c-bet}} pequeno."
 table: 6max
 positions: { hero: BB, villain: BTN }
 stackBb: 100
@@ -20,4 +20,4 @@ decisions:
       - action: call
         explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. Faz {{t:call}}, porque perante uma {{t:bet|aposta}} de cerca de {{n:cbet.size.small}} do {{t:pot}} só precisa de cerca de {{n:eq.bet-third}} de equity, e esta mão ou já ganha aos {{t:bluff|bluffs}}, ou pode melhorar. Continua com quase qualquer {{t:pair|par}}, {{t:draw}}, {{t:draw}} adicional ({{t:backdoor}}) com uma carta mais alta do que as cartas da {{t:board}} e, normalmente, também com ás como carta mais alta."
       - action: fold
-        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. {{t:fold|Desiste}}, porque é uma das mãos mais fracas: sem {{t:pair|par}}, sem {{t:draw}}, nem sequer adicional ({{t:backdoor}}), e sem ás. Perante um {{t:c-bet}} pequeno defende de forma ampla, mas as mãos mais fracas sem {{t:pair|par}} e sem {{t:draw}} {{t:fold|larga}}."
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} um {{t:c-bet}} pequeno. {{t:fold|Desiste}}, porque é uma das mãos mais fracas: sem {{t:pair|par}}, sem {{t:draw}}, nem sequer adicional ({{t:backdoor}}), e sem ás. Perante um {{t:c-bet}} pequeno defende de forma ampla, mas {{t:fold|desiste}} das mãos mais fracas sem {{t:pair|par}} e sem {{t:draw}}."

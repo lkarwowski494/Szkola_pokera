@@ -1,0 +1,60 @@
+de	bet	Bets	terms-nazwy.yaml:17	źr. E:Bet (Eine Bet) 
+de	mdf	MDF	terms-nazwy.yaml:111	— [DO USTALENIA]
+de	raise	raist	terms-nazwy.yaml:19	źr. E:Raise (ein Raise) 
+de	value	auf Value	terms-nazwy.yaml:98	źr. E:Value 
+es	4-bet	4-bet	terms-nazwy.yaml:71	źr. C:4-bet_350 
+es	blocker	bloqueador	terms-nazwy.yaml:102	źr. C:Blocker; E:PN-art; tłumacz „bloqueador”×22 — brak w źródłach  [WIELE FORM]
+es	call	Pagas	terms-nazwy.yaml:18	źr. D:PN-reglas (Igualar (Call)); C:Odds-implicitas (hacer call); C:Ver; bez formy rzeczo [WIELE FORM]
+es	call	pagas	terms-nazwy.yaml:18	źr. D:PN-reglas (Igualar (Call)); C:Odds-implicitas (hacer call); C:Ver; bez formy rzeczo [WIELE FORM]
+es	check	pasas	terms-nazwy.yaml:16	źr. D:PN-reglas; C:Pasar  [WIELE FORM]
+es	combo	combinaciones	terms-nazwy.yaml:62	źr. E:PN-art (muy pocos combos);  (combinaciones×20)  [WIELE FORM]
+es	value	por valor	terms-nazwy.yaml:98	źr. C:Value 
+fr	top-pair	top paire	terms-nazwy.yaml:84	źr. A:Top-paire  [WIELE FORM]
+it	bet	Punti	terms-nazwy.yaml:17	źr. A; C:Bet („Fare una bet (italiano: puntare)”) 
+it	bet	punti	terms-nazwy.yaml:17	źr. A; C:Bet („Fare una bet (italiano: puntare)”) 
+it	bluff	bluff	terms-nazwy.yaml:100	źr. C:Bluff („Un bluff è una mossa”) 
+it	call	chiameranno	terms-nazwy.yaml:18	źr. C:Call („Un call è una delle possibili azioni”, „Fare call (italiano: vedere , [A]
+it	call	chiamerà	terms-nazwy.yaml:18	źr. C:Call („Un call è una delle possibili azioni”, „Fare call (italiano: vedere , [A]
+it	combo	combo	terms-nazwy.yaml:62	źr. brak;  [DO USTALENIA]
+it	draw	progetto	terms-nazwy.yaml:51	źr. C:Flush-Draw („Un flush draw è un progetto”); C:Backdoor-draw 
+it	flush-draw	progetto di colore	terms-nazwy.yaml:52	źr. C:Flush-Draw („progetto … per completare un flush (colore)”) 
+it	fold	folderà	terms-nazwy.yaml:20	źr. A („Fold : abbandonare la mano”); C:Fold („fa fold (italiano: passa)”); bez f [WIELE FORM]
+it	open	aperto	terms-nazwy.yaml:65	źr. brak (C: tylko „Open Raise”);  [DO USTALENIA]
+it	open	apertura	terms-nazwy.yaml:65	źr. brak (C: tylko „Open Raise”);  [DO USTALENIA]
+it	top-pair	top pair	terms-nazwy.yaml:85	źr. C:Top-Pair („una top pair è una coppia”); tłumacz „coppia massima”×35 —  [WIELE FORM]
+ja	top-pair	トップペア	terms-nazwy.yaml:85	— 
+ko	bet	베팅	terms-nazwy.yaml:17	źr. A, B, C, D, E, F; tłumacz też „벳”×~50;  [C]
+ko	bluff	블러프	terms-nazwy.yaml:100	źr. A, B, C, D, E, F 
+ko	c-bet	C벳	terms-nazwy.yaml:88	źr. C, D, F; tłumacz: 씨벳×42 (UI, m6-l3), C벳×39, c벳×33 (rules);  [C]
+ko	range	레인지	terms-nazwy.yaml:63	źr. C, D, F 
+ko	top-pair	탑 페어	terms-nazwy.yaml:85	źr. C, D, E, F; tłumacz też „톱 페어”×1 
+pt	call	pagar	terms-nazwy.yaml:18	— 
+pt	cutoff	CO	terms-nazwy.yaml:48	— 
+pt	fold	desistir	terms-nazwy.yaml:20	— 
+pt	fold	Desiste	terms-nazwy.yaml:20	— 
+pt	fold	desiste	terms-nazwy.yaml:20	— 
+pt	fold	desistiram	terms-nazwy.yaml:20	— 
+pt	fold	Desistir	terms-nazwy.yaml:20	— 
+pt	fold	desistirá	terms-nazwy.yaml:20	— 
+pt	open	abertura	terms-nazwy.yaml:64	— 
+pt	top-pair	top pair	terms-nazwy.yaml:84	— [PN-G]
+pt	value	de valor	terms-nazwy.yaml:97	— 
+pt-BR	call	pagou	terms-nazwy.yaml:18	źr.  [A]
+pt-BR	call	pagar	terms-nazwy.yaml:18	źr.  [A]
+pt-BR	call	Pagar	terms-nazwy.yaml:18	źr.  [A]
+pt-BR	cutoff	CO	terms-nazwy.yaml:48	— [DO USTALENIA]
+pt-BR	draw	projeto	terms-nazwy.yaml:51	źr.  [F]
+pt-BR	flush-draw	projeto de flush	terms-nazwy.yaml:52	źr.  [D]
+pt-BR	fold	desistiu	terms-nazwy.yaml:20	źr.  [A]
+pt-BR	fold	desiste	terms-nazwy.yaml:20	źr.  [A]
+pt-BR	fold	desistiram	terms-nazwy.yaml:20	źr.  [A]
+pt-BR	fold	Desistir	terms-nazwy.yaml:20	źr.  [A]
+pt-BR	fold	desistir	terms-nazwy.yaml:20	źr.  [A]
+pt-BR	open	abertura	terms-nazwy.yaml:64	— [WIELE FORM]
+pt-BR	top-pair	top pair	terms-nazwy.yaml:84	źr.  [D]
+pt-BR	value	de valor	terms-nazwy.yaml:97	źr.  [D]
+vi	combo	tổ hợp	terms-nazwy.yaml:62	źr. brak; tłumacz „tổ hợp”×19 (A: „tổ hợp” = układ 5 kart)  [DO USTALENIA]
+vi	flush-draw	bài chờ thùng	terms-nazwy.yaml:52	źr. C (wzór „bài chờ sảnh”) — częściowo; tłumacz „draw thùng”×23  [WIELE FORM]
+vi	top-pair	đôi cao nhất	terms-nazwy.yaml:85	źr. C:Top pair; tłumacz „đôi cao nhất”×62 — w D to „wyższa para w dwóch p [WIELE FORM]
+vi	value	lấy giá trị	terms-nazwy.yaml:98	źr. C:Value bet — częściowo; tłumacz „lấy giá trị”×49 
+zh-Hant	out-of-position	無位置	terms-nazwy.yaml:43	— [WIELE FORM]

@@ -1,0 +1,20 @@
+// Długość ważona tytułu (D-1730: CJK/Hangul/pełna szerokość = 2, reszta 1) dla szablonów: npx tsx tytul.ts <jezyki> <sc,...>
+import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import { podzielSytuacje } from '/home/user/Szkola_pokera/apps/mobile/src/features/scenariusz/zdanie.ts';
+const YAML = createRequire('/home/user/Szkola_pokera/tools/content-build/package.json')('yaml');
+const SZER = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}　-〿＀-￯]/u;
+const waga = (s: string) => Array.from(s).reduce((n, c) => n + (SZER.test(c) ? 2 : 1), 0);
+const [jez, sc] = process.argv.slice(2);
+for (const j of jez.split(',')) {
+  let nazwy: Record<string, string | null> = {}, en: Record<string, string> = {};
+  try { nazwy = YAML.parse(readFileSync(`/home/user/Szkola_pokera/content/${j}/terms-nazwy.yaml`, 'utf8')) ?? {}; } catch {}
+  for (const sc1 of sc.split(',')) {
+    const t = YAML.parse(readFileSync(`/home/user/Szkola_pokera/content/${j}/scenarios/${sc1}.yaml`, 'utf8'));
+    // render: {{t:k|forma}} → forma; {{t:k}} → nazwa języka albo klucz (przybliżenie nazwy en); {{n:}}/{{w:}} → „X”
+    const r = (t.situation as string).replace(/\{\{t:([a-z0-9-]+)\|([^}]+)\}\}/g, '$2').replace(/\{\{t:([a-z0-9-]+)\}\}/g, (_m: string, k: string) => nazwy[k] ?? k.replace(/-/g, ' ')).replace(/\{\{[nw]:[^}]+\}\}/g, 'X');
+    const { tytul } = podzielSytuacje(r);
+    const w = waga(tytul);
+    console.log(`${j}\t${sc1}\t${w}\t${w > 75 ? 'DŁUGI przy 430' : w > 68 ? 'DŁUGI przy 390' : w > 54 ? 'DŁUGI przy 320' : 'krótki'}\t${tytul}`);
+  }
+}

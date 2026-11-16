@@ -1,0 +1,403 @@
+# HY 2026-11-16: (c) formy z 8 szablonów (stan po poprawkach HY) wobec przeczytanych źródeł (POKER Q'z glossary, GGPoker poker-terms; curl 2026-11-16). Kolumny: klucz, forma, wynik (tak = dokładna forma; rdzen:X = trafienie rdzenia, dowód słabszy; brak), adres i cytat. Komenda: node <scratchpad>/c-auto.mjs <katalog źródeł> <języki>
+
+## de
+3-bet	3-Bet	tak	https://pokerqz.com/de/tools/glossary/3bet „3bet, Re-Raise, 3-bet”
+4-bet	4-Bet	tak	https://pokerqz.com/de/tools/glossary/4bet „4bet, re-re-raise, re-reraise, 4-bet”
+backdoor	Backdoor	tak	https://pokerqz.com/de/tools/glossary/backdoor „Backdoor”
+bet	setzt	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Spieler alle seine Chips in einer bestimmten Hand setzt.”
+bet	Bet	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Prop Bet”
+bet	Bets	brak	PQZ 404; GG bez formy
+big-blind	Big Blind	tak	https://pokerqz.com/de/tools/glossary/big-blind „Big Blind (BB)”
+blocker	Blocker	tak	https://pokerqz.com/de/tools/glossary/blocker „Blocker”
+bluff	Bluffs	rdzen:Bluf	https://ggpoker.com/de/poker-basics/poker-terms/ „Bluff”
+bluff	Bluff	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Bluff”
+board	Board	tak	https://pokerqz.com/de/tools/glossary/board „Board”
+c-bet	C-Bet	tak	https://pokerqz.com/de/tools/glossary/continuation-bet „Continuation Bet, CB, C-Bet, Cbet”
+call	gecallt	tak	https://pokerqz.com/de/tools/glossary/call „turn, aber die pot odds waren gut, also habe ich gecallt."”
+call	callst	rdzen:call	https://pokerqz.com/de/tools/glossary/call „Call”
+call	callen	tak	https://pokerqz.com/de/tools/glossary/call „Beim Callen ist es wichtig, die Einsatzgröße des Gegners sowie die Stärke d”
+call	Call	tak	https://pokerqz.com/de/tools/glossary/call „Call”
+call	callt	tak	https://pokerqz.com/de/tools/glossary/call „urn, aber die pot odds waren gut, also habe ich gecallt."”
+check	checkst	rdzen:check	https://ggpoker.com/de/poker-basics/poker-terms/ „zieren oder zu erhöhen, anstatt zu callen oder zu checken.”
+check	checkt	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Täuschendes Spiel, bei dem ein Spieler zunächst checkt, um dann zu raisen, falls ein anderer Spieler setzt.”
+combo	Kombinationen	rdzen:Kombination	https://pokerqz.com/de/tools/glossary/combo „m Poker bezeichnet eine Combo eine konkrete Kartenkombination. Dabei wird berechnet, auf wie viele verschiedene Arten ei”
+cutoff	CO	tak	https://pokerqz.com/de/tools/glossary/cutoff „Cut-off, CO”
+draw	Draw	tak	https://pokerqz.com/de/tools/glossary/draw „Draw”
+flush	Flush	tak	https://pokerqz.com/de/tools/glossary/flush „Flush”
+flush-draw	Flush-Draw	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Möglichkeiten sowie eine Redraw-Chance, falls der Flush-Draw am Turn kommt.”
+fold	gefoldet	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „ot mit einer Hand gewinnen, die bei jedem Einsatz gefoldet hätte.”
+fold	foldest	tak	https://pokerqz.com/de/tools/glossary/fold „en Spieler“ wahrnehmen könnten, wenn du zu häufig foldest, was die Wahrscheinlichkeit erhöht, mit Bluffs angegriffen zu”
+fold	Fold	tak	https://pokerqz.com/de/tools/glossary/fold „Fold”
+fold	foldet	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „mit einer Hand gewinnen, die bei jedem Einsatz gefoldet hätte.”
+kicker	Kicker	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Kicker”
+mdf	MDF	brak	PQZ 404; GG bez formy
+open	eröffnet	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „te, die nach einer Setzrunde, in der kein Spieler eröffnet hat, auf die Hand (oder auf das Board der Gemeinschaftskarten”
+open	Eröffnung	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Die Tendenz eines Spielers, eine Eröffnungswette zu platzieren oder zu erhöhen, anstatt zu callen oder”
+out-of-position	ohne Position	rdzen:Positi	https://pokerqz.com/de/tools/glossary/out-of-position „Out of Position”
+out-of-position	Ohne Position	rdzen:Positi	https://pokerqz.com/de/tools/glossary/out-of-position „Out of Position”
+pair	Paar	tak	https://pokerqz.com/de/tools/glossary/one-pair „Ein Paar”
+pot	Pots	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Jackpots”
+pot	Pot	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Jackpots”
+raise	raist	brak	PQZ 404; GG bez formy
+range	Range	tak	https://pokerqz.com/de/tools/glossary/range „Range”
+showdown	Showdown	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Eine Hand, die im Showdown gegen eine andere Hand einen Vorteil in Bezug auf die Quoten”
+small-blind	Small Blind	tak	https://pokerqz.com/de/tools/glossary/small-blind „Small Blind (SB)”
+suited	suited	tak	https://pokerqz.com/de/tools/glossary/suited „Suited”
+top-pair	Top Pair	tak	https://ggpoker.com/de/poker-basics/poker-terms/ „Top pair”
+value	auf Value	brak	PQZ bez formy; GG bez formy
+value	Value	tak	https://pokerqz.com/de/tools/glossary/value-bet „Value Bet”
+
+## es
+3-bet	3-bet	tak	https://pokerqz.com/es/tools/glossary/3bet „3-bet”
+4-bet	4-bet	brak	PQZ 404; GG bez formy
+backdoor	backdoor	tak	https://pokerqz.com/es/tools/glossary/backdoor „Backdoor”
+bet	apuesta	tak	https://pokerqz.com/es/tools/glossary/bet „Apuesta”
+bet	Apuestas	tak	https://pokerqz.com/es/tools/glossary/bet „chas en el bote. Esta acción ocurre cuando no hay apuestas previas de otros jugadores, introduciendo una nueva cantidad”
+bet	apuestas	tak	https://pokerqz.com/es/tools/glossary/bet „chas en el bote. Esta acción ocurre cuando no hay apuestas previas de otros jugadores, introduciendo una nueva cantidad”
+big-blind	ciega grande	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „El término genérico para la ciega grande o la ciega pequeña. La ciega pequeña se sienta a la izqui”
+blocker	bloqueador	brak	PQZ 404; GG bez formy
+bluff	faroles	tak	https://pokerqz.com/es/tools/glossary/bluff „so con manos débiles), es recomendable evitar los faroles, ya que son menos efectivos.”
+bluff	farol	tak	https://pokerqz.com/es/tools/glossary/bluff „Farol”
+board	mesa	tak	https://pokerqz.com/es/tools/glossary/board „Son las cartas que se colocan en el centro de la mesa, compartidas y utilizadas por todos los jugadores.”
+c-bet	c-bet	tak	https://pokerqz.com/es/tools/glossary/continuation-bet „Apuesta de continuación, CB, C-bet, Cbet”
+call	pagado	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „olución a un jugador, que es una porción del rake pagado por ese jugador.”
+call	Pagas	brak	PQZ 404; GG bez formy
+call	pagarán	rdzen:pagar	https://ggpoker.com/es/poker-basics/poker-terms/ „Pagar aunque un jugador piense que no tiene la mejor mano.”
+call	pagas	brak	PQZ 404; GG bez formy
+call	Pagar	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „Pagar aunque un jugador piense que no tiene la mejor mano.”
+call	pagará	rdzen:paga	https://ggpoker.com/es/poker-basics/poker-terms/ „rneos, para obligar a un jugador ausente a seguir pagando antes, blinds y otras apuestas forzadas para que la competenci”
+call	pagar	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „Pagar aunque un jugador piense que no tiene la mejor mano.”
+check	pasas	brak	PQZ bez formy; GG bez formy
+check	pasa	tak	https://pokerqz.com/es/tools/glossary/check „Un check se refiere a la acción de pasar tu turno sin apostar cuando te toca actuar. Esta acción solo es”
+combo	combinaciones	brak	PQZ 404; GG bez formy
+cutoff	CO	tak	https://pokerqz.com/es/tools/glossary/cutoff „CO”
+draw	proyecto	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „e cuando el tablero amenaza con una escalera o un proyecto de escalera. Un blocker también es tener una combinación de c”
+flush	color	tak	https://pokerqz.com/es/tools/glossary/flush „Color”
+flush-draw	proyecto de color	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „así como una nueva oportunidad en caso de que el proyecto de color se complete en el turn.”
+fold	retirado	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „Ganar un bote con una mano que se habría retirado ante cualquier apuesta.”
+fold	retiras	rdzen:retir	https://ggpoker.com/es/poker-basics/poker-terms/ „Depósito y Retiro”
+fold	Retirarte	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „ente cuando estás en la ciega grande, en lugar de retirarte con una mano débil, para explotar a los jugadores excesivame”
+fold	retirará	rdzen:retira	https://ggpoker.com/es/poker-basics/poker-terms/ „Hacer una jugada (apostar, igualar, subir o retirarse) en el momento requerido.”
+fold	retirarte	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „ente cuando estás en la ciega grande, en lugar de retirarte con una mano débil, para explotar a los jugadores excesivame”
+kicker	kicker	tak	https://pokerqz.com/es/tools/glossary/kicker „Kicker”
+mdf	MDF	tak	https://pokerqz.com/es/tools/glossary/mdf „MDF”
+open	abierto	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „En el póker chino abierto, si cumples con una cierta condición, puedes jugar una mano en”
+open	apertura	tak	https://ggpoker.com/es/poker-basics/poker-terms/ „ugadores sentados igualaron la primera apuesta de apertura.”
+out-of-position	fuera de posición	tak	https://pokerqz.com/es/tools/glossary/out-of-position „Fuera de posición”
+pair	pareja	tak	https://pokerqz.com/es/tools/glossary/one-pair „Pareja”
+pot	bote	tak	https://pokerqz.com/es/tools/glossary/pot „Bote”
+raise	sube	tak	https://pokerqz.com/es/tools/glossary/raise „juego post-flop, si tu oponente bets 1000 y tú lo subes a 2000, esto se llama un "raise." Esta acción tiene como objetiv”
+range	rango	tak	https://pokerqz.com/es/tools/glossary/range „Rango de manos”
+showdown	showdown	tak	https://pokerqz.com/es/tools/glossary/showdown „Showdown”
+small-blind	ciega pequeña	tak	https://pokerqz.com/es/tools/glossary/small-blind „Ciega pequeña (SB)”
+suited	del mismo palo	tak	https://pokerqz.com/es/tools/glossary/suited „e refiere a una mano en la que las dos cartas son del mismo palo. Una mano suited es más valiosa que una mano off-suit (”
+top-pair	pareja mayor	rdzen:pare	https://ggpoker.com/es/poker-basics/poker-terms/ „de póker con cartas comunitarias, una carta que aparece en la mesa y provoca una acción de apuestas significativa, porq”
+value	por valor	brak	PQZ bez formy; GG bez formy
+
+## fr
+3-bet	3-bet	tak	https://pokerqz.com/fr/tools/glossary/3bet „3-bet (re-raise)”
+4-bet	4-bet	tak	https://pokerqz.com/fr/tools/glossary/4bet „4-bet”
+backdoor	backdoor	tak	https://pokerqz.com/fr/tools/glossary/backdoor „Backdoor”
+bet	mise	tak	https://pokerqz.com/fr/tools/glossary/bet „Mise”
+bet	misez	tak	https://pokerqz.com/fr/tools/glossary/bet „), vous misez souvent contre votre adversaire pour l’affirmer.”
+bet	mises	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „arte apparaissant sur le plateau qui provoque des mises importantes, car elle aide deux joueurs ou plus.”
+big-blind	grosse blinde	rdzen:gros	https://ggpoker.com/fr/poker-basics/poker-terms/ „joueur assis à la gauche du bouton tandis que la grosse blind est le joueur assis à la gauche de la petite blind.”
+blocker	bloqueur	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „ou un tirage possible vers cette combinaison. Un bloqueur est également une combinaison de cartes qui transforme les ou”
+bluff	bluffs	rdzen:bluf	https://ggpoker.com/fr/poker-basics/poker-terms/ „Bluff”
+bluff	bluff	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Bluff”
+bluff	bluffer	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „'agit d'un bluff, afin de pousser un adversaire à bluffer.”
+board	board	tak	https://pokerqz.com/fr/tools/glossary/board „Board”
+c-bet	c-bet	tak	https://pokerqz.com/fr/tools/glossary/continuation-bet „Mise de continuation, CB, C-bet, Cbet”
+call	payé	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „noi de poker juste avant d'entrer dans les places payées.”
+call	suivez	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Suivez-nous”
+call	suivre	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Effectuer une action (miser, suivre, relancer ou se coucher) au moment voulu.”
+call	call	tak	https://pokerqz.com/fr/tools/glossary/call „Call”
+call	suivra	rdzen:suiv	https://pokerqz.com/fr/tools/glossary/call „e. Cela vous permet de voir la carte de la street suivante ou d’aller jusqu’au showdown.”
+check	check	tak	https://pokerqz.com/fr/tools/glossary/check „Check”
+combo	combinaisons	tak	https://pokerqz.com/fr/tools/glossary/combo „Il existe 4 combinaisons suited, 6 combinaisons pocket et 12 combinaisons offsuit.”
+cutoff	CO	tak	https://pokerqz.com/fr/tools/glossary/cutoff „Cutoff, CO”
+draw	tirage	tak	https://pokerqz.com/fr/tools/glossary/draw „Tirage”
+flush	couleur	tak	https://pokerqz.com/fr/tools/glossary/flush „Couleur”
+flush-draw	tirage couleur	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „ou de semi-bluff, ainsi qu'un redraw au cas où le tirage couleur arriverait au tournant.”
+fold	couchée	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Gagner un pot avec une main qui se serait couchée face à n'importe quelle mise.”
+fold	couchez	rdzen:couch	https://pokerqz.com/fr/tools/glossary/fold „Au poker, un fold désigne l’action de se coucher, c’est-à-dire de jeter sa main et de se retirer du coup en cou”
+fold	couchées	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Le muck correspond également à la pile de cartes couchées.”
+fold	coucher	tak	https://pokerqz.com/fr/tools/glossary/fold „Au poker, un fold désigne l’action de se coucher, c’est-à-dire de jeter sa main et de se retirer du coup en cou”
+fold	couchera	rdzen:couche	https://pokerqz.com/fr/tools/glossary/fold „Au poker, un fold désigne l’action de se coucher, c’est-à-dire de jeter sa main et de se retirer du coup en cou”
+kicker	kicker	tak	https://pokerqz.com/fr/tools/glossary/kicker „Kicker”
+mdf	mdf	tak	https://pokerqz.com/fr/tools/glossary/mdf „MDF”
+open	ouvert	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „argent misée pendant le jeu d'une main. La mise d'ouverture d'un tour d'enchères. Dans un jeu à limite fixe, le montant”
+open	ouverture	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „argent misée pendant le jeu d'une main. La mise d'ouverture d'un tour d'enchères. Dans un jeu à limite fixe, le montant”
+out-of-position	hors de position	rdzen:positi	https://pokerqz.com/fr/tools/glossary/out-of-position „Out of position”
+pair	paire	tak	https://pokerqz.com/fr/tools/glossary/one-pair „Paire”
+pot	pot	tak	https://pokerqz.com/fr/tools/glossary/pot „Pot”
+raise	relance	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Effectuer une action (miser, suivre, relancer ou se coucher) au moment voulu.”
+range	range	tak	https://pokerqz.com/fr/tools/glossary/range „Range”
+showdown	showdown	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Une main qui, lorsqu'elle arrive au showdown, a un avantage en termes de cotes par rapport à l'autre. Une”
+small-blind	petite blinde	rdzen:peti	https://ggpoker.com/fr/poker-basics/poker-terms/ „La petite blind est le joueur assis à la gauche du bouton tandis que la g”
+suited	assorti	tak	https://ggpoker.com/fr/poker-basics/poker-terms/ „Une main de départ Omaha où deux paires de cartes assorties sont détenues.”
+suited	assortis	rdzen:assort	https://ggpoker.com/fr/poker-basics/poker-terms/ „Une main de départ Omaha où deux paires de cartes assorties sont détenues.”
+top-pair	top paire	brak	PQZ 404; GG bez formy
+value	pour la valeur	rdzen:vale	https://ggpoker.com/fr/poker-basics/poker-terms/ „Une main très faible dont la valeur est inférieure à hauteur As, voire même une autre hauteur.”
+
+## it
+3-bet	3-bet	tak	https://pokerqz.com/it/tools/glossary/3bet „3bet, re-raise, 3-bet”
+4-bet	4-bet	tak	https://pokerqz.com/it/tools/glossary/4bet „4bet, re-re-raise, re-reraise, 4-bet”
+backdoor	backdoor	tak	https://pokerqz.com/it/tools/glossary/backdoor „Backdoor”
+bet	punta	tak	https://pokerqz.com/it/tools/glossary/bet „Puntata”
+bet	puntata	tak	https://pokerqz.com/it/tools/glossary/bet „Puntata”
+bet	Punti	brak	PQZ bez formy
+bet	punti	brak	PQZ bez formy
+bet	puntate	tak	https://pokerqz.com/it/tools/glossary/bet „ie chip. Questa azione avviene quando non ci sono puntate da parte di altri giocatori, introducendo una nuova posta nel”
+big-blind	big blind	tak	https://pokerqz.com/it/tools/glossary/big-blind „Big Blind (BB)”
+blocker	blocker	tak	https://pokerqz.com/it/tools/glossary/blocker „Blocker”
+bluff	bluff	brak	PQZ 404
+board	board	tak	https://pokerqz.com/it/tools/glossary/board „Board”
+c-bet	c-bet	tak	https://pokerqz.com/it/tools/glossary/continuation-bet „Continuation bet, CB, C-bet, Cbet”
+call	call	tak	https://pokerqz.com/it/tools/glossary/call „Call”
+call	chiameranno	brak	PQZ bez formy
+call	chiami	rdzen:chia	https://pokerqz.com/it/tools/glossary/call „agli quella puntata pagando $10, questa azione si chiama call.”
+call	chiamerà	brak	PQZ bez formy
+check	check	tak	https://pokerqz.com/it/tools/glossary/check „Check”
+combo	combo	brak	PQZ 404
+cutoff	CO	tak	https://pokerqz.com/it/tools/glossary/cutoff „Cut-off, CO”
+draw	progetto	brak	PQZ bez formy
+flush	colore	tak	https://pokerqz.com/it/tools/glossary/flush „Colore”
+flush-draw	progetto di colore	brak	PQZ 404
+fold	foldato	rdzen:folda	https://pokerqz.com/it/tools/glossary/fold „e ritirarsi dalla partita in corso. Se scegli di foldare, non parteciperai ai successivi betting rounds e perderai il d”
+fold	Foldi	tak	https://pokerqz.com/it/tools/glossary/fold „Tuttavia, dovresti tenere presente che se foldi troppo frequentemente, i tuoi avversari potrebbero percepirti co”
+fold	foldi	tak	https://pokerqz.com/it/tools/glossary/fold „Tuttavia, dovresti tenere presente che se foldi troppo frequentemente, i tuoi avversari potrebbero percepirti co”
+fold	fold	tak	https://pokerqz.com/it/tools/glossary/fold „Fold”
+fold	folderà	brak	PQZ bez formy
+kicker	kicker	tak	https://pokerqz.com/it/tools/glossary/kicker „Kicker”
+mdf	MDF	tak	https://pokerqz.com/it/tools/glossary/mdf „MDF”
+open	aperto	brak	PQZ bez formy
+open	apertura	brak	PQZ bez formy
+out-of-position	fuori posizione	rdzen:posizio	https://pokerqz.com/it/tools/glossary/out-of-position „Out of Position (OOP) si riferisce a una posizione svantaggiosa nel poker in cui devi agire prima del tuo avver”
+pair	coppia	tak	https://pokerqz.com/it/tools/glossary/one-pair „Coppia”
+pot	piatto	tak	https://pokerqz.com/it/tools/glossary/pot „Piatto”
+raise	rilanci	tak	https://pokerqz.com/it/tools/glossary/raise „o post-flop, se il tuo avversario punta 1000 e tu rilanci fino a 2000, questa azione è chiamata "raise". Questa mossa mi”
+range	range	tak	https://pokerqz.com/it/tools/glossary/range „Range”
+showdown	showdown	tak	https://pokerqz.com/it/tools/glossary/showdown „Showdown”
+small-blind	small blind	tak	https://pokerqz.com/it/tools/glossary/small-blind „Small Blind (SB)”
+suited	dello stesso seme	tak	https://pokerqz.com/it/tools/glossary/suited „mano suited; dello stesso seme”
+top-pair	top pair	brak	PQZ 404
+value	per valore	rdzen:valo	https://pokerqz.com/it/tools/glossary/value-bet „Puntata di valore”
+value	di valore	tak	https://pokerqz.com/it/tools/glossary/value-bet „Puntata di valore”
+
+## ja
+3-bet	3ベット	tak	https://pokerqz.com/ja/tools/glossary/3bet „3bet,リレイズ,3ベット,３ベット,スリーベット”
+4-bet	4ベット	tak	https://pokerqz.com/ja/tools/glossary/4bet „4bet,リリレイズ,4ベット,４ベット,フォーベット”
+backdoor	バックドア	tak	https://pokerqz.com/ja/tools/glossary/backdoor „バックドア”
+bet	ベット	tak	https://pokerqz.com/ja/tools/glossary/bet „ベット”
+big-blind	ビッグブラインド	tak	https://pokerqz.com/ja/tools/glossary/big-blind „ビッグブラインド（BB）”
+blocker	ブロッカー	tak	https://pokerqz.com/ja/tools/glossary/blocker „ブロッカー”
+bluff	ブラフ	tak	https://pokerqz.com/ja/tools/glossary/bluff „ブラフ”
+board	ボード	tak	https://pokerqz.com/ja/tools/glossary/board „ボード”
+c-bet	Cベット	tak	https://pokerqz.com/ja/tools/glossary/continuation-bet „コンティニュエーションベット,CB,Cbet,Cベット”
+call	コール	tak	https://pokerqz.com/ja/tools/glossary/call „コール”
+check	チェック	tak	https://pokerqz.com/ja/tools/glossary/check „チェック”
+combo	コンボ	tak	https://pokerqz.com/ja/tools/glossary/combo „コンボ”
+cutoff	CO	tak	https://pokerqz.com/ja/tools/glossary/cutoff „カットオフ(CO)”
+draw	ドロー	tak	https://pokerqz.com/ja/tools/glossary/draw „ドロー”
+flush	フラッシュ	tak	https://pokerqz.com/ja/tools/glossary/flush „フラッシュ”
+flush-draw	フラッシュドロー	tak	https://pokerqz.com/ja/tools/glossary/flush-draw „フラッシュドロー”
+fold	フォールド	tak	https://pokerqz.com/ja/tools/glossary/fold „フォールド”
+kicker	キッカー	tak	https://pokerqz.com/ja/tools/glossary/kicker „キッカー”
+mdf	mdf	tak	https://pokerqz.com/ja/tools/glossary/mdf „MDF”
+open	オープン	tak	https://pokerqz.com/ja/tools/glossary/open „オープン”
+out-of-position	アウトオブポジション	tak	https://pokerqz.com/ja/tools/glossary/out-of-position „アウトオブポジション”
+pair	ペア	tak	https://pokerqz.com/ja/tools/glossary/one-pair „ワンペア”
+pot	ポット	tak	https://pokerqz.com/ja/tools/glossary/pot „ポット”
+raise	レイズ	tak	https://pokerqz.com/ja/tools/glossary/raise „レイズ”
+range	レンジ	tak	https://pokerqz.com/ja/tools/glossary/range „レンジ”
+showdown	ショーダウン	tak	https://pokerqz.com/ja/tools/glossary/showdown „ショーダウン”
+small-blind	スモールブラインド	tak	https://pokerqz.com/ja/tools/glossary/small-blind „スモールブラインド（SB）”
+suited	スーテッド	tak	https://pokerqz.com/ja/tools/glossary/suited „スーテッド”
+top-pair	トップペア	brak	PQZ bez formy
+value	バリュー	tak	https://pokerqz.com/ja/tools/glossary/value-bet „バリューベット”
+
+## ko
+3-bet	3벳	tak	https://pokerqz.com/ko/tools/glossary/3bet „3벳(리레이즈)”
+4-bet	4벳	tak	https://pokerqz.com/ko/tools/glossary/4bet „4벳 (re-re-raise)”
+backdoor	백도어	tak	https://pokerqz.com/ko/tools/glossary/backdoor „백도어”
+bet	베팅	brak	PQZ 404
+big-blind	빅 블라인드	tak	https://pokerqz.com/ko/tools/glossary/big-blind „빅 블라인드 (BB)”
+blocker	블로커	tak	https://pokerqz.com/ko/tools/glossary/blocker „블로커”
+bluff	블러프	brak	PQZ 404
+board	보드	tak	https://pokerqz.com/ko/tools/glossary/board „보드”
+c-bet	C벳	brak	PQZ bez formy
+call	콜	tak	https://pokerqz.com/ko/tools/glossary/call „콜”
+check	체크	tak	https://pokerqz.com/ko/tools/glossary/check „체크”
+combo	콤보	tak	https://pokerqz.com/ko/tools/glossary/combo „콤보”
+cutoff	CO	tak	https://pokerqz.com/ko/tools/glossary/cutoff „Cut-off, CO”
+draw	드로우	tak	https://pokerqz.com/ko/tools/glossary/draw „드로우”
+flush	플러시	tak	https://pokerqz.com/ko/tools/glossary/flush „플러시”
+flush-draw	플러시 드로우	tak	https://pokerqz.com/ko/tools/glossary/flush-draw „플러시 드로우”
+fold	폴드	tak	https://pokerqz.com/ko/tools/glossary/fold „폴드”
+kicker	키커	tak	https://pokerqz.com/ko/tools/glossary/kicker „키커”
+mdf	MDF	tak	https://pokerqz.com/ko/tools/glossary/mdf „MDF”
+open	오픈	tak	https://pokerqz.com/ko/tools/glossary/open „오픈”
+out-of-position	아웃 오브 포지션	tak	https://pokerqz.com/ko/tools/glossary/out-of-position „아웃 오브 포지션”
+pair	페어	tak	https://pokerqz.com/ko/tools/glossary/one-pair „원 페어”
+pot	팟	tak	https://pokerqz.com/ko/tools/glossary/pot „팟”
+raise	레이즈	tak	https://pokerqz.com/ko/tools/glossary/raise „레이즈”
+range	레인지	brak	PQZ 404
+showdown	쇼다운	tak	https://pokerqz.com/ko/tools/glossary/showdown „쇼다운”
+small-blind	스몰 블라인드	tak	https://pokerqz.com/ko/tools/glossary/small-blind „스몰 블라인드(SB)”
+suited	수티드	tak	https://pokerqz.com/ko/tools/glossary/suited „수티드, 수티드 핸드”
+top-pair	탑 페어	brak	PQZ 404
+value	밸류	tak	https://pokerqz.com/ko/tools/glossary/value-bet „밸류 벳”
+
+## pt
+3-bet	3-bet	tak	https://pokerqz.com/pt/tools/glossary/3bet „3bet, re-raise, 3-bet”
+4-bet	4-bet	tak	https://pokerqz.com/pt/tools/glossary/4bet „4bet, re-re-raise, re-reraise, 4-bet”
+backdoor	backdoor	tak	https://pokerqz.com/pt/tools/glossary/backdoor „Backdoor”
+bet	aposta	tak	https://pokerqz.com/pt/tools/glossary/bet „Aposta”
+bet	Aposta	tak	https://pokerqz.com/pt/tools/glossary/bet „Aposta”
+bet	apostas	tak	https://pokerqz.com/pt/tools/glossary/bet „has em jogo. Essa ação ocorre quando ainda não há apostas dos outros jogadores, introduzindo um novo valor no pote e des”
+big-blind	big blind	tak	https://pokerqz.com/pt/tools/glossary/big-blind „Big Blind (BB)”
+blocker	bloqueador	tak	https://pokerqz.com/pt/tools/glossary/blocker „carta bloqueadora”
+bluff	bluffs	rdzen:bluf	https://pokerqz.com/pt/tools/glossary/bluff „Bluff catch”
+bluff	bluff	tak	https://pokerqz.com/pt/tools/glossary/bluff „Bluff catch”
+board	mesa	tak	https://pokerqz.com/pt/tools/glossary/board „rias cartas. São as cartas colocadas no centro da mesa, compartilhadas e usadas por todos os jogadores.”
+c-bet	c-bet	tak	https://pokerqz.com/pt/tools/glossary/continuation-bet „Continuation bet, CB, C-bet, Cbet”
+call	call	tak	https://pokerqz.com/pt/tools/glossary/call „Call”
+call	pagar	brak	PQZ bez formy
+call	pagará	rdzen:paga	https://pokerqz.com/pt/tools/glossary/call „ente aposta $10 no flop e você iguala essa aposta pagando $10, essa ação é chamada de call.”
+check	check	tak	https://pokerqz.com/pt/tools/glossary/check „Check”
+combo	combinações	tak	https://pokerqz.com/pt/tools/glossary/combo „Existem 4 combinações de mãos suited, 6 combinações de mãos pocket e 12 combinaç”
+cutoff	CO	brak	PQZ bez formy
+draw	draw	tak	https://pokerqz.com/pt/tools/glossary/draw „Draw”
+flush	flush	tak	https://pokerqz.com/pt/tools/glossary/flush „Flush”
+flush-draw	flush draw	tak	https://pokerqz.com/pt/tools/glossary/flush-draw „Flush draw”
+fold	desistir	brak	PQZ bez formy
+fold	Desiste	brak	PQZ bez formy
+fold	desiste	brak	PQZ bez formy
+fold	desistiram	brak	PQZ bez formy
+fold	Desistir	brak	PQZ bez formy
+fold	desistirá	brak	PQZ bez formy
+kicker	kicker	tak	https://pokerqz.com/pt/tools/glossary/kicker „Kicker”
+mdf	mdf	tak	https://pokerqz.com/pt/tools/glossary/mdf „MDF”
+open	abertura	brak	PQZ bez formy
+out-of-position	fora de posição	tak	https://pokerqz.com/pt/tools/glossary/out-of-position „Fora de posição”
+pair	par	tak	https://pokerqz.com/pt/tools/glossary/one-pair „Um Par”
+pot	pote	tak	https://pokerqz.com/pt/tools/glossary/pot „Pote”
+raise	aumenta	tak	https://pokerqz.com/pt/tools/glossary/raise „usado para colocar pressão nos oponentes ou para aumentar o pot.”
+range	range	tak	https://pokerqz.com/pt/tools/glossary/range „Range”
+showdown	showdown	tak	https://pokerqz.com/pt/tools/glossary/showdown „Showdown”
+small-blind	small blind	tak	https://pokerqz.com/pt/tools/glossary/small-blind „Small Blind (SB)”
+suited	suited	tak	https://pokerqz.com/pt/tools/glossary/suited „Suited”
+top-pair	top pair	brak	PQZ 404
+value	por valor	tak	https://pokerqz.com/pt/tools/glossary/value-bet „Aposta por valor”
+value	de valor	brak	PQZ bez formy
+
+## pt-BR
+3-bet	3-bet	tak	https://pokerqz.com/pt/tools/glossary/3bet „3bet, re-raise, 3-bet”
+4-bet	4-bet	tak	https://pokerqz.com/pt/tools/glossary/4bet „4bet, re-re-raise, re-reraise, 4-bet”
+backdoor	backdoor	tak	https://pokerqz.com/pt/tools/glossary/backdoor „Backdoor”
+bet	aposta	tak	https://pokerqz.com/pt/tools/glossary/bet „Aposta”
+bet	apostas	tak	https://pokerqz.com/pt/tools/glossary/bet „has em jogo. Essa ação ocorre quando ainda não há apostas dos outros jogadores, introduzindo um novo valor no pote e des”
+big-blind	big blind	tak	https://pokerqz.com/pt/tools/glossary/big-blind „Big Blind (BB)”
+blocker	bloqueador	tak	https://pokerqz.com/pt/tools/glossary/blocker „carta bloqueadora”
+bluff	blefes	rdzen:blef	https://pokerqz.com/pt/tools/glossary/bluff „Blefe”
+bluff	blefe	tak	https://pokerqz.com/pt/tools/glossary/bluff „Blefe”
+board	mesa	tak	https://pokerqz.com/pt/tools/glossary/board „rias cartas. São as cartas colocadas no centro da mesa, compartilhadas e usadas por todos os jogadores.”
+c-bet	c-bet	tak	https://pokerqz.com/pt/tools/glossary/continuation-bet „Continuation bet, CB, C-bet, Cbet”
+call	pagou	brak	PQZ bez formy
+call	paga	tak	https://pokerqz.com/pt/tools/glossary/call „ente aposta $10 no flop e você iguala essa aposta pagando $10, essa ação é chamada de call.”
+call	pagar	brak	PQZ bez formy
+call	Pagar	brak	PQZ bez formy
+check	check	tak	https://pokerqz.com/pt/tools/glossary/check „Check”
+combo	combos	tak	https://pokerqz.com/pt/tools/glossary/combo „, existem 2 combos suited como o”
+cutoff	CO	brak	PQZ bez formy
+draw	projeto	brak	PQZ bez formy
+flush	flush	tak	https://pokerqz.com/pt/tools/glossary/flush „Flush”
+flush-draw	projeto de flush	brak	PQZ bez formy
+fold	desistiu	brak	PQZ bez formy
+fold	desiste	brak	PQZ bez formy
+fold	desistiram	brak	PQZ bez formy
+fold	Desistir	brak	PQZ bez formy
+fold	desistir	brak	PQZ bez formy
+kicker	kicker	tak	https://pokerqz.com/pt/tools/glossary/kicker „Kicker”
+mdf	mdf	tak	https://pokerqz.com/pt/tools/glossary/mdf „MDF”
+open	abertura	brak	PQZ bez formy
+out-of-position	fora de posição	tak	https://pokerqz.com/pt/tools/glossary/out-of-position „Fora de posição”
+pair	par	tak	https://pokerqz.com/pt/tools/glossary/one-pair „Um Par”
+pot	pote	tak	https://pokerqz.com/pt/tools/glossary/pot „Pote”
+raise	aumenta	tak	https://pokerqz.com/pt/tools/glossary/raise „usado para colocar pressão nos oponentes ou para aumentar o pot.”
+range	range	tak	https://pokerqz.com/pt/tools/glossary/range „Range”
+showdown	showdown	tak	https://pokerqz.com/pt/tools/glossary/showdown „Showdown”
+small-blind	small blind	tak	https://pokerqz.com/pt/tools/glossary/small-blind „Small Blind (SB)”
+suited	suited	tak	https://pokerqz.com/pt/tools/glossary/suited „Suited”
+top-pair	top pair	brak	PQZ 404
+value	por valor	tak	https://pokerqz.com/pt/tools/glossary/value-bet „Aposta por valor”
+value	de valor	brak	PQZ bez formy
+
+## vi
+3-bet	3-bet	tak	https://pokerqz.com/vi/tools/glossary/3bet „3bet, re-raise, 3-bet (người chơi Việt thường chỉ gọi là "3bet")”
+4-bet	4-bet	tak	https://pokerqz.com/vi/tools/glossary/4bet „4-bet (re-re-raise)”
+backdoor	backdoor	tak	https://pokerqz.com/vi/tools/glossary/backdoor „Backdoor”
+bet	cược	tak	https://pokerqz.com/vi/tools/glossary/bet „Cược”
+big-blind	big blind	tak	https://pokerqz.com/vi/tools/glossary/big-blind „Big Blind (BB)”
+blocker	bài chặn	tak	https://ggpoker.com/vi/poker-basics/poker-terms/ „n cờ đe dọa một sảnh hoặc một cơ hội sảnh. Một lá bài chặn cũng là việc có một sự kết hợp các lá bài biến những lá bài o”
+bluff	bluff	tak	https://ggpoker.com/vi/poker-basics/poker-terms/ „Bluff”
+board	board	tak	https://pokerqz.com/vi/tools/glossary/board „Board”
+c-bet	c-bet	tak	https://pokerqz.com/vi/tools/glossary/continuation-bet „C-bet (Continuation Bet)”
+call	theo	tak	https://pokerqz.com/vi/tools/glossary/call „Theo tiền cược (cách gọi tiếng Việt, nhưng người chơi thường dùng "Cal”
+call	Theo	tak	https://pokerqz.com/vi/tools/glossary/call „Theo tiền cược (cách gọi tiếng Việt, nhưng người chơi thường dùng "Cal”
+check	check	tak	https://pokerqz.com/vi/tools/glossary/check „Check”
+combo	tổ hợp	brak	PQZ 404; GG bez formy
+cutoff	CO	tak	https://pokerqz.com/vi/tools/glossary/cutoff „Cut-off, CO”
+draw	bài chờ	tak	https://pokerqz.com/vi/tools/glossary/draw „bài chờ; thường gọi cụ thể là thùng chờ hoặc sảnh chờ”
+flush	thùng	tak	https://pokerqz.com/vi/tools/glossary/flush „Thùng (flush)”
+flush-draw	bài chờ thùng	brak	PQZ 404; GG bez formy
+fold	bỏ bài	tak	https://pokerqz.com/vi/tools/glossary/fold „Trong poker, fold là hành động bỏ bài của bạn và rút khỏi ván chơi hiện tại. Nếu bạn chọn fold, bạn s”
+fold	Bỏ bài	tak	https://pokerqz.com/vi/tools/glossary/fold „Trong poker, fold là hành động bỏ bài của bạn và rút khỏi ván chơi hiện tại. Nếu bạn chọn fold, bạn s”
+kicker	kicker	tak	https://pokerqz.com/vi/tools/glossary/kicker „Kicker”
+mdf	MDF	tak	https://pokerqz.com/vi/tools/glossary/mdf „MDF”
+open	mở cược	tak	https://ggpoker.com/vi/poker-basics/poker-terms/ „ung) sau một vòng cược mà không có người chơi nào mở cược. Người đó do đó có cơ hội cải thiện tay bài của mình mà không”
+out-of-position	không có vị trí	tak	https://ggpoker.com/vi/poker-basics/poker-terms/ „Một người chơi được cho là không có vị trí, nếu họ là người hành động đầu tiên, hoặc không phải l”
+pair	đôi	tak	https://pokerqz.com/vi/tools/glossary/one-pair „Một đôi”
+pot	pot	tak	https://pokerqz.com/vi/tools/glossary/pot „Pot”
+raise	tố	tak	https://ggpoker.com/vi/poker-basics/poker-terms/ „một con mắt tinh tường, sự tự tin và có hiểu biết tốt về thuật ngữ poker để bạn có thể đánh giá cách một ván bài đang di”
+range	range	tak	https://pokerqz.com/vi/tools/glossary/range „Range”
+showdown	showdown	tak	https://pokerqz.com/vi/tools/glossary/showdown „Showdown”
+small-blind	small blind	tak	https://pokerqz.com/vi/tools/glossary/small-blind „Small Blind”
+suited	cùng chất	tak	https://pokerqz.com/vi/tools/glossary/suited „oker, "suited" dùng để chỉ một hand mà hai lá bài cùng chất. Một hand suited có giá trị hơn so với một hand off-suit (cá”
+top-pair	đôi cao nhất	brak	PQZ 404; GG bez formy
+value	lấy giá trị	brak	PQZ bez formy; GG bez formy
+
+## zh-Hant
+3-bet	3-bet	tak	https://pokerqz.com/zh-TW/tools/glossary/3bet „3bet, re-raise, 3-bet”
+4-bet	4-bet	tak	https://pokerqz.com/zh-TW/tools/glossary/4bet „4bet, 4-bet, re-re-raise, re-reraise”
+backdoor	後門	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „後門”
+bet	下注	tak	https://pokerqz.com/zh-TW/tools/glossary/bet „下注”
+big-blind	大盲	tak	https://pokerqz.com/zh-TW/tools/glossary/big-blind „大盲注（BB）”
+blocker	阻擋牌	rdzen:阻擋	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „阻擋者”
+bluff	詐唬	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „抓詐唬範圍”
+board	牌面	tak	https://pokerqz.com/zh-TW/tools/glossary/board „公共牌面”
+c-bet	持續下注	tak	https://pokerqz.com/zh-TW/tools/glossary/continuation-bet „持續下注（CB）”
+call	跟注	tak	https://pokerqz.com/zh-TW/tools/glossary/call „在 poker 中，當對手在 flop 下注 $10，而你支付同樣的 $10 來跟注時，這個行動稱為 call。”
+check	過牌	tak	https://pokerqz.com/zh-TW/tools/glossary/check „過牌”
+combo	組合	tak	https://pokerqz.com/zh-TW/tools/glossary/combo „組合”
+cutoff	CO	tak	https://pokerqz.com/zh-TW/tools/glossary/cutoff „Cut-off, CO”
+draw	聽牌	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „需要兩輪或以上才能完成的聽牌。玩家無意間組成的牌型。”
+flush	同花	tak	https://pokerqz.com/zh-TW/tools/glossary/flush „同花”
+flush-draw	同花聽牌	tak	https://pokerqz.com/zh-TW/tools/glossary/flush-draw „同花聽牌”
+fold	棄牌	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „全押或棄牌”
+kicker	踢腳	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „踢腳牌”
+mdf	mdf	tak	https://pokerqz.com/zh-TW/tools/glossary/mdf „MDF”
+open	開池	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „一種情況是每位或幾乎每位在座玩家都跟注了第一個開池下注。”
+out-of-position	無位置	brak	PQZ 404; GG bez formy
+pair	對子	tak	https://pokerqz.com/zh-TW/tools/glossary/one-pair „的情況，稱為「口袋對子」，從起手階段就已經完成一對。”
+pot	底池	tak	https://pokerqz.com/zh-TW/tools/glossary/pot „底池”
+raise	加注	tak	https://pokerqz.com/zh-TW/tools/glossary/raise „加注”
+range	範圍	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „抓詐唬範圍”
+showdown	攤牌	tak	https://pokerqz.com/zh-TW/tools/glossary/showdown „攤牌”
+small-blind	小盲	tak	https://pokerqz.com/zh-TW/tools/glossary/small-blind „小盲注（SB）”
+suited	同花色	tak	https://pokerqz.com/zh-TW/tools/glossary/suited „在撲克中，「suited（同花）」指的是兩張手牌屬於相同花色。相較於同點數但不同花色的 offsuit 手牌，suited 手牌更有價值，因為它具備形成 flush 的潛力。”
+top-pair	頂對	tak	https://ggpoker.com/zh-tw/poker-basics/poker-terms/ „頂對”
+value	價值	tak	https://pokerqz.com/zh-TW/tools/glossary/value-bet „價值下注”
+
+formy: {"tak":292,"rdzen":28,"brak":60}
