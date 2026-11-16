@@ -1,0 +1,38 @@
+# IG: głębokość startu (stackBb z ekranu startu) a wymagania wariantów; 33 szablony content/pl; data: 2026-11-16
+# start wariantu = stack za pulą + wkład gracza; wkład = (pula − martwe blindy) ÷ 2, martwe = 1,5 − blind gracza − blind rywala (deadBlindsBb)
+id	stackBb	rodzaj	poziom	start_min	start_max	zgodne_z_stackBb	próbka/uwaga
+sc-01	100	draw-call+draw-call	*	-	18.95	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 24, ułamek 0.3)
+sc-02	35	draw-call+draw-call	*	-	16.25	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 22, ułamek 0.25)
+sc-03	25	draw-call	*	-	23.75	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 16, ułamek 1)
+sc-04	100	range-spot+cbet-case	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (range-spot)
+sc-05	100	range-spot+cbet-case	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (range-spot)
+sc-06	100	range-spot+size-spot	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (range-spot)
+sc-07	100	defend	*	-	7.25	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 9, ułamek 0.33)
+sc-08	100	range-spot+size-spot	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (range-spot)
+sc-09	100	size-spot	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (size-spot)
+sc-10	100	list-hand	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (list-hand)
+sc-11	100	cbet-case	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (cbet-case)
+sc-12	100	cbet-case	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (cbet-case)
+sc-13	100	flop-size	*	-	55.75	TAK (zapotrzebowanie ≤ stackBb)	wkład + duży zakład gracza (pula 48, ułamek 0.67)
+sc-15	100	defend	*	-	7.25	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 9, ułamek 0.33)
+sc-16	100	check-raise	*	-	17.75	TAK (zapotrzebowanie ≤ stackBb)	wkład + podbicie do 4.5× c-betu (pula 9)
+sc-17	100	defend	*	-	9.75	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 8, ułamek 0.75)
+sc-18	100	turn-action	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (turn-action)
+sc-19	35	draw-call+draw-call	*	-	16.25	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 22, ułamek 0.25)
+sc-20	100	turn-bet	*	-	29.75	TAK (zapotrzebowanie ≤ stackBb)	wkład + duży zakład gracza (pula 24, ułamek 0.75)
+sc-21	100	turn-action	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (turn-action)
+sc-22	100	river-value	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (river-value)
+sc-23	100	pick-hand	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (pick-hand)
+sc-24	100	river-catch	*	-	44.75	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 30, ułamek 1)
+sc-25	100	river-value	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (river-value)
+sc-26	14	spr-call	latwy	12.5	15	NIE (5/6 par pula×stack ≠ stackBb)	6 par z 150 ziaren
+sc-26	14	spr-call	sredni	12.5	15	NIE (5/6 par pula×stack ≠ stackBb)	6 par z 150 ziaren
+sc-27	100	geo-size	latwy	100	100	TAK	1 par z 150 ziaren
+sc-27	100	geo-size	sredni	100	161.75	NIE (9/10 par pula×stack ≠ stackBb)	10 par z 150 ziaren
+sc-28	100	river-value	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (river-value)
+sc-29	100	river-value	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (river-value)
+sc-30	100	nit-3bet	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (nit-3bet)
+sc-31	100	river-catch	*	-	59.75	TAK (zapotrzebowanie ≤ stackBb)	wkład + sprawdzenie największego zakładu (pula 30, ułamek 1.5)
+sc-32	10	range-spot	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (range-spot)
+sc-33	10	range-spot	*	-	-	n/d (stackBb jedynym stosem)	bez pól stosu w wariancie (range-spot)
+sc-34	10	icm-call	*	-	10	TAK (zapotrzebowanie ≤ stackBb)	z konstrukcji: 1 bb = mniejszy stos pary ÷ stackBb (dp-icm-d889)
