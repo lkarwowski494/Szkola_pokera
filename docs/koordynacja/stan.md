@@ -402,6 +402,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Hook pre-push: `pnpm install --frozen-lockfile` w `/home/user/Szkola_pokera`. Worktree stanu: utwórz własny w scratchpadzie.
 
 ## Sesje
+| HQ | session_01T66VBzPYzod147hGKbk63i | 04 build (opus/high) | claude/sesja-hq-projekt @ 14fdc7c6 | — | — | styl tytułu (503 A), widok limperów SC-09, inwentarz widoków HO; prompt 4 części (pliki 11/48) |
 | HN | session_01T66VByn34ySUEDLvkKsHAd | 06 build | claude/sesja-hn-szablony @ 0b0855ef | — | — | szablony umie/częściowo → content |
 | HO | session_01T66VBvs6bB6ReRDEcQhGa9 | 08 build | claude/sesja-ho-silnik @ 0b0855ef | — | — | warunki silnika |
 | HP | session_01T66VBxf46HtnMcvu56UqSQ | 06 build docs | claude/sesja-hp-szkice @ 0b0855ef | — | — | szkice SC-16/18/21/26/27/30 |
@@ -1109,3 +1110,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11:45 (16.11) | koordynator | HK, HL, HM scalone do roboczej 14fdc7c6 (push OK) | CI+E2E, pytanie 503 |
 | 11:58 (16.11) | HP | PRZEKAZANIE 24533007 (tylko docs; autor zgodny; 6 szkiców pl+en, rejestr-hp.md, 40 cytatów, D-1715…1722); recenzja niezależna 06 audit przy wejściu do content | scalenie docs do roboczej po E2E 14fdc7c6 |
 | 12:00 (16.11) | właściciel | 503 → „A” mniejszy styl tytułu; polecenie HQ (04 build: styl tytułu + widok limperów SC-09 + inwentarz widoków HO); następna litera HR, D-1740, KO-111 | start HQ |
+| 12:05 (16.11) | HQ | start session_01T66VBzPYzod147hGKbk63i (4 części) | raport nagłówków |
