@@ -12,3 +12,10 @@
 | 04 | M2-koordynator-napraw-004 | brak informacji dodatkowej, nie bariera (siatka zawsze jednym elementem z etykietą; lekcja m4-l2:79 mówi tekstem) | P2 | nie | nie | |
 | 04 | 04-studio-projektowe-002 (reaudit) | istniało wcześniej: PaintGrid kropka „mieszana” na pomalowanym polu 1,19–2,46:1 | P2 → P3 | nie | nie | |
 | 04 | regresja PasekStrategii, theme, i18n, PaintGrid | git diff od bazy pusty | — | — | — | |
+| 06 | M1-audytor-generalny-002 (06-tresci-501) | **zweryfikowane** (beyondgto odczytane dziś; klasy niepewne = ręce ≥ 50 pp: 16 i 13, 6/9-max, 35 baz; skrypt własny i autora kod 0; testy 27/27; sonda 12 000 losowań: 0 klas niepewnych w ocenie) | P1 zamknięte | nie | nie | (po powiadomieniu) |
+| 06 | M1-audytor-generalny-007 (06-tresci-001) | zweryfikowane (test 3/3; skróty dosłowne; 5/5 cytatów rejestru w źródle) | zamknięte | nie | nie | |
+| 06 | M2-koordynator-napraw-001 (strona merytoryczna) | zweryfikowane (kropki na klasach niepewnych; 11 przekładów zgodnych z pl) | — | nie | nie | |
+| 06 | D-2015 | rekomendacja: przyjąć; do backlogu procesu: 06 sprawdza treść po zmianie kodu zmieniającej lekcję | — | — | — | |
+| 06 | 06-tresci-001 (reaudit): ID 06-tresci-502 nadane dwóm różnym znaleziskom | regresja śledzenia | P2 → P3 | nie | nie | |
+| 06 | regresja TRE (M5.l2, ziarno 20261117): 7 liczb, 4 reguły | brak regresji | — | — | — | |
+| 06 | Do sprawdzenia: scenariusze obrony BB losują rękę z klas niepewnych (14,8%), bez oceny preflop | bez znaleziska | — | — | — | |

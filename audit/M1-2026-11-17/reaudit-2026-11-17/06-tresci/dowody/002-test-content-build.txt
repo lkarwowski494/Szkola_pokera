@@ -1,0 +1,11 @@
+
+ RUN  v5.0.3 /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wt/tools/content-build
+
+(node:2226) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  2 passed (2)
+      Tests  27 passed (27)
+   Start at  15:31:00
+   Duration  3.15s (import 64%, transform 27%, tests 8%)
+

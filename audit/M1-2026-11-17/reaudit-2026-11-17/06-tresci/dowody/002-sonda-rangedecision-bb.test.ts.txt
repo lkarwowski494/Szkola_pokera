@@ -1,0 +1,18 @@
+// Sonda reaudytu 06 (tylko w worktree w scratchpadzie): rangeDecision na prawdziwych spotach BB z bazy pl.
+import { readFileSync } from 'node:fs';
+import type { Drill } from '@szkola/content-schema';
+import { classOf, createRng, parseCard } from '@szkola/poker-core';
+import { instantiate } from '../../engine';
+const spoty = JSON.parse(readFileSync('/tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/spoty-bb.json', 'utf8'));
+it('rangeDecision na spotach BB nie losuje klas niepewnych', () => {
+  let n = 0, zle = 0;
+  for (const spot of spoty) for (const seed of [1, 2, 3, 4, 5]) {
+    const drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: spot.id }, count: 400 } as unknown as Drill;
+    for (const raw of instantiate(drill, 'l', createRng(seed), undefined, { range: () => spot } as never)) {
+      const [a, b] = (raw as { table: { hand: string[] } }).table.hand;
+      n++; if (spot.uncertain.includes(classOf(parseCard(a!), parseCard(b!)))) zle++;
+    }
+  }
+  console.log('instancji', n, 'z klasa niepewna', zle);
+  expect(zle).toBe(0);
+});

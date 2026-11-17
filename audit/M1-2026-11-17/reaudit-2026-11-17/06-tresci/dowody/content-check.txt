@@ -1,0 +1,17 @@
+
+> szkola-pokera@ content:check /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wt
+> pnpm --filter @szkola/content-build check
+
+
+> @szkola/content-build@0.1.0 check /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wt/tools/content-build
+> tsx src/cli.ts check
+
+uwaga: lessons/m10-l2-typy-graczy.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 10%
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1bb
+uwaga: m10.l4.q-higher-stakes: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+uwaga: lessons/m10-l4-rake.md §1: liczby wpisane ręcznie (użyj {{n:…}}): 1 bb
+Treść aktualna (35 baz): 44 lekcji, 146 reguł, 162 terminów.
+(node:5081) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+kod=0

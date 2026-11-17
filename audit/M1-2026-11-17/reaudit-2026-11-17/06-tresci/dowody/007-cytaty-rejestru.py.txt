@@ -1,0 +1,26 @@
+# Reaudit 06: czy cytaty rejestru (zrodla.cytat) dla adresow z 5 skroconych plikow sa nadal w biezacym pliku.
+import json,re,sys,os,glob
+S,REPO=sys.argv[1],sys.argv[2]
+pliki=['docs/tresci/odczyty/dv-krok-e-2026-11-11.txt','docs/tresci/odczyty/co-gtow-flop-heuristics-ip-2026-11-11.txt','docs/tresci/dowody/cw-zrodlo-gtow-flop-heuristics-ip.txt','docs/tresci/recenzje/dowody/cq-ad62a2d-zrodlo-gtow-flop-heuristics-ip.txt','docs/tresci/recenzje/dowody/cw-0ef7785-zrodlo-gtow-flop-heuristics-ip.txt']
+norm=lambda s:re.sub(r'\s+',' ',s.replace('’',"'").replace('“','"').replace('”','"')).strip().lower()
+teraz=norm(' '.join(re.sub(r'^\s*\d+\s*[:\t]\s*','',l) for p in pliki for l in open(os.path.join(REPO,p),encoding='utf-8')))
+stare=norm(' '.join(re.sub(r'^\s*\d+\s*[:\t]\s*','',l) for p in pliki for l in open(os.path.join(S,'stare',os.path.basename(p)),encoding='utf-8')))
+adresy=set(re.findall(r'https?://[^\s)"”]+',stare))
+rej=json.load(open(os.path.join(REPO,'docs/tresci/rejestr.json')))
+n=ok=brak=0;bez_tekstu=0
+for t in rej:
+  for z in t.get('zrodla',[]):
+    a=(z.get('adres') or '').rstrip('/.,')
+    if not any(a==x.rstrip('/.,') for x in adresy): continue
+    c=norm(z.get('cytat') or '')
+    if not c: continue
+    # cytat moze miec wielokropek/kilka fragmentow
+    frag=[f.strip(' .') for f in re.split(r'\s*(?:…|\.\.\.|\[…\])\s*',c) if len(f.strip(' .'))>=15]
+    if not frag: continue
+    w_starym=all(f in stare for f in frag)
+    if not w_starym: bez_tekstu+=1; continue
+    n+=1
+    if all(f in teraz for f in frag): ok+=1
+    else:
+      brak+=1; print('USUNIETY', t['id'], a, c[:120])
+print(f'cytaty rejestru dla adresow z plikow (obecne w wersji sprzed skrocenia): {n}; nadal sa: {ok}; usuniete: {brak}; cytatow bez dokladnego tekstu w starym pliku: {bez_tekstu}')

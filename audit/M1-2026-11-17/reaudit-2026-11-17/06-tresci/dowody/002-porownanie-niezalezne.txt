@@ -1,0 +1,18 @@
+baz: 35
+91f-en.db vs-open.btn-vs-co: roznica>=50pp 20, uncertain 20, roz-unc [], unc-roz [], json==roz True
+91f-en.db nine.vs-open.btn-vs-co: roznica>=50pp 20, uncertain 20, roz-unc [], unc-roz [], json==roz True
+91f-en.db vs-open.sb-vs-btn: roznica>=50pp 11, uncertain 11, roz-unc [], unc-roz [], json==roz True
+91f-en.db nine.vs-open.sb-vs-btn: roznica>=50pp 11, uncertain 11, roz-unc [], unc-roz [], json==roz True
+91f-en.db vs-open.bb-vs-btn: roznica>=50pp 16, uncertain 16, roz-unc [], unc-roz [], json==roz True
+91f-en.db nine.vs-open.bb-vs-btn: roznica>=50pp 16, uncertain 16, roz-unc [], unc-roz [], json==roz True
+91f-en.db vs-open.bb-vs-sb: roznica>=50pp 13, uncertain 13, roz-unc [], unc-roz [], json==roz True
+91f-en.db nine.vs-open.bb-vs-sb: roznica>=50pp 13, uncertain 13, roz-unc [], unc-roz [], json==roz True
+91f-pl.db vs-open.btn-vs-co: roznica>=50pp 20, uncertain 20, roz-unc [], unc-roz [], json==roz True
+91f-pl.db nine.vs-open.btn-vs-co: roznica>=50pp 20, uncertain 20, roz-unc [], unc-roz [], json==roz True
+91f-pl.db vs-open.sb-vs-btn: roznica>=50pp 11, uncertain 11, roz-unc [], unc-roz [], json==roz True
+91f-pl.db nine.vs-open.sb-vs-btn: roznica>=50pp 11, uncertain 11, roz-unc [], unc-roz [], json==roz True
+91f-pl.db vs-open.bb-vs-btn: roznica>=50pp 16, uncertain 16, roz-unc [], unc-roz [], json==roz True
+91f-pl.db nine.vs-open.bb-vs-btn: roznica>=50pp 16, uncertain 16, roz-unc [], unc-roz [], json==roz True
+91f-pl.db vs-open.bb-vs-sb: roznica>=50pp 13, uncertain 13, roz-unc [], unc-roz [], json==roz True
+91f-pl.db nine.vs-open.bb-vs-sb: roznica>=50pp 13, uncertain 13, roz-unc [], unc-roz [], json==roz True
+spotow z klasa >=50pp spoza uncertain we wszystkich bazach: 0
