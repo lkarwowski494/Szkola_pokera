@@ -1,0 +1,3 @@
+$ node sprawdz-raport.mjs audit/im-przeklady-hz-2026-11-17/raport.md . audit/im-przeklady-hz-2026-11-17   # skrypt z promptu roli (kopia w scratchpadzie), 2026-11-17T06:52:11Z
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone
+kod wyjścia: 0
