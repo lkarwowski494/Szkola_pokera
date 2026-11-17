@@ -1,0 +1,20 @@
+$ bash ids.sh  # rodziny i id zadań w content/*/lessons i exams, 57a83bfe (1010) vs c266091b (1011)
+# zbiory rodzin (family) i identyfikatorów (id) w lekcjach i testach modułów, per język, dla dwóch commitów
+for c in 57a83bfe c266091b; do
+  for kind in family id; do
+    git grep -h -E "^\s*(- )?$kind:\s" $c -- 'content/*/lessons/*' 'content/*/exams/*' | sed -E "s/^\s*(- )?$kind:\s*//; s/['\"]//g; s/\s+$//" | sort -u > /tmp/claude-0/$c-$kind.txt
+  done
+done
+for kind in family id; do
+  echo "== $kind: 1010=$(wc -l < /tmp/claude-0/57a83bfe-$kind.txt) 1011=$(wc -l < /tmp/claude-0/c266091b-$kind.txt)"
+  echo "-- obecne w 1010, brak w 1011:"; comm -23 /tmp/claude-0/57a83bfe-$kind.txt /tmp/claude-0/c266091b-$kind.txt
+  echo "-- nowe w 1011: $(comm -13 /tmp/claude-0/57a83bfe-$kind.txt /tmp/claude-0/c266091b-$kind.txt | wc -l)"
+done
+--- wynik
+== family: 1010=181 1011=181
+-- obecne w 1010, brak w 1011:
+-- nowe w 1011: 0
+== id: 1010=573 1011=574
+-- obecne w 1010, brak w 1011:
+-- nowe w 1011: 1
+kod wyjścia: 0
