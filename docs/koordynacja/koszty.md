@@ -219,3 +219,4 @@ Przegląd przepływu 2026-11-16 (14:00): największa strata 84 min — E2E scale
 | IM | 09 audit | 8 | 10,35 | 22 | 06:41 → 06:41 → 06:49 → 07:04 (CI #468) → 07:12 | 0 | 5 subagentów opus; pułap przekroczony o 29%, mnożnik 1,29 |
 | IN | 10 build | 3 | 1,51 | 20 | 06:41 → 06:41 → 07:17 → CI #470 w toku → 07:20 | 0 | sonnet; wstępne wyszukiwanie niemożliwe z kontenera |
 | IL | 06 audit | 8 | 8,22 | 32 | 06:41 → 06:41 → 07:49 → CI #472 w toku → 07:55 | 0 | pełny prompt po zgodzie właściciela |
+| IO | 08 fix | 5 | 1,17 | 14 | 07:12 → 07:13 → 07:35 → (recenzja 07:42) → 08:03 → 08:04 | 7 min recenzja | sonnet; KO-120 |
