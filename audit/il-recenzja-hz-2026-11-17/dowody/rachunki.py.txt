@@ -1,0 +1,39 @@
+# IL: niezależne rachunki liczb z 7 szablonów HZ (bez refs z numbers.yaml; dane wejściowe z sytuacji szablonów).
+import json, sys
+def req(call, pot_before_call):  # equity potrzebne do sprawdzenia: dopłata ÷ (pula przed dopłatą + dopłata)
+    return call/(pot_before_call+call)
+app={l.split()[1]:float(l.split()[2]) for l in open(sys.argv[1]) if l.startswith('pl ')}
+wyn=[]
+def cmp(nazwa, moja, klucz=None, tol=0.0005, apw=None):
+    a = app[klucz] if klucz else apw
+    ok = abs(moja-a) <= tol
+    wyn.append(ok); print(f"{'OK ' if ok else 'RÓŻNICA'}\t{nazwa}\tIL={moja:.4f}\taplikacja={a:.4f}")
+# SC-16: c-bet 1/3 puli; sprawdzenie: dopłata b do puli P+b
+P=90; b=30; cmp('SC-16 eq.bet-third (zakład 1/3 puli)', req(b,P+b), 'eq.bet-third')
+xr=1.5*b; cmp('SC-16 eq.vs-xr.too-small (check-raise 1,5x)', req(xr-b, P+b+xr), 'eq.vs-xr.too-small')
+# wariant z sondy: pula 6, c-bet 2, podbicie 4,5x i 1,5x
+for pot in (6,9):
+    c=pot/3; big=4.5*c; small=1.5*c
+    print(f"INFO\tSC-16 pula {pot}: Button wobec 4,5x potrzebuje {req(big-c,pot+c+big):.4f}, wobec 1,5x {req(small-c,pot+c+small):.4f}")
+# SC-26: pula 5,5 (BTN 2,5 + BB 2,5 + martwy SB 0,5), all-in S, BB sprawdza S
+pot=2.5+2.5+0.5; print(f"INFO\tSC-26 pula {pot}")
+for S in (10,10.5,11,11.5,12,12.5): print(f"INFO\tSC-26 stack {S}: SPR {S/pot:.3f}, potrzebne {req(S,pot+S):.4f}")
+s=2; cmp('SC-26 eq.jam.spr2 (SPR 2)', req(s*1, 1+s), 'eq.jam.spr2')
+cmp('SC-26 spr.commit', 2, 'spr.commit')
+# SC-27: CO otwiera 2,5, BTN 3-bet 3x = 7,5, CO sprawdza; blindy 1,5 martwe
+pot3=7.5+7.5+0.5+1; st=100-7.5
+cmp('SC-27 vs3bet.pot-after', pot3, 'vs3bet.pot-after'); cmp('SC-27 spr.3bet-ip.stack', st, 'spr.3bet-ip.stack'); cmp('SC-27 spr.3bet-ip (SPR)', st/pot3, 'spr.3bet-ip', 0.005)
+tot=0; p=pot3
+for _ in range(3): z=p/3; tot+=z; p+=2*z
+cmp('SC-27 g3b.third.total (3 zakłady po 1/3)', tot, 'g3b.third.total', 0.01)
+f=((1+2*st/pot3)**(1/3)-1)/2
+print(f"INFO\tSC-27 ułamek geometryczny (3 ulice) przy SPR {st/pot3:.3f}: {f:.4f}; aplikacja (sonda): 0.6514")
+for spr in (4,8): print(f"INFO\tSC-27 Ś: SPR {spr} -> ułamek {((1+2*spr)**(1/3)-1)/2:.4f}")
+# SC-30: otwarcie 2,5, 3-bet 4x = 10, Button dopłaca 7,5 do puli 10+2,5+0,5 (martwy SB) ... po 3-becie pula = 10 + 2,5 + 0,5
+cmp('SC-30 pf.3bet.oop-total', 2.5*4, 'pf.3bet.oop-total')
+print(f"INFO\tSC-30 cena sprawdzenia 3-betu: {req(7.5, 10+2.5+0.5):.4f} (aplikacja w wariancie: 0.3659)")
+# SC-09: 3 + 1 za limpera; złe rozmiary 0,8 i 1,6 standardu
+cmp('SC-09 standard izolacji (1 limper, z pozycji)', 3+1, None, apw=app['pf.iso.base']+app['pf.iso.per-limper'])
+print("INFO\tSC-09 limper płaci do 4bb: 3 do puli 4+1+1,5 =", round(3/(4+1+1.5+3),4), "; do 3,2bb:", round(2.2/(3.2+1+1.5+2.2),4))
+print('wynik:', 'wszystkie zgodne' if all(wyn) else 'są różnice', f'({sum(wyn)}/{len(wyn)})')
+sys.exit(0 if all(wyn) else 1)

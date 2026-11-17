@@ -1,0 +1,65 @@
+# IL: cytaty sprawdzone dosłownie na surowym tekście (curl -sSL, HTML bez skryptów/stylów i znaczników, html.unescape, apostrofy proste) — odczyt 2026-11-17; grep -iF; kod 0
+# pliki: nr → adres → sha256 HTML
+# 1 https://blog.gtowizard.com/flop-heuristics-for-defending-the-blinds-in-mtts/ 452bb4ddd4aa49112ec1defa43c62dd29a8af517ff9649a698c57212d05e3eba
+# 2 https://blog.gtowizard.com/pot-geometry/ e5a5dddb4121a3333bd99a1fe245992ae3ce4d379992be836e769444bc73eafd
+# 3 https://blog.gtowizard.com/principles-of-turn-strategy/ 270cdbb24676db8e4ac9ddc5cfd3d9890c70059c442e4dd63e764eb90379b12f
+# 4 https://blog.gtowizard.com/stack-to-pot-ratio/ 8bcf77c7eb027611dd3925407655675b19f28dc0f5e70c4dc5c9ea09c83bab57
+# 5 https://blog.gtowizard.com/the-worst-turn-card/ 647e98159b766007175463984f7cc1e950c3a204c97495de9c99639585c2191d
+# 6 https://deepfold.co/en/blog/hud-stats-guide 0d2449c23c94a7ba1a61593da2efb8b3c783cba0b2fa9281b5016f65381ddba1
+# 7 https://pokercoaching.com/blog/poker-spr/ 9a76f31c740b6ec10d73c30f280e6d26769d0c645071520beb7dd8a0e0f58661
+# 8 https://pokercoaching.com/blog/poker-stats/ 204d31f04f0cfcdef8c76d6fa8a767ac3ff8fdb4fff718beab967dd4115ea3bf
+# 9 https://pokercoaching.com/blog/when-to-double-barrel-the-turn-as-a-bluff/ b8733419c5818e139ccba9410093621f43b060b7c5314911720a2e1364ba59bc
+# 10 https://upswingpoker.com/check-raise-lucid/ e0a501981942714028cbe464319b26f5d80620e6cc3b259c2c821a04620cd0d1
+# 11 https://upswingpoker.com/podcast/ep1-check-raise/ 09bb90d514337e0671073d5a5db2b20dfc92e3305cc37506a61b532972bf8f72
+# 12 https://www.pokerlistings.com/poker-strategies/cash-game-nl-holdem/when-to-fire-a-second-barrel-on-the-turn-a-simple-guide 7959286e2751b4ee882365018414cee290b18ff9f927b73a824dc46591ad12cd
+# 13 https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm aff6d070e4f0c7b78fdbf70300b96f335f3167c1c360076cd3bd29464719cc64
+# 14 https://www.preflopwizard.app/blog/poker-iso-raise-strategy a26e75dc720d4ee16bf7ca5f349daf6a47114dc6d7a62c3acca937de73d05967
+OK	T-HZ-01	plik 13	Raise to 3bb+1bb per limper when playing online
+OK	T-HZ-01	plik 14	Base open size (3bb) + 1 big blind per limper
+OK	T-HZ-02	plik 14	Never min-raise a limped pot
+OK	T-HZ-02	plik 14	A raise to 2bb over a 1bb limp gives every limper 4-to-1 odds to call
+OK	T-HZ-03	plik 14	Add 1bb more from OOP positions
+OK	OP-HZ-1	plik 14	The BB ISO is the least common and least profitable spot
+OK	OP-HZ-2	plik 14	over-sizing to 10-12bb against a single limper
+OK	T-HP-01	plik 10	Flush draws benefit from making the opponent fold their low-equity air-balls, and when they get called they still have a good chance of hitting a flush on the turn or the river
+OK	T-HP-01	plik 10	open-enders also benefit from check-raising by obtaining some fold equity
+OK	T-HP-02	plik 10	Flush draws make for good check-raises
+OK	T-HP-02	plik 10	Open-enders should check-raise often
+OK	T-HP-02	plik 10	check-calling is still preferred
+OK	T-HP-03	plik 11	Use a 4.5x raise vs. smaller c-bets
+OK	T-HP-04	plik 11	You don't always want to raise your high-equity draws
+OK	T-HP-08	plik 11	Use a 3.2x raise vs. larger c-bets
+OK	T-HP-09	plik 5	Overcards are generally slightly better for the preflop raiser than BB
+OK	T-HP-10	plik 5	which turned top pair or a draw
+OK	T-HP-10	plik 9	a huge chunk of your missed range just became top pair
+OK	T-HP-11	plik 12	Whatever pair your opponent held on the flop just got demoted to a worse pair
+OK	T-HP-12	plik 5	There's some correlation between our equity and our betting frequency
+OK	T-HP-12	plik 9	The best turn card for a wide flop bettor is an overcard to the board
+OK	T-HP-12	plik 9	Barrel overcard turns aggressively
+OK	T-HP-14	plik 3	BB has folded away their equity disadvantage and now has a stronger range on most turns
+OK	T-HP-14	plik 3	This means UTG can no longer bet with impunity
+OK	T-HP-15	plik 3	With less to gain from protection, medium-strength hands have more incentive to check and try to get a cheap showdown
+OK	T-HP-16	plik 3	strong hands grow the pot, medium-strength hands pot control
+OK	T-HP-16	plik 3	They bet flush draws consistently, but more marginal draws, along with marginal made hands, make up the bulk of the checking range
+OK	T-HP-16	plik 3	Second pair bets more often
+OK	T-HP-17	plik 4	Any top pair or better is good enough to stack off, even with no fold equity
+OK	T-HP-18	plik 7	One-pair hands like TPTK and overpairs gain value
+OK	T-HP-18	plik 4	stacking off with top pair starts to get a bit dicey
+OK	T-HP-19	plik 4	you would need $200/$500 = 40% equity
+OK	T-HP-20	plik 2	refers to betting an equal fraction of the pot on each street, such that you're all-in by the river
+OK	T-HP-21	plik 2	This strategy maximizes how much money your opponent puts into the pot
+OK	T-HP-21	plik 2	betting geometrically will force the widest theoretical defence from your opponent
+OK	T-HP-23	plik 2	Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage
+OK	T-HP-26	plik 8	the percentage of hands a player has invested money into the pot beyond the blinds and the antes
+OK	hud	plik 8	For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize
+OK	IL-001	plik 3	Medium-strength hands, including most top pair, consistently check
+OK	IL-001	plik 3	Third pair, second pair, and even most top pairs strictly check
+OK	IL-001	plik 12	If you never double barrel with top pair, good kicker
+OK	IL-001	plik 9	a huge chunk of your missed range just became top pair, while your opponent folded most of their ace-highs to the flop bet
+OK	IL-SC09	plik 13	These sizings are big enough to discourage the players behind from calling, but small enough for the limper to call happily
+OK	IL-SC09	plik 14	IP, 1 limper 4bb Standard — enough to fold weaker limping hands
+OK	IL-SC09	plik 14	1 limper 4-5x open (9-12bb)
+OK	IL-SC16	plik 11	Use a 3.2x raise on broadway boards vs. the button
+OK	IL-SC26	plik 4	there are 5.5bb in the pot and 12bb in the effective stacks, for an SPR just over 2
+OK	IL-SC26	plik 4	Let's examine BB's response to BTN shoving the flop
+OK	IL-SC18	plik 12	Top pair became second pair, second pair third pair and so on

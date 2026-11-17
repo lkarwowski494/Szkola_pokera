@@ -1,0 +1,27 @@
+# IL: python3 -I rachunki.py liczby-aplikacji.txt — 2026-11-17
+OK 	SC-16 eq.bet-third (zakład 1/3 puli)	IL=0.2000	aplikacja=0.2000
+OK 	SC-16 eq.vs-xr.too-small (check-raise 1,5x)	IL=0.0833	aplikacja=0.0833
+INFO	SC-16 pula 6: Button wobec 4,5x potrzebuje 0.2917, wobec 1,5x 0.0833
+INFO	SC-16 pula 9: Button wobec 4,5x potrzebuje 0.2917, wobec 1,5x 0.0833
+INFO	SC-26 pula 5.5
+INFO	SC-26 stack 10: SPR 1.818, potrzebne 0.3922
+INFO	SC-26 stack 10.5: SPR 1.909, potrzebne 0.3962
+INFO	SC-26 stack 11: SPR 2.000, potrzebne 0.4000
+INFO	SC-26 stack 11.5: SPR 2.091, potrzebne 0.4035
+INFO	SC-26 stack 12: SPR 2.182, potrzebne 0.4068
+INFO	SC-26 stack 12.5: SPR 2.273, potrzebne 0.4098
+OK 	SC-26 eq.jam.spr2 (SPR 2)	IL=0.4000	aplikacja=0.4000
+OK 	SC-26 spr.commit	IL=2.0000	aplikacja=2.0000
+OK 	SC-27 vs3bet.pot-after	IL=16.5000	aplikacja=16.5000
+OK 	SC-27 spr.3bet-ip.stack	IL=92.5000	aplikacja=92.5000
+OK 	SC-27 spr.3bet-ip (SPR)	IL=5.6061	aplikacja=5.6061
+OK 	SC-27 g3b.third.total (3 zakłady po 1/3)	IL=29.9444	aplikacja=29.9444
+INFO	SC-27 ułamek geometryczny (3 ulice) przy SPR 5.606: 0.6514; aplikacja (sonda): 0.6514
+INFO	SC-27 Ś: SPR 4 -> ułamek 0.5400
+INFO	SC-27 Ś: SPR 8 -> ułamek 0.7856
+OK 	SC-30 pf.3bet.oop-total	IL=10.0000	aplikacja=10.0000
+INFO	SC-30 cena sprawdzenia 3-betu: 0.3659 (aplikacja w wariancie: 0.3659)
+OK 	SC-09 standard izolacji (1 limper, z pozycji)	IL=4.0000	aplikacja=4.0000
+INFO	SC-09 limper płaci do 4bb: 3 do puli 4+1+1,5 = 0.3158 ; do 3,2bb: 0.2785
+wynik: wszystkie zgodne (10/10)
+EXIT 0

@@ -1,0 +1,14 @@
+sc-01.yaml (m2): 3-bet -> m3.l2
+sc-02.yaml (m2): 3-bet -> m3.l2
+sc-03.yaml (m2): 3-bet -> m3.l2
+sc-04.yaml (m3): range-advantage -> m5.l2
+sc-04.yaml (m3): dry -> m5.l1
+sc-04.yaml (m3): c-bet -> m5.l1
+sc-05.yaml (m3): connectors -> m4.l1
+sc-05.yaml (m3): c-bet -> m5.l1
+sc-05.yaml (m3): connected -> m5.l1
+sc-07.yaml (m4): c-bet -> m5.l1
+sc-07.yaml (m4): backdoor -> m6.l2
+sc-26.yaml (m9): icm -> m11.l3
+trafienia: 12
+EXIT 0
