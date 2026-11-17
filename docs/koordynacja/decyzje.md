@@ -150,3 +150,6 @@ Tryb: rozstrzygnięcie merytoryczne koordynatora według hierarchii ADR-24 (nie 
 
 ## KO-124 (2026-11-17 07:55): poprawki treści z IL i IM przed 1012
 Tryb: rekomendacja (merytoryczne/terminologia wg ADR-24 i tabeli terminów, do weta). IL-002 → opcja (a): „{{t:oesd|OESD}}” (pl), „{{t:oesd|open-ended straight draws}}” (en), przekłady tego zdania w 10 językach. IM-002 (zh-Hant SC-27 „到河牌時投入全部籌碼”) oraz ŚREDNIE IM-003…IM-009 według brzmień zaproponowanych w raporcie IM (sesja 09 sprawdza każde przed wpisaniem). ŚREDNIE nie blokują wydania, ale są tanie i w tych samych plikach — razem w jednej sesji. IL-003 (ICM przed definicją): decyzja produktowa → pytanie do właściciela w linii 14:00 (rek. IL: wyjątek na 1012, przeredagowanie po wydaniu). NISKIE IL-004…007, IM-010…029 → backlog z wersją po 1.0.
+
+## KO-125 (2026-11-17 08:35): es — jedna nazwa Buttona w całym języku (po 1012)
+Tryb: rekomendacja (terminologia, do weta). Po IQ scenariusze es mówią „botón” (spójnie z etykietą pozycji w UI „botón (BTN)”), a rules/ranges/lessons/exams/es.json mieszają „Button” i „botón”. CLAUDE.md: jedna nazwa na jedno pojęcie. Kierunek: „botón” wszędzie w es (zgodnie z etykietą pozycji). ŚREDNIE — nie blokuje 1012; sesja 09 po wydaniu 1012. Odrzucone: cofnięcie IQ do „Button” — rozjazd z etykietą {{w:pozycja}} w tej samej karcie (IM-003).
