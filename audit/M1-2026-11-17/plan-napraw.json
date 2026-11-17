@@ -347,7 +347,7 @@
    "pytanie": "Aktualizacja akcji przypiętych do SHA",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "b",
-   "wybor": null,
+   "wybor": "b",
    "opcje": [
     {
      "id": "a",
@@ -362,7 +362,8 @@
    ],
    "zrodla": [
     "M1-audytor-generalny-070"
-   ]
+   ],
+   "zatwierdzenie": "koordynator 2026-11-17: rekomendacja (b) przyjęta do backlogu partii 2"
   }
  ],
  "zadania": [
@@ -1651,7 +1652,7 @@
    "zalezy_od": [],
    "decyzja": null,
    "przyczyna": null,
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null,
    "tytul": "Kropka klasy niepewnej w siatce lekcji (M2-koordynator-napraw-001) ma kontrast 1,59:1 (jasny) i 2,01:1 (jasny + Zwiększ kontrast) na zielonym polu, < 3:1 WCAG 1.4.11; 71/263 klas, w tym K7o, Q8o, T2s, K8o, 75o",
    "poziom": "P1",
@@ -1659,7 +1660,8 @@
    "partia": 1,
    "regresja_od": "M1-audytor-generalny-002",
    "raport": "reaudit-2026-11-17/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-17.md",
-   "test_akceptacyjny": "para kontrastu kropka/pole w tokeny.ts sprawdzana w CI (≥ 3:1 we wszystkich 4 motywach); kropka w kolorze ink (≥ 3,25:1); test RangeGrid-uncertain zielony"
+   "test_akceptacyjny": "para kontrastu kropka/pole w tokeny.ts sprawdzana w CI (≥ 3:1 we wszystkich 4 motywach); kropka w kolorze ink (≥ 3,25:1); test RangeGrid-uncertain zielony",
+   "zatwierdzenie": "właściciel 2026-11-17 (przez koordynatora, STOP 2 reaudytu): „067+068 razem (zalecane)”"
   },
   {
    "id": "M1-audytor-generalny-068",
@@ -1671,7 +1673,7 @@
    "zalezy_od": [],
    "decyzja": null,
    "przyczyna": null,
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null,
    "tytul": "PaintGrid: kropka „mieszana” na pomalowanym polu 1,19–2,46:1 (ta sama przyczyna co 067: tk.muted bez pary kontrastu)",
    "poziom": "P3",
@@ -1680,7 +1682,8 @@
    "istnialo_wczesniej": true,
    "raport": "reaudit-2026-11-17/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-17.md",
    "test_akceptacyjny": "para kontrastu w tokeny.ts obejmuje PaintGrid (≥ 3:1)",
-   "powod": "backlog (D-053); naprawa wspólna z 067 zalecana"
+   "powod": "backlog (D-053); naprawa wspólna z 067 zalecana",
+   "zatwierdzenie": "właściciel 2026-11-17 (przez koordynatora, STOP 2 reaudytu): „067+068 razem (zalecane)”"
   },
   {
    "id": "M1-audytor-generalny-069",

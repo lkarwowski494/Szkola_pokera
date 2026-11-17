@@ -48,3 +48,6 @@ Analogia z Treningiem (CLAUDE.md, D-191): repo `lkarwowski494/trening` nie jest 
 ## D-2031 · 2026-11-17 · Wynik reaudytu M1 pętla 1
 - 002, 007, 047, 061 → zweryfikowane (dowody z 196cb8c2). Nowa pozycja M1-audytor-generalny-067 (P1, regresja od 002 przez M2-001: kontrast kropki klasy niepewnej 1,59:1 w motywie jasnym, WCAG 1.4.11) — potwierdzona weryfikacją przeciwną. M2-002…005, 04-002 reaudytu, kolizja ID 06-tresci-502 → P3 (068–073), DEC-14 dodana. Stan: ZABLOKOWANE dla 1012 przez 067 i bramkę JAK-19 (protokół F 1011).
 - Odrzucone: uznać 067 za P2 „informacja dodatkowa” (kropka jest w lekcji jedynym nośnikiem informacji o klasie niepewnej; weryfikacja r1-04-001); zlecić drugi reaudit po naprawie 067 (CLAUDE.md pkt 2: test + ci + E2E wystarczą).
+
+## D-2032 · 2026-11-17 · Odpowiedź na STOP 2 reaudytu
+- Właściciel (przez koordynatora): „067+068 razem (zalecane)” → zadania 067 i 068 `zatwierdzone`; weryfikacja naprawy testem + `pnpm run ci` + E2E bez kolejnego reaudytu (CLAUDE.md pkt 2). DEC-14 = (b) (backlog partii 2). Bramka JAK-19: protokół F 1011 zamknięty decyzją właściciela KO-128 (14:10 UTC: „F - ozbacz jako pominiete z zaakceptowanym ryzykiem.”, docs/jakosc/test-fizyczny/1011.md na roboczej 94515829) — nie blokuje 1012.
