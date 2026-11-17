@@ -51,6 +51,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 
+- **18:40 UTC** IS M2-006 gotowe (a805c2cf; etykiety ≥ 4,5 w 4 motywach, podkładka surface, ci kod 0). Wykryte: kopia narzędzia prompts w 08a1fd3c (publiczna gałąź) → KO-133 usunąć commitem. Nowe M2-009 P1 (pasek dark 1,71/1,47) → KO-134 naprawa teraz. Do weta: D-2017, D-2020.
+
 - **17:45 UTC** IS STOP wyjątkowy M2-006 (a869aaaf): pola pełne OK, 146 pośrednich < 4,5, ryzyko regresji progu 0,85 → KO-132 właściciel: pełna naprawa (próg 1 + podkładka 04) przed 1012.
 
 - **17:00 UTC** IS 067/068 gotowe (a8563fdc; kontrast kropki RangeGrid light 1,60→3,92, PaintGrid 2,46→17,86; test par 140 pomiarów; ci kod 0). Nowe M2-006 P1 (etykiety 8 pt 3,92:1 < 4,5) → KO-131 właściciel: naprawa teraz w IS. M2-007/008 → backlog. Do weta: D-2016.
