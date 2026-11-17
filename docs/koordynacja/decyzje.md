@@ -132,3 +132,6 @@ Pytanie IG: „Głębokość N bb” na starcie (`stackBb`) nie zgadza się z g�
 
 ## KO-118 (2026-11-17 05:00): build 1011 uruchomiony; telefon 320 pt — brak
 Właściciel w linii 05:00: „Uruchom teraz (Recommended)” → dispatch `testflight.yml` na `claude/sleepy-brahmagupta-2065nu` @ aee1a359, przebieg 11 (44020579081) = build 1011. Odrzucone: „Wstrzymaj”. Pytanie o telefon 320 pt: „Nie mam” → punkt 9 protokołu F 1011 wpisywany jako „POMINIĘTE: brak telefonu 320 pt” (słowami właściciela przy zwrocie listy); 320 pt pokrywają zrzuty web if-/ih-/ij-* i testy Jest. Odrzucone: „Mam”.
+
+## KO-119 (2026-11-17 06:55): sesje podrzędne składają prompt roli same z biblioteki, z kontrolą sha256
+Tryb: rekomendacja (techniczne, do weta). Rola M9 E1 pkt 3 każe wkleić cały prompt roli (ok. 50–65 tys. znaków) w pierwszą wiadomość; dla 3 sesji to ok. 55 tys. tokenów wyjścia koordynatora i ryzyko błędu przy przepisywaniu. Zamiast tego sesja dołącza lkarwowski494/prompts (read), składa prompt z tego samego commitu af4c0a8 i porównuje sha256 z wartością w poleceniu (kontrola zastępcza, zasada wspólna 7). Prompt nie trafia do repo. Odrzucone: (a) wklejanie — koszt i ryzyko przepisania; (b) prompt w `docs/koordynacja/prompty/` — repo publiczne, biblioteka prywatna (tak robili poprzednicy, zgłoszone właścicielowi). Przy odrzuceniu add_repo przez klasyfikator: powrót do (a). Do weta.

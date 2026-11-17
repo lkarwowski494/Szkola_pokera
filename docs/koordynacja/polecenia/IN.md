@@ -1,7 +1,7 @@
 # Sesja IN: instrukcja sprawdzenia znaków towarowych „PokerGym” krok po kroku (10 build, docs) — Szkoła Pokera
 Koordynator: session_01T66VBz6DTkPGQMK56NWDDA (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID). Gałąź stanu `koordynacja` tylko do odczytu.
 
-1. Rola: 10-wydanie w trybie build. Prompt roli jest w Twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości. Biblioteki prompts nie dołączasz.
+1. Rola: 10-wydanie w trybie build. Prompt roli składasz sam (KO-119): `add_repo` lkarwowski494/prompts z dostępem read, klon `--depth 1` do `/home/user/prompts`, `git -C /home/user/prompts checkout af4c0a8334ce5b04acc17577196116b64eeaad97` (gdy klon płytki nie ma tego commitu: `git fetch --depth 1 origin af4c0a8334ce5b04acc17577196116b64eeaad97`), potem `node /home/user/prompts/tools/assemble.mjs 10-wydanie --tryb build --plik /tmp/rola.md`. Sprawdź `sha256sum /tmp/rola.md` = `73b2e8ae7c1770b43fd52a85b9732f2eabd663b9444ddbd8860fb439dd47402a` (data w nagłówku 2026-11-17; inna data albo hash: zgłoś w raporcie startowym). Przeczytaj go w całości; od tej chwili jesteś tą rolą. Gdy add_repo albo uruchomienie składacza zostanie odrzucone: nie obchodzisz tego, tylko raport PYTANIE do koordynatora i czekasz. Prompt roli nie trafia do repo (biblioteka prywatna, repo publiczne).
 2. Start: gałąź `claude/sesja-in-znaki` od `ef75f613863eb5e4081b83eefc5b45846fd40f42`.
 3. Kontekst: decyzja właściciela 2026-11-17 „A: najpierw znaki” — zmiana nazwy w App Store Connect na „PokerGym: GTO Strategy Trainer” (D-378, D-382; `docs/decyzje.md`) dopiero po sprawdzeniu znaków (D-378 pkt 3). Właściciel nie jest prawnikiem; robi to sam w przeglądarce (ok. 15 min).
 4. Zadania:
