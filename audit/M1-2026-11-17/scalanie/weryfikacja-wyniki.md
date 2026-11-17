@@ -24,3 +24,9 @@
 | g6 | 09-lokalizacja-001 | potwierdzone (jedna przyczyna, session.tsx:601 i :333) | P2 | nie | nie | |
 | g6 | 09-lokalizacja-002 | potwierdzone (wbrew ADR 0012 pkt 3) | P2 | nie | nie | |
 | g6 | 01-odkrywanie-003 | potwierdzone z korektami (BRD edytowane po 11-04; brak tylko poprawki wg D-158/D-167) | P2 | nie | nie | |
+| g7 | 06-tresci-501 | **potwierdzone** (odtworzone na danych BeyondGTO z dziś: 16 i 13 rąk ≥ 50 pp, brak klas niepewnych; engine.ts:436, grading.ts:327; D-153 nie rozważyło klas niepewnych) | **P1** | **tak** | **tak** | (tokeny po powiadomieniu) |
+| g7 | 06-tresci-502 | potwierdzone, słabsze (źródło szczebla 2 jest; tylko atrybucja) | P2 niskie | nie | nie | |
+| g7 | 06-tresci-503 | potwierdzone; zarzut sprzeczności częściowo obalony | P2 | nie | nie | |
+| g7 | 06-tresci-002 | potwierdzone (zdanie prawdziwe, brak wpisu w rejestrze) | P2 niskie | nie | nie | |
+| g7 | 06-tresci-003 | potwierdzone (2/1006 z wazne_do) | P2 niskie | nie | nie | |
+| g7 | 06-tresci-504 | częściowo; podzbiór 003 (ta sama przyczyna) | P2 niskie | nie | nie | |

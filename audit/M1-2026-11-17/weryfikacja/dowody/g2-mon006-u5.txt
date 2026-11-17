@@ -36,3 +36,13 @@ $ sed -n 86p docs/wydanie/plan-1.0.md; sed -n 1213p docs/programista/plan-08.md
 | F-13 zakup | kod jest; w App Store Connect brak produktów; zdanie o anulowaniu (10-US-01/02, 10-JP-01) robi sesja I | D-301; CLAUDE.md „Sklep: … częściowo” | produkty IAP i ceny (W-06), piaskownica na telefonie (W-08) |
 | 17:46 | koordynator | Właściciel 17:39 „Gotowe” — nowy klucz ASC. Podglądy (tylko odczyt, ref gałęzi): **42666898852 metadane zielone** (klucz przyjęty, job zapis pominięty); 42666904910 IAP czerwone zgodnie z oczekiwaniem — brak grupy subskrypcji i produktów w ASC (0 z 4); 42666909863 kontrola: OK 0, RÓŻNICA
 kod: 0
+
+# późniejszy wpis koordynacji: produkty zapisane w ASC (plan-1.0.md:86 nieaktualne w tym punkcie)
+$ sed -n 1236p docs/programista/plan-08.md; sed -n 1241p docs/programista/plan-08.md
+| 21:20 | koordynator / właściciel | **Zapis produktów ASC 42700037429 zielony** (ref gałęzi, zatwierdzony przez właściciela w `release`; próba 42699812656 z main padła na planie — brak skryptów na main, nic nie zapisano): dostępność aplikacji, grupa „pelny”, kwartał 9,99 / rok 14,99 (ceny 166 krajów), doży
+| 21:57 | koordynator / właściciel | Właściciel: ręczne pola ASC. Kontrola **42706853122** (ref gałęzi): OK — metadane 5/5, adresy, kategoria EDUCATION, dostępność 166, produkty i Family Sharing wył., kontakt recenzenta ustawiony; ocena wiekowa SE
+kod: 0
+
+$ sed -n 10p docs/decyzje/HV.md
+| D-1784 | 2026-11-16 | A | Pozycje F (8) to szybkie sprawdzenia co build, ok. 7 min razem (PU-014–PU-020, PU-022 „wygląd”: talia czterokolorowa i wibracje, dopisane po recenzji HV P2-3); ciężkie sprawdzenia „przed App Store” (piaskownica pełna T-05, drugi telefon T-06, powiadomienie następnego dnia T-08, zmiana daty T-04, regiony pomocy T-07, trzy scenariusze T-09) zostają w `strategia.md` §8 i są wymienione w kolumnie wariantów. Nowe tanie scenariusze (test modułu PU-012, Postęp PU-013, „Usuń postęp” PU-021) → B z terminem 1014. | Wszystkie T-01–T-11 jako F co 
+kod: 0
