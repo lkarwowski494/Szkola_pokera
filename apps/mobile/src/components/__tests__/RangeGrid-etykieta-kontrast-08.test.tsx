@@ -79,12 +79,12 @@ const tloEtykiety = (komorka: N, sukno: string) => (flat(komorka).backgroundColo
 
 // KO-132 / D-2020 (wynik roli 04, sekcja 2.1–2.2): `onFelt` tylko na polu w pełni zielonym (pierwsza grupa = 1), w pozostałych `ink` na podkładce `surface`.
 describe('RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006, KO-132)', () => {
-  it.each(WARIANTY)('%s: pole pełne (f = 1): onFelt na sukni, bez podkładki, ≥ 4,5:1 do felt1 z kryciem 0,85 na surface', async (w) => {
+  it.each(WARIANTY)('%s: pole pełne (f = 1): onFelt na sukni, bez podkładki, ≥ 4,5:1 do rangeFill z kryciem 0,85 na surface', async (w) => {
     mockWariant.w = w;
     const p = pal(w);
     const { toJSON } = await render(<RangeGrid spot={spotZPokryciem({ AA: 1, KK: 1 })} />);
     const m = pola(toJSON());
-    const sukno = zloz(p.felt1!, 0.85, p.surface!);
+    const sukno = zloz(p.rangeFill!, 0.85, p.surface!);
     for (const h of ['AA', 'KK']) {
       expect({ pole: h, kolor: m.get(h)!.kolor, podkladka: flat(m.get(h)!.komorka).backgroundColor }).toEqual({ pole: h, kolor: p.onFelt, podkladka: undefined });
       expect({ pole: h, r: Number(kontrast(m.get(h)!.kolor, tloEtykiety(m.get(h)!.komorka, sukno)).toFixed(2)) >= 4.5 }).toEqual({ pole: h, r: true });
@@ -97,7 +97,7 @@ describe('RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw
     const f: Record<string, number> = { '72o': 0, AA: 0.001, KK: 0.15, QQ: 0.5, JJ: 0.85, TT: 0.999 };
     const { toJSON } = await render(<RangeGrid spot={spotZPokryciem(f)} />);
     const m = pola(toJSON());
-    const sukno = zloz(p.felt1!, 0.85, p.surface!);
+    const sukno = zloz(p.rangeFill!, 0.85, p.surface!);
     for (const h of Object.keys(f)) {
       const { kolor, komorka } = m.get(h)!;
       expect({ pole: h, kolor, podkladka: flat(komorka).backgroundColor }).toEqual({ pole: h, kolor: p.ink, podkladka: p.surface });
@@ -132,7 +132,7 @@ describe('RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw
     const { toJSON } = await render(<RangeGrid spot={{ ...spotZPokryciem({ AA: 1, KK: 0.5 }), uncertain: ['AA', 'KK', '72o'] }} />);
     const znaki = kropki(toJSON());
     expect(znaki).toHaveLength(3);
-    const sukno = zloz(p.felt1!, 0.85, p.surface!);
+    const sukno = zloz(p.rangeFill!, 0.85, p.surface!);
     for (const k of znaki) {
       expect(k.type).toBe('View');
       const st = flat(k);
@@ -179,12 +179,12 @@ describe('RangeGrid na treści pl: pola pośrednie i kontrast etykiet', () => {
     id: string; title: string; hero: string; path: string; play_percent: number; groups: string; uncertain: string;
   }[]).map((r): RangeSpot => ({ id: r.id, title: r.title, hero: r.hero, path: r.path, playPercent: r.play_percent, groups: JSON.parse(r.groups), uncertain: JSON.parse(r.uncertain) }));
 
-  // Strażnik grup 2 i 3 (wynik roli 04, 2.5 pkt 5): kolor grupy g to `colors[g]` z RangeGrid (felt1, przejsciowe.warn, cardBlue).
+  // Strażnik grup 2 i 3 (wynik roli 04, 2.5 pkt 5): kolor grupy g to `colors[g]` z RangeGrid (rangeFill, przejsciowe.warn, cardBlue).
   // Etykieta zawsze leży na podkładce (ink na surface), ale kropka klasy niepewnej może leżeć na pasku grupy g.
   it.each(WARIANTY)('%s: każdy spot pl ma jedną grupę albo kropka ink ma ≥ 3:1 do paska każdej grupy g ≥ 2 (krycie 0,85 na surface)', (w) => {
     const p = pal(w);
     const przej = w === 'dark' || w === 'darkHigh' ? przejscioweCiemne : przejscioweJasne;
-    const kolorGrupy = [p.felt1!, przej.warn, p.cardBlue!];
+    const kolorGrupy = [p.rangeFill!, przej.warn, p.cardBlue!];
     const za_niskie: string[] = [];
     for (const s of spoty) {
       s.groups.forEach((_, g) => {
@@ -217,7 +217,7 @@ describe('RangeGrid na treści pl: pola pośrednie i kontrast etykiet', () => {
   it.each(WARIANTY)('%s: na treści pl każde pole ma etykietę ≥ 4,5:1 do tła, na którym leży (pełne: onFelt na suknie, pozostałe: ink na podkładce)', async (w) => {
     mockWariant.w = w;
     const p = pal(w);
-    const sukno = zloz(p.felt1!, 0.85, p.surface!);
+    const sukno = zloz(p.rangeFill!, 0.85, p.surface!);
     const za_niskie: string[] = [];
     for (const s of spoty) {
       const { toJSON, unmount } = await render(<RangeGrid spot={s} />);

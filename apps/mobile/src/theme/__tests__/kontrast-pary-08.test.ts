@@ -68,24 +68,29 @@ describe('etykieta ręki w PaintGrid: próg 4,5 do tła pola (4 warianty)', () =
   });
 });
 
-// M2-koordynator-napraw-006 (KO-132, D-2020; wynik roli 04, sekcja 3): pary siatki lekcji w 4 motywach. Sukno = felt1 z kryciem 0,85 na surface.
+// M2-koordynator-napraw-006 (KO-132, D-2020; wynik roli 04, sekcja 3): pary siatki lekcji w 4 motywach. Pasek = rangeFill z kryciem 0,85 na surface (D-2021; przed M2-009 felt1).
 describe('RangeGrid: etykieta ręki i kropka klasy niepewnej (4 warianty)', () => {
-  it.each(WARIANTY)('%s: etykieta f = 1 (onFelt na sukni) ≥ 4,5; etykieta na podkładce (ink na surface) ≥ 4,5; kropka (ink na sukni i na surface) ≥ 3', (w) => {
+  it.each(WARIANTY)('%s: etykieta f = 1 (onFelt na pasku) ≥ 4,5; etykieta na podkładce (ink na surface) ≥ 4,5; kropka (ink na pasku i na surface) ≥ 3; pasek ≥ 3 do surface', (w) => {
     const p = paleta(w);
-    const sukno = zloz(p.felt1!, 0.85, p.surface!);
+    const sukno = zloz(p.rangeFill!, 0.85, p.surface!);
     const pary: [string, number, number][] = [
-      ['etykieta f = 1: onFelt na sukni', kontrast(p.onFelt!, sukno), 4.5],
+      ['etykieta f = 1: onFelt na pasku', kontrast(p.onFelt!, sukno), 4.5],
       ['etykieta na podkładce: ink na surface', kontrast(p.ink!, p.surface!), 4.5],
-      ['kropka: ink na sukni', kontrast(p.ink!, sukno), 3],
+      ['kropka: ink na pasku', kontrast(p.ink!, sukno), 3],
       ['kropka: ink na surface', kontrast(p.ink!, p.surface!), 3],
+      ['pasek: do surface', kontrast(sukno, p.surface!), 3],
     ];
     expect(pary.filter(([, r, min]) => r < min).map(([n, r, min]) => `${n}: ${r.toFixed(2)} < ${min}`)).toEqual([]);
   });
 
   it('pary siatki są w `pary` i `paryZlozone` (jedno źródło progu dla testu kontrastu w CI)', () => {
     expect(tokeny.pary['etykieta ręki w siatce na podkładce (pole niepełne)']).toEqual(['ink', 'surface', 4.5]);
-    const z = tokeny.paryZlozone['etykieta ręki na polu pełnym (pierwsza grupa = 1, tekst 8–10,4 pt)'];
-    expect(z).toMatchObject({ fg: 'onFelt', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 4.5 });
+    const z = tokeny.paryZlozone['etykieta ręki na pasku pełnym (rangeFill, tekst 8–10,4 pt)'];
+    expect(z).toMatchObject({ fg: 'onFelt', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 4.5 });
+    const pasek = tokeny.paryZlozone['pasek siatki obok pustej części pola (rangeFill na surface)'];
+    expect(pasek).toMatchObject({ fg: 'surface', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 });
+    const kropka = tokeny.paryZlozone['kropka klasy niepewnej na pasku (rangeFill)'];
+    expect(kropka).toMatchObject({ fg: 'ink', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 });
   });
 
   it('RangeGrid.tsx nie zawiera progu pokrycia 0,85 dla koloru etykiety (reguła: pole pełne, f ≥ 1)', () => {
