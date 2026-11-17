@@ -51,6 +51,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 
+- **17:45 UTC** IS STOP wyjątkowy M2-006 (a869aaaf): pola pełne OK, 146 pośrednich < 4,5, ryzyko regresji progu 0,85 → KO-132 właściciel: pełna naprawa (próg 1 + podkładka 04) przed 1012.
+
 - **17:00 UTC** IS 067/068 gotowe (a8563fdc; kontrast kropki RangeGrid light 1,60→3,92, PaintGrid 2,46→17,86; test par 140 pomiarów; ci kod 0). Nowe M2-006 P1 (etykiety 8 pt 3,92:1 < 4,5) → KO-131 właściciel: naprawa teraz w IS. M2-007/008 → backlog. Do weta: D-2016.
 
 - **16:20 UTC** Reaudit M1 (IR @ 202185ab, 31,7 USD): 002/007/047/061 zweryfikowane; 067 P1 kontrast kropki (regresja M2-001) → KO-130 właściciel: 067+068 w IS. Werdykt 1012 zablokowany tylko przez 067 (JAK-19 zamknięte KO-128). M2-002…005 → P3 backlog. Do weta: D-2015, D-2030, D-2031, KO-130. Następnie: scalenie IS → robocza, CI + E2E, zgoda na 1012.
