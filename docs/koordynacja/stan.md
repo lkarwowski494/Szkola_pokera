@@ -51,6 +51,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 
+- **22:00 UTC** testflight run 12 @ 81103fcb: bramka scenariuszy czerwona (brak przeglądu i protokołu F), build pominięty, nic nie wysłane. KO-136: numer 1012 przepada, następny build = **1013**; przegląd + PU-029 + szkielet 1013 w 3fa9bcf1 (robocza), bramka lokalnie zielona; E2E dispatch na 3fa9bcf1, potem testflight dispatch (zgoda KO-135).
+
 - **20:50 UTC** Kandydat 1012 = 81103fcb: CI #571 (44157442323) i E2E #111 (44157442135) success. **Właściciel: zgoda na build 1012 (KO-135)** → dispatch testflight.yml. Po wysyłce: docs/wydanie/ostatni-build.txt = 1012; lista telefonu T-SIATKA, T-SIATKA-CIEMNY, M4.l2 kropki.
 
 - **19:30 UTC** IS: KO-133 (3 kopie z audit/ usunięte 4207c6f1; 10 plików poza audit/ pokrywa się z biblioteką prompts — narzędzia projektu w docs/ i scripts/, istniały wcześniej, do decyzji po 1012) i M2-009 (dark pasek 1,71/1,47 → 3,20; ci kod 0) gotowe @ a9a2a7cb. M2-011 P2 (etykieta 8→10,4 pt, 1.4.4) backlog przed App Store. Koszt IS łącznie 63,31 USD (plan 15–30: przekroczenie przez 4 dodatkowe cykle KO-129…KO-134). **Scalone do roboczej: 81103fcb** (merge bez konfliktów); CI + E2E na push. IS zarchiwizowana. Do weta: D-2021.
