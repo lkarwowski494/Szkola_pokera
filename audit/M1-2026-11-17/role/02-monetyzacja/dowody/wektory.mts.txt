@@ -1,0 +1,30 @@
+// Wektory modułu storekit-expo (prompt roli 02) + wektory z docs/monetyzacja.md na decyzja() z packages/domena/src/dostep.ts @ f75acdff.
+import { decyzja } from '/home/user/Szkola_pokera/packages/domena/src/dostep.ts';
+const P = 'pl.lkarwowski.szkolapokera.';
+const K = P + 'kwartal', R = P + 'rok', D = P + 'dozywotni';
+const ODB = [K, R, D], BEZ = [D], T = 1_800_000_000_000;
+const tr = (produkt: string, wygasaMs: number | null, odebrana = false) => ({ produkt, wygasaMs, odebrana });
+const pam = (...p: [string, number | null][]) => ({ produkty: p.map(([produkt, wygasaMs]) => ({ produkt, wygasaMs })), odczytanoMs: T - 10 });
+const W: [string, Parameters<typeof decyzja>[0], Parameters<typeof decyzja>[1], boolean, string][] = [
+  ['zakup jednorazowy', { ok: true, transakcje: [tr(D, null)] }, null, true, 'sklep'],
+  ['ponowna instalacja (pamięć pusta)', { ok: true, transakcje: [tr(D, null)] }, null, true, 'sklep'],
+  ['brak sieci po zakupie', { ok: false }, pam([D, null]), true, 'pamiec'],
+  ['brak sieci, nigdy nie kupił', { ok: false }, null, false, 'brak'],
+  ['zwrot (odebrane)', { ok: true, transakcje: [tr(D, null, true)] }, pam([D, null]), false, 'sklep'],
+  ['subskrypcja wygasła, brak sieci', { ok: false }, pam([R, T - 1]), false, 'pamiec'],
+  ['roczna trwa', { ok: true, transakcje: [tr(R, T + 1)] }, null, true, 'sklep'],
+  ['brak sieci, roczna trwa', { ok: false }, pam([R, T + 1]), true, 'pamiec'],
+  ['dożywotni + wygasły kwartał', { ok: true, transakcje: [tr(D, null), tr(K, T - 1)] }, null, true, 'sklep'],
+  ['przywracanie bez zakupu (pusta lista)', { ok: true, transakcje: [] }, pam([D, null]), false, 'sklep'],
+  ['napiwek/obcy produkt', { ok: true, transakcje: [tr(P + 'napiwek', null)] }, null, false, 'sklep'],
+  ['subskrypcja bez daty końca (W10)', { ok: true, transakcje: [tr(R, null)] }, null, false, 'sklep'],
+];
+let zle = 0;
+for (const [n, o, p, dost, zr] of W) {
+  const d = decyzja(o, p, T, ODB, BEZ);
+  const ok = d.dostep === dost && d.zrodlo === zr;
+  if (!ok) zle++;
+  console.log(`${ok ? 'OK ' : 'ZLE'} ${n}: dostep=${d.dostep} zrodlo=${d.zrodlo} pamiec=${JSON.stringify(d.nowaPamiec?.produkty ?? null)}`);
+}
+console.log(`${W.length - zle}/${W.length} zgodnych`);
+process.exit(zle ? 1 : 0);

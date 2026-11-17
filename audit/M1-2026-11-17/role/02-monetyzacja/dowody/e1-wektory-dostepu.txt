@@ -1,0 +1,16 @@
+# Wektory storekit-expo na decyzja() z packages/domena/src/dostep.ts (import wprost, Node 22 type stripping); skrypt: kopia niżej
+$ node scratchpad/m1-02/wektory.mts
+OK  zakup jednorazowy: dostep=true zrodlo=sklep pamiec=[{"produkt":"pl.lkarwowski.szkolapokera.dozywotni","wygasaMs":null}]
+OK  ponowna instalacja (pamięć pusta): dostep=true zrodlo=sklep pamiec=[{"produkt":"pl.lkarwowski.szkolapokera.dozywotni","wygasaMs":null}]
+OK  brak sieci po zakupie: dostep=true zrodlo=pamiec pamiec=[{"produkt":"pl.lkarwowski.szkolapokera.dozywotni","wygasaMs":null}]
+OK  brak sieci, nigdy nie kupił: dostep=false zrodlo=brak pamiec=null
+OK  zwrot (odebrane): dostep=false zrodlo=sklep pamiec=[]
+OK  subskrypcja wygasła, brak sieci: dostep=false zrodlo=pamiec pamiec=[{"produkt":"pl.lkarwowski.szkolapokera.rok","wygasaMs":1799999999999}]
+OK  roczna trwa: dostep=true zrodlo=sklep pamiec=[{"produkt":"pl.lkarwowski.szkolapokera.rok","wygasaMs":1800000000001}]
+OK  brak sieci, roczna trwa: dostep=true zrodlo=pamiec pamiec=[{"produkt":"pl.lkarwowski.szkolapokera.rok","wygasaMs":1800000000001}]
+OK  dożywotni + wygasły kwartał: dostep=true zrodlo=sklep pamiec=[{"produkt":"pl.lkarwowski.szkolapokera.dozywotni","wygasaMs":null}]
+OK  przywracanie bez zakupu (pusta lista): dostep=false zrodlo=sklep pamiec=[]
+OK  napiwek/obcy produkt: dostep=false zrodlo=sklep pamiec=[]
+OK  subskrypcja bez daty końca (W10): dostep=false zrodlo=sklep pamiec=[]
+12/12 zgodnych
+kod: 0

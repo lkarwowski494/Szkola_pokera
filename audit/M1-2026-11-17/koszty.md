@@ -12,3 +12,13 @@ Przelicznik USD [OCENA]: 15–20 USD/mln tokenów (dane projektu: `docs/koordyna
 | weryfikacja przeciwna (P0, P1, P2 krytyczne) | 0,8–2,3 mln | — | — | |
 | M1 scalanie i raport | 0,5–1,0 mln | — | — | |
 | **Razem (wariant c)** | **8–15 mln (130–260 USD)** | — | — | próg STOP wyjątkowego 22,5 mln / ok. 390 USD |
+
+## Zużycie na agenta (z powiadomień narzędzia Agent: subagent_tokens, czas)
+| Agent | Model | Tokeny | Czas | Wywołania narzędzi |
+|---|---|---|---|---|
+| soczewka właściciel | opus | 123 037 | 3,7 min | 21 |
+| soczewka nowy użytkownik | opus | 121 789 | 4,2 min | 24 |
+| soczewka praktyk dziedziny | opus | 131 390 | 4,3 min | 31 |
+| soczewka recenzent sklepu | opus | 126 804 | 5,0 min | 29 |
+| soczewka sceptyk ryzyka | opus | 152 881 | 7,5 min | 48 |
+| **soczewki razem** | | **655 901** (plan 0,5–0,75 mln) | | |
