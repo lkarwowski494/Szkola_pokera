@@ -9,5 +9,16 @@ ios/
 !apps/mobile/modules/*/ios/
 android/
 .env*.local
+# Sekrety i pliki podpisu nigdy w repo publicznym (zasada 14; M1-audytor-generalny-061, 10-wydanie-007; jak w Treningu, D-191)
+.env*
+*.p8
+*.p12
+*.jks
+*.keystore
+*.mobileprovision
+*.cer
+*.pem
+*.key
+credentials.json
 npm-debug.*
 tools/preflop-solver/targets/
