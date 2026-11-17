@@ -505,7 +505,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | HB | session_01T66VBymMeSJKouGiXpveHj | 08 fix | claude/sesja-hb-fix @ 7740eeab | 0 | 0 | start 10:51 |
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| IO | (start 07:15) | 08 fix IM-001 | claude/sesja-io-procent @ ef75f613 | — | 0 (pułap 5) | start |
+| IO | session_01T66VBwnbW2QFeAoBok7BdW | 08 fix IM-001 | claude/sesja-io-procent @ ef75f613 | — | 0 (pułap 5) | start |
 | IL | session_01T66VByrirYVEqYVpoPX3Up | 06 audit (recenzja 7 szablonów HZ) | claude/sesja-il-recenzja-hz @ ef75f613 | — | 0 (pułap 8) | start 06:41 |
 | IM | session_01T66VBxMuUBo8Zatm1nUKAd | 09 audit (przekłady HZ × 10) | claude/sesja-im-przeklady-hz @ 513f436b | 22% | 10,35 (pułap 8) | przyjęta 07:12, zarchiwizowana |
 | IN | session_01T66VBxe5Jwy3TgrDThE7Un | 10 build (znaki towarowe) | claude/sesja-in-znaki @ ef75f613 | — | 0 (pułap 3) | start 06:41 |
