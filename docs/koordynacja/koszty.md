@@ -224,3 +224,4 @@ Przegląd przepływu 2026-11-16 (14:00): największa strata 84 min — E2E scale
 | IP | 08 fix | 6 | 1,66 | 18 | 07:52 → 07:53 → 09:23 (ci 4 biegi, 2 zabite limitem 30 min) → recenzja w toku | 0 | sonnet; KO-120 |
 | IR | M1 audit głęboki | 130–260 | 140,92 | — | 10:16 → 10:51 (blokada add_repo, zgoda właściciela) → 11:00 STOP 1 → 11:31 partia 1 → 12:46 STOP 2 | 35 min (WG-28) | opus/high; 6,18 mln tokenów subagentów |
 | IS | M2 fix partia 1 | — | 18,31 | — | 13:07 → STOP start → 14:59 STOP końcowy (517bde61, ci kod 0) | ok. 20 min (WG-28, zgoda na prompts) | opus/medium; 5 subagentów (06, recenzent, D-043 ×2) |
+| IR reaudit | M1 reaudit pętla 1 | 20–40 | 31,7 | — | 15:28 → 16:16 STOP 2 (202185ab) | 0 | IR łącznie 172,66 USD |

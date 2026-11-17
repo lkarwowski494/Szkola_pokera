@@ -51,6 +51,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 
+- **16:20 UTC** Reaudit M1 (IR @ 202185ab, 31,7 USD): 002/007/047/061 zweryfikowane; 067 P1 kontrast kropki (regresja M2-001) → KO-130 właściciel: 067+068 w IS. Werdykt 1012 zablokowany tylko przez 067 (JAK-19 zamknięte KO-128). M2-002…005 → P3 backlog. Do weta: D-2015, D-2030, D-2031, KO-130. Następnie: scalenie IS → robocza, CI + E2E, zgoda na 1012.
+
 - **15:30 UTC** IS M2-001 gotowe: `claude/sesja-is-naprawy-p1` @ 196cb8c2 (kod 1d756b0b, RangeGrid „•” jak PaintGrid, test red→5/5, ci kod 0, D-2015 rola 08 zamiast 06). Nowe P2 backlog: M2-004 (czytnik ekranu), M2-005. Zlecony reaudit M1 w IR na 196cb8c2 (gałąź wyników `claude/sesja-ir-reaudit-m1`, pula D-2030…D-2039).
 
 - **15:05 UTC** IS STOP końcowy: `claude/sesja-is-naprawy-p1` @ 517bde61; 002, 007, 047, 061 naprawione-do-weryfikacji; pełne ci kod 0; autorzy commitów = tożsamość z CLAUDE.md, brak promptów i sekretów w diffie (sprawdzone przez koordynatora). Koszt IS 18,31 USD. M2-001 rozstrzygnięte KO-129 (P1, oznaczenie jak w malowaniu) → naprawa w IS, potem reaudit w IR, potem scalenie. Do weta: D-2010…D-2014, KO-129. Do backlogu: M2-002, M2-003, opcja (b) 501. Do 09: przekład m4-l2:73 (11 jęz. — zrobione przez IS w 12 jęz., do sprawdzenia w reaudycie).
