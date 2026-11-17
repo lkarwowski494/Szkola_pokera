@@ -1,8 +1,8 @@
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { KONFIGURACJA, przebiegScenariusza, type AkcjaPlanu, type OcenaOdpowiedzi, type PrzebiegScenariusza, type TrescScenariusza, type Wynik } from '@szkola/domena';
 import { AKCJE_CBET, blindBb, cardToString, fillVariantMarkers, overcardOutsAt, type VariantMarkerValues, type GeneratorTemplate, type IcmCallVariantDecision, type ScenarioVariant, type VariantDecision, type VariantConditionValues, type WerdyktAkcji } from '@szkola/poker-core';
-import { formatujLiczbe, formatujProcent } from '@szkola/jezyki';
-import { jezykZadan } from '@/features/drills/text';
+import { formatujLiczbe } from '@szkola/jezyki';
+import { jezykZadan, pct } from '@/features/drills/text';
 import type { Position } from '@/features/drills/types';
 import { KOLEJNOSC, nazwaPozycji } from '@/features/stol/uklad';
 import { pulaPrzedDecyzjaBb } from './limperzy';
@@ -400,8 +400,8 @@ const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length 
 /** HT (HR-006): SPR z jedną cyfrą po przecinku w zapisie języka aplikacji (pl „2,1”, en „2.1”; warunki-hp.md:16), jak pozostałe liczby zadań (`formatujLiczbe`). */
 const sprWJezyku = (spr: number): string => formatujLiczbe(Number(spr.toFixed(1)), jezykZadan(), { miejsca: 1 });
 
-/** IO (IM-001): procent z znakiem % w zapisie języka aplikacji (pl „75%”, de i fr „75 %”); treść pisze „ok. {{w:rozmiar}} puli” bez „%”. Pełne procenty (jak dotąd `Math.round`). */
-const procentWJezyku = (ulamek: number): string => formatujProcent(Math.round(ulamek * 100) / 100, jezykZadan());
+/** IO (IM-001, KO-122): procent z znakiem % tym samym źródłem co zadania (`pct` → klucz `drill.format.percent` w języku zadań: pl „75%”, de i fr „75 %”); treść pisze „ok. {{w:rozmiar}} puli” bez „%”. Pełne procenty. */
+const procentWJezyku = (ulamek: number): string => pct(ulamek);
 
 /**
  * Znaczniki liczbowe punktu (08-EX-5…8, HO): `spr` (SC-26), `rozmiar` (SC-27, procent puli), `vpip` (SC-30, procent). Poza tymi punktami brak wartości (tekst z takim znacznikiem
