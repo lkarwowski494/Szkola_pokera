@@ -155,6 +155,16 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
 };
 
 /**
+ * Pary złożone: tło nałożone z kryciem na inne tło (kolor wynikowy = krycie·tlo + (1 − krycie)·podTlem, sRGB jak w CSS/RN).
+ * Dla pól, które w aplikacji są półprzezroczyste. Format: { fg, tlo, krycie, podTlem, prog }; próg jak w `pary`.
+ * Pary z `przejsciowe` (wyjątek nazwany w apps/mobile/src/theme/tokens.ts) sprawdza test motywu, nie ta lista.
+ */
+export const paryZlozone: Record<string, { fg: keyof Paleta; tlo: keyof Paleta; krycie: number; podTlem: keyof Paleta; prog: number }> = {
+  // RangeGrid: pole w zakresie = felt1 z opacity 0,85 na surface; znak klasy niepewnej w kolorze etykiety ręki (ink)
+  'znak klasy niepewnej na polu w zakresie': { fg: 'ink', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 3 },
+};
+
+/**
  * Typografia (pt). Tytuły Literata 600 (D-120), treść krój systemowy (SF Pro) z Dynamic Type.
  * Przy dużym tekście: treść skaluje się do AX5 bez limitu (17 → 53 pt); tytuły od rozmiaru AX1 przechodzą na krój systemowy
  * (semibold) i mają sufit `maxW` jako ułamek szerokości ekranu, żeby najdłuższe słowo mieściło się w wierszu bez dzielenia

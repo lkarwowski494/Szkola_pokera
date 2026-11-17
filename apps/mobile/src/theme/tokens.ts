@@ -20,7 +20,7 @@ export type Paleta = typeof kolory.light;
  * (stopnie bez koloru, design-spec „Znaczenie kolorów”). Talia czterokolorowa ma tokeny `cardBlue`/`cardGreen` w systemie
  * (08-F15, D-284). Wartości z poprzedniego motywu.
  */
-const przejscioweJasne = {
+export const przejscioweJasne = {
   good: '#1F7A4D',
   goodSoft: '#E2F3E9',
   bad: '#B3372C',
@@ -29,7 +29,7 @@ const przejscioweJasne = {
   warnSoft: '#FBF0D9',
   feltSoft: '#E3EFE8',
 };
-const przejscioweCiemne: typeof przejscioweJasne = {
+export const przejscioweCiemne: typeof przejscioweJasne = {
   good: '#6FCF9A',
   goodSoft: '#17301F',
   bad: '#F08478',
