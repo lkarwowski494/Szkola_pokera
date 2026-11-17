@@ -8,7 +8,7 @@ Commit: c266091b · Kandydat do wydania: ten sam (plus commit tego audytu: tylko
 
 Brak znalezisk KRYTYCZNYCH i WYSOKICH. Zastrzeżenia (każde z właścicielem i krokiem):
 1. **Warunek wysyłki (dane):** aktualizacja 1010 → 1011 na telefonie z danymi (właściciel; kroki w „Nie sprawdzono”). Wynik z utratą danych zmienia werdykt na ZABLOKOWANE.
-2. **E2E iOS na SHA wysyłanego commitu** zielony (bramka `testflight.yml`); przebieg #108 na c266091b: __E2E__.
+2. **E2E iOS na SHA wysyłanego commitu** zielony (bramka `testflight.yml`); przebieg #108 na c266091b: w toku o 01:40 UTC (kompilacja i instalacja zielone, flowy Maestro jeszcze nie ruszyły); poprzednie #104–#107 na gałęzi roboczej zielone; koordynator sprawdza wynik przed dispatchem.
 3. **Protokół F buildu 1011** (`docs/jakosc/test-fizyczny/1011.md`, 10 pozycji) wypełnia właściciel po instalacji z TestFlight; zamknięty protokół warunkuje build 1012 i wysyłkę 1011 do recenzji.
 
 ## Podsumowanie
@@ -43,7 +43,7 @@ Build 1011 dokłada scenariusze całego rozdania (33 szablony, 3 poziomy, ocena 
 | Manifest prywatności nowej zależności natywnej | nie | rola 10 |
 
 ## Kontrola dowodów i sekretów
-__KONTROLA__
+`node sprawdz-raport.mjs audit/1011-2026-11-17/raport.md . --rola IK` (kopia skryptu z promptu roli w scratchpadzie): „OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu IK”, kod 0. Sekrety: 0 trafień wzorców. Dowody nie zawierają danych osobowych (logi testów i list identyfikatorów).
 
 ## Stosowalność listy kontrolnej
 | Pozycja | Status (dotyczy / nie dotyczy + powód / decyzja D-xx) | Wynik (ok / znalezisko ID / nie sprawdzono + powód) |
@@ -63,7 +63,7 @@ __KONTROLA__
 | JAK-13 dostępność tylko narzędziem | dotyczy | ok: Dynamic Type i 320 pt jako F (PU-027, PU-028), zrzuty web nazwane przybliżeniem (D-1915) |
 | JAK-14 geo | nie dotyczy (brak lokalizacji w aplikacji) | — |
 | JAK-15 deklaracje | dotyczy | patrz „Twierdzenia projektu” |
-| JAK-16 jeden SHA | dotyczy | CI GitHub #458 i lokalne CI na c266091b; E2E #108 na c266091b: __E2E__ |
+| JAK-16 jeden SHA | dotyczy | CI GitHub #458 i lokalne CI na c266091b; E2E #108 na c266091b: w toku o 01:40 UTC (kompilacja i instalacja zielone, flowy Maestro jeszcze nie ruszyły); poprzednie #104–#107 na gałęzi roboczej zielone (zastrzeżenie 2) |
 | JAK-17 nazwy workflowów | dotyczy | ok (odczyt `e2e-ios.yml`: budowa i symulator) |
 | JAK-18 `main` zielony | dotyczy | CI na `main` ostatni przebieg sukces (#276, 2026-11-10); ręczne ASC na `main` padają zgodnie z D-364 (uruchamiane z gałęzi roboczej) |
 | JAK-19 bramka scenariuszy | dotyczy | katalog przejrzany (D-1920, D-1921), skrypt `--statycznie` kod 0, próba negatywna na kopii (pusty ekran) kod 1, symulacja `--build 1011 --wykonane` kod 0, protokół 1011 utworzony; scenariuszy A: 0 (wszystkie B/F); protokół 1010 zamknięty (bez pozycji) |
@@ -119,8 +119,8 @@ Brak napraw przed wydaniem (zero KRYTYCZNYCH i WYSOKICH). Do backlogu: `node too
 | `node scripts/sprawdz-scenariusze.mjs --szkielet 1011` | 0 | zapisano `docs/jakosc/test-fizyczny/1011.md` (10 pozycji) | — |
 | `node scripts/sprawdz-scenariusze.mjs --build 1011 --wykonane <flowy e2e>` (symulacja kroku `testflight.yml`) | 0 | BRAMKA ZIELONA | E2E nie z tego przebiegu |
 | GitHub CI #458 na c266091b | sukces | — | Actions |
-| GitHub E2E iOS #108 na c266091b | __E2E__ | — | Actions |
-| `env -u NODE_PATH pnpm run ci` na SHA końcowym | __CIKONIEC__ | — | `audit/1011-2026-11-17/ci-<sha>.txt` |
+| GitHub E2E iOS #108 na c266091b | w toku (01:40 UTC) | — | Actions |
+| `env -u NODE_PATH pnpm run ci` na cba97b01 (commit audytu z katalogiem PU, protokołem i raportem) | 0 | mobile 1769/1769, test:skrypty 229/0, rejestr 0 błędów | `audit/1011-2026-11-17/ci-cba97b01.txt`, 01:22–01:40 UTC; następny commit dokłada tylko ten plik i uzupełnienia raportu w `audit/**` (bez wpływu na kod i katalog) |
 
 ## Twierdzenia projektu vs stan
 | Twierdzenie (plik:linia) | Jak sprawdzone | Potwierdzone / obalone |
@@ -148,7 +148,7 @@ Brak napraw przed wydaniem (zero KRYTYCZNYCH i WYSOKICH). Do backlogu: `node too
 1. Jeden commit: c266091b (CI #458, lokalne CI, E2E #108) — commit audytu dokłada tylko `audit/**`, `docs/**`.
 2. Wersja i numer buildu: `apps/mobile/app.json:5` wersja 0.1.0; numer = 1000 + `GITHUB_RUN_NUMBER` (`.github/workflows/testflight.yml:74`), oczekiwany 1011.
 3. Pełny zestaw, typecheck, lint: `env -u NODE_PATH pnpm run ci` — patrz Komendy.
-4. E2E: __E2E__; scenariusze bez przebiegu (IK-001).
+4. E2E: #108 na c266091b w toku o 01:40 UTC (kompilacja i instalacja zielone, flowy Maestro jeszcze nie ruszyły); poprzednie #104–#107 na gałęzi roboczej zielone; scenariusze bez przebiegu (IK-001).
 5. Aktualizacja z poprzedniej wersji z danymi: krok właściciela (warunek wysyłki).
 6. Bramka scenariuszy: katalog z linią `Przegląd: build 1011 @ c266091b`, protokół `docs/jakosc/test-fizyczny/1011.md`, `docs/wydanie/ostatni-build.txt` = 1010 (bez zmiany), protokół 1010 zamknięty. Uwaga: commit z samymi `docs/**` i `*.md` nie uruchamia E2E (`docs/jakosc/test-fizyczny/README.md:16`); commit audytu zawiera `audit/**/*.txt`, które nie są w `paths-ignore`, więc po scaleniu do gałęzi roboczej E2E pobiegnie na SHA scalenia.
 7. Zakres zmian: `git log --oneline 57a83bfe..c266091b` = 361 commitów; kod: 158 plików poza testami i zrzutami.
@@ -159,4 +159,4 @@ Brak napraw przed wydaniem (zero KRYTYCZNYCH i WYSOKICH). Do backlogu: `node too
 Co testować (TestFlight): scenariusz od startu do podsumowania na każdym poziomie, „Zagraj to samo jeszcze raz” bez zużycia limitu, AX5 na najwęższym telefonie, aktualizacja z 1010 z danymi.
 
 ## git status
-Na początku (c266091b, przed zapisem dowodów): pusty. Na końcu: __STATUS__
+Na początku (c266091b, przed zapisem dowodów): pusty. Na końcu (przed ostatnim commitem): ` M audit/1011-2026-11-17/raport.md`, `?? audit/1011-2026-11-17/ci-cba97b01.txt`; pliki śledzone poza listą polecenia nietknięte (`git diff --stat c266091b HEAD` obejmuje tylko `audit/1011-2026-11-17/**`, `docs/jakosc/przypadki-uzycia.md`, `docs/jakosc/test-fizyczny/README.md`, `docs/jakosc/test-fizyczny/1011.md`, `docs/decyzje/IK.md`).
