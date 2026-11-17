@@ -1,7 +1,7 @@
 # sc-21: Spanish text of content/pl/scenarios/sc-21.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
 id: sc-21
 module: m7
-situation: "Una {{t:pair|pareja}} media en el turn. Has {{t:open|abierto}} desde el Button y la {{t:big-blind}} ha {{t:call|pagado}}. En el flop has {{t:bet|apostado}} un {{t:c-bet}} pequeño y ha vuelto a {{t:call|pagar}}. En el turn la {{t:big-blind}} {{t:check|pasa}} y tú tienes {{t:second-pair}} o una {{t:pair|pareja}} más débil."
+situation: "Una {{t:pair|pareja}} media en el turn. Has {{t:open|abierto}} desde el botón y la {{t:big-blind}} ha {{t:call|pagado}}. En el flop has {{t:bet|apostado}} un {{t:c-bet}} pequeño y ha vuelto a {{t:call|pagar}}. En el turn la {{t:big-blind}} {{t:check|pasa}} y tú tienes {{t:second-pair}} o una {{t:pair|pareja}} más débil."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100

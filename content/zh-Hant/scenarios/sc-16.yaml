@@ -18,7 +18,7 @@ decisions:
     multipliers: { big: 4.5, small: 1.5 }
     actions:
       - action: raise-big
-        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:check-raise|過牌加注}}到他{{t:bet|下注}}的約 {{n:xr.mult.example}}，因為{{t:draw|聽牌}}有兩條贏的路：對手可能立刻{{t:fold|棄牌}}，而他{{t:call|跟注}}時，你仍然可能補成你的{{t:draw|聽牌}}。根據一個訓練網站，{{t:flush-draw|同花聽牌}}和兩頭{{t:straight|順子}}聽牌都是適合{{t:check-raise|過牌加注}}的牌，而面對小額{{t:c-bet|持續下注}}，你{{t:raise|加注}}到約 {{n:xr.mult.example}}，而不是最小加注。"
+        explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。你{{t:check-raise|過牌加注}}到他{{t:bet|下注}}的約 {{n:xr.mult.example}}，因為{{t:draw|聽牌}}有兩條贏的路：對手可能立刻{{t:fold|棄牌}}，而他{{t:call|跟注}}時，你仍然可能補成你的{{t:draw|聽牌}}。根據一個訓練網站，{{t:flush-draw|同花聽牌}}和{{t:oesd|兩頭順聽牌}}都是適合{{t:check-raise|過牌加注}}的牌，而面對小額{{t:c-bet|持續下注}}，你{{t:raise|加注}}到約 {{n:xr.mult.example}}，而不是最小加注。"
       - action: call
         explanation: "你在 {{w:pozycja}} 拿著 {{w:reka}}，{{t:board|牌面}}是 {{w:stol}}，位於 {{w:rywal}} 的對手{{t:bet|下注}}，是小額的{{t:c-bet|持續下注}}。{{t:call|跟注}}也很好：面對小額{{t:c-bet|持續下注}}，你只需要約 {{n:eq.bet-third}} 的權益，而這手牌可能變好。根據一個訓練網站，不是每個強{{t:draw|聽牌}}都要{{t:raise|加注}}，但{{t:check-raise|過牌加注}}多了對手立刻{{t:fold|棄牌}}的機會。"
       - action: fold

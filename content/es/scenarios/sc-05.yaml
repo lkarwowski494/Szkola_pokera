@@ -2,7 +2,7 @@
 # Struktura jak pl (content/pl/scenarios/sc-05.yaml).
 id: sc-05
 module: m3
-situation: "Estás en el Button y todos antes que tú se han {{t:fold|retirado}}."
+situation: "Estás en el botón y todos antes que tú se han {{t:fold|retirado}}."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100
@@ -25,9 +25,9 @@ decisions:
     rule: R-M3-003
     actions:
       - action: "raise 2.5"
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y todos antes que tú se han {{t:fold|retirado}}. {{t:open|Abres}}, porque solo quedan las ciegas y después del flop tendrás {{t:position|posición}}; desde el Button {{t:open|abres}} amplio, aproximadamente {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} de las manos."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y todos antes que tú se han {{t:fold|retirado}}. {{t:open|Abres}}, porque solo quedan las ciegas y después del flop tendrás {{t:position|posición}}; desde el botón {{t:open|abres}} amplio, aproximadamente {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} de las manos."
       - action: fold
-        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y todos antes que tú se han {{t:fold|retirado}}. {{t:fold|Retirarte}} es demasiado prudente: el solver suele {{t:open|abrir}} esta mano. Solo quedan las ciegas y después del flop tendrás {{t:position|posición}}, así que desde el Button {{t:open|abres}} amplio, aproximadamente {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} de las manos."
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, {{w:stol}}, y todos antes que tú se han {{t:fold|retirado}}. {{t:fold|Retirarte}} es demasiado prudente: el solver suele {{t:open|abrir}} esta mano. Solo quedan las ciegas y después del flop tendrás {{t:position|posición}}, así que desde el botón {{t:open|abres}} amplio, aproximadamente {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} de las manos."
   - street: flop
     kind: cbet-case
     rule: R-M5-004

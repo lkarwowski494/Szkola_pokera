@@ -1,7 +1,7 @@
 # sc-13: Spanish text of content/pl/scenarios/sc-13.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-13
 module: m5
-situation: "Has {{t:open|abierto}} desde el Button y la {{t:big-blind}} ha {{t:call|pagado}}. En el flop hay dos cartas del mismo palo, y tú tienes una mano fuerte: {{t:top-pair|pareja mayor}} con un buen {{t:kicker}} o algo mejor. Tu rival {{t:check|pasa}} y puede tener un {{t:flush-draw}}. ¿Qué tamaño de {{t:bet|apuesta}} eliges?"
+situation: "Has {{t:open|abierto}} desde el botón y la {{t:big-blind}} ha {{t:call|pagado}}. En el flop hay dos cartas del mismo palo, y tú tienes una mano fuerte: {{t:top-pair|pareja mayor}} con un buen {{t:kicker}} o algo mejor. Tu rival {{t:check|pasa}} y puede tener un {{t:flush-draw}}. ¿Qué tamaño de {{t:bet|apuesta}} eliges?"
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100

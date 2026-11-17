@@ -15,6 +15,6 @@ decisions:
     rule: R-M7-003
     actions:
       - action: check
-        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 턴에서 {{t:check|체크}}합니다. {{t:check|체크}}합니다. 플롭에서 {{t:call|콜}}한 뒤의 상대는 보통 플롭에서보다 강한 {{t:range|레인지}}를 가지고 있어서, 더 이상 걱정 없이 {{t:bet|베팅}}할 수 없기 때문입니다. 리버까지 카드가 한 장 남았으므로 이 핸드는 보호로 얻는 것이 적고, {{t:check|체크}}하면 {{t:pot|팟}}을 작게 유지하며 싸게 {{t:showdown|쇼다운}}까지 갑니다."
+        explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 턴에서 {{t:check|체크}}합니다. 당신도 {{t:check|체크}}합니다. 플롭에서 {{t:call|콜}}한 뒤의 상대는 보통 플롭에서보다 강한 {{t:range|레인지}}를 가지고 있어서, 더 이상 걱정 없이 {{t:bet|베팅}}할 수 없기 때문입니다. 리버까지 카드가 한 장 남았으므로 이 핸드는 보호로 얻는 것이 적고, {{t:check|체크}}하면 {{t:pot|팟}}을 작게 유지하며 싸게 {{t:showdown|쇼다운}}까지 갑니다."
       - action: bet-big
         explanation: "당신은 {{w:pozycja}} 위치에서 {{w:reka}} 핸드를 들고 있고, {{t:board|보드}}는 {{w:stol}}이며, {{w:rywal}} 위치의 상대가 턴에서 {{t:check|체크}}합니다. 이 핸드로 하는 {{t:bet|베팅}}은 얻는 것이 적습니다: 플롭에서 {{t:call|콜}}한 뒤의 상대는 보통 플롭에서보다 강한 {{t:range|레인지}}를 가지고 있고, 리버까지 카드가 한 장 남았으므로 보호로 얻는 것도 적습니다. 턴에서 중간 핸드는 보통 싸게 {{t:showdown|쇼다운}}까지 가기 위해 {{t:check|체크}}하고, 강한 핸드와 일부 {{t:draw|드로우}}가 {{t:bet|베팅}}합니다."
