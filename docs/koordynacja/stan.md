@@ -51,6 +51,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 
+- **23:42 UTC Build 1013 wysłany do App Store Connect:** testflight run 13 (44193674522) @ 3fa9bcf1 success (bramka E2E #112 + scenariusze zielone, testy, archiwum, wysyłka). `docs/wydanie/ostatni-build.txt` = 1013 (robocza). Właściciel: po przetworzeniu przez Apple aktualizacja 1011→1013 z danymi, protokół F 1013 (11 poz., w tym PU-029 siatki). Następnie: partia 2 M2 (blokery App Store 001, 003–006) — za zgodą; decyzja o 10 plikach wspólnych z prompts; IR do archiwizacji albo do partii 2.
+
 - **22:00 UTC** testflight run 12 @ 81103fcb: bramka scenariuszy czerwona (brak przeglądu i protokołu F), build pominięty, nic nie wysłane. KO-136: numer 1012 przepada, następny build = **1013**; przegląd + PU-029 + szkielet 1013 w 3fa9bcf1 (robocza), bramka lokalnie zielona; E2E dispatch na 3fa9bcf1, potem testflight dispatch (zgoda KO-135).
 
 - **20:50 UTC** Kandydat 1012 = 81103fcb: CI #571 (44157442323) i E2E #111 (44157442135) success. **Właściciel: zgoda na build 1012 (KO-135)** → dispatch testflight.yml. Po wysyłce: docs/wydanie/ostatni-build.txt = 1012; lista telefonu T-SIATKA, T-SIATKA-CIEMNY, M4.l2 kropki.
