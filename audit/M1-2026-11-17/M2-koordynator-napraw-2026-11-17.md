@@ -71,7 +71,18 @@ Przekazania z wyniku roli 06: do 08 — brak (tryb gry M13 i generator już pomi
 Ryzyko szczątkowe 002 (bez znaleziska): T8o w BB vs BTN różni się o 49 pp, tuż pod progiem (recenzja-niezalezna.md); nowy odczyt źródła może ją przenieść; test wymusi wtedy ponowne porównanie tylko przy zmianie kanonu, nie źródła.
 
 ## Komendy końcowe
-<!-- CI-KONIEC -->
+`env -u NODE_PATH pnpm run ci` na 7b591503 (typecheck, test, test:skrypty, test:kontrole, k08, i18n:kod, content:check, tresci:rejestr, tresci:el-kontrola; po kolei w jednym łańcuchu): **kod 0** (dowody/M2/ci-koniec-7b591503.log). Projekt nie ma osobnej komendy lint (package.json); typecheck w łańcuchu ci.
+
+| Część | Stan wyjściowy (IR, f75acdff, wspolne/ci-pelne.log) | Koniec (7b591503) |
+|---|---|---|
+| packages/srs, jezyki, poker-core, domena, postep; tools/preflop-solver | 21, 144, 350, 347 (+1 expected fail), 160, 44 | bez zmian |
+| tools/content-build | 927 (+1 expected fail) | 936 (+1 expected fail): +9 testów is-siatki-niepewne |
+| apps/mobile | 1782 | 1782 |
+| test:skrypty | 229 | 234: +3 wyciagi-zrodel, +2 gitignore-sekrety |
+| test:kontrole | 35 | 35 |
+| content:check | 35 baz, 44 lekcji, 146 reguł, 162 terminów | bez zmian |
+
+Wynik nie gorszy od stanu wyjściowego; 0 testów usuniętych, wyłączonych albo osłabionych (jeden zaostrzony: workflowy.test.mjs).
 
 ## Lista kontrolna KOO
 | ID | Wynik | Dowód |
@@ -88,18 +99,18 @@ Ryzyko szczątkowe 002 (bez znaleziska): T8o w BB vs BTN różni się o 49 pp, t
 | KOO-10 | brak konfliktów | postep-napraw.md „Dziennik” |
 | KOO-11 | spełnione: postęp aktualizowany po każdym zadaniu, zgodny z `git log --grep` | postep-napraw.md |
 | KOO-12 | spełnione: tylko `naprawione-do-weryfikacji` z commitem (skryptem --ustaw); zmiana planu ograniczona do status/commit (porównanie semantyczne) | dowody/M2/sprawdz-plan-koniec.txt |
-| KOO-13 | <!-- KOO-13 --> | dowody/M2/ci-koniec-7b591503.log |
+| KOO-13 | spełnione: pełne pnpm run ci kod 0 na gałęzi partii, porównanie ze stanem wyjściowym w „Komendy końcowe”; brak komendy lint w projekcie; sprawdz-raport tego raportu kod 0 | dowody/M2/ci-koniec-7b591503.log |
 | KOO-14 | spełnione: przekazanie niżej; pętla 1 | sekcja „Przekazanie” |
 
 ## Kontrola dowodów i sekretów
-<!-- KONTROLA -->
+`node K/narzedzia/sprawdz-raport.mjs K/M2-koordynator-napraw-2026-11-17.md /home/user/Szkola_pokera K` → „OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone”, kod 0 (dowody/M2/kontrola-raport-m2.txt). Wynik roli 06: kod 0 (dowody/M2/kontrola-wynik-06.txt).
 
 ## Plan (sprawdz-plan.mjs)
 `OK: 66 zadań, 13 decyzji (0 bez wyboru)`, kod 0 (dowody/M2/sprawdz-plan-koniec.txt). Partia 1: 002, 007, 047, 061 → naprawione-do-weryfikacji.
 
 ## Przekazanie
 ### Przekazanie do M1 (reaudit)
-- Zakończono: M2 fix, pętla 1; gałąź `claude/sesja-is-naprawy-p1` (<!-- SHA-KONIEC -->), baza 0e7e5e00d97271f7dd3b5ee0caf5c8a833999dee; raport K/M2-koordynator-napraw-2026-11-17.md
+- Zakończono: M2 fix, pętla 1; gałąź `claude/sesja-is-naprawy-p1` (ostatnia zmiana kodu i treści 7b591503; commit tego raportu jest następny na gałęzi), baza 0e7e5e00d97271f7dd3b5ee0caf5c8a833999dee; raport K/M2-koordynator-napraw-2026-11-17.md
 - Nowa sesja (D-015: sprawdzający nie zna moich uzasadnień), w repo na gałęzi `claude/sesja-is-naprawy-p1`:
   `node <prompts>/tools/assemble.mjs M1-audytor-generalny --tryb reaudit --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17 --baza 0e7e5e00d97271f7dd3b5ee0caf5c8a833999dee`
 - Paczka wejściowa: K/plan-napraw.json (statusy), ten raport, K/naprawy/, K/role/06-tresci/fix-2026-11-17/

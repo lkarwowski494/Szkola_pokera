@@ -19,7 +19,7 @@ Prompt roli: assemble.mjs M2-koordynator-napraw --tryb fix (prompts @ af4c0a83),
 ## Partie
 | Partia | Gałąź | Od | Do | STOP przed | Stan |
 |---|---|---|---|---|---|
-| 1 | claude/sesja-is-naprawy-p1 | 0e7e5e00 | — | tak (M: 002) — łączony ze STOP start | w toku |
+| 1 | claude/sesja-is-naprawy-p1 | 0e7e5e00 | 7b591503 | tak (M: 002) — łączony ze STOP start | zakończona |
 
 ## Zadania
 | ID | Partia | Krok | Commit | Dowód | Przeczytane reguły | Następny krok |
@@ -39,6 +39,8 @@ Prompt roli: assemble.mjs M2-koordynator-napraw --tryb fix (prompts @ af4c0a83),
 - 2026-11-17 002: polecenie 06-tresci-p1 zapisane, subagent 06 (opus/high) uruchomiony.
 - 2026-11-17 koordynator przekazał słowa właściciela na STOP start (ok. 13:40 UTC): „a: plan jak wyżej (zalecane)”; zgodne z zapisaną zgodą.
 - 2026-11-17 002: subagent 06 (opus/high) → commit a2da1175 (uncertain BB 16/13 klas, 9-max przez aliasy, zdanie m4-l2:73 w 12 językach, test is-siatki-niepewne, D-2011…D-2014) → recenzent niezależny: rachunek i źródła zgodne; uwagi: P1 siatka lekcji bez oznaczenia uncertain (przed commitem, poza zakresem → nowe znalezisko), P2 test sprawdza podzbiór, P2 T8o 49 pp → przegląd D-043: brak uwag → status naprawione-do-weryfikacji.
+- 2026-11-17 koniec partii 1: pnpm run ci kod 0 (dowody/M2/ci-koniec-7b591503.log); raport M2 i sprawdz-raport kod 0 → STOP końcowy do koordynatora.
 
 ## Czekające zgody i kroki właściciela
+- STOP końcowy: weto D-2010…D-2014; decyzja o znaleziskach M2-koordynator-napraw-001…003; reaudit M1 w nowej sesji; scalenie po reaudycie.
 - Historia git nadal zawiera pełne wyciągi (007); przepisanie historii wymaga osobnej zgody — nie proponuję (koszt > ryzyko, ocena „brzegowy”).
