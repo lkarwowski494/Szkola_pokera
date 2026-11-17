@@ -70,7 +70,7 @@ Il {{t:big-blind}} ha già nel {{t:pot|piatto}} un blind intero, quindi contro u
 
 ## Il prezzo non è tutto
 
-L'equity dice quanto spesso vinci se entrambi arrivate allo showdown senza ulteriori {{t:bet|puntate}}. {{t:out-of-position|Fuori posizione}} spesso {{t:fold|folderai}} dopo il flop, quindi le mani deboli di semi diversi realizzano meno della loro equity. Le mani dello stesso seme, i {{t:connectors|connettori}} e le {{t:pair|coppie}} medie realizzano di più, per questo nella griglia difendi con loro più volentieri.
+L'equity dice quanto spesso vinci se entrambi arrivate allo showdown senza ulteriori {{t:bet|puntate}}. {{t:out-of-position|Fuori posizione}} spesso {{t:fold|folderai}} dopo il flop, quindi le mani deboli di semi diversi realizzano meno della loro equity. Le mani dello stesso seme, i {{t:connectors|connettori}} e le {{t:pair|coppie}} medie realizzano di più, per questo di solito difendi con loro più volentieri.
 
 ```range
 vs-open.bb-vs-btn

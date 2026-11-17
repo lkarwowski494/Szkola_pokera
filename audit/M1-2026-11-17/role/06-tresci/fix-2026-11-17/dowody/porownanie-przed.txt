@@ -1,0 +1,138 @@
+$ curl -sSL --fail https://beyondgto.com/defense/{btn-vs-co,sb-vs-btn,bb-vs-btn,bb-vs-sb} (2026-11-17 13:52 UTC; strony poza repo, tylko skróty)
+cce22889f337ca16b439cb19c9b106b2f2d06493f3e3fb95557e6dfad12b83b3  bgto-bb-vs-btn.html
+07f86fd2f284b7e91cb41509024fada89fda372a549999dace0426fd951ace93  bgto-bb-vs-sb.html
+ab198d7060386d6aeb3387f9d03681a954f02caafd2e733afbd76476a5c8a520  bgto-btn-vs-co.html
+560916c8c0f83545de5817d5cd42e4312a911e22e9a3294c816470aeb505404c  bgto-sb-vs-btn.html
+
+$ python3 -I docs/tresci/narzedzia/siatki-niepewne.py <strony> --zapisz --odczyt=2026-11-17  (baza pl sprzed poprawki)
+vs-open.btn-vs-co [defend]: kanon 14.5%, opublikowane 19.2%; >= 50 pp: 20 klas (102 komb.); poza uncertain: 0 
+   A9s: kanon 0.42, opublikowane 1.00
+   A8s: kanon 0.00, opublikowane 1.00
+   A7s: kanon 0.00, opublikowane 1.00
+   A6s: kanon 0.00, opublikowane 1.00
+   A3s: kanon 0.00, opublikowane 1.00
+   A2s: kanon 0.00, opublikowane 1.00
+   K9s: kanon 0.16, opublikowane 1.00
+   K8s: kanon 0.00, opublikowane 1.00
+   Q9s: kanon 0.00, opublikowane 1.00
+   AJo: kanon 0.13, opublikowane 1.00
+   ATo: kanon 0.70, opublikowane 0.10
+   T7s: kanon 0.56, opublikowane 0.00
+   98s: kanon 0.00, opublikowane 1.00
+   97s: kanon 0.00, opublikowane 0.55
+   87s: kanon 0.00, opublikowane 0.97
+   75s: kanon 1.00, opublikowane 0.00
+   65s: kanon 0.16, opublikowane 0.95
+   44: kanon 0.00, opublikowane 1.00
+   33: kanon 0.21, opublikowane 0.91
+   22: kanon 0.00, opublikowane 0.58
+vs-open.sb-vs-btn [3-bet]: kanon 14.1%, opublikowane 13.2%; >= 50 pp: 11 klas (52 komb.); poza uncertain: 0 
+   A8s: kanon 0.00, opublikowane 0.67
+   A7s: kanon 0.00, opublikowane 0.75
+   A6s: kanon 0.00, opublikowane 0.54
+   A4s: kanon 0.19, opublikowane 0.72
+   A3s: kanon 0.00, opublikowane 0.58
+   K8s: kanon 0.00, opublikowane 0.63
+   Q9s: kanon 0.00, opublikowane 0.73
+   ATo: kanon 0.97, opublikowane 0.12
+   T9s: kanon 0.28, opublikowane 0.84
+   98s: kanon 0.00, opublikowane 0.51
+   75s: kanon 0.97, opublikowane 0.00
+vs-open.bb-vs-btn [defend]: kanon 49.6%, opublikowane 45.1%; >= 50 pp: 16 klas (136 komb.); poza uncertain: 16 J3s T4s T2s K8o Q8o K7o T7o 87o 74s A6o 63s K5o 75o 42s 32s A2o
+   J3s: kanon 0.01, opublikowane 1.00  <- poza uncertain
+   T4s: kanon 0.86, opublikowane 0.08  <- poza uncertain
+   T2s: kanon 1.00, opublikowane 0.00  <- poza uncertain
+   K8o: kanon 0.99, opublikowane 0.34  <- poza uncertain
+   Q8o: kanon 1.00, opublikowane 0.00  <- poza uncertain
+   K7o: kanon 1.00, opublikowane 0.00  <- poza uncertain
+   T7o: kanon 0.63, opublikowane 0.00  <- poza uncertain
+   87o: kanon 0.00, opublikowane 0.53  <- poza uncertain
+   74s: kanon 0.18, opublikowane 1.00  <- poza uncertain
+   A6o: kanon 0.95, opublikowane 0.31  <- poza uncertain
+   63s: kanon 0.15, opublikowane 1.00  <- poza uncertain
+   K5o: kanon 0.86, opublikowane 0.00  <- poza uncertain
+   75o: kanon 0.98, opublikowane 0.00  <- poza uncertain
+   42s: kanon 0.42, opublikowane 0.99  <- poza uncertain
+   32s: kanon 0.00, opublikowane 0.65  <- poza uncertain
+   A2o: kanon 0.82, opublikowane 0.00  <- poza uncertain
+vs-open.bb-vs-sb [defend]: kanon 53.0%, opublikowane 55.5%; >= 50 pp: 13 klas (116 komb.); poza uncertain: 13 J3s 94s J8o 84s T7o 87o 73s K5o 75o 65o 54o A3o 32s
+   J3s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   94s: kanon 0.00, opublikowane 0.71  <- poza uncertain
+   J8o: kanon 0.00, opublikowane 0.86  <- poza uncertain
+   84s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   T7o: kanon 0.99, opublikowane 0.05  <- poza uncertain
+   87o: kanon 0.00, opublikowane 0.74  <- poza uncertain
+   73s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   K5o: kanon 0.96, opublikowane 0.09  <- poza uncertain
+   75o: kanon 0.93, opublikowane 0.04  <- poza uncertain
+   65o: kanon 0.00, opublikowane 0.78  <- poza uncertain
+   54o: kanon 0.00, opublikowane 0.61  <- poza uncertain
+   A3o: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   32s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+nine.vs-open.btn-vs-co [defend]: kanon 14.5%, opublikowane 19.2%; >= 50 pp: 20 klas (102 komb.); poza uncertain: 0 
+   A9s: kanon 0.42, opublikowane 1.00
+   A8s: kanon 0.00, opublikowane 1.00
+   A7s: kanon 0.00, opublikowane 1.00
+   A6s: kanon 0.00, opublikowane 1.00
+   A3s: kanon 0.00, opublikowane 1.00
+   A2s: kanon 0.00, opublikowane 1.00
+   K9s: kanon 0.16, opublikowane 1.00
+   K8s: kanon 0.00, opublikowane 1.00
+   Q9s: kanon 0.00, opublikowane 1.00
+   AJo: kanon 0.13, opublikowane 1.00
+   ATo: kanon 0.70, opublikowane 0.10
+   T7s: kanon 0.56, opublikowane 0.00
+   98s: kanon 0.00, opublikowane 1.00
+   97s: kanon 0.00, opublikowane 0.55
+   87s: kanon 0.00, opublikowane 0.97
+   75s: kanon 1.00, opublikowane 0.00
+   65s: kanon 0.16, opublikowane 0.95
+   44: kanon 0.00, opublikowane 1.00
+   33: kanon 0.21, opublikowane 0.91
+   22: kanon 0.00, opublikowane 0.58
+nine.vs-open.sb-vs-btn [3-bet]: kanon 14.1%, opublikowane 13.2%; >= 50 pp: 11 klas (52 komb.); poza uncertain: 0 
+   A8s: kanon 0.00, opublikowane 0.67
+   A7s: kanon 0.00, opublikowane 0.75
+   A6s: kanon 0.00, opublikowane 0.54
+   A4s: kanon 0.19, opublikowane 0.72
+   A3s: kanon 0.00, opublikowane 0.58
+   K8s: kanon 0.00, opublikowane 0.63
+   Q9s: kanon 0.00, opublikowane 0.73
+   ATo: kanon 0.97, opublikowane 0.12
+   T9s: kanon 0.28, opublikowane 0.84
+   98s: kanon 0.00, opublikowane 0.51
+   75s: kanon 0.97, opublikowane 0.00
+nine.vs-open.bb-vs-btn [defend]: kanon 49.6%, opublikowane 45.1%; >= 50 pp: 16 klas (136 komb.); poza uncertain: 16 J3s T4s T2s K8o Q8o K7o T7o 87o 74s A6o 63s K5o 75o 42s 32s A2o
+   J3s: kanon 0.01, opublikowane 1.00  <- poza uncertain
+   T4s: kanon 0.86, opublikowane 0.08  <- poza uncertain
+   T2s: kanon 1.00, opublikowane 0.00  <- poza uncertain
+   K8o: kanon 0.99, opublikowane 0.34  <- poza uncertain
+   Q8o: kanon 1.00, opublikowane 0.00  <- poza uncertain
+   K7o: kanon 1.00, opublikowane 0.00  <- poza uncertain
+   T7o: kanon 0.63, opublikowane 0.00  <- poza uncertain
+   87o: kanon 0.00, opublikowane 0.53  <- poza uncertain
+   74s: kanon 0.18, opublikowane 1.00  <- poza uncertain
+   A6o: kanon 0.95, opublikowane 0.31  <- poza uncertain
+   63s: kanon 0.15, opublikowane 1.00  <- poza uncertain
+   K5o: kanon 0.86, opublikowane 0.00  <- poza uncertain
+   75o: kanon 0.98, opublikowane 0.00  <- poza uncertain
+   42s: kanon 0.42, opublikowane 0.99  <- poza uncertain
+   32s: kanon 0.00, opublikowane 0.65  <- poza uncertain
+   A2o: kanon 0.82, opublikowane 0.00  <- poza uncertain
+nine.vs-open.bb-vs-sb [defend]: kanon 53.0%, opublikowane 55.5%; >= 50 pp: 13 klas (116 komb.); poza uncertain: 13 J3s 94s J8o 84s T7o 87o 73s K5o 75o 65o 54o A3o 32s
+   J3s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   94s: kanon 0.00, opublikowane 0.71  <- poza uncertain
+   J8o: kanon 0.00, opublikowane 0.86  <- poza uncertain
+   84s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   T7o: kanon 0.99, opublikowane 0.05  <- poza uncertain
+   87o: kanon 0.00, opublikowane 0.74  <- poza uncertain
+   73s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   K5o: kanon 0.96, opublikowane 0.09  <- poza uncertain
+   75o: kanon 0.93, opublikowane 0.04  <- poza uncertain
+   65o: kanon 0.00, opublikowane 0.78  <- poza uncertain
+   54o: kanon 0.00, opublikowane 0.61  <- poza uncertain
+   A3o: kanon 0.00, opublikowane 1.00  <- poza uncertain
+   32s: kanon 0.00, opublikowane 1.00  <- poza uncertain
+klasy >= 50 pp spoza uncertain (razem): 58
+zapisano docs/tresci/porownanie-siatek.json
+kod wyjścia: 1

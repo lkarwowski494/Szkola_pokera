@@ -1,0 +1,137 @@
+$ python3 -I docs/tresci/narzedzia/siatki-niepewne.py <strony z 2026-11-17>  (baza pl po poprawce i pnpm content:build)
+vs-open.btn-vs-co [defend]: kanon 14.5%, opublikowane 19.2%; >= 50 pp: 20 klas (102 komb.); poza uncertain: 0 
+   A9s: kanon 0.42, opublikowane 1.00
+   A8s: kanon 0.00, opublikowane 1.00
+   A7s: kanon 0.00, opublikowane 1.00
+   A6s: kanon 0.00, opublikowane 1.00
+   A3s: kanon 0.00, opublikowane 1.00
+   A2s: kanon 0.00, opublikowane 1.00
+   K9s: kanon 0.16, opublikowane 1.00
+   K8s: kanon 0.00, opublikowane 1.00
+   Q9s: kanon 0.00, opublikowane 1.00
+   AJo: kanon 0.13, opublikowane 1.00
+   ATo: kanon 0.70, opublikowane 0.10
+   T7s: kanon 0.56, opublikowane 0.00
+   98s: kanon 0.00, opublikowane 1.00
+   97s: kanon 0.00, opublikowane 0.55
+   87s: kanon 0.00, opublikowane 0.97
+   75s: kanon 1.00, opublikowane 0.00
+   65s: kanon 0.16, opublikowane 0.95
+   44: kanon 0.00, opublikowane 1.00
+   33: kanon 0.21, opublikowane 0.91
+   22: kanon 0.00, opublikowane 0.58
+vs-open.sb-vs-btn [3-bet]: kanon 14.1%, opublikowane 13.2%; >= 50 pp: 11 klas (52 komb.); poza uncertain: 0 
+   A8s: kanon 0.00, opublikowane 0.67
+   A7s: kanon 0.00, opublikowane 0.75
+   A6s: kanon 0.00, opublikowane 0.54
+   A4s: kanon 0.19, opublikowane 0.72
+   A3s: kanon 0.00, opublikowane 0.58
+   K8s: kanon 0.00, opublikowane 0.63
+   Q9s: kanon 0.00, opublikowane 0.73
+   ATo: kanon 0.97, opublikowane 0.12
+   T9s: kanon 0.28, opublikowane 0.84
+   98s: kanon 0.00, opublikowane 0.51
+   75s: kanon 0.97, opublikowane 0.00
+vs-open.bb-vs-btn [defend]: kanon 49.6%, opublikowane 45.1%; >= 50 pp: 16 klas (136 komb.); poza uncertain: 0 
+   J3s: kanon 0.01, opublikowane 1.00
+   T4s: kanon 0.86, opublikowane 0.08
+   T2s: kanon 1.00, opublikowane 0.00
+   K8o: kanon 0.99, opublikowane 0.34
+   Q8o: kanon 1.00, opublikowane 0.00
+   K7o: kanon 1.00, opublikowane 0.00
+   T7o: kanon 0.63, opublikowane 0.00
+   87o: kanon 0.00, opublikowane 0.53
+   74s: kanon 0.18, opublikowane 1.00
+   A6o: kanon 0.95, opublikowane 0.31
+   63s: kanon 0.15, opublikowane 1.00
+   K5o: kanon 0.86, opublikowane 0.00
+   75o: kanon 0.98, opublikowane 0.00
+   42s: kanon 0.42, opublikowane 0.99
+   32s: kanon 0.00, opublikowane 0.65
+   A2o: kanon 0.82, opublikowane 0.00
+vs-open.bb-vs-sb [defend]: kanon 53.0%, opublikowane 55.5%; >= 50 pp: 13 klas (116 komb.); poza uncertain: 0 
+   J3s: kanon 0.00, opublikowane 1.00
+   94s: kanon 0.00, opublikowane 0.71
+   J8o: kanon 0.00, opublikowane 0.86
+   84s: kanon 0.00, opublikowane 1.00
+   T7o: kanon 0.99, opublikowane 0.05
+   87o: kanon 0.00, opublikowane 0.74
+   73s: kanon 0.00, opublikowane 1.00
+   K5o: kanon 0.96, opublikowane 0.09
+   75o: kanon 0.93, opublikowane 0.04
+   65o: kanon 0.00, opublikowane 0.78
+   54o: kanon 0.00, opublikowane 0.61
+   A3o: kanon 0.00, opublikowane 1.00
+   32s: kanon 0.00, opublikowane 1.00
+nine.vs-open.btn-vs-co [defend]: kanon 14.5%, opublikowane 19.2%; >= 50 pp: 20 klas (102 komb.); poza uncertain: 0 
+   A9s: kanon 0.42, opublikowane 1.00
+   A8s: kanon 0.00, opublikowane 1.00
+   A7s: kanon 0.00, opublikowane 1.00
+   A6s: kanon 0.00, opublikowane 1.00
+   A3s: kanon 0.00, opublikowane 1.00
+   A2s: kanon 0.00, opublikowane 1.00
+   K9s: kanon 0.16, opublikowane 1.00
+   K8s: kanon 0.00, opublikowane 1.00
+   Q9s: kanon 0.00, opublikowane 1.00
+   AJo: kanon 0.13, opublikowane 1.00
+   ATo: kanon 0.70, opublikowane 0.10
+   T7s: kanon 0.56, opublikowane 0.00
+   98s: kanon 0.00, opublikowane 1.00
+   97s: kanon 0.00, opublikowane 0.55
+   87s: kanon 0.00, opublikowane 0.97
+   75s: kanon 1.00, opublikowane 0.00
+   65s: kanon 0.16, opublikowane 0.95
+   44: kanon 0.00, opublikowane 1.00
+   33: kanon 0.21, opublikowane 0.91
+   22: kanon 0.00, opublikowane 0.58
+nine.vs-open.sb-vs-btn [3-bet]: kanon 14.1%, opublikowane 13.2%; >= 50 pp: 11 klas (52 komb.); poza uncertain: 0 
+   A8s: kanon 0.00, opublikowane 0.67
+   A7s: kanon 0.00, opublikowane 0.75
+   A6s: kanon 0.00, opublikowane 0.54
+   A4s: kanon 0.19, opublikowane 0.72
+   A3s: kanon 0.00, opublikowane 0.58
+   K8s: kanon 0.00, opublikowane 0.63
+   Q9s: kanon 0.00, opublikowane 0.73
+   ATo: kanon 0.97, opublikowane 0.12
+   T9s: kanon 0.28, opublikowane 0.84
+   98s: kanon 0.00, opublikowane 0.51
+   75s: kanon 0.97, opublikowane 0.00
+nine.vs-open.bb-vs-btn [defend]: kanon 49.6%, opublikowane 45.1%; >= 50 pp: 16 klas (136 komb.); poza uncertain: 0 
+   J3s: kanon 0.01, opublikowane 1.00
+   T4s: kanon 0.86, opublikowane 0.08
+   T2s: kanon 1.00, opublikowane 0.00
+   K8o: kanon 0.99, opublikowane 0.34
+   Q8o: kanon 1.00, opublikowane 0.00
+   K7o: kanon 1.00, opublikowane 0.00
+   T7o: kanon 0.63, opublikowane 0.00
+   87o: kanon 0.00, opublikowane 0.53
+   74s: kanon 0.18, opublikowane 1.00
+   A6o: kanon 0.95, opublikowane 0.31
+   63s: kanon 0.15, opublikowane 1.00
+   K5o: kanon 0.86, opublikowane 0.00
+   75o: kanon 0.98, opublikowane 0.00
+   42s: kanon 0.42, opublikowane 0.99
+   32s: kanon 0.00, opublikowane 0.65
+   A2o: kanon 0.82, opublikowane 0.00
+nine.vs-open.bb-vs-sb [defend]: kanon 53.0%, opublikowane 55.5%; >= 50 pp: 13 klas (116 komb.); poza uncertain: 0 
+   J3s: kanon 0.00, opublikowane 1.00
+   94s: kanon 0.00, opublikowane 0.71
+   J8o: kanon 0.00, opublikowane 0.86
+   84s: kanon 0.00, opublikowane 1.00
+   T7o: kanon 0.99, opublikowane 0.05
+   87o: kanon 0.00, opublikowane 0.74
+   73s: kanon 0.00, opublikowane 1.00
+   K5o: kanon 0.96, opublikowane 0.09
+   75o: kanon 0.93, opublikowane 0.04
+   65o: kanon 0.00, opublikowane 0.78
+   54o: kanon 0.00, opublikowane 0.61
+   A3o: kanon 0.00, opublikowane 1.00
+   32s: kanon 0.00, opublikowane 1.00
+klasy >= 50 pp spoza uncertain (razem): 0
+kod wyjścia: 0
+
+# ryzyko szczątkowe (ręce spoza uncertain), skrypt w scratchpadzie:
+vs-open.bb-vs-btn: poza uncertain, akcja większościowa źródła z częstością kanonu < 3,5%: 0: -
+  poza uncertain, inna akcja większościowa (próg 50%), różnica < 50 pp: 2: 98o (0.06/0.51), A4o (0.38/0.69)
+vs-open.bb-vs-sb: poza uncertain, akcja większościowa źródła z częstością kanonu < 3,5%: 0: -
+  poza uncertain, inna akcja większościowa (próg 50%), różnica < 50 pp: 0: 

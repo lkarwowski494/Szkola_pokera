@@ -70,7 +70,7 @@ Der {{t:big-blind|Big Blind}} hat schon einen ganzen Blind im {{t:pot|Pot}}, dah
 
 ## Der Preis ist nicht alles
 
-Equity sagt dir, wie oft du gewinnst, wenn ihr beide ohne weitere {{t:bet|Einsätze}} zum Showdown kommt. {{t:out-of-position|Ohne Position}} wirst du nach dem Flop oft {{t:fold|folden}}, deshalb realisieren schwache Offsuit-Hände weniger als ihre Equity. Suited Hände, {{t:connectors|Connectors}} und mittlere {{t:pair|Paare}} realisieren mehr, deshalb verteidigst du mit ihnen im Raster eher.
+Equity sagt dir, wie oft du gewinnst, wenn ihr beide ohne weitere {{t:bet|Einsätze}} zum Showdown kommt. {{t:out-of-position|Ohne Position}} wirst du nach dem Flop oft {{t:fold|folden}}, deshalb realisieren schwache Offsuit-Hände weniger als ihre Equity. Suited Hände, {{t:connectors|Connectors}} und mittlere {{t:pair|Paare}} realisieren mehr, deshalb verteidigst du mit ihnen meist eher.
 
 ```range
 vs-open.bb-vs-btn

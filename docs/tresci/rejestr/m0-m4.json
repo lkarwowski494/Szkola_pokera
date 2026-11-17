@@ -1007,7 +1007,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Reguła („bronisz szeroko”, cena 27,3%) poparta. Solver aplikacji 49,6% jest powyżej obu opublikowanych rozwiązań szczebla 2 (40,5% i 45%); cel K1 50–60% w dokumencie 10 nie ma źródła szczebla 2 — patrz liczby pf.bb-def.vs-btn.pub.*. E2 2026-11-04: rules.yaml R-M4-004 because: liczba opublikowana pf.bb-def.vs-btn.pub.* zamiast solver.def.bb-vs-btn (D-153)."
+  "uwagi": "Reguła („bronisz szeroko”, cena 27,3%) poparta. Solver aplikacji 49,6% jest powyżej obu opublikowanych rozwiązań szczebla 2 (40,5% i 45%); cel K1 50–60% w dokumencie 10 nie ma źródła szczebla 2 — patrz liczby pf.bb-def.vs-btn.pub.*. E2 2026-11-04: rules.yaml R-M4-004 because: liczba opublikowana pf.bb-def.vs-btn.pub.* zamiast solver.def.bb-vs-btn (D-153). 06-tresci-501 (2026-11-17, D-2011): siatka vs-open.bb-vs-btn (6- i 9-max) ma 16 klas niepewnych — obrona kanonu różni się od tabeli https://beyondgto.com/defense/bb-vs-btn (odczyt 2026-11-17) o 50 pp lub więcej; ich nie ocenia zadanie ani tryb gry M13 (docs/tresci/porownanie-siatek.json)."
  },
  {
   "id": "R-M4-005",
@@ -1470,7 +1470,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "3-bet 9bb przy otwarciu 3bb = 3x (ThinkGTO) — zgodne z „3-bet ok. 3x otwarcia”. E2 2026-11-04: rules.yaml R-M4-014 because: bez solver.def.bb-vs-sb, tylko pf.bb-def.vs-sb.pub (D-153); m4-l2-obrona-bb.md:89."
+  "uwagi": "3-bet 9bb przy otwarciu 3bb = 3x (ThinkGTO) — zgodne z „3-bet ok. 3x otwarcia”. E2 2026-11-04: rules.yaml R-M4-014 because: bez solver.def.bb-vs-sb, tylko pf.bb-def.vs-sb.pub (D-153); m4-l2-obrona-bb.md:89. 06-tresci-501 (2026-11-17, D-2011): siatka vs-open.bb-vs-sb (6- i 9-max) ma 13 klas niepewnych — obrona kanonu różni się od tabeli https://beyondgto.com/defense/bb-vs-sb (odczyt 2026-11-17) o 50 pp lub więcej; ich nie ocenia zadanie ani tryb gry M13 (docs/tresci/porownanie-siatek.json)."
  },
  {
   "id": "n:format.stack",

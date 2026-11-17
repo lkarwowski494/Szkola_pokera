@@ -70,7 +70,7 @@ drills:
 
 ## Giá không phải là tất cả
 
-Equity cho biết bạn thắng thường xuyên đến mức nào nếu cả hai cùng đi đến showdown mà không có thêm {{t:bet|cược}} nào. Khi {{t:out-of-position|không có vị trí}}, bạn thường sẽ {{t:fold|bỏ bài}} sau flop, nên các tay yếu khác chất hiện thực hóa ít hơn equity của chúng. Các tay đồng chất, {{t:connectors|connector}} và {{t:pair|đôi}} trung bình hiện thực hóa nhiều hơn, vì vậy trong bảng bạn phòng thủ với chúng nhiều hơn.
+Equity cho biết bạn thắng thường xuyên đến mức nào nếu cả hai cùng đi đến showdown mà không có thêm {{t:bet|cược}} nào. Khi {{t:out-of-position|không có vị trí}}, bạn thường sẽ {{t:fold|bỏ bài}} sau flop, nên các tay yếu khác chất hiện thực hóa ít hơn equity của chúng. Các tay đồng chất, {{t:connectors|connector}} và {{t:pair|đôi}} trung bình hiện thực hóa nhiều hơn, vì vậy bạn thường phòng thủ với chúng nhiều hơn.
 
 ```range
 vs-open.bb-vs-btn

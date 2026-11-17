@@ -70,7 +70,7 @@ O {{t:big-blind|big blind}} já tem um blind inteiro no {{t:pot|pote}}, então c
 
 ## O preço não é tudo
 
-A equity diz com que frequência você vence se os dois chegarem ao showdown sem mais {{t:bet|apostas}}. {{t:out-of-position|Fora de posição}}, você muitas vezes vai {{t:fold|desistir}} depois do flop, então mãos fracas de naipes diferentes realizam menos do que a equity delas. Mãos do mesmo naipe, {{t:connectors|conectores}} e {{t:pair|pares}} médios realizam mais, por isso, na grade, você defende com eles mais prontamente.
+A equity diz com que frequência você vence se os dois chegarem ao showdown sem mais {{t:bet|apostas}}. {{t:out-of-position|Fora de posição}}, você muitas vezes vai {{t:fold|desistir}} depois do flop, então mãos fracas de naipes diferentes realizam menos do que a equity delas. Mãos do mesmo naipe, {{t:connectors|conectores}} e {{t:pair|pares}} médios realizam mais, por isso, em geral, você defende com eles mais prontamente.
 
 ```range
 vs-open.bb-vs-btn
