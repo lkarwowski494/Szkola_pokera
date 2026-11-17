@@ -1,0 +1,19 @@
+SONDA M2-002: content/ranges/spots.yaml: AA dopisane do uncertain &u-bb-vs-btn (6- i 9-max przez alias); worktree 196cb8c2
+diff --git a/content/ranges/spots.yaml b/content/ranges/spots.yaml
+index 27c39294..e94c51e8 100644
+--- a/content/ranges/spots.yaml
++++ b/content/ranges/spots.yaml
+@@ -80,7 +80,7 @@
+   # klasy niepewne (06-tresci-501, D-2011): kryterium jak w btn-vs-co, obrona kanonu różni się od opublikowanej tabeli solvera
+   # (defense/bb-vs-btn, NL500, 100bb, odczyt 2026-11-17) o 50 pp lub więcej; spot nie przeszedł walidacji (D-153), więc tych rąk
+   # nie ocenia ani zadanie, ani tryb gry (M13); w malowaniu są zaliczane w obie strony. Wynik porównania: docs/tresci/porownanie-siatek.json
+-  uncertain: &u-bb-vs-btn [J3s, T4s, T2s, 74s, 63s, 42s, 32s, A6o, A2o, K8o, K7o, K5o, Q8o, T7o, 87o, 75o]
++  uncertain: &u-bb-vs-btn [AA, J3s, T4s, T2s, 74s, 63s, 42s, 32s, A6o, A2o, K8o, K7o, K5o, Q8o, T7o, 87o, 75o]
+ - id: vs-open.bb-vs-sb
+   title: "{{t:big-blind|Duży blind}}, {{t:small-blind}} {{t:open|otworzył}} na 3bb"
+   hero: BB
+=== A: is-siatki-niepewne.test.ts ===
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+KOD WYJSCIA A: 0
+=== B: cały zestaw tools/content-build (vitest run) ===

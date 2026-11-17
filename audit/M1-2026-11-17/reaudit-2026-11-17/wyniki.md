@@ -8,3 +8,7 @@
 | 07 | regresja: 9 workflowów (tylko 15 zamian @v5→@SHA), JAK-19 bramka statyczna kod 0 (PU 28, F 10); CI #534 (a59d0e1b) sukces; CI #535 na 196cb8c2 w toku | brak regresji | — | — | — | |
 | 07 | protokół F 1011 (`--protokol 1011` kod 1, 10 pozycji „—”) | krok właściciela (nie znalezisko) — blokuje 1012 przez bramkę JAK-19 | — | **tak (bramka)** | tak | |
 | 07 | E2E iOS na kandydacie | nie sprawdzono (gałąź napraw nie uruchamia E2E, D-1620; workflow_dispatch na macOS) | — | — | — | |
+| 04 | M2-koordynator-napraw-001 (strona projektowa) | **nadal otwarte (częściowo)**: kropka `muted` na zielonym polu 1,60:1 (jasny) i 2,01:1 (jasny + Zwiększ kontrast) < 3:1; 71/263 klas niepewnych, w tym K7o, Q8o, T2s, K8o, 75o (BB vs BTN); naprawa: kolor `ink` ≥ 3,26:1 → nowe ID 04-studio-projektowe-001 (reaudit) | P1 (wg KO-129) — do weryfikacji przeciwnej | tak (wg roli) | tak | (po powiadomieniu) |
+| 04 | M2-koordynator-napraw-004 | brak informacji dodatkowej, nie bariera (siatka zawsze jednym elementem z etykietą; lekcja m4-l2:79 mówi tekstem) | P2 | nie | nie | |
+| 04 | 04-studio-projektowe-002 (reaudit) | istniało wcześniej: PaintGrid kropka „mieszana” na pomalowanym polu 1,19–2,46:1 | P2 → P3 | nie | nie | |
+| 04 | regresja PasekStrategii, theme, i18n, PaintGrid | git diff od bazy pusty | — | — | — | |

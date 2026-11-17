@@ -21,3 +21,14 @@ index f8556e4c..58cc5dca 100644
 Tests:       3 skipped, 2 passed, 5 total
 KOD WYJSCIA A: 0
 === B: cały plik testu ===
+    ✓ spot z uncertain: jeden „•” na klasę, legenda „mieszana” (111 ms)
+    ✓ spot bez uncertain (brak pola i pusta lista): zero znaków, brak legendy (98 ms)
+    ✕ znak stoi w polu klasy z listy (nie w innym) (40 ms)
+    ✓ co najmniej 8 spotów z uncertain, w tym 4 BB (20 ms)
+    ✓ liczba „•” = liczba klas niepewnych dla wszystkich spotów; spoty bez uncertain bez znaków (1116 ms)
+    - Expected  - 1
+    + Received  + 1
+    -   "T2s",
+    +   "T3s",
+Tests:       1 failed, 4 passed, 5 total
+KOD WYJSCIA B: 1

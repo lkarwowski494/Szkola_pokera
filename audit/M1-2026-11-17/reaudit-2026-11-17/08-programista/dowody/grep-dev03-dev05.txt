@@ -1,0 +1,7 @@
+== DEV-03: skip/only/todo w plikach testów zmienionych 0e7e5e00..196cb8c2
+grep kod: 123
+== DEV-05: OR REPLACE / REPLACE INTO w packages/postep/src i apps/mobile/src
+packages/postep/src/powtorki.ts:18:// UPSERT, nie INSERT OR REPLACE: REPLACE usuwa wiersz karty, a ON DELETE CASCADE kasuje jej log (ADR 0003 pkt 4, E2a).
+packages/postep/src/wariantyHistoria.ts:14:// UPSERT po UNIQUE (szablon, poziom, odcisk) odświeża ziarno i czas (wiersz zostaje, ADR 0003 pkt 4: nie INSERT OR REPLACE),
+packages/postep/src/ustawienia.ts:22:// UPSERT, nie INSERT OR REPLACE (ADR 0003 pkt 4): jeden wiersz na klucz, pozostałe klucze nietknięte.
+grep kod: 0
