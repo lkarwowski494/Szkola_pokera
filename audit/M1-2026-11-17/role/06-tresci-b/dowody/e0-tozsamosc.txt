@@ -1,0 +1,11 @@
+$ git rev-parse HEAD; git diff --name-only f75acdff HEAD | grep -v audit/M1 | grep -v docs/decyzje/IR.md; git status --porcelain
+01cd5fccc8ed130de38bf9f981359f77a6e61330
+kod grep: 1 (1 = brak innych zmian)
+ M audit/M1-2026-11-17/linia-bazowa.md
+?? audit/M1-2026-11-17/role/06-tresci-b/
+?? audit/M1-2026-11-17/role/08-programista/
+?? audit/M1-2026-11-17/role/12-niezawodnosc/
+status kod: 0
+Linux vm 6.18.44-fc-v553 #1 SMP PREEMPT_DYNAMIC @0 x86_64 x86_64 x86_64 GNU/Linux
+v22.23.4
+git version 2.43.0

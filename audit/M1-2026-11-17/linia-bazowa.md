@@ -58,5 +58,17 @@ Wniosek z alternatyw: rynek jest pełen „drillerów” (GTO bez programu naucz
 4. Sceptyk ryzyka: LB-05, LB-06, LB-07, LB-08.
 5. Właściciel z ograniczonym czasem i 0 zł: LB-15, LB-10 (koszt 35 języków).
 
-## Soczewki-subagenci (partia 1)
-(dopisane po partii 1: plik źródłowy, punkty)
+## Soczewki-subagenci (partia 1, dopisane 2026-11-17 przed E2.4)
+Pliki: `soczewki/nowy-uzytkownik.md`, `soczewki/praktyk-dziedziny.md`, `soczewki/recenzent-sklepu.md`, `soczewki/sceptyk-ryzyka.md`, `soczewki/wlasciciel.md` (po 15 punktów, z adresami, cytatami i datą). Pokrywają LB-01…LB-15 (zbieżność: wyjaśnienie „dlaczego” 5/5, skala ocen dla rąk mieszanych 4/5, kategoria wiekowa 5/5, pomoc hazardowa z aktualnym numerem 4/5, „Data Not Collected” prawdziwe 5/5, eksport/import 4/5). Nowe punkty spoza LB:
+| # | Punkt | Obszar | Źródło (plik soczewki, punkt) |
+|---|---|---|---|
+| LB-16 | Brak funkcji działającej jako pomoc w czasie gry (RTA); jawna informacja | treść, wydanie | praktyk-dziedziny 13; recenzent-sklepu 11 |
+| LB-17 | Filtr/wybór tematu ćwiczeń realnie zmienia zadania; generator rozdań wewnętrznie spójny | przepływ, treść | praktyk-dziedziny 7; recenzent-sklepu 4, 5 |
+| LB-18 | Założenia każdego spotu jawne (format, stack, liczba graczy, rozmiar otwarcia) i zgodne z tabelami zakresów z jednego źródła | treść | praktyk-dziedziny 4, 5; recenzent-sklepu 3; wlasciciel 3 |
+| LB-19 | Push/fold i ICM z jawnym modelem; Nash chip-EV nazwany uproszczeniem | treść | praktyk-dziedziny 6 |
+| LB-20 | Import traktuje plik jako niezaufany i nie psuje istniejącego postępu; „Usuń postęp” usuwa wszystko | dane | sceptyk-ryzyka 7, 8 |
+| LB-21 | Gotowość na prawa USA o weryfikacji wieku (TX, UT, LA) przy kategorii 18+ | wydanie | sceptyk-ryzyka 10 |
+| LB-22 | Status „tradera” DSA rozstrzygnięty przed FR/DE (publiczne dane kontaktowe) | wydanie | sceptyk-ryzyka 14; wlasciciel 12 |
+| LB-23 | Działający kanał zgłoszeń w aplikacji, systemowa prośba o ocenę, odpowiedzi na recenzje | wzrost | recenzent-sklepu 15; wlasciciel 5 |
+| LB-24 | Nauka bez presji: dźwięk wyłączalny, brak limitu czasu domyślnie, tryb ciemny | przepływ | recenzent-sklepu 6; praktyk-dziedziny 8, 15 |
+| LB-25 | Wzrost bez płatnych reklam „social casino”; ASO i lokalizacja jako przewaga (konkurenci tylko po angielsku) | wzrost | sceptyk-ryzyka 15; praktyk-dziedziny 10; wlasciciel 15 |
