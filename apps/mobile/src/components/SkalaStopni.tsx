@@ -33,5 +33,6 @@ export function SkalaStopni({ czestosc, ocena }: { czestosc: number; ocena: Ocen
 
 const styles = StyleSheet.create({
   rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
-  przedzial: { flexGrow: 1, minWidth: 0, borderRadius: promien.przedzial, paddingVertical: odstep.s, paddingHorizontal: odstep.s, gap: 2 },
+  // IJ (D-1908): maxWidth 100% — `flexBasis` 112 × skala (349 pt przy AX5) nie może przekroczyć wiersza (na 320 pt wychodził poza suknem i ekran się przewijał poziomo)
+  przedzial: { flexGrow: 1, minWidth: 0, maxWidth: '100%', borderRadius: promien.przedzial, paddingVertical: odstep.s, paddingHorizontal: odstep.s, gap: 2 },
 });

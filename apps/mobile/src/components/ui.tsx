@@ -125,7 +125,8 @@ export function RzadPrzyciskow({ children, style }: { children: ReactNode; style
   const [szerokosc, ustawSzerokosc] = useState(0);
   const odstepMiedzy = odstep.m;
   const calosc = szerokosc > 0 ? szerokosc : (rodzic ?? szerokoscOkna - 2 * odstep.l);
-  const pole = (calosc - odstepMiedzy * (Children.count(children) - 1)) / Math.max(1, Children.count(children));
+  const liczba = Children.toArray(children).length; // IJ (P3 IH): `Children.count` liczy też `false`/`null` (przycisk warunkowy); toArray tylko prawdziwe dzieci
+  const pole = (calosc - odstepMiedzy * (liczba - 1)) / Math.max(1, liczba);
   return (
     <SzerokoscPolaContext.Provider value={pole}>
       <View testID="rzad-przyciskow" onLayout={(e) => { const x = Math.round(e.nativeEvent.layout.width); if (x > 0 && x !== szerokosc) ustawSzerokosc(x); }} style={[{ flexDirection: 'row', gap: odstepMiedzy }, style]}>{children}</View>

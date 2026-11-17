@@ -4,7 +4,7 @@ import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, useWi
 import { podstawaSegmentu } from '@/theme/skalowanie';
 import { opisPaska, segmentyPaska, type OpcjaPaska } from '@/features/stol/pasek';
 import { haptyka, odstep, promien, ruch, styl, useTokens } from '@/theme/tokens';
-import { rozmiarDoSzerokosci } from './dopasowanie';
+import { podpisSegmentu, rozmiarDoSzerokosci } from './dopasowanie';
 import { wykonajHaptyke } from '@/features/session/haptyka';
 
 /**
@@ -108,7 +108,7 @@ export function PasekStrategii({
 }
 
 function PoOcenie({ opcje, wybor, klasa }: { opcje: readonly OpcjaPaskaUI[]; wybor: number; klasa: string }): React.JSX.Element {
-  const { fontScale: skala } = useWindowDimensions(); // IH (IF P2-1)
+  const { width: szerokoscEkranu, fontScale: skala } = useWindowDimensions(); // IH (IF P2-1)
   const tk = useTokens();
   const { t } = useTranslation();
   const ogranicz = useOgraniczRuch();
@@ -162,15 +162,21 @@ function PoOcenie({ opcje, wybor, klasa }: { opcje: readonly OpcjaPaskaUI[]; wyb
         ))}
       </View>
       <View style={styles.podpisy}>
-        {seg.map((s) => (
-          <Animated.View key={s.indeks} testID={`podpis-${s.indeks}`} style={[kolumna(s.szerokosc), styles.podpis, { minWidth: podstawaSegmentu(skala) }]}>
-            <Text style={[styl.przypis, styles.podpisTekst, { color: s.twoj ? tk.goldText : tk.onFelt, fontWeight: '600' }]}>{s.tekst}</Text>
-            {s.procent !== null ? (
-              <Text style={[styl.przypis, styles.podpisTekst, { color: s.twoj ? tk.goldText : tk.onFeltMuted, fontVariant: ['tabular-nums'] }]}>{t('strategy.pct', { pct: s.procent })}</Text>
-            ) : null}
-            {s.twoj ? <Text style={[styl.przypis, styles.podpisTekst, { color: tk.goldText }]}>{t('strategy.yourChoiceShort')}</Text> : null}
-          </Animated.View>
-        ))}
+        {seg.map((s) => {
+          // IJ (D-1908): rozmiar tekstów i minWidth z szerokości najdłuższego wyrazu (`podpisSegmentu`), nie stałe 70 × skala
+          const procent = s.procent !== null ? t('strategy.pct', { pct: s.procent }) : null;
+          const twoj = s.twoj ? t('strategy.yourChoiceShort') : null;
+          const teksty = [s.tekst, ...(procent ? [procent] : []), ...(twoj ? [twoj] : [])];
+          const { minWidth, rozmiary } = podpisSegmentu(teksty, skala, szerokoscEkranu, podstawaSegmentu(skala), styl.przypis);
+          const rozmiar = (i: number) => rozmiary[i] ?? styl.przypis;
+          return (
+            <Animated.View key={s.indeks} testID={`podpis-${s.indeks}`} style={[kolumna(s.szerokosc), styles.podpis, { minWidth }]}>
+              <Text style={[styl.przypis, rozmiar(0), styles.podpisTekst, { color: s.twoj ? tk.goldText : tk.onFelt, fontWeight: '600' }]}>{s.tekst}</Text>
+              {procent ? <Text style={[styl.przypis, rozmiar(1), styles.podpisTekst, { color: s.twoj ? tk.goldText : tk.onFeltMuted, fontVariant: ['tabular-nums'] }]}>{procent}</Text> : null}
+              {twoj ? <Text style={[styl.przypis, rozmiar(procent ? 2 : 1), styles.podpisTekst, { color: tk.goldText }]}>{twoj}</Text> : null}
+            </Animated.View>
+          );
+        })}
       </View>
     </View>
   );

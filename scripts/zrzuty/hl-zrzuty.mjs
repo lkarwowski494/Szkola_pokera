@@ -85,7 +85,7 @@ for (const ekran of ekrany) {
           }
         }
         return { out, tekst: document.body.innerText.length, wiersze, rozmiarTytulu };
-      }, { ocena: ekran.startsWith('ocena'), przebieg: !ekran.startsWith('start'), ax5, tytul: ekran.startsWith('start-'), podsumowanie: etykietaPodsumowania, naglowekTekst: naglowekPrzebiegu });
+      }, { ocena: ekran.startsWith('ocena'), przebieg: !ekran.startsWith('start') && !ekran.startsWith('po-ocenie'), ax5, tytul: ekran.startsWith('start-'), podsumowanie: etykietaPodsumowania, naglowekTekst: naglowekPrzebiegu });
       const nazwa = `${przedrostek}-${ekran}-${szer}${ax5 ? '-ax5' : ''}.png`;
       if (wynik.wiersze !== null) console.log(`TYTUL ${nazwa}: wierszy ${wynik.wiersze}, rozmiar ${wynik.rozmiarTytulu}`);
       if (wynik.tekst < 20) bledy.push('pusty ekran');
