@@ -1,0 +1,38 @@
+# IO red na ef75f613863eb5e4081b83eefc5b45846fd40f42: test io-procent-znacznik.test.ts (13 niepowodzeń: „75” bez %, vpip „8” bez %)
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › pl: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "Masz [[2s 2s]] na table.position.bb (BB), na {{t:board|stole}} [[2s 2s 2s]], a rywal z BTN {{t:check|czeka}}. {{t:bet|Stawiasz}} ok. 75 {{t:pot|puli}}, bo ten sam ułamek {{t:
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › en: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "You have [[2s 2s]] in the table.position.bb (BB), the {{t:board}} is [[2s 2s 2s]], and your opponent on the BTN {{t:check|checks}}. You {{t:bet}} about 75 of the {{t:pot}}, be
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › de: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75 %"
+    Received string:    "Du hast [[2s 2s]] am table.position.bb (BB), das {{t:board}} ist [[2s 2s 2s]], und dein Gegner im BTN {{t:check|checkt}}. Du {{t:bet|setzt}} etwa 75 des {{t:pot|Pots}}, weil d
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › es: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75 %"
+    Received string:    "Tienes [[2s 2s]] en el table.position.bb (BB), en la {{t:board}} hay [[2s 2s 2s]], y tu rival en el BTN {{t:check|pasa}}. {{t:bet|Apuestas}} aproximadamente 75 del {{t:pot}}, 
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › fr: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75 %"
+    Received string:    "Vous avez [[2s 2s]] en table.position.bb (BB), le {{t:board}} est [[2s 2s 2s]], et votre adversaire en BTN fait {{t:check}}. Vous {{t:bet|misez}} environ 75 du {{t:pot}}, car 
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › it: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "Hai [[2s 2s]] in table.position.bb (BB), il {{t:board}} è [[2s 2s 2s]], e il tuo avversario in BTN fa {{t:check}}. {{t:bet|Punti}} circa 75 del {{t:pot}}, perché la stessa f
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › ja: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "あなたはtable.position.bb (BB)で[[2s 2s]]を持ち、{{t:board|ボード}}は[[2s 2s 2s]]で、BTNの相手が{{t:check|チェック}}しています。{{t:pot|ポット}
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › ko: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "당신은 table.position.bb (BB) 위치에서 [[2s 2s]] 핸드를 들고 있고, {{t:board|보드}}는 [[2s 2s 2s]]이며, BTN 위치의 상대가 {{t:check|체크}}합니다.
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › pt: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "Tem [[2s 2s]] no table.position.bb (BB), na {{t:board}} há [[2s 2s 2s]], e o adversário no BTN faz {{t:check}}. {{t:bet|Aposta}} cerca de 75 do {{t:pot}}, porque a mesma fra
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › pt-BR: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "Você tem [[2s 2s]] no table.position.bb (BB), na {{t:board|mesa}} há [[2s 2s 2s]], e o adversário no BTN faz {{t:check}}. Você {{t:bet|aposta}} cerca de 75 do {{t:pot}}, p
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › vi: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "Bạn có [[2s 2s]] ở vị trí table.position.bb (BB), {{t:board|board}} là [[2s 2s 2s]], còn đối thủ ở BTN {{t:check|check}}. Bạn {{t:bet|cược}} khoảng 75 
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › zh-Hant: SC-27 bet-big i bet-small po wypełnieniu znaczników zawierają „75%” w zapisie języka
+    Expected substring: "75%"
+    Received string:    "你在 table.position.bb (BB) 拿著 [[2s 2s]]，{{t:board|牌面}}是 [[2s 2s 2s]]，位於 BTN 的對手{{t:check|過牌}}。你{{t:bet|下注}}約 75 {{t:pot|底池}}，因
+  ● IO: {{w:rozmiar}} i {{w:vpip}} z procentem w języku aplikacji › vpip (SC-30): wartość z procentem, zapis języka (pl „8%”, de „8 %”)

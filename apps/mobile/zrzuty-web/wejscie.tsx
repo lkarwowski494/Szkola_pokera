@@ -74,11 +74,11 @@ const IB: Record<string, { szablon: ScenarioTemplate; wariant: ScenarioVariant; 
     wariant: wariantIb('sc-ib-turn', 'KhQd Jc9h 9c5s2dKc4h', { point: 'turn-action', street: 'turn', turnClass: 'overcard', pairKind: 'top', correct: 'bet-big' }),
   },
   'ib-geo-size': {
-    szablon: szablonIb('sc-ib-geo', 'm9', 'BTN', 'CO', 100, { street: 'flop', kind: 'geo-size', rule: 'R-M9-009', pots: [25], stacks: [130], streets: 3, small: 1 / 3, actions: [wyjIb('bet-small', 'SPR {{w:spr}}: zakład {{w:rozmiar}}% puli nie wpłaci stacku.'), wyjIb('bet-big', 'SPR {{w:spr}}: zakład {{w:rozmiar}}% puli wpłaci cały stack.')] }),
+    szablon: szablonIb('sc-ib-geo', 'm9', 'BTN', 'CO', 100, { street: 'flop', kind: 'geo-size', rule: 'R-M9-009', pots: [25], stacks: [130], streets: 3, small: 1 / 3, actions: [wyjIb('bet-small', 'SPR {{w:spr}}: zakład {{w:rozmiar}} puli nie wpłaci stacku.'), wyjIb('bet-big', 'SPR {{w:spr}}: zakład {{w:rozmiar}} puli wpłaci cały stack.')] }),
     wariant: wariantIb('sc-ib-geo', '7h7d AcQc 7sKc2d9h3s', { point: 'geo-size', street: 'flop', pot: 25, stack: 130, spr: 5.2, streets: 3, fractionBig: gf, fractionSmall: 1 / 3, smallTotal: 25 / 3 + 125 / 9 + 625 / 27, correct: 'bet-big' }),
   },
   'ib-nit-3bet': {
-    szablon: ScenarioTemplate.parse({ ...szablonIb('sc-ib-nit', 'm10', 'BTN', 'BB', 100, { street: 'preflop', kind: 'nit-3bet', rule: 'R-M10-007', open: 2.5, threeBet: 10, vpips: [0.08], actions: [wyjIb('fold', 'VPIP {{w:vpip}}%: pas.'), wyjIb('call', 'VPIP {{w:vpip}}%: sprawdzenie to niedokładność.')] }), situation: 'Bardzo ciasny rywal 3-betuje. Otworzyłeś z Buttona, a duży blind 3-betuje.' }),
+    szablon: ScenarioTemplate.parse({ ...szablonIb('sc-ib-nit', 'm10', 'BTN', 'BB', 100, { street: 'preflop', kind: 'nit-3bet', rule: 'R-M10-007', open: 2.5, threeBet: 10, vpips: [0.08], actions: [wyjIb('fold', 'VPIP {{w:vpip}}: pas.'), wyjIb('call', 'VPIP {{w:vpip}}: sprawdzenie to niedokładność.')] }), situation: 'Bardzo ciasny rywal 3-betuje. Otworzyłeś z Buttona, a duży blind 3-betuje.' }),
     wariant: wariantIb('sc-ib-nit', 'Ah9d QsQd Kc8d3h2s5c', { point: 'nit-3bet', street: 'preflop', handClass: 'A9o', vpip: 0.08, open: 2.5, threeBet: 10, required: 7.5 / 20.5, equity: 0.3, correct: 'fold' }),
   },
 };
