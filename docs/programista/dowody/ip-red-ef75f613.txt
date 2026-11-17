@@ -1,0 +1,17 @@
+ef75f613863eb5e4081b83eefc5b45846fd40f42
+     × de: 300 ziaren, kicker najwyższej pary ≥ Q 2746ms
+     × en: 300 ziaren, kicker najwyższej pary ≥ Q 2537ms
+     × es: 300 ziaren, kicker najwyższej pary ≥ Q 2384ms
+     × fr: 300 ziaren, kicker najwyższej pary ≥ Q 2466ms
+     × it: 300 ziaren, kicker najwyższej pary ≥ Q 2511ms
+     × ja: 300 ziaren, kicker najwyższej pary ≥ Q 2454ms
+     × ko: 300 ziaren, kicker najwyższej pary ≥ Q 2700ms
+     × pl: 300 ziaren, kicker najwyższej pary ≥ Q 2869ms
+     × pt: 300 ziaren, kicker najwyższej pary ≥ Q 2440ms
+     × pt-BR: 300 ziaren, kicker najwyższej pary ≥ Q 2871ms
+     × vi: 300 ziaren, kicker najwyższej pary ≥ Q 3095ms
+     × zh-Hant: 300 ziaren, kicker najwyższej pary ≥ Q 2470ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: naruszenia 194/300: expected [ …(194) ] to deeply equal []
+     36|       expect(zle, `naruszenia ${zle.length}/${ZIARNA}`).toEqual([]);
+      Tests  12 failed | 1 passed (13)

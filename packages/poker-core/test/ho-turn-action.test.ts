@@ -105,3 +105,16 @@ describe('08-EX-6: turn-action', () => {
     expect(() => generateVariant(szablon(poziomSrednia({ pairKind: undefined })), 'latwy', 1, ctx)).toThrow(TemplateError);
   });
 });
+
+describe('IP (IL-001, KO-123): turn-action czyta kickerMin / kickerMax najwyższej pary', () => {
+  it('kickerMin Q: każda najwyższa para ma kicker ≥ Q; kickerMax J: kicker ≤ J', () => {
+    const kicker = (hero: readonly number[], board4: readonly number[]): number => { const top = Math.max(...board4); return hero[0] === top ? hero[1]! : hero[0]!; };
+    for (const [b, ok] of [[poziomPrzeciwNadkarcie({ kickerMin: 'Q' }), (k: number) => k >= R.indexOf('Q')], [poziomPrzeciwNadkarcie({ kickerMax: 'J' }), (k: number) => k <= R.indexOf('J')]] as const) {
+      const t = szablon(b);
+      for (let seed = 1; seed <= 300; seed++) {
+        const v = generateVariant(t, 'latwy', seed, ctx);
+        expect(ok(kicker(v.hero.map(rankOf), v.board.slice(0, 4).map(rankOf)))).toBe(true);
+      }
+    }
+  }, 300_000);
+});
