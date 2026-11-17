@@ -1,7 +1,7 @@
 # sc-30: Spanish text of content/pl/scenarios/sc-30.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
 id: sc-30
 module: m10
-situation: "Un rival muy cerrado hace {{t:3-bet}}. Has {{t:open|abierto}} desde el Button y la {{t:big-blind}} hace {{t:3-bet}}. Supón que este rival tiene un {{t:vpip}} de entre {{n:hud.ex.nit3bet.vpip.low}} y {{n:hud.ex.nit3bet.vpip.high}} tras al menos unas {{n:hud.hands.vpip.low}} manos y que su {{t:3-bet}} está dentro de esas manos."
+situation: "Un rival muy cerrado hace {{t:3-bet}}. Has {{t:open|abierto}} desde el botón y la {{t:big-blind}} hace {{t:3-bet}}. Supón que este rival tiene un {{t:vpip}} de entre {{n:hud.ex.nit3bet.vpip.low}} y {{n:hud.ex.nit3bet.vpip.high}} tras al menos unas {{n:hud.hands.vpip.low}} manos y que su {{t:3-bet}} está dentro de esas manos."
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100

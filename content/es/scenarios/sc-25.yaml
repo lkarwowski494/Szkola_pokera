@@ -1,7 +1,7 @@
 # sc-25: Spanish text of content/pl/scenarios/sc-25.yaml (role 06, session HA, 2026-11-13; translated in session, for review by role 09); structure must match pl (test szablony-bs).
 id: sc-25
 module: m8
-situation: "En el river tienes {{t:second-pair|segunda pareja}}, estás en el Button y la {{t:big-blind}} {{t:check|pasa}}. Supón que tu rival no {{t:raise|sube}}: {{t:call|pagará}} con AA, KK y con todos los AK, AQ y KQ, y se {{t:fold|retirará}} con todos los QJ y JT. ¿{{t:bet|Apuestas}} o {{t:check|pasas}}?"
+situation: "En el river tienes {{t:second-pair|segunda pareja}}, estás en el botón y la {{t:big-blind}} {{t:check|pasa}}. Supón que tu rival no {{t:raise|sube}}: {{t:call|pagará}} con AA, KK y con todos los AK, AQ y KQ, y se {{t:fold|retirará}} con todos los QJ y JT. ¿{{t:bet|Apuestas}} o {{t:check|pasas}}?"
 table: 6max
 positions: { hero: BTN, villain: BB }
 stackBb: 100

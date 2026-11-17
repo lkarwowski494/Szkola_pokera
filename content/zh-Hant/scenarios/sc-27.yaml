@@ -1,7 +1,7 @@
 # sc-27: Traditional Chinese text of content/pl/scenarios/sc-27.yaml (role 06, session HZ, 2026-11-16; agent translation, for review by role 09); structure must match pl.
 id: sc-27
 module: m9
-situation: "能投入全部籌碼的下注尺寸。你在按鈕位對{{t:cutoff|CO}}的{{t:open|開池}}做了{{t:3-bet}}，他{{t:call|跟注}}。翻牌你有{{t:set|暗三條}}，{{t:cutoff|CO}}{{t:check|過牌}}。假設你的牌值得打三條街的{{t:value|價值}}，而且你想在翻牌、轉牌和河牌用相同比例的{{t:bet|下注}}，在河牌前投入全部籌碼。"
+situation: "能投入全部籌碼的下注尺寸。你在按鈕位對{{t:cutoff|CO}}的{{t:open|開池}}做了{{t:3-bet}}，他{{t:call|跟注}}。翻牌你有{{t:set|暗三條}}，{{t:cutoff|CO}}{{t:check|過牌}}。假設你的牌值得打三條街的{{t:value|價值}}，而且你想在翻牌、轉牌和河牌用相同比例的{{t:bet|下注}}，到河牌時投入全部籌碼。"
 table: 6max
 positions: { hero: BTN, villain: CO }
 stackBb: 100
