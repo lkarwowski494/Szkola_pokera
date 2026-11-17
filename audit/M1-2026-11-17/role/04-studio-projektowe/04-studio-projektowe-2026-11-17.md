@@ -40,7 +40,7 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 | Ruch, haptyka, dźwięk | dźwięku brak (zgodnie ze spec); haptyka z tokenów, przełącznik w ustawieniach → 002 |
 | Obecność poza ekranami | ikona iOS 1024 RGB bez alfy, wariant ciemny, Android adaptive z monochrome, pliki identyczne z `docs/design/ikona/` (`dowody/sp21-ikona.txt`); ekran startowy z tokenów `bg` (jasny `#E9EDF5`, ciemny `#0A1430`); widżetów brak; zrzuty sklepu: rola 10 |
 | Głos i teksty | wzory spec zachowane, bez wykrzykników na końcu tekstów (0), bez emoji poza symbolami kolorów kart (`dowody/sp11-teksty-grep.txt`); surowe identyfikatory na Postępie → 009 |
-| Motyw ciemny i zwiększony kontrast | pełne warianty w tokenach (4 palety, nie odwrócenie), przełączanie z `isDarkerSystemColorsEnabled` (`apps/mobile/src/theme/tokens.ts:52`); 008 |
+| Motyw ciemny i zwiększony kontrast | pełne warianty w tokenach (4 palety, nie odwrócenie), przełączanie z `isDarkerSystemColorsEnabled` (`apps/mobile/src/theme/tokens.ts:56`); 008 |
 | Lokalizacja | sufity tytułów liczone od szerokości (D-122); najdłuższy język nie sprawdzony na obrazie w tym audycie (wcześniejsze zrzuty de: `docs/design/dowody/ij-*`) |
 
 **Soczewki** (po kolei, bez subagentów, zgodnie z poleceniem): (1) jedna ręka i uwaga częściowa → 002, 006; (2) VoiceOver i AX5 → 003, 004, 005, 007; (3) krytyk klisz → paleta i sukno mają decyzję (D-117, D-118), kalibracja bez śladów szablonu (brak gradientów, emoji, wersalików z rozstrzeleniem; numeracja tylko w sekwencjach), ale element firmowy traci dane przy trzech akcjach → 001; (4) nowa osoba w pierwszych minutach → ocena poziomu i ekran Dziś nie dają się wyrenderować w web (pełna aplikacja nie startuje w przeglądarce, `apps/mobile/zrzuty-web/wejscie.tsx:2`), brak przejścia poznawczego → 010.
@@ -74,9 +74,9 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 ## Stosowalność listy kontrolnej
 | Pozycja | Status (dotyczy / nie dotyczy + powód / decyzja D-xx) | Wynik (ok / znalezisko ID / nie sprawdzono + powód) |
 |---|---|---|
-| SP-01 przepływ → ekran | dotyczy | ok w kodzie: trasy `apps/mobile/src/app/` odpowiadają PR-01–PR-09; diagnostyka tylko w buildzie deweloperskim (ADR 0011, `apps/mobile/src/app/diagnostics.tsx:7`); kryteria „Intuicyjność” bez wyniku → 010 |
+| SP-01 przepływ → ekran | dotyczy | ok w kodzie: trasy `apps/mobile/src/app/` odpowiadają PR-01–PR-09; diagnostyka tylko w buildzie deweloperskim (ADR 0011, `apps/mobile/src/app/diagnostics.tsx:7`); kryteria Intuicyjność bez wyniku → 010 |
 | SP-02 element firmowy z danymi | dotyczy (D-116) | 001 |
-| SP-03 tylko z motywu | dotyczy | kolory przejściowe siatek: znane, backlog 1.0.1 (A04-18, `docs/wydanie/plan-1.0.md:138`); stałe rozmiary liczb → w 004; `Menlo` w formułach → „Do sprawdzenia” |
+| SP-03 tylko z motywu | dotyczy | kolory przejściowe siatek: znane, backlog 1.0.1 (A04-18, `docs/wydanie/plan-1.0.md:138`); stałe rozmiary liczb → w 004; `Menlo` w formułach → sekcja Do sprawdzenia |
 | SP-04 kontrast | dotyczy | 173/174 ok; 008 |
 | SP-05 nie tylko kolor | dotyczy | ok: zrzuty w skali szarości (`zrzuty/po-ocenie-390-jasny-szarosc.png`, `zrzuty/ocena-blad-390-jasny-szarosc.png`): stopnie znakiem i słowem, „ty” słowem i obwódką; siatki zakresów mają jedną grupę akcji w każdym spocie (`content/ranges/spots.yaml`), więc kolor nie rozróżnia grup |
 | SP-06 cele dotyku | dotyczy (44 pt, D-121) | 006 |
@@ -88,7 +88,7 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 | SP-12 domyślne wybory | dotyczy | ok: granat, złoto, sukno i Literata mają decyzje D-117, D-118, D-120; brak innych pozycji kalibracji na zrzutach |
 | SP-13 zgodność z projektem | dotyczy (wzorce w `docs/design/wzorce-zrzuty/`) | panel po ocenie: kreskowanie pasa zastąpione obwódką kreskowaną (D-284, nazwane), krój Literata nieobecny w web (renderer); 001, 007; ekrany Dziś/Lekcje/Postęp: nie sprawdzono (web nie renderuje) |
 | SP-14 kroje i licencja | dotyczy | ok: Literata SemiBold, OFL 1.1 (`apps/mobile/assets/fonts/OFL-literata.txt`), treść krojem systemowym; trzecia rodzina `Menlo` → „Do sprawdzenia” |
-| SP-15 standardowe elementy, gesty | dotyczy | malowanie siatki gestem ma alternatywę (pola jako checkbox z akcją `activate`, `apps/mobile/src/components/PaintGrid.tsx:137`); nawigacja i arkusze na urządzeniu: nie sprawdzono (Expo web nie jest dowodem dla SP-15) |
+| SP-15 standardowe elementy, gesty | dotyczy | malowanie siatki gestem ma alternatywę (pola jako checkbox z akcją `activate`, `apps/mobile/src/components/PaintGrid.tsx:138`); nawigacja i arkusze na urządzeniu: nie sprawdzono (Expo web nie jest dowodem dla SP-15) |
 | SP-16 ikona, start, intro | dotyczy | ok: tło startu z tokenów `bg`, brak intro |
 | SP-17 kontekst użycia | dotyczy, P1 (nie jazda) | ok co do układu (akcje 64 pt, „Zakończ” 48 pt z hitSlop); 002 dotyczy tego kontekstu |
 | SP-18 VoiceOver, „Pogrubiony tekst” | dotyczy | role i etykiety ok w kodzie; 005; kolejność czytania na urządzeniu: nie sprawdzono |
@@ -102,7 +102,7 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 - Realność: realny · Pewność: wysoka
 - Rodzaj: D
 - Dowód: `apps/mobile/src/components/PasekStrategii.tsx:159` każdy segment nie-pas ma wypełnienie `raiseFill` i granicę `onFelt`; `apps/mobile/src/theme/tokeny.ts:23` i `apps/mobile/src/theme/tokeny.ts:40` oba mają wartość `#FFFDF7`, więc granica ma kontrast 1:1 do obu sąsiadów. Zrzut `zrzuty/po-ocenie-390-jasny.png` (CO, J9o: pas 10%, sprawdzenie 70%, przebicie 20%): oś pokazuje ciemny pas i jeden kremowy blok 90%. Makieta zna tylko dwa segmenty (`docs/design/ekrany/e3.css:115`), więc projekt nie ma stylu dla drugiej akcji nie-pas. Szczegóły: `dowody/f-pasek-granica.txt`.
-- Mechanizm: system kolorów paska ma dwa role-kolory (pas, przebicie), a komponent rysuje każdą akcję nie-pas jako „przebicie”; `grep -n "raiseFill" apps/mobile/src` → 1 trafienie w kodzie ekranu (PasekStrategii.tsx:159). Para kontrastu w tokenach mierzy tylko „przebicie obok pas”.
+- Mechanizm: system kolorów paska ma dwa role-kolory (pas, przebicie), a komponent rysuje każdą akcję nie-pas jako „przebicie”; `grep -n "raiseFill" apps/mobile/src` → 1 trafienie w kodzie ekranu (`apps/mobile/src/components/PasekStrategii.tsx:159`). Para kontrastu w tokenach mierzy tylko parę przebicie obok pas.
 - Powraca: nie (A04-13 dotyczył wysokości i obrysu osi, naprawiony)
 - Wzorzec lub źródło: zasada studia 2 (element firmowy niesie dane); WCAG 2.2, 1.4.11 (3:1 dla grafiki niosącej informację; próg z „Podłóg dostępności” wzorców roli); D-116
 - Kroki w aplikacji: lekcja albo sesja z zadaniem strategii o trzech akcjach (pas, sprawdzenie, przebicie) → wybór → ocena: pasek nie pokazuje, ile z 90% to sprawdzenie, a ile przebicie.
@@ -115,8 +115,8 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 - Poziom: P1 (WYSOKIE, bez blokady wg CLAUDE.md pkt 1)
 - Realność: realny · Pewność: wysoka
 - Rodzaj: D
-- Dowód: `apps/mobile/src/components/PasekStrategii.tsx:93` wywołuje haptykę bez sprawdzenia ustawienia; `apps/mobile/src/app/session.tsx:250` dla oceny sprawdza `if (haptics)`; etykieta przełącznika `apps/mobile/src/i18n/locales/pl.json:316` „Wibracje przy odpowiedzi”. `dowody/f-haptyka.txt`.
-- Mechanizm: ustawienie czytane tylko na ekranie sesji, a komponent paska (sesja, lekcja, scenariusz) wywołuje haptykę sam; `grep -rn "wykonajHaptyke(" apps/mobile/src` → 2 trafienia, 1 bez warunku (PasekStrategii.tsx:93). Scenariusz nie ma żadnego odczytu ustawienia.
+- Dowód: `apps/mobile/src/components/PasekStrategii.tsx:93` wywołuje haptykę bez sprawdzenia ustawienia; `apps/mobile/src/app/session.tsx:250` dla oceny sprawdza `if (haptics)`; etykieta przełącznika `apps/mobile/src/i18n/locales/pl.json:316` (Wibracje przy odpowiedzi). `dowody/f-haptyka.txt`.
+- Mechanizm: ustawienie czytane tylko na ekranie sesji, a komponent paska (sesja, lekcja, scenariusz) wywołuje haptykę sam; `grep -rn "wykonajHaptyke(" apps/mobile/src` → 2 trafienia, 1 bez warunku (`apps/mobile/src/components/PasekStrategii.tsx:93`). Scenariusz nie ma żadnego odczytu ustawienia.
 - Powraca: nie
 - Wzorzec lub źródło: zasada studia 8 („oba są do wyłączenia”, HIG Playing haptics); kontekst PR-03 (komunikacja, jedna ręka)
 - Kroki w aplikacji: Ustawienia → wyłącz „Wibracje przy odpowiedzi” → sesja ćwiczeń albo scenariusz → dotknij akcję: telefon wibruje.
@@ -129,8 +129,8 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 - Poziom: P1 (WYSOKIE, bez blokady wg CLAUDE.md pkt 1: wybór „Automatycznie” jest domyślny, a zdanie pod kontrolką podaje bieżący poziom)
 - Realność: realny · Pewność: wysoka
 - Rodzaj: D
-- Dowód: `apps/mobile/src/features/scenariusz/komponenty.tsx:244` wiersz segmentów bez zawijania (`flexDirection: 'row'`, `overflow: 'hidden'`), `apps/mobile/src/features/scenariusz/komponenty.tsx:245` segment `flex: 1`; tekst `styl.drobny` bez sufitu. Zrzut `zrzuty/start-320-jasny-ax5.png`: „Automatycznie” widać jako „omatyc”; `dowody/zrzuty-web.txt`: „Automatycznie” poza ekranem przy 390 i 320 pt AX5, oba motywy. Ten sam wynik był w pomiarze sesji HH (`docs/design/dowody/hh-przepelnienie.txt:207`), bez znaleziska.
-- Mechanizm: kontrolka segmentowa bez gałęzi dużego tekstu (pasek akcji ma ją: `podstawaSegmentu` i zawijanie, `apps/mobile/src/theme/skalowanie.ts:13`); `grep -n "WyborPoziomuUI" apps/mobile/src` → 1 komponent. Przy czterech poziomach („Automatycznie · Łatwy · Średni · Trudny”) każdy segment ma ok. 70 pt na 320 pt.
+- Dowód: `apps/mobile/src/features/scenariusz/komponenty.tsx:244` wiersz segmentów bez zawijania (`flexDirection: 'row'`, `overflow: 'hidden'`), `apps/mobile/src/features/scenariusz/komponenty.tsx:245` segment `flex: 1`; tekst `styl.drobny` bez sufitu. Zrzut `zrzuty/start-320-jasny-ax5.png`: słowo Automatycznie widać jako „omatyc”; `dowody/zrzuty-web.txt`: Automatycznie poza ekranem przy 390 i 320 pt AX5, oba motywy. Ten sam wynik był w pomiarze sesji HH (`docs/design/dowody/hh-przepelnienie.txt:207`), bez znaleziska.
+- Mechanizm: kontrolka segmentowa bez gałęzi dużego tekstu (pasek akcji ma ją: `podstawaSegmentu` i zawijanie, `apps/mobile/src/theme/skalowanie.ts:11`); `grep -n "WyborPoziomuUI" apps/mobile/src` → 1 komponent. Przy czterech poziomach (Automatycznie, Łatwy, Średni, Trudny) każdy segment ma ok. 70 pt na 320 pt.
 - Powraca: tak, pomiar HH bez znaleziska → trwała kontrola: test układu przy `fontScale` 3,12 (segmenty w pionowym stosie) i kontrola „poza ekranem” w `scripts/zrzuty/hl-zrzuty.mjs` dla ekranu `start` jako twarda przy AX5
 - Wzorzec lub źródło: podłoga „Tekst” (HIG Typography: przy dużym tekście układ pionowy); D-121 (0 tekstów uciętych przy AX5)
 - Kroki w aplikacji: Rozmiar tekstu AX5 → Scenariusze → wybierz scenariusz → ekran startu: nazwy poziomów ucięte.
@@ -157,7 +157,7 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 - Poziom: P1 (WYSOKIE, bez blokady wg CLAUDE.md pkt 1: tytuły mają już wagę 600, treść systemowa reaguje)
 - Realność: realny · Pewność: wysoka
 - Rodzaj: D
-- Dowód: w `apps/mobile/src` 0 trafień `BoldText`; w aplikacji jest jeden plik kroju `apps/mobile/assets/fonts/Literata-SemiBold.ttf`; RN 0.88.1 ma `isBoldTextEnabled` (`node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js:86`). Uzasadnienie wyboru kroju w `docs/design/02-kierunki.md:170` zakładało reakcję na „Pogrubiony tekst”. `dowody/f-pogrubiony.txt`.
+- Dowód: w `apps/mobile/src` 0 trafień `BoldText`; w aplikacji jest jeden plik kroju `apps/mobile/assets/fonts/Literata-SemiBold.ttf`; RN 0.88.1 ma `isBoldTextEnabled` (`node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js:86`). Uzasadnienie wyboru kroju w `docs/design/02-kierunki.md:170` zakładało reakcję na ustawienie Pogrubiony tekst. `dowody/f-pogrubiony.txt`.
 - Mechanizm: krój własny ładowany po nazwie pliku jednej odmiany (`apps/mobile/src/theme/kroje.ts:7`), bez odczytu ustawienia systemu; dotyczy wszystkich stylów `tytul*`, `slowoStopnia` i indeksu karty (`apps/mobile/src/theme/tokens.ts:86`).
 - Powraca: nie (HH oznaczył „nie sprawdzono”)
 - Wzorzec lub źródło: podłoga „VoiceOver… własne kroje reagują na »Pogrubiony tekst«” (wzorce roli, HIG Accessibility i Typography)
@@ -185,7 +185,7 @@ Mapowanie na próg wydania (`CLAUDE.md`, „Audyty i wydania” pkt 1): P1 001�
 - Poziom: P1 (WYSOKIE, bez blokady wg CLAUDE.md pkt 1: słowo czytelne, stopień niesie też znak i etykieta)
 - Realność: realny · Pewność: wysoka (pomiar web z Inter + rachunek dla SF Pro)
 - Rodzaj: D
-- Dowód: zrzut `zrzuty/po-ocenie-390-jasny.png` i `zrzuty/sp13-po-ocenie-wzorzec-vs-web.png`: „Dopuszcz/alna” w dwóch wierszach przy 390 pt bez dużego tekstu, gdy twoim stopniem jest „Zgodna”; podstawa przedziału nie-twojego 76 pt (`apps/mobile/src/theme/skalowanie.ts:15`), wzorzec e3 pokazuje „Dopuszczalna” tylko jako przedział „twój” (112 pt). Rachunek: `dowody/f-skala-dopuszczalna.txt`.
+- Dowód: zrzut `zrzuty/po-ocenie-390-jasny.png` i `zrzuty/sp13-po-ocenie-wzorzec-vs-web.png`: „Dopuszcz/alna” w dwóch wierszach przy 390 pt bez dużego tekstu, gdy twoim stopniem jest „Zgodna”; podstawa przedziału nie-twojego 76 pt (`apps/mobile/src/theme/skalowanie.ts:13`), wzorzec e3 pokazuje słowo Dopuszczalna tylko jako przedział „twój” (112 pt). Rachunek: `dowody/f-skala-dopuszczalna.txt`.
 - Mechanizm: podstawy przedziałów liczone dla układu makiety, w której najdłuższe słowo zawsze było „twoje”; słowo stopnia nie wpływa na podstawę (por. `podpisSegmentu` paska, D-1910). 1 komponent (`apps/mobile/src/components/SkalaStopni.tsx:24`).
 - Powraca: nie (A04-06 dotyczył AX przy 390/430)
 - Wzorzec lub źródło: D-122 (łamanie w środku wyrazu tylko przy AX3–AX5 na 320 pt)
