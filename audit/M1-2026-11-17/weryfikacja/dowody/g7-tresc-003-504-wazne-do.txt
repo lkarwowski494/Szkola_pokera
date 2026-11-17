@@ -1,0 +1,17 @@
+$ python3 -I (docs/tresci/rejestr.json: status × wazne_do; wpisy n:rake.* i n:mda.*)
+wpisy 1062 ; potwierdzone 1006
+wazne_do wg statusu: {'wycofane': 44, 'potwierdzone': 2}
+potwierdzone z wazne_do: [('H-INT-1', '2027-11-04'), ('H-INT-2', '2027-11-04')]
+n:rake. potwierdzone 19 z wazne_do 0 odczyty ['2026-11-04']
+n:mda. potwierdzone 21 z wazne_do 0 odczyty ['2026-11-04']
+n:rake.solver.* (wyniki solvera z rake, nie harmonogram sali): ['n:rake.solver.bb-minraise', 'n:rake.solver.depth', 'n:rake.solver.vpip-drop.high', 'n:rake.solver.vpip-drop.low']
+kod wyjścia: 0
+
+$ grep -rn "wazne_do" docs/decyzje.md docs/decyzje/*.md docs/tresci/*.md tools/content-build/src packages/content-schema/src (bez IR.md)
+docs/tresci/00-rozpoznanie.md:41:| Aktualność | odczyty źródeł 4–9.10.2026 (dokument 12), zasady roli: odczyt w dniu pracy → ponowny odczyt w E1; numery pomocy `wazne_do` co 12 miesięcy |
+kod wyjścia: 0
+
+$ grep -n "odczyt 5 października 2026" content/pl/lessons/m10-l4-rake.md; grep -n -o "stan na 5.10.2026" content/numbers.yaml
+126:odczyt 5 października 2026
+714:stan na 5.10.2026
+kod wyjścia: 0
