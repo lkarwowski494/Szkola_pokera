@@ -39,3 +39,8 @@ Analogia z Treningiem (CLAUDE.md, D-191): repo `lkarwowski494/trening` nie jest 
 - Słowa właściciela (w sesji IR): „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”.
 - Zapis w `plan-napraw.json`: zadania partii 1 (002, 007, 047, 061) → `zatwierdzone`; DEC-01…DEC-13 `wybor` = rekomendacja; DEC-01 (a) z danymi W-04: e-mail kontaktu support@apps4brew.com, sprzedawca Łukasz Karwowski (adres firmowy podany przez właściciela do publikacji na stronie wsparcia, w polityce i notatkach App Review). Zadania partii 2–4 zostają `otwarte` do osobnego zatwierdzenia. `sprawdz-plan.mjs` kod 0 (dowody/sprawdz-plan-po-stop2.txt).
 - Polecenie M2: `node /home/user/prompts/tools/assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17 --zadania partia:1`.
+
+## D-2030 · 2026-11-17 · Reaudit M1 pętla 1: zakres i STOP 1 jako wyjątek nazwany
+- Decyzja: zakres reaudytu z polecenia koordynatora (właściciel zatwierdził plan M2 „a: plan jak wyżej (zalecane)”, reaudit przed scaleniem): 002, 007, 047, 061 + M2-koordynator-napraw-001; ocena progiem M2-002…005 i odstępstwa D-2015. STOP 1 reaudytu (zakres i koszt) nie czeka na odpowiedź — wyjątek nazwany (zasada 7): zakres ustalony przez właściciela przez koordynatora, koszt mały [OCENA 5 subagentów × 0,2–0,4 mln ≈ 1–2 mln tokenów, 20–40 USD]; kontrola zastępcza: raport startowy do koordynatora z zakresem i kosztem.
+- Fan-out: role 06, 07, 08, 10, 04 (Pliki → role: treść i siatki → 06, workflowy i testy → 07, RangeGrid i bazy treści → 08, .gitignore → 10, dostępność siatki → 04); próbka regresji: TRE (M5), JAK-19, DEV-02, manifest prywatności (10), PasekStrategii (04).
+- Gałąź: claude/sesja-ir-reaudit-m1 od 196cb8c2; gałąź IR audytu nietknięta.
