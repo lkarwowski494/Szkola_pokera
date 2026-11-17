@@ -6,14 +6,20 @@
 // (widok limperów: szablony-fikcje punktu iso-size jak SC-09, której treść jeszcze nie istnieje; zakres otwarcia i reguła rozmiaru złożone tu, bez bazy).
 // IB (KO-115, D-1841): ekrany `ib-spr-call`, `ib-check-raise`, `ib-turn-action`, `ib-geo-size`, `ib-nit-3bet` (decyzja) i `ocena-ib-check-raise` — warianty złożone ręcznie
 // (fikstura: karty i liczby jak z generatora, bez bazy treści i macierzy equity), szablony jak fixtures HO w tools/content-build/test/fixtures.
+// IJ (D-1908): ekrany `po-ocenie` (PanelDecyzji z lekcji/sesji po ocenie: pasek strategii z podpisami `PoOcenie`, wybór „Sprawdzenie”) i `po-ocenie-pas` (wybór „Pas”,
+// 3 akcje, jedna rzadka) — nazwy akcji z `scenario.action.*` w języku przeglądarki, jak w aplikacji.
 import '@/i18n';
 import { registerRootComponent } from 'expo';
+import i18n from 'i18next';
+import { View } from 'react-native';
 import { ScenarioTemplate } from '@szkola/content-schema';
 import { geometricFraction, HAND_CLASSES, parseCards, type Card, type GeneratorContext, type ScenarioVariant, type VariantDecision } from '@szkola/poker-core';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PrzebiegScenariusza, StartScenariusza } from '@/features/scenariusz/EkranScenariusza';
 import type { Akcja } from '@/features/scenariusz/wariant';
 import { sesjaFg, wariantFg } from '@/test-utils/fgScenariusz';
+import { PanelDecyzji } from '@/features/stol/PanelDecyzji';
+import type { ChoiceInstance } from '@/features/drills/types';
 
 const brak = () => undefined;
 const SZABLON = ScenarioTemplate.parse({
@@ -81,7 +87,25 @@ const punkt = wariant.points[0];
 const poprawna = (punkt && 'correct' in punkt ? punkt.correct : 'bet') as Akcja;
 const bledna: Akcja = poprawna === 'bet' ? 'check' : 'bet';
 
+const wielka = (x: string): string => x.charAt(0).toLocaleUpperCase() + x.slice(1);
+/** IJ: zadanie ze strategią solvera jak w lekcji (CO, J9o): częstości 0,10 / 0,70 / 0,20; nazwy akcji z i18n w języku przeglądarki. */
+function zadanieStrategii(): ChoiceInstance {
+  const nazwa = (a: string) => wielka(i18n.t(`scenario.action.${a}`));
+  return {
+    kind: 'choice', key: 'k', drillId: 'rfi.co', family: 'rfi', lessonId: null, rules: [], prompt: 'CO, wszyscy przed tobą spasowali', table: { hand: ['Jc', '9d'], position: 'CO', path: 'UTG:fold,HJ:fold' },
+    options: [
+      { text: nazwa('fold'), correct: false, why: 'Solver pasuje z tą ręką w 10% przypadków.', czestosc: 0.1, pas: true },
+      { text: nazwa('call'), correct: true, why: 'Solver sprawdza z tą ręką w 70% przypadków.', czestosc: 0.7 },
+      { text: nazwa('raise'), correct: false, acceptable: true, why: 'Solver podbija z tą ręką w 20% przypadków.', czestosc: 0.2 },
+    ],
+  } as unknown as ChoiceInstance;
+}
+
 function Ekran({ ekran }: { ekran: string }) {
+  if (ekran === 'po-ocenie' || ekran === 'po-ocenie-pas') {
+    const pas = ekran === 'po-ocenie-pas';
+    return <View style={{ padding: 16 }}><PanelDecyzji item={zadanieStrategii()} rekord={{ answer: { kind: 'choice', index: pas ? 0 : 1 }, grade: pas ? 'acceptable' : 'correct' }} /></View>;
+  }
   const ib = IB[ekran.replace(/^ocena-/, '')];
   if (ib) {
     const wybory: Akcja[] = ekran.startsWith('ocena-') && ib.wybor ? [ib.wybor] : [];
