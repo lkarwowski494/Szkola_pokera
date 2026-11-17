@@ -1,0 +1,7 @@
+Kontrast znaku (WCAG 2.x), próg 3:1. Format: przed (tk.muted) -> po (kolor etykiety ręki w polu)
+Dane: apps/mobile/src/theme/tokeny.ts, przejsciowe.feltSoft z apps/mobile/src/theme/tokens.ts; krycie 0,85 z RangeGrid.tsx
+para | light | dark | lightHigh | darkHigh
+1 RangeGrid znak niepewny na polu w zakresie (felt1·0,85 na surface) | 1.60 BRAK -> 3.92 ok | 4.79 ok -> 7.87 ok | 2.01 BRAK -> 3.26 ok | 7.75 ok -> 9.19 ok
+2 RangeGrid znak na pustym polu (surface) | 7.39 ok -> 18.17 ok | 8.21 ok -> 13.48 ok | 11.21 ok -> 18.17 ok | 11.37 ok -> 13.48 ok
+3 PaintGrid znak mieszana na pomalowanym polu (primaryBg) | 2.46 BRAK -> 17.86 ok | 1.64 BRAK -> 15.67 ok | 1.62 BRAK -> 17.86 ok | 1.19 BRAK -> 15.67 ok
+4 PaintGrid znak mieszana na polu mieszanym niepomalowanym (feltSoft) | 6.26 ok -> 15.38 ok | 7.52 ok -> 12.35 ok | 9.49 ok -> 15.38 ok | 10.42 ok -> 12.35 ok

@@ -1,0 +1,69 @@
+FAIL src/components/__tests__/znak-kolor-etykiety-08.test.tsx
+  znak „•” ma kolor etykiety ręki w polu
+    ✕ RangeGrid (004-001): kolor znaku = kolor etykiety (ink), nie muted (90 ms)
+    ✕ PaintGrid (04-studio-projektowe-002): „mieszana” na pomalowanym polu: znak = etykieta (primaryInk) (37 ms)
+    ✕ PaintGrid: „mieszana” na niepomalowanym polu: znak = etykieta (ink) (29 ms)
+
+  ● znak „•” ma kolor etykiety ręki w polu › RangeGrid (004-001): kolor znaku = kolor etykiety (ink), nie muted
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#0A1430"
+    Received: "#46557A"
+
+      37 |     const pola = poleZeZnakiem(toJSON());
+      38 |     expect(pola.map((p) => p.hand).sort()).toEqual(['75o', 'K7o', 'T2s']);
+    > 39 |     for (const p of pola) expect(p.znak).toBe(p.etykieta);
+         |                                          ^
+      40 |   });
+      41 |
+      42 |   const wynik = (zmiana: Record<string, PaintCell>) => HAND_CLASSES.map((h) => zmiana[h] ?? 'none');
+
+      at Object.toBe (src/components/__tests__/znak-kolor-etykiety-08.test.tsx:39:42)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● znak „•” ma kolor etykiety ręki w polu › PaintGrid (04-studio-projektowe-002): „mieszana” na pomalowanym polu: znak = etykieta (primaryInk)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#FFFDF7"
+    Received: "#46557A"
+
+      47 |     const pola = poleZeZnakiem(toJSON());
+      48 |     expect(pola).toHaveLength(1);
+    > 49 |     expect(pola[0]!.znak).toBe(pola[0]!.etykieta);
+         |                           ^
+      50 |   });
+      51 |
+      52 |   it('PaintGrid: „mieszana” na niepomalowanym polu: znak = etykieta (ink)', async () => {
+
+      at Object.toBe (src/components/__tests__/znak-kolor-etykiety-08.test.tsx:49:27)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● znak „•” ma kolor etykiety ręki w polu › PaintGrid: „mieszana” na niepomalowanym polu: znak = etykieta (ink)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#0A1430"
+    Received: "#46557A"
+
+      54 |     const pola = poleZeZnakiem(toJSON());
+      55 |     expect(pola).toHaveLength(1);
+    > 56 |     expect(pola[0]!.znak).toBe(pola[0]!.etykieta);
+         |                           ^
+      57 |   });
+      58 | });
+      59 |
+
+      at Object.toBe (src/components/__tests__/znak-kolor-etykiety-08.test.tsx:56:27)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        1.117 s, estimated 3 s
+Ran all test suites matching /src\/components\/__tests__\/znak-kolor-etykiety-08.test.tsx/i.
+rc=1
