@@ -46,6 +46,8 @@ Przelicznik USD [OCENA]: 15–20 USD/mln tokenów (dane projektu: `docs/koordyna
 | 09-lokalizacja | opus/medium | 251 072 (plan 0,35–0,8 mln) | 8,1 min | 71 |
 | 11-wzrost | opus/medium | 240 737 (plan 0,25–0,5 mln) | 9,0 min | 69 |
 | 07-jakosc | opus/high | 344 627 (plan 0,5–1,2 mln) | 14,5 min | 101 |
+| 06-tresci | opus/high | 323 028 (plan 0,5–1,2 mln) | 14,6 min | 98 |
+| **partia 3 razem** | | **1 159 464** (plan 1,6–3,7 mln; iloraz do środka 2,65 ≈ 0,44) | ok. 15 min zegarowo | |
 
 ## Punkt kontrolny kosztu po partii 1 (D-020; 2026-11-17 ok. 11:35 UTC)
 - Zużycie sesji IR łącznie z subagentami (get_session `usage.cost_usd`): **39,71 USD** (E0, E0b, STOP 1, partia 1). Tokeny subagentów partii 1: 1,94 mln (plan 1,6–3,1 mln; iloraz do środka ≈ 0,82). Wynikowy przelicznik ≈ 17–18 USD/mln (w założonym przedziale 15–20).
