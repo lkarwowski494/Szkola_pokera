@@ -160,8 +160,10 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
  * Pary z `przejsciowe` (wyjątek nazwany w apps/mobile/src/theme/tokens.ts) sprawdza test motywu, nie ta lista.
  */
 export const paryZlozone: Record<string, { fg: keyof Paleta; tlo: keyof Paleta; krycie: number; podTlem: keyof Paleta; prog: number }> = {
-  // RangeGrid: pole w zakresie = felt1 z opacity 0,85 na surface; znak klasy niepewnej w kolorze etykiety ręki (ink)
+  // RangeGrid: pole w zakresie = felt1 z opacity 0,85 na surface; znak klasy niepewnej w kolorze ink (w rogu: ≥ 3 na surface i na zieleni);
+  // etykieta ręki na polu o pokryciu ≥ 0,85 w kolorze onFelt (M2-koordynator-napraw-006, KO-131); pola 0,15–0,85: reguła w RangeGrid.tsx
   'znak klasy niepewnej na polu w zakresie': { fg: 'ink', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 3 },
+  'etykieta ręki na polu w zakresie (pokrycie ≥ 0,85, tekst 8 pt)': { fg: 'onFelt', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
 };
 
 /**

@@ -49,3 +49,21 @@ describe('kontrast par tokenów (4 warianty)', () => {
     expect(kontrast(paleta(w).ink!, przejsciowe[w].feltSoft)).toBeGreaterThanOrEqual(3);
   });
 });
+
+// M2-koordynator-napraw-006 (KO-131): etykieta ręki (8 pt) w PaintGrid: tekst, więc próg 4,5 do każdego tła pola (labelColor/cellStyle).
+describe('etykieta ręki w PaintGrid: próg 4,5 do tła pola (4 warianty)', () => {
+  it.each(WARIANTY)('%s: ink na surface, primaryInk na primaryBg, primaryInk na good, ink na badSoft, warnSoft i feltSoft', (w) => {
+    const p = paleta(w);
+    const pr = przejsciowe[w];
+    const pary: [string, string, string][] = [
+      ['niepomalowane / none: ink na surface', p.ink!, p.surface!],
+      ['pomalowane i mieszane pomalowane: primaryInk na primaryBg', p.primaryInk!, p.primaryBg!],
+      ['trafione: primaryInk na good', p.primaryInk!, pr.good],
+      ['brakujące: ink na badSoft', p.ink!, pr.badSoft],
+      ['nadmiarowe: ink na warnSoft', p.ink!, pr.warnSoft],
+      ['mieszane niepomalowane: ink na feltSoft', p.ink!, pr.feltSoft],
+    ];
+    const za_niskie = pary.map(([n, fg, bg]) => ({ n, r: kontrast(fg, bg) })).filter((x) => x.r < 4.5).map((x) => `${x.n}: ${x.r.toFixed(2)} < 4.5`);
+    expect(za_niskie).toEqual([]);
+  });
+});
