@@ -32,3 +32,5 @@ Przelicznik USD [OCENA]: 15–20 USD/mln tokenów (dane projektu: `docs/koordyna
 - Zużycie sesji IR łącznie z subagentami (get_session `usage.cost_usd`): **39,71 USD** (E0, E0b, STOP 1, partia 1). Tokeny subagentów partii 1: 1,94 mln (plan 1,6–3,1 mln; iloraz do środka ≈ 0,82). Wynikowy przelicznik ≈ 17–18 USD/mln (w założonym przedziale 15–20).
 - Prognoza reszty (iloraz 0,82 × środek planu partii 2, 3, weryfikacji i M1 ≈ 8,3 mln): ok. 6,8 mln tokenów ≈ **120 USD** (przedział 85–200). Razem audyt ≈ **160 USD** (przedział 125–240) wobec planu 130–260; próg STOP wyjątkowego 22,5 mln / ok. 390 USD bez zagrożenia.
 - Znaleziska partii 1 (przed scaleniem i weryfikacją): P0 2 (ta sama przyczyna), P1 7, P2 16; soczewki 5 × 15 punktów.
+
+- **Odpowiedź właściciela na punkt kontrolny (ok. 11:40 UTC, przekazane przez koordynatora): „Dalej (zalecane)”** — partie 2 i 3 bez zmian.
