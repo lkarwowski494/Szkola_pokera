@@ -15,3 +15,11 @@ $ grep -n "odczyt 5 października 2026" content/pl/lessons/m10-l4-rake.md; grep 
 126:odczyt 5 października 2026
 714:stan na 5.10.2026
 kod wyjścia: 0
+
+$ curl -sS "https://www.primedope.com/network-rake-list?variant=NLH&players=6&big_blind=0.1" i big_blind=0.25 (2026-11-17), kod 0 i 0; python3 -I (wiersze PokerStars/GGPoker)
+0.1 PokerStars pct 5.0 cap 1.0 bb/100 8.7552
+0.1 GGPoker pct 5.0 cap 1.0 bb/100 9.0981
+0.25 PokerStars pct 4.5 cap 2.0 bb/100 7.7535
+0.25 GGPoker pct 5.0 cap 2.0 bb/100 8.8267
+kod wyjścia: 0
+# porównanie: numbers.yaml rake.micro.low 7,8 (PokerStars NL25 7,75), rake.micro.high 9,1 (GG NL2–NL10 9,10), rake.ex.pct 5% — wartości bez zmian względem odczytu 2026-11-04
