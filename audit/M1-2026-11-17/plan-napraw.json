@@ -38,7 +38,7 @@
    "pytanie": "Adres e-mail kontaktu i dane sprzedawcy (W-04) dla polityki prywatności, strony wsparcia, notatek App Review i strony JP 特定商取引法 (D-361)",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -56,14 +56,19 @@
     "02-monetyzacja-001",
     "01-odkrywanie-002",
     "11-wzrost-001"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”",
+   "dane_wlasciciela": {
+    "email_kontaktu": "support@apps4brew.com",
+    "sprzedawca": "Łukasz Karwowski"
+   }
   },
   {
    "id": "DEC-02",
    "pytanie": "Strażnik pętli awarii i tryb awaryjny jak w Treningu?",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -78,14 +83,15 @@
    ],
    "zrodla": [
     "12-niezawodnosc-003"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-03",
    "pytanie": "Funkcje bez wiersza w kontrakcie (zakładka Postęp, seria dni, talia czterokolorowa, wibracje)",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -101,14 +107,15 @@
    "zrodla": [
     "03-zakres-002",
     "11-wzrost-002"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-04",
    "pytanie": "Przejście poznawcze 19 kryteriów „Intuicyjność” — kiedy?",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -124,14 +131,15 @@
    "zrodla": [
     "03-zakres-004",
     "04-studio-projektowe-010"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-05",
    "pytanie": "Lekcja M13-L1 o „raporcie z gry” po usunięciu trybu gry (ADR 0011)",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -146,14 +154,15 @@
    ],
    "zrodla": [
     "01-odkrywanie-005"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-06",
    "pytanie": "Droga subskrybent → dożywotni w aplikacji",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -168,14 +177,15 @@
    ],
    "zrodla": [
     "02-monetyzacja-005"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-07",
    "pytanie": "Skrypt lint bez ESLint",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -190,14 +200,15 @@
    ],
    "zrodla": [
     "08-programista-005"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-08",
    "pytanie": "Kontrole polityki języków: rejestr i zrzuty pseudolokalizacji",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "b",
-   "wybor": null,
+   "wybor": "b",
    "opcje": [
     {
      "id": "a",
@@ -213,14 +224,15 @@
    "zrodla": [
     "09-lokalizacja-006",
     "09-lokalizacja-007"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-09",
    "pytanie": "Strona produktu w 6 czy 12 językach na start",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -235,14 +247,15 @@
    ],
    "zrodla": [
     "10-wydanie-005"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-10",
    "pytanie": "Plan zrzutów sklepu",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -257,14 +270,15 @@
    ],
    "zrodla": [
     "10-wydanie-006"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-11",
    "pytanie": "Hipotezy wzrostu z progami i datami",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "b",
-   "wybor": null,
+   "wybor": "b",
    "opcje": [
     {
      "id": "a",
@@ -279,14 +293,15 @@
    ],
    "zrodla": [
     "11-wzrost-003"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-12",
    "pytanie": "Sygnał o awariach po premierze bez Maca",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -301,14 +316,15 @@
    ],
    "zrodla": [
     "12-niezawodnosc-004"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "DEC-13",
    "pytanie": "Prawa USA o weryfikacji wieku (Teksas od 2026-06, Utah, Luizjana) przy kategorii 18+",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -323,7 +339,8 @@
    ],
    "zrodla": [
     "M1-audytor-generalny-066"
-   ]
+   ],
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   }
  ],
  "zadania": [
@@ -365,8 +382,9 @@
    "przyczyna": null,
    "raport": "role/06-tresci-b/06-tresci-2026-11-17.md",
    "test_akceptacyjny": "ręce z rozbieżnością ≥ 50 pp wobec opublikowanego solvera oznaczone jako niepewne/mieszane (ocena dopuszcza obie akcje) tym samym kryterium co btn-vs-co i sb-vs-btn; test na 4 spotach BB; źródło w rejestrze",
-   "status": "otwarte",
-   "commit": null
+   "status": "zatwierdzone",
+   "commit": null,
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "M1-audytor-generalny-003",
@@ -463,8 +481,9 @@
    "przyczyna": null,
    "raport": "role/06-tresci/06-tresci-2026-11-17.md",
    "test_akceptacyjny": "skrypt kontroli w CI: żaden cytat w docs/tresci/ ponad 250 znaków; wyciągi skrócone do cytatu z adresem",
-   "status": "otwarte",
-   "commit": null
+   "status": "zatwierdzone",
+   "commit": null,
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "M1-audytor-generalny-008",
@@ -1230,8 +1249,9 @@
    "przyczyna": null,
    "raport": "role/07-jakosc/07-jakosc-2026-11-17.md",
    "test_akceptacyjny": "wszystkie akcje spoza actions/* przypięte do SHA (test workflowy.test.mjs)",
-   "status": "otwarte",
-   "commit": null
+   "status": "zatwierdzone",
+   "commit": null,
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "M1-audytor-generalny-048",
@@ -1496,8 +1516,9 @@
    "przyczyna": null,
    "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
    "test_akceptacyjny": "wzorce w .gitignore; test workflowy/ignore",
-   "status": "otwarte",
-   "commit": null
+   "status": "zatwierdzone",
+   "commit": null,
+   "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
   },
   {
    "id": "M1-audytor-generalny-062",

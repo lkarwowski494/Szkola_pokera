@@ -34,3 +34,8 @@ Analogia z Treningiem (CLAUDE.md, D-191): repo `lkarwowski494/trening` nie jest 
 - Kurs: trafny; stan: ZABLOKOWANE. Wg CLAUDE.md pkt 1: build TestFlight 1012 blokuje tylko M1-audytor-generalny-002 (+ bramka JAK-19: protokół F 1011 otwarty); App Store blokują 001–006. Odrzucone: „blokuje wszystko P1 także dla 1012” (ryzyko odrzucenia Apple nie dotyczy buildu wewnętrznego — weryfikacja g1, g2).
 ## D-1998 · 2026-11-17 · Wyciągi > 250 znaków (06-tresci-001) jako P2 z naprawą w partii 1
 - Decyzja: poziom P2 dla wydania (pliki poza aplikacją i metadanymi, weryfikacja g1), ale zadanie 007 w partii 1, bo repo jest publiczne (kategoria „prawa autorskie”). Odrzucone: P1 blokujące 1012 (build nie zawiera tych plików).
+
+## D-1999 · 2026-11-17 · Odpowiedź właściciela na STOP 2
+- Słowa właściciela (w sesji IR): „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”.
+- Zapis w `plan-napraw.json`: zadania partii 1 (002, 007, 047, 061) → `zatwierdzone`; DEC-01…DEC-13 `wybor` = rekomendacja; DEC-01 (a) z danymi W-04: e-mail kontaktu support@apps4brew.com, sprzedawca Łukasz Karwowski (adres firmowy podany przez właściciela do publikacji na stronie wsparcia, w polityce i notatkach App Review). Zadania partii 2–4 zostają `otwarte` do osobnego zatwierdzenia. `sprawdz-plan.mjs` kod 0 (dowody/sprawdz-plan-po-stop2.txt).
+- Polecenie M2: `node /home/user/prompts/tools/assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17 --zadania partia:1`.

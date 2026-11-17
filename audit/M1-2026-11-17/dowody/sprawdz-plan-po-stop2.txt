@@ -1,0 +1,71 @@
+$ node narzedzia/sprawdz-plan.mjs plan-napraw.json (po STOP 2)
+| Partia | ID | Poziom | Rodzaj | Rola | Wykonawca | Źródła | Zależy od | Decyzja | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | M1-audytor-generalny-002 | P1 | M | 06-tresci | rola | 06-tresci-501 | — | — | zatwierdzone |
+| 1 | M1-audytor-generalny-007 | P2 | D | 06-tresci | M2 | 06-tresci-001 | — | — | zatwierdzone |
+| 1 | M1-audytor-generalny-047 | P2 | D | 07-jakosc | M2 | 07-jakosc-004 | — | — | zatwierdzone |
+| 1 | M1-audytor-generalny-061 | P2 | D | 10-wydanie | M2 | 10-wydanie-007 | — | — | zatwierdzone |
+| 2 | M1-audytor-generalny-012 | P2 | D | 01-odkrywanie | M2 | 01-odkrywanie-003 | — | — | otwarte |
+| 2 | M1-audytor-generalny-003 | P1 | D | 02-monetyzacja | M2 | 02-monetyzacja-002 | — | — | otwarte |
+| 2 | M1-audytor-generalny-028 | P2 | D | 03-zakres | M2 | 03-zakres-003 | — | — | otwarte |
+| 2 | M1-audytor-generalny-030 | P2 | P | 06-tresci | rola | 01-odkrywanie-005 | — | DEC-05 | otwarte |
+| 2 | M1-audytor-generalny-004 | P1 | D | 08-programista | M2 | 01-odkrywanie-001 | — | — | otwarte |
+| 2 | M1-audytor-generalny-005 | P1 | D | 08-programista | M2 | 03-zakres-001 | — | — | otwarte |
+| 2 | M1-audytor-generalny-001 | P1 | D | 10-wydanie | M2 | 10-wydanie-001, 02-monetyzacja-001, 01-odkrywanie-002, 11-wzrost-001 | — | DEC-01 | otwarte |
+| 2 | M1-audytor-generalny-006 | P1 | D | 10-wydanie | M2 | 10-wydanie-002, 10-wydanie-003, 02-monetyzacja-003, 01-odkrywanie-006 | — | — | otwarte |
+| 2 | M1-audytor-generalny-058 | P2 | M | 10-wydanie | rola | 10-wydanie-004 | — | — | otwarte |
+| 3 | M1-audytor-generalny-031 | P2 | D | 02-monetyzacja | M2 | 02-monetyzacja-004 | — | — | otwarte |
+| 3 | M1-audytor-generalny-033 | P2 | D | 02-monetyzacja | M2 | 02-monetyzacja-006 | — | — | otwarte |
+| 3 | M1-audytor-generalny-008 | P2 | D | 05-architekt | M2 | 05-architekt-001, 08-programista-001 | — | — | otwarte |
+| 3 | M1-audytor-generalny-023 | P2 | D | 05-architekt | M2 | 05-architekt-007, 12-niezawodnosc-005 | — | — | otwarte |
+| 3 | M1-audytor-generalny-024 | P2 | D | 05-architekt | M2 | 05-architekt-003, 08-programista-002 | — | — | otwarte |
+| 3 | M1-audytor-generalny-036 | P2 | D | 05-architekt | M2 | 05-architekt-002 | — | — | otwarte |
+| 3 | M1-audytor-generalny-044 | P2 | D | 07-jakosc | M2 | 07-jakosc-001 | — | — | otwarte |
+| 3 | M1-audytor-generalny-045 | P2 | D | 07-jakosc | M2 | 07-jakosc-002 | — | — | otwarte |
+| 3 | M1-audytor-generalny-059 | P2 | P | 10-wydanie | rola | 10-wydanie-005 | — | DEC-09 | otwarte |
+| 3 | M1-audytor-generalny-066 | P2 | P | 10-wydanie | rola | M1-audytor-generalny-066 | — | DEC-13 | otwarte |
+| 3 | M1-audytor-generalny-009 | P2 | D | 12-niezawodnosc | M2 | 12-niezawodnosc-001 | — | — | otwarte |
+| 3 | M1-audytor-generalny-010 | P2 | D | 12-niezawodnosc | M2 | 12-niezawodnosc-002 | — | — | otwarte |
+| 3 | M1-audytor-generalny-011 | P2 | P | 12-niezawodnosc | rola | 12-niezawodnosc-003 | — | DEC-02 | otwarte |
+| 3 | M1-audytor-generalny-064 | P2 | P | 12-niezawodnosc | rola | 12-niezawodnosc-004 | — | DEC-12 | otwarte |
+| 3 | M1-audytor-generalny-065 | P2 | D | 12-niezawodnosc | M2 | 12-niezawodnosc-006 | — | — | otwarte |
+| 4 | M1-audytor-generalny-013 | P2 | D | 01-odkrywanie | M2 | 01-odkrywanie-004 | — | — | otwarte |
+| 4 | M1-audytor-generalny-032 | P2 | P | 02-monetyzacja | rola | 02-monetyzacja-005 | — | DEC-06 | otwarte |
+| 4 | M1-audytor-generalny-025 | P2 | P | 03-zakres | rola | 03-zakres-002, 11-wzrost-002 | — | DEC-03 | otwarte |
+| 4 | M1-audytor-generalny-026 | P2 | P | 03-zakres | rola | 03-zakres-004, 04-studio-projektowe-010 | — | DEC-04 | otwarte |
+| 4 | M1-audytor-generalny-029 | P2 | D | 03-zakres | M2 | 03-zakres-005 | — | — | otwarte |
+| 4 | M1-audytor-generalny-014 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-001 | — | — | otwarte |
+| 4 | M1-audytor-generalny-015 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-002 | — | — | otwarte |
+| 4 | M1-audytor-generalny-016 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-003 | — | — | otwarte |
+| 4 | M1-audytor-generalny-017 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-004, 08-programista-006 | — | — | otwarte |
+| 4 | M1-audytor-generalny-018 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-005 | — | — | otwarte |
+| 4 | M1-audytor-generalny-019 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-006 | — | — | otwarte |
+| 4 | M1-audytor-generalny-020 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-007 | — | — | otwarte |
+| 4 | M1-audytor-generalny-034 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-008 | — | — | otwarte |
+| 4 | M1-audytor-generalny-035 | P2 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-009 | — | — | otwarte |
+| 4 | M1-audytor-generalny-037 | P2 | D | 05-architekt | M2 | 05-architekt-004 | — | — | otwarte |
+| 4 | M1-audytor-generalny-038 | P2 | D | 05-architekt | M2 | 05-architekt-005 | — | — | otwarte |
+| 4 | M1-audytor-generalny-039 | P2 | D | 05-architekt | M2 | 05-architekt-006 | — | — | otwarte |
+| 4 | M1-audytor-generalny-027 | P2 | D | 06-tresci | M2 | 06-tresci-003, 06-tresci-504 | — | — | otwarte |
+| 4 | M1-audytor-generalny-040 | P2 | M | 06-tresci | rola | 06-tresci-002 | — | — | otwarte |
+| 4 | M1-audytor-generalny-041 | P2 | D | 06-tresci | M2 | 06-tresci-004 | — | — | otwarte |
+| 4 | M1-audytor-generalny-042 | P2 | M | 06-tresci | rola | 06-tresci-502 | — | — | otwarte |
+| 4 | M1-audytor-generalny-043 | P2 | M | 06-tresci | rola | 06-tresci-503 | — | — | otwarte |
+| 4 | M1-audytor-generalny-046 | P2 | D | 07-jakosc | M2 | 07-jakosc-003 | — | — | otwarte |
+| 4 | M1-audytor-generalny-048 | P2 | D | 07-jakosc | M2 | 07-jakosc-005 | — | — | otwarte |
+| 4 | M1-audytor-generalny-049 | P2 | D | 08-programista | M2 | 08-programista-003 | — | — | otwarte |
+| 4 | M1-audytor-generalny-050 | P2 | D | 08-programista | M2 | 08-programista-004 | — | — | otwarte |
+| 4 | M1-audytor-generalny-051 | P2 | P | 08-programista | rola | 08-programista-005 | — | DEC-07 | otwarte |
+| 4 | M1-audytor-generalny-021 | P2 | D | 09-lokalizacja | M2 | 09-lokalizacja-001 | — | — | otwarte |
+| 4 | M1-audytor-generalny-022 | P2 | D | 09-lokalizacja | M2 | 09-lokalizacja-002 | — | — | otwarte |
+| 4 | M1-audytor-generalny-052 | P2 | D | 09-lokalizacja | M2 | 09-lokalizacja-003 | — | — | otwarte |
+| 4 | M1-audytor-generalny-053 | P2 | D | 09-lokalizacja | M2 | 09-lokalizacja-004 | — | — | otwarte |
+| 4 | M1-audytor-generalny-054 | P2 | D | 09-lokalizacja | M2 | 09-lokalizacja-005 | — | — | otwarte |
+| 4 | M1-audytor-generalny-055 | P2 | P | 09-lokalizacja | rola | 09-lokalizacja-006 | — | DEC-08 | otwarte |
+| 4 | M1-audytor-generalny-056 | P2 | P | 09-lokalizacja | rola | 09-lokalizacja-007 | — | DEC-08 | otwarte |
+| 4 | M1-audytor-generalny-057 | P2 | D | 09-lokalizacja | M2 | 09-lokalizacja-008 | — | — | otwarte |
+| 4 | M1-audytor-generalny-060 | P2 | P | 10-wydanie | rola | 10-wydanie-006 | — | DEC-10 | otwarte |
+| 4 | M1-audytor-generalny-062 | P2 | D | 10-wydanie | M2 | 10-wydanie-008 | — | — | otwarte |
+| 4 | M1-audytor-generalny-063 | P2 | P | 11-wzrost | rola | 11-wzrost-003 | — | DEC-11 | otwarte |
+OK: 66 zadań, 13 decyzji (0 bez wyboru)
+exit=0
