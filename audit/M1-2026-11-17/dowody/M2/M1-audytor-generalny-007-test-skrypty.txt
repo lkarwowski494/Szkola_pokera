@@ -1,0 +1,1409 @@
+
+> szkola-pokera@ test:skrypty /home/user/Szkola_pokera
+> node --test scripts/sprawdz-i18n.test.mjs scripts/pre-push-check.test.mjs docs/tresci/narzedzia/scal-rejestr.test.mjs tests/narzedzia/sprawdz-eksport.test.mjs tests/narzedzia/k07-zakazy.test.mjs tests/narzedzia/k08-manifesty.test.mjs tests/narzedzia/e2e-flowy.test.mjs tests/narzedzia/df-flow-zakoncz.test.mjs tests/narzedzia/workflowy.test.mjs tests/narzedzia/wyciagi-zrodel.test.mjs tests/narzedzia/strona.test.mjs tests/narzedzia/asc.test.mjs tests/narzedzia/asc-produkty.test.mjs scripts/ci/e2e-ponowienia.test.mjs scripts/ci/nocny-raport.test.mjs scripts/ci/bramka-e2e.test.mjs scripts/ci/dane-pokazowe.test.mjs scripts/zrzuty/hl-zrzuty-lib.test.mjs tests/narzedzia/zrzuty-metro.test.mjs scripts/i18n/przeklad-api.test.mjs scripts/i18n/przeglad-api.test.mjs tests/narzedzia/sprawdz-scenariusze.test.mjs
+
+TAP version 13
+# Subtest: zmiana wpisu pomocy unieważnia przegląd zastępczy H-INT-1
+ok 1 - zmiana wpisu pomocy unieważnia przegląd zastępczy H-INT-1
+  ---
+  duration_ms: 1286.956403
+  type: 'test'
+  ...
+# Subtest: zmiana lekcji z regułą krytyczną unieważnia przegląd; z --przed-przegladem to uwaga
+ok 2 - zmiana lekcji z regułą krytyczną unieważnia przegląd; z --przed-przegladem to uwaga
+  ---
+  duration_ms: 1152.819861
+  type: 'test'
+  ...
+# Subtest: przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+ok 3 - przegląd zastępczy bez polityki --przeglad zastępczy jest błędem
+  ---
+  duration_ms: 620.37803
+  type: 'test'
+  ...
+# Subtest: D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT-2; twierdzenie fallback.claim liczy się do pokrycia
+ok 4 - D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT-2; twierdzenie fallback.claim liczy się do pokrycia
+  ---
+  duration_ms: 1226.28747
+  type: 'test'
+  ...
+# Subtest: content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia
+ok 5 - content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia
+  ---
+  duration_ms: 1276.177752
+  type: 'test'
+  ...
+# Subtest: zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego, a skrót pl zostaje
+ok 6 - zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego, a skrót pl zostaje
+  ---
+  duration_ms: 643.734957
+  type: 'test'
+  ...
+# Subtest: 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+ok 7 - 06-tresci-001: zmiana why w pl bez przekładu = błąd R-M12-009 w 11 językach; po przekładzie i zapisie sha_pl 0 błędów
+  ---
+  duration_ms: 3648.838141
+  type: 'test'
+  ...
+# Subtest: 06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie błąd
+ok 8 - 06-tresci-001: z --przed-przegladem zmiana pl bez przekładu to uwaga, nie błąd
+  ---
+  duration_ms: 1520.860457
+  type: 'test'
+  ...
+# Subtest: ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+ok 9 - ŚR-2 (recenzja DB): usunięcie sha_pl z wpisu spoza listy dozwolonych to BŁĄD (zapadka), z --przed-przegladem uwaga
+  ---
+  duration_ms: 2888.287284
+  type: 'test'
+  ...
+# Subtest: ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+ok 10 - ŚR-2: wpis z listy dozwolonych bez sha_pl (np. t:bankroll) nie jest błędem, tylko uwagą zbiorczą
+  ---
+  duration_ms: 1439.654519
+  type: 'test'
+  ...
+# Subtest: ocen: zielony wygrywa z czerwonym i trwającym; trwający przed czerwonym; anulowany i pominięty nic nie mówią o kodzie
+ok 11 - ocen: zielony wygrywa z czerwonym i trwającym; trwający przed czerwonym; anulowany i pominięty nic nie mówią o kodzie
+  ---
+  duration_ms: 2.81705
+  type: 'test'
+  ...
+# Subtest: czekaj: zielony od razu → 0 i numer przebiegu w wyniku
+ok 12 - czekaj: zielony od razu → 0 i numer przebiegu w wyniku
+  ---
+  duration_ms: 0.702349
+  type: 'test'
+  ...
+# Subtest: czekaj: trwający, potem zielony → 0 po kolejnym sprawdzeniu
+ok 13 - czekaj: trwający, potem zielony → 0 po kolejnym sprawdzeniu
+  ---
+  duration_ms: 0.174466
+  type: 'test'
+  ...
+# Subtest: czekaj: czerwony → 1 z instrukcją; brak przebiegu → 1 po okresie łaski z instrukcją uruchomienia i ścieżką awaryjną
+ok 14 - czekaj: czerwony → 1 z instrukcją; brak przebiegu → 1 po okresie łaski z instrukcją uruchomienia i ścieżką awaryjną
+  ---
+  duration_ms: 0.314857
+  type: 'test'
+  ...
+# Subtest: czekaj: trwający ponad limit → 1 (nie cicha zgoda); błąd API liczy się jako brak danych, nie jako zielony
+ok 15 - czekaj: trwający ponad limit → 1 (nie cicha zgoda); błąd API liczy się jako brak danych, nie jako zielony
+  ---
+  duration_ms: 0.571611
+  type: 'test'
+  ...
+# Subtest: czekaj: przejściowy błąd API w trakcie czekania nie kończy bramki (przegląd D-043 pkt 1); 3 błędy z rzędu → 1 z komunikatem o API
+ok 16 - czekaj: przejściowy błąd API w trakcie czekania nie kończy bramki (przegląd D-043 pkt 1); 3 błędy z rzędu → 1 z komunikatem o API
+  ---
+  duration_ms: 0.263566
+  type: 'test'
+  ...
+# Subtest: czekaj: brak po anulowanym przebiegu podaje jego numer (przegląd pkt 7)
+ok 17 - czekaj: brak po anulowanym przebiegu podaje jego numer (przegląd pkt 7)
+  ---
+  duration_ms: 0.224932
+  type: 'test'
+  ...
+# Subtest: liczbaZmiennej: brak → domyślna; nie liczba całkowita dodatnia → wyjątek (przegląd pkt 4)
+ok 18 - liczbaZmiennej: brak → domyślna; nie liczba całkowita dodatnia → wyjątek (przegląd pkt 4)
+  ---
+  duration_ms: 0.559597
+  type: 'test'
+  ...
+# Subtest: ocen: zielony przebieg z aplikacją z innego przebiegu (tytuł z dopiskiem) nie otwiera bramki
+ok 19 - ocen: zielony przebieg z aplikacją z innego przebiegu (tytuł z dopiskiem) nie otwiera bramki
+  ---
+  duration_ms: 0.397345
+  type: 'test'
+  ...
+# (node:878) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: dane pokazowe: postep.db z migracjami aplikacji, ukończone powitanie, język i przeczytana teoria pierwszych lekcji
+ok 20 - dane pokazowe: postep.db z migracjami aplikacji, ukończone powitanie, język i przeczytana teoria pierwszych lekcji
+  ---
+  duration_ms: 667.471706
+  type: 'test'
+  ...
+# Subtest: lista ekranów: każda trasa ma plik w apps/mobile/src/app (expo-router), nazwy unikalne, rozmiary 6,9″ i 6,3″
+ok 21 - lista ekranów: każda trasa ma plik w apps/mobile/src/app (expo-router), nazwy unikalne, rozmiary 6,9″ i 6,3″
+  ---
+  duration_ms: 111.806999
+  type: 'test'
+  ...
+# Subtest: przypadki: nazwy i wynik, także encje XML w nazwie
+ok 22 - przypadki: nazwy i wynik, także encje XML w nazwie
+  ---
+  duration_ms: 1.330085
+  type: 'test'
+  ...
+# Subtest: mapa flowów: name z nagłówka i nazwa pliku wskazują ten sam plik; config.yaml i oczekujace/ pominięte
+ok 23 - mapa flowów: name z nagłówka i nazwa pliku wskazują ten sam plik; config.yaml i oczekujace/ pominięte
+  ---
+  duration_ms: 9.908596
+  type: 'test'
+  ...
+# Subtest: nieudane: pliki tylko nieudanych flowów, bez powtórzeń; nieznany flow → wyjątek (nie cicha zgoda)
+ok 24 - nieudane: pliki tylko nieudanych flowów, bez powtórzeń; nieznany flow → wyjątek (nie cicha zgoda)
+  ---
+  duration_ms: 4.230708
+  type: 'test'
+  ...
+# Subtest: podsumuj: zielony w ponowieniu wypisany i kod 0; padł dwa razy → kod 1; flow bez ponowienia liczy się jako dwa razy
+ok 25 - podsumuj: zielony w ponowieniu wypisany i kod 0; padł dwa razy → kod 1; flow bez ponowienia liczy się jako dwa razy
+  ---
+  duration_ms: 1.161398
+  type: 'test'
+  ...
+# Subtest: podsumuj: pusty albo brakujący raport = maszyna, kod 1 bez ponowień
+ok 26 - podsumuj: pusty albo brakujący raport = maszyna, kod 1 bez ponowień
+  ---
+  duration_ms: 0.287791
+  type: 'test'
+  ...
+# Subtest: przypadki: porażka zapisana atrybutem status (bez elementu failure) też jest porażką
+ok 27 - przypadki: porażka zapisana atrybutem status (bez elementu failure) też jest porażką
+  ---
+  duration_ms: 0.400795
+  type: 'test'
+  ...
+# Subtest: podsumuj: przerwany przebieg — flow z katalogu nieobecny w raporcie → kod 1 z nazwą (przegląd D-043 nr 1)
+ok 28 - podsumuj: przerwany przebieg — flow z katalogu nieobecny w raporcie → kod 1 z nazwą (przegląd D-043 nr 1)
+  ---
+  duration_ms: 4.611734
+  type: 'test'
+  ...
+# Subtest: podsumuj: Maestro z kodem ≠ 0, w raporcie same zielone → kod 1 (maszyna; Trening e2e-ios.yml:231–241)
+ok 29 - podsumuj: Maestro z kodem ≠ 0, w raporcie same zielone → kod 1 (maszyna; Trening e2e-ios.yml:231–241)
+  ---
+  duration_ms: 0.578876
+  type: 'test'
+  ...
+# Subtest: ocen: success i skipped zielone; failure i cancelled czerwone, z nazwą zadania
+ok 30 - ocen: success i skipped zielone; failure i cancelled czerwone, z nazwą zadania
+  ---
+  duration_ms: 1.085331
+  type: 'test'
+  ...
+# Subtest: akcja: czerwona otwiera albo komentuje otwarte; zielona zamyka otwarte albo nic
+ok 31 - akcja: czerwona otwiera albo komentuje otwarte; zielona zamyka otwarte albo nic
+  ---
+  duration_ms: 0.179567
+  type: 'test'
+  ...
+# Subtest: tresc: link, porażki i z E2E tylko listy nazw flowów (bez logów)
+ok 32 - tresc: link, porażki i z E2E tylko listy nazw flowów (bez logów)
+  ---
+  duration_ms: 1.246646
+  type: 'test'
+  ...
+# Subtest: zielona noc z flowem zielonym dopiero w ponowieniu: otwiera albo komentuje, nie zamyka (D-178)
+ok 33 - zielona noc z flowem zielonym dopiero w ponowieniu: otwiera albo komentuje, nie zamyka (D-178)
+  ---
+  duration_ms: 0.245757
+  type: 'test'
+  ...
+# Subtest: prompt przeglądu: brzmienie z modułu `tlumaczenie` (źródłowy polski, docelowy z kodu)
+ok 34 - prompt przeglądu: brzmienie z modułu `tlumaczenie` (źródłowy polski, docelowy z kodu)
+  ---
+  duration_ms: 0.759548
+  type: 'test'
+  ...
+# Subtest: domyślnie Opus 5.5, effort medium, limit 15 USD; --propozycje i --szacuj
+ok 35 - domyślnie Opus 5.5, effort medium, limit 15 USD; --propozycje i --szacuj
+  ---
+  duration_ms: 0.723703
+  type: 'test'
+  ...
+# Subtest: segmenty: YAML i front matter po ścieżkach pól przekładalnych, treść Markdown po akapitach
+ok 36 - segmenty: YAML i front matter po ścieżkach pól przekładalnych, treść Markdown po akapitach
+  ---
+  duration_ms: 11.822232
+  type: 'test'
+  ...
+# Subtest: żądanie przeglądu: model, effort, prompt w system, źródło pl + przekład + kontekst + glosariusz w treści
+ok 37 - żądanie przeglądu: model, effort, prompt w system, źródło pl + przekład + kontekst + glosariusz w treści
+  ---
+  duration_ms: 35.10041
+  type: 'test'
+  ...
+# Subtest: parsowanie tabeli: pomija nagłówek i separator, nie dzieli na | wewnątrz {{t:…|…}}, normalizuje pewność
+ok 38 - parsowanie tabeli: pomija nagłówek i separator, nie dzieli na | wewnątrz {{t:…|…}}, normalizuje pewność
+  ---
+  duration_ms: 0.764034
+  type: 'test'
+  ...
+# Subtest: --szacuj bez przekładu w repo: szacunek z założonego przekładu, bez sieci (fetch rzuca, klucz ustawiony)
+ok 39 - --szacuj bez przekładu w repo: szacunek z założonego przekładu, bez sieci (fetch rzuca, klucz ustawiony)
+  ---
+  duration_ms: 93.313447
+  type: 'test'
+  ...
+# Subtest: limit kosztu przeglądu: powyżej limitu STOP, kod 1, bez wysłania
+ok 40 - limit kosztu przeglądu: powyżej limitu STOP, kod 1, bez wysłania
+  ---
+  duration_ms: 20.746723
+  type: 'test'
+  ...
+# Subtest: segmenty: wartości map options/why (klucz = id odpowiedzi) trafiają do przeglądu (D-344)
+ok 41 - segmenty: wartości map options/why (klucz = id odpowiedzi) trafiają do przeglądu (D-344)
+  ---
+  duration_ms: 1.029221
+  type: 'test'
+  ...
+# Subtest: pełny przegląd na atrapie API: raport z tabelą uwag i kontrolą lokalną znaczników; przekład z pliku propozycji
+ok 42 - pełny przegląd na atrapie API: raport z tabelą uwag i kontrolą lokalną znaczników; przekład z pliku propozycji
+  ---
+  duration_ms: 18.962965
+  type: 'test'
+  ...
+# Subtest: segmenty nakładek: pola tekstowe i klucze map groups/wrongSizes; numery, adresy i cytaty poza przeglądem
+ok 43 - segmenty nakładek: pola tekstowe i klucze map groups/wrongSizes; numery, adresy i cytaty poza przeglądem
+  ---
+  duration_ms: 8.408459
+  type: 'test'
+  ...
+# Subtest: max_tokens przeglądu z szacunku jednostki (2 × szacunek + 4000, najwyżej 128 000); --szacuj pokazuje najgorszy przypadek
+ok 44 - max_tokens przeglądu z szacunku jednostki (2 × szacunek + 4000, najwyżej 128 000); --szacuj pokazuje najgorszy przypadek
+  ---
+  duration_ms: 34.484621
+  type: 'test'
+  ...
+# Subtest: ostrzeżenia terminów i liczb: w treści żądania przeglądu i w podsumowanie.md
+ok 45 - ostrzeżenia terminów i liczb: w treści żądania przeglądu i w podsumowanie.md
+  ---
+  duration_ms: 8.087193
+  type: 'test'
+  ...
+# Subtest: domyślnie: Opus 5.5, effort medium, limit 15 USD (D-294, D-295)
+ok 46 - domyślnie: Opus 5.5, effort medium, limit 15 USD (D-294, D-295)
+  ---
+  duration_ms: 2.266057
+  type: 'test'
+  ...
+# Subtest: cennik: Batch to połowa ceny standardowej
+ok 47 - cennik: Batch to połowa ceny standardowej
+  ---
+  duration_ms: 0.155431
+  type: 'test'
+  ...
+# Subtest: jednostki: słownik interfejsu jako jedna jednostka na język, każdy plik content/pl jako osobna, nakładki spots i helplines; terms.yaml poza przekładem
+ok 48 - jednostki: słownik interfejsu jako jedna jednostka na język, każdy plik content/pl jako osobna, nakładki spots i helplines; terms.yaml poza przekładem
+  ---
+  duration_ms: 10.859713
+  type: 'test'
+  ...
+# Subtest: żądanie batcha: model, effort, persona tłumacza i reguły znaczników w system, jednostka i glosariusz w treści
+ok 49 - żądanie batcha: model, effort, persona tłumacza i reguły znaczników w system, jednostka i glosariusz w treści
+  ---
+  duration_ms: 23.222758
+  type: 'test'
+  ...
+# Subtest: żądanie dla ja: angielski przekład jako odniesienie, jeśli istnieje (D-289); bez niego — bez odniesienia
+ok 50 - żądanie dla ja: angielski przekład jako odniesienie, jeśli istnieje (D-289); bez niego — bez odniesienia
+  ---
+  duration_ms: 5.736545
+  type: 'test'
+  ...
+# Subtest: żądanie słownika interfejsu: klucze z kontekstem i kategorie liczby mnogiej języka docelowego
+ok 51 - żądanie słownika interfejsu: klucze z kontekstem i kategorie liczby mnogiej języka docelowego
+  ---
+  duration_ms: 4.081906
+  type: 'test'
+  ...
+# Subtest: wynik batcha: sukces, błąd, ucięcie i odmowa
+ok 52 - wynik batcha: sukces, błąd, ucięcie i odmowa
+  ---
+  duration_ms: 0.458179
+  type: 'test'
+  ...
+# Subtest: wyciągnięcie propozycji: plik między znacznikami, słownik jako obiekt JSON (komentarz po obiekcie nie przeszkadza)
+ok 53 - wyciągnięcie propozycji: plik między znacznikami, słownik jako obiekt JSON (komentarz po obiekcie nie przeszkadza)
+  ---
+  duration_ms: 1.687902
+  type: 'test'
+  ...
+# Subtest: kontrola znaczników: zgodny przekład przechodzi
+ok 54 - kontrola znaczników: zgodny przekład przechodzi
+  ---
+  duration_ms: 11.258044
+  type: 'test'
+  ...
+# Subtest: kontrola znaczników: adres URL przed interpunkcją pełnoszerokościową CJK i typograficzną fr to ten sam adres (D-365, D-370)
+ok 55 - kontrola znaczników: adres URL przed interpunkcją pełnoszerokościową CJK i typograficzną fr to ten sam adres (D-365, D-370)
+  ---
+  duration_ms: 1.235237
+  type: 'test'
+  ...
+# Subtest: kontrola znaczników: zmieniony {{n:…}} odrzuca propozycję z powodem
+ok 56 - kontrola znaczników: zmieniony {{n:…}} odrzuca propozycję z powodem
+  ---
+  duration_ms: 5.220055
+  type: 'test'
+  ...
+# Subtest: kontrola znaczników: różnica {{t:…}} w lekcji i egzaminie to ostrzeżenie, nie odrzucenie (D-344; przebieg en 42635177199)
+ok 57 - kontrola znaczników: różnica {{t:…}} w lekcji i egzaminie to ostrzeżenie, nie odrzucenie (D-344; przebieg en 42635177199)
+  ---
+  duration_ms: 7.460747
+  type: 'test'
+  ...
+# Subtest: kontrola znaczników: {{t:…}} w nakładce i słowniku interfejsu nadal odrzuca (strażnik content-build, i18n)
+ok 58 - kontrola znaczników: {{t:…}} w nakładce i słowniku interfejsu nadal odrzuca (strażnik content-build, i18n)
+  ---
+  duration_ms: 4.719773
+  type: 'test'
+  ...
+# Subtest: kontrola znaczników: mapy tekstów options/why (klucz = id odpowiedzi) są przekładalne (D-344; m5-l3, m5-l4)
+ok 59 - kontrola znaczników: mapy tekstów options/why (klucz = id odpowiedzi) są przekładalne (D-344; m5-l3, m5-l4)
+  ---
+  duration_ms: 20.588065
+  type: 'test'
+  ...
+# Subtest: kontrola znaczników: zmieniony klucz YAML, zmienione id i zmieniona karta odrzucają propozycję
+ok 60 - kontrola znaczników: zmieniony klucz YAML, zmienione id i zmieniona karta odrzucają propozycję
+  ---
+  duration_ms: 16.173883
+  type: 'test'
+  ...
+# Subtest: kontrola słownika interfejsu: parametry {{x}} i kategorie liczby mnogiej języka docelowego
+ok 61 - kontrola słownika interfejsu: parametry {{x}} i kategorie liczby mnogiej języka docelowego
+  ---
+  duration_ms: 1.632429
+  type: 'test'
+  ...
+# Subtest: --szacuj nie dotyka sieci ani klucza (fetch rzuca, klucz ustawiony), zapisuje szacunek, kod 0 poniżej limitu
+ok 62 - --szacuj nie dotyka sieci ani klucza (fetch rzuca, klucz ustawiony), zapisuje szacunek, kod 0 poniżej limitu
+  ---
+  duration_ms: 6.354252
+  type: 'test'
+  ...
+# Subtest: limit kosztu: --szacuj powyżej limitu kończy się kodem 1 i STOP
+ok 63 - limit kosztu: --szacuj powyżej limitu kończy się kodem 1 i STOP
+  ---
+  duration_ms: 2.690711
+  type: 'test'
+  ...
+# Subtest: limit kosztu: przebieg z kluczem powyżej limitu zatrzymuje się przed wysłaniem batcha
+ok 64 - limit kosztu: przebieg z kluczem powyżej limitu zatrzymuje się przed wysłaniem batcha
+  ---
+  duration_ms: 3.920933
+  type: 'test'
+  ...
+# Subtest: bez klucza przebieg płatny niemożliwy (kod 2), bez sieci
+ok 65 - bez klucza przebieg płatny niemożliwy (kod 2), bez sieci
+  ---
+  duration_ms: 2.304982
+  type: 'test'
+  ...
+# Subtest: pełny przebieg na atrapie API: batch, wyniki, propozycje jako plik; złe propozycje odrzucone z powodem; słowniki i treść nietknięte
+ok 66 - pełny przebieg na atrapie API: batch, wyniki, propozycje jako plik; złe propozycje odrzucone z powodem; słowniki i treść nietknięte
+  ---
+  duration_ms: 8.650007
+  type: 'test'
+  ...
+# Subtest: --zastosuj: nakłada tylko propozycje zgodne ze źródłem; odrzuca zmienione znaczniki i zmienione źródło
+ok 67 - --zastosuj: nakłada tylko propozycje zgodne ze źródłem; odrzuca zmienione znaczniki i zmienione źródło
+  ---
+  duration_ms: 10.409138
+  type: 'test'
+  ...
+# Subtest: nakładki: reguła pól z nakladka.ts (POLA_SPOTS, POLA_HELPLINES), nie kopia
+ok 68 - nakładki: reguła pól z nakladka.ts (POLA_SPOTS, POLA_HELPLINES), nie kopia
+  ---
+  duration_ms: 6.887421
+  type: 'test'
+  ...
+# Subtest: nakładka spots: przetłumaczony tekst i klucze groups/wrongSizes przechodzą; zmiany poza tekstem odrzucone
+ok 69 - nakładka spots: przetłumaczony tekst i klucze groups/wrongSizes przechodzą; zmiany poza tekstem odrzucone
+  ---
+  duration_ms: 8.671294
+  type: 'test'
+  ...
+# Subtest: nakładka helplines: tekst przetłumaczony przechodzi; name, quote, url i id bez zmian
+ok 70 - nakładka helplines: tekst przetłumaczony przechodzi; name, quote, url i id bez zmian
+  ---
+  duration_ms: 12.676414
+  type: 'test'
+  ...
+# Subtest: żądanie nakładki: pola tekstowe pliku i reguła kluczy wrongSizes w treści; angielskie odniesienie dla ja (D-289)
+ok 71 - żądanie nakładki: pola tekstowe pliku i reguła kluczy wrongSizes w treści; angielskie odniesienie dla ja (D-289)
+  ---
+  duration_ms: 10.646533
+  type: 'test'
+  ...
+# Subtest: --zastosuj nakłada nakładkę do content/<język>/ranges/spots.yaml po kontroli
+ok 72 - --zastosuj nakłada nakładkę do content/<język>/ranges/spots.yaml po kontroli
+  ---
+  duration_ms: 8.271568
+  type: 'test'
+  ...
+# Subtest: ostrzeżenie (nie błąd), gdy liczby zapisane cyframi poza znacznikami różnią się od źródła; 2,5 = 2.5
+ok 73 - ostrzeżenie (nie błąd), gdy liczby zapisane cyframi poza znacznikami różnią się od źródła; 2,5 = 2.5
+  ---
+  duration_ms: 6.422198
+  type: 'test'
+  ...
+# Subtest: --limit-usd powyżej 15 USD odrzucone (osobna zgoda właściciela, D-295); do 15 USD przyjęte
+ok 74 - --limit-usd powyżej 15 USD odrzucone (osobna zgoda właściciela, D-295); do 15 USD przyjęte
+  ---
+  duration_ms: 0.230343
+  type: 'test'
+  ...
+# Subtest: max_tokens przekładu z szacunku jednostki: min(128 000, ⌈2 × szacunek wyjścia + 4000⌉)
+ok 75 - max_tokens przekładu z szacunku jednostki: min(128 000, ⌈2 × szacunek wyjścia + 4000⌉)
+  ---
+  duration_ms: 2.336063
+  type: 'test'
+  ...
+# Subtest: --szacuj: szacunek i najgorszy przypadek (koszt przy Σ max_tokens); STOP, gdy najgorszy przypadek > limit
+ok 76 - --szacuj: szacunek i najgorszy przypadek (koszt przy Σ max_tokens); STOP, gdy najgorszy przypadek > limit
+  ---
+  duration_ms: 3.00345
+  type: 'test'
+  ...
+# Subtest: drugi STOP przed wysłaniem: koszt(wejście z count_tokens, Σ max_tokens) > limit → kod 1, batch niewysłany
+ok 77 - drugi STOP przed wysłaniem: koszt(wejście z count_tokens, Σ max_tokens) > limit → kod 1, batch niewysłany
+  ---
+  duration_ms: 2.731042
+  type: 'test'
+  ...
+# Subtest: --zastosuj odrzuca język spoza listy i ścieżkę poza content/<język>/ (path traversal z pliku propozycji)
+ok 78 - --zastosuj odrzuca język spoza listy i ścieżkę poza content/<język>/ (path traversal z pliku propozycji)
+  ---
+  duration_ms: 1.455823
+  type: 'test'
+  ...
+# Subtest: definicje: jednostka tylko gdy terms.yaml ma def; cel content/<kod>/terms-def.yaml; źródło i strażnik z definicje.ts
+ok 79 - definicje: jednostka tylko gdy terms.yaml ma def; cel content/<kod>/terms-def.yaml; źródło i strażnik z definicje.ts
+  ---
+  duration_ms: 11.338424
+  type: 'test'
+  ...
+# Subtest: definicje: kontrola przekładu — te same klucze, niepuste, bez znaczników
+ok 80 - definicje: kontrola przekładu — te same klucze, niepuste, bez znaczników
+  ---
+  duration_ms: 2.149221
+  type: 'test'
+  ...
+# Subtest: definicje: żądanie z regułą pliku i glosariuszem terminów z kluczy; segmenty przeglądu po kluczach
+ok 81 - definicje: żądanie z regułą pliku i glosariuszem terminów z kluczy; segmenty przeglądu po kluczach
+  ---
+  duration_ms: 3.598889
+  type: 'test'
+  ...
+# Subtest: definicje: --zastosuj zapisuje content/en/terms-def.yaml po kontroli (bez sieci)
+ok 82 - definicje: --zastosuj zapisuje content/en/terms-def.yaml po kontroli (bez sieci)
+  ---
+  duration_ms: 4.634661
+  type: 'test'
+  ...
+# Subtest: rozpoznaje git push także po cd/&&/; i z -C; nie myli z innymi poleceniami
+ok 83 - rozpoznaje git push także po cd/&&/; i z -C; nie myli z innymi poleceniami
+  ---
+  duration_ms: 0.748238
+  type: 'test'
+  ...
+# Subtest: polecenie bez git push: kod 0 i bramki nie biegną (nawet failujące)
+ok 84 - polecenie bez git push: kod 0 i bramki nie biegną (nawet failujące)
+  ---
+  duration_ms: 27.013462
+  type: 'test'
+  ...
+# Subtest: git push z porażką bramki: kod 2, stderr z nazwą bramki i wyjściem polecenia; dalsze bramki nie biegną
+ok 85 - git push z porażką bramki: kod 2, stderr z nazwą bramki i wyjściem polecenia; dalsze bramki nie biegną
+  ---
+  duration_ms: 32.490929
+  type: 'test'
+  ...
+# Subtest: git push z zielonymi bramkami: kod 0
+ok 86 - git push z zielonymi bramkami: kod 0
+  ---
+  duration_ms: 29.428545
+  type: 'test'
+  ...
+# Subtest: wejście nie-JSON: kod 0 (hook nie blokuje cudzych wywołań)
+ok 87 - wejście nie-JSON: kod 0 (hook nie blokuje cudzych wywołań)
+  ---
+  duration_ms: 25.687143
+  type: 'test'
+  ...
+# Subtest: źródło pl wymaga form one/few/many/other, tłumaczenie de tylko one/other
+ok 88 - źródło pl wymaga form one/few/many/other, tłumaczenie de tylko one/other
+  ---
+  duration_ms: 6.656565
+  type: 'test'
+  ...
+# Subtest: brakujące i zbędne formy liczby mnogiej w tłumaczeniu (ru: one/few/many/other)
+ok 89 - brakujące i zbędne formy liczby mnogiej w tłumaczeniu (ru: one/few/many/other)
+  ---
+  duration_ms: 0.643991
+  type: 'test'
+  ...
+# Subtest: parametry muszą być te same co w źródle
+ok 90 - parametry muszą być te same co w źródle
+  ---
+  duration_ms: 15.769336
+  type: 'test'
+  ...
+# Subtest: znacznik terminu {{t:klucz|forma}}: forma może się różnić, klucz nie
+ok 91 - znacznik terminu {{t:klucz|forma}}: forma może się różnić, klucz nie
+  ---
+  duration_ms: 1.136095
+  type: 'test'
+  ...
+# Subtest: liczby: separatory języka nie dają fałszywych różnic, zmiana wartości jest błędem tylko w treści z twierdzeniem
+ok 92 - liczby: separatory języka nie dają fałszywych różnic, zmiana wartości jest błędem tylko w treści z twierdzeniem
+  ---
+  duration_ms: 0.80235
+  type: 'test'
+  ...
+# Subtest: znaczniki twierdzeń [T:ID] zostają
+ok 93 - znaczniki twierdzeń [T:ID] zostają
+  ---
+  duration_ms: 0.241951
+  type: 'test'
+  ...
+# Subtest: brak tłumaczenia klucza, pusty tekst
+ok 94 - brak tłumaczenia klucza, pusty tekst
+  ---
+  duration_ms: 0.228431
+  type: 'test'
+  ...
+# Subtest: nakładka regionalna (pt-BR) nie wymaga wszystkich kluczy, ale ma pilnowane parametry
+ok 95 - nakładka regionalna (pt-BR) nie wymaga wszystkich kluczy, ale ma pilnowane parametry
+  ---
+  duration_ms: 1.16808
+  type: 'test'
+  ...
+# Subtest: pismo: japoński bez znaków japońskich to uwaga
+ok 96 - pismo: japoński bez znaków japońskich to uwaga
+  ---
+  duration_ms: 1.189192
+  type: 'test'
+  ...
+# Subtest: wpisy: klucz zwykły i forma mnoga tego samego klucza to konflikt
+ok 97 - wpisy: klucz zwykły i forma mnoga tego samego klucza to konflikt
+  ---
+  duration_ms: 0.384768
+  type: 'test'
+  ...
+# Subtest: pseudolokalizacja: akcenty, wydłużenie, nawiasy; parametry i [T:] nietknięte
+ok 98 - pseudolokalizacja: akcenty, wydłużenie, nawiasy; parametry i [T:] nietknięte
+  ---
+  duration_ms: 0.520197
+  type: 'test'
+  ...
+# Subtest: skan kodu: tekst na sztywno w JSX, klucz użyty w t(), klucz dynamiczny, sklejanie
+ok 99 - skan kodu: tekst na sztywno w JSX, klucz użyty w t(), klucz dynamiczny, sklejanie
+  ---
+  duration_ms: 12.30864
+  type: 'test'
+  ...
+# Subtest: 08-programista-502: zrzuty różnych ekranów z tym samym md5 są zgłaszane
+ok 100 - 08-programista-502: zrzuty różnych ekranów z tym samym md5 są zgłaszane
+  ---
+  duration_ms: 2.777395
+  type: 'test'
+  ...
+# Subtest: dane: store/produkty.json = monetyzacja.md (9,99 / 14,99 / 19,99 USD, okresy), ADR 0006 (grupa „pelny”), asc-kontrola.json (ceny USA, Family Sharing wył.); bez ofert
+ok 101 - dane: store/produkty.json = monetyzacja.md (9,99 / 14,99 / 19,99 USD, okresy), ADR 0006 (grupa „pelny”), asc-kontrola.json (ceny USA, Family Sharing wył.); bez ofert
+  ---
+  duration_ms: 2.88518
+  type: 'test'
+  ...
+# Subtest: dane: lista storefrontów 1.0 = 166 unikalnych kodów, bez POL, VNM, TUR, KOR, CHN, AFG, GAB, MAR; USA na liście; workflow czyta tę listę
+ok 102 - dane: lista storefrontów 1.0 = 166 unikalnych kodów, bez POL, VNM, TUR, KOR, CHN, AFG, GAB, MAR; USA na liście; workflow czyta tę listę
+  ---
+  duration_ms: 0.54154
+  type: 'test'
+  ...
+# Subtest: plan na pustym App Store Connect: dostępność aplikacji, grupa, 2 subskrypcje, zakup jednorazowy, ceny i dostępność; tylko GET; bez NIEODWRACALNYCH (Family Sharing wył.)
+ok 103 - plan na pustym App Store Connect: dostępność aplikacji, grupa, 2 subskrypcje, zakup jednorazowy, ceny i dostępność; tylko GET; bez NIEODWRACALNYCH (Family Sharing wył.)
+  ---
+  duration_ms: 2.334168
+  type: 'test'
+  ...
+# Subtest: zapis na pustym: produkty z okresem, typem, bez Family Sharing; ceny USA z planu i równoważniki tylko w krajach listy; dostępność = lista, nowe terytoria wył.; drugi przebieg bez zmian; nigdy DELETE
+ok 104 - zapis na pustym: produkty z okresem, typem, bez Family Sharing; ceny USA z planu i równoważniki tylko w krajach listy; dostępność = lista, nowe terytoria wył.; drugi przebieg bez zmian; nigdy DELETE
+  ---
+  duration_ms: 6.271923
+  type: 'test'
+  ...
+# Subtest: kod z listy nieznany w App Store Connect (np. „BO” zamiast BOL) → STOP z kodem; zapis nic nie robi
+ok 105 - kod z listy nieznany w App Store Connect (np. „BO” zamiast BOL) → STOP z kodem; zapis nic nie robi
+  ---
+  duration_ms: 0.926545
+  type: 'test'
+  ...
+# Subtest: kraj bazowy spoza listy → STOP
+ok 106 - kraj bazowy spoza listy → STOP
+  ---
+  duration_ms: 0.431779
+  type: 'test'
+  ...
+# Subtest: istniejąca dostępność aplikacji: kraj z listy wyłączony → PATCH available; kraj spoza listy włączony albo nowe terytoria wł. → STOP (nie wyłączam sam)
+ok 107 - istniejąca dostępność aplikacji: kraj z listy wyłączony → PATCH available; kraj spoza listy włączony albo nowe terytoria wł. → STOP (nie wyłączam sam)
+  ---
+  duration_ms: 2.985237
+  type: 'test'
+  ...
+# Subtest: dostępność istniejącego produktu z krajem spoza listy → STOP; z nowymi terytoriami wł. → ponowny POST z wył.
+ok 108 - dostępność istniejącego produktu z krajem spoza listy → STOP; z nowymi terytoriami wł. → ponowny POST z wył.
+  ---
+  duration_ms: 2.818678
+  type: 'test'
+  ...
+# Subtest: STOP zamiast zmiany istniejącego produktu: inny okres, inna cena USA, inny typ; zapis nie rusza niczego
+ok 109 - STOP zamiast zmiany istniejącego produktu: inny okres, inna cena USA, inny typ; zapis nie rusza niczego
+  ---
+  duration_ms: 3.570436
+  type: 'test'
+  ...
+# Subtest: grupa: subskrypcje Szkoły w grupie o innej nazwie → ta grupa (bez drugiej „pelny”); dwie pasujące grupy → STOP
+ok 110 - grupa: subskrypcje Szkoły w grupie o innej nazwie → ta grupa (bez drugiej „pelny”); dwie pasujące grupy → STOP
+  ---
+  duration_ms: 1.095018
+  type: 'test'
+  ...
+# Subtest: tryb planu: klient tylko do odczytu (POST/PATCH/DELETE odrzucone przed wysłaniem)
+ok 111 - tryb planu: klient tylko do odczytu (POST/PATCH/DELETE odrzucone przed wysłaniem)
+  ---
+  duration_ms: 0.528673
+  type: 'test'
+  ...
+# Subtest: identyfikator pakietu i produkty = app.json i konfiguracja.ts (jedno źródło prawdy)
+ok 112 - identyfikator pakietu i produkty = app.json i konfiguracja.ts (jedno źródło prawdy)
+  ---
+  duration_ms: 1.110149
+  type: 'test'
+  ...
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 113 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+  ---
+  duration_ms: 1.475044
+  type: 'test'
+  ...
+# Subtest: metadane: pozostała wstawka [DO USTALENIA], limit podtytułu, adres bez https i brak mapowania są błędami; brak marketingUrl nie jest błędem
+ok 114 - metadane: pozostała wstawka [DO USTALENIA], limit podtytułu, adres bez https i brak mapowania są błędami; brak marketingUrl nie jest błędem
+  ---
+  duration_ms: 1.821074
+  type: 'test'
+  ...
+# Subtest: metadane podgląd: tylko GET, plan „utwórz” dla 10 lokalizacji × 2 obiekty, kod 0; bez wersji: komunikat z krokiem, kod 0
+ok 115 - metadane podgląd: tylko GET, plan „utwórz” dla 10 lokalizacji × 2 obiekty, kod 0; bez wersji: komunikat z krokiem, kod 0
+  ---
+  duration_ms: 2.61707
+  type: 'test'
+  ...
+# Subtest: metadane zapis: POST brakujących, PATCH różniących się, nigdy DELETE; drugi przebieg bez zapisów; obca lokalizacja nietknięta
+ok 116 - metadane zapis: POST brakujących, PATCH różniących się, nigdy DELETE; drugi przebieg bez zapisów; obca lokalizacja nietknięta
+  ---
+  duration_ms: 2.178139
+  type: 'test'
+  ...
+# Subtest: metadane zapis jak Apple: lokalizacje wersji utworzone przez Apple po appInfo → ponowny odczyt, PATCH zamiast POST, kod 0, bez 409
+ok 117 - metadane zapis jak Apple: lokalizacje wersji utworzone przez Apple po appInfo → ponowny odczyt, PATCH zamiast POST, kod 0, bez 409
+  ---
+  duration_ms: 0.870215
+  type: 'test'
+  ...
+# Subtest: metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+ok 118 - metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów
+  ---
+  duration_ms: 1.20766
+  type: 'test'
+  ...
+# Subtest: klient: DELETE odrzucany przed wysłaniem; błąd bez treści odpowiedzi i bez identyfikatorów; podgląd odrzuca POST
+ok 119 - klient: DELETE odrzucany przed wysłaniem; błąd bez treści odpowiedzi i bez identyfikatorów; podgląd odrzuca POST
+  ---
+  duration_ms: 0.679966
+  type: 'test'
+  ...
+# Subtest: klient: token tylko do https://api.appstoreconnect.apple.com/ (obcy host, http, podszyty sufiks → odmowa bez wysyłki)
+ok 120 - klient: token tylko do https://api.appstoreconnect.apple.com/ (obcy host, http, podszyty sufiks → odmowa bez wysyłki)
+  ---
+  duration_ms: 0.424343
+  type: 'test'
+  ...
+# Subtest: klient: błąd na ścieżce z identyfikatorem base64 albo liczbowym → w komunikacie tylko {id}
+ok 121 - klient: błąd na ścieżce z identyfikatorem base64 albo liczbowym → w komunikacie tylko {id}
+  ---
+  duration_ms: 0.601361
+  type: 'test'
+  ...
+# Subtest: store/iap-localizations.json: pl → pl, en → en-US; teksty = słownik aplikacji (purchase.*), limity 30/45; bez języków spoza wydanych
+ok 122 - store/iap-localizations.json: pl → pl, en → en-US; teksty = słownik aplikacji (purchase.*), limity 30/45; bez języków spoza wydanych
+  ---
+  duration_ms: 1.783067
+  type: 'test'
+  ...
+# Subtest: lokalizacje IAP dry-run: grupa znaleziona po produktach (bez ID na sztywno), 4 obiekty × 2 języki „utwórz”, tylko GET; apply: 8 × POST, drugi przebieg bez zapisów
+ok 123 - lokalizacje IAP dry-run: grupa znaleziona po produktach (bez ID na sztywno), 4 obiekty × 2 języki „utwórz”, tylko GET; apply: 8 × POST, drugi przebieg bez zapisów
+  ---
+  duration_ms: 1.629652
+  type: 'test'
+  ...
+# Subtest: lokalizacje IAP: brak produktów w ASC = problem i kod 1, zero zapisów nawet w apply
+ok 124 - lokalizacje IAP: brak produktów w ASC = problem i kod 1, zero zapisów nawet w apply
+  ---
+  duration_ms: 0.260946
+  type: 'test'
+  ...
+# Subtest: JWT ES256: aud, iss, exp = iat + 10 min, podpis 64 bajty
+ok 125 - JWT ES256: aud, iss, exp = iat + 10 min, podpis 64 bajty
+  ---
+  duration_ms: 9.48201
+  type: 'test'
+  ...
+# Subtest: zrzuty: pl → pl, en → 4 lokalizacje angielskie; cele w LOCALE_MAP; nazwa referencyjna z prefiksem Szkoły Pokera
+ok 126 - zrzuty: pl → pl, en → 4 lokalizacje angielskie; cele w LOCALE_MAP; nazwa referencyjna z prefiksem Szkoły Pokera
+  ---
+  duration_ms: 0.445251
+  type: 'test'
+  ...
+# Subtest: zrzuty dry-run z katalogu jak artefakt store-screenshots.yml (sklep-zrzuty/<rozmiar>/<język>/NN-ekran.png): tylko GET, en na 4 lokalizacje, alfa to błąd
+ok 127 - zrzuty dry-run z katalogu jak artefakt store-screenshots.yml (sklep-zrzuty/<rozmiar>/<język>/NN-ekran.png): tylko GET, en na 4 lokalizacje, alfa to błąd
+  ---
+  duration_ms: 5.239823
+  type: 'test'
+  ...
+# Subtest: kontrola: store/asc-kontrola.json zgodna z kodem i docs/monetyzacja.md (pakiet, produkty, ceny USA, bez ofert, Family Sharing wył.)
+ok 128 - kontrola: store/asc-kontrola.json zgodna z kodem i docs/monetyzacja.md (pakiet, produkty, ceny USA, bez ofert, Family Sharing wył.)
+  ---
+  duration_ms: 1.401273
+  type: 'test'
+  ...
+# Subtest: kontrola: kategoria EDUCATION + GAMES (D-395); dostępność i grupa cen = 166 storefrontów z storefronty-1.0.json (D-301/D-362); próbka rynków ⊂ listy
+ok 129 - kontrola: kategoria EDUCATION + GAMES (D-395); dostępność i grupa cen = 166 storefrontów z storefronty-1.0.json (D-301/D-362); próbka rynków ⊂ listy
+  ---
+  duration_ms: 0.493159
+  type: 'test'
+  ...
+# Subtest: notatki dla recenzenta: bez kluczy słownika w nawiasach; etykiety = en.json
+ok 130 - notatki dla recenzenta: bez kluczy słownika w nawiasach; etykiety = en.json
+  ---
+  duration_ms: 1.357785
+  type: 'test'
+  ...
+# Subtest: kontrola: pliki generowane aktualne (--check); oczekiwane lokalizacje = lokalizacje metadanych z aliasami; notatki = blok EN
+ok 131 - kontrola: pliki generowane aktualne (--check); oczekiwane lokalizacje = lokalizacje metadanych z aliasami; notatki = blok EN
+  ---
+  duration_ms: 32.779876
+  type: 'test'
+  ...
+# Subtest: lokalizacje IAP: produkty w dwóch grupach subskrypcji = problem (niejednoznaczne), kod 1, zero zapisów
+ok 132 - lokalizacje IAP: produkty w dwóch grupach subskrypcji = problem (niejednoznaczne), kod 1, zero zapisów
+  ---
+  duration_ms: 0.338186
+  type: 'test'
+  ...
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 133 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+  ---
+  duration_ms: 0.455519
+  type: 'test'
+  ...
+# Subtest: przesłanki: górny „Zakończ” sesji jest w drzewie przed „Dalej”/„Zakończ” pod oceną i ma ten sam tekst co session.finish
+ok 134 - przesłanki: górny „Zakończ” sesji jest w drzewie przed „Dalej”/„Zakończ” pod oceną i ma ten sam tekst co session.finish
+  ---
+  duration_ms: 0.718487
+  type: 'test'
+  ...
+# Subtest: żaden selektor tekstowy flowu nie pasuje jednocześnie do „Dalej” i do górnego „Zakończ” sesji (porzucenie lekcji)
+ok 135 - żaden selektor tekstowy flowu nie pasuje jednocześnie do „Dalej” i do górnego „Zakończ” sesji (porzucenie lekcji)
+  ---
+  duration_ms: 24.706619
+  type: 'test'
+  ...
+# Subtest: przycisk pod oceną ma testID `sesja-dalej`, a górny „Zakończ” (session.end) go nie ma
+ok 136 - przycisk pod oceną ma testID `sesja-dalej`, a górny „Zakończ” (session.end) go nie ma
+  ---
+  duration_ms: 0.857681
+  type: 'test'
+  ...
+# Subtest: każdy flow to poprawny YAML (nagłówek + kroki)
+ok 137 - każdy flow to poprawny YAML (nagłówek + kroki)
+  ---
+  duration_ms: 43.619632
+  type: 'test'
+  ...
+# Subtest: każda zmienna ${…} we flowach ma niepustą wartość z helplines-env.mjs
+ok 138 - każda zmienna ${…} we flowach ma niepustą wartość z helplines-env.mjs
+  ---
+  duration_ms: 176.585868
+  type: 'test'
+  ...
+# Subtest: każdy runFlow wskazuje istniejący plik (ścieżka względem flowu)
+ok 139 - każdy runFlow wskazuje istniejący plik (ścieżka względem flowu)
+  ---
+  duration_ms: 0.386284
+  type: 'test'
+  ...
+# Subtest: config.yaml uruchamia tylko flowy z katalogu głównego (oczekujace/ poza bramką, D-189)
+ok 140 - config.yaml uruchamia tylko flowy z katalogu głównego (oczekujace/ poza bramką, D-189)
+  ---
+  duration_ms: 0.514252
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)
+ok 141 - e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)
+  ---
+  duration_ms: 0.272883
+  type: 'test'
+  ...
+# Subtest: każde id we flowach (bramka i oczekujace/) ma testID w kodzie aplikacji (apps/mobile/src)
+ok 142 - każde id we flowach (bramka i oczekujace/) ma testID w kodzie aplikacji (apps/mobile/src)
+  ---
+  duration_ms: 16.018657
+  type: 'test'
+  ...
+# Subtest: każdy launchApp we flowach ustala język telefonu (arguments.AppleLanguages = (pl) albo (en), D-353)
+ok 143 - każdy launchApp we flowach ustala język telefonu (arguments.AppleLanguages = (pl) albo (en), D-353)
+  ---
+  duration_ms: 30.449772
+  type: 'test'
+  ...
+# Subtest: K7 (plan-09): flow drugiego języka 08-drugi-jezyk.yaml w bramce, startuje z telefonem en
+ok 144 - K7 (plan-09): flow drugiego języka 08-drugi-jezyk.yaml w bramce, startuje z telefonem en
+  ---
+  duration_ms: 1.537749
+  type: 'test'
+  ...
+# Subtest: Z2 (E2E 42800500800): „Nie wiem” na pytaniu ze stołem jest pod ekranem, więc każde jego assertVisible/tapOn poprzedza scrollUntilVisible
+ok 145 - Z2 (E2E 42800500800): „Nie wiem” na pytaniu ze stołem jest pod ekranem, więc każde jego assertVisible/tapOn poprzedza scrollUntilVisible
+  ---
+  duration_ms: 3.99705
+  type: 'test'
+  ...
+# Subtest: tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na zakładce, która go renderuje (D-542)
+ok 146 - tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na zakładce, która go renderuje (D-542)
+  ---
+  duration_ms: 19.013946
+  type: 'test'
+  ...
+# Subtest: 07-scenariusz.yaml: szablon z flowu istnieje, flow kończy pierwszą lekcję jego modułu, a pas jest na łatwym błędem
+ok 147 - 07-scenariusz.yaml: szablon z flowu istnieje, flow kończy pierwszą lekcję jego modułu, a pas jest na łatwym błędem
+  ---
+  duration_ms: 188.012186
+  type: 'test'
+  ...
+# Subtest: każdy zakaz z K-07 i D-174 ma regułę i łapie przykład użycia
+ok 148 - każdy zakaz z K-07 i D-174 ma regułę i łapie przykład użycia
+  ---
+  duration_ms: 3.767435
+  type: 'test'
+  ...
+# Subtest: dozwolone użycia nie są trafieniem
+ok 149 - dozwolone użycia nie są trafieniem
+  ---
+  duration_ms: 0.297292
+  type: 'test'
+  ...
+# Subtest: komentarz nie jest użyciem; napis z SQL jest; „//” w napisie nie ucina linii
+ok 150 - komentarz nie jest użyciem; napis z SQL jest; „//” w napisie nie ucina linii
+  ---
+  duration_ms: 0.236162
+  type: 'test'
+  ...
+# Subtest: numer linii i ścieżka trafienia
+ok 151 - numer linii i ścieżka trafienia
+  ---
+  duration_ms: 0.129826
+  type: 'test'
+  ...
+# Subtest: zakres ścieżek: setInterval tylko w domenie, getEachAsync i sieć poza swoimi adapterami
+ok 152 - zakres ścieżek: setInterval tylko w domenie, getEachAsync i sieć poza swoimi adapterami
+  ---
+  duration_ms: 0.350263
+  type: 'test'
+  ...
+# Subtest: pliki JSON skanowane bez usuwania komentarzy (zależność i wtyczka Sentry)
+ok 153 - pliki JSON skanowane bez usuwania komentarzy (zależność i wtyczka Sentry)
+  ---
+  duration_ms: 0.15198
+  type: 'test'
+  ...
+# Subtest: pakiety natywne: ios/ albo podspec w korzeniu, także pakiet z zakresem; pakiet tylko JS pominięty
+ok 154 - pakiety natywne: ios/ albo podspec w korzeniu, także pakiet z zakresem; pakiet tylko JS pominięty
+  ---
+  duration_ms: 2.348602
+  type: 'test'
+  ...
+# Subtest: manifest: kategorie i powody, pusta lista zbieranych danych, brak śledzenia
+ok 155 - manifest: kategorie i powody, pusta lista zbieranych danych, brak śledzenia
+  ---
+  duration_ms: 0.437905
+  type: 'test'
+  ...
+# Subtest: skan: kategorie z manifestu i z kodu bez manifestu; komentarze, makra i katalog example pominięte
+ok 156 - skan: kategorie z manifestu i z kodu bez manifestu; komentarze, makra i katalog example pominięte
+  ---
+  duration_ms: 3.246967
+  type: 'test'
+  ...
+# Subtest: braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+ok 157 - braki: kategoria wymagana, a nieobecna w app.json; zbierane dane w app.json; kod wyjścia 1
+  ---
+  duration_ms: 42.147758
+  type: 'test'
+  ...
+# Subtest: powody wymagane: pakiet z reguły obecny, powodu brak w app.json → brakiPowodow
+ok 158 - powody wymagane: pakiet z reguły obecny, powodu brak w app.json → brakiPowodow
+  ---
+  duration_ms: 3.608759
+  type: 'test'
+  ...
+# Subtest: powody wymagane: expo-document-picker → FileTimestamp 3B52.1 (10-PRYW-01)
+ok 159 - powody wymagane: expo-document-picker → FileTimestamp 3B52.1 (10-PRYW-01)
+  ---
+  duration_ms: 0.141188
+  type: 'test'
+  ...
+# Subtest: kolumny z schemat.sql + v2 + v3 (ALTER ADD COLUMN): 10 tabel, aktywnosc ma 10 kolumn
+ok 160 - kolumny z schemat.sql + v2 + v3 (ALTER ADD COLUMN): 10 tabel, aktywnosc ma 10 kolumn
+  ---
+  duration_ms: 3.256354
+  type: 'test'
+  ...
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 161 - poprawny plik (z identyfikatorem UUID): 0 błędów
+  ---
+  duration_ms: 1.333472
+  type: 'test'
+  ...
+# Subtest: pole koperty spoza ADR 0008 (np. urzadzenie) → błąd
+ok 162 - pole koperty spoza ADR 0008 (np. urzadzenie) → błąd
+  ---
+  duration_ms: 0.481156
+  type: 'test'
+  ...
+# Subtest: tabela spoza eksportu (uprawnienie_cache, dziennik) → błąd
+ok 163 - tabela spoza eksportu (uprawnienie_cache, dziennik) → błąd
+  ---
+  duration_ms: 0.351874
+  type: 'test'
+  ...
+# Subtest: kolumna spoza schemat.sql → błąd
+ok 164 - kolumna spoza schemat.sql → błąd
+  ---
+  duration_ms: 0.322145
+  type: 'test'
+  ...
+# Subtest: adres e-mail i nazwa urządzenia także w JSON wewnątrz kolumny → błąd
+ok 165 - adres e-mail i nazwa urządzenia także w JSON wewnątrz kolumny → błąd
+  ---
+  duration_ms: 0.288801
+  type: 'test'
+  ...
+# Subtest: brak tabeli, zły format, ucięty plik → błąd
+ok 166 - brak tabeli, zły format, ucięty plik → błąd
+  ---
+  duration_ms: 1.51104
+  type: 'test'
+  ...
+# Subtest: długi napis → uwaga, nie błąd
+ok 167 - długi napis → uwaga, nie błąd
+  ---
+  duration_ms: 0.329098
+  type: 'test'
+  ...
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 168 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+  ---
+  duration_ms: 0.921681
+  type: 'test'
+  ...
+# Subtest: brak innej tabeli (np. karta) nadal błąd
+ok 169 - brak innej tabeli (np. karta) nadal błąd
+  ---
+  duration_ms: 0.515416
+  type: 'test'
+  ...
+# Subtest: katalog PU tego repozytorium: bramka statyczna zielona (kod 0)
+ok 170 - katalog PU tego repozytorium: bramka statyczna zielona (kod 0)
+  ---
+  duration_ms: 41.800575
+  type: 'test'
+  ...
+# Subtest: fikstura poprawna: statycznie zielona
+ok 171 - fikstura poprawna: statycznie zielona
+  ---
+  duration_ms: 42.637819
+  type: 'test'
+  ...
+# Subtest: ekran bez PU → czerwona z nazwą ekranu
+ok 172 - ekran bez PU → czerwona z nazwą ekranu
+  ---
+  duration_ms: 52.102294
+  type: 'test'
+  ...
+# Subtest: funkcja bez PU → czerwona z nazwą funkcji
+ok 173 - funkcja bez PU → czerwona z nazwą funkcji
+  ---
+  duration_ms: 42.859756
+  type: 'test'
+  ...
+# Subtest: brak katalogu PU → czerwona
+ok 174 - brak katalogu PU → czerwona
+  ---
+  duration_ms: 36.850127
+  type: 'test'
+  ...
+# Subtest: scenariusz A bez ekranu albo bez kroku powrotu → czerwona
+ok 175 - scenariusz A bez ekranu albo bez kroku powrotu → czerwona
+  ---
+  duration_ms: 99.981505
+  type: 'test'
+  ...
+# Subtest: klasa B: bez wyjątku czerwona statycznie; w trybie pełnym termin minął albo dalej niż 3 buildy → czerwona
+ok 176 - klasa B: bez wyjątku czerwona statycznie; w trybie pełnym termin minął albo dalej niż 3 buildy → czerwona
+  ---
+  duration_ms: 232.000891
+  type: 'test'
+  ...
+# Subtest: tryb pełny: stan gotowy do buildu 11 → zielona
+ok 177 - tryb pełny: stan gotowy do buildu 11 → zielona
+  ---
+  duration_ms: 53.132136
+  type: 'test'
+  ...
+# Subtest: tryb pełny: protokół F poprzedniego buildu bez wyniku albo bez pozycji → czerwona
+ok 178 - tryb pełny: protokół F poprzedniego buildu bez wyniku albo bez pozycji → czerwona
+  ---
+  duration_ms: 131.344959
+  type: 'test'
+  ...
+# Subtest: tryb pełny: brak protokołu bieżącego buildu, brak linii przeglądu, numer nie wyższy niż wysłany → czerwona
+ok 179 - tryb pełny: brak protokołu bieżącego buildu, brak linii przeglądu, numer nie wyższy niż wysłany → czerwona
+  ---
+  duration_ms: 83.02964
+  type: 'test'
+  ...
+# Subtest: tryb pełny: scenariusz A nieprzechodzący, brak pliku wykonanych albo przebieg z innego SHA → czerwona
+ok 180 - tryb pełny: scenariusz A nieprzechodzący, brak pliku wykonanych albo przebieg z innego SHA → czerwona
+  ---
+  duration_ms: 115.259214
+  type: 'test'
+  ...
+# Subtest: --szkielet: tworzy protokół z pozycjami F, nie nadpisuje istniejącego; „(od buildu n)” wyłącza pozycję ze starszego protokołu
+ok 181 - --szkielet: tworzy protokół z pozycjami F, nie nadpisuje istniejącego; „(od buildu n)” wyłącza pozycję ze starszego protokołu
+  ---
+  duration_ms: 206.489463
+  type: 'test'
+  ...
+# Subtest: --protokol: zamknięty → zielona, otwarty → czerwona
+ok 182 - --protokol: zamknięty → zielona, otwarty → czerwona
+  ---
+  duration_ms: 65.749665
+  type: 'test'
+  ...
+# Subtest: protokół: „POMINIĘTE:” bez uzasadnienia albo zdublowana pozycja → czerwona
+ok 183 - protokół: „POMINIĘTE:” bez uzasadnienia albo zdublowana pozycja → czerwona
+  ---
+  duration_ms: 76.88716
+  type: 'test'
+  ...
+# Subtest: katalog: pozycja F bez kroków albo pusta kolumna „Warianty i błędy” → czerwona
+ok 184 - katalog: pozycja F bez kroków albo pusta kolumna „Warianty i błędy” → czerwona
+  ---
+  duration_ms: 99.798414
+  type: 'test'
+  ...
+# Subtest: docs/wydanie/ostatni-build.txt nadąża za protokołami F (D-1783)
+ok 185 - docs/wydanie/ostatni-build.txt nadąża za protokołami F (D-1783)
+  ---
+  duration_ms: 0.604096
+  type: 'test'
+  ...
+# Subtest: IC: znacznik ekranu jako regex Maestro (ekran:\\(tabs\\)/index) bez komentarza z literałem → zielona
+ok 186 - IC: znacznik ekranu jako regex Maestro (ekran:\\(tabs\\)/index) bez komentarza z literałem → zielona
+  ---
+  duration_ms: 28.374291
+  type: 'test'
+  ...
+# Subtest: IC: regex trafiający w inną trasę albo szeroki (ekran:.*) nie liczy się jako odwiedzenie ekranu → czerwona
+ok 187 - IC: regex trafiający w inną trasę albo szeroki (ekran:.*) nie liczy się jako odwiedzenie ekranu → czerwona
+  ---
+  duration_ms: 60.146375
+  type: 'test'
+  ...
+# Subtest: site/ zawiera dokładnie privacy.html i support.html (bez .md, danych, obrazów)
+ok 188 - site/ zawiera dokładnie privacy.html i support.html (bez .md, danych, obrazów)
+  ---
+  duration_ms: 1.616813
+  type: 'test'
+  ...
+# Subtest: pliki strony = wynik generatorów (polityka z docs/wydanie/polityka-prywatnosci/*.md; uruchom node tools/strona/*.mjs --zapisz)
+ok 189 - pliki strony = wynik generatorów (polityka z docs/wydanie/polityka-prywatnosci/*.md; uruchom node tools/strona/*.mjs --zapisz)
+  ---
+  duration_ms: 0.983479
+  type: 'test'
+  ...
+# Subtest: obie strony po polsku i angielsku, ze wzajemnymi odnośnikami
+ok 190 - obie strony po polsku i angielsku, ze wzajemnymi odnośnikami
+  ---
+  duration_ms: 0.292718
+  type: 'test'
+  ...
+# Subtest: bez skryptów, ramek, formularzy i zasobów zewnętrznych; odnośniki zewnętrzne tylko z content/helplines.yaml
+ok 191 - bez skryptów, ramek, formularzy i zasobów zewnętrznych; odnośniki zewnętrzne tylko z content/helplines.yaml
+  ---
+  duration_ms: 1.173572
+  type: 'test'
+  ...
+# Subtest: „Data Not Collected”: polityka mówi, że aplikacja nie zbiera danych, i nie wspomina narzędzi zbierających dane
+ok 192 - „Data Not Collected”: polityka mówi, że aplikacja nie zbiera danych, i nie wspomina narzędzi zbierających dane
+  ---
+  duration_ms: 0.40211
+  type: 'test'
+  ...
+# Subtest: zdanie „nic nie wysyła” zgodne z zależnościami aplikacji: brak SDK analityki, reklam, raportów awarii i zdalnej konfiguracji
+ok 193 - zdanie „nic nie wysyła” zgodne z zależnościami aplikacji: brak SDK analityki, reklam, raportów awarii i zdalnej konfiguracji
+  ---
+  duration_ms: 0.422634
+  type: 'test'
+  ...
+# Subtest: wsparcie: zdanie pomocy przy hazardzie i link dokładnie jak w content/helplines.yaml (D-158: bez numerów krajowych)
+ok 194 - wsparcie: zdanie pomocy przy hazardzie i link dokładnie jak w content/helplines.yaml (D-158: bez numerów krajowych)
+  ---
+  duration_ms: 0.276394
+  type: 'test'
+  ...
+# Subtest: wsparcie: bez cen i bez liczby limitu wpisanej ręcznie (ceny w App Store; liczby tylko z KONFIGURACJA)
+ok 195 - wsparcie: bez cen i bez liczby limitu wpisanej ręcznie (ceny w App Store; liczby tylko z KONFIGURACJA)
+  ---
+  duration_ms: 0.156924
+  type: 'test'
+  ...
+# Subtest: D-308/D-342: Pages publikuje tylko pages.yml, tylko site/ i tylko z main
+ok 196 - D-308/D-342: Pages publikuje tylko pages.yml, tylko site/ i tylko z main
+  ---
+  duration_ms: 31.985597
+  type: 'test'
+  ...
+# Subtest: każdy workflow parsuje się bez błędów
+ok 197 - każdy workflow parsuje się bez błędów
+  ---
+  duration_ms: 2.115037
+  type: 'test'
+  ...
+# Subtest: każde zadanie ma timeout-minutes (domyślne 360 min to koszt bez sygnału) albo wywołuje workflow (uses)
+ok 198 - każde zadanie ma timeout-minutes (domyślne 360 min to koszt bez sygnału) albo wywołuje workflow (uses)
+  ---
+  duration_ms: 5.978803
+  type: 'test'
+  ...
+# Subtest: domyślne uprawnienia tylko do odczytu; issues: write wyłącznie w zadaniu zgłoszenia nocnego
+ok 199 - domyślne uprawnienia tylko do odczytu; issues: write wyłącznie w zadaniu zgłoszenia nocnego
+  ---
+  duration_ms: 4.521826
+  type: 'test'
+  ...
+# Subtest: akcje przypięte do wersji głównej albo SHA, workflowy lokalne przez ./
+ok 200 - akcje przypięte do wersji głównej albo SHA, workflowy lokalne przez ./
+  ---
+  duration_ms: 3.006494
+  type: 'test'
+  ...
+# Subtest: harmonogramy poza pełną godziną (kolejka GitHuba)
+ok 201 - harmonogramy poza pełną godziną (kolejka GitHuba)
+  ---
+  duration_ms: 2.758872
+  type: 'test'
+  ...
+# Subtest: steps.<id> w wyrażeniach wskazuje krok z tym id w tym samym zadaniu
+ok 202 - steps.<id> w wyrażeniach wskazuje krok z tym id w tym samym zadaniu
+  ---
+  duration_ms: 2.122025
+  type: 'test'
+  ...
+# Subtest: needs wskazuje istniejące zadania
+ok 203 - needs wskazuje istniejące zadania
+  ---
+  duration_ms: 2.110396
+  type: 'test'
+  ...
+# Subtest: wywołanie lokalnego workflowu: klucze with ⊆ workflow_call.inputs
+ok 204 - wywołanie lokalnego workflowu: klucze with ⊆ workflow_call.inputs
+  ---
+  duration_ms: 1.279581
+  type: 'test'
+  ...
+# Subtest: każde ${{ ma zamykające }}
+ok 205 - każde ${{ ma zamykające }}
+  ---
+  duration_ms: 0.925608
+  type: 'test'
+  ...
+# Subtest: uprawnienia write na poziomie zadania: tylko issues w nocny.yml:zgloszenie oraz pages i id-token w pages.yml:deploy
+ok 206 - uprawnienia write na poziomie zadania: tylko issues w nocny.yml:zgloszenie oraz pages i id-token w pages.yml:deploy
+  ---
+  duration_ms: 0.912297
+  type: 'test'
+  ...
+# Subtest: przekład i przegląd: checkout = ref uruchomienia, bez ref na sztywno; kontrola skryptu tuż po checkout, przed kluczem
+ok 207 - przekład i przegląd: checkout = ref uruchomienia, bez ref na sztywno; kontrola skryptu tuż po checkout, przed kluczem
+  ---
+  duration_ms: 0.630272
+  type: 'test'
+  ...
+# Subtest: nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.ts) dokładnie raz
+ok 208 - nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.ts) dokładnie raz
+  ---
+  duration_ms: 0.2903
+  type: 'test'
+  ...
+# Subtest: testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e-ios.yml na tym commicie albo awaryjne pominięcie z powodem
+ok 209 - testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e-ios.yml na tym commicie albo awaryjne pominięcie z powodem
+  ---
+  duration_ms: 0.337424
+  type: 'test'
+  ...
+# Subtest: testflight.yml: bramka scenariuszy użytkownika (D-060) przed buildem, po bramce E2E, bez wyciszania
+ok 210 - testflight.yml: bramka scenariuszy użytkownika (D-060) przed buildem, po bramce E2E, bez wyciszania
+  ---
+  duration_ms: 0.25496
+  type: 'test'
+  ...
+# Subtest: testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit zadania bramki ≥ czekanie + 5 min (rośnie z liczbą flowów)
+ok 211 - testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit zadania bramki ≥ czekanie + 5 min (rośnie z liczbą flowów)
+  ---
+  duration_ms: 0.184737
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: MAESTRO_DRIVER_STARTUP_TIMEOUT ≥ 480 000 ms dla obu przebiegów flowów, a limit zadania mieści czekanie na sterownik
+ok 212 - e2e-ios.yml: MAESTRO_DRIVER_STARTUP_TIMEOUT ≥ 480 000 ms dla obu przebiegów flowów, a limit zadania mieści czekanie na sterownik
+  ---
+  duration_ms: 0.194149
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: krok „Maestro” ponawia instalację (pipefail, ≥ 3 próby, przerwa, błąd po ostatniej, sprzątanie przed ponowieniem)
+ok 213 - e2e-ios.yml: krok „Maestro” ponawia instalację (pipefail, ≥ 3 próby, przerwa, błąd po ostatniej, sprzątanie przed ponowieniem)
+  ---
+  duration_ms: 0.196628
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: wejście aplikacja_z_przebiegu pomija budowanie i pobiera aplikację z podanego przebiegu; każdy build zapisuje aplikację na 1 dzień
+ok 214 - e2e-ios.yml: wejście aplikacja_z_przebiegu pomija budowanie i pobiera aplikację z podanego przebiegu; każdy build zapisuje aplikację na 1 dzień
+  ---
+  duration_ms: 0.330332
+  type: 'test'
+  ...
+# Subtest: wywołanie lokalnego workflowu: uprawnienia wywoływanego ⊆ uprawnienia zadania wywołującego
+ok 215 - wywołanie lokalnego workflowu: uprawnienia wywoływanego ⊆ uprawnienia zadania wywołującego
+  ---
+  duration_ms: 0.736049
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: push ignoruje store/** (obok docs/**, *.md, tests/**, .claude/**)
+ok 216 - e2e-ios.yml: push ignoruje store/** (obok docs/**, *.md, tests/**, .claude/**)
+  ---
+  duration_ms: 0.139022
+  type: 'test'
+  ...
+# Subtest: store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+ok 217 - store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+  ---
+  duration_ms: 3.128031
+  type: 'test'
+  ...
+# Subtest: asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis tylko w zadaniu release po odczycie i po kontroli zatwierdzania; klucz usuwany zawsze
+ok 218 - asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis tylko w zadaniu release po odczycie i po kontroli zatwierdzania; klucz usuwany zawsze
+  ---
+  duration_ms: 1.188607
+  type: 'test'
+  ...
+# Subtest: asc-*.yml: setup-node bez pamięci menedżera pakietów (repo z packageManager: pnpm, kroki bez pnpm)
+ok 219 - asc-*.yml: setup-node bez pamięci menedżera pakietów (repo z packageManager: pnpm, kroki bez pnpm)
+  ---
+  duration_ms: 0.439833
+  type: 'test'
+  ...
+# Subtest: asc-*.yml: klucz przez scripts/ci/asc-check.mjs jak testflight.yml; identyfikatory przycięte przed skryptem
+ok 220 - asc-*.yml: klucz przez scripts/ci/asc-check.mjs jak testflight.yml; identyfikatory przycięte przed skryptem
+  ---
+  duration_ms: 0.508251
+  type: 'test'
+  ...
+# Subtest: asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczyt; kontrola gałęzi przed kluczem; trzy sekrety; klucz usuwany zawsze
+ok 221 - asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczyt; kontrola gałęzi przed kluczem; trzy sekrety; klucz usuwany zawsze
+  ---
+  duration_ms: 0.418021
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, bez cache DerivedData
+ok 222 - e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, bez cache DerivedData
+  ---
+  duration_ms: 0.57866
+  type: 'test'
+  ...
+# Subtest: ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+ok 223 - ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+  ---
+  duration_ms: 3.67351
+  type: 'test'
+  ...
+# Subtest: ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success
+ok 224 - ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success
+  ---
+  duration_ms: 0.294287
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: push tylko na main i gałęzi roboczej (bez wzorców), ręcznie przez workflow_dispatch; gałęzie sesji bez E2E
+ok 225 - e2e-ios.yml: push tylko na main i gałęzi roboczej (bez wzorców), ręcznie przez workflow_dispatch; gałęzie sesji bez E2E
+  ---
+  duration_ms: 0.318044
+  type: 'test'
+  ...
+# Subtest: ci.yml: części check bez łagodzenia przez powłokę i środowisko (07-jakosc-001): krok = uses albo jedna linia pnpm, bez shell/env/defaults/working-directory
+ok 226 - ci.yml: części check bez łagodzenia przez powłokę i środowisko (07-jakosc-001): krok = uses albo jedna linia pnpm, bez shell/env/defaults/working-directory
+  ---
+  duration_ms: 0.391388
+  type: 'test'
+  ...
+# Subtest: 07-jakosc-001: kontrola kształtu wykrywa set +e, shell, env kroku, zadania i workflowu, defaults i working-directory
+ok 227 - 07-jakosc-001: kontrola kształtu wykrywa set +e, shell, env kroku, zadania i workflowu, defaults i working-directory
+  ---
+  duration_ms: 0.906275
+  type: 'test'
+  ...
+# Subtest: cytatyNaAdres liczy wiersze po znaczniku i ignoruje rachunek po pustym wierszu
+ok 228 - cytatyNaAdres liczy wiersze po znaczniku i ignoruje rachunek po pustym wierszu
+  ---
+  duration_ms: 1.244154
+  type: 'test'
+  ...
+# Subtest: wyciągi ze źródeł w docs/tresci: najwyżej 250 znaków cytatu na adres w pliku
+ok 229 - wyciągi ze źródeł w docs/tresci: najwyżej 250 znaków cytatu na adres w pliku
+  ---
+  duration_ms: 25.47673
+  type: 'test'
+  ...
+# Subtest: kolumny „cytat” w tabelach odczytów (*.tsv): każde pole najwyżej 250 znaków
+ok 230 - kolumny „cytat” w tabelach odczytów (*.tsv): każde pole najwyżej 250 znaków
+  ---
+  duration_ms: 2.059215
+  type: 'test'
+  ...
+# Subtest: 08-programista-501: przy SZKOLA_ZRZUTY=1 na web Dimensions react-native-web jest podmieniony, także importem względnym z paczki
+ok 231 - 08-programista-501: przy SZKOLA_ZRZUTY=1 na web Dimensions react-native-web jest podmieniony, także importem względnym z paczki
+  ---
+  duration_ms: 168.323962
+  type: 'test'
+  ...
+# Subtest: 08-programista-501: moduł zrzutowy sam importuje oryginał (bez pętli); iOS i brak zmiennej bez zmian
+ok 232 - 08-programista-501: moduł zrzutowy sam importuje oryginał (bez pętli); iOS i brak zmiennej bez zmian
+  ---
+  duration_ms: 5.635402
+  type: 'test'
+  ...
+1..232
+# tests 232
+# suites 0
+# pass 232
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15777.810795
+kod=0

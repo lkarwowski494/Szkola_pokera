@@ -1,0 +1,38 @@
+# Postęp napraw M2 — Szkoła Pokera
+Pętla 1 · Zadania: partia:1 · Audyt f75acdff16915aeb43ff788888216e28616c11ed · Baza 0e7e5e00d97271f7dd3b5ee0caf5c8a833999dee · Sesja IS (koordynator napraw), sesje ról: subagenci
+Prompt roli: assemble.mjs M2-koordynator-napraw --tryb fix (prompts @ af4c0a83), sha256 /tmp/rola.md d16a6289c4539fc2c3f20ce30b0ae77c49f48680ef93b34ba3cc560ae5d2486c
+
+## E0 (stan)
+- sprawdz-plan.mjs: kod 0, 66 zadań, 13 decyzji (dowody/M2/sprawdz-plan-start.txt); zakres-napraw.mjs partia:1: kod 0, 4 zadania (dowody/M2/zakres.txt).
+- Repo: drzewo czyste na starcie; commit audytu istnieje; od audytu zmieniono tylko audit/ i docs/decyzje/IR.md → żadne zadanie nie wymaga ponownego odtworzenia.
+- K jest śledzony w git (wyjątek nazwany: docs/decyzje/IR.md D-1990…, polecenie IR pkt 5); narzędzia M2 (K/narzedzia/) i prompty wykluczone w .git/info/exclude.
+- Gałąź: środowisko narzuca `claude/sesja-is-naprawy-p1` (zamiast naprawy/M2-…-p1); granice partii zapisuję SHA.
+- Stan wyjściowy: `pnpm install --frozen-lockfile` kod 0; `pnpm test:skrypty` 229/229 kod 0 (dowody/M2/stan-test-skrypty.txt); pełne `pnpm run ci` na f75acdff kod 0 z przebiegu IR (wspolne/ci-pelne.log) — wyjątek nazwany: nie powtarzam przed startem, bo od audytu zmieniono tylko dokumentację; tańsza kontrola = test:skrypty teraz + pełne ci na końcu.
+- Bramka D-025: wyjątek nazwany właściciela w IR (D-1990, docs/decyzje/IR.md); docs/monetyzacja.md „budować”.
+- Trening (D-191, odczyt 2026-11-17, klon @ 2d97581): `.github/workflows/asc-kontrola.yml:21` akcja zewnętrzna przypięta do pełnego SHA; `.gitignore` z `.env*`, `*.p8`, `*.p12`, `*.mobileprovision`, `*.cer`, `credentials.json`, `*.pem`, `*.key`, `*.jks`, `*.keystore`.
+
+## Zgody
+- 2026-11-17 właściciel (sesja IR): „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski” — zatwierdzenie partii 1.
+- 2026-11-17 właściciel (sesja IS): „zgoda na prompts” — klon biblioteki prompts i składacz.
+- 2026-11-17 właściciel (sesja IS) na STOP start: „Zgodnie z rekomendacja” — plan (a): kolejność 007, 047, 061, 002; subagenci; push na gałąź po każdym zadaniu.
+
+## Partie
+| Partia | Gałąź | Od | Do | STOP przed | Stan |
+|---|---|---|---|---|---|
+| 1 | claude/sesja-is-naprawy-p1 | 0e7e5e00 | — | tak (M: 002) — łączony ze STOP start | w toku |
+
+## Zadania
+| ID | Partia | Krok | Commit | Dowód | Przeczytane reguły | Następny krok |
+|---|---|---|---|---|---|---|
+| M1-audytor-generalny-007 (06-tresci-001) | 1 | commit | 3f1fe76d | dowody/M2/M1-audytor-generalny-007-przed.txt (kod 1, 22 pary), -po.txt (kod 0), -test-skrypty.txt (232/232); tresci:rejestr 0, tresci:el-kontrola 0 | 08 rdzen „Zasady programisty”; 06 rdzen „Tryb: fix”; 07 rdzen „Tryb: fix” | gotowe (naprawione-do-weryfikacji) |
+| M1-audytor-generalny-047 (07-jakosc-004) | 1 | czeka | — | — | — | zaostrzenie testu workflowy (czerwony) |
+| M1-audytor-generalny-061 (10-wydanie-007) | 1 | czeka | — | — | — | test check-ignore (czerwony) |
+| M1-audytor-generalny-002 (06-tresci-501) | 1 | czeka | — | — | — | polecenie 06-tresci-p1, subagent |
+
+## Dziennik
+- 2026-11-17 E0: plan, zakres, stan repo, stan wyjściowy → STOP start wysłany do koordynatora.
+
+- 2026-11-17 007: test czerwony (22 pary plik–adres) → skrócenie 5 plików (D-2010) → zielony, test:skrypty 232/232 → commit 3f1fe76d → status naprawione-do-weryfikacji.
+
+## Czekające zgody i kroki właściciela
+- Historia git nadal zawiera pełne wyciągi (007); przepisanie historii wymaga osobnej zgody — nie proponuję (koszt > ryzyko, ocena „brzegowy”).

@@ -1,0 +1,11 @@
+| Nr | Partia | ID | Poziom | Rodzaj | Wykonawca | Rola | Zależy od | Decyzja |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 1 | M1-audytor-generalny-002 | P1 | M | rola | 06-tresci | — | — |
+| 2 | 1 | M1-audytor-generalny-007 | P2 | D | M2 | 06-tresci | — | — |
+| 3 | 1 | M1-audytor-generalny-047 | P2 | D | M2 | 07-jakosc | — | — |
+| 4 | 1 | M1-audytor-generalny-061 | P2 | D | M2 | 10-wydanie | — | — |
+
+Partia 1: zadania 4, D 3; STOP przed partią: tak (P/M: M1-audytor-generalny-002)
+  06-tresci: node /home/user/prompts/tools/assemble.mjs 06-tresci --tryb fix --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/06-tresci/fix-2026-11-17 --galaz claude/sesja-is-naprawy-p1-p1 --data 2026-11-17 --zadania 06-tresci-501
+OK: zadania 4, do wykonania 4, partie 1
+kod=0

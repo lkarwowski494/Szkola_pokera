@@ -1,0 +1,29 @@
+TAP version 13
+# Subtest: cytatyNaAdres liczy wiersze po znaczniku i ignoruje rachunek po pustym wierszu
+ok 1 - cytatyNaAdres liczy wiersze po znaczniku i ignoruje rachunek po pustym wierszu
+  ---
+  duration_ms: 1.533808
+  type: 'test'
+  ...
+# Subtest: wyciągi ze źródeł w docs/tresci: najwyżej 250 znaków cytatu na adres w pliku
+ok 2 - wyciągi ze źródeł w docs/tresci: najwyżej 250 znaków cytatu na adres w pliku
+  ---
+  duration_ms: 25.580467
+  type: 'test'
+  ...
+# Subtest: kolumny „cytat” w tabelach odczytów (*.tsv): każde pole najwyżej 250 znaków
+ok 3 - kolumny „cytat” w tabelach odczytów (*.tsv): każde pole najwyżej 250 znaków
+  ---
+  duration_ms: 2.532518
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 96.287708
+kod=0
