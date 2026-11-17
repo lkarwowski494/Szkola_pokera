@@ -1,0 +1,18 @@
+$ git diff --quiet 0e7e5e00..HEAD -- apps/mobile/app.json apps/mobile/eas.json apps/mobile/package.json apps/mobile/modules apps/mobile/src/platform
+kod=0 (0 = bez zmian; także pnpm-lock.yaml)
+
+$ env -u NODE_PATH node --test tests/narzedzia/k08-manifesty.test.mjs
+# tests 6
+# pass 6
+# fail 0
+
+$ env -u NODE_PATH node tests/narzedzia/k08-manifesty.mjs → kod 0
+K-08: pakiety natywne 40, z manifestem 7, trafienia w kodzie bez manifestu 53
+ok    NSPrivacyAccessedAPICategoryFileTimestamp ← expo-application (manifest: C617.1); expo-document-picker (kod bez manifestu: contentModificationDateKey); expo-file-system (manifest: 0A2A.1, 3B52.1); expo-sqlite (kod bez manifestu: stat); react-native (manifest: C617.1) | app.json: C617.1, 3B52.1
+ok    NSPrivacyAccessedAPICategoryUserDefaults ← expo-constants (manifest: CA92.1); expo-dev-launcher (kod bez manifestu: NSUserDefaults); expo-dev-launcher (kod bez manifestu: UserDefaults); expo-dev-menu (kod bez manifestu: UserDefaults); expo-localization (manifest: CA92.1); expo-notifications (manifest: CA92.1); expo-sharing (kod bez manifestu: UserDefaults); expo-system-ui (manifest: CA92.1); react-native (manifest: CA92.1) | app.json: CA92.1
+ok    NSPrivacyAccessedAPICategoryDiskSpace ← expo-file-system (manifest: E174.1, 85F4.1); expo-sqlite (kod bez manifestu: fstatfs); expo-sqlite (kod bez manifestu: fstatvfs); expo-sqlite (kod bez manifestu: statfs) | app.json: E174.1, 85F4.1
+ok    NSPrivacyAccessedAPICategorySystemBootTime ← react-native (manifest: 35F9.1) | app.json: 35F9.1
+
+$ git diff 0e7e5e00..HEAD -- .github/workflows (linie +/-)
+     15 +      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+     15 -      - uses: pnpm/action-setup@v5

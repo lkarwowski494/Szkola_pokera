@@ -1,0 +1,17 @@
+PASS src/data/tresc/__tests__/plikiExpo.test.ts
+(node:1645) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/features/scenariusz/__tests__/hx-tytuly-baz.test.ts
+PASS src/data/tresc/__tests__/useTresc-09.test.tsx
+PASS src/data/tresc/__tests__/useTresc-start-08.test.tsx
+PASS src/data/tresc/__tests__/jezykStartu-08.test.tsx
+PASS src/data/tresc/__tests__/ProviderTresci-08.test.tsx
+PASS src/data/tresc/__tests__/startEkranu-08.test.ts
+PASS src/features/session/__tests__/contentDbName.test.ts
+
+Test Suites: 8 passed, 8 total
+Tests:       63 passed, 63 total
+Snapshots:   0 total
+Time:        4.149 s
+Ran all test suites matching /src\/features\/session\/__tests__\/contentDbName.test.ts|src\/features\/scenariusz\/__tests__\/hx-tytuly-baz.test.ts|src\/data\/tresc\/__tests__/i.
+KOD WYJSCIA: 0

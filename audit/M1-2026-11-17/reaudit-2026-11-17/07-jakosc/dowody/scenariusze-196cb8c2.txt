@@ -1,0 +1,7 @@
+
+> szkola-pokera@ scenariusze /home/user/Szkola_pokera
+> node scripts/sprawdz-scenariusze.mjs --statycznie
+
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 15
+BRAMKA ZIELONA
+kod=0

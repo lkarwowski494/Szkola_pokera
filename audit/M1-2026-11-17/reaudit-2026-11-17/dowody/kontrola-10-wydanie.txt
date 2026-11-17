@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs audit/M1-2026-11-17/reaudit-2026-11-17/10-wydanie/10-wydanie-reaudit-2026-11-17.md . audit/M1-2026-11-17/reaudit-2026-11-17/10-wydanie --rola 10-wydanie
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 10-wydanie
+exit=0

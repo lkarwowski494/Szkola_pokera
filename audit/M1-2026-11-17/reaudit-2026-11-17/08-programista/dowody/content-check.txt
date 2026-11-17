@@ -1,0 +1,8 @@
+
+> szkola-pokera@ content:check /home/user/Szkola_pokera
+> pnpm --filter @szkola/content-build check
+
+
+> @szkola/content-build@0.1.0 check /home/user/Szkola_pokera/tools/content-build
+> tsx src/cli.ts check
+

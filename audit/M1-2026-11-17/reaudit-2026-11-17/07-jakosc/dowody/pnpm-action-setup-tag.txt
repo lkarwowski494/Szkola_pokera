@@ -1,0 +1,34 @@
+# SHA tagu pnpm/action-setup v5.0.0, odczyt 2026-11-17 ~15:29 UTC (protokół git przez proxy; API GitHub dla pnpm/action-setup niedostępne w tej sesji: 'GitHub access to this repository is not enabled for this session')
+$ git ls-remote https://github.com/pnpm/action-setup "refs/tags/v5*"
+a8198c4bff370c8506180b035930dea56dbd5288	refs/tags/v5
+fc06bc1257f339d1d5d8b3a19a8cae5388b55320	refs/tags/v5^{}
+b307475762933b98ed359c036b0e51f26b63b74b	refs/tags/v5.0.0
+fc06bc1257f339d1d5d8b3a19a8cae5388b55320	refs/tags/v5.0.0^{}
+
+$ git fetch --depth 1 ... refs/tags/v5.0.0 ; git cat-file -p b3074757 (bez podpisu PGP)
+object fc06bc1257f339d1d5d8b3a19a8cae5388b55320
+type commit
+tag v5.0.0
+tagger Zoltan Kochan <z@kochan.io> 1773749220 +0100
+
+v5.0.0
+(tagger 1773749220 = 2026-03-17T12:07:00Z)
+commit fc06bc1257f339d1d5d8b3a19a8cae5388b55320 2026-03-13T11:30:26+01:00 feat!: run the action on Node.js 24 (#205)
+
+# uses: spoza actions/* w .github/ na 196cb8c2
+.github/workflows/ci.yml:32:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/ci.yml:55:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/ci.yml:71:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/ci.yml:88:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/ci.yml:146:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/iphone-local.yml:49:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/store-screenshots.yml:75:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/store-screenshots.yml:126:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/przeglad-tlumaczen.yml:63:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/iphone-eas.yml:43:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/nocny.yml:38:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/nocny.yml:70:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/nocny.yml:103:    uses: ./.github/workflows/e2e-ios.yml
+.github/workflows/testflight.yml:101:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/e2e-ios.yml:84:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+.github/workflows/przeklad-tlumaczen.yml:62:      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0

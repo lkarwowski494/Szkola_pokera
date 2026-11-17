@@ -1,0 +1,35 @@
+$ git check-ignore --no-index (HEAD) na próbce nazw
+IGN  .env
+IGN  .env.local
+IGN  .env.production
+IGN  .env.production.local
+IGN  .env.example
+IGN  apps/mobile/.env.development
+IGN  packages/domena/.env
+IGN  tools/x/.env
+IGN  AuthKey_ABC.p8
+IGN  apps/mobile/AuthKey_ABC.p8
+IGN  dist.p12
+IGN  credentials.json
+IGN  apps/mobile/credentials.json
+IGN  apps/mobile/credentials/ios/dist.p12
+---  .ENV
+---  AuthKey_ABC.P8
+---  credentials.json.bak
+---  google-service-account.json
+---  apps/mobile/eas.json
+---  apps/mobile/app.json
+---  package.json
+
+$ git ls-files (4848) | git check-ignore --no-index --stdin — HEAD i 0e7e5e00
+HEAD: 6, baza: 6; diff: identyczne
+tests/dane/k08/moduly/pkg-komentarz/ios/B.m
+tests/dane/k08/moduly/pkg-przyklad/example/ios/PrivacyInfo.xcprivacy
+tests/dane/k08/moduly/pkg-przyklad/ios/A.swift
+tests/dane/k08/moduly/pkg-z-manifestem/ios/PkgZManifestem.podspec
+tests/dane/k08/moduly/pkg-z-manifestem/ios/PrivacyInfo.xcprivacy
+tests/dane/k08/moduly/pkg-zbiera/ios/PrivacyInfo.xcprivacy
+(wszystkie przez regułę ios/ z .gitignore:8, istniejącą przed c9a7c332)
+
+$ git rev-parse --is-shallow-repository
+true
