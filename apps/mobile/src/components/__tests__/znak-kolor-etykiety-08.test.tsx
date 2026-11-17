@@ -1,12 +1,14 @@
 /// <reference types="jest" />
 // M1-audytor-generalny-067 / 068 (04-studio-projektowe-001, -002): znak „•” (klasa niepewna / „mieszana”) ma kolor
-// etykiety ręki w tym samym polu (RangeGrid: ink),
+// etykiety ręki w tym samym polu (RangeGrid: ink; PaintGrid: primaryInk na pomalowanym, ink na niepomalowanym),
 // a nie `muted`, który na zielonym polu i na primaryBg ma kontrast poniżej 3:1.
 import '@/i18n';
 import { render } from '@testing-library/react-native';
 import { StyleSheet } from 'react-native';
 import { HAND_CLASSES } from '@szkola/poker-core';
 import { RangeGrid } from '@/components/RangeGrid';
+import { PaintGrid } from '@/components/PaintGrid';
+import type { PaintCell } from '@/features/drills/grade';
 
 type N = { type?: string; props?: { style?: unknown }; children?: (N | string)[] | null };
 
@@ -35,5 +37,22 @@ describe('znak „•” ma kolor etykiety ręki w polu', () => {
     const pola = poleZeZnakiem(toJSON());
     expect(pola.map((p) => p.hand).sort()).toEqual(['75o', 'K7o', 'T2s']);
     for (const p of pola) expect(p.znak).toBe(p.etykieta);
+  });
+
+  const wynik = (zmiana: Record<string, PaintCell>) => HAND_CLASSES.map((h) => zmiana[h] ?? 'none');
+  const malowane = (...hands: string[]) => HAND_CLASSES.map((h) => hands.includes(h));
+
+  it('PaintGrid (04-studio-projektowe-002): „mieszana” na pomalowanym polu: znak = etykieta (primaryInk)', async () => {
+    const { toJSON } = await render(<PaintGrid painted={malowane('T2s')} result={wynik({ T2s: 'mixed' })} />);
+    const pola = poleZeZnakiem(toJSON());
+    expect(pola).toHaveLength(1);
+    expect(pola[0]!.znak).toBe(pola[0]!.etykieta);
+  });
+
+  it('PaintGrid: „mieszana” na niepomalowanym polu: znak = etykieta (ink)', async () => {
+    const { toJSON } = await render(<PaintGrid painted={malowane()} result={wynik({ K7o: 'mixed' })} />);
+    const pola = poleZeZnakiem(toJSON());
+    expect(pola).toHaveLength(1);
+    expect(pola[0]!.znak).toBe(pola[0]!.etykieta);
   });
 });
