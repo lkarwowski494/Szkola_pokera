@@ -1,15 +1,22 @@
-# g2 / 01-odkrywanie-001: niezależna sonda (kopia robocza f75acdff w scratchpadzie) na bazie treści pl i funkcjach z kodu
+# g2 / 01-odkrywanie-001: niezależna sonda (kopia robocza f75acdff w scratchpadzie) na bazie treści pl (apps/mobile/assets/content/tresc-*-pl.db) i funkcjach z kodu
 $ cd <worktree>/apps/mobile && env -u NODE_PATH npx jest src/__tests__/sonda-g2-rd11.test.ts
     SONDA spoty=34 pary(bez uncertain)=5541 pary z akcją 0<f<0.035=377 takich akcji=377
     SONDA werdykt ekranu: {"wrong":377}
     SONDA werdykt rdzenia (RD-11): {"inaccuracy":377}
     SONDA przykłady:
-  ✕ RD-11 na danych solvera (27 ms)
+    rfi.utg A9s 0.992/0.008 ekran=correct,wrong rdzen=correct,inaccuracy
+    rfi.utg A8s 0.002/0.998 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg A6s 0.004/0.996 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg K8s 0.001/0.999 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg K5s 0.002/0.998 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg Q9s 0.001/0.999 ekran=wrong,correct rdzen=inaccuracy,correct
+  ✕ RD-11 na danych solvera (33 ms)
     Expected: 0
     Received: 377
       31 |   console.log(`SONDA spoty=${spots.size} pary(bez uncertain)=${pary} pary z akcją 0<f<${MIXED_MIN}=${zRzadka} takich akcji=${akcjiRzadkich}\nSONDA werdykt ekranu: ${JSON.stringify(ekranWerdykty)}\nSONDA werdykt rdzenia (RD-11): ${JSON.stringify(rdzenWerdykty)}\nSONDA przykłady:\n${przyklady.join('\n')}`);
 Tests:       1 failed, 1 total
 kod: 1
+# uwaga: liczby różnią się od sondy audytora (26 spotów / 4394 / 269), bo ta sonda czyta wszystkie spoty z grupami z bazy pl i pomija klasy 'uncertain' (jak losowanie w engine.ts); wniosek ten sam: każda akcja 0<f<0,035 ma na ekranie werdykt 'wrong', w rdzeniu 'inaccuracy'
 # --- plik sondy ---
 /// <reference types="jest" />
 // SONDA weryfikacji g2 (01-odkrywanie-001): ile par spot × klasa (bez klas „uncertain”) ma akcję 0 < f < MIXED_MIN
