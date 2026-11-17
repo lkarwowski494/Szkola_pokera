@@ -30,10 +30,18 @@ export function sufitTytulu(rozmiar: { size: number; line: number; maxW: number 
 
 /**
  * Rozmiar etykiety ręki w siatce `RangeGrid` (M2-koordynator-napraw-006, KO-132, D-2020; wzór w komentarzu tokenu `siatka`).
- * ZAŚLEPKA (test przed kodem): zwraca rozmiar domyślny.
+ * Etykieta jest rysunkiem w polu o stałej szerokości, więc rośnie ze skalą tekstu tylko do `siatka.skalaMax` i do granicy pola:
+ * (1) podkładka najwyżej na połowie wysokości pola, (2) kropka klasy niepewnej (3 pt + odstępy) nie dotyka podkładki,
+ * (3) najszersza etykieta („AQo”, `szerokoscEm`) mieści się w polu z marginesem podkładki. Poniżej skali 1 etykieta nie maleje.
+ * Zwraca rozmiar przed skalowaniem przez RN: `Text` ma `allowFontScaling={false}`. `lineHeight` = wysokość podkładki.
  */
 export function wymiaryEtykietySiatki(pole: number, skala: number): { fontSize: number; lineHeight: number } {
-  void pole;
-  void skala;
-  return { fontSize: siatka.etykieta, lineHeight: siatka.etykieta * siatka.wysokoscLinii };
+  const { etykieta, skalaMax, szerokoscEm, wysokoscLinii, udzialWysokosci, podkladkaPoziom, znakSrednica, znakOdstep } = siatka;
+  const fontSize = Math.min(
+    etykieta * Math.min(Math.max(skala, 1), skalaMax),
+    (udzialWysokosci * pole) / wysokoscLinii,
+    (pole - 2 * (znakOdstep + znakSrednica + 1)) / wysokoscLinii,
+    (pole - 2 - 2 * podkladkaPoziom) / szerokoscEm,
+  );
+  return { fontSize, lineHeight: fontSize * wysokoscLinii };
 }

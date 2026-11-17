@@ -27,16 +27,16 @@ describe('RangeGrid: klasy niepewne (uncertain)', () => {
   it('spot z uncertain: jedna kropka na klasę, legenda „mieszana”', async () => {
     const uncertain = ['T2s', 'K7o', '75o'];
     await render(<RangeGrid spot={{ ...spotBase, uncertain }} />);
-    expect(screen.getAllByTestId(/^kropka-/)).toHaveLength(uncertain.length);
+    expect(screen.getAllByTestId(/^kropka-/, { includeHiddenElements: true })).toHaveLength(uncertain.length);
     expect(screen.getByText('X-MIXED')).toBeTruthy();
   });
 
   it('spot bez uncertain (brak pola i pusta lista): zero kropek, brak legendy', async () => {
     await render(<RangeGrid spot={spotBase} />);
-    expect(screen.queryAllByTestId(/^kropka-/)).toHaveLength(0);
+    expect(screen.queryAllByTestId(/^kropka-/, { includeHiddenElements: true })).toHaveLength(0);
     expect(screen.queryByText('X-MIXED')).toBeNull();
     await render(<RangeGrid spot={{ ...spotBase, uncertain: [] }} />);
-    expect(screen.queryAllByTestId(/^kropka-/)).toHaveLength(0);
+    expect(screen.queryAllByTestId(/^kropka-/, { includeHiddenElements: true })).toHaveLength(0);
     expect(screen.queryByText('X-MIXED')).toBeNull();
   });
 
@@ -74,7 +74,7 @@ describe('RangeGrid na treści pl: siatka oznacza dokładnie klasy uncertain ka�
     for (const s of spoty) {
       const { unmount } = await render(<RangeGrid spot={s} />);
       const n = s.uncertain?.length ?? 0;
-      expect({ id: s.id, kropki: screen.queryAllByTestId(/^kropka-/).length }).toEqual({ id: s.id, kropki: n });
+      expect({ id: s.id, kropki: screen.queryAllByTestId(/^kropka-/, { includeHiddenElements: true }).length }).toEqual({ id: s.id, kropki: n });
       expect({ id: s.id, legenda: screen.queryByText('X-MIXED') !== null }).toEqual({ id: s.id, legenda: n > 0 });
       await unmount();
     }
