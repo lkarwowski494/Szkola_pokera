@@ -44,3 +44,8 @@
 | g7 | (tokeny g7) | | | | | 171 663 (grupa) |
 
 Uwaga M1: weryfikator g1 zapisał sondą `curl` pliki `/privacy.html` i `/support.html` w katalogu głównym kontenera (kopie publicznej strony, poza repo). Usunięcie odrzuciła kontrola bezpieczeństwa narzędzia; pliki zostają w ulotnym kontenerze (bez wpływu na repo).
+| g2 | 02-monetyzacja-002 | potwierdzone (sonda 4/5 czerwone kod 1; poprawka świeżego odczytu `pro` 5/5 zielone kod 0; session.tsx:136/197/284) | P1 | nie | **tak** | (tokeny po powiadomieniu) |
+| g2 | 02-monetyzacja-004 | potwierdzone (zakupy.ts:122 ok:true z pustą listą) | P2 | nie | nie | |
+| g2 | 02-monetyzacja-006 | potwierdzone (D-1784: U-5 przed App Store; strategia.md:246) | P2 | nie | nie (U-5 i tak wymagane przed wysyłką) | |
+| g2 | 03-zakres-001 | potwierdzone (D-581 stan przejściowy; test kafle-bi:34 go utrwala; 2.1(a)) | P1 | nie | **tak** | |
+| g2 | 01-odkrywanie-001 | potwierdzone (377 akcji 0<f<0,035: ekran `wrong`, rdzeń `inaccuracy`; RD-11 bloker wydania publicznego, docs/brd/README.md:33) | P1 | nie | **tak** | |
