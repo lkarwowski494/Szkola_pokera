@@ -108,7 +108,11 @@ Recenzent niezależny (role/08-programista/fix-2026-11-17-b/recenzja-niezalezna.
 - Dowód: recenzja-niezalezna.md roli 08 (pętla 2), pkt 4: tekst 8 pt `ink` na `felt1`·0,85 na `surface` = 3,92 (light), 3,26 (lightHigh); dark 7,87, darkHigh 9,19. Stan sprzed 1d756b0b (etykieta zawsze była `ink`).
 - Opcje: (a) etykieta na polu w zakresie w kolorze `onFelt` (tekst na suknie ma parę 4,5 w `pary`) — zmiana koloru etykiety zależna od tła, para złożona do testu; (b) jaśniejsze wypełnienie pola (niższe krycie) — zmienia wygląd siatki; (c) zostawić z wyjątkiem nazwanym. Rekomendacja: (a), decyzja roli 04 i właściciela.
 - Test akceptacyjny: para złożona „etykieta na polu w zakresie” ≥ 4,5 w 4 wariantach w `kontrast-pary-08.test.ts`.
-- Status: otwarte — do decyzji (nie naprawiane: poza zakresem 067/068, zamrożenie)
+- Rozstrzygnięcie: właściciel KO-131 „Naprawić teraz (zalecane)”, potem po STOP wyjątkowym KO-132 „Pełna naprawa teraz (zalecane)” = (a) próg 1 + (c) podkładka (rola 04, D-2020).
+- Naprawa: c946948d (próg 0,85, zastąpiony), 78f62c2e (specyfikacja 04), 983b919e, ee18e39e, a66f1446 (rola 08); D-2017.
+- Dowód: role/08-programista/fix-2026-11-17-d/ (wynik.md, recenzja-niezalezna.md): etykieta f = 1 onFelt 4,58 / 8,92 / 5,49 / 10,42 (light / dark / lightHigh / darkHigh); f < 1 ink na podkładce 18,17 / 13,48 / 18,17 / 13,48; kropka ≥ 3,25; etykieta allowFontScaling=false, rozmiar z pola i skali (8 → 10,4 pt przy AX5), mieści się w polu na 320/390/430 pt; mutacje 4/4 wykryte; przy AX5 dziś ucięte 169/169 etykiet → 0 (makieta roli 04).
+- Lista kontrolna telefonu T-SIATKA: role/04-studio-projektowe/fix-2026-11-17/wynik.md (tekst domyślny, AX5, Zwiększ kontrast, ciemny, Pogrubiony tekst; pomiar szerokości SF Pro).
+- Status: naprawione-do-weryfikacji
 
 ### M2-koordynator-napraw-007 · Pole grupy 2 (kolor ostrzegawczy) w ciemnych motywach daje znakowi i etykiecie 2,23:1
 - Pozycja listy kontrolnej: SP-04 · Poziom: P2 · Realność: teoretyczny (dziś żaden spot nie ma dwóch grup) · Rodzaj: D
@@ -120,6 +124,14 @@ Recenzent niezależny (role/08-programista/fix-2026-11-17-b/recenzja-niezalezna.
 - Dowód: recenzja-niezalezna.md roli 08 (pętla 2), pkt 2: mutant `colors=[warn, felt1, cardBlue]` przeżywa (24/24).
 - Opcje: (a) eksport tablicy kolorów grup z RangeGrid i para złożona na każdy kolor; (b) zostawić. Rekomendacja: (a).
 - Status: otwarte — backlog
+
+### M2-koordynator-napraw-009 · Pasek częstości siatki w ciemnych motywach poniżej 3:1 do tła pola (04-studio-projektowe-011)
+- Pozycja listy kontrolnej: SP-04 · Poziom: P1 (rola 04) · Realność: realny · Pewność: wysoka · Rodzaj: P (kolor wykresu: system roli 04)
+- Dowód: role/04-studio-projektowe/fix-2026-11-17/wynik.md: felt1·0,85 do surface 1,71 (dark) / 1,47 (darkHigh) < 3 (WCAG 1.4.11); stan sprzed napraw.
+- Opcje: (a) jaśniejsza zieleń wykresu (osobny token barw siatek, F27b) — rek. roli 04; (b) obwódka pola w zakresie; (c) wyjątek nazwany. Status: otwarte — do decyzji właściciela.
+
+### M2-koordynator-napraw-010 · Drobne po M2-006 (P2, backlog)
+- Zapas kontrastu etykiety f = 1 w light 0,08 (4,58), pilnuje para w `paryZlozone`; pierwsza klatka przed onLayout w bloku `note` liczy pole o ok. 2,5 pt za szerokie (etykieta zostaje w polu); VoiceOver nie czyta legendy „• mieszana” (etykieta zbiorcza `range.label`, por. M2-004). Status: otwarte — backlog.
 
 ## Komendy końcowe
 `env -u NODE_PATH pnpm run ci` na 7b591503 (typecheck, test, test:skrypty, test:kontrole, k08, i18n:kod, content:check, tresci:rejestr, tresci:el-kontrola; po kolei w jednym łańcuchu): **kod 0** (dowody/M2/ci-koniec-7b591503.log). Projekt nie ma osobnej komendy lint (package.json); typecheck w łańcuchu ci.
