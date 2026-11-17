@@ -6,7 +6,7 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
 
 /**
  * Siatka 13×13 (FR-03). Wiersz/kolumna: A→2; nad przekątną ręce w kolorze, pod nią w różnych kolorach.
- * Klasy `spot.uncertain` mają znak „•” i legendę „mieszana” (jak PaintGrid; M2-koordynator-napraw-001).
+ * Klasy `spot.uncertain` mają znak „•” i legendę „mieszana” (jak PaintGrid; M2-koordynator-napraw-001). Znak w kolorze etykiety ręki (`ink`): `muted` miał na zielonym polu 1,60:1 (M1-audytor-generalny-067).
  * Kolor pola: udział pierwszej grupy akcji (np. przebicie) i drugiej (np. sprawdzenie) jako paski.
  */
 export function RangeGrid({ spot }: { spot: RangeSpot }) {
@@ -39,7 +39,7 @@ export function RangeGrid({ spot }: { spot: RangeSpot }) {
                   <Text style={[styles.label, { color: tk.ink }]} numberOfLines={1}>
                     {hc}
                   </Text>
-                  {niepewne.has(hc) ? <Text style={[styles.mark, { color: tk.muted }]}>•</Text> : null}
+                  {niepewne.has(hc) ? <Text style={[styles.mark, { color: tk.ink }]}>•</Text> : null}
                 </View>
               );
             })}
