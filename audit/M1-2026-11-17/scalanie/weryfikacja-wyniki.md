@@ -30,3 +30,17 @@
 | g7 | 06-tresci-002 | potwierdzone (zdanie prawdziwe, brak wpisu w rejestrze) | P2 niskie | nie | nie | |
 | g7 | 06-tresci-003 | potwierdzone (2/1006 z wazne_do) | P2 niskie | nie | nie | |
 | g7 | 06-tresci-504 | częściowo; podzbiór 003 (ta sama przyczyna) | P2 niskie | nie | nie | |
+| g1 | 10-wydanie-001 | potwierdzone; P0 → P1 (blokuje App Store, nie 1012); 22 wstawki (11 na język), Ustawienia bez linku | P1 | nie | **tak** | 180 403 (grupa) |
+| g1 | 02-monetyzacja-001 | potwierdzone; ta sama przyczyna A (ADRES_PRYWATNOSCI = null, W-04) | P1 | nie | **tak** | |
+| g1 | 01-odkrywanie-002 | potwierdzone; przyczyna A; zdanie polityki o numerach pomocy wg kraju tylko P2 | P1 | nie | **tak** | |
+| g1 | 10-wydanie-002 | częściowo potwierdzone (notatki nie wspominają scenariuszy; „no bots” sporne; ścieżka do zakupu działa) | P1 (brzegowy) | nie | **tak** | |
+| g1 | 11-wzrost-001 | potwierdzone (część: przyczyna A i nieaktualny README) | P2 | nie | nie | |
+| g1 | 01-odkrywanie-006 | potwierdzone; przyczyna B (D-530 nie przeniesione do tekstów; sonda: kontrola AK-K-11-l wymusza zawetowaną D-305, kod 1) | P2 | nie | nie | |
+| g1 | 02-monetyzacja-003 | potwierdzone; przyczyna B | P2 | nie | nie | |
+| g1 | 10-wydanie-003 | potwierdzone; przyczyna B | P2 | nie | nie | |
+| g1 | 10-wydanie-004 | potwierdzone; przyczyna B (ankieta wiekowa do ponownej oceny przed ASC) | P2 | nie | nie | |
+| g1 | 06-tresci-001 | potwierdzone (+ 29 cytatów > 250 zn.; pliki poza aplikacją i metadanymi) | P2 (osobna naprawa) | nie | nie | |
+| g1 | 10-wydanie-007 | potwierdzone | P2 niskie | nie | nie | |
+| g7 | (tokeny g7) | | | | | 171 663 (grupa) |
+
+Uwaga M1: weryfikator g1 zapisał sondą `curl` pliki `/privacy.html` i `/support.html` w katalogu głównym kontenera (kopie publicznej strony, poza repo). Usunięcie odrzuciła kontrola bezpieczeństwa narzędzia; pliki zostają w ulotnym kontenerze (bez wpływu na repo).
