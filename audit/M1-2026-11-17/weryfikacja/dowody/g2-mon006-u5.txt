@@ -1,0 +1,38 @@
+# g2 / 02-monetyzacja-006 (repo na gałęzi audytu; docs/ bez zmian względem f75acdff poza docs/decyzje/IR.md, którego nie czytano)
+$ git diff --stat f75acdff HEAD -- apps packages docs ":!docs/decyzje/IR.md"
+kod: 0 (puste = bez zmian)
+
+$ sed -n 241p docs/jakosc/strategia.md; sed -n 246p docs/jakosc/strategia.md
+|---|---|---|---|
+| U-5 / T-05 zakupy w piaskownicy, przywracanie, anulowanie, zwrot | R-46, R-47, R-49 | StoreKit i konto piaskownicy | co wydanie zmieniające dostęp/zakup; pełne przed App Store |
+kod: 0
+
+# wynik U-5/T-05 z buildem i datą: szukanie w docs/ (bez docs/decyzje/IR.md i audit/)
+$ grep -rn "U-5\|T-05" docs --include=*.md | grep -v "docs/lokalizacja/dowody" | grep -v "decyzje/IR.md"
+docs/programista/koordynator.md:63:Backlog: stary `e2e.yml` na main czerwony od 2026-10-07; U-2/U-5 i zrzuty na telefonie (K6 en); D-03 pełny audyt po przekładzie; test apply zrzutów na atrapie; `store-screenshots.yml` na main tylko z re
+docs/programista/zgloszenia-08.md:78:Do sprawdzenia na urządzeniu przy zrzutach (plan-08 „Ryzyka”, l. 548 i 632): ochrona tła (U-2), zakupy w piaskownicy (U-5), eksport/import pliku, przypomnienie, prośba o ocenę; ruch paska i znacz
+docs/programista/plan-08.md:291:Agent: B ok. 7–9 h (kroki 1–9; SDK 58 i adapter `expo-iap` najbardziej niepewne), A dodatkowo ok. 6–8 h. Czekanie: E2E ok. 37 min po jednym pushu kodu (0 USD, repo publiczne), przegląd D-043 ok. 10 min
+docs/programista/plan-08.md:411:Agent: 5a ok. 10–13 h (sesja i wznowienie najbardziej niepewne), 5b ok. 12–16 h przy P-2 = B (A: +6–8 h; C: −4 h), część 6 (przy B) ok. 6–8 h. Czekanie: E2E ok. 40 min po każdym pushu kodu (0 US
+docs/programista/plan-08.md:555:U-2 ochrona tła, U-5 zakupy w piaskownicy (karencja, przywracanie), eksport i import pliku (arkusz udostępniania, wybór pliku), przypomnienie (zgoda na powiadomienia, pora 08:00), prośba o ocenę po podsu
+docs/programista/plan-08.md:1125:**Kroki właściciela:** (1) odpowiedź na pytanie poranne (dane do 08-F20/F23, weta, następny krok); (2) telefon: U-2 ochrona tła, U-5 zakupy w piaskownicy; (3) zrzuty: 32 stany × jasny/ciemny = 64 pliki
+docs/programista/plan-08.md:1189:**Kroki właściciela (telefon/przeglądarka):** U-2 ochrona tła, U-5 zakupy w piaskownicy, zrzuty (zakup:plany jasny/ciemny, VoiceOver karty i siatka, ustawienia „Pełny dostęp”); T1 TR mevzuat (10–
+docs/architektura/kontrole-07.md:30:| U-5 | Zakupy w piaskownicy: kwartał, rok, dożywotni; przywracanie na drugim urządzeniu albo po ponownej instalacji; zwrot (StoreKit test) | dostęp zgodny z wektorami ADR 0006 | ADR 0006 |
+docs/scope-contract.md:131:| T-05 | Zakup w sandboksie, przywrócenie na drugim urządzeniu, anulowanie, zwrot | F-13 | ceny ze sklepu; „Przywróć zakupy” działa; po zakupie limit znika (6 scenariuszy z kontraktu płatności) |
+docs/decyzje.md:245:| D-336 | 2026-11-09 | A (rola 08 build, sesja S, wykonanie D-325; CI, ścieżka wrażliwa D-043 `.github/workflows/`, do weta) | Flow Maestro `apps/mobile/e2e/10-zakup-z-ustawien.yaml` w bramce: „Dziś” → `ustawie
+docs/jakosc/przypadki-uzycia.md:23:| PU-015 | `zakup` | Użytkownik na ekranie zakupu z TestFlight widzi trzy plany z cenami pobranymi ze sklepu i może przywrócić zakupy | „Przywróć zakupy” bez zakupów (komunikat); brak sieci (bł
+docs/jakosc/strategia.md:80:| R-46 | PR-06 dostęp | brak sieci odbiera Pro; zwrot nie odbiera; reinstalacja gubi dożywotni | S1 (przywracanie: polityka sklepu) | brzegowy | wysokie | 9 wektorów `docs/monetyzacja.md:89–99` (ADR 0006 pkt
+docs/jakosc/strategia.md:81:| R-47 | PR-06 ekran zakupu | brak ujawnień, cena wpisana zamiast ze sklepu, plan roczny przeliczony na miesiąc, brak „Przywróć zakupy” | S1 (odrzucenie 3.1.2) | brzegowy | wysokie | BR-ZAK-001 (3 scenari
+docs/jakosc/strategia.md:83:| R-49 | PR-06 anulowanie | brak drogi do arkusza subskrypcji systemu; po wygaśnięciu stary dostęp | S1 (odrzucenie) | brzegowy | wysokie | BR-ZAK-004; ADR 0006 pkt 5 | ekran + wektor „kwartał wygasł” + 
+docs/jakosc/strategia.md:246:| U-5 / T-05 zakupy w piaskownicy, przywracanie, anulowanie, zwrot | R-46, R-47, R-49 | StoreKit i konto piaskownicy | co wydanie zmieniające dostęp/zakup; pełne przed App Store |
+docs/jakosc/strategia.md:335:Poza tą częścią: BR-POM-002-a z lekcji M12 → flow E2E `04-pomoc.yaml`; BR-ONB-001-c (przerwana ocena po ponownym uruchomieniu) → E2E 01 i maszyna; wygląd (największy element ceny, kontrast, duży tekst
+docs/wydanie/plan-1.0.md:121:| D-04 | Lista kontrolna telefonu dla kandydata 1.0: T-01–T-10 ze `scope-contract.md` + języki (samosprawdzenie `Intl`, zmiana języka bez restartu, lekcja w en i ja) + piaskownica (6 scenariuszy kontraktu p�
+docs/wydanie/plan-1.0.md:241:| W-08 | Zgoda na TestFlight kandydata; telefon: lista D-04 (T-01–T-10, języki, piaskownica, U-2, U-5) | 23–25.11 | 3–4 h |
+docs/adr/0006-platnosci-expo-iap.md:42:- Krok właściciela (TestFlight, sandbox): 6 scenariuszy z kontraktu płatności (T-05 w kontrakcie zakresu).
+docs/decyzje/HV.md:10:| D-1784 | 2026-11-16 | A | Pozycje F (8) to szybkie sprawdzenia co build, ok. 7 min razem (PU-014–PU-020, PU-022 „wygląd”: talia czterokolorowa i wibracje, dopisane po recenzji HV P2-3); ciężkie sprawdzenia �
+kod: 0
+
+# stan produktów w App Store Connect (warunek wstępny U-5)
+$ sed -n 86p docs/wydanie/plan-1.0.md; sed -n 1213p docs/programista/plan-08.md
+| F-13 zakup | kod jest; w App Store Connect brak produktów; zdanie o anulowaniu (10-US-01/02, 10-JP-01) robi sesja I | D-301; CLAUDE.md „Sklep: … częściowo” | produkty IAP i ceny (W-06), piaskownica na telefonie (W-08) |
+| 17:46 | koordynator | Właściciel 17:39 „Gotowe” — nowy klucz ASC. Podglądy (tylko odczyt, ref gałęzi): **42666898852 metadane zielone** (klucz przyjęty, job zapis pominięty); 42666904910 IAP czerwone zgodnie z oczekiwaniem — brak grupy subskrypcji i produktów w ASC (0 z 4); 42666909863 kontrola: OK 0, RÓŻNICA
+kod: 0

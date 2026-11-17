@@ -19,3 +19,8 @@
 | g5 | 08-programista-006 | potwierdzone | P2 | nie | nie | |
 | g5 | 04-studio-projektowe-005 | potwierdzone (statyczna Literata-SemiBold, czytelne) | P2 | nie | nie | |
 | g5 | 04-studio-projektowe-006 | potwierdzone (24 pt wysokości, pełna szerokość; próg projektu D-121, nie wydania) | P2 | nie | nie | |
+| g6 | 04-studio-projektowe-002 | potwierdzone (PasekStrategii.tsx:93 bez sprawdzenia ustawienia; PU-022 wypadnie źle — przypisać temu ID) | P2 | nie | nie | 166 266 (grupa) |
+| g6 | 04-studio-projektowe-007 | potwierdzone (Inter SemiBold 85,7 pt przy ~67 pt; D-122) | P2 | nie | nie | |
+| g6 | 09-lokalizacja-001 | potwierdzone (jedna przyczyna, session.tsx:601 i :333) | P2 | nie | nie | |
+| g6 | 09-lokalizacja-002 | potwierdzone (wbrew ADR 0012 pkt 3) | P2 | nie | nie | |
+| g6 | 01-odkrywanie-003 | potwierdzone z korektami (BRD edytowane po 11-04; brak tylko poprawki wg D-158/D-167) | P2 | nie | nie | |
