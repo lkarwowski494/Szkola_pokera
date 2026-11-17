@@ -43,3 +43,11 @@ Analogia z Treningiem (CLAUDE.md, D-191; klon publiczny `lkarwowski494/trening` 
 - Odstępstwo nazwane: wykonawca rola 08 w trybie fix (kod aplikacji), nie 06 — rola 06 w trybie fix nie zmienia kodu aplikacji (prompt 06 fix, „Tryb: fix”, zakres).
 - Otwarte: czytnik ekranu nie dostaje listy klas niepewnych (siatka ma jedną etykietę `range.label`; stan sprzed zmiany); poprawka wymaga nowego tekstu (rola 04/09) — znalezisko w raporcie M2.
 - Zależy od: D-2011; weto właściciela.
+
+## D-2016 · 2026-11-17 · 067, 068: znak klasy niepewnej i „mieszana” w kolorze etykiety pola; pary kontrastu złożone w CI
+- Decyzja: `apps/mobile/src/components/RangeGrid.tsx` rysuje znak „•” w kolorze `tk.ink` (d56506fe), `apps/mobile/src/components/PaintGrid.tsx` znak „mieszana” w kolorze `labelColor(i)` (4faf3b0a); `docs/design/tokeny.ts` (i kopia `apps/mobile/src/theme/tokeny.ts`) dostaje `paryZlozone` (pierwszy plan na kolorze z kryciem nałożonym na tło), a test `apps/mobile/src/theme/__tests__/kontrast-pary-08.test.ts` sprawdza w CI wszystkie `pary` i `paryZlozone` w 4 wariantach (a82bc91e). Żaden istniejący kolor ani próg się nie zmienił.
+- Kto rozstrzygnął: rekomendacja roli 04 (reaudit, 04-studio-projektowe-001/002, opcja (a)); zatwierdzenie właściciela 2026-11-17 „067+068 razem (zalecane)” (KO-130).
+- Wynik (recenzent niezależny, własny rachunek WCAG 2.x): minimum znaku na tłach osiągalnych dziś 3,92 (light), 7,87 (dark), 3,26 (lightHigh), 9,19 (darkHigh); przed zmianą 1,19–2,46 na najsłabszych parach.
+- Odrzucone: (b) znak na własnym krążku `surface` (większa zmiana układu pola); (c) kolor zależny od tła (dwie gałęzie, granica 75–95% paska do rozstrzygnięcia); nowy token (niepotrzebny przy ink ≥ 3:1); zmiana rozmiaru znaku (poza testem akceptacyjnym).
+- Otwarte (znaleziska w raporcie M2): etykieta ręki 8 pt na polu w zakresie 3,92/3,26 < 4,5 (stan sprzed zmiany); pola grup 2/3 w ciemnych motywach 2,23 (dziś nieosiągalne: każdy spot ma jedną grupę); test nie wiąże tła z tablicą `colors` w RangeGrid.
+- Zależy od: D-2015; weto właściciela.

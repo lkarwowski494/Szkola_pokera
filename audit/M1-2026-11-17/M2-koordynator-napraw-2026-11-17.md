@@ -92,6 +92,35 @@ Przekazania z wyniku roli 06: do 08 — brak (tryb gry M13 i generator już pomi
 
 Ryzyko szczątkowe 002 (bez znaleziska): T8o w BB vs BTN różni się o 49 pp, tuż pod progiem (recenzja-niezalezna.md); nowy odczyt źródła może ją przenieść; test wymusi wtedy ponowne porównanie tylko przy zmianie kanonu, nie źródła.
 
+## Pętla 2 (po reaudycie IR @ 202185ab)
+Wejście: `git merge --ff-only origin/claude/sesja-ir-reaudit-m1` → 202185ab (tylko audit/ i docs/decyzje/IR.md); reaudit zweryfikował 002, 007, 047, 061. Zatwierdzenie 067 i 068: właściciel 2026-11-17 ok. 16:20 UTC „067+068 razem (zalecane)” (przez koordynatora, KO-130, wyjątek nazwany od zamrożenia), zapisane skryptem `--zatwierdz`.
+
+| ID | Rodzaj | Wykonawca | Test (nazwa) | Przed → po | Commit | Dowód | Status |
+|---|---|---|---|---|---|---|---|
+| M1-audytor-generalny-067 (04-studio-projektowe-001) | D | rola 08 | `apps/mobile/src/components/__tests__/znak-kolor-etykiety-08.test.tsx`; `apps/mobile/src/theme/__tests__/kontrast-pary-08.test.ts` | znak ≠ kolor etykiety (czerwony) → zielony; kontrast znaku na zieleni light 1,60 → 3,92, lightHigh 2,01 → 3,26 | d56506fe (+ a82bc91e) | role/08-programista/fix-2026-11-17-b/ (wynik.md, role/08-programista/fix-2026-11-17-b/dowody/kontrasty.txt, recenzja-niezalezna.md) | naprawione-do-weryfikacji |
+| M1-audytor-generalny-068 (04-studio-projektowe-002) | D | rola 08 | jw. | pomalowane pole 1,19–2,46 → 15,67–17,86 | 4faf3b0a (+ a82bc91e) | jw. | naprawione-do-weryfikacji |
+
+Recenzent niezależny (role/08-programista/fix-2026-11-17-b/recenzja-niezalezna.md, role/08-programista/fix-2026-11-17-b/recenzja-kontrasty.tsv): własny rachunek potwierdza minimum 3,92 / 7,87 / 3,26 / 9,19 (light / dark / lightHigh / darkHigh) na tłach osiągalnych dziś; tokeny bez zmian wartości; mutacje „muted” łapane; mutant zamiany kolorów grup przeżywa (M2-008).
+
+### M2-koordynator-napraw-006 · Etykieta ręki w polu w zakresie siatki lekcji poniżej 4,5:1 w motywie jasnym
+- Pozycja listy kontrolnej: SP-04 (rola 04)
+- Poziom: P1 (recenzent: bariera dostępności wg progu wydania) · Realność: realny · Pewność: wysoka · Rodzaj: P (kolor etykiety na suknie: system roli 04)
+- Dowód: recenzja-niezalezna.md roli 08 (pętla 2), pkt 4: tekst 8 pt `ink` na `felt1`·0,85 na `surface` = 3,92 (light), 3,26 (lightHigh); dark 7,87, darkHigh 9,19. Stan sprzed 1d756b0b (etykieta zawsze była `ink`).
+- Opcje: (a) etykieta na polu w zakresie w kolorze `onFelt` (tekst na suknie ma parę 4,5 w `pary`) — zmiana koloru etykiety zależna od tła, para złożona do testu; (b) jaśniejsze wypełnienie pola (niższe krycie) — zmienia wygląd siatki; (c) zostawić z wyjątkiem nazwanym. Rekomendacja: (a), decyzja roli 04 i właściciela.
+- Test akceptacyjny: para złożona „etykieta na polu w zakresie” ≥ 4,5 w 4 wariantach w `kontrast-pary-08.test.ts`.
+- Status: otwarte — do decyzji (nie naprawiane: poza zakresem 067/068, zamrożenie)
+
+### M2-koordynator-napraw-007 · Pole grupy 2 (kolor ostrzegawczy) w ciemnych motywach daje znakowi i etykiecie 2,23:1
+- Pozycja listy kontrolnej: SP-04 · Poziom: P2 · Realność: teoretyczny (dziś żaden spot nie ma dwóch grup) · Rodzaj: D
+- Dowód: recenzja-niezalezna.md roli 08 (pętla 2), pkt 1; `packages/content-schema/src/index.ts:389` dopuszcza wiele grup.
+- Status: otwarte — backlog
+
+### M2-koordynator-napraw-008 · Test par kontrastu nie wiąże tła z kolorami grup w RangeGrid
+- Pozycja listy kontrolnej: JAK-03 · Poziom: P2 · Realność: teoretyczny · Rodzaj: D
+- Dowód: recenzja-niezalezna.md roli 08 (pętla 2), pkt 2: mutant `colors=[warn, felt1, cardBlue]` przeżywa (24/24).
+- Opcje: (a) eksport tablicy kolorów grup z RangeGrid i para złożona na każdy kolor; (b) zostawić. Rekomendacja: (a).
+- Status: otwarte — backlog
+
 ## Komendy końcowe
 `env -u NODE_PATH pnpm run ci` na 7b591503 (typecheck, test, test:skrypty, test:kontrole, k08, i18n:kod, content:check, tresci:rejestr, tresci:el-kontrola; po kolei w jednym łańcuchu): **kod 0** (dowody/M2/ci-koniec-7b591503.log). Projekt nie ma osobnej komendy lint (package.json); typecheck w łańcuchu ci.
 
