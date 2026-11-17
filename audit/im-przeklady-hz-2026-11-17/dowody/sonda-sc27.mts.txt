@@ -1,0 +1,10 @@
+import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+const YAML = createRequire('/home/user/Szkola_pokera/tools/content-build/package.json')('yaml');
+const { fillVariantMarkers } = await import('/home/user/Szkola_pokera/packages/poker-core/src/scenario-gen.ts');
+for (const j of ['pl', 'en', 'de', 'ja']) {
+  const t = YAML.parse(readFileSync(`/home/user/Szkola_pokera/content/${j}/scenarios/sc-27.yaml`, 'utf8'));
+  const e = t.decisions[0].actions.find((a: any) => a.action === 'bet-big').explanation;
+  // wartość rozmiar tak jak wariant.ts:410 (String(Math.round(fractionBig*100))), fractionBig = 0.75 przykładowo
+  console.log(j, '→', fillVariantMarkers(e, { reka: '[[Ah Ad]]', stol: '[[Ks 7d 2c]]', pozycja: 'Button', rywal: 'CO', spr: '4,0', rozmiar: String(Math.round(0.75 * 100)) }).slice(0, 220));
+}

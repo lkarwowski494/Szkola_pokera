@@ -1,0 +1,6 @@
+$ tsx sonda.mts  # treść sondy: dowody/sonda-sc27.mts.txt; @ ef75f613
+pl → Masz [[Ah Ad]] na Button, na {{t:board|stole}} [[Ks 7d 2c]], a rywal z CO {{t:check|czeka}}. {{t:bet|Stawiasz}} ok. 75 {{t:pot|puli}}, bo ten sam ułamek {{t:pot|puli}} na każdej {{t:street|ulicy}} wpłaca cały stack dokła
+en → You have [[Ah Ad]] in the Button, the {{t:board}} is [[Ks 7d 2c]], and your opponent on the CO {{t:check|checks}}. You {{t:bet}} about 75 of the {{t:pot}}, because the same fraction of the {{t:pot}} on every {{t:street}}
+de → Du hast [[Ah Ad]] am Button, das {{t:board}} ist [[Ks 7d 2c]], und dein Gegner im CO {{t:check|checkt}}. Du {{t:bet|setzt}} etwa 75 des {{t:pot|Pots}}, weil derselbe Anteil des {{t:pot|Pots}} auf jeder {{t:street}} den g
+ja → あなたはButtonで[[Ah Ad]]を持ち、{{t:board|ボード}}は[[Ks 7d 2c]]で、COの相手が{{t:check|チェック}}しています。{{t:pot|ポット}}の約75を{{t:bet|ベット}}します。各{{t:street|ストリート}}で{{t:pot|ポット}}の同じ割合を賭けると、ちょうどリバーでスタック全部が入るからです。理論上、同じ大きさの{{t:bet|ベット}}は相手に最も広く守らせるので
+kod wyjścia: 0
