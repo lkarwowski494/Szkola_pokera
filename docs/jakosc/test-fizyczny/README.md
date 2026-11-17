@@ -29,7 +29,7 @@ Wykonuje właściciel na buildzie <n> zainstalowanym z TestFlight. Wynik: OK | B
 | PU-0NN | <cel z katalogu> | <kroki z katalogu> | — |
 ```
 
-## Lista dla właściciela (build z TestFlight, ok. 7 min, po kolei)
+## Lista dla właściciela (build z TestFlight, ok. 10 min, po kolei; od buildu 1011 punkty 9–10)
 
 Zainstaluj build z TestFlight na swoim iPhonie. Każdy punkt to jedno zadanie. Odpisz numerem punktu i jednym słowem: „OK”, „błąd: <co widzisz>” albo „pominięte: <dlaczego>”.
 
@@ -41,3 +41,5 @@ Zainstaluj build z TestFlight na swoim iPhonie. Każdy punkt to jedno zadanie. O
 6. **PU-014 Eksport i import (ok. 1 min).** Ustawienia → Dane → Eksport → zapisz w Plikach. Import → wybierz ten plik → przy ostrzeżeniu „Anuluj” (nic się nie zmienia); jeszcze raz Import i potwierdź. Na „Postępie” te same liczby co przed eksportem.
 7. **PU-020 Brak diagnostyki (ok. 5 s).** Postęp → sekcja na dole: tylko słowniczek i pomoc, bez „Diagnostyka”.
 8. **PU-022 Talia czterokolorowa i wibracje (ok. 1 min).** Ustawienia → „Talia czterokolorowa” włącz, „Wibracje przy odpowiedzi” wyłącz. Dziś → Sesja ćwiczeń (albo lekcja → Ćwiczenia): kier, karo, trefl i pik w czterech różnych kolorach, odpowiedź bez wibracji. Przywróć oba ustawienia: odpowiedź wibruje.
+9. **PU-027 Scenariusz przy największym tekście (ok. 2 min).** Ustawienia iOS → Dostępność → Wyświetlanie i rozmiar tekstu → Większy tekst: włącz „Większe rozmiary dostępności”, suwak na maksimum. Dziś → Scenariusze → pierwsze odblokowane rozdanie → „Zacznij rozdanie”, graj do podsumowania. Na każdym ekranie (start, decyzja, ocena, podsumowanie): tekst cały, nic poza krawędzią ekranu, przyciski akcji i „Dalej” widoczne w całości i trafiane jednym dotknięciem. Długi wyraz w akapicie wyjaśnienia może się złamać — to dopuszczalne. W odpowiedzi podaj model telefonu.
+10. **PU-028 Zmiana rozmiaru tekstu w trakcie rozdania (ok. 1 min).** W rozdaniu podejmij jedną decyzję (ekran oceny). Przejdź do Ustawień iOS → Większy tekst, przesuń suwak o kilka stopni, wróć do aplikacji: ten sam ekran oceny z tą samą decyzją, tekst w nowym rozmiarze, nic poza ekranem. „Dalej” i kolejna decyzja: układ poprawny. Na koniec przywróć rozmiar tekstu.

@@ -1,0 +1,55 @@
+/// <reference types="jest" />
+// IK (audyt 1011, 3.2): niezmienniki liczb pokazywanych na ekranie scenariusza, na prawdziwej bazie treści pl, dla każdego szablonu, poziomu
+// i 30 ziaren. Wyrocznia: relacje, nie wartości z kodu (kwota do sprawdzenia > 0 i < pula; kwota akcji ≤ stos na stole; karty bez powtórzeń;
+// przedział głębokości startu skończony, 0 < min ≤ max; przynależność startów: stos-start-ih.test.ts). Pochodzenie: prompt roli 07, moduł „wlasnosci-i-domena”.
+import { generateVariant, zakresGlebokosciStartu, cardToString } from '@szkola/poker-core';
+import { getKontekstGeneratora, getScenarioTemplates } from '@/data/content/repo';
+import { dbCn } from '@/test-utils/kontekstCn';
+import { akcjePunktu, kwotaAkcji, naGenerator, stosNaStoleBb, widokDecyzji } from '../wariant';
+
+const szablony = getScenarioTemplates(dbCn);
+const ZIARNA = Array.from({ length: 30 }, (_, i) => 1 + i * 7919);
+const skonczona = (x: number) => typeof x === 'number' && Number.isFinite(x);
+
+describe('IK: niezmienniki liczb ekranu scenariusza (wszystkie szablony z bazy pl)', () => {
+  it('baza pl ma 33 szablony (SC-14 poza treścią, D-1863)', () => {
+    expect(szablony).toHaveLength(33);
+  });
+  for (const s of szablony) {
+    for (const poziom of s.levels) {
+      it(`${s.id} ${poziom}: pula, dopłata, kwoty akcji, stos, karty i głębokość startu`, () => {
+        const kontekst = getKontekstGeneratora(dbCn, s);
+        const z = zakresGlebokosciStartu(naGenerator(s), poziom);
+        if (z) {
+          expect(skonczona(z.min) && skonczona(z.max)).toBe(true);
+          expect(z.min).toBeGreaterThan(0);
+          expect(z.min).toBeLessThanOrEqual(z.max);
+        }
+        const bledy: string[] = [];
+        for (const ziarno of ZIARNA) {
+          const v = generateVariant(naGenerator(s), poziom, ziarno, kontekst);
+          const karty = [...v.hero, ...v.villain, ...v.board].map(cardToString);
+          if (new Set(karty).size !== karty.length) bledy.push(`${ziarno}: powtórzona karta ${karty.join(' ')}`);
+          v.points.forEach((d, i) => {
+            const w = widokDecyzji(v, i, s);
+            const stos = stosNaStoleBb(d, s);
+            if (!skonczona(stos) || stos <= 0) bledy.push(`${ziarno}#${i}: stos ${stos}`);
+            if (w.pulaBb !== null && (!skonczona(w.pulaBb) || w.pulaBb <= 0)) bledy.push(`${ziarno}#${i}: pula ${w.pulaBb}`);
+            if (w.doSprawdzeniaBb !== null) {
+              if (!skonczona(w.doSprawdzeniaBb) || w.doSprawdzeniaBb <= 0) bledy.push(`${ziarno}#${i}: dopłata ${w.doSprawdzeniaBb}`);
+              if (w.pulaBb !== null && w.doSprawdzeniaBb >= w.pulaBb) bledy.push(`${ziarno}#${i}: dopłata ${w.doSprawdzeniaBb} ≥ pula ${w.pulaBb}`);
+              if (w.doSprawdzeniaBb > stos + 1e-9) bledy.push(`${ziarno}#${i}: dopłata ${w.doSprawdzeniaBb} > stos ${stos}`);
+            }
+            for (const a of akcjePunktu(d, s.decisions[i])) {
+              const k = kwotaAkcji(d, a, s);
+              if (k === null) continue;
+              if (!skonczona(k) || k < 0) bledy.push(`${ziarno}#${i} ${a}: kwota ${k}`);
+              else if (k > stos + 1e-9) bledy.push(`${ziarno}#${i} ${a}: kwota ${k} > stos ${stos}`);
+            }
+          });
+        }
+        expect(bledy).toEqual([]);
+      });
+    }
+  }
+});
