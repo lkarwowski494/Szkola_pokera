@@ -8,4 +8,4 @@ Stan: 2026-11-17, gałąź `claude/sesja-ij-poocenie` od ad88e4d3. Decyzje: `doc
 | 2a. Test `zakresGlebokosciStartu` (gałęzie null, min = max, przedział) | D | gotowe | `packages/poker-core/test/ij-zakres-glebokosci.test.ts` (8; mutacja 2 miejsc w kodzie → 4 czerwone) |
 | 2b. `RzadPrzyciskow`: `Children.toArray` | D | gotowe | `ij-rzad-przyciskow.test.tsx` (2 czerwone przed); D-1913 |
 | 2c. `tokens.ts` helpery modułowe (D-1904) | — | ocena: brzegowy, bez zmiany | `ij-tokens-zywe.test.tsx`; D-1912; **[DO USTALENIA na telefonie]** zmiana Dynamic Type przy działającej aplikacji |
-| 3. `env -u NODE_PATH pnpm run ci` | — | patrz dowód | `docs/programista/dowody/ij-ci-<sha>.txt` |
+| 3. `env -u NODE_PATH pnpm run ci` | — | zielone, kod 0 | `docs/programista/dowody/ij-ci-7bbd3c8f.txt` |
