@@ -51,6 +51,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 
+- **19:30 UTC** IS: KO-133 (3 kopie z audit/ usunięte 4207c6f1; 10 plików poza audit/ pokrywa się z biblioteką prompts — narzędzia projektu w docs/ i scripts/, istniały wcześniej, do decyzji po 1012) i M2-009 (dark pasek 1,71/1,47 → 3,20; ci kod 0) gotowe @ a9a2a7cb. M2-011 P2 (etykieta 8→10,4 pt, 1.4.4) backlog przed App Store. Koszt IS łącznie 63,31 USD (plan 15–30: przekroczenie przez 4 dodatkowe cykle KO-129…KO-134). **Scalone do roboczej: 81103fcb** (merge bez konfliktów); CI + E2E na push. IS zarchiwizowana. Do weta: D-2021.
+
 - **18:40 UTC** IS M2-006 gotowe (a805c2cf; etykiety ≥ 4,5 w 4 motywach, podkładka surface, ci kod 0). Wykryte: kopia narzędzia prompts w 08a1fd3c (publiczna gałąź) → KO-133 usunąć commitem. Nowe M2-009 P1 (pasek dark 1,71/1,47) → KO-134 naprawa teraz. Do weta: D-2017, D-2020.
 
 - **17:45 UTC** IS STOP wyjątkowy M2-006 (a869aaaf): pola pełne OK, 146 pośrednich < 4,5, ryzyko regresji progu 0,85 → KO-132 właściciel: pełna naprawa (próg 1 + podkładka 04) przed 1012.
