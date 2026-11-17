@@ -1,0 +1,23 @@
+$ ls apps/mobile/assets/fonts
+Literata-SemiBold.ttf
+OFL-literata.txt
+exit=0
+$ grep -rn 'BoldText' apps/mobile/src
+exit=1
+$ sed -n 82,84p apps/mobile/src/theme/tokens.ts
+ * Style tekstu ze skali (pt). Tytuły: Literata 600 przy tekście do XXXL, od AX1 krój systemowy semibold (D-120, D-122;
+ * `./kroje`); krój czytany przy każdym renderze (getter), bo ładuje się przy starcie i zależy od rozmiaru tekstu.
+ * `naglowek` = treść semibold (nagłówki sekcji; skala roli 04 nie ma pośredniego rozmiaru — iOS `headline` to 17 pt semibold).
+exit=0
+$ grep -n 'LITERATA =' apps/mobile/src/theme/kroje.ts
+7:export const LITERATA = 'Literata-SemiBold';
+exit=0
+$ grep -rn 'Pogrubiony' docs/decyzje.md docs/design/design-spec.md docs/design/02-kierunki.md docs/design/audyt-hh-b7bc12e6.md
+docs/design/02-kierunki.md:168:Krytyka (usterki najpierw): pierwszy zrzut miał cyfry nautyczne („9” w „J9o” pod linią w Cormorant i Gelasio) i ucięte twoje karty w wycinku `bez-pozycji` → cyfry wersalikowe w tytułach, dłuższy wycinek (drugi zrzut). Gelasio i Libre Baskerville łamią „Ile masz outów do strita?” na dwa wiersze już przy 390 pt (szersze kroje; przy 320 pt więcej łamań). Cormorant przy tym samym stopniu wygląda o ok. 20% mniejszy (wysokość x 39% wobec 49–53%), więc wymagałby większego stopnia. Instrument Serif 400 jest lżejszy od reszty interfejsu i nie ma odmiany na „Pogrubiony tekst” (podłoga VoiceOver/Typografia); to też krój modny w 2024–2025, blisko „kolejnej fali domyślnych wyborów”.
+docs/design/02-kierunki.md:170:Rekomendacja studia (funkcja): **Literata 600** — najwęższa z krojów o pełnej wysokości x (mniej łamań przy 320 pt), pełna oś odmian (reaguje na „Pogrubiony tekst”), wietnamski. Drugi wybór: **Gelasio 700** — najbliższa ciągłość z dawną aplikacją (Georgia w indeksach, punkt odniesienia D-117), kosztem szerszych tytułów i braku odmiany cięższej niż 700. Odradzane: Cormorant (mały optycznie), Instrument Serif (podłoga „Pogrubiony tekst”), Libre Baskerville (najszerszy, bez wietnamskiego, bez związku z dziedziną).
+docs/design/audyt-hh-b7bc12e6.md:76:| SP-18 | dotyczy | ok w drzewie: zakres czytany jako tekst, pasek ocen z opisem (`scenario.scale.label`), werdykt ogłaszany (`useAnnounce`); Pogrubiony tekst i kolejność na urządzeniu: nie sprawdzono (brak iOS) |
+exit=0
+$ grep -n 'isBoldTextEnabled' node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js apps/mobile/node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js
+node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js:86:  isBoldTextEnabled(): Promise<boolean> {
+grep: apps/mobile/node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js: No such file or directory
+exit=2

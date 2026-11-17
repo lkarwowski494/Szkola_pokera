@@ -1,0 +1,51 @@
+# g3-dane-a: ekran błędu startu, baza uszkodzona, strażnik pętli awarii (12-niezawodnosc-001, -002, -003). Repo /home/user/Szkola_pokera, kod = f75acdff
+$ grep -n "stan: 'blad'\|w.wartosc.port\|RenderErrorScreen onRetry" apps/mobile/src/app/_layout.tsx
+59:type StanPostepu = { stan: 'ladowanie' } | { stan: 'ok'; port: PortBazy } | { stan: 'blad' };
+76:        if (aktualny) ustaw({ stan: 'blad' });
+79:      otwarty = w.wartosc.port;
+151:  if (tresc.stan === 'blad') return <RenderErrorScreen onRetry={tresc.ponow} />;
+152:  if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />;
+161:      <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />} onBlad={pierwszeOtwarcie}>
+kod wyjścia: 0
+
+$ grep -n 'Button\|errors.render' apps/mobile/src/components/RenderErrorScreen.tsx
+3:import { Button } from '@/components/ui';
+16:        {t('errors.render.title')}
+18:      <Text style={[styl.tresc, { color: tk.muted }]}>{t('errors.render.body')}</Text>
+19:      <Button label={t('errors.render.retry')} onPress={onRetry} />
+kod wyjścia: 0
+
+$ grep -n '"body": "Tego ekranu' apps/mobile/src/i18n/locales/pl.json
+570:      "body": "Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.",
+kod wyjścia: 0
+
+$ grep -rn 'uszkodzona' apps/mobile/src --include=*.ts --include=*.tsx | grep -v __tests__
+apps/mobile/src/platform/dziennik.ts:15:  | 'odczyt_nieudany' // uszkodzona wartość zapisana przez aplikację; kod spoza tabeli §4 — zgłoszenie 08-F04
+apps/mobile/src/platform/dziennik.ts:20:  | 'baza_uszkodzona' // jw., plik odłożony pod postep-uszkodzona-<ms>.db
+apps/mobile/src/data/postepExpo.ts:113:const POWODY_STARTU: readonly PowodStartu[] = ['baza_nowsza', 'migracja_nieudana', 'przerwano_w_tle', 'baza_uszkodzona'];
+apps/mobile/src/data/postepExpo.ts:118: * Odłożona uszkodzona baza → wpis `baza_uszkodzona` (ekran z „Zgłoś błąd” i importem: część 5, stan roli 04).
+apps/mobile/src/data/postepExpo.ts:122:): Promise<Wynik<{ port: PortBazy; uszkodzona: string | null }, PowodStartu | 'zapis_nieudany'>> {
+apps/mobile/src/data/postepExpo.ts:125:    if (w.uszkodzona !== null) zapiszBlad('baza_uszkodzona');
+kod wyjścia: 0
+
+$ grep -n 'UIFileSharingEnabled\|LSSupportsOpeningDocumentsInPlace' apps/mobile/app.json
+kod wyjścia: 1
+
+$ grep -rn 'baza_nowsza\|migracja_nieudana\|baza_uszkodzona' docs/architektura/tlo-i-bledy.md | cut -c1-260
+66:| Awaria danych przy starcie | `baza_nowsza` | runner migracji (E4f); wyjątek `BladStartuPostepu` z `otworzPostep` (L8-01, D-200) | aplikacja nie zapisuje nic; ekran „Zaktualizuj aplikację”; dane bez zmian | **brak** |
+67:| jw. | `migracja_nieudana` | runner (ROLLBACK, E4e); wyjątek `BladStartuPostepu` jak wyżej | dane w wersji sprzed migracji + kopia `postep-przed-v<N>.db`; ekran błędu z „Zgłoś błąd” (F-17) | **brak** |
+68:| jw. | `baza_uszkodzona` (`SQLITE_CORRUPT`, `SQLITE_NOTADB`) | adapter portu przy otwarciu | bez nadpisywania pliku: plik przemianowany na `postep-uszkodzona-<ms>.db`, nowa pusta baza, komunikat z „Zgłoś błąd” i informacją o imporcie z ostatniego 
+kod wyjścia: 0
+
+$ grep -rnE 'nieudan[a-z]*_?start|PROG_NIEUDANYCH|trybAwaryjny|tryb_awaryjny|kamienMilowy|kamien_milowy|setGlobalHandler|ErrorUtils' apps/mobile/src packages --include=*.ts --include=*.tsx
+kod wyjścia: 1
+
+$ git ls-remote https://github.com/lkarwowski494/trening HEAD
+2d9758149ad31f36e0a3c36ff079a45d7a672251	HEAD
+kod wyjścia: 0
+
+$ curl -sS https://raw.githubusercontent.com/lkarwowski494/trening/main/lib/state/crashguard.ts | sed -n 8,9p
+/** Ile kolejnych uruchomień bez „kamienia” (łącznie z bieżącym) uruchamia tryb awaryjny. */
+export const CRASH_LOOP_THRESHOLD = 2;
+kod wyjścia: 0
+

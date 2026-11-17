@@ -1,0 +1,46 @@
+# g2 / 02-monetyzacja-002: powtórzenie sondy audytora na kopii roboczej f75acdff (git worktree w scratchpadzie, node_modules jako dowiązania do repo)
+# plik sondy = audit/M1-2026-11-17/role/02-monetyzacja/dowody/sonda-mon05.test.tsx.txt skopiowany do apps/mobile/src/__tests__/sonda-g2-mon05.test.tsx (bez zmian)
+## A. kod bez zmian
+$ cd <worktree>/apps/mobile && env -u NODE_PATH npx jest src/__tests__/sonda-g2-mon05.test.tsx
+    SONDA practice/zwrot: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+    SONDA review/zwrot: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/nasluch_przed: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/tylko_nasluch: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":false,"licznik":false,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/przywrocenie: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+  SONDA MON-05: zakup ze stanu zakupu ekranu sesji
+    ✕ practice / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1711 ms)
+    ✕ review / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1537 ms)
+    ✕ practice / nasluch_przed: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1538 ms)
+    ✓ practice / tylko_nasluch: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1532 ms)
+    ✕ practice / przywrocenie: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1532 ms)
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › practice / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › review / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › practice / nasluch_przed: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › practice / przywrocenie: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+Tests:       4 failed, 1 passed, 5 total
+kod: 1
+
+## B. sonda kontrolna przyczyny: jedna zmiana w kopii roboczej (nie w repo), session.tsx:136 'pro,' -> 'pro: useDostep.getState().pro,' (świeży odczyt dostępu zamiast wartości z zamknięcia renderu)
+$ git diff (kopia robocza)
+-      rodzaj: RODZAJ[mode], trescId, pierwszePodejscieTestu: !testyW.wartosc.some((w) => w.modulId === moduleId), pro,
++      rodzaj: RODZAJ[mode], trescId, pierwszePodejscieTestu: !testyW.wartosc.some((w) => w.modulId === moduleId), pro: useDostep.getState().pro,
+$ env -u NODE_PATH npx jest src/__tests__/sonda-g2-mon05.test.tsx
+    SONDA practice/zwrot: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":false,"licznik":false,"sesjaOtwarta":false,"pusta":false}
+    SONDA review/zwrot: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":false,"licznik":false,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/nasluch_przed: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":false,"licznik":false,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/tylko_nasluch: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":false,"licznik":false,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/przywrocenie: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":false,"licznik":false,"sesjaOtwarta":false,"pusta":false}
+  SONDA MON-05: zakup ze stanu zakupu ekranu sesji
+    ✓ practice / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1752 ms)
+    ✓ review / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1530 ms)
+    ✓ practice / nasluch_przed: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1533 ms)
+    ✓ practice / tylko_nasluch: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1526 ms)
+    ✓ practice / przywrocenie: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1531 ms)
+Tests:       5 passed, 5 total
+kod: 0
+Updated 1 path from the index
+# wniosek: 4/5 czerwone bez zmian, 5/5 zielone po świeżym odczycie 'pro' -> przyczyną jest nieaktualna wartość 'pro' w wejdz() wołanym przez zaladuj() z onDostep (session.tsx:283-285), a efekt na [pro] (session.tsx:204-207) nie odpala, bo stan to już 'ladowanie', nie 'zakup'

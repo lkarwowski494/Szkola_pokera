@@ -1,0 +1,56 @@
+$ git rev-parse HEAD; git diff --stat f75acdff16915aeb43ff788888216e28616c11ed HEAD -- apps packages site store docs/wydanie tests .gitignore README.md
+c28ee78b8890fa4d90692a5b171143ab0d187b46
+kod: 0
+
+$ grep -rn "ADRES_PRYWATNOSCI\|ADRES_KONTAKTOWY\|ID_APLIKACJI_SKLEPU" apps/mobile/src (bez __tests__)
+apps/mobile/src/platform/adresy.ts:9:export const ADRES_PRYWATNOSCI: string | null = null;
+apps/mobile/src/platform/adresy.ts:17:export const ID_APLIKACJI_SKLEPU: string | null = null;
+apps/mobile/src/platform/adresy.ts:18:export const ADRES_KONTAKTOWY: string | null = null;
+apps/mobile/src/app/session.tsx:44:import { ADRES_KONTAKTOWY, ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+apps/mobile/src/app/session.tsx:292:          if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI);
+apps/mobile/src/app/session.tsx:417:          {ADRES_KONTAKTOWY ? (
+apps/mobile/src/app/session.tsx:422:              adresKontaktowy={ADRES_KONTAKTOWY}
+apps/mobile/src/app/settings.tsx:14:import { ADRES_KONTAKTOWY, ID_APLIKACJI_SKLEPU } from '@/platform/adresy';
+apps/mobile/src/app/settings.tsx:132:          {ID_APLIKACJI_SKLEPU && ADRES_KONTAKTOWY ? (
+apps/mobile/src/app/settings.tsx:134:              idAplikacjiSklepu={ID_APLIKACJI_SKLEPU}
+apps/mobile/src/app/settings.tsx:135:              adresKontaktowy={ADRES_KONTAKTOWY}
+apps/mobile/src/app/scenario.tsx:19:import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+apps/mobile/src/app/scenario.tsx:177:        otworzPrywatnosc={() => { if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI); }}
+apps/mobile/src/app/purchase.tsx:5:import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+apps/mobile/src/app/purchase.tsx:29:        if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI);
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:15:import { ADRES_KONTAKTOWY } from '@/platform/adresy';
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:349:          {ADRES_KONTAKTOWY ? (
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:350:            <ZglosBlad zadanieId={`${s.szablon.id}#${indeks + 1}`} wersjaAplikacji={Constants.expoConfig?.version ?? '?'} jezyk={i18n.language} adresKontaktowy={ADRES_KONTAKTOWY} otworzAdres={(url) => Linking.openURL(url).then(() => true)} />
+kod: 0
+
+$ grep -n "privacy\|Privacy" apps/mobile/src/app/settings.tsx apps/mobile/src/features/ustawienia -r
+kod: 1 (1 = brak trafień)
+
+$ grep -n "\"privacy\"" apps/mobile/src/i18n/locales/en.json
+86:    "privacy": "Privacy Policy",
+kod: 0
+
+$ curl -sS -o /<plik>.html -w '%{http_code}' https://lkarwowski494.github.io/Szkola_pokera/privacy.html
+200
+kod: 0
+
+$ curl -sS -o /<plik>.html -w '%{http_code}' https://lkarwowski494.github.io/Szkola_pokera/support.html
+200
+kod: 0
+
+$ cmp /privacy.html site/privacy.html; cmp /support.html site/support.html   (pobrane powyżej = plik w repo @ f75acdff?)
+kod: 0
+kod: 0
+
+$ grep -o "DO USTALENIA" site/privacy.html | wc -l ; grep -c "DO USTALENIA" site/privacy.html ; grep -o "DO USTALENIA" site/support.html | wc -l
+22
+16
+3
+kod: 0
+
+$ grep -n "mailto" site/support.html site/privacy.html
+kod: 1 (1 = brak)
+
+$ grep -n "SUPPORT EMAIL\|\[[A-Z ]*\]" store/review-notes.en.txt
+28:- [SUPPORT EMAIL]
+kod: 0

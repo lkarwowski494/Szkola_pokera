@@ -1,0 +1,46 @@
+# g3-dane-a: pliki postępu poza „Usuń postęp” (05-architekt-007, 12-niezawodnosc-005). Repo /home/user/Szkola_pokera, kod = f75acdff
+$ grep -n 'STARE_BAZY\|nazwaUszkodzonej' packages/postep/src/start.ts
+27:const STARE_BAZY = ['user.db-wal', 'user.db-shm', 'user.db'] as const;
+28:const nazwaUszkodzonej = (ms: number, n: number) => (n === 0 ? `postep-uszkodzona-${ms}.db` : `postep-uszkodzona-${ms}-${n}.db`);
+48:  const cel = () => `${o.katalog}/${nazwaUszkodzonej(o.terazMs, n)}`;
+73:    for (const n of STARE_BAZY) if (await pliki.istnieje(`${katalog}/${n}`)) await pliki.usun(`${katalog}/${n}`);
+kod wyjścia: 0
+
+$ grep -n 'usunStareBazy\|usunPostep' apps/mobile/src/data/postepExpo.ts
+5:  usunPostep,
+6:  usunStareBazy,
+148:  const w = await usunPostep(port, dzien);
+156:  return usunStareBazy(pliki, k);
+kod wyjścia: 0
+
+$ grep -n 'DZIECI_PRZED_RODZICAMI' packages/postep/src/daneUzytkownika.ts | cut -c1-200
+39:const DZIECI_PRZED_RODZICAMI: readonly TabelaEksportu[] = ['wariant_historia', 'log_powtorki', 'karta', 'wynik_testu', 'odpowiedz', 'aktywnosc', 'postep_lekcji', 'ustawienie'];
+142:      for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
+173:      for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
+kod wyjścia: 0
+
+$ grep -n 'KOPIA\|Paths.cache' apps/mobile/src/platform/pliki.ts
+8: * Adapter plików ekranu „Dane” (ADR 0008 pkt 5; D-253) na expo-file-system 58 (`File`, `Paths.cache`), expo-sharing 58.0.22
+15:const KOPIA = 'postep-przed-importem.db';
+35:    const plik = new File(Paths.cache, nazwa);
+59:  sciezkaKopii: () => sciezkaZUri(new File(Paths.cache, KOPIA).uri),
+kod wyjścia: 0
+
+$ grep -n 'kopia zostaje\|usunPlik(kopia)' apps/mobile/src/data/przeniesienie.ts
+82:        await o.pliki.usunPlik(kopia); // VACUUM INTO wymaga, by plik nie istniał (sqlite.org/lang_vacuum.html)
+95:        return 'blad_zapisu'; // transakcja wycofana; kopia zostaje w katalogu tymczasowym
+97:      await o.pliki.usunPlik(kopia).catch(() => undefined); // pkt 2.5; nieusunięta kopia w katalogu tymczasowym nie psuje importu
+kod wyjścia: 0
+
+$ grep -n 'cacheDirectory = ' node_modules/expo-modules-core/ios/Core/AppContextConfig.swift
+11:    self.cacheDirectory = cacheDirectory ?? FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+kod wyjścia: 0
+
+$ grep -c 'wariant_historia\|uszkodzona\|przed-importem' docs/architektura/prywatnosc.md
+0
+kod wyjścia: 1
+
+$ grep -n 'usunięcie kopii po udanym imporcie' docs/adr/0008-kopia-eksport-json-i-kopia-systemu.md | cut -c1-120
+26:2. Import: (1) odczyt i walidacja całości w pamięci; obcy `format` albo błąd struktury → „błędny plik”; 
+kod wyjścia: 0
+

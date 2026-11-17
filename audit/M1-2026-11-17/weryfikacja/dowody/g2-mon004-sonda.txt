@@ -1,0 +1,31 @@
+# g2 / 02-monetyzacja-004: sonda RNTL na EkranZakupu (kopia robocza f75acdff w scratchpadzie), sklep zwraca { ok: true, produkty: [] }
+# adapter: apps/mobile/src/platform/zakupy.ts:120-122 zwraca ok: true i filtruje wiersze fetchProducts (pusty wynik albo same odrzucone wiersze -> pusta lista)
+$ cd <worktree>/apps/mobile && env -u NODE_PATH npx jest src/__tests__/sonda-g2-mon004.test.tsx
+    SONDA teksty ekranu: "Zamknij Pełny dostęp Bez dziennego limitu: sesje ćwiczeń, powtórki i powtórne egzaminy każdego dnia. Lekcje zostają darmowe. Przywróć zakupy Wróć do lekcji Warunki korzystania (Terms of Use) Polityka prywatności"
+    SONDA stan: {"ladowanie":false,"cenyNiedostepne":false,"przyciskiPlanu":0}
+  ✕ pusta lista produktów: jaki tekst widzi użytkownik (241 ms)
+    Expected: true
+    Received: false
+      17 |   console.log('SONDA stan: ' + JSON.stringify(stan));
+Tests:       1 failed, 1 total
+kod: 1
+# --- plik sondy ---
+/// <reference types="jest" />
+// SONDA weryfikacji g2 (02-monetyzacja-004): sklep zwraca ok: true z pustą listą produktów.
+import '@/i18n';
+import i18n from 'i18next';
+import { render, screen, act } from '@testing-library/react-native';
+import EkranZakupu from '@/features/zakup/EkranZakupu';
+import { tekstEkranu } from '@/test-utils/ekrany/wspolne';
+jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
+const t = i18n.t.bind(i18n);
+it('pusta lista produktów: jaki tekst widzi użytkownik', async () => {
+  const sklep = { produkty: async () => ({ ok: true as const, produkty: [] }), kup: async () => 'blad' as const, przywroc: async () => 'brak_zakupow' as const };
+  await render(<EkranZakupu sklep={sklep} onDostep={jest.fn()} onZamknij={jest.fn()} onWrocDoLekcji={jest.fn()} otworzWarunki={jest.fn()} otworzPrywatnosc={jest.fn()} />);
+  await act(async () => { await new Promise((r) => setTimeout(r, 50)); });
+  const teksty = tekstEkranu();
+  console.log('SONDA teksty ekranu: ' + JSON.stringify(teksty));
+  const stan = { ladowanie: screen.queryByText(t('purchase.loading')) !== null, cenyNiedostepne: screen.queryByText(t('purchase.pricesUnavailable')) !== null, przyciskiPlanu: screen.queryAllByRole('button').map((b) => b.props.accessibilityLabel ?? '').filter((l: string) => /\$|zł|USD/.test(l)).length };
+  console.log('SONDA stan: ' + JSON.stringify(stan));
+  expect(stan.cenyNiedostepne || stan.przyciskiPlanu > 0).toBe(true); // oczekiwanie: plan albo komunikat
+});

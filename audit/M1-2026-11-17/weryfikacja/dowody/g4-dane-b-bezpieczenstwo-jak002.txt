@@ -1,0 +1,55 @@
+# Weryfikacja 07-jakosc-002 (repo /home/user/Szkola_pokera, kod = f75acdff; odczyt 2026-11-17)
+$ ls tests/dane
+k08
+kod: 0
+
+$ ls tests/dane/eksport
+ls: cannot access 'tests/dane/eksport': No such file or directory
+kod: 2
+
+$ grep -rln fast-check packages/postep --include=*.ts --include=*.json | grep -v node_modules | wc -l
+0
+kod: 0
+
+$ grep -rln fast-check packages apps tests --include=*.ts --include=*.tsx | grep -v node_modules
+packages/poker-core/test/core.test.ts
+packages/poker-core/test/table.test.ts
+packages/poker-core/test/texture.test.ts
+packages/poker-core/test/holding.test.ts
+packages/poker-core/vitest.config.ts
+packages/domena/test/k13-przypomnienie.test.ts
+packages/domena/test/powtorki-wznowienie.test.ts
+packages/domena/test/k06-tresc.test.ts
+packages/domena/test/maszyny.test.ts
+packages/domena/test/kurs.test.ts
+packages/domena/vitest.config.ts
+packages/srs/test/advancement.test.ts
+packages/srs/test/srs.test.ts
+packages/srs/vitest.config.ts
+tests/narzedzia/fast-check-nocny.ts
+kod: 0
+
+$ grep -rn 'round-trip\|eksport → import' packages/postep/test
+packages/postep/test/k11-dane.test.ts:1:// K-11 (kontrole-07.md): eksport → import bez różnic (NFR-DANE-002, BR-DANE-001/002), awaria w środku importu → dane bez zmian,
+packages/postep/test/k11-dane.test.ts:37:  it('NFR-DANE-002: eksport → import na czystej instalacji: 0 różnic w 7 tabelach, integrity ok', async () => {
+packages/postep/test/wariantyHistoria-532.test.ts:2:// Zapis, UPSERT, przycięcie okna, eksport → import, import starego pliku v1, „Usuń postęp”, plik z błędnym wierszem.
+packages/postep/test/wariantyHistoria-532.test.ts:136:  it('round-trip: eksport → import na czystej bazie daje identyczną historię, integrity ok', async () => {
+packages/postep/test/wariantyHistoria-cf.test.ts:103:  it('eksport → import w nowej bazie: generator_wersja zachowana, także 0', async () => {
+kod: 0
+
+$ sed -n 247p docs/jakosc/strategia.md
+| U-6 / T-06 kopia iCloud, eksport → import na drugim telefonie, „Usuń postęp” | R-13, R-14, R-17 | kopia systemowa i drugie urządzenie | przed App Store; T-06 co wydanie zmieniające dane |
+kod: 0
+
+$ sed -n 57p docs/jakosc/przekazanie-08.md
+| Dane testowe z wycinków prawdziwych plików z opisem pochodzenia, bez danych osobowych | §4; `tests/dane/` (wzorzec bazy v1, manifesty K-08), plik eksportu z TestFlight — krok właściciela przy wydaniu (P-3), skrypt `sprawdz-eksport.mjs` | spełniony (eksport z telefonu czeka na pierwsze wydanie) |
+kod: 0
+
+$ sed -n 1,5p apps/mobile/src/data/__tests__/postepExpo-08.test.ts
+/// <reference types="jest" />
+// Krok 7 części 4 (moduly.md „Adaptery”, ADR 0003, ADR 0004, tlo-i-bledy.md §4, K-04): adapter expo-sqlite portu postępu,
+// pliki postępu na expo-file-system i start bazy przy uruchomieniu. Atrapa SQLiteDatabase na node:sqlite (prawdziwy SQLite,
+// otwarcie bez kluczy obcych jak w expo-sqlite), błędy w kształcie z expo-sqlite 58.0.15 (ios/SQLiteResult.swift:7:
+// „Error code <n>: <komunikat>”).
+kod: 0
+

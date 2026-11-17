@@ -1,0 +1,20 @@
+$ grep -rn "wykonajHaptyke(" apps/mobile/src --include=*.ts --include=*.tsx | grep -v __tests__
+apps/mobile/src/components/PasekStrategii.tsx:93:              void wykonajHaptyke(haptyka.wyborAkcji).catch(() => undefined);
+apps/mobile/src/app/session.tsx:251:          void wykonajHaptyke(haptykaOceny(grade)).catch(() => undefined); // tokeny `haptyka` (A04-12)
+apps/mobile/src/features/session/haptyka.ts:20:export async function wykonajHaptyke(tok: TokenHaptyki): Promise<void> {
+exit=0
+$ grep -n "haptics" apps/mobile/src/components/PasekStrategii.tsx apps/mobile/src/features/scenariusz/EkranScenariusza.tsx apps/mobile/src/features/stol/PanelDecyzji.tsx
+exit=1 (1 = brak dopasowań: żaden z trzech plików nie czyta ustawienia)
+$ grep -n "haptics" apps/mobile/src/app/session.tsx
+87:  const haptics = useSettings((s) => s.haptics);
+250:        if (haptics) {
+255:    [item, sesja, current, idx, port, haptics, exam, next, startedAt],
+exit=0
+$ grep -n "PasekStrategii opcje" apps/mobile/src/features/scenariusz/EkranScenariusza.tsx apps/mobile/src/features/stol/PanelDecyzji.tsx
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:325:          <PasekStrategii opcje={akcje.map((a) => ({ text: teksty[a]?.przycisk ?? '', ...(teksty[a]?.czytnik ? { etykieta: teksty[a]?.czytnik } : {}) }))} wybo
+apps/mobile/src/features/stol/PanelDecyzji.tsx:41:        <PasekStrategii opcje={item.options} wybor={null} klasa={klasa} onWybierz={onWybierz} />
+apps/mobile/src/features/stol/PanelDecyzji.tsx:54:          <PasekStrategii opcje={item.options} wybor={wybor} klasa={klasa} />
+exit=0
+$ grep -n "PU-022" docs/jakosc/test-fizyczny/README.md
+43:8. **PU-022 Talia czterokolorowa i wibracje (ok. 1 min).** Ustawienia → „Talia czterokolorowa” włącz, „Wibracje przy odpowiedzi” wyłącz. Dziś → Sesja ćwiczeń (albo lekcja → Ćwiczenia): kier, karo, trefl i pik w czterech różnych kolorach, odpowiedź bez wibracji. Przywróć oba ustawienia: odpowiedź wibruje.
+exit=0

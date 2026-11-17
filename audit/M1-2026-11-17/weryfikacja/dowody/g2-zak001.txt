@@ -1,0 +1,39 @@
+# g2 / 03-zakres-001 (kopia robocza f75acdff w scratchpadzie)
+$ cd <worktree>/apps/mobile && env -u NODE_PATH npx jest src/features/dzis/__tests__/kafle-bi.test.ts -t "odblokowuje scenariusze"
+    ○ skipped jedna kolumna od dużego tekstu (skala ≥ 1,3), dwie przy domyślnym i XXXL
+    ○ skipped etykieta czytnika „{tytuł}. {stan}.” bez podwójnej kropki
+    ✓ lekcja z modułu 2 (albo dalszego) odblokowuje scenariusze (stan „wkrótce” do kroku F) (2 ms)
+    ○ skipped nowy użytkownik: Powtórki „po pierwszej lekcji”, Scenariusze „po pierwszej lekcji modułu 2”, bez limitu
+    ○ skipped lekcja z modułów 0–1 nie odblokowuje scenariuszy; powtórki bez kart = „brak”
+    ○ skipped powtórki do zrobienia: „liczba”
+    ○ skipped limit wyczerpany: Sesja i Scenariusze w stanie limitu, stopka; Powtórki bez zmian
+    ○ skipped limit wyczerpany u nowego użytkownika: Scenariusze nadal „po pierwszej lekcji modułu 2” (makieta: limit && !nowy)
+    ○ skipped Pro (bez limitu) i pozostało > 0: bez stanu limitu
+Tests:       8 skipped, 1 passed, 9 total
+kod: 0
+
+$ grep -n "scenariusze: !odblokowane" apps/mobile/src/features/dzis/widok.ts; grep -n "stanScenariuszy" "apps/mobile/src/app/(tabs)/index.tsx"
+99:    scenariusze: !odblokowane ? 'po_m2' : wyczerpany ? 'limit' : 'wkrotce',
+59:  const stanScenariuszy = stan?.scenariusze === 'po_m2' ? t('today.afterFirstLessonM2') : stan?.scenariusze === 'limit' ? t('today.limitTile') : t('today.scenariosSoon');
+97:        <Kafel testID="dzis-scenariusz" ikona="scenariusze" tytul={t('today.scenarios')} stan={stanScenariuszy} limit={stan?.scenariusze === 'limit'} szeroki onPress={() => router.push('/scenarios')} />
+kod: 0
+
+# ekran /scenarios: lista szablonów i przejście do /scenario (nie ekran „wkrótce”), apps/mobile/src/app/scenarios.tsx
+30:      const szablony = getScenarioTemplates(db);
+54:  return <WyborScenariusza grupy={grupy} onWybierz={(id) => router.push({ pathname: '/scenario', params: { id } })} />;
+kod: 0
+
+# lekcje bez blokady kolejności (M2 dostępny od razu): (tabs)/lessons.tsx push lekcji
+97:                      onPress={() => router.push({ pathname: '/lesson/[id]', params: { id: l.id } })}
+kod: 0
+
+# liczba szablonów scenariuszy w treści źródłowej
+pl 33
+en 33
+
+# czy jakakolwiek późniejsza decyzja zachowuje „Wkrótce” po kroku F (bez docs/decyzje/IR.md):
+$ grep -rln "scenariosSoon\|Wkrótce" docs/decyzje.md docs/decyzje/ --exclude=IR.md
+docs/decyzje.md
+kod: 0
+368:| D-581 | 2026-11-10 | A (rola 08 bu
+369:| D-582 | 2026-11-10 | A (rola 08 bu

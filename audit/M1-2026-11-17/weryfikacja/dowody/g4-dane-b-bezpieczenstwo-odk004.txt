@@ -1,0 +1,55 @@
+# Weryfikacja 01-odkrywanie-004 (2026-11-17)
+$ grep -n 'Scenariusz:' docs/brd/wymagania-sklep.md | sed -n '/15[0-9]:/,/20[0-9]:/p'
+153:  - Scenariusz: Eksport bez zakupu
+157:  - Scenariusz: Data ostatniego eksportu
+167:  - Scenariusz: Import na czystej instalacji
+171:  - Scenariusz: Import przy istniejącym postępie
+175:  - Scenariusz: Plik uszkodzony albo obcy
+179:  - Scenariusz: Plik z nowszej wersji
+188:  - Scenariusz: Usunięcie z potwierdzeniem
+192:  - Scenariusz: Rezygnacja
+201:  - Scenariusz: Nowa wersja ze zmianą schematu bazy
+kod: 0
+
+$ sed -n 38,41p docs/brd/wymagania.md
+### PR-07: Przeniesienie, kopia i usunięcie postępu
+- Kto: P-1, P-2, P-3 · Praca: J-06 · Częstotliwość: przy zmianie telefonu, rzadko · Kontekst: dom, sieć dowolna
+- Kroki: eksportuje postęp do pliku; przenosi plik (udostępnianie systemu); na nowym telefonie importuje plik i widzi ten sam postęp; osobno może usunąć cały postęp z potwierdzeniem.
+- Sytuacje brzegowe: plik uszkodzony albo z innej aplikacji; plik z nowszej wersji aplikacji; import na telefonie z istniejącym postępem; aktualizacja aplikacji (postęp zostaje bez eksportu).
+kod: 0
+
+$ grep -n 'migracja_nieudana\|przerwano_w_tle\|zapis_nieudany\|brak_miejsca' docs/architektura/tlo-i-bledy.md
+64:| jw. | `przerwano_w_tle` | ADR 0013 | dane bez zmian; po powrocie komunikat „Import nie został dokończony” i ponowienie | **brak** |
+65:| Nieudany zapis danych użytkownika | `zapis_nieudany` (SQLite: `SQLITE_IOERR`, `SQLITE_BUSY`), `brak_miejsca` (`SQLITE_FULL`) | adapter portu | nigdy cicho: komunikat; stan aktywności sprzed kroku (transakcja wycofana); odpowiedź zostaje na ekranie do ponowienia | **brak** (wzór tekstu błędu jest: „Nie udało się …”) |
+67:| jw. | `migracja_nieudana` | runner (ROLLBACK, E4e); wyjątek `BladStartuPostepu` jak wyżej | dane w wersji sprzed migracji + kopia `postep-przed-v<N>.db`; ekran błędu z „Zgłoś błąd” (F-17) | **brak** |
+kod: 0
+
+$ grep -n 'AK-NFR-DANE-001-b' docs/jakosc/strategia.md packages/postep/test/k02-migracje.test.ts
+docs/jakosc/strategia.md:18:| R-02 | aktualizacja | migracja przerwana danymi łamiącymi nowe CHECK zostawia bazę w połowie | S1 | brzegowy | wysokie | własność: wersja i dane sprzed migracji, plik kopii `VACUUM INTO` istnieje (`dane.md` E4e; `stany-bledow-fakty.md` `migracja_nieudana`) | integracyjny | Node | AK-NFR-DANE-001-b / E3 |
+packages/postep/test/k02-migracje.test.ts:46:  it('E4e, AK-NFR-DANE-001-b: migracja z danymi łamiącymi nowe CHECK → migracja_nieudana, wersja i dane bez zmian, brak częściowych zmian', async () => {
+kod: 0
+
+$ grep -n "it('ADR 0013 pkt 4" packages/postep/test/k10-ochrona.test.ts
+61:  it('ADR 0013 pkt 4: wygaśnięcie czasu w środku importu → przerwano_w_tle, liczności i zawartość bez zmian, integrity ok', async () => {
+kod: 0
+
+$ sed -n 42,58p apps/mobile/src/data/przeniesienie.ts
+    async eksportuj() {
+      const teraz = o.terazMs();
+      const e = await eksportuj(o.port, { terazMs: teraz, aplikacja: o.aplikacja });
+      if (!e.ok) {
+        zapiszBlad(e.powod, 'dane');
+        return 'blad';
+      }
+      try {
+        await o.pliki.udostepnij(`szkola-pokera-${o.dzienLokalny()}.json`, e.wartosc);
+      } catch {
+        zapiszBlad('zapis_nieudany', 'dane');
+        return 'blad';
+      }
+      // iOS nie mówi, czy użytkownik zapisał plik w arkuszu: zamknięty arkusz = eksport gotowy (jak Trening lib/backup.ts:34)
+      const z = await zapiszOstatniEksport(o.port, teraz);
+      if (!z.ok) zapiszBlad(z.powod, 'dane'); // plik jest u użytkownika; brak daty to mniejsza strata niż komunikat o błędzie
+      return 'zapisano';
+kod: 0
+

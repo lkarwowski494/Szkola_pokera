@@ -1,0 +1,24 @@
+# worktree /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wt-g1 @ f75acdff (git worktree add --detach), node_modules = dowiązanie do repo
+$ env -u NODE_PATH npx vitest run --root tests/kontrole k11-sklep.test.ts -t "AK-K-11-l"   (stan f75acdff)
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 13 skipped (14)
+   Start at  12:35:59
+   Duration  152ms (transform 65%, import 23%, tests 6%, worker 6%)
+
+kod: 0
+
+# sonda: do opisu en-US (sekcja ACCESS) dopisane „ or a new hand scenario” — zdanie zgodne z kodem (limit.ts:29)
+ store/app-store-metadata.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ env -u NODE_PATH npx vitest run --root tests/kontrole k11-sklep.test.ts -t "AK-K-11-l"   (po sondzie)
+     × AK-K-11-l bez funkcji spoza 1.0 i bez liczby języków: scenariusze (F-12, D-305), solver, trening na czas (ADR 0011) 8ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  k11-sklep.test.ts > AK-K-11: opis zgodny z kodem (mapa docs/wydanie/sklep.md §2) > AK-K-11-l bez funkcji spoza 1.0 i bez liczby języków: scenariusze (F-12, D-305), solver, trening na czas (ADR 0011)
+AssertionError: expected { l: 'en-US', poza: 'scenario' } to deeply equal { l: 'en-US', poza: null }
+-   "poza": null,
++   "poza": "scenario",
+    150|       expect({ l, poza: t.match(/scenariusz|scenario|solver|na czas|ti…
+      Tests  1 failed | 13 skipped (14)
+kod: 1
+przywrócono: 0 zmian

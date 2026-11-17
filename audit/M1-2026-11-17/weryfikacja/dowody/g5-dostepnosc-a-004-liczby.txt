@@ -1,0 +1,35 @@
+$ grep -n 'badge:\|number:' apps/mobile/src/features/advancement/AdvancementCard.tsx
+59:  badge: { width: 72, height: 72, borderRadius: 36, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
+61:  number: { fontSize: 30, lineHeight: 36, fontWeight: '800', fontVariant: ['tabular-nums'] },
+exit=0
+$ sed -n 18,19p apps/mobile/src/features/advancement/AdvancementCard.tsx
+  // Duży tekst (menu-i-zebatka.md „Postęp”): od progu kafelków (skala ≥ 1,3) pionowy stos — plakietka nad tytułem, bez szewronu.
+  const pionowo = liczbaKolumnKafli(useWindowDimensions().fontScale) === 1;
+exit=0
+$ grep -n 'styles.score\|  score:' apps/mobile/src/app/session.tsx
+326:        <Text style={[styles.score, { color: tk.ink }]}>{`${correct}/${items.length}`}</Text>
+661:  score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+exit=0
+$ grep -n 'styles.big\|  big:' apps/mobile/src/app/advancement.tsx
+30:        <Text style={[styles.big, { color: tk.ink }]} accessibilityLabel={`${r.overall ?? '–'} ${t('advancement.outOf')}`}>
+98:  big: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+exit=0
+$ grep -n 'scale: 100' packages/srs/src/advancement.ts
+20:  scale: 100,
+exit=0
+$ grep -rn 'maxFontSizeMultiplier\|defaultProps' apps/mobile/src/features/advancement apps/mobile/src/app/session.tsx apps/mobile/src/app/advancement.tsx
+exit=1
+$ grep -n 'const AX5' scripts/zrzuty/hl-zrzuty.mjs
+22:const AX5 = 3.12;
+exit=0
+$ grep -rnE 'fontSize: ?[0-9]|fontFamily: ?.Menlo' apps/mobile/src --include=*.tsx | grep -v __tests__ | grep -v '/theme/'
+apps/mobile/src/components/RangeGrid.tsx:63:  label: { fontSize: 8, fontWeight: '600' },
+apps/mobile/src/components/Blocks.tsx:119:          <Text style={[styl.przypis, { color: tk.ink, fontFamily: 'Menlo' }]}>{block.v}</Text>
+apps/mobile/src/components/PaintGrid.tsx:189:  label: { fontSize: 8, fontWeight: '600' },
+apps/mobile/src/components/PaintGrid.tsx:190:  mark: { position: 'absolute', top: 0, right: 1, fontSize: 8, fontWeight: '800' },
+apps/mobile/src/app/session.tsx:660:  input: { flex: 1, fontSize: 28, fontWeight: '700', paddingVertical: odstep.m, fontVariant: ['tabular-nums'] },
+apps/mobile/src/app/session.tsx:661:  score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+apps/mobile/src/app/advancement.tsx:98:  big: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+apps/mobile/src/features/advancement/AdvancementCard.tsx:61:  number: { fontSize: 30, lineHeight: 36, fontWeight: '800', fontVariant: ['tabular-nums'] },
+exit=0
+Rachunek: plakietka 30 pt × 3,12 = 93,6 pt (lineHeight 36 × 3,12 = 112 pt) w kole 72×72 pt (pole 68 pt); wartość 0–100 (ADVANCEMENT.scale), dwie cyfry ≈ 2 × 0,6 × 93,6 = 112 pt > 68 pt → łamanie między cyframi, 2–3 wiersze po 112 pt = 224–336 pt wysokości w kole 72 pt (View bez overflow hidden: wychodzi poza koło, w pionowym stosie AX5 na tytuł „Wskaźnik zaawansowania” i „Wiedza N”). Wynik sesji 56 × 3,12 = 174,7 pt; „12/15” ≈ 5 × 0,6 × 174,7 = 524 pt > 288 pt (320 pt) i > 358 pt (390 pt) → 2–3 wiersze. Zrzutu iOS brak (ten ekran nie jest w harnessie zrzutów web).

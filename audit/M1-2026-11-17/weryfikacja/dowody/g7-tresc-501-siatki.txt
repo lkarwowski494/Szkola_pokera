@@ -1,0 +1,107 @@
+$ curl -sS -o <scratchpad>/bgto/bb-vs-btn.html https://beyondgto.com/defense/bb-vs-btn ; to samo dla bb-vs-sb (2026-11-17), kod 0 i 0
+$ env -u NODE_PATH python3 -I <scratchpad>/skrypty/siatki.py <scratchpad>/bgto apps/mobile/assets/content/tresc-70ddf027b1-pl.db
+# skrypt (niezależny od porownaj-siatki.py roli 06): kolejność klas jak HAND_CLASSES (packages/poker-core/src/ranges.ts:18-28), obrona = 1 - pas z data-tip „defend N%”
+# | import sqlite3, json, re, sys
+# | bgto, db = sys.argv[1], sys.argv[2]
+# | R='23456789TJQKA'; C=[]
+# | for r in range(12,-1,-1):
+# |   for c in range(12,-1,-1):
+# |     C.append(R[r]+R[c] if r==c else (R[r]+R[c]+'s' if c<r else R[c]+R[r]+'o'))
+# | k=lambda h:6 if len(h)==2 else (4 if h[2]=='s' else 12)
+# | con=sqlite3.connect(db)
+# | print('kolumny ranges:', [x[1] for x in con.execute('pragma table_info(ranges)')])
+# | for spot,f in [('vs-open.bb-vs-btn','bb-vs-btn'),('vs-open.bb-vs-sb','bb-vs-sb'),('nine.vs-open.bb-vs-btn','bb-vs-btn'),('nine.vs-open.bb-vs-sb','bb-vs-sb')]:
+# |   row=con.execute('select groups,uncertain from ranges where id=?',(spot,)).fetchone()
+# |   g=json.loads(row[0]); app=dict(zip(C,g[0]['freqs']))
+# |   pub={}
+# |   for t in re.findall(r'data-tip="([^"]*)"',open(f'{bgto}/{f}.html',encoding='utf-8').read()):
+# |     m=re.search(r'defend (\d+)%',t); pub[t.split(' · ')[0]]=int(m.group(1))/100 if m else 0.0
+# |   assert len(pub)==169
+# |   w=lambda d:sum(d[h]*k(h) for h in C)/1326
+# |   d=[h for h in C if abs(app[h]-pub[h])>=0.5]
+# |   print(f'{spot}: grupy={len(g)} {g[0].get("label","")!r}; obrona app {w(app):.3f} pub {w(pub):.3f}; niepewne={row[1]}; |roznica|>=50pp: {len(d)} rak, {sum(k(h) for h in d)} komb.')
+# |   for h in d: print(f'   {h}: app {app[h]:.2f} pub {pub[h]:.2f}')
+# |   zg=sum(k(h) for h in C if (app[h]>=0.5)==(pub[h]>=0.5))/1326
+# |   print(f'   zgodnosc gram/pas (prog 50%) wazona kombinacjami: {zg:.3f}')
+kolumny ranges: ['id', 'title', 'hero', 'path', 'play_percent', 'groups', 'uncertain', 'solver', 'actions']
+vs-open.bb-vs-btn: grupy=1 ''; obrona app 0.496 pub 0.451; niepewne=[]; |roznica|>=50pp: 16 rak, 136 komb.
+   J3s: app 0.01 pub 1.00
+   T4s: app 0.86 pub 0.08
+   T2s: app 1.00 pub 0.00
+   K8o: app 0.99 pub 0.34
+   Q8o: app 1.00 pub 0.00
+   K7o: app 1.00 pub 0.00
+   T7o: app 0.63 pub 0.00
+   87o: app 0.00 pub 0.53
+   74s: app 0.18 pub 1.00
+   A6o: app 0.95 pub 0.31
+   63s: app 0.15 pub 1.00
+   K5o: app 0.86 pub 0.00
+   75o: app 0.98 pub 0.00
+   42s: app 0.42 pub 0.99
+   32s: app 0.00 pub 0.65
+   A2o: app 0.82 pub 0.00
+   zgodnosc gram/pas (prog 50%) wazona kombinacjami: 0.879
+vs-open.bb-vs-sb: grupy=1 ''; obrona app 0.530 pub 0.555; niepewne=[]; |roznica|>=50pp: 13 rak, 116 komb.
+   J3s: app 0.00 pub 1.00
+   94s: app 0.00 pub 0.71
+   J8o: app 0.00 pub 0.86
+   84s: app 0.00 pub 1.00
+   T7o: app 0.99 pub 0.05
+   87o: app 0.00 pub 0.74
+   73s: app 0.00 pub 1.00
+   K5o: app 0.96 pub 0.09
+   75o: app 0.93 pub 0.04
+   65o: app 0.00 pub 0.78
+   54o: app 0.00 pub 0.61
+   A3o: app 0.00 pub 1.00
+   32s: app 0.00 pub 1.00
+   zgodnosc gram/pas (prog 50%) wazona kombinacjami: 0.913
+nine.vs-open.bb-vs-btn: grupy=1 ''; obrona app 0.496 pub 0.451; niepewne=[]; |roznica|>=50pp: 16 rak, 136 komb.
+   J3s: app 0.01 pub 1.00
+   T4s: app 0.86 pub 0.08
+   T2s: app 1.00 pub 0.00
+   K8o: app 0.99 pub 0.34
+   Q8o: app 1.00 pub 0.00
+   K7o: app 1.00 pub 0.00
+   T7o: app 0.63 pub 0.00
+   87o: app 0.00 pub 0.53
+   74s: app 0.18 pub 1.00
+   A6o: app 0.95 pub 0.31
+   63s: app 0.15 pub 1.00
+   K5o: app 0.86 pub 0.00
+   75o: app 0.98 pub 0.00
+   42s: app 0.42 pub 0.99
+   32s: app 0.00 pub 0.65
+   A2o: app 0.82 pub 0.00
+   zgodnosc gram/pas (prog 50%) wazona kombinacjami: 0.879
+nine.vs-open.bb-vs-sb: grupy=1 ''; obrona app 0.530 pub 0.555; niepewne=[]; |roznica|>=50pp: 13 rak, 116 komb.
+   J3s: app 0.00 pub 1.00
+   94s: app 0.00 pub 0.71
+   J8o: app 0.00 pub 0.86
+   84s: app 0.00 pub 1.00
+   T7o: app 0.99 pub 0.05
+   87o: app 0.00 pub 0.74
+   73s: app 0.00 pub 1.00
+   K5o: app 0.96 pub 0.09
+   75o: app 0.93 pub 0.04
+   65o: app 0.00 pub 0.78
+   54o: app 0.00 pub 0.61
+   A3o: app 0.00 pub 1.00
+   32s: app 0.00 pub 1.00
+   zgodnosc gram/pas (prog 50%) wazona kombinacjami: 0.913
+kod wyjścia: 0
+
+$ grep -o data-tip (wybrane ręce) bb-vs-btn.html
+data-tip="J3s · call 100% · defend 100%"
+data-tip="T2s · fold 100%"
+data-tip="Q8o · fold 100%"
+data-tip="K7o · fold 100%"
+data-tip="74s · call 100% · defend 100%"
+data-tip="63s · call 100% · defend 100%"
+data-tip="75o · fold 100%"
+kod wyjścia: 0
+
+$ grep -o (nagłówek strony) bb-vs-btn.html
+Facing a 2.5bb button open in 6-max cash at 100bb, the big blind 3-bets 13% of hands, calls 32
+kod wyjścia: 0
