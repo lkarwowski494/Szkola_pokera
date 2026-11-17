@@ -27,3 +27,10 @@ Analogia z Treningiem (CLAUDE.md, D-191): repo `lkarwowski494/trening` nie jest 
 - Słowa właściciela (ok. 11:02 UTC, przekazane przez koordynatora): „c: głęboki”. Zastępuje rekomendację D-1991 (standardowy).
 - Skutek: 12 ról + drugi niezależny przebieg 06 (`K/role/06-tresci-b/`, ID od 06-tresci-501; najważniejszy obszar krytyczny: poprawność strategii, liczb i pomoc hazardowa), 5 soczewek-subagentów, weryfikacja przeciwna P0, P1 i P2 w obszarach krytycznych. Koszt 8–15 mln tokenów, 130–260 USD [OCENA]; próg STOP wyjątkowego 22,5 mln tokenów / ok. 390 USD; punkt kontrolny po partii 1.
 - Odrzucone przez właściciela: (a) standardowy, (b) lekki.
+
+## D-1996 · 2026-11-17 · Scalanie i poziomy po weryfikacji przeciwnej
+- Decyzja: 79 pozycji (78 ról + 1 z GEN-02) scalone do 66 (`plan-napraw.json`); poziomy po weryfikacji 7 grup: P0 0, P1 6 (001–006), P2 60. Odrzucone: zostawić P1 „bez blokady wg CLAUDE.md pkt 1” (skala projektu nie zna takiego poziomu; weryfikatorzy g5, g6 obniżyli do P2).
+## D-1997 · 2026-11-17 · Werdykt
+- Kurs: trafny; stan: ZABLOKOWANE. Wg CLAUDE.md pkt 1: build TestFlight 1012 blokuje tylko M1-audytor-generalny-002 (+ bramka JAK-19: protokół F 1011 otwarty); App Store blokują 001–006. Odrzucone: „blokuje wszystko P1 także dla 1012” (ryzyko odrzucenia Apple nie dotyczy buildu wewnętrznego — weryfikacja g1, g2).
+## D-1998 · 2026-11-17 · Wyciągi > 250 znaków (06-tresci-001) jako P2 z naprawą w partii 1
+- Decyzja: poziom P2 dla wydania (pliki poza aplikacją i metadanymi, weryfikacja g1), ale zadanie 007 w partii 1, bo repo jest publiczne (kategoria „prawa autorskie”). Odrzucone: P1 blokujące 1012 (build nie zawiera tych plików).

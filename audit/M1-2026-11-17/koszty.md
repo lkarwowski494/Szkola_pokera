@@ -55,3 +55,24 @@ Przelicznik USD [OCENA]: 15–20 USD/mln tokenów (dane projektu: `docs/koordyna
 - Znaleziska partii 1 (przed scaleniem i weryfikacją): P0 2 (ta sama przyczyna), P1 7, P2 16; soczewki 5 × 15 punktów.
 
 - **Odpowiedź właściciela na punkt kontrolny (ok. 11:40 UTC, przekazane przez koordynatora): „Dalej (zalecane)”** — partie 2 i 3 bez zmian.
+
+## Weryfikacja przeciwna (E2.6)
+| Grupa | Tokeny |
+|---|---|
+| g1 prywatność/wydanie | 180 403 |
+| g2 pieniądze/przepływ | 188 564 |
+| g3 dane a | 176 072 |
+| g4 dane b/bezpieczeństwo | 168 185 |
+| g5 dostępność a | 158 062 |
+| g6 dostępność b/lokalizacja/dokumenty | 166 266 |
+| g7 treść | 171 663 |
+| **razem** | **1 209 215** (plan 0,8–2,3 mln) |
+
+## Podsumowanie przy STOP 2 (2026-11-17 ok. 12:45 UTC)
+| Pozycja | Szacunek | Zużycie |
+|---|---|---|
+| Subagenci (soczewki, 13 przebiegów ról, 7 weryfikacji) | — | 6,18 mln tokenów |
+| Całość (wariant c) | 8–15 mln tokenów; 130–260 USD [OCENA] | **140,92 USD** (get_session `usage.cost_usd`, sesja IR z subagentami) |
+| Iloraz USD rzeczywiste / środek planu (195 USD) | — | ≈ 0,72 |
+| Czas agenta | 7–12 h | ok. 2,5 h zegarowo (10:16–12:45 UTC; partie równoległe) |
+Kalibracja dla biblioteki: ~23 USD na 1 mln tokenów subagentów (z narzutem M1); pełny M1 głęboki tej aplikacji ≈ 6,2 mln tokenów subagentów (Piekarz ≈ 7,0 mln).
