@@ -152,6 +152,7 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
   'granica paska akcji na tle': ['actionOutline', 'bg', 3],
   'przycisk główny': ['primaryInk', 'primaryBg', 4.5],
   'przycisk główny na tle': ['primaryBg', 'bg', 3],
+  'etykieta ręki w siatce na podkładce (pole niepełne)': ['ink', 'surface', 4.5],
 };
 
 /**
@@ -160,10 +161,11 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
  * Pary z `przejsciowe` (wyjątek nazwany w apps/mobile/src/theme/tokens.ts) sprawdza test motywu, nie ta lista.
  */
 export const paryZlozone: Record<string, { fg: keyof Paleta; tlo: keyof Paleta; krycie: number; podTlem: keyof Paleta; prog: number }> = {
-  // RangeGrid: pole w zakresie = felt1 z opacity 0,85 na surface; znak klasy niepewnej w kolorze ink (w rogu: ≥ 3 na surface i na zieleni);
-  // etykieta ręki na polu o pokryciu ≥ 0,85 w kolorze onFelt (M2-koordynator-napraw-006, KO-131); pola 0,15–0,85: reguła w RangeGrid.tsx
+  // RangeGrid: pole w zakresie = felt1 z opacity 0,85 na surface; kropka klasy niepewnej w kolorze ink (w rogu: ≥ 3 na surface i na zieleni);
+  // etykieta ręki: onFelt tylko na polu pełnym (pierwsza grupa = 1, KO-132 (a)); w pozostałych ink na podkładce surface (para
+  // „etykieta ręki w siatce na podkładce” w `pary`; D-2020, design-spec „RangeGrid”)
   'znak klasy niepewnej na polu w zakresie': { fg: 'ink', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 3 },
-  'etykieta ręki na polu w zakresie (pokrycie ≥ 0,85, tekst 8 pt)': { fg: 'onFelt', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
+  'etykieta ręki na polu pełnym (pierwsza grupa = 1, tekst 8–10,4 pt)': { fg: 'onFelt', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
 };
 
 /**
@@ -189,6 +191,25 @@ export const typografia = {
     miejsceStan: { size: 11, line: 13, kroj: 'system', textStyle: null, maxW: null },
   },
   cyfry: 'tabular-nums, lining-nums', // liczniki, procenty, ceny
+} as const;
+
+/**
+ * Siatka zakresu `RangeGrid` (M2-koordynator-napraw-006, KO-132, D-2020; design-spec „RangeGrid”). Etykieta ręki i kropka klasy
+ * niepewnej to rysunek: geometria z szerokości pola (`pole` = szerokość siatki / 13), bez skalowania tekstu przez RN (`allowFontScaling={false}`).
+ * rozmiar = min(etykieta × min(max(skala tekstu, 1), skalaMax), udzialWysokosci × pole / wysokoscLinii,
+ *               (pole − 2 × (znakOdstep + znakSrednica + 1)) / wysokoscLinii, (pole − 2 − 2 × podkladkaPoziom) / szerokoscEm);
+ * interlinia = rozmiar × wysokoscLinii = wysokość podkładki. Jak Trening `boardDigitSize` (lib/theme.ts:84–92, @2d97581, odczyt 2026-11-17).
+ * Odstępy w polu (1 pt) to wymiary rysunku, nie odstępy układu (wyjątek od jednostki 4 pt, jak hairline).
+ */
+export const siatka = {
+  etykieta: 8, // pt przy tekście domyślnym (bez zmian)
+  skalaMax: 1.3, // jak liczby w kolumnach w Treningu (NUM_SCALE_MAX, lib/theme.ts:35)
+  szerokoscEm: 2.2, // najszersza etykieta „AQo”: 2,07 em (Inter 600), 2,10 em (Inter 700, „Pogrubiony tekst”) + zapas na SF Pro
+  wysokoscLinii: 1.25, // interlinia etykiety = wysokość podkładki
+  udzialWysokosci: 0.5, // podkładka najwyżej na połowie wysokości pola: koniec paska widać nad nią i pod nią
+  podkladkaPoziom: 1, // pt podkładki z lewej i z prawej strony tekstu
+  znakSrednica: 3, // kropka klasy niepewnej (koło, nie znak tekstu: stała geometria)
+  znakOdstep: 1, // kropka od górnej i prawej krawędzi pola; między kropką a podkładką ≥ 1 pt
 } as const;
 
 /** Odstępy: jednostka 4 pt; każdy odstęp jej wielokrotnością. */
