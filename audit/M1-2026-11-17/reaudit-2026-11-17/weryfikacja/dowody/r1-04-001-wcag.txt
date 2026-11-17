@@ -1,0 +1,27 @@
+Odczyt 2026-11-17 (dziś), przez curl:
+$ curl -sS -o wcag22.html -w "%{http_code}\n" https://www.w3.org/TR/WCAG22/
+200
+kod 0
+$ curl -sS -L -o und.html -w "%{http_code}\n" https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html
+200
+kod 0
+
+$ python3 -I (wycięcie tekstu: usunięcie znaczników HTML, html.unescape, zwinięcie białych znaków; fragmenty dosłowne)
+[WCAG 2.2, SC 1.4.11]
+Success Criterion 1.4.11 Non-text Contrast Understanding Non-text Contrast | How to Meet Non-text Contrast (Level AA) The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s): User Interface Components Visual information required to identify user interface components and states , except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author; Graphical Objects Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.
+
+[WCAG 2.2, SC 1.4.1]
+Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+
+[Understanding 1.4.11, Symbolic or graphical text characters]
+Similarly, there are situations where text characters are used as symbols – used for their visual appearance, rather than expressing something in human language . These cases fall under the definition of non-text content .
+
+[Understanding 1.4.11, Required for understanding]
+If a person needs to perceive a graphic, or part of a graphic (a graphical object) in order to understand the content it should have sufficient contrast.
+
+[Understanding 1.4.11, procedura testu]
+Identify each graphic on the page that includes information required for understanding the content (i.e., excluding graphics which have visible text for the same information, or are decorative)
+
+[Understanding 1.4.11, próg bez zaokrąglania]
+the computed values should not be rounded (e.g. 2.999:1 would not meet the 3:1 threshold)
+kod 0

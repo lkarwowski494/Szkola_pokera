@@ -1,0 +1,39 @@
+$ python3 -I /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/skrypty/r1-kontrast.py apps/mobile/src/theme/tokeny.ts apps/mobile/assets/content/tresc-d0b124291f-pl.db  (kopia robocza @196cb8c2)
+light: felt1=#23694D surface=#FFFFFF muted=#46557A ink=#0A1430 pole=#448068 | kropka muted/pole 1.59:1 | muted/surface 7.39:1 | ink/pole 3.90:1 | BRAK wobec 3:1
+lightHigh: felt1=#1B5940 surface=#FFFFFF muted=#2C3A5E ink=#0A1430 pole=#3D725D | kropka muted/pole 2.01:1 | muted/surface 11.21:1 | ink/pole 3.25:1 | BRAK wobec 3:1
+dark: felt1=#1C5A41 surface=#13214A muted=#B0BCD8 ink=#F2EEE3 pole=#1B5142 | kropka muted/pole 4.76:1 | muted/surface 8.21:1 | ink/pole 7.82:1 | OK wobec 3:1
+darkHigh: felt1=#174D37 surface=#13214A muted=#D5DCEC ink=#F2EEE3 pole=#16463A | kropka muted/pole 7.71:1 | muted/surface 11.37:1 | ink/pole 9.14:1 | OK wobec 3:1
+  bb-vs-btn T2s 0.998
+  bb-vs-btn K8o 0.992
+  bb-vs-btn Q8o 0.999
+  bb-vs-btn K7o 1
+  bb-vs-btn 75o 0.976
+klas niepewnych: 263; pasek >= 0.95: 71; 0.75-0.95: 17
+kod 0
+
+--- treść skryptu (/tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/skrypty/r1-kontrast.py) ---
+# Niezależny pomiar: kontrast kropki muted na polu felt1*0.85+surface*0.15 (RangeGrid.tsx:30,34,42) i udział pól >=0.95 w bazie pl
+import re, sys, json, sqlite3
+tok = open(sys.argv[1], encoding='utf-8').read()
+def blok(n):
+    m = re.search(r'const %s(?:: Paleta)? = \{(.*?)\n\};' % n, tok, re.S); return dict(re.findall(r"(\w+): '(#[0-9A-Fa-f]{6})'", m.group(1)))
+L = blok('light'); D = {**L, **blok('dark')}; LH = {**L, **blok('lightHigh')}; DH = {**D, **blok('darkHigh')}
+def rgb(h): return [int(h[i:i+2], 16) for i in (1, 3, 5)]
+def lum(c):
+    f = lambda v: (v/255)/12.92 if v/255 <= 0.04045 else ((v/255+0.055)/1.055)**2.4
+    r, g, b = map(f, c); return 0.2126*r+0.7152*g+0.0722*b
+def cr(a, b):
+    x, y = sorted([lum(a), lum(b)], reverse=True); return (x+0.05)/(y+0.05)
+for nazwa, P in [('light', L), ('lightHigh', LH), ('dark', D), ('darkHigh', DH)]:
+    pole = [0.85*f + 0.15*s for f, s in zip(rgb(P['felt1']), rgb(P['surface']))]
+    print(f"{nazwa}: felt1={P['felt1']} surface={P['surface']} muted={P['muted']} ink={P['ink']} pole=#{''.join('%02X'%round(v) for v in pole)} | kropka muted/pole {cr(rgb(P['muted']), pole):.2f}:1 | muted/surface {cr(rgb(P['muted']), rgb(P['surface'])):.2f}:1 | ink/pole {cr(rgb(P['ink']), pole):.2f}:1 | {'BRAK' if cr(rgb(P['muted']), pole) < 3 else 'OK'} wobec 3:1")
+R = 'AKQJT98765432'
+HC = [R[i]+R[j] if i == j else (R[i]+R[j]+'s' if j > i else R[j]+R[i]+'o') for i in range(13) for j in range(13)]
+db = sqlite3.connect('file:'+sys.argv[2]+'?mode=ro', uri=True)
+n = z = g = 0
+for id_, groups, unc in db.execute('select id, groups, uncertain from ranges'):
+    gr = json.loads(groups); u = json.loads(unc or '[]')
+    for hc in u:
+        s = sum(x['freqs'][HC.index(hc)] for x in gr); n += 1; z += s >= 0.95; g += 0.75 <= s < 0.95
+        if id_ == 'vs-open.bb-vs-btn' and s >= 0.95: print('  bb-vs-btn', hc, round(s, 3))
+print(f'klas niepewnych: {n}; pasek >= 0.95: {z}; 0.75-0.95: {g}')
