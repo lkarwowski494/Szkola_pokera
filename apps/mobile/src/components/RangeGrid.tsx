@@ -14,7 +14,9 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
  * Etykieta ręki (M2-koordynator-napraw-006, KO-132 (a) i (c), D-2020; design-spec „RangeGrid”): pole w pełni zielone (pierwsza grupa = 1) ma `onFelt`
  * (≥ 4,5:1 do zieleni z kryciem 0,85), każde inne `ink` na podkładce `surface` (≥ 4,5:1); jedna gałąź: `ink` ⇔ podkładka. Rozmiar etykiety z szerokości pola
  * i skali tekstu (`wymiaryEtykietySiatki`), bez skalowania przez RN: etykieta to rysunek, treść o siatce niesie tytuł, legenda i etykieta czytnika ekranu.
- * Kolor pola: udział pierwszej grupy akcji (np. przebicie) i drugiej (np. sprawdzenie) jako paski.
+ * Kolor pola: udział pierwszej grupy akcji (np. przebicie) i drugiej (np. sprawdzenie) jako paski. Pasek pierwszej grupy i próbka legendy to `rangeFill`
+ * (M2-koordynator-napraw-009, D-2021), nie `felt1` (suknem stołu): w ciemnych motywach `felt1` dawał pasek 1,47–1,71:1 do `surface`; `rangeFill` ≥ 3:1 do `surface`,
+ * `onFelt` ≥ 4,5:1 i kropka `ink` ≥ 3:1 na pasku (pary w `paryZlozone`).
  */
 export function RangeGrid({ spot }: { spot: RangeSpot }) {
   const tk = useTokens();
@@ -23,7 +25,7 @@ export function RangeGrid({ spot }: { spot: RangeSpot }) {
   const [szerSiatki, setSzerSiatki] = useState<number | null>(null); // z `onLayout`; przed pomiarem szerokość okna minus marginesy ekranu
   const pole = (szerSiatki ?? szerOkna - 2 * odstep.l) / 13;
   const { fontSize, lineHeight } = wymiaryEtykietySiatki(pole, skala);
-  const colors = [tk.felt1, tk.przejsciowe.warn, tk.cardBlue];
+  const colors = [tk.rangeFill, tk.przejsciowe.warn, tk.cardBlue];
   const { t, i18n } = useTranslation();
   // A04-10 (D-284): liczba w formacie języka (jak `features/stol/skala.ts`), tekst z t()
   const pct = new Intl.NumberFormat(i18n.language || 'pl', { maximumFractionDigits: 1 }).format(spot.playPercent * 100);
@@ -37,7 +39,7 @@ export function RangeGrid({ spot }: { spot: RangeSpot }) {
               const i = row * 13 + col;
               const hc = HAND_CLASSES[i]!;
               let offset = 0;
-              const pelne = (spot.groups[0]?.freqs[i] ?? 0) >= 1; // grupa 0 = felt1; pole z grupą 2 lub 3 nie jest pełne w sensie tej reguły
+              const pelne = (spot.groups[0]?.freqs[i] ?? 0) >= 1; // grupa 0 = rangeFill; pole z grupą 2 lub 3 nie jest pełne w sensie tej reguły
               return (
                 <View key={col} style={[styles.cell, { backgroundColor: tk.surface, borderColor: tk.separator }]}>
                   <View style={StyleSheet.absoluteFill}>
