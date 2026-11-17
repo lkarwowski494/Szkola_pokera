@@ -1,0 +1,1800 @@
+{
+  "wersja": 1,
+  "audyt": {
+    "data": "2026-11-17",
+    "commit": "f75acdff16915aeb43ff788888216e28616c11ed",
+    "raport": "audit/M1-audytor-generalny-2026-11-17.md",
+    "katalog": "audit/M1-2026-11-17"
+  },
+  "werdykt": {
+    "kurs": "trafny",
+    "stan": "ZABLOKOWANE"
+  },
+  "przyczyny": [
+    {
+      "id": "SYS-01",
+      "opis": "Decyzje (D-530 scenariusze w 1.0, ADR 0011 bez trybu gry, D-158, D-167, D-302) nie przechodzą do dokumentów źródłowych, tekstów sklepu, notatek, lekcji i kontroli CI — brak mechanizmu propagacji decyzji",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-02",
+      "opis": "Brak danych właściciela W-04 (e-mail kontaktu, dane sprzedawcy) blokuje politykę prywatności, kontakt, zgłaszanie błędów i stronę JP",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-03",
+      "opis": "Wymagania odporności z architektury (ADR 0013 AppState, tlo-i-bledy.md §1 i §4, stany-bledow-fakty.md, analogia Treningu) niewdrożone w kodzie i bez testów",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-04",
+      "opis": "Dynamic Type/AX5 i pseudolokalizacja sprawdzane zrzutami tylko dla ekranu scenariusza (pełna aplikacja nie startuje w Expo web)",
+      "zalozenie": null
+    }
+  ],
+  "decyzje": [
+    {
+      "id": "DEC-01",
+      "pytanie": "Adres e-mail kontaktu i dane sprzedawcy (W-04) dla polityki prywatności, strony wsparcia, notatek App Review i strony JP 特定商取引法 (D-361)",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Właściciel podaje teraz e-mail i dane sprzedawcy; 08 podpina ADRES_PRYWATNOSCI (D-308) i ADRES_KONTAKTOWY, 10 uzupełnia site/ i notatki z jednego źródła",
+          "kompromis": "pełna naprawa 001 i 11-wzrost-001; wymaga decyzji o publicznym adresie (DSA dla FR/DE)"
+        },
+        {
+          "id": "b",
+          "opis": "Teraz tylko ADRES_PRYWATNOSCI (adres z D-308), kontakt i dane sprzedawcy przed wysyłką do App Store",
+          "kompromis": "szybciej zamyka przycisk; wysyłka do App Store nadal zablokowana"
+        }
+      ],
+      "zrodla": [
+        "10-wydanie-001",
+        "02-monetyzacja-001",
+        "01-odkrywanie-002",
+        "11-wzrost-001"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”",
+      "dane_wlasciciela": {
+        "email_kontaktu": "support@apps4brew.com",
+        "sprzedawca": "Łukasz Karwowski"
+      }
+    },
+    {
+      "id": "DEC-02",
+      "pytanie": "Strażnik pętli awarii i tryb awaryjny jak w Treningu?",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Dodać strażnika i tryb awaryjny z eksportem (analogia Trening, D-191)",
+          "kompromis": "praca 08 i test; mniejsze ryzyko utraty dostępu do danych"
+        },
+        {
+          "id": "b",
+          "opis": "Odstępstwo nazwane w ADR (dziś brak awarii)",
+          "kompromis": "zero pracy teraz; brak wyjścia przy pętli awarii u pierwszych użytkowników"
+        }
+      ],
+      "zrodla": [
+        "12-niezawodnosc-003"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-03",
+      "pytanie": "Funkcje bez wiersza w kontrakcie (zakładka Postęp, seria dni, talia czterokolorowa, wibracje)",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Dopisać F-nn i BR z testami (03), ukryć surowe ID",
+          "kompromis": "zgodność z zasadą 18 bez utraty funkcji"
+        },
+        {
+          "id": "b",
+          "opis": "Usunąć serię dni i zbędne przełączniki",
+          "kompromis": "mniej kodu; tracimy element powrotu (opis sklepu obiecuje serię)"
+        }
+      ],
+      "zrodla": [
+        "03-zakres-002",
+        "11-wzrost-002"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-04",
+      "pytanie": "Przejście poznawcze 19 kryteriów „Intuicyjność” — kiedy?",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Rola 04 robi przejście poznawcze przed wysyłką do App Store",
+          "kompromis": "koszt jednej sesji 04; dowód warunku zasady 18"
+        },
+        {
+          "id": "b",
+          "opis": "Po 1.0, z testem F właściciela jako zastępczym",
+          "kompromis": "tańsze teraz; kryteria zakresu bez wyniku przy publikacji"
+        }
+      ],
+      "zrodla": [
+        "03-zakres-004",
+        "04-studio-projektowe-010"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-05",
+      "pytanie": "Lekcja M13-L1 o „raporcie z gry” po usunięciu trybu gry (ADR 0011)",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Przepisać lekcję na przegląd własnych decyzji z sesji (bez żetonów)",
+          "kompromis": "zachowuje temat przeglądu gry; praca 06 + przekład 12 języków"
+        },
+        {
+          "id": "b",
+          "opis": "Usunąć lekcję z programu",
+          "kompromis": "mniej pracy; luka w module „przegląd własnej gry” obiecanym w opisie sklepu"
+        }
+      ],
+      "zrodla": [
+        "01-odkrywanie-005"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-06",
+      "pytanie": "Droga subskrybent → dożywotni w aplikacji",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Bez zmian do danych o udziale planów",
+          "kompromis": "zero pracy; subskrybent kupuje dożywotni tylko przez sklep"
+        },
+        {
+          "id": "b",
+          "opis": "Dodać ścieżkę upgrade z ekranu zakupu",
+          "kompromis": "więcej przychodu z dożywotniego; praca 02/08 i testy StoreKit"
+        }
+      ],
+      "zrodla": [
+        "02-monetyzacja-005"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-07",
+      "pytanie": "Skrypt lint bez ESLint",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Dodać ESLint z konfiguracją Expo do pnpm run ci",
+          "kompromis": "bramka mechaniczna (zasada 21); jednorazowa praca i możliwe poprawki"
+        },
+        {
+          "id": "b",
+          "opis": "Usunąć skrypt lint i martwe wyłączenia",
+          "kompromis": "zero nowych bramek; martwy skrypt znika"
+        }
+      ],
+      "zrodla": [
+        "08-programista-005"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-08",
+      "pytanie": "Kontrole polityki języków: rejestr i zrzuty pseudolokalizacji",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "b",
+      "wybor": "b",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Uzupełnić rejestr i zrzuty pseudolokalizacji wszystkich ekranów przed App Store",
+          "kompromis": "pełna kontrola; pełna aplikacja nie startuje w Expo web — duży koszt"
+        },
+        {
+          "id": "b",
+          "opis": "Teraz rejestr języków; zrzuty wszystkich ekranów po 1.0",
+          "kompromis": "tanio; ucięcia poza scenariuszem wykryje dopiero test F"
+        }
+      ],
+      "zrodla": [
+        "09-lokalizacja-006",
+        "09-lokalizacja-007"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-09",
+      "pytanie": "Strona produktu w 6 czy 12 językach na start",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Metadane fali 2 (12 języków, m.in. de-DE) przed wysyłką do App Store",
+          "kompromis": "spójność z buildem; praca 10 + przegląd"
+        },
+        {
+          "id": "b",
+          "opis": "Start z 6 językami",
+          "kompromis": "szybciej; rynek DE bez lokalnej strony"
+        }
+      ],
+      "zrodla": [
+        "10-wydanie-005"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-10",
+      "pytanie": "Plan zrzutów sklepu",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Dodać zrzuty ocenionej decyzji i scenariusza",
+          "kompromis": "pokazuje główną pracę; praca 10/04"
+        },
+        {
+          "id": "b",
+          "opis": "Bez zmian",
+          "kompromis": "zero pracy; zrzuty nie pokazują wyróżnika"
+        }
+      ],
+      "zrodla": [
+        "10-wydanie-006"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-11",
+      "pytanie": "Hipotezy wzrostu z progami i datami",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "b",
+      "wybor": "b",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Teraz: build roli 11 (docs/wzrost.md, progi, próby, daty)",
+          "kompromis": "plan gotowy przed premierą; koszt sesji"
+        },
+        {
+          "id": "b",
+          "opis": "Po premierze, gdy będą dane",
+          "kompromis": "tanio teraz; decyzje po premierze bez progów"
+        }
+      ],
+      "zrodla": [
+        "11-wzrost-003"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-12",
+      "pytanie": "Sygnał o awariach po premierze bez Maca",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Raporty awarii TestFlight/App Store Connect czytane przez właściciela + e-mail z W-04 w aplikacji",
+          "kompromis": "bez SDK; wymaga rytmu właściciela"
+        },
+        {
+          "id": "b",
+          "opis": "Bez kanału do pierwszych użytkowników",
+          "kompromis": "zero pracy; awarie widoczne dopiero w recenzjach"
+        }
+      ],
+      "zrodla": [
+        "12-niezawodnosc-004"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-13",
+      "pytanie": "Prawa USA o weryfikacji wieku (Teksas od 2026-06, Utah, Luizjana) przy kategorii 18+",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Rola 10 ocenia wymagania (Declared Age Range API, „istotna zmiana”) i zapisuje decyzję przed wysyłką",
+          "kompromis": "koszt krótkiej sesji 10; ryzyko odrzucenia albo naruszenia nazwane"
+        },
+        {
+          "id": "b",
+          "opis": "Przyjąć ryzyko bez oceny",
+          "kompromis": "zero pracy; nieznane ryzyko na rynku głównym"
+        }
+      ],
+      "zrodla": [
+        "M1-audytor-generalny-066"
+      ],
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
+    },
+    {
+      "id": "DEC-14",
+      "pytanie": "Aktualizacja akcji przypiętych do SHA",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "b",
+      "wybor": null,
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "Dependabot dla github-actions",
+          "kompromis": "automatyczne PR; odstępstwo od Treningu do nazwania"
+        },
+        {
+          "id": "b",
+          "opis": "Ręczny przegląd SHA przy każdym audycie wydania (jak Trening)",
+          "kompromis": "zero nowych narzędzi; zależy od pamięci procesu"
+        }
+      ],
+      "zrodla": [
+        "M1-audytor-generalny-070"
+      ]
+    }
+  ],
+  "zadania": [
+    {
+      "id": "M1-audytor-generalny-001",
+      "tytul": "Polityka prywatności niepodpięta w aplikacji (przycisk nic nie otwiera) i brak kontaktu na stronie wsparcia, w polityce i notatkach (W-04)",
+      "zrodla": [
+        "10-wydanie-001",
+        "02-monetyzacja-001",
+        "01-odkrywanie-002",
+        "11-wzrost-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": "DEC-01",
+      "przyczyna": "SYS-02",
+      "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
+      "test_akceptacyjny": "test w pnpm run ci odrzuca null w ADRES_PRYWATNOSCI/ADRES_KONTAKTOWY i wstawki [DO USTALENIA]/[SUPPORT EMAIL] w site/ i store/review-notes; przycisk „Privacy Policy” otwiera politykę; curl Support URL zawiera e-mail; PU-015 i PU-017 = OK",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-002",
+      "tytul": "Siatki obrony BB (vs BTN i vs SB, 6- i 9-max) oceniają 16 i 13 rąk wbrew opublikowanemu rozwiązaniu solvera, bez klas niepewnych",
+      "zrodla": [
+        "06-tresci-501"
+      ],
+      "poziom": "P1",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci-b/06-tresci-2026-11-17.md",
+      "test_akceptacyjny": "ręce z rozbieżnością ≥ 50 pp wobec opublikowanego solvera oznaczone jako niepewne/mieszane (ocena dopuszcza obie akcje) tym samym kryterium co btn-vs-co i sb-vs-btn; test na 4 spotach BB; źródło w rejestrze",
+      "status": "zweryfikowane",
+      "commit": "a2da1175",
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”",
+      "reaudit": "pętla 1, 2026-11-17, 196cb8c2: reaudit-2026-11-17/wyniki.md"
+    },
+    {
+      "id": "M1-audytor-generalny-003",
+      "tytul": "Po zakupie albo przywróceniu w sesji i scenariuszu ekran dalej pokazuje wyczerpany limit i „Pełny dostęp”",
+      "zrodla": [
+        "02-monetyzacja-002"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "02-monetyzacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-17.md",
+      "test_akceptacyjny": "sonda mon05 (sesja, powtórka, scenariusz, przywrócenie, nasłuch przed zwrotem) 5/5 zielona w CI: po zakupie ekran startu bez licznika",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-004",
+      "tytul": "Ćwiczenia z zakresem pokazują „✗ Błąd” zamiast „Niedokładność” dla akcji z częstością 0 < f < 3,5% (377 akcji; RD-11, D-143)",
+      "zrodla": [
+        "01-odkrywanie-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-17.md",
+      "test_akceptacyjny": "dla każdej akcji z 0 < f < 0,035 ekran pokazuje stopień `niedokladnosc` zgodny z rdzeniem; test na pełnej liście par spot × klasa",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-005",
+      "tytul": "Kafel „Scenariusze” na ekranie „Dziś” pokazuje „Wkrótce”, choć scenariusze działają (D-581)",
+      "zrodla": [
+        "03-zakres-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/03-zakres/03-zakres-2026-11-17.md",
+      "test_akceptacyjny": "kafel pokazuje „Poziom: … (auto)” wg D-581 we wszystkich 12 językach; test kafle-bi zaktualizowany (nie utrwala „Wkrótce”)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-006",
+      "tytul": "Notatki dla App Review, opis sklepu, ekran zakupu i README pomijają scenariusze (D-530); kontrola CI AK-K-11-l wymusza zawetowaną D-305",
+      "zrodla": [
+        "10-wydanie-002",
+        "10-wydanie-003",
+        "02-monetyzacja-003",
+        "01-odkrywanie-006"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
+      "test_akceptacyjny": "notatki dla recenzenta opisują scenariusze i drogę do zakupu; opis i ekran zakupu wymieniają scenariusze z limitu; kontrola AK-K-11-l zgodna z D-530 (sonda z rzetelnym opisem kod 0)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-007",
+      "tytul": "Publiczne repo zawiera wyciągi z cudzych artykułów ponad limit 250 znaków (19 źródeł, 29 cytatów, najdłuższy 2565 znaków; D-141)",
+      "zrodla": [
+        "06-tresci-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-17.md",
+      "test_akceptacyjny": "skrypt kontroli w CI: żaden cytat w docs/tresci/ ponad 250 znaków; wyciągi skrócone do cytatu z adresem",
+      "status": "zweryfikowane",
+      "commit": "3f1fe76d",
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”",
+      "reaudit": "pętla 1, 2026-11-17, 196cb8c2: reaudit-2026-11-17/wyniki.md"
+    },
+    {
+      "id": "M1-audytor-generalny-008",
+      "tytul": "Brak obsługi AppState: po powrocie z tła „Dziś” pokazuje wczorajszy limit i powtórki (ADR 0013 pkt 4–5)",
+      "zrodla": [
+        "05-architekt-001",
+        "08-programista-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/05-architekt/05-architekt-2026-11-17.md",
+      "test_akceptacyjny": "po zmianie dnia i powrocie na pierwszy plan „Dziś” odświeża limit i powtórki (test z zegarem); długa operacja przerwana przy wygaśnięciu czasu w tle",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-009",
+      "tytul": "Błąd danych przy starcie daje ogólny ekran z samym ponowieniem, bez eksportu i „Zaktualizuj aplikację” (stany-bledow-fakty.md)",
+      "zrodla": [
+        "12-niezawodnosc-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-17.md",
+      "test_akceptacyjny": "migracja nieudana, baza nowsza i IOERR dają ekrany z tlo-i-bledy.md §4 (eksport albo aktualizacja); testy na każdy stan",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-010",
+      "tytul": "Uszkodzona baza postępu: cichy start od zera, odłożony plik bez drogi wyjścia z telefonu",
+      "zrodla": [
+        "12-niezawodnosc-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-17.md",
+      "test_akceptacyjny": "po uszkodzeniu bazy użytkownik widzi komunikat i może wyeksportować odłożony plik; test na kopii uszkodzonej",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-011",
+      "tytul": "Brak strażnika pętli awarii i trybu awaryjnego (Trening je ma; odstępstwo nienazwane)",
+      "zrodla": [
+        "12-niezawodnosc-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-02",
+      "przyczyna": "SYS-03",
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-02: strażnik po N nieudanych startach otwiera tryb awaryjny z eksportem (test) albo odstępstwo nazwane w ADR",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-012",
+      "tytul": "BRD nieaktualne wobec D-158 i D-167 (RD-12, blokery, NFR-JEZ-001, OP-15, errata)",
+      "zrodla": [
+        "01-odkrywanie-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "01-odkrywanie",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-17.md",
+      "test_akceptacyjny": "kontrola-brd.mjs kod 0 po wpisaniu D-158/D-167; brak odwołań do nieaktualnych reguł",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-013",
+      "tytul": "Wymagania danych BR-DANE-001/003/004 bez scenariuszy błędu w BRD (są w tlo-i-bledy.md i testach)",
+      "zrodla": [
+        "01-odkrywanie-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "01-odkrywanie",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-17.md",
+      "test_akceptacyjny": "BRD odsyła do scenariuszy błędu z tlo-i-bledy.md i testów k02/k10/k12",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-014",
+      "tytul": "Pasek strategii po ocenie bez granicy między dwiema akcjami nie-pas (kontrast 1:1; wada uśpiona przy obecnej treści)",
+      "zrodla": [
+        "04-studio-projektowe-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "granica segmentów ≥ 3:1 wobec wypełnienia w obu motywach; test kontrastu",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-015",
+      "tytul": "Haptyka wyboru akcji działa mimo wyłączonych „Wibracji przy odpowiedzi” (PU-022)",
+      "zrodla": [
+        "04-studio-projektowe-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "przy wyłączonym przełączniku wybór akcji nie wywołuje haptyki (test); PU-022 = OK",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-016",
+      "tytul": "Kontrolka poziomu scenariusza łamie nazwy poziomów przy AX5",
+      "zrodla": [
+        "04-studio-projektowe-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "przy AX5 i 320 pt nazwy poziomów całe (zawijanie albo układ pionowy); zrzut",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-017",
+      "tytul": "Liczby wyników i 6 rozmiarów/krojów tekstu wpisane na sztywno poza skalą motywu",
+      "zrodla": [
+        "04-studio-projektowe-004",
+        "08-programista-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "brak stałych fontSize/fontFamily poza modułem motywu (grep w teście); liczby mieszczą się przy AX5",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-018",
+      "tytul": "Tytuły w Literacie nie reagują na „Pogrubiony tekst”",
+      "zrodla": [
+        "04-studio-projektowe-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "przy włączonym „Pogrubiony tekst” tytuły w wariancie pogrubionym (test z mockiem ustawienia)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-019",
+      "tytul": "Linki „Słowniczek” i „Pomoc” na ekranie Postęp z celem dotyku 24 pt (D-121: 44 pt)",
+      "zrodla": [
+        "04-studio-projektowe-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "cel dotyku ≥ 44 pt (test hitSlop/minHeight)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-020",
+      "tytul": "Skala stopni łamie „Dopuszczalna” w środku wyrazu przy tekście domyślnym 390 pt (D-122)",
+      "zrodla": [
+        "04-studio-projektowe-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "najdłuższe słowo skali mieści się w 390 i 320 pt (pomiar z pliku fontu w teście)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-021",
+      "tytul": "Polski przecinek dziesiętny na sztywno w wyniku zadania liczbowego i średnim czasie sesji (apps/mobile/src/app/session.tsx:333 i :601)",
+      "zrodla": [
+        "09-lokalizacja-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "formatowanie liczb przez Intl dla języka interfejsu; test 12 języków",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-022",
+      "tytul": "Przypomnienie dzienne zostaje w poprzednim języku po zmianie języka (ADR 0012 pkt 3)",
+      "zrodla": [
+        "09-lokalizacja-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "zmiana języka planuje przypomnienie od nowa w nowym języku (test)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-023",
+      "tytul": "„Usuń postęp” zostawia na telefonie kopię sprzed importu i odłożoną uszkodzoną bazę; inwentarz prywatności niepełny",
+      "zrodla": [
+        "05-architekt-007",
+        "12-niezawodnosc-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt/05-architekt-2026-11-17.md",
+      "test_akceptacyjny": "po „Usuń postęp” brak plików kopii w Library/Caches i odłożonej bazy (test na systemie plików); inwentarz uzupełniony",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-024",
+      "tytul": "Progi oceny i zaliczenia testu w dwóch modułach (KONFIGURACJA i thresholds.ts); trzy implementacje zaliczenia",
+      "zrodla": [
+        "05-architekt-003",
+        "08-programista-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt/05-architekt-2026-11-17.md",
+      "test_akceptacyjny": "jedno źródło progów; test równości albo usunięty duplikat",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-025",
+      "tytul": "Funkcje w kodzie bez wiersza F-nn i BR: zakładka „Postęp”, seria dni, „Talia czterokolorowa”, „Wibracje”",
+      "zrodla": [
+        "03-zakres-002",
+        "11-wzrost-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-03",
+      "przyczyna": null,
+      "raport": "role/03-zakres/03-zakres-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-03: wiersze F-nn/BR z testami albo funkcje usunięte",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-026",
+      "tytul": "19 kryteriów „Intuicyjność” kontraktu bez przejścia poznawczego",
+      "zrodla": [
+        "03-zakres-004",
+        "04-studio-projektowe-010"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-04",
+      "przyczyna": null,
+      "raport": "role/03-zakres/03-zakres-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-04: wynik przejścia poznawczego dla 19 kryteriów w docs/",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-027",
+      "tytul": "Fakty zmienne (rake, dane populacji) bez terminu ponownego odczytu w rejestrze",
+      "zrodla": [
+        "06-tresci-003",
+        "06-tresci-504"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-17.md",
+      "test_akceptacyjny": "kontrola rejestru odrzuca fakt zmienny bez wazne_do",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-028",
+      "tytul": "Kontrakt zakresu nieaktualny wobec decyzji po 2026-11-10 (języki 1.0, liczba BR, stan E2E)",
+      "zrodla": [
+        "03-zakres-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "03-zakres",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/03-zakres/03-zakres-2026-11-17.md",
+      "test_akceptacyjny": "zakres.mjs --brd kod 0 po aktualizacji; liczba BR zgodna z BRD",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-029",
+      "tytul": "Pięć BR w zakresie bez testu z ID w nazwie",
+      "zrodla": [
+        "03-zakres-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "03-zakres",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/03-zakres/03-zakres-2026-11-17.md",
+      "test_akceptacyjny": "każdy BR w zakresie ma test z ID (zakres.mjs)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-030",
+      "tytul": "Lekcja M13-L1 uczy czytania „raportu z gry” z żetonami, a tryb gry usunięto (ADR 0011)",
+      "zrodla": [
+        "01-odkrywanie-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": "DEC-05",
+      "przyczyna": "SYS-01",
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-05: lekcja bez odwołań do trybu gry (grep) albo usunięta z programu",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-031",
+      "tytul": "Pusta lista produktów ze sklepu daje ekran zakupu bez planów i komunikatu",
+      "zrodla": [
+        "02-monetyzacja-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "02-monetyzacja",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-17.md",
+      "test_akceptacyjny": "pusta lista → komunikat i ponowienie (test adaptera i ekranu)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-032",
+      "tytul": "Subskrybent nie ma w aplikacji drogi do zakupu dożywotniego",
+      "zrodla": [
+        "02-monetyzacja-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "02-monetyzacja",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-06",
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-06",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-033",
+      "tytul": "Scenariusze zakupu na urządzeniu (U-5) bez daty i wyniku",
+      "zrodla": [
+        "02-monetyzacja-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "02-monetyzacja",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-17.md",
+      "test_akceptacyjny": "protokół U-5 z datą i wynikiem przed wysyłką do App Store",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-034",
+      "tytul": "Pasek stosu „ty” w ICM 2,90:1 w ciemnym motywie ze zwiększonym kontrastem",
+      "zrodla": [
+        "04-studio-projektowe-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "kontrast ≥ 3:1 we wszystkich motywach (test kontrastu)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-035",
+      "tytul": "Postęp pokazuje i czyta surowe identyfikatory rodzin zadań („m0.best-hand”)",
+      "zrodla": [
+        "04-studio-projektowe-009"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md",
+      "test_akceptacyjny": "brak surowych ID w tekstach i etykietach dostępności (test)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-036",
+      "tytul": "Wygaśnięcie czasu w tle zostawia otwartą transakcję długiej operacji (skutek 0xdead10cc niepotwierdzony; P1, jeśli U-2 potwierdzi)",
+      "zrodla": [
+        "05-architekt-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/05-architekt/05-architekt-2026-11-17.md",
+      "test_akceptacyjny": "handler wygaśnięcia wycofuje transakcję przed endBackgroundTask; U-2 na telefonie",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-037",
+      "tytul": "Silnik gry z botami nadal w kodzie wbrew ADR 0011",
+      "zrodla": [
+        "05-architekt-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/05-architekt/05-architekt-2026-11-17.md",
+      "test_akceptacyjny": "brak modułu silnika gry (grep) i zależnych testów",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-038",
+      "tytul": "Kontrola granic K-01 nie działa w CI; 11 plików źródłowych ponad 20 KB",
+      "zrodla": [
+        "05-architekt-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt/05-architekt-2026-11-17.md",
+      "test_akceptacyjny": "K-01 w pnpm run ci, czerwona przy naruszeniu (próba negatywna)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-039",
+      "tytul": "Zapytanie wejścia do scenariuszy skanuje całą tabelę odpowiedzi (B-4 bez pomiaru)",
+      "zrodla": [
+        "05-architekt-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt/05-architekt-2026-11-17.md",
+      "test_akceptacyjny": "indeks albo zapytanie z planem bez SCAN; pomiar na danych 3 lat",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-040",
+      "tytul": "Zdanie ekranu „Pomoc” o hazardzie bez twierdzenia w rejestrze (źródło GB odczytane)",
+      "zrodla": [
+        "06-tresci-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-17.md",
+      "test_akceptacyjny": "wpis w rejestrze z przeczytanym źródłem dla rynku sprzedaży",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-041",
+      "tytul": "Przegląd zastępczy n:dd.bi.small zapisany tak, że kontrola uznaje go za przegląd człowieka",
+      "zrodla": [
+        "06-tresci-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-17.md",
+      "test_akceptacyjny": "pole kto rozróżnia przegląd zastępczy; kontrola biblioteki kod 0",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-042",
+      "tytul": "„Mały blind wobec Buttona prawie nic nie sprawdza” — atrybucja do jednego rozwiązania",
+      "zrodla": [
+        "06-tresci-502"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci-b/06-tresci-2026-11-17.md",
+      "test_akceptacyjny": "zdanie z atrybucją albo przedziałem obejmującym źródła",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-043",
+      "tytul": "„Rywal chybia flop … dlatego mały c-bet się opłaca”: związek przyczynowy bez źródła",
+      "zrodla": [
+        "06-tresci-503"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci-b/06-tresci-2026-11-17.md",
+      "test_akceptacyjny": "zdanie bez nieźródłowego „dlatego” albo ze źródłem szczebla 1–2",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-044",
+      "tytul": "Katalog PU bez przypadków klasy A; opis PU-001…010 nieaktualny (bramka „A wykonane” nie sprawdza nic)",
+      "zrodla": [
+        "07-jakosc-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-17.md",
+      "test_akceptacyjny": "flowy E2E spełniające warunki A przeniesione do klasy A; bramka scenariuszy z próbą negatywną",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-045",
+      "tytul": "Eksport i import sprawdzane tylko na syntetycznym wzorcu: brak pliku z telefonu i testu własności",
+      "zrodla": [
+        "07-jakosc-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-17.md",
+      "test_akceptacyjny": "test własności (fast-check) roundtrip eksport→import; wzorzec z telefonu (T-06)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-046",
+      "tytul": "Nocne testy (Stryker, fast-check ×1000, E2E na małym ekranie) nigdy nie biegły: nocny.yml niezarejestrowany",
+      "zrodla": [
+        "07-jakosc-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-17.md",
+      "test_akceptacyjny": "nocny.yml zarejestrowany na main (za zgodą właściciela) i pierwszy przebieg z wynikiem",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-047",
+      "tytul": "Akcja pnpm/action-setup@v5 nieprzypięta do SHA (15 użyć, także w zadaniu z kluczem ASC)",
+      "zrodla": [
+        "07-jakosc-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-17.md",
+      "test_akceptacyjny": "wszystkie akcje spoza actions/* przypięte do SHA (test workflowy.test.mjs)",
+      "status": "zweryfikowane",
+      "commit": "5abf3534",
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”",
+      "reaudit": "pętla 1, 2026-11-17, 196cb8c2: reaudit-2026-11-17/wyniki.md"
+    },
+    {
+      "id": "M1-audytor-generalny-048",
+      "tytul": "Testy czekają stałym czasem (setTimeout 20–50 ms) i biorą dzień z zegara systemowego",
+      "zrodla": [
+        "07-jakosc-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-17.md",
+      "test_akceptacyjny": "testy z fałszywym zegarem i waitFor zamiast setTimeout",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-049",
+      "tytul": "Dziennik rozdania używa nazwy ulicy jako klucza React (SC-06, SC-08)",
+      "zrodla": [
+        "08-programista-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/08-programista/08-programista-2026-11-17.md",
+      "test_akceptacyjny": "brak ostrzeżeń „same key” w logu testów",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-050",
+      "tytul": "Każdy komponent z useTokens osobno odpytuje „Zwiększ kontrast” (mignięcie palety, 77 nasłuchów)",
+      "zrodla": [
+        "08-programista-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/08-programista/08-programista-2026-11-17.md",
+      "test_akceptacyjny": "jeden nasłuch w kontekście motywu; test bez mignięcia",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-051",
+      "tytul": "Skrypt lint (expo lint) nie działa: brak ESLint; 21 wyłączeń reguł bez kontroli",
+      "zrodla": [
+        "08-programista-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "08-programista",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-07",
+      "przyczyna": null,
+      "raport": "role/08-programista/08-programista-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-07",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-052",
+      "tytul": "Godzina odnowienia limitu zawsze 24 h, dzień w historii jako surowe RRRR-MM-DD",
+      "zrodla": [
+        "09-lokalizacja-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "formaty daty i godziny przez Intl dla języka (test)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-053",
+      "tytul": "Listy sklejane łacińskim „, ” także w ja i zh-Hant",
+      "zrodla": [
+        "09-lokalizacja-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "Intl.ListFormat albo separator z tłumaczeń (test ja, zh-Hant)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-054",
+      "tytul": "Angielskie nazwy terminów bez accessibilityLanguage",
+      "zrodla": [
+        "09-lokalizacja-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "accessibilityLanguage dla terminów obcojęzycznych (test)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-055",
+      "tytul": "Rejestr języków bez wierszy dla wydanych de, es, ko, it, vi",
+      "zrodla": [
+        "09-lokalizacja-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "09-lokalizacja",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-08",
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-08",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-056",
+      "tytul": "Zrzuty w najdłuższym języku i pseudolokalizacji tylko dla ekranu scenariusza",
+      "zrodla": [
+        "09-lokalizacja-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "09-lokalizacja",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-08",
+      "przyczyna": "SYS-04",
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-08",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-057",
+      "tytul": "114 z 877 kluczy źródła bez kontekstu dla tłumacza",
+      "zrodla": [
+        "09-lokalizacja-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-17.md",
+      "test_akceptacyjny": "każdy klucz z opisem w pl.kontekst.json (sprawdz-i18n)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-058",
+      "tytul": "Ankieta wiekowa (D-310) nieoceniona ponownie po wejściu scenariuszy do 1.0 (D-530)",
+      "zrodla": [
+        "10-wydanie-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "10-wydanie",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
+      "test_akceptacyjny": "zapisana ponowna ocena odpowiedzi (Simulated Gambling) przed wpisem w ASC",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-059",
+      "tytul": "Strona produktu w 6 językach, build w 12 (fala 2 w docs/)",
+      "zrodla": [
+        "10-wydanie-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "10-wydanie",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-09",
+      "przyczyna": null,
+      "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-09",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-060",
+      "tytul": "Plan zrzutów sklepu nie pokazuje ocenionej decyzji ani scenariusza",
+      "zrodla": [
+        "10-wydanie-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "10-wydanie",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-10",
+      "przyczyna": null,
+      "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-10",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-061",
+      "tytul": ".gitignore w katalogu głównym bez *.p8, *.p12, credentials.json, .env",
+      "zrodla": [
+        "10-wydanie-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
+      "test_akceptacyjny": "wzorce w .gitignore; test workflowy/ignore",
+      "status": "zweryfikowane",
+      "commit": "c9a7c332",
+      "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”",
+      "reaudit": "pętla 1, 2026-11-17, 196cb8c2: reaudit-2026-11-17/wyniki.md"
+    },
+    {
+      "id": "M1-audytor-generalny-062",
+      "tytul": "Dwa źródła numeru buildu i nieaktualne workflowy ad hoc",
+      "zrodla": [
+        "10-wydanie-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
+      "test_akceptacyjny": "jedno źródło numeru buildu (test)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-063",
+      "tytul": "Hipotezy BRD bez progu, próby, ID decyzji i daty oceny",
+      "zrodla": [
+        "11-wzrost-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "11-wzrost",
+      "wykonawca": "rola",
+      "partia": 4,
+      "zalezy_od": [],
+      "decyzja": "DEC-11",
+      "przyczyna": null,
+      "raport": "role/11-wzrost/11-wzrost-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-11",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-064",
+      "tytul": "Po premierze brak sprawdzonej drogi, którą właściciel bez Maca dowie się o awarii",
+      "zrodla": [
+        "12-niezawodnosc-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-12",
+      "przyczyna": null,
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-12",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-065",
+      "tytul": "Uszkodzona kopia pliku treści nie wraca z paczki; ekran błędu bez wyjścia poza reinstalacją",
+      "zrodla": [
+        "12-niezawodnosc-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-17.md",
+      "test_akceptacyjny": "uszkodzona kopia treści odtwarzana z paczki przy starcie (test)",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-066",
+      "tytul": "Brak oceny praw USA o weryfikacji wieku (Teksas od 2026-06, Utah, Luizjana) i decyzji o Declared Age Range API",
+      "zrodla": [
+        "M1-audytor-generalny-066"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "10-wydanie",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-13",
+      "przyczyna": null,
+      "raport": "linia-bazowa.md",
+      "test_akceptacyjny": "wg DEC-13: zapisana decyzja roli 10 przed wysyłką do App Store",
+      "status": "otwarte",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-067",
+      "zrodla": [
+        "04-studio-projektowe-001"
+      ],
+      "wykonawca": "M2",
+      "rodzaj": "D",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "status": "naprawione-do-weryfikacji",
+      "commit": "d56506fe",
+      "tytul": "Kropka klasy niepewnej w siatce lekcji (M2-koordynator-napraw-001) ma kontrast 1,59:1 (jasny) i 2,01:1 (jasny + Zwiększ kontrast) na zielonym polu, < 3:1 WCAG 1.4.11; 71/263 klas, w tym K7o, Q8o, T2s, K8o, 75o",
+      "poziom": "P1",
+      "rola": "04-studio-projektowe",
+      "partia": 1,
+      "regresja_od": "M1-audytor-generalny-002",
+      "raport": "reaudit-2026-11-17/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-17.md",
+      "test_akceptacyjny": "para kontrastu kropka/pole w tokeny.ts sprawdzana w CI (≥ 3:1 we wszystkich 4 motywach); kropka w kolorze ink (≥ 3,25:1); test RangeGrid-uncertain zielony",
+      "zatwierdzenie": "2026-11-17: 067+068 razem (zalecane) (właściciel ok. 16:20 UTC, przekazane przez koordynatora; KO-130 wyjątek nazwany od zamrożenia)"
+    },
+    {
+      "id": "M1-audytor-generalny-068",
+      "zrodla": [
+        "04-studio-projektowe-002"
+      ],
+      "wykonawca": "M2",
+      "rodzaj": "D",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "status": "naprawione-do-weryfikacji",
+      "commit": "4faf3b0a",
+      "tytul": "PaintGrid: kropka „mieszana” na pomalowanym polu 1,19–2,46:1 (ta sama przyczyna co 067: tk.muted bez pary kontrastu)",
+      "poziom": "P3",
+      "rola": "04-studio-projektowe",
+      "partia": 4,
+      "istnialo_wczesniej": true,
+      "raport": "reaudit-2026-11-17/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-17.md",
+      "test_akceptacyjny": "para kontrastu w tokeny.ts obejmuje PaintGrid (≥ 3:1)",
+      "powod": "backlog (D-053); naprawa wspólna z 067 zalecana",
+      "zatwierdzenie": "2026-11-17: 067+068 razem (zalecane) (właściciel ok. 16:20 UTC, przekazane przez koordynatora; KO-130 wyjątek nazwany od zamrożenia)"
+    },
+    {
+      "id": "M1-audytor-generalny-069",
+      "zrodla": [
+        "M1-audytor-generalny-069"
+      ],
+      "wykonawca": "M2",
+      "rodzaj": "D",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "status": "otwarte",
+      "commit": null,
+      "tytul": "Test klas niepewnych nie wykrywa nadmiarowej klasy w uncertain (M2-koordynator-napraw-002)",
+      "poziom": "P3",
+      "rola": "08-programista",
+      "partia": 4,
+      "istnialo_wczesniej": true,
+      "raport": "reaudit-2026-11-17/08-programista/08-programista-reaudit-2026-11-17.md",
+      "test_akceptacyjny": "mutacja: dodatkowa klasa w uncertain → test czerwony",
+      "powod": "backlog (D-053), teoretyczne"
+    },
+    {
+      "id": "M1-audytor-generalny-070",
+      "zrodla": [
+        "M1-audytor-generalny-070"
+      ],
+      "wykonawca": "rola",
+      "rodzaj": "P",
+      "zalezy_od": [],
+      "decyzja": "DEC-14",
+      "przyczyna": null,
+      "status": "otwarte",
+      "commit": null,
+      "tytul": "Akcje przypięte do SHA bez mechanizmu aktualizacji (M2-koordynator-napraw-003); analogia Trening: ręczny przegląd",
+      "poziom": "P3",
+      "rola": "07-jakosc",
+      "partia": 4,
+      "istnialo_wczesniej": true,
+      "raport": "reaudit-2026-11-17/07-jakosc/07-jakosc-reaudit-2026-11-17.md",
+      "test_akceptacyjny": "wg DEC-14",
+      "powod": "backlog (D-053)"
+    },
+    {
+      "id": "M1-audytor-generalny-071",
+      "zrodla": [
+        "M1-audytor-generalny-071"
+      ],
+      "wykonawca": "M2",
+      "rodzaj": "D",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "status": "otwarte",
+      "commit": null,
+      "tytul": "Test siatki lekcji porównuje liczbę kropek, nie położenie (M2-koordynator-napraw-005)",
+      "poziom": "P3",
+      "rola": "08-programista",
+      "partia": 4,
+      "istnialo_wczesniej": true,
+      "raport": "reaudit-2026-11-17/08-programista/08-programista-reaudit-2026-11-17.md",
+      "test_akceptacyjny": "mutacja: przesunięta kropka → test czerwony",
+      "powod": "backlog (D-053), teoretyczne"
+    },
+    {
+      "id": "M1-audytor-generalny-072",
+      "zrodla": [
+        "M1-audytor-generalny-072"
+      ],
+      "wykonawca": "M2",
+      "rodzaj": "D",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "status": "otwarte",
+      "commit": null,
+      "tytul": "Czytnik ekranu nie dostaje informacji o klasach niepewnych w siatce lekcji (M2-koordynator-napraw-004)",
+      "poziom": "P3",
+      "rola": "04-studio-projektowe",
+      "partia": 4,
+      "istnialo_wczesniej": true,
+      "raport": "reaudit-2026-11-17/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-17.md",
+      "test_akceptacyjny": "etykieta dostępności siatki wymienia klasy niepewne",
+      "powod": "backlog (D-053); P2 wg roli 04 (informacja dodatkowa)"
+    },
+    {
+      "id": "M1-audytor-generalny-073",
+      "zrodla": [
+        "06-tresci-001"
+      ],
+      "wykonawca": "M2",
+      "rodzaj": "D",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "status": "otwarte",
+      "commit": null,
+      "tytul": "Jedno ID 06-tresci-502 nadane dwóm różnym znaleziskom (śledzenie M2)",
+      "poziom": "P3",
+      "rola": "06-tresci",
+      "partia": 4,
+      "regresja_od": "M1-audytor-generalny-002",
+      "raport": "reaudit-2026-11-17/06-tresci/06-tresci-reaudit-2026-11-17.md",
+      "test_akceptacyjny": "unikalne ID znalezisk w raportach (kontrola)",
+      "powod": "backlog (D-053), śledzenie"
+    }
+  ],
+  "reaudyty": [
+    {
+      "petla": 1,
+      "data": "2026-11-17",
+      "commit": "196cb8c2b062e46e0f90aaee062fff24fc06f729"
+    }
+  ]
+}

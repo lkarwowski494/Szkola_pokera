@@ -1,0 +1,28 @@
+{
+  'liczba/math/min1': 534,
+  'liczba/rules/min1': 6,
+  'liczba/gto/min2': 40,
+  'liczba/heuristic/min1': 14,
+  'regula/math/min1': 42,
+  'regula/heuristic/min1': 15,
+  'regula/rules/min1': 8,
+  'regula/gto/min2': 14,
+  'regula/heuristic/min2': 38,
+  'regula/heuristic/min4': 20,
+  'liczba/heuristic/min2': 22,
+  'liczba/heuristic/min4': 49,
+  'liczba/rules/min2': 3,
+  'regula/rules/min3': 2,
+  'regula/rules/min4': 3,
+  'regula/exploit/min1': 2,
+  'regula/exploit/min4': 2,
+  'regula/exploit/min2': 1,
+  'regula/gto/min1': 2,
+  'liczba/exploit/min4': 27,
+  'termin/rules/min4': 111,
+  'termin/rules/min1': 37,
+  'termin/rules/min2': 14
+}
+gto bez sz<=2: 
+math bez sz1: 
+exploit: R-M6-004(4,4,1) R-M10-006(4,4,4,4,4,4) R-M10-007(4,4) R-M10-008(4,4,2) R-M10-011(4,4,4,4,1) n:mda.all.fcb(4) n:mda.period.months(4) n:mda.rec.def(4) n:mda.rec.def.wr(4) n:mda.rec.f3b(4) n:mda.rec.pfr(4) n:mda.rec.vpip(4) n:mda.rec.wr(4) n:mda.rec.wsd(4) n:mda.rec.wtsd(4) n:mda.reg.def.high(4) n:mda.reg.def.low(4) n:mda.reg.def.wr(4) n:mda.reg.f3b(4) n:mda.reg.pfr(4) n:mda.reg.vpip(4) n:mda.reg.wr(4) n:mda.reg.wsd(4) n:mda.reg.wtsd(4) n:rake.pop.nl10.loss(4) n:rake.pop.nl100.loss(4) n:rake.pop.nl500.loss(4) n:rake.pop.reg.hands(4) n:rake.pop.reg.postrake(4) n:rake.pop.reg.prerake(4) n:rake.pop.reg.prerake.raw(4) n:rake.pop.reg.postrake.raw(4)

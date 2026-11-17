@@ -1,0 +1,27 @@
+// Generuje pary kontrastu z apps/mobile/src/theme/tokeny.ts (4 warianty) + pary dodatkowe z kodu (audyt 04, M1).
+import { kolory, pary } from '/home/user/Szkola_pokera/apps/mobile/src/theme/tokeny';
+const wynik: Record<string, [string, string, number]> = {};
+const dodatkowe: Record<string, [string, string, number]> = {
+  'link na komórce (dodatkowa)': ['link', 'surface', 4.5],
+  'przycisk akcji karta na suknie: tekst (dodatkowa)': ['cardInk', 'card', 4.5],
+  'pasek stosu ty na torze (dodatkowa)': ['goldOnBg', 'separator', 3],
+  'pasek stosu inni na torze (dodatkowa)': ['muted', 'separator', 3],
+  'obwódka kafla muted na tle (dodatkowa)': ['muted', 'bg', 3],
+  'obwódka miejsca scenariusza na suknie (dodatkowa)': ['onFeltMuted', 'felt1', 3],
+};
+for (const [w, p] of Object.entries(kolory)) {
+  for (const [n, [a, b, prog]] of Object.entries({ ...pary, ...dodatkowe })) {
+    const fg = (p as Record<string, string>)[a]!; const bg = (p as Record<string, string>)[b]!;
+    wynik[`${w}: ${n} [${a}/${b}]`] = [fg.slice(0, 7), bg.slice(0, 7), prog];
+  }
+}
+// kolory przejściowe (tokens.ts) używane w PaintGrid po ocenie: znak na swoim tle
+const przejsciowe = { light: { bad: '#B3372C', badSoft: '#FBE7E4', warn: '#8A5A00', warnSoft: '#FBF0D9', good: '#1F7A4D', primaryInk: '#FFFDF7', ink: '#0A1430', surface: '#FFFFFF' }, dark: { bad: '#F08478', badSoft: '#36201D', warn: '#E0B24F', warnSoft: '#33290F', good: '#6FCF9A', primaryInk: '#0A1430', ink: '#F2EEE3', surface: '#13214A' } };
+for (const [w, p] of Object.entries(przejsciowe)) {
+  wynik[`${w}: PaintGrid etykieta trafienia [primaryInk/good] (przejściowe)`] = [p.primaryInk, p.good, 4.5];
+  wynik[`${w}: PaintGrid etykieta braku [ink/badSoft] (przejściowe)`] = [p.ink, p.badSoft, 4.5];
+  wynik[`${w}: PaintGrid znak braku [bad/badSoft] (przejściowe)`] = [p.bad, p.badSoft, 4.5];
+  wynik[`${w}: PaintGrid znak nadmiaru [warn/warnSoft] (przejściowe)`] = [p.warn, p.warnSoft, 4.5];
+  wynik[`${w}: PaintGrid pole trafienia na komórce [good/surface] (przejściowe)`] = [p.good, p.surface, 3];
+}
+console.log(JSON.stringify(wynik, null, 1));

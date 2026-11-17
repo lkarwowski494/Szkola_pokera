@@ -1,0 +1,10 @@
+$ git status --porcelain (koniec)
+ M audit/M1-2026-11-17/reaudit-2026-11-17/08-programista/dowody/content-check.txt
+ M audit/M1-2026-11-17/reaudit-2026-11-17/08-programista/dowody/sonda-005-przesuniecie-kropki.txt
+?? audit/M1-2026-11-17/reaudit-2026-11-17/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-17.md
+?? audit/M1-2026-11-17/reaudit-2026-11-17/04-studio-projektowe/dowody/git-status-koniec.txt
+?? audit/M1-2026-11-17/reaudit-2026-11-17/04-studio-projektowe/dowody/sprawdz-raport.txt
+?? audit/M1-2026-11-17/reaudit-2026-11-17/08-programista/dowody/grep-dev03-dev05.txt
+?? audit/M1-2026-11-17/reaudit-2026-11-17/08-programista/dowody/postep-testy.txt
+?? audit/M1-2026-11-17/reaudit-2026-11-17/08-programista/dowody/uncertain-35-baz.txt
+HEAD f46ef0fe0bb106218fc1c0630c5abd980e1940b2

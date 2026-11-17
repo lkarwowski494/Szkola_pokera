@@ -1,0 +1,24 @@
+$ grep -nE "sentry|analytics|firebase|amplitude|mixpanel|revenuecat|purchases|appsflyer|adjust|segment" apps/mobile/package.json package.json
+kod: 1 (1 = brak trafień)
+$ head -12 docs/adr/0006*
+---
+status: przyjęta (D-126, właściciel 2026-11-04)
+data: 2026-11-04
+decyduje: agent (technika, na podstawie OP-12 i szkicu roli 02), weto właściciela
+zastępuje: ADR-18 z rejestru 03 na Dysku („Do decyzji”, RevenueCat) — wpis zastąpienia czeka na właściciela
+---
+# 0006. Zakupy przez `expo-iap` bez usługi pośredniczącej; dostęp liczy czysta funkcja domeny z transakcji sklepu, lokalnie tylko pamięć podręczna
+
+## Kontekst i problem
+F-13 i F-18: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD (decyzja właściciela 2026-11-03), przywracanie, zarządzanie subskrypcją, dostęp offline do końca opłaconego okresu (kontrakt płatności w `docs/monetyzacja.md`). Trzeba wybrać bibliotekę i miejsce logiki dostępu. Dotyczy PR-06 i limitu w PR-03–PR-05.
+
+## Czynniki decyzji
+$ grep -n "iapkit\|IAPKit\|kit-api\|verifyPurchase" apps/mobile/src -r
+apps/mobile/src/platform/zakupy.ts:15: * - Bez serwera weryfikacji i bez IAPKit (K-07 `iapkit`); żadne wywołanie w transakcji bazy (ADR 0006 pkt 6) — adapter nie
+kod: 0
+$ grep -n "expo-iap" -A4 apps/mobile/app.json
+44-      ["expo-notifications", { "enableRemoteNotifications": false }],
+45:      "expo-iap"
+46-    ],
+47-    "locales": {
+48-      "pl": "./locales/systemowe/pl.json",

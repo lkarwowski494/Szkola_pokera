@@ -1,0 +1,82 @@
+{
+ "light: PaintGrid kropka „mieszana” na feltSoft (muted)": [
+  "#46557A",
+  "#E3EFE8",
+  3
+ ],
+ "light: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg)": [
+  "#46557A",
+  "#0A1430",
+  3
+ ],
+ "light: wariant naprawy: kropka ink na polu w zakresie": [
+  "#0A1430",
+  "#448068",
+  3
+ ],
+ "light: wariant naprawy: kropka ink na pustym polu": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ "dark: PaintGrid kropka „mieszana” na feltSoft (muted)": [
+  "#B0BCD8",
+  "#1C2E25",
+  3
+ ],
+ "dark: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg)": [
+  "#B0BCD8",
+  "#F2EEE3",
+  3
+ ],
+ "dark: wariant naprawy: kropka ink na polu w zakresie": [
+  "#F2EEE3",
+  "#1B5142",
+  3
+ ],
+ "dark: wariant naprawy: kropka ink na pustym polu": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ],
+ "lightHigh: PaintGrid kropka „mieszana” na feltSoft (muted)": [
+  "#2C3A5E",
+  "#E3EFE8",
+  3
+ ],
+ "lightHigh: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg)": [
+  "#2C3A5E",
+  "#0A1430",
+  3
+ ],
+ "lightHigh: wariant naprawy: kropka ink na polu w zakresie": [
+  "#0A1430",
+  "#3D725D",
+  3
+ ],
+ "lightHigh: wariant naprawy: kropka ink na pustym polu": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ "darkHigh: PaintGrid kropka „mieszana” na feltSoft (muted)": [
+  "#D5DCEC",
+  "#1C2E25",
+  3
+ ],
+ "darkHigh: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg)": [
+  "#D5DCEC",
+  "#F2EEE3",
+  3
+ ],
+ "darkHigh: wariant naprawy: kropka ink na polu w zakresie": [
+  "#F2EEE3",
+  "#16463A",
+  3
+ ],
+ "darkHigh: wariant naprawy: kropka ink na pustym polu": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ]
+}

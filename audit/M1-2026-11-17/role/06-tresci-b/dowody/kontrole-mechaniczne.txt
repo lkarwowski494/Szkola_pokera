@@ -1,0 +1,37 @@
+$ node kontrole-tresci.mjs docs/tresci/rejestr.json <pusty katalog> --przeglad zastępczy   (skrypt z promptu roli = docs/tresci/narzedzia/kontrole-tresci.mjs, diff 0 linii)
+PRZEGLĄD R-M12-009 zastępczy
+PRZEGLĄD R-M12-011 zastępczy
+PRZEGLĄD n:br.bi.base zastępczy
+PRZEGLĄD n:br.bi.beginner zastępczy
+PRZEGLĄD n:dd.bi.small człowiek
+PRZEGLĄD n:ror.two zastępczy
+PRZEGLĄD M12-L4-RAMKA zastępczy
+PRZEGLĄD H-INT-1 zastępczy
+PRZEGLĄD H-INT-2 zastępczy
+PRZEGLĄD t:bankroll zastępczy
+PRZEGLĄD t:risk-of-ruin zastępczy
+BŁĄD rejestr R-M12-009: przegląd dotyczy innej wersji zdań (081d35e3337f, teraz e3b0c44298fc)
+BŁĄD rejestr R-M12-011: przegląd dotyczy innej wersji zdań (19c1b4f5e103, teraz e3b0c44298fc)
+BŁĄD rejestr n:br.bi.base: przegląd dotyczy innej wersji zdań (a71835be76ac, teraz e3b0c44298fc)
+BŁĄD rejestr n:br.bi.beginner: przegląd dotyczy innej wersji zdań (90bfff53762f, teraz e3b0c44298fc)
+BŁĄD rejestr n:dd.bi.small: przegląd dotyczy innej wersji zdań (17562103d899, teraz e3b0c44298fc)
+BŁĄD rejestr n:ror.two: przegląd dotyczy innej wersji zdań (27580214ffed, teraz e3b0c44298fc)
+BŁĄD rejestr M12-L4-RAMKA: przegląd dotyczy innej wersji zdań (bf7b4710d944, teraz e3b0c44298fc)
+BŁĄD rejestr H-INT-1: przegląd dotyczy innej wersji zdań (94c9d892c612, teraz e3b0c44298fc)
+BŁĄD rejestr H-INT-2: przegląd dotyczy innej wersji zdań (96866b00e471, teraz e3b0c44298fc)
+BŁĄD rejestr t:bankroll: przegląd dotyczy innej wersji zdań (702138185692, teraz e3b0c44298fc)
+BŁĄD rejestr t:risk-of-ruin: przegląd dotyczy innej wersji zdań (0a49c03b910d, teraz e3b0c44298fc)
+11 błędów, 0 uwag
+kod wyjścia: 1
+# Komentarz weryfikatora: 11 błędów to wyłącznie „przegląd dotyczy innej wersji zdań” z pustym skrótem e3b0c44298fc (skrót pustej listy zdań): treść projektu nie używa znaczników [T:ID], tylko {{n:klucz}}/{{t:…}} i list rules: w lekcjach, więc skrypt modułu nie widzi zdań. Kontrole rejestru (źródła, szczeble, jedyne źródła szczebla 5, krytyczne bez przeglądu, wielkości z dwiema wartościami): 0 błędów. Skróty zdań liczy adapter projektu (niżej).
+
+$ env -u NODE_PATH node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz
+wpisy: 1062, bez twierdzeń: 142, wymagane: 1144, brak pokrycia: 0
+status: {"potwierdzone":1006,"wycofane":54,"otwarte":2}
+najwyższy szczebel: {"1":707,"2":132,"3":3,"4":214,"5":1,"-":5}
+werdykt tekstu: {"POPARTE":1049,"-":5,"CZĘŚCIOWO":2,"NIEPOPARTE":6}
+jedno źródło szczebla 3–4: 119 (n:pf.4bet.size-ip.high, n:pf.4bet.size-ip.low, n:pf.4bet.size-oop.high, n:pf.iso.btn.high, n:pf.iso.btn.low, n:pf.iso.oop-extra, n:hud.hands.vpip.low, n:hud.hands.vpip.high, n:hud.opps.look, n:hud.opps.sure, n:study.beginner, n:study.winner, n:study.min, n:var.wr.typical.high, n:cbet.range.small.low, n:cbet.range.small.high, n:cbet.range.big.low, n:cbet.range.big.high, n:xr.mult.example, n:xr.mult.low, n:cbet.oop.a94.check, n:hud.hands.3bet.high, n:hud.hands.3bet.low, n:hud.hands.random, n:hud.hands.rough.high, n:hud.vpip.reg.high, n:m11.depth.15, n:m11.m.r
+krytyczne: 56
+UWAGA przeglad_jezyki bez sha_pl (skrót pl, z którego powstał przekład): 66 wpisów, np. n:dd.bi.small/de, M12-L4-RAMKA/de, H-INT-1/de
+0 błędów, 1 uwag
+kod wyjścia: 0

@@ -1,0 +1,12 @@
+KO-133 (2026-11-17): kopie narzędzi z biblioteki prompts w repo POZA audit/ (heurystyka: ≥ 3 z 5 najdłuższych wierszy pliku występuje dosłownie w /home/user/prompts @ af4c0a83). NIE usunięte — poza zakresem polecenia (audit/), część używana w pnpm run ci; do decyzji właściciela.
+3/5 docs/architektura/narzedzia/granice.mjs
+5/5 docs/design/narzedzia/ikona.mjs
+5/5 docs/design/narzedzia/kontrast.mjs
+5/5 docs/design/narzedzia/warsztat.mjs
+5/5 docs/design/narzedzia/zrzuty.mjs
+5/5 docs/monetyzacja/oplacalnosc.mjs
+5/5 docs/monetyzacja/rachunek.mjs
+5/5 docs/tresci/narzedzia/kontrole-tresci.mjs
+4/5 scripts/sprawdz-i18n.mjs (pnpm run ci)
+5/5 scripts/sprawdz-scenariusze.mjs (test:skrypty)
+Usunięte z audit/ (commit 4207c6f1): reaudit-2026-11-17/04-studio-projektowe/narzedzia/kontrast.mjs, role/04-studio-projektowe/narzedzia/kontrast.mjs, role/08-programista/fix-2026-11-17-d/narzedzia/sprawdz-raport.mjs.

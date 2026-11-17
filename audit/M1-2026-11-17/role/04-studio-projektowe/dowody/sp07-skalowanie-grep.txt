@@ -1,0 +1,26 @@
+$ grep -rnE "allowFontScaling|maxFontSizeMultiplier|adjustsFontSizeToFit|numberOfLines" src --include=*.tsx (bez __tests__)
+src/components/PlayingCard.tsx:39:      <Text allowFontScaling={false} style={[styles.rank, { color, fontSize: d.rank, lineHeight: d.rank * 1.05, fontFamily: krojKarty() }]}>{rank === 'T' ? '10' : rank}</Text>
+src/components/PlayingCard.tsx:40:      <Text allowFontScaling={false} style={[styles.suit, { color, fontSize: d.suit, lineHeight: d.suit * 1.1 }]}>{SUIT[suit]}</Text>
+src/components/SkalaStopni.tsx:26:          <Text maxFontSizeMultiplier={mnoznik} style={[styl.drobny, { color: p.twoj ? tk.goldText : tk.onFelt, fontWeight: '600' }]}>{p.slowo}</Text>
+src/components/SkalaStopni.tsx:27:          <Text maxFontSizeMultiplier={mnoznik} style={[styl.drobny, { color: p.twoj ? tk.goldText : tk.onFeltMuted, fontVariant: ['tabular-nums'] }]}>{p.zakres}</Text>
+src/components/Stol.tsx:100:    <Text style={[styl.przypis, { color: tk.onFelt }]} allowFontScaling={false}>
+src/components/Stol.tsx:128:      <Text style={[styles.nazwa, { color: tk.seatInk }]} numberOfLines={1} allowFontScaling={false}>
+src/components/Stol.tsx:131:      <Text style={[styles.stan, { color: ty ? tk.goldText : tk.seatMuted }]} numberOfLines={1} adjustsFontSizeToFit allowFontScaling={false}>
+src/components/RangeGrid.tsx:37:                  <Text style={[styles.label, { color: tk.ink }]} numberOfLines={1}>
+src/components/PaintGrid.tsx:144:                  <Text style={[styles.label, { color: labelColor(i) }]} numberOfLines={1}>
+src/app/(tabs)/lessons.tsx:82:              <Text style={[styl.tresc, { color: tk.muted }]} maxFontSizeMultiplier={ZNAK_SKALA_MAX} accessibilityElementsHidden importantForAccessibility="no">
+src/app/(tabs)/lessons.tsx:101:                        {state === 'done' ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }} maxFontSizeMultiplier={ZNAK_SKALA_MAX}>✓</Text> : null}
+src/app/(tabs)/lessons.tsx:121:                  {exams.get(m.id)?.passed ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }} maxFontSizeMultiplier={ZNAK_SKALA_MAX}>✓</Text> : null}
+exit=0
+
+$ grep -rnE "height: *[0-9]+" src --include=*.tsx (bez __tests__)
+src/components/PlayingCard.tsx:62:    shadowOffset: { width: 0, height: 1 },
+src/components/PasekStrategii.tsx:193:  os: { flexDirection: 'row', height: 44, borderWidth: GRUBOSC_OSI, borderRadius: promien.przycisk, overflow: 'hidden' },
+src/components/PasekStrategii.tsx:197:    height: 0,
+src/components/RangeGrid.tsx:66:  swatch: { width: 10, height: 10, borderRadius: 2 },
+src/components/PaintGrid.tsx:193:  swatch: { width: 12, height: 12, borderRadius: 2 },
+src/app/(tabs)/lessons.tsx:140:  dot: { width: 26, height: 26, borderRadius: 13, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
+src/app/(tabs)/index.tsx:113:  zebatka: { width: 44, height: 44, marginRight: -10, alignItems: 'center', justifyContent: 'center' },
+src/features/scenariusz/komponenty.tsx:203:                  <View style={{ width: `${Math.round(w.udzial * 100)}%`, height: 8, borderRadius: 4, backgroundColor: w.rola === 'ty' ? tk.goldOnBg : tk.muted }} />
+src/features/scenariusz/komponenty.tsx:258:  torStosu: { flex: 1, height: 8, borderRadius: 4, minWidth: 48, overflow: 'hidden' },
+src/features/advancement/AdvancementCard.tsx:59:  badge: { width: 72, height: 72, borderRadius: 36, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },

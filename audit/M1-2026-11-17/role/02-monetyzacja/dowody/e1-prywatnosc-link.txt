@@ -1,0 +1,15 @@
+$ curl -sS -o /dev/null -w "%{http_code}" https://lkarwowski494.github.io/Szkola_pokera/privacy.html
+200
+kod: 0
+$ grep -c "DO USTALENIA" site/privacy.html
+16
+$ grep -n "ADRES_PRYWATNOSCI" apps/mobile/src -r
+apps/mobile/src/platform/adresy.ts:9:export const ADRES_PRYWATNOSCI: string | null = null;
+apps/mobile/src/app/session.tsx:44:import { ADRES_KONTAKTOWY, ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+apps/mobile/src/app/session.tsx:292:          if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI);
+apps/mobile/src/app/scenario.tsx:19:import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+apps/mobile/src/app/scenario.tsx:177:        otworzPrywatnosc={() => { if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI); }}
+apps/mobile/src/app/purchase.tsx:5:import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+apps/mobile/src/app/purchase.tsx:29:        if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI);
+$ sed -n 16p docs/programista/zgloszenia-08.md
+| 08-F20 | 10/właściciel | Adres polityki prywatności `[DO USTALENIA]`; `ADRES_PRYWATNOSCI = null`, przycisk na ekranie zakupu bez działania | `apps/mobile/src/platform/adresy.ts:5, 9` | plan-08 l. 477, 542 (pogrubione „bloker App Store”); D-266; `docs/programista/koordynator.md:51` | otwarte (fakt właściciela) | **WYSOKIE** dla publikacji w App Store (ryzyko odrzucenia przez Apple); nie blokuje TestFlight wewnętrznego (D-266) |

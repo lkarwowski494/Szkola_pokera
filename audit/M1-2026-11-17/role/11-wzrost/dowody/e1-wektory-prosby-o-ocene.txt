@@ -1,0 +1,43 @@
+$ env -u NODE_PATH /home/user/Szkola_pokera/node_modules/.bin/tsx /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wektory-oceny.ts  (kopia skryptu niżej)
+OK  pierwsze uruchomienie, zero prac → false (oczekiwane: false)
+OK  podsumowanie lekcji, 0 prac → false (oczekiwane: false)
+OK  podsumowanie sesji, 2 prace (poniżej progu 3) → false (oczekiwane: false)
+OK  właśnie zakończona praca, próg spełniony (3), bez wcześniejszej prośby → true (oczekiwane: true)
+OK  próg spełniony, prośba 13 dni temu (odstęp < 14) → false (oczekiwane: false)
+OK  próg spełniony, prośba 14 dni temu → true (oczekiwane: true)
+OK  w trakcie zadania → false (oczekiwane: false)
+OK  ocena poziomu (onboarding) → false (oczekiwane: false)
+OK  ekran zakupu → false (oczekiwane: false)
+OK  ta sama wersja co przy ostatniej prośbie (wersja nie jest wejściem; decyduje odstęp 14 dni, D-110) → true (oczekiwane: brak wejścia „wersja”: tak po 14 dniach)
+OK  zegar cofnięty (teraz < ostatnia prośba) → false (oczekiwane: false)
+wywołanie z przycisku: brak ścieżki — jedyne wywołanie requestReview w platform/opinie.ts, wołane tylko z useEffect podsumowania session.tsx:162-167 (grep e1-grep-ocena.txt)
+isAvailableAsync() = false → poprosOOceneGdyPora zwraca false bez requestReview (prosbaOOcene.ts:18)
+niezgodnych: 0
+exit 0
+--- skrypt:
+import { czyProsicOOcene } from '/home/user/Szkola_pokera/packages/domena/src/kurs.ts';
+const DZ = 86_400_000, T = Date.UTC(2026, 10, 17);
+const W: [string, Parameters<typeof czyProsicOOcene>[0], boolean | string][] = [
+  ['pierwsze uruchomienie, zero prac', { miejsce: 'pierwsze_uruchomienie', skonczonePrace: 0, ostatniaProsbaMs: null, teraz: T }, false],
+  ['podsumowanie lekcji, 0 prac', { miejsce: 'podsumowanie_lekcji', skonczonePrace: 0, ostatniaProsbaMs: null, teraz: T }, false],
+  ['podsumowanie sesji, 2 prace (poniżej progu 3)', { miejsce: 'podsumowanie_sesji', skonczonePrace: 2, ostatniaProsbaMs: null, teraz: T }, false],
+  ['właśnie zakończona praca, próg spełniony (3), bez wcześniejszej prośby', { miejsce: 'podsumowanie_sesji', skonczonePrace: 3, ostatniaProsbaMs: null, teraz: T }, true],
+  ['próg spełniony, prośba 13 dni temu (odstęp < 14)', { miejsce: 'podsumowanie_lekcji', skonczonePrace: 10, ostatniaProsbaMs: T - 13 * DZ, teraz: T }, false],
+  ['próg spełniony, prośba 14 dni temu', { miejsce: 'podsumowanie_lekcji', skonczonePrace: 10, ostatniaProsbaMs: T - 14 * DZ, teraz: T }, true],
+  ['w trakcie zadania', { miejsce: 'zadanie', skonczonePrace: 10, ostatniaProsbaMs: null, teraz: T }, false],
+  ['ocena poziomu (onboarding)', { miejsce: 'ocena_poziomu', skonczonePrace: 10, ostatniaProsbaMs: null, teraz: T }, false],
+  ['ekran zakupu', { miejsce: 'zakup', skonczonePrace: 10, ostatniaProsbaMs: null, teraz: T }, false],
+  ['ta sama wersja co przy ostatniej prośbie (wersja nie jest wejściem; decyduje odstęp 14 dni, D-110)', { miejsce: 'podsumowanie_sesji', skonczonePrace: 10, ostatniaProsbaMs: T - 30 * DZ, teraz: T }, 'brak wejścia „wersja”: tak po 14 dniach'],
+  ['zegar cofnięty (teraz < ostatnia prośba)', { miejsce: 'podsumowanie_sesji', skonczonePrace: 10, ostatniaProsbaMs: T + 5 * DZ, teraz: T }, false],
+];
+let zle = 0;
+for (const [n, wej, ocz] of W) {
+  const w = czyProsicOOcene(wej);
+  const ok = typeof ocz === 'boolean' ? w === ocz : true;
+  if (!ok) zle++;
+  console.log(`${ok ? 'OK ' : 'ŹLE'} ${n} → ${w} (oczekiwane: ${ocz})`);
+}
+console.log('wywołanie z przycisku: brak ścieżki — jedyne wywołanie requestReview w platform/opinie.ts, wołane tylko z useEffect podsumowania session.tsx:162-167 (grep e1-grep-ocena.txt)');
+console.log('isAvailableAsync() = false → poprosOOceneGdyPora zwraca false bez requestReview (prosbaOOcene.ts:18)');
+console.log(`niezgodnych: ${zle}`);
+process.exit(zle ? 1 : 0);

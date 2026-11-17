@@ -10,7 +10,7 @@ const N = 13;
 /**
  * Siatka 13×13 do malowania zakresu (FR-04, B-016). Dotknięcie przełącza pole, przeciągnięcie maluje
  * (pierwsze pole decyduje, czy dodajesz, czy zmazujesz). Po ocenie (`result`) pokazuje porównanie z solverem:
- * trafione, brakujące (−), nadmiarowe (+), mieszane (•).
+ * trafione, brakujące (−), nadmiarowe (+), mieszane (•; znak w kolorze etykiety pola, bo `muted` na primaryBg miał 1,19–2,46:1, M1-audytor-generalny-068).
  */
 export function PaintGrid({
   painted,
@@ -144,7 +144,7 @@ export function PaintGrid({
                   <Text style={[styles.label, { color: labelColor(i) }]} numberOfLines={1}>
                     {hc}
                   </Text>
-                  {mark(i) ? <Text style={[styles.mark, { color: result?.[i] === 'miss' ? tk.przejsciowe.bad : result?.[i] === 'extra' ? tk.przejsciowe.warn : tk.muted }]}>{mark(i)}</Text> : null}
+                  {mark(i) ? <Text style={[styles.mark, { color: result?.[i] === 'miss' ? tk.przejsciowe.bad : result?.[i] === 'extra' ? tk.przejsciowe.warn : labelColor(i) }]}>{mark(i)}</Text> : null}
                 </View>
               );
             })}

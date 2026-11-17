@@ -1,0 +1,14 @@
+# Reaudit 06: lekcje pl z blokiem ```range na spot z uncertain; wzmianki o rekach z uncertain w akapitach obok siatki.
+import sqlite3,glob,json,re,sys,os
+WT=sys.argv[1]
+c=sqlite3.connect(glob.glob(f'{WT}/apps/mobile/assets/content/tresc-*-pl.db')[0])
+unc={r[0]:json.loads(r[1]) for r in c.execute('select id,uncertain from ranges')}
+for f in sorted(glob.glob(f'{WT}/content/pl/lessons/*.md')):
+  t=open(f,encoding='utf-8').read()
+  body=t.split('\n---\n',1)[-1]
+  for m in re.finditer(r'```range\n([^\n]+)\n```',body):
+    sid=m.group(1).strip(); u=unc.get(sid,[])
+    if not u: print(os.path.basename(f),sid,'uncertain: 0'); continue
+    okno=body[max(0,m.start()-900):m.end()+700]
+    wzm=sorted({h for h in u if re.search(r'(?<![A-Za-z0-9])'+re.escape(h)+r'(?![A-Za-z0-9+])',okno)})
+    print(os.path.basename(f),sid,'uncertain:',len(u),'wzmianki obok siatki:',wzm)

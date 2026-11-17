@@ -1,0 +1,33 @@
+# curl -sSI adresów ze store/app-store-urls.json, 2026-11-17
+## https://lkarwowski494.github.io/Szkola_pokera/privacy.html
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+kod curl: 0
+## https://lkarwowski494.github.io/Szkola_pokera/support.html
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+kod curl: 0
+## treść support.html (tekst)
+ PokerGym — wsparcie / Support Prywatność / Privacy English PokerGym — wsparcie Kontakt Pytania, błędy i pomysły: [DO USTALENIA: adres poczty, W-04]. Aplikacja niczego nie wysyła sama — e-mail wysyłasz Ty, ze swojej poczty. Błąd w konkretnym zadaniu zgłosisz też przyciskiem „Zgłoś błąd w tym zadaniu” pod oceną. Jak przetwarzamy wiadomości, które do nas wysyłasz, opisuje polityka prywatności (sekcja „Gdy do nas piszesz”). Pomoc przy problemie z hazardem Aplikacja uczy decyzji w pokerze i nie ma w niej gry na pieniądze ani na żetony. Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy ty albo ktoś, kogo znasz, myśli o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy. Pomoc online: Gambling Therapy (Gordon Moody) . Ten sam kontakt znajdziesz w aplikacji, w ekranie „Pomoc”. Pytania i odpowiedzi Gdzie są moje dane? Tylko na Twoim telefonie, w pamięci aplikacji. Aplikacja nie ma konta i nic nie wysyła. Szczegóły: polityka prywatności . Jak usunąć postęp? Ustawienia → „Usuń postęp” albo usuń aplikację z telefonu. Zakupy zostają (obsługuje je Apple). Jak zmienić język? Ustawienia → „Język”. Co jest za darmo, a co daje pełny dostęp? Lekcje są darmowe. Pełny dostęp zdejmuje dzienny limit: sesje ćwiczeń, powtórki i powtórne egzaminy każdego dnia. Aktualne ceny widzisz na ekranie „Pełny dostęp” i w App Store; strona ich nie podaje. Jak anulować subskrypcję
+## mailto/kontakt w support.html
+## curl -sS https://lkarwowski494.github.io/Szkola_pokera/privacy.html | wstawki [DO USTALENIA…] (2026-11-17)
+- Policy Wsparcie / Support English PokerGym — polityka prywatności Obowiązuje od [DO USTALENIA: data publikacji] (wersja aplikacji [DO USTALENIA: 1.0.0]
+- iem widzisz cały szkic i możesz go zmienić albo nie wysyłać. Jeśli napiszesz na [DO USTALENIA: adres poczty, W-04], przetwarzamy wiadomość tak: Administra
+- tor: [DO USTALENIA: imię i nazwisko albo nazwa sprzedawcy, forma (np. osoba fizyczna)]; kontakt: [DO USTALENIA: adres poczty].
+- owych może zostać w notatkach o poprawkach. Odbiorcy i podmioty przetwarzające: [DO USTALENIA: dostawca poczty dla adresu z W-04]. Nie sprzedajemy danych, nie udostępnia
+- my ich do reklam i nie używamy ich do reklam. Przekazanie poza EOG: [DO USTALENIA: zależnie od dostawcy poczty; jeśli dostawca przetwarza dane w USA — podstawa przekazania]. Twoje prawa: dostęp do danych, sprosto
+- ju Twojego pobytu (w Polsce: Prezes Urzędu Ochrony Danych Osobowych). Napisz na [DO USTALENIA: adres poczty]; odpowiemy bez zbędnej zwłoki, najpóźni
+-  sekcja. O dostęp do nich, ich poprawienie albo usunięcie poprosisz pod adresem [DO USTALENIA: adres poczty]. Adres administratora: [DO USTALENIA]. 
+- ności, ta strona zostanie zaktualizowana przed wydaniem takiej wersji. Pytania: [DO USTALENIA: adres poczty]. PokerGym — Privacy Policy Effective [D
+- O USTALENIA: publication date] (app version [DO USTALENIA: 1.0.0]). In short The PokerGym app itself does
+- he whole draft before sending and can change it or not send it. If you write to [DO USTALENIA: email address, W-04], we handle your message as follows: Con
+- troller: [DO USTALENIA: name of the seller, legal form (e.g. natural person)]; contact: [DO USTALENIA: email address]
+- n without personal data may remain in our fix notes. Recipients and processors: [DO USTALENIA: mail provider for the W-04 address]. We do not sell your data, share it for
+-  advertising or use it for advertising. Transfers outside the EEA: [DO USTALENIA: depends on the mail provider; if it processes data in the USA, the transfer basis]. Your rights: access, rectification, er
+-  Poland: the President of the Personal Data Protection Office, PUODO). Write to [DO USTALENIA: email address]; we will reply without undue delay and 
+-  of use. To request access to, correction of or deletion of that data, write to [DO USTALENIA: email address]. Controller’s address: [DO USTALENIA]. 
+- rivacy, this page will be updated before such a version is released. Questions: [DO USTALENIA: email address]. 
+dlugosc tekstu: 12361
+kod: 0

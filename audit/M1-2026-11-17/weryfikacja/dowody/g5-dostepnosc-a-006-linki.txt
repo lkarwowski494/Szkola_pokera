@@ -1,0 +1,24 @@
+$ sed -n 76,83p 'apps/mobile/src/app/(tabs)/progress.tsx'
+      <View style={{ gap: odstep.m }}>
+        <H2>{t('progress.more')}</H2>
+        <Pressable accessibilityRole="link" onPress={() => router.push('/glossary')}>
+          <Text style={[styl.tresc, { color: tk.link }]}>{t('glossary.link')}</Text>
+        </Pressable>
+        <Pressable accessibilityRole="link" onPress={() => router.push('/help')}>
+          <Text style={[styl.tresc, { color: tk.link }]}>{t('help.link')}</Text>
+        </Pressable>
+exit=0
+$ grep -rn "'/glossary'" apps/mobile/src --include=*.tsx | grep -v __tests__
+apps/mobile/src/app/(tabs)/progress.tsx:78:        <Pressable accessibilityRole="link" onPress={() => router.push('/glossary')}>
+exit=0
+$ grep -rn "'/help'" apps/mobile/src --include=*.tsx | grep -v __tests__
+apps/mobile/src/app/settings.tsx:105:      onPomoc={() => router.push('/help')}
+apps/mobile/src/app/(tabs)/progress.tsx:81:        <Pressable accessibilityRole="link" onPress={() => router.push('/help')}>
+exit=0
+$ grep -n 'tresc: { size' apps/mobile/src/theme/tokeny.ts
+173:    tresc: { size: 17, line: 24, kroj: 'system', textStyle: 'body', maxW: null },
+exit=0
+$ grep -n '| D-121 ' docs/decyzje.md | cut -c1-420
+30:| D-121 | 2026-11-04 | A | OP-19 (NFR-DOST-002), progi: 100% elementów interaktywnych PR-01–PR-08 z rolą i etykietą czytnika; 100% grafik z danymi (stół, pasek strategii, skala) z opisem tekstowym; 0 tekstów uciętych, nachodzących albo poza pojemnikiem przy AX5 na 320/390/430 pt; 0 informacji tylko kolorem; cele ≥ 44 pt, akcje decyzji ≥ 64 pt | próg procentowy < 100% (np. 95%) — dopuszczałby pomi
+exit=0
+Rachunek: Pressable bez stylu w kolumnie (alignItems domyślnie stretch) → cel = pełna szerokość × 24 pt (lineHeight treści przy rozmiarze domyślnym; rośnie z Dynamic Type: XXXL ≈ 33 pt, AX ≥ 44 pt). Odstęp między linkami odstep.m = 12 pt. Poniżej 44 pt (D-121, HIG „default”), powyżej 24 pt (WCAG 2.5.8).

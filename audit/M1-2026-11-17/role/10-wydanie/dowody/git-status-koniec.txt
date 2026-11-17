@@ -1,0 +1,8 @@
+# git status --porcelain (koniec pracy roli 10, 2026-11-17T11:21:45Z)
+ M audit/M1-2026-11-17/role/02-monetyzacja/dowody/e0b-wytyczne-apple.txt
+ M audit/M1-2026-11-17/role/03-zakres/03-zakres-2026-11-17.md
+?? audit/M1-2026-11-17/dowody/kontrola-03-zakres.txt
+?? audit/M1-2026-11-17/role/03-zakres/dowody/e3-git-koniec.txt
+kod: 0
+# git status --porcelain --ignored -- audit/M1-2026-11-17/role/10-wydanie (katalog roli, wykluczony w .git/info/exclude)
+!! audit/M1-2026-11-17/role/10-wydanie/

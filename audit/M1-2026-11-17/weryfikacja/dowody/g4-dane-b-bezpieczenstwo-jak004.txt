@@ -1,0 +1,88 @@
+# Weryfikacja 07-jakosc-004 (kod = f75acdff; 2026-11-17)
+$ grep -rn 'uses:' .github/workflows/ | grep -c 'pnpm/action-setup@v5'
+15
+kod: 0
+
+$ grep -rhn 'uses:' .github/workflows/ | grep -vE '@[0-9a-f]{40}' | grep -v '^\s*#' | sed 's/.*uses: *//' | sort | uniq -c
+      1 ./.github/workflows/e2e-ios.yml
+      1 actions/cache@v4
+     30 actions/checkout@v5
+      1 actions/configure-pages@v5
+      1 actions/deploy-pages@v4
+      2 actions/download-artifact@v4
+      4 actions/download-artifact@v5
+      1 actions/setup-java@v5
+     25 actions/setup-node@v5
+      1 actions/setup-python@v6
+     11 actions/upload-artifact@v5
+      1 actions/upload-pages-artifact@v4
+     15 pnpm/action-setup@v5
+      1 …/asc-kontrola.yml@SHA`) te same kroki tutaj — wspólny workflow ma
+kod: 0
+
+$ grep -rhn 'uses:' .github/workflows/ | grep -cE '@[0-9a-f]{40}'
+0
+kod: 1
+
+$ sed -n 29,32p tests/narzedzia/workflowy.test.mjs
+test('akcje przypięte do wersji głównej albo SHA, workflowy lokalne przez ./', () => {
+  for (const { n, d } of wf) for (const m of JSON.stringify(d.toJSON()).matchAll(/"uses":"([^"]+)"/g))
+    assert.match(m[1], /^(\.\/\.github\/workflows\/[\w-]+\.yml|[\w.-]+\/[\w.-]+(\/[\w.-]+)*@(v\d+|[0-9a-f]{40}))$/, `${n}: ${m[1]}`);
+});
+kod: 0
+
+$ sed -n 92,105p .github/workflows/testflight.yml
+          v=$(xcodebuild -version | head -1 | awk '{print $2}')
+          [ "$(printf '%s\n' 26.4 "$v" | sort -V | head -1)" = "26.4" ] || { echo "::error::Xcode $v jest za stary dla Expo SDK 57 (wymagane 26.4+)"; exit 1; }
+      - name: Sekrety obecne (bez wypisywania wartości)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (Settings → Secrets and variables → Actions)"; exit 1; }; done
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+kod: 0
+
+$ sed -n 134,140p .github/workflows/testflight.yml
+          pod install
+          test -d "$WS" || { echo "::error::Po pod install brak $WS"; ls; exit 1; }
+      - name: Klucz API na dysk (dopiero po instalacji zależności, testach i pod install)
+        env:
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+kod: 0
+
+$ sed -n 62,63p .github/workflows/przeklad-tlumaczen.yml; sed -n 79,83p .github/workflows/przeklad-tlumaczen.yml
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+      - name: Przekład (batch płatny albo odbiór wyników)
+        if: inputs.tryb == 'wyslij'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WEJ_JEZYKI: ${{ inputs.jezyki }}
+kod: 0
+
+## Analogia Trening (publiczne lkarwowski494/trening, klon --depth 1 do scratchpadu, odczyt 2026-11-17)
+$ git -C /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/trening-klon/trening log -1 --format='%H %cs'
+2d9758149ad31f36e0a3c36ff079a45d7a672251 2026-11-11
+kod: 0
+
+$ grep -rhn 'uses:' /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/trening-klon/trening/.github/workflows/ | sed 's/.*uses: *//' | sort | uniq -c
+      1 ./.github/workflows/e2e-ios.yml
+     33 actions/checkout@v5
+      1 actions/configure-pages@v5
+      1 actions/deploy-pages@v4
+     21 actions/download-artifact@v4
+      3 actions/setup-java@v4
+     28 actions/setup-node@v5
+     20 actions/upload-artifact@v4
+      1 actions/upload-pages-artifact@v4
+      1 lkarwowski494/apps4brew-narzedzia/.github/workflows/asc-kontrola.yml@43afe81aa37a117dd32259f6452196a1efccd0ec
+kod: 0
+

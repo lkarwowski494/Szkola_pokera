@@ -1,0 +1,12 @@
+# Próba mutacji testu workflowy.test.mjs na kopii 196cb8c2 (git worktree w scratchpadzie), 2026-11-17
+## m1: testflight.yml pnpm/action-setup@<SHA> -> @v5
+  error: 'testflight.yml: pnpm/action-setup@v5'
+# pass 30
+# fail 1
+kod=1
+## m2: nocny.yml pnpm/action-setup@<SHA> -> @fc06bc1 (skrócony SHA)
+  error: 'nocny.yml: pnpm/action-setup@fc06bc1'
+# pass 30
+# fail 1
+kod=1
+## po przywróceniu: git status --porcelain w kopii = tylko ?? node_modules (dowiązanie)

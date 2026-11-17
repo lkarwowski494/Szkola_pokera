@@ -1,0 +1,48 @@
+$ python3 (yaml) — liczba grup (akcji nie-pas o częstości > 0) na spot w content/*/ranges/spots.yaml i content/ranges/spots.yaml
+content/de/ranges/spots.yaml spotów 34 max grup 1
+content/en/ranges/spots.yaml spotów 34 max grup 1
+content/es/ranges/spots.yaml spotów 34 max grup 1
+content/fr/ranges/spots.yaml spotów 34 max grup 1
+content/it/ranges/spots.yaml spotów 34 max grup 1
+content/ja/ranges/spots.yaml spotów 34 max grup 1
+content/ko/ranges/spots.yaml spotów 34 max grup 1
+content/pt-BR/ranges/spots.yaml spotów 34 max grup 1
+content/pt/ranges/spots.yaml spotów 34 max grup 1
+content/ranges/spots.yaml spotów 34 max grup 1
+content/vi/ranges/spots.yaml spotów 34 max grup 1
+content/zh-Hant/ranges/spots.yaml spotów 34 max grup 1
+MAX 1
+exit=0
+$ grep -rn "czestosc" apps/mobile/src (bez testów, źródła częstości opcji zadania)
+apps/mobile/src/components/SkalaStopni.tsx:12:export function SkalaStopni({ czestosc, ocena }: { czestosc: number; ocena: OcenaDecyzji }): React.JSX.Element {
+apps/mobile/src/features/scenariusz/wariant.ts:265:        czestosc: CZESTOSC_OCENY[ocenaAkcji(d, a.akcja)],
+apps/mobile/src/features/stol/skala.ts:32:export function etykietaSkali(czestosc: number, ocena: OcenaDecyzji, t: TFn): string {
+apps/mobile/src/features/drills/engine.ts:459:    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f, status, spot!.id, hc), czestosc: f.f };
+apps/mobile/src/features/drills/engine.ts:460:    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f, status, spot!.id, hc), czestosc: f.f };
+apps/mobile/src/features/drills/engine.ts:461:    return { text: f.name, correct: false, why: t.range.wrong(f.f, status, spot!.id, pas, hc), czestosc: f.f };
+apps/mobile/src/features/drills/engine.ts:470:          ? { text: w.text, correct: false, sizeError: true, why: w.why, czestosc: 0 }
+apps/mobile/src/features/drills/engine.ts:471:          : { text: w.text, correct: false, why: zdania(t.range.wrong(f, status, spot.id, false, hc), w.why), czestosc: 0 },
+exit=0
+$ sed -n 444,456p apps/mobile/src/features/drills/engine.ts
+  const freqs = [...spot.groups.map((g) => ({ name: g.name, f: g.freqs[h] ?? 0 })), { name: t.range.fold, f: Math.max(0, 1 - play(h)) }];
+  const best = Math.max(...freqs.map((f) => f.f));
+  const mixed = best < MIXED_HIGH;
+  const verdict = rangeVerdict(freqs.map((f) => f.f));
+  // miejsce ręki w zakresie (do zdania „bo”, KO-040): mieszana, gdy najczęstsza akcja < MIXED_HIGH; poza zakresem, gdy najczęstszy jest pas
+  const foldF = freqs[freqs.length - 1]!.f;
+  const status: RangeStatus = mixed ? 'mixed' : foldF === best ? 'out' : 'in';
+  const bestPlay = freqs.slice(0, -1).reduce((a, b) => (b.f > a.f ? b : a));
+  const options: DrillOption[] = freqs.map((f, fi) => {
+    const v = verdict[fi]!;
+    // ostatnia pozycja freqs to pas (część „pas” paska strategii jest kreskowana, design-spec „PasekStrategii”)
+    if (fi === freqs.length - 1) return { ...opcjaZakresu(v, f, true), pas: true };
+    return opcjaZakresu(v, f, false);
+exit=0
+$ grep -n "czestosc: 0" apps/mobile/zrzuty-web/wejscie.tsx (fikstura zrzutu: 3 akcje z częstością > 0, nie treść)
+97:      { text: nazwa('fold'), correct: false, why: 'Solver pasuje z tą ręką w 10% przypadków.', czestosc: 0.1, pas: true },
+98:      { text: nazwa('call'), correct: true, why: 'Solver sprawdza z tą ręką w 70% przypadków.', czestosc: 0.7 },
+99:      { text: nazwa('raise'), correct: false, acceptable: true, why: 'Solver podbija z tą ręką w 20% przypadków.', czestosc: 0.2 },
+exit=0
+$ grep -n "PasekStrategii" apps/mobile/src/features/scenariusz/EkranScenariusza.tsx (scenariusz: tylko wybor={null})
+325:          <PasekStrategii opcje={akcje.map((a) => ({ text: teksty[a]?.przycisk ?? '', ...(teksty[a]?.czytnik ? { etykieta: teksty[a]?.czytnik } : {}) }))} wybor={null} klasa="" onWybierz={(i) => { const a = akcje[i]; if (a) p.onWybierz(a); }} />
+exit=0

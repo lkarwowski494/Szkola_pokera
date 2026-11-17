@@ -1,0 +1,9 @@
+$ grep -rn "BoldText" apps/mobile/src
+exit=1 (0 trafień = 1)
+$ ls apps/mobile/assets/fonts
+Literata-SemiBold.ttf
+OFL-literata.txt
+$ grep -n "isBoldTextEnabled" node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js (RN 0.88.1)
+86:  isBoldTextEnabled(): Promise<boolean> {
+$ sed -n 170p docs/design/02-kierunki.md
+Rekomendacja studia (funkcja): **Literata 600** — najwęższa z krojów o pełnej wysokości x (mniej łamań przy 320 pt), pełna oś odmian (reaguje na „Pogrubiony tekst”), wietnamski. Drugi wybór: **Gelasio 700** — najbliższa ciągłość z dawną

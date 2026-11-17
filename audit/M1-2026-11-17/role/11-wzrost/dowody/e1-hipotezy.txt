@@ -1,0 +1,25 @@
+$ grep -n "^### H-\|Sprawdzenie\|Warunek" docs/brd/odkrywanie.md (hipotezy)
+1:### H-01: Co jest darmowe, a co płatne
+5:- Opcje: (a) moduły od zera (M0–M2) darmowe, dalej płatne — jasna granica, ryzyko „za mało, żeby poczuć wartość”; (b) wszystkie lekcje darmowe, płatne powtórki, scenariusze całych rozdań i narzędzia — wartość ciągła pasuje do OG-05,
+7:### H-02: Jedna grupa w komunikacie, wszystkie poziomy w środku
+11:- Opcje: (a) ocena poziomu i celu na starcie, do pominięcia, korygowana po ćwiczeniach (W-03 pkt 3); (b) wybór poziomu bez testu. Rekomendacja: (a). Sprawdzenie: odsetek pomijających ocenę i porzucenia w pierwszym dniu (App Store Connect, retencja).
+13:### H-03: Kolejność języków
+17:- Opcje: (a) wszystkie 35 naraz (ZP-02); (b) 35 języków z kolejnością przeglądu rodzimego według popytu (en → ja → pt-BR → fr → zh-Hant → vi → de, `docs/monetyzacja.md`). Rekomendacja: (b), zgodne z ZP-02. Sprawdzenie: pobrania i oceny per
+19:### H-04: Podział: jedna aplikacja z modułami
+23:- Opcje: (a) jedna aplikacja z modułami (kurs, zadania, scenariusze, narzędzia, turnieje); (b) dwie aplikacje: kurs od zera i trener GTO — dwa listingi, ryzyko 4.3 przy podobnej treści, podwójne utrzymanie; (c) jedna aplikacja, turnieje (M11) jako oso
+25:### H-05: Postęp bez konta wystarczy
+29:- Opcje: (a) eksport i import pliku + kopia systemu (W-05); (b) dodatkowo synchronizacja iCloud / Google (odrzucona w W-05). Rekomendacja: (a) z przypomnieniem o eksporcie przy zmianie telefonu. Sprawdzenie: recenzje o utracie postępu.
+31:### H-06: Trener AI wraca, gdy dane pokażą popyt
+33:- Warunek powrotu (W-04): recenzje proszące o własne pytania albo analizę własnych rozdań; dane z trenerów AI konkurencji (Preflop AI, Pokr) do porównania. Skutek: zgoda na przekazanie danych (OG-11), koszt serwera.
+35:### H-07: Gra z botami wraca, gdy dane pokażą popyt
+39:- Warunek powrotu: recenzje własne proszące o grę z rywalem albo spadek używania scenariuszy po ich przerobieniu (dane sklepu, W-06).
+41:### H-08: Raport postępu za zgodą
+43:- Warunek (W-06 b): wysokie porzucenia, których dane sklepu nie wyjaśniają. Skutek: zgoda i opis w polityce prywatności (OG-11).
+45:### H-09: Subskrypcja broni się aktualizacjami
+$ grep -rln "próg\|minimalna próba" w opisach H: brak progów, ID decyzji progu i dat oceny
+0
+$ ls docs/wzrost.md docs/wzrost hipotezy.json
+ls: cannot access 'docs/wzrost.md': No such file or directory
+ls: cannot access 'docs/wzrost': No such file or directory
+ls: cannot access 'hipotezy.json': No such file or directory
+exit 2

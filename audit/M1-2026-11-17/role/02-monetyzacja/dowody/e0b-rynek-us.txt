@@ -1,0 +1,96 @@
+# E0b linia bazowa, odczyt 2026-11-17 ok. 11:10 UTC, storefront US (rynek główny)
+$ curl -sS "https://itunes.apple.com/search?term=<poker+trainer|gto+poker|learn+poker>&entity=software&country=us&limit=15"  (kod 0; pierwsze wywołanie gto+poker puste = limit, powtórzone)
+1488850006 | Postflop+ GTO Poker Trainer | Free | 1984 ocen | Utilities | jezyki: 1
+6590603158 | GTO Preflop Wizard Poker AI | Free | 3492 ocen | Education | jezyki: 1
+1458491856 | DTO MTT - GTO Poker Trainer | Free | 283 ocen | Education | jezyki: 1
+6478522482 | Poker Trainer - Learn Poker | Free | 1182 ocen | Education | jezyki: 1
+6748104711 | Poker Skill - Learn Holdem | Free | 527 ocen | Games | jezyki: 8
+6478522482 | Poker Trainer - Learn Poker | Free | 1182 ocen | Education | jezyki: 1
+6590603158 | GTO Preflop Wizard Poker AI | Free | 3492 ocen | Education | jezyki: 1
+1488850006 | Postflop+ GTO Poker Trainer | Free | 1984 ocen | Utilities | jezyki: 1
+6747833042 | Poker Trainer: Flop Factor | Free | 365 ocen | Education | jezyki: 1
+
+$ curl -sSL --compressed "https://apps.apple.com/us/app/id<trackId>" | grep -o "<span>[^<]*</span> <span>\$[^<]*</span>" | sed "s/<[^>]*>//g" | sort -u   (kod 0)
+== 6590603158
+Annual VIP Access $129.99
+Annual VIP Access $89.99
+Monthly VIP Access $19.99
+Monthly VIP Access $29.99
+VIP Access 3 Months $49.99
+VIP Access 3 Months $64.99
+Weekly VIP Access $6.99
+== 1488850006
+Lifetime $149.99
+Lifetime $199.99
+MONTHLY $14.99
+Monthly Special $14.99
+Monthly Special $9.99
+Weekly Special $9.99
+Weekly Subscription $4.99
+YEARLY $99.99
+== 6478522482
+Lifetime premium $269.99
+Monthly subscription $14.99
+Weekly subscription $6.99
+Yearly subscription $59.99
+Yearly subscription $89.99
+== 6748104711
+A year of Plus $99.99
+Poker Skill Plus, Monthly $14.99
+Poker Skill Plus, Monthly $9.99
+Poker Skill Plus, Yearly $64.99
+Poker Skill Plus, Yearly $89.99
+Poker Skill Plus, Yearly $99.99
+== 6747833042
+Lifetime $149.99
+Pro Plan $19.99
+Pro Plan $24.99
+Pro Plan $49.99
+Pro Plan $79.99
+Pro Plan $89.99
+Pro Plan $9.99
+== 1458491856
+Grinder (1 Month) $9.99
+Grinder (12 Months) $89.99
+Grinder (6 Months) $49.99
+High Roller (1 Month) $29.99
+High Roller (1 Year) $269.99
+High Roller (6 Months) $149.99
+
+$ RSS https://itunes.apple.com/us/rss/customerreviews/page=N/id=<id>/sortby=mostrecent/json -> pusty feed (875 B, bez entry) albo 0 B; recenzje wzięte z JSON strony apps.apple.com/us (sekcja allProductReviews), filtr słów o cenie
+1458491856 | rev 11091606642 | 5★ | 2024-03-27 | Rec Player | For my level of play this app is worth every penny! Playing against other bad players with the knowledge I’ve gained has helped relieve so much stress in so many situations and allowed me to play so much more balanced. I know what to do and when I’m supposed to do it. Again I’m not going after the regs, I’m going after the other rec players at the table. I’m playing mostly online 1/2
+1458491856 | rev 10085517532 | 1★ | 2023-06-29 | Buyer Beware | Ranges are much too loose. Continuation bet recommendations not optimal. Range and hand explanations/suggestions non-existent. Mobile app crashes often after completing hand option. Confusing user interface. I bought a one year subscription based off recommendation I found in a GTO book and overwhelming positive reviews. Suggest buy a one month subscription and try it before committing to a year. 
+1488850006 | rev 12866928347 | 1★ | 2025-07-08 | A Disappointing GTO Trainer | I am presently using the trainer to study OUP B/SB and B/BB post-flop interactions. This is my first real engagement with GTO and have been surprised by many of its decisions. For example, it often recommends that the blind take the post-flop lead, with either a 35% or 90% bid. Is this typical for other Solvers? I don’t know.  
+
+In many of the training scenarios, the blind is given hands that it s
+1488850006 | rev 11867265195 | 3★ | 2024-10-23 | I like it, time will tell | So far one of the most user friendly apps I found for learning optional poker. Quality of the app and the detail of the spots is really nice. Price is a big problem for me as I’m scared of anything that is a subscription and otherwise this app is not really usable with the amount of free content it gives. They offer a 1 time purchase which is 200 dollars which might be the move but am not sure if 
+1488850006 | rev 9943067184 | 3★ | 2023-05-19 | Blunder bugs | Bugs all over this app. My ELO constantly gets hit by blunders even if there’s 4 options and I choose the 2nd best. It will charge me with a blunder. I deal this game 40 hours a week, and play as much as I can. The app used to be legit but it’s impossible to tell of you’re learning the correct habits, when the AI is sinking your ELO when you make positive ELO decisions. About to drop the app compl
+1488850006 | rev 11210166849 | 3★ | 2024-04-28 | Overall Fine | Pretty nice app. Major con is the fact that you have to have either a yearly subscription or monthly subscription to use. Really unfortunate how expensive it is. The other major drawback is the fact that it doesn’t provide reasoning behind blunders. Just says your move was a blunder, but doesn’t explain why. A person can’t really learn from mistakes if they’re not provided an explanation.
+6478522482 | rev 11500038082 | 5★ | 2024-07-16 | Best I've seen | I've looked at every poker training app I can find, and this one is the best. A little overwhelming for a beginner, but it's got everything, and doesn't require you to pay before you can look at it.
+6478522482 | rev 11472161592 | 4★ | 2024-07-09 | Great app, a bit expensive | Bug report: the pot odds exercise got stuck such that the villain always bet 2 chips on a pot of 24 chips. This turned the exercise into “press 7% as quickly as you can”.
+6590603158 | rev 11855390817 | 3★ | 2024-10-20 | Good but could use some work. | Hello! I’ve been using this trainer service since it was brought to Bink, way before this app was made and have been using it to hone in on my preflop ranges. Preflop trainer has some pros, such as daily training with study, all preflop ranges from deep stack cash games to 5bbs 8max tournaments, randomized spots to train with,  and for the most part this is a very solid app. Good UI, many differen
+6590603158 | rev 11845115763 | 4★ | 2024-10-17 | Needs a couple tweaks | A couple things I wanted to mention here in hopes the devs read these suggestions.
+
+I’ve noticed the “Crazy Mode” doesn’t really specify if you’re supposed to be making tournament range decisions or cash game range decisions. I did like how the older version of this app specified between the two crazy modes. 
+
+I’m not a super fan of the timer the crazy mode gives you, although I understand why it’
+6590603158 | rev 12350737141 | 4★ | 2025-02-24 | Unfinished product | I have the lowest paid tier version so I may not have access to what I’m looking for, but I feel that there should be explanations for your mistakes and not just a mock playing model. 
+
+ Sure you get reps in and can get an auto type response when you start correcting your wrong choices but without explaining why K6ss is a raise UTG with 40 but K5ss is not when the they are identical doesn’t elevat
+6590603158 | rev 12482872374 | 1★ | 2025-03-30 | Overpriced and incredibly limited | The trainer would be great if it was a dollar. Do not waste your money on a year plan or 6 month plan as it doesn’t do any real teaching. It’s software that can be helpful practice but it doesn’t explain any of its logic. It doesn’t lay out a curriculum and introduce ideas to you slowly. It just runs you through scenarios and tells you if you are right or wrong. Doesn’t tell you why. Has preflop c
+6747833042 | rev 14534621431 | 1★ | 2026-09-10 | $20 just to see what the app is | This might be my first app review ever. And am making it cause I downloaded the app, answered some questions and before I can see the interface or anything it wants me to pay a minimum of $20 a month no trial no nothing.
+  Like who does that? At least give someone 10 minutes to poke around and see if it’s worth having. Most apps have a free version or at least a trial.
+  But not even being able to
+6747833042 | rev 14746792364 | 1★ | 2026-11-03 | Too expensive | It’s ok for study, but definitely not worth a subscription, especially $20/month! I could see a one-time purchase perhaps of like $1.99. It’s a very simple app, and clearly needs some further development as some of the study hands give feedback that doesn’t match the fold/call/raise percentages at all. If I’m paying $20/month the app should be a finished product and have much more features for stu
+6747833042 | rev 14603853427 | 1★ | 2026-09-28 | Subscription required no free features! | I hate when apps give you no indication upfront that they require a paid subscription. This app has no free features at all, but they don’t tell you that until after you’ve downloaded it and signed up.
+
+You go through the trouble of installing the app, creating an account, and providing your email, only to hit a paywall and find out you can’t actually use anything without subscribing. That should 
+6747833042 | rev 13945232734 | 1★ | 2026-04-11 | No free option | Most apps like this will give you a free option that limits the amount you can practice in one day, and I was fully expecting this app to be the same. To my surprise this app is not like that, instead there is no free option, and the app does not allow you to play a hand before they ask for a subscription. I hope this helps everyone understand what is going to happen before they buy.
+6747833042 | rev 13986960473 | 1★ | 2026-04-23 | Worst app | I wasted 10$ on a app that is literally garbage don’t waste your time or money
+6747833042 | rev 14591139048 | 1★ | 2026-09-25 | Classic | Long questionare into subscription screen
+6748104711 | rev 13768277186 | 5★ | 2026-02-20 | Interesting App | Just saw an ad for this on Instagram and decided to give it a shot. So far it’s been pretty basic as far as the “drills” you do along the path. The puzzles are a nice way of making you think about the “right way” to play the hand. Not sure how long it takes to get more energy on the free option but other than that I’m enjoying it so far. Allows me to spent 10-15 minutes a few times a day sharpenin
+6748104711 | rev 13347634468 | 5★ | 2025-11-02 | Absolute insane Gem | Stumbled on this when I was just trying to find a free game vs PC and I don’t think I’ve ever been more impressed and excited about a single app ever. The depth, UI, and mission statement makes this a team and app that is on my radar moving forward. 
+
+I see the vision and it’s actually unreal how high the ceiling is. 
+
+Joined the discord and left like 5 feedbacks, this isn’t an AI or fake review. 

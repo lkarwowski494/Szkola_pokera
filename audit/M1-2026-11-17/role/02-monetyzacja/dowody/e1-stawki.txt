@@ -1,0 +1,5 @@
+# Stawki, odczyt 2026-11-17 (curl surowego HTML, kod 0)
+$ curl -sSL https://developer.apple.com/app-store/small-business-program/
+tion of groundbreaking apps on the App Store. It features a reduced commission rate of 15% on paid apps and Apple In-App Purchases, so you can invest more resources into 
+$ curl -sSL https://developer.apple.com/programs/enroll/
+The Apple Developer Program is 99 USD per membership year. Prices may vary by region and are listed in local currency during the enrollment process.

@@ -1,0 +1,37 @@
+# Odczyt reguł platformy 2026-11-17 (UTC)
+$ curl -sSL --compressed https://developer.apple.com/app-store/review/guidelines/ → exit 0; tekst bez znaczników, wycinki
+* n offers . We’re excited to see what you come up with next! Last Updated: October 16, 2026 Developer Footer App Store App Review App Review Guidelines Platforms Open Menu Close Menu iOS iPadOS macOS tvOS visionOS watchOS App Store Tools Open Menu Close Menu Swift SwiftUI Swift Playground TestFlight Xcode Xcode Cloud Icon Composer SF Symbols Technologies Open
+
+* r, or you will be removed from the Apple Developer Program. 4.5.4 Push Notifications must not be required for the app to function, and should not be used to send sensitive personal or confidential information. Push Notifications should not be used for promotions or direct marketing purposes unless customers have explicitly opted in to receive them via consen
+
+* sed to send sensitive personal or confidential information. Push Notifications should not be used for promotions or direct marketing purposes unless customers have explicitly opted in to receive them via consent language displayed in your app’s UI, and you provide a method in your app for a user to opt out from receiving such messages. Abuse of these service
+
+* d review without the inconvenience of leaving your app, and we will disallow custom review prompts. 5.6.2 Developer Identity Providing verifiable information to Apple and customers is critical to customer trust. Your representation of yourself, your business, and your offerings on the App Store or alternative distribution must be accurate. The information yo
+
+* , and may not require repayment in full in 60 days or less. (x) Apps must not force users to rate the app, review the app, download other apps, or other store-related actions in order to access functionality, content, or use of the app. Apps may otherwise incentivize users to take specific actions within apps (such as by completing a level or watching an ad)
+
+* ted to manipulate reviews, inflate your chart rankings with paid, incentivized, filtered, or fake feedback, or engage with third-party services to do so on your behalf, we will take steps to preserve the integrity of the App Store, which may include expelling you from the Apple Developer Program. 3.1 Payments 3.1.1 In-App Purchase: If you want to unlock feat
+
+* are engaging with and can contact you regarding any issues. 5.6.3 Discovery Fraud Participating in the App Store requires integrity and a commitment to building and maintaining customer trust. Manipulating any element of the App Store customer experience such as charts, search, reviews, or referrals to your app erodes customer trust and is not permitted. 5.6
+
+* lly offer (such as iOS-based virus and malware scanners) or promoting a false price, whether within or outside of the App Store, is grounds for removal of your app from the App Store or a block from installing via alternative distribution and termination of your developer account. (b) Egregious or repeated behavior is grounds for removal from the Apple Devel
+
+* y APIs to track their activity. Learn more about tracking . Your app may not require users to enable system functionalities (such as push notifications, location services, tracking) in order to access functionality, content, use the app, or receive monetary or other compensation, including but not limited to gift cards and codes. Apps that share user data wi
+
+$ curl -sS https://developer.apple.com/tutorials/data/{documentation/storekit/requestreviewaction,design/human-interface-guidelines/ratings-and-reviews,design/human-interface-guidelines/managing-notifications}.json → exit 0
+* documentation_storekit_requestreviewaction : displays the ratings and review request a maximum of three times within a 365-day period. If the person has rated or reviewed your app on this device, StoreKit displays the ratings and review request if the app version is new, and if more than 365 days have passed since the person’s previo
+
+* documentation_storekit_requestreviewaction : ause this API may not present an alert, don’t call it in response to a button tap or other user action. It’s up to your app to decide on the best timing for requesting reviews. For design guidance, see Human Interface Guidelines >  . Test review requests When your app calls this method whi
+
+* documentation_storekit_requestreviewaction : ce and experience. However, this method has no effect in apps that you distribute for beta testing using TestFlight. Provide a persistent link to your product page (optional) People can review your app at any time on the App Store. To make it easier for people to leave reviews, you may inc
+
+* design_human-interface-guidelines_ratings-and-reviews : ete a game level or a significant task. Avoid asking for a rating on first launch or during onboarding, because people haven’t had enough time to gain a clear understanding of your app’s value or form an opinion. People may even be more likely to leave negative feedback if they feel an app
+
+* design_human-interface-guidelines_ratings-and-reviews :  opinion of your app. Consider allowing at least a week or two between requests, prompting again after people demonstrate additional engagement with your experience. Prefer the system-provided prompt.  iOS, iPadOS, and macOS offer a consistent, nonintrusive way for apps and games to reques
+
+* design_human-interface-guidelines_managing-notifications : ent that’s happening now or will happen within an hour. The first time a Time Sensitive notification arrives from your app, the system describes how such a notification works and gives people a way to turn it off if they don’t agree that the information requires their immediate attention. 
+
+* design_human-interface-guidelines_managing-notifications :  see  . Sending marketing notifications Don’t use notifications to send marketing or promotional content unless people explicitly agree to receive such information. When people want to learn about new features, content, or events related to your app or game, they can grant their permission
+
+
+Kanały: curl -A Mozilla/5.0 https://www.reddit.com/r/poker/about/rules.json → 403; https://www.reddit.com/r/poker/ → 403; https://forumserver.twoplustwo.com/ → 403 (z kontenera; regulaminy nieodczytane)

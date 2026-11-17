@@ -1,0 +1,31 @@
+$ git log --oneline aee1a359..f75acdff16915aeb43ff788888216e28616c11ed  (aee1a359 = commit buildu 1011, TestFlight run 44020579081)
+f75acdff Koordynator: próg 30% kontekstu zniesiony (właściciel 16.11 i 17.11) [skip ci]
+0ce681f5 Scalenie IP do roboczej: SC-18 łatwy kicker ≥ Q (IL-001, KO-123), GENERATOR_WERSJA 7, es sc-18 botón (KO-124); bazy treści i tresc.gener
+0ad185f1 Scalenie IQ do roboczej: poprawki treści (KO-124)
+b04eeb22 Scalenie IO do roboczej: jedna konwencja procentu w wariant.ts (IM-001, KO-121/122)
+d5841256 IL-001 KO-123: dowód CI (kod 0) dla 6a58dcd6
+6a58dcd6 IL-001 KO-123: odciski ŚR-002 przeliczone dla GENERATOR_WERSJA 7 (zmienia się tylko sc-18 łatwy)
+4f6a3300 IM-003/IM-004 KO-124: es sc-18 botón, la posición de rywal, content:build
+0f799fc1 IL-001 KO-123: kickerMin Q w SC-18 łatwy (12 języków), content:build
+1cde3a1d IL-001 KO-123: turn-action czyta kickerMin/kickerMax, GENERATOR_WERSJA 7, test SC-18
+587593dc IQ: wygenerowany tresc.generated.ts po content:build; dowód CI pod SHA treści 198ae26f
+198ae26f IQ: poprawki treści IL-002, IM-002…IM-009 (oesd w SC-16, zh-Hant SC-27, es botón i rodzaj pozycji, it SC-30, pt SC-16/21, ko SC-21)
+0c165431 docs(IO): dowód CI dla 8de3e90f (IM-001, KO-122)
+8de3e90f fix(scenariusz): procent znaczników z drill.format.percent, zrzuty bez %% (IM-001, KO-121, KO-122, D-1956)
+a33ee8e9 docs(IO): dowód CI dla e8b6455a (IM-001, KO-121)
+e8b6455a fix(scenariusz): {{w:rozmiar}} i {{w:vpip}} jako procent w języku aplikacji (IM-001, D-1955)
+ef75f613 Wydanie: ostatni wysłany build = 1011 (testflight run 11, 44020579081 @ aee1a359)
+kod: 0
+
+$ git diff --stat aee1a359 f75acdff -- packages/postep packages/domena docs/architektura/schemat.sql apps/mobile/src/data apps/mobile/src/platform apps/mobile/app.json apps/mobile/eas.json .github
+ apps/mobile/src/data/content/tresc.generated.ts | 72 ++++++++++++-------------
+ 1 file changed, 36 insertions(+), 36 deletions(-)
+kod: 0 (pusto = brak zmian ścieżek danych, platformy i CI od buildu 1011)
+
+$ grep -n "GENERATOR_WERSJA = " packages/poker-core/src/scenario-gen.ts (f75acdff) / git show aee1a359:…
+GENERATOR_WERSJA = 6
+GENERATOR_WERSJA = 7
+
+$ grep -n "version" apps/mobile/app.json | head -1; cat docs/wydanie/ostatni-build.txt
+5:    "version": "0.1.0",
+1011

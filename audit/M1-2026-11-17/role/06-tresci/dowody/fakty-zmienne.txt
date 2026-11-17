@@ -1,0 +1,44 @@
+$ node -e (rejestr.json: potwierdzone z wazne_do; fakty zmienne: n:rake.(micro|nl500|ex)*, n:mda.*, n:rake.pop.*, H-*, P-FSRS_RETENCJA)
+potwierdzone: 1006 z wazne_do: 2 H-INT-1=2027-11-04 H-INT-2=2027-11-04
+zmienne: 39 bez wazne_do: 37
+n:mda.rec.gap (brak wazne_do) 2026-11-04
+n:mda.rec.gap.pp (brak wazne_do) 2026-11-04
+n:rake.ex.keep (brak wazne_do) 2026-11-04
+n:rake.ex.pot-after (brak wazne_do) 2026-11-04
+n:mda.all.fcb (brak wazne_do) 2026-11-04
+n:mda.period.months (brak wazne_do) 2026-11-04
+n:mda.rec.def (brak wazne_do) 2026-11-04
+n:mda.rec.def.wr (brak wazne_do) 2026-11-04
+n:mda.rec.f3b (brak wazne_do) 2026-11-04
+n:mda.rec.pfr (brak wazne_do) 2026-11-04
+n:mda.rec.vpip (brak wazne_do) 2026-11-04
+n:mda.rec.wr (brak wazne_do) 2026-11-04
+n:mda.rec.wsd (brak wazne_do) 2026-11-04
+n:mda.rec.wtsd (brak wazne_do) 2026-11-04
+n:mda.reg.def.high (brak wazne_do) 2026-11-04
+n:mda.reg.def.low (brak wazne_do) 2026-11-04
+n:mda.reg.def.wr (brak wazne_do) 2026-11-04
+n:mda.reg.f3b (brak wazne_do) 2026-11-04
+n:mda.reg.pfr (brak wazne_do) 2026-11-04
+n:mda.reg.vpip (brak wazne_do) 2026-11-04
+n:mda.reg.wr (brak wazne_do) 2026-11-04
+n:mda.reg.wsd (brak wazne_do) 2026-11-04
+n:mda.reg.wtsd (brak wazne_do) 2026-11-04
+n:rake.ex.pct (brak wazne_do) 2026-11-04,2026-11-04
+n:rake.micro.high (brak wazne_do) 2026-11-04
+n:rake.micro.low (brak wazne_do) 2026-11-04,2026-11-04
+n:rake.nl500.high (brak wazne_do) 2026-11-04
+n:rake.nl500.low (brak wazne_do) 2026-11-04
+n:rake.pop.nl10.loss (brak wazne_do) 2026-11-04
+n:rake.pop.nl100.loss (brak wazne_do) 2026-11-04
+n:rake.pop.nl500.loss (brak wazne_do) 2026-11-04
+n:rake.pop.reg.hands (brak wazne_do) 2026-11-04
+n:rake.pop.reg.postrake (brak wazne_do) 2026-11-04
+n:rake.pop.reg.prerake (brak wazne_do) 2026-11-04
+n:rake.pop.reg.prerake.raw (brak wazne_do) 2026-11-04
+n:rake.pop.reg.postrake.raw (brak wazne_do) 2026-11-04
+H-INT-1 2027-11-04 2026-11-04,2026-11-04,2026-11-04
+H-INT-2 2027-11-04 2026-11-04,2026-11-04,2026-11-04,2026-11-04
+P-FSRS_RETENCJA (brak wazne_do) 2026-11-04,2026-11-04
+krytyczne z kto != stała: n:dd.bi.small
+exit 0

@@ -1,0 +1,25 @@
+# Reaudit M1 pętla 1 — wyniki ról (zbierane przez M1)
+| Rola | ID | Wynik | Poziom | Blokuje 1012 | Blokuje App Store | Tokeny |
+|---|---|---|---|---|---|---|
+| 10 | M1-audytor-generalny-061 (10-wydanie-007) | zweryfikowane (test 2/2 HEAD, kod 1 na bazie; check-ignore 4848 plików bez nowych trafień) | P2 niskie | nie | nie | 139 420 |
+| 10 | regresja: app.json, eas.json, manifest, bazy treści (suma rozmiarów bez zmian), workflowy | brak regresji | — | — | — | |
+| 07 | M1-audytor-generalny-047 (07-jakosc-004) | zweryfikowane (15/15 przypięte do fc06bc12… = tag v5.0.0; test 31/31, mutacje kod 1; CI #534 ok) | P2 | nie | nie | 173 216 |
+| 07 | M2-koordynator-napraw-003 | istniało wcześniej, P2 rodzaj P (Trening też bez dependabota → opcja b M2 = analogia) | P2→P3 | nie | nie | |
+| 07 | regresja: 9 workflowów (tylko 15 zamian @v5→@SHA), JAK-19 bramka statyczna kod 0 (PU 28, F 10); CI #534 (a59d0e1b) sukces; CI #535 na 196cb8c2 w toku | brak regresji | — | — | — | |
+| 07 | protokół F 1011 (`--protokol 1011` kod 1, 10 pozycji „—”) | krok właściciela (nie znalezisko) — blokuje 1012 przez bramkę JAK-19 | — | **tak (bramka)** | tak | |
+| 07 | E2E iOS na kandydacie | nie sprawdzono (gałąź napraw nie uruchamia E2E, D-1620; workflow_dispatch na macOS) | — | — | — | |
+| 04 | M2-koordynator-napraw-001 (strona projektowa) | **nadal otwarte (częściowo)**: kropka `muted` na zielonym polu 1,60:1 (jasny) i 2,01:1 (jasny + Zwiększ kontrast) < 3:1; 71/263 klas niepewnych, w tym K7o, Q8o, T2s, K8o, 75o (BB vs BTN); naprawa: kolor `ink` ≥ 3,26:1 → nowe ID 04-studio-projektowe-001 (reaudit) | P1 (wg KO-129) — do weryfikacji przeciwnej | tak (wg roli) | tak | 197 543 |
+| 04 | M2-koordynator-napraw-004 | brak informacji dodatkowej, nie bariera (siatka zawsze jednym elementem z etykietą; lekcja m4-l2:79 mówi tekstem) | P2 | nie | nie | |
+| 04 | 04-studio-projektowe-002 (reaudit) | istniało wcześniej: PaintGrid kropka „mieszana” na pomalowanym polu 1,19–2,46:1 | P2 → P3 | nie | nie | |
+| 04 | regresja PasekStrategii, theme, i18n, PaintGrid | git diff od bazy pusty | — | — | — | |
+| 06 | M1-audytor-generalny-002 (06-tresci-501) | **zweryfikowane** (beyondgto odczytane dziś; klasy niepewne = ręce ≥ 50 pp: 16 i 13, 6/9-max, 35 baz; skrypt własny i autora kod 0; testy 27/27; sonda 12 000 losowań: 0 klas niepewnych w ocenie) | P1 zamknięte | nie | nie | 265 898 |
+| 06 | M1-audytor-generalny-007 (06-tresci-001) | zweryfikowane (test 3/3; skróty dosłowne; 5/5 cytatów rejestru w źródle) | zamknięte | nie | nie | |
+| 06 | M2-koordynator-napraw-001 (strona merytoryczna) | zweryfikowane (kropki na klasach niepewnych; 11 przekładów zgodnych z pl) | — | nie | nie | |
+| 06 | D-2015 | rekomendacja: przyjąć; do backlogu procesu: 06 sprawdza treść po zmianie kodu zmieniającej lekcję | — | — | — | |
+| 06 | 06-tresci-001 (reaudit): ID 06-tresci-502 nadane dwóm różnym znaleziskom | regresja śledzenia | P2 → P3 | nie | nie | |
+| 06 | regresja TRE (M5.l2, ziarno 20261117): 7 liczb, 4 reguły | brak regresji | — | — | — | |
+| 06 | Do sprawdzenia: scenariusze obrony BB losują rękę z klas niepewnych (14,8%), bez oceny preflop | bez znaleziska | — | — | — | |
+| 08 | M2-koordynator-napraw-001 (kod) | zweryfikowane (jedno źródło `ranges.uncertain`: getRangeSpot/getAllRangeSpots, engine.ts:435, grade.ts:37; test 5/5) | — | nie | nie | 202 490 |
+| 08 | M2-koordynator-napraw-002 | nadal otwarte, teoretyczne (mutacja K9o w kanonie i nakładkach niewykryta) | P2 → P3 | nie | nie | |
+| 08 | M2-koordynator-napraw-005 | nadal otwarte, teoretyczne (przesunięcie kropki: test na danych zielony) | P2 → P3 | nie | nie | |
+| 08 | regresja: przemianowanie baz tresc-d0b124291f (63/63, content:check kod 0), postep 160/160, DEV-03 0, DEV-05 0 | brak regresji | — | — | — | |

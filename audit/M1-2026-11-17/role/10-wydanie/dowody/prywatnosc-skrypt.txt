@@ -1,0 +1,20 @@
+# 1) cd apps/mobile && env -u NODE_PATH npx expo config --type introspect --json > scratchpad/introspect.json (kod 0, f75acdff)
+# 2) node sprawdz-wydanie.mjs prywatnosc introspect.json /home/user/Szkola_pokera/node_modules (pnpm: cały magazyn .pnpm, także zależności spoza buildu iOS)
+OK
+kod wyjścia: 0
+
+# kontrola: find node_modules apps/mobile/node_modules -name PrivacyInfo.xcprivacy (nodeLinker: hoisted, pnpm-workspace.yaml:5) → 12 plików, kod 0:
+node_modules/expo-localization/ios/PrivacyInfo.xcprivacy
+node_modules/expo-application/ios/PrivacyInfo.xcprivacy
+node_modules/expo-file-system/ios/PrivacyInfo.xcprivacy
+node_modules/expo-constants/ios/PrivacyInfo.xcprivacy
+node_modules/expo-notifications/ios/PrivacyInfo.xcprivacy
+node_modules/expo-system-ui/ios/PrivacyInfo.xcprivacy
+node_modules/react-native/third-party-podspecs/boost/PrivacyInfo.xcprivacy
+node_modules/react-native/third-party-podspecs/glog/PrivacyInfo.xcprivacy
+node_modules/react-native/third-party-podspecs/RCT-Folly/PrivacyInfo.xcprivacy
+node_modules/react-native/React/Resources/PrivacyInfo.xcprivacy
+node_modules/react-native/ReactCommon/react/timing/PrivacyInfo.xcprivacy
+node_modules/react-native/ReactCommon/cxxreact/PrivacyInfo.xcprivacy
+# Nie sprawdzono: pakiety pobierane przy pod install (np. OpenIAP Swift z expo-iap) — brak macOS/CocoaPods.
+# Info.plist z introspect (fragment): NSAllowsArbitraryLoads=true, NSLocalNetworkUsageDescription="Expo Dev Launcher uses the local network to discover and connect to development servers running on your computer.", NSBonjourServices=["_expo._tcp"], ITSAppUsesNonExemptEncryption=false, CFBundleShortVersionString=0.1.0, UIRequiresFullScreen=false, supportsTablet=false

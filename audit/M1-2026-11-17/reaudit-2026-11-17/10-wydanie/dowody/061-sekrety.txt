@@ -1,0 +1,11 @@
+$ node sprawdz-wydanie.mjs sekrety /home/user/Szkola_pokera  (HEAD) → kod 0
+OK
+
+$ node sprawdz-wydanie.mjs sekrety <worktree 0e7e5e00> → kod 0
+UWAGA .gitignore nie obejmuje: x.p8
+UWAGA .gitignore nie obejmuje: x.p12
+UWAGA .gitignore nie obejmuje: x.jks
+UWAGA .gitignore nie obejmuje: x.mobileprovision
+UWAGA .gitignore nie obejmuje: credentials.json
+UWAGA .gitignore nie obejmuje: .env
+OK

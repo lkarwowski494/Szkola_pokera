@@ -1,0 +1,12 @@
+$ git ls-files docs | xargs grep -l -E "tekst po zdjęciu znacznik|tylko wiersze z cytatami|HTML → tekst" ; rozmiar
+25307 docs/lokalizacja/dowody/przeglad-de-es-ko-it-vi-2026-11-09/V2-terminy.md
+22528 docs/wydanie/legalnosc/US.md
+20869 docs/lokalizacja/dowody/przeglad-de-es-ko-it-vi-2026-11-09/I2-terminy.md
+20257 docs/lokalizacja/dowody/przeglad-de-es-ko-it-vi-2026-11-09/E2-terminy.md
+19709 docs/lokalizacja/dowody/przeglad-de-es-ko-it-vi-2026-11-09/K2-terminy.md
+18048 docs/tresci/odczyty/dv-krok-e-2026-11-11.txt
+2976 docs/tresci/recenzje/dowody/cq-ad62a2d-zrodlo-gtow-flop-heuristics-ip.txt
+1850 docs/tresci/odczyty/co-gtow-flop-heuristics-ip-2026-11-11.txt
+1479 docs/tresci/dowody/cw-zrodlo-gtow-flop-heuristics-ip.txt
+1432 docs/tresci/recenzje/dowody/cw-0ef7785-zrodlo-gtow-flop-heuristics-ip.txt
+exit 0

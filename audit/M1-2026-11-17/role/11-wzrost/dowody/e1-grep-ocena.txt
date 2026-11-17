@@ -1,0 +1,18 @@
+$ grep -rn -E "requestReview|StoreReview|RequestReviewAction|SKStoreReview|write-review|isAvailableAsync|hasAction|storeUrl" apps packages --include=*.ts --include=*.tsx --include=*.json -l (bez node_modules)
+apps/mobile/src/platform/__tests__/pliki-08.test.ts:26:jest.mock('expo-sharing', () => ({ isAvailableAsync: async () => true, shareAsync: (u: string, o?: unknown) => mockUdostepnij(u, o) }));
+apps/mobile/src/platform/opinie.ts:1:import * as StoreReview from 'expo-store-review';
+apps/mobile/src/platform/opinie.ts:4:/** Adapter prośby o ocenę na expo-store-review 58.0.2 (`isAvailableAsync`, `requestReview`; build/StoreReview.d.ts, odczyt 2026-11-08). */
+apps/mobile/src/platform/opinie.ts:6:  dostepna: () => StoreReview.isAvailableAsync(),
+apps/mobile/src/platform/opinie.ts:7:  popros: () => StoreReview.requestReview(),
+apps/mobile/src/platform/adresy.ts:12: * Opinie (BR-OPIN-002, BR-OPIN-003): App Store ID aplikacji (strona „write-review”) i adres poczty do zgłoszeń. [DO USTALENIA]
+apps/mobile/src/platform/pliki.ts:39:      if (!(await Sharing.isAvailableAsync())) throw new Error('Arkusz udostępniania niedostępny');
+apps/mobile/src/features/opinie/Opinie.tsx:24:/** Strona aplikacji w App Store z formularzem opinii (Apple: „action=write-review”, BR-OPIN-002-a). */
+apps/mobile/src/features/opinie/Opinie.tsx:25:export const adresOpinii = (id: string) => `https://apps.apple.com/app/id${encodeURIComponent(id)}?action=write-review`;
+apps/mobile/src/features/opinie/__tests__/prosbaOOcene-08.test.ts:2:// Prośba o ocenę na podsumowaniu lekcji albo sesji (BR-OPIN-001, D-110; expo-store-review `requestReview`): wołana tylko,
+apps/mobile/src/features/opinie/__tests__/opinie.test.tsx:16:  it('AK-BR-OPIN-002-a: „Oceń w sklepie” otwiera stronę aplikacji w App Store z action=write-review', async () => {
+apps/mobile/src/features/opinie/__tests__/opinie.test.tsx:25:    expect(url.searchParams.get('action')).toBe('write-review');
+apps/mobile/src/features/opinie/prosbaOOcene.ts:7:  dostepna(): Promise<boolean>; // StoreReview.isAvailableAsync
+apps/mobile/src/features/opinie/prosbaOOcene.ts:8:  popros(): Promise<void>; // StoreReview.requestReview — system sam decyduje, czy okno się pokaże
+packages/domena/test/kurs.test.ts:258:  it('AK-BR-OPIN-001-e systemowa prośba (requestReview) wywoływana najwyżej w jednym pliku aplikacji', () => {
+packages/domena/test/kurs.test.ts:264:        else if (/\.tsx?$/.test(e.name) && !/\.test\.tsx?$/.test(e.name) && /requestReview\s*\(/.test(readFileSync(s, 'utf8'))) pliki.push(s);
+exit 0

@@ -1,0 +1,25 @@
+$ grep -rn "AppState" apps/mobile/src packages/*/src apps/mobile/modules (bez testów)
+apps/mobile/src/platform/ochronaTla.ts:8: * a flagę przerwania przy `AppState` → `background` ustawia warstwa aplikacji (ADR 0013 pkt 4).
+packages/postep/src/port.ts:58:// operacja bez ochrony, przerwanie przy przejściu do tła należy do warstwy aplikacji (ADR 0013 pkt 4, AppState).
+kod wyjścia: 0 (tylko komentarze, 0 wywołań API)
+
+$ grep -rln "AppState" node_modules/expo-router/build/useFocusEffect.js node_modules/expo-router/build/react-navigation/core/useFocusEffect.js
+kod wyjścia: 1 (1 = brak: useFocusEffect reaguje tylko na focus/blur nawigacji)
+$ grep -n "addListener" node_modules/expo-router/build/useFocusEffect.js
+97:        const unsubscribeFocus = navigation.addListener('focus', ()=>{
+109:        const unsubscribeBlur = navigation.addListener('blur', ()=>{
+
+$ grep -n "useFocusEffect\|function useOdczytPostepu" apps/mobile/src/data/postep.ts
+1:import { useFocusEffect } from 'expo-router';
+51:export function useOdczytPostepu<T>(czytaj: (port: PortBazy) => Promise<Wynik<T, string>>, ekran: string): StanOdczytu<T> & { odswiez(): void } {
+63:  useFocusEffect(odswiez);
+
+$ grep -n "AppState" docs/architektura/tlo-i-bledy.md docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md
+docs/architektura/tlo-i-bledy.md:41:3. `AppState` → `background`: port kończy kolejkę, nie przyjmuje nowych operacji długich; operacja długa bez przyznanego czasu (`rozpocznij` = −1) przerywa się na granicy instrukcji (ADR 0013 pkt
+docs/architektura/tlo-i-bledy.md:42:4. `AppState` → `active`: odczyt dnia lokalnego i strefy (limit mógł się odnowić, BR-LIM-005), odczyt zgody na powiadomienia (sekcja 3, pkt 4); uprawnienia ze sklepu z nasłuchu transakcji (ADR 0006
+docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md:21:- B: bez kodu natywnego: długie operacje tylko na pierwszym planie z blokadą interfejsu; na `AppState` → `background` port przerywa na granicy instrukcji i wycofuje
+docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md:25:Wybrano „A” razem z mechanizmem przerwania z „B”, ponieważ tylko A stosuje środek wskazany przez Apple (czas wykonania w tle prośbą złożoną przed zapisem), a prz
+docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md:29:2. Port bazy (`packages/postep`) dostaje w konstruktorze opcjonalną zależność `OchronaTla { rozpocznij(n): number; zakoncz(id): void; naWygasniecie(fn): () => void }` (inte
+docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md:31:4. Przerwanie: długa operacja w porcie sprawdza flagę `przerwij` przed każdą instrukcją; flagę ustawia `wygasa` albo `AppState` → `background`, gdy `rozpocznij` zwróci
+docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md:32:5. Krótkie zapisy (krok aktywności, ustawienie, pamięć uprawnień, dziennik) bez ochrony: kończą się w milisekundach (p95 3,4 ms na laptopie), a system daje ok. 5 s po p
+docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md:50:### B: tylko pierwszy plan i przerwanie na `AppState`

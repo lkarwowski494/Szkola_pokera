@@ -1,0 +1,65 @@
+# szerokość słów skali stopni w Inter SemiBold 13 pt (font z node_modules; parser cmap/hmtx w scratchpadzie: szer.mjs, bez kerningu)
+$ node szer.mjs node_modules/expo-dev-menu/android/src/debug/res/font/inter_semibold.ttf Dopuszczalna 13
+Dopuszczalna: 85.7 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs node_modules/expo-dev-menu/android/src/debug/res/font/inter_semibold.ttf Zgodna 13
+Zgodna: 46.5 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs node_modules/expo-dev-menu/android/src/debug/res/font/inter_semibold.ttf Błąd 13
+Błąd: 26.7 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ grep -n "drobny:" apps/mobile/src/theme/tokeny.ts
+175:    drobny: { size: 13, line: 17, kroj: 'system', textStyle: 'footnote', maxW: null },
+exit=0
+$ grep -n "przedzial:" apps/mobile/src/components/SkalaStopni.tsx
+37:  przedzial: { flexGrow: 1, minWidth: 0, maxWidth: '100%', borderRadius: promien.przedzial, paddingVertical: odstep.s, paddingHorizontal: odstep.s, gap: 2 },
+exit=0
+$ grep -n "łamanie w środku wyrazu" docs/design/design-spec.md
+27:- Łamanie w środku wyrazu dozwolone tylko przy AX3–AX5 na 320 pt (wyjątek nazwany w D-122); pomiar: `narzedzia/przepelnienie.mjs` raportuje je jako INFO (12 wyrazów na 5 ekranach, 0 przy 390 
+77:5. AX5 na 320/390/430: przepełnienie kod 0 (`narzedzia/przepelnienie.mjs`; łamanie w środku wyrazu tylko przy 320 AX5, D-122).
+101:| Łamanie w środku wyrazu przy AX5 | tylko 320 pt (D-122) | jw., INFO | 12 przy 320 pt, 0 przy 390 i 430 pt |
+exit=0
+# Pole tekstu przedziału nie-twojego przy 390 pt i skali 1: rachunek z raportu roli 04 (ok. 65 pt); na zrzucie roli 04 po-ocenie-390-jasny.png ramka 'Dopuszcz/alna' ma ok. 85 px szerokości (x ok. 134–219), czyli pole ok. 85 − 16 − 2 = 67 pt.
+# 85,7 pt (Inter) > ok. 67 pt: słowo nie mieści się w wierszu, silnik łamie je na znaku. SF Pro Text Semibold nie jest w środowisku (brak pomiaru); słowo musiałoby być o ok. 22% węższe niż w Inter, żeby się zmieścić.
+# słowo grade.dopuszczalne w językach łacińskich (Inter SemiBold 13 pt, ten sam parser)
+$ node szer.mjs <inter_semibold> "Dopuszczalna" 13  # pl
+Dopuszczalna: 85.7 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Acceptable" 13  # en
+Acceptable: 69.3 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Vertretbar" 13  # de
+Vertretbar: 62.8 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Acceptable" 13  # fr
+Acceptable: 69.3 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Aceptable" 13  # es
+Aceptable: 62.0 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Accettabile" 13  # it
+Accettabile: 69.2 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Aceitável" 13  # pt
+Aceitável: 56.8 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Aceitável" 13  # pt-BR
+Aceitável: 56.8 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+$ node szer.mjs <inter_semibold> "Chấp nhận được" 13  # vi
+Chấp nhận được: 99.7 pt przy 13 pt (upm 2048, bez kerningu)
+exit=0
+# kod parsera (szer.mjs):
+import { readFileSync } from 'node:fs';
+const [plik, tekst, rozm] = process.argv.slice(2);
+const b = readFileSync(plik); const dv = new DataView(b.buffer, b.byteOffset, b.byteLength);
+const n = dv.getUint16(4); const T = {};
+for (let i = 0; i < n; i++) { const o = 12 + 16 * i; T[b.toString('latin1', o, o + 4)] = dv.getUint32(o + 8); }
+const upm = dv.getUint16(T.head + 18); const nH = dv.getUint16(T.hhea + 34);
+const cm = T.cmap; const nt = dv.getUint16(cm + 2); let sub;
+for (let i = 0; i < nt; i++) { const p = dv.getUint16(cm + 4 + 8 * i), e = dv.getUint16(cm + 6 + 8 * i), off = dv.getUint32(cm + 8 + 8 * i); if (p === 3 && e === 1) sub = cm + off; }
+const segX2 = dv.getUint16(sub + 6), sc = segX2 / 2; const ends = sub + 14, starts = ends + segX2 + 2, deltas = starts + segX2, ros = deltas + segX2;
+const gid = (c) => { for (let i = 0; i < sc; i++) { const e = dv.getUint16(ends + 2 * i); if (c <= e) { const s = dv.getUint16(starts + 2 * i); if (c < s) return 0; const d = dv.getInt16(deltas + 2 * i), r = dv.getUint16(ros + 2 * i); if (!r) return (c + d) & 0xffff; const g = dv.getUint16(ros + 2 * i + r + 2 * (c - s)); return g ? (g + d) & 0xffff : 0; } } return 0; };
+const adv = (g) => dv.getUint16(T.hmtx + 4 * Math.min(g, nH - 1));
+let s = 0; for (const ch of tekst) s += adv(gid(ch.codePointAt(0)));
+console.log(`${tekst}: ${(s / upm * Number(rozm)).toFixed(1)} pt przy ${rozm} pt (upm ${upm}, bez kerningu)`);

@@ -1,0 +1,60 @@
+/// <reference types="jest" />
+// M1-audytor-generalny-067 / 068 (04-studio-projektowe-001, -002): znak „•” (klasa niepewna / „mieszana”) ma kolor
+// etykiety ręki w tym samym polu (RangeGrid: ink; PaintGrid: primaryInk na pomalowanym, ink na niepomalowanym),
+// a nie `muted`, który na zielonym polu i na primaryBg ma kontrast poniżej 3:1.
+// KO-132 / D-2020: znak w RangeGrid to kropka (View, tło `ink`), więc jej kolor to `backgroundColor`; na polu f = 0 etykieta też jest `ink`.
+import '@/i18n';
+import { render } from '@testing-library/react-native';
+import { StyleSheet } from 'react-native';
+import { HAND_CLASSES } from '@szkola/poker-core';
+import { RangeGrid } from '@/components/RangeGrid';
+import { PaintGrid } from '@/components/PaintGrid';
+import type { PaintCell } from '@/features/drills/grade';
+
+type N = { type?: string; props?: { style?: unknown }; children?: (N | string)[] | null };
+
+/** Pary (etykieta ręki, kolor etykiety, kolor znaku) dla pól, które mają znak „•”. */
+function poleZeZnakiem(drzewo: unknown): { hand: string; etykieta: unknown; znak: unknown }[] {
+  const wynik: { hand: string; etykieta: unknown; znak: unknown }[] = [];
+  const kolor = (n: N) => { const st = StyleSheet.flatten(n.props?.style as never); return n.type === 'View' ? st?.backgroundColor : st?.color; };
+  const tekst = (n: N | string) => (typeof n === 'string' ? n : (n.children ?? []).filter((c): c is string => typeof c === 'string').join(''));
+  const przejdz = (n: N | string | null | undefined): void => {
+    if (!n || typeof n === 'string') return;
+    const dzieci = (n.children ?? []).filter((c): c is N => typeof c === 'object' && c !== null);
+    const znak = dzieci.find((c) => tekst(c) === '•' || (c.props as { testID?: string } | undefined)?.testID?.startsWith('kropka-'));
+    // etykieta RangeGrid leży w podkładce (dziecko pola), etykieta PaintGrid bezpośrednio w polu
+    const etykieta = [...dzieci, ...dzieci.flatMap((c) => (c.children ?? []).filter((x): x is N => typeof x === 'object' && x !== null))].find((c) => HAND_CLASSES.includes(tekst(c) as never));
+    if (znak && etykieta) wynik.push({ hand: tekst(etykieta), etykieta: kolor(etykieta), znak: kolor(znak) });
+    dzieci.forEach(przejdz);
+  };
+  przejdz(drzewo as N);
+  return wynik;
+}
+
+const spotBase = { id: 'x', title: 'Tytuł', hero: 'BB', path: '', playPercent: 0.4, groups: [] };
+
+describe('znak „•” ma kolor etykiety ręki w polu', () => {
+  it('RangeGrid (004-001): kolor znaku = kolor etykiety (ink), nie muted', async () => {
+    const { toJSON } = await render(<RangeGrid spot={{ ...spotBase, uncertain: ['T2s', 'K7o', '75o'] }} />);
+    const pola = poleZeZnakiem(toJSON());
+    expect(pola.map((p) => p.hand).sort()).toEqual(['75o', 'K7o', 'T2s']);
+    for (const p of pola) expect(p.znak).toBe(p.etykieta);
+  });
+
+  const wynik = (zmiana: Record<string, PaintCell>) => HAND_CLASSES.map((h) => zmiana[h] ?? 'none');
+  const malowane = (...hands: string[]) => HAND_CLASSES.map((h) => hands.includes(h));
+
+  it('PaintGrid (04-studio-projektowe-002): „mieszana” na pomalowanym polu: znak = etykieta (primaryInk)', async () => {
+    const { toJSON } = await render(<PaintGrid painted={malowane('T2s')} result={wynik({ T2s: 'mixed' })} />);
+    const pola = poleZeZnakiem(toJSON());
+    expect(pola).toHaveLength(1);
+    expect(pola[0]!.znak).toBe(pola[0]!.etykieta);
+  });
+
+  it('PaintGrid: „mieszana” na niepomalowanym polu: znak = etykieta (ink)', async () => {
+    const { toJSON } = await render(<PaintGrid painted={malowane()} result={wynik({ K7o: 'mixed' })} />);
+    const pola = poleZeZnakiem(toJSON());
+    expect(pola).toHaveLength(1);
+    expect(pola[0]!.znak).toBe(pola[0]!.etykieta);
+  });
+});

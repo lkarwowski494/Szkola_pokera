@@ -1,0 +1,44 @@
+$ grep -rn "scenariosSoon\|'wkrotce'" apps/mobile/src (bez locales); 2026-11-17
+apps/mobile/src/app/(tabs)/index.tsx:59:  const stanScenariuszy = stan?.scenariusze === 'po_m2' ? t('today.afterFirstLessonM2') : stan?.scenariusze === 'limit' ? t('today.limitTile') : t('today.scenariosSoon');
+apps/mobile/src/features/dzis/__tests__/kafle-bi.test.ts:34:    expect(st(JEST, 0, ['m2.l1']).scenariusze).toBe('wkrotce');
+apps/mobile/src/features/dzis/__tests__/kafle-bi.test.ts:35:    expect(st(JEST, 0, ['m3.l1']).scenariusze).toBe('wkrotce');
+apps/mobile/src/features/dzis/widok.ts:86:  scenariusze: 'wkrotce' | 'po_m2' | 'limit';
+apps/mobile/src/features/dzis/widok.ts:99:    scenariusze: !odblokowane ? 'po_m2' : wyczerpany ? 'limit' : 'wkrotce',
+kod 0
+
+$ grep -l "\"scenariosSoon\"" apps/mobile/src/i18n/locales/*.json (bez *.kontekst.json) + wartości
+apps/mobile/src/i18n/locales/de.json:    "scenariosSoon": "Demnächst",
+apps/mobile/src/i18n/locales/en.json:    "scenariosSoon": "Coming soon",
+apps/mobile/src/i18n/locales/es.json:    "scenariosSoon": "Próximamente",
+apps/mobile/src/i18n/locales/fr.json:    "scenariosSoon": "Bientôt",
+apps/mobile/src/i18n/locales/it.json:    "scenariosSoon": "In arrivo",
+apps/mobile/src/i18n/locales/ja.json:    "scenariosSoon": "近日公開",
+apps/mobile/src/i18n/locales/ko.json:    "scenariosSoon": "곧 제공",
+apps/mobile/src/i18n/locales/pl.json:    "scenariosSoon": "Wkrótce",
+apps/mobile/src/i18n/locales/pt-BR.json:    "scenariosSoon": "Em breve",
+apps/mobile/src/i18n/locales/pt.json:    "scenariosSoon": "Em breve",
+apps/mobile/src/i18n/locales/vi.json:    "scenariosSoon": "Sắp ra mắt",
+apps/mobile/src/i18n/locales/zh-Hant.json:    "scenariosSoon": "即將推出",
+kod 0
+
+$ ls content/<język>/scenarios | wc -l (szablony scenariuszy w źródle treści)
+content/de/ 33
+content/en/ 33
+content/es/ 33
+content/fr/ 33
+content/it/ 33
+content/ja/ 33
+content/ko/ 33
+content/pl/ 33
+content/pt-BR/ 33
+content/pt/ 33
+content/vi/ 33
+content/zh-Hant/ 33
+
+$ grep -n D-581 docs/decyzje.md; sed -n 19p docs/programista/stan-bt.md; sed -n 37p docs/design/menu-i-zebatka.md
+368:| D-581 | 2026-11-10 | A (rola 08 build, sesja BI; do weta) | **Kafelek Scenariusze do kroku F:** prowadzi do ekranu `/scenarios` w stanie „wkrótce” (tytuł + jedno zdanie, bez przycisków); stan kafelka „Wkrótce”. Krok F zastępuje ekran wyborem poziomu i startem (BR-SCN-003) i zmienia stan kafelka na „Poziom: … (auto)” | kafelek ukryty do kroku F (łamie KO-045); przycisk bez celu | KO-045, polecenie BI pkt 4.2 | D-541 |
+- Kafelek „Dziś”: stan „Wkrótce” (`today.scenariosSoon`) do zmiany na stan gotowości, gdy treść ma szablony (krok G, BR-MENU-001).
+| W trakcie | „Kontynuuj lekcję” + bieżąca lekcja | Powtórki „7 na dziś”, Scenariusze „Poziom: średni (auto)” |
+kod 0
+apps/mobile/assets/content/tresc-70ddf027b1-pl.db ['meta', 'modules', 'lessons', 'drills', 'exam_drills', 'rules', 'numbers', 'ranges', 'game_kit', 'terms', 'scenarios'] (33,)
+apps/mobile/assets/content/tresc-70ddf027b1-en.db ['meta', 'modules', 'lessons', 'drills', 'exam_drills', 'rules', 'numbers', 'ranges', 'game_kit', 'terms', 'scenarios'] (33,)

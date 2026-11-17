@@ -1,0 +1,57 @@
+Kopia robocza @196cb8c2 (git worktree, scratchpad). Czy informację o klasie niepewnej niesie coś poza kropką?
+$ grep -n 'accessible accessibilityLabel' apps/mobile/src/components/RangeGrid.tsx
+20:    <View style={{ gap: odstep.s }} accessible accessibilityLabel={t('range.label', { title: spot.title, pct })}>
+kod 0
+
+$ grep -n -A2 '"range": {' apps/mobile/src/i18n/locales/pl.json
+662:  "range": {
+663-    "label": "{{title}}. Gra {{pct}} procent rąk.",
+664-    "playPercent": "Gra {{pct}}% rąk"
+--
+735:    "range": {
+736-      "fold": "{{t:fold|Pas}}",
+737-      "right": "Tak: {{status}}.",
+kod 0
+
+$ grep -n 'legendMixed' apps/mobile/src/i18n/locales/pl.json apps/mobile/src/components/RangeGrid.tsx
+apps/mobile/src/i18n/locales/pl.json:649:    "legendMixed": "• mieszana",
+apps/mobile/src/components/RangeGrid.tsx:56:        {niepewne.size > 0 ? <Text style={[styl.drobny, { color: tk.muted }]}>{t('paint.legendMixed')}</Text> : null}
+kod 0
+
+$ grep -n -i 'niepewn\|sporn\|mieszan\|szerzej' content/pl/lessons/m4-l2-obrona-bb.md
+69:{{t:big-blind|Duży blind}} ma już w {{t:pot|puli}} cały blind, więc wobec {{t:open|otwarcia}} dopłaca niewiele. Gdy Button {{t:open|otwiera}} na {{n:pf.open-size}}, a {{t:small-blind}} {{t:fold|pasuje}}, do {{t:call|sprawdzenia}} potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity. Dlatego {{t:big-blind}} broni się najszerzej ze wszystkich {{t:position|pozycji}}.
+79:Opublikowane rozwiązania solverów bronią tu ok. {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}} rąk ({{t:call}} i 3-bet razem). Solver aplikacji, z którego pochodzi siatka, broni tu szerzej niż opublikowane rozwiązania.
+kod 0
+
+$ grep -n 'kind: paint' -A4 content/pl/lessons/m4-l2-obrona-bb.md
+62:  - kind: paint
+63-    id: m4.l2.p-btn
+64-    family: m4.paint.bb-vs-btn
+65-    rules: [R-M4-004]
+66-    spot: vs-open.bb-vs-btn
+kod 0
+
+$ grep -n "mixed: 'paint.state.mixed'\|accessibilityLabel={t('paint.cell'" apps/mobile/src/components/PaintGrid.tsx
+139:                  accessibilityLabel={t('paint.cell', { hand: hc, state: a11yState(i) })}
+171:  mixed: 'paint.state.mixed',
+kod 0
+
+$ grep -n '"mixed": "mieszana, zaliczona"' apps/mobile/src/i18n/locales/pl.json
+658:      "mixed": "mieszana, zaliczona",
+kod 0
+
+$ grep -n 'uncertain.has(hc)' apps/mobile/src/features/drills/grade.ts
+47:    const mixed = uncertain.has(hc) || (p >= MIXED_LOW && p < MIXED_HIGH);
+kod 0
+
+$ grep -n -i 'mark\|kropk\|mieszan' apps/mobile/src/theme/tokeny.ts
+kod 1
+
+$ grep -n 'export function useTokens' -A4 apps/mobile/src/theme/tokens.ts
+70:export function useTokens(): Tokens {
+71-  const schemat = useColorScheme();
+72-  const kontrast = useZwiekszonyKontrast();
+73-  const paleta = wybierzPalete(schemat, kontrast);
+74-  return { ...paleta, przejsciowe: schemat === 'dark' ? przejscioweCiemne : przejscioweJasne };
+kod 0
+

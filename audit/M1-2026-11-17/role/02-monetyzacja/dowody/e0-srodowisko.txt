@@ -1,0 +1,14 @@
+$ gh auth status
+github.com
+  X Failed to log in to github.com using token (GH_TOKEN)
+  - Active account: true
+  - The token in GH_TOKEN is invalid.
+kod: 0
+$ npx --no-install playwright --version
+Version 1.63.0
+$ curl itunes search (sieć)
+200
+$ curl developer.apple.com guidelines
+200
+$ which xcodebuild
+kod: 1

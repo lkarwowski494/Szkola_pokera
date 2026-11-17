@@ -1,0 +1,791 @@
+$ node kontrole-tresci.mjs docs/tresci/rejestr.json content/pl/lessons --inwentarz | (zdania z liczbą poza {{n:}}, bez kart i nr modułów)
+content/pl/lessons/m0-l1-uklady.md	1 001 002 003	---
+content/pl/lessons/m0-l1-uklady.md	001	- kind: choice
+content/pl/lessons/m0-l1-uklady.md	5 5	Trudniej zebrać 5 kart w jednym kolorze niż 5 kart po kolei." }
+content/pl/lessons/m0-l1-uklady.md	001	- kind: choice
+content/pl/lessons/m0-l1-uklady.md	4 5	- { text: "Ty,  bije ", correct: true, why: " ( i ) jest na 4. miejscu,  na 5.
+content/pl/lessons/m0-l1-uklady.md	001	- kind: choice
+content/pl/lessons/m0-l1-uklady.md	7 8	- { text: "", correct: true, why: " jest na 7. miejscu,  na 8.
+content/pl/lessons/m0-l1-uklady.md	002	- kind: choice
+content/pl/lessons/m0-l1-uklady.md	003	- kind: choice
+content/pl/lessons/m0-l1-uklady.md	001 3	- kind: generated
+content/pl/lessons/m0-l1-uklady.md	002 2	- kind: generated
+content/pl/lessons/m0-l1-uklady.md	001 2 4.10	- kind: generated
+content/pl/lessons/m0-l1-uklady.md	4 2 5	- kind: generated
+content/pl/lessons/m0-l1-uklady.md	7 5	Z tych 7 kart budujesz najlepszy układ z **5**.
+content/pl/lessons/m0-l1-uklady.md	1 2 3 4 5 6 5 7 8 9 10	| | Układ | Przykład |
+content/pl/lessons/m1-l1-przebieg.md	1 001 002 003 004	---
+content/pl/lessons/m1-l1-przebieg.md	001	- kind: choice
+content/pl/lessons/m1-l1-przebieg.md	004	- kind: choice
+content/pl/lessons/m1-l1-przebieg.md	3	- { text: "3", correct: true, why: "Flop to trzy karty naraz.
+content/pl/lessons/m1-l1-przebieg.md	1	- { text: "1", why: "Po jednej karcie wychodzą turn i river." }
+content/pl/lessons/m1-l1-przebieg.md	5	- { text: "5", why: "Pięć  jest dopiero na riverze." }
+content/pl/lessons/m1-l1-przebieg.md	003 20	- kind: choice
+content/pl/lessons/m1-l1-przebieg.md	20	- { text: "", why: " kosztuje 20 .
+content/pl/lessons/m1-l1-przebieg.md	004	- kind: choice
+content/pl/lessons/m1-l1-przebieg.md	002	- kind: choice
+content/pl/lessons/m1-l1-przebieg.md	7 2 4.10	- { text: "", why: "Z 7-2 nie masz czego budować;  daje darmowy flop." }
+content/pl/lessons/m1-l1-przebieg.md	4 4.10	- kind: generated
+content/pl/lessons/m1-l1-przebieg.md	4	- kind: generated
+content/pl/lessons/m1-l1-przebieg.md	1 2	1. **Preflop**: masz tylko swoje 2 karty.
+content/pl/lessons/m1-l1-przebieg.md	2 3	2. **Flop**: na  trafiają 3 .
+content/pl/lessons/m1-l1-przebieg.md	3	3. **Turn**: czwarta karta.
+content/pl/lessons/m1-l1-przebieg.md	4	4. **River**: piąta, ostatnia karta.
+content/pl/lessons/m10-l1-statystyki.md	1 001 002 003	---
+content/pl/lessons/m10-l1-statystyki.md	001	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	001	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	001	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	002	- kind: numeric
+content/pl/lessons/m10-l1-statystyki.md	1	Wpisz liczbę."
+content/pl/lessons/m10-l1-statystyki.md	002	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	002 003 3	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	3	Co wiesz o jego fold to 3-bet?"
+content/pl/lessons/m10-l1-statystyki.md	003	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	003	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	3 3 3	- { text: "Fold to 3-bet", correct: true, why: "Okazja do fold to 3-bet pojawia się tylko wtedy, gdy rywal  i dostał 3-bet, czyli rzadko.
+content/pl/lessons/m10-l1-statystyki.md	003	- kind: choice
+content/pl/lessons/m10-l1-statystyki.md	3 9	- { text: "Rezygnuję z , bo bez  nie da się jej robić", why: "Da się: odczyty z przeglądu rąk po  i dane o populacji twojej  też pokazują, w którą stronę odejść od bazy." }
+content/pl/lessons/m10-l1-statystyki.md	3 4	- ****: w ilu procentach rąk gracz  przed flopem: , 3-betuje albo 4-betuje.
+content/pl/lessons/m10-l1-statystyki.md	3 3 3 3	| Statystyka | Co mierzy | Okazja |
+content/pl/lessons/m10-l1-statystyki.md	3 3	Ostatnia kolumna jest ważna: statystyka zmienia się tylko wtedy, gdy rywal ma okazję.  ma okazję w każdej ręce, a fold to 3-bet tylko wtedy, gdy rywal  i dostał 3-bet.
+content/pl/lessons/m10-l1-statystyki.md	12	Liczysz go wzorem na błąd średniej z próby (w module 12 tym samym wzorem policzysz błąd ):
+content/pl/lessons/m10-l1-statystyki.md	1	```formula
+content/pl/lessons/m10-l1-statystyki.md	3	Fold to 3-bet  z  okazji to przedział od  do : prawie nic.
+content/pl/lessons/m10-l1-statystyki.md	3 3	- 3-bet potrzebuje ok. – rąk, fold to 3-bet ok. –, statystyki z turnu i rivera jeszcze więcej.
+content/pl/lessons/m10-l1-statystyki.md	2	Wtedy przeglądasz własną historię rąk po , zapisujesz notatki o stałych rywalach i korzystasz z danych o populacji swojej  (lekcja 2).
+content/pl/lessons/m10-l2-typy-graczy.md	2 004 005 006 007 008	---
+content/pl/lessons/m10-l2-typy-graczy.md	003 004 005 6	- kind: generated
+content/pl/lessons/m10-l2-typy-graczy.md	004	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	006	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	006	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	8	Ponad połowa jego  to ręce gorsze od twojej, więc bet zarabia (próg z modułu 8)." }
+content/pl/lessons/m10-l2-typy-graczy.md	006	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	8	- { text: "Betuję dużo, bo nie mam wartości przy showdownie", why: "W bazie (moduł 8) taki  bywa dobry, ale wobec tego gracza brakuje :  traci." }
+content/pl/lessons/m10-l2-typy-graczy.md	007	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	3	3-betuje cię.
+content/pl/lessons/m10-l2-typy-graczy.md	3	- { text: "", correct: true, why: "Kto gra tak mało rąk, ten 3-betuje głównie najsilniejszymi: AQ, AK i wysokimi , które dominują AJ.
+content/pl/lessons/m10-l2-typy-graczy.md	4	Wobec niego  częściej niż w bazie z modułu 4." }
+content/pl/lessons/m10-l2-typy-graczy.md	3	Wobec 3-betu gracza z   często jest zdominowane i bez ." }
+content/pl/lessons/m10-l2-typy-graczy.md	4 4	- { text: "4-betuję", why: "4-bet AJ wobec  gra przeciw , który go dominuje i rzadko .
+content/pl/lessons/m10-l2-typy-graczy.md	007	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	008	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	008	- kind: choice
+content/pl/lessons/m10-l2-typy-graczy.md	4	- kind: generated
+content/pl/lessons/m10-l2-typy-graczy.md	6	Typ odczytujesz z  i różnicy  −  (6-max, co najmniej ok.  rąk):
+content/pl/lessons/m10-l2-typy-graczy.md	6	Publiczna baza statystyk podaje średnie statystyki graczy jednej dużej sali online, NL25 6-max, ze wszystkich rozdań z ostatnich  miesięcy.  to w niej gracze z  – i wynikiem powyżej , a  to  ponad  i wynik poniżej :
+content/pl/lessons/m10-l2-typy-graczy.md	3	| Statystyka |  |  |
+content/pl/lessons/m10-l2-typy-graczy.md	3	Rzadko też  na 3-bet.
+content/pl/lessons/m10-l2-typy-graczy.md	8	Baza z modułu 8 się nie zmienia: betujesz , gdy ponad połowa rąk, które , to ręce gorsze, a  zarabia, gdy rywal  częściej niż .
+content/pl/lessons/m10-l2-typy-graczy.md	3 4	Gdy  albo 3-betuje, twoje ręce z dołu   częściej są zdominowane, więc  nimi częściej niż w bazie z modułu 4.
+content/pl/lessons/m10-l2-typy-graczy.md	6	:::note Skąd te progi
+content/pl/lessons/m10-l2-typy-graczy.md	2026	Dane populacji pochodzą z publicznej bazy statystyk (jedna duża sala online, NL25–NL100, wszystkie rozdania z  miesięcy przed październikiem 2026; liczby rąk strona nie podaje).
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 009 010 011 012	---
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	009	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	009	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	009	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	010	- kind: numeric
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	010	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	1 3	Opłaca się c-bet 1/3  bez ręki?"
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	1 3	- { text: "Tak: rywal  częściej niż , więc c-bet zarabia od razu", correct: true, why: "c-bet 1/3  wychodzi na zero przy  .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 4	- { text: "Tylko dużym rozmiarem, bo mały nie wypycha rąk", why: "Większy bet potrzebuje więcej : przy 3/4  aż .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	010 006	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 4	Rozważasz c-bet 3/4 .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 4	- { text: ": ten rywal  rzadziej, niż potrzebuje duży c-bet", correct: true, why: "c-bet 3/4  wychodzi na zero dopiero przy  , a rywal  w .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	011 3	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	W bazie KJs czasem , a A5s bywa 3-betem .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 3 3 3 3	- { text: "3-betuję KJs , a A5s nie 3-betuję jako ", correct: true, why: "Gracz, który rzadko  na 3-bet, często  słabszymi rękami, więc silniejsze ręce zarabiają na 3-becie.  3-betem zarabia od razu dopiero przy ponad  , a ten gracz  w ." }
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 3	- { text: "3-betuję A5s, bo  z  to dobry 3-bet", why: "W bazie tak, wobec rywala, który  w ok. połowie przypadków.
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 3	- { text: "Tylko  KJs, żeby nie odstraszyć rywala", why: "Wobec gracza, który  3-bety słabszymi rękami, 3-bet KJs buduje większą  z lepszą ręką i z .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	011 3	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	3-bet z  do  zarabia bez ręki przy ponad  .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 3 3 3	- { text: "Wobec  3-betujesz prawie bez , wobec   zostają, ale tylko z rękami, które mają equity", correct: true, why: "Żadna grupa nie  tak często, żeby 3-bet zarabiał bez ręki.  3-betem w bazie żyją z equity po flopie i z ; wobec gracza, który  w , zostaje głównie equity, więc 3-betujesz  ." }
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	- { text: "3-betujesz każdego dowolną ręką, bo wszyscy dużo ", why: "Nikt tu nie  częściej niż .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	3-bet każdą ręką traciłby." }
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 3	- { text: "Wobec  przestajesz 3-betować w ogóle", why: "Przeciwnie: gracz, który  3-bety słabszymi rękami, płaci twoim silnym rękom.
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	Zmieniasz skład 3-betu, nie rezygnujesz z niego." }
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	012 003	- kind: choice
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 9	Najpierw wiesz, jak gra się w równowadze (moduły 3–9), potem z danych widzisz, w którą stronę rywal od niej odchodzi, i przesuwasz własną grę w tę samą stronę.
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	6	Czy  bez ręki się opłaca, mówi  z modułu 6:
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	1 3 3 4	Przy c-becie 1/3  to , przy 3/4  .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	6	To nie musi być błąd: także solver  na flopie  częściej, niż wskazuje  (moduł 6).
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	## 3-bet wobec gracza, który nie 
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 4	3-bet z  do  zarabia bez żadnej ręki dopiero wtedy, gdy rywal  częściej niż  (moduł 4).
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	| Grupa | Fold to 3-bet |
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	W bazie  3-betem żyją z  i z equity po flopie.
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	Dlatego 3-betujesz go  : więcej silnych rąk , prawie bez .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	Trenerzy w dwóch materiałach szkoleniowych wyznaczają tę granicę przy fold to 3-bet ok. .
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	1	Im mniejsza próba, tym większy błąd statystyki (lekcja 1).
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3 2026	Fold to 3-bet i fold to c-bet populacji pochodzą z publicznej bazy statystyk (jedna duża sala online, NL25–NL100,  miesięcy przed październikiem 2026).
+content/pl/lessons/m10-l3-odejscie-od-bazy.md	3	Granica fold to 3-bet i zasada „mała próba, małe odejście” to zalecenia z dwóch materiałów szkoleniowych.
+content/pl/lessons/m10-l4-rake.md	4 013 014 015	---
+content/pl/lessons/m10-l4-rake.md	013 6	- kind: choice
+content/pl/lessons/m10-l4-rake.md	100	- { text: "Kilka razy większy: ok. – wobec –", correct: true, why: "Po przeliczeniu harmonogramów sal na bb/100 na mikrostawkach wychodzi ok. –.
+content/pl/lessons/m10-l4-rake.md	013 6	- kind: choice
+content/pl/lessons/m10-l4-rake.md	013	- kind: choice
+content/pl/lessons/m10-l4-rake.md	100	Przy kilku bb/100 rake'u wielu graczy wygrywających przed nim schodzi poniżej zera." }
+content/pl/lessons/m10-l4-rake.md	013 015 100	- kind: choice
+content/pl/lessons/m10-l4-rake.md	100 100	- { text: "Bo przy NL500 gra się mniej rąk na godzinę", why: "bb/100 liczy  na 100 rąk, więc tempo gry go nie zmienia.
+content/pl/lessons/m10-l4-rake.md	015	- kind: numeric
+content/pl/lessons/m10-l4-rake.md	015	- kind: choice
+content/pl/lessons/m10-l4-rake.md	014	- kind: choice
+content/pl/lessons/m10-l4-rake.md	3	- { text: " rzadziej: ręce z granicy  częściej  albo 3-betuję", correct: true, why: "W opublikowanych rozwiązaniach solvera z rake'iem gracze w  wobec  grają o ok. – mniej rąk.
+content/pl/lessons/m10-l4-rake.md	3	Traci samo , bo  po flopie płaci , a  wygrana 3-betem przed flopem nie." }
+content/pl/lessons/m10-l4-rake.md	3	- { text: "Nic:  dotyczy tylko gry po flopie", why: "Właśnie dlatego zmienia decyzję przed flopem:  prowadzi do flopu i do rake'u, a 3-bet albo  często kończą rozdanie bez niego." }
+content/pl/lessons/m10-l4-rake.md	014	- kind: choice
+content/pl/lessons/m10-l4-rake.md	014 3	- kind: choice
+content/pl/lessons/m10-l4-rake.md	3	Co to zmienia w argumencie „3-bet nie płaci rake'u”?"
+content/pl/lessons/m10-l4-rake.md	3 3	- { text: "Na takiej sali ten argument słabnie: 3-bet też płaci, więc przewaga 3-betu nad  jest mniejsza", correct: true, why: "Wynik solvera dotyczy struktury „no flop, no drop”, w której  bez flopu jest wolna od rake'u.
+content/pl/lessons/m10-l4-rake.md	3 3	Na takiej sali ta zasada obejmuje tylko  bez 3-betu, więc  wciąż traci na rake'u, ale 3-bet nie jest od niego wolny." }
+content/pl/lessons/m10-l4-rake.md	3	- { text: "Nic, bo  z 3-betu jest pomijalny", why: "Nie wiemy tego bez rachunku dla konkretnej sali.
+content/pl/lessons/m10-l4-rake.md	3	Pewne jest tylko, że 3-bet przestaje być wolny od rake'u." }
+content/pl/lessons/m10-l4-rake.md	3	- { text: "Na takiej sali należy zawsze  zamiast 3-betować", why: " prowadzi do flopu i płaci  tak samo jak wcześniej.
+content/pl/lessons/m10-l4-rake.md	3	Zmienia się tylko to, że 3-bet też płaci." }
+content/pl/lessons/m10-l4-rake.md	100	Porównanie harmonogramów sal przelicza je na bb/100 na rozkładzie  z kilku milionów rąk:
+content/pl/lessons/m10-l4-rake.md	6	|  (6-max, dwie największe sale online) |  |
+content/pl/lessons/m10-l4-rake.md	12	Typowy wygrywający gracz na niskich  ma winrate – (moduł 12): kilka razy mniej, niż płaci sali.
+content/pl/lessons/m10-l4-rake.md	100	Przy wyższych  ten sam limit w dolarach to ułamek bb, więc  w bb/100 spada.
+content/pl/lessons/m10-l4-rake.md	6	W raporcie o populacji (cash 6-max, NL10–NL500) każdy gracz traci średnio  przy NL10,  przy NL100 i  przy NL500.
+content/pl/lessons/m10-l4-rake.md	2	Potrzebne equity z modułu 2 rośnie:
+content/pl/lessons/m10-l4-rake.md	1	```formula
+content/pl/lessons/m10-l4-rake.md	3	- gracze w  wobec  grają o ok. – mniej rąk; traci głównie , a 3-betów jest trochę więcej;
+content/pl/lessons/m10-l4-rake.md	3	Z tego samego powodu w module 3 z   albo , bez dopłacania do .
+content/pl/lessons/m10-l4-rake.md	3 3	Niektóre sale pobierają  także od  z 3-betem, które kończą się przed flopem; tam 3-bet nie jest od niego wolny.
+content/pl/lessons/m10-l4-rake.md	2026 100 5 2026	:::note Źródła
+content/pl/lessons/m10-l4-rake.md	6 >=100	Strata populacji: niezależny raport o populacji (cash 6-max NLHE, sale z bazami śledzenia rąk, gracze z co najmniej 100 rękami; sal i okresu autor nie podaje).
+content/pl/lessons/m11-l1-push-fold.md	1 001 005 002 011 003 004	---
+content/pl/lessons/m11-l1-push-fold.md	001	- kind: choice
+content/pl/lessons/m11-l1-push-fold.md	001	- kind: choice
+content/pl/lessons/m11-l1-push-fold.md	005	- kind: numeric
+content/pl/lessons/m11-l1-push-fold.md	005	- kind: choice
+content/pl/lessons/m11-l1-push-fold.md	002 5 10 15 3	- kind: generated
+content/pl/lessons/m11-l1-push-fold.md	10 002 10	- kind: paint
+content/pl/lessons/m11-l1-push-fold.md	002	- kind: choice
+content/pl/lessons/m11-l1-push-fold.md	004	- kind: choice
+content/pl/lessons/m11-l1-push-fold.md	004	- kind: choice
+content/pl/lessons/m11-l1-push-fold.md	003	- kind: choice
+content/pl/lessons/m11-l1-push-fold.md	003 10 1	- kind: generated
+content/pl/lessons/m11-l1-push-fold.md	011 2	- kind: generated
+content/pl/lessons/m11-l1-push-fold.md	15	```range
+content/pl/lessons/m11-l1-push-fold.md	10	```range
+content/pl/lessons/m11-l1-push-fold.md	5	```range
+content/pl/lessons/m11-l1-push-fold.md	2008	Te dwie siatki sprawdziliśmy z opublikowanym wynikiem równowagi dla tej samej sytuacji (praca naukowa z 2008 roku: Button ).
+content/pl/lessons/m11-l1-push-fold.md	10	```range
+content/pl/lessons/m11-l2-sprawdzanie.md	2 006 007 012	---
+content/pl/lessons/m11-l2-sprawdzanie.md	10 006	- kind: numeric
+content/pl/lessons/m11-l2-sprawdzanie.md	5 006	- kind: choice
+content/pl/lessons/m11-l2-sprawdzanie.md	15 006	- kind: choice
+content/pl/lessons/m11-l2-sprawdzanie.md	007 5 10 15 3	- kind: generated
+content/pl/lessons/m11-l2-sprawdzanie.md	10 007 10	- kind: paint
+content/pl/lessons/m11-l2-sprawdzanie.md	007	- kind: choice
+content/pl/lessons/m11-l2-sprawdzanie.md	22 007	- kind: choice
+content/pl/lessons/m11-l2-sprawdzanie.md	007	- kind: choice
+content/pl/lessons/m11-l2-sprawdzanie.md	006	- kind: choice
+content/pl/lessons/m11-l2-sprawdzanie.md	007 10 1	- kind: generated
+content/pl/lessons/m11-l2-sprawdzanie.md	012 2	- kind: generated
+content/pl/lessons/m11-l2-sprawdzanie.md	012	- kind: choice
+content/pl/lessons/m11-l2-sprawdzanie.md	10	```range
+content/pl/lessons/m11-l2-sprawdzanie.md	15	```range
+content/pl/lessons/m11-l2-sprawdzanie.md	5	```range
+content/pl/lessons/m11-l2-sprawdzanie.md	10	```range
+content/pl/lessons/m11-l3-icm.md	3 008 009 010	---
+content/pl/lessons/m11-l3-icm.md	008	- kind: numeric
+content/pl/lessons/m11-l3-icm.md	1	Jaka jest według  szansa najkrótszego stacku na 1. miejsce?
+content/pl/lessons/m11-l3-icm.md	1	Wpisz liczbę w procentach."
+content/pl/lessons/m11-l3-icm.md	008	- kind: choice
+content/pl/lessons/m11-l3-icm.md	1	Duży stack zajął 1. miejsce.
+content/pl/lessons/m11-l3-icm.md	2	Jaka jest teraz szansa najkrótszego stacku na 2. miejsce?"
+content/pl/lessons/m11-l3-icm.md	1	- { text: "", why: "To szansa na 1. miejsce, liczona ze wszystkich .
+content/pl/lessons/m11-l3-icm.md	2	- { text: "", why: "To łączna szansa  na 2. miejsce, po obu możliwych zwycięzcach.
+content/pl/lessons/m11-l3-icm.md	008 1 2	- kind: numeric
+content/pl/lessons/m11-l3-icm.md	1 2	Wpisz liczbę."
+content/pl/lessons/m11-l3-icm.md	008	- kind: choice
+content/pl/lessons/m11-l3-icm.md	1 2	- { text: ", bo prawie na pewno wygra", why: "Ma tylko  szans na 1. miejsce, a resztę  daje mu 2. miejsce.
+content/pl/lessons/m11-l3-icm.md	009	- kind: numeric
+content/pl/lessons/m11-l3-icm.md	009	- kind: numeric
+content/pl/lessons/m11-l3-icm.md	1	Wpisz liczbę w procentach."
+content/pl/lessons/m11-l3-icm.md	009	- kind: choice
+content/pl/lessons/m11-l3-icm.md	009 010	- kind: choice
+content/pl/lessons/m11-l3-icm.md	010	- kind: choice
+content/pl/lessons/m11-l3-icm.md	008 2	- kind: generated
+content/pl/lessons/m11-l3-icm.md	009 010 3	- kind: generated
+content/pl/lessons/m11-l3-icm.md	008	- kind: choice
+content/pl/lessons/m11-l3-icm.md	4.10	To jedno z jego ograniczeń." }
+content/pl/lessons/m11-l3-icm.md	4	- kind: generated
+content/pl/lessons/m11-l3-icm.md	1	```formula
+content/pl/lessons/m11-l3-icm.md	2	Szansę na 2. miejsce liczysz tak samo, ale osobno dla każdego możliwego zwycięzcy: odejmujesz jego  i dzielisz przez to, co zostało.  stacku, czyli jego oczekiwany udział w , to suma: szansa na miejsce ×  za miejsce.
+content/pl/lessons/m11-l3-icm.md	2	- Na 2. miejsce: gdy wygra duży stack (), krótki jest drugi z szansą ; gdy wygra średni (), z szansą .
+content/pl/lessons/m11-l3-icm.md	1	 jest wart więcej niż jego , a duży mniej: lider nie dostanie więcej niż nagrodę za 1. miejsce.
+content/pl/lessons/m11-l3-icm.md	1	```formula
+content/pl/lessons/m11-l3-icm.md	2008	Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (praca naukowa z 2008 roku): gdy Button i  są już all-in,  w pojedynczym rozdaniu   rąk, a w  z  tylko , czyli same najwyższe  i AKs.
+content/pl/lessons/m12-l1-wariancja.md	1 001 002 003	---
+content/pl/lessons/m12-l1-wariancja.md	001	- kind: numeric
+content/pl/lessons/m12-l1-wariancja.md	100	Wpisz liczbę."
+content/pl/lessons/m12-l1-wariancja.md	001	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	100	Ile wynosi  wyniku po  tys. rąk ( bloków po 100 rąk)?"
+content/pl/lessons/m12-l1-wariancja.md	001	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	2 3	- { text: "Od ok.  do ok.  ", why: "To przedział jednego : obejmuje tylko ok. 2 z 3 wyników.
+content/pl/lessons/m12-l1-wariancja.md	003 100 100	- kind: numeric
+content/pl/lessons/m12-l1-wariancja.md	001	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	003	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	100	- { text: "Ok.  rąk", why: "To liczba bloków po 100 rąk.
+content/pl/lessons/m12-l1-wariancja.md	002	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	002	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	002	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	001 6	- kind: choice
+content/pl/lessons/m12-l1-wariancja.md	100 100	- { text: "Ok.   na 100 rąk", why: "To  wyniku po  tys. rąk, a nie na 100 rąk." }
+content/pl/lessons/m12-l1-wariancja.md	100	## Dwie liczby w bb/100
+content/pl/lessons/m12-l1-wariancja.md	100	**Winrate** to średni zysk na 100 rąk w .
+content/pl/lessons/m12-l1-wariancja.md	100	** (SD)** to typowy rozrzut wyniku na 100 rąk.
+content/pl/lessons/m12-l1-wariancja.md	6	W cash game 6-max wynosi zwykle –, a jako typową wartość przyjmuje się .  jest kilkadziesiąt razy większe od winrate, więc wynik z jednej , a nawet z miesiąca, mówi bardzo mało.
+content/pl/lessons/m12-l1-wariancja.md	100	Liczbę rąk dzielisz przez 100 i dostajesz liczbę bloków.
+content/pl/lessons/m12-l1-wariancja.md	100	Prawdziwe  bywają nieco głębsze, bo wynik zmienia się z każdym rozdaniem, a nie co 100 rąk.
+content/pl/lessons/m12-l2-decyzja-wynik.md	2 004 005	---
+content/pl/lessons/m12-l2-decyzja-wynik.md	004	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	004	- kind: numeric
+content/pl/lessons/m12-l2-decyzja-wynik.md	004	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	004	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	004	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	004	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	005	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	005	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	2015	- { text: "Najlepszy  graczy wyprzedza najsłabszy  w ok.  przypadków po ok.  rękach", correct: true, why: "Tak definiują to autorzy badania (2015).
+content/pl/lessons/m12-l2-decyzja-wynik.md	004	- kind: choice
+content/pl/lessons/m12-l2-decyzja-wynik.md	1988	W klasycznym badaniu psychologicznym (1988) ludzie oceniali tę samą decyzję jako lepszą, a decydującego jako bardziej kompetentnego, gdy wynik był korzystny.
+content/pl/lessons/m12-l2-decyzja-wynik.md	2015	W badaniu ok.  mln rozdań online (badanie z 2015 roku) umiejętność zaczynała przeważać dopiero po ok. **** rękach.
+content/pl/lessons/m12-l3-tilt.md	3 006 007 008	---
+content/pl/lessons/m12-l3-tilt.md	006	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	006	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	007	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	008	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	006	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	006	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	007	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	006	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	008	- kind: choice
+content/pl/lessons/m12-l3-tilt.md	2020	- { text: "Nigdzie, forma to kwestia szczęścia", why: "Rozrzut formy da się zawężać: gracze dobrze kontrolujący tilt mają węższy rozkład poziomu gry (przegląd z 2020 roku)." }
+content/pl/lessons/m12-l3-tilt.md	008	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	4 009 011 012	---
+content/pl/lessons/m12-l4-bankroll.md	009	- kind: numeric
+content/pl/lessons/m12-l4-bankroll.md	009	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	2	- { text: "Ok. ", correct: true, why: "Wykładnik to 2 × winrate × bankroll ÷ SD² =  ×  ×  ÷  ≈ , więc RoR = e^(−) ≈ .
+content/pl/lessons/m12-l4-bankroll.md	009	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	009	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	011	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	011 002	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	011	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	009	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	012	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	012	- kind: choice
+content/pl/lessons/m12-l4-bankroll.md	4.10	Sygnałem problemu byłaby gra dłuższa niż planowana albo potrzeba odegrania się." }
+content/pl/lessons/m12-l4-bankroll.md	4	- kind: generated
+content/pl/lessons/m12-l4-bankroll.md	−2	```formula
+content/pl/lessons/m12-l4-bankroll.md	100	Winrate i SD podajesz w bb/100, bankroll w bb.
+content/pl/lessons/m13-l1-raport.md	1 004 001 002	---
+content/pl/lessons/m13-l1-raport.md	001	- kind: numeric
+content/pl/lessons/m13-l1-raport.md	1	Wpisz liczbę."
+content/pl/lessons/m13-l1-raport.md	001	- kind: numeric
+content/pl/lessons/m13-l1-raport.md	001	- kind: numeric
+content/pl/lessons/m13-l1-raport.md	002	- kind: choice
+content/pl/lessons/m13-l1-raport.md	002	- kind: choice
+content/pl/lessons/m13-l1-raport.md	3 3	- kind: choice
+content/pl/lessons/m13-l1-raport.md	3	- { text: "Zgodna", why: "Akcja jest dobra, ale rozmiar ma znaczenie: za mały 3-bet daje rywalowi dobrą cenę, za duży ryzykuje więcej niż trzeba." }
+content/pl/lessons/m13-l1-raport.md	14 30	- kind: choice
+content/pl/lessons/m13-l1-raport.md	004	- kind: choice
+content/pl/lessons/m13-l1-raport.md	1	```formula
+content/pl/lessons/m13-l2-powtorki.md	2 003 004 003	---
+content/pl/lessons/m13-l2-powtorki.md	003 7 2	- kind: choice
+content/pl/lessons/m13-l2-powtorki.md	7 2	W powtórce widzisz A♠ K♠ na  Q♠ 7♠ 2♦.
+content/pl/lessons/m13-l2-powtorki.md	003 8 3	- kind: choice
+content/pl/lessons/m13-l2-powtorki.md	8 3	- { text: "K♥ Q♥ na  J♠ 8♠ 3♥", correct: true, why: "Tu zamieniono kolory tylko na : twoje kiery przestały pasować do  i  zniknął.
+content/pl/lessons/m13-l2-powtorki.md	8 3	- { text: "K♠ Q♠ na  J♠ 8♠ 3♥", why: "To jedna zamiana dla wszystkich kart (kiery ↔ piki), więc decyzja jest ta sama." }
+content/pl/lessons/m13-l2-powtorki.md	8 3	- { text: "K♦ Q♦ na  J♦ 8♦ 3♠", why: "To jedna zamiana (kiery → kara) dla wszystkich kart, więc decyzja jest ta sama." }
+content/pl/lessons/m13-l2-powtorki.md	004 003	- kind: choice
+content/pl/lessons/m13-l2-powtorki.md	004 4	- kind: choice
+content/pl/lessons/m13-l2-powtorki.md	4	Czy wiesz już, że  na 4-bet za często?"
+content/pl/lessons/m13-l3-przeglad.md	3 005 006 007 008	---
+content/pl/lessons/m13-l3-przeglad.md	005	- kind: choice
+content/pl/lessons/m13-l3-przeglad.md	005	- kind: choice
+content/pl/lessons/m13-l3-przeglad.md	006	- kind: choice
+content/pl/lessons/m13-l3-przeglad.md	006	- kind: choice
+content/pl/lessons/m13-l3-przeglad.md	007	- kind: choice
+content/pl/lessons/m13-l3-przeglad.md	008	- kind: choice
+content/pl/lessons/m2-l1-outy.md	1 2 4 001 002	---
+content/pl/lessons/m2-l1-outy.md	001	- kind: choice
+content/pl/lessons/m2-l1-outy.md	2 2	- { text: "", correct: true, why: "Masz  kiery (2 w ręce, 2 na ).
+content/pl/lessons/m2-l1-outy.md	002	- kind: choice
+content/pl/lessons/m2-l1-outy.md	6 7 8 9	- { text: "", correct: true, why: "Masz 6-7-8-9.  daje każda piątka i każda dziesiątka:  rangi ×  kolory =  kart." }
+content/pl/lessons/m2-l1-outy.md	002	- kind: choice
+content/pl/lessons/m2-l1-outy.md	2	- { text: "Ok. ", correct: true, why: "Jedna karta do odkrycia:  × 2 =  (przybliżenie).
+content/pl/lessons/m2-l1-outy.md	002	- kind: choice
+content/pl/lessons/m2-l1-outy.md	4	- { text: "Ok. ", correct: true, why: " × 4 =  (przybliżenie).
+content/pl/lessons/m2-l1-outy.md	2	- { text: "Ok. ", why: "To przybliżenie szansy przy jednej karcie ( × 2).
+content/pl/lessons/m2-l1-outy.md	001 002	- kind: choice
+content/pl/lessons/m2-l1-outy.md	001 2	- kind: generated
+content/pl/lessons/m2-l1-outy.md	002 2	- kind: generated
+content/pl/lessons/m2-l1-outy.md	002 1	- kind: generated
+content/pl/lessons/m2-l1-outy.md	001 1	- kind: generated
+content/pl/lessons/m2-l1-outy.md	002	- kind: numeric
+content/pl/lessons/m2-l1-outy.md	2 4	Ile procent szans na trafienie na riverze daje reguła 2 i 4?
+content/pl/lessons/m2-l1-outy.md	2 2	Wpisz liczbę."
+content/pl/lessons/m2-l1-outy.md	002 2 4.10	- kind: generated
+content/pl/lessons/m2-l1-outy.md	4	- kind: generated
+content/pl/lessons/m2-l1-outy.md	5 6 8 9	- **Dziura w  (gutshot)**, np. 5-6-8-9 bez siódemki: ** outy**.
+content/pl/lessons/m2-l1-outy.md	2 4	## Reguła 2 i 4
+content/pl/lessons/m2-l1-outy.md	2 4	Reguła daje przybliżenie szansy bez kalkulatora: mnożysz outy przez 2 albo 4.
+content/pl/lessons/m2-l1-outy.md	2 4	```formula
+content/pl/lessons/m2-l1-outy.md	2	Dlatego przy  na flopie liczysz szansę na **następną kartę** (× 2): dla  to  z , czyli ok. .
+content/pl/lessons/m2-l1-outy.md	4	Szansę **do rivera** (× 4, dla  ok. ) bierzesz tylko wtedy, gdy na pewno zobaczysz obie karty bez dalszych , czyli gdy ktoś jest all-in.
+content/pl/lessons/m2-l1-outy.md	2 4	Reguła 2 i 4 myli się najwyżej o ok.  punkty procentowe, dopóki outów jest nie więcej niż .
+content/pl/lessons/m2-l2-pot-odds.md	2 003 004 005	---
+content/pl/lessons/m2-l2-pot-odds.md	003	- kind: choice
+content/pl/lessons/m2-l2-pot-odds.md	1 3	Tu  to 1/3 ." }
+content/pl/lessons/m2-l2-pot-odds.md	004 005	- kind: choice
+content/pl/lessons/m2-l2-pot-odds.md	005	- kind: choice
+content/pl/lessons/m2-l2-pot-odds.md	003	- kind: choice
+content/pl/lessons/m2-l2-pot-odds.md	003 3	- kind: generated
+content/pl/lessons/m2-l2-pot-odds.md	003 2	- kind: generated
+content/pl/lessons/m2-l2-pot-odds.md	004	- kind: numeric
+content/pl/lessons/m2-l2-pot-odds.md	005 3	- kind: generated
+content/pl/lessons/m3-l1-pozycja.md	1 001 002 006 003 004 007	---
+content/pl/lessons/m3-l1-pozycja.md	001	- kind: choice
+content/pl/lessons/m3-l1-pozycja.md	002	- kind: choice
+content/pl/lessons/m3-l1-pozycja.md	003	- kind: choice
+content/pl/lessons/m3-l1-pozycja.md	001	- kind: choice
+content/pl/lessons/m3-l1-pozycja.md	4.10	Najważniejsza jest informacja." }
+content/pl/lessons/m3-l1-pozycja.md	4	- kind: generated
+content/pl/lessons/m3-l1-pozycja.md	6	##  przy stole 6-osobowym
+content/pl/lessons/m3-l2-rece-startowe.md	2 004 005 008	---
+content/pl/lessons/m3-l2-rece-startowe.md	005	- kind: choice
+content/pl/lessons/m3-l2-rece-startowe.md	004 006	- kind: choice
+content/pl/lessons/m3-l2-rece-startowe.md	7 2	- { text: "", correct: true, why: "7-2 w różnych kolorach to jedna z najsłabszych rąk: karty są za daleko od siebie, żeby razem tworzyć , rzadko dają , a trafiona  ma słaby kicker.
+content/pl/lessons/m3-l2-rece-startowe.md	3 2	Często nazywa się ją najgorszą ręką, choć w rachunku wobec losowej ręki niektóre inne, np. 3-2 w różnych kolorach, wypadają jeszcze słabiej." }
+content/pl/lessons/m3-l2-rece-startowe.md	008	- kind: choice
+content/pl/lessons/m3-l2-rece-startowe.md	3	- { text: " ponownie (3-bet)", correct: true, why: "Masz najlepszą możliwą rękę.
+content/pl/lessons/m3-l2-rece-startowe.md	003	- kind: choice
+content/pl/lessons/m3-l2-rece-startowe.md	3	- **Najmocniejsze**: [[As Ah]], [[Ks Kh]], [[Qs Qh]] oraz AK w kolorze i w różnych kolorach, np. [[As Ks]] i [[As Kd]]. , a gdy ktoś  przed tobą, zwykle  ponownie (3-bet) , czyli po to, żeby rywal  słabszą ręką.
+content/pl/lessons/m3-l3-zakresy-otwarc.md	3 002 006 003 009 004 010	---
+content/pl/lessons/m3-l3-zakresy-otwarc.md	002 006 5	- kind: generated
+content/pl/lessons/m3-l3-zakresy-otwarc.md	006 003 5	- kind: generated
+content/pl/lessons/m3-l3-zakresy-otwarc.md	004 3	- kind: generated
+content/pl/lessons/m3-l3-zakresy-otwarc.md	003	- kind: paint
+content/pl/lessons/m3-l3-zakresy-otwarc.md	002	- kind: paint
+content/pl/lessons/m3-l3-zakresy-otwarc.md	6	Siatki poniżej policzył solver preflop tej aplikacji dla gry przy stole 6-osobowym i stacków .
+content/pl/lessons/m3-l3-zakresy-otwarc.md	9 9 1 2	:::note Przy stole 9-osobowym
+content/pl/lessons/m3-l3-zakresy-otwarc.md	1 2 6	Za  siedzi wtedy ośmiu graczy, więc z , +1 i +2  węziej niż z  przy stole 6-osobowym: za tobą siedzi więcej graczy.
+content/pl/lessons/m3-l3-zakresy-otwarc.md	6	Gdy ci trzej gracze , LJ gra jak  przy stole 6-osobowym, a dalsze  tak samo jak w siatkach powyżej.
+content/pl/lessons/m3-l3-zakresy-otwarc.md	9	Dla wczesnych  przy stole 9-osobowym podajemy tylko kierunek: liczb ani składu tych  nie sprawdziliśmy jeszcze z opublikowanymi rozwiązaniami solverów.
+content/pl/lessons/m4-l1-3bet.md	1 3 001 002 003 005 006	---
+content/pl/lessons/m4-l1-3bet.md	001	- kind: choice
+content/pl/lessons/m4-l1-3bet.md	002	- kind: choice
+content/pl/lessons/m4-l1-3bet.md	003	- kind: choice
+content/pl/lessons/m4-l1-3bet.md	006	- kind: choice
+content/pl/lessons/m4-l1-3bet.md	3	Która z tych rąk jest typowym 3-betem jako ?"
+content/pl/lessons/m4-l1-3bet.md	3	To typowy  z dołu  : z  3-betujesz najsilniejsze ręce plus takie ." }
+content/pl/lessons/m4-l1-3bet.md	3	Jako 3-bet nie blokuje niczego ważnego i słabo gra, gdy rywal ." }
+content/pl/lessons/m4-l1-3bet.md	22 3 4	- { text: " 22", why: "Najmniejsze  bronią się : zarabiają, gdy trafią seta ( z , czyli  z dwóch ), a 3-bet z nimi źle znosi 4-bet." }
+content/pl/lessons/m4-l1-3bet.md	005 5	- kind: generated
+content/pl/lessons/m4-l1-3bet.md	003 4 4.10	- kind: generated
+content/pl/lessons/m4-l1-3bet.md	4	- kind: generated
+content/pl/lessons/m4-l1-3bet.md	3	Ponowne  nazywa się 3-betem, bo to trzeci  w rozdaniu (blind, , ).
+content/pl/lessons/m4-l1-3bet.md	3	## Rozmiar 3-betu
+content/pl/lessons/m4-l1-3bet.md	3	Według opublikowanych rozwiązań solverów Button wobec  z  zwykle 3-betuje ok. – rąk, a  tylko ok. –.
+content/pl/lessons/m4-l1-3bet.md	>3 3 4	Wobec  z  (w tym rozwiązaniu minimalnego, do )  jest już nieco więcej niż 3-betów: ok.  wobec .   jest silny, więc 3-bet częściej dostaje 4-bet i rzadziej wygrywa  od razu.
+content/pl/lessons/m4-l1-3bet.md	3	Siatka pokazuje tylko, które ręce Button gra (3-betem albo ), a które .
+content/pl/lessons/m4-l1-3bet.md	3	Podziału między 3-bet i  ucz się z liczb powyżej: solver aplikacji prawie nie  w tym spocie, więc tego podziału nie odtwarza.
+content/pl/lessons/m4-l1-3bet.md	44	W kilkunastu rękach, np. A8s, 98s i 44, solver aplikacji gra inaczej niż opublikowane rozwiązania, więc ćwiczenia ich nie oceniają.
+content/pl/lessons/m4-l1-3bet.md	3 77	Według opublikowanego rozwiązania solvera  wobec Buttona prawie nic nie : 3-betuje ok.  rąk, górę  (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę .
+content/pl/lessons/m4-l1-3bet.md	3 55 66 3	Solver aplikacji 3-betuje tu  rąk, w tym  55 i 66, które opublikowane rozwiązanie też często 3-betuje; jego nieliczne  siatka liczy jako .
+content/pl/lessons/m4-l1-3bet.md	3 77 99 3	Mając  wobec  z , 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka  z asami w kolorze (A5s, A4s), a średnie ręce (np. 77–99, AJs, ATs,  w kolorze) grasz mieszanie: część 3-betujesz, część .
+content/pl/lessons/m4-l1-3bet.md	3	Źródła nazywają taki  różnie: jedne  (zbudowanym od najsilniejszych rąk w dół), inne  (złożonym głównie z bardzo silnych rąk i , prawie bez średnich); ważniejsze jest, które ręce 3-betujesz, a które .
+content/pl/lessons/m4-l1-3bet.md	3	Z  wobec Buttona 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus  z dołu  : A5s, czasem A4s, i  w kolorze.
+content/pl/lessons/m4-l1-3bet.md	3 99	Skład zależy od  i rozmiaru 3-betu, więc 99, KQo i AJo bywają grane różnie.
+content/pl/lessons/m4-l1-3bet.md	3	Wobec   3-betujesz głównie  (TT+, AJs+, część AQo i KQ), a A5s i  w kolorze zwykle .
+content/pl/lessons/m4-l1-3bet.md	3 3	Z  grasz inaczej: 3-bet albo , z górą  w 3-becie.
+content/pl/lessons/m4-l1-3bet.md	3 3	Jak 3-betować z , uczy reguła oparta na opublikowanych wynikach innych solverów z kilku niezależnych źródeł: skład 3-betów z  w solverze aplikacji od nich odbiega.
+content/pl/lessons/m4-l2-obrona-bb.md	2 004 014 002 006	---
+content/pl/lessons/m4-l2-obrona-bb.md	004	- kind: numeric
+content/pl/lessons/m4-l2-obrona-bb.md	014	- kind: choice
+content/pl/lessons/m4-l2-obrona-bb.md	004	- kind: choice
+content/pl/lessons/m4-l2-obrona-bb.md	002	- kind: choice
+content/pl/lessons/m4-l2-obrona-bb.md	3	- { text: "3-bet do ", correct: true, why: "QQ to ręka .   ok.  , żeby Button nie  tanio ." }
+content/pl/lessons/m4-l2-obrona-bb.md	3	- { text: "3-bet do ", sizeError: true, why: "Dobra akcja, ale to rozmiar dla gracza  ( ).   więcej: do ." }
+content/pl/lessons/m4-l2-obrona-bb.md	004 5	- kind: generated
+content/pl/lessons/m4-l2-obrona-bb.md	014 4	- kind: generated
+content/pl/lessons/m4-l2-obrona-bb.md	004	- kind: paint
+content/pl/lessons/m4-l2-obrona-bb.md	3	Pomaluj ręce, którymi bronisz  ( albo 3-betem)."
+content/pl/lessons/m4-l2-obrona-bb.md	3	Opublikowane rozwiązania solverów bronią tu ok. – rąk ( i 3-bet razem).
+content/pl/lessons/m4-l2-obrona-bb.md	3 3	:::note Jak  z 
+content/pl/lessons/m4-l2-obrona-bb.md	3	Wobec Buttona 3-bet z  ma ok.  .
+content/pl/lessons/m4-l2-obrona-bb.md	3	3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus  z dołu  : A5s, czasem A4s, i  w kolorze.
+content/pl/lessons/m4-l2-obrona-bb.md	3	3-betujesz wtedy głównie  (TT+, AJs+, część AQo i KQ), a A5s i  w kolorze zwykle .
+content/pl/lessons/m4-l3-wobec-3betu.md	3 3 4 007 008 009 010 011	---
+content/pl/lessons/m4-l3-wobec-3betu.md	007	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	4 3	Jaką część   musisz co najmniej kontynuować ( albo 4-betować), żeby Button nie zarabiał na 3-becie z każdą ręką?"
+content/pl/lessons/m4-l3-wobec-3betu.md	3	Jeśli  częściej niż , jego 3-bet zarabia nawet z najgorszą ręką." }
+content/pl/lessons/m4-l3-wobec-3betu.md	3	- { text: "Zawsze, każdą ręką", why: "Wtedy płacisz 3-bety rękami, które przegrywają z  Buttona.  z najsłabszą częścią  jest poprawny." }
+content/pl/lessons/m4-l3-wobec-3betu.md	008	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	4 4	- { text: "4-betuję", why: "KJo jest za słaby na 4-bet , a jako  nie blokuje rąk, którymi Button kontynuuje." }
+content/pl/lessons/m4-l3-wobec-3betu.md	010	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	4 4	- { text: "4-betuję", correct: true, why: "AK zwykle 4-betujesz: chce wpłacić stack, blokuje AA i KK rywala i dominuje AQ, KQ i słabsze asy." }
+content/pl/lessons/m4-l3-wobec-3betu.md	4	- { text: "", why: "Część źródeł czasem  AK, ale zwykle grasz 4-bet:  po  tracisz  i wartość." }
+content/pl/lessons/m4-l3-wobec-3betu.md	009	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	4	- { text: "4-betuję", why: "Jako  lepiej nadają się asy w kolorze, bo blokują AA i AK.
+content/pl/lessons/m4-l3-wobec-3betu.md	33 009	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	3	- { text: "", correct: true, why: "Według jednego ze źródeł najniższe  wobec dużego 3-betu  nawet : zarabiają głównie na trafieniu seta, a cena jest za wysoka.
+content/pl/lessons/m4-l3-wobec-3betu.md	3	- { text: ", bo mam ", why: " pomaga, ale przy 3-becie do  cena jest za wysoka jak na rękę, która musi trafić seta." }
+content/pl/lessons/m4-l3-wobec-3betu.md	4 33 4	- { text: "4-betuję", why: " 33 nie jest ręką do 4-betu: ani wartość, ani dobry ." }
+content/pl/lessons/m4-l3-wobec-3betu.md	010	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	4 4	- { text: "4-betuję", correct: true, why: "Jedno ze źródeł 4-betuje QQ (i JJ) w zdecydowanej większości przypadków: Button kontynuuje wieloma słabszymi  i asami." }
+content/pl/lessons/m4-l3-wobec-3betu.md	008	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	3	- { text: "", why: "Za ciasno: AJs należy do najlepszych rąk do obrony przed 3-betem." }
+content/pl/lessons/m4-l3-wobec-3betu.md	4	- { text: "4-betuję ", why: "AJs jest za słaby, żeby chcieć grać o cały stack.
+content/pl/lessons/m4-l3-wobec-3betu.md	011	- kind: choice
+content/pl/lessons/m4-l3-wobec-3betu.md	4	Masz KK i chcesz 4-betować.
+content/pl/lessons/m4-l3-wobec-3betu.md	4 3	- { text: "Do ok. –", correct: true, why: " 4-bet ma ok. – 3-betu.
+content/pl/lessons/m4-l3-wobec-3betu.md	4	- { text: "All-in za ", why: "Przy stackach  all-in wypycha słabsze ręce, którymi rywal zapłaciłby 4-bet.
+content/pl/lessons/m4-l3-wobec-3betu.md	3	Zarabiasz mniej." }
+content/pl/lessons/m4-l3-wobec-3betu.md	4	Masz trzy możliwości: ,  albo  jeszcze raz, czyli 4-betujesz.
+content/pl/lessons/m4-l3-wobec-3betu.md	3	W grze wobec 3-betu solver aplikacji jeszcze nie przeszedł walidacji, dlatego reguły są oznaczone jako heurystyki.
+content/pl/lessons/m4-l3-wobec-3betu.md	3	Jeśli  częściej niż , jego 3-bet zarabia z każdą ręką.
+content/pl/lessons/m4-l3-wobec-3betu.md	3 4	Według opublikowanego rozwiązania solvera ( wobec 3-betu Buttona do )   ok.  ,  ok.  i 4-betuje ok. ; uproszczone tabele z innego źródła dają ok.  /  / .
+content/pl/lessons/m4-l3-wobec-3betu.md	4	Przyjmujemy przedziały bliskie obu źródłom:  ok. –,  ok. –, 4-bet ok. –.
+content/pl/lessons/m4-l3-wobec-3betu.md	3	Górna granica  leży tuż pod progiem : przy częstszym pasowaniu 3-bet Buttona zarabiałby z każdą ręką.
+content/pl/lessons/m4-l3-wobec-3betu.md	66	  także  od 66 do TT i  w kolorze (T9s, 98s, 87s).
+content/pl/lessons/m4-l3-wobec-3betu.md	3	Według jednego ze źródeł najniższe  wobec dużego 3-betu  nawet : zarabiają głównie na trafieniu seta, a cena jest za wysoka.
+content/pl/lessons/m4-l3-wobec-3betu.md	4	## 4-bet
+content/pl/lessons/m4-l3-wobec-3betu.md	4	AA, KK i AK zwykle 4-betujesz ; AK część źródeł czasem .
+content/pl/lessons/m4-l3-wobec-3betu.md	4	QQ i JJ źródła grają różnie: jedno głównie 4-betuje, drugie .
+content/pl/lessons/m4-l3-wobec-3betu.md	4 3	Rozmiar 4-betu to ok. – 3-betu  i – .
+content/pl/lessons/m4-l3-wobec-3betu.md	4 3 4 3	Na przykład gdy z Buttona 4-betujesz 3-bet  do  ( ),  do –; gdy z  4-betujesz 3-bet Buttona do ,  do ok. .
+content/pl/lessons/m4-l4-limperzy.md	4 012 013	---
+content/pl/lessons/m4-l4-limperzy.md	012	- kind: choice
+content/pl/lessons/m4-l4-limperzy.md	012	- kind: choice
+content/pl/lessons/m4-l4-limperzy.md	012	- kind: choice
+content/pl/lessons/m4-l4-limperzy.md	012	- kind: choice
+content/pl/lessons/m4-l4-limperzy.md	013	- kind: choice
+content/pl/lessons/m4-l4-limperzy.md	3	Profesjonaliści rzadko limpują jako pierwsi (reguła z modułu 3), więc limperzy na mikrostawkach to zwykle słabsi gracze.  limpera nazywa się : chcesz grać z nim sam na sam, najlepiej .
+content/pl/lessons/m5-l1-tekstury.md	1 001 002	---
+content/pl/lessons/m5-l1-tekstury.md	001 002 5	- kind: texture
+content/pl/lessons/m5-l1-tekstury.md	001 002 4	- kind: texture
+content/pl/lessons/m5-l1-tekstury.md	002	- kind: choice
+content/pl/lessons/m5-l1-tekstury.md	85	- { text: "[[9h 7d 6c]]", correct: true, why: "Tak: dziewiątka, siódemka i szóstka mieszczą się w pięciu kolejnych rangach.  dają np. 85 albo T8." }
+content/pl/lessons/m5-l1-tekstury.md	002	- kind: choice
+content/pl/lessons/m5-l1-tekstury.md	001	- kind: choice
+content/pl/lessons/m5-l1-tekstury.md	4.10	- { text: "Bo  króli zawsze wygrywa do rivera", why: "Nie: rywal może mieć seta albo  już teraz.  flop zmniejsza tylko ryzyko, że ktoś cię dogoni." }
+content/pl/lessons/m5-l1-tekstury.md	4	- kind: generated
+content/pl/lessons/m5-l1-tekstury.md	9	Flop **** ma dwie karty tej samej rangi, np. [[Qd Qs 6h]].  z dwiema kartami w ręce nikt na nim nie ma, choć  bywa możliwy (np. na Q-Q-9).
+content/pl/lessons/m5-l1-tekstury.md	85	Flop **** ma trzy różne rangi w obrębie pięciu kolejnych, więc  jest możliwy już teraz: na [[9h 7d 6c]]  dają np. 85 i T8.
+content/pl/lessons/m5-l1-tekstury.md	65	-  możliwy już teraz na kilka sposobów, czyli z co najmniej dwoma różnymi zestawami dwóch rang w ręce (na [[9h 8d 7c]] dają go JT, T6 i 65):  pkt,
+content/pl/lessons/m5-l1-tekstury.md	53	-  możliwy tylko na jeden sposób (na [[Ah Kd Tc]] daje go tylko QJ, na [[Ah 4d 2c]] tylko 53):  pkt,
+content/pl/lessons/m5-l1-tekstury.md	7 2 9 4 6 9 8 7 9 5 4	:::note Skąd te definicje
+content/pl/lessons/m5-l2-przewagi.md	2 003 004 005 006	---
+content/pl/lessons/m5-l2-przewagi.md	003	- kind: choice
+content/pl/lessons/m5-l2-przewagi.md	765 004	- kind: choice
+content/pl/lessons/m5-l2-przewagi.md	003	- kind: choice
+content/pl/lessons/m5-l2-przewagi.md	3 3	- { text: "Bo z tymi rękami najczęściej  przed flopem (3-bet)", correct: true, why: "Tak: najsilniejsze ręce  gra 3-betem, więc po samym  jego  ma mało najlepszych rąk.
+content/pl/lessons/m5-l2-przewagi.md	005	- kind: choice
+content/pl/lessons/m5-l2-przewagi.md	005	- kind: choice
+content/pl/lessons/m5-l2-przewagi.md	006	- kind: numeric
+content/pl/lessons/m5-l2-przewagi.md	006	- kind: choice
+content/pl/lessons/m5-l2-przewagi.md	006	- kind: numeric
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	3 007 008 009 010 011	---
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	007 009 004	- kind: cbet
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	007	- when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	009	- when: { height: [high, middle], suits: [rainbow, two-tone], ranks: [paired], trips: false }
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	004	- when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	6	Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	007	- kind: choice
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	008	- kind: choice
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	009	- kind: choice
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	010	- kind: choice
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	011	- kind: numeric
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	011	- kind: numeric
+content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md	011	- kind: choice
+content/pl/lessons/m5-l4-bez-pozycji.md	4 012 013	---
+content/pl/lessons/m5-l4-bez-pozycji.md	012	- kind: choice
+content/pl/lessons/m5-l4-bez-pozycji.md	012	- kind: cbet
+content/pl/lessons/m5-l4-bez-pozycji.md	012	- when: { height: [low], ranks: [connected, semi-connected, disconnected] }
+content/pl/lessons/m5-l4-bez-pozycji.md	3	Gdy Button , część silnych rąk  po  (check-raise)."
+content/pl/lessons/m5-l4-bez-pozycji.md	012	- kind: choice
+content/pl/lessons/m5-l4-bez-pozycji.md	012	- kind: choice
+content/pl/lessons/m5-l4-bez-pozycji.md	1	- { text: "", why: "Nikt jeszcze nie , więc  nic nie daje: możesz  za darmo (zasada z modułu 1).
+content/pl/lessons/m5-l4-bez-pozycji.md	013	- kind: choice
+content/pl/lessons/m5-l4-bez-pozycji.md	013	- kind: choice
+content/pl/lessons/m5-l4-bez-pozycji.md	013 006	- kind: choice
+content/pl/lessons/m5-l4-bez-pozycji.md	007 009 004	- kind: cbet
+content/pl/lessons/m5-l4-bez-pozycji.md	007	- when: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected], oesdPossible: false }
+content/pl/lessons/m5-l4-bez-pozycji.md	004	- when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+content/pl/lessons/m5-l4-bez-pozycji.md	3	Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
+content/pl/lessons/m5-l4-bez-pozycji.md	6	Betujesz głównie na flopach, które bardzo mocno sprzyjają twojemu , np. K-Q-6.   nie oznacza rezygnacji z ręki: wiele z tych rąk   rywala.
+content/pl/lessons/m6-l1-mdf-alpha.md	1 001 002 003 004	---
+content/pl/lessons/m6-l1-mdf-alpha.md	001	- kind: numeric
+content/pl/lessons/m6-l1-mdf-alpha.md	001	- kind: numeric
+content/pl/lessons/m6-l1-mdf-alpha.md	001	- kind: choice
+content/pl/lessons/m6-l1-mdf-alpha.md	001	- kind: choice
+content/pl/lessons/m6-l1-mdf-alpha.md	002	- kind: numeric
+content/pl/lessons/m6-l1-mdf-alpha.md	002	- kind: choice
+content/pl/lessons/m6-l1-mdf-alpha.md	3 4	Tyle wynosi alpha dla betu 3/4 ." }
+content/pl/lessons/m6-l1-mdf-alpha.md	002	- kind: choice
+content/pl/lessons/m6-l1-mdf-alpha.md	001 1 3	- kind: choice
+content/pl/lessons/m6-l1-mdf-alpha.md	003	- kind: choice
+content/pl/lessons/m6-l1-mdf-alpha.md	1 3	Bronisz , Button  c-bet 1/3 .  wynosi .
+content/pl/lessons/m6-l1-mdf-alpha.md	004	- kind: choice
+content/pl/lessons/m6-l1-mdf-alpha.md	1 3	Przykład z rivera: w  jest , rywal  , czyli 1/3 .  =  ÷  = ****.
+content/pl/lessons/m6-l1-mdf-alpha.md	1 4 1 3 1 2 3 4	| Bet rywala |  | Alpha | Potrzebne equity |
+content/pl/lessons/m6-l1-mdf-alpha.md	1 3	Przy becie 1/3  na riverze  podpowiada, żeby bronić ok.  rąk, a pojedyncze  opłaca się, gdy ręka wygrywa w co najmniej  przypadków.
+content/pl/lessons/m6-l1-mdf-alpha.md	10	To , nie strategia wobec każdego (więcej w module 10).
+content/pl/lessons/m6-l2-sprawdzenie.md	2 005 006 007 003	---
+content/pl/lessons/m6-l2-sprawdzenie.md	005	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	005	- kind: numeric
+content/pl/lessons/m6-l2-sprawdzenie.md	1 4	To prawie dwa razy więcej niż wobec c-betu 1/4  ()."
+content/pl/lessons/m6-l2-sprawdzenie.md	005	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	1 3	Raz Button  1/3 , raz całą .
+content/pl/lessons/m6-l2-sprawdzenie.md	006	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l2-sprawdzenie.md	007	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	3 4	Na flopie , Button  c-bet 3/4 .
+content/pl/lessons/m6-l2-sprawdzenie.md	006	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l2-sprawdzenie.md	006	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l2-sprawdzenie.md	006 003	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l2-sprawdzenie.md	003	- kind: choice
+content/pl/lessons/m6-l2-sprawdzenie.md	1 4 1 3 1 2 3 4	| C-bet Buttona | Potrzebne equity |  |
+content/pl/lessons/m6-l2-sprawdzenie.md	1 3	Wobec małego c-betu (ok. 1/3 ) kontynuujesz:
+content/pl/lessons/m6-l3-check-raise.md	3 008 009 010 011	---
+content/pl/lessons/m6-l3-check-raise.md	008 009	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l3-check-raise.md	010	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	010	- kind: numeric
+content/pl/lessons/m6-l3-check-raise.md	010	- kind: numeric
+content/pl/lessons/m6-l3-check-raise.md	010	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	008	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l3-check-raise.md	008 009	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l3-check-raise.md	008	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l3-check-raise.md	008 006	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	1 3	Na flopie , Button  c-bet 1/3 .
+content/pl/lessons/m6-l3-check-raise.md	009	- kind: choice
+content/pl/lessons/m6-l3-check-raise.md	1 4	- { text: "1/4 ", correct: true, why: "Mały c-bet daje tanią okazję do , a Button  go szerokim  z wieloma słabymi rękami.
+content/pl/lessons/m6-l3-check-raise.md	011 1 3	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	1 001 002 003 004	---
+content/pl/lessons/m7-l1-druga-beczka.md	001	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	87	Daje  z T9 i  z 87, czyli rękami, których  broni dużo.
+content/pl/lessons/m7-l1-druga-beczka.md	001	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	001 002	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	85 76 97	- { text: "", correct: true, why: "Siódemka na  z dziewiątką i szóstką daje  rękom T8 i 85 oraz  rękom 76 i 97, czyli rękom, które  broni.
+content/pl/lessons/m7-l1-druga-beczka.md	001 002	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	002	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	1	- { text: "", why: "Rywal , więc możesz  za darmo (zasada z modułu 1).  oddaje  bez powodu." }
+content/pl/lessons/m7-l1-druga-beczka.md	002	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	003	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	003	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	002 003	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	004	- kind: numeric
+content/pl/lessons/m7-l1-druga-beczka.md	003	- kind: choice
+content/pl/lessons/m7-l1-druga-beczka.md	3 4	Przy becie 3/4  to , przy pół  .
+content/pl/lessons/m7-l2-polaryzacja.md	2 005 006 003	---
+content/pl/lessons/m7-l2-polaryzacja.md	005	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	005	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	003 005	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	005 006	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	65	- { text: "Betuję ", correct: true, why: "Tak: rywal może mieć  do  (dwa kiery) i do  (np. 65, T9).
+content/pl/lessons/m7-l2-polaryzacja.md	3 4	Przy becie 3/4   potrzebuje  equity, a  trafia w ok.  przypadków.
+content/pl/lessons/m7-l2-polaryzacja.md	1 4	- { text: "Betuję ", sizeError: true, why: "Dobra akcja, zły rozmiar: przy becie 1/4   potrzebuje tylko  equity, więc dostaje dobrą cenę.
+content/pl/lessons/m7-l2-polaryzacja.md	005 002	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	003 005	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	006	- kind: numeric
+content/pl/lessons/m7-l2-polaryzacja.md	006	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	3 4	- { text: "Musi , bo potrzebuje ", why: "Tyle potrzebowałby przy becie 3/4 .
+content/pl/lessons/m7-l2-polaryzacja.md	1 4	Przy becie 1/4  wystarcza mu ." }
+content/pl/lessons/m7-l2-polaryzacja.md	006	- kind: choice
+content/pl/lessons/m7-l2-polaryzacja.md	1 3	- { text: "Już od 1/3 : potrzebuje ", correct: true, why: "Tak:  to więcej niż .
+content/pl/lessons/m7-l2-polaryzacja.md	1 3	- { text: "Dopiero od całej : potrzebuje ", why: "Przy całej  płaci dużo za drogo, ale już przy 1/3  potrzebuje , więcej niż swoje ." }
+content/pl/lessons/m7-l2-polaryzacja.md	007 3	- kind: generated
+content/pl/lessons/m7-l2-polaryzacja.md	006	- kind: numeric
+content/pl/lessons/m7-l2-polaryzacja.md	3 4	  betuje dużo, np. 3/4 .
+content/pl/lessons/m7-l2-polaryzacja.md	1 4 1 3 1 2 3 4	| Twój bet | Rywal potrzebuje |  ma |  otwarty ma |
+content/pl/lessons/m7-l2-polaryzacja.md	1 4	Przy becie 1/4   ma dobrą cenę.
+content/pl/lessons/m7-l2-polaryzacja.md	1 3 1 2	Przy 1/3  cena jest prawie równa szansie  ( wobec ), a od 1/2  wzwyż  płaci wyraźnie za drogo, chyba że liczy na implied odds (następna lekcja).
+content/pl/lessons/m7-l2-polaryzacja.md	3 4	Rozmiar 3/4  to przykład do ćwiczeń, a nie jedyny dobry rozmiar.
+content/pl/lessons/m7-l3-implied-odds.md	3 007 008 009 010	---
+content/pl/lessons/m7-l3-implied-odds.md	007	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	2 4	- { text: "Nie da się tego policzyć bez kalkulatora", why: "Da się: reguła 2 i 4 z M2.
+content/pl/lessons/m7-l3-implied-odds.md	2	Jedna karta, więc outy × 2: w przybliżeniu .
+content/pl/lessons/m7-l3-implied-odds.md	007 2	- kind: generated
+content/pl/lessons/m7-l3-implied-odds.md	007	- kind: numeric
+content/pl/lessons/m7-l3-implied-odds.md	007	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	008	- kind: numeric
+content/pl/lessons/m7-l3-implied-odds.md	008	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	008 009	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	008 009	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	010	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	009 010	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	009	- kind: choice
+content/pl/lessons/m7-l3-implied-odds.md	2 4 2	Z regułą 2 i 4 z M2 mnożysz outy przez 2.
+content/pl/lessons/m7-l4-probe-obrona.md	4 011 012 013	---
+content/pl/lessons/m7-l4-probe-obrona.md	011	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	011	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	011	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	011 012	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	1	- { text: "", why: "Nikt nie , więc możesz  za darmo (zasada z modułu 1).  oddaje  bez powodu." }
+content/pl/lessons/m7-l4-probe-obrona.md	012	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	011 012	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	1	- { text: "", why: "Możesz  za darmo, więc  nic nie daje (zasada z modułu 1)." }
+content/pl/lessons/m7-l4-probe-obrona.md	013 007	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	013 007	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	013	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	013	- kind: choice
+content/pl/lessons/m7-l4-probe-obrona.md	3 4	- { text: "Bo  rywal  węższym  i zwykle większym rozmiarem, a  mają już tylko jedną kartę", correct: true, why: "Tak: część  rywal odpuszcza na turnie, większy bet obniża  (przy 3/4  ), a twoje  tracą połowę szans.
+content/pl/lessons/m7-l4-probe-obrona.md	001	- kind: numeric
+content/pl/lessons/m7-l4-probe-obrona.md	3 4	 pozostaje punktem odniesienia: przy becie 3/4  wynosi .
+content/pl/lessons/m8-l1-value.md	1 001 002 003	---
+content/pl/lessons/m8-l1-value.md	001	- kind: choice
+content/pl/lessons/m8-l1-value.md	001	- kind: choice
+content/pl/lessons/m8-l1-value.md	001	- kind: choice
+content/pl/lessons/m8-l1-value.md	001	- kind: numeric
+content/pl/lessons/m8-l1-value.md	001	- kind: choice
+content/pl/lessons/m8-l1-value.md	002	- kind: choice
+content/pl/lessons/m8-l1-value.md	001 003	- kind: choice
+content/pl/lessons/m8-l1-value.md	65	Przegrywasz z damą z lepszym kickerem, , setami i  (A5, 65), ale gorszych  jest więcej." }
+content/pl/lessons/m8-l1-value.md	003	- kind: choice
+content/pl/lessons/m8-l1-value.md	1 4	- { text: "Bet , czyli 1/4 ", correct: true, why: "Thin value: wygrywasz z niewiele ponad połową rąk, które zapłacą.
+content/pl/lessons/m8-l1-value.md	002	- kind: choice
+content/pl/lessons/m8-l1-value.md	001	- kind: choice
+content/pl/lessons/m8-l1-value.md	1 4 1 2	Taki bet robisz **mniejszy** niż silną ręką, zwykle ok. 1/4–1/2 : mały bet zapłacą też słabsze , a na duży  i zostaną tylko lepsze ręce.
+content/pl/lessons/m8-l1-value.md	1 4 <1 2	To uproszczenie: solver bez ryzyka check-raise'u betuje thin value nawet ok. 1/4 , a przy tym ryzyku z  rzadko schodzi poniżej 1/2 .
+content/pl/lessons/m8-l2-ile-blefow.md	2 004 005 006	---
+content/pl/lessons/m8-l2-ile-blefow.md	004	- kind: numeric
+content/pl/lessons/m8-l2-ile-blefow.md	2	Wpisz liczbę w procentach."
+content/pl/lessons/m8-l2-ile-blefow.md	004 005	- kind: numeric
+content/pl/lessons/m8-l2-ile-blefow.md	004	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	004 005	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	005 1 3	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	1 3	- { text: "Przy całej ", correct: true, why: "Przy 1/3   to ok.  betów, przy całej  ok. .
+content/pl/lessons/m8-l2-ile-blefow.md	1 3	- { text: "Przy 1/3 ", why: "Odwrotnie.
+content/pl/lessons/m8-l2-ile-blefow.md	1 3	- { text: "Tyle samo", why: "Udział  zależy od rozmiaru: ok.  przy 1/3 , ok.  przy całej ." }
+content/pl/lessons/m8-l2-ile-blefow.md	004	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	2	- { text: "To dwie nazwy tej samej rzeczy, któraś jest źle policzona", why: "Obie są dobrze policzone: alpha = bet ÷ ( + bet), udział  = bet ÷ ( + 2·bet).
+content/pl/lessons/m8-l2-ile-blefow.md	004	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	004	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	004	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	004	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	006	- kind: choice
+content/pl/lessons/m8-l2-ile-blefow.md	2	```formula
+content/pl/lessons/m8-l2-ile-blefow.md	1 3 1 2 3 4 1,5	| Bet | Udział  | Alpha (z M6) |
+content/pl/lessons/m8-l2-ile-blefow.md	2	Udział  = bet ÷ ( + 2·bet) mówi, jaka część **całego  betów** to .
+content/pl/lessons/m8-l3-blokery.md	3 009 007 008 006	---
+content/pl/lessons/m8-l3-blokery.md	009	- kind: choice
+content/pl/lessons/m8-l3-blokery.md	009	- kind: numeric
+content/pl/lessons/m8-l3-blokery.md	009	- kind: numeric
+content/pl/lessons/m8-l3-blokery.md	009	- kind: choice
+content/pl/lessons/m8-l3-blokery.md	007	- kind: choice
+content/pl/lessons/m8-l3-blokery.md	008	- kind: choice
+content/pl/lessons/m8-l3-blokery.md	006	- kind: choice
+content/pl/lessons/m8-l3-blokery.md	007 008	- kind: choice
+content/pl/lessons/m8-l3-blokery.md	006 007	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	4 010 011 012 001	---
+content/pl/lessons/m8-l4-bluff-catching.md	010	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	010	- kind: numeric
+content/pl/lessons/m8-l4-bluff-catching.md	010	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	010	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	010	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	011	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	011	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	012	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	012 001	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	010	- kind: choice
+content/pl/lessons/m8-l4-bluff-catching.md	1 3 1 2	| Bet rywala | Potrzebne equity ( co najmniej) |
+content/pl/lessons/m9-l1-spr.md	1 001 002 010	---
+content/pl/lessons/m9-l1-spr.md	001	- kind: choice
+content/pl/lessons/m9-l1-spr.md	3	- { text: "Ok. ", why: "Tyle wynosi  po 3-becie i .
+content/pl/lessons/m9-l1-spr.md	001 3	- kind: choice
+content/pl/lessons/m9-l1-spr.md	3	Po 3-becie  jest trzy razy większa niż po zwykłym , więc  spada z ok.  do ok. ." }
+content/pl/lessons/m9-l1-spr.md	3	Twój 3-bet za  jest już w , więc dzielisz tylko to, co zostało: ." }
+content/pl/lessons/m9-l1-spr.md	3	Po 3-becie  jest dużo większa, a stack za nią mniejszy, więc  spada do ok. ." }
+content/pl/lessons/m9-l1-spr.md	001 3	- kind: choice
+content/pl/lessons/m9-l1-spr.md	3 3	- { text: "Ok. ", correct: true, why: " ÷  ≈ .  3-bet jest większy, więc  rośnie bardziej, a  jest niższy niż po 3-becie  ()." }
+content/pl/lessons/m9-l1-spr.md	3	- { text: "Ok. ", why: "To  po 3-becie  do .
+content/pl/lessons/m9-l1-spr.md	3	Twój 3-bet do  robi większą , więc  jest niższy: ok. ." }
+content/pl/lessons/m9-l1-spr.md	4	- { text: "Ok. ", why: "Tak niski  daje dopiero 4-bet.
+content/pl/lessons/m9-l1-spr.md	3	Po 3-becie do  wychodzi ok. ." }
+content/pl/lessons/m9-l1-spr.md	001	- kind: choice
+content/pl/lessons/m9-l1-spr.md	4 4 3	- { text: "W  po 4-becie i ", correct: true, why: "Tak: gdy Button 4-betuje do  na 3-bet ,  , a  , w  jest , a za nią tylko .  ok. ." }
+content/pl/lessons/m9-l1-spr.md	3 3	- { text: "W  po 3-becie i ", why: "Po 3-becie  wynosi ok.   i ok.  .
+content/pl/lessons/m9-l1-spr.md	4	4-bet obniża go jeszcze bardziej: do ok. ." }
+content/pl/lessons/m9-l1-spr.md	001 3	- kind: choice
+content/pl/lessons/m9-l1-spr.md	3	- { text: "Bo po 3-becie gracze mają mniejsze stacki", why: "Tylko trochę mniejsze:  zamiast .
+content/pl/lessons/m9-l1-spr.md	3 3	- { text: "Bo 3-bet daje ", why: " zależy od miejsca przy stole, nie od 3-betu.  to tylko stack za  podzielony przez ." }
+content/pl/lessons/m9-l1-spr.md	001	- kind: choice
+content/pl/lessons/m9-l1-spr.md	001	- kind: choice
+content/pl/lessons/m9-l1-spr.md	3	- { text: "Przed rozdaniem, zanim ktoś ", why: "Przed flopem nie wiesz jeszcze, jak duża będzie .  zależy właśnie od tego, co stało się przed flopem: po  ok. , po 3-becie ok. ." }
+content/pl/lessons/m9-l1-spr.md	010 3	- kind: choice
+content/pl/lessons/m9-l1-spr.md	4	- { text: "Zawsze grasz o cały stack", why: "Zwykle tak jest dopiero przy  poniżej ok. , np. po 4-becie (ok. ).
+content/pl/lessons/m9-l1-spr.md	3	Po 3-becie  jest dużo niższy." }
+content/pl/lessons/m9-l1-spr.md	002	- kind: numeric
+content/pl/lessons/m9-l1-spr.md	2	Potrzebne equity =  ÷ ( + 2·) = ."
+content/pl/lessons/m9-l1-spr.md	002	- kind: choice
+content/pl/lessons/m9-l1-spr.md	4	- { text: "Po 4-becie: ok. ", correct: true, why: "Przy  ok.  dopłacasz , żeby wygrać   i stack rywala.
+content/pl/lessons/m9-l1-spr.md	3 3	- { text: "Po 3-becie: ok. ", why: "Po 3-becie  potrzebujesz ok. .
+content/pl/lessons/m9-l1-spr.md	4	Po 4-becie  jest większa względem stacku, więc wystarcza ok. ." }
+content/pl/lessons/m9-l1-spr.md	3 3 4 3	|  (stacki ) |  na flopie | Stack za  |  |
+content/pl/lessons/m9-l1-spr.md	3 4	Po  i  ( ok. ) jesteś w najwyższej strefie, po 3-becie (ok. ) w strefie, w której  jest na granicy, a po 4-becie (ok. ) w najniższej.
+content/pl/lessons/m9-l1-spr.md	2	Potrzebne equity = stack ÷ ( + 2·stack).
+content/pl/lessons/m9-l1-spr.md	4 3	Przy   to , po 4-becie ok. , po 3-becie ok. , a w  z jednym podbiciem już ok. .
+content/pl/lessons/m9-l1-spr.md	3 4 4 4 3	:::note Skąd te liczby
+content/pl/lessons/m9-l2-zaangazowanie.md	2 003 004 005	---
+content/pl/lessons/m9-l2-zaangazowanie.md	004	- kind: numeric
+content/pl/lessons/m9-l2-zaangazowanie.md	2	Dopłacasz , więc potrzebne equity =  ÷ ( + 2·) = .
+content/pl/lessons/m9-l2-zaangazowanie.md	004	- kind: numeric
+content/pl/lessons/m9-l2-zaangazowanie.md	2	Dopłacasz :  ÷ ( + 2·) = .
+content/pl/lessons/m9-l2-zaangazowanie.md	004	- kind: choice
+content/pl/lessons/m9-l2-zaangazowanie.md	004	- kind: choice
+content/pl/lessons/m9-l2-zaangazowanie.md	003 4	- kind: choice
+content/pl/lessons/m9-l2-zaangazowanie.md	4	Rywal po 4-becie ma też AQ, QQ, JJ i inne ręce, które przegrywają z twoją." }
+content/pl/lessons/m9-l2-zaangazowanie.md	003	- kind: choice
+content/pl/lessons/m9-l2-zaangazowanie.md	005	- kind: choice
+content/pl/lessons/m9-l2-zaangazowanie.md	003 4	- kind: choice
+content/pl/lessons/m9-l2-zaangazowanie.md	4	Po 4-becie rywal często ma asa albo króla, a twoje walety przegrywają z każdą  z wysokiej karty.
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	3 006 007	---
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	006	- kind: numeric
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1	Ogólnie:  f  i  mnożą  przez (1 + 2f)."
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	006	- kind: numeric
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	006	- kind: choice
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1 2 1 2	Ze wzoru: (1 + 2·) do potęgi trzeciej = 1 + 2·." }
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	007	- kind: choice
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	007	- kind: choice
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	3	- { text: "Ok.  ", why: "Tyle wystarcza w  3-betowanej ( ok. ).
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	006 3	- kind: choice
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1 1 2	- { text: "Ok.   ()", correct: true, why: "Tak: (1 + 2f) do potęgi trzeciej = 1 + 2· daje f ≈ .  ,  i  dają razem , czyli cały stack." }
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1 3	- { text: "  ()", sizeError: true, why: "Dobra akcja, zły rozmiar: trzy  po 1/3  wpłacą tylko ok.  z .
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	006 3	- kind: choice
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1 1 2	- { text: "Ok.  ", correct: true, why: "Tak: przy  ok.  (1 + 2f) do potęgi trzeciej = 1 + 2·, więc f ≈ .
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	3	Niższy  niż po 3-becie , więc i mniejszy rozmiar." }
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	4	- { text: "Ok.  ", sizeError: true, why: "Tyle wystarcza po 4-becie ( ok. ).
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	006 4	- kind: choice
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1 1 2	- { text: "Ok.  ", correct: true, why: "Tak: na dwie  (1 + 2f) do kwadratu = 1 + 2·, więc f ≈ .
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	006	- kind: choice
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1	- { text: "Ten sam ułamek  na każdej , tak że ostatni  to all-in", correct: true, why: "Tak:  f i  mnożą  przez (1 + 2f) na każdej .
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	3	W  3-betowanej to ,  i , za każdym razem ok.  ." }
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1	 wielkości f  i  mnożą  przez (1 + 2f).
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	1 1 2	```formula
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	3 3 4	|  |  | Trzy  | Dwie  |
+content/pl/lessons/m9-l3-rozmiar-geometryczny.md	3	W  3-betowanej  to  ,  i , razem , czyli cały stack.
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	4 008 009 005	---
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	008	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	008 005	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	008	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	008 003 4	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	009 3	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	1 3 1 3	- { text: " 1/3  na każdej ", sizeError: true, why: "Dobra linia, zły rozmiar: trzy  po 1/3  wpłacą tylko ok.  z .
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	009	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	005 008	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	003 008	- kind: choice
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	4.10	Dwa  po ok.   wpłacają całe ." }
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	4	- kind: generated
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	3	- **Ręka na trzy , strefa  pozwala na grę o stack i chcesz cały stack:** betujesz rozmiarem geometrycznym od flopu (w  3-betowanej  ok.  ).
+content/pl/lessons/m9-l4-plan-trzech-ulic.md	3 1 3	W  3-betowanej trzy  po 1/3  wpłacają tylko ok.  ze stacku , a trzy  po ok.   cały stack.
+exit 1

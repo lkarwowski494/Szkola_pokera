@@ -70,7 +70,7 @@ La {{t:big-blind|grosse blinde}} a déjà une blinde entière dans le {{t:pot}},
 
 ## Le prix ne fait pas tout
 
-L'équité indique à quelle fréquence vous gagnez si vous arrivez tous les deux au showdown sans autres {{t:bet|mises}}. {{t:out-of-position|Hors de position}}, vous vous {{t:fold|coucherez}} souvent après le flop, donc les mains faibles dépareillées réalisent moins que leur équité. Les mains assorties, les {{t:connectors|connecteurs}} et les {{t:pair|paires}} moyennes réalisent davantage, c'est pourquoi, dans la grille, vous défendez plus volontiers avec elles.
+L'équité indique à quelle fréquence vous gagnez si vous arrivez tous les deux au showdown sans autres {{t:bet|mises}}. {{t:out-of-position|Hors de position}}, vous vous {{t:fold|coucherez}} souvent après le flop, donc les mains faibles dépareillées réalisent moins que leur équité. Les mains assorties, les {{t:connectors|connecteurs}} et les {{t:pair|paires}} moyennes réalisent davantage, c'est pourquoi vous défendez généralement plus volontiers avec elles.
 
 ```range
 vs-open.bb-vs-btn

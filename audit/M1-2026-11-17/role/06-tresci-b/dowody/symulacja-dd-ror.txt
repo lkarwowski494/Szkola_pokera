@@ -1,0 +1,10 @@
+$ python3 -I dd.py  (ziarno 17112026, 20 000 przebiegów)
+wr5 sd80 100k rąk, dd>=1000bb: 0.9485
+wr2 sd80 100k rąk, dd>=1000bb: 0.99235
+RoR wzór 3 3000 6.01 %
+RoR wzór 3 1500 24.51 %
+RoR wzór 1 3000 39.16 %
+RoR wzór 5 3000 0.92 %
+RoR wzór 1 5000 20.96 %
+kod wyjścia: 0
+porównanie: numbers.yaml dd.p.small.100k = 95% (aplikacja), ror.base 6,0%, ror.half 24,5%, ror.base.wr-min 39,2%, ror.base.wr-ex 0,9%

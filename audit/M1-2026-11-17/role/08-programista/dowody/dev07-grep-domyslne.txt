@@ -1,0 +1,90 @@
+$ grep -rnE "\?\? -?[0-9]|\?\? ''|\?\? \"\"|\|\| -?[0-9]\b|Number\(row|String\(row|Boolean\(row|Number\(w\.|String\(w\." apps/mobile/src packages/*/src (bez testów)
+apps/mobile/src/components/Stol.tsx:50:  const rzedy = { opp: table.opp?.length ?? 0, board: table.board?.length ?? 0, hero: reka.length };
+apps/mobile/src/components/RangeGrid.tsx:31:                      const f = g.freqs[i] ?? 0;
+apps/mobile/src/components/PaintGrid.tsx:110:  const mark = (i: number) => (result ? ({ miss: '−', extra: '+', mixed: '•' } as Record<string, string>)[result[i]!] ?? '' : '');
+apps/mobile/src/app/session.tsx:566:      <Button label={t('session.check')} disabled={!complete} onPress={() => complete && onSubmit(picks.map((p) => p ?? -1))} />
+apps/mobile/src/app/help.tsx:23:    return getLocales()[0]?.regionCode ?? '';
+apps/mobile/src/app/scenario.tsx:72:    return { szablon, tytulModulu: moduly.find((m) => m.id === szablon.module)?.title ?? '', poziom: poziom.wartosc, limit: p.wartosc.limit, wznow: p.wartosc.akcja === 'wznow' };
+apps/mobile/src/app/advancement.tsx:35:      <ProgressBar value={(r.overall ?? 0) / ADVANCEMENT.scale} height={8} />
+apps/mobile/src/features/ocena-poziomu/PierwszeUruchomienie.tsx:159:          punktStartu={{ modul: m?.title ?? etap.modulId, tytulLekcji: m?.pierwszaLekcja ?? '' }}
+apps/mobile/src/features/ocena-poziomu/ocenaPoziomu.ts:55:  return moduly[moduly.length - 1] ?? '';
+apps/mobile/src/features/ocena-poziomu/ocenaPoziomu.ts:120:  const poprawne = new Set(o.items.flatMap((it, i) => (odpowiedzi[i] ? [MODUL_ZADANIA.get(it.drillId) ?? ''] : [])));
+apps/mobile/src/features/dzis/widok.ts:42:    modulTytul: moduly.find((m) => m.id === l.moduleId)?.title ?? '',
+apps/mobile/src/features/dzis/widok.ts:94:  const ordLekcji = new Map(w.lekcje.map((l) => [l.id, ordModulu.get(l.moduleId) ?? -1]));
+apps/mobile/src/features/dzis/widok.ts:95:  const odblokowane = w.ukonczoneLekcje.some((id) => (ordLekcji.get(id) ?? -1) >= MODUL_SCENARIUSZY_OD);
+apps/mobile/src/features/start/EkranStartu.tsx:45:          {wyczerpany && rodzaj === 'powtorki' && (zaleglePowtorki ?? 0) > 0 ? (
+apps/mobile/src/features/scenariusz/komponenty.tsx:118:          <Text style={[styl.naglowek, rozmiarDoSzerokosci(nazwy[a] ?? '', pole, skala, styl.naglowek), { color: tk.actionInk, textAlign: 'center' }]}>{nazwy[a]}</Text>
+apps/mobile/src/features/scenariusz/komponenty.tsx:199:            <View key={`${w.rola}-${w.litera ?? ''}`} testID="stos-wiersz" accessible accessibilityLabel={t('scenario.icm.rowLabel', { kto, wartosc })} style={[styles.wierszStosu, { borderColor: tk.separator, minHeight: CEL_DOTYKU }, pasek ? null : styles.wierszStosuPodNazwa]}>
+apps/mobile/src/features/scenariusz/liczby.ts:109:    const doplata = trojbet ? r - (otwarcie ?? 0) : r - 1;
+apps/mobile/src/features/scenariusz/wariant.ts:332:  const wiersz = (i: number, rola: WierszStosuIcm['rola'], litera: string | null): WierszStosuIcm => ({ rola, litera, stosBb: miejsce1((d.stacks[i] ?? 0) * bbNaZeton), udzial: (d.stacks[i] ?? 0) / najwiekszy });
+apps/mobile/src/features/scenariusz/tytul.ts:28:    const kod = znak.codePointAt(0) ?? 0;
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:269:  const nazwy: Partial<Record<Akcja, string>> = Object.fromEntries(akcje.map((a) => [a, powtorzona(a) ? teksty[a]?.przycisk ?? '' : teksty[a]?.nazwa ?? '']));
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:271:  const fraza = (a: Akcja): string => teksty[a]?.fraza ?? '';
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:325:          <PasekStrategii opcje={akcje.map((a) => ({ text: teksty[a]?.przycisk ?? '', ...(teksty[a]?.czytnik ? { etykieta: teksty[a]?.czytnik } : {}) }))} wybor={null} klasa="" onWybierz={(i) => { const a = akcje[i]; if (a) p.onWybierz(a); }} />
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:361:  const spasowali = inni.length === 0 ? '' : t(inni.length === 1 ? 'scenario.icm.foldedOne' : 'scenario.icm.foldedMany', { kto: inni.length === 1 ? (inni[0] ?? '') : t('table.listAnd', { a: inni.slice(0, -1).join(', '), b: inni[inni.length - 1] ?? '' }) });
+apps/mobile/src/features/session/build.ts:64:  const count = (r: DrillRow) => used.get(r.id) ?? 0;
+apps/mobile/src/features/kurs/podsumowania.ts:17:      attempts: (p?.attempts ?? 0) + 1,
+apps/mobile/src/features/stol/uklad.ts:121:const karta = (c: string) => `${c[0] === 'T' ? '10' : (c[0] ?? '')}${SYMBOL[c[1] ?? ''] ?? ''}`;
+apps/mobile/src/features/stol/PanelDecyzji.tsx:55:          {skala ? <SkalaStopni czestosc={opcja.czestosc ?? 0} ocena={ocena} /> : null}
+apps/mobile/src/features/stol/pasek.ts:34:  const suma = poOcenie ? opcje.reduce((s, o) => s + (o.czestosc ?? 0), 0) : 0;
+apps/mobile/src/features/stol/pasek.ts:38:    szerokosc: poOcenie && suma > 0 ? (o.czestosc ?? 0) / suma : 1 / opcje.length,
+apps/mobile/src/features/stol/pasek.ts:39:    procent: poOcenie ? procent(o.czestosc ?? 0) : null,
+apps/mobile/src/features/drills/text.ts:476:  if (tex.ranks === 'connected') return r('texture.rankFact.connected', { example: straightExample(flop) ?? '' });
+apps/mobile/src/features/drills/text.ts:479:  if (tex.ranks === 'semi-connected') return r('texture.rankFact.semiConnected', { example: draw ?? '' });
+apps/mobile/src/features/drills/grade.ts:26:  return HAND_CLASSES.map((_, h) => spot.groups.reduce((s, g) => s + (g.freqs[h] ?? 0), 0));
+apps/mobile/src/features/drills/engine.ts:429:  const ids = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+apps/mobile/src/features/drills/engine.ts:432:  const play = (h: number) => spot.groups.reduce((s, g) => s + (g.freqs[h] ?? 0), 0);
+apps/mobile/src/features/drills/engine.ts:444:  const freqs = [...spot.groups.map((g) => ({ name: g.name, f: g.freqs[h] ?? 0 })), { name: t.range.fold, f: Math.max(0, 1 - play(h)) }];
+apps/mobile/src/data/content/repo.ts:255:  if ((jest[0]?.n ?? 0) === 0) return [];
+packages/content-schema/src/index.ts:571:  .refine((b) => b.marginMax === null || b.marginMax > (b.marginMin ?? 0), 'marginMax musi być większy od marginMin');
+packages/content-schema/src/terms.ts:75:    const depth = (before.match(/\(/g)?.length ?? 0) - (before.match(/\)/g)?.length ?? 0);
+packages/domena/src/kurs.ts:32:  const ustawiono = f.punktStartu?.ustawionoMs ?? 0;
+packages/jezyki/src/formaty.ts:19:  return new Intl.NumberFormat(znacznikIntl(j), { style: 'percent', minimumFractionDigits: opcje.miejsca ?? 0, maximumFractionDigits: opcje.miejsca ?? 0 }).format(ulamek);
+packages/jezyki/src/jezyki.ts:51:  const czesci = (tag ?? '').split(/[-_]/);
+packages/jezyki/src/jezyki.ts:52:  const kod0 = (czesci[0] ?? '').toLowerCase();
+packages/jezyki/src/jezyki.ts:54:  const region = (czesci.slice(1).find((x) => /^([A-Za-z]{2}|\d{3})$/.test(x)) ?? '').toUpperCase();
+packages/jezyki/src/jezyki.ts:55:  const pismo = (czesci.slice(1).find((x) => /^[A-Za-z]{4}$/.test(x)) ?? '').toLowerCase();
+packages/poker-core/src/play.ts:111:    const play = spot.groups.reduce((s, g) => s + (g.freqs[h] ?? 0), 0);
+packages/poker-core/src/drills.ts:67:    for (const c of r.bestFive) counts.set(rankOf(c), (counts.get(rankOf(c)) ?? 0) + 1);
+packages/poker-core/src/bots.ts:345:  const iRaise = aggr[0] ?? -1;
+packages/poker-core/src/bots.ts:386:      return { type: 'raise', to: v.legal.maxTo ?? 0 };
+packages/poker-core/src/bots.ts:503:    if (P.vs4betJam.includes(hc)) return { type: 'raise', to: v.legal.maxTo ?? 0 };
+packages/poker-core/src/bots.ts:567:  const toCall = la.callAmount ?? 0;
+packages/poker-core/src/bots.ts:583:      const outs = h.draw?.all.length ?? 0;
+packages/poker-core/src/ranges.ts:74:  const kind = (m[3] ?? '').toLowerCase();
+packages/poker-core/src/table.ts:377:  const second = bets[1] ?? 0;
+packages/poker-core/src/equity.ts:74:  const exactLimit = opts.exactLimit ?? 2_000_000;
+packages/poker-core/src/equity.ts:99:    const iterations = opts.iterations ?? 20_000;
+packages/poker-core/src/evaluate.ts:86:  for (const c of best) counts.set(rankOf(c), (counts.get(rankOf(c)) ?? 0) + 1);
+packages/poker-core/src/grading.ts:192:    toCall: la.callAmount ?? 0,
+packages/poker-core/src/grading.ts:323:      ...spot.groups.map((g) => ({ name: g.name, f: g.freqs[h] ?? 0 })),
+packages/poker-core/src/grading.ts:324:      { name: 'fold', f: Math.max(0, 1 - spot.groups.reduce((s, g) => s + (g.freqs[h] ?? 0), 0)) },
+packages/poker-core/src/grading.ts:335:        spot.actions.find((x) => x.label.startsWith('raise ') && near(Number(x.label.slice(6)), (a.to ?? 0) / ctx.bb))?.label ??
+packages/poker-core/src/grading.ts:356:      const raw = spot.actions.map((x) => x.freqs[h] ?? 0);
+packages/poker-core/src/grading.ts:358:      const rawOptions = spot.actions.map((x) => ({ name: x.label, f: x.freqs[h] ?? 0 }));
+packages/poker-core/src/grading.ts:370:    return sizeCandidate(rule, expected, (a.to ?? 0) / ctx.bb);
+packages/poker-core/src/grading.ts:384:    return sizeCandidate(rule, (Number(rule.check.params.mult) * open.to) / ctx.bb, (a.to ?? 0) / ctx.bb);
+packages/poker-core/src/grading.ts:396:    return sizeCandidate(rule, expected, (a.to ?? 0) / ctx.bb);
+packages/poker-core/src/grading.ts:421:      frac = (a.to ?? 0) / ctx.pot;
+packages/poker-core/src/holding.ts:66:      pairKind = h1 > top ? 'overpair' : h1 > (boardRanks[1] ?? -1) ? 'second' : 'underpair';
+packages/poker-core/src/holding.ts:75:  const outs = draw?.all.length ?? 0;
+packages/poker-core/src/holding.ts:79:  else if (pairKind === 'overpair' || (pairKind === 'top' && (kicker ?? 0) >= L.strongKickerMin)) cls = 'strong';
+packages/poker-core/src/holding.ts:96:  for (const c of board) counts.set(rankOf(c), (counts.get(rankOf(c)) ?? 0) + 1);
+packages/poker-core/src/scenario-gen.ts:658:    const x = (freqs[HAND_CLASSES.indexOf(vc)] ?? 0) * m.pairs[i]![j]!;
+packages/poker-core/src/scenario-gen.ts:751:  const m = b.margins?.[i] ?? { min: b.marginMin ?? 0, max: b.marginMax ?? null };
+packages/poker-core/src/scenario-gen.ts:792:  m.classes.forEach((c, j) => { if ((spot.actions[a]!.freqs[HAND_CLASSES.indexOf(c)] ?? 0) <= 0.5) best = Math.min(best, Math.abs(sila[i]! - sila[j]!)); });
+packages/poker-core/src/scenario-gen.ts:811:  const wagi = HAND_CLASSES.map((hc, h) => spot.actions.filter((a) => a.label !== 'fold').reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0) * classCombos(hc).length);
+packages/poker-core/src/scenario-gen.ts:832:  const gram = { label: PLAY_ACTION, freqs: HAND_CLASSES.map((_hc, h) => spot.actions.filter((a) => play.includes(a.label)).reduce((sum, a) => sum + (a.freqs[h] ?? 0), 0)) };
+packages/poker-core/src/scenario-gen.ts:871:  return h.cls === 'very-strong' || (h.cls === 'strong' && (h.pairKind === 'overpair' || (h.pairKind === 'top' && (h.kicker ?? -1) >= TURN_BET_KICKER_MIN)));
+packages/poker-core/src/scenario-gen.ts:1009:      const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
+packages/poker-core/src/scenario-gen.ts:1030:      if (!((b.margins?.[i]?.min ?? b.marginMin ?? 0) >= NIT_FOLD_MIN_GAP - 1e-12)) throw new TemplateError(`${t.id}: poziom ${level}: nit-3bet wymaga marginesu ≥ ${NIT_FOLD_MIN_GAP} (D-1721)`);
+packages/poker-core/src/scenario-gen.ts:1078:      if (!hTurn.pairKind || !b.pairKind.includes(hTurn.pairKind) || (hTurn.draw?.all.length ?? 0) >= HOLDING_LIMITS.drawOutsMin) return null;
+packages/poker-core/src/scenario-gen.ts:1080:        const kicker = hTurn.kicker ?? -1;
+packages/poker-core/src/scenario-gen.ts:1086:        if (hFlop.pairKind || hFlop.improvesBoard || (hFlop.draw?.all.length ?? 0) >= HOLDING_LIMITS.drawOutsMin) return null;
+packages/poker-core/src/scenario-gen.ts:1136:      const delta = b.margins?.[i]?.min ?? b.marginMin ?? 0;
+packages/poker-core/src/scenario-gen.ts:1203:        const kicker = h.kicker ?? -1;
+packages/poker-core/src/scenario-gen.ts:1620:  const outs = h.draw?.all.length ?? 0;
+packages/poker-core/src/scenario-gen.ts:1643:export const pierwszaPoprawna = (e: ListEntry): string => (typeof e.correct === 'string' ? e.correct : e.correct[0] ?? '');
+packages/postep/src/statystyki.ts:64:    return new Date(Date.UTC(r ?? 0, (m ?? 1) - 1, (dd ?? 1) - 1)).toISOString().slice(0, 10);
+packages/srs/src/game.ts:77:    counts.set(f.family, (counts.get(f.family) ?? 0) + 1);
+kod: 0

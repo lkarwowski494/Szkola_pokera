@@ -1,0 +1,20 @@
+$ sed -n 76,90p "apps/mobile/src/app/(tabs)/progress.tsx"
+      <View style={{ gap: odstep.m }}>
+        <H2>{t('progress.more')}</H2>
+        <Pressable accessibilityRole="link" onPress={() => router.push('/glossary')}>
+          <Text style={[styl.tresc, { color: tk.link }]}>{t('glossary.link')}</Text>
+        </Pressable>
+        <Pressable accessibilityRole="link" onPress={() => router.push('/help')}>
+          <Text style={[styl.tresc, { color: tk.link }]}>{t('help.link')}</Text>
+        </Pressable>
+        {/* diagnostyka tylko w buildzie deweloperskim (ADR 0011) */}
+        {__DEV__ ? (
+          <Pressable accessibilityRole="link" onPress={() => __DEV__ && router.push('/diagnostics')}>
+            <Text style={[styl.tresc, { color: tk.link }]}>{t('diagnostics.link')}</Text>
+          </Pressable>
+        ) : null}
+        <Muted>{t('progress.contentVersion', { hash })}</Muted>
+$ grep -rn "/glossary" apps/mobile/src (jedyne wejście do słowniczka)
+apps/mobile/src/app/(tabs)/progress.tsx:78:        <Pressable accessibilityRole="link" onPress={() => router.push('/glossary')}>
+
+Rachunek: Pressable bez style/minHeight/hitSlop; wysokość = lineHeight styl.tresc 24 pt (tokeny.ts tresc line 24) < 28 pt (minimum HIG) < 44 pt (decyzja studia, D-121).

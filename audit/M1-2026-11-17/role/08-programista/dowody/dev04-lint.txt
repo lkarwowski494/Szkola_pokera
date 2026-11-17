@@ -1,0 +1,20 @@
+$ node -e "console.log(require(\"./apps/mobile/package.json\").scripts.lint)"
+expo lint
+kod: 0
+$ ls apps/mobile/node_modules/.bin/eslint node_modules/.bin/eslint; ls apps/mobile/eslint.config.* apps/mobile/.eslintrc* eslint.config.* .eslintrc*
+ls: cannot access 'apps/mobile/node_modules/.bin/eslint': No such file or directory
+ls: cannot access 'node_modules/.bin/eslint': No such file or directory
+ls: cannot access 'apps/mobile/eslint.config.*': No such file or directory
+ls: cannot access 'apps/mobile/.eslintrc*': No such file or directory
+ls: cannot access 'eslint.config.*': No such file or directory
+ls: cannot access '.eslintrc*': No such file or directory
+kod: 2
+$ grep -rn "lint" .github/workflows/*.yml
+kod: 1
+$ grep -rn "eslint-disable" apps/mobile/src packages/*/src | wc -l; reguły
+21
+      1 eslint-disable @typescript-eslint/no-require-imports
+     15 eslint-disable-next-line @typescript-eslint/no-require-imports
+      4 eslint-disable-next-line react-hooks/exhaustive-deps
+      1 eslint-disable-next-line react-hooks/refs
+kod: 0

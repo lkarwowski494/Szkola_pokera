@@ -1,0 +1,22 @@
+$ curl -sS -o <scratchpad>/bgto/sb-vs-btn.html https://beyondgto.com/defense/sb-vs-btn (2026-11-17), kod 0
+$ python3 -I (tekst bez HTML, find "GTO defends the Small Blind")
+GTO defends the Small Blind with about 18% of hands : roughly 5% as a flat call and 13% as a 3-bet. Everything else fold
+kod wyjścia: 0
+
+$ grep -n "\"id\": \"R-M4-003\"" -A22 docs/tresci/rejestr.json (wpis reguły ze źródłami)
+16722-  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz (wobec CO to uproszczenie: opublikowane rozwiązanie liczy spot wobec Buttona); wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+
+16725-    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+16727-    "cytat": "the SB barely calls anything. Instead, they almost exclusively 3-bet or fold",
+16732-    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+16734-    "cytat": "As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy.",
+16739-    "adres": "https://beyondgto.com/defense/sb-vs-btn",
+16741-    "cytat": "GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet.",
+16746-    "adres": "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/",
+16748-    "cytat": "solvers recommend using 3-bet-or-fold strategies from every position except the Big Blind",
+16753-  "status": "potwierdzone",
+kod wyjścia: 0
+
+$ curl -sSL -o <scratchpad>/gtow/a.html https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/ (2026-11-17), kod 0; python3 -I (tekst bez HTML, find)
+the SB barely calls anything. Instead, they almost exclusively 3-bet or fold . But why is that? The three main
+As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy. When you 3-bet from the BB, y
+kod wyjścia: 0

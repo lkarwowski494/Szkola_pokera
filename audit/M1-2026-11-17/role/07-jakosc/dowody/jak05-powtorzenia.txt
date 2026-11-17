@@ -1,0 +1,25 @@
+# JAK-05: powtarzalność na kopii f75acdff (scratchpad); pełnego zestawu nie powtarzam (polecenie M1), tylko pakiety danych i dostępu
+$ (packages/postep) npx vitest run --sequence.shuffle --sequence.seed=11
+ Test Files  21 passed (21)
+      Tests  160 passed (160)
+kod: 0
+$ (packages/postep) npx vitest run --sequence.shuffle --sequence.seed=29
+ Test Files  21 passed (21)
+      Tests  160 passed (160)
+kod: 0
+$ (packages/domena) npx vitest run --sequence.shuffle --sequence.seed=7
+ Test Files  27 passed (27)
+      Tests  347 passed | 1 expected fail (348)
+kod: 0
+$ (apps/mobile) npx jest --ci src/state/__tests__/dostep-08.test.ts src/__tests__/menu-bi.test.tsx  [przebieg 1]
+Test Suites: 2 passed, 2 total
+Tests:       24 passed, 24 total
+kod: 0
+$ (apps/mobile) npx jest --ci src/state/__tests__/dostep-08.test.ts src/__tests__/menu-bi.test.tsx  [przebieg 2]
+Test Suites: 2 passed, 2 total
+Tests:       24 passed, 24 total
+kod: 0
+$ (apps/mobile) npx jest --ci src/state/__tests__/dostep-08.test.ts src/__tests__/menu-bi.test.tsx  [przebieg 3]
+Test Suites: 2 passed, 2 total
+Tests:       24 passed, 24 total
+kod: 0

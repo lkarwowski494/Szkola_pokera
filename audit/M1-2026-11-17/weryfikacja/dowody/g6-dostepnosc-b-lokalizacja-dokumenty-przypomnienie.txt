@@ -1,0 +1,54 @@
+$ grep -rn "odtworzZBazy(\|przelaczPrzypomnienie(" apps/mobile/src --include=*.ts --include=*.tsx | grep -v __tests__
+apps/mobile/src/app/data.tsx:42:        await odtworzZBazy(port, powiadomieniaExpo, { tytul: t('reminder.title'), tresc: t('reminder.body') });
+apps/mobile/src/app/settings.tsx:81:    await odtworzZBazy(port, powiadomieniaExpo, tekstPrzypomnienia()); // klucz `przypomnienie` usunięty → anulowane (dane.md)
+apps/mobile/src/app/settings.tsx:88:    void przelaczPrzypomnienie(port, powiadomieniaExpo, v, tekstPrzypomnienia(), Date.now()).then((w) => {
+apps/mobile/src/app/_layout.tsx:146:        .then(() => odtworzZBazy(portPostepu, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
+apps/mobile/src/features/ustawienia/przypomnienie.ts:16:export async function przelaczPrzypomnienie(
+apps/mobile/src/features/ustawienia/przypomnienie.ts:45:export async function odtworzZBazy(port: PortBazy, pow: PortPowiadomien, tekst: TekstPrzypomnienia): Promise<'zaplanowane' | 'wylaczone' | 'brak_zgody'> {
+exit=0
+$ grep -n "przypomn\|reminder\|odtworz" apps/mobile/src/app/language.tsx apps/mobile/src/i18n/index.ts
+exit=1 (1 = brak: zmiana języka nie planuje przypomnienia od nowa)
+$ sed -n 37,42p apps/mobile/src/i18n/index.ts
+/** Zmiana języka w trakcie działania (ustawienia): bez restartu i bez dotykania danych użytkownika (dane to kody, ADR 0005). */
+export async function ustawJezyk(ustawienie: UstawienieJezyka): Promise<Jezyk> {
+  const j = jezykDlaUstawienia(ustawienie, tagiSystemu());
+  await i18n.changeLanguage(j);
+  return j;
+}
+exit=0
+$ grep -rn "languageChanged" apps/mobile/src --include=*.ts --include=*.tsx | grep -v __tests__
+apps/mobile/src/data/tresc/useTresc.ts:35:    i18n.on('languageChanged', zmiana);
+apps/mobile/src/data/tresc/useTresc.ts:36:    return () => i18n.off('languageChanged', zmiana);
+apps/mobile/src/data/tresc/jezykStartu.ts:10: * `languageChanged` także przy tym samym języku (dist/esm/i18next.js:2024), więc zależność od obiektu dawała pętlę
+exit=0
+$ grep -n "zmiana języka" docs/adr/0012-przypomnienie-expo-notifications-codzienne.md
+28:3. Treść stała, bez danych osobowych i bez liczby powtórek; w języku aplikacji w chwili planowania (zmiana języka → ponowne zaplanowanie).
+37:- Test domeny/adaptera z atrapą `expo-notifications`: włączenie → dokładnie jedno zaplanowane powiadomienie z wyzwalaczem `daily`; ponowne włączenie, import, zmiana języka → nadal jedno; odmowa → zero i brak błędu.
+56:Błąd API powiadomień przy włączaniu przełącznikiem daje wartość `{ ok: false, powod: 'planowanie_nieudane' }` (przełącznik zostaje wyłączony, komunikat), nie wyjątek; przy odtwarzaniu (start, import, zmiana języka) błąd kończy się anulowa
+exit=0
+$ grep -n "AK-K-13-d" packages/domena/test/k13-przypomnienie.test.ts
+42:  it('AK-K-13-d zmiana języka → nadal jedno, z tekstem w nowym języku (pkt 3)', async () => {
+exit=0 (test domeny wywołuje odtworzPrzypomnienie bezpośrednio; nie sprawdza, że ekran języka je wywołuje)
+# czy efekt startowy _layout.tsx:141-148 (zależności: loadSettings, startGotowy, portPostepu) uruchomi się ponownie po zmianie języka?
+$ sed -n 148p apps/mobile/src/app/_layout.tsx
+  }, [loadSettings, startGotowy, portPostepu]);
+exit=0
+$ sed -n 8,11p apps/mobile/src/data/tresc/useTresc.ts
+/**
+ * Baza treści w języku aplikacji (ADR 0005 pkt 2; reszta D-269, rola 09 K2c). Start: baza języka z i18n; zmiana języka
+ * (ustawienia albo zapisany wybór zastosowany przy starcie) przygotowuje bazę nowego języka, a do jej gotowości zostaje
+ * poprzednia (bez ekranu ładowania). Błąd bazy nowego języka zostawia poprzednią i trafia do dziennika; błąd przy
+exit=0
+$ sed -n 48,50p apps/mobile/src/data/tresc/useTresc.ts
+      if (w.ok) ustaw({ stan: 'ok', plik: w.wartosc.plik });
+      else if (ostatni.current.stan !== 'ok') ustaw({ stan: 'blad' });
+    });
+exit=0
+$ sed -n 5,9p apps/mobile/src/data/tresc/startEkranu.ts
+export function ekranStartowyDoZdjecia(s: StanStartu): boolean {
+  if (s.tresc === 'ladowanie' || s.postep === 'ladowanie' || !s.kroje) return false;
+  const nawigacja = s.tresc === 'ok' && s.postep === 'ok';
+  return !nawigacja || s.bazaTresciOtwarta;
+}
+exit=0
+# wniosek: przy zmianie języka stan treści przechodzi z ok do ok (nowy plik), bez 'ladowanie'; startGotowy zostaje true, port ten sam -> efekt nie wraca, przypomnienie nie jest planowane od nowa.

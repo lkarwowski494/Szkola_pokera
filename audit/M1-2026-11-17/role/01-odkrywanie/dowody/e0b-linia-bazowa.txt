@@ -1,0 +1,50 @@
+# Linia bazowa kursu (E0b), zapisana 2026-11-17 ok. 11:22 UTC, PRZED otwarciem docs/brd/, rejestru decyzji i kodu
+# Wejście o aplikacji: tylko cel właściciela z polecenia M1 („Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening.”, 2026-11-03)
+# i Stan projektu z polecenia (aplikacja nie jest w sklepie: brak opisu w sklepie do przeczytania). Czas E0b: ok. 15 min.
+# Dowody: dowody/e0b-konkurencja-us.txt (14 aplikacji, US, 138 unikalnych recenzji w próbce „polecanych”), dowody/e0b-polityki.txt
+
+## Prace J (linia bazowa)
+LB-J1 Początkujący: nauczyć się zasad i podstaw (układy, przebieg rozdania, pozycje) od zera.
+      Dowód: Poker Skill (id6748104711) opis „from your first hand to winning your home game”; recenzja 5★ 2025-11-21 „teaches (even beginners) the basics”.
+LB-J2 Ćwiczyć decyzje (preflop, postflop) z natychmiastową oceną zgodną z rozwiązaniem równowagi.
+      Dowód: rdzeń 10 z 14 aplikacji (GTO Preflop, Preflop Wizard, Postflop+, Solver+, DTO, Flop Factor…).
+LB-J3 Rozumieć „dlaczego” (wyjaśnienie błędu, program krok po kroku), nie tylko wykres.
+      Dowód: 16 z 138 recenzji o wyjaśnieniach; Preflop Wizard 1★ 2025-03-30 „doesn’t explain any of its logic. It doesn’t lay out a curriculum”;
+      Postflop+ 3★ 2024-04-28 „doesn’t provide reasoning behind blunders”.
+LB-J4 Ćwiczyć regularnie w krótkich sesjach (dziennie, powtórki rozłożone w czasie).
+      Dowód: 13 z 138; Preflop Wizard 5★ „drills are quick and chill usually 5-10 mins”; „Duolingo meets poker”; Poker Trainer opis „spaced repetition”.
+LB-J5 Matematyka gry: outs, pot odds, equity (szczebel 1 hierarchii projektu).
+      Dowód: Poker Trainer (id6478522482) opis „Learn odds, outs and equity with clear explanations”; PokerCruncher (kalkulator, płatny 12,99 USD).
+LB-J6 Turnieje (głębokość stacka, krótkie stacki, ICM) jako praca zaawansowanego.
+      Dowód: 17 z 138 recenzji o MTT/stackach; Preflop Wizard 1★ 2024-11-06 „small stack sizes < 30BB”.
+
+## Konieczne przepływy
+LB-PR1 Pierwsze uruchomienie bez konta i bez płacenia przed wypróbowaniem (darmowa porcja).
+LB-PR2 Lekcja → ćwiczenie → ocena z wyjaśnieniem → powtórka.
+LB-PR3 Zakup (subskrypcja/dożywotni) z jasnym opisem, przywracanie zakupów, przeniesienie na nowy telefon.
+LB-PR4 Postęp: zapis, przetrwanie aktualizacji, kopia/eksport, usunięcie.
+
+## Ograniczenia ze źródeł (szczebel 1: dokumentacja platformy; 3: instytucja)
+LB-OG1 App Review 5.3: gaming/gambling „one of the most regulated offerings”; 5.3.4 „Illegal gambling aids, including card counters, are not permitted” → nauka, nie asystent przy grze na pieniądze.
+LB-OG2 Kategoria wieku: „Simulated Gambling: Betting or wagering without using real money…”; „Frequent simulated gambling” → 18+ (age-ratings-values-and-definitions).
+LB-OG3 3.1.1: restore mechanism dla zakupów; 3.1.2(a): subskrypcja „available across all of the user’s devices”.
+LB-OG4 5.1.1(i): link do polityki prywatności w metadanych i w aplikacji; 5.1.1(v): bez wymuszonego logowania.
+LB-OG5 Bezpieczeństwo/prawo dziedziny: hazard problemowy; NCPG (US) helpline „1-800-MY-RESET” — kandydat na informację w aplikacji uczącej gry hazardowej [OCENA].
+
+## Najczęstsze skargi konkurencji (próbka 138, odczyt 2026-11-17)
+LB-SK1 Cena/paywall przed wypróbowaniem, brak darmowej opcji: 33 z 138 (Flop Factor 1★ 2026-04-11 „there is no free option”).
+LB-SK2 Ocena niezgodna z tabelą/mieszane strategie karane jako błąd: 14 z 138 (Postflop+ 1★ 2024-11-01 „even if you’re properly mixing it up”; GTO Preflop 1★ 2025-03-17 „table says to fold A8o but … training says that is incorrect”).
+LB-SK3 Licencja dożywotnia nieprzeniesiona na nowy telefon (Preflop+ 1★ 2021-10-28); reset postępu (Preflop Wizard 1★ 2025-01-23 „daily trainer seems to regress or reset”).
+LB-SK4 Obciążenia po okresie próbnym / brak anulowania (Poker Trainer 1★ 2025-07-30; Solver+ 1★ 2023-03-28).
+LB-SK5 Brak wyjaśnień i programu (jak LB-J3).
+
+## Wymiary pokrycia (wstępnie)
+- droga użytkownika: LB-PR1–PR4; brak sieci: spodziewana praca offline (Handly „offline” w nazwie).
+- początkujący/zaawansowany: LB-J1 vs LB-J6.
+- wiedza dziedziny: spis treści szczebla 3 (MoP) nieodczytany (conjelco 404) → [DO USTALENIA]; zamiast tego program z linii bazowej J1–J6.
+- bezpieczeństwo/prawo: LB-OG1, OG2, OG5.
+- dane: LB-PR4, LB-SK3.
+- dostępność/kontekst: krótkie sesje w komunikacji (recenzja „on the bus”) → jedna ręka, przerwania.
+- konkurencja: tabela w e0b-konkurencja-us.txt; modele: subskrypcje 4,99–29,99 USD/mies., dożywotnie 4,99–399,99 USD.
+- monetyzacja (H): ludzie płacą za trening z oceną; skarżą się na cenę i brak darmowej porcji.
+- platforma: powiadomienia o dziennym treningu (streak) jako kandydat.

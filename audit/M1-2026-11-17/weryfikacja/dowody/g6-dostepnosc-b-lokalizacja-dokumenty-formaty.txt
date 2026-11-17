@@ -1,0 +1,49 @@
+$ sed -n 600,603p apps/mobile/src/app/session.tsx
+const fmtNum = (v: number, unit: NumericInstance['unit']) => {
+  const s = String(Math.round(v * 100) / 100).replace('.', ',');
+  return unit === 'percent' ? `${s}%` : unit === 'bb' ? `${s}bb` : unit === 'bb100' ? `${s}bb/100` : unit === 'multiplier' ? `${s}x` : s;
+};
+exit=0
+$ sed -n 333p apps/mobile/src/app/session.tsx
+            <Muted>{t('session.avgTime', { s: avg.toFixed(1).replace('.', ',') })}</Muted>
+exit=0
+$ sed -n 627,632p apps/mobile/src/app/session.tsx
+  const tk = useTokens();
+  const given = answer.kind === 'numeric' ? answer.value : null;
+  return (
+    <View style={{ gap: odstep.xs }}>
+      {given !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{dt.numeric.yours(fmtNum(given, item.unit))}</Text> : null}
+      <Text style={[styl.tresc, { color: tk.ink, fontWeight: '700' }]}>{dt.numeric.exact(item.display)}</Text>
+exit=0
+$ sed -n 62,69p apps/mobile/src/features/drills/text.ts
+/** Procent w zapisie języka zadań; zaokrąglenie jak `toFixed` (stała liczba cyfr po przecinku). */
+export function pct(x: number, decimals = 0): string {
+  return r('format.percent', { n: formatujLiczbe(Number((x * 100).toFixed(decimals)), jezykZadan(), { miejsca: decimals }) });
+}
+
+/** Liczba w zapisie języka zadań (np. bubble factor, różnica). */
+const num = (x: number, miejsca?: number) =>
+  miejsca === undefined ? formatujLiczbe(x, jezykZadan()) : formatujLiczbe(Number(x.toFixed(miejsca)), jezykZadan(), { miejsca });
+exit=0
+$ env -u NODE_PATH node fmt.mjs  (scratchpad)
+// odtworzenie logiki apps/mobile/src/app/session.tsx:600-603 (fmtNum) i :333 (avg) obok Intl.NumberFormat
+const fmtNum = (v, unit) => { const s = String(Math.round(v * 100) / 100).replace('.', ','); return unit === 'percent' ? `${s}%` : s; };
+for (const l of ['pl', 'en', 'ja', 'zh-Hant', 'pt-BR', 'fr', 'de', 'es', 'ko', 'it', 'vi', 'pt'])
+  console.log(l.padEnd(8), 'fmtNum(33.3)=', fmtNum(33.3, 'percent'), '| avg 4.25 →', (4.25).toFixed(1).replace('.', ','), '| Intl:', new Intl.NumberFormat(l).format(33.3), new Intl.NumberFormat(l, { maximumFractionDigits: 1 }).format(4.3));
+pl       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+en       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33.3 4.3
+ja       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33.3 4.3
+zh-Hant  fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33.3 4.3
+pt-BR    fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+fr       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+de       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+es       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+ko       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33.3 4.3
+it       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+vi       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+pt       fmtNum(33.3)= 33,3% | avg 4.25 → 4,3 | Intl: 33,3 4,3
+exit=0
+$ grep -n "\"yours\": \"Your answer\|avgTime" apps/mobile/src/i18n/locales/en.json
+210:    "avgTime": "Average decision time: {{s}} s",
+700:      "yours": "Your answer: {{value}}",
+exit=0

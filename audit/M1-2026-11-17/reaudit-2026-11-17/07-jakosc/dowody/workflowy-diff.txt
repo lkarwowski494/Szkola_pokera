@@ -1,0 +1,19 @@
+# git diff 0e7e5e00..196cb8c2 -- .github/workflows (2026-11-17)
+ .github/workflows/ci.yml                 | 10 +++++-----
+ .github/workflows/e2e-ios.yml            |  2 +-
+ .github/workflows/iphone-eas.yml         |  2 +-
+ .github/workflows/iphone-local.yml       |  2 +-
+ .github/workflows/nocny.yml              |  4 ++--
+ .github/workflows/przeglad-tlumaczen.yml |  2 +-
+ .github/workflows/przeklad-tlumaczen.yml |  2 +-
+ .github/workflows/store-screenshots.yml  |  4 ++--
+ .github/workflows/testflight.yml         |  2 +-
+ 9 files changed, 15 insertions(+), 15 deletions(-)
+
+# linie dodane/usunięte poza przypięciem pnpm/action-setup:
+0
+# wszystkie zmienione linie (- / +):
+15
+15
+# git log 0e7e5e00..196cb8c2 -- .github/workflows
+5abf3534 fix(ci): przypnij pnpm/action-setup do pełnego SHA v5.0.0 [M1-audytor-generalny-047; 07-jakosc-004]

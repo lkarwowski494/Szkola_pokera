@@ -1,0 +1,23 @@
+$ python3 (odczyt pól wazne_do i odczyt wpisów n:rake.* w docs/tresci/rejestr.json); grep -c wazne_do docs/tresci/rejestr.json
+n:rake.ex.keep wazne_do= None odczyt= ['2026-11-04']
+n:rake.ex.pot-after wazne_do= None odczyt= ['2026-11-04']
+n:rake.ex.pct wazne_do= None odczyt= ['2026-11-04']
+n:rake.micro.high wazne_do= None odczyt= ['2026-11-04']
+n:rake.micro.low wazne_do= None odczyt= ['2026-11-04']
+n:rake.nl500.high wazne_do= None odczyt= ['2026-11-04']
+n:rake.nl500.low wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.nl10.loss wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.nl100.loss wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.nl500.loss wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.reg.hands wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.reg.postrake wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.reg.prerake wazne_do= None odczyt= ['2026-11-04']
+n:rake.solver.bb-minraise wazne_do= None odczyt= ['2026-11-04']
+n:rake.solver.depth wazne_do= None odczyt= ['2026-11-04']
+n:rake.solver.vpip-drop.high wazne_do= None odczyt= ['2026-11-04']
+n:rake.solver.vpip-drop.low wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.reg.prerake.raw wazne_do= None odczyt= ['2026-11-04']
+n:rake.pop.reg.postrake.raw wazne_do= None odczyt= ['2026-11-04']
+wpisy z wazne_do: 46 ; w tym n:rake.*: 0
+grep -c: 47
+kod wyjścia: 0

@@ -1,0 +1,10 @@
+# sonda: logika session.tsx:601 (fmtNum) i :333 vs Intl.NumberFormat dla języków wydania (node v22.23.4)
+en fmtNum(33.33)= 33,33% | avg(4.25).toFixed(1)= 4,3 | Intl: 33.33 4.3
+ja fmtNum(33.33)= 33,33% | avg(4.25).toFixed(1)= 4,3 | Intl: 33.33 4.3
+ko fmtNum(33.33)= 33,33% | avg(4.25).toFixed(1)= 4,3 | Intl: 33.33 4.3
+zh-Hant fmtNum(33.33)= 33,33% | avg(4.25).toFixed(1)= 4,3 | Intl: 33.33 4.3
+de fmtNum(33.33)= 33,33% | avg(4.25).toFixed(1)= 4,3 | Intl: 33,33 4,3
+fr fmtNum(33.33)= 33,33% | avg(4.25).toFixed(1)= 4,3 | Intl: 33,33 4,3
+vi fmtNum(33.33)= 33,33% | avg(4.25).toFixed(1)= 4,3 | Intl: 33,33 4,3
+Data limitu (EkranStartu h23) en: 00:00 | bez h23: 12:00 AM
+exit=0

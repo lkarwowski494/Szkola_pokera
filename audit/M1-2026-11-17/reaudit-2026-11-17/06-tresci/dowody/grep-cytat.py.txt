@@ -1,0 +1,8 @@
+# Reaudit 06: cytat w surowym tekscie strony (HTML bez tagow, encje rozwiniete, apostrofy ujednolicone).
+import sys,re,html
+plik,cyt=sys.argv[1],sys.argv[2]
+t=open(plik,encoding='utf-8',errors='replace').read()
+t=re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>',' ',t); t=html.unescape(re.sub(r'<[^>]+>',' ',t))
+n=lambda s:re.sub(r'\s+',' ',s.replace('’',"'").replace('‘',"'").replace(' ',' ')).strip().lower()
+T=n(t); frag=[f for f in re.split(r'\s*(?:…|\.\.\.)\s*',n(cyt)) if f]
+print('TAK' if all(f in T for f in frag) else 'NIE', '|', cyt[:90])

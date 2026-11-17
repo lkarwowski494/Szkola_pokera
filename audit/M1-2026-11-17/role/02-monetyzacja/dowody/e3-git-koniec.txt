@@ -1,0 +1,19 @@
+$ git status --porcelain (koniec, 2026-11-17)
+ M audit/M1-2026-11-17/role/02-monetyzacja/02-monetyzacja-2026-11-17.md
+ M audit/M1-2026-11-17/role/02-monetyzacja/dowody/e0b-wytyczne-apple.txt
+ M audit/M1-2026-11-17/role/03-zakres/03-zakres-2026-11-17.md
+?? audit/M1-2026-11-17/dowody/kontrola-03-zakres.txt
+?? audit/M1-2026-11-17/role/02-monetyzacja/dowody/e3-git-koniec.txt
+?? audit/M1-2026-11-17/role/03-zakres/dowody/e3-git-koniec.txt
+kod: 0
+$ git log --oneline f75acdff..HEAD
+57e7f026 IR M1 partia 1: soczewki 5/5, zużycie
+8229a3a7 IR M1 partia 1: soczewki (4/5) i migawka ról w toku
+ad852e10 IR M1 E0: pełny pnpm run ci na f75acdff, kod 0
+71e0c366 IR M1 partia 1: migawka plików ról w toku
+6641a7ee IR M1: migawka logu pnpm run ci (w toku)
+7915f759 IR M1: wariant głęboki (właściciel „c: głęboki”), plan i koszt przeliczone; D-1995
+4a634b0e IR M1 E0: migawka logu pnpm run ci (w toku; pełny wynik w następnym commicie)
+3c8eb125 IR M1 E0/E0b: inwentarz, linia bazowa, plan audytu (STOP 1), decyzje D-1990…D-1994
+$ git diff --name-only f75acdff HEAD | grep -v ^audit/M1-2026-11-17/ | grep -v ^docs/decyzje/IR.md$ (puste = kod aplikacji bez zmian)
+koniec listy

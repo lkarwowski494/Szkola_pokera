@@ -1,0 +1,17 @@
+$ git branch -r --contains 6883b82d   (commit z docs/tresci/odczyty/dv-krok-e-2026-11-11.txt)
+  origin/claude/sesja-ir-audyt-m1
+  origin/claude/sleepy-brahmagupta-2065nu
+kod: 0
+
+# długość pojedynczych cytatów (wiersz „NN:<tab>tekst”) w docs/tresci/odczyty/*.txt: liczba wierszy > 250 znaków i maksimum
+$ awk -F"\t" '/^[0-9]+:\t/{n=length($2); if(n>250)c++; if(n>m)m=n} END{print "cytatów >250:",c+0,"max:",m}' docs/tresci/odczyty/*.txt
+cytatów >250: 29 max: 600
+kod: 0
+
+$ grep -n "QUOTE_MAX_CHARS\|najwyżej 2 zdania" tools/content-build/src/sources.ts
+2: * Cytaty w polach źródeł (source, population, note w content/*.yaml): najwyżej 2 zdania i 250 znaków
+6:export const QUOTE_MAX_CHARS = 250;
+kod: 0
+
+$ grep -rln "odczyty" tools/content-build/src apps/mobile/app.json apps/mobile/metro.config.js 2>/dev/null  (czy pliki wchodzą do buildu)
+kod: 1 (1 = brak)

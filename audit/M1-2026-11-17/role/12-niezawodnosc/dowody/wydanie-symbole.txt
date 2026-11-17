@@ -1,0 +1,30 @@
+$ grep -nE "SOURCEMAP|sourcemap|source-map|dSYM|dsym|uploadSymbols|xcarchive|upload-artifact|retention-days|BUILD_NUMBER=|GITHUB_SHA" .github/workflows/testflight.yml
+61:            { echo "## Bramka E2E pominięta awaryjnie"; echo "Commit: $GITHUB_SHA"; echo "Powód: $POWOD"; } >> "$GITHUB_STEP_SUMMARY"
+64:          node scripts/ci/bramka-e2e.mjs "$GITHUB_REPOSITORY" "$GITHUB_SHA"
+65:          echo "Bramka E2E: zielony przebieg e2e-ios.yml #$(sed -n 's/^run=//p' "$GITHUB_OUTPUT" | tail -1) na commicie $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+76:            echo "$GITHUB_SHA"
+122:          BUILD_NUMBER=$((1000 + GITHUB_RUN_NUMBER))
+126:          echo "BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
+156:            -archivePath "$RUNNER_TEMP/App.xcarchive" archive \
+163:          JEST=$(find "$RUNNER_TEMP/App.xcarchive" -name 'tresc-*.db' | wc -l | tr -d ' ')
+185:          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/App.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+195:      - uses: actions/upload-artifact@v5
+199:          retention-days: 1
+kod=0
+$ grep -nE "^on:|workflow_dispatch|submit|release" .github/workflows/testflight.yml
+19:on:
+20:  workflow_dispatch:
+kod=0
+$ grep -rnE "reviewSubmission|appStoreVersionSubmission|eas submit|eas update|submit_for_review|automatic_release|phasedRelease" .github/workflows scripts package.json apps/mobile/package.json
+kod=1
+$ grep -c "workflow_dispatch" .github/workflows/asc-*.yml .github/workflows/iphone-*.yml
+.github/workflows/asc-iap-localizations.yml:2
+.github/workflows/asc-kontrola.yml:1
+.github/workflows/asc-metadane.yml:2
+.github/workflows/asc-produkty.yml:2
+.github/workflows/asc-zrzuty.yml:4
+.github/workflows/iphone-eas.yml:2
+.github/workflows/iphone-local.yml:2
+kod=0
+$ grep -nE "^  (push|pull_request|schedule|workflow_run)" .github/workflows/asc-*.yml .github/workflows/iphone-*.yml .github/workflows/testflight.yml
+kod=1

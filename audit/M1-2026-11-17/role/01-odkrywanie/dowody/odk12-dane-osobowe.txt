@@ -1,0 +1,9 @@
+$ grep -rnoE "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}" docs/brd
+exit=1
+$ grep -rnoE "\+?[0-9][0-9 ()-]{8,}[0-9]" docs/brd/wywiad.md docs/brd/odkrywanie.md (telefony)
+exit=1
+$ grep -c "reviewerName\|author" docs/brd/dane/konkurencja-2026-11-03.json
+0
+$ wc -c docs/brd/zrodla.md; grep -c "recenzja" docs/brd/zrodla.md
+21085 docs/brd/zrodla.md
+18

@@ -1,0 +1,68 @@
+$ env -u NODE_PATH node inwentarz.mjs apps/mobile  (skrypt z promptu 03-zakres, moduł inwentarz-funkcji; 2026-11-17; ścieżki względem apps/mobile)
+| Rodzaj | Gdzie | Co | Funkcja F-nn / decyzja |
+|---|---|---|---|
+| trasa | src/app/(tabs)/index.tsx | / | |
+| trasa | src/app/(tabs)/lessons.tsx | /lessons | |
+| trasa | src/app/(tabs)/progress.tsx | /progress | |
+| trasa | src/app/advancement.tsx | /advancement | |
+| trasa | src/app/data.tsx | /data | |
+| trasa | src/app/diagnostics.tsx | /diagnostics | |
+| trasa | src/app/glossary.tsx | /glossary | |
+| trasa | src/app/help.tsx | /help | |
+| trasa | src/app/language.tsx | /language | |
+| trasa | src/app/lesson/[id].tsx | /lesson/[id] | |
+| trasa | src/app/purchase.tsx | /purchase | |
+| trasa | src/app/scenario.tsx | /scenario | |
+| trasa | src/app/scenarios.tsx | /scenarios | |
+| trasa | src/app/session.tsx | /session | |
+| trasa | src/app/settings.tsx | /settings | |
+| ekran nawigatora | src/app/(tabs)/_layout.tsx:13 | index | |
+| ekran nawigatora | src/app/(tabs)/_layout.tsx:17 | lessons | |
+| ekran nawigatora | src/app/(tabs)/_layout.tsx:21 | progress | |
+| flaga | src/app/(tabs)/progress.tsx:85 | {__DEV__ ? ( | |
+| flaga | src/app/(tabs)/progress.tsx:86 | <Pressable accessibilityRole="link" onPress={() => __DEV__ && router.push('/diag | |
+| flaga | src/app/_layout.tsx:84 | if (__DEV__) await kontrolaK04(otwarty); | |
+| ekran nawigatora | src/app/_layout.tsx:168 | (tabs) | |
+| ekran nawigatora | src/app/_layout.tsx:169 | lesson/[id] | |
+| ekran nawigatora | src/app/_layout.tsx:170 | diagnostics | |
+| ekran nawigatora | src/app/_layout.tsx:171 | advancement | |
+| ekran nawigatora | src/app/_layout.tsx:172 | scenarios | |
+| ekran nawigatora | src/app/_layout.tsx:173 | scenario | |
+| ekran nawigatora | src/app/_layout.tsx:174 | glossary | |
+| ekran nawigatora | src/app/_layout.tsx:175 | help | |
+| ekran nawigatora | src/app/_layout.tsx:176 | settings | |
+| ekran nawigatora | src/app/_layout.tsx:177 | data | |
+| ekran nawigatora | src/app/_layout.tsx:178 | language | |
+| ekran nawigatora | src/app/_layout.tsx:179 | purchase | |
+| ekran nawigatora | src/app/_layout.tsx:180 | session | |
+| flaga | src/app/diagnostics.tsx:7 | const Ekran: ComponentType / null = __DEV__ ? (require('@/features/diagnostyka/D | |
+| link | src/app/help.tsx:36 | Linking.openURL(target).catch(() => { | |
+| link | src/app/purchase.tsx:27 | otworzWarunki={() => void Linking.openURL(ADRES_WARUNKOW)} | |
+| link | src/app/purchase.tsx:29 | if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI); | |
+| link | src/app/scenario.tsx:176 | otworzWarunki={() => void Linking.openURL(ADRES_WARUNKOW)} | |
+| link | src/app/scenario.tsx:177 | otworzPrywatnosc={() => { if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYW | |
+| link | src/app/session.tsx:290 | otworzWarunki={() => void Linking.openURL(ADRES_WARUNKOW)} | |
+| link | src/app/session.tsx:292 | if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI); | |
+| link | src/app/session.tsx:423 | otworzAdres={(url) => Linking.openURL(url).then(() => true)} | |
+| link | src/app/settings.tsx:136 | otworzAdres={(url) => Linking.openURL(url).then(() => true)} | |
+| gest | src/components/PaintGrid.tsx:4 | import { PanResponder, StyleSheet, Text, View } from 'react-native'; | |
+| gest | src/components/PaintGrid.tsx:60 | return PanResponder.create({ | |
+| flaga | src/features/diagnostyka/DiagnosticsScreen.tsx:55 | <Muted>{t('diagnostics.env', { engine, os, dev: __DEV__ ? t('diagnostics.devYes' | |
+| link | src/features/scenariusz/EkranScenariusza.tsx:350 | <ZglosBlad zadanieId={`${s.szablon.id}#${indeks + 1}`} wersjaAplikacji={Constant | |
+| przełącznik | src/features/ustawienia/SekcjeUstawien.tsx:14 | <Switch testID={testID} value={wartosc} onValueChange={onZmiana} disabled={wylac | |
+| flaga | src/i18n/index.ts:35 | void i18n.use(initReactI18next).use(regulyLiczbyMnogiej).init(opcjeI18next(slown | |
+| flaga | src/i18n/index.ts:47 | if (__DEV__) throw new Error(komunikat); | |
+| udostępnianie / import | src/platform/pliki.ts:1 | import * as DocumentPicker from 'expo-document-picker'; | |
+| udostępnianie / import | src/platform/pliki.ts:3 | import * as Sharing from 'expo-sharing'; | |
+| uprawnienie w kodzie | src/platform/powiadomienia.ts:15 | popros: async () => zgodaZ(await Notifications.requestPermissionsAsync()), | |
+| powiadomienie | src/platform/powiadomienia.ts:18 | Notifications.scheduleNotificationAsync({ | |
+| schemat linków | app.json | szkolapokera | |
+| wtyczka | app.json | expo-router | |
+| wtyczka | app.json | expo-sqlite | |
+| wtyczka | app.json | expo-localization | |
+| wtyczka | app.json | expo-splash-screen | |
+| wtyczka | app.json | expo-notifications | |
+| wtyczka | app.json | expo-iap | |
+
+62 pozycji; app.config.* przejrzyj ręcznie, jeśli istnieje.
+kod 0

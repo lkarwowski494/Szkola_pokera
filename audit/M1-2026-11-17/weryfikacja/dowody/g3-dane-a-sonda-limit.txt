@@ -1,0 +1,22 @@
+# Komenda (worktree f75acdff w scratchpadzie, node_modules jako dowiązania do repo): cd <scratchpad>/wt-g3a && env -u NODE_PATH node_modules/.bin/tsx <scratchpad>/g3a/sondy/sonda-limit.mts
+# Źródło sondy:
+    // Sonda g3-dane-a: kafelki „Dziś” liczą limit z zużycia odczytanego przy fokusie; ponowny render bez odczytu (np. zmiana pro w sklepie) nie odnawia limitu.
+    const W = '<scratchpad>/wt-g3a';
+    const { limitZeZuzycia } = await import(`${W}/apps/mobile/src/features/start/wejscieStartu.ts`);
+    const { KONFIGURACJA } = await import(`${W}/packages/domena/src/index.ts`);
+    const strefa = 'America/New_York';
+    const zegar = (iso: string) => ({ teraz: () => Date.parse(iso), strefa: () => strefa, dzienLokalny: (ms: number) => new Date(ms - 5 * 3600e3).toISOString().slice(0, 10) });
+    const L = KONFIGURACJA.LIMIT_AKTYWNOSCI_DZIENNIE;
+    console.log('LIMIT_AKTYWNOSCI_DZIENNIE =', L);
+    // wieczór dnia 1: odczyt przy fokusie zwrócił zuzyte = L
+    console.log('dzień 1, 23:00, zuzyte (odczyt przy fokusie) =', L, '→', JSON.stringify(limitZeZuzycia(L, { pro: false, zegar: zegar('2026-11-18T04:00:00Z') })));
+    // rano dnia 2 bez nowego odczytu: ekran ma nadal zuzyte = L (stan z useOdczytPostepu), render liczy limit na nowym dniu
+    console.log('dzień 2, 08:00, ten sam stan ekranu (zuzyte =', L + ') →', JSON.stringify(limitZeZuzycia(L, { pro: false, zegar: zegar('2026-11-18T13:00:00Z') })));
+    // to samo po nowym odczycie (zuzyteDzis dla nowego dnia = 0), jak przy wejściu na ekran albo w przygotujStart
+    console.log('dzień 2, 08:00, po nowym odczycie (zuzyte = 0) →', JSON.stringify(limitZeZuzycia(0, { pro: false, zegar: zegar('2026-11-18T13:00:00Z') })));
+# Wynik:
+LIMIT_AKTYWNOSCI_DZIENNIE = 1
+dzień 1, 23:00, zuzyte (odczyt przy fokusie) = 1 → {"bezLimitu":false,"pozostalo":0,"odnowienieMs":1794978000000}
+dzień 2, 08:00, ten sam stan ekranu (zuzyte = 1) → {"bezLimitu":false,"pozostalo":0,"odnowienieMs":1795064400000}
+dzień 2, 08:00, po nowym odczycie (zuzyte = 0) → {"bezLimitu":false,"pozostalo":1,"odnowienieMs":1795064400000}
+kod wyjścia: 0

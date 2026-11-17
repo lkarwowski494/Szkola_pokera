@@ -1,0 +1,24 @@
+// audyt 06: parytet znaczników {{n:…}} (liczby) i {{t:…}} (terminy) między content/pl a każdym językiem, plik po pliku
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
+const root = process.argv[2];
+const pl = join(root, 'content/pl');
+const walk = (p) => statSync(p).isDirectory() ? readdirSync(p).flatMap((f) => walk(join(p, f))) : [p];
+const N = /\{\{n:([^}|]+)(?:\|[^}]*)?\}\}/g, T = /\{\{t:([^}|]+)(?:\|[^}]*)?\}\}/g;
+const ms = (s, re) => { const m = new Map(); for (const x of s.matchAll(re)) m.set(x[1], (m.get(x[1]) ?? 0) + 1); return m; };
+const diff = (a, b) => { const o = []; for (const k of new Set([...a.keys(), ...b.keys()])) if ((a.get(k) ?? 0) !== (b.get(k) ?? 0)) o.push(`${k} pl=${a.get(k) ?? 0} tu=${b.get(k) ?? 0}`); return o; };
+const langs = readdirSync(join(root, 'content')).filter((d) => d !== 'pl' && d !== 'ranges' && statSync(join(root, 'content', d)).isDirectory());
+let nErr = 0, tErr = 0, brak = 0;
+for (const f of walk(pl)) {
+  const rel = relative(pl, f); const src = readFileSync(f, 'utf8'); const n0 = ms(src, N), t0 = ms(src, T);
+  for (const l of langs) {
+    const g = join(root, 'content', l, rel);
+    if (!existsSync(g)) { brak++; continue; }
+    const s = readFileSync(g, 'utf8');
+    const dn = diff(n0, ms(s, N)); const dt = diff(t0, ms(s, T));
+    if (dn.length) { nErr++; console.log(`N ${l}/${rel}: ${dn.join('; ')}`); }
+    if (dt.length) { tErr++; console.log(`T ${l}/${rel}: ${dt.slice(0, 6).join('; ')}${dt.length > 6 ? ' …' : ''}`); }
+  }
+}
+console.log(`języki: ${langs.join(',')}; pliki z różnicą liczb: ${nErr}; z różnicą terminów: ${tErr}; brak pliku w języku: ${brak}`);
+process.exit(nErr ? 1 : 0);

@@ -1,0 +1,3 @@
+$ env -u NODE_PATH node kontrola-brd.mjs docs/brd (bez --szkic)
+kontrola-brd: 10 plików, 56 wymagań BR, 12 reguł RD, 80 wektorów, 17 otwartych pytań · 0 błędów, 0 uwag
+exit=0

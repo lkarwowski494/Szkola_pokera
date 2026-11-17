@@ -1,0 +1,31 @@
+# komenda: git status --porcelain (koniec pracy) @ 261cd8d3; git diff --name-only f75acdff HEAD poza audit/M1 i IR.md:
+?? audit/M1-2026-11-17/role/06-tresci/dowody/cytaty-probka.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/e0-rejestr-analiza.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/odczyty-zdania.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/parytet-pola-en.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/parytet-znacznikow.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/poziom-vs-szczebel.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/probka.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/rachunek-liczby-niezalezny.txt
+?? audit/M1-2026-11-17/role/06-tresci/dowody/rachunek-m12-niezalezny.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/e2e-ci-f75acdff.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/jak04-mutacje.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/jak05-powtarzalnosc-grep.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/jak09-10-workflowy-grep.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/jak19-bramka.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/jak19-proby-kopia.txt
+?? audit/M1-2026-11-17/role/09-lokalizacja/
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e0-reguly-platformy.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e0b-itunes-search-poker-trainer-us.json
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e0b-najlepsi-w-niszy.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-grep-ocena.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-grep-powiadomienia.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-grep-sdk-siec.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-hipotezy.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-seria-dni.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-strona-poza-sklepem.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-wektory-prosby-o-ocene.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-wektory-przypomnienia.txt
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e1-workflowy-wyzwalacze.txt
+?? audit/M1-2026-11-17/scalanie/
+exit=0

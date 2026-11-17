@@ -1,0 +1,27 @@
+$ env -u NODE_PATH node scripts/sprawdz-scenariusze.mjs --statycznie
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 15
+BRAMKA ZIELONA
+kod: 0
+
+$ env -u NODE_PATH node scripts/sprawdz-scenariusze.mjs --protokol 1011
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 15
+BRAMKA CZERWONA (10):
+- docs/jakosc/test-fizyczny/1011.md: PU-014 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-015 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-016 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-017 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-018 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-019 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-020 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-022 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-027 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+- docs/jakosc/test-fizyczny/1011.md: PU-028 bez wyniku („—”): OK | BŁĄD → <ID> | POMINIĘTE: <uzasadnienie zdaniem>
+kod: 1
+
+$ env -u NODE_PATH node scripts/sprawdz-scenariusze.mjs --protokol 1010
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 15
+BRAMKA ZIELONA
+kod: 0
+
+$ git tag --list "v*-b*"; cat docs/wydanie/ostatni-build.txt
+1011

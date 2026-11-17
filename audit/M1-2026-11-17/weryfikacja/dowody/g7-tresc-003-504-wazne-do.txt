@@ -1,0 +1,25 @@
+$ python3 -I (docs/tresci/rejestr.json: status × wazne_do; wpisy n:rake.* i n:mda.*)
+wpisy 1062 ; potwierdzone 1006
+wazne_do wg statusu: {'wycofane': 44, 'potwierdzone': 2}
+potwierdzone z wazne_do: [('H-INT-1', '2027-11-04'), ('H-INT-2', '2027-11-04')]
+n:rake. potwierdzone 19 z wazne_do 0 odczyty ['2026-11-04']
+n:mda. potwierdzone 21 z wazne_do 0 odczyty ['2026-11-04']
+n:rake.solver.* (wyniki solvera z rake, nie harmonogram sali): ['n:rake.solver.bb-minraise', 'n:rake.solver.depth', 'n:rake.solver.vpip-drop.high', 'n:rake.solver.vpip-drop.low']
+kod wyjścia: 0
+
+$ grep -rn "wazne_do" docs/decyzje.md docs/decyzje/*.md docs/tresci/*.md tools/content-build/src packages/content-schema/src (bez IR.md)
+docs/tresci/00-rozpoznanie.md:41:| Aktualność | odczyty źródeł 4–9.10.2026 (dokument 12), zasady roli: odczyt w dniu pracy → ponowny odczyt w E1; numery pomocy `wazne_do` co 12 miesięcy |
+kod wyjścia: 0
+
+$ grep -n "odczyt 5 października 2026" content/pl/lessons/m10-l4-rake.md; grep -n -o "stan na 5.10.2026" content/numbers.yaml
+126:odczyt 5 października 2026
+714:stan na 5.10.2026
+kod wyjścia: 0
+
+$ curl -sS "https://www.primedope.com/network-rake-list?variant=NLH&players=6&big_blind=0.1" i big_blind=0.25 (2026-11-17), kod 0 i 0; python3 -I (wiersze PokerStars/GGPoker)
+0.1 PokerStars pct 5.0 cap 1.0 bb/100 8.7552
+0.1 GGPoker pct 5.0 cap 1.0 bb/100 9.0981
+0.25 PokerStars pct 4.5 cap 2.0 bb/100 7.7535
+0.25 GGPoker pct 5.0 cap 2.0 bb/100 8.8267
+kod wyjścia: 0
+# porównanie: numbers.yaml rake.micro.low 7,8 (PokerStars NL25 7,75), rake.micro.high 9,1 (GG NL2–NL10 9,10), rake.ex.pct 5% — wartości bez zmian względem odczytu 2026-11-04

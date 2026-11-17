@@ -1,0 +1,17 @@
+$ grep -rn "inaccuracy' ? 'wrong'" apps packages
+apps/mobile/src/features/drills/engine.ts:425:  return coreRangeVerdict(freqs, { mixedMin: MIXED_MIN, mixedLow: MIXED_LOW }).map((v) => (v === 'inaccuracy' ? 'wrong' : v));
+exit=0
+$ grep -rn "D-158\|D-302\|D-301" docs/brd
+exit=1
+$ grep -rln "raport\|report\|レポート" content/*/lessons/m13-l1-raport.md | wc -l; ls content/*/lessons/m13-l1-raport.md | wc -l
+3
+12
+$ grep -rn "play\.report" apps/mobile/src --include=*.ts --include=*.tsx
+exit=1
+$ grep -n "exam retake" store/app-store-metadata.json apps/mobile/src/i18n/locales/en.json | cut -c1-90
+store/app-store-metadata.json:22:      "description": "PokerGym teaches decision-making in
+apps/mobile/src/i18n/locales/en.json:70:    "unlocks": "No daily limit: practice sessions,
+$ grep -rn "DO USTALENIA" site apps/mobile/src/platform/adresy.ts | wc -l
+21
+$ grep -rn -i "privacy\|prywatno" apps/mobile/src/app/settings.tsx apps/mobile/src/features/ustawienia
+exit=1

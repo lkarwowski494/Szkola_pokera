@@ -1,0 +1,21 @@
+env -u NODE_PATH pnpm run ci, 2026-11-17 18:42–18:57 UTC, drzewo: HEAD e8d2c290 + zmiany tokeny.ts (obie kopie) i design-spec.md z tego zadania (IS.md i wynik.md dopisane w trakcie; żaden test ich nie czyta)
+Podsumowanie:
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:       Tests  350 passed (350)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:       Tests  160 passed (160)
+tools/content-build test:       Tests  936 passed | 1 expected fail (937)
+apps/mobile test: Test Suites: 179 passed, 179 total
+apps/mobile test: Tests:       1883 passed, 1883 total
+# tests 234
+# pass 234
+# fail 0
+      Tests  35 passed (35)
+0 braków
+--- koniec logu ---
+> node docs/tresci/narzedzia/el-kontrola.mjs --ko076
+
+0 braków
+KOD 0

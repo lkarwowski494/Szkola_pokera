@@ -1,0 +1,8 @@
+## exams/m2.yaml outs.oesd
+drills.9.options.0.why: pl=1 en=2
+  PL: Masz {{t:oesd|OESD}} na turnie i została jedna karta: {{t:fold|pasujesz}}, bo nawet ten mały {{t:bet}} wymaga trafiania częściej, niż trafia twój draw. Cena wymaga wygrywania mniej więcej co piątego rozdania ({{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}), a {{t:straight|strit}} wchodzi rzadziej: {{n:outs.oesd}} outów z {{n:cards.unseen.turn}} kart, ok. {{n:odds.oesd.turn-river}}.
+  EN: You need {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}. You have {{n:outs.oesd}} outs to a {{t:straight}}, which is {{n:outs.oesd}} out of {{n:cards.unseen.turn}}: about {{n:odds.oesd.turn-river}}. Even a small {{t:bet}} is too expensive here.
+## scenarios/sc-15.yaml cbet.size.small
+## scenarios/sc-26.yaml spr.commit
+## scenarios/sc-29.yaml hud.vpip.loose
+## scenarios/sc-29.yaml hud.gap.passive

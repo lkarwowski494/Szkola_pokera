@@ -1,0 +1,20 @@
+$ node --no-warnings sonda-sqlite.mjs /home/user/Szkola_pokera /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/sondy/bazy   # sonda w scratchpadzie, kopia w dowody/sonda-sqlite.mjs.txt
+sqlite_version 3.53.4
+liczności v1 {"ustawienie":0,"postep_lekcji":0,"aktywnosc":2267,"odpowiedz":34005,"wynik_testu":378,"karta":530,"log_powtorki":34005,"uprawnienie_cache":0,"dziennik":0}
+ZGODNE  PRAGMA foreign_keys w transakcji po ON przy otwarciu = 1
+ZGODNE  log_powtorki r1: przed 65, po UPSERT 65, po (kontrolnym) REPLACE 0
+ZGODNE  VACUUM INTO: liczności kopii = bazy
+ZGODNE  migracja v1→v3: liczności tabel v1 bez zmian
+ZGODNE  integrity_check = ok, foreign_key_check pusty
+ZGODNE  user_version = 3
+import przerwany: FOREIGN KEY constraint failed
+ZGODNE  import z naruszeniem klucza obcego: wycofany, liczności bez zmian
+PLAN zuzyteDzis (aktywnosci.ts:127): SEARCH aktywnosc USING COVERING INDEX idx_aktywnosc_dzien (dzien_lokalny=? AND z_limitu=?)  [laptop, średnio 0.01 ms z 20; to nie budżet]
+PLAN aktywnoscWToku (aktywnosci.ts:66): SEARCH aktywnosc USING INDEX idx_aktywnosc_w_toku (stan=?) | USE TEMP B-TREE FOR ORDER BY  [laptop, średnio 0.01 ms z 20; to nie budżet]
+PLAN odpowiedziAktywnosci (aktywnosci.ts:81): SEARCH odpowiedz USING COVERING INDEX sqlite_autoindex_odpowiedz_1 (aktywnosc_id=?)  [laptop, średnio 0.01 ms z 20; to nie budżet]
+PLAN odczytajKarty (powtorki.ts:46): SCAN karta USING INDEX idx_karta_termin | USE TEMP B-TREE FOR LAST TERM OF ORDER BY  [laptop, średnio 0.29 ms z 20; to nie budżet]
+PLAN wynikiScenariuszy (aktywnosci.ts:213): SCAN o USING INDEX sqlite_autoindex_odpowiedz_1 | SEARCH a USING INDEX sqlite_autoindex_aktywnosc_1 (id=?) | USE TEMP B-TREE FOR ORDER BY  [laptop, średnio 8.33 ms z 20; to nie budżet]
+PLAN statystyki rodzin (statystyki.ts:30): SCAN o USING INDEX idx_odpowiedz_rodzina | SEARCH a USING INDEX sqlite_autoindex_aktywnosc_1 (id=?)  [laptop, średnio 18.41 ms z 20; to nie budżet]
+PLAN odczytajOdciski (wariantyHistoria.ts:131): SEARCH wariant_historia USING INDEX idx_wariant_historia_okno (szablon_id=? AND poziom=?)  [laptop, średnio 0.01 ms z 20; to nie budżet]
+wszystkie wyniki zgodne
+kod wyjścia: 0

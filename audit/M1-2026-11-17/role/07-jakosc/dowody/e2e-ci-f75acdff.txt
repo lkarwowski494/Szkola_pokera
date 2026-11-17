@@ -1,0 +1,7 @@
+Źródło: MCP GitHub (actions_get get_workflow_run, actions_list list_workflow_jobs, get_job_logs tail 120), odczyt 2026-11-17 ok. 12:25 UTC; kod narzędzia: OK
+E2E iOS (symulator) run 44059753722 (#110, workflow_dispatch), head_sha f75acdff16915aeb43ff788888216e28616c11ed: status completed, conclusion success
+  job 133958256477 (macos-26): start 10:38:12Z, koniec 11:35:33Z (≈57 min; timeout-minutes 67); kolejka od created_at 09:53:45Z ≈ 44 min
+  kroki: "Flowy Maestro (pierwszy przebieg)" success 11:18:21–11:34:05; "Ponowienie nieudanych flowów (raz, D-178)" skipped (brak porażek); "Wynik E2E" success (env PIERWSZY: success)
+  log: "##[notice]build 35 min 52 s, flowy 19 min 45 s"; artefakt e2e-wyniki 14323894075 (59 plików; Azure Blob niedostępny z kontenera)
+  log: "##[warning]Node.js 20 is deprecated ... actions/cache@v4, actions/upload-artifact@v5"
+CI run 44059748637 (#479, workflow_dispatch), head_sha f75acdff…: completed / success

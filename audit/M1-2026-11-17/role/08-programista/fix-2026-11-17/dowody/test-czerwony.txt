@@ -1,0 +1,1145 @@
+(node:16389) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+  console.log
+    spotów: 34, z uncertain: 25, BB: 4
+
+      at Object.log (src/components/__tests__/RangeGrid-uncertain.test.tsx:72:13)
+
+FAIL src/components/__tests__/RangeGrid-uncertain.test.tsx
+  RangeGrid: klasy niepewne (uncertain)
+    ✕ spot z uncertain: jeden „•” na klasę, legenda „mieszana” (96 ms)
+    ✓ spot bez uncertain (brak pola i pusta lista): zero znaków, brak legendy (67 ms)
+    ✕ znak stoi w polu klasy z listy (nie w innym) (33 ms)
+  RangeGrid na treści pl: siatka oznacza dokładnie klasy uncertain każdego spotu
+    ✓ co najmniej 8 spotów z uncertain, w tym 4 BB (12 ms)
+    ✕ liczba „•” = liczba klas niepewnych dla wszystkich spotów; spoty bez uncertain bez znaków (38 ms)
+
+  ● RangeGrid: klasy niepewne (uncertain) › spot z uncertain: jeden „•” na klasę, legenda „mieszana”
+
+    Unable to find an element with text: •
+
+    [36m<View[39m
+      [33maccessibilityLabel[39m=[32m"X-RANGE Tytuł 40"[39m
+      [33maccessible[39m=[32m{true}[39m
+    [36m>[39m
+      [36m<Text>[39m
+        [0mTytuł[0m
+      [36m</Text>[39m
+      [36m<View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mAA[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mAKs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mAQs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mAJs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mATs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA9s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA8s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA7s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA6s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA5s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA4s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA3s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA2s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mAKo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mKK[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mKQs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mKJs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mKTs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK9s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK8s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK7s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK6s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK5s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK4s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK3s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK2s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mAQo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mKQo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQQ[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQJs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQTs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ9s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ8s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ7s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ6s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ5s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ4s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ3s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ2s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mAJo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mKJo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQJo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJJ[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJTs[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ9s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ8s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ7s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ6s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ5s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ4s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ3s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ2s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mATo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mKTo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQTo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJTo[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mTT[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT9s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT8s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT7s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT6s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT5s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT4s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT3s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT2s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA9o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK9o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ9o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ9o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT9o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m99[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m98s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m97s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m96s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m95s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m94s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m93s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m92s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA8o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK8o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ8o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ8o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT8o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m98o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m88[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m87s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m86s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m85s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m84s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m83s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m82s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA7o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK7o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ7o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ7o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT7o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m97o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m87o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m77[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m76s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m75s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m74s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m73s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m72s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA6o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK6o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ6o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ6o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT6o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m96o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m86o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m76o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m66[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m65s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m64s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m63s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m62s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA5o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK5o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ5o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ5o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT5o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m95o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m85o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m75o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m65o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m55[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m54s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m53s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m52s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA4o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK4o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ4o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ4o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT4o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m94o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m84o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m74o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m64o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m54o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m44[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m43s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m42s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA3o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK3o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ3o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ3o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT3o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m93o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m83o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m73o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m63o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m53o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m43o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m33[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m32s[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+        [36m<View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mA2o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mK2o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mQ2o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mJ2o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0mT2o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m92o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m82o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m72o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m62o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m52o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m42o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m32o[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+          [36m<View>[39m
+            [36m<View />[39m
+            [36m<Text>[39m
+              [0m22[0m
+            [36m</Text>[39m
+          [36m</View>[39m
+        [36m</View>[39m
+      [36m</View>[39m
+      [36m<View>[39m
+        [36m<Text>[39m
+          [0mX-PCT 40[0m
+        [36m</Text>[39m
+      [36m</View>[39m
+    [36m</View>[39m
+
+      28 |     const uncertain = ['T2s', 'K7o', '75o'];
+      29 |     await render(<RangeGrid spot={{ ...spotBase, uncertain }} />);
+    > 30 |     expect(screen.getAllByText('•')).toHaveLength(uncertain.length);
+         |                   ^
+      31 |     expect(screen.getByText('X-MIXED')).toBeTruthy();
+      32 |   });
+      33 |
+
+      at Object.getAllByText (src/components/__tests__/RangeGrid-uncertain.test.tsx:30:19)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: klasy niepewne (uncertain) › znak stoi w polu klasy z listy (nie w innym)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 1
+
+    - Array [
+    -   "T2s",
+    - ]
+    + Array []
+
+      58 |     };
+      59 |     przejdz(toJSON());
+    > 60 |     expect(znalezione).toEqual(['T2s']);
+         |                        ^
+      61 |   });
+      62 | });
+      63 |
+
+      at Object.toEqual (src/components/__tests__/RangeGrid-uncertain.test.tsx:60:24)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid na treści pl: siatka oznacza dokładnie klasy uncertain każdego spotu › liczba „•” = liczba klas niepewnych dla wszystkich spotów; spoty bez uncertain bez znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "id": "rfi.utg",
+    -   "kropki": 13,
+    +   "kropki": 0,
+      }
+
+      79 |       const { unmount } = await render(<RangeGrid spot={s} />);
+      80 |       const n = s.uncertain?.length ?? 0;
+    > 81 |       expect({ id: s.id, kropki: screen.queryAllByText('•').length }).toEqual({ id: s.id, kropki: n });
+         |                                                                       ^
+      82 |       expect({ id: s.id, legenda: screen.queryByText('X-MIXED') !== null }).toEqual({ id: s.id, legenda: n > 0 });
+      83 |       unmount();
+      84 |     }
+
+      at Object.toEqual (src/components/__tests__/RangeGrid-uncertain.test.tsx:81:71)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 2 passed, 5 total
+Snapshots:   0 total
+Time:        1.503 s, estimated 2 s
+Ran all test suites matching /src\/components\/__tests__\/RangeGrid-uncertain.test.tsx/i.
+undefined
+/home/user/Szkola_pokera/apps/mobile:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: jest src/components/__tests__/RangeGrid-uncertain.test.tsx

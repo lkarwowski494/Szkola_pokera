@@ -1,0 +1,38 @@
+# E0b konkurencja: iTunes Search API, country=us, odczyt 2026-11-17 ~11:08 UTC
+# komenda: curl -sS 'https://itunes.apple.com/search?term=<fraza>&entity=software&country=us&limit=8' (frazy: poker trainer, poker quiz); kod wyjścia 0
+# kolumny: trackId | nazwa | ocena | liczba ocen | cena | data wersji | liczba języków | zrzuty iPhone | zrzuty iPad | wiek
+== s-poker+quiz.json
+6737678499 | Poker Trainer GTO - POKER Q'z | 4.68 | 34 | Free | 2026-11-14 | 17 | 9 | 8 | 12+
+1622947056 | GTO Preflop - Texas Hold'em | 4.89 | 2487 | Free | 2026-06-10 | 1 | 4 | 0 | 17+
+6813610475 | Pokerly: Poker Trainer & Odds | 5.00 | 2 | Free | 2026-11-13 | 1 | 10 | 0 | 17+
+719525810 | WSOP Texas Holdem Poker Game | 4.43 | 368811 | Free | 2026-11-16 | 1 | 8 | 8 | 17+
+354902315 | Zynga Poker ™ - Texas Hold'em | 4.53 | 134977 | Free | 2026-10-30 | 12 | 5 | 5 | 17+
+6785995969 | HoldemLab: GTO Poker Trainer | 0.00 | 0 | Free | 2026-11-13 | 4 | 8 | 9 | 12+
+6748104711 | Poker Skill - Learn Holdem | 4.72 | 527 | Free | 2026-11-16 | 8 | 5 | 5 | 4+
+== s-poker+trainer.json
+6478522482 | Poker Trainer - Learn Poker | 4.75 | 1182 | Free | 2026-10-19 | 1 | 7 | 7 | 17+
+1622947056 | GTO Preflop - Texas Hold'em | 4.89 | 2487 | Free | 2026-06-10 | 1 | 4 | 0 | 17+
+6590603158 | GTO Preflop Wizard Poker AI | 4.76 | 3492 | Free | 2026-11-12 | 1 | 7 | 0 | 12+
+284602850 | Texas Hold’em | 4.66 | 74364 | Free | 2019-10-09 | 32 | 5 | 5 | 17+
+1488850006 | Postflop+ GTO Poker Trainer | 4.67 | 1984 | Free | 2026-08-05 | 1 | 8 | 8 | 17+
+6446099491 | Offsuit: Texas Holdem Poker | 4.62 | 3599 | Free | 2025-09-12 | 1 | 6 | 0 | 17+
+1553727514 | Poker AI - Game & Strategy | 4.65 | 714 | Free | 2026-08-12 | 3 | 5 | 3 | 17+
+6761502652 | Handly: Learn Poker Offline | 4.84 | 55 | Free | 2026-10-04 | 11 | 5 | 5 | 12+
+
+## Szczegóły 3 wzorców (pierwsze 600 znaków opisu, releaseNotes, gatunek)
+### Poker Trainer - Learn Poker (https://apps.apple.com/us/app/poker-trainer-learn-poker/id6478522482)
+genre: Education | advisories: Frequent/Intense Simulated Gambling; Infrequent/Mild Contests | iap/price: Free | langs: EN
+description: Learn how to play poker and build confidence through fun, focused practice. Poker Trainer helps you make better Texas Holdem decisions, whether you're a beginner or an experienced player. / Poker Simulator: Practice full hands, preflop or postflop with simple strategies based on GTO. Clear explanations help you understand your mistakes. / Personalized coaching: Follow a training plan with recommendations based on your weakest areas. / Daily practice: Complete Daily Drills, build your streak and revisit common mistakes over time with spaced repetition. / Math and fundamentals: Learn odds, outs and 
+releaseNotes: Minor improvements and bug fixes.
+
+### Postflop+ GTO Poker Trainer (https://apps.apple.com/us/app/postflop-gto-poker-trainer/id1488850006)
+genre: Utilities | advisories: Frequent/Intense Simulated Gambling | iap/price: Free | langs: EN
+description: Postflop+ is a GTO poker trainer for iPhone and iPad that works fully offline. Download solver-solved spots to your device and drill postflop decisions with no internet connection — on a plane, on the subway, or between tournament levels. / Millions of spots across cash games, MTTs, Spin & Go, and heads-up. Every spot is pre-computed to high solver accuracy, so feedback is instant: exact GTO frequencies, bet sizings, and the EV cost of each mistake. Ranges narrow in real time as the hand plays out, and you can replay any line to see why GTO chose it. / WHAT YOU CAN TRAIN / • Cash games — 6-max an
+releaseNotes: Various bug fixes and performance improvements. / Training with Postflop+ regularly? We'd love your feedback — rate us in the App Store or email support@thinkgto.com with spot requests!
+
+### Poker Skill - Learn Holdem (https://apps.apple.com/us/app/poker-skill-learn-holdem/id6748104711)
+genre: Games | advisories: Infrequent/Mild Contests | iap/price: Free | langs: EN,FR,DE,IT,JA,KO,PT,ES
+description: Poker Skill is a free app to learn poker and get better at it, from your first hand to winning your home game. Learn Texas Hold'em in short lessons, solve a new Daily Puzzle every day and play against AI opponents that play to win, while Coach Max shows you the best play after every move and explains why in plain words. / PLAY TEXAS HOLD'EM AGAINST AI / - Work your way through five rooms, starting in your buddy's garage, with heads-up and 3-player Sit & Gos against AI opponents / - Each room ends heads-up against its local pro, and beating the pro opens the next room / - The AI plays to win: it bluff
+releaseNotes: - Bug fixes and performance improvements.
+
+exit 0

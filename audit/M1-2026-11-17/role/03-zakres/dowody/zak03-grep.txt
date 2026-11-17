@@ -1,0 +1,20 @@
+$ grep (ZAK-03): ślady funkcji NIE / poza interfejsem w apps/mobile/src i packages (bez testów i node_modules), 2026-11-17
+== mode: 'speed'
+== 'speed'
+== app/play
+== /play
+apps/mobile/src/components/Stol.tsx:8:import { CardRow } from './PlayingCard';
+apps/mobile/src/components/RichText.tsx:3:import { CardRow } from './PlayingCard';
+apps/mobile/src/components/Blocks.tsx:7:import { CardRow } from './PlayingCard';
+apps/mobile/src/features/scenariusz/komponenty.tsx:5:import { CardRow } from '@/components/PlayingCard';
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:17:import { CardRow } from '@/components/PlayingCard';
+== rules.tsx
+== bot
+apps/mobile/src/components/PasekStrategii.tsx:203:    marginBottom: odstep.xs,
+apps/mobile/src/components/RangeGrid.tsx:32:                      const el = <View key={gi} style={{ position: 'absolute', left: `${offset * 100}%`, width: `${f * 100}%`, top: 0, bottom: 0, backgroundColor: colors[gi % colors.length], opacity: 0.85 }} />;
+apps/mobile/src/components/ui.tsx:24:  const style = { paddingTop: padTop ? insets.top + odstep.l : odstep.l, paddingBottom: insets.bottom + odstep.x3, paddingHorizontal: odstep.l, gap: odstep.l };
+apps/mobile/src/app/advancement.tsx:85:      <View style={[styles.bars, { borderBottomColor: tk.separator }]}>
+apps/mobile/src/app/advancement.tsx:96:  bars: { height: BAR_HEIGHT, flexDirection: 'row', alignItems: 'flex-end', gap: 2, borderBottomWidth: 1 },
+== trener AI\|openai\|anthropic
+== raport postępu\|analytics\|telemetr
+kod 0

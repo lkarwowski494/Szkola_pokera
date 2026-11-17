@@ -1,0 +1,16 @@
+$ grep -n "useState(false)\|isDarkerSystemColorsEnabled\|addEventListener" apps/mobile/src/theme/tokens.ts
+12: * i „Zwiększ kontrast” (iOS: `isDarkerSystemColorsEnabled`, zdarzenie `darkerSystemColorsChanged`).
+52:  const [wlaczony, ustaw] = useState(false);
+56:    AccessibilityInfo.isDarkerSystemColorsEnabled()
+61:    const sub = AccessibilityInfo.addEventListener('darkerSystemColorsChanged', ustaw);
+72:  const kontrast = useZwiekszonyKontrast();
+kod: 0
+$ grep -rn "useTokens()" apps/mobile/src --include=*.tsx (bez testów) | wc -l
+77
+$ wywołania w komponentach wspólnych (ui.tsx, RichText, PlayingCard)
+apps/mobile/src/components/ui.tsx:7
+apps/mobile/src/components/RichText.tsx:1
+apps/mobile/src/components/PlayingCard.tsx:1
+$ ostrzeżenia act() z PlayingCard w ci-pelne.log
+8
+kod: 0

@@ -70,7 +70,7 @@ La {{t:big-blind|ciega grande}} ya tiene una ciega entera en el {{t:pot|bote}}, 
 
 ## El precio no lo es todo
 
-La equity indica con qué frecuencia ganas si ambos llegáis al showdown sin más {{t:bet|apuestas}}. {{t:out-of-position|Fuera de posición}} a menudo {{t:fold|te retirarás}} después del flop, así que las manos débiles de distinto palo realizan menos que su equity. Las manos del mismo palo, los {{t:connectors|conectores}} y las {{t:pair|parejas}} medias realizan más; por eso en la tabla defiendes con ellas más a menudo.
+La equity indica con qué frecuencia ganas si ambos llegáis al showdown sin más {{t:bet|apuestas}}. {{t:out-of-position|Fuera de posición}} a menudo {{t:fold|te retirarás}} después del flop, así que las manos débiles de distinto palo realizan menos que su equity. Las manos del mismo palo, los {{t:connectors|conectores}} y las {{t:pair|parejas}} medias realizan más; por eso sueles defender con ellas más a menudo.
 
 ```range
 vs-open.bb-vs-btn

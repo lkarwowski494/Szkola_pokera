@@ -1,0 +1,48 @@
+$ sed -n 26,47p apps/mobile/src/features/scenariusz/komponenty.tsx
+export function WyborPoziomuUI({ wybor, dostepne, onWybierz }: { wybor: WyborPoziomu; dostepne: readonly WyborPoziomu[]; onWybierz: (w: WyborPoziomu) => void }): React.JSX.Element {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  return (
+    <View accessibilityRole="radiogroup" accessibilityLabel={t('scenario.level.group')} style={[styles.segmenty, { borderColor: tk.separator, backgroundColor: tk.surface }]}>
+      {dostepne.map((w, i) => {
+        const aktywny = w === wybor;
+        return (
+          <Pressable
+            key={w}
+            testID={`poziom-${w}`}
+            accessibilityRole="radio"
+            accessibilityState={{ checked: aktywny }}
+            onPress={() => onWybierz(w)}
+            style={[styles.segment, { minHeight: CEL_DOTYKU, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.separator, backgroundColor: aktywny ? tk.primaryBg : 'transparent' }]}
+          >
+            <Text style={[styl.drobny, { fontWeight: aktywny ? '700' : '400', color: aktywny ? tk.primaryInk : tk.ink, textAlign: 'center' }]}>{t(`scenario.level.${w}`)}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+exit=0
+$ sed -n 243,245p apps/mobile/src/features/scenariusz/komponenty.tsx
+const styles = StyleSheet.create({
+  segmenty: { flexDirection: 'row', borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: promien.przycisk, overflow: 'hidden' },
+  segment: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstep.s },
+exit=0
+$ grep -n "const poziomy" apps/mobile/src/features/scenariusz/EkranScenariusza.tsx
+108:  const poziomy: WyborPoziomu[] = ['auto', ...p.szablon.levels];
+exit=0
+$ grep -n '"auto": "Automatycznie"' apps/mobile/src/i18n/locales/pl.json
+1050:      "auto": "Automatycznie",
+exit=0
+$ grep -n 'drobny:' apps/mobile/src/theme/tokeny.ts
+175:    drobny: { size: 13, line: 17, kroj: 'system', textStyle: 'footnote', maxW: null },
+exit=0
+$ grep -n 'Automatycznie' audit/M1-2026-11-17/role/04-studio-projektowe/dowody/zrzuty-web.txt
+4:start-390-jasny-ax5.png: poza ekranem: „Automatycznie”
+7:start-390-ciemny-ax5.png: poza ekranem: „Automatycznie”
+10:start-320-jasny-ax5.png: poza ekranem: „Automatycznie”
+13:start-320-ciemny-ax5.png: poza ekranem: „Automatycznie”
+exit=0
+$ grep -n '| D-121 ' docs/decyzje.md | cut -c1-420
+30:| D-121 | 2026-11-04 | A | OP-19 (NFR-DOST-002), progi: 100% elementów interaktywnych PR-01–PR-08 z rolą i etykietą czytnika; 100% grafik z danymi (stół, pasek strategii, skala) z opisem tekstowym; 0 tekstów uciętych, nachodzących albo poza pojemnikiem przy AX5 na 320/390/430 pt; 0 informacji tylko kolorem; cele ≥ 44 pt, akcje decyzji ≥ 64 pt | próg procentowy < 100% (np. 95%) — dopuszczałby pomi
+exit=0
+Rachunek (iOS, oszacowanie): 4 segmenty (auto + 3 poziomy) przy 320 pt: (320 − 32) / 4 = 72 pt − 2×8 pt padding = 56 pt pola; drobny 13 pt × 3,12 = 40,6 pt; ok. 0,55 em/znak ≈ 22 pt → 2 znaki w wierszu. Web (CSS overflow-wrap: normal) nie łamie wyrazu, więc ucina (overflow hidden); RN iOS łamie zbyt długi wyraz po znakach i segment rośnie w pionie (brak stałej wysokości, tylko minHeight 44) — skutek na urządzeniu: „Automatycznie” w 6–7 kawałkach, nie ucięte. Zrzutu iOS brak.

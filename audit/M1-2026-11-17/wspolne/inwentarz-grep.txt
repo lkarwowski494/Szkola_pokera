@@ -1,0 +1,24 @@
+$ grep -rlE "fetch\(|https?://" apps/mobile/src packages/*/src | head
+apps/mobile/src/features/opinie/__tests__/opinie.test.tsx
+exit=0
+$ grep -rl "openDatabase\|SQLite" apps/mobile/src packages/postep/src | wc -l
+21
+$ grep -rl "expo-iap\|useIAP\|requestPurchase" apps/mobile/src | head
+apps/mobile/src/platform/dziennik.ts
+apps/mobile/src/platform/__tests__/zakupy-08.test.ts
+apps/mobile/src/platform/zakupy.ts
+apps/mobile/src/features/zakup/EkranZakupu.tsx
+$ ls apps/mobile/src/i18n/locales | wc -l
+13
+de.json en.json es.json fr.json it.json ja.json ko.json pl.json pl.kontekst.json pt-BR.json pt.json vi.json zh-Hant.json 
+$ assets db
+apps/mobile/assets/content/tresc-70ddf027b1-bg.db
+apps/mobile/assets/content/tresc-70ddf027b1-cs.db
+apps/mobile/assets/content/tresc-70ddf027b1-da.db
+apps/mobile/assets/content/tresc-70ddf027b1-de.db
+apps/mobile/assets/content/tresc-70ddf027b1-el.db
+apps/mobile/assets/content/tresc-70ddf027b1-en.db
+apps/mobile/assets/content/tresc-70ddf027b1-es-419.db
+apps/mobile/assets/content/tresc-70ddf027b1-es.db
+apps/mobile/assets/content/tresc-70ddf027b1-et.db
+apps/mobile/assets/content/tresc-70ddf027b1-fi.db

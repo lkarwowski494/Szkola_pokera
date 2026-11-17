@@ -20,6 +20,7 @@ const light = {
   frame: '#0A1430', // rama stołu
   felt1: '#23694D', // sukno, środek
   felt2: '#174A36', // sukno, brzeg (dawny feltDeep)
+  rangeFill: '#23694D', // wykres siatki zakresu: pasek pierwszej grupy w RangeGrid (krycie 0,85 na surface) i jego próbka w legendzie; w jasnych = felt1 (D-2021)
   onFelt: '#FFFDF7',
   onFeltMuted: '#D3E4DA',
   seat: '#12234A',
@@ -63,6 +64,7 @@ const dark: Paleta = {
   frame: '#1E3466',
   felt1: '#1C5A41',
   felt2: '#103426',
+  rangeFill: '#2B8F67', // odcień felt1 (H 156°, S 0,54), jaśniejszy (L 0,37 zamiast 0,23): pasek do surface ≥ 3 i onFelt na pasku ≥ 4,5 (04-studio-projektowe-011, D-2021)
   seat: '#0F1C3D',
   seatEdge: '#8296C6',
   card: '#F2EEE3',
@@ -84,6 +86,7 @@ const lightHigh: Paleta = {
   separator: '#8E9AB8',
   felt1: '#1B5940',
   felt2: '#123D2C',
+  rangeFill: '#1B5940', // = felt1 lightHigh (bez zmian, D-2021)
   onFeltMuted: '#EEF5F0',
   seatMuted: '#D4DCEE',
   seatEdge: '#B7C5E6',
@@ -101,6 +104,7 @@ const darkHigh: Paleta = {
   frame: '#3A55A0',
   felt1: '#174D37',
   felt2: '#0C2A1E',
+  rangeFill: '#2B8F67', // jak dark: surface i onFelt te same, więc to samo okno progów (D-2021)
   onFeltMuted: '#EEF5F0',
   seatMuted: '#D4DCEE',
   seatEdge: '#B7C5E6',
@@ -152,6 +156,26 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
   'granica paska akcji na tle': ['actionOutline', 'bg', 3],
   'przycisk główny': ['primaryInk', 'primaryBg', 4.5],
   'przycisk główny na tle': ['primaryBg', 'bg', 3],
+  'etykieta ręki w siatce na podkładce (pole niepełne)': ['ink', 'surface', 4.5],
+  'próbka legendy siatki na tle': ['rangeFill', 'bg', 3],
+  'próbka legendy siatki w komórce (blok „note”)': ['rangeFill', 'surface', 3],
+};
+
+/**
+ * Pary złożone: tło nałożone z kryciem na inne tło (kolor wynikowy = krycie·tlo + (1 − krycie)·podTlem, sRGB jak w CSS/RN).
+ * Dla pól, które w aplikacji są półprzezroczyste. Format: { fg, tlo, krycie, podTlem, prog }; próg jak w `pary`.
+ * Pary z `przejsciowe` (wyjątek nazwany w apps/mobile/src/theme/tokens.ts) sprawdza test motywu, nie ta lista.
+ */
+export const paryZlozone: Record<string, { fg: keyof Paleta; tlo: keyof Paleta; krycie: number; podTlem: keyof Paleta; prog: number }> = {
+  // RangeGrid: pole w zakresie = rangeFill z opacity 0,85 na surface; kropka klasy niepewnej w kolorze ink (w rogu: ≥ 3 na surface i na pasku);
+  // etykieta ręki: onFelt tylko na polu pełnym (pierwsza grupa = 1, KO-132 (a)); w pozostałych ink na podkładce surface (para
+  // „etykieta ręki w siatce na podkładce” w `pary`; D-2020, design-spec „RangeGrid”)
+  // 04-studio-projektowe-011 (M2-koordynator-napraw-009, D-2021; design-spec „RangeGrid”): pasek pierwszej grupy rysuje `rangeFill`, nie `felt1`
+  // (felt1 zostaje suknem stołu); pary z `felt1` usunięte po przełączeniu RangeGrid i testów (08, M2-koordynator-napraw-009).
+  // Próg 3 dla paska: grafika niosąca informację „gram/pas” (WCAG 1.4.11).
+  'pasek siatki obok pustej części pola (rangeFill na surface)': { fg: 'surface', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 },
+  'etykieta ręki na pasku pełnym (rangeFill, tekst 8–10,4 pt)': { fg: 'onFelt', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
+  'kropka klasy niepewnej na pasku (rangeFill)': { fg: 'ink', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 },
 };
 
 /**
@@ -177,6 +201,25 @@ export const typografia = {
     miejsceStan: { size: 11, line: 13, kroj: 'system', textStyle: null, maxW: null },
   },
   cyfry: 'tabular-nums, lining-nums', // liczniki, procenty, ceny
+} as const;
+
+/**
+ * Siatka zakresu `RangeGrid` (M2-koordynator-napraw-006, KO-132, D-2020; design-spec „RangeGrid”). Etykieta ręki i kropka klasy
+ * niepewnej to rysunek: geometria z szerokości pola (`pole` = szerokość siatki / 13), bez skalowania tekstu przez RN (`allowFontScaling={false}`).
+ * rozmiar = min(etykieta × min(max(skala tekstu, 1), skalaMax), udzialWysokosci × pole / wysokoscLinii,
+ *               (pole − 2 × (znakOdstep + znakSrednica + 1)) / wysokoscLinii, (pole − 2 − 2 × podkladkaPoziom) / szerokoscEm);
+ * interlinia = rozmiar × wysokoscLinii = wysokość podkładki. Jak Trening `boardDigitSize` (lib/theme.ts:84–92, @2d97581, odczyt 2026-11-17).
+ * Odstępy w polu (1 pt) to wymiary rysunku, nie odstępy układu (wyjątek od jednostki 4 pt, jak hairline).
+ */
+export const siatka = {
+  etykieta: 8, // pt przy tekście domyślnym (bez zmian)
+  skalaMax: 1.3, // jak liczby w kolumnach w Treningu (NUM_SCALE_MAX, lib/theme.ts:35)
+  szerokoscEm: 2.2, // najszersza etykieta „AQo”: 2,07 em (Inter 600), 2,10 em (Inter 700, „Pogrubiony tekst”) + zapas na SF Pro
+  wysokoscLinii: 1.25, // interlinia etykiety = wysokość podkładki
+  udzialWysokosci: 0.5, // podkładka najwyżej na połowie wysokości pola: koniec paska widać nad nią i pod nią
+  podkladkaPoziom: 1, // pt podkładki z lewej i z prawej strony tekstu
+  znakSrednica: 3, // kropka klasy niepewnej (koło, nie znak tekstu: stała geometria)
+  znakOdstep: 1, // kropka od górnej i prawej krawędzi pola; między kropką a podkładką ≥ 1 pt
 } as const;
 
 /** Odstępy: jednostka 4 pt; każdy odstęp jej wielokrotnością. */

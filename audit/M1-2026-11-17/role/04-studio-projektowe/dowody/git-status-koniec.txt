@@ -1,0 +1,10 @@
+$ git status --porcelain (koniec, 2026-11-17)
+ M audit/M1-2026-11-17/role/04-studio-projektowe/04-studio-projektowe-2026-11-17.md
+ M audit/M1-2026-11-17/role/04-studio-projektowe/dowody/git-status-koniec.txt
+?? audit/M1-2026-11-17/role/12-niezawodnosc/12-niezawodnosc-2026-11-17.md
+exit=0
+$ git diff --stat (pliki śledzone)
+ .../04-studio-projektowe-2026-11-17.md             | 22 +++++++++++-----------
+ .../dowody/git-status-koniec.txt                   |  5 ++++-
+ 2 files changed, 15 insertions(+), 12 deletions(-)
+exit=0

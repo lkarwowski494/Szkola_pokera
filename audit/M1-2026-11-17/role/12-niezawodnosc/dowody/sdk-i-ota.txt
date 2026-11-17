@@ -1,0 +1,30 @@
+$ grep -nE "sentry|expo-observe|crashlytics|firebase|bugsnag|datadog|expo-updates|instabug|appcenter" apps/mobile/package.json package.json packages/*/package.json
+kod=1
+$ grep -cE "^  (/)?(@sentry|expo-observe|@react-native-firebase|expo-updates|bugsnag)" pnpm-lock.yaml
+2
+kod=0
+$ grep -rn "sentry\|expo-observe\|expo-updates" apps/mobile --include=*.ts --include=*.tsx --include=*.js --include=*.json -l (bez node_modules)
+kod=1
+$ grep -n "SENTRY" .github/workflows/*.yml
+.github/workflows/e2e-ios.yml:57:  # build bez sekretów: bez wysyłania map źródeł i dSYM do Sentry (skrypty Xcode z pluginu @sentry/react-native)
+.github/workflows/e2e-ios.yml:58:  SENTRY_DISABLE_AUTO_UPLOAD: 'true'
+.github/workflows/iphone-local.yml:12:# Sentry (ADR-17): w trybie instalacja mapy źródeł i dSYM idą do Sentry tylko z sekretem SENTRY_AUTH_TOKEN i z organizacją
+.github/workflows/iphone-local.yml:32:  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+.github/workflows/iphone-local.yml:71:          SENTRY_DISABLE_AUTO_UPLOAD: 'true'
+.github/workflows/iphone-local.yml:98:      - name: Sentry (mapy źródeł i dSYM)
+.github/workflows/iphone-local.yml:106:          if [ -n "$SENTRY_AUTH_TOKEN" ] && [ -n "$ORG_PROJECT" ]; then
+.github/workflows/iphone-local.yml:107:            echo "Sentry: mapy źródeł i dSYM zostaną wysłane podczas buildu"
+.github/workflows/iphone-local.yml:109:            echo "::notice title=Sentry::Pomijam wysyłanie map źródeł i dSYM (brak sekretu SENTRY_AUTH_TOKEN albo organizacji i projektu w app.json)"
+.github/workflows/iphone-local.yml:110:            echo "SENTRY_DISABLE_AUTO_UPLOAD=true" >> "$GITHUB_ENV"
+.github/workflows/testflight.yml:149:          SENTRY_DISABLE_AUTO_UPLOAD: 'true'
+kod=0
+
+$ grep -nE "^  .?/?(@sentry|expo-observe|@react-native-firebase|expo-updates|@bugsnag)" pnpm-lock.yaml   # 2 trafienia wyżej to tylko:
+3025:  expo-updates-interface@58.0.1:
+8344:  expo-updates-interface@58.0.1(expo@58.0.23):
+kod=0
+$ grep -n "expo-updates-interface" pnpm-lock.yaml  # interfejs z expo-dev-client, nie expo-updates
+3025:  expo-updates-interface@58.0.1:
+8120:      expo-updates-interface: 58.0.1(expo@58.0.23)
+8344:  expo-updates-interface@58.0.1(expo@58.0.23):
+kod=0

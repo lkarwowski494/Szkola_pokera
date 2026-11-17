@@ -1,0 +1,302 @@
+{
+ "light | A etykieta f=1: onFelt na suknie": [
+  "#FFFDF7",
+  "#448068",
+  4.5
+ ],
+ "light | C etykieta na podkładce: ink na surface": [
+  "#0A1430",
+  "#FFFFFF",
+  4.5
+ ],
+ "light | znak • na suknie (ink)": [
+  "#0A1430",
+  "#448068",
+  3
+ ],
+ "light | znak • na surface (ink)": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ "light | znak • na podkładce (ink na surface)": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ "light | znak • f=1 (onFelt na suknie)": [
+  "#FFFDF7",
+  "#448068",
+  3
+ ],
+ "light | wykres: pasek grupy 1 obok surface": [
+  "#448068",
+  "#FFFFFF",
+  3
+ ],
+ "light | wykres: podkładka surface obok paska (granica)": [
+  "#FFFFFF",
+  "#448068",
+  3
+ ],
+ "light | grupa 2: znak • ink na pasku warn": [
+  "#0A1430",
+  "#9c7326",
+  3
+ ],
+ "light | grupa 3: znak • ink na pasku cardBlue": [
+  "#0A1430",
+  "#456fb3",
+  3
+ ],
+ "light | grupa 2: pasek obok surface": [
+  "#9c7326",
+  "#FFFFFF",
+  3
+ ],
+ "light | grupa 3: pasek obok surface": [
+  "#456fb3",
+  "#FFFFFF",
+  3
+ ],
+ "light | ODRZUCONE: ink na suknie (etykieta bez podkładki)": [
+  "#0A1430",
+  "#448068",
+  4.5
+ ],
+ "light | ODRZUCONE: onFelt na surface (koniec etykiety poza paskiem)": [
+  "#FFFDF7",
+  "#FFFFFF",
+  4.5
+ ],
+ "light | ODRZUCONE: onFelt na pasku warn": [
+  "#FFFDF7",
+  "#9c7326",
+  4.5
+ ],
+ "dark | A etykieta f=1: onFelt na suknie": [
+  "#FFFDF7",
+  "#1b5142",
+  4.5
+ ],
+ "dark | C etykieta na podkładce: ink na surface": [
+  "#F2EEE3",
+  "#13214A",
+  4.5
+ ],
+ "dark | znak • na suknie (ink)": [
+  "#F2EEE3",
+  "#1b5142",
+  3
+ ],
+ "dark | znak • na surface (ink)": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ],
+ "dark | znak • na podkładce (ink na surface)": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ],
+ "dark | znak • f=1 (onFelt na suknie)": [
+  "#FFFDF7",
+  "#1b5142",
+  3
+ ],
+ "dark | wykres: pasek grupy 1 obok surface": [
+  "#1b5142",
+  "#13214A",
+  3
+ ],
+ "dark | wykres: podkładka surface obok paska (granica)": [
+  "#13214A",
+  "#1b5142",
+  3
+ ],
+ "dark | grupa 2: znak • ink na pasku warn": [
+  "#F2EEE3",
+  "#c19c4e",
+  3
+ ],
+ "dark | grupa 3: znak • ink na pasku cardBlue": [
+  "#F2EEE3",
+  "#214e98",
+  3
+ ],
+ "dark | grupa 2: pasek obok surface": [
+  "#c19c4e",
+  "#13214A",
+  3
+ ],
+ "dark | grupa 3: pasek obok surface": [
+  "#214e98",
+  "#13214A",
+  3
+ ],
+ "dark | ODRZUCONE: ink na suknie (etykieta bez podkładki)": [
+  "#F2EEE3",
+  "#1b5142",
+  4.5
+ ],
+ "dark | ODRZUCONE: onFelt na surface (koniec etykiety poza paskiem)": [
+  "#FFFDF7",
+  "#13214A",
+  4.5
+ ],
+ "dark | ODRZUCONE: onFelt na pasku warn": [
+  "#FFFDF7",
+  "#c19c4e",
+  4.5
+ ],
+ "lightHigh | A etykieta f=1: onFelt na suknie": [
+  "#FFFDF7",
+  "#3d725d",
+  4.5
+ ],
+ "lightHigh | C etykieta na podkładce: ink na surface": [
+  "#0A1430",
+  "#FFFFFF",
+  4.5
+ ],
+ "lightHigh | znak • na suknie (ink)": [
+  "#0A1430",
+  "#3d725d",
+  3
+ ],
+ "lightHigh | znak • na surface (ink)": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ "lightHigh | znak • na podkładce (ink na surface)": [
+  "#0A1430",
+  "#FFFFFF",
+  3
+ ],
+ "lightHigh | znak • f=1 (onFelt na suknie)": [
+  "#FFFDF7",
+  "#3d725d",
+  3
+ ],
+ "lightHigh | wykres: pasek grupy 1 obok surface": [
+  "#3d725d",
+  "#FFFFFF",
+  3
+ ],
+ "lightHigh | wykres: podkładka surface obok paska (granica)": [
+  "#FFFFFF",
+  "#3d725d",
+  3
+ ],
+ "lightHigh | grupa 2: znak • ink na pasku warn": [
+  "#0A1430",
+  "#9c7326",
+  3
+ ],
+ "lightHigh | grupa 3: znak • ink na pasku cardBlue": [
+  "#0A1430",
+  "#456fb3",
+  3
+ ],
+ "lightHigh | grupa 2: pasek obok surface": [
+  "#9c7326",
+  "#FFFFFF",
+  3
+ ],
+ "lightHigh | grupa 3: pasek obok surface": [
+  "#456fb3",
+  "#FFFFFF",
+  3
+ ],
+ "lightHigh | ODRZUCONE: ink na suknie (etykieta bez podkładki)": [
+  "#0A1430",
+  "#3d725d",
+  4.5
+ ],
+ "lightHigh | ODRZUCONE: onFelt na surface (koniec etykiety poza paskiem)": [
+  "#FFFDF7",
+  "#FFFFFF",
+  4.5
+ ],
+ "lightHigh | ODRZUCONE: onFelt na pasku warn": [
+  "#FFFDF7",
+  "#9c7326",
+  4.5
+ ],
+ "darkHigh | A etykieta f=1: onFelt na suknie": [
+  "#FFFDF7",
+  "#16463a",
+  4.5
+ ],
+ "darkHigh | C etykieta na podkładce: ink na surface": [
+  "#F2EEE3",
+  "#13214A",
+  4.5
+ ],
+ "darkHigh | znak • na suknie (ink)": [
+  "#F2EEE3",
+  "#16463a",
+  3
+ ],
+ "darkHigh | znak • na surface (ink)": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ],
+ "darkHigh | znak • na podkładce (ink na surface)": [
+  "#F2EEE3",
+  "#13214A",
+  3
+ ],
+ "darkHigh | znak • f=1 (onFelt na suknie)": [
+  "#FFFDF7",
+  "#16463a",
+  3
+ ],
+ "darkHigh | wykres: pasek grupy 1 obok surface": [
+  "#16463a",
+  "#13214A",
+  3
+ ],
+ "darkHigh | wykres: podkładka surface obok paska (granica)": [
+  "#13214A",
+  "#16463a",
+  3
+ ],
+ "darkHigh | grupa 2: znak • ink na pasku warn": [
+  "#F2EEE3",
+  "#c19c4e",
+  3
+ ],
+ "darkHigh | grupa 3: znak • ink na pasku cardBlue": [
+  "#F2EEE3",
+  "#214e98",
+  3
+ ],
+ "darkHigh | grupa 2: pasek obok surface": [
+  "#c19c4e",
+  "#13214A",
+  3
+ ],
+ "darkHigh | grupa 3: pasek obok surface": [
+  "#214e98",
+  "#13214A",
+  3
+ ],
+ "darkHigh | ODRZUCONE: ink na suknie (etykieta bez podkładki)": [
+  "#F2EEE3",
+  "#16463a",
+  4.5
+ ],
+ "darkHigh | ODRZUCONE: onFelt na surface (koniec etykiety poza paskiem)": [
+  "#FFFDF7",
+  "#13214A",
+  4.5
+ ],
+ "darkHigh | ODRZUCONE: onFelt na pasku warn": [
+  "#FFFDF7",
+  "#c19c4e",
+  4.5
+ ]
+}

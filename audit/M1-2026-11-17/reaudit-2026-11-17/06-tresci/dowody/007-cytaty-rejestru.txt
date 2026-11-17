@@ -1,0 +1,36 @@
+USUNIETY R-M5-004 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games connected boards are a unique case due to flopped straights often being in the bb's range.
+USUNIETY R-M5-004 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games in order to be respectful of this, we size down; connected boards see the least amount of the 133% pot sizing.
+USUNIETY R-M5-004 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games this board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our ne
+USUNIETY R-M5-007 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games this texture sees the frequent use of the 33% sizing, but the 130% sizing is common as well.
+USUNIETY R-M5-007 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games this board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our ne
+USUNIETY R-M5-007 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games will make a straight if a card at either end their four completes; an 8-out straight draw.
+USUNIETY R-M5-008 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games this board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our ne
+USUNIETY R-M5-008 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games connected boards are a unique case due to flopped straights often being in the bb's range. in order to be respectful of 
+USUNIETY R-M5-009 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games this is mostly due to our preflop equity advantage but reduced nut advantage from trips being in both player's ranges.
+USUNIETY R-M5-009 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games on paired boards, it's also much harder to have a draw.
+USUNIETY R-M6-008 https://upswingpoker.com/check-raising-strategies fun fact: solvers will check-raise all sorts of top pairs versus small bets
+USUNIETY R-M6-008 https://upswingpoker.com/check-raise-lucid sets are powerful hands that thrive on getting the money in before any draw completes.
+USUNIETY R-M6-008 https://upswingpoker.com/check-raise-lucid open-enders should check-raise often (even more so with a backdoor flush draw)
+USUNIETY R-M6-009 https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games connected boards are a unique case due to flopped straights often being in the bb's range.
+USUNIETY R-M6-010 https://blog.gtowizard.com/flop-heuristics-for-defending-the-blinds-in-mtts the larger the btn bets, the smaller bb raises. a small raise of a small bet offers extremely good pot odds.
+USUNIETY R-M7-002 https://pokercoaching.com/blog/when-to-double-barrel-the-turn-as-a-bluff deeper stacked, the logic flips back, because your big draws can bet and call the raise, and the barrel returns to the h
+USUNIETY R-M7-003 https://blog.gtowizard.com/principles-of-turn-strategy bb has folded away their equity disadvantage and now has a stronger range on most turns.
+USUNIETY R-M7-003 https://blog.gtowizard.com/principles-of-turn-strategy their medium-strength hands have less incentive to bet
+USUNIETY R-M8-002 https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots although they can get called by worse, they can also have their value reduced to 0 by a check-raise, so a free showdown 
+USUNIETY R-M8-003 https://blog.gtowizard.com/river-refinements-when-your-opponent-wont-check-raise usually, if you're betting small, it's because you're betting for thin value.
+USUNIETY R-M8-006 https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what then there's no reason to take a hand that can sometimes win at showdown and use it as a bluff.
+USUNIETY R-M8-006 https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what this way we're not giving up whatever percentage of the pot we might be winning if we check
+USUNIETY R-M8-008 https://blog.gtowizard.com/blockers-unblockers-the-secret-to-picking-great-bluffs i know that missed flush draws often make bad bluffs because they block other missed flush draws that would make up a bi
+USUNIETY R-M8-012 https://blog.gtowizard.com/principles-of-river-play in other words, they do not choose their bluff catchers based on the rank of the hand, because some of their folds are r
+USUNIETY n:cbet.size.small https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games this texture sees the frequent use of the 33% sizing
+USUNIETY n:cbet.solver.big.low https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games this board texture sees the increased use of the 66% pot bet size
+USUNIETY n:spr.zone.mid https://blog.gtowizard.com/stack-to-pot-ratio at this higher spr, stacking off with top pair starts to get a bit dicey, as does the nut flush draw.
+USUNIETY n:spr.zone.mid https://blog.gtowizard.com/stack-to-pot-ratio all top pairs and all nut flush draws are now indifferent between calling and folding
+USUNIETY R-M9-001 https://blog.gtowizard.com/stack-to-pot-ratio spr is defined as the effective stack (how much you can risk) divided by the pot
+USUNIETY R-M9-003 https://blog.gtowizard.com/stack-to-pot-ratio any top pair or better is good enough to stack off, even with no fold equity, as are most second pairs
+USUNIETY R-M9-005 https://blog.gtowizard.com/stack-to-pot-ratio all top pairs and all nut flush draws are now indifferent between calling and folding
+USUNIETY R-M9-006 https://blog.gtowizard.com/pot-geometry "pot geometry" refers to betting an equal fraction of the pot on each street, such that you're all-in by the river.
+USUNIETY R-M9-008 https://blog.gtowizard.com/stack-to-pot-ratio all top pairs and all nut flush draws are now indifferent between calling and folding
+USUNIETY R-M9-009 https://blog.gtowizard.com/pot-geometry game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advanta
+USUNIETY R-M9-010 https://blog.gtowizard.com/stack-to-pot-ratio at this higher spr, stacking off with top pair starts to get a bit dicey, as does the nut flush draw.
+cytaty rejestru dla adresow z plikow (obecne w wersji sprzed skrocenia): 70; nadal sa: 35; usuniete: 35; cytatow bez dokladnego tekstu w starym pliku: 66

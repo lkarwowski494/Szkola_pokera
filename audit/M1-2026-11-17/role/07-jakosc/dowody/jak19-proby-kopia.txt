@@ -1,0 +1,17 @@
+# kopia robocza: git worktree add --detach <scratchpad>/kopia07 f75acdff (pliki śledzone repo nietknięte)
+## Próba 1: dodany pusty ekran apps/mobile/src/app/pusty.tsx
+$ node scripts/sprawdz-scenariusze.mjs --statycznie
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 16
+BRAMKA CZERWONA (1):
+- ekran `pusty` nie ma żadnego PU: dopisz scenariusz w docs/jakosc/przypadki-uzycia.md
+kod: 1
+
+
+## Próba 2: PU-001..PU-010 (flowy w bramce E2E, z PU-ID, ekran: i # powrót:) przełączone z B na A, test = plik flowu
+10
+$ node scripts/sprawdz-scenariusze.mjs --statycznie
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 15
+BRAMKA CZERWONA (2):
+- PU-009: scenariusz nie odwiedza ekranu `purchase` (brak „ekran:purchase”: testID korzenia ekranu)
+- PU-009: brak kroku powrotu z `purchase` („# powrót: purchase” przy akcji wstecz)
+kod: 1

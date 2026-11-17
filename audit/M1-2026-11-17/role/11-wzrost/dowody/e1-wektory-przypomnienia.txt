@@ -1,0 +1,33 @@
+$ env -u NODE_PATH /home/user/Szkola_pokera/node_modules/.bin/tsx /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wektory-przyp.mts (skrypt niżej)
+start aplikacji, przypomnienie wyłączone (domyślnie) → bez prośby, bez planu
+   → wylaczone log=anuluj plan=0
+start aplikacji, włączone, zgoda cofnięta w iOS → bez prośby, anulowane
+   → brak_zgody log=zgoda,anuluj plan=0
+przełącznik, pierwsza zgoda → prośba systemowa raz, jedno powiadomienie dzienne
+   → {"ok":true,"wartosc":{"wlaczone":true,"godzina":8,"minuta":0}} log=zgoda,PROSBA_SYSTEMOWA,anuluj,zaplanuj plan=[{"identyfikator":"przypomnienie-dzienne","tytul":"t","tresc":"b","wyzwalacz":{"type":"daily","hour":8,"minute":0}}]
+przełącznik, odmowa wcześniej (canAskAgain=false) → bez ponownej prośby
+   → {"ok":false,"powod":"brak_zgody"} log=zgoda,anuluj
+dwa odtworzenia z rzędu → nadal jedno żądanie (stały identyfikator)
+   → plan=1
+exit 0
+--- skrypt:
+import { odtworzPrzypomnienie, wlaczPrzypomnienie, type PortPowiadomien } from '/home/user/Szkola_pokera/packages/domena/src/przypomnienie.ts';
+function port(z: { granted: boolean; canAskAgain: boolean }, poProsbie = z) {
+  const log: string[] = []; const plan: any[] = [];
+  const p: PortPowiadomien = {
+    zgoda: async () => (log.push('zgoda'), z),
+    popros: async () => (log.push('PROSBA_SYSTEMOWA'), poProsbie),
+    anulujWszystkie: async () => { log.push('anuluj'); plan.length = 0; },
+    zaplanuj: async (x) => { log.push('zaplanuj'); plan.push(x); return x.identyfikator; },
+  };
+  return { p, log, plan };
+}
+const T = { tytul: 't', tresc: 'b' }; const P = { godzina: 8, minuta: 0 };
+const W: [string, () => Promise<string>][] = [
+  ['start aplikacji, przypomnienie wyłączone (domyślnie) → bez prośby, bez planu', async () => { const x = port({ granted: false, canAskAgain: true }); const r = await odtworzPrzypomnienie(x.p, { wlaczone: false, ...P }, T); return `${r} log=${x.log} plan=${x.plan.length}`; }],
+  ['start aplikacji, włączone, zgoda cofnięta w iOS → bez prośby, anulowane', async () => { const x = port({ granted: false, canAskAgain: false }); const r = await odtworzPrzypomnienie(x.p, { wlaczone: true, ...P }, T); return `${r} log=${x.log} plan=${x.plan.length}`; }],
+  ['przełącznik, pierwsza zgoda → prośba systemowa raz, jedno powiadomienie dzienne', async () => { const x = port({ granted: false, canAskAgain: true }, { granted: true, canAskAgain: false }); const r = await wlaczPrzypomnienie(x.p, P, T); return `${JSON.stringify(r)} log=${x.log} plan=${JSON.stringify(x.plan)}`; }],
+  ['przełącznik, odmowa wcześniej (canAskAgain=false) → bez ponownej prośby', async () => { const x = port({ granted: false, canAskAgain: false }); const r = await wlaczPrzypomnienie(x.p, P, T); return `${JSON.stringify(r)} log=${x.log}`; }],
+  ['dwa odtworzenia z rzędu → nadal jedno żądanie (stały identyfikator)', async () => { const x = port({ granted: true, canAskAgain: false }); await odtworzPrzypomnienie(x.p, { wlaczone: true, ...P }, T); await odtworzPrzypomnienie(x.p, { wlaczone: true, ...P }, T); return `plan=${x.plan.length}`; }],
+];
+for (const [n, f] of W) console.log(`${n}\n   → ${await f()}`);

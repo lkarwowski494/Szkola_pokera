@@ -1,0 +1,21 @@
+$ grep -rnE "catch \{\s*\}|catch \([a-z_]*\) \{\s*\}|\.catch\(\(\) => (undefined|\{\s*\}|null)\)" apps/mobile/src packages/*/src (bez testów) — linia + kontekst
+apps/mobile/src/components/PasekStrategii.tsx:60:      .catch(() => undefined); // brak odczytu = ruch zwykły (preferencja interfejsu)
+apps/mobile/src/components/PasekStrategii.tsx:93:              void wykonajHaptyke(haptyka.wyborAkcji).catch(() => undefined);
+apps/mobile/src/platform/dziennik.ts:67:  }).catch(() => undefined); // zapisz… zwraca Wynik; tu tylko zabezpieczenie przed wyjątkiem portu
+apps/mobile/src/app/session.tsx:251:          void wykonajHaptyke(haptykaOceny(grade)).catch(() => undefined); // tokeny `haptyka` (A04-12)
+apps/mobile/src/features/ustawienia/przypomnienie.ts:24:    await pow.anulujWszystkie().catch(() => undefined);
+apps/mobile/src/features/ustawienia/przypomnienie.ts:38:    await pow.anulujWszystkie().catch(() => undefined);
+apps/mobile/src/theme/tokens.ts:60:      .catch(() => undefined); // brak odczytu = wariant zwykły (preferencja interfejsu, nie dane)
+apps/mobile/src/data/tresc/useTresc.ts:43:    kolejka.current = krok.catch(() => undefined);
+apps/mobile/src/data/tresc/kontekst.tsx:52:        else void nowa.closeAsync().catch(() => undefined);
+apps/mobile/src/data/tresc/kontekst.tsx:76:      void db.closeAsync().catch(() => undefined);
+apps/mobile/src/data/tresc/startTresci.ts:27:    await baza.closeAsync().catch(() => undefined); // plik nieczytelny: adapter zamyka sam
+apps/mobile/src/data/tresc/startTresci.ts:49:  await wynik.wartosc.baza.closeAsync().catch(() => undefined);
+apps/mobile/src/data/przeniesienie.ts:97:      await o.pliki.usunPlik(kopia).catch(() => undefined); // pkt 2.5; nieusunięta kopia w katalogu tymczasowym nie psuje importu
+apps/mobile/src/data/przeniesienie.ts:98:      await o.poImporcie?.().catch(() => undefined);
+packages/domena/src/tresc.ts:99:        await o.pliki.usun(tymczasowy).catch(() => undefined); // zwolnienie miejsca; nieudane sprząta następny start
+packages/domena/src/tresc.ts:107:      await o.zamknij(baza).catch(() => undefined);
+packages/domena/src/tresc.ts:111:      await o.pliki.usun(sciezka(stary)).catch(() => undefined);
+packages/domena/src/przypomnienie.ts:48:    await port.anulujWszystkie().catch(() => undefined);
+packages/domena/src/przypomnienie.ts:77:    await port.anulujWszystkie().catch(() => undefined);
+kod: 0

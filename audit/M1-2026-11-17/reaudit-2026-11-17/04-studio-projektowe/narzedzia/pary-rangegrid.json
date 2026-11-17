@@ -1,0 +1,82 @@
+{
+ "light: kropka na polu w zakresie (muted / felt1·0,85 na surface = #448068)": [
+  "#46557A",
+  "#448068",
+  3
+ ],
+ "light: kropka na pustym polu (muted / surface)": [
+  "#46557A",
+  "#FFFFFF",
+  3
+ ],
+ "light: etykieta ręki na polu w zakresie (ink / pole), A04-18": [
+  "#0A1430",
+  "#448068",
+  4.5
+ ],
+ "light: legenda „• mieszana” (muted / bg)": [
+  "#46557A",
+  "#E9EDF5",
+  4.5
+ ],
+ "dark: kropka na polu w zakresie (muted / felt1·0,85 na surface = #1B5142)": [
+  "#B0BCD8",
+  "#1B5142",
+  3
+ ],
+ "dark: kropka na pustym polu (muted / surface)": [
+  "#B0BCD8",
+  "#13214A",
+  3
+ ],
+ "dark: etykieta ręki na polu w zakresie (ink / pole), A04-18": [
+  "#F2EEE3",
+  "#1B5142",
+  4.5
+ ],
+ "dark: legenda „• mieszana” (muted / bg)": [
+  "#B0BCD8",
+  "#0A1430",
+  4.5
+ ],
+ "lightHigh: kropka na polu w zakresie (muted / felt1·0,85 na surface = #3D725D)": [
+  "#2C3A5E",
+  "#3D725D",
+  3
+ ],
+ "lightHigh: kropka na pustym polu (muted / surface)": [
+  "#2C3A5E",
+  "#FFFFFF",
+  3
+ ],
+ "lightHigh: etykieta ręki na polu w zakresie (ink / pole), A04-18": [
+  "#0A1430",
+  "#3D725D",
+  4.5
+ ],
+ "lightHigh: legenda „• mieszana” (muted / bg)": [
+  "#2C3A5E",
+  "#E9EDF5",
+  4.5
+ ],
+ "darkHigh: kropka na polu w zakresie (muted / felt1·0,85 na surface = #16463A)": [
+  "#D5DCEC",
+  "#16463A",
+  3
+ ],
+ "darkHigh: kropka na pustym polu (muted / surface)": [
+  "#D5DCEC",
+  "#13214A",
+  3
+ ],
+ "darkHigh: etykieta ręki na polu w zakresie (ink / pole), A04-18": [
+  "#F2EEE3",
+  "#16463A",
+  4.5
+ ],
+ "darkHigh: legenda „• mieszana” (muted / bg)": [
+  "#D5DCEC",
+  "#0A1430",
+  4.5
+ ]
+}

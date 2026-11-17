@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs audit/M1-2026-11-17/weryfikacja/g5-dostepnosc-a.md . audit/M1-2026-11-17/weryfikacja
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone
+exit=0

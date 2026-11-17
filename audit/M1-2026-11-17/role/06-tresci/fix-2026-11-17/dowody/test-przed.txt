@@ -1,0 +1,162 @@
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+
+ ❯ test/is-siatki-niepewne.test.ts (9 tests | 4 failed) 14ms
+   ❯ 06-tresci-501: klasy z różnicą ≥ 50 pp wobec opublikowanego solvera są niepewne (9)
+     × vs-open.bb-vs-btn: każda klasa z różnicą ≥ 50 pp jest w uncertain 5ms
+     × nine.vs-open.bb-vs-btn: każda klasa z różnicą ≥ 50 pp jest w uncertain 1ms
+     × vs-open.bb-vs-sb: każda klasa z różnicą ≥ 50 pp jest w uncertain 1ms
+     × nine.vs-open.bb-vs-sb: każda klasa z różnicą ≥ 50 pp jest w uncertain 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/is-siatki-niepewne.test.ts > 06-tresci-501: klasy z różnicą ≥ 50 pp wobec opublikowanego solvera są niepewne > vs-open.bb-vs-btn: każda klasa z różnicą ≥ 50 pp jest w uncertain
+AssertionError: vs-open.bb-vs-btn: klasy ≥ 50 pp spoza uncertain: expected [ 'J3s', 'T4s', 'T2s', 'K8o', …(12) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "J3s",
++   "T4s",
++   "T2s",
++   "K8o",
++   "Q8o",
++   "K7o",
++   "T7o",
++   "87o",
++   "74s",
++   "A6o",
++   "63s",
++   "K5o",
++   "75o",
++   "42s",
++   "32s",
++   "A2o",
++ ]
+
+ ❯ test/is-siatki-niepewne.test.ts:45:116
+     43|       // siatka zmieniona od porównania: przelicz (siatki-niepewne.py …
+     44|       expect(skrotKanonu(spot!.groups), `${id}: kanon zmienił się od p…
+     45|       expect(p.roznica_50pp.filter((hc) => !spot!.uncertain.includes(h…
+       |                                                                                                                    ^
+     46|     });
+     47|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/is-siatki-niepewne.test.ts > 06-tresci-501: klasy z różnicą ≥ 50 pp wobec opublikowanego solvera są niepewne > nine.vs-open.bb-vs-btn: każda klasa z różnicą ≥ 50 pp jest w uncertain
+AssertionError: nine.vs-open.bb-vs-btn: klasy ≥ 50 pp spoza uncertain: expected [ 'J3s', 'T4s', 'T2s', 'K8o', …(12) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "J3s",
++   "T4s",
++   "T2s",
++   "K8o",
++   "Q8o",
++   "K7o",
++   "T7o",
++   "87o",
++   "74s",
++   "A6o",
++   "63s",
++   "K5o",
++   "75o",
++   "42s",
++   "32s",
++   "A2o",
++ ]
+
+ ❯ test/is-siatki-niepewne.test.ts:45:116
+     43|       // siatka zmieniona od porównania: przelicz (siatki-niepewne.py …
+     44|       expect(skrotKanonu(spot!.groups), `${id}: kanon zmienił się od p…
+     45|       expect(p.roznica_50pp.filter((hc) => !spot!.uncertain.includes(h…
+       |                                                                                                                    ^
+     46|     });
+     47|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/is-siatki-niepewne.test.ts > 06-tresci-501: klasy z różnicą ≥ 50 pp wobec opublikowanego solvera są niepewne > vs-open.bb-vs-sb: każda klasa z różnicą ≥ 50 pp jest w uncertain
+AssertionError: vs-open.bb-vs-sb: klasy ≥ 50 pp spoza uncertain: expected [ 'J3s', '94s', 'J8o', '84s', …(9) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "J3s",
++   "94s",
++   "J8o",
++   "84s",
++   "T7o",
++   "87o",
++   "73s",
++   "K5o",
++   "75o",
++   "65o",
++   "54o",
++   "A3o",
++   "32s",
++ ]
+
+ ❯ test/is-siatki-niepewne.test.ts:45:116
+     43|       // siatka zmieniona od porównania: przelicz (siatki-niepewne.py …
+     44|       expect(skrotKanonu(spot!.groups), `${id}: kanon zmienił się od p…
+     45|       expect(p.roznica_50pp.filter((hc) => !spot!.uncertain.includes(h…
+       |                                                                                                                    ^
+     46|     });
+     47|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  test/is-siatki-niepewne.test.ts > 06-tresci-501: klasy z różnicą ≥ 50 pp wobec opublikowanego solvera są niepewne > nine.vs-open.bb-vs-sb: każda klasa z różnicą ≥ 50 pp jest w uncertain
+AssertionError: nine.vs-open.bb-vs-sb: klasy ≥ 50 pp spoza uncertain: expected [ 'J3s', '94s', 'J8o', '84s', …(9) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "J3s",
++   "94s",
++   "J8o",
++   "84s",
++   "T7o",
++   "87o",
++   "73s",
++   "K5o",
++   "75o",
++   "65o",
++   "54o",
++   "A3o",
++   "32s",
++ ]
+
+ ❯ test/is-siatki-niepewne.test.ts:45:116
+     43|       // siatka zmieniona od porównania: przelicz (siatki-niepewne.py …
+     44|       expect(skrotKanonu(spot!.groups), `${id}: kanon zmienił się od p…
+     45|       expect(p.roznica_50pp.filter((hc) => !spot!.uncertain.includes(h…
+       |                                                                                                                    ^
+     46|     });
+     47|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 5 passed (9)
+   Start at  13:57:10
+   Duration  928ms (import 60%, transform 38%, tests 2%)
+
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+kod 1

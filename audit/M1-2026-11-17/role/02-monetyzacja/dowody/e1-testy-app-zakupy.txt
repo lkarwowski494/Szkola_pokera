@@ -1,0 +1,10 @@
+$ cd apps/mobile && env -u NODE_PATH npx jest src/platform/__tests__/zakupy-08.test.ts src/state/__tests__/dostep-08.test.ts src/features/zakup src/features/ustawienia/__tests__/pelnyDostep-08.test.tsx src/i18n/__tests__/zakup-tekst-10.test.ts
+PASS src/platform/__tests__/zakupy-08.test.ts
+PASS src/features/ustawienia/__tests__/pelnyDostep-08.test.tsx
+PASS src/features/zakup/__tests__/zakup.test.tsx
+PASS src/i18n/__tests__/zakup-tekst-10.test.ts
+PASS src/features/zakup/__tests__/anulowanie-08.test.tsx
+PASS src/state/__tests__/dostep-08.test.ts
+Test Suites: 6 passed, 6 total
+Tests:       54 passed, 54 total
+kod: 0

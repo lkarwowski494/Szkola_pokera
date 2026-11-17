@@ -1,0 +1,53 @@
+# g2 / 01-odkrywanie-001: niezależna sonda (kopia robocza f75acdff w scratchpadzie) na bazie treści pl (apps/mobile/assets/content/tresc-*-pl.db) i funkcjach z kodu
+$ cd <worktree>/apps/mobile && env -u NODE_PATH npx jest src/__tests__/sonda-g2-rd11.test.ts
+    SONDA spoty=34 pary(bez uncertain)=5541 pary z akcją 0<f<0.035=377 takich akcji=377
+    SONDA werdykt ekranu: {"wrong":377}
+    SONDA werdykt rdzenia (RD-11): {"inaccuracy":377}
+    SONDA przykłady:
+    rfi.utg A9s 0.992/0.008 ekran=correct,wrong rdzen=correct,inaccuracy
+    rfi.utg A8s 0.002/0.998 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg A6s 0.004/0.996 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg K8s 0.001/0.999 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg K5s 0.002/0.998 ekran=wrong,correct rdzen=inaccuracy,correct
+    rfi.utg Q9s 0.001/0.999 ekran=wrong,correct rdzen=inaccuracy,correct
+  ✕ RD-11 na danych solvera (33 ms)
+    Expected: 0
+    Received: 377
+      31 |   console.log(`SONDA spoty=${spots.size} pary(bez uncertain)=${pary} pary z akcją 0<f<${MIXED_MIN}=${zRzadka} takich akcji=${akcjiRzadkich}\nSONDA werdykt ekranu: ${JSON.stringify(ekranWerdykty)}\nSONDA werdykt rdzenia (RD-11): ${JSON.stringify(rdzenWerdykty)}\nSONDA przykłady:\n${przyklady.join('\n')}`);
+Tests:       1 failed, 1 total
+kod: 1
+# uwaga: liczby różnią się od sondy audytora (26 spotów / 4394 / 269), bo ta sonda czyta wszystkie spoty z grupami z bazy pl i pomija klasy 'uncertain' (jak losowanie w engine.ts); wniosek ten sam: każda akcja 0<f<0,035 ma na ekranie werdykt 'wrong', w rdzeniu 'inaccuracy'
+# --- plik sondy ---
+/// <reference types="jest" />
+// SONDA weryfikacji g2 (01-odkrywanie-001): ile par spot × klasa (bez klas „uncertain”) ma akcję 0 < f < MIXED_MIN
+// i jaki werdykt daje jej ekran zadań (engine.rangeVerdict) wobec rdzenia (poker-core rangeVerdict, RD-11).
+import { rangeVerdict as ekran } from '@/features/drills/engine';
+import { MIXED_MIN, MIXED_LOW } from '@/features/drills/thresholds';
+import { rangeVerdict as rdzen } from '@szkola/poker-core';
+import { getAllRangeSpots } from '@/data/content/repo';
+import { sciezkaTresciPl } from '@/test-utils/trescPl';
+import { HAND_CLASSES } from '@szkola/poker-core';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { DatabaseSync } = require('node:sqlite') as typeof import('node:sqlite');
+it('RD-11 na danych solvera', () => {
+  const sqlite = new DatabaseSync(sciezkaTresciPl(), { readOnly: true });
+  const db = { getAllSync: (sql: string) => sqlite.prepare(sql).all() } as never;
+  const spots = getAllRangeSpots(db);
+  let pary = 0, zRzadka = 0, akcjiRzadkich = 0; const ekranWerdykty: Record<string, number> = {}; const rdzenWerdykty: Record<string, number> = {}; const przyklady: string[] = [];
+  for (const s of spots.values()) {
+    if (!s.groups?.length) continue;
+    const unc = new Set(s.uncertain ?? []);
+    HAND_CLASSES.forEach((hc: string, h: number) => {
+      if (unc.has(hc)) return;
+      const play = s.groups.reduce((a, g) => a + (g.freqs[h] ?? 0), 0);
+      const f = [...s.groups.map((g) => g.freqs[h] ?? 0), Math.max(0, 1 - play)];
+      pary++;
+      const e = ekran(f), c = rdzen(f, { mixedMin: MIXED_MIN, mixedLow: MIXED_LOW });
+      let ma = false;
+      f.forEach((x, i) => { if (x > 0 && x < MIXED_MIN) { ma = true; akcjiRzadkich++; ekranWerdykty[e[i]!] = (ekranWerdykty[e[i]!] ?? 0) + 1; rdzenWerdykty[c[i]!] = (rdzenWerdykty[c[i]!] ?? 0) + 1; } });
+      if (ma) { zRzadka++; if (przyklady.length < 6) przyklady.push(`${s.id} ${hc} ${f.map((x) => x.toFixed(3)).join('/')} ekran=${e.join(',')} rdzen=${c.join(',')}`); }
+    });
+  }
+  console.log(`SONDA spoty=${spots.size} pary(bez uncertain)=${pary} pary z akcją 0<f<${MIXED_MIN}=${zRzadka} takich akcji=${akcjiRzadkich}\nSONDA werdykt ekranu: ${JSON.stringify(ekranWerdykty)}\nSONDA werdykt rdzenia (RD-11): ${JSON.stringify(rdzenWerdykty)}\nSONDA przykłady:\n${przyklady.join('\n')}`);
+  expect(ekranWerdykty.wrong ?? 0).toBe(0); // oczekiwanie RD-11: żadna akcja 0<f<M nie jest „błędem”
+});

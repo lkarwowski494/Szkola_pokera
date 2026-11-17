@@ -1,0 +1,15 @@
+PASS src/theme/__tests__/kroje-08.test.ts
+PASS src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx
+  ● Console
+
+    console.log
+      pola (spot×klasa): 5746; puste (≤0,15): 3242; pełne (≥0,85): 2358; pośrednie (0,15–0,85): 146 w 27 z 34 spotów, 51 różnych klas; węższy przedział (0,25–0,75): 95 pól, 38 klas
+
+      at Object.log (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:173:13)
+
+
+Test Suites: 10 passed, 10 total
+Tests:       94 passed, 94 total
+Snapshots:   0 total
+Time:        5.215 s
+Ran all test suites matching /src\/components\/__tests__\/RangeGrid|src\/components\/__tests__\/znak-kolor|src\/theme/i.

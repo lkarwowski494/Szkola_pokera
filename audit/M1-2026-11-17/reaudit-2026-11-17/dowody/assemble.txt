@@ -1,0 +1,15 @@
+$ assemble 08-programista --tryb reaudit --baza 0e7e5e00 --data 2026-11-17 --moduly sqlite-expo --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/08-programista --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/08-programista.md
+08-programista · reaudit · moduły: sqlite-expo · 55432 znaków (~15838 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/08-programista.md
+exit=0
+$ assemble 06-tresci --tryb reaudit --baza 0e7e5e00 --data 2026-11-17 --moduly kontrole-mechaniczne,tresci-krytyczne --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/06-tresci --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/06-tresci.md
+06-tresci · reaudit · moduły: kontrole-mechaniczne, tresci-krytyczne · 61204 znaków (~17487 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/06-tresci.md
+exit=0
+$ assemble 10-wydanie --tryb reaudit --baza 0e7e5e00 --data 2026-11-17 --moduly metadane-i-zrzuty,prywatnosc-i-formularze,opis-wydania,recenzja-i-odrzucenia --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/10-wydanie --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/10-wydanie.md
+10-wydanie · reaudit · moduły: metadane-i-zrzuty, prywatnosc-i-formularze, opis-wydania, recenzja-i-odrzucenia · 59196 znaków (~16913 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/10-wydanie.md
+exit=0
+$ assemble 04-studio-projektowe --tryb reaudit --baza 0e7e5e00 --data 2026-11-17 --moduly render-i-krytyka,pamiec-portfolio --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/04-studio-projektowe --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/04-studio-projektowe.md
+04-studio-projektowe · reaudit · moduły: render-i-krytyka, pamiec-portfolio · 64676 znaków (~18479 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/04-studio-projektowe.md
+exit=0
+$ assemble 07-jakosc --tryb reaudit --baza 0e7e5e00 --data 2026-11-17 --moduly scenariusze-uzytkownika,e2e-mobilne,wlasnosci-i-domena,wydanie --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/07-jakosc --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/07-jakosc.md
+07-jakosc · reaudit · moduły: scenariusze-uzytkownika, e2e-mobilne, wlasnosci-i-domena, wydanie · 69690 znaków (~19911 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/reaudit-2026-11-17/prompty/07-jakosc.md
+exit=0

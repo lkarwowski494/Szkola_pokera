@@ -1,0 +1,22 @@
+$ grep -nP "[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]" src/i18n/locales/pl.json (emoji w napisach interfejsu pl)
+grep: character code point value in \x{} or \o{} is too large
+exit=2
+$ grep -cE "!\"" src/i18n/locales/pl.json (wykrzykniki na końcu tekstu)
+0
+$ grep -n -i "pula\b\|wygran\|promocj\|najpopularniejsz" src/i18n/locales/pl.json
+459:    "potLabel": "{{t:pot|Pula}}: {{bb}}bb",
+812:        "boardPlays": "Najlepsza piątka obu graczy leży na {{t:board|stole}}, więc „{{t:playing-the-board}}” i {{t:split-pot|pula jest dzielona}}.",
+813:        "identical": "Najlepsze piątki mają te same rangi, więc {{t:split-pot|pula jest dzielona}}."
+1078:    "pot": "W {{t:pot|puli}} {{pula}} bb · do {{t:call|sprawdzenia}} {{kwota}} bb",
+1079:    "potOnly": "W {{t:pot|puli}} {{pula}} bb",
+1103:      "line": "{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Outy to {{outy}} z {{nieznane}} niewidzianych kart: układ trafisz w {{trafisz}} przypadków, czyli mniej więcej raz na {{razTrafisz}}.",
+1105:      "sizeOpen": "Przy {{t:raise|przebiciu}} do {{bb}} bb {{t:big-blind|duży blind}} dopłaca {{doplata}} bb do {{t:pot|puli}} {{pula}} bb (gdy reszta {{t:fold|spasuje}}), więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.",
+1106:      "size3bet": "Przy 3-becie do {{bb}} bb {{t:open|otwierający}} dopłaca {{doplata}} bb do {{t:pot|puli}} {{pula}} bb, więc potrzebuje {{cena}} szans, czyli wygrać mniej więcej raz na {{raz}}.",
+1111:      "riverCatch": "{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Wygrywasz tylko z {{t:bluff|blefami}}, a w tym rozdaniu {{t:bluff|blefy}} to {{udzial}} jego {{t:bet|zakładów}}.",
+1114:      "defend": "{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Przy takim {{t:bet|zakładzie}} {{t:mdf}} to {{obrona}}: to punkt odniesienia dla całego {{t:range|zakresu}}; na flopie możesz bronić trochę mniej, a o jednej ręce decyduje wyjaśnienie."
+exit=0
+$ python3: emoji (U+1F300–1FAFF, U+2600–27BF bez ✓✗≈~ znaków stopni) w wartościach src/i18n/locales/pl.json
+.progress.fourColorHint '♦'
+.progress.fourColorHint '♣'
+trafień: 2
+exit=0

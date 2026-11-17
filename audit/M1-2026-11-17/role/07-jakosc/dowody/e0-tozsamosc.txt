@@ -1,0 +1,10 @@
+$ git rev-parse HEAD; git branch --show-current; git status --porcelain; git diff --stat f75acdff..HEAD -- . ":!audit/M1-2026-11-17" ":!docs/decyzje/IR.md"
+Tue Nov 17 12:16:44 UTC 2026
+a74fc75dc44463f84af0ea970f9d5fb0a344de67
+claude/sesja-ir-audyt-m1
+?? audit/M1-2026-11-17/role/06-tresci/
+?? audit/M1-2026-11-17/role/07-jakosc/
+?? audit/M1-2026-11-17/role/11-wzrost/
+--- diff aplikacji vs f75acdff (puste = zgodne):
+kod: 0
+## claude/sesja-ir-audyt-m1...origin/claude/sesja-ir-audyt-m1

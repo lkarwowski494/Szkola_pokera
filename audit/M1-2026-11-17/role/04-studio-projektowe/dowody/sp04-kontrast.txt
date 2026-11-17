@@ -1,0 +1,176 @@
+$ env -u NODE_PATH node_modules/.bin/tsx pary.ts > pary.json (źródło: narzedzia/pary.ts.txt; pary z apps/mobile/src/theme/tokeny.ts × 4 warianty + 6 par dodatkowych z kodu + PaintGrid kolory przejściowe tokens.ts:23-40); node narzedzia/kontrast.mjs pary.json
+OK   15.49:1 (min 4.5) light: tekst na tle [ink/bg] #0A1430 na #E9EDF5
+OK   6.30:1 (min 4.5) light: tekst drugi na tle [muted/bg] #46557A na #E9EDF5
+OK   15.49:1 (min 4.5) light: link na tle [link/bg] #0A1430 na #E9EDF5
+OK   18.17:1 (min 4.5) light: tekst w komórce [ink/surface] #0A1430 na #FFFFFF
+OK   7.39:1 (min 4.5) light: tekst drugi w komórce [muted/surface] #46557A na #FFFFFF
+OK   5.28:1 (min 4.5) light: tekst „ty” na tle [goldOnBg/bg] #7E5B0C na #E9EDF5
+OK   6.20:1 (min 4.5) light: tekst „ty” w komórce [goldOnBg/surface] #7E5B0C na #FFFFFF
+OK   5.90:1 (min 4.5) light: błąd działania na tle [alert/bg] #A3330B na #E9EDF5
+OK   6.92:1 (min 4.5) light: błąd działania w komórce [alert/surface] #A3330B na #FFFFFF
+OK   6.45:1 (min 4.5) light: tekst na suknie (środek) [onFelt/felt1] #FFFDF7 na #23694D
+OK   9.98:1 (min 4.5) light: tekst na suknie (brzeg) [onFelt/felt2] #FFFDF7 na #174A36
+OK   4.96:1 (min 4.5) light: tekst drugi na suknie (środek) [onFeltMuted/felt1] #D3E4DA na #23694D
+OK   7.67:1 (min 4.5) light: tekst drugi na suknie (brzeg) [onFeltMuted/felt2] #D3E4DA na #174A36
+OK   4.88:1 (min 4.5) light: tekst „ty” na suknie (środek) [goldText/felt1] #F8DC8E na #23694D
+OK   7.55:1 (min 4.5) light: tekst „ty” na suknie (brzeg) [goldText/felt2] #F8DC8E na #174A36
+OK   3.50:1 (min 3) light: znacznik „ty” na suknie [gold/felt1] #E2B850 na #23694D
+OK   3.18:1 (min 3) light: obwódka przedziału na suknie [scaleEdge/felt1] #8CC0A3 na #23694D
+OK   10.73:1 (min 3) light: część „przebicie” obok „pas” [raiseFill/foldFill] #FFFDF7 na #15452F
+OK   6.45:1 (min 3) light: pasek strategii na suknie (brzeg osi) [onFelt/felt1] #FFFDF7 na #23694D
+OK   6.45:1 (min 3) light: karta na suknie [card/felt1] #FFFDF7 na #23694D
+OK   17.86:1 (min 4.5) light: indeks karty (czarny) [cardInk/card] #0A1430 na #FFFDF7
+OK   5.78:1 (min 4.5) light: indeks karty (czerwony) [cardRed/card] #C8102E na #FFFDF7
+OK   6.98:1 (min 4.5) light: indeks karty (niebieski) [cardBlue/card] #2456A6 na #FFFDF7
+OK   5.23:1 (min 4.5) light: indeks karty (zielony) [cardGreen/card] #2A7A3B na #FFFDF7
+OK   15.12:1 (min 4.5) light: nazwa miejsca [seatInk/seat] #FFFDF7 na #12234A
+OK   7.98:1 (min 4.5) light: stan miejsca [seatMuted/seat] #AEBBD8 na #12234A
+OK   11.44:1 (min 4.5) light: tekst „ty” na miejscu [goldText/seat] #F8DC8E na #12234A
+OK   5.92:1 (min 3) light: obwódka miejsca na ramie [seatEdge/frame] #7E93C2 na #0A1430
+OK   9.70:1 (min 3) light: obwódka „ty” na ramie [gold/frame] #E2B850 na #0A1430
+OK   17.86:1 (min 4.5) light: akcja [actionInk/actionBg] #FFFDF7 na #0A1430
+OK   10.49:1 (min 4.5) light: akcja, dopisek [actionMuted/actionBg] #B9C5E0 na #0A1430
+OK   7.03:1 (min 3) light: granica segmentów akcji [actionEdge/actionBg] #8EA1CC na #0A1430
+OK   15.49:1 (min 3) light: granica paska akcji na tle [actionOutline/bg] #0A1430 na #E9EDF5
+OK   17.86:1 (min 4.5) light: przycisk główny [primaryInk/primaryBg] #FFFDF7 na #0A1430
+OK   15.49:1 (min 3) light: przycisk główny na tle [primaryBg/bg] #0A1430 na #E9EDF5
+OK   18.17:1 (min 4.5) light: link na komórce (dodatkowa) [link/surface] #0A1430 na #FFFFFF
+OK   17.86:1 (min 4.5) light: przycisk akcji karta na suknie: tekst (dodatkowa) [cardInk/card] #0A1430 na #FFFDF7
+OK   4.05:1 (min 3) light: pasek stosu ty na torze (dodatkowa) [goldOnBg/separator] #7E5B0C na #C9D1E3
+OK   4.83:1 (min 3) light: pasek stosu inni na torze (dodatkowa) [muted/separator] #46557A na #C9D1E3
+OK   6.30:1 (min 3) light: obwódka kafla muted na tle (dodatkowa) [muted/bg] #46557A na #E9EDF5
+OK   4.96:1 (min 3) light: obwódka miejsca scenariusza na suknie (dodatkowa) [onFeltMuted/felt1] #D3E4DA na #23694D
+OK   15.67:1 (min 4.5) dark: tekst na tle [ink/bg] #F2EEE3 na #0A1430
+OK   9.55:1 (min 4.5) dark: tekst drugi na tle [muted/bg] #B0BCD8 na #0A1430
+OK   15.67:1 (min 4.5) dark: link na tle [link/bg] #F2EEE3 na #0A1430
+OK   13.48:1 (min 4.5) dark: tekst w komórce [ink/surface] #F2EEE3 na #13214A
+OK   8.21:1 (min 4.5) dark: tekst drugi w komórce [muted/surface] #B0BCD8 na #13214A
+OK   10.18:1 (min 4.5) dark: tekst „ty” na tle [goldOnBg/bg] #E9BC4C na #0A1430
+OK   8.75:1 (min 4.5) dark: tekst „ty” w komórce [goldOnBg/surface] #E9BC4C na #13214A
+OK   9.02:1 (min 4.5) dark: błąd działania na tle [alert/bg] #FF9E7A na #0A1430
+OK   7.76:1 (min 4.5) dark: błąd działania w komórce [alert/surface] #FF9E7A na #13214A
+OK   7.98:1 (min 4.5) dark: tekst na suknie (środek) [onFelt/felt1] #FFFDF7 na #1C5A41
+OK   13.40:1 (min 4.5) dark: tekst na suknie (brzeg) [onFelt/felt2] #FFFDF7 na #103426
+OK   6.14:1 (min 4.5) dark: tekst drugi na suknie (środek) [onFeltMuted/felt1] #D3E4DA na #1C5A41
+OK   10.30:1 (min 4.5) dark: tekst drugi na suknie (brzeg) [onFeltMuted/felt2] #D3E4DA na #103426
+OK   6.03:1 (min 4.5) dark: tekst „ty” na suknie (środek) [goldText/felt1] #F8DC8E na #1C5A41
+OK   10.13:1 (min 4.5) dark: tekst „ty” na suknie (brzeg) [goldText/felt2] #F8DC8E na #103426
+OK   4.33:1 (min 3) dark: znacznik „ty” na suknie [gold/felt1] #E2B850 na #1C5A41
+OK   3.93:1 (min 3) dark: obwódka przedziału na suknie [scaleEdge/felt1] #8CC0A3 na #1C5A41
+OK   10.73:1 (min 3) dark: część „przebicie” obok „pas” [raiseFill/foldFill] #FFFDF7 na #15452F
+OK   7.98:1 (min 3) dark: pasek strategii na suknie (brzeg osi) [onFelt/felt1] #FFFDF7 na #1C5A41
+OK   7.00:1 (min 3) dark: karta na suknie [card/felt1] #F2EEE3 na #1C5A41
+OK   15.67:1 (min 4.5) dark: indeks karty (czarny) [cardInk/card] #0A1430 na #F2EEE3
+OK   5.07:1 (min 4.5) dark: indeks karty (czerwony) [cardRed/card] #C8102E na #F2EEE3
+OK   6.13:1 (min 4.5) dark: indeks karty (niebieski) [cardBlue/card] #2456A6 na #F2EEE3
+OK   4.59:1 (min 4.5) dark: indeks karty (zielony) [cardGreen/card] #2A7A3B na #F2EEE3
+OK   16.47:1 (min 4.5) dark: nazwa miejsca [seatInk/seat] #FFFDF7 na #0F1C3D
+OK   8.69:1 (min 4.5) dark: stan miejsca [seatMuted/seat] #AEBBD8 na #0F1C3D
+OK   12.46:1 (min 4.5) dark: tekst „ty” na miejscu [goldText/seat] #F8DC8E na #0F1C3D
+OK   4.10:1 (min 3) dark: obwódka miejsca na ramie [seatEdge/frame] #8296C6 na #1E3466
+OK   6.45:1 (min 3) dark: obwódka „ty” na ramie [gold/frame] #E2B850 na #1E3466
+OK   12.93:1 (min 4.5) dark: akcja [actionInk/actionBg] #F2EEE3 na #15254C
+OK   7.87:1 (min 4.5) dark: akcja, dopisek [actionMuted/actionBg] #B0BCD8 na #15254C
+OK   5.80:1 (min 3) dark: granica segmentów akcji [actionEdge/actionBg] #8EA1CC na #15254C
+OK   7.03:1 (min 3) dark: granica paska akcji na tle [actionOutline/bg] #8EA1CC na #0A1430
+OK   15.67:1 (min 4.5) dark: przycisk główny [primaryInk/primaryBg] #0A1430 na #F2EEE3
+OK   15.67:1 (min 3) dark: przycisk główny na tle [primaryBg/bg] #F2EEE3 na #0A1430
+OK   13.48:1 (min 4.5) dark: link na komórce (dodatkowa) [link/surface] #F2EEE3 na #13214A
+OK   15.67:1 (min 4.5) dark: przycisk akcji karta na suknie: tekst (dodatkowa) [cardInk/card] #0A1430 na #F2EEE3
+OK   5.93:1 (min 3) dark: pasek stosu ty na torze (dodatkowa) [goldOnBg/separator] #E9BC4C na #2B3D6B
+OK   5.56:1 (min 3) dark: pasek stosu inni na torze (dodatkowa) [muted/separator] #B0BCD8 na #2B3D6B
+OK   9.55:1 (min 3) dark: obwódka kafla muted na tle (dodatkowa) [muted/bg] #B0BCD8 na #0A1430
+OK   6.14:1 (min 3) dark: obwódka miejsca scenariusza na suknie (dodatkowa) [onFeltMuted/felt1] #D3E4DA na #1C5A41
+OK   15.49:1 (min 4.5) lightHigh: tekst na tle [ink/bg] #0A1430 na #E9EDF5
+OK   9.55:1 (min 4.5) lightHigh: tekst drugi na tle [muted/bg] #2C3A5E na #E9EDF5
+OK   15.49:1 (min 4.5) lightHigh: link na tle [link/bg] #0A1430 na #E9EDF5
+OK   18.17:1 (min 4.5) lightHigh: tekst w komórce [ink/surface] #0A1430 na #FFFFFF
+OK   11.21:1 (min 4.5) lightHigh: tekst drugi w komórce [muted/surface] #2C3A5E na #FFFFFF
+OK   7.76:1 (min 4.5) lightHigh: tekst „ty” na tle [goldOnBg/bg] #5E4407 na #E9EDF5
+OK   9.11:1 (min 4.5) lightHigh: tekst „ty” w komórce [goldOnBg/surface] #5E4407 na #FFFFFF
+OK   5.90:1 (min 4.5) lightHigh: błąd działania na tle [alert/bg] #A3330B na #E9EDF5
+OK   6.92:1 (min 4.5) lightHigh: błąd działania w komórce [alert/surface] #A3330B na #FFFFFF
+OK   8.10:1 (min 4.5) lightHigh: tekst na suknie (środek) [onFelt/felt1] #FFFDF7 na #1B5940
+OK   11.94:1 (min 4.5) lightHigh: tekst na suknie (brzeg) [onFelt/felt2] #FFFDF7 na #123D2C
+OK   7.43:1 (min 4.5) lightHigh: tekst drugi na suknie (środek) [onFeltMuted/felt1] #EEF5F0 na #1B5940
+OK   10.96:1 (min 4.5) lightHigh: tekst drugi na suknie (brzeg) [onFeltMuted/felt2] #EEF5F0 na #123D2C
+OK   6.13:1 (min 4.5) lightHigh: tekst „ty” na suknie (środek) [goldText/felt1] #F8DC8E na #1B5940
+OK   9.03:1 (min 4.5) lightHigh: tekst „ty” na suknie (brzeg) [goldText/felt2] #F8DC8E na #123D2C
+OK   4.40:1 (min 3) lightHigh: znacznik „ty” na suknie [gold/felt1] #E2B850 na #1B5940
+OK   5.25:1 (min 3) lightHigh: obwódka przedziału na suknie [scaleEdge/felt1] #B5D6C4 na #1B5940
+OK   10.73:1 (min 3) lightHigh: część „przebicie” obok „pas” [raiseFill/foldFill] #FFFDF7 na #15452F
+OK   8.10:1 (min 3) lightHigh: pasek strategii na suknie (brzeg osi) [onFelt/felt1] #FFFDF7 na #1B5940
+OK   8.10:1 (min 3) lightHigh: karta na suknie [card/felt1] #FFFDF7 na #1B5940
+OK   17.86:1 (min 4.5) lightHigh: indeks karty (czarny) [cardInk/card] #0A1430 na #FFFDF7
+OK   5.78:1 (min 4.5) lightHigh: indeks karty (czerwony) [cardRed/card] #C8102E na #FFFDF7
+OK   6.98:1 (min 4.5) lightHigh: indeks karty (niebieski) [cardBlue/card] #2456A6 na #FFFDF7
+OK   5.23:1 (min 4.5) lightHigh: indeks karty (zielony) [cardGreen/card] #2A7A3B na #FFFDF7
+OK   15.12:1 (min 4.5) lightHigh: nazwa miejsca [seatInk/seat] #FFFDF7 na #12234A
+OK   11.19:1 (min 4.5) lightHigh: stan miejsca [seatMuted/seat] #D4DCEE na #12234A
+OK   11.44:1 (min 4.5) lightHigh: tekst „ty” na miejscu [goldText/seat] #F8DC8E na #12234A
+OK   10.51:1 (min 3) lightHigh: obwódka miejsca na ramie [seatEdge/frame] #B7C5E6 na #0A1430
+OK   9.70:1 (min 3) lightHigh: obwódka „ty” na ramie [gold/frame] #E2B850 na #0A1430
+OK   17.86:1 (min 4.5) lightHigh: akcja [actionInk/actionBg] #FFFDF7 na #0A1430
+OK   14.12:1 (min 4.5) lightHigh: akcja, dopisek [actionMuted/actionBg] #DCE3F2 na #0A1430
+OK   11.62:1 (min 3) lightHigh: granica segmentów akcji [actionEdge/actionBg] #C3CFEA na #0A1430
+OK   15.49:1 (min 3) lightHigh: granica paska akcji na tle [actionOutline/bg] #0A1430 na #E9EDF5
+OK   17.86:1 (min 4.5) lightHigh: przycisk główny [primaryInk/primaryBg] #FFFDF7 na #0A1430
+OK   15.49:1 (min 3) lightHigh: przycisk główny na tle [primaryBg/bg] #0A1430 na #E9EDF5
+OK   18.17:1 (min 4.5) lightHigh: link na komórce (dodatkowa) [link/surface] #0A1430 na #FFFFFF
+OK   17.86:1 (min 4.5) lightHigh: przycisk akcji karta na suknie: tekst (dodatkowa) [cardInk/card] #0A1430 na #FFFDF7
+OK   3.24:1 (min 3) lightHigh: pasek stosu ty na torze (dodatkowa) [goldOnBg/separator] #5E4407 na #8E9AB8
+OK   3.98:1 (min 3) lightHigh: pasek stosu inni na torze (dodatkowa) [muted/separator] #2C3A5E na #8E9AB8
+OK   9.55:1 (min 3) lightHigh: obwódka kafla muted na tle (dodatkowa) [muted/bg] #2C3A5E na #E9EDF5
+OK   7.43:1 (min 3) lightHigh: obwódka miejsca scenariusza na suknie (dodatkowa) [onFeltMuted/felt1] #EEF5F0 na #1B5940
+OK   15.67:1 (min 4.5) darkHigh: tekst na tle [ink/bg] #F2EEE3 na #0A1430
+OK   13.22:1 (min 4.5) darkHigh: tekst drugi na tle [muted/bg] #D5DCEC na #0A1430
+OK   15.67:1 (min 4.5) darkHigh: link na tle [link/bg] #F2EEE3 na #0A1430
+OK   13.48:1 (min 4.5) darkHigh: tekst w komórce [ink/surface] #F2EEE3 na #13214A
+OK   11.37:1 (min 4.5) darkHigh: tekst drugi w komórce [muted/surface] #D5DCEC na #13214A
+OK   10.18:1 (min 4.5) darkHigh: tekst „ty” na tle [goldOnBg/bg] #E9BC4C na #0A1430
+OK   8.75:1 (min 4.5) darkHigh: tekst „ty” w komórce [goldOnBg/surface] #E9BC4C na #13214A
+OK   9.02:1 (min 4.5) darkHigh: błąd działania na tle [alert/bg] #FF9E7A na #0A1430
+OK   7.76:1 (min 4.5) darkHigh: błąd działania w komórce [alert/surface] #FF9E7A na #13214A
+OK   9.59:1 (min 4.5) darkHigh: tekst na suknie (środek) [onFelt/felt1] #FFFDF7 na #174D37
+OK   15.12:1 (min 4.5) darkHigh: tekst na suknie (brzeg) [onFelt/felt2] #FFFDF7 na #0C2A1E
+OK   8.80:1 (min 4.5) darkHigh: tekst drugi na suknie (środek) [onFeltMuted/felt1] #EEF5F0 na #174D37
+OK   13.88:1 (min 4.5) darkHigh: tekst drugi na suknie (brzeg) [onFeltMuted/felt2] #EEF5F0 na #0C2A1E
+OK   7.25:1 (min 4.5) darkHigh: tekst „ty” na suknie (środek) [goldText/felt1] #F8DC8E na #174D37
+OK   11.44:1 (min 4.5) darkHigh: tekst „ty” na suknie (brzeg) [goldText/felt2] #F8DC8E na #0C2A1E
+OK   5.20:1 (min 3) darkHigh: znacznik „ty” na suknie [gold/felt1] #E2B850 na #174D37
+OK   6.21:1 (min 3) darkHigh: obwódka przedziału na suknie [scaleEdge/felt1] #B5D6C4 na #174D37
+OK   10.73:1 (min 3) darkHigh: część „przebicie” obok „pas” [raiseFill/foldFill] #FFFDF7 na #15452F
+OK   9.59:1 (min 3) darkHigh: pasek strategii na suknie (brzeg osi) [onFelt/felt1] #FFFDF7 na #174D37
+OK   8.41:1 (min 3) darkHigh: karta na suknie [card/felt1] #F2EEE3 na #174D37
+OK   15.67:1 (min 4.5) darkHigh: indeks karty (czarny) [cardInk/card] #0A1430 na #F2EEE3
+OK   5.07:1 (min 4.5) darkHigh: indeks karty (czerwony) [cardRed/card] #C8102E na #F2EEE3
+OK   6.13:1 (min 4.5) darkHigh: indeks karty (niebieski) [cardBlue/card] #2456A6 na #F2EEE3
+OK   4.59:1 (min 4.5) darkHigh: indeks karty (zielony) [cardGreen/card] #2A7A3B na #F2EEE3
+OK   16.47:1 (min 4.5) darkHigh: nazwa miejsca [seatInk/seat] #FFFDF7 na #0F1C3D
+OK   12.18:1 (min 4.5) darkHigh: stan miejsca [seatMuted/seat] #D4DCEE na #0F1C3D
+OK   12.46:1 (min 4.5) darkHigh: tekst „ty” na miejscu [goldText/seat] #F8DC8E na #0F1C3D
+OK   4.07:1 (min 3) darkHigh: obwódka miejsca na ramie [seatEdge/frame] #B7C5E6 na #3A55A0
+OK   3.75:1 (min 3) darkHigh: obwódka „ty” na ramie [gold/frame] #E2B850 na #3A55A0
+OK   12.93:1 (min 4.5) darkHigh: akcja [actionInk/actionBg] #F2EEE3 na #15254C
+OK   11.64:1 (min 4.5) darkHigh: akcja, dopisek [actionMuted/actionBg] #DCE3F2 na #15254C
+OK   9.59:1 (min 3) darkHigh: granica segmentów akcji [actionEdge/actionBg] #C3CFEA na #15254C
+OK   11.62:1 (min 3) darkHigh: granica paska akcji na tle [actionOutline/bg] #C3CFEA na #0A1430
+OK   15.67:1 (min 4.5) darkHigh: przycisk główny [primaryInk/primaryBg] #0A1430 na #F2EEE3
+OK   15.67:1 (min 3) darkHigh: przycisk główny na tle [primaryBg/bg] #F2EEE3 na #0A1430
+OK   13.48:1 (min 4.5) darkHigh: link na komórce (dodatkowa) [link/surface] #F2EEE3 na #13214A
+OK   15.67:1 (min 4.5) darkHigh: przycisk akcji karta na suknie: tekst (dodatkowa) [cardInk/card] #0A1430 na #F2EEE3
+BRAK 2.90:1 (min 3) darkHigh: pasek stosu ty na torze (dodatkowa) [goldOnBg/separator] #E9BC4C na #5A6C9C
+OK   3.76:1 (min 3) darkHigh: pasek stosu inni na torze (dodatkowa) [muted/separator] #D5DCEC na #5A6C9C
+OK   13.22:1 (min 3) darkHigh: obwódka kafla muted na tle (dodatkowa) [muted/bg] #D5DCEC na #0A1430
+OK   8.80:1 (min 3) darkHigh: obwódka miejsca scenariusza na suknie (dodatkowa) [onFeltMuted/felt1] #EEF5F0 na #174D37
+OK   5.23:1 (min 4.5) light: PaintGrid etykieta trafienia [primaryInk/good] (przejściowe) #FFFDF7 na #1F7A4D
+OK   15.27:1 (min 4.5) light: PaintGrid etykieta braku [ink/badSoft] (przejściowe) #0A1430 na #FBE7E4
+OK   5.04:1 (min 4.5) light: PaintGrid znak braku [bad/badSoft] (przejściowe) #B3372C na #FBE7E4
+OK   5.24:1 (min 4.5) light: PaintGrid znak nadmiaru [warn/warnSoft] (przejściowe) #8A5A00 na #FBF0D9
+OK   5.32:1 (min 3) light: PaintGrid pole trafienia na komórce [good/surface] (przejściowe) #1F7A4D na #FFFFFF
+OK   9.58:1 (min 4.5) dark: PaintGrid etykieta trafienia [primaryInk/good] (przejściowe) #0A1430 na #6FCF9A
+OK   13.12:1 (min 4.5) dark: PaintGrid etykieta braku [ink/badSoft] (przejściowe) #F2EEE3 na #36201D
+OK   5.99:1 (min 4.5) dark: PaintGrid znak braku [bad/badSoft] (przejściowe) #F08478 na #36201D
+OK   7.27:1 (min 4.5) dark: PaintGrid znak nadmiaru [warn/warnSoft] (przejściowe) #E0B24F na #33290F
+OK   8.23:1 (min 3) dark: PaintGrid pole trafienia na komórce [good/surface] (przejściowe) #6FCF9A na #13214A
+exit=1

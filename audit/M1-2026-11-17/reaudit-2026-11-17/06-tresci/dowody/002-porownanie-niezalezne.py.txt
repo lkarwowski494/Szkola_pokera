@@ -1,0 +1,50 @@
+# Niezalezne porownanie (reaudit 06): parsowanie data-tip innym sposobem, wszystkie bazy jezykowe, rownosc zbiorow.
+import sqlite3, json, glob, re, sys
+S, WT = sys.argv[1], sys.argv[2]
+R='AKQJT98765432'
+def klasy():
+    out=[]
+    for i,a in enumerate(R):
+        for j,b in enumerate(R):
+            out.append(a+b if i==j else (a+b+'s' if i<j else b+a+'o'))
+    return out
+K=klasy()
+def tab(nazwa,pole):
+    t=open(f'{S}/strony/bgto-{nazwa}.html',encoding='utf-8').read()
+    d={}
+    for tip in re.findall(r'data-tip="([^"]*)"',t):
+        p=tip.split(' · ')
+        if p[0] not in K: continue
+        d[p[0]]=0.0
+        for x in p[1:]:
+            n,_,v=x.rpartition(' ')
+            if n.lower()==pole: d[p[0]]=float(v.rstrip('%'))/100
+    assert len(d)==169,(nazwa,len(d))
+    return d
+SP={'btn-vs-co':'defend','sb-vs-btn':'3-bet','bb-vs-btn':'defend','bb-vs-sb':'defend'}
+por=json.load(open(f'{WT}/docs/tresci/porownanie-siatek.json'))
+bazy=sorted(glob.glob(f'{WT}/apps/mobile/assets/content/tresc-*.db'))
+print('baz:',len(bazy))
+zle=0
+for db in bazy:
+    con=sqlite3.connect(db)
+    for s,pole in SP.items():
+        pub=tab(s,pole)
+        for pre in ('vs-open.','nine.vs-open.'):
+            sid=pre+s
+            r=con.execute('select groups,uncertain from ranges where id=?',(sid,)).fetchone()
+            g=json.loads(r[0]); unc=set(json.loads(r[1]))
+            # kolejnosc klas w bazie: HAND_CLASSES z poker-core; zakladamy ta sama co w narzedziu (wiersz od AA). sprawdzamy na AA i 32o
+            gram=[sum(gr['freqs'][i] for gr in g) for i in range(169)]
+            yield_order=None
+            # wyznacz kolejnosc HAND_CLASSES z narzedzia (AA pierwsze, 22 ostatnie, s nad przekatna)
+            kol=[]
+            for row in range(12,-1,-1):
+                for col in range(12,-1,-1):
+                    RR='23456789TJQKA'; kol.append(RR[row]+RR[col] if row==col else (RR[row]+RR[col]+'s' if col<row else RR[col]+RR[row]+'o'))
+            gm=dict(zip(kol,gram))
+            roz={h for h in K if abs(gm[h]-pub[h])>=0.5-1e-9}
+            if db.endswith('-pl.db') or db.endswith('-en.db'):
+                print(f'{db[-9:]} {sid}: roznica>=50pp {len(roz)}, uncertain {len(unc)}, roz-unc {sorted(roz-unc)}, unc-roz {sorted(unc-roz)}, json==roz {set(por["spoty"][sid]["roznica_50pp"])==roz}')
+            if roz-unc: zle+=1
+print('spotow z klasa >=50pp spoza uncertain we wszystkich bazach:',zle)

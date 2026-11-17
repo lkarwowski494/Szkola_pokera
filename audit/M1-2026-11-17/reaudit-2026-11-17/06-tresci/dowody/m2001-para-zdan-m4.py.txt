@@ -1,0 +1,19 @@
+# Reaudit 06: zdanie m4-l2:73 vs siatka lekcji (bez kropki): reczne w kolorze bronione <50% i offsuit bronione >=50% poza uncertain.
+import sqlite3,glob,json,re,sys
+S,WT=sys.argv[1],sys.argv[2]
+R='23456789TJQKA';K=[]
+for row in range(12,-1,-1):
+  for col in range(12,-1,-1): K.append(R[row]+R[col] if row==col else (R[row]+R[col]+'s' if col<row else R[col]+R[row]+'o'))
+c=sqlite3.connect(glob.glob(f'{WT}/apps/mobile/assets/content/tresc-*-pl.db')[0])
+for sid,naz in (('vs-open.bb-vs-btn','bb-vs-btn'),('vs-open.bb-vs-sb','bb-vs-sb')):
+  t=open(f'{S}/strony/bgto-{naz}.html',encoding='utf-8').read();pub={}
+  for tip in re.findall(r'data-tip="([^"]*)"',t):
+    p=tip.split(' · ')
+    if p[0] in K: pub[p[0]]=next((float(x.rsplit(' ',1)[1].rstrip('%'))/100 for x in p[1:] if x.lower().startswith('defend ')),0.0)
+  g,u=c.execute('select groups,uncertain from ranges where id=?',(sid,)).fetchone();g=json.loads(g);u=set(json.loads(u))
+  gm={h:sum(x['freqs'][i] for x in g) for i,h in enumerate(K)}
+  s_pas=[f'{h} {gm[h]:.2f}/{pub[h]:.2f}' for h in K if h.endswith('s') and gm[h]<0.5 and h not in u]
+  o_gra=[h for h in K if h.endswith('o') and gm[h]>=0.5 and h not in u]
+  przeciw=[f'{h} {gm[h]:.2f}/{pub[h]:.2f}' for h in K if h not in u and (gm[h]>=0.5)!=(pub[h]>=0.5)]
+  print(f'{sid}: suited bronione <50% poza uncertain (kanon/zrodlo): {s_pas}')
+  print(f'   rak z inna akcja wiekszosciowa niz zrodlo poza uncertain: {przeciw}')

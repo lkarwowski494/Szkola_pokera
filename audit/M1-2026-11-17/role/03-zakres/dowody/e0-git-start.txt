@@ -1,0 +1,7 @@
+$ git rev-parse HEAD; git status --porcelain (start, 2026-11-17)
+7915f759e1a38993c405b50ac4bb4df27abe52bc
+ M audit/M1-2026-11-17/wspolne/ci-pelne.log
+?? audit/M1-2026-11-17/role/
+exit 0
+$ git diff --stat f75acdff HEAD -- . :!audit/M1-2026-11-17 :!docs/decyzje/IR.md
+exit 0 (puste = kod aplikacji = f75acdff)

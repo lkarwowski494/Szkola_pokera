@@ -1,0 +1,30 @@
+$ git status --porcelain (start)
+Tue Nov 17 12:16:40 UTC 2026
+?? audit/M1-2026-11-17/role/06-tresci/
+exit 0
+a74fc75dc44463f84af0ea970f9d5fb0a344de67
+a74fc75d IR M1: migawka plików ról w toku (05, partia 3)
+c8a80ac4 IR M1 partia 2: raport 06-tresci-b, kontrola M1 kod 0
+36695c5f IR M1 partia 2: migawka plików ról w toku
+b823a1e4 IR M1 partia 2: raport 12-niezawodnosc, kontrola M1 kod 0
+11b9387a IR M1 partia 2: migawka plików ról w toku
+
+$ git diff --stat f75acdff HEAD -- poza audit/M1 i IR.md
+exit 0
+Linux vm 6.18.44-fc-v553 #1 SMP PREEMPT_DYNAMIC @0 x86_64 x86_64 x86_64 GNU/Linux
+v22.23.4
+origin	https://github.com/lkarwowski494/Szkola_pokera (fetch)
+origin	https://github.com/lkarwowski494/Szkola_pokera (push)
+
+$ git status --porcelain (koniec)
+Tue Nov 17 12:30:45 UTC 2026
+ M audit/M1-2026-11-17/role/06-tresci/dowody/e0-srodowisko.txt
+ M audit/M1-2026-11-17/role/07-jakosc/dowody/jak05-powtorzenia.txt
+?? audit/M1-2026-11-17/role/06-tresci/06-tresci-2026-11-17.md
+?? audit/M1-2026-11-17/role/06-tresci/dowody/fakty-zmienne.txt
+?? audit/M1-2026-11-17/role/07-jakosc/07-jakosc-2026-11-17.md
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/jak17-nocny.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/koniec-stan.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/wydanie-zakres-zmian.txt
+exit 0
+diff kodu aplikacji vs f75acdff: exit 0

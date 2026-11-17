@@ -1,0 +1,18 @@
+$ grep -rn "AppState" apps/mobile/src packages/*/src (bez testów)
+apps/mobile/src/platform/ochronaTla.ts:8: * a flagę przerwania przy `AppState` → `background` ustawia warstwa aplikacji (ADR 0013 pkt 4).
+packages/postep/src/port.ts:58:// operacja bez ochrony, przerwanie przy przejściu do tła należy do warstwy aplikacji (ADR 0013 pkt 4, AppState).
+kod: 0
+$ grep -rn "odtworzZBazy(" apps/mobile/src (wywołania)
+apps/mobile/src/app/data.tsx:42:        await odtworzZBazy(port, powiadomieniaExpo, { tytul: t('reminder.title'), tresc: t('reminder.body') });
+apps/mobile/src/app/settings.tsx:81:    await odtworzZBazy(port, powiadomieniaExpo, tekstPrzypomnienia()); // klucz `przypomnienie` usunięty → anulowane (dane.md)
+apps/mobile/src/app/_layout.tsx:146:        .then(() => odtworzZBazy(portPostepu, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
+kod: 0
+$ grep -n "useOdczytPostepu\|zuzyteDzis" "apps/mobile/src/app/(tabs)/index.tsx"; grep -n "useFocusEffect" apps/mobile/src/data/postep.ts
+9:import { useOdczytPostepu } from '@/data/postep';
+15:import { odczytajKarty, odczytajPostepLekcji, zuzyteDzis, type PortBazy } from '@szkola/postep';
+23:// z ponowieniem i wpis w dzienniku (useOdczytPostepu).
+27:  const [p, f, k, z] = await Promise.all([odczytajPostepLekcji(port), czytajFaktyKursu(port), odczytajKarty(port), zuzyteDzis(port, dzien)]);
+48:  const odczyt = useOdczytPostepu(czytajDzis, 'nauka');
+1:import { useFocusEffect } from 'expo-router';
+63:  useFocusEffect(odswiez);
+kod: 0

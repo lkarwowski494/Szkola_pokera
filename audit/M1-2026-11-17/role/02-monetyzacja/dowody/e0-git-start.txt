@@ -1,0 +1,8 @@
+$ git status --porcelain (start, 2026-11-17)
+ M audit/M1-2026-11-17/wspolne/ci-pelne.log
+?? audit/M1-2026-11-17/role/
+kod: 0
+$ git rev-parse HEAD
+7915f759e1a38993c405b50ac4bb4df27abe52bc
+$ git diff --name-only f75acdff HEAD | grep -v ^audit/M1-2026-11-17/ | grep -v ^docs/decyzje/IR.md$ (puste = kod aplikacji jak w f75acdff)
+koniec listy

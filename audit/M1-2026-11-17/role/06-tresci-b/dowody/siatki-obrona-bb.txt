@@ -1,0 +1,52 @@
+$ python3 -I porownaj.py  (beyondgto.com/defense/bb-vs-btn i /bb-vs-sb pobrane curl 2026-11-17, atrybuty data-tip; siatka z apps/mobile/assets/content/tresc-70ddf027b1-pl.db, tabela ranges)
+vs-open.bb-vs-btn: aplikacja 0.496, opublikowane 0.451, niepewne w aplikacji: []
+  ręce, w których werdykt gram/pas się różni (próg 50%): 18 kombinacji 160
+   J3s: aplikacja 0.01, opublikowane 1.00
+   T4s: aplikacja 0.86, opublikowane 0.08
+   T2s: aplikacja 1.00, opublikowane 0.00
+   K8o: aplikacja 0.99, opublikowane 0.34
+   Q8o: aplikacja 1.00, opublikowane 0.00
+   98o: aplikacja 0.06, opublikowane 0.51
+   K7o: aplikacja 1.00, opublikowane 0.00
+   T7o: aplikacja 0.63, opublikowane 0.00
+   87o: aplikacja 0.00, opublikowane 0.53
+   74s: aplikacja 0.18, opublikowane 1.00
+   A6o: aplikacja 0.95, opublikowane 0.31
+   63s: aplikacja 0.15, opublikowane 1.00
+   K5o: aplikacja 0.86, opublikowane 0.00
+   75o: aplikacja 0.98, opublikowane 0.00
+   A4o: aplikacja 0.38, opublikowane 0.69
+   42s: aplikacja 0.42, opublikowane 0.99
+   32s: aplikacja 0.00, opublikowane 0.65
+   A2o: aplikacja 0.82, opublikowane 0.00
+vs-open.bb-vs-sb: aplikacja 0.530, opublikowane 0.555, niepewne w aplikacji: []
+  ręce, w których werdykt gram/pas się różni (próg 50%): 13 kombinacji 116
+   J3s: aplikacja 0.00, opublikowane 1.00
+   94s: aplikacja 0.00, opublikowane 0.71
+   J8o: aplikacja 0.00, opublikowane 0.86
+   84s: aplikacja 0.00, opublikowane 1.00
+   T7o: aplikacja 0.99, opublikowane 0.05
+   87o: aplikacja 0.00, opublikowane 0.74
+   73s: aplikacja 0.00, opublikowane 1.00
+   K5o: aplikacja 0.96, opublikowane 0.09
+   75o: aplikacja 0.93, opublikowane 0.04
+   65o: aplikacja 0.00, opublikowane 0.78
+   54o: aplikacja 0.00, opublikowane 0.61
+   A3o: aplikacja 0.00, opublikowane 1.00
+   32s: aplikacja 0.00, opublikowane 1.00
+
+Ręce czyste po obu stronach (≤0,25 albo ≥0,75) z przeciwnym werdyktem:
+  vs-open.bb-vs-btn: 10 rąk, 80 kombinacji: ['J3s', 'T4s', 'T2s', 'Q8o', 'K7o', '74s', '63s', 'K5o', '75o', 'A2o']
+  vs-open.bb-vs-sb: 10 rąk, 88 kombinacji: ['J3s', 'J8o', '84s', 'T7o', '73s', 'K5o', '75o', '65o', 'A3o', '32s']
+
+Kryterium projektu dla klas niepewnych (content/ranges/spots.yaml:56, :71): różnica „gram / pas” o 50 pp lub więcej:
+  vs-open.bb-vs-btn: 16 rąk (136 kombinacji), klasy niepewne w bazie: []: ['J3s', 'T4s', 'T2s', 'K8o', 'Q8o', 'K7o', 'T7o', '87o', '74s', 'A6o', '63s', 'K5o', '75o', '42s', '32s', 'A2o']
+  vs-open.bb-vs-sb: 13 rąk (116 kombinacji), klasy niepewne w bazie: []: ['J3s', '94s', 'J8o', '84s', 'T7o', '87o', '73s', 'K5o', '75o', '65o', '54o', 'A3o', '32s']
+  nine.vs-open.bb-vs-btn: 16 rąk (136 kombinacji), klasy niepewne w bazie: []: ['J3s', 'T4s', 'T2s', 'K8o', 'Q8o', 'K7o', 'T7o', '87o', '74s', 'A6o', '63s', 'K5o', '75o', '42s', '32s', 'A2o']
+  nine.vs-open.bb-vs-sb: 13 rąk (116 kombinacji), klasy niepewne w bazie: []: ['J3s', '94s', 'J8o', '84s', 'T7o', '87o', '73s', 'K5o', '75o', '65o', '54o', 'A3o', '32s']
+kod wyjścia: 0
+
+$ python3 -I dominacja.py (offsuit grany o ≥50 pp częściej niż suited tej samej pary rang, wszystkie spoty)
+kod wyjścia: 0 (brak wierszy = brak takich rąk)
+
+# docs/tresci/walidacja-solvera.json: solver.def.bb-vs-btn status otwarte („niezgodne: 4,6 pp powyżej 45% ... Nie do treści”), solver.def.bb-vs-sb status otwarte („niezgodne: 3,0 pp poniżej 56%”)

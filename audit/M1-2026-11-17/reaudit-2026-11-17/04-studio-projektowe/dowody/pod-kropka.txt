@@ -1,0 +1,44 @@
+$ python3 -I narzedzia/pod-kropka.py apps/mobile/assets/content/tresc-d0b124291f-pl.db  (suma częstości klasy niepewnej = szerokość paska felt1; kropka stoi przy prawej krawędzi pola, ok. 78–96% szerokości)
+rfi.utg grup: 1 klas: 13
+rfi.hj grup: 1 klas: 13
+rfi.co grup: 1 klas: 13
+rfi.btn grup: 1 klas: 13
+rfi.sb grup: 1 klas: 13
+vs-open.btn-vs-co grup: 1 klas: 20
+vs-open.sb-vs-btn grup: 1 klas: 11
+vs-open.bb-vs-btn grup: 1 klas: 16
+    J3s 0.01 surface(<0.75)
+    T4s 0.86 granica(0.75-0.95)
+    T2s 1.0 felt(>=0.95)
+    K8o 0.99 felt(>=0.95)
+    Q8o 1.0 felt(>=0.95)
+    K7o 1 felt(>=0.95)
+    T7o 0.63 surface(<0.75)
+    87o 0 surface(<0.75)
+    74s 0.18 surface(<0.75)
+    A6o 0.95 granica(0.75-0.95)
+    63s 0.15 surface(<0.75)
+    K5o 0.86 granica(0.75-0.95)
+    75o 0.98 felt(>=0.95)
+    42s 0.42 surface(<0.75)
+    32s 0 surface(<0.75)
+    A2o 0.82 granica(0.75-0.95)
+vs-open.bb-vs-sb grup: 1 klas: 13
+nine.rfi.utg grup: 1 klas: 3
+nine.rfi.utg1 grup: 1 klas: 2
+nine.rfi.lj grup: 1 klas: 13
+nine.rfi.hj grup: 1 klas: 13
+nine.rfi.co grup: 1 klas: 13
+nine.rfi.btn grup: 1 klas: 13
+nine.rfi.sb grup: 1 klas: 13
+nine.vs-open.btn-vs-co grup: 1 klas: 20
+nine.vs-open.sb-vs-btn grup: 1 klas: 11
+nine.vs-open.bb-vs-btn grup: 1 klas: 16
+nine.vs-open.bb-vs-sb grup: 1 klas: 13
+push.btn-3max grup: 1 klas: 1
+push.sb-3max grup: 1 klas: 3
+call.sb-vs-btn-3max grup: 1 klas: 1
+call.bb-vs-btn-3max grup: 1 klas: 1
+call.bb-vs-two-3max grup: 1 klas: 2
+razem klas niepewnych: 263 {'felt(>=0.95)': 71, 'granica(0.75-0.95)': 17, 'surface(<0.75)': 175}
+kod 0

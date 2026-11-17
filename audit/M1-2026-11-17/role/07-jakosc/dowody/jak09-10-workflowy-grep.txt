@@ -1,0 +1,68 @@
+$ grep -nE "pull_request_target|workflow_run|\$\{\{ *github\.(event|head_ref)" .github/workflows/*.yml
+.github/workflows/ci.yml:18:  cancel-in-progress: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
+.github/workflows/e2e-ios.yml:60:  group: e2e-${{ github.ref }}-${{ github.event_name }}
+.github/workflows/e2e-ios.yml:61:  cancel-in-progress: ${{ github.event_name == 'push' }}
+kod: 0
+
+$ grep -nE "^\s*-? *uses:" .github/workflows/*.yml | grep -v "uses: actions/" (akcje spoza actions/*)
+.github/workflows/ci.yml:32:      - uses: pnpm/action-setup@v5
+.github/workflows/ci.yml:55:      - uses: pnpm/action-setup@v5
+.github/workflows/ci.yml:71:      - uses: pnpm/action-setup@v5
+.github/workflows/ci.yml:88:      - uses: pnpm/action-setup@v5
+.github/workflows/ci.yml:146:      - uses: pnpm/action-setup@v5
+.github/workflows/e2e-ios.yml:84:      - uses: pnpm/action-setup@v5
+.github/workflows/iphone-eas.yml:43:      - uses: pnpm/action-setup@v5
+.github/workflows/iphone-local.yml:49:      - uses: pnpm/action-setup@v5
+.github/workflows/nocny.yml:38:      - uses: pnpm/action-setup@v5
+.github/workflows/nocny.yml:70:      - uses: pnpm/action-setup@v5
+.github/workflows/nocny.yml:103:    uses: ./.github/workflows/e2e-ios.yml
+.github/workflows/przeglad-tlumaczen.yml:63:      - uses: pnpm/action-setup@v5
+.github/workflows/przeklad-tlumaczen.yml:62:      - uses: pnpm/action-setup@v5
+.github/workflows/store-screenshots.yml:75:      - uses: pnpm/action-setup@v5
+.github/workflows/store-screenshots.yml:126:      - uses: pnpm/action-setup@v5
+.github/workflows/testflight.yml:101:      - uses: pnpm/action-setup@v5
+
+$ grep -c "uses: .*@[0-9a-f]\{40\}" (akcje przypięte do SHA)
+(brak wierszy = 0 przypiętych)
+
+$ grep -nE "^permissions:|^  permissions:|^    permissions:|contents: write|id-token|pull-requests: write|issues: write" .github/workflows/*.yml
+.github/workflows/asc-iap-localizations.yml:20:permissions:
+.github/workflows/asc-iap-localizations.yml:72:    permissions:
+.github/workflows/asc-kontrola.yml:18:permissions:
+.github/workflows/asc-metadane.yml:21:permissions:
+.github/workflows/asc-metadane.yml:73:    permissions:
+.github/workflows/asc-produkty.yml:21:permissions:
+.github/workflows/asc-produkty.yml:73:    permissions:
+.github/workflows/asc-zrzuty.yml:35:permissions:
+.github/workflows/asc-zrzuty.yml:109:    permissions:
+.github/workflows/ci.yml:13:permissions:
+.github/workflows/e2e-ios.yml:47:permissions:
+.github/workflows/iphone-eas.yml:35:permissions:
+.github/workflows/iphone-local.yml:24:permissions:
+.github/workflows/nocny.yml:10:#      issues: write WYŁĄCZNIE w tym zadaniu; tylko token przebiegu, bez sekretów.
+.github/workflows/nocny.yml:22:permissions:
+.github/workflows/nocny.yml:105:    permissions:
+.github/workflows/nocny.yml:118:    permissions:
+.github/workflows/nocny.yml:120:      issues: write
+.github/workflows/pages.yml:4:# Odstępstwa od Treningu (nazwane, D-191): uprawnienia pages/id-token na poziomie zadania, nie workflowu (zasada tego repo,
+.github/workflows/pages.yml:16:permissions:
+.github/workflows/pages.yml:26:    permissions:
+.github/workflows/pages.yml:29:      id-token: write
+.github/workflows/przeglad-tlumaczen.yml:44:permissions:
+.github/workflows/przeklad-tlumaczen.yml:43:permissions:
+.github/workflows/store-screenshots.yml:31:permissions:
+.github/workflows/testflight.yml:30:permissions:
+.github/workflows/testflight.yml:41:    permissions:
+
+$ grep -nE "\|\| *true|continue-on-error|--passWithNoTests|--forceExit|npm ci \|\||\|\| *echo" .github/workflows/*.yml package.json apps/mobile/package.json packages/*/package.json tools/*/package.json
+.github/workflows/ci.yml:138:    # na stałe (continue-on-error). Wynik: liczby w podsumowaniu przebiegu i log w artefakcie (bez danych osobowych).
+.github/workflows/ci.yml:141:    continue-on-error: true
+.github/workflows/ci.yml:166:            grep -oE "AK-[A-Z0-9]+(-[A-Za-z0-9]+)*" akceptacja.log | sort -u | tr '\n' ' ' || true
+.github/workflows/ci.yml:169:            grep -oE "NIEZAIMPLEMENTOWANE: [^\\\`'\"]+" akceptacja.log | sort | uniq -c | sort -rn | head -40 | sed 's/^/    /' || true
+.github/workflows/e2e-ios.yml:189:        continue-on-error: true
+.github/workflows/e2e-ios.yml:205:          NIEUDANE=$(node scripts/ci/e2e-ponowienia.mjs nieudane e2e-out/report.xml apps/mobile/e2e || true)
+.github/workflows/e2e-ios.yml:211:              --test-output-dir "e2e-out/ponowienie-$i" "$flow" < /dev/null || true
+.github/workflows/nocny.yml:130:        continue-on-error: true # E2E bez wyników (pominięte, anulowane, awaria maszyny) — raport mówi wtedy tylko o zadaniach
+.github/workflows/store-screenshots.yml:148:          DEV=$(xcrun simctl list devices available | grep -m1 -E "$WZORZEC" | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/' || true)
+.github/workflows/store-screenshots.yml:151:          xcrun simctl boot "$DEV" || true
+package.json:16:    "k08": "node tests/narzedzia/k08-manifesty.mjs || echo 'K-08 (informacyjnie, strategia.md §8.1): braki w manifeście prywatności — przegląd roli 10'",

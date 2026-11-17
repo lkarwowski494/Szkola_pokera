@@ -1,0 +1,19 @@
+$ awk: zdania na źródło w docs/tresci/odczyty/*.txt (sekcje „## <adres>”, wiersze „N:” z cytatem)
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/check-raise-lucid/	4
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/check-raising-strategies/	7
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/podcast/ep1-check-raise/	3
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/flop-heuristics-for-defending-the-blinds-in-mtts/	6
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/the-worst-turn-card/	13
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://pokercoaching.com/blog/when-to-double-barrel-the-turn-as-a-bluff/	8
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/principles-of-turn-strategy/	12
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/	4
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/river-refinements-when-your-opponent-wont-check-raise/	5
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/blockers-unblockers-the-secret-to-picking-great-bluffs/	9
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what/	5
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/principles-of-river-play/	3
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://deepfold.co/en/blog/bluff-catching-principles	5
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/stack-to-pot-ratio/	21
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/pot-geometry/	4
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://pokercoaching.com/blog/poker-stats/	9
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://www.deucescracked.com/research/online-poker-win-rates	14
+exit 0

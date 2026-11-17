@@ -1,0 +1,15 @@
+$ node /tmp/m1-01/sondy/rd11.mjs /home/user/Szkola_pokera
+spoty z grupami: 26; klasy (spot×ręka): 4394; z akcją 0<f<0,035: 269
+rfi.utg A9s 0.992/0.008
+rfi.utg A8s 0.002/0.998
+rfi.utg A6s 0.004/0.996
+rfi.utg K8s 0.001/0.999
+rfi.utg K5s 0.002/0.998
+rfi.utg Q9s 0.001/0.999
+rfi.utg Q6s 0.001/0.999
+rfi.utg AJo 0.996/0.004
+rfi.utg ATo 0.999/0.001
+rfi.utg KTo 0.001/0.999
+rfi.utg JTo 0.001/0.999
+rfi.utg T7s 0.991/0.009
+exit=0

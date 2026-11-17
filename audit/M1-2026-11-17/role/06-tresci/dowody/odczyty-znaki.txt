@@ -1,0 +1,25 @@
+$ awk: znaki cytowanego tekstu na źródło (sekcje „## <adres>”) w docs/tresci/odczyty/*.txt; próg D-141/00-rozpoznanie.md:62 = 250 znaków
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/stack-to-pot-ratio/	2565
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/principles-of-turn-strategy/	1397
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/the-worst-turn-card/	1214
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://pokercoaching.com/blog/when-to-double-barrel-the-turn-as-a-bluff/	1100
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://www.deucescracked.com/research/online-poker-win-rates	1045
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what/	965
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/blockers-unblockers-the-secret-to-picking-great-bluffs/	951
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://pokercoaching.com/blog/poker-stats/	886
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/check-raising-strategies/	799
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/check-raise-lucid/	776
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/river-refinements-when-your-opponent-wont-check-raise/	604
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/flop-heuristics-for-defending-the-blinds-in-mtts/	546
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/pot-geometry/	447
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://www.splitsuit.com/spr-poker-strategy	442
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/podcast/ep1-check-raise/	409
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/	396
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://deepfold.co/en/blog/bluff-catching-principles	392
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://blog.gtowizard.com/principles-of-river-play/	290
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://bluffaces.com/calculators/mda/	277
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/when-to-check-top-pair/	230
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://upswingpoker.com/thin-value-bet-poker-strategy/	186
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://www.pokerlistings.com/when-to-fire-a-second-barrel-on-the-turn-a-simple-guide	146
+docs/tresci/odczyty/dv-krok-e-2026-11-11.txt	https://link.springer.com/doi/10.1007/s10899-009-9168-2	0
+exit 0

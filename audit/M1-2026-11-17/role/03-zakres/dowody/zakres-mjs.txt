@@ -1,0 +1,24 @@
+$ env -u NODE_PATH node zakres.mjs docs/scope-contract.md --brd docs/brd --apetyt 18.75  (skrypt z promptu 03-zakres, moduł ciecie; 2026-11-17)
+Ranking (R × I × C ÷ koszt [h]; stałe: podłoga albo WTP-0; „razem” liczy MVP i ten wiersz):
+  1. F-02 stała · 0,25 h, razem 0,25 h · MVP
+  2. F-05 stała · 1,5 h, razem 1,75 h · MVP
+  3. F-06 stała · 0,25 h, razem 2 h · MVP
+  4. F-07 stała · 0,5 h, razem 2,5 h · MVP
+  5. F-10 stała · 0,75 h, razem 3,25 h · MVP
+  6. F-12 stała · 2,5 h, razem 5,75 h · MVP
+  7. F-13 stała · 2,5 h, razem 8,25 h · MVP
+  8. F-14 stała · 1 h, razem 9,25 h · MVP
+  9. F-15 stała · 0,5 h, razem 9,75 h · MVP
+  10. F-17 stała · 0,5 h, razem 10,25 h · MVP
+  11. F-18 stała · 1 h, razem 11,25 h · MVP
+  12. F-22 stała · 0,75 h, razem 12 h · MVP
+  13. F-01 wynik 112 · 0,5 h, razem 12,5 h · MVP
+  14. F-03 wynik 96 · 2 h, razem 14,5 h · MVP
+  15. F-16 wynik 64 · 1,5 h, razem 16 h · MVP
+  16. F-04 wynik 48 · 0,5 h, razem 16,5 h · MVP
+  17. F-09 wynik 16,67 · 0,75 h, razem 17,25 h · MVP
+  18. F-08 wynik 10 · 0,75 h, razem 18 h · MVP
+  19. F-11 wynik 10 · 0,75 h, razem 18,75 h · MVP
+Kolejność budowy MVP: F-01 → F-02 → F-03 → F-04 → F-06 → F-05 → F-07 → F-08 → F-09 → F-10 → F-11 → F-12 → F-13 → F-14 → F-15 → F-16 → F-17 → F-18 → F-22
+22 funkcji (MVP 19, PÓŹNIEJ 0, TEST 0, NIE 3), 56 BR · 0 błędów, 0 uwag
+kod 0

@@ -1,0 +1,15 @@
+# audyt 06: niezależny rachunek próbki liczb rachunkowych (szczebel 1) vs wartości w bazie treści pl
+import sys, math, itertools
+v = {l.split('\t')[0]: float(l.split('\t')[1]) for l in open(sys.argv[1], encoding='utf8')}
+C = math.comb
+exp = {
+ 'alpha.bet-half': .5/1.5, 'alpha.bet-pot': 1/2, 'alpha.bet-third': (1/3)/(4/3), 'mdf.bet-half': 1/1.5, 'mdf.bet-pot': .5, 'mdf.bet-three-quarters': 1/1.75,
+ 'eq.bet-half': .5/2, 'eq.bet-pot': 1/3, 'eq.bet-third': (1/3)/(5/3), 'eq.bet-half.rake': .5/(2*.95),
+ 'odds.flush.flop-river': 1-(38/47)*(37/46), 'odds.flush.turn-river': 9/46, 'odds.flush.flop-turn': 9/47, 'odds.combo.turn-river': 15/46,
+ 'combos.total': C(52,2), 'combos.kinds': 169, 'combos.unpaired.one-blocked': 12, 'combos.pair.one-blocked': C(3,2),
+}
+bad = 0
+for k, e in exp.items():
+    got = v.get(k); ok = got is not None and abs(got - e) < 1e-6
+    bad += not ok; print(f"{k}\toczekiwane {e:.6f}\tbaza {got}\t{'OK' if ok else 'RÓŻNICA'}")
+print(f"{len(exp)} sprawdzeń, {bad} różnic"); sys.exit(1 if bad else 0)

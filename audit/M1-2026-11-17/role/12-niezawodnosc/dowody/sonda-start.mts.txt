@@ -1,0 +1,54 @@
+// Sonda roli 12 (audyt M1): ścieżki startu bazy postępu na kopii w scratchpadzie. Kod aplikacji tylko importowany (bez zmian).
+import { mkdtempSync, writeFileSync, readFileSync, readdirSync, openSync, writeSync, closeSync, copyFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { DatabaseSync } from 'node:sqlite';
+const R = '/home/user/Szkola_pokera';
+const { uruchomPostep, BladStartuPostepu } = await import(`${R}/packages/postep/src/index.ts`);
+const { adapterNode, otworzNode, ile, integralnosc } = await import(`${R}/tests/narzedzia/postep-node.ts`);
+const { zbudujWzorzecV1 } = await import(`${R}/tests/narzedzia/wzorzec-bazy.ts`);
+const { plikiNode, sha256, sumyKatalogu } = await import(`${R}/tests/narzedzia/pliki-node.ts`);
+const TAB = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki', 'dziennik'];
+const baza = process.env.SONDA_KAT!;
+const licz = (p: string, tab = TAB) => { const d = new DatabaseSync(p, { readOnly: true }); const w = Object.fromEntries(tab.map((t) => { try { return [t, ile(d, t)]; } catch { return [t, 'brak tabeli']; } })); const v = (d.prepare('PRAGMA user_version').get() as any).user_version; d.close(); return { user_version: v, ...w }; };
+const opcje = (katalog: string) => ({ katalog, pliki: plikiNode().pliki, otworz: async (s: string) => adapterNode(otworzNode(s)), terazMs: 1_800_000_000_000 });
+async function start(katalog: string) {
+  try { const w = await uruchomPostep(opcje(katalog)); await w.port.zamknij(); return { wynik: 'ok', uszkodzona: w.uszkodzona }; }
+  catch (e: any) { return { wynik: e instanceof BladStartuPostepu ? `BladStartuPostepu(${e.powod})` : `wyjątek ${e?.errcode ?? ''} ${e?.message}` }; }
+}
+function nowyKatalog(nazwa: string) { const k = mkdtempSync(join(baza, `${nazwa}-`)); zbudujWzorzecV1(join(k, 'postep.db')); return k; }
+
+// 0. zdrowy start: wzorzec v1 → migracje v2, v3
+{ const k = nowyKatalog('A-zdrowa'); const p = join(k, 'postep.db');
+  console.log('A przed:', JSON.stringify(licz(p)));
+  console.log('A start:', JSON.stringify(await start(k)));
+  console.log('A po:', JSON.stringify(licz(p)), 'pliki:', readdirSync(k).join(',')); }
+
+// 1. baza nowsza niż aplikacja (TestFlight pozwala zainstalować starszy build): user_version = 4
+{ const k = nowyKatalog('B-nowsza'); const p = join(k, 'postep.db');
+  const d = new DatabaseSync(p); d.exec('PRAGMA user_version = 4'); d.close();
+  const s0 = sha256(p); console.log('B przed:', JSON.stringify(licz(p)));
+  for (let i = 1; i <= 3; i++) console.log(`B start ${i} (ponowienie z ekranu):`, JSON.stringify(await start(k)));
+  console.log('B po:', JSON.stringify(licz(p)), 'sha bez zmian:', sha256(p) === s0, 'pliki:', readdirSync(k).join(',')); }
+
+// 2. migracja nieudana: v1 z tabelą, którą tworzy migracja v2 (wstrzyknięty błąd CREATE TABLE) → ROLLBACK
+{ const k = nowyKatalog('C-migracja'); const p = join(k, 'postep.db');
+  const d = new DatabaseSync(p); d.exec('CREATE TABLE wariant_historia (x)'); d.close();
+  const s0 = sha256(p); console.log('C przed:', JSON.stringify(licz(p)));
+  for (let i = 1; i <= 3; i++) console.log(`C start ${i} (ponowienie z ekranu):`, JSON.stringify(await start(k)));
+  console.log('C po:', JSON.stringify(licz(p)), 'sha bez zmian:', sha256(p) === s0, 'pliki:', readdirSync(k).join(',')); }
+
+// 3. baza uszkodzona: nagłówek nadpisany (NOTADB) po zdrowym starcie
+{ const k = nowyKatalog('D-uszkodzona'); const p = join(k, 'postep.db');
+  await start(k); const przed = licz(p); console.log('D przed uszkodzeniem:', JSON.stringify(przed));
+  const naglowek = readFileSync(p).subarray(0, 16);
+  const fd = openSync(p, 'r+'); writeSync(fd, Buffer.alloc(16, 0x41), 0, 16, 0); closeSync(fd);
+  const s0 = sha256(p);
+  const w = await start(k); console.log('D start:', JSON.stringify(w));
+  console.log('D pliki po starcie:', readdirSync(k).join(','));
+  console.log('D nowa postep.db:', JSON.stringify(licz(p)));
+  const odl = (w as any).uszkodzona as string;
+  console.log('D odłożony plik sha = plik uszkodzony:', sha256(odl) === s0);
+  const kopia = join(baza, 'D-kopia-naprawiona.db'); copyFileSync(odl, kopia);
+  const fd2 = openSync(kopia, 'r+'); writeSync(fd2, naglowek, 0, 16, 0); closeSync(fd2);
+  console.log('D odłożony plik po przywróceniu nagłówka (u dewelopera):', JSON.stringify(licz(kopia)), JSON.stringify(integralnosc(new DatabaseSync(kopia, { readOnly: true }))));
+  const w2 = await start(k); console.log('D drugi start:', JSON.stringify(w2), 'pliki:', readdirSync(k).join(',')); }

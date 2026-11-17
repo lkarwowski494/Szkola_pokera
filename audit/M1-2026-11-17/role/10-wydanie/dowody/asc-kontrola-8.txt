@@ -1,0 +1,62 @@
+# gh run view 42706853122 --log (asc-kontrola #8, 2026-11-09 21:54, gałąź robocza; odczyt 2026-11-17); tylko wiersze tabel wyniku
+## Ceny
+| Kontrola | Status | Wynik |
+| Ceny produktów (bieżące) | OK | kwartal USA: 9.99 |
+| Ceny produktów (bieżące) | INFO | kwartal JPN: 1500.00 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | kwartal CAN: 12.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | kwartal GBR: 9.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | kwartal BRA: 59.90 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | kwartal FRA: 9.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | kwartal TWN: 320.00 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | kwartal DEU: 9.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | kwartal grupa storefronty-1.0 (166): RÓŻNE KWOTY — 11.99: ALB, ARM, AZE, BRB, BLR, BEN, CMR, COG, CIV, GEO, GHA, ISL, KEN, MUS, MDA, NPL, SEN, UGA, UKR, ZMB, ZWE; 9.99: DZA, AGO, AIA, ATG, ARG, AUT, BHS, BHR, BEL, BLZ, BMU, BTN, BOL, BIH, BWA, VGB, BRN, BGR, BFA, KHM, CPV, CYM, TCD, COD, CRI, HRV, CYP, DMA, DOM, ECU +81; 14.99: AUS; 59.90: BRA; 12.99: CAN
+| Ceny produktów (bieżące) | OK | rok USA: 14.99 |
+| Ceny produktów (bieżące) | INFO | rok JPN: 2500.00 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | rok CAN: 19.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | rok GBR: 14.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | rok BRA: 99.90 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | rok FRA: 17.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | rok TWN: 490.00 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | rok DEU: 17.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | rok grupa storefronty-1.0 (166): RÓŻNE KWOTY — 17.99: ALB, ARM, AUT, AZE, BRB, BLR, BEL, BEN, BIH, BGR, CMR, COG, CIV, HRV, CYP, EST, FIN, FRA, GEO, DEU, GHA, GRC, ISL, IRL, ITA, KEN, XKS, LVA, LTU, LUX +15; 14.99: DZA, AGO, AIA, ATG, ARG, BHS, BHR, BLZ, BMU, BTN, BOL, BWA, VGB, BRN, BFA, KHM, CPV, CYM, TCD, COD, CRI, DMA, DOM, ECU, SLV, SWZ, FJI, GMB, GR
+| Ceny produktów (bieżące) | OK | dozywotni USA: 19.99 |
+| Ceny produktów (bieżące) | INFO | dozywotni JPN: 3000.00 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | dozywotni CAN: 24.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | dozywotni GBR: 19.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | dozywotni BRA: 129.90 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | dozywotni FRA: 22.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | dozywotni TWN: 690.00 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | dozywotni DEU: 22.99 (oczekiwana nie ustalona) |
+| Ceny produktów (bieżące) | INFO | dozywotni grupa storefronty-1.0 (166): RÓŻNE KWOTY — 22.99: ALB, ARM, AUT, AZE, BRB, BLR, BEL, BEN, BIH, BGR, CMR, COG, CIV, HRV, CYP, EST, FIN, FRA, GEO, DEU, GHA, GRC, ISL, IRL, ITA, KEN, XKS, LVA, LTU, LUX +15; 19.99: DZA, AGO, AIA, ATG, ARG, BHS, BHR, BLZ, BMU, BTN, BOL, BWA, VGB, BRN, BFA, KHM, CPV, CYM, TCD, COD, CRI, DMA, DOM, ECU, SLV, SWZ, FJI, G
+## Oferty wprowadzające
+| Kontrola | Status | Wynik |
+| Oferty wprowadzające subskrypcji | OK | kwartal: brak ofert wprowadzających (zgodnie z konfiguracją) |
+| Oferty wprowadzające subskrypcji | OK | rok: brak ofert wprowadzających (zgodnie z konfiguracją) |
+## Produkty
+| Kontrola | Status | Wynik |
+| Family Sharing | OK | Family Sharing kwartal: wyłączone |
+| Family Sharing | OK | Family Sharing rok: wyłączone |
+| Family Sharing | OK | Family Sharing dozywotni: wyłączone |
+## Adresy
+| Kontrola | Status | Wynik |
+| Privacy Policy URL, Support URL, Marketing URL | OK | Privacy Policy URL (App Information): 5 lokalizacji zgodnych |
+| Privacy Policy URL, Support URL, Marketing URL | OK | Support URL (wersja): 5 lokalizacji zgodnych |
+## Metadane sklepu
+| Kontrola | Status | Wynik |
+| Nazwa, podtytuł, słowa kluczowe, tekst promocyjny, opis, lokalizacje | OK | Lista lokalizacji: 5 zgodnych |
+| Nazwa, podtytuł, słowa kluczowe, tekst promocyjny, opis, lokalizacje | OK | Nazwa: 5 lokalizacji zgodnych |
+| Nazwa, podtytuł, słowa kluczowe, tekst promocyjny, opis, lokalizacje | OK | Podtytuł: 5 lokalizacji zgodnych |
+| Nazwa, podtytuł, słowa kluczowe, tekst promocyjny, opis, lokalizacje | OK | Słowa kluczowe: 5 lokalizacji zgodnych |
+## Aplikacja
+| Kontrola | Status | Wynik |
+| Kategorie | OK | Kategoria główna: EDUCATION |
+| Kategorie | INFO | Kategoria dodatkowa: brak (oczekiwana nie ustalona) |
+| Ocena wiekowa (wypisanie odpowiedzi) | INFO | Ocena wiekowa: SEVENTEEN_PLUS; odpowiedzi inne niż „brak/nie”: ageRatingOverride=SEVENTEEN_PLUS, ageRatingOverrideV2=EIGHTEEN_PLUS, healthOrWellnessTopics=true, matureOrSuggestiveThemes=INFREQUENT_OR_MILD, medicalOrTreatmentInformation=INFREQUENT_OR_MILD |
+| Dostępność w krajach | OK | Dostępność w krajach: 166 zgodnych z listą |
+| Etykieta prywatności (App Privacy) | TYLKO RĘCZNIE | Etykieta prywatności (odpowiedzi „App Privacy”): API App Store Connect jej nie udostępnia (odczyt dokumentacji 21.10.2026) — sprawdzić w App Store Connect → App Privacy; wymagania: https://developer.apple.com/app-store/app-privacy-details/ , lista zasobów API: https://developer.apple.com/documentation/appstoreconnectapi |
+## Informacje dla recenzenta
+| Kontrola | Status | Wynik |
+| Kontakt, konto demo, notatki | OK | Kontakt recenzenta: wszystkie pola ustawione |
+| Kontakt, konto demo, notatki | INFO | Konto demo: niewymagane |
+| Kontakt, konto demo, notatki | RÓŻNICA | Notatki dla recenzenta: puste, a plik ma treść |
+kod potoku: 0

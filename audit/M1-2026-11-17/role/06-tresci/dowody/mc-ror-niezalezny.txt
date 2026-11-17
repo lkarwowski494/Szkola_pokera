@@ -1,0 +1,4 @@
+$ python3 -I mc_ror.py
+30 wpisowych: ruina 0.058 (wzór 0.060)
+15 wpisowych: ruina 0.235 (wzór 0.245)
+exit 0

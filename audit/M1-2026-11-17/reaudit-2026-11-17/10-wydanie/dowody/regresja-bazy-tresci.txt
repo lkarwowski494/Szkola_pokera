@@ -1,0 +1,46 @@
+$ git diff -M --name-status 0e7e5e00..HEAD -- apps/mobile/assets/content
+R099	apps/mobile/assets/content/tresc-70ddf027b1-bg.db	apps/mobile/assets/content/tresc-d0b124291f-bg.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-ru.db	apps/mobile/assets/content/tresc-d0b124291f-cs.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-ro.db	apps/mobile/assets/content/tresc-d0b124291f-da.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-de.db	apps/mobile/assets/content/tresc-d0b124291f-de.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-id.db	apps/mobile/assets/content/tresc-d0b124291f-el.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-en.db	apps/mobile/assets/content/tresc-d0b124291f-en.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-es-419.db	apps/mobile/assets/content/tresc-d0b124291f-es-419.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-es.db	apps/mobile/assets/content/tresc-d0b124291f-es.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-et.db	apps/mobile/assets/content/tresc-d0b124291f-et.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-fi.db	apps/mobile/assets/content/tresc-d0b124291f-fi.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-fr.db	apps/mobile/assets/content/tresc-d0b124291f-fr.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-hr.db	apps/mobile/assets/content/tresc-d0b124291f-hr.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-hu.db	apps/mobile/assets/content/tresc-d0b124291f-hu.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-nl.db	apps/mobile/assets/content/tresc-d0b124291f-id.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-it.db	apps/mobile/assets/content/tresc-d0b124291f-it.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-ja.db	apps/mobile/assets/content/tresc-d0b124291f-ja.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-ko.db	apps/mobile/assets/content/tresc-d0b124291f-ko.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-sv.db	apps/mobile/assets/content/tresc-d0b124291f-lt.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-lv.db	apps/mobile/assets/content/tresc-d0b124291f-lv.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-ms.db	apps/mobile/assets/content/tresc-d0b124291f-ms.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-lt.db	apps/mobile/assets/content/tresc-d0b124291f-nb.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-sr.db	apps/mobile/assets/content/tresc-d0b124291f-nl.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-pl.db	apps/mobile/assets/content/tresc-d0b124291f-pl.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-pt-BR.db	apps/mobile/assets/content/tresc-d0b124291f-pt-BR.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-pt.db	apps/mobile/assets/content/tresc-d0b124291f-pt.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-da.db	apps/mobile/assets/content/tresc-d0b124291f-ro.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-cs.db	apps/mobile/assets/content/tresc-d0b124291f-ru.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-sk.db	apps/mobile/assets/content/tresc-d0b124291f-sk.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-sl.db	apps/mobile/assets/content/tresc-d0b124291f-sl.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-el.db	apps/mobile/assets/content/tresc-d0b124291f-sr.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-nb.db	apps/mobile/assets/content/tresc-d0b124291f-sv.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-tr.db	apps/mobile/assets/content/tresc-d0b124291f-tr.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-uk.db	apps/mobile/assets/content/tresc-d0b124291f-uk.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-vi.db	apps/mobile/assets/content/tresc-d0b124291f-vi.db
+R099	apps/mobile/assets/content/tresc-70ddf027b1-zh-Hant.db	apps/mobile/assets/content/tresc-d0b124291f-zh-Hant.db
+
+pliki .db HEAD: 35, baza: 35
+rozmiar HEAD: 50913280	total
+rozmiar baza: 50913280	total
+odwołania do 70ddf027b1 w apps/packages/tools (ts,tsx,js,json): 0
+d0b124291f w tresc.generated.ts: 36
+--- a/apps/mobile/src/data/content/tresc.generated.ts
++++ b/apps/mobile/src/data/content/tresc.generated.ts
+-export const WERSJA_TRESCI = '70ddf027b1';
++export const WERSJA_TRESCI = 'd0b124291f';

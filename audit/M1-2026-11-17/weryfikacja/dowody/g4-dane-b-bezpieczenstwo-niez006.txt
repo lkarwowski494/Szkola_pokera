@@ -1,0 +1,52 @@
+# Weryfikacja 12-niezawodnosc-006: sonda własna w worktree f75acdff (/tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wt-g4), 2026-11-17
+## Źródło sondy (/tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/sondy-g4/tresc-uszkodzona.mts)
+// Sonda g4: uszkodzona kopia tresc-*.db na urządzeniu, plik w paczce zdrowy; 3 starty przygotujTresc.
+import { przygotujTresc } from '/tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wt-g4/packages/domena/src/tresc.ts';
+const PLIK = 'tresc-v7-pl.db';
+const fs = new Map<string, string>([[`paczka/${PLIK}`, 'ZDROWY'], [`dok/${PLIK}`, 'USZKODZONY'], ['dok/postep.db', 'POSTEP']]);
+const log: string[] = [];
+const pliki = {
+  async lista(k: string) { log.push('lista'); return [...fs.keys()].filter((p) => p.startsWith(k + '/')).map((p) => p.slice(k.length + 1)); },
+  async kopiuj(z: string, na: string) { log.push('kopiuj'); fs.set(na, fs.get(z)!); },
+  async przemianuj(z: string, na: string) { log.push('przemianuj'); fs.set(na, fs.get(z)!); fs.delete(z); },
+  async usun(s: string) { log.push('usun'); fs.delete(s); },
+};
+const otworz = async (s: string) => { log.push('otworz'); if (fs.get(s) !== 'ZDROWY') throw new Error('SQLITE_NOTADB'); return { baza: s, meta: { format: '1', wersja: 'v7', jezyk: 'pl', min_wersja_aplikacji: '1.0.0' } }; };
+for (let i = 1; i <= 3; i++) {
+  log.length = 0;
+  const w = await przygotujTresc({ paczka: 'paczka', katalog: 'dok', jezyk: 'pl', pliki, otworz, zamknij: async () => {}, obslugiwanyFormat: 1 });
+  console.log(`start ${i}:`, JSON.stringify(w), 'wywolania:', log.join(','), 'plik na urzadzeniu:', fs.get(`dok/${PLIK}`));
+}
+
+$ cd /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad && env -u NODE_PATH node --experimental-strip-types /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/sondy-g4/tresc-uszkodzona.mts
+start 1: {"ok":false,"powod":"tresc_niedostepna"} wywolania: lista,lista,otworz plik na urzadzeniu: USZKODZONY
+start 2: {"ok":false,"powod":"tresc_niedostepna"} wywolania: lista,lista,otworz plik na urzadzeniu: USZKODZONY
+start 3: {"ok":false,"powod":"tresc_niedostepna"} wywolania: lista,lista,otworz plik na urzadzeniu: USZKODZONY
+kod: 0
+
+$ git -C /tmp/claude-0/-home-user/50956d98-d73c-5afe-8a7d-23320e3cf064/scratchpad/wt-g4 rev-parse HEAD
+f75acdff16915aeb43ff788888216e28616c11ed
+kod: 0
+
+$ sed -n 37,51p apps/mobile/src/data/tresc/useTresc.ts
+  }, []);
+
+  useEffect(() => {
+    if (!start) return;
+    let aktualny = true;
+    const krok = kolejka.current.then(() => fn.current.przygotuj(jezyk));
+    kolejka.current = krok.catch(() => undefined);
+    // odrzucona obietnica (wyjątek adaptera) = ten sam stan co błąd przygotowania, bez nieobsłużonego odrzucenia
+    void krok.catch((): Wynik<{ plik: string }, PowodTresci> => ({ ok: false, powod: 'tresc_niedostepna' })).then((w) => {
+      if (!aktualny) return;
+      if (!w.ok) fn.current.zapiszBlad(w.powod);
+      if (w.ok) ustaw({ stan: 'ok', plik: w.wartosc.plik });
+      else if (ostatni.current.stan !== 'ok') ustaw({ stan: 'blad' });
+    });
+    return () => {
+kod: 0
+
+$ sed -n 69p docs/architektura/tlo-i-bledy.md
+| jw. | `tresc_niedostepna` | brak albo błąd pliku `tresc-*.db` (ADR 0005) | ekran błędu bez pustych list; dane użytkownika nietknięte | **brak** |
+kod: 0
+

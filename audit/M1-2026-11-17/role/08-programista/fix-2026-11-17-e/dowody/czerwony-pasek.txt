@@ -1,0 +1,120 @@
+FAIL src/components/__tests__/RangeGrid-pasek-08.test.tsx
+  RangeGrid: pasek pierwszej grupy i próbka legendy w `rangeFill` (M2-koordynator-napraw-009, D-2021)
+    ✓ light: pasek (opacity 0,85) i próbka legendy (10 × 10) mają kolor rangeFill (111 ms)
+    ✕ dark: pasek (opacity 0,85) i próbka legendy (10 × 10) mają kolor rangeFill (51 ms)
+    ✓ lightHigh: pasek (opacity 0,85) i próbka legendy (10 × 10) mają kolor rangeFill (52 ms)
+    ✕ darkHigh: pasek (opacity 0,85) i próbka legendy (10 × 10) mają kolor rangeFill (44 ms)
+    ✓ light: pasek ≥ 3:1 do surface; onFelt na pasku ≥ 4,5:1; kropka ink na pasku ≥ 3:1 (pasek = rangeFill z kryciem 0,85 na surface) (36 ms)
+    ✕ dark: pasek ≥ 3:1 do surface; onFelt na pasku ≥ 4,5:1; kropka ink na pasku ≥ 3:1 (pasek = rangeFill z kryciem 0,85 na surface) (28 ms)
+    ✓ lightHigh: pasek ≥ 3:1 do surface; onFelt na pasku ≥ 4,5:1; kropka ink na pasku ≥ 3:1 (pasek = rangeFill z kryciem 0,85 na surface) (25 ms)
+    ✕ darkHigh: pasek ≥ 3:1 do surface; onFelt na pasku ≥ 4,5:1; kropka ink na pasku ≥ 3:1 (pasek = rangeFill z kryciem 0,85 na surface) (24 ms)
+
+  ● RangeGrid: pasek pierwszej grupy i próbka legendy w `rangeFill` (M2-koordynator-napraw-009, D-2021) › dark: pasek (opacity 0,85) i próbka legendy (10 × 10) mają kolor rangeFill
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+    -   "#2B8F67",
+    -   "#2B8F67",
+    +   "#1C5A41",
+    +   "#1C5A41",
+      ]
+
+      48 |     const wezly = wszystkie(toJSON() as N);
+      49 |     const paski = wezly.filter((n) => n.type === 'View' && flat(n).opacity === 0.85 && flat(n).position === 'absolute' && flat(n).width !== '0%');
+    > 50 |     expect(paski.map((n) => flat(n).backgroundColor)).toEqual([p.rangeFill, p.rangeFill]); // AA (f = 1) i KK (f = 0,5)
+         |                                                       ^
+      51 |     const probki = wezly.filter((n) => n.type === 'View' && flat(n).width === 10 && flat(n).height === 10);
+      52 |     expect(probki.map((n) => flat(n).backgroundColor)).toEqual([p.rangeFill]);
+      53 |   });
+
+      at toEqual (src/components/__tests__/RangeGrid-pasek-08.test.tsx:50:55)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: pasek pierwszej grupy i próbka legendy w `rangeFill` (M2-koordynator-napraw-009, D-2021) › darkHigh: pasek (opacity 0,85) i próbka legendy (10 × 10) mają kolor rangeFill
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+    -   "#2B8F67",
+    -   "#2B8F67",
+    +   "#174D37",
+    +   "#174D37",
+      ]
+
+      48 |     const wezly = wszystkie(toJSON() as N);
+      49 |     const paski = wezly.filter((n) => n.type === 'View' && flat(n).opacity === 0.85 && flat(n).position === 'absolute' && flat(n).width !== '0%');
+    > 50 |     expect(paski.map((n) => flat(n).backgroundColor)).toEqual([p.rangeFill, p.rangeFill]); // AA (f = 1) i KK (f = 0,5)
+         |                                                       ^
+      51 |     const probki = wezly.filter((n) => n.type === 'View' && flat(n).width === 10 && flat(n).height === 10);
+      52 |     expect(probki.map((n) => flat(n).backgroundColor)).toEqual([p.rangeFill]);
+      53 |   });
+
+      at toEqual (src/components/__tests__/RangeGrid-pasek-08.test.tsx:50:55)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: pasek pierwszej grupy i próbka legendy w `rangeFill` (M2-koordynator-napraw-009, D-2021) › dark: pasek ≥ 3:1 do surface; onFelt na pasku ≥ 4,5:1; kropka ink na pasku ≥ 3:1 (pasek = rangeFill z kryciem 0,85 na surface)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kropka": true,
+        "onFelt": true,
+    -   "pasekSurface": true,
+    +   "pasekSurface": false,
+      }
+
+      59 |     const pasek = wszystkie(toJSON() as N).find((n) => n.type === 'View' && flat(n).opacity === 0.85 && flat(n).position === 'absolute')!;
+      60 |     const zlozony = zloz(flat(pasek).backgroundColor as string, 0.85, p.surface!);
+    > 61 |     expect({ pasekSurface: kontrast(zlozony, p.surface!) >= 3, onFelt: kontrast(p.onFelt!, zlozony) >= 4.5, kropka: kontrast(p.ink!, zlozony) >= 3 }).toEqual({ pasekSurface: true, onFelt: true, kropka: true });
+         |                                                                                                                                                       ^
+      62 |   });
+      63 | });
+      64 |
+
+      at toEqual (src/components/__tests__/RangeGrid-pasek-08.test.tsx:61:151)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: pasek pierwszej grupy i próbka legendy w `rangeFill` (M2-koordynator-napraw-009, D-2021) › darkHigh: pasek ≥ 3:1 do surface; onFelt na pasku ≥ 4,5:1; kropka ink na pasku ≥ 3:1 (pasek = rangeFill z kryciem 0,85 na surface)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kropka": true,
+        "onFelt": true,
+    -   "pasekSurface": true,
+    +   "pasekSurface": false,
+      }
+
+      59 |     const pasek = wszystkie(toJSON() as N).find((n) => n.type === 'View' && flat(n).opacity === 0.85 && flat(n).position === 'absolute')!;
+      60 |     const zlozony = zloz(flat(pasek).backgroundColor as string, 0.85, p.surface!);
+    > 61 |     expect({ pasekSurface: kontrast(zlozony, p.surface!) >= 3, onFelt: kontrast(p.onFelt!, zlozony) >= 4.5, kropka: kontrast(p.ink!, zlozony) >= 3 }).toEqual({ pasekSurface: true, onFelt: true, kropka: true });
+         |                                                                                                                                                       ^
+      62 |   });
+      63 | });
+      64 |
+
+      at toEqual (src/components/__tests__/RangeGrid-pasek-08.test.tsx:61:151)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 4 passed, 8 total
+Snapshots:   0 total
+Time:        1.267 s, estimated 2 s
+Ran all test suites matching /src\/components\/__tests__\/RangeGrid-pasek-08/i.

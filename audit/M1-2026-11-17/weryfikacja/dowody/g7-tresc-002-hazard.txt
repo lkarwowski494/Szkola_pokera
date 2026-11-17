@@ -1,0 +1,28 @@
+$ grep -c "gra hazardowa" docs/tresci/rejestr.json docs/tresci/rejestr-hz.md docs/tresci/rejestr/*.json
+docs/tresci/rejestr.json:0
+docs/tresci/rejestr-hz.md:0
+docs/tresci/rejestr/auto.json:0
+docs/tresci/rejestr/bez-twierdzen.json:0
+docs/tresci/rejestr/bn.json:0
+docs/tresci/rejestr/m0-m4.json:0
+docs/tresci/rejestr/m12-m13.json:0
+docs/tresci/rejestr/m5-m8.json:0
+docs/tresci/rejestr/m9-m11.json:0
+docs/tresci/rejestr/pomoc.json:0
+docs/tresci/rejestr/terminy.json:0
+kod wyjścia: 1 (1 = 0 trafień)
+
+$ grep -rn "help.intro\|gra hazardowa" docs/decyzje.md docs/decyzje/*.md (bez IR.md)
+kod wyjścia: 1 (1 = 0 trafień)
+
+$ grep -n "\"intro\": \"Po" apps/mobile/src/i18n/locales/pl.json apps/mobile/src/i18n/locales/en.json
+apps/mobile/src/i18n/locales/pl.json:120:    "intro": "Postęp jest tylko w tym telefonie. Plik eksportu przeniesie go na inny telefon albo przechowa jako kopię.",
+apps/mobile/src/i18n/locales/pl.json:351:    "intro": "Polskie terminy z kursu i ich nazwy angielskie, takie jak w solverach, programach i materiałach po angielsku.",
+apps/mobile/src/i18n/locales/pl.json:375:    "intro": "Poker na pieniądze to gra hazardowa. Jeśli granie przestaje być pod kontrolą, możesz skorzystać z pomocy poniżej.",
+apps/mobile/src/i18n/locales/en.json:331:    "intro": "Poker terms from the course with short definitions, named as in solvers, software and English-language materials.",
+apps/mobile/src/i18n/locales/en.json:353:    "intro": "Poker for money is gambling. If your playing is starting to get out of control, you can use the help below.",
+kod wyjścia: 0
+
+$ curl -sSL https://www.legislation.gov.uk/ukpga/2005/19/section/6 (2026-11-17), kod 0; python3 -I (tekst bez HTML, find)
+In this Act “ gaming ” means playing a game of chance for a prize.  (2) In this Act “game of chance”—  (a) includes—  (i) a game that involves both an element of chance and an element of skill,  (ii) a game that involves an element of chance that can be eliminated by superlative skill, and  (iii) a game that is presented as
+kod wyjścia: 0

@@ -1,0 +1,12 @@
+$ grep -rnE "\.(skip|only|todo|fails)\(|\bxit\(|\bxdescribe\(|expect\(true\)|^\s*//\s*expect" apps/mobile/src packages tools tests --include=*.ts --include=*.tsx --include=*.mjs (bez node_modules)
+packages/domena/test/cg-recenzja-powtorka.test.ts:16:  it.fails('ziarno z ziarnoPowtorki odtwarza wariant z historii także po zmianie szablonu w treści (ziarna 1…20)', () => {
+kod: 0
+
+$ grep -rn "= it.fails\|it.fails;" tools packages apps/mobile/src tests (aliasy)
+tools/content-build/test/recenzja-cq-odtworzenie.test.ts:16:const odtwarzaBlad = it.fails;
+kod: 0
+
+$ git log f75acdff -n 80 --format=%h -- "*.test.ts" "*.test.tsx" | dla każdego: usunięte vs dodane linie z expect( w plikach testów
+8de3e90f usunięte=1 dodane=0 fix(scenariusz): procent znaczników z drill.format.percent, zrzuty bez %% (IM-001, KO-121
+b15d37b1 usunięte=1 dodane=0 HA: lista D-1490 wstrzykiwana opcją; test GB-303 na własnej liście (D-1566)
+kod: 0 (lista: commity, w których usunięto więcej asercji niż dodano)

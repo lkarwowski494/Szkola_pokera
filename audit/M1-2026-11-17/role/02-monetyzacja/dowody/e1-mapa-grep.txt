@@ -1,0 +1,77 @@
+$ grep -rn "szkolapokera\.(kwartal|rok|dozywotni)" apps packages scripts .github store --include=*.ts --include=*.tsx --include=*.mjs --include=*.js --include=*.json --include=*.yml (bez node_modules, testów)
+apps/mobile/src/platform/zakupy.ts:35:  'pl.lkarwowski.szkolapokera.kwartal': 'kwartal',
+apps/mobile/src/platform/zakupy.ts:36:  'pl.lkarwowski.szkolapokera.rok': 'rok',
+apps/mobile/src/platform/zakupy.ts:37:  'pl.lkarwowski.szkolapokera.dozywotni': null,
+apps/mobile/src/test-utils/ekrany/wspolne.tsx:9:  { id: 'pl.lkarwowski.szkolapokera.kwartal', cena: '$9.99', okres: 'kwartal' },
+apps/mobile/src/test-utils/ekrany/wspolne.tsx:10:  { id: 'pl.lkarwowski.szkolapokera.rok', cena: '$14.99', okres: 'rok' },
+apps/mobile/src/test-utils/ekrany/wspolne.tsx:11:  { id: 'pl.lkarwowski.szkolapokera.dozywotni', cena: '$19.99', okres: null },
+packages/domena/src/konfiguracja.ts:31:    'pl.lkarwowski.szkolapokera.kwartal',
+packages/domena/src/konfiguracja.ts:32:    'pl.lkarwowski.szkolapokera.rok',
+packages/domena/src/konfiguracja.ts:33:    'pl.lkarwowski.szkolapokera.dozywotni',
+packages/domena/src/konfiguracja.ts:36:  PRODUKTY_BEZ_KONCA: ['pl.lkarwowski.szkolapokera.dozywotni'] as const, // ADR 0006 pkt 2 (L8-04, D-217): `wygasaMs: null` tylko dla tych
+store/asc-kontrola.json:5:    { "klucz": "kwartal", "productId": "pl.lkarwowski.szkolapokera.kwartal", "rodzaj": "subskrypcja" },
+store/asc-kontrola.json:6:    { "klucz": "rok", "productId": "pl.lkarwowski.szkolapokera.rok", "rodzaj": "subskrypcja" },
+store/asc-kontrola.json:7:    { "klucz": "dozywotni", "productId": "pl.lkarwowski.szkolapokera.dozywotni", "rodzaj": "jednorazowy" }
+kod: 0
+
+$ grep -rnE "__DEV__|pro: true|setState\(\{ pro|EXPO_PUBLIC|odblok" apps/mobile/src packages/domena/src (bez testów)
+apps/mobile/src/app/diagnostics.tsx:7:const Ekran: ComponentType | null = __DEV__ ? (require('@/features/diagnostyka/DiagnosticsScreen') as ModulEkranu).default : null;
+apps/mobile/src/app/scenarios.tsx:37:            .map((szablon) => ({ szablon, odblokowany: szablonOdblokowany(szablon, kurs, lekcje.filter((l) => l.moduleId === m.id).map((l) => l.id)) })),
+apps/mobile/src/app/session.tsx:284:            useDostep.setState({ pro: d });
+apps/mobile/src/app/settings.tsx:66:        if (w === 'zakonczony') useDostep.setState({ pro: await odswiezDostep(port, sklepAplikacji(), Date.now()) });
+apps/mobile/src/app/scenario.tsx:173:        onDostep={() => void odswiezDostep(port, sklepAplikacji(), Date.now()).then((d) => { useDostep.setState({ pro: d }); zaladuj(); })}
+apps/mobile/src/app/_layout.tsx:84:      if (__DEV__) await kontrolaK04(otwarty);
+apps/mobile/src/app/(tabs)/progress.tsx:85:        {__DEV__ ? (
+apps/mobile/src/app/(tabs)/progress.tsx:86:          <Pressable accessibilityRole="link" onPress={() => __DEV__ && router.push('/diagnostics')}>
+apps/mobile/src/app/purchase.tsx:22:          useDostep.setState({ pro: d });
+apps/mobile/src/features/dzis/widok.ts:95:  const odblokowane = w.ukonczoneLekcje.some((id) => (ordLekcji.get(id) ?? -1) >= MODUL_SCENARIUSZY_OD);
+apps/mobile/src/features/dzis/widok.ts:99:    scenariusze: !odblokowane ? 'po_m2' : wyczerpany ? 'limit' : 'wkrotce',
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:10: * odblokuje, zamiast znikać albo prowadzić do pustego ekranu. Moduły bez szablonów (M0, M1, M12, M13) nie mają pustych pozycji (BR-SZB-002).
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:15:  szablony: readonly { szablon: ScenarioTemplate; odblokowany: boolean }[];
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:32:            {g.szablony.map(({ szablon, odblokowany }) => (
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:37:                accessibilityState={{ disabled: !odblokowany }}
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:38:                disabled={!odblokowany}
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:42:                <Surface style={{ gap: odstep.xs, minHeight: 56, opacity: odblokowany ? 1 : 0.6 }}>
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:45:                    {odblokowany ? t('scenarios.levels', { lista: szablon.levels.map((l) => t(`scenario.level.${l}`).toLowerCase()).join(', ') }) : t('scenarios.locked', { n: numerModulu(szablon.module) ?? szablon.module })}
+apps/mobile/src/features/scenariusz/dostep.ts:6: * BR-MENU-001 „kafelek mówi, co go odblokuje”). Reguła D-647 [OCENA, do weta]: szablon modułu jest odblokowany po ukończeniu
+apps/mobile/src/features/diagnostyka/DiagnosticsScreen.tsx:55:            <Muted>{t('diagnostics.env', { engine, os, dev: __DEV__ ? t('diagnostics.devYes') : t('diagnostics.devNo') })}</Muted>
+apps/mobile/src/features/zakup/EkranZakupu.tsx:21:  onDostep(): void; // dostęp odblokowany (zakup albo przywrócenie) — bez ponownego uruchomienia (BR-ZAK-002)
+apps/mobile/src/data/tresc/jezykStartu.ts:23:      .catch((): void => undefined) // błąd odczytu trafia do dziennika w `zastosuj`; tu tylko odblokowanie treści
+apps/mobile/src/data/postepExpo.ts:91: * odczytane w transakcji zapisu przez port; przy ≠ wpis `kontrola_k04` w dzienniku. Wołane w `__DEV__` po starcie.
+apps/mobile/src/state/dostep.ts:19:  if (useDostep.getState().pro !== pro) useDostep.setState({ pro });
+apps/mobile/src/i18n/index.ts:35:void i18n.use(initReactI18next).use(regulyLiczbyMnogiej).init(opcjeI18next(slowniki, jezykDlaUstawienia('auto', tagiSystemu()), { scisle: __DEV__ }));
+apps/mobile/src/i18n/index.ts:47:  if (__DEV__) throw new Error(komunikat);
+packages/domena/src/dostep.ts:4:// gdy produkt odblokowuje, transakcja nie jest odebrana i koniec okresu jest później niż teraz; z kilku transakcji tego samego
+packages/domena/src/dostep.ts:19:function aktywne(lista: readonly Uprawnienie[], teraz: number, odblokowuja: readonly string[], bezKonca: readonly string[]): Uprawnienie[] {
+packages/domena/src/dostep.ts:22:    if (!odblokowuja.includes(u.produkt) || !trwa(u, teraz, bezKonca)) continue;
+packages/domena/src/dostep.ts:36:  odblokowuja: readonly string[],
+packages/domena/src/dostep.ts:40:    const produkty = aktywne(odczyt.transakcje.filter((t) => !t.odebrana), teraz, odblokowuja, bezKonca);
+packages/domena/src/dostep.ts:44:  return { dostep: aktywne(pamiec.produkty, teraz, odblokowuja, bezKonca).length > 0, zrodlo: 'pamiec', nowaPamiec: pamiec };
+kod: 0
+
+$ grep -rnE "useDostep|limitDnia|mozeStartowac|przygotujStart|otworzSesje|otworzScenariusz|wejscieDoAktywnosci" apps/mobile/src packages (bez testów) — mapa bramek
+apps/mobile/src/app/session.tsx:88:  const pro = useDostep((s) => s.pro);
+apps/mobile/src/app/session.tsx:122:    const r = await otworzSesje(port, {
+apps/mobile/src/app/session.tsx:135:    const p = await przygotujStart(port, {
+apps/mobile/src/app/settings.tsx:43:  const pro = useDostep((s) => s.pro);
+apps/mobile/src/app/scenario.tsx:49:  const pro = useDostep((s) => s.pro);
+apps/mobile/src/app/scenario.tsx:70:    const p = await przygotujStart(port, { rodzaj: 'scenariusz', trescId: szablon.id, pierwszePodejscieTestu: false, pro, zegar: zegar() });
+apps/mobile/src/app/scenario.tsx:82:    const r = await otworzScenariusz(port, { szablon, poziom, tryb, limit, zegar: zegar(), noweId, ziarno: Date.now() & 0x7fffffff, sesja: widziane.current, kontekst });
+apps/mobile/src/app/(tabs)/index.tsx:52:  const pro = useDostep((x) => x.pro);
+apps/mobile/src/features/ocena-poziomu/ocenaPoziomu.ts:82:  const start = startAktywnosci({
+apps/mobile/src/features/start/wejscieStartu.ts:17:  return limitDnia({ zuzyteDzis, pro: w.pro, dzien: w.zegar.dzienLokalny(w.zegar.teraz(), strefa), strefa }, KONFIGURACJA);
+apps/mobile/src/features/start/wejscieStartu.ts:20:export async function przygotujStart(
+apps/mobile/src/features/start/wejscieStartu.ts:32:  const poza = mozeStartowac(w.rodzaj, w.pierwszePodejscieTestu, { bezLimitu: false, pozostalo: 0, odnowienieMs: 0 });
+apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:81:export async function otworzScenariusz(port: PortBazy, w: WejscieScenariusza): Promise<Wynik<SesjaScenariusza, PowodScenariusza>> {
+apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:102:  const wejscie = wejscieDoAktywnosci('scenariusz', w.szablon.id, zapisana?.aktywnosc ?? null, false, w.limit, { historia: h, odcisk: wariant.fingerprint });
+apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts:106:  const start = startAktywnosci({
+apps/mobile/src/features/session/aktywnoscSesji.ts:44:export async function otworzSesje(port: PortBazy, w: WejscieSesji): Promise<Wynik<Sesja | null, PowodSesji>> {
+apps/mobile/src/features/session/aktywnoscSesji.ts:49:  const wej = wejscieDoAktywnosci(w.rodzaj, w.trescId, wToku.wartosc?.aktywnosc ?? null, w.pierwszePodejscieTestu, w.limit);
+apps/mobile/src/features/session/aktywnoscSesji.ts:65:  const start = startAktywnosci({
+packages/domena/src/maszyny.ts:62:export function startAktywnosci(wej: {
+packages/domena/src/maszyny.ts:74:  const m = mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit, wej.wariant);
+packages/domena/src/maszyny.ts:138:export function wejscieDoAktywnosci(
+packages/domena/src/maszyny.ts:148:  const m = mozeStartowac(rodzaj, pierwszePodejscieTestu, limit, wariant);
+packages/domena/src/limit.ts:10:export function limitDnia(wej: { zuzyteDzis: number; pro: boolean; dzien: string; strefa: string }, k: Konfiguracja): Limit {
+packages/domena/src/limit.ts:22:export function mozeStartowac(
+kod: 0

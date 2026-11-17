@@ -1,0 +1,62 @@
+$ cat -n .gitignore
+     1	node_modules/
+     2	.expo/
+     3	dist/
+     4	web-build/
+     5	*.tsbuildinfo
+     6	.DS_Store
+     7	coverage/
+     8	ios/
+     9	!apps/mobile/modules/*/ios/
+    10	android/
+    11	.env*.local
+    12	npm-debug.*
+    13	tools/preflop-solver/targets/
+kod: 0
+
+$ grep -n "p8\|p12\|env\|credentials\|jks\|mobileprovision\|key" apps/mobile/.gitignore
+10:expo-env.d.ts
+15:*.jks
+16:*.p8
+17:*.p12
+18:*.key
+19:*.mobileprovision
+33:# local env files
+34:.env*.local
+kod: 0
+$ git check-ignore --no-index -v x.p8 → kod 1 (nieignorowany)
+$ git check-ignore --no-index -v AuthKey_ABC.p8 → kod 1 (nieignorowany)
+$ git check-ignore --no-index -v credentials.json → kod 1 (nieignorowany)
+$ git check-ignore --no-index -v .env → kod 1 (nieignorowany)
+$ git check-ignore --no-index -v .env.production → kod 1 (nieignorowany)
+$ git check-ignore --no-index -v apps/mobile/.env → kod 1 (nieignorowany)
+$ git check-ignore --no-index -v apps/mobile/credentials.json → kod 1 (nieignorowany)
+$ git check-ignore --no-index -v apps/mobile/AuthKey.p8 → kod 0 apps/mobile/.gitignore:16:*.p8	apps/mobile/AuthKey.p8
+$ git check-ignore --no-index -v apps/mobile/.env.local → kod 0 apps/mobile/.gitignore:34:.env*.local	apps/mobile/.env.local
+$ git check-ignore --no-index -v google-services.json → kod 1 (nieignorowany)
+
+$ git log --all --diff-filter=A --name-only --format= | grep -E "\.(p8|p12|jks|mobileprovision|keystore)$|(^|/)\.env($|\.)|credentials\.json$" | sort -u
+(wynik powtórzony niżej z PIPESTATUS; tu $? = kod sort)
+
+$ ls .github/workflows | head; grep -ln "secret-scan\|gitleaks\|trufflehog\|sekret" .github/workflows/* tests/kontrole/* tests/narzedzia/* 2>/dev/null
+.github/workflows/asc-iap-localizations.yml
+.github/workflows/asc-kontrola.yml
+.github/workflows/asc-metadane.yml
+.github/workflows/asc-produkty.yml
+.github/workflows/asc-zrzuty.yml
+.github/workflows/e2e-ios.yml
+.github/workflows/iphone-eas.yml
+.github/workflows/iphone-local.yml
+.github/workflows/nocny.yml
+.github/workflows/pages.yml
+.github/workflows/przeglad-tlumaczen.yml
+.github/workflows/przeklad-tlumaczen.yml
+.github/workflows/store-screenshots.yml
+.github/workflows/testflight.yml
+tests/narzedzia/strona.test.mjs
+tests/narzedzia/workflowy.test.mjs
+kod: 2
+
+$ git log --all --diff-filter=A --name-only --format= | grep -cE "<wzorzec jw.>"   (poprawiony kod wyjścia)
+0
+kod grep: 1 (1 = brak takich plików w historii wszystkich gałęzi)

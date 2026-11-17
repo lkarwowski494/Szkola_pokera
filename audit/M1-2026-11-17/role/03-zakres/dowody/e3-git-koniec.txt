@@ -1,0 +1,9 @@
+$ git status --porcelain (koniec, 2026-11-17)
+ M audit/M1-2026-11-17/role/02-monetyzacja/dowody/e0b-wytyczne-apple.txt
+ M audit/M1-2026-11-17/role/03-zakres/03-zakres-2026-11-17.md
+?? audit/M1-2026-11-17/role/03-zakres/dowody/e3-git-koniec.txt
+kod 0
+$ git diff --stat (pliki śledzone)
+ .../02-monetyzacja/dowody/e0b-wytyczne-apple.txt   |   8 +
+ .../role/03-zakres/03-zakres-2026-11-17.md         | 287 +++++++++++++++++++--
+ 2 files changed, 270 insertions(+), 25 deletions(-)

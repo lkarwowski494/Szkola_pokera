@@ -1,0 +1,24 @@
+$ grep -rnE "persist\(|createJSONStorage|AsyncStorage|SecureStore|MMKV|localStorage|\.write\(|writeAsStringAsync|NSUserDefaults|UserDefaults" apps/mobile/src apps/mobile/modules packages/*/src (bez testów)
+apps/mobile/src/platform/pliki.ts:38:      await plik.write(tekst);
+kod wyjścia: 0
+
+$ grep -n "\"dependencies\"" -A60 apps/mobile/package.json | grep -E "storage|secure|mmkv|async"
+kod wyjścia: 1 (1 = brak)
+
+$ sed -n 52,64p node_modules/expo-notifications/plugin/build/withNotificationsIOS.js (enableRemoteNotifications=false: bez aps-environment; UIBackgroundModes tylko przy enableBackgroundRemoteNotifications)
+    if (enableRemoteNotifications) {
+        config = (0, _configplugins().withEntitlementsPlist)(config, (config)=>{
+            if (!config.modResults['aps-environment']) {
+                config.modResults['aps-environment'] = mode;
+            }
+            return config;
+        });
+    }
+    config = withNotificationSounds(config, {
+        sounds
+    });
+    config = withBackgroundRemoteNotifications(config, enableBackgroundRemoteNotifications);
+    return config;
+
+$ grep -rn "UIBackgroundModes\|isIosBackgroundLocationEnabled\|enableBackgroundPlayback\|TaskManager" apps/mobile/app.json apps/mobile/src
+kod wyjścia: 1 (1 = brak)

@@ -1,0 +1,49 @@
+$ grep -ci scenario store/review-notes.en.txt
+0
+kod: 1 (1 = 0 trafień)
+
+$ grep -n "scenario\|bots\|never a win" store/review-notes.en.txt
+5:- No real-money gaming. There are no stakes, no chips or credits, no prizes, no leaderboards and no play against other people or bots. An exercise shows a situation and asks for a decision; the result is a grade and an explanation, never a win or a loss.
+kod: 0
+
+$ grep -n "\"hint\": \"Every hand\|showdownVillain\|\"about\": \"You:" apps/mobile/src/i18n/locales/en.json
+1018:      "about": "You: {{ty}}, opponent: {{rywal}}. Depth {{bb}} bb.",
+1022:      "hint": "Every hand deals new cards. The result is a grade for each decision, not a win.",
+1094:      "showdownVillain": "The river is {{river}}. Your opponent shows {{karty}}: their hand ranks higher.",
+kod: 0
+
+$ ls content/pl/scenarios | wc -l; ls content/en/scenarios | wc -l
+33
+33
+kod: 0
+
+$ ls apps/mobile/e2e/10-zakup-z-ustawien.yaml; grep -n "Full access\|fullAccess" store/review-notes.en.txt
+apps/mobile/e2e/10-zakup-z-ustawien.yaml
+15:- To reach the purchase screen: on the "Today" tab tap "Practice session", then "Start". This uses today's free activity. Close the session with "End", tap "Practice session" again and then "Full access".
+kod: 0
+
+$ grep -n "Warunki przed wklejeniem\|nie obiecuje scenariuszy\|ścieżki przejdzione" store/review-notes.md
+9:**Warunki przed wklejeniem** (agent na buildzie kandydata 1.0):
+10:- [x] etykiety z en.json podmienione, klucze usunięte (Z-03, 2026-11-09); [ ] ścieżki przejdzione na kandydacie (lista telefonu D-04);
+11:- [ ] tekst ekranu zakupu nie obiecuje scenariuszy, jeśli F-12 nie wchodzi do 1.0 (zgłoszenie 10-D01-01, `sklep.md` §4);
+kod: 0
+
+$ grep -n "Simulated Gambling\*\* | \*\*None" docs/wydanie/sklep.md
+125:| **Simulated Gambling** | **None** | ćwiczenie pokazuje sytuację i pyta o decyzję; użytkownik niczego nie stawia, wynik to ocena i wyjaśnienie, nie wygrana ani przegrana, bez rozstrzygnięcia losem (OG-02). Brak gry z botami (F-19 NIE) i scenariuszy w 1.0 (D-305). Definicja z dnia = S-19 |
+kod: 0
+
+$ grep -rln -i "simulated" docs/decyzje.md docs/decyzje/ (bez IR.md)
+docs/decyzje.md
+kod: 0
+
+$ grep -n -i "simulated" docs/decyzje.md | cut -c1-12
+219:| D-310 | 
+270:| D-360 | 
+309:| D-400 | 
+kod: 0
+
+$ grep -n "sesje ćwiczeń, powtórki" site/support.html; grep -n "\"unlocks\"" apps/mobile/src/i18n/locales/en.json; grep -c "scenario" store/app-store-metadata.json
+39:<p>Lekcje są darmowe. Pełny dostęp zdejmuje dzienny limit: sesje ćwiczeń, powtórki i powtórne egzaminy każdego dnia. Aktualne ceny widzisz na ekranie
+70:    "unlocks": "No daily limit: practice sessions, reviews and exam retakes every day. Lessons stay free.",
+0
+kod: 1 (1 = 0 trafień scenario w metadanych)

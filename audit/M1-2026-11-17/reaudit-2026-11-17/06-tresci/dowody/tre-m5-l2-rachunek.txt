@@ -1,0 +1,8 @@
+# Rachunek niezalezny M5.l2 (reaudit 06, 2026-11-17)
+flop.miss.unpaired C(44,3)/C(50,3) = 0.6757142857142857
+flop.hit.unpaired 1-miss = 0.3242857142857143
+flop.hit.one-pair 6*C(44,2)/C(50,3) = 0.28959183673469385
+dwie pary 9*44/C(50,3) = 0.02020408163265306 ; trojka+full+kareta (6*44+18+2)/C(50,3) = 0.014489795918367347
+suma = 0.3242857142857143
+baza pl (numbers): flop.miss.unpaired 67,6%; flop.hit.unpaired 32,4%; flop.hit.one-pair 29%; cards.unseen.preflop 50; pair.outs.unpaired 6; cards.board.flop 3; prob.certain 100%
+ziarno losowania lekcji M5: random.Random(20261117).choice(sorted m5-*.md) -> m5-l2-przewagi.md

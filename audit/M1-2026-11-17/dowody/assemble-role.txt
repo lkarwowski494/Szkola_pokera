@@ -1,0 +1,39 @@
+$ node assemble.mjs 01-odkrywanie --tryb audit --data 2026-11-17 --moduly rynek-i-polityki,kontrola-brd --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/01-odkrywanie --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/01-odkrywanie.md --statystyki
+01-odkrywanie · audit · moduły: rynek-i-polityki, kontrola-brd · 66768 znaków (~19077 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/01-odkrywanie.md
+exit=0
+$ node assemble.mjs 02-monetyzacja --tryb audit --data 2026-11-17 --moduly audyt-paywalla,storekit-expo,cena-i-rachunek --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/02-monetyzacja --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/02-monetyzacja.md --statystyki
+02-monetyzacja · audit · moduły: audyt-paywalla, storekit-expo, cena-i-rachunek · 65603 znaków (~18744 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/02-monetyzacja.md
+exit=0
+$ node assemble.mjs 03-zakres --tryb audit --data 2026-11-17 --moduly ciecie,inwentarz-funkcji --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/03-zakres --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/03-zakres.md --statystyki
+03-zakres · audit · moduły: ciecie, inwentarz-funkcji · 62913 znaków (~17975 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/03-zakres.md
+exit=0
+$ node assemble.mjs 04-studio-projektowe --tryb audit --data 2026-11-17 --moduly render-i-krytyka,pamiec-portfolio --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/04-studio-projektowe --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/04-studio-projektowe.md --statystyki
+04-studio-projektowe · audit · moduły: render-i-krytyka, pamiec-portfolio · 68760 znaków (~19646 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/04-studio-projektowe.md
+exit=0
+$ node assemble.mjs 05-architekt --tryb audit --data 2026-11-17 --moduly dane-lokalne-sqlite,pakiety-tresci --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/05-architekt --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/05-architekt.md --statystyki
+05-architekt · audit · moduły: dane-lokalne-sqlite, pakiety-tresci · 69673 znaków (~19907 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/05-architekt.md
+exit=0
+$ node assemble.mjs 06-tresci --tryb audit --data 2026-11-17 --moduly kontrole-mechaniczne,tresci-krytyczne --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/06-tresci --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/06-tresci.md --statystyki
+06-tresci · audit · moduły: kontrole-mechaniczne, tresci-krytyczne · 65225 znaków (~18636 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/06-tresci.md
+exit=0
+$ node assemble.mjs 07-jakosc --tryb audit --data 2026-11-17 --moduly e2e-mobilne,wlasnosci-i-domena,wydanie,scenariusze-uzytkownika --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/07-jakosc --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/07-jakosc.md --statystyki
+07-jakosc · audit · moduły: scenariusze-uzytkownika, e2e-mobilne, wlasnosci-i-domena, wydanie · 73916 znaków (~21119 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/07-jakosc.md
+exit=0
+$ node assemble.mjs 08-programista --tryb audit --data 2026-11-17 --moduly sqlite-expo --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/08-programista --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/08-programista.md --statystyki
+08-programista · audit · moduły: sqlite-expo · 59501 znaków (~17000 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/08-programista.md
+exit=0
+$ node assemble.mjs 09-lokalizacja --tryb audit --data 2026-11-17 --moduly i18n-expo,tlumaczenie --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/09-lokalizacja --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/09-lokalizacja.md --statystyki
+09-lokalizacja · audit · moduły: i18n-expo, tlumaczenie · 62435 znaków (~17839 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/09-lokalizacja.md
+exit=0
+$ node assemble.mjs 10-wydanie --tryb audit --data 2026-11-17 --moduly metadane-i-zrzuty,prywatnosc-i-formularze,opis-wydania,recenzja-i-odrzucenia --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/10-wydanie --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/10-wydanie.md --statystyki
+10-wydanie · audit · moduły: metadane-i-zrzuty, prywatnosc-i-formularze, opis-wydania, recenzja-i-odrzucenia · 63371 znaków (~18106 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/10-wydanie.md
+exit=0
+$ node assemble.mjs 11-wzrost --tryb audit --data 2026-11-17 --moduly kanaly-i-start,retencja-i-etyka,pomiar-prywatny --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/11-wzrost --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/11-wzrost.md --statystyki
+11-wzrost · audit · moduły: kanaly-i-start, retencja-i-etyka, pomiar-prywatny · 61658 znaków (~17617 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/11-wzrost.md
+exit=0
+$ node assemble.mjs 12-niezawodnosc --tryb audit --data 2026-11-17 --moduly ratowanie-danych,widocznosc-awarii,pakiety-tresci --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/12-niezawodnosc --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/12-niezawodnosc.md --statystyki
+12-niezawodnosc · audit · moduły: ratowanie-danych, widocznosc-awarii, pakiety-tresci · 59064 znaków (~16875 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/12-niezawodnosc.md
+exit=0
+$ node assemble.mjs 06-tresci --tryb audit --data 2026-11-17 --moduly kontrole-mechaniczne,tresci-krytyczne --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/06-tresci-b --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/06-tresci-b.md --statystyki
+06-tresci · audit · moduły: kontrole-mechaniczne, tresci-krytyczne · 65243 znaków (~18641 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/06-tresci-b.md
+exit=0

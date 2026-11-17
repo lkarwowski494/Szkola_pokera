@@ -1,0 +1,17 @@
+$ grep -rnE "(run|all|exec|execAsync|runAsync|getAllAsync|getFirstAsync)\(\s*`[^`]*\$\{" packages/*/src apps/mobile/src tools/content-build/src (bez testów)
+packages/postep/src/daneUzytkownika.ts:142:      for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
+packages/postep/src/daneUzytkownika.ts:146:        await tx.run(`INSERT INTO ${t} (${kolumny.join(', ')}) VALUES (${kolumny.map(() => '?').join(', ')})`, wartosci);
+packages/postep/src/daneUzytkownika.ts:173:      for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
+packages/postep/src/migracje.ts:63:          await pol.exec(`PRAGMA user_version = ${m.wersja}`); // liczba całkowita sprawdzona wyżej; pragma nie przyjmuje parametru
+kod wyjścia: 0
+
+$ grep -rnE "(SELECT|INSERT|UPDATE|DELETE|FROM)[^\n]*\$\{" (szablony SQL z wstawką)
+packages/postep/src/daneUzytkownika.ts:83:        const wiersze = await tx.all<unknown>(`SELECT ${kolumny.join(', ')} FROM ${t} ORDER BY ${KLUCZ[t]}`);
+packages/postep/src/daneUzytkownika.ts:142:      for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
+packages/postep/src/daneUzytkownika.ts:146:        await tx.run(`INSERT INTO ${t} (${kolumny.join(', ')}) VALUES (${kolumny.map(() => '?').join(', ')})`, wartosci);
+packages/postep/src/daneUzytkownika.ts:173:      for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
+apps/mobile/src/data/content/repo.ts:96:      `SELECT id, lesson_id AS lessonId, family, data FROM drills WHERE family IN (${marks})`,
+apps/mobile/src/data/content/repo.ts:167:      `SELECT id, NULL AS lessonId, family, data FROM exam_drills WHERE family IN (${marks})`,
+apps/mobile/src/data/content/repo.ts:229:  const r = db.getFirstSync<RangeRow>(`SELECT ${RANGE_COLUMNS} FROM ranges WHERE id = ?`, id);
+apps/mobile/src/data/content/repo.ts:234:  const rows = db.getAllSync<RangeRow>(`SELECT ${RANGE_COLUMNS} FROM ranges`);
+kod wyjścia: 0

@@ -70,7 +70,7 @@ The {{t:big-blind}} already has a full blind in the {{t:pot}}, so it pays little
 
 ## Price isn't everything
 
-Equity tells you how often you win if you both reach showdown with no further {{t:bet|bets}}. {{t:out-of-position|Out of position}} you will often {{t:fold}} after the flop, so weak offsuit hands realize less than their equity. Suited hands, {{t:connectors}} and medium {{t:pair|pairs}} realize more, which is why the grid defends with them more readily.
+Equity tells you how often you win if you both reach showdown with no further {{t:bet|bets}}. {{t:out-of-position|Out of position}} you will often {{t:fold}} after the flop, so weak offsuit hands realize less than their equity. Suited hands, {{t:connectors}} and medium {{t:pair|pairs}} realize more, which is why you usually defend with them more readily.
 
 ```range
 vs-open.bb-vs-btn

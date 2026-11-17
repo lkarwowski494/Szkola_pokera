@@ -1,0 +1,28 @@
+$ grep -n "uncertain" packages/poker-core/src/grading.ts apps/mobile/src/features/drills/engine.ts apps/mobile/src/features/drills/grade.ts
+packages/poker-core/src/grading.ts:81:  uncertain: readonly string[];
+packages/poker-core/src/grading.ts:98:  | { kind: 'solver'; spot: string; handClass: string; options: { name: string; f: number }[]; chosen: string; sizeMismatch: boolean; uncertain: boolean }
+packages/poker-core/src/grading.ts:326:    // klasy niepewne (solver odbiega od publicznych tabel, spots.yaml → uncertain): bez oceny solverem
+packages/poker-core/src/grading.ts:327:    if (spot.uncertain.includes(hc)) return null;
+packages/poker-core/src/grading.ts:342:    const solverDetail = (chosen: string, sizeMismatch: boolean): GradeDetail => ({ kind: 'solver', spot: spot.id, handClass: hc, options, chosen, sizeMismatch, uncertain: false });
+packages/poker-core/src/grading.ts:359:      return { rule, verdict: fromRange[rangeVerdict(raw, ctx.kit.thresholds)[i]!], detail: { kind: 'solver', spot: spot.id, handClass: hc, options: rawOptions, chosen: label, sizeMismatch: false, uncertain: false } };
+apps/mobile/src/features/drills/engine.ts:434:  // klasy niepewne (solver odbiega od publicznych tabel, spots.yaml → uncertain) nie pojawiają się wcale
+apps/mobile/src/features/drills/engine.ts:435:  const uncertain = new Set(spot.uncertain ?? []);
+apps/mobile/src/features/drills/engine.ts:436:  const weights = HAND_CLASSES.map((hc, h) => (uncertain.has(hc) ? 0 : combosCount(hc) * (0.25 + 4 * play(h) * (1 - play(h)))));
+apps/mobile/src/features/drills/grade.ts:33: * Klasy niepewne spotu (spot.uncertain, audyt K6) traktujemy jak mieszane: zaliczone w obie strony, na siatce kropka.
+apps/mobile/src/features/drills/grade.ts:37:  const uncertain = new Set(spot.uncertain ?? []);
+apps/mobile/src/features/drills/grade.ts:47:    const mixed = uncertain.has(hc) || (p >= MIXED_LOW && p < MIXED_HIGH);
+kod wyjścia: 0
+
+$ sqlite3 (python) select id, uncertain from ranges where id like "%bb-vs-%" (baza pl)
+('vs-open.bb-vs-btn', '[]')
+('vs-open.bb-vs-sb', '[]')
+('nine.vs-open.bb-vs-btn', '[]')
+('nine.vs-open.bb-vs-sb', '[]')
+('call.bb-vs-btn-3max', '["Q5s"]')
+('call.bb-vs-two-3max', '["A4s","KTo"]')
+kod wyjścia: 0
+
+$ grep -n "siatki BB\|Siatki BB" docs/decyzje.md docs/tresci/e1b-solver.md
+docs/decyzje.md:62:| D-153 | 2026-11-04 | A | rola 06 E1b: walidacja 24 liczb solvera — kryterium: ≤ 2 pp od przedziału opublikowanych rozwiązań (szczebel 2) albo ≤ 1,5 pp od niezależnego rachunku równowagi (szczebel 1, wygrywa); wynik 19 potwierdzonych (RFI 6-max ×5, 3-bet SB vs BTN, push/fold HU ×8 z ante, 3 graczy ×5), 5 otwartych (9-max ×3: brak szczebla 2; obrona BB vs BTN 49,6
+docs/tresci/e1b-solver.md:50:- Siatki BB vs BTN i BB vs SB (częstości solvera, łączna obrona poza kryterium; zgodność „gram / pas” z BeyondGTO 89,7% i 91,3%, dokument 10): **zostają** z dopiskiem w lekcji, że solver aplikacji broni szerzej (BB vs BTN) i węziej (BB vs SB) niż opublikowane rozwiązania; liczba łączna w tekście tylko z opublikowanego źródła. Decyzja agenta w D-153
+kod wyjścia: 0

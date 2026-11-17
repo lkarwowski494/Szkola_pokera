@@ -1,0 +1,3 @@
+$ node audit/M1-2026-11-17/narzedzia/sprawdz-raport.mjs audit/M1-audytor-generalny-2026-11-17.md . audit/M1-2026-11-17 --rola M1-audytor-generalny
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu M1-audytor-generalny
+exit=0

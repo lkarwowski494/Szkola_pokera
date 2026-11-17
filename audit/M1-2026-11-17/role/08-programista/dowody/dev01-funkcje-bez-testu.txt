@@ -1,0 +1,10 @@
+$ eksportowane funkcje packages/{domena,postep,srs}/src vs wystąpienia nazwy w testach (packages/*/test, apps/mobile/src/**/__tests__, tests/)
+BEZ TESTU: packages/domena/src/niezaimplementowane.ts niezaimplementowane
+BEZ TESTU: packages/postep/src/bledy.ts kodSQLite
+BEZ TESTU: packages/postep/src/bledy.ts powodZapisu
+BEZ TESTU: packages/postep/src/bledy.ts jakoWynik
+BEZ TESTU: packages/postep/src/migracje.ts wycofaj
+BEZ TESTU: packages/postep/src/niezaimplementowane.ts niezaimplementowane
+BEZ TESTU: packages/postep/src/powtorki.ts powtorkaTx
+BEZ TESTU: packages/srs/src/advancement.ts toScore
+kod: 0

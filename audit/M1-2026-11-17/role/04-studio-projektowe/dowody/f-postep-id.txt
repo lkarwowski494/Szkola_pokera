@@ -1,0 +1,20 @@
+$ sed -n 60,72p "apps/mobile/src/app/(tabs)/progress.tsx"
+      {weakest.length > 0 ? (
+        <View style={{ gap: odstep.m }}>
+          <H2>{t('progress.weakest')}</H2>
+          {weakest.map((w) => (
+            <View key={w.family} style={{ gap: odstep.xs }}>
+              <View style={styles.row}>
+                <Text style={[styl.tresc, { color: tk.ink, flex: 1 }]}>{labels.get(w.family) ?? w.family}</Text>
+                <Muted>{`${w.correct}/${w.total}`}</Muted>
+              </View>
+              <Muted>{w.family}</Muted>
+              <ProgressBar value={w.acc} height={4} />
+            </View>
+          ))}
+$ grep -rhoE "^\s*family: [a-z0-9.-]+" content/pl | sort -u | head -5
+    family: m0.best-hand
+    family: m0.board-plays
+    family: m0.kicker
+    family: m0.ranking
+    family: m0.who-wins

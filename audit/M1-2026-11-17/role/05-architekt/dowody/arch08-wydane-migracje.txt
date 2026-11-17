@@ -1,0 +1,5 @@
+$ git diff --stat aee1a359 f75acdff16915aeb43ff788888216e28616c11ed -- packages/postep/src/schemat-v1.ts packages/postep/src/schemat-v2.ts packages/postep/src/schemat-v3.ts packages/postep/src/migracje.ts docs/architektura/schemat.sql docs/architektura/schemat-v2.sql docs/architektura/schemat-v3.sql
+kod wyjścia: 0 (pusty wynik = brak zmian od commitu buildu 1011 aee1a359)
+$ git rev-parse --is-shallow-repository
+true
+57a83bfe (build 1010): fatal: Not a valid object name 57a83bfe

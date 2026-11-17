@@ -1,0 +1,16 @@
+# Reaudit 06: kazdy wiersz "NN:<tab>tekst" nowego pliku jest podciagiem wiersza o tym samym numerze w tej samej sekcji starego pliku.
+import sys,re
+def sekcje(p):
+  d={};sek=None
+  for l in open(p,encoding='utf-8'):
+    l=l.rstrip('\n')
+    if l.startswith('#'):
+      m=re.search(r'https?://\S+',l)
+      if m and l.startswith('## '): sek=m.group(0)
+      continue
+    m=re.match(r'^\s*(\d+)\s*[:\t]\s*(.*)$',l)
+    if m: d.setdefault((sek,m.group(1)),[]).append(m.group(2))
+  return d
+stary,nowy=sekcje(sys.argv[1]),sekcje(sys.argv[2])
+zle=[(k,v) for k,vs in nowy.items() for v in vs if not any(v.strip() in s for s in stary.get(k,[]))]
+print(sys.argv[2].split('/')[-1], 'wierszy:',sum(len(v) for v in nowy.values()),'nie-podciagow:',len(zle)); [print('  ',k,v[:80]) for k,v in zle[:5]]

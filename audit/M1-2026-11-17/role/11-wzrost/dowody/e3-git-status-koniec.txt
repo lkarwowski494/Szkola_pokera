@@ -1,0 +1,5 @@
+$ git status --porcelain (koniec)
+ M audit/M1-2026-11-17/role/07-jakosc/dowody/jak04-mutacje.txt
+ M audit/M1-2026-11-17/role/11-wzrost/11-wzrost-2026-11-17.md
+?? audit/M1-2026-11-17/role/11-wzrost/dowody/e3-git-status-koniec.txt
+exit 0

@@ -1,0 +1,91 @@
+# Odczyt Treningu (analogia D-191), 2026-11-17, repo lkarwowski494/trening HEAD 2d9758149ad31f36e0a3c36ff079a45d7a672251 (git ls-remote), pliki z raw.githubusercontent.com/.../main/
+$ curl -sS https://raw.githubusercontent.com/lkarwowski494/trening/main/lib/state/crashguard.ts | sed -n 1,31p   # kod=0, HTTP 200
+     1	/*
+     2	 * Strażnik pętli awarii przy starcie (M1-audytor-generalny-003). Licznik kolejnych uruchomień, w których pierwszy ekran nie dotrwał do „kamienia”
+     3	 * (BOOT_STABLE_MS po zamontowaniu aplikacji), trzyma mały klucz kv. Drugi z rzędu start bez „kamienia” (próg CRASH_LOOP_THRESHOLD) jest awaryjny:
+     4	 * init() nie ładuje ani nie zmienia danych, tylko zatrzymuje się na ekranie z wysłaniem danych i ponowieniem — aplikacja nie zamyka się przy każdym starcie.
+     5	 * Czysta logika (decideBoot, parseBootGuard) jest testowana na wektorach; zapis i odczyt: lib/state/boot.ts.
+     6	 * Zależy od: —
+     7	 */
+     8	/** Ile kolejnych uruchomień bez „kamienia” (łącznie z bieżącym) uruchamia tryb awaryjny. */
+     9	export const CRASH_LOOP_THRESHOLD = 2;
+    10	/** „Kamień”: tyle ms po zamontowaniu aplikacji (albo wcześniej — przy wyjściu do tła) start uznajemy za udany. */
+    11	export const BOOT_STABLE_MS = 1500;
+    12	/** Klucz kv z licznikiem. */
+    13	export const BOOT_GUARD_KEY = 'bootguard';
+    14	const GUARD_MAX = 100;
+    15	
+    16	export interface BootGuard { starts: number }
+    17	export type BootMode = 'normal' | 'safe';
+    18	
+    19	/** Zapis z bazy -> stan; brak, nie-JSON i złe wartości dają stan początkowy (start normalny). */
+    20	export function parseBootGuard(raw: string | null | undefined): BootGuard {
+    21	  if (!raw) return { starts: 0 };
+    22	  try {
+    23	    const n = Number((JSON.parse(raw) as { starts?: unknown } | null)?.starts);
+    24	    return { starts: Number.isFinite(n) && n > 0 ? Math.min(GUARD_MAX, Math.floor(n)) : 0 };
+    25	  } catch { return { starts: 0 }; }
+    26	}
+    27	/** Decyzja przy starcie: `prev.starts` = poprzednie uruchomienia bez „kamienia”; zwraca tryb bieżącego startu i stan do zapisania. */
+    28	export function decideBoot(prev: BootGuard): { mode: BootMode; next: BootGuard } {
+    29	  const starts = prev.starts + 1;
+    30	  return { mode: starts >= CRASH_LOOP_THRESHOLD ? 'safe' : 'normal', next: { starts: Math.min(GUARD_MAX, starts) } };
+    31	}
+
+$ curl ... app/_layout.tsx | sed -n 34,36p;46,52p;64,79p (wiersze skrócone do 300 znaków)   # kod=0, HTTP 200
+    34	export const unstable_settings = { initialRouteName: '(tabs)' };
+    35	
+    46	  useEffect(() => initA11yPrefs(), []); /* M1-024: „Pogrubiony tekst” z ustawień iOS (odczyt i nasłuch) */
+    47	  /* M1-audytor-generalny-003: „kamień” strażnika pętli awarii — pierwszy ekran działa BOOT_STABLE_MS po starcie (albo aplikacja idzie do tła). Wyjątek przy rysowaniu
+    48	   * odmontowuje ten komponent (ErrorBoundary niżej), więc licznik nie jest zerowany, a ponowna awaria prowadzi do ekranu awaryjnego. */
+    49	  const readyRef = useRef(false); readyRef.current = ready;
+    50	  useEffect(() => { if (!ready) return; const to = setTimeout(() => { markBootStable().catch(() => {}); }, BOOT_STABLE_MS); return () => clearTimeout(to); }, [ready]);
+    51	  /* 0.20: łącze z Apple Watch — startuje samo przy sparowanym zegarku z aplikacją (docs/36); build E2E: atrapa zegarka (lib/watch/test-mode.ts). Dopiero po init() (`ready`): migawka czyta stan, a przed wczytaniem danych getState() rzuca „store not initialised” (E2E 50, 14.10.2026) */
+    52	  useEffect(() => (ready ? (isFakeWatchBuild() ? startTestWatch() : startAppleWatchLink()) : undefined), [ready]);
+    64	    <Pressable accessibilityLanguage={lang()} accessibilityRole="button" onPress={() => start(true)} style={{ padding: 12 }}><Text accessibilityLanguage={lang()} style={{ color: th.accent, ...font('button') }}>{t('Spróbuj ponownie')}</Text></Pressable>
+    65	  </View>
+    66	  // Błąd startu (np. baza niedostępna, wyjątek po wczytaniu danych, pętla awarii) — komunikat, wysłanie danych, ponowienie i kontakt (M1-audytor-generalny-003, 004).
+    67	  : err ? <StartError title={t('Nie udało się otworzyć danych.')} message={t('Dane w telefonie nie zostały zmienione — możesz je wysłać jako plik.')} detail={err} diag={diag} onRetry={() => start(true)} />
+    68	  : !ready ? <View style={{ flex: 1, backgroundColor: th.bg, alignItems: 'center', justifyContent: 'center' }}><ActivityIndicator color={th.accent} /></View>
+    69	  : <Root />;
+    70	  /* Na czas animacji treść pod nakładką jest ukryta dla VoiceOver (i dla Maestro — scenariusze czekają na tekst, aż animacja się skończy). */
+    71	  return <View style={{ flex: 1 }}>
+    72	    <View style={{ flex: 1 }} accessibilityElementsHidden={intro} importantForAccessibility={intro ? 'no-hide-descendants' : 'auto'}>{body}</View>
+    73	    {intro ? <Intro ready={ready || err != null} onDone={() => setIntro(false)} /> : null}
+    74	  </View>;
+    75	}
+    76	
+    77	/** M1-audytor-generalny-003: wyjątek przy rysowaniu dowolnego ekranu (granica błędu expo-router dla całego drzewa) — ekran zastępczy zamiast zamknięcia aplikacji,
+    78	 * z wysłaniem danych, ponowieniem i kontaktem. Dane w bazie nie są ruszane. */
+    79	export function ErrorBoundary({ error, retry }: ErrorBoundaryProps) {
+    80	  return <StartError title={t('Ekran nie mógł się wyświetlić.')} message={t('Dane w telefonie nie zostały zmienione — możesz je wysłać jako plik.')} detail={error.message} onRetry={() => { retry().catch(() => {}); }} />;
+    81	}
+    82	
+
+$ curl ... lib/backup.ts | sed -n 192,217p   # kod=0, HTTP 200
+   192	export async function exportRawData(): Promise<boolean> {
+   193	  try {
+   194	    const txt = await readRawData(); if (!txt) return false;
+   195	    return await shareTemp(`training-data-${localISODate()}.json`, txt, { mimeType: 'application/json', dialogTitle: t('Dane z nowszej wersji aplikacji') });
+   196	  } catch { return false; }
+   197	}
+   198	/** M1-audytor-generalny-004: najnowsza kopia z Plików → Backup (kopie po treningu i bezpieczeństwa), udostępniona wprost z miejsca zapisu — dla ekranu błędu startu,
+   199	 * gdy bazy nie da się otworzyć. Tylko odczyt: nic nie zmienia ani nie usuwa. false — brak kopii albo udostępnianie niedostępne. */
+   200	export async function exportLatestCopy(): Promise<boolean> {
+   201	  try {
+   202	    if (!FileSystem.documentDirectory) return false;
+   203	    const dir = FileSystem.documentDirectory + AUTO_DIR;
+   204	    const files = (await FileSystem.readDirectoryAsync(dir)).map(f => [f, AUTO_RE.exec(f) ?? SAFETY_RE.exec(f)] as const).filter((x): x is readonly [string, RegExpExecArray] => !!x[1])
+   205	      .sort((a, b) => (poolKey(a[1]) < poolKey(b[1]) ? 1 : poolKey(a[1]) > poolKey(b[1]) ? -1 : 0));
+   206	    if (!files.length || !(await Sharing.isAvailableAsync())) return false;
+   207	    await Sharing.shareAsync(dir + files[0][0], { mimeType: 'application/json', dialogTitle: t('Backup treningów') }); return true;
+   208	  } catch { return false; }
+   209	}
+   210	/** Ekran błędu startu: najpierw surowe dane z bazy (exportRawData); gdy bazy nie da się otworzyć — kopia ratunkowa plików bazy (M1-audytor-generalny-004)
+   211	 * i najnowsza kopia z puli. `rescue` — nazwa folderu kopii ratunkowej w Pliki → Backup (ekran podaje miejsce). */
+   212	export async function exportStartDataDetailed(): Promise<{ ok: boolean; rescue: string | null }> {
+   213	  if (await exportRawData()) return { ok: true, rescue: null };
+   214	  const rescue = await rescueDbCopy(); const shared = await exportLatestCopy();
+   215	  return { ok: shared || rescue != null, rescue };
+   216	}
+   217	export async function exportStartData(): Promise<boolean> { return (await exportStartDataDetailed()).ok; }

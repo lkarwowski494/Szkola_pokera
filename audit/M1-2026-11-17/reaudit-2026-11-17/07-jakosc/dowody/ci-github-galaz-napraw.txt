@@ -1,0 +1,15 @@
+# Przebiegi GitHub Actions, gałąź claude/sesja-is-naprawy-p1 (MCP GitHub actions_list, perPage 5), odczyt 2026-11-17 ~15:30 UTC
+list_workflow_runs (wszystkie workflowy, branch=claude/sesja-is-naprawy-p1): total_count 8, wszystkie „CI”
+- #535 id 44114218888 · 196cb8c2 · push · in_progress (start 15:25:45Z)   <- badany SHA; wynik końcowy: patrz niżej
+- #534 id 44110778410 · a59d0e1b · push · completed/success (15:07:53Z–15:16:40Z)
+- #533 id 44110295355 · 5f34458a · completed/cancelled (zastąpiony przez #534)
+- #532 id 44109102033 · 517bde61 · completed/cancelled
+- #531 id 44106055733 · 3a150526 · completed/success
+a59d0e1b..196cb8c2 różni się tylko plikami audit/ (raport M2, log ci, postęp napraw): git diff --stat a59d0e1b..196cb8c2 -> 3 pliki w audit/M1-2026-11-17/.
+
+list_workflow_jobs #534 (perPage 5; 5 z 7 zadań pokazanych): rachunki, ci-testy-tresci, ci-kontrole, ci-testy-aplikacja, akceptacja — wszystkie success.
+Krok „Run pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320” = success w ci-testy-tresci, ci-kontrole, ci-testy-aplikacja, akceptacja (przypięta akcja działa w CI).
+
+list_workflow_runs e2e-ios.yml, branch=claude/sesja-is-naprawy-p1: total_count 0.
+Powód: .github/workflows/e2e-ios.yml „on.push.branches: [main, 'claude/sleepy-brahmagupta-2065nu']”, gałęzie sesji bez E2E, ręcznie przez workflow_dispatch (WG-19, D-1620).
+- #535 ponowny odczyt 15:32Z: nadal in_progress

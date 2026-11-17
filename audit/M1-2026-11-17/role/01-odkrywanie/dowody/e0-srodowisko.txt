@@ -1,0 +1,18 @@
+$ gh --version; gh auth status
+gh version 2.89.0 (2026-03-26)
+github.com
+  X Failed to log in to github.com using token (GH_TOKEN)
+  - Active account: true
+  - The token in GH_TOKEN is invalid.
+exit=0
+$ env -u NODE_PATH npx --no-install playwright --version
+Version 1.63.0
+$ curl -sS -o /dev/null -w "%{http_code}" https://itunes.apple.com/search?term=poker+trainer&entity=software&country=us
+200
+exit=0
+$ git remote -v
+origin	https://github.com/lkarwowski494/Szkola_pokera (fetch)
+origin	https://github.com/lkarwowski494/Szkola_pokera (push)
+$ xcodebuild -version
+/bin/bash: line 1: xcodebuild: command not found
+exit=127

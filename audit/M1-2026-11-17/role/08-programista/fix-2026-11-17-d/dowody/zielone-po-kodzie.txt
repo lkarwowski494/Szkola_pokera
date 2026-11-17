@@ -1,0 +1,42 @@
+(node:12404) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12403) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/components/__tests__/RangeGrid-geometria-08.test.tsx
+PASS src/components/__tests__/RangeGrid-uncertain.test.tsx
+  ● Console
+
+    console.log
+      spotów: 34, z uncertain: 25, BB: 4
+
+      at Object.log (src/components/__tests__/RangeGrid-uncertain.test.tsx:68:13)
+
+    console.log
+      sprawdzonych siatek: 34
+
+      at Object.log (src/components/__tests__/RangeGrid-uncertain.test.tsx:81:13)
+
+PASS src/components/__tests__/teksty-08.test.tsx
+PASS src/components/__tests__/znak-kolor-etykiety-08.test.tsx
+PASS src/theme/__tests__/motyw-08.test.ts
+PASS src/theme/__tests__/ij-tokens-zywe.test.tsx
+PASS src/theme/__tests__/kontrast-pary-08.test.ts
+PASS src/theme/__tests__/skalowanie-08.test.tsx
+PASS src/theme/__tests__/hx-tytul-dlugi-token.test.ts
+PASS src/theme/__tests__/kroje-08.test.ts
+PASS src/theme/__tests__/kroje-cjk-09.test.ts
+PASS src/theme/__tests__/siatka-etykieta-08.test.ts
+PASS src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx (6.496 s)
+  ● Console
+
+    console.log
+      pola (spot×klasa): 5746; puste (≤0,15): 3242; pełne (≥0,85): 2358; pośrednie (0,15–0,85): 146 w 27 z 34 spotów, 51 różnych klas; węższy przedział (0,25–0,75): 95 pól, 38 klas
+
+      at Object.log (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:213:13)
+
+
+Test Suites: 13 passed, 13 total
+Tests:       142 passed, 142 total
+Snapshots:   0 total
+Time:        6.842 s, estimated 7 s
+Ran all test suites matching /src\/components\/__tests__\/RangeGrid|src\/components\/__tests__\/znak-kolor|src\/components\/__tests__\/teksty-08|src\/theme/i.

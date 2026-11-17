@@ -1,0 +1,20 @@
+$ grep -n (lekcje M5: zdanie przyczynowe, odpowiedź poprawna i błędna o chybieniu)
+89:    explanation: "Ryzykujesz {{n:cbet.ex.small}}, żeby wygrać {{n:ex.pot}}. Próg to bet ÷ ({{t:pot}} + bet): {{n:cbet.ex.small}} ÷ ({{n:ex.pot}} + {{n:cbet.ex.small}}) = {{n:alpha.cbet.small}}. Rywal chybia flop dużo częściej, dlatego mały c-bet ta
+131:{{t:bet|Zakład}} bez żadnej ręki wychodzi na zero, gdy rywal {{t:fold|pasuje}} w bet ÷ ({{t:pot}} + bet) przypadków. Przy {{n:cbet.size.small}} {{t:pot|puli}} to {{n:alpha.cbet.small}}, przy {{n:cbet.size.big}} {{t:pot|puli}} już {{n:alpha.cbet.big}}
+71:      - { text: "Rywal często nie ma nic, więc nawet mały {{t:bet}} często wygrywa {{t:pot|pulę}} od razu", correct: true, why: "Tak: to podstawa c-betu. Chybienie nie zawsze oznacza {{t:fold}} (rywal może mieć {{t:draw}} albo wysokie karty), ale sł
+72:      - { text: "Rywal {{t:fold|spasuje}} dokładnie w {{n:flop.miss.unpaired}} przypadków", why: "Nie: rywal bez {{t:pair|pary}} czasem {{t:call|sprawdza}} z {{t:draw|drawem}} albo z wysoką kartą, a czasem ma {{t:pair|parę}} z ręki. To tylko przybliż
+kod wyjścia: 0
+
+$ python3 -I (rejestr.json: wpisy R-M5-006, R-M5-011, n:flop.miss.unpaired — czy któryś ma źródło dla związku „chybia → mały c-bet się opłaca”)
+n:flop.miss.unpaired potwierdzone | flop.miss.unpaired = (formuła missProbability) [percent]; obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje ręki
+   zrodlo: rachunek: missProbability(pair.outs.unpaired, cards.unseen.preflop, cards.board.flop) | przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build
+R-M5-006 potwierdzone | rywal ma rękę bez pary → flop nie sparuje żadnej z jego kart w ok. {{n:flop.miss.unpaired}} przypadków, bo spośród {{n:cards.unseen.preflop}} nieznanych kart tylko {{n:pair.outs.unpaired}} paruje jego rękę, a flop to tylko {{n:cards.board.flop}} karty
+   zrodlo: rachunek: C(44,3)/C(50,3) (żadna z 6 kart parujących w 3 kartach z 50 nieznanych) | brak pary 67,57%; trafienie 32,43%; dokładnie jedna para 6·C(44,2)/C(50,3) = 28,96%
+   zrodlo: https://cardplayer.com/poker-tools/odds-and-outs | a pair (matching one of your holecards) 2.45-1 29.0%
+R-M5-011 potwierdzone | c-betujesz bez żadnej ręki, licząc tylko na fold rywala → przy zakładzie {{n:cbet.size.small}} puli rywal musi pasować częściej niż w {{n:alpha.cbet.small}} przypadków, a przy {{n:cbet.size.big}} puli częściej niż w {{n:alpha.cbet.big}}, bo ryzykujesz bet, żeb
+   zrodlo: rachunek: alpha = bet/(pula+bet); 1/3: (1/3)/(4/3); 3/4: (3/4)/(7/4) | 25,00% i 42,86%
+wpisy z „opłaca” i „chybia” w twierdzeniu: []
+kod wyjścia: 0
+
+$ grep -rln "tak często się opłaca\|chybia flop" docs/tresci/
+kod wyjścia: 1 (1 = brak trafień)

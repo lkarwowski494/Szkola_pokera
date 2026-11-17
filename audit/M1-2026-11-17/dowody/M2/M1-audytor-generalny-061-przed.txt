@@ -1,0 +1,98 @@
+TAP version 13
+# Subtest: git check-ignore pomija pliki kluczy i .env w katalogu głównym i w pakietach
+not ok 1 - git check-ignore pomija pliki kluczy i .env w katalogu głównym i w pakietach
+  ---
+  duration_ms: 6.665997
+  type: 'test'
+  location: '/home/user/Szkola_pokera/tests/narzedzia/gitignore-sekrety.test.mjs:12:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + [
+    +   '.env',
+    +   '.env.production',
+    +   'AuthKey_X.p8',
+    +   'cert.p12',
+    +   'release.jks',
+    +   'app.keystore',
+    +   'profil.mobileprovision',
+    +   'dist.cer',
+    +   'klucz.pem',
+    +   'prywatny.key',
+    +   'credentials.json',
+    +   'apps/mobile/.env',
+    +   'apps/mobile/.env.production',
+    +   'apps/mobile/app.keystore',
+    +   'apps/mobile/dist.cer',
+    +   'apps/mobile/credentials.json',
+    +   'packages/postep/.env',
+    +   'packages/postep/.env.production',
+    +   'packages/postep/AuthKey_X.p8',
+    +   'packages/postep/cert.p12',
+    +   'packages/postep/release.jks',
+    +   'packages/postep/app.keystore',
+    +   'packages/postep/profil.mobileprovision',
+    +   'packages/postep/dist.cer',
+    +   'packages/postep/klucz.pem',
+    +   'packages/postep/prywatny.key',
+    +   'packages/postep/credentials.json'
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: '.env'
+    1: '.env.production'
+    2: 'AuthKey_X.p8'
+    3: 'cert.p12'
+    4: 'release.jks'
+    5: 'app.keystore'
+    6: 'profil.mobileprovision'
+    7: 'dist.cer'
+    8: 'klucz.pem'
+    9: 'prywatny.key'
+    10: 'credentials.json'
+    11: 'apps/mobile/.env'
+    12: 'apps/mobile/.env.production'
+    13: 'apps/mobile/app.keystore'
+    14: 'apps/mobile/dist.cer'
+    15: 'apps/mobile/credentials.json'
+    16: 'packages/postep/.env'
+    17: 'packages/postep/.env.production'
+    18: 'packages/postep/AuthKey_X.p8'
+    19: 'packages/postep/cert.p12'
+    20: 'packages/postep/release.jks'
+    21: 'packages/postep/app.keystore'
+    22: 'packages/postep/profil.mobileprovision'
+    23: 'packages/postep/dist.cer'
+    24: 'packages/postep/klucz.pem'
+    25: 'packages/postep/prywatny.key'
+    26: 'packages/postep/credentials.json'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/Szkola_pokera/tests/narzedzia/gitignore-sekrety.test.mjs:21:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: żaden śledzony plik nie ma nazwy pliku klucza ani .env (wzorce nie ukrywają plików repo)
+ok 2 - żaden śledzony plik nie ma nazwy pliku klucza ani .env (wzorce nie ukrywają plików repo)
+  ---
+  duration_ms: 6.24716
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 1
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 64.802072
+kod=1

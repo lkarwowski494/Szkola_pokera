@@ -1,0 +1,13 @@
+$ grep -n "raiseFill\|onFelt\|borderLeftWidth" apps/mobile/src/components/PasekStrategii.tsx
+151:      <View testID="os-paska" style={[styles.os, { borderColor: tk.onFelt }]}>
+159:                : { backgroundColor: tk.raiseFill, borderColor: tk.onFelt, borderLeftWidth: i === 0 ? 0 : GRUBOSC_OSI },
+exit=0
+$ grep -n "raiseFill:\|onFelt:" apps/mobile/src/theme/tokeny.ts
+23:  onFelt: '#FFFDF7',
+40:  raiseFill: '#FFFDF7', // część „przebicie”
+
+Rachunek: granica segmentu nie-pas = onFelt #FFFDF7, wypełnienie sąsiednich segmentów nie-pas = raiseFill #FFFDF7 → kontrast 1,00:1 (ten sam kolor; próg WCAG 1.4.11 = 3:1). Para w tokeny.ts mierzy tylko „część przebicie obok pas” (raiseFill/foldFill).
+$ grep -n "s-przebicie\|s-pas" docs/design/ekrany/e3.css (makieta: tylko dwa segmenty)
+114:.rozklad .s-pas { width: 80%; background: repeating-linear-gradient(135deg, var(--fold-fill) 0 7px, var(--fold-stripe) 7px 9px); }
+115:.rozklad .s-przebicie { width: 20%; background: var(--raise-fill); border-left: 1.5px solid var(--on-felt); }
+zrzut: zrzuty/po-ocenie-390-jasny.png (CO J9o: pas 10%, sprawdzenie 70%, przebicie 20%: oś pokazuje tylko granicę pas/reszta)

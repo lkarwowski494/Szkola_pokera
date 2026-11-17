@@ -1,0 +1,19 @@
+# Odczyt źródeł treści krytycznych 2026-11-17 (curl -sSL, tekst bez znaczników HTML, grep -F dosłownie)
+# gt=https://www.gamblingtherapy.org/ (200, przekierowanie na gamblingtherapy.org) medline=https://medlineplus.gov/ency/article/001520.htm (200, Review Date 5/15/2026) medline2=https://medlineplus.gov/ency/article/001927.htm nhs=https://www.nhs.uk/live-well/addiction-support/gambling-addiction/ vic=https://www.apprenticeships.vic.gov.au/gambling-and-mental-health primedope=https://www.primedope.com/risk-of-ruin-formula-for-poker-players/ (wszystkie 200)
+TAK  gt.html: a global service offered by Gordon Moody, providing free practical advice and emotional support to anyone affected by gambling.
+TAK  gt.html: Confidential, safe and delivered online
+TAK  medline.html: Contact your health care provider or mental health professional if you believe you have symptoms of compulsive gambling.
+TAK  medline.html: If you or someone you know is thinking about suicide
+TAK  medline.html: You can also call 911 or the local emergency number or go to the hospital emergency room. DO NOT delay.
+TAK  medline.html: Gambling to escape problems or feelings of sadness or anxiety.
+TAK  medline.html: Gambling larger amounts of money to try to make back past losses.
+TAK  medline2.html: Stay calm and call 911 or your local emergency number.
+TAK  nhs.html: Or you can ask a GP for information on services in your area.
+TAK  nhs.html: Do you bet more than you can afford to lose?
+TAK  nhs.html: Have you borrowed money or sold anything to get money to gamble?
+TAK  vic.html: Spending more time or money than you meant to or you can afford.
+TAK  vic.html: Hiding your gambling from friends and family, or feeling ashamed or guilty about your gambling.
+TAK  primedope.html: RoR = e^(-2 x WR x BR / SD^2)
+TAK  primedope.html: 25 to 30 at NL25 to NL50
+TAK  primedope.html: Losing 5 buy-ins should trigger a stake review. Losing 10 should trigger a move down.
+kod wyjścia: 0 (wszystkie TAK)

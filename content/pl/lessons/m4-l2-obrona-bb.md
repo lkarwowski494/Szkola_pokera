@@ -70,7 +70,7 @@ drills:
 
 ## Cena to nie wszystko
 
-Equity mówi, jak często wygrasz, gdy obaj dojdziecie do showdownu bez dalszych {{t:bet|zakładów}}. {{t:out-of-position|Bez pozycji}} często {{t:fold|spasujesz}} po flopie, więc słabe ręce w różnych kolorach realizują mniej niż ich equity. Ręce w kolorze, {{t:connectors|konektory}} i średnie {{t:pair|pary}} realizują więcej, dlatego w siatce bronisz nimi chętniej.
+Equity mówi, jak często wygrasz, gdy obaj dojdziecie do showdownu bez dalszych {{t:bet|zakładów}}. {{t:out-of-position|Bez pozycji}} często {{t:fold|spasujesz}} po flopie, więc słabe ręce w różnych kolorach realizują mniej niż ich equity. Ręce w kolorze, {{t:connectors|konektory}} i średnie {{t:pair|pary}} realizują więcej, dlatego zwykle bronisz nimi chętniej.
 
 ```range
 vs-open.bb-vs-btn

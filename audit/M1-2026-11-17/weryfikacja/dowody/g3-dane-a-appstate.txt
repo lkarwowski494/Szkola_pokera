@@ -1,0 +1,43 @@
+# g3-dane-a: AppState i odświeżanie „Dziś” (05-architekt-001, 08-programista-001). Repo /home/user/Szkola_pokera, kod = f75acdff (git diff f75acdff HEAD bez audit/ i docs/decyzje/IR.md: pusty)
+$ git diff --stat f75acdff16915aeb43ff788888216e28616c11ed HEAD -- . ':!audit' ':!docs/decyzje/IR.md' | wc -l
+0
+kod wyjścia: 0
+
+$ grep -rn 'AppState' apps/mobile/src apps/mobile/modules packages/*/src --include=*.ts --include=*.tsx | grep -v __tests__
+apps/mobile/src/platform/ochronaTla.ts:8: * a flagę przerwania przy `AppState` → `background` ustawia warstwa aplikacji (ADR 0013 pkt 4).
+packages/postep/src/port.ts:58:// operacja bez ochrony, przerwanie przy przejściu do tła należy do warstwy aplikacji (ADR 0013 pkt 4, AppState).
+kod wyjścia: 0
+
+$ grep -rnE "AppState\.|addEventListener\('change'|useAppState" apps/mobile/src apps/mobile/modules packages/*/src --include=*.ts --include=*.tsx
+kod wyjścia: 1
+
+$ grep -n 'addListener\|AppState' node_modules/expo-router/build/useFocusEffect.js
+97:        const unsubscribeFocus = navigation.addListener('focus', ()=>{
+109:        const unsubscribeBlur = navigation.addListener('blur', ()=>{
+kod wyjścia: 0
+
+$ grep -n 'useFocusEffect(odswiez)' apps/mobile/src/data/postep.ts
+63:  useFocusEffect(odswiez);
+kod wyjścia: 0
+
+$ grep -n 'useOdczytPostepu(czytajDzis\|termin_ms <= teraz\|limitZeZuzycia(odczyt' 'apps/mobile/src/app/(tabs)/index.tsx'
+32:  return { ok: true as const, wartosc: { postep: p.wartosc, fakty: f.wartosc, zuzyte: z.wartosc, powtorkiNaDzis: k.wartosc.filter((x) => x.termin_ms <= teraz).length } };
+48:  const odczyt = useOdczytPostepu(czytajDzis, 'nauka');
+56:      ? stanKafli({ limit: limitZeZuzycia(odczyt.wartosc.zuzyte, { pro, zegar: zegarTelefonu }), powtorkiNaDzis: powtorki, ukonczoneLekcje: odczyt.wartosc.fakty.ukonczoneLekcje, moduly: modules, lekcje: lessons })
+kod wyjścia: 0
+
+$ grep -rn 'odtworzZBazy(' apps/mobile/src --include=*.ts --include=*.tsx | grep -v __tests__
+apps/mobile/src/app/data.tsx:42:        await odtworzZBazy(port, powiadomieniaExpo, { tytul: t('reminder.title'), tresc: t('reminder.body') });
+apps/mobile/src/app/settings.tsx:81:    await odtworzZBazy(port, powiadomieniaExpo, tekstPrzypomnienia()); // klucz `przypomnienie` usunięty → anulowane (dane.md)
+apps/mobile/src/app/_layout.tsx:146:        .then(() => odtworzZBazy(portPostepu, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
+apps/mobile/src/features/ustawienia/przypomnienie.ts:45:export async function odtworzZBazy(port: PortBazy, pow: PortPowiadomien, tekst: TekstPrzypomnienia): Promise<'zaplanowane' | 'wylaczone' | 'brak_zgody'> {
+kod wyjścia: 0
+
+$ grep -n 'przygotujStart(port' apps/mobile/src/app/session.tsx apps/mobile/src/app/scenario.tsx
+apps/mobile/src/app/session.tsx:135:    const p = await przygotujStart(port, {
+apps/mobile/src/app/scenario.tsx:70:    const p = await przygotujStart(port, { rodzaj: 'scenariusz', trescId: szablon.id, pierwszePodejscieTestu: false, pro, zegar: zegar() });
+kod wyjścia: 0
+
+$ grep -rn 'AppState' docs/decyzje.md docs/decyzje/ --include=*.md | grep -v 'decyzje/IR.md'
+kod wyjścia: 1
+

@@ -1,0 +1,82 @@
+$ sed -n 27p docs/brd/README.md | cut -c1-400
+| BR-POM-001, BR-POM-002 (RD-12) | reguła krytyczna: brak numeru pomocy w kraju sprzedaży (zdrowie użytkownika); dziś tylko PL, OP-10 otwarte |
+exit=0
+$ sed -n 212p docs/brd/wymagania-sklep.md | cut -c1-400
+### BR-POM-001: Numer pomocy według kraju urządzenia
+exit=0
+$ sed -n 206p docs/brd/reguly.md | cut -c1-400
+### RD-12: Telefon pomocy przy problemie z hazardem według kraju użytkownika
+exit=0
+$ sed -n 146p docs/brd/odkrywanie.md | cut -c1-400
+Aplikacja z symulowanym hazardem i ramką „Odpowiedzialna gra” ma dziś numery tylko dla Polski (ER-04). Źródła dla rynku głównego: US 1-800-MY-RESET [FAKT S-39], w kryzysie 911 albo 988 [FAKT S-40]; 1-800-GAMBLER prowadzi od 2025 r. organizacja z New Jersey [FAKT S-42]; GB: Anglia i Szkocja 0808 8020 133, Walia 0808 2819 265 [FAKT S-41]. Pozostałe kraje sprzedaży: [DO USTALENIA] (OP-10
+exit=0
+$ sed -n 9p docs/brd/errata.md | cut -c1-400
+| ER-04 | Telefony pomocy tylko dla Polski, a storefrontu PL nie będzie | `content/helplines.yaml:5` („Zakres: tylko Polska”); decyzja właściciela 2026-11-03 (bez PL) | Reguła krytyczna RD-12: numer według regionu urządzenia dla każdego kraju w sprzedaży; źródła szczebla 1 do zebrania (OP-10). Blokuje wydanie (zdrowie, polityka sklepu przy symulowanym hazardzie) | 01 (RD), 06 (źró
+exit=0
+$ sed -n 67p docs/decyzje.md | cut -c1-400
+| D-158 | 2026-11-04 | właściciel | numery pomocy: bez numerów krajowych; w aplikacji jedno ogólne zdanie (przy utracie kontroli: lekarz albo lokalna poradnia; w zagrożeniu życia lokalny numer alarmowy) i jeden link do międzynarodowej pomocy online (Gambling Therapy, H-INT-1). Słowa właściciela: „Czy musimy takie rzeczy mieszać? Jak te numery? Prosimy się o problem” → wybór „B
+exit=0
+$ sed -n 76p docs/decyzje.md | cut -c1-400
+| D-167 | 2026-11-04 | W | L-01: testy pomocy (BR-POM-001/002) według D-158 (jedno zdanie `fallback.text` + jeden link H-INT-1, bez numerów krajowych), poprawka BRD przez rolę 01 `fix` później (ER z brzmieniem z `00-rozpoznanie.md` L-01; też README „Blokery”, wektory RD-12, kontrakt F-15/T-07 przez bramkę 03): „Według D-158, BRD potem (Recommended)” | najpierw poprawka BRD (dodatko
+exit=0
+$ sed -n 192p docs/brd/reguly.md | cut -c1-400
+- Kod: `packages/poker-core/src/grading.ts:132` (`rangeVerdict`), `apps/mobile/src/features/drills/engine.ts:421` — **dziś 0 < f < M daje „błąd” zamiast „niedokładność”** (ER-01)
+exit=0
+$ sed -n 122p docs/decyzje.md | cut -c1-400
+| D-213 | 2026-11-07 | A | rola 08 cz. 2: RD-11 w `rangeVerdict` (stopień `inaccuracy`, f < 0 → `Error`); stary ekran zadań (`apps/mobile/src/features/drills/engine.ts`) pokazuje `inaccuracy` jak `wrong` do czasu tekstu i stanu od 04/06 (punkty bez zmian: 0); walidacja wejścia `ruleOf2And4` (o całkowite ≥ 0, k ∈ {1, 2}), `callEv` (0 ≤ e ≤ 1, kwoty ≥ 0), `icmEquities` (brak listy �
+exit=0
+$ sed -n 16p docs/brd/errata.md | cut -c1-400
+| ER-11 | Funkcje `callEv` i `ruleOf2And4` nie odrzucają błędnych danych (equity 1,2 daje 190; −1 out daje −0,04) | `zgodnosc.ts` (scratchpad roli 01, 2026-11-03); RD-05-W6, RD-08-W4 | RYZ-03 (brzegowy: wejście pochodzi z kodu, nie od użytkownika); test i poprawka w przebudowie | 05, 07 | otwarte |
+exit=0
+$ sed -n 78p docs/brd/wymagania.md | cut -c1-400
+- Próg: 100% w 35 językach z listy aplikacji Trening (ZP-02; lista: `locales/` w repo `trening`, commit 2e4b0f8, odczyt 2026-11-03: bg, cs, da, de, el, en, es, es-419, et, fi, fr, hr, hu, id, it, ja, ko, lt, lv, ms, nb, nl, pl, pt, pt-BR, ro, ru, sk, sl, sr, sv, tr, uk, vi, zh-Hant).
+exit=0
+$ sed -n 211p docs/decyzje.md | cut -c1-400
+| D-302 | 2026-11-09 | W | Ok. 06:55 UTC, na pytanie o plan wydania 1.0 (szacunek koordynatora bez planu: pl+en ok. 30–50 h agenta, 17–24.11 [OCENA]): „Tak, plan, ale z kilkoma największymi językami” — sesja tylko z dokumentami (rola 10) robi plan 1.0 z datą; 1.0 = pl + en + kilka największych języków (wybór 3–6 wg rynku z rekomendacją, A wg D-296), pozostałe z 35 w aktualizac
+exit=0
+$ sed -n 39p apps/mobile/app.json | cut -c1-400
+      ["expo-localization", { "supportedLocales": { "ios": ["pl", "en", "ja", "zh-Hant", "pt-BR", "fr", "de", "es", "ko", "it", "vi", "pt"], "android": ["pl", "en", "ja", "zh-Hant", "pt-BR", "fr", "de", "es", "ko", "it", "vi", "pt"] }, "supportsRTL": false }],
+exit=0
+$ sed -n 53p docs/brd/README.md | cut -c1-400
+| OP-15 | **Zmienione 2026-11-09 (D-292):** storefront kraju dopiero po zapisanym sprawdzeniu legalności; języki w aplikacji bez zmian (35). Wcześniej rozstrzygnięte 2026-11-03: „Wszystkie poza PL” (odrzucona rekomendacja: lista 9 rynków). Skutek: RD-12 dla każdego kraju sprzedaży, dla krajów bez wpisu gałąź RD-12-W6 (OP-10); OG-03 (AU, BR, KR) działa tylko przy H-07 albo odpowiedz
+exit=0
+$ sed -n 113p docs/brd/odkrywanie.md | cut -c1-400
+Australia: R 18+ już przy „Infrequent” [FAKT S-22]; Brazylia: A18 przy „Frequent” [FAKT S-24]; Korea: przy „Frequent” tylko z numerem RCN [FAKT S-23]. Dotyczy tylko wariantu z grą z botami (H-07) albo odpowiedzi innej niż „brak” w ankiecie (OP-18). Storefronty: wszystkie poza PL (decyzja właściciela 2026-11-03, OP-15), więc ograniczenie działa w AU, BR i KR, jeśli wróci H-
+exit=0
+$ sed -n 210p docs/decyzje.md | cut -c1-400
+| D-301 | 2026-11-09 | W | Ok. 06:40 UTC, pytanie z przyciskami: (1) storefronty — „166 krajów”: D-300 przyjęta (wszystkie poza spornymi KR, CN, AF, GA, MA, VN, TR i poza PL; VN, potem TR po sprawdzeniu prawnym; reszta spornych nie teraz); (2) US i JP — „Akceptuję obie”: D-297 i D-299 przyjęte z warunkami W1–W4 (zdanie o anulowaniu subskrypcji na EkranZakupu, adres polityki prywa
+exit=0
+$ sed -n 20p docs/brd/errata.md | cut -c1-400
+| ER-15 | Wymagania szablonów, generatora, poziomu, oceny „dlaczego” i ekranu głównego (KO-037–KO-041) dopisała rola 03 na polecenie koordynatora, a nie rola 01 | `wymagania-scenariusze.md` (BR-SZB, BR-GEN, BR-POZ, BR-OCE, BR-MENU) | Przegląd roli 01 w trybie `fix`: dowody potrzeby, spójność z PR-02–PR-05 i J-04, ewentualne nowe NFR (dostępność BR-MENU-003). Do przeglądu wymaga
+exit=0
+$ sed -n 104p docs/brd/reguly.md | cut -c1-400
+- Kod: `math.ts:70` (`spr`)
+exit=0
+$ sed -n 72p packages/poker-core/src/math.ts | cut -c1-400
+export function spr(effectiveStack: number, pot: number): number {
+exit=0
+$ sed -n 1,6p content/helplines.yaml  # stan aplikacji zgodny z D-158
+# Pomoc przy problemach z hazardem: jedno źródło prawdy (B-058). Decyzja właściciela D-158 (2026-11-04): bez numerów
+# krajowych; jedno ogólne zdanie (lekarz albo specjalista zdrowia psychicznego; w nagłym zagrożeniu lokalny numer
+# alarmowy, twierdzenie H-INT-2) i jeden link do międzynarodowej pomocy online (Gambling Therapy, H-INT-1). Zastępuje
+# D-142 (numery 9 rynków) i D-150–D-152, D-155 (wybór według regionu); dawne wpisy krajów mają w rejestrze
+# docs/tresci/rejestr/pomoc.json status „wycofane”. Pole `claim` = id twierdzenia; content-build przerywa budowanie,
+# gdy twierdzenie nie ma w rejestrze statusu „potwierdzone”.
+exit=0
+$ grep -c "Zakres: tylko Polska" content/helplines.yaml  # cytat dowodu ER-04 już nie istnieje
+0
+exit=1
+$ grep -n "D-158" docs/brd/*.md
+exit=1 (1 = BRD nie odnotowuje D-158)
+$ grep -rn "2026-11-09\|2026-11-10" docs/brd/*.md | cut -c1-140  # BRD bywało edytowane po 2026-11-04
+docs/brd/README.md:14:| `wymagania-scenariusze.md` | BR: szablony scenariuszy (SZB), generator (GEN), poziom (POZ), ocena „dlaczego” (OC
+docs/brd/README.md:53:| OP-15 | **Zmienione 2026-11-09 (D-292):** storefront kraju dopiero po zapisanym sprawdzeniu legalności; języki w a
+docs/brd/README.md:54:| OP-16 | **Rozstrzygnięte 2026-11-09:** Schedule 2 §3.8(b) przeczytany — tytuł, okres, cena (i cena za jednostk�
+docs/brd/README.md:56:| OP-18 | Zamknięte dla ankiety Apple 1.0 (2026-11-09, D-310, rola 10): definicja „Simulated Gambling” przeczytan
+docs/brd/errata.md:19:| ER-14 | BR-SCN-001 („rywal wykonuje te same akcje, a karty na stole są te same”) i BR-SCN-004 („karty są te 
+docs/brd/errata.md:21:| ER-16 | BR-MENU-001 wymaga kafelka „lekcje” na ekranie głównym, a decyzja właściciela KO-045 („W2 + Wskaź
+docs/brd/wymagania-nauka.md:10:- Dowód potrzeby: J-05; W-02, W-03 pkt 3; brak pomijania to skarga u konkurenta (recenzja S-49); River ma te
+docs/brd/wymagania-scenariusze.md:2:Stan: 2026-11-10 · Rola 03 build (sesja BD, na polecenie koordynatora, decyzje właściciela KO-035…K
+docs/brd/wymagania-scenariusze.md:204:- Dowód potrzeby: KO-041 (właściciel: „przerobić menu główne i jakoś to popakować w kafelki 
+docs/brd/wymagania-scenariusze.md:239:- Źródła progów: WCAG 2.2, 1.4.11 Non-text Contrast: „The visual presentation of the following h
+exit=0

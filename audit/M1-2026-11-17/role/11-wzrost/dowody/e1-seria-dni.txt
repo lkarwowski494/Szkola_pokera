@@ -1,0 +1,21 @@
+$ grep -rn "seriaDni\|dniZOdpowiedzia\|progress.streak" apps/mobile/src packages/postep/src (bez testów)
+apps/mobile/src/app/(tabs)/progress.tsx:1:import { dniZOdpowiedzia, seriaDni, statystykiRodzin, type PortBazy } from '@szkola/postep';
+apps/mobile/src/app/(tabs)/progress.tsx:18:  const [st, dni] = await Promise.all([statystykiRodzin(port), dniZOdpowiedzia(port)]);
+apps/mobile/src/app/(tabs)/progress.tsx:22:  return { ok: true as const, wartosc: { stats: st.wartosc.map((x) => ({ family: x.rodzinaId, total: x.wszystkie, correct: x.zaliczone })), streak: seriaDni(dni.wartosc, dzis) }
+apps/mobile/src/app/(tabs)/progress.tsx:56:          <Muted>{t('progress.streak', { count: data.streak })}</Muted>
+packages/postep/src/statystyki.ts:53:export function dniZOdpowiedzia(port: PortBazy): Odczyt<string> {
+packages/postep/src/statystyki.ts:60:export function seriaDni(dni: readonly string[], dzisiaj: string): number {
+exit 0
+$ grep -n -i "seria\|streak" docs/scope-contract.md docs/brd/*.md
+exit 1 (1 = brak wiersza F/ZM i BR)
+$ grep -n "D-251" docs/decyzje.md
+160:| D-251 | 2026-11-08 | A | 08 cz. 5: ustawienia interfejsu jako klucze `cztery_kolory`, `haptyka` (JSON boolean, domyślne z modułu konfiguracji); seria dni z `aktywnosc.dzien_lokalny` (dni z co najmniej jedną odpowiedzią) | nazwy kluczy z `user.db` (`fourColor`, `haptics` jako '0'/'1'); seria z czasu UTC odpowiedzi (inny dzień niż limit przy strefie) | `state/settings.ts`, `repo.ts:151`;
+$ grep -o "day streak[^.]*" store/app-store-metadata.json
+day streak and an advancement score
+$ grep -n "streak" apps/mobile/src/i18n/locales/{pl,en}.json
+apps/mobile/src/i18n/locales/pl.json:310:    "streak_one": "Seria: {{count}} dzień",
+apps/mobile/src/i18n/locales/pl.json:311:    "streak_few": "Seria: {{count}} dni",
+apps/mobile/src/i18n/locales/pl.json:312:    "streak_many": "Seria: {{count}} dni",
+apps/mobile/src/i18n/locales/pl.json:313:    "streak_other": "Seria: {{count}} dnia",
+apps/mobile/src/i18n/locales/en.json:292:    "streak_one": "Streak: {{count}} day",
+apps/mobile/src/i18n/locales/en.json:293:    "streak_other": "Streak: {{count}} days",

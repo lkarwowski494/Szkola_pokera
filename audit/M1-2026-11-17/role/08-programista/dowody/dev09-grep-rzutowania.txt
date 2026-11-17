@@ -1,0 +1,46 @@
+$ grep -rnE "JSON\.parse\([^)]*\) as |as any|as unknown as|getAllSync<|getFirstSync<|getAllAsync<" apps/mobile/src packages/*/src (bez testów)
+apps/mobile/src/test-utils/ekrany/wspolne.tsx:88:  odwiedz(screen.root as unknown as Wezel);
+apps/mobile/src/test-utils/ekrany/wspolne.tsx:100:  odwiedz(screen.root as unknown as Wezel);
+apps/mobile/src/test-utils/ekrany/wspolne.tsx:106:  return tekst(screen.root as unknown as Wezel).replace(/\s+/g, ' ');
+apps/mobile/src/test-utils/ekrany/wspolne.tsx:118:  odwiedz(screen.root as unknown as Wezel);
+apps/mobile/src/test-utils/kontekstCn.ts:25:export const dbCn = dbSurowa as unknown as Pick<SQLiteDatabase, 'getAllSync' | 'getFirstSync'>;
+apps/mobile/src/test-utils/kontekstCn.ts:35:} as unknown as ScenarioTemplate;
+apps/mobile/src/test-utils/kontekstCn.ts:40:} as unknown as ScenarioTemplate;
+apps/mobile/src/test-utils/kontekstCn.ts:45:} as unknown as ScenarioTemplate;
+apps/mobile/src/test-utils/kontekstCn.ts:54:} as unknown as ScenarioTemplate;
+apps/mobile/src/test-utils/kontekstCn.ts:62:} as unknown as ScenarioTemplate;
+apps/mobile/src/test-utils/kontekstCn.ts:67:} as unknown as ScenarioTemplate;
+apps/mobile/src/test-utils/fgScenariusz.ts:11:} as unknown as SesjaScenariusza);
+apps/mobile/src/features/advancement/contentChange.ts:24:    const v = JSON.parse(value) as Partial<SeenContent>;
+apps/mobile/src/data/tresc/startTresci.ts:24:    const meta = jest === null ? null : metaZWierszy(await baza.getAllAsync<unknown>('SELECT key, value FROM meta'));
+apps/mobile/src/data/content/repo.ts:52:    .getAllSync<{ id: string; ord: number; title: string; sub: string; phase: ModuleRow['phase']; recommended: number }>(
+apps/mobile/src/data/content/repo.ts:59:  return db.getAllSync<LessonSummary>(
+apps/mobile/src/data/content/repo.ts:68:  const row = db.getFirstSync<{ id: string; moduleId: string; ord: number; title: string; sub: string; rules: string; body: string; drillCount: number }>(
+apps/mobile/src/data/content/repo.ts:75:  return { ...row, rules: JSON.parse(row.rules) as string[], body: JSON.parse(row.body) as Block[] };
+apps/mobile/src/data/content/repo.ts:79:  return { id: r.id, lessonId: r.lessonId, family: r.family, drill: JSON.parse(r.data) as Drill };
+apps/mobile/src/data/content/repo.ts:84:    .getAllSync<{ id: string; lessonId: string; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:95:    .getAllSync<{ id: string; lessonId: string; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:104:  const r = db.getFirstSync<{ id: string; lessonId: string | null; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:115:    .getAllSync<{ id: string; lessonId: string; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:127:    .getAllSync<{ id: string; lessonId: string; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:139:    .getAllSync<{ id: string; lessonId: null; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:149:    .getAllSync<{ id: string; lessonId: null; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:166:    .getAllSync<{ id: string; lessonId: null; family: string; data: string }>(
+apps/mobile/src/data/content/repo.ts:176:    .getAllSync<Omit<RuleRow, 'sources'> & { sources: string }>(
+apps/mobile/src/data/content/repo.ts:180:    .map((r) => ({ ...r, sources: JSON.parse(r.sources) as RuleSourceSummary[] }));
+apps/mobile/src/data/content/repo.ts:189:  return db.getFirstSync<{ value: string }>("SELECT value FROM meta WHERE key = 'hash'")?.value ?? '?';
+apps/mobile/src/data/content/repo.ts:194:  return db.getAllSync<{ family: string; moduleId: string; moduleOrd: number }>(
+apps/mobile/src/data/content/repo.ts:202:  const rows = db.getAllSync<{ family: string; title: string }>(
+apps/mobile/src/data/content/repo.ts:229:  const r = db.getFirstSync<RangeRow>(`SELECT ${RANGE_COLUMNS} FROM ranges WHERE id = ?`, id);
+apps/mobile/src/data/content/repo.ts:234:  const rows = db.getAllSync<RangeRow>(`SELECT ${RANGE_COLUMNS} FROM ranges`);
+apps/mobile/src/data/content/repo.ts:240:  const rows = db.getAllSync<{ id: string; rules: string }>(
+apps/mobile/src/data/content/repo.ts:254:  const jest = db.getAllSync<{ n: number }>("SELECT count(*) AS n FROM sqlite_master WHERE type = 'table' AND name = 'scenarios'");
+apps/mobile/src/data/content/repo.ts:256:  return db.getAllSync<{ id: string; data: string }>('SELECT s.id AS id, s.data AS data FROM scenarios s JOIN modules m ON m.id = s.module_id ORDER BY m.ord, s.ord, s.id').map((r) => {
+apps/mobile/src/data/content/repo.ts:281:  const liczba = (key: string): number | null => db.getFirstSync<{ value: number }>('SELECT value FROM numbers WHERE key = ?', key)?.value ?? null;
+apps/mobile/src/data/content/repo.ts:299:    const w = db.getFirstSync<{ value: string }>('SELECT value FROM game_kit WHERE key = ?', key);
+apps/mobile/src/data/content/repo.ts:304:  const spots = db.getAllSync<{ id: string; actions: string; uncertain: string }>('SELECT id, actions, uncertain FROM ranges').map((r): RangeSpotData => ({
+apps/mobile/src/data/postepExpo.ts:30:  getAllAsync<T>(sql: string, params: Wartosc[]): Promise<T[]>;
+apps/mobile/src/data/postepExpo.ts:61:    all: <T>(sql: string, p: Wartosc[] = []) => owin(() => db.getAllAsync<T>(sql, p)),
+packages/jezyki/src/i18n.ts:48:    const r = instancja.services.pluralResolver as unknown as { getRule(kod: string, o?: object): unknown };
+packages/poker-core/src/hud.ts:136:  ]) as unknown as HudThresholds;
+kod: 0

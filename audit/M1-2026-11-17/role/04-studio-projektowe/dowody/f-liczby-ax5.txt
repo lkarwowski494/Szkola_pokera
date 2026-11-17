@@ -1,0 +1,11 @@
+$ grep -nE "fontSize: (30|56)" apps/mobile/src (bez testów)
+apps/mobile/src/app/session.tsx:661:  score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+apps/mobile/src/app/advancement.tsx:98:  big: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+apps/mobile/src/features/advancement/AdvancementCard.tsx:61:  number: { fontSize: 30, lineHeight: 36, fontWeight: '800', fontVariant: ['tabular-nums'] },
+$ grep -n "badge:" apps/mobile/src/features/advancement/AdvancementCard.tsx
+59:  badge: { width: 72, height: 72, borderRadius: 36, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
+$ grep -n "styles.score\|styles.big" apps/mobile/src/app/session.tsx apps/mobile/src/app/advancement.tsx
+apps/mobile/src/app/session.tsx:326:        <Text style={[styles.score, { color: tk.ink }]}>{`${correct}/${items.length}`}</Text>
+apps/mobile/src/app/advancement.tsx:30:        <Text style={[styles.big, { color: tk.ink }]} accessibilityLabel={`${r.overall ?? '–'} ${t('advancement.outOf')}`}>
+
+Rachunek (AX5 = mnożnik 3,12 jak scripts/zrzuty/hl-zrzuty.mjs; brak maxFontSizeMultiplier w tych Text): plakietka 30 pt → 93,6 pt (lineHeight 36 → 112 pt) w kole 72×72 pt; wynik sesji 56 pt → 174,7 pt: „12/15” (5 znaków × ok. 0,6 em) ≈ 520 pt > 288 pt (320 − 2×16) i > 358 pt (390 − 2×16); wskaźnik 56 pt → 174,7 pt. Sufit tytułów D-122 (maxW 10% szerokości) tych stylów nie obejmuje.

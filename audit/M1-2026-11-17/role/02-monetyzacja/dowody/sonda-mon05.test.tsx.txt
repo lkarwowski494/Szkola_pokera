@@ -1,0 +1,90 @@
+/// <reference types="jest" />
+/// <reference types="node" />
+// SONDA audytu M1 rola 02 (MON-05): po zakupie ze stanu „zakup” ekranu sesji (wyczerpany limit) płacący powinien wejść do sesji.
+import '@/i18n';
+import i18n from 'i18next';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { PostepKontekst } from '@/data/postepKontekst';
+import { portTestowy } from '@/test-utils/postepTestowy';
+import { sciezkaTresciPl } from '@/test-utils/trescPl';
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { DatabaseSync } = require('node:sqlite') as typeof import('node:sqlite');
+const sqlite = new DatabaseSync(sciezkaTresciPl(), { readOnly: true });
+const parametry = (p: unknown[]) => (p.length === 1 && Array.isArray(p[0]) ? p[0] : p) as (string | number | null)[];
+const mockBaza = {
+  getAllSync: (sql: string, ...p: unknown[]) => sqlite.prepare(sql).all(...parametry(p)),
+  getFirstSync: (sql: string, ...p: unknown[]) => sqlite.prepare(sql).get(...parametry(p)) ?? null,
+};
+let mockParametry: Record<string, string> = {};
+const mockKupiono = { v: false };
+const mockTryb: { v: 'zwrot' | 'nasluch_przed' | 'tylko_nasluch' | 'przywrocenie' } = { v: 'zwrot' };
+const DOZ = 'pl.lkarwowski.szkolapokera.dozywotni';
+const mockSklep = {
+  odczyt: async () => ({ ok: true, transakcje: mockKupiono.v ? [{ produkt: DOZ, wygasaMs: null, odebrana: false }] : [] }),
+  produkty: async () => ({ ok: true, produkty: [{ id: DOZ, cena: '$19.99', okres: null }] }),
+  kup: async () => {
+    mockKupiono.v = true;
+    if (mockTryb.v === 'nasluch_przed') { useDostep.setState({ pro: true }); await new Promise((r) => setTimeout(r, 20)); return 'zakonczony'; }
+    if (mockTryb.v === 'tylko_nasluch') { setTimeout(() => useDostep.setState({ pro: true }), 20); return 'oczekuje'; }
+    return 'zakonczony';
+  },
+  przywroc: async () => { mockKupiono.v = true; return 'zakonczony'; },
+};
+
+jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
+jest.mock('expo-router', () => ({ router: { back: jest.fn(), push: jest.fn() }, useLocalSearchParams: () => mockParametry }));
+jest.mock('expo-constants', () => ({ expoConfig: { version: '1.0.0' } }));
+jest.mock('expo-sqlite', () => ({ openDatabaseAsync: jest.fn() }));
+jest.mock('expo-haptics', () => ({
+  impactAsync: jest.fn(async () => undefined), notificationAsync: jest.fn(async () => undefined), selectionAsync: jest.fn(async () => undefined),
+  ImpactFeedbackStyle: { Light: 'light' }, NotificationFeedbackType: { Success: 'success', Warning: 'warning', Error: 'error' },
+}));
+jest.mock('@/data/tresc/kontekst', () => ({ useBazaTresci: () => mockBaza }));
+jest.mock('@/data/tresc/plikiExpo', () => ({ katalogBazExpo: () => '/k', systemExpo: { plik: () => ({ exists: false }) } }));
+jest.mock('@/platform/ochronaTla', () => ({ utworzOchroneTla: () => undefined }));
+jest.mock('@/platform/dziennik', () => ({ zapiszBlad: jest.fn() }));
+jest.mock('@/platform/opinie', () => ({ ocenaExpo: { dostepna: async () => false, popros: async () => undefined } }));
+jest.mock('@/platform/zakupy', () => ({ sklepAplikacji: () => mockSklep }));
+
+import SessionScreen from '@/app/session';
+import { zegarTelefonu } from '@/platform/zegar';
+import { useDostep } from '@/state/dostep';
+
+const t = i18n.t.bind(i18n);
+
+async function wyczerpanyLimit() {
+  const p = await portTestowy();
+  const strefa = zegarTelefonu.strefa();
+  const dzien = zegarTelefonu.dzienLokalny(Date.now(), strefa);
+  p.db.prepare("INSERT INTO aktywnosc (id, rodzaj, stan, z_limitu, dzien_lokalny, strefa, plan, krok, start_ms, koniec_ms) VALUES ('x', 'sesja', 'zakonczona', 1, ?, ?, '{}', 0, 1, 2)").run(dzien, strefa);
+  return p;
+}
+
+beforeEach(() => { mockKupiono.v = false; useDostep.setState({ pro: false }); });
+
+describe('SONDA MON-05: zakup ze stanu zakupu ekranu sesji', () => {
+  it.each([['practice', 'zwrot'], ['review', 'zwrot'], ['practice', 'nasluch_przed'], ['practice', 'tylko_nasluch'], ['practice', 'przywrocenie']] as const)('%s / %s: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)', async (mode, tryb) => {
+    mockParametry = { mode };
+    mockTryb.v = tryb;
+    const p = await wyczerpanyLimit();
+    await render(<PostepKontekst.Provider value={p.port}><SessionScreen /></PostepKontekst.Provider>);
+    await waitFor(() => expect(screen.getByText(t('start.fullAccess'))).toBeTruthy());
+    await act(async () => fireEvent.press(screen.getByText(t('start.fullAccess'))));
+    await waitFor(() => expect(screen.getByText('$19.99')).toBeTruthy());
+    if (tryb === 'przywrocenie') await act(async () => fireEvent.press(screen.getByText(t('purchase.restore'))));
+    else await act(async () => fireEvent.press(screen.getByText('$19.99')));
+    await act(async () => { await new Promise((r) => setTimeout(r, 1500)); });
+    const stan = {
+      pro: useDostep.getState().pro,
+      ekranZakupu: screen.queryByText(t('purchase.restore')) !== null,
+      ekranStartuWyczerpany: screen.queryByText(t('start.renews', { godzina: '' }).split('(')[0]!.trim(), { exact: false }) !== null,
+      licznik: screen.queryByText(t('start.counter', { count: 0 })) !== null,
+      sesjaOtwarta: screen.queryByText(t('session.end')) !== null,
+      pusta: screen.queryByText(t('review.none')) !== null,
+    };
+    console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+    expect(stan.pro).toBe(true);
+    expect(stan.ekranStartuWyczerpany || stan.ekranZakupu || stan.licznik).toBe(false);
+  });
+});

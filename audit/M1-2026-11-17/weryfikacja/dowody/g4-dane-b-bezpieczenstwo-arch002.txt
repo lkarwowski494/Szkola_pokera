@@ -1,0 +1,56 @@
+# Weryfikacja 05-architekt-002 (kod = f75acdff; 2026-11-17)
+$ sed -n 37,42p apps/mobile/modules/ochrona-tla/ios/OchronaTlaModule.swift
+        let bylAktywny = self.aktywne.remove(biezace.rawValue) != nil
+        self.blokada.unlock()
+        guard bylAktywny else { return } // już zakończone przez `zakoncz`
+        self.sendEvent("wygasa", ["id": biezace.rawValue])
+        UIApplication.shared.endBackgroundTask(biezace)
+      }
+kod: 0
+
+$ sed -n 56,80p packages/postep/src/port.ts
+// `rozpocznij` przed pierwszą instrukcją, `zakoncz` dokładnie raz w finally; po wygaśnięciu czasu (`naWygasniecie` z tym id)
+// każda następna instrukcja i zatwierdzenie transakcji kończą się PrzerwanoWTle (wycofanie). Id −1 (system nie dał czasu):
+// operacja bez ochrony, przerwanie przy przejściu do tła należy do warstwy aplikacji (ADR 0013 pkt 4, AppState).
+export async function dlugaOperacja<T>(port: PortBazy, nazwa: string, praca: (chroniony: PortBazy) => Promise<T>): Promise<T> {
+  const ochrona = OCHRONA.get(port);
+  if (!ochrona) return praca(port);
+  const flaga = { przerwij: false };
+  const id = ochrona.rozpocznij(nazwa);
+  const wypisz = ochrona.naWygasniecie((wygaslo) => { if (wygaslo === id) flaga.przerwij = true; });
+  const sprawdz = () => { if (flaga.przerwij) throw new PrzerwanoWTle(); };
+  const zTx = (tx: Tx): Tx => ({
+    run: async (sql, p) => { sprawdz(); return tx.run(sql, p); },
+    all: async (sql, p) => { sprawdz(); return tx.all(sql, p); },
+  });
+  const chroniony: PortBazy = {
+    ...zTx(port),
+    transakcja: (fn) => port.transakcja(async (tx) => { const w = await fn(zTx(tx)); sprawdz(); return w; }),
+    zamknij: () => port.zamknij(),
+  };
+  try {
+    return await praca(chroniony);
+  } finally {
+    wypisz();
+    if (id !== -1) ochrona.zakoncz(id);
+  }
+kod: 0
+
+$ grep -rnw AppState apps/mobile/src packages --include=*.ts --include=*.tsx | grep -v node_modules
+apps/mobile/src/platform/ochronaTla.ts:8: * a flagę przerwania przy `AppState` → `background` ustawia warstwa aplikacji (ADR 0013 pkt 4).
+packages/postep/src/port.ts:58:// operacja bez ochrony, przerwanie przy przejściu do tła należy do warstwy aplikacji (ADR 0013 pkt 4, AppState).
+kod: 0
+
+$ grep -rnw AppState apps/mobile/src packages --include=*.ts --include=*.tsx | grep -v node_modules | grep -vE ':[0-9]+:\s*(//|\*)' | wc -l
+0
+kod: 0
+
+$ grep -n 'pkt 4\|^4\. \|^5\. ' docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md
+31:4. Przerwanie: długa operacja w porcie sprawdza flagę `przerwij` przed każdą instrukcją; flagę ustawia `wygasa` albo `AppState` → `background`, gdy `rozpocznij` zwróciło −1. Wynik operacji: wartość `{ ok: false, powod: 'przerwano_w_tle' }` (polityka błędów, `tlo-i-bledy.md`); dane bez zmian (`ROLLBACK`), kopia sprzed importu usunięta.
+32:5. Krótkie zapisy (krok aktywności, ustawienie, pamięć uprawnień, dziennik) bez ochrony: kończą się w milisekundach (p95 3,4 ms na laptopie), a system daje ok. 5 s po przejściu do tła. Port bazy przy `AppState` → `background` nie przyjmuje nowych zadań długich i kończy kolejkę.
+kod: 0
+
+$ sed -n 64p docs/architektura/tlo-i-bledy.md
+| jw. | `przerwano_w_tle` | ADR 0013 | dane bez zmian; po powrocie komunikat „Import nie został dokończony” i ponowienie | **brak** |
+kod: 0
+

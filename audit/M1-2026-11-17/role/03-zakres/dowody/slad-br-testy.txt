@@ -1,0 +1,58 @@
+$ dla każdego „### BR-…” z docs/brd: grep -rln BR-ID w plikach testów (*.test.ts|tsx|mjs) i flowach E2E (apps/mobile/e2e/*.yaml, bez oczekujace) — liczba plików i pierwsze 2 trafienia (2026-11-17)
+BR-ONB-001 pliki=9 e2e=5 e2e_oczekujace=0 | apps/mobile/e2e/01-lekcja-zadanie.yaml apps/mobile/e2e/02-powtorki.yaml 
+BR-ONB-002 pliki=4 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/ocena-poziomu/__tests__/PierwszeUruchomienie-08.test.tsx apps/mobile/src/features/ocena-poziomu/__tests__/ocenaPoziomu-08.test.ts 
+BR-ONB-003 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/kurs.test.ts 
+BR-ONB-004 pliki=2 e2e=1 e2e_oczekujace=0 | apps/mobile/e2e/05-ocena-poziomu.yaml apps/mobile/src/features/ocena-poziomu/__tests__/powitanie-ocena.test.tsx 
+BR-KURS-001 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/kurs.test.ts 
+BR-KURS-002 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/kurs.test.ts 
+BR-KURS-003 pliki=1 e2e=0 e2e_oczekujace=0 | tests/akceptacja/tresc/kryteria-terminy.test.ts 
+BR-KURS-004 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/powtorki-wznowienie.test.ts 
+BR-KURS-005 pliki=1 e2e=0 e2e_oczekujace=0 | tests/akceptacja/tresc/kryteria-liczby.test.ts 
+BR-CWI-001 pliki=0 e2e=0 e2e_oczekujace=0 |  
+BR-CWI-002 pliki=2 e2e=0 e2e_oczekujace=0 | packages/domena/test/wyjasnienie.test.ts tests/akceptacja/tresc/kryteria-liczby.test.ts 
+BR-CWI-003 pliki=2 e2e=0 e2e_oczekujace=0 | packages/domena/test/wyjasnienie.test.ts tests/akceptacja/tresc/kryteria-liczby.test.ts 
+BR-CWI-004 pliki=5 e2e=1 e2e_oczekujace=0 | apps/mobile/e2e/06-przerwanie-sesji.yaml apps/mobile/src/features/session/__tests__/aktywnoscSesji-08.test.ts 
+BR-CWI-005 pliki=1 e2e=0 e2e_oczekujace=0 | tests/akceptacja/tresc/kryteria-liczby.test.ts 
+BR-CWI-006 pliki=1 e2e=0 e2e_oczekujace=0 | tests/akceptacja/tresc/kryteria-liczby.test.ts 
+BR-CWI-007 pliki=2 e2e=0 e2e_oczekujace=0 | packages/domena/test/wyjasnienie.test.ts packages/poker-core/test/rd10-uklady.test.ts 
+BR-POW-001 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/powtorki-wznowienie.test.ts 
+BR-POW-002 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/powtorki-wznowienie.test.ts 
+BR-POW-003 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/k13-przypomnienie.test.ts 
+BR-SCN-001 pliki=2 e2e=0 e2e_oczekujace=0 | packages/domena/test/powtorki-wznowienie.test.ts packages/domena/test/scenariusz.test.ts 
+BR-SCN-002 pliki=2 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/scenariusz/__tests__/ekran.test.tsx packages/domena/test/scenariusz.test.ts 
+BR-SCN-003 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/scenariusz.test.ts 
+BR-SCN-004 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/scenariusz.test.ts 
+BR-SZB-001 pliki=1 e2e=0 e2e_oczekujace=0 | tools/content-build/test/szablon-scenariusza-bf.test.ts 
+BR-SZB-002 pliki=0 e2e=0 e2e_oczekujace=0 |  
+BR-GEN-001 pliki=4 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/scenariusz/__tests__/aktywnoscScenariusza.test.ts apps/mobile/src/features/scenariusz/__tests__/ekran.test.tsx 
+BR-GEN-002 pliki=4 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/scenariusz/__tests__/aktywnoscScenariusza.test.ts apps/mobile/src/features/scenariusz/__tests__/ekran.test.tsx 
+BR-GEN-003 pliki=13 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/scenariusz/__tests__/dp-icm-d889.test.tsx packages/poker-core/test/scenario-gen-decyzja-niezmienna.test.ts 
+BR-POZ-001 pliki=1 e2e=0 e2e_oczekujace=0 | tools/content-build/test/ef-margines-ko076.test.ts 
+BR-POZ-002 pliki=4 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/scenariusz/__tests__/ekran.test.tsx apps/mobile/src/features/scenariusz/__tests__/poziom.test.ts 
+BR-OCE-001 pliki=3 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/drills/__tests__/wyjasnienia-ko040.test.ts apps/mobile/src/features/scenariusz/__tests__/wariant.test.ts 
+BR-OCE-002 pliki=8 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/scenariusz/__tests__/ekran.test.tsx apps/mobile/src/features/scenariusz/__tests__/ib-rodzaje-ho-ekran.test.tsx 
+BR-OCE-003 pliki=0 e2e=0 e2e_oczekujace=0 |  
+BR-MENU-001 pliki=2 e2e=0 e2e_oczekujace=0 | apps/mobile/src/__tests__/menu-bi.test.tsx apps/mobile/src/features/dzis/__tests__/kafle-bi.test.ts 
+BR-MENU-002 pliki=0 e2e=0 e2e_oczekujace=0 |  
+BR-MENU-003 pliki=0 e2e=0 e2e_oczekujace=0 |  
+BR-ZAK-001 pliki=1 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/zakup/__tests__/zakup.test.tsx 
+BR-ZAK-002 pliki=2 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/zakup/__tests__/zakup.test.tsx packages/domena/test/maszyny.test.ts 
+BR-ZAK-003 pliki=3 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/ustawienia/__tests__/ustawienia.test.tsx apps/mobile/src/features/zakup/__tests__/zakup.test.tsx 
+BR-ZAK-004 pliki=2 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/ustawienia/__tests__/ustawienia.test.tsx apps/mobile/src/features/ustawienia/__tests__/ustawieniaAplikacji-08.test.ts 
+BR-LIM-001 pliki=7 e2e=1 e2e_oczekujace=0 | apps/mobile/e2e/09-limit-dnia.yaml apps/mobile/src/__tests__/menu-bi.test.tsx 
+BR-LIM-002 pliki=4 e2e=1 e2e_oczekujace=0 | apps/mobile/e2e/06-przerwanie-sesji.yaml apps/mobile/src/features/start/__tests__/start.test.tsx 
+BR-LIM-003 pliki=6 e2e=1 e2e_oczekujace=0 | apps/mobile/e2e/09-limit-dnia.yaml apps/mobile/src/features/dane/__tests__/dane.test.tsx 
+BR-LIM-004 pliki=1 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/start/__tests__/start.test.tsx 
+BR-LIM-005 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/limit.test.ts 
+BR-DANE-001 pliki=4 e2e=0 e2e_oczekujace=0 | apps/mobile/src/data/__tests__/przeniesienie-08.test.ts apps/mobile/src/features/dane/__tests__/dane.test.tsx 
+BR-DANE-002 pliki=6 e2e=0 e2e_oczekujace=0 | apps/mobile/src/data/__tests__/przeniesienie-08.test.ts apps/mobile/src/features/dane/__tests__/dane.test.tsx 
+BR-DANE-003 pliki=4 e2e=0 e2e_oczekujace=0 | apps/mobile/src/data/__tests__/usunPostep-08.test.ts apps/mobile/src/features/ustawienia/__tests__/ustawienia.test.tsx 
+BR-DANE-004 pliki=1 e2e=0 e2e_oczekujace=0 | packages/domena/test/k06-tresc.test.ts 
+BR-POM-001 pliki=1 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/help/__tests__/pomoc.test.tsx 
+BR-POM-002 pliki=2 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/help/__tests__/pomoc.test.tsx apps/mobile/src/features/ustawienia/__tests__/ustawienia.test.tsx 
+BR-JEZ-001 pliki=1 e2e=1 e2e_oczekujace=0 | apps/mobile/e2e/08-drugi-jezyk.yaml 
+BR-JEZ-002 pliki=2 e2e=0 e2e_oczekujace=0 | packages/domena/test/wyjasnienie.test.ts tools/content-build/test/k06-content-build.test.ts 
+BR-OPIN-001 pliki=3 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/opinie/__tests__/prosbaOOcene-08.test.ts apps/mobile/src/features/ustawienia/__tests__/ustawieniaAplikacji-08.test.ts 
+BR-OPIN-002 pliki=1 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/opinie/__tests__/opinie.test.tsx 
+BR-OPIN-003 pliki=1 e2e=0 e2e_oczekujace=0 | apps/mobile/src/features/opinie/__tests__/opinie.test.tsx 
+kod 0
