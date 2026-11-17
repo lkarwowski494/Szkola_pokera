@@ -1,0 +1,17 @@
+$ node scripts/sprawdz-scenariusze.mjs --statycznie
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 15
+BRAMKA ZIELONA
+kod wyjścia: 0
+
+$ node scripts/sprawdz-scenariusze.mjs --szkielet 1011
+zapisano docs/jakosc/test-fizyczny/1011.md
+kod wyjścia: 0
+$ node scripts/sprawdz-scenariusze.mjs --build 1011 --wykonane <lista flowów apps/mobile/e2e/*.yaml jak w testflight.yml>  # symulacja, E2E nie z tego przebiegu
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 15
+BRAMKA ZIELONA
+kod wyjścia: 0
+$ (kopia w scratchpadzie z dodanym pustym ekranem apps/mobile/src/app/ik-pusty.tsx) node scripts/sprawdz-scenariusze.mjs --statycznie
+PU: 28, w tym F: 10; funkcje: 19; ekrany: 16
+BRAMKA CZERWONA (1):
+- ekran `ik-pusty` nie ma żadnego PU: dopisz scenariusz w docs/jakosc/przypadki-uzycia.md
+kod wyjścia: 1
