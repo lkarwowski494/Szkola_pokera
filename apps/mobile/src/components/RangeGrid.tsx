@@ -6,10 +6,12 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
 
 /**
  * Siatka 13×13 (FR-03). Wiersz/kolumna: A→2; nad przekątną ręce w kolorze, pod nią w różnych kolorach.
+ * Klasy `spot.uncertain` mają znak „•” i legendę „mieszana” (jak PaintGrid; M2-koordynator-napraw-001).
  * Kolor pola: udział pierwszej grupy akcji (np. przebicie) i drugiej (np. sprawdzenie) jako paski.
  */
 export function RangeGrid({ spot }: { spot: RangeSpot }) {
   const tk = useTokens();
+  const niepewne = new Set(spot.uncertain ?? []); // klasy sprzeczne z solverem lub bez pewnego źródła: ta sama kropka co w PaintGrid
   const colors = [tk.felt1, tk.przejsciowe.warn, tk.cardBlue];
   const { t, i18n } = useTranslation();
   // A04-10 (D-284): liczba w formacie języka (jak `features/stol/skala.ts`), tekst z t()
@@ -37,6 +39,7 @@ export function RangeGrid({ spot }: { spot: RangeSpot }) {
                   <Text style={[styles.label, { color: tk.ink }]} numberOfLines={1}>
                     {hc}
                   </Text>
+                  {niepewne.has(hc) ? <Text style={[styles.mark, { color: tk.muted }]}>•</Text> : null}
                 </View>
               );
             })}
@@ -50,6 +53,7 @@ export function RangeGrid({ spot }: { spot: RangeSpot }) {
             <Text style={[styl.drobny, { color: tk.muted }]}>{g.name}</Text>
           </View>
         ))}
+        {niepewne.size > 0 ? <Text style={[styl.drobny, { color: tk.muted }]}>{t('paint.legendMixed')}</Text> : null}
         <Text style={[styl.drobny, { color: tk.muted }]}>{t('range.playPercent', { pct })}</Text>
       </View>
     </View>
@@ -61,6 +65,7 @@ const styles = StyleSheet.create({
   row: { flex: 1, flexDirection: 'row' },
   cell: { flex: 1, borderWidth: StyleSheet.hairlineWidth / 2, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' },
   label: { fontSize: 8, fontWeight: '600' },
+  mark: { position: 'absolute', top: 0, right: 1, fontSize: 8, fontWeight: '800' },
   legend: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.m, alignItems: 'center' },
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   swatch: { width: 10, height: 10, borderRadius: 2 },
