@@ -1,0 +1,28 @@
+$ grep -rnE "Date\.now\(\)|new Date\(\)" (pliki testów, bez node_modules)
+4
+apps/mobile/src/__tests__/menu-bi.test.tsx:82:    const teraz = Date.now();
+apps/mobile/src/__tests__/menu-bi.test.tsx:135:    const dzien = zegarTelefonu.dzienLokalny(Date.now(), zegarTelefonu.strefa());
+apps/mobile/src/__tests__/menu-bi.test.tsx:171:    const dzien = zegarTelefonu.dzienLokalny(Date.now(), zegarTelefonu.strefa());
+packages/poker-core/test/core.test.ts:284:    const r = runBenchmark(() => Date.now(), 3, 1000);
+
+$ grep -rnE "performance\.now|toBeLessThan\(.*(ms|czas|elapsed|duration)" testy
+
+$ grep -rnE "setTimeout" testy (czekanie)
+apps/mobile/src/platform/__tests__/zakupy-08.test.ts:182:    await new Promise((r) => setTimeout(r, 0));
+apps/mobile/src/platform/__tests__/dziennik-08.test.tsx:80:    const czekaj = () => new Promise((r) => setTimeout(r, 0));
+apps/mobile/src/features/ocena-poziomu/__tests__/PierwszeUruchomienie-jezyk-09.test.tsx:47:  await new Promise((r) => setTimeout(r, 50));
+apps/mobile/src/features/glossary/__tests__/GlossaryScreen.test.tsx:9:jest.setTimeout(30_000);
+apps/mobile/src/state/__tests__/dostep-08.test.ts:72:    await new Promise((r) => setTimeout(r, 20));
+apps/mobile/src/state/__tests__/dostep-08.test.ts:84:    await new Promise((r) => setTimeout(r, 20));
+apps/mobile/src/state/__tests__/dostep-08.test.ts:88:    await new Promise((r) => setTimeout(r, 20));
+packages/postep/test/k04-k15-port.test.ts:31:    const czekaj = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+$ grep -rnE "Math\.random" testy
+
+$ grep -rnE "\.skip\(|\bxit\(|it\.todo|describe\.skip|test\.skip" testy
+packages/domena/test/cg-recenzja-powtorka.test.ts:16:  it.fails('ziarno z ziarnoPowtorki odtwarza wariant z historii także po zmianie szablonu w treści (ziarna 1…20)', () => {
+tools/preflop-solver/test/pushfold-ranges.test.ts:21:describe.skipIf(!has)('zakresy push/fold M11 (content/ranges/pushfold.json)', () => {
+tools/preflop-solver/test/ninemax-file.test.ts:12:describe.skipIf(!existsSync(file))('plik preflop-9max-100bb.json', () => {
+tools/preflop-solver/test/equity-data.test.ts:17:describe.skipIf(!has)('macierz equity (dokładna)', () => {
+tools/preflop-solver/test/equity-data.test.ts:33:describe.skipIf(!has)('solver: push/fold heads-up (wynik bez modelu EQR)', () => {
+tools/preflop-solver/test/equity-data.test.ts:55:describe.skipIf(!has3)('tablica equity 3-way', () => {

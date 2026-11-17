@@ -1,0 +1,16 @@
+$ grep -rn -E "scheduleNotificationAsync|requestPermissionsAsync|getPermissionsAsync|interruptionLevel|timeSensitive|setNotificationHandler|cancelAllScheduled|cancelScheduledNotificationAsync|presentNotificationAsync|getExpoPushToken|getDevicePushToken" apps packages --include=*.ts --include=*.tsx --exclude-dir=node_modules
+apps/mobile/src/platform/powiadomienia.ts:6: * (build/*.d.ts, odczyt 2026-11-08: getPermissionsAsync, requestPermissionsAsync, cancelAllScheduledNotificationsAsync,
+apps/mobile/src/platform/powiadomienia.ts:7: * scheduleNotificationAsync z `{ type: SchedulableTriggerInputTypes.DAILY, hour, minute }`). Tylko powiadomienia lokalne:
+apps/mobile/src/platform/powiadomienia.ts:14:  zgoda: async () => zgodaZ(await Notifications.getPermissionsAsync()),
+apps/mobile/src/platform/powiadomienia.ts:15:  popros: async () => zgodaZ(await Notifications.requestPermissionsAsync()),
+apps/mobile/src/platform/powiadomienia.ts:16:  anulujWszystkie: () => Notifications.cancelAllScheduledNotificationsAsync(),
+apps/mobile/src/platform/powiadomienia.ts:18:    Notifications.scheduleNotificationAsync({
+packages/domena/src/przypomnienie.ts:3:// Kształt portu według expo-notifications 57.0.25 (build/*.d.ts, odczyt 2026-11-07): getPermissionsAsync,
+packages/domena/src/przypomnienie.ts:4:// requestPermissionsAsync, cancelAllScheduledNotificationsAsync, scheduleNotificationAsync z wyzwalaczem
+packages/domena/src/przypomnienie.ts:13:  zgoda(): Promise<ZgodaPowiadomien>; // getPermissionsAsync — bez okna systemowego
+packages/domena/src/przypomnienie.ts:14:  popros(): Promise<ZgodaPowiadomien>; // requestPermissionsAsync — okno systemowe, tylko po akcji użytkownika (ADR 0012 pkt 2)
+packages/domena/src/przypomnienie.ts:17:  // dublować. Pora spoza 0–23 / 0–59 → RangeError (scheduleNotificationAsync.ts:366–379).
+exit 0
+$ grep -n -i "notification\|UIBackgroundModes\|aps-environment" apps/mobile/app.json
+44:      ["expo-notifications", { "enableRemoteNotifications": false }],
+exit 0

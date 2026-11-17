@@ -1,0 +1,21 @@
+$ python3 -I rachunek_niezalezny.py numbers-pl.tsv  # numbers-pl.tsv = SELECT key,value,display FROM numbers z apps/mobile/assets/content/tresc-70ddf027b1-pl.db
+alpha.bet-half	oczekiwane 0.333333	baza 0.3333333333333333	OK
+alpha.bet-pot	oczekiwane 0.500000	baza 0.5	OK
+alpha.bet-third	oczekiwane 0.250000	baza 0.25	OK
+mdf.bet-half	oczekiwane 0.666667	baza 0.6666666666666666	OK
+mdf.bet-pot	oczekiwane 0.500000	baza 0.5	OK
+mdf.bet-three-quarters	oczekiwane 0.571429	baza 0.5714285714285714	OK
+eq.bet-half	oczekiwane 0.250000	baza 0.25	OK
+eq.bet-pot	oczekiwane 0.333333	baza 0.3333333333333333	OK
+eq.bet-third	oczekiwane 0.200000	baza 0.2	OK
+eq.bet-half.rake	oczekiwane 0.263158	baza 0.2631578947368421	OK
+odds.flush.flop-river	oczekiwane 0.349676	baza 0.3496762257169288	OK
+odds.flush.turn-river	oczekiwane 0.195652	baza 0.1956521739130435	OK
+odds.flush.flop-turn	oczekiwane 0.191489	baza 0.19148936170212766	OK
+odds.combo.turn-river	oczekiwane 0.326087	baza 0.32608695652173914	OK
+combos.total	oczekiwane 1326.000000	baza 1326.0	OK
+combos.kinds	oczekiwane 169.000000	baza 169.0	OK
+combos.unpaired.one-blocked	oczekiwane 12.000000	baza 12.0	OK
+combos.pair.one-blocked	oczekiwane 3.000000	baza 3.0	OK
+18 sprawdzeń, 0 różnic
+exit 0

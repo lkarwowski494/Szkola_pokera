@@ -1,0 +1,46 @@
+# JAK-04: ręczna próba mutacji na kopii f75acdff (scratchpad, git worktree); każda mutacja osobno, potem git checkout pliku
+## M1-limit-granica: packages/domena/src/limit.ts: „if (limit.pozostalo > 0)” → „if (limit.pozostalo >= 0)”
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+⎯⎯⎯⎯⎯⎯ Failed Tests 15 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ko043-start-wariantu-bt.test.ts > KO-043 na ścieżce startu (ŚR-101) > limit wyczerpany + nowy wariant → limit_wyczerpany
+ FAIL  test/ko043-start-wariantu-bt.test.ts > KO-043 na ścieżce startu (ŚR-101) > limit wyczerpany + starszy wpis niż ostatni → nowe rozdanie, limit_wyczerpany
+ FAIL  test/ko043-start-wariantu-bt.test.ts > KO-043 na ścieżce startu (ŚR-101) > bez wariantu zachowanie jak dotąd (limit wyczerpany → odmowa)
+ FAIL  test/limit.test.ts > AK-BR-LIM-001: licznik przed startem i wyczerpany limit > AK-BR-LIM-001-c limit wyczerpany: sesja (pierwsze podejście: false) → bez startu
+ FAIL  test/limit.test.ts > AK-BR-LIM-001: licznik przed startem i wyczerpany limit > AK-BR-LIM-001-c limit wyczerpany: powtorki (pierwsze podejście: false) → bez startu
+ FAIL  test/limit.test.ts > AK-BR-LIM-001: licznik przed startem i wyczerpany limit > AK-BR-LIM-001-c limit wyczerpany: scenariusz (pierwsze podejście: false) → bez startu
+ FAIL  test/limit.test.ts > AK-BR-LIM-001: licznik przed startem i wyczerpany limit > AK-BR-LIM-001-c limit wyczerpany: test_modulu (pierwsze podejście: false) → bez startu
+kod vitest (status potoku pominięty; liczby wyżej): zob. Tests
+
+## M2-test-modulu-powtorny: packages/domena/src/limit.ts: „(rodzaj === 'test_modulu' && pierwszePodejscieTestu)” → „(rodzaj === 'test_modulu')”
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/limit.test.ts > AK-BR-LIM-001: licznik przed startem i wyczerpany limit > AK-BR-LIM-001-c limit wyczerpany: test_modulu (pierwsze podejście: false) → bez startu
+ FAIL  test/limit.test.ts > AK-BR-LIM-001: licznik przed startem i wyczerpany limit > AK-BR-LIM-001-d darmowa aktywność dnia: test_modulu → start z limitu
+ FAIL  test/maszyny.test.ts > AK-ADR0010-akt: aktywnosc — start i przejścia z tabeli > AK-BR-LIM-001-start limit wyczerpany: test_modulu → bez startu (stan przepływu „ekran zakupu”)
+ Test Files  2 failed | 25 passed (27)
+      Tests  3 failed | 344 passed | 1 expected fail (348)
+kod vitest (status potoku pominięty; liczby wyżej): zob. Tests
+
+## M3-zwrot-nie-odbiera: packages/domena/src/dostep.ts: „odczyt.transakcje.filter((t) => !t.odebrana)” → „odczyt.transakcje”
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/dostep-08.test.ts > dostęp: przypadki roli 08 > kwartał odebrany, rok trwa → dostęp, w pamięci tylko rok
+ FAIL  test/dostep.test.ts > AK-BR-ZAK-003: logika dostępu (9 wektorów, docs/monetyzacja.md:89–99) > W7 zwrot dożywotniego → brak dostępu, pamięć wyczyszczona
+ Test Files  2 failed | 25 passed (27)
+      Tests  2 failed | 345 passed | 1 expected fail (348)
+kod vitest (status potoku pominięty; liczby wyżej): zob. Tests
+
+## M4-import-wersja-granica: packages/domena/src/eksport.ts: „if (k.wersja_formatu > obslugiwana)” → „if (k.wersja_formatu >= obslugiwana)”
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+⎯⎯⎯⎯⎯⎯ Failed Tests 15 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/eksport.test.ts > AK-BR-DANE-002: walidacja pliku przed importem > AK-BR-DANE-002-c brak tabeli postep_lekcji w `dane` (zła struktura, dane.md:120) → bledny_plik
+ FAIL  test/eksport.test.ts > AK-BR-DANE-002: walidacja pliku przed importem > AK-BR-DANE-002-c brak tabeli aktywnosc w `dane` (zła struktura, dane.md:120) → bledny_plik
+ FAIL  test/eksport.test.ts > AK-BR-DANE-002: walidacja pliku przed importem > AK-BR-DANE-002-c brak tabeli odpowiedz w `dane` (zła struktura, dane.md:120) → bledny_plik
+ FAIL  test/eksport.test.ts > AK-BR-DANE-002: walidacja pliku przed importem > AK-BR-DANE-002-c brak tabeli wynik_testu w `dane` (zła struktura, dane.md:120) → bledny_plik
+ FAIL  test/eksport.test.ts > AK-BR-DANE-002: walidacja pliku przed importem > AK-BR-DANE-002-c brak tabeli karta w `dane` (zła struktura, dane.md:120) → bledny_plik
+ FAIL  test/eksport.test.ts > AK-BR-DANE-002: walidacja pliku przed importem > AK-BR-DANE-002-c brak tabeli log_powtorki w `dane` (zła struktura, dane.md:120) → bledny_plik
+ FAIL  test/eksport.test.ts > AK-BR-DANE-002: walidacja pliku przed importem > AK-BR-DANE-002-c brak tabeli ustawienie w `dane` (zła struktura, dane.md:120) → bledny_plik
+kod vitest (status potoku pominięty; liczby wyżej): zob. Tests
+
+## M5-ocena-granica-3.5: packages/poker-core/src/grading.ts: „f >= t.mixedMin ? 'acceptable'” → „f > t.mixedMin ? 'acceptable'”
+ 1 file changed, 1 insertion(+), 1 deletion(-)

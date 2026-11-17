@@ -1,0 +1,3 @@
+# komenda: node -e (wartości słowników != pl z literami ąćęłńśźż albo identyczne z pl i >=12 liter; płaskie klucze) @ HEAD
+razem 0
+exit=0

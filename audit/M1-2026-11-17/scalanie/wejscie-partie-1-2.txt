@@ -1,0 +1,58 @@
+01-odkrywanie | 01-odkrywanie-001 | P1 (WYSOKIE) | D | Ćwiczenia z zakresem nazywają „Błędem” akcję graną przez solver rzadko; RD-11 i opis w sklepie mówią „Niedokładność” 
+01-odkrywanie | 01-odkrywanie-002 | P1 (WYSOKIE) | D | Polityka prywatności opublikowana, ale niepodpięta w aplikacji, z niedokończonymi danymi administratora; kontakt i zgłoszenie błędu ukryte 
+01-odkrywanie | 01-odkrywanie-003 | P1 (bez blokady wg CLAUDE.md pkt 1) | D | BRD nieaktualne wobec decyzji: reguła krytyczna RD-12, blokery wydania, języki, storefronty, statusy erraty 
+01-odkrywanie | 01-odkrywanie-004 | P1 (bez blokady wg CLAUDE.md pkt 1) | D | Wymagania danych bez scenariuszy błędu: nieudany eksport, przerwane usuwanie, nieudana migracja 
+01-odkrywanie | 01-odkrywanie-005 | P2 | P | Lekcja M13-L1 uczy czytania „raportu z gry” z wygraną w żetonach, a tryb gry usunięto (ADR 0011) 
+01-odkrywanie | 01-odkrywanie-006 | P2 | D | Opisy dostępu i README nie odpowiadają kodowi: scenariusze zużywają limit, a ekran zakupu i opis sklepu ich nie wymieniają 
+02-monetyzacja | 02-monetyzacja-001 | P0 (KRYTYCZNE: ryzyko odrzucenia; blokuje App Store, nie TestFlight wewnętrzny) | D | „Privacy Policy” na ekranie zakupu nic nie otwiera (adres = null) 
+02-monetyzacja | 02-monetyzacja-002 | P1 (WYSOKIE: ryzyko odrzucenia 2.1(b)) | D | Po zakupie lub przywróceniu w sesji i scenariuszu płacący widzi wyczerpany limit i „Pełny dostęp” 
+02-monetyzacja | 02-monetyzacja-003 | P2 | D | Ekran zakupu, opis w sklepie i notatki dla recenzenta pomijają scenariusze (z limitu, odblokowane zakupem) 
+02-monetyzacja | 02-monetyzacja-004 | P2 | D | Pusta lista produktów ze sklepu daje ekran zakupu bez planów i bez komunikatu 
+02-monetyzacja | 02-monetyzacja-005 | P2 | P | Subskrybent nie ma w aplikacji drogi do zakupu dożywotniego 
+02-monetyzacja | 02-monetyzacja-006 | P2 | D | Scenariusze zakupu na urządzeniu (U-5) bez daty i wyniku 
+03-zakres | 03-zakres-001 | P1 | D | Kafelek „Scenariusze” mówi „Wkrótce”, choć scenariusze działają (krok „sprawdź się” pętli głównej) 
+03-zakres | 03-zakres-002 | P2 | P | Funkcje w kodzie bez wiersza F-nn: zakładka „Postęp” (statystyki, seria, najsłabsze obszary, Wskaźnik), „Talia czterokolorowa”, „Wibracje” 
+03-zakres | 03-zakres-003 | P2 | D | Kontrakt nieaktualny wobec decyzji po 2026-11-10 (języki 1.0, ocena poziomu z wyborem, liczba BR, stan E2E) 
+03-zakres | 03-zakres-004 | P2 | P | 19 z 19 kryteriów „Intuicyjność” bez wyniku przejścia poznawczego 13 dni po zatwierdzeniu 
+03-zakres | 03-zakres-005 | P2 | D | Pięć BR w zakresie bez testu z ID w nazwie (ślad funkcja → BR → test) 
+04-studio-projektowe | 04-studio-projektowe-001 | P1 | D | Pasek strategii po ocenie nie pokazuje granicy między akcjami innymi niż pas 
+04-studio-projektowe | 04-studio-projektowe-002 | P1 | D | Haptyka wyboru akcji działa mimo wyłączonych „Wibracji przy odpowiedzi” 
+04-studio-projektowe | 04-studio-projektowe-003 | P1 | D | Kontrolka poziomu scenariusza ucina nazwy poziomów przy dużym tekście 
+04-studio-projektowe | 04-studio-projektowe-004 | P1 | D | Liczby wyników (wskaźnik, wynik sesji) w stałych rozmiarach poza skalą nie mieszczą się przy AX5 
+04-studio-projektowe | 04-studio-projektowe-005 | P1 | D | Tytuły w Literacie nie reagują na „Pogrubiony tekst” 
+04-studio-projektowe | 04-studio-projektowe-006 | P1 | D | Linki „Słowniczek” i „Pomoc” na ekranie Postęp mają cel dotyku 24 pt 
+04-studio-projektowe | 04-studio-projektowe-007 | P1 | D | Skala stopni łamie „Dopuszczalna” w środku wyrazu przy tekście domyślnym 
+04-studio-projektowe | 04-studio-projektowe-008 | P2 | D | Pasek stosu „ty” w ICM poniżej 3:1 w ciemnym motywie ze zwiększonym kontrastem 
+04-studio-projektowe | 04-studio-projektowe-009 | P2 | D | Postęp pokazuje i czyta surowe identyfikatory rodzin zadań („m0.best-hand”) 
+04-studio-projektowe | 04-studio-projektowe-010 | P2 | P | Kryteria „Intuicyjność” z kontraktu zakresu nie mają przejścia poznawczego ani wyniku dla roli 03 
+05-architekt | 05-architekt-001 | P1 → WYSOKIE, bez blokady wg CLAUDE.md pkt 1 | D | Po powrocie z tła „Dziś” pokazuje wczorajszy limit i nieaktualną liczbę powtórek (brak obsługi `AppState`) 
+05-architekt | 05-architekt-002 | P2 | D | Wygaśnięcie czasu w tle i odmowa czasu zostawiają otwartą transakcję długiej operacji w chwili zawieszenia 
+05-architekt | 05-architekt-003 | P2 | D | Progi oceny i zaliczenia testu zdefiniowane w dwóch modułach; trzy implementacje zaliczenia testu 
+05-architekt | 05-architekt-004 | P2 | D | Silnik gry z botami (F-19 = NIE) nadal w kodzie wbrew ADR 0011 
+05-architekt | 05-architekt-005 | P2 | D | Kontrola granic K-01 nie działa w CI; 11 plików źródłowych ponad 20 KB (największy 109,5 KB) 
+05-architekt | 05-architekt-006 | P2 | D | Zapytanie wejścia do scenariuszy skanuje całą tabelę odpowiedzi; poza budżetem B-4, bez pomiaru 
+05-architekt | 05-architekt-007 | P2 | D | Inwentarz prywatności pomija historię wariantów i dwie kopie postępu, których „Usuń postęp” nie usuwa 
+06-tresci-b | 06-tresci-501 | P1 (WYSOKIE) | M | Siatki obrony BB oceniają 16 i 13 rąk odwrotnie niż opublikowane rozwiązanie solvera, bez klas niepewnych 
+06-tresci-b | 06-tresci-502 | P2 | M | „Mały blind wobec Buttona prawie nic nie sprawdza” przy liczbie 13% ze źródła, które podaje 5% sprawdzeń 
+06-tresci-b | 06-tresci-503 | P2 | M | „Rywal chybia flop dużo częściej, dlatego mały c-bet tak często się opłaca”: przyczyna spoza źródła 
+06-tresci-b | 06-tresci-504 | P2 | M | Dane o rake'u (fakty zmienne) bez terminu przeglądu w rejestrze; data odczytu w lekcji inna niż w rejestrze 
+08-programista | 08-programista-001 | P2 | D | Po powrocie aplikacji na pierwszy plan ekran „Dziś” pokazuje limit i powtórki z poprzedniego dnia; brak obsługi AppState z ADR 0013 i tlo-i-bledy.md 
+08-programista | 08-programista-002 | P2 | D | Te same progi oceny i egzaminu zdefiniowane w dwóch modułach (KONFIGURACJA i thresholds.ts), bez testu równości 
+08-programista | 08-programista-003 | P2 | D | Dziennik rozdania używa nazwy ulicy jako klucza React; SC-06 i SC-08 mają dwie decyzje preflop (ostrzeżenie o zdublowanym kluczu w CI) 
+08-programista | 08-programista-004 | P2 | D | Każdy komponent z `useTokens` osobno odpytuje „Zwiększ kontrast” i zaczyna od palety zwykłej (mignięcie palety, 77 nasłuchów) 
+08-programista | 08-programista-005 | P2 | P | Skrypt `lint` (`expo lint`) nie działa: brak ESLint i konfiguracji; 21 wyłączeń reguł, których nic nie sprawdza 
+08-programista | 08-programista-006 | P2 | D | Rozmiary i krój tekstu wpisane na sztywno w 6 miejscach poza modułem motywu 
+10-wydanie | 10-wydanie-001 | P0 (KRYTYCZNE) | D | Brak działającej polityki prywatności w aplikacji i kontaktu na stronie wsparcia, w polityce i w notatkach: pewne odrzucenie przy wysyłce do App Review 
+10-wydanie | 10-wydanie-002 | P1 (WYSOKIE) | D | Notatki dla App Review pomijają scenariusze całego rozdania i im przeczą („no … bots”, „never a win or a loss”) 
+10-wydanie | 10-wydanie-003 | P2 (ŚREDNIE) | D | Opis sklepu, strona wsparcia i ekran zakupu pomijają scenariusze; dwie kontrole CI wymuszają zawetowaną D-305 
+10-wydanie | 10-wydanie-004 | P2 (ŚREDNIE) | M | Ankieta wiekowa (D-310) nie oceniona ponownie po wejściu scenariuszy do 1.0 (D-530) 
+10-wydanie | 10-wydanie-005 | P2 (ŚREDNIE) | P | Strona produktu przygotowana w 6 językach, a build ma 12; fala 2 (m.in. de-DE dla rynku DE) czeka w `docs/` 
+10-wydanie | 10-wydanie-006 | P2 (ŚREDNIE) | P | Plan zrzutów sklepu nie pokazuje głównej pracy (ocenionej decyzji, scenariusza) 
+10-wydanie | 10-wydanie-007 | P2 (NISKIE) | D | `.gitignore` w katalogu głównym nie obejmuje `*.p8`, `*.p12`, `credentials.json`, `.env` 
+10-wydanie | 10-wydanie-008 | P2 (NISKIE) | D | Dwa źródła numeru buildu (EAS `remote` + `autoIncrement` i 1000 + numer przebiegu) i nieaktualne workflowy ad hoc 
+12-niezawodnosc | 12-niezawodnosc-001 | P1 (WYSOKIE), bez blokady wg CLAUDE.md pkt 1 | D | Błąd danych przy starcie daje ogólny ekran z samym ponowieniem: bez eksportu, bez „zaktualizuj aplikację”, z obietnicą, której ponowienie nie spełni 
+12-niezawodnosc | 12-niezawodnosc-002 | P1 (WYSOKIE), bez blokady wg CLAUDE.md pkt 1 | D | Uszkodzona baza postępu: cichy start od zera, a odłożony plik z całym postępem nie ma drogi wyjścia z telefonu 
+12-niezawodnosc | 12-niezawodnosc-003 | P1 (WYSOKIE), bez blokady wg CLAUDE.md pkt 1 | P | Brak strażnika pętli awarii i trybu awaryjnego z wysłaniem danych (Trening je ma) 
+12-niezawodnosc | 12-niezawodnosc-004 | P2 (ŚREDNIE) | P | Po premierze brak sprawdzonej drogi, którą właściciel bez Maca dowie się o awarii; reguła pauzy D-304 nie ma kanału zgłoszeń 
+12-niezawodnosc | 12-niezawodnosc-005 | P2 (ŚREDNIE) | D | „Usuń postęp” zostawia na telefonie kopie postępu: odłożoną bazę uszkodzoną i kopię sprzed nieudanego importu 
+12-niezawodnosc | 12-niezawodnosc-006 | P2 (ŚREDNIE) | D | Uszkodzona kopia pliku treści na urządzeniu nie wraca do pliku z paczki; ekran błędu bez wyjścia poza reinstalacją 

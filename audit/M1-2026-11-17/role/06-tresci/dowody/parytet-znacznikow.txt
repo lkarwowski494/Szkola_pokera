@@ -1,0 +1,311 @@
+$ node scratchpad/parytet.mjs /home/user/Szkola_pokera
+T de/exams/m1.yaml: bet pl=12 tu=11
+T en/exams/m1.yaml: bet pl=12 tu=11
+T es/exams/m1.yaml: bet pl=12 tu=11
+T fr/exams/m1.yaml: bet pl=12 tu=11
+T it/exams/m1.yaml: bet pl=12 tu=11
+T ja/exams/m1.yaml: bet pl=12 tu=11
+T ko/exams/m1.yaml: bet pl=12 tu=11
+T pt/exams/m1.yaml: bet pl=12 tu=11
+T pt-BR/exams/m1.yaml: bet pl=12 tu=11
+T vi/exams/m1.yaml: bet pl=12 tu=11
+T zh-Hant/exams/m1.yaml: bet pl=12 tu=11
+T de/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T en/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T es/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T fr/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T it/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T ja/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T ko/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T pt/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T pt-BR/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T vi/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T zh-Hant/exams/m10.yaml: fold pl=24 tu=23; bluff pl=8 tu=7
+T de/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T en/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=16; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18; payout pl=2 tu=1
+T es/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T fr/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T it/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T ja/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18; payout pl=2 tu=1
+T ko/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T pt/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T pt-BR/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T vi/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; chips pl=8 tu=7; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18 …
+T zh-Hant/exams/m11.yaml: tournament pl=4 tu=3; fold pl=20 tu=17; small-blind pl=10 tu=9; bluff pl=2 tu=1; call pl=19 tu=18; payout pl=2 tu=1
+T de/exams/m12.yaml: standard-deviation pl=12 tu=13
+T en/exams/m12.yaml: standard-deviation pl=12 tu=13; buy-in pl=16 tu=15; stakes pl=8 tu=9
+T es/exams/m12.yaml: standard-deviation pl=12 tu=13
+T fr/exams/m12.yaml: standard-deviation pl=12 tu=13
+T it/exams/m12.yaml: standard-deviation pl=12 tu=13
+T ja/exams/m12.yaml: standard-deviation pl=12 tu=13
+T ko/exams/m12.yaml: standard-deviation pl=12 tu=13
+T pt/exams/m12.yaml: standard-deviation pl=12 tu=13
+T pt-BR/exams/m12.yaml: standard-deviation pl=12 tu=13
+T vi/exams/m12.yaml: standard-deviation pl=12 tu=13
+T zh-Hant/exams/m12.yaml: standard-deviation pl=12 tu=13
+N de/exams/m2.yaml: outs.oesd pl=9 tu=10
+T de/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N en/exams/m2.yaml: outs.oesd pl=9 tu=10
+T en/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N es/exams/m2.yaml: outs.oesd pl=9 tu=10
+T es/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N fr/exams/m2.yaml: outs.oesd pl=9 tu=10
+T fr/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N it/exams/m2.yaml: outs.oesd pl=9 tu=10
+T it/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N ja/exams/m2.yaml: outs.oesd pl=9 tu=10
+T ja/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N ko/exams/m2.yaml: outs.oesd pl=9 tu=10
+T ko/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N pt/exams/m2.yaml: outs.oesd pl=9 tu=10
+T pt/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N pt-BR/exams/m2.yaml: outs.oesd pl=9 tu=10
+T pt-BR/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N vi/exams/m2.yaml: outs.oesd pl=9 tu=10
+T vi/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+N zh-Hant/exams/m2.yaml: outs.oesd pl=9 tu=10
+T zh-Hant/exams/m2.yaml: flush pl=6 tu=3; oesd pl=5 tu=4; call pl=14 tu=13; bet pl=22 tu=20; flush-draw pl=4 tu=3; pot pl=16 tu=15 …
+T fr/exams/m3.yaml: big-blind pl=9 tu=8
+T ja/exams/m3.yaml: big-blind pl=9 tu=8
+T ko/exams/m3.yaml: big-blind pl=9 tu=8
+T vi/exams/m3.yaml: big-blind pl=9 tu=8
+T zh-Hant/exams/m3.yaml: big-blind pl=9 tu=8
+T en/exams/m4.yaml: value pl=7 tu=8
+T es/exams/m4.yaml: raise pl=14 tu=12; value pl=7 tu=8
+T fr/exams/m4.yaml: raise pl=14 tu=12
+T ja/exams/m4.yaml: raise pl=14 tu=13
+T ko/exams/m4.yaml: raise pl=14 tu=13
+T pt/exams/m4.yaml: raise pl=14 tu=12
+T pt-BR/exams/m4.yaml: raise pl=14 tu=12; value pl=7 tu=8
+T vi/exams/m4.yaml: raise pl=14 tu=13
+T zh-Hant/exams/m4.yaml: raise pl=14 tu=13
+T en/exams/m5.yaml: pot pl=17 tu=16
+T de/exams/m6.yaml: call pl=12 tu=11
+T en/exams/m6.yaml: call pl=12 tu=11
+T es/exams/m6.yaml: call pl=12 tu=11
+T fr/exams/m6.yaml: call pl=12 tu=11
+T it/exams/m6.yaml: call pl=12 tu=11
+T ja/exams/m6.yaml: call pl=12 tu=11
+T ko/exams/m6.yaml: call pl=12 tu=11
+T pt/exams/m6.yaml: call pl=12 tu=11
+T pt-BR/exams/m6.yaml: call pl=12 tu=11
+T vi/exams/m6.yaml: bet pl=9 tu=8; call pl=12 tu=11
+T zh-Hant/exams/m6.yaml: call pl=12 tu=11
+T en/exams/m7.yaml: call pl=12 tu=8; bet pl=8 tu=7
+T de/exams/m8.yaml: bet pl=6 tu=5; bluff pl=26 tu=25
+T en/exams/m8.yaml: bluff pl=26 tu=25
+T es/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=15; bluff pl=26 tu=25
+T fr/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=15; bluff pl=26 tu=25
+T it/exams/m8.yaml: bet pl=6 tu=5; bluff pl=26 tu=25
+T ja/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=14; bluff pl=26 tu=25
+T ko/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=14; bluff pl=26 tu=25
+T pt/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=15; bluff pl=26 tu=25
+T pt-BR/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=15; bluff pl=26 tu=25
+T vi/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=14; bluff pl=26 tu=25
+T zh-Hant/exams/m8.yaml: bet pl=6 tu=3; call pl=16 tu=14; bluff pl=26 tu=25
+T en/exams/m9.yaml: fold pl=5 tu=4
+T en/lessons/m0-l1-uklady.md: straight pl=12 tu=13; pair pl=14 tu=13; two-pair pl=8 tu=9; straight-flush pl=2 tu=1
+T es/lessons/m0-l1-uklady.md: straight pl=12 tu=13; pair pl=14 tu=13; two-pair pl=8 tu=9; straight-flush pl=2 tu=1
+T ja/lessons/m0-l1-uklady.md: straight pl=12 tu=13; straight-flush pl=2 tu=1
+T pt/lessons/m0-l1-uklady.md: straight pl=12 tu=13; pair pl=14 tu=13; two-pair pl=8 tu=9; straight-flush pl=2 tu=1
+T zh-Hant/lessons/m0-l1-uklady.md: pair pl=14 tu=13; two-pair pl=8 tu=9
+T en/lessons/m1-l1-przebieg.md: bet pl=21 tu=20
+T en/lessons/m10-l1-statystyki.md: call pl=10 tu=9; raise pl=15 tu=14; nit pl=2 tu=3
+T es/lessons/m10-l1-statystyki.md: nit pl=2 tu=3
+T fr/lessons/m10-l1-statystyki.md: nit pl=2 tu=3
+T pt-BR/lessons/m10-l1-statystyki.md: fold pl=7 tu=8; nit pl=2 tu=3
+T fr/lessons/m10-l2-typy-graczy.md: call pl=27 tu=26
+T ja/lessons/m10-l2-typy-graczy.md: fold pl=22 tu=23
+T ko/lessons/m10-l2-typy-graczy.md: fold pl=22 tu=23
+T ja/lessons/m10-l3-odejscie-od-bazy.md: bluff pl=38 tu=39
+T zh-Hant/lessons/m10-l3-odejscie-od-bazy.md: bluff pl=38 tu=39
+T zh-Hant/lessons/m10-l4-rake.md: call pl=27 tu=28
+T en/lessons/m11-l1-push-fold.md: fold pl=38 tu=37
+T en/lessons/m11-l3-icm.md: tournament-equity pl=2 tu=1; call pl=14 tu=13
+T de/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T en/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T es/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T fr/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T it/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T ja/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T ko/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T pt/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T pt-BR/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T vi/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T zh-Hant/lessons/m12-l2-decyzja-wynik.md: call pl=12 tu=11; flush-draw pl=4 tu=3; pot pl=7 tu=6; bet pl=3 tu=2; flush pl=8 tu=6
+T ja/lessons/m12-l4-bankroll.md: stakes pl=30 tu=31
+T en/lessons/m4-l1-3bet.md: open pl=18 tu=19
+T ja/lessons/m4-l1-3bet.md: call pl=31 tu=32
+T en/lessons/m4-l2-obrona-bb.md: fold pl=8 tu=7; big-blind pl=11 tu=10
+T it/lessons/m4-l4-limperzy.md: fold pl=8 tu=9
+T pt/lessons/m5-l1-tekstury.md: flush pl=7 tu=8
+T en/lessons/m5-l3-czestotliwosc-rozmiar.md: pair pl=14 tu=13
+T fr/lessons/m5-l3-czestotliwosc-rozmiar.md: fold pl=16 tu=17
+T en/lessons/m5-l4-bez-pozycji.md: pair pl=11 tu=8
+T ja/lessons/m5-l4-bez-pozycji.md: check pl=29 tu=30
+T ja/lessons/m6-l1-mdf-alpha.md: mdf pl=31 tu=32
+T de/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T es/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T fr/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T it/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T ja/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T ko/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T pt/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T pt-BR/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T vi/lessons/m6-l2-sprawdzenie.md: board pl=1 tu=0
+T zh-Hant/lessons/m6-l2-sprawdzenie.md: bet pl=13 tu=7; board pl=1 tu=0
+T zh-Hant/lessons/m6-l3-check-raise.md: bet pl=14 tu=12
+T en/lessons/m7-l1-druga-beczka.md: value pl=3 tu=4
+T fr/lessons/m7-l1-druga-beczka.md: value pl=3 tu=4
+T ja/lessons/m7-l1-druga-beczka.md: value pl=3 tu=4
+T ko/lessons/m7-l1-druga-beczka.md: value pl=3 tu=4
+T vi/lessons/m7-l1-druga-beczka.md: value pl=3 tu=4
+T ko/lessons/m7-l2-polaryzacja.md: range pl=18 tu=19
+T pt/lessons/m7-l2-polaryzacja.md: draw pl=15 tu=14; flush pl=7 tu=6; flush-draw pl=7 tu=8
+T ja/lessons/m7-l3-implied-odds.md: draw pl=10 tu=11
+T ko/lessons/m7-l3-implied-odds.md: draw pl=10 tu=11
+T en/lessons/m7-l4-probe-obrona.md: bet pl=20 tu=19
+T ja/lessons/m7-l4-probe-obrona.md: stakes pl=1 tu=2
+T it/lessons/m8-l1-value.md: call pl=34 tu=35
+T en/lessons/m8-l2-ile-blefow.md: bluff pl=89 tu=83; value pl=7 tu=12
+T zh-Hant/lessons/m8-l2-ile-blefow.md: bluff pl=89 tu=83
+T en/lessons/m8-l3-blokery.md: big-blind pl=4 tu=3
+T en/lessons/m8-l4-bluff-catching.md: value pl=11 tu=17
+T zh-Hant/lessons/m8-l4-bluff-catching.md: bluff pl=60 tu=61; value pl=11 tu=17; fold pl=15 tu=16
+T de/lessons/m9-l1-spr.md: bet pl=8 tu=6
+T en/lessons/m9-l1-spr.md: call pl=22 tu=20; bet pl=8 tu=6
+T es/lessons/m9-l1-spr.md: bet pl=8 tu=6
+T fr/lessons/m9-l1-spr.md: bet pl=8 tu=6
+T it/lessons/m9-l1-spr.md: bet pl=8 tu=6
+T ja/lessons/m9-l1-spr.md: bet pl=8 tu=6
+T pt/lessons/m9-l1-spr.md: bet pl=8 tu=6
+T pt-BR/lessons/m9-l1-spr.md: bet pl=8 tu=6
+T vi/lessons/m9-l1-spr.md: spr pl=59 tu=61
+T zh-Hant/lessons/m9-l1-spr.md: spr pl=59 tu=61; bet pl=8 tu=6
+T en/lessons/m9-l2-zaangazowanie.md: bet pl=22 tu=23
+T zh-Hant/lessons/m9-l2-zaangazowanie.md: pot pl=32 tu=31
+T de/lessons/m9-l3-rozmiar-geometryczny.md: bet pl=48 tu=47
+T en/lessons/m9-l3-rozmiar-geometryczny.md: pot pl=91 tu=90; bet pl=48 tu=47
+T fr/lessons/m9-l3-rozmiar-geometryczny.md: bet pl=48 tu=47
+T it/lessons/m9-l3-rozmiar-geometryczny.md: bet pl=48 tu=47
+T ja/lessons/m9-l3-rozmiar-geometryczny.md: pot pl=91 tu=92; bet pl=48 tu=47; street pl=17 tu=18
+T ko/lessons/m9-l3-rozmiar-geometryczny.md: bet pl=48 tu=47
+T vi/lessons/m9-l3-rozmiar-geometryczny.md: bet pl=48 tu=47
+T zh-Hant/lessons/m9-l3-rozmiar-geometryczny.md: bet pl=48 tu=47
+T en/lessons/m9-l4-plan-trzech-ulic.md: bet pl=39 tu=38
+T es/lessons/m9-l4-plan-trzech-ulic.md: bet pl=39 tu=38
+T it/lessons/m9-l4-plan-trzech-ulic.md: bet pl=39 tu=38
+T ja/lessons/m9-l4-plan-trzech-ulic.md: bet pl=39 tu=38
+T ko/lessons/m9-l4-plan-trzech-ulic.md: bet pl=39 tu=38
+T pt/lessons/m9-l4-plan-trzech-ulic.md: bet pl=39 tu=38
+T de/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T en/rules.yaml: pair pl=37 tu=35; bet pl=35 tu=31; call pl=107 tu=106; pot pl=104 tu=103; open pl=34 tu=33; bluff pl=62 tu=61 …
+T es/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T fr/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T it/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T ja/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; bet pl=35 tu=34; call pl=107 tu=108; draw pl=33 tu=35; kicker pl=6 tu=5 …
+T ko/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T pt/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; call pl=107 tu=106; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T pt-BR/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; bet pl=35 tu=34; fold pl=83 tu=82; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T vi/rules.yaml: pair pl=37 tu=35; board pl=8 tu=7; kicker pl=6 tu=5; top-pair pl=8 tu=7
+T zh-Hant/rules.yaml: pair pl=37 tu=34; split-pot pl=3 tu=4; board pl=8 tu=7; bet pl=35 tu=32; pot pl=104 tu=103; kicker pl=6 tu=5 …
+T en/scenarios/sc-01.yaml: fold pl=2 tu=1
+T it/scenarios/sc-04.yaml: bet pl=5 tu=7
+T de/scenarios/sc-05.yaml: bet pl=3 tu=2
+T en/scenarios/sc-05.yaml: bet pl=3 tu=4
+T es/scenarios/sc-05.yaml: bet pl=3 tu=2
+T fr/scenarios/sc-05.yaml: bet pl=3 tu=2
+T it/scenarios/sc-05.yaml: bet pl=3 tu=2
+T ja/scenarios/sc-05.yaml: bet pl=3 tu=2
+T ko/scenarios/sc-05.yaml: bet pl=3 tu=2
+T pt/scenarios/sc-05.yaml: bet pl=3 tu=2
+T pt-BR/scenarios/sc-05.yaml: bet pl=3 tu=2
+T vi/scenarios/sc-05.yaml: bet pl=3 tu=2
+T zh-Hant/scenarios/sc-05.yaml: bet pl=3 tu=2
+T ja/scenarios/sc-06.yaml: raise pl=8 tu=7
+T ko/scenarios/sc-06.yaml: raise pl=8 tu=7
+T zh-Hant/scenarios/sc-06.yaml: raise pl=8 tu=7
+T en/scenarios/sc-07.yaml: bet pl=4 tu=3; draw pl=4 tu=3
+T en/scenarios/sc-09.yaml: raise pl=6 tu=4
+T es/scenarios/sc-11.yaml: call pl=2 tu=1
+T it/scenarios/sc-11.yaml: bet pl=5 tu=7
+T de/scenarios/sc-12.yaml: bet pl=3 tu=2
+T en/scenarios/sc-12.yaml: bet pl=3 tu=2
+T es/scenarios/sc-12.yaml: bet pl=3 tu=2
+T fr/scenarios/sc-12.yaml: bet pl=3 tu=2
+T it/scenarios/sc-12.yaml: bet pl=3 tu=2
+T ja/scenarios/sc-12.yaml: bet pl=3 tu=2
+T ko/scenarios/sc-12.yaml: bet pl=3 tu=2
+T pt/scenarios/sc-12.yaml: bet pl=3 tu=2
+T pt-BR/scenarios/sc-12.yaml: bet pl=3 tu=2
+T vi/scenarios/sc-12.yaml: bet pl=3 tu=2
+T zh-Hant/scenarios/sc-12.yaml: bet pl=3 tu=2
+T en/scenarios/sc-13.yaml: bet pl=7 tu=4
+N de/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N en/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+T en/scenarios/sc-15.yaml: bet pl=6 tu=3
+N es/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N fr/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N it/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N ja/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N ko/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N pt/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N pt-BR/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N vi/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+N zh-Hant/scenarios/sc-15.yaml: cbet.size.small pl=2 tu=1
+T en/scenarios/sc-16.yaml: raise pl=3 tu=4
+T ko/scenarios/sc-16.yaml: raise pl=3 tu=4
+T pt/scenarios/sc-16.yaml: raise pl=3 tu=4
+T en/scenarios/sc-17.yaml: bet pl=4 tu=3
+T ko/scenarios/sc-17.yaml: pair pl=4 tu=6
+T en/scenarios/sc-18.yaml: bet pl=4 tu=3
+T en/scenarios/sc-20.yaml: bet pl=6 tu=3
+T en/scenarios/sc-21.yaml: check pl=6 tu=5
+T en/scenarios/sc-22.yaml: call pl=4 tu=5
+T fr/scenarios/sc-22.yaml: call pl=4 tu=5
+T it/scenarios/sc-22.yaml: call pl=4 tu=5
+T ja/scenarios/sc-22.yaml: call pl=4 tu=5
+T ko/scenarios/sc-22.yaml: call pl=4 tu=5
+T en/scenarios/sc-23.yaml: bluff pl=5 tu=4
+T de/scenarios/sc-24.yaml: call pl=3 tu=4
+T en/scenarios/sc-24.yaml: bet pl=9 tu=3
+T en/scenarios/sc-25.yaml: showdown pl=3 tu=2
+T fr/scenarios/sc-25.yaml: call pl=4 tu=5
+T it/scenarios/sc-25.yaml: call pl=4 tu=5
+T ja/scenarios/sc-25.yaml: call pl=4 tu=5
+T ko/scenarios/sc-25.yaml: call pl=4 tu=5
+N de/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N en/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N es/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N fr/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N it/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N ja/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N ko/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N pt/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N pt-BR/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N vi/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+N zh-Hant/scenarios/sc-26.yaml: spr.commit pl=4 tu=3
+T en/scenarios/sc-27.yaml: pot pl=7 tu=6
+T ja/scenarios/sc-27.yaml: pot pl=7 tu=6
+T pt/scenarios/sc-27.yaml: pot pl=7 tu=6
+T pt-BR/scenarios/sc-27.yaml: pot pl=7 tu=6
+T en/scenarios/sc-28.yaml: call pl=5 tu=6
+T fr/scenarios/sc-28.yaml: call pl=5 tu=6
+T it/scenarios/sc-28.yaml: call pl=5 tu=6
+T ja/scenarios/sc-28.yaml: call pl=5 tu=6
+T ko/scenarios/sc-28.yaml: call pl=5 tu=6
+N de/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N en/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+T en/scenarios/sc-29.yaml: bet pl=3 tu=5
+N es/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N fr/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N it/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N ja/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N ko/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N pt/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N pt-BR/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N vi/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+N zh-Hant/scenarios/sc-29.yaml: hud.vpip.loose pl=2 tu=1; hud.gap.passive pl=2 tu=1
+T en/scenarios/sc-31.yaml: bet pl=12 tu=5
+języki: de,en,es,fr,it,ja,ko,pt,pt-BR,vi,zh-Hant; pliki z różnicą liczb: 44; z różnicą terminów: 264; brak pliku w języku: 0
+exit 1

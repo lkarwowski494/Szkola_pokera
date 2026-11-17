@@ -1,0 +1,26 @@
+# komenda: grep -rnE '(=== ?1|== ?1|> ?1|length === 1) \?' apps/mobile/src packages/*/src (bez testów)
+apps/mobile/src/components/PasekStrategii.tsx:34:  return i % liczbaWWierszu(liczba, skala, szerokoscEkranu) === 0 ? 0 : StyleSheet.hairlineWidth * 2;
+apps/mobile/src/components/PasekStrategii.tsx:159:                : { backgroundColor: tk.raiseFill, borderColor: tk.onFelt, borderLeftWidth: i === 0 ? 0 : GRUBOSC_OSI },
+apps/mobile/src/components/ruleSources.ts:17:  return `${t(total === 1 ? 'rules.source' : 'rules.sources')}: ${parts.join('; ')}${single}`;
+apps/mobile/src/app/glossary.tsx:40:      {sections.length === 0 ? <Muted>{t('glossary.empty', { q })}</Muted> : null}
+apps/mobile/src/app/(tabs)/progress.tsx:49:      {odczyt.stan !== 'ok' ? null : total === 0 ? (
+apps/mobile/src/features/dzis/widok.ts:97:    powtorki: w.powtorkiNaDzis > 0 ? 'liczba' : w.ukonczoneLekcje.length === 0 ? 'po_pierwszej' : 'brak',
+apps/mobile/src/features/scenariusz/komponenty.tsx:40:            style={[styles.segment, { minHeight: CEL_DOTYKU, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.separator, backgroundColor: aktywny ? tk.primaryBg : 'transparent' }]}
+apps/mobile/src/features/scenariusz/wariant.ts:128:  if (p.point === 'range-spot') return nazwa(przebiciaWSpocie(p.spot) === 0 ? 'raise' : 'threeBet', 'to');
+apps/mobile/src/features/scenariusz/wariant.ts:398:const stolZnacznika = (stol: readonly string[], t: TFn): string => (stol.length === 0 ? t('scenario.street.preflop').toLowerCase() : karty(stol));
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:24:      {grupy.length === 0 ? (
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:361:  const spasowali = inni.length === 0 ? '' : t(inni.length === 1 ? 'scenario.icm.foldedOne' : 'scenario.icm.foldedMany', { kto: inni.length === 1 ? (inni[0] ?? '') : t('table.listAnd', { a: inni.slice(0, -1).join(', '), b: inni[inni.length - 1] ?? '' }) });
+apps/mobile/src/features/drills/text.ts:44:const categoryKey = (x: Pick<HandResult, 'category' | 'strength'>) => (x.category === HandCategory.StraightFlush && x.strength === 1 ? 'royalFlush' : CATEGORY_KEY[x.category]!);
+apps/mobile/src/features/drills/text.ts:505:  prompt: (axes: readonly TextureAxis[]) => L(axes.length === 1 ? `texture.prompt.${axes[0]!}` : 'texture.prompt.many'),
+packages/domena/src/wyjasnienie.ts:39:        poprawna: w === 1 ? 'A' : w === -1 ? 'B' : 'remis',
+packages/domena/src/scenariusz.ts:64:  return { zwyciezca: w === 1 ? 'gracz' : w === -1 ? 'rywal' : 'remis', wyjasnienie };
+packages/poker-core/src/table.ts:273:  const aggressive: 'bet' | 'raise' = state.currentBet === 0 ? 'bet' : 'raise';
+packages/poker-core/src/scenario-gen.ts:643:  return starty.length === 0 ? null : { min: Math.min(...starty), max: Math.max(...starty) };
+packages/poker-core/src/scenario-gen.ts:1166:      points.push({ point: 'pick-hand', street: 'river', mode: spec.mode, hands, sdv: r.sdv, calls: r.calls, folds: r.folds, correct: r.correct === 0 ? 'hand-a' : 'hand-b' });
+packages/poker-core/src/scenario-gen.ts:1300:    pot = k === 0 ? pick(rng, spec.pots) : pot + 2 * draws[0]!.bet;
+packages/poker-core/src/scenario-gen.ts:1310:    const hitZNadkartami = wyzsze === 0 ? hit : hitProbability(outsZNadkartami, nieznane, allIn && spec.street === 'flop' ? 2 : 1);
+packages/poker-core/src/scenario-gen.ts:1316:    const stosGracza = typeof t.stackBb === 'number' ? t.stackBb - ((k === 0 ? pot : draws[0]!.pot) - martwe) / 2 - draws.reduce((sum, x) => sum + x.bet, 0) : Infinity;
+packages/poker-core/src/scenario-gen.ts:1461:    return { v: v.length, f: f.length, sdv: razem === 0 ? 0 : (wygrywa + remisy / 2) / razem };
+packages/poker-core/src/draws.ts:57:  const straightKind = straightRanks >= 2 ? (isOpenEnded(ranks) ? 'oesd' : 'double-gutshot') : straightRanks === 1 ? 'gutshot' : null;
+packages/postep/src/start.ts:28:const nazwaUszkodzonej = (ms: number, n: number) => (n === 0 ? `postep-uszkodzona-${ms}.db` : `postep-uszkodzona-${ms}-${n}.db`);
+exit=0

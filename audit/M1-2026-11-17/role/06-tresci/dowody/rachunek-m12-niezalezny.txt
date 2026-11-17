@@ -1,0 +1,11 @@
+dd.p.small.100k (0.95) 0.946
+dd.p.big.100k (0.27) 0.278
+dd.p.small.20k (0.40) 0.393
+dd.p.small.100k.wr-low (0.99) 0.99
+dd.p.big.100k.wr-low (0.58) 0.582
+RoR wr 3 bi 30 0.0601
+RoR wr 3 bi 15 0.2451
+RoR wr 1 bi 30 0.3916
+RoR wr 5 bi 30 0.0092
+RoR wr 1 bi 50 0.2096
+exit 0

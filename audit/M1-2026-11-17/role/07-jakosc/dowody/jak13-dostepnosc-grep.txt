@@ -1,0 +1,21 @@
+$ grep -rnE "fontScale|minHeight\).toBe|toHaveStyle\(.*(minHeight|height|width).*4[48]|44 ?pt|Dynamic Type|rozmiar celu|hitSlop" (testy)
+apps/mobile/src/components/__tests__/ij-po-ocenie.test.tsx:2:// IJ (D-1908, WYSOKIE po zrzucie ij-po-ocenie-320-ax5.png): ekran „po ocenie” (PanelDecyzji: pasek strategii `PoOcenie` + `SkalaStopni`) przy 320 pt i Dynamic Type 
+apps/mobile/src/components/__tests__/ij-po-ocenie.test.tsx:23:  jest.spyOn(Dimensions, 'get').mockReturnValue({ width: szer, height: 844, scale: 3, fontScale: skala });
+apps/mobile/src/components/__tests__/if-ax5-320.test.tsx:2:// IF (zadanie 1, WYSOKIE, blokuje build 1011; D-1880…D-1883): przy 320 pt i Dynamic Type AX5 przycisk „Zobacz podsumowanie”, nazwa akcji w paskach decyzji i ocen
+apps/mobile/src/components/__tests__/if-ax5-320.test.tsx:23:  jest.spyOn(Dimensions, 'get').mockReturnValue({ width: szer, height: 844, scale: 3, fontScale: skala });
+apps/mobile/src/components/__tests__/ij-rzad-przyciskow.test.tsx:20:  jest.spyOn(Dimensions, 'get').mockReturnValue({ width: 390, height: 844, scale: 3, fontScale: 1 });
+apps/mobile/src/components/__tests__/PasekStrategii-08.test.tsx:43:  it('A04-13: oś po ocenie jak makieta e3.css:111, 114 — 44 pt, obrys onFelt 1,5, zaokrąglona; znacznik trójkątem; podpisy przypis w szerokości segmentu', a
+apps/mobile/src/components/__tests__/ih-ui-wymiary.test.tsx:3:// `Dimensions.get` w renderze; test podmienia tylko `Dimensions.get` (fontScale w wymiarach okna), bez `PixelRatio`. (2) Button dopasowuje rozmiar do SZEROKOŚCI SWOJE
+apps/mobile/src/components/__tests__/ih-ui-wymiary.test.tsx:17:const okno = (szer: number, skala: number) => jest.spyOn(Dimensions, 'get').mockReturnValue({ width: szer, height: 844, scale: 3, fontScale: skala });
+apps/mobile/src/components/__tests__/ih-ui-wymiary.test.tsx:24:  Dimensions.set({ window: { width: szer, height: 844, scale: 3, fontScale: skala }, screen: { width: szer, height: 844, scale: 3, fontScale: skala } });
+apps/mobile/src/__tests__/menu-bi.test.tsx:110:  it('zębatka (D-540): przycisk 44×44 pt z etykietą „Ustawienia”, bez hitSlop, rysunek SVG 24 pt, otwiera ustawienia', async () => {
+apps/mobile/src/__tests__/menu-bi.test.tsx:115:    expect(z.props.hitSlop).toBeUndefined();
+apps/mobile/src/__tests__/menu-bi.test.tsx:221:    RN.Dimensions.set({ window: { width: 390, height: 844, scale: 3, fontScale: skala } });
+apps/mobile/src/features/ocena/__tests__/ic-slowo-stopnia.test.tsx:22:  jest.spyOn(Dimensions, 'get').mockReturnValue({ width: szer, height: 844, scale: 3, fontScale: skala });
+apps/mobile/src/features/scenariusz/__tests__/dp-icm-d889.test.tsx:202:    const spy = jest.spyOn(Dimensions, 'get').mockReturnValue({ width: 390, height: 844, scale: 3, fontScale: 3.1 });
+apps/mobile/src/features/scenariusz/__tests__/hk-pasek-ocen-001.test.tsx:3:// granatowy pasek (tokeny actionBg/actionEdge/actionInk), podstawa segmentu od fontScale jak `PasekStrategii` (nie stałe 96 pt, nie białe kafle),
+apps/mobile/src/features/scenariusz/__tests__/hk-pasek-ocen-001.test.tsx:20:const OKNO_DOMYSLNE = { width: 750, fontScale: 1 }; // szerokość okna jak w jest-expo (750), skala 1 do czasu skala(...)
+apps/mobile/src/features/scenariusz/__tests__/hk-pasek-ocen-001.test.tsx:22:const mockOkno = () => jest.spyOn(Dimensions, 'get').mockReturnValue({ width: okno.width, height: 844, scale: 3, fontScale: okno.fontScale });
+apps/mobile/src/features/scenariusz/__tests__/hk-pasek-ocen-001.test.tsx:23:const skala = (s: number) => { okno.fontScale = s; return mockOkno(); };
+apps/mobile/src/features/scenariusz/__tests__/hk-pasek-ocen-001.test.tsx:37:  it('tekst domyślny: podstawa segmentu = podstawaSegmentu(fontScale) (70 pt), nie stałe 96', async () => {
+apps/mobile/src/features/scenariusz/__tests__/hk-pasek-ocen-001.test.tsx:42:  it('AX5 (3,12): podstawa rośnie z fontScale, jak segment decyzji (PasekStrategii)', async () => {

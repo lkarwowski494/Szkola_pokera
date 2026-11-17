@@ -1,0 +1,28 @@
+# komenda: grep -rn "join(', ')\|join('; ')\|join(' · ')" apps/mobile/src packages/*/src (bez testów)
+apps/mobile/src/components/ruleSources.ts:17:  return `${t(total === 1 ? 'rules.source' : 'rules.sources')}: ${parts.join('; ')}${single}`;
+apps/mobile/src/test-utils/trescPl.ts:9:  if (pliki.length !== 1) throw new Error(`Oczekiwano jednej bazy tresc-*-pl.db w ${katalog}, jest: ${pliki.join(', ') || 'brak'}`);
+apps/mobile/src/app/help.tsx:78:  const details = [entry.hours, entry.cost].filter(Boolean).join(', ');
+apps/mobile/src/app/advancement.tsx:84:    <View style={{ gap: odstep.xs }} accessible accessibilityLabel={pts.map((p) => `${p.day}: ${p.combined}`).join(', ')}>
+apps/mobile/src/app/glossary.tsx:63:  const inne = entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null;
+apps/mobile/src/features/ocena-poziomu/EkranyOceny.tsx:76:        <Text style={[styl.tresc, { color: tk.ink }]}>{t('placement.passed', { moduly: zaliczoneOcena.join(', ') })}</Text>
+apps/mobile/src/features/scenariusz/komponenty.tsx:56:    ty: pozycjaTy, rywal: pozycjaRywal, reka: reka.map((c) => nazwaKarty(c, t)).join(', '), stol: stol.map((c) => nazwaKarty(c, t)).join(', '),
+apps/mobile/src/features/scenariusz/komponenty.tsx:110:  const lista = wpisy.map(({ a, o }) => `${etykiety?.[a] ?? nazwy[a]} ${t(`grade.${o}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
+apps/mobile/src/features/scenariusz/komponenty.tsx:187:  const miejsca = uklad.wyplaty.map((w, i) => t('scenario.icm.place', { n: i + 1, procent: formatProcent(w) })).join(', ');
+apps/mobile/src/features/scenariusz/wariant.ts:82:      if (obce.length > 0) throw new Error(`list-hand: akcja spoza słownictwa ekranu: ${obce.join(', ')} (AKCJE_LISTY)`);
+apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:45:                    {odblokowany ? t('scenarios.levels', { lista: szablon.levels.map((l) => t(`scenario.level.${l}`).toLowerCase()).join(', ') }) : t('scenarios.locked', { n: numerModulu(szablon.module) ?? szablon.module })}
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:60:    return { nazwa, kwota: null, przycisk: nazwa, fraza: nazwa, czytnik: karty.map((c) => nazwaKarty(c, t)).join(', ') };
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:227:    const tekst = [rywal, reakcja].filter((x): x is string => x !== null).join(', ');
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:361:  const spasowali = inni.length === 0 ? '' : t(inni.length === 1 ? 'scenario.icm.foldedOne' : 'scenario.icm.foldedMany', { kto: inni.length === 1 ? (inni[0] ?? '') : t('table.listAnd', { a: inni.slice(0, -1).join(', '), b: inni[inni.length - 1] ?? '' }) });
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:362:  const etykieta = [t('scenario.icm.tableLabel', { ty: s.szablon.positions.hero, reka: reka.map((c) => nazwaKarty(c, t)).join(', '), rywal: s.szablon.positions.villain }), spasowali].filter((x) => x !== '').join(' ');
+apps/mobile/src/features/diagnostyka/DiagnosticsScreen.tsx:46:            {t('diagnostics.equity', { ms: fmt(result.equityMedianMs), runs: result.equityRunsMs.map((x) => fmt(x)).join(', ') })}
+apps/mobile/src/features/stol/uklad.ts:47:  return t('table.listAnd', { a: xs.slice(0, -1).join(', '), b: xs[xs.length - 1] });
+apps/mobile/src/features/stol/uklad.ts:79:  return t('table.label', { list: czesci.join(', ') });
+apps/mobile/src/features/stol/uklad.ts:94:  return { klasa: k, dopisek: [rodzaj, zdania.join(', ')].filter(Boolean).join('; ') };
+apps/mobile/src/features/stol/pasek.ts:48:  const lista = s.map((x) => t('strategy.item', { action: x.tekst, pct: x.procent })).join(', ');
+apps/mobile/src/i18n/index.ts:46:  const komunikat = `Intl.PluralRules: ${problemy.join('; ')}`;
+packages/content-schema/src/terms.ts:54:  return out.length ? out.join(', ') : null;
+packages/poker-core/src/scenario-gen.ts:732:    throw new TemplateError(`${t.id}: punkt końcowy (${koncowe.map((x) => x.kind).join(', ')}) jest najwyżej jeden, ostatni i bez punktów draw-call`); // 08-programista-005: nazwy rodzajów z szablonu
+packages/poker-core/src/scenario-gen.ts:830:  if (play.length === 0 || brak.length) throw new TemplateError(`spot ${spot.id}: akcje grupy play spoza spotu: ${brak.join(', ') || '(pusta lista)'}`);
+packages/postep/src/daneUzytkownika.ts:83:        const wiersze = await tx.all<unknown>(`SELECT ${kolumny.join(', ')} FROM ${t} ORDER BY ${KLUCZ[t]}`);
+packages/postep/src/daneUzytkownika.ts:146:        await tx.run(`INSERT INTO ${t} (${kolumny.join(', ')}) VALUES (${kolumny.map(() => '?').join(', ')})`, wartosci);
+exit=0

@@ -1,0 +1,79 @@
+$ python3 -I cytaty.py docs/tresci/rejestr.json <cache> R-M8-002 R-M10-007 R-M9-010 R-M0-001 R-M11-007 R-M11-002 R-M5-008 R-M5-004 R-M10-015 R-M5-001 R-M3-007 R-M10-005 n:cbet.range.small.high n:hud.hands.vpip.low n:mda.reg.f3b n:rake.solver.bb-minraise P-OCENA_STOPNIE n:pf.iso.per-limper n:m11.push.10 P-FSRS_RETENCJA n:rake.pop.reg.prerake n:pf.bb-def.vs-btn.pub.high t:split-pot t:bet t:draw t:maniac t:semi-connected t:ante    # odczyt 2026-11-17
+R-M8-002	HTTP 200	len 10358	ZNALEZIONY	https://thepokerbank.com/strategy/hand-guide/river	„Don't bet marginal hands on the river. You are only going to get called by better hands the majority of the time.”
+R-M8-002	HTTP 200	len 12586	ZNALEZIONY	https://gtogecko.com/blog/polarized-vs-merged-ranges	„Medium-strength hands are deliberately excluded and checked instead.”
+R-M8-002	HTTP 200	len 18095	ZNALEZIONY	https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/	„Although they can get called by worse, they can also have their value reduced to 0 by a check-raise, so a free showdown is more appealing.”
+R-M10-007	HTTP 200	len 21811	ZNALEZIONY	https://pokercoaching.com/blog/poker-stats/	„anyone significantly below is a nit whose raises you can nearly always fold to”
+R-M10-007	HTTP 200	len 13986	ZNALEZIONY	https://deepfold.co/en/blog/hud-stats-guide	„Plays only premium hands. Steal their blinds relentlessly, fold to their 3-bets without thought, bluff-catch sparingly.”
+R-M9-010	HTTP 200	len 18905	ZNALEZIONY	https://www.splitsuit.com/spr-poker-strategy	„less than 3 is an auto-stack off with top pair or better, between 3-6 is situational and based upon villain/board texture, and more than 6 SPR isn't a default s”
+R-M9-010	HTTP 200	len 10460	ZNALEZIONY	https://blog.gtowizard.com/stack-to-pot-ratio/	„at this higher SPR, stacking off with top pair starts to get a bit dicey, as does the nut flush draw.”
+R-M9-010	HTTP 200	len 10387	ZNALEZIONY	https://www.thepokerbank.com/strategy/concepts/spr/	„Low SPR = 0 - 6 Medium SPR = 7 - 16 High SPR = 17+”
+R-M9-010	HTTP 200	len 10387	ZNALEZIONY	https://www.thepokerbank.com/strategy/concepts/spr/	„B) Good hands for medium SPRs. Top two pair. Sets.”
+R-M9-010	HTTP 200	len 6860	ZNALEZIONY	https://pokercoaching.com/blog/poker-spr/	„High SPR (8+): Deep stacks favor hands that make nutted combinations (sets, straights, flushes) over one-pair holdings.”
+R-M9-010	HTTP 200	len 14557	ZNALEZIONY	https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm	„if you're heads-up and the stack-to-pot ratio is 13 going to the flop, you and your opponent can each make exactly three pot-sized bets”
+R-M0-001	HTTP 200	len 55845	ZNALEZIONY	https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf	„The ranking of hands for Texas Hold'em, in order from highest to lowest rank, shall be”
+R-M0-001	HTTP 200	len 94887	ZNALEZIONY	https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf	„d) Full House: Any 3 and any 2 cards of the same face value. e) Flush: Any 5 cards of the same suit. f) Straight: Any 5 cards of different suits in sequence.”
+R-M0-001	HTTP 200	len 21050	ZNALEZIONY	https://en.wikipedia.org/wiki/List_of_poker_hands	„A hand in a higher-ranking category always ranks higher than a hand in a lower-ranking category.”
+R-M11-007	HTTP 401	len 390	NIE-ZNALEZIONY	https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko	„w przedziale 55–61% push i 34,5–40,5% sprawdzeń | równowaga Nasha (SB ok. 58%, BB ok. 37,5%)”
+R-M11-007	HTTP 200	len 28530	ZNALEZIONY	https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/	„10 56.6%”
+R-M11-007	HTTP 200	len 55318	ZNALEZIONY	https://pokercoaching.com/push-fold-charts/	„Calling ranges are tighter than shoving ranges.”
+R-M11-007	HTTP 200	len 3219	ZNALEZIONY	https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/	„you need a better hand to call a raise with than you would need to open a pot with a raise”
+R-M11-002	HTTP 401	len 390	NIE-ZNALEZIONY	https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko	„Push/fold heads-up 10bb (bez modelu EQR) | w przedziale 55–61% push i 34,5–40,5% sprawdzeń | równowaga Nasha (SB ok. 58%, BB ok. 37,5%)”
+R-M11-002	HTTP 200	len 28530	BRAK-CYTATU	https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/	„5 74.1%”
+R-M11-002	HTTP 200	len 28530	ZNALEZIONY	https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/	„15 45.7%”
+R-M5-008	HTTP 200	len 13574	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/	„This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity.”
+R-M5-008	HTTP 200	len 13574	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/	„Connected boards are a unique case due to flopped straights often being in the BB's range. In order to be respectful of this, we size down”
+R-M5-008	HTTP 200	len 15312	ZNALEZIONY	https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/	„However, when a very wet board like Q♦8♦7♦ is dealt, the bet sizing comes down again.”
+R-M5-008	HTTP 200	len 15312	ZNALEZIONY	https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/	„The predominant bet sizes are 75 and 125% pot for the overbet”
+R-M5-008	HTTP 200	len 20189	ZNALEZIONY	https://upswingpoker.com/bet-size-strategy-tips-rules/	„Bet pretty large (55-80% pot) on wet, dynamic board textures.”
+R-M5-008	HTTP 200	len 6002	NIE-ZNALEZIONY	https://pokercoaching.com/blog/picking-the-proper-c-bet-sizing-on-ace-high-boards/	„c-bet less often (around 37%) but use a bigger sizing-two-thirds pot-to deny equity.”
+R-M5-004	HTTP 200	len 13574	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/	„a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and ge”
+R-M5-004	HTTP 200	len 13574	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/	„Connected boards are a unique case due to flopped straights often being in the BB’s range.”
+R-M5-004	HTTP 200	len 13574	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/	„Size down and bet less on flops that complete straights and flushes in your opponent’s range.”
+R-M5-004	HTTP 200	len 12290	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/	„the major exceptions are the monotone and connected boards, where overpairs are at their weakest, and the raiser generally does not have a nuts advantage to lev”
+R-M5-004	HTTP 200	len 14414	ZNALEZIONY	https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/	„BB’s advantage at the top end makes BTN vulnerable to check-raises”
+R-M5-004	HTTP 200	len 13256	ZNALEZIONY	https://upswingpoker.com/nut-range-positional-advantage/	„If the board was low and connected in the example above, the Big Blind will often have the nut advantage.”
+R-M5-004	HTTP 200	len 14414	ZNALEZIONY	https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/	„Even on 654 r, which is about the best flop BB could hope for, BB has less than 52% equity.”
+R-M5-004	HTTP 200	len 18816	ZNALEZIONY	https://upswingpoker.com/check-back-bet-strategies/	„LJ checks 53% of their range and c-bets large 47% of the time.”
+R-M5-004	HTTP 200	len 18816	ZNALEZIONY	https://upswingpoker.com/check-back-bet-strategies/	„the big blind (caller) has far more flushes and straights, while the button (raiser) has relatively few.”
+R-M5-004	HTTP 200	len 13574	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/	„In order to be respectful of this, we size down; Connected boards see the least amount of the 133% pot sizing.”
+R-M5-004	HTTP 200	len 13574	ZNALEZIONY	https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/	„This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity.”
+R-M10-015	HTTP 200	len 8070	ZNALEZIONY	https://www.primedope.com/online-poker-rake-comparison-rake-calculator/	„At microstakes, percentage drives the cost because pots rarely hit the cap.”
+R-M5-001	HTTP 200	len 12773	NIE-ZNALEZIONY	https://gtogecko.com/blog/what-is-a-continuation-bet	„Dry, static boards (K♦7♠2♥, A♣9♦4♠) favor the preflop raiser and support aggressive, high-frequency c-betting.”
+R-M5-001	HTTP 200	len 20189	ZNALEZIONY	https://upswingpoker.com/bet-size-strategy-tips-rules/	„this is often the case on dry boards because most of your opponent's hands will have little-to-no equity against your value betting range”
+R-M5-001	HTTP 200	len 15276	ZNALEZIONY	https://upswingpoker.com/c-bet-sizing-strategy-continuation-bet/	„This is a prime example of a dry and static board. Our value bets will be with hands that are unlikely to be outdrawn.”
+R-M5-001	HTTP 200	len 5080	ZNALEZIONY	https://upswingpoker.com/glossary/dry/	„A dry board is one that does not help make any straight or flush draws.”
+R-M3-007	HTTP 200	len 18117	ZNALEZIONY	https://www.preflopwizard.app/blog/6-max-preflop-charts	„The standard open size is 2.5bb from all positions (3bb from the small blind).”
+R-M3-007	HTTP 200	len 16202	ZNALEZIONY	https://blog.gtowizard.com/preflop-range-morphology/	„The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb.”
+R-M10-005	HTTP 200	len 21811	ZNALEZIONY	https://pokercoaching.com/blog/poker-stats/	„format typical solid player vpip warning: too loose warning: too tight 6-max cash 22 to 28 35+ 14 or below”
+R-M10-005	HTTP 200	len 21811	ZNALEZIONY	https://pokercoaching.com/blog/poker-stats/	„When the gap is less than 3 points, I flag them as highly aggressive”
+R-M10-005	HTTP 200	len 13986	ZNALEZIONY	https://deepfold.co/en/blog/hud-stats-guide	„10-15% Very tight (nit)”
+R-M10-005	HTTP 200	len 13986	ZNALEZIONY	https://deepfold.co/en/blog/hud-stats-guide	„25-30% Loose-aggressive (LAG)”
+R-M10-005	HTTP 200	len 13986	ZNALEZIONY	https://deepfold.co/en/blog/hud-stats-guide	„Maniac (38/35/15%+) Everything is a raise.”
+R-M10-005	HTTP 200	len 4086	ZNALEZIONY	https://bluffaces.com/calculators/mda/	„Recreationals i For 6max: VPIP > 40, EV bb/100 < -20.”
+n:cbet.range.small.high	HTTP 200	len 20189	ZNALEZIONY	https://upswingpoker.com/bet-size-strategy-tips-rules/	„Bet small (25-35% pot) on dry, static board textures.”
+n:hud.hands.vpip.low	HTTP 200	len 21811	ZNALEZIONY	https://pokercoaching.com/blog/poker-stats/	„For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”
+n:mda.reg.f3b	HTTP 200	len 4086	ZNALEZIONY	https://bluffaces.com/calculators/mda/	„0.7 Winrate, bb/100 23 VPIP 18 PFR 8.4 3bet 55 Fold to 3bet”
+n:rake.solver.bb-minraise	HTTP 200	len 12972	ZNALEZIONY	https://blog.gtowizard.com/preflop-raise-sizing-examining-2-key-factors/	„BB calls a min-raise in the raked game barely 60% as often as in the unraked game”
+P-OCENA_STOPNIE	HTTP 200	len 6274	ZNALEZIONY	https://help.gtowizard.com/measure-performance/	„There are 5 categories of moves: Best Move - The highest frequency move (or best action according to your RNG ).”
+P-OCENA_STOPNIE	HTTP 200	len 6274	ZNALEZIONY	https://help.gtowizard.com/measure-performance/	„Correct Move - Moves that are correct at some frequency, but not considered "best moves".”
+P-OCENA_STOPNIE	HTTP 200	len 6274	ZNALEZIONY	https://help.gtowizard.com/measure-performance/	„Blunder - Blunders that are never taken and lose significant EV.”
+n:pf.iso.per-limper	HTTP 200	len 16141	ZNALEZIONY	https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm	„Raise to 3bb+1bb per limper when playing online”
+n:pf.iso.per-limper	HTTP 200	len 16460	ZNALEZIONY	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	„Base open size (3bb) + 1 big blind per limper”
+n:m11.push.10	HTTP 200	len 28530	ZNALEZIONY	https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/	„10 56.6%: 22+, Kx+, Q2s+, Q7o+ … 38.5%: 22+, Ax+, K2s+, K6o+”
+P-FSRS_RETENCJA	HTTP 200	len 142799	ZNALEZIONY	https://docs.ankiweb.net/deck-options.html	„The default value of 90% will schedule cards so you have a 90% chance of remembering them when they come up for review again.”
+P-FSRS_RETENCJA	HTTP 200	len 7933	ZNALEZIONY	https://raw.githubusercontent.com/open-spaced-repetition/ts-fsrs/main/packages/fsrs/README.md	„desiredRetention: 0.9,”
+n:rake.pop.reg.prerake	HTTP 200	len 10064	ZNALEZIONY	https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players	„Pre-rake winners 90% post-rake winners 53%”
+n:pf.bb-def.vs-btn.pub.high	HTTP 200	len 12950	ZNALEZIONY	https://gtogecko.com/blog/gto-preflop-strategy	„around 45-50% against a button open”
+n:pf.bb-def.vs-btn.pub.high	HTTP 200	len 6691	NIE-ZNALEZIONY	https://beyondgto.com/defense/bb-vs-btn	„GTO defends the Big Blind with about 45% of hands - roughly 32% as a flat call and 13% as a 3-bet.”
+n:pf.bb-def.vs-btn.pub.high	HTTP 200	len 18202	ZNALEZIONY	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	„In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.”
+t:split-pot	HTTP 200	len 110700	NIE-ZNALEZIONY	https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm	„SPLIT POT: A pot that is divided among players, either because of a tie for the best hand or by agreement prior to the showdown.”
+t:split-pot	HTTP 200	len 312	ZNALEZIONY	https://gtowizard.com/en/glossary/split/	„A pot shared between two or more players at showdown due to them having hands of equal strength.”
+t:bet	HTTP 200	len 110700	NIE-ZNALEZIONY	https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm	„BET: The act of placing a wager in turn into the pot on any betting round, or the chips put into the pot.”
+t:bet	HTTP 200	len 430	ZNALEZIONY	https://gtowizard.com/en/glossary/bet/	„Any chips voluntarily put in the pot (VPIP) by a player where the amount required to call to see the next street increases.”
+t:draw	HTTP 200	len 806	ZNALEZIONY	https://gtowizard.com/en/glossary/draw/	„A hand that has the chance to improve to a strong made hand on certain future community cards.”
+t:maniac	HTTP 200	len 358	ZNALEZIONY	https://gtowizard.com/en/glossary/maniac/	„A pejorative term that describes a very loose and aggressive player who is considered to be a weak player.”
+t:semi-connected	HTTP 200	len 12825	ZNALEZIONY	https://blog.gtowizard.com/the-four-point-checklist-for-calling-turn-barrels/	„The board is semi-connected”
+t:semi-connected	HTTP 200	len 1063	ZNALEZIONY	https://gtowizard.com/glossary/board-texture/	„Connectivity can be described as a spectrum from boards where no straight draws are possible to the most connected where many made straights are possible.”
+t:ante	HTTP 200	len 110700	NIE-ZNALEZIONY	https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm	„ANTE: A prescribed amount posted before the start of a hand by all players.”
+t:ante	HTTP 200	len 569	ZNALEZIONY	https://gtowizard.com/en/glossary/ante/	„A predetermined amount of chips that all players are required to put in the pot preflop, commonly used in tournament play, but occasionally also in cash games.”
+exit 0

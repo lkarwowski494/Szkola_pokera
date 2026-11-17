@@ -1,0 +1,584 @@
+# komenda: env -u NODE_PATH pnpm -s i18n:kod (scripts/sprawdz-i18n.mjs projektu) @ 261cd8d3
+UWAGA de today.rowLabel: tekst taki sam jak w źródle
+UWAGA de welcome.title: tekst taki sam jak w źródle
+UWAGA de grade.announce: tekst taki sam jak w źródle
+UWAGA de rules.sourceCount: tekst taki sam jak w źródle
+UWAGA de play.allin: tekst taki sam jak w źródle
+UWAGA de play.allInTag: tekst taki sam jak w źródle
+UWAGA de play.log.allin: tekst taki sam jak w źródle
+UWAGA de play.streets.preflop: tekst taki sam jak w źródle
+UWAGA de play.streets.flop: tekst taki sam jak w źródle
+UWAGA de play.streets.turn: tekst taki sam jak w źródle
+UWAGA de play.streets.river: tekst taki sam jak w źródle
+UWAGA de table.position.utg: tekst taki sam jak w źródle
+UWAGA de table.position.hj: tekst taki sam jak w źródle
+UWAGA de table.position.co: tekst taki sam jak w źródle
+UWAGA de table.position.btn: tekst taki sam jak w źródle
+UWAGA de table.position.sb: tekst taki sam jak w źródle
+UWAGA de table.position.bb: tekst taki sam jak w źródle
+UWAGA de paint.cell: tekst taki sam jak w źródle
+UWAGA de drill.range.freq: tekst taki sam jak w źródle
+UWAGA de drill.icm.stack: tekst taki sam jak w źródle
+UWAGA de drill.playerType.name.regular: tekst taki sam jak w źródle
+UWAGA de drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA de drill.texture.range: tekst taki sam jak w źródle
+UWAGA de drill.vocab.end: tekst taki sam jak w źródle
+UWAGA de scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA de scenario.street.flop: tekst taki sam jak w źródle
+UWAGA de scenario.street.turn: tekst taki sam jak w źródle
+UWAGA de scenario.street.river: tekst taki sam jak w źródle
+UWAGA de scenario.table.seat: tekst taki sam jak w źródle
+UWAGA de scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA de scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA de scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA de scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA de scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA en today.rowLabel: tekst taki sam jak w źródle
+UWAGA en welcome.title: tekst taki sam jak w źródle
+UWAGA en grade.announce: tekst taki sam jak w źródle
+UWAGA en rules.sourceCount: tekst taki sam jak w źródle
+UWAGA en play.allin: tekst taki sam jak w źródle
+UWAGA en play.allInTag: tekst taki sam jak w źródle
+UWAGA en play.log.allin: tekst taki sam jak w źródle
+UWAGA en play.streets.preflop: tekst taki sam jak w źródle
+UWAGA en play.streets.flop: tekst taki sam jak w źródle
+UWAGA en play.streets.turn: tekst taki sam jak w źródle
+UWAGA en play.streets.river: tekst taki sam jak w źródle
+UWAGA en table.position.utg: tekst taki sam jak w źródle
+UWAGA en table.position.hj: tekst taki sam jak w źródle
+UWAGA en table.position.co: tekst taki sam jak w źródle
+UWAGA en table.position.btn: tekst taki sam jak w źródle
+UWAGA en table.position.sb: tekst taki sam jak w źródle
+UWAGA en table.position.bb: tekst taki sam jak w źródle
+UWAGA en table.stateLimp: tekst taki sam jak w źródle
+UWAGA en paint.cell: tekst taki sam jak w źródle
+UWAGA en drill.category.straightFlush: tekst taki sam jak w źródle
+UWAGA en drill.category.fourOfAKind: tekst taki sam jak w źródle
+UWAGA en drill.category.fullHouse: tekst taki sam jak w źródle
+UWAGA en drill.category.flush: tekst taki sam jak w źródle
+UWAGA en drill.category.straight: tekst taki sam jak w źródle
+UWAGA en drill.category.threeOfAKind: tekst taki sam jak w źródle
+UWAGA en drill.category.twoPair: tekst taki sam jak w źródle
+UWAGA en drill.category.pair: tekst taki sam jak w źródle
+UWAGA en drill.category.highCard: tekst taki sam jak w źródle
+UWAGA en drill.category.royalFlush: tekst taki sam jak w źródle
+UWAGA en drill.categoryAcc.twoPair: tekst taki sam jak w źródle
+UWAGA en drill.range.freq: tekst taki sam jak w źródle
+UWAGA en drill.icm.stack: tekst taki sam jak w źródle
+UWAGA en drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA en drill.texture.range: tekst taki sam jak w źródle
+UWAGA en drill.vocab.end: tekst taki sam jak w źródle
+UWAGA en scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA en scenario.street.flop: tekst taki sam jak w źródle
+UWAGA en scenario.street.turn: tekst taki sam jak w źródle
+UWAGA en scenario.street.river: tekst taki sam jak w źródle
+UWAGA en scenario.table.seat: tekst taki sam jak w źródle
+UWAGA en scenario.action.limp: tekst taki sam jak w źródle
+UWAGA en scenario.action.allIn: tekst taki sam jak w źródle
+UWAGA en scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA en scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA en scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA en scenario.icm.noPrizeThird: liczby inne niż w źródle („Place 3 gets nothing.”)
+UWAGA en scenario.icm.noPrizeFourth: liczby inne niż w źródle („Place 4 gets nothing.”)
+UWAGA en scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA en scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA es today.rowLabel: tekst taki sam jak w źródle
+UWAGA es welcome.title: tekst taki sam jak w źródle
+UWAGA es grade.announce: tekst taki sam jak w źródle
+UWAGA es rules.sourceCount: tekst taki sam jak w źródle
+UWAGA es play.allin: tekst taki sam jak w źródle
+UWAGA es play.allInTag: tekst taki sam jak w źródle
+UWAGA es play.log.allin: tekst taki sam jak w źródle
+UWAGA es play.streets.preflop: tekst taki sam jak w źródle
+UWAGA es play.streets.flop: tekst taki sam jak w źródle
+UWAGA es play.streets.turn: tekst taki sam jak w źródle
+UWAGA es play.streets.river: tekst taki sam jak w źródle
+UWAGA es table.position.utg: tekst taki sam jak w źródle
+UWAGA es table.position.hj: tekst taki sam jak w źródle
+UWAGA es table.position.co: tekst taki sam jak w źródle
+UWAGA es table.position.btn: tekst taki sam jak w źródle
+UWAGA es table.position.sb: tekst taki sam jak w źródle
+UWAGA es table.position.bb: tekst taki sam jak w źródle
+UWAGA es table.stateLimp: tekst taki sam jak w źródle
+UWAGA es paint.cell: tekst taki sam jak w źródle
+UWAGA es card.rank.Q: tekst taki sam jak w źródle
+UWAGA es drill.range.freq: tekst taki sam jak w źródle
+UWAGA es drill.icm.stack: tekst taki sam jak w źródle
+UWAGA es drill.playerType.name.regular: tekst taki sam jak w źródle
+UWAGA es drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA es drill.texture.range: tekst taki sam jak w źródle
+UWAGA es drill.vocab.end: tekst taki sam jak w źródle
+UWAGA es scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA es scenario.street.flop: tekst taki sam jak w źródle
+UWAGA es scenario.street.turn: tekst taki sam jak w źródle
+UWAGA es scenario.street.river: tekst taki sam jak w źródle
+UWAGA es scenario.table.seat: tekst taki sam jak w źródle
+UWAGA es scenario.action.limp: tekst taki sam jak w źródle
+UWAGA es scenario.action.allIn: tekst taki sam jak w źródle
+UWAGA es scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA es scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA es scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA es scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA es scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA fr today.rowLabel: tekst taki sam jak w źródle
+UWAGA fr welcome.title: tekst taki sam jak w źródle
+UWAGA fr grade.announce: tekst taki sam jak w źródle
+UWAGA fr rules.sourceCount: tekst taki sam jak w źródle
+UWAGA fr play.allin: tekst taki sam jak w źródle
+UWAGA fr play.allInTag: tekst taki sam jak w źródle
+UWAGA fr play.streets.preflop: tekst taki sam jak w źródle
+UWAGA fr play.streets.flop: tekst taki sam jak w źródle
+UWAGA fr play.streets.turn: tekst taki sam jak w źródle
+UWAGA fr play.streets.river: tekst taki sam jak w źródle
+UWAGA fr table.position.utg: tekst taki sam jak w źródle
+UWAGA fr table.position.hj: tekst taki sam jak w źródle
+UWAGA fr table.position.co: tekst taki sam jak w źródle
+UWAGA fr table.position.btn: tekst taki sam jak w źródle
+UWAGA fr table.position.sb: tekst taki sam jak w źródle
+UWAGA fr table.position.bb: tekst taki sam jak w źródle
+UWAGA fr table.stateLimp: tekst taki sam jak w źródle
+UWAGA fr paint.cell: tekst taki sam jak w źródle
+UWAGA fr drill.range.freq: tekst taki sam jak w źródle
+UWAGA fr drill.icm.stack: tekst taki sam jak w źródle
+UWAGA fr drill.playerType.name.regular: tekst taki sam jak w źródle
+UWAGA fr drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA fr drill.texture.range: tekst taki sam jak w źródle
+UWAGA fr drill.vocab.end: tekst taki sam jak w źródle
+UWAGA fr scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA fr scenario.street.flop: tekst taki sam jak w źródle
+UWAGA fr scenario.street.turn: tekst taki sam jak w źródle
+UWAGA fr scenario.street.river: tekst taki sam jak w źródle
+UWAGA fr scenario.table.seat: tekst taki sam jak w źródle
+UWAGA fr scenario.action.limp: tekst taki sam jak w źródle
+UWAGA fr scenario.action.allIn: tekst taki sam jak w źródle
+UWAGA fr scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA fr scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA fr scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA fr scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA fr scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA it today.rowLabel: tekst taki sam jak w źródle
+UWAGA it welcome.title: tekst taki sam jak w źródle
+UWAGA it grade.announce: tekst taki sam jak w źródle
+UWAGA it level.gto: tekst taki sam jak w źródle
+UWAGA it rules.sourceCount: tekst taki sam jak w źródle
+UWAGA it glossary.areas.strategy: tekst taki sam jak w źródle
+UWAGA it play.allin: tekst taki sam jak w źródle
+UWAGA it play.allInTag: tekst taki sam jak w źródle
+UWAGA it play.log.allin: tekst taki sam jak w źródle
+UWAGA it play.streets.preflop: tekst taki sam jak w źródle
+UWAGA it play.streets.flop: tekst taki sam jak w źródle
+UWAGA it play.streets.turn: tekst taki sam jak w źródle
+UWAGA it play.streets.river: tekst taki sam jak w źródle
+UWAGA it table.position.utg: tekst taki sam jak w źródle
+UWAGA it table.position.hj: tekst taki sam jak w źródle
+UWAGA it table.position.co: tekst taki sam jak w źródle
+UWAGA it table.position.btn: tekst taki sam jak w źródle
+UWAGA it table.position.sb: tekst taki sam jak w źródle
+UWAGA it table.position.bb: tekst taki sam jak w źródle
+UWAGA it table.stateLimp: tekst taki sam jak w źródle
+UWAGA it paint.cell: tekst taki sam jak w źródle
+UWAGA it drill.category.straightFlush: tekst taki sam jak w źródle
+UWAGA it drill.category.fourOfAKind: tekst taki sam jak w źródle
+UWAGA it drill.category.fullHouse: tekst taki sam jak w źródle
+UWAGA it drill.category.flush: tekst taki sam jak w źródle
+UWAGA it drill.category.straight: tekst taki sam jak w źródle
+UWAGA it drill.category.threeOfAKind: tekst taki sam jak w źródle
+UWAGA it drill.category.twoPair: tekst taki sam jak w źródle
+UWAGA it drill.category.pair: tekst taki sam jak w źródle
+UWAGA it drill.category.highCard: tekst taki sam jak w źródle
+UWAGA it drill.category.royalFlush: tekst taki sam jak w źródle
+UWAGA it drill.range.freq: tekst taki sam jak w źródle
+UWAGA it drill.icm.stack: tekst taki sam jak w źródle
+UWAGA it drill.playerType.name.regular: tekst taki sam jak w źródle
+UWAGA it drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA it drill.texture.range: tekst taki sam jak w źródle
+UWAGA it drill.vocab.end: tekst taki sam jak w źródle
+UWAGA it scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA it scenario.street.flop: tekst taki sam jak w źródle
+UWAGA it scenario.street.turn: tekst taki sam jak w źródle
+UWAGA it scenario.street.river: tekst taki sam jak w źródle
+UWAGA it scenario.table.seat: tekst taki sam jak w źródle
+UWAGA it scenario.action.limp: tekst taki sam jak w źródle
+UWAGA it scenario.action.allIn: tekst taki sam jak w źródle
+UWAGA it scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA it scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA it scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA it scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA it scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA ja today.limitReached: liczby inne niż w źródle („1日の上限に達しました。次の無料アクティビティは明日です。レッスンは上限なしで利用できます。”)
+UWAGA ja welcome.title: brak liter pisma języka („PokerGym”)
+UWAGA ja welcome.title: tekst taki sam jak w źródle
+UWAGA ja purchase.unlocks: liczby inne niż w źródle („1日の上限なし：練習セッション、復習、試験の再受験を毎日利用できます。レッスンは引き続き無料です。”)
+UWAGA ja purchase.plan.quarter: liczby inne niż w źródle („3か月”)
+UWAGA ja purchase.plan.year: liczby inne niż w źródle („1年”)
+UWAGA ja purchase.renewsYear: liczby inne niż w źródle („年に1回のお支払いです。解約するまで自動更新されます。”)
+UWAGA ja purchase.oneTime: liczby inne niż w źródle („1回限りの購入で、追加のお支払いはありません。”)
+UWAGA ja settings.reminderHint: liczby inne niż w źródle („1日1回、{{pora}}に通知します。オンにすると、スマートフォンが通知の許可を求めます。”)
+UWAGA ja start.renews: liczby inne niż w źródle („上限は深夜0時（{{godzina}}）にリセットされます。”)
+UWAGA ja rules.sourceCount: tekst taki sam jak w źródle
+UWAGA ja progress.fourColor: liczby inne niż w źródle („4色デッキ”)
+UWAGA ja advancement.historyHint: liczby inne niż w źródle („アプリを使った日ごとに1本のバーです。最終：{{last}}。”)
+UWAGA ja play.areasHint: liczby inne niż w źródle („分野では、1つのモジュールの状況だけが配られます。モジュールのレッスンをすべて完了するとロックが解除されます。”)
+UWAGA ja play.tableSizeHint9: liczby inne niż w źródle („9人テーブルでは、LJの前にさらに3つのアーリー{{t:position|ポジション}}があります：{{t:utg}}、{{t:utg|UTG}}+1、{{t:utg|UTG}}+2。”)
+UWAGA ja play.tablesHint.mixed: liczby inne niż w źródle („各スタイルの相手が1人ずつ。”)
+UWAGA ja play.potLabel: brak liter pisma języka („{{t:pot|ポット}}：{{bb}}bb”)
+UWAGA ja play.call: brak liter pisma języka („{{t:call|コール}} {{bb}}bb”)
+UWAGA ja play.bet: brak liter pisma języka („{{t:bet|ベット}} {{bb}}bb”)
+UWAGA ja play.log.call: brak liter pisma języka („{{pos}}：{{t:call|コール}} {{bb}} bb”)
+UWAGA ja play.log.bet: brak liter pisma języka („{{pos}}：{{t:bet|ベット}} {{bb}} bb”)
+UWAGA ja table.position.utg: tekst taki sam jak w źródle
+UWAGA ja table.position.hj: tekst taki sam jak w źródle
+UWAGA ja table.position.co: tekst taki sam jak w źródle
+UWAGA ja table.position.btn: tekst taki sam jak w źródle
+UWAGA ja table.position.sb: tekst taki sam jak w źródle
+UWAGA ja table.position.bb: tekst taki sam jak w źródle
+UWAGA ja drill.range.freq: tekst taki sam jak w źródle
+UWAGA ja drill.whoWins.facts: liczby inne niż w źródle („あなたの最強の5枚：{{heroCards}}（{{heroHand}}）。相手：{{villainCards}}（{{villainHand}}）。”)
+UWAGA ja drill.whoWins.reason.kicker: liczby inne niż w źródle („役が同じなので、最強の5枚のうち最初に異なるサイドカード（キッカー）で決まります。”)
+UWAGA ja drill.whoWins.reason.higherSameCategory: liczby inne niż w źródle („2人とも{{hand}}ですが、一方のほうが強いです。”)
+UWAGA ja drill.whoWins.reason.boardPlays: liczby inne niż w źródle („2人とも最強の5枚が{{t:board|ボード}}上にあるので「{{t:playing-the-board|プレイング・ザ・ボード}}」となり、{{t:split-pot|スプリットポット}}になります。”)
+UWAGA ja drill.whoWins.reason.identical: liczby inne niż w źródle („最強の5枚のランクが同じなので、{{t:split-pot|スプリットポット}}になります。”)
+UWAGA ja drill.bestHand.explanation: liczby inne niż w źródle („7枚のうち最強の5枚：{{cards}}、つまり{{hand}}です。”)
+UWAGA ja drill.outs.baseFlush: liczby inne niż w źródle („同じスートのカードが4枚あります。1つのスートは13枚なので、残りは13 − 4 = 9枚です。”)
+UWAGA ja drill.outs.baseOesd: liczby inne niż w źródle („両側に開いた連続する4枚があります。足りない2つのランクのどちらでも{{t:straight|ストレート}}になり、それぞれ4スートあるので8枚です。”)
+UWAGA ja drill.outs.baseGutshot: liczby inne niż w źródle („{{t:straight|ストレート}}の真ん中のカードが1枚足りません。完成させるランクは1つだけで、4スートあるので4枚です。”)
+UWAGA ja drill.outs.chanceFlop: liczby inne niż w źródle („{{base}}ターンでの確率：{{next}}（{{outs}} × 2 ≈ {{outs2}}）。追加の支払いなしで2枚とも見られる場合（例：オールイン後）、リバーまでの確率：{{river}}（{{outs}} × 4 ≈ {{outs4}}）。”)
+UWAGA ja drill.icm.stack: tekst taki sam jak w źródle
+UWAGA ja drill.icm.callPrompt: liczby inne niż w źródle („{{t:bubble|バブル}}：{{table}}{{villain}}がオールインし、2人の間で{{atRisk}}{{t:chips|チップ}}がかかっています。あなたのハンドは相手の{{t:range|レンジ}}に対して{{equity}}のエクイティがあります。ブラインドは考慮しません。どうしますか？”)
+UWAGA ja drill.icm.equityChips: liczby inne niż w źródle („いいえ。それは{{t:chips|チップ}}に占めるあなたの割合です。{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では、{{t:chips|チップ}}はお金に1対1で換算されません。”)
+UWAGA ja drill.drawCall.whyFlop: liczby inne niż w źródle („この{{t:bet|ベット}}だけを{{t:call|コール}}するので、1枚での確率で考えます。リバーの前には通常、もう一度支払いが必要になります。”)
+UWAGA ja drill.drawCall.whyTurn: liczby inne niż w źródle („1枚での確率で考えます。残りは1枚だけです。”)
+UWAGA ja drill.texture.scale: liczby inne niż w źródle („点数で数えます：複数の形で{{t:straight|ストレート}}が可能（2ランクの組み合わせが2組以上）なら{{made}}、1つの形でのみ{{t:straight|ストレート}}が可能なら{{madeOne}}、{{t:straight-draw|ストレートドロー}}のみなら{{draw}}。{{t:two-tone|ツートーン}}のフロップは{{twoTone}}、{{t:monotone|モノトーン}}は{{monotone}}。{{t:dry|ドライ}}は0–{{dryMax}}、中間は{{medium}}、{{t:wet|ウェット}}は{{wet}}以上”)
+UWAGA ja drill.texture.range: tekst taki sam jak w źródle
+UWAGA ja drill.texture.def.height.middle: liczby inne niż w źródle („中くらいのフロップは、最も高いカードがジャックか10です”)
+UWAGA ja drill.texture.def.height.low: liczby inne niż w źródle („低いフロップは、最も高いカードが9以下です”)
+UWAGA ja drill.texture.def.suits.rainbow: liczby inne niż w źródle („{{t:rainbow|レインボー}}のフロップは3枚が3つの異なるスートなので、まだ誰も{{t:flush-draw|フラッシュドロー}}を持っていません”)
+UWAGA ja drill.texture.def.suits.twoTone: liczby inne niż w źródle („{{t:two-tone|ツートーン}}のフロップは同じスートのカードが2枚あるので、そのスートのカードを2枚持つプレイヤーは{{t:flush-draw|フラッシュドロー}}になります”)
+UWAGA ja drill.texture.def.suits.monotone: liczby inne niż w źródle („{{t:monotone|モノトーン}}のフロップは3枚すべてが同じスートなので、すでに{{t:flush|フラッシュ}}が可能です”)
+UWAGA ja drill.texture.def.ranks.paired: liczby inne niż w źródle („{{t:paired|ペアボード}}のフロップは同じランクのカードが2枚か3枚あります。この場合、プレイヤーの2枚を使う{{t:straight|ストレート}}は不可能ですが、{{t:straight-draw|ストレートドロー}}は可能なことがあります”)
+UWAGA ja drill.texture.def.ranks.connected: liczby inne niż w źródle („{{t:connected|コネクテッド}}のフロップは連続する5つのランクの範囲に異なる3つのランクがあるので、すでに{{t:straight|ストレート}}が可能です（エースは1としても数えます）”)
+UWAGA ja drill.texture.def.ranks.semiConnected: liczby inne niż w źródle („{{t:semi-connected|セミコネクテッド}}のフロップは連続する5つのランクの範囲に2つのランクがありますが、3つではありません。まだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}（オープンエンドまたはガットショット）はすでに可能です”)
+UWAGA ja drill.texture.def.ranks.disconnected: liczby inne niż w źródle („{{t:disconnected|ディスコネクテッド}}のフロップはランクが離れていて、どの2枚も連続する5つのランクの範囲に収まらないので、誰も{{t:straight-draw|ストレートドロー}}さえ持っていません”)
+UWAGA ja drill.texture.suitCount.three: liczby inne niż w źródle („3つの異なるスート”)
+UWAGA ja drill.texture.suitCount.two: liczby inne niż w źródle („同じスートが2枚”)
+UWAGA ja drill.texture.suitCount.one: liczby inne niż w źródle („同じスートが3枚”)
+UWAGA ja drill.texture.rankFact.pairedDraw: liczby inne niż w źródle („ここでは2枚が同じランクです。{{t:straight-draw|ストレートドロー}}は例えば{{example}}でできます。”)
+UWAGA ja drill.texture.rankFact.paired: liczby inne niż w źródle („ここでは2枚が同じランクです。”)
+UWAGA ja drill.texture.rankFact.disconnected: liczby inne niż w źródle („ここでは、プレイヤーのどの2枚でも{{t:straight-draw|ストレートドロー}}さえできません。”)
+UWAGA ja drill.texture.draws.rainbow: liczby inne niż w źródle („{{t:flush-draw|フラッシュドロー}}はありません（3つの異なるスート）”)
+UWAGA ja drill.texture.draws.twoTone: liczby inne niż w źródle („{{t:flush-draw|フラッシュドロー}}があります（同じスートが2枚）”)
+UWAGA ja drill.texture.draws.monotone: liczby inne niż w źródle („すでに{{t:flush|フラッシュ}}が可能です（同じスートが3枚）”)
+UWAGA ja drill.texture.draws.straightMadeOne: liczby inne niż w źródle („{{t:straight|ストレート}}が可能なのは1つの形だけです：{{example}}”)
+UWAGA ja scenario.table.seat: brak liter pisma języka („{{pozycja}} · {{rola}} · {{bb}} bb”)
+UWAGA ja scenario.table.seat: tekst taki sam jak w źródle
+UWAGA ja scenario.potOnly: brak liter pisma języka („{{t:pot|ポット}}{{pula}}bb”)
+UWAGA ja scenario.numbers.line: liczby inne niż w źródle („{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。アウツは見えていない{{nieznane}}枚中{{outy}}枚で、完成するのは{{trafisz}}、約{{razTrafisz}}回に1回です。”)
+UWAGA ja scenario.numbers.cbet: liczby inne niż w źródle („小さな{{t:c-bet}}は{{t:pot|ポット}}の約{{maly}}、大きなものは約{{duzy}}です。相手が{{t:call|コール}}するには、小さい方なら{{cenaMaly}}の勝率、つまり約{{razMaly}}回に1回勝つ必要があり、大きい方なら{{cenaDuzy}}、約{{razDuzy}}回に1回です。”)
+UWAGA ja scenario.numbers.sizeOpen: liczby inne niż w źródle („{{bb}}bbへの{{t:raise|レイズ}}では、{{t:big-blind|ビッグブラインド}}は{{pula}}bbの{{t:pot|ポット}}に{{doplata}}bbを追加で支払います（他の全員が{{t:fold|フォールド}}した場合）。必要な勝率は{{cena}}、つまり約{{raz}}回に1回勝てればよい計算です。”)
+UWAGA ja scenario.numbers.size3bet: liczby inne niż w źródle („{{bb}}bbへの3ベットでは、{{t:open|オープン}}した側が{{pula}}bbの{{t:pot|ポット}}に{{doplata}}bbを追加で支払います。必要な勝率は{{cena}}、つまり約{{raz}}回に1回勝てればよい計算です。”)
+UWAGA ja scenario.numbers.riverCatch: liczby inne niż w źródle („{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。勝てるのは{{t:bluff|ブラフ}}だけで、このハンドでは{{t:bluff|ブラフ}}が相手の{{t:bet|ベット}}の{{udzial}}を占めます。”)
+UWAGA ja scenario.numbers.defend: liczby inne niż w źródle („{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。この大きさの{{t:bet|ベット}}に対する{{t:mdf}}は{{obrona}}で、{{t:range|レンジ}}全体の目安です。フロップでは少し少なめに守ってもよく、1つのハンドについてはその解説が決め手になります。”)
+UWAGA ja scenario.action.amountPay: brak liter pisma języka („{{bb}} bb”)
+UWAGA ja scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA ja scenario.action.amountAll: brak liter pisma języka („{{bb}} bb”)
+UWAGA ja scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA ja scenario.icm.noPrizeThird: liczby inne niż w źródle („3位は賞金なしです。”)
+UWAGA ja scenario.icm.noPrizeFourth: liczby inne niż w źródle („4位は賞金なしです。”)
+UWAGA ja scenario.icm.stackValue: brak liter pisma języka („{{bb}} bb”)
+UWAGA ja scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA ko today.rowLabel: tekst taki sam jak w źródle
+UWAGA ko welcome.title: brak liter pisma języka („PokerGym”)
+UWAGA ko welcome.title: tekst taki sam jak w źródle
+UWAGA ko purchase.plan.year: liczby inne niż w źródle („1년”)
+UWAGA ko purchase.renewsYear: liczby inne niż w źródle („1년에 한 번 결제됩니다. 해지할 때까지 자동으로 갱신됩니다.”)
+UWAGA ko purchase.oneTime: liczby inne niż w źródle („1회 구매이며 추가 결제는 없습니다.”)
+UWAGA ko grade.announce: tekst taki sam jak w źródle
+UWAGA ko rules.sourceCount: tekst taki sam jak w źródle
+UWAGA ko progress.fourColor: liczby inne niż w źródle („4색 덱”)
+UWAGA ko play.potLabel: brak liter pisma języka („{{t:pot|팟}}: {{bb}}bb”)
+UWAGA ko play.call: brak liter pisma języka („{{t:call|콜}} {{bb}}bb”)
+UWAGA ko play.bet: brak liter pisma języka („{{t:bet|벳}} {{bb}}bb”)
+UWAGA ko play.log.call: brak liter pisma języka („{{pos}}: {{t:call|콜}} {{bb}} bb”)
+UWAGA ko play.log.bet: brak liter pisma języka („{{pos}}: {{t:bet|벳}} {{bb}} bb”)
+UWAGA ko play.log.limp: brak liter pisma języka („{{pos}}: {{bb}} bb {{t:limp|림프}}”)
+UWAGA ko table.position.utg: tekst taki sam jak w źródle
+UWAGA ko table.position.hj: tekst taki sam jak w źródle
+UWAGA ko table.position.co: tekst taki sam jak w źródle
+UWAGA ko table.position.btn: tekst taki sam jak w źródle
+UWAGA ko table.position.sb: tekst taki sam jak w źródle
+UWAGA ko table.position.bb: tekst taki sam jak w źródle
+UWAGA ko paint.cell: tekst taki sam jak w źródle
+UWAGA ko drill.range.freq: tekst taki sam jak w źródle
+UWAGA ko drill.icm.stack: tekst taki sam jak w źródle
+UWAGA ko drill.icm.equityChips: liczby inne niż w źródle („아닙니다. 그것은 {{t:chips|칩}} 점유율입니다. {{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 {{t:chips|칩}}이 돈으로 1:1 환산되지 않습니다.”)
+UWAGA ko drill.texture.range: tekst taki sam jak w źródle
+UWAGA ko drill.texture.def.height.middle: liczby inne niż w źródle („중간 플롭은 가장 높은 카드가 잭 또는 10입니다”)
+UWAGA ko drill.texture.def.height.low: liczby inne niż w źródle („낮은 플롭은 가장 높은 카드가 9 이하입니다”)
+UWAGA ko drill.texture.def.ranks.connected: liczby inne niż w źródle („{{t:connected|커넥티드}} 플롭은 서로 다른 세 랭크가 연속된 다섯 랭크 안에 있으므로 지금 바로 {{t:straight|스트레이트}}가 가능합니다(에이스는 1로도 셉니다)”)
+UWAGA ko drill.vocab.end: tekst taki sam jak w źródle
+UWAGA ko scenario.table.seat: brak liter pisma języka („{{pozycja}} · {{rola}} · {{bb}} bb”)
+UWAGA ko scenario.table.seat: tekst taki sam jak w źródle
+UWAGA ko scenario.potOnly: brak liter pisma języka („{{t:pot|팟}} {{pula}}bb”)
+UWAGA ko scenario.action.amountPay: brak liter pisma języka („{{bb}} bb”)
+UWAGA ko scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA ko scenario.action.amountAll: brak liter pisma języka („{{bb}} bb”)
+UWAGA ko scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA ko scenario.icm.noPrizeThird: liczby inne niż w źródle („3위는 상금이 없습니다.”)
+UWAGA ko scenario.icm.noPrizeFourth: liczby inne niż w źródle („4위는 상금이 없습니다.”)
+UWAGA ko scenario.icm.stackValue: brak liter pisma języka („{{bb}} bb”)
+UWAGA ko scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA ko scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA pt-BR today.rowLabel: tekst taki sam jak w źródle
+UWAGA pt-BR welcome.title: tekst taki sam jak w źródle
+UWAGA pt-BR grade.announce: tekst taki sam jak w źródle
+UWAGA pt-BR level.gto: tekst taki sam jak w źródle
+UWAGA pt-BR rules.sourceCount: tekst taki sam jak w źródle
+UWAGA pt-BR play.allin: tekst taki sam jak w źródle
+UWAGA pt-BR play.allInTag: tekst taki sam jak w źródle
+UWAGA pt-BR play.log.allin: tekst taki sam jak w źródle
+UWAGA pt-BR play.streets.preflop: tekst taki sam jak w źródle
+UWAGA pt-BR play.streets.flop: tekst taki sam jak w źródle
+UWAGA pt-BR play.streets.turn: tekst taki sam jak w źródle
+UWAGA pt-BR play.streets.river: tekst taki sam jak w źródle
+UWAGA pt-BR table.position.utg: tekst taki sam jak w źródle
+UWAGA pt-BR table.position.hj: tekst taki sam jak w źródle
+UWAGA pt-BR table.position.co: tekst taki sam jak w źródle
+UWAGA pt-BR table.position.btn: tekst taki sam jak w źródle
+UWAGA pt-BR table.position.sb: tekst taki sam jak w źródle
+UWAGA pt-BR table.position.bb: tekst taki sam jak w źródle
+UWAGA pt-BR table.stateLimp: tekst taki sam jak w źródle
+UWAGA pt-BR paint.cell: tekst taki sam jak w źródle
+UWAGA pt-BR card.rank.Q: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.straightFlush: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.fourOfAKind: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.fullHouse: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.flush: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.straight: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.threeOfAKind: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.twoPair: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.pair: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.highCard: tekst taki sam jak w źródle
+UWAGA pt-BR drill.category.royalFlush: tekst taki sam jak w źródle
+UWAGA pt-BR drill.categoryAcc.twoPair: tekst taki sam jak w źródle
+UWAGA pt-BR drill.range.freq: tekst taki sam jak w źródle
+UWAGA pt-BR drill.icm.stack: tekst taki sam jak w źródle
+UWAGA pt-BR drill.playerType.name.regular: tekst taki sam jak w źródle
+UWAGA pt-BR drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA pt-BR drill.texture.range: tekst taki sam jak w źródle
+UWAGA pt-BR drill.vocab.end: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.street.flop: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.street.turn: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.street.river: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.table.seat: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.action.limp: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.action.allIn: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA pt-BR scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA pt today.rowLabel: tekst taki sam jak w źródle
+UWAGA pt welcome.title: tekst taki sam jak w źródle
+UWAGA pt grade.announce: tekst taki sam jak w źródle
+UWAGA pt level.gto: tekst taki sam jak w źródle
+UWAGA pt rules.sourceCount: tekst taki sam jak w źródle
+UWAGA pt play.allin: tekst taki sam jak w źródle
+UWAGA pt play.allInTag: tekst taki sam jak w źródle
+UWAGA pt play.log.allin: tekst taki sam jak w źródle
+UWAGA pt play.streets.preflop: tekst taki sam jak w źródle
+UWAGA pt play.streets.flop: tekst taki sam jak w źródle
+UWAGA pt play.streets.turn: tekst taki sam jak w źródle
+UWAGA pt play.streets.river: tekst taki sam jak w źródle
+UWAGA pt table.position.utg: tekst taki sam jak w źródle
+UWAGA pt table.position.hj: tekst taki sam jak w źródle
+UWAGA pt table.position.co: tekst taki sam jak w źródle
+UWAGA pt table.position.btn: tekst taki sam jak w źródle
+UWAGA pt table.position.sb: tekst taki sam jak w źródle
+UWAGA pt table.position.bb: tekst taki sam jak w źródle
+UWAGA pt table.stateLimp: tekst taki sam jak w źródle
+UWAGA pt paint.cell: tekst taki sam jak w źródle
+UWAGA pt card.rank.Q: tekst taki sam jak w źródle
+UWAGA pt drill.category.straightFlush: tekst taki sam jak w źródle
+UWAGA pt drill.category.fourOfAKind: tekst taki sam jak w źródle
+UWAGA pt drill.category.fullHouse: tekst taki sam jak w źródle
+UWAGA pt drill.category.flush: tekst taki sam jak w źródle
+UWAGA pt drill.category.straight: tekst taki sam jak w źródle
+UWAGA pt drill.category.threeOfAKind: tekst taki sam jak w źródle
+UWAGA pt drill.category.twoPair: tekst taki sam jak w źródle
+UWAGA pt drill.category.pair: tekst taki sam jak w źródle
+UWAGA pt drill.category.highCard: tekst taki sam jak w źródle
+UWAGA pt drill.category.royalFlush: tekst taki sam jak w źródle
+UWAGA pt drill.range.freq: tekst taki sam jak w źródle
+UWAGA pt drill.icm.stack: tekst taki sam jak w źródle
+UWAGA pt drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA pt drill.texture.range: tekst taki sam jak w źródle
+UWAGA pt drill.vocab.end: tekst taki sam jak w źródle
+UWAGA pt scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA pt scenario.street.flop: tekst taki sam jak w źródle
+UWAGA pt scenario.street.turn: tekst taki sam jak w źródle
+UWAGA pt scenario.street.river: tekst taki sam jak w źródle
+UWAGA pt scenario.table.seat: tekst taki sam jak w źródle
+UWAGA pt scenario.action.limp: tekst taki sam jak w źródle
+UWAGA pt scenario.action.allIn: tekst taki sam jak w źródle
+UWAGA pt scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA pt scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA pt scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA pt scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA pt scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA vi today.rowLabel: tekst taki sam jak w źródle
+UWAGA vi welcome.title: tekst taki sam jak w źródle
+UWAGA vi grade.announce: tekst taki sam jak w źródle
+UWAGA vi rules.sourceCount: tekst taki sam jak w źródle
+UWAGA vi play.allin: tekst taki sam jak w źródle
+UWAGA vi play.allInTag: tekst taki sam jak w źródle
+UWAGA vi play.log.allin: tekst taki sam jak w źródle
+UWAGA vi play.log.limp: tekst taki sam jak w źródle
+UWAGA vi play.streets.preflop: tekst taki sam jak w źródle
+UWAGA vi play.streets.flop: tekst taki sam jak w źródle
+UWAGA vi play.streets.turn: tekst taki sam jak w źródle
+UWAGA vi play.streets.river: tekst taki sam jak w źródle
+UWAGA vi table.position.utg: tekst taki sam jak w źródle
+UWAGA vi table.position.hj: tekst taki sam jak w źródle
+UWAGA vi table.position.co: tekst taki sam jak w źródle
+UWAGA vi table.position.btn: tekst taki sam jak w źródle
+UWAGA vi table.position.sb: tekst taki sam jak w źródle
+UWAGA vi table.position.bb: tekst taki sam jak w źródle
+UWAGA vi table.stateLimp: tekst taki sam jak w źródle
+UWAGA vi paint.cell: tekst taki sam jak w źródle
+UWAGA vi card.name: tekst taki sam jak w źródle
+UWAGA vi drill.category.straightFlush: tekst taki sam jak w źródle
+UWAGA vi drill.category.fourOfAKind: tekst taki sam jak w źródle
+UWAGA vi drill.category.fullHouse: tekst taki sam jak w źródle
+UWAGA vi drill.category.flush: tekst taki sam jak w źródle
+UWAGA vi drill.category.straight: tekst taki sam jak w źródle
+UWAGA vi drill.category.threeOfAKind: tekst taki sam jak w źródle
+UWAGA vi drill.category.twoPair: tekst taki sam jak w źródle
+UWAGA vi drill.category.pair: tekst taki sam jak w źródle
+UWAGA vi drill.category.highCard: tekst taki sam jak w źródle
+UWAGA vi drill.category.royalFlush: tekst taki sam jak w źródle
+UWAGA vi drill.categoryAcc.flush: tekst taki sam jak w źródle
+UWAGA vi drill.categoryAcc.twoPair: tekst taki sam jak w źródle
+UWAGA vi drill.range.freq: tekst taki sam jak w źródle
+UWAGA vi drill.icm.stack: tekst taki sam jak w źródle
+UWAGA vi drill.playerType.name.regular: tekst taki sam jak w źródle
+UWAGA vi drill.drawCall.drawFlush: tekst taki sam jak w źródle
+UWAGA vi drill.drawCall.drawOesd: tekst taki sam jak w źródle
+UWAGA vi drill.drawCall.drawGutshot: tekst taki sam jak w źródle
+UWAGA vi drill.texture.label.suits.rainbow: tekst taki sam jak w źródle
+UWAGA vi drill.texture.range: tekst taki sam jak w źródle
+UWAGA vi drill.texture.def.height.middle: liczby inne niż w źródle („flop trung bình có lá cao nhất là bồi hoặc 10”)
+UWAGA vi drill.texture.def.height.low: liczby inne niż w źródle („flop thấp có lá cao nhất là 9 hoặc thấp hơn”)
+UWAGA vi drill.vocab.end: tekst taki sam jak w źródle
+UWAGA vi scenario.street.preflop: tekst taki sam jak w źródle
+UWAGA vi scenario.street.flop: tekst taki sam jak w źródle
+UWAGA vi scenario.street.turn: tekst taki sam jak w źródle
+UWAGA vi scenario.street.river: tekst taki sam jak w źródle
+UWAGA vi scenario.table.seat: tekst taki sam jak w źródle
+UWAGA vi scenario.numbers.line: liczby inne niż w źródle („{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Outs: {{outy}} trên {{nieznane}} lá chưa thấy: bạn hoàn thành bài ở {{trafisz}} số trường hợp, khoảng 1 lần trong {{razTrafisz}}.”)
+UWAGA vi scenario.numbers.cbet: liczby inne niż w źródle („{{t:c-bet}} nhỏ khoảng {{maly}} {{t:pot|pot}}, còn loại lớn khoảng {{duzy}}. Để {{t:call|theo}}, đối thủ cần {{cenaMaly}} equity trước loại nhỏ, tức là thắng khoảng 1 lần trong {{razMaly}}, và {{cenaDuzy}} trước loại lớn, khoảng 1 lần trong {{razDuzy}}.”)
+UWAGA vi scenario.numbers.sizeOpen: liczby inne niż w źródle („Khi {{t:raise|tố}} lên {{bb}} bb, {{t:big-blind|big blind}} phải bù thêm {{doplata}} bb vào {{t:pot|pot}} {{pula}} bb (nếu mọi người còn lại {{t:fold|bỏ bài}}), nên cần {{cena}} equity, tức là thắng khoảng 1 lần trong {{raz}}.”)
+UWAGA vi scenario.numbers.size3bet: liczby inne niż w źródle („Khi 3-bet lên {{bb}} bb, người {{t:open|mở cược}} phải bù thêm {{doplata}} bb vào {{t:pot|pot}} {{pula}} bb, nên cần {{cena}} equity, tức là thắng khoảng 1 lần trong {{raz}}.”)
+UWAGA vi scenario.numbers.riverCatch: liczby inne niż w źródle („{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Bạn chỉ thắng được {{t:bluff|bluff}}, và ở ván này {{t:bluff|bluff}} chiếm {{udzial}} số {{t:bet|cược}} của đối thủ.”)
+UWAGA vi scenario.numbers.defend: liczby inne niż w źródle („{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Trước một {{t:bet|cược}} cỡ này, {{t:mdf}} là {{obrona}}: mốc tham chiếu cho cả {{t:range|range}} của bạn; ở flop bạn có thể bảo vệ ít hơn một chút, còn với một tay bài cụ thể thì lời giải thích sẽ quyết định.”)
+UWAGA vi scenario.action.limp: tekst taki sam jak w źródle
+UWAGA vi scenario.action.allIn: tekst taki sam jak w źródle
+UWAGA vi scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA vi scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA vi scenario.action.withAmount: tekst taki sam jak w źródle
+UWAGA vi scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA vi scenario.icm.rowLabel: tekst taki sam jak w źródle
+UWAGA zh-Hant welcome.title: brak liter pisma języka („PokerGym”)
+UWAGA zh-Hant welcome.title: tekst taki sam jak w źródle
+UWAGA zh-Hant rules.sourceCount: tekst taki sam jak w źródle
+UWAGA zh-Hant play.potLabel: brak liter pisma języka („{{t:pot|底池}}：{{bb}}bb”)
+UWAGA zh-Hant play.call: brak liter pisma języka („{{t:call|跟注}} {{bb}}bb”)
+UWAGA zh-Hant play.bet: brak liter pisma języka („{{t:bet|下注}} {{bb}}bb”)
+UWAGA zh-Hant play.log.call: brak liter pisma języka („{{pos}}：{{t:call|跟注}} {{bb}} bb”)
+UWAGA zh-Hant play.log.bet: brak liter pisma języka („{{pos}}：{{t:bet|下注}} {{bb}} bb”)
+UWAGA zh-Hant table.position.utg: tekst taki sam jak w źródle
+UWAGA zh-Hant table.position.hj: tekst taki sam jak w źródle
+UWAGA zh-Hant table.position.co: tekst taki sam jak w źródle
+UWAGA zh-Hant table.position.btn: tekst taki sam jak w źródle
+UWAGA zh-Hant table.position.sb: tekst taki sam jak w źródle
+UWAGA zh-Hant table.position.bb: tekst taki sam jak w źródle
+UWAGA zh-Hant card.rank.J: brak liter pisma języka („J”)
+UWAGA zh-Hant card.rank.Q: brak liter pisma języka („Q”)
+UWAGA zh-Hant card.rank.K: brak liter pisma języka („K”)
+UWAGA zh-Hant card.rank.A: brak liter pisma języka („A”)
+UWAGA zh-Hant drill.range.freq: tekst taki sam jak w źródle
+UWAGA zh-Hant drill.icm.stack: tekst taki sam jak w źródle
+UWAGA zh-Hant drill.texture.range: tekst taki sam jak w źródle
+UWAGA zh-Hant drill.texture.def.height.middle: liczby inne niż w źródle („中翻牌的最大牌是 J 或 10”)
+UWAGA zh-Hant drill.texture.def.height.low: liczby inne niż w źródle („低翻牌的最大牌是 9 或更小”)
+UWAGA zh-Hant drill.texture.def.ranks.connected: liczby inne niż w źródle („{{t:connected|連張}}翻牌有三個不同點數落在五個連續點數之內，所以現在就可能有{{t:straight|順子}}（A 也可當作 1）”)
+UWAGA zh-Hant scenario.table.seat: brak liter pisma języka („{{pozycja}} · {{rola}} · {{bb}} bb”)
+UWAGA zh-Hant scenario.table.seat: tekst taki sam jak w źródle
+UWAGA zh-Hant scenario.potOnly: brak liter pisma języka („{{t:pot|底池}} {{pula}} bb”)
+UWAGA zh-Hant scenario.numbers.line: liczby inne niż w źródle („{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。補牌數是未見的 {{nieznane}} 張中的 {{outy}} 張：成牌機率 {{trafisz}}，大約每 {{razTrafisz}} 次 1 次。”)
+UWAGA zh-Hant scenario.numbers.cbet: liczby inne niż w źródle („小額{{t:c-bet}}約為{{t:pot|底池}}的 {{maly}}，大額約為 {{duzy}}。要{{t:call|跟注}}，對手面對小額需要 {{cenaMaly}} 的勝率，也就是大約每 {{razMaly}} 次贏 1 次；面對大額需要 {{cenaDuzy}}，大約每 {{razDuzy}} 次贏 1 次。”)
+UWAGA zh-Hant scenario.numbers.sizeOpen: liczby inne niż w źródle („{{t:raise|加注}}到 {{bb}} bb 時，{{t:big-blind|大盲}}要再補 {{doplata}} bb 進 {{pula}} bb 的{{t:pot|底池}}（如果其他人都{{t:fold|棄牌}}），所以需要 {{cena}} 的勝率，也就是大約每 {{raz}} 次贏 1 次。”)
+UWAGA zh-Hant scenario.numbers.size3bet: liczby inne niż w źródle („3-bet 到 {{bb}} bb 時，{{t:open|開池}}者要再補 {{doplata}} bb 進 {{pula}} bb 的{{t:pot|底池}}，所以需要 {{cena}} 的勝率，也就是大約每 {{raz}} 次贏 1 次。”)
+UWAGA zh-Hant scenario.numbers.riverCatch: liczby inne niż w źródle („{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。你只贏得過{{t:bluff|詐唬}}，而這手牌中{{t:bluff|詐唬}}佔對手{{t:bet|下注}}的 {{udzial}}。”)
+UWAGA zh-Hant scenario.numbers.defend: liczby inne niż w źródle („{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。面對這個大小的{{t:bet|下注}}，{{t:mdf}}是 {{obrona}}：這是你整個{{t:range|範圍}}的參考點；在翻牌時可以稍微少防守一些，單一手牌則由解說決定。”)
+UWAGA zh-Hant scenario.action.threeBet: brak liter pisma języka („3-bet”)
+UWAGA zh-Hant scenario.action.fourBet: brak liter pisma języka („4-bet”)
+UWAGA zh-Hant scenario.action.amountPay: brak liter pisma języka („{{bb}} bb”)
+UWAGA zh-Hant scenario.action.amountPay: tekst taki sam jak w źródle
+UWAGA zh-Hant scenario.action.amountAll: brak liter pisma języka („{{bb}} bb”)
+UWAGA zh-Hant scenario.action.amountAll: tekst taki sam jak w źródle
+UWAGA zh-Hant scenario.icm.noPrizeThird: liczby inne niż w źródle („第 3 名沒有獎金。”)
+UWAGA zh-Hant scenario.icm.noPrizeFourth: liczby inne niż w źródle („第 4 名沒有獎金。”)
+UWAGA zh-Hant scenario.icm.stackValue: brak liter pisma języka („{{bb}} bb”)
+UWAGA zh-Hant scenario.icm.stackValue: tekst taki sam jak w źródle
+UWAGA pl: 114 kluczy bez kontekstu (np. scenarios.levels, scenarios.locked, table.position.utg, table.position.hj, table.position.co)
+UWAGA kod apps/mobile/src/app/(tabs)/lessons.tsx:74 t(rozwiniety ? 'lessons.collapse' : 'lessons.expand'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/glossary.tsx:44 t(`glossary.areas.${s.area}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/session.tsx:174 t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/session.tsx:373 t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/settings.tsx:111 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/PaintGrid.tsx:118 t(STAN_KLUCZ[result[i]!]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/RuleCard.tsx:15 t(`level.${rule.level}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/Stol.tsx:132 t(STAN_KLUCZ[m.stan]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:11 t(`rules.sourceKind.one.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:13 t(`rules.sourceKind.many.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:17 t(total === 1 ? 'rules.source' : 'rules.sources'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dane/EkranDanych.tsx:91 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dzis/BlokLekcji.tsx:14 t(blok.rozpoczeta ? 'today.continueLesson' : 'today.startLesson'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/ocena/StopienOceny.tsx:24 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:67 t(o.klucz): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:70 t(o.kwota === 'pay' ? 'scenario.action.amountPay' : o.kwota === 'to' ? 'scenario.action.amountTo' : 'scenario.action.amountAll'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:109 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:230 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:262 t(`scenario.street.${ulicaDecyzji}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:263 t(`grade.${ocenaWyboru}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:284 t(`scenario.street.${widok.ulica}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:290 t(`scenario.street.${u}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:352 t(`scenario.street.${nastepna.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:361 t(inni.length === 1 ? 'scenario.icm.foldedOne' : 'scenario.icm.foldedMany'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:389 t(klucz): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:403 t(`scenario.level.${p.poziom}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:413 t(`scenario.street.${d.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:416 t(`grade.${k.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/WyborScenariusza.tsx:45 t(`scenario.level.${l}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:42 t(`scenario.level.${w}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:87 t(`grade.${w.ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:110 t(`grade.${o}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:119 t(`grade.${o}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:119 t(`grade.${o}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:188 t(uklad.liczbaGraczy === 3 ? 'scenario.icm.noPrizeThird' : 'scenario.icm.noPrizeFourth'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:221 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/komponenty.tsx:224 t(TYTUL_BLOKU[blok.rodzaj]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/liczby.ts:53 t(d.bluffShare > potrzeba ? 'scenario.numbers.riverCatchMore' : 'scenario.numbers.riverCatchLess'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/scenariusz/liczby.ts:112 t(trojbet ? 'scenario.numbers.size3bet' : 'scenario.numbers.sizeOpen'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/start/EkranStartu.tsx:37 t(`start.title.${TYTUL[rodzaj]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/PanelDecyzji.tsx:35 t(`grade.${ocenaDecyzji(rekord.grade)}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:23 t(`grade.${stopien}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:33 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:109 t(`card.rank.${r}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:109 t(`card.suit.${s}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:117 t(`table.position.${p.toLowerCase()}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:108 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+błędy: 0, uwagi: 581; języki: de, en, es, fr, it, ja, ko, pl, pt, pt-BR, vi, zh-Hant; kluczy w źródle: 877
+exit=0

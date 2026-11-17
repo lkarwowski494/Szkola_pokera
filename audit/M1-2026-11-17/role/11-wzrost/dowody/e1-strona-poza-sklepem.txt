@@ -1,0 +1,45 @@
+# Strona poza sklepem (GitHub Pages), odczyt 2026-11-17 UTC
+$ curl -sS -m 20 https://lkarwowski494.github.io/Szkola_pokera/support.html -w '%{http_code}'
+200
+exit 0
+$ diff (tekst bez znaczników) strona na żywo vs site/support.html @ f75acdff
+exit 0 (0 = identyczne)
+$ grep -c 'DO USTALENIA' (na żywo)
+3
+$ grep -n 'Zgłoś błąd w tym zadaniu\|Report a problem with this task' (na żywo)
+26:Błąd w konkretnym zadaniu zgłosisz też przyciskiem „Zgłoś błąd w tym zadaniu” pod oceną.</p>
+51:You can also report a mistake in a specific task with “Report a problem with this task” below the grade.</p>
+$ curl -sS -m 20 https://lkarwowski494.github.io/Szkola_pokera/privacy.html -w '%{http_code}'
+200
+exit 0
+$ diff (tekst bez znaczników) strona na żywo vs site/privacy.html @ f75acdff
+exit 0 (0 = identyczne)
+$ grep -c 'DO USTALENIA' (na żywo)
+16
+$ grep -n 'Zgłoś błąd w tym zadaniu\|Report a problem with this task' (na żywo)
+57:<p>Aplikacja nadal niczego nie wysyła: e-mail wysyłasz Ty, ze swojej poczty. Przyciski „Napisz do nas” i „Zgłoś błąd w tym zadaniu” otwierają Twój program pocztowy; szkic zgłoszenia błędu zawiera id
+112:<p>The app still sends nothing: you send the email, from your own mail app. The “Write to us” and “Report a problem with this task” buttons open your mail app; the problem report draft contains the task ID, a
+
+$ grep -n "ID_APLIKACJI_SKLEPU\|ADRES_KONTAKTOWY" apps/mobile/src (bez testów)
+apps/mobile/src/platform/adresy.ts:17:export const ID_APLIKACJI_SKLEPU: string | null = null;
+apps/mobile/src/platform/adresy.ts:18:export const ADRES_KONTAKTOWY: string | null = null;
+apps/mobile/src/app/session.tsx:44:import { ADRES_KONTAKTOWY, ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+apps/mobile/src/app/session.tsx:417:          {ADRES_KONTAKTOWY ? (
+apps/mobile/src/app/session.tsx:422:              adresKontaktowy={ADRES_KONTAKTOWY}
+apps/mobile/src/app/settings.tsx:14:import { ADRES_KONTAKTOWY, ID_APLIKACJI_SKLEPU } from '@/platform/adresy';
+apps/mobile/src/app/settings.tsx:132:          {ID_APLIKACJI_SKLEPU && ADRES_KONTAKTOWY ? (
+apps/mobile/src/app/settings.tsx:134:              idAplikacjiSklepu={ID_APLIKACJI_SKLEPU}
+apps/mobile/src/app/settings.tsx:135:              adresKontaktowy={ADRES_KONTAKTOWY}
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:15:import { ADRES_KONTAKTOWY } from '@/platform/adresy';
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:349:          {ADRES_KONTAKTOWY ? (
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:350:            <ZglosBlad zadanieId={`${s.szablon.id}#${indeks + 1}`} wersjaAplikacji={Constants.expoConfig?.version ?? '?'} jezyk={i18n.langu
+exit 0
+$ grep -n "W-04\|K-09\|08-F23" docs/wydanie/plan-1.0.md
+85:| F-17 opinie | ukryte „Oceń w sklepie”, „Napisz do nas”, „Zgłoś błąd” (brak App Store ID i adresu poczty) | 08-F23, D-270 | fakty właściciela (W-04) |
+106:| K-09 | Adresy w kodzie: `ADRES_PRYWATNOSCI`, `ID_APLIKACJI_SKLEPU`, `ADRES_KONTAKTOWY` (`platform/adresy.ts`) → przycisk polityki działa, sekcja „Opinie” i „Zgłoś błąd” widoczne; testy | 08-F20 (WYSO
+130:| 08-F20 polityka prywatności | WYSOKIE (App Store) | K-09, K-10, W-04 |
+131:| 08-F23 App Store ID, poczta | ŚREDNIE | K-09, W-05 |
+189:4. Fakty właściciela (W-04, W-05, W-07) są do 2026-11-17.
+212:Równolegle (poza ścieżką): D-01, D-02, D-06 dokumenty; K-06–K-10 kod; W-04/W-05/W-07 fakty właściciela.
+220:| Brak adresu polityki prywatności blokuje wysyłkę (5.1.1(i)) | realne | W-04 z terminem 17.11; K-10 strona gotowa wcześniej |
+237:| W-04 | Adres poczty do opinii i zgłoszeń (Support URL musi prowadzić do kontaktu) | do 17.11 | 5 min |

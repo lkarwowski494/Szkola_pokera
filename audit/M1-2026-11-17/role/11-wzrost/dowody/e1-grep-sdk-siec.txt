@@ -1,0 +1,45 @@
+$ grep -n -i -E "analytics|amplitude|mixpanel|segment|appsflyer|adjust|branch|posthog|aptabase|telemetrydeck|firebase|sentry|bugsnag|datadog|facebook|tracking-transparency|expo-insights|expo-updates|attribution" apps/mobile/package.json package.json packages/*/package.json
+exit 1
+$ grep -c -i -E "^  /?(@amplitude|mixpanel|@segment|appsflyer|react-native-adjust|react-native-branch|posthog|@aptabase|telemetrydeck|@react-native-firebase|@sentry|expo-tracking-transparency|expo-insights)" pnpm-lock.yaml
+0
+exit 1
+$ grep -rn -E "fetch\(|XMLHttpRequest|axios|WebSocket|sendBeacon" apps/mobile/src packages/*/src --include=*.ts --include=*.tsx (bez testów)
+exit 1
+$ dependencies apps/mobile/package.json
+expo
+expo-asset
+expo-constants
+expo-dev-client
+expo-file-system
+expo-font
+expo-haptics
+expo-iap
+expo-linking
+expo-localization
+expo-notifications
+expo-router
+expo-splash-screen
+expo-sqlite
+expo-status-bar
+expo-system-ui
+react
+react-native
+react-native-gesture-handler
+react-native-reanimated
+react-native-safe-area-context
+react-native-screens
+react-native-svg
+react-native-worklets
+@szkola/content-schema
+@szkola/domena
+@szkola/poker-core
+@szkola/jezyki
+@szkola/postep
+@szkola/srs
+zustand
+i18next
+react-i18next
+@formatjs/intl-pluralrules
+expo-document-picker
+expo-sharing
+expo-store-review

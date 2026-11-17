@@ -1,0 +1,169 @@
+$ for f in .github/workflows/*.yml: wyzwalacze (blok on:)
+== .github/workflows/asc-iap-localizations.yml
+12: on:
+13:   workflow_dispatch:
+14:     inputs:
+15:       tryb:
+16:         description: 'dry-run = tylko plan; apply = utwórz brakujące i zaktualizuj różniące się (nigdy nie usuwa; wymaga zatwierdzenia release)'
+17:         type: choice
+18:         options: [dry-run, apply]
+19:         default: dry-run
+== .github/workflows/asc-kontrola.yml
+11: on:
+12:   workflow_dispatch:
+13:     inputs:
+14:       szczegoly:
+15:         description: 'Dołącz szczegóły (listy terytoriów, odpowiedzi wiekowe, lokalizacje)'
+16:         type: boolean
+17:         default: false
+== .github/workflows/asc-metadane.yml
+13: on:
+14:   workflow_dispatch:
+15:     inputs:
+16:       tryb:
+17:         description: 'podglad = tylko odczyt i lista zmian; zapis = utwórz brakujące i zaktualizuj różniące się (nigdy nie usuwa; wymaga zatwierdzenia release)'
+18:         type: choice
+19:         options: [podglad, zapis]
+20:         default: podglad
+== .github/workflows/asc-produkty.yml
+13: on:
+14:   workflow_dispatch:
+15:     inputs:
+16:       tryb:
+17:         description: 'dry-run = tylko plan; apply = utwórz brakujące (nigdy nie usuwa, nie zmienia istniejących cen i okresów; wymaga zatwierdzenia release)'
+18:         type: choice
+19:         options: [dry-run, apply]
+20:         default: dry-run
+== .github/workflows/asc-zrzuty.yml
+13: on:
+14:   workflow_dispatch:
+15:     inputs:
+16:       tryb:
+17:         description: 'dry-run = tylko lista, co zostałoby wgrane; apply = wgraj i ułóż (nigdy nie usuwa; wymaga zatwierdzenia release)'
+18:         type: choice
+19:         options: [dry-run, apply]
+20:         default: dry-run
+21:       zrzuty_z_przebiegu:
+22:         description: 'Numer przebiegu store-screenshots.yml z artefaktem sklep-zrzuty-<rozmiar> (żyje 3 dni)'
+23:         required: true
+24:         type: string
+25:       rozmiar:
+26:         description: 'Który rozmiar iPhone wgrać: 6.9 (1320 × 2868, wystarcza — Apple skaluje w dół) albo 6.3 (1206 × 2622)'
+== .github/workflows/ci.yml
+5: on:
+6:   push:
+7:     branches: [main, 'claude/**', 'integration/**']
+8:   pull_request:
+9:   # ręczne uruchomienie (Actions → CI → Run workflow); dostępne tylko dla osób z prawem zapisu
+10:   workflow_dispatch:
+11: 
+12: # domyślny token tylko do odczytu (workflow niczego nie publikuje)
+== .github/workflows/e2e-ios.yml
+21: on:
+22:   # WG-19 (D-1620, 2026-11-13): push tylko main i gałąź robocza; gałęzie sesji (claude/sesja-*) bez E2E, ręcznie przez
+23:   # workflow_dispatch z wyborem ref (zastępuje „push także na claude/**” z D-194 i integration/** z D-170).
+24:   push:
+25:     branches: [main, 'claude/sleepy-brahmagupta-2065nu']
+26:     paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**', 'store/**'] # store/: tekst sklepu, nie wchodzi do aplikacji (D-327)
+27:   workflow_dispatch:
+28:     inputs:
+29:       aplikacja_z_przebiegu:
+30:         description: 'Numer przebiegu z gotową aplikacją (artefakt szkola-sim-app żyje 1 dzień); pusty = zbuduj od nowa. Tylko przy zmianie samych flowów (~24 min mniej); nie otwiera bramki TestFlight'
+31:         required: false
+32:         default: ''
+33:       urzadzenie:
+34:         description: 'Wzorzec nazwy symulatora (wyrażenie regularne JS), np. "iPhone SE|iPhone 16e" — mały ekran; pusty = najnowszy iPhone z obrazu'
+== .github/workflows/iphone-eas.yml
+14: on:
+15:   workflow_dispatch:
+16:     inputs:
+17:       akcja:
+18:         description: Co zrobić
+19:         type: choice
+20:         options: [konfiguruj-podpis, build-w-chmurze]
+21:         default: konfiguruj-podpis
+== .github/workflows/iphone-local.yml
+16: on:
+17:   workflow_dispatch:
+18:     inputs:
+19:       tryb:
+20:         description: Co zrobić
+21:         type: choice
+22:         options: [instalacja, tylko-kompilacja]
+23:         default: instalacja
+== .github/workflows/nocny.yml
+12: on:
+13:   schedule:
+14:     # 02:41 UTC (poza pełną godziną, kiedy kolejka harmonogramów jest najdłuższa)
+15:     - cron: '41 2 * * *'
+16:   workflow_dispatch:
+17:     inputs:
+18:       zgloszenie:
+19:         description: 'Utwórz / zaktualizuj / zamknij zgłoszenie z wynikiem (domyślnie tylko przebieg z harmonogramu)'
+20:         type: boolean
+21:         default: false
+== .github/workflows/pages.yml
+9: on:
+10:   push:
+11:     branches: [main]
+12:     paths:
+13:       - 'site/**'
+14:       - '.github/workflows/pages.yml'
+15:   workflow_dispatch:
+== .github/workflows/przeglad-tlumaczen.yml
+15: on:
+16:   workflow_dispatch:
+17:     inputs:
+18:       jezyki:
+19:         description: 'Kody języków po przecinku (np. en albo ja,fr)'
+20:         type: string
+21:         default: 'en'
+22:       model:
+23:         description: 'Model przeglądu (domyślnie Opus 5.5, effort medium; sonnet = Sonnet 5.5, tańszy)'
+24:         type: choice
+25:         default: opus
+26:         options: [opus, sonnet]
+27:       limit_usd:
+28:         description: 'Limit kosztu przebiegu w USD, najwyżej 15 (D-295); skrypt odrzuca wyższy — to wymaga zgody właściciela i zmiany stałej LIMIT_USD w kodzie'
+== .github/workflows/przeklad-tlumaczen.yml
+14: on:
+15:   workflow_dispatch:
+16:     inputs:
+17:       jezyki:
+18:         description: 'Kody języków po przecinku (np. en albo ja,fr); źródło to zawsze pl'
+19:         type: string
+20:         default: 'en'
+21:       model:
+22:         description: 'Model przekładu (domyślnie Opus 5.5, effort medium; sonnet = Sonnet 5.5, tańszy)'
+23:         type: choice
+24:         default: opus
+25:         options: [opus, sonnet]
+26:       limit_usd:
+27:         description: 'Limit kosztu przebiegu w USD, najwyżej 15 (D-295); skrypt odrzuca wyższy — to wymaga zgody właściciela i zmiany stałej LIMIT_USD w kodzie'
+== .github/workflows/store-screenshots.yml
+11: on:
+12:   workflow_dispatch:
+13:     inputs:
+14:       jezyki:
+15:         description: 'Języki aplikacji po przecinku (np. "pl,en")'
+16:         required: false
+17:         default: 'pl,en'
+18:       rozmiary:
+19:         description: 'Rozmiary iPhone po przecinku: 6.9 i/albo 6.3'
+20:         required: false
+21:         default: '6.9,6.3'
+22:       wyglad:
+23:         description: 'Wygląd systemu symulatora: light albo dark'
+24:         type: choice
+== .github/workflows/testflight.yml
+19: on:
+20:   workflow_dispatch:
+21:     inputs:
+22:       pomin_bramke_e2e:
+23:         description: 'AWARYJNIE: pomiń bramkę E2E (tylko gdy E2E zawiodło z winy maszyny, nie kodu); wymaga pola powod'
+24:         type: boolean
+25:         default: false
+26:       powod:
+27:         description: 'Powód pominięcia bramki E2E (obowiązkowy przy pomin_bramke_e2e; trafia do podsumowania przebiegu)'
+28:         required: false
+29:         default: ''

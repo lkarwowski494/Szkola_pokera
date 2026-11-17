@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs audit/M1-2026-11-17/role/09-lokalizacja/09-lokalizacja-2026-11-17.md . audit/M1-2026-11-17/role/09-lokalizacja --rola 09-lokalizacja
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 09-lokalizacja
+exit=0
