@@ -27,7 +27,7 @@ Prompt roli: assemble.mjs M2-koordynator-napraw --tryb fix (prompts @ af4c0a83),
 | M1-audytor-generalny-007 (06-tresci-001) | 1 | commit | 3f1fe76d | dowody/M2/M1-audytor-generalny-007-przed.txt (kod 1, 22 pary), -po.txt (kod 0), -test-skrypty.txt (232/232); tresci:rejestr 0, tresci:el-kontrola 0 | 08 rdzen „Zasady programisty”; 06 rdzen „Tryb: fix”; 07 rdzen „Tryb: fix” | gotowe (naprawione-do-weryfikacji) |
 | M1-audytor-generalny-047 (07-jakosc-004) | 1 | commit | 5abf3534 | dowody/M2/M1-audytor-generalny-047-przed.txt (kod 1), -po.txt (31/31); przegląd D-043: dowody/M2/przeglad-d043-047-061.md (brak uwag) | 08 rdzen; 07 rdzen „Tryb: fix” | gotowe (naprawione-do-weryfikacji) |
 | M1-audytor-generalny-061 (10-wydanie-007) | 1 | commit | c9a7c332 | dowody/M2/M1-audytor-generalny-061-przed.txt (kod 1), -po.txt (2/2), -test-skrypty.txt (234/234); przegląd D-043 jw. | 08 rdzen; 10 rdzen „Tryb: fix” | gotowe (naprawione-do-weryfikacji) |
-| M1-audytor-generalny-002 (06-tresci-501) | 1 | polecenie wysłane | — | naprawy/polecenia/06-tresci-p1.md; prompt /tmp/rola-06.md sha256 3baf0c31… | — | wynik roli → recenzent niezależny |
+| M1-audytor-generalny-002 (06-tresci-501) | 1 | commit | a2da1175 | role/06-tresci/fix-2026-11-17/ (wynik.md, test-przed kod 1 / test-po kod 0, porownanie-przed/po, ci-po kod 0); recenzja-niezalezna.md (zgodne 1–4, 6, 7); przeglad-d043-wynik.md (brak uwag); sprawdz-raport wynik.md kod 0 | rola 06 w świeżym kontekście (prompt 06 fix, sha256 3baf0c31…) | gotowe (naprawione-do-weryfikacji) |
 
 ## Dziennik
 - 2026-11-17 E0: plan, zakres, stan repo, stan wyjściowy → STOP start wysłany do koordynatora.
@@ -37,6 +37,8 @@ Prompt roli: assemble.mjs M2-koordynator-napraw --tryb fix (prompts @ af4c0a83),
 - 2026-11-17 061: test gitignore-sekrety (czerwony) → wzorce jak w Treningu → 2/2, test:skrypty 234/234 → commit c9a7c332.
 - 2026-11-17 przegląd D-043 047+061: brak uwag P0/P1 → statusy naprawione-do-weryfikacji.
 - 2026-11-17 002: polecenie 06-tresci-p1 zapisane, subagent 06 (opus/high) uruchomiony.
+- 2026-11-17 koordynator przekazał słowa właściciela na STOP start (ok. 13:40 UTC): „a: plan jak wyżej (zalecane)”; zgodne z zapisaną zgodą.
+- 2026-11-17 002: subagent 06 (opus/high) → commit a2da1175 (uncertain BB 16/13 klas, 9-max przez aliasy, zdanie m4-l2:73 w 12 językach, test is-siatki-niepewne, D-2011…D-2014) → recenzent niezależny: rachunek i źródła zgodne; uwagi: P1 siatka lekcji bez oznaczenia uncertain (przed commitem, poza zakresem → nowe znalezisko), P2 test sprawdza podzbiór, P2 T8o 49 pp → przegląd D-043: brak uwag → status naprawione-do-weryfikacji.
 
 ## Czekające zgody i kroki właściciela
 - Historia git nadal zawiera pełne wyciągi (007); przepisanie historii wymaga osobnej zgody — nie proponuję (koszt > ryzyko, ocena „brzegowy”).

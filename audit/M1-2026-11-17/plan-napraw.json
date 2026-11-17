@@ -382,8 +382,8 @@
       "przyczyna": null,
       "raport": "role/06-tresci-b/06-tresci-2026-11-17.md",
       "test_akceptacyjny": "ręce z rozbieżnością ≥ 50 pp wobec opublikowanego solvera oznaczone jako niepewne/mieszane (ocena dopuszcza obie akcje) tym samym kryterium co btn-vs-co i sb-vs-btn; test na 4 spotach BB; źródło w rejestrze",
-      "status": "zatwierdzone",
-      "commit": null,
+      "status": "naprawione-do-weryfikacji",
+      "commit": "a2da1175",
       "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
     },
     {
