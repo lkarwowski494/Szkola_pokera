@@ -26,9 +26,12 @@ test('domyślne uprawnienia tylko do odczytu; issues: write wyłącznie w zadani
   }
 });
 
-test('akcje przypięte do wersji głównej albo SHA, workflowy lokalne przez ./', () => {
+// Akcje GitHuba (actions/*) wolno przypiąć do wersji głównej; każda inna akcja tylko do pełnego SHA, bo przesunięty
+// tag cudzej akcji wykonałby nowy kod w zadaniu z sekretami bez zmiany w repo (M1-audytor-generalny-047, 07-jakosc-004;
+// tak jak w Treningu, .github/workflows/asc-kontrola.yml:21).
+test('akcje actions/* przypięte do wersji głównej albo SHA, pozostałe do pełnego SHA, workflowy lokalne przez ./', () => {
   for (const { n, d } of wf) for (const m of JSON.stringify(d.toJSON()).matchAll(/"uses":"([^"]+)"/g))
-    assert.match(m[1], /^(\.\/\.github\/workflows\/[\w-]+\.yml|[\w.-]+\/[\w.-]+(\/[\w.-]+)*@(v\d+|[0-9a-f]{40}))$/, `${n}: ${m[1]}`);
+    assert.match(m[1], /^(\.\/\.github\/workflows\/[\w-]+\.yml|actions\/[\w.-]+(\/[\w.-]+)*@(v\d+|[0-9a-f]{40})|[\w.-]+\/[\w.-]+(\/[\w.-]+)*@[0-9a-f]{40})$/, `${n}: ${m[1]}`);
 });
 
 test('harmonogramy poza pełną godziną (kolejka GitHuba)', () => {

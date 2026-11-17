@@ -46,7 +46,7 @@ jobs:
           xcodebuild -version
           v=$(xcodebuild -version | head -1 | awk '{print $2}')
           [ "$(printf '%s\n' 26.4 "$v" | sort -V | head -1)" = "26.4" ] || { echo "::error::Xcode $v jest za stary dla Expo SDK 57 (wymagane 26.4+). Dostępne:"; ls /Applications | grep -i xcode; exit 1; }
-      - uses: pnpm/action-setup@v5
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
       - uses: actions/setup-node@v5
         with:
           node-version: 22
