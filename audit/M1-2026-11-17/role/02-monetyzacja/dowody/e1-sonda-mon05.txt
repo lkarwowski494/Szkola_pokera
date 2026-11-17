@@ -1,0 +1,23 @@
+# Sonda MON-05 (kopia robocza f75acdff w scratchpadzie, node_modules jako dowiązania do repo; plik sondy niżej)
+$ cd <worktree>/apps/mobile && env -u NODE_PATH npx jest src/__tests__/sonda-m1-02-mon05.test.tsx
+    SONDA practice/zwrot: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+    SONDA review/zwrot: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/nasluch_przed: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/tylko_nasluch: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":false,"licznik":false,"sesjaOtwarta":false,"pusta":false}
+    SONDA practice/przywrocenie: {"pro":true,"ekranZakupu":false,"ekranStartuWyczerpany":true,"licznik":true,"sesjaOtwarta":false,"pusta":false}
+  SONDA MON-05: zakup ze stanu zakupu ekranu sesji
+    ✕ practice / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1691 ms)
+    ✕ review / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1541 ms)
+    ✕ practice / nasluch_przed: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1566 ms)
+    ✓ practice / tylko_nasluch: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1534 ms)
+    ✕ practice / przywrocenie: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu) (1537 ms)
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › practice / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › review / zwrot: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › practice / nasluch_przed: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+  ● SONDA MON-05: zakup ze stanu zakupu ekranu sesji › practice / przywrocenie: po zakupie sesja się otwiera (bez licznika, bez drugiego ekranu zakupu)
+      86 |     console.log(`SONDA ${mode}/${tryb}: ${JSON.stringify(stan)}`);
+Tests:       4 failed, 1 passed, 5 total
+kod: 1

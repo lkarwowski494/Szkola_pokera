@@ -1,0 +1,77 @@
+$ gh api repos/lkarwowski494/Szkola_pokera/commits?sha=f75acdff&path=<plik> (klon lokalny płytki od 2026-11-12; odczyt 2026-11-17)
+== docs/scope-contract.md
+8cba0341 2026-11-10 BD 03-zakres: scenariusze w 1.0 z generatorem, ocena „dlaczego”, ekran główny (KO-035…KO-041)
+979626e4 2026-11-08 08 cz. 4 krok 2: kod bez BR usunięty (ADR 0011) — zmiana zachowania
+ac52601b 2026-11-04 Rola 03 E3: kontrakt zakresu, przekazanie do 04–08, lista kontrolna na telefonie
+a78a7849 2026-11-04 Rola 03 bramka E2: wariant 1 (D-102), limit 1 aktywność dziennie (D-107)
+714d660d 2026-11-03 Rola 03 E2: cięcie, warianty 1–3, rejestr decyzji D-101–D-111
+29dccdc3 2026-11-03 Rola 03 E1: pętla główna, wzorzec najlepszych, wymiary, ER-12 i ER-13
+dab5cff8 2026-11-03 Delegacja decyzji właściciela (CLAUDE.md), apetyt roli 03, stan do nowej sesji
+1cf35032 2026-11-03 Podział darmowe/płatne: jedna dzienna pula (decyzja właściciela), postęp zawsze darmowy
+1cf889eb 2026-11-03 Rola 03 E0: kandydaci F-01–F-16 (35 BR), podłogi, wejście jako hipotezy, pytanie o apetyt
+kod 0
+== apps/mobile/src/app/(tabs)/_layout.tsx
+ffe748aa 2026-11-10 BI: menu W2 — pasek Dziś · Lekcje · Postęp, kafelki na „Dziś”, zębatka SVG (D-540, D-541, D-542)
+2fab680b 2026-11-08 E2E 5b: flowy 01, 02, 06, 09 po przebudowie Dzis (D-271)
+f65dceca 2026-11-08 Dzis: zakladka z BlokLekcji i wejsciami do cwiczen; sesja cwiczen; EkranStartu (08 cz. 5b kroki 1-2)
+51806f98 2026-11-08 motyw: tokeny roli 04 (docs/design/tokeny.ts) w apps/mobile, 22 ekrany przeniesione (P-2 = B, D-259)
+979626e4 2026-11-08 08 cz. 4 krok 2: kod bez BR usunięty (ADR 0011) — zmiana zachowania
+c0162136 2026-10-02 Faza 0: monorepo, silnik pokera, powtórki FSRS, potok treści i pierwszy przekrój aplikacji
+kod 0
+== apps/mobile/src/app/(tabs)/index.tsx
+b3f0b358 2026-11-16 IA D-1780: znacznik ekranu testID ekran:<trasa> na korzeniu 15 tras (red-first)
+1f697234 2026-11-10 BI: poprawki po recenzji BL — kafelek „Kurs ukończony”, karta Wskaźnika w wariancie AX5, D-584 (08-programista-003, -004)
+5f17558e 2026-11-10 BI: stany kafelków „Dziś” — limit dnia i „Po pierwszej lekcji” (D-582 wdrożone)
+ffe748aa 2026-11-10 BI: menu W2 — pasek Dziś · Lekcje · Postęp, kafelki na „Dziś”, zębatka SVG (D-540, D-541, D-542)
+93ffa6ff 2026-11-09 Struktura: ekrany biorą bazę treści przez useBazaTresci (bez zmiany zachowania)
+327af227 2026-11-09 A04-09: stan i wynik lekcji w etykiecie VoiceOver na „Dziś”
+fb6f1ced 2026-11-09 A04-05: tekst w rysunkach bez skalowania, znaki-ikony z limitem 1,4 (D-283 pkt 3)
+21112fcf 2026-11-08 Ustawienia, dane, przypomnienie, jezyk i prosba o ocene (08 cz. 5b krok 5)
+03c704e8 2026-11-08 Start z limitem, ekran zakupu, karencja i limit czasu sklepu, dostep od startu (08 cz. 5b krok 4)
+f65dceca 2026-11-08 Dzis: zakladka z BlokLekcji i wejsciami do cwiczen; sesja cwiczen; EkranStartu (08 cz. 5b kroki 1-2)
+51806f98 2026-11-08 motyw: tokeny roli 04 (docs/design/tokeny.ts) w apps/mobile, 22 ekrany przeniesione (P-2 = B, D-259)
+c1e0f6c2 2026-11-08 08 cz. 5a krok 6: ekrany na postep.db — sesja jako aktywność ze wznowieniem, Nauka, Powtórki, Postęp, wskaźnik, ustawienia
+kod 0
+== apps/mobile/src/app/_layout.tsx
+d1518635 2026-11-10 BT: ekran scenariusza (start z poziomem, decyzja, ocena „dlaczego”, podsumowanie, powtórka) i lista szablonów
+ffe748aa 2026-11-10 BI: menu W2 — pasek Dziś · Lekcje · Postęp, kafelki na „Dziś”, zębatka SVG (D-540, D-541, D-542)
+cf039ebb 2026-11-09 Start: błąd pierwszego renderu zdejmuje ekran startowy (P1 przeglądu D-043, D-332)
+f565369a 2026-11-09 Start i dostęp: 3×P2 z przeglądu D-043 sesji Q (D-329)
+0cc07bfe 2026-11-09 Start: zapisany język stosowany raz na port, bez pętli renderu (przegląd D-043, D-328)
+09ef667c 2026-11-09 Ustawienia: wiersz „Pełny dostęp” otwiera ekran zakupu przed wyczerpaniem limitu (10-D01-02, D-325)
+12a6f2ee 2026-11-09 Zmiana języka bez przemontowania nawigacji; jedna kopia bazy treści przy starcie (D-324)
+93ffa6ff 2026-11-09 Struktura: ekrany biorą bazę treści przez useBazaTresci (bez zmiany zachowania)
+52beca38 2026-11-09 K2c, K2d, K4: treść za językiem aplikacji, strażnik treści krytycznej per język, glosariusz en
+1eb4df75 2026-11-09 A04-10: teksty poza t() do kluczy (PaintGrid, RangeGrid, PlayingCard, RenderErrorScreen, _layout)
+75895ea3 2026-11-08 Czesc 6 krok 8: tytuly i indeks karty kroju Literata 600 (D-278)
+4a5939b5 2026-11-08 Dziennik do tabeli dziennik w postep.db; Zglos blad pod ocena (08 cz. 5b krok 6)
+kod 0
+== apps/mobile/src/app/settings.tsx
+b3f0b358 2026-11-16 IA D-1780: znacznik ekranu testID ekran:<trasa> na korzeniu 15 tras (red-first)
+09ef667c 2026-11-09 Ustawienia: wiersz „Pełny dostęp” otwiera ekran zakupu przed wyczerpaniem limitu (10-D01-02, D-325)
+21112fcf 2026-11-08 Ustawienia, dane, przypomnienie, jezyk i prosba o ocene (08 cz. 5b krok 5)
+kod 0
+== apps/mobile/src/app/(tabs)/progress.tsx
+b3f0b358 2026-11-16 IA D-1780: znacznik ekranu testID ekran:<trasa> na korzeniu 15 tras (red-first)
+93ffa6ff 2026-11-09 Struktura: ekrany biorą bazę treści przez useBazaTresci (bez zmiany zachowania)
+21112fcf 2026-11-08 Ustawienia, dane, przypomnienie, jezyk i prosba o ocene (08 cz. 5b krok 5)
+51806f98 2026-11-08 motyw: tokeny roli 04 (docs/design/tokeny.ts) w apps/mobile, 22 ekrany przeniesione (P-2 = B, D-259)
+c1e0f6c2 2026-11-08 08 cz. 5a krok 6: ekrany na postep.db — sesja jako aktywność ze wznowieniem, Nauka, Powtórki, Postęp, wskaźnik, ustawienia
+979626e4 2026-11-08 08 cz. 4 krok 2: kod bez BR usunięty (ADR 0011) — zmiana zachowania
+dc583c48 2026-10-05 Pomoc (B-058), EAS Observe zamiast Sentry (ADR-17), E2E Maestro w Actions (B-028, ADR-10)
+7d39a242 2026-10-05 Ekran „Słowniczek”: terminy PL–EN w obszarach, wyszukiwanie w obu językach
+dfd86736 2026-10-04 Wskaźnik zaawansowania: kafelek w Postępie i komunikat po nowych lekcjach
+f0a67c47 2026-10-03 Pomiar wydajności na telefonie (B-009) i przygotowanie pierwszego buildu
+c0162136 2026-10-02 Faza 0: monorepo, silnik pokera, powtórki FSRS, potok treści i pierwszy przekrój aplikacji
+kod 0
+== apps/mobile/src/app/scenarios.tsx
+b3f0b358 2026-11-16 IA D-1780: znacznik ekranu testID ekran:<trasa> na korzeniu 15 tras (red-first)
+d1518635 2026-11-10 BT: ekran scenariusza (start z poziomem, decyzja, ocena „dlaczego”, podsumowanie, powtórka) i lista szablonów
+ffe748aa 2026-11-10 BI: menu W2 — pasek Dziś · Lekcje · Postęp, kafelki na „Dziś”, zębatka SVG (D-540, D-541, D-542)
+kod 0
+== apps/mobile/src/features/dzis/widok.ts
+5f17558e 2026-11-10 BI: stany kafelków „Dziś” — limit dnia i „Po pierwszej lekcji” (D-582 wdrożone)
+ffe748aa 2026-11-10 BI: menu W2 — pasek Dziś · Lekcje · Postęp, kafelki na „Dziś”, zębatka SVG (D-540, D-541, D-542)
+327af227 2026-11-09 A04-09: stan i wynik lekcji w etykiecie VoiceOver na „Dziś”
+f65dceca 2026-11-08 Dzis: zakladka z BlokLekcji i wejsciami do cwiczen; sesja cwiczen; EkranStartu (08 cz. 5b kroki 1-2)
+kod 0
