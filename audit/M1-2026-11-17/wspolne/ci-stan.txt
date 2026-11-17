@@ -1,0 +1,9 @@
+# Stan CI (odczyt 2026-11-17 ok. 10:40 UTC, MCP github actions_list; kod wyjścia narzędzia: OK)
+## Gałąź robocza claude/sleepy-brahmagupta-2065nu @ f75acdff (SHA audytu)
+- CI run 44059748637 (#479, workflow_dispatch): completed / success
+- E2E iOS (symulator) run 44059753722 (#110): in_progress w chwili odczytu
+- Poprzedni: CI 44026070386 @ ef75f613 success; TestFlight run 11 (44020579081) @ aee1a359 success (build 1011); E2E 43997676282 @ aee1a359 success
+- Ostatnie czerwone na roboczej: E2E #100/#101 i CI #432 (16.11, 2b113aed/eb02f056) — późniejsze zielone (#102–#109)
+## main
+- CI 42764138635 @ ddb0108 (10.11) success; Pages success
+- ASC lokalizacje (42702503780) i ASC produkty (42699812656) z ref main: failure (9.11) — zgodnie z D-364 workflowy ASC uruchamia się z ref gałęzi roboczej; [DO USTALENIA dla roli 10: czy to tylko szum, czy znalezisko zasady 21]

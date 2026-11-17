@@ -1,0 +1,66 @@
+$ git ls-files | wc -l; du per top dir
+4494
+   2372 docs
+   1178 content
+    416 apps
+    203 tools
+    188 packages
+     60 tests
+     32 scripts
+     15 .github
+     10 audit
+      8 store
+      2 site
+      1 tsconfig.base.json
+      1 stryker.config.json
+      1 pnpm-workspace.yaml
+      1 pnpm-lock.yaml
+      1 package.json
+      1 README.md
+      1 CLAUDE.md
+      1 .npmrc
+      1 .gitignore
+      1 .claude
+
+--- apps/packages/tools level 2
+    627 docs/design
+    619 docs/lokalizacja
+    457 docs/tresci
+    416 apps/mobile
+    340 docs/programista
+    148 tools/content-build
+    124 docs/decyzje
+     98 content/zh-Hant
+     98 content/vi
+     98 content/pt-BR
+     98 content/pt
+     98 content/ko
+     98 content/ja
+     98 content/it
+     98 content/fr
+     98 content/es
+     98 content/de
+     97 content/en
+     94 content/pl
+     72 docs/jakosc
+     69 packages/poker-core
+     45 packages/domena
+     44 tools/preflop-solver
+     44 packages/postep
+     30 docs/monetyzacja
+     25 tests/narzedzia
+     22 docs/wydanie
+     20 docs/sklep
+     19 docs/architektura
+     18 tests/dane
+     15 docs/adr
+     15 .github/workflows
+     14 packages/jezyki
+     11 scripts/ci
+     11 packages/srs
+     11 docs/brd
+     10 audit/1011-2026-11-17
+      9 tools/equity
+      8 tests/kontrole
+      6 tests/akceptacja
+exit=0
