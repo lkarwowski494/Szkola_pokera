@@ -167,14 +167,12 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
  * Pary z `przejsciowe` (wyjątek nazwany w apps/mobile/src/theme/tokens.ts) sprawdza test motywu, nie ta lista.
  */
 export const paryZlozone: Record<string, { fg: keyof Paleta; tlo: keyof Paleta; krycie: number; podTlem: keyof Paleta; prog: number }> = {
-  // RangeGrid: pole w zakresie = felt1 z opacity 0,85 na surface; kropka klasy niepewnej w kolorze ink (w rogu: ≥ 3 na surface i na zieleni);
+  // RangeGrid: pole w zakresie = rangeFill z opacity 0,85 na surface; kropka klasy niepewnej w kolorze ink (w rogu: ≥ 3 na surface i na pasku);
   // etykieta ręki: onFelt tylko na polu pełnym (pierwsza grupa = 1, KO-132 (a)); w pozostałych ink na podkładce surface (para
   // „etykieta ręki w siatce na podkładce” w `pary`; D-2020, design-spec „RangeGrid”)
-  'znak klasy niepewnej na polu w zakresie': { fg: 'ink', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 3 },
-  'etykieta ręki na polu pełnym (pierwsza grupa = 1, tekst 8–10,4 pt)': { fg: 'onFelt', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
   // 04-studio-projektowe-011 (M2-koordynator-napraw-009, D-2021; design-spec „RangeGrid”): pasek pierwszej grupy rysuje `rangeFill`, nie `felt1`
-  // (felt1 zostaje suknem stołu). Trzy pary niżej zastępują dwie wyżej, gdy rola 08 przełączy RangeGrid na `rangeFill`; wtedy 08 usuwa pary z `felt1`
-  // razem ze zmianą testu `kontrast-pary-08` (dziś wiąże je z felt1). Próg 3 dla paska: grafika niosąca informację „gram/pas” (WCAG 1.4.11).
+  // (felt1 zostaje suknem stołu); pary z `felt1` usunięte po przełączeniu RangeGrid i testów (08, M2-koordynator-napraw-009).
+  // Próg 3 dla paska: grafika niosąca informację „gram/pas” (WCAG 1.4.11).
   'pasek siatki obok pustej części pola (rangeFill na surface)': { fg: 'surface', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 },
   'etykieta ręki na pasku pełnym (rangeFill, tekst 8–10,4 pt)': { fg: 'onFelt', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
   'kropka klasy niepewnej na pasku (rangeFill)': { fg: 'ink', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 },

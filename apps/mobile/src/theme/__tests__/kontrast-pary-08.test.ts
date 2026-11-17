@@ -31,7 +31,7 @@ describe('kontrast par tokenów (4 warianty)', () => {
 
   it('krycie pola w zakresie w paryZlozone = opacity w RangeGrid.tsx (jedno źródło wartości)', () => {
     const kod = readFileSync(join(__dirname, '../../components/RangeGrid.tsx'), 'utf8');
-    expect(kod).toContain(`opacity: ${tokeny.paryZlozone['znak klasy niepewnej na polu w zakresie']!.krycie}`);
+    expect(kod).toContain(`opacity: ${tokeny.paryZlozone['pasek siatki obok pustej części pola (rangeFill na surface)']!.krycie}`);
   });
 
   // Pary 2–4 z zadań 067 i 068: znak = kolor etykiety ręki w danym polu (RangeGrid: ink, PaintGrid: labelColor)
