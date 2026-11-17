@@ -86,7 +86,8 @@ Wspólne przyczyny: oba miejsca w 09-lokalizacja-001 (wynik zadania liczbowego i
 - Języki: `docs/brd/wymagania.md:78` „Próg: 100% w 35 językach” wobec `docs/decyzje.md:211` „1.0 = pl + en + kilka największych języków”. W aplikacji jest 12 języków (`apps/mobile/app.json:39`).
 - Storefronty: `docs/brd/odkrywanie.md:113` „Storefronty: wszystkie poza PL” (i dalej: ograniczenie działa w AU, BR i KR) wobec `docs/decyzje.md:210` „D-300 przyjęta (wszystkie poza spornymi KR, CN, AF, GA, MA, VN, TR i poza PL”.
 - ER-15: `docs/brd/errata.md:20` „Przegląd roli 01 w trybie `fix`” ma stan otwarte. ER-16 tak samo (linia 21).
-- RD-06: `docs/brd/reguly.md:104` wskazuje plik „math.ts” w linii 70 (wpis „Kod” dla `spr`), a funkcja jest w `packages/poker-core/src/math.ts:72` „export function spr(effectiveStack: number, pot: number)”.
+- RD-06: wpis „Kod” w `docs/brd/reguly.md:104` wskazuje linię 70 pliku math.ts dla `spr`.
+  Funkcja jest w `packages/poker-core/src/math.ts:72` „export function spr(effectiveStack: number, pot: number)”.
 
 Korekty opisu:
 

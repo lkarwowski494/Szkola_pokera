@@ -1,0 +1,2 @@
+# g2 / 01-odkrywanie-001: niezależna sonda (kopia robocza f75acdff w scratchpadzie) na bazie treści pl i funkcjach z kodu
+$ cd <worktree>/apps/mobile && env -u NODE_PATH npx jest src/__tests__/sonda-g2-rd11.test.ts
