@@ -1,0 +1,193 @@
+$ env -u NODE_PATH pnpm run ci   # start 2026-11-17T10:52:50Z @ f75acdff16915aeb43ff788888216e28616c11ed
+
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr && pnpm tresci:el-kontrola
+
+
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+
+Scope: 9 of 10 workspace projects
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/srs typecheck: Done
+packages/jezyki typecheck: Done
+packages/content-schema typecheck: Done
+packages/poker-core typecheck: Done
+packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/preflop-solver typecheck$ tsc -p tsconfig.json
+tools/preflop-solver typecheck: Done
+packages/domena typecheck: Done
+packages/postep typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/content-build typecheck$ tsc -p tsconfig.json
+packages/postep typecheck: Done
+tools/content-build typecheck: Done
+apps/mobile typecheck$ tsc --noEmit
+apps/mobile typecheck: Done
+
+> szkola-pokera@ test /home/user/Szkola_pokera
+> pnpm -r --if-present test
+
+Scope: 9 of 10 workspace projects
+packages/jezyki test$ vitest run
+packages/poker-core test$ vitest run
+packages/srs test$ vitest run
+packages/jezyki test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/jezyki
+packages/poker-core test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/poker-core
+packages/srs test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/srs
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/srs test:    Start at  10:53:12
+packages/srs test:    Duration  474ms (transform 43%, tests 25%, setup 18%, import 12%, worker 2%)
+packages/srs test: Done
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/jezyki test:    Start at  10:53:11
+packages/jezyki test:    Duration  779ms (transform 43%, tests 41%, import 13%, worker 3%)
+packages/jezyki test: Done
+packages/poker-core test:  Test Files  44 passed (44)
+packages/poker-core test:       Tests  350 passed (350)
+packages/poker-core test:    Start at  10:53:11
+packages/poker-core test:    Duration  252.32s (tests 99%, import 1%)
+packages/poker-core test: Done
+packages/domena test$ vitest run
+tools/preflop-solver test$ vitest run
+packages/domena test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/domena
+tools/preflop-solver test:  RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+packages/domena test: (node:2285) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/domena test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/domena test: (node:2389) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/domena test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/domena test:  Test Files  27 passed (27)
+packages/domena test:       Tests  347 passed | 1 expected fail (348)
+packages/domena test:    Start at  10:57:24
+packages/domena test:    Duration  7.24s (tests 65%, transform 16%, import 14%, setup 4%, worker 1%)
+packages/domena test:     Isolate  27 workers spawned · ~148ms startup each (spawn + environment, per file)
+packages/domena test:              at least ~1.18s faster with isolate: false — reuses workers across files instead of one per file
+packages/domena test: Done
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+tools/preflop-solver test:    Start at  10:57:24
+tools/preflop-solver test:    Duration  49.64s (tests 97%, transform 1%, import 1%)
+tools/preflop-solver test: Done
+packages/postep test$ vitest run
+tools/content-build test$ vitest run
+packages/postep test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/postep
+tools/content-build test:  RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+packages/postep test: (node:2828) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2827) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2829) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:2848) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:2851) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:2849) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2877) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2884) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2891) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2897) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2905) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2912) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2919) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2933) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:2925) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2940) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2947) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2949) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2961) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2968) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2989) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:2995) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:3003) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test:  Test Files  21 passed (21)
+packages/postep test:       Tests  160 passed (160)
+packages/postep test:    Start at  10:58:14
+packages/postep test:    Duration  7.99s (tests 73%, import 15%, transform 11%, worker 1%)
+packages/postep test:     Isolate  21 workers spawned · ~209ms startup each (spawn + environment, per file)
+packages/postep test:              at least ~1.25s faster with isolate: false — reuses workers across files instead of one per file
+packages/postep test: Done
+tools/content-build test: (node:3010) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3099) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3110) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3128) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3397) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3404) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3694) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3687) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3701) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3708) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3725) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3715) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3732) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3739) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3746) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3753) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3760) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3767) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3781) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3788) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3795) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3824) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3834) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3841) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3876) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3869) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3890) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3883) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3897) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3912) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:3933) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
