@@ -1,0 +1,12 @@
+$ sed -n 30,36p apps/mobile/src/components/SkalaStopni.tsx
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
+  // IJ (D-1908): maxWidth 100% — `flexBasis` 112 × skala (349 pt przy AX5) nie może przekroczyć wiersza (na 320 pt wychodził poza suknem i ekran się przewijał poziomo)
+$ grep -n "podstawaPrzedzialu" apps/mobile/src/theme/skalowanie.ts
+13:export const podstawaPrzedzialu = (skala: number, twoj: boolean): number => (twoj ? 112 : 76) * skala;
+
+Rachunek (390 pt, tekst domyślny): sukno ok. 390 − 2×16 (ekran) − 2×12 (rama) − 2×16 (sukno) ≈ 302 pt; minus 2 przerwy 8 pt = 286 pt; podstawy 76 + 76 + 112 = 264 pt, flexGrow rozdziela 22 pt → przedział nie-twój ok. 83 pt, pole tekstu 83 − 2×8 (padding) − 2×1 (obwódka) ≈ 65 pt. „Dopuszczalna” 13 pt semibold ≈ 12 znaków × ok. 0,6 em × 13 ≈ 80–90 pt > 65 pt → łamanie w środku wyrazu przy tekście domyślnym (D-122 dopuszcza je tylko przy AX3–AX5 na 320 pt). Zrzut web (Inter zamiast SF Pro): zrzuty/po-ocenie-390-jasny.png, zrzuty/ocena-zgodna-390-jasny.png nie dotyczy (scenariusz ma inny pasek); makieta e3: Dopuszczalna jako przedział „twój” 112 pt (wzorce-zrzuty/e3-po-ocenie-390-light.png).

@@ -1,0 +1,11 @@
+$ python3 PIL: apps/mobile/assets/images/*.png rozmiar, tryb, alfa; narożniki icon.png
+android-foreground.png (1024, 1024) RGBA alfa min 0
+android-monochrome.png (1024, 1024) RGBA alfa min 0
+favicon.png (48, 48) RGB alfa min -
+icon.png (1024, 1024) RGB alfa min -
+ios-dark.png (1024, 1024) RGB alfa min -
+splash-icon.png (1024, 1024) RGBA alfa min 0
+icon.png narożniki [(33, 71, 137), (34, 72, 138), (10, 20, 48), (10, 20, 48)]
+icon.png = docs/design/ikona/icon.png
+ios-dark.png = docs/design/ikona/ios-dark.png
+exit=0

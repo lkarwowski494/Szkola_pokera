@@ -1,0 +1,75 @@
+$ grep -rnE "(Ms|MS|Timeout|TIMEOUT|Limit|LIMIT|Prog|PROG|Threshold|THRESHOLD|Okno|OKNO|Maks|MAKS)[A-Za-z_]*\s*[:=]\s*[0-9]{2,}" apps/mobile/src packages/*/src (bez testów, bez konfiguracja.ts)
+apps/mobile/src/theme/kroje.ts:11:export const LIMIT_KROJU_MS = 3000;
+apps/mobile/src/state/play.ts:14:  timeLimitS: 15 | 30 | null;
+packages/domena/src/wariant.ts:25:export const WYBOR_MAKS_PROB = 200;
+packages/poker-core/src/bench.ts:12:export const NFR03 = { iterations: 20_000, maxMs: 50 } as const;
+packages/srs/src/index.ts:45:export const DEFAULT_THRESHOLDS: SpeedThresholds = { fastMs: 3000, slowMs: 8000 };
+packages/srs/src/scheduler.ts:7:export const DAY_MS = 86_400_000;
+packages/srs/src/game.ts:23:const DAY_MS = 24 * 60 * 60 * 1000;
+kod wyjścia: 0
+
+$ grep -rnE "setTimeout\([^,]+,\s*[0-9]{3,}" apps/mobile/src packages/*/src (bez testów)
+kod wyjścia: 1
+
+$ grep -rnE "3000|8000|15000|0\.85|0\.035" apps/mobile/src packages/*/src (bez testów, bez konfiguracja.ts)
+apps/mobile/src/components/PasekStrategii.tsx:98:              { ...wymiarSegmentu(opcje.length, skala), minHeight: CEL_AKCJI, borderLeftWidth: lewaKrawedzSegmentu(i, opcje.length, skala, szerokoscEkranu), borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
+apps/mobile/src/components/Choice.tsx:31:              { borderColor: on ? tk.ink : tk.separator, borderWidth: on ? 2.5 : 1.5, backgroundColor: tk.surface, opacity: o.disabled ? 0.45 : pressed ? 0.85 : 1 },
+apps/mobile/src/components/RangeGrid.tsx:32:                      const el = <View key={gi} style={{ position: 'absolute', left: `${offset * 100}%`, width: `${f * 100}%`, top: 0, bottom: 0, backgroundColor: colors[gi % colors.length], opacity: 0.85 }} />;
+apps/mobile/src/app/session.tsx:470:                opacity: pressed ? 0.85 : 1, // A04-08: bez przezroczystości niewybranych po ocenie (kontrast wyjaśnienia ≥ 4,5:1)
+apps/mobile/src/app/session.tsx:556:                    { backgroundColor: tk.surface, borderColor: on ? tk.ink : tk.separator, borderWidth: on ? 2.5 : 1.5, opacity: pressed ? 0.85 : 1 },
+apps/mobile/src/app/(tabs)/lessons.tsx:76:              style={({ pressed }) => [styles.modul, { backgroundColor: tk.surface, opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/app/(tabs)/lessons.tsx:98:                      style={({ pressed }) => [styles.lesson, { backgroundColor: tk.surface, borderColor: state === 'done' ? tk.ink : tk.separator, opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/app/(tabs)/lessons.tsx:118:                style={({ pressed }) => [styles.lesson, { borderColor: exams.get(m.id)?.passed ? tk.ink : tk.separator, borderStyle: 'dashed', opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/features/ocena-poziomu/EkranyOceny.tsx:54:              opacity: pressed ? 0.85 : 1,
+apps/mobile/src/features/dzis/Kafel.tsx:32:        opacity: pressed ? 0.85 : 1,
+apps/mobile/src/features/ustawienia/SekcjeUstawien.tsx:23:    <Pressable testID={testID} accessibilityRole="button" accessibilityLabel={[tytul, wartosc].filter(Boolean).join('. ')} onPress={onPress} style={({ pressed }) => [styles.wiersz, { opacity: pressed ? 0.85 : 1 }]}>
+apps/mobile/src/features/scenariusz/tytul.ts:14:/** CJK (U+2E80–U+9FFF, U+F900–U+FAFF), hangul (U+AC00–U+D7AF, U+1100–U+11FF), pełna szerokość i interpunkcja CJK (U+FF00–U+FFEF, U+3000–U+303F). */
+apps/mobile/src/features/advancement/AdvancementCard.tsx:41:        style={({ pressed }) => [styles.card, pionowo && styles.cardPionowo, { backgroundColor: tk.surface, borderColor: tk.separator, opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/features/zakup/EkranZakupu.tsx:123:                  opacity: zajety ? 0.6 : pressed ? 0.85 : 1,
+apps/mobile/src/features/drills/thresholds.ts:21:export const MIXED_MIN = 0.035;
+apps/mobile/src/features/drills/thresholds.ts:48:export const EXAM_PASS = 0.85;
+apps/mobile/src/theme/kroje.ts:11:export const LIMIT_KROJU_MS = 3000;
+packages/poker-core/src/bots.ts:111:      medium: { price: 0.3, below: 0.85, above: 0.35 },
+packages/srs/src/index.ts:45:export const DEFAULT_THRESHOLDS: SpeedThresholds = { fastMs: 3000, slowMs: 8000 };
+kod wyjścia: 0
+
+# Duplikaty progów: features/drills/thresholds.ts vs packages/domena/src/konfiguracja.ts
+$ grep -nE "MIXED_MIN|MIXED_LOW|MIXED_HIGH|PAINT_PASS|percent:|EXAM_SIZE|EXAM_MODULE_SHARE|EXAM_PASS" apps/mobile/src/features/drills/thresholds.ts
+21:export const MIXED_MIN = 0.035;
+22:export const MIXED_LOW = 0.25;
+23:export const MIXED_HIGH = 0.75;
+26:export const PAINT_PASS = 0.9;
+35:  percent: { ok: 2, close: 5 },
+46:export const EXAM_SIZE = 15;
+47:export const EXAM_MODULE_SHARE = 2 / 3;
+48:export const EXAM_PASS = 0.85;
+$ grep -nE "OCENA_PROG|MALOWANIE|TOLERANCJA_PROCENT|TEST_MODULU|FSRS_SZYBKO|FSRS_WOLNO" packages/domena/src/konfiguracja.ts
+6:  TEST_MODULU_LICZBA_ZADAN: 15, // D-106
+7:  TEST_MODULU_PROG: 0.85, // D-106
+8:  TEST_MODULU_UDZIAL_MODULU: 2 / 3, // decyzja właściciela 3.10.2026 (thresholds.ts:46)
+12:  OCENA_PROG_DOPUSZCZALNE: 0.035, // RD-11, D-143
+13:  OCENA_PROG_MIESZANA_DOLNY: 0.25, // ADR-22, B-044
+14:  OCENA_PROG_MIESZANA_GORNY: 0.75,
+15:  MALOWANIE_ZAKRESU_PROG: 0.9, // B-016
+16:  TOLERANCJA_PROCENT_OK: 2, // pp, B-017
+17:  TOLERANCJA_PROCENT_BLISKO: 5, // pp, B-017
+19:  FSRS_SZYBKO_MS: 3000, // srs DEFAULT_THRESHOLDS, pochodzenie [DO USTALENIA]
+20:  FSRS_WOLNO_MS: 8000,
+$ grep -n "DEFAULT_THRESHOLDS" packages/srs/src/index.ts
+45:export const DEFAULT_THRESHOLDS: SpeedThresholds = { fastMs: 3000, slowMs: 8000 };
+51:export function outcomeToRating(outcome: Outcome, t: SpeedThresholds = DEFAULT_THRESHOLDS): Grade {
+98:  thresholds: SpeedThresholds = DEFAULT_THRESHOLDS,
+
+# Trzy implementacje zaliczenia testu modułu
+31:import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
+322:    const passed = correct / items.length >= EXAM_PASS;
+apps/mobile/src/features/session/aktywnoscSesji.ts:139:      ? { wynikTestu: { modulId: s.aktywnosc.plan.trescId, poprawne, wszystkie: s.items.length, zaliczony: poprawne / s.items.length >= KONFIGURACJA.TEST_MODULU_PROG } }
+packages/domena/src/kurs.ts:75:  zaliczony: boolean; // odsetek poprawnych ≥ TEST_MODULU_PROG przy TEST_MODULU_LICZBA_ZADAN zadaniach (D-106)
+packages/domena/src/kurs.ts:86:    zaliczony: (odpowiedzi.length - bledne.length) / odpowiedzi.length >= KONFIGURACJA.TEST_MODULU_PROG,
+$ grep -rlw "wynikTestuModulu\|ocenOdpowiedzLiczbowa" apps/mobile/src (bez testów)
+kod wyjścia: 1 (1 = aplikacja nie używa funkcji domeny)
+$ grep -n "NUMERIC_TOLERANCE" apps/mobile/src/features/drills/grade.ts
+4:import { MIXED_HIGH, MIXED_LOW, NUMERIC_TOLERANCE, PAINT_PASS } from './thresholds';
+79:  const tol = NUMERIC_TOLERANCE[inst.unit];
+$ grep -n "do przeniesienia" docs/architektura/moduly.md
+144:Liczby, których aplikacja uczy (progi solvera, tolerancje), są merytoryczne: źródło to rejestr roli 06 i `content/numbers.yaml`; tu tylko nazwy i obecne wartości z kodu do przeniesienia.

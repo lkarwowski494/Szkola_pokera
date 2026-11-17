@@ -1,0 +1,9 @@
+$ ls docs/niezawodnosc
+ls: cannot access 'docs/niezawodnosc': No such file or directory
+kod=2
+$ grep -rliE "runbook|ćwiczeni[ea] (awarii|przywr)|Xcode Organizer|MetricKit|zakładk[ai] .?Crashes" docs --include=*.md (bez docs/lokalizacja/dowody, docs/archiwum, docs/decyzje/IR.md)
+docs/architektura/wydajnosc.md
+docs/architektura/kontrole-07.md
+docs/adr/0009-bez-sentry-i-observe-dziennik-lokalny.md
+docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md
+kod=0

@@ -1,0 +1,21 @@
+// Sonda roli 12 (NIE-13): kopia pliku treści na urządzeniu uszkodzona po udanej instalacji; czy start wraca do pliku z paczki.
+import { mkdtempSync, mkdirSync, openSync, writeSync, closeSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+const R = '/home/user/Szkola_pokera';
+const { przygotujTresc } = await import(`${R}/packages/domena/src/tresc.ts`);
+const { plikiTresciNode, zbudujTresc } = await import(`${R}/tests/narzedzia/tresc-node.ts`);
+const kat = mkdtempSync(join(process.env.SONDA_KAT!, 'tresc-'));
+const paczka = join(kat, 'paczka'); const urz = join(kat, 'urzadzenie'); mkdirSync(paczka); mkdirSync(urz);
+const plik = 'tresc-abc123-pl.db';
+zbudujTresc(join(paczka, plik), { format: '1', wersja: 'abc123', jezyk: 'pl', min_wersja_aplikacji: '0.1.0' });
+async function start(etykieta: string) {
+  const n = plikiTresciNode();
+  const w = await przygotujTresc({ paczka, katalog: urz, jezyk: 'pl', pliki: n.pliki, otworz: n.otworz, zamknij: n.zamknijBaze, obslugiwanyFormat: 1 });
+  console.log(etykieta, JSON.stringify(w.ok ? { ok: true, plik: w.wartosc.plik } : w), 'wywołania:', n.wywolania.map((x) => x.op).join(','), 'urządzenie:', readdirSync(urz).map((f) => `${f}(${statSync(join(urz, f)).size} B)`).join(','));
+  n.zamknij();
+}
+await start('1. pierwszy start:');
+await start('2. kolejny start:');
+// uszkodzenie kopii na urządzeniu (nagłówek), plik w paczce zdrowy
+const fd = openSync(join(urz, plik), 'r+'); writeSync(fd, Buffer.alloc(16, 0x41), 0, 16, 0); closeSync(fd);
+for (let i = 3; i <= 5; i++) await start(`${i}. start po uszkodzeniu kopii (ponowienie z ekranu):`);

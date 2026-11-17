@@ -1,0 +1,27 @@
+$ git ls-files | grep -iE "\.(env|p8|p12|pem|key|jks|keystore|mobileprovision|cer|der)$|(^|/)\.env"
+kod wyjścia: 1 (1 = brak trafień)
+
+$ git grep -c "EXPO_PUBLIC_" -- ":!audit" ":!docs"
+kod wyjścia: 1 (1 = brak trafień)
+
+$ git grep -lE (wzorce kluczy AKIA…, gh?_…, github_pat_…, AIza…, xox?-…, BEGIN … PRIVATE KEY) -- ":!audit" ":!*.db"
+scripts/ci/asc-check.mjs
+kod wyjścia: 0 (1 = brak trafień)
+# wzorzec sk-… pominięty w tym przebiegu: daje wyłącznie fałszywe trafienia w słowie „risk-of-ruin” (treść, glosariusz), sprawdzone w pierwszym przebiegu
+
+$ git grep -noE "secrets\.[A-Z_]+" -- .github/workflows | cut -d: -f3 | sort -u   (tylko nazwy sekretów GitHub Actions; wartości poza repo)
+secrets.ANTHROPIC_API_KEY
+secrets.APPLE_TEAM_ID
+secrets.ASC_API_KEY_P
+secrets.ASC_ISSUER_ID
+secrets.ASC_KEY_ID
+secrets.ASC_KEY_P
+secrets.EXPO_TOKEN
+secrets.GITHUB_TOKEN
+secrets.SENTRY_AUTH_TOKEN
+
+$ grep -n "appleTeamId" apps/mobile/app.json   (identyfikator zespołu: wartość publiczna z założenia, nie sekret)
+1
+
+# Ocena trafienia scripts/ci/asc-check.mjs:20-21: literał nagłówka PEM w kodzie walidacji formatu sekretu (fałszywe trafienie, brak klucza w repo).
+# .github/workflows/iphone-local.yml:32 odwołuje się do sekretu Sentry (ADR 0009 usunął Sentry) — do oceny roli 10, nie sekret w repo.

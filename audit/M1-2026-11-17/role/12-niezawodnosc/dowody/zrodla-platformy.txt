@@ -1,0 +1,24 @@
+# Odczyt surowego tekstu stron (curl, HTTP 200, kod=0), 2026-11-17; HTML/JSON → tekst (python, usunięte znaczniki)
+
+$ curl -sS "https://developer.apple.com/tutorials/data/documentation/xcode/acquiring-crash-reports-and-diagnostic-logs.json"
+... ing a build to the App Store. Review for the recommended settings. The Crashes organizer presents crash reports from customers who share diagnostic and usage information, as described in . TestFlight users of your app automatically share crash reports with you, regardless of the device settings for sharing diagnostic and use data. If no crash reports appear in the Crashes organizer, see to enable collection of crash reports from your customers. Th ...
+
+$ curl -sS "jw."
+... n transfer the crash report to either a Mac or Windows computer. See . If a customer reports a crash in your app and you don’t have a crash report for it in the Crashes organizer, ask the customer to e-mail you the crash report from their device. Crash reports from watchOS are available on the paired iPhone. To locate and email crash reports for iOS, iPadOS, tvOS, visionOS, and watchOS apps: Open the Analytics & Improvement ...
+
+$ curl -sS "https://developer.apple.com/help/app-store-connect/test-a-beta-version/view-tester-feedback"
+... ick Open in Xcode in the detailed feedback view. In the top-right, click the download icon to download the feedback as a .zip file. This file includes the crash report and associated comments. Notes: Crash reports are available for download for 120 days. If an app becomes unresponsive due to a crash, a crash report won't be included in the .zip file. Delete feedback In Apps, select the app you want to view. Click the TestFlight tab. In the sidebar, below Feedback, click Crashes or Screenshots. Then ...
+
+$ curl -sS "jw."
+... Xcode, click Open in Xcode in the detailed feedback view. In the top-right, click the download icon to download the feedback as a .zip file. This file includes the screenshot and associated comments. View crash feedback In Apps, select the app you want to view. Click the TestFlight tab. In the sidebar, below Feedback, click Crashes. The table on the right displays information on feedback submission times and crash details. Click Add Filter to filter your view by pl ...
+
+$ curl -sS "https://www.sqlite.org/howtocorrupt.html"
+... . The journal files have the same name as the original database file with the addition of -journal or -wal suffix. SQLite must see the journal files in order to recover from a crash or power failure. If the hot journal files are moved, deleted, or renamed after a crash or power failure, then automatic recovery will not work and the database may go corrupt. Another manifestation of this problem is database corruption caused by inconsistent use of 8+3 filenames . 1.4. Mispairing da ...
+
+$ curl -sS "https://www.sqlite.org/lang_vacuum.html"
+... onnection that is running the VACUUM INTO statement was originally opened using the SQLITE_OPEN_URI flag. The VACUUM INTO command is transactional in the sense that the generated output database is a consistent snapshot of the original database. However, if the VACUUM INTO command is interrupted by an unplanned shutdown or power loss, then the generated output database might be incomplete and corrupt. However, if the PRAGMA synchronous setting of the original datab ...
+
+$ curl -sS "https://www.sqlite.org/atomiccommit.html"
+... e, it obtains a shared lock as described in section 3.2 above. But then it notices that there is a rollback journal file present. SQLite then checks to see if the rollback journal is a "hot journal". A hot journal is a rollback journal that needs to be played back in order to restore the database to a sane state. A hot journal only exists when an earlier process was in the middle of committing a transaction when it crashed or lost power. A rollback journal is a "hot" journal if al ...
+
+# Nieudane (strony renderowane skryptem, tekst bez słowa „crash”): developer.apple.com/help/app-store-connect/reference/app-analytics-metrics-and-dimensions, …/view-app-analytics/view-metrics — liczba awarii w App Analytics [DO USTALENIA].

@@ -1,0 +1,45 @@
+$ env -u NODE_PATH node tests/narzedzia/k08-manifesty.mjs
+K-08: pakiety natywne 40, z manifestem 7, trafienia w kodzie bez manifestu 53
+ok    NSPrivacyAccessedAPICategoryFileTimestamp ← expo-application (manifest: C617.1); expo-document-picker (kod bez manifestu: contentModificationDateKey); expo-file-system (manifest: 0A2A.1, 3B52.1); expo-sqlite (kod bez manifestu: stat); react-native (manifest: C617.1) | app.json: C617.1, 3B52.1
+ok    NSPrivacyAccessedAPICategoryUserDefaults ← expo-constants (manifest: CA92.1); expo-dev-launcher (kod bez manifestu: NSUserDefaults); expo-dev-launcher (kod bez manifestu: UserDefaults); expo-dev-menu (kod bez manifestu: UserDefaults); expo-localization (manifest: CA92.1); expo-notifications (manifest: CA92.1); expo-sharing (kod bez manifestu: UserDefaults); expo-system-ui (manifest: CA92.1); react-native (manifest: CA92.1) | app.json: CA92.1
+ok    NSPrivacyAccessedAPICategoryDiskSpace ← expo-file-system (manifest: E174.1, 85F4.1); expo-sqlite (kod bez manifestu: fstatfs); expo-sqlite (kod bez manifestu: fstatvfs); expo-sqlite (kod bez manifestu: statfs) | app.json: E174.1, 85F4.1
+ok    NSPrivacyAccessedAPICategorySystemBootTime ← react-native (manifest: 35F9.1) | app.json: 35F9.1
+kod wyjścia: 0
+
+
+$ find node_modules -name PrivacyInfo.xcprivacy -not -path "*/example/*" (pnpm, node-linker hoisted)
+node_modules/expo-application/ios/PrivacyInfo.xcprivacy
+node_modules/expo-constants/ios/PrivacyInfo.xcprivacy
+node_modules/expo-file-system/ios/PrivacyInfo.xcprivacy
+node_modules/expo-localization/ios/PrivacyInfo.xcprivacy
+node_modules/expo-notifications/ios/PrivacyInfo.xcprivacy
+node_modules/expo-system-ui/ios/PrivacyInfo.xcprivacy
+node_modules/react-native/React/Resources/PrivacyInfo.xcprivacy
+node_modules/react-native/ReactCommon/cxxreact/PrivacyInfo.xcprivacy
+node_modules/react-native/ReactCommon/react/timing/PrivacyInfo.xcprivacy
+node_modules/react-native/third-party-podspecs/RCT-Folly/PrivacyInfo.xcprivacy
+node_modules/react-native/third-party-podspecs/boost/PrivacyInfo.xcprivacy
+node_modules/react-native/third-party-podspecs/glog/PrivacyInfo.xcprivacy
+kod wyjścia: 0
+
+$ grep -rnE "fetch\(|XMLHttpRequest|WebSocket|axios|sendBeacon|EventSource" apps/mobile/src packages/*/src apps/mobile/modules (bez testów)
+kod wyjścia: 1 (1 = brak trafień)
+
+$ grep -rnE "Linking.openURL|openURL|mailto:|tel:" apps/mobile/src (bez testów)
+apps/mobile/src/platform/dziennik.ts:14:  | 'link_niedostepny' // system nie otworzył adresu tel:/https (ekran Pomoc); kod spoza tabeli §4 — zgłoszenie 08-F04
+apps/mobile/src/app/session.tsx:290:        otworzWarunki={() => void Linking.openURL(ADRES_WARUNKOW)}
+apps/mobile/src/app/session.tsx:292:          if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI);
+apps/mobile/src/app/session.tsx:423:              otworzAdres={(url) => Linking.openURL(url).then(() => true)}
+apps/mobile/src/app/help.tsx:16: * „Odpowiedzialna gra” w lekcji M12-L4. Numery jako przyciski tel:, strony w przeglądarce.
+apps/mobile/src/app/help.tsx:36:    Linking.openURL(target).catch(() => {
+apps/mobile/src/app/help.tsx:67:      {failed ? <Muted>{t('help.openFailed', { target: failed.replace(/^tel:/, '') })}</Muted> : null}
+apps/mobile/src/app/settings.tsx:136:              otworzAdres={(url) => Linking.openURL(url).then(() => true)}
+apps/mobile/src/app/scenario.tsx:176:        otworzWarunki={() => void Linking.openURL(ADRES_WARUNKOW)}
+apps/mobile/src/app/scenario.tsx:177:        otworzPrywatnosc={() => { if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI); }}
+apps/mobile/src/app/purchase.tsx:27:      otworzWarunki={() => void Linking.openURL(ADRES_WARUNKOW)}
+apps/mobile/src/app/purchase.tsx:29:        if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI);
+apps/mobile/src/features/scenariusz/EkranScenariusza.tsx:350:            <ZglosBlad zadanieId={`${s.szablon.id}#${indeks + 1}`} wersjaAplikacji={Constants.expoConfig?.version ?? '?'} jezyk={i18n.language} adresKontaktowy={ADRES_KONTAKTOWY} otworzAdres={(url) => Linking.openURL(url).then(() => true)} />
+apps/mobile/src/features/opinie/Opinie.tsx:9: * `otworzAdres` to Linking.openURL (false albo wyjątek = nie da się otworzyć, np. brak poczty).
+apps/mobile/src/features/opinie/Opinie.tsx:44:      <Button variant="ghost" label={t('feedback.write')} onPress={() => void otworz(otworzAdres, `mailto:${adresKontaktowy}`).then((ok) => ustawBezPoczty(!ok))} />
+apps/mobile/src/features/opinie/Opinie.tsx:62:    const url = `mailto:${adresKontaktowy}?subject=${encodeURIComponent(temat)}&body=${encodeURIComponent(tresc)}`;
+kod wyjścia: 0

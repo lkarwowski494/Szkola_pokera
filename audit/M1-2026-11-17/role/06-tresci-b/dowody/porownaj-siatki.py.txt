@@ -1,0 +1,40 @@
+# Porównanie siatki aplikacji (baza pl) z opublikowanym rozwiązaniem (data-tip beyondgto.com, odczyt 2026-11-17)
+import sqlite3, glob, json, re, sys
+R='23456789TJQKA'
+classes=[]
+for row in range(12,-1,-1):
+    for col in range(12,-1,-1):
+        if row==col: classes.append(R[row]+R[col])
+        elif col<row: classes.append(R[row]+R[col]+'s')
+        else: classes.append(R[col]+R[row]+'o')
+combos=lambda h: 6 if len(h)==2 else (4 if h[2]=='s' else 12)
+con=sqlite3.connect(glob.glob('/home/user/Szkola_pokera/apps/mobile/assets/content/tresc-*-pl.db')[0])
+for spot,page in [('vs-open.bb-vs-btn','src/bgto-bb-btn.html'),('vs-open.bb-vs-sb','src/bgto-bb-sb.html')]:
+    g,unc=con.execute('select groups,uncertain from ranges where id=?',(spot,)).fetchone()
+    f=json.loads(g)[0]['freqs']; app=dict(zip(classes,f))
+    pub={}
+    for t in re.findall(r'data-tip="([^"]*)"',open(page,encoding='utf-8').read()):
+        h=t.split(' · ')[0]; m=re.search(r'defend (\d+)%',t); pub[h]=int(m.group(1))/100 if m else 0.0
+    tot=lambda d: sum(d[h]*combos(h) for h in classes)/1326
+    print(f'{spot}: aplikacja {tot(app):.3f}, opublikowane {tot(pub):.3f}, niepewne w aplikacji: {json.loads(unc)}')
+    roz=[(h,app[h],pub.get(h,0)) for h in classes if (app[h]>=0.5)!=(pub.get(h,0)>=0.5)]
+    print('  ręce, w których werdykt gram/pas się różni (próg 50%):', len(roz), 'kombinacji', sum(combos(h) for h,_,_ in roz))
+    for h,a,p in roz: print(f'   {h}: aplikacja {a:.2f}, opublikowane {p:.2f}')
+print()
+print('Ręce czyste po obu stronach (≤0,25 albo ≥0,75) z przeciwnym werdyktem:')
+for spot,page in [('vs-open.bb-vs-btn','src/bgto-bb-btn.html'),('vs-open.bb-vs-sb','src/bgto-bb-sb.html')]:
+    g,unc=con.execute('select groups,uncertain from ranges where id=?',(spot,)).fetchone()
+    app=dict(zip(classes,json.loads(g)[0]['freqs'])); pub={}
+    for t in re.findall(r'data-tip="([^"]*)"',open(page,encoding='utf-8').read()):
+        h=t.split(' · ')[0]; m=re.search(r'defend (\d+)%',t); pub[h]=int(m.group(1))/100 if m else 0.0
+    x=[h for h in classes if (app[h]>=0.75 and pub[h]<=0.25) or (app[h]<=0.25 and pub[h]>=0.75)]
+    print(f'  {spot}: {len(x)} rąk, {sum(combos(h) for h in x)} kombinacji: {x}')
+print()
+print('Kryterium projektu dla klas niepewnych (content/ranges/spots.yaml:56, :71): różnica „gram / pas” o 50 pp lub więcej:')
+for spot,page in [('vs-open.bb-vs-btn','src/bgto-bb-btn.html'),('vs-open.bb-vs-sb','src/bgto-bb-sb.html'),('nine.vs-open.bb-vs-btn','src/bgto-bb-btn.html'),('nine.vs-open.bb-vs-sb','src/bgto-bb-sb.html')]:
+    g,unc=con.execute('select groups,uncertain from ranges where id=?',(spot,)).fetchone()
+    app=dict(zip(classes,json.loads(g)[0]['freqs'])); pub={}
+    for t in re.findall(r'data-tip="([^"]*)"',open(page,encoding='utf-8').read()):
+        h=t.split(' · ')[0]; m=re.search(r'defend (\d+)%',t); pub[h]=int(m.group(1))/100 if m else 0.0
+    x=[h for h in classes if abs(app[h]-pub[h])>=0.5]
+    print(f'  {spot}: {len(x)} rąk ({sum(combos(h) for h in x)} kombinacji), klasy niepewne w bazie: {json.loads(unc)}: {x}')

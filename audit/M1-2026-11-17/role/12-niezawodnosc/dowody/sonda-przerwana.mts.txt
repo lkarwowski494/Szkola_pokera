@@ -1,0 +1,22 @@
+// Sonda roli 12: migracja v2 przerwana zabiciem procesu w środku transakcji (tryb DELETE, gorący dziennik), potem start aplikacji.
+import { mkdtempSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { DatabaseSync } from 'node:sqlite';
+const R = '/home/user/Szkola_pokera';
+const { uruchomPostep } = await import(`${R}/packages/postep/src/index.ts`); const { SCHEMAT_V2 } = await import(`${R}/packages/postep/src/schemat-v2.ts`);
+const { adapterNode, otworzNode, ile, integralnosc } = await import(`${R}/tests/narzedzia/postep-node.ts`);
+const { zbudujWzorzecV1 } = await import(`${R}/tests/narzedzia/wzorzec-bazy.ts`);
+const { plikiNode } = await import(`${R}/tests/narzedzia/pliki-node.ts`);
+const TAB = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki', 'dziennik'];
+const licz = (p: string) => { const d = new DatabaseSync(p); const w: Record<string, unknown> = { user_version: (d.prepare('PRAGMA user_version').get() as any).user_version, journal_mode: (d.prepare('PRAGMA journal_mode').get() as any).journal_mode }; for (const t of TAB) w[t] = ile(d, t); w.wariant_historia = (d.prepare("SELECT count(*) n FROM sqlite_schema WHERE name='wariant_historia'").get() as any).n; d.close(); return w; };
+const k = mkdtempSync(join(process.env.SONDA_KAT!, 'E-przerwana-')); const p = join(k, 'postep.db');
+zbudujWzorzecV1(p);
+console.log('E przed:', JSON.stringify(licz(p)));
+// podproces: BEGIN IMMEDIATE, SQL migracji v2, bez COMMIT, twarde wyjście (jak zabicie aplikacji przez system)
+const kod = `const {DatabaseSync}=require('node:sqlite');const d=new DatabaseSync(${JSON.stringify(p)});d.exec('BEGIN IMMEDIATE');d.exec(${JSON.stringify(SCHEMAT_V2)});d.exec('PRAGMA user_version = 2');process.kill(process.pid,'SIGKILL');`;
+const { writeFileSync } = await import('node:fs'); const dziecko = join(k, 'dziecko.cjs'); writeFileSync(dziecko, kod); const r = spawnSync(process.execPath, ['--no-warnings', dziecko], { encoding: 'utf8' });
+console.log('E podproces status:', r.status, 'sygnał:', r.signal, 'stderr:', JSON.stringify((r.stderr||'').slice(-300)), 'pliki po zabiciu:', readdirSync(k).join(','), 'stan w pliku bez dziennika (odczyt surowy pominięty)');
+const w = await uruchomPostep({ katalog: k, pliki: plikiNode().pliki, otworz: async (s: string) => adapterNode(otworzNode(s)), terazMs: 1 });
+console.log('E start po zabiciu:', JSON.stringify({ uszkodzona: w.uszkodzona })); await w.port.zamknij();
+console.log('E po:', JSON.stringify(licz(p)), JSON.stringify(integralnosc(new DatabaseSync(p, { readOnly: true }))), 'pliki:', readdirSync(k).join(','));

@@ -1,0 +1,10 @@
+$ grep -rnE "#[0-9a-fA-F]{3,8}\b|rgba?\(|fontSize: ?[0-9]|fontFamily: ?['\"]" apps/mobile/src (bez testów, theme/, test-utils/)
+apps/mobile/src/components/RangeGrid.tsx:63:  label: { fontSize: 8, fontWeight: '600' },
+apps/mobile/src/components/Blocks.tsx:119:          <Text style={[styl.przypis, { color: tk.ink, fontFamily: 'Menlo' }]}>{block.v}</Text>
+apps/mobile/src/components/PaintGrid.tsx:189:  label: { fontSize: 8, fontWeight: '600' },
+apps/mobile/src/components/PaintGrid.tsx:190:  mark: { position: 'absolute', top: 0, right: 1, fontSize: 8, fontWeight: '800' },
+apps/mobile/src/app/session.tsx:660:  input: { flex: 1, fontSize: 28, fontWeight: '700', paddingVertical: odstep.m, fontVariant: ['tabular-nums'] },
+apps/mobile/src/app/session.tsx:661:  score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+apps/mobile/src/app/advancement.tsx:98:  big: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+apps/mobile/src/features/advancement/AdvancementCard.tsx:61:  number: { fontSize: 30, lineHeight: 36, fontWeight: '800', fontVariant: ['tabular-nums'] },
+kod: 0

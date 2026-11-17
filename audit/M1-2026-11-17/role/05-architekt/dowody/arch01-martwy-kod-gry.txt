@@ -1,0 +1,57 @@
+# Eksporty packages/poker-core/src/play.ts i bots.ts: gdzie używane poza własnym plikiem (apps/mobile/src, tools/content-build/src, packages/domena/src, packages/poker-core/src; bez testów)
+play.HERO_SEAT -> BRAK
+play.AreaGeneratorId -> BRAK
+play.PlayConfig -> BRAK
+play.ScriptStep -> BRAK
+play.PlayHand -> BRAK
+play.AreaContext -> BRAK
+play.handSeed -> BRAK
+play.buttonFor -> BRAK
+play.areaDeal -> BRAK
+play.dealPlayHand -> BRAK
+play.nextActor -> BRAK
+play.stepAuto -> BRAK
+play.heroAct -> BRAK
+play.runAuto -> BRAK
+play.HandReport -> BRAK
+play.finishPlayHand -> BRAK
+play.MenuItem -> BRAK
+play.POSTFLOP_RAISE_MULTIPLE -> BRAK
+play.actionMenu -> BRAK
+bots.StyleId -> apps/mobile/src/state/play.ts 
+bots.STYLE_IDS -> BRAK
+bots.BotStyle -> packages/poker-core/src/play.ts 
+bots.TablePresetId -> apps/mobile/src/state/play.ts 
+bots.BOT_POLICY -> packages/poker-core/src/holding.ts 
+bots.BOT_POLICY_VERSION -> BRAK
+bots.styleOf -> BRAK
+bots.presetStyles -> apps/mobile/src/state/play.ts 
+bots.PreflopSolverSpot -> BRAK
+bots.BotKnowledge -> packages/poker-core/src/play.ts 
+bots.BotView -> BRAK
+bots.botView -> packages/poker-core/src/play.ts 
+bots.botDecide -> packages/poker-core/src/play.ts 
+bots.handPercentile -> BRAK
+bots.solverPath -> tools/content-build/src/ranges.ts packages/poker-core/src/grading.ts 
+bots.styledFreqs -> BRAK
+bots._internal -> BRAK
+bots.BOT_NUMBER_KEYS -> BRAK
+bots.BOT_SOLVER_FILE -> BRAK
+bots.BOT_SOLVER_PLAYERS -> BRAK
+bots.SOLVER_FILES -> BRAK
+bots.PLAY_TABLE_SIZES -> BRAK
+bots.solverFile -> tools/content-build/src/ranges.ts packages/poker-core/src/grading.ts 
+bots.botKnowledgeFrom -> BRAK
+
+$ grep -rn "state/play" apps/mobile/src (importy modułu stanu gry)
+kod wyjścia: 1 (1 = nikt nie importuje)
+
+$ wc -c packages/poker-core/src/play.ts packages/poker-core/src/bots.ts apps/mobile/src/state/play.ts
+17346 packages/poker-core/src/play.ts
+32338 packages/poker-core/src/bots.ts
+  959 apps/mobile/src/state/play.ts
+50643 total
+
+$ grep -n "export \* from" packages/poker-core/src/index.ts | grep -E "bots|play"
+15:export * from './bots';
+18:export * from './play';

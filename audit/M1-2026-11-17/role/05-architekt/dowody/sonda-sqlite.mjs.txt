@@ -1,0 +1,91 @@
+// Sonda roli 05 (audyt M1): SQL z repozytorium na kopii w scratchpadzie (node:sqlite). Użycie: node sonda-sqlite.mjs <repo> <katalog-roboczy>
+import { DatabaseSync } from 'node:sqlite';
+import { readFileSync, rmSync, mkdirSync } from 'node:fs';
+import { join } from 'node:path';
+const [repo, kat] = process.argv.slice(2);
+rmSync(kat, { recursive: true, force: true }); mkdirSync(kat, { recursive: true });
+const sql = (p) => readFileSync(join(repo, p), 'utf8');
+const V1 = sql('docs/architektura/schemat.sql'), V2 = sql('docs/architektura/schemat-v2.sql'), V3 = sql('docs/architektura/schemat-v3.sql');
+const otworz = (p) => new DatabaseSync(p, { enableForeignKeyConstraints: false }); // jak expo-sqlite: klucze domyślnie wyłączone
+const n = (db, t) => db.prepare(`SELECT count(*) AS n FROM ${t}`).get().n;
+const TABELE = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki', 'uprawnienie_cache', 'dziennik'];
+const licznosci = (db, extra = []) => Object.fromEntries([...TABELE, ...extra].map((t) => [t, n(db, t)]));
+let bledy = 0; const ok = (warunek, opis) => { console.log(`${warunek ? 'ZGODNE' : 'NIEZGODNE'}  ${opis}`); if (!warunek) bledy++; };
+console.log('sqlite_version', new DatabaseSync(':memory:').prepare('SELECT sqlite_version() AS v').get().v);
+
+// Baza v1 z danymi 3-letnimi (skala z dane.md:11): 2 267 aktywności, 34 005 odpowiedzi i logów, 530 kart.
+const p1 = join(kat, 'v1.db'); const db = otworz(p1);
+db.exec(V1); db.exec('PRAGMA user_version = 1'); db.exec('PRAGMA foreign_keys = ON');
+db.exec('BEGIN');
+const T0 = Date.UTC(2023, 10, 1);
+const insA = db.prepare("INSERT INTO aktywnosc (id, rodzaj, stan, z_limitu, dzien_lokalny, strefa, plan, krok, start_ms, koniec_ms) VALUES (?, ?, 'zakonczona', ?, ?, 'Europe/Warsaw', '{\"liczbaKrokow\":15,\"trescId\":\"m1\"}', 15, ?, ?)");
+const insO = db.prepare("INSERT INTO odpowiedz (aktywnosc_id, krok, zadanie_id, rodzina_id, wybor, ocena, zaliczona, czas_ms, odpowiedziano_ms) VALUES (?, ?, ?, ?, '{}', 'zgodne', 1, 1000, ?)");
+const insK = db.prepare('INSERT INTO karta VALUES (?, ?, 1.5, 5.0, 3, 0, 4, 1, 2, ?, ?)');
+const insL = db.prepare('INSERT INTO log_powtorki (rodzina_id, odpowiedz_id, ocena_fsrs, stan_przed, termin_przed_ms, powtorzono_ms) VALUES (?, ?, 3, 2, ?, ?)');
+const RODZAJE = ['sesja', 'lekcja', 'powtorki', 'scenariusz', 'test_modulu', 'ocena_poziomu'];
+for (let k = 0; k < 530; k++) insK.run(`r${k}`, T0 + k * 1000, T0, T0);
+let odp = 0;
+for (let i = 0; i < 2267; i++) {
+  const t = T0 + i * 12 * 3600e3; const d = new Date(t).toISOString().slice(0, 10);
+  insA.run(`a${i}`, RODZAJE[i % 6], i % 2, d, t, t + 600e3);
+  for (let k = 0; k < 15 && odp < 34005; k++, odp++) { const r = insO.run(`a${i}`, k, `z${odp % 900}`, `r${odp % 530}`, t + k); insL.run(`r${odp % 530}`, r.lastInsertRowid, t, t + k); }
+}
+db.exec("INSERT INTO wynik_testu SELECT id, 'm1', 13, 15, 1 FROM aktywnosc WHERE rodzaj = 'test_modulu'");
+db.exec('COMMIT');
+const przed = licznosci(db);
+console.log('liczności v1', JSON.stringify(przed));
+
+// ARCH-06/12: pragma poza transakcją, odczyt w transakcji zapisu = 1 (ścieżka portu: otworzPostep → wTransakcji)
+db.exec('BEGIN'); const fkTx = db.prepare('PRAGMA foreign_keys').get().foreign_keys; db.exec('ROLLBACK');
+ok(fkTx === 1, `PRAGMA foreign_keys w transakcji po ON przy otwarciu = ${fkTx}`);
+// ARCH-07: mechanizm kontrolny — UPSERT karty z powtorki.ts zostawia log; REPLACE (którego w kodzie brak) kasuje
+const logPrzed = db.prepare("SELECT count(*) AS n FROM log_powtorki WHERE rodzina_id = 'r1'").get().n;
+db.exec('BEGIN');
+db.prepare(`INSERT INTO karta (rodzina_id, termin_ms, stabilnosc, trudnosc, dni_zaplanowane, kroki_nauki, powtorzenia, zapomnienia, stan, ostatnia_powtorka_ms, zmieniono_ms)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (rodzina_id) DO UPDATE SET termin_ms = excluded.termin_ms, zmieniono_ms = excluded.zmieniono_ms`).run('r1', T0 + 9, 1, 1, 1, 0, 5, 0, 2, T0, T0 + 9);
+const poUpsert = db.prepare("SELECT count(*) AS n FROM log_powtorki WHERE rodzina_id = 'r1'").get().n;
+db.prepare('INSERT OR REPLACE INTO karta VALUES (?, ?, 1, 1, 1, 0, 5, 0, 2, ?, ?)').run('r1', T0 + 9, T0, T0 + 9);
+const poReplace = db.prepare("SELECT count(*) AS n FROM log_powtorki WHERE rodzina_id = 'r1'").get().n;
+db.exec('ROLLBACK');
+ok(logPrzed === poUpsert && poReplace === 0, `log_powtorki r1: przed ${logPrzed}, po UPSERT ${poUpsert}, po (kontrolnym) REPLACE ${poReplace}`);
+
+// ARCH-10: VACUUM INTO (daneUzytkownika.ts:161) — kopia z tymi samymi licznościami
+const kopia = join(kat, 'kopia.db'); db.prepare('VACUUM INTO ?').run(kopia);
+const k = otworz(kopia); ok(JSON.stringify(licznosci(k)) === JSON.stringify(przed), 'VACUUM INTO: liczności kopii = bazy'); k.close();
+db.close();
+
+// ARCH-08: migracje v2, v3 sekwencją runnera (migracje.ts:54–65; bez przebudowy): BEGIN IMMEDIATE, sql, foreign_key_check, user_version, COMMIT
+const m = otworz(p1); m.exec('PRAGMA foreign_keys = ON');
+for (const [w, s] of [[2, V2], [3, V3]]) { m.exec('BEGIN IMMEDIATE'); m.exec(s); const fk = m.prepare('PRAGMA foreign_key_check').all().length; if (fk) throw new Error('fk'); m.exec(`PRAGMA user_version = ${w}`); m.exec('COMMIT'); }
+const po = licznosci(m);
+ok(JSON.stringify(po) === JSON.stringify(przed), 'migracja v1→v3: liczności tabel v1 bez zmian');
+ok(m.prepare('PRAGMA integrity_check').get().integrity_check === 'ok' && m.prepare('PRAGMA foreign_key_check').all().length === 0, 'integrity_check = ok, foreign_key_check pusty');
+ok(m.prepare('PRAGMA user_version').get().user_version === 3, 'user_version = 3');
+
+// ARCH-11/12: import (daneUzytkownika.ts:141–149) — DELETE dzieci→rodzice i INSERT w jednej transakcji; błąd w środku → ROLLBACK, liczności bez zmian
+m.exec('BEGIN');
+try {
+  for (const t of ['wariant_historia', 'log_powtorki', 'karta', 'wynik_testu', 'odpowiedz', 'postep_lekcji', 'ustawienie']) m.exec(`DELETE FROM ${t}`);
+  m.prepare("INSERT INTO odpowiedz (aktywnosc_id, krok, zadanie_id, rodzina_id, wybor, ocena, zaliczona, czas_ms, odpowiedziano_ms) VALUES ('brak', 0, 'z', 'r', '{}', 'zgodne', 1, 1, 1)").run();
+  m.exec('COMMIT');
+} catch (e) { m.exec('ROLLBACK'); console.log('import przerwany:', String(e.message).slice(0, 60)); }
+ok(JSON.stringify(licznosci(m)) === JSON.stringify(przed), 'import z naruszeniem klucza obcego: wycofany, liczności bez zmian');
+
+// ARCH-19: EXPLAIN QUERY PLAN zapytań ekranów (dosłownie z packages/postep/src), dane 3-letnie, bez ANALYZE (jak w aplikacji)
+const Q = {
+  'zuzyteDzis (aktywnosci.ts:127)': "SELECT count(*) AS n FROM aktywnosc WHERE z_limitu = 1 AND dzien_lokalny = '2026-11-17'",
+  'aktywnoscWToku (aktywnosci.ts:66)': "SELECT id FROM aktywnosc WHERE stan = 'w_toku' AND rodzaj = 'sesja' ORDER BY start_ms DESC, id DESC LIMIT 1",
+  'odpowiedziAktywnosci (aktywnosci.ts:81)': "SELECT krok FROM odpowiedz WHERE aktywnosc_id = 'a1' ORDER BY krok",
+  'odczytajKarty (powtorki.ts:46)': 'SELECT rodzina_id FROM karta ORDER BY termin_ms, rodzina_id',
+  'wynikiScenariuszy (aktywnosci.ts:213)': "SELECT a.id, o.ocena FROM aktywnosc a JOIN odpowiedz o ON o.aktywnosc_id = a.id WHERE a.rodzaj = 'scenariusz' AND a.stan = 'zakonczona' ORDER BY a.start_ms ASC, a.id ASC, o.krok ASC",
+  'statystyki rodzin (statystyki.ts:30)': "SELECT o.rodzina_id, count(*) FROM odpowiedz o JOIN aktywnosc a ON a.id = o.aktywnosc_id WHERE a.rodzaj <> 'ocena_poziomu' GROUP BY o.rodzina_id ORDER BY o.rodzina_id",
+  'odczytajOdciski (wariantyHistoria.ts:131)': "SELECT odcisk FROM wariant_historia WHERE szablon_id = 's' AND poziom = 'latwy' ORDER BY zagrano_ms ASC, id ASC",
+};
+for (const [nazwa, q] of Object.entries(Q)) {
+  const plan = m.prepare(`EXPLAIN QUERY PLAN ${q}`).all().map((r) => r.detail).join(' | ');
+  const t0 = performance.now(); for (let i = 0; i < 20; i++) m.prepare(q).all(); const ms = (performance.now() - t0) / 20;
+  console.log(`PLAN ${nazwa}: ${plan}  [laptop, średnio ${ms.toFixed(2)} ms z 20; to nie budżet]`);
+}
+m.close();
+console.log(bledy ? `${bledy} niezgodnych` : 'wszystkie wyniki zgodne');
+process.exit(bledy ? 1 : 0);

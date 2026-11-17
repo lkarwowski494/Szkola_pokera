@@ -1,0 +1,18 @@
+$ grep -n "same key" audit/M1-2026-11-17/wspolne/ci-pelne.log (pełne env -u NODE_PATH pnpm run ci na f75acdff, kod 0)
+1990:apps/mobile test:       Encountered two children with the same key, `Preflop`. Keys should be unique so that components maintain their 
+2008:apps/mobile test:       Encountered two children with the same key, `Preflop`. Keys should be unique so that components maintain their 
+2026:apps/mobile test:       Encountered two children with the same key, `Preflop`. Keys should be unique so that components maintain their 
+2044:apps/mobile test:       Encountered two children with the same key, `Preflop`. Keys should be unique so that components maintain their 
+2062:apps/mobile test:       Encountered two children with the same key, `Preflop`. Keys should be unique so that components maintain their 
+2080:apps/mobile test:       Encountered two children with the same key, `Preflop`. Keys should be unique so that components maintain their 
+2098:apps/mobile test:       Encountered two children with the same key, `Preflop`. Keys should be unique so that components maintain their 
+kod: 0
+$ grep -n "PASS src/features/scenariusz/__tests__/cs-tresc-realna" ci-pelne.log
+1987:apps/mobile test: PASS src/features/scenariusz/__tests__/cs-tresc-realna.test.tsx (11.602 s)
+$ szablony pl z dwiema decyzjami na tej samej ulicy (grep -cE "street: <ulica>" content/pl/scenarios/*.yaml > 1)
+content/pl/scenarios/sc-06.yaml preflop=2
+content/pl/scenarios/sc-08.yaml preflop=2
+kod: 0
+$ grep -n "key={w.ulica}" apps/mobile/src/features/scenariusz/komponenty.tsx
+92:          <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, pionowo ? styles.wierszPionowy : null, { borderColor: tk.separator }]}>
+kod: 0

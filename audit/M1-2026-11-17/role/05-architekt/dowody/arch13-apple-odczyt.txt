@@ -1,0 +1,12 @@
+# Odczyt 2026-11-17, surowy JSON dokumentacji Apple (curl), grep -o dosłownych cytatów
+$ curl -sS https://developer.apple.com/tutorials/data/documentation/xcode/sigkill.json | grep -o "held on to a file lock or SQLite database lock during suspension. Request additional background execution time"
+held on to a file lock or SQLite database lock during suspension. Request additional background execution time
+kod wyjścia: 0
+$ curl -sS ".../documentation/uikit/uiapplication/beginbackgroundtask(withname:expirationhandler:).json" | grep -o (3 cytaty o handlerze)
+Use this handler to clean up and mark the end of the background task.
+Use this handler to clean up and mark the end of the background task.
+The system calls the handler synchronously on the main thread, blocking the app’s suspension momentarily.
+The system calls the handler synchronously on the main thread, blocking the app’s suspension momentarily.
+A handler to be called shortly before the app’s remaining background time reaches 0.
+A handler to be called shortly before the app’s remaining background time reaches 0.
+kod wyjścia: 0

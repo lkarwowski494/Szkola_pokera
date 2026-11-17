@@ -1,0 +1,26 @@
+# Odczyt źródeł szczebla 2–4 (strategia) 2026-11-17: curl -sSL, tekst bez HTML (pdftotext dla PDF), grep -F dosłownie
+TAK  bgto-sb-btn.html: GTO defends the Small Blind with about 18% of hands : roughly 5% as a flat call and 13% as a 3-bet.
+TAK  gtow-3bet-oop.html: the SB barely calls anything. Instead, they almost exclusively 3-bet or fold
+TAK  gtow-3bet-oop.html: As a simplification, don't cold-call from the SB: Play a 3-bet or fold strategy.
+TAK  gtow-3bet-oop.html: TT +, AJ s+, and AQ o+ are 3-bet purely
+TAK  gtow-btn-calls.html: Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.
+TAK  bgto-btn-co.html: GTO defends the Button with about 19% of hands : roughly 9% as a flat call and 10% as a 3-bet.
+TAK  pa-3bet.html: the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%
+TAK  gtow-overbluffed.html: making them indifferent to calling and folding since no option is the best.
+TAK  gtow-overbluffed.html: to bluff ~31% instead of ~27% of the time for our strategy to shift completely to never folding.
+TAK  gtow-rake.html: Facing a LJ raise, the HJ, CO, and BTN all VPIP 25%-35% fewer hands in the raked game.
+TAK  gtow-rake.html: BB calls a min-raise in the raked game barely 60% as often as in the unraked game
+TAK  gtow-principles.html: Unexploitable play mixes between two or more options only when these options have the same EV.
+TAK  gtow-measure.html: Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV.
+TAK  gtow-morph.html: This range is comprised of 17.6% of all possible starting hands
+TAK  thinkgto.html: A5s calls 96% of the time rather than turning into a three-bet bluff
+TAK  thinkgto.html: The small blind raises (3bb) 33.1%
+TAK  ps-nash.html: 10 56.6%: 22+, Kx+
+TAK  upsb.html: if you play mid-stakes or below, the rake impact will eat away at your win-rate
+TAK  rake.html: The calculator applies each operator's rake rules to actual pot size distributions compiled from several million NLH cash game hands
+TAK  plos.html: skill dominates chance when performance is measured over 1,500 or more hands of play.
+TAK  plos.html: is ahead 75 percent of the times is reached after 1,471 hands
+TAK  joe.pdf: 88% of poker players reported having tilted severely at least once within their last 6 months
+TAK  gs.pdf: only calls with the four highest pocket pairs and AKs
+# Ganzfried i Sandholm (AAMAS 2008), tabela 2 (gs.pdf, pdftotext -layout): Button jam 0.376/0.355; SB jam after jam 0.088/0.234; SB jam after fold 0.652/0.633; BB jam after jam/fold 0.145/0.308; BB jam after jam/jam 0.021/0.197 — zgodne z m11.3max.* i m11.jamfold3.* w bazie pl (35,8; 64,5; 23,9; 30,7; 20,6; 19,7; 2,1%)
+kod wyjścia: 0

@@ -1,0 +1,11 @@
+$ cd packages/postep && env -u NODE_PATH npx vitest run test/k02-migracje.test.ts test/k11-dane.test.ts test/k04-k15-port.test.ts test/k12-bledy.test.ts
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/packages/postep
+
+
+ Test Files  4 passed (4)
+      Tests  41 passed (41)
+   Start at  12:08:38
+   Duration  1.67s (tests 65%, transform 28%, import 7%)
+
+kod: 0

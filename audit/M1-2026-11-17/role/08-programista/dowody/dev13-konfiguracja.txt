@@ -1,0 +1,56 @@
+$ dla każdego klucza KONFIGURACJA: pliki (bez testów i konfiguracja.ts), które go czytają; potem definicje tej samej wielkości poza modułem konfiguracji
+LIMIT_AKTYWNOSCI_DZIENNIE: packages/domena/src/limit.ts 
+TEST_MODULU_LICZBA_ZADAN: packages/domena/src/kurs.ts 
+TEST_MODULU_PROG: apps/mobile/src/features/session/aktywnoscSesji.ts packages/domena/src/kurs.ts 
+TEST_MODULU_UDZIAL_MODULU: 
+OCENA_POZIOMU_MAKS_PYTAN: apps/mobile/src/features/ocena-poziomu/EkranyOceny.tsx apps/mobile/src/features/powitanie/EkranPowitania.tsx packages/domena/src/maszyny.ts 
+SESJA_LICZBA_ZADAN: apps/mobile/src/features/session/build.ts 
+OCENA_POZIOMU_CZAS_S: apps/mobile/src/features/powitanie/EkranPowitania.tsx 
+OCENA_PROG_DOPUSZCZALNE: apps/mobile/src/features/scenariusz/wariant.ts packages/domena/src/scenariusz.ts 
+OCENA_PROG_MIESZANA_DOLNY: apps/mobile/src/features/scenariusz/wariant.ts packages/domena/src/scenariusz.ts 
+OCENA_PROG_MIESZANA_GORNY: 
+MALOWANIE_ZAKRESU_PROG: 
+TOLERANCJA_PROCENT_OK: packages/domena/src/wyjasnienie.ts 
+TOLERANCJA_PROCENT_BLISKO: packages/domena/src/wyjasnienie.ts 
+FSRS_RETENCJA: 
+FSRS_SZYBKO_MS: 
+FSRS_WOLNO_MS: 
+PROSBA_O_OCENE_OD_PRACY: packages/domena/src/kurs.ts 
+PROSBA_O_OCENE_ODSTEP_DNI: apps/mobile/src/features/opinie/prosbaOOcene.ts packages/domena/src/kurs.ts 
+PRZYPOMNIENIE_DOMYSLNA_PORA: apps/mobile/src/app/settings.tsx apps/mobile/src/features/ustawienia/ustawieniaAplikacji.ts apps/mobile/src/features/ustawienia/przypomnienie.ts 
+DZIENNIK_MAKS_WPISOW: apps/mobile/src/platform/dziennik.ts 
+WARIANTY_HISTORIA_OKNO: packages/domena/src/wariant.ts packages/postep/src/schemat-v2.ts packages/postep/src/wariantyHistoria.ts 
+SCHEMAT_WERSJA: 
+EKSPORT_WERSJA_FORMATU: apps/mobile/src/data/przeniesienie.ts packages/postep/src/daneUzytkownika.ts 
+TRESC_FORMAT: apps/mobile/src/data/tresc/startTresci.ts packages/domena/src/tresc.ts tools/content-build/src/build.ts 
+ROZMIAR_POBRANIA_PROG_MB: 
+PRODUKTY_ODBLOKOWUJACE: apps/mobile/src/platform/zakupy.ts apps/mobile/src/state/dostep.ts 
+SKLEP_LIMIT_CZASU_MS: apps/mobile/src/platform/zakupy.ts 
+PRODUKTY_BEZ_KONCA: apps/mobile/src/platform/zakupy.ts apps/mobile/src/state/dostep.ts packages/domena/src/dostep.ts 
+
+$ grep -rnE "(EXAM_PASS|EXAM_SIZE|EXAM_MODULE_SHARE|PAINT_PASS|MIXED_MIN|MIXED_LOW|MIXED_HIGH) =|0\.035|0\.85\b|requestRetention|request_retention|0\.9\b" apps/mobile/src packages/*/src (bez testów)
+apps/mobile/src/components/PasekStrategii.tsx:98:              { ...wymiarSegmentu(opcje.length, skala), minHeight: CEL_AKCJI, borderLeftWidth: lewaKrawedzSegmentu(i, opcje.length, skala, szerokoscEkranu), borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
+apps/mobile/src/components/Choice.tsx:31:              { borderColor: on ? tk.ink : tk.separator, borderWidth: on ? 2.5 : 1.5, backgroundColor: tk.surface, opacity: o.disabled ? 0.45 : pressed ? 0.85 : 1 },
+apps/mobile/src/components/RangeGrid.tsx:32:                      const el = <View key={gi} style={{ position: 'absolute', left: `${offset * 100}%`, width: `${f * 100}%`, top: 0, bottom: 0, backgroundColor: colors[gi % colors.length], opacity: 0.85 }} />;
+apps/mobile/src/app/session.tsx:470:                opacity: pressed ? 0.85 : 1, // A04-08: bez przezroczystości niewybranych po ocenie (kontrast wyjaśnienia ≥ 4,5:1)
+apps/mobile/src/app/session.tsx:556:                    { backgroundColor: tk.surface, borderColor: on ? tk.ink : tk.separator, borderWidth: on ? 2.5 : 1.5, opacity: pressed ? 0.85 : 1 },
+apps/mobile/src/app/(tabs)/lessons.tsx:76:              style={({ pressed }) => [styles.modul, { backgroundColor: tk.surface, opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/app/(tabs)/lessons.tsx:98:                      style={({ pressed }) => [styles.lesson, { backgroundColor: tk.surface, borderColor: state === 'done' ? tk.ink : tk.separator, opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/app/(tabs)/lessons.tsx:118:                style={({ pressed }) => [styles.lesson, { borderColor: exams.get(m.id)?.passed ? tk.ink : tk.separator, borderStyle: 'dashed', opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/features/ocena-poziomu/EkranyOceny.tsx:54:              opacity: pressed ? 0.85 : 1,
+apps/mobile/src/features/dzis/Kafel.tsx:32:        opacity: pressed ? 0.85 : 1,
+apps/mobile/src/features/ustawienia/SekcjeUstawien.tsx:23:    <Pressable testID={testID} accessibilityRole="button" accessibilityLabel={[tytul, wartosc].filter(Boolean).join('. ')} onPress={onPress} style={({ pressed }) => [styles.wiersz, { opacity: pressed ? 0.85 : 1 }]}>
+apps/mobile/src/features/advancement/AdvancementCard.tsx:41:        style={({ pressed }) => [styles.card, pionowo && styles.cardPionowo, { backgroundColor: tk.surface, borderColor: tk.separator, opacity: pressed ? 0.85 : 1 }]}
+apps/mobile/src/features/zakup/EkranZakupu.tsx:123:                  opacity: zajety ? 0.6 : pressed ? 0.85 : 1,
+apps/mobile/src/features/drills/thresholds.ts:21:export const MIXED_MIN = 0.035;
+apps/mobile/src/features/drills/thresholds.ts:22:export const MIXED_LOW = 0.25;
+apps/mobile/src/features/drills/thresholds.ts:23:export const MIXED_HIGH = 0.75;
+apps/mobile/src/features/drills/thresholds.ts:26:export const PAINT_PASS = 0.9;
+apps/mobile/src/features/drills/thresholds.ts:46:export const EXAM_SIZE = 15;
+apps/mobile/src/features/drills/thresholds.ts:47:export const EXAM_MODULE_SHARE = 2 / 3;
+apps/mobile/src/features/drills/thresholds.ts:48:export const EXAM_PASS = 0.85;
+packages/domena/src/konfiguracja.ts:7:  TEST_MODULU_PROG: 0.85, // D-106
+packages/domena/src/konfiguracja.ts:12:  OCENA_PROG_DOPUSZCZALNE: 0.035, // RD-11, D-143
+packages/poker-core/src/bots.ts:111:      medium: { price: 0.3, below: 0.85, above: 0.35 },
+packages/srs/src/scheduler.ts:5:export const scheduler = fsrs({ request_retention: 0.9, enable_fuzz: false });
+kod: 0

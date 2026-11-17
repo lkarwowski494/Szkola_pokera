@@ -1,0 +1,64 @@
+$ git ls-files | grep -iE "\.env|\.p8$|\.p12$|\.pem$|\.key$|\.jks$|\.keystore$|\.mobileprovision$|\.cer$"
+kod: 1
+$ git grep -nIE "-----BEGIN|sk-[A-Za-z0-9_-]{20,}|AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[A-Za-z0-9]{30,}|AKIA[0-9A-Z]{16}|xox[abpr]-" -- . ":!audit" ":!**/*.db" | wartości zamaskowane
+f75acdff16915aeb43ff788888216e28616c11ed:content/es/terms-nazwy.yaml:122:risk-*** "riesgo de ruina"  # risk of ruin; bez formy 0; formy: riesgo de ruina×3, Riesgo de ruina×1; źr. C:Risk-***
+f75acdff16915aeb43ff788888216e28616c11ed:content/terms.yaml:964:  source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Bankroll: The money that a player allocated 
+f75acdff16915aeb43ff788888216e28616c11ed:content/terms.yaml:1023:  source: "serwis z kalkulatorami pokerowymi, Risk of Ruin Formula (https://www.primedope.com/risk-*** „Risk of ruin is the probabili
+f75acdff16915aeb43ff788888216e28616c11ed:docs/lokalizacja/dowody/przeglad-de-es-ko-it-vi-2026-11-09/E2-terminy.md:11:- [C] glosariusz PokerStrategy po hiszpańsku: https://es.pokerstrategy.com/glossar
+f75acdff16915aeb43ff788888216e28616c11ed:docs/lokalizacja/glosariusz.md:135:| `risk-*** | ryzyko bankructwa | Prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli grasz dalej na tej s
+f75acdff16915aeb43ff788888216e28616c11ed:docs/lokalizacja/przygotowane/terms-nazwy-es.yaml:125:risk-*** "riesgo de ruina"  # risk of ruin; bez formy 0; formy: riesgo de ruina×3, Riesgo de ruina×1; �
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/dowody/bx-przeglad-zastepczy.md:34:- Adres: https://www.primedope.com/risk-***
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/odczyty/m12-m13.tsv:4:pd-ror	https://www.primedope.com/risk-*** RoR i „closed-form approximation” tak; cytat „25-30 buy-ins at NL25-NL50” N
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/odczyty/terminy.tsv:237:t:risk-*** z pola source
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/recenzje/dowody/cc-178cf97-zrodlo-ror.txt:1:$ curl -sL -o pd.html -w "%{http_code} %{size_download}" https://www.primedope.com/risk-***  (odczyt 20
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:19228:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:19374:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:19431:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:19887:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:20167:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:20411:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:33665:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr.json:33940:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/m12-m13.json:259:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/m12-m13.json:402:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/m12-m13.json:456:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/m12-m13.json:882:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/m12-m13.json:1153:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/m12-m13.json:1537:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/terminy.json:3656:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:docs/tresci/rejestr/terminy.json:3910:    "adres": "https://www.primedope.com/risk-***",
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/ci/asc-check.mjs:20:if (!pem.includes('BEGIN*** PRIVATE KEY') || !pem.includes('END PRIVATE KEY')) fail('ASC_KEY_P8 bez linii -----BEGIN*** PRIVATE KEY
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/ci/asc-check.mjs:21:pem = `-----BEGIN*** PRIVATE KEY-----\n${body.match(/.{1,64}/g).join('\n')}\n-----END PRIVATE KEY-----\n`;
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:68:    assert.equal(await main(['--szacuj', '--jezyki', 'en,ja,pt-BR,fr,zh-Hant', '--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:79:  assert.equal(await main(['--limit-usd', '0.000001', '--wyjscie', mkdtempSync(join(tmpdir(), 'k3a-pg-'))], { ANTHROPIC_A
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:101:  const kod = await main(['--propozycje', plik, '--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-*** }, { fetchFn: api.fetchFn
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:154:  const kod = await main(['--propozycje', plik, '--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-*** }, { fetchFn: api.fetchFn
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:99:  assert.match(odczytajLinie(JSON.stringify({ custom_id: 'x', result: { type: 'errored', error: { error: { message: 'over
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:197:    const kod = await main(['--szacuj', '--jezyki', 'en,ja', '--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-*** }, { fetchFn
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:217:  const kod = await main(['--limit-usd', '0.000001', '--wyjscie', mkdtempSync(join(tmpdir(), 'k3a-wy-'))], { ANTHROPIC_A
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:236:  const kod = await main(['--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-*** }, { fetchFn: api.fetchFn, log: cicho, root, sp
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:240:  assert.equal(post.naglowki['x-api-key'], 'sk-***
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:389:  const kod = await main(['--limit-usd', String(lim), '--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-*** }, { fetchFn: api.f
+kod: 0
+$ git grep -nIiE "api_?key\s*[:=]|apiKey\s*[:=]|secret\s*[:=]|password\s*[:=]" f75acdff -- apps packages tools scripts .github (zamaskowane)
+f75acdff16915aeb43ff788888216e28616c11ed:.github/workflows/przeglad-tlumaczen.yml:83:          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+f75acdff16915aeb43ff788888216e28616c11ed:.github/workflows/przeklad-tlumaczen.yml:82:          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:68:    assert.equal(await main(['--szacuj', '--jezyki', 'en,ja,pt-BR,fr,zh-Hant', '--wyjscie', wy], { ANTHROPIC_API_KEY: '***' }, { fetchFn: fet
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:79:  assert.equal(await main(['--limit-usd', '0.000001', '--wyjscie', mkdtempSync(join(tmpdir(), 'k3a-pg-'))], { ANTHROPIC_API_KEY: '***' }, { f
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:101:  const kod = await main(['--propozycje', plik, '--wyjscie', wy], { ANTHROPIC_API_KEY: '***' }, { fetchFn: api.fetchFn, log: cicho, root, sp
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeglad-api.test.mjs:154:  const kod = await main(['--propozycje', plik, '--wyjscie', wy], { ANTHROPIC_API_KEY: '***' }, { fetchFn: api.fetchFn, log: cicho, root, sp
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:197:    const kod = await main(['--szacuj', '--jezyki', 'en,ja', '--wyjscie', wy], { ANTHROPIC_API_KEY: '***' }, { fetchFn: fetchZakazany, log, 
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:217:  const kod = await main(['--limit-usd', '0.000001', '--wyjscie', mkdtempSync(join(tmpdir(), 'k3a-wy-'))], { ANTHROPIC_API_KEY: '***' }, { f
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:236:  const kod = await main(['--wyjscie', wy], { ANTHROPIC_API_KEY: '***' }, { fetchFn: api.fetchFn, log: cicho, root, spij: async () => {} });
+f75acdff16915aeb43ff788888216e28616c11ed:scripts/i18n/przeklad-api.test.mjs:389:  const kod = await main(['--limit-usd', String(lim), '--wyjscie', wy], { ANTHROPIC_API_KEY: '***' }, { fetchFn: api.fetchFn, log, root });
+kod: 0
+$ git log --all --diff-filter=A --name-only --format= | grep -iE "\.env|\.p8$|\.p12$|\.pem$|\.key$|\.mobileprovision$" (historia)
+kod: 0
+$ grep -nE "env|p8|p12|pem|key" .gitignore
+11:.env*.local
+kod: 0
+
+# Ocena: trafienia „sk-” to fragment adresu „risk-of-ruin” (treść, źródła) oraz atrapa klucza w testach skryptów i18n
+# (wartość zaczyna się od „sk-ant-test”, 25 znaków; sprawdzone grep -ci "test" = 1). „BEGIN PRIVATE KEY” w scripts/ci/asc-check.mjs
+# to składanie PEM z sekretu Actions (ASC_KEY_P8), bez wartości w repo. Brak plików kluczy w git ls-files i w historii (--all).
+# Wynik: brak sekretów.

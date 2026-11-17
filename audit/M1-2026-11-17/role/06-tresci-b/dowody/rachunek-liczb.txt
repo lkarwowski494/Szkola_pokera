@@ -1,0 +1,5 @@
+$ python3 -I rachunek.py  (kopia: dowody/rachunek-niezalezny.py.txt)
+RÓŻNICA var.p.lose 0.024053413944259694 0.02405334469935405
+kluczy 834, w bazie 834, policzone niezależnie 812, pominięte (rangePlay/flopWetnessShare: dane solvera/klasyfikator) 22, różnic 1
+kod wyjścia: 0
+uwaga: var.p.lose różni się o 7e-8 (przybliżenie erf A&S 7.1.26 w content-build wobec math.erf); poniżej rozdzielczości wyświetlania

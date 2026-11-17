@@ -1,0 +1,24 @@
+# Komenda (z /home/user/Szkola_pokera, kopie baz w scratchpadzie): SONDA_KAT=<scratchpad>/m1-12/sondy/bazy env -u NODE_PATH node_modules/.bin/tsx <scratchpad>/m1-12/sondy/sonda-start.mts
+# Źródło sondy: dowody/sonda-start.mts.txt; ścieżki tymczasowe skrócone do <scratchpad>
+
+A przed: {"user_version":1,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1}
+A start: {"wynik":"ok","uszkodzona":null}
+A po: {"user_version":3,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1} pliki: postep.db
+B przed: {"user_version":4,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1}
+B start 1 (ponowienie z ekranu): {"wynik":"BladStartuPostepu(baza_nowsza)"}
+B start 2 (ponowienie z ekranu): {"wynik":"BladStartuPostepu(baza_nowsza)"}
+B start 3 (ponowienie z ekranu): {"wynik":"BladStartuPostepu(baza_nowsza)"}
+B po: {"user_version":4,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1} sha bez zmian: true pliki: postep.db
+C przed: {"user_version":1,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1}
+C start 1 (ponowienie z ekranu): {"wynik":"BladStartuPostepu(migracja_nieudana)"}
+C start 2 (ponowienie z ekranu): {"wynik":"BladStartuPostepu(migracja_nieudana)"}
+C start 3 (ponowienie z ekranu): {"wynik":"BladStartuPostepu(migracja_nieudana)"}
+C po: {"user_version":1,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1} sha bez zmian: true pliki: postep.db
+D przed uszkodzeniem: {"user_version":3,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1}
+D start: {"wynik":"ok","uszkodzona":"<scratchpad>/m1-12/sondy/bazy/D-uszkodzona-ovyWSd/postep-uszkodzona-1800000000000.db"}
+D pliki po starcie: postep-uszkodzona-1800000000000.db,postep.db
+D nowa postep.db: {"user_version":3,"ustawienie":0,"postep_lekcji":0,"aktywnosc":0,"odpowiedz":0,"wynik_testu":0,"karta":0,"log_powtorki":0,"dziennik":0}
+D odłożony plik sha = plik uszkodzony: true
+D odłożony plik po przywróceniu nagłówka (u dewelopera): {"user_version":3,"ustawienie":5,"postep_lekcji":3,"aktywnosc":7,"odpowiedz":5,"wynik_testu":2,"karta":4,"log_powtorki":4,"dziennik":1} {"integrity":"ok","kluczeObce":0}
+D drugi start: {"wynik":"ok","uszkodzona":null} pliki: postep-uszkodzona-1800000000000.db,postep.db
+kod=0

@@ -1,0 +1,9 @@
+# Komenda (z /home/user/Szkola_pokera, kopie baz w scratchpadzie): SONDA_KAT=<scratchpad>/m1-12/sondy/bazy env -u NODE_PATH node_modules/.bin/tsx <scratchpad>/m1-12/sondy/sonda-tresc.mts
+# Źródło sondy: dowody/sonda-tresc.mts.txt; ścieżki tymczasowe skrócone do <scratchpad>
+
+1. pierwszy start: {"ok":true,"plik":"tresc-abc123-pl.db"} wywołania: lista,lista,usun,kopiuj,przemianuj,otworz urządzenie: tresc-abc123-pl.db(61440 B)
+2. kolejny start: {"ok":true,"plik":"tresc-abc123-pl.db"} wywołania: lista,lista,otworz urządzenie: tresc-abc123-pl.db(61440 B)
+3. start po uszkodzeniu kopii (ponowienie z ekranu): {"ok":false,"powod":"tresc_niedostepna"} wywołania: lista,lista,otworz urządzenie: tresc-abc123-pl.db(61440 B)
+4. start po uszkodzeniu kopii (ponowienie z ekranu): {"ok":false,"powod":"tresc_niedostepna"} wywołania: lista,lista,otworz urządzenie: tresc-abc123-pl.db(61440 B)
+5. start po uszkodzeniu kopii (ponowienie z ekranu): {"ok":false,"powod":"tresc_niedostepna"} wywołania: lista,lista,otworz urządzenie: tresc-abc123-pl.db(61440 B)
+kod=0

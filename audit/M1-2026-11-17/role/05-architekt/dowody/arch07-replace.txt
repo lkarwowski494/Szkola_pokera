@@ -1,0 +1,16 @@
+$ grep -rni "INSERT OR REPLACE\|REPLACE INTO\|OR REPLACE" packages apps/mobile/src tools --include=*.ts --include=*.tsx --include=*.mjs (bez node_modules)
+packages/postep/src/powtorki.ts:18:// UPSERT, nie INSERT OR REPLACE: REPLACE usuwa wiersz karty, a ON DELETE CASCADE kasuje jej log (ADR 0003 pkt 4, E2a).
+packages/postep/src/wariantyHistoria.ts:14:// UPSERT po UNIQUE (szablon, poziom, odcisk) odświeża ziarno i czas (wiersz zostaje, ADR 0003 pkt 4: nie INSERT OR REPLACE),
+packages/postep/src/ustawienia.ts:22:// UPSERT, nie INSERT OR REPLACE (ADR 0003 pkt 4): jeden wiersz na klucz, pozostałe klucze nietknięte.
+kod wyjścia: 0
+
+$ grep -rn "REFERENCES" docs/architektura/schemat.sql packages/postep/src
+docs/architektura/schemat.sql:48:  aktywnosc_id TEXT NOT NULL REFERENCES aktywnosc(id) ON DELETE CASCADE,
+docs/architektura/schemat.sql:65:  aktywnosc_id TEXT PRIMARY KEY NOT NULL REFERENCES aktywnosc(id) ON DELETE CASCADE,
+docs/architektura/schemat.sql:92:  rodzina_id TEXT NOT NULL REFERENCES karta(rodzina_id) ON DELETE CASCADE,
+docs/architektura/schemat.sql:93:  odpowiedz_id INTEGER REFERENCES odpowiedz(id) ON DELETE SET NULL,
+packages/postep/src/schemat-v1.ts:52:  "  aktywnosc_id TEXT NOT NULL REFERENCES aktywnosc(id) ON DELETE CASCADE,",
+packages/postep/src/schemat-v1.ts:69:  "  aktywnosc_id TEXT PRIMARY KEY NOT NULL REFERENCES aktywnosc(id) ON DELETE CASCADE,",
+packages/postep/src/schemat-v1.ts:96:  "  rodzina_id TEXT NOT NULL REFERENCES karta(rodzina_id) ON DELETE CASCADE,",
+packages/postep/src/schemat-v1.ts:97:  "  odpowiedz_id INTEGER REFERENCES odpowiedz(id) ON DELETE SET NULL,",
+kod wyjścia: 0

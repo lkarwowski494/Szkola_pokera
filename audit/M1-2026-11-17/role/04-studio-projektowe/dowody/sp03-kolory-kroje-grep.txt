@@ -1,0 +1,51 @@
+$ grep -rnE "#[0-9a-fA-F]{3,8}\b|rgba?\(" src --include=*.tsx --include=*.ts (bez __tests__, test-utils, theme/tokeny.ts, data/content/*.generated.ts)
+src/theme/tokens.ts:24:  good: '#1F7A4D',
+src/theme/tokens.ts:25:  goodSoft: '#E2F3E9',
+src/theme/tokens.ts:26:  bad: '#B3372C',
+src/theme/tokens.ts:27:  badSoft: '#FBE7E4',
+src/theme/tokens.ts:28:  warn: '#8A5A00',
+src/theme/tokens.ts:29:  warnSoft: '#FBF0D9',
+src/theme/tokens.ts:30:  feltSoft: '#E3EFE8',
+src/theme/tokens.ts:33:  good: '#6FCF9A',
+src/theme/tokens.ts:34:  goodSoft: '#17301F',
+src/theme/tokens.ts:35:  bad: '#F08478',
+src/theme/tokens.ts:36:  badSoft: '#36201D',
+src/theme/tokens.ts:37:  warn: '#E0B24F',
+src/theme/tokens.ts:38:  warnSoft: '#33290F',
+src/theme/tokens.ts:39:  feltSoft: '#1C2E25',
+exit=0
+
+$ grep -rn "fontFamily" src (bez testów)
+src/components/PlayingCard.tsx:39:      <Text allowFontScaling={false} style={[styles.rank, { color, fontSize: d.rank, lineHeight: d.rank * 1.05, fontFamily: krojKarty() }]}>{rank === 'T' ? '10' : rank}</Text>
+src/components/Blocks.tsx:119:          <Text style={[styl.przypis, { color: tk.ink, fontFamily: 'Menlo' }]}>{block.v}</Text>
+src/theme/tokens.ts:88:    return { ...sufit(s.tytulDuzy), fontWeight: '600' as const, fontFamily: krojTytulowy() };
+src/theme/tokens.ts:91:    return { ...sufit(s.tytul), fontWeight: '600' as const, fontFamily: krojTytulowy() };
+src/theme/tokens.ts:95:    return { ...sufit(s.tytulDlugi), fontWeight: '600' as const, fontFamily: krojTytulowy() };
+src/theme/tokens.ts:99:    return { ...sufit(s.slowoStopnia), fontWeight: '600' as const, fontFamily: krojTytulowy() };
+
+$ grep -rnE "fontSize: *[0-9]" src (bez testów)
+src/components/RangeGrid.tsx:63:  label: { fontSize: 8, fontWeight: '600' },
+src/components/PaintGrid.tsx:189:  label: { fontSize: 8, fontWeight: '600' },
+src/components/PaintGrid.tsx:190:  mark: { position: 'absolute', top: 0, right: 1, fontSize: 8, fontWeight: '800' },
+src/app/session.tsx:660:  input: { flex: 1, fontSize: 28, fontWeight: '700', paddingVertical: odstep.m, fontVariant: ['tabular-nums'] },
+src/app/session.tsx:661:  score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+src/app/advancement.tsx:98:  big: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
+src/features/advancement/AdvancementCard.tsx:61:  number: { fontSize: 30, lineHeight: 36, fontWeight: '800', fontVariant: ['tabular-nums'] },
+exit=0
+
+$ grep -rn "przejsciowe" src (bez testów)
+src/components/RangeGrid.tsx:13:  const colors = [tk.felt1, tk.przejsciowe.warn, tk.cardBlue];
+src/components/PaintGrid.tsx:98:        return { backgroundColor: tk.przejsciowe.good, borderColor: tk.separator, borderWidth: StyleSheet.hairlineWidth };
+src/components/PaintGrid.tsx:100:        return { backgroundColor: tk.przejsciowe.badSoft, borderColor: tk.przejsciowe.bad, borderWidth: 2 };
+src/components/PaintGrid.tsx:102:        return { backgroundColor: tk.przejsciowe.warnSoft, borderColor: tk.przejsciowe.warn, borderWidth: 2 };
+src/components/PaintGrid.tsx:104:        return { backgroundColor: painted[i] ? tk.primaryBg : tk.przejsciowe.feltSoft, borderColor: tk.separator, borderWidth: StyleSheet.hairlineWidth };
+src/components/PaintGrid.tsx:147:                  {mark(i) ? <Text style={[styles.mark, { color: result?.[i] === 'miss' ? tk.przejsciowe.bad : result?.[i] === 'extra' ? tk.przejsciowe.warn : tk.muted }]}>{mark(i)}</Text> : null}
+src/components/PaintGrid.tsx:156:          <Legend color={tk.przejsciowe.good} label={t('paint.legendPlay')} />
+src/components/PaintGrid.tsx:157:          <Legend color={tk.przejsciowe.badSoft} border={tk.przejsciowe.bad} label={t('paint.legendMiss')} />
+src/components/PaintGrid.tsx:158:          <Legend color={tk.przejsciowe.warnSoft} border={tk.przejsciowe.warn} label={t('paint.legendExtra')} />
+src/components/PaintGrid.tsx:159:          <Legend color={tk.przejsciowe.feltSoft} label={t('paint.legendMixed')} />
+src/features/diagnostyka/DiagnosticsScreen.tsx:42:          <Text style={[styl.naglowek, { color: result.passesNfr03 ? tk.przejsciowe.good : tk.przejsciowe.bad }]}>
+src/theme/tokens.ts:23:const przejscioweJasne = {
+src/theme/tokens.ts:32:const przejscioweCiemne: typeof przejscioweJasne = {
+src/theme/tokens.ts:42:export type Tokens = Paleta & { przejsciowe: typeof przejscioweJasne };
+src/theme/tokens.ts:74:  return { ...paleta, przejsciowe: schemat === 'dark' ? przejscioweCiemne : przejscioweJasne };

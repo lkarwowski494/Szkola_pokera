@@ -1,0 +1,54 @@
+# Niezależny rachunek liczb z content/numbers.yaml (weryfikator 06-tresci-b). Własne definicje pojęć pokerowych.
+import sys, yaml, sqlite3, glob, math, itertools
+from fractions import Fraction
+N = yaml.safe_load(open('/home/user/Szkola_pokera/content/numbers.yaml'))
+N = {k: v for k, v in N.items() if isinstance(v, dict)}
+db = glob.glob('/home/user/Szkola_pokera/apps/mobile/assets/content/tresc-*-pl.db')[0]
+con = sqlite3.connect(db); app = dict(con.execute('select key, value from numbers'))
+def icm(st, pay):
+    out=[0.0]*len(st)
+    def walk(left, place, prob):
+        if place>=len(pay) or prob==0: return
+        tot=sum(st[i] for i in left)
+        for i in left:
+            p=prob*st[i]/tot; out[i]+=p*pay[place]; walk([j for j in left if j!=i], place+1, p)
+    walk(list(range(len(st))),0,1.0); return out
+def phi(x): return 0.5*(1+math.erf(x/math.sqrt(2)))
+memo={}
+skip=set()
+def v(k):
+    if k in memo: return memo[k]
+    e=N[k]
+    if 'value' in e: r=e['value']
+    else:
+        f=e['formula']; a=[v(x) for x in e.get('refs',[])] if 'refs' in e else e.get('args',[])
+        if f=='sum': r=sum(a)
+        elif f=='product': r=math.prod(a)
+        elif f=='diff': r=a[0]-sum(a[1:])
+        elif f=='quotient': r=a[0]/a[1]
+        elif f=='requiredEquity':  # pula P, zakład B: dopłacam B, by wygrać P+B → B/(P+2B)
+            P,B=a; r=B/(P+2*B)
+        elif f=='mdf': P,B=a; r=P/(P+B)
+        elif f=='alpha': P,B=a; r=B/(P+B)
+        elif f=='hitProbability':
+            o,u,c=a; r=1-math.comb(u-o,int(c))/math.comb(u,int(c))
+        elif f=='missProbability':
+            o,u,d=a; r=math.comb(u-o,int(d))/math.comb(u,int(d))
+        elif f=='ruleOf2And4': o,c=a; r=o*(4 if c==2 else 2)/100
+        elif f=='geometric':
+            spr,s=a; r=((1+2*spr)**(1/s)-1)/2
+        elif f=='sqrt': r=math.sqrt(a[0])
+        elif f=='exp': r=math.exp(a[0])
+        elif f=='normCdf': r=phi(a[0])
+        elif f=='icm':
+            n,i=e['args']; refs=[v(x) for x in e['refs']]; r=icm(refs[:n],refs[n:])[i]
+        else: skip.add(k); r=app.get(k)
+    memo[k]=r; return r
+bad=0
+for k in N:
+    mine=v(k); a=app.get(k)
+    if a is None: print('BRAK W BAZIE', k); continue
+    if k in skip: continue
+    if mine is None or abs(mine-a)>1e-9*max(1,abs(a)):
+        bad+=1; print('RÓŻNICA', k, mine, a)
+print(f'kluczy {len(N)}, w bazie {len(app)}, policzone niezależnie {len(N)-len(skip)}, pominięte (rangePlay/flopWetnessShare: dane solvera/klasyfikator) {len(skip)}, różnic {bad}')

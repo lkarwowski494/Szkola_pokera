@@ -1,0 +1,54 @@
+$ grep -rn "uszkodzona" apps/mobile/src --include=*.ts --include=*.tsx | grep -v __tests__
+apps/mobile/src/platform/dziennik.ts:15:  | 'odczyt_nieudany' // uszkodzona wartość zapisana przez aplikację; kod spoza tabeli §4 — zgłoszenie 08-F04
+apps/mobile/src/platform/dziennik.ts:20:  | 'baza_uszkodzona' // jw., plik odłożony pod postep-uszkodzona-<ms>.db
+apps/mobile/src/data/postepExpo.ts:113:const POWODY_STARTU: readonly PowodStartu[] = ['baza_nowsza', 'migracja_nieudana', 'przerwano_w_tle', 'baza_uszkodzona'];
+apps/mobile/src/data/postepExpo.ts:118: * Odłożona uszkodzona baza → wpis `baza_uszkodzona` (ekran z „Zgłoś błąd” i importem: część 5, stan roli 04).
+apps/mobile/src/data/postepExpo.ts:122:): Promise<Wynik<{ port: PortBazy; uszkodzona: string | null }, PowodStartu | 'zapis_nieudany'>> {
+apps/mobile/src/data/postepExpo.ts:125:    if (w.uszkodzona !== null) zapiszBlad('baza_uszkodzona');
+kod=0
+
+$ grep -rn "RenderErrorScreen" apps/mobile/src --include=*.tsx | grep -v __tests__
+apps/mobile/src/components/RenderErrorScreen.tsx:10:export function RenderErrorScreen({ onRetry }: { onRetry: () => void }) {
+apps/mobile/src/app/_layout.tsx:10:import { RenderErrorScreen } from '@/components/RenderErrorScreen';
+apps/mobile/src/app/_layout.tsx:151:  if (tresc.stan === 'blad') return <RenderErrorScreen onRetry={tresc.ponow} />;
+apps/mobile/src/app/_layout.tsx:152:  if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />;
+apps/mobile/src/app/_layout.tsx:161:      <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />} onBlad={pierwszeOtwarcie}>
+kod=0
+
+$ node -e (klucze errors.* w pl.json i en.json)
+pl {"db":"Nie udało się otworzyć bazy danych: {{message}}","render":{"title":"Coś poszło nie tak","body":"Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.","retry":"Spróbuj ponownie"}}
+en {"db":"Couldn't open the database: {{message}}","render":{"title":"Something went wrong","body":"This screen couldn't be displayed. Try again.","retry":"Try again"}}
+kod=0
+
+$ grep -rn "postep.stan === .blad.\|stan: .blad." apps/mobile/src/app/_layout.tsx
+59:type StanPostepu = { stan: 'ladowanie' } | { stan: 'ok'; port: PortBazy } | { stan: 'blad' };
+76:        if (aktualny) ustaw({ stan: 'blad' });
+152:  if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />;
+kod=0
+
+$ grep -rn "usunStareBazy\|STARE_BAZY\|postep-uszkodzona\|postep-przed-importem" packages/postep/src apps/mobile/src --include=*.ts --include=*.tsx | grep -v __tests__
+packages/postep/src/start.ts:21:  terazMs: number; // znacznik w nazwie `postep-uszkodzona-<ms>.db`
+packages/postep/src/start.ts:27:const STARE_BAZY = ['user.db-wal', 'user.db-shm', 'user.db'] as const;
+packages/postep/src/start.ts:28:const nazwaUszkodzonej = (ms: number, n: number) => (n === 0 ? `postep-uszkodzona-${ms}.db` : `postep-uszkodzona-${ms}-${n}.db`);
+packages/postep/src/start.ts:71:export function usunStareBazy(pliki: PlikiPostepu, katalog: string): Promise<Wynik<void, PowodZapisu>> {
+packages/postep/src/start.ts:73:    for (const n of STARE_BAZY) if (await pliki.istnieje(`${katalog}/${n}`)) await pliki.usun(`${katalog}/${n}`);
+apps/mobile/src/platform/dziennik.ts:20:  | 'baza_uszkodzona' // jw., plik odłożony pod postep-uszkodzona-<ms>.db
+apps/mobile/src/platform/pliki.ts:15:const KOPIA = 'postep-przed-importem.db';
+apps/mobile/src/data/postepExpo.ts:6:  usunStareBazy,
+apps/mobile/src/data/postepExpo.ts:156:  return usunStareBazy(pliki, k);
+kod=0
+
+$ grep -rnE "nieudan[a-z]*_?start|PROG_NIEUDANYCH|trybAwaryjny|tryb_awaryjny|kamienMilowy|kamien_milowy|setGlobalHandler" apps/mobile/src packages --include=*.ts --include=*.tsx --include=*.js --exclude-dir=node_modules
+kod=1
+# (kod 1 = 0 trafień: brak licznika nieudanych startów, kamienia milowego, trybu awaryjnego i globalnej obsługi błędu fatalnego JS)
+
+$ grep -rnE "UIFileSharingEnabled|LSSupportsOpeningDocumentsInPlace" apps/mobile/app.json
+kod=1
+
+$ grep -n "ADRES_KONTAKTOWY\|ID_APLIKACJI_SKLEPU" apps/mobile/src/platform/adresy.ts
+17:export const ID_APLIKACJI_SKLEPU: string | null = null;
+18:export const ADRES_KONTAKTOWY: string | null = null;
+kod=0
+
+$ grep -rn "VACUUM\b\|REINDEX\|deleteDatabase\|\.recover" (kod aplikacji, bez testów)
+kod=1

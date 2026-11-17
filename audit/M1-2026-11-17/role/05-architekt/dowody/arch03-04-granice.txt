@@ -1,0 +1,46 @@
+$ node granice-projekt.mjs /home/user/Szkola_pokera/packages domena/src 20   # (kopia skryptu z promptu w scratchpadzie; DOZWOLONE = lista z moduly.md + @szkola/jezyki)
+ROZMIAR content-schema/src/index.ts: 45.1 KB > 20 KB
+ROZMIAR poker-core/src/bots.ts: 31.6 KB > 20 KB
+ROZMIAR poker-core/src/grading.ts: 26.6 KB > 20 KB
+ROZMIAR poker-core/src/scenario-gen.ts: 109.5 KB > 20 KB
+4 naruszeń w 73 plikach
+kod wyjścia: 1
+
+$ node granice-projekt.mjs /home/user/Szkola_pokera/packages poker-core/src 20   # (kopia skryptu z promptu w scratchpadzie; DOZWOLONE = lista z moduly.md + @szkola/jezyki)
+ROZMIAR content-schema/src/index.ts: 45.1 KB > 20 KB
+ROZMIAR poker-core/src/bots.ts: 31.6 KB > 20 KB
+ROZMIAR poker-core/src/grading.ts: 26.6 KB > 20 KB
+ROZMIAR poker-core/src/scenario-gen.ts: 109.5 KB > 20 KB
+4 naruszeń w 73 plikach
+kod wyjścia: 1
+
+$ node granice-projekt.mjs /home/user/Szkola_pokera/packages srs/src 20   # (kopia skryptu z promptu w scratchpadzie; DOZWOLONE = lista z moduly.md + @szkola/jezyki)
+ROZMIAR content-schema/src/index.ts: 45.1 KB > 20 KB
+ROZMIAR poker-core/src/bots.ts: 31.6 KB > 20 KB
+ROZMIAR poker-core/src/grading.ts: 26.6 KB > 20 KB
+ROZMIAR poker-core/src/scenario-gen.ts: 109.5 KB > 20 KB
+4 naruszeń w 73 plikach
+kod wyjścia: 1
+
+$ node granice-projekt.mjs /home/user/Szkola_pokera/packages content-schema/src 20   # (kopia skryptu z promptu w scratchpadzie; DOZWOLONE = lista z moduly.md + @szkola/jezyki)
+ROZMIAR content-schema/src/index.ts: 45.1 KB > 20 KB
+ROZMIAR poker-core/src/bots.ts: 31.6 KB > 20 KB
+ROZMIAR poker-core/src/grading.ts: 26.6 KB > 20 KB
+ROZMIAR poker-core/src/scenario-gen.ts: 109.5 KB > 20 KB
+4 naruszeń w 73 plikach
+kod wyjścia: 1
+
+$ node granice.mjs /home/user/Szkola_pokera/apps/mobile/src brak-domeny 20   # rozmiar i cykle w aplikacji
+ROZMIAR app/session.tsx: 31.7 KB > 20 KB
+ROZMIAR data/content/terms.generated.ts: 320.1 KB > 20 KB
+ROZMIAR features/drills/engine.ts: 20.8 KB > 20 KB
+ROZMIAR features/drills/text.ts: 26.2 KB > 20 KB
+ROZMIAR features/scenariusz/EkranScenariusza.tsx: 28.9 KB > 20 KB
+ROZMIAR features/scenariusz/wariant.ts: 35.3 KB > 20 KB
+6 naruszeń w 137 plikach
+kod wyjścia: 1
+$ node granice.mjs /home/user/Szkola_pokera/tools/content-build/src brak-domeny 20
+ROZMIAR build.ts: 44.4 KB > 20 KB
+ROZMIAR scenariusze.ts: 49.2 KB > 20 KB
+2 naruszeń w 16 plikach
+kod wyjścia: 1

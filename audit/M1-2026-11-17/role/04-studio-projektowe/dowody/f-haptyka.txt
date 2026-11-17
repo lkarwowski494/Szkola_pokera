@@ -1,0 +1,19 @@
+$ grep -rn "wykonajHaptyke(" apps/mobile/src (bez testów)
+apps/mobile/src/components/PasekStrategii.tsx:93:              void wykonajHaptyke(haptyka.wyborAkcji).catch(() => undefined);
+apps/mobile/src/app/session.tsx:251:          void wykonajHaptyke(haptykaOceny(grade)).catch(() => undefined); // tokeny `haptyka` (A04-12)
+exit=0
+$ sed -n 248,253p apps/mobile/src/app/session.tsx
+        }
+        setCurrent({ item, answer, grade, elapsedMs });
+        if (haptics) {
+          void wykonajHaptyke(haptykaOceny(grade)).catch(() => undefined); // tokeny `haptyka` (A04-12)
+        }
+      });
+$ sed -n 91,95p apps/mobile/src/components/PasekStrategii.tsx
+            accessibilityLabel={o.etykieta ?? o.text}
+            onPress={() => {
+              void wykonajHaptyke(haptyka.wyborAkcji).catch(() => undefined);
+              onWybierz?.(i);
+            }}
+$ grep -n "\"haptics\"" apps/mobile/src/i18n/locales/pl.json
+316:    "haptics": "Wibracje przy odpowiedzi",

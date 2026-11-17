@@ -1,0 +1,10 @@
+$ env -u NODE_PATH node tests/narzedzia/k08-manifesty.mjs
+K-08: pakiety natywne 40, z manifestem 7, trafienia w kodzie bez manifestu 53
+ok    NSPrivacyAccessedAPICategoryFileTimestamp ← expo-application (manifest: C617.1); expo-document-picker (kod bez manifestu: contentModificationDateKey); expo-file-system (manifest: 0A2A.1, 3B52.1); expo-sqlite (kod bez manifestu: stat); react-native (manifest: C617.1) | app.json: C617.1, 3B52.1
+ok    NSPrivacyAccessedAPICategoryUserDefaults ← expo-constants (manifest: CA92.1); expo-dev-launcher (kod bez manifestu: NSUserDefaults); expo-dev-launcher (kod bez manifestu: UserDefaults); expo-dev-menu (kod bez manifestu: UserDefaults); expo-localization (manifest: CA92.1); expo-notifications (manifest: CA92.1); expo-sharing (kod bez manifestu: UserDefaults); expo-system-ui (manifest: CA92.1); react-native (manifest: CA92.1) | app.json: CA92.1
+ok    NSPrivacyAccessedAPICategoryDiskSpace ← expo-file-system (manifest: E174.1, 85F4.1); expo-sqlite (kod bez manifestu: fstatfs); expo-sqlite (kod bez manifestu: fstatvfs); expo-sqlite (kod bez manifestu: statfs) | app.json: E174.1, 85F4.1
+ok    NSPrivacyAccessedAPICategorySystemBootTime ← react-native (manifest: 35F9.1) | app.json: 35F9.1
+kod wyjścia: 0
+
+$ find node_modules apps/mobile/node_modules -name PrivacyInfo.xcprivacy -not -path "*/example/*" (rzeczywiste ścieżki, unikalne)
+kod wyjścia: 0
