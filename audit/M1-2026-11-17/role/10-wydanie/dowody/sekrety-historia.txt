@@ -1,0 +1,9 @@
+# komenda: node sprawdz-wydanie.mjs sekrety <pełny klon github.com/lkarwowski494/Szkola_pokera @ f75acdff, 2415 commitów, wszystkie gałęzie zdalne> --historia (2026-11-17)
+UWAGA .gitignore nie obejmuje: x.p8
+UWAGA .gitignore nie obejmuje: x.p12
+UWAGA .gitignore nie obejmuje: x.jks
+UWAGA .gitignore nie obejmuje: x.mobileprovision
+UWAGA .gitignore nie obejmuje: credentials.json
+UWAGA .gitignore nie obejmuje: .env
+OK
+kod wyjścia: 0

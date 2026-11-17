@@ -1,0 +1,19 @@
+$ python3 -I /tmp/m1-01/sondy/wektory.py tests/wektory/brd.json (niezależny rachunek próbki wektorów)
+RD-01-W1: rachunek 0.25000 vs BRD 0.25 tol 0.0001 -> OK
+RD-01-W2: rachunek 0.33333 vs BRD 0.3333 tol 0.0001 -> OK
+RD-01-W3: rachunek 0.00980 vs BRD 0.0098 tol 0.0001 -> OK
+RD-02-W1: rachunek 0.66667 vs BRD 0.6667 tol 0.0001 -> OK
+RD-02-W3: rachunek 0.99010 vs BRD 0.9901 tol 0.0001 -> OK
+RD-04-W1: rachunek 0.34968 vs BRD 0.3497 tol 0.0001 -> OK
+RD-04-W2: rachunek 0.19565 vs BRD 0.1957 tol 0.0001 -> OK
+RD-04-W3: rachunek 0.31452 vs BRD 0.3145 tol 0.0001 -> OK
+RD-04-W6: rachunek 0.04255 vs BRD 0.0426 tol 0.0001 -> OK
+RD-07-W1: rachunek 1.00000 vs BRD 1 tol 0.0001 -> OK
+RD-07-W2: rachunek 1.00000 vs BRD 1 tol 0.0001 -> OK
+RD-08-W2: rachunek 10.00000 vs BRD 10 tol 0.0001 -> OK
+RD-08-W3: rachunek -10.00000 vs BRD -10 tol 0.0001 -> OK
+RD-09-W1: rachunek [44.375, 32.625, 23.0] vs BRD [44.375, 32.625, 23.0] -> OK
+RD-09-W3: rachunek [33.6032, 29.4881, 23.5873, 13.3214] vs BRD [33.6032, 29.4881, 23.5873, 13.3214] -> OK
+RD-09-W4: rachunek [53.0, 47.0, 0.0] vs BRD [53.0, 47.0, 0.0] -> OK
+zgodne 16, rozbieżne 0
+exit=0

@@ -1,0 +1,7 @@
+# konwersja store/app-store-metadata.json (lokalizacje → apple.info, name→title, promotionalText→promoText) i docs/sklep/aso/metadane-fala2.json; 2026-11-17
+## node sprawdz-wydanie.mjs metadane meta-store.json
+OK
+kod wyjścia: 0
+## node sprawdz-wydanie.mjs metadane meta-fala2.json
+OK
+kod wyjścia: 0
