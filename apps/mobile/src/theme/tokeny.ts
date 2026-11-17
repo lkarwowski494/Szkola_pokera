@@ -20,6 +20,7 @@ const light = {
   frame: '#0A1430', // rama stołu
   felt1: '#23694D', // sukno, środek
   felt2: '#174A36', // sukno, brzeg (dawny feltDeep)
+  rangeFill: '#23694D', // wykres siatki zakresu: pasek pierwszej grupy w RangeGrid (krycie 0,85 na surface) i jego próbka w legendzie; w jasnych = felt1 (D-2021)
   onFelt: '#FFFDF7',
   onFeltMuted: '#D3E4DA',
   seat: '#12234A',
@@ -63,6 +64,7 @@ const dark: Paleta = {
   frame: '#1E3466',
   felt1: '#1C5A41',
   felt2: '#103426',
+  rangeFill: '#2B8F67', // odcień felt1 (H 156°, S 0,54), jaśniejszy (L 0,37 zamiast 0,23): pasek do surface ≥ 3 i onFelt na pasku ≥ 4,5 (04-studio-projektowe-011, D-2021)
   seat: '#0F1C3D',
   seatEdge: '#8296C6',
   card: '#F2EEE3',
@@ -84,6 +86,7 @@ const lightHigh: Paleta = {
   separator: '#8E9AB8',
   felt1: '#1B5940',
   felt2: '#123D2C',
+  rangeFill: '#1B5940', // = felt1 lightHigh (bez zmian, D-2021)
   onFeltMuted: '#EEF5F0',
   seatMuted: '#D4DCEE',
   seatEdge: '#B7C5E6',
@@ -101,6 +104,7 @@ const darkHigh: Paleta = {
   frame: '#3A55A0',
   felt1: '#174D37',
   felt2: '#0C2A1E',
+  rangeFill: '#2B8F67', // jak dark: surface i onFelt te same, więc to samo okno progów (D-2021)
   onFeltMuted: '#EEF5F0',
   seatMuted: '#D4DCEE',
   seatEdge: '#B7C5E6',
@@ -153,6 +157,8 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
   'przycisk główny': ['primaryInk', 'primaryBg', 4.5],
   'przycisk główny na tle': ['primaryBg', 'bg', 3],
   'etykieta ręki w siatce na podkładce (pole niepełne)': ['ink', 'surface', 4.5],
+  'próbka legendy siatki na tle': ['rangeFill', 'bg', 3],
+  'próbka legendy siatki w komórce (blok „note”)': ['rangeFill', 'surface', 3],
 };
 
 /**
@@ -166,6 +172,12 @@ export const paryZlozone: Record<string, { fg: keyof Paleta; tlo: keyof Paleta; 
   // „etykieta ręki w siatce na podkładce” w `pary`; D-2020, design-spec „RangeGrid”)
   'znak klasy niepewnej na polu w zakresie': { fg: 'ink', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 3 },
   'etykieta ręki na polu pełnym (pierwsza grupa = 1, tekst 8–10,4 pt)': { fg: 'onFelt', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
+  // 04-studio-projektowe-011 (M2-koordynator-napraw-009, D-2021; design-spec „RangeGrid”): pasek pierwszej grupy rysuje `rangeFill`, nie `felt1`
+  // (felt1 zostaje suknem stołu). Trzy pary niżej zastępują dwie wyżej, gdy rola 08 przełączy RangeGrid na `rangeFill`; wtedy 08 usuwa pary z `felt1`
+  // razem ze zmianą testu `kontrast-pary-08` (dziś wiąże je z felt1). Próg 3 dla paska: grafika niosąca informację „gram/pas” (WCAG 1.4.11).
+  'pasek siatki obok pustej części pola (rangeFill na surface)': { fg: 'surface', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 },
+  'etykieta ręki na pasku pełnym (rangeFill, tekst 8–10,4 pt)': { fg: 'onFelt', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 4.5 },
+  'kropka klasy niepewnej na pasku (rangeFill)': { fg: 'ink', tlo: 'rangeFill', krycie: 0.85, podTlem: 'surface', prog: 3 },
 };
 
 /**

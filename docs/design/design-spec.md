@@ -54,12 +54,23 @@ Stan miejsca „limp” (iso-size, D-1734): obwódka ciągła 2,5 pt `seatInk` +
 - Przed decyzją: równe segmenty-przyciski (po jednym na akcję, cel ≥ 64 pt wysokości), nic nie zdradzają.
 - Po ocenie: te same granice przesunięte do częstotliwości solvera (np. pas 80%, przebicie 20%), część „pas” kreskowana (w RN: wypełnienie `foldFill` + kreskowana obwódka `foldStripe`, D-284), złoty znacznik nad twoim wyborem, podpisy z procentami i „twój wybór”. Opis VoiceOver: „Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.”
 
-### `RangeGrid` (siatka zakresu w lekcji; M2-koordynator-napraw-006, KO-132, D-2020)
-Pole 13×13: od lewej pasek każdej grupy akcji (szerokość = częstość, `felt1` z kryciem 0,85 na `surface`), na środku etykieta ręki, w prawym górnym rogu kropka klasy niepewnej. Tokeny geometrii: `siatka` w `tokeny.ts`. Makieta i pomiar: `audit/M1-2026-11-17/role/04-studio-projektowe/fix-2026-11-17/` (wynik.md, dowody).
+### `RangeGrid` (siatka zakresu w lekcji; M2-koordynator-napraw-006, KO-132, D-2020; barwa paska M2-koordynator-napraw-009, D-2021)
+Pole 13×13: od lewej pasek każdej grupy akcji (szerokość = częstość, pierwsza grupa w `rangeFill` z kryciem 0,85 na `surface`), na środku etykieta ręki, w prawym górnym rogu kropka klasy niepewnej. Tokeny geometrii: `siatka` w `tokeny.ts`. Makieta i pomiar: `audit/M1-2026-11-17/role/04-studio-projektowe/fix-2026-11-17/` (wynik.md, dowody); barwa paska: `…/fix-2026-11-17-b/`.
+- **Barwa paska pierwszej grupy i próbki w legendzie: `rangeFill`** (token wykresu, nie `felt1`; `felt1` zostaje suknem stołu, `Stol`, `BlokLekcji`, `PanelDecyzji`). Jasne motywy: `rangeFill` = `felt1` (`#23694D`, `#1B5940`), bez zmiany wyglądu. Ciemne (dark i darkHigh): `#2B8F67`, ten sam odcień co sukno (H 156°), jaśniejszy. *Dlaczego:* sukno dobrane pod białe napisy ma do granatowego `surface` 1,71 (dark) i 1,47 (darkHigh), więc „gram” i „pas” różnią się poniżej 3:1 (WCAG 1.4.11). Okno progów w ciemnych motywach jest wąskie: złożony pasek musi mieć luminancję 0,152–0,179 (≥ 3 do `surface`, ≥ 4,5 dla `onFelt`); `#2B8F67` daje 0,165, czyli zapas po równo z obu stron. darkHigh ma ten sam `surface` i `onFelt`, więc to samo okno i tę samą wartość.
+
+| Para (krycie 0,85 na `surface`) | Próg | light | lightHigh | dark przed → po | darkHigh przed → po |
+|---|---|---|---|---|---|
+| pasek / `surface` | 3 | 4,63 | 5,58 | 1,71 → 3,20 | 1,47 → 3,20 |
+| `onFelt` / pasek (etykieta pola pełnego) | 4,5 | 4,55 | 5,49 | 8,97 → 4,80 | 10,47 → 4,80 |
+| kropka `ink` / pasek | 3 | 3,92 | 3,26 | 7,87 → 4,21 | 9,19 → 4,21 |
+| próbka legendy (bez krycia) / `bg` | 3 | 5,59 | 7,02 | 2,24 → 4,52 | 1,86 → 4,52 |
+| próbka legendy / `surface` (blok „note”) | 3 | 6,56 | 8,24 | 1,93 → 3,89 | 1,60 → 3,89 |
+
+Pary są w `pary` i `paryZlozone` (`tokeny.ts`), więc test `kontrast-pary-08` liczy je w CI. Odporność: złożony pasek ±1 na kanał (zaokrąglenie przy kryciu) daje najmniej 3,16 / 4,73 / 4,15.
 - **Kolor etykiety** (KO-132 (a)): pole pełne, czyli pierwsza grupa `freqs[i] >= 1` → `onFelt`, bez podkładki. Każde inne pole (0, częściowe, 0,999, grupy 2 i 3) → `ink` na **podkładce** `surface`. *Dlaczego:* `ink` na zieleni ma 3,92/3,26 w jasnych motywach, a `onFelt` na `surface` 1,02; tylko tekst na jednym tle daje ≥ 4,5 w czterech motywach.
 - **Podkładka:** prostokąt bez zaokrąglenia, kolor `surface`, wyśrodkowany; wysokość = interlinia etykiety, szerokość = tekst + `siatka.podkladkaPoziom` z każdej strony, najwyżej pole − 2 pt. Pasek leży pod nią, nie zmienia koloru ani krycia; koniec paska widać nad podkładką i pod nią (podkładka zajmuje najwyżej połowę wysokości pola).
 - **Rozmiar etykiety** (Dynamic Type): wzór w komentarzu `siatka`; `allowFontScaling={false}`, `fontSize` i `lineHeight` z wzoru, skala tekstu z `useWindowDimensions().fontScale`, pole z `onLayout` siatki (przed pomiarem: szerokość okna − 2 × `odstep.l`). Wynik: 8 pt przy tekście domyślnym, do 8,25 pt na 320 pt i 10,4 pt od 375 pt przy AX1–AX5; nigdy poza podkładką ani polem. `numberOfLines={1}` + `adjustsFontSizeToFit` jako zabezpieczenie, gdy krój jest szerszy niż `szerokoscEm`. Etykieta jest rysunkiem jak miejsca przy stole (D-122): treść o siatce niesie tytuł, legenda i etykieta VoiceOver, które skalują się bez limitu.
-- **Kropka klasy niepewnej:** koło `siatka.znakSrednica` (3 pt) w `ink`, `siatka.znakOdstep` (1 pt) od górnej i prawej krawędzi; `View`, nie znak tekstu, więc nie rośnie z tekstem i nie wchodzi na podkładkę (odstęp ≥ 1 pt). Kontrast: ≥ 3,26 do zieleni, 13,48 do `surface`.
+- **Kropka klasy niepewnej:** koło `siatka.znakSrednica` (3 pt) w `ink`, `siatka.znakOdstep` (1 pt) od górnej i prawej krawędzi; `View`, nie znak tekstu, więc nie rośnie z tekstem i nie wchodzi na podkładkę (odstęp ≥ 1 pt). Kontrast: ≥ 3,26 do zieleni (lightHigh; w ciemnych 4,21 do `rangeFill`), 13,48 do `surface`.
 - **Grupy 2 i 3** (`przejsciowe.warn`, `cardBlue`; treść pl ich nie używa): etykieta zawsze na podkładce, więc ≥ 4,5. Kropka `ink` na pasku `warn` w ciemnych motywach ma 2,23 < 3: przed pierwszym spotem z dwiema grupami rola 04 dostarcza tokeny siatek (F27b, D-284); strażnik w teście treści pl.
 
 ## Scenariusz: punkt ICM (`icm-call`, sesja DA, D-889)
@@ -120,5 +131,5 @@ Domyślny słownik studia, z ustaleniami projektu: **Zakończ** (wyjście z sesj
 ## Otwarte
 - Przejście poznawcze i test 3–5 osób (kryteria „Intuicyjność” z `docs/scope-contract.md`) — po implementacji, na TestFlight; wynik wraca do roli 03.
 - Ekrany poza kluczowymi (ocena poziomu, lekcja, powtórki, scenariusz, dane, pomoc, ustawienia) rola 08 buduje z tych komponentów; audyt roli 04 części 5b i 6: `audyt-5b-6.md` (2026-11-09; naprawy dla 08, D-282–D-284).
-- Tokeny `cardBlue`, `cardGreen` (talia czterokolorowa, D-284) i barwy siatek `PaintGrid`/`RangeGrid` (08-F27b) — do dopisania w `tokeny.ts` razem z kopią w aplikacji; geometria etykiety `RangeGrid` jest w `siatka` (D-2020). Pasek siatki w ciemnych motywach ma do `surface` 1,71/1,47 < 3 (04-studio-projektowe-011).
+- Tokeny `cardBlue`, `cardGreen` (talia czterokolorowa, D-284) i barwy siatek `PaintGrid`/`RangeGrid` (08-F27b) — do dopisania w `tokeny.ts` razem z kopią w aplikacji; geometria etykiety `RangeGrid` jest w `siatka` (D-2020), barwa paska pierwszej grupy w `rangeFill` (D-2021; wdrożenie w komponencie: rola 08). Barwy grup 2 i 3 (`warn`, `cardBlue`; F27b) nadal bez tokenu siatki.
 - Najdłuższy język (35 języków): sprawdzenie układu na de/fr/vi po przekładzie — rola 06/08; sufity tytułów są liczone od szerokości, nie od słowa polskiego.
