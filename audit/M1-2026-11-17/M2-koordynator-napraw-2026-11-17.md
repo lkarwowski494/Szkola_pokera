@@ -127,13 +127,21 @@ Recenzent niezależny (role/08-programista/fix-2026-11-17-b/recenzja-niezalezna.
 - Status: otwarte — backlog
 
 ### M2-koordynator-napraw-009 · Pasek częstości siatki w ciemnych motywach poniżej 3:1 do tła pola (04-studio-projektowe-011)
-- Rozstrzygnięcie: właściciel 2026-11-17 ok. 18:40 UTC „Naprawić teraz (zalecane)” (KO-134): jaśniejsza zieleń wykresu tylko w dark/darkHigh; w toku (04 → 08 → recenzent → ci).
+- Rozstrzygnięcie: właściciel 2026-11-17 ok. 18:40 UTC „Naprawić teraz (zalecane)” (KO-134): jaśniejsza zieleń wykresu tylko w dark/darkHigh.
+- Naprawa: token `rangeFill` (rola 04, 2bbeaa42, D-2021; light/lightHigh = felt1, dark/darkHigh #2B8F67), RangeGrid pasek i próbka legendy (rola 08: e59e25f8 test, cc7fbb91 zmiana, 3f1f6a1b, a7ca54bd).
+- Dowód: role/08-programista/fix-2026-11-17-e/ (wynik.md, recenzja-niezalezna.md): pasek/surface dark i darkHigh 1,71 / 1,47 → 3,20; onFelt na pasku 4,80; kropka 4,21; próbka legendy na bg 4,52; light/lightHigh bez zmian; felt1 bez zmian; mutacje 4/4 wykryte. Telefon: T-SIATKA-CIEMNY.
+- Status: naprawione-do-weryfikacji
 - Pozycja listy kontrolnej: SP-04 · Poziom: P1 (rola 04) · Realność: realny · Pewność: wysoka · Rodzaj: P (kolor wykresu: system roli 04)
 - Dowód: role/04-studio-projektowe/fix-2026-11-17/wynik.md: felt1·0,85 do surface 1,71 (dark) / 1,47 (darkHigh) < 3 (WCAG 1.4.11); stan sprzed napraw.
 - Opcje: (a) jaśniejsza zieleń wykresu (osobny token barw siatek, F27b) — rek. roli 04; (b) obwódka pola w zakresie; (c) wyjątek nazwany. Status: otwarte — do decyzji właściciela.
 
 ### M2-koordynator-napraw-010 · Drobne po M2-006 (P2, backlog)
 - Zapas kontrastu etykiety f = 1 w light 0,08 (4,58), pilnuje para w `paryZlozone`; pierwsza klatka przed onLayout w bloku `note` liczy pole o ok. 2,5 pt za szerokie (etykieta zostaje w polu); VoiceOver nie czyta legendy „• mieszana” (etykieta zbiorcza `range.label`, por. M2-004). Status: otwarte — backlog.
+
+### M2-koordynator-napraw-011 · Etykiety siatki 13×13 nie skalują się do 200% (WCAG 1.4.4) i nie mają skalowalnej alternatywy
+- Pozycja listy kontrolnej: SP (dostępność, rola 04) · Poziom: P2 · Realność: realny · Pewność: średnia · Rodzaj: P
+- Dowód: recenzja-niezalezna.md roli 08 (fix-2026-11-17-e), pkt 4: etykieta 8 → 10,4 pt (130%) przy AX5 (`allowFontScaling={false}`, świadomy kompromis M2-006); etykieta dostępności siatki to tylko tytuł i procent; werdykt recenzenta: niejednoznaczne, raczej akceptowalny kompromis; nie blokuje TestFlight.
+- Opcje: (a) skalowalna lista „Ręce w zakresie” pod siatką (lub w etykiecie dostępności); (b) dotknięcie pola z podpisem („AKo: przebicie 100%”); (c) powiększanie siatki gestem; (d) zostawić z wyjątkiem nazwanym. Rekomendacja recenzenta: (a) albo (b). Status: otwarte — backlog / decyzja przed App Store.
 
 ### KO-133 · Kopie narzędzi z prywatnej biblioteki promptów w publicznym repo
 - Właściciel 2026-11-17 ok. 18:40 UTC: „Usunąć plik, historia zostaje”. Commit 4207c6f1 usuwa z audit/ 3 kopie (2 × kontrast.mjs „kopia z promptu roli 04”, 1 × sprawdz-raport.mjs); historia bez zmian (bez force-push). Poza audit/ 10 plików narzędzi pokrywa się z biblioteką (dowody/M2/ko133-kopie-poza-audit.txt; część używana w pnpm run ci) — nie usunięte, do decyzji właściciela. Od teraz polecenia dla subagentów zabraniają kopiowania plików z /home/user/prompts do repo.
