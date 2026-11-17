@@ -3,8 +3,24 @@
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/pre-push-check.mjs\"", "timeout": 120 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/pre-push-check.mjs\"",
+            "timeout": 120
+          }
+        ]
       }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "mcp__claude-code-remote__add_repo",
+      "Bash(git clone --depth 1 https://github.com/lkarwowski494/prompts /home/user/prompts)",
+      "Bash(git clone --depth 1 https://github.com/lkarwowski494/prompts.git /home/user/prompts)",
+      "Bash(git -C /home/user/prompts checkout:*)",
+      "Bash(git -C /home/user/prompts fetch:*)",
+      "Bash(node /home/user/prompts/tools/assemble.mjs:*)"
     ]
   }
 }
