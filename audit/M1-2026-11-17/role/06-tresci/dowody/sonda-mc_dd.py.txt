@@ -1,0 +1,14 @@
+# niezależny rachunek audytu 06: prawdopodobieństwo downswingu (max drawdown) >= D bb w N blokach po 100 rąk, N(wr, SD)
+import numpy as np, math
+rng=np.random.default_rng(1117)
+def p(wr,sd,blocks,D,runs=20000):
+    hit=0
+    for _ in range(runs//2000):
+        x=rng.normal(wr,sd,(2000,blocks)).cumsum(1)
+        peak=np.maximum.accumulate(np.concatenate([np.zeros((2000,1)),x],1),1)[:,1:]
+        dd=(peak-x).max(1); hit+=(dd>=D).sum()
+    return hit/runs
+for wr,blocks,D,lab in [(5,1000,1000,'dd.p.small.100k (0.95)'),(5,1000,2000,'dd.p.big.100k (0.27)'),(5,200,1000,'dd.p.small.20k (0.40)'),(2,1000,1000,'dd.p.small.100k.wr-low (0.99)'),(2,1000,2000,'dd.p.big.100k.wr-low (0.58)')]:
+    print(lab, round(p(wr,80,blocks,D),3))
+for wr,bi in [(3,30),(3,15),(1,30),(5,30),(1,50)]:
+    print('RoR wr',wr,'bi',bi, round(math.exp(-2*wr*bi*100/6400),4))

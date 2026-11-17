@@ -1,0 +1,12 @@
+# audyt 06: niezależna symulacja ruiny (wr 3 bb/100, SD 80, bankroll 30 i 15 wpisowych po 100 bb), bloki 100 rąk, horyzont 3 mln rąk
+import numpy as np
+rng=np.random.default_rng(20261117)
+for bi in (30,15):
+    BR=bi*100; runs=4000; ruined=0
+    for _ in range(runs//500):
+        x=np.full(500,float(BR)); alive=np.ones(500,bool)
+        for _ in range(60):  # 60 x 500 bloków = 30000 bloków = 3 mln rąk
+            s=x[:,None]+rng.normal(3,80,(500,500)).cumsum(1)
+            hit=(s<=0).any(1)&alive; alive&=~hit; x=s[:,-1]
+        ruined+=(~alive).sum()
+    print(f"{bi} wpisowych: ruina {ruined/runs:.3f} (wzór {np.exp(-2*3*BR/6400):.3f})")

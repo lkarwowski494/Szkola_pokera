@@ -1,3 +1,4 @@
+$ python3 -I mc_dd.py   # ziarno 1117, 20 tys. przebiegów; bloki 100 rąk N(wr, 80); downswing = maks. spadek od szczytu
 dd.p.small.100k (0.95) 0.946
 dd.p.big.100k (0.27) 0.278
 dd.p.small.20k (0.40) 0.393
