@@ -35,3 +35,11 @@ Analogia z Treningiem (CLAUDE.md, D-191; klon publiczny `lkarwowski494/trening` 
 - Dlaczego tak: para zdań (TRE-08) — siatka tuż pod zdaniem pasuje 74s, 63s, 42s, 32s i broni 75o, K5o, A2o, więc „w siatce” dawało fałszywy obraz siatki; kierunek („ręce w kolorze bronisz chętniej”) zgadza się z opublikowanym rozwiązaniem (te ręce w kolorze: obrona 0,65–1,00; te ręce w różnych kolorach: 0,00; odczyt 2026-11-17, `audit/M1-2026-11-17/role/06-tresci/fix-2026-11-17/dowody/porownanie-przed.txt`), a „zwykle” to część wspólna wobec wyjątków kanonu (CLAUDE.md, „Zasady rozstrzygania”).
 - Odrzucone: usunięcie zdania (traci się wyjaśnienie realizacji equity, które drill `m4.l2.q-realize` ocenia); zdanie z liczbą klas spornych pod siatką (nowa treść do przekładu w 11 językach; propozycja dla ról 04 i 09 w wyniku).
 - Zależy od: D-2011; przegląd przekładów przez rolę 09 (zmiana minimalna, bez nowych terminów).
+
+## D-2015 · 2026-11-17 · M2-koordynator-napraw-001 (06-tresci-502): siatka lekcji oznacza klasy niepewne jak malowanie
+- Decyzja: `apps/mobile/src/components/RangeGrid.tsx` (siatki w lekcjach, `apps/mobile/src/components/Blocks.tsx:128`) rysuje znak „•” w polach klas z `spot.uncertain` i legendę `paint.legendMixed` („• mieszana”) tylko przy niepustym `uncertain` — to samo oznaczenie co `apps/mobile/src/components/PaintGrid.tsx` (styl `mark`, kolor `tk.muted`). Bez nowych kolorów, komponentów i tekstów (zasada 15). Commit 1d756b0b; test `apps/mobile/src/components/__tests__/RangeGrid-uncertain.test.tsx` (czerwony przed, zielony po; 34 siatki z treści pl, 25 z `uncertain`, w tym 4 BB).
+- Kto rozstrzygnął: koordynator (KO-129, 2026-11-17, sprawa merytoryczna → ADR-24): ranga P1, wariant (a).
+- Odrzucone: (b) dopisek pod siatką bez oznaczenia pól (słabszy: uczeń nie widzi, które ręce są sporne).
+- Odstępstwo nazwane: wykonawca rola 08 w trybie fix (kod aplikacji), nie 06 — rola 06 w trybie fix nie zmienia kodu aplikacji (prompt 06 fix, „Tryb: fix”, zakres).
+- Otwarte: czytnik ekranu nie dostaje listy klas niepewnych (siatka ma jedną etykietę `range.label`; stan sprzed zmiany); poprawka wymaga nowego tekstu (rola 04/09) — znalezisko w raporcie M2.
+- Zależy od: D-2011; weto właściciela.
