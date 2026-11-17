@@ -1,0 +1,41 @@
+Kontrast etykiety ręki (WCAG 2.x), przed i po zmianie [M2-koordynator-napraw-006]. Przed = ink na wszystkich polach RangeGrid; po = reguła pokrycia (>= 0,85 onFelt, reszta ink).
+Próg: 4,5 dla etykiety (8 pt); znak „•”: 3. FAIL = poniżej progu.
+
+RangeGrid, tło        | motyw     | przed (kolor, kontrast)  | po (kolor, kontrast)     | próg | po spełnia
+pole puste (surface)  | light     | ink 18.17 ok           | ink 18.17 ok           | 4,5  | tak
+pole pełne (felt1@.85)| light     | ink 3.92 FAIL          | onFelt 4.55 ok         | 4,5  | tak
+pole pośrednie, część zieleń | light     | ink 3.92 FAIL          | ink 3.92 FAIL          | 4,5 (gwarancja 3) | tylko ≥3
+pole pośrednie, część surface | light     | ink 18.17 ok           | ink 18.17 ok           | 4,5 | tak
+znak • na felt1@.85 (ink)     | light     | ink 3.92 ok            | ink 3.92 ok            | 3   | tak
+znak • na surface (ink)       | light     | ink 18.17 ok           | ink 18.17 ok           | 3   | tak
+  (informacyjnie: onFelt na surface 1.02; grupy 2-3 (latentne, treść pl ich nie ma): ink na warn@.85 4.23, ink na cardBlue@.85 3.62)
+pole puste (surface)  | dark      | ink 13.48 ok           | ink 13.48 ok           | 4,5  | tak
+pole pełne (felt1@.85)| dark      | ink 7.87 ok            | onFelt 8.97 ok         | 4,5  | tak
+pole pośrednie, część zieleń | dark      | ink 7.87 ok            | ink 7.87 ok            | 4,5 (gwarancja 3) | tylko ≥3
+pole pośrednie, część surface | dark      | ink 13.48 ok           | ink 13.48 ok           | 4,5 | tak
+znak • na felt1@.85 (ink)     | dark      | ink 7.87 ok            | ink 7.87 ok            | 3   | tak
+znak • na surface (ink)       | dark      | ink 13.48 ok           | ink 13.48 ok           | 3   | tak
+  (informacyjnie: onFelt na surface 15.36; grupy 2-3 (latentne, treść pl ich nie ma): ink na warn@.85 2.23, ink na cardBlue@.85 6.95)
+pole puste (surface)  | lightHigh | ink 18.17 ok           | ink 18.17 ok           | 4,5  | tak
+pole pełne (felt1@.85)| lightHigh | ink 3.26 FAIL          | onFelt 5.49 ok         | 4,5  | tak
+pole pośrednie, część zieleń | lightHigh | ink 3.26 FAIL          | ink 3.26 FAIL          | 4,5 (gwarancja 3) | tylko ≥3
+pole pośrednie, część surface | lightHigh | ink 18.17 ok           | ink 18.17 ok           | 4,5 | tak
+znak • na felt1@.85 (ink)     | lightHigh | ink 3.26 ok            | ink 3.26 ok            | 3   | tak
+znak • na surface (ink)       | lightHigh | ink 18.17 ok           | ink 18.17 ok           | 3   | tak
+  (informacyjnie: onFelt na surface 1.02; grupy 2-3 (latentne, treść pl ich nie ma): ink na warn@.85 4.23, ink na cardBlue@.85 3.62)
+pole puste (surface)  | darkHigh  | ink 13.48 ok           | ink 13.48 ok           | 4,5  | tak
+pole pełne (felt1@.85)| darkHigh  | ink 9.19 ok            | onFelt 10.47 ok        | 4,5  | tak
+pole pośrednie, część zieleń | darkHigh  | ink 9.19 ok            | ink 9.19 ok            | 4,5 (gwarancja 3) | tylko ≥3
+pole pośrednie, część surface | darkHigh  | ink 13.48 ok           | ink 13.48 ok           | 4,5 | tak
+znak • na felt1@.85 (ink)     | darkHigh  | ink 9.19 ok            | ink 9.19 ok            | 3   | tak
+znak • na surface (ink)       | darkHigh  | ink 13.48 ok           | ink 13.48 ok           | 3   | tak
+  (informacyjnie: onFelt na surface 15.36; grupy 2-3 (latentne, treść pl ich nie ma): ink na warn@.85 2.23, ink na cardBlue@.85 6.95)
+
+PaintGrid (bez zmiany kodu: wszystkie pary już >= 4,5, pilnuje je test RangeGrid-etykieta-kontrast-08 i kontrast-pary-08)
+tło pola / etykieta | light | dark | lightHigh | darkHigh
+niepomalowane/none: ink na surface | 18.17 | 13.48 | 18.17 | 13.48
+pomalowane, mieszane pomalowane: primaryInk na primaryBg | 17.86 | 15.67 | 17.86 | 15.67
+trafione: primaryInk na good | 5.23 | 9.58 | 5.23 | 9.58
+brakujące: ink na badSoft | 15.27 | 13.12 | 15.27 | 13.12
+nadmiarowe: ink na warnSoft | 16.07 | 12.37 | 16.07 | 12.37
+mieszane niepomalowane: ink na feltSoft | 15.38 | 12.35 | 15.38 | 12.35

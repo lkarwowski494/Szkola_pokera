@@ -1,0 +1,226 @@
+(node:923) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+  console.log
+    pola (spot×klasa): 5746; puste (≤0,15): 3242; pełne (≥0,85): 2358; pośrednie (0,15–0,85): 146 w 27 z 34 spotów, 51 różnych klas; węższy przedział (0,25–0,75): 95 pól, 38 klas
+
+      at Object.log (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:173:13)
+
+FAIL src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx
+  RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006)
+    ✕ light: pole puste: etykieta ≥ 4,5:1 do surface; pole pełne (pokrycie 1 i 0,85): ≥ 4,5:1 do felt1 z kryciem 0,85 na surface (92 ms)
+    ✓ dark: pole puste: etykieta ≥ 4,5:1 do surface; pole pełne (pokrycie 1 i 0,85): ≥ 4,5:1 do felt1 z kryciem 0,85 na surface (39 ms)
+    ✕ lightHigh: pole puste: etykieta ≥ 4,5:1 do surface; pole pełne (pokrycie 1 i 0,85): ≥ 4,5:1 do felt1 z kryciem 0,85 na surface (36 ms)
+    ✓ darkHigh: pole puste: etykieta ≥ 4,5:1 do surface; pole pełne (pokrycie 1 i 0,85): ≥ 4,5:1 do felt1 z kryciem 0,85 na surface (33 ms)
+    ✕ light: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt (36 ms)
+    ✕ dark: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt (31 ms)
+    ✕ lightHigh: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt (26 ms)
+    ✕ darkHigh: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt (21 ms)
+    ✓ light: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface) (22 ms)
+    ✓ dark: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface) (20 ms)
+    ✓ lightHigh: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface) (20 ms)
+    ✓ darkHigh: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface) (17 ms)
+    ✓ light: znak „•” zostaje ≥ 3:1 do surface i do sukna (stoi w rogu, poza środkiem etykiety) (22 ms)
+    ✓ dark: znak „•” zostaje ≥ 3:1 do surface i do sukna (stoi w rogu, poza środkiem etykiety) (16 ms)
+    ✓ lightHigh: znak „•” zostaje ≥ 3:1 do surface i do sukna (stoi w rogu, poza środkiem etykiety) (20 ms)
+    ✓ darkHigh: znak „•” zostaje ≥ 3:1 do surface i do sukna (stoi w rogu, poza środkiem etykiety) (16 ms)
+  PaintGrid: kontrast etykiety ręki do tła pola we wszystkich stanach (M2-koordynator-napraw-006)
+    ✓ light: etykieta ≥ 4,5:1 do tła pola w każdym stanie (152 ms)
+    ✓ dark: etykieta ≥ 4,5:1 do tła pola w każdym stanie (138 ms)
+    ✓ lightHigh: etykieta ≥ 4,5:1 do tła pola w każdym stanie (129 ms)
+    ✓ darkHigh: etykieta ≥ 4,5:1 do tła pola w każdym stanie (109 ms)
+  RangeGrid na treści pl: pola pośrednie i kontrast etykiet
+    ✓ założenie reguły: każdy spot pl ma jedną grupę akcji (kolory grup 2 i 3 nie spełniają 4,5:1 z żadną etykietą)
+    ✓ liczba pól pośrednich w treści pl (do rozstrzygnięcia roli 04) (13 ms)
+    ✕ light: na treści pl każde pole puste i pełne ma etykietę ≥ 4,5:1 do swojego tła (740 ms)
+    ✓ dark: na treści pl każde pole puste i pełne ma etykietę ≥ 4,5:1 do swojego tła (736 ms)
+    ✕ lightHigh: na treści pl każde pole puste i pełne ma etykietę ≥ 4,5:1 do swojego tła (680 ms)
+    ✓ darkHigh: na treści pl każde pole puste i pełne ma etykietę ≥ 4,5:1 do swojego tła (664 ms)
+
+  ● RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006) › light: pole puste: etykieta ≥ 4,5:1 do surface; pole pełne (pokrycie 1 i 0,85): ≥ 4,5:1 do felt1 z kryciem 0,85 na surface
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "pole": "AA",
+    -   "r": true,
+    +   "r": false,
+      }
+
+      73 |     expect({ pole: 'puste 72o', r: kontrast(m.get('72o')!.kolor, p.surface!) >= 4.5 }).toEqual({ pole: 'puste 72o', r: true });
+      74 |     for (const h of ['AA', 'KK', 'QQ']) {
+    > 75 |       expect({ pole: h, r: Number(kontrast(m.get(h)!.kolor, sukno).toFixed(2)) >= 4.5 }).toEqual({ pole: h, r: true });
+         |                                                                                          ^
+      76 |     }
+      77 |   });
+      78 |
+
+      at toEqual (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:75:90)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006) › lightHigh: pole puste: etykieta ≥ 4,5:1 do surface; pole pełne (pokrycie 1 i 0,85): ≥ 4,5:1 do felt1 z kryciem 0,85 na surface
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "pole": "AA",
+    -   "r": true,
+    +   "r": false,
+      }
+
+      73 |     expect({ pole: 'puste 72o', r: kontrast(m.get('72o')!.kolor, p.surface!) >= 4.5 }).toEqual({ pole: 'puste 72o', r: true });
+      74 |     for (const h of ['AA', 'KK', 'QQ']) {
+    > 75 |       expect({ pole: h, r: Number(kontrast(m.get(h)!.kolor, sukno).toFixed(2)) >= 4.5 }).toEqual({ pole: h, r: true });
+         |                                                                                          ^
+      76 |     }
+      77 |   });
+      78 |
+
+      at toEqual (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:75:90)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006) › light: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#FFFDF7"
+    Received: "#0A1430"
+
+      83 |     const m = pola(toJSON());
+      84 |     expect(m.get('AA')!.kolor).toBe(p.ink);
+    > 85 |     expect(m.get('KK')!.kolor).toBe(p.onFelt);
+         |                                ^
+      86 |   });
+      87 |
+      88 |   it.each(WARIANTY)('%s: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface)', async (w) => {
+
+      at toBe (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:85:32)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006) › dark: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#FFFDF7"
+    Received: "#F2EEE3"
+
+      83 |     const m = pola(toJSON());
+      84 |     expect(m.get('AA')!.kolor).toBe(p.ink);
+    > 85 |     expect(m.get('KK')!.kolor).toBe(p.onFelt);
+         |                                ^
+      86 |   });
+      87 |
+      88 |   it.each(WARIANTY)('%s: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface)', async (w) => {
+
+      at toBe (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:85:32)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006) › lightHigh: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#FFFDF7"
+    Received: "#0A1430"
+
+      83 |     const m = pola(toJSON());
+      84 |     expect(m.get('AA')!.kolor).toBe(p.ink);
+    > 85 |     expect(m.get('KK')!.kolor).toBe(p.onFelt);
+         |                                ^
+      86 |   });
+      87 |
+      88 |   it.each(WARIANTY)('%s: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface)', async (w) => {
+
+      at toBe (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:85:32)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid: kontrast etykiety ręki do tła pola (M2-koordynator-napraw-006) › darkHigh: próg zmiany koloru etykiety: pokrycie 0,84 → ink, 0,85 → onFelt
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#FFFDF7"
+    Received: "#F2EEE3"
+
+      83 |     const m = pola(toJSON());
+      84 |     expect(m.get('AA')!.kolor).toBe(p.ink);
+    > 85 |     expect(m.get('KK')!.kolor).toBe(p.onFelt);
+         |                                ^
+      86 |   });
+      87 |
+      88 |   it.each(WARIANTY)('%s: pola pośrednie (0,15 < pokrycie < 0,85): etykieta ≥ 3:1 do obu teł naraz (zieleń i surface)', async (w) => {
+
+      at toBe (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:85:32)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid na treści pl: pola pośrednie i kontrast etykiet › light: na treści pl każde pole puste i pełne ma etykietę ≥ 4,5:1 do swojego tła
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   "rfi.utg/AA: 3.92",
+    +   "rfi.utg/AKs: 3.92",
+    +   "rfi.utg/AQs: 3.92",
+    +   "rfi.utg/AJs: 3.92",
+    +   "rfi.utg/ATs: 3.92",
+    + ]
+
+      191 |       await unmount();
+      192 |     }
+    > 193 |     expect(za_niskie.slice(0, 5)).toEqual([]);
+          |                                   ^
+      194 |   });
+      195 | });
+      196 |
+
+      at toEqual (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:193:35)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● RangeGrid na treści pl: pola pośrednie i kontrast etykiet › lightHigh: na treści pl każde pole puste i pełne ma etykietę ≥ 4,5:1 do swojego tła
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   "rfi.utg/AA: 3.26",
+    +   "rfi.utg/AKs: 3.26",
+    +   "rfi.utg/AQs: 3.26",
+    +   "rfi.utg/AJs: 3.26",
+    +   "rfi.utg/ATs: 3.26",
+    + ]
+
+      191 |       await unmount();
+      192 |     }
+    > 193 |     expect(za_niskie.slice(0, 5)).toEqual([]);
+          |                                   ^
+      194 |   });
+      195 | });
+      196 |
+
+      at toEqual (src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx:193:35)
+      at asyncGeneratorStep (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       8 failed, 18 passed, 26 total
+Snapshots:   0 total
+Time:        4.932 s, estimated 5 s
+Ran all test suites matching /src\/components\/__tests__\/RangeGrid-etykieta-kontrast-08.test.tsx/i.
+kod 1
