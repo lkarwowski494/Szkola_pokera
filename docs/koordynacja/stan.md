@@ -461,6 +461,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - **Do weta (noc 10→11.11):** KO-059; D-715…D-844 w `docs/decyzje/<litera>.md` na gałęziach sesji (CC, CE, CF, CG, CH, CJ, CK, CL, CM, CN, CO, CP, CQ, CR, CS, CT).
 - **Linia 05:00** — przypomnienie należy do następcy (utworzyć); treść: gotowe w nocy (BX, CA+CJ, CF, CD, CK, CL→robocza 5637200 z E2E, CN+CR, CO+CS w recenzji CT), koszt doby, czeka na Ciebie: weto, D-647, scenariusze w statystykach (BW), znaki towarowe, ASC, Wietnam, KO-044, M10, BR-SCN-003, adres administratora/DPF (CB).
 - Następna litera **CW**; następny wolny **D-855**; KO następny **KO-061**.
+- **09:23 IP PRZEKAZANIE @ d5841256** (kod 6a58dcd6; 5 commitów noreply; ci kod 0; red 194/300; D-1965…D-1968 do weta; KO-120 bez promptu) → zarchiwizowana, 1,66 USD. Recenzja niezależna (subagent opus) w toku. Lokalne scalenie: IO b04eeb22, IQ 0ad185f1, IP 0ce681f5 (konflikty tylko w plikach generowanych: .db i tresc.generated.ts → content:build po scaleniu, 35 baz); pełne ci na 0ce681f5 w toku; push po recenzji i kodzie 0. Właściciel 09:20: brak przekazań z powodu kontekstu (mandat).
 
 ## Teraz (archiwum wcześniejszych wpisów)
 - **21:20 przejęcie przez session_01T66VBwSdwmmCy2rQJHrxEQ (nowy łańcuch, lineage 0/8; stan @ f3785be).** Bloker lineage usunięty: przypomnienia i create_session działają. Następne: kontrola 21:44 — CI sesja-bx-m12 178cf97 i sesja-cb-dane dc67aeb na SHA; start recenzji BX (06 audit) i scalenia bt+bs+bu (08) jako CC/CD; przyjęcie CB. Następna litera **CG**, D-735, KO-059.
@@ -522,7 +523,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | HB | session_01T66VBymMeSJKouGiXpveHj | 08 fix | claude/sesja-hb-fix @ 7740eeab | 0 | 0 | start 10:51 |
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| IP | session_01T66VBvUPLscW876Yrz8Pyv | 08 fix IL-001 (SC-18 kicker) | claude/sesja-ip-kicker @ ef75f613 | — | 0 (pułap 6) | start 07:52 |
+| IP | session_01T66VBvUPLscW876Yrz8Pyv | 08 fix IL-001 (SC-18 kicker) | claude/sesja-ip-kicker @ d5841256 | ci kod 0 @ 6a58dcd6 | 1,66 (pułap 6) | zarchiwizowana 09:24; recenzja w toku |
 | IQ | session_01T66VBzayLBVFgWPfgyWPEx | 09 fix IL-002, IM-002…009 | claude/sesja-iq-tresci @ 587593dc | 17% | 1,32 (pułap 5) | przyjęta 08:35, zarchiwizowana; czeka na partię |
 | IO | session_01T66VBwnbW2QFeAoBok7BdW | 08 fix IM-001 | claude/sesja-io-procent @ 0c165431 | 14% | 1,17 (pułap 5) | przyjęta 08:04, zarchiwizowana; czeka na partię |
 | IL | session_01T66VByrirYVEqYVpoPX3Up | 06 audit (recenzja 7 szablonów HZ) | claude/sesja-il-recenzja-hz @ 73e3766a | 32% | 8,22 (pułap 8) | przyjęta 07:55, zarchiwizowana |
