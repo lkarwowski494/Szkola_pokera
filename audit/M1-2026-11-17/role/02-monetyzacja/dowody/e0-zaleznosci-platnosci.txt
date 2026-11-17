@@ -1,0 +1,4 @@
+$ grep -rnE "expo-iap|react-native-iap|react-native-purchases|StoreKit|revenuecat" --include=package.json --include=app.json -r . (bez node_modules)
+./apps/mobile/app.json:45:      "expo-iap"
+./apps/mobile/package.json:13:    "expo-iap": "6.4.2",
+kod: 0

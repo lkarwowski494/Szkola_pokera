@@ -1,0 +1,22 @@
+$ grep -rnE "currentEntitlements|getAvailablePurchases|getCustomerInfo|purchaseUpdatedListener|purchaseErrorListener|addCustomerInfoUpdateListener|Transaction\.updates|finishTransaction|restorePurchases|syncIOS|AppStore\.sync|originalAppVersion|subscriptionStatusIOS|showManageSubscriptions|deepLinkToSubscriptions|requestPurchase|fetchProducts|requestProducts|initConnection|endConnection" apps packages --include=*.ts --include=*.tsx (bez node_modules, testów)
+apps/mobile/src/platform/zakupy.ts:9: * - Dostęp liczy domena (`decyzja`) z `odczyt()`: `getAvailablePurchases({ onlyIncludeActiveItemsIOS: true })`
+apps/mobile/src/platform/zakupy.ts:10: *   (StoreKit 2 currentEntitlements), nigdy z `hasActiveSubscriptions` (Trening, ta sama zasada).
+apps/mobile/src/platform/zakupy.ts:18: *   transakcji → `subscriptionStatusIOS(sku)`, `renewalInfo.gracePeriodExpirationDate` (stan inny niż `revoked`) jako koniec
+apps/mobile/src/platform/zakupy.ts:50:/** Koniec karencji płatności z wpisu `subscriptionStatusIOS` (unknown); brak, odwołanie albo zła wartość → null. */
+apps/mobile/src/platform/zakupy.ts:79:  const polacz = () => zLimitem(polaczenie ??= Iap.initConnection().catch((e: unknown) => {
+apps/mobile/src/platform/zakupy.ts:87:      const wiersze: unknown[] = await zLimitem(Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true }));
+apps/mobile/src/platform/zakupy.ts:99:          const statusy: readonly unknown[] = await zLimitem(Iap.subscriptionStatusIOS(sku));
+apps/mobile/src/platform/zakupy.ts:121:        const wiersze: readonly unknown[] = (await zLimitem(Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' }))) ?? [];
+apps/mobile/src/platform/zakupy.ts:129:      // expo-iap 6.4.2 (index.d.ts przy requestPurchase): „The result arrives through purchaseUpdatedListener /
+apps/mobile/src/platform/zakupy.ts:130:      // purchaseErrorListener …, not the return value”; natywnie wynik może być nil. „zakonczony” tylko przy zwróconej
+apps/mobile/src/platform/zakupy.ts:135:          ? await Iap.requestPurchase({ request: { apple: { sku: id } }, type: 'in-app' })
+apps/mobile/src/platform/zakupy.ts:136:          : await Iap.requestPurchase({ request: { apple: { sku: id } }, type: 'subs' });
+apps/mobile/src/platform/zakupy.ts:141:          await Iap.finishTransaction({ purchase: p, isConsumable: false }).catch(() => zapiszBlad('zakup_blad', 'zakup'));
+apps/mobile/src/platform/zakupy.ts:156:        await zLimitem(Iap.restorePurchases());
+apps/mobile/src/platform/zakupy.ts:165:    // Nasłuch transakcji (wynik `kup`, zgoda rodzica, odnowienia): zakończona → finishTransaction, potem „zakonczona”;
+apps/mobile/src/platform/zakupy.ts:169:      const zakupy = Iap.purchaseUpdatedListener((p) => {
+apps/mobile/src/platform/zakupy.ts:172:        void Iap.finishTransaction({ purchase: p, isConsumable: false })
+apps/mobile/src/platform/zakupy.ts:176:      const bledy = Iap.purchaseErrorListener((e) => {
+apps/mobile/src/platform/zakupy.ts:190:        await Iap.showManageSubscriptionsIOS();
+apps/mobile/src/platform/zakupy.ts:192:        await Iap.deepLinkToSubscriptions({});
+kod: 0
