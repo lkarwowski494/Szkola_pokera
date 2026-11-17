@@ -128,12 +128,14 @@ Recenzent niezależny (role/08-programista/fix-2026-11-17-b/recenzja-niezalezna.
 |---|---|---|
 | packages/srs, jezyki, poker-core, domena, postep; tools/preflop-solver | 21, 144, 350, 347 (+1 expected fail), 160, 44 | bez zmian |
 | tools/content-build | 927 (+1 expected fail) | 936 (+1 expected fail): +9 testów is-siatki-niepewne |
-| apps/mobile | 1782 | 1782 (7b591503); 1787 (5f34458a: +5 RangeGrid-uncertain) |
+| apps/mobile | 1782 | 1782 (7b591503); 1787 (5f34458a: +5 RangeGrid-uncertain); 1811 (8ca88b75: +24 kontrast-pary-08 i znak-kolor-etykiety-08) |
 | test:skrypty | 229 | 234: +3 wyciagi-zrodel, +2 gitignore-sekrety |
 | test:kontrole | 35 | 35 |
 | content:check | 35 baz, 44 lekcji, 146 reguł, 162 terminów | bez zmian |
 
 Po M2-001: `env -u NODE_PATH pnpm run ci` na 5f34458a (zmiany kodu do 1d756b0b): **kod 0** (dowody/M2/ci-koniec-5f34458a.log); pozostałe części jak w tabeli.
+
+Pętla 2: `env -u NODE_PATH pnpm run ci` na 8ca88b75 (zmiany kodu do 4faf3b0a): **kod 0** (dowody/M2/ci-koniec-p2.log).
 
 Wynik nie gorszy od stanu wyjściowego; 0 testów usuniętych, wyłączonych albo osłabionych (jeden zaostrzony: workflowy.test.mjs).
 
