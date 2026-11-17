@@ -23,3 +23,11 @@ s to your Terms of Use and Privacy Policy. Billing amount In the purchase flow, 
 not misled. Free trials In the purchase flow for a free trial, clearly indicate how long the free trial lasts and the price billed once the free trial is over. Promoting subscriptions on the App Store You can promote Apple In-App Purchases directly on the App Store, so people can find your subscription or introductory offer and initiate a purchase even before downloading your app. Promoted Apple In-App Pur
 ### showManageSubscriptions
  or downgrade between subscriptions as often as they like. You can also use the showManageSubscriptions(in:) method to allow them to do this within your app. When someone makes a change in their subscription level, the timing of the change varies depending on what has happened: Upgrade. Someone purchases a subscription that offers a higher level of service than their current subscription. They’re i
+
+# Dodatkowe cytaty (ten sam odczyt gl.txt, 2026-11-17)
+### 2.1(b)
+(b) If you offer in-app purchases in your app, make sure they are complete, up-to-date, visible to the reviewer and functional. If any configured in-app purchase items cannot be found or reviewed in your app, explain the reason in your review no
+### 5.1.1(i)
+(i) Privacy Policies: All apps must include a link to their privacy policy in the App Store Connect metadata field and within the app in an easily accessible manner. The privacy policy must 
+### strona subskrypcji: Terms/Privacy
+Please note that your app and App Store metadata must include links to your Terms of Use and Privacy Policy

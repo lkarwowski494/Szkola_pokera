@@ -22,3 +22,4 @@ Przelicznik USD [OCENA]: 15–20 USD/mln tokenów (dane projektu: `docs/koordyna
 | soczewka recenzent sklepu | opus | 126 804 | 5,0 min | 29 |
 | soczewka sceptyk ryzyka | opus | 152 881 | 7,5 min | 48 |
 | **soczewki razem** | | **655 901** (plan 0,5–0,75 mln) | | |
+| 03-zakres | opus/high | 302 808 (plan 0,25–0,5 mln) | 13,4 min | 89 |
