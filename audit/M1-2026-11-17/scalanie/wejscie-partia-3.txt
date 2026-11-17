@@ -1,0 +1,20 @@
+06-tresci | 06-tresci-001 | P1 | D | Publiczne repo zawiera wyciągi z cudzych artykułów ponad limit 250 znaków 
+06-tresci | 06-tresci-002 | P2 | M | Zdanie ekranu „Pomoc” o hazardzie nie ma twierdzenia w rejestrze, uzasadnienie oparto na prawie kraju bez sprzedaży 
+06-tresci | 06-tresci-003 | P2 | D | Fakty zmienne (rake sal, dane populacji) bez terminu ponownego odczytu w rejestrze 
+06-tresci | 06-tresci-004 | P2 | D | Przegląd zastępczy n:dd.bi.small zapisany tak, że standardowa kontrola uznaje go za przegląd człowieka 
+07-jakosc | 07-jakosc-001 | P2 (ŚREDNIE) | D | Katalog PU trzyma flowy E2E w klasie B z nieaktualnym powodem, więc bramka „scenariusze A wykonane” nie sprawdza żadnego przypadku 
+07-jakosc | 07-jakosc-002 | P2 (ŚREDNIE) | D | Eksport i import sprawdzane na jednym syntetycznym wzorcu: brak pliku z telefonu i testu własności, które zapowiada strategia 
+07-jakosc | 07-jakosc-003 | P2 (ŚREDNIE) | D | Nocne testy (Stryker, fast-check × 1000, E2E na małym ekranie) nigdy nie biegły: `nocny.yml` nie jest zarejestrowany 
+07-jakosc | 07-jakosc-004 | P2 (ŚREDNIE) | D | Akcja `pnpm/action-setup@v5` spoza `actions/*` nieprzypięta do SHA, także w zadaniu z kluczem App Store Connect 
+07-jakosc | 07-jakosc-005 | P2 (NISKIE) | D | Testy dostępu i menu czekają stałym czasem (`setTimeout` 20–50 ms) i biorą dzień z zegara systemowego 
+09-lokalizacja | 09-lokalizacja-001 | P1 | D | Polski przecinek dziesiętny na sztywno w wyniku zadania liczbowego i w średnim czasie sesji 
+09-lokalizacja | 09-lokalizacja-002 | P1 | D | Przypomnienie dzienne zostaje w poprzednim języku po zmianie języka w aplikacji 
+09-lokalizacja | 09-lokalizacja-003 | P2 | D | Godzina odnowienia limitu zawsze 24 h, a dzień w historii postępu jako surowe RRRR-MM-DD 
+09-lokalizacja | 09-lokalizacja-004 | P2 | D | Listy sklejane łacińskim „, ” także w ja i zh-Hant 
+09-lokalizacja | 09-lokalizacja-005 | P2 | D | Angielskie nazwy terminów bez `accessibilityLanguage` (VoiceOver czyta je głosem języka interfejsu) 
+09-lokalizacja | 09-lokalizacja-006 | P2 | P | Rejestr języków nie ma wierszy dla wydanych de, es, ko, it, vi 
+09-lokalizacja | 09-lokalizacja-007 | P2 | P | Kontrola (d) polityki „szerokiej”: zrzuty w najdłuższym języku i pseudolokalizacji tylko dla ekranu scenariusza 
+09-lokalizacja | 09-lokalizacja-008 | P2 | D | 114 z 877 kluczy źródła bez opisu kontekstu dla tłumacza 
+11-wzrost | 11-wzrost-001 | P2 | D | Publiczna strona wsparcia i README opisują funkcje i język, których build 1011 nie ma 
+11-wzrost | 11-wzrost-002 | P2 | P | Seria dni pokazywana w „Postęp” i opisie sklepu bez wiersza w kontrakcie zakresu i bez dowodu wartości 
+11-wzrost | 11-wzrost-003 | P2 | P | Hipotezy BRD bez progu, minimalnej próby, ID decyzji i daty oceny; część niemierzalna bez analityki 

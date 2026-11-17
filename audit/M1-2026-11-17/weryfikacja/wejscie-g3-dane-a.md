@@ -1,0 +1,49 @@
+### 05-architekt-001 · Po powrocie z tła „Dziś” pokazuje wczorajszy limit i nieaktualną liczbę powtórek
+- Katalog dowodów: audit/M1-2026-11-17/role/05-architekt/
+- Poziom: P1 → WYSOKIE, bez blokady wg CLAUDE.md pkt 1 (nie utrata danych ani awaria; dotknięcie kafelka liczy limit od nowa)
+- Realność: realny   · Pewność: wysoka
+- Dowód: odczyt danych ekranów odświeża się tylko przy fokusie nawigacji: `apps/mobile/src/data/postep.ts:63` „useFocusEffect(odswiez);”; implementacja w expo-router nasłuchuje tylko `focus` i `blur`, bez `AppState` (dowody/arch13-14-appstate.txt). „Dziś” liczy dzień i powtórki w chwili odczytu: `apps/mobile/src/app/(tabs)/index.tsx:32` „k.wartosc.filter((x) => x.termin_ms <= teraz)”. Decyzja projektu wymaga przeliczenia przy powrocie: `docs/architektura/tlo-i-bledy.md:42` „odczyt dnia lokalnego i strefy (limit mógł się odnowić, BR-LIM-005)”. W kodzie aplikacji 0 wywołań API `AppState` (tylko dwa komentarze).
+- Kroki w aplikacji: wieczorem wykorzystać darmową aktywność, zostawić aplikację na „Dziś” i zablokować telefon; rano otworzyć z przełącznika aplikacji → stopka „limit wykorzystany” z linkiem do zakupu i kafelki w stanie limitu, „0 powtórek na dziś” mimo zaległych kart, aż do przejścia na inny ekran i z powrotem.
+
+### 08-programista-001 · Po powrocie aplikacji na pierwszy plan ekran „Dziś” pokazuje limit i powtórki z poprzedniego dnia; brak obsługi AppState z ADR 0013 i tlo-i-bledy.md
+- Katalog dowodów: audit/M1-2026-11-17/role/08-programista/
+- Poziom: P2
+- Realność: realny (nieaktualny stan ekranu), brzegowy (operacja długa bez czasu w tle) · Pewność: wysoka
+- Dowód: `docs/architektura/tlo-i-bledy.md:41-42` wymaga reakcji na `AppState` → `background` (kolejka i przerwanie operacji długiej przy `rozpocznij` = −1) i → `active` (odczyt dnia lokalnego i strefy, BR-LIM-005; odczyt zgody na powiadomienia); `docs/adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md:31-32` to samo jako ustalenie wiążące. W kodzie `AppState` występuje tylko w komentarzach: `packages/postep/src/port.ts:57-58` i `apps/mobile/src/platform/ochronaTla.ts:8` (dowody/appstate-grep.txt). Ekran „Dziś” czyta zużycie limitu i liczbę powtórek tylko przy fokusie nawigacji: `apps/mobile/src/app/(tabs)/index.tsx:27` i `apps/mobile/src/data/postep.ts:63` (`useFocusEffect`), a fokus nie zmienia się przy powrocie aplikacji z tła. Komentarz `apps/mobile/src/features/ustawienia/przypomnienie.ts:44` deklaruje odtworzenie przypomnienia także przy powrocie na pierwszy plan, a funkcję woła tylko start, import i „Usuń postęp”.
+- Kroki w aplikacji: bez Pro zużyj dzienną aktywność, zostaw aplikację w tle na ekranie „Dziś”, wróć po północy: kafelki nadal pokazują stan „limit” i wczorajszą liczbę powtórek, dopóki nie przejdziesz na inny ekran. Start sesji liczy limit od nowa (`przygotujStart`), więc sam dostęp nie jest blokowany. Drugi skutek: gdy iOS odmówi czasu w tle (`beginBackgroundTask` → −1), import, eksport albo „Usuń postęp” nie są przerywane przy przejściu do tła (ryzyko zabicia `0xdead10cc`; dane spójne dzięki dziennikowi `DELETE`, więc bez utraty danych).
+
+### 12-niezawodnosc-001 · Błąd danych przy starcie daje ogólny ekran z samym ponowieniem: bez eksportu, bez „zaktualizuj aplikację”, z obietnicą, której ponowienie nie spełni
+- Katalog dowodów: audit/M1-2026-11-17/role/12-niezawodnosc/
+- Poziom: P1 (WYSOKIE), bez blokady wg CLAUDE.md pkt 1 (dane nie giną ani się nie psują: sondy B i C; ekran nie jest przyczyną niedostępności, tylko jej nie łagodzi)
+- Realność: brzegowy (baza nowsza: realna u właściciela po instalacji starszego buildu z TestFlight; migracja nieudana i błąd otwarcia: brzegowe, np. brak miejsca przy migracji)   · Pewność: wysoka
+- Dowód: każdy błąd startu postępu daje `{ stan: 'blad' }` (`_layout.tsx`, wiersz 76), a `apps/mobile/src/app/_layout.tsx:152` „if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />”. Ekran ma tylko tytuł, treść i ponowienie: `apps/mobile/src/components/RenderErrorScreen.tsx:19` „<Button label={t('errors.render.retry')} onPress={onRetry} />”. Tekst: `apps/mobile/src/i18n/locales/pl.json:570` „Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.”. Sonda B (`user_version` = 4) i sonda C (migracja v2 z błędem): 3 ponowienia z rzędu dają `BladStartuPostepu(baza_nowsza)` i `BladStartuPostepu(migracja_nieudana)`, sha pliku i liczności 8 tabel bez zmian (dowody/sonda-start.txt, kod 0)
+- Kroki w aplikacji: właściciel instaluje z TestFlight build starszy niż ostatnio otwarty (np. 1010 po 1011) → start → „Coś poszło nie tak / Tego ekranu nie udało się wyświetlić” → „Spróbuj ponownie” → to samo bez końca; danych nie da się wysłać, a ekran nie mówi, że wystarczy zainstalować nowszy build
+
+### 12-niezawodnosc-002 · Uszkodzona baza postępu: cichy start od zera, a odłożony plik z całym postępem nie ma drogi wyjścia z telefonu
+- Katalog dowodów: audit/M1-2026-11-17/role/12-niezawodnosc/
+- Poziom: P1 (WYSOKIE), bez blokady wg CLAUDE.md pkt 1 (plik nie jest kasowany ani zmieniany; brak informacji i drogi wyniesienia)
+- Realność: teoretyczny (tryb `DELETE` wycofuje przerwane transakcje; uszkodzenie wymaga awarii nośnika albo błędu systemu, `docs/architektura/tlo-i-bledy.md:73`)   · Pewność: wysoka
+- Dowód: wynik startu niesie ścieżkę odłożonego pliku (`packages/postep/src/start.ts`, wiersz 67), ale interfejs bierze tylko port: `apps/mobile/src/app/_layout.tsx:79` „otwarty = w.wartosc.port;”. Jedyny ślad zostaje w dzienniku: `apps/mobile/src/data/postepExpo.ts:125` „if (w.uszkodzona !== null) zapiszBlad('baza_uszkodzona');”. Sonda D: po nadpisaniu nagłówka start zwraca `uszkodzona: …/postep-uszkodzona-1800000000000.db`, a nowa `postep.db` ma 0 wierszy w 8 tabelach. Odłożony plik ma ten sam sha co uszkodzony; po przywróceniu nagłówka (u dewelopera) ma 5/3/7/5/2/4/4/1 wierszy jak przed uszkodzeniem, `integrity_check` = ok. Drugi start: `uszkodzona: null`, plik dalej leży (dowody/sonda-start.txt, kod 0). `apps/mobile/app.json` nie ma `UIFileSharingEnabled` (dowody/mechanizm-start.txt), więc plik nie jest widoczny w aplikacji Pliki
+- Kroki w aplikacji: plik `postep.db` uszkodzony (nośnik, błąd systemu) → start → powitanie i ocena poziomu jak przy pierwszym uruchomieniu; żadnej informacji, że postęp jest odłożony i że można zaimportować ostatni eksport
+
+### 12-niezawodnosc-003 · Brak strażnika pętli awarii i trybu awaryjnego z wysłaniem danych (Trening je ma)
+- Katalog dowodów: audit/M1-2026-11-17/role/12-niezawodnosc/
+- Poziom: P1 (WYSOKIE), bez blokady wg CLAUDE.md pkt 1 (brak zabezpieczenia, nie istniejąca awaria; dane w bazie zostają, a kopia iCloud i poprawiony build przywracają dostęp)
+- Realność: brzegowy (granica błędu łapie błędy renderowania pod nią; błąd w samym `RootLayout`, w obsłudze zdarzenia przy starcie albo w kodzie natywnym zamyka aplikację przy każdym starcie)   · Pewność: wysoka
+- Dowód: `grep -rnE "nieudan[a-z]*_?start|PROG_NIEUDANYCH|trybAwaryjny|tryb_awaryjny|kamienMilowy|kamien_milowy|setGlobalHandler" apps/mobile/src packages` → 0 trafień, kod 1 (dowody/mechanizm-start.txt). Granica błędu obejmuje tylko drzewo pod `ThemeProvider` (`apps/mobile/src/app/_layout.tsx:161`); `apps/mobile/src/components/GranicaBledu.tsx:12` sama zaznacza, że nie łapie błędów w obsłudze zdarzeń i kodzie asynchronicznym. Trening ma strażnika z progiem 2 i ekranem z wysłaniem danych (dowody/trening-analogia.txt, `lib/state/crashguard.ts` wiersze 1–31)
+- Kroki w aplikacji: build z deterministycznym błędem przy starcie (np. wyjątek w kodzie nad granicą błędu) → aplikacja zamyka się przy każdym otwarciu → użytkownik nie wyeksportuje danych do czasu nowego buildu
+
+### 05-architekt-007 · Inwentarz prywatności pomija historię wariantów i dwie kopie postępu, których „Usuń postęp” nie usuwa
+- Katalog dowodów: audit/M1-2026-11-17/role/05-architekt/
+- Poziom: P2 (dane nie opuszczają urządzenia poza kopią iCloud użytkownika; postęp nie jest daną wrażliwą)
+- Realność: brzegowy   · Pewność: wysoka
+- Dowód: inwentarz (`docs/architektura/prywatnosc.md:16` „Stare bazy z buildów 1005–1008” jako ostatni wiersz plików w `Documents/SQLite`) nie zawiera `wariant_historia` (0 trafień), uszkodzonej bazy odłożonej przez start (`packages/postep/src/start.ts:28` „const nazwaUszkodzonej = (ms: number, n: number)”; komentarz w pliku: plik uszkodzony nigdy nie jest usuwany) ani kopii przed importem w cache (`apps/mobile/src/platform/pliki.ts:15` „const KOPIA = 'postep-przed-importem.db';”, zostaje po nieudanym imporcie: `apps/mobile/src/data/przeniesienie.ts:95`). „Usuń postęp” usuwa tabele i stare `user.db*` (`apps/mobile/src/data/postepExpo.ts:147`), a tych dwóch plików nie.
+- Kroki w aplikacji: baza uszkodzona przy starcie (rzadkie) albo nieudany import, potem „Usuń postęp” → widoczny postęp pusty, a pełna kopia wcześniejszego postępu zostaje na telefonie i w kopii iCloud.
+
+### 12-niezawodnosc-005 · „Usuń postęp” zostawia na telefonie kopie postępu: odłożoną bazę uszkodzoną i kopię sprzed nieudanego importu
+- Katalog dowodów: audit/M1-2026-11-17/role/12-niezawodnosc/
+- Poziom: P2 (ŚREDNIE)
+- Realność: brzegowy (kopia sprzed importu zostaje po każdym nieudanym imporcie; baza uszkodzona: teoretyczny)   · Pewność: wysoka
+- Dowód: usuwanie plików obejmuje tylko stare bazy: `packages/postep/src/start.ts:27` „const STARE_BAZY = ['user.db-wal', 'user.db-shm', 'user.db'] as const;”, wołane z `postepExpo.ts` (wiersz 156). Po błędzie importu kopia `VACUUM INTO` zostaje w katalogu tymczasowym: `apps/mobile/src/data/przeniesienie.ts:95` „kopia zostaje w katalogu tymczasowym”. Nazwa: `apps/mobile/src/platform/pliki.ts:15`. Sonda D: odłożony `postep-uszkodzona-*.db` leży dalej po kolejnym starcie (dowody/sonda-start.txt)
+- Kroki w aplikacji: import się nie udaje (np. przerwanie w tle) → użytkownik wybiera „Usuń postęp” → pełna kopia poprzedniego postępu zostaje w `Caches` do czasu sprzątania systemu albo następnego importu
+
