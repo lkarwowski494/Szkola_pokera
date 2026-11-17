@@ -9,7 +9,7 @@ positions: { hero: BTN, villain: BB }
 stackBb: 100
 levels: [latwy]
 bounds:
-  latwy: { expected: [bet-big], turnClass: overcard, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
+  latwy: { expected: [bet-big], turnClass: overcard, kickerMin: Q, flopMiss: true, pairKind: [top], flop: { suits: [rainbow] }, reject: [stol-sparowany] }
 decisions:
   - street: turn
     kind: turn-action
