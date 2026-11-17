@@ -17,3 +17,82 @@ index 27c39294..e94c51e8 100644
       Tests  9 passed (9)
 KOD WYJSCIA A: 0
 === B: cały zestaw tools/content-build (vitest run) ===
+     × T35-08-a język bez content/<język>: tekst ze źródła pl, liczby w formacie języka bazy, osobny skrót 2148ms
+     × T35-08-b język z content/<język> bierze swój tekst; wariant bez katalogu idzie łańcuchem (es-419 → es → pl) 48ms
+     × T35-08-d wersja: deterministyczna, niezależna od kolejności, zmienia się przy zmianie treści dowolnego języka; bez „-” i „/” 11ms
+     × T35-08-e zapis: pliki tresc-<wersja>-<język>.db z manifestem; stare content-v*.db i tresc-* innej wersji usunięte, obcy plik zostaje 13ms
+     × T35-08-f kontrola: obcy plik .db, brak pliku i plik nieaktualny są błędami; po pełnym zapisie brak błędów 12ms
+     × ja: znacznik bez formy w tekście bazy ja → nazwa z pliku; bez pliku → nazwa angielska 203ms
+     × budowa en: plik zgodny przechodzi i trafia do TERM_DEFS; plik niezgodny przerywa budowę 75ms
+     × duży blind wobec Buttona: gram albo pas, 3-bet bez pozycji do 4x 10ms
+     × licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze) 12ms
+ FAIL  test/jezyk-tresci-09.test.ts [ test/jezyk-tresci-09.test.ts ]
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/build.test.ts > treść projektu > licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze)
+ FAIL  test/definicje-08.test.ts > budowa bazy en z nakładką definicji > budowa en: plik zgodny przechodzi i trafia do TERM_DEFS; plik niezgodny przerywa budowę
+ FAIL  test/grading.test.ts > ocena M13: zakresy solvera przed flopem (5.2, ADR-26) > duży blind wobec Buttona: gram albo pas, 3-bet bez pozycji do 4x
+ FAIL  test/terms-nazwy-09.test.ts > budowa bazy języka z plikiem nazw > ja: znacznik bez formy w tekście bazy ja → nazwa z pliku; bez pliku → nazwa angielska
+ FAIL  test/tresc-35-08.test.ts > Treść na 35 języków (rola 08) > T35-08-a język bez content/<język>: tekst ze źródła pl, liczby w formacie języka bazy, osobny skrót
+ FAIL  test/tresc-35-08.test.ts > Treść na 35 języków (rola 08) > T35-08-b język z content/<język> bierze swój tekst; wariant bez katalogu idzie łańcuchem (es-419 → es → pl)
+ FAIL  test/tresc-35-08.test.ts > Treść na 35 języków (rola 08) > T35-08-d wersja: deterministyczna, niezależna od kolejności, zmienia się przy zmianie treści dowolnego języka; bez „-” i „/”
+ FAIL  test/tresc-35-08.test.ts > Treść na 35 języków (rola 08) > T35-08-e zapis: pliki tresc-<wersja>-<język>.db z manifestem; stare content-v*.db i tresc-* innej wersji usunięte, obcy plik zostaje
+ FAIL  test/tresc-35-08.test.ts > Treść na 35 języków (rola 08) > T35-08-f kontrola: obcy plik .db, brak pliku i plik nieaktualny są błędami; po pełnym zapisie brak błędów
+KOD WYJSCIA B: 1
+=== C: grading.test.ts na mutacji (AA w uncertain) ===
+     × duży blind wobec Buttona: gram albo pas, 3-bet bez pozycji do 4x 10ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/grading.test.ts > ocena M13: zakresy solvera przed flopem (5.2, ADR-26) > duży blind wobec Buttona: gram albo pas, 3-bet bez pozycji do 4x
+AssertionError: expected { index: 5, street: 'preflop', …(16) } to match object { verdict: 'mistake', …(1) }
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 passed (18)
+KOD WYJSCIA C: 1
+=== D0: bez mutacji (worktree 196cb8c2): grading, tresc-35-08, terms-nazwy-09 ===
+ Test Files  3 passed (3)
+      Tests  34 passed (34)
+KOD WYJSCIA D0: 0
+=== E: mutacja K9o (klasa spoza wektorów testów; grep K9o w test/ = 0) w uncertain &u-bb-vs-btn ===
+-  uncertain: &u-bb-vs-btn [J3s, T4s, T2s, 74s, 63s, 42s, 32s, A6o, A2o, K8o, K7o, K5o, Q8o, T7o, 87o, 75o]
++  uncertain: &u-bb-vs-btn [K9o, J3s, T4s, T2s, 74s, 63s, 42s, 32s, A6o, A2o, K8o, K7o, K5o, Q8o, T7o, 87o, 75o]
+--- E1: is-siatki-niepewne, grading, tresc-35-08, terms-nazwy-09
+     × ja: znacznik bez formy w tekście bazy ja → nazwa z pliku; bez pliku → nazwa angielska 638ms
+     × T35-08-a język bez content/<język>: tekst ze źródła pl, liczby w formacie języka bazy, osobny skrót 1971ms
+     × T35-08-b język z content/<język> bierze swój tekst; wariant bez katalogu idzie łańcuchem (es-419 → es → pl) 480ms
+     × T35-08-d wersja: deterministyczna, niezależna od kolejności, zmienia się przy zmianie treści dowolnego języka; bez „-” i „/” 16ms
+     × T35-08-e zapis: pliki tresc-<wersja>-<język>.db z manifestem; stare content-v*.db i tresc-* innej wersji usunięte, obcy plik zostaje 21ms
+     × T35-08-f kontrola: obcy plik .db, brak pliku i plik nieaktualny są błędami; po pełnym zapisie brak błędów 19ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/terms-nazwy-09.test.ts > budowa bazy języka z plikiem nazw > ja: znacznik bez formy w tekście bazy ja → nazwa z pliku; bez pliku → nazwa angielska
+Error: ja/ranges/spots.yaml: przekład zmienia coś poza tekstem (2):
+ FAIL  test/tresc-35-08.test.ts > Treść na 35 języków (rola 08) > T35-08-a język bez content/<język>: tekst ze źródła pl, liczby w formacie języka bazy, osobny skrót
+Error: en/ranges/spots.yaml: przekład zmienia coś poza tekstem (2):
+ FAIL  test/tresc-35-08.test.ts > Treść na 35 języków (rola 08) > T35-08-b język z content/<język> bierze swój tekst; wariant bez katalogu idzie łańcuchem (es-419 → es → pl)
+KOD WYJSCIA E1: 1
+=== F: mutacja K9o w kanonie i w 11 nakładkach językowych (spójna zmiana, jak przy błędzie narzędzia siatki-niepewne.py) ===
+ 12 files changed, 12 insertions(+), 12 deletions(-)
+--- F1: is-siatki-niepewne, grading, tresc-35-08, terms-nazwy-09
+ Test Files  4 passed (4)
+      Tests  43 passed (43)
+KOD WYJSCIA F1: 0
+--- G: cały zestaw tools/content-build na mutacji F
+     × licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze) 11ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/build.test.ts > treść projektu > licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze)
+ Test Files  1 failed | 85 passed (86)
+      Tests  1 failed | 935 passed | 1 expected fail (937)
+KOD WYJSCIA G: 1
+--- H1: build.test.ts na mutacji F
+     × licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze) 17ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/build.test.ts > treść projektu > licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze)
+AssertionError: expected [ 'sc-01', 'sc-02', 'sc-03', …(30) ] to deeply equal []
+ Test Files  1 failed (1)
+      Tests  1 failed | 42 passed (43)
+KOD WYJSCIA H1: 1
+--- H0: build.test.ts bez mutacji
+     × licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze) 11ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/build.test.ts > treść projektu > licznik losowań widzi generator każdego sprawdzanego szablonu (bez tego budżet przechodziłby przy zerze)
+AssertionError: expected [ 'sc-01', 'sc-02', 'sc-03', …(30) ] to deeply equal []
+ Test Files  1 failed (1)
+      Tests  1 failed | 42 passed (43)
+KOD WYJSCIA H0: 1

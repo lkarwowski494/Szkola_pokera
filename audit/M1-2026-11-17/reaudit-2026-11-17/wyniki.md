@@ -19,3 +19,7 @@
 | 06 | 06-tresci-001 (reaudit): ID 06-tresci-502 nadane dwóm różnym znaleziskom | regresja śledzenia | P2 → P3 | nie | nie | |
 | 06 | regresja TRE (M5.l2, ziarno 20261117): 7 liczb, 4 reguły | brak regresji | — | — | — | |
 | 06 | Do sprawdzenia: scenariusze obrony BB losują rękę z klas niepewnych (14,8%), bez oceny preflop | bez znaleziska | — | — | — | |
+| 08 | M2-koordynator-napraw-001 (kod) | zweryfikowane (jedno źródło `ranges.uncertain`: getRangeSpot/getAllRangeSpots, engine.ts:435, grade.ts:37; test 5/5) | — | nie | nie | 202 490 |
+| 08 | M2-koordynator-napraw-002 | nadal otwarte, teoretyczne (mutacja K9o w kanonie i nakładkach niewykryta) | P2 → P3 | nie | nie | |
+| 08 | M2-koordynator-napraw-005 | nadal otwarte, teoretyczne (przesunięcie kropki: test na danych zielony) | P2 → P3 | nie | nie | |
+| 08 | regresja: przemianowanie baz tresc-d0b124291f (63/63, content:check kod 0), postep 160/160, DEV-03 0, DEV-05 0 | brak regresji | — | — | — | |
