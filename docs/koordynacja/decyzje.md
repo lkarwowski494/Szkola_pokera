@@ -141,3 +141,6 @@ Tryb: rekomendacja (techniczne, do weta). IL i IN: add_repo prompts odrzucone pr
 
 ## KO-121 (2026-11-17 07:12): IM-001 naprawiany w kodzie, nie w treści
 Tryb: rekomendacja (techniczne, do weta; rekomendacja IM D-1944 b). `{{w:rozmiar}}` dostaje procent sformatowany w języku aplikacji w `wariant.ts` (rola 08, sesja IO), bez zmian 24 tekstów SC-27. Powód: konwencja zapisu procentu zależy od języka (spacja przed % w fr/de), a formatowanie liczb już jest w `@szkola/jezyki` (`sprWJezyku`, wariant.ts:401); jedno miejsce zamiast 24. Odrzucone: (a) „%” w 24 tekstach — ręczne konwencje, ryzyko rozjazdu. Realność: realny, build 1011 pokazuje „ok. 75 puli” (WYSOKIE: błędna liczba) → naprawa przed 1012.
+
+## KO-122 (2026-11-17 07:42): jedna konwencja zapisu procentu w aplikacji
+Tryb: rekomendacja (techniczne, do weta). Recenzja IO (subagent opus): zadania biorą procent z i18n `drill.format.percent` (drills/text.ts:64; es „{{n}}%”), scenariusz po IO z Intl (es „75 %”) — dwa zapisy w jednej aplikacji. Scenariusz ma używać tego samego źródła co zadania. Odrzucone: (a) Intl w obu miejscach — większa zmiana poza zakresem IM-001; (b) zostawić dwa zapisy — niespójność widoczna dla użytkownika es/de/fr. Test z oczekiwanym zapisem na sztywno dla 12 języków.
