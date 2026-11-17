@@ -6,9 +6,9 @@ Przelicznik USD [OCENA]: 15–20 USD/mln tokenów (dane projektu: `docs/koordyna
 |---|---|---|---|---|
 | E0a bramka 02 | 0 | 0 | — | wyjątek nazwany właściciela (D-1990) |
 | M1 E0 + E0b (do STOP 1) | 0,1–0,2 mln | [do odczytu z /usage właściciela] | — | sesja główna; bez subagentów |
-| partia 1 (soczewki ×3, 01, 02, 03, 10) | 1,4–2,8 mln | — | — | |
-| partia 2 (04, 05, 08, 12) | 1,5–3,5 mln | — | — | |
+| partia 1 (soczewki ×5, 01, 02, 03, 10) | 1,6–3,1 mln | — | — | |
+| partia 2 (04, 05, 08, 12, 06-tresci-b) | 2,0–4,7 mln | — | — | |
 | partia 3 (06, 07, 09, 11) | 1,6–3,7 mln | — | — | |
-| weryfikacja przeciwna | 0,5–1,5 mln | — | — | |
+| weryfikacja przeciwna (P0, P1, P2 krytyczne) | 0,8–2,3 mln | — | — | |
 | M1 scalanie i raport | 0,5–1,0 mln | — | — | |
-| **Razem** | **6–12 mln (100–200 USD)** | — | — | próg STOP wyjątkowego 18 mln |
+| **Razem (wariant c)** | **8–15 mln (130–260 USD)** | — | — | próg STOP wyjątkowego 22,5 mln / ok. 390 USD |

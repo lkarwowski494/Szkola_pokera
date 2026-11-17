@@ -34,3 +34,6 @@ exit=0
 $ node assemble.mjs 12-niezawodnosc --tryb audit --data 2026-11-17 --moduly ratowanie-danych,widocznosc-awarii,pakiety-tresci --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/12-niezawodnosc --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/12-niezawodnosc.md --statystyki
 12-niezawodnosc · audit · moduły: ratowanie-danych, widocznosc-awarii, pakiety-tresci · 59064 znaków (~16875 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/12-niezawodnosc.md
 exit=0
+$ node assemble.mjs 06-tresci --tryb audit --data 2026-11-17 --moduly kontrole-mechaniczne,tresci-krytyczne --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17/role/06-tresci-b --plik /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/06-tresci-b.md --statystyki
+06-tresci · audit · moduły: kontrole-mechaniczne, tresci-krytyczne · 65243 znaków (~18641 tokenów, szacunek) → /home/user/Szkola_pokera/audit/M1-2026-11-17/prompty/06-tresci-b.md
+exit=0

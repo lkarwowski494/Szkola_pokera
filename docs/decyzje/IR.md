@@ -22,3 +22,8 @@ Analogia z Treningiem (CLAUDE.md, D-191): repo `lkarwowski494/trening` nie jest 
 
 ## D-1994 · 2026-11-17 · K commitowany na gałęzi audytu (wyjątek KO-126)
 - Decyzja: rola każe trzymać `audit/` w `.git/info/exclude`; polecenie IR pkt 5 (KO-126) każe commitować K na `claude/sesja-ir-audyt-m1` po każdym etapie, bo kontener jest ulotny. Wykluczony jest tylko `audit/M1-2026-11-17/prompty/` (biblioteka prywatna, repo publiczne). Przed każdym commitem przegląd `git diff --cached` (sekrety, treść prywatna).
+
+## D-1995 · 2026-11-17 · Wariant głęboki wybrany przez właściciela (STOP 1)
+- Słowa właściciela (ok. 11:02 UTC, przekazane przez koordynatora): „c: głęboki”. Zastępuje rekomendację D-1991 (standardowy).
+- Skutek: 12 ról + drugi niezależny przebieg 06 (`K/role/06-tresci-b/`, ID od 06-tresci-501; najważniejszy obszar krytyczny: poprawność strategii, liczb i pomoc hazardowa), 5 soczewek-subagentów, weryfikacja przeciwna P0, P1 i P2 w obszarach krytycznych. Koszt 8–15 mln tokenów, 130–260 USD [OCENA]; próg STOP wyjątkowego 22,5 mln tokenów / ok. 390 USD; punkt kontrolny po partii 1.
+- Odrzucone przez właściciela: (a) standardowy, (b) lekki.
