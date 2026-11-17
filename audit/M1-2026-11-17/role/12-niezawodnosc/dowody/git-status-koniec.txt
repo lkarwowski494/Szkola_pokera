@@ -1,0 +1,11 @@
+$ git status --porcelain
+ M audit/M1-2026-11-17/role/06-tresci-b/06-tresci-2026-11-17.md
+ M audit/M1-2026-11-17/role/12-niezawodnosc/12-niezawodnosc-2026-11-17.md
+?? audit/M1-2026-11-17/role/05-architekt/05-architekt-2026-11-17.md
+?? audit/M1-2026-11-17/role/06-tresci-b/dowody/rake-wazne-do.txt
+?? audit/M1-2026-11-17/role/12-niezawodnosc/dowody/git-status-koniec.txt
+kod=0
+$ git diff --name-only f75acdff16915aeb43ff788888216e28616c11ed HEAD | grep -v "^audit/M1-2026-11-17/"
+docs/decyzje/IR.md
+kod=0
+HEAD=11b9387a16904db33353c61facc084bc1fa0b09e
