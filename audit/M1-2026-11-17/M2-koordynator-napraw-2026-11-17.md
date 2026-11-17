@@ -99,10 +99,12 @@ Ryzyko szczątkowe 002 (bez znaleziska): T8o w BB vs BTN różni się o 49 pp, t
 |---|---|---|
 | packages/srs, jezyki, poker-core, domena, postep; tools/preflop-solver | 21, 144, 350, 347 (+1 expected fail), 160, 44 | bez zmian |
 | tools/content-build | 927 (+1 expected fail) | 936 (+1 expected fail): +9 testów is-siatki-niepewne |
-| apps/mobile | 1782 | 1782 |
+| apps/mobile | 1782 | 1782 (7b591503); 1787 (5f34458a: +5 RangeGrid-uncertain) |
 | test:skrypty | 229 | 234: +3 wyciagi-zrodel, +2 gitignore-sekrety |
 | test:kontrole | 35 | 35 |
 | content:check | 35 baz, 44 lekcji, 146 reguł, 162 terminów | bez zmian |
+
+Po M2-001: `env -u NODE_PATH pnpm run ci` na 5f34458a (zmiany kodu do 1d756b0b): **kod 0** (dowody/M2/ci-koniec-5f34458a.log); pozostałe części jak w tabeli.
 
 Wynik nie gorszy od stanu wyjściowego; 0 testów usuniętych, wyłączonych albo osłabionych (jeden zaostrzony: workflowy.test.mjs).
 
@@ -132,7 +134,7 @@ Wynik nie gorszy od stanu wyjściowego; 0 testów usuniętych, wyłączonych alb
 
 ## Przekazanie
 ### Przekazanie do M1 (reaudit)
-- Zakończono: M2 fix, pętla 1; gałąź `claude/sesja-is-naprawy-p1` (ostatnia zmiana kodu i treści 7b591503; commit tego raportu jest następny na gałęzi), baza 0e7e5e00d97271f7dd3b5ee0caf5c8a833999dee; raport K/M2-koordynator-napraw-2026-11-17.md
+- Zakończono: M2 fix, pętla 1; gałąź `claude/sesja-is-naprawy-p1` (ostatnia zmiana kodu 1d756b0b, pełne ci na 5f34458a kod 0; commit tego raportu jest następny na gałęzi), baza 0e7e5e00d97271f7dd3b5ee0caf5c8a833999dee; raport K/M2-koordynator-napraw-2026-11-17.md
 - Nowa sesja (D-015: sprawdzający nie zna moich uzasadnień), w repo na gałęzi `claude/sesja-is-naprawy-p1`:
   `node <prompts>/tools/assemble.mjs M1-audytor-generalny --tryb reaudit --wyjscie /home/user/Szkola_pokera/audit/M1-2026-11-17 --baza 0e7e5e00d97271f7dd3b5ee0caf5c8a833999dee`
 - Paczka wejściowa: K/plan-napraw.json (statusy), ten raport, K/naprawy/, K/role/06-tresci/fix-2026-11-17/, K/role/08-programista/fix-2026-11-17/
