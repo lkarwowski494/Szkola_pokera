@@ -1,0 +1,23 @@
+M1 próg 0,85 z powrotem
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+FAIL src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx (6.939 s) Tests:       12 failed, 89 passed, 101 total 
+M2 bez podkładki
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+FAIL src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx (7.013 s) Tests:       10 failed, 91 passed, 101 total 
+M3 allowFontScaling domyślne
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+FAIL src/components/__tests__/RangeGrid-geometria-08.test.tsx Tests:       3 failed, 98 passed, 101 total 
+M4 kropka jako tekst bez limitu
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+FAIL src/components/__tests__/RangeGrid-geometria-08.test.tsx FAIL src/components/__tests__/RangeGrid-uncertain.test.tsx FAIL src/components/__tests__/RangeGrid-etykieta-kontrast-08.test.tsx (6.881 s) Tests:       6 failed, 95 passed, 101 total 
+M5 skala ignorowana (stały rozmiar)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+FAIL src/components/__tests__/RangeGrid-geometria-08.test.tsx Tests:       5 failed, 96 passed, 101 total 
+M6 pole zawsze z okna (bez onLayout)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Tests:       101 passed, 101 total 
+M6 (po zaostrzeniu testu: okno 390 stałe, layout 288/358/398)
+FAIL src/components/__tests__/RangeGrid-geometria-08.test.tsx
+Tests:       1 failed, 5 passed, 6 total
+bez mutanta:
+Tests:       6 passed, 6 total
