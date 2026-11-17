@@ -1,0 +1,6 @@
+# JAK-05: powtarzalność na kopii f75acdff (scratchpad); pełnego zestawu nie powtarzam (polecenie M1), tylko pakiety danych i dostępu
+$ (packages/postep) npx vitest run --sequence.shuffle --sequence.seed=11
+ Test Files  21 passed (21)
+      Tests  160 passed (160)
+kod: 0
+$ (packages/postep) npx vitest run --sequence.shuffle --sequence.seed=29

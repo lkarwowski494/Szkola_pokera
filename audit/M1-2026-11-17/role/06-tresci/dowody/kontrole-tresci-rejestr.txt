@@ -1,0 +1,34 @@
+$ diff skrypt z promptu vs docs/tresci/narzedzia/kontrole-tresci.mjs (bez białych znaków na końcu wierszy)
+exit 0 (0 = identyczne)
+
+$ node kontrole-tresci.mjs docs/tresci/rejestr.json <katalog z jednym zdaniem „Rama bez faktu. [T:-]”> --przeglad zastępczy   # format A (D-141) nie ma znaczników [T:] w treści, więc sprawdza się rejestr; skróty zdań = pusty zbiór, dlatego „inna wersja zdań” to artefakt (przegląd w formacie A przypina scal-rejestr.mjs --skroty, D-157)
+PRZEGLĄD R-M12-009 zastępczy
+PRZEGLĄD R-M12-011 zastępczy
+PRZEGLĄD n:br.bi.base zastępczy
+PRZEGLĄD n:br.bi.beginner zastępczy
+PRZEGLĄD n:dd.bi.small człowiek
+PRZEGLĄD n:ror.two zastępczy
+PRZEGLĄD M12-L4-RAMKA zastępczy
+PRZEGLĄD H-INT-1 zastępczy
+PRZEGLĄD H-INT-2 zastępczy
+PRZEGLĄD t:bankroll zastępczy
+PRZEGLĄD t:risk-of-ruin zastępczy
+BŁĄD rejestr R-M12-009: przegląd dotyczy innej wersji zdań (081d35e3337f, teraz e3b0c44298fc)
+BŁĄD rejestr R-M12-011: przegląd dotyczy innej wersji zdań (19c1b4f5e103, teraz e3b0c44298fc)
+BŁĄD rejestr n:br.bi.base: przegląd dotyczy innej wersji zdań (a71835be76ac, teraz e3b0c44298fc)
+BŁĄD rejestr n:br.bi.beginner: przegląd dotyczy innej wersji zdań (90bfff53762f, teraz e3b0c44298fc)
+BŁĄD rejestr n:dd.bi.small: przegląd dotyczy innej wersji zdań (17562103d899, teraz e3b0c44298fc)
+BŁĄD rejestr n:ror.two: przegląd dotyczy innej wersji zdań (27580214ffed, teraz e3b0c44298fc)
+BŁĄD rejestr M12-L4-RAMKA: przegląd dotyczy innej wersji zdań (bf7b4710d944, teraz e3b0c44298fc)
+BŁĄD rejestr H-INT-1: przegląd dotyczy innej wersji zdań (94c9d892c612, teraz e3b0c44298fc)
+BŁĄD rejestr H-INT-2: przegląd dotyczy innej wersji zdań (96866b00e471, teraz e3b0c44298fc)
+BŁĄD rejestr t:bankroll: przegląd dotyczy innej wersji zdań (702138185692, teraz e3b0c44298fc)
+BŁĄD rejestr t:risk-of-ruin: przegląd dotyczy innej wersji zdań (0a49c03b910d, teraz e3b0c44298fc)
+11 błędów, 0 uwag
+exit 1
+
+$ to samo z --przed-przegladem (artefakt skrótów jako uwagi)
+UWAGA rejestr t:bankroll: przegląd dotyczy innej wersji zdań (702138185692, teraz e3b0c44298fc)
+UWAGA rejestr t:risk-of-ruin: przegląd dotyczy innej wersji zdań (0a49c03b910d, teraz e3b0c44298fc)
+0 błędów, 11 uwag
+exit 0

@@ -44,3 +44,10 @@ kod vitest (status potoku pominięty; liczby wyżej): zob. Tests
 
 ## M5-ocena-granica-3.5: packages/poker-core/src/grading.ts: „f >= t.mixedMin ? 'acceptable'” → „f > t.mixedMin ? 'acceptable'”
  1 file changed, 1 insertion(+), 1 deletion(-)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/rd11-ocena.test.ts > RD-11: ocena zagrania z częstości solvera (S-06, D-143) > RD-11-W5
+ Test Files  1 failed | 43 passed (44)
+      Tests  1 failed | 349 passed (350)
+kod vitest (status potoku pominięty; liczby wyżej): zob. Tests
+
+$ git status --porcelain (kopia po próbach)
