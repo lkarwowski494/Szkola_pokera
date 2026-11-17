@@ -1,0 +1,213 @@
+TAP version 13
+# Subtest: każdy workflow parsuje się bez błędów
+ok 1 - każdy workflow parsuje się bez błędów
+  ---
+  duration_ms: 1.408166
+  type: 'test'
+  ...
+# Subtest: każde zadanie ma timeout-minutes (domyślne 360 min to koszt bez sygnału) albo wywołuje workflow (uses)
+ok 2 - każde zadanie ma timeout-minutes (domyślne 360 min to koszt bez sygnału) albo wywołuje workflow (uses)
+  ---
+  duration_ms: 3.875526
+  type: 'test'
+  ...
+# Subtest: domyślne uprawnienia tylko do odczytu; issues: write wyłącznie w zadaniu zgłoszenia nocnego
+ok 3 - domyślne uprawnienia tylko do odczytu; issues: write wyłącznie w zadaniu zgłoszenia nocnego
+  ---
+  duration_ms: 1.480961
+  type: 'test'
+  ...
+# Subtest: akcje actions/* przypięte do wersji głównej albo SHA, pozostałe do pełnego SHA, workflowy lokalne przez ./
+not ok 4 - akcje actions/* przypięte do wersji głównej albo SHA, pozostałe do pełnego SHA, workflowy lokalne przez ./
+  ---
+  duration_ms: 1.73098
+  type: 'test'
+  location: '/home/user/Szkola_pokera/tests/narzedzia/workflowy.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: 'ci.yml: pnpm/action-setup@v5'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'pnpm/action-setup@v5'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/Szkola_pokera/tests/narzedzia/workflowy.test.mjs:34:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: harmonogramy poza pełną godziną (kolejka GitHuba)
+ok 5 - harmonogramy poza pełną godziną (kolejka GitHuba)
+  ---
+  duration_ms: 0.848414
+  type: 'test'
+  ...
+# Subtest: steps.<id> w wyrażeniach wskazuje krok z tym id w tym samym zadaniu
+ok 6 - steps.<id> w wyrażeniach wskazuje krok z tym id w tym samym zadaniu
+  ---
+  duration_ms: 1.318076
+  type: 'test'
+  ...
+# Subtest: needs wskazuje istniejące zadania
+ok 7 - needs wskazuje istniejące zadania
+  ---
+  duration_ms: 0.971338
+  type: 'test'
+  ...
+# Subtest: wywołanie lokalnego workflowu: klucze with ⊆ workflow_call.inputs
+ok 8 - wywołanie lokalnego workflowu: klucze with ⊆ workflow_call.inputs
+  ---
+  duration_ms: 0.992292
+  type: 'test'
+  ...
+# Subtest: każde ${{ ma zamykające }}
+ok 9 - każde ${{ ma zamykające }}
+  ---
+  duration_ms: 1.385833
+  type: 'test'
+  ...
+# Subtest: uprawnienia write na poziomie zadania: tylko issues w nocny.yml:zgloszenie oraz pages i id-token w pages.yml:deploy
+ok 10 - uprawnienia write na poziomie zadania: tylko issues w nocny.yml:zgloszenie oraz pages i id-token w pages.yml:deploy
+  ---
+  duration_ms: 1.092149
+  type: 'test'
+  ...
+# Subtest: przekład i przegląd: checkout = ref uruchomienia, bez ref na sztywno; kontrola skryptu tuż po checkout, przed kluczem
+ok 11 - przekład i przegląd: checkout = ref uruchomienia, bez ref na sztywno; kontrola skryptu tuż po checkout, przed kluczem
+  ---
+  duration_ms: 0.715847
+  type: 'test'
+  ...
+# Subtest: nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.ts) dokładnie raz
+ok 12 - nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.ts) dokładnie raz
+  ---
+  duration_ms: 0.316032
+  type: 'test'
+  ...
+# Subtest: testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e-ios.yml na tym commicie albo awaryjne pominięcie z powodem
+ok 13 - testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e-ios.yml na tym commicie albo awaryjne pominięcie z powodem
+  ---
+  duration_ms: 0.347862
+  type: 'test'
+  ...
+# Subtest: testflight.yml: bramka scenariuszy użytkownika (D-060) przed buildem, po bramce E2E, bez wyciszania
+ok 14 - testflight.yml: bramka scenariuszy użytkownika (D-060) przed buildem, po bramce E2E, bez wyciszania
+  ---
+  duration_ms: 0.201193
+  type: 'test'
+  ...
+# Subtest: testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit zadania bramki ≥ czekanie + 5 min (rośnie z liczbą flowów)
+ok 15 - testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit zadania bramki ≥ czekanie + 5 min (rośnie z liczbą flowów)
+  ---
+  duration_ms: 0.148507
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: MAESTRO_DRIVER_STARTUP_TIMEOUT ≥ 480 000 ms dla obu przebiegów flowów, a limit zadania mieści czekanie na sterownik
+ok 16 - e2e-ios.yml: MAESTRO_DRIVER_STARTUP_TIMEOUT ≥ 480 000 ms dla obu przebiegów flowów, a limit zadania mieści czekanie na sterownik
+  ---
+  duration_ms: 0.190904
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: krok „Maestro” ponawia instalację (pipefail, ≥ 3 próby, przerwa, błąd po ostatniej, sprzątanie przed ponowieniem)
+ok 17 - e2e-ios.yml: krok „Maestro” ponawia instalację (pipefail, ≥ 3 próby, przerwa, błąd po ostatniej, sprzątanie przed ponowieniem)
+  ---
+  duration_ms: 0.205891
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: wejście aplikacja_z_przebiegu pomija budowanie i pobiera aplikację z podanego przebiegu; każdy build zapisuje aplikację na 1 dzień
+ok 18 - e2e-ios.yml: wejście aplikacja_z_przebiegu pomija budowanie i pobiera aplikację z podanego przebiegu; każdy build zapisuje aplikację na 1 dzień
+  ---
+  duration_ms: 0.326096
+  type: 'test'
+  ...
+# Subtest: wywołanie lokalnego workflowu: uprawnienia wywoływanego ⊆ uprawnienia zadania wywołującego
+ok 19 - wywołanie lokalnego workflowu: uprawnienia wywoływanego ⊆ uprawnienia zadania wywołującego
+  ---
+  duration_ms: 0.697601
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: push ignoruje store/** (obok docs/**, *.md, tests/**, .claude/**)
+ok 20 - e2e-ios.yml: push ignoruje store/** (obok docs/**, *.md, tests/**, .claude/**)
+  ---
+  duration_ms: 0.136942
+  type: 'test'
+  ...
+# Subtest: store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+ok 21 - store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN
+  ---
+  duration_ms: 2.198997
+  type: 'test'
+  ...
+# Subtest: asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis tylko w zadaniu release po odczycie i po kontroli zatwierdzania; klucz usuwany zawsze
+ok 22 - asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis tylko w zadaniu release po odczycie i po kontroli zatwierdzania; klucz usuwany zawsze
+  ---
+  duration_ms: 1.663204
+  type: 'test'
+  ...
+# Subtest: asc-*.yml: setup-node bez pamięci menedżera pakietów (repo z packageManager: pnpm, kroki bez pnpm)
+ok 23 - asc-*.yml: setup-node bez pamięci menedżera pakietów (repo z packageManager: pnpm, kroki bez pnpm)
+  ---
+  duration_ms: 0.296661
+  type: 'test'
+  ...
+# Subtest: asc-*.yml: klucz przez scripts/ci/asc-check.mjs jak testflight.yml; identyfikatory przycięte przed skryptem
+ok 24 - asc-*.yml: klucz przez scripts/ci/asc-check.mjs jak testflight.yml; identyfikatory przycięte przed skryptem
+  ---
+  duration_ms: 0.497635
+  type: 'test'
+  ...
+# Subtest: asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczyt; kontrola gałęzi przed kluczem; trzy sekrety; klucz usuwany zawsze
+ok 25 - asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczyt; kontrola gałęzi przed kluczem; trzy sekrety; klucz usuwany zawsze
+  ---
+  duration_ms: 0.406011
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, bez cache DerivedData
+ok 26 - e2e-ios.yml: cache CocoaPods przed prebuild z kluczem od pnpm-lock.yaml, bez cache DerivedData
+  ---
+  duration_ms: 0.437989
+  type: 'test'
+  ...
+# Subtest: ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+ok 27 - ci.yml: części check łącznie = komendy skryptu ci z package.json (pnpm test rozpisany na wszystkie pakiety z testami, każdy raz)
+  ---
+  duration_ms: 1.477277
+  type: 'test'
+  ...
+# Subtest: ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success
+ok 28 - ci.yml: części check bez łagodzenia (limit 15 min, bez continue-on-error, bez if); check czerwony przy każdym wyniku innym niż success
+  ---
+  duration_ms: 0.231317
+  type: 'test'
+  ...
+# Subtest: e2e-ios.yml: push tylko na main i gałęzi roboczej (bez wzorców), ręcznie przez workflow_dispatch; gałęzie sesji bez E2E
+ok 29 - e2e-ios.yml: push tylko na main i gałęzi roboczej (bez wzorców), ręcznie przez workflow_dispatch; gałęzie sesji bez E2E
+  ---
+  duration_ms: 0.366673
+  type: 'test'
+  ...
+# Subtest: ci.yml: części check bez łagodzenia przez powłokę i środowisko (07-jakosc-001): krok = uses albo jedna linia pnpm, bez shell/env/defaults/working-directory
+ok 30 - ci.yml: części check bez łagodzenia przez powłokę i środowisko (07-jakosc-001): krok = uses albo jedna linia pnpm, bez shell/env/defaults/working-directory
+  ---
+  duration_ms: 0.359414
+  type: 'test'
+  ...
+# Subtest: 07-jakosc-001: kontrola kształtu wykrywa set +e, shell, env kroku, zadania i workflowu, defaults i working-directory
+ok 31 - 07-jakosc-001: kontrola kształtu wykrywa set +e, shell, env kroku, zadania i workflowu, defaults i working-directory
+  ---
+  duration_ms: 0.920209
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 30
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 165.740528
+kod=1

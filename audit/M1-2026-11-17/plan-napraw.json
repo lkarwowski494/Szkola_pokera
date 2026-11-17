@@ -1249,8 +1249,8 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-17.md",
       "test_akceptacyjny": "wszystkie akcje spoza actions/* przypięte do SHA (test workflowy.test.mjs)",
-      "status": "zatwierdzone",
-      "commit": null,
+      "status": "naprawione-do-weryfikacji",
+      "commit": "5abf3534",
       "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
     },
     {
@@ -1516,8 +1516,8 @@
       "przyczyna": null,
       "raport": "role/10-wydanie/10-wydanie-2026-11-17.md",
       "test_akceptacyjny": "wzorce w .gitignore; test workflowy/ignore",
-      "status": "zatwierdzone",
-      "commit": null,
+      "status": "naprawione-do-weryfikacji",
+      "commit": "c9a7c332",
       "zatwierdzenie": "właściciel 2026-11-17 w sesji IR: „Partia 1, DEC zgodnie z rekomendacjami email: support@apps4brew.com Łukasz Karwowski”"
     },
     {

@@ -25,14 +25,18 @@ Prompt roli: assemble.mjs M2-koordynator-napraw --tryb fix (prompts @ af4c0a83),
 | ID | Partia | Krok | Commit | Dowód | Przeczytane reguły | Następny krok |
 |---|---|---|---|---|---|---|
 | M1-audytor-generalny-007 (06-tresci-001) | 1 | commit | 3f1fe76d | dowody/M2/M1-audytor-generalny-007-przed.txt (kod 1, 22 pary), -po.txt (kod 0), -test-skrypty.txt (232/232); tresci:rejestr 0, tresci:el-kontrola 0 | 08 rdzen „Zasady programisty”; 06 rdzen „Tryb: fix”; 07 rdzen „Tryb: fix” | gotowe (naprawione-do-weryfikacji) |
-| M1-audytor-generalny-047 (07-jakosc-004) | 1 | czeka | — | — | — | zaostrzenie testu workflowy (czerwony) |
-| M1-audytor-generalny-061 (10-wydanie-007) | 1 | czeka | — | — | — | test check-ignore (czerwony) |
-| M1-audytor-generalny-002 (06-tresci-501) | 1 | czeka | — | — | — | polecenie 06-tresci-p1, subagent |
+| M1-audytor-generalny-047 (07-jakosc-004) | 1 | commit | 5abf3534 | dowody/M2/M1-audytor-generalny-047-przed.txt (kod 1), -po.txt (31/31); przegląd D-043: dowody/M2/przeglad-d043-047-061.md (brak uwag) | 08 rdzen; 07 rdzen „Tryb: fix” | gotowe (naprawione-do-weryfikacji) |
+| M1-audytor-generalny-061 (10-wydanie-007) | 1 | commit | c9a7c332 | dowody/M2/M1-audytor-generalny-061-przed.txt (kod 1), -po.txt (2/2), -test-skrypty.txt (234/234); przegląd D-043 jw. | 08 rdzen; 10 rdzen „Tryb: fix” | gotowe (naprawione-do-weryfikacji) |
+| M1-audytor-generalny-002 (06-tresci-501) | 1 | polecenie wysłane | — | naprawy/polecenia/06-tresci-p1.md; prompt /tmp/rola-06.md sha256 3baf0c31… | — | wynik roli → recenzent niezależny |
 
 ## Dziennik
 - 2026-11-17 E0: plan, zakres, stan repo, stan wyjściowy → STOP start wysłany do koordynatora.
 
 - 2026-11-17 007: test czerwony (22 pary plik–adres) → skrócenie 5 plików (D-2010) → zielony, test:skrypty 232/232 → commit 3f1fe76d → status naprawione-do-weryfikacji.
+- 2026-11-17 047: test zaostrzony (czerwony: pnpm/action-setup@v5) → przypięcie 15 użyć do fc06bc12 (v5.0.0) → 31/31 → commit 5abf3534.
+- 2026-11-17 061: test gitignore-sekrety (czerwony) → wzorce jak w Treningu → 2/2, test:skrypty 234/234 → commit c9a7c332.
+- 2026-11-17 przegląd D-043 047+061: brak uwag P0/P1 → statusy naprawione-do-weryfikacji.
+- 2026-11-17 002: polecenie 06-tresci-p1 zapisane, subagent 06 (opus/high) uruchomiony.
 
 ## Czekające zgody i kroki właściciela
 - Historia git nadal zawiera pełne wyciągi (007); przepisanie historii wymaga osobnej zgody — nie proponuję (koszt > ryzyko, ocena „brzegowy”).
