@@ -1,4 +1,4 @@
-import { typografia } from './tokeny';
+import { siatka, typografia } from './tokeny';
 
 /**
  * Skalowanie tekstu (Dynamic Type) poza treścią (A04-05–A04-07, D-283 pkt 3–4, D-122). Treść skaluje się bez limitu do AX5.
@@ -26,4 +26,14 @@ export function sufitTytulu(rozmiar: { size: number; line: number; maxW: number 
   if (rozmiar.size * skala <= sufit) return domyslny;
   const fontSize = sufit / skala;
   return { fontSize, lineHeight: (fontSize * rozmiar.line) / rozmiar.size };
+}
+
+/**
+ * Rozmiar etykiety ręki w siatce `RangeGrid` (M2-koordynator-napraw-006, KO-132, D-2020; wzór w komentarzu tokenu `siatka`).
+ * ZAŚLEPKA (test przed kodem): zwraca rozmiar domyślny.
+ */
+export function wymiaryEtykietySiatki(pole: number, skala: number): { fontSize: number; lineHeight: number } {
+  void pole;
+  void skala;
+  return { fontSize: siatka.etykieta, lineHeight: siatka.etykieta * siatka.wysokoscLinii };
 }

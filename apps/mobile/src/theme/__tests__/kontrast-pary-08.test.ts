@@ -67,3 +67,29 @@ describe('etykieta ręki w PaintGrid: próg 4,5 do tła pola (4 warianty)', () =
     expect(za_niskie).toEqual([]);
   });
 });
+
+// M2-koordynator-napraw-006 (KO-132, D-2020; wynik roli 04, sekcja 3): pary siatki lekcji w 4 motywach. Sukno = felt1 z kryciem 0,85 na surface.
+describe('RangeGrid: etykieta ręki i kropka klasy niepewnej (4 warianty)', () => {
+  it.each(WARIANTY)('%s: etykieta f = 1 (onFelt na sukni) ≥ 4,5; etykieta na podkładce (ink na surface) ≥ 4,5; kropka (ink na sukni i na surface) ≥ 3', (w) => {
+    const p = paleta(w);
+    const sukno = zloz(p.felt1!, 0.85, p.surface!);
+    const pary: [string, number, number][] = [
+      ['etykieta f = 1: onFelt na sukni', kontrast(p.onFelt!, sukno), 4.5],
+      ['etykieta na podkładce: ink na surface', kontrast(p.ink!, p.surface!), 4.5],
+      ['kropka: ink na sukni', kontrast(p.ink!, sukno), 3],
+      ['kropka: ink na surface', kontrast(p.ink!, p.surface!), 3],
+    ];
+    expect(pary.filter(([, r, min]) => r < min).map(([n, r, min]) => `${n}: ${r.toFixed(2)} < ${min}`)).toEqual([]);
+  });
+
+  it('pary siatki są w `pary` i `paryZlozone` (jedno źródło progu dla testu kontrastu w CI)', () => {
+    expect(tokeny.pary['etykieta ręki w siatce na podkładce (pole niepełne)']).toEqual(['ink', 'surface', 4.5]);
+    const z = tokeny.paryZlozone['etykieta ręki na polu pełnym (pierwsza grupa = 1, tekst 8–10,4 pt)'];
+    expect(z).toMatchObject({ fg: 'onFelt', tlo: 'felt1', krycie: 0.85, podTlem: 'surface', prog: 4.5 });
+  });
+
+  it('RangeGrid.tsx nie zawiera progu pokrycia 0,85 dla koloru etykiety (reguła: pole pełne, f ≥ 1)', () => {
+    const kod = readFileSync(join(__dirname, '../../components/RangeGrid.tsx'), 'utf8');
+    expect(kod).not.toContain('POKRYCIE_ETYKIETY_NA_SUKNIE');
+  });
+});
