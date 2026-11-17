@@ -19,7 +19,7 @@ const stylEtykiety = (hc: string) => StyleSheet.flatten(screen.getByText(hc).pro
 describe('RangeGrid: etykieta ręki jako rysunek (allowFontScaling=false, rozmiar z wymiaryEtykietySiatki)', () => {
   it.each([288, 358, 398])('siatka %d pt: fontSize i lineHeight = wymiaryEtykietySiatki(szerokość / 13, skala) dla skali 1 i 3,12', async (szer) => {
     for (const skala of [1, 3.12]) {
-      okno(szer + 2 * odstep.l, skala);
+      okno(390, skala); // okno stałe, szerokość siatki z `layout` (288 i 398 ≠ 390 − 32)
       const { unmount } = await render(<RangeGrid spot={spot} />);
       await fireEvent(screen.getByTestId('siatka-zakresu'), 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: szer, height: szer } } });
       const oczekiwane = wymiaryEtykietySiatki(szer / 13, skala);
