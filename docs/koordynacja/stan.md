@@ -51,6 +51,8 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 
+- **17:00 UTC** IS 067/068 gotowe (a8563fdc; kontrast kropki RangeGrid light 1,60→3,92, PaintGrid 2,46→17,86; test par 140 pomiarów; ci kod 0). Nowe M2-006 P1 (etykiety 8 pt 3,92:1 < 4,5) → KO-131 właściciel: naprawa teraz w IS. M2-007/008 → backlog. Do weta: D-2016.
+
 - **16:20 UTC** Reaudit M1 (IR @ 202185ab, 31,7 USD): 002/007/047/061 zweryfikowane; 067 P1 kontrast kropki (regresja M2-001) → KO-130 właściciel: 067+068 w IS. Werdykt 1012 zablokowany tylko przez 067 (JAK-19 zamknięte KO-128). M2-002…005 → P3 backlog. Do weta: D-2015, D-2030, D-2031, KO-130. Następnie: scalenie IS → robocza, CI + E2E, zgoda na 1012.
 
 - **15:30 UTC** IS M2-001 gotowe: `claude/sesja-is-naprawy-p1` @ 196cb8c2 (kod 1d756b0b, RangeGrid „•” jak PaintGrid, test red→5/5, ci kod 0, D-2015 rola 08 zamiast 06). Nowe P2 backlog: M2-004 (czytnik ekranu), M2-005. Zlecony reaudit M1 w IR na 196cb8c2 (gałąź wyników `claude/sesja-ir-reaudit-m1`, pula D-2030…D-2039).
