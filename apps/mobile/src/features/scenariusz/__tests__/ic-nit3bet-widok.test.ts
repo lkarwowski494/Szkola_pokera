@@ -14,7 +14,7 @@ const NIT_3BET = ScenarioTemplate.parse({
   id: 'sc-fx-nit-3bet', module: 'm10', situation: 'Fixture: bardzo ciasny rywal 3-betuje.', table: '6max', positions: { hero: 'BTN', villain: 'BB' }, stackBb: 100, levels: ['latwy'],
   bounds: { latwy: { expected: ['fold'], marginMin: 0.03 } },
   decisions: [{ street: 'preflop', kind: 'nit-3bet', rule: 'R-M10-007', open: 2.5, threeBet: 10, vpips: [0.08, 0.1],
-    actions: [wyj('fold', 'VPIP {{w:vpip}}%: pas.'), wyj('call', 'VPIP {{w:vpip}}%: sprawdzenie to niedokładność.')] }],
+    actions: [wyj('fold', 'VPIP {{w:vpip}}: pas.'), wyj('call', 'VPIP {{w:vpip}}: sprawdzenie to niedokładność.')] }],
 });
 const wariant = generateVariant(naGenerator(NIT_3BET), 'latwy', 3, getKontekstGeneratora(dbCn, NIT_3BET));
 

@@ -45,13 +45,13 @@ const GEO_SIZE = ScenarioTemplate.parse({
   id: 'sc-fx-geo-size', module: 'm9', situation: 'Fixture: set na flopie, rozmiar zakładu.', table: '6max', positions: { hero: 'BTN', villain: 'CO' }, stackBb: 100, levels: ['latwy'],
   bounds: { latwy: { expected: ['bet-big'], sprRange: [4, 8] } },
   decisions: [{ street: 'flop', kind: 'geo-size', rule: 'R-M9-009', pots: [20, 25, 30], stacks: [100, 110, 120, 130, 150, 190], streets: 3, small: 1 / 3,
-    actions: [wyj('bet-small', 'SPR {{w:spr}}: zakład {{w:rozmiar}}% puli nie wpłaci stacku.'), wyj('bet-big', 'SPR {{w:spr}}: zakład {{w:rozmiar}}% puli wpłaci cały stack.')] }],
+    actions: [wyj('bet-small', 'SPR {{w:spr}}: zakład {{w:rozmiar}} puli nie wpłaci stacku.'), wyj('bet-big', 'SPR {{w:spr}}: zakład {{w:rozmiar}} puli wpłaci cały stack.')] }],
 });
 const NIT_3BET = ScenarioTemplate.parse({
   id: 'sc-fx-nit-3bet', module: 'm10', situation: 'Fixture: bardzo ciasny rywal 3-betuje.', table: '6max', positions: { hero: 'BTN', villain: 'BB' }, stackBb: 100, levels: ['latwy'],
   bounds: { latwy: { expected: ['fold'], marginMin: 0.03 } },
   decisions: [{ street: 'preflop', kind: 'nit-3bet', rule: 'R-M10-007', open: 2.5, threeBet: 10, vpips: [0.08, 0.1],
-    actions: [wyj('fold', 'VPIP {{w:vpip}}%: pas.'), wyj('call', 'VPIP {{w:vpip}}%: sprawdzenie to niedokładność.')] }],
+    actions: [wyj('fold', 'VPIP {{w:vpip}}: pas.'), wyj('call', 'VPIP {{w:vpip}}: sprawdzenie to niedokładność.')] }],
 });
 
 /** Wariant jak w aplikacji: kontekst generatora z bazy treści (`getKontekstGeneratora`), nie z testu. */
