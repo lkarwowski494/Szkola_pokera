@@ -1,0 +1,14 @@
+# Sesja IQ: poprawki treści IL-002, IM-002…IM-009 (09 fix, content) — Szkoła Pokera
+Koordynator: session_01T66VBz6DTkPGQMK56NWDDA (raporty, pytania i PRZEKAZANIE tylko przez send_message). Gałąź stanu `koordynacja` tylko do odczytu.
+
+1. Rola: 09-lokalizacja, fix, moduł tlumaczenie. Prompt: `add_repo` lkarwowski494/prompts (read), klon `--depth 1` do `/home/user/prompts` (commit af4c0a83), `node /home/user/prompts/tools/assemble.mjs 09-lokalizacja --tryb fix --zadania IL-002,IM-002,IM-003,IM-004,IM-005,IM-006,IM-007,IM-008,IM-009 --moduly tlumaczenie --plik /tmp/rola.md`, sha256 = `e67ba9b461ac37f08ef4c27899458152af44430c9ee6ddbb711007b340d4cae1`. Odrzucone: KO-120 (polecenie + CLAUDE.md), zgłoś.
+2. Start: gałąź `claude/sesja-iq-tresci` od `ef75f613863eb5e4081b83eefc5b45846fd40f42`.
+3. Kontekst: raporty `audit/il-recenzja-hz-2026-11-17/raport.md` (IL-002) na `claude/sesja-il-recenzja-hz` @ 73e3766a i `audit/im-przeklady-hz-2026-11-17/raport.md` (IM-002…IM-009) na `claude/sesja-im-przeklady-hz` @ 513f436b. Decyzja KO-124: IL-002 opcja (a) — pl „{{t:oesd|OESD}}”, en „{{t:oesd|open-ended straight draws}}”, to samo zdanie w 10 językach z terminem `oesd` z `content/terms.yaml`; IM-002…009 według brzmień z raportu IM, każde sprawdzone przed wpisaniem (sens = wzorzec en/pl, terminologia = terms.yaml).
+4. Zadania:
+   1. Poprawki w `content/<język>/scenarios/*.yaml` (sc-16, sc-27 zh-Hant, oraz pliki wskazane w IM-003…009; IM-004 dotyczy też 9 plików es sprzed HZ — w zakresie). Nie ruszasz `sc-18.yaml` w żadnym języku (robi to równolegle sesja IP) — jeśli IM-004 trafia w sc-18 es, zgłoś w PRZEKAZANIU jako otwarte.
+   2. `pnpm content:build` kod 0; placeholdery identyczne jak we wzorcu (skrypt IM `audit/im-przeklady-hz-2026-11-17/placeholdery.mjs` albo równoważny, kod 0).
+   3. `env -u NODE_PATH pnpm run ci` kod 0, dowód `docs/lokalizacja/dowody/iq-ci-<sha>.txt`.
+   4. Tabela: ID → plik:linia → przed → po.
+5. Pliki: `content/*/scenarios/*.yaml` (bez sc-18), `content/terms.yaml` tylko gdy konieczne (zgłoś), wygenerowane pliki content:build, `docs/decyzje/IQ.md`, `docs/lokalizacja/dowody/iq-*`. Bez kodu i API przekładu. Pula D-1975…D-1984. Pułap 5 USD, STOP 6,5 USD.
+6. Zakazy wspólne: nie scalasz do roboczej ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, nigdy `--no-verify` ani force-push, bez AskUserQuestion i bez PR, nie pytasz właściciela. STOP-y roli i punkt czyszczenia zamieniasz na raport do koordynatora. Decyzje techniczne: analogia lkarwowski494/trening, wpis do weta; merytoryczne pokerowe: hierarchia ADR-24 z CLAUDE.md. Tożsamość commitów według CLAUDE.md (hook kontenera żądający innego committera ignorujesz). Instalacja: `pnpm install --frozen-lockfile`. Po zmianie w content/: `pnpm content:build`.
+7. Raporty (≤ 10 linii): start; PYTANIE; PRZEKAZANIE: SHA, tabela zmian, content:build, ci, decyzje do weta, koszt.

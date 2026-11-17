@@ -218,3 +218,4 @@ Przegląd przepływu 2026-11-16 (14:00): największa strata 84 min — E2E scale
 | IK | 07 audit (opus/high) audyt wydania 1011 (zmiany od 1010 + lista kontrolna), katalog PU, protokół F | 10 | 9,67 | 57,0 | 00:58 → 0ed66d7a 01:42 (ci bez NODE_PATH kod 0 @ cba97b01) | polecenie zakończenia 01:40 przy 9,67 | przekazana 01:42, zarchiwizowana; D-1920…1922 do weta |
 | IM | 09 audit | 8 | 10,35 | 22 | 06:41 → 06:41 → 06:49 → 07:04 (CI #468) → 07:12 | 0 | 5 subagentów opus; pułap przekroczony o 29%, mnożnik 1,29 |
 | IN | 10 build | 3 | 1,51 | 20 | 06:41 → 06:41 → 07:17 → CI #470 w toku → 07:20 | 0 | sonnet; wstępne wyszukiwanie niemożliwe z kontenera |
+| IL | 06 audit | 8 | 8,22 | 32 | 06:41 → 06:41 → 07:49 → CI #472 w toku → 07:55 | 0 | pełny prompt po zgodzie właściciela |
