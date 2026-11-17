@@ -147,6 +147,8 @@ Recenzent niezależny (role/08-programista/fix-2026-11-17-b/recenzja-niezalezna.
 
 Po M2-001: `env -u NODE_PATH pnpm run ci` na 5f34458a (zmiany kodu do 1d756b0b): **kod 0** (dowody/M2/ci-koniec-5f34458a.log); pozostałe części jak w tabeli.
 
+M2-006: `env -u NODE_PATH pnpm run ci` na 80ca26c2 (kod do a66f1446): **kod 0** (dowody/M2/ci-koniec-p4.log).
+
 Pętla 2: `env -u NODE_PATH pnpm run ci` na 8ca88b75 (zmiany kodu do 4faf3b0a): **kod 0** (dowody/M2/ci-koniec-p2.log).
 
 Wynik nie gorszy od stanu wyjściowego; 0 testów usuniętych, wyłączonych albo osłabionych (jeden zaostrzony: workflowy.test.mjs).
