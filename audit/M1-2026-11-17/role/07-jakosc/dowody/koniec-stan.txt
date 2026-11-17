@@ -1,0 +1,13 @@
+$ git rev-parse HEAD; git status --porcelain; git diff --stat f75acdff..HEAD -- . ":!audit/M1-2026-11-17" ":!docs/decyzje/IR.md"; git worktree list  (koniec)
+Tue Nov 17 12:30:28 UTC 2026
+50574af90cca54277e0dd3b6f0b544f02a4b6b99
+ M audit/M1-2026-11-17/role/07-jakosc/dowody/jak05-powtorzenia.txt
+?? audit/M1-2026-11-17/role/06-tresci/06-tresci-2026-11-17.md
+?? audit/M1-2026-11-17/role/06-tresci/dowody/fakty-zmienne.txt
+?? audit/M1-2026-11-17/role/07-jakosc/07-jakosc-2026-11-17.md
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/jak17-nocny.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/koniec-stan.txt
+?? audit/M1-2026-11-17/role/07-jakosc/dowody/wydanie-zakres-zmian.txt
+--- diff aplikacji vs f75acdff:
+kod: 0
+/home/user/Szkola_pokera  50574af9 [claude/sesja-ir-audyt-m1]

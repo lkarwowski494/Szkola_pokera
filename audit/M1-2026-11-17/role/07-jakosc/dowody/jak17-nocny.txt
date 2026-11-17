@@ -1,0 +1,18 @@
+Źródło: MCP GitHub actions_list list_workflows (repo lkarwowski494/szkola_pokera), odczyt 2026-11-17 ok. 12:40 UTC; kod narzędzia: OK
+total_count: 15; ścieżki: asc-iap-localizations.yml, asc-kontrola.yml, asc-metadane.yml, asc-produkty.yml, asc-zrzuty.yml, ci.yml, e2e-ios.yml, e2e.yml (disabled_manually), iphone-eas.yml, iphone-local.yml, pages.yml, przeglad-tlumaczen.yml, przeklad-tlumaczen.yml, store-screenshots.yml, testflight.yml
+nocny.yml: BRAK na liście; actions_list list_workflow_runs resource_id=nocny.yml → 404 Not Found
+E2E iOS (410442394) list_workflow_runs branch=main → total_count 0
+
+$ ls .github/workflows/nocny.yml && grep -nE "^on:|schedule|cron|workflow_dispatch|stryker|PROP_RUNS" .github/workflows/nocny.yml
+.github/workflows/nocny.yml
+3:#   1. wlasnosci: pełne testy pakietów z PROP_RUNS=1000 (fast-check, tests/narzedzia/fast-check-nocny.ts); nowe ziarno co noc,
+5:#   2. mutacje: Stryker 9.6.1 (stryker.config.json), jedno zadanie na pakiet (Trening: całość w jednym zadaniu przekroczyła 5 h);
+12:on:
+13:  schedule:
+15:    - cron: '41 2 * * *'
+16:  workflow_dispatch:
+46:          PROP_RUNS: '1000'
+84:            const c = JSON.parse(fs.readFileSync("stryker.config.json", "utf8"));
+90:            fs.writeFileSync("stryker.pakiet.json", JSON.stringify(c, null, 2));'
+92:        run: pnpm exec stryker run stryker.pakiet.json
+115:    if: ${{ always() && github.repository == 'lkarwowski494/szkola_pokera' && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.zgloszenie) }}
