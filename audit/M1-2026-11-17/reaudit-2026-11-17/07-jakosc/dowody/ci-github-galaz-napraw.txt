@@ -12,3 +12,4 @@ Krok „Run pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320” = succ
 
 list_workflow_runs e2e-ios.yml, branch=claude/sesja-is-naprawy-p1: total_count 0.
 Powód: .github/workflows/e2e-ios.yml „on.push.branches: [main, 'claude/sleepy-brahmagupta-2065nu']”, gałęzie sesji bez E2E, ręcznie przez workflow_dispatch (WG-19, D-1620).
+- #535 ponowny odczyt 15:32Z: nadal in_progress

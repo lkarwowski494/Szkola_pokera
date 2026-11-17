@@ -1,0 +1,16 @@
+$ git diff --stat 0e7e5e00..196cb8c2 -- apps/mobile/src/components/PasekStrategii.tsx apps/mobile/src/theme apps/mobile/src/i18n apps/mobile/src/components/PaintGrid.tsx docs/design
+kod 0 (puste wyjście = brak zmian)
+
+$ git diff --name-only 0e7e5e00..196cb8c2 -- apps/mobile/src apps/mobile/app.json docs/design
+apps/mobile/src/components/RangeGrid.tsx
+apps/mobile/src/components/__tests__/RangeGrid-uncertain.test.tsx
+apps/mobile/src/data/content/tresc.generated.ts
+
+$ git diff --name-only 196cb8c2 HEAD | grep -v ^audit/M1-2026-11-17/reaudit-2026-11-17/
+docs/decyzje/IR.md
+HEAD caef53d26447615e7e877393ebac742e69b56b50
+
+$ grep -n accessibilityLabel|isReduceMotionEnabled apps/mobile/src/components/PasekStrategii.tsx
+58:    AccessibilityInfo.isReduceMotionEnabled()
+91:            accessibilityLabel={o.etykieta ?? o.text}
+138:    <View accessible accessibilityRole="image" accessibilityLabel={opisPaska(opcje, wybor, klasa, t) ?? undefined} style={{ gap: odstep.s }}>

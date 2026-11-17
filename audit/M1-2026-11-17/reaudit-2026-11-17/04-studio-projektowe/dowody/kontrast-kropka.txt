@@ -1,0 +1,37 @@
+$ python3 -I narzedzia/pary-rangegrid.py && node narzedzia/kontrast.mjs pary-rangegrid.json   (wartości z apps/mobile/src/theme/tokeny.ts @196cb8c2; pole w zakresie = felt1 z opacity 0,85 na surface, jak RangeGrid.tsx:30-34)
+BRAK 1.60:1 (min 3) light: kropka na polu w zakresie (muted / felt1·0,85 na surface = #448068) #46557A na #448068
+OK   7.39:1 (min 3) light: kropka na pustym polu (muted / surface) #46557A na #FFFFFF
+BRAK 3.92:1 (min 4.5) light: etykieta ręki na polu w zakresie (ink / pole), A04-18 #0A1430 na #448068
+OK   6.30:1 (min 4.5) light: legenda „• mieszana” (muted / bg) #46557A na #E9EDF5
+OK   4.79:1 (min 3) dark: kropka na polu w zakresie (muted / felt1·0,85 na surface = #1B5142) #B0BCD8 na #1B5142
+OK   8.21:1 (min 3) dark: kropka na pustym polu (muted / surface) #B0BCD8 na #13214A
+OK   7.87:1 (min 4.5) dark: etykieta ręki na polu w zakresie (ink / pole), A04-18 #F2EEE3 na #1B5142
+OK   9.55:1 (min 4.5) dark: legenda „• mieszana” (muted / bg) #B0BCD8 na #0A1430
+BRAK 2.01:1 (min 3) lightHigh: kropka na polu w zakresie (muted / felt1·0,85 na surface = #3D725D) #2C3A5E na #3D725D
+OK   11.21:1 (min 3) lightHigh: kropka na pustym polu (muted / surface) #2C3A5E na #FFFFFF
+BRAK 3.26:1 (min 4.5) lightHigh: etykieta ręki na polu w zakresie (ink / pole), A04-18 #0A1430 na #3D725D
+OK   9.55:1 (min 4.5) lightHigh: legenda „• mieszana” (muted / bg) #2C3A5E na #E9EDF5
+OK   7.75:1 (min 3) darkHigh: kropka na polu w zakresie (muted / felt1·0,85 na surface = #16463A) #D5DCEC na #16463A
+OK   11.37:1 (min 3) darkHigh: kropka na pustym polu (muted / surface) #D5DCEC na #13214A
+OK   9.19:1 (min 4.5) darkHigh: etykieta ręki na polu w zakresie (ink / pole), A04-18 #F2EEE3 na #16463A
+OK   13.22:1 (min 4.5) darkHigh: legenda „• mieszana” (muted / bg) #D5DCEC na #0A1430
+kod 1
+
+$ python3 -I narzedzia/pary-paintgrid-warianty.py && node narzedzia/kontrast.mjs pary-paintgrid-warianty.json   (PaintGrid.tsx:104,147; przejsciowe z tokens.ts:23-40 — brak wariantu „Zwiększ kontrast”, więc High = te same feltSoft)
+OK   6.26:1 (min 3) light: PaintGrid kropka „mieszana” na feltSoft (muted) #46557A na #E3EFE8
+BRAK 2.46:1 (min 3) light: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg) #46557A na #0A1430
+OK   3.92:1 (min 3) light: wariant naprawy: kropka ink na polu w zakresie #0A1430 na #448068
+OK   18.17:1 (min 3) light: wariant naprawy: kropka ink na pustym polu #0A1430 na #FFFFFF
+OK   7.52:1 (min 3) dark: PaintGrid kropka „mieszana” na feltSoft (muted) #B0BCD8 na #1C2E25
+BRAK 1.64:1 (min 3) dark: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg) #B0BCD8 na #F2EEE3
+OK   7.87:1 (min 3) dark: wariant naprawy: kropka ink na polu w zakresie #F2EEE3 na #1B5142
+OK   13.48:1 (min 3) dark: wariant naprawy: kropka ink na pustym polu #F2EEE3 na #13214A
+OK   9.49:1 (min 3) lightHigh: PaintGrid kropka „mieszana” na feltSoft (muted) #2C3A5E na #E3EFE8
+BRAK 1.62:1 (min 3) lightHigh: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg) #2C3A5E na #0A1430
+OK   3.26:1 (min 3) lightHigh: wariant naprawy: kropka ink na polu w zakresie #0A1430 na #3D725D
+OK   18.17:1 (min 3) lightHigh: wariant naprawy: kropka ink na pustym polu #0A1430 na #FFFFFF
+OK   10.42:1 (min 3) darkHigh: PaintGrid kropka „mieszana” na feltSoft (muted) #D5DCEC na #1C2E25
+BRAK 1.19:1 (min 3) darkHigh: PaintGrid kropka „mieszana” na pomalowanym polu (muted / primaryBg) #D5DCEC na #F2EEE3
+OK   9.19:1 (min 3) darkHigh: wariant naprawy: kropka ink na polu w zakresie #F2EEE3 na #16463A
+OK   13.48:1 (min 3) darkHigh: wariant naprawy: kropka ink na pustym polu #F2EEE3 na #13214A
+kod 1
