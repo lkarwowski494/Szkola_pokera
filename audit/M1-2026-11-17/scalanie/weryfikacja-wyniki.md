@@ -13,3 +13,9 @@
 | g3 | 12-niezawodnosc-003 | potwierdzone; P1 → P2 (brak awarii dziś) | P2 | nie | nie | |
 | g3 | 05-architekt-007 | potwierdzone z korektą (kopia w Library/Caches, poza iCloud; wariant_historia usuwana — brak tylko w inwentarzu) | P2 | nie | nie | |
 | g3 | 12-niezawodnosc-005 | potwierdzone; ta sama przyczyna co 05-007 | P2 | nie | nie | |
+| g5 | 04-studio-projektowe-001 | kod potwierdzony, skutek obalony przy obecnej treści (12 × spots.yaml: jedna grupa; wada uśpiona) | P2 | nie | nie | 158 062 (grupa) |
+| g5 | 04-studio-projektowe-003 | potwierdzone (łamanie w środku wyrazu raczej niż ucięcie; VoiceOver czyta pełne) | P2 | nie | nie | |
+| g5 | 04-studio-projektowe-004 | potwierdzone rachunkiem; ta sama przyczyna i linie co 08-programista-006 | P2 | nie | nie | |
+| g5 | 08-programista-006 | potwierdzone | P2 | nie | nie | |
+| g5 | 04-studio-projektowe-005 | potwierdzone (statyczna Literata-SemiBold, czytelne) | P2 | nie | nie | |
+| g5 | 04-studio-projektowe-006 | potwierdzone (24 pt wysokości, pełna szerokość; próg projektu D-121, nie wydania) | P2 | nie | nie | |
